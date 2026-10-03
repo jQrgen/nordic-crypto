@@ -3274,6 +3274,306 @@
    "image": null,
    "origin": "Nordic Crypto research",
    "status": "published"
+  },
+  {
+   "id": "dk-finanstilsynet",
+   "name": "Finanstilsynet (Danish FSA)",
+   "group": "Regulators & supervisors",
+   "url": "https://www.finanstilsynet.dk/",
+   "description": "Denmark's competent authority under MiCA. Its guidance page says the rules for crypto-asset services have applied since 30 December 2024. As of 3 Oct 2026, ESMA's register lists seven crypto-asset service providers authorised by Finanstilsynet.",
+   "sources": [
+    {
+     "url": "https://www.finanstilsynet.dk/finansielle-temaer/fintech/finanstilsynets-praksis-paa-markedet-for-kryptoaktiver",
+     "title": "Information om Finanstilsynets praksis på markedet for kryptoaktiver",
+     "source_name": "Finanstilsynet",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv",
+     "title": "Interim MiCA register: authorised CASPs (CASPS.csv)",
+     "source_name": "ESMA",
+     "date": "2026-10-03"
+    }
+   ],
+   "type": "organisation",
+   "sector": "public",
+   "country": "DK",
+   "image": null,
+   "origin": "Nordic Crypto research",
+   "status": "published"
+  },
+  {
+   "id": "dk-nationalbanken",
+   "name": "Danmarks Nationalbank",
+   "group": "Central banks",
+   "url": "https://www.nationalbanken.dk/en",
+   "description": "Denmark's central bank.",
+   "sources": [
+    {
+     "url": "https://www.nationalbanken.dk/en/what-we-do",
+     "title": "What we do in Danmarks Nationalbank",
+     "source_name": "Danmarks Nationalbank",
+     "date": "2026-10-03"
+    }
+   ],
+   "type": "organisation",
+   "sector": "public",
+   "country": "DK",
+   "image": null,
+   "origin": "Nordic Crypto research",
+   "status": "published"
+  },
+  {
+   "id": "dk-erhvervsministeriet",
+   "name": "Erhvervsministeriet (Ministry of Industry, Business and Financial Affairs)",
+   "group": "Parliament & government",
+   "url": "https://www.em.dk/",
+   "description": "The Danish ministry responsible for business and financial affairs.",
+   "sources": [
+    {
+     "url": "https://www.em.dk/",
+     "title": "Forside | Erhvervsministeriet",
+     "source_name": "Erhvervsministeriet",
+     "date": "2026-10-03"
+    }
+   ],
+   "type": "organisation",
+   "sector": "public",
+   "country": "DK",
+   "image": null,
+   "origin": "Nordic Crypto research",
+   "status": "published"
+  },
+  {
+   "id": "dk-skatteministeriet",
+   "name": "Skatte- og Vækstministeriet (Danish tax and growth ministry)",
+   "group": "Parliament & government",
+   "url": "https://svmn.dk/",
+   "description": "Denmark's tax ministry; its website skm.dk now redirects to svmn.dk.",
+   "sources": [
+    {
+     "url": "https://svmn.dk/",
+     "title": "Skatte- og Vækstministeriet",
+     "source_name": "Skatte- og Vækstministeriet",
+     "date": "2026-10-03"
+    }
+   ],
+   "type": "organisation",
+   "sector": "public",
+   "country": "DK",
+   "image": null,
+   "origin": "Nordic Crypto research",
+   "status": "published"
+  },
+  {
+   "id": "dk-skattestyrelsen",
+   "name": "Skattestyrelsen (Danish Tax Agency)",
+   "group": "Tax authorities",
+   "url": "https://sktst.dk/",
+   "description": "Denmark's tax agency.",
+   "sources": [
+    {
+     "url": "https://sktst.dk/",
+     "title": "Skattestyrelsen",
+     "source_name": "Skattestyrelsen",
+     "date": "2026-10-03"
+    }
+   ],
+   "type": "organisation",
+   "sector": "public",
+   "country": "DK",
+   "image": null,
+   "origin": "Nordic Crypto research",
+   "status": "published"
+  },
+  {
+   "id": "dk-hvidvasksekretariatet",
+   "name": "Hvidvasksekretariatet (Danish FIU)",
+   "group": "Police & financial intelligence (FIU)",
+   "url": "https://hvidvask.dk/",
+   "description": "Denmark's money-laundering secretariat, part of the National Unit for Serious Crime (NSK) in the Danish police.",
+   "sources": [
+    {
+     "url": "https://hvidvask.dk/",
+     "title": "Forside | Hvidvasksekretariatet | National enhed for Særlig Kriminalitet",
+     "source_name": "Hvidvasksekretariatet",
+     "date": "2026-10-03"
+    }
+   ],
+   "type": "organisation",
+   "sector": "public",
+   "country": "DK",
+   "image": null,
+   "origin": "Nordic Crypto research",
+   "status": "published"
+  },
+  {
+   "id": "dk-penning",
+   "name": "Penning (Penning Financial Services ApS)",
+   "group": "MiCA-licensed providers (CASPs)",
+   "url": "https://www.penning.io",
+   "description": "Crypto-asset service provider authorised by Finanstilsynet under MiCA on 15 Jan 2026, per ESMA's register.",
+   "sources": [
+    {
+     "url": "https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv",
+     "title": "Interim MiCA register: authorised CASPs (CASPS.csv)",
+     "source_name": "ESMA",
+     "date": "2026-10-03"
+    }
+   ],
+   "type": "organisation",
+   "sector": "private",
+   "country": "DK",
+   "image": null,
+   "origin": "Nordic Crypto research",
+   "status": "published"
+  },
+  {
+   "id": "dk-lunar-block",
+   "name": "Lunar Block (Lunar Block A/S)",
+   "group": "MiCA-licensed providers (CASPs)",
+   "url": "https://www.lunar.app/dk/privat/krypto",
+   "description": "Crypto-asset service provider authorised by Finanstilsynet under MiCA on 15 Sep 2025, per ESMA's register.",
+   "sources": [
+    {
+     "url": "https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv",
+     "title": "Interim MiCA register: authorised CASPs (CASPS.csv)",
+     "source_name": "ESMA",
+     "date": "2026-10-03"
+    }
+   ],
+   "type": "organisation",
+   "sector": "private",
+   "country": "DK",
+   "image": null,
+   "origin": "Nordic Crypto research",
+   "status": "published"
+  },
+  {
+   "id": "dk-gcex",
+   "name": "GCEX (GC Exchange A/S)",
+   "group": "MiCA-licensed providers (CASPs)",
+   "url": "https://gc.exchange/",
+   "description": "Crypto-asset service provider authorised by Finanstilsynet under MiCA on 12 Dec 2025, per ESMA's register.",
+   "sources": [
+    {
+     "url": "https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv",
+     "title": "Interim MiCA register: authorised CASPs (CASPS.csv)",
+     "source_name": "ESMA",
+     "date": "2026-10-03"
+    }
+   ],
+   "type": "organisation",
+   "sector": "private",
+   "country": "DK",
+   "image": null,
+   "origin": "Nordic Crypto research",
+   "status": "published"
+  },
+  {
+   "id": "dk-northstake",
+   "name": "Northstake (Northstake ApS)",
+   "group": "MiCA-licensed providers (CASPs)",
+   "url": "https://www.northstake.dk",
+   "description": "Crypto-asset service provider authorised by Finanstilsynet under MiCA on 7 Apr 2026, per ESMA's register.",
+   "sources": [
+    {
+     "url": "https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv",
+     "title": "Interim MiCA register: authorised CASPs (CASPS.csv)",
+     "source_name": "ESMA",
+     "date": "2026-10-03"
+    }
+   ],
+   "type": "organisation",
+   "sector": "private",
+   "country": "DK",
+   "image": null,
+   "origin": "Nordic Crypto research",
+   "status": "published"
+  },
+  {
+   "id": "dk-coinify",
+   "name": "Coinify (Coinify ApS)",
+   "group": "MiCA-licensed providers (CASPs)",
+   "url": "https://www.coinify.com/",
+   "description": "Crypto-asset service provider authorised by Finanstilsynet under MiCA on 29 May 2026, per ESMA's register.",
+   "sources": [
+    {
+     "url": "https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv",
+     "title": "Interim MiCA register: authorised CASPs (CASPS.csv)",
+     "source_name": "ESMA",
+     "date": "2026-10-03"
+    }
+   ],
+   "type": "organisation",
+   "sector": "private",
+   "country": "DK",
+   "image": null,
+   "origin": "Nordic Crypto research",
+   "status": "published"
+  },
+  {
+   "id": "dk-januar",
+   "name": "Januar (Januar ApS)",
+   "group": "MiCA-licensed providers (CASPs)",
+   "url": "https://www.januar.com/",
+   "description": "Crypto-asset service provider authorised by Finanstilsynet under MiCA on 29 Jun 2026, per ESMA's register.",
+   "sources": [
+    {
+     "url": "https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv",
+     "title": "Interim MiCA register: authorised CASPs (CASPS.csv)",
+     "source_name": "ESMA",
+     "date": "2026-10-03"
+    }
+   ],
+   "type": "organisation",
+   "sector": "private",
+   "country": "DK",
+   "image": null,
+   "origin": "Nordic Crypto research",
+   "status": "published"
+  },
+  {
+   "id": "dk-safelynx",
+   "name": "SafeLynx (SafeLynx Technologies ApS)",
+   "group": "MiCA-licensed providers (CASPs)",
+   "url": "https://www.safelynx.io/",
+   "description": "Crypto-asset service provider authorised by Finanstilsynet under MiCA on 30 Jun 2026, per ESMA's register.",
+   "sources": [
+    {
+     "url": "https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv",
+     "title": "Interim MiCA register: authorised CASPs (CASPS.csv)",
+     "source_name": "ESMA",
+     "date": "2026-10-03"
+    }
+   ],
+   "type": "organisation",
+   "sector": "private",
+   "country": "DK",
+   "image": null,
+   "origin": "Nordic Crypto research",
+   "status": "published"
+  },
+  {
+   "id": "dk-eurodollar",
+   "name": "Eurodollar ApS",
+   "group": "Stablecoin / e-money token issuers",
+   "url": "https://www.eurodollar.fi",
+   "description": "Listed by ESMA as an e-money token issuer notified via Finanstilsynet (electronic money institution).",
+   "sources": [
+    {
+     "url": "https://www.esma.europa.eu/sites/default/files/2024-12/EMTWP.csv",
+     "title": "Interim MiCA register: e-money token white papers (EMTWP.csv)",
+     "source_name": "ESMA",
+     "date": "2026-10-03"
+    }
+   ],
+   "type": "organisation",
+   "sector": "private",
+   "country": "DK",
+   "image": null,
+   "origin": "Nordic Crypto research",
+   "status": "published"
   }
  ],
  "relations": [

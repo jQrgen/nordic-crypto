@@ -21,6 +21,23 @@
    "status": "published"
   },
   {
+   "id": "1a95167a3af8",
+   "url": "https://www.aftenposten.no/norge/i/vlQARB/tiltalt-for-dopsalg-mot-kryptovaluta-paa-det-moerke-nettet",
+   "title": "Tiltalt for dopsalg mot kryptovaluta på det mørke nettet",
+   "title_en": "Charged with selling drugs for cryptocurrency on the dark web",
+   "source": "aftenposten",
+   "source_name": "Aftenposten",
+   "country": "NO",
+   "language": "Norwegian",
+   "published": "2026-10-02T11:07:26+00:00",
+   "topics": [
+    "crime"
+   ],
+   "summary": "Three Norwegians and a Swede have been charged in a large drug case with links abroad, involving drug sales for cryptocurrency on the dark web, according to the Southern Norway public prosecutor.",
+   "paywall": true,
+   "status": "published"
+  },
+  {
    "id": "2d38c9c89e0e",
    "url": "https://www.sydsvenskan.se/lund/uppgifter-tonaringar-silvertejpade-man-i-jakt-pa-kryptovaluta/",
    "title": "Uppgifter: Tonåringar silvertejpade man i jakt på kryptovaluta",
@@ -144,6 +161,23 @@
    "status": "published"
   },
   {
+   "id": "dbcac6be2b75",
+   "url": "https://www.nettavisen.no/krypto/etterforskning/hordaland-tingrett/fant-hemmelig-passord-laste-opp-krypto-lommeboken/s/80-95-105422",
+   "title": "Fant hemmelig passord: Låste opp krypto-lommeboken",
+   "title_en": "Found secret password: unlocked the crypto wallet",
+   "source": "nettavisen",
+   "source_name": "Nettavisen",
+   "country": "NO",
+   "language": "Norwegian",
+   "published": "2026-09-25T19:16:00+00:00",
+   "topics": [
+    "crime"
+   ],
+   "summary": "Police have unlocked the crypto wallet of an NHH student charged in a drug case, uncovering assets worth several hundred thousand kroner.",
+   "paywall": true,
+   "status": "published"
+  },
+  {
    "id": "12425cc1e7ff",
    "url": "https://www.kaupr.io/nyheter/coinmotion-og-k33-inngar-nordisk-kryptosamarbeid-om-institusjonell-handel",
    "title": "Coinmotion og K33 inngår nordisk kryptosamarbeid om institusjonell handel",
@@ -180,6 +214,23 @@
    "status": "published"
   },
   {
+   "id": "b0202ea8241d",
+   "url": "https://www.oa.no/skal-ha-stalet-fra-egen-bedrift-brukte-pengene-pa-krypto/s/80-35-26289",
+   "title": "Skal ha stjålet fra egen bedrift – brukte pengene på krypto",
+   "title_en": "Allegedly stole from his own company and spent the money on crypto",
+   "source": "oa",
+   "source_name": "Oppland Arbeiderblad",
+   "country": "NO",
+   "language": "Norwegian",
+   "published": "2026-09-23T16:08:00+00:00",
+   "topics": [
+    "crime"
+   ],
+   "summary": "A Norwegian man has been charged with gross embezzlement from his own company and is said to have spent the money on crypto.",
+   "paywall": true,
+   "status": "published"
+  },
+  {
    "id": "7996dadb43e7",
    "url": "https://www.kaupr.io/nyheter/nbx-inngar-avtale-med-tieto-om-betalingskort-for-stablecoins",
    "title": "NBX inngår avtale med Tieto om betalingskort for stablecoins",
@@ -194,6 +245,78 @@
     "business"
    ],
    "summary": "NBX has signed with Tieto Banktech for a payment card that lets customers spend stablecoins in everyday purchases.",
+   "paywall": false,
+   "status": "published"
+  },
+  {
+   "id": "a0c89b973576",
+   "url": "https://www.kaupr.io/nyheter/danske-bank-ingen-bank-kan-bygge-euro-stablecoin-alene",
+   "title": "Danske Bank: Ingen bank kan bygge euro-stablecoin alene",
+   "title_en": "Danske Bank: no bank can build a euro stablecoin alone",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "country": "DK",
+   "language": "Norwegian",
+   "published": "2026-09-22T12:00:00+00:00",
+   "topics": [
+    "stablecoins",
+    "banking"
+   ],
+   "summary": "Danske Bank says no single bank can build a euro stablecoin on its own and that European banks should build a dollar alternative together through Qivalis.",
+   "paywall": false,
+   "status": "published"
+  },
+  {
+   "id": "6753e8903e88",
+   "url": "https://www.berlingske.dk/aktier/minister-i-nyt-skatteopgoer-vil-goere-op-med-junglen-af-urimelige-og-uforstaaelige-regler",
+   "title": "Minister i nyt skatteopgør: Vil gøre op med »junglen af urimelige og uforståelige regler«",
+   "title_en": "Minister in new tax showdown: wants to clear the 'jungle of unreasonable and incomprehensible rules'",
+   "source": "berlingske.dk",
+   "source_name": "Berlingske",
+   "country": "DK",
+   "language": "Danish",
+   "published": "2026-09-22T06:04:00+00:00",
+   "topics": [
+    "tax",
+    "policy"
+   ],
+   "summary": "A review of almost 1,000 Danish crypto tax cases found errors in 23, including one person who overpaid more than DKK 1 million, prompting tax minister Jakob Engel-Schmidt to promise simpler rules.",
+   "paywall": false,
+   "status": "published"
+  },
+  {
+   "id": "30093293e03f",
+   "url": "https://ekstrabladet.dk/penge/danskere-svindlet-for-89-millioner-kroner-paa-seks-maaneder/11297364",
+   "title": "Danskere svindlet for 89 millioner kroner på seks måneder",
+   "title_en": "Danes defrauded of DKK 89 million in six months",
+   "source": "ekstrabladet.dk",
+   "source_name": "Ekstra Bladet",
+   "country": "DK",
+   "language": "Danish",
+   "published": "2026-09-22T02:58:00+00:00",
+   "topics": [
+    "crime",
+    "consumer protection"
+   ],
+   "summary": "Danes lost DKK 89 million to investment fraud in the first half of 2026, across 1,145 registered cases, and crypto played a part in 70.6 percent of them.",
+   "paywall": false,
+   "status": "published"
+  },
+  {
+   "id": "188b5b8ed9fb",
+   "url": "https://www.berlingske.dk/oekonomi/100-aar-gammel-lov-koster-danske-kryptoinvestorer-millioner-nu-vil-minister-problemet-til-livs",
+   "title": "100 år gammel lov koster danske kryptoinvestorer millioner. Nu vil minister problemet til livs",
+   "title_en": "100-year-old law costs Danish crypto investors millions; minister wants to fix it",
+   "source": "berlingske.dk",
+   "source_name": "Berlingske",
+   "country": "DK",
+   "language": "Danish",
+   "published": "2026-09-21T09:39:00+00:00",
+   "topics": [
+    "tax",
+    "policy"
+   ],
+   "summary": "An answer from Danish minister Jakob Engel-Schmidt showed how many Danes pay tax on crypto investments they lost money on, which he called 'actually pretty wild'; he now wants to fix the century-old rule behind it.",
    "paywall": false,
    "status": "published"
   },
@@ -250,6 +373,41 @@
    "status": "published"
   },
   {
+   "id": "55643fb5a215",
+   "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Sporsmal/Skriftlige-sporsmal-og-svar/Skriftlig-sporsmal/?qnid=127181",
+   "title": "Regjeringen utreder midlertidig forbud mot nye kryptodatasentre (skriftlig spørsmål 15:3707)",
+   "title_en": "Government studying a temporary ban on new crypto data centres (written question 15:3707)",
+   "source": "stortinget",
+   "source_name": "Stortinget",
+   "country": "NO",
+   "language": "Norwegian",
+   "published": "2026-09-18T12:00:00+00:00",
+   "topics": [
+    "mining",
+    "policy"
+   ],
+   "summary": "A written question in the Storting asks when the government will present its planned state planning provision to limit crypto mining, and why it has concluded the EEA Agreement rules out a general mining ban.",
+   "paywall": false,
+   "status": "published"
+  },
+  {
+   "id": "1abbecf31dff",
+   "url": "https://e24.no/bors/nyheter/a/305563",
+   "title": "Verdiendringer i bitcoin tynger NBX",
+   "title_en": "Bitcoin value swings weigh on NBX",
+   "source": "e24",
+   "source_name": "E24",
+   "country": "NO",
+   "language": "Norwegian",
+   "published": "2026-09-18T11:36:00+00:00",
+   "topics": [
+    "business"
+   ],
+   "summary": "NBX made a pre-tax loss of NOK 21.33 million in the first half of 2026, up from NOK 9.85 million a year earlier, with changes in the value of bitcoin weighing on the result.",
+   "paywall": true,
+   "status": "published"
+  },
+  {
    "id": "c1431df81160",
    "url": "https://podcasters.spotify.com/pod/show/bitcoinsnakk9/episodes/Norway-Wants-to-Ban-Bitcoin-Mining--The-Miners-Already-Left--Rachel-Geyer--EBEA-e3p0bb8",
    "title": "Norway Wants to Ban Bitcoin Mining. The Miners Already Left | Rachel Geyer, EBEA",
@@ -300,6 +458,24 @@
     "regulation"
    ],
    "summary": "Neither ESMA nor Sweden's Finansinspektionen will say whether distributing crypto services under your own brand needs its own MiCA licence.",
+   "paywall": false,
+   "status": "published"
+  },
+  {
+   "id": "e1e3eef6ecff",
+   "url": "https://www.inderes.se/en/releases/nbx-nbx-registered-as-moneygram-agent",
+   "title": "NBX registrert som MoneyGram-agent (børsmelding, engelsk)",
+   "title_en": "NBX registered as a MoneyGram agent (stock exchange release)",
+   "source": "nbx-ir",
+   "source_name": "NBX (børsmelding)",
+   "country": "NO",
+   "language": "Norwegian",
+   "published": "2026-09-17T12:00:00+00:00",
+   "topics": [
+    "business",
+    "payments"
+   ],
+   "summary": "Norwegian Block Exchange (NBX), listed on Euronext Growth Oslo, has been registered as an agent for MoneyGram International.",
    "paywall": false,
    "status": "published"
   },
@@ -371,6 +547,24 @@
    ],
    "summary": "Kvarn Capital argues its partnership with Sweden's Goobit falls outside MiCA's ban on agents and its outsourcing rules.",
    "paywall": false,
+   "status": "published"
+  },
+  {
+   "id": "6e2887720a32",
+   "url": "https://www.shifter.no/nyheter/firi-lanserer-i-sverige-etter-permitteringer-og-milliontap/475990",
+   "title": "Firi lanserer i Sverige – etter permitteringer og milliontap",
+   "title_en": "Firi launches in Sweden after layoffs and losses",
+   "source": "shifter",
+   "source_name": "Shifter",
+   "country": "NO",
+   "language": "Norwegian",
+   "published": "2026-09-15T12:00:00+00:00",
+   "topics": [
+    "business",
+    "mica"
+   ],
+   "summary": "Crypto exchange Firi lost NOK 43.6 million in the first half of 2026 after weaker trading and high MiCA costs, and has made layoffs while launching in Sweden.",
+   "paywall": true,
    "status": "published"
   },
   {
@@ -446,6 +640,25 @@
    "status": "published"
   },
   {
+   "id": "23342b8b1a2d",
+   "url": "https://www.kaupr.io/nyheter/dansk-skatteminister-moter-kryptobransjen-pa-christiansborg",
+   "title": "Dansk skatteminister møter kryptobransjen på Christiansborg",
+   "title_en": "Danish tax minister meets the crypto industry at Christiansborg",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "country": "DK",
+   "language": "Norwegian",
+   "published": "2026-09-13T12:00:00+00:00",
+   "topics": [
+    "tax",
+    "policy",
+    "events"
+   ],
+   "summary": "Denmark's tax minister met the crypto industry at Christiansborg on 17 September to discuss crypto taxation.",
+   "paywall": false,
+   "status": "published"
+  },
+  {
    "id": "a2a605592458",
    "url": "https://www.kaupr.io/nyheter/blockchain-pa-tech-scenen-og-pa-dagsorden-i-stockholm",
    "title": "Blockchain på tech-scenen og på dagsorden i Stockholm",
@@ -478,6 +691,24 @@
     "business"
    ],
    "summary": "Goobit is switching BTCX from proprietary trading to brokerage, citing MiCA, which cuts reported revenue but not gross profit.",
+   "paywall": false,
+   "status": "published"
+  },
+  {
+   "id": "2034a42ac260",
+   "url": "https://www.kaupr.io/nyheter/norges-bank-utforsker-tokenisering-med-tolv-aktorer",
+   "title": "Norges Bank utforsker tokenisering med tolv aktører",
+   "title_en": "Norges Bank explores tokenisation with twelve players",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "country": "NO",
+   "language": "Norwegian",
+   "published": "2026-09-08T12:00:00+00:00",
+   "topics": [
+    "tokenisation",
+    "banking"
+   ],
+   "summary": "Norges Bank has named twelve financial institutions in its mapping of tokenisation, while Norway is the only Nordic country without banks in the euro-stablecoin group Qivalis.",
    "paywall": false,
    "status": "published"
   },

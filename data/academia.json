@@ -87,6 +87,20 @@
    "editor_note": "APPROVED"
   },
   {
+   "country": "DK",
+   "institution": "University of Copenhagen (DIKU)",
+   "code": "NDAK17002U",
+   "name": "Subjects in Blockchain Technology",
+   "level": "Master, 7.5 ECTS, max 40 students",
+   "term": "2026/27, Block 2",
+   "about": "Whole course on blockchain with a group project; Solidity recommended",
+   "url": "https://efteruddannelse.kurser.ku.dk/course/2026-2027/NDAK17002U",
+   "source": "https://efteruddannelse.kurser.ku.dk/course/2026-2027/NDAK17002U",
+   "checked": "2026-10-03",
+   "status": "approved",
+   "editor_note": "APPROVED"
+  },
+  {
    "country": "FI",
    "institution": "Aalto University (FITech)",
    "code": "CS-AJ0100",
