@@ -13,6 +13,18 @@
    "country": "SE"
   },
   {
+   "name": "Børsen",
+   "country": "DK"
+  },
+  {
+   "name": "Computerworld Danmark",
+   "country": "DK"
+  },
+  {
+   "name": "DR",
+   "country": "DK"
+  },
+  {
    "name": "Dagens Næringsliv",
    "country": "NO"
   },
@@ -21,12 +33,20 @@
    "country": "SE"
   },
   {
+   "name": "Danmarks Nationalbank",
+   "country": "DK"
+  },
+  {
    "name": "Digi.no",
    "country": "NO"
   },
   {
    "name": "E24",
    "country": "NO"
+  },
+  {
+   "name": "Finans.dk",
+   "country": "DK"
   },
   {
    "name": "Finansinspektionen",
@@ -49,8 +69,8 @@
    "country": "FI"
   },
   {
-   "name": "Iceland Review",
-   "country": "IS"
+   "name": "Ingeniøren",
+   "country": "DK"
   },
   {
    "name": "Kauppalehti",
@@ -67,6 +87,10 @@
   {
    "name": "Norges Bank",
    "country": "NO"
+  },
+  {
+   "name": "Politiken",
+   "country": "DK"
   },
   {
    "name": "Reykjavík Grapevine",
@@ -103,6 +127,10 @@
   {
    "name": "Tivi",
    "country": "FI"
+  },
+  {
+   "name": "Version2",
+   "country": "DK"
   },
   {
    "name": "Vísir",

@@ -2,6 +2,12 @@
  "launch_date": "2026-10-03",
  "entries": [
   {
+   "id": "denmark-added",
+   "date": "2026-10-03",
+   "title": "Denmark added",
+   "description": "Nordic Crypto now covers Norway, Sweden, Denmark, Finland and Iceland. Denmark has a country filter on the news, calendar, who's who and academia pages, and we now follow Danish newspapers, broadcasters, tech media, Danmarks Nationalbank, Kaupr's Denmark page and a news search on Danish sites. Danish stories, events and who's who entries appear once our editor has reviewed them."
+  },
+  {
    "id": "remove-faroe-islands",
    "date": "2026-10-03",
    "title": "Coverage narrowed to four countries",
