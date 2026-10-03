@@ -8,7 +8,7 @@ hver redaksjon bestemmer selv og skriver sin egen oppsummering (Kryptonytt på n
 Dedup: kanonisk URL mot ALLE saker i målet (også avviste) og målets approved.json -> rejected.
 Kalles fra ./fetch.sh (Kryptonytt) og routines/nightly-fetch.sh (Nordic Crypto). Identisk kopi ligger i begge repoene.
 Stier kan overstyres med KRYPTONYTT_DIR / NORDIC_CRYPTO_DIR.  Bruk: python3 tools/crosssite_handoff.py [--dry-run]"""
-import datetime as dt, fcntl, importlib.util, json, os, sys
+import datetime as dt, fcntl, importlib.util, json, os, re, sys, urllib.parse
 KN = os.environ.get("KRYPTONYTT_DIR", "/workspace/kryptonytt"); NC = os.environ.get("NORDIC_CRYPTO_DIR", "/workspace/nordic-crypto")
 NOW = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
 TOPIC_KN_TO_NC = {"krypto": "crypto", "blokkjede": "blockchain", "regulering": "regulation", "selskaper": "companies", "bitcoin": "bitcoin"}
@@ -19,6 +19,17 @@ def load(p, d):
     except FileNotFoundError: return d
 def save(p, d):
     t = p + ".handoff.tmp"; json.dump(d, open(t, "w", encoding="utf-8"), ensure_ascii=False, indent=1); os.replace(t, p)
+TRACKING = re.compile(r"^(utm_.*|fbclid|gclid|gclsrc|dclid|msclkid|yclid|twclid|igshid|mc_cid|mc_eid|_hsenc|_hsmi|mkt_tok|ref|ref_src|ref_url|cmpid|ocid|ncid|xtor|s_cid|wt_mc|at_.*|spm|share|guccounter|guce_.*|__twitter_impression|cmp|campaign)$", re.I)
+def norm_url(url):
+    """Normalisert URL for duplikatsjekk: https, vert med små bokstaver uten www., uten avsluttende /, uten sporingsparametre, uten fragment."""
+    p = urllib.parse.urlparse(url.strip())
+    host = (p.hostname or "").lower().removeprefix("www.")
+    if p.port and p.port not in (80, 443): host += f":{p.port}"
+    q = sorted((k, v) for k, v in urllib.parse.parse_qsl(p.query, keep_blank_values=True) if not TRACKING.match(k))
+    return urllib.parse.urlunparse(("https", host, p.path.rstrip("/") or "/", "", urllib.parse.urlencode(q), ""))
+def strip_tracking(url):
+    p = urllib.parse.urlparse(url.strip())
+    return urllib.parse.urlunparse(p._replace(query=urllib.parse.urlencode([(k, v) for k, v in urllib.parse.parse_qsl(p.query, keep_blank_values=True) if not TRACKING.match(k)]), fragment=""))
 def canon_of(repo, name):
     spec = importlib.util.spec_from_file_location(name, os.path.join(repo, "fetch.py")); m = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(m); return m.canon, m.iid
@@ -28,17 +39,29 @@ def handoff(src, dst, pick, convert, queue_fields, label, dry):
     d_newsf = os.path.join(dst, "data", "news.json"); d_news = load(d_newsf, {"items": []})
     d_qf = os.path.join(dst, "queue", "review.json"); d_q = load(d_qf, {"items_needing_summary": [], "candidate_entities": []})
     d_ap = load(os.path.join(dst, "queue", "approved.json"), {})
-    canon, iid = canon_of(dst, "dst_fetch_" + os.path.basename(dst).replace("-", "_"))
+    _, iid = canon_of(dst, "dst_fetch_" + os.path.basename(dst).replace("-", "_")); canon = norm_url
     have = {canon(i["url"]) for i in d_news["items"]} | {canon(r["url"]) for r in d_ap.get("rejected", []) if r.get("url")}
     added = []
     for it in s_news["items"]:
         if not pick(it): continue
         c = canon(it["url"])
         if c in have: continue
-        new = convert(it); new.update(id=iid(it["url"]), url=it["url"], status="pending", summary=None, fetched=NOW)
+        url = strip_tracking(it["url"])
+        new = convert(it); new.update(id=iid(url), url=url, status="pending", summary=None, fetched=NOW)
         d_news["items"].append(new); have.add(c); added.append(new)
         d_q.setdefault("items_needing_summary", []).append({k: new.get(k) for k in queue_fields})
-    if added and not dry:
+    # eldre forslag uten origin får den nå (bare forslag fra denne retningen)
+    lab = convert({"title": "", "published": "", "topics": []}).get("origin")
+    fixed = 0
+    for i in d_news["items"]:
+        if i.get("suggested_by") and not i.get("origin") and i.get("via") == ("kryptonytt" if "Kryptonytt ->" in label else "nordic-crypto"):
+            i["origin"] = lab; fixed += 1
+    org = {i["id"]: i for i in d_news["items"] if i.get("origin")}
+    for q in d_q.get("items_needing_summary", []):  # målets egen henting kan ha bygd køraden på nytt uten origin
+        src_i = org.get(q.get("id"))
+        if src_i and not q.get("origin"):
+            q["origin"] = src_i["origin"]; q.setdefault("suggested_by", src_i.get("suggested_by")); fixed += 1
+    if (added or fixed) and not dry:
         save(d_newsf, d_news); save(d_qf, d_q)
     print(f"handoff {label}: {len(added)} nye forslag" + (" (dry-run)" if dry else ""))
     for a in added: print(f"   + {a['published'][:10]} {a['source_name']}: {a['title'][:90]}")
@@ -51,17 +74,17 @@ def main():
         return {"title": it["title"], "title_en": None, "source": it.get("source"), "source_name": it.get("source_name") or it.get("source"),
                 "country": "NO", "language": "Norwegian", "via": "kryptonytt", "seen_via": ["kryptonytt"], "published": it["published"],
                 "topics": sorted({TOPIC_KN_TO_NC.get(t, t) for t in it.get("topics", [])}), "matched": [], "paywall": bool(it.get("paywall")),
-                "suggested_by": "Kryptonytt", "suggested_status": "approved on Kryptonytt" if it.get("status") == "published" else "candidate on Kryptonytt",
+                "suggested_by": "Kryptonytt", "origin": "suggested by Kryptonytt", "suggested_status": "approved on Kryptonytt" if it.get("status") == "published" else "candidate on Kryptonytt",
                 "suggested_at": NOW}
     def nc_to_kn(it):
         return {"title": it["title"], "source": it.get("source"), "source_name": it.get("source_name") or it.get("source"),
                 "via": "nordic-crypto", "seen_via": ["nordic-crypto"], "published": it["published"],
                 "topics": sorted({TOPIC_NC_TO_KN.get(t, t) for t in it.get("topics", [])}), "matched": [], "paywall": bool(it.get("paywall")),
-                "suggested_by": "Nordic Crypto", "suggested_status": "godkjent hos Nordic Crypto" if it.get("status") == "published" else "kandidat hos Nordic Crypto",
+                "suggested_by": "Nordic Crypto", "origin": "tips fra Nordic Crypto", "suggested_status": "godkjent hos Nordic Crypto" if it.get("status") == "published" else "kandidat hos Nordic Crypto",
                 "suggested_at": NOW}
     handoff(KN, NC, lambda i: i.get("status") in ("pending", "published"), kn_to_nc,
-            ("id", "country", "language", "title", "source_name", "url", "published", "topics", "suggested_by", "suggested_status"), "Kryptonytt -> Nordic Crypto", dry)
+            ("id", "country", "language", "title", "source_name", "url", "published", "topics", "suggested_by", "origin", "suggested_status"), "Kryptonytt -> Nordic Crypto", dry)
     handoff(NC, KN, lambda i: i.get("country") == "NO" and i.get("status") in ("pending", "published"), nc_to_kn,
-            ("id", "title", "source_name", "url", "published", "topics", "suggested_by", "suggested_status"), "Nordic Crypto -> Kryptonytt", dry)
+            ("id", "title", "source_name", "url", "published", "topics", "suggested_by", "origin", "suggested_status"), "Nordic Crypto -> Kryptonytt", dry)
 
 if __name__ == "__main__": main()
