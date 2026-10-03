@@ -117,8 +117,9 @@
   "license": "CC BY 3.0",
   "license_url": "https://creativecommons.org/licenses/by/3.0",
   "origin": "Wikimedia Commons",
-  "review": "pending",
-  "checked": "2026-10-03"
+  "review": "ok",
+  "checked": "2026-10-03",
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "erik-thedeen": {
   "file": "assets/img/people/erik-thedeen.jpg",
@@ -127,8 +128,9 @@
   "license": "CC BY 2.0",
   "license_url": "https://creativecommons.org/licenses/by/2.0",
   "origin": "Wikimedia Commons",
-  "review": "pending",
-  "checked": "2026-10-03"
+  "review": "ok",
+  "checked": "2026-10-03",
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "olli-rehn": {
   "file": "assets/img/people/olli-rehn.jpg",
@@ -137,8 +139,9 @@
   "license": "CC BY-SA 3.0 de",
   "license_url": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
   "origin": "Wikimedia Commons",
-  "review": "pending",
-  "checked": "2026-10-03"
+  "review": "ok",
+  "checked": "2026-10-03",
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "asgeir-jonsson": {
   "file": "assets/img/people/asgeir-jonsson.jpg",
@@ -147,8 +150,9 @@
   "license": "CC BY-SA 4.0",
   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "origin": "Wikimedia Commons",
-  "review": "pending",
-  "checked": "2026-10-03"
+  "review": "ok",
+  "checked": "2026-10-03",
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "oystein-borsum": {
   "file": "assets/img/people/oystein-borsum.jpg",
@@ -157,7 +161,8 @@
   "license": "CC BY-SA 4.0",
   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "origin": "Wikimedia Commons",
-  "review": "pending",
-  "checked": "2026-10-03"
+  "review": "ok",
+  "checked": "2026-10-03",
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  }
 }

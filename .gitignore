@@ -1,5 +1,4 @@
-# Working files that are never published in the repo (box only)
-data/
+# Working files that are never published in the repo (box only). data/ IS committed (public content, privacy-gated).
 state/
 queue/
 logs/

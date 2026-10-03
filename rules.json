@@ -1,57 +1,363 @@
 {
  "_note": "Data for rules/ ('How the rules are made'), built by tools/rules_page.py. Every node has a primary source; claims were checked with the public-claim-check workflow (see research/rules-claims-2026-10-03.md). 'review' stays 'pending' until the editor approves; while pending, the public build shows only a short placeholder and the full page appears in the preview build.",
- "review": "pending",
- "checked": "2026-10-03",
+ "review": "approved",
+ "checked": "2026-10-04",
  "sources": {
-  "mica": {"url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj/eng", "title": "Regulation (EU) 2023/1114 (MiCA), Art. 149 and closing formula", "publisher": "EUR-Lex"},
-  "tfr": {"url": "https://eur-lex.europa.eu/eli/reg/2023/1113/oj/eng", "title": "Regulation (EU) 2023/1113 (transfer of funds and certain crypto-assets), Art. 40", "publisher": "EUR-Lex"},
-  "amlr": {"url": "https://eur-lex.europa.eu/eli/reg/2024/1624/oj/eng", "title": "Regulation (EU) 2024/1624 (AMLR), Art. 90", "publisher": "EUR-Lex"},
-  "dora": {"url": "https://eur-lex.europa.eu/eli/reg/2022/2554/oj/eng", "title": "Regulation (EU) 2022/2554 (DORA), Art. 64", "publisher": "EUR-Lex"},
-  "esma": {"url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica", "title": "Markets in Crypto-Assets Regulation (MiCA) – interim MiCA register", "publisher": "ESMA"},
-  "is_act": {"url": "https://www.althingi.is/altext/stjt/2025.101.html", "title": "Lög nr. 101/2025 um markaði fyrir sýndareignir (Art. 1, 3 and 16)", "publisher": "Alþingi"},
-  "no_act": {"url": "https://lovdata.no/dokument/NL/lov/2025-05-27-20", "title": "Lov om kryptoeiendeler (kryptoeiendelsloven), LOV-2025-05-27-20, § 2", "publisher": "Lovdata"},
-  "se_act": {"url": "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-20241159-med-kompletterande-bestammelser_sfs-2024-1159/", "title": "Lag (2024:1159) med kompletterande bestämmelser till EU:s förordning om marknader för kryptotillgångar, 1 kap. 2 §", "publisher": "Sveriges riksdag"},
-  "dk_act": {"url": "https://www.finanstilsynet.dk/finansielle-temaer/fintech/finanstilsynets-praksis-paa-markedet-for-kryptoaktiver", "title": "Information om Finanstilsynets praksis på markedet for kryptoaktiver (cites lov nr. 481 af 22. maj 2024)", "publisher": "Finanstilsynet (DK)"},
-  "fi_act": {"url": "https://www.finlex.fi/fi/lainsaadanto/2024/402", "title": "Laki kryptovarapalvelun tarjoajista ja kryptovaramarkkinoista 402/2024", "publisher": "Finlex"},
-  "fi_fiva": {"url": "https://www.finanssivalvonta.fi/en/publications-and-press-releases/news-releases/2026/crypto-asset-service-providers-in-finland-must-be-authorised-in-the-eu/", "title": "Crypto-asset service providers in Finland must be authorised in the EU", "publisher": "Finanssivalvonta"},
-  "no_aml": {"url": "https://lovdata.no/dokument/NL/lov/2018-06-01-23", "title": "Lov om tiltak mot hvitvasking og terrorfinansiering (hvitvaskingsloven), § 34 Økokrim", "publisher": "Lovdata"},
-  "se_aml": {"url": "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-2017630-om-atgarder-mot-penningtvatt-och_sfs-2017-630/", "title": "Lag (2017:630) om åtgärder mot penningtvätt och finansiering av terrorism (reports to Polismyndigheten)", "publisher": "Sveriges riksdag"},
-  "fi_aml": {"url": "https://www.finlex.fi/fi/lainsaadanto/2017/444", "title": "Laki rahanpesun ja terrorismin rahoittamisen estämisestä 444/2017", "publisher": "Finlex"},
-  "is_aml": {"url": "https://www.althingi.is/lagas/nuna/2018140.html", "title": "Lög nr. 140/2018 um aðgerðir gegn peningaþvætti og fjármögnun hryðjuverka, Art. 20", "publisher": "Alþingi"}
+  "mica": {
+   "url": "https://eur-lex.europa.eu/eli/reg/2023/1114/oj/eng",
+   "title": "Regulation (EU) 2023/1114 (MiCA), Art. 149 and closing formula",
+   "publisher": "EUR-Lex"
+  },
+  "tfr": {
+   "url": "https://eur-lex.europa.eu/eli/reg/2023/1113/oj/eng",
+   "title": "Regulation (EU) 2023/1113 (transfer of funds and certain crypto-assets), Art. 40",
+   "publisher": "EUR-Lex"
+  },
+  "amlr": {
+   "url": "https://eur-lex.europa.eu/eli/reg/2024/1624/oj/eng",
+   "title": "Regulation (EU) 2024/1624 (AMLR), Art. 90",
+   "publisher": "EUR-Lex"
+  },
+  "dora": {
+   "url": "https://eur-lex.europa.eu/eli/reg/2022/2554/oj/eng",
+   "title": "Regulation (EU) 2022/2554 (DORA), Art. 64",
+   "publisher": "EUR-Lex"
+  },
+  "esma": {
+   "url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+   "title": "Markets in Crypto-Assets Regulation (MiCA) – interim MiCA register",
+   "publisher": "ESMA"
+  },
+  "is_act": {
+   "url": "https://www.althingi.is/altext/stjt/2025.101.html",
+   "title": "Lög nr. 101/2025 um markaði fyrir sýndareignir (Art. 1, 3 and 16)",
+   "publisher": "Alþingi"
+  },
+  "no_act": {
+   "url": "https://lovdata.no/dokument/NL/lov/2025-05-27-20",
+   "title": "Lov om kryptoeiendeler (kryptoeiendelsloven), LOV-2025-05-27-20, § 2",
+   "publisher": "Lovdata"
+  },
+  "se_act": {
+   "url": "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-20241159-med-kompletterande-bestammelser_sfs-2024-1159/",
+   "title": "Lag (2024:1159) med kompletterande bestämmelser till EU:s förordning om marknader för kryptotillgångar, 1 kap. 2 §",
+   "publisher": "Sveriges riksdag"
+  },
+  "dk_act": {
+   "url": "https://www.retsinformation.dk/eli/lta/2024/1013",
+   "title": "Bekendtgørelse af lov om finansiel virksomhed, § 332 c (authorisation by Finanstilsynet under MiCA Art. 63)",
+   "publisher": "Retsinformation"
+  },
+  "fi_act": {
+   "url": "https://www.finlex.fi/fi/lainsaadanto/2024/402",
+   "title": "Laki kryptovarapalvelun tarjoajista ja kryptovaramarkkinoista 402/2024, 2 § (Finanssivalvonta supervises)",
+   "publisher": "Finlex"
+  },
+  "fi_fiva": {
+   "url": "https://www.finanssivalvonta.fi/en/publications-and-press-releases/news-releases/2026/crypto-asset-service-providers-in-finland-must-be-authorised-in-the-eu/",
+   "title": "Crypto-asset service providers in Finland must be authorised in the EU",
+   "publisher": "Finanssivalvonta"
+  },
+  "no_aml": {
+   "url": "https://lovdata.no/dokument/NL/lov/2018-06-01-23",
+   "title": "Lov om tiltak mot hvitvasking og terrorfinansiering (hvitvaskingsloven), § 26 Rapporteringsplikt (reports to Økokrim)",
+   "publisher": "Lovdata"
+  },
+  "se_aml": {
+   "url": "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-2017630-om-atgarder-mot-penningtvatt-och_sfs-2017-630/",
+   "title": "Lag (2017:630) om åtgärder mot penningtvätt och finansiering av terrorism (reports to Polismyndigheten)",
+   "publisher": "Sveriges riksdag"
+  },
+  "fi_aml": {
+   "url": "https://www.finlex.fi/fi/lainsaadanto/2017/444",
+   "title": "Laki rahanpesun ja terrorismin rahoittamisen estämisestä 444/2017 (reporting obligation, ch. 4 § 1)",
+   "publisher": "Finlex"
+  },
+  "is_aml": {
+   "url": "https://www.althingi.is/lagas/nuna/2018140.html",
+   "title": "Lög nr. 140/2018 um aðgerðir gegn peningaþvætti og fjármögnun hryðjuverka, Art. 20",
+   "publisher": "Alþingi"
+  },
+  "dk_ft": {
+   "url": "https://www.finanstilsynet.dk/finansielle-temaer/fintech/finanstilsynets-praksis-paa-markedet-for-kryptoaktiver",
+   "title": "Information om Finanstilsynets praksis på markedet for kryptoaktiver (cites § 332 c of lov om finansiel virksomhed)",
+   "publisher": "Finanstilsynet (DK)"
+  },
+  "fi_fiu_act": {
+   "url": "https://www.finlex.fi/fi/lainsaadanto/2017/445",
+   "title": "Laki rahanpesun selvittelykeskuksesta 445/2017, 2 § (the FIU within the National Bureau of Investigation)",
+   "publisher": "Finlex"
+  },
+  "dk_fiu": {
+   "url": "https://hvidvask.dk/",
+   "title": "Hvidvasksekretariatet – National enhed for Særlig Kriminalitet (NSK)",
+   "publisher": "Hvidvasksekretariatet"
+  },
+  "dk_tax": {
+   "url": "https://skat.dk/borger/aktier-og-andre-vaerdipapirer/skat-paa-krypto-kend-reglerne-saa-du-undgaar-et-skattesmaek",
+   "title": "Skat på krypto: Kend reglerne, så du undgår et skattesmæk",
+   "publisher": "Skattestyrelsen (skat.dk)"
+  },
+  "dk_tax_jv": {
+   "url": "https://info.skat.dk/data.aspx?oid=2395613",
+   "title": "Den juridiske vejledning C.C.2.1.3.3.5.2 Realisationsbeskattede kryptoaktiver (general rules, statsskatteloven § 5)",
+   "publisher": "Skattestyrelsen (info.skat.dk)"
+  },
+  "no_tax": {
+   "url": "https://www.skatteetaten.no/person/skatt/hjelp-til-riktig-skatt/aksjer-og-verdipapirer/om/virtuell-valuta/",
+   "title": "Virtuelle eiendeler (kryptovaluta med mer)",
+   "publisher": "Skatteetaten"
+  },
+  "se_tax": {
+   "url": "https://www.skatteverket.se/privat/skatter/vardepapper/andratillgangar/kryptovalutor",
+   "title": "Kryptovalutor",
+   "publisher": "Skatteverket"
+  },
+  "fi_tax": {
+   "url": "https://www.vero.fi/henkiloasiakkaat/omaisuus/sijoitukset/virtuaalivaluutat/",
+   "title": "Kryptovarat",
+   "publisher": "Verohallinto (vero.fi)"
+  },
+  "is_tax": {
+   "url": "https://www.skatturinn.is/einstaklingar/skattskylda/rafmynt/",
+   "title": "Rafmynt (no special provisions; general tax rules apply)",
+   "publisher": "Skatturinn"
+  }
  },
  "eu": {
   "institutions": [
-   {"name": "European Commission", "role": "propose", "src": "mica"},
-   {"name": "European Parliament", "role": "adopt", "src": "mica"},
-   {"name": "Council of the EU", "role": "adopt", "src": "mica"}
+   {
+    "name": "European Commission",
+    "role": "propose",
+    "src": "mica"
+   },
+   {
+    "name": "European Parliament",
+    "role": "adopt",
+    "src": "mica"
+   },
+   {
+    "name": "Council of the EU",
+    "role": "adopt",
+    "src": "mica"
+   }
   ],
   "acts": [
-   {"name": "MiCA", "ref": "Regulation (EU) 2023/1114", "applies": "2024-12-30", "note_key": "act_mica", "src": "mica"},
-   {"name": "Transfer of Funds Regulation", "ref": "Regulation (EU) 2023/1113", "applies": "2024-12-30", "note_key": "act_tfr", "src": "tfr"},
-   {"name": "AMLR", "ref": "Regulation (EU) 2024/1624", "applies": "2027-07-10", "note_key": "act_amlr", "src": "amlr"},
-   {"name": "DORA", "ref": "Regulation (EU) 2022/2554", "applies": "2025-01-17", "note_key": "act_dora", "src": "dora"}
+   {
+    "name": "MiCA",
+    "ref": "Regulation (EU) 2023/1114",
+    "applies": "2024-12-30",
+    "note_key": "act_mica",
+    "src": "mica"
+   },
+   {
+    "name": "Transfer of Funds Regulation",
+    "ref": "Regulation (EU) 2023/1113",
+    "applies": "2024-12-30",
+    "note_key": "act_tfr",
+    "src": "tfr"
+   },
+   {
+    "name": "AMLR",
+    "ref": "Regulation (EU) 2024/1624",
+    "applies": "2027-07-10",
+    "note_key": "act_amlr",
+    "src": "amlr"
+   },
+   {
+    "name": "DORA",
+    "ref": "Regulation (EU) 2022/2554",
+    "applies": "2025-01-17",
+    "note_key": "act_dora",
+    "src": "dora"
+   }
   ],
   "agencies": [
-   {"name": "ESMA", "org": "esma", "note_key": "ag_esma", "src": "mica", "src2": "esma"},
-   {"name": "EBA", "org": "eba", "note_key": "ag_eba", "src": "mica"}
+   {
+    "name": "ESMA",
+    "org": "esma",
+    "note_key": "ag_esma",
+    "src": "mica",
+    "src2": "esma"
+   },
+   {
+    "name": "EBA",
+    "org": "eba",
+    "note_key": "ag_eba",
+    "src": "mica"
+   }
   ]
  },
  "countries": {
-  "SE": {"route": "eu", "law": "Lag (2024:1159)", "law_src": "se_act", "parliament": "Riksdagen", "ministry": {"name": "Finansdepartementet", "org": "se-finansdepartementet"},
-         "supervisor": {"name": "Finansinspektionen", "org": "se-fi", "src": "se_act"},
-         "enforce": [{"name": "Finanspolisen (Polismyndigheten)", "org": "se-finanspolisen", "kind": "fiu", "src": "se_aml"}, {"name": "Skatteverket", "org": "se-skatteverket", "kind": "tax"}]},
-  "DK": {"route": "eu", "law": "Lov nr. 481 af 22. maj 2024", "law_src": "dk_act", "parliament": "Folketinget", "ministry": {"name": "Erhvervsministeriet", "org": "dk-erhvervsministeriet"},
-         "supervisor": {"name": "Finanstilsynet", "org": "dk-finanstilsynet", "src": "dk_act"},
-         "enforce": [{"name": "Hvidvasksekretariatet", "org": "dk-hvidvasksekretariatet", "kind": "fiu"}, {"name": "Skattestyrelsen", "org": "dk-skattestyrelsen", "kind": "tax"}]},
-  "FI": {"route": "eu", "law": "Laki 402/2024", "law_src": "fi_act", "parliament": "Eduskunta", "ministry": {"name": "Valtiovarainministeriö", "org": "fi-vm"},
-         "supervisor": {"name": "Finanssivalvonta", "org": "fi-fiva", "src": "fi_fiva"},
-         "enforce": [{"name": "Rahanpesun selvittelykeskus (KRP)", "org": "fi-fiu", "kind": "fiu", "src": "fi_aml"}, {"name": "Verohallinto", "org": "fi-vero", "kind": "tax"}]},
-  "NO": {"route": "eea", "law": "Lov om kryptoeiendeler (LOV-2025-05-27-20)", "law_src": "no_act", "parliament": "Stortinget", "parliament_org": "stortinget-finanskomiteen", "ministry": {"name": "Finansdepartementet", "org": "finansdepartementet"},
-         "supervisor": {"name": "Finanstilsynet", "org": "finanstilsynet", "src": "no_act"},
-         "enforce": [{"name": "Økokrim", "org": "okokrim", "kind": "fiu", "src": "no_aml"}, {"name": "Skatteetaten", "org": "skatteetaten", "kind": "tax"}]},
-  "IS": {"route": "eea", "law": "Lög nr. 101/2025", "law_src": "is_act", "parliament": "Alþingi", "ministry": {"name": "Fjármála- og efnahagsráðuneytið", "org": "is-fjr"},
-         "supervisor": {"name": "Seðlabanki Íslands – Fjármálaeftirlit", "org": "is-fme", "src": "is_act"},
-         "enforce": [{"name": "Skrifstofa fjármálagreininga lögreglu", "org": "is-sfl", "kind": "fiu", "src": "is_aml"}, {"name": "Skatturinn", "org": "is-skatturinn", "kind": "tax"}]}
+  "SE": {
+   "route": "eu",
+   "law": "Lag (2024:1159)",
+   "law_src": "se_act",
+   "parliament": "Riksdagen",
+   "ministry": {
+    "name": "Finansdepartementet",
+    "org": "se-finansdepartementet"
+   },
+   "supervisor": {
+    "name": "Finansinspektionen",
+    "org": "se-fi",
+    "src": "se_act"
+   },
+   "enforce": [
+    {
+     "name": "Finanspolisen (Polismyndigheten)",
+     "org": "se-finanspolisen",
+     "kind": "fiu",
+     "src": "se_aml"
+    },
+    {
+     "name": "Skatteverket",
+     "org": "se-skatteverket",
+     "kind": "tax",
+     "src": "se_tax"
+    }
+   ]
+  },
+  "DK": {
+   "route": "eu",
+   "law": "Lov om finansiel virksomhed § 332 c",
+   "law_src": "dk_act",
+   "parliament": "Folketinget",
+   "ministry": {
+    "name": "Erhvervsministeriet",
+    "org": "dk-erhvervsministeriet"
+   },
+   "supervisor": {
+    "name": "Finanstilsynet",
+    "org": "dk-finanstilsynet",
+    "src": "dk_act",
+    "src2": "dk_ft"
+   },
+   "enforce": [
+    {
+     "name": "Hvidvasksekretariatet",
+     "org": "dk-hvidvasksekretariatet",
+     "kind": "fiu",
+     "src": "dk_fiu"
+    },
+    {
+     "name": "Skattestyrelsen",
+     "org": "dk-skattestyrelsen",
+     "kind": "tax",
+     "src": "dk_tax",
+     "src2": "dk_tax_jv"
+    }
+   ],
+   "note5": "r12_dk",
+   "note5_src": [
+    "dk_fiu",
+    "dk_tax",
+    "dk_tax_jv"
+   ]
+  },
+  "FI": {
+   "route": "eu",
+   "law": "Laki 402/2024",
+   "law_src": "fi_act",
+   "parliament": "Eduskunta",
+   "ministry": {
+    "name": "Valtiovarainministeriö",
+    "org": "fi-vm"
+   },
+   "supervisor": {
+    "name": "Finanssivalvonta",
+    "org": "fi-fiva",
+    "src": "fi_act",
+    "src2": "fi_fiva"
+   },
+   "enforce": [
+    {
+     "name": "Rahanpesun selvittelykeskus (KRP)",
+     "org": "fi-fiu",
+     "kind": "fiu",
+     "src": "fi_aml",
+     "src2": "fi_fiu_act"
+    },
+    {
+     "name": "Verohallinto",
+     "org": "fi-vero",
+     "kind": "tax",
+     "src": "fi_tax"
+    }
+   ],
+   "note4": "r13_fi",
+   "note4_src": [
+    "fi_act"
+   ],
+   "note5": "r14_fi",
+   "note5_src": [
+    "fi_aml",
+    "fi_fiu_act"
+   ]
+  },
+  "NO": {
+   "route": "eea",
+   "law": "Lov om kryptoeiendeler (LOV-2025-05-27-20)",
+   "law_src": "no_act",
+   "parliament": "Stortinget",
+   "parliament_org": "stortinget-finanskomiteen",
+   "ministry": {
+    "name": "Finansdepartementet",
+    "org": "finansdepartementet"
+   },
+   "supervisor": {
+    "name": "Finanstilsynet",
+    "org": "finanstilsynet",
+    "src": "no_act"
+   },
+   "enforce": [
+    {
+     "name": "Økokrim",
+     "org": "okokrim",
+     "kind": "fiu",
+     "src": "no_aml"
+    },
+    {
+     "name": "Skatteetaten",
+     "org": "skatteetaten",
+     "kind": "tax",
+     "src": "no_tax"
+    }
+   ]
+  },
+  "IS": {
+   "route": "eea",
+   "law": "Lög nr. 101/2025",
+   "law_src": "is_act",
+   "parliament": "Alþingi",
+   "ministry": {
+    "name": "Fjármála- og efnahagsráðuneytið",
+    "org": "is-fjr"
+   },
+   "supervisor": {
+    "name": "Seðlabanki Íslands – Fjármálaeftirlit",
+    "org": "is-fme",
+    "src": "is_act"
+   },
+   "enforce": [
+    {
+     "name": "Skrifstofa fjármálagreininga lögreglu",
+     "org": "is-sfl",
+     "kind": "fiu",
+     "src": "is_aml"
+    },
+    {
+     "name": "Skatturinn",
+     "org": "is-skatturinn",
+     "kind": "tax",
+     "src": "is_tax"
+    }
+   ]
+  }
  },
- "eea": {"decision": "EEA Joint Committee Decision No 41/2025 (20 February 2025)", "src": "is_act"}
+ "eea": {
+  "decision": "EEA Joint Committee Decision No 41/2025 (20 February 2025)",
+  "src": "is_act"
+ },
+ "approved": "2026-10-04 (Nordic Crypto editor, after rows 12–14, 18, 20, 21 rewritten and sources replaced)"
 }

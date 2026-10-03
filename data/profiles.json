@@ -1,0 +1,411 @@
+{
+ "_how_to": "Public profile links per entity id: [{kind, label, url, source_url, status}]. Each link needs a source_url that shows it belongs to the person/org (here: their Wikidata item). status 'pending' until the editor sets 'published'. Rendered with rel=\"noopener nofollow\". Only links whose Wikidata item is confirmed to be the same person (name + role/description) are kept.",
+ "erik-thedeen": [
+  {
+   "kind": "wikipedia",
+   "label": "Wikipedia (en)",
+   "url": "https://en.wikipedia.org/wiki/Erik_Thed%C3%A9en",
+   "source_url": "https://www.wikidata.org/wiki/Q6207027",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  },
+  {
+   "kind": "wikidata",
+   "label": "Wikidata",
+   "url": "https://www.wikidata.org/wiki/Q6207027",
+   "source_url": "https://www.wikidata.org/wiki/Q6207027",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  }
+ ],
+ "olli-rehn": [
+  {
+   "kind": "wikipedia",
+   "label": "Wikipedia (en)",
+   "url": "https://en.wikipedia.org/wiki/Olli_Rehn",
+   "source_url": "https://www.wikidata.org/wiki/Q294411",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  },
+  {
+   "kind": "x",
+   "label": "X",
+   "url": "https://x.com/ollirehn",
+   "source_url": "https://www.wikidata.org/wiki/Q294411",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  },
+  {
+   "kind": "wikidata",
+   "label": "Wikidata",
+   "url": "https://www.wikidata.org/wiki/Q294411",
+   "source_url": "https://www.wikidata.org/wiki/Q294411",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  }
+ ],
+ "finn-arnesen": [
+  {
+   "kind": "wikipedia",
+   "label": "Wikipedia (nb)",
+   "url": "https://no.wikipedia.org/wiki/Finn_Arnesen_(jurist)",
+   "source_url": "https://www.wikidata.org/wiki/Q16167804",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  },
+  {
+   "kind": "wikidata",
+   "label": "Wikidata",
+   "url": "https://www.wikidata.org/wiki/Q16167804",
+   "source_url": "https://www.wikidata.org/wiki/Q16167804",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  }
+ ],
+ "oystein-borsum": [
+  {
+   "kind": "wikipedia",
+   "label": "Wikipedia (nb)",
+   "url": "https://no.wikipedia.org/wiki/%C3%98ystein_B%C3%B8rsum",
+   "source_url": "https://www.wikidata.org/wiki/Q107009803",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  },
+  {
+   "kind": "x",
+   "label": "X",
+   "url": "https://x.com/OysteinBorsum",
+   "source_url": "https://www.wikidata.org/wiki/Q107009803",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  },
+  {
+   "kind": "wikidata",
+   "label": "Wikidata",
+   "url": "https://www.wikidata.org/wiki/Q107009803",
+   "source_url": "https://www.wikidata.org/wiki/Q107009803",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  }
+ ],
+ "kjell-inge-rokke": [
+  {
+   "kind": "wikipedia",
+   "label": "Wikipedia (en)",
+   "url": "https://en.wikipedia.org/wiki/Kjell_Inge_R%C3%B8kke",
+   "source_url": "https://www.wikidata.org/wiki/Q1383992",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  },
+  {
+   "kind": "wikidata",
+   "label": "Wikidata",
+   "url": "https://www.wikidata.org/wiki/Q1383992",
+   "source_url": "https://www.wikidata.org/wiki/Q1383992",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  }
+ ],
+ "nina-schanke-funnemark": [
+  {
+   "kind": "wikipedia",
+   "label": "Wikipedia (en)",
+   "url": "https://en.wikipedia.org/wiki/Nina_Schanke_Funnemark",
+   "source_url": "https://www.wikidata.org/wiki/Q104063613",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  },
+  {
+   "kind": "wikidata",
+   "label": "Wikidata",
+   "url": "https://www.wikidata.org/wiki/Q104063613",
+   "source_url": "https://www.wikidata.org/wiki/Q104063613",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  }
+ ],
+ "tero-kurenmaa": [
+  {
+   "kind": "wikipedia",
+   "label": "Wikipedia (fi)",
+   "url": "https://fi.wikipedia.org/wiki/Tero_Kurenmaa",
+   "source_url": "https://www.wikidata.org/wiki/Q112577670",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  },
+  {
+   "kind": "wikidata",
+   "label": "Wikidata",
+   "url": "https://www.wikidata.org/wiki/Q112577670",
+   "source_url": "https://www.wikidata.org/wiki/Q112577670",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  }
+ ],
+ "elisabeth-vike-vardheim": [
+  {
+   "kind": "wikidata",
+   "label": "Wikidata",
+   "url": "https://www.wikidata.org/wiki/Q135399330",
+   "source_url": "https://www.wikidata.org/wiki/Q135399330",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  }
+ ],
+ "tuva-moflag": [
+  {
+   "kind": "wikipedia",
+   "label": "Wikipedia (en)",
+   "url": "https://en.wikipedia.org/wiki/Tuva_Moflag",
+   "source_url": "https://www.wikidata.org/wiki/Q25427910",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  },
+  {
+   "kind": "x",
+   "label": "X",
+   "url": "https://x.com/TuvaMoflag",
+   "source_url": "https://www.wikidata.org/wiki/Q25427910",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  },
+  {
+   "kind": "wikidata",
+   "label": "Wikidata",
+   "url": "https://www.wikidata.org/wiki/Q25427910",
+   "source_url": "https://www.wikidata.org/wiki/Q25427910",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  }
+ ],
+ "hans-andreas-limi": [
+  {
+   "kind": "wikipedia",
+   "label": "Wikipedia (en)",
+   "url": "https://en.wikipedia.org/wiki/Hans_Andreas_Limi",
+   "source_url": "https://www.wikidata.org/wiki/Q5649745",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  },
+  {
+   "kind": "wikidata",
+   "label": "Wikidata",
+   "url": "https://www.wikidata.org/wiki/Q5649745",
+   "source_url": "https://www.wikidata.org/wiki/Q5649745",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  }
+ ],
+ "bjorn-arild-gram": [
+  {
+   "kind": "wikipedia",
+   "label": "Wikipedia (en)",
+   "url": "https://en.wikipedia.org/wiki/Bj%C3%B8rn_Arild_Gram",
+   "source_url": "https://www.wikidata.org/wiki/Q4919832",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  },
+  {
+   "kind": "wikidata",
+   "label": "Wikidata",
+   "url": "https://www.wikidata.org/wiki/Q4919832",
+   "source_url": "https://www.wikidata.org/wiki/Q4919832",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  }
+ ],
+ "jens-stoltenberg": [
+  {
+   "kind": "wikipedia",
+   "label": "Wikipedia (en)",
+   "url": "https://en.wikipedia.org/wiki/Jens_Stoltenberg",
+   "source_url": "https://www.wikidata.org/wiki/Q57665",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  },
+  {
+   "kind": "x",
+   "label": "X",
+   "url": "https://x.com/jensstoltenberg",
+   "source_url": "https://www.wikidata.org/wiki/Q57665",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  },
+  {
+   "kind": "wikidata",
+   "label": "Wikidata",
+   "url": "https://www.wikidata.org/wiki/Q57665",
+   "source_url": "https://www.wikidata.org/wiki/Q57665",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  }
+ ],
+ "lars-henrik-myrmel-johansen": [
+  {
+   "kind": "wikipedia",
+   "label": "Wikipedia (nb)",
+   "url": "https://no.wikipedia.org/wiki/Lars-Henrik_Myrmel-Johansen",
+   "source_url": "https://www.wikidata.org/wiki/Q25434699",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  },
+  {
+   "kind": "wikidata",
+   "label": "Wikidata",
+   "url": "https://www.wikidata.org/wiki/Q25434699",
+   "source_url": "https://www.wikidata.org/wiki/Q25434699",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  }
+ ],
+ "ida-wolden-bache": [
+  {
+   "kind": "wikipedia",
+   "label": "Wikipedia (en)",
+   "url": "https://en.wikipedia.org/wiki/Ida_Wolden_Bache",
+   "source_url": "https://www.wikidata.org/wiki/Q110126862",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  },
+  {
+   "kind": "linkedin",
+   "label": "LinkedIn",
+   "url": "https://www.linkedin.com/in/ida-wolden-bache-908a3b/",
+   "source_url": "https://www.wikidata.org/wiki/Q110126862",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  },
+  {
+   "kind": "wikidata",
+   "label": "Wikidata",
+   "url": "https://www.wikidata.org/wiki/Q110126862",
+   "source_url": "https://www.wikidata.org/wiki/Q110126862",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  }
+ ],
+ "torgeir-micaelsen": [
+  {
+   "kind": "wikipedia",
+   "label": "Wikipedia (en)",
+   "url": "https://en.wikipedia.org/wiki/Torgeir_Micaelsen",
+   "source_url": "https://www.wikidata.org/wiki/Q1772947",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  },
+  {
+   "kind": "wikidata",
+   "label": "Wikidata",
+   "url": "https://www.wikidata.org/wiki/Q1772947",
+   "source_url": "https://www.wikidata.org/wiki/Q1772947",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  }
+ ],
+ "terje-aasland": [
+  {
+   "kind": "wikipedia",
+   "label": "Wikipedia (en)",
+   "url": "https://en.wikipedia.org/wiki/Terje_Aasland",
+   "source_url": "https://www.wikidata.org/wiki/Q1772899",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  },
+  {
+   "kind": "x",
+   "label": "X",
+   "url": "https://x.com/terjeaa",
+   "source_url": "https://www.wikidata.org/wiki/Q1772899",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  },
+  {
+   "kind": "wikidata",
+   "label": "Wikidata",
+   "url": "https://www.wikidata.org/wiki/Q1772899",
+   "source_url": "https://www.wikidata.org/wiki/Q1772899",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  }
+ ],
+ "kjetil-lund": [
+  {
+   "kind": "wikipedia",
+   "label": "Wikipedia (en)",
+   "url": "https://en.wikipedia.org/wiki/Kjetil_Lund",
+   "source_url": "https://www.wikidata.org/wiki/Q4994503",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  },
+  {
+   "kind": "x",
+   "label": "X",
+   "url": "https://x.com/lundkjetil",
+   "source_url": "https://www.wikidata.org/wiki/Q4994503",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  },
+  {
+   "kind": "wikidata",
+   "label": "Wikidata",
+   "url": "https://www.wikidata.org/wiki/Q4994503",
+   "source_url": "https://www.wikidata.org/wiki/Q4994503",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  }
+ ],
+ "johan-almenberg": [
+  {
+   "kind": "wikipedia",
+   "label": "Wikipedia (sv)",
+   "url": "https://sv.wikipedia.org/wiki/Johan_Almenberg",
+   "source_url": "https://www.wikidata.org/wiki/Q137049198",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  },
+  {
+   "kind": "wikidata",
+   "label": "Wikidata",
+   "url": "https://www.wikidata.org/wiki/Q137049198",
+   "source_url": "https://www.wikidata.org/wiki/Q137049198",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  }
+ ],
+ "aino-bunge": [
+  {
+   "kind": "wikipedia",
+   "label": "Wikipedia (sv)",
+   "url": "https://sv.wikipedia.org/wiki/Aino_Bunge",
+   "source_url": "https://www.wikidata.org/wiki/Q115675909",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  },
+  {
+   "kind": "wikidata",
+   "label": "Wikidata",
+   "url": "https://www.wikidata.org/wiki/Q115675909",
+   "source_url": "https://www.wikidata.org/wiki/Q115675909",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  }
+ ],
+ "anna-seim": [
+  {
+   "kind": "wikipedia",
+   "label": "Wikipedia (en)",
+   "url": "https://en.wikipedia.org/wiki/Anna_Seim",
+   "source_url": "https://www.wikidata.org/wiki/Q76692910",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  },
+  {
+   "kind": "wikidata",
+   "label": "Wikidata",
+   "url": "https://www.wikidata.org/wiki/Q76692910",
+   "source_url": "https://www.wikidata.org/wiki/Q76692910",
+   "status": "published",
+   "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  }
+ ]
+}

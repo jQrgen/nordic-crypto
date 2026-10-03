@@ -6,3 +6,4 @@ set -euo pipefail
 cd "$(dirname "$0")"
 .venv/bin/python build.py "$@"
 .venv/bin/python tools/privacy_gate.py site
+.venv/bin/python tools/text_gate.py

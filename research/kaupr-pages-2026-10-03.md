@@ -57,3 +57,10 @@ BTCX is a brand of Goobit. It is not a separate entry. The existing `goobit` ent
   - Finans Norge: the CEO and a director were left out; chair Inge Reinertsen was added from the registry. The registry lists no vice chair.
   - Fintech Norway: the CEO was left out and the chair kept. The registry lists no vice chair.
 - People are never merged without a source. Registry-sourced people carry the source title "Name and role only from the registry".
+
+## Editor decisions, 4 Oct 2026
+- Approved: dk-aryze, se-blockchain-sweden, se-divly, se-firstblock, se-h100, se-hilbert-group, se-pretax, se-true-original, intl-visa, intl-swift, intl-d-fine, intl-okx; plus no-ace-digital, no-web3-creatives, se-dwellir after the org numbers were removed from their source titles.
+- Rejected: dk-bloxcel.
+- OKX: added the ESMA CASP register (esma.europa.eu …/2024-12/CASPS.csv): OKX Europe Limited, MFSA Malta, authorised 27 Jan 2025, passported to NO, SE, DK, FI, IS among others. Description corrected: the June 2025 launch covered SE/FI/DK; Norway is documented from July 2025.
+- Disclosure on Kaupr and on Morten Myrstad: Kaupr sponsors Oslo Blockchain Meetup, the meetup run by jQrgen, the publisher of Nordic Crypto.
+- The privacy gate now also blocks org numbers in visible text, including source titles.

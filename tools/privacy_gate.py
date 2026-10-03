@@ -9,6 +9,9 @@ RULES = {
  "kontonummer": re.compile(r"\b\d{4}[ .]\d{2}[ .]\d{5}\b"),
  "IBAN": re.compile(r"\bNO\d{2} ?\d{4} ?\d{4} ?\d{3}\b"),
  "privatadresse/ID": re.compile(r"personnummer|fødselsdato|hjemmeadresse|bostedsadresse", re.I),
+ # Organisasjonsnummer i tekst (f.eks. kildetitler): NO 9 siffer (8xx/9xx, også med mellomrom), SE NNNNNN-NNNN, DK CVR, «org.nr …».
+ # URL-er fjernes før sjekken, så register-lenker (brreg/allabolag/cvr) er tillatt; selve nummeret skal ikke stå i synlig tekst.
+ "organisasjonsnummer": re.compile(r"(?<![\d.,/=-])\b[89]\d{8}\b(?![\d.,])|(?<![\d.,/=-])\b[89]\d{2} \d{3} \d{3}\b(?![\d.,])|(?<![\d-])\b\d{6}-\d{4}\b(?![\d-])|\bCVR(?:-?n(?:r|ummer)\.?)?:?\s*\d{8}\b|\borg(?:anisations?|anisasjons)?\.?\s*-?n(?:r|ummer)\.?\s*:?\s*\d", re.I),
 }
 # Personlige søkeord (helse, økonomi o.l.) ligger i state/private_terms.json, som holdes utenfor git.
 # Mangler fila, feiler grinda (fail closed).

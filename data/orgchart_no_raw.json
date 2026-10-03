@@ -1,0 +1,2117 @@
+{
+ "updated": "03.10.2026",
+ "summary": null,
+ "caveats": [
+  "Finansdepartementet: Det er ikke bekreftet hvilken statssekretær som har finansmarkeds- og kryptoporteføljen.",
+  "Finanstilsynet: Wenche Fagereng er oppført med navn og rolle etter organisasjonskartet. Det sies ikke noe om ansvar for MiCA eller CASP-tilsyn, fordi det ikke er bekreftet i offentlig kilde.",
+  "Tokeniseringsnettverket: Primærkilden er Norges Banks eget LinkedIn-innlegg 07.09.2026. Det er ikke publisert på norges-bank.no.",
+  "ESMA: Carlo Comporti er godkjent av Europaparlamentet som ny chair fra 1.11.2026, men venter på Rådets vedtak.",
+  "Finanskomiteen: Bare leder og nestledere publiseres foreløpig."
+ ],
+ "entities": [
+  {
+   "id": "stortinget-finanskomiteen",
+   "name": "Stortinget – finanskomiteen",
+   "type": "organisasjon",
+   "sector": "offentlig",
+   "group": "Storting og regjering",
+   "description": "Behandler lovforslag om finansmarked/krypto (f.eks. kryptoeiendelsloven) og skatt; innstiller til Stortinget",
+   "sources": [
+    {
+     "url": "https://www.stortinget.no/no/Representanter-og-komiteer/Representantene/Representant/?perid=TUMO",
+     "title": "Stortinget",
+     "source_name": "Stortinget",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.stortinget.no/no/Representanter-og-komiteer/Representantene/Representant/?perid=HLI",
+     "title": "Stortinget",
+     "source_name": "Stortinget",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.stortinget.no/no/Representanter-og-komiteer/Representantene/Representant/?perid=BJAG",
+     "title": "Stortinget",
+     "source_name": "Stortinget",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "tuva-moflag",
+   "name": "Tuva Moflag",
+   "type": "person",
+   "sector": "offentlig",
+   "org": "stortinget-finanskomiteen",
+   "role": "Leder (Ap)",
+   "description": null,
+   "profile_url": "https://www.stortinget.no/no/Representanter-og-komiteer/Representantene/Representant/?perid=TUMO",
+   "sources": [
+    {
+     "url": "https://www.stortinget.no/no/Representanter-og-komiteer/Representantene/Representant/?perid=TUMO",
+     "title": "Stortinget",
+     "source_name": "Stortinget",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": {
+    "file": "assets/img/people/tuva-moflag.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Tuva_Moflag.jpg",
+    "author": "Johannes Dalen Giske",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "origin": "Wikimedia Commons"
+   },
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "hans-andreas-limi",
+   "name": "Hans Andreas Limi",
+   "type": "person",
+   "sector": "offentlig",
+   "org": "stortinget-finanskomiteen",
+   "role": "1. nestleder (FrP)",
+   "description": null,
+   "profile_url": "https://www.stortinget.no/no/Representanter-og-komiteer/Representantene/Representant/?perid=HLI",
+   "sources": [
+    {
+     "url": "https://www.stortinget.no/no/Representanter-og-komiteer/Representantene/Representant/?perid=HLI",
+     "title": "Stortinget",
+     "source_name": "Stortinget",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": {
+    "file": "assets/img/people/hans-andreas-limi.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Hans_Andreas_Limi_(172948).jpg",
+    "author": "Tore Sætre",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "origin": "Wikimedia Commons"
+   },
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "bjorn-arild-gram",
+   "name": "Bjørn Arild Gram",
+   "type": "person",
+   "sector": "offentlig",
+   "org": "stortinget-finanskomiteen",
+   "role": "2. nestleder (Sp)",
+   "description": null,
+   "profile_url": "https://www.stortinget.no/no/Representanter-og-komiteer/Representantene/Representant/?perid=BJAG",
+   "sources": [
+    {
+     "url": "https://www.stortinget.no/no/Representanter-og-komiteer/Representantene/Representant/?perid=BJAG",
+     "title": "Stortinget",
+     "source_name": "Stortinget",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": {
+    "file": "assets/img/people/bjorn-arild-gram.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Nato-toppm%C3%B8te_i_Madrid_(cropped).jpg",
+    "author": "Statsministerens kontor",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "origin": "Wikimedia Commons"
+   },
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "finansdepartementet",
+   "name": "Finansdepartementet",
+   "type": "organisasjon",
+   "sector": "offentlig",
+   "group": "Storting og regjering",
+   "description": "Politisk ansvar for finansmarkedsregulering, skatt, Finanstilsynet, Skatteetaten; fremmet kryptoeiendelsloven (Prop. 55 LS) Statssekretærer: Sissel Kruse Larsen, Ellen Reitan, Astrid Scharning Huitfeldt, Bård Flaarønning (alle Ap). Politisk ledelse under statsråden. Hvem som har finansmarkeds-/kryptoporteføljen er ikke bekreftet på offisiell side",
+   "sources": [
+    {
+     "url": "https://www.regjeringen.no/no/dep/fin/id216/",
+     "title": "Regjeringen",
+     "source_name": "Regjeringen",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.regjeringen.no/no/dep/fin/org/politisk_ledelse/id238/",
+     "title": "Regjeringen",
+     "source_name": "Regjeringen",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.regjeringen.no/no/dep/fin/org/id240/",
+     "title": "Regjeringen",
+     "source_name": "Regjeringen",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "jens-stoltenberg",
+   "name": "Jens Stoltenberg",
+   "type": "person",
+   "sector": "offentlig",
+   "org": "finansdepartementet",
+   "role": "Finansminister (Ap)",
+   "description": null,
+   "profile_url": "https://www.regjeringen.no/no/dep/fin/id216/",
+   "sources": [
+    {
+     "url": "https://www.regjeringen.no/no/dep/fin/id216/",
+     "title": "Regjeringen",
+     "source_name": "Regjeringen",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": {
+    "file": "assets/img/people/jens-stoltenberg.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:NATO_Secretary_General_Jens_Stoltenberg.jpg",
+    "author": "U.S. Department of State from United States",
+    "license": "Public domain",
+    "license_url": "https://commons.wikimedia.org/wiki/File:NATO_Secretary_General_Jens_Stoltenberg.jpg",
+    "origin": "Wikimedia Commons"
+   },
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "lars-henrik-myrmel-johansen",
+   "name": "Lars-Henrik Myrmel-Johansen",
+   "type": "person",
+   "sector": "offentlig",
+   "org": "finansdepartementet",
+   "role": "Finansråd (øverste embetsleder)",
+   "description": null,
+   "profile_url": "https://www.regjeringen.no/no/dep/fin/org/id240/",
+   "sources": [
+    {
+     "url": "https://www.regjeringen.no/no/dep/fin/org/id240/",
+     "title": "Regjeringen",
+     "source_name": "Regjeringen",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": {
+    "file": "assets/img/people/lars-henrik-myrmel-johansen.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Lars-Henrik_Myrmel-Johansen_p%C3%A5_Sentralbanksjefens_%C3%A5rstale_2018_(190159).jpg",
+    "author": "Tore Sætre",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "origin": "Wikimedia Commons"
+   },
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "fma",
+   "name": "Finansdepartementet – Finansmarkedsavdelingen (FMA)",
+   "type": "organisasjon",
+   "sector": "offentlig",
+   "group": "Storting og regjering",
+   "description": "",
+   "sources": [
+    {
+     "url": "https://www.regjeringen.no/no/dep/fin/org/avdelinger/fma/id1551/",
+     "title": "Regjeringen",
+     "source_name": "Regjeringen",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "geir-avitsland",
+   "name": "Geir Åvitsland",
+   "type": "person",
+   "sector": "offentlig",
+   "org": "fma",
+   "role": "Ekspedisjonssjef, Finansmarkedsavdelingen (FMA)",
+   "description": null,
+   "profile_url": "https://www.regjeringen.no/no/dep/fin/org/avdelinger/fma/id1551/",
+   "sources": [
+    {
+     "url": "https://www.regjeringen.no/no/dep/fin/org/avdelinger/fma/id1551/",
+     "title": "Regjeringen",
+     "source_name": "Regjeringen",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "marianne-irgens",
+   "name": "Marianne Irgens",
+   "type": "person",
+   "sector": "offentlig",
+   "org": "fma",
+   "role": "Fungerende avdelingsdirektør, Seksjon for forsikring og kapitalmarkeder",
+   "description": null,
+   "profile_url": "https://www.regjeringen.no/no/dep/fin/org/avdelinger/fma/id1551/",
+   "sources": [
+    {
+     "url": "https://www.regjeringen.no/no/dep/fin/org/avdelinger/fma/id1551/",
+     "title": "Regjeringen",
+     "source_name": "Regjeringen",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "marius-ostli",
+   "name": "Marius Østli",
+   "type": "person",
+   "sector": "offentlig",
+   "org": "fma",
+   "role": "Avdelingsdirektør, Seksjon for bank og betaling",
+   "description": null,
+   "profile_url": "https://www.regjeringen.no/no/dep/fin/org/avdelinger/fma/id1551/",
+   "sources": [
+    {
+     "url": "https://www.regjeringen.no/no/dep/fin/org/avdelinger/fma/id1551/",
+     "title": "Regjeringen",
+     "source_name": "Regjeringen",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "finanstilsynet",
+   "name": "Finanstilsynet",
+   "type": "organisasjon",
+   "sector": "offentlig",
+   "group": "Tilsyn og etater",
+   "description": "Nasjonal MiCA-myndighet: gir/nekter CASP-tillatelser, fører tilsyn, ilegger overtredelsesgebyr; AML-tilsyn",
+   "sources": [
+    {
+     "url": "https://www.finanstilsynet.no/om-finanstilsynet/organisasjon/",
+     "title": "Finanstilsynet",
+     "source_name": "Finanstilsynet",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.finanstilsynet.no/globalassets/om-finanstilsynet/organisasjonskart.pdf",
+     "title": "Finanstilsynet",
+     "source_name": "Finanstilsynet",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "per-mathis-kongsrud",
+   "name": "Per Mathis Kongsrud",
+   "type": "person",
+   "sector": "offentlig",
+   "org": "finanstilsynet",
+   "role": "Finanstilsynsdirektør",
+   "description": null,
+   "profile_url": "https://www.finanstilsynet.no/om-finanstilsynet/organisasjon/",
+   "sources": [
+    {
+     "url": "https://www.finanstilsynet.no/om-finanstilsynet/organisasjon/",
+     "title": "Finanstilsynet",
+     "source_name": "Finanstilsynet",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "finn-arnesen",
+   "name": "Finn Arnesen",
+   "type": "person",
+   "sector": "offentlig",
+   "org": "finanstilsynet",
+   "role": "Styreleder, Finanstilsynets styre",
+   "description": null,
+   "profile_url": "https://www.finanstilsynet.no/om-finanstilsynet/organisasjon/",
+   "sources": [
+    {
+     "url": "https://www.finanstilsynet.no/om-finanstilsynet/organisasjon/",
+     "title": "Finanstilsynet",
+     "source_name": "Finanstilsynet",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "giuditta-cordero-moss",
+   "name": "Giuditta Cordero-Moss",
+   "type": "person",
+   "sector": "offentlig",
+   "org": "finanstilsynet",
+   "role": "Nestleder, Finanstilsynets styre",
+   "description": null,
+   "profile_url": "https://www.finanstilsynet.no/om-finanstilsynet/organisasjon/",
+   "sources": [
+    {
+     "url": "https://www.finanstilsynet.no/om-finanstilsynet/organisasjon/",
+     "title": "Finanstilsynet",
+     "source_name": "Finanstilsynet",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "marte-voie-opland",
+   "name": "Marte Voie Opland",
+   "type": "person",
+   "sector": "offentlig",
+   "org": "finanstilsynet",
+   "role": "Direktør, Avd. for markedstilsyn",
+   "description": null,
+   "profile_url": "https://www.finanstilsynet.no/globalassets/om-finanstilsynet/organisasjonskart.pdf",
+   "sources": [
+    {
+     "url": "https://www.finanstilsynet.no/globalassets/om-finanstilsynet/organisasjonskart.pdf",
+     "title": "Finanstilsynet",
+     "source_name": "Finanstilsynet",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "knut-haugan",
+   "name": "Knut Haugan",
+   "type": "person",
+   "sector": "offentlig",
+   "org": "finanstilsynet",
+   "role": "Direktør, Avd. for risikoovervåking og makrotilsyn",
+   "description": null,
+   "profile_url": "https://www.finanstilsynet.no/globalassets/om-finanstilsynet/organisasjonskart.pdf",
+   "sources": [
+    {
+     "url": "https://www.finanstilsynet.no/globalassets/om-finanstilsynet/organisasjonskart.pdf",
+     "title": "Finanstilsynet",
+     "source_name": "Finanstilsynet",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "brita-daae-hrenovica",
+   "name": "Brita Daae Hrenovica",
+   "type": "person",
+   "sector": "offentlig",
+   "org": "finanstilsynet",
+   "role": "Seksjonsleder, Seksjon for antihvitvasking",
+   "description": null,
+   "profile_url": "https://www.finanstilsynet.no/globalassets/om-finanstilsynet/organisasjonskart.pdf",
+   "sources": [
+    {
+     "url": "https://www.finanstilsynet.no/globalassets/om-finanstilsynet/organisasjonskart.pdf",
+     "title": "Finanstilsynet",
+     "source_name": "Finanstilsynet",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "wenche-fagereng",
+   "name": "Wenche Fagereng",
+   "type": "person",
+   "sector": "offentlig",
+   "org": "finanstilsynet",
+   "role": "Seksjonsleder, Seksjon for IT og betalingstjenester",
+   "description": "Seksjonsleder i avd. for risikoovervåking og makrotilsyn, ifølge Finanstilsynets organisasjonskart (PDF datert 01.10.2026)",
+   "profile_url": "https://www.finanstilsynet.no/globalassets/om-finanstilsynet/organisasjonskart.pdf",
+   "sources": [
+    {
+     "url": "https://www.finanstilsynet.no/globalassets/om-finanstilsynet/organisasjonskart.pdf",
+     "title": "Finanstilsynet",
+     "source_name": "Finanstilsynet",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": true,
+   "status": "published"
+  },
+  {
+   "id": "anders-sanderlien-hole",
+   "name": "Anders Sanderlien Hole",
+   "type": "person",
+   "sector": "offentlig",
+   "org": "finanstilsynet",
+   "role": "Direktør, Bank- og forsikringstilsyn",
+   "description": null,
+   "profile_url": "https://www.finanstilsynet.no/globalassets/om-finanstilsynet/organisasjonskart.pdf",
+   "sources": [
+    {
+     "url": "https://www.finanstilsynet.no/globalassets/om-finanstilsynet/organisasjonskart.pdf",
+     "title": "Finanstilsynet",
+     "source_name": "Finanstilsynet",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "norges-bank",
+   "name": "Norges Bank",
+   "type": "organisasjon",
+   "sector": "offentlig",
+   "group": "Tilsyn og etater",
+   "description": "Betalingssystem, finansiell stabilitet, DSP/digital krone, tokenisering",
+   "sources": [
+    {
+     "url": "https://www.norges-bank.no/tema/Om-Norges-Bank/Organisering-styring/Hovedstyret/",
+     "title": "Norges Bank",
+     "source_name": "Norges Bank",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.regjeringen.no/no/dep/fin/org/styrer-rad-og-utvalg-oppnevnt-av-finansdepartementet2/norges-banks-hovedstyre/id2577140/",
+     "title": "Regjeringen",
+     "source_name": "Regjeringen",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.norges-bank.no/en/topics/about/Organisation/Financial-Stability/",
+     "title": "Norges Bank",
+     "source_name": "Norges Bank",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.norges-bank.no/tema/Om-Norges-Bank/Organisering-styring/Finansiell-stabilitet/",
+     "title": "Norges Bank",
+     "source_name": "Norges Bank",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "ida-wolden-bache",
+   "name": "Ida Wolden Bache",
+   "type": "person",
+   "sector": "offentlig",
+   "org": "norges-bank",
+   "role": "Sentralbanksjef (leder hovedstyret og komiteen for pengepolitikk og finansiell stabilitet)",
+   "description": null,
+   "profile_url": "https://www.norges-bank.no/tema/Om-Norges-Bank/Organisering-styring/Hovedstyret/",
+   "sources": [
+    {
+     "url": "https://www.norges-bank.no/tema/Om-Norges-Bank/Organisering-styring/Hovedstyret/",
+     "title": "Norges Bank",
+     "source_name": "Norges Bank",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": {
+    "file": "assets/img/people/ida-wolden-bache.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Ida_Wolden_Bache_p%C3%A5_Sentralbanksjefens_%C3%A5rstale_2018_(174929).jpg",
+    "author": "Tore Sætre",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "origin": "Wikimedia Commons"
+   },
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "pal-longva",
+   "name": "Pål Longva",
+   "type": "person",
+   "sector": "offentlig",
+   "org": "norges-bank",
+   "role": "Visesentralbanksjef (sentralbankvirksomheten)",
+   "description": null,
+   "profile_url": "https://www.regjeringen.no/no/dep/fin/org/styrer-rad-og-utvalg-oppnevnt-av-finansdepartementet2/norges-banks-hovedstyre/id2577140/",
+   "sources": [
+    {
+     "url": "https://www.regjeringen.no/no/dep/fin/org/styrer-rad-og-utvalg-oppnevnt-av-finansdepartementet2/norges-banks-hovedstyre/id2577140/",
+     "title": "Regjeringen",
+     "source_name": "Regjeringen",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": {
+    "file": "assets/img/people/pal-longva.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:P%C3%A5l_Longva_p%C3%A5_Sentralbanksjefens_%C3%A5rstale_2018_(190841).jpg",
+    "author": "Tore Sætre",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "origin": "Wikimedia Commons"
+   },
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "oystein-borsum",
+   "name": "Øystein Børsum",
+   "type": "person",
+   "sector": "offentlig",
+   "org": "norges-bank",
+   "role": "Visesentralbanksjef (SPU)",
+   "description": null,
+   "profile_url": "https://www.regjeringen.no/no/dep/fin/org/styrer-rad-og-utvalg-oppnevnt-av-finansdepartementet2/norges-banks-hovedstyre/id2577140/",
+   "sources": [
+    {
+     "url": "https://www.regjeringen.no/no/dep/fin/org/styrer-rad-og-utvalg-oppnevnt-av-finansdepartementet2/norges-banks-hovedstyre/id2577140/",
+     "title": "Regjeringen",
+     "source_name": "Regjeringen",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "torbjorn-haegeland",
+   "name": "Torbjørn Hægeland",
+   "type": "person",
+   "sector": "offentlig",
+   "org": "norges-bank",
+   "role": "Executive Director (avd. Financial Stability), Finansiell stabilitet",
+   "description": "DSP-utredning og tokeniseringstesting (konklusjon: ikke grunnlag for DSP nå). Navn og roller ifølge Norges Banks engelske organisasjonsside; den norske siden ble sist endret 10.06.2025",
+   "profile_url": "https://www.norges-bank.no/en/topics/about/Organisation/Financial-Stability/",
+   "sources": [
+    {
+     "url": "https://www.norges-bank.no/en/topics/about/Organisation/Financial-Stability/",
+     "title": "Norges Bank",
+     "source_name": "Norges Bank",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.norges-bank.no/tema/Om-Norges-Bank/Organisering-styring/Finansiell-stabilitet/",
+     "title": "Norges Bank",
+     "source_name": "Norges Bank",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": true,
+   "status": "published"
+  },
+  {
+   "id": "knut-sandal",
+   "name": "Knut Sandal",
+   "type": "person",
+   "sector": "offentlig",
+   "org": "norges-bank",
+   "role": "Director, Payment analysis and innovation, Finansiell stabilitet",
+   "description": "DSP-utredning og tokeniseringstesting (konklusjon: ikke grunnlag for DSP nå). Navn og roller ifølge Norges Banks engelske organisasjonsside; den norske siden ble sist endret 10.06.2025",
+   "profile_url": "https://www.norges-bank.no/en/topics/about/Organisation/Financial-Stability/",
+   "sources": [
+    {
+     "url": "https://www.norges-bank.no/en/topics/about/Organisation/Financial-Stability/",
+     "title": "Norges Bank",
+     "source_name": "Norges Bank",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.norges-bank.no/tema/Om-Norges-Bank/Organisering-styring/Finansiell-stabilitet/",
+     "title": "Norges Bank",
+     "source_name": "Norges Bank",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": true,
+   "status": "published"
+  },
+  {
+   "id": "skatteetaten",
+   "name": "Skatteetaten",
+   "type": "organisasjon",
+   "sector": "offentlig",
+   "group": "Tilsyn og etater",
+   "description": "Skatt på kryptogevinst og -formue; mottar CARF/DAC8-rapportering fra kryptotilbydere fra inntektsåret 2026. Nytt åremål fra 19.10.2026",
+   "sources": [
+    {
+     "url": "https://www.regjeringen.no/no/aktuelt/nina-schanke-funnemark-utnemnd-som-skattedirektor/id3160661/",
+     "title": "Regjeringen",
+     "source_name": "Regjeringen",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "nina-schanke-funnemark",
+   "name": "Nina Schanke Funnemark",
+   "type": "person",
+   "sector": "offentlig",
+   "org": "skatteetaten",
+   "role": "Skattedirektør",
+   "description": null,
+   "profile_url": "https://www.regjeringen.no/no/aktuelt/nina-schanke-funnemark-utnemnd-som-skattedirektor/id3160661/",
+   "sources": [
+    {
+     "url": "https://www.regjeringen.no/no/aktuelt/nina-schanke-funnemark-utnemnd-som-skattedirektor/id3160661/",
+     "title": "Regjeringen",
+     "source_name": "Regjeringen",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "okokrim",
+   "name": "Økokrim (inkl. Enheten for finansiell etterretning/FIU)",
+   "type": "organisasjon",
+   "sector": "offentlig",
+   "group": "Tilsyn og etater",
+   "description": "Etterforsker og påtaler alvorlig økonomisk kriminalitet, inkl. kryptosvindel. Har egen kryptovalutagruppe, og FIU mottar rapporter fra bl.a. kryptobørser – ifølge Økokrims årsrapport 2025 (publisert 13.05.2026), signert av Lønseth; også omtalt av Økonomi24 13.05.2026",
+   "sources": [
+    {
+     "url": "https://img8.custompublish.com/getfile.php/5491970.2528.wnkamapwmzsupp/%C3%98kokrim-%C3%A5rsrapport2025.pdf?return=www.okokrim.no",
+     "title": "Økokrim årsrapport 2025 (PDF)",
+     "source_name": "Økokrim årsrapport 2025 (PDF)",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://okokrim.custompublish.com/aarsrapporter.616105.no.html",
+     "title": "Økokrim",
+     "source_name": "Økokrim",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.okonomi24.com/nyheter/slik-skal-okokrim-bruke-450-millioner-pa-a-knekke-de-profesjonelle-bedragerne/129778",
+     "title": "Økonomi24",
+     "source_name": "Økonomi24",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": true,
+   "status": "published"
+  },
+  {
+   "id": "pal-k-lonseth",
+   "name": "Pål K. Lønseth",
+   "type": "person",
+   "sector": "offentlig",
+   "org": "okokrim",
+   "role": "Økokrim-sjef",
+   "description": "Etterforsker og påtaler alvorlig økonomisk kriminalitet, inkl. kryptosvindel. Har egen kryptovalutagruppe, og FIU mottar rapporter fra bl.a. kryptobørser – ifølge Økokrims årsrapport 2025 (publisert 13.05.2026), signert av Lønseth; også omtalt av Økonomi24 13.05.2026",
+   "profile_url": "https://img8.custompublish.com/getfile.php/5491970.2528.wnkamapwmzsupp/%C3%98kokrim-%C3%A5rsrapport2025.pdf?return=www.okokrim.no",
+   "sources": [
+    {
+     "url": "https://img8.custompublish.com/getfile.php/5491970.2528.wnkamapwmzsupp/%C3%98kokrim-%C3%A5rsrapport2025.pdf?return=www.okokrim.no",
+     "title": "Økokrim årsrapport 2025 (PDF)",
+     "source_name": "Økokrim årsrapport 2025 (PDF)",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://okokrim.custompublish.com/aarsrapporter.616105.no.html",
+     "title": "Økokrim",
+     "source_name": "Økokrim",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.okonomi24.com/nyheter/slik-skal-okokrim-bruke-450-millioner-pa-a-knekke-de-profesjonelle-bedragerne/129778",
+     "title": "Økonomi24",
+     "source_name": "Økonomi24",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": true,
+   "status": "published"
+  },
+  {
+   "id": "dfd",
+   "name": "Digitaliserings- og forvaltningsdepartementet",
+   "type": "organisasjon",
+   "sector": "offentlig",
+   "group": "Storting og regjering",
+   "description": "Datasenterpolitikk og ansvar for å utrede en statlig planbestemmelse med midlertidig, avgrenset forbud mot nye kraftkrevende kryptodatasentre – ikke vedtatt per 18.09.2026. Regjeringen skal svare ut anmodningsvedtak 81 og 526 i budsjettproposisjonen for 2027 (svar på Dok. 15:3707, 18.09.2026). Varslet stortingsmelding om datasentre (NRK 29.09.2026)",
+   "sources": [
+    {
+     "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Sporsmal/Skriftlige-sporsmal-og-svar/Skriftlig-sporsmal/?qnid=127181",
+     "title": "Stortinget",
+     "source_name": "Stortinget",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.nrk.no/vestfoldogtelemark/regjeringen-vil-stramme-inn-reglene-for-datasentre-i-norge-1.18040088",
+     "title": "NRK",
+     "source_name": "NRK",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "torgeir-micaelsen",
+   "name": "Torgeir Micaelsen",
+   "type": "person",
+   "sector": "offentlig",
+   "org": "dfd",
+   "role": "Digitaliserings- og forvaltningsminister (Ap)",
+   "description": null,
+   "profile_url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Sporsmal/Skriftlige-sporsmal-og-svar/Skriftlig-sporsmal/?qnid=127181",
+   "sources": [
+    {
+     "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Sporsmal/Skriftlige-sporsmal-og-svar/Skriftlig-sporsmal/?qnid=127181",
+     "title": "Stortinget",
+     "source_name": "Stortinget",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.nrk.no/vestfoldogtelemark/regjeringen-vil-stramme-inn-reglene-for-datasentre-i-norge-1.18040088",
+     "title": "NRK",
+     "source_name": "NRK",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": {
+    "file": "assets/img/people/torgeir-micaelsen.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Torgeir_Micaelsen_-_Arbeiderpartiet.jpg",
+    "author": "Arbeiderpartiet from Oslo, Norway",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "origin": "Wikimedia Commons"
+   },
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "energidepartementet",
+   "name": "Energidepartementet",
+   "type": "organisasjon",
+   "sector": "offentlig",
+   "group": "Storting og regjering",
+   "description": "Kraft og nettilknytning; medansvar for utredning av forbud mot kraftkrevende kryptoutvinning",
+   "sources": [
+    {
+     "url": "https://www.nrk.no/artikkel/opplysninger-til-nrk-store-endringer-i-store-regjeringen-1527579",
+     "title": "NRK",
+     "source_name": "NRK",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "terje-aasland",
+   "name": "Terje Aasland",
+   "type": "person",
+   "sector": "offentlig",
+   "org": "energidepartementet",
+   "role": "Energiminister (Ap)",
+   "description": null,
+   "profile_url": "https://www.nrk.no/artikkel/opplysninger-til-nrk-store-endringer-i-store-regjeringen-1527579",
+   "sources": [
+    {
+     "url": "https://www.nrk.no/artikkel/opplysninger-til-nrk-store-endringer-i-store-regjeringen-1527579",
+     "title": "NRK",
+     "source_name": "NRK",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": {
+    "file": "assets/img/people/terje-aasland.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Terje_Aasland,_2025_(cropped).jpg",
+    "author": "Mission of Norway to the EU",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "origin": "Wikimedia Commons"
+   },
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "nkom",
+   "name": "Nkom (Nasjonal kommunikasjonsmyndighet)",
+   "type": "organisasjon",
+   "sector": "offentlig",
+   "group": "Tilsyn og etater",
+   "description": "Fører register over og tilsyn med datasentre (datasenterforskriften), inkl. opplysning om kryptoutvinning",
+   "sources": [
+    {
+     "url": "https://nkom.no/om-nkom/organisering-ledelse-og-fagavdelinger",
+     "title": "Nkom",
+     "source_name": "Nkom",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "john-eivind-velure",
+   "name": "John-Eivind Velure",
+   "type": "person",
+   "sector": "offentlig",
+   "org": "nkom",
+   "role": "Direktør",
+   "description": null,
+   "profile_url": "https://nkom.no/om-nkom/organisering-ledelse-og-fagavdelinger",
+   "sources": [
+    {
+     "url": "https://nkom.no/om-nkom/organisering-ledelse-og-fagavdelinger",
+     "title": "Nkom",
+     "source_name": "Nkom",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "nve",
+   "name": "NVE",
+   "type": "organisasjon",
+   "sector": "offentlig",
+   "group": "Tilsyn og etater",
+   "description": "Regulerer nettselskaper og kraftmarked; indirekte betydning for nettilknytning av datasentre/kryptoutvinning",
+   "sources": [
+    {
+     "url": "https://www.nve.no/om-nve/dette-er-nve/ledelse/",
+     "title": "nve.no",
+     "source_name": "nve.no",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "kjetil-lund",
+   "name": "Kjetil Lund",
+   "type": "person",
+   "sector": "offentlig",
+   "org": "nve",
+   "role": "Vassdrags- og energidirektør",
+   "description": null,
+   "profile_url": "https://www.nve.no/om-nve/dette-er-nve/ledelse/",
+   "sources": [
+    {
+     "url": "https://www.nve.no/om-nve/dette-er-nve/ledelse/",
+     "title": "nve.no",
+     "source_name": "nve.no",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": {
+    "file": "assets/img/people/kjetil-lund.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Kjetil_Lund._Foto-_NVE_(cropped).jpg",
+    "author": "Kbug2023",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "origin": "Wikimedia Commons"
+   },
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "statnett",
+   "name": "Statnett",
+   "type": "organisasjon",
+   "sector": "offentlig",
+   "group": "Tilsyn og etater",
+   "description": "Systemansvarlig TSO; kapasitetskø og tilknytning i transmisjonsnettet – indirekte betydning for store datasentre",
+   "sources": [
+    {
+     "url": "https://www.statnett.no/om-statnett/bli-bedre-kjent-med-statnett/ledelsen-i-statnett/",
+     "title": "statnett.no",
+     "source_name": "statnett.no",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "elisabeth-vike-vardheim",
+   "name": "Elisabeth Vike Vardheim",
+   "type": "person",
+   "sector": "offentlig",
+   "org": "statnett",
+   "role": "Konsernsjef",
+   "description": null,
+   "profile_url": "https://www.statnett.no/om-statnett/bli-bedre-kjent-med-statnett/ledelsen-i-statnett/",
+   "sources": [
+    {
+     "url": "https://www.statnett.no/om-statnett/bli-bedre-kjent-med-statnett/ledelsen-i-statnett/",
+     "title": "statnett.no",
+     "source_name": "statnett.no",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "esma",
+   "name": "ESMA (EU)",
+   "type": "organisasjon",
+   "sector": "offentlig",
+   "group": "EU",
+   "description": "Chair: Verena Ross (Carlo Comporti godkjent av EP fra 1.11.2026, avventer Rådet). MiCA nivå 2/3-regler, ESMA-register, konvergens; Finanstilsynet deltar som EØS-observatør",
+   "sources": [
+    {
+     "url": "https://www.esma.europa.eu/about-esma/governance-structure/senior-management",
+     "title": "ESMA",
+     "source_name": "ESMA",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "eba",
+   "name": "EBA (EU)",
+   "type": "organisasjon",
+   "sector": "offentlig",
+   "group": "EU",
+   "description": "Regler for e-pengetokens/eiendelsbaserte tokens (ART/EMT) og AML-standarder",
+   "sources": [
+    {
+     "url": "https://www.eba.europa.eu/publications-and-media/press-releases/francois-louis-michaud-take-his-role-chair-european-banking-authority",
+     "title": "EBA",
+     "source_name": "EBA",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "francois-louis-michaud",
+   "name": "François-Louis Michaud",
+   "type": "person",
+   "sector": "offentlig",
+   "org": "eba",
+   "role": "Chairperson (fra 16.04.2026)",
+   "description": null,
+   "profile_url": "https://www.eba.europa.eu/publications-and-media/press-releases/francois-louis-michaud-take-his-role-chair-european-banking-authority",
+   "sources": [
+    {
+     "url": "https://www.eba.europa.eu/publications-and-media/press-releases/francois-louis-michaud-take-his-role-chair-european-banking-authority",
+     "title": "EBA",
+     "source_name": "EBA",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "kryptoeiendelsloven",
+   "name": "Kryptoeiendelsloven (MiCA i norsk rett)",
+   "type": "organisasjon",
+   "sector": "offentlig",
+   "group": "Regelverk",
+   "description": "MiCA (EU) 2023/1114 gjelder som norsk lov fra 01.07.2025; overgangsordning for registrerte VASP-er til 30.12.2025 / frem til tillatelse",
+   "sources": [
+    {
+     "url": "https://lovdata.no/dokument/NL/lov/2025-05-27-20",
+     "title": "Lovdata",
+     "source_name": "Lovdata",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "firi",
+   "name": "Firi",
+   "type": "organisasjon",
+   "sector": "privat",
+   "group": "Børser/meglere",
+   "description": "CASP-tillatelse (art. 63) fra 22.05.2026: handelsplattform, oppbevaring, veksling, ordreutførelse og overføring (Finanstilsynet). Har også e-pengeforetakstillatelse fra 03.06.2024 (Finanstilsynets register). Ca. 417 000 kunder og lansering i Sverige sept. 2026 – ifølge Shifter 15.09.2026",
+   "sources": [
+    {
+     "url": "https://www.finanstilsynet.no/nyhetsarkiv/nyheter/2026/firi-as-far-tillatelse-som-casp-foretak/",
+     "title": "Finanstilsynet",
+     "source_name": "Finanstilsynet",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://firi.com/press/press-contacts",
+     "title": "Firi",
+     "source_name": "Firi",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.shifter.no/nyheter/firi-lanserer-i-sverige-etter-permitteringer-og-milliontap/475990",
+     "title": "Shifter",
+     "source_name": "Shifter",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": true,
+   "status": "published"
+  },
+  {
+   "id": "thuc-tuan-hoang",
+   "name": "Thuc Tuan Hoang",
+   "type": "person",
+   "sector": "privat",
+   "org": "firi",
+   "role": "Daglig leder / medgründer",
+   "description": "CASP-tillatelse (art. 63) fra 22.05.2026: handelsplattform, oppbevaring, veksling, ordreutførelse og overføring (Finanstilsynet). Har også e-pengeforetakstillatelse fra 03.06.2024 (Finanstilsynets register). Ca. 417 000 kunder og lansering i Sverige sept. 2026 – ifølge Shifter 15.09.2026",
+   "profile_url": "https://www.finanstilsynet.no/nyhetsarkiv/nyheter/2026/firi-as-far-tillatelse-som-casp-foretak/",
+   "sources": [
+    {
+     "url": "https://www.finanstilsynet.no/nyhetsarkiv/nyheter/2026/firi-as-far-tillatelse-som-casp-foretak/",
+     "title": "Finanstilsynet",
+     "source_name": "Finanstilsynet",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://firi.com/press/press-contacts",
+     "title": "Firi",
+     "source_name": "Firi",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.shifter.no/nyheter/firi-lanserer-i-sverige-etter-permitteringer-og-milliontap/475990",
+     "title": "Shifter",
+     "source_name": "Shifter",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": true,
+   "status": "published"
+  },
+  {
+   "id": "nbx",
+   "name": "NBX (Norwegian Block Exchange)",
+   "type": "organisasjon",
+   "sector": "privat",
+   "group": "Børser/meglere",
+   "description": "CASP-tillatelse registrert 29.06.2026 (7 tjenester) + e-pengeforetak (22.01.2024), ifølge Finanstilsynets register. Notert på Euronext Growth; styreleder Nils Kristian Sundling Ca. 24 BTC per 30.06.2026 og 28 BTC per aug. 2026, ifølge NBX' halvårsrapport H1 2026 (18.09.2026)",
+   "sources": [
+    {
+     "url": "https://nbx.com/en/investor",
+     "title": "NBX",
+     "source_name": "NBX",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.finanstilsynet.no/en/finanstilsynets-registry/details/?id=201280",
+     "title": "Finanstilsynet",
+     "source_name": "Finanstilsynet",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://api3.oslo.oslobors.no/v1/newsreader/attachment?messageId=682725&attachmentId=333610",
+     "title": "Oslo Børs NewsWeb (vedlegg)",
+     "source_name": "Oslo Børs NewsWeb (vedlegg)",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://newsweb.oslobors.no/message/682725",
+     "title": "Oslo Børs NewsWeb",
+     "source_name": "Oslo Børs NewsWeb",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "stig-aleksander-kjos-mathisen",
+   "name": "Stig Aleksander Kjos-Mathisen",
+   "type": "person",
+   "sector": "privat",
+   "org": "nbx",
+   "role": "CEO",
+   "description": null,
+   "profile_url": "https://nbx.com/en/investor",
+   "sources": [
+    {
+     "url": "https://nbx.com/en/investor",
+     "title": "NBX",
+     "source_name": "NBX",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.finanstilsynet.no/en/finanstilsynets-registry/details/?id=201280",
+     "title": "Finanstilsynet",
+     "source_name": "Finanstilsynet",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "k33",
+   "name": "K33",
+   "type": "organisasjon",
+   "sector": "privat",
+   "group": "Børser/meglere",
+   "description": "CASP-tillatelse registrert 16.06.2026 (Finanstilsynets register): oppbevaring, ordreutførelse og overføring; passporterer i EØS",
+   "sources": [
+    {
+     "url": "https://storage.mfn.se/262d2b97-3b03-48c6-a4d8-4844e976ec9f/k33-receives-mica-authorization.pdf",
+     "title": "K33 børsmelding (MFN)",
+     "source_name": "K33 børsmelding (MFN)",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "torbjorn-bull-jenssen",
+   "name": "Torbjørn Bull Jenssen",
+   "type": "person",
+   "sector": "privat",
+   "org": "k33",
+   "role": "CEO K33",
+   "description": null,
+   "profile_url": "https://storage.mfn.se/262d2b97-3b03-48c6-a4d8-4844e976ec9f/k33-receives-mica-authorization.pdf",
+   "sources": [
+    {
+     "url": "https://storage.mfn.se/262d2b97-3b03-48c6-a4d8-4844e976ec9f/k33-receives-mica-authorization.pdf",
+     "title": "K33 børsmelding (MFN)",
+     "source_name": "K33 børsmelding (MFN)",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "bare-bitcoin",
+   "name": "Bare Bitcoin",
+   "type": "organisasjon",
+   "sector": "privat",
+   "group": "Børser/meglere",
+   "description": "CASP-tillatelse registrert 26.06.2026 (Finanstilsynets register): oppbevaring, veksling og overføring – kun bitcoin. Rogstad er medgründer ifølge Shifter 19.07.2026",
+   "sources": [
+    {
+     "url": "https://barebitcoin.no/innsikt/nyheter/2026-06-26-bare-bitcoin-har-mica",
+     "title": "Bare Bitcoin",
+     "source_name": "Bare Bitcoin",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.shifter.no/nyheter/fikk-krypto-konsesjon-like-for-fristen-vi-kunne-ikke-bygget-bedriften-pa-samme-mate-med-dagens-regelverk/414295",
+     "title": "Shifter",
+     "source_name": "Shifter",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": true,
+   "status": "published"
+  },
+  {
+   "id": "torkel-rogstad",
+   "name": "Torkel Rogstad",
+   "type": "person",
+   "sector": "privat",
+   "org": "bare-bitcoin",
+   "role": "Medgründer",
+   "description": "CASP-tillatelse registrert 26.06.2026 (Finanstilsynets register): oppbevaring, veksling og overføring – kun bitcoin. Rogstad er medgründer ifølge Shifter 19.07.2026",
+   "profile_url": "https://barebitcoin.no/innsikt/nyheter/2026-06-26-bare-bitcoin-har-mica",
+   "sources": [
+    {
+     "url": "https://barebitcoin.no/innsikt/nyheter/2026-06-26-bare-bitcoin-har-mica",
+     "title": "Bare Bitcoin",
+     "source_name": "Bare Bitcoin",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.shifter.no/nyheter/fikk-krypto-konsesjon-like-for-fristen-vi-kunne-ikke-bygget-bedriften-pa-samme-mate-med-dagens-regelverk/414295",
+     "title": "Shifter",
+     "source_name": "Shifter",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": true,
+   "status": "published"
+  },
+  {
+   "id": "tyr-markets",
+   "name": "Týr Markets",
+   "type": "organisasjon",
+   "sector": "privat",
+   "group": "Børser/meglere",
+   "description": "Første vekslingsplattform med CASP-tillatelse (18.05.2026): oppbevaring, veksling og overføring",
+   "sources": [
+    {
+     "url": "https://www.finanstilsynet.no/nyhetsarkiv/nyheter/2026/tyr-markets-as-far-tillatelse-som-casp-foretak/",
+     "title": "Finanstilsynet",
+     "source_name": "Finanstilsynet",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://kommunikasjon.ntb.no/pressemelding/18916374/tyr-markets-er-tildelt-norges-forste-mica-lisens-etter-artikkel-63?lang=no&publisherId=17850436",
+     "title": "NTB Kommunikasjon",
+     "source_name": "NTB Kommunikasjon",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "filip-berg-nielsen",
+   "name": "Filip Berg-Nielsen",
+   "type": "person",
+   "sector": "privat",
+   "org": "tyr-markets",
+   "role": "CEO",
+   "description": null,
+   "profile_url": "https://www.finanstilsynet.no/nyhetsarkiv/nyheter/2026/tyr-markets-as-far-tillatelse-som-casp-foretak/",
+   "sources": [
+    {
+     "url": "https://www.finanstilsynet.no/nyhetsarkiv/nyheter/2026/tyr-markets-as-far-tillatelse-som-casp-foretak/",
+     "title": "Finanstilsynet",
+     "source_name": "Finanstilsynet",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://kommunikasjon.ntb.no/pressemelding/18916374/tyr-markets-er-tildelt-norges-forste-mica-lisens-etter-artikkel-63?lang=no&publisherId=17850436",
+     "title": "NTB Kommunikasjon",
+     "source_name": "NTB Kommunikasjon",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "ak-jensen-norway",
+   "name": "AK Jensen Norway",
+   "type": "organisasjon",
+   "sector": "privat",
+   "group": "Børser/meglere",
+   "description": "Verdipapirforetak (siden 26.02.2021) med CASP-tjenestene g (mottak/formidling av ordrer) og i (porteføljeforvaltning), registrert 02.02.2026 – ifølge Finanstilsynets register. Ikke en tidligere vekslings-/oppbevaringstjeneste",
+   "sources": [
+    {
+     "url": "https://www.finanstilsynet.no/virksomhetsregisteret/detalj/?id=213970",
+     "title": "Finanstilsynet",
+     "source_name": "Finanstilsynet",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://data.brreg.no/enhetsregisteret/api/enheter/925510246/roller",
+     "title": "data.brreg.no",
+     "source_name": "data.brreg.no",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "johan-lennart-stiegler",
+   "name": "Johan Lennart Stiegler",
+   "type": "person",
+   "sector": "privat",
+   "org": "ak-jensen-norway",
+   "role": "Daglig leder",
+   "description": null,
+   "profile_url": "https://www.finanstilsynet.no/virksomhetsregisteret/detalj/?id=213970",
+   "sources": [
+    {
+     "url": "https://www.finanstilsynet.no/virksomhetsregisteret/detalj/?id=213970",
+     "title": "Finanstilsynet",
+     "source_name": "Finanstilsynet",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://data.brreg.no/enhetsregisteret/api/enheter/925510246/roller",
+     "title": "data.brreg.no",
+     "source_name": "data.brreg.no",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "anders-kvamme-jensen",
+   "name": "Anders Kvamme Jensen",
+   "type": "person",
+   "sector": "privat",
+   "org": "ak-jensen-norway",
+   "role": "Styreleder",
+   "description": null,
+   "profile_url": "https://www.finanstilsynet.no/virksomhetsregisteret/detalj/?id=213970",
+   "sources": [
+    {
+     "url": "https://www.finanstilsynet.no/virksomhetsregisteret/detalj/?id=213970",
+     "title": "Finanstilsynet",
+     "source_name": "Finanstilsynet",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://data.brreg.no/enhetsregisteret/api/enheter/925510246/roller",
+     "title": "data.brreg.no",
+     "source_name": "data.brreg.no",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "nedlagte-vekslere-2026",
+   "name": "Nedlagte vekslere 2026",
+   "type": "organisasjon",
+   "sector": "privat",
+   "group": "Børser/meglere",
+   "description": "Bitmynt, JuJu og Bitcoin Norway avsluttet rundt MiCA-fristen, ifølge Shifter 19.07.2026. JuJus kunder gikk til NBX, noe som bekreftes i NBX' halvårsrapport (oppkjøp av kundebasen fullført 30.06.2026, over 4 000 kunder). Bitcoin Norways kunder gikk til Týr",
+   "sources": [
+    {
+     "url": "https://www.shifter.no/nyheter/fikk-krypto-konsesjon-like-for-fristen-vi-kunne-ikke-bygget-bedriften-pa-samme-mate-med-dagens-regelverk/414295",
+     "title": "Shifter",
+     "source_name": "Shifter",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://api3.oslo.oslobors.no/v1/newsreader/attachment?messageId=682725&attachmentId=333610",
+     "title": "Oslo Børs NewsWeb (vedlegg)",
+     "source_name": "Oslo Børs NewsWeb (vedlegg)",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": true,
+   "status": "published"
+  },
+  {
+   "id": "dnb",
+   "name": "DNB",
+   "type": "organisasjon",
+   "sector": "privat",
+   "group": "Banker",
+   "description": "Tilbyr krypto-ETP-er, ikke spothandel, og kryptofondet ble satt på pause høsten 2025 – ifølge BankShift 17.11.2025. Ble med i bankenes testnettverk CBMT for tokeniserte innskudd i kroner – ifølge Kaupr 16.09.2026. Står utenfor Qivalis – ifølge Kaupr",
+   "sources": [
+    {
+     "url": "https://www.bankshift.no/nyheter/dnb-om-token-okonomien-vi-er-ikke-drevet-av-frykt-for-a-miste-kunder-men-av-a-vaere-relevante/437638",
+     "title": "BankShift",
+     "source_name": "BankShift",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.kaupr.io/en/news/dnb-tests-tokenised-deposits-in-kroner-with-european-banks",
+     "title": "Kaupr",
+     "source_name": "Kaupr",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": true,
+   "status": "published"
+  },
+  {
+   "id": "ole-morten-sunde",
+   "name": "Ole Morten Sunde",
+   "type": "person",
+   "sector": "privat",
+   "org": "dnb",
+   "role": "Leder for fremvoksende produkter (Emerging Business)",
+   "description": "Tilbyr krypto-ETP-er, ikke spothandel, og kryptofondet ble satt på pause høsten 2025 – ifølge BankShift 17.11.2025. Ble med i bankenes testnettverk CBMT for tokeniserte innskudd i kroner – ifølge Kaupr 16.09.2026. Står utenfor Qivalis – ifølge Kaupr",
+   "profile_url": "https://www.bankshift.no/nyheter/dnb-om-token-okonomien-vi-er-ikke-drevet-av-frykt-for-a-miste-kunder-men-av-a-vaere-relevante/437638",
+   "sources": [
+    {
+     "url": "https://www.bankshift.no/nyheter/dnb-om-token-okonomien-vi-er-ikke-drevet-av-frykt-for-a-miste-kunder-men-av-a-vaere-relevante/437638",
+     "title": "BankShift",
+     "source_name": "BankShift",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.kaupr.io/en/news/dnb-tests-tokenised-deposits-in-kroner-with-european-banks",
+     "title": "Kaupr",
+     "source_name": "Kaupr",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": true,
+   "status": "published"
+  },
+  {
+   "id": "norges-bank-tokenisering",
+   "name": "Norges Banks tokeniseringsnettverk",
+   "type": "organisasjon",
+   "sector": "privat",
+   "group": "Banker",
+   "description": "DNB Carnegie, DNB, Kommunalbanken, Citi, Lokalbank, SpareBank 1, Bits, KLP, Eika, Euronext, Nordea, SEB. Navngitt av Norges Bank i eget LinkedIn-innlegg 07.09.2026 som aktører i utforskning av tokenisering, ifølge Kaupr 08.09.2026. Ikke publisert på norges-bank.no",
+   "sources": [
+    {
+     "url": "https://no.linkedin.com/posts/norges-bank_utforskning-av-tokenisering-activity-7502636337737486337-3vbG",
+     "title": "LinkedIn (Norges Bank)",
+     "source_name": "LinkedIn (Norges Bank)",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.kaupr.io/en/news/norges-bank-names-twelve-in-its-tokenisation-work",
+     "title": "Kaupr",
+     "source_name": "Kaupr",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": true,
+   "status": "published"
+  },
+  {
+   "id": "sparebank-1-bankene",
+   "name": "SpareBank 1-bankene",
+   "type": "organisasjon",
+   "sector": "privat",
+   "group": "Banker",
+   "description": "Strenge dokumentasjons- og AML-krav ved innskudd fra kryptoplattformer, ifølge SpareBank 1 Sogn og Fjordanes nettside. Ingen integrert kryptotjeneste er bekreftet",
+   "sources": [
+    {
+     "url": "https://www.sparebank1.no/nn/sogn-fjordane/privat/info/sammen-forebygger-vi-hvitvasking/handel-med-krypto-og-virtuell-valuta.html",
+     "title": "SpareBank 1",
+     "source_name": "SpareBank 1",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": true,
+   "status": "published"
+  },
+  {
+   "id": "nkom-kryptoutvinnere",
+   "name": "Kryptoutvinnere i Nkom-registeret",
+   "type": "organisasjon",
+   "sector": "privat",
+   "group": "Utvinning/datasentre",
+   "description": "Troll Housing AS (97 %), Thermaltech AS (100 %), Exanorth AS (100 %), Currency Edge AS (100 %), Arctic Flux AS (95 %), Bluebite GmbH (55 %), Bluefjords AS (14 %), Nordic Blocks AS (1 %). To tall med ulik telleenhet: (1) Nkoms liste 03.10.2026 – 8 av 60 kommersielle datasenteroperatører oppgir kryptoutvinning (virksomhetsinterne publiseres ikke). (2) Statsrådens svar 18.09.2026 (Dok. 15:3707) – «registrert 9 datasentre som driver med kryptoutvinning»",
+   "sources": [
+    {
+     "url": "https://nkom.no/datasenter/oversikt",
+     "title": "Nkom",
+     "source_name": "Nkom",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Sporsmal/Skriftlige-sporsmal-og-svar/Skriftlig-sporsmal/?qnid=127181",
+     "title": "Stortinget",
+     "source_name": "Stortinget",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "tydal-data-center",
+   "name": "Tydal Data Center (Bitdeer)",
+   "type": "organisasjon",
+   "sector": "privat",
+   "group": "Utvinning/datasentre",
+   "description": "Bitdeers norske campus i Tydal omstilles til KI/HPC (121 IT-MW-leie, aug. 2026); oppført uten kryptoutvinning hos Nkom",
+   "sources": [
+    {
+     "url": "https://www.globenewswire.com/news-release/2026/08/04/3338255/0/en/bitdeer-announces-4-7-billion-16-year-ai-hpc-data-center-lease-for-tydal-norway-campus.html",
+     "title": "GlobeNewswire",
+     "source_name": "GlobeNewswire",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "haakon-bryhni",
+   "name": "Haakon Bryhni",
+   "type": "person",
+   "sector": "privat",
+   "org": "tydal-data-center",
+   "role": "Styreleder",
+   "description": null,
+   "profile_url": "https://www.globenewswire.com/news-release/2026/08/04/3338255/0/en/bitdeer-announces-4-7-billion-16-year-ai-hpc-data-center-lease-for-tydal-norway-campus.html",
+   "sources": [
+    {
+     "url": "https://www.globenewswire.com/news-release/2026/08/04/3338255/0/en/bitdeer-announces-4-7-billion-16-year-ai-hpc-data-center-lease-for-tydal-norway-campus.html",
+     "title": "GlobeNewswire",
+     "source_name": "GlobeNewswire",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "seetee",
+   "name": "Seetee",
+   "type": "organisasjon",
+   "sector": "privat",
+   "group": "Investorer/fond",
+   "description": "Aker-selskap med bitcoin som kasseaktiva som investerer i bitcoin-økosystemet, ifølge seetee.io. Røkke omtales der som grunnlegger",
+   "sources": [
+    {
+     "url": "https://www.seetee.io/",
+     "title": "Seetee",
+     "source_name": "Seetee",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": true,
+   "status": "published"
+  },
+  {
+   "id": "kjell-inge-rokke",
+   "name": "Kjell Inge Røkke",
+   "type": "person",
+   "sector": "privat",
+   "org": "seetee",
+   "role": "Grunnlegger",
+   "description": "Aker-selskap med bitcoin som kasseaktiva som investerer i bitcoin-økosystemet, ifølge seetee.io. Røkke omtales der som grunnlegger",
+   "profile_url": "https://www.seetee.io/",
+   "sources": [
+    {
+     "url": "https://www.seetee.io/",
+     "title": "Seetee",
+     "source_name": "Seetee",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": true,
+   "status": "published"
+  },
+  {
+   "id": "schibsted-ventures",
+   "name": "Schibsted Ventures",
+   "type": "organisasjon",
+   "sector": "privat",
+   "group": "Investorer/fond",
+   "description": "Ledet Firis emisjon på 60 mill. kr 07.01.2022, ifølge Shifter 15.09.2026",
+   "sources": [
+    {
+     "url": "https://www.shifter.no/nyheter/firi-lanserer-i-sverige-etter-permitteringer-og-milliontap/475990",
+     "title": "Shifter",
+     "source_name": "Shifter",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": true,
+   "status": "published"
+  },
+  {
+   "id": "the-mint",
+   "name": "The Mint",
+   "type": "organisasjon",
+   "sector": "privat",
+   "group": "Selskaper/startups",
+   "description": "Tokenisering av edelstener. GRNC, et eiendelsreferert token som handles på NBX, er «Europas første MiCA-registrerte ART» ifølge The Mint (pressemelding gjengitt av Kaupr 10.10.2025). Navn og roller ifølge Brønnøysundregistrene",
+   "sources": [
+    {
+     "url": "https://data.brreg.no/enhetsregisteret/api/enheter/831163232/roller",
+     "title": "data.brreg.no",
+     "source_name": "data.brreg.no",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.kaupr.io/nyheter/the-mint-as-lanserer-europas-forste-mica-registrerte-eiendelsrefererte-token",
+     "title": "Kaupr",
+     "source_name": "Kaupr",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": true,
+   "status": "published"
+  },
+  {
+   "id": "dag-tore-aam",
+   "name": "Dag Tore Aam",
+   "type": "person",
+   "sector": "privat",
+   "org": "the-mint",
+   "role": "Daglig leder",
+   "description": "Tokenisering av edelstener. GRNC, et eiendelsreferert token som handles på NBX, er «Europas første MiCA-registrerte ART» ifølge The Mint (pressemelding gjengitt av Kaupr 10.10.2025). Navn og roller ifølge Brønnøysundregistrene",
+   "profile_url": "https://data.brreg.no/enhetsregisteret/api/enheter/831163232/roller",
+   "sources": [
+    {
+     "url": "https://data.brreg.no/enhetsregisteret/api/enheter/831163232/roller",
+     "title": "data.brreg.no",
+     "source_name": "data.brreg.no",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.kaupr.io/nyheter/the-mint-as-lanserer-europas-forste-mica-registrerte-eiendelsrefererte-token",
+     "title": "Kaupr",
+     "source_name": "Kaupr",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": true,
+   "status": "published"
+  },
+  {
+   "id": "tord-johan-eide",
+   "name": "Tord Johan Eide",
+   "type": "person",
+   "sector": "privat",
+   "org": "the-mint",
+   "role": "Styreleder",
+   "description": "Tokenisering av edelstener. GRNC, et eiendelsreferert token som handles på NBX, er «Europas første MiCA-registrerte ART» ifølge The Mint (pressemelding gjengitt av Kaupr 10.10.2025). Navn og roller ifølge Brønnøysundregistrene",
+   "profile_url": "https://data.brreg.no/enhetsregisteret/api/enheter/831163232/roller",
+   "sources": [
+    {
+     "url": "https://data.brreg.no/enhetsregisteret/api/enheter/831163232/roller",
+     "title": "data.brreg.no",
+     "source_name": "data.brreg.no",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.kaupr.io/nyheter/the-mint-as-lanserer-europas-forste-mica-registrerte-eiendelsrefererte-token",
+     "title": "Kaupr",
+     "source_name": "Kaupr",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": true,
+   "status": "published"
+  },
+  {
+   "id": "bpi",
+   "name": "Bitcoinpolitisk institutt Norge",
+   "type": "organisasjon",
+   "sector": "privat",
+   "group": "Organisasjoner",
+   "description": "Interesseorganisasjon; dialog med stortingspolitikere om bitcoinpolitikk",
+   "sources": [
+    {
+     "url": "https://bpinorge.no/blog/ny-styreleder-vil-gi-bitcoin-en-tydeligere-stemme-i-norge/",
+     "title": "Bitcoinpolitisk institutt",
+     "source_name": "Bitcoinpolitisk institutt",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "hakon-sandbakken",
+   "name": "Håkon Sandbakken",
+   "type": "person",
+   "sector": "privat",
+   "org": "bpi",
+   "role": "Styreleder (fra juni 2026)",
+   "description": null,
+   "profile_url": "https://bpinorge.no/blog/ny-styreleder-vil-gi-bitcoin-en-tydeligere-stemme-i-norge/",
+   "sources": [
+    {
+     "url": "https://bpinorge.no/blog/ny-styreleder-vil-gi-bitcoin-en-tydeligere-stemme-i-norge/",
+     "title": "Bitcoinpolitisk institutt",
+     "source_name": "Bitcoinpolitisk institutt",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "finans-norge",
+   "name": "Finans Norge",
+   "type": "organisasjon",
+   "sector": "privat",
+   "group": "Organisasjoner",
+   "description": "Bankenes og finansnæringens interesseorganisasjon; høringsinnspill om finansregulering",
+   "sources": [
+    {
+     "url": "https://www.finansnorge.no/om-finans-norge/finans-norges-ledergruppe/",
+     "title": "Finans Norge",
+     "source_name": "Finans Norge",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "kari-olrud-moen",
+   "name": "Kari Olrud Moen",
+   "type": "person",
+   "sector": "privat",
+   "org": "finans-norge",
+   "role": "Administrerende direktør",
+   "description": null,
+   "profile_url": "https://www.finansnorge.no/om-finans-norge/finans-norges-ledergruppe/",
+   "sources": [
+    {
+     "url": "https://www.finansnorge.no/om-finans-norge/finans-norges-ledergruppe/",
+     "title": "Finans Norge",
+     "source_name": "Finans Norge",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "tom-hoiberg",
+   "name": "Tom Høiberg",
+   "type": "person",
+   "sector": "privat",
+   "org": "finans-norge",
+   "role": "Direktør digitalisering og betaling",
+   "description": null,
+   "profile_url": "https://www.finansnorge.no/om-finans-norge/finans-norges-ledergruppe/",
+   "sources": [
+    {
+     "url": "https://www.finansnorge.no/om-finans-norge/finans-norges-ledergruppe/",
+     "title": "Finans Norge",
+     "source_name": "Finans Norge",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "nordic-blockchain-association",
+   "name": "Nordic Blockchain Association",
+   "type": "organisasjon",
+   "sector": "privat",
+   "group": "Organisasjoner",
+   "description": "Nordisk bransjeforening (dansk) med dialog med de nordiske finanstilsynene. Holdt lukket rundebord i Oslo 08.09.2026 (Kaupr). Navn og roller ifølge foreningens egen nettside",
+   "sources": [
+    {
+     "url": "https://nordicblockchain.com/about-us",
+     "title": "nordicblockchain.com",
+     "source_name": "nordicblockchain.com",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.nordicblockchain.com/our-activities/steering-committees",
+     "title": "nordicblockchain.com",
+     "source_name": "nordicblockchain.com",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.kaupr.io/dk/nyheder/norges-bank-utforsker-tokenisering-med-tolv-aktorer",
+     "title": "Kaupr",
+     "source_name": "Kaupr",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": true,
+   "status": "published"
+  },
+  {
+   "id": "jakob-mikkel-hansen",
+   "name": "Jakob Mikkel Hansen",
+   "type": "person",
+   "sector": "privat",
+   "org": "nordic-blockchain-association",
+   "role": "CEO og styremedlem",
+   "description": "Nordisk bransjeforening (dansk) med dialog med de nordiske finanstilsynene. Holdt lukket rundebord i Oslo 08.09.2026 (Kaupr). Navn og roller ifølge foreningens egen nettside",
+   "profile_url": "https://nordicblockchain.com/about-us",
+   "sources": [
+    {
+     "url": "https://nordicblockchain.com/about-us",
+     "title": "nordicblockchain.com",
+     "source_name": "nordicblockchain.com",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.nordicblockchain.com/our-activities/steering-committees",
+     "title": "nordicblockchain.com",
+     "source_name": "nordicblockchain.com",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.kaupr.io/dk/nyheder/norges-bank-utforsker-tokenisering-med-tolv-aktorer",
+     "title": "Kaupr",
+     "source_name": "Kaupr",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": true,
+   "status": "published"
+  },
+  {
+   "id": "lennart-kirk",
+   "name": "Lennart Kirk",
+   "type": "person",
+   "sector": "privat",
+   "org": "nordic-blockchain-association",
+   "role": "Styreleder og medgründer",
+   "description": "Nordisk bransjeforening (dansk) med dialog med de nordiske finanstilsynene. Holdt lukket rundebord i Oslo 08.09.2026 (Kaupr). Navn og roller ifølge foreningens egen nettside",
+   "profile_url": "https://nordicblockchain.com/about-us",
+   "sources": [
+    {
+     "url": "https://nordicblockchain.com/about-us",
+     "title": "nordicblockchain.com",
+     "source_name": "nordicblockchain.com",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.nordicblockchain.com/our-activities/steering-committees",
+     "title": "nordicblockchain.com",
+     "source_name": "nordicblockchain.com",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.kaupr.io/dk/nyheder/norges-bank-utforsker-tokenisering-med-tolv-aktorer",
+     "title": "Kaupr",
+     "source_name": "Kaupr",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": true,
+   "status": "published"
+  },
+  {
+   "id": "magnus-jones",
+   "name": "Magnus Jones",
+   "type": "person",
+   "sector": "privat",
+   "org": "nordic-blockchain-association",
+   "role": "Styremedlem Norge",
+   "description": "Nordisk bransjeforening (dansk) med dialog med de nordiske finanstilsynene. Holdt lukket rundebord i Oslo 08.09.2026 (Kaupr). Navn og roller ifølge foreningens egen nettside",
+   "profile_url": "https://nordicblockchain.com/about-us",
+   "sources": [
+    {
+     "url": "https://nordicblockchain.com/about-us",
+     "title": "nordicblockchain.com",
+     "source_name": "nordicblockchain.com",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.nordicblockchain.com/our-activities/steering-committees",
+     "title": "nordicblockchain.com",
+     "source_name": "nordicblockchain.com",
+     "date": "03.10.2026"
+    },
+    {
+     "url": "https://www.kaupr.io/dk/nyheder/norges-bank-utforsker-tokenisering-med-tolv-aktorer",
+     "title": "Kaupr",
+     "source_name": "Kaupr",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": true,
+   "status": "published"
+  },
+  {
+   "id": "fintech-norway",
+   "name": "Fintech Norway",
+   "type": "organisasjon",
+   "sector": "privat",
+   "group": "Organisasjoner",
+   "description": "Bransjeforening for fintech; ingen dokumentert særskilt kryptorolle",
+   "sources": [
+    {
+     "url": "https://data.brreg.no/enhetsregisteret/api/enheter/926447424/roller",
+     "title": "data.brreg.no",
+     "source_name": "data.brreg.no",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "daniel-isdal-furset",
+   "name": "Daniel Isdal Furset",
+   "type": "person",
+   "sector": "privat",
+   "org": "fintech-norway",
+   "role": "Daglig leder",
+   "description": null,
+   "profile_url": "https://data.brreg.no/enhetsregisteret/api/enheter/926447424/roller",
+   "sources": [
+    {
+     "url": "https://data.brreg.no/enhetsregisteret/api/enheter/926447424/roller",
+     "title": "data.brreg.no",
+     "source_name": "data.brreg.no",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "alf-gunnar-skjerdal-andersen",
+   "name": "Alf Gunnar Skjerdal Andersen",
+   "type": "person",
+   "sector": "privat",
+   "org": "fintech-norway",
+   "role": "Styreleder",
+   "description": null,
+   "profile_url": "https://data.brreg.no/enhetsregisteret/api/enheter/926447424/roller",
+   "sources": [
+    {
+     "url": "https://data.brreg.no/enhetsregisteret/api/enheter/926447424/roller",
+     "title": "data.brreg.no",
+     "source_name": "data.brreg.no",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "shifter",
+   "name": "Shifter / BankShift (Shifter Media)",
+   "type": "organisasjon",
+   "sector": "privat",
+   "group": "Medier",
+   "description": "Tett dekning av Firi, Bare Bitcoin, DNB og MiCA-konsesjoner",
+   "sources": [
+    {
+     "url": "https://www.shifter.no/nyheter/firi-lanserer-i-sverige-etter-permitteringer-og-milliontap/475990",
+     "title": "Shifter",
+     "source_name": "Shifter",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "kaupr",
+   "name": "Kaupr",
+   "type": "organisasjon",
+   "sector": "privat",
+   "group": "Medier",
+   "description": "Nisjemedium for digitale eiendeler, tokenisering og MiCA i Norden",
+   "sources": [
+    {
+     "url": "https://www.kaupr.io/dk/nyheder/norges-bank-utforsker-tokenisering-med-tolv-aktorer",
+     "title": "Kaupr",
+     "source_name": "Kaupr",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "finanswatch-e24-dn-finansavisen-okonomi24",
+   "name": "Finanswatch, E24, DN, Finansavisen, Økonomi24",
+   "type": "organisasjon",
+   "sector": "privat",
+   "group": "Medier",
+   "description": "Finans-/næringslivsmedier som dekker krypto, Økokrim og regulering",
+   "sources": [
+    {
+     "url": "https://finanswatch.no/nyheter/fintech/article19110921.ece",
+     "title": "Finanswatch",
+     "source_name": "Finanswatch",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  },
+  {
+   "id": "nrk-klassekampen-inyheter",
+   "name": "NRK, Klassekampen/iNyheter",
+   "type": "organisasjon",
+   "sector": "privat",
+   "group": "Medier",
+   "description": "Dekker datasenter-/kryptoutvinningspolitikk",
+   "sources": [
+    {
+     "url": "https://inyheter.no/16/08/2026/stortinget-har-bedt-om-krypto-forbud-to-ganger-jeg-er-opptatt-av-a-utrede-dette-grundig/",
+     "title": "iNyheter",
+     "source_name": "iNyheter",
+     "date": "03.10.2026"
+    }
+   ],
+   "image": null,
+   "caveat": false,
+   "status": "published"
+  }
+ ],
+ "relations": []
+}

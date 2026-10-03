@@ -14,6 +14,7 @@ URL=https://jqrgen.github.io/nordic-crypto/
 .venv/bin/python build.py            # never --preview here
 [ -e site/.preview ] && { echo "refusing: site/ is a preview build"; exit 1; }
 .venv/bin/python tools/privacy_gate.py site
+.venv/bin/python tools/text_gate.py
 [ "$DRY" = "--yes" ] || { echo "Built and checked locally. Not published (run ./publish.sh --yes to publish, only with jQrgen's approval)."; exit 0; }
 # first run: create the local repo and the GitHub repo (public, for GitHub Pages)
 [ -d .git ] || git init -q -b main

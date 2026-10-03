@@ -1,0 +1,358 @@
+{
+ "_note": "English text for the Norwegian rows imported from /workspace/norsk-kryptoregulering/industrikart-publiserbar.json (approved for Kryptonytt). Keyed by entity id. Facts are unchanged; only translated. An imported row WITHOUT an entry here is left out of the build, so Norwegian text never reaches the English site.",
+ "groups": {
+  "Storting og regjering": "Parliament & government",
+  "Tilsyn og etater": "Regulators & agencies",
+  "EU": "EU bodies",
+  "Regelverk": "Legislation",
+  "Børser/meglere": "Exchanges & brokers",
+  "Banker": "Banks",
+  "Utvinning/datasentre": "Mining & data centres",
+  "Investorer/fond": "Investors & funds",
+  "Selskaper/startups": "Companies & startups",
+  "Organisasjoner": "Associations & communities",
+  "Medier": "Media"
+ },
+ "group_override": {
+  "norges-bank": "Central banks",
+  "skatteetaten": "Tax authorities",
+  "okokrim": "Police & financial intelligence (FIU)",
+  "finanstilsynet": "Regulators & supervisors",
+  "statnett": "State-owned companies"
+ },
+ "caveats": [
+  "Ministry of Finance (Norway): it is not confirmed which state secretary holds the financial-markets and crypto portfolio.",
+  "Finanstilsynet: Wenche Fagereng is listed by name and role from the authority's organisation chart. Nothing is said about responsibility for MiCA or CASP supervision, because that is not confirmed in a public source.",
+  "Norges Bank's tokenisation network: the primary source is Norges Bank's own LinkedIn post of 7 Sep 2026. It is not published on norges-bank.no.",
+  "ESMA: Carlo Comporti has been approved by the European Parliament as the new chair from 1 Nov 2026, but awaits the Council's decision.",
+  "Storting finance committee: only the chair and deputy chairs are listed for now."
+ ],
+ "e": {
+  "stortinget-finanskomiteen": {
+   "name": "Storting (parliament) – Standing Committee on Finance",
+   "description": "Handles bills on financial markets, crypto (e.g. the Crypto-Assets Act) and tax, and makes recommendations to the Storting."
+  },
+  "tuva-moflag": {
+   "role": "Chair (Labour)"
+  },
+  "hans-andreas-limi": {
+   "role": "First deputy chair (Progress Party)"
+  },
+  "bjorn-arild-gram": {
+   "role": "Second deputy chair (Centre Party)"
+  },
+  "finansdepartementet": {
+   "name": "Ministry of Finance (Finansdepartementet)",
+   "description": "Political responsibility for financial-market regulation, tax, Finanstilsynet and the Tax Administration; put forward the Crypto-Assets Act (Prop. 55 LS). State secretaries: Sissel Kruse Larsen, Ellen Reitan, Astrid Scharning Huitfeldt and Bård Flaarønning (all Labour). Which of them holds the financial-markets/crypto portfolio is not confirmed on an official page."
+  },
+  "jens-stoltenberg": {
+   "role": "Minister of Finance (Labour)"
+  },
+  "lars-henrik-myrmel-johansen": {
+   "role": "Secretary General (top civil servant)"
+  },
+  "fma": {
+   "name": "Ministry of Finance – Financial Markets Department (FMA)",
+   "description": "Drafts financial-market rules and steers Finanstilsynet."
+  },
+  "geir-avitsland": {
+   "role": "Director General, Financial Markets Department"
+  },
+  "marianne-irgens": {
+   "role": "Acting Deputy Director General, Section for Insurance and Capital Markets",
+   "description": "The section is responsible for regulating crypto-assets (MiCA), the securities market and EEA matters."
+  },
+  "marius-ostli": {
+   "role": "Deputy Director General, Section for Banking and Payments",
+   "description": "Anti-money-laundering rules, payment systems, the Central Bank Act, the Financial Supervision Act, FATF."
+  },
+  "finanstilsynet": {
+   "name": "Finanstilsynet (Financial Supervisory Authority of Norway)",
+   "description": "National MiCA authority: grants or refuses CASP licences, supervises and can impose infringement fines; AML supervision."
+  },
+  "per-mathis-kongsrud": {
+   "role": "Director General"
+  },
+  "finn-arnesen": {
+   "role": "Chair of the Board",
+   "description": "The board decides individual cases in the supervisory areas (since the new Financial Supervision Act of 1 Apr 2025)."
+  },
+  "giuditta-cordero-moss": {
+   "role": "Deputy Chair of the Board"
+  },
+  "marte-voie-opland": {
+   "role": "Director, Markets Supervision",
+   "description": "Market conduct, investment firms, prospectuses and infrastructure – relevant for market abuse and white papers."
+  },
+  "knut-haugan": {
+   "role": "Director, Risk Monitoring and Macroprudential Supervision",
+   "description": "The department includes the sections for IT and payment services, anti-money laundering and the regulatory sandbox."
+  },
+  "brita-daae-hrenovica": {
+   "role": "Head of Section, Anti-Money Laundering",
+   "description": "AML supervision, including crypto-asset service providers (TFR II)."
+  },
+  "wenche-fagereng": {
+   "role": "Head of Section, IT and Payment Services",
+   "description": "Head of section in the Risk Monitoring and Macroprudential Supervision department, according to Finanstilsynet's organisation chart (PDF dated 1 Oct 2026)."
+  },
+  "anders-sanderlien-hole": {
+   "role": "Director, Banking and Insurance Supervision",
+   "description": "Supervises banks, including banks' crypto notifications under MiCA Article 60."
+  },
+  "norges-bank": {
+   "name": "Norges Bank (central bank of Norway)",
+   "description": "Payment system, financial stability, central bank digital money (CBDC) and tokenisation. Concluded in Dec 2025/Mar 2026 that there is no basis for introducing a CBDC now, but keeps testing tokenisation."
+  },
+  "ida-wolden-bache": {
+   "role": "Governor (chairs the Executive Board and the Monetary Policy and Financial Stability Committee)"
+  },
+  "pal-longva": {
+   "role": "Deputy Governor (central banking operations)"
+  },
+  "oystein-borsum": {
+   "role": "Deputy Governor (Government Pension Fund Global)"
+  },
+  "torbjorn-haegeland": {
+   "role": "Executive Director, Financial Stability",
+   "description": "CBDC study and tokenisation testing. Name and role from Norges Bank's English organisation page; the Norwegian page was last changed on 10 Jun 2025."
+  },
+  "knut-sandal": {
+   "role": "Director, Payment Analysis and Innovation (Financial Stability)",
+   "description": "CBDC study and tokenisation testing. Name and role from Norges Bank's English organisation page."
+  },
+  "skatteetaten": {
+   "name": "Skatteetaten (Norwegian Tax Administration)",
+   "description": "Taxes crypto gains and wealth; receives CARF/DAC8 reports from crypto providers from income year 2026 (first reports due by 10 Feb 2027). The Director General starts a new fixed term on 19 Oct 2026."
+  },
+  "nina-schanke-funnemark": {
+   "role": "Director General of Taxes"
+  },
+  "okokrim": {
+   "name": "Økokrim (incl. the Financial Intelligence Unit, FIU)",
+   "description": "Investigates and prosecutes serious economic crime, including crypto fraud. Has its own cryptocurrency group, and the FIU receives reports from, among others, crypto exchanges – according to Økokrim's annual report 2025 (published 13 May 2026)."
+  },
+  "pal-k-lonseth": {
+   "role": "Director of Økokrim",
+   "description": null
+  },
+  "dfd": {
+   "name": "Ministry of Digitalisation and Public Governance",
+   "description": "Data-centre policy; studying a state planning provision with a temporary, limited ban on new power-intensive crypto data centres – not adopted as of 18 Sep 2026. The government will answer the Storting's requests in the 2027 budget bill (answer to Doc. 15:3707, 18 Sep 2026). A white paper on data centres has been announced (NRK, 29 Sep 2026)."
+  },
+  "torgeir-micaelsen": {
+   "role": "Minister of Digitalisation and Public Governance (Labour)"
+  },
+  "energidepartementet": {
+   "name": "Ministry of Energy",
+   "description": "Power and grid connection; shares responsibility for studying a ban on power-intensive crypto mining."
+  },
+  "terje-aasland": {
+   "role": "Minister of Energy (Labour)"
+  },
+  "nkom": {
+   "name": "Nkom (Norwegian Communications Authority)",
+   "description": "Keeps a register of and supervises data centres (Data Centre Regulation), including whether they mine crypto."
+  },
+  "john-eivind-velure": {
+   "role": "Director General"
+  },
+  "nve": {
+   "name": "NVE (Norwegian Water Resources and Energy Directorate)",
+   "description": "Regulates grid companies and the power market; indirectly relevant for grid connection of data centres and crypto mining."
+  },
+  "kjetil-lund": {
+   "role": "Director General"
+  },
+  "statnett": {
+   "name": "Statnett (state transmission system operator)",
+   "description": "System operator; capacity queue and connection to the transmission grid – indirectly relevant for large data centres."
+  },
+  "elisabeth-vike-vardheim": {
+   "role": "CEO"
+  },
+  "esma": {
+   "name": "ESMA (EU securities authority)",
+   "description": "Chair: Verena Ross (Carlo Comporti approved by the European Parliament from 1 Nov 2026, awaiting the Council). MiCA level 2/3 rules, the ESMA register and supervisory convergence; Norway's Finanstilsynet takes part as an EEA observer."
+  },
+  "eba": {
+   "name": "EBA (European Banking Authority)",
+   "description": "Rules for e-money tokens and asset-referenced tokens (EMT/ART) and AML standards."
+  },
+  "francois-louis-michaud": {
+   "role": "Chairperson (from 16 Apr 2026)"
+  },
+  "kryptoeiendelsloven": {
+   "name": "Crypto-Assets Act (MiCA in Norwegian law)",
+   "description": "MiCA (EU) 2023/1114 applies as Norwegian law from 1 Jul 2025; transition for registered VASPs until 30 Dec 2025 / until a licence decision."
+  },
+  "firi": {
+   "name": "Firi",
+   "description": "CASP licence (MiCA Art. 63) from 22 May 2026: trading platform, custody, exchange, order execution and transfer (Finanstilsynet). Also an e-money institution licence from 3 Jun 2024 (Finanstilsynet's register). About 417,000 customers and a Swedish launch in Sep 2026 – according to Shifter, 15 Sep 2026."
+  },
+  "thuc-tuan-hoang": {
+   "role": "CEO and co-founder",
+   "description": null
+  },
+  "nbx": {
+   "name": "NBX (Norwegian Block Exchange)",
+   "description": "CASP licence registered 29 Jun 2026 (7 services) and an e-money institution (22 Jan 2024), according to Finanstilsynet's register. Listed on Euronext Growth; chair Nils Kristian Sundling. Held about 24 BTC on 30 Jun 2026 and 28 BTC in Aug 2026, according to NBX's H1 2026 report (18 Sep 2026)."
+  },
+  "stig-aleksander-kjos-mathisen": {
+   "role": "CEO"
+  },
+  "k33": {
+   "name": "K33",
+   "description": "CASP licence registered 16 Jun 2026 (Finanstilsynet's register): custody, order execution and transfer; passports within the EEA."
+  },
+  "torbjorn-bull-jenssen": {
+   "role": "CEO, K33"
+  },
+  "bare-bitcoin": {
+   "name": "Bare Bitcoin",
+   "description": "CASP licence registered 26 Jun 2026 (Finanstilsynet's register): custody, exchange and transfer – bitcoin only. Rogstad is a co-founder according to Shifter, 19 Jul 2026."
+  },
+  "torkel-rogstad": {
+   "role": "Co-founder",
+   "description": null
+  },
+  "tyr-markets": {
+   "name": "Týr Markets",
+   "description": "First exchange platform with a CASP licence in Norway (18 May 2026): custody, exchange and transfer."
+  },
+  "filip-berg-nielsen": {
+   "role": "CEO"
+  },
+  "ak-jensen-norway": {
+   "name": "AK Jensen Norway",
+   "description": "Investment firm (since 26 Feb 2021) with the CASP services (g) reception and transmission of orders and (i) portfolio management, registered 2 Feb 2026 – according to Finanstilsynet's register. Not a former exchange or custody provider."
+  },
+  "johan-lennart-stiegler": {
+   "role": "CEO"
+  },
+  "anders-kvamme-jensen": {
+   "role": "Chair of the Board"
+  },
+  "nedlagte-vekslere-2026": {
+   "name": "Exchanges that closed in 2026",
+   "description": "Bitmynt, JuJu and Bitcoin Norway shut down around the MiCA deadline, according to Shifter (19 Jul 2026). JuJu's customers went to NBX, confirmed in NBX's half-year report (customer base acquisition completed 30 Jun 2026, more than 4,000 customers). Bitcoin Norway's customers went to Týr."
+  },
+  "dnb": {
+   "name": "DNB",
+   "description": "Offers crypto ETPs, not spot trading, and its crypto fund was paused in autumn 2025 – according to BankShift (17 Nov 2025). Joined the banks' CBMT test network for tokenised deposits in kroner – according to Kaupr (16 Sep 2026). Not part of Qivalis – according to Kaupr."
+  },
+  "ole-morten-sunde": {
+   "role": "Head of Emerging Business",
+   "description": null
+  },
+  "norges-bank-tokenisering": {
+   "name": "Norges Bank's tokenisation network",
+   "description": "DNB Carnegie, DNB, Kommunalbanken, Citi, Lokalbank, SpareBank 1, Bits, KLP, Eika, Euronext, Nordea and SEB were named by Norges Bank in its own LinkedIn post (7 Sep 2026) as participants in exploring tokenisation, according to Kaupr (8 Sep 2026). Not published on norges-bank.no."
+  },
+  "sparebank-1-bankene": {
+   "name": "SpareBank 1 banks",
+   "description": "Strict documentation and AML requirements for deposits coming from crypto platforms, according to SpareBank 1 Sogn og Fjordane's website. No integrated crypto service is confirmed."
+  },
+  "nkom-kryptoutvinnere": {
+   "name": "Crypto miners in Nkom's data-centre register",
+   "description": "Troll Housing AS (97%), Thermaltech AS (100%), Exanorth AS (100%), Currency Edge AS (100%), Arctic Flux AS (95%), Bluebite GmbH (55%), Bluefjords AS (14%), Nordic Blocks AS (1%) – share of capacity used for crypto mining. Two figures with different units: (1) Nkom's list on 3 Oct 2026 – 8 of 60 commercial data-centre operators report crypto mining (in-house data centres are not published). (2) The minister's answer of 18 Sep 2026 (Doc. 15:3707) – 9 registered data centres doing crypto mining."
+  },
+  "tydal-data-center": {
+   "name": "Tydal Data Center (Bitdeer)",
+   "description": "Bitdeer's Norwegian campus in Tydal is being converted to AI/HPC (121 IT-MW lease, Aug 2026); listed without crypto mining by Nkom."
+  },
+  "haakon-bryhni": {
+   "role": "Chair of the Board"
+  },
+  "seetee": {
+   "name": "Seetee",
+   "description": "Aker company with bitcoin as a treasury asset that invests in the bitcoin ecosystem, according to seetee.io, which names Røkke as founder."
+  },
+  "kjell-inge-rokke": {
+   "role": "Founder",
+   "description": null
+  },
+  "schibsted-ventures": {
+   "name": "Schibsted Ventures",
+   "description": "Led Firi's NOK 60 million share issue on 7 Jan 2022, according to Shifter (15 Sep 2026)."
+  },
+  "the-mint": {
+   "name": "The Mint",
+   "description": "Tokenisation of gemstones. GRNC, an asset-referenced token traded on NBX, is 'Europe's first MiCA-registered ART' according to The Mint (press release reported by Kaupr, 10 Oct 2025). Names and roles from the Brønnøysund Register Centre."
+  },
+  "dag-tore-aam": {
+   "role": "CEO",
+   "description": null
+  },
+  "tord-johan-eide": {
+   "role": "Chair of the Board",
+   "description": null
+  },
+  "bpi": {
+   "name": "Bitcoinpolitisk institutt Norge (Bitcoin Policy Institute Norway)",
+   "description": "Advocacy group; talks with members of the Storting about bitcoin policy."
+  },
+  "hakon-sandbakken": {
+   "role": "Chair (from June 2026)"
+  },
+  "finans-norge": {
+   "name": "Finans Norge (Finance Norway)",
+   "description": "Industry body for banks and the finance sector; consultation responses on financial regulation."
+  },
+  "kari-olrud-moen": {
+   "role": "CEO"
+  },
+  "tom-hoiberg": {
+   "role": "Director, Digitalisation and Payments"
+  },
+  "nordic-blockchain-association": {
+   "name": "Nordic Blockchain Association",
+   "description": "Nordic industry association (based in Denmark) in dialogue with the Nordic financial supervisors. Held a closed round table in Oslo on 8 Sep 2026 (Kaupr). Names and roles from the association's own website.",
+   "country": "NORDIC"
+  },
+  "jakob-mikkel-hansen": {
+   "role": "CEO and board member",
+   "description": null
+  },
+  "lennart-kirk": {
+   "role": "Chair and co-founder",
+   "description": null
+  },
+  "magnus-jones": {
+   "role": "Board member for Norway",
+   "description": null
+  },
+  "fintech-norway": {
+   "name": "Fintech Norway",
+   "description": "Industry association for fintech; no documented specific crypto role."
+  },
+  "daniel-isdal-furset": {
+   "role": "CEO"
+  },
+  "alf-gunnar-skjerdal-andersen": {
+   "role": "Chair of the Board"
+  },
+  "shifter": {
+   "name": "Shifter / BankShift (Shifter Media)",
+   "description": "Close coverage of Firi, Bare Bitcoin, DNB and MiCA licences."
+  },
+  "kaupr": {
+   "name": "Kaupr",
+   "description": "Niche outlet for digital assets, tokenisation and MiCA in the Nordics (writes in Norwegian about all Nordic markets). Disclosure: Kaupr sponsors Oslo Blockchain Meetup, the meetup run by jQrgen (Jørgen S. Notland), the publisher of Nordic Crypto.",
+   "country": "NORDIC"
+  },
+  "finanswatch-e24-dn-finansavisen-okonomi24": {
+   "name": "Finanswatch, E24, DN, Finansavisen, Økonomi24",
+   "description": "Financial and business media covering crypto, Økokrim and regulation."
+  },
+  "nrk-klassekampen-inyheter": {
+   "name": "NRK, Klassekampen / iNyheter",
+   "description": "Cover data-centre and crypto-mining policy."
+  }
+ },
+ "source_titles": {
+  "Økokrim årsrapport 2025 (PDF)": "Økokrim annual report 2025 (PDF)",
+  "K33 børsmelding (MFN)": "K33 stock exchange notice (MFN)",
+  "Oslo Børs NewsWeb (vedlegg)": "Oslo Børs NewsWeb (attachment)"
+ }
+}
