@@ -352,7 +352,7 @@ def build_stories():
 
 def events_for_site():
     ev = load(P("data", "events.json"), {"events": []}); ap = (load(P("queue", "approved.json"), {}) or {}).get("events", {})
-    now = dt.datetime.now(dt.timezone.utc); out = []
+    now = dt.datetime.now(OSLO); out = []  # "finished" is judged in Oslo time
     for e in ev["events"]:
         e = dict(e)
         if e["id"] in ap.get("reject", []): continue
@@ -365,13 +365,27 @@ def events_for_site():
         if e["id"] in ap.get("sponsored", []): e["sponsored"] = True
         if e["id"] in ap.get("sponsor", {}): e["sponsored"] = ap["sponsor"][e["id"]]
         if e["id"] in ap.get("paid", {}): e["paid"] = ap["paid"][e["id"]]
+        if e["status"] == "published": e["note"] = ap.get("notes", {}).get(e["id"])  # archive/public: editor's note only
         e["past"] = dt.datetime.fromisoformat(e.get("end") or e["start"]) < now
         out.append({k: e.get(k) for k in ("id", "title", "title_orig", "start", "end", "place", "city", "country", "online", "organiser", "url", "source", "paid", "sponsored", "note", "past", "status")})
+    # Archive (committed to git): every event ever approved. jQrgen's rule: finished events are NEVER deleted, they move to
+    # "Past events". Fetch and build may only add or update archive entries, never remove them. Pending/preview events are not archived.
+    arkf = P("archive", "events.json"); ark = load(arkf, {"events": []}); by = {e["id"]: e for e in ark["events"]}
+    for e in out:
+        if e["status"] == "published": by[e["id"]] = {k: v for k, v in e.items() if k != "past"}
+    ark["_how_to"] = "Add-only archive of every editor-approved event (written by build.py). Never delete entries; finished events are shown under 'Past events'."
+    ark["events"] = sorted(by.values(), key=lambda e: dt.datetime.fromisoformat(e["start"]))
+    os.makedirs(os.path.dirname(arkf), exist_ok=True)
+    json.dump(ark, open(arkf, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    seen = {e["id"] for e in out}
+    for e in ark["events"]:  # archived events that have dropped out of data/events.json (e.g. finished ones)
+        if e["id"] in seen or e["id"] in ap.get("reject", []): continue  # rejected: hidden, but kept in the archive
+        e = dict(e); e["past"] = dt.datetime.fromisoformat(e.get("end") or e["start"]) < now; out.append(e)
     return sorted(out, key=lambda e: dt.datetime.fromisoformat(e["start"])), now
 
 def build_calendar(cfg):
     evs, now = events_for_site()
-    up = [e for e in evs if not e["past"]]; past = [e for e in evs if e["past"]][-10:][::-1]
+    up = [e for e in evs if not e["past"]]; past = [e for e in evs if e["past"] and e.get("status") == "published"][::-1]  # all finished, newest first
     json.dump({"preview": PREVIEW, "events": up}, open(os.path.join(SITE, "data", "events.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     def when(e):
         a = dt.datetime.fromisoformat(e["start"]); b = dt.datetime.fromisoformat(e["end"]) if e.get("end") else None
@@ -414,7 +428,7 @@ def build_calendar(cfg):
 <p class="meta">{" · ".join(f"{flag(c)} {E(n)}: {per_c[c]}" for c, n in COUNTRIES.items())}</p>
 <div class="calgrid">{''.join(grids)}</div>
 <h2>Upcoming</h2><ol class="news" id="evlist">{''.join(li(e) for e in up) or '<li class="empty">No upcoming events registered.</li>'}</ol>
-{('<h2>Recent</h2><ol class="news past">' + ''.join(li(e) for e in past) + '</ol>') if past else ''}
+<h2 id="past">Past events</h2><p class="meta">Events move here automatically once they have ended (Oslo time). We never delete them.</p><ol class="news past">{''.join(li(e) for e in past) or '<li class="empty">No past events yet.</li>'}</ol>
 <p class="meta">How we find events: <a href="../sources/#events">event sources</a>. Organising something about crypto in the Nordics? Send a link to the organiser's page as an issue on <a href="https://github.com/jQrgen/nordic-crypto/issues" rel="noopener">GitHub</a>.</p>"""
     js = """<script>(function(){var cc=[].slice.call(document.querySelectorAll('.cchip')),n=[].slice.call(document.querySelectorAll('#evlist li[data-c], .calgrid a[data-c], ol.past li[data-c]')),cnt=document.getElementById('ecount');
 function apply(){var c=cc.filter(function(x){return x.getAttribute('aria-pressed')==='true'}).map(function(x){return x.dataset.c}),k=0;n.forEach(function(el){var ok=!c.length||c.indexOf(el.dataset.c)>=0;el.hidden=!ok;if(ok&&el.parentNode.id==='evlist')k++});cnt.textContent=k+' upcoming';history.replaceState(null,'',c.length?'#country='+c.join(','):location.pathname)}
@@ -422,7 +436,7 @@ var h=new URLSearchParams(location.hash.slice(1));(h.get('country')||'').split('
 cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');apply()})});apply()})();</script>"""
     page("calendar", "Calendar – crypto, bitcoin and blockchain events in the Nordics", "calendar", body,
          "Upcoming crypto, bitcoin and blockchain events in Norway, Sweden, Denmark, Finland and Iceland, with date, place and organiser.", js)
-    print(f"calendar: {len(up)} upcoming {per_c}, {len(past)} recent")
+    print(f"calendar: {len(up)} upcoming {per_c}, {len(past)} past")
 
 def build_academia():
     """Academia page from data/academia.json. Public build: only rows approved in queue/approved.json -> academia.approve

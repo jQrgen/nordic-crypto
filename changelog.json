@@ -3,6 +3,12 @@
  "launch_date": "2026-10-03",
  "entries": [
   {
+   "id": "past-events",
+   "date": "2026-10-03",
+   "title": "Past events archive",
+   "description": "Finished events are no longer removed from the calendar. Once an event has ended (Oslo time) it moves automatically to a new Past events section at the bottom of the calendar, newest first. The office screen shows only upcoming events."
+  },
+  {
    "id": "denmark-added",
    "date": "2026-10-03",
    "title": "Denmark added",
