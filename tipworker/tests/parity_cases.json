@@ -1,0 +1,5 @@
+[{"url":"https://e24.no/a","country":"NO"},{"url":"  https://E24.no/a  ","country":"sweden (se)"},{"url":"https://e24.no/a","country":5},
+{"url":"https://e24.no/a","country":"not sure"},{"url":"https://e24.no/a","country":""},{"url":"https://e24.no/a","country":"de"},
+{"url":"http://x"},{"url":"https://x.y:99/p?q=1"},{"url":"HTTPS://x.no"},{"url":"javascript:alert(1)"},{"url":"https://a.no/\u0001x"},
+{"url":"https://e24.no","note":"\u0007hi\u0000","name":"  "},{"url":"https://e24.no","name":null},{"url":"https://e24.no","note":"ø"},
+{"url":"https://user@e24.no/x"},{"url":"https://[::1]/x"},{"url":"https://e24.no","country":"NOFI"},{"url":"https://e24.no","country":"no, fi"},{}]

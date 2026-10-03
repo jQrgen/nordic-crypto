@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Reader tips -> editor queue (nightly step, routines/nightly-fetch.sh). Never publishes anything.
 Sources:
+  0. Cloudflare D1 (tipworker/, the public intake): pulled by tipworker/pull.py, which uses import_rows() below.
   1. tipserver/tips.db (SQLite, written by tipserver/server.py): rows with status 'pending' become pending stories with
      origin 'reader tip #<id>'; the row is then marked 'imported' (or 'duplicate' / 'invalid') with imported_at + queue_item_id.
   2. Fallback: open GitHub issues labelled 'tip' (form .github/ISSUE_TEMPLATE/tip.yml) -> origin 'reader tip (GitHub #<n>)'.
@@ -72,14 +73,20 @@ class Queue:
             if r.get("id") in orig and not r.get("origin"): r["origin"] = orig[r["id"]]["origin"]
         if not self.dry: save(self.newsf, self.news); save(self.qf, self.q)
 
+def import_rows(Q, rows):
+    """Pending tip rows (dicts/rows with id, created_at, url, country, note; from tipserver/tips.db or the D1 database of
+    tipworker/) -> Q.add with origin 'reader tip #<id>'. Returns [(status, imported_at, queue_item_id, id)] for marking."""
+    marks = []
+    for r in rows:
+        st, item = Q.add(r["url"], r["country"], r["note"] or "", f"reader tip #{r['id']}", dt.datetime.fromisoformat(r["created_at"]))
+        marks.append((st, NOW.isoformat(timespec="seconds"), item, r["id"]))
+    return marks
+
 def from_db(Q):
     if not os.path.exists(DB): print("reader tips: no tipserver/tips.db yet"); return 0
     c = sqlite3.connect(DB, timeout=10); c.row_factory = sqlite3.Row
     rows = c.execute("SELECT id, created_at, url, country, note FROM tips WHERE status = 'pending' ORDER BY id").fetchall()  # name is never read
-    marks = []
-    for r in rows:
-        st, item = Q.add(r["url"], r["country"], r["note"], f"reader tip #{r['id']}", dt.datetime.fromisoformat(r["created_at"]))
-        marks.append((st, NOW.isoformat(timespec="seconds"), item, r["id"]))
+    marks = import_rows(Q, rows)
     if not Q.dry:
         Q.finish()  # queue is saved before the rows are marked, so a crash can at worst re-import (dedupe catches it)
         with c: c.executemany("UPDATE tips SET status = ?, imported_at = ?, queue_item_id = ? WHERE id = ? AND status = 'pending'", marks)

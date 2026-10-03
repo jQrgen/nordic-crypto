@@ -1,0 +1,13 @@
+{
+  "name": "nordic-crypto-tipworker",
+  "private": true,
+  "type": "module",
+  "description": "Nordic Crypto reader tip intake on Cloudflare Workers + D1",
+  "scripts": {
+    "dev": "wrangler dev --local",
+    "test": "bash test_local.sh && bash test_parity.sh"
+  },
+  "devDependencies": {
+    "wrangler": "4.147.0"
+  }
+}

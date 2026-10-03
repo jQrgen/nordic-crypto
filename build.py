@@ -8,7 +8,7 @@ import json, os, re, shutil, subprocess, html, sys, calendar, datetime as dt
 from zoneinfo import ZoneInfo
 ROOT = os.path.dirname(os.path.abspath(__file__)); P = lambda *a: os.path.join(ROOT, *a)
 BASE = "https://jqrgen.github.io/nordic-crypto/"
-SITE = P("site")
+SITE = os.environ.get("NC_SITE_DIR") or P("site")   # NC_SITE_DIR: scratch build dir (tipworker/publish_tip_page.sh)
 PREVIEW = "--preview" in sys.argv
 SITE_NAME = "Nordic Crypto"
 def load(p, d=None):
@@ -507,7 +507,8 @@ def write_tip_endpoint_file():
     open(os.path.join(SITE, "tip-endpoint.json"), "a").write("\n")
 
 def build_tip_server(ep):
-    """'Send a tip' page that posts to our own tip server (tipserver/server.py). Inline JS only, no third-party scripts.
+    """'Send a tip' page that posts to our own tip intake: the Cloudflare Worker in tipworker/ (public_endpoint, set by
+    tipworker/deploy.sh) or the box server tipserver/server.py. Inline JS only, no third-party scripts.
     Endpoint: the fixed `ep` if set, else read at runtime from ../tip-endpoint.json (no cache). If the server can't be
     reached, the page says so and offers the public GitHub issue form as a fallback."""
     opts = '<option value="unsure">Not sure / choose…</option>' + "".join(f'<option value="{c}">{E(n)}</option>' for c, n in COUNTRIES.items())
@@ -515,7 +516,7 @@ def build_tip_server(ep):
 <p class="lead">Seen a story about crypto, bitcoin or blockchain in Norway, Sweden, Denmark, Finland or Iceland that we have missed? Send us the link.</p>
 <div class="prose">
 <p>Tips go straight to Nordic Crypto's own tip inbox. Our editor reviews new tips regularly and checks each one against <a href="../about/">our rules</a>: the story must be about crypto, bitcoin or blockchain in the Nordics, and we link to the original source with a short English summary in our own words. <b>A tip does not guarantee publication</b>, and we don't reply to individual tips.</p>
-<p class="notice"><b>Privacy:</b> tips are not public. We store the link, country, note, optional name and the time – <b>not</b> your IP address. Your name is never published. Please don't include personal or sensitive information about anyone in the note.</p>
+<p class="notice"><b>Privacy:</b> tips are not public. We store the link, country, note, optional name and the time – <b>not</b> your IP address (for spam protection, only a scrambled code derived from it is kept for 10 minutes, then deleted). Your name is never published. The tip inbox runs on Cloudflare. Please don't include personal or sensitive information about anyone in the note.</p>
 </div>
 <div id="tipmsg" role="status" aria-live="polite"></div>
 <noscript><p class="notice warn">The tip form needs JavaScript. Without it, you can send a <a href="{TIP_FORM}" rel="noopener">tip as a public GitHub issue</a> instead.</p></noscript>
