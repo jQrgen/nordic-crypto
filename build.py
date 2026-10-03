@@ -494,7 +494,7 @@ def build_tip():
     """'Send a tip' page. Static: a plain HTML form (GET, no JavaScript, no tracking) that opens the prefilled GitHub issue form
     (.github/ISSUE_TEMPLATE/tip.yml, label 'tip'). There is no public e-mail address, so GitHub is the only channel.
     routines/nightly-fetch.sh -> tools/reader_tips.py puts open tips in the editor queue as pending; nothing is auto-published."""
-    opts = "".join(f'<option value="{E(n)} ({c})">{E(n)}</option>' for c, n in COUNTRIES.items()) + '<option value="Not sure">Not sure</option>'
+    opts = '<option value="Not sure">Not sure / choose…</option>' + "".join(f'<option value="{E(n)} ({c})">{E(n)}</option>' for c, n in COUNTRIES.items())
     body = f"""<h1>Send a tip</h1>
 <p class="lead">Seen a story about crypto, bitcoin or blockchain in Norway, Sweden, Denmark, Finland or Iceland that we have missed? Send us the link.</p>
 <div class="prose">
