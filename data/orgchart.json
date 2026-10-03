@@ -3274,69 +3274,6 @@
    "image": null,
    "origin": "Nordic Crypto research",
    "status": "published"
-  },
-  {
-   "id": "fo-taks",
-   "name": "TAKS (Faroese Tax Authority)",
-   "type": "organisation",
-   "sector": "public",
-   "country": "FO",
-   "group": "Tax authorities",
-   "description": "Treats gains on crypto as taxable income. From 2027 TAKS will receive information on crypto holdings under the international CARF agreement, which the Faroe Islands signed on 26 Nov 2024.",
-   "sources": [
-    {
-     "url": "https://www.taks.fo/fo/borgari/skattur/skattur-og-krypto",
-     "title": "Skattur og krypto (tax and crypto)",
-     "source_name": "TAKS",
-     "date": "2026-10-03"
-    }
-   ],
-   "url": "https://www.taks.fo",
-   "image": null,
-   "origin": "Nordic Crypto research",
-   "status": "published"
-  },
-  {
-   "id": "fo-dk-fsa",
-   "name": "Finanstilsynet (Danish FSA) – supervision in the Faroe Islands",
-   "type": "organisation",
-   "sector": "public",
-   "country": "FO",
-   "group": "Regulators & supervisors",
-   "description": "The Faroe Islands have not taken over supervision of financial institutions, so the Danish Financial Supervisory Authority supervises Faroese financial institutions, according to the Danish bill L 6 (2024–25).",
-   "sources": [
-    {
-     "url": "https://www.retsinformation.dk/eli/ft/202412L00006",
-     "title": "Bill L 6 (2024–25): Act for the Faroe Islands on information accompanying transfers of funds",
-     "source_name": "Retsinformation (Danish Ministry of Industry, Business and Financial Affairs)",
-     "date": "2024-10-01"
-    }
-   ],
-   "url": "https://www.finanstilsynet.dk",
-   "image": null,
-   "origin": "Nordic Crypto research",
-   "status": "published"
-  },
-  {
-   "id": "fo-tfr-act",
-   "name": "Act for the Faroe Islands on information accompanying transfers of funds (crypto travel rule)",
-   "type": "organisation",
-   "sector": "public",
-   "country": "FO",
-   "group": "Legislation",
-   "description": "Makes the EU transfer-of-funds regulation (EU) 2023/1113, which also covers certain crypto-asset transfers, apply in the Faroe Islands, although the Faroes are not an EU member. Proposed 1 Oct 2024 with entry into force on 30 Dec 2024.",
-   "sources": [
-    {
-     "url": "https://www.retsinformation.dk/eli/ft/202412L00006",
-     "title": "Bill L 6 (2024–25): Act for the Faroe Islands on information accompanying transfers of funds",
-     "source_name": "Retsinformation (Danish Ministry of Industry, Business and Financial Affairs)",
-     "date": "2024-10-01"
-    }
-   ],
-   "url": null,
-   "image": null,
-   "origin": "Nordic Crypto research",
-   "status": "published"
   }
  ],
  "relations": [
@@ -3486,22 +3423,6 @@
      "title": "ESMA interim MiCA register – e-money token issuers (EMTWP.csv, checked 3 Oct 2026)",
      "source_name": "ESMA",
      "date": "2026-10-03"
-    }
-   ],
-   "status": "published"
-  },
-  {
-   "id": "r-dkfsa-fo",
-   "from": "fo-dk-fsa",
-   "to": "fo-tfr-act",
-   "type": "supervision",
-   "label": "Danish FSA supervises Faroese financial institutions; the act does not change this",
-   "sources": [
-    {
-     "url": "https://www.retsinformation.dk/eli/ft/202412L00006",
-     "title": "Bill L 6 (2024–25): Act for the Faroe Islands on information accompanying transfers of funds",
-     "source_name": "Retsinformation (Danish Ministry of Industry, Business and Financial Affairs)",
-     "date": "2024-10-01"
     }
    ],
    "status": "published"
