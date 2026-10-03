@@ -2,7 +2,7 @@
 """Builds data/orgchart.json for Nordic Crypto (run by build.py on every build):
   1) Norway: the editor-approved Kryptonytt export (queue/approved.json -> industrikart.export) parsed by
      tools/import_industrikart_no.py, then translated with data/no_en.json. Rows without an English entry are LEFT OUT.
-  2) Sweden, Finland, Iceland, Nordic: data/orgchart_nordic.json (curated, English, sourced).
+  2) Sweden, Denmark, Finland, Iceland, Nordic: data/orgchart_nordic.json (curated, English, sourced).
 Status: every row is "pending" until the editor approves it in queue/approved.json:
   "org": {"approve": [ids], "approve_countries": ["NO", ...], "reject": [ids]}
 Rows without at least one source are dropped."""

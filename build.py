@@ -24,11 +24,11 @@ WD = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 OSLO = ZoneInfo("Europe/Oslo")
 def endate(iso):
     d = dt.datetime.fromisoformat(iso).astimezone(OSLO); return f"{d.day} {MON[d.month-1]} {d.year}"
-COUNTRIES = {"NO": "Norway", "SE": "Sweden", "FI": "Finland", "IS": "Iceland"}
+COUNTRIES = {"NO": "Norway", "SE": "Sweden", "DK": "Denmark", "FI": "Finland", "IS": "Iceland"}
 EXTRA_C = {"NORDIC": "Nordic-wide"}
-CITYNAME = {"NO": "Oslo", "SE": "Stockholm", "FI": "Helsinki", "IS": "Reykjavík"}
+CITYNAME = {"NO": "Oslo", "SE": "Stockholm", "DK": "Copenhagen", "FI": "Helsinki", "IS": "Reykjavík"}
 # small inline SVG flags (Nordic crosses) – no emoji fonts or external images needed
-_FL = {"NO": ("#BA0C2F", "#fff", "#00205B"), "SE": ("#006AA7", "#FECC00", None), "FI": ("#fff", "#002F6C", None),
+_FL = {"NO": ("#BA0C2F", "#fff", "#00205B"), "SE": ("#006AA7", "#FECC00", None), "DK": ("#C8102E", "#fff", None), "FI": ("#fff", "#002F6C", None),
        "IS": ("#02529C", "#fff", "#DC1E35")}
 def flag(c, big=False):
     if c not in _FL:
@@ -139,7 +139,7 @@ def page(slug, title, nav, body, desc, extra_script=""):
 {body}
 {s['top']}
 </main>
-<footer><div class="wrap">{SITE_NAME} covers Norway, Sweden, Finland and Iceland. Run by Jørgen S. Notland (jQrgen), Oslo, with AI assistance; summaries are written by an AI editor and jQrgen is the responsible person. Not investment advice. No tracking or cookies. <a href="{rel}about/">About, corrections and removal</a> · <a href="{rel}changelog/">Changelog</a>.</div></footer>
+<footer><div class="wrap">{SITE_NAME} covers Norway, Sweden, Denmark, Finland and Iceland. Run by Jørgen S. Notland (jQrgen), Oslo, with AI assistance; summaries are written by an AI editor and jQrgen is the responsible person. Not investment advice. No tracking or cookies. <a href="{rel}about/">About, corrections and removal</a> · <a href="{rel}changelog/">Changelog</a>.</div></footer>
 {s['script']}{extra_script}
 </body></html>"""
     d = os.path.join(SITE, slug); os.makedirs(d, exist_ok=True)
@@ -151,7 +151,7 @@ def redirect(old, new):
         f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0; url=../{new}/">'
         f'<link rel="canonical" href="{BASE}{new}/"><title>Moved</title></head><body><p>This page has moved to <a href="../{new}/">{new}</a>.</p></body></html>')
 
-TOPIC_LABEL = {"bitcoin": "Bitcoin", "blockchain": "Blockchain", "crypto": "Crypto", "regulation": "Regulation", "companies": "Companies"}
+TOPIC_LABEL = {"bitcoin": "Bitcoin", "blockchain": "Blockchain", "crypto": "Crypto", "regulation": "Regulation", "companies": "Companies", "mica": "MiCA", "aml": "AML", "defi": "DeFi", "nft": "NFT", "cbdc": "CBDC"}
 def country_chips():
     return "".join(f'<button type="button" class="chip cchip" data-c="{c}" aria-pressed="false">{flag(c)}{E(n)}</button>' for c, n in COUNTRIES.items())
 
@@ -196,7 +196,7 @@ def build():
         summ = (f'<p class="sum pend">Pending editor review – an English summary has not been written yet. Read the story at the source.</p>' if pend
                 else f'<p class="sum">{E(i["summary"])}</p>')
         lis.append(f'<li data-src="{E(i["source"])}" data-c="{E(i.get("country"))}" data-topics="{E(" ".join(i["topics"]))}">'
-                   f'<h3><a href="{E(i["url"])}"{"" if i.get("own_story") else " rel=noopener target=_blank"}{" lang=" + chr(34) + {"Norwegian":"no","Swedish":"sv","Finnish":"fi","Icelandic":"is"}.get(i.get("language") or "", "en") + chr(34) if not i.get("title_en") else ""}>{E(head)}</a></h3>{orig}'
+                   f'<h3><a href="{E(i["url"])}"{"" if i.get("own_story") else " rel=noopener target=_blank"}{" lang=" + chr(34) + {"Norwegian":"no","Swedish":"sv","Finnish":"fi","Icelandic":"is","Danish":"da"}.get(i.get("language") or "", "en") + chr(34) if not i.get("title_en") else ""}>{E(head)}</a></h3>{orig}'
                    f'<div class="meta">{flag(i.get("country"))} {E(cname(i.get("country")))} · <b>{E(i["source_name"])}</b> · <time datetime="{E(i["published"])}">{endate(i["published"])}</time>{lang}{pw} {tags}'
                    + (' <span class="tag pend">Pending editor review</span>' if pend else "") + (' <span class="tag pend">Editor-approved · awaiting jQrgen\'s final approval</span>' if own else "")
                    + (' <span class="tag">Our story</span>' if i.get("own_story") else "") + f'</div>{summ}'
@@ -206,7 +206,7 @@ def build():
     upd = endate(news["updated"]) if news.get("updated") else ""
     body = f"""<h1>Bitcoin, blockchain and crypto news from the Nordics</h1>
 <p class="meta"><a href="screen/">Office screen mode (full screen, portrait or landscape) →</a></p>
-<p class="lead">Links to stories from Norway, Sweden, Finland and Iceland – newspapers, broadcasters, regulators and central banks – each with a short English summary written by our editor. Read the full story at the source. Last updated {upd}. {len(items)} stories{f" ({len(pending)} pending editor review)" if pending else ""}.</p>
+<p class="lead">Links to stories from Norway, Sweden, Denmark, Finland and Iceland – newspapers, broadcasters, regulators and central banks – each with a short English summary written by our editor. Read the full story at the source. Last updated {upd}. {len(items)} stories{f" ({len(pending)} pending editor review)" if pending else ""}.</p>
 <div class="filters" role="group" aria-label="Filters"><span class="lbl">Country</span><div class="chips">{country_chips()}</div>
 <label for="fsrc">Source</label><select id="fsrc"><option value="">All sources</option>{opts}</select>
 <span class="lbl">Topic</span><div class="chips">{tchips}</div><span id="count" class="meta" aria-live="polite"></span></div>
@@ -224,7 +224,7 @@ var p=new URLSearchParams(location.hash.slice(1));if(p.get('source'))sel.value=p
 sel.addEventListener('change',function(){apply(1)});tc.concat(cc).forEach(function(c){c.addEventListener('click',function(){c.setAttribute('aria-pressed',c.getAttribute('aria-pressed')==='true'?'false':'true');apply(1)})});apply(0)})();
 </script>"""
     page("", "Nordic Crypto – bitcoin, blockchain and crypto news from the Nordics", "", body,
-         "Bitcoin, blockchain and crypto news from Norway, Sweden, Finland and Iceland, with English summaries, an events calendar and a who's who.", js)
+         "Bitcoin, blockchain and crypto news from Norway, Sweden, Denmark, Finland and Iceland, with English summaries, an events calendar and a who's who.", js)
 
     # ---- Org chart ----
     regs = []
@@ -234,7 +234,7 @@ sel.addEventListener('change',function(){apply(1)});tc.concat(cc).forEach(functi
                     + ", ".join(f'<a href="{E(s["url"])}" rel="noopener" target="_blank">{E(s["source_name"])}</a>' for s in r["sources"]) + '</p></article>')
     cnt_pub = sum(e["status"] == "published" for e in ents); cnt_pend = sum(e["status"] == "pending" for e in ents)
     body = f"""<h1>Who's who in Nordic crypto</h1>
-<p class="lead">Regulators, central banks, tax authorities, financial intelligence units, ministries, MiCA-licensed providers, exchanges, issuers and associations in Norway, Sweden, Finland and Iceland – and people in public leadership roles. Every entry and every link between entries has a source. Click a card for details.</p>
+<p class="lead">Regulators, central banks, tax authorities, financial intelligence units, ministries, MiCA-licensed providers, exchanges, issuers and associations in Norway, Sweden, Denmark, Finland and Iceland – and people in public leadership roles. Every entry and every link between entries has a source. Click a card for details.</p>
 {f'<p class="notice warn"><b>Preview:</b> {cnt_pend} of {len(ents)} entries are pending editor review.</p>' if PREVIEW and cnt_pend else ''}
 <h2 id="regulation">Regulation by country</h2>
 <div class="reg">{''.join(regs)}</div>
@@ -278,7 +278,7 @@ sel.addEventListener('change',function(){apply(1)});tc.concat(cc).forEach(functi
 <div class="tablewrap"><table class="list"><thead><tr><th></th><th>Source</th><th>Type</th><th>Feed</th><th>Status</th><th>Note</th></tr></thead><tbody>{''.join(rows)}</tbody></table></div>
 <p class="notice" id="kaupr"><b>Disclosure about Kaupr:</b> Kaupr (kaupr.io) is one of the news sources we follow, and it also sponsors some of the events in our calendar. Those events are labelled “Sponsored by kaupr.io”.</p>
 <h2>News search terms</h2><ul class="prose">{qs}</ul><p class="prose">Links from the search always go straight to the original story.</p>
-<h2>Keywords</h2><p class="prose">A story is picked up when its title or teaser mentions, for example: bitcoin, crypto, blockchain, stablecoin, MiCA, CBDC (all languages); krypto, kryptovaluta, blokkjede (Norwegian); kryptotillgångar, blockkedja, e-krona (Swedish); kryptovaluutta, lohkoketju, virtuaalivaluutta (Finnish); rafmynt, sýndareignir, bálkakeðja (Icelandic); or Nordic crypto firms such as Firi, NBX, K33, Safello, Coinmotion, Northcrypto, Myntkaup and Monerium. The editor reviews every hit before it is published.</p>
+<h2>Keywords</h2><p class="prose">A story is picked up when its title or teaser mentions, for example: bitcoin, crypto, blockchain, stablecoin, MiCA, CBDC (all languages); krypto, kryptovaluta, blokkjede (Norwegian); kryptoaktiver, blokkæde (Danish); kryptotillgångar, blockkedja, e-krona (Swedish); kryptovaluutta, lohkoketju, virtuaalivaluutta (Finnish); rafmynt, sýndareignir, bálkakeðja (Icelandic); or Nordic crypto firms such as Firi, NBX, K33, Safello, Coinmotion, Northcrypto, Myntkaup, Monerium and Coinify. The editor reviews every hit before it is published.</p>
 <h2 id="events">Where we find events</h2>
 <div class="tablewrap"><table class="list"><thead><tr><th></th><th>Event source</th><th>Status</th><th>Note</th></tr></thead><tbody>{''.join(erows)}</tbody></table></div>
 <p class="meta">Missing a source? Suggest it as an issue on <a href="https://github.com/jQrgen/nordic-crypto/issues" rel="noopener">GitHub</a>.</p>"""
@@ -329,7 +329,7 @@ def build_stories():
             l = line.strip()
             if l.startswith("# "): continue
             if l.startswith("## "): title = l[3:]; continue
-            if l.startswith("Country:"): country = {"Iceland": "IS", "Norway": "NO", "Sweden": "SE", "Finland": "FI"}.get(l.split("·")[0].split(":", 1)[1].strip(), "NORDIC"); meta = l; continue
+            if l.startswith("Country:"): country = {"Iceland": "IS", "Norway": "NO", "Sweden": "SE", "Denmark": "DK", "Finland": "FI"}.get(l.split("·")[0].split(":", 1)[1].strip(), "NORDIC"); meta = l; continue
             if l == "Sources:": sec = "src"; continue
             if sec == "src" and l.startswith("- "): srcs.append(l[2:]); continue
             if not l:
@@ -408,7 +408,7 @@ def build_calendar(cfg):
     per_c = {c: sum(e.get("country") == c for e in up) for c in COUNTRIES}
     npend = sum(e.get("status") == "pending" for e in up); nown = sum(e.get("status") == "owner" for e in up)
     body = f"""<h1>Calendar: crypto, bitcoin and blockchain events in the Nordics</h1>
-<p class="lead">Upcoming meetups, conferences and talks in Norway, Sweden, Finland and Iceland. We only list events where the organiser's own page or a public listing shows the date, place and organiser, and which are genuinely about crypto, bitcoin or blockchain. Paid and sponsored events are labelled. Times are local time in the event's country. Always check the details with the organiser.</p>
+<p class="lead">Upcoming meetups, conferences and talks in Norway, Sweden, Denmark, Finland and Iceland. We only list events where the organiser's own page or a public listing shows the date, place and organiser, and which are genuinely about crypto, bitcoin or blockchain. Paid and sponsored events are labelled. Times are local time in the event's country. Always check the details with the organiser.</p>
 {f'<p class="notice warn"><b>Preview:</b> {npend} of {len(up)} upcoming events are pending editor review; {nown} editor-approved and awaiting jQrgen\'s final approval. None of them is in the public build yet.</p>' if PREVIEW and (npend or nown) else ''}
 <div class="filters" role="group" aria-label="Filter by country"><span class="lbl">Country</span><div class="chips">{country_chips()}</div><span id="ecount" class="meta" aria-live="polite"></span></div>
 <p class="meta">{" · ".join(f"{flag(c)} {E(n)}: {per_c[c]}" for c, n in COUNTRIES.items())}</p>
@@ -421,7 +421,7 @@ function apply(){var c=cc.filter(function(x){return x.getAttribute('aria-pressed
 var h=new URLSearchParams(location.hash.slice(1));(h.get('country')||'').split(',').forEach(function(x){cc.forEach(function(b){if(b.dataset.c===x)b.setAttribute('aria-pressed','true')})});
 cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');apply()})});apply()})();</script>"""
     page("calendar", "Calendar – crypto, bitcoin and blockchain events in the Nordics", "calendar", body,
-         "Upcoming crypto, bitcoin and blockchain events in Norway, Sweden, Finland and Iceland, with date, place and organiser.", js)
+         "Upcoming crypto, bitcoin and blockchain events in Norway, Sweden, Denmark, Finland and Iceland, with date, place and organiser.", js)
     print(f"calendar: {len(up)} upcoming {per_c}, {len(past)} recent")
 
 def build_academia():
@@ -457,7 +457,7 @@ def build_academia():
     allrows = sum(len(v) for v in secs.values()); npend = allrows if PREVIEW else 0
     per_c = {c: sum(r["country"] == c for v in secs.values() for r in v) for c in COUNTRIES}
     body = f"""<h1>Academia: blockchain and crypto at Nordic universities</h1>
-<p class="lead">Courses and programmes, student associations, research groups and publications about blockchain, bitcoin and crypto in Norway, Sweden, Finland and Iceland. Every row links to its source and shows when we last checked it.</p>
+<p class="lead">Courses and programmes, student associations, research groups and publications about blockchain, bitcoin and crypto in Norway, Sweden, Denmark, Finland and Iceland. Every row links to its source and shows when we last checked it.</p>
 {f'<p class="notice warn"><b>Preview:</b> only the {allrows} editor-approved rows are shown; all await jQrgen\'s final approval. Rows the editor has not approved yet are kept off this page.</p>' if PREVIEW else ''}
 <div class="filters" role="group" aria-label="Filter by country"><span class="lbl">Country</span><div class="chips">{country_chips()}</div><span id="acount" class="meta" aria-live="polite"></span></div>
 <p class="meta">{" · ".join(f"{flag(c)} {E(n)}: {per_c[c]}" for c, n in COUNTRIES.items())} · <a href="#courses">Courses</a> · <a href="#groups">Student groups</a> · <a href="#publications">Publications</a> · <a href="#research">Research groups</a></p>
@@ -471,7 +471,7 @@ function apply(){var c=cc.filter(function(x){return x.getAttribute('aria-pressed
 var h=new URLSearchParams(location.hash.slice(1));(h.get('country')||'').split(',').forEach(function(x){cc.forEach(function(b){if(b.dataset.c===x)b.setAttribute('aria-pressed','true')})});
 cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');apply()})});apply()})();</script>"""
     page("academia", "Academia – blockchain and crypto at Nordic universities", "academia", body,
-         "Blockchain and crypto courses, student groups, research groups and publications in Norway, Sweden, Finland and Iceland.", js)
+         "Blockchain and crypto courses, student groups, research groups and publications in Norway, Sweden, Denmark, Finland and Iceland.", js)
     print(f"academia: {allrows} editor-approved rows shown {per_c}")
 
 def build_changelog():

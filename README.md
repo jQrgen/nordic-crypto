@@ -1,7 +1,7 @@
 # Nordic Crypto
 
 Bitcoin, blockchain and crypto news, events, a who's who (industry + regulators), regulation by country and academia for
-**Norway, Sweden, Finland and Iceland**. Everything on the site is in English. Static site, no tracking.
+**Norway, Sweden, Denmark, Finland and Iceland**. Everything on the site is in English. Static site, no tracking.
 Planned URL: https://jqrgen.github.io/nordic-crypto/ (all links are relative). Run by jQrgen (Jørgen S. Notland), MIT licence.
 
 **Status: local only.** No git repo, nothing committed or published. Publishing needs jQrgen's explicit approval.
@@ -31,6 +31,9 @@ Other tools: `tools/probe.py` (feed checks), `tools/import_orgchart.py` (merges 
 **Researcher (6031f46c)**: run `./fetch.sh --days 2` (daily), check `state/source_status.json` for failing sources, add missed stories/events with `--add` / `--add-event`, research org-chart candidates in `queue/review.json` and academia rows in `/workspace/nordic-crypto-research/academia.md` (every row: source, check date, status). Never invent; never circumvent blocks (vb.is returns 403 and stays disabled).
 
 **Editor (0b7181d5)**: review `queue/review.json`; for each story write a 1–2 sentence English summary in your own words (plus `title_en` for Nordic-language headlines) into `queue/approved.json`, or reject. Approve/reject events (date, place, organiser must be on the organiser's page; label paid/sponsored; reject online webinars without a Nordic link). Approve org rows only when every row and link has a source. Then `./build.sh --preview` and look at it. Things involving jQrgen himself (e.g. events where he speaks, own stories) go to `ready_for_owner`, never straight to `approve`.
+
+## Denmark (added 3 Oct 2026)
+Denmark (DK) is in the country set, the fetch config and the event detection. No Danish content goes live without the editor's approval: Danish stories and events land as `pending`, and DK is deliberately **not** in `org.approve_countries`, so Danish org-chart rows need explicit approval (`org.approve` or adding DK to `approve_countries` once the editor has reviewed them). Researcher: Danish stories, events, org chart (Finanstilsynet, Danmarks Nationalbank, Erhvervsministeriet, Skatteministeriet/Skattestyrelsen, the FIU (Hvidvasksekretariatet), MiCA CASPs authorised in Denmark per the ESMA register) and academia rows.
 
 ## Privacy
 No health or private financial data about anyone, no org numbers, LEIs, addresses of private persons, emails or tokens. `state/private_terms.json` (never printed, never committed) feeds the privacy gate, which blocks the build if it finds them.

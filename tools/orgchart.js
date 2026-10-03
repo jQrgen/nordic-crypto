@@ -1,7 +1,7 @@
 (function(){
 var D=JSON.parse(document.getElementById('orgdata').textContent),E=D.entities,R=D.relations,by={},FL=window.FLAGS||{},CN=window.CNAME||{};E.forEach(function(e){by[e.id]=e});
 var chart=document.getElementById('chart'),det=document.getElementById('detail'),q=document.getElementById('osearch'),tb=document.querySelector('#olist tbody'),seg='both';
-var ORDER=['NO','SE','FI','IS','NORDIC','EU'],SECN={'private':'Private sector','public':'Public sector'};
+var ORDER=['NO','SE','DK','FI','IS','NORDIC','EU'],SECN={'private':'Private sector','public':'Public sector'};
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function fl(c){return FL[c]||'<span class="cc">'+esc(c||'')+'</span>'}
 function cn(c){return CN[c]||c||''}

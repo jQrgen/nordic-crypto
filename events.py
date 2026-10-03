@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Events (calendar) for Nordic Crypto: Norway, Sweden, Finland and Iceland.
+"""Events (calendar) for Nordic Crypto: Norway, Sweden, Denmark, Finland and Iceland.
 Called from fetch.py in every run, or on its own:
   .venv/bin/python events.py                     # search event_sources in sources.json
   .venv/bin/python events.py --add-event URL     # add from the organiser's page (JSON-LD or iCal) – researcher
@@ -11,7 +11,7 @@ import argparse, datetime as dt, hashlib, json, os, re, sys, urllib.parse
 from zoneinfo import ZoneInfo
 from bs4 import BeautifulSoup
 ROOT = os.path.dirname(os.path.abspath(__file__)); P = lambda *a: os.path.join(ROOT, *a)
-TZ = {"NO": "Europe/Oslo", "SE": "Europe/Stockholm", "FI": "Europe/Helsinki", "IS": "Atlantic/Reykjavik"}
+TZ = {"NO": "Europe/Oslo", "SE": "Europe/Stockholm", "DK": "Europe/Copenhagen", "FI": "Europe/Helsinki", "IS": "Atlantic/Reykjavik"}
 UTC = dt.timezone.utc
 
 def _load(p, d):
@@ -70,9 +70,10 @@ def ics_events(text, tz="Europe/Oslo"):
 def eid(e): return hashlib.sha1(f"{(e.get('url') or '').split('?')[0]}|{e['start'].date() if e.get('start') else ''}|{(e.get('title') or '').lower()}".encode()).hexdigest()[:12]
 CITIES = {"NO": ["Oslo", "Bergen", "Trondheim", "Stavanger", "Kristiansand", "Tromsø", "Bodø", "Drammen", "Fredrikstad", "Ålesund", "Fornebu", "Lysaker", "Lillehammer"],
           "SE": ["Stockholm", "Göteborg", "Gothenburg", "Malmö", "Uppsala", "Linköping", "Örebro", "Västerås", "Umeå", "Lund", "Luleå", "Boden"],
+          "DK": ["København", "Copenhagen", "Frederiksberg", "Aarhus", "Odense", "Aalborg", "Esbjerg", "Kolding", "Roskilde", "Lyngby"],
           "FI": ["Helsinki", "Helsingfors", "Espoo", "Tampere", "Turku", "Åbo", "Oulu", "Vantaa", "Jyväskylä"],
           "IS": ["Reykjavík", "Reykjavik", "Akureyri", "Kópavogur", "Hafnarfjörður"]}
-CC = {"NO": "NO", "NOR": "NO", "NORWAY": "NO", "SE": "SE", "SWE": "SE", "SWEDEN": "SE", "FI": "FI", "FIN": "FI", "FINLAND": "FI", "IS": "IS", "ISL": "IS", "ICELAND": "IS"}
+CC = {"NO": "NO", "NOR": "NO", "NORWAY": "NO", "SE": "SE", "SWE": "SE", "SWEDEN": "SE", "DK": "DK", "DNK": "DK", "DENMARK": "DK", "FI": "FI", "FIN": "FI", "FINLAND": "FI", "IS": "IS", "ISL": "IS", "ICELAND": "IS"}
 def guess_city(place):
     for c, cs in CITIES.items():
         for x in cs:
@@ -91,7 +92,7 @@ def run(get, robots_ok, matches, log, cfg, add_url=None, a=None):
         country = CC.get((ev.get("country_hint") or "").upper()) or c
         if not country and ev.get("online"): country = src.get("country")
         if not country and (ev.get("place") or ev.get("city")):
-            return  # a physical event we cannot place in NO/SE/FI/IS: not ours (search results include other countries)
+            return  # a physical event we cannot place in NO/SE/DK/FI/IS: not ours (search results include other countries)
         country = country or src.get("country")
         if country not in TZ: return
         if not trusted and ev.get("online") and not city: return  # online webinars found via search have no Nordic link
@@ -170,7 +171,7 @@ if __name__ == "__main__":
     import fetch
     ap = argparse.ArgumentParser(); ap.add_argument("--add-event", metavar="URL"); ap.add_argument("--source-name"); ap.add_argument("--organiser")
     ap.add_argument("--title"); ap.add_argument("--start", help="YYYY-MM-DDTHH:MM (local time in --country)"); ap.add_argument("--end"); ap.add_argument("--place"); ap.add_argument("--city")
-    ap.add_argument("--country", choices=list(TZ), help="NO, SE, FI or IS"); ap.add_argument("--online", action="store_true")
+    ap.add_argument("--country", choices=list(TZ), help="NO, SE, DK, FI or IS"); ap.add_argument("--online", action="store_true")
     ap.add_argument("--paid", type=lambda s: s.lower() in ("1", "true", "yes", "ja"), default=None)
     a, _ = ap.parse_known_args()
     run(fetch.get, fetch.robots_ok, lambda t: bool(fetch.matches(t)), fetch.log, fetch.CFG, a.add_event, a)
