@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>About Nordic Crypto – Nordic Crypto</title>
+<meta name="description" content="About Nordic Crypto: who runs it, how it works, corrections and removal."><link rel="canonical" href="https://jqrgen.github.io/nordic-crypto/about/">
+<meta property="og:title" content="About Nordic Crypto"><meta property="og:description" content="About Nordic Crypto: who runs it, how it works, corrections and removal."><meta property="og:url" content="https://jqrgen.github.io/nordic-crypto/about/"><meta property="og:type" content="website"><meta property="og:locale" content="en_GB">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230f5ea8'/%3E%3Crect x='4' width='3' height='16' fill='white'/%3E%3Crect y='6.5' width='16' height='3' fill='white'/%3E%3C/svg%3E">
+<style>
+:root{--ink:#111;--muted:#4B5563;--line:#d1d5db;--paper:#fff;--accent:#0f5ea8;--warm:#b45309;--soft:#f5f7fa;--pub:#1d4ed8;--priv:#047857}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--paper)}
+a{color:inherit}a:hover{text-decoration-thickness:2px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 16px}
+header.top{border-bottom:3px solid var(--ink)}
+header.top .wrap{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 22px;padding-top:14px;padding-bottom:10px}
+.brand{font-weight:800;font-size:22px;letter-spacing:-.01em;text-decoration:none}.brand span{color:var(--accent)}
+nav.main{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:15px}
+nav.main a{text-decoration:none;padding:2px 0;border-bottom:2px solid transparent}nav.main a[aria-current]{border-color:var(--accent);font-weight:600}
+.preview{background:#fef3c7;border-bottom:2px solid var(--warm);font-size:14px}.preview .wrap{padding-top:6px;padding-bottom:6px}
+h1{font-size:28px;line-height:1.2;margin:22px 0 4px}h2{font-size:20px;margin:28px 0 8px}
+.lead{color:var(--muted);margin:4px 0 10px;max-width:72ch}
+.filters{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin:14px 0;padding:10px 12px;background:var(--soft);border:1px solid var(--line)}
+.filters label,.filters .lbl{font-size:14px;color:var(--muted)}
+select,input[type=search]{font:inherit;font-size:15px;padding:5px 8px;border:1px solid var(--ink);background:#fff;border-radius:0;max-width:100%}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:inherit;font-size:13.5px;padding:3px 10px;border:1px solid var(--ink);background:#fff;cursor:pointer;display:inline-flex;align-items:center;gap:5px}
+.chip[aria-pressed=true]{background:var(--ink);color:#fff}
+.flag{vertical-align:-2px;flex:none;border-radius:1px}
+.cc{display:inline-block;font-size:11px;font-weight:700;padding:0 4px;border:1px solid var(--line);color:var(--muted);vertical-align:1px}
+ol.news{list-style:none;margin:0;padding:0}
+ol.news li{padding:14px 0;border-bottom:1px solid var(--line)}
+ol.news h3{font-size:18px;line-height:1.3;margin:0 0 4px}ol.news h3 a{text-decoration:none}ol.news h3 a:hover{text-decoration:underline}
+.orig{font-size:13.5px;color:var(--muted);margin:0 0 3px}
+.meta{font-size:13.5px;color:var(--muted)}.meta b{color:var(--ink);font-weight:600}
+.tag{display:inline-block;font-size:12px;padding:0 6px;border:1px solid var(--line);margin-left:4px;color:var(--muted)}
+.tag.pend{border-color:var(--warm);color:var(--warm);font-weight:600}.tag.paid{border-color:var(--warm);color:var(--warm)}
+.sum{margin:6px 0 0;max-width:75ch}.sum.pend{color:var(--warm);font-style:italic}
+.pw{font-size:12px;color:var(--warm)}
+.calgrid{display:none}@media(min-width:760px){.calgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(460px,1fr));gap:20px;margin:16px 0}}
+table.cal{border-collapse:collapse;width:100%;table-layout:fixed;font-size:13px}table.cal caption{text-align:left;font-weight:600;padding:4px 0}
+table.cal th{font-weight:500;color:var(--muted);padding:2px}table.cal td{border:1px solid var(--line);vertical-align:top;height:64px;padding:2px 4px;overflow:hidden}
+table.cal td.out{opacity:.35}table.cal td.today .d{background:var(--accent);color:#fff;padding:0 4px}table.cal td.has{background:color-mix(in srgb,var(--accent) 7%,transparent)}
+table.cal td a{display:flex;gap:3px;align-items:flex-start;font-size:11.5px;line-height:1.2;margin-top:3px;text-decoration:none}table.cal td a span{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:break-word;hyphens:auto}table.cal td a:hover{text-decoration:underline}
+table.cal td a .flag{width:13px;height:10px;margin-top:1px}ol.past{opacity:.7}
+.empty{padding:20px;color:var(--muted)}
+footer{margin-top:40px;border-top:1px solid var(--line);padding:18px 0 30px;font-size:13.5px;color:var(--muted)}
+.notice{border-left:4px solid var(--accent);background:var(--soft);padding:8px 12px;font-size:14px;margin:12px 0}
+.notice.warn{border-color:var(--warm);background:#fffbeb}
+/* org chart */
+.seg{display:inline-flex;border:1px solid var(--ink)}.seg button{font:inherit;font-size:14px;padding:5px 12px;border:0;background:#fff;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--ink);color:#fff}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:12px}
+.cols.only-private,.cols.only-public{grid-template-columns:1fr}
+.cols.only-private .col-public,.cols.only-public .col-private{display:none}
+@media (max-width:760px){.cols{grid-template-columns:1fr}}
+.col>h2{margin:0 0 8px;padding:6px 10px;color:#fff;font-size:17px}
+.col-private>h2{background:var(--priv)}.col-public>h2{background:var(--pub)}
+.cgrp{margin:0 0 6px}.cgrp>h3{display:flex;align-items:center;gap:8px;font-size:16px;margin:16px 0 4px;padding-bottom:3px;border-bottom:2px solid var(--line)}
+.grp{margin:0 0 10px}.grp h4{font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:8px 0 6px}
+.card{border:1px solid var(--line);background:#fff;padding:8px 10px;margin:0 0 8px;cursor:pointer;text-align:left;width:100%;font:inherit;display:block}
+.card:hover,.card:focus-visible{border-color:var(--ink);outline:none}
+.card.hl{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}.card.dim{opacity:.35}
+.card .nm{font-weight:700}.card .ds{font-size:13.5px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.people{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.person{display:flex;align-items:center;gap:6px;font-size:13px;border:1px solid var(--line);padding:3px 8px 3px 3px;background:var(--soft);cursor:pointer;font-family:inherit;max-width:100%}
+.person.hl{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
+.av{width:34px;height:34px;border-radius:50%;object-fit:cover;flex:none;display:inline-flex;align-items:center;justify-content:center;background:#e5e7eb;color:#374151;font-weight:700;font-size:13px}
+.av.big{width:96px;height:96px;font-size:28px}
+.xl{font-size:11.5px;padding:0 5px;margin-left:4px;border:1px solid}.xl.pub{color:var(--pub)}.xl.priv{color:var(--priv)}
+#detail{position:sticky;bottom:0;background:#fff;border:2px solid var(--ink);padding:12px 14px;margin-top:14px;max-height:60vh;overflow:auto}
+#detail[hidden]{display:none}#detail h3{margin:0 0 4px;font-size:19px}#detail .close{float:right;font:inherit;border:1px solid var(--ink);background:#fff;cursor:pointer}
+#detail ul{padding-left:18px;margin:6px 0}#detail .row{display:flex;gap:14px;align-items:flex-start}
+.credit{font-size:12px;color:var(--muted)}
+.tablewrap{overflow-x:auto}
+table.list{width:100%;border-collapse:collapse;font-size:14.5px}table.list th,table.list td{border-bottom:1px solid var(--line);padding:6px 6px;text-align:left;vertical-align:top}
+table.list th{font-size:13px;color:var(--muted)}
+.ok{color:#047857;font-weight:600}.bad{color:#b91c1c;font-weight:600}
+.prose{max-width:72ch}
+.tag.act{border-color:#047857;color:#047857;font-weight:600}.tag.inact{border-color:#9ca3af;color:#6b7280}
+.reg{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px;margin:10px 0}
+.reg article{border:1px solid var(--line);padding:10px 12px;background:#fff}.reg h3{display:flex;gap:8px;align-items:center;margin:0 0 6px;font-size:17px}
+.reg dl{margin:0;font-size:14px}.reg dt{font-weight:600;margin-top:6px}.reg dd{margin:0}
+
+.social{display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;margin:6px 0 0;font-size:13.5px}
+.social-label{color:var(--muted,#4B5563)}
+.social a{color:var(--ink,#000);text-decoration:underline;text-underline-offset:2px}
+.social a:hover{text-decoration-thickness:2px}
+.social a:focus-visible{outline:2px solid var(--ink,#000);outline-offset:2px}
+
+.share{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin:14px 0}
+.share-label{font-size:13px;color:var(--muted,#4B5563);margin-right:2px}
+.share a,.share button{font:inherit;font-size:13.5px;line-height:1.2;color:var(--ink,#000);background:var(--paper,#fff);border:1px solid var(--line,#000);padding:5px 10px;text-decoration:none;cursor:pointer}
+.share a:hover,.share button:hover{background:var(--band,#000);color:var(--band-ink,#fff)}
+.share a:focus-visible,.share button:focus-visible{outline:2px solid var(--ink,#000);outline-offset:2px}
+.share-status{font-size:13px;color:var(--muted,#4B5563)}
+</style></head>
+<body><header class="top"><div class="wrap"><a class="brand" href="../">Nordic <span>Crypto</span></a><nav class="main" aria-label="Main menu"><a href="../">News</a><a href="../calendar/">Calendar</a><a href="../org-chart/">Who&#x27;s who</a><a href="../academia/">Academia</a><a href="../sources/">Sources</a><a href="../about/" aria-current=page>About</a></nav></div></header>
+<main class="wrap">
+<h1>About Nordic Crypto</h1>
+<div class="prose">
+<p class="lead">Nordic Crypto collects news about bitcoin, blockchain and crypto from Norway, Sweden, Finland, Iceland and the Faroe Islands in one place, in English. It also keeps an events calendar, a who's who of the industry and its regulators, and an overview of courses and research at Nordic universities.</p>
+
+<h2>Who runs it</h2>
+<p>The site is run by Jørgen S. Notland (<a href="https://github.com/jQrgen" rel="noopener">jQrgen</a>), a developer in Oslo. He works on the Nexa blockchain at Bitcoin Unlimited, so stories about Nexa should be read with that in mind. The work is done with the help of artificial intelligence. Nordic Crypto is a sister project of <a href="https://jqrgen.github.io/kryptonytt/" rel="noopener">Kryptonytt Norge</a>, which covers Norway in Norwegian.</p>
+
+<h2>Editorial team</h2>
+<ul>
+<li><b>Editor:</b> an AI bot (“Nordic Crypto editor”). It decides which stories are published, writes the short English summaries, and approves entries in the calendar, the who's who and the academia page.</li>
+<li><b>Responsible person:</b> Jørgen S. Notland (jQrgen) is the human who answers for the content and for the editor bot.</li>
+<li><b>Researcher:</b> an AI bot that fetches headlines from the sources, suggests stories, events and possible who's who entries, and puts them in a queue for the editor.</li>
+</ul>
+<p>Nothing is published automatically. Every story, event and entry goes through the editor first.</p>
+
+<h2>How we work</h2>
+<p>We link to the original story and write our own summary in English, in one or two sentences, including for stories published in Norwegian, Swedish, Finnish, Icelandic or Faroese. We do not copy article text and we do not get around paywalls.</p>
+<p>The who's who and the academia page only say what the sources say. Every entry and every link between entries points to its source. If we are unsure, we leave it out. People are only included in public professional roles (for example chief executive, director general or central bank governor), as described by their organisation or in the press. We never publish private information, health information or private financial information.</p>
+<p>Photos of people are only shown when they are freely licensed (Wikimedia Commons), with credit. Otherwise we show initials.</p>
+<p>Kaupr (kaupr.io) is one of the news sources we follow and also sponsors some events in our calendar; those events are labelled “Sponsored by kaupr.io”. See the <a href="../sources/#kaupr">disclosure on the sources page</a>.</p>
+<p>The site has no tracking, no analytics, no cookies and no third-party scripts. The share buttons are plain links.</p>
+
+<h2>Not investment advice</h2>
+<p>Nordic Crypto is a news overview. Nothing here is investment advice, a recommendation to buy or sell, or an assessment of any company or crypto-asset. Crypto-assets can swing sharply in value and you can lose everything you invest. Check whether a provider is authorised with the national regulator or in ESMA's MiCA register before you use it.</p>
+
+<h2 id="corrections">Corrections and removal</h2>
+<p>If you find a mistake, such as a wrong role, a wrong link between entries, a wrong date or a summary that does not match the story, we fix it as quickly as we can. Corrections to content are noted on the entry.</p>
+<p>If you appear in the who's who and want your entry or photo removed or changed, we remove it, even when the role is public. If you are a source or rights holder and do not want us to link to or summarise your stories, we take them out.</p>
+<p>Report it by opening an issue at <a href="https://github.com/jQrgen/nordic-crypto/issues" rel="noopener">github.com/jQrgen/nordic-crypto/issues</a>. Please do not write personal information in a public GitHub issue; ask to be contacted instead.</p>
+
+<h2>Source code and data</h2>
+<p>The published data is open: <a href="../data/news.json">news (JSON)</a>, <a href="../data/events.json">events (JSON)</a>, <a href="../data/orgchart.json">who's who (JSON)</a> and <a href="../data/academia.json">academia (JSON)</a>. The code is MIT-licensed.</p>
+</div>
+
+<nav class="social" aria-label="Jørgen online"><span class="social-label">Follow me:</span><a class="social-x" href="https://x.com/jqrgensn" rel="me noopener noreferrer" target="_blank">X</a><a class="social-github" href="https://github.com/jQrgen" rel="me noopener noreferrer" target="_blank">GitHub</a><a class="social-gitlab" href="https://gitlab.com/jQrgen" rel="me noopener noreferrer" target="_blank">GitLab</a><a class="social-medium" href="https://jqrgen.medium.com/" rel="me noopener noreferrer" target="_blank">Medium</a></nav>
+  <nav class="share" aria-label="Share this article"><span class="share-label">Share:</span><a class="share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fjqrgen.github.io%2Fnordic-crypto%2Fabout%2F" target="_blank" rel="noopener noreferrer">LinkedIn</a><a class="share-x" href="https://x.com/intent/post?text=About%20Nordic%20Crypto%20%E2%80%93%20Nordic%20Crypto&amp;url=https%3A%2F%2Fjqrgen.github.io%2Fnordic-crypto%2Fabout%2F" target="_blank" rel="noopener noreferrer">X</a><a class="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjqrgen.github.io%2Fnordic-crypto%2Fabout%2F" target="_blank" rel="noopener noreferrer">Facebook</a><a class="share-email" href="mailto:?subject=About%20Nordic%20Crypto%20%E2%80%93%20Nordic%20Crypto&amp;body=You%20might%20find%20this%20interesting%3A%0Ahttps%3A%2F%2Fjqrgen.github.io%2Fnordic-crypto%2Fabout%2F">Email</a><button type="button" class="share-copy" data-url="https://jqrgen.github.io/nordic-crypto/about/" data-done="Link copied">Copy link</button><span class="share-status" role="status" aria-live="polite"></span></nav>
+</main>
+<footer><div class="wrap">Nordic Crypto covers Norway, Sweden, Finland, Iceland and the Faroe Islands. Run by Jørgen S. Notland (jQrgen), Oslo, with AI assistance; summaries are written by an AI editor and jQrgen is the responsible person. Not investment advice. No tracking or cookies. <a href="../about/">About, corrections and removal</a> · <a href="../changelog/">Changelog</a>.</div></footer>
+<script>
+document.addEventListener("click", function (e) {
+  var b = e.target.closest && e.target.closest(".share-copy"); if (!b) return;
+  var url = b.getAttribute("data-url"), st = b.parentNode.querySelector(".share-status");
+  var done = function () { if (st) { st.textContent = b.getAttribute("data-done"); setTimeout(function () { st.textContent = ""; }, 2500); } };
+  var fallback = function () { var i = document.createElement("input"); i.value = url; document.body.appendChild(i); i.select(); try { document.execCommand("copy"); done(); } catch (x) { window.prompt("", url); } i.remove(); };
+  if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(url).then(done, fallback); else fallback();
+});
+</script>
+</body></html>

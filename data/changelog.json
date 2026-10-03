@@ -1,0 +1,17 @@
+{
+ "launch_date": "2026-10-03",
+ "entries": [
+  {
+   "id": "academia",
+   "date": "2026-10-03",
+   "title": "Academia page",
+   "description": "New Academia page: blockchain and crypto courses and programmes, student associations, publications and research groups at universities in Norway, Sweden, Finland, Iceland and the Faroe Islands. Every row shows its source, the date we checked it and its status; only editor-approved rows are shown."
+  },
+  {
+   "id": "initial-build",
+   "date": "2026-10-03",
+   "title": "Nordic Crypto launches",
+   "description": "First version of the site in English: news from Norway, Sweden, Finland, Iceland and the Faroe Islands with our own short summaries; an events calendar with a month grid, a mobile list and a country filter; a who's who of the industry and its regulators split into private and public sector, with a country filter; a Regulation by country section; the list of sources we follow; an About page with corrections and removal; and a full-screen office screen mode for portrait and landscape displays."
+  }
+ ]
+}

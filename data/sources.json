@@ -1,0 +1,124 @@
+{
+ "active": [
+  {
+   "name": "ArcticStartup",
+   "country": "FI"
+  },
+  {
+   "name": "Bitcoinpolitisk institutt",
+   "country": "NO"
+  },
+  {
+   "name": "Breakit",
+   "country": "SE"
+  },
+  {
+   "name": "Dagens Næringsliv",
+   "country": "NO"
+  },
+  {
+   "name": "Dagens industri",
+   "country": "SE"
+  },
+  {
+   "name": "Digi.no",
+   "country": "NO"
+  },
+  {
+   "name": "E24",
+   "country": "NO"
+  },
+  {
+   "name": "Finansinspektionen",
+   "country": "SE"
+  },
+  {
+   "name": "Finanssivalvonta",
+   "country": "FI"
+  },
+  {
+   "name": "Finanstilsynet",
+   "country": "NO"
+  },
+  {
+   "name": "Heimildin",
+   "country": "IS"
+  },
+  {
+   "name": "Helsingin Sanomat",
+   "country": "FI"
+  },
+  {
+   "name": "Iceland Review",
+   "country": "IS"
+  },
+  {
+   "name": "Kauppalehti",
+   "country": "FI"
+  },
+  {
+   "name": "Kaupr",
+   "country": "NO"
+  },
+  {
+   "name": "Kringvarp Føroya",
+   "country": "FO"
+  },
+  {
+   "name": "NRK",
+   "country": "NO"
+  },
+  {
+   "name": "Norges Bank",
+   "country": "NO"
+  },
+  {
+   "name": "Reykjavík Grapevine",
+   "country": "IS"
+  },
+  {
+   "name": "RÚV",
+   "country": "IS"
+  },
+  {
+   "name": "SVT Nyheter",
+   "country": "SE"
+  },
+  {
+   "name": "Seðlabanki Íslands",
+   "country": "IS"
+  },
+  {
+   "name": "Suomen Pankki / Bank of Finland",
+   "country": "FI"
+  },
+  {
+   "name": "Svenska Dagbladet",
+   "country": "SE"
+  },
+  {
+   "name": "Sveriges Riksbank",
+   "country": "SE"
+  },
+  {
+   "name": "Talouselämä",
+   "country": "FI"
+  },
+  {
+   "name": "Tivi",
+   "country": "FI"
+  },
+  {
+   "name": "Vísir",
+   "country": "IS"
+  },
+  {
+   "name": "Yle Uutiset",
+   "country": "FI"
+  },
+  {
+   "name": "mbl.is",
+   "country": "IS"
+  }
+ ]
+}

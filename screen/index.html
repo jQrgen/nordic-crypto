@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Screen mode – Nordic Crypto</title><meta name="robots" content="noindex"><link rel="canonical" href="https://jqrgen.github.io/nordic-crypto/screen/">
+<meta name="description" content="Full-screen view of Nordic Crypto for an office screen.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230f5ea8'/%3E%3Crect x='4' width='3' height='16' fill='white'/%3E%3Crect y='6.5' width='16' height='3' fill='white'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#0b0d10;--fg:#f5f5f4;--mut:#a8a29e;--line:#2c3036;--card:#14181d;--acc:#38bdf8;--pub:#60a5fa;--priv:#34d399}
+body.light{--bg:#fff;--fg:#0a0a0a;--mut:#44403c;--line:#d6d3d1;--card:#f5f5f4;--acc:#0f5ea8;--pub:#1d4ed8;--priv:#047857}
+*{box-sizing:border-box}html,body{margin:0;height:100%;overflow:hidden;background:var(--bg);color:var(--fg);font:400 clamp(16px,1.25vw,30px)/1.35 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+body.idle,body.idle *{cursor:none!important}
+a{color:inherit;text-decoration:none}
+.app{height:100vh;display:grid;gap:1.1vmin;padding:1.6vmin}
+header{display:flex;align-items:center;gap:2vmin;border-bottom:.45vmin solid var(--acc);padding-bottom:1vmin}
+.brand{font-weight:800;font-size:2.4em;letter-spacing:-.02em}.brand span{color:var(--acc)}
+.clock{margin-left:auto;font-variant-numeric:tabular-nums;font-weight:700;font-size:2.4em}
+.date{color:var(--mut);font-size:1em;text-align:right}
+.ctl{display:flex;gap:.6em}.ctl button{font:inherit;font-size:.8em;background:transparent;color:var(--fg);border:2px solid var(--line);padding:.3em .7em;cursor:pointer}
+.ctl button:focus-visible{outline:3px solid var(--acc)}
+.panel{background:var(--card);border:1px solid var(--line);padding:1.4vmin 1.8vmin;overflow:hidden;position:relative;min-height:0;display:flex;flex-direction:column}
+.panel h2{margin:0 0 .6em;font-size:1em;text-transform:uppercase;letter-spacing:.12em;color:var(--acc)}
+.news{list-style:none;margin:0;padding:0;flex:1;min-height:0;overflow:hidden}
+.news li{padding:.75em 0;border-bottom:1px solid var(--line);transition:opacity .6s}
+.news .t{font-weight:700;font-size:1.55em;line-height:1.2}
+.news .m{color:var(--mut);font-size:.95em;margin:.25em 0}.news .m b{color:var(--fg)}
+.news .s{font-size:1.1em}.news .s.pend{color:var(--acc);font-style:italic}.news .o{color:var(--mut);font-size:.95em}
+.flag{vertical-align:-.12em;width:1.1em;height:.8em;margin-right:.3em}
+.tag.pend{border-color:var(--acc);color:var(--acc);font-weight:700}
+.pv{background:#78350f;color:#fff;padding:.2em .6em;font-size:.8em;font-weight:700}
+.tag{display:inline-block;border:1px solid var(--line);padding:0 .4em;font-size:.8em;margin-left:.3em;color:var(--mut)}
+.pager{color:var(--mut);font-size:.85em;margin-top:.4em}
+.spot{display:flex;gap:1.2em;align-items:center;transition:opacity .6s}
+.av{width:7em;height:7em;border-radius:50%;object-fit:cover;flex:none;background:var(--line);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.6em;color:var(--fg)}
+.spot>div{min-width:0}.spot .n{overflow-wrap:anywhere;font-size:1.6em;font-weight:800;line-height:1.15}.spot .r{font-size:1.1em}.spot .o{color:var(--mut)}
+.sec{display:inline-block;font-size:.8em;padding:.05em .5em;border:2px solid;margin-top:.3em}.sec.pub{color:var(--pub)}.sec.priv{color:var(--priv)}
+.credit{color:var(--mut);font-size:.7em;margin-top:.3em}
+.evs{list-style:none;margin:0 0 .8em;padding:0}.evs li{padding:.3em 0;border-bottom:1px solid var(--line)}.evs b{display:block}.evs span{color:var(--mut);font-size:.85em}.evs .paid{color:var(--acc)}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:.6em;margin-top:auto;padding-top:1em}
+.stat{border:1px solid var(--line);padding:.5em .7em}.stat b{display:block;font-size:2em;line-height:1}.stat span{color:var(--mut);font-size:.85em}
+.srcs{list-style:none;margin:0;padding:0;columns:2;column-gap:1.2em;font-size:.95em}.srcs li{break-inside:avoid;padding:.12em 0}.srcs li::before{content:"● ";color:var(--priv)}
+footer{color:var(--mut);font-size:.8em;display:flex;gap:1.5em;flex-wrap:wrap}
+/* landscape: three columns */
+@media (orientation: landscape){
+ .app{grid-template-columns:2.1fr 1fr 1fr;grid-template-rows:auto 1fr auto}
+ header,footer{grid-column:1/-1}
+ #pNews{grid-row:2}#pOrg{grid-row:2}#pSrc{grid-row:2}
+ .spot{flex-direction:column;align-items:flex-start}
+ .av{width:5.5em;height:5.5em}.stat b{font-size:1.5em}.stats{gap:.4em}
+}
+/* portrait: vertical stream */
+@media (orientation: portrait){
+ html,body{font-size:clamp(16px,2.1vw,34px)}
+ .app{grid-template-columns:1fr 1fr;grid-template-rows:auto minmax(0,1.7fr) minmax(0,1fr) auto}
+ header,footer{grid-column:1/-1}#pNews{grid-column:1/-1;grid-row:2}footer{grid-row:4}
+ #pOrg{grid-row:3}#pSrc{grid-row:3}.srcs{columns:2}
+ .news .t{font-size:1.45em}
+ .brand,.clock{font-size:1.9em;white-space:nowrap}.ctl button,.ctl a{white-space:nowrap}header{flex-wrap:wrap}
+ .av{width:5.5em;height:5.5em}
+}
+</style></head>
+<body>
+<div class="app">
+<header><div class="brand">Nordic <span>Crypto</span></div><span id="pv" class="pv" hidden>LOCAL PREVIEW – pending editor review</span><div class="ctl"><button id="fs" type="button">⛶ Full screen</button><button id="theme" type="button">Light theme</button><a href="../" style="align-self:center;font-size:.8em;text-decoration:underline">To the website</a></div>
+<div><div class="clock" id="clock">--:--</div><div class="date" id="date"></div></div></header>
+<section class="panel" id="pNews" aria-live="polite"><h2>Latest news</h2><ol class="news" id="news"></ol><div class="pager" id="pager"></div></section>
+<section class="panel" id="pOrg"><h2>Who's who</h2><div class="spot" id="spot"></div><div class="stats" id="stats"></div></section>
+<section class="panel" id="pSrc"><div id="evbox" hidden><h2>Upcoming events</h2><ul class="evs" id="evs"></ul></div><h2>Sources we follow</h2><ul class="srcs" id="srcs"></ul></section>
+<footer><span id="upd">Loading …</span><span>Summaries: our editor, made with the help of AI. Not investment advice. No tracking.</span><span>jqrgen.github.io/nordic-crypto · Oslo time</span></footer>
+</div>
+<script>
+(function(){
+var FLAGS={"NO": "<svg class=\"flag\" viewBox=\"0 0 22 16\" width=\"22\" height=\"16\" role=\"img\" aria-label=\"Norway\"><title>Norway</title><rect width=\"22\" height=\"16\" fill=\"#BA0C2F\"/><rect x=\"6\" width=\"4\" height=\"16\" fill=\"#fff\"/><rect y=\"6\" width=\"22\" height=\"4\" fill=\"#fff\"/><rect x=\"7\" width=\"2\" height=\"16\" fill=\"#00205B\"/><rect y=\"7\" width=\"22\" height=\"2\" fill=\"#00205B\"/></svg>", "SE": "<svg class=\"flag\" viewBox=\"0 0 22 16\" width=\"22\" height=\"16\" role=\"img\" aria-label=\"Sweden\"><title>Sweden</title><rect width=\"22\" height=\"16\" fill=\"#006AA7\"/><rect x=\"6\" width=\"4\" height=\"16\" fill=\"#FECC00\"/><rect y=\"6\" width=\"22\" height=\"4\" fill=\"#FECC00\"/></svg>", "FI": "<svg class=\"flag\" viewBox=\"0 0 22 16\" width=\"22\" height=\"16\" role=\"img\" aria-label=\"Finland\"><title>Finland</title><rect width=\"22\" height=\"16\" fill=\"#fff\" stroke=\"#9ca3af\" stroke-width=\".6\"/><rect x=\"6\" width=\"4\" height=\"16\" fill=\"#002F6C\"/><rect y=\"6\" width=\"22\" height=\"4\" fill=\"#002F6C\"/></svg>", "IS": "<svg class=\"flag\" viewBox=\"0 0 22 16\" width=\"22\" height=\"16\" role=\"img\" aria-label=\"Iceland\"><title>Iceland</title><rect width=\"22\" height=\"16\" fill=\"#02529C\"/><rect x=\"6\" width=\"4\" height=\"16\" fill=\"#fff\"/><rect y=\"6\" width=\"22\" height=\"4\" fill=\"#fff\"/><rect x=\"7\" width=\"2\" height=\"16\" fill=\"#DC1E35\"/><rect y=\"7\" width=\"22\" height=\"2\" fill=\"#DC1E35\"/></svg>", "FO": "<svg class=\"flag\" viewBox=\"0 0 22 16\" width=\"22\" height=\"16\" role=\"img\" aria-label=\"Faroe Islands\"><title>Faroe Islands</title><rect width=\"22\" height=\"16\" fill=\"#fff\" stroke=\"#9ca3af\" stroke-width=\".6\"/><rect x=\"6\" width=\"4\" height=\"16\" fill=\"#005EB8\"/><rect y=\"6\" width=\"22\" height=\"4\" fill=\"#005EB8\"/><rect x=\"7\" width=\"2\" height=\"16\" fill=\"#EF303E\"/><rect y=\"7\" width=\"22\" height=\"2\" fill=\"#EF303E\"/></svg>", "NORDIC": "<span class=\"cc\" title=\"Nordic-wide\">Nordic</span>"},PREVIEW=false;
+var DATA={news:[],org:{entities:[],relations:[]},src:[]},page=0,spotI=0,REFRESH=6*60*1000,ROT=12000,SPOT=9000;
+var $=function(i){return document.getElementById(i)},esc=function(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+var TZ='Europe/Oslo',fl=function(c){return FLAGS[c]||''};
+function fmt(iso){return new Date(iso).toLocaleDateString('en-GB',{day:'numeric',month:'short',timeZone:TZ})}
+function tick(){var d=new Date();$('clock').textContent=d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit',timeZone:TZ});$('date').textContent=d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric',timeZone:TZ})}
+function perPage(){return window.matchMedia('(orientation: portrait)').matches?7:5}
+function renderNews(){var n=DATA.news,per=perPage(),pages=Math.max(1,Math.ceil(n.length/per));page=page%pages;var ol=$('news');ol.style.opacity=0;
+ setTimeout(function(){ol.innerHTML=n.slice(page*per,page*per+per).map(function(i){var pend=i.status!=='published'&&i.status!=='owner',own=i.status==='owner';return '<li><div class="t">'+esc(i.title_en||i.title)+'</div>'+(i.title_en?'<div class="o">'+esc(i.title)+'</div>':'')+'<div class="m">'+fl(i.country)+'<b>'+esc(i.source_name)+'</b> · '+fmt(i.published)+(i.language&&i.language!=='English'&&!i.title_en?' · in '+esc(i.language):'')+(i.topics||[]).map(function(t){return '<span class="tag">'+esc(t)+'</span>'}).join('')+(pend?'<span class="tag pend">Pending editor review</span>':'')+(own?'<span class="tag pend">Awaiting jQrgen\'s approval</span>':'')+'</div>'+(pend?'<div class="s pend">English summary not written yet.</div>':'<div class="s">'+esc(i.summary)+'</div>')+'</li>'}).join('')||'<li>No stories yet.</li>';
+ var lis=[].slice.call(ol.children);for(var k=lis.length-1;k>0&&ol.scrollHeight>ol.clientHeight+2;k--){lis[k].remove()}
+ ol.style.opacity=1;$('pager').textContent=n.length?('Page '+(page+1)+' of '+pages+' · '+n.length+' stories'):''},300)}
+function initials(n){return n.split(/[\s-]+/).filter(Boolean).slice(0,2).map(function(w){return w[0]}).join('').toUpperCase()}
+function renderSpot(){var E=DATA.org.entities,by={};E.forEach(function(e){by[e.id]=e});var P=E.filter(function(e){return e.type==='person'&&e.org});if(!P.length){$('spot').innerHTML='';return}
+ var p=P[spotI%P.length],o=p.org&&by[p.org]?by[p.org].name:'',s=$('spot');s.style.opacity=0;
+ setTimeout(function(){s.innerHTML=(p.image&&p.image.file?'<img class="av" src="../'+esc(p.image.file)+'" alt="">':'<div class="av">'+esc(initials(p.name))+'</div>')+'<div><div class="n">'+esc(p.name)+'</div><div class="r">'+esc(p.role||'')+'</div><div class="o">'+fl(p.country)+esc(o)+'</div><span class="sec '+(p.sector==='public'?'pub':'priv')+'">'+(p.sector==='public'?'Public sector':'Private sector')+'</span>'+(p.status!=='published'?' <span class="tag pend">Pending</span>':'')+(p.image&&p.image.file?'<div class="credit">Photo: '+esc(p.image.author)+', '+esc(p.image.license)+'</div>':'')+'<div class="credit">Source: '+esc((p.sources[0]||{}).source_name||'')+'</div></div>';s.style.opacity=1},300);
+ var orgs=E.filter(function(e){return e.type!=='person'}),cs={};orgs.forEach(function(e){cs[e.country]=1});
+ $('stats').innerHTML='<div class="stat"><b>'+orgs.filter(function(e){return e.sector==='private'}).length+'</b><span>private-sector players</span></div><div class="stat"><b>'+orgs.filter(function(e){return e.sector==='public'}).length+'</b><span>public bodies</span></div><div class="stat"><b>'+E.filter(function(e){return e.type==='person'}).length+'</b><span>people in public roles</span></div><div class="stat"><b>'+DATA.org.relations.length+'</b><span>sourced links</span></div>'}
+function renderEv(){var e=(DATA.ev||[]).slice(0,4);$('evbox').hidden=!e.length;
+ $('evs').innerHTML=e.map(function(x){var d=new Date(x.start),t=d.toLocaleString('en-GB',{timeZone:TZ,day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
+ return '<li><b>'+fl(x.country)+esc(x.title)+'</b><span>'+esc(t)+' Oslo time · '+esc(x.city||x.place||'Online')+' · '+esc(x.organiser)+(x.paid?' · <span class="paid">Paid</span>':'')+(x.sponsored?' · <span class="paid">'+(typeof x.sponsored==='string'?'Sponsored by '+esc(x.sponsored):'Sponsored')+'</span>':'')+(x.status==='owner'?' · <span class="paid">Awaiting jQrgen</span>':x.status!=='published'?' · <span class="paid">Pending</span>':'')+'</span></li>'}).join('')}
+function renderSrc(){renderEv();$('srcs').innerHTML=DATA.src.map(function(s){return '<li>'+fl(s.country)+esc(s.name)+'</li>'}).join('')}
+function load(){var t='?t='+Date.now(),j=function(u){return fetch(u+t).then(function(r){return r.json()})};Promise.all([j('../data/news.json'),j('../data/orgchart.json'),j('../data/sources.json'),j('../data/events.json').catch(function(){return {events:[]}})]).then(function(a){DATA.ev=a[3].events||[];
+ DATA.news=a[0].items||[];DATA.org=a[1];DATA.src=a[2].active||[];$('pv').hidden=!(PREVIEW||a[0].preview);var u=a[0].updated?new Date(a[0].updated):null;
+ $('upd').textContent='Last updated: '+(u?u.toLocaleString('en-GB',{timeZone:TZ,day:'numeric',month:'long',hour:'2-digit',minute:'2-digit'}):'unknown')+' · data fetched '+new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit',timeZone:TZ});
+ renderNews();renderSpot();renderSrc()}).catch(function(){$('upd').textContent='Could not load data – retrying in 6 minutes'})}
+var lock=null;function wake(){if('wakeLock' in navigator&&document.visibilityState==='visible'){navigator.wakeLock.request('screen').then(function(l){lock=l}).catch(function(){})}}
+$('fs').addEventListener('click',function(){var d=document.documentElement;if(!document.fullscreenElement){(d.requestFullscreen||d.webkitRequestFullscreen||function(){}).call(d)}else{(document.exitFullscreen||document.webkitExitFullscreen).call(document)}wake()});
+document.addEventListener('fullscreenchange',function(){$('fs').textContent=document.fullscreenElement?'Exit full screen':'⛶ Full screen'});
+document.addEventListener('visibilitychange',wake);
+function setTheme(l){document.body.classList.toggle('light',l);$('theme').textContent=l?'Dark theme':'Light theme';try{localStorage.setItem('nc-theme',l?'light':'dark')}catch(e){}}
+var q=new URLSearchParams(location.search),st=null;try{st=localStorage.getItem('nc-theme')}catch(e){}
+setTheme(q.get('theme')==='light'||(q.get('theme')!=='dark'&&st==='light'));$('theme').addEventListener('click',function(){setTheme(!document.body.classList.contains('light'))});
+var idle;function act(){document.body.classList.remove('idle');clearTimeout(idle);idle=setTimeout(function(){document.body.classList.add('idle')},3000)}['mousemove','mousedown','touchstart','keydown'].forEach(function(e){document.addEventListener(e,act,{passive:true})});act();
+window.matchMedia('(orientation: portrait)').addEventListener('change',function(){renderNews()});
+tick();setInterval(tick,1000);load();setInterval(load,REFRESH);wake();
+setInterval(function(){page++;renderNews()},ROT);setInterval(function(){spotI++;renderSpot()},SPOT);
+})();
+</script>
+</body></html>
