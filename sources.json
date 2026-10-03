@@ -588,71 +588,6 @@
    ]
   },
   {
-   "id": "kvf",
-   "name": "Kringvarp Føroya (KVF)",
-   "country": "FO",
-   "kind": "Public broadcaster",
-   "url": "https://kvf.fo",
-   "feed": "https://kvf.fo/rss",
-   "type": "rss",
-   "paywall": false,
-   "enabled": true,
-   "status": "ok",
-   "verified": "2026-10-03"
-  },
-  {
-   "id": "landsstyri",
-   "name": "Landsstýrið / Faroese Government",
-   "country": "FO",
-   "kind": "Government",
-   "url": "https://www.government.fo",
-   "feed": null,
-   "type": "rss",
-   "paywall": false,
-   "enabled": false,
-   "status": "no RSS; the news list is rendered by JavaScript and landsstyri.fo has a TLS error; researcher checks manually",
-   "verified": "2026-10-03"
-  },
-  {
-   "id": "infofo",
-   "name": "in.fo",
-   "country": "FO",
-   "kind": "News site",
-   "url": "https://in.fo",
-   "feed": null,
-   "type": "rss",
-   "paywall": false,
-   "enabled": false,
-   "status": "no RSS found (/rss returns 404)",
-   "verified": "2026-10-03"
-  },
-  {
-   "id": "portal",
-   "name": "Portal.fo",
-   "country": "FO",
-   "kind": "News site",
-   "url": "https://portal.fo",
-   "feed": null,
-   "type": "rss",
-   "paywall": false,
-   "enabled": false,
-   "status": "no RSS found (/rss returns 404)",
-   "verified": "2026-10-03"
-  },
-  {
-   "id": "taks",
-   "name": "TAKS (Faroese tax authority)",
-   "country": "FO",
-   "kind": "Tax authority",
-   "url": "https://www.taks.fo",
-   "feed": null,
-   "type": "search",
-   "paywall": false,
-   "enabled": true,
-   "status": "no feed; researcher adds items manually (fetch.sh --add)",
-   "verified": "2026-10-03"
-  },
-  {
    "id": "bing-no",
    "name": "News search (Norwegian domains)",
    "country": "NO",
@@ -754,26 +689,6 @@
     "rafmynt site:ruv.is",
     "rafmynt site:mbl.is",
     "bitcoin site:visir.is"
-   ]
-  },
-  {
-   "id": "bing-fo",
-   "name": "News search (Faroese domains)",
-   "country": "FO",
-   "kind": "Search feed",
-   "url": "https://www.bing.com/news",
-   "feed": "https://www.bing.com/news/search?q={q}&format=rss&count=100&qft=sortbydate%3d%221%22",
-   "type": "bing",
-   "paywall": false,
-   "enabled": true,
-   "status": "ok (filtered to .fo domains; very few hits)",
-   "verified": "2026-10-03",
-   "allowed_tld": ".fo",
-   "queries": [
-    "krypto",
-    "bitcoin",
-    "kryptogjaldoyra",
-    "Føroyar bitcoin"
    ]
   }
  ],

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Nordic Crypto – fetches feeds and public list pages for Norway, Sweden, Finland, Iceland and the Faroe Islands,
-filters on crypto keywords (Norwegian, Swedish, Finnish, Icelandic, Faroese, English), de-duplicates and updates
+"""Nordic Crypto – fetches feeds and public list pages for Norway, Sweden, Finland and Iceland,
+filters on crypto keywords (Norwegian, Swedish, Finnish, Icelandic, English), de-duplicates and updates
 data/news.json and the editor queue queue/review.json. Events are searched in the same run (events.py).
 
   .venv/bin/python fetch.py            # normal daily run (looks 7 days back)
@@ -61,16 +61,15 @@ def get(url):
         http_cache[url] = {"etag": r.headers.get("ETag"), "lm": r.headers.get("Last-Modified")}
     return r
 
-# ---------- keywords (NO, SE, FI, IS, FO, EN) ----------
+# ---------- keywords (NO, SE, FI, IS, EN) ----------
 KW = [
     # shared / English
     (r"\bbitcoin\w*", re.I), (r"\bcrypto\w*", re.I), (r"\bblockchain\w*", re.I), (r"\bstablecoin\w*", re.I),
     (r"\bNFT(?:-?\w*)?\b", 0), (r"\bMiCAR?\b", 0), (r"\bMica-\w+", 0), (r"\bethereum\b", re.I), (r"\bBTC\b", 0),
     (r"\bweb3\b", re.I), (r"\bsolana\b", re.I), (r"\bCBDC\b", 0), (r"\bsatoshi\w*", re.I), (r"\btokeni[sz]\w*", re.I),
-    # Norwegian / Danish-Faroese / Swedish stems
+    # Norwegian / Swedish stems
     (r"\bkrypto(?!graf)\w*", re.I), (r"\bblokkjede\w*", re.I), (r"\bblockkedj\w*", re.I), (r"\bkryptotillgång\w*", re.I),
     (r"\bsentralbankpenger\b", re.I), (r"\bdigitale penger\b", re.I), (r"\be-krona\w*", re.I),
-    (r"\bkryptogjaldoyr\w*", re.I), (r"\bblokkkett\w*", re.I),
     # Finnish
     (r"\blohkoketju\w*", re.I), (r"\bvirtuaalivaluut\w*", re.I),
     # Icelandic
@@ -114,7 +113,7 @@ for s in CFG["sources"]:
     if s.get("type") == "bing": continue
     d = urllib.parse.urlparse(s["url"]).netloc.removeprefix("www.")
     DOMAIN2OUT.setdefault(d, s.get("outlet", s["id"]))
-TLD2C = {".no": "NO", ".se": "SE", ".fi": "FI", ".is": "IS", ".fo": "FO"}
+TLD2C = {".no": "NO", ".se": "SE", ".fi": "FI", ".is": "IS"}
 def country_of_url(url, fallback=None):
     d = urllib.parse.urlparse(url).netloc.lower()
     return next((c for t, c in TLD2C.items() if d.endswith(t)), fallback)
@@ -123,14 +122,14 @@ def outlet_for(url, fallback_name):
     for dom, out in DOMAIN2OUT.items():
         if d == dom or d.endswith("." + dom): return out, SRC[out]["name"] if out in SRC else fallback_name
     return d, fallback_name or d
-LANG = {"NO": "Norwegian", "SE": "Swedish", "FI": "Finnish", "IS": "Icelandic", "FO": "Faroese"}
+LANG = {"NO": "Norwegian", "SE": "Swedish", "FI": "Finnish", "IS": "Icelandic"}
 
 # ---------- candidate entities for the queue (never auto-published) ----------
 KNOWN = ["Firi", "Bare Bitcoin", "K33", "NBX", "Norwegian Block Exchange", "Týr Markets", "Kaupr", "Nexa", "Seetee",
  "Finanstilsynet", "Norges Bank", "Skatteetaten", "Økokrim", "Safello", "Virtune", "Valuno", "GreenMerc", "Trijo", "Goobit",
  "BTCX", "Finansinspektionen", "Riksbanken", "Skatteverket", "Finanspolisen", "Svenska Bitcoinföreningen",
  "Coinmotion", "Northcrypto", "Kvarn", "Tesseract", "Bittimaatti", "Paxos", "Finanssivalvonta", "Suomen Pankki", "Verohallinto",
- "Myntkaup", "Monerium", "Seðlabanki", "Skatturinn", "TAKS", "Landsstýrið", "Nordic Blockchain Association",
+ "Myntkaup", "Monerium", "Seðlabanki", "Skatturinn", "Nordic Blockchain Association",
  "Coinbase", "Binance", "Kraken", "Bitpanda", "Revolut", "Nordnet", "Avanza", "DNB", "Nordea", "SEB", "Swedbank", "Handelsbanken", "OP"]
 ROLE = r"(?:daglig leder|administrerende direktør|toppsjef|gründer|medgründer|grunnlegger|styreleder|direktør|sentralbanksjef|finansminister|vd|grundare|styrelseordförande|generaldirektör|riksbankschef|toimitusjohtaja|perustaja|hallituksen puheenjohtaja|pääjohtaja|framkvæmdastjóri|seðlabankastjóri|stjórnarformaður|CEO|founder|co-founder|chair(?:man|person)?|governor|director general)"
 NAME = r"[A-ZÆØÅÄÖÞÐ][a-zæøåäöüéðþáíóúý]+(?:[- ][A-ZÆØÅÄÖÞÐ][a-zæøåäöüéðþáíóúý\.]+){1,3}"
@@ -182,7 +181,7 @@ def main():
     ap.add_argument("--only", help="comma-separated source ids")
     ap.add_argument("--add", metavar="URL", help="add one story manually (researcher): reads title/date from the page metadata")
     ap.add_argument("--source-name", help="source name for --add (otherwise from sources.json or the domain)")
-    ap.add_argument("--country", help="country code for --add (NO, SE, FI, IS, FO) if not clear from the domain")
+    ap.add_argument("--country", help="country code for --add (NO, SE, FI, IS) if not clear from the domain")
     ap.add_argument("--date", help="publication date for --add (YYYY-MM-DD) if the page does not give one")
     ap.add_argument("--title", help="title for --add if the page does not give one")
     ap.add_argument("--no-events", action="store_true", help="skip the event search"); a = ap.parse_args()
@@ -225,7 +224,7 @@ def main():
         out, oname = outlet_for(a.add, a.source_name or urllib.parse.urlparse(a.add).netloc.removeprefix("www."))
         if a.source_name: oname = a.source_name
         c = a.country or country_of_url(a.add, SRC.get(out, {}).get("country"))
-        if not c: sys.exit("could not tell the country from the domain; use --country NO|SE|FI|IS|FO")
+        if not c: sys.exit("could not tell the country from the domain; use --country NO|SE|FI|IS")
         before = len(new)
         add(a.add, title, desc, date, "manual", out, oname, c, all_rel=True)
         log(("ADDED: " if len(new) > before else "ALREADY THERE / OUTSIDE PERIOD (--days): ") + f"{title} ({date.date()}, {oname}, {c})")
@@ -298,7 +297,7 @@ def main():
     queue["updated"] = NOW.isoformat(timespec="seconds")
     queue["_how_to"] = ("Editor: for each story in items_needing_summary, add an entry to queue/approved.json -> items with the url, "
         "a 1–2 sentence summary IN ENGLISH in our own words (never copied or machine-copied text), an optional title_en, and topics; "
-        "or add it to rejected if it is not about crypto in NO/SE/FI/IS/FO. teaser_local_only is working material and is never published. "
+        "or add it to rejected if it is not about crypto in NO/SE/FI/IS. teaser_local_only is working material and is never published. "
         "Candidate entities: add confirmed ones to data/orgchart_nordic.json with a source link, then set status accepted/rejected here. "
         "Events: see events_pending. Then run ./build.sh (local) – publishing needs jQrgen's OK.")
     news["items"].sort(key=lambda i: i["published"], reverse=True); news["updated"] = NOW.isoformat(timespec="seconds")

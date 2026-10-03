@@ -3,6 +3,12 @@
  "launch_date": "2026-10-03",
  "entries": [
   {
+   "id": "remove-faroe-islands",
+   "date": "2026-10-03",
+   "title": "Coverage narrowed to four countries",
+   "description": "Nordic Crypto now covers Norway, Sweden, Finland and Iceland. The Faroe Islands have been removed from the news sources, country filters, calendar, who's who, Regulation by country section, academia page and office screen."
+  },
+  {
    "id": "academia",
    "date": "launch",
    "title": "Academia page",

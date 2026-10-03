@@ -1,7 +1,7 @@
 # Nordic Crypto
 
 Bitcoin, blockchain and crypto news, events, a who's who (industry + regulators), regulation by country and academia for
-**Norway, Sweden, Finland, Iceland and the Faroe Islands**. Everything on the site is in English. Static site, no tracking.
+**Norway, Sweden, Finland and Iceland**. Everything on the site is in English. Static site, no tracking.
 Planned URL: https://jqrgen.github.io/nordic-crypto/ (all links are relative). Run by jQrgen (Jørgen S. Notland), MIT licence.
 
 **Status: local only.** No git repo, nothing committed or published. Publishing needs jQrgen's explicit approval.
