@@ -1,0 +1,17 @@
+# Working files that are never published in the repo (box only)
+data/
+state/
+queue/
+logs/
+site/
+.publish/
+.venv/
+__pycache__/
+*.pyc
+shots/
+/*.png
+.env
+*.token
+tools/probe.py
+screenshots/
+.publish/
