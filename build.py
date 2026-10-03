@@ -118,7 +118,7 @@ table.list th{font-size:13px;color:var(--muted)}
 .reg dl{margin:0;font-size:14px}.reg dt{font-weight:600;margin-top:6px}.reg dd{margin:0}
 """
 
-NAV = [("", "News"), ("calendar", "Calendar"), ("org-chart", "Who's who"), ("academia", "Academia"), ("sources", "Sources"), ("about", "About")]
+NAV = [("", "News"), ("calendar", "Calendar"), ("org-chart", "Who's who"), ("academia", "Academia"), ("sources", "Sources"), ("about", "About"), ("tip", "Send a tip")]
 def page(slug, title, nav, body, desc, extra_script=""):
     url = BASE + (slug + "/" if slug else "")
     s = snippets(url, f"{title} – {SITE_NAME}" if slug else f"{SITE_NAME} – Nordic crypto news")
@@ -139,7 +139,7 @@ def page(slug, title, nav, body, desc, extra_script=""):
 {body}
 {s['top']}
 </main>
-<footer><div class="wrap">{SITE_NAME} covers Norway, Sweden, Denmark, Finland and Iceland. Run by Jørgen S. Notland (jQrgen), Oslo, with AI assistance; summaries are written by an AI editor and jQrgen is the responsible person. Not investment advice. No tracking or cookies. <a href="{rel}about/">About, corrections and removal</a> · <a href="{rel}changelog/">Changelog</a>.</div></footer>
+<footer><div class="wrap">{SITE_NAME} covers Norway, Sweden, Denmark, Finland and Iceland. Run by Jørgen S. Notland (jQrgen), Oslo, with AI assistance; summaries are written by an AI editor and jQrgen is the responsible person. Not investment advice. No tracking or cookies. <a href="{rel}about/">About, corrections and removal</a> · <a href="{rel}tip/">Send a tip</a> · <a href="{rel}changelog/">Changelog</a>.</div></footer>
 {s['script']}{extra_script}
 </body></html>"""
     d = os.path.join(SITE, slug); os.makedirs(d, exist_ok=True)
@@ -287,6 +287,7 @@ sel.addEventListener('change',function(){apply(1)});tc.concat(cc).forEach(functi
     build_calendar(cfg)
     build_academia()
     build_changelog()
+    build_tip()
     body = open(P("templates", "about.html"), encoding="utf-8").read()
     page("about", "About Nordic Crypto", "about", body, "About Nordic Crypto: who runs it, how it works, corrections and removal.")
     # ---- Office screen ----
@@ -487,6 +488,29 @@ cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('ari
     page("academia", "Academia – blockchain and crypto at Nordic universities", "academia", body,
          "Blockchain and crypto courses, student groups, research groups and publications in Norway, Sweden, Denmark, Finland and Iceland.", js)
     print(f"academia: {allrows} editor-approved rows shown {per_c}")
+
+TIP_FORM = "https://github.com/jQrgen/nordic-crypto/issues/new?template=tip.yml"
+def build_tip():
+    """'Send a tip' page. Static: a plain HTML form (GET, no JavaScript, no tracking) that opens the prefilled GitHub issue form
+    (.github/ISSUE_TEMPLATE/tip.yml, label 'tip'). There is no public e-mail address, so GitHub is the only channel.
+    routines/nightly-fetch.sh -> tools/reader_tips.py puts open tips in the editor queue as pending; nothing is auto-published."""
+    opts = "".join(f'<option value="{E(n)} ({c})">{E(n)}</option>' for c, n in COUNTRIES.items()) + '<option value="Not sure">Not sure</option>'
+    body = f"""<h1>Send a tip</h1>
+<p class="lead">Seen a story about crypto, bitcoin or blockchain in Norway, Sweden, Denmark, Finland or Iceland that we have missed? Send us the link.</p>
+<div class="prose">
+<p>Tips are sent as an issue on GitHub (you need a free GitHub account). Our editor checks every tip against <a href="../about/">our rules</a>: the story must be about crypto, bitcoin or blockchain in the Nordics, and we link to the original source with a short English summary in our own words. <b>A tip does not guarantee publication.</b> When the editor has decided, we may reply briefly on the issue and close it.</p>
+<p class="notice warn"><b>Privacy:</b> tips are <b>public</b> on GitHub, together with your GitHub username. Please do not share personal or sensitive information about yourself or anyone else – just the link and, if you like, a short note. We do not publish names from tips on this site.</p>
+</div>
+<form class="tipform" method="get" action="https://github.com/jQrgen/nordic-crypto/issues/new">
+<input type="hidden" name="template" value="tip.yml">
+<p><label for="t-url"><b>Article URL</b> (required)</label><br><input id="t-url" name="url" type="url" required placeholder="https://" style="width:100%;max-width:560px;padding:6px"></p>
+<p><label for="t-country"><b>Country</b></label><br><select id="t-country" name="country" style="padding:6px">{opts}</select></p>
+<p><label for="t-note"><b>Short note</b> (optional)</label><br><textarea id="t-note" name="note" rows="3" style="width:100%;max-width:560px;padding:6px"></textarea></p>
+<p><button type="submit" style="padding:8px 14px;font-size:15px">Continue on GitHub →</button></p>
+<p class="meta">This opens GitHub's tip form with your answers filled in; nothing is sent until you submit it there. No data is stored on this site.</p>
+</form>
+<p class="prose">Or open the <a href="{TIP_FORM}" rel="noopener">tip form on GitHub</a> directly.</p>"""
+    page("tip", "Send a tip", "tip", body, "Tip Nordic Crypto about an article on crypto, bitcoin or blockchain in the Nordics.")
 
 def build_changelog():
     """Changelog page from changelog.json (site changes only, newest first). Entries dated "launch" use launch_date,
