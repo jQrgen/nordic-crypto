@@ -119,3 +119,23 @@ S = {
 "kind_Public broadcaster": "Yleisradioyhtiö", "kind_Regulator": "Valvoja", "kind_Search feed": "Hakusyöte", "kind_Tax authority": "Veroviranomainen",
 "kind_Tech media": "Teknologiamedia", "kind_Tech/startup media": "Teknologia- ja startup-media",
 }
+# newsletter signup (feature flag newsletter.enabled in queue/approved.json; see build_newsletter in build.py)
+S.update({
+"nl_title": "Uutiskirje",
+"nl_desc": "Saat kerran viikossa lyhyen sähköpostin pohjoismaisista kryptouutisista, jotka toimittajamme on hyväksynyt.",
+"nl_lead": "Lyhyt viikkokooste Norjan, Ruotsin, Tanskan, Suomen ja Islannin uutisista, jotka toimittajamme on hyväksynyt – otsikko, lyhyt tiivistelmä ja linkki lähteeseen. Maksuton ja mainokseton.",
+"nl_email": "Sähköpostiosoite",
+"nl_btn": "Tilaa",
+"nl_foot": "Uutiskirje: lyhyt viikkokooste sähköpostiin.",
+"nl_more": "Lisää uutiskirjeestä",
+"nl_priv": "<b>Tietosuoja:</b> tallennamme vain sähköpostiosoitteesi, valitsemasi kielen ja ajankohdan – <b>emme</b> IP-osoitettasi, emmekä seuraa sinua. Saat sähköpostin, jossa vahvistat tilauksen; sitä ennen sinulle ei lähetetä mitään muuta, ja vahvistamattomat osoitteet poistetaan 7 päivän kuluttua. Jokaisessa uutiskirjeessä on linkki tilauksen perumiseen. Listaa käytetään vain Nordic Crypton uutiskirjeeseen, ja se voidaan siirtää palveluun, jolla uutiskirje lähetetään (esimerkiksi Substack); sitä ei koskaan myydä eikä jaeta muuhun käyttöön.",
+"nl_sending": "Lähetetään …",
+"nl_sent": "Melkein valmista: katso saapuneet viestit ja avaa vahvistuslinkki 7 päivän kuluessa.",
+"nl_confirmed": "Kiitos, tilauksesi on vahvistettu.",
+"nl_unsub": "Uutiskirjeen tilauksesi on peruttu.",
+"nl_e_email": "Anna kelvollinen sähköpostiosoite.",
+"nl_e_rate": "Liian monta yritystä lyhyessä ajassa. Yritä myöhemmin uudelleen.",
+"nl_e_link": "Linkki ei ole voimassa tai se on vanhentunut. Tilaa uudelleen.",
+"nl_e_fail": "Jokin meni vikaan. Yritä myöhemmin uudelleen.",
+"nl_kaupr": "<b>Avoimuus:</b> Kaupr (kaupr.io) on yksi seuraamistamme uutislähteistä, sponsoroi joitakin kalenterimme tapahtumia ja sponsoroi Oslo Blockchain Meetupia, jota pitää Nordic Crypton julkaisija jQrgen."
+})

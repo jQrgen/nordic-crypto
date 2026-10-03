@@ -119,3 +119,23 @@ S = {
 "kind_Public broadcaster": "Public service-medie", "kind_Regulator": "Tilsynsmyndighed", "kind_Search feed": "Søgefeed", "kind_Tax authority": "Skattemyndighed",
 "kind_Tech media": "Teknologimedie", "kind_Tech/startup media": "Teknologi- og startupmedie",
 }
+# newsletter signup (feature flag newsletter.enabled in queue/approved.json; see build_newsletter in build.py)
+S.update({
+"nl_title": "Nyhedsbrev",
+"nl_desc": "Få en kort e-mail hver uge med de nordiske kryptohistorier, vores redaktør har godkendt.",
+"nl_lead": "Et kort ugentligt overblik over historier fra Norge, Sverige, Danmark, Finland og Island, som vores redaktør har godkendt – overskrift, et kort resumé og link til kilden. Gratis og uden reklamer.",
+"nl_email": "E-mailadresse",
+"nl_btn": "Abonnér",
+"nl_foot": "Nyhedsbrev: et kort ugentligt overblik på e-mail.",
+"nl_more": "Mere om nyhedsbrevet",
+"nl_priv": "<b>Privatliv:</b> vi gemmer kun din e-mailadresse, det sprog, du valgte, og tidspunktet – <b>ikke</b> din IP-adresse, og ingen sporing. Du får en e-mail, hvor du skal bekræfte abonnementet; indtil da sendes der ikke mere, og adresser, der ikke bekræftes, slettes efter 7 dage. Hvert nyhedsbrev har et link til afmelding. Listen bruges kun til Nordic Cryptos nyhedsbrev og kan blive flyttet til den tjeneste, vi sender det med (for eksempel Substack); den bliver aldrig solgt eller delt til andet.",
+"nl_sending": "Sender …",
+"nl_sent": "Næsten færdig: tjek din indbakke, og åbn bekræftelseslinket inden for 7 dage.",
+"nl_confirmed": "Tak, dit abonnement er bekræftet.",
+"nl_unsub": "Du er nu afmeldt nyhedsbrevet.",
+"nl_e_email": "Indtast en gyldig e-mailadresse.",
+"nl_e_rate": "For mange forsøg på kort tid. Prøv igen senere.",
+"nl_e_link": "Linket er ugyldigt eller udløbet. Tilmeld dig igen.",
+"nl_e_fail": "Noget gik galt. Prøv igen senere.",
+"nl_kaupr": "<b>Åbenhed:</b> Kaupr (kaupr.io) er en af de nyhedskilder, vi følger, sponsorerer nogle arrangementer i vores kalender og sponsorerer Oslo Blockchain Meetup, som drives af jQrgen, udgiveren af Nordic Crypto."
+})

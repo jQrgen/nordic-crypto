@@ -138,3 +138,23 @@ S = {
 "kind_Public broadcaster": "Public broadcaster", "kind_Regulator": "Regulator", "kind_Search feed": "Search feed", "kind_Tax authority": "Tax authority",
 "kind_Tech media": "Tech media", "kind_Tech/startup media": "Tech/startup media",
 }
+# newsletter signup (feature flag newsletter.enabled in queue/approved.json; see build_newsletter in build.py)
+S.update({
+"nl_title": "Newsletter",
+"nl_desc": "Get a short weekly email with the Nordic crypto stories our editor has approved.",
+"nl_lead": "A short weekly digest of the stories from Norway, Sweden, Denmark, Finland and Iceland that our editor has approved – headline, a short summary and a link to the original source. Free, no ads.",
+"nl_email": "Email address",
+"nl_btn": "Subscribe",
+"nl_foot": "Newsletter: a short weekly digest by email.",
+"nl_more": "More about the newsletter",
+"nl_priv": "<b>Privacy:</b> we store only your email address, the language you chose and the time – <b>not</b> your IP address, and no tracking. You’ll get an email asking you to confirm; until you do, nothing more is sent, and unconfirmed addresses are deleted after 7 days. Every newsletter has an unsubscribe link. The list is used only for the Nordic Crypto newsletter and may be moved to the service we send it with (for example Substack); it is never sold or shared for anything else.",
+"nl_sending": "Sending…",
+"nl_sent": "Almost done: check your inbox and open the confirmation link within 7 days.",
+"nl_confirmed": "Thanks, your subscription is confirmed.",
+"nl_unsub": "You have been unsubscribed from the newsletter.",
+"nl_e_email": "Please enter a valid email address.",
+"nl_e_rate": "Too many attempts in a short time. Please try again later.",
+"nl_e_link": "The link is invalid or has expired. Please sign up again.",
+"nl_e_fail": "Something went wrong. Please try again later.",
+"nl_kaupr": "<b>Disclosure:</b> Kaupr (kaupr.io) is one of the news sources we follow, sponsors some events in our calendar and sponsors Oslo Blockchain Meetup, the meetup run by jQrgen, the publisher of Nordic Crypto."
+})

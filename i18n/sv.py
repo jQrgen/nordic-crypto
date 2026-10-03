@@ -119,3 +119,23 @@ S = {
 "kind_Public broadcaster": "Public service", "kind_Regulator": "Tillsynsmyndighet", "kind_Search feed": "Sökflöde", "kind_Tax authority": "Skattemyndighet",
 "kind_Tech media": "Teknikmedium", "kind_Tech/startup media": "Teknik- och startupmedium",
 }
+# newsletter signup (feature flag newsletter.enabled in queue/approved.json; see build_newsletter in build.py)
+S.update({
+"nl_title": "Nyhetsbrev",
+"nl_desc": "Få ett kort mejl varje vecka med de nordiska kryptonyheter som vår redaktör har godkänt.",
+"nl_lead": "En kort sammanfattning varje vecka av nyheter från Norge, Sverige, Danmark, Finland och Island som vår redaktör har godkänt – rubrik, en kort sammanfattning och länk till källan. Gratis och utan reklam.",
+"nl_email": "E-postadress",
+"nl_btn": "Prenumerera",
+"nl_foot": "Nyhetsbrev: en kort sammanfattning varje vecka via mejl.",
+"nl_more": "Mer om nyhetsbrevet",
+"nl_priv": "<b>Integritet:</b> vi sparar bara din e-postadress, språket du valde och tidpunkten – <b>inte</b> din IP-adress, och ingen spårning. Du får ett mejl där du bekräftar prenumerationen; innan dess skickas inget mer, och adresser som inte bekräftas raderas efter 7 dagar. Varje nyhetsbrev har en länk för att avsluta prenumerationen. Listan används bara för Nordic Cryptos nyhetsbrev och kan flyttas till tjänsten vi skickar det med (till exempel Substack); den säljs eller delas aldrig för något annat.",
+"nl_sending": "Skickar …",
+"nl_sent": "Nästan klart: titta i din inkorg och öppna bekräftelselänken inom 7 dagar.",
+"nl_confirmed": "Tack, din prenumeration är bekräftad.",
+"nl_unsub": "Du har avslutat prenumerationen.",
+"nl_e_email": "Ange en giltig e-postadress.",
+"nl_e_rate": "För många försök på kort tid. Försök igen senare.",
+"nl_e_link": "Länken är ogiltig eller har gått ut. Anmäl dig igen.",
+"nl_e_fail": "Något gick fel. Försök igen senare.",
+"nl_kaupr": "<b>Öppenhet:</b> Kaupr (kaupr.io) är en av nyhetskällorna vi följer, sponsrar några evenemang i vår kalender och sponsrar Oslo Blockchain Meetup, som drivs av jQrgen, utgivare av Nordic Crypto."
+})

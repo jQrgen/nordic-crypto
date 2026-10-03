@@ -11,6 +11,9 @@
 // SHA-256 of (daily random salt + IP) is kept for the 10-minute rate-limit window (see migrations/0001_tips.sql).
 // No user agent or other metadata is stored. Body capped at 4 KB.
 // CORS: only https://jqrgen.github.io. A browser POST from any other Origin is refused (403).
+// Newsletter signup (Nordic Crypto + Kryptonytt, double opt-in): POST /api/subscribe, GET /api/confirm, GET/POST
+// /api/unsubscribe – see src/newsletter.js (D1 table subscribers, migrations/0003_subscribers.sql) and src/mailer.js.
+import { subscribe, confirm, unsubscribe } from "./newsletter.js";
 
 const ORIGINS = new Set(["https://jqrgen.github.io"]);
 const THANKS = "https://jqrgen.github.io/nordic-crypto/tip/";
@@ -75,14 +78,14 @@ const send = (req, code, obj, extra) =>
 const redirect = (req, q) =>
   new Response(null, { status: 303, headers: headers(req, { Location: THANKS + "?" + new URLSearchParams(q).toString() }) });
 
-async function readCapped(req) {  // returns Uint8Array or null if larger than MAX_BODY
+async function readCapped(req, max = MAX_BODY) {  // returns Uint8Array or null if larger than max
   if (!req.body) return new Uint8Array(0);
   const reader = req.body.getReader(); const parts = []; let n = 0;
   for (;;) {
     const { done, value } = await reader.read();
     if (done) break;
     n += value.byteLength;
-    if (n > MAX_BODY) { try { await reader.cancel(); } catch {} return null; }
+    if (n > max) { try { await reader.cancel(); } catch {} return null; }
     parts.push(value);
   }
   const out = new Uint8Array(n); let o = 0; for (const p of parts) { out.set(p, o); o += p.byteLength; }
@@ -131,17 +134,22 @@ export function geo(req, env) {
   return /^[A-Z]{2}$/.test(c) && c !== "XX" && c !== "T1" ? c : null;   // XX = unknown, T1 = Tor (Cloudflare codes)
 }
 
+const H = { ORIGINS, send, headers, readCapped, rateOk };
+
 export default {
   async fetch(req, env) {
     const path = new URL(req.url).pathname;
     if (req.method === "OPTIONS") {
       const o = req.headers.get("Origin");
-      if (path !== "/api/tip" || (o !== null && !ORIGINS.has(o))) return send(req, 403, { ok: false });
+      if (!["/api/tip", "/api/subscribe"].includes(path) || (o !== null && !ORIGINS.has(o))) return send(req, 403, { ok: false });
       return new Response(null, { status: 204, headers: headers(req, {
         "Access-Control-Allow-Methods": "POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type", "Access-Control-Max-Age": "86400" }) });
     }
     if (req.method === "GET" || req.method === "HEAD") {
       if (path === "/api/geo") return send(req, 200, { country: geo(req, env) });
+      if ((path === "/api/confirm" || path === "/api/unsubscribe") && req.method === "HEAD") return new Response(null, { status: 200, headers: headers(req) });  // HEAD never acts
+      if (path === "/api/confirm") return confirm(req, env, H);
+      if (path === "/api/unsubscribe") return unsubscribe(req, env, H);
       if (path === "/api/health") {
         try { await env.DB.prepare("SELECT 1").first(); return send(req, 200, { ok: true, service: "nordic-crypto-tips" }); }
         catch { return send(req, 503, { ok: false }); }
@@ -149,6 +157,8 @@ export default {
       return send(req, 404, { ok: false, error: "Not found." });
     }
     if (req.method === "POST") {
+      if (path === "/api/subscribe") return subscribe(req, env, H);
+      if (path === "/api/unsubscribe") return unsubscribe(req, env, H);
       if (path !== "/api/tip") return send(req, 404, { ok: false, error: "Not found." });
       return tip(req, env);
     }

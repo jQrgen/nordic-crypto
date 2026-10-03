@@ -119,3 +119,23 @@ S = {
 "kind_Public broadcaster": "Allmennkringkastar", "kind_Regulator": "Tilsyn", "kind_Search feed": "Søkjestraum", "kind_Tax authority": "Skattestyresmakt",
 "kind_Tech media": "Teknologimedium", "kind_Tech/startup media": "Teknologi- og gründermedium",
 }
+# newsletter signup (feature flag newsletter.enabled in queue/approved.json; see build_newsletter in build.py)
+S.update({
+"nl_title": "Nyheitsbrev",
+"nl_desc": "Få ein kort e-post kvar veke med dei nordiske kryptosakene redaktøren vår har godkjent.",
+"nl_lead": "Eit kort samandrag kvar veke av saker frå Noreg, Sverige, Danmark, Finland og Island som redaktøren vår har godkjent – overskrift, eit kort samandrag og lenkje til kjelda. Gratis og utan reklame.",
+"nl_email": "E-postadresse",
+"nl_btn": "Abonner",
+"nl_foot": "Nyheitsbrev: eit kort samandrag kvar veke på e-post.",
+"nl_more": "Meir om nyheitsbrevet",
+"nl_priv": "<b>Personvern:</b> vi lagrar berre e-postadressa di, språket du valde og tidspunktet – <b>ikkje</b> IP-adressa di, og inga sporing. Du får ein e-post der du må stadfeste abonnementet; før det får du ingenting meir, og adresser som ikkje blir stadfesta, blir sletta etter 7 dagar. Kvart nyheitsbrev har ei lenkje for å melde seg av. Lista blir berre brukt til nyheitsbrevet frå Nordic Crypto og kan bli flytta til tenesta vi sender det med (til dømes Substack); ho blir aldri seld eller delt til noko anna.",
+"nl_sending": "Sender …",
+"nl_sent": "Nesten ferdig: sjå i innboksen din og opne stadfestingslenkja innan 7 dagar.",
+"nl_confirmed": "Takk, abonnementet ditt er stadfesta.",
+"nl_unsub": "Du er no meld av nyheitsbrevet.",
+"nl_e_email": "Skriv inn ei gyldig e-postadresse.",
+"nl_e_rate": "For mange forsøk på kort tid. Prøv igjen seinare.",
+"nl_e_link": "Lenkja er ugyldig eller har gått ut. Meld deg på på nytt.",
+"nl_e_fail": "Noko gjekk gale. Prøv igjen seinare.",
+"nl_kaupr": "<b>Openheit:</b> Kaupr (kaupr.io) er ei av nyheitskjeldene vi følgjer, sponsar nokre arrangement i kalenderen vår og sponsar Oslo Blockchain Meetup, som blir driven av jQrgen, utgjevaren av Nordic Crypto."
+})

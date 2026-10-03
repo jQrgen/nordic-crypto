@@ -2,10 +2,10 @@
   "name": "nordic-crypto-tipworker",
   "private": true,
   "type": "module",
-  "description": "Nordic Crypto reader tip intake on Cloudflare Workers + D1",
+  "description": "Nordic Crypto reader tips + newsletter signup on Cloudflare Workers + D1",
   "scripts": {
     "dev": "wrangler dev --local",
-    "test": "bash test_local.sh && bash test_parity.sh"
+    "test": "node --test tests/newsletter.test.mjs && python3 tests/test_export.py && bash test_local.sh && bash test_subscribe.sh && bash test_parity.sh"
   },
   "devDependencies": {
     "wrangler": "4.147.0"

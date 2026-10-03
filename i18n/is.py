@@ -119,3 +119,23 @@ S = {
 "kind_Public broadcaster": "Almannaútvarp", "kind_Regulator": "Eftirlitsstofnun", "kind_Search feed": "Leitarstraumur", "kind_Tax authority": "Skattyfirvald",
 "kind_Tech media": "Tæknimiðill", "kind_Tech/startup media": "Tækni- og sprotamiðill",
 }
+# newsletter signup (feature flag newsletter.enabled in queue/approved.json; see build_newsletter in build.py)
+S.update({
+"nl_title": "Fréttabréf",
+"nl_desc": "Fáðu stuttan tölvupóst vikulega með norrænum kriptófréttum sem ritstjórinn okkar hefur samþykkt.",
+"nl_lead": "Stutt vikuleg samantekt um fréttir frá Noregi, Svíþjóð, Danmörku, Finnlandi og Íslandi sem ritstjórinn okkar hefur samþykkt – fyrirsögn, stutt samantekt og tengill á heimildina. Ókeypis og án auglýsinga.",
+"nl_email": "Netfang",
+"nl_btn": "Gerast áskrifandi",
+"nl_foot": "Fréttabréf: stutt vikuleg samantekt í tölvupósti.",
+"nl_more": "Meira um fréttabréfið",
+"nl_priv": "<b>Persónuvernd:</b> við geymum aðeins netfangið þitt, tungumálið sem þú valdir og tímasetninguna – <b>ekki</b> IP-töluna þína og enga rakningu. Þú færð tölvupóst þar sem þú staðfestir áskriftina; fram að því er ekkert fleira sent og netföngum sem ekki eru staðfest er eytt eftir 7 daga. Í hverju fréttabréfi er tengill til að segja upp áskrift. Listinn er aðeins notaður fyrir fréttabréf Nordic Crypto og gæti verið fluttur í þjónustuna sem við sendum það með (til dæmis Substack); hann er aldrei seldur eða honum deilt í neitt annað.",
+"nl_sending": "Sendi …",
+"nl_sent": "Næstum búið: athugaðu pósthólfið þitt og opnaðu staðfestingartengilinn innan 7 daga.",
+"nl_confirmed": "Takk, áskriftin þín er staðfest.",
+"nl_unsub": "Áskriftinni þinni að fréttabréfinu hefur verið sagt upp.",
+"nl_e_email": "Sláðu inn gilt netfang.",
+"nl_e_rate": "Of margar tilraunir á stuttum tíma. Reyndu aftur síðar.",
+"nl_e_link": "Tengillinn er ógildur eða útrunninn. Skráðu þig aftur.",
+"nl_e_fail": "Eitthvað fór úrskeiðis. Reyndu aftur síðar.",
+"nl_kaupr": "<b>Upplýsingagjöf:</b> Kaupr (kaupr.io) er einn af fréttamiðlunum sem við fylgjumst með, styrkir suma viðburði í dagatalinu okkar og styrkir Oslo Blockchain Meetup, sem jQrgen, útgefandi Nordic Crypto, stendur fyrir."
+})

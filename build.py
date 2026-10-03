@@ -150,6 +150,8 @@ html.nc-pick body{visibility:hidden}
 .tile .logo,.tile .av{width:40px;height:40px}.tile .fl{display:flex;gap:3px;align-items:center;color:var(--muted);font-size:10.5px}
 .imap[data-view=country] .imap-bycat,.imap[data-view=cat] .imap-bycountry{display:none}
 .rules-c .seg{margin:8px 0}
+.nlform{margin:12px 0}.nlform input[type=email]{padding:6px;width:100%;max-width:320px}.nlform button{padding:7px 14px;font-size:15px}.nlform .hp{position:absolute;left:-9999px}
+.nlmsg{display:block;margin-top:6px}.nlmsg.ok{color:#14532d}.nlmsg.warn{color:#9a3412}.nlfoot{margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--line)}.nlfoot .nlform{display:inline}.nlc label{position:absolute;left:-9999px}
 """
 
 NAV = [("", "nav_news"), ("calendar", "nav_calendar"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("sources", "nav_sources"), ("about", "nav_about"), ("tip", "nav_tip")]
@@ -161,6 +163,47 @@ def geo_endpoint():
     if e is not None: return e.strip().rstrip("/") or None
     ep = tip_endpoint()
     return ep if ep and ".workers.dev" in ep else None
+# ---- Newsletter signup (newsletter/config.json; OFF until the Worker is deployed and jQrgen approves) ----
+NL_CFG = load(P("newsletter", "config.json"), {}) or {}
+def newsletter_endpoint():
+    """Worker base URL for POST /api/subscribe, or None = no signup form anywhere on the site.
+    On only when newsletter/config.json enabled is true (or env NC_NEWSLETTER=1 for test builds) AND an endpoint is known:
+    env NEWSLETTER_ENDPOINT, config endpoint, or the deployed workers.dev tip Worker."""
+    if not (NL_CFG.get("enabled") is True or os.environ.get("NC_NEWSLETTER") == "1"): return None
+    e = os.environ.get("NEWSLETTER_ENDPOINT") or NL_CFG.get("endpoint") or geo_endpoint()
+    return (e or "").strip().rstrip("/") or None
+NL_N = [0]
+def newsletter_form(compact=False):
+    """Signup form (posts to the Worker; works without JavaScript via a 303 back to /newsletter/). Honeypot 'website'."""
+    ep = newsletter_endpoint()
+    if not ep: return ""
+    NL_N[0] += 1; i = NL_N[0]
+    return (f'<form class="nlform{" nlc" if compact else ""}" method="post" action="{E(ep)}/api/subscribe" data-ep="{E(ep)}">'
+            f'<input type="hidden" name="site" value="nordic-crypto"><input type="hidden" name="lang" value="{LANG}">'
+            f'<label for="nl-email-{i}">{E(t("nl_email"))}</label> <input id="nl-email-{i}" name="email" type="email" required maxlength="254" autocomplete="email" inputmode="email">'
+            f'<span class="hp" aria-hidden="true"><label for="nl-w-{i}">website</label><input id="nl-w-{i}" name="website" tabindex="-1" autocomplete="off"></span>'
+            f' <button type="submit">{E(t("nl_btn"))}</button><span class="nlmsg" role="status" aria-live="polite"></span></form>')
+def newsletter_script():
+    if not newsletter_endpoint(): return ""
+    m = {k: t("nl_" + k) for k in ("sending", "sent", "confirmed", "unsub", "e_email", "e_rate", "e_link", "e_fail")}
+    return """<script>(function(){var M=%s,F=[].slice.call(document.querySelectorAll('form.nlform'));if(!F.length)return;
+function say(f,k){var s=f.querySelector('.nlmsg');s.textContent=M[k]||M.e_fail;s.className='nlmsg '+(k.indexOf('e_')===0?'warn':'ok')}
+var E={email:'e_email',rate:'e_rate',invalid_link:'e_link'},q=new URLSearchParams(location.search),f0=document.querySelector('main form.nlform')||F[0];
+if(q.get('sent'))say(f0,'sent');else if(q.get('confirmed'))say(f0,'confirmed');else if(q.get('unsubscribed'))say(f0,'unsub');else if(q.get('error'))say(f0,E[q.get('error')]||'e_fail');
+F.forEach(function(f){f.addEventListener('submit',function(ev){ev.preventDefault();var b=f.querySelector('button'),d={};new FormData(f).forEach(function(v,k){d[k]=v});
+b.disabled=true;say(f,'sending');fetch(f.getAttribute('data-ep')+'/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(d)})
+.then(function(r){return r.json().then(function(j){b.disabled=false;if(r.ok){say(f,'sent');f.reset()}else say(f,E[j.error]||'e_fail')})}).catch(function(){b.disabled=false;say(f,'e_fail')})})})})();</script>""" % json.dumps(m, ensure_ascii=False)
+def build_newsletter():
+    """/newsletter/ in every language: what you get, the form, the privacy note and the Kaupr disclosure. Only when on."""
+    if not newsletter_endpoint(): return
+    sub = NL_CFG.get("substack_url")
+    body = f"""<h1>{E(t("nl_title"))}</h1>
+<p class="lead">{E(t("nl_lead"))}</p>
+{newsletter_form()}
+<div class="prose"><p class="notice">{t("nl_priv")}</p>
+{f'<p><a href="{E(sub)}" rel="noopener">Substack</a></p>' if sub else ''}
+<p class="meta">{t("nl_kaupr")}</p></div>"""
+    page("newsletter", t("nl_title"), "newsletter", body, t("nl_desc"))
 LANGSEL_JS = None
 def langsel_script():
     global LANGSEL_JS
@@ -190,6 +233,7 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None):
                 .replace("__COOKIE_PATH__", COOKIE_PATH).replace("__LANGS__", json.dumps(i18n.LANGS)) + "</script>")
     setck = ("<script>(function(){document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[data-lang]');if(!a)return;"
              f"document.cookie='nc_lang='+a.getAttribute('data-lang')+';path={COOKIE_PATH};max-age=31536000;SameSite=Lax'+(location.protocol==='https:'?';Secure':'')}})}})();</script>")
+    nlfoot = (f'<div class="nlfoot"><b>{E(t("nl_foot"))}</b> {newsletter_form(True)} <a href="{rel}newsletter/">{E(t("nl_more"))}</a></div>' if newsletter_endpoint() and slug != "newsletter" else "")
     doc = f"""<!doctype html>
 <html lang="{i18n.HTML_LANG[LANG]}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 {pick}<title>{E(title)}{" – " + SITE_NAME if slug else ""}</title>
@@ -203,8 +247,8 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None):
 {body}
 {s['top']}
 </main>
-<footer><div class="wrap">{t("footer", site=SITE_NAME, rel=rel)}</div></footer>
-{s['script']}{setck}{extra_script}
+<footer><div class="wrap">{nlfoot}{t("footer", site=SITE_NAME, rel=rel)}</div></footer>
+{s['script']}{setck}{extra_script}{newsletter_script()}
 </body></html>"""
     d = os.path.join(SITE, lp(), slug); os.makedirs(d, exist_ok=True)
     open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(doc)
@@ -357,6 +401,7 @@ sel.addEventListener('change',function(){apply(1)});tc.concat(cc).forEach(functi
     build_academia()
     build_changelog()
     build_tip()
+    build_newsletter()
     build_rules(ctx)
     about = open(P("templates", f"about.{LANG}.html" if LANG != "en" else "about.html"), encoding="utf-8").read().replace("{{UP}}", up1())
     page("about", t("about_title"), "about", about, t("about_desc"))

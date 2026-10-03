@@ -52,3 +52,8 @@ import json,sys;p="../tipserver/config.json";c=json.load(open(p));c["public_endp
 json.dump(c,open(p,"w"),ensure_ascii=False,indent=1);open(p,"a").write("\n")
 PY
 echo "tipserver/config.json: public_endpoint = $url (then tipworker/publish_tip_page.sh --yes, with jQrgen's approval, puts ONLY /tip/ live)"
+# 6) newsletter unsubscribe-link secret (HMAC key; created once, never printed or committed). Mail stays OFF:
+#    MAIL_PROVIDER / MAIL_SEND_ENABLED are NOT set here – that is jQrgen's decision (see newsletter/README in each site repo).
+if ! wr secret list 2>/dev/null | grep -q '"UNSUB_SECRET"'; then
+  openssl rand -hex 32 | wr secret put UNSUB_SECRET >/dev/null && echo "UNSUB_SECRET: created"
+fi

@@ -20,3 +20,6 @@ tipserver/*.pid
 tipserver/tunnel-url.txt
 archive/articles.db
 archive/articles.db-*
+
+# generated newsletter digests (regenerate with newsletter/digest.py)
+newsletter/out/

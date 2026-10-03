@@ -55,6 +55,13 @@ Tips go to `tipserver/tips.db` (gitignored, mode 600) with a UTC timestamp and s
 ## Article archive
 `archive/articles.db` (SQLite, gitignored) + `archive/articles.json` (committed export). Schema `archive/schema.sql`, shared with Kryptonytt (plus the additive `country` column); D1 mirror `tipworker/migrations/0002_articles.sql`. Rows are never deleted (triggers); a story that disappears gets `removed = 1` and `removed_at`. `routines/morning-publish.sh` runs `tools/article_archive.py record` after each successful publish; `backfill` reads the gh-pages history.
 
+## Newsletter (Substack + email) – prepared, OFF
+`newsletter/substack-setup.md` (publication name, subdomain, texts, branding in `newsletter/assets/`, welcome email, digest
+template, Kaupr disclosure, checklist for jQrgen). `newsletter/digest.py` builds the weekly digest from the **public** build
+only (approved stories). Signup form (footer + `/newsletter/`, 7 languages, privacy note) is behind `newsletter/config.json`
+`enabled: false`; it posts to the tipworker (`/api/subscribe`, double opt-in, see `tipworker/README.md`). Nothing is sent and
+no Substack account exists until jQrgen sets it up.
+
 ## Privacy
 No health or private financial data about anyone, no org numbers, LEIs, addresses of private persons, emails or tokens. `state/private_terms.json` (never printed, never committed) feeds the privacy gate, which blocks the build if it finds them. The gate also blocks organisation numbers in visible text, including source titles (NO 9-digit, SE NNNNNN-NNNN, DK CVR, «org.nr …»); register links are fine, the number itself must not be written out.
 
