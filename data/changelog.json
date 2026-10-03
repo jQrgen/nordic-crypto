@@ -2,6 +2,12 @@
  "launch_date": "2026-10-03",
  "entries": [
   {
+   "id": "reader-tips",
+   "date": "2026-10-03",
+   "title": "Send us a tip",
+   "description": "Readers can now tip Nordic Crypto about articles via the new Send a tip page, which opens a form on GitHub. Tips are public on GitHub, so please don't include personal or sensitive information. Our editor checks every tip against our rules; a tip does not guarantee publication."
+  },
+  {
    "id": "past-events",
    "date": "2026-10-03",
    "title": "Past events archive",
