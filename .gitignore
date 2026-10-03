@@ -15,3 +15,6 @@ shots/
 tools/probe.py
 screenshots/
 .publish/
+tipserver/tips.db*
+tipserver/*.log
+tipserver/*.pid

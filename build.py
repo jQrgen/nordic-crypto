@@ -490,15 +490,57 @@ cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('ari
     print(f"academia: {allrows} editor-approved rows shown {per_c}")
 
 TIP_FORM = "https://github.com/jQrgen/nordic-crypto/issues/new?template=tip.yml"
+def tip_endpoint():
+    """Public base URL of the tip server (tipserver/server.py), e.g. https://tips.example.com. Env TIP_ENDPOINT overrides
+    tipserver/config.json -> public_endpoint. Unset/null = the /tip/ page uses the GitHub issue form only."""
+    e = os.environ.get("TIP_ENDPOINT") or (load(P("tipserver", "config.json"), {}) or {}).get("public_endpoint")
+    return (e or "").strip().rstrip("/") or None
+
+def build_tip_server(ep):
+    """'Send a tip' page that posts to our own tip server (no third-party scripts, inline JS only; works without JS via a
+    plain form POST, the server then redirects back here with ?sent=1 or ?error=...). GitHub stays as an alternative."""
+    opts = '<option value="unsure">Not sure / choose…</option>' + "".join(f'<option value="{c}">{E(n)}</option>' for c, n in COUNTRIES.items())
+    body = f"""<h1>Send a tip</h1>
+<p class="lead">Seen a story about crypto, bitcoin or blockchain in Norway, Sweden, Denmark, Finland or Iceland that we have missed? Send us the link.</p>
+<div class="prose">
+<p>Our editor checks every tip against <a href="../about/">our rules</a>: the story must be about crypto, bitcoin or blockchain in the Nordics, and we link to the original source with a short English summary in our own words. <b>A tip does not guarantee publication.</b></p>
+<p class="notice"><b>Privacy:</b> tips go to Nordic Crypto's own server, not to any third party. We store the link, country, note, optional name and the time – <b>not</b> your IP address. Your name is never published. Please do not include personal or sensitive information about anyone in the note.</p>
+</div>
+<div id="tipmsg" role="status" aria-live="polite"></div>
+<form id="tipform" class="tipform" method="post" action="{E(ep)}/api/tip">
+<p><label for="t-url"><b>Article URL</b> (required)</label><br><input id="t-url" name="url" type="url" required maxlength="2000" placeholder="https://" style="width:100%;max-width:560px;padding:6px"></p>
+<p><label for="t-country"><b>Country</b></label><br><select id="t-country" name="country" style="padding:6px">{opts}</select></p>
+<p><label for="t-note"><b>Short note</b> (optional, max 1000 characters)</label><br><textarea id="t-note" name="note" rows="3" maxlength="1000" style="width:100%;max-width:560px;padding:6px"></textarea></p>
+<p><label for="t-name"><b>Your name</b> (optional, never published)</label><br><input id="t-name" name="name" maxlength="100" autocomplete="off" style="width:100%;max-width:320px;padding:6px"></p>
+<p style="position:absolute;left:-9999px" aria-hidden="true"><label for="t-website">Leave this field empty</label><input id="t-website" name="website" tabindex="-1" autocomplete="off"></p>
+<p><button type="submit" style="padding:8px 14px;font-size:15px">Send tip</button></p>
+</form>
+<p class="prose">Prefer GitHub? You can also send a <a href="{TIP_FORM}" rel="noopener">tip as a public GitHub issue</a> (needs a GitHub account; tips there are public).</p>"""
+    js = """<script>(function(){var EP=%s,f=document.getElementById('tipform'),m=document.getElementById('tipmsg'),b=f.querySelector('button');
+var GH='<a href="%s" rel="noopener">send it as a GitHub issue</a>';
+function say(t,cls,html){m.className='notice'+(cls?' '+cls:'');if(html)m.innerHTML=t;else m.textContent=t;m.scrollIntoView({block:'nearest'})}
+var q=new URLSearchParams(location.search);if(q.get('sent'))say('Thank you! Your tip has been received. Our editor will check it.');else if(q.get('error'))say(q.get('error'),'warn');
+f.addEventListener('submit',function(ev){ev.preventDefault();if(!f.reportValidity())return;b.disabled=true;
+var d={url:f.url.value,country:f.country.value,note:f.note.value,name:f.name.value,website:f.website.value},ac=new AbortController(),to=setTimeout(function(){ac.abort()},12000);
+fetch(EP+'/api/tip',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(d),signal:ac.signal,credentials:'omit',referrerPolicy:'no-referrer'})
+.then(function(r){return r.json().catch(function(){return {}}).then(function(j){return {s:r.status,j:j}})})
+.then(function(x){clearTimeout(to);b.disabled=false;
+ if(x.s>=200&&x.s<300&&x.j.ok){f.reset();say('Thank you! Your tip has been received. Our editor will check it.')}
+ else if(x.s>=500||x.s===0){say('The tip service is temporarily offline, try again later. Or '+GH+'.','warn',true)}
+ else say((x.j&&x.j.error)||'Could not send the tip.','warn')})
+.catch(function(){clearTimeout(to);b.disabled=false;say('The tip service is temporarily offline, try again later. Or '+GH+'.','warn',true)})})})();</script>""" % (json.dumps(ep), TIP_FORM)
+    page("tip", "Send a tip", "tip", body, "Tip Nordic Crypto about an article on crypto, bitcoin or blockchain in the Nordics.", js)
+
 def build_tip():
     """'Send a tip' page. Static: a plain HTML form (GET, no JavaScript, no tracking) that opens the prefilled GitHub issue form
     (.github/ISSUE_TEMPLATE/tip.yml, label 'tip'). There is no public e-mail address, so GitHub is the only channel.
     routines/nightly-fetch.sh -> tools/reader_tips.py puts open tips in the editor queue as pending; nothing is auto-published."""
+    if tip_endpoint(): return build_tip_server(tip_endpoint())
     opts = '<option value="Not sure">Not sure / choose…</option>' + "".join(f'<option value="{E(n)} ({c})">{E(n)}</option>' for c, n in COUNTRIES.items())
     body = f"""<h1>Send a tip</h1>
 <p class="lead">Seen a story about crypto, bitcoin or blockchain in Norway, Sweden, Denmark, Finland or Iceland that we have missed? Send us the link.</p>
 <div class="prose">
-<p>Tips are sent as an issue on GitHub (you need a free GitHub account). Our editor checks every tip against <a href="../about/">our rules</a>: the story must be about crypto, bitcoin or blockchain in the Nordics, and we link to the original source with a short English summary in our own words. <b>A tip does not guarantee publication.</b> When the editor has decided, we may reply briefly on the issue and close it.</p>
+<p>Tips are sent as an issue on GitHub (you need a free GitHub account). Our editor checks every tip against <a href="../about/">our rules</a>: the story must be about crypto, bitcoin or blockchain in the Nordics, and we link to the original source with a short English summary in our own words. <b>A tip does not guarantee publication.</b> The issue stays open while the editor decides.</p>
 <p class="notice warn"><b>Privacy:</b> tips are <b>public</b> on GitHub, together with your GitHub username. Please do not share personal or sensitive information about yourself or anyone else – just the link and, if you like, a short note. We do not publish names from tips on this site.</p>
 </div>
 <form class="tipform" method="get" action="https://github.com/jQrgen/nordic-crypto/issues/new">

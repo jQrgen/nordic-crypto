@@ -11,5 +11,3 @@ log="logs/publish-$(date +%Y%m%d).txt"; mkdir -p logs
 } >"$log" 2>&1
 tail -4 "$log"
 grep -q "HTTP 200" "$log" || { echo "live check failed – see $log"; exit 1; }
-# reader tips the editor has published or rejected: neutral comment + close (undecided tips stay open)
-.venv/bin/python tools/reader_tips.py --close-decided >>"$log" 2>&1 || echo "warning: closing decided reader tips failed – see $log"

@@ -1,0 +1,4 @@
+{
+ "_how_to": "public_endpoint: public https base URL of tipserver/server.py (e.g. the Cloudflare tunnel hostname), without /api/tip. null = the /tip/ page uses the GitHub issue form only. Env TIP_ENDPOINT overrides this when building.",
+ "public_endpoint": null
+}
