@@ -13,7 +13,7 @@ sql() { npx --no-install wrangler d1 execute nordic-crypto-tips --local --json -
 rm -rf .wrangler/state
 npx --no-install wrangler d1 migrations apply nordic-crypto-tips --local >/dev/null 2>&1 || { echo "migration failed"; exit 1; }
 curl -s -o /dev/null "$B/" 2>/dev/null && { echo "port $PORT is already in use – stop the old wrangler dev first"; exit 1; }
-setsid npx --no-install wrangler dev --local --ip 127.0.0.1 --port "$PORT" >/tmp/tipworker-dev.log 2>&1 & DEV=$!
+setsid npx --no-install wrangler dev --local --ip 127.0.0.1 --port "$PORT" --var GEO_TEST:1 >/tmp/tipworker-dev.log 2>&1 & DEV=$!
 trap 'kill -- -$DEV 2>/dev/null; wait $DEV 2>/dev/null' EXIT   # whole process group (npx, wrangler, workerd)
 for i in $(seq 1 60); do curl -fsS "$B/api/health" >/dev/null 2>&1 && break; sleep 0.5; done
 code() { curl -s -o /dev/null -w '%{http_code}' "$@"; }
@@ -74,6 +74,16 @@ r=$(curl -s -w '|%{http_code}' "${J[@]}" -H 'CF-Connecting-IP: 203.0.113.10' -d 
 hasnt "rate_hits stores no raw IP" "$(sql 'SELECT h FROM rate_hits')" "203.0.113"
 hasnt "no raw IP anywhere in D1" "$(sql "SELECT * FROM tips"; sql "SELECT * FROM rate_hits"; sql "SELECT * FROM rate_salt")" "198.51.100"
 chk "one salt row (today)" "$(sql "SELECT COUNT(*) AS n FROM rate_salt" | grep -oE '"n": *[0-9]+' | grep -oE '[0-9]+$')" 1
+# geo: country code only, no-store, CORS only for github.io, GET only
+g=$(curl -s -H "Origin: $GOOD" -H 'X-Test-Country: no' "$B/api/geo"); chk "geo returns test country" "$g" '{"country":"NO"}'
+g=$(curl -s -H 'X-Test-Country: XX' "$B/api/geo"); chk "geo unknown (XX) -> null" "$g" '{"country":null}'
+g=$(curl -s -H 'X-Test-Country: <script>' "$B/api/geo"); chk "geo rejects junk" "$g" '{"country":null}'
+g=$(curl -s "$B/api/geo"); has "geo without override is a code or null" "$g" '"country":'
+h=$(hdr -H "Origin: $GOOD" -H 'X-Test-Country: SE' "$B/api/geo"); has "geo 200" "$h" "HTTP/1.1 200"; has "geo ACAO github.io" "$h" "access-control-allow-origin: $GOOD"
+has "geo no-store" "$h" "cache-control: no-store"; has "geo json" "$h" "content-type: application/json"
+h=$(hdr -H "Origin: $BAD" "$B/api/geo"); hasnt "geo no ACAO for other origin" "$h" "access-control-allow-origin"
+chk "geo POST not allowed (404)" "$(code -X POST -H "Origin: $GOOD" "$B/api/geo")" 404
+b=$(curl -s -H 'X-Test-Country: FI' -H 'CF-Connecting-IP: 198.51.100.77' "$B/api/geo"); hasnt "geo body has no IP" "$b" "198.51.100"
 # logging: the dev log must not contain bodies or IPs
 sleep 1; hasnt "dev log has no tip bodies" "$(cat /tmp/tipworker-dev.log)" "e24.no"; hasnt "dev log has no test IPs" "$(cat /tmp/tipworker-dev.log)" "203.0.113"
 echo "---- $pass passed, $failc failed"

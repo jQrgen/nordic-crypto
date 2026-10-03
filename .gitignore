@@ -19,3 +19,5 @@ tipserver/tips.db*
 tipserver/*.log
 tipserver/*.pid
 tipserver/tunnel-url.txt
+archive/articles.db
+archive/articles.db-*

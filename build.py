@@ -3,9 +3,12 @@
   .venv/bin/python build.py            # public build: ONLY editor-approved content (what publish.sh would push)
   .venv/bin/python build.py --preview  # local review build: also shows pending items, clearly marked "Pending editor review"
 All paths are relative, so the site works at https://jqrgen.github.io/nordic-crypto/ and on a local server.
-No tracking, no third-party scripts, no external fonts. Everything is in English."""
+No tracking, no third-party scripts, no external fonts.
+Languages (i18n/): English at the root, nynorsk /nn/, bokmål /nb/, svensk /sv/, dansk /da/, suomi /fi/, íslenska /is/.
+Every page is built once per language; data/ (JSON), assets/ and screen/ (English) exist only at the root."""
 import json, os, re, shutil, subprocess, html, sys, calendar, datetime as dt
 from zoneinfo import ZoneInfo
+import i18n
 ROOT = os.path.dirname(os.path.abspath(__file__)); P = lambda *a: os.path.join(ROOT, *a)
 BASE = "https://jqrgen.github.io/nordic-crypto/"
 SITE = os.environ.get("NC_SITE_DIR") or P("site")   # NC_SITE_DIR: scratch build dir (tipworker/publish_tip_page.sh)
@@ -18,28 +21,35 @@ E = lambda s: html.escape(str(s if s is not None else ""), quote=True)
 def snippets(url, title):
     try: return json.loads(subprocess.check_output(["node", P("tools", "snippets.js"), url, title]))
     except Exception: return {"top": "", "bar": "", "css": "", "script": ""}
-MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-MONTH = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-WD = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 OSLO = ZoneInfo("Europe/Oslo")
+LANG = "en"   # language being built (set by build() for each pass)
+def t(key, **kw): return i18n.t(LANG, key, **kw)
+def lp(lang=None): lang = lang or LANG; return "" if lang == "en" else lang + "/"
+def up1(): return "../../" if LANG != "en" else "../"   # from a top-level page (e.g. calendar/) to the site root (data/, assets/)
 def endate(iso):
-    d = dt.datetime.fromisoformat(iso).astimezone(OSLO); return f"{d.day} {MON[d.month-1]} {d.year}"
-COUNTRIES = {"NO": "Norway", "SE": "Sweden", "DK": "Denmark", "FI": "Finland", "IS": "Iceland"}
-EXTRA_C = {"NORDIC": "Nordic-wide"}
-CITYNAME = {"NO": "Oslo", "SE": "Stockholm", "DK": "Copenhagen", "FI": "Helsinki", "IS": "Reykjavík"}
+    return i18n.short_date(LANG, dt.datetime.fromisoformat(iso).astimezone(OSLO))
+COUNTRY_CODES = ["NO", "SE", "DK", "FI", "IS"]
+class _C(dict):  # country names in the current language
+    def __getitem__(self, c): return t("c_" + c)
+    def items(self): return [(c, t("c_" + c)) for c in COUNTRY_CODES]
+    def __iter__(self): return iter(COUNTRY_CODES)
+    def __contains__(self, c): return c in COUNTRY_CODES
+    def __len__(self): return len(COUNTRY_CODES)
+COUNTRIES = _C()
+EXTRA_C_CODES = ["NORDIC", "EU"]
 # small inline SVG flags (Nordic crosses) – no emoji fonts or external images needed
 _FL = {"NO": ("#BA0C2F", "#fff", "#00205B"), "SE": ("#006AA7", "#FECC00", None), "DK": ("#C8102E", "#fff", None), "FI": ("#fff", "#002F6C", None),
        "IS": ("#02529C", "#fff", "#DC1E35")}
 def flag(c, big=False):
     if c not in _FL:
-        return f'<span class="cc" title="{E(EXTRA_C.get(c, c))}">{E("Nordic" if c == "NORDIC" else c)}</span>'
+        return f'<span class="cc" title="{E(cname(c))}">{E("Nordic" if c == "NORDIC" else c)}</span>'
     bg, a, b = _FL[c]; w, h = (22, 16)
     inner = f'<rect x="7" width="2" height="16" fill="{b}"/><rect y="7" width="22" height="2" fill="{b}"/>' if b else ""
     border = ' stroke="#9ca3af" stroke-width=".6"' if bg == "#fff" else ""
-    return (f'<svg class="flag" viewBox="0 0 22 16" width="{w*(1.4 if big else 1):.0f}" height="{h*(1.4 if big else 1):.0f}" role="img" aria-label="{COUNTRIES[c]}">'
-            f'<title>{COUNTRIES[c]}</title><rect width="22" height="16" fill="{bg}"{border}/><rect x="6" width="4" height="16" fill="{a}"/><rect y="6" width="22" height="4" fill="{a}"/>{inner}</svg>')
-def cname(c): return COUNTRIES.get(c) or EXTRA_C.get(c, c)
-FLAGS_JS = json.dumps({c: flag(c) for c in list(COUNTRIES) + ["NORDIC"]})
+    return (f'<svg class="flag" viewBox="0 0 22 16" width="{w*(1.4 if big else 1):.0f}" height="{h*(1.4 if big else 1):.0f}" role="img" aria-label="{E(cname(c))}">'
+            f'<title>{E(cname(c))}</title><rect width="22" height="16" fill="{bg}"{border}/><rect x="6" width="4" height="16" fill="{a}"/><rect y="6" width="22" height="4" fill="{a}"/>{inner}</svg>')
+def cname(c): return t("c_" + c) if c in COUNTRY_CODES or c in EXTRA_C_CODES else (c or "")
+def flags_js(): return json.dumps({c: flag(c) for c in COUNTRY_CODES + ["NORDIC"]})
 
 CSS = """
 :root{--ink:#111;--muted:#4B5563;--line:#d1d5db;--paper:#fff;--accent:#0f5ea8;--warm:#b45309;--soft:#f5f7fa;--pub:#1d4ed8;--priv:#047857}
@@ -117,32 +127,86 @@ table.list th{font-size:13px;color:var(--muted)}
 .reg article{border:1px solid var(--line);padding:10px 12px;background:#fff}.reg h3{display:flex;gap:8px;align-items:center;margin:0 0 6px;font-size:17px}
 .reg dl{margin:0;font-size:14px}.reg dt{font-weight:600;margin-top:6px}.reg dd{margin:0}
 """
+CSS += """
+.langsw{position:relative;margin-left:auto;font-size:14px;display:flex;gap:10px;align-items:baseline}
+.langsw details{position:relative}.langsw summary{cursor:pointer;list-style:none;border:1px solid var(--ink);padding:2px 8px}
+.langsw summary::-webkit-details-marker{display:none}
+.langsw ul{position:absolute;right:0;z-index:20;margin:4px 0 0;padding:4px 0;list-style:none;background:#fff;border:1px solid var(--ink);min-width:150px}
+.langsw li a{display:block;padding:4px 12px;text-decoration:none}.langsw li a:hover,.langsw li a:focus{background:var(--soft)}
+.langsw li a[aria-current]{font-weight:700}.langsw .quick{font-size:13.5px}
+@media(max-width:640px){.langsw{margin-left:0;width:100%}}
+html.nc-pick body{visibility:hidden}
+.logo{width:28px;height:28px;object-fit:contain;flex:none;background:#fff}
+.logo.big{width:64px;height:64px}
+.card .nm{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.av.org{border-radius:4px;width:28px;height:28px;font-size:11px}
+.imap-cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin:12px 0}
+.imap-cat{border:1px solid var(--line);padding:8px 10px 10px;background:#fff}
+.imap-cat>h3{font-size:15px;margin:0 0 8px;padding-bottom:4px;border-bottom:2px solid var(--accent);display:flex;justify-content:space-between;gap:8px}
+.imap-cat.pub>h3{border-color:var(--pub)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:6px}
+.tile{display:flex;flex-direction:column;align-items:center;gap:4px;padding:6px 4px;border:1px solid var(--line);text-decoration:none;font-size:11.5px;line-height:1.2;text-align:center;min-height:86px;background:#fff;overflow-wrap:anywhere}
+.tile:hover,.tile:focus-visible{border-color:var(--ink);outline:none}
+.tile .logo,.tile .av{width:40px;height:40px}.tile .fl{display:flex;gap:3px;align-items:center;color:var(--muted);font-size:10.5px}
+.imap[data-view=country] .imap-bycat,.imap[data-view=cat] .imap-bycountry{display:none}
+.rules-c .seg{margin:8px 0}
+"""
 
-NAV = [("", "News"), ("calendar", "Calendar"), ("org-chart", "Who's who"), ("academia", "Academia"), ("sources", "Sources"), ("about", "About"), ("tip", "Send a tip")]
-def page(slug, title, nav, body, desc, extra_script=""):
-    url = BASE + (slug + "/" if slug else "")
-    s = snippets(url, f"{title} – {SITE_NAME}" if slug else f"{SITE_NAME} – Nordic crypto news")
-    rel = "../" * (slug.count("/") + 1) if slug else "./"
-    nav_html = "".join(f'<a href="{rel}{n + "/" if n else ""}"{" aria-current=page" if n == nav else ""}>{E(t)}</a>' for n, t in NAV)
-    banner = (f'<div class="preview" role="note"><div class="wrap"><b>Local preview – not published.</b> Everything marked “Pending editor review” '
-              f'has not been checked by the editor yet; summaries are not written yet. Only approved items go into the public build.</div></div>') if PREVIEW else ""
+NAV = [("", "nav_news"), ("calendar", "nav_calendar"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("sources", "nav_sources"), ("about", "nav_about"), ("tip", "nav_tip")]
+COOKIE_PATH = "/" + BASE.split("://", 1)[1].split("/", 1)[1]   # /nordic-crypto/
+def geo_endpoint():
+    """Country lookup: GET <tipworker>/api/geo (Cloudflare request.cf.country). Only when the Worker is deployed,
+    i.e. tipserver/config.json -> public_endpoint is a workers.dev URL (or env GEO_ENDPOINT)."""
+    e = os.environ.get("GEO_ENDPOINT")
+    if e is not None: return e.strip().rstrip("/") or None
+    ep = tip_endpoint()
+    return ep if ep and ".workers.dev" in ep else None
+LANGSEL_JS = None
+def langsel_script():
+    global LANGSEL_JS
+    if LANGSEL_JS is None: LANGSEL_JS = open(P("tools", "langselect.js"), encoding="utf-8").read()
+    return LANGSEL_JS
+def page(slug, title, nav, body, desc, extra_script="", langs=None):
+    """Writes site/<lang>/<slug>/index.html for the current LANG (English at the root)."""
+    depth = (slug.count("/") + 1 if slug else 0) + (0 if LANG == "en" else 1)
+    root = "../" * depth or "./"           # site root (data/, assets/, screen/)
+    rel = root + lp()                      # home of this language
+    url = BASE + lp() + (slug + "/" if slug else "")
+    s = snippets(url, f"{title} – {SITE_NAME}" if slug else f"{SITE_NAME} – {t('site_desc_suffix')}")
+    nav_html = "".join(f'<a href="{rel}{n + "/" if n else ""}"{" aria-current=page" if n == nav else ""}>{E(t(k))}</a>' for n, k in NAV)
+    langs = langs or i18n.LANGS
+    alt = "".join(f'<link rel="alternate" hreflang="{i18n.HTML_LANG[l]}" href="{BASE}{lp(l)}{slug + "/" if slug else ""}">' for l in langs) + \
+        f'<link rel="alternate" hreflang="x-default" href="{BASE}{slug + "/" if slug else ""}">'
+    sw = "".join(f'<li><a href="{root}{lp(l)}{slug + "/" if slug else ""}" hreflang="{l}" lang="{l}" data-lang="{l}"{" aria-current=true" if l == LANG else ""}>{E(i18n.NAME[l])}</a></li>' for l in langs)
+    q = i18n.QUICK.get(LANG)
+    quick = (f'<a class="quick" href="{root}{lp(q)}{slug + "/" if slug else ""}" hreflang="{q}" lang="{q}" data-lang="{q}">{E(i18n.NAME[q])}</a>' if q in langs else "")
+    switcher = (f'<div class="langsw">{quick}<details><summary aria-label="{E(t("lang_choose"))}">🌐 {E(i18n.NAME[LANG])}</summary>'
+                f'<ul role="list" aria-label="{E(t("lang_label"))}">{sw}</ul></details></div>')
+    banner = f'<div class="preview" role="note"><div class="wrap">{t("preview_banner")}</div></div>' if PREVIEW else ""
+    # language auto-selection: only on the English home page (site root), see tools/langselect.js
+    pick = ""
+    if LANG == "en" and not slug:
+        pick = ("<script>" + langsel_script().replace("__GEO__", json.dumps((geo_endpoint() + "/api/geo") if geo_endpoint() else None))
+                .replace("__COOKIE_PATH__", COOKIE_PATH).replace("__LANGS__", json.dumps(i18n.LANGS)) + "</script>")
+    setck = ("<script>(function(){document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[data-lang]');if(!a)return;"
+             f"document.cookie='nc_lang='+a.getAttribute('data-lang')+';path={COOKIE_PATH};max-age=31536000;SameSite=Lax'+(location.protocol==='https:'?';Secure':'')}})}})();</script>")
     doc = f"""<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{E(title)}{" – " + SITE_NAME if slug else ""}</title>
-<meta name="description" content="{E(desc)}"><link rel="canonical" href="{url}">{'<meta name="robots" content="noindex">' if PREVIEW else ''}
-<meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:url" content="{url}"><meta property="og:type" content="website"><meta property="og:locale" content="en_GB">
+<html lang="{i18n.HTML_LANG[LANG]}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+{pick}<title>{E(title)}{" – " + SITE_NAME if slug else ""}</title>
+<meta name="description" content="{E(desc)}"><link rel="canonical" href="{url}">{alt}{'<meta name="robots" content="noindex">' if PREVIEW else ''}
+<meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:url" content="{url}"><meta property="og:type" content="website"><meta property="og:locale" content="{i18n.OG_LOCALE[LANG]}">{''.join(f'<meta property="og:locale:alternate" content="{i18n.OG_LOCALE[l]}">' for l in langs if l != LANG)}
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230f5ea8'/%3E%3Crect x='4' width='3' height='16' fill='white'/%3E%3Crect y='6.5' width='16' height='3' fill='white'/%3E%3C/svg%3E">
 <style>{CSS}{s['css']}</style></head>
-<body>{banner}<header class="top"><div class="wrap"><a class="brand" href="{rel}">Nordic <span>Crypto</span></a><nav class="main" aria-label="Main menu">{nav_html}</nav></div></header>
+<body>{banner}<header class="top"><div class="wrap"><a class="brand" href="{rel}">Nordic <span>Crypto</span></a><nav class="main" aria-label="{E(t("main_menu"))}">{nav_html}</nav>{switcher}</div></header>
 <main class="wrap">
 {body}
 {s['top']}
 </main>
-<footer><div class="wrap">{SITE_NAME} covers Norway, Sweden, Denmark, Finland and Iceland. Run by Jørgen S. Notland (jQrgen), Oslo, with AI assistance; summaries are written by an AI editor and jQrgen is the responsible person. Not investment advice. No tracking or cookies. <a href="{rel}about/">About, corrections and removal</a> · <a href="{rel}tip/">Send a tip</a> · <a href="{rel}changelog/">Changelog</a>.</div></footer>
-{s['script']}{extra_script}
+<footer><div class="wrap">{t("footer", site=SITE_NAME, rel=rel)}</div></footer>
+{s['script']}{setck}{extra_script}
 </body></html>"""
-    d = os.path.join(SITE, slug); os.makedirs(d, exist_ok=True)
+    d = os.path.join(SITE, lp(), slug); os.makedirs(d, exist_ok=True)
     open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(doc)
 
 def redirect(old, new):
@@ -151,11 +215,18 @@ def redirect(old, new):
         f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0; url=../{new}/">'
         f'<link rel="canonical" href="{BASE}{new}/"><title>Moved</title></head><body><p>This page has moved to <a href="../{new}/">{new}</a>.</p></body></html>')
 
-TOPIC_LABEL = {"bitcoin": "Bitcoin", "blockchain": "Blockchain", "crypto": "Crypto", "regulation": "Regulation", "companies": "Companies", "mica": "MiCA", "aml": "AML", "defi": "DeFi", "nft": "NFT", "cbdc": "CBDC"}
+TOPICS = ["bitcoin", "blockchain", "crypto", "regulation", "companies", "mica", "aml", "defi", "nft", "cbdc"]
+def topic_label(k): return t("topic_" + k) if i18n.has("en", "topic_" + k) else (k.upper() if len(k) <= 4 else k.capitalize())
 def country_chips():
     return "".join(f'<button type="button" class="chip cchip" data-c="{c}" aria-pressed="false">{flag(c)}{E(n)}</button>' for c, n in COUNTRIES.items())
+def L18(obj, key, i18n_key=None):
+    """Own text in the current language: obj[i18n_key][LANG] if present, else obj[key] (English). Returns (text, lang)."""
+    v = ((obj.get(i18n_key or key + "_i18n") or {}).get(LANG)) if LANG != "en" else None
+    return (v, LANG) if v else (obj.get(key), "en")
+def lang_attr(l): return "" if l == LANG else f' lang="{l}"'
 
 def build():
+    global LANG
     subprocess.run([sys.executable, P("tools", "apply_approvals.py")], check=True)
     subprocess.run([sys.executable, P("tools", "import_orgchart.py")], check=True)
     news = load(P("data", "news.json"), {"items": []}); org = load(P("data", "orgchart.json"), {"entities": [], "relations": []})
@@ -164,136 +235,42 @@ def build():
     os.makedirs(os.path.join(SITE, "data"))
     open(os.path.join(SITE, ".nojekyll"), "w").close()
     if PREVIEW: open(os.path.join(SITE, ".preview"), "w").write("local preview build – never publish\n")
+    for i in news["items"]:  # translated summaries: public only once the editor approved them (summary_i18n_review)
+        if not PREVIEW and i.get("summary_i18n_review", "approved") != "approved": i.pop("summary_i18n", None)
     approved = [i for i in news["items"] if i.get("status") == "published" and (i.get("summary") or "").strip()]
     pending = [i for i in news["items"] if i.get("status") == "pending"] if PREVIEW else []
-    items = sorted(approved + pending + build_stories(), key=lambda i: i["published"], reverse=True)
-    keys = ("id", "url", "title", "title_en", "source", "source_name", "country", "language", "published", "topics", "summary", "paywall", "links", "status", "own_story")
+    ctx = {"news": news, "org": org, "cfg": cfg, "status": status, "approved": approved, "pending": pending}
+    LANG = "en"; ctx["stories"] = build_stories(write=False)
+    items = sorted(approved + pending + ctx["stories"], key=lambda i: i["published"], reverse=True); ctx["items"] = items
+    keys = ("id", "url", "title", "title_en", "source", "source_name", "country", "language", "published", "topics", "summary", "summary_i18n", "paywall", "links", "status", "own_story")
     pub_items = [{k: i.get(k) for k in keys if k in i} for i in items]
     for i in pub_items:
-        if i.get("status") not in ("published", "owner"): i["summary"] = None; i["status"] = "pending"
+        if i.get("status") not in ("published", "owner"): i["summary"] = None; i.pop("summary_i18n", None); i["status"] = "pending"
     json.dump({"updated": news.get("updated"), "preview": PREVIEW, "items": pub_items}, open(os.path.join(SITE, "data", "news.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-
     ents = [e for e in org["entities"] if e.get("sources") and (e.get("status") == "published" or (PREVIEW and e.get("status") == "pending"))]
     eids = {e["id"] for e in ents}
     rels = [r for r in org["relations"] if r.get("sources") and r["from"] in eids and r["to"] in eids and (r.get("status") == "published" or (PREVIEW and r.get("status") == "pending"))]
+    for e in ents:  # profile links: only editor-approved ones (preview: pending ones too, marked)
+        e["profiles"] = [p for p in (e.get("profiles") or []) if p.get("status") == "published" or PREVIEW]
+        for k in ("logo", "image"):  # logos/photos: only editor-checked ones (review "ok"; legacy entries without review were approved via Kryptonytt)
+            im = e.get(k)
+            if im and not PREVIEW and im.get("review", "ok") != "ok": e.pop(k)
     pub_org = {"updated": org.get("updated"), "preview": PREVIEW, "entities": ents, "relations": rels}
     json.dump(pub_org, open(os.path.join(SITE, "data", "orgchart.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    for e in ents:  # images: only used ones with a free licence
-        im = e.get("image")
-        if im and im.get("file") and im.get("license"):
-            dst = os.path.join(SITE, im["file"]); os.makedirs(os.path.dirname(dst), exist_ok=True); shutil.copy(P(im["file"]), dst)
-
-    # ---- News ----
-    srcs = sorted({(i["source"], i["source_name"]) for i in items}, key=lambda x: x[1].lower())
-    lis = []
-    for i in items:
-        pend = i.get("status") not in ("published", "owner"); own = i.get("status") == "owner"
-        tags = "".join(f'<span class="tag">{E(TOPIC_LABEL.get(t, t.upper() if len(t) <= 4 else t.capitalize()))}</span>' for t in i["topics"])
-        pw = ' · <span class="pw">may require a subscription</span>' if i.get("paywall") else ""
-        head = i.get("title_en") or i["title"]
-        orig = f'<p class="orig">Original title ({E(i.get("language") or "")}): {E(i["title"])}</p>' if i.get("title_en") else ""
-        lang = f' · in {E(i["language"])}' if i.get("language") and i["language"] != "English" else ""
-        summ = (f'<p class="sum pend">Pending editor review – an English summary has not been written yet. Read the story at the source.</p>' if pend
-                else f'<p class="sum">{E(i["summary"])}</p>')
-        lis.append(f'<li data-src="{E(i["source"])}" data-c="{E(i.get("country"))}" data-topics="{E(" ".join(i["topics"]))}">'
-                   f'<h3><a href="{E(i["url"])}"{"" if i.get("own_story") else " rel=noopener target=_blank"}{" lang=" + chr(34) + {"Norwegian":"no","Swedish":"sv","Finnish":"fi","Icelandic":"is","Danish":"da"}.get(i.get("language") or "", "en") + chr(34) if not i.get("title_en") else ""}>{E(head)}</a></h3>{orig}'
-                   f'<div class="meta">{flag(i.get("country"))} {E(cname(i.get("country")))} · <b>{E(i["source_name"])}</b> · <time datetime="{E(i["published"])}">{endate(i["published"])}</time>{lang}{pw} {tags}'
-                   + (' <span class="tag pend">Pending editor review</span>' if pend else "") + (' <span class="tag pend">Editor-approved · awaiting jQrgen\'s final approval</span>' if own else "")
-                   + (' <span class="tag">Our story</span>' if i.get("own_story") else "") + f'</div>{summ}'
-                   + "".join(f'<div class="meta">↳ <a href="{E(l["url"])}" rel="noopener" target="_blank">{E(l["label"])}</a></div>' for l in i.get("links", []) or []) + '</li>')
-    opts = "".join(f'<option value="{E(k)}">{E(n)}</option>' for k, n in srcs)
-    tchips = "".join(f'<button type="button" class="chip tchip" data-t="{k}" aria-pressed="false">{v}</button>' for k, v in TOPIC_LABEL.items())
-    upd = endate(news["updated"]) if news.get("updated") else ""
-    body = f"""<h1>Bitcoin, blockchain and crypto news from the Nordics</h1>
-<p class="meta"><a href="screen/">Office screen mode (full screen, portrait or landscape) →</a></p>
-<p class="lead">Links to stories from Norway, Sweden, Denmark, Finland and Iceland – newspapers, broadcasters, regulators and central banks – each with a short English summary written by our editor. Read the full story at the source. Last updated {upd}. {len(items)} stories{f" ({len(pending)} pending editor review)" if pending else ""}.</p>
-<div class="filters" role="group" aria-label="Filters"><span class="lbl">Country</span><div class="chips">{country_chips()}</div>
-<label for="fsrc">Source</label><select id="fsrc"><option value="">All sources</option>{opts}</select>
-<span class="lbl">Topic</span><div class="chips">{tchips}</div><span id="count" class="meta" aria-live="polite"></span></div>
-<ol class="news" id="news">{''.join(lis) or '<li class="empty">No published stories yet.</li>'}</ol>
-<p class="notice">Summaries are our own, written in English from the headline and the public teaser. We do not reproduce article text and we do not get around paywalls. Stories marked “may require a subscription” are from outlets with a paywall. Nothing here is investment advice.</p>"""
-    js = """<script>
-(function(){var sel=document.getElementById('fsrc'),tc=[].slice.call(document.querySelectorAll('.tchip')),cc=[].slice.call(document.querySelectorAll('.cchip')),lis=[].slice.call(document.querySelectorAll('#news li[data-src]')),cnt=document.getElementById('count');
-function on(a,k){return a.filter(function(c){return c.getAttribute('aria-pressed')==='true'}).map(function(c){return c.dataset[k]})}
-function apply(push){var s=sel.value,t=on(tc,'t'),c=on(cc,'c'),n=0;
-lis.forEach(function(li){var ok=(!s||li.dataset.src===s)&&(!c.length||c.indexOf(li.dataset.c)>=0)&&(!t.length||t.some(function(x){return (' '+li.dataset.topics+' ').indexOf(' '+x+' ')>=0}));li.hidden=!ok;if(ok)n++});
-cnt.textContent=n+' stories';if(push){var p=new URLSearchParams();if(c.length)p.set('country',c.join(','));if(s)p.set('source',s);if(t.length)p.set('topic',t.join(','));history.replaceState(null,'',p.toString()?'#'+p:location.pathname)}}
-var p=new URLSearchParams(location.hash.slice(1));if(p.get('source'))sel.value=p.get('source');
-(p.get('topic')||'').split(',').forEach(function(x){tc.forEach(function(c){if(c.dataset.t===x)c.setAttribute('aria-pressed','true')})});
-(p.get('country')||'').split(',').forEach(function(x){cc.forEach(function(c){if(c.dataset.c===x)c.setAttribute('aria-pressed','true')})});
-sel.addEventListener('change',function(){apply(1)});tc.concat(cc).forEach(function(c){c.addEventListener('click',function(){c.setAttribute('aria-pressed',c.getAttribute('aria-pressed')==='true'?'false':'true');apply(1)})});apply(0)})();
-</script>"""
-    page("", "Nordic Crypto – bitcoin, blockchain and crypto news from the Nordics", "", body,
-         "Bitcoin, blockchain and crypto news from Norway, Sweden, Denmark, Finland and Iceland, with English summaries, an events calendar and a who's who.", js)
-
-    # ---- Org chart ----
-    regs = []
-    for r in org.get("regulation", []):
-        regs.append(f'<article data-c="{E(r["country"])}"><h3>{flag(r["country"], True)}{E(cname(r["country"]))}</h3><dl><dt>MiCA</dt><dd>{E(r["mica"])}</dd><dt>Law</dt><dd>{E(r["law"])}</dd>'
-                    f'<dt>Authorities</dt><dd>{E(r["regulator"])}</dd><dt>Status</dt><dd>{E(r["status"])}</dd></dl><p class="meta">Sources: '
-                    + ", ".join(f'<a href="{E(s["url"])}" rel="noopener" target="_blank">{E(s["source_name"])}</a>' for s in r["sources"]) + '</p></article>')
-    cnt_pub = sum(e["status"] == "published" for e in ents); cnt_pend = sum(e["status"] == "pending" for e in ents)
-    body = f"""<h1>Who's who in Nordic crypto</h1>
-<p class="lead">Regulators, central banks, tax authorities, financial intelligence units, ministries, MiCA-licensed providers, exchanges, issuers and associations in Norway, Sweden, Denmark, Finland and Iceland – and people in public leadership roles. Every entry and every link between entries has a source. Click a card for details.</p>
-{f'<p class="notice warn"><b>Preview:</b> {cnt_pend} of {len(ents)} entries are pending editor review.</p>' if PREVIEW and cnt_pend else ''}
-<h2 id="regulation">Regulation by country</h2>
-<div class="reg">{''.join(regs)}</div>
-{('<details class="notice"><summary>Caveats</summary><ul>' + "".join(f"<li>{E(x)}</li>" for x in org.get("caveats", [])) + '</ul></details>') if org.get("caveats") else ''}
-<h2 id="org">Organisation chart</h2>
-<div class="filters"><span class="lbl">Country</span><div class="chips">{country_chips()}</div>
-<div class="seg" role="group" aria-label="Sector"><button type="button" data-v="both" aria-pressed="true">Both</button><button type="button" data-v="private" aria-pressed="false">Private sector</button><button type="button" data-v="public" aria-pressed="false">Public sector</button></div>
-<label for="osearch">Search</label><input type="search" id="osearch" placeholder="Name, role, organisation"></div>
-<div id="chart" class="cols"><noscript>The chart needs JavaScript; see the list below.</noscript></div>
-<section id="detail" hidden aria-live="polite"></section>
-<h2 id="list">Searchable list</h2>
-<div class="tablewrap"><table class="list" id="olist"><thead><tr><th>Name</th><th>Country</th><th>Type</th><th>Sector</th><th>Role / description</th><th>Sources</th></tr></thead><tbody></tbody></table></div>
-<p class="notice">We only include what the sources say: name, public professional role and organisation. No private information, no organisation numbers or addresses. Photos are only shown when they are freely licensed (Wikimedia Commons), with credit; otherwise we show initials. The Norwegian part reuses the approved industry map from Kryptonytt Norway. Wrong or want to be removed? See <a href="../about/#corrections">corrections and removal</a>.</p>
-<script id="orgdata" type="application/json">{json.dumps(pub_org, ensure_ascii=False).replace("</", "<\\/")}</script>
-<script>window.FLAGS={FLAGS_JS};window.CNAME={json.dumps(dict(COUNTRIES, **EXTRA_C))};</script>"""
-    page("org-chart", "Who's who in Nordic crypto", "org-chart", body,
-         "Organisation chart of the Nordic crypto industry and its regulators – private and public sector, by country, with sources.",
-         "<script>" + open(P("tools", "orgchart.js"), encoding="utf-8").read() + "</script>")
-
-    # ---- Sources ----
-    rows = []
-    for c in list(COUNTRIES):
-        for s in [x for x in cfg["sources"] if x.get("country") == c]:
-            st = status.get(s["id"], {})
-            if s["type"] == "search": cls, lab = "ok", "added manually"
-            elif s.get("enabled") and st.get("ok", True) is not False: cls, lab = "ok", "monitored" + (f' ({st.get("entries")} items last run)' if st.get("entries") is not None else "")
-            elif s.get("search_fallback"): cls, lab = "bad", "feed not working (covered via news search)"
-            else: cls, lab = "bad", "not working" if s.get("enabled") else "not used"
-            feed = f'<a href="{E(s["feed"])}" rel="noopener">{"feed" if s["type"] in ("rss", "rss-all") else "list page"}</a>' if s.get("feed") and "{q}" not in s["feed"] else ("search" if s.get("feed") else "–")
-            rows.append(f'<tr data-c="{c}"><td>{flag(c)}</td><td><a href="{E(s["url"])}" rel="noopener" target="_blank">{E(s["name"])}</a>{" <span class=pw>paywall</span>" if s.get("paywall") else ""}</td><td>{E(s["kind"])}</td><td>{feed}</td>'
-                        f'<td class="{cls}">{lab}</td><td>{E(s.get("status", ""))}</td></tr>')
-    erows = []
-    for s in cfg.get("event_sources", []):
-        st = status.get("ev-" + s["id"], {})
-        cls, lab = ("ok", "monitored") if s.get("enabled", True) and st.get("ok", True) else ("bad", "not working" if s.get("enabled", True) else "not used")
-        erows.append(f'<tr><td>{flag(s.get("country"))}</td><td><a href="{E(s["url"])}" rel="noopener" target="_blank">{E(s["name"])}</a></td><td class="{cls}">{lab}</td><td>{E(s.get("status", ""))}</td></tr>')
-    bing = [s for s in cfg["sources"] if s["type"] == "bing"]
-    qs = "".join(f'<li>{flag(s["country"])} {E(", ".join(s.get("queries", [])))} – only {E(s["allowed_tld"])} domains</li>' for s in bing)
-    body = f"""<h1>Sources we follow</h1>
-<p class="lead">Newspapers, broadcasters, regulators, central banks and crypto media in the five countries. We read RSS feeds, public list pages (only links and page metadata) and a news search limited to each country's domains. We respect robots.txt, identify ourselves with our own user agent, wait at least {cfg.get("min_delay_seconds", 2)} seconds between requests to the same site, and never fetch article text behind a paywall. If a site blocks us, we leave it.</p>
-<div class="tablewrap"><table class="list"><thead><tr><th></th><th>Source</th><th>Type</th><th>Feed</th><th>Status</th><th>Note</th></tr></thead><tbody>{''.join(rows)}</tbody></table></div>
-<p class="notice" id="kaupr"><b>Disclosure about Kaupr:</b> Kaupr (kaupr.io) is one of the news sources we follow, and it also sponsors some of the events in our calendar. Those events are labelled “Sponsored by kaupr.io”.</p>
-<h2>News search terms</h2><ul class="prose">{qs}</ul><p class="prose">Links from the search always go straight to the original story.</p>
-<h2>Keywords</h2><p class="prose">A story is picked up when its title or teaser mentions, for example: bitcoin, crypto, blockchain, stablecoin, MiCA, CBDC (all languages); krypto, kryptovaluta, blokkjede (Norwegian); kryptoaktiver, blokkæde (Danish); kryptotillgångar, blockkedja, e-krona (Swedish); kryptovaluutta, lohkoketju, virtuaalivaluutta (Finnish); rafmynt, sýndareignir, bálkakeðja (Icelandic); or Nordic crypto firms such as Firi, NBX, K33, Safello, Coinmotion, Northcrypto, Myntkaup, Monerium and Coinify. The editor reviews every hit before it is published.</p>
-<h2 id="events">Where we find events</h2>
-<div class="tablewrap"><table class="list"><thead><tr><th></th><th>Event source</th><th>Status</th><th>Note</th></tr></thead><tbody>{''.join(erows)}</tbody></table></div>
-<p class="meta">Missing a source? Suggest it as an issue on <a href="https://github.com/jQrgen/nordic-crypto/issues" rel="noopener">GitHub</a>.</p>"""
-    page("sources", "Sources", "sources", body, "Nordic newspapers, broadcasters, regulators and crypto media that Nordic Crypto follows, with the status of each feed.")
-
-    build_calendar(cfg)
-    build_academia()
-    build_changelog()
-    build_tip()
-    body = open(P("templates", "about.html"), encoding="utf-8").read()
-    page("about", "About Nordic Crypto", "about", body, "About Nordic Crypto: who runs it, how it works, corrections and removal.")
-    # ---- Office screen ----
+    for e in ents:  # images and logos: only used ones with a recorded source
+        for k in ("image", "logo"):
+            im = e.get(k)
+            if im and im.get("file") and (im.get("license") or im.get("source_url")) and os.path.exists(P(im["file"])):
+                dst = os.path.join(SITE, im["file"]); os.makedirs(os.path.dirname(dst), exist_ok=True); shutil.copy(P(im["file"]), dst)
+    ctx.update(ents=ents, rels=rels, pub_org=pub_org)
+    ctx["events"] = events_for_site()
+    json.dump({"preview": PREVIEW, "events": [e for e in ctx["events"][0] if not e["past"]]}, open(os.path.join(SITE, "data", "events.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    for LANG in i18n.LANGS:
+        build_lang(ctx)
+    LANG = "en"
     os.makedirs(os.path.join(SITE, "screen"), exist_ok=True)
     open(os.path.join(SITE, "screen", "index.html"), "w", encoding="utf-8").write(
-        open(P("templates", "screen.html"), encoding="utf-8").read().replace("__BASE__", BASE).replace("__FLAGS__", FLAGS_JS).replace("__PREVIEW__", "true" if PREVIEW else "false"))
+        open(P("templates", "screen.html"), encoding="utf-8").read().replace("__BASE__", BASE).replace("__FLAGS__", flags_js()).replace("__PREVIEW__", "true" if PREVIEW else "false"))
     for old, new in (("kalender", "calendar"), ("skjerm", "screen"), ("organisasjonskart", "org-chart"), ("kilder", "sources"), ("om", "about"), ("akademia", "academia")): redirect(old, new)
     active = sorted({(s.get("outlet") and next((x["name"] for x in cfg["sources"] if x["id"] == s.get("outlet")), s["name"]) or s["name"]).split(" (")[0] + "|" + s["country"]
                      for s in cfg["sources"] if s.get("enabled") and s["type"] not in ("bing", "search") and status.get(s["id"], {}).get("ok", True)})
@@ -303,8 +280,199 @@ sel.addEventListener('change',function(){apply(1)});tc.concat(cc).forEach(functi
         if n not in seen: seen.add(n); act.append({"name": n, "country": "NO" if n == "Kaupr" else c})
     json.dump({"active": act}, open(os.path.join(SITE, "data", "sources.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     open(os.path.join(SITE, "robots.txt"), "w").write("User-agent: *\n" + ("Disallow: /\n" if PREVIEW else "Allow: /\n"))
+    sitemap()
+    miss = sorted(i18n.MISSING)
+    if miss: print(f"i18n: {len(miss)} missing strings fell back to English: {miss[:12]}{' …' if len(miss) > 12 else ''}")
     print(f"build{' (PREVIEW)' if PREVIEW else ''}: {len(items)} stories ({len(approved)} approved, {len(pending)} pending), "
-          f"{len(ents)} org rows ({sum(e['type']=='person' for e in ents)} people), {len(rels)} relations -> {SITE}")
+          f"{len(ents)} org rows ({sum(e['type']=='person' for e in ents)} people), {len(rels)} relations, {len(i18n.LANGS)} languages -> {SITE}")
+
+def sitemap():
+    urls = []
+    for dp, _, fs in os.walk(SITE):
+        if "index.html" in fs:
+            r = os.path.relpath(dp, SITE).replace(os.sep, "/"); r = "" if r == "." else r + "/"
+            if r.split("/")[0] in ("kalender", "skjerm", "organisasjonskart", "kilder", "om", "akademia"): continue
+            urls.append(BASE + r)
+    open(os.path.join(SITE, "sitemap.xml"), "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        + "".join(f"<url><loc>{u}</loc></url>\n" for u in sorted(urls)) + "</urlset>\n")
+
+def build_lang(ctx):
+    items, pending = ctx["items"], ctx["pending"]
+    # ---- News ----
+    srcs = sorted({(i["source"], i["source_name"]) for i in items}, key=lambda x: x[1].lower())
+    lis = []
+    for i in items:
+        pend = i.get("status") not in ("published", "owner"); own = i.get("status") == "owner"
+        tags = "".join(f'<span class="tag">{E(topic_label(x))}</span>' for x in i["topics"])
+        pw = f' · <span class="pw">{E(t("paywall"))}</span>' if i.get("paywall") else ""
+        src_l = i18n.SRC_LANG.get(i.get("language") or "", "en")
+        if LANG == "en" or i.get("own_story"):  # English: our English headline + the original below; own stories: our title
+            head, head_l = (i.get("title_en") or i["title"]), ("en" if i.get("title_en") or i.get("own_story") else src_l)
+            orig = (f'<p class="orig">{E(t("orig_title", l=t("lname_" + i["language"]) if i18n.has("en", "lname_" + (i.get("language") or "")) else (i.get("language") or "")))}<span lang="{src_l}">{E(i["title"])}</span></p>'
+                    if i.get("title_en") and LANG == "en" else "")
+        else:  # other languages: the external headline exactly as in the source
+            head, head_l, orig = i["title"], src_l, ""
+        lname = i.get("language") or ""
+        lang = f' · {E(t("lang_" + lname))}' if lname and i18n.has("en", "lang_" + lname) and lname != i18n.SAME_LANG[LANG] else ""
+        if pend:
+            summ = f'<p class="sum pend">{E(t("sum_pending"))}</p>'
+        else:
+            txt, tl = L18(i, "summary")
+            summ = f'<p class="sum"{lang_attr(tl)}>{E(txt)}</p>'
+        hl = "" if head_l == LANG else f' lang="{head_l}"'
+        lis.append(f'<li data-src="{E(i["source"])}" data-c="{E(i.get("country"))}" data-topics="{E(" ".join(i["topics"]))}">'
+                   f'<h3><a href="{E(i["url"])}"{"" if i.get("own_story") else " rel=noopener target=_blank"}{hl}>{E(head)}</a></h3>{orig}'
+                   f'<div class="meta">{flag(i.get("country"))} {E(cname(i.get("country")))} · <b>{E(i["source_name"])}</b> · <time datetime="{E(i["published"])}">{endate(i["published"])}</time>{lang}{pw} {tags}'
+                   + (f' <span class="tag pend">{E(t("pending"))}</span>' if pend else "") + (f' <span class="tag pend">{E(t("owner"))}</span>' if own else "")
+                   + (f' <span class="tag">{E(t("our_story"))}</span>' if i.get("own_story") else "") + f'</div>{summ}'
+                   + "".join(f'<div class="meta">↳ <a href="{E(l["url"])}" rel="noopener" target="_blank">{E(l["label"])}</a></div>' for l in i.get("links", []) or []) + '</li>')
+    opts = "".join(f'<option value="{E(k)}">{E(n)}</option>' for k, n in srcs)
+    tchips = "".join(f'<button type="button" class="chip tchip" data-t="{k}" aria-pressed="false">{E(topic_label(k))}</button>' for k in TOPICS)
+    news = ctx["news"]; upd = endate(news["updated"]) if news.get("updated") else ""
+    root = "../" if LANG != "en" else ""
+    body = f"""<h1>{E(t("home_h1"))}</h1>
+<p class="meta"><a href="{root}screen/">{E(t("home_screen"))}</a></p>
+<p class="lead">{E(t("home_lead", upd=upd, n=len(items), pend=t("home_pend", n=len(pending)) if pending else ""))}</p>
+<div class="filters" role="group" aria-label="{E(t("filters"))}"><span class="lbl">{E(t("country"))}</span><div class="chips">{country_chips()}</div>
+<label for="fsrc">{E(t("source"))}</label><select id="fsrc"><option value="">{E(t("all_sources"))}</option>{opts}</select>
+<span class="lbl">{E(t("topic"))}</span><div class="chips">{tchips}</div><span id="count" class="meta" aria-live="polite"></span></div>
+<ol class="news" id="news">{''.join(lis) or f'<li class="empty">{E(t("no_stories"))}</li>'}</ol>
+<p class="notice">{E(t("home_notice"))}</p>"""
+    js = """<script>
+(function(){var NS=%s,sel=document.getElementById('fsrc'),tc=[].slice.call(document.querySelectorAll('.tchip')),cc=[].slice.call(document.querySelectorAll('.cchip')),lis=[].slice.call(document.querySelectorAll('#news li[data-src]')),cnt=document.getElementById('count');
+function on(a,k){return a.filter(function(c){return c.getAttribute('aria-pressed')==='true'}).map(function(c){return c.dataset[k]})}
+function apply(push){var s=sel.value,t=on(tc,'t'),c=on(cc,'c'),n=0;
+lis.forEach(function(li){var ok=(!s||li.dataset.src===s)&&(!c.length||c.indexOf(li.dataset.c)>=0)&&(!t.length||t.some(function(x){return (' '+li.dataset.topics+' ').indexOf(' '+x+' ')>=0}));li.hidden=!ok;if(ok)n++});
+cnt.textContent=NS.replace('{n}',n);if(push){var p=new URLSearchParams();if(c.length)p.set('country',c.join(','));if(s)p.set('source',s);if(t.length)p.set('topic',t.join(','));history.replaceState(null,'',p.toString()?'#'+p:location.pathname)}}
+var p=new URLSearchParams(location.hash.slice(1));if(p.get('source'))sel.value=p.get('source');
+(p.get('topic')||'').split(',').forEach(function(x){tc.forEach(function(c){if(c.dataset.t===x)c.setAttribute('aria-pressed','true')})});
+(p.get('country')||'').split(',').forEach(function(x){cc.forEach(function(c){if(c.dataset.c===x)c.setAttribute('aria-pressed','true')})});
+sel.addEventListener('change',function(){apply(1)});tc.concat(cc).forEach(function(c){c.addEventListener('click',function(){c.setAttribute('aria-pressed',c.getAttribute('aria-pressed')==='true'?'false':'true');apply(1)})});apply(0)})();
+</script>""" % json.dumps(i18n.strings(LANG).get("n_stories") or i18n.strings("en")["n_stories"])
+    page("", t("home_title"), "", body, t("home_desc"), js)
+    build_stories(write=True)
+    build_org(ctx)
+    build_sources(ctx)
+    build_calendar(ctx)
+    build_academia()
+    build_changelog()
+    build_tip()
+    build_rules(ctx)
+    about = open(P("templates", f"about.{LANG}.html" if LANG != "en" else "about.html"), encoding="utf-8").read().replace("{{UP}}", up1())
+    page("about", t("about_title"), "about", about, t("about_desc"))
+
+# ---- Industry map: categories from the org chart data (group + description keywords; overrides in industry_map.json) ----
+MAP_CATS = ["exchanges", "wallets", "infra", "payments", "finance", "consulting", "media", "academia", "other", "intl", "public"]
+GROUP_CAT = {"Exchanges & brokers": "exchanges", "MiCA-licensed providers (CASPs)": "exchanges", "Mining & data centres": "infra",
+             "Stablecoin / e-money token issuers": "payments", "Banks": "finance", "Investors & funds": "finance", "ETP issuers": "finance",
+             "Media": "media", "Associations & communities": "media", "International players in the Nordics": "intl"}
+def map_category(e, over):
+    if e["id"] in over: return over[e["id"]]
+    if e.get("sector") == "public": return "public"
+    d = (e.get("description") or "").lower() + " " + e["name"].lower()
+    g = GROUP_CAT.get(e.get("group"))
+    if g in ("exchanges",) and re.search(r"\b(wallet|custod)", d) and not re.search(r"exchange|broker|trading|platform", d): return "wallets"
+    if g: return g
+    if re.search(r"\b(law firm|legal|lawyer|advokat|audit|accounting|consult|advis)", d): return "consulting"
+    if re.search(r"\b(wallet|custod)", d): return "wallets"
+    if re.search(r"\b(payment|pay\b|card|remittance|e-money|stablecoin)", d): return "payments"
+    if re.search(r"\b(university|research centre|academ)", d): return "academia"
+    if re.search(r"\b(mining|miner|data cent|infrastructure|node|protocol|blockchain platform|software|developer|tokenis)", d): return "infra"
+    if re.search(r"\b(bank|fund|invest|asset manag|etp|etf)", d): return "finance"
+    if re.search(r"\b(media|news|podcast|community|association|meetup)", d): return "media"
+    return "other"
+def ini(n): return "".join(w[0] for w in re.split(r"[\s-]+", re.sub(r"\(.*?\)", "", n)) if w)[:2].upper()
+def logo_html(e, cls="logo", root=""):
+    lg = e.get("logo")
+    if lg and lg.get("file"):
+        return f'<img class="{cls}" src="{root}{E(lg["file"])}" alt="{E(t("js_logo_alt", name=e["name"]))}" loading="lazy" width="40" height="40">'
+    return f'<span class="av org" aria-hidden="true">{E(ini(e["name"]))}</span>'
+def industry_map(ents):
+    over = (load(P("industry_map.json"), {}) or {}).get("category", {})
+    orgs = [e for e in ents if e["type"] != "person" and e.get("group") != "Legislation"]
+    root = up1()
+    by = {}
+    for e in orgs: by.setdefault(map_category(e, over), []).append(e)
+    def tile(e):
+        return (f'<a class="tile" href="#{E(e["id"])}" data-c="{E(e["country"])}" data-go="{E(e["id"])}">{logo_html(e, root=root)}'
+                f'<span>{E(e["name"])}</span><span class="fl">{flag(e["country"]) if e["country"] in COUNTRY_CODES else E(e["country"])}</span></a>')
+    srt = lambda L: sorted(L, key=lambda e: (([*COUNTRY_CODES, "NORDIC", "EU"].index(e["country"]) if e["country"] in [*COUNTRY_CODES, "NORDIC", "EU"] else 9), e["name"].lower()))
+    bycat = "".join(f'<section class="imap-cat{" pub" if c == "public" else ""}" data-cat="{c}"><h3><span>{E(t("cat_" + c))}</span><span class="meta">{len(by[c])}</span></h3><div class="tiles">{"".join(tile(e) for e in srt(by[c]))}</div></section>'
+                    for c in MAP_CATS if by.get(c))
+    cs = [c for c in [*COUNTRY_CODES, "NORDIC", "EU"] if any(e["country"] == c for e in orgs)]
+    bycountry = "".join(f'<section class="imap-cat" data-c="{c}"><h3><span>{flag(c) if c in COUNTRY_CODES else ""} {E(cname(c))}</span><span class="meta">{sum(e["country"] == c for e in orgs)}</span></h3><div class="tiles">'
+                        + "".join(tile(e) for cat in MAP_CATS for e in sorted(by.get(cat, []), key=lambda e: e["name"].lower()) if e["country"] == c) + '</div></section>' for c in cs)
+    return (f'<h2 id="industry-map">{E(t("map_h"))}</h2><p class="lead">{E(t("map_lead"))} <a href="../rules/">{E(t("rules_link"))}</a></p><p class="notice">{t("map_kaupr")}</p>'
+            f'<div class="seg" role="group" aria-label="{E(t("map_group"))}"><button type="button" data-view="cat" aria-pressed="true">{E(t("map_by_cat"))}</button><button type="button" data-view="country" aria-pressed="false">{E(t("map_by_country"))}</button></div>'
+            f'<div class="imap" id="imap" data-view="cat"><div class="imap-cats imap-bycat">{bycat}</div><div class="imap-cats imap-bycountry">{bycountry}</div></div>'), {c: len(v) for c, v in by.items()}
+
+def build_org(ctx):
+    org, ents, pub_org = ctx["org"], ctx["ents"], ctx["pub_org"]
+    regs = []
+    for r in org.get("regulation", []):
+        regs.append(f'<article data-c="{E(r["country"])}"><h3>{flag(r["country"], True)}{E(cname(r["country"]))}</h3><dl lang="en"><dt>{E(t("reg_mica"))}</dt><dd>{E(r["mica"])}</dd><dt>{E(t("reg_law"))}</dt><dd>{E(r["law"])}</dd>'
+                    f'<dt>{E(t("reg_auth"))}</dt><dd>{E(r["regulator"])}</dd><dt>{E(t("reg_status"))}</dt><dd>{E(r["status"])}</dd></dl><p class="meta">{E(t("reg_sources"))} '
+                    + ", ".join(f'<a href="{E(s["url"])}" rel="noopener" target="_blank">{E(s["source_name"])}</a>' for s in r["sources"]) + '</p></article>')
+    cnt_pend = sum(e["status"] == "pending" for e in ents)
+    imap, per_cat = industry_map(ents)
+    i18n_js = {k[3:]: t(k) for k in i18n.strings("en") if k.startswith("js_")}
+    groups = {g: t("grp_" + g) for g in {e.get("group") for e in ents if e.get("group")} if i18n.has("en", "grp_" + g)}
+    dn = t("data_en_note")
+    body = f"""<h1>{E(t("org_title"))}</h1>
+<p class="lead">{E(t("org_lead"))} <a href="#industry-map">{E(t("map_h"))} ↓</a> · <a href="../rules/">{E(t("rules_link"))}</a></p>
+{f'<p class="notice warn">{t("org_preview", p=cnt_pend, n=len(ents))}</p>' if PREVIEW and cnt_pend else ''}
+{f'<p class="meta">{E(dn)}</p>' if dn else ''}
+<h2 id="regulation">{E(t("org_reg_h"))}</h2>
+<div class="reg">{''.join(regs)}</div>
+{(f'<details class="notice"><summary>{E(t("caveats"))}</summary><ul lang="en">' + "".join(f"<li>{E(x)}</li>" for x in org.get("caveats", [])) + '</ul></details>') if org.get("caveats") else ''}
+<h2 id="org">{E(t("org_chart_h"))}</h2>
+<div class="filters"><span class="lbl">{E(t("country"))}</span><div class="chips">{country_chips()}</div>
+<div class="seg" id="secseg" role="group" aria-label="{E(t("sector_aria"))}"><button type="button" data-v="both" aria-pressed="true">{E(t("both"))}</button><button type="button" data-v="private" aria-pressed="false">{E(t("private_sector"))}</button><button type="button" data-v="public" aria-pressed="false">{E(t("public_sector"))}</button></div>
+<label for="osearch">{E(t("search"))}</label><input type="search" id="osearch" placeholder="{E(t("search_ph"))}"></div>
+<div id="chart" class="cols"><noscript>{E(t("chart_noscript"))}</noscript></div>
+<section id="detail" hidden aria-live="polite"></section>
+{imap}
+<h2 id="list">{E(t("list_h"))}</h2>
+<div class="tablewrap"><table class="list" id="olist"><thead><tr><th>{E(t("th_name"))}</th><th>{E(t("th_country"))}</th><th>{E(t("th_type"))}</th><th>{E(t("th_sector"))}</th><th>{E(t("th_role"))}</th><th>{E(t("th_sources"))}</th></tr></thead><tbody></tbody></table></div>
+<p class="notice">{t("org_notice")}</p>
+<p class="notice">{t("org_kaupr")}</p>
+<script id="orgdata" type="application/json">{json.dumps(pub_org, ensure_ascii=False).replace("</", "<\\/")}</script>
+<script>window.FLAGS={flags_js()};window.CNAME={json.dumps({c: cname(c) for c in COUNTRY_CODES + EXTRA_C_CODES}, ensure_ascii=False)};window.T={json.dumps(i18n_js, ensure_ascii=False)};window.GRP={json.dumps(groups, ensure_ascii=False)};window.ROOT={json.dumps(up1())};window.LANG={json.dumps(LANG)};</script>"""
+    page("org-chart", t("org_title"), "org-chart", body, t("org_desc"),
+         "<script>" + open(P("tools", "orgchart.js"), encoding="utf-8").read() + "</script>")
+    if LANG == "en": print(f"industry map: {per_cat}")
+
+def build_sources(ctx):
+    cfg, status = ctx["cfg"], ctx["status"]
+    rows = []
+    for c in COUNTRY_CODES:
+        for s in [x for x in cfg["sources"] if x.get("country") == c]:
+            st = status.get(s["id"], {})
+            if s["type"] == "search": cls, lab = "ok", t("st_manual")
+            elif s.get("enabled") and st.get("ok", True) is not False: cls, lab = "ok", t("st_monitored") + (t("st_items", n=st.get("entries")) if st.get("entries") is not None else "")
+            elif s.get("search_fallback"): cls, lab = "bad", t("st_fallback")
+            else: cls, lab = "bad", t("st_broken") if s.get("enabled") else t("st_unused")
+            feed = f'<a href="{E(s["feed"])}" rel="noopener">{E(t("feed") if s["type"] in ("rss", "rss-all") else t("list_page"))}</a>' if s.get("feed") and "{q}" not in s["feed"] else (E(t("search_w")) if s.get("feed") else "–")
+            kind = t("kind_" + s["kind"]) if i18n.has("en", "kind_" + s["kind"]) else s["kind"]
+            rows.append(f'<tr data-c="{c}"><td>{flag(c)}</td><td><a href="{E(s["url"])}" rel="noopener" target="_blank">{E(s["name"])}</a>{" <span class=pw>" + E(t("paywall_w")) + "</span>" if s.get("paywall") else ""}</td><td>{E(kind)}</td><td>{feed}</td>'
+                        f'<td class="{cls}">{E(lab)}</td><td lang="en">{E(s.get("status", ""))}</td></tr>')
+    erows = []
+    for s in cfg.get("event_sources", []):
+        st = status.get("ev-" + s["id"], {})
+        cls, lab = ("ok", t("st_monitored")) if s.get("enabled", True) and st.get("ok", True) else ("bad", t("st_broken") if s.get("enabled", True) else t("st_unused"))
+        erows.append(f'<tr><td>{flag(s.get("country"))}</td><td><a href="{E(s["url"])}" rel="noopener" target="_blank">{E(s["name"])}</a></td><td class="{cls}">{E(lab)}</td><td lang="en">{E(s.get("status", ""))}</td></tr>')
+    bing = [s for s in cfg["sources"] if s["type"] == "bing"]
+    qs = "".join(f'<li>{flag(s["country"])} {E(", ".join(s.get("queries", [])))} – {E(t("src_only_tld", tld=s["allowed_tld"]))}</li>' for s in bing)
+    body = f"""<h1>{E(t("src_h1"))}</h1>
+<p class="lead">{E(t("src_lead", d=cfg.get("min_delay_seconds", 2)))}</p>
+<div class="tablewrap"><table class="list"><thead><tr><th></th><th>{E(t("th_source"))}</th><th>{E(t("th_type"))}</th><th>{E(t("th_feed"))}</th><th>{E(t("th_status"))}</th><th>{E(t("th_note"))}</th></tr></thead><tbody>{''.join(rows)}</tbody></table></div>
+<p class="notice" id="kaupr">{t("kaupr")}</p>
+<h2>{E(t("src_terms_h"))}</h2><ul class="prose">{qs}</ul><p class="prose">{E(t("src_search_note"))}</p>
+<h2>{E(t("src_kw_h"))}</h2><p class="prose">{E(t("src_kw"))}</p>
+<h2 id="events">{E(t("src_ev_h"))}</h2>
+<div class="tablewrap"><table class="list"><thead><tr><th></th><th>{E(t("th_event_source"))}</th><th>{E(t("th_status"))}</th><th>{E(t("th_note"))}</th></tr></thead><tbody>{''.join(erows)}</tbody></table></div>
+<p class="meta">{t("src_missing")}</p>"""
+    page("sources", t("src_title"), "sources", body, t("src_desc"))
 
 def md_inline(s):
     s = E(s)
@@ -314,23 +482,28 @@ def first_sentence(s):
     for m in re.finditer(r"[.!?](?=\s+[A-ZÁÉÍÓÚÞÆÖØÅÄ])", s):
         if not re.search(r"\b(No|Nos|Act|Art|Reg|e\.g|i\.e|Mr|Ms|Dr|ehf|hf)\.$", s[:m.end()]): return s[:m.end()]
     return s
-def build_stories():
-    """Own stories written by the editor (markdown). Public build: only slugs in approved.json stories.approve.
-    Preview: also stories.ready_for_owner, tagged as awaiting jQrgen's final approval. The 'Editor notes' part is internal and never rendered."""
+def build_stories(write=True):
+    """Own stories written by the editor (markdown, English). Public build: only slugs in approved.json stories.approve.
+    Preview: also stories.ready_for_owner, tagged as awaiting jQrgen's final approval. The 'Editor notes' part is internal and never rendered.
+    Per-language summaries for the news list: stories.summaries_i18n {slug: {lang: text}}. The article itself is English only
+    (other languages show a note) until the editor adds a translated file in stories.files_i18n {slug: {lang: path}}."""
     st = (load(P("queue", "approved.json"), {}) or {}).get("stories", {}) or {}
     out = []
     for slug, path in (st.get("files") or {}).items():
         if slug in st.get("approve", []): status = "published"
         elif PREVIEW and slug in st.get("ready_for_owner", []): status = "owner"
         else: continue
-        if not os.path.exists(path): print("story missing:", path); continue
-        md = open(path, encoding="utf-8").read().split("\nEditor notes")[0]
+        tr = ((st.get("files_i18n") or {}).get(slug) or {}).get(LANG)
+        src = tr if (tr and LANG != "en" and os.path.exists(tr)) else path
+        if not os.path.exists(src): print("story missing:", src); continue
+        art_l = LANG if src == tr else "en"
+        md = open(src, encoding="utf-8").read().split("\nEditor notes")[0]
         title, country, paras, srcs, cur, sec = None, None, [], [], [], None
         for line in md.splitlines():
             l = line.strip()
             if l.startswith("# "): continue
             if l.startswith("## "): title = l[3:]; continue
-            if l.startswith("Country:"): country = {"Iceland": "IS", "Norway": "NO", "Sweden": "SE", "Denmark": "DK", "Finland": "FI"}.get(l.split("·")[0].split(":", 1)[1].strip(), "NORDIC"); meta = l; continue
+            if l.startswith("Country:"): country = {"Iceland": "IS", "Norway": "NO", "Sweden": "SE", "Denmark": "DK", "Finland": "FI"}.get(l.split("·")[0].split(":", 1)[1].strip(), "NORDIC"); continue
             if l == "Sources:": sec = "src"; continue
             if sec == "src" and l.startswith("- "): srcs.append(l[2:]); continue
             if not l:
@@ -339,16 +512,20 @@ def build_stories():
             cur.append(l)
         if cur: paras.append(" ".join(cur))
         pub = dt.datetime.fromtimestamp(os.path.getmtime(path), OSLO).replace(microsecond=0).isoformat()
-        body = (f'<p class="meta"><a href="../../">← News</a></p><article class="prose"><h1>{E(title)}</h1>'
-                f'<p class="meta">{flag(country)} {E(cname(country))} · Nordic Crypto · {endate(pub)}'
-                + (' <span class="tag pend">Editor-approved · awaiting jQrgen\'s final approval</span>' if status == "owner" else "") + '</p>'
-                + "".join(f"<p>{md_inline(x)}</p>" for x in paras)
-                + '<h2>Sources</h2><ul>' + "".join(f"<li>{md_inline(s)}</li>" for s in srcs) + '</ul>'
-                + '<p class="notice">Translated and summarised from Icelandic and English sources by our editor. Not investment advice. Corrections: see <a href="../../about/#corrections">corrections and removal</a>.</p></article>')
-        page("stories/" + slug, title, "stories", body, paras[0][:200] if paras else title)
+        if write:
+            note = t("story_only_en")
+            body = (f'<p class="meta"><a href="../../">{E(t("back_news"))}</a></p>' + (f'<p class="notice">{E(note)}</p>' if note and art_l == "en" and LANG != "en" else "")
+                    + f'<article class="prose"{lang_attr(art_l)}><h1>{E(title)}</h1>'
+                    f'<p class="meta">{flag(country)} {E(cname(country))} · Nordic Crypto · {endate(pub)}'
+                    + (f' <span class="tag pend">{E(t("owner"))}</span>' if status == "owner" else "") + '</p>'
+                    + "".join(f"<p>{md_inline(x)}</p>" for x in paras)
+                    + f'<h2>{E(t("sources_h"))}</h2><ul>' + "".join(f"<li>{md_inline(s)}</li>" for s in srcs) + '</ul></article>'
+                    + f'<p class="notice">{t("story_notice", rel="../../")}</p>')
+            page("stories/" + slug, title, "stories", body, paras[0][:200] if paras else title)
         first = (st.get("summaries") or {}).get(slug) or (first_sentence(paras[0]) if paras else "")
         out.append({"id": "story-" + slug, "url": f"stories/{slug}/", "title": title, "source": "nordic-crypto", "source_name": "Nordic Crypto",
-                    "country": country, "language": "English", "published": pub, "topics": ["regulation"], "summary": first, "status": status, "own_story": True})
+                    "country": country, "language": "English", "published": pub, "topics": ["regulation"], "summary": first,
+                    "summary_i18n": (st.get("summaries_i18n") or {}).get(slug) or {}, "status": status, "own_story": True})
     return out
 
 def events_for_site():
@@ -367,8 +544,9 @@ def events_for_site():
         if e["id"] in ap.get("sponsor", {}): e["sponsored"] = ap["sponsor"][e["id"]]
         if e["id"] in ap.get("paid", {}): e["paid"] = ap["paid"][e["id"]]
         if e["status"] == "published": e["note"] = ap.get("notes", {}).get(e["id"])  # archive/public: editor's note only
+        e["note_i18n"] = (ap.get("notes_i18n") or {}).get(e["id"]) if e.get("note") else None
         e["past"] = dt.datetime.fromisoformat(e.get("end") or e["start"]) < now
-        out.append({k: e.get(k) for k in ("id", "title", "title_orig", "start", "end", "place", "city", "country", "online", "organiser", "url", "source", "paid", "sponsored", "note", "past", "status")})
+        out.append({k: e.get(k) for k in ("id", "title", "title_orig", "start", "end", "place", "city", "country", "online", "organiser", "url", "source", "paid", "sponsored", "note", "note_i18n", "past", "status")})
     # Archive (committed to git): every event ever approved. jQrgen's rule: finished events are NEVER deleted, they move to
     # "Past events". Fetch and build may only add or update archive entries, never remove them. Pending/preview events are not archived.
     arkf = P("archive", "events.json"); ark = load(arkf, {"events": []}); by = {e["id"]: e for e in ark["events"]}
@@ -381,32 +559,36 @@ def events_for_site():
     seen = {e["id"] for e in out}
     for e in ark["events"]:  # archived events that have dropped out of data/events.json (e.g. finished ones)
         if e["id"] in seen or e["id"] in ap.get("reject", []): continue  # rejected: hidden, but kept in the archive
-        e = dict(e); e["past"] = dt.datetime.fromisoformat(e.get("end") or e["start"]) < now; out.append(e)
+        e = dict(e); e["note_i18n"] = e.get("note_i18n") or ((ap.get("notes_i18n") or {}).get(e["id"]) if e.get("note") else None)
+        e["past"] = dt.datetime.fromisoformat(e.get("end") or e["start"]) < now; out.append(e)
     return sorted(out, key=lambda e: dt.datetime.fromisoformat(e["start"])), now
 
-def build_calendar(cfg):
-    evs, now = events_for_site()
+def build_calendar(ctx):
+    evs, now = ctx["events"]
     up = [e for e in evs if not e["past"]]; past = [e for e in evs if e["past"] and e.get("status") == "published"][::-1]  # all finished, newest first
-    json.dump({"preview": PREVIEW, "events": up}, open(os.path.join(SITE, "data", "events.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     def when(e):
         a = dt.datetime.fromisoformat(e["start"]); b = dt.datetime.fromisoformat(e["end"]) if e.get("end") else None
-        t = f'{WD[a.weekday()]} {a.day} {MON[a.month-1]} {a.year}, {a:%H:%M}'
-        t += (f'–{b:%H:%M}' if b and b.date() == a.date() else (f' – {b.day} {MON[b.month-1]}' if b else ""))
-        return t + f' ({CITYNAME.get(e.get("country"), "local")} time)'
+        s = f'{i18n.WD[LANG][a.weekday()]} {i18n.short_date(LANG, a)}, {i18n.hm(LANG, a)}'
+        s += (f'–{i18n.hm_end(LANG, b)}' if b and b.date() == a.date() else (f' – {i18n.short_dm(LANG, b)}' if b else ""))
+        c = e.get("country")
+        return s + f' ({t("time_local", city=t("city_" + c)) if c in COUNTRY_CODES else t("city_local")})'
     def badges(e):
         b = []
-        if e.get("status") == "owner": b.append('<span class="tag pend">Editor-approved · awaiting jQrgen\'s final approval</span>')
-        elif e.get("status") != "published": b.append('<span class="tag pend">Pending editor review</span>')
-        if e.get("paid"): b.append('<span class="tag paid">Paid</span>')
-        elif e.get("paid") is False: b.append('<span class="tag">Free</span>')
-        if e.get("sponsored"): b.append('<span class="tag paid">' + (f'Sponsored by {E(e["sponsored"])}' if isinstance(e["sponsored"], str) else "Sponsored") + '</span>')
-        if e.get("online"): b.append('<span class="tag">Online</span>')
+        if e.get("status") == "owner": b.append(f'<span class="tag pend">{E(t("owner"))}</span>')
+        elif e.get("status") != "published": b.append(f'<span class="tag pend">{E(t("pending"))}</span>')
+        if e.get("paid"): b.append(f'<span class="tag paid">{E(t("paid"))}</span>')
+        elif e.get("paid") is False: b.append(f'<span class="tag">{E(t("free"))}</span>')
+        if e.get("sponsored"): b.append('<span class="tag paid">' + (E(t("sponsored_by", x=e["sponsored"])) if isinstance(e["sponsored"], str) else E(t("sponsored"))) + '</span>')
+        if e.get("online"): b.append(f'<span class="tag">{E(t("online"))}</span>')
         return " ".join(b)
     def li(e):
-        return (f'<li id="e-{E(e["id"])}" data-c="{E(e.get("country"))}"><h3><a href="{E(e["url"])}" rel="noopener" target="_blank">{E(e["title"])}</a></h3>'
-                f'<div class="meta">{flag(e.get("country"))} <time datetime="{E(e["start"])}"><b>{E(when(e))}</b></time> · {E(e.get("place") or "Online")}{(", " + E(e["city"])) if e.get("city") and e["city"] not in (e.get("place") or "") else ""} {badges(e)}</div>'
-                + (f'<p class="orig">Original title: {E(e["title_orig"])}</p>' if e.get("title_orig") else "") + f'<div class="meta">Organiser: {E(e["organiser"])} · Listed at: <a href="{E(e["url"])}" rel="noopener" target="_blank">{E(e["source"])}</a></div>'
-                + (f'<p class="sum"><b>Note:</b> {E(e["note"])}</p>' if e.get("note") else "") + '</li>')
+        # event titles: English pages keep the editor's English title (+ original); other languages show the organiser's original title
+        ttl = e["title"] if LANG == "en" or not e.get("title_orig") else e["title_orig"]
+        note, nl = L18(e, "note")
+        return (f'<li id="e-{E(e["id"])}" data-c="{E(e.get("country"))}"><h3><a href="{E(e["url"])}" rel="noopener" target="_blank">{E(ttl)}</a></h3>'
+                f'<div class="meta">{flag(e.get("country"))} <time datetime="{E(e["start"])}"><b>{E(when(e))}</b></time> · {E(e.get("place") or t("online"))}{(", " + E(e["city"])) if e.get("city") and e["city"] not in (e.get("place") or "") else ""} {badges(e)}</div>'
+                + (f'<p class="orig">{E(t("orig_title_ev"))}{E(e["title_orig"])}</p>' if e.get("title_orig") and LANG == "en" else "") + f'<div class="meta">{E(t("organiser"))}: {E(e["organiser"])} · {E(t("listed_at"))}: <a href="{E(e["url"])}" rel="noopener" target="_blank">{E(e["source"])}</a></div>'
+                + (f'<p class="sum"{lang_attr(nl)}><b>{E(t("note"))}:</b> {E(note)}</p>' if note else "") + '</li>')
     loc = lambda e: dt.datetime.fromisoformat(e["start"])
     months = sorted({(now.year, now.month)} | {(loc(e).year, loc(e).month) for e in up})[:6]
     grids = []
@@ -417,77 +599,78 @@ def build_calendar(cfg):
             for d in wk:
                 de = [e for e in up if loc(e).date() == d]
                 cls = " ".join(c for c in ["out" if d.month != m else "", "today" if d == now.astimezone(OSLO).date() else "", "has" if de else ""] if c)
-                row.append(f'<td class="{cls}"><span class="d">{d.day}</span>' + "".join(f'<a href="#e-{E(e["id"])}" data-c="{E(e.get("country"))}" title="{E(cname(e.get("country")))}: {E(e["title"])}">{flag(e.get("country"))}<span>{E(e["title"])}</span></a>' for e in de) + '</td>')
+                row.append(f'<td class="{cls}"><span class="d">{d.day}</span>' + "".join(f'<a href="#e-{E(e["id"])}" data-c="{E(e.get("country"))}" title="{E(cname(e.get("country")))}: {E(e["title"] if LANG == "en" else e.get("title_orig") or e["title"])}">{flag(e.get("country"))}<span>{E(e["title"] if LANG == "en" else e.get("title_orig") or e["title"])}</span></a>' for e in de) + '</td>')
             cells.append("<tr>" + "".join(row) + "</tr>")
-        grids.append(f'<table class="cal"><caption>{MONTH[m-1]} {y}</caption><thead><tr>{"".join(f"<th>{d}</th>" for d in WD)}</tr></thead><tbody>{"".join(cells)}</tbody></table>')
-    per_c = {c: sum(e.get("country") == c for e in up) for c in COUNTRIES}
+        grids.append(f'<table class="cal"><caption>{E(i18n.month_caption(LANG, y, m))}</caption><thead><tr>{"".join(f"<th>{E(d)}</th>" for d in i18n.wd_head(LANG))}</tr></thead><tbody>{"".join(cells)}</tbody></table>')
+    per_c = {c: sum(e.get("country") == c for e in up) for c in COUNTRY_CODES}
     npend = sum(e.get("status") == "pending" for e in up); nown = sum(e.get("status") == "owner" for e in up)
-    body = f"""<h1>Calendar: crypto, bitcoin and blockchain events in the Nordics</h1>
-<p class="lead">Upcoming meetups, conferences and talks in Norway, Sweden, Denmark, Finland and Iceland. We only list events where the organiser's own page or a public listing shows the date, place and organiser, and which are genuinely about crypto, bitcoin or blockchain. Paid and sponsored events are labelled. Times are local time in the event's country. Always check the details with the organiser.</p>
-{f'<p class="notice warn"><b>Preview:</b> {npend} of {len(up)} upcoming events are pending editor review; {nown} editor-approved and awaiting jQrgen\'s final approval. None of them is in the public build yet.</p>' if PREVIEW and (npend or nown) else ''}
-<div class="filters" role="group" aria-label="Filter by country"><span class="lbl">Country</span><div class="chips">{country_chips()}</div><span id="ecount" class="meta" aria-live="polite"></span></div>
+    body = f"""<h1>{E(t("cal_h1"))}</h1>
+<p class="lead">{E(t("cal_lead"))}</p>
+{f'<p class="notice warn">{t("cal_preview", p=npend, n=len(up), o=nown)}</p>' if PREVIEW and (npend or nown) else ''}
+<div class="filters" role="group" aria-label="{E(t("countries_aria"))}"><span class="lbl">{E(t("country"))}</span><div class="chips">{country_chips()}</div><span id="ecount" class="meta" aria-live="polite"></span></div>
 <p class="meta">{" · ".join(f"{flag(c)} {E(n)}: {per_c[c]}" for c, n in COUNTRIES.items())}</p>
 <div class="calgrid">{''.join(grids)}</div>
-<h2>Upcoming</h2><ol class="news" id="evlist">{''.join(li(e) for e in up) or '<li class="empty">No upcoming events registered.</li>'}</ol>
-<h2 id="past">Past events</h2><p class="meta">Events move here automatically once they have ended (Oslo time). We never delete them.</p><ol class="news past">{''.join(li(e) for e in past) or '<li class="empty">No past events yet.</li>'}</ol>
-<p class="meta">How we find events: <a href="../sources/#events">event sources</a>. Organising something about crypto in the Nordics? Send a link to the organiser's page as an issue on <a href="https://github.com/jQrgen/nordic-crypto/issues" rel="noopener">GitHub</a>.</p>"""
-    js = """<script>(function(){var cc=[].slice.call(document.querySelectorAll('.cchip')),n=[].slice.call(document.querySelectorAll('#evlist li[data-c], .calgrid a[data-c], ol.past li[data-c]')),cnt=document.getElementById('ecount');
-function apply(){var c=cc.filter(function(x){return x.getAttribute('aria-pressed')==='true'}).map(function(x){return x.dataset.c}),k=0;n.forEach(function(el){var ok=!c.length||c.indexOf(el.dataset.c)>=0;el.hidden=!ok;if(ok&&el.parentNode.id==='evlist')k++});cnt.textContent=k+' upcoming';history.replaceState(null,'',c.length?'#country='+c.join(','):location.pathname)}
+<h2>{E(t("upcoming_h"))}</h2><ol class="news" id="evlist">{''.join(li(e) for e in up) or f'<li class="empty">{E(t("no_upcoming"))}</li>'}</ol>
+<h2 id="past">{E(t("past_h"))}</h2><p class="meta">{E(t("past_note"))}</p><ol class="news past">{''.join(li(e) for e in past) or f'<li class="empty">{E(t("no_past"))}</li>'}</ol>
+<p class="meta">{t("cal_how")}</p>"""
+    js = """<script>(function(){var NU=%s,cc=[].slice.call(document.querySelectorAll('.cchip')),n=[].slice.call(document.querySelectorAll('#evlist li[data-c], .calgrid a[data-c], ol.past li[data-c]')),cnt=document.getElementById('ecount');
+function apply(){var c=cc.filter(function(x){return x.getAttribute('aria-pressed')==='true'}).map(function(x){return x.dataset.c}),k=0;n.forEach(function(el){var ok=!c.length||c.indexOf(el.dataset.c)>=0;el.hidden=!ok;if(ok&&el.parentNode.id==='evlist')k++});cnt.textContent=NU.replace('{n}',k);history.replaceState(null,'',c.length?'#country='+c.join(','):location.pathname)}
 var h=new URLSearchParams(location.hash.slice(1));(h.get('country')||'').split(',').forEach(function(x){cc.forEach(function(b){if(b.dataset.c===x)b.setAttribute('aria-pressed','true')})});
-cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');apply()})});apply()})();</script>"""
-    page("calendar", "Calendar – crypto, bitcoin and blockchain events in the Nordics", "calendar", body,
-         "Upcoming crypto, bitcoin and blockchain events in Norway, Sweden, Denmark, Finland and Iceland, with date, place and organiser.", js)
-    print(f"calendar: {len(up)} upcoming {per_c}, {len(past)} past")
+cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');apply()})});apply()})();</script>""" % json.dumps(t("n_upcoming", n="{n}"))
+    page("calendar", t("cal_title"), "calendar", body, t("cal_desc"), js)
+    if LANG == "en": print(f"calendar: {len(up)} upcoming {per_c}, {len(past)} past")
 
 def build_academia():
     """Academia page from data/academia.json. Public build: only rows approved in queue/approved.json -> academia.approve
-    (key = doi for publications, url for the rest). Preview: also rows awaiting the editor, clearly marked."""
-    subprocess.run([sys.executable, P("tools", "import_academia.py")], check=True)
+    (key = doi for publications, url for the rest). Preview: also rows awaiting the editor, clearly marked.
+    Row texts (about, level, term) are data in English and are shown with lang="en" on the other language versions."""
+    if LANG == "en": subprocess.run([sys.executable, P("tools", "import_academia.py")], check=True)
     ac = load(P("data", "academia.json"), {}) or {}
     def keep(rows, key):  # only editor-approved rows reach the page, in preview too; pending/unverified/out stay in data/
         return [dict(r) for r in rows if r.get("status") == "approved"]
     secs = {k: keep(ac.get(k, []), "doi" if k == "publications" else "url") for k in ("courses", "groups", "publications", "research")}
-    json.dump(dict({"updated": ac.get("updated"), "preview": PREVIEW}, **secs), open(os.path.join(SITE, "data", "academia.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    def st(r):
-        return ('<span class="tag pend">Editor-approved · awaiting jQrgen\'s final approval</span>' if PREVIEW else "")
+    if LANG == "en": json.dump(dict({"updated": ac.get("updated"), "preview": PREVIEW}, **secs), open(os.path.join(SITE, "data", "academia.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    en = lang_attr("en")
+    def st(r): return (f'<span class="tag pend">{E(t("owner"))}</span>' if PREVIEW else "")
     def dom(u): return re.sub(r"^https?://(www[0-9]?\.)?", "", u).split("/")[0]
     def foot(r):
-        return f'<div class="meta">Source: <a href="{E(r["source"])}" rel="noopener" target="_blank">{E(dom(r["source"]))}</a> · checked {E(r["checked"])} {st(r)}</div>'
+        return f'<div class="meta">{E(t("ac_source"))}: <a href="{E(r["source"])}" rel="noopener" target="_blank">{E(dom(r["source"]))}</a> · {E(t("ac_checked", d=r["checked"]))} {st(r)}</div>'
     def row(c, inner): return f'<li data-c="{E(c)}">{inner}</li>'
     def bycountry(rows, fn):
-        if not rows: return '<p class="empty">None listed yet – candidates are still with the researcher and the editor.</p>'
-        return '<ol class="news">' + "".join(row(r["country"], fn(r)) for c in COUNTRIES for r in rows if r["country"] == c) + '</ol>'
+        if not rows: return f'<p class="empty">{E(t("ac_empty"))}</p>'
+        return '<ol class="news">' + "".join(row(r["country"], fn(r)) for c in COUNTRY_CODES for r in rows if r["country"] == c) + '</ol>'
     courses = bycountry(secs["courses"], lambda r: f'<h3><a href="{E(r["url"])}" rel="noopener" target="_blank">{E(r["code"])} {E(r["name"])}</a></h3>'
-        f'<div class="meta">{flag(r["country"])} <b>{E(r["institution"])}</b> · {E(r["level"])}' + (f' · <b>{E(r["term"])}</b>' if r.get("term") else "") + f'</div><p class="sum">{E(r["about"])}</p>{foot(r)}')
+        f'<div class="meta">{flag(r["country"])} <b>{E(r["institution"])}</b> · <span{en}>{E(r["level"])}</span>' + (f' · <b{en}>{E(r["term"])}</b>' if r.get("term") else "") + f'</div><p class="sum"{en}>{E(r["about"])}</p>{foot(r)}')
     groups = bycountry(secs["groups"], lambda r: f'<h3><a href="{E(r["url"])}" rel="noopener" target="_blank">{E(r["name"])}</a> '
-        f'<span class="tag {"act" if r["active"] else "inact"}">{"Active" if r["active"] else "Inactive"}</span></h3>'
-        f'<div class="meta">{flag(r["country"])} <b>{E(r["institution"])}</b></div><p class="sum">{E(r["about"])} {E(r["activity"])}</p>{foot(r)}')
-    def au(a): return ", ".join(a[:4]) + (" et al." if len(a) > 4 else "")
+        f'<span class="tag {"act" if r["active"] else "inact"}">{E(t("active") if r["active"] else t("inactive"))}</span></h3>'
+        f'<div class="meta">{flag(r["country"])} <b>{E(r["institution"])}</b></div><p class="sum"{en}>{E(r["about"])} {E(r["activity"])}</p>{foot(r)}')
+    def au(a): return ", ".join(a[:4]) + (t("et_al") if len(a) > 4 else "")
     pubs = bycountry(sorted(secs["publications"], key=lambda r: -(r.get("year") or 0)), lambda r: f'<h3><a href="{E(r["url"])}" rel="noopener" target="_blank">{E(r["title"])}</a></h3>'
         f'<div class="meta">{flag(r["country"])} {E(au(r["authors"]))} ({E(r["year"])}). <i>{E(r.get("venue") or "")}</i>'
         + (f' · {E(r["institution"])}' if r.get("institution") else "") + '</div>'
-        f'<div class="meta">DOI: <a href="{E(r["url"])}" rel="noopener" target="_blank">{E(r["doi"])}</a> · <a href="{E(r["db"])}" rel="noopener" target="_blank">{E(r.get("db_name", "database"))} record</a></div>{foot(r)}')
+        f'<div class="meta">DOI: <a href="{E(r["url"])}" rel="noopener" target="_blank">{E(r["doi"])}</a> · <a href="{E(r["db"])}" rel="noopener" target="_blank">{E(t("ac_record", db=r.get("db_name") or t("database")))}</a></div>{foot(r)}')
     research = bycountry(secs["research"], lambda r: f'<h3><a href="{E(r["url"])}" rel="noopener" target="_blank">{E(r["name"])}</a></h3>'
-        f'<div class="meta">{flag(r["country"])} <b>{E(r["institution"])}</b></div><p class="sum">{E(r["about"])}</p>{foot(r)}')
-    allrows = sum(len(v) for v in secs.values()); npend = allrows if PREVIEW else 0
-    per_c = {c: sum(r["country"] == c for v in secs.values() for r in v) for c in COUNTRIES}
-    body = f"""<h1>Academia: blockchain and crypto at Nordic universities</h1>
-<p class="lead">Courses and programmes, student associations, research groups and publications about blockchain, bitcoin and crypto in Norway, Sweden, Denmark, Finland and Iceland. Every row links to its source and shows when we last checked it.</p>
-{f'<p class="notice warn"><b>Preview:</b> only the {allrows} editor-approved rows are shown; all await jQrgen\'s final approval. Rows the editor has not approved yet are kept off this page.</p>' if PREVIEW else ''}
-<div class="filters" role="group" aria-label="Filter by country"><span class="lbl">Country</span><div class="chips">{country_chips()}</div><span id="acount" class="meta" aria-live="polite"></span></div>
-<p class="meta">{" · ".join(f"{flag(c)} {E(n)}: {per_c[c]}" for c, n in COUNTRIES.items())} · <a href="#courses">Courses</a> · <a href="#groups">Student groups</a> · <a href="#publications">Publications</a> · <a href="#research">Research groups</a></p>
-<h2 id="courses">Courses and programmes</h2><p class="meta">Listed only when blockchain or crypto is a substantial part of the syllabus on the course's own page.</p>{courses}
-<h2 id="groups">Student associations and initiatives</h2><p class="meta">“Active” means we found dated activity in the last 12 months; otherwise “Inactive”.</p>{groups}
-<h2 id="publications">Publications</h2><p class="meta">Articles with at least one author at an institution in the country, linked by DOI or national research database (Cristin, SwePub, Research.fi, IRIS). Every link is checked to resolve before it is listed.</p>{pubs}
-<h2 id="research">Research groups and projects</h2>{research}
-<p class="notice">Missing a course, group or paper, or is something out of date? Tell us via <a href="../about/#corrections">corrections</a>. We list institutions and public academic work only, never students' private details.</p>"""
-    js = """<script>(function(){var cc=[].slice.call(document.querySelectorAll('.cchip')),n=[].slice.call(document.querySelectorAll('ol.news li[data-c]')),cnt=document.getElementById('acount');
-function apply(){var c=cc.filter(function(x){return x.getAttribute('aria-pressed')==='true'}).map(function(x){return x.dataset.c}),k=0;n.forEach(function(el){var ok=!c.length||c.indexOf(el.dataset.c)>=0;el.hidden=!ok;if(ok)k++});cnt.textContent=k+' rows';history.replaceState(null,'',c.length?'#country='+c.join(','):location.pathname+location.hash.replace(/#country=.*/,''))}
+        f'<div class="meta">{flag(r["country"])} <b>{E(r["institution"])}</b></div><p class="sum"{en}>{E(r["about"])}</p>{foot(r)}')
+    allrows = sum(len(v) for v in secs.values())
+    per_c = {c: sum(r["country"] == c for v in secs.values() for r in v) for c in COUNTRY_CODES}
+    dn = t("data_en_note")
+    body = f"""<h1>{E(t("ac_h1"))}</h1>
+<p class="lead">{E(t("ac_lead"))}</p>
+{f'<p class="notice warn">{t("ac_preview", n=allrows)}</p>' if PREVIEW else ''}
+{f'<p class="meta">{E(dn)}</p>' if dn else ''}
+<div class="filters" role="group" aria-label="{E(t("countries_aria"))}"><span class="lbl">{E(t("country"))}</span><div class="chips">{country_chips()}</div><span id="acount" class="meta" aria-live="polite"></span></div>
+<p class="meta">{" · ".join(f"{flag(c)} {E(n)}: {per_c[c]}" for c, n in COUNTRIES.items())} · <a href="#courses">{E(t("ac_courses"))}</a> · <a href="#groups">{E(t("ac_groups"))}</a> · <a href="#publications">{E(t("ac_pubs"))}</a> · <a href="#research">{E(t("ac_research"))}</a></p>
+<h2 id="courses">{E(t("ac_courses_h"))}</h2><p class="meta">{E(t("ac_courses_m"))}</p>{courses}
+<h2 id="groups">{E(t("ac_groups_h"))}</h2><p class="meta">{E(t("ac_groups_m"))}</p>{groups}
+<h2 id="publications">{E(t("ac_pubs_h"))}</h2><p class="meta">{E(t("ac_pubs_m"))}</p>{pubs}
+<h2 id="research">{E(t("ac_research_h"))}</h2>{research}
+<p class="notice">{t("ac_notice")}</p>"""
+    js = """<script>(function(){var NR=%s,cc=[].slice.call(document.querySelectorAll('.cchip')),n=[].slice.call(document.querySelectorAll('ol.news li[data-c]')),cnt=document.getElementById('acount');
+function apply(){var c=cc.filter(function(x){return x.getAttribute('aria-pressed')==='true'}).map(function(x){return x.dataset.c}),k=0;n.forEach(function(el){var ok=!c.length||c.indexOf(el.dataset.c)>=0;el.hidden=!ok;if(ok)k++});cnt.textContent=NR.replace('{n}',k);history.replaceState(null,'',c.length?'#country='+c.join(','):location.pathname+location.hash.replace(/#country=.*/,''))}
 var h=new URLSearchParams(location.hash.slice(1));(h.get('country')||'').split(',').forEach(function(x){cc.forEach(function(b){if(b.dataset.c===x)b.setAttribute('aria-pressed','true')})});
-cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');apply()})});apply()})();</script>"""
-    page("academia", "Academia – blockchain and crypto at Nordic universities", "academia", body,
-         "Blockchain and crypto courses, student groups, research groups and publications in Norway, Sweden, Denmark, Finland and Iceland.", js)
-    print(f"academia: {allrows} editor-approved rows shown {per_c}")
+cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');apply()})});apply()})();</script>""" % json.dumps(t("n_rows", n="{n}"))
+    page("academia", t("ac_title"), "academia", body, t("ac_desc"), js)
+    if LANG == "en": print(f"academia: {allrows} editor-approved rows shown {per_c}")
 
 TIP_FORM = "https://github.com/jQrgen/nordic-crypto/issues/new?template=tip.yml"
 def tip_endpoint():
@@ -506,34 +689,36 @@ def write_tip_endpoint_file():
     json.dump({"endpoint": ep or None, "kind": kind, "updated": upd}, open(os.path.join(SITE, "tip-endpoint.json"), "w"), indent=1)
     open(os.path.join(SITE, "tip-endpoint.json"), "a").write("\n")
 
+TIP_ERRORS = {"Please enter the article URL.": "tip_js_e_url", "The URL must be a full http:// or https:// link.": "tip_js_e_badurl",
+              "Too many tips from you in a short time. Please try again later.": "tip_js_e_rate", "The tip is too long (max 4 KB).": "tip_js_e_long"}
 def build_tip_server(ep):
     """'Send a tip' page that posts to our own tip intake: the Cloudflare Worker in tipworker/ (public_endpoint, set by
     tipworker/deploy.sh) or the box server tipserver/server.py. Inline JS only, no third-party scripts.
-    Endpoint: the fixed `ep` if set, else read at runtime from ../tip-endpoint.json (no cache). If the server can't be
+    Endpoint: the fixed `ep` if set, else read at runtime from <root>/tip-endpoint.json (no cache). If the server can't be
     reached, the page says so and offers the public GitHub issue form as a fallback."""
-    opts = '<option value="unsure">Not sure / choose…</option>' + "".join(f'<option value="{c}">{E(n)}</option>' for c, n in COUNTRIES.items())
-    body = f"""<h1>Send a tip</h1>
-<p class="lead">Seen a story about crypto, bitcoin or blockchain in Norway, Sweden, Denmark, Finland or Iceland that we have missed? Send us the link.</p>
+    opts = f'<option value="unsure">{E(t("tip_unsure"))}</option>' + "".join(f'<option value="{c}">{E(n)}</option>' for c, n in COUNTRIES.items())
+    body = f"""<h1>{E(t("tip_title"))}</h1>
+<p class="lead">{E(t("tip_lead"))}</p>
 <div class="prose">
-<p>Tips go straight to Nordic Crypto's own tip inbox. Our editor reviews new tips regularly and checks each one against <a href="../about/">our rules</a>: the story must be about crypto, bitcoin or blockchain in the Nordics, and we link to the original source with a short English summary in our own words. <b>A tip does not guarantee publication</b>, and we don't reply to individual tips.</p>
-<p class="notice"><b>Privacy:</b> tips are not public. We store the link, country, note, optional name and the time – <b>not</b> your IP address (for spam protection, only a scrambled code derived from it is kept for 10 minutes, then deleted). Your name is never published. The tip inbox runs on Cloudflare. Please don't include personal or sensitive information about anyone in the note.</p>
+<p>{t("tip_srv_p")}</p>
+<p class="notice">{t("tip_srv_priv")}</p>
 </div>
 <div id="tipmsg" role="status" aria-live="polite"></div>
-<noscript><p class="notice warn">The tip form needs JavaScript. Without it, you can send a <a href="{TIP_FORM}" rel="noopener">tip as a public GitHub issue</a> instead.</p></noscript>
+<noscript><p class="notice warn">{t("tip_noscript", gh=TIP_FORM)}</p></noscript>
 <form id="tipform" class="tipform"><fieldset id="tipfs" disabled style="border:0;padding:0;margin:0">
-<p><label for="t-url"><b>Article URL</b> (required)</label><br><input id="t-url" name="url" type="url" required maxlength="2000" placeholder="https://" style="width:100%;max-width:560px;padding:6px"></p>
-<p><label for="t-country"><b>Country</b></label><br><select id="t-country" name="country" style="padding:6px">{opts}</select></p>
-<p><label for="t-note"><b>Short note</b> (optional, max 1000 characters)</label><br><textarea id="t-note" name="note" rows="3" maxlength="1000" style="width:100%;max-width:560px;padding:6px"></textarea></p>
-<p><label for="t-name"><b>Your name</b> (optional, never published)</label><br><input id="t-name" name="name" maxlength="100" autocomplete="off" style="width:100%;max-width:320px;padding:6px"></p>
-<p style="position:absolute;left:-9999px" aria-hidden="true"><label for="t-website">Leave this field empty</label><input id="t-website" name="website" tabindex="-1" autocomplete="off"></p>
-<p><button type="submit" style="padding:8px 14px;font-size:15px">Send tip</button></p>
+<p><label for="t-url"><b>{E(t("tip_url"))}</b> {E(t("tip_required"))}</label><br><input id="t-url" name="url" type="url" required maxlength="2000" placeholder="https://" style="width:100%;max-width:560px;padding:6px"></p>
+<p><label for="t-country"><b>{E(t("tip_country"))}</b></label><br><select id="t-country" name="country" style="padding:6px">{opts}</select></p>
+<p><label for="t-note"><b>{E(t("tip_note"))}</b> {E(t("tip_note_opt"))}</label><br><textarea id="t-note" name="note" rows="3" maxlength="1000" style="width:100%;max-width:560px;padding:6px"></textarea></p>
+<p><label for="t-name"><b>{E(t("tip_name"))}</b> {E(t("tip_name_opt"))}</label><br><input id="t-name" name="name" maxlength="100" autocomplete="off" style="width:100%;max-width:320px;padding:6px"></p>
+<p style="position:absolute;left:-9999px" aria-hidden="true"><label for="t-website">{E(t("tip_honeypot"))}</label><input id="t-website" name="website" tabindex="-1" autocomplete="off"></p>
+<p><button type="submit" style="padding:8px 14px;font-size:15px">{E(t("tip_send"))}</button></p>
 </fieldset></form>"""
-    js = """<script>(function(){var FIXED=%s,GHU='%s',f=document.getElementById('tipform'),fs=document.getElementById('tipfs'),m=document.getElementById('tipmsg'),b=f.querySelector('button');
-var OFF='The tip service is temporarily offline, try again later. You can also <a href="'+GHU+'" rel="noopener">send the tip as a public GitHub issue</a> instead.';
+    msgs = {"off": t("tip_js_off", gh=TIP_FORM), "thanks": t("tip_js_thanks"), "fail": t("tip_js_fail"), "err": {k: t(v) for k, v in TIP_ERRORS.items()}}
+    js = """<script>(function(){var FIXED=%s,EPF=%s,M=%s,f=document.getElementById('tipform'),fs=document.getElementById('tipfs'),m=document.getElementById('tipmsg'),b=f.querySelector('button');
 function say(t,cls,html){m.className='notice'+(cls?' '+cls:'');if(html)m.innerHTML=t;else m.textContent=t}
-function off(){say(OFF,'warn',true)}
+function off(){say(M.off,'warn',true)}
 function tmo(p,ms){var ac=new AbortController(),t=setTimeout(function(){ac.abort()},ms);return {s:ac.signal,done:function(){clearTimeout(t)}}}
-function ep(){if(FIXED)return Promise.resolve(FIXED);return fetch('../tip-endpoint.json?t='+Date.now(),{cache:'no-store',credentials:'omit'}).then(function(r){return r.ok?r.json():{}}).then(function(j){return (j&&typeof j.endpoint==='string'&&/^https:\\/\\/[^\\s\\/]+$/.test(j.endpoint))?j.endpoint:null}).catch(function(){return null})}
+function ep(){if(FIXED)return Promise.resolve(FIXED);return fetch(EPF+'?t='+Date.now(),{cache:'no-store',credentials:'omit'}).then(function(r){return r.ok?r.json():{}}).then(function(j){return (j&&typeof j.endpoint==='string'&&/^https:\\/\\/[^\\s\\/]+$/.test(j.endpoint))?j.endpoint:null}).catch(function(){return null})}
 fs.disabled=false;
 ep().then(function(e){if(!e)return off();var t=tmo(0,8000);fetch(e+'/api/health',{cache:'no-store',credentials:'omit',signal:t.s}).then(function(r){t.done();if(!r.ok)off()}).catch(function(){t.done();off()})});
 f.addEventListener('submit',function(ev){ev.preventDefault();if(!f.reportValidity())return;b.disabled=true;
@@ -542,57 +727,72 @@ f.addEventListener('submit',function(ev){ev.preventDefault();if(!f.reportValidit
   return fetch(e+'/api/tip',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(d),signal:t.s,credentials:'omit',referrerPolicy:'no-referrer'})
   .then(function(r){t.done();return r.json().catch(function(){return {}}).then(function(j){return {s:r.status,j:j}})})})
  .then(function(x){b.disabled=false;
-  if(x.s>=200&&x.s<300&&x.j.ok){f.reset();say('Thank you! Your tip has been received. Our editor will check it.')}
-  else if(x.s>=500)off(); else say((x.j&&x.j.error)||'Could not send the tip.','warn')})
- .catch(function(){b.disabled=false;off()})})})();</script>""" % (json.dumps(ep), TIP_FORM)
-    page("tip", "Send a tip", "tip", body, "Tip Nordic Crypto about an article on crypto, bitcoin or blockchain in the Nordics.", js)
+  if(x.s>=200&&x.s<300&&x.j.ok){f.reset();say(M.thanks)}
+  else if(x.s>=500)off(); else {var er=x.j&&x.j.error;say((er&&M.err[er])||er||M.fail,'warn')}})
+ .catch(function(){b.disabled=false;off()})})})();</script>""" % (json.dumps(ep), json.dumps(up1() + "tip-endpoint.json"), json.dumps(msgs, ensure_ascii=False))
+    page("tip", t("tip_title"), "tip", body, t("tip_desc"), js)
 
 def build_tip():
     """'Send a tip' page. Static: a plain HTML form (GET, no JavaScript, no tracking) that opens the prefilled GitHub issue form
     (.github/ISSUE_TEMPLATE/tip.yml, label 'tip'). There is no public e-mail address, so GitHub is the only channel.
     routines/nightly-fetch.sh -> tools/reader_tips.py puts open tips in the editor queue as pending; nothing is auto-published."""
-    write_tip_endpoint_file()
+    if LANG == "en": write_tip_endpoint_file()
     cfg = load(P("tipserver", "config.json"), {}) or {}
     if tip_endpoint() or cfg.get("quick_tunnel"): return build_tip_server(tip_endpoint())  # GitHub issue form only as fallback link
-    opts = '<option value="Not sure">Not sure / choose…</option>' + "".join(f'<option value="{E(n)} ({c})">{E(n)}</option>' for c, n in COUNTRIES.items())
-    body = f"""<h1>Send a tip</h1>
-<p class="lead">Seen a story about crypto, bitcoin or blockchain in Norway, Sweden, Denmark, Finland or Iceland that we have missed? Send us the link.</p>
+    # the option values stay English: they fill in the GitHub issue form (tip.yml), which tools/reader_tips.py parses
+    opts = f'<option value="Not sure">{E(t("tip_unsure"))}</option>' + "".join(f'<option value="{E(t_en)} ({c})">{E(t("c_" + c))}</option>' for c, t_en in ((c, i18n.t("en", "c_" + c)) for c in COUNTRY_CODES))
+    body = f"""<h1>{E(t("tip_title"))}</h1>
+<p class="lead">{E(t("tip_lead"))}</p>
 <div class="prose">
-<p>Tips are sent as an issue on GitHub (you need a free GitHub account). Our editor checks every tip against <a href="../about/">our rules</a>: the story must be about crypto, bitcoin or blockchain in the Nordics, and we link to the original source with a short English summary in our own words. <b>A tip does not guarantee publication.</b> The issue stays open while the editor decides.</p>
-<p class="notice warn"><b>Privacy:</b> tips are <b>public</b> on GitHub, together with your GitHub username. Please do not share personal or sensitive information about yourself or anyone else – just the link and, if you like, a short note. We do not publish names from tips on this site.</p>
+<p>{t("tip_gh_p")}</p>
+<p class="notice warn">{t("tip_gh_priv")}</p>
 </div>
 <form class="tipform" method="get" action="https://github.com/jQrgen/nordic-crypto/issues/new">
 <input type="hidden" name="template" value="tip.yml">
-<p><label for="t-url"><b>Article URL</b> (required)</label><br><input id="t-url" name="url" type="url" required placeholder="https://" style="width:100%;max-width:560px;padding:6px"></p>
-<p><label for="t-country"><b>Country</b></label><br><select id="t-country" name="country" style="padding:6px">{opts}</select></p>
-<p><label for="t-note"><b>Short note</b> (optional)</label><br><textarea id="t-note" name="note" rows="3" style="width:100%;max-width:560px;padding:6px"></textarea></p>
-<p><button type="submit" style="padding:8px 14px;font-size:15px">Continue on GitHub →</button></p>
-<p class="meta">This opens GitHub's tip form with your answers filled in; nothing is sent until you submit it there. No data is stored on this site.</p>
+<p><label for="t-url"><b>{E(t("tip_url"))}</b> {E(t("tip_required"))}</label><br><input id="t-url" name="url" type="url" required placeholder="https://" style="width:100%;max-width:560px;padding:6px"></p>
+<p><label for="t-country"><b>{E(t("tip_country"))}</b></label><br><select id="t-country" name="country" style="padding:6px">{opts}</select></p>
+<p><label for="t-note"><b>{E(t("tip_note"))}</b> {E(t("tip_note_opt_gh"))}</label><br><textarea id="t-note" name="note" rows="3" style="width:100%;max-width:560px;padding:6px"></textarea></p>
+<p><button type="submit" style="padding:8px 14px;font-size:15px">{E(t("tip_gh_btn"))}</button></p>
+<p class="meta">{E(t("tip_gh_meta"))}</p>
 </form>
-<p class="prose">Or open the <a href="{TIP_FORM}" rel="noopener">tip form on GitHub</a> directly.</p>"""
-    page("tip", "Send a tip", "tip", body, "Tip Nordic Crypto about an article on crypto, bitcoin or blockchain in the Nordics.")
+<p class="prose">{t("tip_gh_direct", gh=TIP_FORM)}</p>"""
+    page("tip", t("tip_title"), "tip", body, t("tip_desc"))
 
 def build_changelog():
     """Changelog page from changelog.json (site changes only, newest first). Entries dated "launch" use launch_date,
-    which stays null until jQrgen approves publishing (publish.sh --yes sets it); until then they show as preview."""
+    which stays null until jQrgen approves publishing (publish.sh --yes sets it); until then they show as preview.
+    Translations: entries[].i18n {lang: {title, description}}; missing ones are shown in English.
+    Entries with "review": "pending" (and no date) only appear in the preview build, tagged as preview."""
     cl = load(P("changelog.json"), {"entries": []}); launch = cl.get("launch_date")
     rows = []
     for e in cl.get("entries", []):
+        if e.get("review") == "pending" and not PREVIEW: continue   # not yet approved by the editor/jQrgen
         d = launch if e.get("date") == "launch" else e.get("date")
         rows.append(dict(e, date=d))
     rows.sort(key=lambda e: e["date"] or "9999-99-99", reverse=True)
-    json.dump({"launch_date": launch, "entries": [{k: e.get(k) for k in ("id", "date", "title", "description")} for e in rows]},
-              open(os.path.join(SITE, "data", "changelog.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    if LANG == "en":
+        json.dump({"launch_date": launch, "entries": [{k: e.get(k) for k in ("id", "date", "title", "description", "i18n")} for e in rows]},
+                  open(os.path.join(SITE, "data", "changelog.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     def when(d):
-        if not d: return '<span class="tag pend">Preview – not launched yet</span>'
-        x = dt.date.fromisoformat(d); return f'<time datetime="{d}"><b>{x.day} {MONTH[x.month-1]} {x.year}</b></time>'
-    lis = "".join(f'<li id="{E(e["id"])}"><h3>{E(e["title"])}</h3><div class="meta">{when(e["date"])}</div><p class="sum">{E(e["description"])}</p></li>' for e in rows)
-    body = f"""<h1>Changelog</h1>
-<p class="lead">Changes to the Nordic Crypto site itself – new pages, sections and features – newest first. Daily news is not listed here.</p>
-{'' if launch else '<p class="notice warn"><b>Preview:</b> the site has not launched yet. Entries get the launch date once jQrgen approves publishing.</p>'}
-<ol class="news">{lis or '<li class="empty">No changes recorded yet.</li>'}</ol>
-<p class="meta">Data: <a href="../data/changelog.json">changelog.json</a>.</p>"""
-    page("changelog", "Changelog", "changelog", body, "Changes to the Nordic Crypto site: new pages, sections and features, newest first.")
-    print(f"changelog: {len(rows)} entries, launch date {launch or 'not set (preview)'}")
+        if not d: return f'<span class="tag pend">{E(t("cl_prev_tag"))}</span>'
+        x = dt.date.fromisoformat(d); return f'<time datetime="{d}"><b>{E(i18n.long_date(LANG, x))}</b></time>'
+    def tr(e):
+        x = (e.get("i18n") or {}).get(LANG) if LANG != "en" else None
+        return (x["title"], x["description"], LANG) if x else (e["title"], e["description"], "en")
+    lis = "".join(f'<li id="{E(e["id"])}"{lang_attr(l)}><h3>{E(ti)}</h3><div class="meta">{when(e["date"])}</div><p class="sum">{E(de)}</p></li>' for e in rows for ti, de, l in [tr(e)])
+    body = f"""<h1>{E(t("cl_title"))}</h1>
+<p class="lead">{E(t("cl_lead"))}</p>
+{'' if launch else f'<p class="notice warn">{t("cl_preview")}</p>'}
+<ol class="news">{lis or f'<li class="empty">{E(t("cl_none"))}</li>'}</ol>
+<p class="meta">{E(t("cl_data"))}: <a href="{up1()}data/changelog.json">changelog.json</a>.</p>"""
+    page("changelog", t("cl_title"), "changelog", body, t("cl_desc"))
+    if LANG == "en": print(f"changelog: {len(rows)} entries, launch date {launch or 'not set (preview)'}")
+
+def build_rules(ctx):
+    """'How the rules are made' (rules/): see tools/rules_page.py (data: rules.json, editor-reviewed)."""
+    sys.path.insert(0, P("tools"))
+    try: import rules_page
+    except ImportError: return
+    rules_page.build(sys.modules[__name__], ctx)
 
 if __name__ == "__main__": build()

@@ -1,0 +1,1593 @@
+{
+ "schema": 2,
+ "site": "nordic-crypto",
+ "exported_at": "2026-10-03T23:34:24+02:00",
+ "articles": [
+  {
+   "site": "nordic-crypto",
+   "id": "07e49032be5a",
+   "url": "https://www.kaupr.io/nyheter/safello-apner-for-at-andre-selskaper-kan-tilby-kryptokjop",
+   "canonical_url": "https://kaupr.io/nyheter/safello-apner-for-at-andre-selskaper-kan-tilby-kryptokjop",
+   "title": "Safello åpner for at andre selskaper kan tilby kryptokjøp",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "published_at": "2026-09-24T12:00:00+00:00",
+   "first_published_on_site": "2026-10-03T17:59:40+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "Sweden's Safello is testing a setup that lets companies without their own crypto business offer crypto purchases under Safello's MiCA licence."
+   },
+   "titles": {
+    "en": "Safello opens up so other companies can offer crypto purchases"
+   },
+   "topics": [
+    "business",
+    "mica"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "SE"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "08a682f7d85d",
+   "url": "https://www.kaupr.io/nyheter/btcx-blir-megler-og-goobits-rapporterte-inntekter-faller",
+   "canonical_url": "https://kaupr.io/nyheter/btcx-blir-megler-og-goobits-rapporterte-inntekter-faller",
+   "title": "BTCX blir megler, og Goobits rapporterte inntekter faller",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "published_at": "2026-09-10T12:00:00+00:00",
+   "first_published_on_site": "2026-10-03T17:59:40+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "Goobit is switching BTCX from proprietary trading to brokerage, citing MiCA, which cuts reported revenue but not gross profit."
+   },
+   "titles": {
+    "en": "BTCX becomes a broker, and Goobit's reported revenue falls"
+   },
+   "topics": [
+    "mica",
+    "business"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "SE"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "12425cc1e7ff",
+   "url": "https://www.kaupr.io/nyheter/coinmotion-og-k33-inngar-nordisk-kryptosamarbeid-om-institusjonell-handel",
+   "canonical_url": "https://kaupr.io/nyheter/coinmotion-og-k33-inngar-nordisk-kryptosamarbeid-om-institusjonell-handel",
+   "title": "Coinmotion og K33 inngår nordisk kryptosamarbeid om institusjonell handel",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "published_at": "2026-09-24T12:00:00+00:00",
+   "first_published_on_site": "2026-10-03T17:59:40+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "Finnish broker Coinmotion has picked Norway's K33 to execute large trades, a partnership between two MiCA-licensed Nordic firms."
+   },
+   "titles": {
+    "en": "Coinmotion and K33 strike Nordic crypto partnership on institutional trading"
+   },
+   "topics": [
+    "business",
+    "mica"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "SE"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "2d38c9c89e0e",
+   "url": "https://www.sydsvenskan.se/lund/uppgifter-tonaringar-silvertejpade-man-i-jakt-pa-kryptovaluta/",
+   "canonical_url": "https://sydsvenskan.se/lund/uppgifter-tonaringar-silvertejpade-man-i-jakt-pa-kryptovaluta",
+   "title": "Uppgifter: Tonåringar silvertejpade man i jakt på kryptovaluta",
+   "source": "sydsvenskan.se",
+   "source_name": "Sydsvenskan",
+   "published_at": "2026-10-02T07:01:00+00:00",
+   "first_published_on_site": "2026-10-03T17:59:40+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "Three teenagers have been arrested in Lund on suspicion of kidnapping after allegedly tying up a local man with duct tape to rob him of crypto."
+   },
+   "titles": {
+    "en": "Reports: teenagers duct-taped a man in hunt for cryptocurrency"
+   },
+   "topics": [
+    "crime"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "SE"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "4d918e6a3378",
+   "url": "https://www.kaupr.io/nyheter/firi-tar-opp-kampen-om-1-1-millioner-svenske-kryptoeiere",
+   "canonical_url": "https://kaupr.io/nyheter/firi-tar-opp-kampen-om-1-1-millioner-svenske-kryptoeiere",
+   "title": "Firi tar opp kampen om 1,1 millioner svenske kryptoeiere",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "published_at": "2026-09-15T12:00:00+00:00",
+   "first_published_on_site": "2026-10-03T17:59:40+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "Firi launches in Sweden this week, entering a market where about 1.1 million people already own crypto."
+   },
+   "titles": {
+    "en": "Firi takes on the fight for 1.1 million Swedish crypto owners"
+   },
+   "topics": [
+    "business"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "SE"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "4fec239ddb97",
+   "url": "https://www.kaupr.io/nyheter/hilbert-finansierer-utlan-med-innskudd-pa-blokkjeden",
+   "canonical_url": "https://kaupr.io/nyheter/hilbert-finansierer-utlan-med-innskudd-pa-blokkjeden",
+   "title": "Hilbert finansierer utlån med innskudd på blokkjeden",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "published_at": "2026-09-15T12:00:00+00:00",
+   "first_published_on_site": "2026-10-03T17:59:40+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "Hilbert Finance is taking stablecoin deposits on-chain and lending them out through a partnership with Ember Protocol."
+   },
+   "titles": {
+    "en": "Hilbert funds lending with on-chain deposits"
+   },
+   "topics": [
+    "defi",
+    "business"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "SE"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "5682c6aa22dd",
+   "url": "https://www.finansavisen.no/valuta/2026/09/20/8380762/kollaps-for-kryptoborsen-firi",
+   "canonical_url": "https://finansavisen.no/valuta/2026/09/20/8380762/kollaps-for-kryptoborsen-firi",
+   "title": "Kollaps for kryptobørs",
+   "source": "finansavisen",
+   "source_name": "Finansavisen",
+   "published_at": "2026-09-20T07:41:00+00:00",
+   "first_published_on_site": "2026-10-03T17:59:40+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "Norwegian exchange Firi earned NOK 135 million in 2024 but posted a NOK 44 million loss in the first half of this year."
+   },
+   "titles": {
+    "en": "Collapse for crypto exchange Firi"
+   },
+   "topics": [
+    "business"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "NO"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "5f757489d23c",
+   "url": "https://www.kaupr.io/nyheter/dnb-tester-tokeniserte-innskudd-i-kroner-med-europeiske-banker",
+   "canonical_url": "https://kaupr.io/nyheter/dnb-tester-tokeniserte-innskudd-i-kroner-med-europeiske-banker",
+   "title": "DNB tester tokeniserte innskudd i kroner med europeiske banker",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "published_at": "2026-09-16T12:00:00+00:00",
+   "first_published_on_site": "2026-10-03T17:59:40+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "DNB has joined CBMT, where European banks test tokenised bank deposits, adding the Norwegian krone to the test environment."
+   },
+   "titles": {
+    "en": "DNB tests tokenised krone deposits with European banks"
+   },
+   "topics": [
+    "tokenisation",
+    "banking"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "NO"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "6a94ab65ebff",
+   "url": "https://www.kaupr.io/nyheter/nytt-nederlag-for-valuno-i-kampen-om-mica-lisens",
+   "canonical_url": "https://kaupr.io/nyheter/nytt-nederlag-for-valuno-i-kampen-om-mica-lisens",
+   "title": "Nytt nederlag for Valuno i kampen om MiCA-lisens",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "published_at": "2026-09-07T12:00:00+00:00",
+   "first_published_on_site": "2026-10-03T17:59:40+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "Valuno company QB Europe has lost its appeal against the MiCA refusal in Sweden, but keeps operating through licensed partners."
+   },
+   "titles": {
+    "en": "New defeat for Valuno in the fight for a MiCA licence"
+   },
+   "topics": [
+    "mica",
+    "regulation"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "SE"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "7996dadb43e7",
+   "url": "https://www.kaupr.io/nyheter/nbx-inngar-avtale-med-tieto-om-betalingskort-for-stablecoins",
+   "canonical_url": "https://kaupr.io/nyheter/nbx-inngar-avtale-med-tieto-om-betalingskort-for-stablecoins",
+   "title": "NBX inngår avtale med Tieto om betalingskort for stablecoins",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "published_at": "2026-09-23T12:00:00+00:00",
+   "first_published_on_site": "2026-10-03T17:59:40+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "NBX has signed with Tieto Banktech for a payment card that lets customers spend stablecoins in everyday purchases."
+   },
+   "titles": {
+    "en": "NBX signs deal with Tieto for stablecoin payment card"
+   },
+   "topics": [
+    "stablecoins",
+    "business"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "NO"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "7b2030aea964",
+   "url": "https://www.realtid.se/bors-finans/kryptojatten-i-ny-kontrovers-erbjod-tjanster-i-europa-utan-licens/",
+   "canonical_url": "https://realtid.se/bors-finans/kryptojatten-i-ny-kontrovers-erbjod-tjanster-i-europa-utan-licens",
+   "title": "Kryptojätten i ny kontrovers – erbjöd tjänster i Europa utan licens",
+   "source": "realtid",
+   "source_name": "Realtid",
+   "published_at": "2026-10-01T11:04:00+00:00",
+   "first_published_on_site": "2026-10-03T17:59:40+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "Binance is under investigation for allegedly offering services in Europe without the licence required under the EU's new crypto rules."
+   },
+   "titles": {
+    "en": "Crypto giant in new controversy: offered services in Europe without a licence"
+   },
+   "topics": [
+    "regulation",
+    "mica"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "SE"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "82697418efbc",
+   "url": "https://www.kaupr.io/nyheter/kvarn-avviser-at-goobit-avtalen-er-agentforhold-eller-outsourcing",
+   "canonical_url": "https://kaupr.io/nyheter/kvarn-avviser-at-goobit-avtalen-er-agentforhold-eller-outsourcing",
+   "title": "Kvarn avviser at Goobit-avtalen er agentforhold eller outsourcing",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "published_at": "2026-09-15T12:00:00+00:00",
+   "first_published_on_site": "2026-10-03T17:59:40+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "Kvarn Capital argues its partnership with Sweden's Goobit falls outside MiCA's ban on agents and its outsourcing rules."
+   },
+   "titles": {
+    "en": "Kvarn denies the Goobit deal is an agency or outsourcing arrangement"
+   },
+   "topics": [
+    "mica"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "SE"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "831bb86ab20c",
+   "url": "https://www.kaupr.io/nyheter/nbx-mer-enn-doblet-tapet-i-halvaret-da-mica-lisensen-kom",
+   "canonical_url": "https://kaupr.io/nyheter/nbx-mer-enn-doblet-tapet-i-halvaret-da-mica-lisensen-kom",
+   "title": "NBX mer enn doblet tapet i halvåret da MiCA-lisensen kom",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "published_at": "2026-09-18T12:00:00+00:00",
+   "first_published_on_site": "2026-10-03T17:59:40+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "NBX won its MiCA licence in the first half of 2026, but revenue fell 45 percent and its after-tax loss grew to NOK 16.6 million."
+   },
+   "titles": {
+    "en": "NBX more than doubled its half-year loss as the MiCA licence arrived"
+   },
+   "topics": [
+    "business",
+    "mica"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "NO"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "8ae149a20f5f",
+   "url": "https://www.finansavisen.no/finans/2026/09/28/8383782/pangstart-for-nytt-kryptofond",
+   "canonical_url": "https://finansavisen.no/finans/2026/09/28/8383782/pangstart-for-nytt-kryptofond",
+   "title": "Pangstart for nytt kryptofond",
+   "source": "finansavisen",
+   "source_name": "Finansavisen",
+   "published_at": "2026-09-28T08:01:00+00:00",
+   "first_published_on_site": "2026-10-03T17:59:40+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "Joakim Hannisdahl's new crypto fund, built on a model that did well in backtesting, is up 39 percent since it launched in August."
+   },
+   "titles": {
+    "en": "Flying start for new crypto fund"
+   },
+   "topics": [
+    "funds"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "NO"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "8c0dda24b0ef",
+   "url": "https://www.fi.se/sv/publicerat/nyheter/2026/har-ar-riskerna-for-finansiering-av-spridning-av-massforstorelsevapen-storst/",
+   "canonical_url": "https://fi.se/sv/publicerat/nyheter/2026/har-ar-riskerna-for-finansiering-av-spridning-av-massforstorelsevapen-storst",
+   "title": "Här är riskerna för finansiering av spridning av massförstörelsevapen störst",
+   "source": "fi-se",
+   "source_name": "Finansinspektionen (SE FSA)",
+   "published_at": "2026-10-01T06:00:11+00:00",
+   "first_published_on_site": "2026-10-03T17:59:40+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "Finansinspektionen's new risk assessment finds that financing of weapons of mass destruction is most likely through illegal financial activity and crypto-assets."
+   },
+   "titles": {
+    "en": "Here is where the risk of financing proliferation of weapons of mass destruction is highest"
+   },
+   "topics": [
+    "regulation",
+    "aml"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "SE"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "9750ec7bf5d8",
+   "url": "https://www.kaupr.io/nyheter/finske-kvarn-leier-ut-mica-tillatelsen-sin-til-nordiske-partnere",
+   "canonical_url": "https://kaupr.io/nyheter/finske-kvarn-leier-ut-mica-tillatelsen-sin-til-nordiske-partnere",
+   "title": "Finske Kvarn leier ut MiCA-tillatelsen sin til nordiske partnere",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "published_at": "2026-09-14T12:00:00+00:00",
+   "first_published_on_site": "2026-10-03T17:59:40+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "Finland's Kvarn Capital lets Nordic companies sell crypto services under its MiCA licence, with Goobit as the first named client."
+   },
+   "titles": {
+    "en": "Finnish Kvarn rents out its MiCA licence to Nordic partners"
+   },
+   "topics": [
+    "mica",
+    "business"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "SE"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "a1d43879dcb4",
+   "url": "https://www.kaupr.io/nyheter/bitcoin-utvinning-og-norsk-kraft-pa-seminar-i-oslo",
+   "canonical_url": "https://kaupr.io/nyheter/bitcoin-utvinning-og-norsk-kraft-pa-seminar-i-oslo",
+   "title": "Bitcoin-utvinning og norsk kraft på seminar i Oslo",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "published_at": "2026-09-14T12:00:00+00:00",
+   "first_published_on_site": "2026-10-03T17:59:40+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "Bitcoinpolitisk Institutt is gathering researchers, industry and politicians in Oslo for a free seminar on bitcoin mining and Norwegian power."
+   },
+   "titles": {
+    "en": "Bitcoin mining and Norwegian power at Oslo seminar"
+   },
+   "topics": [
+    "mining",
+    "events"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "NO"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "a2a605592458",
+   "url": "https://www.kaupr.io/nyheter/blockchain-pa-tech-scenen-og-pa-dagsorden-i-stockholm",
+   "canonical_url": "https://kaupr.io/nyheter/blockchain-pa-tech-scenen-og-pa-dagsorden-i-stockholm",
+   "title": "Blockchain på tech-scenen og på dagsorden i Stockholm",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "published_at": "2026-09-10T12:00:00+00:00",
+   "first_published_on_site": "2026-10-03T17:59:40+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "Tokenisation at Blockchain Sweden and the final of the Blockathon hackathon put blockchain on the agenda in Stockholm this week."
+   },
+   "titles": {
+    "en": "Blockchain on the tech scene and on the agenda in Stockholm"
+   },
+   "topics": [
+    "events",
+    "tokenisation"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "SE"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "a384452ed1b6",
+   "url": "https://www.kaupr.io/nyheter/greenmerc-trekker-mica-klage-og-bruker-northcryptos-lisens-i-sverige",
+   "canonical_url": "https://kaupr.io/nyheter/greenmerc-trekker-mica-klage-og-bruker-northcryptos-lisens-i-sverige",
+   "title": "GreenMerc trekker MiCA-klage og bruker Northcryptos lisens i Sverige",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "published_at": "2026-09-17T12:00:00+00:00",
+   "first_published_on_site": "2026-10-03T17:59:40+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "GreenMerc has dropped its MiCA appeal for Ijort Invest and will serve Swedish Trijo customers under Finnish Northcrypto's licence."
+   },
+   "titles": {
+    "en": "GreenMerc drops MiCA appeal and uses Northcrypto's licence in Sweden"
+   },
+   "topics": [
+    "mica",
+    "business"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "SE"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "b3fdbc8f5eec",
+   "url": "https://www.dagensps.se/bors-finans/fintech/kryptovalutor/krypto-jatten-rundar-reglerna-i-europa-riskerar-att-kastas-ut/",
+   "canonical_url": "https://dagensps.se/bors-finans/fintech/kryptovalutor/krypto-jatten-rundar-reglerna-i-europa-riskerar-att-kastas-ut",
+   "title": "Krypto-jätten rundar reglerna i Europa: Riskerar att kastas ut",
+   "source": "dagensps.se",
+   "source_name": "Dagens PS",
+   "published_at": "2026-10-01T01:31:00+00:00",
+   "first_published_on_site": "2026-10-03T17:59:40+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "Binance said it would leave Europe, but customers are still trading, and EU financial authorities now want to know how."
+   },
+   "titles": {
+    "en": "Crypto giant skirts the rules in Europe and risks being thrown out"
+   },
+   "topics": [
+    "regulation",
+    "mica"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "SE"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "b46e8d2a4dad",
+   "url": "https://www.kaupr.io/nyheter/to-tilsyn-vil-ikke-si-om-kryptodistribusjon-krever-egen-tillatelse",
+   "canonical_url": "https://kaupr.io/nyheter/to-tilsyn-vil-ikke-si-om-kryptodistribusjon-krever-egen-tillatelse",
+   "title": "To tilsyn vil ikke si om kryptodistribusjon krever egen tillatelse",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "published_at": "2026-09-17T12:00:00+00:00",
+   "first_published_on_site": "2026-10-03T17:59:40+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "Neither ESMA nor Sweden's Finansinspektionen will say whether distributing crypto services under your own brand needs its own MiCA licence."
+   },
+   "titles": {
+    "en": "Two regulators won't say whether crypto distribution needs its own licence"
+   },
+   "topics": [
+    "mica",
+    "regulation"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "FI"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "c1431df81160",
+   "url": "https://podcasters.spotify.com/pod/show/bitcoinsnakk9/episodes/Norway-Wants-to-Ban-Bitcoin-Mining--The-Miners-Already-Left--Rachel-Geyer--EBEA-e3p0bb8",
+   "canonical_url": "https://podcasters.spotify.com/pod/show/bitcoinsnakk9/episodes/Norway-Wants-to-Ban-Bitcoin-Mining--The-Miners-Already-Left--Rachel-Geyer--EBEA-e3p0bb8",
+   "title": "Norway Wants to Ban Bitcoin Mining. The Miners Already Left | Rachel Geyer, EBEA",
+   "source": "bpi",
+   "source_name": "Bitcoinpolitisk institutt",
+   "published_at": "2026-09-17T18:30:43+00:00",
+   "first_published_on_site": "2026-10-03T17:59:40+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "In a talk for Bitcoinpolitisk Institutt in Oslo, Rachel Geyer of the European Bitcoin Energy Association argues Norway's proposed mining ban targets a problem the country doesn't have."
+   },
+   "titles": {
+    "en": "Norway wants to ban bitcoin mining. The miners already left"
+   },
+   "topics": [
+    "mining",
+    "policy"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "NO"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "c81be998e21c",
+   "url": "https://yle.fi/a/74-20248505",
+   "canonical_url": "https://yle.fi/a/74-20248505",
+   "title": "Yhteisöllisyys ja teknologia kiehtovat kryptovaluuttoihin sijoittaneita – kryptotapahtumassa iloittiin bitcoinin uudesta nousurallista",
+   "source": "yle",
+   "source_name": "Yle Uutiset (latest)",
+   "published_at": "2026-09-27T08:20:00+00:00",
+   "first_published_on_site": "2026-10-03T17:59:40+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "At a Finnish crypto event, investors described community and technology as what draws them to crypto, as bitcoin rallied again."
+   },
+   "titles": {
+    "en": "Community and technology draw crypto investors: bitcoin's new rally celebrated at crypto event"
+   },
+   "topics": [
+    "community",
+    "bitcoin"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "FI"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "e0cc8b0df8e7",
+   "url": "https://www.kaupr.io/nyheter/goobit-lanserer-sparing-i-bitcoin-og-gull-pa-finsk-lisens",
+   "canonical_url": "https://kaupr.io/nyheter/goobit-lanserer-sparing-i-bitcoin-og-gull-pa-finsk-lisens",
+   "title": "Goobit lanserer sparing i bitcoin og gull på finsk lisens",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "published_at": "2026-09-14T12:00:00+00:00",
+   "first_published_on_site": "2026-10-03T17:59:40+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "After being refused by Sweden's Finansinspektionen, Goobit is launching Futureproof, a bitcoin and gold savings platform, under Finnish Kvarn Capital's MiCA licence."
+   },
+   "titles": {
+    "en": "Goobit launches bitcoin and gold savings on a Finnish licence"
+   },
+   "topics": [
+    "mica",
+    "business"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "SE"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "e6727b4858b5",
+   "url": "https://www.realtid.se/bors-finans/makro/sa-kan-sverige-anvandas-for-att-finansiera-karnvapen/",
+   "canonical_url": "https://realtid.se/bors-finans/makro/sa-kan-sverige-anvandas-for-att-finansiera-karnvapen",
+   "title": "Så kan Sverige användas för att finansiera kärnvapen",
+   "source": "realtid",
+   "source_name": "Realtid",
+   "published_at": "2026-10-02T17:00:00+00:00",
+   "first_published_on_site": "2026-10-03T17:59:40+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "Sweden's financial watchdog says crypto-assets and illegal financial networks pose the biggest risk of Iran and North Korea dodging sanctions via Sweden."
+   },
+   "titles": {
+    "en": "How Sweden can be used to finance nuclear weapons"
+   },
+   "topics": [
+    "regulation",
+    "aml"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "SE"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "eb685890cbc3",
+   "url": "https://www.kaupr.io/nyheter/h100-styrelederen-vil-ha-flere-oppkjop-i-bitcoinbransjen",
+   "canonical_url": "https://kaupr.io/nyheter/h100-styrelederen-vil-ha-flere-oppkjop-i-bitcoinbransjen",
+   "title": "H100-styrelederen vil ha flere oppkjøp i bitcoinbransjen",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "published_at": "2026-09-13T12:00:00+00:00",
+   "first_published_on_site": "2026-10-03T17:59:40+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "Sander Andersen of H100 Group says bitcoin companies worth under a billion dollars need to buy each other, because standing still is the biggest risk."
+   },
+   "titles": {
+    "en": "H100 chair wants more acquisitions in the bitcoin industry"
+   },
+   "topics": [
+    "business",
+    "bitcoin"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "SE"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "f2ad120d7189",
+   "url": "https://www.finansavisen.no/personlig-okonomi/2026/09/20/8381719/slar-et-slag-for-stablecoins",
+   "canonical_url": "https://finansavisen.no/personlig-okonomi/2026/09/20/8381719/slar-et-slag-for-stablecoins",
+   "title": "Slår et slag for stablecoins",
+   "source": "finansavisen",
+   "source_name": "Finansavisen",
+   "published_at": "2026-09-20T06:18:00+00:00",
+   "first_published_on_site": "2026-10-03T17:59:40+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "Valour's Nordic head Johanna Belitz argues stablecoins can make cross-border payments much faster and cheaper."
+   },
+   "titles": {
+    "en": "Making the case for stablecoins"
+   },
+   "topics": [
+    "stablecoins"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "NO"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "f616814dc40c",
+   "url": "https://www.kaupr.io/nyheter/greenmerc-kutter-4-8-millioner-i-aret---northcrypto-gar-med-overskudd",
+   "canonical_url": "https://kaupr.io/nyheter/greenmerc-kutter-4-8-millioner-i-aret---northcrypto-gar-med-overskudd",
+   "title": "GreenMerc kutter 4,8 millioner i året – Northcrypto går med overskudd",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "published_at": "2026-09-30T12:00:00+00:00",
+   "first_published_on_site": "2026-10-03T17:59:40+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "GreenMerc is cutting costs by SEK 4.8 million a year while Northcrypto turns a profit, with spending redirected to the banking offer Trijo One."
+   },
+   "titles": {
+    "en": "GreenMerc cuts SEK 4.8 million a year as Northcrypto turns a profit"
+   },
+   "topics": [
+    "business"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "SE"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "f6301aef3314",
+   "url": "https://www.finanssivalvonta.fi/en/publications-and-press-releases/news-releases/2026/crypto-asset-service-providers-in-finland-must-be-authorised-in-the-eu/",
+   "canonical_url": "https://finanssivalvonta.fi/en/publications-and-press-releases/news-releases/2026/crypto-asset-service-providers-in-finland-must-be-authorised-in-the-eu",
+   "title": "Crypto-asset service providers in Finland must be authorised in the EU",
+   "source": "finanssivalvonta",
+   "source_name": "Finanssivalvonta",
+   "published_at": "2026-06-30T12:00:00+00:00",
+   "first_published_on_site": "2026-10-03T17:59:40+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "Finland's FIN-FSA reminds firms that crypto-asset service providers serving Finland must hold an EU (MiCA) authorisation."
+   },
+   "titles": {},
+   "topics": [
+    "mica",
+    "regulation"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "FI"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "188b5b8ed9fb",
+   "url": "https://www.berlingske.dk/oekonomi/100-aar-gammel-lov-koster-danske-kryptoinvestorer-millioner-nu-vil-minister-problemet-til-livs",
+   "canonical_url": "https://berlingske.dk/oekonomi/100-aar-gammel-lov-koster-danske-kryptoinvestorer-millioner-nu-vil-minister-problemet-til-livs",
+   "title": "100 år gammel lov koster danske kryptoinvestorer millioner. Nu vil minister problemet til livs",
+   "source": "berlingske.dk",
+   "source_name": "Berlingske",
+   "published_at": "2026-09-21T09:39:00+00:00",
+   "first_published_on_site": "2026-10-03T18:28:21+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "An answer from Danish minister Jakob Engel-Schmidt showed how many Danes pay tax on crypto investments they lost money on, which he called 'actually pretty wild'; he now wants to fix the century-old rule behind it."
+   },
+   "titles": {
+    "en": "100-year-old law costs Danish crypto investors millions; minister wants to fix it"
+   },
+   "topics": [
+    "tax",
+    "policy"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "DK"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "1a95167a3af8",
+   "url": "https://www.aftenposten.no/norge/i/vlQARB/tiltalt-for-dopsalg-mot-kryptovaluta-paa-det-moerke-nettet",
+   "canonical_url": "https://aftenposten.no/norge/i/vlQARB/tiltalt-for-dopsalg-mot-kryptovaluta-paa-det-moerke-nettet",
+   "title": "Tiltalt for dopsalg mot kryptovaluta på det mørke nettet",
+   "source": "aftenposten",
+   "source_name": "Aftenposten",
+   "published_at": "2026-10-02T11:07:26+00:00",
+   "first_published_on_site": "2026-10-03T18:28:21+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "Three Norwegians and a Swede have been charged in a large drug case with links abroad, involving drug sales for cryptocurrency on the dark web, according to the Southern Norway public prosecutor."
+   },
+   "titles": {
+    "en": "Charged with selling drugs for cryptocurrency on the dark web"
+   },
+   "topics": [
+    "crime"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "NO"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "1abbecf31dff",
+   "url": "https://e24.no/bors/nyheter/a/305563",
+   "canonical_url": "https://e24.no/bors/nyheter/a/305563",
+   "title": "Verdiendringer i bitcoin tynger NBX",
+   "source": "e24",
+   "source_name": "E24",
+   "published_at": "2026-09-18T11:36:00+00:00",
+   "first_published_on_site": "2026-10-03T18:28:21+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "NBX made a pre-tax loss of NOK 21.33 million in the first half of 2026, up from NOK 9.85 million a year earlier, with changes in the value of bitcoin weighing on the result."
+   },
+   "titles": {
+    "en": "Bitcoin value swings weigh on NBX"
+   },
+   "topics": [
+    "business"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "NO"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "2034a42ac260",
+   "url": "https://www.kaupr.io/nyheter/norges-bank-utforsker-tokenisering-med-tolv-aktorer",
+   "canonical_url": "https://kaupr.io/nyheter/norges-bank-utforsker-tokenisering-med-tolv-aktorer",
+   "title": "Norges Bank utforsker tokenisering med tolv aktører",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "published_at": "2026-09-08T12:00:00+00:00",
+   "first_published_on_site": "2026-10-03T18:28:21+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "Norges Bank has named twelve financial institutions in its mapping of tokenisation, while Norway is the only Nordic country without banks in the euro-stablecoin group Qivalis."
+   },
+   "titles": {
+    "en": "Norges Bank explores tokenisation with twelve players"
+   },
+   "topics": [
+    "tokenisation",
+    "banking"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "NO"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "23342b8b1a2d",
+   "url": "https://www.kaupr.io/nyheter/dansk-skatteminister-moter-kryptobransjen-pa-christiansborg",
+   "canonical_url": "https://kaupr.io/nyheter/dansk-skatteminister-moter-kryptobransjen-pa-christiansborg",
+   "title": "Dansk skatteminister møter kryptobransjen på Christiansborg",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "published_at": "2026-09-13T12:00:00+00:00",
+   "first_published_on_site": "2026-10-03T18:28:21+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "Denmark's tax minister met the crypto industry at Christiansborg on 17 September to discuss crypto taxation."
+   },
+   "titles": {
+    "en": "Danish tax minister meets the crypto industry at Christiansborg"
+   },
+   "topics": [
+    "tax",
+    "policy",
+    "events"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "DK"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "30093293e03f",
+   "url": "https://ekstrabladet.dk/penge/danskere-svindlet-for-89-millioner-kroner-paa-seks-maaneder/11297364",
+   "canonical_url": "https://ekstrabladet.dk/penge/danskere-svindlet-for-89-millioner-kroner-paa-seks-maaneder/11297364",
+   "title": "Danskere svindlet for 89 millioner kroner på seks måneder",
+   "source": "ekstrabladet.dk",
+   "source_name": "Ekstra Bladet",
+   "published_at": "2026-09-22T02:58:00+00:00",
+   "first_published_on_site": "2026-10-03T18:28:21+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "Danes lost DKK 89 million to investment fraud in the first half of 2026, across 1,145 registered cases, and crypto played a part in 70.6 percent of them."
+   },
+   "titles": {
+    "en": "Danes defrauded of DKK 89 million in six months"
+   },
+   "topics": [
+    "crime",
+    "consumer protection"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "DK"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "55643fb5a215",
+   "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Sporsmal/Skriftlige-sporsmal-og-svar/Skriftlig-sporsmal/?qnid=127181",
+   "canonical_url": "https://stortinget.no/no/Saker-og-publikasjoner/Sporsmal/Skriftlige-sporsmal-og-svar/Skriftlig-sporsmal?qnid=127181",
+   "title": "Regjeringen utreder midlertidig forbud mot nye kryptodatasentre (skriftlig spørsmål 15:3707)",
+   "source": "stortinget",
+   "source_name": "Stortinget",
+   "published_at": "2026-09-18T12:00:00+00:00",
+   "first_published_on_site": "2026-10-03T18:28:21+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "A written question in the Storting asks when the government will present its planned state planning provision to limit crypto mining, and why it has concluded the EEA Agreement rules out a general mining ban."
+   },
+   "titles": {
+    "en": "Government studying a temporary ban on new crypto data centres (written question 15:3707)"
+   },
+   "topics": [
+    "mining",
+    "policy"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "NO"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "6753e8903e88",
+   "url": "https://www.berlingske.dk/aktier/minister-i-nyt-skatteopgoer-vil-goere-op-med-junglen-af-urimelige-og-uforstaaelige-regler",
+   "canonical_url": "https://berlingske.dk/aktier/minister-i-nyt-skatteopgoer-vil-goere-op-med-junglen-af-urimelige-og-uforstaaelige-regler",
+   "title": "Minister i nyt skatteopgør: Vil gøre op med »junglen af urimelige og uforståelige regler«",
+   "source": "berlingske.dk",
+   "source_name": "Berlingske",
+   "published_at": "2026-09-22T06:04:00+00:00",
+   "first_published_on_site": "2026-10-03T18:28:21+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "A review of almost 1,000 Danish crypto tax cases found errors in 23, including one person who overpaid more than DKK 1 million, prompting tax minister Jakob Engel-Schmidt to promise simpler rules."
+   },
+   "titles": {
+    "en": "Minister in new tax showdown: wants to clear the 'jungle of unreasonable and incomprehensible rules'"
+   },
+   "topics": [
+    "tax",
+    "policy"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "DK"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "6e2887720a32",
+   "url": "https://www.shifter.no/nyheter/firi-lanserer-i-sverige-etter-permitteringer-og-milliontap/475990",
+   "canonical_url": "https://shifter.no/nyheter/firi-lanserer-i-sverige-etter-permitteringer-og-milliontap/475990",
+   "title": "Firi lanserer i Sverige – etter permitteringer og milliontap",
+   "source": "shifter",
+   "source_name": "Shifter",
+   "published_at": "2026-09-15T12:00:00+00:00",
+   "first_published_on_site": "2026-10-03T18:28:21+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "Crypto exchange Firi lost NOK 43.6 million in the first half of 2026 after weaker trading and high MiCA costs, and has made layoffs while launching in Sweden."
+   },
+   "titles": {
+    "en": "Firi launches in Sweden after layoffs and losses"
+   },
+   "topics": [
+    "business",
+    "mica"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "NO"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "a0c89b973576",
+   "url": "https://www.kaupr.io/nyheter/danske-bank-ingen-bank-kan-bygge-euro-stablecoin-alene",
+   "canonical_url": "https://kaupr.io/nyheter/danske-bank-ingen-bank-kan-bygge-euro-stablecoin-alene",
+   "title": "Danske Bank: Ingen bank kan bygge euro-stablecoin alene",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "published_at": "2026-09-22T12:00:00+00:00",
+   "first_published_on_site": "2026-10-03T18:28:21+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "Danske Bank says no single bank can build a euro stablecoin on its own and that European banks should build a dollar alternative together through Qivalis."
+   },
+   "titles": {
+    "en": "Danske Bank: no bank can build a euro stablecoin alone"
+   },
+   "topics": [
+    "stablecoins",
+    "banking"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "DK"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "b0202ea8241d",
+   "url": "https://www.oa.no/skal-ha-stalet-fra-egen-bedrift-brukte-pengene-pa-krypto/s/80-35-26289",
+   "canonical_url": "https://oa.no/skal-ha-stalet-fra-egen-bedrift-brukte-pengene-pa-krypto/s/80-35-26289",
+   "title": "Skal ha stjålet fra egen bedrift – brukte pengene på krypto",
+   "source": "oa",
+   "source_name": "Oppland Arbeiderblad",
+   "published_at": "2026-09-23T16:08:00+00:00",
+   "first_published_on_site": "2026-10-03T18:28:21+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "A Norwegian man has been charged with gross embezzlement from his own company and is said to have spent the money on crypto."
+   },
+   "titles": {
+    "en": "Allegedly stole from his own company and spent the money on crypto"
+   },
+   "topics": [
+    "crime"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "NO"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "dbcac6be2b75",
+   "url": "https://www.nettavisen.no/krypto/etterforskning/hordaland-tingrett/fant-hemmelig-passord-laste-opp-krypto-lommeboken/s/80-95-105422",
+   "canonical_url": "https://nettavisen.no/krypto/etterforskning/hordaland-tingrett/fant-hemmelig-passord-laste-opp-krypto-lommeboken/s/80-95-105422",
+   "title": "Fant hemmelig passord: Låste opp krypto-lommeboken",
+   "source": "nettavisen",
+   "source_name": "Nettavisen",
+   "published_at": "2026-09-25T19:16:00+00:00",
+   "first_published_on_site": "2026-10-03T18:28:21+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "Police have unlocked the crypto wallet of an NHH student charged in a drug case, uncovering assets worth several hundred thousand kroner."
+   },
+   "titles": {
+    "en": "Found secret password: unlocked the crypto wallet"
+   },
+   "topics": [
+    "crime"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "NO"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "e1e3eef6ecff",
+   "url": "https://www.inderes.se/en/releases/nbx-nbx-registered-as-moneygram-agent",
+   "canonical_url": "https://inderes.se/en/releases/nbx-nbx-registered-as-moneygram-agent",
+   "title": "NBX registrert som MoneyGram-agent (børsmelding, engelsk)",
+   "source": "nbx-ir",
+   "source_name": "NBX (børsmelding)",
+   "published_at": "2026-09-17T12:00:00+00:00",
+   "first_published_on_site": "2026-10-03T18:28:21+02:00",
+   "last_seen_on_site": "2026-10-03T23:34:24+02:00",
+   "languages": [
+    "en"
+   ],
+   "summaries": {
+    "en": "Norwegian Block Exchange (NBX), listed on Euronext Growth Oslo, has been registered as an agent for MoneyGram International."
+   },
+   "titles": {
+    "en": "NBX registered as a MoneyGram agent (stock exchange release)"
+   },
+   "topics": [
+    "business",
+    "payments"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-03T23:34:24+02:00",
+   "country": "NO"
+  }
+ ],
+ "events": [
+  {
+   "seq": 1,
+   "site": "nordic-crypto",
+   "id": "e6727b4858b5",
+   "at": "2026-10-03T17:59:40+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 2,
+   "site": "nordic-crypto",
+   "id": "2d38c9c89e0e",
+   "at": "2026-10-03T17:59:40+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 3,
+   "site": "nordic-crypto",
+   "id": "7b2030aea964",
+   "at": "2026-10-03T17:59:40+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 4,
+   "site": "nordic-crypto",
+   "id": "8c0dda24b0ef",
+   "at": "2026-10-03T17:59:40+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 5,
+   "site": "nordic-crypto",
+   "id": "b3fdbc8f5eec",
+   "at": "2026-10-03T17:59:40+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 6,
+   "site": "nordic-crypto",
+   "id": "f616814dc40c",
+   "at": "2026-10-03T17:59:40+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 7,
+   "site": "nordic-crypto",
+   "id": "8ae149a20f5f",
+   "at": "2026-10-03T17:59:40+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 8,
+   "site": "nordic-crypto",
+   "id": "c81be998e21c",
+   "at": "2026-10-03T17:59:40+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 9,
+   "site": "nordic-crypto",
+   "id": "12425cc1e7ff",
+   "at": "2026-10-03T17:59:40+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 10,
+   "site": "nordic-crypto",
+   "id": "07e49032be5a",
+   "at": "2026-10-03T17:59:40+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 11,
+   "site": "nordic-crypto",
+   "id": "7996dadb43e7",
+   "at": "2026-10-03T17:59:40+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 12,
+   "site": "nordic-crypto",
+   "id": "5682c6aa22dd",
+   "at": "2026-10-03T17:59:40+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 13,
+   "site": "nordic-crypto",
+   "id": "f2ad120d7189",
+   "at": "2026-10-03T17:59:40+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 14,
+   "site": "nordic-crypto",
+   "id": "831bb86ab20c",
+   "at": "2026-10-03T17:59:40+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 15,
+   "site": "nordic-crypto",
+   "id": "c1431df81160",
+   "at": "2026-10-03T17:59:40+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 16,
+   "site": "nordic-crypto",
+   "id": "a384452ed1b6",
+   "at": "2026-10-03T17:59:40+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 17,
+   "site": "nordic-crypto",
+   "id": "b46e8d2a4dad",
+   "at": "2026-10-03T17:59:40+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 18,
+   "site": "nordic-crypto",
+   "id": "5f757489d23c",
+   "at": "2026-10-03T17:59:40+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 19,
+   "site": "nordic-crypto",
+   "id": "4d918e6a3378",
+   "at": "2026-10-03T17:59:40+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 20,
+   "site": "nordic-crypto",
+   "id": "4fec239ddb97",
+   "at": "2026-10-03T17:59:40+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 21,
+   "site": "nordic-crypto",
+   "id": "82697418efbc",
+   "at": "2026-10-03T17:59:40+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 22,
+   "site": "nordic-crypto",
+   "id": "9750ec7bf5d8",
+   "at": "2026-10-03T17:59:40+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 23,
+   "site": "nordic-crypto",
+   "id": "e0cc8b0df8e7",
+   "at": "2026-10-03T17:59:40+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 24,
+   "site": "nordic-crypto",
+   "id": "a1d43879dcb4",
+   "at": "2026-10-03T17:59:40+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 25,
+   "site": "nordic-crypto",
+   "id": "eb685890cbc3",
+   "at": "2026-10-03T17:59:40+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 26,
+   "site": "nordic-crypto",
+   "id": "a2a605592458",
+   "at": "2026-10-03T17:59:40+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 27,
+   "site": "nordic-crypto",
+   "id": "08a682f7d85d",
+   "at": "2026-10-03T17:59:40+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 28,
+   "site": "nordic-crypto",
+   "id": "6a94ab65ebff",
+   "at": "2026-10-03T17:59:40+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 29,
+   "site": "nordic-crypto",
+   "id": "f6301aef3314",
+   "at": "2026-10-03T17:59:40+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 30,
+   "site": "nordic-crypto",
+   "id": "1a95167a3af8",
+   "at": "2026-10-03T18:28:21+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 31,
+   "site": "nordic-crypto",
+   "id": "dbcac6be2b75",
+   "at": "2026-10-03T18:28:21+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 32,
+   "site": "nordic-crypto",
+   "id": "b0202ea8241d",
+   "at": "2026-10-03T18:28:21+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 33,
+   "site": "nordic-crypto",
+   "id": "a0c89b973576",
+   "at": "2026-10-03T18:28:21+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 34,
+   "site": "nordic-crypto",
+   "id": "6753e8903e88",
+   "at": "2026-10-03T18:28:21+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 35,
+   "site": "nordic-crypto",
+   "id": "30093293e03f",
+   "at": "2026-10-03T18:28:21+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 36,
+   "site": "nordic-crypto",
+   "id": "188b5b8ed9fb",
+   "at": "2026-10-03T18:28:21+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 37,
+   "site": "nordic-crypto",
+   "id": "55643fb5a215",
+   "at": "2026-10-03T18:28:21+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 38,
+   "site": "nordic-crypto",
+   "id": "1abbecf31dff",
+   "at": "2026-10-03T18:28:21+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 39,
+   "site": "nordic-crypto",
+   "id": "e1e3eef6ecff",
+   "at": "2026-10-03T18:28:21+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 40,
+   "site": "nordic-crypto",
+   "id": "6e2887720a32",
+   "at": "2026-10-03T18:28:21+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 41,
+   "site": "nordic-crypto",
+   "id": "23342b8b1a2d",
+   "at": "2026-10-03T18:28:21+02:00",
+   "event": "backfill",
+   "detail": null
+  },
+  {
+   "seq": 42,
+   "site": "nordic-crypto",
+   "id": "2034a42ac260",
+   "at": "2026-10-03T18:28:21+02:00",
+   "event": "backfill",
+   "detail": null
+  }
+ ]
+}

@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # Nightly fetch for Nordic Crypto (routine). Fetches new stories/events into the editor queue and builds a LOCAL preview.
 # Publishes nothing. Log: logs/nightly-YYYYMMDD.txt. Exit code != 0 if the fetch or the privacy gate fails.
+# Editor workflow after this run: English summary first, then summary_i18n (nn, nb, sv, da, fi, is) + summary_i18n_source in
+# queue/approved.json; new org rows/people/logos/photos/profiles are "review: pending" until listed in org.approve (see README).
 set -euo pipefail
 cd "$(dirname "$0")/.."
 log="logs/nightly-$(date +%Y%m%d).txt"; mkdir -p logs

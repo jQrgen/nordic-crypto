@@ -4,6 +4,9 @@ Only what is approved here is published. Org-chart approvals (approved.json -> o
 events by build.py (events.*), academia by tools/import_academia.py (status column of the researcher's list).
 
 queue/approved.json -> items: [{"url": ..., "summary": "1–2 sentences IN ENGLISH, own words", "title_en": optional English headline,
+                                "summary_i18n": {"nn": ..., "nb": ..., "sv": ..., "da": ..., "fi": ..., "is": ...} (our own summary per site language),
+                                "summary_i18n_source": "<the English summary the translations were made from>",
+                                "summary_i18n_review": "pending" | "approved" (pending translations appear only in the preview build),
                                 "topics": [optional], "approved_by": "Nordic Crypto editor", "approved_at": "YYYY-MM-DD"}]
                        rejected: [{"url": ... | "title_contains": ..., "reason": ...}]   # kept out even when a feed finds them again"""
 import json, os, sys, urllib.parse
@@ -29,6 +32,11 @@ for a in ap.get("items", []):
     it.update(status="published", summary=s, approved_by=a.get("approved_by", "Nordic Crypto editor"), approved_at=a.get("approved_at"))
     for k in ("topics", "title_en", "source_name", "links", "country"):
         if a.get(k): it[k] = a[k]
+    # translations only count while they were made from the current English summary (summary_i18n_source); otherwise the
+    # other languages fall back to the English summary until the editor re-translates
+    # summary_i18n_review: "pending" (AI-assisted draft) or "approved" (editor checked); build.py shows pending ones only in --preview
+    if a.get("summary_i18n") and a.get("summary_i18n_source", s) == s: it.update(summary_i18n=a["summary_i18n"], summary_i18n_review=a.get("summary_i18n_review", "approved"))
+    else: it.pop("summary_i18n", None); it.pop("summary_i18n_review", None)
     n_pub += 1
 for r in ap.get("rejected", []):
     for it in news["items"]:

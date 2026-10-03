@@ -1,42 +1,330 @@
 {
- "_how_to": "Site changes only (new pages, sections, features), not daily news. Newest first on the page. date: YYYY-MM-DD, or \"launch\" = launch_date. launch_date stays null until jQrgen approves publishing; publish.sh --yes sets it on the first publish. While null, entries show as 'Preview – not launched yet'.",
+ "_how_to": "Site changes only (new pages, sections, features), not daily news. Newest first on the page. date: YYYY-MM-DD, or \"launch\" = launch_date. launch_date stays null until jQrgen approves publishing; publish.sh --yes sets it on the first publish. While null, entries show as 'Preview – not launched yet'. Translations: entries[].i18n {lang: {title, description}} for nn, nb, sv, da, fi, is. \"review\": \"pending\" (with date null) keeps an entry out of the public build until approved; set a date and remove \"review\" when it goes live.",
  "launch_date": "2026-10-03",
  "entries": [
+  {
+   "id": "languages",
+   "date": null,
+   "review": "pending",
+   "title": "Nordic Crypto in seven languages",
+   "description": "The site is now available in English, Norwegian (nynorsk and bokmål), Swedish, Danish, Finnish and Icelandic, with a language menu in the header. On your first visit to the English front page the site picks a language from the country code our own Cloudflare Worker sees (nothing is stored) or from your browser settings; a choice in the menu is saved in one cookie. Headlines and quotes stay in the original language; our own summaries are translated.",
+   "i18n": {
+    "nb": {
+     "title": "Nordic Crypto på sju språk",
+     "description": "Nettstedet finnes nå på engelsk, norsk (nynorsk og bokmål), svensk, dansk, finsk og islandsk, med språkmeny øverst. Første gang du åpner den engelske forsiden, velger nettstedet språk ut fra landkoden vår egen Cloudflare Worker ser (ingenting lagres) eller nettleserinnstillingene dine; et valg i menyen lagres i én informasjonskapsel. Overskrifter og sitater står på originalspråket; våre egne sammendrag er oversatt."
+    },
+    "nn": {
+     "title": "Nordic Crypto på sju språk",
+     "description": "Nettstaden finst no på engelsk, norsk (nynorsk og bokmål), svensk, dansk, finsk og islandsk, med språkmeny øvst. Første gongen du opnar den engelske framsida, vel nettstaden språk ut frå landkoden vår eigen Cloudflare Worker ser (ingenting blir lagra) eller nettlesarinnstillingane dine; eit val i menyen blir lagra i éin informasjonskapsel. Overskrifter og sitat står på originalspråket; våre eigne samandrag er omsette."
+    },
+    "sv": {
+     "title": "Nordic Crypto på sju språk",
+     "description": "Webbplatsen finns nu på engelska, norska (nynorska och bokmål), svenska, danska, finska och isländska, med en språkmeny högst upp. Första gången du öppnar den engelska startsidan väljer webbplatsen språk utifrån landskoden som vår egen Cloudflare Worker ser (ingenting sparas) eller utifrån dina webbläsarinställningar; ett val i menyn sparas i en kaka. Rubriker och citat står kvar på originalspråket; våra egna sammanfattningar är översatta."
+    },
+    "da": {
+     "title": "Nordic Crypto på syv sprog",
+     "description": "Sitet findes nu på engelsk, norsk (nynorsk og bokmål), svensk, dansk, finsk og islandsk med en sprogmenu øverst. Første gang du åbner den engelske forside, vælger sitet sprog ud fra den landekode, vores egen Cloudflare Worker ser (intet gemmes), eller ud fra dine browserindstillinger; et valg i menuen gemmes i én cookie. Overskrifter og citater står på originalsproget; vores egne resuméer er oversat."
+    },
+    "fi": {
+     "title": "Nordic Crypto seitsemällä kielellä",
+     "description": "Sivusto on nyt saatavilla englanniksi, norjaksi (nynorsk ja bokmål), ruotsiksi, tanskaksi, suomeksi ja islanniksi, ja ylätunnisteessa on kielivalikko. Kun avaat englanninkielisen etusivun ensimmäistä kertaa, sivusto valitsee kielen oman Cloudflare Worker -palvelumme näkemän maatunnuksen (mitään ei tallenneta) tai selaimesi asetusten perusteella; valikosta tehty valinta tallennetaan yhteen evästeeseen. Otsikot ja lainaukset pysyvät alkuperäiskielellä; omat tiivistelmämme on käännetty."
+    },
+    "is": {
+     "title": "Nordic Crypto á sjö tungumálum",
+     "description": "Síðan er nú til á ensku, norsku (nýnorsku og bókmáli), sænsku, dönsku, finnsku og íslensku, með tungumálavalmynd efst. Þegar þú opnar ensku forsíðuna í fyrsta sinn velur síðan tungumál út frá landskóðanum sem okkar eigin Cloudflare Worker sér (ekkert er vistað) eða út frá stillingum vafrans; val í valmyndinni er vistað í einni vafraköku. Fyrirsagnir og tilvitnanir haldast á frummálinu; eigin samantektir okkar eru þýddar."
+    }
+   }
+  },
+  {
+   "id": "industry-map",
+   "date": null,
+   "review": "pending",
+   "title": "Industry map and logos",
+   "description": "Below the who's who there is now an industry map: organisations grouped by category or by country, with logos from the organisations' own websites, press kits or Wikimedia Commons, shown only for identification. Click a tile to open the entry. A new category lists international players that have a licence, an office or a local organisation in the Nordics.",
+   "i18n": {
+    "nb": {
+     "title": "Bransjekart og logoer",
+     "description": "Under hvem er hvem finnes nå et bransjekart: organisasjoner gruppert etter kategori eller land, med logoer fra organisasjonenes egne nettsider, pressesider eller Wikimedia Commons, vist bare for å identifisere dem. Klikk på en rute for å åpne oppføringen. En ny kategori viser internasjonale aktører som har tillatelse, kontor eller lokal organisasjon i Norden."
+    },
+    "nn": {
+     "title": "Bransjekart og logoar",
+     "description": "Under kven er kven finst no eit bransjekart: organisasjonar grupperte etter kategori eller land, med logoar frå organisasjonane sine eigne nettsider, pressesider eller Wikimedia Commons, viste berre for å identifisere dei. Klikk på ei rute for å opne oppføringa. Ein ny kategori viser internasjonale aktørar som har løyve, kontor eller lokal organisasjon i Norden."
+    },
+    "sv": {
+     "title": "Branschkarta och logotyper",
+     "description": "Under vem är vem finns nu en branschkarta: organisationer grupperade efter kategori eller land, med logotyper från organisationernas egna webbplatser, pressidor eller Wikimedia Commons, som bara visas för att identifiera dem. Klicka på en ruta för att öppna posten. En ny kategori visar internationella aktörer som har tillstånd, kontor eller lokal organisation i Norden."
+    },
+    "da": {
+     "title": "Branchekort og logoer",
+     "description": "Under hvem er hvem findes nu et branchekort: organisationer grupperet efter kategori eller land, med logoer fra organisationernes egne hjemmesider, pressesider eller Wikimedia Commons, som kun vises for at identificere dem. Klik på en flise for at åbne opslaget. En ny kategori viser internationale aktører, der har tilladelse, kontor eller lokal organisation i Norden."
+    },
+    "fi": {
+     "title": "Toimialakartta ja logot",
+     "description": "Toimijahakemiston alla on nyt toimialakartta: organisaatiot luokittain tai maittain ryhmiteltyinä, logot organisaatioiden omilta verkkosivuilta, lehdistösivuilta tai Wikimedia Commonsista, ja niitä näytetään vain tunnistamista varten. Napsauta ruutua avataksesi merkinnän. Uudessa luokassa ovat kansainväliset toimijat, joilla on toimilupa, toimisto tai paikallinen organisaatio Pohjoismaissa."
+    },
+    "is": {
+     "title": "Yfirlitskort og merki",
+     "description": "Fyrir neðan hver er hvað er nú yfirlitskort yfir greinina: stofnanir flokkaðar eftir flokki eða landi, með merkjum af eigin vefsíðum stofnananna, fjölmiðlasíðum eða Wikimedia Commons, sem aðeins eru sýnd til auðkenningar. Smelltu á reit til að opna færsluna. Nýr flokkur sýnir alþjóðlega aðila sem hafa leyfi, skrifstofu eða staðbundna starfsemi á Norðurlöndunum."
+    }
+   }
+  },
+  {
+   "id": "people-profiles",
+   "date": null,
+   "review": "pending",
+   "title": "More people, photos and profile links",
+   "description": "Who's who entries can now show more people (management and board, from business registers and the organisations' own websites), more freely licensed photos with credit, and links to public professional profiles that the person has published themselves. New entries appear after editor review.",
+   "i18n": {
+    "nb": {
+     "title": "Flere personer, bilder og profillenker",
+     "description": "Oppføringer i hvem er hvem kan nå vise flere personer (ledelse og styre, fra registre og organisasjonenes egne nettsider), flere fritt lisensierte bilder med kreditering og lenker til offentlige yrkesprofiler personen selv har publisert. Nye oppføringer vises etter redaktørens gjennomgang."
+    },
+    "nn": {
+     "title": "Fleire personar, bilete og profillenkjer",
+     "description": "Oppføringar i kven er kven kan no vise fleire personar (leiing og styre, frå register og organisasjonane sine eigne nettsider), fleire fritt lisensierte bilete med kreditering og lenkjer til offentlege yrkesprofilar personen sjølv har publisert. Nye oppføringar blir viste etter gjennomgang frå redaktøren."
+    },
+    "sv": {
+     "title": "Fler personer, bilder och profillänkar",
+     "description": "Posterna i vem är vem kan nu visa fler personer (ledning och styrelse, från register och organisationernas egna webbplatser), fler fritt licensierade bilder med fotograf angiven och länkar till offentliga yrkesprofiler som personen själv har publicerat. Nya poster visas efter redaktörens granskning."
+    },
+    "da": {
+     "title": "Flere personer, billeder og profillinks",
+     "description": "Opslag i hvem er hvem kan nu vise flere personer (ledelse og bestyrelse, fra registre og organisationernes egne hjemmesider), flere frit licenserede billeder med kreditering og links til offentlige erhvervsprofiler, som personen selv har offentliggjort. Nye opslag vises efter redaktørens gennemgang."
+    },
+    "fi": {
+     "title": "Lisää henkilöitä, kuvia ja profiililinkkejä",
+     "description": "Toimijahakemiston merkinnöissä voi nyt näkyä enemmän henkilöitä (johto ja hallitus rekistereistä ja organisaatioiden omilta sivuilta), lisää vapaasti lisensoituja kuvia kuvaajan nimellä sekä linkkejä julkisiin ammatillisiin profiileihin, jotka henkilö on itse julkaissut. Uudet merkinnät näkyvät toimittajan tarkistuksen jälkeen."
+    },
+    "is": {
+     "title": "Fleira fólk, myndir og prófíltenglar",
+     "description": "Færslur í hver er hvað geta nú sýnt fleira fólk (stjórnendur og stjórn, úr skrám og af eigin vefsíðum stofnananna), fleiri myndir með frjálsu leyfi og nafni ljósmyndara, og tengla á opinbera starfsprófíla sem viðkomandi hefur sjálfur birt. Nýjar færslur birtast eftir yfirferð ritstjóra."
+    }
+   }
+  },
+  {
+   "id": "rules-page",
+   "date": null,
+   "review": "pending",
+   "title": "How the rules are made",
+   "description": "A new page shows how EU crypto rules (MiCA, the transfer of funds regulation, AMLR and DORA) become national law in the five Nordic countries, and who supervises and enforces them, with a source for every step. The animated diagram respects reduced-motion settings and the page has a full text version.",
+   "i18n": {
+    "nb": {
+     "title": "Slik blir reglene til",
+     "description": "En ny side viser hvordan EUs kryptoregler (MiCA, forordningen om pengeoverføringer, AMLR og DORA) blir nasjonal lov i de fem nordiske landene, og hvem som fører tilsyn og håndhever dem, med kilde for hvert steg. Det animerte diagrammet tar hensyn til innstillingen for redusert bevegelse, og siden har en full tekstversjon."
+    },
+    "nn": {
+     "title": "Slik blir reglane til",
+     "description": "Ei ny side viser korleis kryptoreglane til EU (MiCA, forordninga om pengeoverføringar, AMLR og DORA) blir nasjonal lov i dei fem nordiske landa, og kven som fører tilsyn og handhevar dei, med kjelde for kvart steg. Det animerte diagrammet tek omsyn til innstillinga for redusert rørsle, og sida har ein full tekstversjon."
+    },
+    "sv": {
+     "title": "Så blir reglerna till",
+     "description": "En ny sida visar hur EU:s kryptoregler (MiCA, förordningen om överföringar av medel, AMLR och DORA) blir nationell lag i de fem nordiska länderna och vem som utövar tillsyn och upprätthåller dem, med källa för varje steg. Det animerade diagrammet respekterar inställningen för minskad rörelse och sidan har en fullständig textversion."
+    },
+    "da": {
+     "title": "Sådan bliver reglerne til",
+     "description": "En ny side viser, hvordan EU's kryptoregler (MiCA, forordningen om pengeoverførsler, AMLR og DORA) bliver national lov i de fem nordiske lande, og hvem der fører tilsyn med og håndhæver dem, med kilde til hvert trin. Det animerede diagram respekterer indstillingen for reduceret bevægelse, og siden har en fuld tekstversion."
+    },
+    "fi": {
+     "title": "Näin säännöt syntyvät",
+     "description": "Uusi sivu näyttää, miten EU:n kryptosäännöistä (MiCA, varainsiirtoasetus, AMLR ja DORA) tulee kansallista lainsäädäntöä viidessä Pohjoismaassa ja kuka niitä valvoo ja panee täytäntöön, ja jokaiselle vaiheelle on lähde. Animoitu kaavio noudattaa vähennetyn liikkeen asetusta, ja sivulla on täydellinen tekstiversio."
+    },
+    "is": {
+     "title": "Svona verða reglurnar til",
+     "description": "Ný síða sýnir hvernig rafmyntareglur ESB (MiCA, reglugerðin um millifærslur fjármuna, AMLR og DORA) verða að landslögum í norrænu ríkjunum fimm og hver hefur eftirlit með þeim og framfylgir þeim, með heimild fyrir hvert skref. Hreyfimyndin tekur tillit til stillingar um minni hreyfingu og síðan hefur fullan texta."
+    }
+   }
+  },
   {
    "id": "reader-tips",
    "date": "2026-10-03",
    "title": "Send us a tip",
-   "description": "Readers can now tip Nordic Crypto about articles via the new Send a tip page, which opens a form on GitHub. Tips are public on GitHub, so please don't include personal or sensitive information. Our editor checks every tip against our rules; a tip does not guarantee publication."
+   "description": "Readers can now tip Nordic Crypto about articles via the new Send a tip page, which opens a form on GitHub. Tips are public on GitHub, so please don't include personal or sensitive information. Our editor checks every tip against our rules; a tip does not guarantee publication.",
+   "i18n": {
+    "nb": {
+     "title": "Send oss et tips",
+     "description": "Lesere kan nå tipse Nordic Crypto om artikler via den nye siden Send et tips, som åpner et skjema på GitHub. Tips er offentlige på GitHub, så ikke ta med personlige eller sensitive opplysninger. Redaktøren vår vurderer hvert tips etter reglene våre; et tips er ingen garanti for publisering."
+    },
+    "nn": {
+     "title": "Send oss eit tips",
+     "description": "Lesarar kan no tipse Nordic Crypto om artiklar via den nye sida Send eit tips, som opnar eit skjema på GitHub. Tips er offentlege på GitHub, så ikkje ta med personlege eller sensitive opplysningar. Redaktøren vår vurderer kvart tips etter reglane våre; eit tips er inga garanti for publisering."
+    },
+    "sv": {
+     "title": "Skicka ett tips",
+     "description": "Läsare kan nu tipsa Nordic Crypto om artiklar via den nya sidan Skicka ett tips, som öppnar ett formulär på GitHub. Tipsen är offentliga på GitHub, så ta inte med personliga eller känsliga uppgifter. Vår redaktör bedömer varje tips enligt våra regler; ett tips är ingen garanti för publicering."
+    },
+    "da": {
+     "title": "Send os et tip",
+     "description": "Læsere kan nu tippe Nordic Crypto om artikler via den nye side Send et tip, som åbner en formular på GitHub. Tips er offentlige på GitHub, så medtag ikke personlige eller følsomme oplysninger. Vores redaktør vurderer hvert tip efter vores regler; et tip er ingen garanti for udgivelse."
+    },
+    "fi": {
+     "title": "Lähetä vinkki",
+     "description": "Lukijat voivat nyt vinkata Nordic Cryptolle artikkeleista uudella Lähetä vinkki -sivulla, joka avaa lomakkeen GitHubissa. Vinkit ovat julkisia GitHubissa, joten älä kirjoita niihin henkilökohtaisia tai arkaluonteisia tietoja. Toimittajamme arvioi jokaisen vinkin sääntöjemme mukaan; vinkki ei takaa julkaisua."
+    },
+    "is": {
+     "title": "Sendu okkur ábendingu",
+     "description": "Lesendur geta nú sent Nordic Crypto ábendingar um greinar á nýju síðunni Senda ábendingu, sem opnar form á GitHub. Ábendingar eru opinberar á GitHub, svo ekki setja inn persónulegar eða viðkvæmar upplýsingar. Ritstjóri okkar metur hverja ábendingu samkvæmt reglum okkar; ábending tryggir ekki birtingu."
+    }
+   }
   },
   {
    "id": "past-events",
    "date": "2026-10-03",
    "title": "Past events archive",
-   "description": "Finished events are no longer removed from the calendar. Once an event has ended (Oslo time) it moves automatically to a new Past events section at the bottom of the calendar, newest first. The office screen shows only upcoming events."
+   "description": "Finished events are no longer removed from the calendar. Once an event has ended (Oslo time) it moves automatically to a new Past events section at the bottom of the calendar, newest first. The office screen shows only upcoming events.",
+   "i18n": {
+    "nb": {
+     "title": "Arkiv over tidligere arrangementer",
+     "description": "Arrangementer som er over, fjernes ikke lenger fra kalenderen. Når et arrangement er ferdig (Oslo-tid), flyttes det automatisk til den nye delen Tidligere arrangementer nederst i kalenderen, nyeste først. Kontorskjermen viser bare kommende arrangementer."
+    },
+    "nn": {
+     "title": "Arkiv over tidlegare arrangement",
+     "description": "Arrangement som er over, blir ikkje lenger fjerna frå kalenderen. Når eit arrangement er ferdig (Oslo-tid), blir det automatisk flytta til den nye delen Tidlegare arrangement nedst i kalenderen, nyaste først. Kontorskjermen viser berre komande arrangement."
+    },
+    "sv": {
+     "title": "Arkiv över tidigare evenemang",
+     "description": "Evenemang som är över tas inte längre bort från kalendern. När ett evenemang har avslutats (Oslotid) flyttas det automatiskt till den nya delen Tidigare evenemang längst ned i kalendern, nyaste först. Kontorsskärmen visar bara kommande evenemang."
+    },
+    "da": {
+     "title": "Arkiv over tidligere arrangementer",
+     "description": "Afsluttede arrangementer fjernes ikke længere fra kalenderen. Når et arrangement er slut (Oslo-tid), flyttes det automatisk til den nye sektion Tidligere arrangementer nederst i kalenderen, nyeste først. Kontorskærmen viser kun kommende arrangementer."
+    },
+    "fi": {
+     "title": "Menneiden tapahtumien arkisto",
+     "description": "Päättyneitä tapahtumia ei enää poisteta kalenterista. Kun tapahtuma on päättynyt (Oslon aikaa), se siirtyy automaattisesti kalenterin alaosan uuteen Menneet tapahtumat -osioon uusin ensin. Toimiston näyttö näyttää vain tulevat tapahtumat."
+    },
+    "is": {
+     "title": "Safn liðinna viðburða",
+     "description": "Viðburðir sem er lokið eru ekki lengur fjarlægðir úr dagatalinu. Þegar viðburði lýkur (Óslóartími) færist hann sjálfkrafa í nýjan hluta, Liðnir viðburðir, neðst í dagatalinu, nýjustu fyrst. Skrifstofuskjárinn sýnir aðeins væntanlega viðburði."
+    }
+   }
   },
   {
    "id": "denmark-added",
    "date": "2026-10-03",
    "title": "Denmark added",
-   "description": "Nordic Crypto now covers Norway, Sweden, Denmark, Finland and Iceland. Denmark has a country filter on the news, calendar, who's who and academia pages, and we now follow Danish newspapers, broadcasters, tech media, Danmarks Nationalbank, Kaupr's Denmark page and a news search on Danish sites. Danish stories, events and who's who entries appear once our editor has reviewed them."
+   "description": "Nordic Crypto now covers Norway, Sweden, Denmark, Finland and Iceland. Denmark has a country filter on the news, calendar, who's who and academia pages, and we now follow Danish newspapers, broadcasters, tech media, Danmarks Nationalbank, Kaupr's Denmark page and a news search on Danish sites. Danish stories, events and who's who entries appear once our editor has reviewed them.",
+   "i18n": {
+    "nb": {
+     "title": "Danmark lagt til",
+     "description": "Nordic Crypto dekker nå Norge, Sverige, Danmark, Finland og Island. Danmark har eget landfilter på nyhets-, kalender-, hvem er hvem- og forskningssidene, og vi følger nå danske aviser, kringkastere, teknologimedier, Danmarks Nationalbank, Kauprs Danmark-side og et nyhetssøk på danske nettsteder. Danske saker, arrangementer og oppføringer vises når redaktøren har gått gjennom dem."
+    },
+    "nn": {
+     "title": "Danmark lagt til",
+     "description": "Nordic Crypto dekkjer no Noreg, Sverige, Danmark, Finland og Island. Danmark har eige landfilter på nyheits-, kalender-, kven er kven- og forskingssidene, og vi følgjer no danske aviser, kringkastarar, teknologimedium, Danmarks Nationalbank, Danmark-sida til Kaupr og eit nyheitssøk på danske nettstader. Danske saker, arrangement og oppføringar blir viste når redaktøren har gått gjennom dei."
+    },
+    "sv": {
+     "title": "Danmark tillagt",
+     "description": "Nordic Crypto bevakar nu Norge, Sverige, Danmark, Finland och Island. Danmark har ett eget landfilter på nyhets-, kalender-, vem är vem- och forskningssidorna, och vi följer nu danska tidningar, public service-bolag, teknikmedier, Danmarks Nationalbank, Kauprs Danmarkssida och en nyhetssökning på danska webbplatser. Danska nyheter, evenemang och poster visas när redaktören har granskat dem."
+    },
+    "da": {
+     "title": "Danmark tilføjet",
+     "description": "Nordic Crypto dækker nu Norge, Sverige, Danmark, Finland og Island. Danmark har sit eget landefilter på nyheds-, kalender-, hvem er hvem- og forskningssiderne, og vi følger nu danske aviser, tv- og radiostationer, teknologimedier, Danmarks Nationalbank, Kauprs Danmarksside og en nyhedssøgning på danske websites. Danske historier, arrangementer og opslag vises, når redaktøren har gennemgået dem."
+    },
+    "fi": {
+     "title": "Tanska mukaan",
+     "description": "Nordic Crypto seuraa nyt Norjaa, Ruotsia, Tanskaa, Suomea ja Islantia. Tanskalla on oma maasuodatin uutis-, kalenteri-, toimijahakemisto- ja tutkimussivuilla, ja seuraamme nyt tanskalaisia sanomalehtiä, yleisradioyhtiöitä, teknologiamedioita, Danmarks Nationalbankia, Kauprin Tanska-sivua ja tanskalaisiin sivustoihin rajattua uutishakua. Tanskalaiset jutut, tapahtumat ja merkinnät näkyvät, kun toimittaja on tarkistanut ne."
+    },
+    "is": {
+     "title": "Danmörku bætt við",
+     "description": "Nordic Crypto fjallar nú um Noreg, Svíþjóð, Danmörku, Finnland og Ísland. Danmörk hefur eigin landssíu á frétta-, viðburða-, hver er hvað- og rannsóknasíðunum, og við fylgjumst nú með dönskum dagblöðum, ljósvakamiðlum, tæknimiðlum, Danmarks Nationalbank, Danmerkursíðu Kaupr og fréttaleit á dönskum vefjum. Danskar fréttir, viðburðir og færslur birtast þegar ritstjórinn hefur farið yfir þær."
+    }
+   }
   },
   {
    "id": "remove-faroe-islands",
    "date": "2026-10-03",
    "title": "Coverage narrowed to four countries",
-   "description": "Nordic Crypto now covers Norway, Sweden, Finland and Iceland. The Faroe Islands have been removed from the news sources, country filters, calendar, who's who, Regulation by country section, academia page and office screen."
+   "description": "Nordic Crypto now covers Norway, Sweden, Finland and Iceland. The Faroe Islands have been removed from the news sources, country filters, calendar, who's who, Regulation by country section, academia page and office screen.",
+   "i18n": {
+    "nb": {
+     "title": "Dekningen innsnevret til fire land",
+     "description": "Nordic Crypto dekker nå Norge, Sverige, Finland og Island. Færøyene er fjernet fra nyhetskildene, landfiltrene, kalenderen, hvem er hvem, delen Regulering per land, forskningssiden og kontorskjermen."
+    },
+    "nn": {
+     "title": "Dekninga snevra inn til fire land",
+     "description": "Nordic Crypto dekkjer no Noreg, Sverige, Finland og Island. Færøyane er fjerna frå nyheitskjeldene, landfiltera, kalenderen, kven er kven, delen Regulering per land, forskingssida og kontorskjermen."
+    },
+    "sv": {
+     "title": "Bevakningen begränsad till fyra länder",
+     "description": "Nordic Crypto bevakar nu Norge, Sverige, Finland och Island. Färöarna har tagits bort från nyhetskällorna, landfiltren, kalendern, vem är vem, delen Reglering per land, forskningssidan och kontorsskärmen."
+    },
+    "da": {
+     "title": "Dækningen indsnævret til fire lande",
+     "description": "Nordic Crypto dækker nu Norge, Sverige, Finland og Island. Færøerne er fjernet fra nyhedskilderne, landefiltrene, kalenderen, hvem er hvem, sektionen Regulering pr. land, forskningssiden og kontorskærmen."
+    },
+    "fi": {
+     "title": "Seuranta rajattu neljään maahan",
+     "description": "Nordic Crypto seuraa nyt Norjaa, Ruotsia, Suomea ja Islantia. Färsaaret on poistettu uutislähteistä, maasuodattimista, kalenterista, toimijahakemistosta, Sääntely maittain -osiosta, tutkimussivulta ja toimiston näytöltä."
+    },
+    "is": {
+     "title": "Umfjöllun þrengd í fjögur lönd",
+     "description": "Nordic Crypto fjallar nú um Noreg, Svíþjóð, Finnland og Ísland. Færeyjar hafa verið fjarlægðar úr fréttaheimildum, landssíum, dagatalinu, hver er hvað, hlutanum Regluverk eftir löndum, rannsóknasíðunni og skrifstofuskjánum."
+    }
+   }
   },
   {
    "id": "academia",
    "date": "launch",
    "title": "Academia page",
-   "description": "New Academia page: blockchain and crypto courses and programmes, student associations, publications and research groups at universities in Norway, Sweden, Finland, Iceland and the Faroe Islands. Every row shows its source, the date we checked it and its status; only editor-approved rows are shown."
+   "description": "New Academia page: blockchain and crypto courses and programmes, student associations, publications and research groups at universities in Norway, Sweden, Finland, Iceland and the Faroe Islands. Every row shows its source, the date we checked it and its status; only editor-approved rows are shown.",
+   "i18n": {
+    "nb": {
+     "title": "Side om forskning og utdanning",
+     "description": "Ny side om forskning og utdanning: kurs og studieprogrammer om blokkjede og krypto, studentforeninger, publikasjoner og forskningsgrupper ved universiteter i Norge, Sverige, Finland, Island og på Færøyene. Hver rad viser kilde, datoen vi sjekket den og status; bare rader redaktøren har godkjent, vises."
+    },
+    "nn": {
+     "title": "Side om forsking og utdanning",
+     "description": "Ny side om forsking og utdanning: kurs og studieprogram om blokkjede og krypto, studentforeiningar, publikasjonar og forskingsgrupper ved universitet i Noreg, Sverige, Finland, Island og på Færøyane. Kvar rad viser kjelde, datoen vi sjekka ho og status; berre rader redaktøren har godkjent, blir viste."
+    },
+    "sv": {
+     "title": "Sida om forskning och utbildning",
+     "description": "Ny sida om forskning och utbildning: kurser och program om blockkedjor och krypto, studentföreningar, publikationer och forskargrupper vid universitet i Norge, Sverige, Finland, Island och på Färöarna. Varje rad visar källa, datumet då vi kontrollerade den och status; bara rader som redaktören har godkänt visas."
+    },
+    "da": {
+     "title": "Side om forskning og uddannelse",
+     "description": "Ny side om forskning og uddannelse: kurser og uddannelser om blockchain og krypto, studenterforeninger, publikationer og forskningsgrupper på universiteter i Norge, Sverige, Finland, Island og på Færøerne. Hver række viser kilde, datoen for vores kontrol og status; kun rækker, som redaktøren har godkendt, vises."
+    },
+    "fi": {
+     "title": "Tutkimus ja opetus -sivu",
+     "description": "Uusi tutkimus- ja opetussivu: lohkoketju- ja kryptokurssit ja -koulutusohjelmat, opiskelijajärjestöt, julkaisut ja tutkimusryhmät yliopistoissa Norjassa, Ruotsissa, Suomessa, Islannissa ja Färsaarilla. Jokaisella rivillä näkyy lähde, tarkistuspäivä ja tila; vain toimittajan hyväksymät rivit näytetään."
+    },
+    "is": {
+     "title": "Síða um rannsóknir og kennslu",
+     "description": "Ný síða um rannsóknir og kennslu: námskeið og námsleiðir um bálkakeðjur og rafmyntir, nemendafélög, útgáfur og rannsóknarhópar við háskóla í Noregi, Svíþjóð, Finnlandi, Íslandi og Færeyjum. Hver lína sýnir heimild, dagsetninguna sem við athuguðum hana og stöðu; aðeins línur sem ritstjórinn hefur samþykkt eru sýndar."
+    }
+   }
   },
   {
    "id": "initial-build",
    "date": "launch",
    "title": "Nordic Crypto launches",
-   "description": "First version of the site in English: news from Norway, Sweden, Finland, Iceland and the Faroe Islands with our own short summaries; an events calendar with a month grid, a mobile list and a country filter; a who's who of the industry and its regulators split into private and public sector, with a country filter; a Regulation by country section; the list of sources we follow; an About page with corrections and removal; and a full-screen office screen mode for portrait and landscape displays."
+   "description": "First version of the site in English: news from Norway, Sweden, Finland, Iceland and the Faroe Islands with our own short summaries; an events calendar with a month grid, a mobile list and a country filter; a who's who of the industry and its regulators split into private and public sector, with a country filter; a Regulation by country section; the list of sources we follow; an About page with corrections and removal; and a full-screen office screen mode for portrait and landscape displays.",
+   "i18n": {
+    "nb": {
+     "title": "Nordic Crypto lanseres",
+     "description": "Første versjon av nettstedet på engelsk: nyheter fra Norge, Sverige, Finland, Island og Færøyene med egne korte sammendrag; en arrangementskalender med månedsoversikt, mobilliste og landfilter; en oversikt over hvem som er hvem i bransjen og blant myndighetene, delt i privat og offentlig sektor, med landfilter; delen Regulering per land; listen over kildene vi følger; en Om-side med rettelser og fjerning; og en fullskjermsvisning for kontorskjermer i stående og liggende format."
+    },
+    "nn": {
+     "title": "Nordic Crypto blir lansert",
+     "description": "Første versjon av nettstaden på engelsk: nyheiter frå Noreg, Sverige, Finland, Island og Færøyane med eigne korte samandrag; ein arrangementskalender med månadsoversikt, mobilliste og landfilter; ei oversikt over kven som er kven i bransjen og blant styresmaktene, delt i privat og offentleg sektor, med landfilter; delen Regulering per land; lista over kjeldene vi følgjer; ei Om-side med rettingar og fjerning; og ei fullskjermsvising for kontorskjermar i ståande og liggjande format."
+    },
+    "sv": {
+     "title": "Nordic Crypto lanseras",
+     "description": "Första versionen av webbplatsen på engelska: nyheter från Norge, Sverige, Finland, Island och Färöarna med egna korta sammanfattningar; en evenemangskalender med månadsvy, mobillista och landfilter; en översikt över vem som är vem i branschen och bland myndigheterna, uppdelad på privat och offentlig sektor, med landfilter; delen Reglering per land; listan över källorna vi följer; en Om-sida med rättelser och borttagning; och ett helskärmsläge för kontorsskärmar i stående och liggande format."
+    },
+    "da": {
+     "title": "Nordic Crypto lanceres",
+     "description": "Første version af sitet på engelsk: nyheder fra Norge, Sverige, Finland, Island og Færøerne med egne korte resuméer; en arrangementskalender med månedsoversigt, mobilliste og landefilter; et overblik over hvem der er hvem i branchen og blandt myndighederne, opdelt i privat og offentlig sektor, med landefilter; sektionen Regulering pr. land; listen over de kilder, vi følger; en Om-side med rettelser og fjernelse; og en fuldskærmsvisning til kontorskærme på højkant og på langs."
+    },
+    "fi": {
+     "title": "Nordic Crypto avataan",
+     "description": "Sivuston ensimmäinen versio englanniksi: uutisia Norjasta, Ruotsista, Suomesta, Islannista ja Färsaarilta omine lyhyine tiivistelmineen; tapahtumakalenteri kuukausinäkymällä, mobiililistalla ja maasuodattimella; hakemisto alan toimijoista ja viranomaisista yksityiseen ja julkiseen sektoriin jaettuna, maasuodattimella; Sääntely maittain -osio; luettelo seuraamistamme lähteistä; Tietoa-sivu korjauksineen ja poistoineen; sekä koko näytön tila toimiston pysty- ja vaakanäytöille."
+    },
+    "is": {
+     "title": "Nordic Crypto fer í loftið",
+     "description": "Fyrsta útgáfa síðunnar á ensku: fréttir frá Noregi, Svíþjóð, Finnlandi, Íslandi og Færeyjum með eigin stuttum samantektum; viðburðadagatal með mánaðaryfirliti, farsímalista og landssíu; yfirlit yfir hver er hvað í greininni og hjá stjórnvöldum, skipt í einkageira og hið opinbera, með landssíu; hlutinn Regluverk eftir löndum; listinn yfir heimildirnar sem við fylgjumst með; síðan Um okkur með leiðréttingum og fjarlægingu; og skjáhamur fyrir skrifstofuskjái, lóðrétta og lárétta."
+    }
+   }
   }
  ]
 }

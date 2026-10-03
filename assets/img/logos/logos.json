@@ -1,0 +1,665 @@
+{
+ "_how_to": "One logo per org id. file is relative to the repo root; source_url is where the image was fetched. review: pending until the editor has checked the logo belongs to the org; build.py only shows logos with review 'ok' (preview: all). Never edit a logo (colour, crop); raster images are only scaled to about 64px. Refetch: python3 tools/fetch_logos.py --force <id>.",
+ "stortinget-finanskomiteen": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+  "license": "Public domain",
+  "author": "Worldlydev",
+  "file": "assets/img/logos/stortinget-finanskomiteen.svg",
+  "wikidata": "Q109016",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "finanstilsynet": {
+  "file": "assets/img/logos/finanstilsynet.webp",
+  "source": "Official website",
+  "source_url": "https://www.finanstilsynet.no/Content/Favicons/apple-touch-icon-57x57.png",
+  "page": "https://www.finanstilsynet.no",
+  "kind": "touch",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "norges-bank": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Norges_Bank_logo.svg",
+  "license": "Public domain",
+  "author": "Norges Bank",
+  "file": "assets/img/logos/norges-bank.svg",
+  "wikidata": "Q970769",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "skatteetaten": {
+  "file": "assets/img/logos/skatteetaten.webp",
+  "source": "Official website",
+  "source_url": "https://www.skatteetaten.no/static/img/skatteetatenlogo/fav-icon/57x57/png/favicon57x57.png",
+  "page": "https://www.skatteetaten.no/person/",
+  "kind": "touch",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "okokrim": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Okokrim_logo_sort.svg",
+  "license": "Public domain",
+  "author": "Lillian Nordby Øktner/Økokrim",
+  "file": "assets/img/logos/okokrim.svg",
+  "wikidata": "Q308084",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "nkom": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Emblem_of_the_Norwegian_Communications_Authority.svg",
+  "license": "Public domain",
+  "author": "Norwegian Communications Authority",
+  "file": "assets/img/logos/nkom.svg",
+  "wikidata": "Q1772077",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "nve": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Emblem_of_the_Norwegian_Water_Resources_and_Energy_Directorate.svg",
+  "license": "Public domain",
+  "author": "Norges vassdrags- og energidirektorat",
+  "file": "assets/img/logos/nve.svg",
+  "wikidata": "Q3357659",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "statnett": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Statnett_logo.svg",
+  "license": "Public domain",
+  "author": "Statnett",
+  "file": "assets/img/logos/statnett.svg",
+  "wikidata": "Q602621",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "esma": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:ESMALogo.png",
+  "license": "CC0",
+  "author": null,
+  "file": "assets/img/logos/esma.webp",
+  "wikidata": "Q769112",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "eba": {
+  "file": "assets/img/logos/eba.svg",
+  "source": "Official website",
+  "source_url": "https://www.eba.europa.eu/themes/eba_theme/templates/components/site-logo/images/EBA-logo.svg",
+  "page": "https://www.eba.europa.eu/homepage",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "firi": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Firi-logo.svg",
+  "license": "Public domain",
+  "author": "Alexander Schipper",
+  "file": "assets/img/logos/firi.svg",
+  "wikidata": "Q110516569",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "nbx": {
+  "file": "assets/img/logos/nbx.svg",
+  "source": "Official website",
+  "source_url": "https://cdn.prod.website-files.com/6152dfaed2ce58d94ef37b88/619509e489aaca39961511c2_DarkLogo.svg",
+  "page": "https://nbx.com",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "k33": {
+  "file": "assets/img/logos/k33.svg",
+  "source": "Official website",
+  "source_url": "https://cdn.prod.website-files.com/645396e8d92c58b99155faf3/6655c6d2cbd4b2bfd63048b6_YOUR%20ICON.svg",
+  "page": "https://k33.com",
+  "kind": "svgicon",
+  "fetched": "2026-10-03",
+  "review": "pending",
+  "note": "editor: confirm this red icon is K33's own mark"
+ },
+ "bare-bitcoin": {
+  "file": "assets/img/logos/bare-bitcoin.svg",
+  "source": "Official website",
+  "source_url": "https://barebitcoin.no/_next/static/immutable/media/bare-bitcoin-scrolled.26x9d7blojzsg.svg",
+  "page": "https://barebitcoin.no",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "dnb": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:DNB_Logo.svg",
+  "license": "Public domain",
+  "author": "DNB Bank ASA",
+  "file": "assets/img/logos/dnb.svg",
+  "wikidata": "Q80788",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "tydal-data-center": {
+  "file": "assets/img/logos/tydal-data-center.svg",
+  "source": "Official website",
+  "source_url": "https://www.bitdeer.com/logo/bitdeer_nasdaq_header.svg",
+  "page": "https://www.bitdeer.com",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "schibsted-ventures": {
+  "file": "assets/img/logos/schibsted-ventures.svg",
+  "source": "Official website",
+  "source_url": "https://schibsted.com/wp-content/themes/scom/assets/img/Schibsted-logo-medium-white.svg",
+  "page": "https://schibsted.com",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "finans-norge": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:FinansNorge_Logo_RGB_Pos.svg",
+  "license": "CC BY-SA 4.0",
+  "author": "Tonje Westby",
+  "file": "assets/img/logos/finans-norge.svg",
+  "wikidata": "Q3936909",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "kaupr": {
+  "file": "assets/img/logos/kaupr.webp",
+  "source": "Official website",
+  "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+  "page": "https://www.kaupr.io",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "se-fi": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Finansinspektionen_logo.svg",
+  "license": "Public domain",
+  "author": "Finansinspektionen.",
+  "file": "assets/img/logos/se-fi.svg",
+  "wikidata": "Q5449671",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "se-riksbank": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Riksbanken_skylt.jpg",
+  "license": "CC BY-SA 3.0",
+  "author": "Holger Ellgaard",
+  "file": "assets/img/logos/se-riksbank.webp",
+  "wikidata": "Q564652",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "se-skatteverket": {
+  "file": "assets/img/logos/se-skatteverket.webp",
+  "source": "Official website",
+  "source_url": "https://www.skatteverket.se/images/18.5d699354142b230302014c/1385975660374/SkatteverketLogo.png",
+  "page": "https://www.skatteverket.se",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "valuno": {
+  "file": "assets/img/logos/valuno.svg",
+  "source": "Official website",
+  "source_url": "https://valuno.com/images/index-redesign/footer/valuno-logo.svg",
+  "page": "https://valuno.com",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "goobit": {
+  "source": "Official website",
+  "source_url": "https://bt.cx/assets/auth/01-bankid-logo.svg",
+  "page": "https://bt.cx/sv/",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "rejected",
+  "reason": "wrong image: BankID logo from the page, not Goobit/BTCX",
+  "reviewed": "2026-10-03 (executor pre-check)"
+ },
+ "svenska-bitcoinforeningen": {
+  "file": "assets/img/logos/svenska-bitcoinforeningen.webp",
+  "source": "Official website",
+  "source_url": "https://www.bitcoinforeningen.se/wp-content/uploads/2023/06/logoBitcoinforeningen_logo.png",
+  "page": "https://www.bitcoinforeningen.se",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "fi-fiva": {
+  "file": "assets/img/logos/fi-fiva.webp",
+  "source": "Official website",
+  "source_url": "https://www.finanssivalvonta.fi/contentassets/2a88d63613bb4f049c687203e8731112/logo.png",
+  "page": "https://www.finanssivalvonta.fi",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "fi-suomen-pankki": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Logo-bof.png",
+  "license": "Public domain",
+  "author": "Bank of Finland, Mikael Kivelä",
+  "file": "assets/img/logos/fi-suomen-pankki.webp",
+  "wikidata": "Q194060",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "fi-vero": {
+  "file": "assets/img/logos/fi-vero.svg",
+  "source": "Official website",
+  "source_url": "https://www.vero.fi/static/img/logos/logo-vero-v2023.svg",
+  "page": "https://www.vero.fi/henkiloasiakkaat/",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "coinmotion": {
+  "file": "assets/img/logos/coinmotion.webp",
+  "source": "Official website",
+  "source_url": "https://coinmotion.com/wp-content/uploads/2020/06/cm_favicon_light_blue512_.png",
+  "page": "https://coinmotion.com",
+  "kind": "touch",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "tesseract": {
+  "source": "Official website",
+  "source_url": "https://tesseract.fi/logos/tesseract-white.svg?dpl=dpl_EdC63mtjtkHDyUG5hdEoC3MTXmrg",
+  "page": "https://tesseract.fi",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "rejected",
+  "reason": "white logo on transparent background – invisible on the light theme",
+  "reviewed": "2026-10-03 (executor pre-check; editor confirms)"
+ },
+ "bittimaatti": {
+  "file": "assets/img/logos/bittimaatti.webp",
+  "source": "Official website",
+  "source_url": "https://bittimaatti.fi/wp-content/uploads/2025/01/bittimaatti_logo_UusiSininen1000px-2.png",
+  "page": "https://bittimaatti.fi",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "northcrypto": {
+  "file": "assets/img/logos/northcrypto.webp",
+  "source": "Official website",
+  "source_url": "https://www.northcrypto.com/images/logo-blue-250.png",
+  "page": "https://www.northcrypto.com",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "kvarn-x": {
+  "file": "assets/img/logos/kvarn-x.svg",
+  "source": "Official website",
+  "source_url": "https://www.kvarnx.com/icons/kvarnlogodarkmode.svg",
+  "page": "https://www.kvarnx.com/en",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "paxos-eu": {
+  "file": "assets/img/logos/paxos-eu.webp",
+  "source": "Official website",
+  "source_url": "https://framerusercontent.com/images/sEBLMaJQfU8QUDmUdzdI0us1gJ0.png",
+  "page": "https://www.paxos.com",
+  "kind": "touch",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "btchel": {
+  "source": "Official website",
+  "source_url": "https://info.btchel.com/images/2026/minersloop-logo.jpg",
+  "page": "https://info.btchel.com",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "rejected",
+  "reason": "wrong image: sponsor logo (Minersloop), not BTCHEL",
+  "reviewed": "2026-10-03 (executor pre-check; editor confirms)"
+ },
+ "is-skatturinn": {
+  "file": "assets/img/logos/is-skatturinn.svg",
+  "source": "Official website",
+  "source_url": "https://www.skatturinn.is/skin/rsk/i/sitelogo.svg",
+  "page": "https://www.skatturinn.is",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "is-sfl": {
+  "source": "Official website",
+  "source_url": "https://island.is:443/apple-touch-icon.png",
+  "page": "https://island.is:443/s/logreglan",
+  "kind": "touch",
+  "fetched": "2026-10-03",
+  "review": "rejected",
+  "reason": "police website logo, not the FIU's own",
+  "reviewed": "2026-10-03 (executor pre-check; editor confirms)"
+ },
+ "myntkaup": {
+  "file": "assets/img/logos/myntkaup.svg",
+  "source": "Official website",
+  "source_url": "https://myntkaup.is/images/logoBlack.svg",
+  "page": "https://myntkaup.is/is",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "monerium": {
+  "file": "assets/img/logos/monerium.svg",
+  "source": "Official website",
+  "source_url": "https://monerium.com/assets/monerium-logo.svg",
+  "page": "https://monerium.com",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "dk-finanstilsynet": {
+  "source": "Official website",
+  "source_url": "https://cdn.finanstilsynet.dk/finanstilsynet/Media/638204279936716910/footer-crown-2.svg",
+  "page": "https://www.finanstilsynet.dk/",
+  "kind": "svgicon",
+  "fetched": "2026-10-03",
+  "review": "rejected",
+  "reason": "generic Danish state crown shared by many authorities – would not identify the org",
+  "reviewed": "2026-10-03 (executor pre-check; editor confirms)"
+ },
+ "dk-erhvervsministeriet": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Logo_of_the_Danish_Ministry_of_Industry,_Business_and_Financial_Affairs.png",
+  "license": "Public domain",
+  "author": "Danish Ministry of Industry, Business and Financial Affairs",
+  "file": "assets/img/logos/dk-erhvervsministeriet.webp",
+  "wikidata": "Q12310249",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "dk-skatteministeriet": {
+  "source": "Official website",
+  "source_url": "https://svmn.dk/favicon/apple-touch-icon.png",
+  "page": "https://svmn.dk/",
+  "kind": "touch",
+  "fetched": "2026-10-03",
+  "review": "rejected",
+  "reason": "generic Danish state crown shared by many authorities",
+  "reviewed": "2026-10-03 (executor pre-check; editor confirms)"
+ },
+ "dk-skattestyrelsen": {
+  "source": "Official website",
+  "source_url": "https://sktst.dk/favicon/apple-touch-icon.png",
+  "page": "https://sktst.dk/",
+  "kind": "touch",
+  "fetched": "2026-10-03",
+  "review": "rejected",
+  "reason": "generic Danish state crown shared by many authorities",
+  "reviewed": "2026-10-03 (executor pre-check; editor confirms)"
+ },
+ "dk-penning": {
+  "file": "assets/img/logos/dk-penning.svg",
+  "source": "Official website",
+  "source_url": "https://www.penning.io/images/logo-mark.svg",
+  "page": "https://www.penning.io",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "dk-lunar-block": {
+  "file": "assets/img/logos/dk-lunar-block.svg",
+  "source": "Official website",
+  "source_url": "https://www.lunar.app/favicon.svg",
+  "page": "https://www.lunar.app/dk/privat/krypto",
+  "kind": "svgicon",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "dk-gcex": {
+  "file": "assets/img/logos/dk-gcex.webp",
+  "source": "Official website",
+  "source_url": "https://gc.exchange/hs-fs/hubfs/chub_backup/GCEX%20Logo%20Black%20Background%20Image-1-1-1.jpg?width=400&amp;height=240&amp;name=GCEX%20Logo%20Black%20Background%20Image-1-1-1.jpg",
+  "page": "https://gc.exchange/",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "dk-northstake": {
+  "source": "Official website",
+  "source_url": "https://cdn.prod.website-files.com/64118169be2e2ed3f826015f/6793acff82781f7c98073e35_logos%20for%20logo%20carrousel.png",
+  "page": "https://www.northstake.dk",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "rejected",
+  "reason": "wrong image: Chorus One logo on the page, not Northstake's own",
+  "reviewed": "2026-10-03 (executor pre-check; editor confirms)"
+ },
+ "dk-coinify": {
+  "file": "assets/img/logos/dk-coinify.webp",
+  "source": "Official website",
+  "source_url": "https://images.squarespace-cdn.com/content/v1/638a48377c09bb00bbc62b94/019e9ada-f799-47ec-b429-c4b6c5f426ec/coinify_logomark_orange.png?format=1500w",
+  "page": "https://www.coinify.com/",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "dk-januar": {
+  "file": "assets/img/logos/dk-januar.svg",
+  "source": "Official website",
+  "source_url": "https://cdn.prod.website-files.com/68d11830cc9d61bad348fb81/68d11830cc9d61bad348fbb8_januar-logo-mark.svg",
+  "page": "https://www.januar.com/",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "dk-safelynx": {
+  "source": "Official website",
+  "source_url": "https://cdn.prod.website-files.com/63a455da6b5256847354ea40/63a951cac73ddf8621defb6f_banking-circle.svg",
+  "page": "https://www.safelynx.io/",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "rejected",
+  "reason": "wrong image: partner logo (Banking Circle)",
+  "reviewed": "2026-10-03 (executor pre-check; editor confirms)"
+ },
+ "dk-eurodollar": {
+  "source": "Official website",
+  "source_url": "https://www.stablecoin.dk/~gitbook/icon?size=medium&amp;theme=light&amp;border=false",
+  "page": "https://www.stablecoin.dk/",
+  "kind": "touch",
+  "fetched": "2026-10-03",
+  "review": "rejected",
+  "reason": "unclear icon, not verifiably the Eurodollar logo",
+  "reviewed": "2026-10-03 (executor pre-check; editor confirms)"
+ },
+ "no-web3-creatives": {
+  "file": "assets/img/logos/no-web3-creatives.webp",
+  "source": "Official website",
+  "source_url": "https://images.squarespace-cdn.com/content/v1/64734d80296b204c09d5ca31/6fdb388b-c8c1-4101-8aa9-0f7fa99539de/Logo2.png?format=1500w",
+  "page": "https://www.web3creatives.no/",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "dk-bloxcel": {
+  "file": "assets/img/logos/dk-bloxcel.webp",
+  "source": "Official website",
+  "source_url": "https://framerusercontent.com/images/zLaCuZ3oAovsWfXVY6EnJQJdGh0.png",
+  "page": "https://www.bloxcel.com/",
+  "kind": "touch",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "se-divly": {
+  "file": "assets/img/logos/se-divly.svg",
+  "source": "Official website",
+  "source_url": "https://divly.fra1.cdn.digitaloceanspaces.com/static/images/logo.svg",
+  "page": "https://divly.com/en/",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "se-h100": {
+  "file": "assets/img/logos/se-h100.webp",
+  "source": "Official website",
+  "source_url": "https://cdn.prod.website-files.com/6785fc8ea8039f2244adbbd5/684ca8b2bba62b9e3593ceb3_Logo.png",
+  "page": "https://www.h100.group/",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "se-hilbert-group": {
+  "file": "assets/img/logos/se-hilbert-group.svg",
+  "source": "Official website",
+  "source_url": "https://www.hilbert.group/icon.svg",
+  "page": "https://www.hilbert.group/",
+  "kind": "svgicon",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "se-pretax": {
+  "source": "Official website",
+  "source_url": "https://cdn.prod.website-files.com/664fb721d53bbeab896f71a0/665753dcef19103d250621ce_PreTax_Logo_white.png",
+  "page": "https://www.pretax.se/",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "rejected",
+  "reason": "white logo on transparent background – invisible on the light theme",
+  "reviewed": "2026-10-03 (executor pre-check; editor confirms)"
+ },
+ "se-true-original": {
+  "source": "Official website",
+  "source_url": "https://www.trueoriginal.com/assets/cdn.prod.website-files.com/67c07336c94b9f0854f4062f/67f2dfa8bca5528238bf9682_True%20white.svg",
+  "page": "https://www.trueoriginal.com/",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "rejected",
+  "reason": "white logo on transparent background – invisible on the light theme",
+  "reviewed": "2026-10-03 (executor pre-check; editor confirms)"
+ },
+ "intl-swift": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:SWIFT_2023_logo.svg",
+  "license": "Public domain",
+  "author": null,
+  "file": "assets/img/logos/intl-swift.svg",
+  "wikidata": "Q257597",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "intl-d-fine": {
+  "file": "assets/img/logos/intl-d-fine.svg",
+  "source": "Official website",
+  "source_url": "https://www.d-fine.com/fileadmin/templates/img/d-fine_logo-blue_RGB.svg",
+  "page": "https://www.d-fine.com/en/locations/sweden/",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "intl-okx": {
+  "source": "Official website",
+  "source_url": "https://www.okx.com/cdn/assets/imgs/236/DD7AC9432E675714.png",
+  "page": "https://www.okx.com/en-eu",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "rejected",
+  "reason": "wrong image: event partner logo (Tribeca Festival)",
+  "reviewed": "2026-10-03 (executor pre-check; editor confirms)"
+ },
+ "intl-binance": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Binance_Logo.svg",
+  "license": "Public domain",
+  "author": "Binance",
+  "wikidata": "Q51403327",
+  "fetched": "2026-10-03",
+  "review": "rejected",
+  "reason": "org rejected"
+ },
+ "virtune": {
+  "source": "Official website",
+  "source_url": "https://www.virtune.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fvirtune-white-logo.0humq76esnwg5.webp&w=3840&q=75&dpl=dpl_BLSuiD3M9tU185ULu5oyfrLPWJDo",
+  "page": "https://www.virtune.com/en",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "rejected",
+  "reason": "white logo on transparent background – invisible on the light theme",
+  "reviewed": "2026-10-03 (executor pre-check; editor confirms)"
+ },
+ "dk-aryze": {
+  "file": "assets/img/logos/dk-aryze.svg",
+  "source": "Official website",
+  "source_url": "https://www.aryze.io/logo/Logo_Wordmark_Dark.svg?dpl=dpl_7DZfxWaGmDdWgCFn27TWMsXrTNK1",
+  "page": "https://www.aryze.io/",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "ak-jensen-norway": {
+  "file": "assets/img/logos/ak-jensen-norway.webp",
+  "source": "Official website",
+  "source_url": "https://cdn.prod.website-files.com/655b7aeacc77bd33098fbac6/65df1e133a0bf545950eba18_svgviewer-png-output.png",
+  "page": "https://www.akj.com",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "bpi": {
+  "file": "assets/img/logos/bpi.svg",
+  "source": "Official website",
+  "source_url": "https://bpinorge.no/wp-content/uploads/2025/04/bpinorge_footer_logo.svg",
+  "page": "https://bpinorge.no",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "nordic-blockchain-association": {
+  "source": "Official website",
+  "source_url": "https://cdn.prod.website-files.com/68fbc03e802210baea669232/6943d452c0b3f0a36d12e2cc_partisia.svg",
+  "page": "https://www.nordicblockchain.com",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "rejected",
+  "reason": "wrong image: member logo (Partisia)",
+  "reviewed": "2026-10-03 (executor pre-check; editor confirms)"
+ },
+ "fintech-norway": {
+  "file": "assets/img/logos/fintech-norway.webp",
+  "source": "Official website",
+  "source_url": "https://fintechnorway.com/wp-content/uploads/2024/10/FTN_Logo.png",
+  "page": "https://fintechnorway.com",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "shifter": {
+  "file": "assets/img/logos/shifter.svg",
+  "source": "Official website",
+  "source_url": "https://www.shifter.no/view-resources/dachser2/public/shifter/logo.svg",
+  "page": "https://www.shifter.no",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ },
+ "greenmerc": {
+  "file": "assets/img/logos/greenmerc.webp",
+  "source": "Official website",
+  "source_url": "https://greenmerc.com/images/greenmerc-logo.png",
+  "page": "https://greenmerc.com",
+  "kind": "img",
+  "fetched": "2026-10-03",
+  "review": "pending"
+ }
+}

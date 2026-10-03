@@ -3,6 +3,10 @@
 //   POST /api/tip     JSON or form fields: url (required, http/https), country (NO/SE/DK/FI/IS/unsure), note (<=1000 chars),
 //                     name (optional, <=100 chars), website (honeypot: must be empty). Stored in D1 as status 'pending'.
 //   GET  /api/health  {"ok": true, "service": "nordic-crypto-tips"}
+//   GET  /api/geo     {"country": "NO"} – only the two-letter country code Cloudflare already attaches to the request
+//                     (request.cf.country), or null. Used once by the site's language picker. Nothing is stored or logged,
+//                     Cache-Control: no-store, CORS only for https://jqrgen.github.io. For local tests only, the header
+//                     X-Test-Country is honoured when the variable GEO_TEST is "1" (never set in wrangler.toml / production).
 // Privacy: never logs anything (no console.* calls, observability off in wrangler.toml); the IP is never stored – only a
 // SHA-256 of (daily random salt + IP) is kept for the 10-minute rate-limit window (see migrations/0001_tips.sql).
 // No user agent or other metadata is stored. Body capped at 4 KB.
@@ -120,6 +124,13 @@ async function tip(req, env) {
   return wantsJson ? send(req, 201, { ok: true }) : redirect(req, { sent: "1" });
 }
 
+export function geo(req, env) {
+  let c = req.cf && typeof req.cf.country === "string" ? req.cf.country : null;
+  if (env && env.GEO_TEST === "1" && req.headers.get("X-Test-Country") !== null) c = req.headers.get("X-Test-Country");
+  c = (c || "").toUpperCase();
+  return /^[A-Z]{2}$/.test(c) && c !== "XX" && c !== "T1" ? c : null;   // XX = unknown, T1 = Tor (Cloudflare codes)
+}
+
 export default {
   async fetch(req, env) {
     const path = new URL(req.url).pathname;
@@ -130,6 +141,7 @@ export default {
         "Access-Control-Allow-Methods": "POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type", "Access-Control-Max-Age": "86400" }) });
     }
     if (req.method === "GET" || req.method === "HEAD") {
+      if (path === "/api/geo") return send(req, 200, { country: geo(req, env) });
       if (path === "/api/health") {
         try { await env.DB.prepare("SELECT 1").first(); return send(req, 200, { ok: true, service: "nordic-crypto-tips" }); }
         catch { return send(req, 503, { ok: false }); }
