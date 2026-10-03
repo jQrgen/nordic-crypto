@@ -491,51 +491,68 @@ cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('ari
 
 TIP_FORM = "https://github.com/jQrgen/nordic-crypto/issues/new?template=tip.yml"
 def tip_endpoint():
-    """Public base URL of the tip server (tipserver/server.py), e.g. https://tips.example.com. Env TIP_ENDPOINT overrides
-    tipserver/config.json -> public_endpoint. Unset/null = the /tip/ page uses the GitHub issue form only."""
+    """Fixed public tip endpoint (e.g. https://tips.<domain>): env TIP_ENDPOINT or tipserver/config.json -> public_endpoint.
+    Takes precedence and is baked into /tip/. Without it, /tip/ reads the current quick-tunnel URL at runtime from
+    /tip-endpoint.json (written by tipserver/publish_endpoint.sh whenever the tunnel URL changes)."""
     e = os.environ.get("TIP_ENDPOINT") or (load(P("tipserver", "config.json"), {}) or {}).get("public_endpoint")
     return (e or "").strip().rstrip("/") or None
 
+def write_tip_endpoint_file():
+    """site/tip-endpoint.json, so a full publish (which replaces gh-pages with site/) keeps the current endpoint."""
+    sys.path.insert(0, P("tipserver")); import endpoint as _ep
+    ep, kind = (tip_endpoint(), "fixed") if tip_endpoint() else _ep.current()
+    old = load(P(".publish", "tip-endpoint.json"), {}) or {}
+    upd = old.get("updated") if old.get("endpoint") == ep else dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
+    json.dump({"endpoint": ep or None, "kind": kind, "updated": upd}, open(os.path.join(SITE, "tip-endpoint.json"), "w"), indent=1)
+    open(os.path.join(SITE, "tip-endpoint.json"), "a").write("\n")
+
 def build_tip_server(ep):
-    """'Send a tip' page that posts to our own tip server (no third-party scripts, inline JS only; works without JS via a
-    plain form POST, the server then redirects back here with ?sent=1 or ?error=...). GitHub stays as an alternative."""
+    """'Send a tip' page that posts to our own tip server (tipserver/server.py). Inline JS only, no third-party scripts.
+    Endpoint: the fixed `ep` if set, else read at runtime from ../tip-endpoint.json (no cache). If the server can't be
+    reached, the page says so and offers the public GitHub issue form as a fallback."""
     opts = '<option value="unsure">Not sure / choose…</option>' + "".join(f'<option value="{c}">{E(n)}</option>' for c, n in COUNTRIES.items())
     body = f"""<h1>Send a tip</h1>
 <p class="lead">Seen a story about crypto, bitcoin or blockchain in Norway, Sweden, Denmark, Finland or Iceland that we have missed? Send us the link.</p>
 <div class="prose">
-<p>Our editor checks every tip against <a href="../about/">our rules</a>: the story must be about crypto, bitcoin or blockchain in the Nordics, and we link to the original source with a short English summary in our own words. <b>A tip does not guarantee publication.</b></p>
-<p class="notice"><b>Privacy:</b> tips go to Nordic Crypto's own server, not to any third party. We store the link, country, note, optional name and the time – <b>not</b> your IP address. Your name is never published. Please do not include personal or sensitive information about anyone in the note.</p>
+<p>Tips go straight to Nordic Crypto's own tip inbox. Our editor reviews new tips regularly and checks each one against <a href="../about/">our rules</a>: the story must be about crypto, bitcoin or blockchain in the Nordics, and we link to the original source with a short English summary in our own words. <b>A tip does not guarantee publication</b>, and we don't reply to individual tips.</p>
+<p class="notice"><b>Privacy:</b> tips are not public. We store the link, country, note, optional name and the time – <b>not</b> your IP address. Your name is never published. Please don't include personal or sensitive information about anyone in the note.</p>
 </div>
 <div id="tipmsg" role="status" aria-live="polite"></div>
-<form id="tipform" class="tipform" method="post" action="{E(ep)}/api/tip">
+<noscript><p class="notice warn">The tip form needs JavaScript. Without it, you can send a <a href="{TIP_FORM}" rel="noopener">tip as a public GitHub issue</a> instead.</p></noscript>
+<form id="tipform" class="tipform"><fieldset id="tipfs" disabled style="border:0;padding:0;margin:0">
 <p><label for="t-url"><b>Article URL</b> (required)</label><br><input id="t-url" name="url" type="url" required maxlength="2000" placeholder="https://" style="width:100%;max-width:560px;padding:6px"></p>
 <p><label for="t-country"><b>Country</b></label><br><select id="t-country" name="country" style="padding:6px">{opts}</select></p>
 <p><label for="t-note"><b>Short note</b> (optional, max 1000 characters)</label><br><textarea id="t-note" name="note" rows="3" maxlength="1000" style="width:100%;max-width:560px;padding:6px"></textarea></p>
 <p><label for="t-name"><b>Your name</b> (optional, never published)</label><br><input id="t-name" name="name" maxlength="100" autocomplete="off" style="width:100%;max-width:320px;padding:6px"></p>
 <p style="position:absolute;left:-9999px" aria-hidden="true"><label for="t-website">Leave this field empty</label><input id="t-website" name="website" tabindex="-1" autocomplete="off"></p>
 <p><button type="submit" style="padding:8px 14px;font-size:15px">Send tip</button></p>
-</form>
-<p class="prose">Prefer GitHub? You can also send a <a href="{TIP_FORM}" rel="noopener">tip as a public GitHub issue</a> (needs a GitHub account; tips there are public).</p>"""
-    js = """<script>(function(){var EP=%s,f=document.getElementById('tipform'),m=document.getElementById('tipmsg'),b=f.querySelector('button');
-var GH='<a href="%s" rel="noopener">send it as a GitHub issue</a>';
-function say(t,cls,html){m.className='notice'+(cls?' '+cls:'');if(html)m.innerHTML=t;else m.textContent=t;m.scrollIntoView({block:'nearest'})}
-var q=new URLSearchParams(location.search);if(q.get('sent'))say('Thank you! Your tip has been received. Our editor will check it.');else if(q.get('error'))say(q.get('error'),'warn');
+</fieldset></form>"""
+    js = """<script>(function(){var FIXED=%s,GHU='%s',f=document.getElementById('tipform'),fs=document.getElementById('tipfs'),m=document.getElementById('tipmsg'),b=f.querySelector('button');
+var OFF='The tip service is temporarily offline, try again later. You can also <a href="'+GHU+'" rel="noopener">send the tip as a public GitHub issue</a> instead.';
+function say(t,cls,html){m.className='notice'+(cls?' '+cls:'');if(html)m.innerHTML=t;else m.textContent=t}
+function off(){say(OFF,'warn',true)}
+function tmo(p,ms){var ac=new AbortController(),t=setTimeout(function(){ac.abort()},ms);return {s:ac.signal,done:function(){clearTimeout(t)}}}
+function ep(){if(FIXED)return Promise.resolve(FIXED);return fetch('../tip-endpoint.json?t='+Date.now(),{cache:'no-store',credentials:'omit'}).then(function(r){return r.ok?r.json():{}}).then(function(j){return (j&&typeof j.endpoint==='string'&&/^https:\\/\\/[^\\s\\/]+$/.test(j.endpoint))?j.endpoint:null}).catch(function(){return null})}
+fs.disabled=false;
+ep().then(function(e){if(!e)return off();var t=tmo(0,8000);fetch(e+'/api/health',{cache:'no-store',credentials:'omit',signal:t.s}).then(function(r){t.done();if(!r.ok)off()}).catch(function(){t.done();off()})});
 f.addEventListener('submit',function(ev){ev.preventDefault();if(!f.reportValidity())return;b.disabled=true;
-var d={url:f.url.value,country:f.country.value,note:f.note.value,name:f.name.value,website:f.website.value},ac=new AbortController(),to=setTimeout(function(){ac.abort()},12000);
-fetch(EP+'/api/tip',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(d),signal:ac.signal,credentials:'omit',referrerPolicy:'no-referrer'})
-.then(function(r){return r.json().catch(function(){return {}}).then(function(j){return {s:r.status,j:j}})})
-.then(function(x){clearTimeout(to);b.disabled=false;
- if(x.s>=200&&x.s<300&&x.j.ok){f.reset();say('Thank you! Your tip has been received. Our editor will check it.')}
- else if(x.s>=500||x.s===0){say('The tip service is temporarily offline, try again later. Or '+GH+'.','warn',true)}
- else say((x.j&&x.j.error)||'Could not send the tip.','warn')})
-.catch(function(){clearTimeout(to);b.disabled=false;say('The tip service is temporarily offline, try again later. Or '+GH+'.','warn',true)})})})();</script>""" % (json.dumps(ep), TIP_FORM)
+ var d={url:f.url.value,country:f.country.value,note:f.note.value,name:f.name.value,website:f.website.value};
+ ep().then(function(e){if(!e)throw 0;var t=tmo(0,12000);
+  return fetch(e+'/api/tip',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(d),signal:t.s,credentials:'omit',referrerPolicy:'no-referrer'})
+  .then(function(r){t.done();return r.json().catch(function(){return {}}).then(function(j){return {s:r.status,j:j}})})})
+ .then(function(x){b.disabled=false;
+  if(x.s>=200&&x.s<300&&x.j.ok){f.reset();say('Thank you! Your tip has been received. Our editor will check it.')}
+  else if(x.s>=500)off(); else say((x.j&&x.j.error)||'Could not send the tip.','warn')})
+ .catch(function(){b.disabled=false;off()})})})();</script>""" % (json.dumps(ep), TIP_FORM)
     page("tip", "Send a tip", "tip", body, "Tip Nordic Crypto about an article on crypto, bitcoin or blockchain in the Nordics.", js)
 
 def build_tip():
     """'Send a tip' page. Static: a plain HTML form (GET, no JavaScript, no tracking) that opens the prefilled GitHub issue form
     (.github/ISSUE_TEMPLATE/tip.yml, label 'tip'). There is no public e-mail address, so GitHub is the only channel.
     routines/nightly-fetch.sh -> tools/reader_tips.py puts open tips in the editor queue as pending; nothing is auto-published."""
-    if tip_endpoint(): return build_tip_server(tip_endpoint())
+    write_tip_endpoint_file()
+    cfg = load(P("tipserver", "config.json"), {}) or {}
+    if tip_endpoint() or cfg.get("quick_tunnel"): return build_tip_server(tip_endpoint())  # GitHub issue form only as fallback link
     opts = '<option value="Not sure">Not sure / choose…</option>' + "".join(f'<option value="{E(n)} ({c})">{E(n)}</option>' for c, n in COUNTRIES.items())
     body = f"""<h1>Send a tip</h1>
 <p class="lead">Seen a story about crypto, bitcoin or blockchain in Norway, Sweden, Denmark, Finland or Iceland that we have missed? Send us the link.</p>

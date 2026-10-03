@@ -5,6 +5,7 @@
 #         ./publish.sh --yes  -> build, check and publish (ONLY after jQrgen has approved)
 set -euo pipefail
 cd "$(dirname "$0")"
+exec 9>/tmp/nordic-crypto-publish.lock; flock -w 300 9   # shared with tipserver/publish_endpoint.sh
 DRY=${1:-}
 REPO=https://github.com/jQrgen/nordic-crypto.git
 URL=https://jqrgen.github.io/nordic-crypto/

@@ -18,3 +18,4 @@ screenshots/
 tipserver/tips.db*
 tipserver/*.log
 tipserver/*.pid
+tipserver/tunnel-url.txt
