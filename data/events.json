@@ -17,6 +17,7 @@
    "paid": null,
    "sponsored": null,
    "note": null,
+   "note_i18n": null,
    "past": false,
    "status": "published"
   },
@@ -36,6 +37,14 @@
    "paid": true,
    "sponsored": null,
    "note": "Paid entry (NOK 239 for non-members).",
+   "note_i18n": {
+    "nn": "Betalt inngang (239 kroner for ikkje-medlemer).",
+    "nb": "Betalt inngang (239 kroner for ikke-medlemmer).",
+    "sv": "Avgift (239 norska kronor för icke-medlemmar).",
+    "da": "Betalt adgang (239 norske kroner for ikke-medlemmer).",
+    "fi": "Maksullinen (239 Norjan kruunua muille kuin jäsenille).",
+    "is": "Aðgangseyrir (239 norskar krónur fyrir utanfélagsmenn)."
+   },
    "past": false,
    "status": "published"
   },
@@ -55,6 +64,7 @@
    "paid": null,
    "sponsored": null,
    "note": null,
+   "note_i18n": null,
    "past": false,
    "status": "published"
   },
@@ -74,6 +84,14 @@
    "paid": null,
    "sponsored": "kaupr.io",
    "note": "Disclosure: the speaker, Jørgen S. Notland, is the publisher of Nordic Crypto.",
+   "note_i18n": {
+    "nn": "Til opplysing: foredragshaldaren, Jørgen S. Notland, er utgjevar av Nordic Crypto.",
+    "nb": "Til opplysning: foredragsholderen, Jørgen S. Notland, er utgiver av Nordic Crypto.",
+    "sv": "Upplysning: talaren, Jørgen S. Notland, är utgivare av Nordic Crypto.",
+    "da": "Oplysning: foredragsholderen, Jørgen S. Notland, er udgiver af Nordic Crypto.",
+    "fi": "Tiedoksi: puhuja Jørgen S. Notland on Nordic Crypton julkaisija.",
+    "is": "Til upplýsingar: fyrirlesarinn, Jørgen S. Notland, er útgefandi Nordic Crypto."
+   },
    "past": false,
    "status": "published"
   },
@@ -93,6 +111,7 @@
    "paid": null,
    "sponsored": null,
    "note": null,
+   "note_i18n": null,
    "past": false,
    "status": "published"
   },
@@ -112,6 +131,7 @@
    "paid": null,
    "sponsored": null,
    "note": null,
+   "note_i18n": null,
    "past": false,
    "status": "published"
   },
@@ -131,6 +151,7 @@
    "paid": null,
    "sponsored": "kaupr.io and Reese Legal",
    "note": null,
+   "note_i18n": null,
    "past": false,
    "status": "published"
   },
@@ -150,6 +171,7 @@
    "paid": null,
    "sponsored": null,
    "note": null,
+   "note_i18n": null,
    "past": false,
    "status": "published"
   },
@@ -169,6 +191,7 @@
    "paid": null,
    "sponsored": null,
    "note": null,
+   "note_i18n": null,
    "past": false,
    "status": "published"
   },
@@ -188,6 +211,14 @@
    "paid": null,
    "sponsored": null,
    "note": "Falls on New Year's Day: check the organiser's page before you go.",
+   "note_i18n": {
+    "nn": "Fell på første nyttårsdag: sjekk sida til arrangøren før du dreg.",
+    "nb": "Faller på første nyttårsdag: sjekk arrangørens side før du drar.",
+    "sv": "Infaller på nyårsdagen: kontrollera arrangörens sida innan du går.",
+    "da": "Falder på nytårsdag: tjek arrangørens side, før du tager afsted.",
+    "fi": "Osuu uudenvuodenpäivälle: tarkista järjestäjän sivu ennen lähtöä.",
+    "is": "Ber upp á nýársdag: athugaðu síðu skipuleggjandans áður en þú ferð."
+   },
    "past": false,
    "status": "published"
   },
@@ -207,6 +238,7 @@
    "paid": null,
    "sponsored": null,
    "note": null,
+   "note_i18n": null,
    "past": false,
    "status": "published"
   }

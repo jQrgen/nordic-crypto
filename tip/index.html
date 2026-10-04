@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Send a tip – Nordic Crypto</title>
-<meta name="description" content="Tip Nordic Crypto about an article on crypto, bitcoin or blockchain in the Nordics."><link rel="canonical" href="https://jqrgen.github.io/nordic-crypto/tip/">
-<meta property="og:title" content="Send a tip"><meta property="og:description" content="Tip Nordic Crypto about an article on crypto, bitcoin or blockchain in the Nordics."><meta property="og:url" content="https://jqrgen.github.io/nordic-crypto/tip/"><meta property="og:type" content="website"><meta property="og:locale" content="en_GB">
+<meta name="description" content="Tip Nordic Crypto about an article on crypto, bitcoin or blockchain in the Nordics."><link rel="canonical" href="https://jqrgen.github.io/nordic-crypto/tip/"><link rel="alternate" hreflang="en" href="https://jqrgen.github.io/nordic-crypto/tip/"><link rel="alternate" hreflang="nn" href="https://jqrgen.github.io/nordic-crypto/nn/tip/"><link rel="alternate" hreflang="nb" href="https://jqrgen.github.io/nordic-crypto/nb/tip/"><link rel="alternate" hreflang="sv" href="https://jqrgen.github.io/nordic-crypto/sv/tip/"><link rel="alternate" hreflang="da" href="https://jqrgen.github.io/nordic-crypto/da/tip/"><link rel="alternate" hreflang="fi" href="https://jqrgen.github.io/nordic-crypto/fi/tip/"><link rel="alternate" hreflang="is" href="https://jqrgen.github.io/nordic-crypto/is/tip/"><link rel="alternate" hreflang="x-default" href="https://jqrgen.github.io/nordic-crypto/tip/">
+<meta property="og:title" content="Send a tip"><meta property="og:description" content="Tip Nordic Crypto about an article on crypto, bitcoin or blockchain in the Nordics."><meta property="og:url" content="https://jqrgen.github.io/nordic-crypto/tip/"><meta property="og:type" content="website"><meta property="og:locale" content="en_GB"><meta property="og:locale:alternate" content="nn_NO"><meta property="og:locale:alternate" content="nb_NO"><meta property="og:locale:alternate" content="sv_SE"><meta property="og:locale:alternate" content="da_DK"><meta property="og:locale:alternate" content="fi_FI"><meta property="og:locale:alternate" content="is_IS">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230f5ea8'/%3E%3Crect x='4' width='3' height='16' fill='white'/%3E%3Crect y='6.5' width='16' height='3' fill='white'/%3E%3C/svg%3E">
 <style>
@@ -81,6 +81,31 @@ table.list th{font-size:13px;color:var(--muted)}
 .reg article{border:1px solid var(--line);padding:10px 12px;background:#fff}.reg h3{display:flex;gap:8px;align-items:center;margin:0 0 6px;font-size:17px}
 .reg dl{margin:0;font-size:14px}.reg dt{font-weight:600;margin-top:6px}.reg dd{margin:0}
 
+.langsw{position:relative;margin-left:auto;font-size:14px;display:flex;gap:10px;align-items:baseline}
+.langsw details{position:relative}.langsw summary{cursor:pointer;list-style:none;border:1px solid var(--ink);padding:2px 8px}
+.langsw summary::-webkit-details-marker{display:none}
+.langsw ul{position:absolute;right:0;z-index:20;margin:4px 0 0;padding:4px 0;list-style:none;background:#fff;border:1px solid var(--ink);min-width:150px}
+.langsw li a{display:block;padding:4px 12px;text-decoration:none}.langsw li a:hover,.langsw li a:focus{background:var(--soft)}
+.langsw li a[aria-current]{font-weight:700}.langsw .quick{font-size:13.5px}
+@media(max-width:640px){.langsw{margin-left:0;width:100%}}
+html.nc-pick body{visibility:hidden}
+.logo{width:28px;height:28px;object-fit:contain;flex:none;background:#fff}
+.logo.big{width:64px;height:64px}
+.card .nm{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.av.org{border-radius:4px;width:28px;height:28px;font-size:11px}
+.imap-cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin:12px 0}
+.imap-cat{border:1px solid var(--line);padding:8px 10px 10px;background:#fff}
+.imap-cat>h3{font-size:15px;margin:0 0 8px;padding-bottom:4px;border-bottom:2px solid var(--accent);display:flex;justify-content:space-between;gap:8px}
+.imap-cat.pub>h3{border-color:var(--pub)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:6px}
+.tile{display:flex;flex-direction:column;align-items:center;gap:4px;padding:6px 4px;border:1px solid var(--line);text-decoration:none;font-size:11.5px;line-height:1.2;text-align:center;min-height:86px;background:#fff;overflow-wrap:anywhere}
+.tile:hover,.tile:focus-visible{border-color:var(--ink);outline:none}
+.tile .logo,.tile .av{width:40px;height:40px}.tile .fl{display:flex;gap:3px;align-items:center;color:var(--muted);font-size:10.5px}
+.imap[data-view=country] .imap-bycat,.imap[data-view=cat] .imap-bycountry{display:none}
+.rules-c .seg{margin:8px 0}
+.nlform{margin:12px 0}.nlform input[type=email]{padding:6px;width:100%;max-width:320px}.nlform button{padding:7px 14px;font-size:15px}.nlform .hp{position:absolute;left:-9999px}
+.nlmsg{display:block;margin-top:6px}.nlmsg.ok{color:#14532d}.nlmsg.warn{color:#9a3412}.nlfoot{margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--line)}.nlfoot .nlform{display:inline}.nlc label{position:absolute;left:-9999px}
+
 .social{display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;margin:6px 0 0;font-size:13.5px}
 .social-label{color:var(--muted,#4B5563)}
 .social a{color:var(--ink,#000);text-decoration:underline;text-underline-offset:2px}
@@ -94,12 +119,12 @@ table.list th{font-size:13px;color:var(--muted)}
 .share a:focus-visible,.share button:focus-visible{outline:2px solid var(--ink,#000);outline-offset:2px}
 .share-status{font-size:13px;color:var(--muted,#4B5563)}
 </style></head>
-<body><header class="top"><div class="wrap"><a class="brand" href="../">Nordic <span>Crypto</span></a><nav class="main" aria-label="Main menu"><a href="../">News</a><a href="../calendar/">Calendar</a><a href="../org-chart/">Who&#x27;s who</a><a href="../academia/">Academia</a><a href="../sources/">Sources</a><a href="../about/">About</a><a href="../tip/" aria-current=page>Send a tip</a></nav></div></header>
+<body><header class="top"><div class="wrap"><a class="brand" href="../">Nordic <span>Crypto</span></a><nav class="main" aria-label="Main menu"><a href="../">News</a><a href="../calendar/">Calendar</a><a href="../org-chart/">Who&#x27;s who</a><a href="../academia/">Academia</a><a href="../sources/">Sources</a><a href="../about/">About</a><a href="../tip/" aria-current=page>Send a tip</a></nav><div class="langsw"><details><summary aria-label="Choose language">🌐 English</summary><ul role="list" aria-label="Language"><li><a href="../tip/" hreflang="en" lang="en" data-lang="en" aria-current=true>English</a></li><li><a href="../nn/tip/" hreflang="nn" lang="nn" data-lang="nn">Nynorsk</a></li><li><a href="../nb/tip/" hreflang="nb" lang="nb" data-lang="nb">Bokmål</a></li><li><a href="../sv/tip/" hreflang="sv" lang="sv" data-lang="sv">Svenska</a></li><li><a href="../da/tip/" hreflang="da" lang="da" data-lang="da">Dansk</a></li><li><a href="../fi/tip/" hreflang="fi" lang="fi" data-lang="fi">Suomi</a></li><li><a href="../is/tip/" hreflang="is" lang="is" data-lang="is">Íslenska</a></li></ul></details></div></div></header>
 <main class="wrap">
 <h1>Send a tip</h1>
 <p class="lead">Seen a story about crypto, bitcoin or blockchain in Norway, Sweden, Denmark, Finland or Iceland that we have missed? Send us the link.</p>
 <div class="prose">
-<p>Tips are sent as an issue on GitHub (you need a free GitHub account). Our editor checks every tip against <a href="../about/">our rules</a>: the story must be about crypto, bitcoin or blockchain in the Nordics, and we link to the original source with a short English summary in our own words. <b>A tip does not guarantee publication.</b> The issue stays open while the editor decides.</p>
+<p>Tips are sent as an issue on GitHub (you need a free GitHub account). Our editor checks every tip against <a href="../about/">our rules</a>: the story must be about crypto, bitcoin or blockchain in the Nordics, and we link to the original source with a short summary in our own words. <b>A tip does not guarantee publication.</b> The issue stays open while the editor decides.</p>
 <p class="notice warn"><b>Privacy:</b> tips are <b>public</b> on GitHub, together with your GitHub username. Please do not share personal or sensitive information about yourself or anyone else – just the link and, if you like, a short note. We do not publish names from tips on this site.</p>
 </div>
 <form class="tipform" method="get" action="https://github.com/jQrgen/nordic-crypto/issues/new">
@@ -108,13 +133,13 @@ table.list th{font-size:13px;color:var(--muted)}
 <p><label for="t-country"><b>Country</b></label><br><select id="t-country" name="country" style="padding:6px"><option value="Not sure">Not sure / choose…</option><option value="Norway (NO)">Norway</option><option value="Sweden (SE)">Sweden</option><option value="Denmark (DK)">Denmark</option><option value="Finland (FI)">Finland</option><option value="Iceland (IS)">Iceland</option></select></p>
 <p><label for="t-note"><b>Short note</b> (optional)</label><br><textarea id="t-note" name="note" rows="3" style="width:100%;max-width:560px;padding:6px"></textarea></p>
 <p><button type="submit" style="padding:8px 14px;font-size:15px">Continue on GitHub →</button></p>
-<p class="meta">This opens GitHub's tip form with your answers filled in; nothing is sent until you submit it there. No data is stored on this site.</p>
+<p class="meta">This opens GitHub&#x27;s tip form with your answers filled in; nothing is sent until you submit it there. No data is stored on this site.</p>
 </form>
 <p class="prose">Or open the <a href="https://github.com/jQrgen/nordic-crypto/issues/new?template=tip.yml" rel="noopener">tip form on GitHub</a> directly.</p>
-<nav class="social" aria-label="Jørgen online"><span class="social-label">Follow me:</span><a class="social-x" href="https://x.com/jqrgensn" rel="me noopener noreferrer" target="_blank">X</a><a class="social-github" href="https://github.com/jQrgen" rel="me noopener noreferrer" target="_blank">GitHub</a><a class="social-gitlab" href="https://gitlab.com/jQrgen" rel="me noopener noreferrer" target="_blank">GitLab</a><a class="social-medium" href="https://jqrgen.medium.com/" rel="me noopener noreferrer" target="_blank">Medium</a></nav>
+<nav class="social social-source" aria-label="Source code"><span class="social-label">Source code:</span><a class="social-repo" href="https://github.com/jQrgen/nordic-crypto" rel="noopener noreferrer" target="_blank">github.com/jQrgen/nordic-crypto</a></nav>
   <nav class="share" aria-label="Share this article"><span class="share-label">Share:</span><a class="share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fjqrgen.github.io%2Fnordic-crypto%2Ftip%2F" target="_blank" rel="noopener noreferrer">LinkedIn</a><a class="share-x" href="https://x.com/intent/post?text=Send%20a%20tip%20%E2%80%93%20Nordic%20Crypto&amp;url=https%3A%2F%2Fjqrgen.github.io%2Fnordic-crypto%2Ftip%2F" target="_blank" rel="noopener noreferrer">X</a><a class="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fjqrgen.github.io%2Fnordic-crypto%2Ftip%2F" target="_blank" rel="noopener noreferrer">Facebook</a><a class="share-email" href="mailto:?subject=Send%20a%20tip%20%E2%80%93%20Nordic%20Crypto&amp;body=You%20might%20find%20this%20interesting%3A%0Ahttps%3A%2F%2Fjqrgen.github.io%2Fnordic-crypto%2Ftip%2F">Email</a><button type="button" class="share-copy" data-url="https://jqrgen.github.io/nordic-crypto/tip/" data-done="Link copied">Copy link</button><span class="share-status" role="status" aria-live="polite"></span></nav>
 </main>
-<footer><div class="wrap">Nordic Crypto covers Norway, Sweden, Denmark, Finland and Iceland. Run by Jørgen S. Notland (jQrgen), Oslo, with AI assistance; summaries are written by an AI editor and jQrgen is the responsible person. Not investment advice. No tracking or cookies. <a href="../about/">About, corrections and removal</a> · <a href="../tip/">Send a tip</a> · <a href="../changelog/">Changelog</a>.</div></footer>
+<footer><div class="wrap">Nordic Crypto covers Norway, Sweden, Denmark, Finland and Iceland. Run by Jørgen S. Notland (jQrgen), Oslo, with AI assistance; summaries are written by an AI editor and jQrgen is the responsible person. Not investment advice. No tracking. One cookie, only if you choose a language. <a href="../about/">About, privacy, corrections and removal</a> · <a href="../tip/">Send a tip</a> · <a href="../changelog/">Changelog</a>.</div></footer>
 <script>
 document.addEventListener("click", function (e) {
   var b = e.target.closest && e.target.closest(".share-copy"); if (!b) return;
@@ -123,5 +148,5 @@ document.addEventListener("click", function (e) {
   var fallback = function () { var i = document.createElement("input"); i.value = url; document.body.appendChild(i); i.select(); try { document.execCommand("copy"); done(); } catch (x) { window.prompt("", url); } i.remove(); };
   if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(url).then(done, fallback); else fallback();
 });
-</script>
+</script><script>(function(){document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[data-lang]');if(!a)return;document.cookie='nc_lang='+a.getAttribute('data-lang')+';path=/nordic-crypto/;max-age=31536000;SameSite=Lax'+(location.protocol==='https:'?';Secure':'')})})();</script>
 </body></html>

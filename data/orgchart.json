@@ -33,7 +33,19 @@
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Parliament & government",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "source": "Wikimedia Commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+    "license": "Public domain",
+    "author": "Worldlydev",
+    "file": "assets/img/logos/stortinget-finanskomiteen.svg",
+    "wikidata": "Q109016",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "tuva-moflag",
@@ -56,14 +68,42 @@
     "author": "Johannes Dalen Giske",
     "license": "CC BY-SA 4.0",
     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-    "origin": "Wikimedia Commons"
+    "origin": "Wikimedia Commons",
+    "review": "ok",
+    "note": "published earlier via the Kryptonytt industry map"
    },
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "org": "stortinget-finanskomiteen",
    "role": "Chair (Labour)",
    "profile_url": "https://www.stortinget.no/no/Representanter-og-komiteer/Representantene/Representant/?perid=TUMO",
-   "status": "published"
+   "status": "published",
+   "profiles": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (en)",
+     "url": "https://en.wikipedia.org/wiki/Tuva_Moflag",
+     "source_url": "https://www.wikidata.org/wiki/Q25427910",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    },
+    {
+     "kind": "x",
+     "label": "X",
+     "url": "https://x.com/TuvaMoflag",
+     "source_url": "https://www.wikidata.org/wiki/Q25427910",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q25427910",
+     "source_url": "https://www.wikidata.org/wiki/Q25427910",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    }
+   ]
   },
   {
    "id": "hans-andreas-limi",
@@ -86,14 +126,34 @@
     "author": "Tore Sætre",
     "license": "CC BY-SA 4.0",
     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-    "origin": "Wikimedia Commons"
+    "origin": "Wikimedia Commons",
+    "review": "ok",
+    "note": "published earlier via the Kryptonytt industry map"
    },
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "org": "stortinget-finanskomiteen",
    "role": "First deputy chair (Progress Party)",
    "profile_url": "https://www.stortinget.no/no/Representanter-og-komiteer/Representantene/Representant/?perid=HLI",
-   "status": "published"
+   "status": "published",
+   "profiles": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (en)",
+     "url": "https://en.wikipedia.org/wiki/Hans_Andreas_Limi",
+     "source_url": "https://www.wikidata.org/wiki/Q5649745",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q5649745",
+     "source_url": "https://www.wikidata.org/wiki/Q5649745",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    }
+   ]
   },
   {
    "id": "bjorn-arild-gram",
@@ -116,14 +176,34 @@
     "author": "Statsministerens kontor",
     "license": "CC BY-SA 2.0",
     "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
-    "origin": "Wikimedia Commons"
+    "origin": "Wikimedia Commons",
+    "review": "ok",
+    "note": "published earlier via the Kryptonytt industry map"
    },
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "org": "stortinget-finanskomiteen",
    "role": "Second deputy chair (Centre Party)",
    "profile_url": "https://www.stortinget.no/no/Representanter-og-komiteer/Representantene/Representant/?perid=BJAG",
-   "status": "published"
+   "status": "published",
+   "profiles": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (en)",
+     "url": "https://en.wikipedia.org/wiki/Bj%C3%B8rn_Arild_Gram",
+     "source_url": "https://www.wikidata.org/wiki/Q4919832",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q4919832",
+     "source_url": "https://www.wikidata.org/wiki/Q4919832",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    }
+   ]
   },
   {
    "id": "finansdepartementet",
@@ -156,7 +236,8 @@
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Parliament & government",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "jens-stoltenberg",
@@ -179,14 +260,42 @@
     "author": "U.S. Department of State from United States",
     "license": "Public domain",
     "license_url": "https://commons.wikimedia.org/wiki/File:NATO_Secretary_General_Jens_Stoltenberg.jpg",
-    "origin": "Wikimedia Commons"
+    "origin": "Wikimedia Commons",
+    "review": "ok",
+    "note": "published earlier via the Kryptonytt industry map"
    },
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "org": "finansdepartementet",
    "role": "Minister of Finance (Labour)",
    "profile_url": "https://www.regjeringen.no/no/dep/fin/id216/",
-   "status": "published"
+   "status": "published",
+   "profiles": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (en)",
+     "url": "https://en.wikipedia.org/wiki/Jens_Stoltenberg",
+     "source_url": "https://www.wikidata.org/wiki/Q57665",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    },
+    {
+     "kind": "x",
+     "label": "X",
+     "url": "https://x.com/jensstoltenberg",
+     "source_url": "https://www.wikidata.org/wiki/Q57665",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q57665",
+     "source_url": "https://www.wikidata.org/wiki/Q57665",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    }
+   ]
   },
   {
    "id": "lars-henrik-myrmel-johansen",
@@ -209,14 +318,34 @@
     "author": "Tore Sætre",
     "license": "CC BY-SA 4.0",
     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-    "origin": "Wikimedia Commons"
+    "origin": "Wikimedia Commons",
+    "review": "ok",
+    "note": "published earlier via the Kryptonytt industry map"
    },
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "org": "finansdepartementet",
    "role": "Secretary General (top civil servant)",
    "profile_url": "https://www.regjeringen.no/no/dep/fin/org/id240/",
-   "status": "published"
+   "status": "published",
+   "profiles": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (nb)",
+     "url": "https://no.wikipedia.org/wiki/Lars-Henrik_Myrmel-Johansen",
+     "source_url": "https://www.wikidata.org/wiki/Q25434699",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q25434699",
+     "source_url": "https://www.wikidata.org/wiki/Q25434699",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    }
+   ]
   },
   {
    "id": "fma",
@@ -237,7 +366,8 @@
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Parliament & government",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "geir-avitsland",
@@ -260,7 +390,8 @@
    "org": "fma",
    "role": "Director General, Financial Markets Department",
    "profile_url": "https://www.regjeringen.no/no/dep/fin/org/avdelinger/fma/id1551/",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "marianne-irgens",
@@ -283,7 +414,8 @@
    "org": "fma",
    "role": "Acting Deputy Director General, Section for Insurance and Capital Markets",
    "profile_url": "https://www.regjeringen.no/no/dep/fin/org/avdelinger/fma/id1551/",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "marius-ostli",
@@ -306,7 +438,8 @@
    "org": "fma",
    "role": "Deputy Director General, Section for Banking and Payments",
    "profile_url": "https://www.regjeringen.no/no/dep/fin/org/avdelinger/fma/id1551/",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "finanstilsynet",
@@ -333,7 +466,18 @@
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Regulators & supervisors",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/finanstilsynet.webp",
+    "source": "Official website",
+    "source_url": "https://www.finanstilsynet.no/Content/Favicons/apple-touch-icon-57x57.png",
+    "page": "https://www.finanstilsynet.no",
+    "kind": "touch",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "per-mathis-kongsrud",
@@ -356,7 +500,8 @@
    "org": "finanstilsynet",
    "role": "Director General",
    "profile_url": "https://www.finanstilsynet.no/om-finanstilsynet/organisasjon/",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "finn-arnesen",
@@ -373,13 +518,41 @@
      "date": "03.10.2026"
     }
    ],
-   "image": null,
+   "image": {
+    "file": "assets/img/people/finn-arnesen.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Arnesen01.JPG",
+    "author": "Bjoertvedt",
+    "license": "CC BY 3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0",
+    "origin": "Wikimedia Commons",
+    "review": "ok",
+    "checked": "2026-10-03",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "org": "finanstilsynet",
    "role": "Chair of the Board",
    "profile_url": "https://www.finanstilsynet.no/om-finanstilsynet/organisasjon/",
-   "status": "published"
+   "status": "published",
+   "profiles": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (nb)",
+     "url": "https://no.wikipedia.org/wiki/Finn_Arnesen_(jurist)",
+     "source_url": "https://www.wikidata.org/wiki/Q16167804",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q16167804",
+     "source_url": "https://www.wikidata.org/wiki/Q16167804",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    }
+   ]
   },
   {
    "id": "giuditta-cordero-moss",
@@ -402,7 +575,8 @@
    "org": "finanstilsynet",
    "role": "Deputy Chair of the Board",
    "profile_url": "https://www.finanstilsynet.no/om-finanstilsynet/organisasjon/",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "marte-voie-opland",
@@ -425,7 +599,8 @@
    "org": "finanstilsynet",
    "role": "Director, Markets Supervision",
    "profile_url": "https://www.finanstilsynet.no/globalassets/om-finanstilsynet/organisasjonskart.pdf",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "knut-haugan",
@@ -448,7 +623,8 @@
    "org": "finanstilsynet",
    "role": "Director, Risk Monitoring and Macroprudential Supervision",
    "profile_url": "https://www.finanstilsynet.no/globalassets/om-finanstilsynet/organisasjonskart.pdf",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "brita-daae-hrenovica",
@@ -471,7 +647,8 @@
    "org": "finanstilsynet",
    "role": "Head of Section, Anti-Money Laundering",
    "profile_url": "https://www.finanstilsynet.no/globalassets/om-finanstilsynet/organisasjonskart.pdf",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "wenche-fagereng",
@@ -494,7 +671,8 @@
    "org": "finanstilsynet",
    "role": "Head of Section, IT and Payment Services",
    "profile_url": "https://www.finanstilsynet.no/globalassets/om-finanstilsynet/organisasjonskart.pdf",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "anders-sanderlien-hole",
@@ -517,7 +695,8 @@
    "org": "finanstilsynet",
    "role": "Director, Banking and Insurance Supervision",
    "profile_url": "https://www.finanstilsynet.no/globalassets/om-finanstilsynet/organisasjonskart.pdf",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "norges-bank",
@@ -556,7 +735,19 @@
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Central banks",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "source": "Wikimedia Commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Norges_Bank_logo.svg",
+    "license": "Public domain",
+    "author": "Norges Bank",
+    "file": "assets/img/logos/norges-bank.svg",
+    "wikidata": "Q970769",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "ida-wolden-bache",
@@ -579,14 +770,42 @@
     "author": "Tore Sætre",
     "license": "CC BY-SA 4.0",
     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-    "origin": "Wikimedia Commons"
+    "origin": "Wikimedia Commons",
+    "review": "ok",
+    "note": "published earlier via the Kryptonytt industry map"
    },
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "org": "norges-bank",
    "role": "Governor (chairs the Executive Board and the Monetary Policy and Financial Stability Committee)",
    "profile_url": "https://www.norges-bank.no/tema/Om-Norges-Bank/Organisering-styring/Hovedstyret/",
-   "status": "published"
+   "status": "published",
+   "profiles": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (en)",
+     "url": "https://en.wikipedia.org/wiki/Ida_Wolden_Bache",
+     "source_url": "https://www.wikidata.org/wiki/Q110126862",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    },
+    {
+     "kind": "linkedin",
+     "label": "LinkedIn",
+     "url": "https://www.linkedin.com/in/ida-wolden-bache-908a3b/",
+     "source_url": "https://www.wikidata.org/wiki/Q110126862",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q110126862",
+     "source_url": "https://www.wikidata.org/wiki/Q110126862",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    }
+   ]
   },
   {
    "id": "pal-longva",
@@ -609,14 +828,17 @@
     "author": "Tore Sætre",
     "license": "CC BY-SA 4.0",
     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-    "origin": "Wikimedia Commons"
+    "origin": "Wikimedia Commons",
+    "review": "ok",
+    "note": "published earlier via the Kryptonytt industry map"
    },
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "org": "norges-bank",
    "role": "Deputy Governor (central banking operations)",
    "profile_url": "https://www.regjeringen.no/no/dep/fin/org/styrer-rad-og-utvalg-oppnevnt-av-finansdepartementet2/norges-banks-hovedstyre/id2577140/",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "oystein-borsum",
@@ -633,13 +855,49 @@
      "date": "03.10.2026"
     }
    ],
-   "image": null,
+   "image": {
+    "file": "assets/img/people/oystein-borsum.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:%C3%98ystein_B%C3%B8rsum_p%C3%A5_Sentralbanksjefens_%C3%A5rstale_2018_(191749).jpg",
+    "author": "Tore Sætre",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "origin": "Wikimedia Commons",
+    "review": "ok",
+    "checked": "2026-10-03",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "org": "norges-bank",
    "role": "Deputy Governor (Government Pension Fund Global)",
    "profile_url": "https://www.regjeringen.no/no/dep/fin/org/styrer-rad-og-utvalg-oppnevnt-av-finansdepartementet2/norges-banks-hovedstyre/id2577140/",
-   "status": "published"
+   "status": "published",
+   "profiles": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (nb)",
+     "url": "https://no.wikipedia.org/wiki/%C3%98ystein_B%C3%B8rsum",
+     "source_url": "https://www.wikidata.org/wiki/Q107009803",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    },
+    {
+     "kind": "x",
+     "label": "X",
+     "url": "https://x.com/OysteinBorsum",
+     "source_url": "https://www.wikidata.org/wiki/Q107009803",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q107009803",
+     "source_url": "https://www.wikidata.org/wiki/Q107009803",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    }
+   ]
   },
   {
    "id": "torbjorn-haegeland",
@@ -668,7 +926,8 @@
    "org": "norges-bank",
    "role": "Executive Director, Financial Stability",
    "profile_url": "https://www.norges-bank.no/en/topics/about/Organisation/Financial-Stability/",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "knut-sandal",
@@ -697,7 +956,8 @@
    "org": "norges-bank",
    "role": "Director, Payment Analysis and Innovation (Financial Stability)",
    "profile_url": "https://www.norges-bank.no/en/topics/about/Organisation/Financial-Stability/",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "skatteetaten",
@@ -718,7 +978,18 @@
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Tax authorities",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/skatteetaten.webp",
+    "source": "Official website",
+    "source_url": "https://www.skatteetaten.no/static/img/skatteetatenlogo/fav-icon/57x57/png/favicon57x57.png",
+    "page": "https://www.skatteetaten.no/person/",
+    "kind": "touch",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "nina-schanke-funnemark",
@@ -741,7 +1012,25 @@
    "org": "skatteetaten",
    "role": "Director General of Taxes",
    "profile_url": "https://www.regjeringen.no/no/aktuelt/nina-schanke-funnemark-utnemnd-som-skattedirektor/id3160661/",
-   "status": "published"
+   "status": "published",
+   "profiles": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (en)",
+     "url": "https://en.wikipedia.org/wiki/Nina_Schanke_Funnemark",
+     "source_url": "https://www.wikidata.org/wiki/Q104063613",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q104063613",
+     "source_url": "https://www.wikidata.org/wiki/Q104063613",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    }
+   ]
   },
   {
    "id": "okokrim",
@@ -774,7 +1063,19 @@
    "caveat": true,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Police & financial intelligence (FIU)",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "source": "Wikimedia Commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Okokrim_logo_sort.svg",
+    "license": "Public domain",
+    "author": "Lillian Nordby Øktner/Økokrim",
+    "file": "assets/img/logos/okokrim.svg",
+    "wikidata": "Q308084",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "pal-k-lonseth",
@@ -809,7 +1110,8 @@
    "org": "okokrim",
    "role": "Director of Økokrim",
    "profile_url": "https://img8.custompublish.com/getfile.php/5491970.2528.wnkamapwmzsupp/%C3%98kokrim-%C3%A5rsrapport2025.pdf?return=www.okokrim.no",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "dfd",
@@ -836,7 +1138,8 @@
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Parliament & government",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "torgeir-micaelsen",
@@ -865,14 +1168,34 @@
     "author": "Arbeiderpartiet from Oslo, Norway",
     "license": "CC BY-SA 2.0",
     "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
-    "origin": "Wikimedia Commons"
+    "origin": "Wikimedia Commons",
+    "review": "ok",
+    "note": "published earlier via the Kryptonytt industry map"
    },
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "org": "dfd",
    "role": "Minister of Digitalisation and Public Governance (Labour)",
    "profile_url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Sporsmal/Skriftlige-sporsmal-og-svar/Skriftlig-sporsmal/?qnid=127181",
-   "status": "published"
+   "status": "published",
+   "profiles": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (en)",
+     "url": "https://en.wikipedia.org/wiki/Torgeir_Micaelsen",
+     "source_url": "https://www.wikidata.org/wiki/Q1772947",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q1772947",
+     "source_url": "https://www.wikidata.org/wiki/Q1772947",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    }
+   ]
   },
   {
    "id": "energidepartementet",
@@ -893,7 +1216,8 @@
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Parliament & government",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "terje-aasland",
@@ -916,14 +1240,42 @@
     "author": "Mission of Norway to the EU",
     "license": "CC BY 4.0",
     "license_url": "https://creativecommons.org/licenses/by/4.0",
-    "origin": "Wikimedia Commons"
+    "origin": "Wikimedia Commons",
+    "review": "ok",
+    "note": "published earlier via the Kryptonytt industry map"
    },
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "org": "energidepartementet",
    "role": "Minister of Energy (Labour)",
    "profile_url": "https://www.nrk.no/artikkel/opplysninger-til-nrk-store-endringer-i-store-regjeringen-1527579",
-   "status": "published"
+   "status": "published",
+   "profiles": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (en)",
+     "url": "https://en.wikipedia.org/wiki/Terje_Aasland",
+     "source_url": "https://www.wikidata.org/wiki/Q1772899",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    },
+    {
+     "kind": "x",
+     "label": "X",
+     "url": "https://x.com/terjeaa",
+     "source_url": "https://www.wikidata.org/wiki/Q1772899",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q1772899",
+     "source_url": "https://www.wikidata.org/wiki/Q1772899",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    }
+   ]
   },
   {
    "id": "nkom",
@@ -944,7 +1296,19 @@
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Regulators & agencies",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "source": "Wikimedia Commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Emblem_of_the_Norwegian_Communications_Authority.svg",
+    "license": "Public domain",
+    "author": "Norwegian Communications Authority",
+    "file": "assets/img/logos/nkom.svg",
+    "wikidata": "Q1772077",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "john-eivind-velure",
@@ -967,7 +1331,8 @@
    "org": "nkom",
    "role": "Director General",
    "profile_url": "https://nkom.no/om-nkom/organisering-ledelse-og-fagavdelinger",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "nve",
@@ -988,7 +1353,8 @@
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Regulators & agencies",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "kjetil-lund",
@@ -1011,14 +1377,42 @@
     "author": "Kbug2023",
     "license": "CC BY-SA 4.0",
     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-    "origin": "Wikimedia Commons"
+    "origin": "Wikimedia Commons",
+    "review": "ok",
+    "note": "published earlier via the Kryptonytt industry map"
    },
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "org": "nve",
    "role": "Director General",
    "profile_url": "https://www.nve.no/om-nve/dette-er-nve/ledelse/",
-   "status": "published"
+   "status": "published",
+   "profiles": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (en)",
+     "url": "https://en.wikipedia.org/wiki/Kjetil_Lund",
+     "source_url": "https://www.wikidata.org/wiki/Q4994503",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    },
+    {
+     "kind": "x",
+     "label": "X",
+     "url": "https://x.com/lundkjetil",
+     "source_url": "https://www.wikidata.org/wiki/Q4994503",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q4994503",
+     "source_url": "https://www.wikidata.org/wiki/Q4994503",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    }
+   ]
   },
   {
    "id": "statnett",
@@ -1039,7 +1433,19 @@
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "State-owned companies",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "source": "Wikimedia Commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Statnett_logo.svg",
+    "license": "Public domain",
+    "author": "Statnett",
+    "file": "assets/img/logos/statnett.svg",
+    "wikidata": "Q602621",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "elisabeth-vike-vardheim",
@@ -1062,7 +1468,17 @@
    "org": "statnett",
    "role": "CEO",
    "profile_url": "https://www.statnett.no/om-statnett/bli-bedre-kjent-med-statnett/ledelsen-i-statnett/",
-   "status": "published"
+   "status": "published",
+   "profiles": [
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q135399330",
+     "source_url": "https://www.wikidata.org/wiki/Q135399330",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    }
+   ]
   },
   {
    "id": "esma",
@@ -1083,7 +1499,19 @@
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "EU bodies",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "source": "Wikimedia Commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:ESMALogo.png",
+    "license": "CC0",
+    "author": null,
+    "file": "assets/img/logos/esma.webp",
+    "wikidata": "Q769112",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "eba",
@@ -1104,7 +1532,18 @@
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "EU bodies",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/eba.svg",
+    "source": "Official website",
+    "source_url": "https://www.eba.europa.eu/themes/eba_theme/templates/components/site-logo/images/EBA-logo.svg",
+    "page": "https://www.eba.europa.eu/homepage",
+    "kind": "img",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "francois-louis-michaud",
@@ -1127,7 +1566,8 @@
    "org": "eba",
    "role": "Chairperson (from 16 Apr 2026)",
    "profile_url": "https://www.eba.europa.eu/publications-and-media/press-releases/francois-louis-michaud-take-his-role-chair-european-banking-authority",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "kryptoeiendelsloven",
@@ -1148,7 +1588,8 @@
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Legislation",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "firi",
@@ -1181,7 +1622,19 @@
    "caveat": true,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Exchanges & brokers",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "source": "Wikimedia Commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Firi-logo.svg",
+    "license": "Public domain",
+    "author": "Alexander Schipper",
+    "file": "assets/img/logos/firi.svg",
+    "wikidata": "Q110516569",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "thuc-tuan-hoang",
@@ -1216,7 +1669,8 @@
    "org": "firi",
    "role": "CEO and co-founder",
    "profile_url": "https://www.finanstilsynet.no/nyhetsarkiv/nyheter/2026/firi-as-far-tillatelse-som-casp-foretak/",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "nbx",
@@ -1255,7 +1709,18 @@
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Exchanges & brokers",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/nbx.svg",
+    "source": "Official website",
+    "source_url": "https://cdn.prod.website-files.com/6152dfaed2ce58d94ef37b88/619509e489aaca39961511c2_DarkLogo.svg",
+    "page": "https://nbx.com",
+    "kind": "img",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "stig-aleksander-kjos-mathisen",
@@ -1284,7 +1749,8 @@
    "org": "nbx",
    "role": "CEO",
    "profile_url": "https://nbx.com/en/investor",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "k33",
@@ -1305,7 +1771,18 @@
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Exchanges & brokers",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/k33.svg",
+    "source": "Official website",
+    "source_url": "https://cdn.prod.website-files.com/645396e8d92c58b99155faf3/6655c6d2cbd4b2bfd63048b6_YOUR%20ICON.svg",
+    "page": "https://k33.com",
+    "kind": "svgicon",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "torbjorn-bull-jenssen",
@@ -1328,7 +1805,8 @@
    "org": "k33",
    "role": "CEO, K33",
    "profile_url": "https://storage.mfn.se/262d2b97-3b03-48c6-a4d8-4844e976ec9f/k33-receives-mica-authorization.pdf",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "bare-bitcoin",
@@ -1355,7 +1833,18 @@
    "caveat": true,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Exchanges & brokers",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/bare-bitcoin.svg",
+    "source": "Official website",
+    "source_url": "https://barebitcoin.no/_next/static/immutable/media/bare-bitcoin-scrolled.26x9d7blojzsg.svg",
+    "page": "https://barebitcoin.no",
+    "kind": "img",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "torkel-rogstad",
@@ -1384,7 +1873,8 @@
    "org": "bare-bitcoin",
    "role": "Co-founder",
    "profile_url": "https://barebitcoin.no/innsikt/nyheter/2026-06-26-bare-bitcoin-har-mica",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "tyr-markets",
@@ -1411,7 +1901,8 @@
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Exchanges & brokers",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "filip-berg-nielsen",
@@ -1440,7 +1931,8 @@
    "org": "tyr-markets",
    "role": "CEO",
    "profile_url": "https://www.finanstilsynet.no/nyhetsarkiv/nyheter/2026/tyr-markets-as-far-tillatelse-som-casp-foretak/",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "ak-jensen-norway",
@@ -1467,7 +1959,18 @@
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Exchanges & brokers",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/ak-jensen-norway.webp",
+    "source": "Official website",
+    "source_url": "https://cdn.prod.website-files.com/655b7aeacc77bd33098fbac6/65df1e133a0bf545950eba18_svgviewer-png-output.png",
+    "page": "https://www.akj.com",
+    "kind": "img",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "johan-lennart-stiegler",
@@ -1496,7 +1999,8 @@
    "org": "ak-jensen-norway",
    "role": "CEO",
    "profile_url": "https://www.finanstilsynet.no/virksomhetsregisteret/detalj/?id=213970",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "anders-kvamme-jensen",
@@ -1525,7 +2029,8 @@
    "org": "ak-jensen-norway",
    "role": "Chair of the Board",
    "profile_url": "https://www.finanstilsynet.no/virksomhetsregisteret/detalj/?id=213970",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "nedlagte-vekslere-2026",
@@ -1552,7 +2057,8 @@
    "caveat": true,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Exchanges & brokers",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "dnb",
@@ -1579,7 +2085,19 @@
    "caveat": true,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Banks",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "source": "Wikimedia Commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:DNB_Logo.svg",
+    "license": "Public domain",
+    "author": "DNB Bank ASA",
+    "file": "assets/img/logos/dnb.svg",
+    "wikidata": "Q80788",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "ole-morten-sunde",
@@ -1608,7 +2126,8 @@
    "org": "dnb",
    "role": "Head of Emerging Business",
    "profile_url": "https://www.bankshift.no/nyheter/dnb-om-token-okonomien-vi-er-ikke-drevet-av-frykt-for-a-miste-kunder-men-av-a-vaere-relevante/437638",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "norges-bank-tokenisering",
@@ -1635,7 +2154,8 @@
    "caveat": true,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Banks",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "sparebank-1-bankene",
@@ -1656,7 +2176,8 @@
    "caveat": true,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Banks",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "nkom-kryptoutvinnere",
@@ -1683,7 +2204,8 @@
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Mining & data centres",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "tydal-data-center",
@@ -1704,7 +2226,8 @@
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Mining & data centres",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "haakon-bryhni",
@@ -1727,7 +2250,8 @@
    "org": "tydal-data-center",
    "role": "Chair of the Board",
    "profile_url": "https://www.globenewswire.com/news-release/2026/08/04/3338255/0/en/bitdeer-announces-4-7-billion-16-year-ai-hpc-data-center-lease-for-tydal-norway-campus.html",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "seetee",
@@ -1748,7 +2272,8 @@
    "caveat": true,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Investors & funds",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "kjell-inge-rokke",
@@ -1771,7 +2296,25 @@
    "org": "seetee",
    "role": "Founder",
    "profile_url": "https://www.seetee.io/",
-   "status": "published"
+   "status": "published",
+   "profiles": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (en)",
+     "url": "https://en.wikipedia.org/wiki/Kjell_Inge_R%C3%B8kke",
+     "source_url": "https://www.wikidata.org/wiki/Q1383992",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q1383992",
+     "source_url": "https://www.wikidata.org/wiki/Q1383992",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    }
+   ]
   },
   {
    "id": "schibsted-ventures",
@@ -1792,7 +2335,8 @@
    "caveat": true,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Investors & funds",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "the-mint",
@@ -1819,7 +2363,8 @@
    "caveat": true,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Companies & startups",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "dag-tore-aam",
@@ -1848,7 +2393,8 @@
    "org": "the-mint",
    "role": "CEO",
    "profile_url": "https://data.brreg.no/enhetsregisteret/api/enheter/831163232/roller",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "tord-johan-eide",
@@ -1877,7 +2423,8 @@
    "org": "the-mint",
    "role": "Chair of the Board",
    "profile_url": "https://data.brreg.no/enhetsregisteret/api/enheter/831163232/roller",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "bpi",
@@ -1898,7 +2445,18 @@
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Associations & communities",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/bpi.svg",
+    "source": "Official website",
+    "source_url": "https://bpinorge.no/wp-content/uploads/2025/04/bpinorge_footer_logo.svg",
+    "page": "https://bpinorge.no",
+    "kind": "img",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "hakon-sandbakken",
@@ -1921,7 +2479,8 @@
    "org": "bpi",
    "role": "Chair (from June 2026)",
    "profile_url": "https://bpinorge.no/blog/ny-styreleder-vil-gi-bitcoin-en-tydeligere-stemme-i-norge/",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "finans-norge",
@@ -1942,53 +2501,19 @@
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Associations & communities",
-   "status": "published"
-  },
-  {
-   "id": "kari-olrud-moen",
-   "name": "Kari Olrud Moen",
-   "type": "person",
-   "sector": "private",
-   "country": "NO",
-   "description": null,
-   "sources": [
-    {
-     "url": "https://www.finansnorge.no/om-finans-norge/finans-norges-ledergruppe/",
-     "title": "Finans Norge",
-     "source_name": "Finans Norge",
-     "date": "03.10.2026"
-    }
-   ],
-   "image": null,
-   "caveat": false,
-   "origin": "Kryptonytt industry map (approved for Norway)",
-   "org": "finans-norge",
-   "role": "CEO",
-   "profile_url": "https://www.finansnorge.no/om-finans-norge/finans-norges-ledergruppe/",
-   "status": "published"
-  },
-  {
-   "id": "tom-hoiberg",
-   "name": "Tom Høiberg",
-   "type": "person",
-   "sector": "private",
-   "country": "NO",
-   "description": null,
-   "sources": [
-    {
-     "url": "https://www.finansnorge.no/om-finans-norge/finans-norges-ledergruppe/",
-     "title": "Finans Norge",
-     "source_name": "Finans Norge",
-     "date": "03.10.2026"
-    }
-   ],
-   "image": null,
-   "caveat": false,
-   "origin": "Kryptonytt industry map (approved for Norway)",
-   "org": "finans-norge",
-   "role": "Director, Digitalisation and Payments",
-   "profile_url": "https://www.finansnorge.no/om-finans-norge/finans-norges-ledergruppe/",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "source": "Wikimedia Commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:FinansNorge_Logo_RGB_Pos.svg",
+    "license": "CC BY-SA 4.0",
+    "author": "Tonje Westby",
+    "file": "assets/img/logos/finans-norge.svg",
+    "wikidata": "Q3936909",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "nordic-blockchain-association",
@@ -2021,7 +2546,8 @@
    "caveat": true,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Associations & communities",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "jakob-mikkel-hansen",
@@ -2056,7 +2582,8 @@
    "org": "nordic-blockchain-association",
    "role": "CEO and board member",
    "profile_url": "https://nordicblockchain.com/about-us",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "lennart-kirk",
@@ -2091,7 +2618,8 @@
    "org": "nordic-blockchain-association",
    "role": "Chair and co-founder",
    "profile_url": "https://nordicblockchain.com/about-us",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "magnus-jones",
@@ -2126,7 +2654,8 @@
    "org": "nordic-blockchain-association",
    "role": "Board member for Norway",
    "profile_url": "https://nordicblockchain.com/about-us",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "fintech-norway",
@@ -2147,30 +2676,18 @@
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Associations & communities",
-   "status": "published"
-  },
-  {
-   "id": "daniel-isdal-furset",
-   "name": "Daniel Isdal Furset",
-   "type": "person",
-   "sector": "private",
-   "country": "NO",
-   "description": null,
-   "sources": [
-    {
-     "url": "https://data.brreg.no/enhetsregisteret/api/enheter/926447424/roller",
-     "title": "data.brreg.no",
-     "source_name": "data.brreg.no",
-     "date": "03.10.2026"
-    }
-   ],
-   "image": null,
-   "caveat": false,
-   "origin": "Kryptonytt industry map (approved for Norway)",
-   "org": "fintech-norway",
-   "role": "CEO",
-   "profile_url": "https://data.brreg.no/enhetsregisteret/api/enheter/926447424/roller",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/fintech-norway.webp",
+    "source": "Official website",
+    "source_url": "https://fintechnorway.com/wp-content/uploads/2024/10/FTN_Logo.png",
+    "page": "https://fintechnorway.com",
+    "kind": "img",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "alf-gunnar-skjerdal-andersen",
@@ -2193,7 +2710,8 @@
    "org": "fintech-norway",
    "role": "Chair of the Board",
    "profile_url": "https://data.brreg.no/enhetsregisteret/api/enheter/926447424/roller",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "shifter",
@@ -2214,7 +2732,18 @@
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Media",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/shifter.svg",
+    "source": "Official website",
+    "source_url": "https://www.shifter.no/view-resources/dachser2/public/shifter/logo.svg",
+    "page": "https://www.shifter.no",
+    "kind": "img",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "kaupr",
@@ -2222,7 +2751,7 @@
    "type": "organisation",
    "sector": "private",
    "country": "NORDIC",
-   "description": "Niche outlet for digital assets, tokenisation and MiCA in the Nordics (writes in Norwegian about all Nordic markets).",
+   "description": "Niche outlet for digital assets, tokenisation and MiCA in the Nordics (writes in Norwegian about all Nordic markets). Disclosure: Kaupr sponsors Oslo Blockchain Meetup, the meetup run by jQrgen (Jørgen S. Notland), the publisher of Nordic Crypto.",
    "sources": [
     {
      "url": "https://www.kaupr.io/dk/nyheder/norges-bank-utforsker-tokenisering-med-tolv-aktorer",
@@ -2235,7 +2764,18 @@
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Media",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/kaupr.webp",
+    "source": "Official website",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+    "page": "https://www.kaupr.io",
+    "kind": "img",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "finanswatch-e24-dn-finansavisen-okonomi24",
@@ -2256,7 +2796,8 @@
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Media",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "nrk-klassekampen-inyheter",
@@ -2277,7 +2818,8 @@
    "caveat": false,
    "origin": "Kryptonytt industry map (approved for Norway)",
    "group": "Media",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "se-fi",
@@ -2304,7 +2846,19 @@
    "url": "https://www.fi.se",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "source": "Wikimedia Commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Finansinspektionen_logo.svg",
+    "license": "Public domain",
+    "author": "Finansinspektionen.",
+    "file": "assets/img/logos/se-fi.svg",
+    "wikidata": "Q5449671",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "johan-almenberg",
@@ -2333,7 +2887,25 @@
    "org": "se-fi",
    "role": "Director General (since 1 Dec 2025; appointed until 30 Nov 2031)",
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "profiles": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (sv)",
+     "url": "https://sv.wikipedia.org/wiki/Johan_Almenberg",
+     "source_url": "https://www.wikidata.org/wiki/Q137049198",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q137049198",
+     "source_url": "https://www.wikidata.org/wiki/Q137049198",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    }
+   ]
   },
   {
    "id": "malin-alpen",
@@ -2356,7 +2928,8 @@
    "org": "se-fi",
    "role": "Head of Payments and Deputy Director General",
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "se-riksbank",
@@ -2377,7 +2950,19 @@
    "url": "https://www.riksbank.se",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "source": "Wikimedia Commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Riksbanken_skylt.jpg",
+    "license": "CC BY-SA 3.0",
+    "author": "Holger Ellgaard",
+    "file": "assets/img/logos/se-riksbank.webp",
+    "wikidata": "Q564652",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "erik-thedeen",
@@ -2396,11 +2981,39 @@
     }
    ],
    "url": null,
-   "image": null,
+   "image": {
+    "file": "assets/img/people/erik-thedeen.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:20230630_Almedalsvecka_Erik_Thedeen_01_(53012100722).jpg",
+    "author": "Johan Wessman / News Oresund",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "origin": "Wikimedia Commons",
+    "review": "ok",
+    "checked": "2026-10-03",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
    "org": "se-riksbank",
    "role": "Governor and Chair of the Executive Board (since 1 Jan 2023, six-year term)",
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "profiles": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (en)",
+     "url": "https://en.wikipedia.org/wiki/Erik_Thed%C3%A9en",
+     "source_url": "https://www.wikidata.org/wiki/Q6207027",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q6207027",
+     "source_url": "https://www.wikidata.org/wiki/Q6207027",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    }
+   ]
   },
   {
    "id": "se-skatteverket",
@@ -2427,7 +3040,18 @@
    "url": "https://www.skatteverket.se",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/se-skatteverket.webp",
+    "source": "Official website",
+    "source_url": "https://www.skatteverket.se/images/18.5d699354142b230302014c/1385975660374/SkatteverketLogo.png",
+    "page": "https://www.skatteverket.se",
+    "kind": "img",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "se-finanspolisen",
@@ -2448,7 +3072,8 @@
    "url": "https://polisen.se",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "se-finansdepartementet",
@@ -2469,7 +3094,8 @@
    "url": "https://www.regeringen.se",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "safello",
@@ -2502,7 +3128,8 @@
    "url": "https://www.safello.com",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "valuno",
@@ -2523,7 +3150,18 @@
    "url": null,
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/valuno.svg",
+    "source": "Official website",
+    "source_url": "https://valuno.com/images/index-redesign/footer/valuno-logo.svg",
+    "page": "https://valuno.com",
+    "kind": "img",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "greenmerc",
@@ -2550,17 +3188,34 @@
    "url": null,
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/greenmerc.webp",
+    "source": "Official website",
+    "source_url": "https://greenmerc.com/images/greenmerc-logo.png",
+    "page": "https://greenmerc.com",
+    "kind": "img",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "goobit",
-   "name": "Goobit",
+   "name": "Goobit (BTCX)",
    "type": "organisation",
    "sector": "private",
    "country": "SE",
    "group": "Exchanges & brokers",
-   "description": "After its own refusal from Finansinspektionen, Goobit launched savings in bitcoin and gold on the Finnish Kvarn Capital's MiCA licence, according to Kaupr.",
+   "description": "Swedish bitcoin exchange operating under the brand BTCX, run by Goobit AB, a subsidiary of Goobit Group AB (listed on NGM). After its own refusal from Finansinspektionen, Goobit launched savings in bitcoin and gold on the Finnish Kvarn Capital's MiCA licence, according to Kaupr.",
    "sources": [
+    {
+     "url": "https://bt.cx/sv/",
+     "title": "BTCX – website (Goobit AB)",
+     "source_name": "BTCX",
+     "date": "2026-10-03"
+    },
     {
      "url": "https://www.kaupr.io/nyheter/goobit-lanserer-sparing-i-bitcoin-og-gull-pa-finsk-lisens",
      "title": "Goobit lanserer sparing i bitcoin og gull på finsk lisens",
@@ -2572,12 +3227,24 @@
      "title": "Finske Kvarn leier ut MiCA-tillatelsen sin til nordiske partnere",
      "source_name": "Kaupr",
      "date": "2026-10-03"
+    },
+    {
+     "url": "https://www.kaupr.io/pages/btcx",
+     "title": "BTCX – company profile (Onchain Pages)",
+     "source_name": "Kaupr",
+     "date": "2026-10-03"
     }
    ],
-   "url": null,
+   "url": "https://bt.cx/sv/",
    "image": null,
+   "aliases": [
+    "BTCX",
+    "Goobit AB",
+    "Goobit Group AB"
+   ],
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "virtune",
@@ -2598,7 +3265,8 @@
    "url": null,
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "christopher-kock",
@@ -2621,7 +3289,8 @@
    "org": "virtune",
    "role": "CEO",
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "svenska-bitcoinforeningen",
@@ -2648,7 +3317,18 @@
    "url": "https://www.bitcoinforeningen.se",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/svenska-bitcoinforeningen.webp",
+    "source": "Official website",
+    "source_url": "https://www.bitcoinforeningen.se/wp-content/uploads/2023/06/logoBitcoinforeningen_logo.png",
+    "page": "https://www.bitcoinforeningen.se",
+    "kind": "img",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "swedish-bitcoin-meetups",
@@ -2669,7 +3349,8 @@
    "url": null,
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "fi-fiva",
@@ -2696,7 +3377,18 @@
    "url": "https://www.finanssivalvonta.fi",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/fi-fiva.webp",
+    "source": "Official website",
+    "source_url": "https://www.finanssivalvonta.fi/contentassets/2a88d63613bb4f049c687203e8731112/logo.png",
+    "page": "https://www.finanssivalvonta.fi",
+    "kind": "img",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "tero-kurenmaa",
@@ -2725,7 +3417,25 @@
    "org": "fi-fiva",
    "role": "Director General (five-year term from 15 Jun 2022)",
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "profiles": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (fi)",
+     "url": "https://fi.wikipedia.org/wiki/Tero_Kurenmaa",
+     "source_url": "https://www.wikidata.org/wiki/Q112577670",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q112577670",
+     "source_url": "https://www.wikidata.org/wiki/Q112577670",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    }
+   ]
   },
   {
    "id": "fi-suomen-pankki",
@@ -2746,7 +3456,19 @@
    "url": "https://www.suomenpankki.fi",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "source": "Wikimedia Commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Logo-bof.png",
+    "license": "Public domain",
+    "author": "Bank of Finland, Mikael Kivelä",
+    "file": "assets/img/logos/fi-suomen-pankki.webp",
+    "wikidata": "Q194060",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "olli-rehn",
@@ -2765,11 +3487,47 @@
     }
    ],
    "url": null,
-   "image": null,
+   "image": {
+    "file": "assets/img/people/olli-rehn.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Olli_Rehn_by_Moritz_Kosinsky_2.jpg",
+    "author": "Moritz Kosinsky",
+    "license": "CC BY-SA 3.0 de",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+    "origin": "Wikimedia Commons",
+    "review": "ok",
+    "checked": "2026-10-03",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
    "org": "fi-suomen-pankki",
    "role": "Governor and Chair of the Board (second seven-year term from 12 Jul 2025)",
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "profiles": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (en)",
+     "url": "https://en.wikipedia.org/wiki/Olli_Rehn",
+     "source_url": "https://www.wikidata.org/wiki/Q294411",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    },
+    {
+     "kind": "x",
+     "label": "X",
+     "url": "https://x.com/ollirehn",
+     "source_url": "https://www.wikidata.org/wiki/Q294411",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q294411",
+     "source_url": "https://www.wikidata.org/wiki/Q294411",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    }
+   ]
   },
   {
    "id": "marja-nykanen",
@@ -2792,7 +3550,8 @@
    "org": "fi-suomen-pankki",
    "role": "Member of the Board (Deputy Governor)",
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "fi-vero",
@@ -2813,7 +3572,18 @@
    "url": "https://www.vero.fi",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/fi-vero.svg",
+    "source": "Official website",
+    "source_url": "https://www.vero.fi/static/img/logos/logo-vero-v2023.svg",
+    "page": "https://www.vero.fi/henkiloasiakkaat/",
+    "kind": "img",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "fi-fiu",
@@ -2834,7 +3604,8 @@
    "url": "https://poliisi.fi",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "fi-vm",
@@ -2855,7 +3626,8 @@
    "url": "https://vm.fi",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "coinmotion",
@@ -2882,7 +3654,18 @@
    "url": "https://coinmotion.com",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/coinmotion.webp",
+    "source": "Official website",
+    "source_url": "https://coinmotion.com/wp-content/uploads/2020/06/cm_favicon_light_blue512_.png",
+    "page": "https://coinmotion.com",
+    "kind": "touch",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "tesseract",
@@ -2903,7 +3686,8 @@
    "url": "https://tesseract.fi",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "bittimaatti",
@@ -2924,7 +3708,18 @@
    "url": "https://bittimaatti.fi",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/bittimaatti.webp",
+    "source": "Official website",
+    "source_url": "https://bittimaatti.fi/wp-content/uploads/2025/01/bittimaatti_logo_UusiSininen1000px-2.png",
+    "page": "https://bittimaatti.fi",
+    "kind": "img",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "northcrypto",
@@ -2945,7 +3740,18 @@
    "url": "https://www.northcrypto.com",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/northcrypto.webp",
+    "source": "Official website",
+    "source_url": "https://www.northcrypto.com/images/logo-blue-250.png",
+    "page": "https://www.northcrypto.com",
+    "kind": "img",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "kvarn-x",
@@ -2972,7 +3778,18 @@
    "url": "https://www.kvarnx.com",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/kvarn-x.svg",
+    "source": "Official website",
+    "source_url": "https://www.kvarnx.com/icons/kvarnlogodarkmode.svg",
+    "page": "https://www.kvarnx.com/en",
+    "kind": "img",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "paxos-eu",
@@ -2993,7 +3810,18 @@
    "url": "https://www.paxos.com",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/paxos-eu.webp",
+    "source": "Official website",
+    "source_url": "https://framerusercontent.com/images/sEBLMaJQfU8QUDmUdzdI0us1gJ0.png",
+    "page": "https://www.paxos.com",
+    "kind": "touch",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "btchel",
@@ -3014,7 +3842,8 @@
    "url": "https://info.btchel.com",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "helsinki-bitcoin-hobbyists",
@@ -3035,7 +3864,8 @@
    "url": null,
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "is-sedlabanki",
@@ -3068,7 +3898,8 @@
    "url": "https://www.cb.is",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "asgeir-jonsson",
@@ -3087,11 +3918,22 @@
     }
    ],
    "url": null,
-   "image": null,
+   "image": {
+    "file": "assets/img/people/asgeir-jonsson.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:%C3%81sgeir_J%C3%B3nsson_2022.jpg",
+    "author": "Ifimero",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "origin": "Wikimedia Commons",
+    "review": "ok",
+    "checked": "2026-10-03",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
    "org": "is-sedlabanki",
    "role": "Governor",
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "is-fme",
@@ -3118,7 +3960,8 @@
    "url": "https://www.cb.is",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "bjork-sigurgisladottir",
@@ -3141,7 +3984,8 @@
    "org": "is-fme",
    "role": "Deputy Governor for Financial Supervision",
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "is-skatturinn",
@@ -3162,7 +4006,18 @@
    "url": "https://www.skatturinn.is",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/is-skatturinn.svg",
+    "source": "Official website",
+    "source_url": "https://www.skatturinn.is/skin/rsk/i/sitelogo.svg",
+    "page": "https://www.skatturinn.is",
+    "kind": "img",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "is-sfl",
@@ -3183,7 +4038,8 @@
    "url": null,
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "is-fjr",
@@ -3204,7 +4060,8 @@
    "url": "https://www.stjornarradid.is",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "is-act-101-2025",
@@ -3231,7 +4088,8 @@
    "url": null,
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "myntkaup",
@@ -3252,7 +4110,18 @@
    "url": "https://myntkaup.is",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/myntkaup.svg",
+    "source": "Official website",
+    "source_url": "https://myntkaup.is/images/logoBlack.svg",
+    "page": "https://myntkaup.is/is",
+    "kind": "img",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "monerium",
@@ -3273,7 +4142,18 @@
    "url": "https://monerium.com",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/monerium.svg",
+    "source": "Official website",
+    "source_url": "https://monerium.com/assets/monerium-logo.svg",
+    "page": "https://monerium.com",
+    "kind": "img",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "dk-finanstilsynet",
@@ -3300,7 +4180,8 @@
    "country": "DK",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "dk-nationalbanken",
@@ -3321,7 +4202,8 @@
    "country": "DK",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "dk-erhvervsministeriet",
@@ -3342,7 +4224,19 @@
    "country": "DK",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "source": "Wikimedia Commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Logo_of_the_Danish_Ministry_of_Industry,_Business_and_Financial_Affairs.png",
+    "license": "Public domain",
+    "author": "Danish Ministry of Industry, Business and Financial Affairs",
+    "file": "assets/img/logos/dk-erhvervsministeriet.webp",
+    "wikidata": "Q12310249",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "dk-skatteministeriet",
@@ -3363,7 +4257,8 @@
    "country": "DK",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "dk-skattestyrelsen",
@@ -3384,7 +4279,8 @@
    "country": "DK",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "dk-hvidvasksekretariatet",
@@ -3405,7 +4301,8 @@
    "country": "DK",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "dk-penning",
@@ -3426,7 +4323,18 @@
    "country": "DK",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/dk-penning.svg",
+    "source": "Official website",
+    "source_url": "https://www.penning.io/images/logo-mark.svg",
+    "page": "https://www.penning.io",
+    "kind": "img",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "dk-lunar-block",
@@ -3447,7 +4355,18 @@
    "country": "DK",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/dk-lunar-block.svg",
+    "source": "Official website",
+    "source_url": "https://www.lunar.app/favicon.svg",
+    "page": "https://www.lunar.app/dk/privat/krypto",
+    "kind": "svgicon",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "dk-gcex",
@@ -3468,7 +4387,18 @@
    "country": "DK",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/dk-gcex.webp",
+    "source": "Official website",
+    "source_url": "https://gc.exchange/hs-fs/hubfs/chub_backup/GCEX%20Logo%20Black%20Background%20Image-1-1-1.jpg?width=400&amp;height=240&amp;name=GCEX%20Logo%20Black%20Background%20Image-1-1-1.jpg",
+    "page": "https://gc.exchange/",
+    "kind": "img",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "dk-northstake",
@@ -3489,7 +4419,8 @@
    "country": "DK",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "dk-coinify",
@@ -3510,7 +4441,18 @@
    "country": "DK",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/dk-coinify.webp",
+    "source": "Official website",
+    "source_url": "https://images.squarespace-cdn.com/content/v1/638a48377c09bb00bbc62b94/019e9ada-f799-47ec-b429-c4b6c5f426ec/coinify_logomark_orange.png?format=1500w",
+    "page": "https://www.coinify.com/",
+    "kind": "img",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "dk-januar",
@@ -3531,7 +4473,18 @@
    "country": "DK",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/dk-januar.svg",
+    "source": "Official website",
+    "source_url": "https://cdn.prod.website-files.com/68d11830cc9d61bad348fb81/68d11830cc9d61bad348fbb8_januar-logo-mark.svg",
+    "page": "https://www.januar.com/",
+    "kind": "img",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
   },
   {
    "id": "dk-safelynx",
@@ -3552,7 +4505,8 @@
    "country": "DK",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "profiles": []
   },
   {
    "id": "dk-eurodollar",
@@ -3573,7 +4527,1112 @@
    "country": "DK",
    "image": null,
    "origin": "Nordic Crypto research",
-   "status": "published"
+   "status": "published",
+   "profiles": []
+  },
+  {
+   "id": "no-ace-digital",
+   "name": "Ace Digital (Ace Digital AS)",
+   "country": "NO",
+   "group": "Companies & startups",
+   "url": "https://www.acedigital.no/",
+   "description": "Oslo-based bitcoin company listed on Euronext Growth Oslo (ticker ACED) that holds bitcoin as a treasury asset and runs advisory, venture and fund subsidiaries, according to its own website.",
+   "sources": [
+    {
+     "url": "https://www.acedigital.no/",
+     "title": "Ace Digital – company website",
+     "source_name": "Ace Digital",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://data.brreg.no/enhetsregisteret/oppslag/enheter/924665297",
+     "title": "Ace Digital AS – Enhetsregisteret",
+     "source_name": "Brønnøysundregistrene",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://www.kaupr.io/pages/ace-digital",
+     "title": "Ace Digital – company profile (Onchain Pages)",
+     "source_name": "Kaupr",
+     "date": "2026-10-03"
+    }
+   ],
+   "type": "organisation",
+   "sector": "private",
+   "image": null,
+   "review": "pending",
+   "via": "Kaupr Onchain Pages (kaupr.io/pages)",
+   "origin": "Nordic Crypto research",
+   "status": "published",
+   "profiles": []
+  },
+  {
+   "id": "no-web3-creatives",
+   "name": "Web3 Creatives (Web3 Creatives AS)",
+   "country": "NO",
+   "group": "Companies & startups",
+   "url": "https://web3creatives.no/",
+   "description": "Oslo-based marketing agency specialising in NFT and Web3 marketing for brands, according to its own website.",
+   "sources": [
+    {
+     "url": "https://web3creatives.no/",
+     "title": "Web3 Creatives – company website",
+     "source_name": "Web3 Creatives",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://data.brreg.no/enhetsregisteret/oppslag/enheter/928059103",
+     "title": "Web3 Creatives AS – Enhetsregisteret",
+     "source_name": "Brønnøysundregistrene",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://www.kaupr.io/pages/web3-creatives",
+     "title": "Web3 Creatives – company profile (Onchain Pages)",
+     "source_name": "Kaupr",
+     "date": "2026-10-03"
+    }
+   ],
+   "type": "organisation",
+   "sector": "private",
+   "image": null,
+   "review": "pending",
+   "via": "Kaupr Onchain Pages (kaupr.io/pages)",
+   "origin": "Nordic Crypto research",
+   "status": "published",
+   "profiles": []
+  },
+  {
+   "id": "dk-aryze",
+   "name": "Aryze (ARYZE ApS)",
+   "country": "DK",
+   "group": "Companies & startups",
+   "url": "https://aryze.io/",
+   "description": "Copenhagen fintech founded in 2017 that builds stablecoin and tokenised-asset issuance infrastructure with fiat on/off-ramps for licensed issuers. Aryze provides the technology; the licensed issuer is its customer.",
+   "sources": [
+    {
+     "url": "https://ownr.dk/companies/public-profile/38895052",
+     "title": "ARYZE ApS – (CVR data)",
+     "source_name": "CVR via ownr.dk",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://aryze.io/",
+     "title": "Aryze – company website",
+     "source_name": "Aryze",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://www.kaupr.io/pages/aryze",
+     "title": "Aryze – company profile (Onchain Pages)",
+     "source_name": "Kaupr",
+     "date": "2026-10-03"
+    }
+   ],
+   "type": "organisation",
+   "sector": "private",
+   "image": null,
+   "review": "pending",
+   "via": "Kaupr Onchain Pages (kaupr.io/pages)",
+   "origin": "Nordic Crypto research",
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/dk-aryze.svg",
+    "source": "Official website",
+    "source_url": "https://www.aryze.io/logo/Logo_Wordmark_Dark.svg?dpl=dpl_7DZfxWaGmDdWgCFn27TWMsXrTNK1",
+    "page": "https://www.aryze.io/",
+    "kind": "img",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
+  },
+  {
+   "id": "se-blockchain-sweden",
+   "name": "Blockchain Sweden",
+   "country": "SE",
+   "group": "Associations & communities",
+   "url": "https://blockchainsweden.se/",
+   "description": "Non-profit industry association (ideell förening, registered 2024) for the blockchain industry in Sweden, based at Epicenter in Stockholm.",
+   "sources": [
+    {
+     "url": "https://blockchainsweden.se/",
+     "title": "Blockchain Sweden – Swedish Blockchain Association",
+     "source_name": "Blockchain Sweden",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://www.allabolag.se/8025488647",
+     "title": "BLOCKCHAIN SWEDEN – (Bolagsverket data)",
+     "source_name": "Allabolag (Bolagsverket data)",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://www.kaupr.io/pages/blockchain-sweden",
+     "title": "Blockchain Sweden – company profile (Onchain Pages)",
+     "source_name": "Kaupr",
+     "date": "2026-10-03"
+    }
+   ],
+   "type": "organisation",
+   "sector": "private",
+   "image": null,
+   "review": "pending",
+   "via": "Kaupr Onchain Pages (kaupr.io/pages)",
+   "origin": "Nordic Crypto research",
+   "status": "published",
+   "profiles": []
+  },
+  {
+   "id": "se-divly",
+   "name": "Divly (Ragnaros AB)",
+   "country": "SE",
+   "group": "Companies & startups",
+   "url": "https://divly.com/",
+   "description": "Stockholm-based crypto tax software that calculates gains and losses and produces tax reports for individuals, businesses and accountants in the Nordic countries and several other European markets. Operated by Ragnaros AB.",
+   "sources": [
+    {
+     "url": "https://divly.com/en/terms",
+     "title": "Divly – Terms and conditions (Ragnaros AB, Stockholm)",
+     "source_name": "Divly",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://divly.com/en/about",
+     "title": "Divly – About",
+     "source_name": "Divly",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://www.kaupr.io/pages/divly",
+     "title": "Divly – company profile (Onchain Pages)",
+     "source_name": "Kaupr",
+     "date": "2026-10-03"
+    }
+   ],
+   "type": "organisation",
+   "sector": "private",
+   "image": null,
+   "review": "pending",
+   "via": "Kaupr Onchain Pages (kaupr.io/pages)",
+   "origin": "Nordic Crypto research",
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/se-divly.svg",
+    "source": "Official website",
+    "source_url": "https://divly.fra1.cdn.digitaloceanspaces.com/static/images/logo.svg",
+    "page": "https://divly.com/en/",
+    "kind": "img",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
+  },
+  {
+   "id": "se-dwellir",
+   "name": "Dwellir (Dwellir AB)",
+   "country": "SE",
+   "group": "Companies & startups",
+   "url": "https://www.dwellir.com/",
+   "description": "Uppsala-based provider of blockchain node and RPC/API infrastructure for developers and businesses across many networks.",
+   "sources": [
+    {
+     "url": "https://www.dwellir.com/",
+     "title": "Dwellir – company website (Dwellir AB, Uppsala)",
+     "source_name": "Dwellir",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://www.kaupr.io/pages/dwellir",
+     "title": "Dwellir – company profile (Onchain Pages)",
+     "source_name": "Kaupr",
+     "date": "2026-10-03"
+    }
+   ],
+   "type": "organisation",
+   "sector": "private",
+   "image": null,
+   "review": "pending",
+   "via": "Kaupr Onchain Pages (kaupr.io/pages)",
+   "origin": "Nordic Crypto research",
+   "status": "published",
+   "profiles": []
+  },
+  {
+   "id": "se-firstblock",
+   "name": "FirstBlock (FirstBlock AB)",
+   "country": "SE",
+   "group": "Companies & startups",
+   "url": null,
+   "description": "Stockholm-based blockchain and AI consultancy offering strategy, development, legal (including MiCA) and marketing services.",
+   "sources": [
+    {
+     "url": "https://www.globenewswire.com/news-release/2023/03/08/2623303/0/en/FirstBlock-Announces-Its-Official-Launch-of-Full-Service-Blockchain-Consultancy.html",
+     "title": "FirstBlock Announces Its Official Launch of Full-Service Blockchain Consultancy (company press release)",
+     "source_name": "FirstBlock via GlobeNewswire",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://www.allabolag.se/5593990244",
+     "title": "FirstBlock AB – (Bolagsverket data)",
+     "source_name": "Allabolag (Bolagsverket data)",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://www.kaupr.io/pages/firstblock",
+     "title": "FirstBlock – company profile (Onchain Pages)",
+     "source_name": "Kaupr",
+     "date": "2026-10-03"
+    }
+   ],
+   "type": "organisation",
+   "sector": "private",
+   "image": null,
+   "review": "pending",
+   "via": "Kaupr Onchain Pages (kaupr.io/pages)",
+   "origin": "Nordic Crypto research",
+   "status": "published",
+   "profiles": []
+  },
+  {
+   "id": "se-h100",
+   "name": "H100 (H100 Group AB)",
+   "country": "SE",
+   "group": "Companies & startups",
+   "url": "https://www.h100.group/",
+   "description": "Swedish company with a health-tech business that describes itself as the Nordics' first and leading bitcoin treasury company.",
+   "sources": [
+    {
+     "url": "https://www.h100.group/",
+     "title": "H100 Group – company website",
+     "source_name": "H100",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://www.allabolag.se/5565785622",
+     "title": "H100 Group AB – (Bolagsverket data)",
+     "source_name": "Allabolag (Bolagsverket data)",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://www.kaupr.io/pages/h100",
+     "title": "H100 – company profile (Onchain Pages)",
+     "source_name": "Kaupr",
+     "date": "2026-10-03"
+    }
+   ],
+   "type": "organisation",
+   "sector": "private",
+   "image": null,
+   "review": "pending",
+   "via": "Kaupr Onchain Pages (kaupr.io/pages)",
+   "origin": "Nordic Crypto research",
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/se-h100.webp",
+    "source": "Official website",
+    "source_url": "https://cdn.prod.website-files.com/6785fc8ea8039f2244adbbd5/684ca8b2bba62b9e3593ceb3_Logo.png",
+    "page": "https://www.h100.group/",
+    "kind": "img",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
+  },
+  {
+   "id": "se-hilbert-group",
+   "name": "Hilbert Group (Hilbert Group AB)",
+   "country": "SE",
+   "group": "Investors & funds",
+   "url": "https://www.hilbert.group/",
+   "description": "Stockholm-based digital-asset investment firm listed on Nasdaq First North Growth Market (HILB B), running quantitative trading strategies and lending products.",
+   "sources": [
+    {
+     "url": "https://www.hilbert.group/",
+     "title": "Hilbert Group – company website",
+     "source_name": "Hilbert Group",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://www.allabolag.se/5591052948",
+     "title": "Hilbert Group AB (publ) – (Bolagsverket data)",
+     "source_name": "Allabolag (Bolagsverket data)",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://www.kaupr.io/pages/hilbert-group",
+     "title": "Hilbert Group – company profile (Onchain Pages)",
+     "source_name": "Kaupr",
+     "date": "2026-10-03"
+    }
+   ],
+   "type": "organisation",
+   "sector": "private",
+   "image": null,
+   "review": "pending",
+   "via": "Kaupr Onchain Pages (kaupr.io/pages)",
+   "origin": "Nordic Crypto research",
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/se-hilbert-group.svg",
+    "source": "Official website",
+    "source_url": "https://www.hilbert.group/icon.svg",
+    "page": "https://www.hilbert.group/",
+    "kind": "svgicon",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
+  },
+  {
+   "id": "se-pretax",
+   "name": "Pretax (PRETAX AB)",
+   "country": "SE",
+   "group": "Companies & startups",
+   "url": "https://pretax.se/",
+   "description": "Stockholm tax advisory firm, a member of ECOVIS International, that publishes guidance on the taxation of crypto-assets among its other tax services.",
+   "sources": [
+    {
+     "url": "https://pretax.se/",
+     "title": "PRETAX – company website",
+     "source_name": "Pretax",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://www.kaupr.io/pages/pretax",
+     "title": "Pretax – company profile (Onchain Pages)",
+     "source_name": "Kaupr",
+     "date": "2026-10-03"
+    }
+   ],
+   "type": "organisation",
+   "sector": "private",
+   "image": null,
+   "review": "pending",
+   "via": "Kaupr Onchain Pages (kaupr.io/pages)",
+   "origin": "Nordic Crypto research",
+   "status": "published",
+   "profiles": []
+  },
+  {
+   "id": "se-true-original",
+   "name": "TRUE Original (True Value Software AB)",
+   "country": "SE",
+   "group": "Companies & startups",
+   "url": "https://trueoriginal.com/",
+   "description": "Stockholm-based platform for issuing diplomas, certificates and other documents digitally, backed by a blockchain so they can be verified.",
+   "sources": [
+    {
+     "url": "https://trueoriginal.com/",
+     "title": "TRUE Original – company website (Eriksbergsgatan 3, Stockholm)",
+     "source_name": "TRUE Original",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://www.trueoriginal.com/sv/terms-conditions",
+     "title": "Villkor (True Value Software AB, Stockholm)",
+     "source_name": "TRUE Original",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://www.kaupr.io/pages/true-original",
+     "title": "TRUE Original – company profile (Onchain Pages)",
+     "source_name": "Kaupr",
+     "date": "2026-10-03"
+    }
+   ],
+   "type": "organisation",
+   "sector": "private",
+   "image": null,
+   "review": "pending",
+   "via": "Kaupr Onchain Pages (kaupr.io/pages)",
+   "origin": "Nordic Crypto research",
+   "status": "published",
+   "profiles": []
+  },
+  {
+   "id": "intl-visa",
+   "name": "Visa",
+   "country": "SE",
+   "group": "International players in the Nordics",
+   "url": "https://www.visa.se/",
+   "description": "Global payments network. Visa's Swedish and regional head office is in Stockholm (over 300 staff moving into new premises from January 2026, per Visa), and it owns the Swedish open-banking company Tink. Visa offers stablecoin payment and settlement services (Visa's own site).",
+   "sources": [
+    {
+     "url": "https://www.mynewsdesk.com/se/visa-2/pressreleases/visa-flyttar-till-nytt-svenskt-och-regionalt-huvudkontor-mitt-i-stockholms-finanscentrum-3393052",
+     "title": "Visa flyttar till nytt svenskt och regionalt huvudkontor (Visa press release, 19 June 2025)",
+     "source_name": "Visa Sverige",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://www.kaupr.io/pages/visa",
+     "title": "Visa – company profile (Onchain Pages)",
+     "source_name": "Kaupr",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://usa.visa.com/solutions/crypto.html",
+     "title": "Visa Stablecoin Solutions",
+     "source_name": "Visa",
+     "date": "2026-10-03"
+    }
+   ],
+   "type": "organisation",
+   "sector": "private",
+   "image": null,
+   "review": "pending",
+   "via": "Kaupr Onchain Pages (kaupr.io/pages)",
+   "origin": "Nordic Crypto research",
+   "status": "published",
+   "profiles": []
+  },
+  {
+   "id": "intl-swift",
+   "name": "Swift (S.W.I.F.T. Nordic AB)",
+   "country": "SE",
+   "group": "International players in the Nordics",
+   "url": "https://www.swift.com/",
+   "description": "Global financial messaging network for banks. Its Swedish subsidiary S.W.I.F.T. Nordic AB has an office in Stockholm. In September 2025 Swift announced a blockchain-based shared ledger for regulated tokenised value.",
+   "sources": [
+    {
+     "url": "https://www.allabolag.se/5566438007",
+     "title": "S.W.I.F.T. Nordic AB – (Bolagsverket data)",
+     "source_name": "Allabolag (Bolagsverket data)",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://www.kaupr.io/pages/swift",
+     "title": "SWIFT – company profile (Onchain Pages)",
+     "source_name": "Kaupr",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://www.swift.com/news-events/press-releases/swift-add-blockchain-based-ledger-its-infrastructure-stack-groundbreaking-move-accelerate-and-scale-benefits-digital-finance",
+     "title": "Swift to add blockchain-based ledger to its infrastructure stack",
+     "source_name": "Swift",
+     "date": "2025-09-29"
+    }
+   ],
+   "type": "organisation",
+   "sector": "private",
+   "image": null,
+   "review": "pending",
+   "via": "Kaupr Onchain Pages (kaupr.io/pages)",
+   "origin": "Nordic Crypto research",
+   "status": "published",
+   "logo": {
+    "source": "Wikimedia Commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:SWIFT_2023_logo.svg",
+    "license": "Public domain",
+    "author": null,
+    "file": "assets/img/logos/intl-swift.svg",
+    "wikidata": "Q257597",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
+  },
+  {
+   "id": "intl-d-fine",
+   "name": "d-fine (d-fine AB)",
+   "country": "SE",
+   "group": "International players in the Nordics",
+   "url": "https://www.d-fine.com/en/locations/sweden/",
+   "description": "European quantitative and technology consultancy whose areas include blockchain and digital assets. It has a local office in Stockholm through d-fine AB, which leads its Nordic activities.",
+   "sources": [
+    {
+     "url": "https://www.d-fine.com/en/locations/sweden/",
+     "title": "d-fine – Sweden (Stockholm office)",
+     "source_name": "d-fine",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://www.allabolag.se/5594082637",
+     "title": "d-fine AB – (Bolagsverket data)",
+     "source_name": "Allabolag (Bolagsverket data)",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://www.kaupr.io/pages/d-fine",
+     "title": "d-fine – company profile (Onchain Pages)",
+     "source_name": "Kaupr",
+     "date": "2026-10-03"
+    }
+   ],
+   "type": "organisation",
+   "sector": "private",
+   "image": null,
+   "review": "pending",
+   "via": "Kaupr Onchain Pages (kaupr.io/pages)",
+   "origin": "Nordic Crypto research",
+   "status": "published",
+   "logo": {
+    "file": "assets/img/logos/intl-d-fine.svg",
+    "source": "Official website",
+    "source_url": "https://www.d-fine.com/fileadmin/templates/img/d-fine_logo-blue_RGB.svg",
+    "page": "https://www.d-fine.com/en/locations/sweden/",
+    "kind": "img",
+    "fetched": "2026-10-03",
+    "review": "ok",
+    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+   },
+   "profiles": []
+  },
+  {
+   "id": "intl-okx",
+   "name": "OKX Europe",
+   "country": "NORDIC",
+   "group": "International players in the Nordics",
+   "url": "https://www.okx.com/en-eu",
+   "description": "Global crypto exchange. Its European entity, OKX Europe, is authorised as a crypto-asset service provider in Malta and listed in ESMA's CASP register with passporting to Norway, Sweden, Denmark, Finland and Iceland. It launched in Sweden, Finland and Denmark in June 2025, and Norway is documented from July 2025 (OKX's Nordic campaign from late July 2025 was open to residents of Norway).",
+   "sources": [
+    {
+     "url": "https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv",
+     "title": "ESMA interim MiCA register – CASPs: OKX Europe Limited (MFSA, Malta), services passported incl. NO, SE, DK, FI, IS",
+     "source_name": "ESMA",
+     "date": "2026-10-04"
+    },
+    {
+     "url": "https://www.okx.com/en-eu/campaigns/okx-goes-live-in-the-nordics",
+     "title": "OKX goes live in the Nordics (OKX)",
+     "source_name": "OKX",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://fintechnordics.com/8840/fintechdenmark/okx-launches-regulated-crypto-exchange-nordics/",
+     "title": "OKX Launches Regulated Crypto Exchange in Nordic Region",
+     "source_name": "Fintech in Nordics",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://www.kaupr.io/en/news/okx-opens-the-nordic-crypto-race-powered-by-mica",
+     "title": "OKX opens the Nordic crypto race powered by MiCA",
+     "source_name": "Kaupr",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://www.kaupr.io/pages/okx",
+     "title": "OKX – company profile (Onchain Pages)",
+     "source_name": "Kaupr",
+     "date": "2026-10-03"
+    }
+   ],
+   "type": "organisation",
+   "sector": "private",
+   "image": null,
+   "review": "pending",
+   "via": "Kaupr Onchain Pages (kaupr.io/pages)",
+   "origin": "Nordic Crypto research",
+   "status": "published",
+   "profiles": []
+  },
+  {
+   "id": "oyvind-kvanes",
+   "name": "Øyvind Kvanes",
+   "type": "person",
+   "sector": "private",
+   "country": "NO",
+   "group": null,
+   "description": null,
+   "sources": [
+    {
+     "url": "https://data.brreg.no/enhetsregisteret/api/enheter/919932465/roller",
+     "title": "Name and role only from the registry",
+     "source_name": "Brønnøysund Register Centre",
+     "date": "2026-10-03"
+    }
+   ],
+   "url": null,
+   "image": null,
+   "org": "firi",
+   "role": "Chair of the Board",
+   "review": "pending",
+   "added": "2026-10-03",
+   "origin": "Nordic Crypto research",
+   "status": "published",
+   "profiles": []
+  },
+  {
+   "id": "nils-kristian-sundling",
+   "name": "Nils Kristian Sundling",
+   "type": "person",
+   "sector": "private",
+   "country": "NO",
+   "group": null,
+   "description": null,
+   "sources": [
+    {
+     "url": "https://data.brreg.no/enhetsregisteret/api/enheter/920245676/roller",
+     "title": "Name and role only from the registry",
+     "source_name": "Brønnøysund Register Centre",
+     "date": "2026-10-03"
+    }
+   ],
+   "url": null,
+   "image": null,
+   "org": "nbx",
+   "role": "Chair of the Board",
+   "review": "pending",
+   "added": "2026-10-03",
+   "origin": "Nordic Crypto research",
+   "status": "published",
+   "profiles": []
+  },
+  {
+   "id": "bjorn-olav-jalborg",
+   "name": "Bjørn Olav Jalborg",
+   "type": "person",
+   "sector": "private",
+   "country": "NO",
+   "group": null,
+   "description": null,
+   "sources": [
+    {
+     "url": "https://data.brreg.no/enhetsregisteret/api/enheter/927393204/roller",
+     "title": "Name and role only from the registry",
+     "source_name": "Brønnøysund Register Centre",
+     "date": "2026-10-03"
+    }
+   ],
+   "url": null,
+   "image": null,
+   "org": "bare-bitcoin",
+   "role": "Chair of the Board",
+   "review": "pending",
+   "added": "2026-10-03",
+   "origin": "Nordic Crypto research",
+   "status": "published",
+   "profiles": []
+  },
+  {
+   "id": "ola-snove",
+   "name": "Ola Snøve",
+   "type": "person",
+   "sector": "private",
+   "country": "NO",
+   "group": null,
+   "description": null,
+   "sources": [
+    {
+     "url": "https://data.brreg.no/enhetsregisteret/api/enheter/926325299/roller",
+     "title": "Name and role only from the registry",
+     "source_name": "Brønnøysund Register Centre",
+     "date": "2026-10-03"
+    }
+   ],
+   "url": null,
+   "image": null,
+   "org": "seetee",
+   "role": "Chair of the Board",
+   "review": "pending",
+   "added": "2026-10-03",
+   "origin": "Nordic Crypto research",
+   "status": "published",
+   "profiles": []
+  },
+  {
+   "id": "morten-myrstad",
+   "name": "Morten Myrstad",
+   "type": "person",
+   "sector": "private",
+   "country": "NO",
+   "group": null,
+   "description": "Disclosure: Kaupr sponsors Oslo Blockchain Meetup, the meetup run by jQrgen (Jørgen S. Notland), the publisher of Nordic Crypto.",
+   "sources": [
+    {
+     "url": "https://data.brreg.no/enhetsregisteret/api/enheter/928117316/roller",
+     "title": "Name and role only from the registry",
+     "source_name": "Brønnøysund Register Centre",
+     "date": "2026-10-03"
+    }
+   ],
+   "url": null,
+   "image": null,
+   "org": "kaupr",
+   "role": "CEO and Chair of the Board",
+   "review": "pending",
+   "added": "2026-10-03",
+   "caveat": true,
+   "origin": "Nordic Crypto research",
+   "status": "published",
+   "profiles": []
+  },
+  {
+   "id": "mette-hundebol-nielsen",
+   "name": "Mette Hundebøl Nielsen",
+   "type": "person",
+   "sector": "private",
+   "country": "NO",
+   "group": null,
+   "description": null,
+   "sources": [
+    {
+     "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917528934/roller",
+     "title": "Name and role only from the registry",
+     "source_name": "Brønnøysund Register Centre",
+     "date": "2026-10-03"
+    }
+   ],
+   "url": null,
+   "image": null,
+   "org": "shifter",
+   "role": "CEO and Chair of the Board",
+   "review": "pending",
+   "added": "2026-10-03",
+   "origin": "Nordic Crypto research",
+   "status": "published",
+   "profiles": []
+  },
+  {
+   "id": "yngve-aslaksen-gram",
+   "name": "Yngve Aslaksen Gram",
+   "type": "person",
+   "sector": "private",
+   "country": "NO",
+   "group": null,
+   "description": null,
+   "sources": [
+    {
+     "url": "https://data.brreg.no/enhetsregisteret/api/enheter/919578998/roller",
+     "title": "Name and role only from the registry",
+     "source_name": "Brønnøysund Register Centre",
+     "date": "2026-10-03"
+    }
+   ],
+   "url": null,
+   "image": null,
+   "org": "k33",
+   "role": "Chair of the Board, K33 Markets AS",
+   "review": "pending",
+   "added": "2026-10-03",
+   "origin": "Nordic Crypto research",
+   "status": "published",
+   "profiles": []
+  },
+  {
+   "id": "alexander-hagen",
+   "name": "Alexander Hagen",
+   "type": "person",
+   "sector": "private",
+   "country": "NO",
+   "group": null,
+   "description": null,
+   "sources": [
+    {
+     "url": "https://data.brreg.no/enhetsregisteret/api/enheter/924665297/roller",
+     "title": "Name and role only from the registry",
+     "source_name": "Brønnøysund Register Centre",
+     "date": "2026-10-03"
+    }
+   ],
+   "url": null,
+   "image": null,
+   "org": "no-ace-digital",
+   "role": "CEO",
+   "review": "pending",
+   "added": "2026-10-03",
+   "origin": "Nordic Crypto research",
+   "status": "published",
+   "profiles": []
+  },
+  {
+   "id": "trond-rosdal",
+   "name": "Trond Røsdal",
+   "type": "person",
+   "sector": "private",
+   "country": "NO",
+   "group": null,
+   "description": null,
+   "sources": [
+    {
+     "url": "https://data.brreg.no/enhetsregisteret/api/enheter/924665297/roller",
+     "title": "Name and role only from the registry",
+     "source_name": "Brønnøysund Register Centre",
+     "date": "2026-10-03"
+    }
+   ],
+   "url": null,
+   "image": null,
+   "org": "no-ace-digital",
+   "role": "Chair of the Board",
+   "review": "pending",
+   "added": "2026-10-03",
+   "origin": "Nordic Crypto research",
+   "status": "published",
+   "profiles": []
+  },
+  {
+   "id": "therese-holter",
+   "name": "Therese Holter",
+   "type": "person",
+   "sector": "private",
+   "country": "NO",
+   "group": null,
+   "description": null,
+   "sources": [
+    {
+     "url": "https://data.brreg.no/enhetsregisteret/api/enheter/928059103/roller",
+     "title": "Name and role only from the registry",
+     "source_name": "Brønnøysund Register Centre",
+     "date": "2026-10-03"
+    }
+   ],
+   "url": null,
+   "image": null,
+   "org": "no-web3-creatives",
+   "role": "CEO and Chair of the Board",
+   "review": "pending",
+   "added": "2026-10-03",
+   "origin": "Nordic Crypto research",
+   "status": "published",
+   "profiles": []
+  },
+  {
+   "id": "aino-bunge",
+   "name": "Aino Bunge",
+   "type": "person",
+   "sector": "public",
+   "country": "SE",
+   "group": null,
+   "description": null,
+   "sources": [
+    {
+     "url": "https://www.riksbank.se/sv/om-riksbanken/organisation/direktionen/",
+     "title": "Direktionen",
+     "source_name": "Sveriges Riksbank",
+     "date": "2026-10-03"
+    }
+   ],
+   "url": null,
+   "image": null,
+   "org": "se-riksbank",
+   "role": "First Deputy Governor",
+   "review": "pending",
+   "added": "2026-10-03",
+   "origin": "Nordic Crypto research",
+   "status": "published",
+   "profiles": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (sv)",
+     "url": "https://sv.wikipedia.org/wiki/Aino_Bunge",
+     "source_url": "https://www.wikidata.org/wiki/Q115675909",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q115675909",
+     "source_url": "https://www.wikidata.org/wiki/Q115675909",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    }
+   ]
+  },
+  {
+   "id": "per-jansson",
+   "name": "Per Jansson",
+   "type": "person",
+   "sector": "public",
+   "country": "SE",
+   "group": null,
+   "description": null,
+   "sources": [
+    {
+     "url": "https://www.riksbank.se/sv/om-riksbanken/organisation/direktionen/",
+     "title": "Direktionen",
+     "source_name": "Sveriges Riksbank",
+     "date": "2026-10-03"
+    }
+   ],
+   "url": null,
+   "image": null,
+   "org": "se-riksbank",
+   "role": "Deputy Governor",
+   "review": "pending",
+   "added": "2026-10-03",
+   "origin": "Nordic Crypto research",
+   "status": "published",
+   "profiles": []
+  },
+  {
+   "id": "anna-seim",
+   "name": "Anna Seim",
+   "type": "person",
+   "sector": "public",
+   "country": "SE",
+   "group": null,
+   "description": null,
+   "sources": [
+    {
+     "url": "https://www.riksbank.se/sv/om-riksbanken/organisation/direktionen/",
+     "title": "Direktionen",
+     "source_name": "Sveriges Riksbank",
+     "date": "2026-10-03"
+    }
+   ],
+   "url": null,
+   "image": null,
+   "org": "se-riksbank",
+   "role": "Deputy Governor",
+   "review": "pending",
+   "added": "2026-10-03",
+   "origin": "Nordic Crypto research",
+   "status": "published",
+   "profiles": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (en)",
+     "url": "https://en.wikipedia.org/wiki/Anna_Seim",
+     "source_url": "https://www.wikidata.org/wiki/Q76692910",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q76692910",
+     "source_url": "https://www.wikidata.org/wiki/Q76692910",
+     "status": "published",
+     "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    }
+   ]
+  },
+  {
+   "id": "goran-hjelm",
+   "name": "Göran Hjelm",
+   "type": "person",
+   "sector": "public",
+   "country": "SE",
+   "group": null,
+   "description": null,
+   "sources": [
+    {
+     "url": "https://www.riksbank.se/sv/om-riksbanken/organisation/direktionen/",
+     "title": "Direktionen",
+     "source_name": "Sveriges Riksbank",
+     "date": "2026-10-03"
+    }
+   ],
+   "url": null,
+   "image": null,
+   "org": "se-riksbank",
+   "role": "Deputy Governor",
+   "review": "pending",
+   "added": "2026-10-03",
+   "origin": "Nordic Crypto research",
+   "status": "published",
+   "profiles": []
+  },
+  {
+   "id": "christian-kettel-thomsen",
+   "name": "Christian Kettel Thomsen",
+   "type": "person",
+   "sector": "public",
+   "country": "DK",
+   "group": null,
+   "description": null,
+   "sources": [
+    {
+     "url": "https://www.nationalbanken.dk/en/about-us/board-of-governors-group-management-and-departments",
+     "title": "Board of Governors, Group Management and departments",
+     "source_name": "Danmarks Nationalbank",
+     "date": "2026-10-03"
+    }
+   ],
+   "url": null,
+   "image": null,
+   "org": "dk-nationalbanken",
+   "role": "Governor (royally appointed) and Chair of the Board of Governors",
+   "review": "pending",
+   "added": "2026-10-03",
+   "origin": "Nordic Crypto research",
+   "status": "published",
+   "profiles": []
+  },
+  {
+   "id": "signe-krogstrup",
+   "name": "Signe Krogstrup",
+   "type": "person",
+   "sector": "public",
+   "country": "DK",
+   "group": null,
+   "description": null,
+   "sources": [
+    {
+     "url": "https://www.nationalbanken.dk/en/about-us/board-of-governors-group-management-and-departments",
+     "title": "Board of Governors, Group Management and departments",
+     "source_name": "Danmarks Nationalbank",
+     "date": "2026-10-03"
+    }
+   ],
+   "url": null,
+   "image": null,
+   "org": "dk-nationalbanken",
+   "role": "Governor (member of the Board of Governors)",
+   "review": "pending",
+   "added": "2026-10-03",
+   "origin": "Nordic Crypto research",
+   "status": "published",
+   "profiles": []
+  },
+  {
+   "id": "ulrik-nodgaard",
+   "name": "Ulrik Nødgaard",
+   "type": "person",
+   "sector": "public",
+   "country": "DK",
+   "group": null,
+   "description": null,
+   "sources": [
+    {
+     "url": "https://www.nationalbanken.dk/en/about-us/board-of-governors-group-management-and-departments",
+     "title": "Board of Governors, Group Management and departments",
+     "source_name": "Danmarks Nationalbank",
+     "date": "2026-10-03"
+    }
+   ],
+   "url": null,
+   "image": null,
+   "org": "dk-nationalbanken",
+   "role": "Governor (member of the Board of Governors)",
+   "review": "pending",
+   "added": "2026-10-03",
+   "origin": "Nordic Crypto research",
+   "status": "published",
+   "profiles": []
+  },
+  {
+   "id": "inge-reinertsen",
+   "name": "Inge Reinertsen",
+   "type": "person",
+   "sector": "private",
+   "country": "NO",
+   "group": null,
+   "description": null,
+   "sources": [
+    {
+     "url": "https://data.brreg.no/enhetsregisteret/api/enheter/996549488/roller",
+     "title": "Name and role only from the registry",
+     "source_name": "Brønnøysund Register Centre",
+     "date": "2026-10-03"
+    }
+   ],
+   "url": null,
+   "image": null,
+   "org": "finans-norge",
+   "role": "Chair of the Board",
+   "review": "pending",
+   "added": "2026-10-03",
+   "origin": "Nordic Crypto research",
+   "status": "published",
+   "profiles": []
   }
  ],
  "relations": [
