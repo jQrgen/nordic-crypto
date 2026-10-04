@@ -1,11 +1,27 @@
 {
  "active": [
   {
+   "name": "Adresseavisen",
+   "country": "NO"
+  },
+  {
+   "name": "Aftenposten",
+   "country": "NO"
+  },
+  {
    "name": "ArcticStartup",
    "country": "FI"
   },
   {
+   "name": "Bergens Tidende",
+   "country": "NO"
+  },
+  {
    "name": "Bitcoinpolitisk institutt",
+   "country": "NO"
+  },
+  {
+   "name": "Bitcoinsnakk",
    "country": "NO"
   },
   {
@@ -23,6 +39,10 @@
   {
    "name": "DR",
    "country": "DK"
+  },
+  {
+   "name": "Dagbladet",
+   "country": "NO"
   },
   {
    "name": "Dagens Næringsliv",
@@ -45,6 +65,10 @@
    "country": "NO"
   },
   {
+   "name": "En og tyve tanker",
+   "country": "NO"
+  },
+  {
    "name": "Finans.dk",
    "country": "DK"
   },
@@ -61,12 +85,20 @@
    "country": "NO"
   },
   {
+   "name": "Fædrelandsvennen",
+   "country": "NO"
+  },
+  {
    "name": "Heimildin",
    "country": "IS"
   },
   {
    "name": "Helsingin Sanomat",
    "country": "FI"
+  },
+  {
+   "name": "ITavisen",
+   "country": "NO"
   },
   {
    "name": "Ingeniøren",
@@ -81,7 +113,23 @@
    "country": "NO"
   },
   {
+   "name": "Kode24",
+   "country": "NO"
+  },
+  {
+   "name": "Kryptografen.no",
+   "country": "NO"
+  },
+  {
+   "name": "Kryptopodden",
+   "country": "NO"
+  },
+  {
    "name": "NRK",
+   "country": "NO"
+  },
+  {
+   "name": "Nettavisen",
    "country": "NO"
   },
   {
@@ -109,6 +157,18 @@
    "country": "IS"
   },
   {
+   "name": "Skatteetaten",
+   "country": "NO"
+  },
+  {
+   "name": "Stavanger Aftenblad",
+   "country": "NO"
+  },
+  {
+   "name": "Sunnmørsposten",
+   "country": "NO"
+  },
+  {
    "name": "Suomen Pankki / Bank of Finland",
    "country": "FI"
   },
@@ -121,12 +181,24 @@
    "country": "SE"
   },
   {
+   "name": "TV 2",
+   "country": "NO"
+  },
+  {
    "name": "Talouselämä",
    "country": "FI"
   },
   {
+   "name": "Tek.no",
+   "country": "NO"
+  },
+  {
    "name": "Tivi",
    "country": "FI"
+  },
+  {
+   "name": "VG",
+   "country": "NO"
   },
   {
    "name": "Version2",
@@ -139,6 +211,10 @@
   {
    "name": "Yle Uutiset",
    "country": "FI"
+  },
+  {
+   "name": "iTromsø",
+   "country": "NO"
   },
   {
    "name": "mbl.is",
