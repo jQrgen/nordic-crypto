@@ -19,7 +19,7 @@ def load(p, d=None):
     except FileNotFoundError: return d
 E = lambda s: html.escape(str(s if s is not None else ""), quote=True)
 def snippets(url, title):
-    try: return json.loads(subprocess.check_output(["node", P("tools", "snippets.js"), url, title]))
+    try: return json.loads(subprocess.check_output(["node", P("tools", "snippets.js"), url, title, LANG]))
     except Exception: return {"top": "", "bar": "", "css": "", "script": ""}
 OSLO = ZoneInfo("Europe/Oslo")
 LANG = "en"   # language being built (set by build() for each pass)

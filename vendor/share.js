@@ -4,7 +4,7 @@
 //   css:  share.CSS                                      -> add once to the page's <style>
 //   js:   share.SCRIPT                                   -> add once before </body> (copy-link only; links work without it)
 //   top:  share.top({ url, title, lang, networks? })  -> DEFAULT for the top of an article: the "Følg meg:"/"Follow me:" profile
-//         links from social.js followed by the share bar. Use share.bar (without social links) for the bar at the bottom.
+//         links from social.js followed by the share bar (pass source: { href, lang? } to show a source-code repo link instead). Use share.bar (without social links) for the bar at the bottom.
 //   share.CSS already includes social.CSS.
 // Each bar carries its own url/title, so a page can have one bar per language.
 const social = require("./social.js");
@@ -36,8 +36,10 @@ function bar({ url, title, lang = "en", networks }) {
   return `<nav class="share" aria-label="${esc(L.aria)}"><span class="share-label">${esc(L.share)}</span>${a}<button type="button" class="share-copy" data-url="${esc(url)}" data-done="${esc(L.copied)}">${esc(L.copy)}</button><span class="share-status" role="status" aria-live="polite"></span></nav>`;
 }
 
-function top({ url, title, lang = "en", networks }) {
-  return social.links({ lang }) + "\n  " + bar({ url, title, lang, networks });
+// source: { href, lang? } -> show a link to the site's source code repo instead of the "Follow me" profile links (news sites).
+function top({ url, title, lang = "en", networks, source }) {
+  const head = source && source.href ? social.source({ lang: source.lang || lang, href: source.href }) : social.links({ lang });
+  return head + "\n  " + bar({ url, title, lang, networks });
 }
 
 const CSS = social.CSS + `

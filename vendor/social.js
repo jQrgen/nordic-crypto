@@ -25,4 +25,12 @@ const CSS = `
 .social a:hover{text-decoration-thickness:2px}
 .social a:focus-visible{outline:2px solid var(--ink,#000);outline-offset:2px}
 `;
-module.exports = { links, CSS, PROFILES };
+// Source-code link for sites built from a public repo (news sites): replaces the "Follow me" profile links there.
+//   social.source({ lang, href }) -> <nav class="social social-source"> with a "Source code" label linking to the site's repo
+const SOURCE_LABELS = { nn: "Kjeldekode", nb: "Kildekode", no: "Kildekode", da: "Kildekode", sv: "Källkod", fi: "Lähdekoodi", is: "Frumkóði", en: "Source code" };
+function source({ lang = "en", href }) {
+  const label = SOURCE_LABELS[lang] || SOURCE_LABELS.en;
+  const text = String(href).replace(/^https?:\/\//, "").replace(/\.git$/, "").replace(/\/$/, "");
+  return `<nav class="social social-source" aria-label="${esc(label)}"><span class="social-label">${esc(label)}:</span><a class="social-repo" href="${esc(href)}" rel="noopener noreferrer" target="_blank">${esc(text)}</a></nav>`;
+}
+module.exports = { links, source, CSS, PROFILES, SOURCE_LABELS };
