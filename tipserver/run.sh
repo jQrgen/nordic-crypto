@@ -3,7 +3,7 @@
 #   Starts two detached watchdogs (setsid + nohup): supervise.sh (tip server on 127.0.0.1:${TIP_PORT:-8787}) and, if
 #   config.json has quick_tunnel: true (and no fixed public_endpoint), tunnel.sh (Cloudflare quick tunnel + publishes tip-endpoint.json when the URL changes).
 #   The box has no systemd/cron: routines/nightly-fetch.sh calls 'run.sh ensure' to bring both back after a box restart.
-#   ensure also re-pushes tip-endpoint.json if gh-pages has an outdated URL.
+#   ensure also refreshes site/tip-endpoint.json (and pushes it to gh-pages only if config.json has auto_publish_endpoint: true).
 # Logs: server.log (method, path, status only – never IPs or bodies), tunnel.log / tunnel.cur.log (cloudflared).
 set -euo pipefail
 cd "$(dirname "$0")"
@@ -23,10 +23,11 @@ case "${1:-status}" in
     if [[ -z $(fixed) && -n $(quick) ]]; then
       command -v cloudflared >/dev/null || { echo "cloudflared not installed"; exit 1; }
       start_one tunnel.pid tunnel.sh tunnel.log
-      for _ in $(seq 1 60); do [[ -s tunnel-url.txt ]] && grep -q "$(cat tunnel-url.txt)" tunnel.cur.log 2>/dev/null && break; sleep 1; done
+      for _ in $(seq 1 90); do [[ -s tunnel-url.txt ]] && break; grep -q '^blocked-7844' tunnel.state 2>/dev/null && break; sleep 1; done
+      echo "tunnel state: $(cat tunnel.state 2>/dev/null || echo unknown)"
     fi
     echo "public endpoint: $(python3 endpoint.py)"
-    [[ ${1} == ensure && -n $(python3 endpoint.py) ]] && { (cd .. && tipserver/publish_endpoint.sh) || echo "warning: could not publish tip-endpoint.json"; }
+    [[ ${1} == ensure ]] && { (cd .. && tipserver/publish_endpoint.sh) || echo "warning: could not update tip-endpoint.json"; }
     ;;
   stop) for p in tunnel.pid supervise.pid; do if alive $p; then kill "$(cat $p)"; echo "stopped ${p%.pid}"; fi; rm -f $p; done ;;
   restart) "$0" stop || true; sleep 1; "$0" start ;;
@@ -34,7 +35,8 @@ case "${1:-status}" in
     alive supervise.pid && echo "server watchdog running (pid $(cat supervise.pid))" || echo "server watchdog NOT running"
     health && echo "local health: ok" || echo "local health: down"
     if [[ -n $(fixed) ]]; then echo "fixed endpoint: $(fixed)"; elif [[ -z $(quick) ]]; then echo "quick tunnel: disabled in config.json"; else
-      alive tunnel.pid && echo "tunnel watchdog running (pid $(cat tunnel.pid))" || echo "tunnel watchdog NOT running"; fi
+      alive tunnel.pid && echo "tunnel watchdog running (pid $(cat tunnel.pid))" || echo "tunnel watchdog NOT running"
+      echo "tunnel state: $(cat tunnel.state 2>/dev/null || echo unknown)"; fi
     echo "public endpoint: $(python3 endpoint.py)"; pubhealth && echo "public health: ok" || echo "public health: down"
     echo "published tip-endpoint.json: $(curl -fsS --max-time 10 "https://jqrgen.github.io/nordic-crypto/tip-endpoint.json?t=$(date +%s)" 2>/dev/null | tr -d '\n ' || echo none)" ;;
   *) echo "usage: $0 start|stop|restart|status|ensure"; exit 2 ;;

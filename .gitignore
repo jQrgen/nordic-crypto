@@ -23,3 +23,7 @@ archive/articles.db-*
 
 # generated newsletter digests (regenerate with newsletter/digest.py)
 newsletter/out/
+
+# local screenshot build of the tip page (tip server mode), never published
+site-tip-preview/
+tipserver/tunnel.state

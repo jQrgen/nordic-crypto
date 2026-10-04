@@ -80,6 +80,8 @@ KW = [
     (r"\bBare Bitcoin\b", re.I), (r"\bFiri\b", 0), (r"\bNBX\b", 0), (r"\bK33\b", 0), (r"\bNexa\b", 0),
     (r"\bSafello\b", 0), (r"\bVirtune\b", 0), (r"\bValuno\b", 0), (r"\bGreenMerc\b", re.I), (r"\bTrijo\b", 0),
     (r"\bCoinmotion\b", 0), (r"\bNorthcrypto\b", re.I), (r"\bKvarn X\b", 0), (r"\bMyntkaup\b", 0), (r"\bMonerium\b", 0),
+    # merged from Kryptonytt (2026-10-04) so Norwegian coverage is not lost
+    (r"\bBitmynt\b", re.I), (r"\bH100\b", 0),
 ]
 KW = [(re.compile(r, f), r) for r, f in KW]
 TOPICS = {
@@ -263,7 +265,8 @@ def main():
             except Exception as ex: err = f"{type(ex).__name__}: {ex}"[:200]; log("ERR", s["id"], err)
             status[s["id"]] = {"checked": NOW.isoformat(timespec="seconds"), "ok": n_ok > 0, "requests": 1 + n_meta, "ok_requests": n_ok, "entries": len(links), "error": err}
             log(f"{s['id']:<22} html links={len(links)} err={err}"); continue
-        urls = [s["feed"].format(q=urllib.parse.quote(q)) for q in s.get("queries", [])] if s["type"] == "bing" else [s["feed"]]
+        urls = ([s["feed"].format(q=urllib.parse.quote(q)) for q in s.get("queries", [])]
+                + [s["feed"].format(q=urllib.parse.quote(f"{t} site:{site}")) for site in s.get("sites", []) for t in s.get("site_terms", [])]) if s["type"] == "bing" else [s["feed"]]  # sites x site_terms: Kryptonytt's per-site search (bing-no-kn)
         n_ok = n_items = 0; err = None
         for u in urls:
             if not robots_ok(u): err = "robots.txt disallows"; log("SKIP robots", s["id"], u); continue

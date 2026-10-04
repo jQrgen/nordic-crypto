@@ -725,10 +725,15 @@ def tip_endpoint():
     e = os.environ.get("TIP_ENDPOINT") or (load(P("tipserver", "config.json"), {}) or {}).get("public_endpoint")
     return (e or "").strip().rstrip("/") or None
 
+def tip_page_uses_server():
+    """/tip/ posts to the box tip server (quick tunnel) only when tipserver/config.json has tip_page_uses_server: true
+    (set after jQrgen approves the page) or env TIP_PAGE_SERVER=1 (local preview build). Otherwise the GitHub issue form."""
+    return bool(os.environ.get("TIP_PAGE_SERVER") == "1" or (load(P("tipserver", "config.json"), {}) or {}).get("tip_page_uses_server"))
+
 def write_tip_endpoint_file():
     """site/tip-endpoint.json, so a full publish (which replaces gh-pages with site/) keeps the current endpoint."""
     sys.path.insert(0, P("tipserver")); import endpoint as _ep
-    ep, kind = (tip_endpoint(), "fixed") if tip_endpoint() else _ep.current()
+    ep, kind = (tip_endpoint(), "fixed") if tip_endpoint() else (_ep.current() if tip_page_uses_server() else ("", None))
     old = load(P(".publish", "tip-endpoint.json"), {}) or {}
     upd = old.get("updated") if old.get("endpoint") == ep else dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
     json.dump({"endpoint": ep or None, "kind": kind, "updated": upd}, open(os.path.join(SITE, "tip-endpoint.json"), "w"), indent=1)
@@ -782,8 +787,7 @@ def build_tip():
     (.github/ISSUE_TEMPLATE/tip.yml, label 'tip'). There is no public e-mail address, so GitHub is the only channel.
     routines/nightly-fetch.sh -> tools/reader_tips.py puts open tips in the editor queue as pending; nothing is auto-published."""
     if LANG == "en": write_tip_endpoint_file()
-    cfg = load(P("tipserver", "config.json"), {}) or {}
-    if tip_endpoint() or cfg.get("quick_tunnel"): return build_tip_server(tip_endpoint())  # GitHub issue form only as fallback link
+    if tip_endpoint() or tip_page_uses_server(): return build_tip_server(tip_endpoint())  # GitHub issue form only as fallback link
     # the option values stay English: they fill in the GitHub issue form (tip.yml), which tools/reader_tips.py parses
     opts = f'<option value="Not sure">{E(t("tip_unsure"))}</option>' + "".join(f'<option value="{E(t_en)} ({c})">{E(t("c_" + c))}</option>' for c, t_en in ((c, i18n.t("en", "c_" + c)) for c in COUNTRY_CODES))
     body = f"""<h1>{E(t("tip_title"))}</h1>

@@ -32,7 +32,8 @@ def init_db():
             url TEXT NOT NULL, country TEXT NOT NULL, note TEXT NOT NULL DEFAULT '', name TEXT,
             status TEXT NOT NULL DEFAULT 'pending',   -- pending | imported | duplicate | invalid
             imported_at TEXT, queue_item_id TEXT)""")
-    os.chmod(DB, 0o600)
+    for p in (DB, DB + "-wal", DB + "-shm"):
+        if os.path.exists(p): os.chmod(p, 0o600)
 
 def rate_ok(ip):
     now = time.time(); k = hashlib.sha256(_salt + ip.encode()).hexdigest()

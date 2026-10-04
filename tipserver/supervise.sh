@@ -2,6 +2,7 @@
 # Keeps the tip server running: restarts it whenever it exits (crash or kill), with a short back-off.
 # Started detached by tipserver/run.sh start; stop with tipserver/run.sh stop.
 cd "$(dirname "$0")"
+umask 077   # tips.db and its -wal/-shm files readable by the owner only
 trap 'kill "$child" 2>/dev/null; exit 0' TERM INT
 delay=1
 while true; do
