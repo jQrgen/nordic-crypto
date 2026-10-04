@@ -137,5 +137,7 @@ S.update({
 "nl_e_rate": "Of margar tilraunir á stuttum tíma. Reyndu aftur síðar.",
 "nl_e_link": "Tengillinn er ógildur eða útrunninn. Skráðu þig aftur.",
 "nl_e_fail": "Eitthvað fór úrskeiðis. Reyndu aftur síðar.",
-"nl_kaupr": "<b>Upplýsingagjöf:</b> Kaupr (kaupr.io) er einn af fréttamiðlunum sem við fylgjumst með, styrkir suma viðburði í dagatalinu okkar og styrkir Oslo Blockchain Meetup, sem jQrgen, útgefandi Nordic Crypto, stendur fyrir."
+"nl_kaupr": "<b>Upplýsingagjöf:</b> Kaupr (kaupr.io) er einn af fréttamiðlunum sem við fylgjumst með, styrkir suma viðburði í dagatalinu okkar og styrkir Oslo Blockchain Meetup, sem jQrgen, útgefandi Nordic Crypto, stendur fyrir.",
+"nl_sub_btn": "Gerast áskrifandi á Substack →",
+"nl_sub_note": "Þú skráir þig hjá Substack (nordiccrypto.substack.com), sem sendir fréttabréfið. Substack meðhöndlar netfangið þitt samkvæmt eigin persónuverndarstefnu; þessi vefur geymir ekkert og notar enga rakningu. Í hverju fréttabréfi er tengill til að segja upp áskrift."
 })

@@ -1,7 +1,9 @@
 # Nordic Crypto – newsletter setup kit (Substack + email)
 
-Status: **prepared, nothing created or sent.** No Substack account exists yet; jQrgen creates it with his own login.
-Nothing here is published to gh-pages, and the signup form on the site is **off** (`newsletter/config.json` → `enabled: false`).
+Status: **Substack publication created by jQrgen on 2026-10-05: https://nordiccrypto.substack.com** (subdomain `nordiccrypto`;
+`/subscribe` answers HTTP 200). Nothing has been sent. The site links to the Substack signup
+(https://nordiccrypto.substack.com/subscribe) in the footer of every page and on `/newsletter/` in all 7 languages
+(`newsletter/config.json` → `substack_url`). The site's own signup form stays **off** (`enabled: false`) until the Worker is deployed.
 
 Two channels:
 1. **Substack** – the publication itself (web archive + Substack's own email and app).
@@ -16,7 +18,7 @@ Two channels:
 | Field | Proposal |
 |---|---|
 | Publication name | **Nordic Crypto** |
-| Subdomain | **nordiccrypto.substack.com** – looked free on 4 Oct 2026 01:22 CEST (HTTP 404, the same as for a random unused name). Alternative: nordiccryptonews.substack.com (also 404). A 404 is only a hint: Substack's sign-up form gives the final answer. |
+| Subdomain | **nordiccrypto.substack.com** – created by jQrgen on 2026-10-05 (https://nordiccrypto.substack.com, HTTP 200; `/subscribe` HTTP 200). |
 | Custom domain (optional, paid add-on) | not needed; the site stays on jqrgen.github.io/nordic-crypto/ |
 | Language (Settings › Publication details) | English |
 | Sender name ("From" name) | **Nordic Crypto** (alternative: "Nordic Crypto – jQrgen") |
@@ -129,11 +131,15 @@ Stories from Kaupr are marked "Kaupr is a sponsor" in the digest.
   `.venv/bin/python tipworker/export_subscribers.py --site nordic-crypto` → `state/newsletter/nordic-crypto-confirmed-<date>.csv`
   (mode 600, gitignored; column `email` first) → Substack › Subscribers › Import. Delete the CSV after the import.
 
-## 7. Checklist for jQrgen (nothing below has been done)
+## 7. Checklist for jQrgen (updated 2026-10-05)
 
-- [ ] Create the Substack publication with your own login; confirm the subdomain (nordiccrypto).
-- [ ] Approve: publication name, sender name, reply-to address, tagline, about text, categories, branding images.
+- [x] Create the Substack publication with your own login; confirm the subdomain (nordiccrypto). Done 2026-10-05: https://nordiccrypto.substack.com
+- [ ] In Substack settings: tagline and about text (section 1), sender name, categories (Crypto; Finance, International/News).
+- [ ] Reply-to address: still undecided (no public address exists; do not use a private one without deciding).
+- [ ] Branding: upload `newsletter/assets/logo-512.png` (logo), `email-banner-1100x220.png` (email header), `cover-1200x630.png`
+  (cover/social image), optionally `wordmark-1200x300.png`; accent colour #0f5ea8. (Regenerated 2026-10-05: the wordmark
+  now reads "Nordic Crypto" with the space – an earlier version showed "NordicCrypto".)
 - [ ] Paste the welcome email; set language English; paid subscriptions off.
 - [ ] Choose the confirmation-email provider for the site form (Resend, Buttondown, Postmark via webhook, or Substack import only) and the from-address (needs a domain you control for SPF/DKIM).
 - [ ] Give a Cloudflare API token to deploy the Worker (`tipworker/deploy.sh`), then approve switching the form on.
-- [ ] After the first import: set `substack_url` in `newsletter/config.json` so the site links to the Substack.
+- [x] Set `substack_url` in `newsletter/config.json` (2026-10-05) – the site links to https://nordiccrypto.substack.com/subscribe in the footer and on /newsletter/ (7 languages), even while the own form is off.

@@ -137,5 +137,7 @@ S.update({
 "nl_e_rate": "Liian monta yritystä lyhyessä ajassa. Yritä myöhemmin uudelleen.",
 "nl_e_link": "Linkki ei ole voimassa tai se on vanhentunut. Tilaa uudelleen.",
 "nl_e_fail": "Jokin meni vikaan. Yritä myöhemmin uudelleen.",
-"nl_kaupr": "<b>Avoimuus:</b> Kaupr (kaupr.io) on yksi seuraamistamme uutislähteistä, sponsoroi joitakin kalenterimme tapahtumia ja sponsoroi Oslo Blockchain Meetupia, jota pitää Nordic Crypton julkaisija jQrgen."
+"nl_kaupr": "<b>Avoimuus:</b> Kaupr (kaupr.io) on yksi seuraamistamme uutislähteistä, sponsoroi joitakin kalenterimme tapahtumia ja sponsoroi Oslo Blockchain Meetupia, jota pitää Nordic Crypton julkaisija jQrgen.",
+"nl_sub_btn": "Tilaa Substackissa →",
+"nl_sub_note": "Tilaus tehdään Substackissa (nordiccrypto.substack.com), joka lähettää uutiskirjeen. Substack käsittelee sähköpostiosoitettasi oman tietosuojakäytäntönsä mukaisesti; tämä sivusto ei tallenna mitään eikä seuraa sinua. Jokaisessa uutiskirjeessä on linkki tilauksen perumiseen."
 })

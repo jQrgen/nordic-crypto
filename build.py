@@ -152,6 +152,7 @@ html.nc-pick body{visibility:hidden}
 .rules-c .seg{margin:8px 0}
 .nlform{margin:12px 0}.nlform input[type=email]{padding:6px;width:100%;max-width:320px}.nlform button{padding:7px 14px;font-size:15px}.nlform .hp{position:absolute;left:-9999px}
 .nlmsg{display:block;margin-top:6px}.nlmsg.ok{color:#14532d}.nlmsg.warn{color:#9a3412}.nlfoot{margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--line)}.nlfoot .nlform{display:inline}.nlc label{position:absolute;left:-9999px}
+.nlsub{display:inline-block;padding:6px 14px;border-radius:6px;background:#0f5ea8;color:#fff!important;text-decoration:none;font-weight:600}.nlsub:hover,.nlsub:focus{background:#0b4a85}
 """
 
 NAV = [("", "nav_news"), ("calendar", "nav_calendar"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("sources", "nav_sources"), ("about", "nav_about"), ("tip", "nav_tip")]
@@ -193,15 +194,29 @@ if(q.get('sent'))say(f0,'sent');else if(q.get('confirmed'))say(f0,'confirmed');e
 F.forEach(function(f){f.addEventListener('submit',function(ev){ev.preventDefault();var b=f.querySelector('button'),d={};new FormData(f).forEach(function(v,k){d[k]=v});
 b.disabled=true;say(f,'sending');fetch(f.getAttribute('data-ep')+'/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(d)})
 .then(function(r){return r.json().then(function(j){b.disabled=false;if(r.ok){say(f,'sent');f.reset()}else say(f,E[j.error]||'e_fail')})}).catch(function(){b.disabled=false;say(f,'e_fail')})})})})();</script>""" % json.dumps(m, ensure_ascii=False)
+def substack_subscribe_url():
+    """Substack signup page (newsletter/config.json substack_url + /subscribe), or None. Independent of the own form:
+    the Substack link is shown even while enabled is false (Substack handles signup and privacy itself)."""
+    u = (NL_CFG.get("substack_url") or "").strip().rstrip("/")
+    if not u.startswith("https://"): return None
+    return u if u.endswith("/subscribe") else u + "/subscribe"
+def newsletter_on(): return bool(newsletter_endpoint() or substack_subscribe_url())
+def substack_button():
+    sub = substack_subscribe_url()
+    return f'<a class="nlsub" href="{E(sub)}" rel="noopener">{E(t("nl_sub_btn"))}</a>' if sub else ""
 def build_newsletter():
-    """/newsletter/ in every language: what you get, the form, the privacy note and the Kaupr disclosure. Only when on."""
-    if not newsletter_endpoint(): return
-    sub = NL_CFG.get("substack_url")
+    """/newsletter/ in every language: what you get, the own form (only when on), the Substack signup link (whenever
+    substack_url is set), the privacy note and the Kaupr disclosure. Not built when neither is available."""
+    if not newsletter_on(): return
+    form = newsletter_form()
+    sub = substack_button()
+    priv = f'<p class="notice">{t("nl_priv")}</p>' if form else ""
+    subnote = f'<p class="notice">{t("nl_sub_note")}</p>' if sub and not form else ""
     body = f"""<h1>{E(t("nl_title"))}</h1>
 <p class="lead">{E(t("nl_lead"))}</p>
-{newsletter_form()}
-<div class="prose"><p class="notice">{t("nl_priv")}</p>
-{f'<p><a href="{E(sub)}" rel="noopener">Substack</a></p>' if sub else ''}
+{form}
+{f'<p>{sub}</p>' if sub else ''}
+<div class="prose">{priv}{subnote}
 <p class="meta">{t("nl_kaupr")}</p></div>"""
     page("newsletter", t("nl_title"), "newsletter", body, t("nl_desc"))
 LANGSEL_JS = None
@@ -233,7 +248,7 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None):
                 .replace("__COOKIE_PATH__", COOKIE_PATH).replace("__LANGS__", json.dumps(i18n.LANGS)) + "</script>")
     setck = ("<script>(function(){document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[data-lang]');if(!a)return;"
              f"document.cookie='nc_lang='+a.getAttribute('data-lang')+';path={COOKIE_PATH};max-age=31536000;SameSite=Lax'+(location.protocol==='https:'?';Secure':'')}})}})();</script>")
-    nlfoot = (f'<div class="nlfoot"><b>{E(t("nl_foot"))}</b> {newsletter_form(True)} <a href="{rel}newsletter/">{E(t("nl_more"))}</a></div>' if newsletter_endpoint() and slug != "newsletter" else "")
+    nlfoot = (f'<div class="nlfoot"><b>{E(t("nl_foot"))}</b> {" ".join(x for x in (newsletter_form(True), substack_button()) if x)} <a href="{rel}newsletter/">{E(t("nl_more"))}</a></div>' if newsletter_on() and slug != "newsletter" else "")
     doc = f"""<!doctype html>
 <html lang="{i18n.HTML_LANG[LANG]}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 {pick}<title>{E(title)}{" – " + SITE_NAME if slug else ""}</title>

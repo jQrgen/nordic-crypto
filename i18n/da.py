@@ -137,5 +137,7 @@ S.update({
 "nl_e_rate": "For mange forsøg på kort tid. Prøv igen senere.",
 "nl_e_link": "Linket er ugyldigt eller udløbet. Tilmeld dig igen.",
 "nl_e_fail": "Noget gik galt. Prøv igen senere.",
-"nl_kaupr": "<b>Åbenhed:</b> Kaupr (kaupr.io) er en af de nyhedskilder, vi følger, sponsorerer nogle arrangementer i vores kalender og sponsorerer Oslo Blockchain Meetup, som drives af jQrgen, udgiveren af Nordic Crypto."
+"nl_kaupr": "<b>Åbenhed:</b> Kaupr (kaupr.io) er en af de nyhedskilder, vi følger, sponsorerer nogle arrangementer i vores kalender og sponsorerer Oslo Blockchain Meetup, som drives af jQrgen, udgiveren af Nordic Crypto.",
+"nl_sub_btn": "Abonnér på Substack →",
+"nl_sub_note": "Du tilmelder dig hos Substack (nordiccrypto.substack.com), som sender nyhedsbrevet. Substack behandler din e-mailadresse efter sin egen privatlivspolitik; dette websted gemmer intet og har ingen sporing. Hvert nyhedsbrev har et link til afmelding."
 })

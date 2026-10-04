@@ -3,10 +3,17 @@ from playwright.sync_api import sync_playwright
 NC_MARK = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='#0f5ea8'/><rect x='4' width='3' height='16' fill='white'/><rect y='6.5' width='16' height='3' fill='white'/></svg>"
 KN_MARK = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='#b45309'/><text x='8' y='12.5' font-size='12' text-anchor='middle' fill='white' font-family='DejaVu Sans, sans-serif' font-weight='bold'>K</text></svg>"
 FONT = "font-family:system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif"   # same stack as the sites (no quotes: used inside style='…')
-def word(nc): return ("Nordic <span style='color:#0f5ea8'>Crypto</span>" if nc else "Krypto<span style='color:#b45309'>nytt</span> Norge")
+# The wordmark is wrapped in ONE inline span with a non-breaking space: as direct children of a flex container, the text node
+# "Nordic " and the coloured <span> became separate flex items and the space between them was dropped ("NordicCrypto").
+def word(nc): return ("<span style='white-space:nowrap'>Nordic&nbsp;<span style='color:#0f5ea8'>Crypto</span></span>" if nc
+                      else "<span style='white-space:nowrap'>Krypto<span style='color:#b45309'>nytt</span>&nbsp;Norge</span>")
 def tag(nc): return ("Crypto news from the Nordics" if nc else "Norske nyheiter om bitcoin, blokkjede og krypto")
+import sys
+# usage: make_brand_assets.py [--site nordic-crypto|kryptonytt]   (default: both sites)
+ONLY = sys.argv[sys.argv.index("--site") + 1] if "--site" in sys.argv else None
 JOBS = []
 for nc, d in ((True, "/workspace/nordic-crypto/newsletter/assets/"), (False, "/workspace/kryptonytt/newsletter/assets/")):
+    if ONLY and ONLY != ("nordic-crypto" if nc else "kryptonytt"): continue
     mark = NC_MARK if nc else KN_MARK
     open(d + "logo.svg", "w").write(mark.replace("viewBox", "width='512' height='512' viewBox") + "\n")
     JOBS += [(d + "logo-512.png", 512, 512, f"<div style='width:512px;height:512px'>{mark.replace('viewBox', 'width=\"512\" height=\"512\" viewBox')}</div>"),
