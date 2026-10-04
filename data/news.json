@@ -67,6 +67,73 @@
    "summary_i18n_review": "approved"
   },
   {
+   "title": "Tiltalt for dopsalg mot kryptovaluta på det mørke nettet",
+   "title_en": "Charged with selling drugs for cryptocurrency on the dark web",
+   "source": "aftenposten",
+   "source_name": "Aftenposten",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-10-02T11:07:26+00:00",
+   "topics": [
+    "crime"
+   ],
+   "matched": [],
+   "paywall": true,
+   "suggested_by": "Kryptonytt",
+   "suggested_status": "approved on Kryptonytt",
+   "suggested_at": "2026-10-03T16:17:59+00:00",
+   "id": "1a95167a3af8",
+   "url": "https://www.aftenposten.no/norge/i/vlQARB/tiltalt-for-dopsalg-mot-kryptovaluta-paa-det-moerke-nettet",
+   "status": "published",
+   "summary": "Three Norwegians and a Swede have been charged in a large drug case with links abroad, involving drug sales for cryptocurrency on the dark web, according to the Southern Norway public prosecutor.",
+   "fetched": "2026-10-03T16:17:59+00:00",
+   "origin": "suggested by Kryptonytt",
+   "approved_by": "Nordic Crypto redaktør",
+   "approved_at": "2026-10-03T18:26:24+02:00",
+   "summary_i18n": {
+    "nn": "Tre nordmenn og ein svenske er tiltalte i ei stor narkotikasak med forgreiningar til utlandet, med sal av narkotika for kryptovaluta på det mørke nettet, ifølgje Sør-Norge statsadvokatembete.",
+    "nb": "Tre nordmenn og en svenske er tiltalt i en stor narkotikasak med forgreninger til utlandet, med salg av narkotika for kryptovaluta på det mørke nettet, ifølge Sør-Norge statsadvokatembeter.",
+    "sv": "Tre norrmän och en svensk har åtalats i ett stort narkotikamål med kopplingar utomlands, där narkotika sålts mot kryptovaluta på darknet, enligt åklagarmyndigheten i södra Norge.",
+    "da": "Tre nordmænd og en svensker er tiltalt i en stor narkosag med forbindelser til udlandet, hvor narko blev solgt for kryptovaluta på det mørke net, oplyser anklagemyndigheden i Sydnorge.",
+    "fi": "Kolmea norjalaista ja yhtä ruotsalaista syytetään laajassa huumejutussa, jolla on yhteyksiä ulkomaille ja jossa huumeita myytiin kryptovaluutalla pimeässä verkossa, kertoo Etelä-Norjan syyttäjäviranomainen.",
+    "is": "Þrír Norðmenn og einn Svíi hafa verið ákærðir í umfangsmiklu fíkniefnamáli með tengsl við útlönd, þar sem fíkniefni voru seld fyrir rafmyntir á myrkravefnum, að sögn ríkissaksóknaraembættisins í Suður-Noregi."
+   },
+   "summary_i18n_review": "approved"
+  },
+  {
+   "id": "9dbf8f8aeac1",
+   "url": "https://www.gamereactor.se/krypto-casino/",
+   "title": "Krypto casino 2026 - Bästa crypto casinon listade",
+   "title_en": null,
+   "source": "gamereactor.se",
+   "source_name": "gamereactor.se",
+   "country": "SE",
+   "language": "Swedish",
+   "via": "bing-se",
+   "seen_via": [
+    "bing-se"
+   ],
+   "published": "2026-10-02T10:02:00+00:00",
+   "fetched": "2026-10-04T01:42:55+00:00",
+   "topics": [
+    "bitcoin",
+    "crypto"
+   ],
+   "matched": [
+    "\\bbitcoin\\w*",
+    "\\bcrypto\\w*",
+    "\\bkrypto(?!graf)\\w*"
+   ],
+   "paywall": false,
+   "status": "rejected",
+   "summary": null,
+   "reject_reason": "Undated ranked list of gambling sites: advertising, not news"
+  },
+  {
    "id": "2d38c9c89e0e",
    "url": "https://www.sydsvenskan.se/lund/uppgifter-tonaringar-silvertejpade-man-i-jakt-pa-kryptovaluta/",
    "title": "Uppgifter: Tonåringar silvertejpade man i jakt på kryptovaluta",
@@ -127,6 +194,36 @@
    "status": "rejected",
    "summary": null,
    "reject_reason": "Crime story from the UK, no Nordic angle"
+  },
+  {
+   "title": "EU-tilsyn stiller spørsmål ved Binances virksomhet uten lisens (engelsk)",
+   "title_en": null,
+   "source": "euronews.com",
+   "source_name": "Euronews",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-10-01T12:00:00+00:00",
+   "topics": [
+    "companies",
+    "crypto",
+    "regulation"
+   ],
+   "matched": [],
+   "paywall": false,
+   "suggested_by": "Kryptonytt",
+   "suggested_status": "approved on Kryptonytt",
+   "suggested_at": "2026-10-03T16:17:59+00:00",
+   "id": "ffc8a438f9ba",
+   "url": "https://www.euronews.com/2026/10/01/eu-watchdogs-question-binance-over-unlicensed-european-operations",
+   "status": "rejected",
+   "summary": null,
+   "fetched": "2026-10-03T16:17:59+00:00",
+   "origin": "suggested by Kryptonytt",
+   "reject_reason": "Already covered (Binance/ESMA) by approved stories"
   },
   {
    "id": "7b2030aea964",
@@ -336,6 +433,65 @@
    "summary_i18n_review": "approved"
   },
   {
+   "title": "Dubai-pengene: Tidligere kryptoselskap bak overførslene til Dyar Al-Ashtari",
+   "title_en": null,
+   "source": "dn",
+   "source_name": "Dagens Næringsliv",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-09-30T03:52:00+00:00",
+   "topics": [
+    "companies",
+    "crypto"
+   ],
+   "matched": [],
+   "paywall": true,
+   "suggested_by": "Kryptonytt",
+   "suggested_status": "candidate on Kryptonytt",
+   "suggested_at": "2026-10-03T16:17:59+00:00",
+   "id": "de9daa98a40a",
+   "url": "https://www.dn.no/teknologi/dubai-pengene-tidligere-kryptoselskap-bak-overforslene-til-dyar-al-ashtari/2-1-2049843",
+   "status": "rejected",
+   "summary": null,
+   "fetched": "2026-10-03T16:17:59+00:00",
+   "origin": "suggested by Kryptonytt",
+   "reject_reason": "Crypto angle too thin (former crypto company); story is about a person's finances"
+  },
+  {
+   "title": "#75 MAX HILLEBRAND - The unseen cost of fiat.",
+   "title_en": null,
+   "source": "enogtyvetanker",
+   "source_name": "En og tyve tanker (podkast)",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-09-28T21:46:39+00:00",
+   "topics": [
+    "bitcoin",
+    "companies",
+    "crypto"
+   ],
+   "matched": [],
+   "paywall": false,
+   "suggested_by": "Kryptonytt",
+   "suggested_status": "candidate on Kryptonytt",
+   "suggested_at": "2026-10-03T16:17:59+00:00",
+   "id": "f906868d0da6",
+   "url": "https://podcasters.spotify.com/pod/show/andreas-harding2/episodes/75-MAX-HILLEBRAND---The-unseen-cost-of-fiat-e3ph9qh",
+   "status": "rejected",
+   "summary": null,
+   "fetched": "2026-10-03T16:17:59+00:00",
+   "origin": "suggested by Kryptonytt",
+   "reject_reason": "Podcast episode on economics, not news"
+  },
+  {
    "id": "5ed4b28bb113",
    "url": "https://www.kaupr.io/nyheter/slik-kan-investorer-fa-eksponering-mot-tokenisering",
    "title": "Slik kan investorer få eksponering mot tokenisering",
@@ -457,6 +613,36 @@
    "reject_reason": "Topic page, not an article"
   },
   {
+   "title": "Tokens fra børs til betaling",
+   "title_en": null,
+   "source": "finansavisen",
+   "source_name": "Finansavisen",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-09-27T09:53:00+00:00",
+   "topics": [
+    "blockchain",
+    "companies",
+    "regulation"
+   ],
+   "matched": [],
+   "paywall": true,
+   "suggested_by": "Kryptonytt",
+   "suggested_status": "candidate on Kryptonytt",
+   "suggested_at": "2026-10-03T16:17:59+00:00",
+   "id": "77a45d553c8b",
+   "url": "https://www.finansavisen.no/finans/2026/09/27/8382998/tokens-fra-bors-til-betaling",
+   "status": "rejected",
+   "summary": null,
+   "fetched": "2026-10-03T16:17:59+00:00",
+   "origin": "suggested by Kryptonytt",
+   "reject_reason": "No accessible teaser to summarise; resubmit if one can be read"
+  },
+  {
    "id": "c81be998e21c",
    "url": "https://yle.fi/a/74-20248505",
    "title": "Yhteisöllisyys ja teknologia kiehtovat kryptovaluuttoihin sijoittaneita – kryptotapahtumassa iloittiin bitcoinin uudesta nousurallista",
@@ -491,6 +677,44 @@
     "da": "Ved et finsk kryptoarrangement fortalte investorer, at fællesskabet og teknologien er det, der trækker dem mod krypto, mens bitcoin steg igen.",
     "fi": "Suomalaisessa kryptotapahtumassa sijoittajat kertoivat yhteisön ja teknologian vetävän heitä kryptojen pariin, kun bitcoin nousi taas.",
     "is": "Á finnskum rafmyntaviðburði sögðu fjárfestar að samfélagið og tæknin dragi þá að rafmyntum, á meðan bitcoin hækkaði á ný."
+   },
+   "summary_i18n_review": "approved"
+  },
+  {
+   "title": "Fant hemmelig passord: Låste opp krypto-lommeboken",
+   "title_en": "Found secret password: unlocked the crypto wallet",
+   "source": "nettavisen",
+   "source_name": "Nettavisen",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-09-25T19:16:00+00:00",
+   "topics": [
+    "crime"
+   ],
+   "matched": [],
+   "paywall": true,
+   "suggested_by": "Kryptonytt",
+   "suggested_status": "candidate on Kryptonytt",
+   "suggested_at": "2026-10-03T16:17:59+00:00",
+   "id": "dbcac6be2b75",
+   "url": "https://www.nettavisen.no/krypto/etterforskning/hordaland-tingrett/fant-hemmelig-passord-laste-opp-krypto-lommeboken/s/80-95-105422",
+   "status": "published",
+   "summary": "Police have unlocked the crypto wallet of an NHH student charged in a drug case, uncovering assets worth several hundred thousand kroner.",
+   "fetched": "2026-10-03T16:17:59+00:00",
+   "origin": "suggested by Kryptonytt",
+   "approved_by": "Nordic Crypto redaktør",
+   "approved_at": "2026-10-03T18:26:24+02:00",
+   "summary_i18n": {
+    "nn": "Politiet har låst opp kryptolommeboka til ein NHH-student som er tiltalt i ei narkotikasak, og funne verdiar for fleire hundre tusen kroner.",
+    "nb": "Politiet har låst opp kryptolommeboken til en NHH-student som er tiltalt i en narkotikasak, og funnet verdier for flere hundre tusen kroner.",
+    "sv": "Polisen har låst upp kryptoplånboken hos en NHH-student som åtalats i ett narkotikamål och hittat tillgångar värda flera hundra tusen kronor.",
+    "da": "Politiet har låst kryptotegnebogen op hos en NHH-studerende, der er tiltalt i en narkosag, og fundet værdier for flere hundrede tusind kroner.",
+    "fi": "Poliisi on avannut huumejutussa syytetyn NHH-opiskelijan kryptolompakon ja löytänyt varoja useiden satojen tuhansien kruunujen arvosta.",
+    "is": "Lögreglan hefur opnað rafmyntaveski NHH-nema sem ákærður er í fíkniefnamáli og fundið eignir að verðmæti nokkur hundruð þúsund króna."
    },
    "summary_i18n_review": "approved"
   },
@@ -825,6 +1049,44 @@
    "summary_i18n_review": "approved"
   },
   {
+   "title": "Skal ha stjålet fra egen bedrift – brukte pengene på krypto",
+   "title_en": "Allegedly stole from his own company and spent the money on crypto",
+   "source": "oa",
+   "source_name": "Oppland Arbeiderblad",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-09-23T16:08:00+00:00",
+   "topics": [
+    "crime"
+   ],
+   "matched": [],
+   "paywall": true,
+   "suggested_by": "Kryptonytt",
+   "suggested_status": "candidate on Kryptonytt",
+   "suggested_at": "2026-10-03T16:17:59+00:00",
+   "id": "b0202ea8241d",
+   "url": "https://www.oa.no/skal-ha-stalet-fra-egen-bedrift-brukte-pengene-pa-krypto/s/80-35-26289",
+   "status": "published",
+   "summary": "A Norwegian man has been charged with gross embezzlement from his own company and is said to have spent the money on crypto.",
+   "fetched": "2026-10-03T16:17:59+00:00",
+   "origin": "suggested by Kryptonytt",
+   "approved_by": "Nordic Crypto redaktør",
+   "approved_at": "2026-10-03T18:26:24+02:00",
+   "summary_i18n": {
+    "nn": "Ein norsk mann er tiltalt for grovt underslag frå sitt eige selskap og skal ha brukt pengane på krypto.",
+    "nb": "En norsk mann er tiltalt for grovt underslag fra sitt eget selskap og skal ha brukt pengene på krypto.",
+    "sv": "En norsk man har åtalats för grov förskingring från sitt eget bolag och ska ha lagt pengarna på krypto.",
+    "da": "En norsk mand er tiltalt for groft underslæb fra sit eget selskab og skal have brugt pengene på krypto.",
+    "fi": "Norjalaista miestä syytetään törkeästä kavalluksesta omasta yrityksestään, ja hänen kerrotaan käyttäneen rahat kryptoihin.",
+    "is": "Norskur karlmaður hefur verið ákærður fyrir stórfelldan fjárdrátt úr eigin fyrirtæki og er sagður hafa eytt fénu í rafmyntir."
+   },
+   "summary_i18n_review": "approved"
+  },
+  {
    "id": "7996dadb43e7",
    "url": "https://www.kaupr.io/nyheter/nbx-inngar-avtale-med-tieto-om-betalingskort-for-stablecoins",
    "title": "NBX inngår avtale med Tieto om betalingskort for stablecoins",
@@ -861,6 +1123,36 @@
     "is": "NBX hefur samið við Tieto Banktech um greiðslukort sem gerir viðskiptavinum kleift að nota stöðugleikamyntir í daglegum innkaupum."
    },
    "summary_i18n_review": "approved"
+  },
+  {
+   "title": "Et nettverk av proffe svindlere",
+   "title_en": null,
+   "source": "finansavisen",
+   "source_name": "Finansavisen",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-09-23T05:24:00+00:00",
+   "topics": [
+    "companies",
+    "crypto",
+    "regulation"
+   ],
+   "matched": [],
+   "paywall": true,
+   "suggested_by": "Kryptonytt",
+   "suggested_status": "candidate on Kryptonytt",
+   "suggested_at": "2026-10-03T16:17:59+00:00",
+   "id": "379b6008263b",
+   "url": "https://www.finansavisen.no/jus/2026/09/23/8380047/et-nettverk-av-proffe-svindlere",
+   "status": "rejected",
+   "summary": null,
+   "fetched": "2026-10-03T16:17:59+00:00",
+   "origin": "suggested by Kryptonytt",
+   "reject_reason": "No accessible teaser to summarise and crypto angle unclear"
   },
   {
    "id": "09452520f3e0",
@@ -976,6 +1268,34 @@
     "is": "Danske Bank segir að enginn einn banki geti byggt upp stöðugleikamynt í evrum á eigin spýtur og að evrópskir bankar ættu saman að byggja upp valkost við dollarann í gegnum Qivalis."
    },
    "summary_i18n_review": "approved"
+  },
+  {
+   "title": "Her er årsaken til at skjermkortene koster så mye",
+   "title_en": null,
+   "source": "itavisen",
+   "source_name": "ITavisen",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-09-22T11:17:00+00:00",
+   "topics": [
+    "crypto"
+   ],
+   "matched": [],
+   "paywall": false,
+   "suggested_by": "Kryptonytt",
+   "suggested_status": "candidate on Kryptonytt",
+   "suggested_at": "2026-10-03T16:17:59+00:00",
+   "id": "e52b6226f15d",
+   "url": "https://itavisen.no/2026/09/22/rtx-5090-kina-ai-servere-pris/",
+   "status": "rejected",
+   "summary": null,
+   "fetched": "2026-10-03T16:17:59+00:00",
+   "origin": "suggested by Kryptonytt",
+   "reject_reason": "Off-topic (graphics card prices)"
   },
   {
    "id": "1c7df17a6b1c",
@@ -1161,6 +1481,35 @@
    "status": "rejected",
    "summary": null,
    "reject_reason": "International tech rumour with no Nordic angle"
+  },
+  {
+   "title": "Stablecoin i Norge (2026) – Hva er USDT og USDC?",
+   "title_en": null,
+   "source": "itavisen",
+   "source_name": "ITavisen",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-09-21T12:38:00+00:00",
+   "topics": [
+    "crypto",
+    "regulation"
+   ],
+   "matched": [],
+   "paywall": false,
+   "suggested_by": "Kryptonytt",
+   "suggested_status": "candidate on Kryptonytt",
+   "suggested_at": "2026-10-03T16:17:59+00:00",
+   "id": "490de13730e5",
+   "url": "https://itavisen.no/stablecoin/",
+   "status": "rejected",
+   "summary": null,
+   "fetched": "2026-10-03T16:17:59+00:00",
+   "origin": "suggested by Kryptonytt",
+   "reject_reason": "General explainer"
   },
   {
    "id": "5356eccfa1cd",
@@ -1383,6 +1732,36 @@
    "summary_i18n_review": "approved"
   },
   {
+   "title": "Wall Street: Flere kryptorelaterte aksjer steg tosifret",
+   "title_en": null,
+   "source": "finansavisen",
+   "source_name": "Finansavisen",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-09-18T13:06:00+00:00",
+   "topics": [
+    "bitcoin",
+    "blockchain",
+    "crypto"
+   ],
+   "matched": [],
+   "paywall": true,
+   "suggested_by": "Kryptonytt",
+   "suggested_status": "candidate on Kryptonytt",
+   "suggested_at": "2026-10-03T16:17:59+00:00",
+   "id": "145d09661f4d",
+   "url": "https://www.finansavisen.no/finans/2026/09/18/8381660/wall-street-kryptorelaterte-aksjer-steg-tosifret",
+   "status": "rejected",
+   "summary": null,
+   "fetched": "2026-10-03T16:17:59+00:00",
+   "origin": "suggested by Kryptonytt",
+   "reject_reason": "US stock market report, no Nordic angle"
+  },
+  {
    "id": "831bb86ab20c",
    "url": "https://www.kaupr.io/nyheter/nbx-mer-enn-doblet-tapet-i-halvaret-da-mica-lisensen-kom",
    "title": "NBX mer enn doblet tapet i halvåret da MiCA-lisensen kom",
@@ -1419,6 +1798,139 @@
     "is": "NBX fékk MiCA-leyfi á fyrri helmingi ársins 2026, en tekjur drógust saman um 45 prósent og tap eftir skatta jókst í 16,6 milljónir norskra króna."
    },
    "summary_i18n_review": "approved"
+  },
+  {
+   "title": "Regjeringen utreder midlertidig forbud mot nye kryptodatasentre (skriftlig spørsmål 15:3707)",
+   "title_en": "Government studying a temporary ban on new crypto data centres (written question 15:3707)",
+   "source": "stortinget",
+   "source_name": "Stortinget",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-09-18T12:00:00+00:00",
+   "topics": [
+    "mining",
+    "policy"
+   ],
+   "matched": [],
+   "paywall": false,
+   "suggested_by": "Kryptonytt",
+   "suggested_status": "approved on Kryptonytt",
+   "suggested_at": "2026-10-03T16:17:59+00:00",
+   "id": "55643fb5a215",
+   "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Sporsmal/Skriftlige-sporsmal-og-svar/Skriftlig-sporsmal/?qnid=127181",
+   "status": "published",
+   "summary": "A written question in the Storting asks when the government will present its planned state planning provision to limit crypto mining, and why it has concluded the EEA Agreement rules out a general mining ban.",
+   "fetched": "2026-10-03T16:17:59+00:00",
+   "origin": "suggested by Kryptonytt",
+   "approved_by": "Nordic Crypto redaktør",
+   "approved_at": "2026-10-03T18:26:24+02:00",
+   "summary_i18n": {
+    "nn": "Eit skriftleg spørsmål på Stortinget spør når regjeringa legg fram den varsla statlege planføresegna for å avgrense kryptoutvinning, og kvifor ho har konkludert med at EØS-avtalen utelukkar eit generelt forbod.",
+    "nb": "Et skriftlig spørsmål på Stortinget spør når regjeringen legger fram den varslede statlige planbestemmelsen for å begrense kryptoutvinning, og hvorfor den har konkludert med at EØS-avtalen utelukker et generelt forbud.",
+    "sv": "En skriftlig fråga i Stortinget undrar när regeringen lägger fram den planerade statliga planbestämmelsen för att begränsa kryptoutvinning, och varför den har kommit fram till att EES-avtalet utesluter ett generellt förbud.",
+    "da": "Et skriftligt spørgsmål i Stortinget spørger, hvornår regeringen fremlægger den planlagte statslige planbestemmelse, der skal begrænse kryptomining, og hvorfor den er nået frem til, at EØS-aftalen udelukker et generelt forbud.",
+    "fi": "Norjan suurkäräjillä (Stortinget) esitetyssä kirjallisessa kysymyksessä tiedustellaan, milloin hallitus antaa suunnitellun valtakunnallisen kaavamääräyksen kryptolouhinnan rajoittamiseksi ja miksi se on päätellyt ETA-sopimuksen estävän yleisen louhintakiellon.",
+    "is": "Í skriflegri fyrirspurn á norska Stórþinginu er spurt hvenær ríkisstjórnin leggi fram fyrirhugað skipulagsákvæði ríkisins til að takmarka námugröft rafmynta og hvers vegna hún hafi komist að þeirri niðurstöðu að EES-samningurinn útiloki almennt bann."
+   },
+   "summary_i18n_review": "approved"
+  },
+  {
+   "title": "Verdiendringer i bitcoin tynger NBX",
+   "title_en": "Bitcoin value swings weigh on NBX",
+   "source": "e24",
+   "source_name": "E24",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-09-18T11:36:00+00:00",
+   "topics": [
+    "business"
+   ],
+   "matched": [],
+   "paywall": true,
+   "suggested_by": "Kryptonytt",
+   "suggested_status": "candidate on Kryptonytt",
+   "suggested_at": "2026-10-03T16:17:59+00:00",
+   "id": "1abbecf31dff",
+   "url": "https://e24.no/bors/nyheter/a/305563",
+   "status": "published",
+   "summary": "NBX made a pre-tax loss of NOK 21.33 million in the first half of 2026, up from NOK 9.85 million a year earlier, with changes in the value of bitcoin weighing on the result.",
+   "fetched": "2026-10-03T16:17:59+00:00",
+   "origin": "suggested by Kryptonytt",
+   "approved_by": "Nordic Crypto redaktør",
+   "approved_at": "2026-10-03T18:26:24+02:00",
+   "summary_i18n": {
+    "nn": "NBX fekk eit underskot før skatt på 21,33 millionar kroner i første halvår 2026, mot 9,85 millionar året før, og endringar i bitcoinverdien trekte resultatet ned.",
+    "nb": "NBX fikk et underskudd før skatt på 21,33 millioner kroner i første halvår 2026, mot 9,85 millioner året før, og endringer i bitcoinverdien trakk resultatet ned.",
+    "sv": "NBX gjorde en förlust före skatt på 21,33 miljoner norska kronor under första halvåret 2026, mot 9,85 miljoner ett år tidigare, och förändringar i bitcoins värde tyngde resultatet.",
+    "da": "NBX havde et underskud før skat på 21,33 millioner norske kroner i første halvår 2026 mod 9,85 millioner året før, og ændringer i bitcoins værdi trak resultatet ned.",
+    "fi": "NBX:n tappio ennen veroja oli 21,33 miljoonaa Norjan kruunua vuoden 2026 ensimmäisellä puoliskolla, kun vuotta aiemmin se oli 9,85 miljoonaa, ja bitcoinin arvon muutokset painoivat tulosta.",
+    "is": "NBX tapaði 21,33 milljónum norskra króna fyrir skatta á fyrri helmingi ársins 2026, samanborið við 9,85 milljónir ári fyrr, og breytingar á verðmæti bitcoin drógu niðurstöðuna niður."
+   },
+   "summary_i18n_review": "approved"
+  },
+  {
+   "title": "Rødt på Wall-Street: Netflix faller kraftig",
+   "title_en": null,
+   "source": "finansavisen",
+   "source_name": "Finansavisen",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-09-18T10:02:00+00:00",
+   "topics": [
+    "crypto"
+   ],
+   "matched": [],
+   "paywall": true,
+   "suggested_by": "Kryptonytt",
+   "suggested_status": "candidate on Kryptonytt",
+   "suggested_at": "2026-10-03T16:17:59+00:00",
+   "id": "bc4af4185efd",
+   "url": "https://www.finansavisen.no/finans/2026/09/18/8381652/rodt-pa-wall-street-netflix-faller-kraftig",
+   "status": "rejected",
+   "summary": null,
+   "fetched": "2026-10-03T16:17:59+00:00",
+   "origin": "suggested by Kryptonytt",
+   "reject_reason": "Off-topic (US stock market)"
+  },
+  {
+   "title": "Krypto er en liten fjert i den globale finansverdenen",
+   "title_en": null,
+   "source": "dn",
+   "source_name": "Dagens Næringsliv",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-09-18T05:56:00+00:00",
+   "topics": [
+    "crypto"
+   ],
+   "matched": [],
+   "paywall": true,
+   "suggested_by": "Kryptonytt",
+   "suggested_status": "candidate on Kryptonytt",
+   "suggested_at": "2026-10-03T16:17:59+00:00",
+   "id": "7942321955da",
+   "url": "https://www.dn.no/magasinet/portrettet/-krypto-er-en-liten-fjert-i-den-globale-finansverdenen/2-1-2044729",
+   "status": "rejected",
+   "summary": null,
+   "fetched": "2026-10-03T16:17:59+00:00",
+   "origin": "suggested by Kryptonytt",
+   "reject_reason": "Off-topic (book about bonds)"
   },
   {
    "id": "c1431df81160",
@@ -1533,6 +2045,103 @@
     "is": "Hvorki ESMA né sænska Finansinspektionen vilja segja hvort dreifing rafmyntaþjónustu undir eigin vörumerki krefjist sérstaks MiCA-leyfis."
    },
    "summary_i18n_review": "approved"
+  },
+  {
+   "title": "NBX registrert som MoneyGram-agent (børsmelding, engelsk)",
+   "title_en": "NBX registered as a MoneyGram agent (stock exchange release)",
+   "source": "nbx-ir",
+   "source_name": "NBX (børsmelding)",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-09-17T12:00:00+00:00",
+   "topics": [
+    "business",
+    "payments"
+   ],
+   "matched": [],
+   "paywall": false,
+   "suggested_by": "Kryptonytt",
+   "suggested_status": "approved on Kryptonytt",
+   "suggested_at": "2026-10-03T16:17:59+00:00",
+   "id": "e1e3eef6ecff",
+   "url": "https://www.inderes.se/en/releases/nbx-nbx-registered-as-moneygram-agent",
+   "status": "published",
+   "summary": "Norwegian Block Exchange (NBX), listed on Euronext Growth Oslo, has been registered as an agent for MoneyGram International.",
+   "fetched": "2026-10-03T16:17:59+00:00",
+   "origin": "suggested by Kryptonytt",
+   "approved_by": "Nordic Crypto redaktør",
+   "approved_at": "2026-10-03T18:26:24+02:00",
+   "summary_i18n": {
+    "nn": "Norwegian Block Exchange (NBX), notert på Euronext Growth Oslo, er registrert som agent for MoneyGram International.",
+    "nb": "Norwegian Block Exchange (NBX), notert på Euronext Growth Oslo, er registrert som agent for MoneyGram International.",
+    "sv": "Norwegian Block Exchange (NBX), noterat på Euronext Growth Oslo, har registrerats som ombud för MoneyGram International.",
+    "da": "Norwegian Block Exchange (NBX), der er noteret på Euronext Growth Oslo, er registreret som agent for MoneyGram International.",
+    "fi": "Euronext Growth Oslossa listattu Norwegian Block Exchange (NBX) on rekisteröity MoneyGram Internationalin asiamieheksi.",
+    "is": "Norwegian Block Exchange (NBX), sem skráð er á Euronext Growth Oslo, hefur verið skráð sem umboðsaðili MoneyGram International."
+   },
+   "summary_i18n_review": "approved"
+  },
+  {
+   "title": "USA letter på reglene for aksjehandel",
+   "title_en": null,
+   "source": "finansavisen",
+   "source_name": "Finansavisen",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-09-17T10:59:00+00:00",
+   "topics": [
+    "blockchain",
+    "regulation"
+   ],
+   "matched": [],
+   "paywall": true,
+   "suggested_by": "Kryptonytt",
+   "suggested_status": "candidate on Kryptonytt",
+   "suggested_at": "2026-10-03T16:17:59+00:00",
+   "id": "8168421e6cf9",
+   "url": "https://www.finansavisen.no/finans/2026/09/17/8381339/usa-letter-pa-reglene-for-aksjehandel",
+   "status": "rejected",
+   "summary": null,
+   "fetched": "2026-10-03T16:17:59+00:00",
+   "origin": "suggested by Kryptonytt",
+   "reject_reason": "Off-topic (US stock rules)"
+  },
+  {
+   "title": "#74 GREGARD MIKKELBORG - Kommende generasjoner kan bare drømme om å ha råd til egen bolig.",
+   "title_en": null,
+   "source": "enogtyvetanker",
+   "source_name": "En og tyve tanker (podkast)",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-09-16T21:54:43+00:00",
+   "topics": [
+    "bitcoin",
+    "companies"
+   ],
+   "matched": [],
+   "paywall": false,
+   "suggested_by": "Kryptonytt",
+   "suggested_status": "candidate on Kryptonytt",
+   "suggested_at": "2026-10-03T16:17:59+00:00",
+   "id": "c5f53740fbfc",
+   "url": "https://podcasters.spotify.com/pod/show/andreas-harding2/episodes/74-GREGARD-MIKKELBORG---Kommende-generasjoner-kan-bare-drmme-om--ha-rd-til-egen-bolig-e3ov0jg",
+   "status": "rejected",
+   "summary": null,
+   "fetched": "2026-10-03T16:17:59+00:00",
+   "origin": "suggested by Kryptonytt",
+   "reject_reason": "Podcast episode on housing, off-topic"
   },
   {
    "id": "5f757489d23c",
@@ -1681,6 +2290,73 @@
     "is": "Kvarn Capital telur að samstarf þess við sænska Goobit falli utan banns MiCA við umboðsmönnum og reglna um útvistun."
    },
    "summary_i18n_review": "approved"
+  },
+  {
+   "title": "Firi lanserer i Sverige – etter permitteringer og milliontap",
+   "title_en": "Firi launches in Sweden after layoffs and losses",
+   "source": "shifter",
+   "source_name": "Shifter",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-09-15T12:00:00+00:00",
+   "topics": [
+    "business",
+    "mica"
+   ],
+   "matched": [],
+   "paywall": true,
+   "suggested_by": "Kryptonytt",
+   "suggested_status": "approved on Kryptonytt",
+   "suggested_at": "2026-10-03T16:17:59+00:00",
+   "id": "6e2887720a32",
+   "url": "https://www.shifter.no/nyheter/firi-lanserer-i-sverige-etter-permitteringer-og-milliontap/475990",
+   "status": "published",
+   "summary": "Crypto exchange Firi lost NOK 43.6 million in the first half of 2026 after weaker trading and high MiCA costs, and has made layoffs while launching in Sweden.",
+   "fetched": "2026-10-03T16:17:59+00:00",
+   "origin": "suggested by Kryptonytt",
+   "approved_by": "Nordic Crypto redaktør",
+   "approved_at": "2026-10-03T18:26:24+02:00",
+   "summary_i18n": {
+    "nn": "Kryptobørsen Firi tapte 43,6 millionar kroner i første halvår 2026 etter svakare handel og høge MiCA-kostnader, og har nedbemanna samstundes som selskapet blir lansert i Sverige.",
+    "nb": "Kryptobørsen Firi tapte 43,6 millioner kroner i første halvår 2026 etter svakere handel og høye MiCA-kostnader, og har nedbemannet samtidig som selskapet lanseres i Sverige.",
+    "sv": "Kryptobörsen Firi förlorade 43,6 miljoner norska kronor under första halvåret 2026 efter svagare handel och höga MiCA-kostnader, och har sagt upp personal samtidigt som bolaget lanseras i Sverige.",
+    "da": "Kryptobørsen Firi tabte 43,6 millioner norske kroner i første halvår 2026 efter svagere handel og høje MiCA-omkostninger og har afskediget medarbejdere, samtidig med at selskabet lanceres i Sverige.",
+    "fi": "Kryptopörssi Firi teki 43,6 miljoonan Norjan kruunun tappion vuoden 2026 ensimmäisellä puoliskolla heikomman kaupankäynnin ja korkeiden MiCA-kulujen vuoksi, ja se on vähentänyt henkilöstöä samalla kun se aloittaa Ruotsissa.",
+    "is": "Rafmyntakauphöllin Firi tapaði 43,6 milljónum norskra króna á fyrri helmingi ársins 2026 vegna minni viðskipta og mikils MiCA-kostnaðar og hefur fækkað starfsfólki á sama tíma og hún hefur starfsemi í Svíþjóð."
+   },
+   "summary_i18n_review": "approved"
+  },
+  {
+   "title": "Advarer om bitcoin-kollaps før rentemøte",
+   "title_en": null,
+   "source": "e24",
+   "source_name": "E24",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-09-15T09:09:00+00:00",
+   "topics": [
+    "bitcoin"
+   ],
+   "matched": [],
+   "paywall": true,
+   "suggested_by": "Kryptonytt",
+   "suggested_status": "candidate on Kryptonytt",
+   "suggested_at": "2026-10-03T16:17:59+00:00",
+   "id": "65f7f2df1a50",
+   "url": "https://e24.no/boers-og-finans/i/8pMoKQ/advarer-om-bitcoin-kollaps-foer-rentemoete",
+   "status": "rejected",
+   "summary": null,
+   "fetched": "2026-10-03T16:17:59+00:00",
+   "origin": "suggested by Kryptonytt",
+   "reject_reason": "Price commentary with no Nordic angle"
   },
   {
    "id": "93d838ccb96b",
@@ -2052,6 +2728,45 @@
    "reject_reason": "Foreign court case with no Nordic angle"
   },
   {
+   "title": "Norges Bank utforsker tokenisering med tolv aktører",
+   "title_en": "Norges Bank explores tokenisation with twelve players",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-09-08T12:00:00+00:00",
+   "topics": [
+    "tokenisation",
+    "banking"
+   ],
+   "matched": [],
+   "paywall": false,
+   "suggested_by": "Kryptonytt",
+   "suggested_status": "approved on Kryptonytt",
+   "suggested_at": "2026-10-03T16:17:59+00:00",
+   "id": "2034a42ac260",
+   "url": "https://www.kaupr.io/nyheter/norges-bank-utforsker-tokenisering-med-tolv-aktorer",
+   "status": "published",
+   "summary": "Norges Bank has named twelve financial institutions in its mapping of tokenisation, while Norway is the only Nordic country without banks in the euro-stablecoin group Qivalis.",
+   "fetched": "2026-10-03T16:17:59+00:00",
+   "origin": "suggested by Kryptonytt",
+   "approved_by": "Nordic Crypto redaktør",
+   "approved_at": "2026-10-03T18:26:24+02:00",
+   "summary_i18n": {
+    "nn": "Norges Bank har namngitt tolv finansinstitusjonar i kartlegginga si av tokenisering, medan Noreg er det einaste nordiske landet utan bankar i euro-stablecoin-gruppa Qivalis.",
+    "nb": "Norges Bank har navngitt tolv finansinstitusjoner i sin kartlegging av tokenisering, mens Norge er det eneste nordiske landet uten banker i euro-stablecoin-gruppen Qivalis.",
+    "sv": "Norges Bank har namngett tolv finansinstitut i sin kartläggning av tokenisering, medan Norge är det enda nordiska landet utan banker i euro-stablecoin-gruppen Qivalis.",
+    "da": "Norges Bank har navngivet tolv finansielle institutioner i sin kortlægning af tokenisering, mens Norge er det eneste nordiske land uden banker i euro-stablecoin-gruppen Qivalis.",
+    "fi": "Norges Bank on nimennyt tokenisointia koskevassa kartoituksessaan kaksitoista rahoituslaitosta, ja Norja on ainoa Pohjoismaa, jonka pankkeja ei ole mukana euromääräisten vakaakolikoiden Qivalis-ryhmässä.",
+    "is": "Norges Bank hefur nafngreint tólf fjármálastofnanir í kortlagningu sinni á táknvæðingu, en Noregur er eina norræna landið sem á enga banka í evru-stöðugleikamyntahópnum Qivalis."
+   },
+   "summary_i18n_review": "approved"
+  },
+  {
    "id": "6a94ab65ebff",
    "url": "https://www.kaupr.io/nyheter/nytt-nederlag-for-valuno-i-kampen-om-mica-lisens",
    "title": "Nytt nederlag for Valuno i kampen om MiCA-lisens",
@@ -2127,165 +2842,8 @@
    "summary_i18n_review": "approved"
   },
   {
-   "title": "Tiltalt for dopsalg mot kryptovaluta på det mørke nettet",
-   "title_en": "Charged with selling drugs for cryptocurrency on the dark web",
-   "source": "aftenposten",
-   "source_name": "Aftenposten",
-   "country": "NO",
-   "language": "Norwegian",
-   "via": "kryptonytt",
-   "seen_via": [
-    "kryptonytt"
-   ],
-   "published": "2026-10-02T11:07:26+00:00",
-   "topics": [
-    "crime"
-   ],
-   "matched": [],
-   "paywall": true,
-   "suggested_by": "Kryptonytt",
-   "suggested_status": "approved on Kryptonytt",
-   "suggested_at": "2026-10-03T16:17:59+00:00",
-   "id": "1a95167a3af8",
-   "url": "https://www.aftenposten.no/norge/i/vlQARB/tiltalt-for-dopsalg-mot-kryptovaluta-paa-det-moerke-nettet",
-   "status": "published",
-   "summary": "Three Norwegians and a Swede have been charged in a large drug case with links abroad, involving drug sales for cryptocurrency on the dark web, according to the Southern Norway public prosecutor.",
-   "fetched": "2026-10-03T16:17:59+00:00",
-   "origin": "suggested by Kryptonytt",
-   "approved_by": "Nordic Crypto redaktør",
-   "approved_at": "2026-10-03T18:26:24+02:00",
-   "summary_i18n": {
-    "nn": "Tre nordmenn og ein svenske er tiltalte i ei stor narkotikasak med forgreiningar til utlandet, med sal av narkotika for kryptovaluta på det mørke nettet, ifølgje Sør-Norge statsadvokatembete.",
-    "nb": "Tre nordmenn og en svenske er tiltalt i en stor narkotikasak med forgreninger til utlandet, med salg av narkotika for kryptovaluta på det mørke nettet, ifølge Sør-Norge statsadvokatembeter.",
-    "sv": "Tre norrmän och en svensk har åtalats i ett stort narkotikamål med kopplingar utomlands, där narkotika sålts mot kryptovaluta på darknet, enligt åklagarmyndigheten i södra Norge.",
-    "da": "Tre nordmænd og en svensker er tiltalt i en stor narkosag med forbindelser til udlandet, hvor narko blev solgt for kryptovaluta på det mørke net, oplyser anklagemyndigheden i Sydnorge.",
-    "fi": "Kolmea norjalaista ja yhtä ruotsalaista syytetään laajassa huumejutussa, jolla on yhteyksiä ulkomaille ja jossa huumeita myytiin kryptovaluutalla pimeässä verkossa, kertoo Etelä-Norjan syyttäjäviranomainen.",
-    "is": "Þrír Norðmenn og einn Svíi hafa verið ákærðir í umfangsmiklu fíkniefnamáli með tengsl við útlönd, þar sem fíkniefni voru seld fyrir rafmyntir á myrkravefnum, að sögn ríkissaksóknaraembættisins í Suður-Noregi."
-   },
-   "summary_i18n_review": "approved"
-  },
-  {
-   "title": "EU-tilsyn stiller spørsmål ved Binances virksomhet uten lisens (engelsk)",
+   "title": "Eksperter: Økning i antall krypto-ran",
    "title_en": null,
-   "source": "euronews.com",
-   "source_name": "Euronews",
-   "country": "NO",
-   "language": "Norwegian",
-   "via": "kryptonytt",
-   "seen_via": [
-    "kryptonytt"
-   ],
-   "published": "2026-10-01T12:00:00+00:00",
-   "topics": [
-    "companies",
-    "crypto",
-    "regulation"
-   ],
-   "matched": [],
-   "paywall": false,
-   "suggested_by": "Kryptonytt",
-   "suggested_status": "approved on Kryptonytt",
-   "suggested_at": "2026-10-03T16:17:59+00:00",
-   "id": "ffc8a438f9ba",
-   "url": "https://www.euronews.com/2026/10/01/eu-watchdogs-question-binance-over-unlicensed-european-operations",
-   "status": "rejected",
-   "summary": null,
-   "fetched": "2026-10-03T16:17:59+00:00",
-   "origin": "suggested by Kryptonytt",
-   "reject_reason": "Already covered (Binance/ESMA) by approved stories"
-  },
-  {
-   "title": "Dubai-pengene: Tidligere kryptoselskap bak overførslene til Dyar Al-Ashtari",
-   "title_en": null,
-   "source": "dn",
-   "source_name": "Dagens Næringsliv",
-   "country": "NO",
-   "language": "Norwegian",
-   "via": "kryptonytt",
-   "seen_via": [
-    "kryptonytt"
-   ],
-   "published": "2026-09-30T03:52:00+00:00",
-   "topics": [
-    "companies",
-    "crypto"
-   ],
-   "matched": [],
-   "paywall": true,
-   "suggested_by": "Kryptonytt",
-   "suggested_status": "candidate on Kryptonytt",
-   "suggested_at": "2026-10-03T16:17:59+00:00",
-   "id": "de9daa98a40a",
-   "url": "https://www.dn.no/teknologi/dubai-pengene-tidligere-kryptoselskap-bak-overforslene-til-dyar-al-ashtari/2-1-2049843",
-   "status": "rejected",
-   "summary": null,
-   "fetched": "2026-10-03T16:17:59+00:00",
-   "origin": "suggested by Kryptonytt",
-   "reject_reason": "Crypto angle too thin (former crypto company); story is about a person's finances"
-  },
-  {
-   "title": "#75 MAX HILLEBRAND - The unseen cost of fiat.",
-   "title_en": null,
-   "source": "enogtyvetanker",
-   "source_name": "En og tyve tanker (podkast)",
-   "country": "NO",
-   "language": "Norwegian",
-   "via": "kryptonytt",
-   "seen_via": [
-    "kryptonytt"
-   ],
-   "published": "2026-09-28T21:46:39+00:00",
-   "topics": [
-    "bitcoin",
-    "companies",
-    "crypto"
-   ],
-   "matched": [],
-   "paywall": false,
-   "suggested_by": "Kryptonytt",
-   "suggested_status": "candidate on Kryptonytt",
-   "suggested_at": "2026-10-03T16:17:59+00:00",
-   "id": "f906868d0da6",
-   "url": "https://podcasters.spotify.com/pod/show/andreas-harding2/episodes/75-MAX-HILLEBRAND---The-unseen-cost-of-fiat-e3ph9qh",
-   "status": "rejected",
-   "summary": null,
-   "fetched": "2026-10-03T16:17:59+00:00",
-   "origin": "suggested by Kryptonytt",
-   "reject_reason": "Podcast episode on economics, not news"
-  },
-  {
-   "title": "Tokens fra børs til betaling",
-   "title_en": null,
-   "source": "finansavisen",
-   "source_name": "Finansavisen",
-   "country": "NO",
-   "language": "Norwegian",
-   "via": "kryptonytt",
-   "seen_via": [
-    "kryptonytt"
-   ],
-   "published": "2026-09-27T09:53:00+00:00",
-   "topics": [
-    "blockchain",
-    "companies",
-    "regulation"
-   ],
-   "matched": [],
-   "paywall": true,
-   "suggested_by": "Kryptonytt",
-   "suggested_status": "candidate on Kryptonytt",
-   "suggested_at": "2026-10-03T16:17:59+00:00",
-   "id": "77a45d553c8b",
-   "url": "https://www.finansavisen.no/finans/2026/09/27/8382998/tokens-fra-bors-til-betaling",
-   "status": "rejected",
-   "summary": null,
-   "fetched": "2026-10-03T16:17:59+00:00",
-   "origin": "suggested by Kryptonytt",
-   "reject_reason": "No accessible teaser to summarise; resubmit if one can be read"
-  },
-  {
-   "title": "Fant hemmelig passord: Låste opp krypto-lommeboken",
-   "title_en": "Found secret password: unlocked the crypto wallet",
    "source": "nettavisen",
    "source_name": "Nettavisen",
    "country": "NO",
@@ -2294,401 +2852,34 @@
    "seen_via": [
     "kryptonytt"
    ],
-   "published": "2026-09-25T19:16:00+00:00",
-   "topics": [
-    "crime"
-   ],
-   "matched": [],
-   "paywall": true,
-   "suggested_by": "Kryptonytt",
-   "suggested_status": "candidate on Kryptonytt",
-   "suggested_at": "2026-10-03T16:17:59+00:00",
-   "id": "dbcac6be2b75",
-   "url": "https://www.nettavisen.no/krypto/etterforskning/hordaland-tingrett/fant-hemmelig-passord-laste-opp-krypto-lommeboken/s/80-95-105422",
-   "status": "published",
-   "summary": "Police have unlocked the crypto wallet of an NHH student charged in a drug case, uncovering assets worth several hundred thousand kroner.",
-   "fetched": "2026-10-03T16:17:59+00:00",
-   "origin": "suggested by Kryptonytt",
-   "approved_by": "Nordic Crypto redaktør",
-   "approved_at": "2026-10-03T18:26:24+02:00",
-   "summary_i18n": {
-    "nn": "Politiet har låst opp kryptolommeboka til ein NHH-student som er tiltalt i ei narkotikasak, og funne verdiar for fleire hundre tusen kroner.",
-    "nb": "Politiet har låst opp kryptolommeboken til en NHH-student som er tiltalt i en narkotikasak, og funnet verdier for flere hundre tusen kroner.",
-    "sv": "Polisen har låst upp kryptoplånboken hos en NHH-student som åtalats i ett narkotikamål och hittat tillgångar värda flera hundra tusen kronor.",
-    "da": "Politiet har låst kryptotegnebogen op hos en NHH-studerende, der er tiltalt i en narkosag, og fundet værdier for flere hundrede tusind kroner.",
-    "fi": "Poliisi on avannut huumejutussa syytetyn NHH-opiskelijan kryptolompakon ja löytänyt varoja useiden satojen tuhansien kruunujen arvosta.",
-    "is": "Lögreglan hefur opnað rafmyntaveski NHH-nema sem ákærður er í fíkniefnamáli og fundið eignir að verðmæti nokkur hundruð þúsund króna."
-   },
-   "summary_i18n_review": "approved"
-  },
-  {
-   "title": "Skal ha stjålet fra egen bedrift – brukte pengene på krypto",
-   "title_en": "Allegedly stole from his own company and spent the money on crypto",
-   "source": "oa",
-   "source_name": "Oppland Arbeiderblad",
-   "country": "NO",
-   "language": "Norwegian",
-   "via": "kryptonytt",
-   "seen_via": [
-    "kryptonytt"
-   ],
-   "published": "2026-09-23T16:08:00+00:00",
-   "topics": [
-    "crime"
-   ],
-   "matched": [],
-   "paywall": true,
-   "suggested_by": "Kryptonytt",
-   "suggested_status": "candidate on Kryptonytt",
-   "suggested_at": "2026-10-03T16:17:59+00:00",
-   "id": "b0202ea8241d",
-   "url": "https://www.oa.no/skal-ha-stalet-fra-egen-bedrift-brukte-pengene-pa-krypto/s/80-35-26289",
-   "status": "published",
-   "summary": "A Norwegian man has been charged with gross embezzlement from his own company and is said to have spent the money on crypto.",
-   "fetched": "2026-10-03T16:17:59+00:00",
-   "origin": "suggested by Kryptonytt",
-   "approved_by": "Nordic Crypto redaktør",
-   "approved_at": "2026-10-03T18:26:24+02:00",
-   "summary_i18n": {
-    "nn": "Ein norsk mann er tiltalt for grovt underslag frå sitt eige selskap og skal ha brukt pengane på krypto.",
-    "nb": "En norsk mann er tiltalt for grovt underslag fra sitt eget selskap og skal ha brukt pengene på krypto.",
-    "sv": "En norsk man har åtalats för grov förskingring från sitt eget bolag och ska ha lagt pengarna på krypto.",
-    "da": "En norsk mand er tiltalt for groft underslæb fra sit eget selskab og skal have brugt pengene på krypto.",
-    "fi": "Norjalaista miestä syytetään törkeästä kavalluksesta omasta yrityksestään, ja hänen kerrotaan käyttäneen rahat kryptoihin.",
-    "is": "Norskur karlmaður hefur verið ákærður fyrir stórfelldan fjárdrátt úr eigin fyrirtæki og er sagður hafa eytt fénu í rafmyntir."
-   },
-   "summary_i18n_review": "approved"
-  },
-  {
-   "title": "Et nettverk av proffe svindlere",
-   "title_en": null,
-   "source": "finansavisen",
-   "source_name": "Finansavisen",
-   "country": "NO",
-   "language": "Norwegian",
-   "via": "kryptonytt",
-   "seen_via": [
-    "kryptonytt"
-   ],
-   "published": "2026-09-23T05:24:00+00:00",
-   "topics": [
-    "companies",
-    "crypto",
-    "regulation"
-   ],
-   "matched": [],
-   "paywall": true,
-   "suggested_by": "Kryptonytt",
-   "suggested_status": "candidate on Kryptonytt",
-   "suggested_at": "2026-10-03T16:17:59+00:00",
-   "id": "379b6008263b",
-   "url": "https://www.finansavisen.no/jus/2026/09/23/8380047/et-nettverk-av-proffe-svindlere",
-   "status": "rejected",
-   "summary": null,
-   "fetched": "2026-10-03T16:17:59+00:00",
-   "origin": "suggested by Kryptonytt",
-   "reject_reason": "No accessible teaser to summarise and crypto angle unclear"
-  },
-  {
-   "title": "Her er årsaken til at skjermkortene koster så mye",
-   "title_en": null,
-   "source": "itavisen",
-   "source_name": "ITavisen",
-   "country": "NO",
-   "language": "Norwegian",
-   "via": "kryptonytt",
-   "seen_via": [
-    "kryptonytt"
-   ],
-   "published": "2026-09-22T11:17:00+00:00",
-   "topics": [
-    "crypto"
-   ],
-   "matched": [],
-   "paywall": false,
-   "suggested_by": "Kryptonytt",
-   "suggested_status": "candidate on Kryptonytt",
-   "suggested_at": "2026-10-03T16:17:59+00:00",
-   "id": "e52b6226f15d",
-   "url": "https://itavisen.no/2026/09/22/rtx-5090-kina-ai-servere-pris/",
-   "status": "rejected",
-   "summary": null,
-   "fetched": "2026-10-03T16:17:59+00:00",
-   "origin": "suggested by Kryptonytt",
-   "reject_reason": "Off-topic (graphics card prices)"
-  },
-  {
-   "title": "Stablecoin i Norge (2026) – Hva er USDT og USDC?",
-   "title_en": null,
-   "source": "itavisen",
-   "source_name": "ITavisen",
-   "country": "NO",
-   "language": "Norwegian",
-   "via": "kryptonytt",
-   "seen_via": [
-    "kryptonytt"
-   ],
-   "published": "2026-09-21T12:38:00+00:00",
-   "topics": [
-    "crypto",
-    "regulation"
-   ],
-   "matched": [],
-   "paywall": false,
-   "suggested_by": "Kryptonytt",
-   "suggested_status": "candidate on Kryptonytt",
-   "suggested_at": "2026-10-03T16:17:59+00:00",
-   "id": "490de13730e5",
-   "url": "https://itavisen.no/stablecoin/",
-   "status": "rejected",
-   "summary": null,
-   "fetched": "2026-10-03T16:17:59+00:00",
-   "origin": "suggested by Kryptonytt",
-   "reject_reason": "General explainer"
-  },
-  {
-   "title": "Wall Street: Flere kryptorelaterte aksjer steg tosifret",
-   "title_en": null,
-   "source": "finansavisen",
-   "source_name": "Finansavisen",
-   "country": "NO",
-   "language": "Norwegian",
-   "via": "kryptonytt",
-   "seen_via": [
-    "kryptonytt"
-   ],
-   "published": "2026-09-18T13:06:00+00:00",
-   "topics": [
-    "bitcoin",
-    "blockchain",
-    "crypto"
-   ],
-   "matched": [],
-   "paywall": true,
-   "suggested_by": "Kryptonytt",
-   "suggested_status": "candidate on Kryptonytt",
-   "suggested_at": "2026-10-03T16:17:59+00:00",
-   "id": "145d09661f4d",
-   "url": "https://www.finansavisen.no/finans/2026/09/18/8381660/wall-street-kryptorelaterte-aksjer-steg-tosifret",
-   "status": "rejected",
-   "summary": null,
-   "fetched": "2026-10-03T16:17:59+00:00",
-   "origin": "suggested by Kryptonytt",
-   "reject_reason": "US stock market report, no Nordic angle"
-  },
-  {
-   "title": "Regjeringen utreder midlertidig forbud mot nye kryptodatasentre (skriftlig spørsmål 15:3707)",
-   "title_en": "Government studying a temporary ban on new crypto data centres (written question 15:3707)",
-   "source": "stortinget",
-   "source_name": "Stortinget",
-   "country": "NO",
-   "language": "Norwegian",
-   "via": "kryptonytt",
-   "seen_via": [
-    "kryptonytt"
-   ],
-   "published": "2026-09-18T12:00:00+00:00",
-   "topics": [
-    "mining",
-    "policy"
-   ],
-   "matched": [],
-   "paywall": false,
-   "suggested_by": "Kryptonytt",
-   "suggested_status": "approved on Kryptonytt",
-   "suggested_at": "2026-10-03T16:17:59+00:00",
-   "id": "55643fb5a215",
-   "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Sporsmal/Skriftlige-sporsmal-og-svar/Skriftlig-sporsmal/?qnid=127181",
-   "status": "published",
-   "summary": "A written question in the Storting asks when the government will present its planned state planning provision to limit crypto mining, and why it has concluded the EEA Agreement rules out a general mining ban.",
-   "fetched": "2026-10-03T16:17:59+00:00",
-   "origin": "suggested by Kryptonytt",
-   "approved_by": "Nordic Crypto redaktør",
-   "approved_at": "2026-10-03T18:26:24+02:00",
-   "summary_i18n": {
-    "nn": "Eit skriftleg spørsmål på Stortinget spør når regjeringa legg fram den varsla statlege planføresegna for å avgrense kryptoutvinning, og kvifor ho har konkludert med at EØS-avtalen utelukkar eit generelt forbod.",
-    "nb": "Et skriftlig spørsmål på Stortinget spør når regjeringen legger fram den varslede statlige planbestemmelsen for å begrense kryptoutvinning, og hvorfor den har konkludert med at EØS-avtalen utelukker et generelt forbud.",
-    "sv": "En skriftlig fråga i Stortinget undrar när regeringen lägger fram den planerade statliga planbestämmelsen för att begränsa kryptoutvinning, och varför den har kommit fram till att EES-avtalet utesluter ett generellt förbud.",
-    "da": "Et skriftligt spørgsmål i Stortinget spørger, hvornår regeringen fremlægger den planlagte statslige planbestemmelse, der skal begrænse kryptomining, og hvorfor den er nået frem til, at EØS-aftalen udelukker et generelt forbud.",
-    "fi": "Norjan suurkäräjillä (Stortinget) esitetyssä kirjallisessa kysymyksessä tiedustellaan, milloin hallitus antaa suunnitellun valtakunnallisen kaavamääräyksen kryptolouhinnan rajoittamiseksi ja miksi se on päätellyt ETA-sopimuksen estävän yleisen louhintakiellon.",
-    "is": "Í skriflegri fyrirspurn á norska Stórþinginu er spurt hvenær ríkisstjórnin leggi fram fyrirhugað skipulagsákvæði ríkisins til að takmarka námugröft rafmynta og hvers vegna hún hafi komist að þeirri niðurstöðu að EES-samningurinn útiloki almennt bann."
-   },
-   "summary_i18n_review": "approved"
-  },
-  {
-   "title": "Verdiendringer i bitcoin tynger NBX",
-   "title_en": "Bitcoin value swings weigh on NBX",
-   "source": "e24",
-   "source_name": "E24",
-   "country": "NO",
-   "language": "Norwegian",
-   "via": "kryptonytt",
-   "seen_via": [
-    "kryptonytt"
-   ],
-   "published": "2026-09-18T11:36:00+00:00",
-   "topics": [
-    "business"
-   ],
-   "matched": [],
-   "paywall": true,
-   "suggested_by": "Kryptonytt",
-   "suggested_status": "candidate on Kryptonytt",
-   "suggested_at": "2026-10-03T16:17:59+00:00",
-   "id": "1abbecf31dff",
-   "url": "https://e24.no/bors/nyheter/a/305563",
-   "status": "published",
-   "summary": "NBX made a pre-tax loss of NOK 21.33 million in the first half of 2026, up from NOK 9.85 million a year earlier, with changes in the value of bitcoin weighing on the result.",
-   "fetched": "2026-10-03T16:17:59+00:00",
-   "origin": "suggested by Kryptonytt",
-   "approved_by": "Nordic Crypto redaktør",
-   "approved_at": "2026-10-03T18:26:24+02:00",
-   "summary_i18n": {
-    "nn": "NBX fekk eit underskot før skatt på 21,33 millionar kroner i første halvår 2026, mot 9,85 millionar året før, og endringar i bitcoinverdien trekte resultatet ned.",
-    "nb": "NBX fikk et underskudd før skatt på 21,33 millioner kroner i første halvår 2026, mot 9,85 millioner året før, og endringer i bitcoinverdien trakk resultatet ned.",
-    "sv": "NBX gjorde en förlust före skatt på 21,33 miljoner norska kronor under första halvåret 2026, mot 9,85 miljoner ett år tidigare, och förändringar i bitcoins värde tyngde resultatet.",
-    "da": "NBX havde et underskud før skat på 21,33 millioner norske kroner i første halvår 2026 mod 9,85 millioner året før, og ændringer i bitcoins værdi trak resultatet ned.",
-    "fi": "NBX:n tappio ennen veroja oli 21,33 miljoonaa Norjan kruunua vuoden 2026 ensimmäisellä puoliskolla, kun vuotta aiemmin se oli 9,85 miljoonaa, ja bitcoinin arvon muutokset painoivat tulosta.",
-    "is": "NBX tapaði 21,33 milljónum norskra króna fyrir skatta á fyrri helmingi ársins 2026, samanborið við 9,85 milljónir ári fyrr, og breytingar á verðmæti bitcoin drógu niðurstöðuna niður."
-   },
-   "summary_i18n_review": "approved"
-  },
-  {
-   "title": "Rødt på Wall-Street: Netflix faller kraftig",
-   "title_en": null,
-   "source": "finansavisen",
-   "source_name": "Finansavisen",
-   "country": "NO",
-   "language": "Norwegian",
-   "via": "kryptonytt",
-   "seen_via": [
-    "kryptonytt"
-   ],
-   "published": "2026-09-18T10:02:00+00:00",
+   "published": "2026-10-04T02:13:25+00:00",
    "topics": [
     "crypto"
    ],
    "matched": [],
    "paywall": true,
    "suggested_by": "Kryptonytt",
+   "origin": "suggested by Kryptonytt",
    "suggested_status": "candidate on Kryptonytt",
-   "suggested_at": "2026-10-03T16:17:59+00:00",
-   "id": "bc4af4185efd",
-   "url": "https://www.finansavisen.no/finans/2026/09/18/8381652/rodt-pa-wall-street-netflix-faller-kraftig",
-   "status": "rejected",
+   "suggested_at": "2026-10-04T03:30:09+00:00",
+   "id": "f8936b3a784a",
+   "url": "https://www.nettavisen.no/nyheter/eksperter-okning-i-antall-krypto-ran/s/80-95-130440",
+   "status": "pending",
    "summary": null,
-   "fetched": "2026-10-03T16:17:59+00:00",
-   "origin": "suggested by Kryptonytt",
-   "reject_reason": "Off-topic (US stock market)"
+   "fetched": "2026-10-04T03:30:09+00:00"
   },
   {
-   "title": "Krypto er en liten fjert i den globale finansverdenen",
+   "title": "K33: Bitcoin kan få ny opptur etter stor derivatopprydding",
    "title_en": null,
-   "source": "dn",
-   "source_name": "Dagens Næringsliv",
+   "source": "investornytt",
+   "source_name": "Investornytt",
    "country": "NO",
    "language": "Norwegian",
    "via": "kryptonytt",
    "seen_via": [
     "kryptonytt"
    ],
-   "published": "2026-09-18T05:56:00+00:00",
-   "topics": [
-    "crypto"
-   ],
-   "matched": [],
-   "paywall": true,
-   "suggested_by": "Kryptonytt",
-   "suggested_status": "candidate on Kryptonytt",
-   "suggested_at": "2026-10-03T16:17:59+00:00",
-   "id": "7942321955da",
-   "url": "https://www.dn.no/magasinet/portrettet/-krypto-er-en-liten-fjert-i-den-globale-finansverdenen/2-1-2044729",
-   "status": "rejected",
-   "summary": null,
-   "fetched": "2026-10-03T16:17:59+00:00",
-   "origin": "suggested by Kryptonytt",
-   "reject_reason": "Off-topic (book about bonds)"
-  },
-  {
-   "title": "NBX registrert som MoneyGram-agent (børsmelding, engelsk)",
-   "title_en": "NBX registered as a MoneyGram agent (stock exchange release)",
-   "source": "nbx-ir",
-   "source_name": "NBX (børsmelding)",
-   "country": "NO",
-   "language": "Norwegian",
-   "via": "kryptonytt",
-   "seen_via": [
-    "kryptonytt"
-   ],
-   "published": "2026-09-17T12:00:00+00:00",
-   "topics": [
-    "business",
-    "payments"
-   ],
-   "matched": [],
-   "paywall": false,
-   "suggested_by": "Kryptonytt",
-   "suggested_status": "approved on Kryptonytt",
-   "suggested_at": "2026-10-03T16:17:59+00:00",
-   "id": "e1e3eef6ecff",
-   "url": "https://www.inderes.se/en/releases/nbx-nbx-registered-as-moneygram-agent",
-   "status": "published",
-   "summary": "Norwegian Block Exchange (NBX), listed on Euronext Growth Oslo, has been registered as an agent for MoneyGram International.",
-   "fetched": "2026-10-03T16:17:59+00:00",
-   "origin": "suggested by Kryptonytt",
-   "approved_by": "Nordic Crypto redaktør",
-   "approved_at": "2026-10-03T18:26:24+02:00",
-   "summary_i18n": {
-    "nn": "Norwegian Block Exchange (NBX), notert på Euronext Growth Oslo, er registrert som agent for MoneyGram International.",
-    "nb": "Norwegian Block Exchange (NBX), notert på Euronext Growth Oslo, er registrert som agent for MoneyGram International.",
-    "sv": "Norwegian Block Exchange (NBX), noterat på Euronext Growth Oslo, har registrerats som ombud för MoneyGram International.",
-    "da": "Norwegian Block Exchange (NBX), der er noteret på Euronext Growth Oslo, er registreret som agent for MoneyGram International.",
-    "fi": "Euronext Growth Oslossa listattu Norwegian Block Exchange (NBX) on rekisteröity MoneyGram Internationalin asiamieheksi.",
-    "is": "Norwegian Block Exchange (NBX), sem skráð er á Euronext Growth Oslo, hefur verið skráð sem umboðsaðili MoneyGram International."
-   },
-   "summary_i18n_review": "approved"
-  },
-  {
-   "title": "USA letter på reglene for aksjehandel",
-   "title_en": null,
-   "source": "finansavisen",
-   "source_name": "Finansavisen",
-   "country": "NO",
-   "language": "Norwegian",
-   "via": "kryptonytt",
-   "seen_via": [
-    "kryptonytt"
-   ],
-   "published": "2026-09-17T10:59:00+00:00",
-   "topics": [
-    "blockchain",
-    "regulation"
-   ],
-   "matched": [],
-   "paywall": true,
-   "suggested_by": "Kryptonytt",
-   "suggested_status": "candidate on Kryptonytt",
-   "suggested_at": "2026-10-03T16:17:59+00:00",
-   "id": "8168421e6cf9",
-   "url": "https://www.finansavisen.no/finans/2026/09/17/8381339/usa-letter-pa-reglene-for-aksjehandel",
-   "status": "rejected",
-   "summary": null,
-   "fetched": "2026-10-03T16:17:59+00:00",
-   "origin": "suggested by Kryptonytt",
-   "reject_reason": "Off-topic (US stock rules)"
-  },
-  {
-   "title": "#74 GREGARD MIKKELBORG - Kommende generasjoner kan bare drømme om å ha råd til egen bolig.",
-   "title_en": null,
-   "source": "enogtyvetanker",
-   "source_name": "En og tyve tanker (podkast)",
-   "country": "NO",
-   "language": "Norwegian",
-   "via": "kryptonytt",
-   "seen_via": [
-    "kryptonytt"
-   ],
-   "published": "2026-09-16T21:54:43+00:00",
+   "published": "2026-09-29T12:00:00+00:00",
    "topics": [
     "bitcoin",
     "companies"
@@ -2696,122 +2887,15 @@
    "matched": [],
    "paywall": false,
    "suggested_by": "Kryptonytt",
+   "origin": "suggested by Kryptonytt",
    "suggested_status": "candidate on Kryptonytt",
-   "suggested_at": "2026-10-03T16:17:59+00:00",
-   "id": "c5f53740fbfc",
-   "url": "https://podcasters.spotify.com/pod/show/andreas-harding2/episodes/74-GREGARD-MIKKELBORG---Kommende-generasjoner-kan-bare-drmme-om--ha-rd-til-egen-bolig-e3ov0jg",
-   "status": "rejected",
+   "suggested_at": "2026-10-04T03:31:04+00:00",
+   "id": "f17e66cd2ee6",
+   "url": "https://www.investornytt.no/krypto/spekulantene-tar-gevinst-k33-oyner-ny-bitcoin-opptur/546305",
+   "status": "pending",
    "summary": null,
-   "fetched": "2026-10-03T16:17:59+00:00",
-   "origin": "suggested by Kryptonytt",
-   "reject_reason": "Podcast episode on housing, off-topic"
-  },
-  {
-   "title": "Firi lanserer i Sverige – etter permitteringer og milliontap",
-   "title_en": "Firi launches in Sweden after layoffs and losses",
-   "source": "shifter",
-   "source_name": "Shifter",
-   "country": "NO",
-   "language": "Norwegian",
-   "via": "kryptonytt",
-   "seen_via": [
-    "kryptonytt"
-   ],
-   "published": "2026-09-15T12:00:00+00:00",
-   "topics": [
-    "business",
-    "mica"
-   ],
-   "matched": [],
-   "paywall": true,
-   "suggested_by": "Kryptonytt",
-   "suggested_status": "approved on Kryptonytt",
-   "suggested_at": "2026-10-03T16:17:59+00:00",
-   "id": "6e2887720a32",
-   "url": "https://www.shifter.no/nyheter/firi-lanserer-i-sverige-etter-permitteringer-og-milliontap/475990",
-   "status": "published",
-   "summary": "Crypto exchange Firi lost NOK 43.6 million in the first half of 2026 after weaker trading and high MiCA costs, and has made layoffs while launching in Sweden.",
-   "fetched": "2026-10-03T16:17:59+00:00",
-   "origin": "suggested by Kryptonytt",
-   "approved_by": "Nordic Crypto redaktør",
-   "approved_at": "2026-10-03T18:26:24+02:00",
-   "summary_i18n": {
-    "nn": "Kryptobørsen Firi tapte 43,6 millionar kroner i første halvår 2026 etter svakare handel og høge MiCA-kostnader, og har nedbemanna samstundes som selskapet blir lansert i Sverige.",
-    "nb": "Kryptobørsen Firi tapte 43,6 millioner kroner i første halvår 2026 etter svakere handel og høye MiCA-kostnader, og har nedbemannet samtidig som selskapet lanseres i Sverige.",
-    "sv": "Kryptobörsen Firi förlorade 43,6 miljoner norska kronor under första halvåret 2026 efter svagare handel och höga MiCA-kostnader, och har sagt upp personal samtidigt som bolaget lanseras i Sverige.",
-    "da": "Kryptobørsen Firi tabte 43,6 millioner norske kroner i første halvår 2026 efter svagere handel og høje MiCA-omkostninger og har afskediget medarbejdere, samtidig med at selskabet lanceres i Sverige.",
-    "fi": "Kryptopörssi Firi teki 43,6 miljoonan Norjan kruunun tappion vuoden 2026 ensimmäisellä puoliskolla heikomman kaupankäynnin ja korkeiden MiCA-kulujen vuoksi, ja se on vähentänyt henkilöstöä samalla kun se aloittaa Ruotsissa.",
-    "is": "Rafmyntakauphöllin Firi tapaði 43,6 milljónum norskra króna á fyrri helmingi ársins 2026 vegna minni viðskipta og mikils MiCA-kostnaðar og hefur fækkað starfsfólki á sama tíma og hún hefur starfsemi í Svíþjóð."
-   },
-   "summary_i18n_review": "approved"
-  },
-  {
-   "title": "Advarer om bitcoin-kollaps før rentemøte",
-   "title_en": null,
-   "source": "e24",
-   "source_name": "E24",
-   "country": "NO",
-   "language": "Norwegian",
-   "via": "kryptonytt",
-   "seen_via": [
-    "kryptonytt"
-   ],
-   "published": "2026-09-15T09:09:00+00:00",
-   "topics": [
-    "bitcoin"
-   ],
-   "matched": [],
-   "paywall": true,
-   "suggested_by": "Kryptonytt",
-   "suggested_status": "candidate on Kryptonytt",
-   "suggested_at": "2026-10-03T16:17:59+00:00",
-   "id": "65f7f2df1a50",
-   "url": "https://e24.no/boers-og-finans/i/8pMoKQ/advarer-om-bitcoin-kollaps-foer-rentemoete",
-   "status": "rejected",
-   "summary": null,
-   "fetched": "2026-10-03T16:17:59+00:00",
-   "origin": "suggested by Kryptonytt",
-   "reject_reason": "Price commentary with no Nordic angle"
-  },
-  {
-   "title": "Norges Bank utforsker tokenisering med tolv aktører",
-   "title_en": "Norges Bank explores tokenisation with twelve players",
-   "source": "kaupr",
-   "source_name": "Kaupr",
-   "country": "NO",
-   "language": "Norwegian",
-   "via": "kryptonytt",
-   "seen_via": [
-    "kryptonytt"
-   ],
-   "published": "2026-09-08T12:00:00+00:00",
-   "topics": [
-    "tokenisation",
-    "banking"
-   ],
-   "matched": [],
-   "paywall": false,
-   "suggested_by": "Kryptonytt",
-   "suggested_status": "approved on Kryptonytt",
-   "suggested_at": "2026-10-03T16:17:59+00:00",
-   "id": "2034a42ac260",
-   "url": "https://www.kaupr.io/nyheter/norges-bank-utforsker-tokenisering-med-tolv-aktorer",
-   "status": "published",
-   "summary": "Norges Bank has named twelve financial institutions in its mapping of tokenisation, while Norway is the only Nordic country without banks in the euro-stablecoin group Qivalis.",
-   "fetched": "2026-10-03T16:17:59+00:00",
-   "origin": "suggested by Kryptonytt",
-   "approved_by": "Nordic Crypto redaktør",
-   "approved_at": "2026-10-03T18:26:24+02:00",
-   "summary_i18n": {
-    "nn": "Norges Bank har namngitt tolv finansinstitusjonar i kartlegginga si av tokenisering, medan Noreg er det einaste nordiske landet utan bankar i euro-stablecoin-gruppa Qivalis.",
-    "nb": "Norges Bank har navngitt tolv finansinstitusjoner i sin kartlegging av tokenisering, mens Norge er det eneste nordiske landet uten banker i euro-stablecoin-gruppen Qivalis.",
-    "sv": "Norges Bank har namngett tolv finansinstitut i sin kartläggning av tokenisering, medan Norge är det enda nordiska landet utan banker i euro-stablecoin-gruppen Qivalis.",
-    "da": "Norges Bank har navngivet tolv finansielle institutioner i sin kortlægning af tokenisering, mens Norge er det eneste nordiske land uden banker i euro-stablecoin-gruppen Qivalis.",
-    "fi": "Norges Bank on nimennyt tokenisointia koskevassa kartoituksessaan kaksitoista rahoituslaitosta, ja Norja on ainoa Pohjoismaa, jonka pankkeja ei ole mukana euromääräisten vakaakolikoiden Qivalis-ryhmässä.",
-    "is": "Norges Bank hefur nafngreint tólf fjármálastofnanir í kortlagningu sinni á táknvæðingu, en Noregur er eina norræna landið sem á enga banka í evru-stöðugleikamyntahópnum Qivalis."
-   },
-   "summary_i18n_review": "approved"
+   "fetched": "2026-10-04T03:31:04+00:00"
   }
  ],
- "updated": "2026-10-03T16:10:30+00:00"
+ "updated": "2026-10-04T01:42:55+00:00"
 }

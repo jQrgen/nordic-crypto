@@ -90,6 +90,11 @@ TOPICS = {
     "companies": r"\bFiri\b|bare bitcoin|\bK33\b|\bNBX\b|Safello|Virtune|Valuno|Coinmotion|Northcrypto|Kvarn|Myntkaup|Monerium|selskap|bolag|yhtiö|fyrirtæki|\bbørs\b|\bbörs|pörssi|oppkjøp|förvärv|emisjon|nyemission|investor|gründer|grundare|\bASA\b|\bAB\b|\bOyj?\b|\behf\b|omsetning|omsättning|liikevaihto",
 }
 TOPICS = {k: re.compile(v, re.I) for k, v in TOPICS.items()}
+# Gambling/affiliate list pages are advertising, not news (editor ruling 2026-10-04).
+GAMBLING = re.compile(r"\bcasino\w*|\bkasino\w*|\bkasinot?\b|\bspilleside\w*|\bspelsajt\w*|\bnettcasino|\bnätcasino|\bnettikasino|\bodds(?:bolag|sider)?\b|\bbetting\b|\bsportsbook|\bbonuskod\w*|\bfree ?spins?\b|\bbästa\b.*\bcasino|\bgambling\b|\bspillavhengig\w*", re.I)
+# Gambling regulators: such stories are kept (real news), never dropped.
+GAMBLING_REGULATOR = re.compile(r"lotteritilsyn|spelinspektion|spillemyndighed|poliisihallitus|arpajais|happdrætt|sýslumað|\bMGA\b|gaming authority|gambling authority", re.I)
+def is_gambling(text, url=""): return bool(GAMBLING.search(text) or re.search(r"casino|kasino|betting", url, re.I))
 def matches(text, extra=()):
     return sorted({r for c, r in KW if c.search(text)} | {e for e in extra if e.lower() in text.lower()})
 def topics_of(text):
@@ -204,6 +209,11 @@ def main():
         text = f"{title}. {teaser}"
         hits = matches(text, extra)
         if not hits and not all_rel: return
+        if is_gambling(text, url):
+            if not GAMBLING_REGULATOR.search(text):
+                with open(P("state", "dropped_gambling.jsonl"), "a") as fh:
+                    fh.write(json.dumps({"dropped_at": NOW.isoformat(timespec="seconds"), "url": url, "title": title, "source": src, "country": country}, ensure_ascii=False) + "\n")
+                return
         if not title or not published or published < cutoff: return
         cu = canon(url)
         if cu in by_url or norm_title(title) in by_title:
