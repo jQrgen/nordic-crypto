@@ -1,4 +1,4 @@
-"""Crypto Nordic site languages. English is the default (site root); the others live under /<code>/.
+"""Nordic Crypto site languages. English is the default (site root); the others live under /<code>/.
 Strings: i18n/<code>.py -> S = {key: text}. Missing keys fall back to English (and build.py warns).
 Editor workflow: our own text (story summaries, event notes, changelog entries) gets per-language variants in
 queue/approved.json (items[].summary_i18n, events.notes_i18n) and changelog.json (entries[].i18n). External headlines,

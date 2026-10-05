@@ -173,14 +173,17 @@
   },
   "esma": {
    "name": "ESMA (EU securities authority)",
-   "description": "Chair: Verena Ross (Carlo Comporti approved by the European Parliament from 1 Nov 2026, awaiting the Council). MiCA level 2/3 rules, the ESMA register and supervisory convergence; Norway's Finanstilsynet takes part as an EEA observer."
+   "description": "Chair: Verena Ross (Carlo Comporti approved by the European Parliament from 1 Nov 2026, awaiting the Council). MiCA level 2/3 rules, the ESMA register and supervisory convergence; Norway's Finanstilsynet takes part as an EEA observer.",
+   "country": "EU"
   },
   "eba": {
    "name": "EBA (European Banking Authority)",
-   "description": "Rules for e-money tokens and asset-referenced tokens (EMT/ART) and AML standards."
+   "description": "Rules for e-money tokens and asset-referenced tokens (EMT/ART) and AML standards.",
+   "country": "EU"
   },
   "francois-louis-michaud": {
-   "role": "Chairperson (from 16 Apr 2026)"
+   "role": "Chairperson (from 16 Apr 2026)",
+   "country": "EU"
   },
   "kryptoeiendelsloven": {
    "name": "Crypto-Assets Act (MiCA in Norwegian law)",
@@ -338,7 +341,7 @@
   },
   "kaupr": {
    "name": "Kaupr",
-   "description": "Niche outlet for digital assets, tokenisation and MiCA in the Nordics (writes in Norwegian about all Nordic markets). Disclosure: Kaupr sponsors Oslo Blockchain Meetup, the meetup run by jQrgen (Jørgen S. Notland), the publisher of Crypto Nordic.",
+   "description": "Niche outlet for digital assets, tokenisation and MiCA in the Nordics (writes in Norwegian about all Nordic markets). Disclosure: Kaupr sponsors Oslo Blockchain Meetup, the meetup run by jQrgen (Jørgen S. Notland), the publisher of Nordic Crypto.",
    "country": "NORDIC"
   },
   "finanswatch-e24-dn-finansavisen-okonomi24": {

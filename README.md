@@ -1,7 +1,7 @@
-# Crypto Nordic
+# Nordic Crypto
 
 Bitcoin, blockchain and crypto news, events, a who's who (industry + regulators), regulation by country and academia for
-**Norway, Sweden, Denmark, Finland and Iceland**. Static site, no tracking.
+**Norway, Sweden, Denmark, Finland and Iceland**. Static site. Cloudflare Web Analytics counts aggregate visits (no cookies, data not sold) when a token is set in `analytics.json`. No advertising trackers.
 Languages: English (root `/`), Nynorsk `/nn/`, Bokmål `/nb/`, Swedish `/sv/`, Danish `/da/`, Finnish `/fi/`, Icelandic `/is/` (UI strings in `i18n/<lang>.py`, about pages in `templates/about.<lang>.html`). External headlines and quotes stay in the original language; our own summaries are written first in English, then translated (AI-assisted, editor-approved). Language choice (`tools/langselect.js`): `nc_lang` cookie (set only when the reader picks a language) → `/api/geo` on our own Worker (country only, nothing stored) → `navigator.languages` → English; only a first visit to the root is redirected, never a direct language link.
 Planned URL: https://jqrgen.github.io/nordic-crypto/ (all links are relative). Run by jQrgen (Jørgen S. Notland), MIT licence.
 
@@ -48,7 +48,7 @@ So: keep `country` correct on every Norwegian story (`--add URL --country NO`), 
 All Kryptonytt news sources not already here were merged into `sources.json` as `country: NO` with `merged_from: "kryptonytt 2026-10-04"`
 (Norwegian RSS feeds, podcasts, `search`-type outlets, and `bing-no-kn`: Kryptonytt's per-site news search, `sites` × `site_terms`,
 now supported by `fetch.py`). Keywords `Bitmynt` and `H100` were added. This adds ~215 requests (≈ 8 min at 2 s/host) to the nightly run.
-`tools/crosssite_handoff.py` still runs; its Crypto Nordic -> Kryptonytt direction is now redundant (the import enriches those rows).
+`tools/crosssite_handoff.py` still runs; its Nordic Crypto -> Kryptonytt direction is now redundant (the import enriches those rows).
 
 ## Reader tips (added 3 Oct 2026; own tip server 3 Oct 2026)
 **Own tip server (primary, not public yet).** `tipserver/server.py` (Python stdlib + SQLite) listens on `127.0.0.1:8787`:

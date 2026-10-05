@@ -1,4 +1,4 @@
-/* Crypto Nordic language auto-selection. Inlined (by build.py) ONLY in the <head> of the English home page (site root).
+/* Nordic Crypto language auto-selection. Inlined (by build.py) ONLY in the <head> of the English home page (site root).
    Order: 1) an explicit choice in the first-party cookie nc_lang (set when the visitor clicks a language in the switcher)
           2) first visit with no choice: the country from our own Worker (GET __GEO__ -> {"country":"NO"}), Cloudflare's
              request.cf.country; nothing is stored or logged; no third-party geo-IP service

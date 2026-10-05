@@ -25,6 +25,13 @@ def main():
     raw = load(P("data", "orgchart_no_raw.json"), {"entities": [], "relations": []}); en = load(P("data", "no_en.json"))
     nordic = load(P("data", "orgchart_nordic.json")); ap = (load(P("queue", "approved.json"), {}) or {}).get("org", {})
     ok_ids, ok_c, rej = set(ap.get("approve", [])), set(ap.get("approve_countries", [])), set(ap.get("reject", []))
+    def country_ok(e):
+        """True when this row's country is in the editor's approved set.
+        EU bodies imported from the Norwegian Kryptonytt map were approved with that map
+        (country defaulted to NO). Showing them as EU must not hide them until "EU" is
+        added to approve_countries."""
+        if e.get("country") in ok_c: return True
+        return e.get("country") == "EU" and str(e.get("origin") or "").startswith("Kryptonytt") and "NO" in ok_c
     out, skipped = [], []
     for e in raw["entities"]:
         t = en["e"].get(e["id"])
@@ -43,10 +50,10 @@ def main():
     ids = {x["id"] for x in out}
     for e in nordic["entities"]:
         if e["id"] in ids: print(f"orgchart: duplicate id {e['id']}", file=sys.stderr); continue
-        out.append(dict(e, origin="Crypto Nordic research")); ids.add(e["id"])
+        out.append(dict(e, origin="Nordic Crypto research")); ids.add(e["id"])
     out = [e for e in out if e.get("sources")]
     for e in out:
-        e["status"] = "rejected" if e["id"] in rej else ("published" if (e["id"] in ok_ids or (e["country"] in ok_c and e.get("review") != "pending")) else "pending")
+        e["status"] = "rejected" if e["id"] in rej else ("published" if (e["id"] in ok_ids or (country_ok(e) and e.get("review") != "pending")) else "pending")
     logos = {k: v for k, v in (load(P("assets", "img", "logos", "logos.json"), {}) or {}).items() if not k.startswith("_")}
     photos = {k: v for k, v in (load(P("assets", "img", "people", "photos.json"), {}) or {}).items() if not k.startswith("_")}
     profs = {k: v for k, v in (load(P("data", "profiles.json"), {}) or {}).items() if not k.startswith("_")}
@@ -58,7 +65,8 @@ def main():
     rels = []
     for r in raw.get("relations", []) + nordic.get("relations", []):
         if r["from"] in ids and r["to"] in ids and r.get("sources"):
-            rels.append(dict(r, status="rejected" if r["id"] in rej else ("published" if r["id"] in ok_ids or {next(e["country"] for e in out if e["id"] == r["from"]), next(e["country"] for e in out if e["id"] == r["to"])} <= ok_c else "pending")))
+            ends = [next(e for e in out if e["id"] == r["from"]), next(e for e in out if e["id"] == r["to"])]
+            rels.append(dict(r, status="rejected" if r["id"] in rej else ("published" if r["id"] in ok_ids or all(country_ok(e) for e in ends) else "pending")))
     res = {"updated": nordic.get("checked"), "no_export_date": raw.get("updated"), "entities": out, "relations": rels,
            "regulation": nordic.get("regulation", []), "caveats": en.get("caveats", []) + nordic.get("caveats", [])}
     json.dump(res, open(P("data", "orgchart.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
