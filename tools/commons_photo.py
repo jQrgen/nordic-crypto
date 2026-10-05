@@ -5,7 +5,7 @@ Godtar bare CC0, Public domain, CC BY og CC BY-SA. Lagrer en 240 px versjon loka
 import json, os, re, sys, requests
 from bs4 import BeautifulSoup
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-UA = "NordicCrypto/0.1 (https://jqrgen.github.io/nordic-crypto/; github.com/jQrgen/nordic-crypto)"
+UA = "CryptoNordic/0.1 (https://jqrgen.github.io/nordic-crypto/; github.com/jQrgen/nordic-crypto)"
 OK = re.compile(r"^(CC0|Public domain|PD|CC BY(-SA)? \d\.\d( \w+)?|CC BY(-SA)?)", re.I)
 def txt(h): return BeautifulSoup(h or "", "lxml").get_text(" ", strip=True)
 def fetch(eid, fname):

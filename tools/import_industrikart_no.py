@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Nordic Crypto copy of Kryptonytt's importer (unchanged parsing; output goes to data/orgchart_no_raw.json, Norwegian text,
+"""Crypto Nordic copy of Kryptonytt's importer (unchanged parsing; output goes to data/orgchart_no_raw.json, Norwegian text,
 which tools/import_orgchart.py translates via data/no_en.json).
 Bygger data/orgchart.json på nytt ved hver bygging fra:
   1) researcherens redaktørgodkjente eksport (queue/approved.json -> industrikart.export), alle «ifølge …»-forbehold beholdes ordrett
@@ -76,7 +76,7 @@ def split_names(navn, rolle):
 def main():
     ap = load(P("queue", "approved.json"), {}); cfg = ap.get("industrikart", {})
     exp = load(cfg.get("export", ""), None)
-    imgs = load(P("data", "images.json"), {}); extra = {"entities": [], "relations": []}  # Nordic Crypto: no Norwegian news extras
+    imgs = load(P("data", "images.json"), {}); extra = {"entities": [], "relations": []}  # Crypto Nordic: no Norwegian news extras
     E, R, skipped = {}, [], []
     excl = set(cfg.get("exclude_institutions", []))
     for row in (exp or {}).get("rader", []):

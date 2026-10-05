@@ -5,7 +5,7 @@ fetched from OpenAlex by DOI (nothing typed by hand) and every DOI is verified t
 Norwegian rows mirror Kryptonytt's Akademia seed, written in English. Re-run: .venv/bin/python tools/seed_academia.py"""
 import json, os, sys, time, requests
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-UA = {"User-Agent": "NordicCrypto/0.1 (local preview; https://jqrgen.github.io/nordic-crypto/)"}
+UA = {"User-Agent": "CryptoNordic/0.1 (local preview; https://jqrgen.github.io/nordic-crypto/)"}
 C = "2026-10-03"; ST = "awaiting editor"
 # (country, code, name, institution, level, url, about)
 courses = [

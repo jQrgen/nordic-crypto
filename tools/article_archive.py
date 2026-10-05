@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Append-only article archive (rows are never deleted) of every story Nordic Crypto has ever published.
+"""Append-only article archive (rows are never deleted) of every story Crypto Nordic has ever published.
   archive/articles.db    SQLite (gitignored). Schema: archive/schema.sql – shared with Kryptonytt (site column tells them apart),
                          plus the additive v2 column `country`. Mirrors to Cloudflare D1 via tipworker/migrations/0002_articles.sql.
   archive/articles.json  export committed to the repo as a backup (the internal `origin` note is left out).

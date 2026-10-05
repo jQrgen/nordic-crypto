@@ -13,7 +13,7 @@ S = {
 "pending": "Pending editor review", "owner": "Editor-approved · awaiting jQrgen's final approval", "our_story": "Our story",
 "country": "Country", "countries_aria": "Filter by country", "filters": "Filters",
 # news
-"home_title": "Nordic Crypto – bitcoin, blockchain and crypto news from the Nordics",
+"home_title": "Crypto Nordic – bitcoin, blockchain and crypto news from the Nordics",
 "home_desc": "Bitcoin, blockchain and crypto news from Norway, Sweden, Denmark, Finland and Iceland, with English summaries, an events calendar and a who's who.",
 "home_h1": "Bitcoin, blockchain and crypto news from the Nordics",
 "home_screen": "Office screen mode (full screen, portrait or landscape, in English) →",
@@ -61,7 +61,7 @@ S = {
 "js_links": "Links", "js_sources": "Sources", "js_link": "link", "js_source_n": "source {n}", "js_pub": "Public", "js_priv": "Private",
 "js_profiles": "Profiles", "js_logo_alt": "{name} logo",
 # sources
-"src_title": "Sources", "src_desc": "Nordic newspapers, broadcasters, regulators and crypto media that Nordic Crypto follows, with the status of each feed.",
+"src_title": "Sources", "src_desc": "Nordic newspapers, broadcasters, regulators and crypto media that Crypto Nordic follows, with the status of each feed.",
 "src_h1": "Sources we follow",
 "src_lead": "Newspapers, broadcasters, regulators, central banks and crypto media in the five countries. We read RSS feeds, public list pages (only links and page metadata) and a news search limited to each country's domains. We respect robots.txt, identify ourselves with our own user agent, wait at least {d} seconds between requests to the same site, and never fetch article text behind a paywall. If a site blocks us, we leave it.",
 "th_source": "Source", "th_feed": "Feed", "th_status": "Status", "th_note": "Note", "th_event_source": "Event source",
@@ -98,16 +98,16 @@ S = {
 "ac_source": "Source", "ac_checked": "checked {d}", "active": "Active", "inactive": "Inactive", "et_al": " et al.", "ac_record": "{db} record", "database": "database",
 "ac_notice": "Missing a course, group or paper, or is something out of date? Tell us via <a href=\"../about/#corrections\">corrections</a>. We list institutions and public academic work only, never students' private details.",
 # changelog
-"cl_title": "Changelog", "cl_desc": "Changes to the Nordic Crypto site: new pages, sections and features, newest first.",
-"cl_lead": "Changes to the Nordic Crypto site itself – new pages, sections and features – newest first. Daily news is not listed here.",
+"cl_title": "Changelog", "cl_desc": "Changes to the Crypto Nordic site: new pages, sections and features, newest first.",
+"cl_lead": "Changes to the Crypto Nordic site itself – new pages, sections and features – newest first. Daily news is not listed here.",
 "cl_preview": "<b>Preview:</b> the site has not launched yet. Entries get the launch date once jQrgen approves publishing.",
 "cl_prev_tag": "Preview – not launched yet", "cl_none": "No changes recorded yet.", "cl_data": "Data",
 # about
-"about_title": "About Nordic Crypto", "about_desc": "About Nordic Crypto: who runs it, how it works, privacy, corrections and removal.",
+"about_title": "About Crypto Nordic", "about_desc": "About Crypto Nordic: who runs it, how it works, privacy, corrections and removal.",
 # tip
-"tip_title": "Send a tip", "tip_desc": "Tip Nordic Crypto about an article on crypto, bitcoin or blockchain in the Nordics.",
+"tip_title": "Send a tip", "tip_desc": "Tip Crypto Nordic about an article on crypto, bitcoin or blockchain in the Nordics.",
 "tip_lead": "Seen a story about crypto, bitcoin or blockchain in Norway, Sweden, Denmark, Finland or Iceland that we have missed? Send us the link.",
-"tip_srv_p": "Tips go straight to Nordic Crypto's own tip inbox. Our editor reviews new tips regularly and checks each one against <a href=\"../about/\">our rules</a>: the story must be about crypto, bitcoin or blockchain in the Nordics, and we link to the original source with a short summary in our own words. <b>A tip does not guarantee publication</b>, and we don't reply to individual tips.",
+"tip_srv_p": "Tips go straight to Crypto Nordic's own tip inbox. Our editor reviews new tips regularly and checks each one against <a href=\"../about/\">our rules</a>: the story must be about crypto, bitcoin or blockchain in the Nordics, and we link to the original source with a short summary in our own words. <b>A tip does not guarantee publication</b>, and we don't reply to individual tips.",
 "tip_srv_priv": "<b>Privacy:</b> tips are not public. We store the link, country, note, optional name and the time – <b>not</b> your IP address (for spam protection, only a scrambled code derived from it is kept for 10 minutes, then deleted). Your name is never published. The tip inbox runs on Cloudflare. Please don't include personal or sensitive information about anyone in the note.",
 "tip_noscript": "The tip form needs JavaScript. Without it, you can send a <a href=\"{gh}\" rel=\"noopener\">tip as a public GitHub issue</a> instead.",
 "tip_url": "Article URL", "tip_required": "(required)", "tip_country": "Country", "tip_unsure": "Not sure / choose…",
@@ -147,7 +147,7 @@ S.update({
 "nl_btn": "Subscribe",
 "nl_foot": "Newsletter: a short weekly digest by email.",
 "nl_more": "More about the newsletter",
-"nl_priv": "<b>Privacy:</b> we store only your email address, the language you chose and the time – <b>not</b> your IP address, and no tracking. You’ll get an email asking you to confirm; until you do, nothing more is sent, and unconfirmed addresses are deleted after 7 days. Every newsletter has an unsubscribe link. The list is used only for the Nordic Crypto newsletter and may be moved to the service we send it with (for example Substack); it is never sold or shared for anything else.",
+"nl_priv": "<b>Privacy:</b> we store only your email address, the language you chose and the time – <b>not</b> your IP address, and no tracking. You’ll get an email asking you to confirm; until you do, nothing more is sent, and unconfirmed addresses are deleted after 7 days. Every newsletter has an unsubscribe link. The list is used only for the Crypto Nordic newsletter and may be moved to the service we send it with (for example Substack); it is never sold or shared for anything else.",
 "nl_sending": "Sending…",
 "nl_sent": "Almost done: check your inbox and open the confirmation link within 7 days.",
 "nl_confirmed": "Thanks, your subscription is confirmed.",
@@ -156,7 +156,7 @@ S.update({
 "nl_e_rate": "Too many attempts in a short time. Please try again later.",
 "nl_e_link": "The link is invalid or has expired. Please sign up again.",
 "nl_e_fail": "Something went wrong. Please try again later.",
-"nl_kaupr": "<b>Disclosure:</b> Kaupr (kaupr.io) is one of the news sources we follow, sponsors some events in our calendar and sponsors Oslo Blockchain Meetup, the meetup run by jQrgen, the publisher of Nordic Crypto.",
+"nl_kaupr": "<b>Disclosure:</b> Kaupr (kaupr.io) is one of the news sources we follow, sponsors some events in our calendar and sponsors Oslo Blockchain Meetup, the meetup run by jQrgen, the publisher of Crypto Nordic.",
 "nl_sub_btn": "Subscribe on Substack →",
-"nl_sub_note": "You sign up on Substack (nordiccrypto.substack.com), which sends the newsletter. Substack handles your email address under its own privacy policy; this website stores nothing and has no tracking. Every newsletter has an unsubscribe link."
+"nl_sub_note": "You sign up on Substack (cryptonordic.substack.com), which sends the newsletter. Substack handles your email address under its own privacy policy; this website stores nothing and has no tracking. Every newsletter has an unsubscribe link."
 })

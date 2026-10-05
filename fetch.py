@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Nordic Crypto – fetches feeds and public list pages for Norway, Sweden, Denmark, Finland and Iceland,
+"""Crypto Nordic – fetches feeds and public list pages for Norway, Sweden, Denmark, Finland and Iceland,
 filters on crypto keywords (Norwegian, Swedish, Danish, Finnish, Icelandic, English), de-duplicates and updates
 data/news.json and the editor queue queue/review.json. Events are searched in the same run (events.py).
 

@@ -1,4 +1,4 @@
-# Nordic Crypto
+# Crypto Nordic
 
 Bitcoin, blockchain and crypto news, events, a who's who (industry + regulators), regulation by country and academia for
 **Norway, Sweden, Denmark, Finland and Iceland**. Static site, no tracking.
@@ -48,7 +48,7 @@ So: keep `country` correct on every Norwegian story (`--add URL --country NO`), 
 All Kryptonytt news sources not already here were merged into `sources.json` as `country: NO` with `merged_from: "kryptonytt 2026-10-04"`
 (Norwegian RSS feeds, podcasts, `search`-type outlets, and `bing-no-kn`: Kryptonytt's per-site news search, `sites` × `site_terms`,
 now supported by `fetch.py`). Keywords `Bitmynt` and `H100` were added. This adds ~215 requests (≈ 8 min at 2 s/host) to the nightly run.
-`tools/crosssite_handoff.py` still runs; its Nordic Crypto -> Kryptonytt direction is now redundant (the import enriches those rows).
+`tools/crosssite_handoff.py` still runs; its Crypto Nordic -> Kryptonytt direction is now redundant (the import enriches those rows).
 
 ## Reader tips (added 3 Oct 2026; own tip server 3 Oct 2026)
 **Own tip server (primary, not public yet).** `tipserver/server.py` (Python stdlib + SQLite) listens on `127.0.0.1:8787`:
@@ -78,7 +78,7 @@ Tips go to `tipserver/tips.db` (gitignored, mode 600) with a UTC timestamp and s
 template, Kaupr disclosure, checklist for jQrgen). `newsletter/digest.py` builds the weekly digest from the **public** build
 only (approved stories). Signup form (footer + `/newsletter/`, 7 languages, privacy note) is behind `newsletter/config.json`
 `enabled: false`; it posts to the tipworker (`/api/subscribe`, double opt-in, see `tipworker/README.md`).
-Substack publication: https://nordiccrypto.substack.com (created by jQrgen 2026-10-05). `substack_url` in `newsletter/config.json`
+Substack publication: https://cryptonordic.substack.com (created by jQrgen 2026-10-05). `substack_url` in `newsletter/config.json`
 makes the footer and `/newsletter/` (7 languages) link to its `/subscribe` page on its own, independent of `enabled`.
 
 ## Privacy

@@ -1,4 +1,4 @@
-# Nordic Crypto weekly
+# Crypto Nordic weekly
 *27 Sep–3 Oct 2026*
 
 The week’s crypto, bitcoin and blockchain stories from the Nordics that our editor has approved. Each item links to the original source.
@@ -49,8 +49,8 @@ At a Finnish crypto event, investors described community and technology as what 
 
 ---
 
-Disclosure: Kaupr (kaupr.io) is one of the news sources we follow, sponsors some events in our calendar and sponsors Oslo Blockchain Meetup, the meetup run by jQrgen, the publisher of Nordic Crypto.
+Disclosure: Kaupr (kaupr.io) is one of the news sources we follow, sponsors some events in our calendar and sponsors Oslo Blockchain Meetup, the meetup run by jQrgen, the publisher of Crypto Nordic.
 
-Nordic Crypto is run by Jørgen S. Notland (jQrgen), Oslo. Summaries are written by our editor, a bot based on artificial intelligence, with jQrgen as the responsible person. Not investment advice.
+Crypto Nordic is run by Jørgen S. Notland (jQrgen), Oslo. Summaries are written by our editor, a bot based on artificial intelligence, with jQrgen as the responsible person. Not investment advice.
 
-*You get this email because you subscribed to the Nordic Crypto newsletter.*
+*You get this email because you subscribed to the Crypto Nordic newsletter.*

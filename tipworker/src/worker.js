@@ -1,4 +1,4 @@
-// Nordic Crypto tip intake – Cloudflare Worker + D1. Port of tipserver/server.py (same fields, validation, honeypot,
+// Crypto Nordic tip intake – Cloudflare Worker + D1. Port of tipserver/server.py (same fields, validation, honeypot,
 // limits and responses).
 //   POST /api/tip     JSON or form fields: url (required, http/https), country (NO/SE/DK/FI/IS/unsure), note (<=1000 chars),
 //                     name (optional, <=100 chars), website (honeypot: must be empty). Stored in D1 as status 'pending'.
@@ -11,7 +11,7 @@
 // SHA-256 of (daily random salt + IP) is kept for the 10-minute rate-limit window (see migrations/0001_tips.sql).
 // No user agent or other metadata is stored. Body capped at 4 KB.
 // CORS: only https://jqrgen.github.io. A browser POST from any other Origin is refused (403).
-// Newsletter signup (Nordic Crypto + Kryptonytt, double opt-in): POST /api/subscribe, GET /api/confirm, GET/POST
+// Newsletter signup (Crypto Nordic + Kryptonytt, double opt-in): POST /api/subscribe, GET /api/confirm, GET/POST
 // /api/unsubscribe – see src/newsletter.js (D1 table subscribers, migrations/0003_subscribers.sql) and src/mailer.js.
 import { subscribe, confirm, unsubscribe } from "./newsletter.js";
 

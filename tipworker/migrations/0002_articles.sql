@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS articles (
   summaries                TEXT NOT NULL DEFAULT '{}', -- JSON-objekt språk -> eiga oppsummering
   titles                   TEXT NOT NULL DEFAULT '{}', -- JSON-objekt språk -> eigen omsett tittel (berre når vi har laga ein)
   topics                   TEXT NOT NULL DEFAULT '[]', -- JSON-liste
-  origin                   TEXT,                     -- intern merknad, t.d. «tips frå Nordic Crypto» (ikkje offentleg)
+  origin                   TEXT,                     -- intern merknad, t.d. «tips frå Crypto Nordic» (ikkje offentleg)
   removed                  INTEGER NOT NULL DEFAULT 0, -- 1 = teken av nettstaden seinare
   removed_at               TEXT,
   removal_reason           TEXT,
@@ -40,6 +40,6 @@ CREATE TABLE IF NOT EXISTS article_events (
 CREATE TRIGGER IF NOT EXISTS articles_no_delete BEFORE DELETE ON articles BEGIN SELECT RAISE(ABORT, 'append-only: articles are never deleted'); END;
 CREATE TRIGGER IF NOT EXISTS events_no_delete BEFORE DELETE ON article_events BEGIN SELECT RAISE(ABORT, 'append-only: events are never deleted'); END;
 CREATE TRIGGER IF NOT EXISTS events_no_update BEFORE UPDATE ON article_events BEGIN SELECT RAISE(ABORT, 'append-only: events are never changed'); END;
--- Version 2 (2026-10-03, additive, Nordic Crypto): country column (ISO 3166 code of the story's country, e.g. 'SE').
+-- Version 2 (2026-10-03, additive, Crypto Nordic): country column (ISO 3166 code of the story's country, e.g. 'SE').
 -- SQLite has no "ADD COLUMN IF NOT EXISTS", so tools/article_archive.py adds it when missing:
 --   ALTER TABLE articles ADD COLUMN country TEXT;

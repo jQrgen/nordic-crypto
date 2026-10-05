@@ -1,6 +1,6 @@
 {
- "_note": "Sources for Nordic Crypto. type: rss = normal RSS (filtered on keywords), rss-all = every item is relevant, html = public list page (we read links and only page metadata), bing = Bing News RSS search limited to one country's domains, search = no feed, added manually by the researcher. enabled=false: the feed does not work or is blocked; see 'status'. paywall=true: may require a subscription. Update 'verified' when you re-check a source.",
- "user_agent": "NordicCryptoBot/0.1 (+https://jqrgen.github.io/nordic-crypto/about/; news headline bot)",
+ "_note": "Sources for Crypto Nordic. type: rss = normal RSS (filtered on keywords), rss-all = every item is relevant, html = public list page (we read links and only page metadata), bing = Bing News RSS search limited to one country's domains, search = no feed, added manually by the researcher. enabled=false: the feed does not work or is blocked; see 'status'. paywall=true: may require a subscription. Update 'verified' when you re-check a source.",
+ "user_agent": "CryptoNordicBot/0.1 (+https://jqrgen.github.io/nordic-crypto/about/; news headline bot)",
  "min_delay_seconds": 2,
  "sources": [
   {

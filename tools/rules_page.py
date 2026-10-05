@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""'How the rules are made' (rules/) for Nordic Crypto, called by build.py -> build_rules(ctx) for every language.
+"""'How the rules are made' (rules/) for Crypto Nordic, called by build.py -> build_rules(ctx) for every language.
 Data: rules.json (sources + nodes, English proper names). Page text: STR below (en, nn, nb, sv, da, fi, is).
 Editor review: while rules.json "review" is "pending", the public build writes a short placeholder page (so links from
 the org chart, industry map and about page never break) and only the preview build (--preview) shows the full page.

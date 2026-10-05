@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Builds data/orgchart.json for Nordic Crypto (run by build.py on every build):
+"""Builds data/orgchart.json for Crypto Nordic (run by build.py on every build):
   1) Norway: the editor-approved Kryptonytt export (queue/approved.json -> industrikart.export) parsed by
      tools/import_industrikart_no.py, then translated with data/no_en.json. Rows without an English entry are LEFT OUT.
   2) Sweden, Denmark, Finland, Iceland, Nordic (plus Norwegian companies missing from the Kryptonytt export):
@@ -43,7 +43,7 @@ def main():
     ids = {x["id"] for x in out}
     for e in nordic["entities"]:
         if e["id"] in ids: print(f"orgchart: duplicate id {e['id']}", file=sys.stderr); continue
-        out.append(dict(e, origin="Nordic Crypto research")); ids.add(e["id"])
+        out.append(dict(e, origin="Crypto Nordic research")); ids.add(e["id"])
     out = [e for e in out if e.get("sources")]
     for e in out:
         e["status"] = "rejected" if e["id"] in rej else ("published" if (e["id"] in ok_ids or (e["country"] in ok_c and e.get("review") != "pending")) else "pending")

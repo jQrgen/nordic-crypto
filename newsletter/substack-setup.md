@@ -1,8 +1,8 @@
-# Nordic Crypto – newsletter setup kit (Substack + email)
+# Crypto Nordic – newsletter setup kit (Substack + email)
 
-Status: **Substack publication created by jQrgen on 2026-10-05: https://nordiccrypto.substack.com** (subdomain `nordiccrypto`;
+Status: **Substack publication created by jQrgen on 2026-10-05: https://cryptonordic.substack.com** (subdomain `cryptonordic`, renamed from `nordiccrypto` on 2026-10-05;
 `/subscribe` answers HTTP 200). Nothing has been sent. The site links to the Substack signup
-(https://nordiccrypto.substack.com/subscribe) in the footer of every page and on `/newsletter/` in all 7 languages
+(https://cryptonordic.substack.com/subscribe) in the footer of every page and on `/newsletter/` in all 7 languages
 (`newsletter/config.json` → `substack_url`). The site's own signup form stays **off** (`enabled: false`) until the Worker is deployed.
 
 Two channels:
@@ -17,11 +17,11 @@ Two channels:
 
 | Field | Proposal |
 |---|---|
-| Publication name | **Nordic Crypto** |
-| Subdomain | **nordiccrypto.substack.com** – created by jQrgen on 2026-10-05 (https://nordiccrypto.substack.com, HTTP 200; `/subscribe` HTTP 200). |
+| Publication name | **Crypto Nordic** |
+| Subdomain | **cryptonordic.substack.com** – created by jQrgen on 2026-10-05 (https://cryptonordic.substack.com, HTTP 200; `/subscribe` HTTP 200). |
 | Custom domain (optional, paid add-on) | not needed; the site stays on jqrgen.github.io/nordic-crypto/ |
 | Language (Settings › Publication details) | English |
-| Sender name ("From" name) | **Nordic Crypto** (alternative: "Nordic Crypto – jQrgen") |
+| Sender name ("From" name) | **Crypto Nordic** (alternative: "Crypto Nordic – jQrgen") |
 | Reply-to | jQrgen decides (no public email address exists today; do **not** use a private address without deciding) |
 | Paid subscriptions | off (free newsletter) |
 | Categories | Primary **Crypto**; secondary **Finance**, then **International** or **News** (pick from Substack's current list) |
@@ -38,7 +38,7 @@ Short Nordic variants (for the about page or social posts):
 - is: Fréttir af kriptó, bitcoin og bálkakeðjum frá Noregi, Svíþjóð, Danmörku, Finnlandi og Íslandi – vikulega.
 
 **About page (English):**
-> Nordic Crypto collects news about crypto, bitcoin and blockchain from Norway, Sweden, Denmark, Finland and Iceland –
+> Crypto Nordic collects news about crypto, bitcoin and blockchain from Norway, Sweden, Denmark, Finland and Iceland –
 > newspapers, broadcasters, regulators and central banks – and gives each story a short summary with a link to the original
 > source. Once a week, this newsletter sends the stories our editor has approved.
 >
@@ -47,15 +47,15 @@ Short Nordic variants (for the about page or social posts):
 > who's who of the people and organisations in the field: https://jqrgen.github.io/nordic-crypto/
 >
 > Disclosure: Kaupr (kaupr.io) is one of the news sources we follow, sponsors some events in our calendar and sponsors
-> Oslo Blockchain Meetup, the meetup run by jQrgen, the publisher of Nordic Crypto.
+> Oslo Blockchain Meetup, the meetup run by jQrgen, the publisher of Crypto Nordic.
 
 Short Nordic variants of the about text:
-- nn: Nordic Crypto samlar nyheiter om krypto, bitcoin og blokkjede frå heile Norden og gir kvar sak eit kort samandrag med lenkje til kjelda. Ein gong i veka sender vi sakene redaktøren vår har godkjent. Samandraga er skrivne av ein bot basert på kunstig intelligens; jQrgen er ansvarleg. Ikkje investeringsråd.
-- nb: Nordic Crypto samler nyheter om krypto, bitcoin og blokkjede fra hele Norden og gir hver sak et kort sammendrag med lenke til kilden. Én gang i uka sender vi sakene redaktøren vår har godkjent. Sammendragene er skrevet av en bot basert på kunstig intelligens; jQrgen er ansvarlig. Ikke investeringsråd.
-- sv: Nordic Crypto samlar nyheter om krypto, bitcoin och blockkedjor från hela Norden och ger varje nyhet en kort sammanfattning med länk till källan. En gång i veckan skickar vi de nyheter som vår redaktör har godkänt. Sammanfattningarna skrivs av en bot baserad på artificiell intelligens; jQrgen är ansvarig. Inga investeringsråd.
-- da: Nordic Crypto samler nyheder om krypto, bitcoin og blockchain fra hele Norden og giver hver historie et kort resumé med link til kilden. Én gang om ugen sender vi de historier, vores redaktør har godkendt. Resuméerne skrives af en bot baseret på kunstig intelligens; jQrgen er ansvarlig. Ikke investeringsrådgivning.
-- fi: Nordic Crypto kokoaa krypto-, bitcoin- ja lohkoketjuuutisia koko Pohjolasta ja antaa jokaisesta lyhyen tiivistelmän ja linkin lähteeseen. Kerran viikossa lähetämme toimittajamme hyväksymät uutiset. Tiivistelmät kirjoittaa tekoälyyn perustuva botti; vastuuhenkilö on jQrgen. Ei sijoitusneuvontaa.
-- is: Nordic Crypto safnar fréttum af kriptó, bitcoin og bálkakeðjum frá öllum Norðurlöndum og gefur hverri frétt stutta samantekt með tengli á heimildina. Einu sinni í viku sendum við fréttirnar sem ritstjórinn okkar hefur samþykkt. Samantektirnar eru skrifaðar af vélmenni byggðu á gervigreind; jQrgen ber ábyrgð. Ekki fjárfestingarráðgjöf.
+- nn: Crypto Nordic samlar nyheiter om krypto, bitcoin og blokkjede frå heile Norden og gir kvar sak eit kort samandrag med lenkje til kjelda. Ein gong i veka sender vi sakene redaktøren vår har godkjent. Samandraga er skrivne av ein bot basert på kunstig intelligens; jQrgen er ansvarleg. Ikkje investeringsråd.
+- nb: Crypto Nordic samler nyheter om krypto, bitcoin og blokkjede fra hele Norden og gir hver sak et kort sammendrag med lenke til kilden. Én gang i uka sender vi sakene redaktøren vår har godkjent. Sammendragene er skrevet av en bot basert på kunstig intelligens; jQrgen er ansvarlig. Ikke investeringsråd.
+- sv: Crypto Nordic samlar nyheter om krypto, bitcoin och blockkedjor från hela Norden och ger varje nyhet en kort sammanfattning med länk till källan. En gång i veckan skickar vi de nyheter som vår redaktör har godkänt. Sammanfattningarna skrivs av en bot baserad på artificiell intelligens; jQrgen är ansvarig. Inga investeringsråd.
+- da: Crypto Nordic samler nyheder om krypto, bitcoin og blockchain fra hele Norden og giver hver historie et kort resumé med link til kilden. Én gang om ugen sender vi de historier, vores redaktør har godkendt. Resuméerne skrives af en bot baseret på kunstig intelligens; jQrgen er ansvarlig. Ikke investeringsrådgivning.
+- fi: Crypto Nordic kokoaa krypto-, bitcoin- ja lohkoketjuuutisia koko Pohjolasta ja antaa jokaisesta lyhyen tiivistelmän ja linkin lähteeseen. Kerran viikossa lähetämme toimittajamme hyväksymät uutiset. Tiivistelmät kirjoittaa tekoälyyn perustuva botti; vastuuhenkilö on jQrgen. Ei sijoitusneuvontaa.
+- is: Crypto Nordic safnar fréttum af kriptó, bitcoin og bálkakeðjum frá öllum Norðurlöndum og gefur hverri frétt stutta samantekt með tengli á heimildina. Einu sinni í viku sendum við fréttirnar sem ritstjórinn okkar hefur samþykkt. Samantektirnar eru skrifaðar af vélmenni byggðu á gervigreind; jQrgen ber ábyrgð. Ekki fjárfestingarráðgjöf.
 
 ## 2. Branding (from the site's existing brand: the "Nordic **Crypto**" wordmark in #0f5ea8 and the Nordic-cross favicon)
 
@@ -71,7 +71,7 @@ Suggested accent colour in Substack's theme: **#0f5ea8**.
 
 ## 3. Welcome email (Substack: Settings › Emails › Welcome email) – draft
 
-**Subject:** Welcome to Nordic Crypto
+**Subject:** Welcome to Crypto Nordic
 
 > Hi, and thanks for subscribing.
 >
@@ -84,11 +84,11 @@ Suggested accent colour in Substack's theme: **#0f5ea8**.
 > "Send a tip" on the website: https://jqrgen.github.io/nordic-crypto/tip/
 >
 > Disclosure: Kaupr (kaupr.io) is one of the news sources we follow, sponsors some events in our calendar and sponsors
-> Oslo Blockchain Meetup, the meetup run by jQrgen, the publisher of Nordic Crypto.
+> Oslo Blockchain Meetup, the meetup run by jQrgen, the publisher of Crypto Nordic.
 >
 > You can unsubscribe at any time with the link at the bottom of every email.
 >
-> – Nordic Crypto
+> – Crypto Nordic
 
 (The Worker's own confirmation and welcome emails for the site signup are in `tipworker/src/messages.js`, all 7 languages.)
 
@@ -103,7 +103,7 @@ Suggested accent colour in Substack's theme: **#0f5ea8**.
 - `.md` → paste into a new Substack post (Substack keeps headings, bold and links). `.html`/`.txt` → for a mail provider
   (`{{unsubscribe}}` is the provider's unsubscribe placeholder).
 - Template (every edition):
-  1. Title "Nordic Crypto weekly" (per language) + date range, one-line intro
+  1. Title "Crypto Nordic weekly" (per language) + date range, one-line intro
   2. Stories grouped by country (Norway, Sweden, Denmark, Finland, Iceland): **headline (link to the source)** – English
      headline with the original in brackets for the English edition; original headline otherwise – then our summary in the
      edition's language, then `source · date · may require a subscription · Kaupr is a sponsor` (the last only for Kaupr stories)
@@ -116,7 +116,7 @@ Suggested accent colour in Substack's theme: **#0f5ea8**.
 ## 5. Kaupr sponsor disclosure (use everywhere: about page, welcome email, every digest footer)
 
 > Disclosure: Kaupr (kaupr.io) is one of the news sources we follow, sponsors some events in our calendar and sponsors
-> Oslo Blockchain Meetup, the meetup run by jQrgen, the publisher of Nordic Crypto.
+> Oslo Blockchain Meetup, the meetup run by jQrgen, the publisher of Crypto Nordic.
 
 Stories from Kaupr are marked "Kaupr is a sponsor" in the digest.
 
@@ -133,13 +133,13 @@ Stories from Kaupr are marked "Kaupr is a sponsor" in the digest.
 
 ## 7. Checklist for jQrgen (updated 2026-10-05)
 
-- [x] Create the Substack publication with your own login; confirm the subdomain (nordiccrypto). Done 2026-10-05: https://nordiccrypto.substack.com
-- [ ] In Substack settings: tagline and about text (section 1), sender name, categories (Crypto; Finance, International/News).
+- [x] Create the Substack publication with your own login; confirm the subdomain (cryptonordic, renamed from nordiccrypto). Done 2026-10-05: https://cryptonordic.substack.com
+- [ ] In Substack settings: publication name "Crypto Nordic" (the public page still shows "jQrgen's Substack" as of 2026-10-05), tagline and about text (section 1), sender name, categories (Crypto; Finance, International/News).
 - [ ] Reply-to address: still undecided (no public address exists; do not use a private one without deciding).
 - [ ] Branding: upload `newsletter/assets/logo-512.png` (logo), `email-banner-1100x220.png` (email header), `cover-1200x630.png`
-  (cover/social image), optionally `wordmark-1200x300.png`; accent colour #0f5ea8. (Regenerated 2026-10-05: the wordmark
-  now reads "Nordic Crypto" with the space – an earlier version showed "NordicCrypto".)
+  (cover/social image), optionally `wordmark-1200x300.png`; accent colour #0f5ea8. (Regenerated 2026-10-05 for the rename to Crypto Nordic: the wordmark
+  reads "Crypto Nordic" with the space kept – an earlier version dropped it.)
 - [ ] Paste the welcome email; set language English; paid subscriptions off.
 - [ ] Choose the confirmation-email provider for the site form (Resend, Buttondown, Postmark via webhook, or Substack import only) and the from-address (needs a domain you control for SPF/DKIM).
 - [ ] Give a Cloudflare API token to deploy the Worker (`tipworker/deploy.sh`), then approve switching the form on.
-- [x] Set `substack_url` in `newsletter/config.json` (2026-10-05) – the site links to https://nordiccrypto.substack.com/subscribe in the footer and on /newsletter/ (7 languages), even while the own form is off.
+- [x] Set `substack_url` in `newsletter/config.json` (2026-10-05) – the site links to https://cryptonordic.substack.com/subscribe in the footer and on /newsletter/ (7 languages), even while the own form is off.

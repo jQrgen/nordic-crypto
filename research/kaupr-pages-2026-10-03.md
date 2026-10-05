@@ -1,6 +1,6 @@
 # Kaupr Onchain Pages check, 3 Oct 2026
 
-We went through every company at https://www.kaupr.io/pages (40 profiles) and compared each one with the Nordic Crypto org chart.
+We went through every company at https://www.kaupr.io/pages (40 profiles) and compared each one with the Crypto Nordic org chart.
 
 How we checked:
 - Each new entry is verified against the company's own website, its own press release, or a business register: Brønnøysundregistrene; Bolagsverket data via allabolag.se; CVR data via ownr.dk. Kaupr's description alone was not enough.
@@ -62,5 +62,5 @@ BTCX is a brand of Goobit. It is not a separate entry. The existing `goobit` ent
 - Approved: dk-aryze, se-blockchain-sweden, se-divly, se-firstblock, se-h100, se-hilbert-group, se-pretax, se-true-original, intl-visa, intl-swift, intl-d-fine, intl-okx; plus no-ace-digital, no-web3-creatives, se-dwellir after the org numbers were removed from their source titles.
 - Rejected: dk-bloxcel.
 - OKX: added the ESMA CASP register (esma.europa.eu …/2024-12/CASPS.csv): OKX Europe Limited, MFSA Malta, authorised 27 Jan 2025, passported to NO, SE, DK, FI, IS among others. Description corrected: the June 2025 launch covered SE/FI/DK; Norway is documented from July 2025.
-- Disclosure on Kaupr and on Morten Myrstad: Kaupr sponsors Oslo Blockchain Meetup, the meetup run by jQrgen, the publisher of Nordic Crypto.
+- Disclosure on Kaupr and on Morten Myrstad: Kaupr sponsors Oslo Blockchain Meetup, the meetup run by jQrgen, the publisher of Crypto Nordic.
 - The privacy gate now also blocks org numbers in visible text, including source titles.
