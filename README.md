@@ -7,6 +7,16 @@ Planned URL: https://jqrgen.github.io/nordic-crypto/ (all links are relative). R
 
 **Status:** live at https://jqrgen.github.io/nordic-crypto/ (gh-pages). Code on `main`. Every publish needs jQrgen's explicit approval.
 
+## Data API
+Public JSON for apps and other tools, written into `site/` by `./build.sh` (`tools/api_feed.py`). No account. News, newsletters, events, sources, academia, the who's who, profiles, the rules map, the changelog and the article archive.
+
+- Human docs: https://jqrgen.github.io/nordic-crypto/api/ and https://cryptonordic.no/api/ (same page; the custom domain serves the site root)
+- Discovery: `/api/v1/index.json`
+- OpenAPI: `/api/v1/openapi.json` and `/api/v1/openapi.yaml`
+- `llms.txt` at the site root, and `/.well-known/api-catalog`
+
+News: `/api/v1/news.json` and `/api/v1/news/{id}.json`. Newsletters: `/api/v1/newsletters.json` and `/api/v1/newsletters/001.json`. GitHub Pages sends `Access-Control-Allow-Origin: *` on the files. `python3 tools/api_feed.py` writes the same JSON from the committed public data without building the rest of the HTML.
+
 ## Pipeline
 | Step | Command | What it does |
 |---|---|---|

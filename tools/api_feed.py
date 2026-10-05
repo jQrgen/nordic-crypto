@@ -1,0 +1,1392 @@
+#!/usr/bin/env python3
+"""Public static JSON API for Nordic Crypto, written into site/ at build time.
+
+Versioned files live under api/v1/. No server, no auth. Only data the public site
+already shows: approved news and own stories, published newsletter issues, the
+events calendar (upcoming and past), sources, academia, the who's who, profiles,
+licensed images, the rules map, the changelog and the article archive.
+
+Not published: editor queue, pending drafts (except a preview build), rejected
+stories, tip-server keys, subscriber lists, the analytics token, research notes,
+and unpublished newsletter drafts.
+
+GitHub Pages sends Access-Control-Allow-Origin: * on these files. A custom
+headers file is not used, because GitHub Pages ignores it.
+
+  python3 tools/api_feed.py            # write site/api from the committed public data
+  # build.py calls write() on every build, including ./build.sh
+"""
+import datetime as dt
+import hashlib
+import html
+import json
+import os
+import re
+import sys
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if ROOT not in sys.path:
+    sys.path.insert(0, ROOT)
+import i18n  # noqa: E402
+
+API = "1"
+SITE_NAME = "Nordic Crypto"
+SIGN_OFF = "The Nordic Crypto team"
+CUSTOM_BASE = "https://cryptonordic.no/"
+LANGS = list(i18n.ALL_LANGS)
+COUNTRIES = ["NO", "SE", "DK", "FI", "IS", "NORDIC", "EU"]
+DOCS_DESC = (
+    "Public JSON feed of Nordic Crypto news, newsletters, events and the rest of the site data. "
+    "No account. Start at /api/v1/index.json, the OpenAPI file, or /llms.txt."
+)
+# Keys that must never appear in a response. "review" is allowed on the rules document.
+BANNED_KEYS = {
+    "token", "secret", "password", "private_key", "api_key",
+    "approved_by", "approved_at", "reject_reason", "editor_note",
+    "summary_i18n_review", "summary_i18n_source", "matched", "fetched", "seen_via", "via",
+    "suggested_by", "suggested_status", "suggested_at", "merged_from", "site_terms",
+    "removal_reason", "reviewed",
+}
+
+def load(path, default=None):
+    try:
+        with open(path, encoding="utf-8") as fh:
+            return json.load(fh)
+    except FileNotFoundError:
+        return default
+
+def dump(path, obj):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", encoding="utf-8") as fh:
+        json.dump(obj, fh, ensure_ascii=False, indent=1)
+        fh.write("\n")
+
+def safe_id(value):
+    s = re.sub(r"[^A-Za-z0-9._-]+", "-", str(value or "")).strip("-._")
+    return s[:120]
+
+def html_to_text(raw):
+    s = raw or ""
+    s = re.sub(r"(?i)<br\s*/?>", "\n", s)
+    s = re.sub(r"(?i)</p>", "\n\n", s)
+    s = re.sub(r"(?i)</h[1-6]>", "\n\n", s)
+    s = re.sub(r"(?i)</(li|tr)>", "\n", s)
+    s = re.sub(r"(?i)<li[^>]*>", "- ", s)
+    s = re.sub(r"<[^>]+>", "", s)
+    s = html.unescape(s).replace("\xa0", " ")
+    s = re.sub(r"[ \t]+\n", "\n", s)
+    s = re.sub(r"\n{3,}", "\n\n", s)
+    return s.strip()
+
+def language_code(name):
+    return i18n.SRC_LANG.get(name or "", None)
+
+def is_kaupr(source, source_name):
+    return "kaupr" in f"{source or ''} {source_name or ''}".lower()
+
+def sponsor_public(value):
+    """Kaupr is a news source, never a sponsor. Drop that label if it ever appears."""
+    if isinstance(value, str) and "kaupr" in value.lower():
+        print("api: omitted a Kaupr sponsor label (Kaupr is a news source only)", file=sys.stderr)
+        return None
+    return value
+
+def walk_banned(obj, where=""):
+    if isinstance(obj, dict):
+        for k, v in obj.items():
+            if k in BANNED_KEYS or str(k).startswith("_"):
+                raise SystemExit(f"api: refused to publish key {where}.{k}")
+            walk_banned(v, f"{where}.{k}")
+    elif isinstance(obj, list):
+        for i, v in enumerate(obj):
+            walk_banned(v, f"{where}[{i}]")
+
+def yaml_key(key):
+    s = str(key)
+    if re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", s):
+        return s
+    return json.dumps(s, ensure_ascii=False)
+
+def yaml_scalar(obj):
+    if obj is None:
+        return "null"
+    if isinstance(obj, bool):
+        return "true" if obj else "false"
+    if isinstance(obj, (int, float)) and not isinstance(obj, bool):
+        return str(obj)
+    if isinstance(obj, str):
+        if obj == "" or obj.strip() != obj or obj.lower() in {"true", "false", "null", "yes", "no", "~"} or re.match(r"^-?\d+(\.\d+)?$", obj) or any(c in obj for c in ":{}[]#&*!|>'\"%@`,"):
+            return json.dumps(obj, ensure_ascii=False)
+        return obj
+    return json.dumps(obj, ensure_ascii=False)
+
+def yaml_dump(obj, indent=0):
+    """Small YAML writer for the OpenAPI document. Dicts and lists always break onto their own lines."""
+    pad = " " * indent
+    if isinstance(obj, str) and "\n" in obj:
+        inner = "\n".join((" " * (indent + 2)) + line for line in obj.split("\n"))
+        return "|-\n" + inner
+    if isinstance(obj, list):
+        if not obj:
+            return "[]"
+        lines = []
+        for item in obj:
+            if isinstance(item, (dict, list)) and item:
+                rendered = yaml_dump(item, indent + 2)
+                parts = rendered.split("\n")
+                lines.append(f"{pad}- {parts[0].lstrip()}")
+                lines.extend(parts[1:])
+            elif isinstance(item, str) and "\n" in item:
+                lines.append(f"{pad}- {yaml_dump(item, indent + 2)}")
+            else:
+                lines.append(f"{pad}- {yaml_scalar(item)}")
+        return "\n".join(lines)
+    if isinstance(obj, dict):
+        if not obj:
+            return "{}"
+        lines = []
+        for k, v in obj.items():
+            key = yaml_key(k)
+            if isinstance(v, (dict, list)) and v:
+                rendered = yaml_dump(v, indent + 2)
+                lines.append(f"{pad}{key}:")
+                lines.append(rendered if "\n" in rendered or rendered.startswith(" ") else (" " * (indent + 2)) + rendered)
+            elif isinstance(v, str) and "\n" in v:
+                lines.append(f"{pad}{key}: {yaml_dump(v, indent)}")
+            else:
+                lines.append(f"{pad}{key}: {yaml_scalar(v)}")
+        return "\n".join(lines)
+    return yaml_scalar(obj)
+
+
+class Feed:
+    def __init__(self, site, preview, base):
+        self.site = site
+        self.preview = bool(preview)
+        self.base = base if base.endswith("/") else base + "/"
+        self.custom = CUSTOM_BASE
+        self.generated = dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat()
+        self.endpoints = []
+        self.examples = {}
+
+    def abs(self, path):
+        return self.base + path.lstrip("/")
+
+    def custom_abs(self, path):
+        return self.custom + path.lstrip("/")
+
+    def env(self, **kw):
+        out = {
+            "api_version": API,
+            "name": SITE_NAME,
+            "generated_at": self.generated,
+            "preview": self.preview,
+        }
+        out.update(kw)
+        return out
+
+    def write_json(self, rel, obj):
+        walk_banned(obj)
+        dump(os.path.join(self.site, rel), obj)
+        return rel
+
+    def add_endpoint(self, id_, path, summary, schema, example=None, item_template=None):
+        rec = {
+            "id": id_,
+            "method": "GET",
+            "path": "/" + path.lstrip("/"),
+            "url": self.abs(path),
+            "url_custom_domain": self.custom_abs(path),
+            "summary": summary,
+            "schema": schema,
+        }
+        if example:
+            rec["example_url"] = self.abs(example)
+            rec["example_url_custom_domain"] = self.custom_abs(example)
+        if item_template:
+            rec["item_path"] = "/" + item_template.lstrip("/")
+            rec["item_url_template"] = self.abs(item_template)
+        self.endpoints.append(rec)
+
+    def news_item(self, raw):
+        item = dict(raw)
+        url = item.get("url") or ""
+        own = bool(item.get("own_story"))
+        if own and url and not url.startswith("http"):
+            html_url = self.abs(url)
+            url = html_url
+        else:
+            html_url = self.abs(url) if own else None
+        status = item.get("status") or "published"
+        # Pending rows are listed in a preview build without the unpublished summary, matching the site.
+        public = status in ("published", "owner")
+        summary = item.get("summary") if public else None
+        i18n_sum = item.get("summary_i18n") if public else None
+        nid = item.get("id") or hashlib.sha256((url or item.get("title") or "").encode()).hexdigest()[:12]
+        nid = safe_id(nid) or hashlib.sha256(url.encode()).hexdigest()[:12]
+        source = item.get("source")
+        source_name = item.get("source_name")
+        note = None
+        if is_kaupr(source, source_name):
+            note = "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+        out = {
+            "id": nid,
+            "url": url or None,
+            "html_url": html_url,
+            "api_url": self.abs(f"api/v1/news/{nid}.json"),
+            "title": item.get("title"),
+            "title_en": item.get("title_en"),
+            "source": source,
+            "source_name": source_name,
+            "source_note": note,
+            "country": item.get("country"),
+            "language": item.get("language"),
+            "language_code": language_code(item.get("language")),
+            "published": item.get("published"),
+            "topics": list(item.get("topics") or []),
+            "summary": summary,
+            "summary_i18n": {k: v for k, v in (i18n_sum or {}).items() if k in LANGS and v},
+            "paywall": bool(item.get("paywall")),
+            "links": [{"label": l.get("label"), "url": l.get("url")} for l in (item.get("links") or []) if l.get("url")],
+            "own_story": own,
+        }
+        if self.preview:
+            out["status"] = "pending" if status not in ("published", "owner") else status
+        return out
+
+    def event_item(self, raw):
+        eid = safe_id(raw.get("id"))
+        if not eid:
+            return None
+        out = {
+            "id": eid,
+            "title": raw.get("title"),
+            "title_original": raw.get("title_orig") or raw.get("title_original"),
+            "start": raw.get("start"),
+            "end": raw.get("end"),
+            "place": raw.get("place"),
+            "city": raw.get("city"),
+            "country": raw.get("country"),
+            "online": bool(raw.get("online")),
+            "organiser": raw.get("organiser"),
+            "url": raw.get("url"),
+            "source": raw.get("source"),
+            "paid": raw.get("paid"),
+            "sponsored": sponsor_public(raw.get("sponsored")),
+            "note": raw.get("note"),
+            "note_i18n": {k: v for k, v in (raw.get("note_i18n") or {}).items() if k in LANGS and v} if raw.get("note") else {},
+            "past": bool(raw.get("past")),
+            "html_url": self.abs(f"calendar/#e-{eid}"),
+            "api_url": self.abs(f"api/v1/events/{eid}.json"),
+        }
+        if self.preview:
+            out["status"] = raw.get("status")
+        return out
+
+    def media(self, raw, kind):
+        if not raw or not raw.get("file"):
+            return None
+        source_url = raw.get("source_url") or raw.get("source_page") or raw.get("page")
+        return {
+            "kind": kind,
+            "file_url": self.abs(raw["file"]) if not str(raw["file"]).startswith("http") else raw["file"],
+            "source_url": source_url,
+            "author": raw.get("author"),
+            "license": raw.get("license"),
+            "license_url": raw.get("license_url"),
+            "credit": raw.get("source") or raw.get("origin"),
+        }
+
+    def entity(self, raw):
+        eid = safe_id(raw.get("id"))
+        if not eid:
+            return None
+        profiles = []
+        for p in raw.get("profiles") or []:
+            if p.get("status") not in (None, "published") and not (self.preview and p.get("status") == "pending"):
+                if p.get("status") != "published":
+                    continue
+            if not p.get("url"):
+                continue
+            profiles.append({
+                "kind": p.get("kind"),
+                "label": p.get("label"),
+                "url": p.get("url"),
+                "source_url": p.get("source_url"),
+            })
+        sources = []
+        for s in raw.get("sources") or []:
+            sources.append({"url": s.get("url"), "title": s.get("title"), "source_name": s.get("source_name"), "date": s.get("date")})
+        return {
+            "id": eid,
+            "api_url": self.abs(f"api/v1/orgchart/{eid}.json"),
+            "html_url": self.abs(f"org-chart/#{eid}"),
+            "name": raw.get("name"),
+            "type": raw.get("type"),
+            "sector": raw.get("sector"),
+            "country": raw.get("country"),
+            "description": raw.get("description"),
+            "role": raw.get("role"),
+            "org": raw.get("org"),
+            "group": raw.get("group"),
+            "profile_url": raw.get("profile_url"),
+            "provenance": raw.get("origin"),
+            "caveat": bool(raw.get("caveat")),
+            "sources": sources,
+            "logo": self.media(raw.get("logo"), "logo"),
+            "image": self.media(raw.get("image"), "photo"),
+            "profiles": profiles,
+        }
+
+    def relation(self, raw):
+        rid = safe_id(raw.get("id")) or safe_id(f"{raw.get('from')}-{raw.get('to')}-{raw.get('type')}")
+        return {
+            "id": rid,
+            "api_url": self.abs(f"api/v1/orgchart/relations/{rid}.json"),
+            "from": raw.get("from"),
+            "to": raw.get("to"),
+            "type": raw.get("type"),
+            "label": raw.get("label"),
+            "sources": [{"url": s.get("url"), "title": s.get("title"), "source_name": s.get("source_name"), "date": s.get("date")} for s in (raw.get("sources") or [])],
+        }
+
+
+def public_news(preview):
+    """Same inclusion rule as build.py, without rewriting data/news.json."""
+    news = load(os.path.join(ROOT, "data", "news.json"), {"items": []}) or {"items": []}
+    items = []
+    for raw in news.get("items") or []:
+        item = json.loads(json.dumps(raw))
+        if not preview and item.get("summary_i18n_review", "approved") != "approved":
+            item.pop("summary_i18n", None)
+        if item.get("status") == "published" and (item.get("summary") or "").strip():
+            items.append(item)
+        elif preview and item.get("status") == "pending":
+            items.append(item)
+    items.sort(key=lambda i: i.get("published") or "", reverse=True)
+    return items, news.get("updated")
+
+
+def public_org(preview):
+    org = load(os.path.join(ROOT, "data", "orgchart.json"), {"entities": [], "relations": []}) or {}
+    ents = []
+    for raw in org.get("entities") or []:
+        if not raw.get("sources"):
+            continue
+        if raw.get("status") == "published" or (preview and raw.get("status") == "pending"):
+            e = json.loads(json.dumps(raw))
+            e["profiles"] = [p for p in (e.get("profiles") or []) if p.get("status") == "published" or (preview and p.get("status") == "pending")]
+            if not preview:
+                for k in ("logo", "image"):
+                    im = e.get(k)
+                    if im and im.get("review", "ok") != "ok":
+                        e.pop(k, None)
+            ents.append(e)
+    ids = {e["id"] for e in ents}
+    rels = []
+    for raw in org.get("relations") or []:
+        if not raw.get("sources") or raw.get("from") not in ids or raw.get("to") not in ids:
+            continue
+        if raw.get("status") == "published" or (preview and raw.get("status") == "pending"):
+            rels.append(raw)
+    return ents, rels, org.get("updated"), org.get("regulation") or [], org.get("caveats") or []
+
+
+def public_events(preview, now=None):
+    """Read-only mirror of build.events_for_site (does not rewrite the archive)."""
+    ev = load(os.path.join(ROOT, "data", "events.json"), {"events": []}) or {"events": []}
+    ap = (load(os.path.join(ROOT, "queue", "approved.json"), {}) or {}).get("events", {}) or {}
+    now = now or dt.datetime.now(dt.timezone.utc).astimezone()
+    # Compare with offset-aware datetimes. Source times carry an offset.
+    if now.tzinfo is None:
+        now = now.replace(tzinfo=dt.timezone.utc)
+    out = []
+    for raw in ev.get("events") or []:
+        e = dict(raw)
+        if e.get("id") in ap.get("reject", []):
+            continue
+        if e.get("id") in ap.get("approve", []):
+            e["status"] = "published"
+        elif e.get("id") in ap.get("ready_for_owner", []):
+            e["status"] = "owner"
+        if e.get("status") != "published" and not (preview and e.get("status") in ("pending", "owner")):
+            continue
+        if not (e.get("place") or e.get("online")) or not e.get("organiser") or not e.get("start"):
+            continue
+        e["note"] = ap.get("notes", {}).get(e["id"]) or (e.get("note") if preview else None)
+        if e["id"] in (ap.get("title_en") or {}):
+            e["title_orig"] = e["title"]
+            e["title"] = ap["title_en"][e["id"]]
+        if e["id"] in ap.get("sponsored", []):
+            e["sponsored"] = True
+        if e["id"] in ap.get("sponsor", {}):
+            e["sponsored"] = ap["sponsor"][e["id"]]
+        if e["id"] in ap.get("paid", {}):
+            e["paid"] = ap["paid"][e["id"]]
+        if e.get("status") == "published":
+            e["note"] = ap.get("notes", {}).get(e["id"])
+        e["note_i18n"] = (ap.get("notes_i18n") or {}).get(e["id"]) if e.get("note") else None
+        end = e.get("end") or e["start"]
+        e["past"] = dt.datetime.fromisoformat(end) < now
+        out.append(e)
+    ark = load(os.path.join(ROOT, "archive", "events.json"), {"events": []}) or {"events": []}
+    seen = {e["id"] for e in out}
+    for raw in ark.get("events") or []:
+        if raw.get("id") in seen or raw.get("id") in ap.get("reject", []):
+            continue
+        e = dict(raw)
+        e["note_i18n"] = e.get("note_i18n") or ((ap.get("notes_i18n") or {}).get(e["id"]) if e.get("note") else None)
+        end = e.get("end") or e.get("start")
+        if not end:
+            continue
+        e["past"] = dt.datetime.fromisoformat(end) < now
+        out.append(e)
+    out.sort(key=lambda e: dt.datetime.fromisoformat(e["start"]))
+    return out
+
+
+def repo_context(preview=False):
+    items, updated = public_news(preview)
+    ents, rels, org_updated, regulation, caveats = public_org(preview)
+    events = public_events(preview)
+    return {
+        "items": items,
+        "events": (events, None),
+        "ents": ents,
+        "rels": rels,
+        "org": {"updated": org_updated, "regulation": regulation, "caveats": caveats},
+        "cfg": load(os.path.join(ROOT, "sources.json"), {"sources": []}) or {"sources": []},
+        "news": {"updated": updated},
+    }
+
+
+def _academia_rows(preview):
+    ac = load(os.path.join(ROOT, "data", "academia.json"), {}) or {}
+    tr = load(os.path.join(ROOT, "data", "academia_i18n.json"), {}) or {}
+    sections = {}
+    for key in ("courses", "groups", "publications", "research"):
+        rows = []
+        for raw in ac.get(key) or []:
+            if raw.get("status") != "approved" and not (preview and raw.get("status") in ("pending", "unverified")):
+                continue
+            if raw.get("status") != "approved" and not preview:
+                continue
+            row = {k: v for k, v in raw.items() if k not in BANNED_KEYS and not str(k).startswith("_")}
+            row.pop("editor_note", None)
+            row.pop("status", None)
+            about_i18n = (tr.get(raw.get("url")) or {}) if raw.get("url") else {}
+            row["about_i18n"] = {k: v for k, v in about_i18n.items() if k in LANGS and v and not str(k).startswith("_")}
+            rows.append(row)
+        sections[key] = rows
+    return ac.get("updated"), [r for r in (ac.get("rules") or []) if isinstance(r, str)], sections
+
+
+def _row_id(section, row, n, used):
+    if section == "publications" and row.get("doi"):
+        base = "doi-" + safe_id(str(row["doi"]).replace("/", "_"))
+    elif section == "courses" and row.get("code"):
+        base = safe_id(f"{row.get('country') or 'xx'}-{row['code']}")
+    elif row.get("url"):
+        tail = re.sub(r"^https?://", "", row["url"]).strip("/")
+        base = safe_id(f"{section}-{tail}")
+    else:
+        base = safe_id(row.get("name") or row.get("title") or f"{section}-{n}")
+    base = base or f"{section}-{n}"
+    cand, i = base, 2
+    while cand in used:
+        cand = f"{base}-{i}"
+        i += 1
+    used.add(cand)
+    return cand
+
+
+def _changelog(preview):
+    cl = load(os.path.join(ROOT, "changelog.json"), {"entries": []}) or {"entries": []}
+    launch = cl.get("launch_date")
+    rows = []
+    for e in cl.get("entries") or []:
+        if e.get("review") == "pending" and not preview:
+            continue
+        d = launch if e.get("date") == "launch" else e.get("date")
+        i18n_map = {}
+        for lang, block in (e.get("i18n") or {}).items():
+            if lang in LANGS and isinstance(block, dict):
+                i18n_map[lang] = {"title": block.get("title"), "description": block.get("description")}
+        rows.append({"id": e.get("id"), "date": d, "title": e.get("title"), "description": e.get("description"), "i18n": i18n_map})
+    rows.sort(key=lambda e: e.get("date") or "9999-99-99", reverse=True)
+    return launch, rows
+
+
+def _sources(cfg):
+    outlets, search = [], []
+    for s in cfg.get("sources") or []:
+        row = {
+            "id": s.get("id"),
+            "name": s.get("name"),
+            "country": s.get("country"),
+            "kind": s.get("kind"),
+            "url": s.get("url"),
+            "type": s.get("type"),
+            "paywall": bool(s.get("paywall")),
+            "enabled": bool(s.get("enabled")),
+            "status": s.get("status") or "",
+            "verified": s.get("verified"),
+            "language": s.get("language"),
+        }
+        feed = s.get("feed")
+        if feed and "{q}" not in feed and s.get("type") != "bing":
+            row["feed"] = feed
+        else:
+            row["feed"] = None
+        if is_kaupr(s.get("id"), s.get("name")):
+            row["source_note"] = "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+        else:
+            row["source_note"] = None
+        outlets.append(row)
+        if s.get("type") == "bing":
+            search.append({
+                "id": s.get("id"),
+                "country": s.get("country"),
+                "allowed_tld": s.get("allowed_tld"),
+                "queries": list(s.get("queries") or []),
+            })
+    events = []
+    for s in cfg.get("event_sources") or []:
+        events.append({
+            "id": s.get("id"),
+            "name": s.get("name"),
+            "url": s.get("url"),
+            "country": s.get("country"),
+            "city": s.get("city"),
+            "organiser": s.get("organiser"),
+            "enabled": bool(s.get("enabled", True)),
+            "trusted": bool(s.get("trusted")),
+            "status": s.get("status") or "",
+        })
+    return outlets, search, events
+
+
+def _rules(preview, base):
+    sys.path.insert(0, os.path.join(ROOT, "tools"))
+    import rules_page
+    R = load(os.path.join(ROOT, "rules.json"), None)
+    if not R:
+        return None
+    if R.get("review") != "approved" and not preview:
+        return {
+            "available": False,
+            "review": R.get("review") or "pending",
+            "html_url": base + "rules/",
+            "summary": "The rules page is awaiting editor review. The public site shows a short placeholder.",
+        }
+    en = rules_page.STR["en"]
+    eu = json.loads(json.dumps(R.get("eu") or {}))
+    for act in eu.get("acts") or []:
+        act["note"] = en.get(act.get("note_key"), "")
+    for agency in eu.get("agencies") or []:
+        agency["note"] = en.get(agency.get("note_key"), "")
+    copy = {lang: dict(rules_page.STR.get(lang) or {}) for lang in LANGS}
+    return {
+        "available": True,
+        "review": R.get("review"),
+        "checked": R.get("checked"),
+        "html_url": base + "rules/",
+        "not_legal_advice": True,
+        "sources": R.get("sources") or {},
+        "eu": eu,
+        "eea": R.get("eea") or {},
+        "countries": R.get("countries") or {},
+        "copy": copy,
+    }
+
+
+def _newsletters(feed):
+    pub = os.path.join(ROOT, "newsletter", "published")
+    data = load(os.path.join(pub, "issues.json"), {}) or {}
+    issues = sorted(data.get("issues") or [], key=lambda i: (i.get("date") or "", i.get("number") or 0), reverse=True)
+    out = []
+    for iss in issues:
+        iid = safe_id(iss.get("id"))
+        if not iid:
+            continue
+        per = iss.get("period") or []
+        period = {"start": per[0], "end": per[1]} if len(per) == 2 else None
+        v = iss.get("video") or {}
+        video = None
+        if v:
+            poster = v.get("poster")
+            subs = v.get("subs")
+            video = {
+                "language": "en",
+                "duration_seconds": v.get("duration"),
+                "width": v.get("width"),
+                "height": v.get("height"),
+                "bytes": v.get("bytes"),
+                "sha256": v.get("sha256"),
+                "download_url": v.get("url"),
+                "file_url": feed.abs(f"newsletter/{iid}/{v.get('file') or 'video.mp4'}"),
+                "poster_url": feed.abs(f"newsletter/{iid}/{poster}") if poster else None,
+                "subtitles_url": feed.abs(f"newsletter/{iid}/{subs}") if subs else None,
+                "subtitles_language": "en" if subs else None,
+            }
+        html_urls = {lang: feed.abs(("" if lang == "en" else lang + "/") + f"newsletter/{iid}/") for lang in LANGS}
+        bodies, texts = {}, {}
+        en_html = ""
+        en_path = os.path.join(pub, iid, "issue.html")
+        if os.path.exists(en_path):
+            en_html = open(en_path, encoding="utf-8").read()
+        for lang in LANGS:
+            if lang == "en":
+                continue
+            p = os.path.join(pub, iid, f"issue.{lang}.html")
+            if os.path.exists(p):
+                bodies[lang] = open(p, encoding="utf-8").read()
+                texts[lang] = html_to_text(bodies[lang])
+        full = {
+            "id": iid,
+            "number": iss.get("number"),
+            "date": iss.get("date"),
+            "period": period,
+            "lang": iss.get("lang") or "en",
+            "title": iss.get("title"),
+            "subtitle": iss.get("subtitle"),
+            "title_i18n": {k: v for k, v in (iss.get("title_i18n") or {}).items() if k in LANGS and v},
+            "subtitle_i18n": {k: v for k, v in (iss.get("subtitle_i18n") or {}).items() if k in LANGS and v},
+            "stories": iss.get("stories"),
+            "events": iss.get("events"),
+            "sign_off": SIGN_OFF,
+            "html_url": html_urls["en"],
+            "html_urls": html_urls,
+            "api_url": feed.abs(f"api/v1/newsletters/{iid}.json"),
+            "video": video,
+            "body_languages": ["en"] + sorted(bodies),
+            "text": html_to_text(en_html),
+            "html": en_html,
+            "text_i18n": texts,
+            "html_i18n": bodies,
+        }
+        out.append(full)
+    return out
+
+
+def _archive(feed):
+    data = load(os.path.join(ROOT, "archive", "articles.json"), {}) or {}
+    rows = []
+    for a in data.get("articles") or []:
+        aid = safe_id(a.get("id"))
+        if not aid:
+            continue
+        rows.append({
+            "id": aid,
+            "api_url": feed.abs(f"api/v1/archive/articles/{aid}.json"),
+            "site": a.get("site") or "nordic-crypto",
+            "url": a.get("url"),
+            "canonical_url": a.get("canonical_url"),
+            "title": a.get("title"),
+            "titles": a.get("titles") or {},
+            "source": a.get("source"),
+            "source_name": a.get("source_name"),
+            "country": a.get("country"),
+            "published_at": a.get("published_at"),
+            "first_published_on_site": a.get("first_published_on_site"),
+            "last_seen_on_site": a.get("last_seen_on_site"),
+            "languages": a.get("languages") or [],
+            "summaries": a.get("summaries") or {},
+            "topics": a.get("topics") or [],
+            "removed": bool(a.get("removed")),
+            "removed_at": a.get("removed_at"),
+        })
+    return data.get("exported_at"), rows
+
+
+def _meta(feed):
+    pages = [
+        ("", "News"),
+        ("calendar/", "Events calendar, upcoming and past"),
+        ("org-chart/", "Who's who: industry, regulators and the regulation overview"),
+        ("rules/", "How EU crypto rules become law in the five countries"),
+        ("academia/", "Courses, student groups, publications and research"),
+        ("sources/", "News and event sources"),
+        ("newsletter/", "Newsletter issues"),
+        ("about/", "About, privacy, corrections and removal"),
+        ("ethics/", "Editorial ethics (Vær Varsom-plakaten)"),
+        ("changelog/", "Site changelog"),
+        ("tip/", "Send a tip (not part of this data API)"),
+        ("columnist/", "Apply as a columnist (not part of this data API)"),
+        ("screen/", "News screen, English"),
+        ("api/", "This API, human documentation"),
+    ]
+    return feed.env(
+        sign_off=SIGN_OFF,
+        description="Bitcoin, blockchain and crypto news, events, a who's who, regulation and academia for Norway, Sweden, Denmark, Finland and Iceland.",
+        license="MIT",
+        operator="Jørgen S. Notland (jQrgen), Oslo",
+        languages=[{
+            "code": lang,
+            "name": i18n.NAME[lang],
+            "html_lang": i18n.HTML_LANG[lang],
+            "home": feed.abs("" if lang == "en" else lang + "/"),
+        } for lang in LANGS],
+        language_note=(
+            "Our own text is written in English first. summary_i18n, title_i18n, subtitle_i18n, note_i18n and about_i18n "
+            "use the site language codes nn, nb, sv, da, fi and is. If a translation is missing, use the English field. "
+            "External headlines stay in the source language (see language and language_code). "
+            "There is no query string for language: each JSON document already carries every published translation."
+        ),
+        countries=[{"code": c, "name_en": i18n.t("en", "c_" + c)} for c in COUNTRIES],
+        urls={
+            "github_pages": feed.base,
+            "custom_domain": feed.custom,
+            "docs": feed.abs("api/"),
+            "discovery": feed.abs("api/v1/index.json"),
+            "openapi": feed.abs("api/v1/openapi.json"),
+            "llms_txt": feed.abs("llms.txt"),
+            "github": "https://github.com/jQrgen/nordic-crypto",
+            "substack": "https://cryptonordic.substack.com",
+            "x": "https://x.com/xcryptonordic",
+        },
+        url_note=(
+            "Absolute urls in this API use the GitHub Pages base, including the /nordic-crypto/ path. "
+            "On the custom domain the same file is at the site root: replace "
+            "https://jqrgen.github.io/nordic-crypto/ with https://cryptonordic.no/. "
+            "HTTPS on cryptonordic.no works once the certificate matches that name. "
+            "Until then, http://cryptonordic.no/ serves the same files and sends Access-Control-Allow-Origin: *."
+        ),
+        editorial={
+            "sign_off": SIGN_OFF,
+            "kaupr": "Kaupr (kaupr.io) is a news source only. It is never a sponsor of Nordic Crypto.",
+            "not_investment_advice": True,
+        },
+        site_pages=[{"path": "/" + p if p else "/", "url": feed.abs(p), "title": title} for p, title in pages],
+        cors=cors_doc(),
+        not_included=[
+            "Editor queue, rejected stories and unpublished drafts",
+            "Reader tips, tip-server keys and newsletter subscriber addresses",
+            "Analytics token and private health or financial data",
+            "Research notes that are not on the public site",
+        ],
+    )
+
+
+def cors_doc():
+    return {
+        "access_control_allow_origin": "*",
+        "credentials": False,
+        "how": (
+            "GitHub Pages sends Access-Control-Allow-Origin: * on static files, including this JSON. "
+            "A browser on any origin can fetch() the URLs. GitHub Pages does not honour a _headers file, "
+            "so this site does not ship one. The same header is present on the custom domain while GitHub Pages serves it."
+        ),
+    }
+
+
+def write(site, *, preview, base, items, events, entities, relations, org_updated, regulation, caveats, sources_cfg, news_updated):
+    feed = Feed(site, preview, base)
+    os.makedirs(site, exist_ok=True)
+
+    news = [feed.news_item(i) for i in items]
+    news = [n for n in news if n.get("id")]
+    # Public build: pending rows are already excluded by the caller. Drop empty-summary non-preview rows.
+    if not preview:
+        news = [n for n in news if (n.get("summary") or "").strip() or n.get("own_story")]
+    seen = set()
+    uniq = []
+    for n in news:
+        if n["id"] in seen:
+            print(f"api: duplicate news id {n['id']}", file=sys.stderr)
+            continue
+        seen.add(n["id"])
+        uniq.append(n)
+    news = uniq
+
+    evs = [e for e in (feed.event_item(e) for e in events) if e]
+    upcoming = [e for e in evs if not e["past"]]
+    past = [e for e in evs if e["past"]][::-1]
+
+    ents = [e for e in (feed.entity(e) for e in entities) if e]
+    rels = [feed.relation(r) for r in relations]
+    profiles = [{"entity_id": e["id"], "name": e["name"], "type": e["type"], "country": e["country"], "api_url": feed.abs(f"api/v1/profiles/{e['id']}.json"), "links": e["profiles"]} for e in ents if e["profiles"]]
+    images = []
+    for e in ents:
+        for key in ("logo", "image"):
+            im = e.get(key)
+            if im:
+                images.append(dict(im, entity_id=e["id"], entity_name=e["name"]))
+
+    updated_ac, rules_ac, sections = _academia_rows(preview)
+    ac_ids = set()
+    for key, rows in sections.items():
+        for i, row in enumerate(rows):
+            row["id"] = _row_id(key, row, i + 1, ac_ids)
+            row["section"] = key
+            row["api_url"] = feed.abs(f"api/v1/academia/{row['id']}.json")
+
+    launch, changes = _changelog(preview)
+    for e in changes:
+        eid = safe_id(e.get("id")) or safe_id(e.get("title"))
+        e["id"] = eid
+        e["html_url"] = feed.abs(f"changelog/#{eid}") if eid else feed.abs("changelog/")
+        e["api_url"] = feed.abs(f"api/v1/changelog/{eid}.json") if eid else None
+
+    outlets, search, event_sources = _sources(sources_cfg or {})
+    rules = _rules(preview, feed.base)
+    letters = _newsletters(feed)
+    exported_at, articles = _archive(feed)
+
+    def collection(rel, summary, schema, obj, example=None, item_template=None):
+        feed.write_json(rel, obj)
+        feed.add_endpoint(rel.replace("/", "-").replace(".json", ""), rel, summary, schema, example, item_template)
+
+    lang_note = (
+        "summary is English. summary_i18n holds nn, nb, sv, da, fi and is when that translation is published. "
+        "title is the source headline. title_en is our English headline when we wrote one."
+    )
+    collection(
+        "api/v1/news.json",
+        "Published news and our own stories, newest first.",
+        "NewsList",
+        feed.env(updated=news_updated, language_note=lang_note, count=len(news), items=news),
+        example=f"api/v1/news/{news[0]['id']}.json" if news else None,
+        item_template="api/v1/news/{id}.json",
+    )
+    for n in news:
+        feed.write_json(f"api/v1/news/{n['id']}.json", feed.env(item=n))
+    by_c = {}
+    for c in COUNTRIES:
+        rows = [n for n in news if n.get("country") == c]
+        by_c[c] = len(rows)
+        feed.write_json(f"api/v1/news/by-country/{c}.json", feed.env(country=c, count=len(rows), items=rows))
+    feed.add_endpoint("news-by-country", "api/v1/news/by-country/{country}.json",
+                      "Published news for one country code: NO, SE, DK, FI, IS, NORDIC or EU.",
+                      "NewsList", example="api/v1/news/by-country/NO.json")
+    topics = {}
+    for n in news:
+        for t in n.get("topics") or []:
+            topics.setdefault(t, []).append(n)
+    topic_index = []
+    for t in sorted(topics):
+        tid = safe_id(t) or "topic"
+        feed.write_json(f"api/v1/news/by-topic/{tid}.json", feed.env(topic=t, count=len(topics[t]), items=topics[t]))
+        topic_index.append({"id": t, "count": len(topics[t]), "url": feed.abs(f"api/v1/news/by-topic/{tid}.json")})
+    collection("api/v1/news/topics.json", "Topic ids present in the published news, with counts.", "TopicIndex",
+               feed.env(topics=topic_index), example="api/v1/news/by-topic/bitcoin.json" if any(t["id"] == "bitcoin" for t in topic_index) else None,
+               item_template="api/v1/news/by-topic/{topic}.json")
+
+    list_letters = []
+    for full in letters:
+        brief = {k: full[k] for k in ("id", "number", "date", "period", "lang", "title", "subtitle", "title_i18n", "subtitle_i18n", "stories", "events", "sign_off", "html_url", "html_urls", "api_url", "video", "body_languages")}
+        list_letters.append(brief)
+        feed.write_json(f"api/v1/newsletters/{full['id']}.json", feed.env(item=full))
+    collection(
+        "api/v1/newsletters.json",
+        "Published newsletter issues, newest first. The list omits the HTML body; the issue URL includes text and html.",
+        "NewsletterList",
+        feed.env(sign_off=SIGN_OFF, count=len(list_letters), issues=list_letters),
+        example=f"api/v1/newsletters/{letters[0]['id']}.json" if letters else None,
+        item_template="api/v1/newsletters/{id}.json",
+    )
+
+    def ev_doc(rel, summary, rows, example=None):
+        collection(rel, summary, "EventList", feed.env(count=len(rows), events=rows), example=example, item_template="api/v1/events/{id}.json" if rel == "api/v1/events.json" else None)
+    ev_doc("api/v1/events.json", "Public events, soonest start first, including past events.", evs, example=f"api/v1/events/{evs[0]['id']}.json" if evs else None)
+    collection("api/v1/events/upcoming.json", "Events that have not ended, soonest first. Judged in the event's own offset.", "EventList", feed.env(count=len(upcoming), events=upcoming))
+    collection("api/v1/events/past.json", "Finished public events, newest first. Finished events stay in the archive.", "EventList", feed.env(count=len(past), events=past))
+    for e in evs:
+        feed.write_json(f"api/v1/events/{e['id']}.json", feed.env(item=e))
+    for c in COUNTRIES:
+        rows = [e for e in evs if e.get("country") == c]
+        feed.write_json(f"api/v1/events/by-country/{c}.json", feed.env(country=c, count=len(rows), events=rows))
+    feed.add_endpoint("events-by-country", "api/v1/events/by-country/{country}.json",
+                      "Public events for one country code.", "EventList", example="api/v1/events/by-country/NO.json")
+
+    collection("api/v1/sources.json", "News outlets, the public search terms, and event sources. Kaupr is marked as a news source only.", "SourceCatalogue",
+               feed.env(
+                   user_agent=(sources_cfg or {}).get("user_agent"),
+                   min_delay_seconds=(sources_cfg or {}).get("min_delay_seconds"),
+                   keyword_note=i18n.t("en", "src_kw"),
+                   kaupr="Kaupr (kaupr.io) is one of the news sources. It is never a sponsor.",
+                   count=len(outlets),
+                   sources=outlets,
+                   search=search,
+                   event_sources=event_sources,
+               ))
+
+    ac_counts = {k: len(v) for k, v in sections.items()}
+    collection("api/v1/academia.json", "Editor-approved courses, student groups, publications and research.", "Academia",
+               feed.env(updated=updated_ac, inclusion_rules=rules_ac, counts=ac_counts, **sections))
+    for key in sections:
+        collection(f"api/v1/academia/{key}.json", f"Academia section: {key}.", "AcademiaSection",
+                   feed.env(section=key, count=len(sections[key]), items=sections[key]))
+    for rows in sections.values():
+        for row in rows:
+            feed.write_json(f"api/v1/academia/{row['id']}.json", feed.env(item=row))
+    feed.add_endpoint("academia-item", "api/v1/academia/{id}.json", "One academia row. The id is in academia.json.", "AcademiaItem",
+                      example=f"api/v1/academia/{next(iter(ac_ids))}.json" if ac_ids else None)
+
+    collection("api/v1/orgchart.json", "Published who's who: organisations, people, relations, regulation notes and caveats.", "OrgChart",
+               feed.env(updated=org_updated, count=len(ents), entities=ents, relations=rels, regulation=regulation, caveats=caveats),
+               example=f"api/v1/orgchart/{ents[0]['id']}.json" if ents else None,
+               item_template="api/v1/orgchart/{id}.json")
+    collection("api/v1/orgchart/relations.json", "Relations between published who's who entries.", "RelationList", feed.env(count=len(rels), relations=rels))
+    collection("api/v1/orgchart/regulation.json", "Short regulation status for each Nordic country, as on the who's who page.", "RegulationList", feed.env(regulation=regulation, caveats=caveats))
+    for e in ents:
+        feed.write_json(f"api/v1/orgchart/{e['id']}.json", feed.env(item=e))
+    for r in rels:
+        feed.write_json(f"api/v1/orgchart/relations/{r['id']}.json", feed.env(item=r))
+    feed.add_endpoint("orgchart-relation", "api/v1/orgchart/relations/{id}.json", "One relation from the who's who.", "Relation")
+
+    collection("api/v1/profiles.json", "Public profile links (Wikipedia, X, Wikidata and similar) for people and organisations.", "ProfileList",
+               feed.env(count=len(profiles), profiles=profiles),
+               example=f"api/v1/profiles/{profiles[0]['entity_id']}.json" if profiles else None,
+               item_template="api/v1/profiles/{id}.json")
+    for p in profiles:
+        feed.write_json(f"api/v1/profiles/{p['entity_id']}.json", feed.env(item=p))
+
+    collection("api/v1/images.json", "Logos and photos used on the public who's who, with licence and credit.", "ImageList",
+               feed.env(count=len(images), images=images))
+
+    collection("api/v1/changelog.json", "Site changelog (product changes, not the news), newest first.", "ChangelogList",
+               feed.env(launch_date=launch, count=len(changes), entries=changes),
+               example=f"api/v1/changelog/{changes[0]['id']}.json" if changes else None,
+               item_template="api/v1/changelog/{id}.json")
+    for e in changes:
+        if e.get("id"):
+            feed.write_json(f"api/v1/changelog/{e['id']}.json", feed.env(item=e))
+
+    collection("api/v1/rules.json", "How EU crypto rules become law in the five countries. Simplified, not legal advice. Omitted while the page is still a placeholder.", "Rules",
+               feed.env(**(rules or {"available": False})))
+
+    collection("api/v1/archive/articles.json", "Append-only archive of stories that have been on the public site. removed is  true when a story later left the site; the row stays.", "ArticleArchive",
+               feed.env(exported_at=exported_at, count=len(articles), articles=articles),
+               example=f"api/v1/archive/articles/{articles[0]['id']}.json" if articles else None,
+               item_template="api/v1/archive/articles/{id}.json")
+    for a in articles:
+        feed.write_json(f"api/v1/archive/articles/{a['id']}.json", feed.env(item=a))
+
+    meta = _meta(feed)
+    collection("api/v1/meta.json", "Site name, languages, countries, page list, CORS and editorial notes.", "SiteMeta", meta)
+
+    # Discovery, OpenAPI, llms.txt and the human page. Registered after the datasets exist.
+    index = feed.env(
+        title="Nordic Crypto data API",
+        sign_off=SIGN_OFF,
+        docs_url=feed.abs("api/"),
+        docs_url_custom_domain=feed.custom_abs("api/"),
+        openapi_url=feed.abs("api/v1/openapi.json"),
+        openapi_yaml_url=feed.abs("api/v1/openapi.yaml"),
+        llms_txt_url=feed.abs("llms.txt"),
+        api_catalog_url=feed.abs(".well-known/api-catalog"),
+        stability="Version 1 field names stay. New fields may be added. Removing or renaming a field means a new version path.",
+        auth="none",
+        cors=cors_doc(),
+        bases={"github_pages": feed.base, "custom_domain": feed.custom},
+        language_note=meta["language_note"],
+        editorial=meta["editorial"],
+        counts={
+            "news": len(news),
+            "news_by_country": by_c,
+            "newsletters": len(letters),
+            "events": len(evs),
+            "events_upcoming": len(upcoming),
+            "events_past": len(past),
+            "sources": len(outlets),
+            "academia": ac_counts,
+            "org_entities": len(ents),
+            "org_relations": len(rels),
+            "profiles": len(profiles),
+            "images": len(images),
+            "changelog": len(changes),
+            "archive_articles": len(articles),
+        },
+        endpoints=list(feed.endpoints),
+        start_here=[
+            {"description": "All published news", "url": feed.abs("api/v1/news.json")},
+            {"description": "One news item", "url": news[0]["api_url"] if news else None},
+            {"description": "Newsletter issues", "url": feed.abs("api/v1/newsletters.json")},
+            {"description": "One newsletter issue, with text", "url": letters[0]["api_url"] if letters else None},
+        ],
+    )
+    # The index lists every other endpoint. Add itself first.
+    index["endpoints"] = [{
+        "id": "index",
+        "method": "GET",
+        "path": "/api/v1/index.json",
+        "url": feed.abs("api/v1/index.json"),
+        "url_custom_domain": feed.custom_abs("api/v1/index.json"),
+        "summary": "Discovery document: every endpoint, with example URLs.",
+        "schema": "Discovery",
+    }] + index["endpoints"]
+    feed.write_json("api/v1/index.json", index)
+    feed.write_json("api/index.json", feed.env(
+        current="v1",
+        index_url=feed.abs("api/v1/index.json"),
+        docs_url=feed.abs("api/"),
+        openapi_url=feed.abs("api/v1/openapi.json"),
+        llms_txt_url=feed.abs("llms.txt"),
+    ))
+
+    spec = openapi(feed, index)
+    feed.write_json("api/v1/openapi.json", spec)
+    yaml_path = os.path.join(site, "api", "v1", "openapi.yaml")
+    os.makedirs(os.path.dirname(yaml_path), exist_ok=True)
+    with open(yaml_path, "w", encoding="utf-8") as fh:
+        fh.write(yaml_dump(spec) + "\n")
+
+    llms = llms_txt(feed, index)
+    llms_path = os.path.join(site, "llms.txt")
+    with open(llms_path, "w", encoding="utf-8") as fh:
+        fh.write(llms)
+    linkset = api_catalog(feed)
+    well = os.path.join(site, ".well-known")
+    os.makedirs(well, exist_ok=True)
+    raw = json.dumps(linkset, ensure_ascii=False, indent=1) + "\n"
+    for name in ("api-catalog", "api-catalog.json"):
+        with open(os.path.join(well, name), "w", encoding="utf-8") as fh:
+            fh.write(raw)
+
+    fragment = docs_fragment(index)
+    doc = standalone_docs(fragment, feed.base)
+    docs_path = os.path.join(site, "api", "index.html")
+    os.makedirs(os.path.dirname(docs_path), exist_ok=True)
+    with open(docs_path, "w", encoding="utf-8") as fh:
+        fh.write(doc)
+
+    print(f"api v1: {len(news)} news, {len(letters)} newsletters, {len(evs)} events, {len(ents)} org rows, {len(feed.endpoints) + 1} endpoints -> {site}")
+    return index
+
+
+def openapi(feed, index):
+    def ok(ref, summary):
+        return {"200": {"description": summary, "content": {"application/json": {"schema": {"$ref": f"#/components/schemas/{ref}"}}}}}
+    paths = {}
+    def add_path(path, operation, summary, schema):
+        params = []
+        for name in re.findall(r"\{([^}]+)\}", path):
+            enum = COUNTRIES if name == "country" else None
+            params.append({"name": name, "in": "path", "required": True, "schema": {"type": "string", **({"enum": enum} if enum else {})}})
+        paths[path] = {"get": {
+            "operationId": operation,
+            "summary": summary,
+            "responses": ok(schema or "Document", summary),
+            **({"parameters": params} if params else {}),
+        }}
+    for ep in index["endpoints"]:
+        add_path(ep["path"], re.sub(r"[^A-Za-z0-9]+", "_", ep["id"]).strip("_"), ep["summary"], ep.get("schema"))
+        if ep.get("item_path") and ep["item_path"] not in paths:
+            add_path(ep["item_path"], re.sub(r"[^A-Za-z0-9]+", "_", ep["id"]).strip("_") + "_item",
+                     "One item from " + ep["path"], "Document")
+    return {
+        "openapi": "3.0.3",
+        "info": {
+            "title": "Nordic Crypto data API",
+            "version": API,
+            "description": (
+                "Public read-only JSON for Nordic Crypto (cryptonordic.no, GitHub Pages jqrgen.github.io/nordic-crypto). "
+                "No authentication. News, newsletters, events, sources, academia, the who's who, profiles, images, "
+                "the rules map, the changelog and the article archive. "
+                "Kaupr is a news source only, never a sponsor. The sign-off is The Nordic Crypto team. "
+                "GitHub Pages sends Access-Control-Allow-Origin: * so browsers can fetch these files. "
+                "English text is the default; translations are inside each object under *_i18n. "
+                f"Discovery: {feed.abs('api/v1/index.json')}. Human docs: {feed.abs('api/')}."
+            ),
+            "license": {"name": "MIT", "url": "https://github.com/jQrgen/nordic-crypto/blob/main/LICENSE"},
+            "contact": {"name": SITE_NAME, "url": feed.abs("about/")},
+        },
+        "servers": [
+            {"url": feed.base.rstrip("/"), "description": "GitHub Pages project site"},
+            {"url": feed.custom.rstrip("/"), "description": "cryptonordic.no (same paths at the domain root, once HTTPS serves this site)"},
+        ],
+        "paths": paths,
+        "components": {"schemas": schemas()},
+    }
+
+
+def schemas():
+    i18n_obj = {"type": "object", "additionalProperties": {"type": "string"}, "description": "Keys are site language codes: nn, nb, sv, da, fi, is. English lives in the sibling field."}
+    news_item = {
+        "type": "object",
+        "required": ["id", "title", "published", "api_url"],
+        "properties": {
+            "id": {"type": "string"},
+            "url": {"type": "string", "description": "Story the reader follows. Absolute."},
+            "html_url": {"type": "string", "nullable": True, "description": "Our page, when the story is ours."},
+            "api_url": {"type": "string"},
+            "title": {"type": "string"},
+            "title_en": {"type": "string", "nullable": True},
+            "source": {"type": "string"},
+            "source_name": {"type": "string"},
+            "source_note": {"type": "string", "nullable": True},
+            "country": {"type": "string"},
+            "language": {"type": "string"},
+            "language_code": {"type": "string", "nullable": True},
+            "published": {"type": "string", "description": "ISO 8601 date-time with offset."},
+            "topics": {"type": "array", "items": {"type": "string"}},
+            "summary": {"type": "string", "nullable": True, "description": "Our English summary."},
+            "summary_i18n": i18n_obj,
+            "paywall": {"type": "boolean"},
+            "links": {"type": "array", "items": {"type": "object"}},
+            "own_story": {"type": "boolean"},
+        },
+    }
+    event_item = {
+        "type": "object",
+        "required": ["id", "title", "start"],
+        "properties": {
+            "id": {"type": "string"},
+            "title": {"type": "string"},
+            "title_original": {"type": "string", "nullable": True},
+            "start": {"type": "string", "description": "ISO 8601 date-time with offset."},
+            "end": {"type": "string", "nullable": True},
+            "place": {"type": "string", "nullable": True},
+            "city": {"type": "string", "nullable": True},
+            "country": {"type": "string"},
+            "online": {"type": "boolean"},
+            "organiser": {"type": "string"},
+            "url": {"type": "string"},
+            "source": {"type": "string"},
+            "paid": {"nullable": True},
+            "sponsored": {"nullable": True, "description": "false, true, or the sponsor's name. Never Kaupr."},
+            "note": {"type": "string", "nullable": True},
+            "note_i18n": i18n_obj,
+            "past": {"type": "boolean"},
+            "html_url": {"type": "string"},
+            "api_url": {"type": "string"},
+        },
+    }
+    issue = {
+        "type": "object",
+        "required": ["id", "date", "title"],
+        "properties": {
+            "id": {"type": "string"},
+            "number": {"type": "integer"},
+            "date": {"type": "string", "description": "ISO date YYYY-MM-DD."},
+            "period": {"type": "object", "properties": {"start": {"type": "string"}, "end": {"type": "string"}}},
+            "title": {"type": "string"},
+            "subtitle": {"type": "string"},
+            "title_i18n": i18n_obj,
+            "subtitle_i18n": i18n_obj,
+            "sign_off": {"type": "string"},
+            "text": {"type": "string", "description": "Plain text of the English issue. Present on the issue URL, not the list."},
+            "html": {"type": "string"},
+            "text_i18n": {"type": "object"},
+            "html_i18n": {"type": "object"},
+            "video": {"type": "object", "nullable": True},
+            "api_url": {"type": "string"},
+            "html_url": {"type": "string"},
+        },
+    }
+    env = {"api_version": {"type": "string"}, "name": {"type": "string"}, "generated_at": {"type": "string"}, "preview": {"type": "boolean"}}
+    def wrap(name, extra):
+        props = dict(env)
+        props.update(extra)
+        return {"type": "object", "properties": props, "description": name}
+    return {
+        "Document": {"type": "object", "additionalProperties": True},
+        "Discovery": wrap("Discovery", {"endpoints": {"type": "array"}, "counts": {"type": "object"}, "cors": {"type": "object"}}),
+        "NewsItem": news_item,
+        "NewsList": wrap("NewsList", {"count": {"type": "integer"}, "items": {"type": "array", "items": news_item}, "updated": {"type": "string", "nullable": True}}),
+        "TopicIndex": wrap("TopicIndex", {"topics": {"type": "array"}}),
+        "Event": event_item,
+        "EventList": wrap("EventList", {"count": {"type": "integer"}, "events": {"type": "array", "items": event_item}}),
+        "NewsletterIssue": issue,
+        "NewsletterList": wrap("NewsletterList", {"count": {"type": "integer"}, "issues": {"type": "array", "items": issue}}),
+        "SourceCatalogue": wrap("SourceCatalogue", {"sources": {"type": "array"}, "search": {"type": "array"}, "event_sources": {"type": "array"}}),
+        "Academia": wrap("Academia", {"courses": {"type": "array"}, "groups": {"type": "array"}, "publications": {"type": "array"}, "research": {"type": "array"}}),
+        "AcademiaSection": wrap("AcademiaSection", {"section": {"type": "string"}, "items": {"type": "array"}}),
+        "AcademiaItem": wrap("AcademiaItem", {"item": {"type": "object"}}),
+        "OrgChart": wrap("OrgChart", {"entities": {"type": "array"}, "relations": {"type": "array"}, "regulation": {"type": "array"}}),
+        "Relation": {"type": "object"},
+        "RelationList": wrap("RelationList", {"relations": {"type": "array"}}),
+        "RegulationList": wrap("RegulationList", {"regulation": {"type": "array"}}),
+        "ProfileList": wrap("ProfileList", {"profiles": {"type": "array"}}),
+        "ImageList": wrap("ImageList", {"images": {"type": "array"}}),
+        "ChangelogList": wrap("ChangelogList", {"entries": {"type": "array"}}),
+        "Rules": wrap("Rules", {"available": {"type": "boolean"}, "checked": {"type": "string"}}),
+        "ArticleArchive": wrap("ArticleArchive", {"articles": {"type": "array"}}),
+        "SiteMeta": wrap("SiteMeta", {"languages": {"type": "array"}, "countries": {"type": "array"}, "cors": {"type": "object"}}),
+    }
+
+
+def llms_txt(feed, index):
+    news = feed.abs("api/v1/news.json")
+    letters = feed.abs("api/v1/newsletters.json")
+    one = None
+    for ep in index["endpoints"]:
+        if ep["id"] == "api-v1-newsletters":
+            one = ep.get("example_url")
+    lines = [
+        f"# {SITE_NAME}",
+        "",
+        "> Public JSON feed of Nordic crypto news, newsletters, events, sources, academia and the who's who. No account. No API key.",
+        "",
+        f"{SITE_NAME} covers Norway, Sweden, Denmark, Finland and Iceland. "
+        "The sign-off is The Nordic Crypto team. Kaupr (kaupr.io) is a news source only and is never a sponsor. "
+        "Summaries are ours, in English, with translations in summary_i18n (nn, nb, sv, da, fi, is) when published. "
+        "External headlines stay in the original language.",
+        "",
+        "GitHub Pages sends Access-Control-Allow-Origin: * on every JSON file, so a browser can fetch them from any site. "
+        "Use the file name (index.json). A directory URL does not serve the JSON.",
+        "",
+        f"GitHub Pages base: {feed.base}",
+        f"Custom domain base (same paths at the root): {feed.custom}",
+        "Swap the base to move between the two. HTTPS on cryptonordic.no is the intended public name once the certificate matches that domain.",
+        "",
+        "## Start here",
+        "",
+        f"- [Discovery]({feed.abs('api/v1/index.json')}): every endpoint, counts, and example URLs.",
+        f"- [Human docs]({feed.abs('api/')}): the same catalogue as a web page.",
+        f"- [OpenAPI JSON]({feed.abs('api/v1/openapi.json')}): OpenAPI 3.0.",
+        f"- [OpenAPI YAML]({feed.abs('api/v1/openapi.yaml')}): the same document.",
+        f"- [API catalog]({feed.abs('.well-known/api-catalog')}): RFC 9727 linkset. A .json copy is at {feed.abs('.well-known/api-catalog.json')}.",
+        f"- [Site meta]({feed.abs('api/v1/meta.json')}): languages, countries, page list, CORS.",
+        "",
+        "## Fetch news and newsletters",
+        "",
+        "```",
+        f"curl -fsS {news}",
+        f"curl -fsS {letters}",
+    ]
+    if one:
+        lines.append(f"curl -fsS {one}")
+    lines += [
+        "```",
+        "",
+        "A single news item is api/v1/news/{id}.json (the id is on each item). "
+        "A single newsletter issue is api/v1/newsletters/{id}.json and includes plain text and HTML. "
+        "Country slices: api/v1/news/by-country/NO.json (also SE, DK, FI, IS).",
+        "",
+        "## Endpoints",
+        "",
+    ]
+    for ep in index["endpoints"]:
+        lines.append(f"- [{ep['path']}]({ep['url']}): {ep['summary']}")
+    lines += [
+        "",
+        "## Not in this feed",
+        "",
+        "Drafts, the editor queue, rejected stories, reader tips, newsletter subscriber addresses, analytics tokens, and private personal data are not published.",
+        "",
+        f"## {SIGN_OFF}",
+        "",
+    ]
+    return "\n".join(lines)
+
+
+def api_catalog(feed):
+    return {
+        "linkset": [{
+            "anchor": feed.base,
+            "service-desc": [
+                {"href": feed.abs("api/v1/openapi.json"), "type": "application/openapi+json"},
+                {"href": feed.abs("api/v1/openapi.yaml"), "type": "application/yaml"},
+            ],
+            "service-doc": [
+                {"href": feed.abs("api/"), "type": "text/html"},
+                {"href": feed.abs("llms.txt"), "type": "text/plain"},
+            ],
+            "status": [
+                {"href": feed.abs("api/v1/index.json"), "type": "application/json"},
+            ],
+        }]
+    }
+
+
+def head_links(base):
+    b = base if base.endswith("/") else base + "/"
+    return (
+        f'<link rel="describedby" href="{b}api/v1/index.json" type="application/json">'
+        f'<link rel="service-desc" href="{b}api/v1/openapi.json" type="application/openapi+json">'
+        f'<link rel="describedby" href="{b}llms.txt" type="text/plain">'
+    )
+
+
+def docs_fragment(index):
+    b = index["bases"]["github_pages"]
+    c = index["bases"]["custom_domain"]
+    def row(ep):
+        return (
+            f"<tr><td>GET</td><td><a href=\"{html.escape(ep['url'])}\"><code>{html.escape(ep['path'])}</code></a></td>"
+            f"<td>{html.escape(ep['summary'])}</td></tr>"
+        )
+    rows = "\n".join(row(ep) for ep in index["endpoints"])
+    news = html.escape(b + "api/v1/news.json")
+    letters = html.escape(b + "api/v1/newsletters.json")
+    one = ""
+    for ep in index["endpoints"]:
+        if ep.get("example_url") and ep["id"] == "api-v1-newsletters":
+            one = ep["example_url"]
+    one_line = f"\ncurl -fsS {one}" if one else ""
+    counts = index.get("counts") or {}
+    return f"""<style>
+.api-docs pre{{overflow:auto;padding:10px 12px;background:#f6f7f8;border:1px solid #e5e7eb;font-size:13px}}
+.api-docs code{{font-size:.92em}}
+.api-docs td:first-child{{white-space:nowrap}}
+</style>
+<div class="api-docs">
+<h1>Nordic Crypto data API</h1>
+<p class="lead">A public JSON feed of the site, for apps and for other tools. No account and no API key. It is regenerated whenever the site is built.</p>
+<p>Version 1. {html.escape(str(counts.get('news', 0)))} news items, {html.escape(str(counts.get('newsletters', 0)))} newsletter issues, {html.escape(str(counts.get('events', 0)))} events in this build. Generated {html.escape(index.get('generated_at') or '')}.</p>
+<h2>Start here</h2>
+<ul>
+<li><a href="{html.escape(b)}api/v1/index.json">Discovery</a> — every endpoint and example URL.</li>
+<li><a href="{html.escape(b)}api/v1/openapi.json">OpenAPI</a> (also <a href="{html.escape(b)}api/v1/openapi.yaml">YAML</a>).</li>
+<li><a href="{html.escape(b)}llms.txt">llms.txt</a> — plain-language instructions.</li>
+<li><a href="{html.escape(b)}.well-known/api-catalog">API catalog</a> (RFC 9727 linkset; <a href="{html.escape(b)}.well-known/api-catalog.json">.json copy</a>).</li>
+</ul>
+<h2>Fetch news and a newsletter</h2>
+<pre>curl -fsS {news}
+curl -fsS {letters}{html.escape(one_line)}</pre>
+<p>The same paths on the custom domain, at the site root: <code>{html.escape(c)}api/v1/news.json</code>. Swap <code>{html.escape(b)}</code> for <code>{html.escape(c)}</code>.</p>
+<h2>Languages</h2>
+<p>English is the default field (<code>summary</code>, <code>title</code>, <code>text</code>). Translations that we have published sit in <code>summary_i18n</code>, <code>title_i18n</code>, <code>subtitle_i18n</code>, <code>note_i18n</code>, <code>text_i18n</code> and <code>about_i18n</code>, keyed by <code>nn</code>, <code>nb</code>, <code>sv</code>, <code>da</code>, <code>fi</code> and <code>is</code>. If a key is missing, use the English field. Headlines from other outlets stay in the original language. Dates are ISO 8601.</p>
+<h2>CORS</h2>
+<p>GitHub Pages sends <code>Access-Control-Allow-Origin: *</code> on these files, so a page on another site can <code>fetch()</code> them. GitHub Pages does not apply a custom headers file. Use the <code>.json</code> file name; opening a directory does not return the JSON.</p>
+<h2>Editorial</h2>
+<p>The sign-off is The Nordic Crypto team. Kaupr (kaupr.io) is a news source only and is never a sponsor. Nothing here is investment advice.</p>
+<h2>Endpoints</h2>
+<div class="tablewrap"><table class="list"><thead><tr><th>Method</th><th>Path</th><th>Returns</th></tr></thead><tbody>
+{rows}
+</tbody></table></div>
+<h2>Not included</h2>
+<p>Drafts, the editor queue, rejected stories, reader tips, newsletter subscriber addresses, the analytics token, and private personal data are not in this feed. An unknown id is a normal site 404, not a JSON error.</p>
+<p class="meta">Field names in version 1 stay. New fields may appear. A breaking change would use a new path.</p>
+</div>"""
+
+
+def standalone_docs(fragment, base):
+    b = base if base.endswith("/") else base + "/"
+    return f"""<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Data API – {SITE_NAME}</title>
+<meta name="description" content="{html.escape(DOCS_DESC)}">
+<link rel="canonical" href="{b}api/">
+{head_links(b)}
+</head><body>
+{fragment}
+</body></html>
+"""
+
+
+def main():
+    preview = "--preview" in sys.argv
+    ctx = repo_context(preview)
+    site = os.environ.get("NC_SITE_DIR") or os.path.join(ROOT, "site")
+    ev = ctx["events"]
+    events = ev[0] if isinstance(ev, tuple) else ev
+    write(
+        site,
+        preview=preview,
+        base="https://jqrgen.github.io/nordic-crypto/",
+        items=ctx["items"],
+        events=events,
+        entities=ctx["ents"],
+        relations=ctx["rels"],
+        org_updated=(ctx.get("org") or {}).get("updated"),
+        regulation=(ctx.get("org") or {}).get("regulation") or [],
+        caveats=(ctx.get("org") or {}).get("caveats") or [],
+        sources_cfg=ctx["cfg"],
+        news_updated=(ctx.get("news") or {}).get("updated"),
+    )
+
+if __name__ == "__main__":
+    main()
