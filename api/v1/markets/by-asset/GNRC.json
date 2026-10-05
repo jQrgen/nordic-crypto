@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T22:45:02+00:00",
+ "generated_at": "2026-10-05T23:01:46+00:00",
  "preview": false,
  "kind": "markets",
  "disclaimer": "Market data, not investment advice. Each figure is the value published by the named exchange at fetched_at. Nordic Crypto does not set these prices and does not tell anyone to buy or sell.",
@@ -22,14 +22,14 @@
    "base": "GNRC",
    "quote": "EUR",
    "last": "0.9992039023",
-   "bid": "0.9918038281",
-   "ask": "0.9993000016",
+   "bid": "0.9918051237",
+   "ask": "0.9994820293",
    "exchange": {
     "id": "nbx",
     "name": "Norwegian Block Exchange",
     "country": "NO"
    },
-   "fetched_at": "2026-10-05T22:44:54+00:00",
+   "fetched_at": "2026-10-05T23:01:40+00:00",
    "source_url": "https://api.nbx.com/tickers",
    "volume_base": null,
    "volume_quote": null,

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T22:45:02+00:00",
+ "generated_at": "2026-10-05T23:01:46+00:00",
  "preview": false,
  "kind": "markets",
  "disclaimer": "Market data, not investment advice. Each figure is the value published by the named exchange at fetched_at. Nordic Crypto does not set these prices and does not tell anyone to buy or sell.",
@@ -22,14 +22,14 @@
    "base": "BTC",
    "quote": "SEK",
    "last": null,
-   "bid": "859158.03",
-   "ask": "866585.52",
+   "bid": "859240.14",
+   "ask": "866661.88",
    "exchange": {
     "id": "coinmotion",
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-05T22:44:55+00:00",
+   "fetched_at": "2026-10-05T23:01:41+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
@@ -38,7 +38,7 @@
    "high": "872672.24",
    "low": "854452.96",
    "change_pct": null,
-   "exchange_time": "2026-10-05T22:44:12+00:00"
+   "exchange_time": "2026-10-05T23:01:10+00:00"
   },
   {
    "id": "coinmotion:BTC-EUR",
@@ -47,14 +47,14 @@
    "base": "BTC",
    "quote": "EUR",
    "last": null,
-   "bid": "76280.44",
-   "ask": "76939.89",
+   "bid": "76287.73",
+   "ask": "76946.67",
    "exchange": {
     "id": "coinmotion",
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-05T22:44:55+00:00",
+   "fetched_at": "2026-10-05T23:01:41+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
@@ -63,7 +63,7 @@
    "high": "77480.30",
    "low": "75862.70",
    "change_pct": null,
-   "exchange_time": "2026-10-05T22:44:12+00:00"
+   "exchange_time": "2026-10-05T23:01:10+00:00"
   },
   {
    "id": "firi:BTC-NOK",
@@ -71,7 +71,7 @@
    "exchange_symbol": "BTCNOK",
    "base": "BTC",
    "quote": "NOK",
-   "last": "827999.99",
+   "last": "827997.10",
    "bid": "822900.3500000000000000",
    "ask": "828000.0000000000000000",
    "exchange": {
@@ -79,15 +79,15 @@
     "name": "Firi",
     "country": "NO"
    },
-   "fetched_at": "2026-10-05T22:44:54+00:00",
+   "fetched_at": "2026-10-05T23:01:40+00:00",
    "source_url": "https://api.firi.com/v2/markets/BTCNOK",
-   "volume_base": "3.42",
+   "volume_base": "3.48",
    "volume_quote": null,
    "volume_base_24h": null,
    "volume_quote_24h": null,
    "high": "839994.22",
    "low": "813881.71",
-   "change_pct": "0.03"
+   "change_pct": "0.09"
   },
   {
    "id": "firi:BTC-DKK",
@@ -96,14 +96,14 @@
    "base": "BTC",
    "quote": "DKK",
    "last": "566966.12000000",
-   "bid": "569611.1400000000000000",
-   "ask": "575469.7900000000000000",
+   "bid": "569636.8000000000000000",
+   "ask": "575503.6000000000000000",
    "exchange": {
     "id": "firi",
     "name": "Firi",
     "country": "NO"
    },
-   "fetched_at": "2026-10-05T22:44:54+00:00",
+   "fetched_at": "2026-10-05T23:01:40+00:00",
    "source_url": "https://api.firi.com/v2/markets/BTCDKK",
    "volume_base": "0",
    "volume_quote": null,
@@ -127,7 +127,7 @@
     "name": "Norwegian Block Exchange",
     "country": "NO"
    },
-   "fetched_at": "2026-10-05T22:44:54+00:00",
+   "fetched_at": "2026-10-05T23:01:40+00:00",
    "source_url": "https://api.nbx.com/tickers",
    "volume_base": null,
    "volume_quote": null,
@@ -151,7 +151,7 @@
     "name": "Norwegian Block Exchange",
     "country": "NO"
    },
-   "fetched_at": "2026-10-05T22:44:54+00:00",
+   "fetched_at": "2026-10-05T23:01:40+00:00",
    "source_url": "https://api.nbx.com/tickers",
    "volume_base": null,
    "volume_quote": null,
@@ -175,7 +175,7 @@
     "name": "Norwegian Block Exchange",
     "country": "NO"
    },
-   "fetched_at": "2026-10-05T22:44:54+00:00",
+   "fetched_at": "2026-10-05T23:01:40+00:00",
    "source_url": "https://api.nbx.com/tickers",
    "volume_base": null,
    "volume_quote": null,
@@ -199,7 +199,7 @@
     "name": "Norwegian Block Exchange",
     "country": "NO"
    },
-   "fetched_at": "2026-10-05T22:44:54+00:00",
+   "fetched_at": "2026-10-05T23:01:40+00:00",
    "source_url": "https://api.nbx.com/tickers",
    "volume_base": null,
    "volume_quote": null,

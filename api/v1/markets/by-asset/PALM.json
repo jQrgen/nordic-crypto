@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T22:45:02+00:00",
+ "generated_at": "2026-10-05T23:01:46+00:00",
  "preview": false,
  "kind": "markets",
  "disclaimer": "Market data, not investment advice. Each figure is the value published by the named exchange at fetched_at. Nordic Crypto does not set these prices and does not tell anyone to buy or sell.",
@@ -22,19 +22,19 @@
    "base": "PALM",
    "quote": "EUR",
    "last": "0.0000671170",
-   "bid": "0.0000665416",
-   "ask": "0.0000685708",
+   "bid": "0.0000662223",
+   "ask": "0.0000668880",
    "exchange": {
     "id": "nbx",
     "name": "Norwegian Block Exchange",
     "country": "NO"
    },
-   "fetched_at": "2026-10-05T22:44:54+00:00",
+   "fetched_at": "2026-10-05T23:01:40+00:00",
    "source_url": "https://api.nbx.com/tickers",
    "volume_base": null,
    "volume_quote": null,
-   "volume_base_24h": "22668000.000000",
-   "volume_quote_24h": "1505.1408436000",
+   "volume_base_24h": "15112000.000000",
+   "volume_quote_24h": "1016.7187368000",
    "high": null,
    "low": null,
    "change_pct": null

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T22:45:02+00:00",
+ "generated_at": "2026-10-05T23:01:46+00:00",
  "preview": false,
  "kind": "markets",
  "disclaimer": "Market data, not investment advice. Each figure is the value published by the named exchange at fetched_at. Nordic Crypto does not set these prices and does not tell anyone to buy or sell.",
@@ -22,14 +22,14 @@
    "base": "ETH",
    "quote": "SEK",
    "last": null,
-   "bid": "27159.39",
-   "ask": "27379.70",
+   "bid": "27166.94",
+   "ask": "27387.70",
    "exchange": {
     "id": "coinmotion",
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-05T22:44:55+00:00",
+   "fetched_at": "2026-10-05T23:01:41+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
@@ -38,7 +38,7 @@
    "high": "27538.40",
    "low": "26935.03",
    "change_pct": null,
-   "exchange_time": "2026-10-05T22:44:12+00:00"
+   "exchange_time": "2026-10-05T23:01:10+00:00"
   },
   {
    "id": "coinmotion:ETH-EUR",
@@ -47,14 +47,14 @@
    "base": "ETH",
    "quote": "EUR",
    "last": null,
-   "bid": "2411.35",
-   "ask": "2430.91",
+   "bid": "2412.02",
+   "ask": "2431.62",
    "exchange": {
     "id": "coinmotion",
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-05T22:44:55+00:00",
+   "fetched_at": "2026-10-05T23:01:41+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
@@ -63,7 +63,7 @@
    "high": "2445.00",
    "low": "2391.43",
    "change_pct": null,
-   "exchange_time": "2026-10-05T22:44:12+00:00"
+   "exchange_time": "2026-10-05T23:01:10+00:00"
   },
   {
    "id": "firi:ETH-NOK",
@@ -72,14 +72,14 @@
    "base": "ETH",
    "quote": "NOK",
    "last": "26081.02",
-   "bid": "25433.7700000000000000",
-   "ask": "26570.4500000000000000",
+   "bid": "25436.6700000000000000",
+   "ask": "26565.2000000000000000",
    "exchange": {
     "id": "firi",
     "name": "Firi",
     "country": "NO"
    },
-   "fetched_at": "2026-10-05T22:44:54+00:00",
+   "fetched_at": "2026-10-05T23:01:40+00:00",
    "source_url": "https://api.firi.com/v2/markets/ETHNOK",
    "volume_base": "5.75",
    "volume_quote": null,
@@ -97,13 +97,13 @@
    "quote": "DKK",
    "last": "18000.00000000",
    "bid": "18037.3400000000000000",
-   "ask": "18205.4900000000000000",
+   "ask": "18190.8900000000000000",
    "exchange": {
     "id": "firi",
     "name": "Firi",
     "country": "NO"
    },
-   "fetched_at": "2026-10-05T22:44:54+00:00",
+   "fetched_at": "2026-10-05T23:01:40+00:00",
    "source_url": "https://api.firi.com/v2/markets/ETHDKK",
    "volume_base": "0",
    "volume_quote": null,
@@ -127,7 +127,7 @@
     "name": "Norwegian Block Exchange",
     "country": "NO"
    },
-   "fetched_at": "2026-10-05T22:44:54+00:00",
+   "fetched_at": "2026-10-05T23:01:40+00:00",
    "source_url": "https://api.nbx.com/tickers",
    "volume_base": null,
    "volume_quote": null,
@@ -151,7 +151,7 @@
     "name": "Norwegian Block Exchange",
     "country": "NO"
    },
-   "fetched_at": "2026-10-05T22:44:54+00:00",
+   "fetched_at": "2026-10-05T23:01:40+00:00",
    "source_url": "https://api.nbx.com/tickers",
    "volume_base": null,
    "volume_quote": null,
@@ -175,7 +175,7 @@
     "name": "Norwegian Block Exchange",
     "country": "NO"
    },
-   "fetched_at": "2026-10-05T22:44:54+00:00",
+   "fetched_at": "2026-10-05T23:01:40+00:00",
    "source_url": "https://api.nbx.com/tickers",
    "volume_base": null,
    "volume_quote": null,
@@ -199,7 +199,7 @@
     "name": "Norwegian Block Exchange",
     "country": "NO"
    },
-   "fetched_at": "2026-10-05T22:44:54+00:00",
+   "fetched_at": "2026-10-05T23:01:40+00:00",
    "source_url": "https://api.nbx.com/tickers",
    "volume_base": null,
    "volume_quote": null,

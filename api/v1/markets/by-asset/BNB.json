@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T22:45:02+00:00",
+ "generated_at": "2026-10-05T23:01:46+00:00",
  "preview": false,
  "kind": "markets",
  "disclaimer": "Market data, not investment advice. Each figure is the value published by the named exchange at fetched_at. Nordic Crypto does not set these prices and does not tell anyone to buy or sell.",
@@ -22,14 +22,14 @@
    "base": "BNB",
    "quote": "NOK",
    "last": "7346.52",
-   "bid": "7390.7300000000000000",
-   "ask": "7748.6000000000000000",
+   "bid": "7456.3400000000000000",
+   "ask": "7682.6800000000000000",
    "exchange": {
     "id": "firi",
     "name": "Firi",
     "country": "NO"
    },
-   "fetched_at": "2026-10-05T22:44:54+00:00",
+   "fetched_at": "2026-10-05T23:01:40+00:00",
    "source_url": "https://api.firi.com/v2/markets/BNBNOK",
    "volume_base": "0",
    "volume_quote": null,

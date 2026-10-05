@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T22:45:02+00:00",
+ "generated_at": "2026-10-05T23:01:46+00:00",
  "preview": false,
  "kind": "markets",
  "disclaimer": "Market data, not investment advice. Each figure is the value published by the named exchange at fetched_at. Nordic Crypto does not set these prices and does not tell anyone to buy or sell.",
@@ -22,14 +22,14 @@
    "base": "ADA",
    "quote": "SEK",
    "last": null,
-   "bid": "2.73",
-   "ask": "2.75",
+   "bid": "2.71",
+   "ask": "2.74",
    "exchange": {
     "id": "coinmotion",
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-05T22:44:55+00:00",
+   "fetched_at": "2026-10-05T23:01:41+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
@@ -38,7 +38,7 @@
    "high": "2.77",
    "low": "2.58",
    "change_pct": null,
-   "exchange_time": "2026-10-05T22:44:12+00:00"
+   "exchange_time": "2026-10-05T23:01:10+00:00"
   },
   {
    "id": "coinmotion:ADA-EUR",
@@ -47,14 +47,14 @@
    "base": "ADA",
    "quote": "EUR",
    "last": null,
-   "bid": "0.24246",
-   "ask": "0.24490",
+   "bid": "0.24131",
+   "ask": "0.24348",
    "exchange": {
     "id": "coinmotion",
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-05T22:44:55+00:00",
+   "fetched_at": "2026-10-05T23:01:41+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
@@ -63,7 +63,7 @@
    "high": "0.24659",
    "low": "0.22935",
    "change_pct": null,
-   "exchange_time": "2026-10-05T22:44:12+00:00"
+   "exchange_time": "2026-10-05T23:01:10+00:00"
   },
   {
    "id": "firi:ADA-NOK",
@@ -72,14 +72,14 @@
    "base": "ADA",
    "quote": "NOK",
    "last": "2.57",
-   "bid": "2.6100000000000000",
-   "ask": "2.6300000000000000",
+   "bid": "2.5600000000000000",
+   "ask": "2.6200000000000000",
    "exchange": {
     "id": "firi",
     "name": "Firi",
     "country": "NO"
    },
-   "fetched_at": "2026-10-05T22:44:54+00:00",
+   "fetched_at": "2026-10-05T23:01:40+00:00",
    "source_url": "https://api.firi.com/v2/markets/ADANOK",
    "volume_base": "3220.30",
    "volume_quote": null,
@@ -96,14 +96,14 @@
    "base": "ADA",
    "quote": "NOK",
    "last": "2.52",
-   "bid": "2.59",
-   "ask": "2.65",
+   "bid": "2.58",
+   "ask": "2.64",
    "exchange": {
     "id": "nbx",
     "name": "Norwegian Block Exchange",
     "country": "NO"
    },
-   "fetched_at": "2026-10-05T22:44:54+00:00",
+   "fetched_at": "2026-10-05T23:01:40+00:00",
    "source_url": "https://api.nbx.com/tickers",
    "volume_base": null,
    "volume_quote": null,
@@ -120,14 +120,14 @@
    "base": "ADA",
    "quote": "SEK",
    "last": "2.50",
-   "bid": "2.71",
-   "ask": "2.77",
+   "bid": "2.70",
+   "ask": "2.76",
    "exchange": {
     "id": "nbx",
     "name": "Norwegian Block Exchange",
     "country": "NO"
    },
-   "fetched_at": "2026-10-05T22:44:54+00:00",
+   "fetched_at": "2026-10-05T23:01:40+00:00",
    "source_url": "https://api.nbx.com/tickers",
    "volume_base": null,
    "volume_quote": null,
@@ -144,14 +144,14 @@
    "base": "ADA",
    "quote": "DKK",
    "last": "1.00",
-   "bid": "1.80",
-   "ask": "1.84",
+   "bid": "1.79",
+   "ask": "1.83",
    "exchange": {
     "id": "nbx",
     "name": "Norwegian Block Exchange",
     "country": "NO"
    },
-   "fetched_at": "2026-10-05T22:44:54+00:00",
+   "fetched_at": "2026-10-05T23:01:40+00:00",
    "source_url": "https://api.nbx.com/tickers",
    "volume_base": null,
    "volume_quote": null,
@@ -168,14 +168,14 @@
    "base": "ADA",
    "quote": "EUR",
    "last": "0.2136900463",
-   "bid": "0.2416771944",
-   "ask": "0.2455477291",
+   "bid": "0.2404063731",
+   "ask": "0.2442589913",
    "exchange": {
     "id": "nbx",
     "name": "Norwegian Block Exchange",
     "country": "NO"
    },
-   "fetched_at": "2026-10-05T22:44:54+00:00",
+   "fetched_at": "2026-10-05T23:01:40+00:00",
    "source_url": "https://api.nbx.com/tickers",
    "volume_base": null,
    "volume_quote": null,
