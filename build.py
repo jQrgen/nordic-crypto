@@ -172,8 +172,23 @@ html.nc-pick body{visibility:hidden}
 .bridge{margin:6px 0 0;font-weight:600}
 @media(max-width:520px){.nlissues li{flex-direction:column;gap:8px}.nlissues .th{width:100%;max-width:100%}h1{font-size:24px}}
 """
+CSS += """
+.appbar{margin:10px 0 14px;text-align:left}
+a.applink{display:inline-block;padding:8px 14px;border:2px solid var(--ink);font-weight:700;font-size:18px;line-height:1.3;text-decoration:none;text-align:left}
+a.applink:hover,a.applink:focus-visible{background:var(--soft)}
+.markets h1{font-size:32px}
+.markets .lead,.markets p,.markets h2,.markets h3,.mkcard{text-align:left}
+.mkcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin:0 0 8px}
+.mkcard{border:1px solid var(--line);padding:12px 14px;background:#fff}
+.mkcard .px{font-size:28px;font-weight:700;line-height:1.15;margin:6px 0;font-variant-numeric:tabular-nums}
+.mkcard .unit{font-size:16px;font-weight:600;color:var(--muted)}
+.mkcard .ba{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:18px;margin:0}
+.mkasset>h2{font-size:26px;margin:22px 0 4px}
+.mkq{font-size:16px;color:var(--muted);margin:12px 0 6px;font-weight:600}
+@media(min-width:1100px){.markets h1{font-size:40px}.mkcard .px{font-size:34px}.mkcard .ba{font-size:20px}}
+"""
 
-NAV = [("", "nav_news"), ("calendar", "nav_calendar"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("sources", "nav_sources"), ("newsletter", "nav_newsletter"), ("about", "nav_about"), ("tip", "nav_tip")]
+NAV = [("", "nav_news"), ("markets", "nav_markets"), ("calendar", "nav_calendar"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("sources", "nav_sources"), ("newsletter", "nav_newsletter"), ("about", "nav_about"), ("tip", "nav_tip")]
 COOKIE_PATH = "/" + BASE.split("://", 1)[1].split("/", 1)[1]   # /nordic-crypto/
 def geo_endpoint():
     """Country lookup: GET <tipworker>/api/geo (Cloudflare request.cf.country). Only when the Worker is deployed,
@@ -515,6 +530,13 @@ def build():
     ctx.update(ents=ents, rels=rels, pub_org=pub_org)
     ctx["events"] = events_for_site()
     json.dump({"preview": PREVIEW, "events": [e for e in ctx["events"][0] if not e["past"]]}, open(os.path.join(SITE, "data", "events.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    sys.path.insert(0, P("tools"))
+    import markets as markets_mod
+    try:
+        ctx["markets"] = markets_mod.fetch()
+    except Exception as ex:
+        print("markets: fetch failed:", ex)
+        ctx["markets"] = markets_mod.empty_failure(str(ex).split("\n")[0][:300])
     for LANG in i18n.LANGS:
         build_lang(ctx)
     LANG = "en"
@@ -552,6 +574,7 @@ def emit_api(ctx):
         caveats=(ctx.get("org") or {}).get("caveats") or [],
         sources_cfg=ctx.get("cfg") or {},
         news_updated=(ctx.get("news") or {}).get("updated"),
+        markets=ctx.get("markets"),
     )
     global LANG
     was = LANG
@@ -573,11 +596,101 @@ def sitemap():
             r = os.path.relpath(dp, SITE).replace(os.sep, "/"); r = "" if r == "." else r + "/"
             if r.split("/")[0] in ("kalender", "skjerm", "organisasjonskart", "kilder", "om", "akademia"): continue
             urls.append(BASE + r)
-    for rel in ("api/v1/index.json", "api/v1/openapi.json", "llms.txt"):
+    for rel in ("api/v1/index.json", "api/v1/openapi.json", "api/v1/markets.json", "llms.txt"):
         if os.path.exists(os.path.join(SITE, rel)):
             urls.append(BASE + rel)
     open(os.path.join(SITE, "sitemap.xml"), "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
         + "".join(f"<url><loc>{u}</loc></url>\n" for u in sorted(set(urls))) + "</urlset>\n")
+
+def _mk_when(iso):
+    return (iso or "").replace("T", " ").replace("+00:00", " UTC")
+
+def build_markets(ctx):
+    """Prices page. Static cards from the build-time fetch; markets.js refreshes the JSON and the CORS exchanges."""
+    sys.path.insert(0, P("tools"))
+    import markets as M
+    body = ctx.get("markets") or {}
+    tickers = body.get("tickers") or []
+    groups = {}
+    for row in tickers:
+        groups.setdefault(row["base"], {}).setdefault(row["quote"], []).append(row)
+    def asset_key(b):
+        return (M.ASSET_ORDER.index(b) if b in M.ASSET_ORDER else len(M.ASSET_ORDER), b)
+    def quote_key(q):
+        return (M.QUOTE_ORDER.index(q) if q in M.QUOTE_ORDER else len(M.QUOTE_ORDER), q)
+    def label(b):
+        name = M.ASSET_NAMES.get(b)
+        return f"{name} ({b})" if name and name != b else b
+    sections = []
+    for base in sorted(groups, key=asset_key):
+        bits = [f'<section class="mkasset"><h2>{E(label(base))}</h2>']
+        for quote in sorted(groups[base], key=quote_key):
+            cards = []
+            for row in groups[base][quote]:
+                ex = row["exchange"]
+                if row.get("last"):
+                    price = f'<p class="px">{E(M.format_price(row["last"]))} <span class="unit">{E(row["quote"])}</span></p>'
+                else:
+                    price = f'<p class="px">{E(t("mk_no_last"))}</p>'
+                cards.append(
+                    f'<article class="mkcard" data-base="{E(base)}">'
+                    f'<p class="meta"><b>{E(ex["name"])}</b> · {flag(ex.get("country"))} {E(cname(ex.get("country")))} · {E(base)}/{E(quote)}</p>'
+                    f'{price}'
+                    f'<p class="ba"><span>{E(t("mk_bid"))} {E(M.format_price(row.get("bid")))}</span>'
+                    f'<span>{E(t("mk_ask"))} {E(M.format_price(row.get("ask")))}</span></p>'
+                    f'<p class="meta">{E(t("mk_fetched"))} <time datetime="{E(row.get("fetched_at"))}">{E(_mk_when(row.get("fetched_at")))}</time>'
+                    f' · <a href="{E(row.get("source_url"))}" rel="noopener">{E(t("mk_source"))}</a></p>'
+                    f'</article>'
+                )
+            bits.append(f'<h3 class="mkq">{E(t("mk_in", q=quote))}</h3><div class="mkcards">{"".join(cards)}</div>')
+        bits.append("</section>")
+        sections.append("".join(bits))
+    opts = "".join(f'<option value="{E(b)}">{E(label(b))}</option>' for b in sorted(groups, key=asset_key))
+    errs = "".join(
+        f'<p class="notice warn">{E(t("mk_error", name=ex.get("name") or ex.get("id"), when=_mk_when(ex.get("fetched_at"))))}</p>'
+        for ex in (body.get("exchanges") or []) if ex.get("status") != "ok"
+    )
+    skipped = "".join(
+        f'<li><b>{E(s.get("name"))}</b> ({E(s.get("country"))}): {E(s.get("reason"))}</li>'
+        for s in (body.get("skipped") or [])
+    )
+    included = ", ".join(
+        f'{ex.get("name")} ({cname(ex.get("country"))})'
+        for ex in (body.get("exchanges") or []) if ex.get("status") == "ok"
+    )
+    root = up1()
+    strings = {
+        "bid": t("mk_bid"), "ask": t("mk_ask"), "fetched": t("mk_fetched"), "source": t("mk_source"),
+        "live": t("mk_live"), "file": t("mk_file"), "browser": t("mk_browser"), "empty": t("mk_empty"),
+        "no_last": t("mk_no_last"), "in_quote": t("mk_in", q="{q}"), "all": t("mk_all"),
+        "error": t("mk_error"),
+    }
+    script = open(P("tools", "markets.js"), encoding="utf-8").read()
+    body_html = f"""<div class="markets" id="mk" data-json="{root}api/v1/markets.json">
+<h1>{E(t("mk_h1"))}</h1>
+<p class="lead">{E(t("mk_lead"))}</p>
+<p class="notice">{E(body.get("disclaimer") or t("mk_lead"))}</p>
+<p class="appbar"><a class="applink" href="{E(M.IOS_TESTFLIGHT)}" rel="noopener">{E(t("ios_link"))}</a></p>
+<p class="meta">{E(t("ios_note"))}</p>
+{f'<p class="meta">{E(t("mk_included", names=included))}</p>' if included else ''}
+<div class="filters"><label for="mk-asset">{E(t("mk_asset"))}</label>
+<select id="mk-asset"><option value="">{E(t("mk_all"))}</option>{opts}</select></div>
+<p class="meta" id="mk-status">{E(t("mk_file"))}</p>
+<div id="mk-errors">{errs}</div>
+<div id="mk-tables">{''.join(sections) or f'<p class="empty">{E(t("mk_empty"))}</p>'}</div>
+<h2>{E(t("mk_skipped_h"))}</h2>
+<p class="meta">{E(t("mk_skipped_lead"))}</p>
+<ul>{skipped}</ul>
+<p class="meta">{E(t("mk_refresh"))}</p>
+<p class="meta"><a href="{root}api/v1/markets.json">{E(t("mk_json"))}</a>
+ · <a href="{root}api/v1/markets/firi.json">firi</a>
+ · <a href="{root}api/v1/markets/nbx.json">nbx</a>
+ · <a href="{root}api/v1/markets/coinmotion.json">coinmotion</a>
+ · <a href="https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json" rel="noopener">{E(t("mk_raw"))}</a></p>
+<noscript><p class="notice">{E(t("mk_noscript"))}</p></noscript>
+</div>"""
+    page("markets", t("mk_title"), "markets", body_html, t("mk_desc"),
+         f"<script>window.NC_MK={json.dumps(strings, ensure_ascii=False)};</script><script>{script}</script>")
 
 def build_lang(ctx):
     items, pending = ctx["items"], ctx["pending"]
@@ -622,7 +735,9 @@ def build_lang(ctx):
     news = ctx["news"]; upd = endate(news["updated"]) if news.get("updated") else ""
     root = "../" if LANG != "en" else ""
     body = f"""<h1>{E(t("home_h1"))}</h1>
-<p class="meta"><a href="{root}screen/">{E(t("home_screen"))}</a></p>
+<p class="meta"><a href="{root}screen/">{E(t("home_screen"))}</a> · <a href="markets/">{E(t("mk_home_link"))}</a></p>
+<p class="appbar"><a class="applink" href="https://testflight.apple.com/join/nQ2fpjZn" rel="noopener">{E(t("ios_link"))}</a></p>
+<p class="meta">{E(t("ios_note"))}</p>
 <p class="lead">{E(t("home_lead", upd=upd, n=len(items), pend=t("home_pend", n=len(pending)) if pending else ""))}</p>
 <div class="filters" role="group" aria-label="{E(t("filters"))}"><span class="lbl">{E(t("country"))}</span><div class="chips">{country_chips()}</div>
 <label for="fsrc">{E(t("source"))}</label><select id="fsrc"><option value="">{E(t("all_sources"))}</option>{opts}</select>
@@ -643,6 +758,7 @@ sel.addEventListener('change',function(){apply(1)});tc.concat(cc).forEach(functi
 </script>""" % json.dumps(i18n.strings(LANG).get("n_stories") or i18n.strings("en")["n_stories"])
     page("", t("home_title"), "", body, t("home_desc"), js)
     build_stories(write=True)
+    build_markets(ctx)
     build_org(ctx)
     build_sources(ctx)
     build_calendar(ctx)

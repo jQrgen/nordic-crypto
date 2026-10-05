@@ -8,6 +8,7 @@ sys.path.insert(0, ROOT)
 sys.path.insert(0, os.path.join(ROOT, "tools"))
 import api_feed
 import build
+import markets
 
 EMAIL = re.compile(r"[\w.+-]+@[\w-]+\.[\w.-]+")
 BANNED = api_feed.BANNED_KEYS | {"_how_to", "_note"}
@@ -27,17 +28,42 @@ def walk(obj, where, hits):
         if EMAIL.search(re.sub(r"https?://\S+", " ", obj)):
             hits.append(f"{where}: email")
 
+def _markets_fixture():
+    fetched = "2026-10-05T12:00:00+00:00"
+    rows = markets.parse_firi(
+        [{"id": "BTCNOK", "last": "100.5", "high": "101", "low": "99", "volume": "1", "change": "0.1"}],
+        [{"market": "BTCNOK", "bid": "100", "ask": "101"}],
+        fetched,
+    )
+    body = markets.empty_failure("fixture")
+    body["tickers"] = rows
+    body["count"] = len(rows)
+    for ex in body["exchanges"]:
+        if ex["id"] == "firi":
+            ex["status"] = "ok"
+            ex["error"] = None
+            ex["ticker_count"] = len(rows)
+    return body
+
+
+def meta_ios_later(tmp):
+    meta = json.load(open(os.path.join(tmp, "api/v1/meta.json"), encoding="utf-8"))
+    return (meta.get("ios") or {}).get("url")
+
+
 def main():
     fails = []
     ctx = api_feed.repo_context(False)
     with tempfile.TemporaryDirectory() as tmp:
         ev = ctx["events"][0]
+        ctx["markets"] = _markets_fixture()
         info = api_feed.write(
             tmp, preview=False, base=build.BASE,
             items=ctx["items"], events=ev, entities=ctx["ents"], relations=ctx["rels"],
             org_updated=ctx["org"].get("updated"), regulation=ctx["org"].get("regulation") or [],
             caveats=ctx["org"].get("caveats") or [], sources_cfg=ctx["cfg"],
             news_updated=ctx["news"].get("updated"),
+            markets=ctx["markets"],
         )
         build.SITE = tmp
         build.PREVIEW = False
@@ -76,7 +102,8 @@ def main():
         if "TTM4195" not in open(os.path.join(tmp, "api/v1/academia.json"), encoding="utf-8").read():
             fails.append("approved course missing")
         spec = json.load(open(os.path.join(tmp, "api/v1/openapi.json"), encoding="utf-8"))
-        for path in ("/api/v1/news.json", "/api/v1/news/{id}.json", "/api/v1/newsletters.json", "/api/v1/newsletters/{id}.json"):
+        for path in ("/api/v1/news.json", "/api/v1/news/{id}.json", "/api/v1/newsletters.json", "/api/v1/newsletters/{id}.json",
+                     "/api/v1/markets.json", "/api/v1/markets/{exchange}.json", "/api/v1/markets/by-asset/{symbol}.json"):
             if path not in spec["paths"]:
                 fails.append("openapi missing " + path)
         try:
@@ -93,6 +120,17 @@ def main():
             fails.append("cors")
         if "https://cryptonordic.no/api/v1/news.json" not in json.dumps(info):
             fails.append("custom domain example")
+        mk = json.load(open(os.path.join(tmp, "api/v1/markets.json"), encoding="utf-8"))
+        if mk["tickers"][0]["last"] != "100.5" or mk["tickers"][0]["source_url"] != "https://api.firi.com/v2/markets/BTCNOK":
+            fails.append("markets fixture")
+        if "raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json" not in json.dumps(mk["urls"]):
+            fails.append("markets raw url")
+        if not any(ep["path"] == "/api/v1/markets.json" for ep in info["endpoints"]):
+            fails.append("markets missing from discovery")
+        if not any("markets.json" in (s.get("url") or "") for s in info.get("start_here") or []):
+            fails.append("markets missing from start_here")
+        if meta_ios_later(tmp) != "https://testflight.apple.com/join/nQ2fpjZn":
+            fails.append("testflight url missing from meta")
         meta = json.load(open(os.path.join(tmp, "api/v1/meta.json"), encoding="utf-8"))
         if "/ethics/" not in {p.get("path") for p in meta.get("site_pages") or []}:
             fails.append("ethics page missing from site meta")

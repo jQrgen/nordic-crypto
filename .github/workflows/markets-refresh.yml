@@ -1,0 +1,44 @@
+# Rewrites only the markets JSON on gh-pages. Does not republish the rest of the site.
+# If every exchange fails, tools/markets.py --keep-if-empty leaves the previous files.
+name: Refresh market prices
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    if: github.repository == 'jQrgen/nordic-crypto'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout gh-pages
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Checkout the fetcher from main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: src
+
+      - name: Fetch prices into the published JSON
+        run: python3 src/tools/markets.py --write gh-pages --keep-if-empty
+
+      - name: Commit markets JSON
+        working-directory: gh-pages
+        run: |
+          git add api/v1/markets.json api/v1/markets
+          if git diff --cached --quiet; then
+            echo "no market files to commit"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Refresh Nordic exchange prices"
+            git push
+          fi
