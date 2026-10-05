@@ -1,5 +1,5 @@
 {
- "_how_to": "Published newsletter issues, shown on /newsletter/ (newest first) and as /newsletter/<id>/ in every language. Per issue: <id>/issue.html (the issue text as HTML, English), optional <id>/thumbnail.png (video poster), <id>/subs.vtt (English subtitles) and the video: <id>/video.mp4 is NOT committed (see .gitignore); build.py copies it into site/newsletter/<id>/ once (all languages use that copy) and, when the local file is missing, downloads video.url and checks video.sha256. Source drafts: newsletter/issues/.",
+ "_how_to": "Published newsletter issues, shown on /newsletter/ (newest first) and as /newsletter/<id>/ in every language. Per issue: <id>/issue.html (English HTML) and <id>/issue.<lang>.html for nn, nb, sv, da, fi, is. title and subtitle are English; title_i18n and subtitle_i18n follow the same shape as summary_i18n. Optional <id>/thumbnail.png (video poster), <id>/subs.vtt (English subtitles) and the video: <id>/video.mp4 is NOT committed (see .gitignore); build.py copies it into site/newsletter/<id>/ once (all languages use that copy) and, when the local file is missing, downloads video.url and checks video.sha256. The video stays one shared English file. Source drafts: newsletter/issues/.",
  "issues": [
   {
    "id": "001",
@@ -7,8 +7,24 @@
    "date": "2026-10-05",
    "period": ["2026-09-27", "2026-10-02"],
    "lang": "en",
-   "title": "Crypto Nordic #1: Binance under scrutiny and Sweden's crypto sanctions warning",
+   "title": "Nordic Crypto #1: Binance under scrutiny and Sweden's crypto sanctions warning",
    "subtitle": "Our first issue, with a new name. The Nordic crypto news that mattered from 27 September to 2 October 2026, and the meetups coming up.",
+   "title_i18n": {
+    "nn": "Nordic Crypto #1: Binance under lupa og Sveriges åtvaring om krypto og sanksjonar",
+    "nb": "Nordic Crypto #1: Binance under lupen og Sveriges advarsel om krypto og sanksjoner",
+    "sv": "Nordic Crypto #1: Binance granskas och Sveriges varning om krypto och sanktioner",
+    "da": "Nordic Crypto #1: Binance under lup og Sveriges advarsel om krypto og sanktioner",
+    "fi": "Nordic Crypto #1: Binance tarkastelussa ja Ruotsin varoitus kryptoista ja pakotteista",
+    "is": "Nordic Crypto #1: Binance til skoðunar og viðvörun Svíþjóðar um kriptó og refsiaðgerðir"
+   },
+   "subtitle_i18n": {
+    "nn": "Den første utgåva, med nytt namn. Dei nordiske kryptonyheitene som betydde noko frå 27. september til 2. oktober 2026, og treffpunkta som kjem.",
+    "nb": "Den første utgaven, med nytt navn. De nordiske kryptonyhetene som betydde noe fra 27. september til 2. oktober 2026, og treffene som kommer.",
+    "sv": "Vår första utgåva, med ett nytt namn. De nordiska kryptonyheter som betydde något från den 27 september till den 2 oktober 2026, och träffarna som väntar.",
+    "da": "Vores første udgave, med et nyt navn. De nordiske kryptonyheder, der betød noget fra 27. september til 2. oktober 2026, og de møder, der kommer.",
+    "fi": "Ensimmäinen numeromme, uudella nimellä. Pohjoismaiset kryptouutiset, joilla oli merkitystä 27. syyskuuta–2. lokakuuta 2026, ja tulevat tapaamiset.",
+    "is": "Fyrsta tölublaðið okkar, með nýju nafni. Norrænu kriptófréttirnar sem skiptu máli frá 27. september til 2. október 2026, og viðburðirnir framundan."
+   },
    "stories": 9,
    "events": 4,
    "video": {

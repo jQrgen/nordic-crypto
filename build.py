@@ -3,7 +3,8 @@
   .venv/bin/python build.py            # public build: ONLY editor-approved content (what publish.sh would push)
   .venv/bin/python build.py --preview  # local review build: also shows pending items, clearly marked "Pending editor review"
 All paths are relative, so the site works at https://jqrgen.github.io/nordic-crypto/ and on a local server.
-No tracking, no third-party scripts, no external fonts.
+Share buttons are plain links. No advertising trackers and no external fonts. Cloudflare Web Analytics
+(aggregate visits, no cookies) is injected only when analytics.json or CF_WEB_ANALYTICS_TOKEN has a real token.
 Languages (i18n/): English at the root, nynorsk /nn/, bokmål /nb/, svensk /sv/, dansk /da/, suomi /fi/, íslenska /is/.
 Every page is built once per language; data/ (JSON), assets/ and screen/ (English) exist only at the root."""
 import json, os, re, shutil, subprocess, html, sys, calendar, datetime as dt
@@ -13,7 +14,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__)); P = lambda *a: os.path.join(R
 BASE = "https://jqrgen.github.io/nordic-crypto/"
 SITE = os.environ.get("NC_SITE_DIR") or P("site")   # NC_SITE_DIR: scratch build dir (tipworker/publish_tip_page.sh)
 PREVIEW = "--preview" in sys.argv
-SITE_NAME = "Crypto Nordic"
+SITE_NAME = "Nordic Crypto"
 def load(p, d=None):
     try: return json.load(open(p, encoding="utf-8"))
     except FileNotFoundError: return d
@@ -49,7 +50,7 @@ def flag(c, big=False):
     return (f'<svg class="flag" viewBox="0 0 22 16" width="{w*(1.4 if big else 1):.0f}" height="{h*(1.4 if big else 1):.0f}" role="img" aria-label="{E(cname(c))}">'
             f'<title>{E(cname(c))}</title><rect width="22" height="16" fill="{bg}"{border}/><rect x="6" width="4" height="16" fill="{a}"/><rect y="6" width="22" height="4" fill="{a}"/>{inner}</svg>')
 def cname(c): return t("c_" + c) if c in COUNTRY_CODES or c in EXTRA_C_CODES else (c or "")
-def flags_js(): return json.dumps({c: flag(c) for c in COUNTRY_CODES + ["NORDIC"]})
+def flags_js(): return json.dumps({c: flag(c) for c in COUNTRY_CODES + EXTRA_C_CODES})
 
 CSS = """
 :root{--ink:#111;--muted:#4B5563;--line:#d1d5db;--paper:#fff;--accent:#0f5ea8;--warm:#b45309;--soft:#f5f7fa;--pub:#1d4ed8;--priv:#047857}
@@ -167,6 +168,7 @@ html.nc-pick body{visibility:hidden}
 .issue h1{overflow-wrap:break-word}.aitag{border-color:var(--accent);color:var(--accent);margin-left:0}
 .nlvideo{margin:16px 0 20px;max-width:960px}.nlvideo video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000}.nlvideo figcaption{margin-top:6px}
 .issuetext{overflow-wrap:break-word}.issuetext h2{font-size:19px}.issuetext ul{padding-left:20px}.issuetext li{margin:4px 0}.issuetext hr{border:0;border-top:1px solid var(--line);margin:22px 0}
+.bridge{margin:6px 0 0;font-weight:600}
 @media(max-width:520px){.nlissues li{flex-direction:column;gap:8px}.nlissues .th{width:100%;max-width:100%}h1{font-size:24px}}
 """
 
@@ -246,7 +248,7 @@ def header_x_button():
     return (f'<a class="hdrx" href="{SITE_X}" rel="noopener" title="{E(t("x_title"))}">'
             f'<span class="xf">{E(t("x_btn"))}</span><span class="xs" aria-hidden="true">X</span></a>')
 def x_link():
-    """'Follow Crypto Nordic on X' link (footer, /newsletter/, issue pages), next to the Substack button."""
+    """'Follow Nordic Crypto on X' link (footer, /newsletter/, issue pages), next to the Substack button."""
     return f'<a class="xfollow" href="{SITE_X}" rel="noopener" title="{E(t("x_title"))}">{E(t("x_follow"))}</a>'
 # ---- Newsletter issues (newsletter/published/issues.json; text, poster, subtitles and video per issue) ----
 # The subtitle track is not "default": issue videos have the English subtitles burned in, the track is for assistive tech and players.
@@ -289,19 +291,42 @@ def nl_copy_assets(iss):
         if v.get(k) and os.path.exists(os.path.join(NL_PUB, iss["id"], v[k])): shutil.copy(os.path.join(NL_PUB, iss["id"], v[k]), os.path.join(d, v[k]))
     vf = nl_video_file(iss) if v else None
     if vf: shutil.copy(vf, os.path.join(d, v.get("file") or "video.mp4"))
-def nl_meta(iss, with_video=True):
+def nl_i18n(iss, key):
+    """English lives on the issue; other languages in <key>_i18n (same shape as summary_i18n). Returns (text, lang)."""
+    if LANG != "en":
+        v = (iss.get(key + "_i18n") or {}).get(LANG)
+        if v: return v, LANG
+    return iss.get(key) or "", iss.get("lang", "en")
+def nl_issue_html(iss):
+    """issue.<lang>.html when that translation exists, otherwise the English issue.html. Returns (html, lang)."""
+    iid = iss["id"]
+    if LANG != "en":
+        p = os.path.join(NL_PUB, iid, f"issue.{LANG}.html")
+        if os.path.exists(p): return open(p, encoding="utf-8").read(), LANG
+    return open(os.path.join(NL_PUB, iid, "issue.html"), encoding="utf-8").read(), iss.get("lang", "en")
+def nl_meta(iss, with_video=True, text_lang=None):
     v = iss.get("video") or {}
     parts = [E(t("nl_issue_n", n=iss.get("number"))), f'<time datetime="{E(iss["date"])}">{E(i18n.short_date(LANG, dt.date.fromisoformat(iss["date"])))}</time>']
     if with_video and v.get("duration"): parts.append(E(t("nl_issue_video", m=max(1, round(v["duration"] / 60)))))
-    if iss.get("lang", "en") != LANG and i18n.has("en", "lang_English"): parts.append(E(t("lang_English")))
+    if text_lang and text_lang != LANG and i18n.has("en", "lang_English"): parts.append(E(t("lang_English") if text_lang == "en" else text_lang))
     return " · ".join(parts)
+def nl_body_bridge(iss, text_lang):
+    """When the issue HTML is not in the page language, explain the issue in the page language."""
+    if not text_lang or text_lang == LANG:
+        return ""
+    phrase = t("lang_English") if text_lang == "en" and i18n.has("en", "lang_English") else text_lang
+    what, wl = nl_i18n(iss, "subtitle")
+    if not (what or "").strip():
+        return f'<p class="notice">{E(t("nl_issue_en"))}</p>'
+    return f'<p class="notice">{E(t("nl_bridge", where=phrase))} <span{lang_attr(wl)}>{E(what)}</span></p>'
 def build_issue(iss):
-    """/newsletter/<id>/: the full issue text (English; other languages get a short note), the video played from this
-    site (HTML5 <video>, poster, English subtitles; no third-party player), a download link to the release copy."""
+    """/newsletter/<id>/: the issue text in the reader's language when issue.<lang>.html exists (otherwise English,
+    with a short note). The video is one shared English file (HTML5 <video>, poster, English subtitles; no third-party player)."""
     iid = iss["id"]; v = iss.get("video") or {}; slug = f"newsletter/{iid}"
     depth = 2 + (0 if LANG == "en" else 1); root = "../" * depth; a = f"{root}newsletter/{iid}/"
-    il = iss.get("lang", "en"); la = lang_attr(il)
-    txt = open(os.path.join(NL_PUB, iid, "issue.html"), encoding="utf-8").read().replace(BASE, root + lp())  # site links stay in the reader's language
+    title, tl = nl_i18n(iss, "title"); subtitle, sl = nl_i18n(iss, "subtitle")
+    txt, hl = nl_issue_html(iss); txt = txt.replace(BASE, root + lp())  # site links stay in the reader's language
+    tla, sla, hla = lang_attr(tl), lang_attr(sl), lang_attr(hl)
     per = iss.get("period") or []
     per_s = (" · " + E(t("nl_issue_period", a=i18n.short_dm(LANG, dt.date.fromisoformat(per[0])), b=i18n.short_date(LANG, dt.date.fromisoformat(per[1]))))) if len(per) == 2 else ""
     cnt = (" · " + E(t("nl_issue_count", s=iss["stories"], e=iss["events"]))) if iss.get("stories") else ""
@@ -312,7 +337,7 @@ def build_issue(iss):
         subs = f' · <a href="{a}{E(v["subs"])}" download>{E(t("nl_video_subs"))}</a>' if v.get("subs") else ""
         if nl_video_file(iss):
             poster = f' poster="{a}{E(v["poster"])}"' if v.get("poster") else ""
-            track = f'<track kind="subtitles" srclang="en" label="English" src="{a}{E(v["subs"])}">' if v.get("subs") else ""
+            track = f'<track kind="subtitles" srclang="en" label="{E(t("lname_English"))}" src="{a}{E(v["subs"])}">' if v.get("subs") else ""
             vid = (f'<figure class="nlvideo"><video controls preload="metadata" playsinline{poster} width="{v.get("width", 1920)}" height="{v.get("height", 1080)}">'
                    f'<source src="{a}{E(v.get("file") or "video.mp4")}" type="video/mp4">{track}<p>{E(t("nl_video_fallback"))} {dl}</p></video>'
                    f'<figcaption class="meta">{E(t("nl_video_note"))}<br>{dl}{subs}</figcaption></figure>')
@@ -320,17 +345,18 @@ def build_issue(iss):
     sub = substack_button()
     body = f"""<article class="issue">
 <p class="meta"><a href="../">← {E(t("nl_all_issues"))}</a></p>
-<h1{la}>{E(iss["title"])}</h1>
-<p class="lead"{la}>{E(iss.get("subtitle"))}</p>
+<h1{tla}>{E(title)}</h1>
+<p class="lead"{sla}>{E(subtitle)}</p>
 <p class="meta">{nl_meta(iss, False)}{per_s}{cnt} <span class="tag aitag">{E(t("nl_ai"))}</span></p>
-{f'<p class="notice">{E(t("nl_issue_en"))}</p>' if il != LANG else ''}
+{nl_body_bridge(iss, hl)}
 {vid}
-<div class="prose issuetext"{la}>
+<div class="prose issuetext"{hla}>
 {txt}</div>
-<section class="nlhome"><p>{f'<b>{E(t("nl_get_next"))}</b> {sub} ' if sub else ''}{x_link()}</p></section>
+<section class="nlhome"><p>{f'<b>{E(t("nl_get_next"))}</b> {sub} ' if sub else ''}{x_link()}</p>
+<p>{t("nl_write", href="../../columnist/")}</p></section>
 <p class="meta"><a href="../">← {E(t("nl_all_issues"))}</a></p>
 </article>"""
-    page(slug, iss["title"], "newsletter", body, iss.get("subtitle") or t("nl_desc"))
+    page(slug, title, "newsletter", body, subtitle or t("nl_desc"))
 def build_newsletter():
     """/newsletter/ in every language (the Newsletter tab): the issues (newest first, each with its own page), the own
     form (only when on), the Substack signup link (whenever substack_url is set), the privacy note and the Kaupr disclosure."""
@@ -341,11 +367,12 @@ def build_newsletter():
     for iss in issues:
         if LANG == "en": nl_copy_assets(iss)
         build_issue(iss)
-        v = iss.get("video") or {}; la = lang_attr(iss.get("lang", "en"))
+        v = iss.get("video") or {}
+        title, tl = nl_i18n(iss, "title"); subtitle, sl = nl_i18n(iss, "subtitle"); _, hl = nl_issue_html(iss)
         th = (f'<a class="th" href="{E(iss["id"])}/" tabindex="-1" aria-hidden="true"><img src="{root}newsletter/{E(iss["id"])}/{E(v["poster"])}" alt="" width="320" height="180" loading="lazy"></a>'
               if v.get("poster") else "")
-        lis.append(f'<li>{th}<div><h3{la}><a href="{E(iss["id"])}/">{E(iss["title"])}</a></h3><div class="meta">{nl_meta(iss)}</div>'
-                   f'<p class="sum"{la}>{E(iss.get("subtitle"))}</p></div></li>')
+        lis.append(f'<li>{th}<div><h3{lang_attr(tl)}><a href="{E(iss["id"])}/">{E(title)}</a></h3><div class="meta">{nl_meta(iss)}</div>'
+                   f'<p class="sum"{lang_attr(sl)}>{E(subtitle)}</p></div></li>')
     form = newsletter_form()
     sub = substack_button()
     priv = f'<p class="notice">{t("nl_priv")}</p>' if form else ""
@@ -357,10 +384,30 @@ def build_newsletter():
 <h2 id="issues">{E(t("nl_issues_h"))}</h2>
 <p class="meta">{E(t("nl_issues_lead"))}</p>
 <ol class="nlissues">{''.join(lis) or f'<li class="empty">{E(t("nl_issues_none"))}</li>'}</ol>
+<p>{t("nl_write", href="../columnist/")}</p>
 {substack_embed()}
 <div class="prose">{priv}{subnote}
 <p class="meta">{t("nl_kaupr")}</p></div>"""
     page("newsletter", t("nl_title"), "newsletter", body, t("nl_desc"))
+_ANALYTICS_TOKEN = re.compile(r"^[A-Za-z0-9_-]{16,128}$")
+def analytics_token():
+    """Public Cloudflare Web Analytics site token. Empty until analytics.json or CF_WEB_ANALYTICS_TOKEN is set."""
+    raw = (os.environ.get("CF_WEB_ANALYTICS_TOKEN") or "").strip()
+    if not raw:
+        raw = str((load(P("analytics.json"), {}) or {}).get("token") or "").strip()
+    if not raw or "REPLACE" in raw.upper() or raw.upper() in {"TOKEN", "XXX", "YOUR_TOKEN"}:
+        return ""
+    if not _ANALYTICS_TOKEN.fullmatch(raw):
+        print("analytics: token ignored (paste the public Cloudflare Web Analytics site token)")
+        return ""
+    return raw
+def analytics_snippet():
+    """Beacon only after the privacy texts name Cloudflare Web Analytics, and only with a real token."""
+    tok = analytics_token()
+    if not tok:
+        return ""
+    payload = E(json.dumps({"token": tok}, separators=(",", ":")))
+    return f'<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{payload}"></script>'
 LANGSEL_JS = None
 def langsel_script():
     global LANGSEL_JS
@@ -400,13 +447,13 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None):
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230f5ea8'/%3E%3Crect x='4' width='3' height='16' fill='white'/%3E%3Crect y='6.5' width='16' height='3' fill='white'/%3E%3C/svg%3E">
 <style>{CSS}{s['css']}</style></head>
-<body>{banner}<header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="{rel}">Crypto <span>Nordic</span></a><span class="hdrbtns">{header_sub_button()}{header_x_button()}</span></div><nav class="main" aria-label="{E(t("main_menu"))}">{nav_html}</nav>{switcher}</div></header>
+<body>{banner}<header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="{rel}">Nordic <span>Crypto</span></a><span class="hdrbtns">{header_sub_button()}{header_x_button()}</span></div><nav class="main" aria-label="{E(t("main_menu"))}">{nav_html}</nav>{switcher}</div></header>
 <main class="wrap">
 {body}
 {s['top']}
 </main>
 <footer><div class="wrap">{nlfoot}{t("footer", site=SITE_NAME, rel=rel)}</div></footer>
-{s['script']}{setck}{extra_script}{newsletter_script()}
+{s['script']}{setck}{extra_script}{newsletter_script()}{analytics_snippet()}
 </body></html>"""
     d = os.path.join(SITE, lp(), slug); os.makedirs(d, exist_ok=True)
     open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(doc)
@@ -472,7 +519,7 @@ def build():
     LANG = "en"
     os.makedirs(os.path.join(SITE, "screen"), exist_ok=True)
     open(os.path.join(SITE, "screen", "index.html"), "w", encoding="utf-8").write(
-        open(P("templates", "screen.html"), encoding="utf-8").read().replace("__BASE__", BASE).replace("__FLAGS__", flags_js()).replace("__PREVIEW__", "true" if PREVIEW else "false"))
+        open(P("templates", "screen.html"), encoding="utf-8").read().replace("__BASE__", BASE).replace("__FLAGS__", flags_js()).replace("__PREVIEW__", "true" if PREVIEW else "false").replace("__ANALYTICS__", analytics_snippet()))
     for old, new in (("kalender", "calendar"), ("skjerm", "screen"), ("organisasjonskart", "org-chart"), ("kilder", "sources"), ("om", "about"), ("akademia", "academia")): redirect(old, new)
     active = sorted({(s.get("outlet") and next((x["name"] for x in cfg["sources"] if x["id"] == s.get("outlet")), s["name"]) or s["name"]).split(" (")[0] + "|" + s["country"]
                      for s in cfg["sources"] if s.get("enabled") and s["type"] not in ("bing", "search") and status.get(s["id"], {}).get("ok", True)})
@@ -515,12 +562,20 @@ def build_lang(ctx):
         else:  # other languages: the external headline exactly as in the source
             head, head_l, orig = i["title"], src_l, ""
         lname = i.get("language") or ""
-        lang = f' · {E(t("lang_" + lname))}' if lname and i18n.has("en", "lang_" + lname) and lname != i18n.SAME_LANG[LANG] else ""
+        foreign = bool(lname and i18n.has("en", "lang_" + lname) and lname != i18n.SAME_LANG[LANG] and head_l != LANG)
         if pend:
             summ = f'<p class="sum pend">{E(t("sum_pending"))}</p>'
+            lang = f' · {E(t("lang_" + lname))}' if foreign else ""
         else:
             txt, tl = L18(i, "summary")
-            summ = f'<p class="sum"{lang_attr(tl)}>{E(txt)}</p>'
+            # Source language differs from the page: a sentence in the page language, then the summary. Not only «på engelsk».
+            if foreign and tl == LANG and (txt or "").strip():
+                lang = ""
+                summ = (f'<p class="bridge">{E(t("bridge", where=t("lang_" + lname)))}</p>'
+                        f'<p class="sum"{lang_attr(tl)}>{E(txt)}</p>')
+            else:
+                lang = f' · {E(t("lang_" + lname))}' if foreign else ""
+                summ = f'<p class="sum"{lang_attr(tl)}>{E(txt)}</p>'
         hl = "" if head_l == LANG else f' lang="{head_l}"'
         lis.append(f'<li data-src="{E(i["source"])}" data-c="{E(i.get("country"))}" data-topics="{E(" ".join(i["topics"]))}">'
                    f'<h3><a href="{E(i["url"])}"{"" if i.get("own_story") else " rel=noopener target=_blank"}{hl}>{E(head)}</a></h3>{orig}'
@@ -560,6 +615,7 @@ sel.addEventListener('change',function(){apply(1)});tc.concat(cc).forEach(functi
     build_academia()
     build_changelog()
     build_tip()
+    build_columnist()
     build_newsletter()
     build_rules(ctx)
     about = open(P("templates", f"about.{LANG}.html" if LANG != "en" else "about.html"), encoding="utf-8").read().replace("{{UP}}", up1())
@@ -720,14 +776,14 @@ def build_stories(write=True):
             note = t("story_only_en")
             body = (f'<p class="meta"><a href="../../">{E(t("back_news"))}</a></p>' + (f'<p class="notice">{E(note)}</p>' if note and art_l == "en" and LANG != "en" else "")
                     + f'<article class="prose"{lang_attr(art_l)}><h1>{E(title)}</h1>'
-                    f'<p class="meta">{flag(country)} {E(cname(country))} · Crypto Nordic · {endate(pub)}'
+                    f'<p class="meta">{flag(country)} {E(cname(country))} · Nordic Crypto · {endate(pub)}'
                     + (f' <span class="tag pend">{E(t("owner"))}</span>' if status == "owner" else "") + '</p>'
                     + "".join(f"<p>{md_inline(x)}</p>" for x in paras)
                     + f'<h2>{E(t("sources_h"))}</h2><ul>' + "".join(f"<li>{md_inline(s)}</li>" for s in srcs) + '</ul></article>'
                     + f'<p class="notice">{t("story_notice", rel="../../")}</p>')
             page("stories/" + slug, title, "stories", body, paras[0][:200] if paras else title)
         first = (st.get("summaries") or {}).get(slug) or (first_sentence(paras[0]) if paras else "")
-        out.append({"id": "story-" + slug, "url": f"stories/{slug}/", "title": title, "source": "nordic-crypto", "source_name": "Crypto Nordic",
+        out.append({"id": "story-" + slug, "url": f"stories/{slug}/", "title": title, "source": "nordic-crypto", "source_name": "Nordic Crypto",
                     "country": country, "language": "English", "published": pub, "topics": ["regulation"], "summary": first,
                     "summary_i18n": (st.get("summaries_i18n") or {}).get(slug) or {}, "status": status, "own_story": True})
     return out
@@ -881,6 +937,7 @@ cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('ari
     if LANG == "en": print(f"academia: {allrows} editor-approved rows shown {per_c}")
 
 TIP_FORM = "https://github.com/jQrgen/nordic-crypto/issues/new?template=tip.yml"
+COL_FORM = "https://github.com/jQrgen/nordic-crypto/issues/new?template=columnist.yml"
 def tip_endpoint():
     """Fixed public tip endpoint (e.g. https://tips.<domain>): env TIP_ENDPOINT or tipserver/config.json -> public_endpoint.
     Takes precedence and is baked into /tip/. Without it, /tip/ reads the current quick-tunnel URL at runtime from
@@ -969,6 +1026,30 @@ def build_tip():
 </form>
 <p class="prose">{t("tip_gh_direct", gh=TIP_FORM)}</p>"""
     page("tip", t("tip_title"), "tip", body, t("tip_desc"))
+
+def build_columnist():
+    """'Apply as a columnist' page. Same privacy pattern as the static tip page: a plain HTML form (GET, no JavaScript,
+    no tracking) that opens a prefilled public GitHub issue (.github/ISSUE_TEMPLATE/columnist.yml). Nothing is stored
+    on this site. The editor reviews every pitch; publication is not guaranteed."""
+    body = f"""<h1>{E(t("col_title"))}</h1>
+<p class="lead">{E(t("col_lead"))}</p>
+<div class="prose">
+<p>{t("col_p")}</p>
+<p class="notice warn">{t("col_priv")}</p>
+</div>
+<form class="tipform" method="get" action="https://github.com/jQrgen/nordic-crypto/issues/new">
+<input type="hidden" name="template" value="columnist.yml">
+<p><label for="c-name"><b>{E(t("col_name"))}</b> {E(t("col_name_opt"))}</label><br><input id="c-name" name="name" maxlength="80" autocomplete="name" style="width:100%;max-width:560px;padding:6px"></p>
+<p><label for="c-contact"><b>{E(t("col_contact"))}</b> {E(t("tip_required"))}</label><br><input id="c-contact" name="contact" required maxlength="120" autocomplete="email" style="width:100%;max-width:560px;padding:6px"><br><span class="meta">{E(t("col_contact_help"))}</span></p>
+<p><label for="c-langs"><b>{E(t("col_langs"))}</b> {E(t("tip_required"))}</label><br><input id="c-langs" name="languages" required maxlength="120" style="width:100%;max-width:560px;padding:6px"><br><span class="meta">{E(t("col_langs_help"))}</span></p>
+<p><label for="c-pitch"><b>{E(t("col_pitch"))}</b> {E(t("tip_required"))}</label><br><textarea id="c-pitch" name="pitch" required rows="5" maxlength="1500" style="width:100%;max-width:560px;padding:6px"></textarea><br><span class="meta">{E(t("col_pitch_help"))}</span></p>
+<p><label for="c-sample"><b>{E(t("col_sample"))}</b> {E(t("col_sample_opt"))}</label><br><input id="c-sample" name="sample" type="url" maxlength="300" placeholder="https://" style="width:100%;max-width:560px;padding:6px"></p>
+<p><label for="c-why"><b>{E(t("col_why"))}</b> {E(t("tip_required"))}</label><br><textarea id="c-why" name="why" required rows="4" maxlength="800" style="width:100%;max-width:560px;padding:6px"></textarea><br><span class="meta">{E(t("col_why_help"))}</span></p>
+<p><button type="submit" style="padding:8px 14px;font-size:15px">{E(t("col_btn"))}</button></p>
+<p class="meta">{E(t("col_meta"))}</p>
+</form>
+<p class="prose">{t("col_direct", gh=COL_FORM)}</p>"""
+    page("columnist", t("col_title"), "columnist", body, t("col_desc"))
 
 def build_changelog():
     """Changelog page from changelog.json (site changes only, newest first). Entries dated "launch" use launch_date,

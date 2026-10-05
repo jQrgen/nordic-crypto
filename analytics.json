@@ -1,0 +1,4 @@
+{
+  "token": "",
+  "_note": "Public site token from the Cloudflare dashboard: Web Analytics, this site, the token inside data-cf-beacon. Leave empty until you paste it, or set the env var CF_WEB_ANALYTICS_TOKEN for a build. build.py adds the beacon only when the token is a real token. Do not commit a placeholder such as REPLACE. The token is public (it appears in the HTML). No Plausible and no advertising trackers."
+}

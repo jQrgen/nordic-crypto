@@ -1,0 +1,61 @@
+name: Apply as a columnist
+description: Pitch a column for Nordic Crypto. The editor reviews every pitch. Publication is not guaranteed. Not investment advice.
+title: "Columnist: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for wanting to write for Nordic Crypto. Our editor reads every pitch. **A pitch does not guarantee publication.** A column is journalism, not investment advice.
+
+        **Privacy:** this issue is **public** on GitHub, together with your GitHub username. Share only a name and a contact method you are willing to have public. Do not include health information, private financial information, or other sensitive details about yourself or anyone else. Nothing is stored on the Nordic Crypto website.
+  - type: input
+    id: name
+    attributes:
+      label: Your name
+      description: Optional. Leave empty to be known only by your GitHub username. We do not publish it on the site.
+    validations:
+      required: false
+  - type: input
+    id: contact
+    attributes:
+      label: Email or other contact
+      description: How the editor can reach you. This issue is public, so use a contact method you are willing to show.
+    validations:
+      required: true
+  - type: input
+    id: languages
+    attributes:
+      label: Languages you can write in
+      description: For example English, Norwegian (nynorsk or bokmål), Swedish, Danish, Finnish or Icelandic.
+      placeholder: English, Swedish
+    validations:
+      required: true
+  - type: textarea
+    id: pitch
+    attributes:
+      label: Pitch / topic
+      description: What you want to write about, and roughly how often. Crypto, bitcoin or blockchain, with a Nordic angle. No health information or private financial information.
+    validations:
+      required: true
+  - type: input
+    id: sample
+    attributes:
+      label: Sample link
+      description: Optional. A link to something you have written.
+      placeholder: https://
+    validations:
+      required: false
+  - type: textarea
+    id: why
+    attributes:
+      label: Why Nordic Crypto
+      description: Why you want to write here.
+    validations:
+      required: true
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Before you send
+      options:
+        - label: I understand that the editor reviews this pitch, publication is not guaranteed, this is not investment advice, and this issue is public on GitHub. It contains no health information or private financial information.
+          required: true

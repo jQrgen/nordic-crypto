@@ -1,5 +1,5 @@
 name: Send a tip
-description: Tip Crypto Nordic about an article on crypto, bitcoin or blockchain in Norway, Sweden, Denmark, Finland or Iceland.
+description: Tip Nordic Crypto about an article on crypto, bitcoin or blockchain in Norway, Sweden, Denmark, Finland or Iceland.
 title: "Tip: "
 labels: ["tip"]
 body:
