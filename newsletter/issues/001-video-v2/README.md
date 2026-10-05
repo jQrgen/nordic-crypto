@@ -10,9 +10,11 @@ space-kitten opening for Nordic Crypto.
 
 ## Next cut (not this site file)
 
-jQrgen's next style is a calm male newsreader in the manner of NRK's Gislefoss: clear,
-authoritative, deeper voice, unhurried public-broadcaster pacing. Not the sensational
-house style.
+jQrgen's next style is a calm male newsreader in the manner of NRK's Gislefoss: straight
+delivery, clear, authoritative, no jokes and no kittens. Use a deeper male English voice,
+edge-tts `en-GB-ThomasNeural` near `0%` to `+4%`, not `en-GB-RyanNeural` at `+20%`.
+Pacing is unhurried public-broadcaster: slightly longer lead and tail than this newsreel.
+Do not re-render the published site file into that voice unless asked.
 
 Brand on screen and in the voice: **Nordic Crypto**.
 Sign-off: **The Nordic Crypto team**.

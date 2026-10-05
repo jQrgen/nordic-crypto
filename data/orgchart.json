@@ -2701,7 +2701,7 @@
    "type": "organisation",
    "sector": "private",
    "country": "NORDIC",
-   "description": "Niche outlet for digital assets, tokenisation and MiCA in the Nordics (writes in Norwegian about all Nordic markets). Disclosure: Kaupr sponsors Oslo Blockchain Meetup, the meetup run by jQrgen (Jørgen S. Notland), the publisher of Nordic Crypto.",
+   "description": "Niche outlet for digital assets, tokenisation and MiCA in the Nordics (writes in Norwegian about all Nordic markets). Disclosure: Kaupr sponsors Oslo Blockchain Meetup, the meetup run by jQrgen (Jørgen S. Notland). Kaupr does not sponsor Nordic Crypto.",
    "sources": [
     {
      "url": "https://www.kaupr.io/dk/nyheder/norges-bank-utforsker-tokenisering-med-tolv-aktorer",
@@ -5154,7 +5154,7 @@
    "sector": "private",
    "country": "NO",
    "group": null,
-   "description": "Disclosure: Kaupr sponsors Oslo Blockchain Meetup, the meetup run by jQrgen (Jørgen S. Notland), the publisher of Nordic Crypto.",
+   "description": "Disclosure: Kaupr sponsors Oslo Blockchain Meetup, the meetup run by jQrgen (Jørgen S. Notland). Kaupr does not sponsor Nordic Crypto.",
    "sources": [
     {
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/928117316/roller",

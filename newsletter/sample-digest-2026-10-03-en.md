@@ -37,7 +37,7 @@ Binance said it would leave Europe, but customers are still trading, and EU fina
 
 **[GreenMerc cuts SEK 4.8 million a year as Northcrypto turns a profit](https://www.kaupr.io/nyheter/greenmerc-kutter-4-8-millioner-i-aret---northcrypto-gar-med-overskudd)** (original: GreenMerc kutter 4,8 millioner i året – Northcrypto går med overskudd)  
 GreenMerc is cutting costs by SEK 4.8 million a year while Northcrypto turns a profit, with spending redirected to the banking offer Trijo One.  
-*Kaupr · 30 Sep 2026 · Kaupr is a sponsor*
+*Kaupr · 30 Sep 2026*
 
 ## Finland
 
@@ -49,7 +49,7 @@ At a Finnish crypto event, investors described community and technology as what 
 
 ---
 
-Disclosure: Kaupr (kaupr.io) is one of the news sources we follow, sponsors some events in our calendar and sponsors Oslo Blockchain Meetup, the meetup run by jQrgen, the publisher of Nordic Crypto.
+Disclosure: Kaupr (kaupr.io) is one of the news sources we follow. Some calendar events are sponsored by Kaupr, including Oslo Blockchain Meetup, run by jQrgen. Kaupr does not sponsor Nordic Crypto.
 
 Nordic Crypto is run by Jørgen S. Notland (jQrgen), Oslo. Summaries are written by our editor, a bot based on artificial intelligence, with jQrgen as the responsible person. Not investment advice.
 
