@@ -339,10 +339,10 @@
   "/api/v1/sources.json": {
    "get": {
     "operationId": "api_v1_sources",
-    "summary": "News outlets, the public search terms, and event sources. Kaupr is marked as a news source only.",
+    "summary": "News outlets, the public search terms, and event sources. Kaupr is marked as a news source only. logo is the outlet image for that source id when one is on file.",
     "responses": {
      "200": {
-      "description": "News outlets, the public search terms, and event sources. Kaupr is marked as a news source only.",
+      "description": "News outlets, the public search terms, and event sources. Kaupr is marked as a news source only. logo is the outlet image for that source id when one is on file.",
       "content": {
        "application/json": {
         "schema": {
@@ -968,10 +968,35 @@
       "nullable": true
      },
      "source": {
-      "type": "string"
+      "type": "string",
+      "description": "Source id from sources.json."
      },
      "source_name": {
       "type": "string"
+     },
+     "source_logo": {
+      "type": "object",
+      "nullable": true,
+      "description": "Outlet logo for this source id. Null when no checked image is on file; show the name only. file_url is the image. The id → file map is assets/img/logos/logos.json.",
+      "properties": {
+       "kind": {
+        "type": "string"
+       },
+       "file_url": {
+        "type": "string"
+       },
+       "source_url": {
+        "type": "string"
+       },
+       "license": {
+        "type": "string",
+        "nullable": true
+       },
+       "credit": {
+        "type": "string",
+        "nullable": true
+       }
+      }
      },
      "source_note": {
       "type": "string",
@@ -1075,10 +1100,35 @@
          "nullable": true
         },
         "source": {
-         "type": "string"
+         "type": "string",
+         "description": "Source id from sources.json."
         },
         "source_name": {
          "type": "string"
+        },
+        "source_logo": {
+         "type": "object",
+         "nullable": true,
+         "description": "Outlet logo for this source id. Null when no checked image is on file; show the name only. file_url is the image. The id → file map is assets/img/logos/logos.json.",
+         "properties": {
+          "kind": {
+           "type": "string"
+          },
+          "file_url": {
+           "type": "string"
+          },
+          "source_url": {
+           "type": "string"
+          },
+          "license": {
+           "type": "string",
+           "nullable": true
+          },
+          "credit": {
+           "type": "string",
+           "nullable": true
+          }
+         }
         },
         "source_note": {
          "type": "string",

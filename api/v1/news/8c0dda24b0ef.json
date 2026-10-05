@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T23:24:20+00:00",
+ "generated_at": "2026-10-05T23:30:04+00:00",
  "preview": false,
  "item": {
   "id": "8c0dda24b0ef",
@@ -12,6 +12,15 @@
   "title_en": "Here is where the risk of financing proliferation of weapons of mass destruction is highest",
   "source": "fi-se",
   "source_name": "Finansinspektionen (SE FSA)",
+  "source_logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/se-fi.svg",
+   "source_url": "https://commons.wikimedia.org/wiki/File:Finansinspektionen_logo.svg",
+   "author": "Finansinspektionen.",
+   "license": "Public domain",
+   "license_url": null,
+   "credit": "Wikimedia Commons"
+  },
   "source_note": null,
   "country": "SE",
   "language": "Swedish",

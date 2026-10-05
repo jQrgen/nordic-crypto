@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T23:24:20+00:00",
+ "generated_at": "2026-10-05T23:30:04+00:00",
  "preview": false,
  "item": {
   "id": "f6301aef3314",
@@ -12,6 +12,15 @@
   "title_en": null,
   "source": "finanssivalvonta",
   "source_name": "Finanssivalvonta",
+  "source_logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/fi-fiva.webp",
+   "source_url": "https://www.finanssivalvonta.fi/contentassets/2a88d63613bb4f049c687203e8731112/logo.png",
+   "author": null,
+   "license": null,
+   "license_url": null,
+   "credit": "Official website"
+  },
   "source_note": null,
   "country": "FI",
   "language": "English",

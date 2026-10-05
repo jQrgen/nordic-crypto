@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T23:24:20+00:00",
+ "generated_at": "2026-10-05T23:30:04+00:00",
  "preview": false,
  "item": {
   "id": "2d38c9c89e0e",
@@ -12,6 +12,7 @@
   "title_en": "Reports: teenagers duct-taped a man in hunt for cryptocurrency",
   "source": "sydsvenskan.se",
   "source_name": "Sydsvenskan",
+  "source_logo": null,
   "source_note": null,
   "country": "SE",
   "language": "Swedish",

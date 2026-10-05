@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T23:24:20+00:00",
+ "generated_at": "2026-10-05T23:30:04+00:00",
  "preview": false,
  "item": {
   "id": "55643fb5a215",
@@ -12,6 +12,15 @@
   "title_en": "Government studying a temporary ban on new crypto data centres (written question 15:3707)",
   "source": "stortinget",
   "source_name": "Stortinget",
+  "source_logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/stortinget-finanskomiteen.svg",
+   "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+   "author": "Worldlydev",
+   "license": "Public domain",
+   "license_url": null,
+   "credit": "Wikimedia Commons"
+  },
   "source_note": null,
   "country": "NO",
   "language": "Norwegian",

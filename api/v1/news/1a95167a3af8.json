@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T23:24:20+00:00",
+ "generated_at": "2026-10-05T23:30:04+00:00",
  "preview": false,
  "item": {
   "id": "1a95167a3af8",
@@ -12,6 +12,7 @@
   "title_en": "Charged with selling drugs for cryptocurrency on the dark web",
   "source": "aftenposten",
   "source_name": "Aftenposten",
+  "source_logo": null,
   "source_note": null,
   "country": "NO",
   "language": "Norwegian",

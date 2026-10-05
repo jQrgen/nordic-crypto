@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T23:24:20+00:00",
+ "generated_at": "2026-10-05T23:30:04+00:00",
  "preview": false,
  "item": {
   "id": "6753e8903e88",
@@ -12,6 +12,7 @@
   "title_en": "Minister in new tax showdown: wants to clear the 'jungle of unreasonable and incomprehensible rules'",
   "source": "berlingske.dk",
   "source_name": "Berlingske",
+  "source_logo": null,
   "source_note": null,
   "country": "DK",
   "language": "Danish",

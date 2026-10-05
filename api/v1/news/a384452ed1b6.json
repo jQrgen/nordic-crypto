@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T23:24:20+00:00",
+ "generated_at": "2026-10-05T23:30:04+00:00",
  "preview": false,
  "item": {
   "id": "a384452ed1b6",
@@ -12,6 +12,15 @@
   "title_en": "GreenMerc drops MiCA appeal and uses Northcrypto's licence in Sweden",
   "source": "kaupr",
   "source_name": "Kaupr",
+  "source_logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+   "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+   "author": null,
+   "license": null,
+   "license_url": null,
+   "credit": "Official website"
+  },
   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
   "country": "SE",
   "language": "Norwegian",

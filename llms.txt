@@ -54,7 +54,7 @@ A single news item is api/v1/news/{id}.json (the id is on each item). A single n
 - [/api/v1/events/upcoming.json](https://jqrgen.github.io/nordic-crypto/api/v1/events/upcoming.json): Events that have not ended, soonest first. Judged in the event's own offset.
 - [/api/v1/events/past.json](https://jqrgen.github.io/nordic-crypto/api/v1/events/past.json): Finished public events, newest first. Finished events stay in the archive.
 - [/api/v1/events/by-country/{country}.json](https://jqrgen.github.io/nordic-crypto/api/v1/events/by-country/{country}.json): Public events for one country code.
-- [/api/v1/sources.json](https://jqrgen.github.io/nordic-crypto/api/v1/sources.json): News outlets, the public search terms, and event sources. Kaupr is marked as a news source only.
+- [/api/v1/sources.json](https://jqrgen.github.io/nordic-crypto/api/v1/sources.json): News outlets, the public search terms, and event sources. Kaupr is marked as a news source only. logo is the outlet image for that source id when one is on file.
 - [/api/v1/academia.json](https://jqrgen.github.io/nordic-crypto/api/v1/academia.json): Editor-approved courses, student groups, publications and research.
 - [/api/v1/academia/courses.json](https://jqrgen.github.io/nordic-crypto/api/v1/academia/courses.json): Academia section: courses.
 - [/api/v1/academia/groups.json](https://jqrgen.github.io/nordic-crypto/api/v1/academia/groups.json): Academia section: groups.

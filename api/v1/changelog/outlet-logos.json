@@ -1,0 +1,40 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T23:30:04+00:00",
+ "preview": false,
+ "item": {
+  "id": "outlet-logos",
+  "date": "2026-10-05",
+  "title": "Outlet logos on news",
+  "description": "News lists, the screen and our own story pages show the newspaper or outlet logo beside the source name when a checked logo is on file. The name stands alone when there is no logo. Kaupr stays a news source. The map from source id to image is in assets/img/logos/logos.json.",
+  "i18n": {
+   "nn": {
+    "title": "Logoar frå kjelda på nyhende",
+    "description": "Nyhendelister, skjermen og våre eigne sakssider viser logoen til avisa eller kjelda ved sida av namnet når ein kontrollert logo finst. Namnet står åleine når det ikkje finst ein logo. Kaupr er berre eit nyhendemedium. Kartlegginga frå kjelde-id til bilete ligg i assets/img/logos/logos.json."
+   },
+   "nb": {
+    "title": "Logoer fra kilden på nyheter",
+    "description": "Nyhetslister, skjermen og våre egne sakssider viser logoen til avisen eller kilden ved siden av navnet når en kontrollert logo finnes. Navnet står alene når det ikke finnes en logo. Kaupr er bare et nyhetsmedium. Kartleggingen fra kilde-id til bilde ligger i assets/img/logos/logos.json."
+   },
+   "sv": {
+    "title": "Logotyper från källan på nyheter",
+    "description": "Nyhetslistor, skärmen och våra egna artikelsidor visar tidningens eller källans logotyp bredvid namnet när en kontrollerad logotyp finns. Namnet står ensamt när det inte finns någon logotyp. Kaupr är bara en nyhetskälla. Kartan från käll-id till bild ligger i assets/img/logos/logos.json."
+   },
+   "da": {
+    "title": "Logoer fra kilden på nyheder",
+    "description": "Nyhedslister, skærmen og vores egne artikelsider viser avisens eller kildens logo ved siden af navnet, når et kontrolleret logo findes. Navnet står alene, når der ikke findes et logo. Kaupr er kun et nyhedsmedie. Kortet fra kilde-id til billede ligger i assets/img/logos/logos.json."
+   },
+   "fi": {
+    "title": "Lähteen logot uutisissa",
+    "description": "Uutislistat, näyttö ja omat juttusivumme näyttävät lehden tai lähteen logon nimen vieressä, kun tarkistettu logo on tallessa. Nimi näkyy yksin, jos logoa ei ole. Kaupr on vain uutislähde. Lähdetunnuksen ja kuvan vastaavuus on tiedostossa assets/img/logos/logos.json."
+   },
+   "is": {
+    "title": "Merki heimilda á fréttum",
+    "description": "Fréttalistar, skjárinn og eigin greinasíður sýna merki blaðsins eða heimildarinnar við hliðina á nafninu þegar yfirfarið merki er til. Nafnið stendur eitt þegar ekkert merki er til. Kaupr er aðeins fréttaheimild. Vörpunin frá heimildarauðkenni í mynd er í assets/img/logos/logos.json."
+   }
+  },
+  "html_url": "https://jqrgen.github.io/nordic-crypto/changelog/#outlet-logos",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/outlet-logos.json"
+ }
+}

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T23:24:20+00:00",
+ "generated_at": "2026-10-05T23:30:04+00:00",
  "preview": false,
  "item": {
   "id": "c81be998e21c",
@@ -12,6 +12,7 @@
   "title_en": "Community and technology draw crypto investors: bitcoin's new rally celebrated at crypto event",
   "source": "yle",
   "source_name": "Yle Uutiset (latest)",
+  "source_logo": null,
   "source_note": null,
   "country": "FI",
   "language": "Finnish",

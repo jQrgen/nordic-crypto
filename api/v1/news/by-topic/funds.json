@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T23:24:20+00:00",
+ "generated_at": "2026-10-05T23:30:04+00:00",
  "preview": false,
  "topic": "funds",
  "count": 1,
@@ -15,6 +15,7 @@
    "title_en": "Flying start for new crypto fund",
    "source": "finansavisen",
    "source_name": "Finansavisen",
+   "source_logo": null,
    "source_note": null,
    "country": "NO",
    "language": "Norwegian",

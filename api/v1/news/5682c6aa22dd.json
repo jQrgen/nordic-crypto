@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T23:24:20+00:00",
+ "generated_at": "2026-10-05T23:30:04+00:00",
  "preview": false,
  "item": {
   "id": "5682c6aa22dd",
@@ -12,6 +12,7 @@
   "title_en": "Collapse for crypto exchange Firi",
   "source": "finansavisen",
   "source_name": "Finansavisen",
+  "source_logo": null,
   "source_note": null,
   "country": "NO",
   "language": "Norwegian",

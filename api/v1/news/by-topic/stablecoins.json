@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T23:24:20+00:00",
+ "generated_at": "2026-10-05T23:30:04+00:00",
  "preview": false,
  "topic": "stablecoins",
  "count": 3,
@@ -15,6 +15,15 @@
    "title_en": "NBX signs deal with Tieto for stablecoin payment card",
    "source": "kaupr",
    "source_name": "Kaupr",
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website"
+   },
    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
    "country": "NO",
    "language": "Norwegian",
@@ -46,6 +55,15 @@
    "title_en": "Danske Bank: no bank can build a euro stablecoin alone",
    "source": "kaupr",
    "source_name": "Kaupr",
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website"
+   },
    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
    "country": "DK",
    "language": "Norwegian",
@@ -77,6 +95,7 @@
    "title_en": "Making the case for stablecoins",
    "source": "finansavisen",
    "source_name": "Finansavisen",
+   "source_logo": null,
    "source_note": null,
    "country": "NO",
    "language": "Norwegian",

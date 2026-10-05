@@ -111,6 +111,13 @@
    "title_en": "Here is where the risk of financing proliferation of weapons of mass destruction is highest",
    "source": "fi-se",
    "source_name": "Finansinspektionen (SE FSA)",
+   "source_logo": {
+    "file": "assets/img/logos/se-fi.svg",
+    "source": "Wikimedia Commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Finansinspektionen_logo.svg",
+    "license": "Public domain",
+    "author": "Finansinspektionen."
+   },
    "country": "SE",
    "language": "Swedish",
    "published": "2026-10-01T06:00:11+00:00",
@@ -163,6 +170,11 @@
    "title_en": "GreenMerc cuts SEK 4.8 million a year as Northcrypto turns a profit",
    "source": "kaupr",
    "source_name": "Kaupr",
+   "source_logo": {
+    "file": "assets/img/logos/kaupr.webp",
+    "source": "Official website",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg"
+   },
    "country": "SE",
    "language": "Norwegian",
    "published": "2026-09-30T12:00:00+00:00",
@@ -264,6 +276,11 @@
    "title_en": "Coinmotion and K33 strike Nordic crypto partnership on institutional trading",
    "source": "kaupr",
    "source_name": "Kaupr",
+   "source_logo": {
+    "file": "assets/img/logos/kaupr.webp",
+    "source": "Official website",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg"
+   },
    "country": "SE",
    "language": "Norwegian",
    "published": "2026-09-24T12:00:00+00:00",
@@ -290,6 +307,11 @@
    "title_en": "Safello opens up so other companies can offer crypto purchases",
    "source": "kaupr",
    "source_name": "Kaupr",
+   "source_logo": {
+    "file": "assets/img/logos/kaupr.webp",
+    "source": "Official website",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg"
+   },
    "country": "SE",
    "language": "Norwegian",
    "published": "2026-09-24T12:00:00+00:00",
@@ -341,6 +363,11 @@
    "title_en": "NBX signs deal with Tieto for stablecoin payment card",
    "source": "kaupr",
    "source_name": "Kaupr",
+   "source_logo": {
+    "file": "assets/img/logos/kaupr.webp",
+    "source": "Official website",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg"
+   },
    "country": "NO",
    "language": "Norwegian",
    "published": "2026-09-23T12:00:00+00:00",
@@ -367,6 +394,11 @@
    "title_en": "Danske Bank: no bank can build a euro stablecoin alone",
    "source": "kaupr",
    "source_name": "Kaupr",
+   "source_logo": {
+    "file": "assets/img/logos/kaupr.webp",
+    "source": "Official website",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg"
+   },
    "country": "DK",
    "language": "Norwegian",
    "published": "2026-09-22T12:00:00+00:00",
@@ -521,6 +553,11 @@
    "title_en": "NBX more than doubled its half-year loss as the MiCA licence arrived",
    "source": "kaupr",
    "source_name": "Kaupr",
+   "source_logo": {
+    "file": "assets/img/logos/kaupr.webp",
+    "source": "Official website",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg"
+   },
    "country": "NO",
    "language": "Norwegian",
    "published": "2026-09-18T12:00:00+00:00",
@@ -547,6 +584,13 @@
    "title_en": "Government studying a temporary ban on new crypto data centres (written question 15:3707)",
    "source": "stortinget",
    "source_name": "Stortinget",
+   "source_logo": {
+    "file": "assets/img/logos/stortinget-finanskomiteen.svg",
+    "source": "Wikimedia Commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+    "license": "Public domain",
+    "author": "Worldlydev"
+   },
    "country": "NO",
    "language": "Norwegian",
    "published": "2026-09-18T12:00:00+00:00",
@@ -598,6 +642,11 @@
    "title_en": "Norway wants to ban bitcoin mining. The miners already left",
    "source": "bpi",
    "source_name": "Bitcoinpolitisk institutt",
+   "source_logo": {
+    "file": "assets/img/logos/bpi.svg",
+    "source": "Official website",
+    "source_url": "https://bpinorge.no/wp-content/uploads/2025/04/bpinorge_footer_logo.svg"
+   },
    "country": "NO",
    "language": "Norwegian",
    "published": "2026-09-17T18:30:43+00:00",
@@ -624,6 +673,11 @@
    "title_en": "GreenMerc drops MiCA appeal and uses Northcrypto's licence in Sweden",
    "source": "kaupr",
    "source_name": "Kaupr",
+   "source_logo": {
+    "file": "assets/img/logos/kaupr.webp",
+    "source": "Official website",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg"
+   },
    "country": "SE",
    "language": "Norwegian",
    "published": "2026-09-17T12:00:00+00:00",
@@ -650,6 +704,11 @@
    "title_en": "Two regulators won't say whether crypto distribution needs its own licence",
    "source": "kaupr",
    "source_name": "Kaupr",
+   "source_logo": {
+    "file": "assets/img/logos/kaupr.webp",
+    "source": "Official website",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg"
+   },
    "country": "FI",
    "language": "Norwegian",
    "published": "2026-09-17T12:00:00+00:00",
@@ -676,6 +735,11 @@
    "title_en": "NBX registered as a MoneyGram agent (stock exchange release)",
    "source": "nbx-ir",
    "source_name": "NBX (børsmelding)",
+   "source_logo": {
+    "file": "assets/img/logos/nbx.svg",
+    "source": "Official website",
+    "source_url": "https://cdn.prod.website-files.com/6152dfaed2ce58d94ef37b88/619509e489aaca39961511c2_DarkLogo.svg"
+   },
    "country": "NO",
    "language": "Norwegian",
    "published": "2026-09-17T12:00:00+00:00",
@@ -702,6 +766,11 @@
    "title_en": "DNB tests tokenised krone deposits with European banks",
    "source": "kaupr",
    "source_name": "Kaupr",
+   "source_logo": {
+    "file": "assets/img/logos/kaupr.webp",
+    "source": "Official website",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg"
+   },
    "country": "NO",
    "language": "Norwegian",
    "published": "2026-09-16T12:00:00+00:00",
@@ -728,6 +797,11 @@
    "title_en": "Firi takes on the fight for 1.1 million Swedish crypto owners",
    "source": "kaupr",
    "source_name": "Kaupr",
+   "source_logo": {
+    "file": "assets/img/logos/kaupr.webp",
+    "source": "Official website",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg"
+   },
    "country": "SE",
    "language": "Norwegian",
    "published": "2026-09-15T12:00:00+00:00",
@@ -753,6 +827,11 @@
    "title_en": "Hilbert funds lending with on-chain deposits",
    "source": "kaupr",
    "source_name": "Kaupr",
+   "source_logo": {
+    "file": "assets/img/logos/kaupr.webp",
+    "source": "Official website",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg"
+   },
    "country": "SE",
    "language": "Norwegian",
    "published": "2026-09-15T12:00:00+00:00",
@@ -779,6 +858,11 @@
    "title_en": "Kvarn denies the Goobit deal is an agency or outsourcing arrangement",
    "source": "kaupr",
    "source_name": "Kaupr",
+   "source_logo": {
+    "file": "assets/img/logos/kaupr.webp",
+    "source": "Official website",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg"
+   },
    "country": "SE",
    "language": "Norwegian",
    "published": "2026-09-15T12:00:00+00:00",
@@ -804,6 +888,11 @@
    "title_en": "Firi launches in Sweden after layoffs and losses",
    "source": "shifter",
    "source_name": "Shifter",
+   "source_logo": {
+    "file": "assets/img/logos/shifter.svg",
+    "source": "Official website",
+    "source_url": "https://www.shifter.no/view-resources/dachser2/public/shifter/logo.svg"
+   },
    "country": "NO",
    "language": "Norwegian",
    "published": "2026-09-15T12:00:00+00:00",
@@ -830,6 +919,11 @@
    "title_en": "Finnish Kvarn rents out its MiCA licence to Nordic partners",
    "source": "kaupr",
    "source_name": "Kaupr",
+   "source_logo": {
+    "file": "assets/img/logos/kaupr.webp",
+    "source": "Official website",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg"
+   },
    "country": "SE",
    "language": "Norwegian",
    "published": "2026-09-14T12:00:00+00:00",
@@ -856,6 +950,11 @@
    "title_en": "Goobit launches bitcoin and gold savings on a Finnish licence",
    "source": "kaupr",
    "source_name": "Kaupr",
+   "source_logo": {
+    "file": "assets/img/logos/kaupr.webp",
+    "source": "Official website",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg"
+   },
    "country": "SE",
    "language": "Norwegian",
    "published": "2026-09-14T12:00:00+00:00",
@@ -882,6 +981,11 @@
    "title_en": "Bitcoin mining and Norwegian power at Oslo seminar",
    "source": "kaupr",
    "source_name": "Kaupr",
+   "source_logo": {
+    "file": "assets/img/logos/kaupr.webp",
+    "source": "Official website",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg"
+   },
    "country": "NO",
    "language": "Norwegian",
    "published": "2026-09-14T12:00:00+00:00",
@@ -908,6 +1012,11 @@
    "title_en": "H100 chair wants more acquisitions in the bitcoin industry",
    "source": "kaupr",
    "source_name": "Kaupr",
+   "source_logo": {
+    "file": "assets/img/logos/kaupr.webp",
+    "source": "Official website",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg"
+   },
    "country": "SE",
    "language": "Norwegian",
    "published": "2026-09-13T12:00:00+00:00",
@@ -934,6 +1043,11 @@
    "title_en": "Danish tax minister meets the crypto industry at Christiansborg",
    "source": "kaupr",
    "source_name": "Kaupr",
+   "source_logo": {
+    "file": "assets/img/logos/kaupr.webp",
+    "source": "Official website",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg"
+   },
    "country": "DK",
    "language": "Norwegian",
    "published": "2026-09-13T12:00:00+00:00",
@@ -961,6 +1075,11 @@
    "title_en": "Blockchain on the tech scene and on the agenda in Stockholm",
    "source": "kaupr",
    "source_name": "Kaupr",
+   "source_logo": {
+    "file": "assets/img/logos/kaupr.webp",
+    "source": "Official website",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg"
+   },
    "country": "SE",
    "language": "Norwegian",
    "published": "2026-09-10T12:00:00+00:00",
@@ -987,6 +1106,11 @@
    "title_en": "BTCX becomes a broker, and Goobit's reported revenue falls",
    "source": "kaupr",
    "source_name": "Kaupr",
+   "source_logo": {
+    "file": "assets/img/logos/kaupr.webp",
+    "source": "Official website",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg"
+   },
    "country": "SE",
    "language": "Norwegian",
    "published": "2026-09-10T12:00:00+00:00",
@@ -1013,6 +1137,11 @@
    "title_en": "Norges Bank explores tokenisation with twelve players",
    "source": "kaupr",
    "source_name": "Kaupr",
+   "source_logo": {
+    "file": "assets/img/logos/kaupr.webp",
+    "source": "Official website",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg"
+   },
    "country": "NO",
    "language": "Norwegian",
    "published": "2026-09-08T12:00:00+00:00",
@@ -1039,6 +1168,11 @@
    "title_en": "New defeat for Valuno in the fight for a MiCA licence",
    "source": "kaupr",
    "source_name": "Kaupr",
+   "source_logo": {
+    "file": "assets/img/logos/kaupr.webp",
+    "source": "Official website",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg"
+   },
    "country": "SE",
    "language": "Norwegian",
    "published": "2026-09-07T12:00:00+00:00",
@@ -1065,6 +1199,11 @@
    "title_en": null,
    "source": "finanssivalvonta",
    "source_name": "Finanssivalvonta",
+   "source_logo": {
+    "file": "assets/img/logos/fi-fiva.webp",
+    "source": "Official website",
+    "source_url": "https://www.finanssivalvonta.fi/contentassets/2a88d63613bb4f049c687203e8731112/logo.png"
+   },
    "country": "FI",
    "language": "English",
    "published": "2026-06-30T12:00:00+00:00",

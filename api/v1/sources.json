@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T23:24:20+00:00",
+ "generated_at": "2026-10-05T23:30:04+00:00",
  "preview": false,
  "user_agent": "CryptoNordicBot/0.1 (+https://jqrgen.github.io/nordic-crypto/about/; news headline bot)",
  "min_delay_seconds": 2,
@@ -22,7 +22,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://e24.no/rss2/",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "dn",
@@ -37,7 +38,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://services.dn.no/api/feed/rss/",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "finansavisen",
@@ -52,7 +54,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": null,
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "shifter",
@@ -67,7 +70,16 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.shifter.no/?lab_viewport=rss",
-   "source_note": null
+   "source_note": null,
+   "logo": {
+    "kind": "logo",
+    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/shifter.svg",
+    "source_url": "https://www.shifter.no/view-resources/dachser2/public/shifter/logo.svg",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website"
+   }
   },
   {
    "id": "nrk",
@@ -82,7 +94,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.nrk.no/toppsaker.rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "nrk-siste",
@@ -97,7 +110,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.nrk.no/nyheter/siste.rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "digi-krypto",
@@ -112,7 +126,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.digi.no/tag/kryptovaluta?lab_viewport=rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "finanstilsynet",
@@ -127,7 +142,16 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.finanstilsynet.no/rss/nyhetsfeed/",
-   "source_note": null
+   "source_note": null,
+   "logo": {
+    "kind": "logo",
+    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/finanstilsynet.webp",
+    "source_url": "https://www.finanstilsynet.no/Content/Favicons/apple-touch-icon-57x57.png",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website"
+   }
   },
   {
    "id": "norges-bank",
@@ -142,7 +166,16 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.norges-bank.no/RSS/Pressemeldinger---Norges-Bank/",
-   "source_note": null
+   "source_note": null,
+   "logo": {
+    "kind": "logo",
+    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/norges-bank.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Norges_Bank_logo.svg",
+    "author": "Norges Bank",
+    "license": "Public domain",
+    "license_url": null,
+    "credit": "Wikimedia Commons"
+   }
   },
   {
    "id": "bpi",
@@ -157,7 +190,16 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://anchor.fm/s/109ebeac4/podcast/rss",
-   "source_note": null
+   "source_note": null,
+   "logo": {
+    "kind": "logo",
+    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/bpi.svg",
+    "source_url": "https://bpinorge.no/wp-content/uploads/2025/04/bpinorge_footer_logo.svg",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website"
+   }
   },
   {
    "id": "di",
@@ -172,7 +214,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.di.se/rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "breakit",
@@ -187,7 +230,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.breakit.se/feed/artiklar",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "svd",
@@ -202,7 +246,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.svd.se/feed/articles.rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "svt",
@@ -217,7 +262,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.svt.se/nyheter/ekonomi/rss.xml",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "fi-se",
@@ -232,7 +278,16 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.fi.se/sv/publicerat/nyheter/rss/",
-   "source_note": null
+   "source_note": null,
+   "logo": {
+    "kind": "logo",
+    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/se-fi.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Finansinspektionen_logo.svg",
+    "author": "Finansinspektionen.",
+    "license": "Public domain",
+    "license_url": null,
+    "credit": "Wikimedia Commons"
+   }
   },
   {
    "id": "riksbank",
@@ -247,7 +302,16 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.riksbank.se/sv/rss/pressmeddelanden/",
-   "source_note": null
+   "source_note": null,
+   "logo": {
+    "kind": "logo",
+    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/se-riksbank.webp",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Riksbanken_skylt.jpg",
+    "author": "Holger Ellgaard",
+    "license": "CC BY-SA 3.0",
+    "license_url": null,
+    "credit": "Wikimedia Commons"
+   }
   },
   {
    "id": "realtid",
@@ -262,7 +326,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.realtid.se/feed/",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "kaupr-se",
@@ -277,7 +342,16 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.kaupr.io/sverige",
-   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+   "logo": {
+    "kind": "logo",
+    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website"
+   }
   },
   {
    "id": "kauppalehti",
@@ -292,7 +366,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://feeds.kauppalehti.fi/rss/main",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "hs",
@@ -307,7 +382,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.hs.fi/rss/talous.xml",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "yle",
@@ -322,7 +398,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://yle.fi/rss/uutiset/tuoreimmat",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "yle-news",
@@ -337,7 +414,8 @@
    "verified": "2026-10-06",
    "language": "English",
    "feed": "https://yle.fi/rss/news",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "yle-svenska",
@@ -352,7 +430,8 @@
    "verified": "2026-10-06",
    "language": "Swedish",
    "feed": "https://svenska.yle.fi/rss/senaste-nytt",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "talouselama",
@@ -367,7 +446,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.talouselama.fi/api/feed/v2/rss/te",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "tivi",
@@ -382,7 +462,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.tivi.fi/api/feed/v2/rss/tv",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "arcticstartup",
@@ -397,7 +478,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://arcticstartup.com/feed/",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "finanssivalvonta",
@@ -412,7 +494,16 @@
    "verified": "2026-10-06",
    "language": "English",
    "feed": "https://www.finanssivalvonta.fi/en/publications-and-press-releases/news-releases/",
-   "source_note": null
+   "source_note": null,
+   "logo": {
+    "kind": "logo",
+    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/fi-fiva.webp",
+    "source_url": "https://www.finanssivalvonta.fi/contentassets/2a88d63613bb4f049c687203e8731112/logo.png",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website"
+   }
   },
   {
    "id": "suomenpankki",
@@ -427,7 +518,16 @@
    "verified": "2026-10-06",
    "language": "English",
    "feed": "https://www.suomenpankki.fi/en/news-and-topical/press-releases-and-news/releases/",
-   "source_note": null
+   "source_note": null,
+   "logo": {
+    "kind": "logo",
+    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/fi-suomen-pankki.webp",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Logo-bof.png",
+    "author": "Bank of Finland, Mikael Kivelä",
+    "license": "Public domain",
+    "license_url": null,
+    "credit": "Wikimedia Commons"
+   }
   },
   {
    "id": "bofbulletin",
@@ -442,7 +542,16 @@
    "verified": "2026-10-06",
    "language": "English",
    "feed": "https://www.bofbulletin.fi/rss/articles/",
-   "source_note": null
+   "source_note": null,
+   "logo": {
+    "kind": "logo",
+    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/fi-suomen-pankki.webp",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Logo-bof.png",
+    "author": "Bank of Finland, Mikael Kivelä",
+    "license": "Public domain",
+    "license_url": null,
+    "credit": "Wikimedia Commons"
+   }
   },
   {
    "id": "kaupr-fi",
@@ -457,7 +566,16 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.kaupr.io/finland",
-   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+   "logo": {
+    "kind": "logo",
+    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website"
+   }
   },
   {
    "id": "kaupr-dk",
@@ -472,7 +590,16 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.kaupr.io/danmark",
-   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+   "logo": {
+    "kind": "logo",
+    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website"
+   }
   },
   {
    "id": "kaupr-no",
@@ -487,7 +614,16 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.kaupr.io/norge",
-   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+   "logo": {
+    "kind": "logo",
+    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website"
+   }
   },
   {
    "id": "vb",
@@ -502,7 +638,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": null,
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "ruv",
@@ -517,7 +654,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.ruv.is/rss/frettir",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "mbl",
@@ -532,7 +670,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.mbl.is/feeds/vidskipti/",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "mbl-fp",
@@ -547,7 +686,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.mbl.is/feeds/fp/",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "visir",
@@ -562,7 +702,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.visir.is/rss/vidskipti",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "heimildin",
@@ -577,7 +718,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://heimildin.is/rss/",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "icelandreview",
@@ -592,7 +734,8 @@
    "verified": "2026-10-06",
    "language": "English",
    "feed": "https://www.icelandreview.com/feed/",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "grapevine",
@@ -607,7 +750,8 @@
    "verified": "2026-10-06",
    "language": "English",
    "feed": "https://grapevine.is/feed/",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "sedlabanki",
@@ -622,7 +766,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://sedlabanki.is/api/documents/views/greinasafn-si/RSS/Frettatilkynningar",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "borsen",
@@ -637,7 +782,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://borsen.dk/rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "finans-dk",
@@ -652,7 +798,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://feeds.finans.dk/seneste",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "dr-penge",
@@ -667,7 +814,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.dr.dk/nyheder/service/feeds/penge",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "dr-seneste",
@@ -682,7 +830,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.dr.dk/nyheder/service/feeds/senestenyt",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "politiken",
@@ -697,7 +846,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://politiken.dk/rss/senestenyt.rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "computerworld-dk",
@@ -712,7 +862,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.computerworld.dk/rss/all",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "version2",
@@ -727,7 +878,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.version2.dk/rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "ingenioren",
@@ -742,7 +894,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": "https://ing.dk/rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "nationalbanken",
@@ -757,7 +910,8 @@
    "verified": "2026-10-06",
    "language": "English",
    "feed": "https://www.nationalbanken.dk/api/rssfeed?topic=Press+release&lang=en",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "finanstilsynet-dk",
@@ -772,7 +926,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": null,
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "erhvervsministeriet",
@@ -787,7 +942,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": null,
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "skattestyrelsen",
@@ -802,7 +958,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": null,
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "tv2-dk",
@@ -817,7 +974,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": null,
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "kryptonyt-dk",
@@ -832,7 +990,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": null,
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "nrk-norge",
@@ -847,7 +1006,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.nrk.no/norge/toppsaker.rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "nrk-viten",
@@ -862,7 +1022,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.nrk.no/teknologi/toppsaker.rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "vg",
@@ -877,7 +1038,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.vg.no/rss/feed/",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "aftenposten",
@@ -892,7 +1054,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.aftenposten.no/rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "dagbladet",
@@ -907,7 +1070,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.dagbladet.no/?lab_viewport=rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "nettavisen",
@@ -922,7 +1086,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.nettavisen.no/service/rich-rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "tv2",
@@ -937,7 +1102,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.tv2.no/rss/nyheter",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "digi",
@@ -952,7 +1118,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.digi.no/rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "digi-bitcoin",
@@ -967,7 +1134,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.digi.no/tag/bitcoin?lab_viewport=rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "tek",
@@ -982,7 +1150,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.tek.no/api/rss/rss2/medium/collections",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "kode24",
@@ -997,7 +1166,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://rss.kode24.no/",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "kode24-krypto",
@@ -1012,7 +1182,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.kode24.no/tag/krypto?lab_viewport=rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "itavisen",
@@ -1027,7 +1198,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://itavisen.no/feed/",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "finansfokus",
@@ -1042,7 +1214,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": null,
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "kapital",
@@ -1057,7 +1230,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.kapital.no/rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "bt",
@@ -1072,7 +1246,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.bt.no/rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "aftenbladet",
@@ -1087,7 +1262,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.aftenbladet.no/rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "adressa",
@@ -1102,7 +1278,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.adressa.no/rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "fvn",
@@ -1117,7 +1294,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.fvn.no/rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "itromso",
@@ -1132,7 +1310,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.itromso.no/rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "smp",
@@ -1147,7 +1326,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.smp.no/rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "nordlys",
@@ -1162,7 +1342,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.nordlys.no/service/rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "ba",
@@ -1177,7 +1358,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.ba.no/service/rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "rb",
@@ -1192,7 +1374,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.rb.no/service/rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "dagsavisen",
@@ -1207,7 +1390,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.dagsavisen.no/?lab_viewport=rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "abcnyheter",
@@ -1222,7 +1406,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.abcnyheter.no/?lab_viewport=rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "norges-bank-taler",
@@ -1237,7 +1422,16 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.norges-bank.no/RSS/Foredrag-og-taler---Norges-Bank/",
-   "source_note": null
+   "source_note": null,
+   "logo": {
+    "kind": "logo",
+    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/norges-bank.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Norges_Bank_logo.svg",
+    "author": "Norges Bank",
+    "license": "Public domain",
+    "license_url": null,
+    "credit": "Wikimedia Commons"
+   }
   },
   {
    "id": "bankplassen",
@@ -1252,7 +1446,16 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.norges-bank.no/RSS/bankplassen-blogg/",
-   "source_note": null
+   "source_note": null,
+   "logo": {
+    "kind": "logo",
+    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/norges-bank.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Norges_Bank_logo.svg",
+    "author": "Norges Bank",
+    "license": "Public domain",
+    "license_url": null,
+    "credit": "Wikimedia Commons"
+   }
   },
   {
    "id": "skatteetaten",
@@ -1267,7 +1470,16 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.skatteetaten.no/rss/presse/pressemeldinger/",
-   "source_note": null
+   "source_note": null,
+   "logo": {
+    "kind": "logo",
+    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/skatteetaten.webp",
+    "source_url": "https://www.skatteetaten.no/static/img/skatteetatenlogo/fav-icon/57x57/png/favicon57x57.png",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website"
+   }
   },
   {
    "id": "regjeringen",
@@ -1282,7 +1494,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.regjeringen.no/no/aktuelt/rss/id2582/",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "okokrim",
@@ -1297,7 +1510,16 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.okokrim.no/rss",
-   "source_note": null
+   "source_note": null,
+   "logo": {
+    "kind": "logo",
+    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/okokrim.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Okokrim_logo_sort.svg",
+    "author": "Lillian Nordby Øktner/Økokrim",
+    "license": "Public domain",
+    "license_url": null,
+    "credit": "Wikimedia Commons"
+   }
   },
   {
    "id": "nbx-ir",
@@ -1312,7 +1534,16 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": null,
-   "source_note": null
+   "source_note": null,
+   "logo": {
+    "kind": "logo",
+    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/nbx.svg",
+    "source_url": "https://cdn.prod.website-files.com/6152dfaed2ce58d94ef37b88/619509e489aaca39961511c2_DarkLogo.svg",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website"
+   }
   },
   {
    "id": "stortinget",
@@ -1327,7 +1558,16 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": null,
-   "source_note": null
+   "source_note": null,
+   "logo": {
+    "kind": "logo",
+    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/stortinget-finanskomiteen.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+    "author": "Worldlydev",
+    "license": "Public domain",
+    "license_url": null,
+    "credit": "Wikimedia Commons"
+   }
   },
   {
    "id": "kryptografen",
@@ -1342,7 +1582,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://kryptografen.no/feed/",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "bitcoinsnakk",
@@ -1357,7 +1598,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://anchor.fm/s/4a747814/podcast/rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "enogtyvetanker",
@@ -1372,7 +1614,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://anchor.fm/s/e5a9acdc/podcast/rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "kryptopodden",
@@ -1387,7 +1630,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://anchor.fm/s/f29c1268/podcast/rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "barebitcoin",
@@ -1402,7 +1646,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": null,
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "rbnett",
@@ -1417,7 +1662,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.rbnett.no/rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "glomdalen",
@@ -1432,7 +1678,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.glomdalen.no/service/rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "oa",
@@ -1447,7 +1694,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.oa.no/service/rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "budstikka",
@@ -1462,7 +1710,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.budstikka.no/service/rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "tb",
@@ -1477,7 +1726,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.tb.no/service/rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "h-avis",
@@ -1492,7 +1742,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.h-avis.no/service/rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "ta",
@@ -1507,7 +1758,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.ta.no/service/rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "an",
@@ -1522,7 +1774,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.an.no/service/rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "computerworld",
@@ -1537,7 +1790,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.cw.no/?lab_viewport=rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "kom24",
@@ -1552,7 +1806,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.kom24.no/?lab_viewport=rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "investornytt",
@@ -1567,7 +1822,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.investornytt.no/?lab_viewport=rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "hegnar",
@@ -1582,7 +1838,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": null,
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "morgenbladet",
@@ -1597,7 +1854,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.morgenbladet.no/?lab_viewport=rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "dagensperspektiv",
@@ -1612,7 +1870,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.dagensperspektiv.no/?lab_viewport=rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "nationen",
@@ -1627,7 +1886,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.nationen.no/service/rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "klassekampen",
@@ -1642,7 +1902,8 @@
    "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://klassekampen.no/api/newsfeed/rss",
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "reuters-norden",
@@ -1657,7 +1918,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": null,
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "bing-no",
@@ -1672,7 +1934,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": null,
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "bing-no-kn",
@@ -1687,7 +1950,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": null,
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "bing-se",
@@ -1702,7 +1966,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": null,
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "bing-fi",
@@ -1717,7 +1982,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": null,
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "bing-is",
@@ -1732,7 +1998,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": null,
-   "source_note": null
+   "source_note": null,
+   "logo": null
   },
   {
    "id": "bing-dk",
@@ -1747,7 +2014,8 @@
    "verified": "2026-10-06",
    "language": null,
    "feed": null,
-   "source_note": null
+   "source_note": null,
+   "logo": null
   }
  ],
  "search": [

@@ -32,6 +32,8 @@ ol.news li{padding:14px 0;border-bottom:1px solid var(--line)}
 ol.news h3{font-size:18px;line-height:1.3;margin:0 0 4px}ol.news h3 a{text-decoration:none}ol.news h3 a:hover{text-decoration:underline}
 .orig{font-size:13.5px;color:var(--muted);margin:0 0 3px}
 .meta{font-size:13.5px;color:var(--muted)}.meta b{color:var(--ink);font-weight:600}
+.src{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;vertical-align:middle;text-align:start}
+.src-logo{height:18px;width:auto;max-width:96px;object-fit:contain;flex:none;background:#fff;padding:1px}
 .tag{display:inline-block;font-size:12px;padding:0 6px;border:1px solid var(--line);margin-left:4px;color:var(--muted)}
 .tag.pend{border-color:var(--warm);color:var(--warm);font-weight:600}.tag.paid{border-color:var(--warm);color:var(--warm)}
 .sum{margin:6px 0 0;max-width:75ch}.sum.pend{color:var(--warm);font-style:italic}
@@ -164,7 +166,7 @@ a.applink:hover,a.applink:focus-visible{background:var(--soft)}
 <div class="api-docs">
 <h1>Nordic Crypto data API</h1>
 <p class="lead">A public JSON feed of the site, for apps and for other tools. No account and no API key. It is regenerated whenever the site is built.</p>
-<p>Version 1. 42 news items, 1 newsletter issues, 12 events in this build. Generated 2026-10-05T23:24:20+00:00.</p>
+<p>Version 1. 42 news items, 1 newsletter issues, 12 events in this build. Generated 2026-10-05T23:30:04+00:00.</p>
 <h2>Start here</h2>
 <ul>
 <li><a href="https://jqrgen.github.io/nordic-crypto/api/v1/index.json">Discovery</a> — every endpoint and example URL.</li>
@@ -201,7 +203,7 @@ curl -fsS https://jqrgen.github.io/nordic-crypto/api/v1/markets/aggregated.json<
 <tr><td>GET</td><td><a href="https://jqrgen.github.io/nordic-crypto/api/v1/events/upcoming.json"><code>/api/v1/events/upcoming.json</code></a></td><td>Events that have not ended, soonest first. Judged in the event&#x27;s own offset.</td></tr>
 <tr><td>GET</td><td><a href="https://jqrgen.github.io/nordic-crypto/api/v1/events/past.json"><code>/api/v1/events/past.json</code></a></td><td>Finished public events, newest first. Finished events stay in the archive.</td></tr>
 <tr><td>GET</td><td><a href="https://jqrgen.github.io/nordic-crypto/api/v1/events/by-country/{country}.json"><code>/api/v1/events/by-country/{country}.json</code></a></td><td>Public events for one country code.</td></tr>
-<tr><td>GET</td><td><a href="https://jqrgen.github.io/nordic-crypto/api/v1/sources.json"><code>/api/v1/sources.json</code></a></td><td>News outlets, the public search terms, and event sources. Kaupr is marked as a news source only.</td></tr>
+<tr><td>GET</td><td><a href="https://jqrgen.github.io/nordic-crypto/api/v1/sources.json"><code>/api/v1/sources.json</code></a></td><td>News outlets, the public search terms, and event sources. Kaupr is marked as a news source only. logo is the outlet image for that source id when one is on file.</td></tr>
 <tr><td>GET</td><td><a href="https://jqrgen.github.io/nordic-crypto/api/v1/academia.json"><code>/api/v1/academia.json</code></a></td><td>Editor-approved courses, student groups, publications and research.</td></tr>
 <tr><td>GET</td><td><a href="https://jqrgen.github.io/nordic-crypto/api/v1/academia/courses.json"><code>/api/v1/academia/courses.json</code></a></td><td>Academia section: courses.</td></tr>
 <tr><td>GET</td><td><a href="https://jqrgen.github.io/nordic-crypto/api/v1/academia/groups.json"><code>/api/v1/academia/groups.json</code></a></td><td>Academia section: groups.</td></tr>

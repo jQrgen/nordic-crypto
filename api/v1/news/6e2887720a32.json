@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T23:24:20+00:00",
+ "generated_at": "2026-10-05T23:30:04+00:00",
  "preview": false,
  "item": {
   "id": "6e2887720a32",
@@ -12,6 +12,15 @@
   "title_en": "Firi launches in Sweden after layoffs and losses",
   "source": "shifter",
   "source_name": "Shifter",
+  "source_logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/shifter.svg",
+   "source_url": "https://www.shifter.no/view-resources/dachser2/public/shifter/logo.svg",
+   "author": null,
+   "license": null,
+   "license_url": null,
+   "credit": "Official website"
+  },
   "source_note": null,
   "country": "NO",
   "language": "Norwegian",

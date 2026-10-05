@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T23:24:20+00:00",
+ "generated_at": "2026-10-05T23:30:04+00:00",
  "preview": false,
  "item": {
   "id": "c1431df81160",
@@ -12,6 +12,15 @@
   "title_en": "Norway wants to ban bitcoin mining. The miners already left",
   "source": "bpi",
   "source_name": "Bitcoinpolitisk institutt",
+  "source_logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/bpi.svg",
+   "source_url": "https://bpinorge.no/wp-content/uploads/2025/04/bpinorge_footer_logo.svg",
+   "author": null,
+   "license": null,
+   "license_url": null,
+   "credit": "Official website"
+  },
   "source_note": null,
   "country": "NO",
   "language": "Norwegian",

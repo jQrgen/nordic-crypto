@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T23:24:20+00:00",
+ "generated_at": "2026-10-05T23:30:04+00:00",
  "preview": false,
  "topic": "mining",
  "count": 3,
@@ -15,6 +15,15 @@
    "title_en": "Government studying a temporary ban on new crypto data centres (written question 15:3707)",
    "source": "stortinget",
    "source_name": "Stortinget",
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/stortinget-finanskomiteen.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+    "author": "Worldlydev",
+    "license": "Public domain",
+    "license_url": null,
+    "credit": "Wikimedia Commons"
+   },
    "source_note": null,
    "country": "NO",
    "language": "Norwegian",
@@ -46,6 +55,15 @@
    "title_en": "Norway wants to ban bitcoin mining. The miners already left",
    "source": "bpi",
    "source_name": "Bitcoinpolitisk institutt",
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/bpi.svg",
+    "source_url": "https://bpinorge.no/wp-content/uploads/2025/04/bpinorge_footer_logo.svg",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website"
+   },
    "source_note": null,
    "country": "NO",
    "language": "Norwegian",
@@ -77,6 +95,15 @@
    "title_en": "Bitcoin mining and Norwegian power at Oslo seminar",
    "source": "kaupr",
    "source_name": "Kaupr",
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website"
+   },
    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
    "country": "NO",
    "language": "Norwegian",
