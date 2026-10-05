@@ -5,7 +5,7 @@ S = {
 "nav_about": "About", "nav_tip": "Send a tip", "main_menu": "Main menu", "lang_label": "Language", "lang_choose": "Choose language",
 "site_desc_suffix": "Nordic crypto news",
 "preview_banner": "<b>Local preview – not published.</b> Everything marked “Pending editor review” has not been checked by the editor yet; summaries are not written yet. Only approved items go into the public build.",
-"footer": "{site} covers Norway, Sweden, Denmark, Finland and Iceland. Run by Jørgen S. Notland (jQrgen), Oslo, Made with the help of artificial intelligence, with human editors (jQrgen and the Nordic Crypto editor). Not investment advice. Cloudflare Web Analytics counts visits in aggregate, without cookies, and we do not sell that data. One cookie, only if you choose a language. <a href=\"{rel}about/\">About, privacy, corrections and removal</a> · <a href=\"{rel}tip/\">Send a tip</a> · <a href=\"{rel}columnist/\">Apply as a columnist</a> · <a href=\"{rel}changelog/\">Changelog</a> · <a href=\"{rel}ethics/\">Press ethics</a> · <a href=\"{root}api/\">Data API</a>.",
+"footer": "{site} covers Norway, Sweden, Denmark, Finland and Iceland. Run by Jørgen S. Notland (jQrgen), Oslo, Made with the help of artificial intelligence, with human editors (jQrgen and the Nordic Crypto editor). Not investment advice. Cloudflare Web Analytics counts visits in aggregate, without cookies, and we do not sell that data. One cookie, only if you choose a language. <a href=\"{rel}about/\">About, privacy, corrections and removal</a> · <a href=\"{rel}tip/\">Send a tip</a> · <a href=\"{rel}columnist/\">Apply as a columnist</a> · <a href=\"{rel}changelog/\">Changelog</a> · <a href=\"{rel}ethics/\">Editorial ethics</a> · <a href=\"{root}api/\">Data API</a>.",
 "moved": "This page has moved to",
 # dates
 "time_local": "{city}, local time", "at_time": "{t}",
@@ -104,7 +104,7 @@ S = {
 "cl_prev_tag": "Preview – not launched yet", "cl_none": "No changes recorded yet.", "cl_data": "Data",
 # about
 "about_title": "About Nordic Crypto", "about_desc": "About Nordic Crypto: who runs it, how it works, privacy, corrections and removal.",
-"ethics_title": "Press ethics", "ethics_desc": "Nordic Crypto follows Vær Varsom-plakaten, the ethical code of the Norwegian Press Association.",
+"ethics_title": "Editorial ethics", "ethics_desc": "Nordic Crypto follows Vær Varsom-plakaten. A named editor approves everything.",
 # tip
 "tip_title": "Send a tip", "tip_desc": "Tip Nordic Crypto about an article on crypto, bitcoin or blockchain in the Nordics.",
 "tip_lead": "Seen a story about crypto, bitcoin or blockchain in Norway, Sweden, Denmark, Finland or Iceland that we have missed? Send us the link.",

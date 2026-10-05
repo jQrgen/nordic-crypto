@@ -1040,7 +1040,10 @@ f.addEventListener('submit',function(ev){ev.preventDefault();if(!f.reportValidit
 def build_tip():
     """'Send a tip' page. Static: a plain HTML form (GET, no JavaScript, no tracking) that opens the prefilled GitHub issue form
     (.github/ISSUE_TEMPLATE/tip.yml, label 'tip'). There is no public e-mail address, so GitHub is the only channel.
-    routines/nightly-fetch.sh -> tools/reader_tips.py puts open tips in the editor queue as pending; nothing is auto-published."""
+    routines/nightly-fetch.sh -> tools/reader_tips.py puts open tips in the editor queue as pending; nothing is auto-published.
+
+    TODO (jQrgen): disable this public GitHub issue form and the GitHub fallback in build_tip_server. Tips should go
+    only to the private Cloudflare intake (tipworker/). Do not switch the page until that intake is the live path."""
     if LANG == "en": write_tip_endpoint_file()
     if tip_endpoint() or tip_page_uses_server(): return build_tip_server(tip_endpoint())  # GitHub issue form only as fallback link
     # the option values stay English: they fill in the GitHub issue form (tip.yml), which tools/reader_tips.py parses
