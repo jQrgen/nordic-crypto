@@ -180,15 +180,18 @@ CSS += """
 a.applink{display:inline-block;padding:8px 14px;border:2px solid var(--ink);font-weight:700;font-size:18px;line-height:1.3;text-decoration:none;text-align:left}
 a.applink:hover,a.applink:focus-visible{background:var(--soft)}
 .markets h1{font-size:32px}
-.markets .lead,.markets p,.markets h2,.markets h3,.mkcard{text-align:left}
+.markets .lead,.markets p,.markets h2,.markets h3,.mkcard,.mkagg,.mkasset{text-align:left}
 .mkcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin:0 0 8px}
-.mkcard{border:1px solid var(--line);padding:12px 14px;background:#fff}
-.mkcard .px{font-size:28px;font-weight:700;line-height:1.15;margin:6px 0;font-variant-numeric:tabular-nums}
+.mkcard{border:1px solid var(--line);padding:12px 14px;background:#fff;text-align:left}
+.mkcard .px{font-size:28px;font-weight:700;line-height:1.15;margin:6px 0;font-variant-numeric:tabular-nums;text-align:left}
 .mkcard .unit{font-size:16px;font-weight:600;color:var(--muted)}
-.mkcard .ba{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:18px;margin:0}
-.mkasset>h2{font-size:26px;margin:22px 0 4px}
-.mkq{font-size:16px;color:var(--muted);margin:12px 0 6px;font-weight:600}
-@media(min-width:1100px){.markets h1{font-size:40px}.mkcard .px{font-size:34px}.mkcard .ba{font-size:20px}}
+.mkcard .ba{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:6px 18px;font-size:18px;margin:0}
+.mkasset>h2{display:flex;align-items:center;justify-content:flex-start;gap:10px;font-size:26px;margin:22px 0 4px;text-align:left}
+.mkasset>h2 img{width:28px;height:28px;flex:none;display:block}
+.mkagg{border-left:4px solid var(--ink);padding:8px 12px;margin:8px 0 10px;background:var(--soft);text-align:left}
+.mkagg .px{font-size:22px;font-weight:700;margin:2px 0 4px;text-align:left;font-variant-numeric:tabular-nums}
+.mkq{font-size:16px;color:var(--muted);margin:12px 0 6px;font-weight:600;text-align:left}
+@media(min-width:1100px){.markets h1{font-size:40px}.mkcard .px{font-size:34px}.mkcard .ba{font-size:20px}.mkagg .px{font-size:26px}}
 """
 
 NAV = [("", "nav_news"), ("markets", "nav_markets"), ("calendar", "nav_calendar"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("sources", "nav_sources"), ("newsletter", "nav_newsletter"), ("about", "nav_about"), ("tip", "nav_tip")]
@@ -643,7 +646,7 @@ def sitemap():
             r = os.path.relpath(dp, SITE).replace(os.sep, "/"); r = "" if r == "." else r + "/"
             if r.split("/")[0] in ("kalender", "skjerm", "organisasjonskart", "kilder", "om", "akademia"): continue
             urls.append(BASE + r)
-    for rel in ("api/v1/index.json", "api/v1/openapi.json", "api/v1/markets.json", "llms.txt"):
+    for rel in ("api/v1/index.json", "api/v1/openapi.json", "api/v1/markets.json", "api/v1/markets/aggregated.json", "llms.txt"):
         if os.path.exists(os.path.join(SITE, rel)):
             urls.append(BASE + rel)
     open(os.path.join(SITE, "sitemap.xml"), "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
@@ -651,6 +654,53 @@ def sitemap():
 
 def _mk_when(iso):
     return (iso or "").replace("T", " ").replace("+00:00", " UTC")
+
+def _mk_volume(row, base, quote, summed):
+    """Volume lines. A missing field is omitted. A published zero is shown."""
+    bits = []
+    def add(key, unit, day):
+        if row.get(key) in (None, ""):
+            return
+        tmpl = ("mk_vol_sum_24h" if day else "mk_vol_sum_plain") if summed else ("mk_vol_24h" if day else "mk_vol_plain")
+        bits.append(t(tmpl, n=M_format(row[key]), unit=unit, count=row.get(key + "_exchanges") or 0))
+    add("volume_base_24h", base, True)
+    add("volume_quote_24h", quote, True)
+    add("volume_base", base, False)
+    add("volume_quote", quote, False)
+    if not bits:
+        return ""
+    return '<p class="meta vol">' + " · ".join(E(b) for b in bits) + "</p>"
+
+def M_format(value):
+    import markets as M
+    return M.format_price(value)
+
+def _mk_agg(pair):
+    if not pair:
+        return ""
+    q = pair["quote"]
+    if pair.get("price"):
+        price = f'<p class="px">{E(M_format(pair["price"]))} <span class="unit">{E(q)}</span></p>'
+    else:
+        price = f'<p class="px">{E(t("mk_agg_none"))}</p>'
+    if pair.get("method") == "mean_last":
+        how = t("mk_agg_last", n=pair.get("last_count") or 0)
+    elif pair.get("method") == "mean_bid_ask_mid":
+        how = t("mk_agg_mid", n=pair.get("mid_count") or 0)
+    else:
+        how = t("mk_agg_none")
+    span = ""
+    if pair.get("min") is not None and pair.get("max") is not None:
+        span = " " + t("mk_agg_minmax", min=M_format(pair["min"]), max=M_format(pair["max"]), q=q)
+    bits = [how + span, t("mk_agg_exchanges", n=pair.get("exchange_count") or 0)]
+    if pair.get("updated_at"):
+        bits.append(t("mk_agg_updated", when=_mk_when(pair["updated_at"])))
+    vol = pair.get("volume") or {}
+    return (
+        f'<div class="mkagg"><p class="meta"><b>{E(t("mk_agg"))}</b> · {E(pair["base"])}/{E(q)}</p>'
+        f"{price}<p class=\"meta\">{E(' '.join(bits))}</p>"
+        f'{_mk_volume(vol, pair["base"], q, True)}</div>'
+    )
 
 def build_markets(ctx):
     """Prices page. Static cards from the build-time fetch; markets.js refreshes the JSON and the CORS exchanges."""
@@ -668,9 +718,15 @@ def build_markets(ctx):
     def label(b):
         name = M.ASSET_NAMES.get(b)
         return f"{name} ({b})" if name and name != b else b
+    root = up1()
+    pairs = {(p["base"], p["quote"]): p for p in M.aggregate_pairs(tickers, M.PAGES_BASE, M.CUSTOM_BASE)}
     sections = []
     for base in sorted(groups, key=asset_key):
-        bits = [f'<section class="mkasset"><h2>{E(label(base))}</h2>']
+        logo = M.logo_for(base, M.PAGES_BASE, M.CUSTOM_BASE)
+        img = ""
+        if logo.get("logo_path"):
+            img = f'<img src="{root}{E(logo["logo_path"])}" width="28" height="28" alt="{E(t("mk_logo_alt", name=label(base)))}">'
+        bits = [f'<section class="mkasset"><h2>{img}{E(label(base))}</h2>']
         for quote in sorted(groups[base], key=quote_key):
             cards = []
             for row in groups[base][quote]:
@@ -685,11 +741,12 @@ def build_markets(ctx):
                     f'{price}'
                     f'<p class="ba"><span>{E(t("mk_bid"))} {E(M.format_price(row.get("bid")))}</span>'
                     f'<span>{E(t("mk_ask"))} {E(M.format_price(row.get("ask")))}</span></p>'
+                    f'{_mk_volume(row, base, quote, False)}'
                     f'<p class="meta">{E(t("mk_fetched"))} <time datetime="{E(row.get("fetched_at"))}">{E(_mk_when(row.get("fetched_at")))}</time>'
                     f' · <a href="{E(row.get("source_url"))}" rel="noopener">{E(t("mk_source"))}</a></p>'
                     f'</article>'
                 )
-            bits.append(f'<h3 class="mkq">{E(t("mk_in", q=quote))}</h3><div class="mkcards">{"".join(cards)}</div>')
+            bits.append(f'{_mk_agg(pairs.get((base, quote)))}<h3 class="mkq">{E(t("mk_in", q=quote))}</h3><div class="mkcards">{"".join(cards)}</div>')
         bits.append("</section>")
         sections.append("".join(bits))
     opts = "".join(f'<option value="{E(b)}">{E(label(b))}</option>' for b in sorted(groups, key=asset_key))
@@ -705,12 +762,17 @@ def build_markets(ctx):
         f'{ex.get("name")} ({cname(ex.get("country"))})'
         for ex in (body.get("exchanges") or []) if ex.get("status") == "ok"
     )
-    root = up1()
     strings = {
         "bid": t("mk_bid"), "ask": t("mk_ask"), "fetched": t("mk_fetched"), "source": t("mk_source"),
         "live": t("mk_live"), "file": t("mk_file"), "browser": t("mk_browser"), "empty": t("mk_empty"),
         "no_last": t("mk_no_last"), "in_quote": t("mk_in", q="{q}"), "all": t("mk_all"),
         "error": t("mk_error"),
+        "agg": t("mk_agg"), "agg_last": t("mk_agg_last"), "agg_mid": t("mk_agg_mid"),
+        "agg_minmax": t("mk_agg_minmax"), "agg_exchanges": t("mk_agg_exchanges"),
+        "agg_updated": t("mk_agg_updated"), "agg_none": t("mk_agg_none"),
+        "vol_24h": t("mk_vol_24h"), "vol_plain": t("mk_vol_plain"),
+        "vol_sum_24h": t("mk_vol_sum_24h"), "vol_sum_plain": t("mk_vol_sum_plain"),
+        "logo_alt": t("mk_logo_alt"),
     }
     script = open(P("tools", "markets.js"), encoding="utf-8").read()
     body_html = f"""<div class="markets" id="mk" data-json="{root}api/v1/markets.json">
@@ -730,10 +792,13 @@ def build_markets(ctx):
 <ul>{skipped}</ul>
 <p class="meta">{E(t("mk_refresh"))}</p>
 <p class="meta"><a href="{root}api/v1/markets.json">{E(t("mk_json"))}</a>
+ · <a href="{root}api/v1/markets/aggregated.json">{E(t("mk_agg_json"))}</a>
  · <a href="{root}api/v1/markets/firi.json">firi</a>
  · <a href="{root}api/v1/markets/nbx.json">nbx</a>
  · <a href="{root}api/v1/markets/coinmotion.json">coinmotion</a>
+ · <a href="{root}api/v1/markets/by-asset/BTC.json">BTC</a>
  · <a href="https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json" rel="noopener">{E(t("mk_raw"))}</a></p>
+<p class="meta">{E(t("mk_icons"))} <a href="https://github.com/spothq/cryptocurrency-icons" rel="noopener">cryptocurrency-icons</a>.</p>
 <noscript><p class="notice">{E(t("mk_noscript"))}</p></noscript>
 </div>"""
     page("markets", t("mk_title"), "markets", body_html, t("mk_desc"),
@@ -1027,7 +1092,8 @@ def build_calendar(ctx):
     up = [e for e in evs if not e["past"]]; past = [e for e in evs if e["past"] and e.get("status") == "published"][::-1]  # all finished, newest first
     def when(e):
         a = dt.datetime.fromisoformat(e["start"]); b = dt.datetime.fromisoformat(e["end"]) if e.get("end") else None
-        s = f'{i18n.WD[LANG][a.weekday()]} {i18n.short_date(LANG, a)}, {i18n.hm(LANG, a)}'
+        # Weekday names exist for the Nordic languages. The wider set uses English until translated.
+        s = f'{i18n.WD.get(LANG, i18n.WD["en"])[a.weekday()]} {i18n.short_date(LANG, a)}, {i18n.hm(LANG, a)}'
         s += (f'–{i18n.hm_end(LANG, b)}' if b and b.date() == a.date() else (f' – {i18n.short_dm(LANG, b)}' if b else ""))
         c = e.get("country")
         return s + f' ({t("time_local", city=t("city_" + c)) if c in COUNTRY_CODES else t("city_local")})'

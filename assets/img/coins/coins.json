@@ -1,0 +1,30 @@
+{
+ "source": "cryptocurrency-icons",
+ "source_url": "https://github.com/spothq/cryptocurrency-icons",
+ "version": "0.18.1",
+ "license": "CC0-1.0",
+ "license_name": "Creative Commons Zero v1.0 Universal",
+ "license_url": "https://github.com/spothq/cryptocurrency-icons/blob/master/LICENSE.md",
+ "authors": "Christopher Downer and contributors",
+ "note": "Served only for assets this set includes. Nordic Crypto does not draw substitutes and does not claim the icons. POL is not in the set. The MATIC icon is not reused for POL.",
+ "icons": {
+  "AAVE": "aave.svg",
+  "ADA": "ada.svg",
+  "ALGO": "algo.svg",
+  "ATOM": "atom.svg",
+  "AVAX": "avax.svg",
+  "BNB": "bnb.svg",
+  "BTC": "btc.svg",
+  "DOGE": "doge.svg",
+  "DOT": "dot.svg",
+  "ETH": "eth.svg",
+  "LINK": "link.svg",
+  "LTC": "ltc.svg",
+  "MATIC": "matic.svg",
+  "SOL": "sol.svg",
+  "UNI": "uni.svg",
+  "USDC": "usdc.svg",
+  "XLM": "xlm.svg",
+  "XRP": "xrp.svg"
+ }
+}

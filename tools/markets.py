@@ -5,6 +5,11 @@ Fetches official public REST tickers (no login, no scraping). Prices are copied
 from the exchange response. A failed exchange is recorded with a timestamp and
 omitted from the ticker list. Nothing is invented.
 
+Also writes one aggregated row per base-quote pair (BTC-NOK stays separate from
+BTC-EUR). last is the arithmetic mean of published last prices. Volume is summed
+only inside the same field. Coin icons are copied from the CC0 cryptocurrency-icons
+set when that set includes the asset.
+
   python3 tools/markets.py                 # fetch and print a short summary
   python3 tools/markets.py --write DIR     # write api/v1/markets*.json into DIR
   python3 tools/markets.py --write DIR --keep-if-empty
@@ -23,6 +28,7 @@ import datetime as dt
 import json
 import os
 import re
+import shutil
 import sys
 import time
 import urllib.error
@@ -54,7 +60,8 @@ REFRESH = {
     "build": "Fetched when the site is built (./build.sh and ./publish.sh).",
     "github_actions": (
         ".github/workflows/markets-refresh.yml rewrites these JSON files on the gh-pages branch "
-        "about once an hour (minute 17). It does not republish the rest of the site. "
+        "about once an hour (minute 17), including api/v1/markets/aggregated.json, the per-asset files "
+        "and the coin icons under api/v1/markets/logos/. It does not republish the rest of the site. "
         "If every exchange fails, the previous files are left as they are."
     ),
     "browser": (
@@ -434,9 +441,326 @@ def _quote_key(quote):
     return (QUOTE_ORDER.index(quote) if quote in QUOTE_ORDER else len(QUOTE_ORDER), quote)
 
 
+def _load_coins():
+    path = os.path.join(ROOT, "assets", "img", "coins", "coins.json")
+    with open(path, encoding="utf-8") as fh:
+        return json.load(fh)
+
+
+COINS = _load_coins()
+EXCHANGE_ORDER = ["firi", "nbx", "coinmotion"]
+LOGO_API = "api/v1/markets/logos"
+VOLUME_UNITS = {
+    "volume_base": "base asset; window not named by the exchange",
+    "volume_quote": "quote currency; window not named by the exchange",
+    "volume_base_24h": "base asset; last 24 hours, as named by the exchange",
+    "volume_quote_24h": "quote currency; last 24 hours, as named by the exchange",
+}
+AGGREGATION = {
+    "bucket": (
+        "One row per base-quote pair. BTC-NOK is never averaged with BTC-EUR, BTC-SEK or BTC-DKK. "
+        "Nordic Crypto does not convert between quote currencies."
+    ),
+    "last": (
+        "Arithmetic mean of last prices from exchanges that published a last for this pair. "
+        "Null when none did. Coinmotion publishes no last trade, so its row is left out of last."
+    ),
+    "mid": (
+        "For each exchange that published both bid and ask, the midpoint is (bid+ask)/2. "
+        "mid is the arithmetic mean of those midpoints. It is not blended with last."
+    ),
+    "price": "Equals last when any last exists, otherwise mid. min and max use that same series. Null when neither series exists. No price is invented.",
+    "min": "Lowest value in the same series as price. The original published figure, or the midpoint when price is a bid/ask mean.",
+    "max": "Highest value in the same series as price.",
+    "exchange_count": "How many exchanges published a ticker for this pair.",
+    "rounding": (
+        "Decimal arithmetic on the published digit strings, not binary floating point. "
+        "A mean keeps the widest fractional length among its inputs. "
+        "If the quotient needs more places, further digits are kept up to 12 fractional digits, then half away from zero. "
+        "A sum keeps the widest fractional length and is exact."
+    ),
+    "vwap": (
+        "Not computed. Firi's volume is not labeled 24-hour, NBX labels a 24-hour volume, and Coinmotion publishes none. "
+        "Those are not one weight, so the price is not volume-weighted."
+    ),
+    "volume": (
+        "Each volume field is summed only with the same field, and only inside one pair. "
+        "volume_base is the base asset and volume_quote is the quote currency; the exchange did not name a window (this is where Firi's volume is stored). "
+        "volume_base_24h is the base asset over the last 24 hours and volume_quote_24h is the quote currency over the last 24 hours (NBX). "
+        "The 24-hour fields are not added to the unlabeled fields. "
+        "A null sum means no included exchange published that field. A published zero is kept. Missing volume is not treated as zero."
+    ),
+    "logos": (
+        "SVG icons from cryptocurrency-icons 0.18.1 (CC0-1.0) when that set includes the asset. "
+        "logo_url is null otherwise. Nordic Crypto does not draw new icons and does not reuse the MATIC icon for POL."
+    ),
+}
+
+
+def _parse_decimal(text):
+    if text is None or isinstance(text, bool) or not DECIMAL.fullmatch(str(text)):
+        return None
+    body = str(text)
+    neg = body.startswith("-")
+    if neg:
+        body = body[1:]
+    whole, _, frac = body.partition(".")
+    return neg, whole or "0", frac
+
+
+def _format_scaled(n, scale, neg):
+    """n is a non-negative int. The value is n / 10**scale."""
+    if scale <= 0:
+        text = str(n)
+    else:
+        digits = str(n).rjust(scale + 1, "0")
+        text = digits[:-scale] + "." + digits[-scale:]
+    if neg and n != 0:
+        text = "-" + text
+    return text
+
+
+def _scaled_ints(texts):
+    parsed = []
+    for text in texts:
+        item = _parse_decimal(text)
+        if item is None:
+            return None
+        parsed.append(item)
+    if not parsed:
+        return None
+    scale = max(len(frac) for _, _, frac in parsed)
+    ints = []
+    for neg, whole, frac in parsed:
+        n = int(whole + frac.ljust(scale, "0"))
+        ints.append(-n if neg else n)
+    return ints, scale
+
+
+def sum_decimal(texts):
+    """Exact sum of decimal strings. None when texts is empty. Missing values stay out."""
+    scaled = _scaled_ints(texts)
+    if scaled is None:
+        return None
+    ints, scale = scaled
+    total = sum(ints)
+    return _format_scaled(abs(total), scale, total < 0)
+
+
+def mean_decimal(texts):
+    """Arithmetic mean of decimal strings. None when texts is empty."""
+    scaled = _scaled_ints(texts)
+    if scaled is None:
+        return None
+    ints, scale = scaled
+    count = len(ints)
+    total = sum(ints)
+    neg = total < 0
+    total = abs(total)
+    q, r = divmod(total, count)
+    extra = []
+    used = scale
+    while r and used < 12:
+        r *= 10
+        digit, r = divmod(r, count)
+        extra.append(digit)
+        used += 1
+    if r and (r * 10) // count >= 5:
+        if extra:
+            i = len(extra) - 1
+            extra[i] += 1
+            while extra[i] == 10:
+                extra[i] = 0
+                if i == 0:
+                    q += 1
+                    break
+                i -= 1
+                extra[i] += 1
+        else:
+            q += 1
+    for digit in extra:
+        q = q * 10 + digit
+    return _format_scaled(q, scale + len(extra), neg)
+
+
+def _extreme(texts, want):
+    parsed = []
+    for text in texts:
+        item = _parse_decimal(text)
+        if item is not None:
+            parsed.append((text, item))
+    if not parsed:
+        return None
+    scale = max(len(frac) for _, (_, _, frac) in parsed)
+    best = None
+    best_key = None
+    for text, (neg, whole, frac) in parsed:
+        n = int(whole + frac.ljust(scale, "0"))
+        if neg:
+            n = -n
+        if best is None or (n < best_key if want == "min" else n > best_key):
+            best, best_key = text, n
+    return best
+
+
+def logo_for(base, pages_base=PAGES_BASE, custom_base=CUSTOM_BASE):
+    """Icon URLs for one asset, or nulls when cryptocurrency-icons has no file."""
+    pages_base = pages_base if pages_base.endswith("/") else pages_base + "/"
+    custom_base = custom_base if custom_base.endswith("/") else custom_base + "/"
+    filename = (COINS.get("icons") or {}).get(base)
+    if not filename:
+        return {"logo_url": None, "logo_url_custom_domain": None, "logo_path": None, "logo": None}
+    rel = f"{LOGO_API}/{filename}"
+    return {
+        "logo_url": pages_base + rel,
+        "logo_url_custom_domain": custom_base + rel,
+        "logo_path": rel,
+        "logo": {
+            "format": "svg",
+            "source": COINS.get("source"),
+            "source_url": COINS.get("source_url"),
+            "version": COINS.get("version"),
+            "license": COINS.get("license"),
+            "license_name": COINS.get("license_name"),
+            "license_url": COINS.get("license_url"),
+            "authors": COINS.get("authors"),
+            "attribution": (
+                f"{base} icon from cryptocurrency-icons ({COINS.get('license')}), {COINS.get('source_url')}. "
+                "Nordic Crypto does not claim these icons."
+            ),
+        },
+    }
+
+
+def _vol_block(rows):
+    out = {"units": dict(VOLUME_UNITS)}
+    for field in ("volume_base", "volume_quote", "volume_base_24h", "volume_quote_24h"):
+        vals = [row.get(field) for row in rows if row.get(field) not in (None, "")]
+        out[field] = sum_decimal(vals) if vals else None
+        out[field + "_exchanges"] = len(vals) if vals else 0
+    return out
+
+
+def _contributor(row):
+    bid, ask, last = row.get("bid"), row.get("ask"), row.get("last")
+    mid = mean_decimal([bid, ask]) if bid is not None and ask is not None else None
+    ex = row.get("exchange") or {}
+    return {
+        "exchange_id": ex.get("id"),
+        "name": ex.get("name"),
+        "country": ex.get("country"),
+        "last": last,
+        "bid": bid,
+        "ask": ask,
+        "mid": mid,
+        "included_in_last": last is not None,
+        "included_in_mid": mid is not None,
+        "volume_base": row.get("volume_base"),
+        "volume_quote": row.get("volume_quote"),
+        "volume_base_24h": row.get("volume_base_24h"),
+        "volume_quote_24h": row.get("volume_quote_24h"),
+        "fetched_at": row.get("fetched_at"),
+        "source_url": row.get("source_url"),
+    }
+
+
+def _dedupe_exchange(rows):
+    """One ticker per exchange inside a pair. A later fetched_at replaces an earlier one."""
+    chosen = {}
+    order = []
+    for row in rows:
+        eid = (row.get("exchange") or {}).get("id") or ""
+        prev = chosen.get(eid)
+        if prev is None:
+            chosen[eid] = row
+            order.append(eid)
+            continue
+        if (row.get("fetched_at") or "") >= (prev.get("fetched_at") or ""):
+            chosen[eid] = row
+    rows = [chosen[eid] for eid in order]
+    rows.sort(key=lambda row: (
+        EXCHANGE_ORDER.index(row["exchange"]["id"]) if row["exchange"]["id"] in EXCHANGE_ORDER else len(EXCHANGE_ORDER),
+        row["exchange"]["id"],
+    ))
+    return rows
+
+
+def aggregate_pairs(tickers, pages_base=PAGES_BASE, custom_base=CUSTOM_BASE):
+    """One aggregate per base-quote pair. Quote currencies are not mixed."""
+    groups = {}
+    for row in tickers or []:
+        if not row.get("base") or not row.get("quote"):
+            continue
+        groups.setdefault((row["base"], row["quote"]), []).append(row)
+    pairs = []
+    for base, quote in sorted(groups, key=lambda item: (_asset_key(item[0]), _quote_key(item[1]))):
+        rows = _dedupe_exchange(groups[(base, quote)])
+        contributors = [_contributor(row) for row in rows]
+        lasts = [c["last"] for c in contributors if c["last"] is not None]
+        mids = [c["mid"] for c in contributors if c["mid"] is not None]
+        last = mean_decimal(lasts) if lasts else None
+        mid = mean_decimal(mids) if mids else None
+        if lasts:
+            method, series = "mean_last", lasts
+            price = last
+            note = (
+                "Arithmetic mean of last prices from exchanges that published a last for this pair. "
+                "Exchanges without a last stay in contributors and are left out of last, min and max. "
+                "Not weighted by volume."
+            )
+        elif mids:
+            method, series = "mean_bid_ask_mid", mids
+            price = mid
+            note = (
+                "No exchange published a last for this pair. "
+                "price is the arithmetic mean of (bid+ask)/2 from exchanges that published both. "
+                "It is not a last-trade average."
+            )
+        else:
+            method, series, price = None, [], None
+            note = "No last price, and no exchange published both a bid and an ask. No price is invented."
+        if method == "mean_last" and mid is not None:
+            note += " mid is the mean of bid/ask midpoints and is not mixed into last."
+        fetched = [c["fetched_at"] for c in contributors if c.get("fetched_at")]
+        logo = logo_for(base, pages_base, custom_base)
+        for c in contributors:
+            c["included_in_price"] = (c["last"] is not None) if method == "mean_last" else (c["mid"] is not None) if method == "mean_bid_ask_mid" else False
+        name = ASSET_NAMES.get(base)
+        pairs.append({
+            "symbol": f"{base}-{quote}",
+            "base": base,
+            "name": name,
+            "quote": quote,
+            "currency": quote,
+            "updated_at": max(fetched) if fetched else None,
+            "oldest_fetched_at": min(fetched) if fetched else None,
+            "exchange_count": len(contributors),
+            "method": method,
+            "method_note": note,
+            "price": price,
+            "min": _extreme(series, "min") if series else None,
+            "max": _extreme(series, "max") if series else None,
+            "last": last,
+            "last_count": len(lasts),
+            "last_min": _extreme(lasts, "min") if lasts else None,
+            "last_max": _extreme(lasts, "max") if lasts else None,
+            "mid": mid,
+            "mid_count": len(mids),
+            "mid_min": _extreme(mids, "min") if mids else None,
+            "mid_max": _extreme(mids, "max") if mids else None,
+            "vwap": None,
+            "volume_used_for_price": False,
+            "volume": _vol_block(contributors),
+            "contributors": contributors,
+            **logo,
+        })
+    return pairs
+
+
 def public_document(body, *, generated_at, preview, base=PAGES_BASE, custom=CUSTOM_BASE):
     base = base if base.endswith("/") else base + "/"
     custom = custom if custom.endswith("/") else custom + "/"
+    pairs = aggregate_pairs(body["tickers"], base, custom)
     doc = {
         "api_version": "1",
         "name": "Nordic Crypto",
@@ -448,23 +772,56 @@ def public_document(body, *, generated_at, preview, base=PAGES_BASE, custom=CUST
         "not_investment_advice": True,
         "quotes": body["quotes"],
         "quote_note": body["quote_note"],
+        "aggregation": AGGREGATION,
         "refresh": body["refresh"],
         "urls": {
             "github_pages": base + "api/v1/markets.json",
             "raw_githubusercontent": RAW_URL,
             "custom_domain": custom + "api/v1/markets.json",
+            "aggregated_github_pages": base + "api/v1/markets/aggregated.json",
+            "aggregated_custom_domain": custom + "api/v1/markets/aggregated.json",
+            "logos": base + LOGO_API + "/",
         },
         "exchanges": body["exchanges"],
         "skipped": body["skipped"],
         "count": len(body["tickers"]),
+        "aggregated_count": len(pairs),
         "tickers": body["tickers"],
+        "aggregated": pairs,
     }
     return doc
 
 
+def aggregated_document(doc):
+    return {
+        "api_version": doc["api_version"],
+        "name": doc["name"],
+        "generated_at": doc["generated_at"],
+        "preview": doc["preview"],
+        "kind": "markets-aggregated",
+        "disclaimer": doc["disclaimer"],
+        "sign_off": doc["sign_off"],
+        "not_investment_advice": True,
+        "quotes": doc.get("quotes"),
+        "quote_note": doc.get("quote_note"),
+        "aggregation": doc.get("aggregation"),
+        "urls": {
+            "github_pages": (doc.get("urls") or {}).get("aggregated_github_pages"),
+            "custom_domain": (doc.get("urls") or {}).get("aggregated_custom_domain"),
+            "logos": (doc.get("urls") or {}).get("logos"),
+            "tickers": (doc.get("urls") or {}).get("github_pages"),
+        },
+        "count": len(doc.get("aggregated") or []),
+        "pairs": doc.get("aggregated") or [],
+    }
+
+
 def documents(doc):
-    """Relative path -> JSON object, including per-exchange and per-asset files."""
-    out = {"api/v1/markets.json": doc}
+    """Relative path -> JSON object, including per-exchange, per-asset and aggregated files."""
+    out = {
+        "api/v1/markets.json": doc,
+        "api/v1/markets/aggregated.json": aggregated_document(doc),
+    }
     by_ex = {}
     by_asset = {}
     for row in doc["tickers"]:
@@ -475,12 +832,34 @@ def documents(doc):
         out[f"api/v1/markets/{ex['id']}.json"] = _slice(
             doc, exchange=ex, count=len(rows), tickers=rows,
         )
+    pages = ((doc.get("urls") or {}).get("github_pages") or PAGES_BASE).rsplit("api/v1/markets.json", 1)[0] or PAGES_BASE
+    custom = ((doc.get("urls") or {}).get("custom_domain") or CUSTOM_BASE).rsplit("api/v1/markets.json", 1)[0] or CUSTOM_BASE
     for base, rows in by_asset.items():
         safe = re.sub(r"[^A-Za-z0-9._-]+", "", base) or "asset"
+        pairs = [p for p in (doc.get("aggregated") or []) if p.get("base") == base]
+        logo = logo_for(base, pages, custom)
         out[f"api/v1/markets/by-asset/{safe}.json"] = _slice(
-            doc, symbol=base, count=len(rows), tickers=rows,
+            doc, symbol=base, name=ASSET_NAMES.get(base), count=len(rows), tickers=rows,
+            aggregated=pairs, aggregation=doc.get("aggregation"), **logo,
         )
     return out
+
+
+def write_logos(directory):
+    """Copy vendored CC0 icons into api/v1/markets/logos/ so the markets files serve them."""
+    src_dir = os.path.join(ROOT, "assets", "img", "coins")
+    dest = os.path.join(directory, LOGO_API)
+    os.makedirs(dest, exist_ok=True)
+    n = 0
+    for filename in (COINS.get("icons") or {}).values():
+        src = os.path.join(src_dir, filename)
+        if os.path.isfile(src):
+            shutil.copyfile(src, os.path.join(dest, filename))
+            n += 1
+    lic = os.path.join(src_dir, "LICENSE")
+    if os.path.isfile(lic):
+        shutil.copyfile(lic, os.path.join(dest, "LICENSE"))
+    return n
 
 
 def _slice(doc, **kw):
@@ -508,6 +887,7 @@ def dump(path, obj):
 def write_dir(directory, doc):
     for rel, obj in documents(doc).items():
         dump(os.path.join(directory, rel), obj)
+    write_logos(directory)
     return len(doc["tickers"])
 
 
