@@ -709,6 +709,7 @@ def _meta(feed):
         ("sources/", "News and event sources"),
         ("newsletter/", "Newsletter issues"),
         ("about/", "About, privacy, corrections and removal"),
+        ("ethics/", "Press ethics (Vær Varsom-plakaten)"),
         ("changelog/", "Site changelog"),
         ("tip/", "Send a tip (not part of this data API)"),
         ("columnist/", "Apply as a columnist (not part of this data API)"),

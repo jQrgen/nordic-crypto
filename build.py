@@ -560,6 +560,12 @@ def emit_api(ctx):
     LANG = was
     return info
 
+def build_ethics():
+    """Press ethics: Nordic Crypto follows Vær Varsom-plakaten. Own wording, not a copy of the code."""
+    name = f"ethics.{LANG}.html" if LANG != "en" else "ethics.html"
+    body = open(P("templates", name), encoding="utf-8").read()
+    page("ethics", t("ethics_title"), "ethics", body, t("ethics_desc"))
+
 def sitemap():
     urls = []
     for dp, _, fs in os.walk(SITE):
@@ -648,6 +654,7 @@ sel.addEventListener('change',function(){apply(1)});tc.concat(cc).forEach(functi
     build_rules(ctx)
     about = open(P("templates", f"about.{LANG}.html" if LANG != "en" else "about.html"), encoding="utf-8").read().replace("{{UP}}", up1())
     page("about", t("about_title"), "about", about, t("about_desc"))
+    build_ethics()
 
 # ---- Industry map: categories from the org chart data (group + description keywords; overrides in industry_map.json) ----
 MAP_CATS = ["exchanges", "wallets", "infra", "payments", "finance", "consulting", "media", "academia", "other", "intl", "public"]

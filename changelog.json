@@ -3,6 +3,38 @@
  "launch_date": "2026-10-03",
  "entries": [
   {
+   "id": "press-ethics",
+   "date": "2026-10-05",
+   "title": "Press ethics",
+   "description": "A public page states that Nordic Crypto follows Vær Varsom-plakaten, the ethical code of the Norwegian Press Association. The page is at /ethics/, linked from About and the footer, in every site language. Nordic Crypto is not a member of the Press Association.",
+   "i18n": {
+    "nn": {
+     "title": "Presseetikk",
+     "description": "Ei offentleg side seier at Nordic Crypto følgjer Vær Varsom-plakaten, dei etiske reglane til Norsk Presseforbund. Sida ligg på /ethics/, med lenkje frå Om oss og botteksten, på alle språka til nettstaden. Nordic Crypto er ikkje medlem av presseforbundet."
+    },
+    "nb": {
+     "title": "Presseetikk",
+     "description": "En offentlig side sier at Nordic Crypto følger Vær Varsom-plakaten, de etiske reglene til Norsk Presseforbund. Siden ligger på /ethics/, med lenke fra Om oss og bunnteksten, på alle språkene til nettstedet. Nordic Crypto er ikke medlem av presseforbundet."
+    },
+    "sv": {
+     "title": "Pressetik",
+     "description": "En offentlig sida säger att Nordic Crypto följer Vær Varsom-plakaten, den etiska koden hos norska pressföreningen. Sidan ligger på /ethics/, med länk från Om oss och sidfoten, på sajtens alla språk. Nordic Crypto är inte medlem i pressföreningen."
+    },
+    "da": {
+     "title": "Presseetik",
+     "description": "En offentlig side siger, at Nordic Crypto følger Vær Varsom-plakaten, de etiske regler hos den norske presseforening. Siden ligger på /ethics/, med link fra Om os og sidefoden, på alle sitets sprog. Nordic Crypto er ikke medlem af presseforeningen."
+    },
+    "fi": {
+     "title": "Lehdistöetiikka",
+     "description": "Julkinen sivu kertoo, että Nordic Crypto noudattaa Vær Varsom-plakaten -ohjeistoa, Norjan lehdistöliiton eettistä koodia. Sivu on polussa /ethics/, ja siihen on linkki Tietoa meistä -sivulta ja alatunnisteesta kaikilla sivuston kielillä. Nordic Crypto ei ole lehdistöliiton jäsen."
+    },
+    "is": {
+     "title": "Siðareglur",
+     "description": "Opinber síða segir að Nordic Crypto fylgi Vær Varsom-plakaten, siðareglum norska blaðamannafélagsins. Síðan er á /ethics/, með tengli frá Um okkur og í fæti, á öllum tungumálum síðunnar. Nordic Crypto er ekki aðili að félaginu."
+    }
+   }
+  },
+  {
    "id": "public-data-api",
    "date": "2026-10-05",
    "title": "Public data API",

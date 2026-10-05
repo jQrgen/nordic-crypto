@@ -93,6 +93,9 @@ def main():
             fails.append("cors")
         if "https://cryptonordic.no/api/v1/news.json" not in json.dumps(info):
             fails.append("custom domain example")
+        meta = json.load(open(os.path.join(tmp, "api/v1/meta.json"), encoding="utf-8"))
+        if "/ethics/" not in {p.get("path") for p in meta.get("site_pages") or []}:
+            fails.append("ethics page missing from site meta")
         page = open(os.path.join(tmp, "api/index.html"), encoding="utf-8").read()
         if "Nordic Crypto data API" not in page or "curl -fsS" not in page or "<header" not in page:
             fails.append("human docs were not themed by the site builder")
