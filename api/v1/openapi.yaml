@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   title: Nordic Crypto data API
   version: "1"
-  description: "Public read-only JSON for Nordic Crypto (cryptonordic.no, GitHub Pages jqrgen.github.io/nordic-crypto). No authentication. News, newsletters, events, sources, academia, the who's who, profiles, images, the rules map, the changelog, the article archive and Nordic exchange prices (market data, not investment advice). Kaupr is a news source only, never a sponsor. The sign-off is The Nordic Crypto team. GitHub Pages sends Access-Control-Allow-Origin: * so browsers can fetch these files. English text is the default; translations are inside each object under *_i18n. Discovery: https://jqrgen.github.io/nordic-crypto/api/v1/index.json. Human docs: https://jqrgen.github.io/nordic-crypto/api/."
+  description: "Public read-only JSON for Nordic Crypto (cryptonordic.no, GitHub Pages jqrgen.github.io/nordic-crypto). No authentication. News, newsletters, events, sources, academia, the who's who, profiles, images, the rules map, the changelog, the article archive and Nordic exchange prices (market data, not investment advice). Kaupr is a news source only, never a sponsor. The sign-off is The Nordic Crypto team. GitHub Pages sends Access-Control-Allow-Origin: * so browsers can fetch these files. English text is the default; published translations are inside each object under *_i18n. Site languages: /api/v1/languages.json. IP-country language guess: /api/v1/geo-language.json (the nc_lang cookie wins). Discovery: https://jqrgen.github.io/nordic-crypto/api/v1/index.json. Human docs: https://jqrgen.github.io/nordic-crypto/api/."
   license:
     name: MIT
     url: "https://github.com/jQrgen/nordic-crypto/blob/main/LICENSE"
@@ -511,6 +511,28 @@ paths:
           required: true
           schema:
             type: string
+  "/api/v1/languages.json":
+    get:
+      operationId: api_v1_languages
+      summary: "Site UI languages: code, native name, English name, rtl, html lang and home URL."
+      responses:
+        "200":
+          description: "Site UI languages: code, native name, English name, rtl, html lang and home URL."
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/LanguageList"
+  "/api/v1/geo-language.json":
+    get:
+      operationId: api_v1_geo_language
+      summary: Country to default site language. An IP guess only; the nc_lang cookie from the language switcher wins.
+      responses:
+        "200":
+          description: Country to default site language. An IP guess only; the nc_lang cookie from the language switcher wins.
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/GeoLanguage"
   "/api/v1/meta.json":
     get:
       operationId: api_v1_meta
@@ -1159,6 +1181,48 @@ components:
           type: object
           description: Public TestFlight invite. Not an App Store listing.
       description: SiteMeta
+    LanguageList:
+      type: object
+      properties:
+        api_version:
+          type: string
+        name:
+          type: string
+        generated_at:
+          type: string
+        preview:
+          type: boolean
+        count:
+          type: integer
+        languages:
+          type: array
+          items:
+            type: object
+      description: LanguageList
+    GeoLanguage:
+      type: object
+      properties:
+        api_version:
+          type: string
+        name:
+          type: string
+        generated_at:
+          type: string
+        preview:
+          type: boolean
+        note:
+          type: string
+        default:
+          type: string
+        by_country:
+          type: object
+          additionalProperties:
+            type: string
+        order:
+          type: array
+          items:
+            type: string
+      description: GeoLanguage
     MarketTicker:
       type: object
       required:

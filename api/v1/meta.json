@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T22:32:35+00:00",
+ "generated_at": "2026-10-05T22:45:02+00:00",
  "preview": false,
  "sign_off": "The Nordic Crypto team",
  "description": "Bitcoin, blockchain and crypto news, events, a who's who, regulation and academia for Norway, Sweden, Denmark, Finland and Iceland.",
@@ -18,47 +18,215 @@
   {
    "code": "en",
    "name": "English",
+   "native_name": "English",
+   "english_name": "English",
+   "rtl": false,
    "html_lang": "en",
+   "og_locale": "en_GB",
    "home": "https://jqrgen.github.io/nordic-crypto/"
   },
   {
    "code": "nn",
    "name": "Nynorsk",
+   "native_name": "Nynorsk",
+   "english_name": "Norwegian Nynorsk",
+   "rtl": false,
    "html_lang": "nn",
+   "og_locale": "nn_NO",
    "home": "https://jqrgen.github.io/nordic-crypto/nn/"
   },
   {
    "code": "nb",
    "name": "Bokmål",
+   "native_name": "Bokmål",
+   "english_name": "Norwegian Bokmål",
+   "rtl": false,
    "html_lang": "nb",
+   "og_locale": "nb_NO",
    "home": "https://jqrgen.github.io/nordic-crypto/nb/"
   },
   {
    "code": "sv",
    "name": "Svenska",
+   "native_name": "Svenska",
+   "english_name": "Swedish",
+   "rtl": false,
    "html_lang": "sv",
+   "og_locale": "sv_SE",
    "home": "https://jqrgen.github.io/nordic-crypto/sv/"
   },
   {
    "code": "da",
    "name": "Dansk",
+   "native_name": "Dansk",
+   "english_name": "Danish",
+   "rtl": false,
    "html_lang": "da",
+   "og_locale": "da_DK",
    "home": "https://jqrgen.github.io/nordic-crypto/da/"
   },
   {
    "code": "fi",
    "name": "Suomi",
+   "native_name": "Suomi",
+   "english_name": "Finnish",
+   "rtl": false,
    "html_lang": "fi",
+   "og_locale": "fi_FI",
    "home": "https://jqrgen.github.io/nordic-crypto/fi/"
   },
   {
    "code": "is",
    "name": "Íslenska",
+   "native_name": "Íslenska",
+   "english_name": "Icelandic",
+   "rtl": false,
    "html_lang": "is",
+   "og_locale": "is_IS",
    "home": "https://jqrgen.github.io/nordic-crypto/is/"
+  },
+  {
+   "code": "zh",
+   "name": "中文",
+   "native_name": "中文",
+   "english_name": "Chinese (Mandarin)",
+   "rtl": false,
+   "html_lang": "zh",
+   "og_locale": "zh_CN",
+   "home": "https://jqrgen.github.io/nordic-crypto/zh/"
+  },
+  {
+   "code": "hi",
+   "name": "हिन्दी",
+   "native_name": "हिन्दी",
+   "english_name": "Hindi",
+   "rtl": false,
+   "html_lang": "hi",
+   "og_locale": "hi_IN",
+   "home": "https://jqrgen.github.io/nordic-crypto/hi/"
+  },
+  {
+   "code": "es",
+   "name": "Español",
+   "native_name": "Español",
+   "english_name": "Spanish",
+   "rtl": false,
+   "html_lang": "es",
+   "og_locale": "es_ES",
+   "home": "https://jqrgen.github.io/nordic-crypto/es/"
+  },
+  {
+   "code": "fr",
+   "name": "Français",
+   "native_name": "Français",
+   "english_name": "French",
+   "rtl": false,
+   "html_lang": "fr",
+   "og_locale": "fr_FR",
+   "home": "https://jqrgen.github.io/nordic-crypto/fr/"
+  },
+  {
+   "code": "ar",
+   "name": "العربية",
+   "native_name": "العربية",
+   "english_name": "Arabic",
+   "rtl": true,
+   "html_lang": "ar",
+   "og_locale": "ar_SA",
+   "home": "https://jqrgen.github.io/nordic-crypto/ar/"
+  },
+  {
+   "code": "bn",
+   "name": "বাংলা",
+   "native_name": "বাংলা",
+   "english_name": "Bengali",
+   "rtl": false,
+   "html_lang": "bn",
+   "og_locale": "bn_BD",
+   "home": "https://jqrgen.github.io/nordic-crypto/bn/"
+  },
+  {
+   "code": "pt",
+   "name": "Português",
+   "native_name": "Português",
+   "english_name": "Portuguese",
+   "rtl": false,
+   "html_lang": "pt",
+   "og_locale": "pt_BR",
+   "home": "https://jqrgen.github.io/nordic-crypto/pt/"
+  },
+  {
+   "code": "ru",
+   "name": "Русский",
+   "native_name": "Русский",
+   "english_name": "Russian",
+   "rtl": false,
+   "html_lang": "ru",
+   "og_locale": "ru_RU",
+   "home": "https://jqrgen.github.io/nordic-crypto/ru/"
+  },
+  {
+   "code": "ur",
+   "name": "اردو",
+   "native_name": "اردو",
+   "english_name": "Urdu",
+   "rtl": true,
+   "html_lang": "ur",
+   "og_locale": "ur_PK",
+   "home": "https://jqrgen.github.io/nordic-crypto/ur/"
+  },
+  {
+   "code": "id",
+   "name": "Bahasa Indonesia",
+   "native_name": "Bahasa Indonesia",
+   "english_name": "Indonesian",
+   "rtl": false,
+   "html_lang": "id",
+   "og_locale": "id_ID",
+   "home": "https://jqrgen.github.io/nordic-crypto/id/"
+  },
+  {
+   "code": "de",
+   "name": "Deutsch",
+   "native_name": "Deutsch",
+   "english_name": "German",
+   "rtl": false,
+   "html_lang": "de",
+   "og_locale": "de_DE",
+   "home": "https://jqrgen.github.io/nordic-crypto/de/"
+  },
+  {
+   "code": "ja",
+   "name": "日本語",
+   "native_name": "日本語",
+   "english_name": "Japanese",
+   "rtl": false,
+   "html_lang": "ja",
+   "og_locale": "ja_JP",
+   "home": "https://jqrgen.github.io/nordic-crypto/ja/"
+  },
+  {
+   "code": "sw",
+   "name": "Kiswahili",
+   "native_name": "Kiswahili",
+   "english_name": "Swahili",
+   "rtl": false,
+   "html_lang": "sw",
+   "og_locale": "sw_KE",
+   "home": "https://jqrgen.github.io/nordic-crypto/sw/"
+  },
+  {
+   "code": "mr",
+   "name": "मराठी",
+   "native_name": "मराठी",
+   "english_name": "Marathi",
+   "rtl": false,
+   "html_lang": "mr",
+   "og_locale": "mr_IN",
+   "home": "https://jqrgen.github.io/nordic-crypto/mr/"
   }
  ],
- "language_note": "Our own text is written in English first. summary_i18n, title_i18n, subtitle_i18n, note_i18n and about_i18n use the site language codes nn, nb, sv, da, fi and is. If a translation is missing, use the English field. External headlines stay in the source language (see language and language_code). There is no query string for language: each JSON document already carries every published translation.",
+ "language_note": "Site languages, with native_name, english_name and rtl, are listed in languages and in /api/v1/languages.json. Our own text is written in English first. summary_i18n, title_i18n, subtitle_i18n, note_i18n and about_i18n carry published translations, today nn, nb, sv, da, fi and is. Other site languages fall back to the English field until a translation is published. External headlines stay in the source language (see language and language_code). There is no query string for language: each JSON document already carries every published translation. The language switcher's country default is a guess; see /api/v1/geo-language.json. The nc_lang cookie wins.",
  "countries": [
   {
    "code": "NO",

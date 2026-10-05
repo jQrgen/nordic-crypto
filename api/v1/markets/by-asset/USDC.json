@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T22:32:35+00:00",
+ "generated_at": "2026-10-05T22:45:02+00:00",
  "preview": false,
  "kind": "markets",
  "disclaimer": "Market data, not investment advice. Each figure is the value published by the named exchange at fetched_at. Nordic Crypto does not set these prices and does not tell anyone to buy or sell.",
@@ -29,7 +29,7 @@
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-05T22:32:31+00:00",
+   "fetched_at": "2026-10-05T22:44:55+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
@@ -38,7 +38,7 @@
    "high": "10.08",
    "low": "10.00",
    "change_pct": null,
-   "exchange_time": "2026-10-05T22:32:09+00:00"
+   "exchange_time": "2026-10-05T22:44:12+00:00"
   },
   {
    "id": "coinmotion:USDC-EUR",
@@ -47,14 +47,14 @@
    "base": "USDC",
    "quote": "EUR",
    "last": null,
-   "bid": "0.88775",
-   "ask": "0.89455",
+   "bid": "0.88780",
+   "ask": "0.89465",
    "exchange": {
     "id": "coinmotion",
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-05T22:32:31+00:00",
+   "fetched_at": "2026-10-05T22:44:55+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
@@ -63,7 +63,7 @@
    "high": "0.89560",
    "low": "0.88820",
    "change_pct": null,
-   "exchange_time": "2026-10-05T22:32:09+00:00"
+   "exchange_time": "2026-10-05T22:44:12+00:00"
   },
   {
    "id": "firi:USDC-NOK",
@@ -79,7 +79,7 @@
     "name": "Firi",
     "country": "NO"
    },
-   "fetched_at": "2026-10-05T22:32:28+00:00",
+   "fetched_at": "2026-10-05T22:44:54+00:00",
    "source_url": "https://api.firi.com/v2/markets/USDCNOK",
    "volume_base": "0",
    "volume_quote": null,
@@ -103,7 +103,7 @@
     "name": "Norwegian Block Exchange",
     "country": "NO"
    },
-   "fetched_at": "2026-10-05T22:32:29+00:00",
+   "fetched_at": "2026-10-05T22:44:54+00:00",
    "source_url": "https://api.nbx.com/tickers",
    "volume_base": null,
    "volume_quote": null,
@@ -127,7 +127,7 @@
     "name": "Norwegian Block Exchange",
     "country": "NO"
    },
-   "fetched_at": "2026-10-05T22:32:29+00:00",
+   "fetched_at": "2026-10-05T22:44:54+00:00",
    "source_url": "https://api.nbx.com/tickers",
    "volume_base": null,
    "volume_quote": null,

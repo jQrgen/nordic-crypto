@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T22:32:35+00:00",
+ "generated_at": "2026-10-05T22:45:02+00:00",
  "preview": false,
  "available": true,
  "review": "approved",
@@ -700,6 +700,20 @@
    "r12_dk": "Grunsamleg viðskipti eru tilkynnt til Hvidvasksekretariatet, peningaþvættisskrifstofu Danmerkur (FIU) innan NSK. Engin sérstök skattalög gilda um rafmyntir; Skattestyrelsen beitir almennum skattareglum á sýndareignir.",
    "r13_fi": "Lög 402/2024 eru viðbót við MiCA; samkvæmt 2. gr. laganna hefur Finanssivalvonta eftirlit með því að reglunum sé fylgt.",
    "r14_fi": "Grunsamleg viðskipti eru tilkynnt til peningaþvættisskrifstofunnar (Rahanpesun selvittelykeskus) innan finnsku rannsóknarlögreglunnar (lög 444/2017 og 445/2017)."
-  }
+  },
+  "zh": {},
+  "hi": {},
+  "es": {},
+  "fr": {},
+  "ar": {},
+  "bn": {},
+  "pt": {},
+  "ru": {},
+  "ur": {},
+  "id": {},
+  "de": {},
+  "ja": {},
+  "sw": {},
+  "mr": {}
  }
 }

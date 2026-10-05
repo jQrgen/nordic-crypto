@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T22:32:35+00:00",
+ "generated_at": "2026-10-05T22:45:02+00:00",
  "preview": false,
  "kind": "markets",
  "disclaimer": "Market data, not investment advice. Each figure is the value published by the named exchange at fetched_at. Nordic Crypto does not set these prices and does not tell anyone to buy or sell.",
@@ -22,14 +22,14 @@
    "base": "ADA",
    "quote": "SEK",
    "last": null,
-   "bid": "2.72",
+   "bid": "2.73",
    "ask": "2.75",
    "exchange": {
     "id": "coinmotion",
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-05T22:32:31+00:00",
+   "fetched_at": "2026-10-05T22:44:55+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
@@ -38,7 +38,7 @@
    "high": "2.77",
    "low": "2.58",
    "change_pct": null,
-   "exchange_time": "2026-10-05T22:32:09+00:00"
+   "exchange_time": "2026-10-05T22:44:12+00:00"
   },
   {
    "id": "coinmotion:ADA-EUR",
@@ -47,14 +47,14 @@
    "base": "ADA",
    "quote": "EUR",
    "last": null,
-   "bid": "0.24214",
-   "ask": "0.24460",
+   "bid": "0.24246",
+   "ask": "0.24490",
    "exchange": {
     "id": "coinmotion",
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-05T22:32:31+00:00",
+   "fetched_at": "2026-10-05T22:44:55+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
@@ -63,7 +63,7 @@
    "high": "0.24659",
    "low": "0.22935",
    "change_pct": null,
-   "exchange_time": "2026-10-05T22:32:09+00:00"
+   "exchange_time": "2026-10-05T22:44:12+00:00"
   },
   {
    "id": "firi:ADA-NOK",
@@ -79,7 +79,7 @@
     "name": "Firi",
     "country": "NO"
    },
-   "fetched_at": "2026-10-05T22:32:28+00:00",
+   "fetched_at": "2026-10-05T22:44:54+00:00",
    "source_url": "https://api.firi.com/v2/markets/ADANOK",
    "volume_base": "3220.30",
    "volume_quote": null,
@@ -97,13 +97,13 @@
    "quote": "NOK",
    "last": "2.52",
    "bid": "2.59",
-   "ask": "2.64",
+   "ask": "2.65",
    "exchange": {
     "id": "nbx",
     "name": "Norwegian Block Exchange",
     "country": "NO"
    },
-   "fetched_at": "2026-10-05T22:32:29+00:00",
+   "fetched_at": "2026-10-05T22:44:54+00:00",
    "source_url": "https://api.nbx.com/tickers",
    "volume_base": null,
    "volume_quote": null,
@@ -127,7 +127,7 @@
     "name": "Norwegian Block Exchange",
     "country": "NO"
    },
-   "fetched_at": "2026-10-05T22:32:29+00:00",
+   "fetched_at": "2026-10-05T22:44:54+00:00",
    "source_url": "https://api.nbx.com/tickers",
    "volume_base": null,
    "volume_quote": null,
@@ -151,7 +151,7 @@
     "name": "Norwegian Block Exchange",
     "country": "NO"
    },
-   "fetched_at": "2026-10-05T22:32:29+00:00",
+   "fetched_at": "2026-10-05T22:44:54+00:00",
    "source_url": "https://api.nbx.com/tickers",
    "volume_base": null,
    "volume_quote": null,
@@ -168,14 +168,14 @@
    "base": "ADA",
    "quote": "EUR",
    "last": "0.2136900463",
-   "bid": "0.2412899905",
-   "ask": "0.2451550663",
+   "bid": "0.2416771944",
+   "ask": "0.2455477291",
    "exchange": {
     "id": "nbx",
     "name": "Norwegian Block Exchange",
     "country": "NO"
    },
-   "fetched_at": "2026-10-05T22:32:29+00:00",
+   "fetched_at": "2026-10-05T22:44:54+00:00",
    "source_url": "https://api.nbx.com/tickers",
    "volume_base": null,
    "volume_quote": null,

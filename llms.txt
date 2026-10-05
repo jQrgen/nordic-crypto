@@ -2,7 +2,7 @@
 
 > Public JSON feed of Nordic crypto news, newsletters, events, sources, academia and the who's who. No account. No API key.
 
-Nordic Crypto covers Norway, Sweden, Denmark, Finland and Iceland. The sign-off is The Nordic Crypto team. Kaupr (kaupr.io) is a news source only and is never a sponsor. Summaries are ours, in English, with translations in summary_i18n (nn, nb, sv, da, fi, is) when published. External headlines stay in the original language.
+Nordic Crypto covers Norway, Sweden, Denmark, Finland and Iceland. The sign-off is The Nordic Crypto team. Kaupr (kaupr.io) is a news source only and is never a sponsor. Summaries are ours, in English, with translations in summary_i18n (nn, nb, sv, da, fi, is) when published. Other site languages fall back to English until a translation is published. External headlines stay in the original language.
 
 GitHub Pages sends Access-Control-Allow-Origin: * on every JSON file, so a browser can fetch them from any site. Use the file name (index.json). A directory URL does not serve the JSON.
 
@@ -18,6 +18,8 @@ Swap the base to move between the two. HTTPS on cryptonordic.no is the intended 
 - [OpenAPI YAML](https://jqrgen.github.io/nordic-crypto/api/v1/openapi.yaml): the same document.
 - [API catalog](https://jqrgen.github.io/nordic-crypto/.well-known/api-catalog): RFC 9727 linkset. A .json copy is at https://jqrgen.github.io/nordic-crypto/.well-known/api-catalog.json.
 - [Site meta](https://jqrgen.github.io/nordic-crypto/api/v1/meta.json): languages, countries, page list, CORS.
+- [Languages](https://jqrgen.github.io/nordic-crypto/api/v1/languages.json): site UI languages (code, native name, English name, rtl, home).
+- [Geo language](https://jqrgen.github.io/nordic-crypto/api/v1/geo-language.json): country to default language. An IP guess; the nc_lang cookie wins.
 
 ## Market prices
 
@@ -68,6 +70,8 @@ A single news item is api/v1/news/{id}.json (the id is on each item). A single n
 - [/api/v1/markets.json](https://jqrgen.github.io/nordic-crypto/api/v1/markets.json): Nordic exchange prices. Market data, not investment advice. Each ticker names the exchange, fetched_at and the source URL. NOK, SEK, DKK and EUR only.
 - [/api/v1/markets/{exchange}.json](https://jqrgen.github.io/nordic-crypto/api/v1/markets/{exchange}.json): Prices from one included exchange: firi (Norway), nbx (Norway) or coinmotion (Finland).
 - [/api/v1/markets/by-asset/{symbol}.json](https://jqrgen.github.io/nordic-crypto/api/v1/markets/by-asset/{symbol}.json): Prices for one asset (the base symbol, such as BTC) on every included Nordic exchange.
+- [/api/v1/languages.json](https://jqrgen.github.io/nordic-crypto/api/v1/languages.json): Site UI languages: code, native name, English name, rtl, html lang and home URL.
+- [/api/v1/geo-language.json](https://jqrgen.github.io/nordic-crypto/api/v1/geo-language.json): Country to default site language. An IP guess only; the nc_lang cookie from the language switcher wins.
 - [/api/v1/meta.json](https://jqrgen.github.io/nordic-crypto/api/v1/meta.json): Site name, languages, countries, page list, CORS and editorial notes.
 
 ## Not in this feed

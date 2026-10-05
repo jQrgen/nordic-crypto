@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T22:32:35+00:00",
+ "generated_at": "2026-10-05T22:45:02+00:00",
  "preview": false,
  "title": "Nordic Crypto data API",
  "sign_off": "The Nordic Crypto team",
@@ -22,7 +22,7 @@
   "github_pages": "https://jqrgen.github.io/nordic-crypto/",
   "custom_domain": "https://cryptonordic.no/"
  },
- "language_note": "Our own text is written in English first. summary_i18n, title_i18n, subtitle_i18n, note_i18n and about_i18n use the site language codes nn, nb, sv, da, fi and is. If a translation is missing, use the English field. External headlines stay in the source language (see language and language_code). There is no query string for language: each JSON document already carries every published translation.",
+ "language_note": "Site languages, with native_name, english_name and rtl, are listed in languages and in /api/v1/languages.json. Our own text is written in English first. summary_i18n, title_i18n, subtitle_i18n, note_i18n and about_i18n carry published translations, today nn, nb, sv, da, fi and is. Other site languages fall back to the English field until a translation is published. External headlines stay in the source language (see language and language_code). There is no query string for language: each JSON document already carries every published translation. The language switcher's country default is a guess; see /api/v1/geo-language.json. The nc_lang cookie wins.",
  "editorial": {
   "sign_off": "The Nordic Crypto team",
   "kaupr": "Kaupr (kaupr.io) is a news source only. It is never a sponsor of Nordic Crypto.",
@@ -227,8 +227,8 @@
    "url_custom_domain": "https://cryptonordic.no/api/v1/academia/{id}.json",
    "summary": "One academia row. The id is in academia.json.",
    "schema": "AcademiaItem",
-   "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/FI-CS-AJ0100.json",
-   "example_url_custom_domain": "https://cryptonordic.no/api/v1/academia/FI-CS-AJ0100.json"
+   "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/NO-TTM4195.json",
+   "example_url_custom_domain": "https://cryptonordic.no/api/v1/academia/NO-TTM4195.json"
   },
   {
    "id": "api-v1-orgchart",
@@ -359,6 +359,24 @@
    "schema": "MarketAsset",
    "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/markets/by-asset/BTC.json",
    "example_url_custom_domain": "https://cryptonordic.no/api/v1/markets/by-asset/BTC.json"
+  },
+  {
+   "id": "api-v1-languages",
+   "method": "GET",
+   "path": "/api/v1/languages.json",
+   "url": "https://jqrgen.github.io/nordic-crypto/api/v1/languages.json",
+   "url_custom_domain": "https://cryptonordic.no/api/v1/languages.json",
+   "summary": "Site UI languages: code, native name, English name, rtl, html lang and home URL.",
+   "schema": "LanguageList"
+  },
+  {
+   "id": "api-v1-geo-language",
+   "method": "GET",
+   "path": "/api/v1/geo-language.json",
+   "url": "https://jqrgen.github.io/nordic-crypto/api/v1/geo-language.json",
+   "url_custom_domain": "https://cryptonordic.no/api/v1/geo-language.json",
+   "summary": "Country to default site language. An IP guess only; the nc_lang cookie from the language switcher wins.",
+   "schema": "GeoLanguage"
   },
   {
    "id": "api-v1-meta",
