@@ -1,0 +1,3 @@
+# Rendered films stay out of git (same idea as newsletter/published/*.mp4).
+# Drop video-XX.mp4 and subs-XX.vtt in media/ and the next build embeds them.
+media/*.mp4

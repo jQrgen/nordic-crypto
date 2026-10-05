@@ -36,11 +36,12 @@ def walk(o, path):
     elif isinstance(o, str) and re.search(r"\.(nn|nb)(\.|$)", path): chk(path, o)
 try: walk(json.load(open(P("changelog.json"), encoding="utf-8")), "changelog.json")
 except FileNotFoundError: pass
-rp = P("tools", "rules_page.py")
-if os.path.exists(rp):
-    R = mod(rp).STR
-    for L in ("nn", "nb"):
-        for k, v in R.get(L, {}).items(): chk(f"rules_page.py STR.{L}.{k}", v)
+for name in ("rules_page.py", "regulation_videos.py"):
+    rp = P("tools", name)
+    if os.path.exists(rp):
+        R = mod(rp).STR
+        for L in ("nn", "nb"):
+            for k, v in R.get(L, {}).items(): chk(f"{name} STR.{L}.{k}", v)
 if hits:
     print("text gate: FAIL – «AI»/«KI» in Norwegian text (write «kunstig intelligens»):", file=sys.stderr)
     for h in hits: print("  " + h, file=sys.stderr)

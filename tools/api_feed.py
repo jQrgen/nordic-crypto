@@ -787,6 +787,7 @@ def _meta(feed):
         ("calendar/", "Events calendar, upcoming and past"),
         ("org-chart/", "Who's who: industry, regulators and the regulation overview"),
         ("rules/", "How EU crypto rules become law in the five countries"),
+        ("regulation-videos/", "Country explainer videos: how crypto rules are decided in each Nordic country"),
         ("academia/", "Courses, student groups, publications and research"),
         ("sources/", "News and event sources"),
         ("newsletter/", "Newsletter issues"),
