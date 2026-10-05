@@ -3,6 +3,70 @@
  "launch_date": "2026-10-03",
  "entries": [
   {
+   "id": "ios-testflight",
+   "date": "2026-10-05",
+   "title": "iOS app on TestFlight",
+   "description": "A public TestFlight invite for the Nordic Crypto iOS app is linked from the footer, the homepage, the markets page and About. There is no App Store listing.",
+   "i18n": {
+    "nn": {
+     "title": "iOS-app på TestFlight",
+     "description": "Ei offentleg TestFlight-invitasjon til iOS-appen for Nordic Crypto er lenkja frå botteksten, framsida, marknadssida og Om oss. Det finst inga App Store-side."
+    },
+    "nb": {
+     "title": "iOS-app på TestFlight",
+     "description": "En offentlig TestFlight-invitasjon til iOS-appen for Nordic Crypto er lenket fra bunnteksten, forsiden, markedssiden og Om oss. Det finnes ingen App Store-side."
+    },
+    "sv": {
+     "title": "iOS-app på TestFlight",
+     "description": "En offentlig TestFlight-inbjudan till iOS-appen för Nordic Crypto är länkad från sidfoten, startsidan, marknadssidan och Om oss. Det finns ingen App Store-sida."
+    },
+    "da": {
+     "title": "iOS-app på TestFlight",
+     "description": "En offentlig TestFlight-invitation til iOS-appen for Nordic Crypto er linket fra sidefoden, forsiden, markedssiden og Om os. Der er ingen App Store-side."
+    },
+    "fi": {
+     "title": "iOS-sovellus TestFlightissa",
+     "description": "Julkinen TestFlight-kutsu Nordic Crypton iOS-sovellukseen on linkitetty alatunnisteesta, etusivulta, markkinasivulta ja Tietoa meistä -sivulta. App Store -sivua ei ole."
+    },
+    "is": {
+     "title": "iOS-app á TestFlight",
+     "description": "Opinber TestFlight-boð í iOS-app Nordic Crypto eru tengd úr fætinum, forsíðunni, markaðssíðunni og Um okkur. Það er engin App Store-síða."
+    }
+   }
+  },
+  {
+   "id": "nordic-exchange-prices",
+   "date": "2026-10-05",
+   "title": "Prices on Nordic exchanges",
+   "description": "Market prices from Firi, Norwegian Block Exchange and Coinmotion are on /markets/ and in /api/v1/markets.json. Quotes are NOK, SEK, DKK and EUR. The figures are market data, not investment advice. Safello, Goobit, Trijo, Northcrypto, Kvarn X and any Danish- or Icelandic-registered venue without a public ticker are listed as skipped. The JSON is fetched at build time and refreshed on gh-pages about hourly.",
+   "i18n": {
+    "nn": {
+     "title": "Prisar på nordiske børsar",
+     "description": "Marknadsprisar frå Firi, Norwegian Block Exchange og Coinmotion ligg på /markets/ og i /api/v1/markets.json. Noteringane er i NOK, SEK, DKK og EUR. Tala er marknadsdata, ikkje investeringsråd. Safello, Goobit, Trijo, Northcrypto, Kvarn X og danske eller islandske stader utan open kurs er lista som utelatne. JSON blir henta ved bygg og oppdatert på gh-pages om lag kvar time."
+    },
+    "nb": {
+     "title": "Priser på nordiske børser",
+     "description": "Markedspriser fra Firi, Norwegian Block Exchange og Coinmotion ligger på /markets/ og i /api/v1/markets.json. Noteringene er i NOK, SEK, DKK og EUR. Tallene er markedsdata, ikke investeringsråd. Safello, Goobit, Trijo, Northcrypto, Kvarn X og danske eller islandske steder uten åpen kurs er listet som utelatt. JSON hentes ved bygg og oppdateres på gh-pages omtrent hver time."
+    },
+    "sv": {
+     "title": "Priser på nordiska börser",
+     "description": "Marknadspriser från Firi, Norwegian Block Exchange och Coinmotion finns på /markets/ och i /api/v1/markets.json. Noteringarna är i NOK, SEK, DKK och EUR. Siffrorna är marknadsdata, inte investeringsrådgivning. Safello, Goobit, Trijo, Northcrypto, Kvarn X och danska eller isländska ställen utan öppen kurs listas som utelämnade. JSON hämtas vid bygget och uppdateras på gh-pages ungefär varje timme."
+    },
+    "da": {
+     "title": "Priser på nordiske børser",
+     "description": "Markedspriser fra Firi, Norwegian Block Exchange og Coinmotion ligger på /markets/ og i /api/v1/markets.json. Noteringerne er i NOK, SEK, DKK og EUR. Tallene er markedsdata, ikke investeringsrådgivning. Safello, Goobit, Trijo, Northcrypto, Kvarn X og danske eller islandske steder uden åben kurs er listet som udeladt. JSON hentes ved build og opdateres på gh-pages cirka hver time."
+    },
+    "fi": {
+     "title": "Hinnat pohjoismaisissa pörsseissä",
+     "description": "Markkinahinnat Firiltä, Norwegian Block Exchangeltä ja Coinmotionilta ovat sivulla /markets/ ja polussa /api/v1/markets.json. Noteeraukset ovat NOK, SEK, DKK ja EUR. Luvut ovat markkinadataa, eivät sijoitusneuvontaa. Safello, Goobit, Trijo, Northcrypto, Kvarn X ja tanskalaiset tai islantilaiset paikat ilman julkista kurssia on merkitty pois jätetyiksi. JSON haetaan koosteen yhteydessä ja päivitetään gh-pages-haarassa noin tunnin välein."
+    },
+    "is": {
+     "title": "Verð á norrænum kauphöllum",
+     "description": "Markaðsverð frá Firi, Norwegian Block Exchange og Coinmotion er á /markets/ og í /api/v1/markets.json. Skráningarnar eru í NOK, SEK, DKK og EUR. Tölurnar eru markaðsgögn, ekki fjárfestingarráðgjöf. Safello, Goobit, Trijo, Northcrypto, Kvarn X og danskir eða íslenskir staðir án opins gengis eru skráðir sem sleppt. JSON er sótt við byggingu og uppfært á gh-pages um það bil á klukkustundar fresti."
+    }
+   }
+  },
+  {
    "id": "press-ethics",
    "date": "2026-10-05",
    "title": "Editorial ethics",

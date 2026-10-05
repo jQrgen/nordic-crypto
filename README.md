@@ -15,7 +15,34 @@ Public JSON for apps and other tools, written into `site/` by `./build.sh` (`too
 - OpenAPI: `/api/v1/openapi.json` and `/api/v1/openapi.yaml`
 - `llms.txt` at the site root, and `/.well-known/api-catalog`
 
-News: `/api/v1/news.json` and `/api/v1/news/{id}.json`. Newsletters: `/api/v1/newsletters.json` and `/api/v1/newsletters/001.json`. GitHub Pages sends `Access-Control-Allow-Origin: *` on the files. `python3 tools/api_feed.py` writes the same JSON from the committed public data without building the rest of the HTML.
+News: `/api/v1/news.json` and `/api/v1/news/{id}.json`. Newsletters: `/api/v1/newsletters.json` and `/api/v1/newsletters/001.json`. GitHub Pages sends `Access-Control-Allow-Origin: *` on the files. `python3 tools/api_feed.py` writes the same JSON from the committed public data without building the rest of the HTML. That command also fetches live exchange prices (see below).
+
+### Market prices
+Public tickers from Nordic exchanges, as market data, not investment advice. Each row has `symbol`, `base`, `quote`, `last`, `bid` and `ask` when the exchange publishes them, plus `exchange` (`id`, `name`, `country`), `fetched_at` (ISO 8601) and `source_url`. Quotes are NOK, SEK, DKK and EUR only. Nothing is converted between currencies. A failed exchange is an `error` with a timestamp and no price.
+
+Included (official public REST, no key):
+
+| Exchange | Country | Source |
+|---|---|---|
+| Firi | Norway (also DKK pairs) | `https://api.firi.com/v2/markets` and `/v2/markets/tickers` |
+| Norwegian Block Exchange (NBX) | Norway (also SEK, DKK and EUR pairs) | `https://api.nbx.com/tickers` |
+| Coinmotion | Finland (EUR and SEK) | `https://api.coinmotion.com/v2/rates` |
+
+Skipped because no unauthenticated public ticker was found: Safello (OAuth `market` scope), Goobit/BTCX, Trijo, Northcrypto, Kvarn X, and no Danish- or Icelandic-registered venue. DKK and SEK pairs that Firi, NBX or Coinmotion do publish are included. Kaupr is a news source only and is not an exchange in this feed.
+
+- All prices: `/api/v1/markets.json`
+- One exchange: `/api/v1/markets/firi.json`, `/api/v1/markets/nbx.json`, `/api/v1/markets/coinmotion.json`
+- One asset: `/api/v1/markets/by-asset/BTC.json` (the base symbol)
+- Durable URL: `https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json`
+- Same paths on the custom domain, at the site root (`https://cryptonordic.no/api/v1/markets.json`)
+- Page: `/markets/` (linked from the nav and the homepage)
+
+Refresh: `./build.sh` and `./publish.sh` fetch the exchanges while building `site/`. `.github/workflows/markets-refresh.yml` rewrites only the markets JSON on `gh-pages` about hourly (minute 17) and leaves the previous files in place if every exchange fails. The markets page reloads `/api/v1/markets.json` about every 15 minutes. Firi and Coinmotion send `Access-Control-Allow-Origin: *`, so the page also requests those APIs from the browser about every 5 minutes. `api.nbx.com` does not send that header, so NBX rows follow the file.
+
+`python3 tools/markets.py` prints a short summary. `python3 tools/markets.py --write DIR` writes the JSON tree. `--keep-if-empty` is what the hourly job uses.
+
+### iOS app
+Public TestFlight invite, linked from the footer, the homepage, `/markets/` and About: https://testflight.apple.com/join/nQ2fpjZn. There is no App Store listing.
 
 ## Pipeline
 | Step | Command | What it does |

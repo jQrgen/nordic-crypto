@@ -713,6 +713,7 @@ def _meta(feed):
         ("changelog/", "Site changelog"),
         ("tip/", "Send a tip (not part of this data API)"),
         ("columnist/", "Apply as a columnist (not part of this data API)"),
+        ("markets/", "Prices on Nordic exchanges (market data, not investment advice)"),
         ("screen/", "News screen, English"),
         ("api/", "This API, human documentation"),
     ]
@@ -721,6 +722,13 @@ def _meta(feed):
         description="Bitcoin, blockchain and crypto news, events, a who's who, regulation and academia for Norway, Sweden, Denmark, Finland and Iceland.",
         license="MIT",
         operator="Jørgen S. Notland (jQrgen), Oslo",
+        ios={
+            "name": "Nordic Crypto",
+            "distribution": "TestFlight",
+            "label": "iOS app (TestFlight)",
+            "url": "https://testflight.apple.com/join/nQ2fpjZn",
+            "note": "Public TestFlight invite. This feed does not list an App Store page.",
+        },
         languages=[{
             "code": lang,
             "name": i18n.NAME[lang],
@@ -780,7 +788,53 @@ def cors_doc():
     }
 
 
-def write(site, *, preview, base, items, events, entities, relations, org_updated, regulation, caveats, sources_cfg, news_updated):
+def _markets(feed, markets):
+    """Write /api/v1/markets*.json. markets is the body from tools/markets.py, or None to fetch live."""
+    sys.path.insert(0, os.path.join(ROOT, "tools"))
+    import markets as markets_mod
+    if markets is None:
+        try:
+            markets = markets_mod.fetch()
+        except Exception as ex:
+            print(f"markets: fetch failed: {ex}", file=sys.stderr)
+            markets = markets_mod.empty_failure(str(ex).split("\n")[0][:300])
+    doc = markets_mod.public_document(
+        markets, generated_at=feed.generated, preview=feed.preview, base=feed.base, custom=feed.custom,
+    )
+    files = markets_mod.documents(doc)
+    for rel, obj in files.items():
+        feed.write_json(rel, obj)
+    feed.add_endpoint(
+        "markets",
+        "api/v1/markets.json",
+        "Nordic exchange prices. Market data, not investment advice. Each ticker names the exchange, fetched_at and the source URL. NOK, SEK, DKK and EUR only.",
+        "MarketCatalogue",
+        example="api/v1/markets/firi.json" if "api/v1/markets/firi.json" in files else None,
+    )
+    feed.add_endpoint(
+        "markets-exchange",
+        "api/v1/markets/{exchange}.json",
+        "Prices from one included exchange: firi (Norway), nbx (Norway) or coinmotion (Finland).",
+        "MarketExchange",
+        example="api/v1/markets/firi.json" if "api/v1/markets/firi.json" in files else None,
+    )
+    asset_example = None
+    for rel in files:
+        if rel.startswith("api/v1/markets/by-asset/") and rel.endswith(".json"):
+            asset_example = rel
+            if rel.endswith("/BTC.json"):
+                break
+    feed.add_endpoint(
+        "markets-asset",
+        "api/v1/markets/by-asset/{symbol}.json",
+        "Prices for one asset (the base symbol, such as BTC) on every included Nordic exchange.",
+        "MarketAsset",
+        example=asset_example,
+    )
+    return doc
+
+
+def write(site, *, preview, base, items, events, entities, relations, org_updated, regulation, caveats, sources_cfg, news_updated, markets=None):
     feed = Feed(site, preview, base)
     os.makedirs(site, exist_ok=True)
 
@@ -963,6 +1017,16 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
     for a in articles:
         feed.write_json(f"api/v1/archive/articles/{a['id']}.json", feed.env(item=a))
 
+    market_doc = _markets(feed, markets)
+    market_counts = {}
+    for ex in market_doc.get("exchanges") or []:
+        market_counts[ex.get("id")] = ex.get("ticker_count") or 0
+    market_bases = []
+    for row in market_doc.get("tickers") or []:
+        if row.get("base") not in market_bases:
+            market_bases.append(row["base"])
+    example_asset = "BTC" if "BTC" in market_bases else (market_bases[0] if market_bases else None)
+
     meta = _meta(feed)
     collection("api/v1/meta.json", "Site name, languages, countries, page list, CORS and editorial notes.", "SiteMeta", meta)
 
@@ -997,9 +1061,14 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
             "images": len(images),
             "changelog": len(changes),
             "archive_articles": len(articles),
+            "markets": market_doc.get("count") or 0,
+            "markets_by_exchange": market_counts,
         },
         endpoints=list(feed.endpoints),
         start_here=[
+            {"description": "Nordic exchange prices (market data, not investment advice)", "url": feed.abs("api/v1/markets.json")},
+            {"description": "Prices from one exchange", "url": feed.abs("api/v1/markets/firi.json")},
+            *([{"description": "Prices for one asset, on every included exchange", "url": feed.abs(f"api/v1/markets/by-asset/{example_asset}.json")}] if example_asset else []),
             {"description": "All published news", "url": feed.abs("api/v1/news.json")},
             {"description": "One news item", "url": news[0]["api_url"] if news else None},
             {"description": "Newsletter issues", "url": feed.abs("api/v1/newsletters.json")},
@@ -1051,7 +1120,7 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
     with open(docs_path, "w", encoding="utf-8") as fh:
         fh.write(doc)
 
-    print(f"api v1: {len(news)} news, {len(letters)} newsletters, {len(evs)} events, {len(ents)} org rows, {len(feed.endpoints) + 1} endpoints -> {site}")
+    print(f"api v1: {len(news)} news, {len(letters)} newsletters, {len(evs)} events, {len(ents)} org rows, {market_doc.get('count') or 0} market rows, {len(feed.endpoints) + 1} endpoints -> {site}")
     return index
 
 
@@ -1083,7 +1152,7 @@ def openapi(feed, index):
             "description": (
                 "Public read-only JSON for Nordic Crypto (cryptonordic.no, GitHub Pages jqrgen.github.io/nordic-crypto). "
                 "No authentication. News, newsletters, events, sources, academia, the who's who, profiles, images, "
-                "the rules map, the changelog and the article archive. "
+                "the rules map, the changelog, the article archive and Nordic exchange prices (market data, not investment advice). "
                 "Kaupr is a news source only, never a sponsor. The sign-off is The Nordic Crypto team. "
                 "GitHub Pages sends Access-Control-Allow-Origin: * so browsers can fetch these files. "
                 "English text is the default; translations are inside each object under *_i18n. "
@@ -1203,7 +1272,45 @@ def schemas():
         "ChangelogList": wrap("ChangelogList", {"entries": {"type": "array"}}),
         "Rules": wrap("Rules", {"available": {"type": "boolean"}, "checked": {"type": "string"}}),
         "ArticleArchive": wrap("ArticleArchive", {"articles": {"type": "array"}}),
-        "SiteMeta": wrap("SiteMeta", {"languages": {"type": "array"}, "countries": {"type": "array"}, "cors": {"type": "object"}}),
+        "SiteMeta": wrap("SiteMeta", {"languages": {"type": "array"}, "countries": {"type": "array"}, "cors": {"type": "object"}, "ios": {"type": "object", "description": "Public TestFlight invite. Not an App Store listing."}}),
+        "MarketTicker": {
+            "type": "object",
+            "required": ["symbol", "base", "quote", "exchange", "fetched_at", "source_url"],
+            "properties": {
+                "id": {"type": "string"},
+                "symbol": {"type": "string", "description": "BASE-QUOTE, for example BTC-NOK.", "example": "BTC-NOK"},
+                "exchange_symbol": {"type": "string", "description": "The pair id used by the exchange."},
+                "base": {"type": "string"},
+                "quote": {"type": "string", "enum": ["NOK", "SEK", "DKK", "EUR"]},
+                "last": {"type": "string", "nullable": True, "description": "Last price as published, decimal string. Null when the exchange does not publish a last trade."},
+                "bid": {"type": "string", "nullable": True, "description": "Best bid as published, decimal string."},
+                "ask": {"type": "string", "nullable": True, "description": "Best ask as published, decimal string."},
+                "exchange": {"type": "object", "required": ["id", "name", "country"], "properties": {
+                    "id": {"type": "string"}, "name": {"type": "string"}, "country": {"type": "string"},
+                }},
+                "fetched_at": {"type": "string", "description": "When Nordic Crypto fetched this row, ISO 8601 UTC."},
+                "source_url": {"type": "string", "description": "Exchange URL the figure was read from."},
+                "volume_base": {"type": "string", "nullable": True},
+                "volume_quote": {"type": "string", "nullable": True},
+                "volume_base_24h": {"type": "string", "nullable": True, "description": "Set only when the exchange names a 24-hour window."},
+                "volume_quote_24h": {"type": "string", "nullable": True},
+                "high": {"type": "string", "nullable": True},
+                "low": {"type": "string", "nullable": True},
+                "change_pct": {"type": "string", "nullable": True},
+                "exchange_time": {"type": "string", "nullable": True, "description": "Timestamp from the exchange payload, when it sends one."},
+            },
+        },
+        "MarketCatalogue": wrap("MarketCatalogue", {
+            "disclaimer": {"type": "string"},
+            "count": {"type": "integer"},
+            "exchanges": {"type": "array"},
+            "skipped": {"type": "array", "description": "Venues checked and left out because they have no public ticker."},
+            "tickers": {"type": "array", "items": {"$ref": "#/components/schemas/MarketTicker"}},
+            "urls": {"type": "object"},
+            "refresh": {"type": "object"},
+        }),
+        "MarketExchange": wrap("MarketExchange", {"exchange": {"type": "object"}, "count": {"type": "integer"}, "tickers": {"type": "array", "items": {"$ref": "#/components/schemas/MarketTicker"}}}),
+        "MarketAsset": wrap("MarketAsset", {"symbol": {"type": "string"}, "count": {"type": "integer"}, "tickers": {"type": "array", "items": {"$ref": "#/components/schemas/MarketTicker"}}}),
     }
 
 
@@ -1239,6 +1346,20 @@ def llms_txt(feed, index):
         f"- [OpenAPI YAML]({feed.abs('api/v1/openapi.yaml')}): the same document.",
         f"- [API catalog]({feed.abs('.well-known/api-catalog')}): RFC 9727 linkset. A .json copy is at {feed.abs('.well-known/api-catalog.json')}.",
         f"- [Site meta]({feed.abs('api/v1/meta.json')}): languages, countries, page list, CORS.",
+        "",
+        "## Market prices",
+        "",
+        "Prices from Nordic exchanges with a public ticker (Firi and Norwegian Block Exchange in Norway, Coinmotion in Finland). "
+        "Market data, not investment advice. Each ticker has symbol, base, quote, last, bid and ask when the exchange publishes them, "
+        "plus exchange id, name and country, fetched_at and source_url. Quotes are NOK, SEK, DKK or EUR. "
+        "A failed exchange is an error with a timestamp and no price. "
+        "The file is fetched again when the site is built, and a GitHub Actions job rewrites it on gh-pages about hourly. "
+        "Durable URL: https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json",
+        "",
+        "```",
+        f"curl -fsS {feed.abs('api/v1/markets.json')}",
+        "curl -fsS https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json",
+        "```",
         "",
         "## Fetch news and newsletters",
         "",
@@ -1337,6 +1458,10 @@ def docs_fragment(index):
 <pre>curl -fsS {news}
 curl -fsS {letters}{html.escape(one_line)}</pre>
 <p>The same paths on the custom domain, at the site root: <code>{html.escape(c)}api/v1/news.json</code>. Swap <code>{html.escape(b)}</code> for <code>{html.escape(c)}</code>.</p>
+<h2>Market prices</h2>
+<p>Nordic exchange prices are market data, not investment advice. <a href="{html.escape(b)}api/v1/markets.json"><code>/api/v1/markets.json</code></a> lists each pair with symbol, base, quote, last, bid and ask when the exchange publishes them, the exchange id, name and country, <code>fetched_at</code> and the source URL. Quotes are NOK, SEK, DKK and EUR. One exchange is <a href="{html.escape(b)}api/v1/markets/firi.json"><code>/api/v1/markets/{{exchange}}.json</code></a> (<code>firi</code>, <code>nbx</code>, <code>coinmotion</code>). One asset is <a href="{html.escape(b)}api/v1/markets/by-asset/BTC.json"><code>/api/v1/markets/by-asset/{{symbol}}.json</code></a>. Venues without a public ticker are listed under <code>skipped</code> and are not given a made-up price.</p>
+<p>The build fetches the exchanges. <code>.github/workflows/markets-refresh.yml</code> rewrites the JSON on gh-pages about once an hour. The markets page reloads this file, and refreshes Firi and Coinmotion in the browser because those APIs send <code>Access-Control-Allow-Origin: *</code>. NBX does not, so those rows follow the file. The same document on the gh-pages branch: <a href="https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json">raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json</a>.</p>
+<pre>curl -fsS {html.escape(b)}api/v1/markets.json</pre>
 <h2>Languages</h2>
 <p>English is the default field (<code>summary</code>, <code>title</code>, <code>text</code>). Translations that we have published sit in <code>summary_i18n</code>, <code>title_i18n</code>, <code>subtitle_i18n</code>, <code>note_i18n</code>, <code>text_i18n</code> and <code>about_i18n</code>, keyed by <code>nn</code>, <code>nb</code>, <code>sv</code>, <code>da</code>, <code>fi</code> and <code>is</code>. If a key is missing, use the English field. Headlines from other outlets stay in the original language. Dates are ISO 8601.</p>
 <h2>CORS</h2>
