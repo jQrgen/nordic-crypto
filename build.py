@@ -11,6 +11,7 @@ Every page is built once per language; data/ (JSON), assets/ and screen/ (Englis
 import json, os, re, shutil, subprocess, html, sys, calendar, datetime as dt
 from zoneinfo import ZoneInfo
 import i18n
+from tools.frontpage_blurbs import card_text, load as load_blurbs, opening_sentences, substantive
 ROOT = os.path.dirname(os.path.abspath(__file__)); P = lambda *a: os.path.join(ROOT, *a)
 BASE = "https://jqrgen.github.io/nordic-crypto/"
 SITE = os.environ.get("NC_SITE_DIR") or P("site")   # NC_SITE_DIR: scratch build dir (tipworker/publish_tip_page.sh)
@@ -75,14 +76,14 @@ select,input[type=search]{font:inherit;font-size:15px;padding:5px 8px;border:1px
 .chip[aria-pressed=true]{background:var(--ink);color:#fff}
 .flag{vertical-align:-2px;flex:none;border-radius:1px}
 .cc{display:inline-block;font-size:11px;font-weight:700;padding:0 4px;border:1px solid var(--line);color:var(--muted);vertical-align:1px}
-ol.news{list-style:none;margin:0;padding:0}
+ol.news{list-style:none;margin:0;padding:0;text-align:left}
 ol.news li{padding:14px 0;border-bottom:1px solid var(--line)}
 ol.news h3{font-size:18px;line-height:1.3;margin:0 0 4px}ol.news h3 a{text-decoration:none}ol.news h3 a:hover{text-decoration:underline}
 .orig{font-size:13.5px;color:var(--muted);margin:0 0 3px}
 .meta{font-size:13.5px;color:var(--muted)}.meta b{color:var(--ink);font-weight:600}
 .tag{display:inline-block;font-size:12px;padding:0 6px;border:1px solid var(--line);margin-left:4px;color:var(--muted)}
 .tag.pend{border-color:var(--warm);color:var(--warm);font-weight:600}.tag.paid{border-color:var(--warm);color:var(--warm)}
-.sum{margin:6px 0 0;max-width:75ch}.sum.pend{color:var(--warm);font-style:italic}
+.sum{margin:6px 0 0;max-width:75ch;line-height:1.45;text-align:left}.sum.pend{color:var(--warm);font-style:italic}
 .pw{font-size:12px;color:var(--warm)}
 .calgrid{display:none}@media(min-width:760px){.calgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(460px,1fr));gap:20px;margin:16px 0}}
 table.cal{border-collapse:collapse;width:100%;table-layout:fixed;font-size:13px}table.cal caption{text-align:left;font-weight:600;padding:4px 0}
@@ -170,7 +171,7 @@ html.nc-pick body{visibility:hidden}
 .issue h1{overflow-wrap:break-word}
 .nlvideo{margin:16px 0 20px;max-width:960px}.nlvideo video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000}.nlvideo figcaption{margin-top:6px}
 .issuetext{overflow-wrap:break-word}.issuetext h2{font-size:19px}.issuetext ul{padding-left:20px}.issuetext li{margin:4px 0}.issuetext hr{border:0;border-top:1px solid var(--line);margin:22px 0}
-.bridge{margin:6px 0 0;font-weight:600}
+.bridge{margin:6px 0 0;font-weight:600;text-align:left}
 @media(max-width:520px){.nlissues li{flex-direction:column;gap:8px}.nlissues .th{width:100%;max-width:100%}h1{font-size:24px}}
 """
 CSS += """
@@ -514,7 +515,7 @@ def build():
         if not PREVIEW and i.get("summary_i18n_review", "approved") != "approved": i.pop("summary_i18n", None)
     approved = [i for i in news["items"] if i.get("status") == "published" and (i.get("summary") or "").strip()]
     pending = [i for i in news["items"] if i.get("status") == "pending"] if PREVIEW else []
-    ctx = {"news": news, "org": org, "cfg": cfg, "status": status, "approved": approved, "pending": pending}
+    ctx = {"news": news, "org": org, "cfg": cfg, "status": status, "approved": approved, "pending": pending, "blurbs": load_blurbs()}
     LANG = "en"; ctx["stories"] = build_stories(write=False)
     items = sorted(approved + pending + ctx["stories"], key=lambda i: i["published"], reverse=True); ctx["items"] = items
     keys = ("id", "url", "title", "title_en", "source", "source_name", "country", "language", "published", "topics", "summary", "summary_i18n", "paywall", "links", "status", "own_story")
@@ -793,7 +794,7 @@ def build_lang(ctx):
             summ = f'<p class="sum pend">{E(t("sum_pending"))}</p>'
             lang = f' · {E(t("lang_" + lname))}' if foreign else ""
         else:
-            txt, tl = L18(i, "summary")
+            txt, tl = card_text(i, LANG, ctx["blurbs"])
             # Source language differs from the page: a sentence in the page language, then the summary. Not only «på engelsk».
             if foreign and tl == LANG and (txt or "").strip():
                 lang = ""
@@ -1012,7 +1013,9 @@ def build_stories(write=True):
                     + f'<h2>{E(t("sources_h"))}</h2><ul>' + "".join(f"<li>{md_inline(s)}</li>" for s in srcs) + '</ul></article>'
                     + f'<p class="notice">{t("story_notice", rel="../../")}</p>')
             page("stories/" + slug, title, "stories", body, paras[0][:200] if paras else title)
-        first = (st.get("summaries") or {}).get(slug) or (first_sentence(paras[0]) if paras else "")
+        editor_sum = ((st.get("summaries") or {}).get(slug) or "").strip()
+        opening = opening_sentences(" ".join(paras)) if paras else ""
+        first = editor_sum if substantive(editor_sum) else (opening or editor_sum or (first_sentence(paras[0]) if paras else ""))
         out.append({"id": "story-" + slug, "url": f"stories/{slug}/", "title": title, "source": "nordic-crypto", "source_name": "Nordic Crypto",
                     "country": country, "language": "English", "published": pub, "topics": ["regulation"], "summary": first,
                     "summary_i18n": (st.get("summaries_i18n") or {}).get(slug) or {}, "status": status, "own_story": True})

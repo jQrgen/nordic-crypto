@@ -6,8 +6,8 @@ data/news.json and the editor queue queue/review.json. Events are searched in th
   .venv/bin/python fetch.py            # normal daily run (looks 7 days back)
   .venv/bin/python fetch.py --days 30  # first run / look-back
 
-New items get status "pending" and are NOT published until the editor has written a short summary in English
-in our own words (queue/approved.json) – see README.md. The feed teaser is stored only locally in
+New items get status "pending" and are NOT published until the editor has written a summary in English
+in our own words (queue/approved.json) – see README.md. The front page needs two to four sentences of what the story says; a one-sentence intro is not enough. The feed teaser is stored only locally in
 state/teasers.json as working material for the editor and is never published. Article text is never fetched
 (we respect paywalls and robots.txt).
 """
@@ -311,7 +311,7 @@ def main():
             queue["candidate_entities"].append(c); seen_c.add((c["name"].lower(), it["id"]))
     queue["updated"] = NOW.isoformat(timespec="seconds")
     queue["_how_to"] = ("Editor: for each story in items_needing_summary, add an entry to queue/approved.json -> items with the url, "
-        "a 1–2 sentence summary IN ENGLISH in our own words (never copied or machine-copied text), an optional title_en, and topics; "
+        "a 2–4 sentence summary IN ENGLISH in our own words of what the story says (never copied or machine-copied text; not only a one-line intro), an optional title_en, and topics; "
         "or add it to rejected if it is not about crypto in NO/SE/DK/FI/IS. teaser_local_only is working material and is never published. "
         "Candidate entities: add confirmed ones to data/orgchart_nordic.json with a source link, then set status accepted/rejected here. "
         "Events: see events_pending. Then run ./build.sh (local) – publishing needs jQrgen's OK.")

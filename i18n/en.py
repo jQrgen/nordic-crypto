@@ -17,7 +17,7 @@ S = {
 "home_desc": "Bitcoin, blockchain and crypto news from Norway, Sweden, Denmark, Finland and Iceland, with English summaries, an events calendar and a who's who.",
 "home_h1": "Bitcoin, blockchain and crypto news from the Nordics",
 "home_screen": "Office screen mode (full screen, portrait or landscape, in English) →",
-"home_lead": "Links to stories from Norway, Sweden, Denmark, Finland and Iceland – newspapers, broadcasters, regulators and central banks – each with a short English summary, made with the help of artificial intelligence, with human editors (jQrgen and the Nordic Crypto editor). Read the full story at the source. Last updated {upd}. {n} stories{pend}.",
+"home_lead": "Links to stories from Norway, Sweden, Denmark, Finland and Iceland – newspapers, broadcasters, regulators and central banks – each with an English summary of what the story says, made with the help of artificial intelligence, with human editors (jQrgen and the Nordic Crypto editor). Read the full story at the source. Last updated {upd}. {n} stories{pend}.",
 "home_pend": " ({n} pending editor review)",
 "source": "Source", "all_sources": "All sources", "topic": "Topic", "n_stories": "{n} stories", "no_stories": "No published stories yet.",
 "home_notice": "Summaries are our own, written in English from the headline and the public teaser. We do not reproduce article text and we do not get around paywalls. Stories marked “may require a subscription” are from outlets with a paywall. Nothing here is investment advice.",
