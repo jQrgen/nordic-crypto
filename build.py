@@ -236,6 +236,7 @@ def header_sub_button():
     sub = substack_subscribe_url()
     return f'<a class="hdrsub" href="{E(sub)}" rel="noopener">{E(t("nl_sub_btn").replace("→", "").strip())}</a>' if sub else ""
 # ---- Newsletter issues (newsletter/published/issues.json; text, poster, subtitles and video per issue) ----
+# The subtitle track is not "default": issue videos have the English subtitles burned in, the track is for assistive tech and players.
 NL_PUB = P("newsletter", "published")
 def nl_issues():
     """Published issues, newest first."""
@@ -298,7 +299,7 @@ def build_issue(iss):
         subs = f' · <a href="{a}{E(v["subs"])}" download>{E(t("nl_video_subs"))}</a>' if v.get("subs") else ""
         if nl_video_file(iss):
             poster = f' poster="{a}{E(v["poster"])}"' if v.get("poster") else ""
-            track = f'<track kind="subtitles" srclang="en" label="English" src="{a}{E(v["subs"])}" default>' if v.get("subs") else ""
+            track = f'<track kind="subtitles" srclang="en" label="English" src="{a}{E(v["subs"])}">' if v.get("subs") else ""
             vid = (f'<figure class="nlvideo"><video controls preload="metadata" playsinline{poster} width="{v.get("width", 1920)}" height="{v.get("height", 1080)}">'
                    f'<source src="{a}{E(v.get("file") or "video.mp4")}" type="video/mp4">{track}<p>{E(t("nl_video_fallback"))} {dl}</p></video>'
                    f'<figcaption class="meta">{E(t("nl_video_note"))}<br>{dl}{subs}</figcaption></figure>')
