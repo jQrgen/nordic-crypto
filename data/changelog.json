@@ -2,6 +2,38 @@
  "launch_date": "2026-10-03",
  "entries": [
   {
+   "id": "issue-1-newsreel-2",
+   "date": "2026-10-05",
+   "title": "Issue #1 newsreel live",
+   "description": "Replaced the live newsletter issue #1 video with the corrected newsreel (release newsletter-001-newsreel-2). Kaupr is named only when a story comes from Kaupr. The issue no longer opens by saying it is made with artificial intelligence.",
+   "i18n": {
+    "nn": {
+     "title": "Utgåve #1 newsreel live",
+     "description": "Byta ut den live videoen for nyheitsbrev utgåve #1 med den korrigerte newsreel-fila (utgiving newsletter-001-newsreel-2). Kaupr er nemnd berre når ei sak kjem frå Kaupr. Opninga seier ikkje lenger at utgåva er laga med kunstig intelligens."
+    },
+    "nb": {
+     "title": "Utgave #1 newsreel live",
+     "description": "Byttet ut den live videoen for nyhetsbrev utgave #1 med den korrigerte newsreel-filen (utgivelse newsletter-001-newsreel-2). Kaupr er nevnt bare når en sak kommer fra Kaupr. Åpningen sier ikke lenger at utgaven er laget med kunstig intelligens."
+    },
+    "sv": {
+     "title": "Utgåva #1 newsreel live",
+     "description": "Ersatte den live-sända videon för nyhetsbrevets utgåva #1 med den korrigerade newsreel-filen (utgåva newsletter-001-newsreel-2). Kaupr nämns bara när en nyhet kommer från Kaupr. Inledningen säger inte längre att utgåvan är gjord med artificiell intelligens."
+    },
+    "da": {
+     "title": "Udgave #1 newsreel live",
+     "description": "Skiftede live-videoen til nyhedsbrevets udgave #1 ud med den korrigerede newsreel-fil (udgivelse newsletter-001-newsreel-2). Kaupr nævnes kun, når en historie kommer fra Kaupr. Indledningen siger ikke længere, at udgaven er lavet med kunstig intelligens."
+    },
+    "fi": {
+     "title": "Numero #1 newsreel live",
+     "description": "Korvattiin uutiskirjeen numeron #1 live-video korjatulla uutiskatsauksella (julkaisu newsletter-001-newsreel-2). Kaupr mainitaan vain, kun juttu on Kauprin. Avaus ei enää sano, että numero on tehty tekoälyn avulla."
+    },
+    "is": {
+     "title": "Tölublað #1 newsreel í loftið",
+     "description": "Skipt var út myndbandi fréttabréfsins #1 í loftinu fyrir leiðréttu newsreel-skrána (útgáfa newsletter-001-newsreel-2). Kaupr er nefnt aðeins þegar frétt kemur frá Kaupr. Upphafið segir ekki lengur að tölublaðið sé unnið með aðstoð gervigreindar."
+    }
+   }
+  },
+  {
    "id": "nordic-crypto-name-eu-newsletter-columnist",
    "date": "2026-10-05",
    "title": "Nordic Crypto on the map, in the newsletter, and for columnists",
