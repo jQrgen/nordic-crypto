@@ -1,0 +1,3 @@
+# Video files are not committed to main (too large); build.py copies them into the site and,
+# when missing, downloads the public release copy (sha256 checked, see issues.json).
+*.mp4

@@ -1,0 +1,27 @@
+{
+ "_how_to": "Published newsletter issues, shown on /newsletter/ (newest first) and as /newsletter/<id>/ in every language. Per issue: <id>/issue.html (the issue text as HTML, English), optional <id>/thumbnail.png (video poster), <id>/subs.vtt (English subtitles) and the video: <id>/video.mp4 is NOT committed (see .gitignore); build.py copies it into site/newsletter/<id>/ once (all languages use that copy) and, when the local file is missing, downloads video.url and checks video.sha256. Source drafts: newsletter/issues/.",
+ "issues": [
+  {
+   "id": "001",
+   "number": 1,
+   "date": "2026-10-05",
+   "period": ["2026-09-27", "2026-10-02"],
+   "lang": "en",
+   "title": "Crypto Nordic #1: Binance under scrutiny and Sweden's crypto sanctions warning",
+   "subtitle": "Our first issue, with a new name. The Nordic crypto news that mattered from 27 September to 2 October 2026, and the meetups coming up.",
+   "stories": 9,
+   "events": 4,
+   "video": {
+    "file": "video.mp4",
+    "poster": "thumbnail.png",
+    "subs": "subs.vtt",
+    "duration": 223,
+    "width": 1920,
+    "height": 1080,
+    "bytes": 15608169,
+    "sha256": "3655aee49ed36e015ad5e24c4d23663a60d6a1330c402a90b84861ae01f804fd",
+    "url": "https://github.com/jQrgen/nordic-crypto/releases/download/newsletter-001/crypto-nordic-1.mp4"
+   }
+  }
+ ]
+}

@@ -3,6 +3,38 @@
  "launch_date": "2026-10-03",
  "entries": [
   {
+   "id": "newsletter-tab-issue-1",
+   "date": "2026-10-05",
+   "title": "Newsletter tab and the first issue, with video",
+   "description": "The main menu has a new Newsletter tab. It lists every issue, newest first, next to the Substack signup. Issue #1 (Binance under scrutiny and Sweden's crypto sanctions warning) can be read in full on the site, with a short video that plays from this website, with English subtitles and no third-party player.",
+   "i18n": {
+    "nb": {
+     "title": "Fanen Nyhetsbrev og den første utgaven, med video",
+     "description": "Hovedmenyen har fått en ny fane, Nyhetsbrev. Der finner du alle utgavene, nyeste først, sammen med påmeldingen hos Substack. Utgave #1 (Binance under lupen og Sveriges advarsel om krypto og sanksjoner) kan leses i sin helhet på nettstedet, med en kort video som spilles av herfra, med engelske undertekster og uten avspiller fra tredjeparter. Utgaven er på engelsk."
+    },
+    "nn": {
+     "title": "Fana Nyheitsbrev og den første utgåva, med video",
+     "description": "Hovudmenyen har fått ei ny fane, Nyheitsbrev. Der finn du alle utgåvene, nyaste først, saman med påmeldinga hos Substack. Utgåve #1 (Binance under lupa og Sveriges åtvaring om krypto og sanksjonar) kan lesast i heilskap på nettstaden, med ein kort video som blir spelt av herifrå, med engelske undertekstar og utan avspelar frå tredjepartar. Utgåva er på engelsk."
+    },
+    "sv": {
+     "title": "Fliken Nyhetsbrev och det första numret, med video",
+     "description": "Huvudmenyn har fått en ny flik, Nyhetsbrev. Där finns alla utgåvor, nyaste först, tillsammans med anmälan hos Substack. Utgåva #1 (Binance granskas och Sveriges varning om krypto och sanktioner) kan läsas i sin helhet på webbplatsen, med en kort video som spelas upp härifrån, med engelska undertexter och utan spelare från tredje part. Utgåvan är på engelska."
+    },
+    "da": {
+     "title": "Fanen Nyhedsbrev og den første udgave, med video",
+     "description": "Hovedmenuen har fået en ny fane, Nyhedsbrev. Her finder du alle udgaver, nyeste først, sammen med tilmeldingen hos Substack. Udgave #1 (Binance under lup og Sveriges advarsel om krypto og sanktioner) kan læses i sin helhed på sitet, med en kort video, der afspilles herfra, med engelske undertekster og uden afspiller fra tredjeparter. Udgaven er på engelsk."
+    },
+    "fi": {
+     "title": "Uutiskirje-välilehti ja ensimmäinen numero videon kera",
+     "description": "Päävalikossa on uusi Uutiskirje-välilehti. Siellä ovat kaikki numerot uusimmasta alkaen sekä Substack-tilaus. Numeron 1 (Binance tarkastelussa ja Ruotsin varoitus kryptoista ja pakotteista) voi lukea kokonaan sivustolla, ja mukana on lyhyt video, joka toistetaan tältä sivustolta englanninkielisin tekstityksin ilman kolmannen osapuolen soitinta. Numero on englanniksi."
+    },
+    "is": {
+     "title": "Flipinn Fréttabréf og fyrsta tölublaðið, með myndbandi",
+     "description": "Aðalvalmyndin hefur fengið nýjan flipa, Fréttabréf. Þar eru öll tölublöð, nýjasta fyrst, ásamt skráningu hjá Substack. Tölublað #1 (Binance til skoðunar og viðvörun Svíþjóðar um kriptó og refsiaðgerðir) má lesa í heild á vefnum, með stuttu myndbandi sem er spilað héðan, með enskum texta og án spilara frá þriðja aðila. Tölublaðið er á ensku."
+    }
+   }
+  },
+  {
    "id": "rename-crypto-nordic",
    "date": "2026-10-05",
    "title": "Nordic Crypto is now Crypto Nordic",

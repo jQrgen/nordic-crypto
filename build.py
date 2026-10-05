@@ -157,9 +157,16 @@ html.nc-pick body{visibility:hidden}
 .brandrow{display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap}
 .hdrsub{display:inline-block;padding:5px 12px;border-radius:6px;background:#0f5ea8;color:#fff!important;text-decoration:none;font-weight:600;font-size:14px;line-height:1.3;white-space:nowrap}.hdrsub:hover,.hdrsub:focus{background:#0b4a85}
 @media(max-width:640px){.brandrow{width:100%;justify-content:space-between;flex-wrap:nowrap}.brandrow .brand{white-space:nowrap;flex:none}.hdrsub{font-size:13px;padding:5px 10px;white-space:normal;text-align:center;min-width:0}}
+.nlissues{list-style:none;margin:8px 0 18px;padding:0}.nlissues li{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line)}
+.nlissues .th{flex:none;width:200px;max-width:40%}.nlissues img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--line)}
+.nlissues h3{font-size:18px;line-height:1.3;margin:0 0 4px}.nlissues h3 a{text-decoration:none}.nlissues h3 a:hover{text-decoration:underline}.nlissues .sum{margin-top:4px}
+.issue h1{overflow-wrap:break-word}.aitag{border-color:var(--accent);color:var(--accent);margin-left:0}
+.nlvideo{margin:16px 0 20px;max-width:960px}.nlvideo video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000}.nlvideo figcaption{margin-top:6px}
+.issuetext{overflow-wrap:break-word}.issuetext h2{font-size:19px}.issuetext ul{padding-left:20px}.issuetext li{margin:4px 0}.issuetext hr{border:0;border-top:1px solid var(--line);margin:22px 0}
+@media(max-width:520px){.nlissues li{flex-direction:column;gap:8px}.nlissues .th{width:100%;max-width:100%}h1{font-size:24px}}
 """
 
-NAV = [("", "nav_news"), ("calendar", "nav_calendar"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("sources", "nav_sources"), ("about", "nav_about"), ("tip", "nav_tip")]
+NAV = [("", "nav_news"), ("calendar", "nav_calendar"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("sources", "nav_sources"), ("newsletter", "nav_newsletter"), ("about", "nav_about"), ("tip", "nav_tip")]
 COOKIE_PATH = "/" + BASE.split("://", 1)[1].split("/", 1)[1]   # /nordic-crypto/
 def geo_endpoint():
     """Country lookup: GET <tipworker>/api/geo (Cloudflare request.cf.country). Only when the Worker is deployed,
@@ -228,10 +235,103 @@ def header_sub_button():
     """'Subscribe on Substack' button at the top of every page (same Substack link as the footer, label without the arrow)."""
     sub = substack_subscribe_url()
     return f'<a class="hdrsub" href="{E(sub)}" rel="noopener">{E(t("nl_sub_btn").replace("→", "").strip())}</a>' if sub else ""
+# ---- Newsletter issues (newsletter/published/issues.json; text, poster, subtitles and video per issue) ----
+NL_PUB = P("newsletter", "published")
+def nl_issues():
+    """Published issues, newest first."""
+    d = load(os.path.join(NL_PUB, "issues.json"), {}) or {}
+    return sorted(d.get("issues", []), key=lambda i: (i.get("date") or "", i.get("number") or 0), reverse=True)
+NL_VIDEO_OK = {}
+def nl_video_file(iss):
+    """Local path of the issue video (newsletter/published/<id>/video.mp4, not in git). When missing, downloads the
+    public release copy (video.url) and checks sha256. None when unavailable (the page then shows only the download link)."""
+    v = iss.get("video") or {}; iid = iss["id"]
+    if iid in NL_VIDEO_OK: return NL_VIDEO_OK[iid]
+    f = os.path.join(NL_PUB, iid, v.get("file") or "video.mp4"); ok = None
+    import hashlib
+    def good(path):
+        if not os.path.exists(path): return False
+        if v.get("bytes") and os.path.getsize(path) != v["bytes"]: return False
+        if not v.get("sha256"): return True
+        h = hashlib.sha256()
+        with open(path, "rb") as fh:
+            for b in iter(lambda: fh.read(1 << 20), b""): h.update(b)
+        return h.hexdigest() == v["sha256"]
+    if good(f): ok = f
+    elif v.get("url"):
+        try:
+            import urllib.request
+            print(f"newsletter: downloading the video for issue {iid} from {v['url']}")
+            tmp = f + ".part"; urllib.request.urlretrieve(v["url"], tmp)
+            if good(tmp): os.replace(tmp, f); ok = f
+            else: os.remove(tmp); print(f"newsletter: WARNING, downloaded video for {iid} failed the size/sha256 check")
+        except Exception as ex: print(f"newsletter: WARNING, no video for issue {iid}: {ex}")
+    else: print(f"newsletter: WARNING, no video file for issue {iid}")
+    NL_VIDEO_OK[iid] = ok; return ok
+def nl_copy_assets(iss):
+    """Copies poster, subtitles and video ONCE into site/newsletter/<id>/ (all languages link to that copy)."""
+    v = iss.get("video") or {}; d = os.path.join(SITE, "newsletter", iss["id"]); os.makedirs(d, exist_ok=True)
+    for k in ("poster", "subs"):
+        if v.get(k) and os.path.exists(os.path.join(NL_PUB, iss["id"], v[k])): shutil.copy(os.path.join(NL_PUB, iss["id"], v[k]), os.path.join(d, v[k]))
+    vf = nl_video_file(iss) if v else None
+    if vf: shutil.copy(vf, os.path.join(d, v.get("file") or "video.mp4"))
+def nl_meta(iss, with_video=True):
+    v = iss.get("video") or {}
+    parts = [E(t("nl_issue_n", n=iss.get("number"))), f'<time datetime="{E(iss["date"])}">{E(i18n.short_date(LANG, dt.date.fromisoformat(iss["date"])))}</time>']
+    if with_video and v.get("duration"): parts.append(E(t("nl_issue_video", m=max(1, round(v["duration"] / 60)))))
+    if iss.get("lang", "en") != LANG and i18n.has("en", "lang_English"): parts.append(E(t("lang_English")))
+    return " · ".join(parts)
+def build_issue(iss):
+    """/newsletter/<id>/: the full issue text (English; other languages get a short note), the video played from this
+    site (HTML5 <video>, poster, English subtitles; no third-party player), a download link to the release copy."""
+    iid = iss["id"]; v = iss.get("video") or {}; slug = f"newsletter/{iid}"
+    depth = 2 + (0 if LANG == "en" else 1); root = "../" * depth; a = f"{root}newsletter/{iid}/"
+    il = iss.get("lang", "en"); la = lang_attr(il)
+    txt = open(os.path.join(NL_PUB, iid, "issue.html"), encoding="utf-8").read().replace(BASE, root + lp())  # site links stay in the reader's language
+    per = iss.get("period") or []
+    per_s = (" · " + E(t("nl_issue_period", a=i18n.short_dm(LANG, dt.date.fromisoformat(per[0])), b=i18n.short_date(LANG, dt.date.fromisoformat(per[1]))))) if len(per) == 2 else ""
+    cnt = (" · " + E(t("nl_issue_count", s=iss["stories"], e=iss["events"]))) if iss.get("stories") else ""
+    vid = ""
+    if v:
+        mb = f'{v.get("bytes", 0) / 1e6:.1f}'; mb = mb if LANG == "en" else mb.replace(".", ",")
+        dl = f'<a href="{E(v["url"])}" rel="noopener" download>{E(t("nl_video_dl", mb=mb))}</a>' if v.get("url") else ""
+        subs = f' · <a href="{a}{E(v["subs"])}" download>{E(t("nl_video_subs"))}</a>' if v.get("subs") else ""
+        if nl_video_file(iss):
+            poster = f' poster="{a}{E(v["poster"])}"' if v.get("poster") else ""
+            track = f'<track kind="subtitles" srclang="en" label="English" src="{a}{E(v["subs"])}" default>' if v.get("subs") else ""
+            vid = (f'<figure class="nlvideo"><video controls preload="metadata" playsinline{poster} width="{v.get("width", 1920)}" height="{v.get("height", 1080)}">'
+                   f'<source src="{a}{E(v.get("file") or "video.mp4")}" type="video/mp4">{track}<p>{E(t("nl_video_fallback"))} {dl}</p></video>'
+                   f'<figcaption class="meta">{E(t("nl_video_note"))}<br>{dl}{subs}</figcaption></figure>')
+        elif dl: vid = f'<p class="notice">{dl}</p>'
+    sub = substack_button()
+    body = f"""<article class="issue">
+<p class="meta"><a href="../">← {E(t("nl_all_issues"))}</a></p>
+<h1{la}>{E(iss["title"])}</h1>
+<p class="lead"{la}>{E(iss.get("subtitle"))}</p>
+<p class="meta">{nl_meta(iss, False)}{per_s}{cnt} <span class="tag aitag">{E(t("nl_ai"))}</span></p>
+{f'<p class="notice">{E(t("nl_issue_en"))}</p>' if il != LANG else ''}
+{vid}
+<div class="prose issuetext"{la}>
+{txt}</div>
+{f'<section class="nlhome"><p><b>{E(t("nl_get_next"))}</b> {sub}</p></section>' if sub else ''}
+<p class="meta"><a href="../">← {E(t("nl_all_issues"))}</a></p>
+</article>"""
+    page(slug, iss["title"], "newsletter", body, iss.get("subtitle") or t("nl_desc"))
 def build_newsletter():
-    """/newsletter/ in every language: what you get, the own form (only when on), the Substack signup link (whenever
-    substack_url is set), the privacy note and the Kaupr disclosure. Not built when neither is available."""
-    if not newsletter_on(): return
+    """/newsletter/ in every language (the Newsletter tab): the issues (newest first, each with its own page), the own
+    form (only when on), the Substack signup link (whenever substack_url is set), the privacy note and the Kaupr disclosure."""
+    issues = nl_issues()
+    if not newsletter_on() and not issues: return
+    root = "../" * (1 + (0 if LANG == "en" else 1))
+    lis = []
+    for iss in issues:
+        if LANG == "en": nl_copy_assets(iss)
+        build_issue(iss)
+        v = iss.get("video") or {}; la = lang_attr(iss.get("lang", "en"))
+        th = (f'<a class="th" href="{E(iss["id"])}/" tabindex="-1" aria-hidden="true"><img src="{root}newsletter/{E(iss["id"])}/{E(v["poster"])}" alt="" width="320" height="180" loading="lazy"></a>'
+              if v.get("poster") else "")
+        lis.append(f'<li>{th}<div><h3{la}><a href="{E(iss["id"])}/">{E(iss["title"])}</a></h3><div class="meta">{nl_meta(iss)}</div>'
+                   f'<p class="sum"{la}>{E(iss.get("subtitle"))}</p></div></li>')
     form = newsletter_form()
     sub = substack_button()
     priv = f'<p class="notice">{t("nl_priv")}</p>' if form else ""
@@ -240,6 +340,9 @@ def build_newsletter():
 <p class="lead">{E(t("nl_lead"))}</p>
 {form}
 {f'<p>{sub}</p>' if sub else ''}
+<h2 id="issues">{E(t("nl_issues_h"))}</h2>
+<p class="meta">{E(t("nl_issues_lead"))}</p>
+<ol class="nlissues">{''.join(lis) or f'<li class="empty">{E(t("nl_issues_none"))}</li>'}</ol>
 {substack_embed()}
 <div class="prose">{priv}{subnote}
 <p class="meta">{t("nl_kaupr")}</p></div>"""
