@@ -2,10 +2,48 @@
 
 Bitcoin, blockchain and crypto news, events, a who's who (industry + regulators), regulation by country and academia for
 **Norway, Sweden, Denmark, Finland and Iceland**. Static site. Cloudflare Web Analytics counts aggregate visits (no cookies, data not sold) when a token is set in `analytics.json`. No advertising trackers.
-Languages: English (root `/`), Nynorsk `/nn/`, Bokmål `/nb/`, Swedish `/sv/`, Danish `/da/`, Finnish `/fi/`, Icelandic `/is/` (UI strings in `i18n/<lang>.py`, about pages in `templates/about.<lang>.html`). External headlines and quotes stay in the original language; our own summaries are written first in English, then translated (AI-assisted, editor-approved). Language choice (`tools/langselect.js`): `nc_lang` cookie (set only when the reader picks a language) → `/api/geo` on our own Worker (country only, nothing stored) → `navigator.languages` → English; only a first visit to the root is redirected, never a direct language link.
+Languages: English at `/`, and one directory per other site language. The list, native names and the IP-country guess are under [Site languages](#site-languages). External headlines and quotes stay in the original language; our own summaries are written first in English, then translated for the Nordic site languages (AI-assisted, editor-approved).
 Planned URL: https://jqrgen.github.io/nordic-crypto/ (all links are relative). Run by jQrgen (Jørgen S. Notland), MIT licence.
 
 **Status:** live at https://jqrgen.github.io/nordic-crypto/ (gh-pages). Code on `main`. Every publish needs jQrgen's explicit approval.
+
+## Site languages
+Site interface and page presentation. News outlets stay as listed in `sources.json`. UI strings live in `i18n/<code>.py`. A missing key falls back to English, which is how the languages beyond the Nordic set are shipped until a real translation is written. Article bodies are not machine-translated for those languages. English is the site root. Every other code is `/<code>/`.
+
+| Code | Native name | English name | Direction |
+|---|---|---|---|
+| en | English | English | ltr |
+| nn | Nynorsk | Norwegian Nynorsk | ltr |
+| nb | Bokmål | Norwegian Bokmål | ltr |
+| sv | Svenska | Swedish | ltr |
+| da | Dansk | Danish | ltr |
+| fi | Suomi | Finnish | ltr |
+| is | Íslenska | Icelandic | ltr |
+| zh | 中文 | Chinese (Mandarin) | ltr |
+| hi | हिन्दी | Hindi | ltr |
+| es | Español | Spanish | ltr |
+| fr | Français | French | ltr |
+| ar | العربية | Arabic | rtl |
+| bn | বাংলা | Bengali | ltr |
+| pt | Português | Portuguese | ltr |
+| ru | Русский | Russian | ltr |
+| ur | اردو | Urdu | rtl |
+| id | Bahasa Indonesia | Indonesian | ltr |
+| de | Deutsch | German | ltr |
+| ja | 日本語 | Japanese | ltr |
+| sw | Kiswahili | Swahili | ltr |
+| mr | मराठी | Marathi | ltr |
+
+`zh` is one site language for Mandarin (simplified and traditional readers share `/zh/`). `pt` covers Portugal and Brazil. `nn` stays the Norwegian default; bokmål is the quick link beside the switcher.
+
+**How a first visit picks a language** (`tools/langselect.js`, only on the English home page). A direct link to `/sv/`, `/de/` or any other page is never redirected.
+
+1. `nc_lang` cookie, set only when the reader picks a language in the switcher (one year, this site only). The same choice is copied to `localStorage` under `nc_lang`. The cookie wins when both are set. If the cookie is missing, the stored value is the same override.
+2. Our tipworker `GET /api/geo`, which returns Cloudflare's `request.cf.country` (two letters, or null). Nothing is stored or logged, and no third-party geo-IP service is used. The Worker URL is injected at build time when `tipserver/config.json` has a `workers.dev` `public_endpoint`, or when `GEO_ENDPOINT` is set. The country is a default guess: Norway → nynorsk, Sweden → Swedish, Denmark → Danish, Finland → Finnish, Iceland → Icelandic, Åland → Swedish, Faroe and Greenland → Danish, and the major countries for the languages above (China, Taiwan and Singapore → Chinese, India → Hindi, Spain, Mexico and Argentina → Spanish, France → French, Saudi Arabia, Egypt and the UAE → Arabic, Bangladesh → Bengali, Brazil and Portugal → Portuguese, Russia → Russian, Pakistan → Urdu, Indonesia → Indonesian, Germany, Austria and Switzerland → German, Japan → Japanese, Kenya and Tanzania → Swahili). A country with no row, including the United States and the United Kingdom, stays English. India is Hindi; Marathi has no country row. Mauritania (`MR`) is Arabic; the language code `mr` is Marathi.
+3. If the Worker is not deployed or does not answer within 1.5 seconds: `navigator.languages`. Norwegian tags (`no`, `nb`, `nn`) still default to nynorsk.
+4. English.
+
+After one automatic choice, `sessionStorage` `nc_auto` stops a second redirect in that tab. The full country map is in `tools/langselect.js` (`BY_COUNTRY`) and in `/api/v1/geo-language.json`.
 
 ## Data API
 Public JSON for apps and other tools, written into `site/` by `./build.sh` (`tools/api_feed.py`). No account. News, newsletters, events, sources, academia, the who's who, profiles, the rules map, the changelog and the article archive.
@@ -13,6 +51,8 @@ Public JSON for apps and other tools, written into `site/` by `./build.sh` (`too
 - Human docs: https://jqrgen.github.io/nordic-crypto/api/ and https://cryptonordic.no/api/ (same page; the custom domain serves the site root)
 - Discovery: `/api/v1/index.json`
 - OpenAPI: `/api/v1/openapi.json` and `/api/v1/openapi.yaml`
+- Languages: `/api/v1/languages.json` (code, native name, English name, rtl, html lang, home URL). The same fields are on each entry in `/api/v1/meta.json` `languages`.
+- Geo language: `/api/v1/geo-language.json` (country → default language). The note there says the `nc_lang` cookie wins and the IP country is a guess from tipworker `/api/geo` (Cloudflare `request.cf.country`).
 - `llms.txt` at the site root, and `/.well-known/api-catalog`
 
 News: `/api/v1/news.json` and `/api/v1/news/{id}.json`. Newsletters: `/api/v1/newsletters.json` and `/api/v1/newsletters/001.json`. GitHub Pages sends `Access-Control-Allow-Origin: *` on the files. `python3 tools/api_feed.py` writes the same JSON from the committed public data without building the rest of the HTML. That command also fetches live exchange prices (see below).

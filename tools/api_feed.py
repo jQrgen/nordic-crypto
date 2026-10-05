@@ -35,6 +35,85 @@ SIGN_OFF = "The Nordic Crypto team"
 CUSTOM_BASE = "https://cryptonordic.no/"
 LANGS = list(i18n.ALL_LANGS)
 COUNTRIES = ["NO", "SE", "DK", "FI", "IS", "NORDIC", "EU"]
+
+def country_lang_map():
+    """Country → default site language, the same object the switcher uses (tools/langselect.js BY_COUNTRY)."""
+    path = os.path.join(ROOT, "tools", "langselect.js")
+    with open(path, encoding="utf-8") as fh:
+        src = fh.read()
+    m = re.search(r"var BY_COUNTRY = \{([\s\S]*?)\};", src)
+    if not m:
+        raise SystemExit("api: BY_COUNTRY missing from tools/langselect.js")
+    pairs = re.findall(r"\b([A-Z]{2})\s*:\s*\"([a-z]{2})\"", m.group(1))
+    if not pairs:
+        raise SystemExit("api: BY_COUNTRY is empty")
+    out = {}
+    for country, lang in pairs:
+        if lang not in i18n.ALL_LANGS:
+            raise SystemExit(f"api: BY_COUNTRY {country} → {lang} is not a site language")
+        out[country] = lang
+    return out
+
+def language_rows(feed):
+    rows = []
+    for lang in LANGS:
+        rows.append({
+            "code": lang,
+            "name": i18n.NAME[lang],
+            "native_name": i18n.NATIVE[lang],
+            "english_name": i18n.ENGLISH[lang],
+            "rtl": bool(i18n.RTL[lang]),
+            "html_lang": i18n.HTML_LANG[lang],
+            "og_locale": i18n.OG_LOCALE[lang],
+            "home": feed.abs("" if lang == "en" else lang + "/"),
+        })
+    return rows
+
+def _languages(feed):
+    return feed.env(
+        note=(
+            "Site UI languages (chrome and presentation). English is the default; its home URL is the site root. "
+            "native_name is the language-switcher label. rtl is true for Arabic and Urdu. "
+            "Published article translations today are English plus summary_i18n for nn, nb, sv, da, fi and is. "
+            "Other site languages fall back to the English field until a translation is published. "
+            "These codes are not news-source languages, and this list does not add outlets."
+        ),
+        count=len(LANGS),
+        languages=language_rows(feed),
+    )
+
+def _geo_language(feed):
+    return feed.env(
+        note=(
+            "by_country is a default guess from the visitor's IP country. It is not a stored profile. "
+            "The nc_lang cookie, set when the reader uses the language switcher, always wins. "
+            "The same choice is also kept in localStorage under nc_lang; if the cookie is missing, that stored choice is the override. "
+            "The country comes from the tipworker GET /api/geo, which returns Cloudflare's request.cf.country "
+            "(XX and T1 count as unknown). Nothing about the lookup is stored or logged, and no third-party geo-IP service is used. "
+            "If the Worker is unreachable, the browser's navigator.languages is used, then English. "
+            "A country that is not listed defaults to en. "
+            "Norwegian browser tags (no, nb, nn) default to nynorsk; bokmål stays one click away. "
+            "India defaults to Hindi; Marathi (mr) has no country row. "
+            "Mauritania (MR) defaults to Arabic (ar). The language code mr is Marathi, not Mauritania."
+        ),
+        cookie="nc_lang",
+        storage="localStorage key nc_lang, the same switcher override. The cookie wins when both are set.",
+        order=[
+            "nc_lang cookie (language switcher; always wins)",
+            "localStorage nc_lang (same override when the cookie is missing)",
+            "GET /api/geo on the tipworker (Cloudflare request.cf.country)",
+            "navigator.languages",
+            "en",
+        ],
+        geo={
+            "path": "/api/geo",
+            "source": "tipworker, Cloudflare request.cf.country",
+            "stored": False,
+        },
+        default="en",
+        unmapped_country="en",
+        by_country=country_lang_map(),
+    )
 DOCS_DESC = (
     "Public JSON feed of Nordic Crypto news, newsletters, events and the rest of the site data. "
     "No account. Start at /api/v1/index.json, the OpenAPI file, or /llms.txt."
@@ -729,17 +808,14 @@ def _meta(feed):
             "url": "https://testflight.apple.com/join/nQ2fpjZn",
             "note": "Public TestFlight invite. This feed does not list an App Store page.",
         },
-        languages=[{
-            "code": lang,
-            "name": i18n.NAME[lang],
-            "html_lang": i18n.HTML_LANG[lang],
-            "home": feed.abs("" if lang == "en" else lang + "/"),
-        } for lang in LANGS],
+        languages=language_rows(feed),
         language_note=(
+            "Site languages, with native_name, english_name and rtl, are listed in languages and in /api/v1/languages.json. "
             "Our own text is written in English first. summary_i18n, title_i18n, subtitle_i18n, note_i18n and about_i18n "
-            "use the site language codes nn, nb, sv, da, fi and is. If a translation is missing, use the English field. "
-            "External headlines stay in the source language (see language and language_code). "
-            "There is no query string for language: each JSON document already carries every published translation."
+            "carry published translations, today nn, nb, sv, da, fi and is. Other site languages fall back to the English field "
+            "until a translation is published. External headlines stay in the source language (see language and language_code). "
+            "There is no query string for language: each JSON document already carries every published translation. "
+            "The language switcher's country default is a guess; see /api/v1/geo-language.json. The nc_lang cookie wins."
         ),
         countries=[{"code": c, "name_en": i18n.t("en", "c_" + c)} for c in COUNTRIES],
         urls={
@@ -893,7 +969,9 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
 
     lang_note = (
         "summary is English. summary_i18n holds nn, nb, sv, da, fi and is when that translation is published. "
-        "title is the source headline. title_en is our English headline when we wrote one."
+        "Other site languages use the English summary until a translation exists. "
+        "title is the source headline. title_en is our English headline when we wrote one. "
+        "The site language list is /api/v1/languages.json."
     )
     collection(
         "api/v1/news.json",
@@ -1027,6 +1105,19 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
             market_bases.append(row["base"])
     example_asset = "BTC" if "BTC" in market_bases else (market_bases[0] if market_bases else None)
 
+    collection(
+        "api/v1/languages.json",
+        "Site UI languages: code, native name, English name, rtl, html lang and home URL.",
+        "LanguageList",
+        _languages(feed),
+    )
+    collection(
+        "api/v1/geo-language.json",
+        "Country to default site language. An IP guess only; the nc_lang cookie from the language switcher wins.",
+        "GeoLanguage",
+        _geo_language(feed),
+    )
+
     meta = _meta(feed)
     collection("api/v1/meta.json", "Site name, languages, countries, page list, CORS and editorial notes.", "SiteMeta", meta)
 
@@ -1155,7 +1246,9 @@ def openapi(feed, index):
                 "the rules map, the changelog, the article archive and Nordic exchange prices (market data, not investment advice). "
                 "Kaupr is a news source only, never a sponsor. The sign-off is The Nordic Crypto team. "
                 "GitHub Pages sends Access-Control-Allow-Origin: * so browsers can fetch these files. "
-                "English text is the default; translations are inside each object under *_i18n. "
+                "English text is the default; published translations are inside each object under *_i18n. "
+                "Site languages: /api/v1/languages.json. IP-country language guess: /api/v1/geo-language.json "
+                "(the nc_lang cookie wins). "
                 f"Discovery: {feed.abs('api/v1/index.json')}. Human docs: {feed.abs('api/')}."
             ),
             "license": {"name": "MIT", "url": "https://github.com/jQrgen/nordic-crypto/blob/main/LICENSE"},
@@ -1273,6 +1366,16 @@ def schemas():
         "Rules": wrap("Rules", {"available": {"type": "boolean"}, "checked": {"type": "string"}}),
         "ArticleArchive": wrap("ArticleArchive", {"articles": {"type": "array"}}),
         "SiteMeta": wrap("SiteMeta", {"languages": {"type": "array"}, "countries": {"type": "array"}, "cors": {"type": "object"}, "ios": {"type": "object", "description": "Public TestFlight invite. Not an App Store listing."}}),
+        "LanguageList": wrap("LanguageList", {
+            "count": {"type": "integer"},
+            "languages": {"type": "array", "items": {"type": "object"}},
+        }),
+        "GeoLanguage": wrap("GeoLanguage", {
+            "note": {"type": "string"},
+            "default": {"type": "string"},
+            "by_country": {"type": "object", "additionalProperties": {"type": "string"}},
+            "order": {"type": "array", "items": {"type": "string"}},
+        }),
         "MarketTicker": {
             "type": "object",
             "required": ["symbol", "base", "quote", "exchange", "fetched_at", "source_url"],
@@ -1329,6 +1432,7 @@ def llms_txt(feed, index):
         f"{SITE_NAME} covers Norway, Sweden, Denmark, Finland and Iceland. "
         "The sign-off is The Nordic Crypto team. Kaupr (kaupr.io) is a news source only and is never a sponsor. "
         "Summaries are ours, in English, with translations in summary_i18n (nn, nb, sv, da, fi, is) when published. "
+        "Other site languages fall back to English until a translation is published. "
         "External headlines stay in the original language.",
         "",
         "GitHub Pages sends Access-Control-Allow-Origin: * on every JSON file, so a browser can fetch them from any site. "
@@ -1346,6 +1450,8 @@ def llms_txt(feed, index):
         f"- [OpenAPI YAML]({feed.abs('api/v1/openapi.yaml')}): the same document.",
         f"- [API catalog]({feed.abs('.well-known/api-catalog')}): RFC 9727 linkset. A .json copy is at {feed.abs('.well-known/api-catalog.json')}.",
         f"- [Site meta]({feed.abs('api/v1/meta.json')}): languages, countries, page list, CORS.",
+        f"- [Languages]({feed.abs('api/v1/languages.json')}): site UI languages (code, native name, English name, rtl, home).",
+        f"- [Geo language]({feed.abs('api/v1/geo-language.json')}): country to default language. An IP guess; the nc_lang cookie wins.",
         "",
         "## Market prices",
         "",
@@ -1463,7 +1569,8 @@ curl -fsS {letters}{html.escape(one_line)}</pre>
 <p>The build fetches the exchanges. <code>.github/workflows/markets-refresh.yml</code> rewrites the JSON on gh-pages about once an hour. The markets page reloads this file, and refreshes Firi and Coinmotion in the browser because those APIs send <code>Access-Control-Allow-Origin: *</code>. NBX does not, so those rows follow the file. The same document on the gh-pages branch: <a href="https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json">raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json</a>.</p>
 <pre>curl -fsS {html.escape(b)}api/v1/markets.json</pre>
 <h2>Languages</h2>
-<p>English is the default field (<code>summary</code>, <code>title</code>, <code>text</code>). Translations that we have published sit in <code>summary_i18n</code>, <code>title_i18n</code>, <code>subtitle_i18n</code>, <code>note_i18n</code>, <code>text_i18n</code> and <code>about_i18n</code>, keyed by <code>nn</code>, <code>nb</code>, <code>sv</code>, <code>da</code>, <code>fi</code> and <code>is</code>. If a key is missing, use the English field. Headlines from other outlets stay in the original language. Dates are ISO 8601.</p>
+<p>English is the default field (<code>summary</code>, <code>title</code>, <code>text</code>). Translations that we have published sit in <code>summary_i18n</code>, <code>title_i18n</code>, <code>subtitle_i18n</code>, <code>note_i18n</code>, <code>text_i18n</code> and <code>about_i18n</code>, keyed by <code>nn</code>, <code>nb</code>, <code>sv</code>, <code>da</code>, <code>fi</code> and <code>is</code>. Other site languages use the English field until a translation is published. Headlines from other outlets stay in the original language. Dates are ISO 8601.</p>
+<p><a href="{html.escape(b)}api/v1/languages.json"><code>/api/v1/languages.json</code></a> lists every site language with <code>code</code>, <code>native_name</code>, <code>english_name</code>, <code>rtl</code>, <code>html_lang</code> and <code>home</code>. <a href="{html.escape(b)}api/v1/geo-language.json"><code>/api/v1/geo-language.json</code></a> is the country-to-language guess used on a first visit. The IP country comes from the tipworker <code>GET /api/geo</code> (Cloudflare <code>request.cf.country</code>). Nothing is stored. The <code>nc_lang</code> cookie, set by the language switcher, always wins.</p>
 <h2>CORS</h2>
 <p>GitHub Pages sends <code>Access-Control-Allow-Origin: *</code> on these files, so a page on another site can <code>fetch()</code> them. GitHub Pages does not apply a custom headers file. Use the <code>.json</code> file name; opening a directory does not return the JSON.</p>
 <h2>Editorial</h2>
