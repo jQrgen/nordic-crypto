@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T22:04:08+00:00",
+ "generated_at": "2026-10-05T22:32:35+00:00",
  "preview": false,
  "title": "Nordic Crypto data API",
  "sign_off": "The Nordic Crypto team",
@@ -43,7 +43,7 @@
   "events": 12,
   "events_upcoming": 11,
   "events_past": 1,
-  "sources": 115,
+  "sources": 116,
   "academia": {
    "courses": 7,
    "groups": 3,
@@ -227,8 +227,8 @@
    "url_custom_domain": "https://cryptonordic.no/api/v1/academia/{id}.json",
    "summary": "One academia row. The id is in academia.json.",
    "schema": "AcademiaItem",
-   "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/NO-BAN435.json",
-   "example_url_custom_domain": "https://cryptonordic.no/api/v1/academia/NO-BAN435.json"
+   "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/FI-CS-AJ0100.json",
+   "example_url_custom_domain": "https://cryptonordic.no/api/v1/academia/FI-CS-AJ0100.json"
   },
   {
    "id": "api-v1-orgchart",

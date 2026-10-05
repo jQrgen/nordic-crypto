@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T22:04:08+00:00",
+ "generated_at": "2026-10-05T22:32:35+00:00",
  "preview": false,
  "kind": "markets",
  "disclaimer": "Market data, not investment advice. Each figure is the value published by the named exchange at fetched_at. Nordic Crypto does not set these prices and does not tell anyone to buy or sell.",
@@ -22,23 +22,23 @@
    "base": "AAVE",
    "quote": "SEK",
    "last": null,
-   "bid": "1842.20",
-   "ask": "1860.33",
+   "bid": "1848.17",
+   "ask": "1865.17",
    "exchange": {
     "id": "coinmotion",
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-05T22:04:04+00:00",
+   "fetched_at": "2026-10-05T22:32:31+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
    "volume_base_24h": null,
    "volume_quote_24h": null,
-   "high": "1880.27",
-   "low": "1781.37",
+   "high": "1880.15",
+   "low": "1781.26",
    "change_pct": null,
-   "exchange_time": "2026-10-05T22:03:09+00:00"
+   "exchange_time": "2026-10-05T22:32:09+00:00"
   },
   {
    "id": "coinmotion:AAVE-EUR",
@@ -47,14 +47,14 @@
    "base": "AAVE",
    "quote": "EUR",
    "last": null,
-   "bid": "163.55",
-   "ask": "165.16",
+   "bid": "164.09",
+   "ask": "165.60",
    "exchange": {
     "id": "coinmotion",
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-05T22:04:04+00:00",
+   "fetched_at": "2026-10-05T22:32:31+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
@@ -63,7 +63,7 @@
    "high": "166.93",
    "low": "158.15",
    "change_pct": null,
-   "exchange_time": "2026-10-05T22:03:09+00:00"
+   "exchange_time": "2026-10-05T22:32:09+00:00"
   }
  ]
 }

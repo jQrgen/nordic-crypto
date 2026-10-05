@@ -1,13 +1,13 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T22:04:08+00:00",
+ "generated_at": "2026-10-05T22:32:35+00:00",
  "preview": false,
  "user_agent": "CryptoNordicBot/0.1 (+https://jqrgen.github.io/nordic-crypto/about/; news headline bot)",
  "min_delay_seconds": 2,
  "keyword_note": "A story is picked up when its title or teaser mentions, for example: bitcoin, crypto, blockchain, stablecoin, MiCA, CBDC (all languages); krypto, kryptovaluta, blokkjede (Norwegian); kryptoaktiver, blokkæde (Danish); kryptotillgångar, blockkedja, e-krona (Swedish); kryptovaluutta, lohkoketju, virtuaalivaluutta (Finnish); rafmynt, sýndareignir, bálkakeðja (Icelandic); or Nordic crypto firms such as Firi, NBX, K33, Safello, Coinmotion, Northcrypto, Myntkaup, Monerium and Coinify. The editor reviews every hit before it is published.",
  "kaupr": "Kaupr (kaupr.io) is one of the news sources. It is never a sponsor.",
- "count": 115,
+ "count": 116,
  "sources": [
   {
    "id": "e24",
@@ -19,7 +19,7 @@
    "paywall": true,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": "https://e24.no/rss2/",
    "source_note": null
@@ -33,8 +33,8 @@
    "type": "rss",
    "paywall": true,
    "enabled": true,
-   "status": "ok (only the 10 latest items)",
-   "verified": "2026-10-03",
+   "status": "ok (29 items on 2026-10-06)",
+   "verified": "2026-10-06",
    "language": null,
    "feed": "https://services.dn.no/api/feed/rss/",
    "source_note": null
@@ -48,8 +48,8 @@
    "type": "rss",
    "paywall": true,
    "enabled": false,
-   "status": "no working RSS (/rss redirects to login); covered via news search",
-   "verified": "2026-10-03",
+   "status": "no working RSS (/rss and /feed end in a login redirect loop on 2026-10-06); covered via news search",
+   "verified": "2026-10-06",
    "language": null,
    "feed": null,
    "source_note": null
@@ -62,11 +62,11 @@
    "url": "https://www.shifter.no",
    "type": "rss",
    "paywall": true,
-   "enabled": false,
-   "status": "no RSS found (/rss and /feed return 404); covered via news search",
-   "verified": "2026-10-03",
+   "enabled": true,
+   "status": "ok (/rss and /feed return 404; ?lab_viewport=rss works, 49 items on 2026-10-06)",
+   "verified": "2026-10-06",
    "language": null,
-   "feed": null,
+   "feed": "https://www.shifter.no/?lab_viewport=rss",
    "source_note": null
   },
   {
@@ -79,7 +79,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.nrk.no/toppsaker.rss",
    "source_note": null
@@ -94,7 +94,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.nrk.no/nyheter/siste.rss",
    "source_note": null
@@ -108,8 +108,8 @@
    "type": "rss-all",
    "paywall": true,
    "enabled": true,
-   "status": "ok",
-   "verified": "2026-10-03",
+   "status": "ok (newest item 2026-09-20)",
+   "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.digi.no/tag/kryptovaluta?lab_viewport=rss",
    "source_note": null
@@ -124,7 +124,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.finanstilsynet.no/rss/nyhetsfeed/",
    "source_note": null
@@ -139,7 +139,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.norges-bank.no/RSS/Pressemeldinger---Norges-Bank/",
    "source_note": null
@@ -154,7 +154,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": "https://anchor.fm/s/109ebeac4/podcast/rss",
    "source_note": null
@@ -169,7 +169,7 @@
    "paywall": true,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.di.se/rss",
    "source_note": null
@@ -184,7 +184,7 @@
    "paywall": true,
    "enabled": true,
    "status": "ok (few items per feed)",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.breakit.se/feed/artiklar",
    "source_note": null
@@ -199,7 +199,7 @@
    "paywall": true,
    "enabled": true,
    "status": "ok (all sections; the Näringsliv section feed returns HTTP 400)",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.svd.se/feed/articles.rss",
    "source_note": null
@@ -214,7 +214,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.svt.se/nyheter/ekonomi/rss.xml",
    "source_note": null
@@ -229,7 +229,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.fi.se/sv/publicerat/nyheter/rss/",
    "source_note": null
@@ -244,7 +244,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.riksbank.se/sv/rss/pressmeddelanden/",
    "source_note": null
@@ -257,11 +257,11 @@
    "url": "https://www.realtid.se",
    "type": "rss",
    "paywall": false,
-   "enabled": false,
-   "status": "/rss returns an empty page; covered via news search",
-   "verified": "2026-10-03",
+   "enabled": true,
+   "status": "ok (/rss is empty; /feed/ works, 10 latest items on 2026-10-06)",
+   "verified": "2026-10-06",
    "language": null,
-   "feed": null,
+   "feed": "https://www.realtid.se/feed/",
    "source_note": null
   },
   {
@@ -274,7 +274,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok (no RSS; link list + page metadata only)",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.kaupr.io/sverige",
    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
@@ -289,7 +289,7 @@
    "paywall": true,
    "enabled": true,
    "status": "ok (only the 10 latest items)",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": "https://feeds.kauppalehti.fi/rss/main",
    "source_note": null
@@ -304,7 +304,7 @@
    "paywall": true,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.hs.fi/rss/talous.xml",
    "source_note": null
@@ -319,7 +319,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": "https://yle.fi/rss/uutiset/tuoreimmat",
    "source_note": null
@@ -334,7 +334,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "English",
    "feed": "https://yle.fi/rss/news",
    "source_note": null
@@ -349,7 +349,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "Swedish",
    "feed": "https://svenska.yle.fi/rss/senaste-nytt",
    "source_note": null
@@ -364,7 +364,7 @@
    "paywall": true,
    "enabled": true,
    "status": "ok (only the 10 latest items)",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.talouselama.fi/api/feed/v2/rss/te",
    "source_note": null
@@ -379,7 +379,7 @@
    "paywall": true,
    "enabled": true,
    "status": "ok (only the 10 latest items)",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.tivi.fi/api/feed/v2/rss/tv",
    "source_note": null
@@ -394,7 +394,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": "https://arcticstartup.com/feed/",
    "source_note": null
@@ -409,7 +409,7 @@
    "paywall": false,
    "enabled": true,
    "status": "no RSS found; we read the English press-release list and page metadata only",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "English",
    "feed": "https://www.finanssivalvonta.fi/en/publications-and-press-releases/news-releases/",
    "source_note": null
@@ -423,8 +423,8 @@
    "type": "html",
    "paywall": false,
    "enabled": true,
-   "status": "no RSS for releases; list page + page metadata only",
-   "verified": "2026-10-03",
+   "status": "ok but flaky: on 2026-10-06 the list page sometimes answered with a redirect loop (bot protection) and worked on retry; no RSS for releases; list page + page metadata only",
+   "verified": "2026-10-06",
    "language": "English",
    "feed": "https://www.suomenpankki.fi/en/news-and-topical/press-releases-and-news/releases/",
    "source_note": null
@@ -439,7 +439,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "English",
    "feed": "https://www.bofbulletin.fi/rss/articles/",
    "source_note": null
@@ -454,7 +454,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok (no RSS; link list + page metadata only)",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.kaupr.io/finland",
    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
@@ -469,7 +469,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok (no RSS; link list + page metadata only)",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.kaupr.io/danmark",
    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
@@ -484,7 +484,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok (no RSS; we read the link list and only page metadata; robots.txt allows)",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.kaupr.io/norge",
    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
@@ -498,8 +498,8 @@
    "type": "rss",
    "paywall": true,
    "enabled": false,
-   "status": "blocked: HTTP 403 for our bot on the site and /rss; not fetched (we do not get around blocks); covered via news search where it appears",
-   "verified": "2026-10-03",
+   "status": "blocked: HTTP 403 for our bot on the site and /rss (re-checked 2026-10-06); not fetched (we do not get around blocks); covered via news search where it appears",
+   "verified": "2026-10-06",
    "language": null,
    "feed": null,
    "source_note": null
@@ -514,7 +514,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok (the business feed /rss/vidskipti is empty)",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.ruv.is/rss/frettir",
    "source_note": null
@@ -529,7 +529,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.mbl.is/feeds/vidskipti/",
    "source_note": null
@@ -544,7 +544,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.mbl.is/feeds/fp/",
    "source_note": null
@@ -559,7 +559,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.visir.is/rss/vidskipti",
    "source_note": null
@@ -574,7 +574,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": "https://heimildin.is/rss/",
    "source_note": null
@@ -589,7 +589,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "English",
    "feed": "https://www.icelandreview.com/feed/",
    "source_note": null
@@ -604,7 +604,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "English",
    "feed": "https://grapevine.is/feed/",
    "source_note": null
@@ -619,7 +619,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": "https://sedlabanki.is/api/documents/views/greinasafn-si/RSS/Frettatilkynningar",
    "source_note": null
@@ -634,7 +634,7 @@
    "paywall": true,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": "https://borsen.dk/rss",
    "source_note": null
@@ -649,7 +649,7 @@
    "paywall": true,
    "enabled": true,
    "status": "ok (latest 10 items)",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": "https://feeds.finans.dk/seneste",
    "source_note": null
@@ -664,7 +664,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.dr.dk/nyheder/service/feeds/penge",
    "source_note": null
@@ -679,7 +679,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.dr.dk/nyheder/service/feeds/senestenyt",
    "source_note": null
@@ -694,7 +694,7 @@
    "paywall": true,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": "https://politiken.dk/rss/senestenyt.rss",
    "source_note": null
@@ -709,7 +709,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.computerworld.dk/rss/all",
    "source_note": null
@@ -724,7 +724,7 @@
    "paywall": true,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": "https://www.version2.dk/rss",
    "source_note": null
@@ -739,7 +739,7 @@
    "paywall": true,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": "https://ing.dk/rss",
    "source_note": null
@@ -750,13 +750,13 @@
    "country": "DK",
    "kind": "Central bank",
    "url": "https://www.nationalbanken.dk",
-   "type": "html",
+   "type": "rss",
    "paywall": false,
    "enabled": true,
-   "status": "no RSS; we read the press-release links on the front page and page metadata only",
-   "verified": "2026-10-03",
+   "status": "ok (official RSS for press releases, listed on /en/rss-feeds; the old front-page link list matched 0 links on 2026-10-06)",
+   "verified": "2026-10-06",
    "language": "English",
-   "feed": "https://www.nationalbanken.dk/",
+   "feed": "https://www.nationalbanken.dk/api/rssfeed?topic=Press+release&lang=en",
    "source_note": null
   },
   {
@@ -768,8 +768,8 @@
    "type": "rss",
    "paywall": false,
    "enabled": false,
-   "status": "no RSS and the news list is rendered with JavaScript; covered via news search",
-   "verified": "2026-10-03",
+   "status": "no RSS found (/rss, /feed and /nyheder-og-presse/rss return 404 on 2026-10-06) and the news list is rendered with JavaScript; covered via news search",
+   "verified": "2026-10-06",
    "language": null,
    "feed": null,
    "source_note": null
@@ -783,8 +783,8 @@
    "type": "rss",
    "paywall": false,
    "enabled": false,
-   "status": "RSS is empty and the news list has no article links; covered via news search",
-   "verified": "2026-10-03",
+   "status": "RSS endpoints (/rss, /nyhedsoverblik/rss) return an empty page on 2026-10-06; covered via news search",
+   "verified": "2026-10-06",
    "language": null,
    "feed": null,
    "source_note": null
@@ -798,8 +798,8 @@
    "type": "rss",
    "paywall": false,
    "enabled": false,
-   "status": "skat.dk returned HTTP 500 on 3 Oct 2026; checked manually",
-   "verified": "2026-10-03",
+   "status": "skat.dk returned HTTP 500 for /rss and /feed on 3 and 6 Oct 2026; checked manually",
+   "verified": "2026-10-06",
    "language": null,
    "feed": null,
    "source_note": null
@@ -813,8 +813,8 @@
    "type": "rss",
    "paywall": false,
    "enabled": false,
-   "status": "feed TLS error on 3 Oct 2026; not used",
-   "verified": "2026-10-03",
+   "status": "feeds.tv2.dk TLS error and nyheder.tv2.dk/rss 404 on 6 Oct 2026; not used",
+   "verified": "2026-10-06",
    "language": null,
    "feed": null,
    "source_note": null
@@ -828,8 +828,8 @@
    "type": "rss",
    "paywall": false,
    "enabled": false,
-   "status": "site down (HTTP 521) on 3 Oct 2026; not used",
-   "verified": "2026-10-03",
+   "status": "site down (HTTP 521) on 3 and 6 Oct 2026; not used",
+   "verified": "2026-10-06",
    "language": null,
    "feed": null,
    "source_note": null
@@ -844,7 +844,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.nrk.no/norge/toppsaker.rss",
    "source_note": null
@@ -859,7 +859,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.nrk.no/teknologi/toppsaker.rss",
    "source_note": null
@@ -874,7 +874,7 @@
    "paywall": true,
    "enabled": true,
    "status": "ok (only the 10 latest stories)",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.vg.no/rss/feed/",
    "source_note": null
@@ -889,7 +889,7 @@
    "paywall": true,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.aftenposten.no/rss",
    "source_note": null
@@ -904,7 +904,7 @@
    "paywall": true,
    "enabled": true,
    "status": "ok (/rss returns 404, ?lab_viewport=rss works)",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.dagbladet.no/?lab_viewport=rss",
    "source_note": null
@@ -919,7 +919,7 @@
    "paywall": true,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.nettavisen.no/service/rich-rss",
    "source_note": null
@@ -934,7 +934,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.tv2.no/rss/nyheter",
    "source_note": null
@@ -949,7 +949,7 @@
    "paywall": true,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.digi.no/rss",
    "source_note": null
@@ -964,7 +964,7 @@
    "paywall": true,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.digi.no/tag/bitcoin?lab_viewport=rss",
    "source_note": null
@@ -979,7 +979,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.tek.no/api/rss/rss2/medium/collections",
    "source_note": null
@@ -994,7 +994,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://rss.kode24.no/",
    "source_note": null
@@ -1008,8 +1008,8 @@
    "type": "rss-all",
    "paywall": false,
    "enabled": true,
-   "status": "ok (little activity)",
-   "verified": "2026-10-03",
+   "status": "ok (little activity; newest item Feb 2026)",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.kode24.no/tag/krypto?lab_viewport=rss",
    "source_note": null
@@ -1024,7 +1024,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://itavisen.no/feed/",
    "source_note": null
@@ -1038,8 +1038,8 @@
    "type": "rss",
    "paywall": false,
    "enabled": false,
-   "status": "no RSS found (/feed/ and /rss redirect to the front page); covered via news search",
-   "verified": "2026-10-03",
+   "status": "no RSS found (/feed/ and /rss redirect to the front page, ?lab_viewport=rss is empty on 2026-10-06); covered via news search",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": null,
    "source_note": null
@@ -1053,8 +1053,8 @@
    "type": "rss",
    "paywall": true,
    "enabled": false,
-   "status": "fails: redirect loop",
-   "verified": "2026-10-03",
+   "status": "fails: redirect loop on /rss, /feed and ?lab_viewport=rss (2026-10-06); covered via news search",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.kapital.no/rss",
    "source_note": null
@@ -1069,7 +1069,7 @@
    "paywall": true,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.bt.no/rss",
    "source_note": null
@@ -1084,7 +1084,7 @@
    "paywall": true,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.aftenbladet.no/rss",
    "source_note": null
@@ -1099,7 +1099,7 @@
    "paywall": true,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.adressa.no/rss",
    "source_note": null
@@ -1114,7 +1114,7 @@
    "paywall": true,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.fvn.no/rss",
    "source_note": null
@@ -1129,7 +1129,7 @@
    "paywall": true,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.itromso.no/rss",
    "source_note": null
@@ -1144,7 +1144,7 @@
    "paywall": true,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.smp.no/rss",
    "source_note": null
@@ -1157,11 +1157,11 @@
    "url": "https://www.nordlys.no",
    "type": "rss",
    "paywall": true,
-   "enabled": false,
-   "status": "fails: 200 but empty feed",
-   "verified": "2026-10-03",
+   "enabled": true,
+   "status": "ok (/rss is empty or 404; Amedia feed /service/rss works, 15 latest items on 2026-10-06)",
+   "verified": "2026-10-06",
    "language": "Norwegian",
-   "feed": "https://www.nordlys.no/rss",
+   "feed": "https://www.nordlys.no/service/rss",
    "source_note": null
   },
   {
@@ -1172,11 +1172,11 @@
    "url": "https://www.ba.no",
    "type": "rss",
    "paywall": true,
-   "enabled": false,
-   "status": "fails: 404",
-   "verified": "2026-10-03",
+   "enabled": true,
+   "status": "ok (/rss is empty or 404; Amedia feed /service/rss works, 15 latest items on 2026-10-06)",
+   "verified": "2026-10-06",
    "language": "Norwegian",
-   "feed": "https://www.ba.no/rss",
+   "feed": "https://www.ba.no/service/rss",
    "source_note": null
   },
   {
@@ -1187,11 +1187,11 @@
    "url": "https://www.rb.no",
    "type": "rss",
    "paywall": true,
-   "enabled": false,
-   "status": "fails: 404",
-   "verified": "2026-10-03",
+   "enabled": true,
+   "status": "ok (/rss is empty or 404; Amedia feed /service/rss works, 15 latest items on 2026-10-06)",
+   "verified": "2026-10-06",
    "language": "Norwegian",
-   "feed": "https://www.rb.no/rss",
+   "feed": "https://www.rb.no/service/rss",
    "source_note": null
   },
   {
@@ -1202,11 +1202,11 @@
    "url": "https://www.dagsavisen.no",
    "type": "rss",
    "paywall": true,
-   "enabled": false,
-   "status": "fails: 404 (the link on the front page)",
-   "verified": "2026-10-03",
+   "enabled": true,
+   "status": "ok (the old /arc/outboundfeeds/rss/ link is 404; /rss redirects to ?lab_viewport=rss, 248 items on 2026-10-06)",
+   "verified": "2026-10-06",
    "language": "Norwegian",
-   "feed": "https://www.dagsavisen.no/arc/outboundfeeds/rss/",
+   "feed": "https://www.dagsavisen.no/?lab_viewport=rss",
    "source_note": null
   },
   {
@@ -1217,11 +1217,11 @@
    "url": "https://www.abcnyheter.no",
    "type": "rss",
    "paywall": false,
-   "enabled": false,
-   "status": "fails: 404 (/rss and /feed)",
-   "verified": "2026-10-03",
+   "enabled": true,
+   "status": "ok (/rss and /feed return 404; ?lab_viewport=rss works, 24 items on 2026-10-06)",
+   "verified": "2026-10-06",
    "language": "Norwegian",
-   "feed": "https://www.abcnyheter.no/rss",
+   "feed": "https://www.abcnyheter.no/?lab_viewport=rss",
    "source_note": null
   },
   {
@@ -1234,7 +1234,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.norges-bank.no/RSS/Foredrag-og-taler---Norges-Bank/",
    "source_note": null
@@ -1249,7 +1249,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.norges-bank.no/RSS/bankplassen-blogg/",
    "source_note": null
@@ -1264,7 +1264,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.skatteetaten.no/rss/presse/pressemeldinger/",
    "source_note": null
@@ -1278,8 +1278,8 @@
    "type": "rss",
    "paywall": false,
    "enabled": false,
-   "status": "fails: 403 for bots",
-   "verified": "2026-10-03",
+   "status": "fails: HTTP 403 for bots (re-checked 2026-10-06); not fetched",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.regjeringen.no/no/aktuelt/rss/id2582/",
    "source_note": null
@@ -1293,8 +1293,8 @@
    "type": "rss",
    "paywall": false,
    "enabled": false,
-   "status": "fails: timeout",
-   "verified": "2026-10-03",
+   "status": "fails: https://www.okokrim.no/rss redirects to plain http:// which times out (2026-10-06)",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://www.okokrim.no/rss",
    "source_note": null
@@ -1308,8 +1308,8 @@
    "type": "search",
    "paywall": false,
    "enabled": true,
-   "status": "added manually by the researcher (fetch.sh --add)",
-   "verified": "2026-10-03",
+   "status": "added manually by the researcher (fetch.sh --add); no RSS (nbx.com timed out on 2026-10-06)",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": null,
    "source_note": null
@@ -1323,8 +1323,8 @@
    "type": "search",
    "paywall": false,
    "enabled": true,
-   "status": "added manually by the researcher (fetch.sh --add); also covered via news search",
-   "verified": "2026-10-03",
+   "status": "added manually by the researcher (fetch.sh --add); no news RSS found on 2026-10-06; also covered via news search",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": null,
    "source_note": null
@@ -1339,7 +1339,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://kryptografen.no/feed/",
    "source_note": null
@@ -1354,7 +1354,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://anchor.fm/s/4a747814/podcast/rss",
    "source_note": null
@@ -1369,7 +1369,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://anchor.fm/s/e5a9acdc/podcast/rss",
    "source_note": null
@@ -1384,7 +1384,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok, but last episode June 2025",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": "https://anchor.fm/s/f29c1268/podcast/rss",
    "source_note": null
@@ -1398,8 +1398,8 @@
    "type": "rss",
    "paywall": false,
    "enabled": false,
-   "status": "no RSS found (/feed and /rss.xml return 404)",
-   "verified": "2026-10-03",
+   "status": "no RSS found (/feed, /rss.xml, /blog/rss.xml return 404 on 2026-10-06)",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": null,
    "source_note": null
@@ -1410,13 +1410,13 @@
    "country": "NO",
    "kind": "Newspaper",
    "url": "https://www.rbnett.no",
-   "type": "search",
+   "type": "rss",
    "paywall": true,
    "enabled": true,
-   "status": "no RSS used; covered via news search",
-   "verified": "2026-10-03",
+   "status": "ok (97 items on 2026-10-06; also covered via news search)",
+   "verified": "2026-10-06",
    "language": "Norwegian",
-   "feed": null,
+   "feed": "https://www.rbnett.no/rss",
    "source_note": null
   },
   {
@@ -1425,13 +1425,13 @@
    "country": "NO",
    "kind": "Newspaper",
    "url": "https://www.glomdalen.no",
-   "type": "search",
+   "type": "rss",
    "paywall": true,
    "enabled": true,
-   "status": "no RSS used; covered via news search",
-   "verified": "2026-10-03",
+   "status": "ok (Amedia feed /service/rss, 15 latest items on 2026-10-06; also covered via news search)",
+   "verified": "2026-10-06",
    "language": "Norwegian",
-   "feed": null,
+   "feed": "https://www.glomdalen.no/service/rss",
    "source_note": null
   },
   {
@@ -1440,13 +1440,13 @@
    "country": "NO",
    "kind": "Newspaper",
    "url": "https://www.oa.no",
-   "type": "search",
+   "type": "rss",
    "paywall": true,
    "enabled": true,
-   "status": "no RSS used; covered via news search",
-   "verified": "2026-10-03",
+   "status": "ok (Amedia feed /service/rss, 15 latest items on 2026-10-06; also covered via news search)",
+   "verified": "2026-10-06",
    "language": "Norwegian",
-   "feed": null,
+   "feed": "https://www.oa.no/service/rss",
    "source_note": null
   },
   {
@@ -1455,13 +1455,13 @@
    "country": "NO",
    "kind": "Newspaper",
    "url": "https://www.budstikka.no",
-   "type": "search",
+   "type": "rss",
    "paywall": true,
    "enabled": true,
-   "status": "no RSS used; covered via news search",
-   "verified": "2026-10-03",
+   "status": "ok (Amedia feed /service/rss, 15 latest items on 2026-10-06; also covered via news search)",
+   "verified": "2026-10-06",
    "language": "Norwegian",
-   "feed": null,
+   "feed": "https://www.budstikka.no/service/rss",
    "source_note": null
   },
   {
@@ -1470,13 +1470,13 @@
    "country": "NO",
    "kind": "Newspaper",
    "url": "https://www.tb.no",
-   "type": "search",
+   "type": "rss",
    "paywall": true,
    "enabled": true,
-   "status": "no RSS used; covered via news search",
-   "verified": "2026-10-03",
+   "status": "ok (Amedia feed /service/rss, 15 latest items on 2026-10-06; also covered via news search)",
+   "verified": "2026-10-06",
    "language": "Norwegian",
-   "feed": null,
+   "feed": "https://www.tb.no/service/rss",
    "source_note": null
   },
   {
@@ -1485,13 +1485,13 @@
    "country": "NO",
    "kind": "Newspaper",
    "url": "https://www.h-avis.no",
-   "type": "search",
+   "type": "rss",
    "paywall": true,
    "enabled": true,
-   "status": "no RSS used; covered via news search",
-   "verified": "2026-10-03",
+   "status": "ok (Amedia feed /service/rss, 15 latest items on 2026-10-06; also covered via news search)",
+   "verified": "2026-10-06",
    "language": "Norwegian",
-   "feed": null,
+   "feed": "https://www.h-avis.no/service/rss",
    "source_note": null
   },
   {
@@ -1500,13 +1500,13 @@
    "country": "NO",
    "kind": "Newspaper",
    "url": "https://www.ta.no",
-   "type": "search",
+   "type": "rss",
    "paywall": true,
    "enabled": true,
-   "status": "no RSS used; covered via news search",
-   "verified": "2026-10-03",
+   "status": "ok (Amedia feed /service/rss, 15 latest items on 2026-10-06; also covered via news search)",
+   "verified": "2026-10-06",
    "language": "Norwegian",
-   "feed": null,
+   "feed": "https://www.ta.no/service/rss",
    "source_note": null
   },
   {
@@ -1515,13 +1515,13 @@
    "country": "NO",
    "kind": "Newspaper",
    "url": "https://www.an.no",
-   "type": "search",
+   "type": "rss",
    "paywall": true,
    "enabled": true,
-   "status": "no RSS used; covered via news search",
-   "verified": "2026-10-03",
+   "status": "ok (Amedia feed /service/rss, 15 latest items on 2026-10-06; also covered via news search)",
+   "verified": "2026-10-06",
    "language": "Norwegian",
-   "feed": null,
+   "feed": "https://www.an.no/service/rss",
    "source_note": null
   },
   {
@@ -1529,14 +1529,14 @@
    "name": "Computerworld Norge",
    "country": "NO",
    "kind": "Tech media",
-   "url": "https://www.computerworld.no",
-   "type": "search",
+   "url": "https://www.cw.no",
+   "type": "rss",
    "paywall": true,
    "enabled": true,
-   "status": "no RSS used; covered via news search",
-   "verified": "2026-10-03",
+   "status": "ok (computerworld.no now redirects to cw.no; ?lab_viewport=rss works, 57 items on 2026-10-06)",
+   "verified": "2026-10-06",
    "language": "Norwegian",
-   "feed": null,
+   "feed": "https://www.cw.no/?lab_viewport=rss",
    "source_note": null
   },
   {
@@ -1545,13 +1545,13 @@
    "country": "NO",
    "kind": "Tech media",
    "url": "https://www.kom24.no",
-   "type": "search",
+   "type": "rss",
    "paywall": false,
    "enabled": true,
-   "status": "no RSS used; covered via news search",
-   "verified": "2026-10-03",
+   "status": "ok (?lab_viewport=rss, 166 items on 2026-10-06)",
+   "verified": "2026-10-06",
    "language": "Norwegian",
-   "feed": null,
+   "feed": "https://www.kom24.no/?lab_viewport=rss",
    "source_note": null
   },
   {
@@ -1560,13 +1560,13 @@
    "country": "NO",
    "kind": "Business media",
    "url": "https://investornytt.no",
-   "type": "search",
+   "type": "rss",
    "paywall": false,
    "enabled": true,
-   "status": "no RSS used; covered via news search",
-   "verified": "2026-10-03",
+   "status": "ok (?lab_viewport=rss, 114 items on 2026-10-06)",
+   "verified": "2026-10-06",
    "language": "Norwegian",
-   "feed": null,
+   "feed": "https://www.investornytt.no/?lab_viewport=rss",
    "source_note": null
   },
   {
@@ -1578,8 +1578,8 @@
    "type": "search",
    "paywall": true,
    "enabled": true,
-   "status": "no RSS used; covered via news search",
-   "verified": "2026-10-03",
+   "status": "no RSS used (/rss is a login redirect loop on 2026-10-06); covered via news search",
+   "verified": "2026-10-06",
    "language": "Norwegian",
    "feed": null,
    "source_note": null
@@ -1590,13 +1590,13 @@
    "country": "NO",
    "kind": "Newspaper",
    "url": "https://www.morgenbladet.no",
-   "type": "search",
+   "type": "rss",
    "paywall": true,
    "enabled": true,
-   "status": "no RSS used; covered via news search",
-   "verified": "2026-10-03",
+   "status": "ok (?lab_viewport=rss, 73 items on 2026-10-06)",
+   "verified": "2026-10-06",
    "language": "Norwegian",
-   "feed": null,
+   "feed": "https://www.morgenbladet.no/?lab_viewport=rss",
    "source_note": null
   },
   {
@@ -1605,13 +1605,13 @@
    "country": "NO",
    "kind": "Business media",
    "url": "https://www.dagensperspektiv.no",
-   "type": "search",
+   "type": "rss",
    "paywall": false,
    "enabled": true,
-   "status": "no RSS used; covered via news search",
-   "verified": "2026-10-03",
+   "status": "ok (?lab_viewport=rss, 68 items on 2026-10-06)",
+   "verified": "2026-10-06",
    "language": "Norwegian",
-   "feed": null,
+   "feed": "https://www.dagensperspektiv.no/?lab_viewport=rss",
    "source_note": null
   },
   {
@@ -1620,13 +1620,13 @@
    "country": "NO",
    "kind": "Newspaper",
    "url": "https://www.nationen.no",
-   "type": "search",
+   "type": "rss",
    "paywall": true,
    "enabled": true,
-   "status": "no RSS used; covered via news search",
-   "verified": "2026-10-03",
+   "status": "ok (Amedia feed /service/rss, 15 latest items on 2026-10-06; also covered via news search)",
+   "verified": "2026-10-06",
    "language": "Norwegian",
-   "feed": null,
+   "feed": "https://www.nationen.no/service/rss",
    "source_note": null
   },
   {
@@ -1635,12 +1635,27 @@
    "country": "NO",
    "kind": "Newspaper",
    "url": "https://klassekampen.no",
-   "type": "search",
+   "type": "rss",
    "paywall": true,
    "enabled": true,
-   "status": "no RSS used; covered via news search",
-   "verified": "2026-10-03",
+   "status": "ok (/rss redirects to /api/newsfeed/rss, 254 items on 2026-10-06)",
+   "verified": "2026-10-06",
    "language": "Norwegian",
+   "feed": "https://klassekampen.no/api/newsfeed/rss",
+   "source_note": null
+  },
+  {
+   "id": "reuters-norden",
+   "name": "Reuters (Nordic coverage)",
+   "country": "NORDIC",
+   "kind": "Wire",
+   "url": "https://www.reuters.com",
+   "type": "bing",
+   "paywall": true,
+   "enabled": true,
+   "status": "ok (Bing News RSS limited to reuters.com links for Nordic queries, filtered on crypto keywords; links go to the reuters.com story; 13/13 queries HTTP 200 on 2026-10-06). Reuters has no free feed: feeds.reuters.com ended in 2020, the Reuters Connect API is paid/licensed (we have no credentials), reuters.com robots.txt blocks all unlisted bots and its terms forbid automated collection, and news.google.com/rss is disallowed by Google's robots.txt - so we never fetch reuters.com or Google News directly.",
+   "verified": "2026-10-06",
+   "language": null,
    "feed": null,
    "source_note": null
   },
@@ -1654,7 +1669,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok (Bing News RSS sorted by date; links always go to the original story)",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": null,
    "source_note": null
@@ -1669,7 +1684,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok (Kryptonytt's former news search: extra queries plus one query per term and Norwegian site; links always go to the original story)",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": null,
    "source_note": null
@@ -1684,7 +1699,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": null,
    "source_note": null
@@ -1699,7 +1714,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": null,
    "source_note": null
@@ -1714,7 +1729,7 @@
    "paywall": false,
    "enabled": true,
    "status": "ok (no Icelandic market in Bing; filtered to .is domains)",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": null,
    "source_note": null
@@ -1729,13 +1744,33 @@
    "paywall": false,
    "enabled": true,
    "status": "ok (Bing News RSS, filtered to .dk domains; links go to the original story)",
-   "verified": "2026-10-03",
+   "verified": "2026-10-06",
    "language": null,
    "feed": null,
    "source_note": null
   }
  ],
  "search": [
+  {
+   "id": "reuters-norden",
+   "country": "NORDIC",
+   "allowed_tld": "reuters.com",
+   "queries": [
+    "site:reuters.com Norway",
+    "site:reuters.com Norwegian",
+    "site:reuters.com Sweden",
+    "site:reuters.com Swedish",
+    "site:reuters.com Finland",
+    "site:reuters.com Finnish",
+    "site:reuters.com Denmark",
+    "site:reuters.com Danish",
+    "site:reuters.com Iceland",
+    "site:reuters.com Nordic",
+    "site:reuters.com Scandinavia",
+    "site:reuters.com Norges Bank",
+    "site:reuters.com Riksbank"
+   ]
+  },
   {
    "id": "bing-no",
    "country": "NO",

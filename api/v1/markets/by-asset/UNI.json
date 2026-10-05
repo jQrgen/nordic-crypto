@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T22:04:08+00:00",
+ "generated_at": "2026-10-05T22:32:35+00:00",
  "preview": false,
  "kind": "markets",
  "disclaimer": "Market data, not investment advice. Each figure is the value published by the named exchange at fetched_at. Nordic Crypto does not set these prices and does not tell anyone to buy or sell.",
@@ -22,23 +22,23 @@
    "base": "UNI",
    "quote": "SEK",
    "last": null,
-   "bid": "91.45",
-   "ask": "92.35",
+   "bid": "91.10",
+   "ask": "91.99",
    "exchange": {
     "id": "coinmotion",
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-05T22:04:04+00:00",
+   "fetched_at": "2026-10-05T22:32:31+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
    "volume_base_24h": null,
    "volume_quote_24h": null,
-   "high": "92.82",
-   "low": "88.81",
+   "high": "92.81",
+   "low": "88.80",
    "change_pct": null,
-   "exchange_time": "2026-10-05T22:03:09+00:00"
+   "exchange_time": "2026-10-05T22:32:09+00:00"
   },
   {
    "id": "coinmotion:UNI-EUR",
@@ -47,14 +47,14 @@
    "base": "UNI",
    "quote": "EUR",
    "last": null,
-   "bid": "8.119",
-   "ask": "8.199",
+   "bid": "8.089",
+   "ask": "8.168",
    "exchange": {
     "id": "coinmotion",
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-05T22:04:04+00:00",
+   "fetched_at": "2026-10-05T22:32:31+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
@@ -63,7 +63,7 @@
    "high": "8.241",
    "low": "7.885",
    "change_pct": null,
-   "exchange_time": "2026-10-05T22:03:09+00:00"
+   "exchange_time": "2026-10-05T22:32:09+00:00"
   },
   {
    "id": "nbx:UNI-NOK",
@@ -72,14 +72,14 @@
    "base": "UNI",
    "quote": "NOK",
    "last": "87.62",
-   "bid": "87.14",
-   "ask": "88.61",
+   "bid": "86.72",
+   "ask": "88.34",
    "exchange": {
     "id": "nbx",
     "name": "Norwegian Block Exchange",
     "country": "NO"
    },
-   "fetched_at": "2026-10-05T22:04:03+00:00",
+   "fetched_at": "2026-10-05T22:32:29+00:00",
    "source_url": "https://api.nbx.com/tickers",
    "volume_base": null,
    "volume_quote": null,
@@ -96,14 +96,14 @@
    "base": "UNI",
    "quote": "EUR",
    "last": "8.4072873871",
-   "bid": "8.0887648426",
-   "ask": "8.2319052272",
+   "bid": "8.0644387754",
+   "ask": "8.2070348145",
    "exchange": {
     "id": "nbx",
     "name": "Norwegian Block Exchange",
     "country": "NO"
    },
-   "fetched_at": "2026-10-05T22:04:03+00:00",
+   "fetched_at": "2026-10-05T22:32:29+00:00",
    "source_url": "https://api.nbx.com/tickers",
    "volume_base": null,
    "volume_quote": null,

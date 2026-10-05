@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T22:04:08+00:00",
+ "generated_at": "2026-10-05T22:32:35+00:00",
  "preview": false,
  "kind": "markets",
  "disclaimer": "Market data, not investment advice. Each figure is the value published by the named exchange at fetched_at. Nordic Crypto does not set these prices and does not tell anyone to buy or sell.",
@@ -21,23 +21,23 @@
    "exchange_symbol": "SOLNOK",
    "base": "SOL",
    "quote": "NOK",
-   "last": "1161.56",
-   "bid": "1153.3000000000000000",
-   "ask": "1168.2500000000000000",
+   "last": "1170.01",
+   "bid": "1144.3600000000000000",
+   "ask": "1169.6400000000000000",
    "exchange": {
     "id": "firi",
     "name": "Firi",
     "country": "NO"
    },
-   "fetched_at": "2026-10-05T22:04:02+00:00",
+   "fetched_at": "2026-10-05T22:32:28+00:00",
    "source_url": "https://api.firi.com/v2/markets/SOLNOK",
-   "volume_base": "292.61",
+   "volume_base": "302.45",
    "volume_quote": null,
    "volume_base_24h": null,
    "volume_quote_24h": null,
    "high": "1179.84",
    "low": "1159.00",
-   "change_pct": "-0.72"
+   "change_pct": "0"
   },
   {
    "id": "nbx:SOL-NOK",
@@ -46,14 +46,14 @@
    "base": "SOL",
    "quote": "NOK",
    "last": "1143.25",
-   "bid": "1151.09",
-   "ask": "1171.46",
+   "bid": "1154.17",
+   "ask": "1172.97",
    "exchange": {
     "id": "nbx",
     "name": "Norwegian Block Exchange",
     "country": "NO"
    },
-   "fetched_at": "2026-10-05T22:04:03+00:00",
+   "fetched_at": "2026-10-05T22:32:29+00:00",
    "source_url": "https://api.nbx.com/tickers",
    "volume_base": null,
    "volume_quote": null,

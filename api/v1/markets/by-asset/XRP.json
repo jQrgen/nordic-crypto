@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T22:04:08+00:00",
+ "generated_at": "2026-10-05T22:32:35+00:00",
  "preview": false,
  "kind": "markets",
  "disclaimer": "Market data, not investment advice. Each figure is the value published by the named exchange at fetched_at. Nordic Crypto does not set these prices and does not tell anyone to buy or sell.",
@@ -23,13 +23,13 @@
    "quote": "SEK",
    "last": null,
    "bid": "15.10",
-   "ask": "15.25",
+   "ask": "15.24",
    "exchange": {
     "id": "coinmotion",
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-05T22:04:04+00:00",
+   "fetched_at": "2026-10-05T22:32:31+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
@@ -38,7 +38,7 @@
    "high": "15.35",
    "low": "14.95",
    "change_pct": null,
-   "exchange_time": "2026-10-05T22:03:09+00:00"
+   "exchange_time": "2026-10-05T22:32:09+00:00"
   },
   {
    "id": "coinmotion:XRP-EUR",
@@ -47,14 +47,14 @@
    "base": "XRP",
    "quote": "EUR",
    "last": null,
-   "bid": "1.34102",
-   "ask": "1.35401",
+   "bid": "1.34144",
+   "ask": "1.35338",
    "exchange": {
     "id": "coinmotion",
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-05T22:04:04+00:00",
+   "fetched_at": "2026-10-05T22:32:31+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
@@ -63,7 +63,7 @@
    "high": "1.36296",
    "low": "1.32768",
    "change_pct": null,
-   "exchange_time": "2026-10-05T22:03:09+00:00"
+   "exchange_time": "2026-10-05T22:32:09+00:00"
   },
   {
    "id": "firi:XRP-NOK",
@@ -71,23 +71,23 @@
    "exchange_symbol": "XRPNOK",
    "base": "XRP",
    "quote": "NOK",
-   "last": "14.53",
-   "bid": "14.4200000000000000",
-   "ask": "14.5800000000000000",
+   "last": "14.59",
+   "bid": "14.4100000000000000",
+   "ask": "14.6000000000000000",
    "exchange": {
     "id": "firi",
     "name": "Firi",
     "country": "NO"
    },
-   "fetched_at": "2026-10-05T22:04:02+00:00",
+   "fetched_at": "2026-10-05T22:32:28+00:00",
    "source_url": "https://api.firi.com/v2/markets/XRPNOK",
-   "volume_base": "7351.23",
+   "volume_base": "9646.21",
    "volume_quote": null,
    "volume_base_24h": null,
    "volume_quote_24h": null,
    "high": "14.69",
    "low": "14.35",
-   "change_pct": "-0.68"
+   "change_pct": "-0.27"
   },
   {
    "id": "nbx:XRP-NOK",
@@ -96,14 +96,14 @@
    "base": "XRP",
    "quote": "NOK",
    "last": "14.50",
-   "bid": "14.40",
+   "bid": "14.37",
    "ask": "14.63",
    "exchange": {
     "id": "nbx",
     "name": "Norwegian Block Exchange",
     "country": "NO"
    },
-   "fetched_at": "2026-10-05T22:04:03+00:00",
+   "fetched_at": "2026-10-05T22:32:29+00:00",
    "source_url": "https://api.nbx.com/tickers",
    "volume_base": null,
    "volume_quote": null,

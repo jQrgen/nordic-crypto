@@ -1,6 +1,10 @@
 {
  "active": [
   {
+   "name": "ABC Nyheter",
+   "country": "NO"
+  },
+  {
    "name": "Adresseavisen",
    "country": "NO"
   },
@@ -13,7 +17,15 @@
    "country": "FI"
   },
   {
+   "name": "Avisa Nordland",
+   "country": "NO"
+  },
+  {
    "name": "Bergens Tidende",
+   "country": "NO"
+  },
+  {
+   "name": "Bergensavisen",
    "country": "NO"
   },
   {
@@ -29,12 +41,20 @@
    "country": "SE"
   },
   {
+   "name": "Budstikka",
+   "country": "NO"
+  },
+  {
    "name": "Børsen",
    "country": "DK"
   },
   {
    "name": "Computerworld Danmark",
    "country": "DK"
+  },
+  {
+   "name": "Computerworld Norge",
+   "country": "NO"
   },
   {
    "name": "DR",
@@ -49,8 +69,16 @@
    "country": "NO"
   },
   {
+   "name": "Dagens Perspektiv",
+   "country": "NO"
+  },
+  {
    "name": "Dagens industri",
    "country": "SE"
+  },
+  {
+   "name": "Dagsavisen",
+   "country": "NO"
   },
   {
    "name": "Danmarks Nationalbank",
@@ -89,6 +117,10 @@
    "country": "NO"
   },
   {
+   "name": "Haugesunds Avis",
+   "country": "NO"
+  },
+  {
    "name": "Heimildin",
    "country": "IS"
   },
@@ -109,6 +141,10 @@
    "country": "DK"
   },
   {
+   "name": "Investornytt",
+   "country": "NO"
+  },
+  {
    "name": "Kauppalehti",
    "country": "FI"
   },
@@ -117,7 +153,15 @@
    "country": "NO"
   },
   {
+   "name": "Klassekampen",
+   "country": "NO"
+  },
+  {
    "name": "Kode24",
+   "country": "NO"
+  },
+  {
+   "name": "Kom24",
    "country": "NO"
   },
   {
@@ -129,7 +173,15 @@
    "country": "NO"
   },
   {
+   "name": "Morgenbladet",
+   "country": "NO"
+  },
+  {
    "name": "NRK",
+   "country": "NO"
+  },
+  {
+   "name": "Nationen",
    "country": "NO"
   },
   {
@@ -137,7 +189,15 @@
    "country": "NO"
   },
   {
+   "name": "Nordlys",
+   "country": "NO"
+  },
+  {
    "name": "Norges Bank",
+   "country": "NO"
+  },
+  {
+   "name": "Oppland Arbeiderblad",
    "country": "NO"
   },
   {
@@ -145,8 +205,20 @@
    "country": "DK"
   },
   {
+   "name": "Realtid",
+   "country": "SE"
+  },
+  {
    "name": "Reykjavík Grapevine",
    "country": "IS"
+  },
+  {
+   "name": "Romerikes Blad",
+   "country": "NO"
+  },
+  {
+   "name": "Romsdals Budstikke",
+   "country": "NO"
   },
   {
    "name": "RÚV",
@@ -159,6 +231,10 @@
   {
    "name": "Seðlabanki Íslands",
    "country": "IS"
+  },
+  {
+   "name": "Shifter",
+   "country": "NO"
   },
   {
    "name": "Skatteetaten",
@@ -197,8 +273,16 @@
    "country": "NO"
   },
   {
+   "name": "Telemarksavisa",
+   "country": "NO"
+  },
+  {
    "name": "Tivi",
    "country": "FI"
+  },
+  {
+   "name": "Tønsbergs Blad",
+   "country": "NO"
   },
   {
    "name": "VG",
@@ -223,6 +307,10 @@
   {
    "name": "mbl.is",
    "country": "IS"
+  },
+  {
+   "name": "Østlendingen/Glåmdalen",
+   "country": "NO"
   }
  ]
 }
