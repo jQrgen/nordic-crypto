@@ -880,12 +880,20 @@ def _markets(feed, markets):
     files = markets_mod.documents(doc)
     for rel, obj in files.items():
         feed.write_json(rel, obj)
+    markets_mod.write_logos(feed.site)
     feed.add_endpoint(
         "markets",
         "api/v1/markets.json",
-        "Nordic exchange prices. Market data, not investment advice. Each ticker names the exchange, fetched_at and the source URL. NOK, SEK, DKK and EUR only.",
+        "Nordic exchange prices. Market data, not investment advice. Each ticker names the exchange, fetched_at, the source URL and volume when the exchange published it. NOK, SEK, DKK and EUR only. aggregated is one row per pair.",
         "MarketCatalogue",
         example="api/v1/markets/firi.json" if "api/v1/markets/firi.json" in files else None,
+    )
+    feed.add_endpoint(
+        "markets-aggregated",
+        "api/v1/markets/aggregated.json",
+        "One price per base-quote pair. BTC-NOK is separate from BTC-EUR. last is the mean of published last prices. mid is the mean of bid/ask midpoints and is not blended into last. Volume is summed only within the same field and the same pair. logo_url is a CC0 icon when cryptocurrency-icons includes the asset, otherwise null.",
+        "MarketAggregated",
+        example="api/v1/markets/aggregated.json" if "api/v1/markets/aggregated.json" in files else None,
     )
     feed.add_endpoint(
         "markets-exchange",
@@ -903,7 +911,7 @@ def _markets(feed, markets):
     feed.add_endpoint(
         "markets-asset",
         "api/v1/markets/by-asset/{symbol}.json",
-        "Prices for one asset (the base symbol, such as BTC) on every included Nordic exchange.",
+        "Prices for one asset (the base symbol, such as BTC) on every included Nordic exchange, plus aggregated pairs for each quote currency and logo_url when an icon is available.",
         "MarketAsset",
         example=asset_example,
     )
@@ -1153,11 +1161,13 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
             "changelog": len(changes),
             "archive_articles": len(articles),
             "markets": market_doc.get("count") or 0,
+            "markets_aggregated": market_doc.get("aggregated_count") or 0,
             "markets_by_exchange": market_counts,
         },
         endpoints=list(feed.endpoints),
         start_here=[
             {"description": "Nordic exchange prices (market data, not investment advice)", "url": feed.abs("api/v1/markets.json")},
+            {"description": "Aggregated price per pair, one quote currency at a time", "url": feed.abs("api/v1/markets/aggregated.json")},
             {"description": "Prices from one exchange", "url": feed.abs("api/v1/markets/firi.json")},
             *([{"description": "Prices for one asset, on every included exchange", "url": feed.abs(f"api/v1/markets/by-asset/{example_asset}.json")}] if example_asset else []),
             {"description": "All published news", "url": feed.abs("api/v1/news.json")},
@@ -1393,27 +1403,114 @@ def schemas():
                 }},
                 "fetched_at": {"type": "string", "description": "When Nordic Crypto fetched this row, ISO 8601 UTC."},
                 "source_url": {"type": "string", "description": "Exchange URL the figure was read from."},
-                "volume_base": {"type": "string", "nullable": True},
-                "volume_quote": {"type": "string", "nullable": True},
-                "volume_base_24h": {"type": "string", "nullable": True, "description": "Set only when the exchange names a 24-hour window."},
-                "volume_quote_24h": {"type": "string", "nullable": True},
+                "volume_base": {"type": "string", "nullable": True, "description": "Base-asset volume as published. Null when the exchange omits it. Firi's volume is stored here; that payload does not name a 24-hour window. Not treated as zero when missing."},
+                "volume_quote": {"type": "string", "nullable": True, "description": "Quote-currency volume as published, window not named. Null when omitted."},
+                "volume_base_24h": {"type": "string", "nullable": True, "description": "Base-asset volume over the last 24 hours. Set only when the exchange names that window (NBX). Not added to volume_base."},
+                "volume_quote_24h": {"type": "string", "nullable": True, "description": "Quote-currency volume over the last 24 hours (NBX). The unit is this pair's quote (NOK, SEK, DKK or EUR)."},
                 "high": {"type": "string", "nullable": True},
                 "low": {"type": "string", "nullable": True},
                 "change_pct": {"type": "string", "nullable": True},
                 "exchange_time": {"type": "string", "nullable": True, "description": "Timestamp from the exchange payload, when it sends one."},
             },
         },
+        "MarketLogo": {
+            "type": "object",
+            "nullable": True,
+            "description": "Present when cryptocurrency-icons (CC0-1.0) includes this asset. Null fields on the parent when it does not. Nordic Crypto does not draw substitutes.",
+            "properties": {
+                "format": {"type": "string", "example": "svg"},
+                "source": {"type": "string"},
+                "source_url": {"type": "string"},
+                "version": {"type": "string"},
+                "license": {"type": "string", "example": "CC0-1.0"},
+                "license_name": {"type": "string"},
+                "license_url": {"type": "string"},
+                "authors": {"type": "string"},
+                "attribution": {"type": "string"},
+            },
+        },
+        "MarketVolume": {
+            "type": "object",
+            "description": "Sums of like volume fields inside one pair. Fields are not mixed. A null sum means nobody published that field.",
+            "properties": {
+                "volume_base": {"type": "string", "nullable": True, "description": "Sum of volume_base. Unit: base asset. Window not named."},
+                "volume_base_exchanges": {"type": "integer"},
+                "volume_quote": {"type": "string", "nullable": True, "description": "Sum of volume_quote. Unit: quote currency. Window not named."},
+                "volume_quote_exchanges": {"type": "integer"},
+                "volume_base_24h": {"type": "string", "nullable": True, "description": "Sum of volume_base_24h. Unit: base asset over the last 24 hours."},
+                "volume_base_24h_exchanges": {"type": "integer"},
+                "volume_quote_24h": {"type": "string", "nullable": True, "description": "Sum of volume_quote_24h. Unit: quote currency over the last 24 hours."},
+                "volume_quote_24h_exchanges": {"type": "integer"},
+                "units": {"type": "object"},
+            },
+        },
+        "MarketAggregate": {
+            "type": "object",
+            "required": ["symbol", "base", "quote", "currency", "exchange_count", "updated_at", "method", "price", "last", "mid", "min", "max", "contributors", "volume"],
+            "properties": {
+                "symbol": {"type": "string", "example": "BTC-NOK", "description": "BASE-QUOTE. One bucket per quote currency."},
+                "base": {"type": "string"},
+                "name": {"type": "string", "nullable": True},
+                "quote": {"type": "string", "enum": ["NOK", "SEK", "DKK", "EUR"]},
+                "currency": {"type": "string", "description": "Same as quote. NOK is never combined with EUR, SEK or DKK."},
+                "updated_at": {"type": "string", "nullable": True, "description": "Newest fetched_at among the contributors, ISO 8601 UTC."},
+                "oldest_fetched_at": {"type": "string", "nullable": True},
+                "exchange_count": {"type": "integer", "description": "How many exchanges quoted this pair."},
+                "method": {"type": "string", "nullable": True, "enum": ["mean_last", "mean_bid_ask_mid"], "description": "mean_last when any last exists, otherwise mean_bid_ask_mid. Null when no price can be formed."},
+                "method_note": {"type": "string"},
+                "price": {"type": "string", "nullable": True, "description": "Equals last, or mid when no last exists."},
+                "min": {"type": "string", "nullable": True, "description": "Lowest value in the same series as price."},
+                "max": {"type": "string", "nullable": True, "description": "Highest value in the same series as price."},
+                "last": {"type": "string", "nullable": True, "description": "Arithmetic mean of published last prices. Null if none."},
+                "last_count": {"type": "integer"},
+                "last_min": {"type": "string", "nullable": True},
+                "last_max": {"type": "string", "nullable": True},
+                "mid": {"type": "string", "nullable": True, "description": "Arithmetic mean of (bid+ask)/2 where both were published. Not blended into last."},
+                "mid_count": {"type": "integer"},
+                "mid_min": {"type": "string", "nullable": True},
+                "mid_max": {"type": "string", "nullable": True},
+                "vwap": {"type": "string", "nullable": True, "description": "Always null. Volume windows are not comparable, so there is no VWAP."},
+                "volume_used_for_price": {"type": "boolean"},
+                "volume": {"$ref": "#/components/schemas/MarketVolume"},
+                "contributors": {"type": "array", "items": {"type": "object"}},
+                "logo_url": {"type": "string", "nullable": True, "description": "Absolute GitHub Pages URL of the SVG, or null."},
+                "logo_url_custom_domain": {"type": "string", "nullable": True},
+                "logo_path": {"type": "string", "nullable": True, "description": "Site-relative path, for example api/v1/markets/logos/btc.svg."},
+                "logo": {"$ref": "#/components/schemas/MarketLogo"},
+            },
+        },
         "MarketCatalogue": wrap("MarketCatalogue", {
             "disclaimer": {"type": "string"},
             "count": {"type": "integer"},
+            "aggregated_count": {"type": "integer"},
+            "aggregation": {"type": "object", "description": "How last, mid, volume and logos are derived."},
             "exchanges": {"type": "array"},
             "skipped": {"type": "array", "description": "Venues checked and left out because they have no public ticker."},
             "tickers": {"type": "array", "items": {"$ref": "#/components/schemas/MarketTicker"}},
+            "aggregated": {"type": "array", "items": {"$ref": "#/components/schemas/MarketAggregate"}},
             "urls": {"type": "object"},
             "refresh": {"type": "object"},
         }),
         "MarketExchange": wrap("MarketExchange", {"exchange": {"type": "object"}, "count": {"type": "integer"}, "tickers": {"type": "array", "items": {"$ref": "#/components/schemas/MarketTicker"}}}),
-        "MarketAsset": wrap("MarketAsset", {"symbol": {"type": "string"}, "count": {"type": "integer"}, "tickers": {"type": "array", "items": {"$ref": "#/components/schemas/MarketTicker"}}}),
+        "MarketAsset": wrap("MarketAsset", {
+            "symbol": {"type": "string"},
+            "name": {"type": "string", "nullable": True},
+            "count": {"type": "integer"},
+            "tickers": {"type": "array", "items": {"$ref": "#/components/schemas/MarketTicker"}},
+            "aggregated": {"type": "array", "items": {"$ref": "#/components/schemas/MarketAggregate"}, "description": "One object per quote currency for this asset."},
+            "aggregation": {"type": "object"},
+            "logo_url": {"type": "string", "nullable": True},
+            "logo_url_custom_domain": {"type": "string", "nullable": True},
+            "logo_path": {"type": "string", "nullable": True},
+            "logo": {"$ref": "#/components/schemas/MarketLogo"},
+        }),
+        "MarketAggregated": wrap("MarketAggregated", {
+            "kind": {"type": "string", "example": "markets-aggregated"},
+            "count": {"type": "integer"},
+            "aggregation": {"type": "object"},
+            "pairs": {"type": "array", "items": {"$ref": "#/components/schemas/MarketAggregate"}},
+            "urls": {"type": "object"},
+        }),
     }
 
 
@@ -1457,13 +1554,24 @@ def llms_txt(feed, index):
         "",
         "Prices from Nordic exchanges with a public ticker (Firi and Norwegian Block Exchange in Norway, Coinmotion in Finland). "
         "Market data, not investment advice. Each ticker has symbol, base, quote, last, bid and ask when the exchange publishes them, "
-        "plus exchange id, name and country, fetched_at and source_url. Quotes are NOK, SEK, DKK or EUR. "
+        "plus exchange id, name and country, fetched_at and source_url. "
+        "volume_base is the base asset with no named window (Firi). volume_base_24h and volume_quote_24h are the last 24 hours (NBX), in the base asset and in the quote currency. "
+        "A missing volume is null, not zero. Quotes are NOK, SEK, DKK or EUR. "
         "A failed exchange is an error with a timestamp and no price. "
         "The file is fetched again when the site is built, and a GitHub Actions job rewrites it on gh-pages about hourly. "
         "Durable URL: https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json",
         "",
+        "Aggregated prices are one row per pair: /api/v1/markets/aggregated.json. "
+        "BTC-NOK is not averaged with BTC-EUR. last is the arithmetic mean of published last prices. "
+        "mid is the mean of (bid+ask)/2 and is not mixed into last. "
+        "min and max follow the same series as price. There is no VWAP, because the volume windows do not match. "
+        "Volume sums add only the same field inside the same pair. "
+        "logo_url points at api/v1/markets/logos/{symbol}.svg when cryptocurrency-icons (CC0-1.0) includes that asset, and is null otherwise. "
+        "The same pairs, with the logo, are on /api/v1/markets/by-asset/{symbol}.json.",
+        "",
         "```",
         f"curl -fsS {feed.abs('api/v1/markets.json')}",
+        f"curl -fsS {feed.abs('api/v1/markets/aggregated.json')}",
         "curl -fsS https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json",
         "```",
         "",
@@ -1565,9 +1673,11 @@ def docs_fragment(index):
 curl -fsS {letters}{html.escape(one_line)}</pre>
 <p>The same paths on the custom domain, at the site root: <code>{html.escape(c)}api/v1/news.json</code>. Swap <code>{html.escape(b)}</code> for <code>{html.escape(c)}</code>.</p>
 <h2>Market prices</h2>
-<p>Nordic exchange prices are market data, not investment advice. <a href="{html.escape(b)}api/v1/markets.json"><code>/api/v1/markets.json</code></a> lists each pair with symbol, base, quote, last, bid and ask when the exchange publishes them, the exchange id, name and country, <code>fetched_at</code> and the source URL. Quotes are NOK, SEK, DKK and EUR. One exchange is <a href="{html.escape(b)}api/v1/markets/firi.json"><code>/api/v1/markets/{{exchange}}.json</code></a> (<code>firi</code>, <code>nbx</code>, <code>coinmotion</code>). One asset is <a href="{html.escape(b)}api/v1/markets/by-asset/BTC.json"><code>/api/v1/markets/by-asset/{{symbol}}.json</code></a>. Venues without a public ticker are listed under <code>skipped</code> and are not given a made-up price.</p>
-<p>The build fetches the exchanges. <code>.github/workflows/markets-refresh.yml</code> rewrites the JSON on gh-pages about once an hour. The markets page reloads this file, and refreshes Firi and Coinmotion in the browser because those APIs send <code>Access-Control-Allow-Origin: *</code>. NBX does not, so those rows follow the file. The same document on the gh-pages branch: <a href="https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json">raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json</a>.</p>
-<pre>curl -fsS {html.escape(b)}api/v1/markets.json</pre>
+<p>Nordic exchange prices are market data, not investment advice. <a href="{html.escape(b)}api/v1/markets.json"><code>/api/v1/markets.json</code></a> lists each pair with symbol, base, quote, last, bid and ask when the exchange publishes them, the exchange id, name and country, <code>fetched_at</code>, the source URL, and volume when the exchange published it. <code>volume_base</code> is the base asset with no named window (Firi). <code>volume_base_24h</code> and <code>volume_quote_24h</code> are the last 24 hours (NBX). A missing volume is null, not zero. Quotes are NOK, SEK, DKK and EUR. One exchange is <a href="{html.escape(b)}api/v1/markets/firi.json"><code>/api/v1/markets/{{exchange}}.json</code></a> (<code>firi</code>, <code>nbx</code>, <code>coinmotion</code>). One asset is <a href="{html.escape(b)}api/v1/markets/by-asset/BTC.json"><code>/api/v1/markets/by-asset/{{symbol}}.json</code></a>. Venues without a public ticker are listed under <code>skipped</code> and are not given a made-up price.</p>
+<p><a href="{html.escape(b)}api/v1/markets/aggregated.json"><code>/api/v1/markets/aggregated.json</code></a> is one row per pair. BTC-NOK is not averaged with BTC-EUR. <code>last</code> is the arithmetic mean of published last prices. <code>mid</code> is the mean of (bid+ask)/2 and is not mixed into <code>last</code>. <code>price</code> equals <code>last</code> when any last exists, otherwise <code>mid</code>. <code>min</code> and <code>max</code> use that same series. There is no VWAP. Volume is summed only inside the same field and the same pair. <code>logo_url</code> is an SVG from <a href="https://github.com/spothq/cryptocurrency-icons" rel="noopener">cryptocurrency-icons</a> (CC0 1.0) when that set includes the asset, served at <code>/api/v1/markets/logos/{{symbol}}.svg</code>, and null otherwise. The per-asset file repeats <code>aggregated</code> and the logo.</p>
+<p>The build fetches the exchanges. <code>.github/workflows/markets-refresh.yml</code> rewrites the JSON on gh-pages about once an hour, including the aggregated file and the icons. The markets page reloads this file, and refreshes Firi and Coinmotion in the browser because those APIs send <code>Access-Control-Allow-Origin: *</code>. NBX does not, so those rows follow the file. The same document on the gh-pages branch: <a href="https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json">raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json</a>.</p>
+<pre>curl -fsS {html.escape(b)}api/v1/markets.json
+curl -fsS {html.escape(b)}api/v1/markets/aggregated.json</pre>
 <h2>Languages</h2>
 <p>English is the default field (<code>summary</code>, <code>title</code>, <code>text</code>). Translations that we have published sit in <code>summary_i18n</code>, <code>title_i18n</code>, <code>subtitle_i18n</code>, <code>note_i18n</code>, <code>text_i18n</code> and <code>about_i18n</code>, keyed by <code>nn</code>, <code>nb</code>, <code>sv</code>, <code>da</code>, <code>fi</code> and <code>is</code>. Other site languages use the English field until a translation is published. Headlines from other outlets stay in the original language. Dates are ISO 8601.</p>
 <p><a href="{html.escape(b)}api/v1/languages.json"><code>/api/v1/languages.json</code></a> lists every site language with <code>code</code>, <code>native_name</code>, <code>english_name</code>, <code>rtl</code>, <code>html_lang</code> and <code>home</code>. <a href="{html.escape(b)}api/v1/geo-language.json"><code>/api/v1/geo-language.json</code></a> is the country-to-language guess used on a first visit. The IP country comes from the tipworker <code>GET /api/geo</code> (Cloudflare <code>request.cf.country</code>). Nothing is stored. The <code>nc_lang</code> cookie, set by the language switcher, always wins.</p>

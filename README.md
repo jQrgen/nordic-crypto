@@ -58,7 +58,7 @@ Public JSON for apps and other tools, written into `site/` by `./build.sh` (`too
 News: `/api/v1/news.json` and `/api/v1/news/{id}.json`. Newsletters: `/api/v1/newsletters.json` and `/api/v1/newsletters/001.json`. GitHub Pages sends `Access-Control-Allow-Origin: *` on the files. `python3 tools/api_feed.py` writes the same JSON from the committed public data without building the rest of the HTML. That command also fetches live exchange prices (see below).
 
 ### Market prices
-Public tickers from Nordic exchanges, as market data, not investment advice. Each row has `symbol`, `base`, `quote`, `last`, `bid` and `ask` when the exchange publishes them, plus `exchange` (`id`, `name`, `country`), `fetched_at` (ISO 8601) and `source_url`. Quotes are NOK, SEK, DKK and EUR only. Nothing is converted between currencies. A failed exchange is an `error` with a timestamp and no price.
+Public tickers from Nordic exchanges, as market data, not investment advice. Each row has `symbol`, `base`, `quote`, `last`, `bid` and `ask` when the exchange publishes them, plus `exchange` (`id`, `name`, `country`), `fetched_at` (ISO 8601) and `source_url`. Volume is included only when the exchange published it: `volume_base` is the base asset with no named window (Firi's `volume`), and `volume_base_24h` / `volume_quote_24h` are the last 24 hours in the base asset and in the quote currency (NBX). A missing volume is null, not zero. Quotes are NOK, SEK, DKK and EUR only. Nothing is converted between currencies. A failed exchange is an `error` with a timestamp and no price.
 
 Included (official public REST, no key):
 
@@ -70,14 +70,18 @@ Included (official public REST, no key):
 
 Skipped because no unauthenticated public ticker was found: Safello (OAuth `market` scope), Goobit/BTCX, Trijo, Northcrypto, Kvarn X, and no Danish- or Icelandic-registered venue. DKK and SEK pairs that Firi, NBX or Coinmotion do publish are included. Kaupr is a news source only and is not an exchange in this feed.
 
-- All prices: `/api/v1/markets.json`
+- All prices: `/api/v1/markets.json` (includes an `aggregated` array)
+- One pair, all assets: `/api/v1/markets/aggregated.json`
 - One exchange: `/api/v1/markets/firi.json`, `/api/v1/markets/nbx.json`, `/api/v1/markets/coinmotion.json`
-- One asset: `/api/v1/markets/by-asset/BTC.json` (the base symbol)
+- One asset: `/api/v1/markets/by-asset/BTC.json` (the base symbol, with `aggregated` and `logo_url`)
+- Coin icon, when the CC0 set includes it: `/api/v1/markets/logos/btc.svg`
 - Durable URL: `https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json`
 - Same paths on the custom domain, at the site root (`https://cryptonordic.no/api/v1/markets.json`)
 - Page: `/markets/` (linked from the nav and the homepage)
 
-Refresh: `./build.sh` and `./publish.sh` fetch the exchanges while building `site/`. `.github/workflows/markets-refresh.yml` rewrites only the markets JSON on `gh-pages` about hourly (minute 17) and leaves the previous files in place if every exchange fails. The markets page reloads `/api/v1/markets.json` about every 15 minutes. Firi and Coinmotion send `Access-Control-Allow-Origin: *`, so the page also requests those APIs from the browser about every 5 minutes. `api.nbx.com` does not send that header, so NBX rows follow the file.
+Aggregation is one row per base-quote pair. BTC-NOK is not averaged with BTC-EUR. `last` is the arithmetic mean of published last prices (decimal arithmetic, not a float). `mid` is the mean of `(bid+ask)/2` where both exist, and is not mixed into `last`. `price` equals `last` when any last exists, otherwise `mid`. `min` and `max` use that same series. `exchange_count` is how many exchanges quoted the pair. `updated_at` is the newest `fetched_at`. There is no VWAP: the volume windows are not the same, so volume is not a weight. Volume sums add only the same field inside the same pair. `logo_url` is an SVG from [cryptocurrency-icons](https://github.com/spothq/cryptocurrency-icons) 0.18.1 (CC0-1.0) when that set includes the asset, and null otherwise. Nordic Crypto does not draw substitutes (POL has none; the MATIC icon is not reused).
+
+Refresh: `./build.sh` and `./publish.sh` fetch the exchanges while building `site/`. `.github/workflows/markets-refresh.yml` rewrites the markets JSON on `gh-pages` about hourly (minute 17), including `aggregated.json`, the per-asset files and `api/v1/markets/logos/`, and leaves the previous files in place if every exchange fails. The markets page reloads `/api/v1/markets.json` about every 15 minutes and recomputes the aggregate from the tickers on the page. Firi and Coinmotion send `Access-Control-Allow-Origin: *`, so the page also requests those APIs from the browser about every 5 minutes. `api.nbx.com` does not send that header, so NBX rows follow the file.
 
 `python3 tools/markets.py` prints a short summary. `python3 tools/markets.py --write DIR` writes the JSON tree. `--keep-if-empty` is what the hourly job uses.
 
