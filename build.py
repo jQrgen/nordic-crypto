@@ -153,6 +153,9 @@ html.nc-pick body{visibility:hidden}
 .nlform{margin:12px 0}.nlform input[type=email]{padding:6px;width:100%;max-width:320px}.nlform button{padding:7px 14px;font-size:15px}.nlform .hp{position:absolute;left:-9999px}
 .nlmsg{display:block;margin-top:6px}.nlmsg.ok{color:#14532d}.nlmsg.warn{color:#9a3412}.nlfoot{margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--line)}.nlfoot .nlform{display:inline}.nlc label{position:absolute;left:-9999px}
 .nlsub{display:inline-block;padding:6px 14px;border-radius:6px;background:#0f5ea8;color:#fff!important;text-decoration:none;font-weight:600}.nlsub:hover,.nlsub:focus{background:#0b4a85}
+.brandrow{display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap}
+.hdrsub{display:inline-block;padding:5px 12px;border-radius:6px;background:#0f5ea8;color:#fff!important;text-decoration:none;font-weight:600;font-size:14px;line-height:1.3;white-space:nowrap}.hdrsub:hover,.hdrsub:focus{background:#0b4a85}
+@media(max-width:640px){.brandrow{width:100%;justify-content:space-between;flex-wrap:nowrap}.brandrow .brand{white-space:nowrap;flex:none}.hdrsub{font-size:13px;padding:5px 10px;white-space:normal;text-align:center;min-width:0}}
 """
 
 NAV = [("", "nav_news"), ("calendar", "nav_calendar"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("sources", "nav_sources"), ("about", "nav_about"), ("tip", "nav_tip")]
@@ -204,6 +207,10 @@ def newsletter_on(): return bool(newsletter_endpoint() or substack_subscribe_url
 def substack_button():
     sub = substack_subscribe_url()
     return f'<a class="nlsub" href="{E(sub)}" rel="noopener">{E(t("nl_sub_btn"))}</a>' if sub else ""
+def header_sub_button():
+    """'Subscribe on Substack' button at the top of every page (same Substack link as the footer, label without the arrow)."""
+    sub = substack_subscribe_url()
+    return f'<a class="hdrsub" href="{E(sub)}" rel="noopener">{E(t("nl_sub_btn").replace("→", "").strip())}</a>' if sub else ""
 def build_newsletter():
     """/newsletter/ in every language: what you get, the own form (only when on), the Substack signup link (whenever
     substack_url is set), the privacy note and the Kaupr disclosure. Not built when neither is available."""
@@ -257,7 +264,7 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None):
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230f5ea8'/%3E%3Crect x='4' width='3' height='16' fill='white'/%3E%3Crect y='6.5' width='16' height='3' fill='white'/%3E%3C/svg%3E">
 <style>{CSS}{s['css']}</style></head>
-<body>{banner}<header class="top"><div class="wrap"><a class="brand" href="{rel}">Crypto <span>Nordic</span></a><nav class="main" aria-label="{E(t("main_menu"))}">{nav_html}</nav>{switcher}</div></header>
+<body>{banner}<header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="{rel}">Crypto <span>Nordic</span></a>{header_sub_button()}</div><nav class="main" aria-label="{E(t("main_menu"))}">{nav_html}</nav>{switcher}</div></header>
 <main class="wrap">
 {body}
 {s['top']}
@@ -709,8 +716,12 @@ def build_academia():
         f'<div class="meta">{flag(r["country"])} {E(au(r["authors"]))} ({E(r["year"])}). <i>{E(r.get("venue") or "")}</i>'
         + (f' · {E(r["institution"])}' if r.get("institution") else "") + '</div>'
         f'<div class="meta">DOI: <a href="{E(r["url"])}" rel="noopener" target="_blank">{E(r["doi"])}</a> · <a href="{E(r["db"])}" rel="noopener" target="_blank">{E(t("ac_record", db=r.get("db_name") or t("database")))}</a></div>{foot(r)}')
+    tr = load(P("data", "academia_i18n.json"), {}) or {}   # optional translations of research 'about' texts, keyed by url
+    def about(r):
+        x = (tr.get(r["url"]) or {}).get(LANG) if LANG != "en" else None
+        return f'<p class="sum">{E(x)}</p>' if x else f'<p class="sum"{en}>{E(r["about"])}</p>'
     research = bycountry(secs["research"], lambda r: f'<h3><a href="{E(r["url"])}" rel="noopener" target="_blank">{E(r["name"])}</a></h3>'
-        f'<div class="meta">{flag(r["country"])} <b>{E(r["institution"])}</b></div><p class="sum"{en}>{E(r["about"])}</p>{foot(r)}')
+        f'<div class="meta">{flag(r["country"])} <b>{E(r["institution"])}</b></div>{about(r)}{foot(r)}')
     allrows = sum(len(v) for v in secs.values())
     per_c = {c: sum(r["country"] == c for v in secs.values() for r in v) for c in COUNTRY_CODES}
     dn = t("data_en_note")
