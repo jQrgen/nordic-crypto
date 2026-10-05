@@ -23,7 +23,7 @@ STORIES = {
  "s4": dict(section="REGULATION", head="Here is where the risk of financing proliferation of weapons of mass destruction is highest",
             src="Finansinspektionen (Sweden) · 1 Oct", big="RISK REPORT", kicker="FINANSINSPEKTIONEN", art="globe"),
  "s7": dict(section="MARKETS & COMPANIES", head="GreenMerc cuts SEK 4.8 million a year as Northcrypto turns a profit",
-            src="Kaupr (Sweden) · 30 Sep · Kaupr is a sponsor", big="SEK 4.8M", kicker="COST CUTS A YEAR · GREENMERC", art="bars"),
+            src="Kaupr (Sweden) · 30 Sep", big="SEK 4.8M", kicker="COST CUTS A YEAR · GREENMERC", art="bars"),
  "s8": dict(section="MARKETS & COMPANIES", head="Flying start for new crypto fund",
             src="Finansavisen (Norway) · 28 Sep · may require a subscription", big="+39%", kicker="SINCE AUGUST LAUNCH", art="bars"),
  "s9": dict(section="MARKETS & COMPANIES", head="Community and technology draw crypto investors: bitcoin's new rally celebrated at crypto event",
@@ -39,15 +39,15 @@ EVENTS = [("8 OCT", "Gothenburg", "Göteborg Bitcoin Meetup #49", "Ölrepubliken
           ("28 OCT", "Oslo", "Oslo Blockchain Meetup: Nexa", "Universitetsgata 2, 17:00")]
 NEXA_DISCLOSURE = ("Disclosure (28 Oct): Jørgen (jQrgen), who runs Nordic Crypto, is the speaker, runs this meetup, "
                    "and works on Nexa at Bitcoin Unlimited. Kaupr sponsors the meetup.")
-END_DISCLOSURE = ("Disclosure: Kaupr (kaupr.io) is one of the news sources we follow. It sponsors some events in our calendar. "
-                  "Nothing here is investment advice.")
+END_DISCLOSURE = ("Disclosure: Kaupr (kaupr.io) is one of the news sources we follow. Some calendar events are sponsored by Kaupr. "
+                  "Kaupr does not sponsor Nordic Crypto. Nothing here is investment advice.")
 TICKER = ["NORDIC CRYPTO · ISSUE #1 · " + DATES_SHORT.upper(),
           "Binance under investigation for allegedly offering services in Europe without a MiCA licence (Realtid)",
           "Binance said it would leave Europe, but customers are still trading (Dagens PS)",
           "Sweden's financial watchdog: crypto-assets a top sanctions risk (Realtid / Finansinspektionen)",
           "Three Norwegians and a Swede charged in dark-web drug case (Aftenposten)",
           "Three teenagers arrested in Lund in hunt for crypto (Sydsvenskan)",
-          "GreenMerc cuts SEK 4.8 million a year as Northcrypto turns a profit (Kaupr, a sponsor)",
+          "GreenMerc cuts SEK 4.8 million a year as Northcrypto turns a profit (Kaupr)",
           "New crypto fund up 39 percent since August launch (Finansavisen)",
           "Bitcoin's new rally celebrated at Finnish crypto event (Yle)",
           "ON THE CALENDAR: 8 Oct Gothenburg · 14 Oct Oslo · 15 Oct Uppsala · 28 Oct Oslo",
@@ -71,12 +71,11 @@ VO = {
  "s4": "Finansinspektionen's new risk assessment finds that weapons of mass destruction are most likely to be financed "
        "through illegal financial activity and crypto-assets.",
  "s7": "Kaupr reports that GreenMerc is cutting costs by 4.8 million Swedish kronor a year while Northcrypto turns a profit, "
-       "with spending redirected to the banking offer Trijo One. Kaupr is a sponsor.",
+       "with spending redirected to the banking offer Trijo One.",
  "s8": "In Norway, Finansavisen writes that Joakim Hannisdahl's new crypto fund, built on a model that did well in backtesting, "
        "is up 39 percent since it launched in August.",
  "s9": "And from Yle in Finland: at a Finnish crypto event, investors said community and technology are what draw them to crypto, "
        "as bitcoin rallied again.",
- "sponsor": "Nordic Crypto is brought to you by our sponsor, Kaupr, at kaupr dot io. We'll be right back.",
  "s5": "In Norway, three Norwegians and a Swede have been charged in a large drug case with links abroad, involving drug sales "
        "on the dark web, paid for in cryptocurrency. That's according to the Southern Norway public prosecutor, via Aftenposten.",
  "s6": "And in Lund, Sydsvenskan reports that three teenagers have been arrested on suspicion of kidnapping. They are suspected "
@@ -88,7 +87,7 @@ VO = {
         "More events, including Stockholm and Helsinki in November, are in the calendar.",
  "signoff": "And that's Nordic Crypto for this week. All the stories, the events calendar and a who's who of Nordic crypto are on "
             "the Nordic Crypto website. If you spot a mistake, or a story we missed, use the tip form. "
-            "Kaupr is one of the news sources we follow, and it sponsors some events in our calendar. "
+            "Kaupr is one of the news sources we follow. Some calendar events are sponsored by Kaupr. Kaupr does not sponsor Nordic Crypto. "
             "Nothing here is investment advice. Until next week. The Nordic Crypto team. Good night.",
 }
 
@@ -103,7 +102,6 @@ TIMELINE = [
  ("s3", "story", {}), ("s4", "story", {}),
  ("b_mkt", "section", {"label": "MARKETS & COMPANIES", "sub": "Business and markets"}),
  ("s7", "story", {}), ("s8", "story", {}), ("s9", "story", {}),
- ("sponsor", "sponsor", {}),
  ("b_other", "section", {"label": "IN OTHER NEWS", "sub": "Quick-fire: crime"}),
  ("s5", "story", {}), ("s6", "story", {}),
  ("b_cal", "section", {"label": "ON THE CALENDAR", "sub": "Meetups coming up"}),

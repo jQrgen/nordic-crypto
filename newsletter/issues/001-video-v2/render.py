@@ -341,7 +341,7 @@ def seg_sponsor(s):
     bg = bokeh_bg(21, (40, 32, 6))
     def frame(t, T):
         im = kb(bg, t / s['dur']); d = ImageDraw.Draw(im); cx = W / 2
-        u = eo(t / 0.5); tf = F('cx', 56); txt = 'BROUGHT TO YOU BY'; ww = spaced_w(txt, tf, 8)
+        u = eo(t / 0.5); tf = F('cx', 48); txt = 'A NEWS SOURCE WE FOLLOW'; ww = spaced_w(txt, tf, 6)
         spaced(d, (cx - ww / 2, 250 - (1 - u) * 120), txt, tf, GOLD if u > .99 else tuple(int(c * u) for c in GOLD), 8)
         a = eback((t - 0.4) / 0.6); bw, bh = 980 * a, 300 * a
         if a > 0.02:
@@ -352,7 +352,7 @@ def seg_sponsor(s):
         b = eo((t - 1.1) / 0.5)
         if b > 0:
             uf = F('cx', 64); uw = tw(d, 'kaupr.io', uf); d.text((cx - uw / 2, 700 + (1 - b) * 40), 'kaupr.io', font=uf, fill=WHITE)
-            nf = F('cs', 36); nt = 'OUR SPONSOR  ·  NORDIC CRYPTO WILL BE RIGHT BACK'; nw = tw(d, nt, nf); d.text((cx - nw / 2, 800), nt, font=nf, fill=GREY)
+            nf = F('cs', 32); nt = 'A NEWS SOURCE WE FOLLOW  ·  NOT A SPONSOR OF NORDIC CRYPTO'; nw = tw(d, nt, nf); d.text((cx - nw / 2, 800), nt, font=nf, fill=GREY)
         return im
     return frame, {}
 def seg_calendar(s):

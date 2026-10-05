@@ -1,6 +1,6 @@
 {
  "fps": 25,
- "total_frames": 5192,
+ "total_frames": 5065,
  "segs": [
   {
    "name": "bumper",
@@ -112,105 +112,95 @@
    "name": "s7",
    "kind": "story",
    "start": 90.078,
-   "dur": 10.716,
+   "dur": 8.94,
    "voff": 0.12,
-   "vdur": 10.416,
-   "frames": 268,
+   "vdur": 8.64,
+   "frames": 224,
    "start_f": 2252
   },
   {
    "name": "s8",
    "kind": "story",
-   "start": 100.794,
+   "start": 99.018,
    "dur": 9.108,
    "voff": 0.12,
    "vdur": 8.808,
    "frames": 228,
-   "start_f": 2520
+   "start_f": 2476
   },
   {
    "name": "s9",
    "kind": "story",
-   "start": 109.902,
+   "start": 108.126,
    "dur": 7.86,
    "voff": 0.12,
    "vdur": 7.56,
    "frames": 196,
-   "start_f": 2748
-  },
-  {
-   "name": "sponsor",
-   "kind": "sponsor",
-   "start": 117.762,
-   "dur": 6.612,
-   "voff": 0.12,
-   "vdur": 6.312,
-   "frames": 165,
-   "start_f": 2944
+   "start_f": 2704
   },
   {
    "name": "b_other",
    "kind": "section",
-   "start": 124.374,
+   "start": 115.986,
    "dur": 1.65,
    "voff": null,
    "vdur": 0,
    "label": "IN OTHER NEWS",
    "sub": "Quick-fire: crime",
    "frames": 41,
-   "start_f": 3109
+   "start_f": 2900
   },
   {
    "name": "s5",
    "kind": "story",
-   "start": 126.024,
+   "start": 117.636,
    "dur": 12.804,
    "voff": 0.12,
    "vdur": 12.504,
    "frames": 320,
-   "start_f": 3150
+   "start_f": 2941
   },
   {
    "name": "s6",
    "kind": "story",
-   "start": 138.828,
+   "start": 130.44,
    "dur": 9.42,
    "voff": 0.12,
    "vdur": 9.12,
    "frames": 236,
-   "start_f": 3470
+   "start_f": 3261
   },
   {
    "name": "b_cal",
    "kind": "section",
-   "start": 148.248,
+   "start": 139.86,
    "dur": 1.65,
    "voff": null,
    "vdur": 0,
    "label": "ON THE CALENDAR",
    "sub": "Meetups coming up",
    "frames": 41,
-   "start_f": 3706
+   "start_f": 3497
   },
   {
    "name": "cal",
    "kind": "calendar",
-   "start": 149.898,
+   "start": 141.51,
    "dur": 32.964,
    "voff": 0.12,
    "vdur": 32.664,
    "frames": 824,
-   "start_f": 3747
+   "start_f": 3538
   },
   {
    "name": "signoff",
    "kind": "end",
-   "start": 182.862,
-   "dur": 24.846,
+   "start": 174.474,
+   "dur": 28.11,
    "voff": 0.12,
-   "vdur": 23.496,
-   "frames": 621,
-   "start_f": 4571
+   "vdur": 26.76,
+   "frames": 703,
+   "start_f": 4362
   }
  ]
 }

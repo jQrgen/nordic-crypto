@@ -1,7 +1,18 @@
 # Nordic Crypto issue #1 — newsreel v2 and sensational cut
 
-Source tooling for two videos of newsletter issue #1. This folder does **not**
-replace the live site file `newsletter/published/001/video.mp4`.
+Source tooling for newsletter issue #1.
+
+The live site uses the **newsreel** cut. `newsletter/published/issues.json` points at the
+public release file. `video.mp4` itself stays gitignored; `build.py` downloads it.
+
+The sensational cut is a separate experiment. It is not the site video. Do not use its
+space-kitten opening for Nordic Crypto.
+
+## Next cut (not this site file)
+
+jQrgen's next style is a calm male newsreader in the manner of NRK's Gislefoss: clear,
+authoritative, deeper voice, unhurried public-broadcaster pacing. Not the sensational
+house style.
 
 Brand on screen and in the voice: **Nordic Crypto**.
 Sign-off: **The Nordic Crypto team**.

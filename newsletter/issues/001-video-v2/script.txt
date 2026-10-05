@@ -31,32 +31,29 @@ Finansinspektionen's new risk assessment finds that weapons of mass destruction 
 (music/stinger only)
 
 [s7 @ 88.6s, story]
-Kaupr reports that GreenMerc is cutting costs by 4.8 million Swedish kronor a year while Northcrypto turns a profit, with spending redirected to the banking offer Trijo One. Kaupr is a sponsor.
+Kaupr reports that GreenMerc is cutting costs by 4.8 million Swedish kronor a year while Northcrypto turns a profit, with spending redirected to the banking offer Trijo One.
 
-[s8 @ 99.3s, story]
+[s8 @ 97.6s, story]
 In Norway, Finansavisen writes that Joakim Hannisdahl's new crypto fund, built on a model that did well in backtesting, is up 39 percent since it launched in August.
 
-[s9 @ 108.5s, story]
+[s9 @ 106.7s, story]
 And from Yle in Finland: at a Finnish crypto event, investors said community and technology are what draw them to crypto, as bitcoin rallied again.
 
-[sponsor @ 116.3s, sponsor]
-Nordic Crypto is brought to you by our sponsor, Kaupr, at kaupr dot io. We'll be right back.
-
-[b_other @ 122.9s, section - IN OTHER NEWS]
+[b_other @ 114.5s, section - IN OTHER NEWS]
 (music/stinger only)
 
-[s5 @ 124.9s, story]
+[s5 @ 116.5s, story]
 In Norway, three Norwegians and a Swede have been charged in a large drug case with links abroad, involving drug sales on the dark web, paid for in cryptocurrency. That's according to the Southern Norway public prosecutor, via Aftenposten.
 
-[s6 @ 137.7s, story]
+[s6 @ 129.3s, story]
 And in Lund, Sydsvenskan reports that three teenagers have been arrested on suspicion of kidnapping. They are suspected of tying up a local man with duct tape to rob him of crypto.
 
-[b_cal @ 147.1s, section - ON THE CALENDAR]
+[b_cal @ 138.8s, section - ON THE CALENDAR]
 (music/stinger only)
 
-[cal @ 149.1s, calendar]
+[cal @ 140.8s, calendar]
 On the 8th of October, it's Göteborg Bitcoin Meetup number 49, at Ölrepubliken in Gothenburg. On the 14th, Crypto killer apps, at Polyteknisk Forening in Oslo, with paid entry. On the 15th, the Uppsala Bitcoin Meetup, at Café Årummet. And on the 28th of October, Oslo Blockchain Meetup, on Nexa. A disclosure: Jørgen, who runs Nordic Crypto, is the speaker, runs this meetup, and works on Nexa at Bitcoin Unlimited. Kaupr sponsors the meetup. More events, including Stockholm and Helsinki in November, are in the calendar.
 
-[signoff @ 182.1s, end]
-And that's Nordic Crypto for this week. All the stories, the events calendar and a who's who of Nordic crypto are on the Nordic Crypto website. If you spot a mistake, or a story we missed, use the tip form. Kaupr is one of the news sources we follow, and it sponsors some events in our calendar. Nothing here is investment advice. Until next week. The Nordic Crypto team. Good night.
+[signoff @ 173.7s, end]
+And that's Nordic Crypto for this week. All the stories, the events calendar and a who's who of Nordic crypto are on the Nordic Crypto website. If you spot a mistake, or a story we missed, use the tip form. Kaupr is one of the news sources we follow. Some calendar events are sponsored by Kaupr. Kaupr does not sponsor Nordic Crypto. Nothing here is investment advice. Until next week. The Nordic Crypto team. Good night.
 

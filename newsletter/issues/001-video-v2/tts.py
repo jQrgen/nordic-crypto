@@ -2,7 +2,9 @@ import asyncio, json, sys, edge_tts
 sys.path.insert(0, '.'); import content as C
 B = 'build/'
 async def main():
-    for n, t in C.VO.items():
+    names = sys.argv[1:] or list(C.VO)
+    for n in names:
+        t = C.VO[n]
         for attempt in range(3):
             try:
                 c = edge_tts.Communicate(t, C.VOICE, rate=C.RATE, boundary="SentenceBoundary"); bounds = []

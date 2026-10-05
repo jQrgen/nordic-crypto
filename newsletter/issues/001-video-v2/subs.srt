@@ -98,132 +98,126 @@ Kaupr reports that GreenMerc is cutting costs by 4.8 million
 Swedish kronor a year while Northcrypto turns a profit, with
 
 23
-00:01:34,894 --> 00:01:37,392
+00:01:34,894 --> 00:01:37,442
 spending redirected to the banking offer Trijo One.
 
 24
-00:01:37,392 --> 00:01:39,152
-Kaupr is a sponsor.
-
-25
-00:01:39,564 --> 00:01:45,913
+00:01:37,788 --> 00:01:44,137
 In Norway, Finansavisen writes that Joakim Hannisdahl's new
 crypto fund, built on a model that did well in backtesting,
 
-26
-00:01:45,913 --> 00:01:48,314
+25
+00:01:44,137 --> 00:01:46,538
 is up 39 percent since it launched in August.
 
-27
-00:01:48,672 --> 00:01:54,331
+26
+00:01:46,896 --> 00:01:52,555
 And from Yle in Finland: at a Finnish crypto event,
 investors said community and technology are what draw them
 
-28
-00:01:54,331 --> 00:01:56,182
+27
+00:01:52,555 --> 00:01:54,406
 to crypto, as bitcoin rallied again.
 
-29
-00:01:56,532 --> 00:02:01,149
-Nordic Crypto is brought to you by our sponsor, Kaupr, at
-kaupr dot io.
-
-30
-00:02:01,149 --> 00:02:02,742
-We'll be right back.
-
-31
-00:02:05,144 --> 00:02:11,399
+28
+00:01:56,756 --> 00:02:03,011
 In Norway, three Norwegians and a Swede have been charged in
 a large drug case with links abroad, involving drug sales on
 
-32
-00:02:11,399 --> 00:02:13,469
+29
+00:02:03,011 --> 00:02:05,081
 the dark web, paid for in cryptocurrency.
 
-33
-00:02:13,469 --> 00:02:17,552
+30
+00:02:05,081 --> 00:02:09,164
 That's according to the Southern Norway public prosecutor,
 via Aftenposten.
 
-34
-00:02:17,948 --> 00:02:22,929
+31
+00:02:09,560 --> 00:02:14,541
 And in Lund, Sydsvenskan reports that three teenagers have
 been arrested on suspicion of kidnapping.
 
-35
-00:02:22,929 --> 00:02:26,950
+32
+00:02:14,541 --> 00:02:18,562
 They are suspected of tying up a local man with duct tape to
 rob him of crypto.
 
-36
-00:02:29,368 --> 00:02:34,943
+33
+00:02:20,980 --> 00:02:26,555
 On the 8th of October, it's Göteborg Bitcoin Meetup number
 49, at Ölrepubliken in Gothenburg.
 
-37
-00:02:34,943 --> 00:02:40,349
+34
+00:02:26,555 --> 00:02:31,961
 On the 14th, Crypto killer apps, at Polyteknisk Forening in
 Oslo, with paid entry.
 
-38
-00:02:40,349 --> 00:02:44,349
+35
+00:02:31,961 --> 00:02:35,961
 On the 15th, the Uppsala Bitcoin Meetup, at Café Årummet.
 
-39
-00:02:44,349 --> 00:02:48,495
+36
+00:02:35,961 --> 00:02:40,107
 And on the 28th of October, Oslo Blockchain Meetup, on Nexa.
 
-40
-00:02:48,495 --> 00:02:54,950
+37
+00:02:40,107 --> 00:02:46,562
 A disclosure: Jørgen, who runs Nordic Crypto, is the
 speaker, runs this meetup, and works on Nexa at Bitcoin
 
-41
-00:02:54,950 --> 00:02:55,547
+38
+00:02:46,562 --> 00:02:47,159
 Unlimited.
 
-42
-00:02:55,547 --> 00:02:57,547
+39
+00:02:47,159 --> 00:02:49,159
 Kaupr sponsors the meetup.
 
-43
-00:02:57,547 --> 00:03:01,943
+40
+00:02:49,159 --> 00:02:53,555
 More events, including Stockholm and Helsinki in November,
 are in the calendar.
 
-44
-00:03:02,332 --> 00:03:04,730
+41
+00:02:53,944 --> 00:02:56,342
 And that's Nordic Crypto for this week.
 
-45
-00:03:04,730 --> 00:03:10,011
+42
+00:02:56,342 --> 00:03:01,623
 All the stories, the events calendar and a who's who of
 Nordic crypto are on the Nordic Crypto website.
 
-46
-00:03:10,011 --> 00:03:13,824
+43
+00:03:01,623 --> 00:03:05,436
 If you spot a mistake, or a story we missed, use the tip
 form.
 
-47
-00:03:13,824 --> 00:03:18,386
-Kaupr is one of the news sources we follow, and it sponsors
-some events in our calendar.
+44
+00:03:05,436 --> 00:03:08,050
+Kaupr is one of the news sources we follow.
 
-48
-00:03:18,386 --> 00:03:20,803
+45
+00:03:08,050 --> 00:03:10,738
+Some calendar events are sponsored by Kaupr.
+
+46
+00:03:10,738 --> 00:03:13,279
+Kaupr does not sponsor Nordic Crypto.
+
+47
+00:03:13,279 --> 00:03:15,696
 Nothing here is investment advice.
 
-49
-00:03:20,803 --> 00:03:22,449
+48
+00:03:15,696 --> 00:03:17,342
 Until next week.
 
-50
-00:03:22,449 --> 00:03:24,428
+49
+00:03:17,342 --> 00:03:19,321
 The Nordic Crypto team.
 
-51
-00:03:24,428 --> 00:03:25,719
+50
+00:03:19,321 --> 00:03:20,613
 Good night.
 
