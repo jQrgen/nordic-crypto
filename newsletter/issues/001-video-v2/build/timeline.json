@@ -1,0 +1,216 @@
+{
+ "fps": 25,
+ "total_frames": 5175,
+ "segs": [
+  {
+   "name": "bumper",
+   "kind": "bumper",
+   "start": 0.0,
+   "dur": 5.5,
+   "voff": null,
+   "vdur": 0,
+   "frames": 138,
+   "start_f": 0
+  },
+  {
+   "name": "open_a",
+   "kind": "title",
+   "start": 5.5,
+   "dur": 10.42,
+   "voff": 0.4,
+   "vdur": 9.84,
+   "frames": 260,
+   "start_f": 138
+  },
+  {
+   "name": "open_b",
+   "kind": "tonight",
+   "start": 15.92,
+   "dur": 28.428,
+   "voff": 0.12,
+   "vdur": 28.128,
+   "frames": 711,
+   "start_f": 398
+  },
+  {
+   "name": "b_top",
+   "kind": "section",
+   "start": 44.348,
+   "dur": 2.0,
+   "voff": null,
+   "vdur": 0,
+   "label": "TOP STORY",
+   "sub": "Binance and the EU's crypto rules (MiCA)",
+   "frames": 50,
+   "start_f": 1109
+  },
+  {
+   "name": "s1",
+   "kind": "story",
+   "start": 46.348,
+   "dur": 11.82,
+   "voff": 0.12,
+   "vdur": 11.52,
+   "frames": 296,
+   "start_f": 1159
+  },
+  {
+   "name": "s2",
+   "kind": "story",
+   "start": 58.168,
+   "dur": 9.492,
+   "voff": 0.12,
+   "vdur": 9.192,
+   "frames": 237,
+   "start_f": 1455
+  },
+  {
+   "name": "b_reg",
+   "kind": "section",
+   "start": 67.66,
+   "dur": 2.0,
+   "voff": null,
+   "vdur": 0,
+   "label": "REGULATION",
+   "sub": "Sanctions and weapons financing: Sweden's watchdog warns",
+   "frames": 50,
+   "start_f": 1692
+  },
+  {
+   "name": "s3",
+   "kind": "story",
+   "start": 69.66,
+   "dur": 8.94,
+   "voff": 0.12,
+   "vdur": 8.64,
+   "frames": 224,
+   "start_f": 1742
+  },
+  {
+   "name": "s4",
+   "kind": "story",
+   "start": 78.6,
+   "dur": 8.028,
+   "voff": 0.12,
+   "vdur": 7.728,
+   "frames": 201,
+   "start_f": 1966
+  },
+  {
+   "name": "b_mkt",
+   "kind": "section",
+   "start": 86.628,
+   "dur": 2.0,
+   "voff": null,
+   "vdur": 0,
+   "label": "MARKETS & COMPANIES",
+   "sub": "Business and markets",
+   "frames": 50,
+   "start_f": 2167
+  },
+  {
+   "name": "s7",
+   "kind": "story",
+   "start": 88.628,
+   "dur": 10.716,
+   "voff": 0.12,
+   "vdur": 10.416,
+   "frames": 268,
+   "start_f": 2217
+  },
+  {
+   "name": "s8",
+   "kind": "story",
+   "start": 99.344,
+   "dur": 9.108,
+   "voff": 0.12,
+   "vdur": 8.808,
+   "frames": 228,
+   "start_f": 2485
+  },
+  {
+   "name": "s9",
+   "kind": "story",
+   "start": 108.452,
+   "dur": 7.86,
+   "voff": 0.12,
+   "vdur": 7.56,
+   "frames": 196,
+   "start_f": 2713
+  },
+  {
+   "name": "sponsor",
+   "kind": "sponsor",
+   "start": 116.312,
+   "dur": 6.612,
+   "voff": 0.12,
+   "vdur": 6.312,
+   "frames": 165,
+   "start_f": 2909
+  },
+  {
+   "name": "b_other",
+   "kind": "section",
+   "start": 122.924,
+   "dur": 2.0,
+   "voff": null,
+   "vdur": 0,
+   "label": "IN OTHER NEWS",
+   "sub": "Quick-fire: crime",
+   "frames": 50,
+   "start_f": 3074
+  },
+  {
+   "name": "s5",
+   "kind": "story",
+   "start": 124.924,
+   "dur": 12.804,
+   "voff": 0.12,
+   "vdur": 12.504,
+   "frames": 320,
+   "start_f": 3124
+  },
+  {
+   "name": "s6",
+   "kind": "story",
+   "start": 137.728,
+   "dur": 9.42,
+   "voff": 0.12,
+   "vdur": 9.12,
+   "frames": 236,
+   "start_f": 3444
+  },
+  {
+   "name": "b_cal",
+   "kind": "section",
+   "start": 147.148,
+   "dur": 2.0,
+   "voff": null,
+   "vdur": 0,
+   "label": "ON THE CALENDAR",
+   "sub": "Meetups coming up",
+   "frames": 50,
+   "start_f": 3680
+  },
+  {
+   "name": "cal",
+   "kind": "calendar",
+   "start": 149.148,
+   "dur": 32.964,
+   "voff": 0.12,
+   "vdur": 32.664,
+   "frames": 824,
+   "start_f": 3730
+  },
+  {
+   "name": "signoff",
+   "kind": "end",
+   "start": 182.112,
+   "dur": 24.846,
+   "voff": 0.12,
+   "vdur": 23.496,
+   "frames": 621,
+   "start_f": 4554
+  }
+ ]
+}

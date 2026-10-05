@@ -1,0 +1,229 @@
+1
+00:00:06,000 --> 00:00:08,898
+Good evening, and welcome to Nordic Crypto.
+
+2
+00:00:08,898 --> 00:00:15,451
+This is issue number one, with the Nordic crypto news that
+mattered from the 27th of September to the 2nd of October,
+
+3
+00:00:15,451 --> 00:00:15,731
+2026.
+
+4
+00:00:16,140 --> 00:00:20,090
+Tonight: Binance under scrutiny over Europe's new crypto
+rules.
+
+5
+00:00:20,090 --> 00:00:23,819
+Sweden's financial watchdog issues a crypto sanctions
+warning.
+
+6
+00:00:23,819 --> 00:00:26,423
+And the meetups coming up across the region.
+
+7
+00:00:26,423 --> 00:00:32,966
+Nordic Crypto gathers crypto, bitcoin and blockchain news
+from Norway, Sweden, Denmark, Finland and Iceland, with a
+
+8
+00:00:32,966 --> 00:00:34,673
+link to every original source.
+
+9
+00:00:34,673 --> 00:00:40,139
+And this programme is made with the help of AI: a bot drafts
+the summaries, and they're edited for accuracy before
+
+10
+00:00:40,139 --> 00:00:41,194
+anything is published.
+
+11
+00:00:41,194 --> 00:00:44,163
+The voice you're hearing is an AI voice, too.
+
+12
+00:00:46,568 --> 00:00:48,497
+Our top story tonight.
+
+13
+00:00:48,497 --> 00:00:54,083
+Binance is under investigation for allegedly offering
+services in Europe without the licence required under the
+
+14
+00:00:54,083 --> 00:00:55,945
+EU's new crypto rules, known as MiCA.
+
+15
+00:00:55,945 --> 00:00:57,976
+That's from Realtid in Sweden.
+
+16
+00:00:58,388 --> 00:01:04,400
+Dagens PS, also in Sweden, reports that Binance said it
+would leave Europe, but customers are still trading.
+
+17
+00:01:04,400 --> 00:01:07,484
+EU financial authorities now want to know how.
+
+18
+00:01:09,880 --> 00:01:15,062
+Realtid reports that Sweden's financial watchdog says
+crypto-assets and illegal financial networks pose the
+
+19
+00:01:15,062 --> 00:01:18,453
+biggest risk of Iran and North Korea dodging sanctions
+through Sweden.
+
+20
+00:01:18,820 --> 00:01:24,370
+Finansinspektionen's new risk assessment finds that weapons
+of mass destruction are most likely to be financed through
+
+21
+00:01:24,370 --> 00:01:26,487
+illegal financial activity and crypto-assets.
+
+22
+00:01:28,848 --> 00:01:34,894
+Kaupr reports that GreenMerc is cutting costs by 4.8 million
+Swedish kronor a year while Northcrypto turns a profit, with
+
+23
+00:01:34,894 --> 00:01:37,392
+spending redirected to the banking offer Trijo One.
+
+24
+00:01:37,392 --> 00:01:39,152
+Kaupr is a sponsor.
+
+25
+00:01:39,564 --> 00:01:45,913
+In Norway, Finansavisen writes that Joakim Hannisdahl's new
+crypto fund, built on a model that did well in backtesting,
+
+26
+00:01:45,913 --> 00:01:48,314
+is up 39 percent since it launched in August.
+
+27
+00:01:48,672 --> 00:01:54,331
+And from Yle in Finland: at a Finnish crypto event,
+investors said community and technology are what draw them
+
+28
+00:01:54,331 --> 00:01:56,182
+to crypto, as bitcoin rallied again.
+
+29
+00:01:56,532 --> 00:02:01,149
+Nordic Crypto is brought to you by our sponsor, Kaupr, at
+kaupr dot io.
+
+30
+00:02:01,149 --> 00:02:02,742
+We'll be right back.
+
+31
+00:02:05,144 --> 00:02:11,399
+In Norway, three Norwegians and a Swede have been charged in
+a large drug case with links abroad, involving drug sales on
+
+32
+00:02:11,399 --> 00:02:13,469
+the dark web, paid for in cryptocurrency.
+
+33
+00:02:13,469 --> 00:02:17,552
+That's according to the Southern Norway public prosecutor,
+via Aftenposten.
+
+34
+00:02:17,948 --> 00:02:22,929
+And in Lund, Sydsvenskan reports that three teenagers have
+been arrested on suspicion of kidnapping.
+
+35
+00:02:22,929 --> 00:02:26,950
+They are suspected of tying up a local man with duct tape to
+rob him of crypto.
+
+36
+00:02:29,368 --> 00:02:34,943
+On the 8th of October, it's Göteborg Bitcoin Meetup number
+49, at Ölrepubliken in Gothenburg.
+
+37
+00:02:34,943 --> 00:02:40,349
+On the 14th, Crypto killer apps, at Polyteknisk Forening in
+Oslo, with paid entry.
+
+38
+00:02:40,349 --> 00:02:44,349
+On the 15th, the Uppsala Bitcoin Meetup, at Café Årummet.
+
+39
+00:02:44,349 --> 00:02:48,495
+And on the 28th of October, Oslo Blockchain Meetup, on Nexa.
+
+40
+00:02:48,495 --> 00:02:54,950
+A disclosure: Jørgen, who runs Nordic Crypto, is the
+speaker, runs this meetup, and works on Nexa at Bitcoin
+
+41
+00:02:54,950 --> 00:02:55,547
+Unlimited.
+
+42
+00:02:55,547 --> 00:02:57,547
+Kaupr sponsors the meetup.
+
+43
+00:02:57,547 --> 00:03:01,943
+More events, including Stockholm and Helsinki in November,
+are in the calendar.
+
+44
+00:03:02,332 --> 00:03:04,730
+And that's Nordic Crypto for this week.
+
+45
+00:03:04,730 --> 00:03:10,011
+All the stories, the events calendar and a who's who of
+Nordic crypto are on the Nordic Crypto website.
+
+46
+00:03:10,011 --> 00:03:13,824
+If you spot a mistake, or a story we missed, use the tip
+form.
+
+47
+00:03:13,824 --> 00:03:18,386
+Kaupr is one of the news sources we follow, and it sponsors
+some events in our calendar.
+
+48
+00:03:18,386 --> 00:03:20,803
+Nothing here is investment advice.
+
+49
+00:03:20,803 --> 00:03:22,449
+Until next week.
+
+50
+00:03:22,449 --> 00:03:24,428
+The Nordic Crypto team.
+
+51
+00:03:24,428 --> 00:03:25,719
+Good night.
+
