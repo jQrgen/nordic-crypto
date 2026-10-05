@@ -1,6 +1,25 @@
 {
  "events": [
   {
+   "id": "71149f675741",
+   "title": "Arne Ryde Conference on Crypto, Fintech and Payments",
+   "title_orig": null,
+   "start": "2026-08-25T08:30:00+02:00",
+   "end": "2026-08-26T12:30:00+02:00",
+   "place": "Grand Hotel, Bantorget 1, Lund",
+   "city": "Lund",
+   "country": "SE",
+   "online": false,
+   "organiser": "Knut Wicksell Centre for Financial Studies, Lund University School of Economics and Management",
+   "url": "https://www.lusem.lu.se/calendar/arne-ryde-conference-crypto-fintech-and-payments",
+   "source": "Lund University School of Economics and Management (lusem.lu.se)",
+   "paid": null,
+   "sponsored": null,
+   "note": null,
+   "note_i18n": null,
+   "status": "published"
+  },
+  {
    "id": "ccc2eea6b213",
    "title": "Göteborg Bitcoin Meetup #49",
    "title_orig": null,

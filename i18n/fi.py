@@ -139,5 +139,6 @@ S.update({
 "nl_e_fail": "Jokin meni vikaan. Yritä myöhemmin uudelleen.",
 "nl_kaupr": "<b>Avoimuus:</b> Kaupr (kaupr.io) on yksi seuraamistamme uutislähteistä, sponsoroi joitakin kalenterimme tapahtumia ja sponsoroi Oslo Blockchain Meetupia, jota pitää Crypto Nordicin julkaisija jQrgen.",
 "nl_sub_btn": "Tilaa Substackissa →",
-"nl_sub_note": "Tilaus tehdään Substackissa (cryptonordic.substack.com), joka lähettää uutiskirjeen. Substack käsittelee sähköpostiosoitettasi oman tietosuojakäytäntönsä mukaisesti; tämä sivusto ei tallenna mitään eikä seuraa sinua. Jokaisessa uutiskirjeessä on linkki tilauksen perumiseen."
+"nl_sub_note": "Tilaus tehdään Substackissa (cryptonordic.substack.com), joka lähettää uutiskirjeen. Substack käsittelee sähköpostiosoitettasi oman tietosuojakäytäntönsä mukaisesti; tämä sivusto ei tallenna mitään eikä seuraa sinua. Jokaisessa uutiskirjeessä on linkki tilauksen perumiseen.",
+"nl_embed_btn": "Näytä Substackin tilauslomake", "nl_embed_note": "Lomake ladataan substack.comista vasta, kun napsautat painiketta. Substack voi silloin asettaa omia evästeitään tietosuojakäytäntönsä mukaisesti; tämä sivusto ei tallenna mitään.", "nl_embed_title": "Substackin tilauslomake",
 })

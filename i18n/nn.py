@@ -139,5 +139,6 @@ S.update({
 "nl_e_fail": "Noko gjekk gale. Prøv igjen seinare.",
 "nl_kaupr": "<b>Openheit:</b> Kaupr (kaupr.io) er ei av nyheitskjeldene vi følgjer, sponsar nokre arrangement i kalenderen vår og sponsar Oslo Blockchain Meetup, som blir driven av jQrgen, utgjevaren av Crypto Nordic.",
 "nl_sub_btn": "Abonner på Substack →",
-"nl_sub_note": "Du melder deg på hos Substack (cryptonordic.substack.com), som sender nyheitsbrevet. Substack handsamar e-postadressa di etter sine eigne personvernreglar; denne nettstaden lagrar ingenting og har inga sporing. Kvart nyheitsbrev har ei lenkje for å melde seg av."
+"nl_sub_note": "Du melder deg på hos Substack (cryptonordic.substack.com), som sender nyheitsbrevet. Substack handsamar e-postadressa di etter sine eigne personvernreglar; denne nettstaden lagrar ingenting og har inga sporing. Kvart nyheitsbrev har ei lenkje for å melde seg av.",
+"nl_embed_btn": "Vis påmeldingsskjemaet frå Substack", "nl_embed_note": "Skjemaet blir lasta frå substack.com først når du klikkar på knappen. Substack kan då setje eigne informasjonskapslar etter sine personvernreglar; denne nettstaden lagrar ingenting.", "nl_embed_title": "Påmeldingsskjema frå Substack",
 })

@@ -139,5 +139,6 @@ S.update({
 "nl_e_fail": "Något gick fel. Försök igen senare.",
 "nl_kaupr": "<b>Öppenhet:</b> Kaupr (kaupr.io) är en av nyhetskällorna vi följer, sponsrar några evenemang i vår kalender och sponsrar Oslo Blockchain Meetup, som drivs av jQrgen, utgivare av Crypto Nordic.",
 "nl_sub_btn": "Prenumerera på Substack →",
-"nl_sub_note": "Du anmäler dig hos Substack (cryptonordic.substack.com), som skickar nyhetsbrevet. Substack hanterar din e-postadress enligt sin egen integritetspolicy; den här webbplatsen sparar ingenting och har ingen spårning. Varje nyhetsbrev har en länk för att avsluta prenumerationen."
+"nl_sub_note": "Du anmäler dig hos Substack (cryptonordic.substack.com), som skickar nyhetsbrevet. Substack hanterar din e-postadress enligt sin egen integritetspolicy; den här webbplatsen sparar ingenting och har ingen spårning. Varje nyhetsbrev har en länk för att avsluta prenumerationen.",
+"nl_embed_btn": "Visa Substacks anmälningsformulär", "nl_embed_note": "Formuläret laddas från substack.com först när du klickar på knappen. Substack kan då sätta egna kakor enligt sin integritetspolicy; den här webbplatsen sparar ingenting.", "nl_embed_title": "Substacks anmälningsformulär",
 })

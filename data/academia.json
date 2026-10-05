@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-03",
+ "updated": "2026-10-05",
  "source_list": "/workspace/nordic-crypto-research/academia.md",
  "rules": [
   "A course is listed only when blockchain or crypto is a substantial part of the syllabus on its own course page.",
@@ -130,9 +130,9 @@
    "about": "Whole course on blockchain with a group project; Solidity recommended",
    "url": "https://efteruddannelse.kurser.ku.dk/course/2026-2027/NDAK17002U",
    "source": "https://efteruddannelse.kurser.ku.dk/course/2026-2027/NDAK17002U",
-   "checked": "2026-10-03",
-   "status": "approved",
-   "editor_note": "APPROVED"
+   "checked": "2026-10-05",
+   "status": "out",
+   "editor_note": "OUT (editor 2026-10-05): official page https://kurser.ku.dk/course/ndak17002u shows \"Cancelled\" for volume 2026/2027; no current run, kept in data, not shown"
   },
   {
    "country": "DK",
@@ -196,37 +196,66 @@
    "country": "SE",
    "name": "KTH Blockchain Initiative",
    "institution": "KTH",
-   "activity": "none dated yet",
+   "about": "",
+   "activity": "none dated (only a \"© 2026\" footer)",
    "active": false,
    "url": "https://kthbci.org",
    "source": "https://kthbci.org",
-   "checked": "2026-10-03",
-   "status": "unverified",
-   "editor_note": "unverified"
+   "checked": "2026-10-05",
+   "status": "pending",
+   "editor_note": "pending: no dated activity in last 12 months"
   },
   {
    "country": "SE",
    "name": "Kryptokom",
    "institution": "Linköping University",
-   "activity": "none dated yet. If listed, row must show the Trijo referral deal, so it has a commercial partner",
-   "active": false,
+   "about": "",
+   "activity": "Latest dated activity: LinkedIn post 26 Jul 2026. Disclosure: Kryptokom's website lists the crypto exchange Trijo as a partner and promotes Trijo's referral programme, so the association has a commercial partner.",
+   "active": true,
    "url": "https://kryptokom.se/",
    "source": "https://kryptokom.se/",
-   "checked": "2026-10-03",
-   "status": "unverified",
-   "editor_note": "unverified"
+   "checked": "2026-10-05",
+   "status": "approved",
+   "editor_note": "APPROVED by jQrgen 2026-10-05 (Trijo referral deal must stay in the row)"
   },
   {
    "country": "FI",
    "name": "Aalto Bitcoin",
    "institution": "Aalto University",
-   "activity": "LinkedIn post 2025-08-24 (older than 12 months)",
+   "about": "",
+   "activity": "Latest dated activity: LinkedIn posts 19 Oct, 4 Nov and 27 Nov 2025 (the website aaltobitcoin.com no longer resolves).",
+   "active": true,
+   "url": "https://www.linkedin.com/company/aalto-bitcoin",
+   "source": "https://www.linkedin.com/company/aalto-bitcoin",
+   "checked": "2026-10-05",
+   "status": "approved",
+   "editor_note": "APPROVED by jQrgen 2026-10-05"
+  },
+  {
+   "country": "DK",
+   "name": "CBS Bitcoin",
+   "institution": "Copenhagen Business School",
+   "about": "",
+   "activity": "Latest dated activity: launch event 27 Apr 2026; LinkedIn post 1 May 2026.",
+   "active": true,
+   "url": "https://www.linkedin.com/company/cbs-bitcoin",
+   "source": "https://www.linkedin.com/company/cbs-bitcoin",
+   "checked": "2026-10-05",
+   "status": "approved",
+   "editor_note": "APPROVED by jQrgen 2026-10-05 (also listed at https://cbsstudents.dk/student-organizations)"
+  },
+  {
+   "country": "DK",
+   "name": "Blockchain Student Group @ ITU",
+   "institution": "IT University of Copenhagen",
+   "about": "",
+   "activity": "none dated",
    "active": false,
-   "url": "https://www.linkedin.com/posts/aalto-bitcoin_bitcoin-aaltouniversity-activity-7365471715524587521-Ryd8",
-   "source": "https://www.linkedin.com/posts/aalto-bitcoin_bitcoin-aaltouniversity-activity-7365471715524587521-Ryd8",
-   "checked": "2026-10-03",
-   "status": "unverified",
-   "editor_note": "unverified"
+   "url": "https://itustudent.itu.dk/Campus-Life/Student-Life/Student-Organisations",
+   "source": "https://itustudent.itu.dk/Campus-Life/Student-Life/Student-Organisations",
+   "checked": "2026-10-05",
+   "status": "pending",
+   "editor_note": "pending: no dated activity in last 12 months"
   }
  ],
  "publications": [
@@ -716,14 +745,80 @@
   },
   {
    "country": "SE",
-   "name": "Blockchain Lab (BLAB)",
-   "institution": "SCDI (Stockholm)",
-   "about": "Blockchain research and learning",
+   "name": "University of Gothenburg Blockchain Lab (BLAB, at SCDI)",
+   "institution": "University of Gothenburg",
+   "about": "Blockchain research and learning (affiliation per GU staff page https://www.gu.se/en/about/find-staff/juholindman)",
    "url": "https://www.scdi.se/blockchain/",
    "source": "https://www.scdi.se/blockchain/",
-   "checked": "2026-10-03",
-   "status": "out",
-   "editor_note": "OUT: no university affiliation source; move to industry map"
+   "checked": "2026-10-05",
+   "status": "pending",
+   "editor_note": "pending: no dated activity in last 12 months (was OUT 2026-10-03 for no university source; GU staff page now gives the affiliation)"
+  },
+  {
+   "country": "SE",
+   "name": "Yggdrasil: Network Security for Blockchain and Decentralized Systems",
+   "institution": "Chalmers University of Technology",
+   "about": "Research project (2026–) on network-layer security of blockchains, cross-chain bridges and peer-to-peer networks.",
+   "url": "https://research.chalmers.se/en/project/12829",
+   "source": "https://research.chalmers.se/en/project/12829",
+   "checked": "2026-10-05",
+   "status": "approved",
+   "editor_note": "APPROVED by jQrgen 2026-10-05 (project page updated 16 Apr 2026; Chalmers participation 2026–)"
+  },
+  {
+   "country": "SE",
+   "name": "Real-World Asset Tokens and the Future of Market Infrastructure and Liquidity",
+   "institution": "KTH",
+   "about": "Research project (2026–2027) on tokenised real-world assets on regulated exchanges, MiCA and liquidity.",
+   "url": "https://www.kth.se/en/fob/forskning/pagaende-project/real-world-asset-tokens-and-the-future-of-market-infrastructure-and-liquidity-1.1426634",
+   "source": "https://www.kth.se/en/fob/forskning/pagaende-project/real-world-asset-tokens-and-the-future-of-market-infrastructure-and-liquidity-1.1426634",
+   "checked": "2026-10-05",
+   "status": "pending",
+   "editor_note": "pending: no dated activity in last 12 months (page dated 30 Sep 2025)"
+  },
+  {
+   "country": "DK",
+   "name": "COBRA – Concordium Blockchain Research Center Aarhus",
+   "institution": "Aarhus University",
+   "about": "Basic research for secure, scalable and energy-efficient blockchains.",
+   "url": "https://cs.au.dk/research/centers/concordium/",
+   "source": "https://cs.au.dk/research/centers/concordium/",
+   "checked": "2026-10-05",
+   "status": "pending",
+   "editor_note": "pending: no dated activity in last 12 months (page revised 23 Sep 2025; newest publications listed 2023)"
+  },
+  {
+   "country": "FI",
+   "name": "ChainLab",
+   "institution": "LUT University",
+   "about": "Blockchain and AI lab.",
+   "url": "https://chainlab-fi.eu/about-us/",
+   "source": "https://chainlab-fi.eu/about-us/",
+   "checked": "2026-10-05",
+   "status": "pending",
+   "editor_note": "pending: no dated activity in last 12 months (posts 2023–2024; project period to 31 Dec 2026; see also https://www.lut.fi/en/tutkimusryhmat/digital-transformation)"
+  },
+  {
+   "country": "FI",
+   "name": "OnchainApp (Interact Research Group)",
+   "institution": "University of Oulu",
+   "about": "Proof of concept for onchain data analytics.",
+   "url": "https://interact.oulu.fi/onchainapp",
+   "source": "https://interact.oulu.fi/onchainapp",
+   "checked": "2026-10-05",
+   "status": "pending",
+   "editor_note": "pending: no dated activity in last 12 months (last updated 9 Dec 2024)"
+  },
+  {
+   "country": "DK",
+   "name": "Blockchain technologies (Alexandra Instituttet)",
+   "institution": "Alexandra Institute (GTS institute)",
+   "about": "Service page: tests and prototypes blockchain solutions for companies.",
+   "url": "https://www.teknologiskinfrastruktur.dk/alexandra-instituttet/blockchain-teknologier/",
+   "source": "https://www.teknologiskinfrastruktur.dk/alexandra-instituttet/blockchain-teknologier/",
+   "checked": "2026-10-05",
+   "status": "pending",
+   "editor_note": "pending: no dated activity in last 12 months (no dated items)"
   },
   {
    "country": "IS",

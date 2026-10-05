@@ -152,6 +152,7 @@ html.nc-pick body{visibility:hidden}
 .rules-c .seg{margin:8px 0}
 .nlform{margin:12px 0}.nlform input[type=email]{padding:6px;width:100%;max-width:320px}.nlform button{padding:7px 14px;font-size:15px}.nlform .hp{position:absolute;left:-9999px}
 .nlmsg{display:block;margin-top:6px}.nlmsg.ok{color:#14532d}.nlmsg.warn{color:#9a3412}.nlfoot{margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--line)}.nlfoot .nlform{display:inline}.nlc label{position:absolute;left:-9999px}
+.ssembed{margin:14px 0}.ssload{font:inherit;font-weight:600;border:0;cursor:pointer}.ssembed iframe{display:block;width:480px;max-width:100%;height:320px}.ssembed .meta{margin-top:6px}.nlhome{margin:28px 0 8px;padding-top:12px;border-top:1px solid var(--line)}
 .nlsub{display:inline-block;padding:6px 14px;border-radius:6px;background:#0f5ea8;color:#fff!important;text-decoration:none;font-weight:600}.nlsub:hover,.nlsub:focus{background:#0b4a85}
 .brandrow{display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap}
 .hdrsub{display:inline-block;padding:5px 12px;border-radius:6px;background:#0f5ea8;color:#fff!important;text-decoration:none;font-weight:600;font-size:14px;line-height:1.3;white-space:nowrap}.hdrsub:hover,.hdrsub:focus{background:#0b4a85}
@@ -207,6 +208,22 @@ def newsletter_on(): return bool(newsletter_endpoint() or substack_subscribe_url
 def substack_button():
     sub = substack_subscribe_url()
     return f'<a class="nlsub" href="{E(sub)}" rel="noopener">{E(t("nl_sub_btn"))}</a>' if sub else ""
+def substack_embed():
+    """Substack's embeddable signup form (<substack_url>/embed), responsive (max-width:100%). newsletter/config.json substack_embed:
+    "click" (default) = the iframe loads only after the reader clicks, so no third-party content or cookies load with the page
+    (the About page promises no third-party scripts); "auto" = loads with the page (switch only after the privacy texts are updated);
+    "off" = not shown."""
+    u = (NL_CFG.get("substack_url") or "").strip().rstrip("/"); mode = NL_CFG.get("substack_embed", "click")
+    if not u.startswith("https://") or mode == "off": return ""
+    src = u + "/embed"; tt = E(t("nl_embed_title"))
+    if mode == "auto":
+        return f'<div class="ssembed"><iframe src="{E(src)}" title="{tt}" width="480" height="320" style="border:1px solid #EEE;background:white" frameborder="0" scrolling="no" loading="lazy"></iframe></div>'
+    return (f'<div class="ssembed" data-src="{E(src)}" data-title="{tt}"><button type="button" class="nlsub ssload">{E(t("nl_embed_btn"))}</button>'
+            f'<p class="meta">{E(t("nl_embed_note"))}</p></div>'
+            "<script>(function(){document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.ssload');if(!b)return;"
+            "var w=b.closest('.ssembed'),f=document.createElement('iframe');f.src=w.getAttribute('data-src');f.title=w.getAttribute('data-title');"
+            "f.width='480';f.height='320';f.setAttribute('frameborder','0');f.setAttribute('scrolling','no');f.style.border='1px solid #EEE';f.style.background='white';"
+            "w.innerHTML='';w.appendChild(f)})})();</script>")
 def header_sub_button():
     """'Subscribe on Substack' button at the top of every page (same Substack link as the footer, label without the arrow)."""
     sub = substack_subscribe_url()
@@ -223,6 +240,7 @@ def build_newsletter():
 <p class="lead">{E(t("nl_lead"))}</p>
 {form}
 {f'<p>{sub}</p>' if sub else ''}
+{substack_embed()}
 <div class="prose">{priv}{subnote}
 <p class="meta">{t("nl_kaupr")}</p></div>"""
     page("newsletter", t("nl_title"), "newsletter", body, t("nl_desc"))
@@ -403,6 +421,7 @@ def build_lang(ctx):
 <label for="fsrc">{E(t("source"))}</label><select id="fsrc"><option value="">{E(t("all_sources"))}</option>{opts}</select>
 <span class="lbl">{E(t("topic"))}</span><div class="chips">{tchips}</div><span id="count" class="meta" aria-live="polite"></span></div>
 <ol class="news" id="news">{''.join(lis) or f'<li class="empty">{E(t("no_stories"))}</li>'}</ol>
+{f'<section class="nlhome" aria-labelledby="nlhome-h"><h2 id="nlhome-h">{E(t("nl_title"))}</h2>{substack_embed()}</section>' if substack_embed() else ''}
 <p class="notice">{E(t("home_notice"))}</p>"""
     js = """<script>
 (function(){var NS=%s,sel=document.getElementById('fsrc'),tc=[].slice.call(document.querySelectorAll('.tchip')),cc=[].slice.call(document.querySelectorAll('.cchip')),lis=[].slice.call(document.querySelectorAll('#news li[data-src]')),cnt=document.getElementById('count');
@@ -702,6 +721,10 @@ def build_academia():
     def dom(u): return re.sub(r"^https?://(www[0-9]?\.)?", "", u).split("/")[0]
     def foot(r):
         return f'<div class="meta">{E(t("ac_source"))}: <a href="{E(r["source"])}" rel="noopener" target="_blank">{E(dom(r["source"]))}</a> · {E(t("ac_checked", d=r["checked"]))} {st(r)}</div>'
+    tr = load(P("data", "academia_i18n.json"), {}) or {}   # optional translations of research 'about' / group 'activity' texts, keyed by url
+    def about(r, k="about"):
+        x = (tr.get(r["url"]) or {}).get(LANG) if LANG != "en" else None
+        return f'<p class="sum">{E(x)}</p>' if x else f'<p class="sum"{en}>{E(" ".join(v for v in (r.get("about"), r.get("activity")) if v) if k == "group" else r["about"])}</p>'
     def row(c, inner): return f'<li data-c="{E(c)}">{inner}</li>'
     def bycountry(rows, fn):
         if not rows: return f'<p class="empty">{E(t("ac_empty"))}</p>'
@@ -710,16 +733,12 @@ def build_academia():
         f'<div class="meta">{flag(r["country"])} <b>{E(r["institution"])}</b> · <span{en}>{E(r["level"])}</span>' + (f' · <b{en}>{E(r["term"])}</b>' if r.get("term") else "") + f'</div><p class="sum"{en}>{E(r["about"])}</p>{foot(r)}')
     groups = bycountry(secs["groups"], lambda r: f'<h3><a href="{E(r["url"])}" rel="noopener" target="_blank">{E(r["name"])}</a> '
         f'<span class="tag {"act" if r["active"] else "inact"}">{E(t("active") if r["active"] else t("inactive"))}</span></h3>'
-        f'<div class="meta">{flag(r["country"])} <b>{E(r["institution"])}</b></div><p class="sum"{en}>{E(r["about"])} {E(r["activity"])}</p>{foot(r)}')
+        f'<div class="meta">{flag(r["country"])} <b>{E(r["institution"])}</b></div>{about(r, "group")}{foot(r)}')
     def au(a): return ", ".join(a[:4]) + (t("et_al") if len(a) > 4 else "")
     pubs = bycountry(sorted(secs["publications"], key=lambda r: -(r.get("year") or 0)), lambda r: f'<h3><a href="{E(r["url"])}" rel="noopener" target="_blank">{E(r["title"])}</a></h3>'
         f'<div class="meta">{flag(r["country"])} {E(au(r["authors"]))} ({E(r["year"])}). <i>{E(r.get("venue") or "")}</i>'
         + (f' · {E(r["institution"])}' if r.get("institution") else "") + '</div>'
         f'<div class="meta">DOI: <a href="{E(r["url"])}" rel="noopener" target="_blank">{E(r["doi"])}</a> · <a href="{E(r["db"])}" rel="noopener" target="_blank">{E(t("ac_record", db=r.get("db_name") or t("database")))}</a></div>{foot(r)}')
-    tr = load(P("data", "academia_i18n.json"), {}) or {}   # optional translations of research 'about' texts, keyed by url
-    def about(r):
-        x = (tr.get(r["url"]) or {}).get(LANG) if LANG != "en" else None
-        return f'<p class="sum">{E(x)}</p>' if x else f'<p class="sum"{en}>{E(r["about"])}</p>'
     research = bycountry(secs["research"], lambda r: f'<h3><a href="{E(r["url"])}" rel="noopener" target="_blank">{E(r["name"])}</a></h3>'
         f'<div class="meta">{flag(r["country"])} <b>{E(r["institution"])}</b></div>{about(r)}{foot(r)}')
     allrows = sum(len(v) for v in secs.values())

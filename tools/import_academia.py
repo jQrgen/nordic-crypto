@@ -45,13 +45,13 @@ for r in sec("research"):
     research.append({"country": r["Country"], "name": r["Group"], "institution": r["Institution"], "about": r["Focus (own page)"], "url": r["Source"],
                      "source": r["Source"], "checked": r["Checked"], "status": st, "editor_note": note})
 groups = []
-for r in sec("student"):
+for r in sec("student"):   # "active": approved only with dated activity in the last 12 months (rule)
     st, note = status(r["Status"])
-    groups.append({"country": r["Country"], "name": r["Association"], "institution": r["Institution"], "activity": r["Last dated activity found"],
-                   "active": False, "url": r["Source"], "source": r["Source"], "checked": r["Checked"], "status": st, "editor_note": note})
+    groups.append({"country": r["Country"], "name": r["Association"], "institution": r["Institution"], "about": "", "activity": r["Last dated activity found"],
+                   "active": st == "approved", "url": r["Source"], "source": r["Source"], "checked": r["Checked"], "status": st, "editor_note": note})
 own = json.load(open(os.path.join(ROOT, "state", "academia_seed_own.json"), encoding="utf-8"))
 pubs = [dict(p, status="pending", editor_note="awaiting editor (DOI checked at doi.org on " + p["checked"] + ")") for p in own.get("publications", [])]
-out = {"updated": "2026-10-03", "source_list": MD,
+out = {"updated": "2026-10-05", "source_list": MD,
        "rules": ["A course is listed only when blockchain or crypto is a substantial part of the syllabus on its own course page.",
                  "Every DOI or research-database link is checked before it is listed.",
                  "A student group is marked active only with dated activity in the last 12 months; otherwise inactive.",
