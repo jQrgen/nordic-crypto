@@ -1,0 +1,60 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "kjetil-lund",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/kjetil-lund.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#kjetil-lund",
+  "name": "Kjetil Lund",
+  "type": "person",
+  "sector": "public",
+  "country": "NO",
+  "description": null,
+  "role": "Director General",
+  "org": "nve",
+  "group": null,
+  "profile_url": "https://www.nve.no/om-nve/dette-er-nve/ledelse/",
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.nve.no/om-nve/dette-er-nve/ledelse/",
+    "title": "nve.no",
+    "source_name": "nve.no",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": {
+   "kind": "photo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/people/kjetil-lund.jpg",
+   "source_url": "https://commons.wikimedia.org/wiki/File:Kjetil_Lund._Foto-_NVE_(cropped).jpg",
+   "author": "Kbug2023",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "credit": "Wikimedia Commons"
+  },
+  "profiles": [
+   {
+    "kind": "wikipedia",
+    "label": "Wikipedia (en)",
+    "url": "https://en.wikipedia.org/wiki/Kjetil_Lund",
+    "source_url": "https://www.wikidata.org/wiki/Q4994503"
+   },
+   {
+    "kind": "x",
+    "label": "X",
+    "url": "https://x.com/lundkjetil",
+    "source_url": "https://www.wikidata.org/wiki/Q4994503"
+   },
+   {
+    "kind": "wikidata",
+    "label": "Wikidata",
+    "url": "https://www.wikidata.org/wiki/Q4994503",
+    "source_url": "https://www.wikidata.org/wiki/Q4994503"
+   }
+  ]
+ }
+}

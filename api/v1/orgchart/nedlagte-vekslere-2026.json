@@ -1,0 +1,39 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "nedlagte-vekslere-2026",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/nedlagte-vekslere-2026.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#nedlagte-vekslere-2026",
+  "name": "Exchanges that closed in 2026",
+  "type": "organisation",
+  "sector": "private",
+  "country": "NO",
+  "description": "Bitmynt, JuJu and Bitcoin Norway shut down around the MiCA deadline, according to Shifter (19 Jul 2026). JuJu's customers went to NBX, confirmed in NBX's half-year report (customer base acquisition completed 30 Jun 2026, more than 4,000 customers). Bitcoin Norway's customers went to Týr.",
+  "role": null,
+  "org": null,
+  "group": "Exchanges & brokers",
+  "profile_url": null,
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": true,
+  "sources": [
+   {
+    "url": "https://www.shifter.no/nyheter/fikk-krypto-konsesjon-like-for-fristen-vi-kunne-ikke-bygget-bedriften-pa-samme-mate-med-dagens-regelverk/414295",
+    "title": "Shifter",
+    "source_name": "Shifter",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://api3.oslo.oslobors.no/v1/newsreader/attachment?messageId=682725&attachmentId=333610",
+    "title": "Oslo Børs NewsWeb (attachment)",
+    "source_name": "Oslo Børs NewsWeb (attachment)",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

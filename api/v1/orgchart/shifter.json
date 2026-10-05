@@ -1,0 +1,41 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "shifter",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/shifter.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#shifter",
+  "name": "Shifter / BankShift (Shifter Media)",
+  "type": "organisation",
+  "sector": "private",
+  "country": "NO",
+  "description": "Close coverage of Firi, Bare Bitcoin, DNB and MiCA licences.",
+  "role": null,
+  "org": null,
+  "group": "Media",
+  "profile_url": null,
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.shifter.no/nyheter/firi-lanserer-i-sverige-etter-permitteringer-og-milliontap/475990",
+    "title": "Shifter",
+    "source_name": "Shifter",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/shifter.svg",
+   "source_url": "https://www.shifter.no/view-resources/dachser2/public/shifter/logo.svg",
+   "author": null,
+   "license": null,
+   "license_url": null,
+   "credit": "Official website"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

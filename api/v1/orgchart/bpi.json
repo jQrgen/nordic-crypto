@@ -1,0 +1,41 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "bpi",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/bpi.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#bpi",
+  "name": "Bitcoinpolitisk institutt Norge (Bitcoin Policy Institute Norway)",
+  "type": "organisation",
+  "sector": "private",
+  "country": "NO",
+  "description": "Advocacy group; talks with members of the Storting about bitcoin policy.",
+  "role": null,
+  "org": null,
+  "group": "Associations & communities",
+  "profile_url": null,
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://bpinorge.no/blog/ny-styreleder-vil-gi-bitcoin-en-tydeligere-stemme-i-norge/",
+    "title": "Bitcoinpolitisk institutt",
+    "source_name": "Bitcoinpolitisk institutt",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/bpi.svg",
+   "source_url": "https://bpinorge.no/wp-content/uploads/2025/04/bpinorge_footer_logo.svg",
+   "author": null,
+   "license": null,
+   "license_url": null,
+   "credit": "Official website"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

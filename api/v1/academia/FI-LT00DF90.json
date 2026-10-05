@@ -1,0 +1,22 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "country": "FI",
+  "institution": "University of Eastern Finland",
+  "code": "LT00DF90",
+  "name": "Introduction to Blockchain",
+  "level": "BSc/MSc, 4 ECTS",
+  "term": "16.03–27.05.2027",
+  "about": "Whole course on blockchain",
+  "url": "https://opas.peppi.uef.fi/en/course/LT00DF90/119800?period=2026-2027",
+  "source": "https://opas.peppi.uef.fi/en/course/LT00DF90/119800?period=2026-2027",
+  "checked": "2026-10-03",
+  "about_i18n": {},
+  "id": "FI-LT00DF90",
+  "section": "courses",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/FI-LT00DF90.json"
+ }
+}

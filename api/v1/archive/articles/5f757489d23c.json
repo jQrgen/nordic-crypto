@@ -1,0 +1,47 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "5f757489d23c",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/5f757489d23c.json",
+  "site": "nordic-crypto",
+  "url": "https://www.kaupr.io/nyheter/dnb-tester-tokeniserte-innskudd-i-kroner-med-europeiske-banker",
+  "canonical_url": "https://kaupr.io/nyheter/dnb-tester-tokeniserte-innskudd-i-kroner-med-europeiske-banker",
+  "title": "DNB tester tokeniserte innskudd i kroner med europeiske banker",
+  "titles": {
+   "en": "DNB tests tokenised krone deposits with European banks"
+  },
+  "source": "kaupr",
+  "source_name": "Kaupr",
+  "country": "NO",
+  "published_at": "2026-09-16T12:00:00+00:00",
+  "first_published_on_site": "2026-10-03T17:59:40+02:00",
+  "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+  "languages": [
+   "en",
+   "nn",
+   "nb",
+   "sv",
+   "da",
+   "fi",
+   "is"
+  ],
+  "summaries": {
+   "en": "DNB has joined CBMT, where European banks test tokenised bank deposits, adding the Norwegian krone to the test environment.",
+   "nn": "DNB har slutta seg til CBMT, der europeiske bankar testar tokeniserte bankinnskot, og norske kroner blir lagde til testmiljøet.",
+   "nb": "DNB har sluttet seg til CBMT, der europeiske banker tester tokeniserte bankinnskudd, og norske kroner legges til testmiljøet.",
+   "sv": "DNB har anslutit sig till CBMT, där europeiska banker testar tokeniserad bankinlåning, och lägger till norska kronor i testmiljön.",
+   "da": "DNB er gået med i CBMT, hvor europæiske banker tester tokeniserede bankindskud, og tilføjer norske kroner til testmiljøet.",
+   "fi": "DNB on liittynyt CBMT:hen, jossa eurooppalaiset pankit testaavat tokenisoituja pankkitalletuksia, ja tuo testiympäristöön Norjan kruunun.",
+   "is": "DNB hefur gengið til liðs við CBMT, þar sem evrópskir bankar prófa táknvæddar bankainnstæður, og bætir norsku krónunni við prófunarumhverfið."
+  },
+  "topics": [
+   "tokenisation",
+   "banking"
+  ],
+  "removed": false,
+  "removed_at": null
+ }
+}

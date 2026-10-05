@@ -1,0 +1,45 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "pal-k-lonseth",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/pal-k-lonseth.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#pal-k-lonseth",
+  "name": "Pål K. Lønseth",
+  "type": "person",
+  "sector": "public",
+  "country": "NO",
+  "description": null,
+  "role": "Director of Økokrim",
+  "org": "okokrim",
+  "group": null,
+  "profile_url": "https://img8.custompublish.com/getfile.php/5491970.2528.wnkamapwmzsupp/%C3%98kokrim-%C3%A5rsrapport2025.pdf?return=www.okokrim.no",
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": true,
+  "sources": [
+   {
+    "url": "https://img8.custompublish.com/getfile.php/5491970.2528.wnkamapwmzsupp/%C3%98kokrim-%C3%A5rsrapport2025.pdf?return=www.okokrim.no",
+    "title": "Økokrim annual report 2025 (PDF)",
+    "source_name": "Økokrim annual report 2025 (PDF)",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://okokrim.custompublish.com/aarsrapporter.616105.no.html",
+    "title": "Økokrim",
+    "source_name": "Økokrim",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://www.okonomi24.com/nyheter/slik-skal-okokrim-bruke-450-millioner-pa-a-knekke-de-profesjonelle-bedragerne/129778",
+    "title": "Økonomi24",
+    "source_name": "Økonomi24",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

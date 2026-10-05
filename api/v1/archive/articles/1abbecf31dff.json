@@ -1,0 +1,46 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "1abbecf31dff",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/1abbecf31dff.json",
+  "site": "nordic-crypto",
+  "url": "https://e24.no/bors/nyheter/a/305563",
+  "canonical_url": "https://e24.no/bors/nyheter/a/305563",
+  "title": "Verdiendringer i bitcoin tynger NBX",
+  "titles": {
+   "en": "Bitcoin value swings weigh on NBX"
+  },
+  "source": "e24",
+  "source_name": "E24",
+  "country": "NO",
+  "published_at": "2026-09-18T11:36:00+00:00",
+  "first_published_on_site": "2026-10-03T18:28:21+02:00",
+  "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+  "languages": [
+   "en",
+   "nn",
+   "nb",
+   "sv",
+   "da",
+   "fi",
+   "is"
+  ],
+  "summaries": {
+   "en": "NBX made a pre-tax loss of NOK 21.33 million in the first half of 2026, up from NOK 9.85 million a year earlier, with changes in the value of bitcoin weighing on the result.",
+   "nn": "NBX fekk eit underskot før skatt på 21,33 millionar kroner i første halvår 2026, mot 9,85 millionar året før, og endringar i bitcoinverdien trekte resultatet ned.",
+   "nb": "NBX fikk et underskudd før skatt på 21,33 millioner kroner i første halvår 2026, mot 9,85 millioner året før, og endringer i bitcoinverdien trakk resultatet ned.",
+   "sv": "NBX gjorde en förlust före skatt på 21,33 miljoner norska kronor under första halvåret 2026, mot 9,85 miljoner ett år tidigare, och förändringar i bitcoins värde tyngde resultatet.",
+   "da": "NBX havde et underskud før skat på 21,33 millioner norske kroner i første halvår 2026 mod 9,85 millioner året før, og ændringer i bitcoins værdi trak resultatet ned.",
+   "fi": "NBX:n tappio ennen veroja oli 21,33 miljoonaa Norjan kruunua vuoden 2026 ensimmäisellä puoliskolla, kun vuotta aiemmin se oli 9,85 miljoonaa, ja bitcoinin arvon muutokset painoivat tulosta.",
+   "is": "NBX tapaði 21,33 milljónum norskra króna fyrir skatta á fyrri helmingi ársins 2026, samanborið við 9,85 milljónir ári fyrr, og breytingar á verðmæti bitcoin drógu niðurstöðuna niður."
+  },
+  "topics": [
+   "business"
+  ],
+  "removed": false,
+  "removed_at": null
+ }
+}

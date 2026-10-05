@@ -1,0 +1,26 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "country": "SE",
+  "name": "Yggdrasil: Network Security for Blockchain and Decentralized Systems",
+  "institution": "Chalmers University of Technology",
+  "about": "Research project (2026–) on network-layer security of blockchains, cross-chain bridges and peer-to-peer networks.",
+  "url": "https://research.chalmers.se/en/project/12829",
+  "source": "https://research.chalmers.se/en/project/12829",
+  "checked": "2026-10-05",
+  "about_i18n": {
+   "nb": "Forskningsprosjekt (2026–) om sikkerhet i nettverkslaget til blokkjeder, broer mellom kjeder og node-til-node-nettverk.",
+   "nn": "Forskingsprosjekt (2026–) om tryggleik i nettverkslaget til blokkjeder, bruer mellom kjeder og node-til-node-nettverk.",
+   "sv": "Forskningsprojekt (2026–) om säkerhet i nätverkslagret för blockkedjor, broar mellan kedjor och peer-to-peer-nätverk.",
+   "da": "Forskningsprojekt (2026–) om sikkerhed i netværkslaget for blockchains, broer mellem kæder og peer-to-peer-netværk.",
+   "fi": "Tutkimushanke (2026–), joka käsittelee lohkoketjujen, ketjujen välisten siltojen ja vertaisverkkojen verkkokerroksen tietoturvaa.",
+   "is": "Rannsóknaverkefni (2026–) um öryggi í netlagi bálkakeðja, brúa milli keðja og jafningjaneta."
+  },
+  "id": "research-research.chalmers.se-en-project-12829",
+  "section": "research",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/research-research.chalmers.se-en-project-12829.json"
+ }
+}

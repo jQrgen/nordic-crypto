@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "entity_id": "ida-wolden-bache",
+  "name": "Ida Wolden Bache",
+  "type": "person",
+  "country": "NO",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/ida-wolden-bache.json",
+  "links": [
+   {
+    "kind": "wikipedia",
+    "label": "Wikipedia (en)",
+    "url": "https://en.wikipedia.org/wiki/Ida_Wolden_Bache",
+    "source_url": "https://www.wikidata.org/wiki/Q110126862"
+   },
+   {
+    "kind": "linkedin",
+    "label": "LinkedIn",
+    "url": "https://www.linkedin.com/in/ida-wolden-bache-908a3b/",
+    "source_url": "https://www.wikidata.org/wiki/Q110126862"
+   },
+   {
+    "kind": "wikidata",
+    "label": "Wikidata",
+    "url": "https://www.wikidata.org/wiki/Q110126862",
+    "source_url": "https://www.wikidata.org/wiki/Q110126862"
+   }
+  ]
+ }
+}

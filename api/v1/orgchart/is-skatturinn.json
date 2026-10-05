@@ -1,0 +1,41 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "is-skatturinn",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/is-skatturinn.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#is-skatturinn",
+  "name": "Skatturinn (Iceland Revenue and Customs)",
+  "type": "organisation",
+  "sector": "public",
+  "country": "IS",
+  "description": "Tax authority; its guidance for individuals has a section on crypto (rafmynt).",
+  "role": null,
+  "org": null,
+  "group": "Tax authorities",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.skatturinn.is/einstaklingar/framtal-og-alagning/rafmyntir/",
+    "title": "Framtal og álagning – Rafmynt",
+    "source_name": "Skatturinn",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/is-skatturinn.svg",
+   "source_url": "https://www.skatturinn.is/skin/rsk/i/sitelogo.svg",
+   "author": null,
+   "license": null,
+   "license_url": null,
+   "credit": "Official website"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "6a94ab65ebff",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/6a94ab65ebff.json",
+  "site": "nordic-crypto",
+  "url": "https://www.kaupr.io/nyheter/nytt-nederlag-for-valuno-i-kampen-om-mica-lisens",
+  "canonical_url": "https://kaupr.io/nyheter/nytt-nederlag-for-valuno-i-kampen-om-mica-lisens",
+  "title": "Nytt nederlag for Valuno i kampen om MiCA-lisens",
+  "titles": {
+   "en": "New defeat for Valuno in the fight for a MiCA licence"
+  },
+  "source": "kaupr",
+  "source_name": "Kaupr",
+  "country": "SE",
+  "published_at": "2026-09-07T12:00:00+00:00",
+  "first_published_on_site": "2026-10-03T17:59:40+02:00",
+  "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+  "languages": [
+   "en",
+   "nn",
+   "nb",
+   "sv",
+   "da",
+   "fi",
+   "is"
+  ],
+  "summaries": {
+   "en": "Valuno company QB Europe has lost its appeal against the MiCA refusal in Sweden, but keeps operating through licensed partners.",
+   "nn": "Valuno-selskapet QB Europe har tapt klaga på MiCA-avslaget i Sverige, men held fram gjennom partnarar med løyve.",
+   "nb": "Valuno-selskapet QB Europe har tapt klagen på MiCA-avslaget i Sverige, men driver videre gjennom partnere med tillatelse.",
+   "sv": "Valuno-bolaget QB Europe har förlorat sitt överklagande av MiCA-avslaget i Sverige men fortsätter verksamheten genom partner med tillstånd.",
+   "da": "Valuno-selskabet QB Europe har tabt sin klage over MiCA-afslaget i Sverige, men fortsætter driften gennem partnere med tilladelse.",
+   "fi": "Valunoon kuuluva QB Europe on hävinnyt valituksensa MiCA-hylkäyksestä Ruotsissa, mutta jatkaa toimintaa toimiluvallisten kumppanien kautta.",
+   "is": "QB Europe, félag í eigu Valuno, hefur tapað kæru sinni vegna MiCA-synjunar í Svíþjóð en heldur starfseminni áfram í gegnum samstarfsaðila með leyfi."
+  },
+  "topics": [
+   "mica",
+   "regulation"
+  ],
+  "removed": false,
+  "removed_at": null
+ }
+}

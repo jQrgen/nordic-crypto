@@ -1,0 +1,38 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "23342b8b1a2d",
+  "url": "https://www.kaupr.io/nyheter/dansk-skatteminister-moter-kryptobransjen-pa-christiansborg",
+  "html_url": null,
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/23342b8b1a2d.json",
+  "title": "Dansk skatteminister møter kryptobransjen på Christiansborg",
+  "title_en": "Danish tax minister meets the crypto industry at Christiansborg",
+  "source": "kaupr",
+  "source_name": "Kaupr",
+  "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+  "country": "DK",
+  "language": "Norwegian",
+  "language_code": "no",
+  "published": "2026-09-13T12:00:00+00:00",
+  "topics": [
+   "tax",
+   "policy",
+   "events"
+  ],
+  "summary": "Denmark's tax minister met the crypto industry at Christiansborg on 17 September to discuss crypto taxation.",
+  "summary_i18n": {
+   "nn": "Skatteministeren i Danmark møtte kryptobransjen på Christiansborg 17. september for å diskutere skattlegging av krypto.",
+   "nb": "Danmarks skatteminister møtte kryptobransjen på Christiansborg 17. september for å diskutere beskatning av krypto.",
+   "sv": "Danmarks skatteminister träffade kryptobranschen på Christiansborg den 17 september för att diskutera beskattning av krypto.",
+   "da": "Skatteministeren mødte kryptobranchen på Christiansborg den 17. september for at drøfte beskatning af krypto.",
+   "fi": "Tanskan veroministeri tapasi kryptoalan edustajia Christiansborgissa 17. syyskuuta keskustellakseen kryptojen verotuksesta.",
+   "is": "Skattamálaráðherra Danmerkur fundaði með fulltrúum rafmyntageirans í Kristjánsborg 17. september til að ræða skattlagningu rafmynta."
+  },
+  "paywall": false,
+  "links": [],
+  "own_story": false
+ }
+}

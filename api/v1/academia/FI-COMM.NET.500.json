@@ -1,0 +1,22 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "country": "FI",
+  "institution": "Tampere University",
+  "code": "COMM.NET.500",
+  "name": "P2P Systems and Blockchain Technologies",
+  "level": "5 ECTS",
+  "term": "2026–2027",
+  "about": "About half the core content is blockchain, cryptocurrencies, Bitcoin, smart contracts",
+  "url": "https://opiskelijanopas.tuni.fi/en/tampere-university/curriculum/course-units/tut-cu-g-45503?year=2026",
+  "source": "https://opiskelijanopas.tuni.fi/en/tampere-university/curriculum/course-units/tut-cu-g-45503?year=2026",
+  "checked": "2026-10-03",
+  "about_i18n": {},
+  "id": "FI-COMM.NET.500",
+  "section": "courses",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/FI-COMM.NET.500.json"
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "entity_id": "nina-schanke-funnemark",
+  "name": "Nina Schanke Funnemark",
+  "type": "person",
+  "country": "NO",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/nina-schanke-funnemark.json",
+  "links": [
+   {
+    "kind": "wikipedia",
+    "label": "Wikipedia (en)",
+    "url": "https://en.wikipedia.org/wiki/Nina_Schanke_Funnemark",
+    "source_url": "https://www.wikidata.org/wiki/Q104063613"
+   },
+   {
+    "kind": "wikidata",
+    "label": "Wikidata",
+    "url": "https://www.wikidata.org/wiki/Q104063613",
+    "source_url": "https://www.wikidata.org/wiki/Q104063613"
+   }
+  ]
+ }
+}

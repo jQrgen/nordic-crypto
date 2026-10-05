@@ -1,0 +1,37 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "a384452ed1b6",
+  "url": "https://www.kaupr.io/nyheter/greenmerc-trekker-mica-klage-og-bruker-northcryptos-lisens-i-sverige",
+  "html_url": null,
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/a384452ed1b6.json",
+  "title": "GreenMerc trekker MiCA-klage og bruker Northcryptos lisens i Sverige",
+  "title_en": "GreenMerc drops MiCA appeal and uses Northcrypto's licence in Sweden",
+  "source": "kaupr",
+  "source_name": "Kaupr",
+  "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+  "country": "SE",
+  "language": "Norwegian",
+  "language_code": "no",
+  "published": "2026-09-17T12:00:00+00:00",
+  "topics": [
+   "mica",
+   "business"
+  ],
+  "summary": "GreenMerc has dropped its MiCA appeal for Ijort Invest and will serve Swedish Trijo customers under Finnish Northcrypto's licence.",
+  "summary_i18n": {
+   "nn": "GreenMerc har trekt MiCA-klaga for Ijort Invest og vil tene svenske Trijo-kundar under løyvet til finske Northcrypto.",
+   "nb": "GreenMerc har trukket MiCA-klagen for Ijort Invest og vil betjene svenske Trijo-kunder under finske Northcryptos tillatelse.",
+   "sv": "GreenMerc har dragit tillbaka sitt MiCA-överklagande för Ijort Invest och ska betjäna svenska Trijo-kunder under finländska Northcryptos tillstånd.",
+   "da": "GreenMerc har trukket sin MiCA-klage for Ijort Invest tilbage og vil betjene svenske Trijo-kunder under finske Northcryptos tilladelse.",
+   "fi": "GreenMerc on luopunut Ijort Investin MiCA-valituksesta ja palvelee ruotsalaisia Trijo-asiakkaita suomalaisen Northcrypton toimiluvalla.",
+   "is": "GreenMerc hefur fallið frá MiCA-kæru sinni fyrir Ijort Invest og mun þjónusta sænska viðskiptavini Trijo undir leyfi finnska Northcrypto."
+  },
+  "paywall": false,
+  "links": [],
+  "own_story": false
+ }
+}

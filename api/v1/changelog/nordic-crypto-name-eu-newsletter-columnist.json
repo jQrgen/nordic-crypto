@@ -1,0 +1,40 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "nordic-crypto-name-eu-newsletter-columnist",
+  "date": "2026-10-05",
+  "title": "Nordic Crypto on the map, in the newsletter, and for columnists",
+  "description": "The public name is Nordic Crypto. EBA, ESMA and the EBA chair are shown as EU on the industry map. Newsletter issue #1 can be read in English, Norwegian (nynorsk and bokmål), Swedish, Danish, Finnish and Icelandic. When a story is in another language, the card explains it in the language of the page. Apply as a columnist from the footer, About and the newsletter. Cloudflare Web Analytics counts visits in aggregate, without cookies, and that data is not sold. Summaries are made with the help of artificial intelligence, with human editors (jQrgen and the Nordic Crypto editor).",
+  "i18n": {
+   "nb": {
+    "title": "Nordic Crypto på kartet, i nyhetsbrevet og for spaltister",
+    "description": "Det offentlige navnet er Nordic Crypto. EBA, ESMA og lederen av EBA vises som EU på bransjekartet. Utgave #1 av nyhetsbrevet kan leses på engelsk, norsk (nynorsk og bokmål), svensk, dansk, finsk og islandsk. Når en sak er på et annet språk, forklarer kortet den på språket til siden. Søk som spaltist fra bunnen, Om oss og nyhetsbrevet. Cloudflare Web Analytics teller besøk samlet, uten informasjonskapsler, og de dataene selges ikke. Sammendragene er laget med hjelp av kunstig intelligens, med menneskelige redaktører (jQrgen og Nordic Crypto-redaktøren)."
+   },
+   "nn": {
+    "title": "Nordic Crypto på kartet, i nyheitsbrevet og for spaltistar",
+    "description": "Det offentlege namnet er Nordic Crypto. EBA, ESMA og leiaren av EBA blir viste som EU på bransjekartet. Utgåve #1 av nyheitsbrevet kan lesast på engelsk, norsk (nynorsk og bokmål), svensk, dansk, finsk og islandsk. Når ei sak er på eit anna språk, forklarer kortet ho på språket til sida. Søk som spaltist frå botnen, Om oss og nyheitsbrevet. Cloudflare Web Analytics tel besøk samla, utan informasjonskapslar, og dei dataa blir ikkje selde. Samandraga er laga med hjelp av kunstig intelligens, med menneskelege redaktørar (jQrgen og Nordic Crypto-redaktøren)."
+   },
+   "sv": {
+    "title": "Nordic Crypto på kartan, i nyhetsbrevet och för krönikörer",
+    "description": "Det offentliga namnet är Nordic Crypto. EBA, ESMA och EBA:s ordförande visas som EU på branschkartan. Nyhetsbrevets utgåva #1 kan läsas på engelska, norska (nynorska och bokmål), svenska, danska, finska och isländska. När en artikel är på ett annat språk förklarar kortet den på sidans språk. Ansök som krönikör från sidfoten, Om oss och nyhetsbrevet. Cloudflare Web Analytics räknar besök samlat, utan kakor, och de uppgifterna säljs inte. Sammanfattningarna görs med hjälp av artificiell intelligens, med mänskliga redaktörer (jQrgen och Nordic Crypto-redaktören)."
+   },
+   "da": {
+    "title": "Nordic Crypto på kortet, i nyhedsbrevet og for klummeskribenter",
+    "description": "Det offentlige navn er Nordic Crypto. EBA, ESMA og formanden for EBA vises som EU på branchekortet. Nyhedsbrevets udgave #1 kan læses på engelsk, norsk (nynorsk og bokmål), svensk, dansk, finsk og islandsk. Når en historie er på et andet sprog, forklarer kortet den på sidens sprog. Søg som klummeskribent fra sidefoden, Om os og nyhedsbrevet. Cloudflare Web Analytics tæller besøg samlet, uden cookies, og de data sælges ikke. Resuméerne er lavet med hjælp fra kunstig intelligens, med menneskelige redaktører (jQrgen og Nordic Crypto-redaktøren)."
+   },
+   "fi": {
+    "title": "Nordic Crypto kartalla, uutiskirjeessä ja kolumnisteille",
+    "description": "Julkinen nimi on Nordic Crypto. EBA, ESMA ja EBA:n puheenjohtaja näkyvät EU:na toimialakartalla. Uutiskirjeen numero 1 on luettavissa englanniksi, norjaksi (nynorsk ja bokmål), ruotsiksi, tanskaksi, suomeksi ja islanniksi. Kun juttu on toisella kielellä, kortti selittää sen sivun kielellä. Kolumnistiksi voi hakea alatunnisteesta, Tietoa-sivulta ja uutiskirjeestä. Cloudflare Web Analytics laskee käynnit kootusti, ilman evästeitä, eikä näitä tietoja myydä. Tiivistelmät on tehty tekoälyn avulla, ihmistoimittajina jQrgen ja Nordic Crypton toimittaja."
+   },
+   "is": {
+    "title": "Nordic Crypto á kortinu, í fréttabréfinu og fyrir pistlahöfunda",
+    "description": "Opinbera nafnið er Nordic Crypto. EBA, ESMA og formaður EBA birtast sem ESB á atvinnugreinakortinu. Tölublað #1 fréttabréfsins má lesa á ensku, norsku (nýnorsku og bókmáli), sænsku, dönsku, finnsku og íslensku. Þegar frétt er á öðru tungumáli útskýrir spjaldið hana á tungumáli síðunnar. Sækja má um að skrifa pistil úr fætinum, Um okkur og fréttabréfinu. Cloudflare Web Analytics telur heimsóknir saman, án vafrakaka, og þau gögn eru ekki seld. Samantektirnar eru unnar með aðstoð gervigreindar, með mannlegum ritstjórum (jQrgen og ritstjóra Nordic Crypto)."
+   }
+  },
+  "html_url": "https://jqrgen.github.io/nordic-crypto/changelog/#nordic-crypto-name-eu-newsletter-columnist",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/nordic-crypto-name-eu-newsletter-columnist.json"
+ }
+}

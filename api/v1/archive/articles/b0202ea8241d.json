@@ -1,0 +1,46 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "b0202ea8241d",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/b0202ea8241d.json",
+  "site": "nordic-crypto",
+  "url": "https://www.oa.no/skal-ha-stalet-fra-egen-bedrift-brukte-pengene-pa-krypto/s/80-35-26289",
+  "canonical_url": "https://oa.no/skal-ha-stalet-fra-egen-bedrift-brukte-pengene-pa-krypto/s/80-35-26289",
+  "title": "Skal ha stjålet fra egen bedrift – brukte pengene på krypto",
+  "titles": {
+   "en": "Allegedly stole from his own company and spent the money on crypto"
+  },
+  "source": "oa",
+  "source_name": "Oppland Arbeiderblad",
+  "country": "NO",
+  "published_at": "2026-09-23T16:08:00+00:00",
+  "first_published_on_site": "2026-10-03T18:28:21+02:00",
+  "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+  "languages": [
+   "en",
+   "nn",
+   "nb",
+   "sv",
+   "da",
+   "fi",
+   "is"
+  ],
+  "summaries": {
+   "en": "A Norwegian man has been charged with gross embezzlement from his own company and is said to have spent the money on crypto.",
+   "nn": "Ein norsk mann er tiltalt for grovt underslag frå sitt eige selskap og skal ha brukt pengane på krypto.",
+   "nb": "En norsk mann er tiltalt for grovt underslag fra sitt eget selskap og skal ha brukt pengene på krypto.",
+   "sv": "En norsk man har åtalats för grov förskingring från sitt eget bolag och ska ha lagt pengarna på krypto.",
+   "da": "En norsk mand er tiltalt for groft underslæb fra sit eget selskab og skal have brugt pengene på krypto.",
+   "fi": "Norjalaista miestä syytetään törkeästä kavalluksesta omasta yrityksestään, ja hänen kerrotaan käyttäneen rahat kryptoihin.",
+   "is": "Norskur karlmaður hefur verið ákærður fyrir stórfelldan fjárdrátt úr eigin fyrirtæki og er sagður hafa eytt fénu í rafmyntir."
+  },
+  "topics": [
+   "crime"
+  ],
+  "removed": false,
+  "removed_at": null
+ }
+}

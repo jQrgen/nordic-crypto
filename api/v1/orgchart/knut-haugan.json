@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "knut-haugan",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/knut-haugan.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#knut-haugan",
+  "name": "Knut Haugan",
+  "type": "person",
+  "sector": "public",
+  "country": "NO",
+  "description": "The department includes the sections for IT and payment services, anti-money laundering and the regulatory sandbox.",
+  "role": "Director, Risk Monitoring and Macroprudential Supervision",
+  "org": "finanstilsynet",
+  "group": null,
+  "profile_url": "https://www.finanstilsynet.no/globalassets/om-finanstilsynet/organisasjonskart.pdf",
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.finanstilsynet.no/globalassets/om-finanstilsynet/organisasjonskart.pdf",
+    "title": "Finanstilsynet",
+    "source_name": "Finanstilsynet",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

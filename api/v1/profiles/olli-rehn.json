@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "entity_id": "olli-rehn",
+  "name": "Olli Rehn",
+  "type": "person",
+  "country": "FI",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/olli-rehn.json",
+  "links": [
+   {
+    "kind": "wikipedia",
+    "label": "Wikipedia (en)",
+    "url": "https://en.wikipedia.org/wiki/Olli_Rehn",
+    "source_url": "https://www.wikidata.org/wiki/Q294411"
+   },
+   {
+    "kind": "x",
+    "label": "X",
+    "url": "https://x.com/ollirehn",
+    "source_url": "https://www.wikidata.org/wiki/Q294411"
+   },
+   {
+    "kind": "wikidata",
+    "label": "Wikidata",
+    "url": "https://www.wikidata.org/wiki/Q294411",
+    "source_url": "https://www.wikidata.org/wiki/Q294411"
+   }
+  ]
+ }
+}

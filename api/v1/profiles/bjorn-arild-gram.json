@@ -1,0 +1,27 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "entity_id": "bjorn-arild-gram",
+  "name": "Bjørn Arild Gram",
+  "type": "person",
+  "country": "NO",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/bjorn-arild-gram.json",
+  "links": [
+   {
+    "kind": "wikipedia",
+    "label": "Wikipedia (en)",
+    "url": "https://en.wikipedia.org/wiki/Bj%C3%B8rn_Arild_Gram",
+    "source_url": "https://www.wikidata.org/wiki/Q4919832"
+   },
+   {
+    "kind": "wikidata",
+    "label": "Wikidata",
+    "url": "https://www.wikidata.org/wiki/Q4919832",
+    "source_url": "https://www.wikidata.org/wiki/Q4919832"
+   }
+  ]
+ }
+}

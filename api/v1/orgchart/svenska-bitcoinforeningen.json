@@ -1,0 +1,47 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "svenska-bitcoinforeningen",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/svenska-bitcoinforeningen.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#svenska-bitcoinforeningen",
+  "name": "Svenska Bitcoinföreningen (Swedish Bitcoin Association)",
+  "type": "organisation",
+  "sector": "private",
+  "country": "SE",
+  "description": "Described by Swedish Bitcoin Meetups as Sweden's oldest bitcoin association; the meetups are run in collaboration with it.",
+  "role": null,
+  "org": null,
+  "group": "Associations & communities",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.bitcoinforeningen.se/",
+    "title": "Svenska Bitcoinföreningen – Bitcoin i Sverige",
+    "source_name": "Svenska Bitcoinföreningen",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://www.meetup.com/swedish-bitcoin-meetups/",
+    "title": "Swedish Bitcoin Meetups",
+    "source_name": "Meetup.com",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/svenska-bitcoinforeningen.webp",
+   "source_url": "https://www.bitcoinforeningen.se/wp-content/uploads/2023/06/logoBitcoinforeningen_logo.png",
+   "author": null,
+   "license": null,
+   "license_url": null,
+   "credit": "Official website"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

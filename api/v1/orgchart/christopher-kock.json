@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "christopher-kock",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/christopher-kock.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#christopher-kock",
+  "name": "Christopher Kock",
+  "type": "person",
+  "sector": "private",
+  "country": "SE",
+  "description": null,
+  "role": "CEO",
+  "org": "virtune",
+  "group": null,
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.kaupr.io/nyheter/virtune-sjefen-tror-kryptomarkedet-har-passert-bunnen",
+    "title": "Virtune-sjefen tror kryptomarkedet har passert bunnen",
+    "source_name": "Kaupr",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "oyvind-kvanes",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/oyvind-kvanes.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#oyvind-kvanes",
+  "name": "Øyvind Kvanes",
+  "type": "person",
+  "sector": "private",
+  "country": "NO",
+  "description": null,
+  "role": "Chair of the Board",
+  "org": "firi",
+  "group": null,
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/919932465/roller",
+    "title": "Name and role only from the registry",
+    "source_name": "Brønnøysund Register Centre",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

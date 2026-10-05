@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "alexander-hagen",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/alexander-hagen.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#alexander-hagen",
+  "name": "Alexander Hagen",
+  "type": "person",
+  "sector": "private",
+  "country": "NO",
+  "description": null,
+  "role": "CEO",
+  "org": "no-ace-digital",
+  "group": null,
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/924665297/roller",
+    "title": "Name and role only from the registry",
+    "source_name": "Brønnøysund Register Centre",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

@@ -1,0 +1,45 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "intl-visa",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/intl-visa.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#intl-visa",
+  "name": "Visa",
+  "type": "organisation",
+  "sector": "private",
+  "country": "SE",
+  "description": "Global payments network. Visa's Swedish and regional head office is in Stockholm (over 300 staff moving into new premises from January 2026, per Visa), and it owns the Swedish open-banking company Tink. Visa offers stablecoin payment and settlement services (Visa's own site).",
+  "role": null,
+  "org": null,
+  "group": "International players in the Nordics",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.mynewsdesk.com/se/visa-2/pressreleases/visa-flyttar-till-nytt-svenskt-och-regionalt-huvudkontor-mitt-i-stockholms-finanscentrum-3393052",
+    "title": "Visa flyttar till nytt svenskt och regionalt huvudkontor (Visa press release, 19 June 2025)",
+    "source_name": "Visa Sverige",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://www.kaupr.io/pages/visa",
+    "title": "Visa – company profile (Onchain Pages)",
+    "source_name": "Kaupr",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://usa.visa.com/solutions/crypto.html",
+    "title": "Visa Stablecoin Solutions",
+    "source_name": "Visa",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

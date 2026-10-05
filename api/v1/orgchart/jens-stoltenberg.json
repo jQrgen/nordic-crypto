@@ -1,0 +1,60 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "jens-stoltenberg",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/jens-stoltenberg.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#jens-stoltenberg",
+  "name": "Jens Stoltenberg",
+  "type": "person",
+  "sector": "public",
+  "country": "NO",
+  "description": null,
+  "role": "Minister of Finance (Labour)",
+  "org": "finansdepartementet",
+  "group": null,
+  "profile_url": "https://www.regjeringen.no/no/dep/fin/id216/",
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.regjeringen.no/no/dep/fin/id216/",
+    "title": "Regjeringen",
+    "source_name": "Regjeringen",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": {
+   "kind": "photo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/people/jens-stoltenberg.jpg",
+   "source_url": "https://commons.wikimedia.org/wiki/File:NATO_Secretary_General_Jens_Stoltenberg.jpg",
+   "author": "U.S. Department of State from United States",
+   "license": "Public domain",
+   "license_url": "https://commons.wikimedia.org/wiki/File:NATO_Secretary_General_Jens_Stoltenberg.jpg",
+   "credit": "Wikimedia Commons"
+  },
+  "profiles": [
+   {
+    "kind": "wikipedia",
+    "label": "Wikipedia (en)",
+    "url": "https://en.wikipedia.org/wiki/Jens_Stoltenberg",
+    "source_url": "https://www.wikidata.org/wiki/Q57665"
+   },
+   {
+    "kind": "x",
+    "label": "X",
+    "url": "https://x.com/jensstoltenberg",
+    "source_url": "https://www.wikidata.org/wiki/Q57665"
+   },
+   {
+    "kind": "wikidata",
+    "label": "Wikidata",
+    "url": "https://www.wikidata.org/wiki/Q57665",
+    "source_url": "https://www.wikidata.org/wiki/Q57665"
+   }
+  ]
+ }
+}

@@ -1,0 +1,39 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "se-pretax",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/se-pretax.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#se-pretax",
+  "name": "Pretax (PRETAX AB)",
+  "type": "organisation",
+  "sector": "private",
+  "country": "SE",
+  "description": "Stockholm tax advisory firm, a member of ECOVIS International, that publishes guidance on the taxation of crypto-assets among its other tax services.",
+  "role": null,
+  "org": null,
+  "group": "Companies & startups",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://pretax.se/",
+    "title": "PRETAX – company website",
+    "source_name": "Pretax",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://www.kaupr.io/pages/pretax",
+    "title": "Pretax – company profile (Onchain Pages)",
+    "source_name": "Kaupr",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

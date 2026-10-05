@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "dk-hvidvasksekretariatet",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/dk-hvidvasksekretariatet.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#dk-hvidvasksekretariatet",
+  "name": "Hvidvasksekretariatet (Danish FIU)",
+  "type": "organisation",
+  "sector": "public",
+  "country": "DK",
+  "description": "Denmark's money-laundering secretariat, part of the National Unit for Serious Crime (NSK) in the Danish police.",
+  "role": null,
+  "org": null,
+  "group": "Police & financial intelligence (FIU)",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://hvidvask.dk/",
+    "title": "Forside | Hvidvasksekretariatet | National enhed for Særlig Kriminalitet",
+    "source_name": "Hvidvasksekretariatet",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

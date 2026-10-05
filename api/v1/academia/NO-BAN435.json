@@ -1,0 +1,22 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "country": "NO",
+  "institution": "NHH",
+  "code": "BAN435",
+  "name": "Blockchain Technology and Applications",
+  "level": "Master, 2.5 ECTS, English",
+  "term": "Autumn 2026",
+  "about": "Whole course on blockchain, incl. Solidity smart contracts",
+  "url": "https://www.nhh.no/en/courses/blockchain-technology-and-applications/",
+  "source": "https://www.nhh.no/en/courses/blockchain-technology-and-applications/",
+  "checked": "2026-10-03",
+  "about_i18n": {},
+  "id": "NO-BAN435",
+  "section": "courses",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/NO-BAN435.json"
+ }
+}

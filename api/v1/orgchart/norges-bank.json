@@ -1,0 +1,59 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "norges-bank",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/norges-bank.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#norges-bank",
+  "name": "Norges Bank (central bank of Norway)",
+  "type": "organisation",
+  "sector": "public",
+  "country": "NO",
+  "description": "Payment system, financial stability, central bank digital money (CBDC) and tokenisation. Concluded in Dec 2025/Mar 2026 that there is no basis for introducing a CBDC now, but keeps testing tokenisation.",
+  "role": null,
+  "org": null,
+  "group": "Central banks",
+  "profile_url": null,
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.norges-bank.no/tema/Om-Norges-Bank/Organisering-styring/Hovedstyret/",
+    "title": "Norges Bank",
+    "source_name": "Norges Bank",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://www.regjeringen.no/no/dep/fin/org/styrer-rad-og-utvalg-oppnevnt-av-finansdepartementet2/norges-banks-hovedstyre/id2577140/",
+    "title": "Regjeringen",
+    "source_name": "Regjeringen",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://www.norges-bank.no/en/topics/about/Organisation/Financial-Stability/",
+    "title": "Norges Bank",
+    "source_name": "Norges Bank",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://www.norges-bank.no/tema/Om-Norges-Bank/Organisering-styring/Finansiell-stabilitet/",
+    "title": "Norges Bank",
+    "source_name": "Norges Bank",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/norges-bank.svg",
+   "source_url": "https://commons.wikimedia.org/wiki/File:Norges_Bank_logo.svg",
+   "author": "Norges Bank",
+   "license": "Public domain",
+   "license_url": null,
+   "credit": "Wikimedia Commons"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

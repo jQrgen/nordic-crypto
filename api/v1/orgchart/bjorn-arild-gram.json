@@ -1,0 +1,54 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "bjorn-arild-gram",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/bjorn-arild-gram.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#bjorn-arild-gram",
+  "name": "Bjørn Arild Gram",
+  "type": "person",
+  "sector": "public",
+  "country": "NO",
+  "description": null,
+  "role": "Second deputy chair (Centre Party)",
+  "org": "stortinget-finanskomiteen",
+  "group": null,
+  "profile_url": "https://www.stortinget.no/no/Representanter-og-komiteer/Representantene/Representant/?perid=BJAG",
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.stortinget.no/no/Representanter-og-komiteer/Representantene/Representant/?perid=BJAG",
+    "title": "Stortinget",
+    "source_name": "Stortinget",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": {
+   "kind": "photo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/people/bjorn-arild-gram.jpg",
+   "source_url": "https://commons.wikimedia.org/wiki/File:Nato-toppm%C3%B8te_i_Madrid_(cropped).jpg",
+   "author": "Statsministerens kontor",
+   "license": "CC BY-SA 2.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+   "credit": "Wikimedia Commons"
+  },
+  "profiles": [
+   {
+    "kind": "wikipedia",
+    "label": "Wikipedia (en)",
+    "url": "https://en.wikipedia.org/wiki/Bj%C3%B8rn_Arild_Gram",
+    "source_url": "https://www.wikidata.org/wiki/Q4919832"
+   },
+   {
+    "kind": "wikidata",
+    "label": "Wikidata",
+    "url": "https://www.wikidata.org/wiki/Q4919832",
+    "source_url": "https://www.wikidata.org/wiki/Q4919832"
+   }
+  ]
+ }
+}

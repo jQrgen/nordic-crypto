@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "kryptoeiendelsloven",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/kryptoeiendelsloven.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#kryptoeiendelsloven",
+  "name": "Crypto-Assets Act (MiCA in Norwegian law)",
+  "type": "organisation",
+  "sector": "public",
+  "country": "NO",
+  "description": "MiCA (EU) 2023/1114 applies as Norwegian law from 1 Jul 2025; transition for registered VASPs until 30 Dec 2025 / until a licence decision.",
+  "role": null,
+  "org": null,
+  "group": "Legislation",
+  "profile_url": null,
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://lovdata.no/dokument/NL/lov/2025-05-27-20",
+    "title": "Lovdata",
+    "source_name": "Lovdata",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

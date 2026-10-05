@@ -1,0 +1,39 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "nkom-kryptoutvinnere",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/nkom-kryptoutvinnere.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#nkom-kryptoutvinnere",
+  "name": "Crypto miners in Nkom's data-centre register",
+  "type": "organisation",
+  "sector": "private",
+  "country": "NO",
+  "description": "Troll Housing AS (97%), Thermaltech AS (100%), Exanorth AS (100%), Currency Edge AS (100%), Arctic Flux AS (95%), Bluebite GmbH (55%), Bluefjords AS (14%), Nordic Blocks AS (1%) – share of capacity used for crypto mining. Two figures with different units: (1) Nkom's list on 3 Oct 2026 – 8 of 60 commercial data-centre operators report crypto mining (in-house data centres are not published). (2) The minister's answer of 18 Sep 2026 (Doc. 15:3707) – 9 registered data centres doing crypto mining.",
+  "role": null,
+  "org": null,
+  "group": "Mining & data centres",
+  "profile_url": null,
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://nkom.no/datasenter/oversikt",
+    "title": "Nkom",
+    "source_name": "Nkom",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Sporsmal/Skriftlige-sporsmal-og-svar/Skriftlig-sporsmal/?qnid=127181",
+    "title": "Stortinget",
+    "source_name": "Stortinget",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

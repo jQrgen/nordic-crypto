@@ -1,0 +1,37 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "eb685890cbc3",
+  "url": "https://www.kaupr.io/nyheter/h100-styrelederen-vil-ha-flere-oppkjop-i-bitcoinbransjen",
+  "html_url": null,
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/eb685890cbc3.json",
+  "title": "H100-styrelederen vil ha flere oppkjøp i bitcoinbransjen",
+  "title_en": "H100 chair wants more acquisitions in the bitcoin industry",
+  "source": "kaupr",
+  "source_name": "Kaupr",
+  "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+  "country": "SE",
+  "language": "Norwegian",
+  "language_code": "no",
+  "published": "2026-09-13T12:00:00+00:00",
+  "topics": [
+   "business",
+   "bitcoin"
+  ],
+  "summary": "Sander Andersen of H100 Group says bitcoin companies worth under a billion dollars need to buy each other, because standing still is the biggest risk.",
+  "summary_i18n": {
+   "nn": "Sander Andersen i H100 Group seier at bitcoinselskap verde under ein milliard dollar må kjøpe kvarandre, fordi det å stå still er den største risikoen.",
+   "nb": "Sander Andersen i H100 Group sier at bitcoinselskaper verdt under en milliard dollar må kjøpe hverandre, fordi det å stå stille er den største risikoen.",
+   "sv": "Sander Andersen på H100 Group säger att bitcoinbolag värda under en miljard dollar måste köpa varandra, eftersom den största risken är att stå still.",
+   "da": "Sander Andersen fra H100 Group siger, at bitcoinselskaber til under en milliard dollar må købe hinanden, fordi den største risiko er at stå stille.",
+   "fi": "H100 Groupin Sander Andersen sanoo, että alle miljardin dollarin arvoisten bitcoinyhtiöiden on ostettava toisiaan, koska paikallaan pysyminen on suurin riski.",
+   "is": "Sander Andersen hjá H100 Group segir að bitcoin-fyrirtæki sem eru minna en milljarðs dollara virði þurfi að kaupa hvert annað, því að standa í stað sé mesta áhættan."
+  },
+  "paywall": false,
+  "links": [],
+  "own_story": false
+ }
+}

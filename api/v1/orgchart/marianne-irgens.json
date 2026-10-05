@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "marianne-irgens",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/marianne-irgens.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#marianne-irgens",
+  "name": "Marianne Irgens",
+  "type": "person",
+  "sector": "public",
+  "country": "NO",
+  "description": "The section is responsible for regulating crypto-assets (MiCA), the securities market and EEA matters.",
+  "role": "Acting Deputy Director General, Section for Insurance and Capital Markets",
+  "org": "fma",
+  "group": null,
+  "profile_url": "https://www.regjeringen.no/no/dep/fin/org/avdelinger/fma/id1551/",
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.regjeringen.no/no/dep/fin/org/avdelinger/fma/id1551/",
+    "title": "Regjeringen",
+    "source_name": "Regjeringen",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "coinmotion",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/coinmotion.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#coinmotion",
+  "name": "Coinmotion",
+  "type": "organisation",
+  "sector": "private",
+  "country": "FI",
+  "description": "Authorised by FIN-FSA as a crypto-asset service provider (2 Jul 2025): custody, exchange for funds, order execution and transfer services. Has chosen K33 as partner for executing larger trades, according to Kaupr.",
+  "role": null,
+  "org": null,
+  "group": "MiCA-licensed providers (CASPs)",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+    "title": "ESMA interim MiCA register (CASPS.csv, checked 3 Oct 2026)",
+    "source_name": "ESMA",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://www.kaupr.io/nyheter/coinmotion-og-k33-inngar-nordisk-kryptosamarbeid-om-institusjonell-handel",
+    "title": "Coinmotion og K33 inngår nordisk kryptosamarbeid om institusjonell handel",
+    "source_name": "Kaupr",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/coinmotion.webp",
+   "source_url": "https://coinmotion.com/wp-content/uploads/2020/06/cm_favicon_light_blue512_.png",
+   "author": null,
+   "license": null,
+   "license_url": null,
+   "credit": "Official website"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

@@ -1,0 +1,53 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "intl-d-fine",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/intl-d-fine.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#intl-d-fine",
+  "name": "d-fine (d-fine AB)",
+  "type": "organisation",
+  "sector": "private",
+  "country": "SE",
+  "description": "European quantitative and technology consultancy whose areas include blockchain and digital assets. It has a local office in Stockholm through d-fine AB, which leads its Nordic activities.",
+  "role": null,
+  "org": null,
+  "group": "International players in the Nordics",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.d-fine.com/en/locations/sweden/",
+    "title": "d-fine – Sweden (Stockholm office)",
+    "source_name": "d-fine",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://www.allabolag.se/5594082637",
+    "title": "d-fine AB – (Bolagsverket data)",
+    "source_name": "Allabolag (Bolagsverket data)",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://www.kaupr.io/pages/d-fine",
+    "title": "d-fine – company profile (Onchain Pages)",
+    "source_name": "Kaupr",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/intl-d-fine.svg",
+   "source_url": "https://www.d-fine.com/fileadmin/templates/img/d-fine_logo-blue_RGB.svg",
+   "author": null,
+   "license": null,
+   "license_url": null,
+   "credit": "Official website"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

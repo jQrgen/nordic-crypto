@@ -1,0 +1,41 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "myntkaup",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/myntkaup.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#myntkaup",
+  "name": "Myntkaup",
+  "type": "organisation",
+  "sector": "private",
+  "country": "IS",
+  "description": "Authorised by the Central Bank of Iceland as a crypto-asset service provider (25 Jun 2026): custody, exchange for funds and for other crypto-assets, and transfer services.",
+  "role": null,
+  "org": null,
+  "group": "MiCA-licensed providers (CASPs)",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+    "title": "ESMA interim MiCA register (CASPS.csv, checked 3 Oct 2026)",
+    "source_name": "ESMA",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/myntkaup.svg",
+   "source_url": "https://myntkaup.is/images/logoBlack.svg",
+   "author": null,
+   "license": null,
+   "license_url": null,
+   "credit": "Official website"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

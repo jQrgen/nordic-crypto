@@ -1,0 +1,39 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "filip-berg-nielsen",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/filip-berg-nielsen.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#filip-berg-nielsen",
+  "name": "Filip Berg-Nielsen",
+  "type": "person",
+  "sector": "private",
+  "country": "NO",
+  "description": null,
+  "role": "CEO",
+  "org": "tyr-markets",
+  "group": null,
+  "profile_url": "https://www.finanstilsynet.no/nyhetsarkiv/nyheter/2026/tyr-markets-as-far-tillatelse-som-casp-foretak/",
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.finanstilsynet.no/nyhetsarkiv/nyheter/2026/tyr-markets-as-far-tillatelse-som-casp-foretak/",
+    "title": "Finanstilsynet",
+    "source_name": "Finanstilsynet",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://kommunikasjon.ntb.no/pressemelding/18916374/tyr-markets-er-tildelt-norges-forste-mica-lisens-etter-artikkel-63?lang=no&publisherId=17850436",
+    "title": "NTB Kommunikasjon",
+    "source_name": "NTB Kommunikasjon",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

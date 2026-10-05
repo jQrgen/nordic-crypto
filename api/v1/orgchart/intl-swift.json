@@ -1,0 +1,53 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "intl-swift",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/intl-swift.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#intl-swift",
+  "name": "Swift (S.W.I.F.T. Nordic AB)",
+  "type": "organisation",
+  "sector": "private",
+  "country": "SE",
+  "description": "Global financial messaging network for banks. Its Swedish subsidiary S.W.I.F.T. Nordic AB has an office in Stockholm. In September 2025 Swift announced a blockchain-based shared ledger for regulated tokenised value.",
+  "role": null,
+  "org": null,
+  "group": "International players in the Nordics",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.allabolag.se/5566438007",
+    "title": "S.W.I.F.T. Nordic AB – (Bolagsverket data)",
+    "source_name": "Allabolag (Bolagsverket data)",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://www.kaupr.io/pages/swift",
+    "title": "SWIFT – company profile (Onchain Pages)",
+    "source_name": "Kaupr",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://www.swift.com/news-events/press-releases/swift-add-blockchain-based-ledger-its-infrastructure-stack-groundbreaking-move-accelerate-and-scale-benefits-digital-finance",
+    "title": "Swift to add blockchain-based ledger to its infrastructure stack",
+    "source_name": "Swift",
+    "date": "2025-09-29"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/intl-swift.svg",
+   "source_url": "https://commons.wikimedia.org/wiki/File:SWIFT_2023_logo.svg",
+   "author": null,
+   "license": "Public domain",
+   "license_url": null,
+   "credit": "Wikimedia Commons"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

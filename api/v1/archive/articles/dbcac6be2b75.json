@@ -1,0 +1,46 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "dbcac6be2b75",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/dbcac6be2b75.json",
+  "site": "nordic-crypto",
+  "url": "https://www.nettavisen.no/krypto/etterforskning/hordaland-tingrett/fant-hemmelig-passord-laste-opp-krypto-lommeboken/s/80-95-105422",
+  "canonical_url": "https://nettavisen.no/krypto/etterforskning/hordaland-tingrett/fant-hemmelig-passord-laste-opp-krypto-lommeboken/s/80-95-105422",
+  "title": "Fant hemmelig passord: Låste opp krypto-lommeboken",
+  "titles": {
+   "en": "Found secret password: unlocked the crypto wallet"
+  },
+  "source": "nettavisen",
+  "source_name": "Nettavisen",
+  "country": "NO",
+  "published_at": "2026-09-25T19:16:00+00:00",
+  "first_published_on_site": "2026-10-03T18:28:21+02:00",
+  "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+  "languages": [
+   "en",
+   "nn",
+   "nb",
+   "sv",
+   "da",
+   "fi",
+   "is"
+  ],
+  "summaries": {
+   "en": "Police have unlocked the crypto wallet of an NHH student charged in a drug case, uncovering assets worth several hundred thousand kroner.",
+   "nn": "Politiet har låst opp kryptolommeboka til ein NHH-student som er tiltalt i ei narkotikasak, og funne verdiar for fleire hundre tusen kroner.",
+   "nb": "Politiet har låst opp kryptolommeboken til en NHH-student som er tiltalt i en narkotikasak, og funnet verdier for flere hundre tusen kroner.",
+   "sv": "Polisen har låst upp kryptoplånboken hos en NHH-student som åtalats i ett narkotikamål och hittat tillgångar värda flera hundra tusen kronor.",
+   "da": "Politiet har låst kryptotegnebogen op hos en NHH-studerende, der er tiltalt i en narkosag, og fundet værdier for flere hundrede tusind kroner.",
+   "fi": "Poliisi on avannut huumejutussa syytetyn NHH-opiskelijan kryptolompakon ja löytänyt varoja useiden satojen tuhansien kruunujen arvosta.",
+   "is": "Lögreglan hefur opnað rafmyntaveski NHH-nema sem ákærður er í fíkniefnamáli og fundið eignir að verðmæti nokkur hundruð þúsund króna."
+  },
+  "topics": [
+   "crime"
+  ],
+  "removed": false,
+  "removed_at": null
+ }
+}

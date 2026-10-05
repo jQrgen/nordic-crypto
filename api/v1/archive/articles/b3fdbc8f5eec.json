@@ -1,0 +1,47 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "b3fdbc8f5eec",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/b3fdbc8f5eec.json",
+  "site": "nordic-crypto",
+  "url": "https://www.dagensps.se/bors-finans/fintech/kryptovalutor/krypto-jatten-rundar-reglerna-i-europa-riskerar-att-kastas-ut/",
+  "canonical_url": "https://dagensps.se/bors-finans/fintech/kryptovalutor/krypto-jatten-rundar-reglerna-i-europa-riskerar-att-kastas-ut",
+  "title": "Krypto-jätten rundar reglerna i Europa: Riskerar att kastas ut",
+  "titles": {
+   "en": "Crypto giant skirts the rules in Europe and risks being thrown out"
+  },
+  "source": "dagensps.se",
+  "source_name": "Dagens PS",
+  "country": "SE",
+  "published_at": "2026-10-01T01:31:00+00:00",
+  "first_published_on_site": "2026-10-03T17:59:40+02:00",
+  "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+  "languages": [
+   "en",
+   "nn",
+   "nb",
+   "sv",
+   "da",
+   "fi",
+   "is"
+  ],
+  "summaries": {
+   "en": "Binance said it would leave Europe, but customers are still trading, and EU financial authorities now want to know how.",
+   "nn": "Binance sa at selskapet skulle forlate Europa, men kundane handlar framleis, og finansstyresmaktene i EU vil no vite korleis.",
+   "nb": "Binance sa at selskapet skulle forlate Europa, men kundene handler fortsatt, og EUs finansmyndigheter vil nå vite hvordan.",
+   "sv": "Binance sa att bolaget skulle lämna Europa, men kunderna handlar fortfarande, och EU:s finansmyndigheter vill nu veta hur.",
+   "da": "Binance sagde, at selskabet ville forlade Europa, men kunderne handler stadig, og EU's finansmyndigheder vil nu vide hvordan.",
+   "fi": "Binance sanoi lähtevänsä Euroopasta, mutta asiakkaat käyvät yhä kauppaa, ja EU:n rahoitusviranomaiset haluavat nyt tietää, miten.",
+   "is": "Binance sagðist ætla að yfirgefa Evrópu, en viðskiptavinir eiga enn viðskipti og fjármálayfirvöld ESB vilja nú vita hvernig."
+  },
+  "topics": [
+   "regulation",
+   "mica"
+  ],
+  "removed": false,
+  "removed_at": null
+ }
+}

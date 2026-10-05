@@ -1,0 +1,41 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "bittimaatti",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/bittimaatti.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#bittimaatti",
+  "name": "Bittimaatti",
+  "type": "organisation",
+  "sector": "private",
+  "country": "FI",
+  "description": "Authorised by FIN-FSA as a crypto-asset service provider (12 Sep 2025): exchange of crypto-assets for funds.",
+  "role": null,
+  "org": null,
+  "group": "MiCA-licensed providers (CASPs)",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+    "title": "ESMA interim MiCA register (CASPS.csv, checked 3 Oct 2026)",
+    "source_name": "ESMA",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/bittimaatti.webp",
+   "source_url": "https://bittimaatti.fi/wp-content/uploads/2025/01/bittimaatti_logo_UusiSininen1000px-2.png",
+   "author": null,
+   "license": null,
+   "license_url": null,
+   "credit": "Official website"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

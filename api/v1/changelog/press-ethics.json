@@ -1,0 +1,40 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "press-ethics",
+  "date": "2026-10-05",
+  "title": "Editorial ethics",
+  "description": "Editorial ethics says Nordic Crypto follows Vær Varsom-plakaten. A named editor approves everything. The complaint address on the page is TBA. The page is at /ethics/, linked from About and the footer, in every site language.",
+  "i18n": {
+   "nn": {
+    "title": "Redaksjonsetikk",
+    "description": "Redaksjonsetikk seier at Nordic Crypto følgjer Vær Varsom-plakaten. Ein namngitt redaktør godkjenner alt. Adressa for klagar på sida er TBA. Sida ligg på /ethics/, med lenkje frå Om oss og botteksten, på alle språka til nettstaden."
+   },
+   "nb": {
+    "title": "Redaksjonsetikk",
+    "description": "Redaksjonsetikk sier at Nordic Crypto følger Vær Varsom-plakaten. En navngitt redaktør godkjenner alt. Adressen for klager på siden er TBA. Siden ligger på /ethics/, med lenke fra Om oss og bunnteksten, på alle språkene til nettstedet."
+   },
+   "sv": {
+    "title": "Redaktionell etik",
+    "description": "Redaktionell etik säger att Nordic Crypto följer Vær Varsom-plakaten. En namngiven redaktör godkänner allt. Adressen för klagomål på sidan är TBA. Sidan ligger på /ethics/, med länk från Om oss och sidfoten, på sajtens alla språk."
+   },
+   "da": {
+    "title": "Redaktionel etik",
+    "description": "Redaktionel etik siger, at Nordic Crypto følger Vær Varsom-plakaten. En navngiven redaktør godkender alt. Adressen for klager på siden er TBA. Siden ligger på /ethics/, med link fra Om os og sidefoden, på alle sitets sprog."
+   },
+   "fi": {
+    "title": "Toimituksen etiikka",
+    "description": "Toimituksen etiikka kertoo, että Nordic Crypto noudattaa Vær Varsom-plakaten -ohjeistoa. Nimetty toimittaja hyväksyy kaiken. Kanteluiden osoite sivulla on TBA. Sivu on polussa /ethics/, ja siihen on linkki Tietoa meistä -sivulta ja alatunnisteesta kaikilla sivuston kielillä."
+   },
+   "is": {
+    "title": "Siðareglur ritstjórnar",
+    "description": "Siðareglur ritstjórnar segja að Nordic Crypto fylgi Vær Varsom-plakaten. Nafngreindur ritstjóri samþykkir allt. Heimilisfangið fyrir kvartanir á síðunni er TBA. Síðan er á /ethics/, með tengli frá Um okkur og í fæti, á öllum tungumálum síðunnar."
+   }
+  },
+  "html_url": "https://jqrgen.github.io/nordic-crypto/changelog/#press-ethics",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/press-ethics.json"
+ }
+}

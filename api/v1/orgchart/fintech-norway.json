@@ -1,0 +1,41 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "fintech-norway",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/fintech-norway.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#fintech-norway",
+  "name": "Fintech Norway",
+  "type": "organisation",
+  "sector": "private",
+  "country": "NO",
+  "description": "Industry association for fintech; no documented specific crypto role.",
+  "role": null,
+  "org": null,
+  "group": "Associations & communities",
+  "profile_url": null,
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/926447424/roller",
+    "title": "data.brreg.no",
+    "source_name": "data.brreg.no",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/fintech-norway.webp",
+   "source_url": "https://fintechnorway.com/wp-content/uploads/2024/10/FTN_Logo.png",
+   "author": null,
+   "license": null,
+   "license_url": null,
+   "credit": "Official website"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

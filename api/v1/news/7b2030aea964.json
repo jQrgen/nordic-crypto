@@ -1,0 +1,37 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "7b2030aea964",
+  "url": "https://www.realtid.se/bors-finans/kryptojatten-i-ny-kontrovers-erbjod-tjanster-i-europa-utan-licens/",
+  "html_url": null,
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/7b2030aea964.json",
+  "title": "Kryptojätten i ny kontrovers – erbjöd tjänster i Europa utan licens",
+  "title_en": "Crypto giant in new controversy: offered services in Europe without a licence",
+  "source": "realtid",
+  "source_name": "Realtid",
+  "source_note": null,
+  "country": "SE",
+  "language": "Swedish",
+  "language_code": "sv",
+  "published": "2026-10-01T11:04:00+00:00",
+  "topics": [
+   "regulation",
+   "mica"
+  ],
+  "summary": "Binance is under investigation for allegedly offering services in Europe without the licence required under the EU's new crypto rules.",
+  "summary_i18n": {
+   "nn": "Binance blir etterforska fordi selskapet skal ha tilbode tenester i Europa utan løyvet som dei nye kryptoreglane i EU krev.",
+   "nb": "Binance etterforskes for angivelig å ha tilbudt tjenester i Europa uten tillatelsen EUs nye kryptoregler krever.",
+   "sv": "Binance utreds för att bolaget misstänks ha erbjudit tjänster i Europa utan det tillstånd som EU:s nya kryptoregler kräver.",
+   "da": "Binance efterforskes for angiveligt at have tilbudt tjenester i Europa uden den tilladelse, som EU's nye kryptoregler kræver.",
+   "fi": "Binancea tutkitaan, koska sen epäillään tarjonneen palveluja Euroopassa ilman EU:n uusien kryptosääntöjen edellyttämää toimilupaa.",
+   "is": "Binance er til rannsóknar vegna gruns um að hafa boðið þjónustu í Evrópu án leyfisins sem nýjar rafmyntareglur ESB krefjast."
+  },
+  "paywall": false,
+  "links": [],
+  "own_story": false
+ }
+}

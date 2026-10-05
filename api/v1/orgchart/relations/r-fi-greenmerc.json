@@ -1,0 +1,22 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "r-fi-greenmerc",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/r-fi-greenmerc.json",
+  "from": "se-fi",
+  "to": "greenmerc",
+  "type": "refused",
+  "label": "Refused a MiCA licence",
+  "sources": [
+   {
+    "url": "https://www.fi.se/sv/publicerat/nyheter/2026/kryptobolag-utan-tillstand-ska-avveckla-sin-verksamhet-i-eu/",
+    "title": "Kryptobolag utan tillstånd ska avveckla sin verksamhet i EU",
+    "source_name": "Finansinspektionen",
+    "date": "2026-07-01"
+   }
+  ]
+ }
+}

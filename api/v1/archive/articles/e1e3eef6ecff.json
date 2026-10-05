@@ -1,0 +1,47 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "e1e3eef6ecff",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/e1e3eef6ecff.json",
+  "site": "nordic-crypto",
+  "url": "https://www.inderes.se/en/releases/nbx-nbx-registered-as-moneygram-agent",
+  "canonical_url": "https://inderes.se/en/releases/nbx-nbx-registered-as-moneygram-agent",
+  "title": "NBX registrert som MoneyGram-agent (børsmelding, engelsk)",
+  "titles": {
+   "en": "NBX registered as a MoneyGram agent (stock exchange release)"
+  },
+  "source": "nbx-ir",
+  "source_name": "NBX (børsmelding)",
+  "country": "NO",
+  "published_at": "2026-09-17T12:00:00+00:00",
+  "first_published_on_site": "2026-10-03T18:28:21+02:00",
+  "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+  "languages": [
+   "en",
+   "nn",
+   "nb",
+   "sv",
+   "da",
+   "fi",
+   "is"
+  ],
+  "summaries": {
+   "en": "Norwegian Block Exchange (NBX), listed on Euronext Growth Oslo, has been registered as an agent for MoneyGram International.",
+   "nn": "Norwegian Block Exchange (NBX), notert på Euronext Growth Oslo, er registrert som agent for MoneyGram International.",
+   "nb": "Norwegian Block Exchange (NBX), notert på Euronext Growth Oslo, er registrert som agent for MoneyGram International.",
+   "sv": "Norwegian Block Exchange (NBX), noterat på Euronext Growth Oslo, har registrerats som ombud för MoneyGram International.",
+   "da": "Norwegian Block Exchange (NBX), der er noteret på Euronext Growth Oslo, er registreret som agent for MoneyGram International.",
+   "fi": "Euronext Growth Oslossa listattu Norwegian Block Exchange (NBX) on rekisteröity MoneyGram Internationalin asiamieheksi.",
+   "is": "Norwegian Block Exchange (NBX), sem skráð er á Euronext Growth Oslo, hefur verið skráð sem umboðsaðili MoneyGram International."
+  },
+  "topics": [
+   "business",
+   "payments"
+  ],
+  "removed": false,
+  "removed_at": null
+ }
+}

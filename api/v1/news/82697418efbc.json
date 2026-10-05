@@ -1,0 +1,36 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "82697418efbc",
+  "url": "https://www.kaupr.io/nyheter/kvarn-avviser-at-goobit-avtalen-er-agentforhold-eller-outsourcing",
+  "html_url": null,
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/82697418efbc.json",
+  "title": "Kvarn avviser at Goobit-avtalen er agentforhold eller outsourcing",
+  "title_en": "Kvarn denies the Goobit deal is an agency or outsourcing arrangement",
+  "source": "kaupr",
+  "source_name": "Kaupr",
+  "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+  "country": "SE",
+  "language": "Norwegian",
+  "language_code": "no",
+  "published": "2026-09-15T12:00:00+00:00",
+  "topics": [
+   "mica"
+  ],
+  "summary": "Kvarn Capital argues its partnership with Sweden's Goobit falls outside MiCA's ban on agents and its outsourcing rules.",
+  "summary_i18n": {
+   "nn": "Kvarn Capital meiner samarbeidet med svenske Goobit fell utanfor MiCA-forbodet mot agentar og reglane om utkontraktering.",
+   "nb": "Kvarn Capital mener samarbeidet med svenske Goobit faller utenfor MiCAs forbud mot agenter og reglene om utkontraktering.",
+   "sv": "Kvarn Capital menar att samarbetet med svenska Goobit faller utanför MiCA:s förbud mot ombud och reglerna om uppdragsavtal.",
+   "da": "Kvarn Capital mener, at samarbejdet med svenske Goobit falder uden for MiCA's forbud mod agenter og reglerne om outsourcing.",
+   "fi": "Kvarn Capital katsoo, että sen yhteistyö ruotsalaisen Goobitin kanssa jää MiCA:n asiamieskiellon ja ulkoistamissääntöjen ulkopuolelle.",
+   "is": "Kvarn Capital telur að samstarf þess við sænska Goobit falli utan banns MiCA við umboðsmönnum og reglna um útvistun."
+  },
+  "paywall": false,
+  "links": [],
+  "own_story": false
+ }
+}

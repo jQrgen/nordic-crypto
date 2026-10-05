@@ -1,0 +1,60 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "tuva-moflag",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/tuva-moflag.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#tuva-moflag",
+  "name": "Tuva Moflag",
+  "type": "person",
+  "sector": "public",
+  "country": "NO",
+  "description": null,
+  "role": "Chair (Labour)",
+  "org": "stortinget-finanskomiteen",
+  "group": null,
+  "profile_url": "https://www.stortinget.no/no/Representanter-og-komiteer/Representantene/Representant/?perid=TUMO",
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.stortinget.no/no/Representanter-og-komiteer/Representantene/Representant/?perid=TUMO",
+    "title": "Stortinget",
+    "source_name": "Stortinget",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": {
+   "kind": "photo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/people/tuva-moflag.jpg",
+   "source_url": "https://commons.wikimedia.org/wiki/File:Tuva_Moflag.jpg",
+   "author": "Johannes Dalen Giske",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "credit": "Wikimedia Commons"
+  },
+  "profiles": [
+   {
+    "kind": "wikipedia",
+    "label": "Wikipedia (en)",
+    "url": "https://en.wikipedia.org/wiki/Tuva_Moflag",
+    "source_url": "https://www.wikidata.org/wiki/Q25427910"
+   },
+   {
+    "kind": "x",
+    "label": "X",
+    "url": "https://x.com/TuvaMoflag",
+    "source_url": "https://www.wikidata.org/wiki/Q25427910"
+   },
+   {
+    "kind": "wikidata",
+    "label": "Wikidata",
+    "url": "https://www.wikidata.org/wiki/Q25427910",
+    "source_url": "https://www.wikidata.org/wiki/Q25427910"
+   }
+  ]
+ }
+}

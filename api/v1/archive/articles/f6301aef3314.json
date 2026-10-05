@@ -1,0 +1,45 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "f6301aef3314",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/f6301aef3314.json",
+  "site": "nordic-crypto",
+  "url": "https://www.finanssivalvonta.fi/en/publications-and-press-releases/news-releases/2026/crypto-asset-service-providers-in-finland-must-be-authorised-in-the-eu/",
+  "canonical_url": "https://finanssivalvonta.fi/en/publications-and-press-releases/news-releases/2026/crypto-asset-service-providers-in-finland-must-be-authorised-in-the-eu",
+  "title": "Crypto-asset service providers in Finland must be authorised in the EU",
+  "titles": {},
+  "source": "finanssivalvonta",
+  "source_name": "Finanssivalvonta",
+  "country": "FI",
+  "published_at": "2026-06-30T12:00:00+00:00",
+  "first_published_on_site": "2026-10-03T17:59:40+02:00",
+  "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+  "languages": [
+   "en",
+   "nn",
+   "nb",
+   "sv",
+   "da",
+   "fi",
+   "is"
+  ],
+  "summaries": {
+   "en": "Finland's FIN-FSA reminds firms that crypto-asset service providers serving Finland must hold an EU (MiCA) authorisation.",
+   "nn": "Finske Finanssivalvonta minner om at tilbydarar av kryptoeigedelstenester som tener Finland, må ha EU-løyve (MiCA).",
+   "nb": "Finske Finanssivalvonta minner om at tilbydere av kryptoeiendelstjenester som betjener Finland, må ha EU-tillatelse (MiCA).",
+   "sv": "Finska Finanssivalvonta påminner om att leverantörer av kryptotillgångstjänster som betjänar Finland måste ha ett EU-tillstånd (MiCA).",
+   "da": "Det finske finanstilsyn, Finanssivalvonta, minder om, at udbydere af kryptoaktivtjenester, der betjener Finland, skal have en EU-tilladelse (MiCA).",
+   "fi": "Finanssivalvonta muistuttaa, että Suomessa palveluja tarjoavilla kryptovarapalvelujen tarjoajilla on oltava EU:n (MiCA) toimilupa.",
+   "is": "Finnska fjármálaeftirlitið minnir á að þjónustuveitendur sýndareigna sem þjóna Finnlandi verða að hafa leyfi innan ESB (MiCA)."
+  },
+  "topics": [
+   "mica",
+   "regulation"
+  ],
+  "removed": false,
+  "removed_at": null
+ }
+}

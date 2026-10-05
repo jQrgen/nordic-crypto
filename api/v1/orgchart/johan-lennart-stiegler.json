@@ -1,0 +1,39 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "johan-lennart-stiegler",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/johan-lennart-stiegler.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#johan-lennart-stiegler",
+  "name": "Johan Lennart Stiegler",
+  "type": "person",
+  "sector": "private",
+  "country": "NO",
+  "description": null,
+  "role": "CEO",
+  "org": "ak-jensen-norway",
+  "group": null,
+  "profile_url": "https://www.finanstilsynet.no/virksomhetsregisteret/detalj/?id=213970",
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.finanstilsynet.no/virksomhetsregisteret/detalj/?id=213970",
+    "title": "Finanstilsynet",
+    "source_name": "Finanstilsynet",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/925510246/roller",
+    "title": "data.brreg.no",
+    "source_name": "data.brreg.no",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

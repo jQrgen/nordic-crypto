@@ -1,0 +1,39 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "ole-morten-sunde",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/ole-morten-sunde.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#ole-morten-sunde",
+  "name": "Ole Morten Sunde",
+  "type": "person",
+  "sector": "private",
+  "country": "NO",
+  "description": null,
+  "role": "Head of Emerging Business",
+  "org": "dnb",
+  "group": null,
+  "profile_url": "https://www.bankshift.no/nyheter/dnb-om-token-okonomien-vi-er-ikke-drevet-av-frykt-for-a-miste-kunder-men-av-a-vaere-relevante/437638",
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": true,
+  "sources": [
+   {
+    "url": "https://www.bankshift.no/nyheter/dnb-om-token-okonomien-vi-er-ikke-drevet-av-frykt-for-a-miste-kunder-men-av-a-vaere-relevante/437638",
+    "title": "BankShift",
+    "source_name": "BankShift",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://www.kaupr.io/en/news/dnb-tests-tokenised-deposits-in-kroner-with-european-banks",
+    "title": "Kaupr",
+    "source_name": "Kaupr",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

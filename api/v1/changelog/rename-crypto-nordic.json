@@ -1,0 +1,40 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "rename-crypto-nordic",
+  "date": "2026-10-05",
+  "title": "The name is Nordic Crypto",
+  "description": "The site is called Nordic Crypto. The newsletter signup links to https://cryptonordic.substack.com/subscribe. The domain cryptonordic.no and the X account @xcryptonordic stay as they are.",
+  "i18n": {
+   "nb": {
+    "title": "Navnet er Nordic Crypto",
+    "description": "Nettstedet heter Nordic Crypto. Påmeldingen til nyhetsbrevet lenker til https://cryptonordic.substack.com/subscribe. Domenet cryptonordic.no og X-kontoen @xcryptonordic er som før."
+   },
+   "nn": {
+    "title": "Namnet er Nordic Crypto",
+    "description": "Nettstaden heiter Nordic Crypto. Påmeldinga til nyheitsbrevet lenkjer til https://cryptonordic.substack.com/subscribe. Domenet cryptonordic.no og X-kontoen @xcryptonordic er som før."
+   },
+   "sv": {
+    "title": "Namnet är Nordic Crypto",
+    "description": "Webbplatsen heter Nordic Crypto. Anmälan till nyhetsbrevet länkar till https://cryptonordic.substack.com/subscribe. Domänen cryptonordic.no och X-kontot @xcryptonordic är som förut."
+   },
+   "da": {
+    "title": "Navnet er Nordic Crypto",
+    "description": "Sitet hedder Nordic Crypto. Tilmeldingen til nyhedsbrevet linker til https://cryptonordic.substack.com/subscribe. Domænet cryptonordic.no og X-kontoen @xcryptonordic er som før."
+   },
+   "fi": {
+    "title": "Nimi on Nordic Crypto",
+    "description": "Sivuston nimi on Nordic Crypto. Uutiskirjeen tilauslinkki vie osoitteeseen https://cryptonordic.substack.com/subscribe. Verkkotunnus cryptonordic.no ja X-tili @xcryptonordic pysyvät ennallaan."
+   },
+   "is": {
+    "title": "Nafnið er Nordic Crypto",
+    "description": "Vefurinn heitir Nordic Crypto. Skráning á fréttabréfið vísar á https://cryptonordic.substack.com/subscribe. Lénið cryptonordic.no og X-reikningurinn @xcryptonordic eru óbreytt."
+   }
+  },
+  "html_url": "https://jqrgen.github.io/nordic-crypto/changelog/#rename-crypto-nordic",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/rename-crypto-nordic.json"
+ }
+}

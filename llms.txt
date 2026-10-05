@@ -1,0 +1,65 @@
+# Nordic Crypto
+
+> Public JSON feed of Nordic crypto news, newsletters, events, sources, academia and the who's who. No account. No API key.
+
+Nordic Crypto covers Norway, Sweden, Denmark, Finland and Iceland. The sign-off is The Nordic Crypto team. Kaupr (kaupr.io) is a news source only and is never a sponsor. Summaries are ours, in English, with translations in summary_i18n (nn, nb, sv, da, fi, is) when published. External headlines stay in the original language.
+
+GitHub Pages sends Access-Control-Allow-Origin: * on every JSON file, so a browser can fetch them from any site. Use the file name (index.json). A directory URL does not serve the JSON.
+
+GitHub Pages base: https://jqrgen.github.io/nordic-crypto/
+Custom domain base (same paths at the root): https://cryptonordic.no/
+Swap the base to move between the two. HTTPS on cryptonordic.no is the intended public name once the certificate matches that domain.
+
+## Start here
+
+- [Discovery](https://jqrgen.github.io/nordic-crypto/api/v1/index.json): every endpoint, counts, and example URLs.
+- [Human docs](https://jqrgen.github.io/nordic-crypto/api/): the same catalogue as a web page.
+- [OpenAPI JSON](https://jqrgen.github.io/nordic-crypto/api/v1/openapi.json): OpenAPI 3.0.
+- [OpenAPI YAML](https://jqrgen.github.io/nordic-crypto/api/v1/openapi.yaml): the same document.
+- [API catalog](https://jqrgen.github.io/nordic-crypto/.well-known/api-catalog): RFC 9727 linkset. A .json copy is at https://jqrgen.github.io/nordic-crypto/.well-known/api-catalog.json.
+- [Site meta](https://jqrgen.github.io/nordic-crypto/api/v1/meta.json): languages, countries, page list, CORS.
+
+## Fetch news and newsletters
+
+```
+curl -fsS https://jqrgen.github.io/nordic-crypto/api/v1/news.json
+curl -fsS https://jqrgen.github.io/nordic-crypto/api/v1/newsletters.json
+curl -fsS https://jqrgen.github.io/nordic-crypto/api/v1/newsletters/001.json
+```
+
+A single news item is api/v1/news/{id}.json (the id is on each item). A single newsletter issue is api/v1/newsletters/{id}.json and includes plain text and HTML. Country slices: api/v1/news/by-country/NO.json (also SE, DK, FI, IS).
+
+## Endpoints
+
+- [/api/v1/index.json](https://jqrgen.github.io/nordic-crypto/api/v1/index.json): Discovery document: every endpoint, with example URLs.
+- [/api/v1/news.json](https://jqrgen.github.io/nordic-crypto/api/v1/news.json): Published news and our own stories, newest first.
+- [/api/v1/news/by-country/{country}.json](https://jqrgen.github.io/nordic-crypto/api/v1/news/by-country/{country}.json): Published news for one country code: NO, SE, DK, FI, IS, NORDIC or EU.
+- [/api/v1/news/topics.json](https://jqrgen.github.io/nordic-crypto/api/v1/news/topics.json): Topic ids present in the published news, with counts.
+- [/api/v1/newsletters.json](https://jqrgen.github.io/nordic-crypto/api/v1/newsletters.json): Published newsletter issues, newest first. The list omits the HTML body; the issue URL includes text and html.
+- [/api/v1/events.json](https://jqrgen.github.io/nordic-crypto/api/v1/events.json): Public events, soonest start first, including past events.
+- [/api/v1/events/upcoming.json](https://jqrgen.github.io/nordic-crypto/api/v1/events/upcoming.json): Events that have not ended, soonest first. Judged in the event's own offset.
+- [/api/v1/events/past.json](https://jqrgen.github.io/nordic-crypto/api/v1/events/past.json): Finished public events, newest first. Finished events stay in the archive.
+- [/api/v1/events/by-country/{country}.json](https://jqrgen.github.io/nordic-crypto/api/v1/events/by-country/{country}.json): Public events for one country code.
+- [/api/v1/sources.json](https://jqrgen.github.io/nordic-crypto/api/v1/sources.json): News outlets, the public search terms, and event sources. Kaupr is marked as a news source only.
+- [/api/v1/academia.json](https://jqrgen.github.io/nordic-crypto/api/v1/academia.json): Editor-approved courses, student groups, publications and research.
+- [/api/v1/academia/courses.json](https://jqrgen.github.io/nordic-crypto/api/v1/academia/courses.json): Academia section: courses.
+- [/api/v1/academia/groups.json](https://jqrgen.github.io/nordic-crypto/api/v1/academia/groups.json): Academia section: groups.
+- [/api/v1/academia/publications.json](https://jqrgen.github.io/nordic-crypto/api/v1/academia/publications.json): Academia section: publications.
+- [/api/v1/academia/research.json](https://jqrgen.github.io/nordic-crypto/api/v1/academia/research.json): Academia section: research.
+- [/api/v1/academia/{id}.json](https://jqrgen.github.io/nordic-crypto/api/v1/academia/{id}.json): One academia row. The id is in academia.json.
+- [/api/v1/orgchart.json](https://jqrgen.github.io/nordic-crypto/api/v1/orgchart.json): Published who's who: organisations, people, relations, regulation notes and caveats.
+- [/api/v1/orgchart/relations.json](https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations.json): Relations between published who's who entries.
+- [/api/v1/orgchart/regulation.json](https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/regulation.json): Short regulation status for each Nordic country, as on the who's who page.
+- [/api/v1/orgchart/relations/{id}.json](https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/{id}.json): One relation from the who's who.
+- [/api/v1/profiles.json](https://jqrgen.github.io/nordic-crypto/api/v1/profiles.json): Public profile links (Wikipedia, X, Wikidata and similar) for people and organisations.
+- [/api/v1/images.json](https://jqrgen.github.io/nordic-crypto/api/v1/images.json): Logos and photos used on the public who's who, with licence and credit.
+- [/api/v1/changelog.json](https://jqrgen.github.io/nordic-crypto/api/v1/changelog.json): Site changelog (product changes, not the news), newest first.
+- [/api/v1/rules.json](https://jqrgen.github.io/nordic-crypto/api/v1/rules.json): How EU crypto rules become law in the five countries. Simplified, not legal advice. Omitted while the page is still a placeholder.
+- [/api/v1/archive/articles.json](https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles.json): Append-only archive of stories that have been on the public site. removed is  true when a story later left the site; the row stays.
+- [/api/v1/meta.json](https://jqrgen.github.io/nordic-crypto/api/v1/meta.json): Site name, languages, countries, page list, CORS and editorial notes.
+
+## Not in this feed
+
+Drafts, the editor queue, rejected stories, reader tips, newsletter subscriber addresses, analytics tokens, and private personal data are not published.
+
+## The Nordic Crypto team

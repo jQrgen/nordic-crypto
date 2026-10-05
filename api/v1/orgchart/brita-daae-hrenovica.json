@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "brita-daae-hrenovica",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/brita-daae-hrenovica.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#brita-daae-hrenovica",
+  "name": "Brita Daae Hrenovica",
+  "type": "person",
+  "sector": "public",
+  "country": "NO",
+  "description": "AML supervision, including crypto-asset service providers (TFR II).",
+  "role": "Head of Section, Anti-Money Laundering",
+  "org": "finanstilsynet",
+  "group": null,
+  "profile_url": "https://www.finanstilsynet.no/globalassets/om-finanstilsynet/organisasjonskart.pdf",
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.finanstilsynet.no/globalassets/om-finanstilsynet/organisasjonskart.pdf",
+    "title": "Finanstilsynet",
+    "source_name": "Finanstilsynet",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

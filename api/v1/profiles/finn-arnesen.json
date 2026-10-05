@@ -1,0 +1,27 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "entity_id": "finn-arnesen",
+  "name": "Finn Arnesen",
+  "type": "person",
+  "country": "NO",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/finn-arnesen.json",
+  "links": [
+   {
+    "kind": "wikipedia",
+    "label": "Wikipedia (nb)",
+    "url": "https://no.wikipedia.org/wiki/Finn_Arnesen_(jurist)",
+    "source_url": "https://www.wikidata.org/wiki/Q16167804"
+   },
+   {
+    "kind": "wikidata",
+    "label": "Wikidata",
+    "url": "https://www.wikidata.org/wiki/Q16167804",
+    "source_url": "https://www.wikidata.org/wiki/Q16167804"
+   }
+  ]
+ }
+}

@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "btchel",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/btchel.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#btchel",
+  "name": "BTCHEL – Nordic Bitcoin Conference",
+  "type": "organisation",
+  "sector": "private",
+  "country": "FI",
+  "description": "Bitcoin conference in Helsinki; the 2026 edition was held 25–26 Sep 2026 at the Cable Factory.",
+  "role": null,
+  "org": null,
+  "group": "Associations & communities",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://info.btchel.com/index.html",
+    "title": "BTCHEL event info",
+    "source_name": "BTCHEL",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

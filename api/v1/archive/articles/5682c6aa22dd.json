@@ -1,0 +1,46 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "5682c6aa22dd",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/5682c6aa22dd.json",
+  "site": "nordic-crypto",
+  "url": "https://www.finansavisen.no/valuta/2026/09/20/8380762/kollaps-for-kryptoborsen-firi",
+  "canonical_url": "https://finansavisen.no/valuta/2026/09/20/8380762/kollaps-for-kryptoborsen-firi",
+  "title": "Kollaps for kryptobørs",
+  "titles": {
+   "en": "Collapse for crypto exchange Firi"
+  },
+  "source": "finansavisen",
+  "source_name": "Finansavisen",
+  "country": "NO",
+  "published_at": "2026-09-20T07:41:00+00:00",
+  "first_published_on_site": "2026-10-03T17:59:40+02:00",
+  "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+  "languages": [
+   "en",
+   "nn",
+   "nb",
+   "sv",
+   "da",
+   "fi",
+   "is"
+  ],
+  "summaries": {
+   "en": "Norwegian exchange Firi earned NOK 135 million in 2024 but posted a NOK 44 million loss in the first half of this year.",
+   "nn": "Den norske kryptobørsen Firi tente 135 millionar kroner i 2024, men fekk eit tap på 44 millionar kroner i første halvår i år.",
+   "nb": "Den norske kryptobørsen Firi tjente 135 millioner kroner i 2024, men fikk et tap på 44 millioner kroner i første halvår i år.",
+   "sv": "Den norska kryptobörsen Firi tjänade 135 miljoner norska kronor 2024 men gick med en förlust på 44 miljoner norska kronor under årets första halvår.",
+   "da": "Den norske kryptobørs Firi tjente 135 millioner norske kroner i 2024, men havde et underskud på 44 millioner norske kroner i årets første halvår.",
+   "fi": "Norjalainen kryptopörssi Firi ansaitsi 135 miljoonaa Norjan kruunua vuonna 2024, mutta teki 44 miljoonan Norjan kruunun tappion tämän vuoden ensimmäisellä puoliskolla.",
+   "is": "Norska rafmyntakauphöllin Firi aflaði 135 milljóna norskra króna árið 2024 en tapaði 44 milljónum norskra króna á fyrri helmingi þessa árs."
+  },
+  "topics": [
+   "business"
+  ],
+  "removed": false,
+  "removed_at": null
+ }
+}

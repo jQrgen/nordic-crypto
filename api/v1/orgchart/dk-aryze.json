@@ -1,0 +1,53 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "dk-aryze",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/dk-aryze.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#dk-aryze",
+  "name": "Aryze (ARYZE ApS)",
+  "type": "organisation",
+  "sector": "private",
+  "country": "DK",
+  "description": "Copenhagen fintech founded in 2017 that builds stablecoin and tokenised-asset issuance infrastructure with fiat on/off-ramps for licensed issuers. Aryze provides the technology; the licensed issuer is its customer.",
+  "role": null,
+  "org": null,
+  "group": "Companies & startups",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://ownr.dk/companies/public-profile/38895052",
+    "title": "ARYZE ApS – (CVR data)",
+    "source_name": "CVR via ownr.dk",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://aryze.io/",
+    "title": "Aryze – company website",
+    "source_name": "Aryze",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://www.kaupr.io/pages/aryze",
+    "title": "Aryze – company profile (Onchain Pages)",
+    "source_name": "Kaupr",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/dk-aryze.svg",
+   "source_url": "https://www.aryze.io/logo/Logo_Wordmark_Dark.svg?dpl=dpl_7DZfxWaGmDdWgCFn27TWMsXrTNK1",
+   "author": null,
+   "license": null,
+   "license_url": null,
+   "credit": "Official website"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

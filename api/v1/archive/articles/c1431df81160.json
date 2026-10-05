@@ -1,0 +1,47 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "c1431df81160",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/c1431df81160.json",
+  "site": "nordic-crypto",
+  "url": "https://podcasters.spotify.com/pod/show/bitcoinsnakk9/episodes/Norway-Wants-to-Ban-Bitcoin-Mining--The-Miners-Already-Left--Rachel-Geyer--EBEA-e3p0bb8",
+  "canonical_url": "https://podcasters.spotify.com/pod/show/bitcoinsnakk9/episodes/Norway-Wants-to-Ban-Bitcoin-Mining--The-Miners-Already-Left--Rachel-Geyer--EBEA-e3p0bb8",
+  "title": "Norway Wants to Ban Bitcoin Mining. The Miners Already Left | Rachel Geyer, EBEA",
+  "titles": {
+   "en": "Norway wants to ban bitcoin mining. The miners already left"
+  },
+  "source": "bpi",
+  "source_name": "Bitcoinpolitisk institutt",
+  "country": "NO",
+  "published_at": "2026-09-17T18:30:43+00:00",
+  "first_published_on_site": "2026-10-03T17:59:40+02:00",
+  "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+  "languages": [
+   "en",
+   "nn",
+   "nb",
+   "sv",
+   "da",
+   "fi",
+   "is"
+  ],
+  "summaries": {
+   "en": "In a talk for Bitcoinpolitisk Institutt in Oslo, Rachel Geyer of the European Bitcoin Energy Association argues Norway's proposed mining ban targets a problem the country doesn't have.",
+   "nn": "I eit føredrag for Bitcoinpolitisk Institutt i Oslo hevdar Rachel Geyer frå European Bitcoin Energy Association at det føreslegne norske forbodet mot utvinning rettar seg mot eit problem landet ikkje har.",
+   "nb": "I et foredrag for Bitcoinpolitisk Institutt i Oslo hevder Rachel Geyer fra European Bitcoin Energy Association at Norges foreslåtte forbud mot utvinning retter seg mot et problem landet ikke har.",
+   "sv": "I ett föredrag för Bitcoinpolitisk Institutt i Oslo hävdar Rachel Geyer från European Bitcoin Energy Association att Norges föreslagna förbud mot kryptoutvinning riktar sig mot ett problem som landet inte har.",
+   "da": "I et oplæg for Bitcoinpolitisk Institutt i Oslo argumenterer Rachel Geyer fra European Bitcoin Energy Association for, at Norges foreslåede forbud mod mining retter sig mod et problem, landet ikke har.",
+   "fi": "Bitcoinpolitisk Instituttin tilaisuudessa Oslossa European Bitcoin Energy Associationin Rachel Geyer väittää, että Norjan ehdottama louhintakielto kohdistuu ongelmaan, jota maalla ei ole.",
+   "is": "Í erindi hjá Bitcoinpolitisk Institutt í Ósló heldur Rachel Geyer hjá European Bitcoin Energy Association því fram að fyrirhugað bann Noregs við námugreftri beinist að vanda sem landið glímir ekki við."
+  },
+  "topics": [
+   "mining",
+   "policy"
+  ],
+  "removed": false,
+  "removed_at": null
+ }
+}

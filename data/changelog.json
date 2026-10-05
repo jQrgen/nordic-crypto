@@ -2,6 +2,70 @@
  "launch_date": "2026-10-03",
  "entries": [
   {
+   "id": "press-ethics",
+   "date": "2026-10-05",
+   "title": "Editorial ethics",
+   "description": "Editorial ethics says Nordic Crypto follows Vær Varsom-plakaten. A named editor approves everything. The complaint address on the page is TBA. The page is at /ethics/, linked from About and the footer, in every site language.",
+   "i18n": {
+    "nn": {
+     "title": "Redaksjonsetikk",
+     "description": "Redaksjonsetikk seier at Nordic Crypto følgjer Vær Varsom-plakaten. Ein namngitt redaktør godkjenner alt. Adressa for klagar på sida er TBA. Sida ligg på /ethics/, med lenkje frå Om oss og botteksten, på alle språka til nettstaden."
+    },
+    "nb": {
+     "title": "Redaksjonsetikk",
+     "description": "Redaksjonsetikk sier at Nordic Crypto følger Vær Varsom-plakaten. En navngitt redaktør godkjenner alt. Adressen for klager på siden er TBA. Siden ligger på /ethics/, med lenke fra Om oss og bunnteksten, på alle språkene til nettstedet."
+    },
+    "sv": {
+     "title": "Redaktionell etik",
+     "description": "Redaktionell etik säger att Nordic Crypto följer Vær Varsom-plakaten. En namngiven redaktör godkänner allt. Adressen för klagomål på sidan är TBA. Sidan ligger på /ethics/, med länk från Om oss och sidfoten, på sajtens alla språk."
+    },
+    "da": {
+     "title": "Redaktionel etik",
+     "description": "Redaktionel etik siger, at Nordic Crypto følger Vær Varsom-plakaten. En navngiven redaktør godkender alt. Adressen for klager på siden er TBA. Siden ligger på /ethics/, med link fra Om os og sidefoden, på alle sitets sprog."
+    },
+    "fi": {
+     "title": "Toimituksen etiikka",
+     "description": "Toimituksen etiikka kertoo, että Nordic Crypto noudattaa Vær Varsom-plakaten -ohjeistoa. Nimetty toimittaja hyväksyy kaiken. Kanteluiden osoite sivulla on TBA. Sivu on polussa /ethics/, ja siihen on linkki Tietoa meistä -sivulta ja alatunnisteesta kaikilla sivuston kielillä."
+    },
+    "is": {
+     "title": "Siðareglur ritstjórnar",
+     "description": "Siðareglur ritstjórnar segja að Nordic Crypto fylgi Vær Varsom-plakaten. Nafngreindur ritstjóri samþykkir allt. Heimilisfangið fyrir kvartanir á síðunni er TBA. Síðan er á /ethics/, með tengli frá Um okkur og í fæti, á öllum tungumálum síðunnar."
+    }
+   }
+  },
+  {
+   "id": "public-data-api",
+   "date": "2026-10-05",
+   "title": "Public data API",
+   "description": "News, newsletters, the calendar, sources, academia, the who's who, profiles and the rules map are published as JSON under /api/v1/. No account is required. The guide is at /api/, with OpenAPI and llms.txt for other tools.",
+   "i18n": {
+    "nn": {
+     "title": "Offentleg data-API",
+     "description": "Nyheiter, nyheitsbrev, kalenderen, kjelder, akademia, kven er kven, profilar og regeloversikta blir publiserte som JSON under /api/v1/. Ingen konto. Rettleiinga ligg på /api/, med OpenAPI og llms.txt for andre verktøy."
+    },
+    "nb": {
+     "title": "Offentlig data-API",
+     "description": "Nyheter, nyhetsbrev, kalenderen, kilder, akademia, hvem er hvem, profiler og regeloversikten blir publisert som JSON under /api/v1/. Ingen konto. Veiledningen ligger på /api/, med OpenAPI og llms.txt for andre verktøy."
+    },
+    "sv": {
+     "title": "Offentligt data-API",
+     "description": "Nyheter, nyhetsbrev, kalendern, källor, akademin, vem är vem, profiler och regelkartan publiceras som JSON under /api/v1/. Inget konto. Guiden finns på /api/, med OpenAPI och llms.txt för andra verktyg."
+    },
+    "da": {
+     "title": "Offentligt data-API",
+     "description": "Nyheder, nyhedsbreve, kalenderen, kilder, akademia, hvem er hvem, profiler og regeloversigten udgives som JSON under /api/v1/. Ingen konto. Vejledningen ligger på /api/, med OpenAPI og llms.txt til andre værktøjer."
+    },
+    "fi": {
+     "title": "Julkinen data-API",
+     "description": "Uutiset, uutiskirjeet, kalenteri, lähteet, akatemia, toimijahakemisto, profiilit ja sääntökartta julkaistaan JSONina polussa /api/v1/. Tiliä ei tarvita. Ohje on sivulla /api/, ja mukana ovat OpenAPI ja llms.txt muille työkaluille."
+    },
+    "is": {
+     "title": "Opið gagna-API",
+     "description": "Fréttir, fréttabréf, dagatal, heimildir, akademía, hver er hvað, prófílar og reglukort birtast sem JSON undir /api/v1/. Enginn reikningur. Leiðbeiningarnar eru á /api/, með OpenAPI og llms.txt fyrir önnur verkfæri."
+    }
+   }
+  },
+  {
    "id": "issue-1-newsreel-3",
    "date": "2026-10-05",
    "title": "Issue #1 newsreel re-recorded",
@@ -291,7 +355,7 @@
   },
   {
    "id": "academia",
-   "date": "launch",
+   "date": "2026-10-03",
    "title": "Academia page",
    "description": "New Academia page: blockchain and crypto courses and programmes, student associations, publications and research groups at universities in Norway, Sweden, Finland, Iceland and the Faroe Islands. Every row shows its source, the date we checked it and its status; only editor-approved rows are shown.",
    "i18n": {
@@ -323,7 +387,7 @@
   },
   {
    "id": "initial-build",
-   "date": "launch",
+   "date": "2026-10-03",
    "title": "Nordic Crypto launches",
    "description": "First version of the site in English: news from Norway, Sweden, Finland, Iceland and the Faroe Islands with our own short summaries; an events calendar with a month grid, a mobile list and a country filter; a who's who of the industry and its regulators split into private and public sector, with a country filter; a Regulation by country section; the list of sources we follow; an About page with corrections and removal; and a full-screen office screen mode for portrait and landscape displays.",
    "i18n": {

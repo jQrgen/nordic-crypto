@@ -1,0 +1,27 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "entity_id": "anna-seim",
+  "name": "Anna Seim",
+  "type": "person",
+  "country": "SE",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/anna-seim.json",
+  "links": [
+   {
+    "kind": "wikipedia",
+    "label": "Wikipedia (en)",
+    "url": "https://en.wikipedia.org/wiki/Anna_Seim",
+    "source_url": "https://www.wikidata.org/wiki/Q76692910"
+   },
+   {
+    "kind": "wikidata",
+    "label": "Wikidata",
+    "url": "https://www.wikidata.org/wiki/Q76692910",
+    "source_url": "https://www.wikidata.org/wiki/Q76692910"
+   }
+  ]
+ }
+}

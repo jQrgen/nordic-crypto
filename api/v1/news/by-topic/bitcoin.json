@@ -1,0 +1,72 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "topic": "bitcoin",
+ "count": 2,
+ "items": [
+  {
+   "id": "c81be998e21c",
+   "url": "https://yle.fi/a/74-20248505",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/c81be998e21c.json",
+   "title": "Yhteisöllisyys ja teknologia kiehtovat kryptovaluuttoihin sijoittaneita – kryptotapahtumassa iloittiin bitcoinin uudesta nousurallista",
+   "title_en": "Community and technology draw crypto investors: bitcoin's new rally celebrated at crypto event",
+   "source": "yle",
+   "source_name": "Yle Uutiset (latest)",
+   "source_note": null,
+   "country": "FI",
+   "language": "Finnish",
+   "language_code": "fi",
+   "published": "2026-09-27T08:20:00+00:00",
+   "topics": [
+    "community",
+    "bitcoin"
+   ],
+   "summary": "At a Finnish crypto event, investors described community and technology as what draws them to crypto, as bitcoin rallied again.",
+   "summary_i18n": {
+    "nn": "På eit finsk kryptoarrangement fortalde investorar at fellesskapet og teknologien er det som dreg dei mot krypto, medan bitcoin steig igjen.",
+    "nb": "På et finsk kryptoarrangement fortalte investorer at fellesskapet og teknologien er det som trekker dem mot krypto, mens bitcoin steg igjen.",
+    "sv": "På ett finländskt kryptoevenemang berättade investerare att gemenskapen och tekniken lockar dem till krypto, samtidigt som bitcoin steg igen.",
+    "da": "Ved et finsk kryptoarrangement fortalte investorer, at fællesskabet og teknologien er det, der trækker dem mod krypto, mens bitcoin steg igen.",
+    "fi": "Suomalaisessa kryptotapahtumassa sijoittajat kertoivat yhteisön ja teknologian vetävän heitä kryptojen pariin, kun bitcoin nousi taas.",
+    "is": "Á finnskum rafmyntaviðburði sögðu fjárfestar að samfélagið og tæknin dragi þá að rafmyntum, á meðan bitcoin hækkaði á ný."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false
+  },
+  {
+   "id": "eb685890cbc3",
+   "url": "https://www.kaupr.io/nyheter/h100-styrelederen-vil-ha-flere-oppkjop-i-bitcoinbransjen",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/eb685890cbc3.json",
+   "title": "H100-styrelederen vil ha flere oppkjøp i bitcoinbransjen",
+   "title_en": "H100 chair wants more acquisitions in the bitcoin industry",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+   "country": "SE",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-09-13T12:00:00+00:00",
+   "topics": [
+    "business",
+    "bitcoin"
+   ],
+   "summary": "Sander Andersen of H100 Group says bitcoin companies worth under a billion dollars need to buy each other, because standing still is the biggest risk.",
+   "summary_i18n": {
+    "nn": "Sander Andersen i H100 Group seier at bitcoinselskap verde under ein milliard dollar må kjøpe kvarandre, fordi det å stå still er den største risikoen.",
+    "nb": "Sander Andersen i H100 Group sier at bitcoinselskaper verdt under en milliard dollar må kjøpe hverandre, fordi det å stå stille er den største risikoen.",
+    "sv": "Sander Andersen på H100 Group säger att bitcoinbolag värda under en miljard dollar måste köpa varandra, eftersom den största risken är att stå still.",
+    "da": "Sander Andersen fra H100 Group siger, at bitcoinselskaber til under en milliard dollar må købe hinanden, fordi den største risiko er at stå stille.",
+    "fi": "H100 Groupin Sander Andersen sanoo, että alle miljardin dollarin arvoisten bitcoinyhtiöiden on ostettava toisiaan, koska paikallaan pysyminen on suurin riski.",
+    "is": "Sander Andersen hjá H100 Group segir að bitcoin-fyrirtæki sem eru minna en milljarðs dollara virði þurfi að kaupa hvert annað, því að standa í stað sé mesta áhættan."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false
+  }
+ ]
+}

@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "torbjorn-bull-jenssen",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/torbjorn-bull-jenssen.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#torbjorn-bull-jenssen",
+  "name": "Torbjørn Bull Jenssen",
+  "type": "person",
+  "sector": "private",
+  "country": "NO",
+  "description": null,
+  "role": "CEO, K33",
+  "org": "k33",
+  "group": null,
+  "profile_url": "https://storage.mfn.se/262d2b97-3b03-48c6-a4d8-4844e976ec9f/k33-receives-mica-authorization.pdf",
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://storage.mfn.se/262d2b97-3b03-48c6-a4d8-4844e976ec9f/k33-receives-mica-authorization.pdf",
+    "title": "K33 stock exchange notice (MFN)",
+    "source_name": "K33 stock exchange notice (MFN)",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

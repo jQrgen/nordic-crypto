@@ -1,0 +1,27 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "entity_id": "aino-bunge",
+  "name": "Aino Bunge",
+  "type": "person",
+  "country": "SE",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/aino-bunge.json",
+  "links": [
+   {
+    "kind": "wikipedia",
+    "label": "Wikipedia (sv)",
+    "url": "https://sv.wikipedia.org/wiki/Aino_Bunge",
+    "source_url": "https://www.wikidata.org/wiki/Q115675909"
+   },
+   {
+    "kind": "wikidata",
+    "label": "Wikidata",
+    "url": "https://www.wikidata.org/wiki/Q115675909",
+    "source_url": "https://www.wikidata.org/wiki/Q115675909"
+   }
+  ]
+ }
+}

@@ -1,0 +1,21 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "entity_id": "elisabeth-vike-vardheim",
+  "name": "Elisabeth Vike Vardheim",
+  "type": "person",
+  "country": "NO",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/elisabeth-vike-vardheim.json",
+  "links": [
+   {
+    "kind": "wikidata",
+    "label": "Wikidata",
+    "url": "https://www.wikidata.org/wiki/Q135399330",
+    "source_url": "https://www.wikidata.org/wiki/Q135399330"
+   }
+  ]
+ }
+}

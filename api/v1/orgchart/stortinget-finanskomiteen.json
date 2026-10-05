@@ -1,0 +1,53 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "stortinget-finanskomiteen",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/stortinget-finanskomiteen.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#stortinget-finanskomiteen",
+  "name": "Storting (parliament) – Standing Committee on Finance",
+  "type": "organisation",
+  "sector": "public",
+  "country": "NO",
+  "description": "Handles bills on financial markets, crypto (e.g. the Crypto-Assets Act) and tax, and makes recommendations to the Storting.",
+  "role": null,
+  "org": null,
+  "group": "Parliament & government",
+  "profile_url": null,
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.stortinget.no/no/Representanter-og-komiteer/Representantene/Representant/?perid=TUMO",
+    "title": "Stortinget",
+    "source_name": "Stortinget",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://www.stortinget.no/no/Representanter-og-komiteer/Representantene/Representant/?perid=HLI",
+    "title": "Stortinget",
+    "source_name": "Stortinget",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://www.stortinget.no/no/Representanter-og-komiteer/Representantene/Representant/?perid=BJAG",
+    "title": "Stortinget",
+    "source_name": "Stortinget",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/stortinget-finanskomiteen.svg",
+   "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+   "author": "Worldlydev",
+   "license": "Public domain",
+   "license_url": null,
+   "credit": "Wikimedia Commons"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

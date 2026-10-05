@@ -1,0 +1,40 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "issue-1-newsreel-3",
+  "date": "2026-10-05",
+  "title": "Issue #1 newsreel re-recorded",
+  "description": "Re-recorded the spoken track of newsletter issue #1 (release newsletter-001-newsreel-3) so it matches the captions. The opening does not say the programme is made with artificial intelligence. Kaupr is named only as the source of the GreenMerc story. The sign-off is the Nordic Crypto team.",
+  "i18n": {
+   "nn": {
+    "title": "Utgåve #1 newsreel spelt inn på nytt",
+    "description": "Talet i nyheitsbrev utgåve #1 er spelt inn på nytt (utgiving newsletter-001-newsreel-3), så det samsvarar med tekstinga. Opninga seier ikkje at programmet er laga med kunstig intelligens. Kaupr er nemnd berre som kjelda til saka om GreenMerc. Avslutninga er Nordic Crypto-teamet."
+   },
+   "nb": {
+    "title": "Utgave #1 newsreel spilt inn på nytt",
+    "description": "Talen i nyhetsbrev utgave #1 er spilt inn på nytt (utgivelse newsletter-001-newsreel-3), så den samsvarer med tekstingen. Åpningen sier ikke at programmet er laget med kunstig intelligens. Kaupr er nevnt bare som kilden til saken om GreenMerc. Avslutningen er Nordic Crypto-teamet."
+   },
+   "sv": {
+    "title": "Utgåva #1 newsreel inspelad på nytt",
+    "description": "Talat i nyhetsbrevets utgåva #1 är inspelat på nytt (utgåva newsletter-001-newsreel-3), så det stämmer med textningen. Inledningen säger inte att programmet är gjort med artificiell intelligens. Kaupr nämns bara som källan till nyheten om GreenMerc. Avslutningen är Nordic Crypto-teamet."
+   },
+   "da": {
+    "title": "Udgave #1 newsreel indtalt igen",
+    "description": "Speaket i nyhedsbrevets udgave #1 er indtalt igen (udgivelse newsletter-001-newsreel-3), så det matcher teksterne. Indledningen siger ikke, at programmet er lavet med kunstig intelligens. Kaupr nævnes kun som kilden til historien om GreenMerc. Afslutningen er Nordic Crypto-teamet."
+   },
+   "fi": {
+    "title": "Numero #1 newsreel äänitetty uudelleen",
+    "description": "Uutiskirjeen numeron #1 puhe on äänitetty uudelleen (julkaisu newsletter-001-newsreel-3), jotta se vastaa tekstitystä. Avaus ei sano, että ohjelma on tehty tekoälyn avulla. Kaupr mainitaan vain GreenMerc-jutun lähteenä. Lopetus on Nordic Crypto -tiimi."
+   },
+   "is": {
+    "title": "Tölublað #1 newsreel tekið upp að nýju",
+    "description": "Talað mál í fréttabréfi #1 er tekið upp að nýju (útgáfa newsletter-001-newsreel-3), svo það samræmist textanum. Upphafið segir ekki að þátturinn sé unninn með aðstoð gervigreindar. Kaupr er nefnt aðeins sem heimild fréttarinnar um GreenMerc. Niðurlagið er Nordic Crypto-teymið."
+   }
+  },
+  "html_url": "https://jqrgen.github.io/nordic-crypto/changelog/#issue-1-newsreel-3",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/issue-1-newsreel-3.json"
+ }
+}

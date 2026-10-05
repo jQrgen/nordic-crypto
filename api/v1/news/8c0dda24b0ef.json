@@ -1,0 +1,37 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "8c0dda24b0ef",
+  "url": "https://www.fi.se/sv/publicerat/nyheter/2026/har-ar-riskerna-for-finansiering-av-spridning-av-massforstorelsevapen-storst/",
+  "html_url": null,
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/8c0dda24b0ef.json",
+  "title": "Här är riskerna för finansiering av spridning av massförstörelsevapen störst",
+  "title_en": "Here is where the risk of financing proliferation of weapons of mass destruction is highest",
+  "source": "fi-se",
+  "source_name": "Finansinspektionen (SE FSA)",
+  "source_note": null,
+  "country": "SE",
+  "language": "Swedish",
+  "language_code": "sv",
+  "published": "2026-10-01T06:00:11+00:00",
+  "topics": [
+   "regulation",
+   "aml"
+  ],
+  "summary": "Finansinspektionen's new risk assessment finds that financing of weapons of mass destruction is most likely through illegal financial activity and crypto-assets.",
+  "summary_i18n": {
+   "nn": "Den nye risikovurderinga til Finansinspektionen finn at finansiering av masseøydeleggingsvåpen mest truleg skjer gjennom ulovleg finansiell verksemd og kryptoeigedelar.",
+   "nb": "Finansinspektionens nye risikovurdering finner at finansiering av masseødeleggelsesvåpen mest sannsynlig skjer gjennom ulovlig finansiell virksomhet og kryptoeiendeler.",
+   "sv": "Finansinspektionens nya riskbedömning visar att finansiering av massförstörelsevapen troligast sker via olaglig finansiell verksamhet och kryptotillgångar.",
+   "da": "Finansinspektionens nye risikovurdering finder, at finansiering af masseødelæggelsesvåben mest sandsynligt sker via ulovlig finansiel aktivitet og kryptoaktiver.",
+   "fi": "Finansinspektionenin uuden riskiarvion mukaan joukkotuhoaseiden rahoitus tapahtuu todennäköisimmin laittoman rahoitustoiminnan ja kryptovarojen kautta.",
+   "is": "Í nýju áhættumati Finansinspektionen kemur fram að fjármögnun gereyðingarvopna fari líklegast fram með ólöglegri fjármálastarfsemi og sýndareignum."
+  },
+  "paywall": false,
+  "links": [],
+  "own_story": false
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "f616814dc40c",
+  "url": "https://www.kaupr.io/nyheter/greenmerc-kutter-4-8-millioner-i-aret---northcrypto-gar-med-overskudd",
+  "html_url": null,
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/f616814dc40c.json",
+  "title": "GreenMerc kutter 4,8 millioner i året – Northcrypto går med overskudd",
+  "title_en": "GreenMerc cuts SEK 4.8 million a year as Northcrypto turns a profit",
+  "source": "kaupr",
+  "source_name": "Kaupr",
+  "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+  "country": "SE",
+  "language": "Norwegian",
+  "language_code": "no",
+  "published": "2026-09-30T12:00:00+00:00",
+  "topics": [
+   "business"
+  ],
+  "summary": "GreenMerc is cutting costs by SEK 4.8 million a year while Northcrypto turns a profit, with spending redirected to the banking offer Trijo One.",
+  "summary_i18n": {
+   "nn": "GreenMerc kuttar kostnader med 4,8 millionar svenske kroner i året medan Northcrypto går med overskot, og pengane blir flytta til banktilbodet Trijo One.",
+   "nb": "GreenMerc kutter kostnader med 4,8 millioner svenske kroner i året mens Northcrypto går med overskudd, og pengene flyttes til banktilbudet Trijo One.",
+   "sv": "GreenMerc skär ned kostnaderna med 4,8 miljoner kronor om året medan Northcrypto går med vinst, och pengarna styrs om till banktjänsten Trijo One.",
+   "da": "GreenMerc skærer 4,8 millioner svenske kroner om året i omkostninger, mens Northcrypto giver overskud, og pengene flyttes til bankproduktet Trijo One.",
+   "fi": "GreenMerc leikkaa kulujaan 4,8 miljoonaa Ruotsin kruunua vuodessa samalla kun Northcrypto tekee voittoa, ja rahat ohjataan pankkipalvelu Trijo Oneen.",
+   "is": "GreenMerc sker niður kostnað um 4,8 milljónir sænskra króna á ári á meðan Northcrypto skilar hagnaði, og fénu er beint í bankaþjónustuna Trijo One."
+  },
+  "paywall": false,
+  "links": [],
+  "own_story": false
+ }
+}

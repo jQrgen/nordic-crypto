@@ -1,0 +1,40 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "past-events",
+  "date": "2026-10-03",
+  "title": "Past events archive",
+  "description": "Finished events are no longer removed from the calendar. Once an event has ended (Oslo time) it moves automatically to a new Past events section at the bottom of the calendar, newest first. The office screen shows only upcoming events.",
+  "i18n": {
+   "nb": {
+    "title": "Arkiv over tidligere arrangementer",
+    "description": "Arrangementer som er over, fjernes ikke lenger fra kalenderen. Når et arrangement er ferdig (Oslo-tid), flyttes det automatisk til den nye delen Tidligere arrangementer nederst i kalenderen, nyeste først. Kontorskjermen viser bare kommende arrangementer."
+   },
+   "nn": {
+    "title": "Arkiv over tidlegare arrangement",
+    "description": "Arrangement som er over, blir ikkje lenger fjerna frå kalenderen. Når eit arrangement er ferdig (Oslo-tid), blir det automatisk flytta til den nye delen Tidlegare arrangement nedst i kalenderen, nyaste først. Kontorskjermen viser berre komande arrangement."
+   },
+   "sv": {
+    "title": "Arkiv över tidigare evenemang",
+    "description": "Evenemang som är över tas inte längre bort från kalendern. När ett evenemang har avslutats (Oslotid) flyttas det automatiskt till den nya delen Tidigare evenemang längst ned i kalendern, nyaste först. Kontorsskärmen visar bara kommande evenemang."
+   },
+   "da": {
+    "title": "Arkiv over tidligere arrangementer",
+    "description": "Afsluttede arrangementer fjernes ikke længere fra kalenderen. Når et arrangement er slut (Oslo-tid), flyttes det automatisk til den nye sektion Tidligere arrangementer nederst i kalenderen, nyeste først. Kontorskærmen viser kun kommende arrangementer."
+   },
+   "fi": {
+    "title": "Menneiden tapahtumien arkisto",
+    "description": "Päättyneitä tapahtumia ei enää poisteta kalenterista. Kun tapahtuma on päättynyt (Oslon aikaa), se siirtyy automaattisesti kalenterin alaosan uuteen Menneet tapahtumat -osioon uusin ensin. Toimiston näyttö näyttää vain tulevat tapahtumat."
+   },
+   "is": {
+    "title": "Safn liðinna viðburða",
+    "description": "Viðburðir sem er lokið eru ekki lengur fjarlægðir úr dagatalinu. Þegar viðburði lýkur (Óslóartími) færist hann sjálfkrafa í nýjan hluta, Liðnir viðburðir, neðst í dagatalinu, nýjustu fyrst. Skrifstofuskjárinn sýnir aðeins væntanlega viðburði."
+   }
+  },
+  "html_url": "https://jqrgen.github.io/nordic-crypto/changelog/#past-events",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/past-events.json"
+ }
+}

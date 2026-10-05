@@ -1,0 +1,27 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "entity_id": "lars-henrik-myrmel-johansen",
+  "name": "Lars-Henrik Myrmel-Johansen",
+  "type": "person",
+  "country": "NO",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/lars-henrik-myrmel-johansen.json",
+  "links": [
+   {
+    "kind": "wikipedia",
+    "label": "Wikipedia (nb)",
+    "url": "https://no.wikipedia.org/wiki/Lars-Henrik_Myrmel-Johansen",
+    "source_url": "https://www.wikidata.org/wiki/Q25434699"
+   },
+   {
+    "kind": "wikidata",
+    "label": "Wikidata",
+    "url": "https://www.wikidata.org/wiki/Q25434699",
+    "source_url": "https://www.wikidata.org/wiki/Q25434699"
+   }
+  ]
+ }
+}

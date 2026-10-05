@@ -1,0 +1,40 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "remove-faroe-islands",
+  "date": "2026-10-03",
+  "title": "Coverage narrowed to four countries",
+  "description": "Nordic Crypto now covers Norway, Sweden, Finland and Iceland. The Faroe Islands have been removed from the news sources, country filters, calendar, who's who, Regulation by country section, academia page and office screen.",
+  "i18n": {
+   "nb": {
+    "title": "Dekningen innsnevret til fire land",
+    "description": "Nordic Crypto dekker nå Norge, Sverige, Finland og Island. Færøyene er fjernet fra nyhetskildene, landfiltrene, kalenderen, hvem er hvem, delen Regulering per land, forskningssiden og kontorskjermen."
+   },
+   "nn": {
+    "title": "Dekninga snevra inn til fire land",
+    "description": "Nordic Crypto dekkjer no Noreg, Sverige, Finland og Island. Færøyane er fjerna frå nyheitskjeldene, landfiltera, kalenderen, kven er kven, delen Regulering per land, forskingssida og kontorskjermen."
+   },
+   "sv": {
+    "title": "Bevakningen begränsad till fyra länder",
+    "description": "Nordic Crypto bevakar nu Norge, Sverige, Finland och Island. Färöarna har tagits bort från nyhetskällorna, landfiltren, kalendern, vem är vem, delen Reglering per land, forskningssidan och kontorsskärmen."
+   },
+   "da": {
+    "title": "Dækningen indsnævret til fire lande",
+    "description": "Nordic Crypto dækker nu Norge, Sverige, Finland og Island. Færøerne er fjernet fra nyhedskilderne, landefiltrene, kalenderen, hvem er hvem, sektionen Regulering pr. land, forskningssiden og kontorskærmen."
+   },
+   "fi": {
+    "title": "Seuranta rajattu neljään maahan",
+    "description": "Nordic Crypto seuraa nyt Norjaa, Ruotsia, Suomea ja Islantia. Färsaaret on poistettu uutislähteistä, maasuodattimista, kalenterista, toimijahakemistosta, Sääntely maittain -osiosta, tutkimussivulta ja toimiston näytöltä."
+   },
+   "is": {
+    "title": "Umfjöllun þrengd í fjögur lönd",
+    "description": "Nordic Crypto fjallar nú um Noreg, Svíþjóð, Finnland og Ísland. Færeyjar hafa verið fjarlægðar úr fréttaheimildum, landssíum, dagatalinu, hver er hvað, hlutanum Regluverk eftir löndum, rannsóknasíðunni og skrifstofuskjánum."
+   }
+  },
+  "html_url": "https://jqrgen.github.io/nordic-crypto/changelog/#remove-faroe-islands",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/remove-faroe-islands.json"
+ }
+}

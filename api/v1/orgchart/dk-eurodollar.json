@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "dk-eurodollar",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/dk-eurodollar.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#dk-eurodollar",
+  "name": "Eurodollar ApS",
+  "type": "organisation",
+  "sector": "private",
+  "country": "DK",
+  "description": "Listed by ESMA as an e-money token issuer notified via Finanstilsynet (electronic money institution).",
+  "role": null,
+  "org": null,
+  "group": "Stablecoin / e-money token issuers",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.esma.europa.eu/sites/default/files/2024-12/EMTWP.csv",
+    "title": "Interim MiCA register: e-money token white papers (EMTWP.csv)",
+    "source_name": "ESMA",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "e0cc8b0df8e7",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/e0cc8b0df8e7.json",
+  "site": "nordic-crypto",
+  "url": "https://www.kaupr.io/nyheter/goobit-lanserer-sparing-i-bitcoin-og-gull-pa-finsk-lisens",
+  "canonical_url": "https://kaupr.io/nyheter/goobit-lanserer-sparing-i-bitcoin-og-gull-pa-finsk-lisens",
+  "title": "Goobit lanserer sparing i bitcoin og gull på finsk lisens",
+  "titles": {
+   "en": "Goobit launches bitcoin and gold savings on a Finnish licence"
+  },
+  "source": "kaupr",
+  "source_name": "Kaupr",
+  "country": "SE",
+  "published_at": "2026-09-14T12:00:00+00:00",
+  "first_published_on_site": "2026-10-03T17:59:40+02:00",
+  "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+  "languages": [
+   "en",
+   "nn",
+   "nb",
+   "sv",
+   "da",
+   "fi",
+   "is"
+  ],
+  "summaries": {
+   "en": "After being refused by Sweden's Finansinspektionen, Goobit is launching Futureproof, a bitcoin and gold savings platform, under Finnish Kvarn Capital's MiCA licence.",
+   "nn": "Etter avslag frå svenske Finansinspektionen lanserer Goobit Futureproof, ei spareplattform for bitcoin og gull, under MiCA-løyvet til finske Kvarn Capital.",
+   "nb": "Etter avslag fra svenske Finansinspektionen lanserer Goobit Futureproof, en spareplattform for bitcoin og gull, under finske Kvarn Capitals MiCA-tillatelse.",
+   "sv": "Efter avslag från Finansinspektionen lanserar Goobit Futureproof, en sparplattform för bitcoin och guld, under finländska Kvarn Capitals MiCA-tillstånd.",
+   "da": "Efter et afslag fra det svenske Finansinspektionen lancerer Goobit Futureproof, en opsparingsplatform for bitcoin og guld, under finske Kvarn Capitals MiCA-tilladelse.",
+   "fi": "Saatuaan kielteisen päätöksen Ruotsin Finansinspektionenilta Goobit tuo markkinoille bitcoin- ja kultasäästämisen alustan Futureproofin suomalaisen Kvarn Capitalin MiCA-toimiluvalla.",
+   "is": "Eftir synjun sænska Finansinspektionen setur Goobit á markað Futureproof, sparnaðarvettvang fyrir bitcoin og gull, undir MiCA-leyfi finnska Kvarn Capital."
+  },
+  "topics": [
+   "mica",
+   "business"
+  ],
+  "removed": false,
+  "removed_at": null
+ }
+}

@@ -1,0 +1,53 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "se-hilbert-group",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/se-hilbert-group.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#se-hilbert-group",
+  "name": "Hilbert Group (Hilbert Group AB)",
+  "type": "organisation",
+  "sector": "private",
+  "country": "SE",
+  "description": "Stockholm-based digital-asset investment firm listed on Nasdaq First North Growth Market (HILB B), running quantitative trading strategies and lending products.",
+  "role": null,
+  "org": null,
+  "group": "Investors & funds",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.hilbert.group/",
+    "title": "Hilbert Group – company website",
+    "source_name": "Hilbert Group",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://www.allabolag.se/5591052948",
+    "title": "Hilbert Group AB (publ) – (Bolagsverket data)",
+    "source_name": "Allabolag (Bolagsverket data)",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://www.kaupr.io/pages/hilbert-group",
+    "title": "Hilbert Group – company profile (Onchain Pages)",
+    "source_name": "Kaupr",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/se-hilbert-group.svg",
+   "source_url": "https://www.hilbert.group/icon.svg",
+   "author": null,
+   "license": null,
+   "license_url": null,
+   "credit": "Official website"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

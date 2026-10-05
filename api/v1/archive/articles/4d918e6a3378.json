@@ -1,0 +1,46 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "4d918e6a3378",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/4d918e6a3378.json",
+  "site": "nordic-crypto",
+  "url": "https://www.kaupr.io/nyheter/firi-tar-opp-kampen-om-1-1-millioner-svenske-kryptoeiere",
+  "canonical_url": "https://kaupr.io/nyheter/firi-tar-opp-kampen-om-1-1-millioner-svenske-kryptoeiere",
+  "title": "Firi tar opp kampen om 1,1 millioner svenske kryptoeiere",
+  "titles": {
+   "en": "Firi takes on the fight for 1.1 million Swedish crypto owners"
+  },
+  "source": "kaupr",
+  "source_name": "Kaupr",
+  "country": "SE",
+  "published_at": "2026-09-15T12:00:00+00:00",
+  "first_published_on_site": "2026-10-03T17:59:40+02:00",
+  "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+  "languages": [
+   "en",
+   "nn",
+   "nb",
+   "sv",
+   "da",
+   "fi",
+   "is"
+  ],
+  "summaries": {
+   "en": "Firi launches in Sweden this week, entering a market where about 1.1 million people already own crypto.",
+   "nn": "Firi blir lansert i Sverige denne veka, i ein marknad der om lag 1,1 millionar menneske alt eig krypto.",
+   "nb": "Firi lanseres i Sverige denne uken, i et marked der rundt 1,1 millioner mennesker allerede eier krypto.",
+   "sv": "Firi lanseras i Sverige den här veckan, på en marknad där omkring 1,1 miljoner människor redan äger krypto.",
+   "da": "Firi lanceres i Sverige i denne uge på et marked, hvor omkring 1,1 millioner mennesker allerede ejer krypto.",
+   "fi": "Firi aloittaa Ruotsissa tällä viikolla markkinalla, jolla noin 1,1 miljoonaa ihmistä omistaa jo kryptoja.",
+   "is": "Firi hefur starfsemi í Svíþjóð í vikunni, á markaði þar sem um 1,1 milljón manna á þegar rafmyntir."
+  },
+  "topics": [
+   "business"
+  ],
+  "removed": false,
+  "removed_at": null
+ }
+}

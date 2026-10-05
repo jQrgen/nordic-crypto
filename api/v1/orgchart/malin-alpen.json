@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "malin-alpen",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/malin-alpen.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#malin-alpen",
+  "name": "Malin Alpen",
+  "type": "person",
+  "sector": "public",
+  "country": "SE",
+  "description": "FI publishes its crypto-asset pages under the Payments area.",
+  "role": "Head of Payments and Deputy Director General",
+  "org": "se-fi",
+  "group": null,
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.fi.se/sv/om-fi/organisation/ledningsgrupp/",
+    "title": "Ledningsgrupp",
+    "source_name": "Finansinspektionen",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

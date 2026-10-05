@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "dk-skatteministeriet",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/dk-skatteministeriet.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#dk-skatteministeriet",
+  "name": "Skatte- og Vækstministeriet (Danish tax and growth ministry)",
+  "type": "organisation",
+  "sector": "public",
+  "country": "DK",
+  "description": "Denmark's tax ministry; its website skm.dk now redirects to svmn.dk.",
+  "role": null,
+  "org": null,
+  "group": "Parliament & government",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://svmn.dk/",
+    "title": "Skatte- og Vækstministeriet",
+    "source_name": "Skatte- og Vækstministeriet",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

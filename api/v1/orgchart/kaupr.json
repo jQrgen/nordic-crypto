@@ -1,0 +1,41 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "kaupr",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/kaupr.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#kaupr",
+  "name": "Kaupr",
+  "type": "organisation",
+  "sector": "private",
+  "country": "NORDIC",
+  "description": "Niche outlet for digital assets, tokenisation and MiCA in the Nordics (writes in Norwegian about all Nordic markets).",
+  "role": null,
+  "org": null,
+  "group": "Media",
+  "profile_url": null,
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.kaupr.io/dk/nyheder/norges-bank-utforsker-tokenisering-med-tolv-aktorer",
+    "title": "Kaupr",
+    "source_name": "Kaupr",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+   "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+   "author": null,
+   "license": null,
+   "license_url": null,
+   "credit": "Official website"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

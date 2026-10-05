@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "tydal-data-center",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/tydal-data-center.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#tydal-data-center",
+  "name": "Tydal Data Center (Bitdeer)",
+  "type": "organisation",
+  "sector": "private",
+  "country": "NO",
+  "description": "Bitdeer's Norwegian campus in Tydal is being converted to AI/HPC (121 IT-MW lease, Aug 2026); listed without crypto mining by Nkom.",
+  "role": null,
+  "org": null,
+  "group": "Mining & data centres",
+  "profile_url": null,
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.globenewswire.com/news-release/2026/08/04/3338255/0/en/bitdeer-announces-4-7-billion-16-year-ai-hpc-data-center-lease-for-tydal-norway-campus.html",
+    "title": "GlobeNewswire",
+    "source_name": "GlobeNewswire",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

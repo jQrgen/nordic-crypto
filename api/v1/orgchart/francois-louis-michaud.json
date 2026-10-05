@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "francois-louis-michaud",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/francois-louis-michaud.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#francois-louis-michaud",
+  "name": "François-Louis Michaud",
+  "type": "person",
+  "sector": "public",
+  "country": "EU",
+  "description": null,
+  "role": "Chairperson (from 16 Apr 2026)",
+  "org": "eba",
+  "group": null,
+  "profile_url": "https://www.eba.europa.eu/publications-and-media/press-releases/francois-louis-michaud-take-his-role-chair-european-banking-authority",
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.eba.europa.eu/publications-and-media/press-releases/francois-louis-michaud-take-his-role-chair-european-banking-authority",
+    "title": "EBA",
+    "source_name": "EBA",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

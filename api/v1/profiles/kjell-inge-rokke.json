@@ -1,0 +1,27 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "entity_id": "kjell-inge-rokke",
+  "name": "Kjell Inge Røkke",
+  "type": "person",
+  "country": "NO",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/kjell-inge-rokke.json",
+  "links": [
+   {
+    "kind": "wikipedia",
+    "label": "Wikipedia (en)",
+    "url": "https://en.wikipedia.org/wiki/Kjell_Inge_R%C3%B8kke",
+    "source_url": "https://www.wikidata.org/wiki/Q1383992"
+   },
+   {
+    "kind": "wikidata",
+    "label": "Wikidata",
+    "url": "https://www.wikidata.org/wiki/Q1383992",
+    "source_url": "https://www.wikidata.org/wiki/Q1383992"
+   }
+  ]
+ }
+}

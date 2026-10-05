@@ -1,0 +1,45 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "finansdepartementet",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/finansdepartementet.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#finansdepartementet",
+  "name": "Ministry of Finance (Finansdepartementet)",
+  "type": "organisation",
+  "sector": "public",
+  "country": "NO",
+  "description": "Political responsibility for financial-market regulation, tax, Finanstilsynet and the Tax Administration; put forward the Crypto-Assets Act (Prop. 55 LS). State secretaries: Sissel Kruse Larsen, Ellen Reitan, Astrid Scharning Huitfeldt and Bård Flaarønning (all Labour). Which of them holds the financial-markets/crypto portfolio is not confirmed on an official page.",
+  "role": null,
+  "org": null,
+  "group": "Parliament & government",
+  "profile_url": null,
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.regjeringen.no/no/dep/fin/id216/",
+    "title": "Regjeringen",
+    "source_name": "Regjeringen",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://www.regjeringen.no/no/dep/fin/org/politisk_ledelse/id238/",
+    "title": "Regjeringen",
+    "source_name": "Regjeringen",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://www.regjeringen.no/no/dep/fin/org/id240/",
+    "title": "Regjeringen",
+    "source_name": "Regjeringen",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "4fec239ddb97",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/4fec239ddb97.json",
+  "site": "nordic-crypto",
+  "url": "https://www.kaupr.io/nyheter/hilbert-finansierer-utlan-med-innskudd-pa-blokkjeden",
+  "canonical_url": "https://kaupr.io/nyheter/hilbert-finansierer-utlan-med-innskudd-pa-blokkjeden",
+  "title": "Hilbert finansierer utlån med innskudd på blokkjeden",
+  "titles": {
+   "en": "Hilbert funds lending with on-chain deposits"
+  },
+  "source": "kaupr",
+  "source_name": "Kaupr",
+  "country": "SE",
+  "published_at": "2026-09-15T12:00:00+00:00",
+  "first_published_on_site": "2026-10-03T17:59:40+02:00",
+  "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+  "languages": [
+   "en",
+   "nn",
+   "nb",
+   "sv",
+   "da",
+   "fi",
+   "is"
+  ],
+  "summaries": {
+   "en": "Hilbert Finance is taking stablecoin deposits on-chain and lending them out through a partnership with Ember Protocol.",
+   "nn": "Hilbert Finance tek imot stablecoin-innskot på blokkjeda og lånar dei ut gjennom eit samarbeid med Ember Protocol.",
+   "nb": "Hilbert Finance tar imot stablecoin-innskudd på blokkjeden og låner dem ut gjennom et samarbeid med Ember Protocol.",
+   "sv": "Hilbert Finance tar emot insättningar i stablecoins på blockkedjan och lånar ut dem genom ett samarbete med Ember Protocol.",
+   "da": "Hilbert Finance tager imod stablecoin-indskud on-chain og låner dem ud gennem et samarbejde med Ember Protocol.",
+   "fi": "Hilbert Finance ottaa vastaan vakaakolikkotalletuksia lohkoketjussa ja lainaa niitä eteenpäin yhteistyössä Ember Protocolin kanssa.",
+   "is": "Hilbert Finance tekur við innlánum í stöðugleikamyntum á bálkakeðjunni og lánar þær út í samstarfi við Ember Protocol."
+  },
+  "topics": [
+   "defi",
+   "business"
+  ],
+  "removed": false,
+  "removed_at": null
+ }
+}

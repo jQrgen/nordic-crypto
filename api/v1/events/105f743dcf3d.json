@@ -1,0 +1,27 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "105f743dcf3d",
+  "title": "Discussion about Bitcoin and related topics",
+  "title_original": null,
+  "start": "2027-02-05T18:00:00+02:00",
+  "end": "2027-02-05T21:00:00+02:00",
+  "place": "Faro Channelside Bar & Restaurant, Kellosaarenranta 2, Helsinki",
+  "city": "Helsinki",
+  "country": "FI",
+  "online": false,
+  "organiser": "Helsinki Bitcoin Hobbyists",
+  "url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/events/qjzrxgykcdbhb/",
+  "source": "Helsinki Bitcoin Hobbyists (Meetup.com)",
+  "paid": null,
+  "sponsored": null,
+  "note": null,
+  "note_i18n": {},
+  "past": false,
+  "html_url": "https://jqrgen.github.io/nordic-crypto/calendar/#e-105f743dcf3d",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/events/105f743dcf3d.json"
+ }
+}

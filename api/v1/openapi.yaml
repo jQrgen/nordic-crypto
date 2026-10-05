@@ -1,0 +1,1113 @@
+openapi: 3.0.3
+info:
+  title: Nordic Crypto data API
+  version: "1"
+  description: "Public read-only JSON for Nordic Crypto (cryptonordic.no, GitHub Pages jqrgen.github.io/nordic-crypto). No authentication. News, newsletters, events, sources, academia, the who's who, profiles, images, the rules map, the changelog and the article archive. Kaupr is a news source only, never a sponsor. The sign-off is The Nordic Crypto team. GitHub Pages sends Access-Control-Allow-Origin: * so browsers can fetch these files. English text is the default; translations are inside each object under *_i18n. Discovery: https://jqrgen.github.io/nordic-crypto/api/v1/index.json. Human docs: https://jqrgen.github.io/nordic-crypto/api/."
+  license:
+    name: MIT
+    url: "https://github.com/jQrgen/nordic-crypto/blob/main/LICENSE"
+  contact:
+    name: Nordic Crypto
+    url: "https://jqrgen.github.io/nordic-crypto/about/"
+servers:
+  - url: "https://jqrgen.github.io/nordic-crypto"
+    description: GitHub Pages project site
+  - url: "https://cryptonordic.no"
+    description: "cryptonordic.no (same paths at the domain root, once HTTPS serves this site)"
+paths:
+  "/api/v1/index.json":
+    get:
+      operationId: index
+      summary: "Discovery document: every endpoint, with example URLs."
+      responses:
+        "200":
+          description: "Discovery document: every endpoint, with example URLs."
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Discovery"
+  "/api/v1/news.json":
+    get:
+      operationId: api_v1_news
+      summary: "Published news and our own stories, newest first."
+      responses:
+        "200":
+          description: "Published news and our own stories, newest first."
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/NewsList"
+  "/api/v1/news/{id}.json":
+    get:
+      operationId: api_v1_news_item
+      summary: One item from /api/v1/news.json
+      responses:
+        "200":
+          description: One item from /api/v1/news.json
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Document"
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+  "/api/v1/news/by-country/{country}.json":
+    get:
+      operationId: news_by_country
+      summary: "Published news for one country code: NO, SE, DK, FI, IS, NORDIC or EU."
+      responses:
+        "200":
+          description: "Published news for one country code: NO, SE, DK, FI, IS, NORDIC or EU."
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/NewsList"
+      parameters:
+        - name: country
+          in: path
+          required: true
+          schema:
+            type: string
+            enum:
+              - "NO"
+              - SE
+              - DK
+              - FI
+              - IS
+              - NORDIC
+              - EU
+  "/api/v1/news/topics.json":
+    get:
+      operationId: api_v1_news_topics
+      summary: "Topic ids present in the published news, with counts."
+      responses:
+        "200":
+          description: "Topic ids present in the published news, with counts."
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/TopicIndex"
+  "/api/v1/news/by-topic/{topic}.json":
+    get:
+      operationId: api_v1_news_topics_item
+      summary: One item from /api/v1/news/topics.json
+      responses:
+        "200":
+          description: One item from /api/v1/news/topics.json
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Document"
+      parameters:
+        - name: topic
+          in: path
+          required: true
+          schema:
+            type: string
+  "/api/v1/newsletters.json":
+    get:
+      operationId: api_v1_newsletters
+      summary: "Published newsletter issues, newest first. The list omits the HTML body; the issue URL includes text and html."
+      responses:
+        "200":
+          description: "Published newsletter issues, newest first. The list omits the HTML body; the issue URL includes text and html."
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/NewsletterList"
+  "/api/v1/newsletters/{id}.json":
+    get:
+      operationId: api_v1_newsletters_item
+      summary: One item from /api/v1/newsletters.json
+      responses:
+        "200":
+          description: One item from /api/v1/newsletters.json
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Document"
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+  "/api/v1/events.json":
+    get:
+      operationId: api_v1_events
+      summary: "Public events, soonest start first, including past events."
+      responses:
+        "200":
+          description: "Public events, soonest start first, including past events."
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/EventList"
+  "/api/v1/events/{id}.json":
+    get:
+      operationId: api_v1_events_item
+      summary: One item from /api/v1/events.json
+      responses:
+        "200":
+          description: One item from /api/v1/events.json
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Document"
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+  "/api/v1/events/upcoming.json":
+    get:
+      operationId: api_v1_events_upcoming
+      summary: "Events that have not ended, soonest first. Judged in the event's own offset."
+      responses:
+        "200":
+          description: "Events that have not ended, soonest first. Judged in the event's own offset."
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/EventList"
+  "/api/v1/events/past.json":
+    get:
+      operationId: api_v1_events_past
+      summary: "Finished public events, newest first. Finished events stay in the archive."
+      responses:
+        "200":
+          description: "Finished public events, newest first. Finished events stay in the archive."
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/EventList"
+  "/api/v1/events/by-country/{country}.json":
+    get:
+      operationId: events_by_country
+      summary: Public events for one country code.
+      responses:
+        "200":
+          description: Public events for one country code.
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/EventList"
+      parameters:
+        - name: country
+          in: path
+          required: true
+          schema:
+            type: string
+            enum:
+              - "NO"
+              - SE
+              - DK
+              - FI
+              - IS
+              - NORDIC
+              - EU
+  "/api/v1/sources.json":
+    get:
+      operationId: api_v1_sources
+      summary: "News outlets, the public search terms, and event sources. Kaupr is marked as a news source only."
+      responses:
+        "200":
+          description: "News outlets, the public search terms, and event sources. Kaupr is marked as a news source only."
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/SourceCatalogue"
+  "/api/v1/academia.json":
+    get:
+      operationId: api_v1_academia
+      summary: "Editor-approved courses, student groups, publications and research."
+      responses:
+        "200":
+          description: "Editor-approved courses, student groups, publications and research."
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Academia"
+  "/api/v1/academia/courses.json":
+    get:
+      operationId: api_v1_academia_courses
+      summary: "Academia section: courses."
+      responses:
+        "200":
+          description: "Academia section: courses."
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/AcademiaSection"
+  "/api/v1/academia/groups.json":
+    get:
+      operationId: api_v1_academia_groups
+      summary: "Academia section: groups."
+      responses:
+        "200":
+          description: "Academia section: groups."
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/AcademiaSection"
+  "/api/v1/academia/publications.json":
+    get:
+      operationId: api_v1_academia_publications
+      summary: "Academia section: publications."
+      responses:
+        "200":
+          description: "Academia section: publications."
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/AcademiaSection"
+  "/api/v1/academia/research.json":
+    get:
+      operationId: api_v1_academia_research
+      summary: "Academia section: research."
+      responses:
+        "200":
+          description: "Academia section: research."
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/AcademiaSection"
+  "/api/v1/academia/{id}.json":
+    get:
+      operationId: academia_item
+      summary: One academia row. The id is in academia.json.
+      responses:
+        "200":
+          description: One academia row. The id is in academia.json.
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/AcademiaItem"
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+  "/api/v1/orgchart.json":
+    get:
+      operationId: api_v1_orgchart
+      summary: "Published who's who: organisations, people, relations, regulation notes and caveats."
+      responses:
+        "200":
+          description: "Published who's who: organisations, people, relations, regulation notes and caveats."
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/OrgChart"
+  "/api/v1/orgchart/{id}.json":
+    get:
+      operationId: api_v1_orgchart_item
+      summary: One item from /api/v1/orgchart.json
+      responses:
+        "200":
+          description: One item from /api/v1/orgchart.json
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Document"
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+  "/api/v1/orgchart/relations.json":
+    get:
+      operationId: api_v1_orgchart_relations
+      summary: "Relations between published who's who entries."
+      responses:
+        "200":
+          description: "Relations between published who's who entries."
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/RelationList"
+  "/api/v1/orgchart/regulation.json":
+    get:
+      operationId: api_v1_orgchart_regulation
+      summary: "Short regulation status for each Nordic country, as on the who's who page."
+      responses:
+        "200":
+          description: "Short regulation status for each Nordic country, as on the who's who page."
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/RegulationList"
+  "/api/v1/orgchart/relations/{id}.json":
+    get:
+      operationId: orgchart_relation
+      summary: "One relation from the who's who."
+      responses:
+        "200":
+          description: "One relation from the who's who."
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Relation"
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+  "/api/v1/profiles.json":
+    get:
+      operationId: api_v1_profiles
+      summary: "Public profile links (Wikipedia, X, Wikidata and similar) for people and organisations."
+      responses:
+        "200":
+          description: "Public profile links (Wikipedia, X, Wikidata and similar) for people and organisations."
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/ProfileList"
+  "/api/v1/profiles/{id}.json":
+    get:
+      operationId: api_v1_profiles_item
+      summary: One item from /api/v1/profiles.json
+      responses:
+        "200":
+          description: One item from /api/v1/profiles.json
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Document"
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+  "/api/v1/images.json":
+    get:
+      operationId: api_v1_images
+      summary: "Logos and photos used on the public who's who, with licence and credit."
+      responses:
+        "200":
+          description: "Logos and photos used on the public who's who, with licence and credit."
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/ImageList"
+  "/api/v1/changelog.json":
+    get:
+      operationId: api_v1_changelog
+      summary: "Site changelog (product changes, not the news), newest first."
+      responses:
+        "200":
+          description: "Site changelog (product changes, not the news), newest first."
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/ChangelogList"
+  "/api/v1/changelog/{id}.json":
+    get:
+      operationId: api_v1_changelog_item
+      summary: One item from /api/v1/changelog.json
+      responses:
+        "200":
+          description: One item from /api/v1/changelog.json
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Document"
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+  "/api/v1/rules.json":
+    get:
+      operationId: api_v1_rules
+      summary: "How EU crypto rules become law in the five countries. Simplified, not legal advice. Omitted while the page is still a placeholder."
+      responses:
+        "200":
+          description: "How EU crypto rules become law in the five countries. Simplified, not legal advice. Omitted while the page is still a placeholder."
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Rules"
+  "/api/v1/archive/articles.json":
+    get:
+      operationId: api_v1_archive_articles
+      summary: Append-only archive of stories that have been on the public site. removed is  true when a story later left the site; the row stays.
+      responses:
+        "200":
+          description: Append-only archive of stories that have been on the public site. removed is  true when a story later left the site; the row stays.
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/ArticleArchive"
+  "/api/v1/archive/articles/{id}.json":
+    get:
+      operationId: api_v1_archive_articles_item
+      summary: One item from /api/v1/archive/articles.json
+      responses:
+        "200":
+          description: One item from /api/v1/archive/articles.json
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Document"
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+  "/api/v1/meta.json":
+    get:
+      operationId: api_v1_meta
+      summary: "Site name, languages, countries, page list, CORS and editorial notes."
+      responses:
+        "200":
+          description: "Site name, languages, countries, page list, CORS and editorial notes."
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/SiteMeta"
+components:
+  schemas:
+    Document:
+      type: object
+      additionalProperties: true
+    Discovery:
+      type: object
+      properties:
+        api_version:
+          type: string
+        name:
+          type: string
+        generated_at:
+          type: string
+        preview:
+          type: boolean
+        endpoints:
+          type: array
+        counts:
+          type: object
+        cors:
+          type: object
+      description: Discovery
+    NewsItem:
+      type: object
+      required:
+        - id
+        - title
+        - published
+        - api_url
+      properties:
+        id:
+          type: string
+        url:
+          type: string
+          description: Story the reader follows. Absolute.
+        html_url:
+          type: string
+          nullable: true
+          description: "Our page, when the story is ours."
+        api_url:
+          type: string
+        title:
+          type: string
+        title_en:
+          type: string
+          nullable: true
+        source:
+          type: string
+        source_name:
+          type: string
+        source_note:
+          type: string
+          nullable: true
+        country:
+          type: string
+        language:
+          type: string
+        language_code:
+          type: string
+          nullable: true
+        published:
+          type: string
+          description: ISO 8601 date-time with offset.
+        topics:
+          type: array
+          items:
+            type: string
+        summary:
+          type: string
+          nullable: true
+          description: Our English summary.
+        summary_i18n:
+          type: object
+          additionalProperties:
+            type: string
+          description: "Keys are site language codes: nn, nb, sv, da, fi, is. English lives in the sibling field."
+        paywall:
+          type: boolean
+        links:
+          type: array
+          items:
+            type: object
+        own_story:
+          type: boolean
+    NewsList:
+      type: object
+      properties:
+        api_version:
+          type: string
+        name:
+          type: string
+        generated_at:
+          type: string
+        preview:
+          type: boolean
+        count:
+          type: integer
+        items:
+          type: array
+          items:
+            type: object
+            required:
+              - id
+              - title
+              - published
+              - api_url
+            properties:
+              id:
+                type: string
+              url:
+                type: string
+                description: Story the reader follows. Absolute.
+              html_url:
+                type: string
+                nullable: true
+                description: "Our page, when the story is ours."
+              api_url:
+                type: string
+              title:
+                type: string
+              title_en:
+                type: string
+                nullable: true
+              source:
+                type: string
+              source_name:
+                type: string
+              source_note:
+                type: string
+                nullable: true
+              country:
+                type: string
+              language:
+                type: string
+              language_code:
+                type: string
+                nullable: true
+              published:
+                type: string
+                description: ISO 8601 date-time with offset.
+              topics:
+                type: array
+                items:
+                  type: string
+              summary:
+                type: string
+                nullable: true
+                description: Our English summary.
+              summary_i18n:
+                type: object
+                additionalProperties:
+                  type: string
+                description: "Keys are site language codes: nn, nb, sv, da, fi, is. English lives in the sibling field."
+              paywall:
+                type: boolean
+              links:
+                type: array
+                items:
+                  type: object
+              own_story:
+                type: boolean
+        updated:
+          type: string
+          nullable: true
+      description: NewsList
+    TopicIndex:
+      type: object
+      properties:
+        api_version:
+          type: string
+        name:
+          type: string
+        generated_at:
+          type: string
+        preview:
+          type: boolean
+        topics:
+          type: array
+      description: TopicIndex
+    Event:
+      type: object
+      required:
+        - id
+        - title
+        - start
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        title_original:
+          type: string
+          nullable: true
+        start:
+          type: string
+          description: ISO 8601 date-time with offset.
+        end:
+          type: string
+          nullable: true
+        place:
+          type: string
+          nullable: true
+        city:
+          type: string
+          nullable: true
+        country:
+          type: string
+        online:
+          type: boolean
+        organiser:
+          type: string
+        url:
+          type: string
+        source:
+          type: string
+        paid:
+          nullable: true
+        sponsored:
+          nullable: true
+          description: "false, true, or the sponsor's name. Never Kaupr."
+        note:
+          type: string
+          nullable: true
+        note_i18n:
+          type: object
+          additionalProperties:
+            type: string
+          description: "Keys are site language codes: nn, nb, sv, da, fi, is. English lives in the sibling field."
+        past:
+          type: boolean
+        html_url:
+          type: string
+        api_url:
+          type: string
+    EventList:
+      type: object
+      properties:
+        api_version:
+          type: string
+        name:
+          type: string
+        generated_at:
+          type: string
+        preview:
+          type: boolean
+        count:
+          type: integer
+        events:
+          type: array
+          items:
+            type: object
+            required:
+              - id
+              - title
+              - start
+            properties:
+              id:
+                type: string
+              title:
+                type: string
+              title_original:
+                type: string
+                nullable: true
+              start:
+                type: string
+                description: ISO 8601 date-time with offset.
+              end:
+                type: string
+                nullable: true
+              place:
+                type: string
+                nullable: true
+              city:
+                type: string
+                nullable: true
+              country:
+                type: string
+              online:
+                type: boolean
+              organiser:
+                type: string
+              url:
+                type: string
+              source:
+                type: string
+              paid:
+                nullable: true
+              sponsored:
+                nullable: true
+                description: "false, true, or the sponsor's name. Never Kaupr."
+              note:
+                type: string
+                nullable: true
+              note_i18n:
+                type: object
+                additionalProperties:
+                  type: string
+                description: "Keys are site language codes: nn, nb, sv, da, fi, is. English lives in the sibling field."
+              past:
+                type: boolean
+              html_url:
+                type: string
+              api_url:
+                type: string
+      description: EventList
+    NewsletterIssue:
+      type: object
+      required:
+        - id
+        - date
+        - title
+      properties:
+        id:
+          type: string
+        number:
+          type: integer
+        date:
+          type: string
+          description: ISO date YYYY-MM-DD.
+        period:
+          type: object
+          properties:
+            start:
+              type: string
+            end:
+              type: string
+        title:
+          type: string
+        subtitle:
+          type: string
+        title_i18n:
+          type: object
+          additionalProperties:
+            type: string
+          description: "Keys are site language codes: nn, nb, sv, da, fi, is. English lives in the sibling field."
+        subtitle_i18n:
+          type: object
+          additionalProperties:
+            type: string
+          description: "Keys are site language codes: nn, nb, sv, da, fi, is. English lives in the sibling field."
+        sign_off:
+          type: string
+        text:
+          type: string
+          description: "Plain text of the English issue. Present on the issue URL, not the list."
+        html:
+          type: string
+        text_i18n:
+          type: object
+        html_i18n:
+          type: object
+        video:
+          type: object
+          nullable: true
+        api_url:
+          type: string
+        html_url:
+          type: string
+    NewsletterList:
+      type: object
+      properties:
+        api_version:
+          type: string
+        name:
+          type: string
+        generated_at:
+          type: string
+        preview:
+          type: boolean
+        count:
+          type: integer
+        issues:
+          type: array
+          items:
+            type: object
+            required:
+              - id
+              - date
+              - title
+            properties:
+              id:
+                type: string
+              number:
+                type: integer
+              date:
+                type: string
+                description: ISO date YYYY-MM-DD.
+              period:
+                type: object
+                properties:
+                  start:
+                    type: string
+                  end:
+                    type: string
+              title:
+                type: string
+              subtitle:
+                type: string
+              title_i18n:
+                type: object
+                additionalProperties:
+                  type: string
+                description: "Keys are site language codes: nn, nb, sv, da, fi, is. English lives in the sibling field."
+              subtitle_i18n:
+                type: object
+                additionalProperties:
+                  type: string
+                description: "Keys are site language codes: nn, nb, sv, da, fi, is. English lives in the sibling field."
+              sign_off:
+                type: string
+              text:
+                type: string
+                description: "Plain text of the English issue. Present on the issue URL, not the list."
+              html:
+                type: string
+              text_i18n:
+                type: object
+              html_i18n:
+                type: object
+              video:
+                type: object
+                nullable: true
+              api_url:
+                type: string
+              html_url:
+                type: string
+      description: NewsletterList
+    SourceCatalogue:
+      type: object
+      properties:
+        api_version:
+          type: string
+        name:
+          type: string
+        generated_at:
+          type: string
+        preview:
+          type: boolean
+        sources:
+          type: array
+        search:
+          type: array
+        event_sources:
+          type: array
+      description: SourceCatalogue
+    Academia:
+      type: object
+      properties:
+        api_version:
+          type: string
+        name:
+          type: string
+        generated_at:
+          type: string
+        preview:
+          type: boolean
+        courses:
+          type: array
+        groups:
+          type: array
+        publications:
+          type: array
+        research:
+          type: array
+      description: Academia
+    AcademiaSection:
+      type: object
+      properties:
+        api_version:
+          type: string
+        name:
+          type: string
+        generated_at:
+          type: string
+        preview:
+          type: boolean
+        section:
+          type: string
+        items:
+          type: array
+      description: AcademiaSection
+    AcademiaItem:
+      type: object
+      properties:
+        api_version:
+          type: string
+        name:
+          type: string
+        generated_at:
+          type: string
+        preview:
+          type: boolean
+        item:
+          type: object
+      description: AcademiaItem
+    OrgChart:
+      type: object
+      properties:
+        api_version:
+          type: string
+        name:
+          type: string
+        generated_at:
+          type: string
+        preview:
+          type: boolean
+        entities:
+          type: array
+        relations:
+          type: array
+        regulation:
+          type: array
+      description: OrgChart
+    Relation:
+      type: object
+    RelationList:
+      type: object
+      properties:
+        api_version:
+          type: string
+        name:
+          type: string
+        generated_at:
+          type: string
+        preview:
+          type: boolean
+        relations:
+          type: array
+      description: RelationList
+    RegulationList:
+      type: object
+      properties:
+        api_version:
+          type: string
+        name:
+          type: string
+        generated_at:
+          type: string
+        preview:
+          type: boolean
+        regulation:
+          type: array
+      description: RegulationList
+    ProfileList:
+      type: object
+      properties:
+        api_version:
+          type: string
+        name:
+          type: string
+        generated_at:
+          type: string
+        preview:
+          type: boolean
+        profiles:
+          type: array
+      description: ProfileList
+    ImageList:
+      type: object
+      properties:
+        api_version:
+          type: string
+        name:
+          type: string
+        generated_at:
+          type: string
+        preview:
+          type: boolean
+        images:
+          type: array
+      description: ImageList
+    ChangelogList:
+      type: object
+      properties:
+        api_version:
+          type: string
+        name:
+          type: string
+        generated_at:
+          type: string
+        preview:
+          type: boolean
+        entries:
+          type: array
+      description: ChangelogList
+    Rules:
+      type: object
+      properties:
+        api_version:
+          type: string
+        name:
+          type: string
+        generated_at:
+          type: string
+        preview:
+          type: boolean
+        available:
+          type: boolean
+        checked:
+          type: string
+      description: Rules
+    ArticleArchive:
+      type: object
+      properties:
+        api_version:
+          type: string
+        name:
+          type: string
+        generated_at:
+          type: string
+        preview:
+          type: boolean
+        articles:
+          type: array
+      description: ArticleArchive
+    SiteMeta:
+      type: object
+      properties:
+        api_version:
+          type: string
+        name:
+          type: string
+        generated_at:
+          type: string
+        preview:
+          type: boolean
+        languages:
+          type: array
+        countries:
+          type: array
+        cors:
+          type: object
+      description: SiteMeta

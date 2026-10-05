@@ -1,0 +1,53 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "se-divly",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/se-divly.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#se-divly",
+  "name": "Divly (Ragnaros AB)",
+  "type": "organisation",
+  "sector": "private",
+  "country": "SE",
+  "description": "Stockholm-based crypto tax software that calculates gains and losses and produces tax reports for individuals, businesses and accountants in the Nordic countries and several other European markets. Operated by Ragnaros AB.",
+  "role": null,
+  "org": null,
+  "group": "Companies & startups",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://divly.com/en/terms",
+    "title": "Divly – Terms and conditions (Ragnaros AB, Stockholm)",
+    "source_name": "Divly",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://divly.com/en/about",
+    "title": "Divly – About",
+    "source_name": "Divly",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://www.kaupr.io/pages/divly",
+    "title": "Divly – company profile (Onchain Pages)",
+    "source_name": "Kaupr",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/se-divly.svg",
+   "source_url": "https://divly.fra1.cdn.digitaloceanspaces.com/static/images/logo.svg",
+   "author": null,
+   "license": null,
+   "license_url": null,
+   "credit": "Official website"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

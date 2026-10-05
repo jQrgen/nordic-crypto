@@ -1,0 +1,255 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "count": 15,
+ "relations": [
+  {
+   "id": "r-greenmerc-northcrypto",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/r-greenmerc-northcrypto.json",
+   "from": "greenmerc",
+   "to": "northcrypto",
+   "type": "uses licence",
+   "label": "Uses Northcrypto's MiCA licence for Trijo customers",
+   "sources": [
+    {
+     "url": "https://www.kaupr.io/nyheter/greenmerc-trekker-mica-klage-og-bruker-northcryptos-lisens-i-sverige",
+     "title": "GreenMerc trekker MiCA-klage og bruker Northcryptos lisens i Sverige",
+     "source_name": "Kaupr",
+     "date": "2026-10-03"
+    }
+   ]
+  },
+  {
+   "id": "r-goobit-kvarn",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/r-goobit-kvarn.json",
+   "from": "goobit",
+   "to": "kvarn-x",
+   "type": "uses licence",
+   "label": "Launched savings on Kvarn Capital's MiCA licence",
+   "sources": [
+    {
+     "url": "https://www.kaupr.io/nyheter/goobit-lanserer-sparing-i-bitcoin-og-gull-pa-finsk-lisens",
+     "title": "Goobit lanserer sparing i bitcoin og gull på finsk lisens",
+     "source_name": "Kaupr",
+     "date": "2026-10-03"
+    }
+   ]
+  },
+  {
+   "id": "r-coinmotion-k33",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/r-coinmotion-k33.json",
+   "from": "coinmotion",
+   "to": "k33",
+   "type": "partner",
+   "label": "Partner for executing larger trades",
+   "sources": [
+    {
+     "url": "https://www.kaupr.io/nyheter/coinmotion-og-k33-inngar-nordisk-kryptosamarbeid-om-institusjonell-handel",
+     "title": "Coinmotion og K33 inngår nordisk kryptosamarbeid om institusjonell handel",
+     "source_name": "Kaupr",
+     "date": "2026-10-03"
+    }
+   ]
+  },
+  {
+   "id": "r-fi-safello",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/r-fi-safello.json",
+   "from": "se-fi",
+   "to": "safello",
+   "type": "licensed",
+   "label": "Authorised as CASP",
+   "sources": [
+    {
+     "url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+     "title": "ESMA interim MiCA register (CASPS.csv, checked 3 Oct 2026)",
+     "source_name": "ESMA",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://www.fi.se/sv/publicerat/nyheter/2026/kryptobolag-utan-tillstand-ska-avveckla-sin-verksamhet-i-eu/",
+     "title": "Kryptobolag utan tillstånd ska avveckla sin verksamhet i EU",
+     "source_name": "Finansinspektionen",
+     "date": "2026-07-01"
+    }
+   ]
+  },
+  {
+   "id": "r-fi-valuno",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/r-fi-valuno.json",
+   "from": "se-fi",
+   "to": "valuno",
+   "type": "refused",
+   "label": "Refused a MiCA licence (appealed)",
+   "sources": [
+    {
+     "url": "https://www.fi.se/sv/publicerat/nyheter/2026/kryptobolag-utan-tillstand-ska-avveckla-sin-verksamhet-i-eu/",
+     "title": "Kryptobolag utan tillstånd ska avveckla sin verksamhet i EU",
+     "source_name": "Finansinspektionen",
+     "date": "2026-07-01"
+    }
+   ]
+  },
+  {
+   "id": "r-fi-greenmerc",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/r-fi-greenmerc.json",
+   "from": "se-fi",
+   "to": "greenmerc",
+   "type": "refused",
+   "label": "Refused a MiCA licence",
+   "sources": [
+    {
+     "url": "https://www.fi.se/sv/publicerat/nyheter/2026/kryptobolag-utan-tillstand-ska-avveckla-sin-verksamhet-i-eu/",
+     "title": "Kryptobolag utan tillstånd ska avveckla sin verksamhet i EU",
+     "source_name": "Finansinspektionen",
+     "date": "2026-07-01"
+    }
+   ]
+  },
+  {
+   "id": "r-sbf-meetups",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/r-sbf-meetups.json",
+   "from": "swedish-bitcoin-meetups",
+   "to": "svenska-bitcoinforeningen",
+   "type": "collaboration",
+   "label": "Meetups run in collaboration",
+   "sources": [
+    {
+     "url": "https://www.meetup.com/swedish-bitcoin-meetups/",
+     "title": "Swedish Bitcoin Meetups",
+     "source_name": "Meetup.com",
+     "date": "2026-10-03"
+    }
+   ]
+  },
+  {
+   "id": "r-cbis-myntkaup",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/r-cbis-myntkaup.json",
+   "from": "is-fme",
+   "to": "myntkaup",
+   "type": "licensed",
+   "label": "Authorised as CASP",
+   "sources": [
+    {
+     "url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+     "title": "ESMA interim MiCA register (CASPS.csv, checked 3 Oct 2026)",
+     "source_name": "ESMA",
+     "date": "2026-10-03"
+    }
+   ]
+  },
+  {
+   "id": "r-cbis-monerium",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/r-cbis-monerium.json",
+   "from": "is-fme",
+   "to": "monerium",
+   "type": "supervises",
+   "label": "E-money token issuer supervised by the Central Bank",
+   "sources": [
+    {
+     "url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+     "title": "ESMA interim MiCA register – e-money token issuers (EMTWP.csv, checked 3 Oct 2026)",
+     "source_name": "ESMA",
+     "date": "2026-10-03"
+    }
+   ]
+  },
+  {
+   "id": "r-fiva-coinmotion",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/r-fiva-coinmotion.json",
+   "from": "fi-fiva",
+   "to": "coinmotion",
+   "type": "licensed",
+   "label": "Authorised as CASP",
+   "sources": [
+    {
+     "url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+     "title": "ESMA interim MiCA register (CASPS.csv, checked 3 Oct 2026)",
+     "source_name": "ESMA",
+     "date": "2026-10-03"
+    }
+   ]
+  },
+  {
+   "id": "r-fiva-tesseract",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/r-fiva-tesseract.json",
+   "from": "fi-fiva",
+   "to": "tesseract",
+   "type": "licensed",
+   "label": "Authorised as CASP",
+   "sources": [
+    {
+     "url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+     "title": "ESMA interim MiCA register (CASPS.csv, checked 3 Oct 2026)",
+     "source_name": "ESMA",
+     "date": "2026-10-03"
+    }
+   ]
+  },
+  {
+   "id": "r-fiva-bittimaatti",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/r-fiva-bittimaatti.json",
+   "from": "fi-fiva",
+   "to": "bittimaatti",
+   "type": "licensed",
+   "label": "Authorised as CASP",
+   "sources": [
+    {
+     "url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+     "title": "ESMA interim MiCA register (CASPS.csv, checked 3 Oct 2026)",
+     "source_name": "ESMA",
+     "date": "2026-10-03"
+    }
+   ]
+  },
+  {
+   "id": "r-fiva-northcrypto",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/r-fiva-northcrypto.json",
+   "from": "fi-fiva",
+   "to": "northcrypto",
+   "type": "licensed",
+   "label": "Authorised as CASP",
+   "sources": [
+    {
+     "url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+     "title": "ESMA interim MiCA register (CASPS.csv, checked 3 Oct 2026)",
+     "source_name": "ESMA",
+     "date": "2026-10-03"
+    }
+   ]
+  },
+  {
+   "id": "r-fiva-kvarn-x",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/r-fiva-kvarn-x.json",
+   "from": "fi-fiva",
+   "to": "kvarn-x",
+   "type": "licensed",
+   "label": "Authorised as CASP",
+   "sources": [
+    {
+     "url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+     "title": "ESMA interim MiCA register (CASPS.csv, checked 3 Oct 2026)",
+     "source_name": "ESMA",
+     "date": "2026-10-03"
+    }
+   ]
+  },
+  {
+   "id": "r-fiva-paxos",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/r-fiva-paxos.json",
+   "from": "fi-fiva",
+   "to": "paxos-eu",
+   "type": "supervises",
+   "label": "E-money institution supervised by FIN-FSA",
+   "sources": [
+    {
+     "url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+     "title": "ESMA interim MiCA register – e-money token issuers (EMTWP.csv, checked 3 Oct 2026)",
+     "source_name": "ESMA",
+     "date": "2026-10-03"
+    }
+   ]
+  }
+ ]
+}

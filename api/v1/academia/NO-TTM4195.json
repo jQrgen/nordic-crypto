@@ -1,0 +1,22 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "country": "NO",
+  "institution": "NTNU",
+  "code": "TTM4195",
+  "name": "Blockchain Technologies and Cryptographic Tools",
+  "level": "Master, 7.5 ECTS",
+  "term": "Autumn 2026",
+  "about": "Whole course on cryptography behind Bitcoin, cryptocurrency design, smart contracts",
+  "url": "https://www.ntnu.edu/studies/courses/TTM4195",
+  "source": "https://www.ntnu.edu/studies/courses/TTM4195",
+  "checked": "2026-10-03",
+  "about_i18n": {},
+  "id": "NO-TTM4195",
+  "section": "courses",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/NO-TTM4195.json"
+ }
+}

@@ -1,0 +1,41 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "skatteetaten",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/skatteetaten.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#skatteetaten",
+  "name": "Skatteetaten (Norwegian Tax Administration)",
+  "type": "organisation",
+  "sector": "public",
+  "country": "NO",
+  "description": "Taxes crypto gains and wealth; receives CARF/DAC8 reports from crypto providers from income year 2026 (first reports due by 10 Feb 2027). The Director General starts a new fixed term on 19 Oct 2026.",
+  "role": null,
+  "org": null,
+  "group": "Tax authorities",
+  "profile_url": null,
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.regjeringen.no/no/aktuelt/nina-schanke-funnemark-utnemnd-som-skattedirektor/id3160661/",
+    "title": "Regjeringen",
+    "source_name": "Regjeringen",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/skatteetaten.webp",
+   "source_url": "https://www.skatteetaten.no/static/img/skatteetatenlogo/fav-icon/57x57/png/favicon57x57.png",
+   "author": null,
+   "license": null,
+   "license_url": null,
+   "credit": "Official website"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

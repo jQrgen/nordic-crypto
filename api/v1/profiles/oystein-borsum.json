@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "entity_id": "oystein-borsum",
+  "name": "Øystein Børsum",
+  "type": "person",
+  "country": "NO",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/oystein-borsum.json",
+  "links": [
+   {
+    "kind": "wikipedia",
+    "label": "Wikipedia (nb)",
+    "url": "https://no.wikipedia.org/wiki/%C3%98ystein_B%C3%B8rsum",
+    "source_url": "https://www.wikidata.org/wiki/Q107009803"
+   },
+   {
+    "kind": "x",
+    "label": "X",
+    "url": "https://x.com/OysteinBorsum",
+    "source_url": "https://www.wikidata.org/wiki/Q107009803"
+   },
+   {
+    "kind": "wikidata",
+    "label": "Wikidata",
+    "url": "https://www.wikidata.org/wiki/Q107009803",
+    "source_url": "https://www.wikidata.org/wiki/Q107009803"
+   }
+  ]
+ }
+}

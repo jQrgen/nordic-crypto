@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "dk-safelynx",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/dk-safelynx.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#dk-safelynx",
+  "name": "SafeLynx (SafeLynx Technologies ApS)",
+  "type": "organisation",
+  "sector": "private",
+  "country": "DK",
+  "description": "Crypto-asset service provider authorised by Finanstilsynet under MiCA on 30 Jun 2026, per ESMA's register.",
+  "role": null,
+  "org": null,
+  "group": "MiCA-licensed providers (CASPs)",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv",
+    "title": "Interim MiCA register: authorised CASPs (CASPS.csv)",
+    "source_name": "ESMA",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

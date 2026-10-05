@@ -1,0 +1,39 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "se-dwellir",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/se-dwellir.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#se-dwellir",
+  "name": "Dwellir (Dwellir AB)",
+  "type": "organisation",
+  "sector": "private",
+  "country": "SE",
+  "description": "Uppsala-based provider of blockchain node and RPC/API infrastructure for developers and businesses across many networks.",
+  "role": null,
+  "org": null,
+  "group": "Companies & startups",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.dwellir.com/",
+    "title": "Dwellir – company website (Dwellir AB, Uppsala)",
+    "source_name": "Dwellir",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://www.kaupr.io/pages/dwellir",
+    "title": "Dwellir – company profile (Onchain Pages)",
+    "source_name": "Kaupr",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

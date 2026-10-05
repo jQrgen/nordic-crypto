@@ -1,0 +1,47 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "ak-jensen-norway",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/ak-jensen-norway.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#ak-jensen-norway",
+  "name": "AK Jensen Norway",
+  "type": "organisation",
+  "sector": "private",
+  "country": "NO",
+  "description": "Investment firm (since 26 Feb 2021) with the CASP services (g) reception and transmission of orders and (i) portfolio management, registered 2 Feb 2026 – according to Finanstilsynet's register. Not a former exchange or custody provider.",
+  "role": null,
+  "org": null,
+  "group": "Exchanges & brokers",
+  "profile_url": null,
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.finanstilsynet.no/virksomhetsregisteret/detalj/?id=213970",
+    "title": "Finanstilsynet",
+    "source_name": "Finanstilsynet",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/925510246/roller",
+    "title": "data.brreg.no",
+    "source_name": "data.brreg.no",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/ak-jensen-norway.webp",
+   "source_url": "https://cdn.prod.website-files.com/655b7aeacc77bd33098fbac6/65df1e133a0bf545950eba18_svgviewer-png-output.png",
+   "author": null,
+   "license": null,
+   "license_url": null,
+   "credit": "Official website"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

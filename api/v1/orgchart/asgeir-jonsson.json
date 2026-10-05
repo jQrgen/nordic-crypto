@@ -1,0 +1,41 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "asgeir-jonsson",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/asgeir-jonsson.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#asgeir-jonsson",
+  "name": "Ásgeir Jónsson",
+  "type": "person",
+  "sector": "public",
+  "country": "IS",
+  "description": null,
+  "role": "Governor",
+  "org": "is-sedlabanki",
+  "group": null,
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://cb.is/about-the-bank/governance/",
+    "title": "Governance – Governor and Deputy Governors",
+    "source_name": "Central Bank of Iceland",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": null,
+  "image": {
+   "kind": "photo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/people/asgeir-jonsson.jpg",
+   "source_url": "https://commons.wikimedia.org/wiki/File:%C3%81sgeir_J%C3%B3nsson_2022.jpg",
+   "author": "Ifimero",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "credit": "Wikimedia Commons"
+  },
+  "profiles": []
+ }
+}

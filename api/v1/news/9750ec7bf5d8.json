@@ -1,0 +1,37 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "9750ec7bf5d8",
+  "url": "https://www.kaupr.io/nyheter/finske-kvarn-leier-ut-mica-tillatelsen-sin-til-nordiske-partnere",
+  "html_url": null,
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/9750ec7bf5d8.json",
+  "title": "Finske Kvarn leier ut MiCA-tillatelsen sin til nordiske partnere",
+  "title_en": "Finnish Kvarn rents out its MiCA licence to Nordic partners",
+  "source": "kaupr",
+  "source_name": "Kaupr",
+  "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+  "country": "SE",
+  "language": "Norwegian",
+  "language_code": "no",
+  "published": "2026-09-14T12:00:00+00:00",
+  "topics": [
+   "mica",
+   "business"
+  ],
+  "summary": "Finland's Kvarn Capital lets Nordic companies sell crypto services under its MiCA licence, with Goobit as the first named client.",
+  "summary_i18n": {
+   "nn": "Finske Kvarn Capital lèt nordiske selskap selje kryptotenester under MiCA-løyvet sitt, med Goobit som første namngitte kunde.",
+   "nb": "Finske Kvarn Capital lar nordiske selskaper selge kryptotjenester under sin MiCA-tillatelse, med Goobit som første navngitte kunde.",
+   "sv": "Finländska Kvarn Capital låter nordiska bolag sälja kryptotjänster under sitt MiCA-tillstånd, med Goobit som första namngivna kund.",
+   "da": "Finske Kvarn Capital lader nordiske virksomheder sælge kryptotjenester under sin MiCA-tilladelse med Goobit som første navngivne kunde.",
+   "fi": "Suomalainen Kvarn Capital antaa pohjoismaisten yritysten myydä kryptopalveluja MiCA-toimilupansa alla, ja ensimmäinen nimetty asiakas on Goobit.",
+   "is": "Finnska Kvarn Capital leyfir norrænum fyrirtækjum að selja rafmyntaþjónustu undir MiCA-leyfi sínu og er Goobit fyrsti nafngreindi viðskiptavinurinn."
+  },
+  "paywall": false,
+  "links": [],
+  "own_story": false
+ }
+}

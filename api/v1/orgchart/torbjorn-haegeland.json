@@ -1,0 +1,39 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "torbjorn-haegeland",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/torbjorn-haegeland.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#torbjorn-haegeland",
+  "name": "Torbjørn Hægeland",
+  "type": "person",
+  "sector": "public",
+  "country": "NO",
+  "description": "CBDC study and tokenisation testing. Name and role from Norges Bank's English organisation page; the Norwegian page was last changed on 10 Jun 2025.",
+  "role": "Executive Director, Financial Stability",
+  "org": "norges-bank",
+  "group": null,
+  "profile_url": "https://www.norges-bank.no/en/topics/about/Organisation/Financial-Stability/",
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": true,
+  "sources": [
+   {
+    "url": "https://www.norges-bank.no/en/topics/about/Organisation/Financial-Stability/",
+    "title": "Norges Bank",
+    "source_name": "Norges Bank",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://www.norges-bank.no/tema/Om-Norges-Bank/Organisering-styring/Finansiell-stabilitet/",
+    "title": "Norges Bank",
+    "source_name": "Norges Bank",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

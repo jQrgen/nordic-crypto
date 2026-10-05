@@ -1,0 +1,45 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "no-web3-creatives",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/no-web3-creatives.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#no-web3-creatives",
+  "name": "Web3 Creatives (Web3 Creatives AS)",
+  "type": "organisation",
+  "sector": "private",
+  "country": "NO",
+  "description": "Oslo-based marketing agency specialising in NFT and Web3 marketing for brands, according to its own website.",
+  "role": null,
+  "org": null,
+  "group": "Companies & startups",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://web3creatives.no/",
+    "title": "Web3 Creatives – company website",
+    "source_name": "Web3 Creatives",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://data.brreg.no/enhetsregisteret/oppslag/enheter/928059103",
+    "title": "Web3 Creatives AS – Enhetsregisteret",
+    "source_name": "Brønnøysundregistrene",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://www.kaupr.io/pages/web3-creatives",
+    "title": "Web3 Creatives – company profile (Onchain Pages)",
+    "source_name": "Kaupr",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

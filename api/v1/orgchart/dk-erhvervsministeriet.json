@@ -1,0 +1,41 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "dk-erhvervsministeriet",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/dk-erhvervsministeriet.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#dk-erhvervsministeriet",
+  "name": "Erhvervsministeriet (Ministry of Industry, Business and Financial Affairs)",
+  "type": "organisation",
+  "sector": "public",
+  "country": "DK",
+  "description": "The Danish ministry responsible for business and financial affairs.",
+  "role": null,
+  "org": null,
+  "group": "Parliament & government",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.em.dk/",
+    "title": "Forside | Erhvervsministeriet",
+    "source_name": "Erhvervsministeriet",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/dk-erhvervsministeriet.webp",
+   "source_url": "https://commons.wikimedia.org/wiki/File:Logo_of_the_Danish_Ministry_of_Industry,_Business_and_Financial_Affairs.png",
+   "author": "Danish Ministry of Industry, Business and Financial Affairs",
+   "license": "Public domain",
+   "license_url": null,
+   "credit": "Wikimedia Commons"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

@@ -1,0 +1,54 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "finn-arnesen",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/finn-arnesen.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#finn-arnesen",
+  "name": "Finn Arnesen",
+  "type": "person",
+  "sector": "public",
+  "country": "NO",
+  "description": "The board decides individual cases in the supervisory areas (since the new Financial Supervision Act of 1 Apr 2025).",
+  "role": "Chair of the Board",
+  "org": "finanstilsynet",
+  "group": null,
+  "profile_url": "https://www.finanstilsynet.no/om-finanstilsynet/organisasjon/",
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.finanstilsynet.no/om-finanstilsynet/organisasjon/",
+    "title": "Finanstilsynet",
+    "source_name": "Finanstilsynet",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": {
+   "kind": "photo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/people/finn-arnesen.jpg",
+   "source_url": "https://commons.wikimedia.org/wiki/File:Arnesen01.JPG",
+   "author": "Bjoertvedt",
+   "license": "CC BY 3.0",
+   "license_url": "https://creativecommons.org/licenses/by/3.0",
+   "credit": "Wikimedia Commons"
+  },
+  "profiles": [
+   {
+    "kind": "wikipedia",
+    "label": "Wikipedia (nb)",
+    "url": "https://no.wikipedia.org/wiki/Finn_Arnesen_(jurist)",
+    "source_url": "https://www.wikidata.org/wiki/Q16167804"
+   },
+   {
+    "kind": "wikidata",
+    "label": "Wikidata",
+    "url": "https://www.wikidata.org/wiki/Q16167804",
+    "source_url": "https://www.wikidata.org/wiki/Q16167804"
+   }
+  ]
+ }
+}

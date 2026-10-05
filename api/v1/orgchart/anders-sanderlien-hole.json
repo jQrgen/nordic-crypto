@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "anders-sanderlien-hole",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/anders-sanderlien-hole.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#anders-sanderlien-hole",
+  "name": "Anders Sanderlien Hole",
+  "type": "person",
+  "sector": "public",
+  "country": "NO",
+  "description": "Supervises banks, including banks' crypto notifications under MiCA Article 60.",
+  "role": "Director, Banking and Insurance Supervision",
+  "org": "finanstilsynet",
+  "group": null,
+  "profile_url": "https://www.finanstilsynet.no/globalassets/om-finanstilsynet/organisasjonskart.pdf",
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.finanstilsynet.no/globalassets/om-finanstilsynet/organisasjonskart.pdf",
+    "title": "Finanstilsynet",
+    "source_name": "Finanstilsynet",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

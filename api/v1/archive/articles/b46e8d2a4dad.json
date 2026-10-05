@@ -1,0 +1,47 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "b46e8d2a4dad",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/b46e8d2a4dad.json",
+  "site": "nordic-crypto",
+  "url": "https://www.kaupr.io/nyheter/to-tilsyn-vil-ikke-si-om-kryptodistribusjon-krever-egen-tillatelse",
+  "canonical_url": "https://kaupr.io/nyheter/to-tilsyn-vil-ikke-si-om-kryptodistribusjon-krever-egen-tillatelse",
+  "title": "To tilsyn vil ikke si om kryptodistribusjon krever egen tillatelse",
+  "titles": {
+   "en": "Two regulators won't say whether crypto distribution needs its own licence"
+  },
+  "source": "kaupr",
+  "source_name": "Kaupr",
+  "country": "FI",
+  "published_at": "2026-09-17T12:00:00+00:00",
+  "first_published_on_site": "2026-10-03T17:59:40+02:00",
+  "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+  "languages": [
+   "en",
+   "nn",
+   "nb",
+   "sv",
+   "da",
+   "fi",
+   "is"
+  ],
+  "summaries": {
+   "en": "Neither ESMA nor Sweden's Finansinspektionen will say whether distributing crypto services under your own brand needs its own MiCA licence.",
+   "nn": "Verken ESMA eller svenske Finansinspektionen vil seie om distribusjon av kryptotenester under eige merkenamn krev eige MiCA-løyve.",
+   "nb": "Verken ESMA eller svenske Finansinspektionen vil si om distribusjon av kryptotjenester under eget merkenavn krever egen MiCA-tillatelse.",
+   "sv": "Varken Esma eller Finansinspektionen vill säga om distribution av kryptotjänster under eget varumärke kräver ett eget MiCA-tillstånd.",
+   "da": "Hverken ESMA eller det svenske Finansinspektionen vil sige, om distribution af kryptotjenester under eget brand kræver en selvstændig MiCA-tilladelse.",
+   "fi": "ESMA ja Ruotsin Finansinspektionen eivät kerro, tarvitaanko kryptopalvelujen jakeluun oman brändin alla oma MiCA-toimilupa.",
+   "is": "Hvorki ESMA né sænska Finansinspektionen vilja segja hvort dreifing rafmyntaþjónustu undir eigin vörumerki krefjist sérstaks MiCA-leyfis."
+  },
+  "topics": [
+   "mica",
+   "regulation"
+  ],
+  "removed": false,
+  "removed_at": null
+ }
+}

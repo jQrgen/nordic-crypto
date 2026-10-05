@@ -1,0 +1,53 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "se-h100",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/se-h100.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#se-h100",
+  "name": "H100 (H100 Group AB)",
+  "type": "organisation",
+  "sector": "private",
+  "country": "SE",
+  "description": "Swedish company with a health-tech business that describes itself as the Nordics' first and leading bitcoin treasury company.",
+  "role": null,
+  "org": null,
+  "group": "Companies & startups",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.h100.group/",
+    "title": "H100 Group – company website",
+    "source_name": "H100",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://www.allabolag.se/5565785622",
+    "title": "H100 Group AB – (Bolagsverket data)",
+    "source_name": "Allabolag (Bolagsverket data)",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://www.kaupr.io/pages/h100",
+    "title": "H100 – company profile (Onchain Pages)",
+    "source_name": "Kaupr",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/se-h100.webp",
+   "source_url": "https://cdn.prod.website-files.com/6785fc8ea8039f2244adbbd5/684ca8b2bba62b9e3593ceb3_Logo.png",
+   "author": null,
+   "license": null,
+   "license_url": null,
+   "credit": "Official website"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

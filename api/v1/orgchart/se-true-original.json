@@ -1,0 +1,45 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "se-true-original",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/se-true-original.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#se-true-original",
+  "name": "TRUE Original (True Value Software AB)",
+  "type": "organisation",
+  "sector": "private",
+  "country": "SE",
+  "description": "Stockholm-based platform for issuing diplomas, certificates and other documents digitally, backed by a blockchain so they can be verified.",
+  "role": null,
+  "org": null,
+  "group": "Companies & startups",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://trueoriginal.com/",
+    "title": "TRUE Original – company website (Eriksbergsgatan 3, Stockholm)",
+    "source_name": "TRUE Original",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://www.trueoriginal.com/sv/terms-conditions",
+    "title": "Villkor (True Value Software AB, Stockholm)",
+    "source_name": "TRUE Original",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://www.kaupr.io/pages/true-original",
+    "title": "TRUE Original – company profile (Onchain Pages)",
+    "source_name": "Kaupr",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

@@ -1,0 +1,40 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "academia",
+  "date": "2026-10-03",
+  "title": "Academia page",
+  "description": "New Academia page: blockchain and crypto courses and programmes, student associations, publications and research groups at universities in Norway, Sweden, Finland, Iceland and the Faroe Islands. Every row shows its source, the date we checked it and its status; only editor-approved rows are shown.",
+  "i18n": {
+   "nb": {
+    "title": "Side om forskning og utdanning",
+    "description": "Ny side om forskning og utdanning: kurs og studieprogrammer om blokkjede og krypto, studentforeninger, publikasjoner og forskningsgrupper ved universiteter i Norge, Sverige, Finland, Island og på Færøyene. Hver rad viser kilde, datoen vi sjekket den og status; bare rader redaktøren har godkjent, vises."
+   },
+   "nn": {
+    "title": "Side om forsking og utdanning",
+    "description": "Ny side om forsking og utdanning: kurs og studieprogram om blokkjede og krypto, studentforeiningar, publikasjonar og forskingsgrupper ved universitet i Noreg, Sverige, Finland, Island og på Færøyane. Kvar rad viser kjelde, datoen vi sjekka ho og status; berre rader redaktøren har godkjent, blir viste."
+   },
+   "sv": {
+    "title": "Sida om forskning och utbildning",
+    "description": "Ny sida om forskning och utbildning: kurser och program om blockkedjor och krypto, studentföreningar, publikationer och forskargrupper vid universitet i Norge, Sverige, Finland, Island och på Färöarna. Varje rad visar källa, datumet då vi kontrollerade den och status; bara rader som redaktören har godkänt visas."
+   },
+   "da": {
+    "title": "Side om forskning og uddannelse",
+    "description": "Ny side om forskning og uddannelse: kurser og uddannelser om blockchain og krypto, studenterforeninger, publikationer og forskningsgrupper på universiteter i Norge, Sverige, Finland, Island og på Færøerne. Hver række viser kilde, datoen for vores kontrol og status; kun rækker, som redaktøren har godkendt, vises."
+   },
+   "fi": {
+    "title": "Tutkimus ja opetus -sivu",
+    "description": "Uusi tutkimus- ja opetussivu: lohkoketju- ja kryptokurssit ja -koulutusohjelmat, opiskelijajärjestöt, julkaisut ja tutkimusryhmät yliopistoissa Norjassa, Ruotsissa, Suomessa, Islannissa ja Färsaarilla. Jokaisella rivillä näkyy lähde, tarkistuspäivä ja tila; vain toimittajan hyväksymät rivit näytetään."
+   },
+   "is": {
+    "title": "Síða um rannsóknir og kennslu",
+    "description": "Ný síða um rannsóknir og kennslu: námskeið og námsleiðir um bálkakeðjur og rafmyntir, nemendafélög, útgáfur og rannsóknarhópar við háskóla í Noregi, Svíþjóð, Finnlandi, Íslandi og Færeyjum. Hver lína sýnir heimild, dagsetninguna sem við athuguðum hana og stöðu; aðeins línur sem ritstjórinn hefur samþykkt eru sýndar."
+   }
+  },
+  "html_url": "https://jqrgen.github.io/nordic-crypto/changelog/#academia",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/academia.json"
+ }
+}

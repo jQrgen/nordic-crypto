@@ -1,0 +1,41 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "dk-lunar-block",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/dk-lunar-block.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#dk-lunar-block",
+  "name": "Lunar Block (Lunar Block A/S)",
+  "type": "organisation",
+  "sector": "private",
+  "country": "DK",
+  "description": "Crypto-asset service provider authorised by Finanstilsynet under MiCA on 15 Sep 2025, per ESMA's register.",
+  "role": null,
+  "org": null,
+  "group": "MiCA-licensed providers (CASPs)",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv",
+    "title": "Interim MiCA register: authorised CASPs (CASPS.csv)",
+    "source_name": "ESMA",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/dk-lunar-block.svg",
+   "source_url": "https://www.lunar.app/favicon.svg",
+   "author": null,
+   "license": null,
+   "license_url": null,
+   "credit": "Official website"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

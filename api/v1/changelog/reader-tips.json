@@ -1,0 +1,40 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "reader-tips",
+  "date": "2026-10-03",
+  "title": "Send us a tip",
+  "description": "Readers can now tip Nordic Crypto about articles via the new Send a tip page, which opens a form on GitHub. Tips are public on GitHub, so please don't include personal or sensitive information. Our editor checks every tip against our rules; a tip does not guarantee publication.",
+  "i18n": {
+   "nb": {
+    "title": "Send oss et tips",
+    "description": "Lesere kan nå tipse Nordic Crypto om artikler via den nye siden Send et tips, som åpner et skjema på GitHub. Tips er offentlige på GitHub, så ikke ta med personlige eller sensitive opplysninger. Redaktøren vår vurderer hvert tips etter reglene våre; et tips er ingen garanti for publisering."
+   },
+   "nn": {
+    "title": "Send oss eit tips",
+    "description": "Lesarar kan no tipse Nordic Crypto om artiklar via den nye sida Send eit tips, som opnar eit skjema på GitHub. Tips er offentlege på GitHub, så ikkje ta med personlege eller sensitive opplysningar. Redaktøren vår vurderer kvart tips etter reglane våre; eit tips er inga garanti for publisering."
+   },
+   "sv": {
+    "title": "Skicka ett tips",
+    "description": "Läsare kan nu tipsa Nordic Crypto om artiklar via den nya sidan Skicka ett tips, som öppnar ett formulär på GitHub. Tipsen är offentliga på GitHub, så ta inte med personliga eller känsliga uppgifter. Vår redaktör bedömer varje tips enligt våra regler; ett tips är ingen garanti för publicering."
+   },
+   "da": {
+    "title": "Send os et tip",
+    "description": "Læsere kan nu tippe Nordic Crypto om artikler via den nye side Send et tip, som åbner en formular på GitHub. Tips er offentlige på GitHub, så medtag ikke personlige eller følsomme oplysninger. Vores redaktør vurderer hvert tip efter vores regler; et tip er ingen garanti for udgivelse."
+   },
+   "fi": {
+    "title": "Lähetä vinkki",
+    "description": "Lukijat voivat nyt vinkata Nordic Cryptolle artikkeleista uudella Lähetä vinkki -sivulla, joka avaa lomakkeen GitHubissa. Vinkit ovat julkisia GitHubissa, joten älä kirjoita niihin henkilökohtaisia tai arkaluonteisia tietoja. Toimittajamme arvioi jokaisen vinkin sääntöjemme mukaan; vinkki ei takaa julkaisua."
+   },
+   "is": {
+    "title": "Sendu okkur ábendingu",
+    "description": "Lesendur geta nú sent Nordic Crypto ábendingar um greinar á nýju síðunni Senda ábendingu, sem opnar form á GitHub. Ábendingar eru opinberar á GitHub, svo ekki setja inn persónulegar eða viðkvæmar upplýsingar. Ritstjóri okkar metur hverja ábendingu samkvæmt reglum okkar; ábending tryggir ekki birtingu."
+   }
+  },
+  "html_url": "https://jqrgen.github.io/nordic-crypto/changelog/#reader-tips",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/reader-tips.json"
+ }
+}

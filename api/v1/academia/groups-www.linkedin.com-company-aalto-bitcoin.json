@@ -1,0 +1,28 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "country": "FI",
+  "name": "Aalto Bitcoin",
+  "institution": "Aalto University",
+  "about": "",
+  "activity": "Latest dated activity: LinkedIn posts 19 Oct, 4 Nov and 27 Nov 2025 (the website aaltobitcoin.com no longer resolves).",
+  "active": true,
+  "url": "https://www.linkedin.com/company/aalto-bitcoin",
+  "source": "https://www.linkedin.com/company/aalto-bitcoin",
+  "checked": "2026-10-05",
+  "about_i18n": {
+   "nb": "Siste daterte aktivitet: LinkedIn-innlegg 19. oktober, 4. november og 27. november 2025 (nettstedet aaltobitcoin.com svarer ikke lenger).",
+   "nn": "Siste daterte aktivitet: LinkedIn-innlegg 19. oktober, 4. november og 27. november 2025 (nettstaden aaltobitcoin.com svarar ikkje lenger).",
+   "sv": "Senaste daterade aktivitet: LinkedIn-inlägg 19 oktober, 4 november och 27 november 2025 (webbplatsen aaltobitcoin.com svarar inte längre).",
+   "da": "Seneste daterede aktivitet: LinkedIn-opslag 19. oktober, 4. november og 27. november 2025 (hjemmesiden aaltobitcoin.com svarer ikke længere).",
+   "fi": "Viimeisin päivätty toiminta: LinkedIn-julkaisut 19.10., 4.11. ja 27.11.2025 (verkkosivusto aaltobitcoin.com ei enää toimi).",
+   "is": "Nýjasta dagsetta virkni: LinkedIn-færslur 19. október, 4. nóvember og 27. nóvember 2025 (vefurinn aaltobitcoin.com svarar ekki lengur)."
+  },
+  "id": "groups-www.linkedin.com-company-aalto-bitcoin",
+  "section": "groups",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/groups-www.linkedin.com-company-aalto-bitcoin.json"
+ }
+}

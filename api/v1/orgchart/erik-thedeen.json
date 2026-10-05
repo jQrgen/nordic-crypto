@@ -1,0 +1,54 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "erik-thedeen",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/erik-thedeen.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#erik-thedeen",
+  "name": "Erik Thedéen",
+  "type": "person",
+  "sector": "public",
+  "country": "SE",
+  "description": null,
+  "role": "Governor and Chair of the Executive Board (since 1 Jan 2023, six-year term)",
+  "org": "se-riksbank",
+  "group": null,
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.riksbank.se/en-gb/about-the-riksbank/organisation/the-executive-board/erik-thedeen/",
+    "title": "Erik Thedéen – Governor",
+    "source_name": "Sveriges Riksbank",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": null,
+  "image": {
+   "kind": "photo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/people/erik-thedeen.jpg",
+   "source_url": "https://commons.wikimedia.org/wiki/File:20230630_Almedalsvecka_Erik_Thedeen_01_(53012100722).jpg",
+   "author": "Johan Wessman / News Oresund",
+   "license": "CC BY 2.0",
+   "license_url": "https://creativecommons.org/licenses/by/2.0",
+   "credit": "Wikimedia Commons"
+  },
+  "profiles": [
+   {
+    "kind": "wikipedia",
+    "label": "Wikipedia (en)",
+    "url": "https://en.wikipedia.org/wiki/Erik_Thed%C3%A9en",
+    "source_url": "https://www.wikidata.org/wiki/Q6207027"
+   },
+   {
+    "kind": "wikidata",
+    "label": "Wikidata",
+    "url": "https://www.wikidata.org/wiki/Q6207027",
+    "source_url": "https://www.wikidata.org/wiki/Q6207027"
+   }
+  ]
+ }
+}

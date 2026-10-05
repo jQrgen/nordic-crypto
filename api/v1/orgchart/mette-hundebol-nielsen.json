@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "mette-hundebol-nielsen",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/mette-hundebol-nielsen.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#mette-hundebol-nielsen",
+  "name": "Mette Hundebøl Nielsen",
+  "type": "person",
+  "sector": "private",
+  "country": "NO",
+  "description": null,
+  "role": "CEO and Chair of the Board",
+  "org": "shifter",
+  "group": null,
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/917528934/roller",
+    "title": "Name and role only from the registry",
+    "source_name": "Brønnøysund Register Centre",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

@@ -1,0 +1,47 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "se-skatteverket",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/se-skatteverket.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#se-skatteverket",
+  "name": "Skatteverket (Swedish Tax Agency)",
+  "type": "organisation",
+  "sector": "public",
+  "country": "SE",
+  "description": "Publishes guidance on how crypto assets are taxed. Under Act 2025:1377, in force 1 Jan 2026, crypto-asset service providers must collect and report certain tax information (the EU's DAC8 rules), first for reporting periods starting after 31 Dec 2025.",
+  "role": null,
+  "org": null,
+  "group": "Tax authorities",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.skatteverket.se/privat/skatter/vardepapper/andraskattepliktigainkomster/kryptotillgangar.4.15532c7b1442f256bae11b60.html",
+    "title": "Kryptovalutor",
+    "source_name": "Skatteverket",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-20251377-om-inhamtande-av-vissa-uppgifter_sfs-2025-1377/",
+    "title": "Lag (2025:1377) om inhämtande av vissa uppgifter på skatteområdet om kryptotillgångar",
+    "source_name": "Sveriges riksdag",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/se-skatteverket.webp",
+   "source_url": "https://www.skatteverket.se/images/18.5d699354142b230302014c/1385975660374/SkatteverketLogo.png",
+   "author": null,
+   "license": null,
+   "license_url": null,
+   "credit": "Official website"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

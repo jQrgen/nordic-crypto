@@ -1,0 +1,22 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "country": "SE",
+  "institution": "KTH",
+  "code": "DD2585",
+  "name": "Programmable Society with Blockchains and Smart Contracts",
+  "level": "Master, 7.5 ECTS",
+  "term": "Spring 2027 (15 Mar–31 May 2027, per course page)",
+  "about": "Whole course on DLT, smart contracts, blockchain nodes",
+  "url": "https://www.kth.se/student/kurser/kurs/DD2585",
+  "source": "https://www.kth.se/student/kurser/kurs/DD2585",
+  "checked": "2026-10-03",
+  "about_i18n": {},
+  "id": "SE-DD2585",
+  "section": "courses",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/SE-DD2585.json"
+ }
+}

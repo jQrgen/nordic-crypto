@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "hakon-sandbakken",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/hakon-sandbakken.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#hakon-sandbakken",
+  "name": "Håkon Sandbakken",
+  "type": "person",
+  "sector": "private",
+  "country": "NO",
+  "description": null,
+  "role": "Chair (from June 2026)",
+  "org": "bpi",
+  "group": null,
+  "profile_url": "https://bpinorge.no/blog/ny-styreleder-vil-gi-bitcoin-en-tydeligere-stemme-i-norge/",
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://bpinorge.no/blog/ny-styreleder-vil-gi-bitcoin-en-tydeligere-stemme-i-norge/",
+    "title": "Bitcoinpolitisk institutt",
+    "source_name": "Bitcoinpolitisk institutt",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

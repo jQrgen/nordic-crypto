@@ -1,0 +1,452 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "launch_date": "2026-10-03",
+ "count": 13,
+ "entries": [
+  {
+   "id": "press-ethics",
+   "date": "2026-10-05",
+   "title": "Editorial ethics",
+   "description": "Editorial ethics says Nordic Crypto follows Vær Varsom-plakaten. A named editor approves everything. The complaint address on the page is TBA. The page is at /ethics/, linked from About and the footer, in every site language.",
+   "i18n": {
+    "nn": {
+     "title": "Redaksjonsetikk",
+     "description": "Redaksjonsetikk seier at Nordic Crypto følgjer Vær Varsom-plakaten. Ein namngitt redaktør godkjenner alt. Adressa for klagar på sida er TBA. Sida ligg på /ethics/, med lenkje frå Om oss og botteksten, på alle språka til nettstaden."
+    },
+    "nb": {
+     "title": "Redaksjonsetikk",
+     "description": "Redaksjonsetikk sier at Nordic Crypto følger Vær Varsom-plakaten. En navngitt redaktør godkjenner alt. Adressen for klager på siden er TBA. Siden ligger på /ethics/, med lenke fra Om oss og bunnteksten, på alle språkene til nettstedet."
+    },
+    "sv": {
+     "title": "Redaktionell etik",
+     "description": "Redaktionell etik säger att Nordic Crypto följer Vær Varsom-plakaten. En namngiven redaktör godkänner allt. Adressen för klagomål på sidan är TBA. Sidan ligger på /ethics/, med länk från Om oss och sidfoten, på sajtens alla språk."
+    },
+    "da": {
+     "title": "Redaktionel etik",
+     "description": "Redaktionel etik siger, at Nordic Crypto følger Vær Varsom-plakaten. En navngiven redaktør godkender alt. Adressen for klager på siden er TBA. Siden ligger på /ethics/, med link fra Om os og sidefoden, på alle sitets sprog."
+    },
+    "fi": {
+     "title": "Toimituksen etiikka",
+     "description": "Toimituksen etiikka kertoo, että Nordic Crypto noudattaa Vær Varsom-plakaten -ohjeistoa. Nimetty toimittaja hyväksyy kaiken. Kanteluiden osoite sivulla on TBA. Sivu on polussa /ethics/, ja siihen on linkki Tietoa meistä -sivulta ja alatunnisteesta kaikilla sivuston kielillä."
+    },
+    "is": {
+     "title": "Siðareglur ritstjórnar",
+     "description": "Siðareglur ritstjórnar segja að Nordic Crypto fylgi Vær Varsom-plakaten. Nafngreindur ritstjóri samþykkir allt. Heimilisfangið fyrir kvartanir á síðunni er TBA. Síðan er á /ethics/, með tengli frá Um okkur og í fæti, á öllum tungumálum síðunnar."
+    }
+   },
+   "html_url": "https://jqrgen.github.io/nordic-crypto/changelog/#press-ethics",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/press-ethics.json"
+  },
+  {
+   "id": "public-data-api",
+   "date": "2026-10-05",
+   "title": "Public data API",
+   "description": "News, newsletters, the calendar, sources, academia, the who's who, profiles and the rules map are published as JSON under /api/v1/. No account is required. The guide is at /api/, with OpenAPI and llms.txt for other tools.",
+   "i18n": {
+    "nn": {
+     "title": "Offentleg data-API",
+     "description": "Nyheiter, nyheitsbrev, kalenderen, kjelder, akademia, kven er kven, profilar og regeloversikta blir publiserte som JSON under /api/v1/. Ingen konto. Rettleiinga ligg på /api/, med OpenAPI og llms.txt for andre verktøy."
+    },
+    "nb": {
+     "title": "Offentlig data-API",
+     "description": "Nyheter, nyhetsbrev, kalenderen, kilder, akademia, hvem er hvem, profiler og regeloversikten blir publisert som JSON under /api/v1/. Ingen konto. Veiledningen ligger på /api/, med OpenAPI og llms.txt for andre verktøy."
+    },
+    "sv": {
+     "title": "Offentligt data-API",
+     "description": "Nyheter, nyhetsbrev, kalendern, källor, akademin, vem är vem, profiler och regelkartan publiceras som JSON under /api/v1/. Inget konto. Guiden finns på /api/, med OpenAPI och llms.txt för andra verktyg."
+    },
+    "da": {
+     "title": "Offentligt data-API",
+     "description": "Nyheder, nyhedsbreve, kalenderen, kilder, akademia, hvem er hvem, profiler og regeloversigten udgives som JSON under /api/v1/. Ingen konto. Vejledningen ligger på /api/, med OpenAPI og llms.txt til andre værktøjer."
+    },
+    "fi": {
+     "title": "Julkinen data-API",
+     "description": "Uutiset, uutiskirjeet, kalenteri, lähteet, akatemia, toimijahakemisto, profiilit ja sääntökartta julkaistaan JSONina polussa /api/v1/. Tiliä ei tarvita. Ohje on sivulla /api/, ja mukana ovat OpenAPI ja llms.txt muille työkaluille."
+    },
+    "is": {
+     "title": "Opið gagna-API",
+     "description": "Fréttir, fréttabréf, dagatal, heimildir, akademía, hver er hvað, prófílar og reglukort birtast sem JSON undir /api/v1/. Enginn reikningur. Leiðbeiningarnar eru á /api/, með OpenAPI og llms.txt fyrir önnur verkfæri."
+    }
+   },
+   "html_url": "https://jqrgen.github.io/nordic-crypto/changelog/#public-data-api",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/public-data-api.json"
+  },
+  {
+   "id": "issue-1-newsreel-3",
+   "date": "2026-10-05",
+   "title": "Issue #1 newsreel re-recorded",
+   "description": "Re-recorded the spoken track of newsletter issue #1 (release newsletter-001-newsreel-3) so it matches the captions. The opening does not say the programme is made with artificial intelligence. Kaupr is named only as the source of the GreenMerc story. The sign-off is the Nordic Crypto team.",
+   "i18n": {
+    "nn": {
+     "title": "Utgåve #1 newsreel spelt inn på nytt",
+     "description": "Talet i nyheitsbrev utgåve #1 er spelt inn på nytt (utgiving newsletter-001-newsreel-3), så det samsvarar med tekstinga. Opninga seier ikkje at programmet er laga med kunstig intelligens. Kaupr er nemnd berre som kjelda til saka om GreenMerc. Avslutninga er Nordic Crypto-teamet."
+    },
+    "nb": {
+     "title": "Utgave #1 newsreel spilt inn på nytt",
+     "description": "Talen i nyhetsbrev utgave #1 er spilt inn på nytt (utgivelse newsletter-001-newsreel-3), så den samsvarer med tekstingen. Åpningen sier ikke at programmet er laget med kunstig intelligens. Kaupr er nevnt bare som kilden til saken om GreenMerc. Avslutningen er Nordic Crypto-teamet."
+    },
+    "sv": {
+     "title": "Utgåva #1 newsreel inspelad på nytt",
+     "description": "Talat i nyhetsbrevets utgåva #1 är inspelat på nytt (utgåva newsletter-001-newsreel-3), så det stämmer med textningen. Inledningen säger inte att programmet är gjort med artificiell intelligens. Kaupr nämns bara som källan till nyheten om GreenMerc. Avslutningen är Nordic Crypto-teamet."
+    },
+    "da": {
+     "title": "Udgave #1 newsreel indtalt igen",
+     "description": "Speaket i nyhedsbrevets udgave #1 er indtalt igen (udgivelse newsletter-001-newsreel-3), så det matcher teksterne. Indledningen siger ikke, at programmet er lavet med kunstig intelligens. Kaupr nævnes kun som kilden til historien om GreenMerc. Afslutningen er Nordic Crypto-teamet."
+    },
+    "fi": {
+     "title": "Numero #1 newsreel äänitetty uudelleen",
+     "description": "Uutiskirjeen numeron #1 puhe on äänitetty uudelleen (julkaisu newsletter-001-newsreel-3), jotta se vastaa tekstitystä. Avaus ei sano, että ohjelma on tehty tekoälyn avulla. Kaupr mainitaan vain GreenMerc-jutun lähteenä. Lopetus on Nordic Crypto -tiimi."
+    },
+    "is": {
+     "title": "Tölublað #1 newsreel tekið upp að nýju",
+     "description": "Talað mál í fréttabréfi #1 er tekið upp að nýju (útgáfa newsletter-001-newsreel-3), svo það samræmist textanum. Upphafið segir ekki að þátturinn sé unninn með aðstoð gervigreindar. Kaupr er nefnt aðeins sem heimild fréttarinnar um GreenMerc. Niðurlagið er Nordic Crypto-teymið."
+    }
+   },
+   "html_url": "https://jqrgen.github.io/nordic-crypto/changelog/#issue-1-newsreel-3",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/issue-1-newsreel-3.json"
+  },
+  {
+   "id": "issue-1-newsreel-2",
+   "date": "2026-10-05",
+   "title": "Issue #1 newsreel live",
+   "description": "Replaced the live newsletter issue #1 video with the corrected newsreel (release newsletter-001-newsreel-2). Kaupr is named only when a story comes from Kaupr. The issue no longer opens by saying it is made with artificial intelligence.",
+   "i18n": {
+    "nn": {
+     "title": "Utgåve #1 newsreel live",
+     "description": "Byta ut den live videoen for nyheitsbrev utgåve #1 med den korrigerte newsreel-fila (utgiving newsletter-001-newsreel-2). Kaupr er nemnd berre når ei sak kjem frå Kaupr. Opninga seier ikkje lenger at utgåva er laga med kunstig intelligens."
+    },
+    "nb": {
+     "title": "Utgave #1 newsreel live",
+     "description": "Byttet ut den live videoen for nyhetsbrev utgave #1 med den korrigerte newsreel-filen (utgivelse newsletter-001-newsreel-2). Kaupr er nevnt bare når en sak kommer fra Kaupr. Åpningen sier ikke lenger at utgaven er laget med kunstig intelligens."
+    },
+    "sv": {
+     "title": "Utgåva #1 newsreel live",
+     "description": "Ersatte den live-sända videon för nyhetsbrevets utgåva #1 med den korrigerade newsreel-filen (utgåva newsletter-001-newsreel-2). Kaupr nämns bara när en nyhet kommer från Kaupr. Inledningen säger inte längre att utgåvan är gjord med artificiell intelligens."
+    },
+    "da": {
+     "title": "Udgave #1 newsreel live",
+     "description": "Skiftede live-videoen til nyhedsbrevets udgave #1 ud med den korrigerede newsreel-fil (udgivelse newsletter-001-newsreel-2). Kaupr nævnes kun, når en historie kommer fra Kaupr. Indledningen siger ikke længere, at udgaven er lavet med kunstig intelligens."
+    },
+    "fi": {
+     "title": "Numero #1 newsreel live",
+     "description": "Korvattiin uutiskirjeen numeron #1 live-video korjatulla uutiskatsauksella (julkaisu newsletter-001-newsreel-2). Kaupr mainitaan vain, kun juttu on Kauprin. Avaus ei enää sano, että numero on tehty tekoälyn avulla."
+    },
+    "is": {
+     "title": "Tölublað #1 newsreel í loftið",
+     "description": "Skipt var út myndbandi fréttabréfsins #1 í loftinu fyrir leiðréttu newsreel-skrána (útgáfa newsletter-001-newsreel-2). Kaupr er nefnt aðeins þegar frétt kemur frá Kaupr. Upphafið segir ekki lengur að tölublaðið sé unnið með aðstoð gervigreindar."
+    }
+   },
+   "html_url": "https://jqrgen.github.io/nordic-crypto/changelog/#issue-1-newsreel-2",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/issue-1-newsreel-2.json"
+  },
+  {
+   "id": "nordic-crypto-name-eu-newsletter-columnist",
+   "date": "2026-10-05",
+   "title": "Nordic Crypto on the map, in the newsletter, and for columnists",
+   "description": "The public name is Nordic Crypto. EBA, ESMA and the EBA chair are shown as EU on the industry map. Newsletter issue #1 can be read in English, Norwegian (nynorsk and bokmål), Swedish, Danish, Finnish and Icelandic. When a story is in another language, the card explains it in the language of the page. Apply as a columnist from the footer, About and the newsletter. Cloudflare Web Analytics counts visits in aggregate, without cookies, and that data is not sold. Summaries are made with the help of artificial intelligence, with human editors (jQrgen and the Nordic Crypto editor).",
+   "i18n": {
+    "nb": {
+     "title": "Nordic Crypto på kartet, i nyhetsbrevet og for spaltister",
+     "description": "Det offentlige navnet er Nordic Crypto. EBA, ESMA og lederen av EBA vises som EU på bransjekartet. Utgave #1 av nyhetsbrevet kan leses på engelsk, norsk (nynorsk og bokmål), svensk, dansk, finsk og islandsk. Når en sak er på et annet språk, forklarer kortet den på språket til siden. Søk som spaltist fra bunnen, Om oss og nyhetsbrevet. Cloudflare Web Analytics teller besøk samlet, uten informasjonskapsler, og de dataene selges ikke. Sammendragene er laget med hjelp av kunstig intelligens, med menneskelige redaktører (jQrgen og Nordic Crypto-redaktøren)."
+    },
+    "nn": {
+     "title": "Nordic Crypto på kartet, i nyheitsbrevet og for spaltistar",
+     "description": "Det offentlege namnet er Nordic Crypto. EBA, ESMA og leiaren av EBA blir viste som EU på bransjekartet. Utgåve #1 av nyheitsbrevet kan lesast på engelsk, norsk (nynorsk og bokmål), svensk, dansk, finsk og islandsk. Når ei sak er på eit anna språk, forklarer kortet ho på språket til sida. Søk som spaltist frå botnen, Om oss og nyheitsbrevet. Cloudflare Web Analytics tel besøk samla, utan informasjonskapslar, og dei dataa blir ikkje selde. Samandraga er laga med hjelp av kunstig intelligens, med menneskelege redaktørar (jQrgen og Nordic Crypto-redaktøren)."
+    },
+    "sv": {
+     "title": "Nordic Crypto på kartan, i nyhetsbrevet och för krönikörer",
+     "description": "Det offentliga namnet är Nordic Crypto. EBA, ESMA och EBA:s ordförande visas som EU på branschkartan. Nyhetsbrevets utgåva #1 kan läsas på engelska, norska (nynorska och bokmål), svenska, danska, finska och isländska. När en artikel är på ett annat språk förklarar kortet den på sidans språk. Ansök som krönikör från sidfoten, Om oss och nyhetsbrevet. Cloudflare Web Analytics räknar besök samlat, utan kakor, och de uppgifterna säljs inte. Sammanfattningarna görs med hjälp av artificiell intelligens, med mänskliga redaktörer (jQrgen och Nordic Crypto-redaktören)."
+    },
+    "da": {
+     "title": "Nordic Crypto på kortet, i nyhedsbrevet og for klummeskribenter",
+     "description": "Det offentlige navn er Nordic Crypto. EBA, ESMA og formanden for EBA vises som EU på branchekortet. Nyhedsbrevets udgave #1 kan læses på engelsk, norsk (nynorsk og bokmål), svensk, dansk, finsk og islandsk. Når en historie er på et andet sprog, forklarer kortet den på sidens sprog. Søg som klummeskribent fra sidefoden, Om os og nyhedsbrevet. Cloudflare Web Analytics tæller besøg samlet, uden cookies, og de data sælges ikke. Resuméerne er lavet med hjælp fra kunstig intelligens, med menneskelige redaktører (jQrgen og Nordic Crypto-redaktøren)."
+    },
+    "fi": {
+     "title": "Nordic Crypto kartalla, uutiskirjeessä ja kolumnisteille",
+     "description": "Julkinen nimi on Nordic Crypto. EBA, ESMA ja EBA:n puheenjohtaja näkyvät EU:na toimialakartalla. Uutiskirjeen numero 1 on luettavissa englanniksi, norjaksi (nynorsk ja bokmål), ruotsiksi, tanskaksi, suomeksi ja islanniksi. Kun juttu on toisella kielellä, kortti selittää sen sivun kielellä. Kolumnistiksi voi hakea alatunnisteesta, Tietoa-sivulta ja uutiskirjeestä. Cloudflare Web Analytics laskee käynnit kootusti, ilman evästeitä, eikä näitä tietoja myydä. Tiivistelmät on tehty tekoälyn avulla, ihmistoimittajina jQrgen ja Nordic Crypton toimittaja."
+    },
+    "is": {
+     "title": "Nordic Crypto á kortinu, í fréttabréfinu og fyrir pistlahöfunda",
+     "description": "Opinbera nafnið er Nordic Crypto. EBA, ESMA og formaður EBA birtast sem ESB á atvinnugreinakortinu. Tölublað #1 fréttabréfsins má lesa á ensku, norsku (nýnorsku og bókmáli), sænsku, dönsku, finnsku og íslensku. Þegar frétt er á öðru tungumáli útskýrir spjaldið hana á tungumáli síðunnar. Sækja má um að skrifa pistil úr fætinum, Um okkur og fréttabréfinu. Cloudflare Web Analytics telur heimsóknir saman, án vafrakaka, og þau gögn eru ekki seld. Samantektirnar eru unnar með aðstoð gervigreindar, með mannlegum ritstjórum (jQrgen og ritstjóra Nordic Crypto)."
+    }
+   },
+   "html_url": "https://jqrgen.github.io/nordic-crypto/changelog/#nordic-crypto-name-eu-newsletter-columnist",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/nordic-crypto-name-eu-newsletter-columnist.json"
+  },
+  {
+   "id": "newsletter-tab-issue-1",
+   "date": "2026-10-05",
+   "title": "Newsletter tab and the first issue, with video",
+   "description": "The main menu has a new Newsletter tab. It lists every issue, newest first, next to the Substack signup. Issue #1 (Binance under scrutiny and Sweden's crypto sanctions warning) can be read in full on the site, with a short video that plays from this website, with English subtitles and no third-party player.",
+   "i18n": {
+    "nb": {
+     "title": "Fanen Nyhetsbrev og den første utgaven, med video",
+     "description": "Hovedmenyen har fått en ny fane, Nyhetsbrev. Der finner du alle utgavene, nyeste først, sammen med påmeldingen hos Substack. Utgave #1 (Binance under lupen og Sveriges advarsel om krypto og sanksjoner) kan leses i sin helhet på nettstedet, med en kort video som spilles av herfra, med engelske undertekster og uten avspiller fra tredjeparter. Utgaven er på engelsk."
+    },
+    "nn": {
+     "title": "Fana Nyheitsbrev og den første utgåva, med video",
+     "description": "Hovudmenyen har fått ei ny fane, Nyheitsbrev. Der finn du alle utgåvene, nyaste først, saman med påmeldinga hos Substack. Utgåve #1 (Binance under lupa og Sveriges åtvaring om krypto og sanksjonar) kan lesast i heilskap på nettstaden, med ein kort video som blir spelt av herifrå, med engelske undertekstar og utan avspelar frå tredjepartar. Utgåva er på engelsk."
+    },
+    "sv": {
+     "title": "Fliken Nyhetsbrev och det första numret, med video",
+     "description": "Huvudmenyn har fått en ny flik, Nyhetsbrev. Där finns alla utgåvor, nyaste först, tillsammans med anmälan hos Substack. Utgåva #1 (Binance granskas och Sveriges varning om krypto och sanktioner) kan läsas i sin helhet på webbplatsen, med en kort video som spelas upp härifrån, med engelska undertexter och utan spelare från tredje part. Utgåvan är på engelska."
+    },
+    "da": {
+     "title": "Fanen Nyhedsbrev og den første udgave, med video",
+     "description": "Hovedmenuen har fået en ny fane, Nyhedsbrev. Her finder du alle udgaver, nyeste først, sammen med tilmeldingen hos Substack. Udgave #1 (Binance under lup og Sveriges advarsel om krypto og sanktioner) kan læses i sin helhed på sitet, med en kort video, der afspilles herfra, med engelske undertekster og uden afspiller fra tredjeparter. Udgaven er på engelsk."
+    },
+    "fi": {
+     "title": "Uutiskirje-välilehti ja ensimmäinen numero videon kera",
+     "description": "Päävalikossa on uusi Uutiskirje-välilehti. Siellä ovat kaikki numerot uusimmasta alkaen sekä Substack-tilaus. Numeron 1 (Binance tarkastelussa ja Ruotsin varoitus kryptoista ja pakotteista) voi lukea kokonaan sivustolla, ja mukana on lyhyt video, joka toistetaan tältä sivustolta englanninkielisin tekstityksin ilman kolmannen osapuolen soitinta. Numero on englanniksi."
+    },
+    "is": {
+     "title": "Flipinn Fréttabréf og fyrsta tölublaðið, með myndbandi",
+     "description": "Aðalvalmyndin hefur fengið nýjan flipa, Fréttabréf. Þar eru öll tölublöð, nýjasta fyrst, ásamt skráningu hjá Substack. Tölublað #1 (Binance til skoðunar og viðvörun Svíþjóðar um kriptó og refsiaðgerðir) má lesa í heild á vefnum, með stuttu myndbandi sem er spilað héðan, með enskum texta og án spilara frá þriðja aðila. Tölublaðið er á ensku."
+    }
+   },
+   "html_url": "https://jqrgen.github.io/nordic-crypto/changelog/#newsletter-tab-issue-1",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/newsletter-tab-issue-1.json"
+  },
+  {
+   "id": "rename-crypto-nordic",
+   "date": "2026-10-05",
+   "title": "The name is Nordic Crypto",
+   "description": "The site is called Nordic Crypto. The newsletter signup links to https://cryptonordic.substack.com/subscribe. The domain cryptonordic.no and the X account @xcryptonordic stay as they are.",
+   "i18n": {
+    "nb": {
+     "title": "Navnet er Nordic Crypto",
+     "description": "Nettstedet heter Nordic Crypto. Påmeldingen til nyhetsbrevet lenker til https://cryptonordic.substack.com/subscribe. Domenet cryptonordic.no og X-kontoen @xcryptonordic er som før."
+    },
+    "nn": {
+     "title": "Namnet er Nordic Crypto",
+     "description": "Nettstaden heiter Nordic Crypto. Påmeldinga til nyheitsbrevet lenkjer til https://cryptonordic.substack.com/subscribe. Domenet cryptonordic.no og X-kontoen @xcryptonordic er som før."
+    },
+    "sv": {
+     "title": "Namnet är Nordic Crypto",
+     "description": "Webbplatsen heter Nordic Crypto. Anmälan till nyhetsbrevet länkar till https://cryptonordic.substack.com/subscribe. Domänen cryptonordic.no och X-kontot @xcryptonordic är som förut."
+    },
+    "da": {
+     "title": "Navnet er Nordic Crypto",
+     "description": "Sitet hedder Nordic Crypto. Tilmeldingen til nyhedsbrevet linker til https://cryptonordic.substack.com/subscribe. Domænet cryptonordic.no og X-kontoen @xcryptonordic er som før."
+    },
+    "fi": {
+     "title": "Nimi on Nordic Crypto",
+     "description": "Sivuston nimi on Nordic Crypto. Uutiskirjeen tilauslinkki vie osoitteeseen https://cryptonordic.substack.com/subscribe. Verkkotunnus cryptonordic.no ja X-tili @xcryptonordic pysyvät ennallaan."
+    },
+    "is": {
+     "title": "Nafnið er Nordic Crypto",
+     "description": "Vefurinn heitir Nordic Crypto. Skráning á fréttabréfið vísar á https://cryptonordic.substack.com/subscribe. Lénið cryptonordic.no og X-reikningurinn @xcryptonordic eru óbreytt."
+    }
+   },
+   "html_url": "https://jqrgen.github.io/nordic-crypto/changelog/#rename-crypto-nordic",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/rename-crypto-nordic.json"
+  },
+  {
+   "id": "reader-tips",
+   "date": "2026-10-03",
+   "title": "Send us a tip",
+   "description": "Readers can now tip Nordic Crypto about articles via the new Send a tip page, which opens a form on GitHub. Tips are public on GitHub, so please don't include personal or sensitive information. Our editor checks every tip against our rules; a tip does not guarantee publication.",
+   "i18n": {
+    "nb": {
+     "title": "Send oss et tips",
+     "description": "Lesere kan nå tipse Nordic Crypto om artikler via den nye siden Send et tips, som åpner et skjema på GitHub. Tips er offentlige på GitHub, så ikke ta med personlige eller sensitive opplysninger. Redaktøren vår vurderer hvert tips etter reglene våre; et tips er ingen garanti for publisering."
+    },
+    "nn": {
+     "title": "Send oss eit tips",
+     "description": "Lesarar kan no tipse Nordic Crypto om artiklar via den nye sida Send eit tips, som opnar eit skjema på GitHub. Tips er offentlege på GitHub, så ikkje ta med personlege eller sensitive opplysningar. Redaktøren vår vurderer kvart tips etter reglane våre; eit tips er inga garanti for publisering."
+    },
+    "sv": {
+     "title": "Skicka ett tips",
+     "description": "Läsare kan nu tipsa Nordic Crypto om artiklar via den nya sidan Skicka ett tips, som öppnar ett formulär på GitHub. Tipsen är offentliga på GitHub, så ta inte med personliga eller känsliga uppgifter. Vår redaktör bedömer varje tips enligt våra regler; ett tips är ingen garanti för publicering."
+    },
+    "da": {
+     "title": "Send os et tip",
+     "description": "Læsere kan nu tippe Nordic Crypto om artikler via den nye side Send et tip, som åbner en formular på GitHub. Tips er offentlige på GitHub, så medtag ikke personlige eller følsomme oplysninger. Vores redaktør vurderer hvert tip efter vores regler; et tip er ingen garanti for udgivelse."
+    },
+    "fi": {
+     "title": "Lähetä vinkki",
+     "description": "Lukijat voivat nyt vinkata Nordic Cryptolle artikkeleista uudella Lähetä vinkki -sivulla, joka avaa lomakkeen GitHubissa. Vinkit ovat julkisia GitHubissa, joten älä kirjoita niihin henkilökohtaisia tai arkaluonteisia tietoja. Toimittajamme arvioi jokaisen vinkin sääntöjemme mukaan; vinkki ei takaa julkaisua."
+    },
+    "is": {
+     "title": "Sendu okkur ábendingu",
+     "description": "Lesendur geta nú sent Nordic Crypto ábendingar um greinar á nýju síðunni Senda ábendingu, sem opnar form á GitHub. Ábendingar eru opinberar á GitHub, svo ekki setja inn persónulegar eða viðkvæmar upplýsingar. Ritstjóri okkar metur hverja ábendingu samkvæmt reglum okkar; ábending tryggir ekki birtingu."
+    }
+   },
+   "html_url": "https://jqrgen.github.io/nordic-crypto/changelog/#reader-tips",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/reader-tips.json"
+  },
+  {
+   "id": "past-events",
+   "date": "2026-10-03",
+   "title": "Past events archive",
+   "description": "Finished events are no longer removed from the calendar. Once an event has ended (Oslo time) it moves automatically to a new Past events section at the bottom of the calendar, newest first. The office screen shows only upcoming events.",
+   "i18n": {
+    "nb": {
+     "title": "Arkiv over tidligere arrangementer",
+     "description": "Arrangementer som er over, fjernes ikke lenger fra kalenderen. Når et arrangement er ferdig (Oslo-tid), flyttes det automatisk til den nye delen Tidligere arrangementer nederst i kalenderen, nyeste først. Kontorskjermen viser bare kommende arrangementer."
+    },
+    "nn": {
+     "title": "Arkiv over tidlegare arrangement",
+     "description": "Arrangement som er over, blir ikkje lenger fjerna frå kalenderen. Når eit arrangement er ferdig (Oslo-tid), blir det automatisk flytta til den nye delen Tidlegare arrangement nedst i kalenderen, nyaste først. Kontorskjermen viser berre komande arrangement."
+    },
+    "sv": {
+     "title": "Arkiv över tidigare evenemang",
+     "description": "Evenemang som är över tas inte längre bort från kalendern. När ett evenemang har avslutats (Oslotid) flyttas det automatiskt till den nya delen Tidigare evenemang längst ned i kalendern, nyaste först. Kontorsskärmen visar bara kommande evenemang."
+    },
+    "da": {
+     "title": "Arkiv over tidligere arrangementer",
+     "description": "Afsluttede arrangementer fjernes ikke længere fra kalenderen. Når et arrangement er slut (Oslo-tid), flyttes det automatisk til den nye sektion Tidligere arrangementer nederst i kalenderen, nyeste først. Kontorskærmen viser kun kommende arrangementer."
+    },
+    "fi": {
+     "title": "Menneiden tapahtumien arkisto",
+     "description": "Päättyneitä tapahtumia ei enää poisteta kalenterista. Kun tapahtuma on päättynyt (Oslon aikaa), se siirtyy automaattisesti kalenterin alaosan uuteen Menneet tapahtumat -osioon uusin ensin. Toimiston näyttö näyttää vain tulevat tapahtumat."
+    },
+    "is": {
+     "title": "Safn liðinna viðburða",
+     "description": "Viðburðir sem er lokið eru ekki lengur fjarlægðir úr dagatalinu. Þegar viðburði lýkur (Óslóartími) færist hann sjálfkrafa í nýjan hluta, Liðnir viðburðir, neðst í dagatalinu, nýjustu fyrst. Skrifstofuskjárinn sýnir aðeins væntanlega viðburði."
+    }
+   },
+   "html_url": "https://jqrgen.github.io/nordic-crypto/changelog/#past-events",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/past-events.json"
+  },
+  {
+   "id": "denmark-added",
+   "date": "2026-10-03",
+   "title": "Denmark added",
+   "description": "Nordic Crypto now covers Norway, Sweden, Denmark, Finland and Iceland. Denmark has a country filter on the news, calendar, who's who and academia pages, and we now follow Danish newspapers, broadcasters, tech media, Danmarks Nationalbank, Kaupr's Denmark page and a news search on Danish sites. Danish stories, events and who's who entries appear once our editor has reviewed them.",
+   "i18n": {
+    "nb": {
+     "title": "Danmark lagt til",
+     "description": "Nordic Crypto dekker nå Norge, Sverige, Danmark, Finland og Island. Danmark har eget landfilter på nyhets-, kalender-, hvem er hvem- og forskningssidene, og vi følger nå danske aviser, kringkastere, teknologimedier, Danmarks Nationalbank, Kauprs Danmark-side og et nyhetssøk på danske nettsteder. Danske saker, arrangementer og oppføringer vises når redaktøren har gått gjennom dem."
+    },
+    "nn": {
+     "title": "Danmark lagt til",
+     "description": "Nordic Crypto dekkjer no Noreg, Sverige, Danmark, Finland og Island. Danmark har eige landfilter på nyheits-, kalender-, kven er kven- og forskingssidene, og vi følgjer no danske aviser, kringkastarar, teknologimedium, Danmarks Nationalbank, Danmark-sida til Kaupr og eit nyheitssøk på danske nettstader. Danske saker, arrangement og oppføringar blir viste når redaktøren har gått gjennom dei."
+    },
+    "sv": {
+     "title": "Danmark tillagt",
+     "description": "Nordic Crypto bevakar nu Norge, Sverige, Danmark, Finland och Island. Danmark har ett eget landfilter på nyhets-, kalender-, vem är vem- och forskningssidorna, och vi följer nu danska tidningar, public service-bolag, teknikmedier, Danmarks Nationalbank, Kauprs Danmarkssida och en nyhetssökning på danska webbplatser. Danska nyheter, evenemang och poster visas när redaktören har granskat dem."
+    },
+    "da": {
+     "title": "Danmark tilføjet",
+     "description": "Nordic Crypto dækker nu Norge, Sverige, Danmark, Finland og Island. Danmark har sit eget landefilter på nyheds-, kalender-, hvem er hvem- og forskningssiderne, og vi følger nu danske aviser, tv- og radiostationer, teknologimedier, Danmarks Nationalbank, Kauprs Danmarksside og en nyhedssøgning på danske websites. Danske historier, arrangementer og opslag vises, når redaktøren har gennemgået dem."
+    },
+    "fi": {
+     "title": "Tanska mukaan",
+     "description": "Nordic Crypto seuraa nyt Norjaa, Ruotsia, Tanskaa, Suomea ja Islantia. Tanskalla on oma maasuodatin uutis-, kalenteri-, toimijahakemisto- ja tutkimussivuilla, ja seuraamme nyt tanskalaisia sanomalehtiä, yleisradioyhtiöitä, teknologiamedioita, Danmarks Nationalbankia, Kauprin Tanska-sivua ja tanskalaisiin sivustoihin rajattua uutishakua. Tanskalaiset jutut, tapahtumat ja merkinnät näkyvät, kun toimittaja on tarkistanut ne."
+    },
+    "is": {
+     "title": "Danmörku bætt við",
+     "description": "Nordic Crypto fjallar nú um Noreg, Svíþjóð, Danmörku, Finnland og Ísland. Danmörk hefur eigin landssíu á frétta-, viðburða-, hver er hvað- og rannsóknasíðunum, og við fylgjumst nú með dönskum dagblöðum, ljósvakamiðlum, tæknimiðlum, Danmarks Nationalbank, Danmerkursíðu Kaupr og fréttaleit á dönskum vefjum. Danskar fréttir, viðburðir og færslur birtast þegar ritstjórinn hefur farið yfir þær."
+    }
+   },
+   "html_url": "https://jqrgen.github.io/nordic-crypto/changelog/#denmark-added",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/denmark-added.json"
+  },
+  {
+   "id": "remove-faroe-islands",
+   "date": "2026-10-03",
+   "title": "Coverage narrowed to four countries",
+   "description": "Nordic Crypto now covers Norway, Sweden, Finland and Iceland. The Faroe Islands have been removed from the news sources, country filters, calendar, who's who, Regulation by country section, academia page and office screen.",
+   "i18n": {
+    "nb": {
+     "title": "Dekningen innsnevret til fire land",
+     "description": "Nordic Crypto dekker nå Norge, Sverige, Finland og Island. Færøyene er fjernet fra nyhetskildene, landfiltrene, kalenderen, hvem er hvem, delen Regulering per land, forskningssiden og kontorskjermen."
+    },
+    "nn": {
+     "title": "Dekninga snevra inn til fire land",
+     "description": "Nordic Crypto dekkjer no Noreg, Sverige, Finland og Island. Færøyane er fjerna frå nyheitskjeldene, landfiltera, kalenderen, kven er kven, delen Regulering per land, forskingssida og kontorskjermen."
+    },
+    "sv": {
+     "title": "Bevakningen begränsad till fyra länder",
+     "description": "Nordic Crypto bevakar nu Norge, Sverige, Finland och Island. Färöarna har tagits bort från nyhetskällorna, landfiltren, kalendern, vem är vem, delen Reglering per land, forskningssidan och kontorsskärmen."
+    },
+    "da": {
+     "title": "Dækningen indsnævret til fire lande",
+     "description": "Nordic Crypto dækker nu Norge, Sverige, Finland og Island. Færøerne er fjernet fra nyhedskilderne, landefiltrene, kalenderen, hvem er hvem, sektionen Regulering pr. land, forskningssiden og kontorskærmen."
+    },
+    "fi": {
+     "title": "Seuranta rajattu neljään maahan",
+     "description": "Nordic Crypto seuraa nyt Norjaa, Ruotsia, Suomea ja Islantia. Färsaaret on poistettu uutislähteistä, maasuodattimista, kalenterista, toimijahakemistosta, Sääntely maittain -osiosta, tutkimussivulta ja toimiston näytöltä."
+    },
+    "is": {
+     "title": "Umfjöllun þrengd í fjögur lönd",
+     "description": "Nordic Crypto fjallar nú um Noreg, Svíþjóð, Finnland og Ísland. Færeyjar hafa verið fjarlægðar úr fréttaheimildum, landssíum, dagatalinu, hver er hvað, hlutanum Regluverk eftir löndum, rannsóknasíðunni og skrifstofuskjánum."
+    }
+   },
+   "html_url": "https://jqrgen.github.io/nordic-crypto/changelog/#remove-faroe-islands",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/remove-faroe-islands.json"
+  },
+  {
+   "id": "academia",
+   "date": "2026-10-03",
+   "title": "Academia page",
+   "description": "New Academia page: blockchain and crypto courses and programmes, student associations, publications and research groups at universities in Norway, Sweden, Finland, Iceland and the Faroe Islands. Every row shows its source, the date we checked it and its status; only editor-approved rows are shown.",
+   "i18n": {
+    "nb": {
+     "title": "Side om forskning og utdanning",
+     "description": "Ny side om forskning og utdanning: kurs og studieprogrammer om blokkjede og krypto, studentforeninger, publikasjoner og forskningsgrupper ved universiteter i Norge, Sverige, Finland, Island og på Færøyene. Hver rad viser kilde, datoen vi sjekket den og status; bare rader redaktøren har godkjent, vises."
+    },
+    "nn": {
+     "title": "Side om forsking og utdanning",
+     "description": "Ny side om forsking og utdanning: kurs og studieprogram om blokkjede og krypto, studentforeiningar, publikasjonar og forskingsgrupper ved universitet i Noreg, Sverige, Finland, Island og på Færøyane. Kvar rad viser kjelde, datoen vi sjekka ho og status; berre rader redaktøren har godkjent, blir viste."
+    },
+    "sv": {
+     "title": "Sida om forskning och utbildning",
+     "description": "Ny sida om forskning och utbildning: kurser och program om blockkedjor och krypto, studentföreningar, publikationer och forskargrupper vid universitet i Norge, Sverige, Finland, Island och på Färöarna. Varje rad visar källa, datumet då vi kontrollerade den och status; bara rader som redaktören har godkänt visas."
+    },
+    "da": {
+     "title": "Side om forskning og uddannelse",
+     "description": "Ny side om forskning og uddannelse: kurser og uddannelser om blockchain og krypto, studenterforeninger, publikationer og forskningsgrupper på universiteter i Norge, Sverige, Finland, Island og på Færøerne. Hver række viser kilde, datoen for vores kontrol og status; kun rækker, som redaktøren har godkendt, vises."
+    },
+    "fi": {
+     "title": "Tutkimus ja opetus -sivu",
+     "description": "Uusi tutkimus- ja opetussivu: lohkoketju- ja kryptokurssit ja -koulutusohjelmat, opiskelijajärjestöt, julkaisut ja tutkimusryhmät yliopistoissa Norjassa, Ruotsissa, Suomessa, Islannissa ja Färsaarilla. Jokaisella rivillä näkyy lähde, tarkistuspäivä ja tila; vain toimittajan hyväksymät rivit näytetään."
+    },
+    "is": {
+     "title": "Síða um rannsóknir og kennslu",
+     "description": "Ný síða um rannsóknir og kennslu: námskeið og námsleiðir um bálkakeðjur og rafmyntir, nemendafélög, útgáfur og rannsóknarhópar við háskóla í Noregi, Svíþjóð, Finnlandi, Íslandi og Færeyjum. Hver lína sýnir heimild, dagsetninguna sem við athuguðum hana og stöðu; aðeins línur sem ritstjórinn hefur samþykkt eru sýndar."
+    }
+   },
+   "html_url": "https://jqrgen.github.io/nordic-crypto/changelog/#academia",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/academia.json"
+  },
+  {
+   "id": "initial-build",
+   "date": "2026-10-03",
+   "title": "Nordic Crypto launches",
+   "description": "First version of the site in English: news from Norway, Sweden, Finland, Iceland and the Faroe Islands with our own short summaries; an events calendar with a month grid, a mobile list and a country filter; a who's who of the industry and its regulators split into private and public sector, with a country filter; a Regulation by country section; the list of sources we follow; an About page with corrections and removal; and a full-screen office screen mode for portrait and landscape displays.",
+   "i18n": {
+    "nb": {
+     "title": "Nordic Crypto lanseres",
+     "description": "Første versjon av nettstedet på engelsk: nyheter fra Norge, Sverige, Finland, Island og Færøyene med egne korte sammendrag; en arrangementskalender med månedsoversikt, mobilliste og landfilter; en oversikt over hvem som er hvem i bransjen og blant myndighetene, delt i privat og offentlig sektor, med landfilter; delen Regulering per land; listen over kildene vi følger; en Om-side med rettelser og fjerning; og en fullskjermsvisning for kontorskjermer i stående og liggende format."
+    },
+    "nn": {
+     "title": "Nordic Crypto blir lansert",
+     "description": "Første versjon av nettstaden på engelsk: nyheiter frå Noreg, Sverige, Finland, Island og Færøyane med eigne korte samandrag; ein arrangementskalender med månadsoversikt, mobilliste og landfilter; ei oversikt over kven som er kven i bransjen og blant styresmaktene, delt i privat og offentleg sektor, med landfilter; delen Regulering per land; lista over kjeldene vi følgjer; ei Om-side med rettingar og fjerning; og ei fullskjermsvising for kontorskjermar i ståande og liggjande format."
+    },
+    "sv": {
+     "title": "Nordic Crypto lanseras",
+     "description": "Första versionen av webbplatsen på engelska: nyheter från Norge, Sverige, Finland, Island och Färöarna med egna korta sammanfattningar; en evenemangskalender med månadsvy, mobillista och landfilter; en översikt över vem som är vem i branschen och bland myndigheterna, uppdelad på privat och offentlig sektor, med landfilter; delen Reglering per land; listan över källorna vi följer; en Om-sida med rättelser och borttagning; och ett helskärmsläge för kontorsskärmar i stående och liggande format."
+    },
+    "da": {
+     "title": "Nordic Crypto lanceres",
+     "description": "Første version af sitet på engelsk: nyheder fra Norge, Sverige, Finland, Island og Færøerne med egne korte resuméer; en arrangementskalender med månedsoversigt, mobilliste og landefilter; et overblik over hvem der er hvem i branchen og blandt myndighederne, opdelt i privat og offentlig sektor, med landefilter; sektionen Regulering pr. land; listen over de kilder, vi følger; en Om-side med rettelser og fjernelse; og en fuldskærmsvisning til kontorskærme på højkant og på langs."
+    },
+    "fi": {
+     "title": "Nordic Crypto avataan",
+     "description": "Sivuston ensimmäinen versio englanniksi: uutisia Norjasta, Ruotsista, Suomesta, Islannista ja Färsaarilta omine lyhyine tiivistelmineen; tapahtumakalenteri kuukausinäkymällä, mobiililistalla ja maasuodattimella; hakemisto alan toimijoista ja viranomaisista yksityiseen ja julkiseen sektoriin jaettuna, maasuodattimella; Sääntely maittain -osio; luettelo seuraamistamme lähteistä; Tietoa-sivu korjauksineen ja poistoineen; sekä koko näytön tila toimiston pysty- ja vaakanäytöille."
+    },
+    "is": {
+     "title": "Nordic Crypto fer í loftið",
+     "description": "Fyrsta útgáfa síðunnar á ensku: fréttir frá Noregi, Svíþjóð, Finnlandi, Íslandi og Færeyjum með eigin stuttum samantektum; viðburðadagatal með mánaðaryfirliti, farsímalista og landssíu; yfirlit yfir hver er hvað í greininni og hjá stjórnvöldum, skipt í einkageira og hið opinbera, með landssíu; hlutinn Regluverk eftir löndum; listinn yfir heimildirnar sem við fylgjumst með; síðan Um okkur með leiðréttingum og fjarlægingu; og skjáhamur fyrir skrifstofuskjái, lóðrétta og lárétta."
+    }
+   },
+   "html_url": "https://jqrgen.github.io/nordic-crypto/changelog/#initial-build",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/initial-build.json"
+  }
+ ]
+}

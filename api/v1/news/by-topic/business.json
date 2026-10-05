@@ -1,0 +1,502 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "topic": "business",
+ "count": 16,
+ "items": [
+  {
+   "id": "f616814dc40c",
+   "url": "https://www.kaupr.io/nyheter/greenmerc-kutter-4-8-millioner-i-aret---northcrypto-gar-med-overskudd",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/f616814dc40c.json",
+   "title": "GreenMerc kutter 4,8 millioner i året – Northcrypto går med overskudd",
+   "title_en": "GreenMerc cuts SEK 4.8 million a year as Northcrypto turns a profit",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+   "country": "SE",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-09-30T12:00:00+00:00",
+   "topics": [
+    "business"
+   ],
+   "summary": "GreenMerc is cutting costs by SEK 4.8 million a year while Northcrypto turns a profit, with spending redirected to the banking offer Trijo One.",
+   "summary_i18n": {
+    "nn": "GreenMerc kuttar kostnader med 4,8 millionar svenske kroner i året medan Northcrypto går med overskot, og pengane blir flytta til banktilbodet Trijo One.",
+    "nb": "GreenMerc kutter kostnader med 4,8 millioner svenske kroner i året mens Northcrypto går med overskudd, og pengene flyttes til banktilbudet Trijo One.",
+    "sv": "GreenMerc skär ned kostnaderna med 4,8 miljoner kronor om året medan Northcrypto går med vinst, och pengarna styrs om till banktjänsten Trijo One.",
+    "da": "GreenMerc skærer 4,8 millioner svenske kroner om året i omkostninger, mens Northcrypto giver overskud, og pengene flyttes til bankproduktet Trijo One.",
+    "fi": "GreenMerc leikkaa kulujaan 4,8 miljoonaa Ruotsin kruunua vuodessa samalla kun Northcrypto tekee voittoa, ja rahat ohjataan pankkipalvelu Trijo Oneen.",
+    "is": "GreenMerc sker niður kostnað um 4,8 milljónir sænskra króna á ári á meðan Northcrypto skilar hagnaði, og fénu er beint í bankaþjónustuna Trijo One."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false
+  },
+  {
+   "id": "12425cc1e7ff",
+   "url": "https://www.kaupr.io/nyheter/coinmotion-og-k33-inngar-nordisk-kryptosamarbeid-om-institusjonell-handel",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/12425cc1e7ff.json",
+   "title": "Coinmotion og K33 inngår nordisk kryptosamarbeid om institusjonell handel",
+   "title_en": "Coinmotion and K33 strike Nordic crypto partnership on institutional trading",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+   "country": "SE",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-09-24T12:00:00+00:00",
+   "topics": [
+    "business",
+    "mica"
+   ],
+   "summary": "Finnish broker Coinmotion has picked Norway's K33 to execute large trades, a partnership between two MiCA-licensed Nordic firms.",
+   "summary_i18n": {
+    "nn": "Finske Coinmotion har valt norske K33 til å gjennomføre store handlar, eit samarbeid mellom to nordiske selskap med MiCA-løyve.",
+    "nb": "Finske Coinmotion har valgt norske K33 til å gjennomføre store handler, et samarbeid mellom to nordiske selskaper med MiCA-tillatelse.",
+    "sv": "Finländska Coinmotion har valt norska K33 för att genomföra stora affärer, ett samarbete mellan två nordiska bolag med MiCA-tillstånd.",
+    "da": "Finske Coinmotion har valgt norske K33 til at gennemføre store handler, et samarbejde mellem to nordiske selskaber med MiCA-tilladelse.",
+    "fi": "Suomalainen Coinmotion on valinnut norjalaisen K33:n toteuttamaan suuria kauppoja; kyseessä on kahden MiCA-toimiluvan saaneen pohjoismaisen yrityksen yhteistyö.",
+    "is": "Finnska Coinmotion hefur valið norska K33 til að annast stór viðskipti, samstarf tveggja norrænna fyrirtækja með MiCA-leyfi."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false
+  },
+  {
+   "id": "07e49032be5a",
+   "url": "https://www.kaupr.io/nyheter/safello-apner-for-at-andre-selskaper-kan-tilby-kryptokjop",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/07e49032be5a.json",
+   "title": "Safello åpner for at andre selskaper kan tilby kryptokjøp",
+   "title_en": "Safello opens up so other companies can offer crypto purchases",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+   "country": "SE",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-09-24T12:00:00+00:00",
+   "topics": [
+    "business",
+    "mica"
+   ],
+   "summary": "Sweden's Safello is testing a setup that lets companies without their own crypto business offer crypto purchases under Safello's MiCA licence.",
+   "summary_i18n": {
+    "nn": "Svenske Safello testar ei løysing som lèt selskap utan eiga kryptoverksemd tilby kjøp av krypto under MiCA-løyvet til Safello.",
+    "nb": "Svenske Safello tester en løsning som lar selskaper uten egen kryptovirksomhet tilby kjøp av krypto under Safellos MiCA-tillatelse.",
+    "sv": "Svenska Safello testar en lösning som låter bolag utan egen kryptoverksamhet erbjuda köp av krypto under Safellos MiCA-tillstånd.",
+    "da": "Svenske Safello tester en løsning, der lader virksomheder uden egen kryptoforretning tilbyde køb af krypto under Safellos MiCA-tilladelse.",
+    "fi": "Ruotsalainen Safello testaa ratkaisua, jonka avulla yritykset, joilla ei ole omaa kryptoliiketoimintaa, voivat tarjota kryptojen ostoa Safellon MiCA-toimiluvalla.",
+    "is": "Sænska Safello prófar lausn sem gerir fyrirtækjum án eigin rafmyntastarfsemi kleift að bjóða kaup á rafmyntum undir MiCA-leyfi Safello."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false
+  },
+  {
+   "id": "7996dadb43e7",
+   "url": "https://www.kaupr.io/nyheter/nbx-inngar-avtale-med-tieto-om-betalingskort-for-stablecoins",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/7996dadb43e7.json",
+   "title": "NBX inngår avtale med Tieto om betalingskort for stablecoins",
+   "title_en": "NBX signs deal with Tieto for stablecoin payment card",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+   "country": "NO",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-09-23T12:00:00+00:00",
+   "topics": [
+    "stablecoins",
+    "business"
+   ],
+   "summary": "NBX has signed with Tieto Banktech for a payment card that lets customers spend stablecoins in everyday purchases.",
+   "summary_i18n": {
+    "nn": "NBX har inngått avtale med Tieto Banktech om eit betalingskort som lèt kundane bruke stablecoins i kvardagskjøp.",
+    "nb": "NBX har inngått avtale med Tieto Banktech om et betalingskort som lar kundene bruke stablecoins i hverdagskjøp.",
+    "sv": "NBX har tecknat avtal med Tieto Banktech om ett betalkort som låter kunderna använda stablecoins i vardagliga köp.",
+    "da": "NBX har indgået aftale med Tieto Banktech om et betalingskort, der lader kunderne bruge stablecoins til daglige indkøb.",
+    "fi": "NBX on sopinut Tieto Banktechin kanssa maksukortista, jolla asiakkaat voivat käyttää vakaakolikoita arjen ostoksissa.",
+    "is": "NBX hefur samið við Tieto Banktech um greiðslukort sem gerir viðskiptavinum kleift að nota stöðugleikamyntir í daglegum innkaupum."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false
+  },
+  {
+   "id": "5682c6aa22dd",
+   "url": "https://www.finansavisen.no/valuta/2026/09/20/8380762/kollaps-for-kryptoborsen-firi",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/5682c6aa22dd.json",
+   "title": "Kollaps for kryptobørs",
+   "title_en": "Collapse for crypto exchange Firi",
+   "source": "finansavisen",
+   "source_name": "Finansavisen",
+   "source_note": null,
+   "country": "NO",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-09-20T07:41:00+00:00",
+   "topics": [
+    "business"
+   ],
+   "summary": "Norwegian exchange Firi earned NOK 135 million in 2024 but posted a NOK 44 million loss in the first half of this year.",
+   "summary_i18n": {
+    "nn": "Den norske kryptobørsen Firi tente 135 millionar kroner i 2024, men fekk eit tap på 44 millionar kroner i første halvår i år.",
+    "nb": "Den norske kryptobørsen Firi tjente 135 millioner kroner i 2024, men fikk et tap på 44 millioner kroner i første halvår i år.",
+    "sv": "Den norska kryptobörsen Firi tjänade 135 miljoner norska kronor 2024 men gick med en förlust på 44 miljoner norska kronor under årets första halvår.",
+    "da": "Den norske kryptobørs Firi tjente 135 millioner norske kroner i 2024, men havde et underskud på 44 millioner norske kroner i årets første halvår.",
+    "fi": "Norjalainen kryptopörssi Firi ansaitsi 135 miljoonaa Norjan kruunua vuonna 2024, mutta teki 44 miljoonan Norjan kruunun tappion tämän vuoden ensimmäisellä puoliskolla.",
+    "is": "Norska rafmyntakauphöllin Firi aflaði 135 milljóna norskra króna árið 2024 en tapaði 44 milljónum norskra króna á fyrri helmingi þessa árs."
+   },
+   "paywall": true,
+   "links": [],
+   "own_story": false
+  },
+  {
+   "id": "831bb86ab20c",
+   "url": "https://www.kaupr.io/nyheter/nbx-mer-enn-doblet-tapet-i-halvaret-da-mica-lisensen-kom",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/831bb86ab20c.json",
+   "title": "NBX mer enn doblet tapet i halvåret da MiCA-lisensen kom",
+   "title_en": "NBX more than doubled its half-year loss as the MiCA licence arrived",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+   "country": "NO",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-09-18T12:00:00+00:00",
+   "topics": [
+    "business",
+    "mica"
+   ],
+   "summary": "NBX won its MiCA licence in the first half of 2026, but revenue fell 45 percent and its after-tax loss grew to NOK 16.6 million.",
+   "summary_i18n": {
+    "nn": "NBX fekk MiCA-løyve i første halvår 2026, men inntektene fall 45 prosent, og tapet etter skatt auka til 16,6 millionar kroner.",
+    "nb": "NBX fikk MiCA-tillatelse i første halvår 2026, men inntektene falt 45 prosent og tapet etter skatt økte til 16,6 millioner kroner.",
+    "sv": "NBX fick sitt MiCA-tillstånd under första halvåret 2026, men intäkterna föll 45 procent och förlusten efter skatt ökade till 16,6 miljoner norska kronor.",
+    "da": "NBX fik sin MiCA-tilladelse i første halvår 2026, men omsætningen faldt 45 procent, og underskuddet efter skat voksede til 16,6 millioner norske kroner.",
+    "fi": "NBX sai MiCA-toimiluvan vuoden 2026 ensimmäisellä puoliskolla, mutta liikevaihto laski 45 prosenttia ja verojen jälkeinen tappio kasvoi 16,6 miljoonaan Norjan kruunuun.",
+    "is": "NBX fékk MiCA-leyfi á fyrri helmingi ársins 2026, en tekjur drógust saman um 45 prósent og tap eftir skatta jókst í 16,6 milljónir norskra króna."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false
+  },
+  {
+   "id": "1abbecf31dff",
+   "url": "https://e24.no/bors/nyheter/a/305563",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/1abbecf31dff.json",
+   "title": "Verdiendringer i bitcoin tynger NBX",
+   "title_en": "Bitcoin value swings weigh on NBX",
+   "source": "e24",
+   "source_name": "E24",
+   "source_note": null,
+   "country": "NO",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-09-18T11:36:00+00:00",
+   "topics": [
+    "business"
+   ],
+   "summary": "NBX made a pre-tax loss of NOK 21.33 million in the first half of 2026, up from NOK 9.85 million a year earlier, with changes in the value of bitcoin weighing on the result.",
+   "summary_i18n": {
+    "nn": "NBX fekk eit underskot før skatt på 21,33 millionar kroner i første halvår 2026, mot 9,85 millionar året før, og endringar i bitcoinverdien trekte resultatet ned.",
+    "nb": "NBX fikk et underskudd før skatt på 21,33 millioner kroner i første halvår 2026, mot 9,85 millioner året før, og endringer i bitcoinverdien trakk resultatet ned.",
+    "sv": "NBX gjorde en förlust före skatt på 21,33 miljoner norska kronor under första halvåret 2026, mot 9,85 miljoner ett år tidigare, och förändringar i bitcoins värde tyngde resultatet.",
+    "da": "NBX havde et underskud før skat på 21,33 millioner norske kroner i første halvår 2026 mod 9,85 millioner året før, og ændringer i bitcoins værdi trak resultatet ned.",
+    "fi": "NBX:n tappio ennen veroja oli 21,33 miljoonaa Norjan kruunua vuoden 2026 ensimmäisellä puoliskolla, kun vuotta aiemmin se oli 9,85 miljoonaa, ja bitcoinin arvon muutokset painoivat tulosta.",
+    "is": "NBX tapaði 21,33 milljónum norskra króna fyrir skatta á fyrri helmingi ársins 2026, samanborið við 9,85 milljónir ári fyrr, og breytingar á verðmæti bitcoin drógu niðurstöðuna niður."
+   },
+   "paywall": true,
+   "links": [],
+   "own_story": false
+  },
+  {
+   "id": "a384452ed1b6",
+   "url": "https://www.kaupr.io/nyheter/greenmerc-trekker-mica-klage-og-bruker-northcryptos-lisens-i-sverige",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/a384452ed1b6.json",
+   "title": "GreenMerc trekker MiCA-klage og bruker Northcryptos lisens i Sverige",
+   "title_en": "GreenMerc drops MiCA appeal and uses Northcrypto's licence in Sweden",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+   "country": "SE",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-09-17T12:00:00+00:00",
+   "topics": [
+    "mica",
+    "business"
+   ],
+   "summary": "GreenMerc has dropped its MiCA appeal for Ijort Invest and will serve Swedish Trijo customers under Finnish Northcrypto's licence.",
+   "summary_i18n": {
+    "nn": "GreenMerc har trekt MiCA-klaga for Ijort Invest og vil tene svenske Trijo-kundar under løyvet til finske Northcrypto.",
+    "nb": "GreenMerc har trukket MiCA-klagen for Ijort Invest og vil betjene svenske Trijo-kunder under finske Northcryptos tillatelse.",
+    "sv": "GreenMerc har dragit tillbaka sitt MiCA-överklagande för Ijort Invest och ska betjäna svenska Trijo-kunder under finländska Northcryptos tillstånd.",
+    "da": "GreenMerc har trukket sin MiCA-klage for Ijort Invest tilbage og vil betjene svenske Trijo-kunder under finske Northcryptos tilladelse.",
+    "fi": "GreenMerc on luopunut Ijort Investin MiCA-valituksesta ja palvelee ruotsalaisia Trijo-asiakkaita suomalaisen Northcrypton toimiluvalla.",
+    "is": "GreenMerc hefur fallið frá MiCA-kæru sinni fyrir Ijort Invest og mun þjónusta sænska viðskiptavini Trijo undir leyfi finnska Northcrypto."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false
+  },
+  {
+   "id": "e1e3eef6ecff",
+   "url": "https://www.inderes.se/en/releases/nbx-nbx-registered-as-moneygram-agent",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/e1e3eef6ecff.json",
+   "title": "NBX registrert som MoneyGram-agent (børsmelding, engelsk)",
+   "title_en": "NBX registered as a MoneyGram agent (stock exchange release)",
+   "source": "nbx-ir",
+   "source_name": "NBX (børsmelding)",
+   "source_note": null,
+   "country": "NO",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-09-17T12:00:00+00:00",
+   "topics": [
+    "business",
+    "payments"
+   ],
+   "summary": "Norwegian Block Exchange (NBX), listed on Euronext Growth Oslo, has been registered as an agent for MoneyGram International.",
+   "summary_i18n": {
+    "nn": "Norwegian Block Exchange (NBX), notert på Euronext Growth Oslo, er registrert som agent for MoneyGram International.",
+    "nb": "Norwegian Block Exchange (NBX), notert på Euronext Growth Oslo, er registrert som agent for MoneyGram International.",
+    "sv": "Norwegian Block Exchange (NBX), noterat på Euronext Growth Oslo, har registrerats som ombud för MoneyGram International.",
+    "da": "Norwegian Block Exchange (NBX), der er noteret på Euronext Growth Oslo, er registreret som agent for MoneyGram International.",
+    "fi": "Euronext Growth Oslossa listattu Norwegian Block Exchange (NBX) on rekisteröity MoneyGram Internationalin asiamieheksi.",
+    "is": "Norwegian Block Exchange (NBX), sem skráð er á Euronext Growth Oslo, hefur verið skráð sem umboðsaðili MoneyGram International."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false
+  },
+  {
+   "id": "4d918e6a3378",
+   "url": "https://www.kaupr.io/nyheter/firi-tar-opp-kampen-om-1-1-millioner-svenske-kryptoeiere",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/4d918e6a3378.json",
+   "title": "Firi tar opp kampen om 1,1 millioner svenske kryptoeiere",
+   "title_en": "Firi takes on the fight for 1.1 million Swedish crypto owners",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+   "country": "SE",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-09-15T12:00:00+00:00",
+   "topics": [
+    "business"
+   ],
+   "summary": "Firi launches in Sweden this week, entering a market where about 1.1 million people already own crypto.",
+   "summary_i18n": {
+    "nn": "Firi blir lansert i Sverige denne veka, i ein marknad der om lag 1,1 millionar menneske alt eig krypto.",
+    "nb": "Firi lanseres i Sverige denne uken, i et marked der rundt 1,1 millioner mennesker allerede eier krypto.",
+    "sv": "Firi lanseras i Sverige den här veckan, på en marknad där omkring 1,1 miljoner människor redan äger krypto.",
+    "da": "Firi lanceres i Sverige i denne uge på et marked, hvor omkring 1,1 millioner mennesker allerede ejer krypto.",
+    "fi": "Firi aloittaa Ruotsissa tällä viikolla markkinalla, jolla noin 1,1 miljoonaa ihmistä omistaa jo kryptoja.",
+    "is": "Firi hefur starfsemi í Svíþjóð í vikunni, á markaði þar sem um 1,1 milljón manna á þegar rafmyntir."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false
+  },
+  {
+   "id": "4fec239ddb97",
+   "url": "https://www.kaupr.io/nyheter/hilbert-finansierer-utlan-med-innskudd-pa-blokkjeden",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/4fec239ddb97.json",
+   "title": "Hilbert finansierer utlån med innskudd på blokkjeden",
+   "title_en": "Hilbert funds lending with on-chain deposits",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+   "country": "SE",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-09-15T12:00:00+00:00",
+   "topics": [
+    "defi",
+    "business"
+   ],
+   "summary": "Hilbert Finance is taking stablecoin deposits on-chain and lending them out through a partnership with Ember Protocol.",
+   "summary_i18n": {
+    "nn": "Hilbert Finance tek imot stablecoin-innskot på blokkjeda og lånar dei ut gjennom eit samarbeid med Ember Protocol.",
+    "nb": "Hilbert Finance tar imot stablecoin-innskudd på blokkjeden og låner dem ut gjennom et samarbeid med Ember Protocol.",
+    "sv": "Hilbert Finance tar emot insättningar i stablecoins på blockkedjan och lånar ut dem genom ett samarbete med Ember Protocol.",
+    "da": "Hilbert Finance tager imod stablecoin-indskud on-chain og låner dem ud gennem et samarbejde med Ember Protocol.",
+    "fi": "Hilbert Finance ottaa vastaan vakaakolikkotalletuksia lohkoketjussa ja lainaa niitä eteenpäin yhteistyössä Ember Protocolin kanssa.",
+    "is": "Hilbert Finance tekur við innlánum í stöðugleikamyntum á bálkakeðjunni og lánar þær út í samstarfi við Ember Protocol."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false
+  },
+  {
+   "id": "6e2887720a32",
+   "url": "https://www.shifter.no/nyheter/firi-lanserer-i-sverige-etter-permitteringer-og-milliontap/475990",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/6e2887720a32.json",
+   "title": "Firi lanserer i Sverige – etter permitteringer og milliontap",
+   "title_en": "Firi launches in Sweden after layoffs and losses",
+   "source": "shifter",
+   "source_name": "Shifter",
+   "source_note": null,
+   "country": "NO",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-09-15T12:00:00+00:00",
+   "topics": [
+    "business",
+    "mica"
+   ],
+   "summary": "Crypto exchange Firi lost NOK 43.6 million in the first half of 2026 after weaker trading and high MiCA costs, and has made layoffs while launching in Sweden.",
+   "summary_i18n": {
+    "nn": "Kryptobørsen Firi tapte 43,6 millionar kroner i første halvår 2026 etter svakare handel og høge MiCA-kostnader, og har nedbemanna samstundes som selskapet blir lansert i Sverige.",
+    "nb": "Kryptobørsen Firi tapte 43,6 millioner kroner i første halvår 2026 etter svakere handel og høye MiCA-kostnader, og har nedbemannet samtidig som selskapet lanseres i Sverige.",
+    "sv": "Kryptobörsen Firi förlorade 43,6 miljoner norska kronor under första halvåret 2026 efter svagare handel och höga MiCA-kostnader, och har sagt upp personal samtidigt som bolaget lanseras i Sverige.",
+    "da": "Kryptobørsen Firi tabte 43,6 millioner norske kroner i første halvår 2026 efter svagere handel og høje MiCA-omkostninger og har afskediget medarbejdere, samtidig med at selskabet lanceres i Sverige.",
+    "fi": "Kryptopörssi Firi teki 43,6 miljoonan Norjan kruunun tappion vuoden 2026 ensimmäisellä puoliskolla heikomman kaupankäynnin ja korkeiden MiCA-kulujen vuoksi, ja se on vähentänyt henkilöstöä samalla kun se aloittaa Ruotsissa.",
+    "is": "Rafmyntakauphöllin Firi tapaði 43,6 milljónum norskra króna á fyrri helmingi ársins 2026 vegna minni viðskipta og mikils MiCA-kostnaðar og hefur fækkað starfsfólki á sama tíma og hún hefur starfsemi í Svíþjóð."
+   },
+   "paywall": true,
+   "links": [],
+   "own_story": false
+  },
+  {
+   "id": "9750ec7bf5d8",
+   "url": "https://www.kaupr.io/nyheter/finske-kvarn-leier-ut-mica-tillatelsen-sin-til-nordiske-partnere",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/9750ec7bf5d8.json",
+   "title": "Finske Kvarn leier ut MiCA-tillatelsen sin til nordiske partnere",
+   "title_en": "Finnish Kvarn rents out its MiCA licence to Nordic partners",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+   "country": "SE",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-09-14T12:00:00+00:00",
+   "topics": [
+    "mica",
+    "business"
+   ],
+   "summary": "Finland's Kvarn Capital lets Nordic companies sell crypto services under its MiCA licence, with Goobit as the first named client.",
+   "summary_i18n": {
+    "nn": "Finske Kvarn Capital lèt nordiske selskap selje kryptotenester under MiCA-løyvet sitt, med Goobit som første namngitte kunde.",
+    "nb": "Finske Kvarn Capital lar nordiske selskaper selge kryptotjenester under sin MiCA-tillatelse, med Goobit som første navngitte kunde.",
+    "sv": "Finländska Kvarn Capital låter nordiska bolag sälja kryptotjänster under sitt MiCA-tillstånd, med Goobit som första namngivna kund.",
+    "da": "Finske Kvarn Capital lader nordiske virksomheder sælge kryptotjenester under sin MiCA-tilladelse med Goobit som første navngivne kunde.",
+    "fi": "Suomalainen Kvarn Capital antaa pohjoismaisten yritysten myydä kryptopalveluja MiCA-toimilupansa alla, ja ensimmäinen nimetty asiakas on Goobit.",
+    "is": "Finnska Kvarn Capital leyfir norrænum fyrirtækjum að selja rafmyntaþjónustu undir MiCA-leyfi sínu og er Goobit fyrsti nafngreindi viðskiptavinurinn."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false
+  },
+  {
+   "id": "e0cc8b0df8e7",
+   "url": "https://www.kaupr.io/nyheter/goobit-lanserer-sparing-i-bitcoin-og-gull-pa-finsk-lisens",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/e0cc8b0df8e7.json",
+   "title": "Goobit lanserer sparing i bitcoin og gull på finsk lisens",
+   "title_en": "Goobit launches bitcoin and gold savings on a Finnish licence",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+   "country": "SE",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-09-14T12:00:00+00:00",
+   "topics": [
+    "mica",
+    "business"
+   ],
+   "summary": "After being refused by Sweden's Finansinspektionen, Goobit is launching Futureproof, a bitcoin and gold savings platform, under Finnish Kvarn Capital's MiCA licence.",
+   "summary_i18n": {
+    "nn": "Etter avslag frå svenske Finansinspektionen lanserer Goobit Futureproof, ei spareplattform for bitcoin og gull, under MiCA-løyvet til finske Kvarn Capital.",
+    "nb": "Etter avslag fra svenske Finansinspektionen lanserer Goobit Futureproof, en spareplattform for bitcoin og gull, under finske Kvarn Capitals MiCA-tillatelse.",
+    "sv": "Efter avslag från Finansinspektionen lanserar Goobit Futureproof, en sparplattform för bitcoin och guld, under finländska Kvarn Capitals MiCA-tillstånd.",
+    "da": "Efter et afslag fra det svenske Finansinspektionen lancerer Goobit Futureproof, en opsparingsplatform for bitcoin og guld, under finske Kvarn Capitals MiCA-tilladelse.",
+    "fi": "Saatuaan kielteisen päätöksen Ruotsin Finansinspektionenilta Goobit tuo markkinoille bitcoin- ja kultasäästämisen alustan Futureproofin suomalaisen Kvarn Capitalin MiCA-toimiluvalla.",
+    "is": "Eftir synjun sænska Finansinspektionen setur Goobit á markað Futureproof, sparnaðarvettvang fyrir bitcoin og gull, undir MiCA-leyfi finnska Kvarn Capital."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false
+  },
+  {
+   "id": "eb685890cbc3",
+   "url": "https://www.kaupr.io/nyheter/h100-styrelederen-vil-ha-flere-oppkjop-i-bitcoinbransjen",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/eb685890cbc3.json",
+   "title": "H100-styrelederen vil ha flere oppkjøp i bitcoinbransjen",
+   "title_en": "H100 chair wants more acquisitions in the bitcoin industry",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+   "country": "SE",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-09-13T12:00:00+00:00",
+   "topics": [
+    "business",
+    "bitcoin"
+   ],
+   "summary": "Sander Andersen of H100 Group says bitcoin companies worth under a billion dollars need to buy each other, because standing still is the biggest risk.",
+   "summary_i18n": {
+    "nn": "Sander Andersen i H100 Group seier at bitcoinselskap verde under ein milliard dollar må kjøpe kvarandre, fordi det å stå still er den største risikoen.",
+    "nb": "Sander Andersen i H100 Group sier at bitcoinselskaper verdt under en milliard dollar må kjøpe hverandre, fordi det å stå stille er den største risikoen.",
+    "sv": "Sander Andersen på H100 Group säger att bitcoinbolag värda under en miljard dollar måste köpa varandra, eftersom den största risken är att stå still.",
+    "da": "Sander Andersen fra H100 Group siger, at bitcoinselskaber til under en milliard dollar må købe hinanden, fordi den største risiko er at stå stille.",
+    "fi": "H100 Groupin Sander Andersen sanoo, että alle miljardin dollarin arvoisten bitcoinyhtiöiden on ostettava toisiaan, koska paikallaan pysyminen on suurin riski.",
+    "is": "Sander Andersen hjá H100 Group segir að bitcoin-fyrirtæki sem eru minna en milljarðs dollara virði þurfi að kaupa hvert annað, því að standa í stað sé mesta áhættan."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false
+  },
+  {
+   "id": "08a682f7d85d",
+   "url": "https://www.kaupr.io/nyheter/btcx-blir-megler-og-goobits-rapporterte-inntekter-faller",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/08a682f7d85d.json",
+   "title": "BTCX blir megler, og Goobits rapporterte inntekter faller",
+   "title_en": "BTCX becomes a broker, and Goobit's reported revenue falls",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+   "country": "SE",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-09-10T12:00:00+00:00",
+   "topics": [
+    "mica",
+    "business"
+   ],
+   "summary": "Goobit is switching BTCX from proprietary trading to brokerage, citing MiCA, which cuts reported revenue but not gross profit.",
+   "summary_i18n": {
+    "nn": "Goobit legg om BTCX frå eigenhandel til mekling med tilvising til MiCA, noko som reduserer rapporterte inntekter, men ikkje bruttoforteneste.",
+    "nb": "Goobit legger om BTCX fra egenhandel til megling med henvisning til MiCA, noe som reduserer rapporterte inntekter, men ikke bruttofortjenesten.",
+    "sv": "Goobit ställer om BTCX från egenhandel till förmedling med hänvisning till MiCA, vilket minskar de redovisade intäkterna men inte bruttovinsten.",
+    "da": "Goobit lægger BTCX om fra egenhandel til formidling med henvisning til MiCA, hvilket reducerer den rapporterede omsætning, men ikke bruttofortjenesten.",
+    "fi": "Goobit siirtää BTCX:n omaan lukuun käytävästä kaupasta välitykseen MiCA:an vedoten, mikä pienentää raportoitua liikevaihtoa mutta ei bruttokatetta.",
+    "is": "Goobit færir BTCX úr viðskiptum fyrir eigin reikning yfir í miðlun og vísar til MiCA, sem lækkar skráðar tekjur en ekki vergan hagnað."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false
+  }
+ ]
+}

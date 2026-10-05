@@ -1,0 +1,47 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "se-fi",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/se-fi.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#se-fi",
+  "name": "Finansinspektionen (FI, Swedish FSA)",
+  "type": "organisation",
+  "sector": "public",
+  "country": "SE",
+  "description": "Sweden's competent authority under MiCA. As of 30 Jun 2026 Safello AB was the only crypto-asset service provider authorised by FI, while 77 firms authorised in other EU countries may serve Swedish consumers. FI refused QB Europe AB (Valuno group) and Ijort Invest AB (GreenMerc group); both appealed. The MiCA transitional period in Sweden ended on 30 Jun 2026.",
+  "role": null,
+  "org": null,
+  "group": "Regulators & supervisors",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.fi.se/sv/publicerat/nyheter/2026/kryptobolag-utan-tillstand-ska-avveckla-sin-verksamhet-i-eu/",
+    "title": "Kryptobolag utan tillstånd ska avveckla sin verksamhet i EU",
+    "source_name": "Finansinspektionen",
+    "date": "2026-07-01"
+   },
+   {
+    "url": "https://www.fi.se/sv/betalningar/kryptotillgangar/mica-forordningen/",
+    "title": "Mica-förordningen",
+    "source_name": "Finansinspektionen",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/se-fi.svg",
+   "source_url": "https://commons.wikimedia.org/wiki/File:Finansinspektionen_logo.svg",
+   "author": "Finansinspektionen.",
+   "license": "Public domain",
+   "license_url": null,
+   "credit": "Wikimedia Commons"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

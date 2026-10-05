@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "nve",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/nve.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#nve",
+  "name": "NVE (Norwegian Water Resources and Energy Directorate)",
+  "type": "organisation",
+  "sector": "public",
+  "country": "NO",
+  "description": "Regulates grid companies and the power market; indirectly relevant for grid connection of data centres and crypto mining.",
+  "role": null,
+  "org": null,
+  "group": "Regulators & agencies",
+  "profile_url": null,
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.nve.no/om-nve/dette-er-nve/ledelse/",
+    "title": "nve.no",
+    "source_name": "nve.no",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

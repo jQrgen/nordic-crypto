@@ -1,0 +1,52 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "tero-kurenmaa",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/tero-kurenmaa.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#tero-kurenmaa",
+  "name": "Tero Kurenmaa",
+  "type": "person",
+  "sector": "public",
+  "country": "FI",
+  "description": null,
+  "role": "Director General (five-year term from 15 Jun 2022)",
+  "org": "fi-fiva",
+  "group": null,
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.finanssivalvonta.fi/en/publications-and-press-releases/Press-release/2022/tero-kurenmaa-appointed-as-fin-fsa-director-general/",
+    "title": "Tero Kurenmaa appointed as FIN-FSA Director General",
+    "source_name": "Finanssivalvonta",
+    "date": "2022"
+   },
+   {
+    "url": "https://www.finanssivalvonta.fi/en/publications-and-press-releases/news-releases/2026/keynote-delivered-by-the-director-general-of-the-financial-supervisory-authority-tero-kurenmaa-at-the-international-bankers-forum/",
+    "title": "Keynote by the Director General Tero Kurenmaa at the International Bankers Forum",
+    "source_name": "Finanssivalvonta",
+    "date": "2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": [
+   {
+    "kind": "wikipedia",
+    "label": "Wikipedia (fi)",
+    "url": "https://fi.wikipedia.org/wiki/Tero_Kurenmaa",
+    "source_url": "https://www.wikidata.org/wiki/Q112577670"
+   },
+   {
+    "kind": "wikidata",
+    "label": "Wikidata",
+    "url": "https://www.wikidata.org/wiki/Q112577670",
+    "source_url": "https://www.wikidata.org/wiki/Q112577670"
+   }
+  ]
+ }
+}

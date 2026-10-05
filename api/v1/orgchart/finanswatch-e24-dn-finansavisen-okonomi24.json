@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "finanswatch-e24-dn-finansavisen-okonomi24",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/finanswatch-e24-dn-finansavisen-okonomi24.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#finanswatch-e24-dn-finansavisen-okonomi24",
+  "name": "Finanswatch, E24, DN, Finansavisen, Økonomi24",
+  "type": "organisation",
+  "sector": "private",
+  "country": "NO",
+  "description": "Financial and business media covering crypto, Økokrim and regulation.",
+  "role": null,
+  "org": null,
+  "group": "Media",
+  "profile_url": null,
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://finanswatch.no/nyheter/fintech/article19110921.ece",
+    "title": "Finanswatch",
+    "source_name": "Finanswatch",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

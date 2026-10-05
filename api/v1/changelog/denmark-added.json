@@ -1,0 +1,40 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "denmark-added",
+  "date": "2026-10-03",
+  "title": "Denmark added",
+  "description": "Nordic Crypto now covers Norway, Sweden, Denmark, Finland and Iceland. Denmark has a country filter on the news, calendar, who's who and academia pages, and we now follow Danish newspapers, broadcasters, tech media, Danmarks Nationalbank, Kaupr's Denmark page and a news search on Danish sites. Danish stories, events and who's who entries appear once our editor has reviewed them.",
+  "i18n": {
+   "nb": {
+    "title": "Danmark lagt til",
+    "description": "Nordic Crypto dekker nå Norge, Sverige, Danmark, Finland og Island. Danmark har eget landfilter på nyhets-, kalender-, hvem er hvem- og forskningssidene, og vi følger nå danske aviser, kringkastere, teknologimedier, Danmarks Nationalbank, Kauprs Danmark-side og et nyhetssøk på danske nettsteder. Danske saker, arrangementer og oppføringer vises når redaktøren har gått gjennom dem."
+   },
+   "nn": {
+    "title": "Danmark lagt til",
+    "description": "Nordic Crypto dekkjer no Noreg, Sverige, Danmark, Finland og Island. Danmark har eige landfilter på nyheits-, kalender-, kven er kven- og forskingssidene, og vi følgjer no danske aviser, kringkastarar, teknologimedium, Danmarks Nationalbank, Danmark-sida til Kaupr og eit nyheitssøk på danske nettstader. Danske saker, arrangement og oppføringar blir viste når redaktøren har gått gjennom dei."
+   },
+   "sv": {
+    "title": "Danmark tillagt",
+    "description": "Nordic Crypto bevakar nu Norge, Sverige, Danmark, Finland och Island. Danmark har ett eget landfilter på nyhets-, kalender-, vem är vem- och forskningssidorna, och vi följer nu danska tidningar, public service-bolag, teknikmedier, Danmarks Nationalbank, Kauprs Danmarkssida och en nyhetssökning på danska webbplatser. Danska nyheter, evenemang och poster visas när redaktören har granskat dem."
+   },
+   "da": {
+    "title": "Danmark tilføjet",
+    "description": "Nordic Crypto dækker nu Norge, Sverige, Danmark, Finland og Island. Danmark har sit eget landefilter på nyheds-, kalender-, hvem er hvem- og forskningssiderne, og vi følger nu danske aviser, tv- og radiostationer, teknologimedier, Danmarks Nationalbank, Kauprs Danmarksside og en nyhedssøgning på danske websites. Danske historier, arrangementer og opslag vises, når redaktøren har gennemgået dem."
+   },
+   "fi": {
+    "title": "Tanska mukaan",
+    "description": "Nordic Crypto seuraa nyt Norjaa, Ruotsia, Tanskaa, Suomea ja Islantia. Tanskalla on oma maasuodatin uutis-, kalenteri-, toimijahakemisto- ja tutkimussivuilla, ja seuraamme nyt tanskalaisia sanomalehtiä, yleisradioyhtiöitä, teknologiamedioita, Danmarks Nationalbankia, Kauprin Tanska-sivua ja tanskalaisiin sivustoihin rajattua uutishakua. Tanskalaiset jutut, tapahtumat ja merkinnät näkyvät, kun toimittaja on tarkistanut ne."
+   },
+   "is": {
+    "title": "Danmörku bætt við",
+    "description": "Nordic Crypto fjallar nú um Noreg, Svíþjóð, Danmörku, Finnland og Ísland. Danmörk hefur eigin landssíu á frétta-, viðburða-, hver er hvað- og rannsóknasíðunum, og við fylgjumst nú með dönskum dagblöðum, ljósvakamiðlum, tæknimiðlum, Danmarks Nationalbank, Danmerkursíðu Kaupr og fréttaleit á dönskum vefjum. Danskar fréttir, viðburðir og færslur birtast þegar ritstjórinn hefur farið yfir þær."
+   }
+  },
+  "html_url": "https://jqrgen.github.io/nordic-crypto/changelog/#denmark-added",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/denmark-added.json"
+ }
+}

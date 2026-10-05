@@ -1,0 +1,40 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "initial-build",
+  "date": "2026-10-03",
+  "title": "Nordic Crypto launches",
+  "description": "First version of the site in English: news from Norway, Sweden, Finland, Iceland and the Faroe Islands with our own short summaries; an events calendar with a month grid, a mobile list and a country filter; a who's who of the industry and its regulators split into private and public sector, with a country filter; a Regulation by country section; the list of sources we follow; an About page with corrections and removal; and a full-screen office screen mode for portrait and landscape displays.",
+  "i18n": {
+   "nb": {
+    "title": "Nordic Crypto lanseres",
+    "description": "Første versjon av nettstedet på engelsk: nyheter fra Norge, Sverige, Finland, Island og Færøyene med egne korte sammendrag; en arrangementskalender med månedsoversikt, mobilliste og landfilter; en oversikt over hvem som er hvem i bransjen og blant myndighetene, delt i privat og offentlig sektor, med landfilter; delen Regulering per land; listen over kildene vi følger; en Om-side med rettelser og fjerning; og en fullskjermsvisning for kontorskjermer i stående og liggende format."
+   },
+   "nn": {
+    "title": "Nordic Crypto blir lansert",
+    "description": "Første versjon av nettstaden på engelsk: nyheiter frå Noreg, Sverige, Finland, Island og Færøyane med eigne korte samandrag; ein arrangementskalender med månadsoversikt, mobilliste og landfilter; ei oversikt over kven som er kven i bransjen og blant styresmaktene, delt i privat og offentleg sektor, med landfilter; delen Regulering per land; lista over kjeldene vi følgjer; ei Om-side med rettingar og fjerning; og ei fullskjermsvising for kontorskjermar i ståande og liggjande format."
+   },
+   "sv": {
+    "title": "Nordic Crypto lanseras",
+    "description": "Första versionen av webbplatsen på engelska: nyheter från Norge, Sverige, Finland, Island och Färöarna med egna korta sammanfattningar; en evenemangskalender med månadsvy, mobillista och landfilter; en översikt över vem som är vem i branschen och bland myndigheterna, uppdelad på privat och offentlig sektor, med landfilter; delen Reglering per land; listan över källorna vi följer; en Om-sida med rättelser och borttagning; och ett helskärmsläge för kontorsskärmar i stående och liggande format."
+   },
+   "da": {
+    "title": "Nordic Crypto lanceres",
+    "description": "Første version af sitet på engelsk: nyheder fra Norge, Sverige, Finland, Island og Færøerne med egne korte resuméer; en arrangementskalender med månedsoversigt, mobilliste og landefilter; et overblik over hvem der er hvem i branchen og blandt myndighederne, opdelt i privat og offentlig sektor, med landefilter; sektionen Regulering pr. land; listen over de kilder, vi følger; en Om-side med rettelser og fjernelse; og en fuldskærmsvisning til kontorskærme på højkant og på langs."
+   },
+   "fi": {
+    "title": "Nordic Crypto avataan",
+    "description": "Sivuston ensimmäinen versio englanniksi: uutisia Norjasta, Ruotsista, Suomesta, Islannista ja Färsaarilta omine lyhyine tiivistelmineen; tapahtumakalenteri kuukausinäkymällä, mobiililistalla ja maasuodattimella; hakemisto alan toimijoista ja viranomaisista yksityiseen ja julkiseen sektoriin jaettuna, maasuodattimella; Sääntely maittain -osio; luettelo seuraamistamme lähteistä; Tietoa-sivu korjauksineen ja poistoineen; sekä koko näytön tila toimiston pysty- ja vaakanäytöille."
+   },
+   "is": {
+    "title": "Nordic Crypto fer í loftið",
+    "description": "Fyrsta útgáfa síðunnar á ensku: fréttir frá Noregi, Svíþjóð, Finnlandi, Íslandi og Færeyjum með eigin stuttum samantektum; viðburðadagatal með mánaðaryfirliti, farsímalista og landssíu; yfirlit yfir hver er hvað í greininni og hjá stjórnvöldum, skipt í einkageira og hið opinbera, með landssíu; hlutinn Regluverk eftir löndum; listinn yfir heimildirnar sem við fylgjumst með; síðan Um okkur með leiðréttingum og fjarlægingu; og skjáhamur fyrir skrifstofuskjái, lóðrétta og lárétta."
+   }
+  },
+  "html_url": "https://jqrgen.github.io/nordic-crypto/changelog/#initial-build",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/initial-build.json"
+ }
+}

@@ -1,0 +1,60 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "torgeir-micaelsen",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/torgeir-micaelsen.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#torgeir-micaelsen",
+  "name": "Torgeir Micaelsen",
+  "type": "person",
+  "sector": "public",
+  "country": "NO",
+  "description": null,
+  "role": "Minister of Digitalisation and Public Governance (Labour)",
+  "org": "dfd",
+  "group": null,
+  "profile_url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Sporsmal/Skriftlige-sporsmal-og-svar/Skriftlig-sporsmal/?qnid=127181",
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Sporsmal/Skriftlige-sporsmal-og-svar/Skriftlig-sporsmal/?qnid=127181",
+    "title": "Stortinget",
+    "source_name": "Stortinget",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://www.nrk.no/vestfoldogtelemark/regjeringen-vil-stramme-inn-reglene-for-datasentre-i-norge-1.18040088",
+    "title": "NRK",
+    "source_name": "NRK",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": {
+   "kind": "photo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/people/torgeir-micaelsen.jpg",
+   "source_url": "https://commons.wikimedia.org/wiki/File:Torgeir_Micaelsen_-_Arbeiderpartiet.jpg",
+   "author": "Arbeiderpartiet from Oslo, Norway",
+   "license": "CC BY-SA 2.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+   "credit": "Wikimedia Commons"
+  },
+  "profiles": [
+   {
+    "kind": "wikipedia",
+    "label": "Wikipedia (en)",
+    "url": "https://en.wikipedia.org/wiki/Torgeir_Micaelsen",
+    "source_url": "https://www.wikidata.org/wiki/Q1772947"
+   },
+   {
+    "kind": "wikidata",
+    "label": "Wikidata",
+    "url": "https://www.wikidata.org/wiki/Q1772947",
+    "source_url": "https://www.wikidata.org/wiki/Q1772947"
+   }
+  ]
+ }
+}

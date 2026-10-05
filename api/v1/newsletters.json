@@ -1,0 +1,74 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "sign_off": "The Nordic Crypto team",
+ "count": 1,
+ "issues": [
+  {
+   "id": "001",
+   "number": 1,
+   "date": "2026-10-05",
+   "period": {
+    "start": "2026-09-27",
+    "end": "2026-10-02"
+   },
+   "lang": "en",
+   "title": "Nordic Crypto #1: Binance under scrutiny and Sweden's crypto sanctions warning",
+   "subtitle": "Our first issue, with a new name. The Nordic crypto news that mattered from 27 September to 2 October 2026, and the meetups coming up.",
+   "title_i18n": {
+    "nn": "Nordic Crypto #1: Binance under lupa og Sveriges åtvaring om krypto og sanksjonar",
+    "nb": "Nordic Crypto #1: Binance under lupen og Sveriges advarsel om krypto og sanksjoner",
+    "sv": "Nordic Crypto #1: Binance granskas och Sveriges varning om krypto och sanktioner",
+    "da": "Nordic Crypto #1: Binance under lup og Sveriges advarsel om krypto og sanktioner",
+    "fi": "Nordic Crypto #1: Binance tarkastelussa ja Ruotsin varoitus kryptoista ja pakotteista",
+    "is": "Nordic Crypto #1: Binance til skoðunar og viðvörun Svíþjóðar um kriptó og refsiaðgerðir"
+   },
+   "subtitle_i18n": {
+    "nn": "Den første utgåva, med nytt namn. Dei nordiske kryptonyheitene som betydde noko frå 27. september til 2. oktober 2026, og treffpunkta som kjem.",
+    "nb": "Den første utgaven, med nytt navn. De nordiske kryptonyhetene som betydde noe fra 27. september til 2. oktober 2026, og treffene som kommer.",
+    "sv": "Vår första utgåva, med ett nytt namn. De nordiska kryptonyheter som betydde något från den 27 september till den 2 oktober 2026, och träffarna som väntar.",
+    "da": "Vores første udgave, med et nyt navn. De nordiske kryptonyheder, der betød noget fra 27. september til 2. oktober 2026, og de møder, der kommer.",
+    "fi": "Ensimmäinen numeromme, uudella nimellä. Pohjoismaiset kryptouutiset, joilla oli merkitystä 27. syyskuuta–2. lokakuuta 2026, ja tulevat tapaamiset.",
+    "is": "Fyrsta tölublaðið okkar, með nýju nafni. Norrænu kriptófréttirnar sem skiptu máli frá 27. september til 2. október 2026, og viðburðirnir framundan."
+   },
+   "stories": 9,
+   "events": 4,
+   "sign_off": "The Nordic Crypto team",
+   "html_url": "https://jqrgen.github.io/nordic-crypto/newsletter/001/",
+   "html_urls": {
+    "en": "https://jqrgen.github.io/nordic-crypto/newsletter/001/",
+    "nn": "https://jqrgen.github.io/nordic-crypto/nn/newsletter/001/",
+    "nb": "https://jqrgen.github.io/nordic-crypto/nb/newsletter/001/",
+    "sv": "https://jqrgen.github.io/nordic-crypto/sv/newsletter/001/",
+    "da": "https://jqrgen.github.io/nordic-crypto/da/newsletter/001/",
+    "fi": "https://jqrgen.github.io/nordic-crypto/fi/newsletter/001/",
+    "is": "https://jqrgen.github.io/nordic-crypto/is/newsletter/001/"
+   },
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/newsletters/001.json",
+   "video": {
+    "language": "en",
+    "duration_seconds": 215,
+    "width": 1920,
+    "height": 1080,
+    "bytes": 51479498,
+    "sha256": "db77684939d805b0e23136b3e5539a67131da5cc1c698fde08bc0bb9fe198da9",
+    "download_url": "https://github.com/jQrgen/nordic-crypto/releases/download/newsletter-001-newsreel-3/nordic-crypto-1-newsreel.mp4",
+    "file_url": "https://jqrgen.github.io/nordic-crypto/newsletter/001/video.mp4",
+    "poster_url": "https://jqrgen.github.io/nordic-crypto/newsletter/001/thumbnail.png",
+    "subtitles_url": "https://jqrgen.github.io/nordic-crypto/newsletter/001/subs.vtt",
+    "subtitles_language": "en"
+   },
+   "body_languages": [
+    "en",
+    "da",
+    "fi",
+    "is",
+    "nb",
+    "nn",
+    "sv"
+   ]
+  }
+ ]
+}

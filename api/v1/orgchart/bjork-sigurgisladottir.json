@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "bjork-sigurgisladottir",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/bjork-sigurgisladottir.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#bjork-sigurgisladottir",
+  "name": "Björk Sigurgísladóttir",
+  "type": "person",
+  "sector": "public",
+  "country": "IS",
+  "description": null,
+  "role": "Deputy Governor for Financial Supervision",
+  "org": "is-fme",
+  "group": null,
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://cb.is/about-the-bank/governance/",
+    "title": "Governance – Governor and Deputy Governors",
+    "source_name": "Central Bank of Iceland",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

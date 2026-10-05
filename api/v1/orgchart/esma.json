@@ -1,0 +1,41 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "esma",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/esma.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#esma",
+  "name": "ESMA (EU securities authority)",
+  "type": "organisation",
+  "sector": "public",
+  "country": "EU",
+  "description": "Chair: Verena Ross (Carlo Comporti approved by the European Parliament from 1 Nov 2026, awaiting the Council). MiCA level 2/3 rules, the ESMA register and supervisory convergence; Norway's Finanstilsynet takes part as an EEA observer.",
+  "role": null,
+  "org": null,
+  "group": "EU bodies",
+  "profile_url": null,
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.esma.europa.eu/about-esma/governance-structure/senior-management",
+    "title": "ESMA",
+    "source_name": "ESMA",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/esma.webp",
+   "source_url": "https://commons.wikimedia.org/wiki/File:ESMALogo.png",
+   "author": null,
+   "license": "CC0",
+   "license_url": null,
+   "credit": "Wikimedia Commons"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

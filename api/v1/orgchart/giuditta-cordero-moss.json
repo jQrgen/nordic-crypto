@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "giuditta-cordero-moss",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/giuditta-cordero-moss.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#giuditta-cordero-moss",
+  "name": "Giuditta Cordero-Moss",
+  "type": "person",
+  "sector": "public",
+  "country": "NO",
+  "description": null,
+  "role": "Deputy Chair of the Board",
+  "org": "finanstilsynet",
+  "group": null,
+  "profile_url": "https://www.finanstilsynet.no/om-finanstilsynet/organisasjon/",
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.finanstilsynet.no/om-finanstilsynet/organisasjon/",
+    "title": "Finanstilsynet",
+    "source_name": "Finanstilsynet",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

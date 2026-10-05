@@ -1,0 +1,53 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "firi",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/firi.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#firi",
+  "name": "Firi",
+  "type": "organisation",
+  "sector": "private",
+  "country": "NO",
+  "description": "CASP licence (MiCA Art. 63) from 22 May 2026: trading platform, custody, exchange, order execution and transfer (Finanstilsynet). Also an e-money institution licence from 3 Jun 2024 (Finanstilsynet's register). About 417,000 customers and a Swedish launch in Sep 2026 – according to Shifter, 15 Sep 2026.",
+  "role": null,
+  "org": null,
+  "group": "Exchanges & brokers",
+  "profile_url": null,
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": true,
+  "sources": [
+   {
+    "url": "https://www.finanstilsynet.no/nyhetsarkiv/nyheter/2026/firi-as-far-tillatelse-som-casp-foretak/",
+    "title": "Finanstilsynet",
+    "source_name": "Finanstilsynet",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://firi.com/press/press-contacts",
+    "title": "Firi",
+    "source_name": "Firi",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://www.shifter.no/nyheter/firi-lanserer-i-sverige-etter-permitteringer-og-milliontap/475990",
+    "title": "Shifter",
+    "source_name": "Shifter",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/firi.svg",
+   "source_url": "https://commons.wikimedia.org/wiki/File:Firi-logo.svg",
+   "author": "Alexander Schipper",
+   "license": "Public domain",
+   "license_url": null,
+   "credit": "Wikimedia Commons"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

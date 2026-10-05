@@ -1,0 +1,37 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "30093293e03f",
+  "url": "https://ekstrabladet.dk/penge/danskere-svindlet-for-89-millioner-kroner-paa-seks-maaneder/11297364",
+  "html_url": null,
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/30093293e03f.json",
+  "title": "Danskere svindlet for 89 millioner kroner på seks måneder",
+  "title_en": "Danes defrauded of DKK 89 million in six months",
+  "source": "ekstrabladet.dk",
+  "source_name": "Ekstra Bladet",
+  "source_note": null,
+  "country": "DK",
+  "language": "Danish",
+  "language_code": "da",
+  "published": "2026-09-22T02:58:00+00:00",
+  "topics": [
+   "crime",
+   "consumer protection"
+  ],
+  "summary": "Danes lost DKK 89 million to investment fraud in the first half of 2026, across 1,145 registered cases, and crypto played a part in 70.6 percent of them.",
+  "summary_i18n": {
+   "nn": "Danskar tapte 89 millionar danske kroner på investeringssvindel i første halvår 2026, fordelt på 1145 registrerte saker, og krypto var involvert i 70,6 prosent av dei.",
+   "nb": "Dansker tapte 89 millioner danske kroner på investeringsbedrageri i første halvår 2026, fordelt på 1145 registrerte saker, og krypto var involvert i 70,6 prosent av dem.",
+   "sv": "Danskarna förlorade 89 miljoner danska kronor på investeringsbedrägerier under första halvåret 2026, fördelat på 1 145 anmälda fall, och krypto förekom i 70,6 procent av dem.",
+   "da": "Danskerne tabte 89 millioner kroner på investeringssvindel i første halvår 2026 fordelt på 1.145 registrerede sager, og krypto indgik i 70,6 procent af dem.",
+   "fi": "Tanskalaiset menettivät sijoituspetoksissa 89 miljoonaa Tanskan kruunua vuoden 2026 ensimmäisellä puoliskolla 1 145 kirjatussa tapauksessa, ja kryptot liittyivät 70,6 prosenttiin niistä.",
+   "is": "Danir töpuðu 89 milljónum danskra króna á fjárfestingasvikum á fyrri helmingi ársins 2026 í 1.145 skráðum málum, og rafmyntir komu við sögu í 70,6 prósentum þeirra."
+  },
+  "paywall": false,
+  "links": [],
+  "own_story": false
+ }
+}

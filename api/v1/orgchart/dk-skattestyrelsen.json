@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "dk-skattestyrelsen",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/dk-skattestyrelsen.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#dk-skattestyrelsen",
+  "name": "Skattestyrelsen (Danish Tax Agency)",
+  "type": "organisation",
+  "sector": "public",
+  "country": "DK",
+  "description": "Denmark's tax agency.",
+  "role": null,
+  "org": null,
+  "group": "Tax authorities",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://sktst.dk/",
+    "title": "Skattestyrelsen",
+    "source_name": "Skattestyrelsen",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

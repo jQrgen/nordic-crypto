@@ -1,0 +1,47 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "a2a605592458",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/a2a605592458.json",
+  "site": "nordic-crypto",
+  "url": "https://www.kaupr.io/nyheter/blockchain-pa-tech-scenen-og-pa-dagsorden-i-stockholm",
+  "canonical_url": "https://kaupr.io/nyheter/blockchain-pa-tech-scenen-og-pa-dagsorden-i-stockholm",
+  "title": "Blockchain på tech-scenen og på dagsorden i Stockholm",
+  "titles": {
+   "en": "Blockchain on the tech scene and on the agenda in Stockholm"
+  },
+  "source": "kaupr",
+  "source_name": "Kaupr",
+  "country": "SE",
+  "published_at": "2026-09-10T12:00:00+00:00",
+  "first_published_on_site": "2026-10-03T17:59:40+02:00",
+  "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+  "languages": [
+   "en",
+   "nn",
+   "nb",
+   "sv",
+   "da",
+   "fi",
+   "is"
+  ],
+  "summaries": {
+   "en": "Tokenisation at Blockchain Sweden and the final of the Blockathon hackathon put blockchain on the agenda in Stockholm this week.",
+   "nn": "Tokenisering hos Blockchain Sweden og finalen i hackathonet Blockathon sette blokkjede på dagsordenen i Stockholm denne veka.",
+   "nb": "Tokenisering hos Blockchain Sweden og finalen i hackathonet Blockathon satte blokkjede på dagsordenen i Stockholm denne uken.",
+   "sv": "Tokenisering hos Blockchain Sweden och finalen i hackathonet Blockathon satte blockkedjor på dagordningen i Stockholm den här veckan.",
+   "da": "Tokenisering hos Blockchain Sweden og finalen i hackathonen Blockathon satte blockchain på dagsordenen i Stockholm i denne uge.",
+   "fi": "Tokenisointi Blockchain Swedenin tilaisuudessa ja Blockathon-hackathonin finaali nostivat lohkoketjut esiin Tukholmassa tällä viikolla.",
+   "is": "Táknvæðing hjá Blockchain Sweden og úrslit Blockathon-forritunarkeppninnar settu bálkakeðjur á dagskrá í Stokkhólmi í vikunni."
+  },
+  "topics": [
+   "events",
+   "tokenisation"
+  ],
+  "removed": false,
+  "removed_at": null
+ }
+}

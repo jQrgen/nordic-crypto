@@ -1,0 +1,59 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "nbx",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/nbx.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#nbx",
+  "name": "NBX (Norwegian Block Exchange)",
+  "type": "organisation",
+  "sector": "private",
+  "country": "NO",
+  "description": "CASP licence registered 29 Jun 2026 (7 services) and an e-money institution (22 Jan 2024), according to Finanstilsynet's register. Listed on Euronext Growth; chair Nils Kristian Sundling. Held about 24 BTC on 30 Jun 2026 and 28 BTC in Aug 2026, according to NBX's H1 2026 report (18 Sep 2026).",
+  "role": null,
+  "org": null,
+  "group": "Exchanges & brokers",
+  "profile_url": null,
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://nbx.com/en/investor",
+    "title": "NBX",
+    "source_name": "NBX",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://www.finanstilsynet.no/en/finanstilsynets-registry/details/?id=201280",
+    "title": "Finanstilsynet",
+    "source_name": "Finanstilsynet",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://api3.oslo.oslobors.no/v1/newsreader/attachment?messageId=682725&attachmentId=333610",
+    "title": "Oslo Børs NewsWeb (attachment)",
+    "source_name": "Oslo Børs NewsWeb (attachment)",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://newsweb.oslobors.no/message/682725",
+    "title": "Oslo Børs NewsWeb",
+    "source_name": "Oslo Børs NewsWeb",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/nbx.svg",
+   "source_url": "https://cdn.prod.website-files.com/6152dfaed2ce58d94ef37b88/619509e489aaca39961511c2_DarkLogo.svg",
+   "author": null,
+   "license": null,
+   "license_url": null,
+   "credit": "Official website"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

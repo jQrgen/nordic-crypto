@@ -1,0 +1,40 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "elisabeth-vike-vardheim",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/elisabeth-vike-vardheim.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#elisabeth-vike-vardheim",
+  "name": "Elisabeth Vike Vardheim",
+  "type": "person",
+  "sector": "public",
+  "country": "NO",
+  "description": null,
+  "role": "CEO",
+  "org": "statnett",
+  "group": null,
+  "profile_url": "https://www.statnett.no/om-statnett/bli-bedre-kjent-med-statnett/ledelsen-i-statnett/",
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.statnett.no/om-statnett/bli-bedre-kjent-med-statnett/ledelsen-i-statnett/",
+    "title": "statnett.no",
+    "source_name": "statnett.no",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": [
+   {
+    "kind": "wikidata",
+    "label": "Wikidata",
+    "url": "https://www.wikidata.org/wiki/Q135399330",
+    "source_url": "https://www.wikidata.org/wiki/Q135399330"
+   }
+  ]
+ }
+}

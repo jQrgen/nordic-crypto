@@ -1,0 +1,41 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "pal-longva",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/pal-longva.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#pal-longva",
+  "name": "Pål Longva",
+  "type": "person",
+  "sector": "public",
+  "country": "NO",
+  "description": null,
+  "role": "Deputy Governor (central banking operations)",
+  "org": "norges-bank",
+  "group": null,
+  "profile_url": "https://www.regjeringen.no/no/dep/fin/org/styrer-rad-og-utvalg-oppnevnt-av-finansdepartementet2/norges-banks-hovedstyre/id2577140/",
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.regjeringen.no/no/dep/fin/org/styrer-rad-og-utvalg-oppnevnt-av-finansdepartementet2/norges-banks-hovedstyre/id2577140/",
+    "title": "Regjeringen",
+    "source_name": "Regjeringen",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": {
+   "kind": "photo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/people/pal-longva.jpg",
+   "source_url": "https://commons.wikimedia.org/wiki/File:P%C3%A5l_Longva_p%C3%A5_Sentralbanksjefens_%C3%A5rstale_2018_(190841).jpg",
+   "author": "Tore Sætre",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "credit": "Wikimedia Commons"
+  },
+  "profiles": []
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "r-goobit-kvarn",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/r-goobit-kvarn.json",
+  "from": "goobit",
+  "to": "kvarn-x",
+  "type": "uses licence",
+  "label": "Launched savings on Kvarn Capital's MiCA licence",
+  "sources": [
+   {
+    "url": "https://www.kaupr.io/nyheter/goobit-lanserer-sparing-i-bitcoin-og-gull-pa-finsk-lisens",
+    "title": "Goobit lanserer sparing i bitcoin og gull på finsk lisens",
+    "source_name": "Kaupr",
+    "date": "2026-10-03"
+   }
+  ]
+ }
+}

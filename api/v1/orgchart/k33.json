@@ -1,0 +1,41 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "k33",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/k33.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#k33",
+  "name": "K33",
+  "type": "organisation",
+  "sector": "private",
+  "country": "NO",
+  "description": "CASP licence registered 16 Jun 2026 (Finanstilsynet's register): custody, order execution and transfer; passports within the EEA.",
+  "role": null,
+  "org": null,
+  "group": "Exchanges & brokers",
+  "profile_url": null,
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://storage.mfn.se/262d2b97-3b03-48c6-a4d8-4844e976ec9f/k33-receives-mica-authorization.pdf",
+    "title": "K33 stock exchange notice (MFN)",
+    "source_name": "K33 stock exchange notice (MFN)",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/k33.svg",
+   "source_url": "https://cdn.prod.website-files.com/645396e8d92c58b99155faf3/6655c6d2cbd4b2bfd63048b6_YOUR%20ICON.svg",
+   "author": null,
+   "license": null,
+   "license_url": null,
+   "credit": "Official website"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

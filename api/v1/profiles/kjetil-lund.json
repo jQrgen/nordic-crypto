@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "entity_id": "kjetil-lund",
+  "name": "Kjetil Lund",
+  "type": "person",
+  "country": "NO",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/kjetil-lund.json",
+  "links": [
+   {
+    "kind": "wikipedia",
+    "label": "Wikipedia (en)",
+    "url": "https://en.wikipedia.org/wiki/Kjetil_Lund",
+    "source_url": "https://www.wikidata.org/wiki/Q4994503"
+   },
+   {
+    "kind": "x",
+    "label": "X",
+    "url": "https://x.com/lundkjetil",
+    "source_url": "https://www.wikidata.org/wiki/Q4994503"
+   },
+   {
+    "kind": "wikidata",
+    "label": "Wikidata",
+    "url": "https://www.wikidata.org/wiki/Q4994503",
+    "source_url": "https://www.wikidata.org/wiki/Q4994503"
+   }
+  ]
+ }
+}

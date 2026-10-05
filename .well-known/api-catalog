@@ -1,0 +1,33 @@
+{
+ "linkset": [
+  {
+   "anchor": "https://jqrgen.github.io/nordic-crypto/",
+   "service-desc": [
+    {
+     "href": "https://jqrgen.github.io/nordic-crypto/api/v1/openapi.json",
+     "type": "application/openapi+json"
+    },
+    {
+     "href": "https://jqrgen.github.io/nordic-crypto/api/v1/openapi.yaml",
+     "type": "application/yaml"
+    }
+   ],
+   "service-doc": [
+    {
+     "href": "https://jqrgen.github.io/nordic-crypto/api/",
+     "type": "text/html"
+    },
+    {
+     "href": "https://jqrgen.github.io/nordic-crypto/llms.txt",
+     "type": "text/plain"
+    }
+   ],
+   "status": [
+    {
+     "href": "https://jqrgen.github.io/nordic-crypto/api/v1/index.json",
+     "type": "application/json"
+    }
+   ]
+  }
+ ]
+}

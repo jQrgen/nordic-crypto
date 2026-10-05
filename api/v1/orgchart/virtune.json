@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "virtune",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/virtune.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#virtune",
+  "name": "Virtune",
+  "type": "organisation",
+  "sector": "private",
+  "country": "SE",
+  "description": "Crypto exchange-traded product (ETP) issuer covered on Kaupr's Sweden page.",
+  "role": null,
+  "org": null,
+  "group": "ETP issuers",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.kaupr.io/nyheter/virtune-sjefen-tror-kryptomarkedet-har-passert-bunnen",
+    "title": "Virtune-sjefen tror kryptomarkedet har passert bunnen",
+    "source_name": "Kaupr",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

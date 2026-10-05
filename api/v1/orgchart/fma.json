@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "fma",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/fma.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#fma",
+  "name": "Ministry of Finance – Financial Markets Department (FMA)",
+  "type": "organisation",
+  "sector": "public",
+  "country": "NO",
+  "description": "Drafts financial-market rules and steers Finanstilsynet.",
+  "role": null,
+  "org": null,
+  "group": "Parliament & government",
+  "profile_url": null,
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.regjeringen.no/no/dep/fin/org/avdelinger/fma/id1551/",
+    "title": "Regjeringen",
+    "source_name": "Regjeringen",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

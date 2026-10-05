@@ -1,0 +1,27 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "entity_id": "tero-kurenmaa",
+  "name": "Tero Kurenmaa",
+  "type": "person",
+  "country": "FI",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/tero-kurenmaa.json",
+  "links": [
+   {
+    "kind": "wikipedia",
+    "label": "Wikipedia (fi)",
+    "url": "https://fi.wikipedia.org/wiki/Tero_Kurenmaa",
+    "source_url": "https://www.wikidata.org/wiki/Q112577670"
+   },
+   {
+    "kind": "wikidata",
+    "label": "Wikidata",
+    "url": "https://www.wikidata.org/wiki/Q112577670",
+    "source_url": "https://www.wikidata.org/wiki/Q112577670"
+   }
+  ]
+ }
+}

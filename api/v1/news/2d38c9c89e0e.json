@@ -1,0 +1,36 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "2d38c9c89e0e",
+  "url": "https://www.sydsvenskan.se/lund/uppgifter-tonaringar-silvertejpade-man-i-jakt-pa-kryptovaluta/",
+  "html_url": null,
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/2d38c9c89e0e.json",
+  "title": "Uppgifter: Tonåringar silvertejpade man i jakt på kryptovaluta",
+  "title_en": "Reports: teenagers duct-taped a man in hunt for cryptocurrency",
+  "source": "sydsvenskan.se",
+  "source_name": "Sydsvenskan",
+  "source_note": null,
+  "country": "SE",
+  "language": "Swedish",
+  "language_code": "sv",
+  "published": "2026-10-02T07:01:00+00:00",
+  "topics": [
+   "crime"
+  ],
+  "summary": "Three teenagers have been arrested in Lund on suspicion of kidnapping after allegedly tying up a local man with duct tape to rob him of crypto.",
+  "summary_i18n": {
+   "nn": "Tre tenåringar er pågripne i Lund, mistenkte for kidnapping etter at dei skal ha teipa fast ein lokal mann for å rane han for krypto.",
+   "nb": "Tre tenåringer er pågrepet i Lund, mistenkt for kidnapping etter angivelig å ha teipet fast en lokal mann for å rane ham for krypto.",
+   "sv": "Tre tonåringar har gripits i Lund misstänkta för människorov efter att de ska ha tejpat fast en man från orten för att råna honom på krypto.",
+   "da": "Tre teenagere er anholdt i Lund, mistænkt for kidnapning, efter at de angiveligt bandt en lokal mand med gaffatape for at røve krypto fra ham.",
+   "fi": "Lundissa on pidätetty kolme teiniä epäiltynä ihmisryöstöstä: heidän epäillään sitoneen paikallisen miehen ilmastointiteipillä ryöstääkseen häneltä kryptoja.",
+   "is": "Þrír unglingar hafa verið handteknir í Lundi, grunaðir um mannrán eftir að hafa að sögn bundið mann á staðnum með límbandi til að ræna af honum rafmyntum."
+  },
+  "paywall": false,
+  "links": [],
+  "own_story": false
+ }
+}

@@ -1,0 +1,39 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "tyr-markets",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/tyr-markets.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#tyr-markets",
+  "name": "Týr Markets",
+  "type": "organisation",
+  "sector": "private",
+  "country": "NO",
+  "description": "First exchange platform with a CASP licence in Norway (18 May 2026): custody, exchange and transfer.",
+  "role": null,
+  "org": null,
+  "group": "Exchanges & brokers",
+  "profile_url": null,
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.finanstilsynet.no/nyhetsarkiv/nyheter/2026/tyr-markets-as-far-tillatelse-som-casp-foretak/",
+    "title": "Finanstilsynet",
+    "source_name": "Finanstilsynet",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://kommunikasjon.ntb.no/pressemelding/18916374/tyr-markets-er-tildelt-norges-forste-mica-lisens-etter-artikkel-63?lang=no&publisherId=17850436",
+    "title": "NTB Kommunikasjon",
+    "source_name": "NTB Kommunikasjon",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

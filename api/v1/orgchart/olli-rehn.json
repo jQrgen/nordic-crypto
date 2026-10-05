@@ -1,0 +1,60 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "olli-rehn",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/olli-rehn.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#olli-rehn",
+  "name": "Olli Rehn",
+  "type": "person",
+  "sector": "public",
+  "country": "FI",
+  "description": null,
+  "role": "Governor and Chair of the Board (second seven-year term from 12 Jul 2025)",
+  "org": "fi-suomen-pankki",
+  "group": null,
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.suomenpankki.fi/en/news-and-topical/press-releases-and-news/releases/2025/olli-rehn-appointed-for-second-term-as-bank-of-finland-governor/",
+    "title": "Olli Rehn appointed for second term as Bank of Finland Governor",
+    "source_name": "Bank of Finland",
+    "date": "2025"
+   }
+  ],
+  "logo": null,
+  "image": {
+   "kind": "photo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/people/olli-rehn.jpg",
+   "source_url": "https://commons.wikimedia.org/wiki/File:Olli_Rehn_by_Moritz_Kosinsky_2.jpg",
+   "author": "Moritz Kosinsky",
+   "license": "CC BY-SA 3.0 de",
+   "license_url": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+   "credit": "Wikimedia Commons"
+  },
+  "profiles": [
+   {
+    "kind": "wikipedia",
+    "label": "Wikipedia (en)",
+    "url": "https://en.wikipedia.org/wiki/Olli_Rehn",
+    "source_url": "https://www.wikidata.org/wiki/Q294411"
+   },
+   {
+    "kind": "x",
+    "label": "X",
+    "url": "https://x.com/ollirehn",
+    "source_url": "https://www.wikidata.org/wiki/Q294411"
+   },
+   {
+    "kind": "wikidata",
+    "label": "Wikidata",
+    "url": "https://www.wikidata.org/wiki/Q294411",
+    "source_url": "https://www.wikidata.org/wiki/Q294411"
+   }
+  ]
+ }
+}

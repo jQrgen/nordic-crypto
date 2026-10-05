@@ -1,0 +1,41 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "eba",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/eba.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#eba",
+  "name": "EBA (European Banking Authority)",
+  "type": "organisation",
+  "sector": "public",
+  "country": "EU",
+  "description": "Rules for e-money tokens and asset-referenced tokens (EMT/ART) and AML standards.",
+  "role": null,
+  "org": null,
+  "group": "EU bodies",
+  "profile_url": null,
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.eba.europa.eu/publications-and-media/press-releases/francois-louis-michaud-take-his-role-chair-european-banking-authority",
+    "title": "EBA",
+    "source_name": "EBA",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/eba.svg",
+   "source_url": "https://www.eba.europa.eu/themes/eba_theme/templates/components/site-logo/images/EBA-logo.svg",
+   "author": null,
+   "license": null,
+   "license_url": null,
+   "credit": "Official website"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

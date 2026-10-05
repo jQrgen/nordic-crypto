@@ -1,0 +1,39 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "is-fme",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/is-fme.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#is-fme",
+  "name": "Financial Supervision (Fjármálaeftirlit) of the Central Bank of Iceland",
+  "type": "organisation",
+  "sector": "public",
+  "country": "IS",
+  "description": "Supervises crypto-asset service providers. From 1 Jul 2026 crypto-asset services in Iceland require a MiCA licence; the earlier AML registration is no longer enough.",
+  "role": null,
+  "org": null,
+  "group": "Regulators & supervisors",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://sedlabanki.is/frettir-og-utgefid-efni/grein/oheimilt-er-ad-veita-thjonustu-med-syndareignir-an-starfsleyfis-fra-og-med-1-juli-2026",
+    "title": "No crypto-asset services without a licence from 1 July 2026",
+    "source_name": "Seðlabanki Íslands",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://cb.is/about-the-bank/governance/",
+    "title": "Governance – Governor and Deputy Governors",
+    "source_name": "Central Bank of Iceland",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

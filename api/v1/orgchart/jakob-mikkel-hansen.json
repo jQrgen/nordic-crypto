@@ -1,0 +1,45 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "jakob-mikkel-hansen",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/jakob-mikkel-hansen.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#jakob-mikkel-hansen",
+  "name": "Jakob Mikkel Hansen",
+  "type": "person",
+  "sector": "private",
+  "country": "NO",
+  "description": null,
+  "role": "CEO and board member",
+  "org": "nordic-blockchain-association",
+  "group": null,
+  "profile_url": "https://nordicblockchain.com/about-us",
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": true,
+  "sources": [
+   {
+    "url": "https://nordicblockchain.com/about-us",
+    "title": "nordicblockchain.com",
+    "source_name": "nordicblockchain.com",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://www.nordicblockchain.com/our-activities/steering-committees",
+    "title": "nordicblockchain.com",
+    "source_name": "nordicblockchain.com",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://www.kaupr.io/dk/nyheder/norges-bank-utforsker-tokenisering-med-tolv-aktorer",
+    "title": "Kaupr",
+    "source_name": "Kaupr",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

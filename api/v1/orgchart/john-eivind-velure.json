@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "john-eivind-velure",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/john-eivind-velure.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#john-eivind-velure",
+  "name": "John-Eivind Velure",
+  "type": "person",
+  "sector": "public",
+  "country": "NO",
+  "description": null,
+  "role": "Director General",
+  "org": "nkom",
+  "group": null,
+  "profile_url": "https://nkom.no/om-nkom/organisering-ledelse-og-fagavdelinger",
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://nkom.no/om-nkom/organisering-ledelse-og-fagavdelinger",
+    "title": "Nkom",
+    "source_name": "Nkom",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

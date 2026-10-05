@@ -1,0 +1,465 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "count": 20,
+ "profiles": [
+  {
+   "entity_id": "tuva-moflag",
+   "name": "Tuva Moflag",
+   "type": "person",
+   "country": "NO",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/tuva-moflag.json",
+   "links": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (en)",
+     "url": "https://en.wikipedia.org/wiki/Tuva_Moflag",
+     "source_url": "https://www.wikidata.org/wiki/Q25427910"
+    },
+    {
+     "kind": "x",
+     "label": "X",
+     "url": "https://x.com/TuvaMoflag",
+     "source_url": "https://www.wikidata.org/wiki/Q25427910"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q25427910",
+     "source_url": "https://www.wikidata.org/wiki/Q25427910"
+    }
+   ]
+  },
+  {
+   "entity_id": "hans-andreas-limi",
+   "name": "Hans Andreas Limi",
+   "type": "person",
+   "country": "NO",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/hans-andreas-limi.json",
+   "links": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (en)",
+     "url": "https://en.wikipedia.org/wiki/Hans_Andreas_Limi",
+     "source_url": "https://www.wikidata.org/wiki/Q5649745"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q5649745",
+     "source_url": "https://www.wikidata.org/wiki/Q5649745"
+    }
+   ]
+  },
+  {
+   "entity_id": "bjorn-arild-gram",
+   "name": "Bjørn Arild Gram",
+   "type": "person",
+   "country": "NO",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/bjorn-arild-gram.json",
+   "links": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (en)",
+     "url": "https://en.wikipedia.org/wiki/Bj%C3%B8rn_Arild_Gram",
+     "source_url": "https://www.wikidata.org/wiki/Q4919832"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q4919832",
+     "source_url": "https://www.wikidata.org/wiki/Q4919832"
+    }
+   ]
+  },
+  {
+   "entity_id": "jens-stoltenberg",
+   "name": "Jens Stoltenberg",
+   "type": "person",
+   "country": "NO",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/jens-stoltenberg.json",
+   "links": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (en)",
+     "url": "https://en.wikipedia.org/wiki/Jens_Stoltenberg",
+     "source_url": "https://www.wikidata.org/wiki/Q57665"
+    },
+    {
+     "kind": "x",
+     "label": "X",
+     "url": "https://x.com/jensstoltenberg",
+     "source_url": "https://www.wikidata.org/wiki/Q57665"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q57665",
+     "source_url": "https://www.wikidata.org/wiki/Q57665"
+    }
+   ]
+  },
+  {
+   "entity_id": "lars-henrik-myrmel-johansen",
+   "name": "Lars-Henrik Myrmel-Johansen",
+   "type": "person",
+   "country": "NO",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/lars-henrik-myrmel-johansen.json",
+   "links": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (nb)",
+     "url": "https://no.wikipedia.org/wiki/Lars-Henrik_Myrmel-Johansen",
+     "source_url": "https://www.wikidata.org/wiki/Q25434699"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q25434699",
+     "source_url": "https://www.wikidata.org/wiki/Q25434699"
+    }
+   ]
+  },
+  {
+   "entity_id": "finn-arnesen",
+   "name": "Finn Arnesen",
+   "type": "person",
+   "country": "NO",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/finn-arnesen.json",
+   "links": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (nb)",
+     "url": "https://no.wikipedia.org/wiki/Finn_Arnesen_(jurist)",
+     "source_url": "https://www.wikidata.org/wiki/Q16167804"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q16167804",
+     "source_url": "https://www.wikidata.org/wiki/Q16167804"
+    }
+   ]
+  },
+  {
+   "entity_id": "ida-wolden-bache",
+   "name": "Ida Wolden Bache",
+   "type": "person",
+   "country": "NO",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/ida-wolden-bache.json",
+   "links": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (en)",
+     "url": "https://en.wikipedia.org/wiki/Ida_Wolden_Bache",
+     "source_url": "https://www.wikidata.org/wiki/Q110126862"
+    },
+    {
+     "kind": "linkedin",
+     "label": "LinkedIn",
+     "url": "https://www.linkedin.com/in/ida-wolden-bache-908a3b/",
+     "source_url": "https://www.wikidata.org/wiki/Q110126862"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q110126862",
+     "source_url": "https://www.wikidata.org/wiki/Q110126862"
+    }
+   ]
+  },
+  {
+   "entity_id": "oystein-borsum",
+   "name": "Øystein Børsum",
+   "type": "person",
+   "country": "NO",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/oystein-borsum.json",
+   "links": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (nb)",
+     "url": "https://no.wikipedia.org/wiki/%C3%98ystein_B%C3%B8rsum",
+     "source_url": "https://www.wikidata.org/wiki/Q107009803"
+    },
+    {
+     "kind": "x",
+     "label": "X",
+     "url": "https://x.com/OysteinBorsum",
+     "source_url": "https://www.wikidata.org/wiki/Q107009803"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q107009803",
+     "source_url": "https://www.wikidata.org/wiki/Q107009803"
+    }
+   ]
+  },
+  {
+   "entity_id": "nina-schanke-funnemark",
+   "name": "Nina Schanke Funnemark",
+   "type": "person",
+   "country": "NO",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/nina-schanke-funnemark.json",
+   "links": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (en)",
+     "url": "https://en.wikipedia.org/wiki/Nina_Schanke_Funnemark",
+     "source_url": "https://www.wikidata.org/wiki/Q104063613"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q104063613",
+     "source_url": "https://www.wikidata.org/wiki/Q104063613"
+    }
+   ]
+  },
+  {
+   "entity_id": "torgeir-micaelsen",
+   "name": "Torgeir Micaelsen",
+   "type": "person",
+   "country": "NO",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/torgeir-micaelsen.json",
+   "links": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (en)",
+     "url": "https://en.wikipedia.org/wiki/Torgeir_Micaelsen",
+     "source_url": "https://www.wikidata.org/wiki/Q1772947"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q1772947",
+     "source_url": "https://www.wikidata.org/wiki/Q1772947"
+    }
+   ]
+  },
+  {
+   "entity_id": "terje-aasland",
+   "name": "Terje Aasland",
+   "type": "person",
+   "country": "NO",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/terje-aasland.json",
+   "links": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (en)",
+     "url": "https://en.wikipedia.org/wiki/Terje_Aasland",
+     "source_url": "https://www.wikidata.org/wiki/Q1772899"
+    },
+    {
+     "kind": "x",
+     "label": "X",
+     "url": "https://x.com/terjeaa",
+     "source_url": "https://www.wikidata.org/wiki/Q1772899"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q1772899",
+     "source_url": "https://www.wikidata.org/wiki/Q1772899"
+    }
+   ]
+  },
+  {
+   "entity_id": "kjetil-lund",
+   "name": "Kjetil Lund",
+   "type": "person",
+   "country": "NO",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/kjetil-lund.json",
+   "links": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (en)",
+     "url": "https://en.wikipedia.org/wiki/Kjetil_Lund",
+     "source_url": "https://www.wikidata.org/wiki/Q4994503"
+    },
+    {
+     "kind": "x",
+     "label": "X",
+     "url": "https://x.com/lundkjetil",
+     "source_url": "https://www.wikidata.org/wiki/Q4994503"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q4994503",
+     "source_url": "https://www.wikidata.org/wiki/Q4994503"
+    }
+   ]
+  },
+  {
+   "entity_id": "elisabeth-vike-vardheim",
+   "name": "Elisabeth Vike Vardheim",
+   "type": "person",
+   "country": "NO",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/elisabeth-vike-vardheim.json",
+   "links": [
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q135399330",
+     "source_url": "https://www.wikidata.org/wiki/Q135399330"
+    }
+   ]
+  },
+  {
+   "entity_id": "kjell-inge-rokke",
+   "name": "Kjell Inge Røkke",
+   "type": "person",
+   "country": "NO",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/kjell-inge-rokke.json",
+   "links": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (en)",
+     "url": "https://en.wikipedia.org/wiki/Kjell_Inge_R%C3%B8kke",
+     "source_url": "https://www.wikidata.org/wiki/Q1383992"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q1383992",
+     "source_url": "https://www.wikidata.org/wiki/Q1383992"
+    }
+   ]
+  },
+  {
+   "entity_id": "johan-almenberg",
+   "name": "Johan Almenberg",
+   "type": "person",
+   "country": "SE",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/johan-almenberg.json",
+   "links": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (sv)",
+     "url": "https://sv.wikipedia.org/wiki/Johan_Almenberg",
+     "source_url": "https://www.wikidata.org/wiki/Q137049198"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q137049198",
+     "source_url": "https://www.wikidata.org/wiki/Q137049198"
+    }
+   ]
+  },
+  {
+   "entity_id": "erik-thedeen",
+   "name": "Erik Thedéen",
+   "type": "person",
+   "country": "SE",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/erik-thedeen.json",
+   "links": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (en)",
+     "url": "https://en.wikipedia.org/wiki/Erik_Thed%C3%A9en",
+     "source_url": "https://www.wikidata.org/wiki/Q6207027"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q6207027",
+     "source_url": "https://www.wikidata.org/wiki/Q6207027"
+    }
+   ]
+  },
+  {
+   "entity_id": "tero-kurenmaa",
+   "name": "Tero Kurenmaa",
+   "type": "person",
+   "country": "FI",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/tero-kurenmaa.json",
+   "links": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (fi)",
+     "url": "https://fi.wikipedia.org/wiki/Tero_Kurenmaa",
+     "source_url": "https://www.wikidata.org/wiki/Q112577670"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q112577670",
+     "source_url": "https://www.wikidata.org/wiki/Q112577670"
+    }
+   ]
+  },
+  {
+   "entity_id": "olli-rehn",
+   "name": "Olli Rehn",
+   "type": "person",
+   "country": "FI",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/olli-rehn.json",
+   "links": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (en)",
+     "url": "https://en.wikipedia.org/wiki/Olli_Rehn",
+     "source_url": "https://www.wikidata.org/wiki/Q294411"
+    },
+    {
+     "kind": "x",
+     "label": "X",
+     "url": "https://x.com/ollirehn",
+     "source_url": "https://www.wikidata.org/wiki/Q294411"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q294411",
+     "source_url": "https://www.wikidata.org/wiki/Q294411"
+    }
+   ]
+  },
+  {
+   "entity_id": "aino-bunge",
+   "name": "Aino Bunge",
+   "type": "person",
+   "country": "SE",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/aino-bunge.json",
+   "links": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (sv)",
+     "url": "https://sv.wikipedia.org/wiki/Aino_Bunge",
+     "source_url": "https://www.wikidata.org/wiki/Q115675909"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q115675909",
+     "source_url": "https://www.wikidata.org/wiki/Q115675909"
+    }
+   ]
+  },
+  {
+   "entity_id": "anna-seim",
+   "name": "Anna Seim",
+   "type": "person",
+   "country": "SE",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/anna-seim.json",
+   "links": [
+    {
+     "kind": "wikipedia",
+     "label": "Wikipedia (en)",
+     "url": "https://en.wikipedia.org/wiki/Anna_Seim",
+     "source_url": "https://www.wikidata.org/wiki/Q76692910"
+    },
+    {
+     "kind": "wikidata",
+     "label": "Wikidata",
+     "url": "https://www.wikidata.org/wiki/Q76692910",
+     "source_url": "https://www.wikidata.org/wiki/Q76692910"
+    }
+   ]
+  }
+ ]
+}

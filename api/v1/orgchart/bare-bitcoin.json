@@ -1,0 +1,47 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "bare-bitcoin",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/bare-bitcoin.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#bare-bitcoin",
+  "name": "Bare Bitcoin",
+  "type": "organisation",
+  "sector": "private",
+  "country": "NO",
+  "description": "CASP licence registered 26 Jun 2026 (Finanstilsynet's register): custody, exchange and transfer – bitcoin only. Rogstad is a co-founder according to Shifter, 19 Jul 2026.",
+  "role": null,
+  "org": null,
+  "group": "Exchanges & brokers",
+  "profile_url": null,
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": true,
+  "sources": [
+   {
+    "url": "https://barebitcoin.no/innsikt/nyheter/2026-06-26-bare-bitcoin-har-mica",
+    "title": "Bare Bitcoin",
+    "source_name": "Bare Bitcoin",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://www.shifter.no/nyheter/fikk-krypto-konsesjon-like-for-fristen-vi-kunne-ikke-bygget-bedriften-pa-samme-mate-med-dagens-regelverk/414295",
+    "title": "Shifter",
+    "source_name": "Shifter",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/bare-bitcoin.svg",
+   "source_url": "https://barebitcoin.no/_next/static/immutable/media/bare-bitcoin-scrolled.26x9d7blojzsg.svg",
+   "author": null,
+   "license": null,
+   "license_url": null,
+   "credit": "Official website"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

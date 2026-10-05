@@ -1,0 +1,45 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "se-firstblock",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/se-firstblock.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#se-firstblock",
+  "name": "FirstBlock (FirstBlock AB)",
+  "type": "organisation",
+  "sector": "private",
+  "country": "SE",
+  "description": "Stockholm-based blockchain and AI consultancy offering strategy, development, legal (including MiCA) and marketing services.",
+  "role": null,
+  "org": null,
+  "group": "Companies & startups",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.globenewswire.com/news-release/2023/03/08/2623303/0/en/FirstBlock-Announces-Its-Official-Launch-of-Full-Service-Blockchain-Consultancy.html",
+    "title": "FirstBlock Announces Its Official Launch of Full-Service Blockchain Consultancy (company press release)",
+    "source_name": "FirstBlock via GlobeNewswire",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://www.allabolag.se/5593990244",
+    "title": "FirstBlock AB – (Bolagsverket data)",
+    "source_name": "Allabolag (Bolagsverket data)",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://www.kaupr.io/pages/firstblock",
+    "title": "FirstBlock – company profile (Onchain Pages)",
+    "source_name": "Kaupr",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

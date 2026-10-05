@@ -1,0 +1,19 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "country": "IS",
+  "name": "RU FINTECH",
+  "institution": "Reykjavík University",
+  "about": "FinTech incl. blockchain, crypto, regulation",
+  "url": "https://www.ru.is/en/research-center/ru-fintech",
+  "source": "https://www.ru.is/en/research-center/ru-fintech",
+  "checked": "2026-10-03",
+  "about_i18n": {},
+  "id": "research-www.ru.is-en-research-center-ru-fintech",
+  "section": "research",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/research-www.ru.is-en-research-center-ru-fintech.json"
+ }
+}

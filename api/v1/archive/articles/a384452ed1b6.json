@@ -1,0 +1,47 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "a384452ed1b6",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/a384452ed1b6.json",
+  "site": "nordic-crypto",
+  "url": "https://www.kaupr.io/nyheter/greenmerc-trekker-mica-klage-og-bruker-northcryptos-lisens-i-sverige",
+  "canonical_url": "https://kaupr.io/nyheter/greenmerc-trekker-mica-klage-og-bruker-northcryptos-lisens-i-sverige",
+  "title": "GreenMerc trekker MiCA-klage og bruker Northcryptos lisens i Sverige",
+  "titles": {
+   "en": "GreenMerc drops MiCA appeal and uses Northcrypto's licence in Sweden"
+  },
+  "source": "kaupr",
+  "source_name": "Kaupr",
+  "country": "SE",
+  "published_at": "2026-09-17T12:00:00+00:00",
+  "first_published_on_site": "2026-10-03T17:59:40+02:00",
+  "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+  "languages": [
+   "en",
+   "nn",
+   "nb",
+   "sv",
+   "da",
+   "fi",
+   "is"
+  ],
+  "summaries": {
+   "en": "GreenMerc has dropped its MiCA appeal for Ijort Invest and will serve Swedish Trijo customers under Finnish Northcrypto's licence.",
+   "nn": "GreenMerc har trekt MiCA-klaga for Ijort Invest og vil tene svenske Trijo-kundar under løyvet til finske Northcrypto.",
+   "nb": "GreenMerc har trukket MiCA-klagen for Ijort Invest og vil betjene svenske Trijo-kunder under finske Northcryptos tillatelse.",
+   "sv": "GreenMerc har dragit tillbaka sitt MiCA-överklagande för Ijort Invest och ska betjäna svenska Trijo-kunder under finländska Northcryptos tillstånd.",
+   "da": "GreenMerc har trukket sin MiCA-klage for Ijort Invest tilbage og vil betjene svenske Trijo-kunder under finske Northcryptos tilladelse.",
+   "fi": "GreenMerc on luopunut Ijort Investin MiCA-valituksesta ja palvelee ruotsalaisia Trijo-asiakkaita suomalaisen Northcrypton toimiluvalla.",
+   "is": "GreenMerc hefur fallið frá MiCA-kæru sinni fyrir Ijort Invest og mun þjónusta sænska viðskiptavini Trijo undir leyfi finnska Northcrypto."
+  },
+  "topics": [
+   "mica",
+   "business"
+  ],
+  "removed": false,
+  "removed_at": null
+ }
+}

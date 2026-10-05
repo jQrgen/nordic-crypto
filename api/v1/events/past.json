@@ -1,0 +1,30 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "count": 1,
+ "events": [
+  {
+   "id": "71149f675741",
+   "title": "Arne Ryde Conference on Crypto, Fintech and Payments",
+   "title_original": null,
+   "start": "2026-08-25T08:30:00+02:00",
+   "end": "2026-08-26T12:30:00+02:00",
+   "place": "Grand Hotel, Bantorget 1, Lund",
+   "city": "Lund",
+   "country": "SE",
+   "online": false,
+   "organiser": "Knut Wicksell Centre for Financial Studies, Lund University School of Economics and Management",
+   "url": "https://www.lusem.lu.se/calendar/arne-ryde-conference-crypto-fintech-and-payments",
+   "source": "Lund University School of Economics and Management (lusem.lu.se)",
+   "paid": null,
+   "sponsored": null,
+   "note": null,
+   "note_i18n": {},
+   "past": true,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/calendar/#e-71149f675741",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/events/71149f675741.json"
+  }
+ ]
+}

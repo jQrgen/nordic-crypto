@@ -1,0 +1,47 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "fi-fiva",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/fi-fiva.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#fi-fiva",
+  "name": "Finanssivalvonta (FIN-FSA, Finnish Financial Supervisory Authority)",
+  "type": "organisation",
+  "sector": "public",
+  "country": "FI",
+  "description": "Finland's competent authority under MiCA and the national Act 402/2024 on crypto-asset service providers and crypto-asset markets. Unlike some other countries, Finland had no transitional period; since 1 Jul 2026 crypto services without authorisation are not allowed anywhere in the EU/EEA (FIN-FSA, 30 Jun 2026).",
+  "role": null,
+  "org": null,
+  "group": "Regulators & supervisors",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.finanssivalvonta.fi/en/publications-and-press-releases/news-releases/2026/crypto-asset-service-providers-in-finland-must-be-authorised-in-the-eu/",
+    "title": "Crypto-asset service providers in Finland must be authorised in the EU",
+    "source_name": "Finanssivalvonta",
+    "date": "2026-06-30"
+   },
+   {
+    "url": "https://www.finlex.fi/fi/lainsaadanto/2024/402",
+    "title": "Act 402/2024 on crypto-asset service providers and crypto-asset markets",
+    "source_name": "Finlex",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/fi-fiva.webp",
+   "source_url": "https://www.finanssivalvonta.fi/contentassets/2a88d63613bb4f049c687203e8731112/logo.png",
+   "author": null,
+   "license": null,
+   "license_url": null,
+   "credit": "Official website"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

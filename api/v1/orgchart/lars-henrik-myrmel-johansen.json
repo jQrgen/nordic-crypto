@@ -1,0 +1,54 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "lars-henrik-myrmel-johansen",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/lars-henrik-myrmel-johansen.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#lars-henrik-myrmel-johansen",
+  "name": "Lars-Henrik Myrmel-Johansen",
+  "type": "person",
+  "sector": "public",
+  "country": "NO",
+  "description": null,
+  "role": "Secretary General (top civil servant)",
+  "org": "finansdepartementet",
+  "group": null,
+  "profile_url": "https://www.regjeringen.no/no/dep/fin/org/id240/",
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.regjeringen.no/no/dep/fin/org/id240/",
+    "title": "Regjeringen",
+    "source_name": "Regjeringen",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": {
+   "kind": "photo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/people/lars-henrik-myrmel-johansen.jpg",
+   "source_url": "https://commons.wikimedia.org/wiki/File:Lars-Henrik_Myrmel-Johansen_p%C3%A5_Sentralbanksjefens_%C3%A5rstale_2018_(190159).jpg",
+   "author": "Tore Sætre",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "credit": "Wikimedia Commons"
+  },
+  "profiles": [
+   {
+    "kind": "wikipedia",
+    "label": "Wikipedia (nb)",
+    "url": "https://no.wikipedia.org/wiki/Lars-Henrik_Myrmel-Johansen",
+    "source_url": "https://www.wikidata.org/wiki/Q25434699"
+   },
+   {
+    "kind": "wikidata",
+    "label": "Wikidata",
+    "url": "https://www.wikidata.org/wiki/Q25434699",
+    "source_url": "https://www.wikidata.org/wiki/Q25434699"
+   }
+  ]
+ }
+}

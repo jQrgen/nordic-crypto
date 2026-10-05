@@ -1,0 +1,443 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "topic": "mica",
+ "count": 14,
+ "items": [
+  {
+   "id": "7b2030aea964",
+   "url": "https://www.realtid.se/bors-finans/kryptojatten-i-ny-kontrovers-erbjod-tjanster-i-europa-utan-licens/",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/7b2030aea964.json",
+   "title": "Kryptojätten i ny kontrovers – erbjöd tjänster i Europa utan licens",
+   "title_en": "Crypto giant in new controversy: offered services in Europe without a licence",
+   "source": "realtid",
+   "source_name": "Realtid",
+   "source_note": null,
+   "country": "SE",
+   "language": "Swedish",
+   "language_code": "sv",
+   "published": "2026-10-01T11:04:00+00:00",
+   "topics": [
+    "regulation",
+    "mica"
+   ],
+   "summary": "Binance is under investigation for allegedly offering services in Europe without the licence required under the EU's new crypto rules.",
+   "summary_i18n": {
+    "nn": "Binance blir etterforska fordi selskapet skal ha tilbode tenester i Europa utan løyvet som dei nye kryptoreglane i EU krev.",
+    "nb": "Binance etterforskes for angivelig å ha tilbudt tjenester i Europa uten tillatelsen EUs nye kryptoregler krever.",
+    "sv": "Binance utreds för att bolaget misstänks ha erbjudit tjänster i Europa utan det tillstånd som EU:s nya kryptoregler kräver.",
+    "da": "Binance efterforskes for angiveligt at have tilbudt tjenester i Europa uden den tilladelse, som EU's nye kryptoregler kræver.",
+    "fi": "Binancea tutkitaan, koska sen epäillään tarjonneen palveluja Euroopassa ilman EU:n uusien kryptosääntöjen edellyttämää toimilupaa.",
+    "is": "Binance er til rannsóknar vegna gruns um að hafa boðið þjónustu í Evrópu án leyfisins sem nýjar rafmyntareglur ESB krefjast."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false
+  },
+  {
+   "id": "b3fdbc8f5eec",
+   "url": "https://www.dagensps.se/bors-finans/fintech/kryptovalutor/krypto-jatten-rundar-reglerna-i-europa-riskerar-att-kastas-ut/",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/b3fdbc8f5eec.json",
+   "title": "Krypto-jätten rundar reglerna i Europa: Riskerar att kastas ut",
+   "title_en": "Crypto giant skirts the rules in Europe and risks being thrown out",
+   "source": "dagensps.se",
+   "source_name": "Dagens PS",
+   "source_note": null,
+   "country": "SE",
+   "language": "Swedish",
+   "language_code": "sv",
+   "published": "2026-10-01T01:31:00+00:00",
+   "topics": [
+    "regulation",
+    "mica"
+   ],
+   "summary": "Binance said it would leave Europe, but customers are still trading, and EU financial authorities now want to know how.",
+   "summary_i18n": {
+    "nn": "Binance sa at selskapet skulle forlate Europa, men kundane handlar framleis, og finansstyresmaktene i EU vil no vite korleis.",
+    "nb": "Binance sa at selskapet skulle forlate Europa, men kundene handler fortsatt, og EUs finansmyndigheter vil nå vite hvordan.",
+    "sv": "Binance sa att bolaget skulle lämna Europa, men kunderna handlar fortfarande, och EU:s finansmyndigheter vill nu veta hur.",
+    "da": "Binance sagde, at selskabet ville forlade Europa, men kunderne handler stadig, og EU's finansmyndigheder vil nu vide hvordan.",
+    "fi": "Binance sanoi lähtevänsä Euroopasta, mutta asiakkaat käyvät yhä kauppaa, ja EU:n rahoitusviranomaiset haluavat nyt tietää, miten.",
+    "is": "Binance sagðist ætla að yfirgefa Evrópu, en viðskiptavinir eiga enn viðskipti og fjármálayfirvöld ESB vilja nú vita hvernig."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false
+  },
+  {
+   "id": "12425cc1e7ff",
+   "url": "https://www.kaupr.io/nyheter/coinmotion-og-k33-inngar-nordisk-kryptosamarbeid-om-institusjonell-handel",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/12425cc1e7ff.json",
+   "title": "Coinmotion og K33 inngår nordisk kryptosamarbeid om institusjonell handel",
+   "title_en": "Coinmotion and K33 strike Nordic crypto partnership on institutional trading",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+   "country": "SE",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-09-24T12:00:00+00:00",
+   "topics": [
+    "business",
+    "mica"
+   ],
+   "summary": "Finnish broker Coinmotion has picked Norway's K33 to execute large trades, a partnership between two MiCA-licensed Nordic firms.",
+   "summary_i18n": {
+    "nn": "Finske Coinmotion har valt norske K33 til å gjennomføre store handlar, eit samarbeid mellom to nordiske selskap med MiCA-løyve.",
+    "nb": "Finske Coinmotion har valgt norske K33 til å gjennomføre store handler, et samarbeid mellom to nordiske selskaper med MiCA-tillatelse.",
+    "sv": "Finländska Coinmotion har valt norska K33 för att genomföra stora affärer, ett samarbete mellan två nordiska bolag med MiCA-tillstånd.",
+    "da": "Finske Coinmotion har valgt norske K33 til at gennemføre store handler, et samarbejde mellem to nordiske selskaber med MiCA-tilladelse.",
+    "fi": "Suomalainen Coinmotion on valinnut norjalaisen K33:n toteuttamaan suuria kauppoja; kyseessä on kahden MiCA-toimiluvan saaneen pohjoismaisen yrityksen yhteistyö.",
+    "is": "Finnska Coinmotion hefur valið norska K33 til að annast stór viðskipti, samstarf tveggja norrænna fyrirtækja með MiCA-leyfi."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false
+  },
+  {
+   "id": "07e49032be5a",
+   "url": "https://www.kaupr.io/nyheter/safello-apner-for-at-andre-selskaper-kan-tilby-kryptokjop",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/07e49032be5a.json",
+   "title": "Safello åpner for at andre selskaper kan tilby kryptokjøp",
+   "title_en": "Safello opens up so other companies can offer crypto purchases",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+   "country": "SE",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-09-24T12:00:00+00:00",
+   "topics": [
+    "business",
+    "mica"
+   ],
+   "summary": "Sweden's Safello is testing a setup that lets companies without their own crypto business offer crypto purchases under Safello's MiCA licence.",
+   "summary_i18n": {
+    "nn": "Svenske Safello testar ei løysing som lèt selskap utan eiga kryptoverksemd tilby kjøp av krypto under MiCA-løyvet til Safello.",
+    "nb": "Svenske Safello tester en løsning som lar selskaper uten egen kryptovirksomhet tilby kjøp av krypto under Safellos MiCA-tillatelse.",
+    "sv": "Svenska Safello testar en lösning som låter bolag utan egen kryptoverksamhet erbjuda köp av krypto under Safellos MiCA-tillstånd.",
+    "da": "Svenske Safello tester en løsning, der lader virksomheder uden egen kryptoforretning tilbyde køb af krypto under Safellos MiCA-tilladelse.",
+    "fi": "Ruotsalainen Safello testaa ratkaisua, jonka avulla yritykset, joilla ei ole omaa kryptoliiketoimintaa, voivat tarjota kryptojen ostoa Safellon MiCA-toimiluvalla.",
+    "is": "Sænska Safello prófar lausn sem gerir fyrirtækjum án eigin rafmyntastarfsemi kleift að bjóða kaup á rafmyntum undir MiCA-leyfi Safello."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false
+  },
+  {
+   "id": "831bb86ab20c",
+   "url": "https://www.kaupr.io/nyheter/nbx-mer-enn-doblet-tapet-i-halvaret-da-mica-lisensen-kom",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/831bb86ab20c.json",
+   "title": "NBX mer enn doblet tapet i halvåret da MiCA-lisensen kom",
+   "title_en": "NBX more than doubled its half-year loss as the MiCA licence arrived",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+   "country": "NO",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-09-18T12:00:00+00:00",
+   "topics": [
+    "business",
+    "mica"
+   ],
+   "summary": "NBX won its MiCA licence in the first half of 2026, but revenue fell 45 percent and its after-tax loss grew to NOK 16.6 million.",
+   "summary_i18n": {
+    "nn": "NBX fekk MiCA-løyve i første halvår 2026, men inntektene fall 45 prosent, og tapet etter skatt auka til 16,6 millionar kroner.",
+    "nb": "NBX fikk MiCA-tillatelse i første halvår 2026, men inntektene falt 45 prosent og tapet etter skatt økte til 16,6 millioner kroner.",
+    "sv": "NBX fick sitt MiCA-tillstånd under första halvåret 2026, men intäkterna föll 45 procent och förlusten efter skatt ökade till 16,6 miljoner norska kronor.",
+    "da": "NBX fik sin MiCA-tilladelse i første halvår 2026, men omsætningen faldt 45 procent, og underskuddet efter skat voksede til 16,6 millioner norske kroner.",
+    "fi": "NBX sai MiCA-toimiluvan vuoden 2026 ensimmäisellä puoliskolla, mutta liikevaihto laski 45 prosenttia ja verojen jälkeinen tappio kasvoi 16,6 miljoonaan Norjan kruunuun.",
+    "is": "NBX fékk MiCA-leyfi á fyrri helmingi ársins 2026, en tekjur drógust saman um 45 prósent og tap eftir skatta jókst í 16,6 milljónir norskra króna."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false
+  },
+  {
+   "id": "a384452ed1b6",
+   "url": "https://www.kaupr.io/nyheter/greenmerc-trekker-mica-klage-og-bruker-northcryptos-lisens-i-sverige",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/a384452ed1b6.json",
+   "title": "GreenMerc trekker MiCA-klage og bruker Northcryptos lisens i Sverige",
+   "title_en": "GreenMerc drops MiCA appeal and uses Northcrypto's licence in Sweden",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+   "country": "SE",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-09-17T12:00:00+00:00",
+   "topics": [
+    "mica",
+    "business"
+   ],
+   "summary": "GreenMerc has dropped its MiCA appeal for Ijort Invest and will serve Swedish Trijo customers under Finnish Northcrypto's licence.",
+   "summary_i18n": {
+    "nn": "GreenMerc har trekt MiCA-klaga for Ijort Invest og vil tene svenske Trijo-kundar under løyvet til finske Northcrypto.",
+    "nb": "GreenMerc har trukket MiCA-klagen for Ijort Invest og vil betjene svenske Trijo-kunder under finske Northcryptos tillatelse.",
+    "sv": "GreenMerc har dragit tillbaka sitt MiCA-överklagande för Ijort Invest och ska betjäna svenska Trijo-kunder under finländska Northcryptos tillstånd.",
+    "da": "GreenMerc har trukket sin MiCA-klage for Ijort Invest tilbage og vil betjene svenske Trijo-kunder under finske Northcryptos tilladelse.",
+    "fi": "GreenMerc on luopunut Ijort Investin MiCA-valituksesta ja palvelee ruotsalaisia Trijo-asiakkaita suomalaisen Northcrypton toimiluvalla.",
+    "is": "GreenMerc hefur fallið frá MiCA-kæru sinni fyrir Ijort Invest og mun þjónusta sænska viðskiptavini Trijo undir leyfi finnska Northcrypto."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false
+  },
+  {
+   "id": "b46e8d2a4dad",
+   "url": "https://www.kaupr.io/nyheter/to-tilsyn-vil-ikke-si-om-kryptodistribusjon-krever-egen-tillatelse",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/b46e8d2a4dad.json",
+   "title": "To tilsyn vil ikke si om kryptodistribusjon krever egen tillatelse",
+   "title_en": "Two regulators won't say whether crypto distribution needs its own licence",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+   "country": "FI",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-09-17T12:00:00+00:00",
+   "topics": [
+    "mica",
+    "regulation"
+   ],
+   "summary": "Neither ESMA nor Sweden's Finansinspektionen will say whether distributing crypto services under your own brand needs its own MiCA licence.",
+   "summary_i18n": {
+    "nn": "Verken ESMA eller svenske Finansinspektionen vil seie om distribusjon av kryptotenester under eige merkenamn krev eige MiCA-løyve.",
+    "nb": "Verken ESMA eller svenske Finansinspektionen vil si om distribusjon av kryptotjenester under eget merkenavn krever egen MiCA-tillatelse.",
+    "sv": "Varken Esma eller Finansinspektionen vill säga om distribution av kryptotjänster under eget varumärke kräver ett eget MiCA-tillstånd.",
+    "da": "Hverken ESMA eller det svenske Finansinspektionen vil sige, om distribution af kryptotjenester under eget brand kræver en selvstændig MiCA-tilladelse.",
+    "fi": "ESMA ja Ruotsin Finansinspektionen eivät kerro, tarvitaanko kryptopalvelujen jakeluun oman brändin alla oma MiCA-toimilupa.",
+    "is": "Hvorki ESMA né sænska Finansinspektionen vilja segja hvort dreifing rafmyntaþjónustu undir eigin vörumerki krefjist sérstaks MiCA-leyfis."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false
+  },
+  {
+   "id": "82697418efbc",
+   "url": "https://www.kaupr.io/nyheter/kvarn-avviser-at-goobit-avtalen-er-agentforhold-eller-outsourcing",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/82697418efbc.json",
+   "title": "Kvarn avviser at Goobit-avtalen er agentforhold eller outsourcing",
+   "title_en": "Kvarn denies the Goobit deal is an agency or outsourcing arrangement",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+   "country": "SE",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-09-15T12:00:00+00:00",
+   "topics": [
+    "mica"
+   ],
+   "summary": "Kvarn Capital argues its partnership with Sweden's Goobit falls outside MiCA's ban on agents and its outsourcing rules.",
+   "summary_i18n": {
+    "nn": "Kvarn Capital meiner samarbeidet med svenske Goobit fell utanfor MiCA-forbodet mot agentar og reglane om utkontraktering.",
+    "nb": "Kvarn Capital mener samarbeidet med svenske Goobit faller utenfor MiCAs forbud mot agenter og reglene om utkontraktering.",
+    "sv": "Kvarn Capital menar att samarbetet med svenska Goobit faller utanför MiCA:s förbud mot ombud och reglerna om uppdragsavtal.",
+    "da": "Kvarn Capital mener, at samarbejdet med svenske Goobit falder uden for MiCA's forbud mod agenter og reglerne om outsourcing.",
+    "fi": "Kvarn Capital katsoo, että sen yhteistyö ruotsalaisen Goobitin kanssa jää MiCA:n asiamieskiellon ja ulkoistamissääntöjen ulkopuolelle.",
+    "is": "Kvarn Capital telur að samstarf þess við sænska Goobit falli utan banns MiCA við umboðsmönnum og reglna um útvistun."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false
+  },
+  {
+   "id": "6e2887720a32",
+   "url": "https://www.shifter.no/nyheter/firi-lanserer-i-sverige-etter-permitteringer-og-milliontap/475990",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/6e2887720a32.json",
+   "title": "Firi lanserer i Sverige – etter permitteringer og milliontap",
+   "title_en": "Firi launches in Sweden after layoffs and losses",
+   "source": "shifter",
+   "source_name": "Shifter",
+   "source_note": null,
+   "country": "NO",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-09-15T12:00:00+00:00",
+   "topics": [
+    "business",
+    "mica"
+   ],
+   "summary": "Crypto exchange Firi lost NOK 43.6 million in the first half of 2026 after weaker trading and high MiCA costs, and has made layoffs while launching in Sweden.",
+   "summary_i18n": {
+    "nn": "Kryptobørsen Firi tapte 43,6 millionar kroner i første halvår 2026 etter svakare handel og høge MiCA-kostnader, og har nedbemanna samstundes som selskapet blir lansert i Sverige.",
+    "nb": "Kryptobørsen Firi tapte 43,6 millioner kroner i første halvår 2026 etter svakere handel og høye MiCA-kostnader, og har nedbemannet samtidig som selskapet lanseres i Sverige.",
+    "sv": "Kryptobörsen Firi förlorade 43,6 miljoner norska kronor under första halvåret 2026 efter svagare handel och höga MiCA-kostnader, och har sagt upp personal samtidigt som bolaget lanseras i Sverige.",
+    "da": "Kryptobørsen Firi tabte 43,6 millioner norske kroner i første halvår 2026 efter svagere handel og høje MiCA-omkostninger og har afskediget medarbejdere, samtidig med at selskabet lanceres i Sverige.",
+    "fi": "Kryptopörssi Firi teki 43,6 miljoonan Norjan kruunun tappion vuoden 2026 ensimmäisellä puoliskolla heikomman kaupankäynnin ja korkeiden MiCA-kulujen vuoksi, ja se on vähentänyt henkilöstöä samalla kun se aloittaa Ruotsissa.",
+    "is": "Rafmyntakauphöllin Firi tapaði 43,6 milljónum norskra króna á fyrri helmingi ársins 2026 vegna minni viðskipta og mikils MiCA-kostnaðar og hefur fækkað starfsfólki á sama tíma og hún hefur starfsemi í Svíþjóð."
+   },
+   "paywall": true,
+   "links": [],
+   "own_story": false
+  },
+  {
+   "id": "9750ec7bf5d8",
+   "url": "https://www.kaupr.io/nyheter/finske-kvarn-leier-ut-mica-tillatelsen-sin-til-nordiske-partnere",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/9750ec7bf5d8.json",
+   "title": "Finske Kvarn leier ut MiCA-tillatelsen sin til nordiske partnere",
+   "title_en": "Finnish Kvarn rents out its MiCA licence to Nordic partners",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+   "country": "SE",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-09-14T12:00:00+00:00",
+   "topics": [
+    "mica",
+    "business"
+   ],
+   "summary": "Finland's Kvarn Capital lets Nordic companies sell crypto services under its MiCA licence, with Goobit as the first named client.",
+   "summary_i18n": {
+    "nn": "Finske Kvarn Capital lèt nordiske selskap selje kryptotenester under MiCA-løyvet sitt, med Goobit som første namngitte kunde.",
+    "nb": "Finske Kvarn Capital lar nordiske selskaper selge kryptotjenester under sin MiCA-tillatelse, med Goobit som første navngitte kunde.",
+    "sv": "Finländska Kvarn Capital låter nordiska bolag sälja kryptotjänster under sitt MiCA-tillstånd, med Goobit som första namngivna kund.",
+    "da": "Finske Kvarn Capital lader nordiske virksomheder sælge kryptotjenester under sin MiCA-tilladelse med Goobit som første navngivne kunde.",
+    "fi": "Suomalainen Kvarn Capital antaa pohjoismaisten yritysten myydä kryptopalveluja MiCA-toimilupansa alla, ja ensimmäinen nimetty asiakas on Goobit.",
+    "is": "Finnska Kvarn Capital leyfir norrænum fyrirtækjum að selja rafmyntaþjónustu undir MiCA-leyfi sínu og er Goobit fyrsti nafngreindi viðskiptavinurinn."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false
+  },
+  {
+   "id": "e0cc8b0df8e7",
+   "url": "https://www.kaupr.io/nyheter/goobit-lanserer-sparing-i-bitcoin-og-gull-pa-finsk-lisens",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/e0cc8b0df8e7.json",
+   "title": "Goobit lanserer sparing i bitcoin og gull på finsk lisens",
+   "title_en": "Goobit launches bitcoin and gold savings on a Finnish licence",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+   "country": "SE",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-09-14T12:00:00+00:00",
+   "topics": [
+    "mica",
+    "business"
+   ],
+   "summary": "After being refused by Sweden's Finansinspektionen, Goobit is launching Futureproof, a bitcoin and gold savings platform, under Finnish Kvarn Capital's MiCA licence.",
+   "summary_i18n": {
+    "nn": "Etter avslag frå svenske Finansinspektionen lanserer Goobit Futureproof, ei spareplattform for bitcoin og gull, under MiCA-løyvet til finske Kvarn Capital.",
+    "nb": "Etter avslag fra svenske Finansinspektionen lanserer Goobit Futureproof, en spareplattform for bitcoin og gull, under finske Kvarn Capitals MiCA-tillatelse.",
+    "sv": "Efter avslag från Finansinspektionen lanserar Goobit Futureproof, en sparplattform för bitcoin och guld, under finländska Kvarn Capitals MiCA-tillstånd.",
+    "da": "Efter et afslag fra det svenske Finansinspektionen lancerer Goobit Futureproof, en opsparingsplatform for bitcoin og guld, under finske Kvarn Capitals MiCA-tilladelse.",
+    "fi": "Saatuaan kielteisen päätöksen Ruotsin Finansinspektionenilta Goobit tuo markkinoille bitcoin- ja kultasäästämisen alustan Futureproofin suomalaisen Kvarn Capitalin MiCA-toimiluvalla.",
+    "is": "Eftir synjun sænska Finansinspektionen setur Goobit á markað Futureproof, sparnaðarvettvang fyrir bitcoin og gull, undir MiCA-leyfi finnska Kvarn Capital."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false
+  },
+  {
+   "id": "08a682f7d85d",
+   "url": "https://www.kaupr.io/nyheter/btcx-blir-megler-og-goobits-rapporterte-inntekter-faller",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/08a682f7d85d.json",
+   "title": "BTCX blir megler, og Goobits rapporterte inntekter faller",
+   "title_en": "BTCX becomes a broker, and Goobit's reported revenue falls",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+   "country": "SE",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-09-10T12:00:00+00:00",
+   "topics": [
+    "mica",
+    "business"
+   ],
+   "summary": "Goobit is switching BTCX from proprietary trading to brokerage, citing MiCA, which cuts reported revenue but not gross profit.",
+   "summary_i18n": {
+    "nn": "Goobit legg om BTCX frå eigenhandel til mekling med tilvising til MiCA, noko som reduserer rapporterte inntekter, men ikkje bruttoforteneste.",
+    "nb": "Goobit legger om BTCX fra egenhandel til megling med henvisning til MiCA, noe som reduserer rapporterte inntekter, men ikke bruttofortjenesten.",
+    "sv": "Goobit ställer om BTCX från egenhandel till förmedling med hänvisning till MiCA, vilket minskar de redovisade intäkterna men inte bruttovinsten.",
+    "da": "Goobit lægger BTCX om fra egenhandel til formidling med henvisning til MiCA, hvilket reducerer den rapporterede omsætning, men ikke bruttofortjenesten.",
+    "fi": "Goobit siirtää BTCX:n omaan lukuun käytävästä kaupasta välitykseen MiCA:an vedoten, mikä pienentää raportoitua liikevaihtoa mutta ei bruttokatetta.",
+    "is": "Goobit færir BTCX úr viðskiptum fyrir eigin reikning yfir í miðlun og vísar til MiCA, sem lækkar skráðar tekjur en ekki vergan hagnað."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false
+  },
+  {
+   "id": "6a94ab65ebff",
+   "url": "https://www.kaupr.io/nyheter/nytt-nederlag-for-valuno-i-kampen-om-mica-lisens",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/6a94ab65ebff.json",
+   "title": "Nytt nederlag for Valuno i kampen om MiCA-lisens",
+   "title_en": "New defeat for Valuno in the fight for a MiCA licence",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+   "country": "SE",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-09-07T12:00:00+00:00",
+   "topics": [
+    "mica",
+    "regulation"
+   ],
+   "summary": "Valuno company QB Europe has lost its appeal against the MiCA refusal in Sweden, but keeps operating through licensed partners.",
+   "summary_i18n": {
+    "nn": "Valuno-selskapet QB Europe har tapt klaga på MiCA-avslaget i Sverige, men held fram gjennom partnarar med løyve.",
+    "nb": "Valuno-selskapet QB Europe har tapt klagen på MiCA-avslaget i Sverige, men driver videre gjennom partnere med tillatelse.",
+    "sv": "Valuno-bolaget QB Europe har förlorat sitt överklagande av MiCA-avslaget i Sverige men fortsätter verksamheten genom partner med tillstånd.",
+    "da": "Valuno-selskabet QB Europe har tabt sin klage over MiCA-afslaget i Sverige, men fortsætter driften gennem partnere med tilladelse.",
+    "fi": "Valunoon kuuluva QB Europe on hävinnyt valituksensa MiCA-hylkäyksestä Ruotsissa, mutta jatkaa toimintaa toimiluvallisten kumppanien kautta.",
+    "is": "QB Europe, félag í eigu Valuno, hefur tapað kæru sinni vegna MiCA-synjunar í Svíþjóð en heldur starfseminni áfram í gegnum samstarfsaðila með leyfi."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false
+  },
+  {
+   "id": "f6301aef3314",
+   "url": "https://www.finanssivalvonta.fi/en/publications-and-press-releases/news-releases/2026/crypto-asset-service-providers-in-finland-must-be-authorised-in-the-eu/",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/f6301aef3314.json",
+   "title": "Crypto-asset service providers in Finland must be authorised in the EU",
+   "title_en": null,
+   "source": "finanssivalvonta",
+   "source_name": "Finanssivalvonta",
+   "source_note": null,
+   "country": "FI",
+   "language": "English",
+   "language_code": "en",
+   "published": "2026-06-30T12:00:00+00:00",
+   "topics": [
+    "mica",
+    "regulation"
+   ],
+   "summary": "Finland's FIN-FSA reminds firms that crypto-asset service providers serving Finland must hold an EU (MiCA) authorisation.",
+   "summary_i18n": {
+    "nn": "Finske Finanssivalvonta minner om at tilbydarar av kryptoeigedelstenester som tener Finland, må ha EU-løyve (MiCA).",
+    "nb": "Finske Finanssivalvonta minner om at tilbydere av kryptoeiendelstjenester som betjener Finland, må ha EU-tillatelse (MiCA).",
+    "sv": "Finska Finanssivalvonta påminner om att leverantörer av kryptotillgångstjänster som betjänar Finland måste ha ett EU-tillstånd (MiCA).",
+    "da": "Det finske finanstilsyn, Finanssivalvonta, minder om, at udbydere af kryptoaktivtjenester, der betjener Finland, skal have en EU-tilladelse (MiCA).",
+    "fi": "Finanssivalvonta muistuttaa, että Suomessa palveluja tarjoavilla kryptovarapalvelujen tarjoajilla on oltava EU:n (MiCA) toimilupa.",
+    "is": "Finnska fjármálaeftirlitið minnir á að þjónustuveitendur sýndareigna sem þjóna Finnlandi verða að hafa leyfi innan ESB (MiCA)."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false
+  }
+ ]
+}

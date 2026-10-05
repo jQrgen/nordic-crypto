@@ -1,0 +1,47 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "greenmerc",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/greenmerc.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#greenmerc",
+  "name": "GreenMerc (Ijort Invest AB / Trijo)",
+  "type": "organisation",
+  "sector": "private",
+  "country": "SE",
+  "description": "FI refused a MiCA licence to Ijort Invest AB, part of the GreenMerc group (FI, 30 Jun 2026). According to Kaupr, GreenMerc has since withdrawn the appeal and uses the Finnish provider Northcrypto's licence to serve Swedish Trijo customers.",
+  "role": null,
+  "org": null,
+  "group": "Exchanges & brokers",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.fi.se/sv/publicerat/nyheter/2026/kryptobolag-utan-tillstand-ska-avveckla-sin-verksamhet-i-eu/",
+    "title": "Kryptobolag utan tillstånd ska avveckla sin verksamhet i EU",
+    "source_name": "Finansinspektionen",
+    "date": "2026-07-01"
+   },
+   {
+    "url": "https://www.kaupr.io/nyheter/greenmerc-trekker-mica-klage-og-bruker-northcryptos-lisens-i-sverige",
+    "title": "GreenMerc trekker MiCA-klage og bruker Northcryptos lisens i Sverige",
+    "source_name": "Kaupr",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/greenmerc.webp",
+   "source_url": "https://greenmerc.com/images/greenmerc-logo.png",
+   "author": null,
+   "license": null,
+   "license_url": null,
+   "credit": "Official website"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

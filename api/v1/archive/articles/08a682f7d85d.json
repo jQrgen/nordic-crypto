@@ -1,0 +1,47 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "08a682f7d85d",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/08a682f7d85d.json",
+  "site": "nordic-crypto",
+  "url": "https://www.kaupr.io/nyheter/btcx-blir-megler-og-goobits-rapporterte-inntekter-faller",
+  "canonical_url": "https://kaupr.io/nyheter/btcx-blir-megler-og-goobits-rapporterte-inntekter-faller",
+  "title": "BTCX blir megler, og Goobits rapporterte inntekter faller",
+  "titles": {
+   "en": "BTCX becomes a broker, and Goobit's reported revenue falls"
+  },
+  "source": "kaupr",
+  "source_name": "Kaupr",
+  "country": "SE",
+  "published_at": "2026-09-10T12:00:00+00:00",
+  "first_published_on_site": "2026-10-03T17:59:40+02:00",
+  "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+  "languages": [
+   "en",
+   "nn",
+   "nb",
+   "sv",
+   "da",
+   "fi",
+   "is"
+  ],
+  "summaries": {
+   "en": "Goobit is switching BTCX from proprietary trading to brokerage, citing MiCA, which cuts reported revenue but not gross profit.",
+   "nn": "Goobit legg om BTCX frå eigenhandel til mekling med tilvising til MiCA, noko som reduserer rapporterte inntekter, men ikkje bruttoforteneste.",
+   "nb": "Goobit legger om BTCX fra egenhandel til megling med henvisning til MiCA, noe som reduserer rapporterte inntekter, men ikke bruttofortjenesten.",
+   "sv": "Goobit ställer om BTCX från egenhandel till förmedling med hänvisning till MiCA, vilket minskar de redovisade intäkterna men inte bruttovinsten.",
+   "da": "Goobit lægger BTCX om fra egenhandel til formidling med henvisning til MiCA, hvilket reducerer den rapporterede omsætning, men ikke bruttofortjenesten.",
+   "fi": "Goobit siirtää BTCX:n omaan lukuun käytävästä kaupasta välitykseen MiCA:an vedoten, mikä pienentää raportoitua liikevaihtoa mutta ei bruttokatetta.",
+   "is": "Goobit færir BTCX úr viðskiptum fyrir eigin reikning yfir í miðlun og vísar til MiCA, sem lækkar skráðar tekjur en ekki vergan hagnað."
+  },
+  "topics": [
+   "mica",
+   "business"
+  ],
+  "removed": false,
+  "removed_at": null
+ }
+}

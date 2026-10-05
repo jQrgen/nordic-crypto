@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "energidepartementet",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/energidepartementet.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#energidepartementet",
+  "name": "Ministry of Energy",
+  "type": "organisation",
+  "sector": "public",
+  "country": "NO",
+  "description": "Power and grid connection; shares responsibility for studying a ban on power-intensive crypto mining.",
+  "role": null,
+  "org": null,
+  "group": "Parliament & government",
+  "profile_url": null,
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.nrk.no/artikkel/opplysninger-til-nrk-store-endringer-i-store-regjeringen-1527579",
+    "title": "NRK",
+    "source_name": "NRK",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

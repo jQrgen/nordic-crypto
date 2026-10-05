@@ -1,0 +1,39 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "norges-bank-tokenisering",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/norges-bank-tokenisering.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#norges-bank-tokenisering",
+  "name": "Norges Bank's tokenisation network",
+  "type": "organisation",
+  "sector": "private",
+  "country": "NO",
+  "description": "DNB Carnegie, DNB, Kommunalbanken, Citi, Lokalbank, SpareBank 1, Bits, KLP, Eika, Euronext, Nordea and SEB were named by Norges Bank in its own LinkedIn post (7 Sep 2026) as participants in exploring tokenisation, according to Kaupr (8 Sep 2026). Not published on norges-bank.no.",
+  "role": null,
+  "org": null,
+  "group": "Banks",
+  "profile_url": null,
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": true,
+  "sources": [
+   {
+    "url": "https://no.linkedin.com/posts/norges-bank_utforskning-av-tokenisering-activity-7502636337737486337-3vbG",
+    "title": "LinkedIn (Norges Bank)",
+    "source_name": "LinkedIn (Norges Bank)",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://www.kaupr.io/en/news/norges-bank-names-twelve-in-its-tokenisation-work",
+    "title": "Kaupr",
+    "source_name": "Kaupr",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

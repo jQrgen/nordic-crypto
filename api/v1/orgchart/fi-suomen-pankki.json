@@ -1,0 +1,41 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "fi-suomen-pankki",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/fi-suomen-pankki.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#fi-suomen-pankki",
+  "name": "Suomen Pankki (Bank of Finland)",
+  "type": "organisation",
+  "sector": "public",
+  "country": "FI",
+  "description": "Finland's central bank. Board: Olli Rehn (Governor), Marja Nykänen and Tuomas Välimäki.",
+  "role": null,
+  "org": null,
+  "group": "Central banks",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.suomenpankki.fi/en/bank-of-finland/board-and-organisation/board/",
+    "title": "Board",
+    "source_name": "Bank of Finland",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/fi-suomen-pankki.webp",
+   "source_url": "https://commons.wikimedia.org/wiki/File:Logo-bof.png",
+   "author": "Bank of Finland, Mikael Kivelä",
+   "license": "Public domain",
+   "license_url": null,
+   "credit": "Wikimedia Commons"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

@@ -1,0 +1,41 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "valuno",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/valuno.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#valuno",
+  "name": "Valuno (QB Europe AB)",
+  "type": "organisation",
+  "sector": "private",
+  "country": "SE",
+  "description": "FI refused a MiCA licence to QB Europe AB, part of the Valuno group; the company appealed and may continue some activity while the court decides (FI, 30 Jun 2026).",
+  "role": null,
+  "org": null,
+  "group": "Exchanges & brokers",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.fi.se/sv/publicerat/nyheter/2026/kryptobolag-utan-tillstand-ska-avveckla-sin-verksamhet-i-eu/",
+    "title": "Kryptobolag utan tillstånd ska avveckla sin verksamhet i EU",
+    "source_name": "Finansinspektionen",
+    "date": "2026-07-01"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/valuno.svg",
+   "source_url": "https://valuno.com/images/index-redesign/footer/valuno-logo.svg",
+   "author": null,
+   "license": null,
+   "license_url": null,
+   "credit": "Official website"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

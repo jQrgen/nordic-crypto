@@ -1,0 +1,46 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "aino-bunge",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/aino-bunge.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#aino-bunge",
+  "name": "Aino Bunge",
+  "type": "person",
+  "sector": "public",
+  "country": "SE",
+  "description": null,
+  "role": "First Deputy Governor",
+  "org": "se-riksbank",
+  "group": null,
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.riksbank.se/sv/om-riksbanken/organisation/direktionen/",
+    "title": "Direktionen",
+    "source_name": "Sveriges Riksbank",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": [
+   {
+    "kind": "wikipedia",
+    "label": "Wikipedia (sv)",
+    "url": "https://sv.wikipedia.org/wiki/Aino_Bunge",
+    "source_url": "https://www.wikidata.org/wiki/Q115675909"
+   },
+   {
+    "kind": "wikidata",
+    "label": "Wikidata",
+    "url": "https://www.wikidata.org/wiki/Q115675909",
+    "source_url": "https://www.wikidata.org/wiki/Q115675909"
+   }
+  ]
+ }
+}

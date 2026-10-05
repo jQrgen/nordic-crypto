@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "se-finanspolisen",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/se-finanspolisen.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#se-finanspolisen",
+  "name": "Finanspolisen (Swedish Financial Intelligence Unit)",
+  "type": "organisation",
+  "sector": "public",
+  "country": "SE",
+  "description": "Sweden's Financial Intelligence Unit, part of the intelligence unit of the Police Authority's National Operations Department (Noa). Receives information on suspected money laundering and terrorist financing.",
+  "role": null,
+  "org": null,
+  "group": "Police & financial intelligence (FIU)",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://polisen.se/om-polisen/polisens-arbete/finanspolisen/",
+    "title": "Finanspolisen",
+    "source_name": "Polisen",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

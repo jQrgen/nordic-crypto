@@ -1,0 +1,39 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "is-act-101-2025",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/is-act-101-2025.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#is-act-101-2025",
+  "name": "Act No. 101/2025 on markets in crypto-assets (MiCA in Icelandic law)",
+  "type": "organisation",
+  "sector": "public",
+  "country": "IS",
+  "description": "Puts MiCA into Icelandic law (EEA). Licence required for crypto-asset services from 1 Jul 2026.",
+  "role": null,
+  "org": null,
+  "group": "Legislation",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.althingi.is/altext/stjt/2025.101.html",
+    "title": "Act No. 101/2025 on markets in crypto-assets",
+    "source_name": "Alþingi",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://sedlabanki.is/frettir-og-utgefid-efni/grein/oheimilt-er-ad-veita-thjonustu-med-syndareignir-an-starfsleyfis-fra-og-med-1-juli-2026",
+    "title": "No crypto-asset services without a licence from 1 July 2026",
+    "source_name": "Seðlabanki Íslands",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "sparebank-1-bankene",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/sparebank-1-bankene.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#sparebank-1-bankene",
+  "name": "SpareBank 1 banks",
+  "type": "organisation",
+  "sector": "private",
+  "country": "NO",
+  "description": "Strict documentation and AML requirements for deposits coming from crypto platforms, according to SpareBank 1 Sogn og Fjordane's website. No integrated crypto service is confirmed.",
+  "role": null,
+  "org": null,
+  "group": "Banks",
+  "profile_url": null,
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": true,
+  "sources": [
+   {
+    "url": "https://www.sparebank1.no/nn/sogn-fjordane/privat/info/sammen-forebygger-vi-hvitvasking/handel-med-krypto-og-virtuell-valuta.html",
+    "title": "SpareBank 1",
+    "source_name": "SpareBank 1",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

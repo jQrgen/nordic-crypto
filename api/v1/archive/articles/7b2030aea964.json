@@ -1,0 +1,47 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "7b2030aea964",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/7b2030aea964.json",
+  "site": "nordic-crypto",
+  "url": "https://www.realtid.se/bors-finans/kryptojatten-i-ny-kontrovers-erbjod-tjanster-i-europa-utan-licens/",
+  "canonical_url": "https://realtid.se/bors-finans/kryptojatten-i-ny-kontrovers-erbjod-tjanster-i-europa-utan-licens",
+  "title": "Kryptojätten i ny kontrovers – erbjöd tjänster i Europa utan licens",
+  "titles": {
+   "en": "Crypto giant in new controversy: offered services in Europe without a licence"
+  },
+  "source": "realtid",
+  "source_name": "Realtid",
+  "country": "SE",
+  "published_at": "2026-10-01T11:04:00+00:00",
+  "first_published_on_site": "2026-10-03T17:59:40+02:00",
+  "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+  "languages": [
+   "en",
+   "nn",
+   "nb",
+   "sv",
+   "da",
+   "fi",
+   "is"
+  ],
+  "summaries": {
+   "en": "Binance is under investigation for allegedly offering services in Europe without the licence required under the EU's new crypto rules.",
+   "nn": "Binance blir etterforska fordi selskapet skal ha tilbode tenester i Europa utan løyvet som dei nye kryptoreglane i EU krev.",
+   "nb": "Binance etterforskes for angivelig å ha tilbudt tjenester i Europa uten tillatelsen EUs nye kryptoregler krever.",
+   "sv": "Binance utreds för att bolaget misstänks ha erbjudit tjänster i Europa utan det tillstånd som EU:s nya kryptoregler kräver.",
+   "da": "Binance efterforskes for angiveligt at have tilbudt tjenester i Europa uden den tilladelse, som EU's nye kryptoregler kræver.",
+   "fi": "Binancea tutkitaan, koska sen epäillään tarjonneen palveluja Euroopassa ilman EU:n uusien kryptosääntöjen edellyttämää toimilupaa.",
+   "is": "Binance er til rannsóknar vegna gruns um að hafa boðið þjónustu í Evrópu án leyfisins sem nýjar rafmyntareglur ESB krefjast."
+  },
+  "topics": [
+   "regulation",
+   "mica"
+  ],
+  "removed": false,
+  "removed_at": null
+ }
+}

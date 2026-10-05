@@ -1,0 +1,103 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "country": "FI",
+ "count": 3,
+ "items": [
+  {
+   "id": "c81be998e21c",
+   "url": "https://yle.fi/a/74-20248505",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/c81be998e21c.json",
+   "title": "Yhteisöllisyys ja teknologia kiehtovat kryptovaluuttoihin sijoittaneita – kryptotapahtumassa iloittiin bitcoinin uudesta nousurallista",
+   "title_en": "Community and technology draw crypto investors: bitcoin's new rally celebrated at crypto event",
+   "source": "yle",
+   "source_name": "Yle Uutiset (latest)",
+   "source_note": null,
+   "country": "FI",
+   "language": "Finnish",
+   "language_code": "fi",
+   "published": "2026-09-27T08:20:00+00:00",
+   "topics": [
+    "community",
+    "bitcoin"
+   ],
+   "summary": "At a Finnish crypto event, investors described community and technology as what draws them to crypto, as bitcoin rallied again.",
+   "summary_i18n": {
+    "nn": "På eit finsk kryptoarrangement fortalde investorar at fellesskapet og teknologien er det som dreg dei mot krypto, medan bitcoin steig igjen.",
+    "nb": "På et finsk kryptoarrangement fortalte investorer at fellesskapet og teknologien er det som trekker dem mot krypto, mens bitcoin steg igjen.",
+    "sv": "På ett finländskt kryptoevenemang berättade investerare att gemenskapen och tekniken lockar dem till krypto, samtidigt som bitcoin steg igen.",
+    "da": "Ved et finsk kryptoarrangement fortalte investorer, at fællesskabet og teknologien er det, der trækker dem mod krypto, mens bitcoin steg igen.",
+    "fi": "Suomalaisessa kryptotapahtumassa sijoittajat kertoivat yhteisön ja teknologian vetävän heitä kryptojen pariin, kun bitcoin nousi taas.",
+    "is": "Á finnskum rafmyntaviðburði sögðu fjárfestar að samfélagið og tæknin dragi þá að rafmyntum, á meðan bitcoin hækkaði á ný."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false
+  },
+  {
+   "id": "b46e8d2a4dad",
+   "url": "https://www.kaupr.io/nyheter/to-tilsyn-vil-ikke-si-om-kryptodistribusjon-krever-egen-tillatelse",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/b46e8d2a4dad.json",
+   "title": "To tilsyn vil ikke si om kryptodistribusjon krever egen tillatelse",
+   "title_en": "Two regulators won't say whether crypto distribution needs its own licence",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+   "country": "FI",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-09-17T12:00:00+00:00",
+   "topics": [
+    "mica",
+    "regulation"
+   ],
+   "summary": "Neither ESMA nor Sweden's Finansinspektionen will say whether distributing crypto services under your own brand needs its own MiCA licence.",
+   "summary_i18n": {
+    "nn": "Verken ESMA eller svenske Finansinspektionen vil seie om distribusjon av kryptotenester under eige merkenamn krev eige MiCA-løyve.",
+    "nb": "Verken ESMA eller svenske Finansinspektionen vil si om distribusjon av kryptotjenester under eget merkenavn krever egen MiCA-tillatelse.",
+    "sv": "Varken Esma eller Finansinspektionen vill säga om distribution av kryptotjänster under eget varumärke kräver ett eget MiCA-tillstånd.",
+    "da": "Hverken ESMA eller det svenske Finansinspektionen vil sige, om distribution af kryptotjenester under eget brand kræver en selvstændig MiCA-tilladelse.",
+    "fi": "ESMA ja Ruotsin Finansinspektionen eivät kerro, tarvitaanko kryptopalvelujen jakeluun oman brändin alla oma MiCA-toimilupa.",
+    "is": "Hvorki ESMA né sænska Finansinspektionen vilja segja hvort dreifing rafmyntaþjónustu undir eigin vörumerki krefjist sérstaks MiCA-leyfis."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false
+  },
+  {
+   "id": "f6301aef3314",
+   "url": "https://www.finanssivalvonta.fi/en/publications-and-press-releases/news-releases/2026/crypto-asset-service-providers-in-finland-must-be-authorised-in-the-eu/",
+   "html_url": null,
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/f6301aef3314.json",
+   "title": "Crypto-asset service providers in Finland must be authorised in the EU",
+   "title_en": null,
+   "source": "finanssivalvonta",
+   "source_name": "Finanssivalvonta",
+   "source_note": null,
+   "country": "FI",
+   "language": "English",
+   "language_code": "en",
+   "published": "2026-06-30T12:00:00+00:00",
+   "topics": [
+    "mica",
+    "regulation"
+   ],
+   "summary": "Finland's FIN-FSA reminds firms that crypto-asset service providers serving Finland must hold an EU (MiCA) authorisation.",
+   "summary_i18n": {
+    "nn": "Finske Finanssivalvonta minner om at tilbydarar av kryptoeigedelstenester som tener Finland, må ha EU-løyve (MiCA).",
+    "nb": "Finske Finanssivalvonta minner om at tilbydere av kryptoeiendelstjenester som betjener Finland, må ha EU-tillatelse (MiCA).",
+    "sv": "Finska Finanssivalvonta påminner om att leverantörer av kryptotillgångstjänster som betjänar Finland måste ha ett EU-tillstånd (MiCA).",
+    "da": "Det finske finanstilsyn, Finanssivalvonta, minder om, at udbydere af kryptoaktivtjenester, der betjener Finland, skal have en EU-tilladelse (MiCA).",
+    "fi": "Finanssivalvonta muistuttaa, että Suomessa palveluja tarjoavilla kryptovarapalvelujen tarjoajilla on oltava EU:n (MiCA) toimilupa.",
+    "is": "Finnska fjármálaeftirlitið minnir á að þjónustuveitendur sýndareigna sem þjóna Finnlandi verða að hafa leyfi innan ESB (MiCA)."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false
+  }
+ ]
+}

@@ -1,0 +1,121 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "regulation": [
+  {
+   "country": "NO",
+   "mica": "MiCA applies through the EEA Agreement as Norwegian law from 1 Jul 2025 (Crypto-Assets Act). Registered VASPs had a transition until 30 Dec 2025 or until their licence decision.",
+   "law": "Lov om kryptoeiendeler (Crypto-Assets Act, 27 May 2025 no. 20).",
+   "regulator": "Finanstilsynet (licences and supervision); Norges Bank (payments, CBDC study); Skatteetaten (tax, CARF/DAC8 reporting from income year 2026).",
+   "status": "Six CASPs authorised by Finanstilsynet as of 3 Oct 2026: Týr Markets, Firi, K33 Markets, Bare Bitcoin, NBX and AK Jensen Norway. A temporary ban on new power-intensive crypto data centres is being studied but not adopted.",
+   "sources": [
+    {
+     "url": "https://lovdata.no/dokument/NL/lov/2025-05-27-20",
+     "title": "Lov om kryptoeiendeler",
+     "source_name": "Lovdata",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+     "title": "ESMA interim MiCA register (CASPS.csv, checked 3 Oct 2026)",
+     "source_name": "ESMA",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://www.finanstilsynet.no/nyhetsarkiv/nyheter/2026/firi-as-far-tillatelse-som-casp-foretak/",
+     "title": "Firi AS får tillatelse som CASP-foretak",
+     "source_name": "Finanstilsynet",
+     "date": "2026-05-22"
+    }
+   ]
+  },
+  {
+   "country": "SE",
+   "mica": "MiCA applies directly as EU law. The transitional period for previously registered firms ended on 30 Jun 2026; only authorised firms may now offer crypto services in Sweden.",
+   "law": "MiCA (EU) 2023/1114; Act 2025:1377 on collecting certain tax information on crypto-assets (DAC8), in force 1 Jan 2026.",
+   "regulator": "Finansinspektionen (licences and supervision); Riksbank (e-krona work); Skatteverket (tax); Finanspolisen (FIU).",
+   "status": "One FI-authorised CASP (Safello) as of 30 Jun 2026, plus 77 firms passporting from other EU countries. Two refusals (Valuno's QB Europe AB, GreenMerc's Ijort Invest AB). A new government was still being formed in early October 2026.",
+   "sources": [
+    {
+     "url": "https://www.fi.se/sv/publicerat/nyheter/2026/kryptobolag-utan-tillstand-ska-avveckla-sin-verksamhet-i-eu/",
+     "title": "Kryptobolag utan tillstånd ska avveckla sin verksamhet i EU",
+     "source_name": "Finansinspektionen",
+     "date": "2026-07-01"
+    },
+    {
+     "url": "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-20251377-om-inhamtande-av-vissa-uppgifter_sfs-2025-1377/",
+     "title": "Lag (2025:1377)",
+     "source_name": "Sveriges riksdag",
+     "date": "2026-10-03"
+    }
+   ]
+  },
+  {
+   "country": "FI",
+   "mica": "MiCA applies directly as EU law. Finland gave no transitional period, so providers needed an authorisation from the start.",
+   "law": "Act 402/2024 on crypto-asset service providers and crypto-asset markets.",
+   "regulator": "Finanssivalvonta / FIN-FSA (licences and supervision); Bank of Finland; Verohallinto (tax); NBI Financial Intelligence Unit.",
+   "status": "Five FIN-FSA-authorised CASPs in the ESMA register (Coinmotion, Tesseract, Bittimaatti, Northcrypto, Kvarn X) and one e-money token issuer (Paxos Issuance Europe). Some Swedish firms now operate on Finnish licences (Kvarn, Northcrypto).",
+   "sources": [
+    {
+     "url": "https://www.finanssivalvonta.fi/en/publications-and-press-releases/news-releases/2026/crypto-asset-service-providers-in-finland-must-be-authorised-in-the-eu/",
+     "title": "Crypto-asset service providers in Finland must be authorised in the EU",
+     "source_name": "Finanssivalvonta",
+     "date": "2026-06-30"
+    },
+    {
+     "url": "https://www.finlex.fi/fi/lainsaadanto/2024/402",
+     "title": "Act 402/2024 on crypto-asset service providers and crypto-asset markets",
+     "source_name": "Finlex",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+     "title": "ESMA interim MiCA register (CASPS.csv, checked 3 Oct 2026)",
+     "source_name": "ESMA",
+     "date": "2026-10-03"
+    }
+   ]
+  },
+  {
+   "country": "IS",
+   "mica": "MiCA applies through the EEA Agreement via Act No. 101/2025, in force 1 Jan 2026. From 1 Jul 2026 crypto services require a MiCA licence.",
+   "law": "Lög um markaði fyrir sýndareignir (Act No. 101/2025).",
+   "regulator": "Central Bank of Iceland – Financial Supervision (licences and supervision); Skatturinn (tax); District Prosecutor's FIU.",
+   "status": "One CASP authorised (Myntkaup, 25 Jun 2026) and one e-money token issuer (Monerium) in the ESMA register.",
+   "sources": [
+    {
+     "url": "https://www.althingi.is/altext/stjt/2025.101.html",
+     "title": "Act No. 101/2025 on markets in crypto-assets",
+     "source_name": "Alþingi",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://sedlabanki.is/frettir-og-utgefid-efni/grein/oheimilt-er-ad-veita-thjonustu-med-syndareignir-an-starfsleyfis-fra-og-med-1-juli-2026",
+     "title": "No crypto-asset services without a licence from 1 July 2026",
+     "source_name": "Seðlabanki Íslands",
+     "date": "2026-10-03"
+    },
+    {
+     "url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+     "title": "ESMA interim MiCA register (CASPS.csv, checked 3 Oct 2026)",
+     "source_name": "ESMA",
+     "date": "2026-10-03"
+    }
+   ]
+  }
+ ],
+ "caveats": [
+  "Ministry of Finance (Norway): it is not confirmed which state secretary holds the financial-markets and crypto portfolio.",
+  "Finanstilsynet: Wenche Fagereng is listed by name and role from the authority's organisation chart. Nothing is said about responsibility for MiCA or CASP supervision, because that is not confirmed in a public source.",
+  "Norges Bank's tokenisation network: the primary source is Norges Bank's own LinkedIn post of 7 Sep 2026. It is not published on norges-bank.no.",
+  "ESMA: Carlo Comporti has been approved by the European Parliament as the new chair from 1 Nov 2026, but awaits the Council's decision.",
+  "Storting finance committee: only the chair and deputy chairs are listed for now.",
+  "ESMA's interim MiCA register is a CSV snapshot (checked 3 Oct 2026); national registers may be more up to date.",
+  "Sweden: ministers are not listed while a new government is being formed after the September 2026 election.",
+  "Private-sector people outside Norway are only included where a public source names their role (so far only Virtune's CEO). More will be added by the researcher with sources.",
+  "Legal entity identifiers, organisation numbers and addresses from the registers are deliberately left out."
+ ]
+}

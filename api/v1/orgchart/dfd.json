@@ -1,0 +1,39 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "dfd",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/dfd.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#dfd",
+  "name": "Ministry of Digitalisation and Public Governance",
+  "type": "organisation",
+  "sector": "public",
+  "country": "NO",
+  "description": "Data-centre policy; studying a state planning provision with a temporary, limited ban on new power-intensive crypto data centres – not adopted as of 18 Sep 2026. The government will answer the Storting's requests in the 2027 budget bill (answer to Doc. 15:3707, 18 Sep 2026). A white paper on data centres has been announced (NRK, 29 Sep 2026).",
+  "role": null,
+  "org": null,
+  "group": "Parliament & government",
+  "profile_url": null,
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Sporsmal/Skriftlige-sporsmal-og-svar/Skriftlig-sporsmal/?qnid=127181",
+    "title": "Stortinget",
+    "source_name": "Stortinget",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://www.nrk.no/vestfoldogtelemark/regjeringen-vil-stramme-inn-reglene-for-datasentre-i-norge-1.18040088",
+    "title": "NRK",
+    "source_name": "NRK",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

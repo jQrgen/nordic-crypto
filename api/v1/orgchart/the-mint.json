@@ -1,0 +1,39 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "the-mint",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/the-mint.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#the-mint",
+  "name": "The Mint",
+  "type": "organisation",
+  "sector": "private",
+  "country": "NO",
+  "description": "Tokenisation of gemstones. GRNC, an asset-referenced token traded on NBX, is 'Europe's first MiCA-registered ART' according to The Mint (press release reported by Kaupr, 10 Oct 2025). Names and roles from the Brønnøysund Register Centre.",
+  "role": null,
+  "org": null,
+  "group": "Companies & startups",
+  "profile_url": null,
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": true,
+  "sources": [
+   {
+    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/831163232/roller",
+    "title": "data.brreg.no",
+    "source_name": "data.brreg.no",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://www.kaupr.io/nyheter/the-mint-as-lanserer-europas-forste-mica-registrerte-eiendelsrefererte-token",
+    "title": "Kaupr",
+    "source_name": "Kaupr",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

@@ -1,0 +1,28 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "country": "SE",
+  "name": "Kryptokom",
+  "institution": "Linköping University",
+  "about": "",
+  "activity": "Latest dated activity: LinkedIn post 26 Jul 2026. Disclosure: Kryptokom's website lists the crypto exchange Trijo as a partner and promotes Trijo's referral programme, so the association has a commercial partner.",
+  "active": true,
+  "url": "https://kryptokom.se/",
+  "source": "https://kryptokom.se/",
+  "checked": "2026-10-05",
+  "about_i18n": {
+   "nb": "Siste daterte aktivitet: LinkedIn-innlegg 26. juli 2026. Opplysning: Kryptokoms nettsted oppgir kryptobørsen Trijo som samarbeidspartner og markedsfører Trijos vervingsprogram, så foreningen har en kommersiell partner.",
+   "nn": "Siste daterte aktivitet: LinkedIn-innlegg 26. juli 2026. Til opplysing: nettstaden til Kryptokom oppgir kryptobørsen Trijo som samarbeidspartnar og marknadsfører vervingsprogrammet til Trijo, så foreininga har ein kommersiell partnar.",
+   "sv": "Senaste daterade aktivitet: LinkedIn-inlägg 26 juli 2026. Upplysning: Kryptokoms webbplats anger kryptobörsen Trijo som samarbetspartner och marknadsför Trijos referral-program, så föreningen har en kommersiell partner.",
+   "da": "Seneste daterede aktivitet: LinkedIn-opslag 26. juli 2026. Oplysning: Kryptokoms hjemmeside nævner kryptobørsen Trijo som samarbejdspartner og markedsfører Trijos henvisningsprogram, så foreningen har en kommerciel partner.",
+   "fi": "Viimeisin päivätty toiminta: LinkedIn-julkaisu 26.7.2026. Tiedoksi: Kryptokomin verkkosivuilla kryptopörssi Trijo mainitaan yhteistyökumppaniksi ja sivut markkinoivat Trijon suositteluohjelmaa, joten yhdistyksellä on kaupallinen kumppani.",
+   "is": "Nýjasta dagsetta virkni: LinkedIn-færsla 26. júlí 2026. Til upplýsingar: á vef Kryptokom er rafmyntakauphöllin Trijo nefnd sem samstarfsaðili og tilvísunarkerfi Trijo kynnt, svo félagið er með viðskiptalegan samstarfsaðila."
+  },
+  "id": "groups-kryptokom.se",
+  "section": "groups",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/groups-kryptokom.se.json"
+ }
+}

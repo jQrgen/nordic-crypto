@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "per-jansson",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/per-jansson.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#per-jansson",
+  "name": "Per Jansson",
+  "type": "person",
+  "sector": "public",
+  "country": "SE",
+  "description": null,
+  "role": "Deputy Governor",
+  "org": "se-riksbank",
+  "group": null,
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.riksbank.se/sv/om-riksbanken/organisation/direktionen/",
+    "title": "Direktionen",
+    "source_name": "Sveriges Riksbank",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "r-coinmotion-k33",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/r-coinmotion-k33.json",
+  "from": "coinmotion",
+  "to": "k33",
+  "type": "partner",
+  "label": "Partner for executing larger trades",
+  "sources": [
+   {
+    "url": "https://www.kaupr.io/nyheter/coinmotion-og-k33-inngar-nordisk-kryptosamarbeid-om-institusjonell-handel",
+    "title": "Coinmotion og K33 inngår nordisk kryptosamarbeid om institusjonell handel",
+    "source_name": "Kaupr",
+    "date": "2026-10-03"
+   }
+  ]
+ }
+}

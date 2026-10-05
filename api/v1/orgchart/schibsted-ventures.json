@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "schibsted-ventures",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/schibsted-ventures.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#schibsted-ventures",
+  "name": "Schibsted Ventures",
+  "type": "organisation",
+  "sector": "private",
+  "country": "NO",
+  "description": "Led Firi's NOK 60 million share issue on 7 Jan 2022, according to Shifter (15 Sep 2026).",
+  "role": null,
+  "org": null,
+  "group": "Investors & funds",
+  "profile_url": null,
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": true,
+  "sources": [
+   {
+    "url": "https://www.shifter.no/nyheter/firi-lanserer-i-sverige-etter-permitteringer-og-milliontap/475990",
+    "title": "Shifter",
+    "source_name": "Shifter",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

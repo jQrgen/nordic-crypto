@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "christian-kettel-thomsen",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/christian-kettel-thomsen.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#christian-kettel-thomsen",
+  "name": "Christian Kettel Thomsen",
+  "type": "person",
+  "sector": "public",
+  "country": "DK",
+  "description": null,
+  "role": "Governor (royally appointed) and Chair of the Board of Governors",
+  "org": "dk-nationalbanken",
+  "group": null,
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.nationalbanken.dk/en/about-us/board-of-governors-group-management-and-departments",
+    "title": "Board of Governors, Group Management and departments",
+    "source_name": "Danmarks Nationalbank",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

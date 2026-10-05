@@ -1,0 +1,39 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "dag-tore-aam",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/dag-tore-aam.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#dag-tore-aam",
+  "name": "Dag Tore Aam",
+  "type": "person",
+  "sector": "private",
+  "country": "NO",
+  "description": null,
+  "role": "CEO",
+  "org": "the-mint",
+  "group": null,
+  "profile_url": "https://data.brreg.no/enhetsregisteret/api/enheter/831163232/roller",
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": true,
+  "sources": [
+   {
+    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/831163232/roller",
+    "title": "data.brreg.no",
+    "source_name": "data.brreg.no",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://www.kaupr.io/nyheter/the-mint-as-lanserer-europas-forste-mica-registrerte-eiendelsrefererte-token",
+    "title": "Kaupr",
+    "source_name": "Kaupr",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

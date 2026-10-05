@@ -1,0 +1,41 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "finans-norge",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/finans-norge.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#finans-norge",
+  "name": "Finans Norge (Finance Norway)",
+  "type": "organisation",
+  "sector": "private",
+  "country": "NO",
+  "description": "Industry body for banks and the finance sector; consultation responses on financial regulation.",
+  "role": null,
+  "org": null,
+  "group": "Associations & communities",
+  "profile_url": null,
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.finansnorge.no/om-finans-norge/finans-norges-ledergruppe/",
+    "title": "Finans Norge",
+    "source_name": "Finans Norge",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/finans-norge.svg",
+   "source_url": "https://commons.wikimedia.org/wiki/File:FinansNorge_Logo_RGB_Pos.svg",
+   "author": "Tonje Westby",
+   "license": "CC BY-SA 4.0",
+   "license_url": null,
+   "credit": "Wikimedia Commons"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

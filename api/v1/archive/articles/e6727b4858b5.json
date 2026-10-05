@@ -1,0 +1,47 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "e6727b4858b5",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/e6727b4858b5.json",
+  "site": "nordic-crypto",
+  "url": "https://www.realtid.se/bors-finans/makro/sa-kan-sverige-anvandas-for-att-finansiera-karnvapen/",
+  "canonical_url": "https://realtid.se/bors-finans/makro/sa-kan-sverige-anvandas-for-att-finansiera-karnvapen",
+  "title": "Så kan Sverige användas för att finansiera kärnvapen",
+  "titles": {
+   "en": "How Sweden can be used to finance nuclear weapons"
+  },
+  "source": "realtid",
+  "source_name": "Realtid",
+  "country": "SE",
+  "published_at": "2026-10-02T17:00:00+00:00",
+  "first_published_on_site": "2026-10-03T17:59:40+02:00",
+  "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+  "languages": [
+   "en",
+   "nn",
+   "nb",
+   "sv",
+   "da",
+   "fi",
+   "is"
+  ],
+  "summaries": {
+   "en": "Sweden's financial watchdog says crypto-assets and illegal financial networks pose the biggest risk of Iran and North Korea dodging sanctions via Sweden.",
+   "nn": "Det svenske finanstilsynet meiner kryptoeigedelar og ulovlege finansielle nettverk er den største risikoen for at Iran og Nord-Korea omgår sanksjonar via Sverige.",
+   "nb": "Sveriges finanstilsyn mener kryptoeiendeler og ulovlige finansielle nettverk utgjør den største risikoen for at Iran og Nord-Korea omgår sanksjoner via Sverige.",
+   "sv": "Finansinspektionen anser att kryptotillgångar och olagliga finansiella nätverk utgör den största risken för att Iran och Nordkorea kringgår sanktioner via Sverige.",
+   "da": "Det svenske finanstilsyn mener, at kryptoaktiver og ulovlige finansielle netværk udgør den største risiko for, at Iran og Nordkorea omgår sanktioner via Sverige.",
+   "fi": "Ruotsin finanssivalvoja katsoo, että kryptovarat ja laittomat rahoitusverkostot ovat suurin riski sille, että Iran ja Pohjois-Korea kiertävät pakotteita Ruotsin kautta.",
+   "is": "Fjármálaeftirlit Svíþjóðar telur að sýndareignir og ólögleg fjármálanet feli í sér mestu hættuna á að Íran og Norður-Kórea komist fram hjá refsiaðgerðum í gegnum Svíþjóð."
+  },
+  "topics": [
+   "regulation",
+   "aml"
+  ],
+  "removed": false,
+  "removed_at": null
+ }
+}

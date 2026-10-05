@@ -1,0 +1,47 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "dnb",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/dnb.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#dnb",
+  "name": "DNB",
+  "type": "organisation",
+  "sector": "private",
+  "country": "NO",
+  "description": "Offers crypto ETPs, not spot trading, and its crypto fund was paused in autumn 2025 – according to BankShift (17 Nov 2025). Joined the banks' CBMT test network for tokenised deposits in kroner – according to Kaupr (16 Sep 2026). Not part of Qivalis – according to Kaupr.",
+  "role": null,
+  "org": null,
+  "group": "Banks",
+  "profile_url": null,
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": true,
+  "sources": [
+   {
+    "url": "https://www.bankshift.no/nyheter/dnb-om-token-okonomien-vi-er-ikke-drevet-av-frykt-for-a-miste-kunder-men-av-a-vaere-relevante/437638",
+    "title": "BankShift",
+    "source_name": "BankShift",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://www.kaupr.io/en/news/dnb-tests-tokenised-deposits-in-kroner-with-european-banks",
+    "title": "Kaupr",
+    "source_name": "Kaupr",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/dnb.svg",
+   "source_url": "https://commons.wikimedia.org/wiki/File:DNB_Logo.svg",
+   "author": "DNB Bank ASA",
+   "license": "Public domain",
+   "license_url": null,
+   "credit": "Wikimedia Commons"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

@@ -1,0 +1,57 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "intl-okx",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/intl-okx.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#intl-okx",
+  "name": "OKX Europe",
+  "type": "organisation",
+  "sector": "private",
+  "country": "NORDIC",
+  "description": "Global crypto exchange. Its European entity, OKX Europe, is authorised as a crypto-asset service provider in Malta and listed in ESMA's CASP register with passporting to Norway, Sweden, Denmark, Finland and Iceland. It launched in Sweden, Finland and Denmark in June 2025, and Norway is documented from July 2025 (OKX's Nordic campaign from late July 2025 was open to residents of Norway).",
+  "role": null,
+  "org": null,
+  "group": "International players in the Nordics",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv",
+    "title": "ESMA interim MiCA register – CASPs: OKX Europe Limited (MFSA, Malta), services passported incl. NO, SE, DK, FI, IS",
+    "source_name": "ESMA",
+    "date": "2026-10-04"
+   },
+   {
+    "url": "https://www.okx.com/en-eu/campaigns/okx-goes-live-in-the-nordics",
+    "title": "OKX goes live in the Nordics (OKX)",
+    "source_name": "OKX",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://fintechnordics.com/8840/fintechdenmark/okx-launches-regulated-crypto-exchange-nordics/",
+    "title": "OKX Launches Regulated Crypto Exchange in Nordic Region",
+    "source_name": "Fintech in Nordics",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://www.kaupr.io/en/news/okx-opens-the-nordic-crypto-race-powered-by-mica",
+    "title": "OKX opens the Nordic crypto race powered by MiCA",
+    "source_name": "Kaupr",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://www.kaupr.io/pages/okx",
+    "title": "OKX – company profile (Onchain Pages)",
+    "source_name": "Kaupr",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

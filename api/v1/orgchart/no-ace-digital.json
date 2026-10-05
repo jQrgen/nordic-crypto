@@ -1,0 +1,45 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "no-ace-digital",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/no-ace-digital.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#no-ace-digital",
+  "name": "Ace Digital (Ace Digital AS)",
+  "type": "organisation",
+  "sector": "private",
+  "country": "NO",
+  "description": "Oslo-based bitcoin company listed on Euronext Growth Oslo (ticker ACED) that holds bitcoin as a treasury asset and runs advisory, venture and fund subsidiaries, according to its own website.",
+  "role": null,
+  "org": null,
+  "group": "Companies & startups",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.acedigital.no/",
+    "title": "Ace Digital – company website",
+    "source_name": "Ace Digital",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://data.brreg.no/enhetsregisteret/oppslag/enheter/924665297",
+    "title": "Ace Digital AS – Enhetsregisteret",
+    "source_name": "Brønnøysundregistrene",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://www.kaupr.io/pages/ace-digital",
+    "title": "Ace Digital – company profile (Onchain Pages)",
+    "source_name": "Kaupr",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

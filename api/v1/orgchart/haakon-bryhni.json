@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "haakon-bryhni",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/haakon-bryhni.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#haakon-bryhni",
+  "name": "Haakon Bryhni",
+  "type": "person",
+  "sector": "private",
+  "country": "NO",
+  "description": null,
+  "role": "Chair of the Board",
+  "org": "tydal-data-center",
+  "group": null,
+  "profile_url": "https://www.globenewswire.com/news-release/2026/08/04/3338255/0/en/bitdeer-announces-4-7-billion-16-year-ai-hpc-data-center-lease-for-tydal-norway-campus.html",
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.globenewswire.com/news-release/2026/08/04/3338255/0/en/bitdeer-announces-4-7-billion-16-year-ai-hpc-data-center-lease-for-tydal-norway-campus.html",
+    "title": "GlobeNewswire",
+    "source_name": "GlobeNewswire",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

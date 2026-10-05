@@ -1,0 +1,45 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "thuc-tuan-hoang",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/thuc-tuan-hoang.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#thuc-tuan-hoang",
+  "name": "Thuc Tuan Hoang",
+  "type": "person",
+  "sector": "private",
+  "country": "NO",
+  "description": null,
+  "role": "CEO and co-founder",
+  "org": "firi",
+  "group": null,
+  "profile_url": "https://www.finanstilsynet.no/nyhetsarkiv/nyheter/2026/firi-as-far-tillatelse-som-casp-foretak/",
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": true,
+  "sources": [
+   {
+    "url": "https://www.finanstilsynet.no/nyhetsarkiv/nyheter/2026/firi-as-far-tillatelse-som-casp-foretak/",
+    "title": "Finanstilsynet",
+    "source_name": "Finanstilsynet",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://firi.com/press/press-contacts",
+    "title": "Firi",
+    "source_name": "Firi",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://www.shifter.no/nyheter/firi-lanserer-i-sverige-etter-permitteringer-og-milliontap/475990",
+    "title": "Shifter",
+    "source_name": "Shifter",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

@@ -1,0 +1,37 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "07e49032be5a",
+  "url": "https://www.kaupr.io/nyheter/safello-apner-for-at-andre-selskaper-kan-tilby-kryptokjop",
+  "html_url": null,
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/07e49032be5a.json",
+  "title": "Safello åpner for at andre selskaper kan tilby kryptokjøp",
+  "title_en": "Safello opens up so other companies can offer crypto purchases",
+  "source": "kaupr",
+  "source_name": "Kaupr",
+  "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+  "country": "SE",
+  "language": "Norwegian",
+  "language_code": "no",
+  "published": "2026-09-24T12:00:00+00:00",
+  "topics": [
+   "business",
+   "mica"
+  ],
+  "summary": "Sweden's Safello is testing a setup that lets companies without their own crypto business offer crypto purchases under Safello's MiCA licence.",
+  "summary_i18n": {
+   "nn": "Svenske Safello testar ei løysing som lèt selskap utan eiga kryptoverksemd tilby kjøp av krypto under MiCA-løyvet til Safello.",
+   "nb": "Svenske Safello tester en løsning som lar selskaper uten egen kryptovirksomhet tilby kjøp av krypto under Safellos MiCA-tillatelse.",
+   "sv": "Svenska Safello testar en lösning som låter bolag utan egen kryptoverksamhet erbjuda köp av krypto under Safellos MiCA-tillstånd.",
+   "da": "Svenske Safello tester en løsning, der lader virksomheder uden egen kryptoforretning tilbyde køb af krypto under Safellos MiCA-tilladelse.",
+   "fi": "Ruotsalainen Safello testaa ratkaisua, jonka avulla yritykset, joilla ei ole omaa kryptoliiketoimintaa, voivat tarjota kryptojen ostoa Safellon MiCA-toimiluvalla.",
+   "is": "Sænska Safello prófar lausn sem gerir fyrirtækjum án eigin rafmyntastarfsemi kleift að bjóða kaup á rafmyntum undir MiCA-leyfi Safello."
+  },
+  "paywall": false,
+  "links": [],
+  "own_story": false
+ }
+}

@@ -1,0 +1,39 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "anders-kvamme-jensen",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/anders-kvamme-jensen.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#anders-kvamme-jensen",
+  "name": "Anders Kvamme Jensen",
+  "type": "person",
+  "sector": "private",
+  "country": "NO",
+  "description": null,
+  "role": "Chair of the Board",
+  "org": "ak-jensen-norway",
+  "group": null,
+  "profile_url": "https://www.finanstilsynet.no/virksomhetsregisteret/detalj/?id=213970",
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.finanstilsynet.no/virksomhetsregisteret/detalj/?id=213970",
+    "title": "Finanstilsynet",
+    "source_name": "Finanstilsynet",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://data.brreg.no/enhetsregisteret/api/enheter/925510246/roller",
+    "title": "data.brreg.no",
+    "source_name": "data.brreg.no",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

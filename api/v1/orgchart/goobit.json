@@ -1,0 +1,51 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "goobit",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/goobit.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#goobit",
+  "name": "Goobit (BTCX)",
+  "type": "organisation",
+  "sector": "private",
+  "country": "SE",
+  "description": "Swedish bitcoin exchange operating under the brand BTCX, run by Goobit AB, a subsidiary of Goobit Group AB (listed on NGM). After its own refusal from Finansinspektionen, Goobit launched savings in bitcoin and gold on the Finnish Kvarn Capital's MiCA licence, according to Kaupr.",
+  "role": null,
+  "org": null,
+  "group": "Exchanges & brokers",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://bt.cx/sv/",
+    "title": "BTCX – website (Goobit AB)",
+    "source_name": "BTCX",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://www.kaupr.io/nyheter/goobit-lanserer-sparing-i-bitcoin-og-gull-pa-finsk-lisens",
+    "title": "Goobit lanserer sparing i bitcoin og gull på finsk lisens",
+    "source_name": "Kaupr",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://www.kaupr.io/nyheter/finske-kvarn-leier-ut-mica-tillatelsen-sin-til-nordiske-partnere",
+    "title": "Finske Kvarn leier ut MiCA-tillatelsen sin til nordiske partnere",
+    "source_name": "Kaupr",
+    "date": "2026-10-03"
+   },
+   {
+    "url": "https://www.kaupr.io/pages/btcx",
+    "title": "BTCX – company profile (Onchain Pages)",
+    "source_name": "Kaupr",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

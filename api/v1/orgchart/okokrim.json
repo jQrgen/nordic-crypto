@@ -1,0 +1,53 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "okokrim",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/okokrim.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#okokrim",
+  "name": "Økokrim (incl. the Financial Intelligence Unit, FIU)",
+  "type": "organisation",
+  "sector": "public",
+  "country": "NO",
+  "description": "Investigates and prosecutes serious economic crime, including crypto fraud. Has its own cryptocurrency group, and the FIU receives reports from, among others, crypto exchanges – according to Økokrim's annual report 2025 (published 13 May 2026).",
+  "role": null,
+  "org": null,
+  "group": "Police & financial intelligence (FIU)",
+  "profile_url": null,
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": true,
+  "sources": [
+   {
+    "url": "https://img8.custompublish.com/getfile.php/5491970.2528.wnkamapwmzsupp/%C3%98kokrim-%C3%A5rsrapport2025.pdf?return=www.okokrim.no",
+    "title": "Økokrim annual report 2025 (PDF)",
+    "source_name": "Økokrim annual report 2025 (PDF)",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://okokrim.custompublish.com/aarsrapporter.616105.no.html",
+    "title": "Økokrim",
+    "source_name": "Økokrim",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://www.okonomi24.com/nyheter/slik-skal-okokrim-bruke-450-millioner-pa-a-knekke-de-profesjonelle-bedragerne/129778",
+    "title": "Økonomi24",
+    "source_name": "Økonomi24",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/okokrim.svg",
+   "source_url": "https://commons.wikimedia.org/wiki/File:Okokrim_logo_sort.svg",
+   "author": "Lillian Nordby Øktner/Økokrim",
+   "license": "Public domain",
+   "license_url": null,
+   "credit": "Wikimedia Commons"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

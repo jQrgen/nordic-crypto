@@ -1,0 +1,41 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "se-riksbank",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/se-riksbank.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#se-riksbank",
+  "name": "Sveriges Riksbank (central bank of Sweden)",
+  "type": "organisation",
+  "sector": "public",
+  "country": "SE",
+  "description": "Sweden's central bank. Publishes material on the e-krona, described as state money in digital form.",
+  "role": null,
+  "org": null,
+  "group": "Central banks",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.riksbank.se/en-gb/payments--cash/e-krona/",
+    "title": "The e-krona – state money in digital form",
+    "source_name": "Sveriges Riksbank",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/se-riksbank.webp",
+   "source_url": "https://commons.wikimedia.org/wiki/File:Riksbanken_skylt.jpg",
+   "author": "Holger Ellgaard",
+   "license": "CC BY-SA 3.0",
+   "license_url": null,
+   "credit": "Wikimedia Commons"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

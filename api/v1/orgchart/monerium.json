@@ -1,0 +1,41 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "monerium",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/monerium.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#monerium",
+  "name": "Monerium",
+  "type": "organisation",
+  "sector": "private",
+  "country": "IS",
+  "description": "Electronic money institution supervised by the Central Bank of Iceland; listed in the ESMA register as issuer of the EURe e-money token (white paper notified 9 Jan 2026).",
+  "role": null,
+  "org": null,
+  "group": "Stablecoin / e-money token issuers",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+    "title": "ESMA interim MiCA register – e-money token issuers (EMTWP.csv, checked 3 Oct 2026)",
+    "source_name": "ESMA",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/monerium.svg",
+   "source_url": "https://monerium.com/assets/monerium-logo.svg",
+   "author": null,
+   "license": null,
+   "license_url": null,
+   "credit": "Official website"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

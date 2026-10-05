@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "se-finansdepartementet",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/se-finansdepartementet.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#se-finansdepartementet",
+  "name": "Ministry of Finance (Sweden)",
+  "type": "organisation",
+  "sector": "public",
+  "country": "SE",
+  "description": "Responsible for financial-market legislation. No minister is listed: after the September 2026 election the Speaker's exploratory mandate to Magdalena Andersson was resumed on 2 Oct 2026, so a new government had not been formed when this was checked.",
+  "role": null,
+  "org": null,
+  "group": "Parliament & government",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.riksdagen.se/sv/aktuellt/aktuelltnotiser/2026/okt/2/talmannens-sonderingsuppdrag-till-magdalena_cms77150d24-8e8b-479f-9da0-8df5bf84b9b6sv/",
+    "title": "Talmannens sonderingsuppdrag till Magdalena Andersson återupptas",
+    "source_name": "Sveriges riksdag",
+    "date": "2026-10-02"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

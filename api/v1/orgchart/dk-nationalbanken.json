@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "dk-nationalbanken",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/dk-nationalbanken.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#dk-nationalbanken",
+  "name": "Danmarks Nationalbank",
+  "type": "organisation",
+  "sector": "public",
+  "country": "DK",
+  "description": "Denmark's central bank.",
+  "role": null,
+  "org": null,
+  "group": "Central banks",
+  "profile_url": null,
+  "provenance": "Nordic Crypto research",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.nationalbanken.dk/en/what-we-do",
+    "title": "What we do in Danmarks Nationalbank",
+    "source_name": "Danmarks Nationalbank",
+    "date": "2026-10-03"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

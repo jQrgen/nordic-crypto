@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "nrk-klassekampen-inyheter",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/nrk-klassekampen-inyheter.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#nrk-klassekampen-inyheter",
+  "name": "NRK, Klassekampen / iNyheter",
+  "type": "organisation",
+  "sector": "private",
+  "country": "NO",
+  "description": "Cover data-centre and crypto-mining policy.",
+  "role": null,
+  "org": null,
+  "group": "Media",
+  "profile_url": null,
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://inyheter.no/16/08/2026/stortinget-har-bedt-om-krypto-forbud-to-ganger-jeg-er-opptatt-av-a-utrede-dette-grundig/",
+    "title": "iNyheter",
+    "source_name": "iNyheter",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

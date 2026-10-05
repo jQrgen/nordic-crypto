@@ -1,0 +1,41 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "nkom",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/nkom.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#nkom",
+  "name": "Nkom (Norwegian Communications Authority)",
+  "type": "organisation",
+  "sector": "public",
+  "country": "NO",
+  "description": "Keeps a register of and supervises data centres (Data Centre Regulation), including whether they mine crypto.",
+  "role": null,
+  "org": null,
+  "group": "Regulators & agencies",
+  "profile_url": null,
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://nkom.no/om-nkom/organisering-ledelse-og-fagavdelinger",
+    "title": "Nkom",
+    "source_name": "Nkom",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": {
+   "kind": "logo",
+   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/nkom.svg",
+   "source_url": "https://commons.wikimedia.org/wiki/File:Emblem_of_the_Norwegian_Communications_Authority.svg",
+   "author": "Norwegian Communications Authority",
+   "license": "Public domain",
+   "license_url": null,
+   "credit": "Wikimedia Commons"
+  },
+  "image": null,
+  "profiles": []
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "entity_id": "johan-almenberg",
+  "name": "Johan Almenberg",
+  "type": "person",
+  "country": "SE",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/johan-almenberg.json",
+  "links": [
+   {
+    "kind": "wikipedia",
+    "label": "Wikipedia (sv)",
+    "url": "https://sv.wikipedia.org/wiki/Johan_Almenberg",
+    "source_url": "https://www.wikidata.org/wiki/Q137049198"
+   },
+   {
+    "kind": "wikidata",
+    "label": "Wikidata",
+    "url": "https://www.wikidata.org/wiki/Q137049198",
+    "source_url": "https://www.wikidata.org/wiki/Q137049198"
+   }
+  ]
+ }
+}

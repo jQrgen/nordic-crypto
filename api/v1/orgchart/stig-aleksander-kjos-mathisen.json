@@ -1,0 +1,39 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "stig-aleksander-kjos-mathisen",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/stig-aleksander-kjos-mathisen.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#stig-aleksander-kjos-mathisen",
+  "name": "Stig Aleksander Kjos-Mathisen",
+  "type": "person",
+  "sector": "private",
+  "country": "NO",
+  "description": null,
+  "role": "CEO",
+  "org": "nbx",
+  "group": null,
+  "profile_url": "https://nbx.com/en/investor",
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://nbx.com/en/investor",
+    "title": "NBX",
+    "source_name": "NBX",
+    "date": "03.10.2026"
+   },
+   {
+    "url": "https://www.finanstilsynet.no/en/finanstilsynets-registry/details/?id=201280",
+    "title": "Finanstilsynet",
+    "source_name": "Finanstilsynet",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

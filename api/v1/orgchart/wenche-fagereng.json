@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "wenche-fagereng",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/wenche-fagereng.json",
+  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#wenche-fagereng",
+  "name": "Wenche Fagereng",
+  "type": "person",
+  "sector": "public",
+  "country": "NO",
+  "description": "Head of section in the Risk Monitoring and Macroprudential Supervision department, according to Finanstilsynet's organisation chart (PDF dated 1 Oct 2026).",
+  "role": "Head of Section, IT and Payment Services",
+  "org": "finanstilsynet",
+  "group": null,
+  "profile_url": "https://www.finanstilsynet.no/globalassets/om-finanstilsynet/organisasjonskart.pdf",
+  "provenance": "Kryptonytt industry map (approved for Norway)",
+  "caveat": true,
+  "sources": [
+   {
+    "url": "https://www.finanstilsynet.no/globalassets/om-finanstilsynet/organisasjonskart.pdf",
+    "title": "Finanstilsynet",
+    "source_name": "Finanstilsynet",
+    "date": "03.10.2026"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": []
+ }
+}

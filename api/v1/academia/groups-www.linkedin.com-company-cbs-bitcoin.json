@@ -1,0 +1,28 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "country": "DK",
+  "name": "CBS Bitcoin",
+  "institution": "Copenhagen Business School",
+  "about": "",
+  "activity": "Latest dated activity: launch event 27 Apr 2026; LinkedIn post 1 May 2026.",
+  "active": true,
+  "url": "https://www.linkedin.com/company/cbs-bitcoin",
+  "source": "https://www.linkedin.com/company/cbs-bitcoin",
+  "checked": "2026-10-05",
+  "about_i18n": {
+   "nb": "Siste daterte aktivitet: oppstartsarrangement 27. april 2026; LinkedIn-innlegg 1. mai 2026.",
+   "nn": "Siste daterte aktivitet: oppstartsarrangement 27. april 2026; LinkedIn-innlegg 1. mai 2026.",
+   "sv": "Senaste daterade aktivitet: startevenemang 27 april 2026; LinkedIn-inlägg 1 maj 2026.",
+   "da": "Seneste daterede aktivitet: opstartsarrangement 27. april 2026; LinkedIn-opslag 1. maj 2026.",
+   "fi": "Viimeisin päivätty toiminta: aloitustapahtuma 27.4.2026; LinkedIn-julkaisu 1.5.2026.",
+   "is": "Nýjasta dagsetta virkni: upphafsviðburður 27. apríl 2026; LinkedIn-færsla 1. maí 2026."
+  },
+  "id": "groups-www.linkedin.com-company-cbs-bitcoin",
+  "section": "groups",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/groups-www.linkedin.com-company-cbs-bitcoin.json"
+ }
+}

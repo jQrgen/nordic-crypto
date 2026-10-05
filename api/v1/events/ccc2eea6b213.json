@@ -1,0 +1,27 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T19:25:37+00:00",
+ "preview": false,
+ "item": {
+  "id": "ccc2eea6b213",
+  "title": "Göteborg Bitcoin Meetup #49",
+  "title_original": null,
+  "start": "2026-10-08T18:00:00+02:00",
+  "end": "2026-10-08T21:00:00+02:00",
+  "place": "Ölrepubliken, Kronhusgatan 2B, Göteborg",
+  "city": "Göteborg",
+  "country": "SE",
+  "online": false,
+  "organiser": "Swedish Bitcoin Meetups",
+  "url": "https://www.meetup.com/swedish-bitcoin-meetups/events/316047111/",
+  "source": "Swedish Bitcoin Meetups (Meetup.com)",
+  "paid": null,
+  "sponsored": null,
+  "note": null,
+  "note_i18n": {},
+  "past": false,
+  "html_url": "https://jqrgen.github.io/nordic-crypto/calendar/#e-ccc2eea6b213",
+  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/events/ccc2eea6b213.json"
+ }
+}
