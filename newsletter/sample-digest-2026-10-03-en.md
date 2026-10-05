@@ -37,7 +37,7 @@ Binance said it would leave Europe, but customers are still trading, and EU fina
 
 **[GreenMerc cuts SEK 4.8 million a year as Northcrypto turns a profit](https://www.kaupr.io/nyheter/greenmerc-kutter-4-8-millioner-i-aret---northcrypto-gar-med-overskudd)** (original: GreenMerc kutter 4,8 millioner i året – Northcrypto går med overskudd)  
 GreenMerc is cutting costs by SEK 4.8 million a year while Northcrypto turns a profit, with spending redirected to the banking offer Trijo One.  
-*Kaupr · 30 Sep 2026 · Kaupr is a sponsor*
+*Kaupr · 30 Sep 2026*
 
 ## Finland
 

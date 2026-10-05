@@ -108,19 +108,19 @@ Suggested accent colour in Substack's theme: **#0f5ea8**.
   1. Title "Nordic Crypto weekly" (per language) + date range, one-line intro
   2. Stories grouped by country (Norway, Sweden, Denmark, Finland, Iceland): **headline (link to the source)** – English
      headline with the original in brackets for the English edition; original headline otherwise – then our summary in the
-     edition's language, then `source · date · may require a subscription · Kaupr is a sponsor` (the last only for Kaupr stories)
+     edition's language, then `source · date · may require a subscription`
   3. Link to the website (all stories, calendar, who's who)
   4. Footer: Kaupr disclosure, made with the help of artificial intelligence with human editors / not investment advice, why you get this email
 - Norwegian editions (nn/nb) are checked for «AI»/«KI» in our own text before the file is written (external headlines are left as published).
 - Sample: `newsletter/sample-digest-2026-10-03-en.md`.
 - Suggested rhythm: weekly, Friday morning (Oslo). Nothing is scheduled; jQrgen or the editor pastes and sends.
 
-## 5. Kaupr sponsor disclosure (use everywhere: about page, welcome email, every digest footer)
+## 5. Kaupr disclosure (use everywhere: about page, welcome email, every digest footer)
 
 > Disclosure: Kaupr (kaupr.io) is one of the news sources we follow, sponsors some events in our calendar and sponsors
 > Oslo Blockchain Meetup, the meetup run by jQrgen, the publisher of Nordic Crypto.
 
-Stories from Kaupr are marked "Kaupr is a sponsor" in the digest.
+Kaupr may appear as a news source. It is not a sponsor of Nordic Crypto or the newsletter. Event sponsorship (for example Oslo Blockchain Meetup) is disclosed only on those events.
 
 ## 6. Email channel (site signup) and moving subscribers to Substack
 

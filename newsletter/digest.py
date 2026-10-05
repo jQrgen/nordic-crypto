@@ -12,37 +12,37 @@ import i18n
 BASE = "https://jqrgen.github.io/nordic-crypto/"; OSLO = ZoneInfo("Europe/Oslo")
 T = {
  "en": dict(h="Nordic Crypto weekly", intro="The week’s crypto, bitcoin and blockchain stories from the Nordics that our editor has approved. Each item links to the original source.",
-            orig="original", spons="Kaupr is a sponsor", more="All stories, the calendar and the who’s who", none="No approved stories this week.",
+            orig="original", spons="", more="All stories, the calendar and the who’s who", none="No approved stories this week.",
             foot="Nordic Crypto is run by Jørgen S. Notland (jQrgen), Oslo. Made with the help of artificial intelligence, with human editors (jQrgen and the Nordic Crypto editor). Not investment advice.",
             kaupr="Disclosure: Kaupr (kaupr.io) is one of the news sources we follow, sponsors some events in our calendar and sponsors Oslo Blockchain Meetup, the meetup run by jQrgen, the publisher of Nordic Crypto.",
             why="You get this email because you subscribed to the Nordic Crypto newsletter."),
  "nn": dict(h="Nordic Crypto – veka som gjekk", intro="Saker om krypto, bitcoin og blokkjede frå Norden som redaktøren vår har godkjent denne veka. Kvar sak lenkjer til kjelda.",
-            orig="original", spons="Kaupr er sponsor", more="Alle sakene, kalenderen og kven er kven", none="Ingen godkjende saker denne veka.",
+            orig="original", spons="", more="Alle sakene, kalenderen og kven er kven", none="Ingen godkjende saker denne veka.",
             foot="Nordic Crypto blir driven av Jørgen S. Notland (jQrgen), Oslo. Laga med hjelp av kunstig intelligens, med menneskelege redaktørar (jQrgen og Nordic Crypto-redaktøren). Ikkje investeringsråd.",
             kaupr="Openheit: Kaupr (kaupr.io) er ei av nyheitskjeldene vi følgjer, sponsar nokre arrangement i kalenderen vår og sponsar Oslo Blockchain Meetup, som blir driven av jQrgen, utgjevaren av Nordic Crypto.",
             why="Du får denne e-posten fordi du har abonnert på nyheitsbrevet frå Nordic Crypto."),
  "nb": dict(h="Nordic Crypto – uka som gikk", intro="Saker om krypto, bitcoin og blokkjede fra Norden som redaktøren vår har godkjent denne uka. Hver sak lenker til kilden.",
-            orig="original", spons="Kaupr er sponsor", more="Alle sakene, kalenderen og hvem er hvem", none="Ingen godkjente saker denne uka.",
+            orig="original", spons="", more="Alle sakene, kalenderen og hvem er hvem", none="Ingen godkjente saker denne uka.",
             foot="Nordic Crypto drives av Jørgen S. Notland (jQrgen), Oslo. Laget med hjelp av kunstig intelligens, med menneskelige redaktører (jQrgen og Nordic Crypto-redaktøren). Ikke investeringsråd.",
             kaupr="Åpenhet: Kaupr (kaupr.io) er en av nyhetskildene vi følger, sponser noen arrangementer i kalenderen vår og sponser Oslo Blockchain Meetup, som drives av jQrgen, utgiveren av Nordic Crypto.",
             why="Du får denne e-posten fordi du har abonnert på nyhetsbrevet fra Nordic Crypto."),
  "sv": dict(h="Nordic Crypto – veckan som gick", intro="Veckans nyheter om krypto, bitcoin och blockkedjor från Norden som vår redaktör har godkänt. Varje nyhet länkar till källan.",
-            orig="original", spons="Kaupr är sponsor", more="Alla nyheter, kalendern och vem är vem", none="Inga godkända nyheter den här veckan.",
+            orig="original", spons="", more="Alla nyheter, kalendern och vem är vem", none="Inga godkända nyheter den här veckan.",
             foot="Nordic Crypto drivs av Jørgen S. Notland (jQrgen), Oslo. Gjort med hjälp av artificiell intelligens, med mänskliga redaktörer (jQrgen och Nordic Crypto-redaktören). Inga investeringsråd.",
             kaupr="Öppenhet: Kaupr (kaupr.io) är en av nyhetskällorna vi följer, sponsrar några evenemang i vår kalender och sponsrar Oslo Blockchain Meetup, som drivs av jQrgen, utgivare av Nordic Crypto.",
             why="Du får det här mejlet eftersom du prenumererar på Nordic Cryptos nyhetsbrev."),
  "da": dict(h="Nordic Crypto – ugen der gik", intro="Ugens historier om krypto, bitcoin og blockchain fra Norden, som vores redaktør har godkendt. Hver historie linker til kilden.",
-            orig="original", spons="Kaupr er sponsor", more="Alle historier, kalenderen og hvem er hvem", none="Ingen godkendte historier i denne uge.",
+            orig="original", spons="", more="Alle historier, kalenderen og hvem er hvem", none="Ingen godkendte historier i denne uge.",
             foot="Nordic Crypto drives af Jørgen S. Notland (jQrgen), Oslo. Lavet med hjælp fra kunstig intelligens, med menneskelige redaktører (jQrgen og Nordic Crypto-redaktøren). Ikke investeringsrådgivning.",
             kaupr="Åbenhed: Kaupr (kaupr.io) er en af de nyhedskilder, vi følger, sponsorerer nogle arrangementer i vores kalender og sponsorerer Oslo Blockchain Meetup, som drives af jQrgen, udgiveren af Nordic Crypto.",
             why="Du får denne e-mail, fordi du abonnerer på Nordic Cryptos nyhedsbrev."),
  "fi": dict(h="Nordic Crypto – viikon uutiset", intro="Viikon krypto-, bitcoin- ja lohkoketjuuutiset Pohjoismaista, jotka toimittajamme on hyväksynyt. Jokainen uutinen linkittää lähteeseen.",
-            orig="alkuperäinen", spons="Kaupr on sponsori", more="Kaikki uutiset, kalenteri ja kuka on kuka", none="Tällä viikolla ei hyväksyttyjä uutisia.",
+            orig="alkuperäinen", spons="", more="Kaikki uutiset, kalenteri ja kuka on kuka", none="Tällä viikolla ei hyväksyttyjä uutisia.",
             foot="Nordic Cryptoa pitää Jørgen S. Notland (jQrgen), Oslo. Tehty tekoälyn avulla, ihmistoimittajina jQrgen ja Nordic Crypton toimittaja. Ei sijoitusneuvontaa.",
             kaupr="Avoimuus: Kaupr (kaupr.io) on yksi seuraamistamme uutislähteistä, sponsoroi joitakin kalenterimme tapahtumia ja sponsoroi Oslo Blockchain Meetupia, jota pitää Nordic Crypton julkaisija jQrgen.",
             why="Saat tämän viestin, koska olet tilannut Nordic Crypton uutiskirjeen."),
  "is": dict(h="Nordic Crypto – vikan sem leið", intro="Fréttir vikunnar um kriptó, bitcoin og bálkakeðjur frá Norðurlöndum sem ritstjórinn okkar hefur samþykkt. Hver frétt tengir á heimildina.",
-            orig="upprunalegt", spons="Kaupr er styrktaraðili", more="Allar fréttir, dagatalið og hver er hver", none="Engar samþykktar fréttir þessa vikuna.",
+            orig="upprunalegt", spons="", more="Allar fréttir, dagatalið og hver er hver", none="Engar samþykktar fréttir þessa vikuna.",
             foot="Nordic Crypto er rekið af Jørgen S. Notland (jQrgen), Osló. Unnið með aðstoð gervigreindar, með mannlegum ritstjórum (jQrgen og ritstjóra Nordic Crypto). Ekki fjárfestingarráðgjöf.",
             kaupr="Upplýsingagjöf: Kaupr (kaupr.io) er einn af fréttamiðlunum sem við fylgjumst með, styrkir suma viðburði í dagatalinu okkar og styrkir Oslo Blockchain Meetup, sem jQrgen, útgefandi Nordic Crypto, stendur fyrir.",
             why="Þú færð þennan póst vegna þess að þú ert áskrifandi að fréttabréfi Nordic Crypto."),
@@ -73,7 +73,7 @@ def render(items, lang, since, until):
         summ = summ or i["summary"]
         meta = [i["source_name"], i18n.short_date(lang, i["_d"])]
         if i.get("paywall") is True: meta.append(i18n.t(lang, "paywall"))
-        if i.get("source") == "kaupr": meta.append(s["spons"])
+        if i.get("source") == "kaupr" and s.get("spons"): meta.append(s["spons"])
         orig = f" ({s['orig']}: {i['title']})" if title != i["title"] else ""
         md += [f"**[{title}]({i['url']})**{orig}  ", f"{summ}  ", f"*{' · '.join(meta)}*", ""]
         tx += [title + orig, summ, " · ".join(meta), i["url"], ""]

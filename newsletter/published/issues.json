@@ -5,7 +5,10 @@
    "id": "001",
    "number": 1,
    "date": "2026-10-05",
-   "period": ["2026-09-27", "2026-10-02"],
+   "period": [
+    "2026-09-27",
+    "2026-10-02"
+   ],
    "lang": "en",
    "title": "Nordic Crypto #1: Binance under scrutiny and Sweden's crypto sanctions warning",
    "subtitle": "Our first issue, with a new name. The Nordic crypto news that mattered from 27 September to 2 October 2026, and the meetups coming up.",
@@ -31,12 +34,12 @@
     "file": "video.mp4",
     "poster": "thumbnail.png",
     "subs": "subs.vtt",
-    "duration": 223,
+    "duration": 199,
     "width": 1920,
     "height": 1080,
-    "bytes": 15608169,
-    "sha256": "3655aee49ed36e015ad5e24c4d23663a60d6a1330c402a90b84861ae01f804fd",
-    "url": "https://github.com/jQrgen/nordic-crypto/releases/download/newsletter-001/crypto-nordic-1.mp4"
+    "bytes": 46848304,
+    "sha256": "9773ac17abb6744fcc15297001fb6c10b6f8d8ca872e984ae59139630638d911",
+    "url": "https://github.com/jQrgen/nordic-crypto/releases/download/newsletter-001-newsreel/nordic-crypto-1-newsreel.mp4"
    }
   }
  ]
