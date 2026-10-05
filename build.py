@@ -6,7 +6,7 @@ Also writes the public JSON API under site/api/v1/ (see tools/api_feed.py), /api
 All paths are relative, so the site works at https://jqrgen.github.io/nordic-crypto/ and on a local server.
 Share buttons are plain links. No advertising trackers and no external fonts. Cloudflare Web Analytics
 (aggregate visits, no cookies) is injected only when analytics.json or CF_WEB_ANALYTICS_TOKEN has a real token.
-Languages (i18n/): English at the root, nynorsk /nn/, bokmål /nb/, svensk /sv/, dansk /da/, suomi /fi/, íslenska /is/.
+Languages (i18n/ALL_LANGS): English at the root, then one directory per code. Nordic nn, nb, sv, da, fi, is plus the wider UI set. Missing strings fall back to English.
 Every page is built once per language; data/ (JSON), assets/ and screen/ (English) exist only at the root."""
 import json, os, re, shutil, subprocess, html, sys, calendar, datetime as dt
 from zoneinfo import ZoneInfo
@@ -133,7 +133,8 @@ CSS += """
 .langsw{position:relative;margin-left:auto;font-size:14px;display:flex;gap:10px;align-items:baseline}
 .langsw details{position:relative}.langsw summary{cursor:pointer;list-style:none;border:1px solid var(--ink);padding:2px 8px}
 .langsw summary::-webkit-details-marker{display:none}
-.langsw ul{position:absolute;right:0;z-index:20;margin:4px 0 0;padding:4px 0;list-style:none;background:#fff;border:1px solid var(--ink);min-width:150px}
+.langsw ul{position:absolute;right:0;z-index:20;margin:4px 0 0;padding:4px 0;list-style:none;background:#fff;border:1px solid var(--ink);min-width:12.5rem}
+html[dir=rtl] .langsw ul{right:auto;left:0}
 .langsw li a{display:block;padding:4px 12px;text-decoration:none}.langsw li a:hover,.langsw li a:focus{background:var(--soft)}
 .langsw li a[aria-current]{font-weight:700}.langsw .quick{font-size:13.5px}
 @media(max-width:640px){.langsw{margin-left:0;width:100%}}
@@ -208,12 +209,13 @@ def newsletter_endpoint():
     return (e or "").strip().rstrip("/") or None
 NL_N = [0]
 def newsletter_form(compact=False):
-    """Signup form (posts to the Worker; works without JavaScript via a 303 back to /newsletter/). Honeypot 'website'."""
+    """Signup form (posts to the Worker; works without JavaScript via a 303 back to /newsletter/). Honeypot 'website'.
+    The Worker still accepts the original seven site languages, so a newer UI language posts English."""
     ep = newsletter_endpoint()
     if not ep: return ""
     NL_N[0] += 1; i = NL_N[0]
     return (f'<form class="nlform{" nlc" if compact else ""}" method="post" action="{E(ep)}/api/subscribe" data-ep="{E(ep)}">'
-            f'<input type="hidden" name="site" value="nordic-crypto"><input type="hidden" name="lang" value="{LANG}">'
+            f'<input type="hidden" name="site" value="nordic-crypto"><input type="hidden" name="lang" value="{LANG if LANG in ("en", "nn", "nb", "sv", "da", "fi", "is") else "en"}">'
             f'<label for="nl-email-{i}">{E(t("nl_email"))}</label> <input id="nl-email-{i}" name="email" type="email" required maxlength="254" autocomplete="email" inputmode="email">'
             f'<span class="hp" aria-hidden="true"><label for="nl-w-{i}">website</label><input id="nl-w-{i}" name="website" tabindex="-1" autocomplete="off"></span>'
             f' <button type="submit">{E(t("nl_btn"))}</button><span class="nlmsg" role="status" aria-live="polite"></span></form>')
@@ -440,7 +442,11 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
     langs = langs or i18n.LANGS
     alt = "".join(f'<link rel="alternate" hreflang="{i18n.HTML_LANG[l]}" href="{BASE}{lp(l)}{slug + "/" if slug else ""}">' for l in langs) + \
         f'<link rel="alternate" hreflang="x-default" href="{BASE}{slug + "/" if slug else ""}">'
-    sw = "".join(f'<li><a href="{root}{lp(l)}{slug + "/" if slug else ""}" hreflang="{l}" lang="{l}" data-lang="{l}"{" aria-current=true" if l == LANG else ""}>{E(i18n.NAME[l])}</a></li>' for l in langs)
+    def _sw(l):
+        rtl = ' dir="rtl"' if i18n.rtl(l) else ""
+        cur = " aria-current=true" if l == LANG else ""
+        return (f'<li><a href="{root}{lp(l)}{slug + "/" if slug else ""}" hreflang="{l}" lang="{l}"{rtl} data-lang="{l}"{cur}>{E(i18n.NAME[l])}</a></li>')
+    sw = "".join(_sw(l) for l in langs)
     q = i18n.QUICK.get(LANG)
     quick = (f'<a class="quick" href="{root}{lp(q)}{slug + "/" if slug else ""}" hreflang="{q}" lang="{q}" data-lang="{q}">{E(i18n.NAME[q])}</a>' if q in langs else "")
     switcher = (f'<div class="langsw">{quick}<details><summary aria-label="{E(t("lang_choose"))}">🌐 {E(i18n.NAME[LANG])}</summary>'
@@ -452,11 +458,12 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
         pick = ("<script>" + langsel_script().replace("__GEO__", json.dumps((geo_endpoint() + "/api/geo") if geo_endpoint() else None))
                 .replace("__COOKIE_PATH__", COOKIE_PATH).replace("__LANGS__", json.dumps(i18n.LANGS)) + "</script>")
     setck = ("<script>(function(){document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[data-lang]');if(!a)return;"
-             f"document.cookie='nc_lang='+a.getAttribute('data-lang')+';path={COOKIE_PATH};max-age=31536000;SameSite=Lax'+(location.protocol==='https:'?';Secure':'')}})}})();</script>")
+             f"var c=a.getAttribute('data-lang');document.cookie='nc_lang='+c+';path={COOKIE_PATH};max-age=31536000;SameSite=Lax'+(location.protocol==='https:'?';Secure':'');"
+             "try{localStorage.setItem('nc_lang',c)}catch(err){}}})})();</script>")
     nlfoot = (f'<div class="nlfoot"><b>{E(t("nl_foot"))}</b> {" ".join(x for x in (newsletter_form(True), substack_button(), x_link()) if x)} <a href="{rel}newsletter/">{E(t("nl_more"))}</a></div>' if newsletter_on() and slug != "newsletter"
               else f'<div class="nlfoot">{x_link()}</div>')
     doc = f"""<!doctype html>
-<html lang="{i18n.HTML_LANG[LANG]}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="{i18n.HTML_LANG[LANG]}"{" dir=\"rtl\"" if i18n.rtl(LANG) else ""}><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 {pick}<title>{E(title)}{" – " + SITE_NAME if slug else ""}</title>
 <meta name="description" content="{E(desc)}"><link rel="canonical" href="{url}">{alt}{head_extra}{'<meta name="robots" content="noindex">' if PREVIEW else ''}
 <meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:url" content="{url}"><meta property="og:type" content="website"><meta property="og:locale" content="{i18n.OG_LOCALE[LANG]}">{''.join(f'<meta property="og:locale:alternate" content="{i18n.OG_LOCALE[l]}">' for l in langs if l != LANG)}
@@ -583,10 +590,17 @@ def emit_api(ctx):
     LANG = was
     return info
 
+def lang_template(stem):
+    """HTML body for this language. A missing translation uses the English file (UI stub, not a new translation)."""
+    if LANG != "en":
+        path = P("templates", f"{stem}.{LANG}.html")
+        if os.path.exists(path):
+            return open(path, encoding="utf-8").read()
+    return open(P("templates", f"{stem}.html"), encoding="utf-8").read()
+
 def build_ethics():
     """Press ethics: Nordic Crypto follows Vær Varsom-plakaten. Own wording, not a copy of the code."""
-    name = f"ethics.{LANG}.html" if LANG != "en" else "ethics.html"
-    body = open(P("templates", name), encoding="utf-8").read()
+    body = lang_template("ethics")
     page("ethics", t("ethics_title"), "ethics", body, t("ethics_desc"))
 
 def sitemap():
@@ -709,7 +723,7 @@ def build_lang(ctx):
         else:  # other languages: the external headline exactly as in the source
             head, head_l, orig = i["title"], src_l, ""
         lname = i.get("language") or ""
-        foreign = bool(lname and i18n.has("en", "lang_" + lname) and lname != i18n.SAME_LANG[LANG] and head_l != LANG)
+        foreign = bool(lname and i18n.has("en", "lang_" + lname) and lname != i18n.SAME_LANG.get(LANG, "") and head_l != LANG)
         if pend:
             summ = f'<p class="sum pend">{E(t("sum_pending"))}</p>'
             lang = f' · {E(t("lang_" + lname))}' if foreign else ""
@@ -768,7 +782,7 @@ sel.addEventListener('change',function(){apply(1)});tc.concat(cc).forEach(functi
     build_columnist()
     build_newsletter()
     build_rules(ctx)
-    about = open(P("templates", f"about.{LANG}.html" if LANG != "en" else "about.html"), encoding="utf-8").read().replace("{{UP}}", up1())
+    about = lang_template("about").replace("{{UP}}", up1())
     page("about", t("about_title"), "about", about, t("about_desc"))
     build_ethics()
 

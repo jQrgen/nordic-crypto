@@ -103,7 +103,8 @@ def main():
             fails.append("approved course missing")
         spec = json.load(open(os.path.join(tmp, "api/v1/openapi.json"), encoding="utf-8"))
         for path in ("/api/v1/news.json", "/api/v1/news/{id}.json", "/api/v1/newsletters.json", "/api/v1/newsletters/{id}.json",
-                     "/api/v1/markets.json", "/api/v1/markets/{exchange}.json", "/api/v1/markets/by-asset/{symbol}.json"):
+                     "/api/v1/markets.json", "/api/v1/markets/{exchange}.json", "/api/v1/markets/by-asset/{symbol}.json",
+                     "/api/v1/languages.json", "/api/v1/geo-language.json"):
             if path not in spec["paths"]:
                 fails.append("openapi missing " + path)
         try:
@@ -134,6 +135,50 @@ def main():
         meta = json.load(open(os.path.join(tmp, "api/v1/meta.json"), encoding="utf-8"))
         if "/ethics/" not in {p.get("path") for p in meta.get("site_pages") or []}:
             fails.append("ethics page missing from site meta")
+        need = {"en", "nn", "nb", "sv", "da", "fi", "is", "zh", "hi", "es", "fr", "ar", "bn", "pt", "ru", "ur", "id", "de", "ja", "sw", "mr"}
+        langs_doc = json.load(open(os.path.join(tmp, "api/v1/languages.json"), encoding="utf-8"))
+        got = {row.get("code") for row in langs_doc.get("languages") or []}
+        if got != need:
+            fails.append("languages.json codes " + ",".join(sorted(got)))
+        for row in langs_doc.get("languages") or []:
+            for key in ("code", "native_name", "english_name", "rtl", "html_lang", "home"):
+                if key not in row:
+                    fails.append("languages.json missing " + key + " on " + str(row.get("code")))
+            if row.get("code") in ("ar", "ur") and row.get("rtl") is not True:
+                fails.append("rtl missing for " + row["code"])
+            if row.get("code") == "en" and row.get("rtl"):
+                fails.append("english marked rtl")
+            if row.get("code") == "en" and not str(row.get("home") or "").endswith("/nordic-crypto/"):
+                fails.append("english home")
+            if row.get("code") == "zh" and not str(row.get("home") or "").endswith("/zh/"):
+                fails.append("zh home")
+        meta_codes = {row.get("code") for row in meta.get("languages") or []}
+        if meta_codes != need:
+            fails.append("meta languages")
+        for row in meta.get("languages") or []:
+            for key in ("native_name", "english_name", "rtl"):
+                if key not in row:
+                    fails.append("meta language missing " + key)
+        geo = json.load(open(os.path.join(tmp, "api/v1/geo-language.json"), encoding="utf-8"))
+        by = geo.get("by_country") or {}
+        expect = {"NO": "nn", "SE": "sv", "DK": "da", "FI": "fi", "IS": "is", "AX": "sv", "FO": "da", "GL": "da",
+                  "CN": "zh", "TW": "zh", "SG": "zh", "IN": "hi", "ES": "es", "MX": "es", "AR": "es", "FR": "fr",
+                  "SA": "ar", "EG": "ar", "AE": "ar", "BD": "bn", "BR": "pt", "PT": "pt", "RU": "ru", "PK": "ur",
+                  "ID": "id", "DE": "de", "AT": "de", "CH": "de", "JP": "ja", "KE": "sw", "TZ": "sw", "MR": "ar"}
+        for c, l in expect.items():
+            if by.get(c) != l:
+                fails.append(f"geo {c} -> {by.get(c)} want {l}")
+        if by.get("US") is not None:
+            fails.append("US should stay unmapped")
+        note = (geo.get("note") or "").lower()
+        if "cookie" not in note or "guess" not in note or "cloudflare" not in note:
+            fails.append("geo note")
+        if "nc_lang" not in (geo.get("cookie") or ""):
+            fails.append("geo cookie name")
+        if not any(ep["path"] == "/api/v1/languages.json" for ep in info["endpoints"]):
+            fails.append("languages missing from discovery")
+        if not any(ep["path"] == "/api/v1/geo-language.json" for ep in info["endpoints"]):
+            fails.append("geo-language missing from discovery")
         page = open(os.path.join(tmp, "api/index.html"), encoding="utf-8").read()
         if "Nordic Crypto data API" not in page or "curl -fsS" not in page or "<header" not in page:
             fails.append("human docs were not themed by the site builder")

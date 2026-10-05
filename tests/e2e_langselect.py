@@ -31,7 +31,7 @@ def landed(c, url=BASE):
     p = c.new_page(); p.goto(url); p.wait_for_timeout(900); u = p.url; return p, u
 with sync_playwright() as pw:
     b = pw.chromium.launch()
-    for country, lang in [("NO", "nn"), ("SE", "sv"), ("DK", "da"), ("FI", "fi"), ("IS", "is"), ("US", ""), ("AX", "sv")]:
+    for country, lang in [("NO", "nn"), ("SE", "sv"), ("DK", "da"), ("FI", "fi"), ("IS", "is"), ("US", ""), ("AX", "sv"), ("DE", "de"), ("CN", "zh"), ("JP", "ja")]:
         c = ctx(b, country=country); p, u = landed(c); check(f"first visit from {country} -> /{lang}", u == BASE + (lang + "/" if lang else ""), u); c.close()
     c = ctx(b, country="SE", cookie="nb"); p, u = landed(c); check("cookie nb beats geo SE", u == BASE + "nb/", u); c.close()
     c = ctx(b, country="NO", cookie="en"); p, u = landed(c); check("cookie en beats geo NO (stays on root)", u == BASE, u); c.close()
@@ -39,7 +39,8 @@ with sync_playwright() as pw:
     check("no geo lookup on /nb/", not calls, f"{len(calls)} calls"); c.close()
     c = ctx(b, country="SE"); p, u = landed(c, BASE + "org-chart/"); check("non-home English page never redirects", u == BASE + "org-chart/", u); c.close()
     c = ctx(b, geo_fail=True, langs=("nb-NO", "en")); p, u = landed(c); check("geo unreachable -> navigator nb -> /nn/", u == BASE + "nn/", u); c.close()
-    c = ctx(b, geo_fail=True, langs=("de-DE",)); p, u = landed(c); check("geo unreachable, German browser -> English", u == BASE, u); c.close()
+    c = ctx(b, geo_fail=True, langs=("de-DE",)); p, u = landed(c); check("geo unreachable, German browser -> /de/", u == BASE + "de/", u); c.close()
+    c = ctx(b, geo_fail=True, langs=("nl-NL",)); p, u = landed(c); check("geo unreachable, Dutch browser -> English", u == BASE, u); c.close()
     c = ctx(b, country="NO"); p, u = landed(c); check("NO -> nn", u == BASE + "nn/", u)
     p.goto(BASE); p.wait_for_timeout(900); check("back to root in same tab: no second auto-redirect", p.url == BASE, p.url)
     p.goto(BASE + "nn/"); nb = p.locator('a.quick[data-lang="nb"]'); check("nn page has a visible nb quick link", nb.count() == 1 and nb.is_visible())
