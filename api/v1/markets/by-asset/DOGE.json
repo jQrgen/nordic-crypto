@@ -1,0 +1,43 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T22:04:08+00:00",
+ "preview": false,
+ "kind": "markets",
+ "disclaimer": "Market data, not investment advice. Each figure is the value published by the named exchange at fetched_at. Nordic Crypto does not set these prices and does not tell anyone to buy or sell.",
+ "sign_off": "The Nordic Crypto team",
+ "not_investment_advice": true,
+ "urls": {
+  "github_pages": "https://jqrgen.github.io/nordic-crypto/api/v1/markets.json",
+  "raw_githubusercontent": "https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json",
+  "custom_domain": "https://cryptonordic.no/api/v1/markets.json"
+ },
+ "symbol": "DOGE",
+ "count": 1,
+ "tickers": [
+  {
+   "id": "nbx:DOGE-NOK",
+   "symbol": "DOGE-NOK",
+   "exchange_symbol": "DOGE-NOK",
+   "base": "DOGE",
+   "quote": "NOK",
+   "last": "0.93",
+   "bid": "0.91",
+   "ask": "0.93",
+   "exchange": {
+    "id": "nbx",
+    "name": "Norwegian Block Exchange",
+    "country": "NO"
+   },
+   "fetched_at": "2026-10-05T22:04:03+00:00",
+   "source_url": "https://api.nbx.com/tickers",
+   "volume_base": null,
+   "volume_quote": null,
+   "volume_base_24h": "53626.20929855",
+   "volume_quote_24h": "49339.56",
+   "high": null,
+   "low": null,
+   "change_pct": null
+  }
+ ]
+}

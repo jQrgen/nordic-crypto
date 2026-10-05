@@ -1,12 +1,19 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T19:25:37+00:00",
+ "generated_at": "2026-10-05T22:04:08+00:00",
  "preview": false,
  "sign_off": "The Nordic Crypto team",
  "description": "Bitcoin, blockchain and crypto news, events, a who's who, regulation and academia for Norway, Sweden, Denmark, Finland and Iceland.",
  "license": "MIT",
  "operator": "Jørgen S. Notland (jQrgen), Oslo",
+ "ios": {
+  "name": "Nordic Crypto",
+  "distribution": "TestFlight",
+  "label": "iOS app (TestFlight)",
+  "url": "https://testflight.apple.com/join/nQ2fpjZn",
+  "note": "Public TestFlight invite. This feed does not list an App Store page."
+ },
  "languages": [
   {
    "code": "en",
@@ -159,6 +166,11 @@
    "path": "/columnist/",
    "url": "https://jqrgen.github.io/nordic-crypto/columnist/",
    "title": "Apply as a columnist (not part of this data API)"
+  },
+  {
+   "path": "/markets/",
+   "url": "https://jqrgen.github.io/nordic-crypto/markets/",
+   "title": "Prices on Nordic exchanges (market data, not investment advice)"
   },
   {
    "path": "/screen/",

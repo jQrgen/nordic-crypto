@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T19:25:37+00:00",
+ "generated_at": "2026-10-05T22:04:08+00:00",
  "preview": false,
  "title": "Nordic Crypto data API",
  "sign_off": "The Nordic Crypto team",
@@ -54,8 +54,14 @@
   "org_relations": 15,
   "profiles": 20,
   "images": 64,
-  "changelog": 13,
-  "archive_articles": 42
+  "changelog": 15,
+  "archive_articles": 42,
+  "markets": 72,
+  "markets_by_exchange": {
+   "firi": 11,
+   "nbx": 41,
+   "coinmotion": 20
+  }
  },
  "endpoints": [
   {
@@ -221,8 +227,8 @@
    "url_custom_domain": "https://cryptonordic.no/api/v1/academia/{id}.json",
    "summary": "One academia row. The id is in academia.json.",
    "schema": "AcademiaItem",
-   "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/research-research.chalmers.se-en-project-12829.json",
-   "example_url_custom_domain": "https://cryptonordic.no/api/v1/academia/research-research.chalmers.se-en-project-12829.json"
+   "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/NO-BAN435.json",
+   "example_url_custom_domain": "https://cryptonordic.no/api/v1/academia/NO-BAN435.json"
   },
   {
    "id": "api-v1-orgchart",
@@ -294,8 +300,8 @@
    "url_custom_domain": "https://cryptonordic.no/api/v1/changelog.json",
    "summary": "Site changelog (product changes, not the news), newest first.",
    "schema": "ChangelogList",
-   "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/press-ethics.json",
-   "example_url_custom_domain": "https://cryptonordic.no/api/v1/changelog/press-ethics.json",
+   "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/ios-testflight.json",
+   "example_url_custom_domain": "https://cryptonordic.no/api/v1/changelog/ios-testflight.json",
    "item_path": "/api/v1/changelog/{id}.json",
    "item_url_template": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/{id}.json"
   },
@@ -322,6 +328,39 @@
    "item_url_template": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/{id}.json"
   },
   {
+   "id": "markets",
+   "method": "GET",
+   "path": "/api/v1/markets.json",
+   "url": "https://jqrgen.github.io/nordic-crypto/api/v1/markets.json",
+   "url_custom_domain": "https://cryptonordic.no/api/v1/markets.json",
+   "summary": "Nordic exchange prices. Market data, not investment advice. Each ticker names the exchange, fetched_at and the source URL. NOK, SEK, DKK and EUR only.",
+   "schema": "MarketCatalogue",
+   "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/markets/firi.json",
+   "example_url_custom_domain": "https://cryptonordic.no/api/v1/markets/firi.json"
+  },
+  {
+   "id": "markets-exchange",
+   "method": "GET",
+   "path": "/api/v1/markets/{exchange}.json",
+   "url": "https://jqrgen.github.io/nordic-crypto/api/v1/markets/{exchange}.json",
+   "url_custom_domain": "https://cryptonordic.no/api/v1/markets/{exchange}.json",
+   "summary": "Prices from one included exchange: firi (Norway), nbx (Norway) or coinmotion (Finland).",
+   "schema": "MarketExchange",
+   "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/markets/firi.json",
+   "example_url_custom_domain": "https://cryptonordic.no/api/v1/markets/firi.json"
+  },
+  {
+   "id": "markets-asset",
+   "method": "GET",
+   "path": "/api/v1/markets/by-asset/{symbol}.json",
+   "url": "https://jqrgen.github.io/nordic-crypto/api/v1/markets/by-asset/{symbol}.json",
+   "url_custom_domain": "https://cryptonordic.no/api/v1/markets/by-asset/{symbol}.json",
+   "summary": "Prices for one asset (the base symbol, such as BTC) on every included Nordic exchange.",
+   "schema": "MarketAsset",
+   "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/markets/by-asset/BTC.json",
+   "example_url_custom_domain": "https://cryptonordic.no/api/v1/markets/by-asset/BTC.json"
+  },
+  {
    "id": "api-v1-meta",
    "method": "GET",
    "path": "/api/v1/meta.json",
@@ -332,6 +371,18 @@
   }
  ],
  "start_here": [
+  {
+   "description": "Nordic exchange prices (market data, not investment advice)",
+   "url": "https://jqrgen.github.io/nordic-crypto/api/v1/markets.json"
+  },
+  {
+   "description": "Prices from one exchange",
+   "url": "https://jqrgen.github.io/nordic-crypto/api/v1/markets/firi.json"
+  },
+  {
+   "description": "Prices for one asset, on every included exchange",
+   "url": "https://jqrgen.github.io/nordic-crypto/api/v1/markets/by-asset/BTC.json"
+  },
   {
    "description": "All published news",
    "url": "https://jqrgen.github.io/nordic-crypto/api/v1/news.json"

@@ -1,0 +1,67 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T22:04:08+00:00",
+ "preview": false,
+ "kind": "markets",
+ "disclaimer": "Market data, not investment advice. Each figure is the value published by the named exchange at fetched_at. Nordic Crypto does not set these prices and does not tell anyone to buy or sell.",
+ "sign_off": "The Nordic Crypto team",
+ "not_investment_advice": true,
+ "urls": {
+  "github_pages": "https://jqrgen.github.io/nordic-crypto/api/v1/markets.json",
+  "raw_githubusercontent": "https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json",
+  "custom_domain": "https://cryptonordic.no/api/v1/markets.json"
+ },
+ "symbol": "NIGHT",
+ "count": 2,
+ "tickers": [
+  {
+   "id": "nbx:NIGHT-NOK",
+   "symbol": "NIGHT-NOK",
+   "exchange_symbol": "NIGHT-NOK",
+   "base": "NIGHT",
+   "quote": "NOK",
+   "last": "0.50",
+   "bid": "0.48",
+   "ask": "0.49",
+   "exchange": {
+    "id": "nbx",
+    "name": "Norwegian Block Exchange",
+    "country": "NO"
+   },
+   "fetched_at": "2026-10-05T22:04:03+00:00",
+   "source_url": "https://api.nbx.com/tickers",
+   "volume_base": null,
+   "volume_quote": null,
+   "volume_base_24h": "497778.1915269536",
+   "volume_quote_24h": "229133.32",
+   "high": null,
+   "low": null,
+   "change_pct": null
+  },
+  {
+   "id": "nbx:NIGHT-EUR",
+   "symbol": "NIGHT-EUR",
+   "exchange_symbol": "NIGHT-EUR",
+   "base": "NIGHT",
+   "quote": "EUR",
+   "last": "0.0429486049",
+   "bid": "0.0447400814",
+   "ask": "0.0451539084",
+   "exchange": {
+    "id": "nbx",
+    "name": "Norwegian Block Exchange",
+    "country": "NO"
+   },
+   "fetched_at": "2026-10-05T22:04:03+00:00",
+   "source_url": "https://api.nbx.com/tickers",
+   "volume_base": null,
+   "volume_quote": null,
+   "volume_base_24h": "42.1799999999",
+   "volume_quote_24h": "1.8115721546",
+   "high": null,
+   "low": null,
+   "change_pct": null
+  }
+ ]
+}

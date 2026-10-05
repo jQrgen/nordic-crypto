@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T19:25:37+00:00",
+ "generated_at": "2026-10-05T22:04:08+00:00",
  "preview": false,
  "user_agent": "CryptoNordicBot/0.1 (+https://jqrgen.github.io/nordic-crypto/about/; news headline bot)",
  "min_delay_seconds": 2,

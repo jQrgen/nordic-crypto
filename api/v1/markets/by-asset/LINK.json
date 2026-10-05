@@ -1,0 +1,117 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T22:04:08+00:00",
+ "preview": false,
+ "kind": "markets",
+ "disclaimer": "Market data, not investment advice. Each figure is the value published by the named exchange at fetched_at. Nordic Crypto does not set these prices and does not tell anyone to buy or sell.",
+ "sign_off": "The Nordic Crypto team",
+ "not_investment_advice": true,
+ "urls": {
+  "github_pages": "https://jqrgen.github.io/nordic-crypto/api/v1/markets.json",
+  "raw_githubusercontent": "https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json",
+  "custom_domain": "https://cryptonordic.no/api/v1/markets.json"
+ },
+ "symbol": "LINK",
+ "count": 4,
+ "tickers": [
+  {
+   "id": "coinmotion:LINK-SEK",
+   "symbol": "LINK-SEK",
+   "exchange_symbol": "linkSek",
+   "base": "LINK",
+   "quote": "SEK",
+   "last": null,
+   "bid": "139.33",
+   "ask": "140.79",
+   "exchange": {
+    "id": "coinmotion",
+    "name": "Coinmotion",
+    "country": "FI"
+   },
+   "fetched_at": "2026-10-05T22:04:04+00:00",
+   "source_url": "https://api.coinmotion.com/v2/rates",
+   "volume_base": null,
+   "volume_quote": null,
+   "volume_base_24h": null,
+   "volume_quote_24h": null,
+   "high": "143.50",
+   "low": "137.75",
+   "change_pct": null,
+   "exchange_time": "2026-10-05T22:03:09+00:00"
+  },
+  {
+   "id": "coinmotion:LINK-EUR",
+   "symbol": "LINK-EUR",
+   "exchange_symbol": "linkEur",
+   "base": "LINK",
+   "quote": "EUR",
+   "last": null,
+   "bid": "12.37",
+   "ask": "12.50",
+   "exchange": {
+    "id": "coinmotion",
+    "name": "Coinmotion",
+    "country": "FI"
+   },
+   "fetched_at": "2026-10-05T22:04:04+00:00",
+   "source_url": "https://api.coinmotion.com/v2/rates",
+   "volume_base": null,
+   "volume_quote": null,
+   "volume_base_24h": null,
+   "volume_quote_24h": null,
+   "high": "12.74",
+   "low": "12.23",
+   "change_pct": null,
+   "exchange_time": "2026-10-05T22:03:09+00:00"
+  },
+  {
+   "id": "nbx:LINK-NOK",
+   "symbol": "LINK-NOK",
+   "exchange_symbol": "LINK-NOK",
+   "base": "LINK",
+   "quote": "NOK",
+   "last": "135.41",
+   "bid": "132.79",
+   "ask": "134.94",
+   "exchange": {
+    "id": "nbx",
+    "name": "Norwegian Block Exchange",
+    "country": "NO"
+   },
+   "fetched_at": "2026-10-05T22:04:03+00:00",
+   "source_url": "https://api.nbx.com/tickers",
+   "volume_base": null,
+   "volume_quote": null,
+   "volume_base_24h": "1.234724292101341300",
+   "volume_quote_24h": "167.19",
+   "high": null,
+   "low": null,
+   "change_pct": null
+  },
+  {
+   "id": "nbx:LINK-EUR",
+   "symbol": "LINK-EUR",
+   "exchange_symbol": "LINK-EUR",
+   "base": "LINK",
+   "quote": "EUR",
+   "last": "7.3947156009",
+   "bid": "12.3377840982",
+   "ask": "12.5399238822",
+   "exchange": {
+    "id": "nbx",
+    "name": "Norwegian Block Exchange",
+    "country": "NO"
+   },
+   "fetched_at": "2026-10-05T22:04:03+00:00",
+   "source_url": "https://api.nbx.com/tickers",
+   "volume_base": null,
+   "volume_quote": null,
+   "volume_base_24h": "0.000000000000000000",
+   "volume_quote_24h": "0.0000000000",
+   "high": null,
+   "low": null,
+   "change_pct": null
+  }
+ ]
+}

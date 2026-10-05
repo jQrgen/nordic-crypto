@@ -1,0 +1,117 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T22:04:08+00:00",
+ "preview": false,
+ "kind": "markets",
+ "disclaimer": "Market data, not investment advice. Each figure is the value published by the named exchange at fetched_at. Nordic Crypto does not set these prices and does not tell anyone to buy or sell.",
+ "sign_off": "The Nordic Crypto team",
+ "not_investment_advice": true,
+ "urls": {
+  "github_pages": "https://jqrgen.github.io/nordic-crypto/api/v1/markets.json",
+  "raw_githubusercontent": "https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json",
+  "custom_domain": "https://cryptonordic.no/api/v1/markets.json"
+ },
+ "symbol": "LTC",
+ "count": 4,
+ "tickers": [
+  {
+   "id": "coinmotion:LTC-SEK",
+   "symbol": "LTC-SEK",
+   "exchange_symbol": "ltcSek",
+   "base": "LTC",
+   "quote": "SEK",
+   "last": null,
+   "bid": "703.54",
+   "ask": "710.07",
+   "exchange": {
+    "id": "coinmotion",
+    "name": "Coinmotion",
+    "country": "FI"
+   },
+   "fetched_at": "2026-10-05T22:04:04+00:00",
+   "source_url": "https://api.coinmotion.com/v2/rates",
+   "volume_base": null,
+   "volume_quote": null,
+   "volume_base_24h": null,
+   "volume_quote_24h": null,
+   "high": "721.33",
+   "low": "700.72",
+   "change_pct": null,
+   "exchange_time": "2026-10-05T22:03:09+00:00"
+  },
+  {
+   "id": "coinmotion:LTC-EUR",
+   "symbol": "LTC-EUR",
+   "exchange_symbol": "ltcEur",
+   "base": "LTC",
+   "quote": "EUR",
+   "last": null,
+   "bid": "62.46",
+   "ask": "63.04",
+   "exchange": {
+    "id": "coinmotion",
+    "name": "Coinmotion",
+    "country": "FI"
+   },
+   "fetched_at": "2026-10-05T22:04:04+00:00",
+   "source_url": "https://api.coinmotion.com/v2/rates",
+   "volume_base": null,
+   "volume_quote": null,
+   "volume_base_24h": null,
+   "volume_quote_24h": null,
+   "high": "64.04",
+   "low": "62.21",
+   "change_pct": null,
+   "exchange_time": "2026-10-05T22:03:09+00:00"
+  },
+  {
+   "id": "firi:LTC-NOK",
+   "symbol": "LTC-NOK",
+   "exchange_symbol": "LTCNOK",
+   "base": "LTC",
+   "quote": "NOK",
+   "last": "689.47",
+   "bid": "672.0100000000000000",
+   "ask": "685.8400000000000000",
+   "exchange": {
+    "id": "firi",
+    "name": "Firi",
+    "country": "NO"
+   },
+   "fetched_at": "2026-10-05T22:04:02+00:00",
+   "source_url": "https://api.firi.com/v2/markets/LTCNOK",
+   "volume_base": "0",
+   "volume_quote": null,
+   "volume_base_24h": null,
+   "volume_quote_24h": null,
+   "high": "0",
+   "low": "0",
+   "change_pct": "0"
+  },
+  {
+   "id": "nbx:LTC-NOK",
+   "symbol": "LTC-NOK",
+   "exchange_symbol": "LTC-NOK",
+   "base": "LTC",
+   "quote": "NOK",
+   "last": "678.44",
+   "bid": "669.66",
+   "ask": "680.67",
+   "exchange": {
+    "id": "nbx",
+    "name": "Norwegian Block Exchange",
+    "country": "NO"
+   },
+   "fetched_at": "2026-10-05T22:04:03+00:00",
+   "source_url": "https://api.nbx.com/tickers",
+   "volume_base": null,
+   "volume_quote": null,
+   "volume_base_24h": "0.27701142",
+   "volume_quote_24h": "186.69",
+   "high": null,
+   "low": null,
+   "change_pct": null
+  }
+ ]
+}

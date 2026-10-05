@@ -1,0 +1,93 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T22:04:08+00:00",
+ "preview": false,
+ "kind": "markets",
+ "disclaimer": "Market data, not investment advice. Each figure is the value published by the named exchange at fetched_at. Nordic Crypto does not set these prices and does not tell anyone to buy or sell.",
+ "sign_off": "The Nordic Crypto team",
+ "not_investment_advice": true,
+ "urls": {
+  "github_pages": "https://jqrgen.github.io/nordic-crypto/api/v1/markets.json",
+  "raw_githubusercontent": "https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json",
+  "custom_domain": "https://cryptonordic.no/api/v1/markets.json"
+ },
+ "symbol": "XLM",
+ "count": 3,
+ "tickers": [
+  {
+   "id": "coinmotion:XLM-SEK",
+   "symbol": "XLM-SEK",
+   "exchange_symbol": "xlmSek",
+   "base": "XLM",
+   "quote": "SEK",
+   "last": null,
+   "bid": "2.15",
+   "ask": "2.17",
+   "exchange": {
+    "id": "coinmotion",
+    "name": "Coinmotion",
+    "country": "FI"
+   },
+   "fetched_at": "2026-10-05T22:04:04+00:00",
+   "source_url": "https://api.coinmotion.com/v2/rates",
+   "volume_base": null,
+   "volume_quote": null,
+   "volume_base_24h": null,
+   "volume_quote_24h": null,
+   "high": "2.27",
+   "low": "2.12",
+   "change_pct": null,
+   "exchange_time": "2026-10-05T22:03:09+00:00"
+  },
+  {
+   "id": "coinmotion:XLM-EUR",
+   "symbol": "XLM-EUR",
+   "exchange_symbol": "xlmEur",
+   "base": "XLM",
+   "quote": "EUR",
+   "last": null,
+   "bid": "0.191579",
+   "ask": "0.193467",
+   "exchange": {
+    "id": "coinmotion",
+    "name": "Coinmotion",
+    "country": "FI"
+   },
+   "fetched_at": "2026-10-05T22:04:04+00:00",
+   "source_url": "https://api.coinmotion.com/v2/rates",
+   "volume_base": null,
+   "volume_quote": null,
+   "volume_base_24h": null,
+   "volume_quote_24h": null,
+   "high": "0.202064",
+   "low": "0.188224",
+   "change_pct": null,
+   "exchange_time": "2026-10-05T22:03:09+00:00"
+  },
+  {
+   "id": "nbx:XLM-NOK",
+   "symbol": "XLM-NOK",
+   "exchange_symbol": "XLM-NOK",
+   "base": "XLM",
+   "quote": "NOK",
+   "last": "2.18",
+   "bid": "2.05",
+   "ask": "2.10",
+   "exchange": {
+    "id": "nbx",
+    "name": "Norwegian Block Exchange",
+    "country": "NO"
+   },
+   "fetched_at": "2026-10-05T22:04:03+00:00",
+   "source_url": "https://api.nbx.com/tickers",
+   "volume_base": null,
+   "volume_quote": null,
+   "volume_base_24h": "4.5552690",
+   "volume_quote_24h": "9.93",
+   "high": null,
+   "low": null,
+   "change_pct": null
+  }
+ ]
+}

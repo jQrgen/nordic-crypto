@@ -1,0 +1,43 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T22:04:08+00:00",
+ "preview": false,
+ "kind": "markets",
+ "disclaimer": "Market data, not investment advice. Each figure is the value published by the named exchange at fetched_at. Nordic Crypto does not set these prices and does not tell anyone to buy or sell.",
+ "sign_off": "The Nordic Crypto team",
+ "not_investment_advice": true,
+ "urls": {
+  "github_pages": "https://jqrgen.github.io/nordic-crypto/api/v1/markets.json",
+  "raw_githubusercontent": "https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json",
+  "custom_domain": "https://cryptonordic.no/api/v1/markets.json"
+ },
+ "symbol": "BNB",
+ "count": 1,
+ "tickers": [
+  {
+   "id": "firi:BNB-NOK",
+   "symbol": "BNB-NOK",
+   "exchange_symbol": "BNBNOK",
+   "base": "BNB",
+   "quote": "NOK",
+   "last": "7346.52",
+   "bid": "7401.8200000000000000",
+   "ask": "7604.7800000000000000",
+   "exchange": {
+    "id": "firi",
+    "name": "Firi",
+    "country": "NO"
+   },
+   "fetched_at": "2026-10-05T22:04:02+00:00",
+   "source_url": "https://api.firi.com/v2/markets/BNBNOK",
+   "volume_base": "0",
+   "volume_quote": null,
+   "volume_base_24h": null,
+   "volume_quote_24h": null,
+   "high": "0",
+   "low": "0",
+   "change_pct": "0"
+  }
+ ]
+}

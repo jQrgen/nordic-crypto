@@ -19,6 +19,15 @@ Swap the base to move between the two. HTTPS on cryptonordic.no is the intended 
 - [API catalog](https://jqrgen.github.io/nordic-crypto/.well-known/api-catalog): RFC 9727 linkset. A .json copy is at https://jqrgen.github.io/nordic-crypto/.well-known/api-catalog.json.
 - [Site meta](https://jqrgen.github.io/nordic-crypto/api/v1/meta.json): languages, countries, page list, CORS.
 
+## Market prices
+
+Prices from Nordic exchanges with a public ticker (Firi and Norwegian Block Exchange in Norway, Coinmotion in Finland). Market data, not investment advice. Each ticker has symbol, base, quote, last, bid and ask when the exchange publishes them, plus exchange id, name and country, fetched_at and source_url. Quotes are NOK, SEK, DKK or EUR. A failed exchange is an error with a timestamp and no price. The file is fetched again when the site is built, and a GitHub Actions job rewrites it on gh-pages about hourly. Durable URL: https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json
+
+```
+curl -fsS https://jqrgen.github.io/nordic-crypto/api/v1/markets.json
+curl -fsS https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json
+```
+
 ## Fetch news and newsletters
 
 ```
@@ -56,6 +65,9 @@ A single news item is api/v1/news/{id}.json (the id is on each item). A single n
 - [/api/v1/changelog.json](https://jqrgen.github.io/nordic-crypto/api/v1/changelog.json): Site changelog (product changes, not the news), newest first.
 - [/api/v1/rules.json](https://jqrgen.github.io/nordic-crypto/api/v1/rules.json): How EU crypto rules become law in the five countries. Simplified, not legal advice. Omitted while the page is still a placeholder.
 - [/api/v1/archive/articles.json](https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles.json): Append-only archive of stories that have been on the public site. removed is  true when a story later left the site; the row stays.
+- [/api/v1/markets.json](https://jqrgen.github.io/nordic-crypto/api/v1/markets.json): Nordic exchange prices. Market data, not investment advice. Each ticker names the exchange, fetched_at and the source URL. NOK, SEK, DKK and EUR only.
+- [/api/v1/markets/{exchange}.json](https://jqrgen.github.io/nordic-crypto/api/v1/markets/{exchange}.json): Prices from one included exchange: firi (Norway), nbx (Norway) or coinmotion (Finland).
+- [/api/v1/markets/by-asset/{symbol}.json](https://jqrgen.github.io/nordic-crypto/api/v1/markets/by-asset/{symbol}.json): Prices for one asset (the base symbol, such as BTC) on every included Nordic exchange.
 - [/api/v1/meta.json](https://jqrgen.github.io/nordic-crypto/api/v1/meta.json): Site name, languages, countries, page list, CORS and editorial notes.
 
 ## Not in this feed

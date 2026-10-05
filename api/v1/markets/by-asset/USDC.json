@@ -1,0 +1,141 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T22:04:08+00:00",
+ "preview": false,
+ "kind": "markets",
+ "disclaimer": "Market data, not investment advice. Each figure is the value published by the named exchange at fetched_at. Nordic Crypto does not set these prices and does not tell anyone to buy or sell.",
+ "sign_off": "The Nordic Crypto team",
+ "not_investment_advice": true,
+ "urls": {
+  "github_pages": "https://jqrgen.github.io/nordic-crypto/api/v1/markets.json",
+  "raw_githubusercontent": "https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json",
+  "custom_domain": "https://cryptonordic.no/api/v1/markets.json"
+ },
+ "symbol": "USDC",
+ "count": 5,
+ "tickers": [
+  {
+   "id": "coinmotion:USDC-SEK",
+   "symbol": "USDC-SEK",
+   "exchange_symbol": "usdcSek",
+   "base": "USDC",
+   "quote": "SEK",
+   "last": null,
+   "bid": "9.99",
+   "ask": "10.07",
+   "exchange": {
+    "id": "coinmotion",
+    "name": "Coinmotion",
+    "country": "FI"
+   },
+   "fetched_at": "2026-10-05T22:04:04+00:00",
+   "source_url": "https://api.coinmotion.com/v2/rates",
+   "volume_base": null,
+   "volume_quote": null,
+   "volume_base_24h": null,
+   "volume_quote_24h": null,
+   "high": "10.08",
+   "low": "10.00",
+   "change_pct": null,
+   "exchange_time": "2026-10-05T22:03:09+00:00"
+  },
+  {
+   "id": "coinmotion:USDC-EUR",
+   "symbol": "USDC-EUR",
+   "exchange_symbol": "usdcEur",
+   "base": "USDC",
+   "quote": "EUR",
+   "last": null,
+   "bid": "0.88775",
+   "ask": "0.89465",
+   "exchange": {
+    "id": "coinmotion",
+    "name": "Coinmotion",
+    "country": "FI"
+   },
+   "fetched_at": "2026-10-05T22:04:04+00:00",
+   "source_url": "https://api.coinmotion.com/v2/rates",
+   "volume_base": null,
+   "volume_quote": null,
+   "volume_base_24h": null,
+   "volume_quote_24h": null,
+   "high": "0.89560",
+   "low": "0.88820",
+   "change_pct": null,
+   "exchange_time": "2026-10-05T22:03:09+00:00"
+  },
+  {
+   "id": "firi:USDC-NOK",
+   "symbol": "USDC-NOK",
+   "exchange_symbol": "USDCNOK",
+   "base": "USDC",
+   "quote": "NOK",
+   "last": "9.68",
+   "bid": "9.5700000000000000",
+   "ask": "9.6900000000000000",
+   "exchange": {
+    "id": "firi",
+    "name": "Firi",
+    "country": "NO"
+   },
+   "fetched_at": "2026-10-05T22:04:02+00:00",
+   "source_url": "https://api.firi.com/v2/markets/USDCNOK",
+   "volume_base": "0",
+   "volume_quote": null,
+   "volume_base_24h": null,
+   "volume_quote_24h": null,
+   "high": "0",
+   "low": "0",
+   "change_pct": "0"
+  },
+  {
+   "id": "nbx:USDC-NOK",
+   "symbol": "USDC-NOK",
+   "exchange_symbol": "USDC-NOK",
+   "base": "USDC",
+   "quote": "NOK",
+   "last": "9.68",
+   "bid": "9.50",
+   "ask": "9.68",
+   "exchange": {
+    "id": "nbx",
+    "name": "Norwegian Block Exchange",
+    "country": "NO"
+   },
+   "fetched_at": "2026-10-05T22:04:03+00:00",
+   "source_url": "https://api.nbx.com/tickers",
+   "volume_base": null,
+   "volume_quote": null,
+   "volume_base_24h": "8626.967299",
+   "volume_quote_24h": "83098.11",
+   "high": null,
+   "low": null,
+   "change_pct": null
+  },
+  {
+   "id": "nbx:USDC-EUR",
+   "symbol": "USDC-EUR",
+   "exchange_symbol": "USDC-EUR",
+   "base": "USDC",
+   "quote": "EUR",
+   "last": "0.8809939120",
+   "bid": "0.8844045104",
+   "ask": "0.8977998952",
+   "exchange": {
+    "id": "nbx",
+    "name": "Norwegian Block Exchange",
+    "country": "NO"
+   },
+   "fetched_at": "2026-10-05T22:04:03+00:00",
+   "source_url": "https://api.nbx.com/tickers",
+   "volume_base": null,
+   "volume_quote": null,
+   "volume_base_24h": "0.000000",
+   "volume_quote_24h": "0.0000000000",
+   "high": null,
+   "low": null,
+   "change_pct": null
+  }
+ ]
+}

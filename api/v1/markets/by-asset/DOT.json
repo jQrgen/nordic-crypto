@@ -1,0 +1,67 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-05T22:04:08+00:00",
+ "preview": false,
+ "kind": "markets",
+ "disclaimer": "Market data, not investment advice. Each figure is the value published by the named exchange at fetched_at. Nordic Crypto does not set these prices and does not tell anyone to buy or sell.",
+ "sign_off": "The Nordic Crypto team",
+ "not_investment_advice": true,
+ "urls": {
+  "github_pages": "https://jqrgen.github.io/nordic-crypto/api/v1/markets.json",
+  "raw_githubusercontent": "https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json",
+  "custom_domain": "https://cryptonordic.no/api/v1/markets.json"
+ },
+ "symbol": "DOT",
+ "count": 2,
+ "tickers": [
+  {
+   "id": "firi:DOT-NOK",
+   "symbol": "DOT-NOK",
+   "exchange_symbol": "DOTNOK",
+   "base": "DOT",
+   "quote": "NOK",
+   "last": "12.06",
+   "bid": "11.6600000000000000",
+   "ask": "12.1400000000000000",
+   "exchange": {
+    "id": "firi",
+    "name": "Firi",
+    "country": "NO"
+   },
+   "fetched_at": "2026-10-05T22:04:02+00:00",
+   "source_url": "https://api.firi.com/v2/markets/DOTNOK",
+   "volume_base": "0",
+   "volume_quote": null,
+   "volume_base_24h": null,
+   "volume_quote_24h": null,
+   "high": "0",
+   "low": "0",
+   "change_pct": "0"
+  },
+  {
+   "id": "nbx:DOT-NOK",
+   "symbol": "DOT-NOK",
+   "exchange_symbol": "DOT-NOK",
+   "base": "DOT",
+   "quote": "NOK",
+   "last": "11.85",
+   "bid": "11.75",
+   "ask": "11.95",
+   "exchange": {
+    "id": "nbx",
+    "name": "Norwegian Block Exchange",
+    "country": "NO"
+   },
+   "fetched_at": "2026-10-05T22:04:03+00:00",
+   "source_url": "https://api.nbx.com/tickers",
+   "volume_base": null,
+   "volume_quote": null,
+   "volume_base_24h": "0.8380157463",
+   "volume_quote_24h": "9.93",
+   "high": null,
+   "low": null,
+   "change_pct": null
+  }
+ ]
+}

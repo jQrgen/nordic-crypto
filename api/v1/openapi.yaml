@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   title: Nordic Crypto data API
   version: "1"
-  description: "Public read-only JSON for Nordic Crypto (cryptonordic.no, GitHub Pages jqrgen.github.io/nordic-crypto). No authentication. News, newsletters, events, sources, academia, the who's who, profiles, images, the rules map, the changelog and the article archive. Kaupr is a news source only, never a sponsor. The sign-off is The Nordic Crypto team. GitHub Pages sends Access-Control-Allow-Origin: * so browsers can fetch these files. English text is the default; translations are inside each object under *_i18n. Discovery: https://jqrgen.github.io/nordic-crypto/api/v1/index.json. Human docs: https://jqrgen.github.io/nordic-crypto/api/."
+  description: "Public read-only JSON for Nordic Crypto (cryptonordic.no, GitHub Pages jqrgen.github.io/nordic-crypto). No authentication. News, newsletters, events, sources, academia, the who's who, profiles, images, the rules map, the changelog, the article archive and Nordic exchange prices (market data, not investment advice). Kaupr is a news source only, never a sponsor. The sign-off is The Nordic Crypto team. GitHub Pages sends Access-Control-Allow-Origin: * so browsers can fetch these files. English text is the default; translations are inside each object under *_i18n. Discovery: https://jqrgen.github.io/nordic-crypto/api/v1/index.json. Human docs: https://jqrgen.github.io/nordic-crypto/api/."
   license:
     name: MIT
     url: "https://github.com/jQrgen/nordic-crypto/blob/main/LICENSE"
@@ -462,6 +462,51 @@ paths:
                 "$ref": "#/components/schemas/Document"
       parameters:
         - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+  "/api/v1/markets.json":
+    get:
+      operationId: markets
+      summary: "Nordic exchange prices. Market data, not investment advice. Each ticker names the exchange, fetched_at and the source URL. NOK, SEK, DKK and EUR only."
+      responses:
+        "200":
+          description: "Nordic exchange prices. Market data, not investment advice. Each ticker names the exchange, fetched_at and the source URL. NOK, SEK, DKK and EUR only."
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/MarketCatalogue"
+  "/api/v1/markets/{exchange}.json":
+    get:
+      operationId: markets_exchange
+      summary: "Prices from one included exchange: firi (Norway), nbx (Norway) or coinmotion (Finland)."
+      responses:
+        "200":
+          description: "Prices from one included exchange: firi (Norway), nbx (Norway) or coinmotion (Finland)."
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/MarketExchange"
+      parameters:
+        - name: exchange
+          in: path
+          required: true
+          schema:
+            type: string
+  "/api/v1/markets/by-asset/{symbol}.json":
+    get:
+      operationId: markets_asset
+      summary: "Prices for one asset (the base symbol, such as BTC) on every included Nordic exchange."
+      responses:
+        "200":
+          description: "Prices for one asset (the base symbol, such as BTC) on every included Nordic exchange."
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/MarketAsset"
+      parameters:
+        - name: symbol
           in: path
           required: true
           schema:
@@ -1110,4 +1155,161 @@ components:
           type: array
         cors:
           type: object
+        ios:
+          type: object
+          description: Public TestFlight invite. Not an App Store listing.
       description: SiteMeta
+    MarketTicker:
+      type: object
+      required:
+        - symbol
+        - base
+        - quote
+        - exchange
+        - fetched_at
+        - source_url
+      properties:
+        id:
+          type: string
+        symbol:
+          type: string
+          description: "BASE-QUOTE, for example BTC-NOK."
+          example: BTC-NOK
+        exchange_symbol:
+          type: string
+          description: The pair id used by the exchange.
+        base:
+          type: string
+        quote:
+          type: string
+          enum:
+            - NOK
+            - SEK
+            - DKK
+            - EUR
+        last:
+          type: string
+          nullable: true
+          description: "Last price as published, decimal string. Null when the exchange does not publish a last trade."
+        bid:
+          type: string
+          nullable: true
+          description: "Best bid as published, decimal string."
+        ask:
+          type: string
+          nullable: true
+          description: "Best ask as published, decimal string."
+        exchange:
+          type: object
+          required:
+            - id
+            - name
+            - country
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+            country:
+              type: string
+        fetched_at:
+          type: string
+          description: "When Nordic Crypto fetched this row, ISO 8601 UTC."
+        source_url:
+          type: string
+          description: Exchange URL the figure was read from.
+        volume_base:
+          type: string
+          nullable: true
+        volume_quote:
+          type: string
+          nullable: true
+        volume_base_24h:
+          type: string
+          nullable: true
+          description: Set only when the exchange names a 24-hour window.
+        volume_quote_24h:
+          type: string
+          nullable: true
+        high:
+          type: string
+          nullable: true
+        low:
+          type: string
+          nullable: true
+        change_pct:
+          type: string
+          nullable: true
+        exchange_time:
+          type: string
+          nullable: true
+          description: "Timestamp from the exchange payload, when it sends one."
+    MarketCatalogue:
+      type: object
+      properties:
+        api_version:
+          type: string
+        name:
+          type: string
+        generated_at:
+          type: string
+        preview:
+          type: boolean
+        disclaimer:
+          type: string
+        count:
+          type: integer
+        exchanges:
+          type: array
+        skipped:
+          type: array
+          description: Venues checked and left out because they have no public ticker.
+        tickers:
+          type: array
+          items:
+            "$ref": "#/components/schemas/MarketTicker"
+        urls:
+          type: object
+        refresh:
+          type: object
+      description: MarketCatalogue
+    MarketExchange:
+      type: object
+      properties:
+        api_version:
+          type: string
+        name:
+          type: string
+        generated_at:
+          type: string
+        preview:
+          type: boolean
+        exchange:
+          type: object
+        count:
+          type: integer
+        tickers:
+          type: array
+          items:
+            "$ref": "#/components/schemas/MarketTicker"
+      description: MarketExchange
+    MarketAsset:
+      type: object
+      properties:
+        api_version:
+          type: string
+        name:
+          type: string
+        generated_at:
+          type: string
+        preview:
+          type: boolean
+        symbol:
+          type: string
+        count:
+          type: integer
+        tickers:
+          type: array
+          items:
+            "$ref": "#/components/schemas/MarketTicker"
+      description: MarketAsset

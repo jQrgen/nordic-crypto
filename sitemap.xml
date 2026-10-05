@@ -5,6 +5,7 @@
 <url><loc>https://jqrgen.github.io/nordic-crypto/academia/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/api/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/api/v1/index.json</loc></url>
+<url><loc>https://jqrgen.github.io/nordic-crypto/api/v1/markets.json</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/api/v1/openapi.json</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/calendar/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/changelog/</loc></url>
@@ -16,6 +17,7 @@
 <url><loc>https://jqrgen.github.io/nordic-crypto/da/changelog/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/da/columnist/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/da/ethics/</loc></url>
+<url><loc>https://jqrgen.github.io/nordic-crypto/da/markets/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/da/newsletter/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/da/newsletter/001/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/da/org-chart/</loc></url>
@@ -30,6 +32,7 @@
 <url><loc>https://jqrgen.github.io/nordic-crypto/fi/changelog/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/fi/columnist/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/fi/ethics/</loc></url>
+<url><loc>https://jqrgen.github.io/nordic-crypto/fi/markets/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/fi/newsletter/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/fi/newsletter/001/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/fi/org-chart/</loc></url>
@@ -43,6 +46,7 @@
 <url><loc>https://jqrgen.github.io/nordic-crypto/is/changelog/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/is/columnist/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/is/ethics/</loc></url>
+<url><loc>https://jqrgen.github.io/nordic-crypto/is/markets/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/is/newsletter/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/is/newsletter/001/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/is/org-chart/</loc></url>
@@ -50,6 +54,7 @@
 <url><loc>https://jqrgen.github.io/nordic-crypto/is/sources/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/is/tip/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/llms.txt</loc></url>
+<url><loc>https://jqrgen.github.io/nordic-crypto/markets/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/nb/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/nb/about/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/nb/academia/</loc></url>
@@ -57,6 +62,7 @@
 <url><loc>https://jqrgen.github.io/nordic-crypto/nb/changelog/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/nb/columnist/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/nb/ethics/</loc></url>
+<url><loc>https://jqrgen.github.io/nordic-crypto/nb/markets/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/nb/newsletter/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/nb/newsletter/001/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/nb/org-chart/</loc></url>
@@ -72,6 +78,7 @@
 <url><loc>https://jqrgen.github.io/nordic-crypto/nn/changelog/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/nn/columnist/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/nn/ethics/</loc></url>
+<url><loc>https://jqrgen.github.io/nordic-crypto/nn/markets/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/nn/newsletter/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/nn/newsletter/001/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/nn/org-chart/</loc></url>
@@ -89,6 +96,7 @@
 <url><loc>https://jqrgen.github.io/nordic-crypto/sv/changelog/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/sv/columnist/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/sv/ethics/</loc></url>
+<url><loc>https://jqrgen.github.io/nordic-crypto/sv/markets/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/sv/newsletter/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/sv/newsletter/001/</loc></url>
 <url><loc>https://jqrgen.github.io/nordic-crypto/sv/org-chart/</loc></url>
