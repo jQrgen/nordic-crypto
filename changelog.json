@@ -3,6 +3,22 @@
  "launch_date": "2026-10-03",
  "entries": [
   {
+   "date": "2026-10-05",
+   "title": "Issue #1 newsreel live; Kaupr is not a site sponsor",
+   "title_i18n": {
+    "nn": "Utgåve #1 newsreel live; Kaupr er ikkje site-sponsor",
+    "nb": "Utgave #1 newsreel live; Kaupr er ikke nettstedssponsor",
+    "sv": "Nummer #1 newsreel live; Kaupr är inte sajtsponsor",
+    "da": "Udgave #1 newsreel live; Kaupr er ikke sitesponsor",
+    "fi": "Numero #1 newsreel live; Kaupr ei ole sivuston sponsori",
+    "is": "Tölublað #1 newsreel í loftið; Kaupr er ekki styrktaraðili síðunnar"
+   },
+   "body": "Replaced the live newsletter issue #1 video with the corrected newsreel (release newsletter-001-newsreel-2, no Kaupr midroll). Kaupr remains a news source and may sponsor events (e.g. Oslo Blockchain Meetup); it is not a sponsor of Nordic Crypto or the newsletter. Story bylines no longer say “Kaupr is a sponsor”.",
+   "body_i18n": {
+    "nb": "Byttet ut den live videoen for nyhetsbrev utgave #1 med den korrigerte newsreel-filen (utgivelse newsletter-001-newsreel-2, ingen Kaupr-midroll). Kaupr er fortsatt en nyhetskilde og kan sponse arrangementer (f.eks. Oslo Blockchain Meetup); den er ikke sponsor for Nordic Crypto eller nyhetsbrevet. Sakslinjer sier ikke lenger «Kaupr er sponsor»."
+   }
+  },
+  {
    "id": "nordic-crypto-name-eu-newsletter-columnist",
    "date": "2026-10-05",
    "title": "Nordic Crypto on the map, in the newsletter, and for columnists",

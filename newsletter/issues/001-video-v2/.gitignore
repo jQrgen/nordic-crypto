@@ -7,3 +7,4 @@ build/flash/
 build/list.txt
 thumbnail.png
 *.mp4
+build/sponsor.*
