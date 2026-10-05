@@ -119,6 +119,17 @@
  "publications": [],
  "research": [
   {
+   "country": "NO",
+   "name": "Blockchain-UiO",
+   "institution": "University of Oslo, Dept. of Informatics",
+   "about": "Academic-industrial blockchain lab at UiO's Department of Informatics. According to its own pages, it aims to facilitate blockchain research at UiO, improve education in blockchain technology through courses, tutorials and master projects, and promote collaboration between academia and industry. The newest dated item on its website (blockchainlab.no) is an open day on 1 December 2021.",
+   "url": "https://www.mn.uio.no/ifi/english/research/networks/blockchainlab/",
+   "source": "https://www.mn.uio.no/ifi/english/research/networks/blockchainlab/",
+   "checked": "2026-10-05",
+   "status": "approved",
+   "editor_note": "APPROVED by jQrgen 2026-10-05 (was pending: no dated activity in the last 12 months; lab page and blockchainlab.no checked 2026-10-05, newest dated item 1 Dec 2021)"
+  },
+  {
    "country": "IS",
    "name": "RU FINTECH",
    "institution": "Reykjavík University",
