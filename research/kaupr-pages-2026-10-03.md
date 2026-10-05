@@ -7,7 +7,7 @@ How we checked:
 - Kaupr is credited as a source on every entry where we used it.
 - All new entries carry `"review": "pending"` in `data/orgchart_nordic.json`. That keeps them out of the public site until the editor lists their ids in `queue/approved.json` → `org.approve`. `approve_countries` does not cover them.
 
-Disclosure: Kaupr is one of our news sources and sponsors some calendar events. Kaupr does not sponsor Nordic Crypto. This is stated on the sources page and the org chart page.
+Kaupr is one of the news sources we follow. Company rows that used Kaupr’s Onchain Pages credit Kaupr as that source.
 
 ## Already in the org chart (no change)
 Bare Bitcoin, Coinmotion, DNB, Firi, Goobit, Januar, K33, Kvarn Capital, NBX, Nordic Blockchain Association, Norges Bank, Northstake, Penning, Safello, TÝR Markets, Valuno, Virtune.
@@ -62,5 +62,5 @@ BTCX is a brand of Goobit. It is not a separate entry. The existing `goobit` ent
 - Approved: dk-aryze, se-blockchain-sweden, se-divly, se-firstblock, se-h100, se-hilbert-group, se-pretax, se-true-original, intl-visa, intl-swift, intl-d-fine, intl-okx; plus no-ace-digital, no-web3-creatives, se-dwellir after the org numbers were removed from their source titles.
 - Rejected: dk-bloxcel.
 - OKX: added the ESMA CASP register (esma.europa.eu …/2024-12/CASPS.csv): OKX Europe Limited, MFSA Malta, authorised 27 Jan 2025, passported to NO, SE, DK, FI, IS among others. Description corrected: the June 2025 launch covered SE/FI/DK; Norway is documented from July 2025.
-- Disclosure on Kaupr and on Morten Myrstad: Kaupr sponsors Oslo Blockchain Meetup, the meetup run by jQrgen. Kaupr does not sponsor Nordic Crypto.
+- Kaupr and Morten Myrstad: no event-sponsor note. Kaupr is a news source only.
 - The privacy gate now also blocks org numbers in visible text, including source titles.

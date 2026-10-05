@@ -7,7 +7,7 @@ Nordic Crypto #1 narration. Voice: en-GB-RyanNeural (edge-tts, rate +20%). Sign-
 Good evening, and welcome to Nordic Crypto. This is issue number one, with the Nordic crypto news that mattered from the 27th of September to the 2nd of October, 2026.
 
 [open_b @ 15.9s, tonight]
-Tonight: Binance under scrutiny over Europe's new crypto rules. Sweden's financial watchdog issues a crypto sanctions warning. And the meetups coming up across the region. Nordic Crypto gathers crypto, bitcoin and blockchain news from Norway, Sweden, Denmark, Finland and Iceland, with a link to every original source. And this programme is made with the help of AI: a bot drafts the summaries, and they're edited for accuracy before anything is published. The voice you're hearing is an AI voice, too.
+Tonight: Binance under scrutiny over Europe's new crypto rules. Sweden's financial watchdog issues a crypto sanctions warning. And the meetups coming up across the region. Nordic Crypto gathers crypto, bitcoin and blockchain news from Norway, Sweden, Denmark, Finland and Iceland, with a link to every original source.
 
 [b_top @ 44.3s, section - TOP STORY]
 (music/stinger only)
@@ -52,8 +52,8 @@ And in Lund, Sydsvenskan reports that three teenagers have been arrested on susp
 (music/stinger only)
 
 [cal @ 140.8s, calendar]
-On the 8th of October, it's Göteborg Bitcoin Meetup number 49, at Ölrepubliken in Gothenburg. On the 14th, Crypto killer apps, at Polyteknisk Forening in Oslo, with paid entry. On the 15th, the Uppsala Bitcoin Meetup, at Café Årummet. And on the 28th of October, Oslo Blockchain Meetup, on Nexa. A disclosure: Jørgen, who runs Nordic Crypto, is the speaker, runs this meetup, and works on Nexa at Bitcoin Unlimited. Kaupr sponsors the meetup. More events, including Stockholm and Helsinki in November, are in the calendar.
+On the 8th of October, it's Göteborg Bitcoin Meetup number 49, at Ölrepubliken in Gothenburg. On the 14th, Crypto killer apps, at Polyteknisk Forening in Oslo, with paid entry. On the 15th, the Uppsala Bitcoin Meetup, at Café Årummet. And on the 28th of October, Oslo Blockchain Meetup, on Nexa. A disclosure: Jørgen, who runs Nordic Crypto, is the speaker, runs this meetup, and works on Nexa at Bitcoin Unlimited. More events, including Stockholm and Helsinki in November, are in the calendar.
 
 [signoff @ 173.7s, end]
-And that's Nordic Crypto for this week. All the stories, the events calendar and a who's who of Nordic crypto are on the Nordic Crypto website. If you spot a mistake, or a story we missed, use the tip form. Kaupr is one of the news sources we follow. Some calendar events are sponsored by Kaupr. Kaupr does not sponsor Nordic Crypto. Nothing here is investment advice. Until next week. The Nordic Crypto team. Good night.
+And that's Nordic Crypto for this week. All the stories, the events calendar and a who's who of Nordic crypto are on the Nordic Crypto website. If you spot a mistake, or a story we missed, use the tip form. Nothing here is investment advice. Until next week. The Nordic Crypto team. Good night.
 

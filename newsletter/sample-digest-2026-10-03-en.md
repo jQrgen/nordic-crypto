@@ -49,8 +49,6 @@ At a Finnish crypto event, investors described community and technology as what 
 
 ---
 
-Disclosure: Kaupr (kaupr.io) is one of the news sources we follow. Some calendar events are sponsored by Kaupr, including Oslo Blockchain Meetup, run by jQrgen. Kaupr does not sponsor Nordic Crypto.
-
 Nordic Crypto is run by Jørgen S. Notland (jQrgen), Oslo. Summaries are written by our editor, a bot based on artificial intelligence, with jQrgen as the responsible person. Not investment advice.
 
 *You get this email because you subscribed to the Nordic Crypto newsletter.*

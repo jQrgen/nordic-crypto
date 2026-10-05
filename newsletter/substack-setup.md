@@ -48,7 +48,7 @@ Short Nordic variants (for the about page or social posts):
 > responsible person. Nothing here is investment advice. The website also has a calendar of Nordic crypto events and a
 > who's who of the people and organisations in the field: https://jqrgen.github.io/nordic-crypto/
 >
-> Disclosure: Kaupr (kaupr.io) is one of the news sources we follow. Some calendar events are sponsored by Kaupr, including Oslo Blockchain Meetup, run by jQrgen. Kaupr does not sponsor Nordic Crypto.
+> Kaupr (kaupr.io) is one of the news sources we follow. Stories from Kaupr are credited to Kaupr.
 
 Short Nordic variants of the about text:
 - nn: Nordic Crypto samlar nyheiter om krypto, bitcoin og blokkjede frå heile Norden og gir kvar sak eit kort samandrag med lenkje til kjelda. Ein gong i veka sender vi sakene redaktøren vår har godkjent. Samandraga er laga med hjelp av kunstig intelligens, med menneskelege redaktørar (jQrgen og Nordic Crypto-redaktøren). Ikkje investeringsråd.
@@ -80,11 +80,10 @@ Suggested accent colour in Substack's theme: **#0f5ea8**.
 > Finland and Iceland that our editor has approved – a headline, a one- or two-sentence summary and a link to the original
 > source. Some sources may require a subscription; we say so next to the story.
 >
-> The summaries are made with the help of artificial intelligence, with human editors (jQrgen and the Nordic Crypto editor). Jørgen S. Notland (jQrgen) in Oslo is
-> the responsible person. Nothing in the newsletter is investment advice. Spotted a mistake or a story we missed? Use
+> Jørgen S. Notland (jQrgen) in Oslo is the responsible person. Nothing in the newsletter is investment advice. Spotted a mistake or a story we missed? Use
 > "Send a tip" on the website: https://jqrgen.github.io/nordic-crypto/tip/
 >
-> Disclosure: Kaupr (kaupr.io) is one of the news sources we follow. Some calendar events are sponsored by Kaupr, including Oslo Blockchain Meetup, run by jQrgen. Kaupr does not sponsor Nordic Crypto.
+> Kaupr (kaupr.io) is one of the news sources we follow. Stories from Kaupr are credited to Kaupr.
 >
 > You can unsubscribe at any time with the link at the bottom of every email.
 >
@@ -106,18 +105,16 @@ Suggested accent colour in Substack's theme: **#0f5ea8**.
   1. Title "Nordic Crypto weekly" (per language) + date range, one-line intro
   2. Stories grouped by country (Norway, Sweden, Denmark, Finland, Iceland): **headline (link to the source)** – English
      headline with the original in brackets for the English edition; original headline otherwise – then our summary in the
-     edition's language, then `source · date · may require a subscription`. Kaupr stories are credited to Kaupr as a news source. They are not marked as a sponsor of Nordic Crypto.
+     edition's language, then `source · date · may require a subscription`. Kaupr stories are credited to Kaupr as a news source.
   3. Link to the website (all stories, calendar, who's who)
-  4. Footer: Kaupr disclosure, made with the help of artificial intelligence with human editors / not investment advice, why you get this email
+  4. Footer: made with the help of artificial intelligence with human editors / not investment advice, why you get this email. No Kaupr sponsor line. Kaupr appears only as the source of a story.
 - Norwegian editions (nn/nb) are checked for «AI»/«KI» in our own text before the file is written (external headlines are left as published).
 - Sample: `newsletter/sample-digest-2026-10-03-en.md`.
 - Suggested rhythm: weekly, Friday morning (Oslo). Nothing is scheduled; jQrgen or the editor pastes and sends.
 
-## 5. Kaupr disclosure (use everywhere: about page, welcome email, every digest footer)
+## 5. Kaupr (news source only)
 
-> Disclosure: Kaupr (kaupr.io) is one of the news sources we follow. Some calendar events are sponsored by Kaupr, including Oslo Blockchain Meetup, run by jQrgen. Kaupr does not sponsor Nordic Crypto.
-
-Stories from Kaupr are credited to Kaupr as a news source. The digest does not mark them "Kaupr is a sponsor".
+Stories from Kaupr are credited to Kaupr as the source, the same way as any other outlet. Do not call Kaupr a sponsor of Nordic Crypto, the newsletter, or a calendar event. Do not add a Kaupr footer to the digest. Onchain Pages may be credited when that directory was the source of a company row.
 
 ## 6. Email channel (site signup) and moving subscribers to Substack
 

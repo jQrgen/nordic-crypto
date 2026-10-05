@@ -68,7 +68,6 @@ def make_bug():
     d.rectangle((0, 0, 500, 66), fill=(4, 12, 28, 215)); mark(d, 12, 11, 44)
     d.text((70, 6), 'NORDIC', font=F('cb', 44), fill=WHITE); x = 70 + tw(d, 'NORDIC ', F('cb', 44))
     d.text((x, 6), 'CRYPTO', font=F('cb', 44), fill=BRIGHT)
-    d.rectangle((0, 70, 360, 104), fill=(214, 40, 40, 235)); spaced(d, (12, 73), 'MADE WITH THE HELP OF AI', F('cs', 23), WHITE, 1.5)
     return im
 def draw_clock(base, T):
     d = ImageDraw.Draw(base, 'RGBA'); x0, y0 = 1500, 40
@@ -289,29 +288,16 @@ def seg_tonight(s):
                 d.text((x + 44, y + 14), tags[i], font=F('cx', 34), fill=GOLD)
                 d.text((x + 44, y + 52), heads[i], font=fit(heads[i], 'cs', 62, 1560, 40), fill=WHITE)
         else:
-            t2 = t - (st[3] - 0.2); out = eio((t - (st[4] - 0.4)) / 0.4); p3 = t >= st[4] - 0.05
-            if not p3:
-                d.text((140 - out * 1900, 200), 'NEWS FROM FIVE COUNTRIES', font=F('cb', 90), fill=WHITE)
-                d.text((140 - out * 1900, 310), 'Crypto, bitcoin and blockchain news, with a link to every original source', font=F('m', 40), fill=GREY)
-                for i, c in enumerate(countries):
-                    a = eback((t2 - 0.6 - i * 0.55) / 0.4)
-                    if a <= 0: continue
-                    x = 140 + i * 330 - out * 1900; y = 470; hgt = 230 * a
-                    d.rectangle((x, y + 230 - hgt, x + 300, y + 230), fill=BLUE)
-                    if a > .7:
-                        mark(d, x + 110, y + 30, 80); cw = tw(d, c, F('cb', 54)); d.text((x + 150 - cw / 2, y + 140), c, font=F('cb', 54), fill=WHITE)
-            else:
-                t3 = t - st[4]; u = eo(t3 / 0.5); cx = W / 2
-                bw = 1500; x0 = cx - bw / 2; y0 = 230 + (1 - u) * 600
-                d.rectangle((x0, y0, x0 + bw, y0 + 520), fill=(250, 250, 252)); d.rectangle((x0, y0, x0 + bw, y0 + 16), fill=RED)
-                tf = F('cb', 104); txt = 'MADE WITH THE HELP OF AI'; ww = tw(d, txt, tf); d.text((cx - ww / 2, y0 + 50), txt, font=tf, fill=INK)
-                lines = ['A bot drafts the summaries, and they are edited for', 'accuracy before anything is published.']
-                for i, ln in enumerate(lines):
-                    lw = tw(d, ln, F('m', 46)); d.text((cx - lw / 2, y0 + 220 + i * 62), ln, font=F('m', 46), fill=(40, 50, 70))
-                if t >= st[5]:
-                    a = eo((t - st[5]) / 0.4); ln = 'The voice you are hearing is an AI voice, too.'; lw = tw(d, ln, F('b', 44))
-                    d.rectangle((cx - lw / 2 - 30, y0 + 380, cx - lw / 2 - 30 + (lw + 60) * a, y0 + 450), fill=BLUE)
-                    if a > .8: d.text((cx - lw / 2, y0 + 388), ln, font=F('b', 44), fill=WHITE)
+            t2 = t - (st[3] - 0.2)
+            d.text((140, 200), 'NEWS FROM FIVE COUNTRIES', font=F('cb', 90), fill=WHITE)
+            d.text((140, 310), 'Crypto, bitcoin and blockchain news, with a link to every original source', font=F('m', 40), fill=GREY)
+            for i, c in enumerate(countries):
+                a = eback((t2 - 0.6 - i * 0.55) / 0.4)
+                if a <= 0: continue
+                x = 140 + i * 330; y = 470; hgt = 230 * a
+                d.rectangle((x, y + 230 - hgt, x + 300, y + 230), fill=BLUE)
+                if a > .7:
+                    mark(d, x + 110, y + 30, 80); cw = tw(d, c, F('cb', 54)); d.text((x + 150 - cw / 2, y + 140), c, font=F('cb', 54), fill=WHITE)
         return im
     return frame, {}
 def seg_section(s):
@@ -352,7 +338,6 @@ def seg_sponsor(s):
         b = eo((t - 1.1) / 0.5)
         if b > 0:
             uf = F('cx', 64); uw = tw(d, 'kaupr.io', uf); d.text((cx - uw / 2, 700 + (1 - b) * 40), 'kaupr.io', font=uf, fill=WHITE)
-            nf = F('cs', 32); nt = 'A NEWS SOURCE WE FOLLOW  ·  NOT A SPONSOR OF NORDIC CRYPTO'; nw = tw(d, nt, nf); d.text((cx - nw / 2, 800), nt, font=nf, fill=GREY)
         return im
     return frame, {}
 def seg_calendar(s):
@@ -408,9 +393,7 @@ def seg_end(s):
         if e > 0:
             f4 = F('cx', 58); l4 = C.SIGNOFF_CARD; w4 = tw(d, l4, f4); d.text((cx - w4 / 2, 660 + (1 - e) * 30), l4, font=f4, fill=GOLD)
         g = eo((t - 0.8) / 0.5)
-        if g > 0:  # AI pill + disclosure always on the end card
-            pf = F('cx', 40); pt = 'MADE WITH THE HELP OF AI'; pw = spaced_w(pt, pf, 4)
-            d.rectangle((cx - pw / 2 - 30, 760, cx + pw / 2 + 30, 822), fill=RED); spaced(d, (cx - pw / 2, 765), pt, pf, WHITE, 4)
+        if g > 0:
             f5 = F('r', 28); lines = wrap(C.END_DISCLOSURE, f5, 1560)
             for k, ln in enumerate(lines): lw = tw(d, ln, f5); d.text((cx - lw / 2, 850 + k * 38), ln, font=f5, fill=(200, 210, 225))
         fade = clamp((t - (s['dur'] - 1.2)) / 1.2)
@@ -487,8 +470,6 @@ def thumb():
     d.rectangle((90, 900, 900, 960), fill=BLUE); d.text((115, 906), C.DATES.upper(), font=F('cx', 44), fill=WHITE)
     bug = make_bug(); im.paste(bug, (60, 40), bug)
     tick = make_ticker(); draw_ticker(im, 3.0, *tick)
-    d = ImageDraw.Draw(im); pf = F('cx', 44); pt = 'MADE WITH THE HELP OF AI'; pw = spaced_w(pt, pf, 4)
-    d.rectangle((1830 - pw - 60, 40, 1830, 112), fill=RED); spaced(d, (1830 - pw - 30, 48), pt, pf, WHITE, 4)
     im.resize((1280, 720), Image.LANCZOS).save('thumbnail.png'); print('thumbnail.png')
 
 if __name__ == '__main__': main()

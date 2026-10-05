@@ -38,9 +38,8 @@ EVENTS = [("8 OCT", "Gothenburg", "Göteborg Bitcoin Meetup #49", "Ölrepubliken
           ("15 OCT", "Uppsala", "Uppsala Bitcoin Meetup", "Café Årummet, 17:30"),
           ("28 OCT", "Oslo", "Oslo Blockchain Meetup: Nexa", "Universitetsgata 2, 17:00")]
 NEXA_DISCLOSURE = ("Disclosure (28 Oct): Jørgen (jQrgen), who runs Nordic Crypto, is the speaker, runs this meetup, "
-                   "and works on Nexa at Bitcoin Unlimited. Kaupr sponsors the meetup.")
-END_DISCLOSURE = ("Disclosure: Kaupr (kaupr.io) is one of the news sources we follow. Some calendar events are sponsored by Kaupr. "
-                  "Kaupr does not sponsor Nordic Crypto. Nothing here is investment advice.")
+                   "and works on Nexa at Bitcoin Unlimited.")
+END_DISCLOSURE = "Nothing here is investment advice."
 TICKER = ["NORDIC CRYPTO · ISSUE #1 · " + DATES_SHORT.upper(),
           "Binance under investigation for allegedly offering services in Europe without a MiCA licence (Realtid)",
           "Binance said it would leave Europe, but customers are still trading (Dagens PS)",
@@ -51,8 +50,7 @@ TICKER = ["NORDIC CRYPTO · ISSUE #1 · " + DATES_SHORT.upper(),
           "New crypto fund up 39 percent since August launch (Finansavisen)",
           "Bitcoin's new rally celebrated at Finnish crypto event (Yle)",
           "ON THE CALENDAR: 8 Oct Gothenburg · 14 Oct Oslo · 15 Oct Uppsala · 28 Oct Oslo",
-          "All stories at " + SITE,
-          "Made with the help of AI"]
+          "All stories at " + SITE]
 
 # spoken narration per voiced segment
 VO = {
@@ -60,8 +58,7 @@ VO = {
            "from the 27th of September to the 2nd of October, 2026.",
  "open_b": "Tonight: Binance under scrutiny over Europe's new crypto rules. Sweden's financial watchdog issues a crypto sanctions warning. "
            "And the meetups coming up across the region. Nordic Crypto gathers crypto, bitcoin and blockchain news from Norway, Sweden, "
-           "Denmark, Finland and Iceland, with a link to every original source. And this programme is made with the help of AI: "
-           "a bot drafts the summaries, and they're edited for accuracy before anything is published. The voice you're hearing is an AI voice, too.",
+           "Denmark, Finland and Iceland, with a link to every original source.",
  "s1": "Our top story tonight. Binance is under investigation for allegedly offering services in Europe without the licence "
        "required under the EU's new crypto rules, known as MiCA. That's from Realtid in Sweden.",
  "s2": "Dagens PS, also in Sweden, reports that Binance said it would leave Europe, but customers are still trading. "
@@ -83,11 +80,10 @@ VO = {
  "cal": "On the 8th of October, it's Göteborg Bitcoin Meetup number 49, at Ölrepubliken in Gothenburg. On the 14th, Crypto killer apps, "
         "at Polyteknisk Forening in Oslo, with paid entry. On the 15th, the Uppsala Bitcoin Meetup, at Café Årummet. "
         "And on the 28th of October, Oslo Blockchain Meetup, on Nexa. A disclosure: Jørgen, who runs Nordic Crypto, is the speaker, "
-        "runs this meetup, and works on Nexa at Bitcoin Unlimited. Kaupr sponsors the meetup. "
+        "runs this meetup, and works on Nexa at Bitcoin Unlimited. "
         "More events, including Stockholm and Helsinki in November, are in the calendar.",
  "signoff": "And that's Nordic Crypto for this week. All the stories, the events calendar and a who's who of Nordic crypto are on "
             "the Nordic Crypto website. If you spot a mistake, or a story we missed, use the tip form. "
-            "Kaupr is one of the news sources we follow. Some calendar events are sponsored by Kaupr. Kaupr does not sponsor Nordic Crypto. "
             "Nothing here is investment advice. Until next week. The Nordic Crypto team. Good night.",
 }
 

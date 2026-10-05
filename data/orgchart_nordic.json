@@ -1831,7 +1831,7 @@
    "sector": "private",
    "country": "NO",
    "group": null,
-   "description": "Disclosure: Kaupr sponsors Oslo Blockchain Meetup, the meetup run by jQrgen (Jørgen S. Notland). Kaupr does not sponsor Nordic Crypto.",
+   "description": null,
    "sources": [
     {
      "url": "https://data.brreg.no/enhetsregisteret/api/enheter/928117316/roller",
