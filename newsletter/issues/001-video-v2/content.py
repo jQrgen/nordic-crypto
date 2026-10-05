@@ -1,12 +1,13 @@
-"""All on-screen and spoken content for Nordic Crypto #1 (newsreel v2 + sensational cut).
+"""All on-screen and spoken content for Nordic Crypto #1 (newsreel site cut).
 
 Facts only from newsletter issue #1. Brand is Nordic Crypto. The sign-off is
 "The Nordic Crypto team". Jørgen's name appears only in the Nexa / Bitcoin
-Unlimited conflict disclosure.
+Unlimited conflict disclosure. Kaupr is named only as the source of the
+GreenMerc story. Nothing in the narration says the programme is made with AI.
 """
-VOICE = "en-GB-RyanNeural"
-# Energetic news-anchor pace. The earlier +6% read was too slow.
-RATE = "+20%"
+# Calm male newsreader (NRK Gislefoss manner). Not RyanNeural at +20%.
+VOICE = "en-GB-ThomasNeural"
+RATE = "+2%"
 ISSUE = "Issue #1"
 DATES = "27 September – 2 October 2026"
 DATES_SHORT = "27 Sep – 2 Oct 2026"

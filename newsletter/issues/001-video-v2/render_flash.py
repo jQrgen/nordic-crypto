@@ -1,6 +1,6 @@
 """Sensational cut of Nordic Crypto #1.
 
-Same spoken facts, sign-off and AI disclosure as the newsreel. Pictures are a
+Same spoken facts and sign-off as the newsreel. Pictures are a
 faster, louder house style: hyperspace streaks, light flashes, kinetic wipes
 and original space-kitten cameos. No copyrighted theme music or footage.
 

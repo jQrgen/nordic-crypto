@@ -2,9 +2,9 @@
 import argparse, json, os, subprocess, wave, sys
 sys.path.insert(0, '.'); import content as C
 B = 'build/'; SR = 48000
-# Short lead/tail so the anchor doesn't leave dead air between sentences' pictures.
-LEAD, TAIL = 0.12, 0.18
-TITLE_PAD, END_PAD = 0.28, 1.05
+# Unhurried public-broadcaster lead and tail (a little longer than the +20% cut).
+LEAD, TAIL = 0.32, 0.46
+TITLE_PAD, END_PAD = 0.42, 1.35
 FF = ['ffmpeg', '-hide_banner', '-loglevel', 'error', '-y', '-threads', '1']
 ap = argparse.ArgumentParser()
 ap.add_argument('--timeline', default=B + 'timeline.json')

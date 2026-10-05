@@ -31,12 +31,12 @@
     "file": "video.mp4",
     "poster": "thumbnail.png",
     "subs": "subs.vtt",
-    "duration": 202,
+    "duration": 215,
     "width": 1920,
     "height": 1080,
-    "bytes": 47101215,
-    "sha256": "c2b78675c15484b683db6e6dc6ea2da852fd4c6ef5a1ed9aae2d3c74ac454211",
-    "url": "https://github.com/jQrgen/nordic-crypto/releases/download/newsletter-001-newsreel-2/nordic-crypto-1-newsreel.mp4"
+    "bytes": 51479498,
+    "sha256": "db77684939d805b0e23136b3e5539a67131da5cc1c698fde08bc0bb9fe198da9",
+    "url": "https://github.com/jQrgen/nordic-crypto/releases/download/newsletter-001-newsreel-3/nordic-crypto-1-newsreel.mp4"
    }
   }
  ]
