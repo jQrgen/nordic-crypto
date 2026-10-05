@@ -27,7 +27,9 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
+sys.path.insert(0, os.path.join(ROOT, "tools"))
 import i18n  # noqa: E402
+import source_logos  # noqa: E402
 
 API = "1"
 SITE_NAME = "Nordic Crypto"
@@ -317,6 +319,7 @@ class Feed:
             "title_en": item.get("title_en"),
             "source": source,
             "source_name": source_name,
+            "source_logo": self.media(source_logos.for_source(source, preview=self.preview), "logo"),
             "source_note": note,
             "country": item.get("country"),
             "language": item.get("language"),
@@ -959,6 +962,8 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
         e["api_url"] = feed.abs(f"api/v1/changelog/{eid}.json") if eid else None
 
     outlets, search, event_sources = _sources(sources_cfg or {})
+    for row in outlets:
+        row["logo"] = feed.media(source_logos.for_source(row.get("id"), preview=preview), "logo")
     rules = _rules(preview, feed.base)
     letters = _newsletters(feed)
     exported_at, articles = _archive(feed)
@@ -971,6 +976,8 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
         "summary is English. summary_i18n holds nn, nb, sv, da, fi and is when that translation is published. "
         "Other site languages use the English summary until a translation exists. "
         "title is the source headline. title_en is our English headline when we wrote one. "
+        "source_logo is the outlet image when assets/img/logos/logos.json has a checked file for the source id "
+        "(or its outlet, or a _source_alias). Null means show the source name as text. "
         "The site language list is /api/v1/languages.json."
     )
     collection(
@@ -1031,7 +1038,7 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
     feed.add_endpoint("events-by-country", "api/v1/events/by-country/{country}.json",
                       "Public events for one country code.", "EventList", example="api/v1/events/by-country/NO.json")
 
-    collection("api/v1/sources.json", "News outlets, the public search terms, and event sources. Kaupr is marked as a news source only.", "SourceCatalogue",
+    collection("api/v1/sources.json", "News outlets, the public search terms, and event sources. Kaupr is marked as a news source only. logo is the outlet image for that source id when one is on file.", "SourceCatalogue",
                feed.env(
                    user_agent=(sources_cfg or {}).get("user_agent"),
                    min_delay_seconds=(sources_cfg or {}).get("min_delay_seconds"),
@@ -1275,8 +1282,20 @@ def schemas():
             "api_url": {"type": "string"},
             "title": {"type": "string"},
             "title_en": {"type": "string", "nullable": True},
-            "source": {"type": "string"},
+            "source": {"type": "string", "description": "Source id from sources.json."},
             "source_name": {"type": "string"},
+            "source_logo": {
+                "type": "object",
+                "nullable": True,
+                "description": "Outlet logo for this source id. Null when no checked image is on file; show the name only. file_url is the image. The id → file map is assets/img/logos/logos.json.",
+                "properties": {
+                    "kind": {"type": "string"},
+                    "file_url": {"type": "string"},
+                    "source_url": {"type": "string"},
+                    "license": {"type": "string", "nullable": True},
+                    "credit": {"type": "string", "nullable": True},
+                },
+            },
             "source_note": {"type": "string", "nullable": True},
             "country": {"type": "string"},
             "language": {"type": "string"},
