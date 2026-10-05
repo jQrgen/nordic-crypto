@@ -782,6 +782,7 @@ sel.addEventListener('change',function(){apply(1)});tc.concat(cc).forEach(functi
     build_columnist()
     build_newsletter()
     build_rules(ctx)
+    build_regulation_videos(ctx)
     about = lang_template("about").replace("{{UP}}", up1())
     page("about", t("about_title"), "about", about, t("about_desc"))
     build_ethics()
@@ -1256,5 +1257,12 @@ def build_rules(ctx):
     try: import rules_page
     except ImportError: return
     rules_page.build(sys.modules[__name__], ctx)
+
+def build_regulation_videos(ctx):
+    """Country explainer slots (regulation-videos/): see tools/regulation_videos.py."""
+    sys.path.insert(0, P("tools"))
+    try: import regulation_videos
+    except ImportError: return
+    regulation_videos.build(sys.modules[__name__], ctx)
 
 if __name__ == "__main__": build()

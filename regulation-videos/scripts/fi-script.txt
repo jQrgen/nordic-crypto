@@ -1,0 +1,30 @@
+# Nordic Crypto — Regulation explainer: Finland (FI)
+Voice: en-GB-ThomasNeural (edge-tts, rate +2%). Brand on screen and in voice: Nordic Crypto.
+Sign-off: The Nordic Crypto team. No Kaupr-as-sponsor. Never say «made with AI» in the opener or narration.
+Layout: never centered — left-weighted newsreel lower-thirds (match newsletter/issues/001-video-v2).
+Facts: rules.json (approved) + orgchart regulation. Checked October 2026.
+
+[bumper @ 0.0s, bumper]
+(music/stinger only — reuse newsreel brass jingle pattern; ~5.5s)
+
+[open @ 5.5s, title]
+Good evening. This is Nordic Crypto. Tonight: how crypto and bitcoin rules are decided and enforced in Finland.
+
+[path @ ~18s, section - THE LEGAL PATH]
+Sweden, Denmark and Finland are EU members, so MiCA applies directly as EU law.
+MiCA applies directly as EU law. Act 402/2024 supplements MiCA; under its section 2, Finanssivalvonta supervises compliance.
+
+[actors @ ~40s, section - WHO DECIDES]
+In Finland, Valtiovarainministeriö prepares the financial-markets bills. Eduskunta adopts the national acts. The national law that shapes crypto supervision here is Act 402/2024 on crypto-asset service providers and crypto-asset markets: Laki 402/2024.
+
+[supervise @ ~65s, section - WHO SUPERVISES]
+Finanssivalvonta (FIN-FSA) is the financial supervisor that licences and oversees crypto-asset service providers under MiCA. Suomen Pankki is the central bank; MiCA licensing and ongoing supervision of crypto-asset service providers sit with Finanssivalvonta.
+
+[enforce @ ~90s, section - WHO ENFORCES]
+Suspicious transactions are reported to the financial intelligence unit: Rahanpesun selvittelykeskus within the National Bureau of Investigation. Tax on crypto-assets is handled by Verohallinto. Disputes and appeals go to the general courts and administrative courts for appeals against supervisory decisions.
+
+[status @ ~115s, section - WHERE THINGS STAND]
+Five FIN-FSA-authorised CASPs in the ESMA register (Coinmotion, Tesseract, Bittimaatti, Northcrypto, Kvarn X) and one e-money token issuer (Paxos Issuance Europe). Some Swedish firms now operate on Finnish licences (Kvarn, Northcrypto).
+
+[signoff @ ~140s, end]
+That is how the rules work in Finland. For the full map across Norway, Sweden, Denmark, Finland and Iceland, with a source for every step, see the Nordic Crypto rules page. Nothing here is legal advice. The Nordic Crypto team. Good night.
