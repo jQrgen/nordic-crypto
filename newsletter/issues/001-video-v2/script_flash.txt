@@ -1,0 +1,59 @@
+Nordic Crypto #1 narration. Voice: en-GB-RyanNeural (edge-tts, rate +20%). Sign-off: The Nordic Crypto team. Source: newsletter issue #1.
+
+[bumper @ 0.0s, bumper]
+(music/stinger only)
+
+[open_a @ 8.0s, title]
+Good evening, and welcome to Nordic Crypto. This is issue number one, with the Nordic crypto news that mattered from the 27th of September to the 2nd of October, 2026.
+
+[open_b @ 18.4s, tonight]
+Tonight: Binance under scrutiny over Europe's new crypto rules. Sweden's financial watchdog issues a crypto sanctions warning. And the meetups coming up across the region. Nordic Crypto gathers crypto, bitcoin and blockchain news from Norway, Sweden, Denmark, Finland and Iceland, with a link to every original source. And this programme is made with the help of AI: a bot drafts the summaries, and they're edited for accuracy before anything is published. The voice you're hearing is an AI voice, too.
+
+[b_top @ 46.8s, section - TOP STORY]
+(music/stinger only)
+
+[s1 @ 48.5s, story]
+Our top story tonight. Binance is under investigation for allegedly offering services in Europe without the licence required under the EU's new crypto rules, known as MiCA. That's from Realtid in Sweden.
+
+[s2 @ 60.3s, story]
+Dagens PS, also in Sweden, reports that Binance said it would leave Europe, but customers are still trading. EU financial authorities now want to know how.
+
+[b_reg @ 69.8s, section - REGULATION]
+(music/stinger only)
+
+[s3 @ 71.5s, story]
+Realtid reports that Sweden's financial watchdog says crypto-assets and illegal financial networks pose the biggest risk of Iran and North Korea dodging sanctions through Sweden.
+
+[s4 @ 80.4s, story]
+Finansinspektionen's new risk assessment finds that weapons of mass destruction are most likely to be financed through illegal financial activity and crypto-assets.
+
+[b_mkt @ 88.4s, section - MARKETS & COMPANIES]
+(music/stinger only)
+
+[s7 @ 90.1s, story]
+Kaupr reports that GreenMerc is cutting costs by 4.8 million Swedish kronor a year while Northcrypto turns a profit, with spending redirected to the banking offer Trijo One.
+
+[s8 @ 99.0s, story]
+In Norway, Finansavisen writes that Joakim Hannisdahl's new crypto fund, built on a model that did well in backtesting, is up 39 percent since it launched in August.
+
+[s9 @ 108.1s, story]
+And from Yle in Finland: at a Finnish crypto event, investors said community and technology are what draw them to crypto, as bitcoin rallied again.
+
+[b_other @ 116.0s, section - IN OTHER NEWS]
+(music/stinger only)
+
+[s5 @ 117.6s, story]
+In Norway, three Norwegians and a Swede have been charged in a large drug case with links abroad, involving drug sales on the dark web, paid for in cryptocurrency. That's according to the Southern Norway public prosecutor, via Aftenposten.
+
+[s6 @ 130.4s, story]
+And in Lund, Sydsvenskan reports that three teenagers have been arrested on suspicion of kidnapping. They are suspected of tying up a local man with duct tape to rob him of crypto.
+
+[b_cal @ 139.9s, section - ON THE CALENDAR]
+(music/stinger only)
+
+[cal @ 141.5s, calendar]
+On the 8th of October, it's Göteborg Bitcoin Meetup number 49, at Ölrepubliken in Gothenburg. On the 14th, Crypto killer apps, at Polyteknisk Forening in Oslo, with paid entry. On the 15th, the Uppsala Bitcoin Meetup, at Café Årummet. And on the 28th of October, Oslo Blockchain Meetup, on Nexa. A disclosure: Jørgen, who runs Nordic Crypto, is the speaker, runs this meetup, and works on Nexa at Bitcoin Unlimited. Kaupr sponsors the meetup. More events, including Stockholm and Helsinki in November, are in the calendar.
+
+[signoff @ 174.5s, end]
+And that's Nordic Crypto for this week. All the stories, the events calendar and a who's who of Nordic crypto are on the Nordic Crypto website. If you spot a mistake, or a story we missed, use the tip form. Kaupr is one of the news sources we follow, and it sponsors some events in our calendar. Nothing here is investment advice. Until next week. The Nordic Crypto team. Good night.
+
