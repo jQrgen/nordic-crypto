@@ -3,6 +3,38 @@
  "launch_date": "2026-10-03",
  "entries": [
   {
+   "id": "public-data-api",
+   "date": "2026-10-05",
+   "title": "Public data API",
+   "description": "News, newsletters, the calendar, sources, academia, the who's who, profiles and the rules map are published as JSON under /api/v1/. No account is required. The guide is at /api/, with OpenAPI and llms.txt for other tools.",
+   "i18n": {
+    "nn": {
+     "title": "Offentleg data-API",
+     "description": "Nyheiter, nyheitsbrev, kalenderen, kjelder, akademia, kven er kven, profilar og regeloversikta blir publiserte som JSON under /api/v1/. Ingen konto. Rettleiinga ligg på /api/, med OpenAPI og llms.txt for andre verktøy."
+    },
+    "nb": {
+     "title": "Offentlig data-API",
+     "description": "Nyheter, nyhetsbrev, kalenderen, kilder, akademia, hvem er hvem, profiler og regeloversikten blir publisert som JSON under /api/v1/. Ingen konto. Veiledningen ligger på /api/, med OpenAPI og llms.txt for andre verktøy."
+    },
+    "sv": {
+     "title": "Offentligt data-API",
+     "description": "Nyheter, nyhetsbrev, kalendern, källor, akademin, vem är vem, profiler och regelkartan publiceras som JSON under /api/v1/. Inget konto. Guiden finns på /api/, med OpenAPI och llms.txt för andra verktyg."
+    },
+    "da": {
+     "title": "Offentligt data-API",
+     "description": "Nyheder, nyhedsbreve, kalenderen, kilder, akademia, hvem er hvem, profiler og regeloversigten udgives som JSON under /api/v1/. Ingen konto. Vejledningen ligger på /api/, med OpenAPI og llms.txt til andre værktøjer."
+    },
+    "fi": {
+     "title": "Julkinen data-API",
+     "description": "Uutiset, uutiskirjeet, kalenteri, lähteet, akatemia, toimijahakemisto, profiilit ja sääntökartta julkaistaan JSONina polussa /api/v1/. Tiliä ei tarvita. Ohje on sivulla /api/, ja mukana ovat OpenAPI ja llms.txt muille työkaluille."
+    },
+    "is": {
+     "title": "Opið gagna-API",
+     "description": "Fréttir, fréttabréf, dagatal, heimildir, akademía, hver er hvað, prófílar og reglukort birtast sem JSON undir /api/v1/. Enginn reikningur. Leiðbeiningarnar eru á /api/, með OpenAPI og llms.txt fyrir önnur verkfæri."
+    }
+   }
+  },
+  {
    "id": "issue-1-newsreel-3",
    "date": "2026-10-05",
    "title": "Issue #1 newsreel re-recorded",

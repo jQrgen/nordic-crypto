@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Builds the static site in site/ from data/news.json, data/events.json, data/orgchart.json and sources.json.
+Also writes the public JSON API under site/api/v1/ (see tools/api_feed.py), /api/ docs, /llms.txt and OpenAPI.
   .venv/bin/python build.py            # public build: ONLY editor-approved content (what publish.sh would push)
   .venv/bin/python build.py --preview  # local review build: also shows pending items, clearly marked "Pending editor review"
 All paths are relative, so the site works at https://jqrgen.github.io/nordic-crypto/ and on a local server.
@@ -413,7 +414,7 @@ def langsel_script():
     global LANGSEL_JS
     if LANGSEL_JS is None: LANGSEL_JS = open(P("tools", "langselect.js"), encoding="utf-8").read()
     return LANGSEL_JS
-def page(slug, title, nav, body, desc, extra_script="", langs=None):
+def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra=""):
     """Writes site/<lang>/<slug>/index.html for the current LANG (English at the root)."""
     depth = (slug.count("/") + 1 if slug else 0) + (0 if LANG == "en" else 1)
     root = "../" * depth or "./"           # site root (data/, assets/, screen/)
@@ -442,7 +443,7 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None):
     doc = f"""<!doctype html>
 <html lang="{i18n.HTML_LANG[LANG]}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 {pick}<title>{E(title)}{" – " + SITE_NAME if slug else ""}</title>
-<meta name="description" content="{E(desc)}"><link rel="canonical" href="{url}">{alt}{'<meta name="robots" content="noindex">' if PREVIEW else ''}
+<meta name="description" content="{E(desc)}"><link rel="canonical" href="{url}">{alt}{head_extra}{'<meta name="robots" content="noindex">' if PREVIEW else ''}
 <meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:url" content="{url}"><meta property="og:type" content="website"><meta property="og:locale" content="{i18n.OG_LOCALE[LANG]}">{''.join(f'<meta property="og:locale:alternate" content="{i18n.OG_LOCALE[l]}">' for l in langs if l != LANG)}
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230f5ea8'/%3E%3Crect x='4' width='3' height='16' fill='white'/%3E%3Crect y='6.5' width='16' height='3' fill='white'/%3E%3C/svg%3E">
@@ -452,7 +453,7 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None):
 {body}
 {s['top']}
 </main>
-<footer><div class="wrap">{nlfoot}{t("footer", site=SITE_NAME, rel=rel)}</div></footer>
+<footer><div class="wrap">{nlfoot}{t("footer", site=SITE_NAME, rel=rel, root=root)}</div></footer>
 {s['script']}{setck}{extra_script}{newsletter_script()}{analytics_snippet()}
 </body></html>"""
     d = os.path.join(SITE, lp(), slug); os.makedirs(d, exist_ok=True)
@@ -529,11 +530,35 @@ def build():
         if n not in seen: seen.add(n); act.append({"name": n, "country": "NO" if n == "Kaupr" else c})
     json.dump({"active": act}, open(os.path.join(SITE, "data", "sources.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     open(os.path.join(SITE, "robots.txt"), "w").write("User-agent: *\n" + ("Disallow: /\n" if PREVIEW else "Allow: /\n"))
+    emit_api(ctx)
     sitemap()
     miss = sorted(i18n.MISSING)
     if miss: print(f"i18n: {len(miss)} missing strings fell back to English: {miss[:12]}{' …' if len(miss) > 12 else ''}")
     print(f"build{' (PREVIEW)' if PREVIEW else ''}: {len(items)} stories ({len(approved)} approved, {len(pending)} pending), "
           f"{len(ents)} org rows ({sum(e['type']=='person' for e in ents)} people), {len(rels)} relations, {len(i18n.LANGS)} languages -> {SITE}")
+
+def emit_api(ctx):
+    """Public JSON API (api/v1/), human docs at /api/, OpenAPI and llms.txt. Same approved data as the HTML."""
+    sys.path.insert(0, P("tools"))
+    import api_feed
+    ev = ctx.get("events") or ([], None)
+    events = ev[0] if isinstance(ev, tuple) else ev
+    info = api_feed.write(
+        SITE, preview=PREVIEW, base=BASE,
+        items=ctx.get("items") or [], events=events or [],
+        entities=ctx.get("ents") or [], relations=ctx.get("rels") or [],
+        org_updated=(ctx.get("org") or {}).get("updated"),
+        regulation=(ctx.get("org") or {}).get("regulation") or [],
+        caveats=(ctx.get("org") or {}).get("caveats") or [],
+        sources_cfg=ctx.get("cfg") or {},
+        news_updated=(ctx.get("news") or {}).get("updated"),
+    )
+    global LANG
+    was = LANG
+    LANG = "en"
+    page("api", "Data API", "api", api_feed.docs_fragment(info), api_feed.DOCS_DESC, langs=["en"], head_extra=api_feed.head_links(BASE))
+    LANG = was
+    return info
 
 def sitemap():
     urls = []
@@ -542,8 +567,11 @@ def sitemap():
             r = os.path.relpath(dp, SITE).replace(os.sep, "/"); r = "" if r == "." else r + "/"
             if r.split("/")[0] in ("kalender", "skjerm", "organisasjonskart", "kilder", "om", "akademia"): continue
             urls.append(BASE + r)
+    for rel in ("api/v1/index.json", "api/v1/openapi.json", "llms.txt"):
+        if os.path.exists(os.path.join(SITE, rel)):
+            urls.append(BASE + rel)
     open(os.path.join(SITE, "sitemap.xml"), "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-        + "".join(f"<url><loc>{u}</loc></url>\n" for u in sorted(urls)) + "</urlset>\n")
+        + "".join(f"<url><loc>{u}</loc></url>\n" for u in sorted(set(urls))) + "</urlset>\n")
 
 def build_lang(ctx):
     items, pending = ctx["items"], ctx["pending"]
