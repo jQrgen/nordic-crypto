@@ -51,8 +51,89 @@ def meta_ios_later(tmp):
     return (meta.get("ios") or {}).get("url")
 
 
+def _write(tmp, ctx, preview):
+    ev = ctx["events"][0] if isinstance(ctx["events"], tuple) else ctx["events"]
+    return api_feed.write(
+        tmp, preview=preview, base=build.BASE,
+        items=ctx["items"], events=ev, entities=ctx["ents"], relations=ctx["rels"],
+        org_updated=ctx["org"].get("updated"), regulation=ctx["org"].get("regulation") or [],
+        caveats=ctx["org"].get("caveats") or [], sources_cfg=ctx["cfg"],
+        news_updated=ctx["news"].get("updated"), markets=_markets_fixture(),
+    )
+
+
+def source_logos(fails):
+    """logo_url / source_logo_url are null unless the logo's review is 'ok' (preview: 'pending' too, never 'rejected')."""
+    ctx = api_feed.repo_context(False)
+    real = json.load(open(api_feed.LOGOS_MANIFEST, encoding="utf-8"))
+    outlet = {s["id"]: s.get("outlet") for s in ctx["cfg"]["sources"]}
+    with tempfile.TemporaryDirectory() as tmp:  # the committed manifest, public build
+        _write(tmp, ctx, False)
+        srcs = json.load(open(os.path.join(tmp, "api/v1/sources.json"), encoding="utf-8"))
+        for s in srcs["sources"]:
+            if "logo_url" not in s or "logo" not in s:
+                fails.append("sources.json row without logo_url/logo: " + s["id"])
+                continue
+            if s["logo_url"]:
+                rec = real.get("source:" + s["id"]) or real.get("source:" + str(outlet.get(s["id"])))
+                if not rec or rec.get("review") != "ok":
+                    fails.append("unapproved source logo in public build: " + s["id"])
+                if not s["logo_url"].startswith(build.BASE) or not os.path.exists(os.path.join(tmp, s["logo_url"][len(build.BASE):])):
+                    fails.append("source logo file not in site: " + s["id"])
+        news = json.load(open(os.path.join(tmp, "api/v1/news.json"), encoding="utf-8"))
+        if any("source_logo_url" not in n for n in news["items"]):
+            fails.append("news item without source_logo_url")
+        if not srcs.get("logo_note") or "trademark" not in srcs["logo_note"]:
+            fails.append("sources.json logo_note")
+    fixture = {
+        "source:e24": {"file": "assets/img/logos/dnb.svg", "source": "Official website", "source_url": "https://e24.no/x.png",
+                       "license": "Publisher's own logo, used only to identify the source of a headline", "review": "ok"},
+        "source:nrk": {"file": "assets/img/logos/dnb.svg", "source": "Wikimedia Commons", "source_url": "https://commons.wikimedia.org/wiki/File:X.svg",
+                       "license": "Public domain", "review": "ok"},
+        "source:kaupr": {"file": "assets/img/logos/kaupr.webp", "source": "Official website", "source_url": "https://www.kaupr.io/x.png", "review": "ok"},
+        "source:vg": {"file": "assets/img/logos/dnb.svg", "source": "Official website", "source_url": "https://www.vg.no/x.png", "review": "pending"},
+        "source:dn": {"file": "assets/img/logos/dnb.svg", "source": "Official website", "source_url": "https://www.dn.no/x.png", "review": "rejected"},
+    }
+    saved = api_feed.LOGOS_MANIFEST
+    with tempfile.TemporaryDirectory() as tmp:
+        man = os.path.join(tmp, "logos.json")
+        json.dump(fixture, open(man, "w", encoding="utf-8"))
+        api_feed.LOGOS_MANIFEST = man
+        try:
+            for preview in (False, True):
+                out = os.path.join(tmp, "preview" if preview else "public")
+                _write(out, api_feed.repo_context(preview), preview)
+                by = {s["id"]: s for s in json.load(open(os.path.join(out, "api/v1/sources.json"), encoding="utf-8"))["sources"]}
+                tag = "preview" if preview else "public"
+                want = build.BASE + "assets/img/logos/dnb.svg"
+                if by["e24"]["logo_url"] != want or (by["e24"]["logo"] or {}).get("kind") != "source_logo":
+                    fails.append(f"{tag}: approved logo missing (e24)")
+                if by["nrk-siste"]["logo_url"] != want:
+                    fails.append(f"{tag}: outlet logo not used for nrk-siste")
+                if by["dn"]["logo_url"] is not None:
+                    fails.append(f"{tag}: rejected logo published (dn)")
+                if (by["vg"]["logo_url"] is not None) != preview:
+                    fails.append(f"{tag}: pending logo (vg) should be {'listed' if preview else 'null'}")
+                if by["bing-no"]["logo_url"] is not None:
+                    fails.append(f"{tag}: search feed got a logo")
+                if not os.path.exists(os.path.join(out, "assets/img/logos/dnb.svg")):
+                    fails.append(f"{tag}: logo file not copied into the site")
+                news = json.load(open(os.path.join(out, "api/v1/news.json"), encoding="utf-8"))["items"]
+                for n in news:
+                    if n.get("source") in ("kaupr", "e24") and not n.get("source_logo_url"):
+                        fails.append(f"{tag}: news {n['id']} ({n['source']}) has no source_logo_url")
+                    if n.get("source") == "dn" and n.get("source_logo_url"):
+                        fails.append(f"{tag}: news {n['id']} uses a rejected logo")
+                    one = json.load(open(os.path.join(out, "api/v1/news", n["id"] + ".json"), encoding="utf-8"))["item"]
+                    if one.get("source_logo_url") != n.get("source_logo_url"):
+                        fails.append(f"{tag}: news/{n['id']}.json source_logo_url differs from the list")
+        finally:
+            api_feed.LOGOS_MANIFEST = saved
+
+
 def main():
     fails = []
+    source_logos(fails)
     ctx = api_feed.repo_context(False)
     with tempfile.TemporaryDirectory() as tmp:
         ev = ctx["events"][0]

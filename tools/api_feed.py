@@ -22,6 +22,7 @@ import html
 import json
 import os
 import re
+import shutil
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -247,6 +248,7 @@ class Feed:
         self.generated = dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat()
         self.endpoints = []
         self.examples = {}
+        self.source_logos = {}
 
     def abs(self, path):
         return self.base + path.lstrip("/")
@@ -328,7 +330,11 @@ class Feed:
             "paywall": bool(item.get("paywall")),
             "links": [{"label": l.get("label"), "url": l.get("url")} for l in (item.get("links") or []) if l.get("url")],
             "own_story": own,
+            "source_logo_url": None,
         }
+        logo = None if own else _logo_lookup(self.source_logos, source)
+        if logo:
+            out["source_logo_url"] = _publish_logo(self, logo)["file_url"]
         if self.preview:
             out["status"] = "pending" if status not in ("published", "owner") else status
         return out
@@ -596,8 +602,9 @@ def _changelog(preview):
     return launch, rows
 
 
-def _sources(cfg):
+def _sources(cfg, api=None):
     outlets, search = [], []
+    logos = api.source_logos if api else {}
     for s in cfg.get("sources") or []:
         row = {
             "id": s.get("id"),
@@ -621,6 +628,9 @@ def _sources(cfg):
             row["source_note"] = "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
         else:
             row["source_note"] = None
+        logo = _publish_logo(api, logos.get(s.get("id"))) if api else None
+        row["logo_url"] = logo["file_url"] if logo else None
+        row["logo"] = logo
         outlets.append(row)
         if s.get("type") == "bing":
             search.append({
@@ -643,6 +653,72 @@ def _sources(cfg):
             "status": s.get("status") or "",
         })
     return outlets, search, events
+
+
+LOGOS_MANIFEST = os.path.join(ROOT, "assets", "img", "logos", "logos.json")
+SOURCE_LOGO_NOTE = ("logo_url (sources) and source_logo_url (news) point at the outlet's logo. Logos are the publishers' own "
+                    "trademarks, shown only to identify the source of a headline. They are null until the editor has checked the logo.")
+
+
+def _source_logos(feed, cfg, manifest=None):
+    """{source id or news-source domain: logo media} for news-source logos (logos.json keys 'source:<id>').
+
+    Public build: only review 'ok'. Preview build: 'pending' too, like the who's who logos. 'rejected' never.
+    A source with an `outlet` uses the outlet's logo. A news item whose source is a domain (search hits) uses the
+    logo of the source whose url is on that host."""
+    man = load(manifest or LOGOS_MANIFEST, {}) or {}
+    ok = {}
+    for key, rec in man.items():
+        if not key.startswith("source:") or not isinstance(rec, dict) or not rec.get("file"):
+            continue
+        review = rec.get("review", "pending")
+        if review != "ok" and not (feed.preview and review == "pending"):
+            continue
+        if not (rec.get("license") or rec.get("source_url")) or not os.path.exists(os.path.join(ROOT, rec["file"])):
+            continue
+        media = feed.media(rec, "source_logo")
+        media["file"] = rec["file"]  # dropped before publishing; used to copy the image into the site
+        ok[key[len("source:"):]] = media
+    out = {}
+    sources = (cfg or {}).get("sources") or []
+    for s in sources:
+        sid = s.get("id")
+        logo = ok.get(sid) or (ok.get(s.get("outlet")) if s.get("outlet") else None)
+        if sid and logo:
+            out[sid] = logo
+    for sid, logo in ok.items():  # outlets that are not a source row themselves (kaupr)
+        out.setdefault(sid, logo)
+    for s in sorted(sources, key=lambda s: bool(s.get("outlet"))):  # domain keys; the main row wins over a section feed
+        m = re.match(r"https?://([^/]+)", s.get("url") or "")
+        h = re.sub(r"^www\.", "", m.group(1).lower()) if m else ""
+        if h and s.get("id") in out and s.get("type") != "bing":
+            out.setdefault(h, out[s["id"]])
+    return out
+
+
+def _logo_lookup(logos, source):
+    """Logo media for a news item's `source` (a source id, or a domain for search hits), else None."""
+    if not source:
+        return None
+    if source in logos:
+        return logos[source]
+    h = re.sub(r"^www\.", "", str(source).lower())
+    while "." in h:
+        if h in logos:
+            return logos[h]
+        h = h.split(".", 1)[1]
+    return None
+
+
+def _publish_logo(feed, logo):
+    """Public copy of a logo media object (no local path); copies the image file into the site once."""
+    if not logo:
+        return None
+    dst = os.path.join(feed.site, logo["file"])
+    if not os.path.exists(dst):
+        os.makedirs(os.path.dirname(dst), exist_ok=True)
+        shutil.copy(os.path.join(ROOT, logo["file"]), dst)
+    return {k: v for k, v in logo.items() if k != "file"}
 
 
 def _rules(preview, base):
@@ -913,6 +989,7 @@ def _markets(feed, markets):
 def write(site, *, preview, base, items, events, entities, relations, org_updated, regulation, caveats, sources_cfg, news_updated, markets=None):
     feed = Feed(site, preview, base)
     os.makedirs(site, exist_ok=True)
+    feed.source_logos = _source_logos(feed, sources_cfg)
 
     news = [feed.news_item(i) for i in items]
     news = [n for n in news if n.get("id")]
@@ -958,7 +1035,7 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
         e["html_url"] = feed.abs(f"changelog/#{eid}") if eid else feed.abs("changelog/")
         e["api_url"] = feed.abs(f"api/v1/changelog/{eid}.json") if eid else None
 
-    outlets, search, event_sources = _sources(sources_cfg or {})
+    outlets, search, event_sources = _sources(sources_cfg or {}, feed)
     rules = _rules(preview, feed.base)
     letters = _newsletters(feed)
     exported_at, articles = _archive(feed)
@@ -977,7 +1054,7 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
         "api/v1/news.json",
         "Published news and our own stories, newest first.",
         "NewsList",
-        feed.env(updated=news_updated, language_note=lang_note, count=len(news), items=news),
+        feed.env(updated=news_updated, language_note=lang_note, logo_note=SOURCE_LOGO_NOTE, count=len(news), items=news),
         example=f"api/v1/news/{news[0]['id']}.json" if news else None,
         item_template="api/v1/news/{id}.json",
     )
@@ -1037,6 +1114,7 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
                    min_delay_seconds=(sources_cfg or {}).get("min_delay_seconds"),
                    keyword_note=i18n.t("en", "src_kw"),
                    kaupr="Kaupr (kaupr.io) is one of the news sources. It is never a sponsor.",
+                   logo_note=SOURCE_LOGO_NOTE,
                    count=len(outlets),
                    sources=outlets,
                    search=search,
@@ -1265,6 +1343,42 @@ def openapi(feed, index):
 
 def schemas():
     i18n_obj = {"type": "object", "additionalProperties": {"type": "string"}, "description": "Keys are site language codes: nn, nb, sv, da, fi, is. English lives in the sibling field."}
+    logo_url_desc = ("Absolute URL of the news source's logo (SVG or WebP) on the GitHub Pages base. Null until the editor has checked "
+                     "the logo (review ok); a preview build also lists pending logos. The publisher's trademark, shown only to identify the source.")
+    source_logo = {
+        "type": "object", "nullable": True,
+        "description": "Where the source logo comes from. Same fields as a who's who logo in images.json.",
+        "properties": {
+            "kind": {"type": "string", "enum": ["source_logo"]},
+            "file_url": {"type": "string"},
+            "source_url": {"type": "string", "nullable": True, "description": "Wikimedia Commons file page, or the image URL on the publisher's site."},
+            "author": {"type": "string", "nullable": True},
+            "license": {"type": "string", "nullable": True, "description": "Commons licence, or \"Publisher's own logo, used only to identify the source of a headline\"."},
+            "license_url": {"type": "string", "nullable": True},
+            "credit": {"type": "string", "nullable": True, "description": "Wikimedia Commons or Official website."},
+        },
+    }
+    source_row = {
+        "type": "object",
+        "required": ["id", "name", "country"],
+        "properties": {
+            "id": {"type": "string"},
+            "name": {"type": "string"},
+            "country": {"type": "string"},
+            "kind": {"type": "string", "nullable": True},
+            "url": {"type": "string", "nullable": True},
+            "type": {"type": "string"},
+            "paywall": {"type": "boolean"},
+            "enabled": {"type": "boolean"},
+            "status": {"type": "string"},
+            "verified": {"type": "string", "nullable": True},
+            "language": {"type": "string", "nullable": True},
+            "feed": {"type": "string", "nullable": True},
+            "source_note": {"type": "string", "nullable": True},
+            "logo_url": {"type": "string", "nullable": True, "description": logo_url_desc},
+            "logo": source_logo,
+        },
+    }
     news_item = {
         "type": "object",
         "required": ["id", "title", "published", "api_url"],
@@ -1288,6 +1402,7 @@ def schemas():
             "paywall": {"type": "boolean"},
             "links": {"type": "array", "items": {"type": "object"}},
             "own_story": {"type": "boolean"},
+            "source_logo_url": {"type": "string", "nullable": True, "description": logo_url_desc},
         },
     }
     event_item = {
@@ -1346,13 +1461,14 @@ def schemas():
         "Document": {"type": "object", "additionalProperties": True},
         "Discovery": wrap("Discovery", {"endpoints": {"type": "array"}, "counts": {"type": "object"}, "cors": {"type": "object"}}),
         "NewsItem": news_item,
-        "NewsList": wrap("NewsList", {"count": {"type": "integer"}, "items": {"type": "array", "items": news_item}, "updated": {"type": "string", "nullable": True}}),
+        "NewsList": wrap("NewsList", {"count": {"type": "integer"}, "items": {"type": "array", "items": news_item}, "updated": {"type": "string", "nullable": True}, "logo_note": {"type": "string"}}),
         "TopicIndex": wrap("TopicIndex", {"topics": {"type": "array"}}),
         "Event": event_item,
         "EventList": wrap("EventList", {"count": {"type": "integer"}, "events": {"type": "array", "items": event_item}}),
         "NewsletterIssue": issue,
         "NewsletterList": wrap("NewsletterList", {"count": {"type": "integer"}, "issues": {"type": "array", "items": issue}}),
-        "SourceCatalogue": wrap("SourceCatalogue", {"sources": {"type": "array"}, "search": {"type": "array"}, "event_sources": {"type": "array"}}),
+        "Source": source_row,
+        "SourceCatalogue": wrap("SourceCatalogue", {"logo_note": {"type": "string"}, "sources": {"type": "array", "items": source_row}, "search": {"type": "array"}, "event_sources": {"type": "array"}}),
         "Academia": wrap("Academia", {"courses": {"type": "array"}, "groups": {"type": "array"}, "publications": {"type": "array"}, "research": {"type": "array"}}),
         "AcademiaSection": wrap("AcademiaSection", {"section": {"type": "string"}, "items": {"type": "array"}}),
         "AcademiaItem": wrap("AcademiaItem", {"item": {"type": "object"}}),
@@ -1482,6 +1598,15 @@ def llms_txt(feed, index):
         "A single newsletter issue is api/v1/newsletters/{id}.json and includes plain text and HTML. "
         "Country slices: api/v1/news/by-country/NO.json (also SE, DK, FI, IS).",
         "",
+        "## Source logos",
+        "",
+        f"Each outlet in {feed.abs('api/v1/sources.json')} has logo_url (absolute SVG or WebP URL, or null) and logo "
+        "(kind, file_url, source_url, author, license, license_url, credit, or null). "
+        "Each news item has source_logo_url, the logo of the outlet that published the headline. "
+        "Logos come from Wikimedia Commons (with licence and author) or the publisher's own site. "
+        "They are the publishers' trademarks, shown only to identify the source of a headline. "
+        "A logo is null until the editor has checked it.",
+        "",
         "## Endpoints",
         "",
     ]
@@ -1571,6 +1696,8 @@ curl -fsS {letters}{html.escape(one_line)}</pre>
 <h2>Languages</h2>
 <p>English is the default field (<code>summary</code>, <code>title</code>, <code>text</code>). Translations that we have published sit in <code>summary_i18n</code>, <code>title_i18n</code>, <code>subtitle_i18n</code>, <code>note_i18n</code>, <code>text_i18n</code> and <code>about_i18n</code>, keyed by <code>nn</code>, <code>nb</code>, <code>sv</code>, <code>da</code>, <code>fi</code> and <code>is</code>. Other site languages use the English field until a translation is published. Headlines from other outlets stay in the original language. Dates are ISO 8601.</p>
 <p><a href="{html.escape(b)}api/v1/languages.json"><code>/api/v1/languages.json</code></a> lists every site language with <code>code</code>, <code>native_name</code>, <code>english_name</code>, <code>rtl</code>, <code>html_lang</code> and <code>home</code>. <a href="{html.escape(b)}api/v1/geo-language.json"><code>/api/v1/geo-language.json</code></a> is the country-to-language guess used on a first visit. The IP country comes from the tipworker <code>GET /api/geo</code> (Cloudflare <code>request.cf.country</code>). Nothing is stored. The <code>nc_lang</code> cookie, set by the language switcher, always wins.</p>
+<h2>Source logos</h2>
+<p>Each outlet in <a href="{html.escape(b)}api/v1/sources.json"><code>/api/v1/sources.json</code></a> has <code>logo_url</code> (absolute SVG or WebP URL, or <code>null</code>) and <code>logo</code> (<code>kind</code>, <code>file_url</code>, <code>source_url</code>, <code>author</code>, <code>license</code>, <code>license_url</code>, <code>credit</code>, or <code>null</code>). Each news item has <code>source_logo_url</code>, so an app can show the outlet's logo next to the headline. Logos come from Wikimedia Commons (with the licence) or the publisher's own site. They are the publishers' trademarks, shown only to identify the source of a headline. A logo stays <code>null</code> until the editor has checked it.</p>
 <h2>CORS</h2>
 <p>GitHub Pages sends <code>Access-Control-Allow-Origin: *</code> on these files, so a page on another site can <code>fetch()</code> them. GitHub Pages does not apply a custom headers file. Use the <code>.json</code> file name; opening a directory does not return the JSON.</p>
 <h2>Editorial</h2>
