@@ -156,7 +156,11 @@ html.nc-pick body{visibility:hidden}
 .nlsub{display:inline-block;padding:6px 14px;border-radius:6px;background:#0f5ea8;color:#fff!important;text-decoration:none;font-weight:600}.nlsub:hover,.nlsub:focus{background:#0b4a85}
 .brandrow{display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap}
 .hdrsub{display:inline-block;padding:5px 12px;border-radius:6px;background:#0f5ea8;color:#fff!important;text-decoration:none;font-weight:600;font-size:14px;line-height:1.3;white-space:nowrap}.hdrsub:hover,.hdrsub:focus{background:#0b4a85}
-@media(max-width:640px){.brandrow{width:100%;justify-content:space-between;flex-wrap:nowrap}.brandrow .brand{white-space:nowrap;flex:none}.hdrsub{font-size:13px;padding:5px 10px;white-space:normal;text-align:center;min-width:0}}
+.hdrbtns{display:flex;align-items:center;gap:6px;flex-wrap:wrap;min-width:0}
+.hdrx{display:inline-block;padding:4px 10px;border:1px solid var(--ink);border-radius:6px;color:var(--ink)!important;background:#fff;text-decoration:none;font-weight:600;font-size:13px;line-height:1.3;white-space:nowrap}.hdrx:hover,.hdrx:focus{background:#f1f1f1}.hdrx .xs{display:none}
+.xfollow{display:inline-block;padding:5px 12px;border:1px solid var(--ink);border-radius:6px;color:var(--ink)!important;text-decoration:none;font-weight:600}.xfollow:hover,.xfollow:focus{background:#f1f1f1}
+@media(max-width:640px){.brandrow{width:100%;justify-content:space-between;flex-wrap:nowrap}.brandrow .brand{white-space:nowrap;flex:none}.hdrsub{font-size:13px;padding:5px 10px;white-space:normal;text-align:center;min-width:0}.hdrbtns{flex-wrap:nowrap;justify-content:flex-end}.hdrx{flex:none}}
+@media(max-width:480px){.hdrx{padding:4px 9px}.hdrx .xf{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.hdrx .xs{display:inline}}
 .nlissues{list-style:none;margin:8px 0 18px;padding:0}.nlissues li{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line)}
 .nlissues .th{flex:none;width:200px;max-width:40%}.nlissues img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--line)}
 .nlissues h3{font-size:18px;line-height:1.3;margin:0 0 4px}.nlissues h3 a{text-decoration:none}.nlissues h3 a:hover{text-decoration:underline}.nlissues .sum{margin-top:4px}
@@ -235,6 +239,15 @@ def header_sub_button():
     """'Subscribe on Substack' button at the top of every page (same Substack link as the footer, label without the arrow)."""
     sub = substack_subscribe_url()
     return f'<a class="hdrsub" href="{E(sub)}" rel="noopener">{E(t("nl_sub_btn").replace("→", "").strip())}</a>' if sub else ""
+# The site's own X account (not jQrgen's personal one). Plain link only: no X widgets, scripts or embeds (no third-party scripts).
+SITE_X = "https://x.com/xcryptonordic"
+def header_x_button():
+    """Small 'Follow on X' link next to the header Substack button; on narrow phones it shrinks to an 'X' pill (full label kept for screen readers)."""
+    return (f'<a class="hdrx" href="{SITE_X}" rel="noopener" title="{E(t("x_title"))}">'
+            f'<span class="xf">{E(t("x_btn"))}</span><span class="xs" aria-hidden="true">X</span></a>')
+def x_link():
+    """'Follow Crypto Nordic on X' link (footer, /newsletter/, issue pages), next to the Substack button."""
+    return f'<a class="xfollow" href="{SITE_X}" rel="noopener" title="{E(t("x_title"))}">{E(t("x_follow"))}</a>'
 # ---- Newsletter issues (newsletter/published/issues.json; text, poster, subtitles and video per issue) ----
 # The subtitle track is not "default": issue videos have the English subtitles burned in, the track is for assistive tech and players.
 NL_PUB = P("newsletter", "published")
@@ -314,7 +327,7 @@ def build_issue(iss):
 {vid}
 <div class="prose issuetext"{la}>
 {txt}</div>
-{f'<section class="nlhome"><p><b>{E(t("nl_get_next"))}</b> {sub}</p></section>' if sub else ''}
+<section class="nlhome"><p>{f'<b>{E(t("nl_get_next"))}</b> {sub} ' if sub else ''}{x_link()}</p></section>
 <p class="meta"><a href="../">← {E(t("nl_all_issues"))}</a></p>
 </article>"""
     page(slug, iss["title"], "newsletter", body, iss.get("subtitle") or t("nl_desc"))
@@ -340,7 +353,7 @@ def build_newsletter():
     body = f"""<h1>{E(t("nl_title"))}</h1>
 <p class="lead">{E(t("nl_lead"))}</p>
 {form}
-{f'<p>{sub}</p>' if sub else ''}
+<p>{sub + ' ' if sub else ''}{x_link()}</p>
 <h2 id="issues">{E(t("nl_issues_h"))}</h2>
 <p class="meta">{E(t("nl_issues_lead"))}</p>
 <ol class="nlissues">{''.join(lis) or f'<li class="empty">{E(t("nl_issues_none"))}</li>'}</ol>
@@ -377,7 +390,8 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None):
                 .replace("__COOKIE_PATH__", COOKIE_PATH).replace("__LANGS__", json.dumps(i18n.LANGS)) + "</script>")
     setck = ("<script>(function(){document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[data-lang]');if(!a)return;"
              f"document.cookie='nc_lang='+a.getAttribute('data-lang')+';path={COOKIE_PATH};max-age=31536000;SameSite=Lax'+(location.protocol==='https:'?';Secure':'')}})}})();</script>")
-    nlfoot = (f'<div class="nlfoot"><b>{E(t("nl_foot"))}</b> {" ".join(x for x in (newsletter_form(True), substack_button()) if x)} <a href="{rel}newsletter/">{E(t("nl_more"))}</a></div>' if newsletter_on() and slug != "newsletter" else "")
+    nlfoot = (f'<div class="nlfoot"><b>{E(t("nl_foot"))}</b> {" ".join(x for x in (newsletter_form(True), substack_button(), x_link()) if x)} <a href="{rel}newsletter/">{E(t("nl_more"))}</a></div>' if newsletter_on() and slug != "newsletter"
+              else f'<div class="nlfoot">{x_link()}</div>')
     doc = f"""<!doctype html>
 <html lang="{i18n.HTML_LANG[LANG]}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 {pick}<title>{E(title)}{" – " + SITE_NAME if slug else ""}</title>
@@ -386,7 +400,7 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None):
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230f5ea8'/%3E%3Crect x='4' width='3' height='16' fill='white'/%3E%3Crect y='6.5' width='16' height='3' fill='white'/%3E%3C/svg%3E">
 <style>{CSS}{s['css']}</style></head>
-<body>{banner}<header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="{rel}">Crypto <span>Nordic</span></a>{header_sub_button()}</div><nav class="main" aria-label="{E(t("main_menu"))}">{nav_html}</nav>{switcher}</div></header>
+<body>{banner}<header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="{rel}">Crypto <span>Nordic</span></a><span class="hdrbtns">{header_sub_button()}{header_x_button()}</span></div><nav class="main" aria-label="{E(t("main_menu"))}">{nav_html}</nav>{switcher}</div></header>
 <main class="wrap">
 {body}
 {s['top']}

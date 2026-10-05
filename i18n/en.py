@@ -162,4 +162,6 @@ S.update({
 "nl_embed_btn": "Show the Substack signup form", "nl_embed_note": "The form is loaded from substack.com only when you click the button. Substack may then set its own cookies under its privacy policy; this website stores nothing.", "nl_embed_title": "Substack signup form",
 # newsletter issues (/newsletter/ list, /newsletter/<id>/)
 "nav_newsletter": "Newsletter", "nl_issues_h": "Issues", "nl_issues_lead": "Every issue, newest first. Read them here or get them by email.", "nl_issues_none": "No issues yet.", "nl_issue_n": "Issue #{n}", "nl_issue_period": "News from {a} to {b}", "nl_issue_count": "{s} stories and {e} events", "nl_issue_video": "Video, {m} min", "nl_issue_en": "This issue is in English.", "nl_ai": "Made with the help of AI", "nl_video_dl": "Download the video (MP4, {mb} MB)", "nl_video_subs": "English subtitles (WebVTT)", "nl_video_fallback": "Your browser can't play the video here. Download it instead:", "nl_video_note": "The video plays from this website: no YouTube, no third-party scripts, no tracking. It has English subtitles.", "nl_all_issues": "All newsletter issues", "nl_get_next": "Get the next issue by email:",
+# the site's own X account (@xcryptonordic), header/footer/newsletter
+"x_btn": "Follow on X", "x_follow": "Follow Crypto Nordic on X", "x_title": "Crypto Nordic on X (@xcryptonordic), the site's own account",
 })
