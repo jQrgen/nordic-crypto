@@ -334,7 +334,7 @@ class Feed:
         }
         logo = None if own else _logo_lookup(self.source_logos, source)
         if logo:
-            out["source_logo_url"] = _publish_logo(self, logo)["file_url"]
+            out["source_logo_url"] = _publish_logo(self, logo)["raster_url"]
         if self.preview:
             out["status"] = "pending" if status not in ("published", "owner") else status
         return out
@@ -629,7 +629,7 @@ def _sources(cfg, api=None):
         else:
             row["source_note"] = None
         logo = _publish_logo(api, logos.get(s.get("id"))) if api else None
-        row["logo_url"] = logo["file_url"] if logo else None
+        row["logo_url"] = logo["raster_url"] if logo else None
         row["logo"] = logo
         outlets.append(row)
         if s.get("type") == "bing":
@@ -677,7 +677,12 @@ def _source_logos(feed, cfg, manifest=None):
         if not (rec.get("license") or rec.get("source_url")) or not os.path.exists(os.path.join(ROOT, rec["file"])):
             continue
         media = feed.media(rec, "source_logo")
-        media["file"] = rec["file"]  # dropped before publishing; used to copy the image into the site
+        # Apple's AsyncImage cannot draw SVG, so apps get a raster: the PNG rendering of an SVG, or the WebP/PNG itself.
+        raster = rec.get("raster") if str(rec["file"]).lower().endswith(".svg") else rec["file"]
+        if raster and not os.path.exists(os.path.join(ROOT, raster)):
+            raster = None
+        media["raster_url"] = feed.abs(raster) if raster else None
+        media["_files"] = [f for f in (rec["file"], raster) if f]  # dropped before publishing; copied into the site
         ok[key[len("source:"):]] = media
     out = {}
     sources = (cfg or {}).get("sources") or []
@@ -711,14 +716,15 @@ def _logo_lookup(logos, source):
 
 
 def _publish_logo(feed, logo):
-    """Public copy of a logo media object (no local path); copies the image file into the site once."""
+    """Public copy of a logo media object (no local paths); copies the original and the raster into the site once."""
     if not logo:
         return None
-    dst = os.path.join(feed.site, logo["file"])
-    if not os.path.exists(dst):
-        os.makedirs(os.path.dirname(dst), exist_ok=True)
-        shutil.copy(os.path.join(ROOT, logo["file"]), dst)
-    return {k: v for k, v in logo.items() if k != "file"}
+    for f in logo["_files"]:
+        dst = os.path.join(feed.site, f)
+        if not os.path.exists(dst):
+            os.makedirs(os.path.dirname(dst), exist_ok=True)
+            shutil.copy(os.path.join(ROOT, f), dst)
+    return {k: v for k, v in logo.items() if k != "_files"}
 
 
 def _rules(preview, base):
@@ -1343,14 +1349,15 @@ def openapi(feed, index):
 
 def schemas():
     i18n_obj = {"type": "object", "additionalProperties": {"type": "string"}, "description": "Keys are site language codes: nn, nb, sv, da, fi, is. English lives in the sibling field."}
-    logo_url_desc = ("Absolute URL of the news source's logo (SVG or WebP) on the GitHub Pages base. Null until the editor has checked "
+    logo_url_desc = ("Absolute URL of the news source's logo as a raster image (PNG or WebP, never SVG, so SwiftUI AsyncImage can draw it) on the GitHub Pages base. Null until the editor has checked "
                      "the logo (review ok); a preview build also lists pending logos. The publisher's trademark, shown only to identify the source.")
     source_logo = {
         "type": "object", "nullable": True,
         "description": "Where the source logo comes from. Same fields as a who's who logo in images.json.",
         "properties": {
             "kind": {"type": "string", "enum": ["source_logo"]},
-            "file_url": {"type": "string"},
+            "file_url": {"type": "string", "description": "The original file as fetched: SVG, or WebP for raster logos."},
+            "raster_url": {"type": "string", "nullable": True, "description": "PNG rendering of an SVG (256 px on the long side, transparent), or the WebP itself. Same value as logo_url."},
             "source_url": {"type": "string", "nullable": True, "description": "Wikimedia Commons file page, or the image URL on the publisher's site."},
             "author": {"type": "string", "nullable": True},
             "license": {"type": "string", "nullable": True, "description": "Commons licence, or \"Publisher's own logo, used only to identify the source of a headline\"."},
@@ -1600,8 +1607,8 @@ def llms_txt(feed, index):
         "",
         "## Source logos",
         "",
-        f"Each outlet in {feed.abs('api/v1/sources.json')} has logo_url (absolute SVG or WebP URL, or null) and logo "
-        "(kind, file_url, source_url, author, license, license_url, credit, or null). "
+        f"Each outlet in {feed.abs('api/v1/sources.json')} has logo_url (absolute PNG or WebP URL, never SVG, or null) and logo "
+        "(kind, file_url (the original, SVG or WebP), raster_url (same as logo_url), source_url, author, license, license_url, credit, or null). "
         "Each news item has source_logo_url, the logo of the outlet that published the headline. "
         "Logos come from Wikimedia Commons (with licence and author) or the publisher's own site. "
         "They are the publishers' trademarks, shown only to identify the source of a headline. "
@@ -1697,7 +1704,7 @@ curl -fsS {letters}{html.escape(one_line)}</pre>
 <p>English is the default field (<code>summary</code>, <code>title</code>, <code>text</code>). Translations that we have published sit in <code>summary_i18n</code>, <code>title_i18n</code>, <code>subtitle_i18n</code>, <code>note_i18n</code>, <code>text_i18n</code> and <code>about_i18n</code>, keyed by <code>nn</code>, <code>nb</code>, <code>sv</code>, <code>da</code>, <code>fi</code> and <code>is</code>. Other site languages use the English field until a translation is published. Headlines from other outlets stay in the original language. Dates are ISO 8601.</p>
 <p><a href="{html.escape(b)}api/v1/languages.json"><code>/api/v1/languages.json</code></a> lists every site language with <code>code</code>, <code>native_name</code>, <code>english_name</code>, <code>rtl</code>, <code>html_lang</code> and <code>home</code>. <a href="{html.escape(b)}api/v1/geo-language.json"><code>/api/v1/geo-language.json</code></a> is the country-to-language guess used on a first visit. The IP country comes from the tipworker <code>GET /api/geo</code> (Cloudflare <code>request.cf.country</code>). Nothing is stored. The <code>nc_lang</code> cookie, set by the language switcher, always wins.</p>
 <h2>Source logos</h2>
-<p>Each outlet in <a href="{html.escape(b)}api/v1/sources.json"><code>/api/v1/sources.json</code></a> has <code>logo_url</code> (absolute SVG or WebP URL, or <code>null</code>) and <code>logo</code> (<code>kind</code>, <code>file_url</code>, <code>source_url</code>, <code>author</code>, <code>license</code>, <code>license_url</code>, <code>credit</code>, or <code>null</code>). Each news item has <code>source_logo_url</code>, so an app can show the outlet's logo next to the headline. Logos come from Wikimedia Commons (with the licence) or the publisher's own site. They are the publishers' trademarks, shown only to identify the source of a headline. A logo stays <code>null</code> until the editor has checked it.</p>
+<p>Each outlet in <a href="{html.escape(b)}api/v1/sources.json"><code>/api/v1/sources.json</code></a> has <code>logo_url</code> (absolute PNG or WebP URL, never SVG, or <code>null</code>) and <code>logo</code> (<code>kind</code>, <code>file_url</code> (the original, SVG or WebP), <code>raster_url</code> (same as <code>logo_url</code>), <code>source_url</code>, <code>author</code>, <code>license</code>, <code>license_url</code>, <code>credit</code>, or <code>null</code>). Each news item has <code>source_logo_url</code>, so an app can show the outlet's logo next to the headline. Logos come from Wikimedia Commons (with the licence) or the publisher's own site. They are the publishers' trademarks, shown only to identify the source of a headline. A logo stays <code>null</code> until the editor has checked it.</p>
 <h2>CORS</h2>
 <p>GitHub Pages sends <code>Access-Control-Allow-Origin: *</code> on these files, so a page on another site can <code>fetch()</code> them. GitHub Pages does not apply a custom headers file. Use the <code>.json</code> file name; opening a directory does not return the JSON.</p>
 <h2>Editorial</h2>

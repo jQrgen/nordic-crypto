@@ -14,6 +14,8 @@ Order of sources (first hit wins):
      then og:logo / an og:image whose URL says "logo". Recorded with source_url, the page it was found on, and
      license "Publisher's own logo, used only to identify the source of a headline".
 The image itself is never edited (no recolouring or cropping); raster images are only scaled down to about 128 px tall.
+Every SVG also gets a PNG rendering next to it (<id>.png, 256 px on the long side, transparent; key "raster"), because Apple's
+AsyncImage cannot draw SVG. The API's logo_url always points at a raster file. rsvg-convert is used when installed, else cairosvg.
 SVGs with scripts, event handlers or external references are rejected.
 
 Politeness (same rules as fetch.py): our own user agent (sources.json user_agent with "logo" added), robots.txt is checked for
@@ -24,6 +26,7 @@ Not fetched: search feeds (bing-*, kind "Search feed"), podcasts hosted on a pla
 and sources with an `outlet` (they reuse the outlet's logo at build time; tools/api_feed.py resolves that).
 
 Usage: python3 tools/fetch_source_logos.py [--force] [--dry-run] [id ...]
+       python3 tools/fetch_source_logos.py --raster-only     # (re)render the PNG for every SVG logo, no network
 """
 import datetime, html as H, json, os, re, sys, time, urllib.error, urllib.parse, urllib.request, urllib.robotparser
 
@@ -324,16 +327,69 @@ def targets():
     return out, skipped
 
 
+RASTER_PX = 256
+
+
+def rasterize(svg, png):
+    """SVG -> PNG, RASTER_PX on the long side, transparent background (Apple's AsyncImage cannot draw SVG).
+    Uses rsvg-convert when installed, else the cairosvg Python package. Returns True on success."""
+    import shutil
+    import subprocess
+    if shutil.which("rsvg-convert"):
+        r = subprocess.run(["rsvg-convert", "--keep-aspect-ratio", "-w", str(RASTER_PX), "-h", str(RASTER_PX), "-f", "png", "-o", png, svg],
+                           capture_output=True, timeout=60)
+        ok = r.returncode == 0
+    else:
+        try:
+            import cairosvg
+        except ImportError:
+            print("  raster: install rsvg-convert (librsvg) or `pip install cairosvg`", file=sys.stderr)
+            return False
+        from PIL import Image
+        cairosvg.svg2png(url=svg, write_to=png, output_height=RASTER_PX)
+        im = Image.open(png)
+        if max(im.size) > RASTER_PX:  # a wide wordmark: fit the long side instead
+            cairosvg.svg2png(url=svg, write_to=png, output_width=RASTER_PX)
+        ok = True
+    if ok and os.path.exists(png) and os.path.getsize(png) > 0:
+        return True
+    if os.path.exists(png):
+        os.remove(png)
+    return False
+
+
+def ensure_raster(key, rec):
+    """Every source logo gets a raster: an SVG gets <key>.png next to it ("raster"); WebP files are already raster."""
+    f = rec.get("file") or ""
+    if not f.endswith(".svg"):
+        rec.pop("raster", None)
+        return True
+    rel = f"{REL}/{key}.png"
+    if rec.get("raster") == rel and os.path.exists(os.path.join(ROOT, rel)):
+        return True
+    if rasterize(os.path.join(ROOT, f), os.path.join(ROOT, rel)):
+        rec["raster"] = rel
+        return True
+    rec.pop("raster", None)
+    return False
+
+
 def main():
     force = "--force" in sys.argv
     dry = "--dry-run" in sys.argv
     only = [a for a in sys.argv[1:] if not a.startswith("--")]
     man = json.load(open(MAN, encoding="utf-8")) if os.path.exists(MAN) else {}
+    if "--raster-only" in sys.argv:  # no network: (re)write the PNG for every SVG source logo
+        bad = [k for k, v in man.items() if k.startswith("source:") and isinstance(v, dict) and not ensure_raster(k[7:], v)]
+        json.dump(man, open(MAN, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+        n = sum(1 for k, v in man.items() if k.startswith("source:") and isinstance(v, dict))
+        print(f"raster: {n - len(bad)} of {n} source logos have a raster file" + (f"; failed: {', '.join(bad)}" if bad else ""))
+        return
     man.setdefault("_how_to_sources", "Keys 'source:<id>' are news-source logos (id from sources.json, or an outlet shared by several "
                    "sources such as 'kaupr'), fetched by tools/fetch_source_logos.py into assets/img/logos/sources/. Same review rule: "
                    "pending until the editor has checked the image is that outlet's own logo; then set review 'ok'. Only 'ok' logos "
                    "appear as logo_url / source_logo_url in the public API (preview: pending too). Raster images are scaled to about "
-                   "128 px tall, never otherwise edited. These are the publishers' trademarks, shown only to identify the source of a "
+                   "128 px tall, never otherwise edited; an SVG also gets a 256 px PNG ('raster'), which the API serves as logo_url. These are the publishers' trademarks, shown only to identify the source of a "
                    "headline. Refetch: python3 tools/fetch_source_logos.py --force <id>.")
     today = datetime.date.today().isoformat()
     todo, skipped = targets()
@@ -379,14 +435,17 @@ def main():
         if rec:
             rec = {k: v for k, v in rec.items() if v is not None}
             rec.update(source_id=key, outlet=src["name"], fetched=today, review="pending")
+            if not ensure_raster(key, rec):
+                print("  raster", key, "could not render", rec["file"])
             man[mk] = rec
             got.append(key)
             print("ok  ", key, rec["source"], rec["file"], flush=True)
         else:
             none.append(key)
             old = man.pop(mk, None)  # --force: a refetch that finds nothing drops the old entry and its file
-            if old and old.get("file", "").startswith(REL + "/") and os.path.exists(os.path.join(ROOT, old["file"])):
-                os.remove(os.path.join(ROOT, old["file"]))
+            for f in ((old or {}).get("file", ""), (old or {}).get("raster", "")):
+                if f.startswith(REL + "/") and os.path.exists(os.path.join(ROOT, f)):
+                    os.remove(os.path.join(ROOT, f))
             print("none", key, site, flush=True)
         json.dump(man, open(MAN, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(f"\n{len(got)} with a logo, {len(none)} without: {', '.join(none) or '-'}")

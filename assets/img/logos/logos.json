@@ -721,7 +721,7 @@
   "review": "ok",
   "reviewed": "2026-10-04 (Crypto Nordic editor)"
  },
- "_how_to_sources": "Keys 'source:<id>' are news-source logos (id from sources.json, or an outlet shared by several sources such as 'kaupr'), fetched by tools/fetch_source_logos.py into assets/img/logos/sources/. Same review rule: pending until the editor has checked the image is that outlet's own logo; then set review 'ok'. Only 'ok' logos appear as logo_url / source_logo_url in the public API (preview: pending too). Raster images are scaled to about 128 px tall, never otherwise edited. These are the publishers' trademarks, shown only to identify the source of a headline. Refetch: python3 tools/fetch_source_logos.py --force <id>.",
+ "_how_to_sources": "Keys 'source:<id>' are news-source logos (id from sources.json, or an outlet shared by several sources such as 'kaupr'), fetched by tools/fetch_source_logos.py into assets/img/logos/sources/. Same review rule: pending until the editor has checked the image is that outlet's own logo; then set review 'ok'. Only 'ok' logos appear as logo_url / source_logo_url in the public API (preview: pending too). Raster images are scaled to about 128 px tall, never otherwise edited; an SVG also gets a 256 px PNG ('raster'), which the API serves as logo_url (Apple's AsyncImage cannot draw SVG). These are the publishers' trademarks, shown only to identify the source of a headline. Refetch: python3 tools/fetch_source_logos.py --force <id>.",
  "source:e24": {
   "file": "assets/img/logos/sources/e24.webp",
   "source": "Official website",
@@ -744,7 +744,8 @@
   "source_id": "vg",
   "outlet": "VG",
   "fetched": "2026-10-06",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/sources/vg.png"
  },
  "source:reuters-norden": {
   "source": "Wikimedia Commons",
@@ -756,7 +757,8 @@
   "source_id": "reuters-norden",
   "outlet": "Reuters (Nordic coverage)",
   "fetched": "2026-10-06",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/sources/reuters-norden.png"
  },
  "source:shifter": {
   "file": "assets/img/logos/sources/shifter.webp",
@@ -780,7 +782,8 @@
   "source_id": "nrk",
   "outlet": "NRK",
   "fetched": "2026-10-06",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/sources/nrk.png"
  },
  "source:finanstilsynet": {
   "file": "assets/img/logos/sources/finanstilsynet.webp",
@@ -804,7 +807,8 @@
   "source_id": "norges-bank",
   "outlet": "Norges Bank (press releases)",
   "fetched": "2026-10-06",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/sources/norges-bank.png"
  },
  "source:bpi": {
   "file": "assets/img/logos/sources/bpi.webp",
@@ -851,7 +855,8 @@
   "source_id": "svd",
   "outlet": "Svenska Dagbladet",
   "fetched": "2026-10-06",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/sources/svd.png"
  },
  "source:svt": {
   "source": "Wikimedia Commons",
@@ -863,7 +868,8 @@
   "source_id": "svt",
   "outlet": "SVT Nyheter (economy)",
   "fetched": "2026-10-06",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/sources/svt.png"
  },
  "source:fi-se": {
   "source": "Wikimedia Commons",
@@ -875,7 +881,8 @@
   "source_id": "fi-se",
   "outlet": "Finansinspektionen (SE FSA)",
   "fetched": "2026-10-06",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/sources/fi-se.png"
  },
  "source:riksbank": {
   "file": "assets/img/logos/sources/riksbank.webp",
@@ -911,7 +918,8 @@
   "source_id": "kauppalehti",
   "outlet": "Kauppalehti",
   "fetched": "2026-10-06",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/sources/kauppalehti.png"
  },
  "source:hs": {
   "source": "Wikimedia Commons",
@@ -923,7 +931,8 @@
   "source_id": "hs",
   "outlet": "Helsingin Sanomat (business)",
   "fetched": "2026-10-06",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/sources/hs.png"
  },
  "source:yle": {
   "source": "Wikimedia Commons",
@@ -935,7 +944,8 @@
   "source_id": "yle",
   "outlet": "Yle Uutiset (latest)",
   "fetched": "2026-10-06",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/sources/yle.png"
  },
  "source:talouselama": {
   "source": "Wikimedia Commons",
@@ -946,7 +956,8 @@
   "source_id": "talouselama",
   "outlet": "Talouselämä",
   "fetched": "2026-10-06",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/sources/talouselama.png"
  },
  "source:tivi": {
   "file": "assets/img/logos/sources/tivi.webp",
@@ -994,7 +1005,8 @@
   "source_id": "ruv",
   "outlet": "RÚV",
   "fetched": "2026-10-06",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/sources/ruv.png"
  },
  "source:mbl": {
   "file": "assets/img/logos/sources/mbl.webp",
@@ -1018,7 +1030,8 @@
   "source_id": "grapevine",
   "outlet": "Reykjavík Grapevine",
   "fetched": "2026-10-06",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/sources/grapevine.png"
  },
  "source:borsen": {
   "source": "Wikimedia Commons",
@@ -1031,7 +1044,8 @@
   "source_id": "borsen",
   "outlet": "Børsen",
   "fetched": "2026-10-06",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/sources/borsen.png"
  },
  "source:finans-dk": {
   "file": "assets/img/logos/sources/finans-dk.webp",
@@ -1055,7 +1069,8 @@
   "source_id": "dr-penge",
   "outlet": "DR (Penge)",
   "fetched": "2026-10-06",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/sources/dr-penge.png"
  },
  "source:politiken": {
   "source": "Wikimedia Commons",
@@ -1067,7 +1082,8 @@
   "source_id": "politiken",
   "outlet": "Politiken",
   "fetched": "2026-10-06",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/sources/politiken.png"
  },
  "source:computerworld-dk": {
   "file": "assets/img/logos/sources/computerworld-dk.webp",
@@ -1115,7 +1131,8 @@
   "source_id": "finanstilsynet-dk",
   "outlet": "Finanstilsynet (Danish FSA)",
   "fetched": "2026-10-06",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/sources/finanstilsynet-dk.png"
  },
  "source:erhvervsministeriet": {
   "source": "Wikimedia Commons",
@@ -1151,7 +1168,8 @@
   "source_id": "tv2-dk",
   "outlet": "TV 2 (Denmark)",
   "fetched": "2026-10-06",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/sources/tv2-dk.png"
  },
  "source:aftenposten": {
   "source": "Wikimedia Commons",
@@ -1163,7 +1181,8 @@
   "source_id": "aftenposten",
   "outlet": "Aftenposten",
   "fetched": "2026-10-06",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/sources/aftenposten.png"
  },
  "source:dagbladet": {
   "source": "Wikimedia Commons",
@@ -1175,7 +1194,8 @@
   "source_id": "dagbladet",
   "outlet": "Dagbladet",
   "fetched": "2026-10-06",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/sources/dagbladet.png"
  },
  "source:nettavisen": {
   "source": "Wikimedia Commons",
@@ -1187,7 +1207,8 @@
   "source_id": "nettavisen",
   "outlet": "Nettavisen",
   "fetched": "2026-10-06",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/sources/nettavisen.png"
  },
  "source:tv2": {
   "source": "Wikimedia Commons",
@@ -1296,7 +1317,8 @@
   "source_id": "adressa",
   "outlet": "Adresseavisen",
   "fetched": "2026-10-06",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/sources/adressa.png"
  },
  "source:fvn": {
   "file": "assets/img/logos/sources/fvn.webp",
@@ -1356,7 +1378,8 @@
   "source_id": "ba",
   "outlet": "Bergensavisen",
   "fetched": "2026-10-06",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/sources/ba.png"
  },
  "source:rb": {
   "file": "assets/img/logos/sources/rb.webp",
@@ -1416,7 +1439,8 @@
   "source_id": "okokrim",
   "outlet": "Økokrim",
   "fetched": "2026-10-06",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/sources/okokrim.png"
  },
  "source:stortinget": {
   "source": "Wikimedia Commons",
@@ -1428,7 +1452,8 @@
   "source_id": "stortinget",
   "outlet": "Stortinget",
   "fetched": "2026-10-06",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/sources/stortinget.png"
  },
  "source:kryptografen": {
   "file": "assets/img/logos/sources/kryptografen.webp",
@@ -1586,7 +1611,8 @@
   "source_id": "nationen",
   "outlet": "Nationen",
   "fetched": "2026-10-06",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/sources/nationen.png"
  },
  "source:klassekampen": {
   "source": "Wikimedia Commons",
@@ -1611,7 +1637,8 @@
   "source_id": "nbx-ir",
   "outlet": "NBX børsmeldinger (via Inderes)",
   "fetched": "2026-10-06",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/sources/nbx-ir.png"
  },
  "source:kaupr": {
   "file": "assets/img/logos/kaupr.webp",
