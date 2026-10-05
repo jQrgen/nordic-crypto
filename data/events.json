@@ -18,8 +18,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "status": "published",
-   "past": false
+   "past": false,
+   "status": "published"
   },
   {
    "id": "89ced460e4ca",
@@ -45,8 +45,8 @@
     "fi": "Maksullinen (239 Norjan kruunua muille kuin jäsenille).",
     "is": "Aðgangseyrir (239 norskar krónur fyrir utanfélagsmenn)."
    },
-   "status": "published",
-   "past": false
+   "past": false,
+   "status": "published"
   },
   {
    "id": "c4a53ca9bd26",
@@ -65,8 +65,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "status": "published",
-   "past": false
+   "past": false,
+   "status": "published"
   },
   {
    "id": "a1ea7afabcb0",
@@ -83,17 +83,17 @@
    "source": "Oslo Blockchain Meetup (Meetup.com)",
    "paid": null,
    "sponsored": "kaupr.io",
-   "note": "Disclosure: the speaker, Jørgen S. Notland, is the publisher of Nordic Crypto.",
+   "note": "Disclosure: the speaker, Jørgen S. Notland, is the publisher of Crypto Nordic.",
    "note_i18n": {
-    "nn": "Til opplysing: foredragshaldaren, Jørgen S. Notland, er utgjevar av Nordic Crypto.",
-    "nb": "Til opplysning: foredragsholderen, Jørgen S. Notland, er utgiver av Nordic Crypto.",
-    "sv": "Upplysning: talaren, Jørgen S. Notland, är utgivare av Nordic Crypto.",
-    "da": "Oplysning: foredragsholderen, Jørgen S. Notland, er udgiver af Nordic Crypto.",
-    "fi": "Tiedoksi: puhuja Jørgen S. Notland on Nordic Crypton julkaisija.",
-    "is": "Til upplýsingar: fyrirlesarinn, Jørgen S. Notland, er útgefandi Nordic Crypto."
+    "nn": "Til opplysing: foredragshaldaren, Jørgen S. Notland, er utgjevar av Crypto Nordic.",
+    "nb": "Til opplysning: foredragsholderen, Jørgen S. Notland, er utgiver av Crypto Nordic.",
+    "sv": "Upplysning: talaren, Jørgen S. Notland, är utgivare av Crypto Nordic.",
+    "da": "Oplysning: foredragsholderen, Jørgen S. Notland, er udgiver af Crypto Nordic.",
+    "fi": "Tiedoksi: puhuja Jørgen S. Notland on Crypto Nordicin julkaisija.",
+    "is": "Til upplýsingar: fyrirlesarinn, Jørgen S. Notland, er útgefandi Crypto Nordic."
    },
-   "status": "published",
-   "past": false
+   "past": false,
+   "status": "published"
   },
   {
    "id": "a6cadcf35c22",
@@ -112,8 +112,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "status": "published",
-   "past": false
+   "past": false,
+   "status": "published"
   },
   {
    "id": "ce0c87469bd8",
@@ -132,8 +132,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "status": "published",
-   "past": false
+   "past": false,
+   "status": "published"
   },
   {
    "id": "7adc8e1ede97",
@@ -152,8 +152,8 @@
    "sponsored": "kaupr.io and Reese Legal",
    "note": null,
    "note_i18n": null,
-   "status": "published",
-   "past": false
+   "past": false,
+   "status": "published"
   },
   {
    "id": "e884ba1f0333",
@@ -172,8 +172,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "status": "published",
-   "past": false
+   "past": false,
+   "status": "published"
   },
   {
    "id": "19b92e24ee50",
@@ -192,8 +192,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "status": "published",
-   "past": false
+   "past": false,
+   "status": "published"
   },
   {
    "id": "3c7c538ff512",
@@ -219,8 +219,8 @@
     "fi": "Osuu uudenvuodenpäivälle: tarkista järjestäjän sivu ennen lähtöä.",
     "is": "Ber upp á nýársdag: athugaðu síðu skipuleggjandans áður en þú ferð."
    },
-   "status": "published",
-   "past": false
+   "past": false,
+   "status": "published"
   },
   {
    "id": "105f743dcf3d",
@@ -239,8 +239,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "status": "published",
-   "past": false
+   "past": false,
+   "status": "published"
   }
  ]
 }
