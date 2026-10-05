@@ -86,6 +86,18 @@ def main():
                 fails.append("published not ISO " + item["id"])
             if item.get("source") == "kaupr" and "news source" not in (item.get("source_note") or ""):
                 fails.append("kaupr source note missing")
+            if item.get("source") == "kaupr":
+                logo = item.get("source_logo") or {}
+                if not str(logo.get("file_url") or "").endswith("/assets/img/logos/kaupr.webp"):
+                    fails.append("kaupr logo missing")
+            if item.get("source") == "fi-se":
+                logo = item.get("source_logo") or {}
+                if not str(logo.get("file_url") or "").endswith("/assets/img/logos/se-fi.svg"):
+                    fails.append("fi-se logo not aliased")
+            if item.get("source") == "e24" and item.get("source_logo"):
+                fails.append("unchecked e24 logo published")
+            if item.get("source") == "nordic-crypto" and item.get("source_logo"):
+                fails.append("invented Nordic Crypto logo")
         letters = json.load(open(os.path.join(tmp, "api/v1/newsletters.json"), encoding="utf-8"))
         if not any(i["id"] == "001" for i in letters["issues"]):
             fails.append("newsletter 001 missing")
@@ -103,7 +115,7 @@ def main():
             fails.append("approved course missing")
         spec = json.load(open(os.path.join(tmp, "api/v1/openapi.json"), encoding="utf-8"))
         for path in ("/api/v1/news.json", "/api/v1/news/{id}.json", "/api/v1/newsletters.json", "/api/v1/newsletters/{id}.json",
-                     "/api/v1/markets.json", "/api/v1/markets/{exchange}.json", "/api/v1/markets/by-asset/{symbol}.json",
+                     "/api/v1/markets.json", "/api/v1/markets/aggregated.json", "/api/v1/markets/{exchange}.json", "/api/v1/markets/by-asset/{symbol}.json",
                      "/api/v1/languages.json", "/api/v1/geo-language.json"):
             if path not in spec["paths"]:
                 fails.append("openapi missing " + path)
@@ -130,6 +142,23 @@ def main():
             fails.append("markets missing from discovery")
         if not any("markets.json" in (s.get("url") or "") for s in info.get("start_here") or []):
             fails.append("markets missing from start_here")
+        if not any(ep["path"] == "/api/v1/markets/aggregated.json" for ep in info["endpoints"]):
+            fails.append("aggregated missing from discovery")
+        agg = json.load(open(os.path.join(tmp, "api/v1/markets/aggregated.json"), encoding="utf-8"))
+        if agg.get("kind") != "markets-aggregated" or not agg.get("pairs"):
+            fails.append("aggregated file")
+        btc_pair = next(p for p in agg["pairs"] if p["symbol"] == "BTC-NOK")
+        if btc_pair["price"] != "100.5" or btc_pair["currency"] != "NOK" or btc_pair["volume"]["volume_base"] != "1":
+            fails.append("aggregated fixture math")
+        if btc_pair.get("logo_path") != "api/v1/markets/logos/btc.svg":
+            fails.append("aggregated logo")
+        if not os.path.isfile(os.path.join(tmp, "api/v1/markets/logos/btc.svg")):
+            fails.append("logo file not written")
+        asset = json.load(open(os.path.join(tmp, "api/v1/markets/by-asset/BTC.json"), encoding="utf-8"))
+        if not asset.get("aggregated") or asset.get("logo_url") is None:
+            fails.append("by-asset logo")
+        if "MarketAggregate" not in spec["components"]["schemas"]:
+            fails.append("openapi aggregate schema")
         if meta_ios_later(tmp) != "https://testflight.apple.com/join/nQ2fpjZn":
             fails.append("testflight url missing from meta")
         meta = json.load(open(os.path.join(tmp, "api/v1/meta.json"), encoding="utf-8"))

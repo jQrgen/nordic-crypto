@@ -1,4 +1,5 @@
-# Rewrites only the markets JSON on gh-pages. Does not republish the rest of the site.
+# Rewrites the markets JSON on gh-pages, including aggregated.json, by-asset files and logos.
+# Does not republish the rest of the site.
 # If every exchange fails, tools/markets.py --keep-if-empty leaves the previous files.
 name: Refresh market prices
 

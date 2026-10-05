@@ -80,6 +80,8 @@ ol.news li{padding:14px 0;border-bottom:1px solid var(--line)}
 ol.news h3{font-size:18px;line-height:1.3;margin:0 0 4px}ol.news h3 a{text-decoration:none}ol.news h3 a:hover{text-decoration:underline}
 .orig{font-size:13.5px;color:var(--muted);margin:0 0 3px}
 .meta{font-size:13.5px;color:var(--muted)}.meta b{color:var(--ink);font-weight:600}
+.src{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;vertical-align:middle;text-align:start}
+.src-logo{height:18px;width:auto;max-width:96px;object-fit:contain;flex:none;background:#fff;padding:1px}
 .tag{display:inline-block;font-size:12px;padding:0 6px;border:1px solid var(--line);margin-left:4px;color:var(--muted)}
 .tag.pend{border-color:var(--warm);color:var(--warm);font-weight:600}.tag.paid{border-color:var(--warm);color:var(--warm)}
 .sum{margin:6px 0 0;max-width:75ch}.sum.pend{color:var(--warm);font-style:italic}
@@ -178,15 +180,18 @@ CSS += """
 a.applink{display:inline-block;padding:8px 14px;border:2px solid var(--ink);font-weight:700;font-size:18px;line-height:1.3;text-decoration:none;text-align:left}
 a.applink:hover,a.applink:focus-visible{background:var(--soft)}
 .markets h1{font-size:32px}
-.markets .lead,.markets p,.markets h2,.markets h3,.mkcard{text-align:left}
+.markets .lead,.markets p,.markets h2,.markets h3,.mkcard,.mkagg,.mkasset{text-align:left}
 .mkcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin:0 0 8px}
-.mkcard{border:1px solid var(--line);padding:12px 14px;background:#fff}
-.mkcard .px{font-size:28px;font-weight:700;line-height:1.15;margin:6px 0;font-variant-numeric:tabular-nums}
+.mkcard{border:1px solid var(--line);padding:12px 14px;background:#fff;text-align:left}
+.mkcard .px{font-size:28px;font-weight:700;line-height:1.15;margin:6px 0;font-variant-numeric:tabular-nums;text-align:left}
 .mkcard .unit{font-size:16px;font-weight:600;color:var(--muted)}
-.mkcard .ba{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:18px;margin:0}
-.mkasset>h2{font-size:26px;margin:22px 0 4px}
-.mkq{font-size:16px;color:var(--muted);margin:12px 0 6px;font-weight:600}
-@media(min-width:1100px){.markets h1{font-size:40px}.mkcard .px{font-size:34px}.mkcard .ba{font-size:20px}}
+.mkcard .ba{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:6px 18px;font-size:18px;margin:0}
+.mkasset>h2{display:flex;align-items:center;justify-content:flex-start;gap:10px;font-size:26px;margin:22px 0 4px;text-align:left}
+.mkasset>h2 img{width:28px;height:28px;flex:none;display:block}
+.mkagg{border-left:4px solid var(--ink);padding:8px 12px;margin:8px 0 10px;background:var(--soft);text-align:left}
+.mkagg .px{font-size:22px;font-weight:700;margin:2px 0 4px;text-align:left;font-variant-numeric:tabular-nums}
+.mkq{font-size:16px;color:var(--muted);margin:12px 0 6px;font-weight:600;text-align:left}
+@media(min-width:1100px){.markets h1{font-size:40px}.mkcard .px{font-size:34px}.mkcard .ba{font-size:20px}.mkagg .px{font-size:26px}}
 """
 
 NAV = [("", "nav_news"), ("markets", "nav_markets"), ("calendar", "nav_calendar"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("sources", "nav_sources"), ("newsletter", "nav_newsletter"), ("about", "nav_about"), ("tip", "nav_tip")]
@@ -496,6 +501,36 @@ def L18(obj, key, i18n_key=None):
     v = ((obj.get(i18n_key or key + "_i18n") or {}).get(LANG)) if LANG != "en" else None
     return (v, LANG) if v else (obj.get(key), "en")
 def lang_attr(l): return "" if l == LANG else f' lang="{l}"'
+def _source_logos():
+    sys.path.insert(0, P("tools"))
+    import source_logos
+    return source_logos
+def copy_repo_file(rel):
+    srcp = P(rel)
+    if not rel or not os.path.exists(srcp): return
+    dst = os.path.join(SITE, rel); os.makedirs(os.path.dirname(dst), exist_ok=True); shutil.copy(srcp, dst)
+def attach_source_logos(items):
+    """Put a checked outlet logo on each story. No logo: the name stays text only."""
+    sl = _source_logos()
+    for i in items:
+        lg = sl.for_source(i.get("source"), preview=PREVIEW)
+        if not lg:
+            i.pop("source_logo", None); continue
+        pub = {k: lg[k] for k in ("file", "source", "source_url", "license", "author") if lg.get(k)}
+        if lg.get("pending"): pub["pending"] = True
+        i["source_logo"] = pub
+        copy_repo_file(lg.get("file"))
+def source_mark(i, root=""):
+    """Outlet logo, then the source name, in one left-aligned (or RTL start-aligned) row. Text only when there is no logo."""
+    name = i.get("source_name") or ""
+    lg = i.get("source_logo")
+    if lg is None and i.get("source"):
+        lg = _source_logos().for_source(i.get("source"), preview=PREVIEW)
+    img = ""
+    if lg and lg.get("file"):
+        pend = f' title="{E(t("pending"))}"' if lg.get("pending") else ""
+        img = f'<img class="src-logo" src="{root}{E(lg["file"])}" alt="" height="18" loading="lazy"{pend}>'
+    return f'<span class="src">{img}<b>{E(name)}</b></span>'
 
 def build():
     global LANG
@@ -514,7 +549,8 @@ def build():
     ctx = {"news": news, "org": org, "cfg": cfg, "status": status, "approved": approved, "pending": pending}
     LANG = "en"; ctx["stories"] = build_stories(write=False)
     items = sorted(approved + pending + ctx["stories"], key=lambda i: i["published"], reverse=True); ctx["items"] = items
-    keys = ("id", "url", "title", "title_en", "source", "source_name", "country", "language", "published", "topics", "summary", "summary_i18n", "paywall", "links", "status", "own_story")
+    attach_source_logos(items)
+    keys = ("id", "url", "title", "title_en", "source", "source_name", "source_logo", "country", "language", "published", "topics", "summary", "summary_i18n", "paywall", "links", "status", "own_story")
     pub_items = [{k: i.get(k) for k in keys if k in i} for i in items]
     for i in pub_items:
         if i.get("status") not in ("published", "owner"): i["summary"] = None; i.pop("summary_i18n", None); i["status"] = "pending"
@@ -610,7 +646,7 @@ def sitemap():
             r = os.path.relpath(dp, SITE).replace(os.sep, "/"); r = "" if r == "." else r + "/"
             if r.split("/")[0] in ("kalender", "skjerm", "organisasjonskart", "kilder", "om", "akademia"): continue
             urls.append(BASE + r)
-    for rel in ("api/v1/index.json", "api/v1/openapi.json", "api/v1/markets.json", "llms.txt"):
+    for rel in ("api/v1/index.json", "api/v1/openapi.json", "api/v1/markets.json", "api/v1/markets/aggregated.json", "llms.txt"):
         if os.path.exists(os.path.join(SITE, rel)):
             urls.append(BASE + rel)
     open(os.path.join(SITE, "sitemap.xml"), "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
@@ -618,6 +654,53 @@ def sitemap():
 
 def _mk_when(iso):
     return (iso or "").replace("T", " ").replace("+00:00", " UTC")
+
+def _mk_volume(row, base, quote, summed):
+    """Volume lines. A missing field is omitted. A published zero is shown."""
+    bits = []
+    def add(key, unit, day):
+        if row.get(key) in (None, ""):
+            return
+        tmpl = ("mk_vol_sum_24h" if day else "mk_vol_sum_plain") if summed else ("mk_vol_24h" if day else "mk_vol_plain")
+        bits.append(t(tmpl, n=M_format(row[key]), unit=unit, count=row.get(key + "_exchanges") or 0))
+    add("volume_base_24h", base, True)
+    add("volume_quote_24h", quote, True)
+    add("volume_base", base, False)
+    add("volume_quote", quote, False)
+    if not bits:
+        return ""
+    return '<p class="meta vol">' + " · ".join(E(b) for b in bits) + "</p>"
+
+def M_format(value):
+    import markets as M
+    return M.format_price(value)
+
+def _mk_agg(pair):
+    if not pair:
+        return ""
+    q = pair["quote"]
+    if pair.get("price"):
+        price = f'<p class="px">{E(M_format(pair["price"]))} <span class="unit">{E(q)}</span></p>'
+    else:
+        price = f'<p class="px">{E(t("mk_agg_none"))}</p>'
+    if pair.get("method") == "mean_last":
+        how = t("mk_agg_last", n=pair.get("last_count") or 0)
+    elif pair.get("method") == "mean_bid_ask_mid":
+        how = t("mk_agg_mid", n=pair.get("mid_count") or 0)
+    else:
+        how = t("mk_agg_none")
+    span = ""
+    if pair.get("min") is not None and pair.get("max") is not None:
+        span = " " + t("mk_agg_minmax", min=M_format(pair["min"]), max=M_format(pair["max"]), q=q)
+    bits = [how + span, t("mk_agg_exchanges", n=pair.get("exchange_count") or 0)]
+    if pair.get("updated_at"):
+        bits.append(t("mk_agg_updated", when=_mk_when(pair["updated_at"])))
+    vol = pair.get("volume") or {}
+    return (
+        f'<div class="mkagg"><p class="meta"><b>{E(t("mk_agg"))}</b> · {E(pair["base"])}/{E(q)}</p>'
+        f"{price}<p class=\"meta\">{E(' '.join(bits))}</p>"
+        f'{_mk_volume(vol, pair["base"], q, True)}</div>'
+    )
 
 def build_markets(ctx):
     """Prices page. Static cards from the build-time fetch; markets.js refreshes the JSON and the CORS exchanges."""
@@ -635,9 +718,15 @@ def build_markets(ctx):
     def label(b):
         name = M.ASSET_NAMES.get(b)
         return f"{name} ({b})" if name and name != b else b
+    root = up1()
+    pairs = {(p["base"], p["quote"]): p for p in M.aggregate_pairs(tickers, M.PAGES_BASE, M.CUSTOM_BASE)}
     sections = []
     for base in sorted(groups, key=asset_key):
-        bits = [f'<section class="mkasset"><h2>{E(label(base))}</h2>']
+        logo = M.logo_for(base, M.PAGES_BASE, M.CUSTOM_BASE)
+        img = ""
+        if logo.get("logo_path"):
+            img = f'<img src="{root}{E(logo["logo_path"])}" width="28" height="28" alt="{E(t("mk_logo_alt", name=label(base)))}">'
+        bits = [f'<section class="mkasset"><h2>{img}{E(label(base))}</h2>']
         for quote in sorted(groups[base], key=quote_key):
             cards = []
             for row in groups[base][quote]:
@@ -652,11 +741,12 @@ def build_markets(ctx):
                     f'{price}'
                     f'<p class="ba"><span>{E(t("mk_bid"))} {E(M.format_price(row.get("bid")))}</span>'
                     f'<span>{E(t("mk_ask"))} {E(M.format_price(row.get("ask")))}</span></p>'
+                    f'{_mk_volume(row, base, quote, False)}'
                     f'<p class="meta">{E(t("mk_fetched"))} <time datetime="{E(row.get("fetched_at"))}">{E(_mk_when(row.get("fetched_at")))}</time>'
                     f' · <a href="{E(row.get("source_url"))}" rel="noopener">{E(t("mk_source"))}</a></p>'
                     f'</article>'
                 )
-            bits.append(f'<h3 class="mkq">{E(t("mk_in", q=quote))}</h3><div class="mkcards">{"".join(cards)}</div>')
+            bits.append(f'{_mk_agg(pairs.get((base, quote)))}<h3 class="mkq">{E(t("mk_in", q=quote))}</h3><div class="mkcards">{"".join(cards)}</div>')
         bits.append("</section>")
         sections.append("".join(bits))
     opts = "".join(f'<option value="{E(b)}">{E(label(b))}</option>' for b in sorted(groups, key=asset_key))
@@ -672,12 +762,17 @@ def build_markets(ctx):
         f'{ex.get("name")} ({cname(ex.get("country"))})'
         for ex in (body.get("exchanges") or []) if ex.get("status") == "ok"
     )
-    root = up1()
     strings = {
         "bid": t("mk_bid"), "ask": t("mk_ask"), "fetched": t("mk_fetched"), "source": t("mk_source"),
         "live": t("mk_live"), "file": t("mk_file"), "browser": t("mk_browser"), "empty": t("mk_empty"),
         "no_last": t("mk_no_last"), "in_quote": t("mk_in", q="{q}"), "all": t("mk_all"),
         "error": t("mk_error"),
+        "agg": t("mk_agg"), "agg_last": t("mk_agg_last"), "agg_mid": t("mk_agg_mid"),
+        "agg_minmax": t("mk_agg_minmax"), "agg_exchanges": t("mk_agg_exchanges"),
+        "agg_updated": t("mk_agg_updated"), "agg_none": t("mk_agg_none"),
+        "vol_24h": t("mk_vol_24h"), "vol_plain": t("mk_vol_plain"),
+        "vol_sum_24h": t("mk_vol_sum_24h"), "vol_sum_plain": t("mk_vol_sum_plain"),
+        "logo_alt": t("mk_logo_alt"),
     }
     script = open(P("tools", "markets.js"), encoding="utf-8").read()
     body_html = f"""<div class="markets" id="mk" data-json="{root}api/v1/markets.json">
@@ -697,10 +792,13 @@ def build_markets(ctx):
 <ul>{skipped}</ul>
 <p class="meta">{E(t("mk_refresh"))}</p>
 <p class="meta"><a href="{root}api/v1/markets.json">{E(t("mk_json"))}</a>
+ · <a href="{root}api/v1/markets/aggregated.json">{E(t("mk_agg_json"))}</a>
  · <a href="{root}api/v1/markets/firi.json">firi</a>
  · <a href="{root}api/v1/markets/nbx.json">nbx</a>
  · <a href="{root}api/v1/markets/coinmotion.json">coinmotion</a>
+ · <a href="{root}api/v1/markets/by-asset/BTC.json">BTC</a>
  · <a href="https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json" rel="noopener">{E(t("mk_raw"))}</a></p>
+<p class="meta">{E(t("mk_icons"))} <a href="https://github.com/spothq/cryptocurrency-icons" rel="noopener">cryptocurrency-icons</a>.</p>
 <noscript><p class="notice">{E(t("mk_noscript"))}</p></noscript>
 </div>"""
     page("markets", t("mk_title"), "markets", body_html, t("mk_desc"),
@@ -709,6 +807,7 @@ def build_markets(ctx):
 def build_lang(ctx):
     items, pending = ctx["items"], ctx["pending"]
     # ---- News ----
+    asset = "" if LANG == "en" else "../"
     srcs = sorted({(i["source"], i["source_name"]) for i in items}, key=lambda x: x[1].lower())
     lis = []
     for i in items:
@@ -740,7 +839,7 @@ def build_lang(ctx):
         hl = "" if head_l == LANG else f' lang="{head_l}"'
         lis.append(f'<li data-src="{E(i["source"])}" data-c="{E(i.get("country"))}" data-topics="{E(" ".join(i["topics"]))}">'
                    f'<h3><a href="{E(i["url"])}"{"" if i.get("own_story") else " rel=noopener target=_blank"}{hl}>{E(head)}</a></h3>{orig}'
-                   f'<div class="meta">{flag(i.get("country"))} {E(cname(i.get("country")))} · <b>{E(i["source_name"])}</b> · <time datetime="{E(i["published"])}">{endate(i["published"])}</time>{lang}{pw} {tags}'
+                   f'<div class="meta">{flag(i.get("country"))} {E(cname(i.get("country")))} · {source_mark(i, asset)} · <time datetime="{E(i["published"])}">{endate(i["published"])}</time>{lang}{pw} {tags}'
                    + (f' <span class="tag pend">{E(t("pending"))}</span>' if pend else "") + (f' <span class="tag pend">{E(t("owner"))}</span>' if own else "")
                    + (f' <span class="tag">{E(t("our_story"))}</span>' if i.get("own_story") else "") + f'</div>{summ}'
                    + "".join(f'<div class="meta">↳ <a href="{E(l["url"])}" rel="noopener" target="_blank">{E(l["label"])}</a></div>' for l in i.get("links", []) or []) + '</li>')
@@ -942,7 +1041,7 @@ def build_stories(write=True):
             note = t("story_only_en")
             body = (f'<p class="meta"><a href="../../">{E(t("back_news"))}</a></p>' + (f'<p class="notice">{E(note)}</p>' if note and art_l == "en" and LANG != "en" else "")
                     + f'<article class="prose"{lang_attr(art_l)}><h1>{E(title)}</h1>'
-                    f'<p class="meta">{flag(country)} {E(cname(country))} · Nordic Crypto · {endate(pub)}'
+                    f'<p class="meta">{flag(country)} {E(cname(country))} · {source_mark({"source": "nordic-crypto", "source_name": "Nordic Crypto"}, up1() + "../")} · {endate(pub)}'
                     + (f' <span class="tag pend">{E(t("owner"))}</span>' if status == "owner" else "") + '</p>'
                     + "".join(f"<p>{md_inline(x)}</p>" for x in paras)
                     + f'<h2>{E(t("sources_h"))}</h2><ul>' + "".join(f"<li>{md_inline(s)}</li>" for s in srcs) + '</ul></article>'
