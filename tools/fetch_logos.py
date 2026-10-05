@@ -132,4 +132,5 @@ def main():
             rec.update(fetched=today, review="pending"); man[eid] = rec; print("ok", eid, rec["source"], rec["file"])
         else: print("none", eid)
         json.dump(man, open(MAN, "w"), ensure_ascii=False, indent=1)
-main()
+if __name__ == "__main__":  # tools/fetch_source_logos.py imports the helpers above
+    main()
