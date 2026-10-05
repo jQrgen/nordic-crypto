@@ -2,6 +2,38 @@
  "launch_date": "2026-10-03",
  "entries": [
   {
+   "id": "regulation-videos",
+   "date": "2026-10-05",
+   "title": "Regulation explainer videos",
+   "description": "Five country slots for Norway, Sweden, Denmark, Finland and Iceland are at /regulation-videos/, linked from How the rules are made and About. Each slot plays an HTML5 video when an MP4 is present. Until then it shows the title, narrator notes and sources. The films are not rendered yet. Iceland is in the EEA, not the EU, and Seðlabanki Íslands houses Fjármálaeftirlit. The sign-off is The Nordic Crypto team.",
+   "i18n": {
+    "nn": {
+     "title": "Videoforklaringar av reglane",
+     "description": "Fem plassar for Noreg, Sverige, Danmark, Finland og Island ligg på /regulation-videos/, med lenkje frå Slik blir reglane til og Om oss. Kvar plass spelar av ein HTML5-video når ein MP4 finst. Til då viser han tittel, forteljarnotat og kjelder. Filmane er ikkje laga enno. Island er i EØS, ikkje i EU, og Seðlabanki Íslands husar Fjármálaeftirlit. Avslutninga er The Nordic Crypto team."
+    },
+    "nb": {
+     "title": "Videoforklaringer av reglene",
+     "description": "Fem plasser for Norge, Sverige, Danmark, Finland og Island ligger på /regulation-videos/, med lenke fra Slik blir reglene til og Om oss. Hver plass spiller av en HTML5-video når en MP4 finnes. Inntil da viser den tittel, fortellernotater og kilder. Filmene er ikke laget ennå. Island er i EØS, ikke i EU, og Seðlabanki Íslands huser Fjármálaeftirlit. Avslutningen er The Nordic Crypto team."
+    },
+    "sv": {
+     "title": "Videoförklaringar av reglerna",
+     "description": "Fem platser för Norge, Sverige, Danmark, Finland och Island finns på /regulation-videos/, länkade från Så blir reglerna till och Om oss. Varje plats spelar upp en HTML5-video när en MP4 finns. Tills dess visas titel, berättarnoteringar och källor. Filmerna är inte gjorda än. Island ingår i EES, inte i EU, och Seðlabanki Íslands rymmer Fjármálaeftirlit. Signaturen är The Nordic Crypto team."
+    },
+    "da": {
+     "title": "Videoforklaringer af reglerne",
+     "description": "Fem pladser for Norge, Sverige, Danmark, Finland og Island ligger på /regulation-videos/, med link fra Sådan bliver reglerne til og Om os. Hver plads afspiller en HTML5-video, når en MP4 findes. Indtil da vises titel, fortællernoter og kilder. Filmene er ikke lavet endnu. Island er i EØS, ikke i EU, og Seðlabanki Íslands huser Fjármálaeftirlit. Signaturen er The Nordic Crypto team."
+    },
+    "fi": {
+     "title": "Sääntelyn selitysvideot",
+     "description": "Viisi maapaikkaa Norjalle, Ruotsille, Tanskalle, Suomelle ja Islannille on osoitteessa /regulation-videos/, linkitettynä sivuilta Näin säännöt syntyvät ja Tietoa meistä. Jokainen paikka toistaa HTML5-videon, kun MP4 on olemassa. Siihen asti näkyvät otsikko, kertojan muistiinpanot ja lähteet. Videoita ei ole vielä tehty. Islanti on ETA:ssa, ei EU:ssa, ja Seðlabanki Íslands pitää sisällään Fjármálaeftirlitin. Allekirjoitus on The Nordic Crypto team."
+    },
+    "is": {
+     "title": "Myndbandsskýringar á reglunum",
+     "description": "Fimm reitir fyrir Noreg, Svíþjóð, Danmörku, Finnland og Ísland eru á /regulation-videos/, með tengli frá Svona verða reglurnar til og Um okkur. Hver reitur spilar HTML5-myndband þegar MP4 er til. Þar til sýnir hann titil, glósur sögumanns og heimildir. Myndböndin eru ekki tilbúin. Ísland er í EES, ekki í ESB, og Seðlabanki Íslands hýsir Fjármálaeftirlit. Undirskriftin er The Nordic Crypto team."
+    }
+   }
+  },
+  {
    "id": "outlet-logos",
    "date": "2026-10-05",
    "title": "Outlet logos on news",

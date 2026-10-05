@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T23:30:04+00:00",
+ "generated_at": "2026-10-05T23:55:43+00:00",
  "preview": false,
  "title": "Nordic Crypto data API",
  "sign_off": "The Nordic Crypto team",
@@ -54,7 +54,7 @@
   "org_relations": 15,
   "profiles": 20,
   "images": 64,
-  "changelog": 17,
+  "changelog": 18,
   "archive_articles": 42,
   "markets": 72,
   "markets_aggregated": 53,
@@ -228,8 +228,8 @@
    "url_custom_domain": "https://cryptonordic.no/api/v1/academia/{id}.json",
    "summary": "One academia row. The id is in academia.json.",
    "schema": "AcademiaItem",
-   "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/research-www.ru.is-en-research-center-ru-fintech.json",
-   "example_url_custom_domain": "https://cryptonordic.no/api/v1/academia/research-www.ru.is-en-research-center-ru-fintech.json"
+   "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/NO-IN5420.json",
+   "example_url_custom_domain": "https://cryptonordic.no/api/v1/academia/NO-IN5420.json"
   },
   {
    "id": "api-v1-orgchart",
@@ -301,8 +301,8 @@
    "url_custom_domain": "https://cryptonordic.no/api/v1/changelog.json",
    "summary": "Site changelog (product changes, not the news), newest first.",
    "schema": "ChangelogList",
-   "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/outlet-logos.json",
-   "example_url_custom_domain": "https://cryptonordic.no/api/v1/changelog/outlet-logos.json",
+   "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/regulation-videos.json",
+   "example_url_custom_domain": "https://cryptonordic.no/api/v1/changelog/regulation-videos.json",
    "item_path": "/api/v1/changelog/{id}.json",
    "item_url_template": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/{id}.json"
   },
