@@ -23,10 +23,13 @@ Swap the base to move between the two. HTTPS on cryptonordic.no is the intended 
 
 ## Market prices
 
-Prices from Nordic exchanges with a public ticker (Firi and Norwegian Block Exchange in Norway, Coinmotion in Finland). Market data, not investment advice. Each ticker has symbol, base, quote, last, bid and ask when the exchange publishes them, plus exchange id, name and country, fetched_at and source_url. Quotes are NOK, SEK, DKK or EUR. A failed exchange is an error with a timestamp and no price. The file is fetched again when the site is built, and a GitHub Actions job rewrites it on gh-pages about hourly. Durable URL: https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json
+Prices from Nordic exchanges with a public ticker (Firi and Norwegian Block Exchange in Norway, Coinmotion in Finland). Market data, not investment advice. Each ticker has symbol, base, quote, last, bid and ask when the exchange publishes them, plus exchange id, name and country, fetched_at and source_url. volume_base is the base asset with no named window (Firi). volume_base_24h and volume_quote_24h are the last 24 hours (NBX), in the base asset and in the quote currency. A missing volume is null, not zero. Quotes are NOK, SEK, DKK or EUR. A failed exchange is an error with a timestamp and no price. The file is fetched again when the site is built, and a GitHub Actions job rewrites it on gh-pages about hourly. Durable URL: https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json
+
+Aggregated prices are one row per pair: /api/v1/markets/aggregated.json. BTC-NOK is not averaged with BTC-EUR. last is the arithmetic mean of published last prices. mid is the mean of (bid+ask)/2 and is not mixed into last. min and max follow the same series as price. There is no VWAP, because the volume windows do not match. Volume sums add only the same field inside the same pair. logo_url points at api/v1/markets/logos/{symbol}.svg when cryptocurrency-icons (CC0-1.0) includes that asset, and is null otherwise. The same pairs, with the logo, are on /api/v1/markets/by-asset/{symbol}.json.
 
 ```
 curl -fsS https://jqrgen.github.io/nordic-crypto/api/v1/markets.json
+curl -fsS https://jqrgen.github.io/nordic-crypto/api/v1/markets/aggregated.json
 curl -fsS https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json
 ```
 
@@ -67,9 +70,10 @@ A single news item is api/v1/news/{id}.json (the id is on each item). A single n
 - [/api/v1/changelog.json](https://jqrgen.github.io/nordic-crypto/api/v1/changelog.json): Site changelog (product changes, not the news), newest first.
 - [/api/v1/rules.json](https://jqrgen.github.io/nordic-crypto/api/v1/rules.json): How EU crypto rules become law in the five countries. Simplified, not legal advice. Omitted while the page is still a placeholder.
 - [/api/v1/archive/articles.json](https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles.json): Append-only archive of stories that have been on the public site. removed is  true when a story later left the site; the row stays.
-- [/api/v1/markets.json](https://jqrgen.github.io/nordic-crypto/api/v1/markets.json): Nordic exchange prices. Market data, not investment advice. Each ticker names the exchange, fetched_at and the source URL. NOK, SEK, DKK and EUR only.
+- [/api/v1/markets.json](https://jqrgen.github.io/nordic-crypto/api/v1/markets.json): Nordic exchange prices. Market data, not investment advice. Each ticker names the exchange, fetched_at, the source URL and volume when the exchange published it. NOK, SEK, DKK and EUR only. aggregated is one row per pair.
+- [/api/v1/markets/aggregated.json](https://jqrgen.github.io/nordic-crypto/api/v1/markets/aggregated.json): One price per base-quote pair. BTC-NOK is separate from BTC-EUR. last is the mean of published last prices. mid is the mean of bid/ask midpoints and is not blended into last. Volume is summed only within the same field and the same pair. logo_url is a CC0 icon when cryptocurrency-icons includes the asset, otherwise null.
 - [/api/v1/markets/{exchange}.json](https://jqrgen.github.io/nordic-crypto/api/v1/markets/{exchange}.json): Prices from one included exchange: firi (Norway), nbx (Norway) or coinmotion (Finland).
-- [/api/v1/markets/by-asset/{symbol}.json](https://jqrgen.github.io/nordic-crypto/api/v1/markets/by-asset/{symbol}.json): Prices for one asset (the base symbol, such as BTC) on every included Nordic exchange.
+- [/api/v1/markets/by-asset/{symbol}.json](https://jqrgen.github.io/nordic-crypto/api/v1/markets/by-asset/{symbol}.json): Prices for one asset (the base symbol, such as BTC) on every included Nordic exchange, plus aggregated pairs for each quote currency and logo_url when an icon is available.
 - [/api/v1/languages.json](https://jqrgen.github.io/nordic-crypto/api/v1/languages.json): Site UI languages: code, native name, English name, rtl, html lang and home URL.
 - [/api/v1/geo-language.json](https://jqrgen.github.io/nordic-crypto/api/v1/geo-language.json): Country to default site language. An IP guess only; the nc_lang cookie from the language switcher wins.
 - [/api/v1/meta.json](https://jqrgen.github.io/nordic-crypto/api/v1/meta.json): Site name, languages, countries, page list, CORS and editorial notes.

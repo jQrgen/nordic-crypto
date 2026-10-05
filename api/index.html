@@ -128,15 +128,18 @@ html.nc-pick body{visibility:hidden}
 a.applink{display:inline-block;padding:8px 14px;border:2px solid var(--ink);font-weight:700;font-size:18px;line-height:1.3;text-decoration:none;text-align:left}
 a.applink:hover,a.applink:focus-visible{background:var(--soft)}
 .markets h1{font-size:32px}
-.markets .lead,.markets p,.markets h2,.markets h3,.mkcard{text-align:left}
+.markets .lead,.markets p,.markets h2,.markets h3,.mkcard,.mkagg,.mkasset{text-align:left}
 .mkcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin:0 0 8px}
-.mkcard{border:1px solid var(--line);padding:12px 14px;background:#fff}
-.mkcard .px{font-size:28px;font-weight:700;line-height:1.15;margin:6px 0;font-variant-numeric:tabular-nums}
+.mkcard{border:1px solid var(--line);padding:12px 14px;background:#fff;text-align:left}
+.mkcard .px{font-size:28px;font-weight:700;line-height:1.15;margin:6px 0;font-variant-numeric:tabular-nums;text-align:left}
 .mkcard .unit{font-size:16px;font-weight:600;color:var(--muted)}
-.mkcard .ba{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:18px;margin:0}
-.mkasset>h2{font-size:26px;margin:22px 0 4px}
-.mkq{font-size:16px;color:var(--muted);margin:12px 0 6px;font-weight:600}
-@media(min-width:1100px){.markets h1{font-size:40px}.mkcard .px{font-size:34px}.mkcard .ba{font-size:20px}}
+.mkcard .ba{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:6px 18px;font-size:18px;margin:0}
+.mkasset>h2{display:flex;align-items:center;justify-content:flex-start;gap:10px;font-size:26px;margin:22px 0 4px;text-align:left}
+.mkasset>h2 img{width:28px;height:28px;flex:none;display:block}
+.mkagg{border-left:4px solid var(--ink);padding:8px 12px;margin:8px 0 10px;background:var(--soft);text-align:left}
+.mkagg .px{font-size:22px;font-weight:700;margin:2px 0 4px;text-align:left;font-variant-numeric:tabular-nums}
+.mkq{font-size:16px;color:var(--muted);margin:12px 0 6px;font-weight:600;text-align:left}
+@media(min-width:1100px){.markets h1{font-size:40px}.mkcard .px{font-size:34px}.mkcard .ba{font-size:20px}.mkagg .px{font-size:26px}}
 
 .social{display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;margin:6px 0 0;font-size:13.5px}
 .social-label{color:var(--muted,#4B5563)}
@@ -161,7 +164,7 @@ a.applink:hover,a.applink:focus-visible{background:var(--soft)}
 <div class="api-docs">
 <h1>Nordic Crypto data API</h1>
 <p class="lead">A public JSON feed of the site, for apps and for other tools. No account and no API key. It is regenerated whenever the site is built.</p>
-<p>Version 1. 42 news items, 1 newsletter issues, 12 events in this build. Generated 2026-10-05T23:01:46+00:00.</p>
+<p>Version 1. 42 news items, 1 newsletter issues, 12 events in this build. Generated 2026-10-05T23:24:20+00:00.</p>
 <h2>Start here</h2>
 <ul>
 <li><a href="https://jqrgen.github.io/nordic-crypto/api/v1/index.json">Discovery</a> — every endpoint and example URL.</li>
@@ -175,9 +178,11 @@ curl -fsS https://jqrgen.github.io/nordic-crypto/api/v1/newsletters.json
 curl -fsS https://jqrgen.github.io/nordic-crypto/api/v1/newsletters/001.json</pre>
 <p>The same paths on the custom domain, at the site root: <code>https://cryptonordic.no/api/v1/news.json</code>. Swap <code>https://jqrgen.github.io/nordic-crypto/</code> for <code>https://cryptonordic.no/</code>.</p>
 <h2>Market prices</h2>
-<p>Nordic exchange prices are market data, not investment advice. <a href="https://jqrgen.github.io/nordic-crypto/api/v1/markets.json"><code>/api/v1/markets.json</code></a> lists each pair with symbol, base, quote, last, bid and ask when the exchange publishes them, the exchange id, name and country, <code>fetched_at</code> and the source URL. Quotes are NOK, SEK, DKK and EUR. One exchange is <a href="https://jqrgen.github.io/nordic-crypto/api/v1/markets/firi.json"><code>/api/v1/markets/{exchange}.json</code></a> (<code>firi</code>, <code>nbx</code>, <code>coinmotion</code>). One asset is <a href="https://jqrgen.github.io/nordic-crypto/api/v1/markets/by-asset/BTC.json"><code>/api/v1/markets/by-asset/{symbol}.json</code></a>. Venues without a public ticker are listed under <code>skipped</code> and are not given a made-up price.</p>
-<p>The build fetches the exchanges. <code>.github/workflows/markets-refresh.yml</code> rewrites the JSON on gh-pages about once an hour. The markets page reloads this file, and refreshes Firi and Coinmotion in the browser because those APIs send <code>Access-Control-Allow-Origin: *</code>. NBX does not, so those rows follow the file. The same document on the gh-pages branch: <a href="https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json">raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json</a>.</p>
-<pre>curl -fsS https://jqrgen.github.io/nordic-crypto/api/v1/markets.json</pre>
+<p>Nordic exchange prices are market data, not investment advice. <a href="https://jqrgen.github.io/nordic-crypto/api/v1/markets.json"><code>/api/v1/markets.json</code></a> lists each pair with symbol, base, quote, last, bid and ask when the exchange publishes them, the exchange id, name and country, <code>fetched_at</code>, the source URL, and volume when the exchange published it. <code>volume_base</code> is the base asset with no named window (Firi). <code>volume_base_24h</code> and <code>volume_quote_24h</code> are the last 24 hours (NBX). A missing volume is null, not zero. Quotes are NOK, SEK, DKK and EUR. One exchange is <a href="https://jqrgen.github.io/nordic-crypto/api/v1/markets/firi.json"><code>/api/v1/markets/{exchange}.json</code></a> (<code>firi</code>, <code>nbx</code>, <code>coinmotion</code>). One asset is <a href="https://jqrgen.github.io/nordic-crypto/api/v1/markets/by-asset/BTC.json"><code>/api/v1/markets/by-asset/{symbol}.json</code></a>. Venues without a public ticker are listed under <code>skipped</code> and are not given a made-up price.</p>
+<p><a href="https://jqrgen.github.io/nordic-crypto/api/v1/markets/aggregated.json"><code>/api/v1/markets/aggregated.json</code></a> is one row per pair. BTC-NOK is not averaged with BTC-EUR. <code>last</code> is the arithmetic mean of published last prices. <code>mid</code> is the mean of (bid+ask)/2 and is not mixed into <code>last</code>. <code>price</code> equals <code>last</code> when any last exists, otherwise <code>mid</code>. <code>min</code> and <code>max</code> use that same series. There is no VWAP. Volume is summed only inside the same field and the same pair. <code>logo_url</code> is an SVG from <a href="https://github.com/spothq/cryptocurrency-icons" rel="noopener">cryptocurrency-icons</a> (CC0 1.0) when that set includes the asset, served at <code>/api/v1/markets/logos/{symbol}.svg</code>, and null otherwise. The per-asset file repeats <code>aggregated</code> and the logo.</p>
+<p>The build fetches the exchanges. <code>.github/workflows/markets-refresh.yml</code> rewrites the JSON on gh-pages about once an hour, including the aggregated file and the icons. The markets page reloads this file, and refreshes Firi and Coinmotion in the browser because those APIs send <code>Access-Control-Allow-Origin: *</code>. NBX does not, so those rows follow the file. The same document on the gh-pages branch: <a href="https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json">raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json</a>.</p>
+<pre>curl -fsS https://jqrgen.github.io/nordic-crypto/api/v1/markets.json
+curl -fsS https://jqrgen.github.io/nordic-crypto/api/v1/markets/aggregated.json</pre>
 <h2>Languages</h2>
 <p>English is the default field (<code>summary</code>, <code>title</code>, <code>text</code>). Translations that we have published sit in <code>summary_i18n</code>, <code>title_i18n</code>, <code>subtitle_i18n</code>, <code>note_i18n</code>, <code>text_i18n</code> and <code>about_i18n</code>, keyed by <code>nn</code>, <code>nb</code>, <code>sv</code>, <code>da</code>, <code>fi</code> and <code>is</code>. Other site languages use the English field until a translation is published. Headlines from other outlets stay in the original language. Dates are ISO 8601.</p>
 <p><a href="https://jqrgen.github.io/nordic-crypto/api/v1/languages.json"><code>/api/v1/languages.json</code></a> lists every site language with <code>code</code>, <code>native_name</code>, <code>english_name</code>, <code>rtl</code>, <code>html_lang</code> and <code>home</code>. <a href="https://jqrgen.github.io/nordic-crypto/api/v1/geo-language.json"><code>/api/v1/geo-language.json</code></a> is the country-to-language guess used on a first visit. The IP country comes from the tipworker <code>GET /api/geo</code> (Cloudflare <code>request.cf.country</code>). Nothing is stored. The <code>nc_lang</code> cookie, set by the language switcher, always wins.</p>
@@ -212,9 +217,10 @@ curl -fsS https://jqrgen.github.io/nordic-crypto/api/v1/newsletters/001.json</pr
 <tr><td>GET</td><td><a href="https://jqrgen.github.io/nordic-crypto/api/v1/changelog.json"><code>/api/v1/changelog.json</code></a></td><td>Site changelog (product changes, not the news), newest first.</td></tr>
 <tr><td>GET</td><td><a href="https://jqrgen.github.io/nordic-crypto/api/v1/rules.json"><code>/api/v1/rules.json</code></a></td><td>How EU crypto rules become law in the five countries. Simplified, not legal advice. Omitted while the page is still a placeholder.</td></tr>
 <tr><td>GET</td><td><a href="https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles.json"><code>/api/v1/archive/articles.json</code></a></td><td>Append-only archive of stories that have been on the public site. removed is  true when a story later left the site; the row stays.</td></tr>
-<tr><td>GET</td><td><a href="https://jqrgen.github.io/nordic-crypto/api/v1/markets.json"><code>/api/v1/markets.json</code></a></td><td>Nordic exchange prices. Market data, not investment advice. Each ticker names the exchange, fetched_at and the source URL. NOK, SEK, DKK and EUR only.</td></tr>
+<tr><td>GET</td><td><a href="https://jqrgen.github.io/nordic-crypto/api/v1/markets.json"><code>/api/v1/markets.json</code></a></td><td>Nordic exchange prices. Market data, not investment advice. Each ticker names the exchange, fetched_at, the source URL and volume when the exchange published it. NOK, SEK, DKK and EUR only. aggregated is one row per pair.</td></tr>
+<tr><td>GET</td><td><a href="https://jqrgen.github.io/nordic-crypto/api/v1/markets/aggregated.json"><code>/api/v1/markets/aggregated.json</code></a></td><td>One price per base-quote pair. BTC-NOK is separate from BTC-EUR. last is the mean of published last prices. mid is the mean of bid/ask midpoints and is not blended into last. Volume is summed only within the same field and the same pair. logo_url is a CC0 icon when cryptocurrency-icons includes the asset, otherwise null.</td></tr>
 <tr><td>GET</td><td><a href="https://jqrgen.github.io/nordic-crypto/api/v1/markets/{exchange}.json"><code>/api/v1/markets/{exchange}.json</code></a></td><td>Prices from one included exchange: firi (Norway), nbx (Norway) or coinmotion (Finland).</td></tr>
-<tr><td>GET</td><td><a href="https://jqrgen.github.io/nordic-crypto/api/v1/markets/by-asset/{symbol}.json"><code>/api/v1/markets/by-asset/{symbol}.json</code></a></td><td>Prices for one asset (the base symbol, such as BTC) on every included Nordic exchange.</td></tr>
+<tr><td>GET</td><td><a href="https://jqrgen.github.io/nordic-crypto/api/v1/markets/by-asset/{symbol}.json"><code>/api/v1/markets/by-asset/{symbol}.json</code></a></td><td>Prices for one asset (the base symbol, such as BTC) on every included Nordic exchange, plus aggregated pairs for each quote currency and logo_url when an icon is available.</td></tr>
 <tr><td>GET</td><td><a href="https://jqrgen.github.io/nordic-crypto/api/v1/languages.json"><code>/api/v1/languages.json</code></a></td><td>Site UI languages: code, native name, English name, rtl, html lang and home URL.</td></tr>
 <tr><td>GET</td><td><a href="https://jqrgen.github.io/nordic-crypto/api/v1/geo-language.json"><code>/api/v1/geo-language.json</code></a></td><td>Country to default site language. An IP guess only; the nc_lang cookie from the language switcher wins.</td></tr>
 <tr><td>GET</td><td><a href="https://jqrgen.github.io/nordic-crypto/api/v1/meta.json"><code>/api/v1/meta.json</code></a></td><td>Site name, languages, countries, page list, CORS and editorial notes.</td></tr>

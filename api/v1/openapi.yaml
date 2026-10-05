@@ -469,14 +469,25 @@ paths:
   "/api/v1/markets.json":
     get:
       operationId: markets
-      summary: "Nordic exchange prices. Market data, not investment advice. Each ticker names the exchange, fetched_at and the source URL. NOK, SEK, DKK and EUR only."
+      summary: "Nordic exchange prices. Market data, not investment advice. Each ticker names the exchange, fetched_at, the source URL and volume when the exchange published it. NOK, SEK, DKK and EUR only. aggregated is one row per pair."
       responses:
         "200":
-          description: "Nordic exchange prices. Market data, not investment advice. Each ticker names the exchange, fetched_at and the source URL. NOK, SEK, DKK and EUR only."
+          description: "Nordic exchange prices. Market data, not investment advice. Each ticker names the exchange, fetched_at, the source URL and volume when the exchange published it. NOK, SEK, DKK and EUR only. aggregated is one row per pair."
           content:
             "application/json":
               schema:
                 "$ref": "#/components/schemas/MarketCatalogue"
+  "/api/v1/markets/aggregated.json":
+    get:
+      operationId: markets_aggregated
+      summary: "One price per base-quote pair. BTC-NOK is separate from BTC-EUR. last is the mean of published last prices. mid is the mean of bid/ask midpoints and is not blended into last. Volume is summed only within the same field and the same pair. logo_url is a CC0 icon when cryptocurrency-icons includes the asset, otherwise null."
+      responses:
+        "200":
+          description: "One price per base-quote pair. BTC-NOK is separate from BTC-EUR. last is the mean of published last prices. mid is the mean of bid/ask midpoints and is not blended into last. Volume is summed only within the same field and the same pair. logo_url is a CC0 icon when cryptocurrency-icons includes the asset, otherwise null."
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/MarketAggregated"
   "/api/v1/markets/{exchange}.json":
     get:
       operationId: markets_exchange
@@ -497,10 +508,10 @@ paths:
   "/api/v1/markets/by-asset/{symbol}.json":
     get:
       operationId: markets_asset
-      summary: "Prices for one asset (the base symbol, such as BTC) on every included Nordic exchange."
+      summary: "Prices for one asset (the base symbol, such as BTC) on every included Nordic exchange, plus aggregated pairs for each quote currency and logo_url when an icon is available."
       responses:
         "200":
-          description: "Prices for one asset (the base symbol, such as BTC) on every included Nordic exchange."
+          description: "Prices for one asset (the base symbol, such as BTC) on every included Nordic exchange, plus aggregated pairs for each quote currency and logo_url when an icon is available."
           content:
             "application/json":
               schema:
@@ -1285,16 +1296,19 @@ components:
         volume_base:
           type: string
           nullable: true
+          description: "Base-asset volume as published. Null when the exchange omits it. Firi's volume is stored here; that payload does not name a 24-hour window. Not treated as zero when missing."
         volume_quote:
           type: string
           nullable: true
+          description: "Quote-currency volume as published, window not named. Null when omitted."
         volume_base_24h:
           type: string
           nullable: true
-          description: Set only when the exchange names a 24-hour window.
+          description: Base-asset volume over the last 24 hours. Set only when the exchange names that window (NBX). Not added to volume_base.
         volume_quote_24h:
           type: string
           nullable: true
+          description: "Quote-currency volume over the last 24 hours (NBX). The unit is this pair's quote (NOK, SEK, DKK or EUR)."
         high:
           type: string
           nullable: true
@@ -1308,6 +1322,178 @@ components:
           type: string
           nullable: true
           description: "Timestamp from the exchange payload, when it sends one."
+    MarketLogo:
+      type: object
+      nullable: true
+      description: Present when cryptocurrency-icons (CC0-1.0) includes this asset. Null fields on the parent when it does not. Nordic Crypto does not draw substitutes.
+      properties:
+        format:
+          type: string
+          example: svg
+        source:
+          type: string
+        source_url:
+          type: string
+        version:
+          type: string
+        license:
+          type: string
+          example: CC0-1.0
+        license_name:
+          type: string
+        license_url:
+          type: string
+        authors:
+          type: string
+        attribution:
+          type: string
+    MarketVolume:
+      type: object
+      description: Sums of like volume fields inside one pair. Fields are not mixed. A null sum means nobody published that field.
+      properties:
+        volume_base:
+          type: string
+          nullable: true
+          description: "Sum of volume_base. Unit: base asset. Window not named."
+        volume_base_exchanges:
+          type: integer
+        volume_quote:
+          type: string
+          nullable: true
+          description: "Sum of volume_quote. Unit: quote currency. Window not named."
+        volume_quote_exchanges:
+          type: integer
+        volume_base_24h:
+          type: string
+          nullable: true
+          description: "Sum of volume_base_24h. Unit: base asset over the last 24 hours."
+        volume_base_24h_exchanges:
+          type: integer
+        volume_quote_24h:
+          type: string
+          nullable: true
+          description: "Sum of volume_quote_24h. Unit: quote currency over the last 24 hours."
+        volume_quote_24h_exchanges:
+          type: integer
+        units:
+          type: object
+    MarketAggregate:
+      type: object
+      required:
+        - symbol
+        - base
+        - quote
+        - currency
+        - exchange_count
+        - updated_at
+        - method
+        - price
+        - last
+        - mid
+        - min
+        - max
+        - contributors
+        - volume
+      properties:
+        symbol:
+          type: string
+          example: BTC-NOK
+          description: BASE-QUOTE. One bucket per quote currency.
+        base:
+          type: string
+        name:
+          type: string
+          nullable: true
+        quote:
+          type: string
+          enum:
+            - NOK
+            - SEK
+            - DKK
+            - EUR
+        currency:
+          type: string
+          description: "Same as quote. NOK is never combined with EUR, SEK or DKK."
+        updated_at:
+          type: string
+          nullable: true
+          description: "Newest fetched_at among the contributors, ISO 8601 UTC."
+        oldest_fetched_at:
+          type: string
+          nullable: true
+        exchange_count:
+          type: integer
+          description: How many exchanges quoted this pair.
+        method:
+          type: string
+          nullable: true
+          enum:
+            - mean_last
+            - mean_bid_ask_mid
+          description: "mean_last when any last exists, otherwise mean_bid_ask_mid. Null when no price can be formed."
+        method_note:
+          type: string
+        price:
+          type: string
+          nullable: true
+          description: "Equals last, or mid when no last exists."
+        min:
+          type: string
+          nullable: true
+          description: Lowest value in the same series as price.
+        max:
+          type: string
+          nullable: true
+          description: Highest value in the same series as price.
+        last:
+          type: string
+          nullable: true
+          description: Arithmetic mean of published last prices. Null if none.
+        last_count:
+          type: integer
+        last_min:
+          type: string
+          nullable: true
+        last_max:
+          type: string
+          nullable: true
+        mid:
+          type: string
+          nullable: true
+          description: Arithmetic mean of (bid+ask)/2 where both were published. Not blended into last.
+        mid_count:
+          type: integer
+        mid_min:
+          type: string
+          nullable: true
+        mid_max:
+          type: string
+          nullable: true
+        vwap:
+          type: string
+          nullable: true
+          description: "Always null. Volume windows are not comparable, so there is no VWAP."
+        volume_used_for_price:
+          type: boolean
+        volume:
+          "$ref": "#/components/schemas/MarketVolume"
+        contributors:
+          type: array
+          items:
+            type: object
+        logo_url:
+          type: string
+          nullable: true
+          description: "Absolute GitHub Pages URL of the SVG, or null."
+        logo_url_custom_domain:
+          type: string
+          nullable: true
+        logo_path:
+          type: string
+          nullable: true
+          description: "Site-relative path, for example api/v1/markets/logos/btc.svg."
+        logo:
+          "$ref": "#/components/schemas/MarketLogo"
     MarketCatalogue:
       type: object
       properties:
@@ -1323,6 +1509,11 @@ components:
           type: string
         count:
           type: integer
+        aggregated_count:
+          type: integer
+        aggregation:
+          type: object
+          description: "How last, mid, volume and logos are derived."
         exchanges:
           type: array
         skipped:
@@ -1332,6 +1523,10 @@ components:
           type: array
           items:
             "$ref": "#/components/schemas/MarketTicker"
+        aggregated:
+          type: array
+          items:
+            "$ref": "#/components/schemas/MarketAggregate"
         urls:
           type: object
         refresh:
@@ -1364,6 +1559,7 @@ components:
           type: string
         name:
           type: string
+          nullable: true
         generated_at:
           type: string
         preview:
@@ -1376,4 +1572,47 @@ components:
           type: array
           items:
             "$ref": "#/components/schemas/MarketTicker"
+        aggregated:
+          type: array
+          items:
+            "$ref": "#/components/schemas/MarketAggregate"
+          description: One object per quote currency for this asset.
+        aggregation:
+          type: object
+        logo_url:
+          type: string
+          nullable: true
+        logo_url_custom_domain:
+          type: string
+          nullable: true
+        logo_path:
+          type: string
+          nullable: true
+        logo:
+          "$ref": "#/components/schemas/MarketLogo"
       description: MarketAsset
+    MarketAggregated:
+      type: object
+      properties:
+        api_version:
+          type: string
+        name:
+          type: string
+        generated_at:
+          type: string
+        preview:
+          type: boolean
+        kind:
+          type: string
+          example: markets-aggregated
+        count:
+          type: integer
+        aggregation:
+          type: object
+        pairs:
+          type: array
+          items:
+            "$ref": "#/components/schemas/MarketAggregate"
+        urls:
+          type: object
+      description: MarketAggregated

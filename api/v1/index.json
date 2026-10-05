@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T23:01:46+00:00",
+ "generated_at": "2026-10-05T23:24:20+00:00",
  "preview": false,
  "title": "Nordic Crypto data API",
  "sign_off": "The Nordic Crypto team",
@@ -54,9 +54,10 @@
   "org_relations": 15,
   "profiles": 20,
   "images": 64,
-  "changelog": 15,
+  "changelog": 16,
   "archive_articles": 42,
   "markets": 72,
+  "markets_aggregated": 53,
   "markets_by_exchange": {
    "firi": 11,
    "nbx": 41,
@@ -227,8 +228,8 @@
    "url_custom_domain": "https://cryptonordic.no/api/v1/academia/{id}.json",
    "summary": "One academia row. The id is in academia.json.",
    "schema": "AcademiaItem",
-   "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/groups-kryptokom.se.json",
-   "example_url_custom_domain": "https://cryptonordic.no/api/v1/academia/groups-kryptokom.se.json"
+   "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/groups-www.linkedin.com-company-aalto-bitcoin.json",
+   "example_url_custom_domain": "https://cryptonordic.no/api/v1/academia/groups-www.linkedin.com-company-aalto-bitcoin.json"
   },
   {
    "id": "api-v1-orgchart",
@@ -300,8 +301,8 @@
    "url_custom_domain": "https://cryptonordic.no/api/v1/changelog.json",
    "summary": "Site changelog (product changes, not the news), newest first.",
    "schema": "ChangelogList",
-   "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/ios-testflight.json",
-   "example_url_custom_domain": "https://cryptonordic.no/api/v1/changelog/ios-testflight.json",
+   "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/aggregated-market-prices.json",
+   "example_url_custom_domain": "https://cryptonordic.no/api/v1/changelog/aggregated-market-prices.json",
    "item_path": "/api/v1/changelog/{id}.json",
    "item_url_template": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/{id}.json"
   },
@@ -333,10 +334,21 @@
    "path": "/api/v1/markets.json",
    "url": "https://jqrgen.github.io/nordic-crypto/api/v1/markets.json",
    "url_custom_domain": "https://cryptonordic.no/api/v1/markets.json",
-   "summary": "Nordic exchange prices. Market data, not investment advice. Each ticker names the exchange, fetched_at and the source URL. NOK, SEK, DKK and EUR only.",
+   "summary": "Nordic exchange prices. Market data, not investment advice. Each ticker names the exchange, fetched_at, the source URL and volume when the exchange published it. NOK, SEK, DKK and EUR only. aggregated is one row per pair.",
    "schema": "MarketCatalogue",
    "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/markets/firi.json",
    "example_url_custom_domain": "https://cryptonordic.no/api/v1/markets/firi.json"
+  },
+  {
+   "id": "markets-aggregated",
+   "method": "GET",
+   "path": "/api/v1/markets/aggregated.json",
+   "url": "https://jqrgen.github.io/nordic-crypto/api/v1/markets/aggregated.json",
+   "url_custom_domain": "https://cryptonordic.no/api/v1/markets/aggregated.json",
+   "summary": "One price per base-quote pair. BTC-NOK is separate from BTC-EUR. last is the mean of published last prices. mid is the mean of bid/ask midpoints and is not blended into last. Volume is summed only within the same field and the same pair. logo_url is a CC0 icon when cryptocurrency-icons includes the asset, otherwise null.",
+   "schema": "MarketAggregated",
+   "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/markets/aggregated.json",
+   "example_url_custom_domain": "https://cryptonordic.no/api/v1/markets/aggregated.json"
   },
   {
    "id": "markets-exchange",
@@ -355,7 +367,7 @@
    "path": "/api/v1/markets/by-asset/{symbol}.json",
    "url": "https://jqrgen.github.io/nordic-crypto/api/v1/markets/by-asset/{symbol}.json",
    "url_custom_domain": "https://cryptonordic.no/api/v1/markets/by-asset/{symbol}.json",
-   "summary": "Prices for one asset (the base symbol, such as BTC) on every included Nordic exchange.",
+   "summary": "Prices for one asset (the base symbol, such as BTC) on every included Nordic exchange, plus aggregated pairs for each quote currency and logo_url when an icon is available.",
    "schema": "MarketAsset",
    "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/markets/by-asset/BTC.json",
    "example_url_custom_domain": "https://cryptonordic.no/api/v1/markets/by-asset/BTC.json"
@@ -392,6 +404,10 @@
   {
    "description": "Nordic exchange prices (market data, not investment advice)",
    "url": "https://jqrgen.github.io/nordic-crypto/api/v1/markets.json"
+  },
+  {
+   "description": "Aggregated price per pair, one quote currency at a time",
+   "url": "https://jqrgen.github.io/nordic-crypto/api/v1/markets/aggregated.json"
   },
   {
    "description": "Prices from one exchange",

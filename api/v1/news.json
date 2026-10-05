@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T23:01:46+00:00",
+ "generated_at": "2026-10-05T23:24:20+00:00",
  "preview": false,
  "updated": "2026-10-04T01:42:55+00:00",
  "language_note": "summary is English. summary_i18n holds nn, nb, sv, da, fi and is when that translation is published. Other site languages use the English summary until a translation exists. title is the source headline. title_en is our English headline when we wrote one. The site language list is /api/v1/languages.json.",

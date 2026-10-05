@@ -128,15 +128,18 @@ html.nc-pick body{visibility:hidden}
 a.applink{display:inline-block;padding:8px 14px;border:2px solid var(--ink);font-weight:700;font-size:18px;line-height:1.3;text-decoration:none;text-align:left}
 a.applink:hover,a.applink:focus-visible{background:var(--soft)}
 .markets h1{font-size:32px}
-.markets .lead,.markets p,.markets h2,.markets h3,.mkcard{text-align:left}
+.markets .lead,.markets p,.markets h2,.markets h3,.mkcard,.mkagg,.mkasset{text-align:left}
 .mkcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin:0 0 8px}
-.mkcard{border:1px solid var(--line);padding:12px 14px;background:#fff}
-.mkcard .px{font-size:28px;font-weight:700;line-height:1.15;margin:6px 0;font-variant-numeric:tabular-nums}
+.mkcard{border:1px solid var(--line);padding:12px 14px;background:#fff;text-align:left}
+.mkcard .px{font-size:28px;font-weight:700;line-height:1.15;margin:6px 0;font-variant-numeric:tabular-nums;text-align:left}
 .mkcard .unit{font-size:16px;font-weight:600;color:var(--muted)}
-.mkcard .ba{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:18px;margin:0}
-.mkasset>h2{font-size:26px;margin:22px 0 4px}
-.mkq{font-size:16px;color:var(--muted);margin:12px 0 6px;font-weight:600}
-@media(min-width:1100px){.markets h1{font-size:40px}.mkcard .px{font-size:34px}.mkcard .ba{font-size:20px}}
+.mkcard .ba{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:6px 18px;font-size:18px;margin:0}
+.mkasset>h2{display:flex;align-items:center;justify-content:flex-start;gap:10px;font-size:26px;margin:22px 0 4px;text-align:left}
+.mkasset>h2 img{width:28px;height:28px;flex:none;display:block}
+.mkagg{border-left:4px solid var(--ink);padding:8px 12px;margin:8px 0 10px;background:var(--soft);text-align:left}
+.mkagg .px{font-size:22px;font-weight:700;margin:2px 0 4px;text-align:left;font-variant-numeric:tabular-nums}
+.mkq{font-size:16px;color:var(--muted);margin:12px 0 6px;font-weight:600;text-align:left}
+@media(min-width:1100px){.markets h1{font-size:40px}.mkcard .px{font-size:34px}.mkcard .ba{font-size:20px}.mkagg .px{font-size:26px}}
 
 .social{display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;margin:6px 0 0;font-size:13.5px}
 .social-label{color:var(--muted,#4B5563)}
