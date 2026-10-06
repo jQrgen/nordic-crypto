@@ -3,6 +3,38 @@
  "launch_date": "2026-10-03",
  "entries": [
   {
+   "id": "community-links",
+   "date": "2026-10-06",
+   "title": "Nordic Crypto on Telegram and X",
+   "description": "The footer, the About page and the newsletter link to the Nordic Crypto brand accounts: Telegram at https://t.me/nordiccryptochat and X at https://x.com/xcryptonordic. The same links are in /api/v1/meta.json under social, for the iOS app. The link text is in English, Norwegian (nynorsk and bokmål), Swedish, Danish, Finnish and Icelandic. Other site languages use the English text. The source-code link stays.",
+   "i18n": {
+    "nn": {
+     "title": "Nordic Crypto på Telegram og X",
+     "description": "Botnteksten, Om oss og nyheitsbrevet lenkjer til merkevarekontoane til Nordic Crypto: Telegram på https://t.me/nordiccryptochat og X på https://x.com/xcryptonordic. Dei same lenkjene ligg i /api/v1/meta.json under social, for iOS-appen. Lenkjeteksten finst på engelsk, nynorsk, bokmål, svensk, dansk, finsk og islandsk. Andre språk på nettstaden bruker den engelske teksten. Kjeldekodelenkja står."
+    },
+    "nb": {
+     "title": "Nordic Crypto på Telegram og X",
+     "description": "Bunnteksten, Om oss og nyhetsbrevet lenker til merkevarekontoene til Nordic Crypto: Telegram på https://t.me/nordiccryptochat og X på https://x.com/xcryptonordic. De samme lenkene ligger i /api/v1/meta.json under social, for iOS-appen. Lenketeksten finnes på engelsk, nynorsk, bokmål, svensk, dansk, finsk og islandsk. Andre språk på nettstedet bruker den engelske teksten. Kildekodelenken står."
+    },
+    "sv": {
+     "title": "Nordic Crypto på Telegram och X",
+     "description": "Sidfoten, Om oss och nyhetsbrevet länkar till Nordic Cryptos varumärkeskonton: Telegram på https://t.me/nordiccryptochat och X på https://x.com/xcryptonordic. Samma länkar finns i /api/v1/meta.json under social, för iOS-appen. Länktexten finns på engelska, nynorska, bokmål, svenska, danska, finska och isländska. Övriga språk på webbplatsen använder den engelska texten. Länken till källkoden är kvar."
+    },
+    "da": {
+     "title": "Nordic Crypto på Telegram og X",
+     "description": "Sidefoden, Om os og nyhedsbrevet linker til Nordic Cryptos brandkonti: Telegram på https://t.me/nordiccryptochat og X på https://x.com/xcryptonordic. De samme links ligger i /api/v1/meta.json under social, til iOS-appen. Linkteksten findes på engelsk, nynorsk, bokmål, svensk, dansk, finsk og islandsk. Andre sprog på sitet bruger den engelske tekst. Linket til kildekoden bliver."
+    },
+    "fi": {
+     "title": "Nordic Crypto Telegramissa ja X:ssä",
+     "description": "Alatunniste, Tietoa meistä ja uutiskirje linkittävät Nordic Crypton bränditileihin: Telegram osoitteessa https://t.me/nordiccryptochat ja X osoitteessa https://x.com/xcryptonordic. Samat linkit ovat tiedostossa /api/v1/meta.json kohdassa social, iOS-sovellusta varten. Linkkiteksti on englanniksi, norjan nynorskiksi ja bokmåliksi, ruotsiksi, tanskaksi, suomeksi ja islanniksi. Sivuston muut kielet käyttävät englanninkielistä tekstiä. Lähdekoodilinkki säilyy."
+    },
+    "is": {
+     "title": "Nordic Crypto á Telegram og X",
+     "description": "Fóturinn, Um okkur og fréttabréfið tengja á vörumerkjareikninga Nordic Crypto: Telegram á https://t.me/nordiccryptochat og X á https://x.com/xcryptonordic. Sömu tenglar eru í /api/v1/meta.json undir social, fyrir iOS-appið. Tenglatextinn er á ensku, nýnorsku, bókmáli, sænsku, dönsku, finnsku og íslensku. Önnur tungumál síðunnar nota enska textann. Tengillinn á frumkóðann er áfram."
+    }
+   }
+  },
+  {
    "id": "story-coverage",
    "date": "2026-10-06",
    "title": "Several outlets on one story",

@@ -180,6 +180,37 @@ def main():
         if meta_ios_later(tmp) != "https://testflight.apple.com/join/nQ2fpjZn":
             fails.append("testflight url missing from meta")
         meta = json.load(open(os.path.join(tmp, "api/v1/meta.json"), encoding="utf-8"))
+        social = meta.get("social") or {}
+        tg = social.get("telegram") or {}
+        xacc = social.get("x") or {}
+        if tg.get("url") != "https://t.me/nordiccryptochat" or tg.get("label") != "Telegram" or tg.get("name") != "Nordic Crypto on Telegram":
+            fails.append("meta social telegram")
+        if xacc.get("url") != "https://x.com/xcryptonordic" or xacc.get("label") != "X" or xacc.get("handle") != "@xcryptonordic":
+            fails.append("meta social x")
+        if (tg.get("name_i18n") or {}).get("nb") != "Nordic Crypto på Telegram":
+            fails.append("meta social telegram nb")
+        if (xacc.get("name_i18n") or {}).get("fi") != "Seuraa Nordic Cryptoa X:ssä":
+            fails.append("meta social x fi")
+        if "jqrgensn" in json.dumps(social) or "Follow me" in json.dumps(social):
+            fails.append("personal profile leaked into social")
+        urls = meta.get("urls") or {}
+        if urls.get("telegram") != "https://t.me/nordiccryptochat" or urls.get("x") != "https://x.com/xcryptonordic":
+            fails.append("meta urls social")
+        schema = (spec.get("components") or {}).get("schemas") or {}
+        if "social" not in ((schema.get("SiteMeta") or {}).get("properties") or {}):
+            fails.append("openapi social")
+        build.LANG = "nb"
+        nb_html = build.community_links() + build.community_section()
+        if "https://t.me/nordiccryptochat" not in nb_html or "https://x.com/xcryptonordic" not in nb_html:
+            fails.append("community links missing")
+        if "Nordic Crypto på Telegram" not in nb_html or "Fellesskap" not in nb_html:
+            fails.append("nb community copy")
+        if "text-align:center" in nb_html or "jqrgensn" in nb_html or "Follow me" in nb_html:
+            fails.append("community links centered or personal")
+        build.LANG = "zh"
+        if "Nordic Crypto on Telegram" not in build.community_links():
+            fails.append("zh community did not fall back to English")
+        build.LANG = "en"
         if "/ethics/" not in {p.get("path") for p in meta.get("site_pages") or []}:
             fails.append("ethics page missing from site meta")
         need = {"en", "nn", "nb", "sv", "da", "fi", "is", "zh", "hi", "es", "fr", "ar", "bn", "pt", "ru", "ur", "id", "de", "ja", "sw", "mr"}
@@ -229,6 +260,8 @@ def main():
         page = open(os.path.join(tmp, "api/index.html"), encoding="utf-8").read()
         if "Nordic Crypto data API" not in page or "curl -fsS" not in page or "<header" not in page:
             fails.append("human docs were not themed by the site builder")
+        if "https://t.me/nordiccryptochat" not in page or "social.telegram" not in page or "https://x.com/xcryptonordic" not in page:
+            fails.append("api docs missing brand accounts")
         catalog = json.load(open(os.path.join(tmp, ".well-known/api-catalog"), encoding="utf-8"))
         if "service-desc" not in catalog["linkset"][0]:
             fails.append("api catalog")

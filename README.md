@@ -88,6 +88,14 @@ Refresh: `./build.sh` and `./publish.sh` fetch the exchanges while building `sit
 ### iOS app
 Public TestFlight invite, linked from the footer, the homepage, `/markets/` and About: https://testflight.apple.com/join/nQ2fpjZn. There is no App Store listing.
 
+### Community
+Nordic Crypto brand accounts, linked from the footer, About and the newsletter, in every site language (English until a translation is written):
+
+- Telegram: https://t.me/nordiccryptochat
+- X: https://x.com/xcryptonordic
+
+The iOS app reads them from `social` on `/api/v1/meta.json` (`social.telegram`, `social.x`). `name` is English. `name_i18n` has nn, nb, sv, da, fi and is. The source-code link on each page stays.
+
 ## Pipeline
 | Step | Command | What it does |
 |---|---|---|
