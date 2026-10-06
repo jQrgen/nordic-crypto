@@ -17,6 +17,10 @@ BASE = "https://jqrgen.github.io/nordic-crypto/"
 SITE = os.environ.get("NC_SITE_DIR") or P("site")   # NC_SITE_DIR: scratch build dir (tipworker/publish_tip_page.sh)
 PREVIEW = "--preview" in sys.argv
 SITE_NAME = "Nordic Crypto"
+CUSTOM_DOMAIN = "cryptonordic.no"   # GitHub Pages CNAME; publish.sh will not push gh-pages without it
+def write_cname():
+    """site/CNAME, so a publish keeps the custom domain (a missing file clears it on GitHub Pages)."""
+    open(os.path.join(SITE, "CNAME"), "w", encoding="utf-8").write(CUSTOM_DOMAIN + "\n")
 def load(p, d=None):
     try: return json.load(open(p, encoding="utf-8"))
     except FileNotFoundError: return d
@@ -728,6 +732,7 @@ def build():
     if os.path.exists(SITE): shutil.rmtree(SITE)
     os.makedirs(os.path.join(SITE, "data"))
     open(os.path.join(SITE, ".nojekyll"), "w").close()
+    write_cname()
     if PREVIEW: open(os.path.join(SITE, ".preview"), "w").write("local preview build – never publish\n")
     for i in news["items"]:  # translated summaries: public only once the editor approved them (summary_i18n_review)
         if not PREVIEW and i.get("summary_i18n_review", "approved") != "approved": i.pop("summary_i18n", None)
@@ -801,6 +806,7 @@ def build():
     open(os.path.join(SITE, "robots.txt"), "w").write("User-agent: *\n" + ("Disallow: /\n" if PREVIEW else "Allow: /\n"))
     emit_api(ctx)
     sitemap()
+    write_cname()
     miss = sorted(i18n.MISSING)
     if miss: print(f"i18n: {len(miss)} missing strings fell back to English: {miss[:12]}{' …' if len(miss) > 12 else ''}")
     print(f"build{' (PREVIEW)' if PREVIEW else ''}: {len(items)} stories ({len(approved)} approved, {len(pending)} pending), "
