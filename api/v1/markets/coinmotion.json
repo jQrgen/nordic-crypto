@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T14:06:45+00:00",
+ "generated_at": "2026-10-06T17:15:34+00:00",
  "preview": false,
  "kind": "markets",
  "disclaimer": "Market data, not investment advice. Each figure is the value published by the named exchange at fetched_at. Nordic Crypto does not set these prices and does not tell anyone to buy or sell.",
@@ -25,7 +25,7 @@
   "cors": true,
   "note": "Finnish broker. Public rates include EUR and SEK. There is no last-trade field, so last is null. bid is the buy field (the price Coinmotion pays for the asset) and ask is the sell field (the price Coinmotion charges). Pairs quoted in BTC or USDC are left out. The response sends Access-Control-Allow-Origin: *.",
   "status": "ok",
-  "fetched_at": "2026-10-06T14:04:32+00:00",
+  "fetched_at": "2026-10-06T17:15:33+00:00",
   "error": null,
   "ticker_count": 20
  },
@@ -38,23 +38,23 @@
    "base": "BTC",
    "quote": "SEK",
    "last": null,
-   "bid": "857986.01",
-   "ask": "866301.17",
+   "bid": "850856.80",
+   "ask": "858216.32",
    "exchange": {
     "id": "coinmotion",
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-06T14:04:32+00:00",
+   "fetched_at": "2026-10-06T17:15:33+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
    "volume_base_24h": null,
    "volume_quote_24h": null,
-   "high": "870917.31",
-   "low": "852734.67",
+   "high": "865441.62",
+   "low": "854069.47",
    "change_pct": null,
-   "exchange_time": "2026-10-06T14:04:12+00:00"
+   "exchange_time": "2026-10-06T17:15:11+00:00"
   },
   {
    "id": "coinmotion:BTC-EUR",
@@ -63,23 +63,23 @@
    "base": "BTC",
    "quote": "EUR",
    "last": null,
-   "bid": "76329.88",
-   "ask": "77069.63",
+   "bid": "75687.22",
+   "ask": "76341.88",
    "exchange": {
     "id": "coinmotion",
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-06T14:04:32+00:00",
+   "fetched_at": "2026-10-06T17:15:33+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
    "volume_base_24h": null,
    "volume_quote_24h": null,
-   "high": "77480.30",
-   "low": "75862.70",
+   "high": "76984.60",
+   "low": "75973.00",
    "change_pct": null,
-   "exchange_time": "2026-10-06T14:04:12+00:00"
+   "exchange_time": "2026-10-06T17:15:11+00:00"
   },
   {
    "id": "coinmotion:ETH-SEK",
@@ -88,23 +88,23 @@
    "base": "ETH",
    "quote": "SEK",
    "last": null,
-   "bid": "26984.16",
-   "ask": "27228.42",
+   "bid": "26815.62",
+   "ask": "27032.24",
    "exchange": {
     "id": "coinmotion",
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-06T14:04:32+00:00",
+   "fetched_at": "2026-10-06T17:15:33+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
    "volume_base_24h": null,
    "volume_quote_24h": null,
-   "high": "27413.21",
-   "low": "26880.86",
+   "high": "27270.23",
+   "low": "26917.24",
    "change_pct": null,
-   "exchange_time": "2026-10-06T14:04:12+00:00"
+   "exchange_time": "2026-10-06T17:15:11+00:00"
   },
   {
    "id": "coinmotion:ETH-EUR",
@@ -113,23 +113,23 @@
    "base": "ETH",
    "quote": "EUR",
    "last": null,
-   "bid": "2400.62",
-   "ask": "2422.35",
+   "bid": "2385.36",
+   "ask": "2404.63",
    "exchange": {
     "id": "coinmotion",
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-06T14:04:32+00:00",
+   "fetched_at": "2026-10-06T17:15:33+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
    "volume_base_24h": null,
    "volume_quote_24h": null,
-   "high": "2438.79",
-   "low": "2391.43",
+   "high": "2425.80",
+   "low": "2394.40",
    "change_pct": null,
-   "exchange_time": "2026-10-06T14:04:12+00:00"
+   "exchange_time": "2026-10-06T17:15:11+00:00"
   },
   {
    "id": "coinmotion:XRP-SEK",
@@ -138,23 +138,23 @@
    "base": "XRP",
    "quote": "SEK",
    "last": null,
-   "bid": "15.04",
-   "ask": "15.20",
+   "bid": "14.91",
+   "ask": "15.06",
    "exchange": {
     "id": "coinmotion",
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-06T14:04:32+00:00",
+   "fetched_at": "2026-10-06T17:15:33+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
    "volume_base_24h": null,
    "volume_quote_24h": null,
-   "high": "15.28",
+   "high": "15.21",
    "low": "14.92",
    "change_pct": null,
-   "exchange_time": "2026-10-06T14:04:12+00:00"
+   "exchange_time": "2026-10-06T17:15:11+00:00"
   },
   {
    "id": "coinmotion:XRP-EUR",
@@ -163,23 +163,23 @@
    "base": "XRP",
    "quote": "EUR",
    "last": null,
-   "bid": "1.33890",
-   "ask": "1.35276",
+   "bid": "1.32699",
+   "ask": "1.34011",
    "exchange": {
     "id": "coinmotion",
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-06T14:04:32+00:00",
+   "fetched_at": "2026-10-06T17:15:33+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
    "volume_base_24h": null,
    "volume_quote_24h": null,
-   "high": "1.35941",
-   "low": "1.32768",
+   "high": "1.35350",
+   "low": "1.32795",
    "change_pct": null,
-   "exchange_time": "2026-10-06T14:04:12+00:00"
+   "exchange_time": "2026-10-06T17:15:11+00:00"
   },
   {
    "id": "coinmotion:ADA-SEK",
@@ -188,23 +188,23 @@
    "base": "ADA",
    "quote": "SEK",
    "last": null,
-   "bid": "2.73",
-   "ask": "2.75",
+   "bid": "2.70",
+   "ask": "2.72",
    "exchange": {
     "id": "coinmotion",
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-06T14:04:32+00:00",
+   "fetched_at": "2026-10-06T17:15:33+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
    "volume_base_24h": null,
    "volume_quote_24h": null,
    "high": "2.82",
-   "low": "2.62",
+   "low": "2.64",
    "change_pct": null,
-   "exchange_time": "2026-10-06T14:04:12+00:00"
+   "exchange_time": "2026-10-06T17:15:11+00:00"
   },
   {
    "id": "coinmotion:ADA-EUR",
@@ -213,23 +213,23 @@
    "base": "ADA",
    "quote": "EUR",
    "last": null,
-   "bid": "0.24326",
-   "ask": "0.24553",
+   "bid": "0.24068",
+   "ask": "0.24283",
    "exchange": {
     "id": "coinmotion",
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-06T14:04:32+00:00",
+   "fetched_at": "2026-10-06T17:15:33+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
    "volume_base_24h": null,
    "volume_quote_24h": null,
    "high": "0.25095",
-   "low": "0.23360",
+   "low": "0.23550",
    "change_pct": null,
-   "exchange_time": "2026-10-06T14:04:12+00:00"
+   "exchange_time": "2026-10-06T17:15:11+00:00"
   },
   {
    "id": "coinmotion:LTC-SEK",
@@ -238,23 +238,23 @@
    "base": "LTC",
    "quote": "SEK",
    "last": null,
-   "bid": "693.31",
-   "ask": "699.83",
+   "bid": "689.56",
+   "ask": "696.08",
    "exchange": {
     "id": "coinmotion",
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-06T14:04:32+00:00",
+   "fetched_at": "2026-10-06T17:15:33+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
    "volume_base_24h": null,
    "volume_quote_24h": null,
-   "high": "719.84",
-   "low": "691.74",
+   "high": "711.82",
+   "low": "691.81",
    "change_pct": null,
-   "exchange_time": "2026-10-06T14:04:12+00:00"
+   "exchange_time": "2026-10-06T17:15:11+00:00"
   },
   {
    "id": "coinmotion:LTC-EUR",
@@ -263,23 +263,23 @@
    "base": "LTC",
    "quote": "EUR",
    "last": null,
-   "bid": "61.68",
-   "ask": "62.26",
+   "bid": "61.34",
+   "ask": "61.92",
    "exchange": {
     "id": "coinmotion",
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-06T14:04:32+00:00",
+   "fetched_at": "2026-10-06T17:15:33+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
    "volume_base_24h": null,
    "volume_quote_24h": null,
-   "high": "64.04",
+   "high": "63.32",
    "low": "61.54",
    "change_pct": null,
-   "exchange_time": "2026-10-06T14:04:12+00:00"
+   "exchange_time": "2026-10-06T17:15:11+00:00"
   },
   {
    "id": "coinmotion:LINK-SEK",
@@ -288,23 +288,23 @@
    "base": "LINK",
    "quote": "SEK",
    "last": null,
-   "bid": "139.15",
-   "ask": "140.61",
+   "bid": "137.71",
+   "ask": "139.17",
    "exchange": {
     "id": "coinmotion",
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-06T14:04:32+00:00",
+   "fetched_at": "2026-10-06T17:15:33+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
    "volume_base_24h": null,
    "volume_quote_24h": null,
-   "high": "141.74",
-   "low": "137.47",
+   "high": "140.97",
+   "low": "137.48",
    "change_pct": null,
-   "exchange_time": "2026-10-06T14:04:12+00:00"
+   "exchange_time": "2026-10-06T17:15:11+00:00"
   },
   {
    "id": "coinmotion:LINK-EUR",
@@ -313,23 +313,23 @@
    "base": "LINK",
    "quote": "EUR",
    "last": null,
-   "bid": "12.38",
-   "ask": "12.51",
+   "bid": "12.25",
+   "ask": "12.38",
    "exchange": {
     "id": "coinmotion",
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-06T14:04:32+00:00",
+   "fetched_at": "2026-10-06T17:15:33+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
    "volume_base_24h": null,
    "volume_quote_24h": null,
-   "high": "12.61",
+   "high": "12.54",
    "low": "12.23",
    "change_pct": null,
-   "exchange_time": "2026-10-06T14:04:12+00:00"
+   "exchange_time": "2026-10-06T17:15:11+00:00"
   },
   {
    "id": "coinmotion:UNI-SEK",
@@ -338,23 +338,23 @@
    "base": "UNI",
    "quote": "SEK",
    "last": null,
-   "bid": "88.09",
-   "ask": "88.94",
+   "bid": "85.53",
+   "ask": "86.32",
    "exchange": {
     "id": "coinmotion",
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-06T14:04:32+00:00",
+   "fetched_at": "2026-10-06T17:15:33+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
    "volume_base_24h": null,
    "volume_quote_24h": null,
-   "high": "91.95",
-   "low": "87.84",
+   "high": "91.96",
+   "low": "85.71",
    "change_pct": null,
-   "exchange_time": "2026-10-06T14:04:12+00:00"
+   "exchange_time": "2026-10-06T17:15:11+00:00"
   },
   {
    "id": "coinmotion:UNI-EUR",
@@ -363,23 +363,23 @@
    "base": "UNI",
    "quote": "EUR",
    "last": null,
-   "bid": "7.837",
-   "ask": "7.913",
+   "bid": "7.609",
+   "ask": "7.679",
    "exchange": {
     "id": "coinmotion",
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-06T14:04:32+00:00",
+   "fetched_at": "2026-10-06T17:15:33+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
    "volume_base_24h": null,
    "volume_quote_24h": null,
    "high": "8.181",
-   "low": "7.815",
+   "low": "7.625",
    "change_pct": null,
-   "exchange_time": "2026-10-06T14:04:12+00:00"
+   "exchange_time": "2026-10-06T17:15:11+00:00"
   },
   {
    "id": "coinmotion:AAVE-SEK",
@@ -388,23 +388,23 @@
    "base": "AAVE",
    "quote": "SEK",
    "last": null,
-   "bid": "1810.39",
-   "ask": "1827.48",
+   "bid": "1787.10",
+   "ask": "1803.73",
    "exchange": {
     "id": "coinmotion",
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-06T14:04:32+00:00",
+   "fetched_at": "2026-10-06T17:15:33+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
    "volume_base_24h": null,
    "volume_quote_24h": null,
-   "high": "1878.06",
-   "low": "1792.85",
+   "high": "1878.27",
+   "low": "1793.05",
    "change_pct": null,
-   "exchange_time": "2026-10-06T14:04:12+00:00"
+   "exchange_time": "2026-10-06T17:15:11+00:00"
   },
   {
    "id": "coinmotion:AAVE-EUR",
@@ -413,14 +413,14 @@
    "base": "AAVE",
    "quote": "EUR",
    "last": null,
-   "bid": "161.06",
-   "ask": "162.58",
+   "bid": "158.97",
+   "ask": "160.45",
    "exchange": {
     "id": "coinmotion",
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-06T14:04:32+00:00",
+   "fetched_at": "2026-10-06T17:15:33+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
@@ -429,7 +429,7 @@
    "high": "167.08",
    "low": "159.50",
    "change_pct": null,
-   "exchange_time": "2026-10-06T14:04:12+00:00"
+   "exchange_time": "2026-10-06T17:15:11+00:00"
   },
   {
    "id": "coinmotion:XLM-SEK",
@@ -438,23 +438,23 @@
    "base": "XLM",
    "quote": "SEK",
    "last": null,
-   "bid": "2.14",
-   "ask": "2.16",
+   "bid": "2.12",
+   "ask": "2.14",
    "exchange": {
     "id": "coinmotion",
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-06T14:04:32+00:00",
+   "fetched_at": "2026-10-06T17:15:33+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
    "volume_base_24h": null,
    "volume_quote_24h": null,
-   "high": "2.22",
+   "high": "2.17",
    "low": "2.11",
    "change_pct": null,
-   "exchange_time": "2026-10-06T14:04:12+00:00"
+   "exchange_time": "2026-10-06T17:15:11+00:00"
   },
   {
    "id": "coinmotion:XLM-EUR",
@@ -463,23 +463,23 @@
    "base": "XLM",
    "quote": "EUR",
    "last": null,
-   "bid": "0.190474",
-   "ask": "0.192270",
+   "bid": "0.188621",
+   "ask": "0.190374",
    "exchange": {
     "id": "coinmotion",
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-06T14:04:32+00:00",
+   "fetched_at": "2026-10-06T17:15:33+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
    "volume_base_24h": null,
    "volume_quote_24h": null,
-   "high": "0.197668",
-   "low": "0.188224",
+   "high": "0.193256",
+   "low": "0.188447",
    "change_pct": null,
-   "exchange_time": "2026-10-06T14:04:12+00:00"
+   "exchange_time": "2026-10-06T17:15:11+00:00"
   },
   {
    "id": "coinmotion:USDC-SEK",
@@ -495,16 +495,16 @@
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-06T14:04:32+00:00",
+   "fetched_at": "2026-10-06T17:15:33+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
    "volume_base_24h": null,
    "volume_quote_24h": null,
-   "high": "10.04",
-   "low": "9.96",
+   "high": "10.03",
+   "low": "9.97",
    "change_pct": null,
-   "exchange_time": "2026-10-06T14:04:12+00:00"
+   "exchange_time": "2026-10-06T17:15:11+00:00"
   },
   {
    "id": "coinmotion:USDC-EUR",
@@ -513,23 +513,23 @@
    "base": "USDC",
    "quote": "EUR",
    "last": null,
-   "bid": "0.88516",
-   "ask": "0.89204",
+   "bid": "0.88506",
+   "ask": "0.89184",
    "exchange": {
     "id": "coinmotion",
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-06T14:04:32+00:00",
+   "fetched_at": "2026-10-06T17:15:33+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
    "volume_base_24h": null,
    "volume_quote_24h": null,
-   "high": "0.89390",
+   "high": "0.89300",
    "low": "0.88690",
    "change_pct": null,
-   "exchange_time": "2026-10-06T14:04:12+00:00"
+   "exchange_time": "2026-10-06T17:15:11+00:00"
   }
  ]
 }
