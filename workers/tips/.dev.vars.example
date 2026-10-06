@@ -1,0 +1,6 @@
+# Copy to .dev.vars for `wrangler dev` only. .dev.vars is gitignored. These are not real secrets.
+TURNSTILE_SECRET=
+READ_TOKEN=
+ONION_INGEST_TOKEN=
+TIP_WEBHOOK_URL=
+TIP_WEBHOOK_BEARER=

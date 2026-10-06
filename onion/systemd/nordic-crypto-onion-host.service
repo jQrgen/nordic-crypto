@@ -1,0 +1,27 @@
+# Host install without Docker. Install tor separately and use onion/tor/torrc
+# with HiddenServicePort 80 127.0.0.1:8080. EnvironmentFile holds WORKER_URL and
+# ONION_INGEST_TOKEN. Do not put those values in this unit.
+[Unit]
+Description=Nordic Crypto onion tip app
+After=network-online.target tor.service
+
+[Service]
+Type=simple
+User=nordic-tip
+Group=nordic-tip
+WorkingDirectory=/opt/nordic-crypto/onion/app
+Environment=BIND=127.0.0.1
+Environment=PORT=8080
+Environment=QUEUE_DIR=/var/lib/nordic-tips
+EnvironmentFile=/etc/nordic-crypto-onion.env
+ExecStart=/usr/bin/python3 server.py
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/var/lib/nordic-tips
+StandardOutput=null
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

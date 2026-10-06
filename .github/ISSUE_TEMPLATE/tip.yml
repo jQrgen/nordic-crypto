@@ -1,54 +1,20 @@
-name: Send a tip
-description: Tip Nordic Crypto about an article on crypto, bitcoin or blockchain in Norway, Sweden, Denmark, Finland or Iceland.
-title: "Tip: "
+name: Send a tip (retired)
+description: Do not send tips here. Tips are not accepted as public GitHub issues.
+title: "Do not use: tips are private"
 labels: ["tip"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for the tip! Our editor checks every tip against [our rules](https://jqrgen.github.io/nordic-crypto/tip/). A tip does not guarantee publication.
+        This public form is retired. Do not send a tip, a name, a contact detail, or anything you do not want public.
 
-        **Privacy:** tips are **public** on GitHub, together with your GitHub username. Do not share personal or sensitive information (about yourself or anyone else) – just the link and, if you like, a short note.
-  - type: input
-    id: url
-    attributes:
-      label: Article URL
-      description: Link to the original article (newspaper, broadcaster, regulator, central bank, company or similar).
-      placeholder: https://
-    validations:
-      required: true
-  - type: dropdown
-    id: country
-    attributes:
-      label: Country
-      description: Which country is the story about?
-      options:
-        - Norway (NO)
-        - Sweden (SE)
-        - Denmark (DK)
-        - Finland (FI)
-        - Iceland (IS)
-        - Not sure
-    validations:
-      required: false
-  - type: textarea
-    id: note
-    attributes:
-      label: Short note
-      description: Optional. Why is it relevant? Please no personal or sensitive information.
-    validations:
-      required: false
-  - type: input
-    id: name
-    attributes:
-      label: Your name (optional)
-      description: Optional. Leave empty to stay anonymous apart from your GitHub username. We do not publish it on the site.
-    validations:
-      required: false
+        Tips go only to the private form on the website: https://cryptonordic.no/tip/
+
+        Nothing you type in a GitHub issue is private.
   - type: checkboxes
-    id: consent
+    id: understood
     attributes:
-      label: Privacy
+      label: Confirm
       options:
-        - label: I understand that this tip is public on GitHub and contains no personal or sensitive information.
+        - label: I understand this GitHub form is retired and I should not submit a tip here.
           required: true

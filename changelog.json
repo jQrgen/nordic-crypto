@@ -3,6 +3,38 @@
  "launch_date": "2026-10-03",
  "entries": [
   {
+   "id": "private-tip-intake",
+   "date": "2026-10-06",
+   "title": "Private tip inbox",
+   "description": "The tip form on every language version of /tip/ sends the tip to a private Cloudflare intake (a Worker and a D1 database). It does not open a public GitHub issue. The page says that the editorial team reads tips, including an editor that is artificial intelligence, and that this editor is not a human. A Tor onion tip page is in the repo for a small VPS, with a placeholder on /tip/ until the onion address exists. Nothing in this change is deployed.",
+   "i18n": {
+    "nn": {
+     "title": "Privat tipsinnboks",
+     "description": "Tipsskjemaet på alle språkversjonar av /tip/ sender tipset til eit privat Cloudflare-mottak (ein Worker og ein D1-database). Det opnar ikkje ei offentleg sak på GitHub. Sida seier at redaksjonen les tips, medrekna ein redaktør som er kunstig intelligens, og at denne redaktøren ikkje er eit menneske. Ei Tor-onion-tipsside ligg i lageret for ein liten VPS, med ein plasshaldar på /tip/ til onion-adressa finst. Ingenting i denne endringa er teke i bruk."
+    },
+    "nb": {
+     "title": "Privat tipsinnboks",
+     "description": "Tipsskjemaet på alle språkversjoner av /tip/ sender tipset til et privat Cloudflare-mottak (en Worker og en D1-database). Det åpner ikke en offentlig sak på GitHub. Siden sier at redaksjonen leser tips, inkludert en redaktør som er kunstig intelligens, og at denne redaktøren ikke er et menneske. En Tor-onion-tipsside ligger i lageret for en liten VPS, med en plassholder på /tip/ til onion-adressen finnes. Ingenting i denne endringen er tatt i bruk."
+    },
+    "sv": {
+     "title": "Privat tipsinkorg",
+     "description": "Tipsformuläret på alla språkversioner av /tip/ skickar tipset till ett privat Cloudflare-mottagande (en Worker och en D1-databas). Det öppnar inte ett offentligt ärende på GitHub. Sidan säger att redaktionen läser tips, inklusive en redaktör som är artificiell intelligens, och att den redaktören inte är en människa. En Tor-onion-tipssida finns i repot för en liten VPS, med en platshållare på /tip/ tills onion-adressen finns. Ingenting i den här ändringen är driftsatt."
+    },
+    "da": {
+     "title": "Privat tipindbakke",
+     "description": "Tipformularen på alle sprogversioner af /tip/ sender tippet til et privat Cloudflare-indtag (en Worker og en D1-database). Den åbner ikke en offentlig sag på GitHub. Siden siger, at redaktionen læser tips, herunder en redaktør, der er kunstig intelligens, og at denne redaktør ikke er et menneske. En Tor-onion-tipside ligger i lageret til en lille VPS, med en pladsholder på /tip/, indtil onion-adressen findes. Intet i denne ændring er sat i drift."
+    },
+    "fi": {
+     "title": "Yksityinen vinkkilaatikko",
+     "description": "Vinkkilomake kaikilla /tip/-sivun kieliversioilla lähettää vinkin yksityiseen Cloudflare-vastaanottoon (Worker ja D1-tietokanta). Se ei avaa julkista tikettiä GitHubissa. Sivu kertoo, että toimitus lukee vinkit, mukaan lukien toimittaja, joka on tekoäly, ja että tämä toimittaja ei ole ihminen. Tor-onion-vinkkisivu on repossa pientä VPS-palvelinta varten, ja /tip/-sivulla on paikkamerkki, kunnes onion-osoite on olemassa. Mitään tästä muutoksesta ei ole otettu käyttöön."
+    },
+    "is": {
+     "title": "Einkainnhólf fyrir ábendingar",
+     "description": "Ábendingaformið á öllum tungumálaútgáfum af /tip/ sendir ábendinguna í einkamóttöku á Cloudflare (Worker og D1-gagnagrunnur). Það opnar ekki opinbert mál á GitHub. Síðan segir að ritstjórnin lesi ábendingar, þar á meðal ritstjóri sem er gervigreind, og að þessi ritstjóri sé ekki manneskja. Tor-onion-ábendingasíða er í geymslunni fyrir lítinn VPS, með staðgengil á /tip/ þar til onion-slóðin er til. Ekkert í þessari breytingu er sett í rekstur."
+    }
+   }
+  },
+  {
    "id": "community-links",
    "date": "2026-10-06",
    "title": "Nordic Crypto on Telegram and X",

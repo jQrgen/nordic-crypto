@@ -148,6 +148,14 @@ table.list{width:100%;border-collapse:collapse;font-size:14.5px}table.list th,ta
 table.list th{font-size:13px;color:var(--muted)}
 .ok{color:#047857;font-weight:600}.bad{color:#b91c1c;font-weight:600}
 .prose{max-width:72ch}
+.tip-copy,.tip-copy p,.tipform,.tipform p,.tipform label,.tipform .meta,#tipmsg{text-align:left}
+html[dir=rtl] .tip-copy,html[dir=rtl] .tip-copy p,html[dir=rtl] .tipform,html[dir=rtl] .tipform p,html[dir=rtl] .tipform label,html[dir=rtl] #tipmsg{text-align:left}
+.tipform{margin:12px 0 0;padding:0}
+.tipform input[type=text],.tipform textarea,.tipform button{font:inherit;font-size:16px;display:block;width:100%;max-width:40rem;padding:6px;text-align:left;border:1px solid var(--ink);background:#fff}
+.tipform button{width:auto;margin-top:4px;cursor:pointer}
+.tipform textarea{min-height:8rem}
+.tipform .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.tip-turnstile{margin:8px 0;text-align:left}
 .tag.act{border-color:#047857;color:#047857;font-weight:600}.tag.inact{border-color:#9ca3af;color:#6b7280}
 .reg{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px;margin:10px 0}
 .reg article{border:1px solid var(--line);padding:10px 12px;background:#fff}.reg h3{display:flex;gap:8px;align-items:center;margin:0 0 6px;font-size:17px}
@@ -1410,7 +1418,6 @@ cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('ari
     page("academia", t("ac_title"), "academia", body, t("ac_desc"), js)
     if LANG == "en": print(f"academia: {allrows} editor-approved rows shown {per_c}")
 
-TIP_FORM = "https://github.com/jQrgen/nordic-crypto/issues/new?template=tip.yml"
 COL_FORM = "https://github.com/jQrgen/nordic-crypto/issues/new?template=columnist.yml"
 def tip_endpoint():
     """Fixed public tip endpoint (e.g. https://tips.<domain>): env TIP_ENDPOINT or tipserver/config.json -> public_endpoint.
@@ -1433,80 +1440,94 @@ def write_tip_endpoint_file():
     json.dump({"endpoint": ep or None, "kind": kind, "updated": upd}, open(os.path.join(SITE, "tip-endpoint.json"), "w"), indent=1)
     open(os.path.join(SITE, "tip-endpoint.json"), "a").write("\n")
 
-TIP_ERRORS = {"Please enter the article URL.": "tip_js_e_url", "The URL must be a full http:// or https:// link.": "tip_js_e_badurl",
-              "Too many tips from you in a short time. Please try again later.": "tip_js_e_rate", "The tip is too long (max 4 KB).": "tip_js_e_long"}
-def build_tip_server(ep):
-    """'Send a tip' page that posts to our own tip intake: the Cloudflare Worker in tipworker/ (public_endpoint, set by
-    tipworker/deploy.sh) or the box server tipserver/server.py. Inline JS only, no third-party scripts.
-    Endpoint: the fixed `ep` if set, else read at runtime from <root>/tip-endpoint.json (no cache). If the server can't be
-    reached, the page says so and offers the public GitHub issue form as a fallback."""
-    opts = f'<option value="unsure">{E(t("tip_unsure"))}</option>' + "".join(f'<option value="{c}">{E(n)}</option>' for c, n in COUNTRIES.items())
-    body = f"""<h1>{E(t("tip_title"))}</h1>
-<p class="lead">{E(t("tip_lead"))}</p>
-<div class="prose">
-<p>{t("tip_srv_p")}</p>
-<p class="notice">{t("tip_srv_priv")}</p>
-</div>
-<div id="tipmsg" role="status" aria-live="polite"></div>
-<noscript><p class="notice warn">{t("tip_noscript", gh=TIP_FORM)}</p></noscript>
-<form id="tipform" class="tipform"><fieldset id="tipfs" disabled style="border:0;padding:0;margin:0">
-<p><label for="t-url"><b>{E(t("tip_url"))}</b> {E(t("tip_required"))}</label><br><input id="t-url" name="url" type="url" required maxlength="2000" placeholder="https://" style="width:100%;max-width:560px;padding:6px"></p>
-<p><label for="t-country"><b>{E(t("tip_country"))}</b></label><br><select id="t-country" name="country" style="padding:6px">{opts}</select></p>
-<p><label for="t-note"><b>{E(t("tip_note"))}</b> {E(t("tip_note_opt"))}</label><br><textarea id="t-note" name="note" rows="3" maxlength="1000" style="width:100%;max-width:560px;padding:6px"></textarea></p>
-<p><label for="t-name"><b>{E(t("tip_name"))}</b> {E(t("tip_name_opt"))}</label><br><input id="t-name" name="name" maxlength="100" autocomplete="off" style="width:100%;max-width:320px;padding:6px"></p>
-<p style="position:absolute;left:-9999px" aria-hidden="true"><label for="t-website">{E(t("tip_honeypot"))}</label><input id="t-website" name="website" tabindex="-1" autocomplete="off"></p>
-<p><button type="submit" style="padding:8px 14px;font-size:15px">{E(t("tip_send"))}</button></p>
-</fieldset></form>"""
-    msgs = {"off": t("tip_js_off", gh=TIP_FORM), "thanks": t("tip_js_thanks"), "fail": t("tip_js_fail"), "err": {k: t(v) for k, v in TIP_ERRORS.items()}}
-    js = """<script>(function(){var FIXED=%s,EPF=%s,M=%s,f=document.getElementById('tipform'),fs=document.getElementById('tipfs'),m=document.getElementById('tipmsg'),b=f.querySelector('button');
-function say(t,cls,html){m.className='notice'+(cls?' '+cls:'');if(html)m.innerHTML=t;else m.textContent=t}
-function off(){say(M.off,'warn',true)}
-function tmo(p,ms){var ac=new AbortController(),t=setTimeout(function(){ac.abort()},ms);return {s:ac.signal,done:function(){clearTimeout(t)}}}
-function ep(){if(FIXED)return Promise.resolve(FIXED);return fetch(EPF+'?t='+Date.now(),{cache:'no-store',credentials:'omit'}).then(function(r){return r.ok?r.json():{}}).then(function(j){return (j&&typeof j.endpoint==='string'&&/^https:\\/\\/[^\\s\\/]+$/.test(j.endpoint))?j.endpoint:null}).catch(function(){return null})}
-fs.disabled=false;
-ep().then(function(e){if(!e)return off();var t=tmo(0,8000);fetch(e+'/api/health',{cache:'no-store',credentials:'omit',signal:t.s}).then(function(r){t.done();if(!r.ok)off()}).catch(function(){t.done();off()})});
-f.addEventListener('submit',function(ev){ev.preventDefault();if(!f.reportValidity())return;b.disabled=true;
- var d={url:f.url.value,country:f.country.value,note:f.note.value,name:f.name.value,website:f.website.value};
- ep().then(function(e){if(!e)throw 0;var t=tmo(0,12000);
-  return fetch(e+'/api/tip',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(d),signal:t.s,credentials:'omit',referrerPolicy:'no-referrer'})
-  .then(function(r){t.done();return r.json().catch(function(){return {}}).then(function(j){return {s:r.status,j:j}})})})
- .then(function(x){b.disabled=false;
-  if(x.s>=200&&x.s<300&&x.j.ok){f.reset();say(M.thanks)}
-  else if(x.s>=500)off(); else {var er=x.j&&x.j.error;say((er&&M.err[er])||er||M.fail,'warn')}})
- .catch(function(){b.disabled=false;off()})})})();</script>""" % (json.dumps(ep), json.dumps(up1() + "tip-endpoint.json"), json.dumps(msgs, ensure_ascii=False))
-    page("tip", t("tip_title"), "tip", body, t("tip_desc"), js)
+def tip_intake_config():
+    """Public tip intake settings (workers/tips/public.json). No secrets.
+    TIP_INTAKE_ENDPOINT, TIP_TURNSTILE_SITEKEY and TIP_ONION override the file when set (including empty)."""
+    cfg = load(P("workers", "tips", "public.json"), {}) or {}
+    def pick(env, key):
+        if env in os.environ: return os.environ.get(env) or ""
+        return cfg.get(key) or ""
+    ep = pick("TIP_INTAKE_ENDPOINT", "endpoint").strip().rstrip("/")
+    key = pick("TIP_TURNSTILE_SITEKEY", "turnstile_sitekey").strip()
+    onion = pick("TIP_ONION", "onion").strip()
+    if not re.fullmatch(r"https://[A-Za-z0-9.-]+(?::\d{2,5})?", ep) and not re.fullmatch(r"http://(?:127\.0\.0\.1|localhost)(?::\d{2,5})?", ep):
+        ep = ""
+    if not re.fullmatch(r"[0-9A-Za-z_-]{8,80}", key):
+        key = ""
+    if not re.fullmatch(r"http://[a-z2-7]{56}\.onion/?", onion):
+        onion = ""
+    else:
+        onion = onion.rstrip("/")
+    return ep, key, onion
 
 def build_tip():
-    """'Send a tip' page. Static: a plain HTML form (GET, no JavaScript, no tracking) that opens the prefilled GitHub issue form
-    (.github/ISSUE_TEMPLATE/tip.yml, label 'tip'). There is no public e-mail address, so GitHub is the only channel.
-    routines/nightly-fetch.sh -> tools/reader_tips.py puts open tips in the editor queue as pending; nothing is auto-published.
-
-    TODO (jQrgen): disable this public GitHub issue form and the GitHub fallback in build_tip_server. Tips should go
-    only to the private Cloudflare intake (tipworker/). Do not switch the page until that intake is the live path."""
-    if LANG == "en": write_tip_endpoint_file()
-    if tip_endpoint() or tip_page_uses_server(): return build_tip_server(tip_endpoint())  # GitHub issue form only as fallback link
-    # the option values stay English: they fill in the GitHub issue form (tip.yml), which tools/reader_tips.py parses
-    opts = f'<option value="Not sure">{E(t("tip_unsure"))}</option>' + "".join(f'<option value="{E(t_en)} ({c})">{E(t("c_" + c))}</option>' for c, t_en in ((c, i18n.t("en", "c_" + c)) for c in COUNTRY_CODES))
+    """Send a tip. Posts only to the private Cloudflare intake (workers/tips/). Never a public GitHub issue.
+    The page is left-aligned. A Tor onion address is mentioned, and Onion-Location is set once public.json has one.
+    Turnstile (a script from Cloudflare) is required on this page; the onion page does not use it."""
+    ep, key, onion = tip_intake_config()
+    page_path = "/" + lp() + "tip/"
+    onion_href = (onion + "/" + LANG + "/") if onion else ""
+    head = f'<meta http-equiv="onion-location" content="{E(onion_href)}">' if onion_href else ""
+    ready = bool(ep and key)
+    widget = ""
+    if key:
+        widget = ('<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>'
+                  f'<div class="tip-turnstile"><div class="cf-turnstile" data-sitekey="{E(key)}" data-response-field-name="cf-turnstile-response"></div></div>')
+    if onion_href:
+        onion_block = (f'<p class="notice"><b>{E(t("tip_onion_h"))}.</b> {E(t("tip_onion_ready"))} '
+                       f'<a href="{E(onion_href)}">{E(t("tip_onion_link"))}</a> '
+                       f'(<span class="meta">{E(onion_href)}</span>).</p>')
+    else:
+        onion_block = f'<p class="notice"><b>{E(t("tip_onion_h"))}.</b> {E(t("tip_onion_pending"))}</p>'
+    not_ready = "" if ready else f'<p class="notice warn">{E(t("tip_not_ready"))}</p>'
+    action = f' action="{E(ep + "/api/tip")}"' if ep else ""
+    disabled = "" if ready else " disabled"
     body = f"""<h1>{E(t("tip_title"))}</h1>
 <p class="lead">{E(t("tip_lead"))}</p>
-<div class="prose">
-<p>{t("tip_gh_p")}</p>
-<p class="notice warn">{t("tip_gh_priv")}</p>
+<div class="prose tip-copy">
+<p>{E(t("tip_intro"))} <a href="../about/">{E(t("about_title"))}</a>. <a href="../ethics/">{E(t("ethics_title"))}</a>.</p>
+<p class="notice"><b>{E(t("tip_privacy_h"))}.</b> {E(t("tip_privacy"))}</p>
+{onion_block}
+{not_ready}
 </div>
-<form class="tipform" method="get" action="https://github.com/jQrgen/nordic-crypto/issues/new">
-<input type="hidden" name="template" value="tip.yml">
-<p><label for="t-url"><b>{E(t("tip_url"))}</b> {E(t("tip_required"))}</label><br><input id="t-url" name="url" type="url" required placeholder="https://" style="width:100%;max-width:560px;padding:6px"></p>
-<p><label for="t-country"><b>{E(t("tip_country"))}</b></label><br><select id="t-country" name="country" style="padding:6px">{opts}</select></p>
-<p><label for="t-note"><b>{E(t("tip_note"))}</b> {E(t("tip_note_opt_gh"))}</label><br><textarea id="t-note" name="note" rows="3" style="width:100%;max-width:560px;padding:6px"></textarea></p>
-<p><button type="submit" style="padding:8px 14px;font-size:15px">{E(t("tip_gh_btn"))}</button></p>
-<p class="meta">{E(t("tip_gh_meta"))}</p>
-</form>
-<p class="prose">{t("tip_gh_direct", gh=TIP_FORM)}</p>"""
-    page("tip", t("tip_title"), "tip", body, t("tip_desc"))
+<div id="tipmsg" class="tip-copy" role="status" aria-live="polite"></div>
+<noscript><p class="notice warn">{E(t("tip_noscript"))}</p></noscript>
+<form id="tipform" class="tipform" method="post"{action} accept-charset="utf-8" referrerpolicy="no-referrer">
+<input type="hidden" name="language" value="{E(LANG)}">
+<input type="hidden" name="page" value="{E(page_path)}">
+<p class="hp"><label for="t-website">{E(t("tip_honeypot"))}</label><input id="t-website" name="website" tabindex="-1" autocomplete="off"></p>
+<p><label for="t-tip"><b>{E(t("tip_label"))}</b> {E(t("tip_required"))}</label><br>
+<textarea id="t-tip" name="tip" required maxlength="8000" rows="8"></textarea><br><span class="meta">{E(t("tip_hint"))}</span></p>
+<p><label for="t-links"><b>{E(t("tip_links"))}</b></label><br>
+<textarea id="t-links" name="attachments" maxlength="4000" rows="3"></textarea><br><span class="meta">{E(t("tip_links_opt"))}</span></p>
+<p><label for="t-contact"><b>{E(t("tip_contact"))}</b></label><br>
+<input id="t-contact" name="contact" type="text" maxlength="500" autocomplete="off"><br><span class="meta">{E(t("tip_contact_opt"))}</span></p>
+{widget}
+<p><button type="submit"{disabled}>{E(t("tip_send"))}</button></p>
+</form>"""
+    msgs = {"thanks": t("tip_thanks"), "fail": t("tip_fail"), "offline": t("tip_offline"), "rate": t("tip_rate"),
+            "tip_long": t("tip_long"), "too_long": t("tip_long"), "turnstile": t("tip_turnstile"), "empty_tip": t("tip_empty"),
+            "bad_attachment": t("tip_bad_link"), "bad_contact": t("tip_fail"), "bad_page": t("tip_fail"), "bad_language": t("tip_fail"), "bad_body": t("tip_fail")}
+    js = """<script>(function(){var M=%s,f=document.getElementById('tipform'),m=document.getElementById('tipmsg'),b=f.querySelector('button');
+if(!f||!f.getAttribute('action')||b.disabled)return;
+function say(t,cls){m.className='notice'+(cls?' '+cls:'');m.textContent=t}
+f.addEventListener('submit',function(ev){ev.preventDefault();if(!f.reportValidity())return;b.disabled=true;
+ var token='';var el=f.querySelector('[name=cf-turnstile-response]');if(el)token=el.value;
+ var d={tip:f.tip.value,contact:f.contact.value,attachments:f.attachments.value,language:f.language.value,page:f.page.value,website:f.website.value,'cf-turnstile-response':token};
+ var ac=new AbortController(),tm=setTimeout(function(){ac.abort()},15000);
+ fetch(f.action,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(d),signal:ac.signal,credentials:'omit',referrerPolicy:'no-referrer'})
+  .then(function(r){clearTimeout(tm);return r.json().catch(function(){return {}}).then(function(j){return {s:r.status,j:j}})})
+  .then(function(x){b.disabled=false;
+   if(x.s>=200&&x.s<300&&x.j&&x.j.ok){f.reset();if(window.turnstile)try{window.turnstile.reset()}catch(e){}say(M.thanks);return}
+   if(x.s===429)say(M.rate,'warn');
+   else if(x.s>=500)say(M.offline,'warn');
+   else {var er=x.j&&x.j.error;say((er&&M[er])||M.fail,'warn')}})
+  .catch(function(){clearTimeout(tm);b.disabled=false;say(M.offline,'warn')})})})();</script>""" % json.dumps(msgs, ensure_ascii=False)
+    page("tip", t("tip_title"), "tip", body, t("tip_desc"), js, head_extra=head)
 
 def build_columnist():
-    """'Apply as a columnist' page. Same privacy pattern as the static tip page: a plain HTML form (GET, no JavaScript,
-    no tracking) that opens a prefilled public GitHub issue (.github/ISSUE_TEMPLATE/columnist.yml). Nothing is stored
+    """'Apply as a columnist' page. A plain HTML form (GET, no JavaScript, no tracking) that opens a prefilled public
+    GitHub issue (.github/ISSUE_TEMPLATE/columnist.yml). Tips do not use this path. Nothing from this form is stored
     on this site. The editor reviews every pitch; publication is not guaranteed."""
     body = f"""<h1>{E(t("col_title"))}</h1>
 <p class="lead">{E(t("col_lead"))}</p>

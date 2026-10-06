@@ -1,0 +1,6 @@
+{
+  "_how_to": "Public values only. No secrets. endpoint: Worker URL the /tip/ form posts to (custom domain). turnstile_sitekey: public Turnstile site key; leave empty until the widget exists, then rebuild the site. onion: http://<56-char>.onion once the VPS has generated it, or empty. The Onion-Location meta tag is emitted only when onion is set.",
+  "endpoint": "https://tips.cryptonordic.no",
+  "turnstile_sitekey": "",
+  "onion": ""
+}

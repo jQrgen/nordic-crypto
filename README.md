@@ -170,7 +170,9 @@ now supported by `fetch.py`). Keywords `Bitmynt` and `H100` were added. This add
 `tools/crosssite_handoff.py` still runs; its Nordic Crypto -> Kryptonytt direction is now redundant (the import enriches those rows).
 
 ## Reader tips (added 3 Oct 2026; own tip server 3 Oct 2026)
-**Own tip server (primary, not public yet).** `tipserver/server.py` (Python stdlib + SQLite) listens on `127.0.0.1:8787`:
+**Private intake (6 Oct 2026, not deployed).** Every language version of `/tip/` posts only to the Cloudflare Worker in `workers/tips/`. Tips are stored in D1. They are not opened as public GitHub issues. The old issue template `.github/ISSUE_TEMPLATE/tip.yml` is retired. Deploy steps and secret names are in `workers/tips/README.md`. A Tor onion page that forwards into the same inbox is in `onion/` (see `onion/README.md`); `/tip/` names it and shows the address only after `workers/tips/public.json` has one. Nothing in that change is live until it is deployed on purpose.
+
+**Older box server (not the form anymore).** `tipserver/server.py` (Python stdlib + SQLite) listens on `127.0.0.1:8787`:
 `POST /api/tip` (JSON or form: `url` required http/https, `country` NO/SE/DK/FI/IS/unsure, `note` ≤ 1000 chars, optional `name` ≤ 100, honeypot `website` must be empty) and `GET /api/health`.
 Body capped at 4 KB, in-memory per-IP rate limit (5 per 10 min; IPs are hashed in memory only, using `CF-Connecting-IP` behind the tunnel), CORS only for `https://jqrgen.github.io`, other browser origins get 403.
 Tips go to `tipserver/tips.db` (gitignored, mode 600) with a UTC timestamp and status `pending`. **No IP address, user agent or request body is stored or logged**; `tipserver/server.log` has only time, method, path and status.
@@ -183,9 +185,9 @@ Tips go to `tipserver/tips.db` (gitignored, mode 600) with a UTC timestamp and s
   Local screenshot build (never published): `TIP_PAGE_SERVER=1 NC_SITE_DIR=$PWD/site-tip-preview .venv/bin/python build.py` -> `site-tip-preview/tip/index.html`.
   **To go live (only with jQrgen's approval):** set `tip_page_uses_server: true` and `auto_publish_endpoint: true`, then `tipworker/publish_tip_page.sh` (dry run) and `tipworker/publish_tip_page.sh --yes` (pushes only the /tip/ pages + tip-endpoint.json).
 - **Port 7844 is blocked from this box (re-checked 4 Oct 2026, TCP and QUIC, also with `--protocol http2`)** – every Cloudflare tunnel (quick or named) needs it, so the tunnel watchdog sits in `blocked-7844`. Public access needs a network that allows outbound 7844, or another way to expose the server.
-- No systemd/cron on the box: after a box restart nothing runs until `routines/nightly-fetch.sh` calls `tipserver/run.sh ensure` (or someone runs it by hand). While the box is off or the tunnel is down, the /tip/ page (once in server mode) shows the GitHub issue form as fallback.
+- No systemd/cron on the box: after a box restart nothing runs until `routines/nightly-fetch.sh` calls `tipserver/run.sh ensure` (or someone runs it by hand). The /tip/ page no longer falls back to a GitHub issue when this box is down.
 
-**GitHub issues (fallback).** The [Send a tip](https://jqrgen.github.io/nordic-crypto/tip/) page currently opens the issue form `.github/ISSUE_TEMPLATE/tip.yml` (label `tip`; tips are public on GitHub). Issues are never commented on or closed automatically.
+**GitHub issues (retired for new tips).** The public issue form was the live path until 6 Oct 2026. The template now tells people not to send a tip. `tools/reader_tips.py` can still import an old open `tip` issue; new tips are read from the Worker with the bearer token in `workers/tips/README.md`, not from GitHub.
 
 **Nightly import.** `routines/nightly-fetch.sh` runs `tools/reader_tips.py`: pending rows in `tipserver/tips.db` -> `data/news.json` + `queue/review.json` as `pending` with origin `reader tip #<id>`, and the row is marked `imported` / `duplicate` / `invalid` (with `imported_at`, `queue_item_id`). Open `tip` issues are imported the same way with origin `reader tip (GitHub #N)`. Dedup: normalised-URL check from `tools/crosssite_handoff.py` against all stories (incl. rejected) and `approved.json`. Page metadata only where robots.txt allows. **The tipster's name is never read or copied**; the note stays in the local queue only (`tip_note_local_only`). Nothing is auto-published. Editor: treat tips like any other story. Dry run: `--dry-run`.
 
