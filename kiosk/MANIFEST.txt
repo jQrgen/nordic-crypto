@@ -1,0 +1,12 @@
+MANIFEST.txt
+README.md
+VERSION
+config.example.env
+scripts/bootstrap.sh
+scripts/install.sh
+scripts/start-kiosk.sh
+scripts/update.sh
+scripts/write-config-js.sh
+web/app.js
+web/index.html
+web/style.css

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Nordic Crypto — news screen</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="brand">Nordic <span>Crypto</span></div>
+    <div class="meta">
+      <div id="clock">--:--:--</div>
+      <div id="updated">Loading feed…</div>
+    </div>
+  </header>
+  <main id="panel">
+    <div class="badges">
+      <span class="badge country" id="country">—</span>
+      <span class="badge" id="source">—</span>
+      <span class="badge" id="topics">—</span>
+    </div>
+    <h1 id="title">Connecting…</h1>
+    <p class="summary" id="summary">Fetching Nordic Crypto news.</p>
+  </main>
+  <div class="foot">
+    <div id="status" class="status">Starting</div>
+    <div class="dots" id="dots" aria-hidden="true"></div>
+    <div>The Nordic Crypto team · not investment advice</div>
+  </div>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
