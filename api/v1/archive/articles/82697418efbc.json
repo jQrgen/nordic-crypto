@@ -1,11 +1,11 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T06:10:04+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "item": {
   "id": "82697418efbc",
-  "api_url": "https://cryptonordic.no/api/v1/archive/articles/82697418efbc.json",
+  "api_url": "https://nordiccrypto.no/api/v1/archive/articles/82697418efbc.json",
   "site": "nordic-crypto",
   "url": "https://www.kaupr.io/nyheter/kvarn-avviser-at-goobit-avtalen-er-agentforhold-eller-outsourcing",
   "canonical_url": "https://kaupr.io/nyheter/kvarn-avviser-at-goobit-avtalen-er-agentforhold-eller-outsourcing",

@@ -1,11 +1,11 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T06:10:04+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "item": {
   "id": "23342b8b1a2d",
-  "api_url": "https://cryptonordic.no/api/v1/archive/articles/23342b8b1a2d.json",
+  "api_url": "https://nordiccrypto.no/api/v1/archive/articles/23342b8b1a2d.json",
   "site": "nordic-crypto",
   "url": "https://www.kaupr.io/nyheter/dansk-skatteminister-moter-kryptobransjen-pa-christiansborg",
   "canonical_url": "https://kaupr.io/nyheter/dansk-skatteminister-moter-kryptobransjen-pa-christiansborg",

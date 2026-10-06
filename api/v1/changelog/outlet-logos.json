@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T06:10:04+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "item": {
   "id": "outlet-logos",
@@ -34,7 +34,7 @@
     "description": "Fréttalistar, skjárinn og eigin greinasíður sýna merki blaðsins eða heimildarinnar við hliðina á nafninu þegar yfirfarið merki er til. Nafnið stendur eitt þegar ekkert merki er til. Kaupr er aðeins fréttaheimild. Vörpunin frá heimildarauðkenni í mynd er í assets/img/logos/logos.json."
    }
   },
-  "html_url": "https://cryptonordic.no/changelog/#outlet-logos",
-  "api_url": "https://cryptonordic.no/api/v1/changelog/outlet-logos.json"
+  "html_url": "https://nordiccrypto.no/changelog/#outlet-logos",
+  "api_url": "https://nordiccrypto.no/api/v1/changelog/outlet-logos.json"
  }
 }

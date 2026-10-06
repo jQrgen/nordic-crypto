@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T06:10:04+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "item": {
   "id": "past-events",
@@ -34,7 +34,7 @@
     "description": "Viðburðir sem er lokið eru ekki lengur fjarlægðir úr dagatalinu. Þegar viðburði lýkur (Óslóartími) færist hann sjálfkrafa í nýjan hluta, Liðnir viðburðir, neðst í dagatalinu, nýjustu fyrst. Skrifstofuskjárinn sýnir aðeins væntanlega viðburði."
    }
   },
-  "html_url": "https://cryptonordic.no/changelog/#past-events",
-  "api_url": "https://cryptonordic.no/api/v1/changelog/past-events.json"
+  "html_url": "https://nordiccrypto.no/changelog/#past-events",
+  "api_url": "https://nordiccrypto.no/api/v1/changelog/past-events.json"
  }
 }

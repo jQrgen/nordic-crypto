@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T06:10:04+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "topic": "bitcoin",
  "count": 2,
@@ -9,8 +9,8 @@
   {
    "id": "c81be998e21c",
    "url": "https://yle.fi/a/74-20248505",
-   "html_url": "https://cryptonordic.no/stories/c81be998e21c/",
-   "api_url": "https://cryptonordic.no/api/v1/news/c81be998e21c.json",
+   "html_url": "https://nordiccrypto.no/stories/c81be998e21c/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/c81be998e21c.json",
    "title": "Yhteisöllisyys ja teknologia kiehtovat kryptovaluuttoihin sijoittaneita – kryptotapahtumassa iloittiin bitcoinin uudesta nousurallista",
    "title_en": "Community and technology draw crypto investors: bitcoin's new rally celebrated at crypto event",
    "source": "yle",
@@ -104,15 +104,15 @@
   {
    "id": "eb685890cbc3",
    "url": "https://www.kaupr.io/nyheter/h100-styrelederen-vil-ha-flere-oppkjop-i-bitcoinbransjen",
-   "html_url": "https://cryptonordic.no/stories/eb685890cbc3/",
-   "api_url": "https://cryptonordic.no/api/v1/news/eb685890cbc3.json",
+   "html_url": "https://nordiccrypto.no/stories/eb685890cbc3/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/eb685890cbc3.json",
    "title": "H100-styrelederen vil ha flere oppkjøp i bitcoinbransjen",
    "title_en": "H100 chair wants more acquisitions in the bitcoin industry",
    "source": "kaupr",
    "source_name": "Kaupr",
    "source_logo": {
     "kind": "logo",
-    "file_url": "https://cryptonordic.no/assets/img/logos/kaupr.webp",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
     "author": null,
     "license": null,
@@ -154,7 +154,7 @@
     "primary": true,
     "logo": {
      "kind": "logo",
-     "file_url": "https://cryptonordic.no/assets/img/logos/kaupr.webp",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
      "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
      "author": null,
      "license": null,
@@ -179,7 +179,7 @@
      "primary": true,
      "logo": {
       "kind": "logo",
-      "file_url": "https://cryptonordic.no/assets/img/logos/kaupr.webp",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
       "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
       "author": null,
       "license": null,

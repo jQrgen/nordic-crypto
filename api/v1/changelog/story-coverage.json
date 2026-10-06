@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T06:10:04+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "item": {
   "id": "story-coverage",
@@ -34,7 +34,7 @@
     "description": "Frétt getur nú talið hvern miðil sem fjallaði um sama atburð. Forsíðan sýnir stutta röð af merkjum og fjölda heimilda. Fréttasíðan hefur Lesa hjá aðalheimildinni, Einnig fjallað um hjá með tengli á hvern annan miðil, lista með merki, landi, fyrirsögn og tíma, og súlur fyrir dreifingu eftir landi og tegund heimildar (landsmiðlar, héraðs- og staðarmiðlar, réttarkerfi og opinberir aðilar, alþjóðlegir). Opinbera fréttaviðmótið hefur primary_source, also_covered_by, sources og coverage. Grein um sama atburð er fest við fréttina sem er til, í stað þess að vera birt aftur. Ritstjórinn getur sett duplicate_of á línuna í yfirferðarröðinni."
    }
   },
-  "html_url": "https://cryptonordic.no/changelog/#story-coverage",
-  "api_url": "https://cryptonordic.no/api/v1/changelog/story-coverage.json"
+  "html_url": "https://nordiccrypto.no/changelog/#story-coverage",
+  "api_url": "https://nordiccrypto.no/api/v1/changelog/story-coverage.json"
  }
 }

@@ -1,13 +1,13 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T06:10:04+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "item": {
   "id": "c81be998e21c",
   "url": "https://yle.fi/a/74-20248505",
-  "html_url": "https://cryptonordic.no/stories/c81be998e21c/",
-  "api_url": "https://cryptonordic.no/api/v1/news/c81be998e21c.json",
+  "html_url": "https://nordiccrypto.no/stories/c81be998e21c/",
+  "api_url": "https://nordiccrypto.no/api/v1/news/c81be998e21c.json",
   "title": "Yhteisöllisyys ja teknologia kiehtovat kryptovaluuttoihin sijoittaneita – kryptotapahtumassa iloittiin bitcoinin uudesta nousurallista",
   "title_en": "Community and technology draw crypto investors: bitcoin's new rally celebrated at crypto event",
   "source": "yle",

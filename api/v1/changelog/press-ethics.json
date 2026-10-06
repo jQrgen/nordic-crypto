@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T06:10:04+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "item": {
   "id": "press-ethics",
@@ -34,7 +34,7 @@
     "description": "Siðareglur ritstjórnar segja að Nordic Crypto fylgi Vær Varsom-plakaten. Nafngreindur ritstjóri samþykkir allt. Heimilisfangið fyrir kvartanir á síðunni er TBA. Síðan er á /ethics/, með tengli frá Um okkur og í fæti, á öllum tungumálum síðunnar."
    }
   },
-  "html_url": "https://cryptonordic.no/changelog/#press-ethics",
-  "api_url": "https://cryptonordic.no/api/v1/changelog/press-ethics.json"
+  "html_url": "https://nordiccrypto.no/changelog/#press-ethics",
+  "api_url": "https://nordiccrypto.no/api/v1/changelog/press-ethics.json"
  }
 }

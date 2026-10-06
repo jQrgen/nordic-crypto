@@ -1,12 +1,12 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T06:10:04+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "item": {
   "id": "ak-jensen-norway",
-  "api_url": "https://cryptonordic.no/api/v1/orgchart/ak-jensen-norway.json",
-  "html_url": "https://cryptonordic.no/org-chart/#ak-jensen-norway",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/ak-jensen-norway.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#ak-jensen-norway",
   "name": "AK Jensen Norway",
   "type": "organisation",
   "sector": "private",
@@ -34,7 +34,7 @@
   ],
   "logo": {
    "kind": "logo",
-   "file_url": "https://cryptonordic.no/assets/img/logos/ak-jensen-norway.webp",
+   "file_url": "https://nordiccrypto.no/assets/img/logos/ak-jensen-norway.webp",
    "source_url": "https://cdn.prod.website-files.com/655b7aeacc77bd33098fbac6/65df1e133a0bf545950eba18_svgviewer-png-output.png",
    "author": null,
    "license": null,

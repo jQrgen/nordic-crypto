@@ -1,12 +1,12 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T06:10:04+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "item": {
   "id": "paxos-eu",
-  "api_url": "https://cryptonordic.no/api/v1/orgchart/paxos-eu.json",
-  "html_url": "https://cryptonordic.no/org-chart/#paxos-eu",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/paxos-eu.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#paxos-eu",
   "name": "Paxos Issuance Europe",
   "type": "organisation",
   "sector": "private",
@@ -28,7 +28,7 @@
   ],
   "logo": {
    "kind": "logo",
-   "file_url": "https://cryptonordic.no/assets/img/logos/paxos-eu.webp",
+   "file_url": "https://nordiccrypto.no/assets/img/logos/paxos-eu.webp",
    "source_url": "https://framerusercontent.com/images/sEBLMaJQfU8QUDmUdzdI0us1gJ0.png",
    "author": null,
    "license": null,

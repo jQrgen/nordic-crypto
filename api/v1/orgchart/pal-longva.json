@@ -1,12 +1,12 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T06:10:04+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "item": {
   "id": "pal-longva",
-  "api_url": "https://cryptonordic.no/api/v1/orgchart/pal-longva.json",
-  "html_url": "https://cryptonordic.no/org-chart/#pal-longva",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/pal-longva.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#pal-longva",
   "name": "Pål Longva",
   "type": "person",
   "sector": "public",
@@ -29,7 +29,7 @@
   "logo": null,
   "image": {
    "kind": "photo",
-   "file_url": "https://cryptonordic.no/assets/img/people/pal-longva.jpg",
+   "file_url": "https://nordiccrypto.no/assets/img/people/pal-longva.jpg",
    "source_url": "https://commons.wikimedia.org/wiki/File:P%C3%A5l_Longva_p%C3%A5_Sentralbanksjefens_%C3%A5rstale_2018_(190841).jpg",
    "author": "Tore Sætre",
    "license": "CC BY-SA 4.0",

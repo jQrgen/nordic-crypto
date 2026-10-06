@@ -1,13 +1,13 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T06:10:04+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "item": {
   "id": "188b5b8ed9fb",
   "url": "https://www.berlingske.dk/oekonomi/100-aar-gammel-lov-koster-danske-kryptoinvestorer-millioner-nu-vil-minister-problemet-til-livs",
-  "html_url": "https://cryptonordic.no/stories/188b5b8ed9fb/",
-  "api_url": "https://cryptonordic.no/api/v1/news/188b5b8ed9fb.json",
+  "html_url": "https://nordiccrypto.no/stories/188b5b8ed9fb/",
+  "api_url": "https://nordiccrypto.no/api/v1/news/188b5b8ed9fb.json",
   "title": "100 år gammel lov koster danske kryptoinvestorer millioner. Nu vil minister problemet til livs",
   "title_en": "100-year-old law costs Danish crypto investors millions; minister wants to fix it",
   "source": "berlingske.dk",

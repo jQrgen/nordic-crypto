@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T06:10:04+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "item": {
   "id": "public-data-api",
@@ -34,7 +34,7 @@
     "description": "Fréttir, fréttabréf, dagatal, heimildir, akademía, hver er hvað, prófílar og reglukort birtast sem JSON undir /api/v1/. Enginn reikningur. Leiðbeiningarnar eru á /api/, með OpenAPI og llms.txt fyrir önnur verkfæri."
    }
   },
-  "html_url": "https://cryptonordic.no/changelog/#public-data-api",
-  "api_url": "https://cryptonordic.no/api/v1/changelog/public-data-api.json"
+  "html_url": "https://nordiccrypto.no/changelog/#public-data-api",
+  "api_url": "https://nordiccrypto.no/api/v1/changelog/public-data-api.json"
  }
 }

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T06:10:04+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "count": 20,
  "profiles": [
@@ -10,7 +10,7 @@
    "name": "Tuva Moflag",
    "type": "person",
    "country": "NO",
-   "api_url": "https://cryptonordic.no/api/v1/profiles/tuva-moflag.json",
+   "api_url": "https://nordiccrypto.no/api/v1/profiles/tuva-moflag.json",
    "links": [
     {
      "kind": "wikipedia",
@@ -37,7 +37,7 @@
    "name": "Hans Andreas Limi",
    "type": "person",
    "country": "NO",
-   "api_url": "https://cryptonordic.no/api/v1/profiles/hans-andreas-limi.json",
+   "api_url": "https://nordiccrypto.no/api/v1/profiles/hans-andreas-limi.json",
    "links": [
     {
      "kind": "wikipedia",
@@ -58,7 +58,7 @@
    "name": "Bjørn Arild Gram",
    "type": "person",
    "country": "NO",
-   "api_url": "https://cryptonordic.no/api/v1/profiles/bjorn-arild-gram.json",
+   "api_url": "https://nordiccrypto.no/api/v1/profiles/bjorn-arild-gram.json",
    "links": [
     {
      "kind": "wikipedia",
@@ -79,7 +79,7 @@
    "name": "Jens Stoltenberg",
    "type": "person",
    "country": "NO",
-   "api_url": "https://cryptonordic.no/api/v1/profiles/jens-stoltenberg.json",
+   "api_url": "https://nordiccrypto.no/api/v1/profiles/jens-stoltenberg.json",
    "links": [
     {
      "kind": "wikipedia",
@@ -106,7 +106,7 @@
    "name": "Lars-Henrik Myrmel-Johansen",
    "type": "person",
    "country": "NO",
-   "api_url": "https://cryptonordic.no/api/v1/profiles/lars-henrik-myrmel-johansen.json",
+   "api_url": "https://nordiccrypto.no/api/v1/profiles/lars-henrik-myrmel-johansen.json",
    "links": [
     {
      "kind": "wikipedia",
@@ -127,7 +127,7 @@
    "name": "Finn Arnesen",
    "type": "person",
    "country": "NO",
-   "api_url": "https://cryptonordic.no/api/v1/profiles/finn-arnesen.json",
+   "api_url": "https://nordiccrypto.no/api/v1/profiles/finn-arnesen.json",
    "links": [
     {
      "kind": "wikipedia",
@@ -148,7 +148,7 @@
    "name": "Ida Wolden Bache",
    "type": "person",
    "country": "NO",
-   "api_url": "https://cryptonordic.no/api/v1/profiles/ida-wolden-bache.json",
+   "api_url": "https://nordiccrypto.no/api/v1/profiles/ida-wolden-bache.json",
    "links": [
     {
      "kind": "wikipedia",
@@ -175,7 +175,7 @@
    "name": "Øystein Børsum",
    "type": "person",
    "country": "NO",
-   "api_url": "https://cryptonordic.no/api/v1/profiles/oystein-borsum.json",
+   "api_url": "https://nordiccrypto.no/api/v1/profiles/oystein-borsum.json",
    "links": [
     {
      "kind": "wikipedia",
@@ -202,7 +202,7 @@
    "name": "Nina Schanke Funnemark",
    "type": "person",
    "country": "NO",
-   "api_url": "https://cryptonordic.no/api/v1/profiles/nina-schanke-funnemark.json",
+   "api_url": "https://nordiccrypto.no/api/v1/profiles/nina-schanke-funnemark.json",
    "links": [
     {
      "kind": "wikipedia",
@@ -223,7 +223,7 @@
    "name": "Torgeir Micaelsen",
    "type": "person",
    "country": "NO",
-   "api_url": "https://cryptonordic.no/api/v1/profiles/torgeir-micaelsen.json",
+   "api_url": "https://nordiccrypto.no/api/v1/profiles/torgeir-micaelsen.json",
    "links": [
     {
      "kind": "wikipedia",
@@ -244,7 +244,7 @@
    "name": "Terje Aasland",
    "type": "person",
    "country": "NO",
-   "api_url": "https://cryptonordic.no/api/v1/profiles/terje-aasland.json",
+   "api_url": "https://nordiccrypto.no/api/v1/profiles/terje-aasland.json",
    "links": [
     {
      "kind": "wikipedia",
@@ -271,7 +271,7 @@
    "name": "Kjetil Lund",
    "type": "person",
    "country": "NO",
-   "api_url": "https://cryptonordic.no/api/v1/profiles/kjetil-lund.json",
+   "api_url": "https://nordiccrypto.no/api/v1/profiles/kjetil-lund.json",
    "links": [
     {
      "kind": "wikipedia",
@@ -298,7 +298,7 @@
    "name": "Elisabeth Vike Vardheim",
    "type": "person",
    "country": "NO",
-   "api_url": "https://cryptonordic.no/api/v1/profiles/elisabeth-vike-vardheim.json",
+   "api_url": "https://nordiccrypto.no/api/v1/profiles/elisabeth-vike-vardheim.json",
    "links": [
     {
      "kind": "wikidata",
@@ -313,7 +313,7 @@
    "name": "Kjell Inge Røkke",
    "type": "person",
    "country": "NO",
-   "api_url": "https://cryptonordic.no/api/v1/profiles/kjell-inge-rokke.json",
+   "api_url": "https://nordiccrypto.no/api/v1/profiles/kjell-inge-rokke.json",
    "links": [
     {
      "kind": "wikipedia",
@@ -334,7 +334,7 @@
    "name": "Johan Almenberg",
    "type": "person",
    "country": "SE",
-   "api_url": "https://cryptonordic.no/api/v1/profiles/johan-almenberg.json",
+   "api_url": "https://nordiccrypto.no/api/v1/profiles/johan-almenberg.json",
    "links": [
     {
      "kind": "wikipedia",
@@ -355,7 +355,7 @@
    "name": "Erik Thedéen",
    "type": "person",
    "country": "SE",
-   "api_url": "https://cryptonordic.no/api/v1/profiles/erik-thedeen.json",
+   "api_url": "https://nordiccrypto.no/api/v1/profiles/erik-thedeen.json",
    "links": [
     {
      "kind": "wikipedia",
@@ -376,7 +376,7 @@
    "name": "Tero Kurenmaa",
    "type": "person",
    "country": "FI",
-   "api_url": "https://cryptonordic.no/api/v1/profiles/tero-kurenmaa.json",
+   "api_url": "https://nordiccrypto.no/api/v1/profiles/tero-kurenmaa.json",
    "links": [
     {
      "kind": "wikipedia",
@@ -397,7 +397,7 @@
    "name": "Olli Rehn",
    "type": "person",
    "country": "FI",
-   "api_url": "https://cryptonordic.no/api/v1/profiles/olli-rehn.json",
+   "api_url": "https://nordiccrypto.no/api/v1/profiles/olli-rehn.json",
    "links": [
     {
      "kind": "wikipedia",
@@ -424,7 +424,7 @@
    "name": "Aino Bunge",
    "type": "person",
    "country": "SE",
-   "api_url": "https://cryptonordic.no/api/v1/profiles/aino-bunge.json",
+   "api_url": "https://nordiccrypto.no/api/v1/profiles/aino-bunge.json",
    "links": [
     {
      "kind": "wikipedia",
@@ -445,7 +445,7 @@
    "name": "Anna Seim",
    "type": "person",
    "country": "SE",
-   "api_url": "https://cryptonordic.no/api/v1/profiles/anna-seim.json",
+   "api_url": "https://nordiccrypto.no/api/v1/profiles/anna-seim.json",
    "links": [
     {
      "kind": "wikipedia",

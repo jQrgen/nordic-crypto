@@ -1,16 +1,16 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T06:10:04+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "title": "Nordic Crypto data API",
  "sign_off": "The Nordic Crypto team",
- "docs_url": "https://cryptonordic.no/api/",
- "docs_url_custom_domain": "https://cryptonordic.no/api/",
- "openapi_url": "https://cryptonordic.no/api/v1/openapi.json",
- "openapi_yaml_url": "https://cryptonordic.no/api/v1/openapi.yaml",
- "llms_txt_url": "https://cryptonordic.no/llms.txt",
- "api_catalog_url": "https://cryptonordic.no/.well-known/api-catalog",
+ "docs_url": "https://nordiccrypto.no/api/",
+ "docs_url_custom_domain": "https://nordiccrypto.no/api/",
+ "openapi_url": "https://nordiccrypto.no/api/v1/openapi.json",
+ "openapi_yaml_url": "https://nordiccrypto.no/api/v1/openapi.yaml",
+ "llms_txt_url": "https://nordiccrypto.no/llms.txt",
+ "api_catalog_url": "https://nordiccrypto.no/.well-known/api-catalog",
  "stability": "Version 1 field names stay. New fields may be added. Removing or renaming a field means a new version path.",
  "auth": "none",
  "cors": {
@@ -19,8 +19,8 @@
   "how": "GitHub Pages sends Access-Control-Allow-Origin: * on static files, including this JSON. A browser on any origin can fetch() the URLs. GitHub Pages does not honour a _headers file, so this site does not ship one. The same header is present on the custom domain while GitHub Pages serves it."
  },
  "bases": {
-  "github_pages": "https://cryptonordic.no/",
-  "custom_domain": "https://cryptonordic.no/"
+  "github_pages": "https://nordiccrypto.no/",
+  "custom_domain": "https://nordiccrypto.no/"
  },
  "language_note": "Site languages, with native_name, english_name and rtl, are listed in languages and in /api/v1/languages.json. Our own text is written in English first. summary_i18n, title_i18n, subtitle_i18n, note_i18n and about_i18n carry published translations, today nn, nb, sv, da, fi and is. Other site languages fall back to the English field until a translation is published. External headlines stay in the source language (see language and language_code). There is no query string for language: each JSON document already carries every published translation. The language switcher's country default is a guess; see /api/v1/geo-language.json. The nc_lang cookie wins.",
  "editorial": {
@@ -54,7 +54,7 @@
   "org_relations": 15,
   "profiles": 20,
   "images": 64,
-  "changelog": 22,
+  "changelog": 23,
   "archive_articles": 43,
   "markets": 72,
   "markets_aggregated": 53,
@@ -69,8 +69,8 @@
    "id": "index",
    "method": "GET",
    "path": "/api/v1/index.json",
-   "url": "https://cryptonordic.no/api/v1/index.json",
-   "url_custom_domain": "https://cryptonordic.no/api/v1/index.json",
+   "url": "https://nordiccrypto.no/api/v1/index.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/index.json",
    "summary": "Discovery document: every endpoint, with example URLs.",
    "schema": "Discovery"
   },
@@ -78,71 +78,71 @@
    "id": "api-v1-news",
    "method": "GET",
    "path": "/api/v1/news.json",
-   "url": "https://cryptonordic.no/api/v1/news.json",
-   "url_custom_domain": "https://cryptonordic.no/api/v1/news.json",
+   "url": "https://nordiccrypto.no/api/v1/news.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/news.json",
    "summary": "Published news and our own stories, newest first.",
    "schema": "NewsList",
-   "example_url": "https://cryptonordic.no/api/v1/news/fb9e8ca4fb40.json",
-   "example_url_custom_domain": "https://cryptonordic.no/api/v1/news/fb9e8ca4fb40.json",
+   "example_url": "https://nordiccrypto.no/api/v1/news/fb9e8ca4fb40.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/news/fb9e8ca4fb40.json",
    "item_path": "/api/v1/news/{id}.json",
-   "item_url_template": "https://cryptonordic.no/api/v1/news/{id}.json"
+   "item_url_template": "https://nordiccrypto.no/api/v1/news/{id}.json"
   },
   {
    "id": "news-by-country",
    "method": "GET",
    "path": "/api/v1/news/by-country/{country}.json",
-   "url": "https://cryptonordic.no/api/v1/news/by-country/{country}.json",
-   "url_custom_domain": "https://cryptonordic.no/api/v1/news/by-country/{country}.json",
+   "url": "https://nordiccrypto.no/api/v1/news/by-country/{country}.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/news/by-country/{country}.json",
    "summary": "Published news for one country code: NO, SE, DK, FI, IS, NORDIC or EU.",
    "schema": "NewsList",
-   "example_url": "https://cryptonordic.no/api/v1/news/by-country/NO.json",
-   "example_url_custom_domain": "https://cryptonordic.no/api/v1/news/by-country/NO.json"
+   "example_url": "https://nordiccrypto.no/api/v1/news/by-country/NO.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/news/by-country/NO.json"
   },
   {
    "id": "api-v1-news-topics",
    "method": "GET",
    "path": "/api/v1/news/topics.json",
-   "url": "https://cryptonordic.no/api/v1/news/topics.json",
-   "url_custom_domain": "https://cryptonordic.no/api/v1/news/topics.json",
+   "url": "https://nordiccrypto.no/api/v1/news/topics.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/news/topics.json",
    "summary": "Topic ids present in the published news, with counts.",
    "schema": "TopicIndex",
-   "example_url": "https://cryptonordic.no/api/v1/news/by-topic/bitcoin.json",
-   "example_url_custom_domain": "https://cryptonordic.no/api/v1/news/by-topic/bitcoin.json",
+   "example_url": "https://nordiccrypto.no/api/v1/news/by-topic/bitcoin.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/news/by-topic/bitcoin.json",
    "item_path": "/api/v1/news/by-topic/{topic}.json",
-   "item_url_template": "https://cryptonordic.no/api/v1/news/by-topic/{topic}.json"
+   "item_url_template": "https://nordiccrypto.no/api/v1/news/by-topic/{topic}.json"
   },
   {
    "id": "api-v1-newsletters",
    "method": "GET",
    "path": "/api/v1/newsletters.json",
-   "url": "https://cryptonordic.no/api/v1/newsletters.json",
-   "url_custom_domain": "https://cryptonordic.no/api/v1/newsletters.json",
+   "url": "https://nordiccrypto.no/api/v1/newsletters.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/newsletters.json",
    "summary": "Published newsletter issues, newest first. The list omits the HTML body; the issue URL includes text and html.",
    "schema": "NewsletterList",
-   "example_url": "https://cryptonordic.no/api/v1/newsletters/001.json",
-   "example_url_custom_domain": "https://cryptonordic.no/api/v1/newsletters/001.json",
+   "example_url": "https://nordiccrypto.no/api/v1/newsletters/001.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/newsletters/001.json",
    "item_path": "/api/v1/newsletters/{id}.json",
-   "item_url_template": "https://cryptonordic.no/api/v1/newsletters/{id}.json"
+   "item_url_template": "https://nordiccrypto.no/api/v1/newsletters/{id}.json"
   },
   {
    "id": "api-v1-events",
    "method": "GET",
    "path": "/api/v1/events.json",
-   "url": "https://cryptonordic.no/api/v1/events.json",
-   "url_custom_domain": "https://cryptonordic.no/api/v1/events.json",
+   "url": "https://nordiccrypto.no/api/v1/events.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/events.json",
    "summary": "Public events, soonest start first, including past events.",
    "schema": "EventList",
-   "example_url": "https://cryptonordic.no/api/v1/events/71149f675741.json",
-   "example_url_custom_domain": "https://cryptonordic.no/api/v1/events/71149f675741.json",
+   "example_url": "https://nordiccrypto.no/api/v1/events/71149f675741.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/events/71149f675741.json",
    "item_path": "/api/v1/events/{id}.json",
-   "item_url_template": "https://cryptonordic.no/api/v1/events/{id}.json"
+   "item_url_template": "https://nordiccrypto.no/api/v1/events/{id}.json"
   },
   {
    "id": "api-v1-events-upcoming",
    "method": "GET",
    "path": "/api/v1/events/upcoming.json",
-   "url": "https://cryptonordic.no/api/v1/events/upcoming.json",
-   "url_custom_domain": "https://cryptonordic.no/api/v1/events/upcoming.json",
+   "url": "https://nordiccrypto.no/api/v1/events/upcoming.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/events/upcoming.json",
    "summary": "Events that have not ended, soonest first. Judged in the event's own offset.",
    "schema": "EventList"
   },
@@ -150,8 +150,8 @@
    "id": "api-v1-events-past",
    "method": "GET",
    "path": "/api/v1/events/past.json",
-   "url": "https://cryptonordic.no/api/v1/events/past.json",
-   "url_custom_domain": "https://cryptonordic.no/api/v1/events/past.json",
+   "url": "https://nordiccrypto.no/api/v1/events/past.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/events/past.json",
    "summary": "Finished public events, newest first. Finished events stay in the archive.",
    "schema": "EventList"
   },
@@ -159,19 +159,19 @@
    "id": "events-by-country",
    "method": "GET",
    "path": "/api/v1/events/by-country/{country}.json",
-   "url": "https://cryptonordic.no/api/v1/events/by-country/{country}.json",
-   "url_custom_domain": "https://cryptonordic.no/api/v1/events/by-country/{country}.json",
+   "url": "https://nordiccrypto.no/api/v1/events/by-country/{country}.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/events/by-country/{country}.json",
    "summary": "Public events for one country code.",
    "schema": "EventList",
-   "example_url": "https://cryptonordic.no/api/v1/events/by-country/NO.json",
-   "example_url_custom_domain": "https://cryptonordic.no/api/v1/events/by-country/NO.json"
+   "example_url": "https://nordiccrypto.no/api/v1/events/by-country/NO.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/events/by-country/NO.json"
   },
   {
    "id": "api-v1-sources",
    "method": "GET",
    "path": "/api/v1/sources.json",
-   "url": "https://cryptonordic.no/api/v1/sources.json",
-   "url_custom_domain": "https://cryptonordic.no/api/v1/sources.json",
+   "url": "https://nordiccrypto.no/api/v1/sources.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/sources.json",
    "summary": "News outlets, the public search terms, and event sources. Kaupr is marked as a news source only. logo is the outlet image for that source id when one is on file.",
    "schema": "SourceCatalogue"
   },
@@ -179,8 +179,8 @@
    "id": "api-v1-academia",
    "method": "GET",
    "path": "/api/v1/academia.json",
-   "url": "https://cryptonordic.no/api/v1/academia.json",
-   "url_custom_domain": "https://cryptonordic.no/api/v1/academia.json",
+   "url": "https://nordiccrypto.no/api/v1/academia.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/academia.json",
    "summary": "Editor-approved courses, student groups, publications and research.",
    "schema": "Academia"
   },
@@ -188,8 +188,8 @@
    "id": "api-v1-academia-courses",
    "method": "GET",
    "path": "/api/v1/academia/courses.json",
-   "url": "https://cryptonordic.no/api/v1/academia/courses.json",
-   "url_custom_domain": "https://cryptonordic.no/api/v1/academia/courses.json",
+   "url": "https://nordiccrypto.no/api/v1/academia/courses.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/academia/courses.json",
    "summary": "Academia section: courses.",
    "schema": "AcademiaSection"
   },
@@ -197,8 +197,8 @@
    "id": "api-v1-academia-groups",
    "method": "GET",
    "path": "/api/v1/academia/groups.json",
-   "url": "https://cryptonordic.no/api/v1/academia/groups.json",
-   "url_custom_domain": "https://cryptonordic.no/api/v1/academia/groups.json",
+   "url": "https://nordiccrypto.no/api/v1/academia/groups.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/academia/groups.json",
    "summary": "Academia section: groups.",
    "schema": "AcademiaSection"
   },
@@ -206,8 +206,8 @@
    "id": "api-v1-academia-publications",
    "method": "GET",
    "path": "/api/v1/academia/publications.json",
-   "url": "https://cryptonordic.no/api/v1/academia/publications.json",
-   "url_custom_domain": "https://cryptonordic.no/api/v1/academia/publications.json",
+   "url": "https://nordiccrypto.no/api/v1/academia/publications.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/academia/publications.json",
    "summary": "Academia section: publications.",
    "schema": "AcademiaSection"
   },
@@ -215,8 +215,8 @@
    "id": "api-v1-academia-research",
    "method": "GET",
    "path": "/api/v1/academia/research.json",
-   "url": "https://cryptonordic.no/api/v1/academia/research.json",
-   "url_custom_domain": "https://cryptonordic.no/api/v1/academia/research.json",
+   "url": "https://nordiccrypto.no/api/v1/academia/research.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/academia/research.json",
    "summary": "Academia section: research.",
    "schema": "AcademiaSection"
   },
@@ -224,32 +224,32 @@
    "id": "academia-item",
    "method": "GET",
    "path": "/api/v1/academia/{id}.json",
-   "url": "https://cryptonordic.no/api/v1/academia/{id}.json",
-   "url_custom_domain": "https://cryptonordic.no/api/v1/academia/{id}.json",
+   "url": "https://nordiccrypto.no/api/v1/academia/{id}.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/academia/{id}.json",
    "summary": "One academia row. The id is in academia.json.",
    "schema": "AcademiaItem",
-   "example_url": "https://cryptonordic.no/api/v1/academia/FI-COMM.NET.500.json",
-   "example_url_custom_domain": "https://cryptonordic.no/api/v1/academia/FI-COMM.NET.500.json"
+   "example_url": "https://nordiccrypto.no/api/v1/academia/research-research.chalmers.se-en-project-12829.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/academia/research-research.chalmers.se-en-project-12829.json"
   },
   {
    "id": "api-v1-orgchart",
    "method": "GET",
    "path": "/api/v1/orgchart.json",
-   "url": "https://cryptonordic.no/api/v1/orgchart.json",
-   "url_custom_domain": "https://cryptonordic.no/api/v1/orgchart.json",
+   "url": "https://nordiccrypto.no/api/v1/orgchart.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/orgchart.json",
    "summary": "Published who's who: organisations, people, relations, regulation notes and caveats.",
    "schema": "OrgChart",
-   "example_url": "https://cryptonordic.no/api/v1/orgchart/stortinget-finanskomiteen.json",
-   "example_url_custom_domain": "https://cryptonordic.no/api/v1/orgchart/stortinget-finanskomiteen.json",
+   "example_url": "https://nordiccrypto.no/api/v1/orgchart/stortinget-finanskomiteen.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/orgchart/stortinget-finanskomiteen.json",
    "item_path": "/api/v1/orgchart/{id}.json",
-   "item_url_template": "https://cryptonordic.no/api/v1/orgchart/{id}.json"
+   "item_url_template": "https://nordiccrypto.no/api/v1/orgchart/{id}.json"
   },
   {
    "id": "api-v1-orgchart-relations",
    "method": "GET",
    "path": "/api/v1/orgchart/relations.json",
-   "url": "https://cryptonordic.no/api/v1/orgchart/relations.json",
-   "url_custom_domain": "https://cryptonordic.no/api/v1/orgchart/relations.json",
+   "url": "https://nordiccrypto.no/api/v1/orgchart/relations.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/orgchart/relations.json",
    "summary": "Relations between published who's who entries.",
    "schema": "RelationList"
   },
@@ -257,8 +257,8 @@
    "id": "api-v1-orgchart-regulation",
    "method": "GET",
    "path": "/api/v1/orgchart/regulation.json",
-   "url": "https://cryptonordic.no/api/v1/orgchart/regulation.json",
-   "url_custom_domain": "https://cryptonordic.no/api/v1/orgchart/regulation.json",
+   "url": "https://nordiccrypto.no/api/v1/orgchart/regulation.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/orgchart/regulation.json",
    "summary": "Short regulation status for each Nordic country, as on the who's who page.",
    "schema": "RegulationList"
   },
@@ -266,8 +266,8 @@
    "id": "orgchart-relation",
    "method": "GET",
    "path": "/api/v1/orgchart/relations/{id}.json",
-   "url": "https://cryptonordic.no/api/v1/orgchart/relations/{id}.json",
-   "url_custom_domain": "https://cryptonordic.no/api/v1/orgchart/relations/{id}.json",
+   "url": "https://nordiccrypto.no/api/v1/orgchart/relations/{id}.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/orgchart/relations/{id}.json",
    "summary": "One relation from the who's who.",
    "schema": "Relation"
   },
@@ -275,21 +275,21 @@
    "id": "api-v1-profiles",
    "method": "GET",
    "path": "/api/v1/profiles.json",
-   "url": "https://cryptonordic.no/api/v1/profiles.json",
-   "url_custom_domain": "https://cryptonordic.no/api/v1/profiles.json",
+   "url": "https://nordiccrypto.no/api/v1/profiles.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/profiles.json",
    "summary": "Public profile links (Wikipedia, X, Wikidata and similar) for people and organisations.",
    "schema": "ProfileList",
-   "example_url": "https://cryptonordic.no/api/v1/profiles/tuva-moflag.json",
-   "example_url_custom_domain": "https://cryptonordic.no/api/v1/profiles/tuva-moflag.json",
+   "example_url": "https://nordiccrypto.no/api/v1/profiles/tuva-moflag.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/profiles/tuva-moflag.json",
    "item_path": "/api/v1/profiles/{id}.json",
-   "item_url_template": "https://cryptonordic.no/api/v1/profiles/{id}.json"
+   "item_url_template": "https://nordiccrypto.no/api/v1/profiles/{id}.json"
   },
   {
    "id": "api-v1-images",
    "method": "GET",
    "path": "/api/v1/images.json",
-   "url": "https://cryptonordic.no/api/v1/images.json",
-   "url_custom_domain": "https://cryptonordic.no/api/v1/images.json",
+   "url": "https://nordiccrypto.no/api/v1/images.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/images.json",
    "summary": "Logos and photos used on the public who's who, with licence and credit.",
    "schema": "ImageList"
   },
@@ -297,21 +297,21 @@
    "id": "api-v1-changelog",
    "method": "GET",
    "path": "/api/v1/changelog.json",
-   "url": "https://cryptonordic.no/api/v1/changelog.json",
-   "url_custom_domain": "https://cryptonordic.no/api/v1/changelog.json",
+   "url": "https://nordiccrypto.no/api/v1/changelog.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/changelog.json",
    "summary": "Site changelog (product changes, not the news), newest first.",
    "schema": "ChangelogList",
-   "example_url": "https://cryptonordic.no/api/v1/changelog/mobile-language.json",
-   "example_url_custom_domain": "https://cryptonordic.no/api/v1/changelog/mobile-language.json",
+   "example_url": "https://nordiccrypto.no/api/v1/changelog/domain-nordiccrypto-no.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/changelog/domain-nordiccrypto-no.json",
    "item_path": "/api/v1/changelog/{id}.json",
-   "item_url_template": "https://cryptonordic.no/api/v1/changelog/{id}.json"
+   "item_url_template": "https://nordiccrypto.no/api/v1/changelog/{id}.json"
   },
   {
    "id": "api-v1-rules",
    "method": "GET",
    "path": "/api/v1/rules.json",
-   "url": "https://cryptonordic.no/api/v1/rules.json",
-   "url_custom_domain": "https://cryptonordic.no/api/v1/rules.json",
+   "url": "https://nordiccrypto.no/api/v1/rules.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/rules.json",
    "summary": "How EU crypto rules become law in the five countries. Simplified, not legal advice. Omitted while the page is still a placeholder.",
    "schema": "Rules"
   },
@@ -319,65 +319,65 @@
    "id": "api-v1-archive-articles",
    "method": "GET",
    "path": "/api/v1/archive/articles.json",
-   "url": "https://cryptonordic.no/api/v1/archive/articles.json",
-   "url_custom_domain": "https://cryptonordic.no/api/v1/archive/articles.json",
+   "url": "https://nordiccrypto.no/api/v1/archive/articles.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/archive/articles.json",
    "summary": "Append-only archive of stories that have been on the public site. removed is  true when a story later left the site; the row stays.",
    "schema": "ArticleArchive",
-   "example_url": "https://cryptonordic.no/api/v1/archive/articles/07e49032be5a.json",
-   "example_url_custom_domain": "https://cryptonordic.no/api/v1/archive/articles/07e49032be5a.json",
+   "example_url": "https://nordiccrypto.no/api/v1/archive/articles/07e49032be5a.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/archive/articles/07e49032be5a.json",
    "item_path": "/api/v1/archive/articles/{id}.json",
-   "item_url_template": "https://cryptonordic.no/api/v1/archive/articles/{id}.json"
+   "item_url_template": "https://nordiccrypto.no/api/v1/archive/articles/{id}.json"
   },
   {
    "id": "markets",
    "method": "GET",
    "path": "/api/v1/markets.json",
-   "url": "https://cryptonordic.no/api/v1/markets.json",
-   "url_custom_domain": "https://cryptonordic.no/api/v1/markets.json",
+   "url": "https://nordiccrypto.no/api/v1/markets.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/markets.json",
    "summary": "Nordic exchange prices. Market data, not investment advice. Each ticker names the exchange, fetched_at, the source URL and volume when the exchange published it. NOK, SEK, DKK and EUR only. aggregated is one row per pair.",
    "schema": "MarketCatalogue",
-   "example_url": "https://cryptonordic.no/api/v1/markets/firi.json",
-   "example_url_custom_domain": "https://cryptonordic.no/api/v1/markets/firi.json"
+   "example_url": "https://nordiccrypto.no/api/v1/markets/firi.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/markets/firi.json"
   },
   {
    "id": "markets-aggregated",
    "method": "GET",
    "path": "/api/v1/markets/aggregated.json",
-   "url": "https://cryptonordic.no/api/v1/markets/aggregated.json",
-   "url_custom_domain": "https://cryptonordic.no/api/v1/markets/aggregated.json",
+   "url": "https://nordiccrypto.no/api/v1/markets/aggregated.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/markets/aggregated.json",
    "summary": "One price per base-quote pair. BTC-NOK is separate from BTC-EUR. last is the mean of published last prices. mid is the mean of bid/ask midpoints and is not blended into last. Volume is summed only within the same field and the same pair. logo_url is a CC0 icon when cryptocurrency-icons includes the asset, otherwise null.",
    "schema": "MarketAggregated",
-   "example_url": "https://cryptonordic.no/api/v1/markets/aggregated.json",
-   "example_url_custom_domain": "https://cryptonordic.no/api/v1/markets/aggregated.json"
+   "example_url": "https://nordiccrypto.no/api/v1/markets/aggregated.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/markets/aggregated.json"
   },
   {
    "id": "markets-exchange",
    "method": "GET",
    "path": "/api/v1/markets/{exchange}.json",
-   "url": "https://cryptonordic.no/api/v1/markets/{exchange}.json",
-   "url_custom_domain": "https://cryptonordic.no/api/v1/markets/{exchange}.json",
+   "url": "https://nordiccrypto.no/api/v1/markets/{exchange}.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/markets/{exchange}.json",
    "summary": "Prices from one included exchange: firi (Norway), nbx (Norway) or coinmotion (Finland).",
    "schema": "MarketExchange",
-   "example_url": "https://cryptonordic.no/api/v1/markets/firi.json",
-   "example_url_custom_domain": "https://cryptonordic.no/api/v1/markets/firi.json"
+   "example_url": "https://nordiccrypto.no/api/v1/markets/firi.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/markets/firi.json"
   },
   {
    "id": "markets-asset",
    "method": "GET",
    "path": "/api/v1/markets/by-asset/{symbol}.json",
-   "url": "https://cryptonordic.no/api/v1/markets/by-asset/{symbol}.json",
-   "url_custom_domain": "https://cryptonordic.no/api/v1/markets/by-asset/{symbol}.json",
+   "url": "https://nordiccrypto.no/api/v1/markets/by-asset/{symbol}.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/markets/by-asset/{symbol}.json",
    "summary": "Prices for one asset (the base symbol, such as BTC) on every included Nordic exchange, plus aggregated pairs for each quote currency and logo_url when an icon is available.",
    "schema": "MarketAsset",
-   "example_url": "https://cryptonordic.no/api/v1/markets/by-asset/BTC.json",
-   "example_url_custom_domain": "https://cryptonordic.no/api/v1/markets/by-asset/BTC.json"
+   "example_url": "https://nordiccrypto.no/api/v1/markets/by-asset/BTC.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/markets/by-asset/BTC.json"
   },
   {
    "id": "api-v1-languages",
    "method": "GET",
    "path": "/api/v1/languages.json",
-   "url": "https://cryptonordic.no/api/v1/languages.json",
-   "url_custom_domain": "https://cryptonordic.no/api/v1/languages.json",
+   "url": "https://nordiccrypto.no/api/v1/languages.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/languages.json",
    "summary": "Site UI languages: code, native name, English name, rtl, html lang and home URL.",
    "schema": "LanguageList"
   },
@@ -385,8 +385,8 @@
    "id": "api-v1-geo-language",
    "method": "GET",
    "path": "/api/v1/geo-language.json",
-   "url": "https://cryptonordic.no/api/v1/geo-language.json",
-   "url_custom_domain": "https://cryptonordic.no/api/v1/geo-language.json",
+   "url": "https://nordiccrypto.no/api/v1/geo-language.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/geo-language.json",
    "summary": "Country to default site language. An IP guess only; the nc_lang cookie from the language switcher wins.",
    "schema": "GeoLanguage"
   },
@@ -394,8 +394,8 @@
    "id": "api-v1-meta",
    "method": "GET",
    "path": "/api/v1/meta.json",
-   "url": "https://cryptonordic.no/api/v1/meta.json",
-   "url_custom_domain": "https://cryptonordic.no/api/v1/meta.json",
+   "url": "https://nordiccrypto.no/api/v1/meta.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/meta.json",
    "summary": "Site name, languages, countries, page list, CORS, editorial notes and brand social accounts (social.telegram, social.x).",
    "schema": "SiteMeta"
   }
@@ -403,35 +403,35 @@
  "start_here": [
   {
    "description": "Nordic exchange prices (market data, not investment advice)",
-   "url": "https://cryptonordic.no/api/v1/markets.json"
+   "url": "https://nordiccrypto.no/api/v1/markets.json"
   },
   {
    "description": "Aggregated price per pair, one quote currency at a time",
-   "url": "https://cryptonordic.no/api/v1/markets/aggregated.json"
+   "url": "https://nordiccrypto.no/api/v1/markets/aggregated.json"
   },
   {
    "description": "Prices from one exchange",
-   "url": "https://cryptonordic.no/api/v1/markets/firi.json"
+   "url": "https://nordiccrypto.no/api/v1/markets/firi.json"
   },
   {
    "description": "Prices for one asset, on every included exchange",
-   "url": "https://cryptonordic.no/api/v1/markets/by-asset/BTC.json"
+   "url": "https://nordiccrypto.no/api/v1/markets/by-asset/BTC.json"
   },
   {
    "description": "All published news",
-   "url": "https://cryptonordic.no/api/v1/news.json"
+   "url": "https://nordiccrypto.no/api/v1/news.json"
   },
   {
    "description": "One news item",
-   "url": "https://cryptonordic.no/api/v1/news/fb9e8ca4fb40.json"
+   "url": "https://nordiccrypto.no/api/v1/news/fb9e8ca4fb40.json"
   },
   {
    "description": "Newsletter issues",
-   "url": "https://cryptonordic.no/api/v1/newsletters.json"
+   "url": "https://nordiccrypto.no/api/v1/newsletters.json"
   },
   {
    "description": "One newsletter issue, with text",
-   "url": "https://cryptonordic.no/api/v1/newsletters/001.json"
+   "url": "https://nordiccrypto.no/api/v1/newsletters/001.json"
   }
  ]
 }

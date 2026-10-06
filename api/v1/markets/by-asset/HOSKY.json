@@ -1,19 +1,19 @@
 {
  "api_version": "1",
  "name": null,
- "generated_at": "2026-10-06T10:27:35+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "kind": "markets",
  "disclaimer": "Market data, not investment advice. Each figure is the value published by the named exchange at fetched_at. Nordic Crypto does not set these prices and does not tell anyone to buy or sell.",
  "sign_off": "The Nordic Crypto team",
  "not_investment_advice": true,
  "urls": {
-  "github_pages": "https://cryptonordic.no/api/v1/markets.json",
+  "github_pages": "https://nordiccrypto.no/api/v1/markets.json",
   "raw_githubusercontent": "https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json",
-  "custom_domain": "https://cryptonordic.no/api/v1/markets.json",
-  "aggregated_github_pages": "https://cryptonordic.no/api/v1/markets/aggregated.json",
-  "aggregated_custom_domain": "https://cryptonordic.no/api/v1/markets/aggregated.json",
-  "logos": "https://cryptonordic.no/api/v1/markets/logos/"
+  "custom_domain": "https://nordiccrypto.no/api/v1/markets.json",
+  "aggregated_github_pages": "https://nordiccrypto.no/api/v1/markets/aggregated.json",
+  "aggregated_custom_domain": "https://nordiccrypto.no/api/v1/markets/aggregated.json",
+  "logos": "https://nordiccrypto.no/api/v1/markets/logos/"
  },
  "symbol": "HOSKY",
  "count": 1,
@@ -32,7 +32,7 @@
     "name": "Norwegian Block Exchange",
     "country": "NO"
    },
-   "fetched_at": "2026-10-06T10:27:34+00:00",
+   "fetched_at": "2026-10-06T14:04:31+00:00",
    "source_url": "https://api.nbx.com/tickers",
    "volume_base": null,
    "volume_quote": null,
@@ -50,8 +50,8 @@
    "name": null,
    "quote": "EUR",
    "currency": "EUR",
-   "updated_at": "2026-10-06T10:27:34+00:00",
-   "oldest_fetched_at": "2026-10-06T10:27:34+00:00",
+   "updated_at": "2026-10-06T14:04:31+00:00",
+   "oldest_fetched_at": "2026-10-06T14:04:31+00:00",
    "exchange_count": 1,
    "method": "mean_last",
    "method_note": "Arithmetic mean of last prices from exchanges that published a last for this pair. Exchanges without a last stay in contributors and are left out of last, min and max. Not weighted by volume. mid is the mean of bid/ask midpoints and is not mixed into last.",
@@ -99,7 +99,7 @@
      "volume_quote": null,
      "volume_base_24h": "22782273805",
      "volume_quote_24h": "195.1936444758",
-     "fetched_at": "2026-10-06T10:27:34+00:00",
+     "fetched_at": "2026-10-06T14:04:31+00:00",
      "source_url": "https://api.nbx.com/tickers",
      "included_in_price": true
     }

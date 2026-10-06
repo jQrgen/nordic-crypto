@@ -1,11 +1,11 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T06:10:04+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "item": {
   "id": "7b2030aea964",
-  "api_url": "https://cryptonordic.no/api/v1/archive/articles/7b2030aea964.json",
+  "api_url": "https://nordiccrypto.no/api/v1/archive/articles/7b2030aea964.json",
   "site": "nordic-crypto",
   "url": "https://www.realtid.se/bors-finans/kryptojatten-i-ny-kontrovers-erbjod-tjanster-i-europa-utan-licens/",
   "canonical_url": "https://realtid.se/bors-finans/kryptojatten-i-ny-kontrovers-erbjod-tjanster-i-europa-utan-licens",

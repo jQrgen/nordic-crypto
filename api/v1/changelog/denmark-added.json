@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T06:10:04+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "item": {
   "id": "denmark-added",
@@ -34,7 +34,7 @@
     "description": "Nordic Crypto fjallar nú um Noreg, Svíþjóð, Danmörku, Finnland og Ísland. Danmörk hefur eigin landssíu á frétta-, viðburða-, hver er hvað- og rannsóknasíðunum, og við fylgjumst nú með dönskum dagblöðum, ljósvakamiðlum, tæknimiðlum, Danmarks Nationalbank, Danmerkursíðu Kaupr og fréttaleit á dönskum vefjum. Danskar fréttir, viðburðir og færslur birtast þegar ritstjórinn hefur farið yfir þær."
    }
   },
-  "html_url": "https://cryptonordic.no/changelog/#denmark-added",
-  "api_url": "https://cryptonordic.no/api/v1/changelog/denmark-added.json"
+  "html_url": "https://nordiccrypto.no/changelog/#denmark-added",
+  "api_url": "https://nordiccrypto.no/api/v1/changelog/denmark-added.json"
  }
 }

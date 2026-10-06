@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T06:10:04+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "topic": "defi",
  "count": 1,
@@ -9,15 +9,15 @@
   {
    "id": "4fec239ddb97",
    "url": "https://www.kaupr.io/nyheter/hilbert-finansierer-utlan-med-innskudd-pa-blokkjeden",
-   "html_url": "https://cryptonordic.no/stories/4fec239ddb97/",
-   "api_url": "https://cryptonordic.no/api/v1/news/4fec239ddb97.json",
+   "html_url": "https://nordiccrypto.no/stories/4fec239ddb97/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/4fec239ddb97.json",
    "title": "Hilbert finansierer utlån med innskudd på blokkjeden",
    "title_en": "Hilbert funds lending with on-chain deposits",
    "source": "kaupr",
    "source_name": "Kaupr",
    "source_logo": {
     "kind": "logo",
-    "file_url": "https://cryptonordic.no/assets/img/logos/kaupr.webp",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
     "author": null,
     "license": null,
@@ -59,7 +59,7 @@
     "primary": true,
     "logo": {
      "kind": "logo",
-     "file_url": "https://cryptonordic.no/assets/img/logos/kaupr.webp",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
      "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
      "author": null,
      "license": null,
@@ -84,7 +84,7 @@
      "primary": true,
      "logo": {
       "kind": "logo",
-      "file_url": "https://cryptonordic.no/assets/img/logos/kaupr.webp",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
       "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
       "author": null,
       "license": null,

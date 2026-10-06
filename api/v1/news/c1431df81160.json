@@ -1,20 +1,20 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T06:10:04+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "item": {
   "id": "c1431df81160",
   "url": "https://podcasters.spotify.com/pod/show/bitcoinsnakk9/episodes/Norway-Wants-to-Ban-Bitcoin-Mining--The-Miners-Already-Left--Rachel-Geyer--EBEA-e3p0bb8",
-  "html_url": "https://cryptonordic.no/stories/c1431df81160/",
-  "api_url": "https://cryptonordic.no/api/v1/news/c1431df81160.json",
+  "html_url": "https://nordiccrypto.no/stories/c1431df81160/",
+  "api_url": "https://nordiccrypto.no/api/v1/news/c1431df81160.json",
   "title": "Norway Wants to Ban Bitcoin Mining. The Miners Already Left | Rachel Geyer, EBEA",
   "title_en": "Norway wants to ban bitcoin mining. The miners already left",
   "source": "bpi",
   "source_name": "Bitcoinpolitisk institutt",
   "source_logo": {
    "kind": "logo",
-   "file_url": "https://cryptonordic.no/assets/img/logos/bpi.svg",
+   "file_url": "https://nordiccrypto.no/assets/img/logos/bpi.svg",
    "source_url": "https://bpinorge.no/wp-content/uploads/2025/04/bpinorge_footer_logo.svg",
    "author": null,
    "license": null,
@@ -56,7 +56,7 @@
    "primary": true,
    "logo": {
     "kind": "logo",
-    "file_url": "https://cryptonordic.no/assets/img/logos/bpi.svg",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/bpi.svg",
     "source_url": "https://bpinorge.no/wp-content/uploads/2025/04/bpinorge_footer_logo.svg",
     "author": null,
     "license": null,
@@ -80,7 +80,7 @@
     "primary": true,
     "logo": {
      "kind": "logo",
-     "file_url": "https://cryptonordic.no/assets/img/logos/bpi.svg",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/bpi.svg",
      "source_url": "https://bpinorge.no/wp-content/uploads/2025/04/bpinorge_footer_logo.svg",
      "author": null,
      "license": null,

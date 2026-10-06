@@ -1,12 +1,12 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T06:10:04+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "item": {
   "id": "se-h100",
-  "api_url": "https://cryptonordic.no/api/v1/orgchart/se-h100.json",
-  "html_url": "https://cryptonordic.no/org-chart/#se-h100",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/se-h100.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#se-h100",
   "name": "H100 (H100 Group AB)",
   "type": "organisation",
   "sector": "private",
@@ -40,7 +40,7 @@
   ],
   "logo": {
    "kind": "logo",
-   "file_url": "https://cryptonordic.no/assets/img/logos/se-h100.webp",
+   "file_url": "https://nordiccrypto.no/assets/img/logos/se-h100.webp",
    "source_url": "https://cdn.prod.website-files.com/6785fc8ea8039f2244adbbd5/684ca8b2bba62b9e3593ceb3_Logo.png",
    "author": null,
    "license": null,

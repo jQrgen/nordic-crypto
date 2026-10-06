@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T06:10:04+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "item": {
   "id": "aggregated-market-prices",
@@ -34,7 +34,7 @@
     "description": "Markaðs-API-ið hefur nú eitt samanlagt verð á hvert grunn- og skráningarpar á /api/v1/markets/aggregated.json, einnig á /api/v1/markets.json og /api/v1/markets/by-asset/{symbol}.json. BTC-NOK er ekki blandað við BTC-EUR. Talan er meðaltal birtra síðustu verða, eða meðaltal kaupa og sölu þegar ekkert síðasta verð er til. Lægst, hæst, fjöldi kauphalla og verðin sem koma við sögu fylgja með. Magn er sýnt og lagt saman aðeins þegar kauphöll hefur birt það, og 24 klst. magni er ekki bætt við magn án nefnds tímabils. Það er ekkert magnvegið verð. Mynttákn úr cryptocurrency-icons (CC0 1.0) eru þjónuð undir /api/v1/markets/logos/ þegar safnið hefur eignina. Markaðssíðan sýnir samantektina og magnið."
    }
   },
-  "html_url": "https://cryptonordic.no/changelog/#aggregated-market-prices",
-  "api_url": "https://cryptonordic.no/api/v1/changelog/aggregated-market-prices.json"
+  "html_url": "https://nordiccrypto.no/changelog/#aggregated-market-prices",
+  "api_url": "https://nordiccrypto.no/api/v1/changelog/aggregated-market-prices.json"
  }
 }

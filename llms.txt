@@ -6,20 +6,20 @@ Nordic Crypto covers Norway, Sweden, Denmark, Finland and Iceland. The sign-off 
 
 GitHub Pages sends Access-Control-Allow-Origin: * on every JSON file, so a browser can fetch them from any site. Use the file name (index.json). A directory URL does not serve the JSON.
 
-Public site: https://cryptonordic.no/
+Public site: https://nordiccrypto.no/
 Absolute URLs in this file use that origin, at the domain root.
 
 ## Start here
 
-- [Discovery](https://cryptonordic.no/api/v1/index.json): every endpoint, counts, and example URLs.
-- [Human docs](https://cryptonordic.no/api/): the same catalogue as a web page.
-- [OpenAPI JSON](https://cryptonordic.no/api/v1/openapi.json): OpenAPI 3.0.
-- [OpenAPI YAML](https://cryptonordic.no/api/v1/openapi.yaml): the same document.
-- [API catalog](https://cryptonordic.no/.well-known/api-catalog): RFC 9727 linkset. A .json copy is at https://cryptonordic.no/.well-known/api-catalog.json.
-- [Site meta](https://cryptonordic.no/api/v1/meta.json): languages, countries, page list, CORS, and brand social accounts.
+- [Discovery](https://nordiccrypto.no/api/v1/index.json): every endpoint, counts, and example URLs.
+- [Human docs](https://nordiccrypto.no/api/): the same catalogue as a web page.
+- [OpenAPI JSON](https://nordiccrypto.no/api/v1/openapi.json): OpenAPI 3.0.
+- [OpenAPI YAML](https://nordiccrypto.no/api/v1/openapi.yaml): the same document.
+- [API catalog](https://nordiccrypto.no/.well-known/api-catalog): RFC 9727 linkset. A .json copy is at https://nordiccrypto.no/.well-known/api-catalog.json.
+- [Site meta](https://nordiccrypto.no/api/v1/meta.json): languages, countries, page list, CORS, and brand social accounts.
 - Telegram: https://t.me/nordiccryptochat (`social.telegram`). X: https://x.com/xcryptonordic (`social.x`, also `urls.x`). `name` is English. `name_i18n` has nn, nb, sv, da, fi and is. Other languages use `name`.
-- [Languages](https://cryptonordic.no/api/v1/languages.json): site UI languages (code, native name, English name, rtl, home).
-- [Geo language](https://cryptonordic.no/api/v1/geo-language.json): country to default language. An IP guess; the nc_lang cookie wins.
+- [Languages](https://nordiccrypto.no/api/v1/languages.json): site UI languages (code, native name, English name, rtl, home).
+- [Geo language](https://nordiccrypto.no/api/v1/geo-language.json): country to default language. An IP guess; the nc_lang cookie wins.
 
 ## Market prices
 
@@ -28,17 +28,17 @@ Prices from Nordic exchanges with a public ticker (Firi and Norwegian Block Exch
 Aggregated prices are one row per pair: /api/v1/markets/aggregated.json. BTC-NOK is not averaged with BTC-EUR. last is the arithmetic mean of published last prices. mid is the mean of (bid+ask)/2 and is not mixed into last. min and max follow the same series as price. There is no VWAP, because the volume windows do not match. Volume sums add only the same field inside the same pair. logo_url points at api/v1/markets/logos/{symbol}.svg when cryptocurrency-icons (CC0-1.0) includes that asset, and is null otherwise. The same pairs, with the logo, are on /api/v1/markets/by-asset/{symbol}.json.
 
 ```
-curl -fsS https://cryptonordic.no/api/v1/markets.json
-curl -fsS https://cryptonordic.no/api/v1/markets/aggregated.json
+curl -fsS https://nordiccrypto.no/api/v1/markets.json
+curl -fsS https://nordiccrypto.no/api/v1/markets/aggregated.json
 curl -fsS https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json
 ```
 
 ## Fetch news and newsletters
 
 ```
-curl -fsS https://cryptonordic.no/api/v1/news.json
-curl -fsS https://cryptonordic.no/api/v1/newsletters.json
-curl -fsS https://cryptonordic.no/api/v1/newsletters/001.json
+curl -fsS https://nordiccrypto.no/api/v1/news.json
+curl -fsS https://nordiccrypto.no/api/v1/newsletters.json
+curl -fsS https://nordiccrypto.no/api/v1/newsletters/001.json
 ```
 
 A single news item is api/v1/news/{id}.json (the id is on each item). primary_source is the outlet we lead with. also_covered_by is every other outlet on the same event. sources lists them with the primary first. coverage.by_country and coverage.by_source_type (national, regional, official, international) are the counts and shares, and empty types are included as zero. html_url is our coverage page. url is the primary outlet. 
@@ -46,38 +46,38 @@ A single newsletter issue is api/v1/newsletters/{id}.json and includes plain tex
 
 ## Endpoints
 
-- [/api/v1/index.json](https://cryptonordic.no/api/v1/index.json): Discovery document: every endpoint, with example URLs.
-- [/api/v1/news.json](https://cryptonordic.no/api/v1/news.json): Published news and our own stories, newest first.
-- [/api/v1/news/by-country/{country}.json](https://cryptonordic.no/api/v1/news/by-country/{country}.json): Published news for one country code: NO, SE, DK, FI, IS, NORDIC or EU.
-- [/api/v1/news/topics.json](https://cryptonordic.no/api/v1/news/topics.json): Topic ids present in the published news, with counts.
-- [/api/v1/newsletters.json](https://cryptonordic.no/api/v1/newsletters.json): Published newsletter issues, newest first. The list omits the HTML body; the issue URL includes text and html.
-- [/api/v1/events.json](https://cryptonordic.no/api/v1/events.json): Public events, soonest start first, including past events.
-- [/api/v1/events/upcoming.json](https://cryptonordic.no/api/v1/events/upcoming.json): Events that have not ended, soonest first. Judged in the event's own offset.
-- [/api/v1/events/past.json](https://cryptonordic.no/api/v1/events/past.json): Finished public events, newest first. Finished events stay in the archive.
-- [/api/v1/events/by-country/{country}.json](https://cryptonordic.no/api/v1/events/by-country/{country}.json): Public events for one country code.
-- [/api/v1/sources.json](https://cryptonordic.no/api/v1/sources.json): News outlets, the public search terms, and event sources. Kaupr is marked as a news source only. logo is the outlet image for that source id when one is on file.
-- [/api/v1/academia.json](https://cryptonordic.no/api/v1/academia.json): Editor-approved courses, student groups, publications and research.
-- [/api/v1/academia/courses.json](https://cryptonordic.no/api/v1/academia/courses.json): Academia section: courses.
-- [/api/v1/academia/groups.json](https://cryptonordic.no/api/v1/academia/groups.json): Academia section: groups.
-- [/api/v1/academia/publications.json](https://cryptonordic.no/api/v1/academia/publications.json): Academia section: publications.
-- [/api/v1/academia/research.json](https://cryptonordic.no/api/v1/academia/research.json): Academia section: research.
-- [/api/v1/academia/{id}.json](https://cryptonordic.no/api/v1/academia/{id}.json): One academia row. The id is in academia.json.
-- [/api/v1/orgchart.json](https://cryptonordic.no/api/v1/orgchart.json): Published who's who: organisations, people, relations, regulation notes and caveats.
-- [/api/v1/orgchart/relations.json](https://cryptonordic.no/api/v1/orgchart/relations.json): Relations between published who's who entries.
-- [/api/v1/orgchart/regulation.json](https://cryptonordic.no/api/v1/orgchart/regulation.json): Short regulation status for each Nordic country, as on the who's who page.
-- [/api/v1/orgchart/relations/{id}.json](https://cryptonordic.no/api/v1/orgchart/relations/{id}.json): One relation from the who's who.
-- [/api/v1/profiles.json](https://cryptonordic.no/api/v1/profiles.json): Public profile links (Wikipedia, X, Wikidata and similar) for people and organisations.
-- [/api/v1/images.json](https://cryptonordic.no/api/v1/images.json): Logos and photos used on the public who's who, with licence and credit.
-- [/api/v1/changelog.json](https://cryptonordic.no/api/v1/changelog.json): Site changelog (product changes, not the news), newest first.
-- [/api/v1/rules.json](https://cryptonordic.no/api/v1/rules.json): How EU crypto rules become law in the five countries. Simplified, not legal advice. Omitted while the page is still a placeholder.
-- [/api/v1/archive/articles.json](https://cryptonordic.no/api/v1/archive/articles.json): Append-only archive of stories that have been on the public site. removed is  true when a story later left the site; the row stays.
-- [/api/v1/markets.json](https://cryptonordic.no/api/v1/markets.json): Nordic exchange prices. Market data, not investment advice. Each ticker names the exchange, fetched_at, the source URL and volume when the exchange published it. NOK, SEK, DKK and EUR only. aggregated is one row per pair.
-- [/api/v1/markets/aggregated.json](https://cryptonordic.no/api/v1/markets/aggregated.json): One price per base-quote pair. BTC-NOK is separate from BTC-EUR. last is the mean of published last prices. mid is the mean of bid/ask midpoints and is not blended into last. Volume is summed only within the same field and the same pair. logo_url is a CC0 icon when cryptocurrency-icons includes the asset, otherwise null.
-- [/api/v1/markets/{exchange}.json](https://cryptonordic.no/api/v1/markets/{exchange}.json): Prices from one included exchange: firi (Norway), nbx (Norway) or coinmotion (Finland).
-- [/api/v1/markets/by-asset/{symbol}.json](https://cryptonordic.no/api/v1/markets/by-asset/{symbol}.json): Prices for one asset (the base symbol, such as BTC) on every included Nordic exchange, plus aggregated pairs for each quote currency and logo_url when an icon is available.
-- [/api/v1/languages.json](https://cryptonordic.no/api/v1/languages.json): Site UI languages: code, native name, English name, rtl, html lang and home URL.
-- [/api/v1/geo-language.json](https://cryptonordic.no/api/v1/geo-language.json): Country to default site language. An IP guess only; the nc_lang cookie from the language switcher wins.
-- [/api/v1/meta.json](https://cryptonordic.no/api/v1/meta.json): Site name, languages, countries, page list, CORS, editorial notes and brand social accounts (social.telegram, social.x).
+- [/api/v1/index.json](https://nordiccrypto.no/api/v1/index.json): Discovery document: every endpoint, with example URLs.
+- [/api/v1/news.json](https://nordiccrypto.no/api/v1/news.json): Published news and our own stories, newest first.
+- [/api/v1/news/by-country/{country}.json](https://nordiccrypto.no/api/v1/news/by-country/{country}.json): Published news for one country code: NO, SE, DK, FI, IS, NORDIC or EU.
+- [/api/v1/news/topics.json](https://nordiccrypto.no/api/v1/news/topics.json): Topic ids present in the published news, with counts.
+- [/api/v1/newsletters.json](https://nordiccrypto.no/api/v1/newsletters.json): Published newsletter issues, newest first. The list omits the HTML body; the issue URL includes text and html.
+- [/api/v1/events.json](https://nordiccrypto.no/api/v1/events.json): Public events, soonest start first, including past events.
+- [/api/v1/events/upcoming.json](https://nordiccrypto.no/api/v1/events/upcoming.json): Events that have not ended, soonest first. Judged in the event's own offset.
+- [/api/v1/events/past.json](https://nordiccrypto.no/api/v1/events/past.json): Finished public events, newest first. Finished events stay in the archive.
+- [/api/v1/events/by-country/{country}.json](https://nordiccrypto.no/api/v1/events/by-country/{country}.json): Public events for one country code.
+- [/api/v1/sources.json](https://nordiccrypto.no/api/v1/sources.json): News outlets, the public search terms, and event sources. Kaupr is marked as a news source only. logo is the outlet image for that source id when one is on file.
+- [/api/v1/academia.json](https://nordiccrypto.no/api/v1/academia.json): Editor-approved courses, student groups, publications and research.
+- [/api/v1/academia/courses.json](https://nordiccrypto.no/api/v1/academia/courses.json): Academia section: courses.
+- [/api/v1/academia/groups.json](https://nordiccrypto.no/api/v1/academia/groups.json): Academia section: groups.
+- [/api/v1/academia/publications.json](https://nordiccrypto.no/api/v1/academia/publications.json): Academia section: publications.
+- [/api/v1/academia/research.json](https://nordiccrypto.no/api/v1/academia/research.json): Academia section: research.
+- [/api/v1/academia/{id}.json](https://nordiccrypto.no/api/v1/academia/{id}.json): One academia row. The id is in academia.json.
+- [/api/v1/orgchart.json](https://nordiccrypto.no/api/v1/orgchart.json): Published who's who: organisations, people, relations, regulation notes and caveats.
+- [/api/v1/orgchart/relations.json](https://nordiccrypto.no/api/v1/orgchart/relations.json): Relations between published who's who entries.
+- [/api/v1/orgchart/regulation.json](https://nordiccrypto.no/api/v1/orgchart/regulation.json): Short regulation status for each Nordic country, as on the who's who page.
+- [/api/v1/orgchart/relations/{id}.json](https://nordiccrypto.no/api/v1/orgchart/relations/{id}.json): One relation from the who's who.
+- [/api/v1/profiles.json](https://nordiccrypto.no/api/v1/profiles.json): Public profile links (Wikipedia, X, Wikidata and similar) for people and organisations.
+- [/api/v1/images.json](https://nordiccrypto.no/api/v1/images.json): Logos and photos used on the public who's who, with licence and credit.
+- [/api/v1/changelog.json](https://nordiccrypto.no/api/v1/changelog.json): Site changelog (product changes, not the news), newest first.
+- [/api/v1/rules.json](https://nordiccrypto.no/api/v1/rules.json): How EU crypto rules become law in the five countries. Simplified, not legal advice. Omitted while the page is still a placeholder.
+- [/api/v1/archive/articles.json](https://nordiccrypto.no/api/v1/archive/articles.json): Append-only archive of stories that have been on the public site. removed is  true when a story later left the site; the row stays.
+- [/api/v1/markets.json](https://nordiccrypto.no/api/v1/markets.json): Nordic exchange prices. Market data, not investment advice. Each ticker names the exchange, fetched_at, the source URL and volume when the exchange published it. NOK, SEK, DKK and EUR only. aggregated is one row per pair.
+- [/api/v1/markets/aggregated.json](https://nordiccrypto.no/api/v1/markets/aggregated.json): One price per base-quote pair. BTC-NOK is separate from BTC-EUR. last is the mean of published last prices. mid is the mean of bid/ask midpoints and is not blended into last. Volume is summed only within the same field and the same pair. logo_url is a CC0 icon when cryptocurrency-icons includes the asset, otherwise null.
+- [/api/v1/markets/{exchange}.json](https://nordiccrypto.no/api/v1/markets/{exchange}.json): Prices from one included exchange: firi (Norway), nbx (Norway) or coinmotion (Finland).
+- [/api/v1/markets/by-asset/{symbol}.json](https://nordiccrypto.no/api/v1/markets/by-asset/{symbol}.json): Prices for one asset (the base symbol, such as BTC) on every included Nordic exchange, plus aggregated pairs for each quote currency and logo_url when an icon is available.
+- [/api/v1/languages.json](https://nordiccrypto.no/api/v1/languages.json): Site UI languages: code, native name, English name, rtl, html lang and home URL.
+- [/api/v1/geo-language.json](https://nordiccrypto.no/api/v1/geo-language.json): Country to default site language. An IP guess only; the nc_lang cookie from the language switcher wins.
+- [/api/v1/meta.json](https://nordiccrypto.no/api/v1/meta.json): Site name, languages, countries, page list, CORS, editorial notes and brand social accounts (social.telegram, social.x).
 
 ## Not in this feed
 

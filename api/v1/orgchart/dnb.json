@@ -1,12 +1,12 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T06:10:04+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "item": {
   "id": "dnb",
-  "api_url": "https://cryptonordic.no/api/v1/orgchart/dnb.json",
-  "html_url": "https://cryptonordic.no/org-chart/#dnb",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/dnb.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#dnb",
   "name": "DNB",
   "type": "organisation",
   "sector": "private",
@@ -34,7 +34,7 @@
   ],
   "logo": {
    "kind": "logo",
-   "file_url": "https://cryptonordic.no/assets/img/logos/dnb.svg",
+   "file_url": "https://nordiccrypto.no/assets/img/logos/dnb.svg",
    "source_url": "https://commons.wikimedia.org/wiki/File:DNB_Logo.svg",
    "author": "DNB Bank ASA",
    "license": "Public domain",

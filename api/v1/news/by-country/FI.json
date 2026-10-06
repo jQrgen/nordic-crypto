@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T06:10:04+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "country": "FI",
  "count": 3,
@@ -9,8 +9,8 @@
   {
    "id": "c81be998e21c",
    "url": "https://yle.fi/a/74-20248505",
-   "html_url": "https://cryptonordic.no/stories/c81be998e21c/",
-   "api_url": "https://cryptonordic.no/api/v1/news/c81be998e21c.json",
+   "html_url": "https://nordiccrypto.no/stories/c81be998e21c/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/c81be998e21c.json",
    "title": "Yhteisöllisyys ja teknologia kiehtovat kryptovaluuttoihin sijoittaneita – kryptotapahtumassa iloittiin bitcoinin uudesta nousurallista",
    "title_en": "Community and technology draw crypto investors: bitcoin's new rally celebrated at crypto event",
    "source": "yle",
@@ -104,15 +104,15 @@
   {
    "id": "b46e8d2a4dad",
    "url": "https://www.kaupr.io/nyheter/to-tilsyn-vil-ikke-si-om-kryptodistribusjon-krever-egen-tillatelse",
-   "html_url": "https://cryptonordic.no/stories/b46e8d2a4dad/",
-   "api_url": "https://cryptonordic.no/api/v1/news/b46e8d2a4dad.json",
+   "html_url": "https://nordiccrypto.no/stories/b46e8d2a4dad/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/b46e8d2a4dad.json",
    "title": "To tilsyn vil ikke si om kryptodistribusjon krever egen tillatelse",
    "title_en": "Two regulators won't say whether crypto distribution needs its own licence",
    "source": "kaupr",
    "source_name": "Kaupr",
    "source_logo": {
     "kind": "logo",
-    "file_url": "https://cryptonordic.no/assets/img/logos/kaupr.webp",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
     "author": null,
     "license": null,
@@ -154,7 +154,7 @@
     "primary": true,
     "logo": {
      "kind": "logo",
-     "file_url": "https://cryptonordic.no/assets/img/logos/kaupr.webp",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
      "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
      "author": null,
      "license": null,
@@ -179,7 +179,7 @@
      "primary": true,
      "logo": {
       "kind": "logo",
-      "file_url": "https://cryptonordic.no/assets/img/logos/kaupr.webp",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
       "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
       "author": null,
       "license": null,
@@ -225,15 +225,15 @@
   {
    "id": "f6301aef3314",
    "url": "https://www.finanssivalvonta.fi/en/publications-and-press-releases/news-releases/2026/crypto-asset-service-providers-in-finland-must-be-authorised-in-the-eu/",
-   "html_url": "https://cryptonordic.no/stories/f6301aef3314/",
-   "api_url": "https://cryptonordic.no/api/v1/news/f6301aef3314.json",
+   "html_url": "https://nordiccrypto.no/stories/f6301aef3314/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/f6301aef3314.json",
    "title": "Crypto-asset service providers in Finland must be authorised in the EU",
    "title_en": null,
    "source": "finanssivalvonta",
    "source_name": "Finanssivalvonta",
    "source_logo": {
     "kind": "logo",
-    "file_url": "https://cryptonordic.no/assets/img/logos/fi-fiva.webp",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/fi-fiva.webp",
     "source_url": "https://www.finanssivalvonta.fi/contentassets/2a88d63613bb4f049c687203e8731112/logo.png",
     "author": null,
     "license": null,
@@ -275,7 +275,7 @@
     "primary": true,
     "logo": {
      "kind": "logo",
-     "file_url": "https://cryptonordic.no/assets/img/logos/fi-fiva.webp",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/fi-fiva.webp",
      "source_url": "https://www.finanssivalvonta.fi/contentassets/2a88d63613bb4f049c687203e8731112/logo.png",
      "author": null,
      "license": null,
@@ -299,7 +299,7 @@
      "primary": true,
      "logo": {
       "kind": "logo",
-      "file_url": "https://cryptonordic.no/assets/img/logos/fi-fiva.webp",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/fi-fiva.webp",
       "source_url": "https://www.finanssivalvonta.fi/contentassets/2a88d63613bb4f049c687203e8731112/logo.png",
       "author": null,
       "license": null,

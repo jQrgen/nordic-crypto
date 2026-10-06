@@ -1,13 +1,13 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T06:10:04+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "item": {
   "id": "2d38c9c89e0e",
   "url": "https://www.sydsvenskan.se/lund/uppgifter-tonaringar-silvertejpade-man-i-jakt-pa-kryptovaluta/",
-  "html_url": "https://cryptonordic.no/stories/2d38c9c89e0e/",
-  "api_url": "https://cryptonordic.no/api/v1/news/2d38c9c89e0e.json",
+  "html_url": "https://nordiccrypto.no/stories/2d38c9c89e0e/",
+  "api_url": "https://nordiccrypto.no/api/v1/news/2d38c9c89e0e.json",
   "title": "Uppgifter: Tonåringar silvertejpade man i jakt på kryptovaluta",
   "title_en": "Reports: teenagers duct-taped a man in hunt for cryptocurrency",
   "source": "sydsvenskan.se",

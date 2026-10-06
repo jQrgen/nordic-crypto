@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T06:10:04+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "country": "FI",
  "count": 4,
@@ -24,8 +24,8 @@
    "note": null,
    "note_i18n": {},
    "past": false,
-   "html_url": "https://cryptonordic.no/calendar/#e-ce0c87469bd8",
-   "api_url": "https://cryptonordic.no/api/v1/events/ce0c87469bd8.json"
+   "html_url": "https://nordiccrypto.no/calendar/#e-ce0c87469bd8",
+   "api_url": "https://nordiccrypto.no/api/v1/events/ce0c87469bd8.json"
   },
   {
    "id": "19b92e24ee50",
@@ -45,8 +45,8 @@
    "note": null,
    "note_i18n": {},
    "past": false,
-   "html_url": "https://cryptonordic.no/calendar/#e-19b92e24ee50",
-   "api_url": "https://cryptonordic.no/api/v1/events/19b92e24ee50.json"
+   "html_url": "https://nordiccrypto.no/calendar/#e-19b92e24ee50",
+   "api_url": "https://nordiccrypto.no/api/v1/events/19b92e24ee50.json"
   },
   {
    "id": "3c7c538ff512",
@@ -73,8 +73,8 @@
     "is": "Ber upp á nýársdag: athugaðu síðu skipuleggjandans áður en þú ferð."
    },
    "past": false,
-   "html_url": "https://cryptonordic.no/calendar/#e-3c7c538ff512",
-   "api_url": "https://cryptonordic.no/api/v1/events/3c7c538ff512.json"
+   "html_url": "https://nordiccrypto.no/calendar/#e-3c7c538ff512",
+   "api_url": "https://nordiccrypto.no/api/v1/events/3c7c538ff512.json"
   },
   {
    "id": "105f743dcf3d",
@@ -94,8 +94,8 @@
    "note": null,
    "note_i18n": {},
    "past": false,
-   "html_url": "https://cryptonordic.no/calendar/#e-105f743dcf3d",
-   "api_url": "https://cryptonordic.no/api/v1/events/105f743dcf3d.json"
+   "html_url": "https://nordiccrypto.no/calendar/#e-105f743dcf3d",
+   "api_url": "https://nordiccrypto.no/api/v1/events/105f743dcf3d.json"
   }
  ]
 }

@@ -1,11 +1,11 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T06:10:04+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "item": {
   "id": "e0cc8b0df8e7",
-  "api_url": "https://cryptonordic.no/api/v1/archive/articles/e0cc8b0df8e7.json",
+  "api_url": "https://nordiccrypto.no/api/v1/archive/articles/e0cc8b0df8e7.json",
   "site": "nordic-crypto",
   "url": "https://www.kaupr.io/nyheter/goobit-lanserer-sparing-i-bitcoin-og-gull-pa-finsk-lisens",
   "canonical_url": "https://kaupr.io/nyheter/goobit-lanserer-sparing-i-bitcoin-og-gull-pa-finsk-lisens",

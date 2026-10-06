@@ -2,6 +2,38 @@
  "launch_date": "2026-10-03",
  "entries": [
   {
+   "id": "domain-nordiccrypto-no",
+   "date": "2026-10-06",
+   "title": "New address: nordiccrypto.no",
+   "description": "The site has moved to https://nordiccrypto.no/. Old cryptonordic.no links still work and forward to the same page on the new address. nordiccrypto.dk, .se, .fi, .is and .eu lead here too.",
+   "i18n": {
+    "nb": {
+     "title": "Ny adresse: nordiccrypto.no",
+     "description": "Nettstedet har flyttet til https://nordiccrypto.no/. Gamle lenker til cryptonordic.no virker fortsatt og sender deg til samme side på den nye adressen. nordiccrypto.dk, .se, .fi, .is og .eu leder også hit."
+    },
+    "nn": {
+     "title": "Ny adresse: nordiccrypto.no",
+     "description": "Nettstaden har flytta til https://nordiccrypto.no/. Gamle lenkjer til cryptonordic.no verkar framleis og sender deg til same side på den nye adressa. nordiccrypto.dk, .se, .fi, .is og .eu leier òg hit."
+    },
+    "sv": {
+     "title": "Ny adress: nordiccrypto.no",
+     "description": "Webbplatsen har flyttat till https://nordiccrypto.no/. Gamla länkar till cryptonordic.no fungerar fortfarande och leder till samma sida på den nya adressen. nordiccrypto.dk, .se, .fi, .is och .eu leder också hit."
+    },
+    "da": {
+     "title": "Ny adresse: nordiccrypto.no",
+     "description": "Sitet er flyttet til https://nordiccrypto.no/. Gamle links til cryptonordic.no virker stadig og sender dig til samme side på den nye adresse. nordiccrypto.dk, .se, .fi, .is og .eu fører også hertil."
+    },
+    "fi": {
+     "title": "Uusi osoite: nordiccrypto.no",
+     "description": "Sivusto on siirtynyt osoitteeseen https://nordiccrypto.no/. Vanhat cryptonordic.no-linkit toimivat edelleen ja vievät samalle sivulle uudessa osoitteessa. Myös nordiccrypto.dk, .se, .fi, .is ja .eu ohjaavat tänne."
+    },
+    "is": {
+     "title": "Nýtt veffang: nordiccrypto.no",
+     "description": "Vefurinn hefur flutt á https://nordiccrypto.no/. Gamlir tenglar á cryptonordic.no virka áfram og vísa á sömu síðu á nýja veffanginu. nordiccrypto.dk, .se, .fi, .is og .eu vísa líka hingað."
+    }
+   }
+  },
+  {
    "id": "mobile-language",
    "date": "2026-10-06",
    "title": "Language choice on phones",

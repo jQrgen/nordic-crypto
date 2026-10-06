@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T06:10:04+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "item": {
   "id": "7adc8e1ede97",
@@ -21,7 +21,7 @@
   "note": null,
   "note_i18n": {},
   "past": false,
-  "html_url": "https://cryptonordic.no/calendar/#e-7adc8e1ede97",
-  "api_url": "https://cryptonordic.no/api/v1/events/7adc8e1ede97.json"
+  "html_url": "https://nordiccrypto.no/calendar/#e-7adc8e1ede97",
+  "api_url": "https://nordiccrypto.no/api/v1/events/7adc8e1ede97.json"
  }
 }

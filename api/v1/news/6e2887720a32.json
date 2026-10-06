@@ -1,20 +1,20 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T06:10:04+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "item": {
   "id": "6e2887720a32",
   "url": "https://www.shifter.no/nyheter/firi-lanserer-i-sverige-etter-permitteringer-og-milliontap/475990",
-  "html_url": "https://cryptonordic.no/stories/6e2887720a32/",
-  "api_url": "https://cryptonordic.no/api/v1/news/6e2887720a32.json",
+  "html_url": "https://nordiccrypto.no/stories/6e2887720a32/",
+  "api_url": "https://nordiccrypto.no/api/v1/news/6e2887720a32.json",
   "title": "Firi lanserer i Sverige – etter permitteringer og milliontap",
   "title_en": "Firi launches in Sweden after layoffs and losses",
   "source": "shifter",
   "source_name": "Shifter",
   "source_logo": {
    "kind": "logo",
-   "file_url": "https://cryptonordic.no/assets/img/logos/shifter.svg",
+   "file_url": "https://nordiccrypto.no/assets/img/logos/shifter.svg",
    "source_url": "https://www.shifter.no/view-resources/dachser2/public/shifter/logo.svg",
    "author": null,
    "license": null,
@@ -56,7 +56,7 @@
    "primary": true,
    "logo": {
     "kind": "logo",
-    "file_url": "https://cryptonordic.no/assets/img/logos/shifter.svg",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/shifter.svg",
     "source_url": "https://www.shifter.no/view-resources/dachser2/public/shifter/logo.svg",
     "author": null,
     "license": null,
@@ -80,7 +80,7 @@
     "primary": true,
     "logo": {
      "kind": "logo",
-     "file_url": "https://cryptonordic.no/assets/img/logos/shifter.svg",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/shifter.svg",
      "source_url": "https://www.shifter.no/view-resources/dachser2/public/shifter/logo.svg",
      "author": null,
      "license": null,

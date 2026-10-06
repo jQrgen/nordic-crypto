@@ -1,98 +1,98 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T06:10:04+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "topics": [
   {
    "id": "aml",
    "count": 2,
-   "url": "https://cryptonordic.no/api/v1/news/by-topic/aml.json"
+   "url": "https://nordiccrypto.no/api/v1/news/by-topic/aml.json"
   },
   {
    "id": "banking",
    "count": 3,
-   "url": "https://cryptonordic.no/api/v1/news/by-topic/banking.json"
+   "url": "https://nordiccrypto.no/api/v1/news/by-topic/banking.json"
   },
   {
    "id": "bitcoin",
    "count": 2,
-   "url": "https://cryptonordic.no/api/v1/news/by-topic/bitcoin.json"
+   "url": "https://nordiccrypto.no/api/v1/news/by-topic/bitcoin.json"
   },
   {
    "id": "business",
    "count": 17,
-   "url": "https://cryptonordic.no/api/v1/news/by-topic/business.json"
+   "url": "https://nordiccrypto.no/api/v1/news/by-topic/business.json"
   },
   {
    "id": "community",
    "count": 1,
-   "url": "https://cryptonordic.no/api/v1/news/by-topic/community.json"
+   "url": "https://nordiccrypto.no/api/v1/news/by-topic/community.json"
   },
   {
    "id": "consumer protection",
    "count": 1,
-   "url": "https://cryptonordic.no/api/v1/news/by-topic/consumer-protection.json"
+   "url": "https://nordiccrypto.no/api/v1/news/by-topic/consumer-protection.json"
   },
   {
    "id": "crime",
    "count": 5,
-   "url": "https://cryptonordic.no/api/v1/news/by-topic/crime.json"
+   "url": "https://nordiccrypto.no/api/v1/news/by-topic/crime.json"
   },
   {
    "id": "defi",
    "count": 1,
-   "url": "https://cryptonordic.no/api/v1/news/by-topic/defi.json"
+   "url": "https://nordiccrypto.no/api/v1/news/by-topic/defi.json"
   },
   {
    "id": "events",
    "count": 3,
-   "url": "https://cryptonordic.no/api/v1/news/by-topic/events.json"
+   "url": "https://nordiccrypto.no/api/v1/news/by-topic/events.json"
   },
   {
    "id": "funds",
    "count": 1,
-   "url": "https://cryptonordic.no/api/v1/news/by-topic/funds.json"
+   "url": "https://nordiccrypto.no/api/v1/news/by-topic/funds.json"
   },
   {
    "id": "mica",
    "count": 14,
-   "url": "https://cryptonordic.no/api/v1/news/by-topic/mica.json"
+   "url": "https://nordiccrypto.no/api/v1/news/by-topic/mica.json"
   },
   {
    "id": "mining",
    "count": 3,
-   "url": "https://cryptonordic.no/api/v1/news/by-topic/mining.json"
+   "url": "https://nordiccrypto.no/api/v1/news/by-topic/mining.json"
   },
   {
    "id": "payments",
    "count": 1,
-   "url": "https://cryptonordic.no/api/v1/news/by-topic/payments.json"
+   "url": "https://nordiccrypto.no/api/v1/news/by-topic/payments.json"
   },
   {
    "id": "policy",
    "count": 5,
-   "url": "https://cryptonordic.no/api/v1/news/by-topic/policy.json"
+   "url": "https://nordiccrypto.no/api/v1/news/by-topic/policy.json"
   },
   {
    "id": "regulation",
    "count": 7,
-   "url": "https://cryptonordic.no/api/v1/news/by-topic/regulation.json"
+   "url": "https://nordiccrypto.no/api/v1/news/by-topic/regulation.json"
   },
   {
    "id": "stablecoins",
    "count": 3,
-   "url": "https://cryptonordic.no/api/v1/news/by-topic/stablecoins.json"
+   "url": "https://nordiccrypto.no/api/v1/news/by-topic/stablecoins.json"
   },
   {
    "id": "tax",
    "count": 3,
-   "url": "https://cryptonordic.no/api/v1/news/by-topic/tax.json"
+   "url": "https://nordiccrypto.no/api/v1/news/by-topic/tax.json"
   },
   {
    "id": "tokenisation",
    "count": 3,
-   "url": "https://cryptonordic.no/api/v1/news/by-topic/tokenisation.json"
+   "url": "https://nordiccrypto.no/api/v1/news/by-topic/tokenisation.json"
   }
  ]
 }

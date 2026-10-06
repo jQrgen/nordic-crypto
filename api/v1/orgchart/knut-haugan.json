@@ -1,12 +1,12 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T06:10:04+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "item": {
   "id": "knut-haugan",
-  "api_url": "https://cryptonordic.no/api/v1/orgchart/knut-haugan.json",
-  "html_url": "https://cryptonordic.no/org-chart/#knut-haugan",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/knut-haugan.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#knut-haugan",
   "name": "Knut Haugan",
   "type": "person",
   "sector": "public",

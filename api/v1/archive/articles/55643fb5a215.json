@@ -1,11 +1,11 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T06:10:04+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "item": {
   "id": "55643fb5a215",
-  "api_url": "https://cryptonordic.no/api/v1/archive/articles/55643fb5a215.json",
+  "api_url": "https://nordiccrypto.no/api/v1/archive/articles/55643fb5a215.json",
   "site": "nordic-crypto",
   "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Sporsmal/Skriftlige-sporsmal-og-svar/Skriftlig-sporsmal/?qnid=127181",
   "canonical_url": "https://stortinget.no/no/Saker-og-publikasjoner/Sporsmal/Skriftlige-sporsmal-og-svar/Skriftlig-sporsmal?qnid=127181",

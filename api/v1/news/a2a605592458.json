@@ -1,20 +1,20 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T06:10:04+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "item": {
   "id": "a2a605592458",
   "url": "https://www.kaupr.io/nyheter/blockchain-pa-tech-scenen-og-pa-dagsorden-i-stockholm",
-  "html_url": "https://cryptonordic.no/stories/a2a605592458/",
-  "api_url": "https://cryptonordic.no/api/v1/news/a2a605592458.json",
+  "html_url": "https://nordiccrypto.no/stories/a2a605592458/",
+  "api_url": "https://nordiccrypto.no/api/v1/news/a2a605592458.json",
   "title": "Blockchain på tech-scenen og på dagsorden i Stockholm",
   "title_en": "Blockchain on the tech scene and on the agenda in Stockholm",
   "source": "kaupr",
   "source_name": "Kaupr",
   "source_logo": {
    "kind": "logo",
-   "file_url": "https://cryptonordic.no/assets/img/logos/kaupr.webp",
+   "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
    "author": null,
    "license": null,
@@ -56,7 +56,7 @@
    "primary": true,
    "logo": {
     "kind": "logo",
-    "file_url": "https://cryptonordic.no/assets/img/logos/kaupr.webp",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
     "author": null,
     "license": null,
@@ -81,7 +81,7 @@
     "primary": true,
     "logo": {
      "kind": "logo",
-     "file_url": "https://cryptonordic.no/assets/img/logos/kaupr.webp",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
      "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
      "author": null,
      "license": null,

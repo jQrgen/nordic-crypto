@@ -1,20 +1,20 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T06:10:04+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "item": {
   "id": "12425cc1e7ff",
   "url": "https://www.kaupr.io/nyheter/coinmotion-og-k33-inngar-nordisk-kryptosamarbeid-om-institusjonell-handel",
-  "html_url": "https://cryptonordic.no/stories/12425cc1e7ff/",
-  "api_url": "https://cryptonordic.no/api/v1/news/12425cc1e7ff.json",
+  "html_url": "https://nordiccrypto.no/stories/12425cc1e7ff/",
+  "api_url": "https://nordiccrypto.no/api/v1/news/12425cc1e7ff.json",
   "title": "Coinmotion og K33 inngår nordisk kryptosamarbeid om institusjonell handel",
   "title_en": "Coinmotion and K33 strike Nordic crypto partnership on institutional trading",
   "source": "kaupr",
   "source_name": "Kaupr",
   "source_logo": {
    "kind": "logo",
-   "file_url": "https://cryptonordic.no/assets/img/logos/kaupr.webp",
+   "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
    "author": null,
    "license": null,
@@ -56,7 +56,7 @@
    "primary": true,
    "logo": {
     "kind": "logo",
-    "file_url": "https://cryptonordic.no/assets/img/logos/kaupr.webp",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
     "author": null,
     "license": null,
@@ -81,7 +81,7 @@
     "primary": true,
     "logo": {
      "kind": "logo",
-     "file_url": "https://cryptonordic.no/assets/img/logos/kaupr.webp",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
      "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
      "author": null,
      "license": null,

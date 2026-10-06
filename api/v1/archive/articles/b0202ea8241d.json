@@ -1,11 +1,11 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T06:10:04+00:00",
+ "generated_at": "2026-10-06T14:06:45+00:00",
  "preview": false,
  "item": {
   "id": "b0202ea8241d",
-  "api_url": "https://cryptonordic.no/api/v1/archive/articles/b0202ea8241d.json",
+  "api_url": "https://nordiccrypto.no/api/v1/archive/articles/b0202ea8241d.json",
   "site": "nordic-crypto",
   "url": "https://www.oa.no/skal-ha-stalet-fra-egen-bedrift-brukte-pengene-pa-krypto/s/80-35-26289",
   "canonical_url": "https://oa.no/skal-ha-stalet-fra-egen-bedrift-brukte-pengene-pa-krypto/s/80-35-26289",
