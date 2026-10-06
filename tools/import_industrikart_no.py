@@ -75,7 +75,13 @@ def split_names(navn, rolle):
 
 def main():
     ap = load(P("queue", "approved.json"), {}); cfg = ap.get("industrikart", {})
-    exp = load(cfg.get("export", ""), None)
+    exp_path = cfg.get("export") or ""
+    # The Kryptonytt export lives on the editor's machine, not in git. A missing file must not
+    # replace data/orgchart_no_raw.json with an empty map (that would drop every Norwegian row).
+    if not exp_path or not os.path.isfile(exp_path):
+        print(f"industrikart: export file is missing ({exp_path or 'not set'}); leaving data/orgchart_no_raw.json unchanged")
+        return
+    exp = load(exp_path, None)
     imgs = load(P("data", "images.json"), {}); extra = {"entities": [], "relations": []}  # Crypto Nordic: no Norwegian news extras
     E, R, skipped = {}, [], []
     excl = set(cfg.get("exclude_institutions", []))
