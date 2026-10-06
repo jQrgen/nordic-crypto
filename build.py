@@ -83,6 +83,27 @@ ol.news h3{font-size:18px;line-height:1.3;margin:0 0 4px}ol.news h3 a{text-decor
 .meta{font-size:13.5px;color:var(--muted)}.meta b{color:var(--ink);font-weight:600}
 .src{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;vertical-align:middle;text-align:start}
 .src-logo{height:18px;width:auto;max-width:96px;object-fit:contain;flex:none;background:#fff;padding:1px}
+.covrow,.readat-row,.also,.covbars,.covsort,.covlist,.covgroup,.cov-by-country,.cov-by-time{text-align:start}
+.covrow{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:6px 8px;margin:6px 0 0}
+.cov-logo{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;text-decoration:none}
+.cov-more{font-size:13px;color:var(--ink);border:1px solid var(--line);padding:1px 6px;background:#fff;text-decoration:none}
+.cov-more:hover,.cov-more:focus-visible{border-color:var(--ink)}
+.readat{display:inline-block;padding:8px 14px;background:var(--ink);color:#fff;text-decoration:none;font-weight:700}
+.readat:hover,.readat:focus-visible{background:#000}
+.also{margin:8px 0}
+.covbars{margin:0 0 14px}
+.covbar{display:grid;grid-template-columns:minmax(7rem,12rem) minmax(4rem,16rem) 2rem;justify-content:start;align-items:center;gap:8px;margin:3px 0;font-size:14px;max-width:100%}
+@media(max-width:640px){.covbar{grid-template-columns:minmax(6rem,9rem) minmax(3rem,1fr) 2rem}}
+.covbar .track{display:block;height:8px;background:var(--line)}
+.covbar .fill{display:block;height:8px;background:var(--accent)}
+.covbar .covn{font-variant-numeric:tabular-nums}
+.covsort{margin:8px 0}
+.covgroup{margin:0 0 12px}
+.covgroup h3{display:flex;justify-content:flex-start;gap:8px;align-items:baseline;font-size:16px;margin:0 0 4px}
+.covlist{list-style:none;padding:0;margin:0}
+.covlist li{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:flex-start;gap:6px 12px;border-bottom:1px solid var(--line);padding:8px 0}
+.covlist .cov-title{flex:1 1 16rem;min-width:12rem}
+.cov-open{font-weight:600}
 .tag{display:inline-block;font-size:12px;padding:0 6px;border:1px solid var(--line);margin-left:4px;color:var(--muted)}
 .tag.pend{border-color:var(--warm);color:var(--warm);font-weight:600}.tag.paid{border-color:var(--warm);color:var(--warm)}
 .sum{margin:6px 0 0;max-width:75ch;line-height:1.45;text-align:left}.sum.pend{color:var(--warm);font-style:italic}
@@ -535,6 +556,110 @@ def attach_source_logos(items):
         if lg.get("pending"): pub["pending"] = True
         i["source_logo"] = pub
         copy_repo_file(lg.get("file"))
+def _coverage():
+    sys.path.insert(0, P("tools"))
+    import coverage
+    return coverage
+def story_outlets(item):
+    """Primary outlet, then every other outlet. Logos are copied when a checked file exists."""
+    if item.get("own_story"):
+        return []
+    rows = _coverage().all_outlets(item)
+    sl = _source_logos()
+    for row in rows:
+        lg = sl.for_source(row.get("outlet"), preview=PREVIEW)
+        if not lg:
+            row.pop("logo", None); continue
+        row["logo"] = {k: lg[k] for k in ("file", "source", "source_url", "license", "author") if lg.get(k)}
+        if lg.get("pending"): row["logo"]["pending"] = True
+        copy_repo_file(lg.get("file"))
+    return rows
+def n_sources_label(n, more=False):
+    if more: return t("n_sources_more", n=n)
+    if n == 1: return t("n_sources_1")
+    return t("n_sources", n=n)
+def coverage_row(rows, root, page_href):
+    """Compact logo row plus a count. One outlet: nothing, the meta line already names it."""
+    if len(rows) < 2: return ""
+    show, bits = rows[:6], []
+    for s in show:
+        lg = s.get("logo") or {}
+        img = f'<img class="src-logo" src="{root}{E(lg["file"])}" alt="" height="18">' if lg.get("file") else ""
+        bits.append(f'<a class="cov-logo" href="{E(s.get("url"))}" rel="noopener" target="_blank" title="{E(s.get("outlet_name"))}" aria-label="{E(s.get("outlet_name"))}">{img or E(s.get("outlet_name") or "")}</a>')
+    rest = len(rows) - len(show)
+    label = n_sources_label(rest, more=True) if rest else n_sources_label(len(rows))
+    bits.append(f'<a class="cov-more" href="{E(page_href)}">{E(label)}</a>')
+    return f'<div class="covrow">{"".join(bits)}</div>'
+def _cov_when(iso):
+    if not iso: return ""
+    try: d = dt.datetime.fromisoformat(iso).astimezone(OSLO)
+    except ValueError: return ""
+    return f"{endate(iso)} {d.strftime('%H:%M')}"
+def _bar(label_html, count, share):
+    pct = max(0, min(100, round((share or 0) * 100)))
+    return (f'<div class="covbar"><span class="covlab">{label_html}</span>'
+            f'<span class="track" role="presentation"><span class="fill" style="width:{pct}%"></span></span>'
+            f'<span class="covn">{count}</span></div>')
+def coverage_bars(rows):
+    br = _coverage().breakdown(rows)
+    countries = []
+    for r in br["by_country"]:
+        c = r.get("country") or ""
+        if c in COUNTRY_CODES or c in EXTRA_C_CODES: lab = f"{flag(c)} {E(cname(c))}"
+        else: lab = E(c or t("cov_unknown"))
+        countries.append(_bar(lab, r["count"], r["share"]))
+    types = "".join(_bar(E(t("cov_" + r["type"])), r["count"], r["share"]) for r in br["by_source_type"])
+    return (f'<h2>{E(t("cov_breakdown"))}</h2><h3>{E(t("cov_by_country"))}</h3><div class="covbars">{"".join(countries)}</div>'
+            f'<h3>{E(t("cov_by_type"))}</h3><div class="covbars">{types}</div>')
+def _outlet_li(s, root):
+    lg = s.get("logo") or {}
+    img = f'<img class="src-logo" src="{root}{E(lg["file"])}" alt="" height="18">' if lg.get("file") else ""
+    primary = f' <span class="tag">{E(t("cov_primary"))}</span>' if s.get("primary") else ""
+    pw = f' · <span class="pw">{E(t("paywall"))}</span>' if s.get("paywall") else ""
+    c = s.get("country") or ""
+    where = (flag(c) + " " + E(c)) if c else ""
+    lang = i18n.SRC_LANG.get(s.get("lang") or "", "")
+    lang_attr_s = f' lang="{E(lang)}"' if lang else ""
+    return (f'<li data-country="{E(c)}" data-time="{E(s.get("published") or "")}">'
+            f'<a class="cov-logo" href="{E(s.get("url"))}" rel="noopener" target="_blank">{img}<b>{E(s.get("outlet_name") or "")}</b></a>'
+            f'{primary}<span class="cov-where">{where}</span>'
+            f'<span class="cov-title"{lang_attr_s}>{E(s.get("title") or "")}</span>'
+            f'<time datetime="{E(s.get("published") or "")}">{E(_cov_when(s.get("published")))}</time>{pw} '
+            f'<a class="cov-open" href="{E(s.get("url"))}" rel="noopener" target="_blank">{E(t("cov_open"))}</a></li>')
+def coverage_block(rows, root):
+    """Full outlet list, grouped by country, with a by-time list the buttons reveal. Left-aligned."""
+    order = ["NO", "SE", "DK", "FI", "IS", "NORDIC", "EU"]
+    groups = {}
+    for s in rows: groups.setdefault(s.get("country") or "", []).append(s)
+    blocks = []
+    for c in sorted(groups, key=lambda c: (order.index(c) if c in order else 50, c)):
+        if c in COUNTRY_CODES or c in EXTRA_C_CODES: head = f"{flag(c)} {E(cname(c))}"
+        else: head = E(c or t("cov_unknown"))
+        prim = [s for s in groups[c] if s.get("primary")]
+        rest = sorted([s for s in groups[c] if not s.get("primary")], key=lambda s: s.get("published") or "", reverse=True)
+        blocks.append(f'<section class="covgroup"><h3>{head} <span class="meta">{len(groups[c])}</span></h3>'
+                      f'<ul class="covlist">{"".join(_outlet_li(s, root) for s in prim + rest)}</ul></section>')
+    flat = "".join(_outlet_li(s, root) for s in sorted(rows, key=lambda s: s.get("published") or "", reverse=True))
+    extras = [s for s in rows if not s.get("primary")]
+    also = ""
+    if extras:
+        links = ", ".join(f'<a href="{E(s["url"])}" rel="noopener" target="_blank">{E(s.get("outlet_name") or "")}</a>' for s in extras)
+        also = f'<p class="also">{E(t("also_covered"))}: {links}</p>'
+    primary = rows[0]
+    read = (f'<p class="readat-row"><a class="readat" href="{E(primary.get("url"))}" rel="noopener" target="_blank">'
+            f'{E(t("read_at", name=primary.get("outlet_name") or ""))}</a></p>')
+    return (read + also + coverage_bars(rows)
+            + f'<h2>{E(t("cov_h"))}</h2>'
+            + f'<div class="seg covsort" role="group" aria-label="{E(t("cov_sort"))}">'
+            + f'<button type="button" data-covsort="country" aria-pressed="true">{E(t("cov_sort_country"))}</button>'
+            + f'<button type="button" data-covsort="time" aria-pressed="false">{E(t("cov_sort_time"))}</button></div>'
+            + f'<div class="cov-by-country">{"".join(blocks)}</div><div class="cov-by-time" hidden><ul class="covlist">{flat}</ul></div>')
+COV_SORT_JS = """<script>
+(function(){var box=document.querySelector('.covsort');if(!box)return;var c=document.querySelector('.cov-by-country'),tm=document.querySelector('.cov-by-time');
+box.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('button');if(!b)return;var mode=b.getAttribute('data-covsort');
+[].forEach.call(box.querySelectorAll('button'),function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+if(c)c.hidden=mode!=='country';if(tm)tm.hidden=mode!=='time';});})();
+</script>"""
 def source_mark(i, root=""):
     """Outlet logo, then the source name, in one left-aligned (or RTL start-aligned) row. Text only when there is no logo."""
     name = i.get("source_name") or ""
@@ -566,7 +691,24 @@ def build():
     items = sorted(approved + pending + ctx["stories"], key=lambda i: i["published"], reverse=True); ctx["items"] = items
     attach_source_logos(items)
     keys = ("id", "url", "title", "title_en", "source", "source_name", "source_logo", "country", "language", "published", "topics", "summary", "summary_i18n", "paywall", "links", "status", "own_story")
-    pub_items = [{k: i.get(k) for k in keys if k in i} for i in items]
+    cov = _coverage(); sl = _source_logos()
+    pub_items = []
+    for i in items:
+        pub = {k: i.get(k) for k in keys if k in i}
+        rows = cov.all_outlets(i)
+        extras = []
+        for r in rows[1:]:
+            ex = {k: r.get(k) for k in ("outlet", "outlet_name", "url", "title", "published", "lang", "country", "source_type") if r.get(k) not in (None, "")}
+            ex["paywall"] = bool(r.get("paywall"))
+            lg = sl.for_source(r.get("outlet"), preview=PREVIEW)
+            if lg:
+                ex["source_logo"] = {k: lg[k] for k in ("file", "source", "source_url", "license", "author") if lg.get(k)}
+                if lg.get("pending"): ex["source_logo"]["pending"] = True
+                copy_repo_file(lg.get("file"))
+            extras.append(ex)
+        pub["also_covered_by"] = extras
+        pub["coverage"] = cov.breakdown(rows)
+        pub_items.append(pub)
     for i in pub_items:
         if i.get("status") not in ("published", "owner"): i["summary"] = None; i.pop("summary_i18n", None); i["status"] = "pending"
     json.dump({"updated": news.get("updated"), "preview": PREVIEW, "items": pub_items}, open(os.path.join(SITE, "data", "news.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
@@ -823,10 +965,21 @@ def build_lang(ctx):
     items, pending = ctx["items"], ctx["pending"]
     # ---- News ----
     asset = "" if LANG == "en" else "../"
-    srcs = sorted({(i["source"], i["source_name"]) for i in items}, key=lambda x: x[1].lower())
+    src_pairs = {}
+    for i in items:
+        if i.get("source") and i.get("source_name"): src_pairs[i["source"]] = i["source_name"]
+        for r in i.get("also_covered_by") or []:
+            if isinstance(r, dict) and r.get("outlet"): src_pairs.setdefault(r["outlet"], r.get("outlet_name") or r["outlet"])
+    srcs = sorted(src_pairs.items(), key=lambda x: (x[1] or "").lower())
     lis = []
     for i in items:
         pend = i.get("status") not in ("published", "owner"); own = i.get("status") == "owner"
+        rows = story_outlets(i)
+        multi = len(rows) > 1 and not i.get("own_story")
+        if i.get("own_story"): href, ext = i["url"], False
+        elif multi: href, ext = f"stories/{i['id']}/", False
+        else: href, ext = i["url"], True
+        src_ids = " ".join(dict.fromkeys(x for x in [i.get("source")] + [r.get("outlet") for r in rows] if x))
         tags = "".join(f'<span class="tag">{E(topic_label(x))}</span>' for x in i["topics"])
         pw = f' · <span class="pw">{E(t("paywall"))}</span>' if i.get("paywall") else ""
         src_l = i18n.SRC_LANG.get(i.get("language") or "", "en")
@@ -852,11 +1005,12 @@ def build_lang(ctx):
                 lang = f' · {E(t("lang_" + lname))}' if foreign else ""
                 summ = f'<p class="sum"{lang_attr(tl)}>{E(txt)}</p>'
         hl = "" if head_l == LANG else f' lang="{head_l}"'
-        lis.append(f'<li data-src="{E(i["source"])}" data-c="{E(i.get("country"))}" data-topics="{E(" ".join(i["topics"]))}">'
-                   f'<h3><a href="{E(i["url"])}"{"" if i.get("own_story") else " rel=noopener target=_blank"}{hl}>{E(head)}</a></h3>{orig}'
+        lis.append(f'<li data-src="{E(i["source"])}" data-sources="{E(src_ids)}" data-c="{E(i.get("country"))}" data-topics="{E(" ".join(i["topics"]))}">'
+                   f'<h3><a href="{E(href)}"{"" if not ext else " rel=noopener target=_blank"}{hl}>{E(head)}</a></h3>{orig}'
                    f'<div class="meta">{flag(i.get("country"))} {E(cname(i.get("country")))} · {source_mark(i, asset)} · <time datetime="{E(i["published"])}">{endate(i["published"])}</time>{lang}{pw} {tags}'
                    + (f' <span class="tag pend">{E(t("pending"))}</span>' if pend else "") + (f' <span class="tag pend">{E(t("owner"))}</span>' if own else "")
                    + (f' <span class="tag">{E(t("our_story"))}</span>' if i.get("own_story") else "") + f'</div>{summ}'
+                   + coverage_row(rows, asset, f"stories/{i['id']}/")
                    + "".join(f'<div class="meta">↳ <a href="{E(l["url"])}" rel="noopener" target="_blank">{E(l["label"])}</a></div>' for l in i.get("links", []) or []) + '</li>')
     opts = "".join(f'<option value="{E(k)}">{E(n)}</option>' for k, n in srcs)
     tchips = "".join(f'<button type="button" class="chip tchip" data-t="{k}" aria-pressed="false">{E(topic_label(k))}</button>' for k in TOPICS)
@@ -877,7 +1031,7 @@ def build_lang(ctx):
 (function(){var NS=%s,sel=document.getElementById('fsrc'),tc=[].slice.call(document.querySelectorAll('.tchip')),cc=[].slice.call(document.querySelectorAll('.cchip')),lis=[].slice.call(document.querySelectorAll('#news li[data-src]')),cnt=document.getElementById('count');
 function on(a,k){return a.filter(function(c){return c.getAttribute('aria-pressed')==='true'}).map(function(c){return c.dataset[k]})}
 function apply(push){var s=sel.value,t=on(tc,'t'),c=on(cc,'c'),n=0;
-lis.forEach(function(li){var ok=(!s||li.dataset.src===s)&&(!c.length||c.indexOf(li.dataset.c)>=0)&&(!t.length||t.some(function(x){return (' '+li.dataset.topics+' ').indexOf(' '+x+' ')>=0}));li.hidden=!ok;if(ok)n++});
+lis.forEach(function(li){var ids=(li.dataset.sources||li.dataset.src||'').split(' ');var ok=(!s||ids.indexOf(s)>=0)&&(!c.length||c.indexOf(li.dataset.c)>=0)&&(!t.length||t.some(function(x){return (' '+li.dataset.topics+' ').indexOf(' '+x+' ')>=0}));li.hidden=!ok;if(ok)n++});
 cnt.textContent=NS.replace('{n}',n);if(push){var p=new URLSearchParams();if(c.length)p.set('country',c.join(','));if(s)p.set('source',s);if(t.length)p.set('topic',t.join(','));history.replaceState(null,'',p.toString()?'#'+p:location.pathname)}}
 var p=new URLSearchParams(location.hash.slice(1));if(p.get('source'))sel.value=p.get('source');
 (p.get('topic')||'').split(',').forEach(function(x){tc.forEach(function(c){if(c.dataset.t===x)c.setAttribute('aria-pressed','true')})});
@@ -885,6 +1039,7 @@ var p=new URLSearchParams(location.hash.slice(1));if(p.get('source'))sel.value=p
 sel.addEventListener('change',function(){apply(1)});tc.concat(cc).forEach(function(c){c.addEventListener('click',function(){c.setAttribute('aria-pressed',c.getAttribute('aria-pressed')==='true'?'false':'true');apply(1)})});apply(0)})();
 </script>""" % json.dumps(i18n.strings(LANG).get("n_stories") or i18n.strings("en")["n_stories"])
     page("", t("home_title"), "", body, t("home_desc"), js)
+    build_coverage_pages(items, ctx["blurbs"])
     build_stories(write=True)
     build_markets(ctx)
     build_org(ctx)
@@ -1022,6 +1177,37 @@ def first_sentence(s):
     for m in re.finditer(r"[.!?](?=\s+[A-ZÁÉÍÓÚÞÆÖØÅÄ])", s):
         if not re.search(r"\b(No|Nos|Act|Art|Reg|e\.g|i\.e|Mr|Ms|Dr|ehf|hf)\.$", s[:m.end()]): return s[:m.end()]
     return s
+def build_coverage_pages(items, blurbs):
+    """One page per external story: the primary 'Read at' link, every other outlet, and the coverage bars."""
+    root = up1() + "../"
+    back = "../../"
+    for i in items:
+        if i.get("own_story"): continue
+        rows = story_outlets(i)
+        if not rows: continue
+        src_l = i18n.SRC_LANG.get(i.get("language") or "", "en")
+        if LANG == "en":
+            head = i.get("title_en") or i["title"]
+            head_l = "en" if i.get("title_en") else src_l
+            orig = (f'<p class="orig">{E(t("orig_title", l=t("lname_" + i["language"]) if i18n.has("en", "lname_" + (i.get("language") or "")) else (i.get("language") or "")))}<span lang="{src_l}">{E(i["title"])}</span></p>'
+                    if i.get("title_en") else "")
+        else:
+            head, head_l, orig = i["title"], src_l, ""
+        hl = "" if head_l == LANG else f' lang="{head_l}"'
+        pend = i.get("status") not in ("published", "owner")
+        if pend:
+            summ = f'<p class="sum pend">{E(t("sum_pending"))}</p>'
+        else:
+            txt, tl = card_text(i, LANG, blurbs)
+            summ = f'<p class="sum"{lang_attr(tl)}>{E(txt)}</p>'
+        pw = f' · <span class="pw">{E(t("paywall"))}</span>' if i.get("paywall") else ""
+        body = (f'<p class="meta"><a href="{back}">{E(t("back_news"))}</a></p>'
+                f'<article class="prose"><h1{hl}>{E(head)}</h1>{orig}'
+                f'<p class="meta">{flag(i.get("country"))} {E(cname(i.get("country")))} · {source_mark(i, root)} · <time datetime="{E(i["published"])}">{endate(i["published"])}</time>{pw}'
+                + (f' <span class="tag pend">{E(t("pending"))}</span>' if pend else "") + '</p>'
+                + summ + coverage_block(rows, root) + '</article>'
+                + f'<p class="notice">{E(t("home_notice"))}</p>')
+        page("stories/" + i["id"], head, "", body, (i.get("summary") or head or "")[:200], COV_SORT_JS)
 def build_stories(write=True):
     """Own stories written by the editor (markdown, English). Public build: only slugs in approved.json stories.approve.
     Preview: also stories.ready_for_owner, tagged as awaiting jQrgen's final approval. The 'Editor notes' part is internal and never rendered.
@@ -1167,7 +1353,12 @@ def build_academia():
     """Academia page from data/academia.json. Public build: only rows approved in queue/approved.json -> academia.approve
     (key = doi for publications, url for the rest). Preview: also rows awaiting the editor, clearly marked.
     Row texts (about, level, term) are data in English and are shown with lang="en" on the other language versions."""
-    if LANG == "en": subprocess.run([sys.executable, P("tools", "import_academia.py")], check=True)
+    if LANG == "en":
+        research = "/workspace/nordic-crypto-research/academia.md"
+        if os.path.exists(research):
+            subprocess.run([sys.executable, P("tools", "import_academia.py")], check=True)
+        else:
+            print("academia: research list is missing; leaving data/academia.json unchanged")
     ac = load(P("data", "academia.json"), {}) or {}
     def keep(rows, key):  # only editor-approved rows reach the page, in preview too; pending/unverified/out stay in data/
         return [dict(r) for r in rows if r.get("status") == "approved"]

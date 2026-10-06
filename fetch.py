@@ -14,6 +14,8 @@ state/teasers.json as working material for the editor and is never published. Ar
 import argparse, datetime as dt, hashlib, json, os, re, sys, time, urllib.parse, urllib.robotparser
 import requests, feedparser
 from bs4 import BeautifulSoup
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "tools"))
+import coverage
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 P = lambda *a: os.path.join(ROOT, *a)
@@ -200,7 +202,7 @@ def main():
     queue = load(P("queue", "review.json"), {"items_needing_summary": [], "candidate_entities": []})
     org = load(P("data", "orgchart.json"), {"entities": [], "relations": []})
     known_names = {e["name"].lower() for e in org["entities"]}
-    by_url = {canon(i["url"]): i for i in news["items"]}
+    by_url = coverage.index_urls(news["items"])
     by_title = {norm_title(i["title"]): i for i in news["items"]}
     status = load(P("state", "source_status.json"), {})
     new = []
@@ -218,9 +220,22 @@ def main():
                 return
         if not title or not published or published < cutoff: return
         cu = canon(url)
-        if cu in by_url or norm_title(title) in by_title:
-            ex = by_url.get(cu) or by_title.get(norm_title(title))
+        if cu in by_url:
+            ex = by_url[cu]
             if src not in ex.setdefault("seen_via", []): ex["seen_via"].append(src)
+            return
+        cand = {"url": url, "title": title, "published": published.isoformat(), "text": f"{title}. {teaser}"}
+        match, why = coverage.find_match(cand, news["items"], teasers)
+        if match:
+            rec = coverage.record_from_parts(outlet, outlet_name, url, title, published, lang or LANG.get(country), country,
+                                             paywall=bool(SRC.get(outlet, {}).get("paywall", False)))
+            if coverage.attach(match, rec):
+                note = {"url": url, "title": title, "outlet": outlet, "outlet_name": outlet_name,
+                        "attached_to": match.get("id"), "reason": why, "at": NOW.isoformat(timespec="seconds")}
+                got = queue.setdefault("coverage_attached", [])
+                got[:] = [n for n in got if coverage.canon(n.get("url")) != cu] + [note]
+                log(f"ATTACHED {outlet_name} to {match.get('id')} ({why}): {title[:80]}")
+            by_url[cu] = match
             return
         it = {"id": iid(url), "url": url, "title": title, "title_en": None, "source": outlet, "source_name": outlet_name,
               "country": country, "language": lang or LANG.get(country), "via": src, "seen_via": [src],
@@ -295,12 +310,15 @@ def main():
         log(f"{s['id']:<22} ok={n_ok}/{len(urls)} entries={n_items} err={err}")
 
     # queue: stories without an editorial summary + candidate entities
-    pend = {q["id"] for q in queue["items_needing_summary"]}
+    pend = {q["id"]: q for q in queue["items_needing_summary"]}
     for it in news["items"]:
         if it["status"] == "pending" and it["id"] not in pend:
-            queue["items_needing_summary"].append({"id": it["id"], "country": it.get("country"), "language": it.get("language"),
+            row = {"id": it["id"], "country": it.get("country"), "language": it.get("language"),
                 "title": it["title"], "source": it["source_name"], "url": it["url"], "published": it["published"],
-                "teaser_local_only": teasers.get(it["id"], "")})
+                "teaser_local_only": teasers.get(it["id"], "")}
+            prev = pend.get(it["id"]) or {}
+            if prev.get("duplicate_of"): row["duplicate_of"] = prev["duplicate_of"]
+            queue["items_needing_summary"].append(row)
     queue["items_needing_summary"] = [q for q in queue["items_needing_summary"]
         if any(i["id"] == q["id"] and i["status"] == "pending" for i in news["items"])]
     seen_c = {(c["name"].lower(), c.get("item_id")) for c in queue["candidate_entities"]}
@@ -313,6 +331,9 @@ def main():
     queue["_how_to"] = ("Editor: for each story in items_needing_summary, add an entry to queue/approved.json -> items with the url, "
         "a 2–4 sentence summary IN ENGLISH in our own words of what the story says (never copied or machine-copied text; not only a one-line intro), an optional title_en, and topics; "
         "or add it to rejected if it is not about crypto in NO/SE/DK/FI/IS. teaser_local_only is working material and is never published. "
+        "Same event, another outlet: set duplicate_of to the existing story id or URL on this queue row (or on the approved.json item, with no summary). "
+        "The next build adds it to also_covered_by on that story and does not publish a second story. "
+        "A new article is attached on its own when the headline matches, the title is close within three days, or two known organisations appear in both texts (see coverage_attached). "
         "Candidate entities: add confirmed ones to data/orgchart_nordic.json with a source link, then set status accepted/rejected here. "
         "Events: see events_pending. Then run ./build.sh (local) – publishing needs jQrgen's OK.")
     news["items"].sort(key=lambda i: i["published"], reverse=True); news["updated"] = NOW.isoformat(timespec="seconds")

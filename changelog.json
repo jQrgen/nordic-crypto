@@ -35,6 +35,38 @@
    }
   },
   {
+   "id": "story-coverage",
+   "date": "2026-10-06",
+   "title": "Several outlets on one story",
+   "description": "A story can now list every outlet that covered the same event. The front page shows a compact row of outlet logos and a source count. The story page keeps Read at the primary outlet, adds Also covered by with a link to each other outlet, lists every outlet with its logo, country, headline and time, and shows coverage bars by country and by source type (national, regional and local, justice and official, international). The public news API includes primary_source, also_covered_by, sources and coverage. An article about the same event is attached to the existing story instead of published twice. The editor can set duplicate_of on the review-queue row.",
+   "i18n": {
+    "nn": {
+     "title": "Fleire medium på same sak",
+     "description": "Ei sak kan no lista kvart medium som dekte same hending. Framsida viser ei kort rad med logoar og eit tal på kjelder. Sakssida har Les hos den primære kjelda, Også dekt av med lenkje til kvart anna medium, ei liste med logo, land, tittel og tid, og søyler for dekning etter land og etter kjeldetype (nasjonale, regionale og lokale, justis og offentlege, internasjonale). Det offentlege nyheits-API-et har primary_source, also_covered_by, sources og coverage. Ein artikkel om same hending blir lagd på saka som finst, i staden for å bli publisert ein gong til. Redaktøren kan setja duplicate_of på rada i gjennomgangskøen."
+    },
+    "nb": {
+     "title": "Flere medier på samme sak",
+     "description": "En sak kan nå liste hvert medium som dekket samme hendelse. Forsiden viser en kort rad med logoer og et antall kilder. Saksiden har Les hos den primære kilden, Også dekket av med lenke til hvert annet medium, en liste med logo, land, tittel og tid, og søyler for dekning etter land og etter kildetype (nasjonale, regionale og lokale, justis og offentlige, internasjonale). Det offentlige nyhets-API-et har primary_source, also_covered_by, sources og coverage. En artikkel om samme hendelse legges på saken som finnes, i stedet for å bli publisert en gang til. Redaktøren kan sette duplicate_of på raden i gjennomgangskøen."
+    },
+    "sv": {
+     "title": "Flera medier på samma artikel",
+     "description": "En artikel kan nu lista varje medium som bevakade samma händelse. Startsidan visar en kort rad med logotyper och ett antal källor. Artikelsidan har Läs hos den primära källan, Även bevakad av med länk till varje annat medium, en lista med logotyp, land, rubrik och tid, och staplar för bevakning per land och per källtyp (nationella, regionala och lokala, rättsväsen och myndigheter, internationella). Det publika nyhets-API:t har primary_source, also_covered_by, sources och coverage. En artikel om samma händelse läggs på artikeln som redan finns, i stället för att publiceras en gång till. Redaktören kan sätta duplicate_of på raden i granskningskön."
+    },
+    "da": {
+     "title": "Flere medier på samme historie",
+     "description": "En historie kan nu liste hvert medie, der dækkede den samme hændelse. Forsiden viser en kort række logoer og et antal kilder. Historie-siden har Læs hos den primære kilde, Også dækket af med link til hvert andet medie, en liste med logo, land, overskrift og tid, og søjler for dækning efter land og efter kildetype (nationale, regionale og lokale, justits og offentlige, internationale). Det offentlige nyheds-API har primary_source, also_covered_by, sources og coverage. En artikel om den samme hændelse lægges på historien, der findes, i stedet for at blive offentliggjort en gang til. Redaktøren kan sætte duplicate_of på rækken i gennemgangskøen."
+    },
+    "fi": {
+     "title": "Useita medioita samassa jutussa",
+     "description": "Juttu voi nyt listata jokaisen median, joka uutisoi saman tapahtuman. Etusivu näyttää tiiviin logorivin ja lähteiden määrän. Juttusivulla on Lue lähteestä ensisijaisesta mediasta, Myös näiden uutisoima ja linkki jokaiseen muuhun mediaan, lista logolla, maalla, otsikolla ja ajalla, sekä palkit kattavuudesta maittain ja lähdetyypeittäin (valtakunnalliset, alueelliset ja paikalliset, oikeus ja viranomaiset, kansainväliset). Julkinen uutis-API sisältää primary_source, also_covered_by, sources ja coverage. Samaa tapahtumaa käsittelevä artikkeli liitetään olemassa olevaan juttuun, eikä sitä julkaista toiseen kertaan. Toimittaja voi asettaa duplicate_of tarkistusjonon riville."
+    },
+    "is": {
+     "title": "Fleiri miðlar á sömu frétt",
+     "description": "Frétt getur nú talið hvern miðil sem fjallaði um sama atburð. Forsíðan sýnir stutta röð af merkjum og fjölda heimilda. Fréttasíðan hefur Lesa hjá aðalheimildinni, Einnig fjallað um hjá með tengli á hvern annan miðil, lista með merki, landi, fyrirsögn og tíma, og súlur fyrir dreifingu eftir landi og tegund heimildar (landsmiðlar, héraðs- og staðarmiðlar, réttarkerfi og opinberir aðilar, alþjóðlegir). Opinbera fréttaviðmótið hefur primary_source, also_covered_by, sources og coverage. Grein um sama atburð er fest við fréttina sem er til, í stað þess að vera birt aftur. Ritstjórinn getur sett duplicate_of á línuna í yfirferðarröðinni."
+    }
+   }
+  },
+  {
    "id": "frontpage-blurbs",
    "date": "2026-10-05",
    "title": "Longer summaries on the front page",
