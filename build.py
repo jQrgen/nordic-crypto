@@ -157,11 +157,42 @@ CSS += """
 .langsw{position:relative;margin-left:auto;font-size:14px;display:flex;gap:10px;align-items:baseline}
 .langsw details{position:relative}.langsw summary{cursor:pointer;list-style:none;border:1px solid var(--ink);padding:2px 8px}
 .langsw summary::-webkit-details-marker{display:none}
-.langsw ul{position:absolute;right:0;z-index:20;margin:4px 0 0;padding:4px 0;list-style:none;background:#fff;border:1px solid var(--ink);min-width:12.5rem}
+.langsw ul{position:absolute;right:0;z-index:20;margin:4px 0 0;padding:4px 0;list-style:none;background:#fff;border:1px solid var(--ink);min-width:12.5rem;max-height:70vh;overflow:auto}
 html[dir=rtl] .langsw ul{right:auto;left:0}
-.langsw li a{display:block;padding:4px 12px;text-decoration:none}.langsw li a:hover,.langsw li a:focus{background:var(--soft)}
+.langsw li a{display:block;padding:4px 12px;text-decoration:none;text-align:left}.langsw li a:hover,.langsw li a:focus{background:var(--soft)}
 .langsw li a[aria-current]{font-weight:700}.langsw .quick{font-size:13.5px}
-@media(max-width:640px){.langsw{margin-left:0;width:100%}}
+.navtoggle{display:none}
+.langpick,.langglobe{display:none}
+.vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+/* Phones: iOS Safari paints an empty bordered box for an absolutely positioned list inside <details>.
+   A native <select> is the control there. The list below is only the no-JS fallback, in normal flow. */
+@media(max-width:960px),(hover:none) and (pointer:coarse){
+ .langsw{margin-left:0;width:auto;max-width:100%;justify-content:flex-start;align-items:center;flex-wrap:wrap;text-align:left}
+ .langsw ul{position:static;right:auto;left:auto;width:100%;min-width:0;max-height:60vh;overflow:auto}
+ .langsw li a{padding:10px 12px}
+}
+@media(max-width:960px){
+ .js .brandrow{width:100%}
+ .js header.top .wrap{align-items:flex-start;justify-content:flex-start}
+ .js header.top .wrap{gap:8px 10px}
+ .js .navtoggle{display:inline-flex;align-items:center;justify-content:center;order:2;flex:none;width:44px;height:44px;padding:0;border:1px solid var(--ink);background:#fff;color:inherit;cursor:pointer;border-radius:0}
+ .js .navtoggle .navbars{display:inline-flex;flex-direction:column;justify-content:center;gap:4px;width:18px}
+ .js .navtoggle .navbars span{display:block;height:2px;background:currentColor}
+ .js .navtoggle:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+ .js nav.main{display:none;order:4;flex:1 0 100%;flex-direction:column;align-items:stretch;gap:0;margin:0;text-align:left}
+ .js nav.main.is-open{display:flex}
+ .js nav.main a{display:block;width:100%;text-align:left;padding:11px 2px;border-bottom:1px solid var(--line)}
+ .js .langsw{order:3;flex:1 1 auto;min-width:0;flex-wrap:nowrap}
+}
+@media(max-width:960px),(hover:none) and (pointer:coarse){
+ .js .langsw details{display:none}
+ .js .langglobe{display:inline;font-size:16px;line-height:1}
+ .js .langpick{display:inline-flex;align-items:center;justify-content:flex-start;min-width:0;max-width:100%;text-align:left}
+ .js .langpick select{font-size:16px;line-height:1.3;min-height:44px;width:10.5rem;max-width:100%;text-align:left;text-align-last:left;padding:8px 28px 8px 10px}
+ .js .langpick select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+ .js .langsw .quick{font-size:16px;padding:10px 0;text-align:left}
+}
+@media(max-width:640px){.langsw{margin-left:0}}
 html.nc-pick body{visibility:hidden}
 .logo{width:28px;height:28px;object-fit:contain;flex:none;background:#fff}
 .logo.big{width:64px;height:64px}
@@ -488,30 +519,46 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
         cur = " aria-current=true" if l == LANG else ""
         return (f'<li><a href="{root}{lp(l)}{slug + "/" if slug else ""}" hreflang="{l}" lang="{l}"{rtl} data-lang="{l}"{cur}>{E(i18n.NAME[l])}</a></li>')
     sw = "".join(_sw(l) for l in langs)
+    def _opt(l):
+        rtl = ' dir="rtl"' if i18n.rtl(l) else ""
+        sel = " selected" if l == LANG else ""
+        mark = "✓ " if l == LANG else ""
+        href = f"{root}{lp(l)}{slug + '/' if slug else ''}"
+        return (f'<option value="{E(href)}" hreflang="{l}" lang="{l}"{rtl} data-lang="{l}"{sel}>{mark}{E(i18n.NAME[l])}</option>')
     q = i18n.QUICK.get(LANG)
     quick = (f'<a class="quick" href="{root}{lp(q)}{slug + "/" if slug else ""}" hreflang="{q}" lang="{q}" data-lang="{q}">{E(i18n.NAME[q])}</a>' if q in langs else "")
-    switcher = (f'<div class="langsw">{quick}<details><summary aria-label="{E(t("lang_choose"))}">🌐 {E(i18n.NAME[LANG])}</summary>'
+    # Phones use a native <select> (the iOS picker). Desktop keeps the <details> list. Both list native names.
+    pick_html = (f'<span class="langglobe" aria-hidden="true">🌐</span><label class="langpick"><span class="vh">{E(t("lang_choose"))}</span>'
+                 f'<select class="langsel">{"".join(_opt(l) for l in langs)}</select></label>')
+    switcher = (f'<div class="langsw">{quick}{pick_html}<details><summary aria-label="{E(t("lang_choose"))}">🌐 {E(i18n.NAME[LANG])}</summary>'
                 f'<ul role="list" aria-label="{E(t("lang_label"))}">{sw}</ul></details></div>')
+    nav_btn = (f'<button type="button" class="navtoggle" aria-expanded="false" aria-controls="sitenav" aria-label="{E(t("main_menu"))}">'
+               f'<span class="navbars" aria-hidden="true"><span></span><span></span><span></span></span></button>')
     banner = f'<div class="preview" role="note"><div class="wrap">{t("preview_banner")}</div></div>' if PREVIEW else ""
     # language auto-selection: only on the English home page (site root), see tools/langselect.js
     pick = ""
     if LANG == "en" and not slug:
         pick = ("<script>" + langsel_script().replace("__GEO__", json.dumps((geo_endpoint() + "/api/geo") if geo_endpoint() else None))
                 .replace("__COOKIE_PATH__", COOKIE_PATH).replace("__LANGS__", json.dumps(i18n.LANGS)) + "</script>")
-    setck = ("<script>(function(){document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[data-lang]');if(!a)return;"
-             f"var c=a.getAttribute('data-lang');document.cookie='nc_lang='+c+';path={COOKIE_PATH};max-age=31536000;SameSite=Lax'+(location.protocol==='https:'?';Secure':'');"
-             "try{localStorage.setItem('nc_lang',c)}catch(err){}}})})();</script>")
+    setck = ("<script>(function(){function setLang(c){if(!c)return;"
+             f"document.cookie='nc_lang='+c+';path={COOKIE_PATH};max-age=31536000;SameSite=Lax'+(location.protocol==='https:'?';Secure':'');"
+             "try{localStorage.setItem('nc_lang',c)}catch(err){}}"
+             "document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[data-lang]');if(a)setLang(a.getAttribute('data-lang'))});"
+             "document.addEventListener('change',function(e){var s=e.target;if(!s||!s.matches||!s.matches('select.langsel'))return;var o=s.options[s.selectedIndex];if(!o)return;setLang(o.getAttribute('data-lang'));if(o.value)location.href=o.value});"
+             "var b=document.querySelector('.navtoggle'),n=document.getElementById('sitenav');if(b&&n){b.addEventListener('click',function(){var open=n.classList.toggle('is-open');b.setAttribute('aria-expanded',open?'true':'false')});"
+             "document.addEventListener('keydown',function(e){if(e.key==='Escape'&&n.classList.contains('is-open')){n.classList.remove('is-open');b.setAttribute('aria-expanded','false');b.focus()}})}})();</script>")
     nlfoot = (f'<div class="nlfoot"><b>{E(t("nl_foot"))}</b> {" ".join(x for x in (newsletter_form(True), substack_button()) if x)} <a href="{rel}newsletter/">{E(t("nl_more"))}</a></div>' if newsletter_on() and slug != "newsletter"
               else "")
     doc = f"""<!doctype html>
 <html lang="{i18n.HTML_LANG[LANG]}"{" dir=\"rtl\"" if i18n.rtl(LANG) else ""}><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script>document.documentElement.classList.add("js")</script>
 {pick}<title>{E(title)}{" – " + SITE_NAME if slug else ""}</title>
 <meta name="description" content="{E(desc)}"><link rel="canonical" href="{url}">{alt}{head_extra}{'<meta name="robots" content="noindex">' if PREVIEW else ''}
 <meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:url" content="{url}"><meta property="og:type" content="website"><meta property="og:locale" content="{i18n.OG_LOCALE[LANG]}">{''.join(f'<meta property="og:locale:alternate" content="{i18n.OG_LOCALE[l]}">' for l in langs if l != LANG)}
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230f5ea8'/%3E%3Crect x='4' width='3' height='16' fill='white'/%3E%3Crect y='6.5' width='16' height='3' fill='white'/%3E%3C/svg%3E">
 <style>{CSS}{s['css']}</style></head>
-<body>{banner}<header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="{rel}">Nordic <span>Crypto</span></a><span class="hdrbtns">{header_sub_button()}{header_x_button()}</span></div><nav class="main" aria-label="{E(t("main_menu"))}">{nav_html}</nav>{switcher}</div></header>
+<body>{banner}<header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="{rel}">Nordic <span>Crypto</span></a><span class="hdrbtns">{header_sub_button()}{header_x_button()}</span></div>{nav_btn}<nav id="sitenav" class="main" aria-label="{E(t("main_menu"))}">{nav_html}</nav>{switcher}</div></header>
 <main class="wrap">
 {body}
 {s['top']}
