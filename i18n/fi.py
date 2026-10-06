@@ -16,7 +16,7 @@ S = {
 "home_lead": "Linkkejä juttuihin Norjasta, Ruotsista, Tanskasta, Suomesta ja Islannista – sanomalehdistä, yleisradioyhtiöistä, valvojilta ja keskuspankeilta – ja jokaisesta on tiivistelmä siitä, mitä juttu sanoo, tehty tekoälyn avulla, ihmistoimittajina jQrgen ja Nordic Crypton toimittaja – kirjoitettu englanniksi ja käännetty suomeksi. Kunnes toimittaja on hyväksynyt käännöksen, näytämme englanninkielisen tiivistelmän. Lue koko juttu lähteestä. Päivitetty viimeksi {upd}. {n} juttua{pend}.",
 "home_pend": " ({n} odottaa toimittajan tarkistusta)",
 "source": "Lähde", "all_sources": "Kaikki lähteet", "topic": "Aihe", "n_stories": "{n} juttua", "no_stories": "Julkaistuja juttuja ei vielä ole.",
-"home_notice": "Tiivistelmät ovat omiamme, ja ne on kirjoitettu otsikon ja julkisen ingressin pohjalta. Emme toista artikkelien tekstiä emmekä kierrä maksumuureja. Merkintä ”voi vaatia tilauksen” tarkoittaa maksumuurin takana olevaa mediaa. Otsikot näytetään sellaisina kuin lähde ne kirjoitti. Mikään täällä ei ole sijoitusneuvontaa.",
+"home_notice": "Tiivistelmät ovat omiamme, ja ne on kirjoitettu otsikon ja julkisen ingressin pohjalta. Emme toista artikkelien tekstiä emmekä kierrä maksumuureja. Merkintä ”voi vaatia tilauksen” tarkoittaa maksumuurin takana olevaa mediaa. Otsikko on kielellä, jota luet. Alkuperäinen otsikko on sen alla, kun lähde kirjoitti sen toisella kielellä. Mikään täällä ei ole sijoitusneuvontaa.",
 "paywall": "voi vaatia tilauksen", "orig_title": "Alkuperäinen otsikko ({l}): ",
 "also_covered": "Myös näiden uutisoima", "read_at": "Lue lähteestä {name}",
 "n_sources": "{n} lähdettä", "n_sources_1": "1 lähde", "n_sources_more": "+{n} lähdettä",

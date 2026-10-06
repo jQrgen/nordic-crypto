@@ -16,7 +16,7 @@ S = {
 "home_lead": "Tenglar á fréttir frá Noregi, Svíþjóð, Danmörku, Finnlandi og Íslandi – frá dagblöðum, ljósvakamiðlum, eftirlitsstofnunum og seðlabönkum – með samantekt um hvað fréttin segir, unnin með aðstoð gervigreindar, með mannlegum ritstjórum (jQrgen og ritstjóra Nordic Crypto) – skrifuð á ensku og þýdd á íslensku. Þar til ritstjórinn hefur samþykkt þýðinguna birtum við ensku samantektina. Lestu alla fréttina hjá heimildinni. Síðast uppfært {upd}. {n} fréttir{pend}.",
 "home_pend": " ({n} bíða yfirferðar ritstjóra)",
 "source": "Heimild", "all_sources": "Allar heimildir", "topic": "Efni", "n_stories": "{n} fréttir", "no_stories": "Engar birtar fréttir enn.",
-"home_notice": "Samantektirnar eru okkar eigin, skrifaðar út frá fyrirsögn og opinberum inngangi. Við endurbirtum ekki texta greina og förum ekki fram hjá áskriftarveggjum. „Gæti krafist áskriftar“ merkir miðil með áskriftarvegg. Fyrirsagnir eru birtar eins og heimildin skrifaði þær. Ekkert hér er fjárfestingarráðgjöf.",
+"home_notice": "Samantektirnar eru okkar eigin, skrifaðar út frá fyrirsögn og opinberum inngangi. Við endurbirtum ekki texta greina og förum ekki fram hjá áskriftarveggjum. „Gæti krafist áskriftar“ merkir miðil með áskriftarvegg. Fyrirsögnin er á tungumálinu sem þú lest. Upprunalega fyrirsögnin stendur undir þegar heimildin skrifaði hana á öðru tungumáli. Ekkert hér er fjárfestingarráðgjöf.",
 "paywall": "gæti krafist áskriftar", "orig_title": "Upprunaleg fyrirsögn ({l}): ",
 "also_covered": "Einnig fjallað um hjá", "read_at": "Lesa hjá {name}",
 "n_sources": "{n} miðlar", "n_sources_1": "1 miðill", "n_sources_more": "+{n} miðlar",

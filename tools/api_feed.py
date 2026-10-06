@@ -28,6 +28,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 sys.path.insert(0, os.path.join(ROOT, "tools"))
+import headlines as headlines_mod  # noqa: E402
 import i18n  # noqa: E402
 import site_url  # noqa: E402
 import source_logos  # noqa: E402
@@ -129,7 +130,7 @@ DOCS_DESC = (
 BANNED_KEYS = {
     "token", "secret", "password", "private_key", "api_key",
     "approved_by", "approved_at", "reject_reason", "editor_note",
-    "summary_i18n_review", "summary_i18n_source", "matched", "fetched", "seen_via", "via",
+    "summary_i18n_review", "summary_i18n_source", "title_i18n_source", "matched", "fetched", "seen_via", "via",
     "suggested_by", "suggested_status", "suggested_at", "merged_from", "site_terms",
     "removal_reason", "reviewed",
 }
@@ -348,6 +349,7 @@ class Feed:
             "api_url": self.abs(f"api/v1/news/{nid}.json"),
             "title": item.get("title"),
             "title_en": item.get("title_en"),
+            "title_i18n": headlines_mod.public_title_i18n(item) if public else {},
             "source": source,
             "source_name": source_name,
             "source_logo": self.media(source_logos.for_source(source, preview=self.preview), "logo"),
@@ -878,7 +880,9 @@ def _meta(feed):
             "Site languages, with native_name, english_name and rtl, are listed in languages and in /api/v1/languages.json. "
             "Our own text is written in English first. summary_i18n, title_i18n, subtitle_i18n, note_i18n and about_i18n "
             "carry published translations, today nn, nb, sv, da, fi and is. Other site languages fall back to the English field "
-            "until a translation is published. External headlines stay in the source language (see language and language_code). "
+            "until a translation is published. On a news item, title is the source headline, title_en is our English headline "
+            "and title_i18n is our headline in nn, nb, sv, da, fi and is. The site shows the page-language headline first "
+            "and the source headline underneath when they differ. Outlet headlines inside sources stay in that outlet's language. "
             "There is no query string for language: each JSON document already carries every published translation. "
             "The language switcher's country default is a guess; see /api/v1/geo-language.json. The nc_lang cookie wins."
         ),
@@ -1048,6 +1052,9 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
         "summary is English. summary_i18n holds nn, nb, sv, da, fi and is when that translation is published. "
         "Other site languages use the English summary until a translation exists. "
         "title is the source headline. title_en is our English headline when we wrote one. "
+        "title_i18n holds nn, nb, sv, da, fi and is when that headline is not already the source headline. "
+        "The site shows the page-language headline first and the source headline under it when they differ. "
+        "Other site languages use title_en. "
         "source_logo is the outlet image when assets/img/logos/logos.json has a checked file for the source id "
         "(or its outlet, or a _source_alias). Null means show the source name as text. "
         "primary_source is that outlet. also_covered_by lists every other outlet on the same event "
@@ -1359,8 +1366,9 @@ def schemas():
             "url": {"type": "string", "description": "Story the reader follows. Absolute."},
             "html_url": {"type": "string", "nullable": True, "description": "Our story page. For our own articles this is the article. For other outlets this is the coverage page; url is the primary outlet."},
             "api_url": {"type": "string"},
-            "title": {"type": "string"},
-            "title_en": {"type": "string", "nullable": True},
+            "title": {"type": "string", "description": "Source headline."},
+            "title_en": {"type": "string", "nullable": True, "description": "Our English headline, when the source headline is not English."},
+            "title_i18n": {"type": "object", "additionalProperties": {"type": "string"}, "description": "Our headline in nn, nb, sv, da, fi and is, when that language is not already the source headline. English is title_en."},
             "source": {"type": "string", "description": "Source id from sources.json."},
             "source_name": {"type": "string"},
             "source_logo": {
@@ -1678,7 +1686,8 @@ def llms_txt(feed, index):
         "The sign-off is The Nordic Crypto team. Kaupr (kaupr.io) is a news source only and is never a sponsor. "
         "Summaries are ours, in English, with translations in summary_i18n (nn, nb, sv, da, fi, is) when published. "
         "Other site languages fall back to English until a translation is published. "
-        "External headlines stay in the original language.",
+        "title on a news item is the source headline. title_en and title_i18n are our headlines. "
+        "The pages show the page-language headline first and the source headline underneath when they differ.",
         "",
         "GitHub Pages sends Access-Control-Allow-Origin: * on every JSON file, so a browser can fetch them from any site. "
         "Use the file name (index.json). A directory URL does not serve the JSON.",
@@ -1832,7 +1841,7 @@ curl -fsS {html.escape(b)}api/v1/markets/aggregated.json</pre>
 <h2>Several outlets, one story</h2>
 <p>A story keeps one primary outlet. Other outlets that covered the same event are in <code>also_covered_by</code>. <code>sources</code> lists the primary first, then the others. Each outlet has <code>outlet</code>, <code>outlet_name</code>, <code>url</code>, <code>title</code> (that outlet's headline), <code>published</code>, <code>lang</code>, <code>country</code>, <code>source_type</code> and <code>logo</code>. <code>source_type</code> is <code>national</code>, <code>regional</code> (regional and local), <code>official</code> (justice and official: police, prosecutors, courts, regulators) or <code>international</code>. <code>coverage.count</code> is the number of outlets. <code>coverage.by_country</code> and <code>coverage.by_source_type</code> are the counts and shares for the bars. Every source type is present, including a count of zero. <code>html_url</code> is our page for that story. <code>url</code> is the primary outlet. Kaupr stays a news source only.</p>
 <h2>Languages</h2>
-<p>English is the default field (<code>summary</code>, <code>title</code>, <code>text</code>). Translations that we have published sit in <code>summary_i18n</code>, <code>title_i18n</code>, <code>subtitle_i18n</code>, <code>note_i18n</code>, <code>text_i18n</code> and <code>about_i18n</code>, keyed by <code>nn</code>, <code>nb</code>, <code>sv</code>, <code>da</code>, <code>fi</code> and <code>is</code>. Other site languages use the English field until a translation is published. Headlines from other outlets stay in the original language. Dates are ISO 8601.</p>
+<p>English is the default field (<code>summary</code>, <code>title</code>, <code>text</code>). Translations that we have published sit in <code>summary_i18n</code>, <code>title_i18n</code>, <code>subtitle_i18n</code>, <code>note_i18n</code>, <code>text_i18n</code> and <code>about_i18n</code>, keyed by <code>nn</code>, <code>nb</code>, <code>sv</code>, <code>da</code>, <code>fi</code> and <code>is</code>. Other site languages use the English field until a translation is published. On a news item, <code>title</code> stays the source headline, <code>title_en</code> is our English headline and <code>title_i18n</code> is our headline in the Nordic site languages. The pages show the page-language headline first and the source headline underneath when they differ. Each outlet's own headline, inside <code>sources</code>, stays in that outlet's language. Dates are ISO 8601.</p>
 <p><a href="{html.escape(b)}api/v1/languages.json"><code>/api/v1/languages.json</code></a> lists every site language with <code>code</code>, <code>native_name</code>, <code>english_name</code>, <code>rtl</code>, <code>html_lang</code> and <code>home</code>. <a href="{html.escape(b)}api/v1/geo-language.json"><code>/api/v1/geo-language.json</code></a> is the country-to-language guess used on a first visit. The IP country comes from the tipworker <code>GET /api/geo</code> (Cloudflare <code>request.cf.country</code>). Nothing is stored. The <code>nc_lang</code> cookie, set by the language switcher, always wins.</p>
 <h2>CORS</h2>
 <p>GitHub Pages sends <code>Access-Control-Allow-Origin: *</code> on these files, so a page on another site can <code>fetch()</code> them. GitHub Pages does not apply a custom headers file. Use the <code>.json</code> file name; opening a directory does not return the JSON.</p>

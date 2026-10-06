@@ -16,7 +16,7 @@ S = {
 "home_lead": "Links til artikler fra Norge, Sverige, Danmark, Finland og Island – aviser, radio og tv, tilsynsmyndigheder og centralbanker – hver med et resumé af, hvad artiklen siger, lavet med hjælp fra kunstig intelligens, med menneskelige redaktører (jQrgen og Nordic Crypto-redaktøren) – skrevet på engelsk og oversat til dansk. Indtil oversættelsen er godkendt af redaktøren, viser vi det engelske resumé. Læs hele artiklen hos kilden. Senest opdateret {upd}. {n} artikler{pend}.",
 "home_pend": " ({n} afventer redaktøren)",
 "source": "Kilde", "all_sources": "Alle kilder", "topic": "Emne", "n_stories": "{n} artikler", "no_stories": "Ingen offentliggjorte artikler endnu.",
-"home_notice": "Resuméerne er vores egne, skrevet ud fra overskriften og den offentlige manchet. Vi gengiver ikke artikeltekst, og vi omgår ikke betalingsmure. Artikler markeret »kan kræve abonnement« er fra medier med betalingsmur. Overskrifterne vises, som kilden skrev dem. Intet her er investeringsrådgivning.",
+"home_notice": "Resuméerne er vores egne, skrevet ud fra overskriften og den offentlige manchet. Vi gengiver ikke artikeltekst, og vi omgår ikke betalingsmure. Artikler markeret »kan kræve abonnement« er fra medier med betalingsmur. Overskriften er på det sprog, du læser. Den oprindelige overskrift står under, når kilden skrev den på et andet sprog. Intet her er investeringsrådgivning.",
 "paywall": "kan kræve abonnement", "orig_title": "Original overskrift ({l}): ",
 "also_covered": "Også dækket af", "read_at": "Læs hos {name}",
 "n_sources": "{n} kilder", "n_sources_1": "1 kilde", "n_sources_more": "+{n} kilder",

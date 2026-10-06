@@ -20,7 +20,7 @@ S = {
 "home_lead": "Links to stories from Norway, Sweden, Denmark, Finland and Iceland – newspapers, broadcasters, regulators and central banks – each with an English summary of what the story says, made with the help of artificial intelligence, with human editors (jQrgen and the Nordic Crypto editor). Read the full story at the source. Last updated {upd}. {n} stories{pend}.",
 "home_pend": " ({n} pending editor review)",
 "source": "Source", "all_sources": "All sources", "topic": "Topic", "n_stories": "{n} stories", "no_stories": "No published stories yet.",
-"home_notice": "Summaries are our own, written in English from the headline and the public teaser. We do not reproduce article text and we do not get around paywalls. Stories marked “may require a subscription” are from outlets with a paywall. Nothing here is investment advice.",
+"home_notice": "Summaries are our own, written in English from the headline and the public teaser. We do not reproduce article text and we do not get around paywalls. Stories marked “may require a subscription” are from outlets with a paywall. The headline is in the language of this page. When the source wrote it in another language, that headline is shown underneath. Nothing here is investment advice.",
 "paywall": "may require a subscription", "orig_title": "Original title ({l}): ",
 "also_covered": "Also covered by", "read_at": "Read at {name}",
 "n_sources": "{n} sources", "n_sources_1": "1 source", "n_sources_more": "+{n} sources",

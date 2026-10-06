@@ -13,6 +13,7 @@ from zoneinfo import ZoneInfo
 import i18n
 import site_url
 from tools.frontpage_blurbs import card_text, load as load_blurbs, opening_sentences, substantive
+from tools.headlines import card_headline, public_title_i18n
 ROOT = os.path.dirname(os.path.abspath(__file__)); P = lambda *a: os.path.join(ROOT, *a)
 BASE = site_url.BASE
 SITE = os.environ.get("NC_SITE_DIR") or P("site")   # NC_SITE_DIR: scratch build dir (tipworker/publish_tip_page.sh)
@@ -84,7 +85,7 @@ select,input[type=search]{font:inherit;font-size:15px;padding:5px 8px;border:1px
 ol.news{list-style:none;margin:0;padding:0;text-align:left}
 ol.news li{padding:14px 0;border-bottom:1px solid var(--line)}
 ol.news h3{font-size:18px;line-height:1.3;margin:0 0 4px}ol.news h3 a{text-decoration:none}ol.news h3 a:hover{text-decoration:underline}
-.orig{font-size:13.5px;color:var(--muted);margin:0 0 3px}
+.orig{font-size:13.5px;color:var(--muted);margin:0 0 3px;line-height:1.35;font-weight:400;text-align:start}
 .meta{font-size:13.5px;color:var(--muted)}.meta b{color:var(--ink);font-weight:600}
 .src{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;vertical-align:middle;text-align:start}
 .src-logo{height:18px;width:auto;max-width:96px;object-fit:contain;flex:none;background:#fff;padding:1px}
@@ -743,7 +744,11 @@ def build():
     LANG = "en"; ctx["stories"] = build_stories(write=False)
     items = sorted(approved + pending + ctx["stories"], key=lambda i: i["published"], reverse=True); ctx["items"] = items
     attach_source_logos(items)
-    keys = ("id", "url", "title", "title_en", "source", "source_name", "source_logo", "country", "language", "published", "topics", "summary", "summary_i18n", "paywall", "links", "status", "own_story")
+    for i in items:
+        ti = public_title_i18n(i)
+        if ti:
+            i["title_i18n"] = ti
+    keys = ("id", "url", "title", "title_en", "title_i18n", "source", "source_name", "source_logo", "country", "language", "published", "topics", "summary", "summary_i18n", "paywall", "links", "status", "own_story")
     cov = _coverage(); sl = _source_logos()
     pub_items = []
     for i in items:
@@ -1018,6 +1023,33 @@ def build_markets(ctx):
     page("markets", t("mk_title"), "markets", body_html, t("mk_desc"),
          f"<script>window.NC_MK={json.dumps(strings, ensure_ascii=False)};</script><script>{script}</script>")
 
+def story_heads(i):
+    """Primary headline, the lang attribute for that heading, and the secondary source headline.
+
+    The source line is empty when the page language already is the source language.
+    """
+    head, head_l, orig_title = card_headline(i, LANG)
+    hl = "" if head_l == LANG else f' lang="{head_l}"'
+    orig = ""
+    if orig_title:
+        lname = i.get("language") or ""
+        label = t("lname_" + lname) if i18n.has("en", "lname_" + lname) else lname
+        src_l = i18n.SRC_LANG.get(lname, "en")
+        orig = (f'<p class="orig">{E(t("orig_title", l=label))}'
+                f'<span lang="{src_l}">{E(orig_title)}</span></p>')
+    return head, head_l, hl, orig
+def source_is_foreign(i, head_l):
+    """Whether the card should say the story is in another language.
+
+    English cards already name that language on the original-title line once the
+    headline itself is English, so they skip the extra marker. Other site languages
+    keep it, including «Kort forklart», after the headline has been translated.
+    """
+    lname = i.get("language") or ""
+    src_foreign = bool(lname and i18n.has("en", "lang_" + lname) and lname != i18n.SAME_LANG.get(LANG, ""))
+    if LANG == "en":
+        return src_foreign and head_l != LANG
+    return src_foreign
 def build_lang(ctx):
     items, pending = ctx["items"], ctx["pending"]
     # ---- News ----
@@ -1039,15 +1071,9 @@ def build_lang(ctx):
         src_ids = " ".join(dict.fromkeys(x for x in [i.get("source")] + [r.get("outlet") for r in rows] if x))
         tags = "".join(f'<span class="tag">{E(topic_label(x))}</span>' for x in i["topics"])
         pw = f' · <span class="pw">{E(t("paywall"))}</span>' if i.get("paywall") else ""
-        src_l = i18n.SRC_LANG.get(i.get("language") or "", "en")
-        if LANG == "en" or i.get("own_story"):  # English: our English headline + the original below; own stories: our title
-            head, head_l = (i.get("title_en") or i["title"]), ("en" if i.get("title_en") or i.get("own_story") else src_l)
-            orig = (f'<p class="orig">{E(t("orig_title", l=t("lname_" + i["language"]) if i18n.has("en", "lname_" + (i.get("language") or "")) else (i.get("language") or "")))}<span lang="{src_l}">{E(i["title"])}</span></p>'
-                    if i.get("title_en") and LANG == "en" else "")
-        else:  # other languages: the external headline exactly as in the source
-            head, head_l, orig = i["title"], src_l, ""
+        head, head_l, hl, orig = story_heads(i)
         lname = i.get("language") or ""
-        foreign = bool(lname and i18n.has("en", "lang_" + lname) and lname != i18n.SAME_LANG.get(LANG, "") and head_l != LANG)
+        foreign = source_is_foreign(i, head_l)
         if pend:
             summ = f'<p class="sum pend">{E(t("sum_pending"))}</p>'
             lang = f' · {E(t("lang_" + lname))}' if foreign else ""
@@ -1061,7 +1087,6 @@ def build_lang(ctx):
             else:
                 lang = f' · {E(t("lang_" + lname))}' if foreign else ""
                 summ = f'<p class="sum"{lang_attr(tl)}>{E(txt)}</p>'
-        hl = "" if head_l == LANG else f' lang="{head_l}"'
         lis.append(f'<li data-src="{E(i["source"])}" data-sources="{E(src_ids)}" data-c="{E(i.get("country"))}" data-topics="{E(" ".join(i["topics"]))}">'
                    f'<h3><a href="{E(href)}"{"" if not ext else " rel=noopener target=_blank"}{hl}>{E(head)}</a></h3>{orig}'
                    f'<div class="meta">{flag(i.get("country"))} {E(cname(i.get("country")))} · {source_mark(i, asset)} · <time datetime="{E(i["published"])}">{endate(i["published"])}</time>{lang}{pw} {tags}'
@@ -1242,15 +1267,7 @@ def build_coverage_pages(items, blurbs):
         if i.get("own_story"): continue
         rows = story_outlets(i)
         if not rows: continue
-        src_l = i18n.SRC_LANG.get(i.get("language") or "", "en")
-        if LANG == "en":
-            head = i.get("title_en") or i["title"]
-            head_l = "en" if i.get("title_en") else src_l
-            orig = (f'<p class="orig">{E(t("orig_title", l=t("lname_" + i["language"]) if i18n.has("en", "lname_" + (i.get("language") or "")) else (i.get("language") or "")))}<span lang="{src_l}">{E(i["title"])}</span></p>'
-                    if i.get("title_en") else "")
-        else:
-            head, head_l, orig = i["title"], src_l, ""
-        hl = "" if head_l == LANG else f' lang="{head_l}"'
+        head, head_l, hl, orig = story_heads(i)
         pend = i.get("status") not in ("published", "owner")
         if pend:
             summ = f'<p class="sum pend">{E(t("sum_pending"))}</p>'
