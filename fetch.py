@@ -11,11 +11,14 @@ in our own words (queue/approved.json) – see README.md. The front page needs t
 state/teasers.json as working material for the editor and is never published. Article text is never fetched
 (we respect paywalls and robots.txt).
 """
-import argparse, datetime as dt, hashlib, json, os, re, sys, time, urllib.parse, urllib.robotparser
+import argparse, datetime as dt, hashlib, json, os, re, sys, threading, time, urllib.parse, urllib.robotparser
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import requests, feedparser
 from bs4 import BeautifulSoup
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(ROOT, "tools"))
+import listing  # noqa: E402
 P = lambda *a: os.path.join(ROOT, *a)
 NOW = dt.datetime.now(dt.timezone.utc)
 for d in ("data", "state", "queue", "logs"): os.makedirs(P(d), exist_ok=True)
@@ -33,33 +36,61 @@ CFG = load(P("sources.json"), None)
 UA = CFG["user_agent"]; DELAY = CFG.get("min_delay_seconds", 2)
 LOG = open(P("logs", dt.datetime.now().strftime("fetch-%Y%m%d-%H%M%S.log")), "w", encoding="utf-8")
 def log(*a):
-    s = " ".join(str(x) for x in a); print(s, flush=True); LOG.write(s + "\n"); LOG.flush()
+    s = " ".join(str(x) for x in a)
+    with _io:
+        print(s, flush=True); LOG.write(s + "\n"); LOG.flush()
+def guarded_call(fn):
+    """Run fn. Return None, or a short error string. A raised error does not escape."""
+    try:
+        fn()
+        return None
+    except Exception as ex:
+        return f"{type(ex).__name__}: {ex}"[:200]
 
 # ---------- polite HTTP: robots.txt, per-host rate limit, ETag cache ----------
+# Hundreds of feeds run in a small pool. One host is never hit faster than min_delay_seconds.
+# A dead feed is recorded and skipped; it does not stop the run.
 _robots, _last = {}, {}
+_io = threading.Lock()
+_host_locks, _host_guard = {}, threading.Lock()
+def _host_lock(host):
+    with _host_guard:
+        return _host_locks.setdefault(host, threading.Lock())
+def _pace(host):
+    """Caller holds the host lock. Spaces requests to this host."""
+    wait = DELAY - (time.time() - _last.get(host, 0))
+    if wait > 0: time.sleep(wait)
+    _last[host] = time.time()
 http_cache = load(P("state", "http_cache.json"), {})
 def robots_ok(url):
     p = urllib.parse.urlparse(url); base = f"{p.scheme}://{p.netloc}"
-    if base not in _robots:
-        rp = urllib.robotparser.RobotFileParser()
-        try:
-            r = requests.get(base + "/robots.txt", headers={"User-Agent": UA}, timeout=15)
-            rp.parse(r.text.splitlines() if r.status_code == 200 else [])
-        except Exception: rp.parse([])
-        _robots[base] = rp
-    return _robots[base].can_fetch(UA, url)
+    with _host_lock(p.netloc):
+        with _io:
+            rp = _robots.get(base)
+        if rp is None:
+            _pace(p.netloc)
+            rp = urllib.robotparser.RobotFileParser()
+            try:
+                r = requests.get(base + "/robots.txt", headers={"User-Agent": UA}, timeout=15)
+                rp.parse(r.text.splitlines() if r.status_code == 200 else [])
+            except Exception: rp.parse([])
+            with _io:
+                _robots[base] = rp
+        return rp.can_fetch(UA, url)
 def get(url):
     host = urllib.parse.urlparse(url).netloc
-    wait = DELAY - (time.time() - _last.get(host, 0))
-    if wait > 0: time.sleep(wait)
-    h = {"User-Agent": UA, "Accept": "application/rss+xml, application/xml, text/xml, text/html, */*"}
-    c = http_cache.get(url, {})
-    if c.get("etag"): h["If-None-Match"] = c["etag"]
-    if c.get("lm"): h["If-Modified-Since"] = c["lm"]
-    r = requests.get(url, headers=h, timeout=25); _last[host] = time.time()
-    if r.status_code == 200:
-        http_cache[url] = {"etag": r.headers.get("ETag"), "lm": r.headers.get("Last-Modified")}
-    return r
+    with _host_lock(host):
+        _pace(host)
+        h = {"User-Agent": UA, "Accept": "application/rss+xml, application/xml, text/xml, text/html, */*"}
+        with _io:
+            c = dict(http_cache.get(url, {}))
+        if c.get("etag"): h["If-None-Match"] = c["etag"]
+        if c.get("lm"): h["If-Modified-Since"] = c["lm"]
+        r = requests.get(url, headers=h, timeout=25)
+        if r.status_code == 200:
+            with _io:
+                http_cache[url] = {"etag": r.headers.get("ETag"), "lm": r.headers.get("Last-Modified")}
+        return r
 
 # ---------- keywords (NO, SE, DK, FI, IS, EN) ----------
 KW = [
@@ -76,6 +107,14 @@ KW = [
     (r"\blohkoketju\w*", re.I), (r"\bvirtuaalivaluut\w*", re.I),
     # Icelandic
     (r"\brafmynt\w*", re.I), (r"\bsýndareign\w*", re.I), (r"\bsýndarf[ée]\w*", re.I), (r"\bbálkakeðj\w*", re.I),
+    # explicit stems the local and justice feeds are filtered on (all Nordic languages)
+    (r"\bkryptovaluta\w*", re.I), (r"\bkryptovaluutta\w*", re.I),
+    (r"\bdark\s?nets?\b", re.I), (r"\bdark\s?webs?\b", re.I),
+    (r"\bmørkenettet\b", re.I), (r"\bdet mørke nett\w*", re.I), (r"\bmörka nätet\b", re.I),
+    (r"\bpimeä verkko\b", re.I), (r"\bmyrkur vefur\b", re.I),
+    (r"\bhvitvask\w*", re.I), (r"\bpenningtvätt\w*", re.I), (r"\bpenningtvatt\w*", re.I),
+    (r"\bhvidvask\w*", re.I), (r"\brahanpesu\w*", re.I),
+    (r"\bpeningaþvætt\w*", re.I), (r"\bpeningathvaett\w*", re.I),
     # Nordic crypto companies
     (r"\bBare Bitcoin\b", re.I), (r"\bFiri\b", 0), (r"\bNBX\b", 0), (r"\bK33\b", 0), (r"\bNexa\b", 0),
     (r"\bSafello\b", 0), (r"\bVirtune\b", 0), (r"\bValuno\b", 0), (r"\bGreenMerc\b", re.I), (r"\bTrijo\b", 0),
@@ -88,7 +127,7 @@ TOPICS = {
     "bitcoin": r"\bbitcoin|\bBTC\b|\bsatoshi|\butvinning|\bmining\b|\bminer|\blouhinta|\bgröftur",
     "blockchain": r"\bblokkjede|\bblockchain|\bblockkedj|\blohkoketju|\bbálkakeðj|\bNFT|\btoken|\bweb3|\bethereum|\bsolana|\bNexa\b|\bsmart ?contract",
     "crypto": r"\bkrypto(?!graf)|\bcrypto|\bstablecoin|\brafmynt|\bsýndar|\bcoin\b",
-    "regulation": r"tilsyn|inspektionen|valvonta|\bMiCA|regul|regelverk|\bskatt|\bvero\b|\bverotus|forbud|förbud|\blov(?:en|forslag)?\b|\blag(?:en|förslag)?\b|\blaki\b|\blög\b|økokrim|hvitvask|penningtvätt|rahanpesu|peningaþvætt|sanksjon|norges bank|riksbank|suomen pankki|seðlabank|central ?bank|sentralbank|\bsvindel|\bbedrägeri|\bhuijaus|\bCBDC|\bpoliti|\bpolis|\bpoliisi|\blögregl",
+    "regulation": r"tilsyn|inspektionen|valvonta|\bMiCA|regul|regelverk|\bskatt|\bvero\b|\bverotus|forbud|förbud|\blov(?:en|forslag)?\b|\blag(?:en|förslag)?\b|\blaki\b|\blög\b|økokrim|hvitvask|hvidvask|penningtvätt|rahanpesu|peningaþvætt|dark\s?net|sanksjon|norges bank|riksbank|suomen pankki|seðlabank|central ?bank|sentralbank|\bsvindel|\bbedrägeri|\bhuijaus|\bCBDC|\bpoliti|\bpolis|\bpoliisi|\blögregl",
     "companies": r"\bFiri\b|bare bitcoin|\bK33\b|\bNBX\b|Safello|Virtune|Valuno|Coinmotion|Northcrypto|Kvarn|Myntkaup|Monerium|selskap|bolag|yhtiö|fyrirtæki|\bbørs\b|\bbörs|pörssi|oppkjøp|förvärv|emisjon|nyemission|investor|gründer|grundare|\bASA\b|\bAB\b|\bOyj?\b|\behf\b|omsetning|omsättning|liikevaihto",
 }
 TOPICS = {k: re.compile(v, re.I) for k, v in TOPICS.items()}
@@ -122,7 +161,7 @@ for s in CFG["sources"]:
     if s.get("type") == "bing": continue
     d = urllib.parse.urlparse(s["url"]).netloc.removeprefix("www.")
     DOMAIN2OUT.setdefault(d, s.get("outlet", s["id"]))
-TLD2C = {".no": "NO", ".se": "SE", ".dk": "DK", ".fi": "FI", ".is": "IS"}
+TLD2C = {".no": "NO", ".se": "SE", ".dk": "DK", ".fi": "FI", ".is": "IS", ".fo": "FO", ".gl": "GL", ".ax": "AX"}
 def country_of_url(url, fallback=None):
     d = urllib.parse.urlparse(url).netloc.lower()
     return next((c for t, c in TLD2C.items() if d.endswith(t)), fallback)
@@ -131,7 +170,7 @@ def outlet_for(url, fallback_name):
     for dom, out in DOMAIN2OUT.items():
         if d == dom or d.endswith("." + dom): return out, SRC[out]["name"] if out in SRC else fallback_name
     return d, fallback_name or d
-LANG = {"NO": "Norwegian", "SE": "Swedish", "DK": "Danish", "FI": "Finnish", "IS": "Icelandic"}
+LANG = {"NO": "Norwegian", "SE": "Swedish", "DK": "Danish", "FI": "Finnish", "IS": "Icelandic", "FO": "Faroese", "GL": "Greenlandic", "AX": "Swedish"}
 
 # ---------- candidate entities for the queue (never auto-published) ----------
 KNOWN = ["Firi", "Bare Bitcoin", "K33", "NBX", "Norwegian Block Exchange", "Týr Markets", "Kaupr", "Nexa", "Seetee",
@@ -206,6 +245,9 @@ def main():
     new = []
 
     def add(url, title, teaser, published, src, outlet, outlet_name, country, extra=(), all_rel=False, lang=None):
+        with _io:
+            _add(url, title, teaser, published, src, outlet, outlet_name, country, extra, all_rel, lang)
+    def _add(url, title, teaser, published, src, outlet, outlet_name, country, extra=(), all_rel=False, lang=None):
         pu = urllib.parse.urlparse(url)
         url = urllib.parse.urlunparse(pu._replace(query=urllib.parse.urlencode([(k, v) for k, v in urllib.parse.parse_qsl(pu.query) if not k.lower().startswith(("utm_", "fbclid", "gclid"))])))
         text = f"{title}. {teaser}"
@@ -244,9 +286,62 @@ def main():
         log(("ADDED: " if len(new) > before else "ALREADY THERE / OUTSIDE PERIOD (--days): ") + f"{title} ({date.date()}, {oname}, {c})")
         a.only = "__none__"
     seen_html = load(P("state", "html_seen.json"), {})
-    for s in CFG["sources"]:
-        if not s.get("enabled") or not s.get("feed"): continue
-        if a.only and s["id"] not in a.only.split(","): continue
+    def ingest(s):
+        """One source. Any failure is stored on that source and does not stop the others."""
+        err = guarded_call(lambda: _ingest(s))
+        if err:
+            log("ERR", s.get("id"), err)
+            with _io:
+                status[s["id"]] = {"checked": NOW.isoformat(timespec="seconds"), "ok": False, "requests": 0, "ok_requests": 0, "entries": 0, "error": err}
+    def _ingest_listing(s):
+        """Sitemap, then a public index page. Title, date, URL and summary only."""
+        n_ok = n_items = 0
+        err = None
+        method = s.get("method") or "sitemap"
+        try:
+            def http_get(url):
+                r = get(url)
+                return r.status_code, (r.text if r.status_code == 200 else "")
+            entries, used, err = listing.collect(s.get("url") or s.get("feed") or "", http_get, robots_ok, limit=max(8, s.get("max_new_per_run", 8) * 3))
+            if used:
+                method = used
+            cap = s.get("max_new_per_run", 8)
+            fetched = 0
+            out = s.get("outlet", s["id"])
+            oname = SRC.get(out, s)["name"].split(" (")[0]
+            for e in entries:
+                pub = e.get("published")
+                if pub and pub < cutoff:
+                    continue
+                title, summary = e.get("title") or "", e.get("summary") or ""
+                if title and not matches(f"{title}. {summary}") and not s.get("all_relevant"):
+                    continue
+                if (not title or not pub) and fetched < cap:
+                    fetched += 1
+                    t, d, date = page_meta(e["url"])
+                    title = title or t
+                    summary = summary or d
+                    pub = pub or date
+                if not title:
+                    continue
+                n_items += 1
+                add(e["url"], title, summary, pub, s["id"], out, oname, s["country"], s.get("match_extra", ()), all_rel=s.get("all_relevant", False), lang=s.get("language"))
+            n_ok = 1 if entries else 0
+        except Exception as ex:
+            err = f"{type(ex).__name__}: {ex}"[:200]
+            log("ERR", s["id"], err)
+        with _io:
+            status[s["id"]] = {"checked": NOW.isoformat(timespec="seconds"), "ok": n_ok > 0, "requests": 1,
+                               "ok_requests": n_ok, "entries": n_items, "error": err, "method": method}
+        log(f"{s['id']:<22} {method} entries={n_items} err={err}")
+
+    def _ingest(s):
+        if s.get("type") == "sitemap" or (s.get("method") == "sitemap" and not s.get("link_pattern")):
+            _ingest_listing(s)
+            return
+        if s["type"] == "html" and not s.get("link_pattern"):
+            _ingest_listing(s)
+            return
         if s["type"] == "html":
             n_ok = 0; n_meta = 0; err = None; links = []
             try:
@@ -256,15 +351,19 @@ def main():
                     links = sorted({urllib.parse.urljoin(s["feed"], x["href"]) for x in soup.find_all("a", href=True) if re.search(s["link_pattern"], x["href"])})
                 else: err = "robots.txt disallows"
                 for u in links[: s.get("max_new_per_run", 40)]:
-                    if u in seen_html: continue  # seen before (Kaupr lists can overlap; the first country page wins)
+                    with _io:
+                        already = u in seen_html
+                    if already: continue  # seen before (Kaupr lists can overlap; the first country page wins)
                     n_meta += 1
                     t, d, date = page_meta(u)
-                    seen_html[u] = {"title": t, "date": date.isoformat() if date else None}
+                    with _io:
+                        seen_html[u] = {"title": t, "date": date.isoformat() if date else None}
                     out = s.get("outlet", s["id"])
                     add(u, t, d, date, s["id"], out, SRC.get(out, s)["name"].split(" (")[0], s["country"], s.get("match_extra", ()), all_rel=s.get("all_relevant", False), lang=s.get("language"))
             except Exception as ex: err = f"{type(ex).__name__}: {ex}"[:200]; log("ERR", s["id"], err)
-            status[s["id"]] = {"checked": NOW.isoformat(timespec="seconds"), "ok": n_ok > 0, "requests": 1 + n_meta, "ok_requests": n_ok, "entries": len(links), "error": err}
-            log(f"{s['id']:<22} html links={len(links)} err={err}"); continue
+            with _io:
+                status[s["id"]] = {"checked": NOW.isoformat(timespec="seconds"), "ok": n_ok > 0, "requests": 1 + n_meta, "ok_requests": n_ok, "entries": len(links), "error": err, "method": "html"}
+            log(f"{s['id']:<22} html links={len(links)} err={err}"); return
         urls = ([s["feed"].format(q=urllib.parse.quote(q)) for q in s.get("queries", [])]
                 + [s["feed"].format(q=urllib.parse.quote(f"{t} site:{site}")) for site in s.get("sites", []) for t in s.get("site_terms", [])]) if s["type"] == "bing" else [s["feed"]]  # sites x site_terms: Kryptonytt's per-site search (bing-no-kn)
         n_ok = n_items = 0; err = None
@@ -290,9 +389,20 @@ def main():
                         add(link, title, teaser, when(e), s["id"], out, oname, s["country"], s.get("match_extra", ()), s["type"] == "rss-all", lang=s.get("language"))
             except Exception as ex:
                 err = f"{type(ex).__name__}: {ex}"[:200]; log("ERR", s["id"], u, err)
-        status[s["id"]] = {"checked": NOW.isoformat(timespec="seconds"), "ok": n_ok > 0, "requests": len(urls),
-                           "ok_requests": n_ok, "entries": n_items, "error": err}
+        with _io:
+            status[s["id"]] = {"checked": NOW.isoformat(timespec="seconds"), "ok": n_ok > 0, "requests": len(urls),
+                               "ok_requests": n_ok, "entries": n_items, "error": err, "method": "rss"}
         log(f"{s['id']:<22} ok={n_ok}/{len(urls)} entries={n_items} err={err}")
+
+    selected = [s for s in CFG["sources"] if s.get("enabled") and s.get("feed") and (not a.only or s["id"] in set(a.only.split(",")))]
+    workers = max(1, int(CFG.get("fetch_workers") or 6))
+    log(f"fetching {len(selected)} feeds with {workers} workers, {DELAY}s per host")
+    if workers == 1 or len(selected) <= 1:
+        for s in selected: ingest(s)
+    else:
+        with ThreadPoolExecutor(max_workers=workers) as ex:
+            for fut in as_completed([ex.submit(ingest, s) for s in selected]):
+                fut.result()
 
     # queue: stories without an editorial summary + candidate entities
     pend = {q["id"] for q in queue["items_needing_summary"]}

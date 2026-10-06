@@ -614,6 +614,11 @@ def _sources(cfg):
             "status": s.get("status") or "",
             "verified": s.get("verified"),
             "language": s.get("language"),
+            "coverage": s.get("coverage"),
+            "region": s.get("region"),
+            "method": s.get("method") or ("rss" if s.get("type") in ("rss", "rss-all") else "html" if s.get("type") == "html" else "sitemap" if s.get("type") == "sitemap" else "search" if s.get("type") == "bing" else "manual"),
+            "icon_url": s.get("logo") if isinstance(s.get("logo"), str) and str(s.get("logo")).startswith("https://") else None,
+            "logo_source": s.get("logo_source") if isinstance(s.get("logo_source"), str) and str(s.get("logo_source")).startswith("https://") else None,
         }
         feed = s.get("feed")
         if feed and "{q}" not in feed and s.get("type") != "bing":
@@ -1047,7 +1052,7 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
     feed.add_endpoint("events-by-country", "api/v1/events/by-country/{country}.json",
                       "Public events for one country code.", "EventList", example="api/v1/events/by-country/NO.json")
 
-    collection("api/v1/sources.json", "News outlets, the public search terms, and event sources. Kaupr is marked as a news source only. logo is the outlet image for that source id when one is on file.", "SourceCatalogue",
+    collection("api/v1/sources.json", "News outlets, justice-system press pages, the public search terms, and event sources. coverage is national, regional, local or justice. region is the place. feed is null when no working RSS, sitemap or index page was verified. method is rss, html, sitemap, search or manual. icon_url is a public icon from the outlet when one was easy to find. logo_source is the URL the stored logo was fetched from. logo is the checked outlet image for that source id when one is on file, used only to identify the source. Kaupr is marked as a news source only.", "SourceCatalogue",
                feed.env(
                    user_agent=(sources_cfg or {}).get("user_agent"),
                    min_delay_seconds=(sources_cfg or {}).get("min_delay_seconds"),
