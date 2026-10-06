@@ -15,7 +15,9 @@ queue/approved.json -> items: [{"url": ..., "summary": "2–4 sentences IN ENGLI
 import json, os, sys, urllib.parse
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); P = lambda *a: os.path.join(ROOT, *a)
 sys.path.insert(0, ROOT)
+sys.path.insert(0, os.path.join(ROOT, "tools"))
 from tools.frontpage_blurbs import LANGS, substantive
+import coverage
 def load(p, d):
     try: return json.load(open(p, encoding="utf-8"))
     except FileNotFoundError: return d
@@ -25,9 +27,17 @@ def canon(url):
     q = urllib.parse.urlencode([(k, v) for k, v in urllib.parse.parse_qsl(p.query) if not k.lower().startswith(("utm_", "fbclid", "gclid"))])
     p = p._replace(query=q)
     return p.netloc.lower().removeprefix("www.") + (p.path.rstrip("/") or "/") + ("?" + p.query if p.query else "")
-ap = load(P("queue", "approved.json"), {})
+ap_path = P("queue", "approved.json")
+if not os.path.exists(ap_path):
+    print("approvals: queue/approved.json is missing; leaving data/news.json unchanged")
+    raise SystemExit(0)
+ap = load(ap_path, {})
 news = load(P("data", "news.json"), {"items": []})
-by = {canon(i["url"]): i for i in news["items"]}
+by = {canon(i["url"]): i for i in news["items"] if i.get("url")}
+for it in news["items"]:
+    for ex in it.get("also_covered_by") or []:
+        if isinstance(ex, dict) and ex.get("url"):
+            by.setdefault(canon(ex["url"]), it)
 def store_blurb(story_id, blurb, i18n_map, source):
     path = P("data", "frontpage_blurbs.json")
     data = load(path, {"langs": LANGS, "items": {}})
@@ -43,8 +53,39 @@ def store_blurb(story_id, blurb, i18n_map, source):
         print(f"warning: blurb translations dropped for {story_id}; blurb_i18n_source does not match the English blurb", file=sys.stderr)
     save(path, data)
 
-n_pub = n_rej = 0; missing = []; short = []
+n_pub = n_rej = n_fold = 0; missing = []; short = []
+
+def fold_marked(url, ref):
+    """Editor duplicate_of: attach this article to an existing story. Returns True when folded."""
+    global n_fold
+    it = by.get(canon(url)) if url else None
+    if not it:
+        it = next((i for i in news["items"] if i.get("id") == url), None)
+    if not it or not ref:
+        return False
+    if it.get("status") == "merged" and it.get("merged_into"):
+        return True
+    target_peek = coverage.resolve_target(news["items"], ref)
+    if target_peek and it.get("id") == target_peek.get("id"):
+        return True
+    target = coverage.fold_into(news["items"], it, ref)
+    if not target:
+        print(f"warning: duplicate_of {ref} did not match a story for {url}", file=sys.stderr)
+        return False
+    n_fold += 1
+    print(f"coverage: {it.get('source_name') or url} attached to {target.get('id')} ({target.get('source_name')})")
+    return True
+
+q_early = load(P("queue", "review.json"), None) or {}
+for row in q_early.get("items_needing_summary") or []:
+    if row.get("duplicate_of"):
+        if not fold_marked(row.get("url") or row.get("id"), row["duplicate_of"]):
+            missing.append(row.get("url") or row.get("id"))
 for a in ap.get("items", []):
+    if a.get("duplicate_of"):
+        if not fold_marked(a.get("url"), a["duplicate_of"]):
+            missing.append(a.get("url"))
+        continue
     it = by.get(canon(a["url"]))
     if not it: missing.append(a["url"]); continue
     s = (a.get("summary") or "").strip()
@@ -77,4 +118,4 @@ if q:
     save(P("queue", "review.json"), q)
 if short:
     print(f"warning: {len(short)} approved summaries are still one sentence; the front page uses data/frontpage_blurbs.json until they are two to four sentences", file=sys.stderr)
-print(f"approvals: {n_pub} stories published, {n_rej} rejected" + (f"; {len(missing)} approved URLs missing from news.json (run ./fetch.sh --add URL --country XX): {missing}" if missing else ""))
+print(f"approvals: {n_pub} stories published, {n_rej} rejected, {n_fold} attached to an existing story" + (f"; {len(missing)} approved URLs missing from news.json (run ./fetch.sh --add URL --country XX): {missing}" if missing else ""))

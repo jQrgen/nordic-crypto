@@ -102,7 +102,19 @@
     "fi": "Kolmea norjalaista ja yhtä ruotsalaista syytetään laajassa huumejutussa, jolla on yhteyksiä ulkomaille ja jossa huumeita myytiin kryptovaluutalla pimeässä verkossa, kertoo Etelä-Norjan syyttäjäviranomainen.",
     "is": "Þrír Norðmenn og einn Svíi hafa verið ákærðir í umfangsmiklu fíkniefnamáli með tengsl við útlönd, þar sem fíkniefni voru seld fyrir rafmyntir á myrkravefnum, að sögn ríkissaksóknaraembættisins í Suður-Noregi."
    },
-   "summary_i18n_review": "approved"
+   "summary_i18n_review": "approved",
+   "also_covered_by": [
+    {
+     "outlet": "nettavisen",
+     "outlet_name": "Nettavisen",
+     "url": "https://www.nettavisen.no/nyheter/fire-menn-pagrepet-mistenkt-for-roller-i-storre-kriminelt-nettverk/s/80-95-127932",
+     "title": "Fire menn pågrepet mistenkt for roller i større kriminelt nettverk",
+     "published": "2026-10-02T10:56:53+00:00",
+     "lang": "Norwegian",
+     "country": "NO",
+     "source_type": "national"
+    }
+   ]
   },
   {
    "id": "9dbf8f8aeac1",

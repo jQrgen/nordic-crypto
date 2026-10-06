@@ -304,12 +304,38 @@ class Feed:
         summary = item.get("summary") if public else None
         i18n_sum = item.get("summary_i18n") if public else None
         nid = item.get("id") or hashlib.sha256((url or item.get("title") or "").encode()).hexdigest()[:12]
-        nid = safe_id(nid) or hashlib.sha256(url.encode()).hexdigest()[:12]
+        nid = safe_id(nid) or hashlib.sha256((url or "").encode()).hexdigest()[:12]
+        if not own:
+            html_url = self.abs(f"stories/{nid}/")
+        elif url:
+            item["url"] = url
         source = item.get("source")
         source_name = item.get("source_name")
         note = None
         if is_kaupr(source, source_name):
             note = "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+        import coverage as coverage_mod
+        rows = coverage_mod.all_outlets(item)
+        def api_outlet(row):
+            logo = self.media(source_logos.for_source(row.get("outlet"), preview=self.preview), "logo")
+            rec = {
+                "outlet": row.get("outlet"),
+                "outlet_name": row.get("outlet_name"),
+                "url": row.get("url"),
+                "title": row.get("title"),
+                "published": row.get("published"),
+                "lang": row.get("lang"),
+                "language_code": language_code(row.get("lang")),
+                "country": row.get("country"),
+                "source_type": row.get("source_type"),
+                "paywall": bool(row.get("paywall")),
+                "primary": bool(row.get("primary")),
+                "logo": logo,
+            }
+            if is_kaupr(row.get("outlet"), row.get("outlet_name")):
+                rec["source_note"] = "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+            return rec
+        outlets = [api_outlet(r) for r in rows]
         out = {
             "id": nid,
             "url": url or None,
@@ -331,6 +357,10 @@ class Feed:
             "paywall": bool(item.get("paywall")),
             "links": [{"label": l.get("label"), "url": l.get("url")} for l in (item.get("links") or []) if l.get("url")],
             "own_story": own,
+            "primary_source": outlets[0] if outlets else None,
+            "also_covered_by": outlets[1:],
+            "sources": outlets,
+            "coverage": coverage_mod.breakdown(rows),
         }
         if self.preview:
             out["status"] = "pending" if status not in ("published", "owner") else status
@@ -987,6 +1017,12 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
         "title is the source headline. title_en is our English headline when we wrote one. "
         "source_logo is the outlet image when assets/img/logos/logos.json has a checked file for the source id "
         "(or its outlet, or a _source_alias). Null means show the source name as text. "
+        "primary_source is that outlet. also_covered_by lists every other outlet on the same event "
+        "(outlet, outlet_name, url, title, published, lang, country, source_type, paywall, logo). "
+        "sources is the primary plus those outlets. coverage.count is how many outlets, "
+        "coverage.by_country and coverage.by_source_type (national, regional, official, international) "
+        "are the counts and shares for the bars, including zeros. "
+        "html_url is our page for the story. url on the item is the primary outlet. "
         "The site language list is /api/v1/languages.json."
     )
     collection(
@@ -1289,7 +1325,7 @@ def schemas():
         "properties": {
             "id": {"type": "string"},
             "url": {"type": "string", "description": "Story the reader follows. Absolute."},
-            "html_url": {"type": "string", "nullable": True, "description": "Our page, when the story is ours."},
+            "html_url": {"type": "string", "nullable": True, "description": "Our story page. For our own articles this is the article. For other outlets this is the coverage page; url is the primary outlet."},
             "api_url": {"type": "string"},
             "title": {"type": "string"},
             "title_en": {"type": "string", "nullable": True},
@@ -1318,6 +1354,38 @@ def schemas():
             "paywall": {"type": "boolean"},
             "links": {"type": "array", "items": {"type": "object"}},
             "own_story": {"type": "boolean"},
+            "primary_source": {"$ref": "#/components/schemas/NewsOutlet"},
+            "also_covered_by": {"type": "array", "items": {"$ref": "#/components/schemas/NewsOutlet"}, "description": "Other outlets on the same event. Empty when only the primary covered it."},
+            "sources": {"type": "array", "items": {"$ref": "#/components/schemas/NewsOutlet"}, "description": "Primary first, then also_covered_by."},
+            "coverage": {"$ref": "#/components/schemas/NewsCoverage"},
+        },
+    }
+    news_outlet = {
+        "type": "object",
+        "required": ["url", "primary"],
+        "properties": {
+            "outlet": {"type": "string", "description": "Source id from sources.json."},
+            "outlet_name": {"type": "string"},
+            "url": {"type": "string"},
+            "title": {"type": "string", "description": "That outlet's headline."},
+            "published": {"type": "string", "description": "ISO 8601 date-time with offset."},
+            "lang": {"type": "string", "description": "Language name, same vocabulary as language on the story."},
+            "language_code": {"type": "string", "nullable": True},
+            "country": {"type": "string"},
+            "source_type": {"type": "string", "enum": ["national", "regional", "official", "international"], "description": "national, regional (regional and local), official (justice and official), or international."},
+            "paywall": {"type": "boolean"},
+            "primary": {"type": "boolean"},
+            "logo": {"type": "object", "nullable": True},
+            "source_note": {"type": "string", "nullable": True, "description": "Set when the outlet is Kaupr: a news source only, never a sponsor."},
+        },
+    }
+    news_coverage = {
+        "type": "object",
+        "required": ["count", "by_country", "by_source_type"],
+        "properties": {
+            "count": {"type": "integer"},
+            "by_country": {"type": "array", "items": {"type": "object", "properties": {"country": {"type": "string"}, "count": {"type": "integer"}, "share": {"type": "number"}}}},
+            "by_source_type": {"type": "array", "description": "Always national, regional, official and international, in that order. count 0 is included.", "items": {"type": "object", "properties": {"type": {"type": "string"}, "count": {"type": "integer"}, "share": {"type": "number"}}}},
         },
     }
     event_item = {
@@ -1375,6 +1443,8 @@ def schemas():
     return {
         "Document": {"type": "object", "additionalProperties": True},
         "Discovery": wrap("Discovery", {"endpoints": {"type": "array"}, "counts": {"type": "object"}, "cors": {"type": "object"}}),
+        "NewsOutlet": news_outlet,
+        "NewsCoverage": news_coverage,
         "NewsItem": news_item,
         "NewsList": wrap("NewsList", {"count": {"type": "integer"}, "items": {"type": "array", "items": news_item}, "updated": {"type": "string", "nullable": True}}),
         "TopicIndex": wrap("TopicIndex", {"topics": {"type": "array"}}),
@@ -1607,6 +1677,10 @@ def llms_txt(feed, index):
         "```",
         "",
         "A single news item is api/v1/news/{id}.json (the id is on each item). "
+        "primary_source is the outlet we lead with. also_covered_by is every other outlet on the same event. "
+        "sources lists them with the primary first. coverage.by_country and coverage.by_source_type "
+        "(national, regional, official, international) are the counts and shares, and empty types are included as zero. "
+        "html_url is our coverage page. url is the primary outlet. ",
         "A single newsletter issue is api/v1/newsletters/{id}.json and includes plain text and HTML. "
         "Country slices: api/v1/news/by-country/NO.json (also SE, DK, FI, IS).",
         "",
@@ -1698,6 +1772,8 @@ curl -fsS {letters}{html.escape(one_line)}</pre>
 <p>The build fetches the exchanges. <code>.github/workflows/markets-refresh.yml</code> rewrites the JSON on gh-pages about once an hour, including the aggregated file and the icons. The markets page reloads this file, and refreshes Firi and Coinmotion in the browser because those APIs send <code>Access-Control-Allow-Origin: *</code>. NBX does not, so those rows follow the file. The same document on the gh-pages branch: <a href="https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json">raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json</a>.</p>
 <pre>curl -fsS {html.escape(b)}api/v1/markets.json
 curl -fsS {html.escape(b)}api/v1/markets/aggregated.json</pre>
+<h2>Several outlets, one story</h2>
+<p>A story keeps one primary outlet. Other outlets that covered the same event are in <code>also_covered_by</code>. <code>sources</code> lists the primary first, then the others. Each outlet has <code>outlet</code>, <code>outlet_name</code>, <code>url</code>, <code>title</code> (that outlet's headline), <code>published</code>, <code>lang</code>, <code>country</code>, <code>source_type</code> and <code>logo</code>. <code>source_type</code> is <code>national</code>, <code>regional</code> (regional and local), <code>official</code> (justice and official: police, prosecutors, courts, regulators) or <code>international</code>. <code>coverage.count</code> is the number of outlets. <code>coverage.by_country</code> and <code>coverage.by_source_type</code> are the counts and shares for the bars. Every source type is present, including a count of zero. <code>html_url</code> is our page for that story. <code>url</code> is the primary outlet. Kaupr stays a news source only.</p>
 <h2>Languages</h2>
 <p>English is the default field (<code>summary</code>, <code>title</code>, <code>text</code>). Translations that we have published sit in <code>summary_i18n</code>, <code>title_i18n</code>, <code>subtitle_i18n</code>, <code>note_i18n</code>, <code>text_i18n</code> and <code>about_i18n</code>, keyed by <code>nn</code>, <code>nb</code>, <code>sv</code>, <code>da</code>, <code>fi</code> and <code>is</code>. Other site languages use the English field until a translation is published. Headlines from other outlets stay in the original language. Dates are ISO 8601.</p>
 <p><a href="{html.escape(b)}api/v1/languages.json"><code>/api/v1/languages.json</code></a> lists every site language with <code>code</code>, <code>native_name</code>, <code>english_name</code>, <code>rtl</code>, <code>html_lang</code> and <code>home</code>. <a href="{html.escape(b)}api/v1/geo-language.json"><code>/api/v1/geo-language.json</code></a> is the country-to-language guess used on a first visit. The IP country comes from the tipworker <code>GET /api/geo</code> (Cloudflare <code>request.cf.country</code>). Nothing is stored. The <code>nc_lang</code> cookie, set by the language switcher, always wins.</p>

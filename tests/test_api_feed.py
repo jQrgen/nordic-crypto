@@ -98,6 +98,24 @@ def main():
                 fails.append("unchecked e24 logo published")
             if item.get("source") == "nordic-crypto" and item.get("source_logo"):
                 fails.append("invented Nordic Crypto logo")
+            cov = item.get("coverage") or {}
+            types = [r.get("type") for r in cov.get("by_source_type") or []]
+            if types != ["national", "regional", "official", "international"]:
+                fails.append("coverage types " + item["id"])
+            if "also_covered_by" not in item or "sources" not in item or "primary_source" not in item:
+                fails.append("coverage fields missing " + item["id"])
+            if item.get("id") == "1a95167a3af8":
+                extras = item.get("also_covered_by") or []
+                if len(extras) != 1 or extras[0].get("outlet") != "nettavisen":
+                    fails.append("nettavisen not on the aftenposten story")
+                if "nettavisen.no" not in (extras[0].get("url") or ""):
+                    fails.append("nettavisen url")
+                if item.get("primary_source", {}).get("outlet") != "aftenposten":
+                    fails.append("primary is not aftenposten")
+                if cov.get("count") != 2 or not any(r.get("country") == "NO" and r.get("count") == 2 for r in cov.get("by_country") or []):
+                    fails.append("coverage counts")
+                if not str(item.get("html_url") or "").endswith("/stories/1a95167a3af8/"):
+                    fails.append("story page url")
         letters = json.load(open(os.path.join(tmp, "api/v1/newsletters.json"), encoding="utf-8"))
         if not any(i["id"] == "001" for i in letters["issues"]):
             fails.append("newsletter 001 missing")
