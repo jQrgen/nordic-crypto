@@ -164,7 +164,9 @@ html.nc-pick body{visibility:hidden}
 .hdrsub{display:inline-block;padding:5px 12px;border-radius:6px;background:#0f5ea8;color:#fff!important;text-decoration:none;font-weight:600;font-size:14px;line-height:1.3;white-space:nowrap}.hdrsub:hover,.hdrsub:focus{background:#0b4a85}
 .hdrbtns{display:flex;align-items:center;gap:6px;flex-wrap:wrap;min-width:0}
 .hdrx{display:inline-block;padding:4px 10px;border:1px solid var(--ink);border-radius:6px;color:var(--ink)!important;background:#fff;text-decoration:none;font-weight:600;font-size:13px;line-height:1.3;white-space:nowrap}.hdrx:hover,.hdrx:focus{background:#f1f1f1}.hdrx .xs{display:none}
-.xfollow{display:inline-block;padding:5px 12px;border:1px solid var(--ink);border-radius:6px;color:var(--ink)!important;text-decoration:none;font-weight:600}.xfollow:hover,.xfollow:focus{background:#f1f1f1}
+.xfollow,.tgfollow{display:inline-block;padding:5px 12px;border:1px solid var(--ink);border-radius:6px;color:var(--ink)!important;text-decoration:none;font-weight:600;text-align:start}.xfollow:hover,.xfollow:focus,.tgfollow:hover,.tgfollow:focus{background:#f1f1f1}
+nav.community{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:center;gap:8px 10px;margin:8px 0 12px;text-align:start;width:fit-content;max-width:100%}
+footer,footer .wrap,.nlfoot,.nlhome{text-align:start}
 @media(max-width:640px){.brandrow{width:100%;justify-content:space-between;flex-wrap:nowrap}.brandrow .brand{white-space:nowrap;flex:none}.hdrsub{font-size:13px;padding:5px 10px;white-space:normal;text-align:center;min-width:0}.hdrbtns{flex-wrap:nowrap;justify-content:flex-end}.hdrx{flex:none}}
 @media(max-width:480px){.hdrx{padding:4px 9px}.hdrx .xf{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.hdrx .xs{display:inline}}
 .nlissues{list-style:none;margin:8px 0 18px;padding:0}.nlissues li{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line)}
@@ -265,15 +267,25 @@ def header_sub_button():
     """'Subscribe on Substack' button at the top of every page (same Substack link as the footer, label without the arrow)."""
     sub = substack_subscribe_url()
     return f'<a class="hdrsub" href="{E(sub)}" rel="noopener">{E(t("nl_sub_btn").replace("→", "").strip())}</a>' if sub else ""
-# The site's own X account (not jQrgen's personal one). Plain link only: no X widgets, scripts or embeds (no third-party scripts).
+# Nordic Crypto brand accounts (not jQrgen's personal profiles). Plain links only: no widgets, scripts or embeds.
 SITE_X = "https://x.com/xcryptonordic"
+SITE_TELEGRAM = "https://t.me/nordiccryptochat"
 def header_x_button():
     """Small 'Follow on X' link next to the header Substack button; on narrow phones it shrinks to an 'X' pill (full label kept for screen readers)."""
     return (f'<a class="hdrx" href="{SITE_X}" rel="noopener" title="{E(t("x_title"))}">'
             f'<span class="xf">{E(t("x_btn"))}</span><span class="xs" aria-hidden="true">X</span></a>')
 def x_link():
-    """'Follow Nordic Crypto on X' link (footer, /newsletter/, issue pages), next to the Substack button."""
-    return f'<a class="xfollow" href="{SITE_X}" rel="noopener" title="{E(t("x_title"))}">{E(t("x_follow"))}</a>'
+    """'Follow Nordic Crypto on X' link. The brand account @xcryptonordic."""
+    return f'<a class="xfollow" href="{SITE_X}" rel="noopener noreferrer" title="{E(t("x_title"))}">{E(t("x_follow"))}</a>'
+def telegram_link():
+    """'Nordic Crypto on Telegram' link. The brand chat, t.me/nordiccryptochat."""
+    return f'<a class="tgfollow" href="{SITE_TELEGRAM}" rel="noopener noreferrer" title="{E(t("tg_title"))}">{E(t("tg_follow"))}</a>'
+def community_links():
+    """Left-aligned brand links for the footer, About and the newsletter. The source-code link stays separate."""
+    return f'<nav class="community" aria-label="{E(t("social_aria"))}">{telegram_link()}{x_link()}</nav>'
+def community_section():
+    """About-page block. Strings come from i18n and fall back to English."""
+    return f'<h2 id="community">{E(t("social_h"))}</h2><p>{E(t("social_lead"))}</p>{community_links()}'
 # ---- Newsletter issues (newsletter/published/issues.json; text, poster, subtitles and video per issue) ----
 # The subtitle track is not "default": issue videos have the English subtitles burned in, the track is for assistive tech and players.
 NL_PUB = P("newsletter", "published")
@@ -376,7 +388,8 @@ def build_issue(iss):
 {vid}
 <div class="prose issuetext"{hla}>
 {txt}</div>
-<section class="nlhome"><p>{f'<b>{E(t("nl_get_next"))}</b> {sub} ' if sub else ''}{x_link()}</p>
+<section class="nlhome">{f'<p><b>{E(t("nl_get_next"))}</b> {sub}</p>' if sub else ''}
+{community_links()}
 <p>{t("nl_write", href="../../columnist/")}</p></section>
 <p class="meta"><a href="../">← {E(t("nl_all_issues"))}</a></p>
 </article>"""
@@ -404,7 +417,8 @@ def build_newsletter():
     body = f"""<h1>{E(t("nl_title"))}</h1>
 <p class="lead">{E(t("nl_lead"))}</p>
 {form}
-<p>{sub + ' ' if sub else ''}{x_link()}</p>
+{f'<p>{sub}</p>' if sub else ''}
+{community_links()}
 <h2 id="issues">{E(t("nl_issues_h"))}</h2>
 <p class="meta">{E(t("nl_issues_lead"))}</p>
 <ol class="nlissues">{''.join(lis) or f'<li class="empty">{E(t("nl_issues_none"))}</li>'}</ol>
@@ -466,8 +480,8 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
     setck = ("<script>(function(){document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[data-lang]');if(!a)return;"
              f"var c=a.getAttribute('data-lang');document.cookie='nc_lang='+c+';path={COOKIE_PATH};max-age=31536000;SameSite=Lax'+(location.protocol==='https:'?';Secure':'');"
              "try{localStorage.setItem('nc_lang',c)}catch(err){}}})})();</script>")
-    nlfoot = (f'<div class="nlfoot"><b>{E(t("nl_foot"))}</b> {" ".join(x for x in (newsletter_form(True), substack_button(), x_link()) if x)} <a href="{rel}newsletter/">{E(t("nl_more"))}</a></div>' if newsletter_on() and slug != "newsletter"
-              else f'<div class="nlfoot">{x_link()}</div>')
+    nlfoot = (f'<div class="nlfoot"><b>{E(t("nl_foot"))}</b> {" ".join(x for x in (newsletter_form(True), substack_button()) if x)} <a href="{rel}newsletter/">{E(t("nl_more"))}</a></div>' if newsletter_on() and slug != "newsletter"
+              else "")
     doc = f"""<!doctype html>
 <html lang="{i18n.HTML_LANG[LANG]}"{" dir=\"rtl\"" if i18n.rtl(LANG) else ""}><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 {pick}<title>{E(title)}{" – " + SITE_NAME if slug else ""}</title>
@@ -481,7 +495,7 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
 {body}
 {s['top']}
 </main>
-<footer><div class="wrap">{nlfoot}{t("footer", site=SITE_NAME, rel=rel, root=root)}</div></footer>
+<footer><div class="wrap">{nlfoot}{community_links()}{t("footer", site=SITE_NAME, rel=rel, root=root)}</div></footer>
 {s['script']}{setck}{extra_script}{newsletter_script()}{analytics_snippet()}
 </body></html>"""
     d = os.path.join(SITE, lp(), slug); os.makedirs(d, exist_ok=True)
@@ -857,7 +871,7 @@ def build_lang(ctx):
 <label for="fsrc">{E(t("source"))}</label><select id="fsrc"><option value="">{E(t("all_sources"))}</option>{opts}</select>
 <span class="lbl">{E(t("topic"))}</span><div class="chips">{tchips}</div><span id="count" class="meta" aria-live="polite"></span></div>
 <ol class="news" id="news">{''.join(lis) or f'<li class="empty">{E(t("no_stories"))}</li>'}</ol>
-{f'<section class="nlhome" aria-labelledby="nlhome-h"><h2 id="nlhome-h">{E(t("nl_title"))}</h2>{substack_embed()}</section>' if substack_embed() else ''}
+{f'<section class="nlhome" aria-labelledby="nlhome-h"><h2 id="nlhome-h">{E(t("nl_title"))}</h2>{substack_embed()}{community_links()}</section>' if substack_embed() else f'<section class="nlhome">{community_links()}</section>'}
 <p class="notice">{E(t("home_notice"))}</p>"""
     js = """<script>
 (function(){var NS=%s,sel=document.getElementById('fsrc'),tc=[].slice.call(document.querySelectorAll('.tchip')),cc=[].slice.call(document.querySelectorAll('.cchip')),lis=[].slice.call(document.querySelectorAll('#news li[data-src]')),cnt=document.getElementById('count');
@@ -883,7 +897,7 @@ sel.addEventListener('change',function(){apply(1)});tc.concat(cc).forEach(functi
     build_newsletter()
     build_rules(ctx)
     build_regulation_videos(ctx)
-    about = lang_template("about").replace("{{UP}}", up1())
+    about = lang_template("about").replace("{{UP}}", up1()).replace("{{COMMUNITY}}", community_section())
     page("about", t("about_title"), "about", about, t("about_desc"))
     build_ethics()
 

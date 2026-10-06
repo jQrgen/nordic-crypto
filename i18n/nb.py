@@ -146,6 +146,8 @@ S.update({
 "nav_newsletter": "Nyhetsbrev", "nl_issues_h": "Utgaver", "nl_issues_lead": "Alle utgavene, nyeste først. Les dem her eller få dem på e-post.", "nl_issues_none": "Ingen utgaver ennå.", "nl_issue_n": "Utgave #{n}", "nl_issue_period": "Nyheter fra {a} til {b}", "nl_issue_count": "{s} saker og {e} arrangementer", "nl_issue_video": "Video, {m} min", "nl_issue_en": "Denne utgaven er bare på engelsk.", "bridge": "Denne saken er {where}. Kort forklart:", "nl_bridge": "Denne utgaven er {where}. Kort forklart:", "nl_video_dl": "Last ned videoen (MP4, {mb} MB)", "nl_video_subs": "Engelske undertekster (WebVTT)", "nl_video_fallback": "Nettleseren din kan ikke spille av videoen her. Last den ned i stedet:", "nl_video_note": "Videoen spilles av fra dette nettstedet, uten YouTube-spiller. Den har engelske undertekster.", "nl_all_issues": "Alle utgavene av nyhetsbrevet", "nl_get_next": "Få neste utgave på e-post:",
 # the site's own X account (@xcryptonordic), header/footer/newsletter
 "x_btn": "Følg på X", "x_follow": "Følg Nordic Crypto på X", "x_title": "Nordic Crypto på X (@xcryptonordic), nettstedets egen konto",
+"tg_label": "Telegram", "tg_follow": "Nordic Crypto på Telegram", "tg_title": "Nordic Crypto på Telegram (t.me/nordiccryptochat), merkevarens chat",
+"social_h": "Fellesskap", "social_aria": "Nordic Crypto i sosiale medier", "social_lead": "Nordic Crypto-chatten er på Telegram, og merkevarekontoen er på X.",
 "nl_write": "Vil du skrive for Nordic Crypto? <a href=\"{href}\">Søk som spaltist</a>. Redaktøren leser hver søknad. Publisering er ikke garantert, og en spalte er ikke investeringsråd.",
 "col_title": "Søk som spaltist",
 "col_desc": "Søk om å skrive en spalte for Nordic Crypto om krypto, bitcoin eller blokkjede i Norden.",
