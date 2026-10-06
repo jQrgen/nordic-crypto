@@ -1,8 +1,10 @@
 // Texts for the newsletter emails and the worker's own small unsubscribe page, per site and language.
 // Kryptonytt rule: Norwegian text never says "AI"/"KI" (none of these texts mention it at all).
 // Placeholders: {name} publication name, {link} confirmation/unsubscribe link, {site} site URL.
+import siteUrl from "../../site_url.json" with { type: "json" };
+const SITE_BASE = siteUrl.base.endsWith("/") ? siteUrl.base : siteUrl.base + "/";
 export const SITES = {
-  "nordic-crypto": { name: "Crypto Nordic", base: "https://jqrgen.github.io/nordic-crypto/", page: "newsletter/",
+  "nordic-crypto": { name: "Crypto Nordic", base: SITE_BASE, page: "newsletter/",
     langs: { en: "", nn: "nn/", nb: "nb/", sv: "sv/", da: "da/", fi: "fi/", is: "is/" }, def: "en" },
   "kryptonytt": { name: "Kryptonytt Norge", base: "https://jqrgen.github.io/kryptonytt/", page: "nyhetsbrev/",
     langs: { nn: "", nb: "bm/", en: "en/" }, def: "nn" },

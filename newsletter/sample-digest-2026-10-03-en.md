@@ -45,7 +45,7 @@ GreenMerc is cutting costs by SEK 4.8 million a year while Northcrypto turns a p
 At a Finnish crypto event, investors described community and technology as what draws them to crypto, as bitcoin rallied again.  
 *Yle Uutiset (latest) · 27 Sep 2026*
 
-[All stories, the calendar and the who’s who](https://jqrgen.github.io/nordic-crypto/)
+[All stories, the calendar and the who’s who](https://cryptonordic.no/)
 
 ---
 

@@ -147,7 +147,7 @@ class PublishKeep(unittest.TestCase):
     def test_publish_script_sets_pages_domain_and_checks_it(self):
         text = open(PUBLISH, encoding="utf-8").read()
         self.assertIn(
-            "gh api -X PUT repos/jQrgen/nordic-crypto/pages -f cname=cryptonordic.no "
+            'gh api -X PUT repos/jQrgen/nordic-crypto/pages -f "cname=$(site_host)" '
             "-f 'source[branch]=gh-pages' -f 'source[path]=/'",
             text,
         )
@@ -155,8 +155,14 @@ class PublishKeep(unittest.TestCase):
             'gh api -X POST repos/jQrgen/nordic-crypto/pages -f "source[branch]=gh-pages" -f "source[path]=/"',
             text,
         )
-        self.assertIn('CUSTOM=https://cryptonordic.no/', text)
+        self.assertIn("URL=$(site_base)", text)
+        self.assertIn('CUSTOM="$URL"', text)
         self.assertIn('wait_url "$CUSTOM" 120', text)
+        host = subprocess.run(
+            ["python3", "-c", "import site_url; print(site_url.HOST)"],
+            cwd=ROOT, capture_output=True, text=True, timeout=30,
+        )
+        self.assertEqual(host.stdout.strip(), "cryptonordic.no", host.stderr)
 
     def test_wait_url_warns_quickly_and_accepts_200(self):
         r = subprocess.run(

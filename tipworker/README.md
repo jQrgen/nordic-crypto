@@ -8,9 +8,9 @@ honeypot, limits and responses as `tipserver/server.py` (checked by `test_parity
 - `GET /api/health` – `{"ok":true,"service":"nordic-crypto-tips"}` (also checks D1).
 - `GET /api/geo` – `{"country":"NO"}` or `{"country":null}`: only the two-letter code Cloudflare already attaches to the
   request (`request.cf.country`; `XX`/`T1` → null). Used once per visit by the site's language picker
-  (`tools/langselect.js`). Nothing stored or logged, `Cache-Control: no-store`, CORS only for github.io. No third-party
+  (`tools/langselect.js`). Nothing stored or logged, `Cache-Control: no-store`, CORS for the public site origin (`site_url.json`) and https://jqrgen.github.io. No third-party
   geo-IP service. Tests set `--var GEO_TEST:1` so the `X-Test-Country` header can fake a country; production never sets it.
-- CORS: only `https://jqrgen.github.io`; other browser origins get 403 and no `Access-Control-Allow-Origin`.
+- CORS: the public site origin (`site_url.json`) and `https://jqrgen.github.io` (Kryptonytt); other browser origins get 403 and no `Access-Control-Allow-Origin`.
 - Rate limit: 5 tips / 10 min per visitor, 200 / 10 min in total. No raw IPs: `SHA-256(daily random salt | IP)` kept
   10 minutes in `rate_hits`; the salt is replaced every UTC day and the old one deleted.
 - No logging: no `console.*`, `[observability] enabled = false`.

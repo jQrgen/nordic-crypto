@@ -29,12 +29,13 @@ if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 sys.path.insert(0, os.path.join(ROOT, "tools"))
 import i18n  # noqa: E402
+import site_url  # noqa: E402
 import source_logos  # noqa: E402
 
 API = "1"
 SITE_NAME = "Nordic Crypto"
 SIGN_OFF = "The Nordic Crypto team"
-CUSTOM_BASE = "https://cryptonordic.no/"
+CUSTOM_BASE = site_url.BASE
 # Brand accounts. The same URLs are linked from the site footer, About and the newsletter.
 SITE_X_URL = "https://x.com/xcryptonordic"
 SITE_TELEGRAM_URL = "https://t.me/nordiccryptochat"
@@ -249,7 +250,7 @@ class Feed:
         self.site = site
         self.preview = bool(preview)
         self.base = base if base.endswith("/") else base + "/"
-        self.custom = CUSTOM_BASE
+        self.custom = self.base
         self.generated = dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat()
         self.endpoints = []
         self.examples = {}
@@ -750,13 +751,13 @@ def _newsletters(feed):
         en_html = ""
         en_path = os.path.join(pub, iid, "issue.html")
         if os.path.exists(en_path):
-            en_html = open(en_path, encoding="utf-8").read()
+            en_html = site_url.expand(open(en_path, encoding="utf-8").read())
         for lang in LANGS:
             if lang == "en":
                 continue
             p = os.path.join(pub, iid, f"issue.{lang}.html")
             if os.path.exists(p):
-                bodies[lang] = open(p, encoding="utf-8").read()
+                bodies[lang] = site_url.expand(open(p, encoding="utf-8").read())
                 texts[lang] = html_to_text(bodies[lang])
         full = {
             "id": iid,
@@ -896,11 +897,11 @@ def _meta(feed):
         },
         social=brand_social(),
         url_note=(
-            "Absolute urls in this API use the GitHub Pages base, including the /nordic-crypto/ path. "
-            "On the custom domain the same file is at the site root: replace "
-            "https://jqrgen.github.io/nordic-crypto/ with https://cryptonordic.no/. "
-            "HTTPS on cryptonordic.no works once the certificate matches that name. "
-            "Until then, http://cryptonordic.no/ serves the same files and sends Access-Control-Allow-Origin: *."
+            "Absolute urls in this API use the public site origin "
+            f"({feed.base}). "
+            "GitHub Pages serves that origin from the repository root. "
+            "There is no /nordic-crypto/ path on this origin. "
+            "GitHub Pages sends Access-Control-Allow-Origin: * on these files."
         ),
         editorial={
             "sign_off": SIGN_OFF,
@@ -1117,7 +1118,7 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
 
     collection("api/v1/sources.json", "News outlets, the public search terms, and event sources. Kaupr is marked as a news source only. logo is the outlet image for that source id when one is on file.", "SourceCatalogue",
                feed.env(
-                   user_agent=(sources_cfg or {}).get("user_agent"),
+                   user_agent=site_url.expand((sources_cfg or {}).get("user_agent") or ""),
                    min_delay_seconds=(sources_cfg or {}).get("min_delay_seconds"),
                    keyword_note=i18n.t("en", "src_kw"),
                    kaupr="Kaupr (kaupr.io) is one of the news sources. It is never a sponsor.",
@@ -1327,7 +1328,7 @@ def openapi(feed, index):
             "title": "Nordic Crypto data API",
             "version": API,
             "description": (
-                "Public read-only JSON for Nordic Crypto (cryptonordic.no, GitHub Pages jqrgen.github.io/nordic-crypto). "
+                f"Public read-only JSON for Nordic Crypto ({feed.base}). "
                 "No authentication. News, newsletters, events, sources, academia, the who's who, profiles, images, "
                 "the rules map, the changelog, the article archive and Nordic exchange prices (market data, not investment advice). "
                 "Kaupr is a news source only, never a sponsor. The sign-off is The Nordic Crypto team. "
@@ -1341,8 +1342,7 @@ def openapi(feed, index):
             "contact": {"name": SITE_NAME, "url": feed.abs("about/")},
         },
         "servers": [
-            {"url": feed.base.rstrip("/"), "description": "GitHub Pages project site"},
-            {"url": feed.custom.rstrip("/"), "description": "cryptonordic.no (same paths at the domain root, once HTTPS serves this site)"},
+            {"url": feed.base.rstrip("/"), "description": "Public site"},
         ],
         "paths": paths,
         "components": {"schemas": schemas()},
@@ -1683,9 +1683,8 @@ def llms_txt(feed, index):
         "GitHub Pages sends Access-Control-Allow-Origin: * on every JSON file, so a browser can fetch them from any site. "
         "Use the file name (index.json). A directory URL does not serve the JSON.",
         "",
-        f"GitHub Pages base: {feed.base}",
-        f"Custom domain base (same paths at the root): {feed.custom}",
-        "Swap the base to move between the two. HTTPS on cryptonordic.no is the intended public name once the certificate matches that domain.",
+        f"Public site: {feed.base}",
+        "Absolute URLs in this file use that origin, at the domain root.",
         "",
         "## Start here",
         "",
@@ -1790,7 +1789,6 @@ def head_links(base):
 
 def docs_fragment(index):
     b = index["bases"]["github_pages"]
-    c = index["bases"]["custom_domain"]
     def row(ep):
         return (
             f"<tr><td>GET</td><td><a href=\"{html.escape(ep['url'])}\"><code>{html.escape(ep['path'])}</code></a></td>"
@@ -1824,7 +1822,7 @@ def docs_fragment(index):
 <h2>Fetch news and a newsletter</h2>
 <pre>curl -fsS {news}
 curl -fsS {letters}{html.escape(one_line)}</pre>
-<p>The same paths on the custom domain, at the site root: <code>{html.escape(c)}api/v1/news.json</code>. Swap <code>{html.escape(b)}</code> for <code>{html.escape(c)}</code>.</p>
+<p>Absolute URLs use the public site, at the domain root: <code>{html.escape(b)}api/v1/news.json</code>.</p>
 <h2>Market prices</h2>
 <p>Nordic exchange prices are market data, not investment advice. <a href="{html.escape(b)}api/v1/markets.json"><code>/api/v1/markets.json</code></a> lists each pair with symbol, base, quote, last, bid and ask when the exchange publishes them, the exchange id, name and country, <code>fetched_at</code>, the source URL, and volume when the exchange published it. <code>volume_base</code> is the base asset with no named window (Firi). <code>volume_base_24h</code> and <code>volume_quote_24h</code> are the last 24 hours (NBX). A missing volume is null, not zero. Quotes are NOK, SEK, DKK and EUR. One exchange is <a href="{html.escape(b)}api/v1/markets/firi.json"><code>/api/v1/markets/{{exchange}}.json</code></a> (<code>firi</code>, <code>nbx</code>, <code>coinmotion</code>). One asset is <a href="{html.escape(b)}api/v1/markets/by-asset/BTC.json"><code>/api/v1/markets/by-asset/{{symbol}}.json</code></a>. Venues without a public ticker are listed under <code>skipped</code> and are not given a made-up price.</p>
 <p><a href="{html.escape(b)}api/v1/markets/aggregated.json"><code>/api/v1/markets/aggregated.json</code></a> is one row per pair. BTC-NOK is not averaged with BTC-EUR. <code>last</code> is the arithmetic mean of published last prices. <code>mid</code> is the mean of (bid+ask)/2 and is not mixed into <code>last</code>. <code>price</code> equals <code>last</code> when any last exists, otherwise <code>mid</code>. <code>min</code> and <code>max</code> use that same series. There is no VWAP. Volume is summed only inside the same field and the same pair. <code>logo_url</code> is an SVG from <a href="https://github.com/spothq/cryptocurrency-icons" rel="noopener">cryptocurrency-icons</a> (CC0 1.0) when that set includes the asset, served at <code>/api/v1/markets/logos/{{symbol}}.svg</code>, and null otherwise. The per-asset file repeats <code>aggregated</code> and the logo.</p>
@@ -1875,7 +1873,7 @@ def main():
     write(
         site,
         preview=preview,
-        base="https://jqrgen.github.io/nordic-crypto/",
+        base=site_url.BASE,
         items=ctx["items"],
         events=events,
         entities=ctx["ents"],

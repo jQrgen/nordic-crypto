@@ -122,6 +122,10 @@ def main():
         issue = json.load(open(os.path.join(tmp, "api/v1/newsletters/001.json"), encoding="utf-8"))["item"]
         if "The Nordic Crypto team" not in (issue.get("text") or ""):
             fails.append("sign-off missing from issue text")
+        if "jqrgen.github.io/nordic-crypto" in (issue.get("html") or "") or "jqrgen.github.io/nordic-crypto" in json.dumps(issue.get("html_urls") or {}):
+            fails.append("newsletter still links to github.io")
+        if not str(issue.get("html_url") or "").startswith(build.BASE):
+            fails.append("newsletter html_url")
         if issue.get("sign_off") != "The Nordic Crypto team":
             fails.append("sign-off field")
         opening = (issue.get("text") or "")[:400].lower()
@@ -226,8 +230,10 @@ def main():
                 fails.append("rtl missing for " + row["code"])
             if row.get("code") == "en" and row.get("rtl"):
                 fails.append("english marked rtl")
-            if row.get("code") == "en" and not str(row.get("home") or "").endswith("/nordic-crypto/"):
+            if row.get("code") == "en" and row.get("home") != build.BASE:
                 fails.append("english home")
+            if "jqrgen.github.io/nordic-crypto" in str(row.get("home") or ""):
+                fails.append("home still on github.io")
             if row.get("code") == "zh" and not str(row.get("home") or "").endswith("/zh/"):
                 fails.append("zh home")
         meta_codes = {row.get("code") for row in meta.get("languages") or []}

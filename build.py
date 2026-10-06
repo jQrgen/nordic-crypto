@@ -3,7 +3,7 @@
 Also writes the public JSON API under site/api/v1/ (see tools/api_feed.py), /api/ docs, /llms.txt and OpenAPI.
   .venv/bin/python build.py            # public build: ONLY editor-approved content (what publish.sh would push)
   .venv/bin/python build.py --preview  # local review build: also shows pending items, clearly marked "Pending editor review"
-All paths are relative, so the site works at https://jqrgen.github.io/nordic-crypto/ and on a local server.
+All paths are relative, so the site works at the public origin (site_url.BASE) and on a local server.
 Share buttons are plain links. No advertising trackers and no external fonts. Cloudflare Web Analytics
 (aggregate visits, no cookies) is injected only when analytics.json or CF_WEB_ANALYTICS_TOKEN has a real token.
 Languages (i18n/ALL_LANGS): English at the root, then one directory per code. Nordic nn, nb, sv, da, fi, is plus the wider UI set. Missing strings fall back to English.
@@ -11,13 +11,14 @@ Every page is built once per language; data/ (JSON), assets/ and screen/ (Englis
 import json, os, re, shutil, subprocess, html, sys, calendar, datetime as dt
 from zoneinfo import ZoneInfo
 import i18n
+import site_url
 from tools.frontpage_blurbs import card_text, load as load_blurbs, opening_sentences, substantive
 ROOT = os.path.dirname(os.path.abspath(__file__)); P = lambda *a: os.path.join(ROOT, *a)
-BASE = "https://jqrgen.github.io/nordic-crypto/"
+BASE = site_url.BASE
 SITE = os.environ.get("NC_SITE_DIR") or P("site")   # NC_SITE_DIR: scratch build dir (tipworker/publish_tip_page.sh)
 PREVIEW = "--preview" in sys.argv
 SITE_NAME = "Nordic Crypto"
-CUSTOM_DOMAIN = "cryptonordic.no"   # GitHub Pages CNAME; publish.sh will not push gh-pages without it
+CUSTOM_DOMAIN = site_url.HOST   # GitHub Pages CNAME; publish.sh will not push gh-pages without it
 def write_cname():
     """site/CNAME, so a publish keeps the custom domain (a missing file clears it on GitHub Pages)."""
     open(os.path.join(SITE, "CNAME"), "w", encoding="utf-8").write(CUSTOM_DOMAIN + "\n")
@@ -254,7 +255,7 @@ a.applink:hover,a.applink:focus-visible{background:var(--soft)}
 """
 
 NAV = [("", "nav_news"), ("markets", "nav_markets"), ("calendar", "nav_calendar"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("sources", "nav_sources"), ("newsletter", "nav_newsletter"), ("about", "nav_about"), ("tip", "nav_tip")]
-COOKIE_PATH = "/" + BASE.split("://", 1)[1].split("/", 1)[1]   # /nordic-crypto/
+COOKIE_PATH = site_url.PATH   # "/" on the public domain; a path prefix if BASE ever has one
 def geo_endpoint():
     """Country lookup: GET <tipworker>/api/geo (Cloudflare request.cf.country). Only when the Worker is deployed,
     i.e. tipserver/config.json -> public_endpoint is a workers.dev URL (or env GEO_ENDPOINT)."""
@@ -417,7 +418,7 @@ def build_issue(iss):
     iid = iss["id"]; v = iss.get("video") or {}; slug = f"newsletter/{iid}"
     depth = 2 + (0 if LANG == "en" else 1); root = "../" * depth; a = f"{root}newsletter/{iid}/"
     title, tl = nl_i18n(iss, "title"); subtitle, sl = nl_i18n(iss, "subtitle")
-    txt, hl = nl_issue_html(iss); txt = txt.replace(BASE, root + lp())  # site links stay in the reader's language
+    txt, hl = nl_issue_html(iss); txt = site_url.expand(txt).replace(BASE, root + lp())  # site links stay in the reader's language
     tla, sla, hla = lang_attr(tl), lang_attr(sl), lang_attr(hl)
     per = iss.get("period") or []
     per_s = (" · " + E(t("nl_issue_period", a=i18n.short_dm(LANG, dt.date.fromisoformat(per[0])), b=i18n.short_date(LANG, dt.date.fromisoformat(per[1]))))) if len(per) == 2 else ""
@@ -794,7 +795,7 @@ def build():
     LANG = "en"
     os.makedirs(os.path.join(SITE, "screen"), exist_ok=True)
     open(os.path.join(SITE, "screen", "index.html"), "w", encoding="utf-8").write(
-        open(P("templates", "screen.html"), encoding="utf-8").read().replace("__BASE__", BASE).replace("__FLAGS__", flags_js()).replace("__PREVIEW__", "true" if PREVIEW else "false").replace("__ANALYTICS__", analytics_snippet()))
+        open(P("templates", "screen.html"), encoding="utf-8").read().replace("__BASE__", BASE).replace("__HOST__", site_url.HOST).replace("__FLAGS__", flags_js()).replace("__PREVIEW__", "true" if PREVIEW else "false").replace("__ANALYTICS__", analytics_snippet()))
     for old, new in (("kalender", "calendar"), ("skjerm", "screen"), ("organisasjonskart", "org-chart"), ("kilder", "sources"), ("om", "about"), ("akademia", "academia")): redirect(old, new)
     active = sorted({(s.get("outlet") and next((x["name"] for x in cfg["sources"] if x["id"] == s.get("outlet")), s["name"]) or s["name"]).split(" (")[0] + "|" + s["country"]
                      for s in cfg["sources"] if s.get("enabled") and s["type"] not in ("bing", "search") and status.get(s["id"], {}).get("ok", True)})
@@ -803,7 +804,10 @@ def build():
         n, c = a.split("|")
         if n not in seen: seen.add(n); act.append({"name": n, "country": "NO" if n == "Kaupr" else c})
     json.dump({"active": act}, open(os.path.join(SITE, "data", "sources.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    open(os.path.join(SITE, "robots.txt"), "w").write("User-agent: *\n" + ("Disallow: /\n" if PREVIEW else "Allow: /\n"))
+    robots = "User-agent: *\n" + ("Disallow: /\n" if PREVIEW else "Allow: /\n")
+    if not PREVIEW:
+        robots += f"Sitemap: {BASE}sitemap.xml\n"
+    open(os.path.join(SITE, "robots.txt"), "w").write(robots)
     emit_api(ctx)
     sitemap()
     write_cname()

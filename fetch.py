@@ -32,7 +32,8 @@ def save(path, data):
     os.replace(tmp, path)
 
 CFG = load(P("sources.json"), None)
-UA = CFG["user_agent"]; DELAY = CFG.get("min_delay_seconds", 2)
+import site_url
+UA = site_url.expand(CFG["user_agent"]); DELAY = CFG.get("min_delay_seconds", 2)
 LOG = open(P("logs", dt.datetime.now().strftime("fetch-%Y%m%d-%H%M%S.log")), "w", encoding="utf-8")
 def log(*a):
     s = " ".join(str(x) for x in a); print(s, flush=True); LOG.write(s + "\n"); LOG.flush()
