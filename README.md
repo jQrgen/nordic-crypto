@@ -3,9 +3,9 @@
 Bitcoin, blockchain and crypto news, events, a who's who (industry + regulators), regulation by country and academia for
 **Norway, Sweden, Denmark, Finland and Iceland**. Static site. Cloudflare Web Analytics counts aggregate visits (no cookies, data not sold) when a token is set in `analytics.json`. No advertising trackers.
 Languages: English at `/`, and one directory per other site language. The list, native names and the IP-country guess are under [Site languages](#site-languages). External headlines and quotes stay in the original language; our own summaries are written first in English, then translated for the Nordic site languages (AI-assisted, editor-approved).
-Planned URL: https://jqrgen.github.io/nordic-crypto/ (all links are relative). Run by jQrgen (Jørgen S. Notland), MIT licence.
+Public URL: https://cryptonordic.no/ (`site_url.json`; all in-site links are relative). Run by jQrgen (Jørgen S. Notland), MIT licence.
 
-**Status:** live at https://jqrgen.github.io/nordic-crypto/ (gh-pages). Code on `main`. Every publish needs jQrgen's explicit approval.
+**Status:** live at https://cryptonordic.no/ (gh-pages, CNAME). Code on `main`. Every publish needs jQrgen's explicit approval.
 
 ## Site languages
 Site interface and page presentation. News outlets stay as listed in `sources.json`. UI strings live in `i18n/<code>.py`. A missing key falls back to English, which is how the languages beyond the Nordic set are shipped until a real translation is written. Article bodies are not machine-translated for those languages. English is the site root. Every other code is `/<code>/`.
@@ -48,7 +48,7 @@ After one automatic choice, `sessionStorage` `nc_auto` stops a second redirect i
 ## Data API
 Public JSON for apps and other tools, written into `site/` by `./build.sh` (`tools/api_feed.py`). No account. News, newsletters, events, sources, academia, the who's who, profiles, the rules map, the changelog and the article archive.
 
-- Human docs: https://jqrgen.github.io/nordic-crypto/api/ and https://cryptonordic.no/api/ (same page; the custom domain serves the site root)
+- Human docs: https://cryptonordic.no/api/
 - Discovery: `/api/v1/index.json`
 - OpenAPI: `/api/v1/openapi.json` and `/api/v1/openapi.yaml`
 - Languages: `/api/v1/languages.json` (code, native name, English name, rtl, html lang, home URL). The same fields are on each entry in `/api/v1/meta.json` `languages`.
@@ -172,7 +172,7 @@ now supported by `fetch.py`). Keywords `Bitmynt` and `H100` were added. This add
 ## Reader tips (added 3 Oct 2026; own tip server 3 Oct 2026)
 **Own tip server (primary, not public yet).** `tipserver/server.py` (Python stdlib + SQLite) listens on `127.0.0.1:8787`:
 `POST /api/tip` (JSON or form: `url` required http/https, `country` NO/SE/DK/FI/IS/unsure, `note` ≤ 1000 chars, optional `name` ≤ 100, honeypot `website` must be empty) and `GET /api/health`.
-Body capped at 4 KB, in-memory per-IP rate limit (5 per 10 min; IPs are hashed in memory only, using `CF-Connecting-IP` behind the tunnel), CORS only for `https://jqrgen.github.io`, other browser origins get 403.
+Body capped at 4 KB, in-memory per-IP rate limit (5 per 10 min; IPs are hashed in memory only, using `CF-Connecting-IP` behind the tunnel), CORS for the public site origin and `https://jqrgen.github.io` (Kryptonytt), other browser origins get 403.
 Tips go to `tipserver/tips.db` (gitignored, mode 600) with a UTC timestamp and status `pending`. **No IP address, user agent or request body is stored or logged**; `tipserver/server.log` has only time, method, path and status.
 - Keep it running: `tipserver/run.sh start|stop|restart|status`. `run.sh start` launches `tipserver/supervise.sh` detached (setsid + nohup), which restarts the server whenever it exits (back-off 1–30 s). The box has no systemd or cron, so `routines/nightly-fetch.sh` calls `tipserver/run.sh ensure` to bring it back after a box restart.
 - Test: `curl -s http://127.0.0.1:8787/api/health` and `curl -s -H 'Content-Type: application/json' -d '{"url":"https://example.no/a","country":"NO"}' http://127.0.0.1:8787/api/tip`.
@@ -185,7 +185,7 @@ Tips go to `tipserver/tips.db` (gitignored, mode 600) with a UTC timestamp and s
 - **Port 7844 is blocked from this box (re-checked 4 Oct 2026, TCP and QUIC, also with `--protocol http2`)** – every Cloudflare tunnel (quick or named) needs it, so the tunnel watchdog sits in `blocked-7844`. Public access needs a network that allows outbound 7844, or another way to expose the server.
 - No systemd/cron on the box: after a box restart nothing runs until `routines/nightly-fetch.sh` calls `tipserver/run.sh ensure` (or someone runs it by hand). While the box is off or the tunnel is down, the /tip/ page (once in server mode) shows the GitHub issue form as fallback.
 
-**GitHub issues (fallback).** The [Send a tip](https://jqrgen.github.io/nordic-crypto/tip/) page currently opens the issue form `.github/ISSUE_TEMPLATE/tip.yml` (label `tip`; tips are public on GitHub). Issues are never commented on or closed automatically.
+**GitHub issues (fallback).** The [Send a tip](https://cryptonordic.no/tip/) page currently opens the issue form `.github/ISSUE_TEMPLATE/tip.yml` (label `tip`; tips are public on GitHub). Issues are never commented on or closed automatically.
 
 **Nightly import.** `routines/nightly-fetch.sh` runs `tools/reader_tips.py`: pending rows in `tipserver/tips.db` -> `data/news.json` + `queue/review.json` as `pending` with origin `reader tip #<id>`, and the row is marked `imported` / `duplicate` / `invalid` (with `imported_at`, `queue_item_id`). Open `tip` issues are imported the same way with origin `reader tip (GitHub #N)`. Dedup: normalised-URL check from `tools/crosssite_handoff.py` against all stories (incl. rejected) and `approved.json`. Page metadata only where robots.txt allows. **The tipster's name is never read or copied**; the note stays in the local queue only (`tip_note_local_only`). Nothing is auto-published. Editor: treat tips like any other story. Dry run: `--dry-run`.
 

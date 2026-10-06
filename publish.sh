@@ -6,12 +6,26 @@
 #         ./publish.sh --yes  -> build, check and publish (ONLY after jQrgen has approved)
 # Sourced by tests/test_publish_keep.py. Running the file publishes; sourcing it only defines helpers.
 
+_publish_root() {
+  local src="${BASH_SOURCE[0]}"
+  (cd "$(dirname "$src")" && pwd)
+}
+
+site_base() {
+  # Public origin, including the trailing slash. Defined in site_url.json.
+  python3 -c 'import sys; sys.path.insert(0, sys.argv[1]); import site_url; print(site_url.BASE)' "$(_publish_root)"
+}
+
+site_host() {
+  python3 -c 'import sys; sys.path.insert(0, sys.argv[1]); import site_url; print(site_url.HOST)' "$(_publish_root)"
+}
+
 gh_pages_cname_ok() {
   # $1 is a tree root. True when CNAME is exactly the live custom domain.
   local f="$1/CNAME" got
   [ -f "$f" ] || return 1
   got=$(tr -d '[:space:]' < "$f" || true)
-  [ "$got" = "cryptonordic.no" ]
+  [ "$got" = "$(site_host)" ]
 }
 
 stage_gh_pages() {
@@ -43,11 +57,11 @@ stage_gh_pages() {
     [ "$found" = 1 ] || names+=("$n")
   done
   if [ -e "$src/CNAME" ] && ! gh_pages_cname_ok "$src"; then
-    echo "refusing: staged gh-pages tree lacks CNAME (cryptonordic.no); not publishing" >&2
+    echo "refusing: staged gh-pages tree lacks CNAME ($(site_host)); not publishing" >&2
     return 1
   fi
   if ! gh_pages_cname_ok "$src" && ! gh_pages_cname_ok "$dest"; then
-    echo "refusing: staged gh-pages tree lacks CNAME (cryptonordic.no); not publishing" >&2
+    echo "refusing: staged gh-pages tree lacks CNAME ($(site_host)); not publishing" >&2
     return 1
   fi
   # Exclude list: do not delete .git or any kept top-level name. Everything else is the build output.
@@ -59,7 +73,7 @@ stage_gh_pages() {
   find "$dest" -mindepth 1 -maxdepth 1 "${pred[@]}" -exec rm -rf {} +
   cp -a "$src"/. "$dest"/
   if ! gh_pages_cname_ok "$dest"; then
-    echo "refusing: staged gh-pages tree lacks CNAME (cryptonordic.no); not publishing" >&2
+    echo "refusing: staged gh-pages tree lacks CNAME ($(site_host)); not publishing" >&2
     return 1
   fi
 }
@@ -86,8 +100,8 @@ cd "$(dirname "$0")"
 exec 9>/tmp/nordic-crypto-publish.lock; flock -w 300 9   # shared with tipserver/publish_endpoint.sh
 DRY=${1:-}
 REPO=https://github.com/jQrgen/nordic-crypto.git
-URL=https://jqrgen.github.io/nordic-crypto/
-CUSTOM=https://cryptonordic.no/
+URL=$(site_base)
+CUSTOM="$URL"
 # on the first approved publish, stamp the launch date into changelog.json (entries dated "launch")
 [ "$DRY" = "--yes" ] && .venv/bin/python -c "import json,datetime;p='changelog.json';d=json.load(open(p));d['launch_date']=d.get('launch_date') or datetime.date.today().isoformat();json.dump(d,open(p,'w'),ensure_ascii=False,indent=1)"
 # build.py also fetches Nordic exchange prices into site/api/v1/markets.json (tools/markets.py)
@@ -119,7 +133,7 @@ if git -C .publish diff --cached --quiet; then echo "gh-pages: no changes"; else
   git -C .publish commit -q -m "Publish $(date '+%Y-%m-%d %H:%M %Z')" && git -C .publish push -q origin gh-pages && echo "gh-pages: pushed"; fi
 # Keep the custom domain set. Deleting CNAME from the branch clears this; the PUT puts it back.
 # POST remains the fallback for a repo that does not have Pages yet.
-gh api -X PUT repos/jQrgen/nordic-crypto/pages -f cname=cryptonordic.no -f 'source[branch]=gh-pages' -f 'source[path]=/' >/dev/null 2>&1 \
+gh api -X PUT repos/jQrgen/nordic-crypto/pages -f "cname=$(site_host)" -f 'source[branch]=gh-pages' -f 'source[path]=/' >/dev/null 2>&1 \
   || gh api -X POST repos/jQrgen/nordic-crypto/pages -f "source[branch]=gh-pages" -f "source[path]=/" >/dev/null 2>&1 \
   || true
 # 2) main: code and config only (see .gitignore)

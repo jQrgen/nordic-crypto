@@ -38,6 +38,6 @@ case "${1:-status}" in
       alive tunnel.pid && echo "tunnel watchdog running (pid $(cat tunnel.pid))" || echo "tunnel watchdog NOT running"
       echo "tunnel state: $(cat tunnel.state 2>/dev/null || echo unknown)"; fi
     echo "public endpoint: $(python3 endpoint.py)"; pubhealth && echo "public health: ok" || echo "public health: down"
-    echo "published tip-endpoint.json: $(curl -fsS --max-time 10 "https://jqrgen.github.io/nordic-crypto/tip-endpoint.json?t=$(date +%s)" 2>/dev/null | tr -d '\n ' || echo none)" ;;
+    echo "published tip-endpoint.json: $(curl -fsS --max-time 10 "$(python3 -c 'import sys; sys.path.insert(0, ".."); import site_url; print(site_url.join("tip-endpoint.json"))')?t=$(date +%s)" 2>/dev/null | tr -d '\n ' || echo none)" ;;
   *) echo "usage: $0 start|stop|restart|status|ensure"; exit 2 ;;
 esac

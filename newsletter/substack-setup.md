@@ -21,7 +21,7 @@ Two channels:
 |---|---|
 | Publication name | **Nordic Crypto** |
 | Subdomain | **cryptonordic.substack.com** – created by jQrgen on 2026-10-05 (https://cryptonordic.substack.com, HTTP 200; `/subscribe` HTTP 200). |
-| Custom domain (optional, paid add-on) | not needed; the site stays on jqrgen.github.io/nordic-crypto/ |
+| Custom domain (optional, paid add-on) | not needed; the site is https://cryptonordic.no/ |
 | Language (Settings › Publication details) | English |
 | Sender name ("From" name) | **Nordic Crypto** (alternative: "Nordic Crypto – jQrgen") |
 | Reply-to | jQrgen decides (no public email address exists today; do **not** use a private address without deciding) |
@@ -46,7 +46,7 @@ Short Nordic variants (for the about page or social posts):
 >
 > The summaries are made with the help of artificial intelligence, with human editors (jQrgen and the Nordic Crypto editor). Jørgen S. Notland (jQrgen), Oslo, is the
 > responsible person. Nothing here is investment advice. The website also has a calendar of Nordic crypto events and a
-> who's who of the people and organisations in the field: https://jqrgen.github.io/nordic-crypto/
+> who's who of the people and organisations in the field: https://cryptonordic.no/
 >
 > Kaupr (kaupr.io) is one of the news sources we follow. Stories from Kaupr are credited to Kaupr.
 
@@ -81,7 +81,7 @@ Suggested accent colour in Substack's theme: **#0f5ea8**.
 > source. Some sources may require a subscription; we say so next to the story.
 >
 > Jørgen S. Notland (jQrgen) in Oslo is the responsible person. Nothing in the newsletter is investment advice. Spotted a mistake or a story we missed? Use
-> "Send a tip" on the website: https://jqrgen.github.io/nordic-crypto/tip/
+> "Send a tip" on the website: https://cryptonordic.no/tip/
 >
 > Kaupr (kaupr.io) is one of the news sources we follow. Stories from Kaupr are credited to Kaupr.
 >
@@ -121,7 +121,7 @@ Stories from Kaupr are credited to Kaupr as the source, the same way as any othe
 - Form: footer of every page + `/newsletter/` in all 7 languages, with a privacy note. Off until `newsletter/config.json`
   `enabled: true` (and the Worker is deployed). Test build: `NC_NEWSLETTER=1 NEWSLETTER_ENDPOINT=http://127.0.0.1:8789 NC_SITE_DIR=/tmp/x .venv/bin/python build.py`.
 - Double opt-in: signup → confirmation link (valid 7 days) → `confirmed`. Unconfirmed rows are deleted after 7 days.
-  No IP address or user agent is stored. CORS only for https://jqrgen.github.io.
+  No IP address or user agent is stored. CORS only for the public site origin (`site_url.json`) and https://jqrgen.github.io (Kryptonytt).
 - Confirmation emails are **not sent** until a provider is chosen and `MAIL_PROVIDER` + `MAIL_SEND_ENABLED=1` are set on the
   Worker (see `tipworker/README.md`). With Substack only: keep the site form off, or use it and import confirmed addresses:
   `.venv/bin/python tipworker/export_subscribers.py --site nordic-crypto` → `state/newsletter/nordic-crypto-confirmed-<date>.csv`

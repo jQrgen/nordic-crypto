@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Real-browser test of the newsletter signup form (Chrome via Playwright) against a local `wrangler dev`
 (SUBSCRIBE_TEST=1, so no mail is sent). The built page is served (Playwright route) as https://jqrgen.github.io/<repo>/…
-(allowed origin) and as https://evil.example/<repo>/… (refused by CORS); Chrome enforces CORS on the worker's real headers.
+(github.io stays an allowed CORS origin for this two-repo harness; Nordic Crypto's public pages use site_url.json)
+and as https://evil.example/<repo>/… (refused by CORS); Chrome enforces CORS on the worker's real headers.
 Build first into a scratch dir with the flag on, e.g.
   NC_NEWSLETTER=1 NEWSLETTER_ENDPOINT=http://127.0.0.1:8789 NC_SITE_DIR=/tmp/ncn .venv/bin/python build.py
 Usage: python3 tipworker/tests/browser_newsletter.py <site_dir> <repo> <page path> <home path> <sent text> [worker]
