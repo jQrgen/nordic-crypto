@@ -1,11 +1,45 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-05T23:55:43+00:00",
+ "generated_at": "2026-10-06T00:09:41+00:00",
  "preview": false,
  "launch_date": "2026-10-03",
- "count": 18,
+ "count": 19,
  "entries": [
+  {
+   "id": "frontpage-blurbs",
+   "date": "2026-10-05",
+   "title": "Longer summaries on the front page",
+   "description": "Each story on the front page now carries a summary of what the article says, two to four sentences, in English, Norwegian Nynorsk, Norwegian Bokmål, Swedish, Danish, Finnish and Icelandic. Other site languages show the English summary. A one-sentence editorial intro is no longer the only text on the card. The words are ours, from the headline and the public lead. We do not copy article text and we do not get around paywalls.",
+   "i18n": {
+    "nn": {
+     "title": "Lengre samandrag på framsida",
+     "description": "Kvar sak på framsida har no eit samandrag av kva artikkelen seier, to til fire setningar, på engelsk, nynorsk, bokmål, svensk, dansk, finsk og islandsk. Andre språk på nettstaden viser det engelske samandraget. Ein setning som ingress er ikkje lenger den einaste teksten på kortet. Orda er våre, frå tittelen og den offentlege ingressen. Vi kopierer ikkje artikkeltekst og går ikkje rundt betalingsmurar."
+    },
+    "nb": {
+     "title": "Lengre sammendrag på forsiden",
+     "description": "Hver sak på forsiden har nå et sammendrag av hva artikkelen sier, to til fire setninger, på engelsk, nynorsk, bokmål, svensk, dansk, finsk og islandsk. Andre språk på nettstedet viser det engelske sammendraget. Én setning som ingress er ikke lenger den eneste teksten på kortet. Ordene er våre, fra tittelen og den offentlige ingressen. Vi kopierer ikke artikkeltekst og går ikke rundt betalingsmurer."
+    },
+    "sv": {
+     "title": "Längre sammanfattningar på startsidan",
+     "description": "Varje artikel på startsidan har nu en sammanfattning av vad artikeln säger, två till fyra meningar, på engelska, nynorska, bokmål, svenska, danska, finska och isländska. Övriga språk på webbplatsen visar den engelska sammanfattningen. En mening som ingress är inte längre den enda texten på kortet. Orden är våra, från rubriken och den publika ingressen. Vi kopierar inte artikeltext och kringgår inte betalväggar."
+    },
+    "da": {
+     "title": "Længere resuméer på forsiden",
+     "description": "Hver artikel på forsiden har nu et resumé af, hvad artiklen siger, to til fire sætninger, på engelsk, nynorsk, bokmål, svensk, dansk, finsk og islandsk. Andre sprog på sitet viser det engelske resumé. Én sætning som manchet er ikke længere den eneste tekst på kortet. Ordene er vores, fra overskriften og den offentlige manchet. Vi kopierer ikke artikeltekst og går ikke uden om betalingsmure."
+    },
+    "fi": {
+     "title": "Pidemmät tiivistelmät etusivulla",
+     "description": "Jokaisella etusivun jutulla on nyt tiivistelmä siitä, mitä artikkeli sanoo, kahdesta neljään virkettä, englanniksi, norjan nynorskiksi ja bokmåliksi, ruotsiksi, tanskaksi, suomeksi ja islanniksi. Sivuston muut kielet näyttävät englanninkielisen tiivistelmän. Yhden virkkeen ingressi ei ole enää kortin ainoa teksti. Sanat ovat omiamme, otsikosta ja julkisesta ingressistä. Emme kopioi artikkelin tekstiä emmekä kierrä maksumuureja."
+    },
+    "is": {
+     "title": "Lengri samantektir á forsíðu",
+     "description": "Hver frétt á forsíðunni hefur nú samantekt um hvað greinin segir, tvær til fjórar setningar, á ensku, nýnorsku, bókmáli, sænsku, dönsku, finnsku og íslensku. Önnur tungumál síðunnar sýna ensku samantektina. Ein setning sem inngangur er ekki lengur eini textinn á spjaldinu. Orðin eru okkar, úr fyrirsögn og opnum inngangi. Við afritum ekki texta greina og förum ekki fram hjá áskriftarveggjum."
+    }
+   },
+   "html_url": "https://jqrgen.github.io/nordic-crypto/changelog/#frontpage-blurbs",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/frontpage-blurbs.json"
+  },
   {
    "id": "regulation-videos",
    "date": "2026-10-05",

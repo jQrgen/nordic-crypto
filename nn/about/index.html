@@ -27,7 +27,7 @@ select,input[type=search]{font:inherit;font-size:15px;padding:5px 8px;border:1px
 .chip[aria-pressed=true]{background:var(--ink);color:#fff}
 .flag{vertical-align:-2px;flex:none;border-radius:1px}
 .cc{display:inline-block;font-size:11px;font-weight:700;padding:0 4px;border:1px solid var(--line);color:var(--muted);vertical-align:1px}
-ol.news{list-style:none;margin:0;padding:0}
+ol.news{list-style:none;margin:0;padding:0;text-align:left}
 ol.news li{padding:14px 0;border-bottom:1px solid var(--line)}
 ol.news h3{font-size:18px;line-height:1.3;margin:0 0 4px}ol.news h3 a{text-decoration:none}ol.news h3 a:hover{text-decoration:underline}
 .orig{font-size:13.5px;color:var(--muted);margin:0 0 3px}
@@ -36,7 +36,7 @@ ol.news h3{font-size:18px;line-height:1.3;margin:0 0 4px}ol.news h3 a{text-decor
 .src-logo{height:18px;width:auto;max-width:96px;object-fit:contain;flex:none;background:#fff;padding:1px}
 .tag{display:inline-block;font-size:12px;padding:0 6px;border:1px solid var(--line);margin-left:4px;color:var(--muted)}
 .tag.pend{border-color:var(--warm);color:var(--warm);font-weight:600}.tag.paid{border-color:var(--warm);color:var(--warm)}
-.sum{margin:6px 0 0;max-width:75ch}.sum.pend{color:var(--warm);font-style:italic}
+.sum{margin:6px 0 0;max-width:75ch;line-height:1.45;text-align:left}.sum.pend{color:var(--warm);font-style:italic}
 .pw{font-size:12px;color:var(--warm)}
 .calgrid{display:none}@media(min-width:760px){.calgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(460px,1fr));gap:20px;margin:16px 0}}
 table.cal{border-collapse:collapse;width:100%;table-layout:fixed;font-size:13px}table.cal caption{text-align:left;font-weight:600;padding:4px 0}
@@ -123,7 +123,7 @@ html.nc-pick body{visibility:hidden}
 .issue h1{overflow-wrap:break-word}
 .nlvideo{margin:16px 0 20px;max-width:960px}.nlvideo video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000}.nlvideo figcaption{margin-top:6px}
 .issuetext{overflow-wrap:break-word}.issuetext h2{font-size:19px}.issuetext ul{padding-left:20px}.issuetext li{margin:4px 0}.issuetext hr{border:0;border-top:1px solid var(--line);margin:22px 0}
-.bridge{margin:6px 0 0;font-weight:600}
+.bridge{margin:6px 0 0;font-weight:600;text-align:left}
 @media(max-width:520px){.nlissues li{flex-direction:column;gap:8px}.nlissues .th{width:100%;max-width:100%}h1{font-size:24px}}
 
 .appbar{margin:10px 0 14px;text-align:left}
@@ -167,14 +167,14 @@ a.applink:hover,a.applink:focus-visible{background:var(--soft)}
 
 <h2>Redaksjonen</h2>
 <ul>
-<li><b>Redaktørar:</b> jQrgen og Nordic Crypto-redaktøren. Begge er menneskelege redaktørar. Dei avgjer kva saker som blir publiserte, skriv dei korte samandraga og godkjenner oppføringar i kalenderen, i kven er kven og på sida om forsking og utdanning. Arbeidet blir gjort med hjelp av kunstig intelligens.</li>
+<li><b>Redaktørar:</b> jQrgen og Nordic Crypto-redaktøren. Begge er menneskelege redaktørar. Dei avgjer kva saker som blir publiserte, skriv samandraga av kva kvar sak seier og godkjenner oppføringar i kalenderen, i kven er kven og på sida om forsking og utdanning. Arbeidet blir gjort med hjelp av kunstig intelligens.</li>
 <li><b>Ansvarleg person:</b> Jørgen S. Notland (jQrgen) svarer for innhaldet.</li>
 <li><b>Researcher:</b> ein bot basert på kunstig intelligens som hentar overskrifter frå kjeldene, føreslår saker, arrangement og moglege oppføringar i kven er kven, og legg dei i kø for redaktøren.</li>
 </ul>
 <p>Ingenting blir publisert automatisk. Kvar sak, kvart arrangement og kvar oppføring går gjennom redaktøren først.</p>
 
 <h2>Slik arbeider vi</h2>
-<p>Vi lenkjer til originalsaka og skriv eit eige samandrag på éi eller to setningar, først på engelsk og så på dei andre språka på nettstaden. Overskrifter og sitat blir viste slik kjelda skreiv dei. Vi kopierer ikkje artikkeltekst, og vi går ikkje rundt betalingsmurar. Omsetjingane av nettstaden og samandraga våre er laga med hjelp av kunstig intelligens og kontrollerte av dei menneskelege redaktørane (jQrgen og Nordic Crypto-redaktøren); sei frå dersom noko les seg feil.</p>
+<p>Vi lenkjer til originalsaka og skriv eit eige samandrag på to til fire setningar, først på engelsk og så på dei andre språka på nettstaden. Overskrifter og sitat blir viste slik kjelda skreiv dei. Vi kopierer ikkje artikkeltekst, og vi går ikkje rundt betalingsmurar. Omsetjingane av nettstaden og samandraga våre er laga med hjelp av kunstig intelligens og kontrollerte av dei menneskelege redaktørane (jQrgen og Nordic Crypto-redaktøren); sei frå dersom noko les seg feil.</p>
 <p>Kven er kven og sida om forsking og utdanning seier berre det kjeldene seier. Kvar oppføring og kvar kopling mellom oppføringar viser til kjelda si. Er vi usikre, lèt vi det vere. Personar er berre med i offentlege yrkesroller (til dømes administrerande direktør, direktør for eit tilsyn eller sentralbanksjef), slik organisasjonen eller pressa skildrar dei. Vi publiserer aldri private opplysningar, helseopplysningar eller private økonomiske opplysningar.</p>
 <p>Bilete av personar blir berre viste når dei er fritt lisensierte (Wikimedia Commons, CC BY, CC BY-SA eller CC0) eller er offisielle pressebilete som blir tilbodne til pressebruk, alltid med kreditering. Elles viser vi initialar. Logoar til organisasjonar er henta frå organisasjonen si eiga nettside, pressesider eller Wikimedia Commons, blir viste uendra og berre for å identifisere organisasjonen, og tyder ikkje at nokon støttar oss. På ei nyhendesak står logoen til mediet ved sida av kjeldenamnet når vi har ein frå same sett. Dersom vi ikkje har det, blir berre namnet vist. Lenkjer til offentlege profilar for personar (nettside, X, LinkedIn, GitHub, Nostr, Mastodon) blir berre viste når personen sjølv har gjort dei offentlege, og kvar lenkje har ei kjelde.</p>
 <p>Kaupr (kaupr.io) er ei av nyheitskjeldene vi følgjer. Sjå <a href="../sources/#kaupr">kjeldesida</a>.</p>

@@ -27,7 +27,7 @@ select,input[type=search]{font:inherit;font-size:15px;padding:5px 8px;border:1px
 .chip[aria-pressed=true]{background:var(--ink);color:#fff}
 .flag{vertical-align:-2px;flex:none;border-radius:1px}
 .cc{display:inline-block;font-size:11px;font-weight:700;padding:0 4px;border:1px solid var(--line);color:var(--muted);vertical-align:1px}
-ol.news{list-style:none;margin:0;padding:0}
+ol.news{list-style:none;margin:0;padding:0;text-align:left}
 ol.news li{padding:14px 0;border-bottom:1px solid var(--line)}
 ol.news h3{font-size:18px;line-height:1.3;margin:0 0 4px}ol.news h3 a{text-decoration:none}ol.news h3 a:hover{text-decoration:underline}
 .orig{font-size:13.5px;color:var(--muted);margin:0 0 3px}
@@ -36,7 +36,7 @@ ol.news h3{font-size:18px;line-height:1.3;margin:0 0 4px}ol.news h3 a{text-decor
 .src-logo{height:18px;width:auto;max-width:96px;object-fit:contain;flex:none;background:#fff;padding:1px}
 .tag{display:inline-block;font-size:12px;padding:0 6px;border:1px solid var(--line);margin-left:4px;color:var(--muted)}
 .tag.pend{border-color:var(--warm);color:var(--warm);font-weight:600}.tag.paid{border-color:var(--warm);color:var(--warm)}
-.sum{margin:6px 0 0;max-width:75ch}.sum.pend{color:var(--warm);font-style:italic}
+.sum{margin:6px 0 0;max-width:75ch;line-height:1.45;text-align:left}.sum.pend{color:var(--warm);font-style:italic}
 .pw{font-size:12px;color:var(--warm)}
 .calgrid{display:none}@media(min-width:760px){.calgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(460px,1fr));gap:20px;margin:16px 0}}
 table.cal{border-collapse:collapse;width:100%;table-layout:fixed;font-size:13px}table.cal caption{text-align:left;font-weight:600;padding:4px 0}
@@ -123,7 +123,7 @@ html.nc-pick body{visibility:hidden}
 .issue h1{overflow-wrap:break-word}
 .nlvideo{margin:16px 0 20px;max-width:960px}.nlvideo video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000}.nlvideo figcaption{margin-top:6px}
 .issuetext{overflow-wrap:break-word}.issuetext h2{font-size:19px}.issuetext ul{padding-left:20px}.issuetext li{margin:4px 0}.issuetext hr{border:0;border-top:1px solid var(--line);margin:22px 0}
-.bridge{margin:6px 0 0;font-weight:600}
+.bridge{margin:6px 0 0;font-weight:600;text-align:left}
 @media(max-width:520px){.nlissues li{flex-direction:column;gap:8px}.nlissues .th{width:100%;max-width:100%}h1{font-size:24px}}
 
 .appbar{margin:10px 0 14px;text-align:left}
@@ -166,7 +166,7 @@ a.applink:hover,a.applink:focus-visible{background:var(--soft)}
 <div class="api-docs">
 <h1>Nordic Crypto data API</h1>
 <p class="lead">A public JSON feed of the site, for apps and for other tools. No account and no API key. It is regenerated whenever the site is built.</p>
-<p>Version 1. 42 news items, 1 newsletter issues, 12 events in this build. Generated 2026-10-05T23:55:43+00:00.</p>
+<p>Version 1. 42 news items, 1 newsletter issues, 12 events in this build. Generated 2026-10-06T00:09:41+00:00.</p>
 <h2>Start here</h2>
 <ul>
 <li><a href="https://jqrgen.github.io/nordic-crypto/api/v1/index.json">Discovery</a> — every endpoint and example URL.</li>
