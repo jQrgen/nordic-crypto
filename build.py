@@ -1354,8 +1354,14 @@ def build_calendar(ctx):
     def when(e):
         a = dt.datetime.fromisoformat(e["start"]); b = dt.datetime.fromisoformat(e["end"]) if e.get("end") else None
         # Weekday names exist for the Nordic languages. The wider set uses English until translated.
-        s = f'{i18n.WD.get(LANG, i18n.WD["en"])[a.weekday()]} {i18n.short_date(LANG, a)}, {i18n.hm(LANG, a)}'
-        s += (f'–{i18n.hm_end(LANG, b)}' if b and b.date() == a.date() else (f' – {i18n.short_dm(LANG, b)}' if b else ""))
+        # A listing that only publishes calendar days is stored as 00:00–23:59 local. Show the dates, not a clock.
+        date_only = a.hour == 0 and a.minute == 0 and (b is None or (b.hour, b.minute) in ((0, 0), (23, 59)))
+        if date_only:
+            s = f'{i18n.WD.get(LANG, i18n.WD["en"])[a.weekday()]} {i18n.short_date(LANG, a)}'
+            if b and b.date() != a.date(): s += f' – {i18n.short_dm(LANG, b)}'
+        else:
+            s = f'{i18n.WD.get(LANG, i18n.WD["en"])[a.weekday()]} {i18n.short_date(LANG, a)}, {i18n.hm(LANG, a)}'
+            s += (f'–{i18n.hm_end(LANG, b)}' if b and b.date() == a.date() else (f' – {i18n.short_dm(LANG, b)}' if b else ""))
         c = e.get("country")
         return s + f' ({t("time_local", city=t("city_" + c)) if c in COUNTRY_CODES else t("city_local")})'
     def badges(e):
