@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T00:09:41+00:00",
+ "generated_at": "2026-10-06T00:46:21+00:00",
  "preview": false,
  "sign_off": "The Nordic Crypto team",
  "description": "Bitcoin, blockchain and crypto news, events, a who's who, regulation and academia for Norway, Sweden, Denmark, Finland and Iceland.",
@@ -266,7 +266,38 @@
   "llms_txt": "https://jqrgen.github.io/nordic-crypto/llms.txt",
   "github": "https://github.com/jQrgen/nordic-crypto",
   "substack": "https://cryptonordic.substack.com",
+  "telegram": "https://t.me/nordiccryptochat",
   "x": "https://x.com/xcryptonordic"
+ },
+ "social": {
+  "note": "Nordic Crypto brand accounts for the site and the iOS app. label and name are English. name_i18n has nn, nb, sv, da, fi and is. Other site languages use name.",
+  "telegram": {
+   "label": "Telegram",
+   "name": "Nordic Crypto on Telegram",
+   "name_i18n": {
+    "nn": "Nordic Crypto på Telegram",
+    "nb": "Nordic Crypto på Telegram",
+    "sv": "Nordic Crypto på Telegram",
+    "da": "Nordic Crypto på Telegram",
+    "fi": "Nordic Crypto Telegramissa",
+    "is": "Nordic Crypto á Telegram"
+   },
+   "url": "https://t.me/nordiccryptochat"
+  },
+  "x": {
+   "label": "X",
+   "name": "Follow Nordic Crypto on X",
+   "name_i18n": {
+    "nn": "Følg Nordic Crypto på X",
+    "nb": "Følg Nordic Crypto på X",
+    "sv": "Följ Nordic Crypto på X",
+    "da": "Følg Nordic Crypto på X",
+    "fi": "Seuraa Nordic Cryptoa X:ssä",
+    "is": "Fylgdu Nordic Crypto á X"
+   },
+   "url": "https://x.com/xcryptonordic",
+   "handle": "@xcryptonordic"
+  }
  },
  "url_note": "Absolute urls in this API use the GitHub Pages base, including the /nordic-crypto/ path. On the custom domain the same file is at the site root: replace https://jqrgen.github.io/nordic-crypto/ with https://cryptonordic.no/. HTTPS on cryptonordic.no works once the certificate matches that name. Until then, http://cryptonordic.no/ serves the same files and sends Access-Control-Allow-Origin: *.",
  "editorial": {

@@ -17,7 +17,8 @@ Swap the base to move between the two. HTTPS on cryptonordic.no is the intended 
 - [OpenAPI JSON](https://jqrgen.github.io/nordic-crypto/api/v1/openapi.json): OpenAPI 3.0.
 - [OpenAPI YAML](https://jqrgen.github.io/nordic-crypto/api/v1/openapi.yaml): the same document.
 - [API catalog](https://jqrgen.github.io/nordic-crypto/.well-known/api-catalog): RFC 9727 linkset. A .json copy is at https://jqrgen.github.io/nordic-crypto/.well-known/api-catalog.json.
-- [Site meta](https://jqrgen.github.io/nordic-crypto/api/v1/meta.json): languages, countries, page list, CORS.
+- [Site meta](https://jqrgen.github.io/nordic-crypto/api/v1/meta.json): languages, countries, page list, CORS, and brand social accounts.
+- Telegram: https://t.me/nordiccryptochat (`social.telegram`). X: https://x.com/xcryptonordic (`social.x`, also `urls.x`). `name` is English. `name_i18n` has nn, nb, sv, da, fi and is. Other languages use `name`.
 - [Languages](https://jqrgen.github.io/nordic-crypto/api/v1/languages.json): site UI languages (code, native name, English name, rtl, home).
 - [Geo language](https://jqrgen.github.io/nordic-crypto/api/v1/geo-language.json): country to default language. An IP guess; the nc_lang cookie wins.
 
@@ -76,7 +77,7 @@ A single news item is api/v1/news/{id}.json (the id is on each item). A single n
 - [/api/v1/markets/by-asset/{symbol}.json](https://jqrgen.github.io/nordic-crypto/api/v1/markets/by-asset/{symbol}.json): Prices for one asset (the base symbol, such as BTC) on every included Nordic exchange, plus aggregated pairs for each quote currency and logo_url when an icon is available.
 - [/api/v1/languages.json](https://jqrgen.github.io/nordic-crypto/api/v1/languages.json): Site UI languages: code, native name, English name, rtl, html lang and home URL.
 - [/api/v1/geo-language.json](https://jqrgen.github.io/nordic-crypto/api/v1/geo-language.json): Country to default site language. An IP guess only; the nc_lang cookie from the language switcher wins.
-- [/api/v1/meta.json](https://jqrgen.github.io/nordic-crypto/api/v1/meta.json): Site name, languages, countries, page list, CORS and editorial notes.
+- [/api/v1/meta.json](https://jqrgen.github.io/nordic-crypto/api/v1/meta.json): Site name, languages, countries, page list, CORS, editorial notes and brand social accounts (social.telegram, social.x).
 
 ## Not in this feed
 

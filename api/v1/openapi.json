@@ -887,10 +887,10 @@
   "/api/v1/meta.json": {
    "get": {
     "operationId": "api_v1_meta",
-    "summary": "Site name, languages, countries, page list, CORS and editorial notes.",
+    "summary": "Site name, languages, countries, page list, CORS, editorial notes and brand social accounts (social.telegram, social.x).",
     "responses": {
      "200": {
-      "description": "Site name, languages, countries, page list, CORS and editorial notes.",
+      "description": "Site name, languages, countries, page list, CORS, editorial notes and brand social accounts (social.telegram, social.x).",
       "content": {
        "application/json": {
         "schema": {
@@ -1876,6 +1876,63 @@
      "ios": {
       "type": "object",
       "description": "Public TestFlight invite. Not an App Store listing."
+     },
+     "social": {
+      "type": "object",
+      "description": "Nordic Crypto brand accounts. telegram is https://t.me/nordiccryptochat. x is https://x.com/xcryptonordic. label and name are English. name_i18n has nn, nb, sv, da, fi and is. Other languages use name.",
+      "properties": {
+       "note": {
+        "type": "string"
+       },
+       "telegram": {
+        "type": "object",
+        "properties": {
+         "label": {
+          "type": "string",
+          "example": "Telegram"
+         },
+         "name": {
+          "type": "string",
+          "example": "Nordic Crypto on Telegram"
+         },
+         "name_i18n": {
+          "type": "object"
+         },
+         "url": {
+          "type": "string",
+          "example": "https://t.me/nordiccryptochat"
+         }
+        }
+       },
+       "x": {
+        "type": "object",
+        "properties": {
+         "label": {
+          "type": "string",
+          "example": "X"
+         },
+         "name": {
+          "type": "string",
+          "example": "Follow Nordic Crypto on X"
+         },
+         "name_i18n": {
+          "type": "object"
+         },
+         "url": {
+          "type": "string",
+          "example": "https://x.com/xcryptonordic"
+         },
+         "handle": {
+          "type": "string",
+          "example": "@xcryptonordic"
+         }
+        }
+       }
+      }
+     },
+     "urls": {
+      "type": "object",
+      "description": "github, substack, telegram and x, plus the API bases."
      }
     },
     "description": "SiteMeta"

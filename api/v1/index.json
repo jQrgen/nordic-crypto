@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T00:09:41+00:00",
+ "generated_at": "2026-10-06T00:46:21+00:00",
  "preview": false,
  "title": "Nordic Crypto data API",
  "sign_off": "The Nordic Crypto team",
@@ -54,7 +54,7 @@
   "org_relations": 15,
   "profiles": 20,
   "images": 64,
-  "changelog": 19,
+  "changelog": 20,
   "archive_articles": 42,
   "markets": 72,
   "markets_aggregated": 53,
@@ -228,8 +228,8 @@
    "url_custom_domain": "https://cryptonordic.no/api/v1/academia/{id}.json",
    "summary": "One academia row. The id is in academia.json.",
    "schema": "AcademiaItem",
-   "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/groups-kryptokom.se.json",
-   "example_url_custom_domain": "https://cryptonordic.no/api/v1/academia/groups-kryptokom.se.json"
+   "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/SE-DD2585.json",
+   "example_url_custom_domain": "https://cryptonordic.no/api/v1/academia/SE-DD2585.json"
   },
   {
    "id": "api-v1-orgchart",
@@ -301,8 +301,8 @@
    "url_custom_domain": "https://cryptonordic.no/api/v1/changelog.json",
    "summary": "Site changelog (product changes, not the news), newest first.",
    "schema": "ChangelogList",
-   "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/frontpage-blurbs.json",
-   "example_url_custom_domain": "https://cryptonordic.no/api/v1/changelog/frontpage-blurbs.json",
+   "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/community-links.json",
+   "example_url_custom_domain": "https://cryptonordic.no/api/v1/changelog/community-links.json",
    "item_path": "/api/v1/changelog/{id}.json",
    "item_url_template": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/{id}.json"
   },
@@ -396,7 +396,7 @@
    "path": "/api/v1/meta.json",
    "url": "https://jqrgen.github.io/nordic-crypto/api/v1/meta.json",
    "url_custom_domain": "https://cryptonordic.no/api/v1/meta.json",
-   "summary": "Site name, languages, countries, page list, CORS and editorial notes.",
+   "summary": "Site name, languages, countries, page list, CORS, editorial notes and brand social accounts (social.telegram, social.x).",
    "schema": "SiteMeta"
   }
  ],
