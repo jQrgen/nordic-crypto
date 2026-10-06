@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T00:46:21+00:00",
+ "generated_at": "2026-10-06T00:51:15+00:00",
  "preview": false,
  "topic": "crime",
  "count": 5,
@@ -9,7 +9,7 @@
   {
    "id": "1a95167a3af8",
    "url": "https://www.aftenposten.no/norge/i/vlQARB/tiltalt-for-dopsalg-mot-kryptovaluta-paa-det-moerke-nettet",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/1a95167a3af8/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/1a95167a3af8.json",
    "title": "Tiltalt for dopsalg mot kryptovaluta på det mørke nettet",
    "title_en": "Charged with selling drugs for cryptocurrency on the dark web",
@@ -35,12 +35,104 @@
    },
    "paywall": true,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "aftenposten",
+    "outlet_name": "Aftenposten",
+    "url": "https://www.aftenposten.no/norge/i/vlQARB/tiltalt-for-dopsalg-mot-kryptovaluta-paa-det-moerke-nettet",
+    "title": "Tiltalt for dopsalg mot kryptovaluta på det mørke nettet",
+    "published": "2026-10-02T11:07:26+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": true,
+    "primary": true,
+    "logo": null
+   },
+   "also_covered_by": [
+    {
+     "outlet": "nettavisen",
+     "outlet_name": "Nettavisen",
+     "url": "https://www.nettavisen.no/nyheter/fire-menn-pagrepet-mistenkt-for-roller-i-storre-kriminelt-nettverk/s/80-95-127932",
+     "title": "Fire menn pågrepet mistenkt for roller i større kriminelt nettverk",
+     "published": "2026-10-02T10:56:53+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "national",
+     "paywall": true,
+     "primary": false,
+     "logo": null
+    }
+   ],
+   "sources": [
+    {
+     "outlet": "aftenposten",
+     "outlet_name": "Aftenposten",
+     "url": "https://www.aftenposten.no/norge/i/vlQARB/tiltalt-for-dopsalg-mot-kryptovaluta-paa-det-moerke-nettet",
+     "title": "Tiltalt for dopsalg mot kryptovaluta på det mørke nettet",
+     "published": "2026-10-02T11:07:26+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "national",
+     "paywall": true,
+     "primary": true,
+     "logo": null
+    },
+    {
+     "outlet": "nettavisen",
+     "outlet_name": "Nettavisen",
+     "url": "https://www.nettavisen.no/nyheter/fire-menn-pagrepet-mistenkt-for-roller-i-storre-kriminelt-nettverk/s/80-95-127932",
+     "title": "Fire menn pågrepet mistenkt for roller i større kriminelt nettverk",
+     "published": "2026-10-02T10:56:53+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "national",
+     "paywall": true,
+     "primary": false,
+     "logo": null
+    }
+   ],
+   "coverage": {
+    "count": 2,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 2,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 2,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "2d38c9c89e0e",
    "url": "https://www.sydsvenskan.se/lund/uppgifter-tonaringar-silvertejpade-man-i-jakt-pa-kryptovaluta/",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/2d38c9c89e0e/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/2d38c9c89e0e.json",
    "title": "Uppgifter: Tonåringar silvertejpade man i jakt på kryptovaluta",
    "title_en": "Reports: teenagers duct-taped a man in hunt for cryptocurrency",
@@ -66,12 +158,75 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "sydsvenskan.se",
+    "outlet_name": "Sydsvenskan",
+    "url": "https://www.sydsvenskan.se/lund/uppgifter-tonaringar-silvertejpade-man-i-jakt-pa-kryptovaluta/",
+    "title": "Uppgifter: Tonåringar silvertejpade man i jakt på kryptovaluta",
+    "published": "2026-10-02T07:01:00+00:00",
+    "lang": "Swedish",
+    "language_code": "sv",
+    "country": "SE",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": null
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "sydsvenskan.se",
+     "outlet_name": "Sydsvenskan",
+     "url": "https://www.sydsvenskan.se/lund/uppgifter-tonaringar-silvertejpade-man-i-jakt-pa-kryptovaluta/",
+     "title": "Uppgifter: Tonåringar silvertejpade man i jakt på kryptovaluta",
+     "published": "2026-10-02T07:01:00+00:00",
+     "lang": "Swedish",
+     "language_code": "sv",
+     "country": "SE",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": null
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "dbcac6be2b75",
    "url": "https://www.nettavisen.no/krypto/etterforskning/hordaland-tingrett/fant-hemmelig-passord-laste-opp-krypto-lommeboken/s/80-95-105422",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/dbcac6be2b75/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/dbcac6be2b75.json",
    "title": "Fant hemmelig passord: Låste opp krypto-lommeboken",
    "title_en": "Found secret password: unlocked the crypto wallet",
@@ -97,12 +252,75 @@
    },
    "paywall": true,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "nettavisen",
+    "outlet_name": "Nettavisen",
+    "url": "https://www.nettavisen.no/krypto/etterforskning/hordaland-tingrett/fant-hemmelig-passord-laste-opp-krypto-lommeboken/s/80-95-105422",
+    "title": "Fant hemmelig passord: Låste opp krypto-lommeboken",
+    "published": "2026-09-25T19:16:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": true,
+    "primary": true,
+    "logo": null
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "nettavisen",
+     "outlet_name": "Nettavisen",
+     "url": "https://www.nettavisen.no/krypto/etterforskning/hordaland-tingrett/fant-hemmelig-passord-laste-opp-krypto-lommeboken/s/80-95-105422",
+     "title": "Fant hemmelig passord: Låste opp krypto-lommeboken",
+     "published": "2026-09-25T19:16:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "national",
+     "paywall": true,
+     "primary": true,
+     "logo": null
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "b0202ea8241d",
    "url": "https://www.oa.no/skal-ha-stalet-fra-egen-bedrift-brukte-pengene-pa-krypto/s/80-35-26289",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/b0202ea8241d/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/b0202ea8241d.json",
    "title": "Skal ha stjålet fra egen bedrift – brukte pengene på krypto",
    "title_en": "Allegedly stole from his own company and spent the money on crypto",
@@ -128,12 +346,75 @@
    },
    "paywall": true,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "oa",
+    "outlet_name": "Oppland Arbeiderblad",
+    "url": "https://www.oa.no/skal-ha-stalet-fra-egen-bedrift-brukte-pengene-pa-krypto/s/80-35-26289",
+    "title": "Skal ha stjålet fra egen bedrift – brukte pengene på krypto",
+    "published": "2026-09-23T16:08:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": true,
+    "primary": true,
+    "logo": null
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "oa",
+     "outlet_name": "Oppland Arbeiderblad",
+     "url": "https://www.oa.no/skal-ha-stalet-fra-egen-bedrift-brukte-pengene-pa-krypto/s/80-35-26289",
+     "title": "Skal ha stjålet fra egen bedrift – brukte pengene på krypto",
+     "published": "2026-09-23T16:08:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "national",
+     "paywall": true,
+     "primary": true,
+     "logo": null
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "30093293e03f",
    "url": "https://ekstrabladet.dk/penge/danskere-svindlet-for-89-millioner-kroner-paa-seks-maaneder/11297364",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/30093293e03f/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/30093293e03f.json",
    "title": "Danskere svindlet for 89 millioner kroner på seks måneder",
    "title_en": "Danes defrauded of DKK 89 million in six months",
@@ -160,7 +441,70 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "ekstrabladet.dk",
+    "outlet_name": "Ekstra Bladet",
+    "url": "https://ekstrabladet.dk/penge/danskere-svindlet-for-89-millioner-kroner-paa-seks-maaneder/11297364",
+    "title": "Danskere svindlet for 89 millioner kroner på seks måneder",
+    "published": "2026-09-22T02:58:00+00:00",
+    "lang": "Danish",
+    "language_code": "da",
+    "country": "DK",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": null
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "ekstrabladet.dk",
+     "outlet_name": "Ekstra Bladet",
+     "url": "https://ekstrabladet.dk/penge/danskere-svindlet-for-89-millioner-kroner-paa-seks-maaneder/11297364",
+     "title": "Danskere svindlet for 89 millioner kroner på seks måneder",
+     "published": "2026-09-22T02:58:00+00:00",
+     "lang": "Danish",
+     "language_code": "da",
+     "country": "DK",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": null
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "DK",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   }
  ]
 }

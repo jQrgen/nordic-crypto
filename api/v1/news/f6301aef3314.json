@@ -1,12 +1,12 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T00:46:21+00:00",
+ "generated_at": "2026-10-06T00:51:15+00:00",
  "preview": false,
  "item": {
   "id": "f6301aef3314",
   "url": "https://www.finanssivalvonta.fi/en/publications-and-press-releases/news-releases/2026/crypto-asset-service-providers-in-finland-must-be-authorised-in-the-eu/",
-  "html_url": null,
+  "html_url": "https://jqrgen.github.io/nordic-crypto/stories/f6301aef3314/",
   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/f6301aef3314.json",
   "title": "Crypto-asset service providers in Finland must be authorised in the EU",
   "title_en": null,
@@ -41,6 +41,85 @@
   },
   "paywall": false,
   "links": [],
-  "own_story": false
+  "own_story": false,
+  "primary_source": {
+   "outlet": "finanssivalvonta",
+   "outlet_name": "Finanssivalvonta",
+   "url": "https://www.finanssivalvonta.fi/en/publications-and-press-releases/news-releases/2026/crypto-asset-service-providers-in-finland-must-be-authorised-in-the-eu/",
+   "title": "Crypto-asset service providers in Finland must be authorised in the EU",
+   "published": "2026-06-30T12:00:00+00:00",
+   "lang": "English",
+   "language_code": "en",
+   "country": "FI",
+   "source_type": "official",
+   "paywall": false,
+   "primary": true,
+   "logo": {
+    "kind": "logo",
+    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/fi-fiva.webp",
+    "source_url": "https://www.finanssivalvonta.fi/contentassets/2a88d63613bb4f049c687203e8731112/logo.png",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website"
+   }
+  },
+  "also_covered_by": [],
+  "sources": [
+   {
+    "outlet": "finanssivalvonta",
+    "outlet_name": "Finanssivalvonta",
+    "url": "https://www.finanssivalvonta.fi/en/publications-and-press-releases/news-releases/2026/crypto-asset-service-providers-in-finland-must-be-authorised-in-the-eu/",
+    "title": "Crypto-asset service providers in Finland must be authorised in the EU",
+    "published": "2026-06-30T12:00:00+00:00",
+    "lang": "English",
+    "language_code": "en",
+    "country": "FI",
+    "source_type": "official",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/fi-fiva.webp",
+     "source_url": "https://www.finanssivalvonta.fi/contentassets/2a88d63613bb4f049c687203e8731112/logo.png",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website"
+    }
+   }
+  ],
+  "coverage": {
+   "count": 1,
+   "by_country": [
+    {
+     "country": "FI",
+     "count": 1,
+     "share": 1.0
+    }
+   ],
+   "by_source_type": [
+    {
+     "type": "national",
+     "count": 0,
+     "share": 0.0
+    },
+    {
+     "type": "regional",
+     "count": 0,
+     "share": 0.0
+    },
+    {
+     "type": "official",
+     "count": 1,
+     "share": 1.0
+    },
+    {
+     "type": "international",
+     "count": 0,
+     "share": 0.0
+    }
+   ]
+  }
  }
 }

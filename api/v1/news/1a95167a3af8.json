@@ -1,12 +1,12 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T00:46:21+00:00",
+ "generated_at": "2026-10-06T00:51:15+00:00",
  "preview": false,
  "item": {
   "id": "1a95167a3af8",
   "url": "https://www.aftenposten.no/norge/i/vlQARB/tiltalt-for-dopsalg-mot-kryptovaluta-paa-det-moerke-nettet",
-  "html_url": null,
+  "html_url": "https://jqrgen.github.io/nordic-crypto/stories/1a95167a3af8/",
   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/1a95167a3af8.json",
   "title": "Tiltalt for dopsalg mot kryptovaluta på det mørke nettet",
   "title_en": "Charged with selling drugs for cryptocurrency on the dark web",
@@ -32,6 +32,98 @@
   },
   "paywall": true,
   "links": [],
-  "own_story": false
+  "own_story": false,
+  "primary_source": {
+   "outlet": "aftenposten",
+   "outlet_name": "Aftenposten",
+   "url": "https://www.aftenposten.no/norge/i/vlQARB/tiltalt-for-dopsalg-mot-kryptovaluta-paa-det-moerke-nettet",
+   "title": "Tiltalt for dopsalg mot kryptovaluta på det mørke nettet",
+   "published": "2026-10-02T11:07:26+00:00",
+   "lang": "Norwegian",
+   "language_code": "no",
+   "country": "NO",
+   "source_type": "national",
+   "paywall": true,
+   "primary": true,
+   "logo": null
+  },
+  "also_covered_by": [
+   {
+    "outlet": "nettavisen",
+    "outlet_name": "Nettavisen",
+    "url": "https://www.nettavisen.no/nyheter/fire-menn-pagrepet-mistenkt-for-roller-i-storre-kriminelt-nettverk/s/80-95-127932",
+    "title": "Fire menn pågrepet mistenkt for roller i større kriminelt nettverk",
+    "published": "2026-10-02T10:56:53+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": true,
+    "primary": false,
+    "logo": null
+   }
+  ],
+  "sources": [
+   {
+    "outlet": "aftenposten",
+    "outlet_name": "Aftenposten",
+    "url": "https://www.aftenposten.no/norge/i/vlQARB/tiltalt-for-dopsalg-mot-kryptovaluta-paa-det-moerke-nettet",
+    "title": "Tiltalt for dopsalg mot kryptovaluta på det mørke nettet",
+    "published": "2026-10-02T11:07:26+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": true,
+    "primary": true,
+    "logo": null
+   },
+   {
+    "outlet": "nettavisen",
+    "outlet_name": "Nettavisen",
+    "url": "https://www.nettavisen.no/nyheter/fire-menn-pagrepet-mistenkt-for-roller-i-storre-kriminelt-nettverk/s/80-95-127932",
+    "title": "Fire menn pågrepet mistenkt for roller i større kriminelt nettverk",
+    "published": "2026-10-02T10:56:53+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": true,
+    "primary": false,
+    "logo": null
+   }
+  ],
+  "coverage": {
+   "count": 2,
+   "by_country": [
+    {
+     "country": "NO",
+     "count": 2,
+     "share": 1.0
+    }
+   ],
+   "by_source_type": [
+    {
+     "type": "national",
+     "count": 2,
+     "share": 1.0
+    },
+    {
+     "type": "regional",
+     "count": 0,
+     "share": 0.0
+    },
+    {
+     "type": "official",
+     "count": 0,
+     "share": 0.0
+    },
+    {
+     "type": "international",
+     "count": 0,
+     "share": 0.0
+    }
+   ]
+  }
  }
 }

@@ -1,12 +1,12 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T00:46:21+00:00",
+ "generated_at": "2026-10-06T00:51:15+00:00",
  "preview": false,
  "item": {
   "id": "30093293e03f",
   "url": "https://ekstrabladet.dk/penge/danskere-svindlet-for-89-millioner-kroner-paa-seks-maaneder/11297364",
-  "html_url": null,
+  "html_url": "https://jqrgen.github.io/nordic-crypto/stories/30093293e03f/",
   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/30093293e03f.json",
   "title": "Danskere svindlet for 89 millioner kroner på seks måneder",
   "title_en": "Danes defrauded of DKK 89 million in six months",
@@ -33,6 +33,69 @@
   },
   "paywall": false,
   "links": [],
-  "own_story": false
+  "own_story": false,
+  "primary_source": {
+   "outlet": "ekstrabladet.dk",
+   "outlet_name": "Ekstra Bladet",
+   "url": "https://ekstrabladet.dk/penge/danskere-svindlet-for-89-millioner-kroner-paa-seks-maaneder/11297364",
+   "title": "Danskere svindlet for 89 millioner kroner på seks måneder",
+   "published": "2026-09-22T02:58:00+00:00",
+   "lang": "Danish",
+   "language_code": "da",
+   "country": "DK",
+   "source_type": "national",
+   "paywall": false,
+   "primary": true,
+   "logo": null
+  },
+  "also_covered_by": [],
+  "sources": [
+   {
+    "outlet": "ekstrabladet.dk",
+    "outlet_name": "Ekstra Bladet",
+    "url": "https://ekstrabladet.dk/penge/danskere-svindlet-for-89-millioner-kroner-paa-seks-maaneder/11297364",
+    "title": "Danskere svindlet for 89 millioner kroner på seks måneder",
+    "published": "2026-09-22T02:58:00+00:00",
+    "lang": "Danish",
+    "language_code": "da",
+    "country": "DK",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": null
+   }
+  ],
+  "coverage": {
+   "count": 1,
+   "by_country": [
+    {
+     "country": "DK",
+     "count": 1,
+     "share": 1.0
+    }
+   ],
+   "by_source_type": [
+    {
+     "type": "national",
+     "count": 1,
+     "share": 1.0
+    },
+    {
+     "type": "regional",
+     "count": 0,
+     "share": 0.0
+    },
+    {
+     "type": "official",
+     "count": 0,
+     "share": 0.0
+    },
+    {
+     "type": "international",
+     "count": 0,
+     "share": 0.0
+    }
+   ]
+  }
  }
 }

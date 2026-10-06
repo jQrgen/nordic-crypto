@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T00:46:21+00:00",
+ "generated_at": "2026-10-06T00:51:15+00:00",
  "preview": false,
  "country": "DK",
  "count": 5,
@@ -9,7 +9,7 @@
   {
    "id": "a0c89b973576",
    "url": "https://www.kaupr.io/nyheter/danske-bank-ingen-bank-kan-bygge-euro-stablecoin-alene",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/a0c89b973576/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/a0c89b973576.json",
    "title": "Danske Bank: Ingen bank kan bygge euro-stablecoin alene",
    "title_en": "Danske Bank: no bank can build a euro stablecoin alone",
@@ -44,12 +44,93 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "kaupr",
+    "outlet_name": "Kaupr",
+    "url": "https://www.kaupr.io/nyheter/danske-bank-ingen-bank-kan-bygge-euro-stablecoin-alene",
+    "title": "Danske Bank: Ingen bank kan bygge euro-stablecoin alene",
+    "published": "2026-09-22T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "DK",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website"
+    },
+    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "kaupr",
+     "outlet_name": "Kaupr",
+     "url": "https://www.kaupr.io/nyheter/danske-bank-ingen-bank-kan-bygge-euro-stablecoin-alene",
+     "title": "Danske Bank: Ingen bank kan bygge euro-stablecoin alene",
+     "published": "2026-09-22T12:00:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "DK",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+      "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website"
+     },
+     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "DK",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "6753e8903e88",
    "url": "https://www.berlingske.dk/aktier/minister-i-nyt-skatteopgoer-vil-goere-op-med-junglen-af-urimelige-og-uforstaaelige-regler",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/6753e8903e88/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/6753e8903e88.json",
    "title": "Minister i nyt skatteopgør: Vil gøre op med »junglen af urimelige og uforståelige regler«",
    "title_en": "Minister in new tax showdown: wants to clear the 'jungle of unreasonable and incomprehensible rules'",
@@ -76,12 +157,75 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "berlingske.dk",
+    "outlet_name": "Berlingske",
+    "url": "https://www.berlingske.dk/aktier/minister-i-nyt-skatteopgoer-vil-goere-op-med-junglen-af-urimelige-og-uforstaaelige-regler",
+    "title": "Minister i nyt skatteopgør: Vil gøre op med »junglen af urimelige og uforståelige regler«",
+    "published": "2026-09-22T06:04:00+00:00",
+    "lang": "Danish",
+    "language_code": "da",
+    "country": "DK",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": null
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "berlingske.dk",
+     "outlet_name": "Berlingske",
+     "url": "https://www.berlingske.dk/aktier/minister-i-nyt-skatteopgoer-vil-goere-op-med-junglen-af-urimelige-og-uforstaaelige-regler",
+     "title": "Minister i nyt skatteopgør: Vil gøre op med »junglen af urimelige og uforståelige regler«",
+     "published": "2026-09-22T06:04:00+00:00",
+     "lang": "Danish",
+     "language_code": "da",
+     "country": "DK",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": null
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "DK",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "30093293e03f",
    "url": "https://ekstrabladet.dk/penge/danskere-svindlet-for-89-millioner-kroner-paa-seks-maaneder/11297364",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/30093293e03f/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/30093293e03f.json",
    "title": "Danskere svindlet for 89 millioner kroner på seks måneder",
    "title_en": "Danes defrauded of DKK 89 million in six months",
@@ -108,12 +252,75 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "ekstrabladet.dk",
+    "outlet_name": "Ekstra Bladet",
+    "url": "https://ekstrabladet.dk/penge/danskere-svindlet-for-89-millioner-kroner-paa-seks-maaneder/11297364",
+    "title": "Danskere svindlet for 89 millioner kroner på seks måneder",
+    "published": "2026-09-22T02:58:00+00:00",
+    "lang": "Danish",
+    "language_code": "da",
+    "country": "DK",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": null
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "ekstrabladet.dk",
+     "outlet_name": "Ekstra Bladet",
+     "url": "https://ekstrabladet.dk/penge/danskere-svindlet-for-89-millioner-kroner-paa-seks-maaneder/11297364",
+     "title": "Danskere svindlet for 89 millioner kroner på seks måneder",
+     "published": "2026-09-22T02:58:00+00:00",
+     "lang": "Danish",
+     "language_code": "da",
+     "country": "DK",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": null
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "DK",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "188b5b8ed9fb",
    "url": "https://www.berlingske.dk/oekonomi/100-aar-gammel-lov-koster-danske-kryptoinvestorer-millioner-nu-vil-minister-problemet-til-livs",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/188b5b8ed9fb/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/188b5b8ed9fb.json",
    "title": "100 år gammel lov koster danske kryptoinvestorer millioner. Nu vil minister problemet til livs",
    "title_en": "100-year-old law costs Danish crypto investors millions; minister wants to fix it",
@@ -140,12 +347,75 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "berlingske.dk",
+    "outlet_name": "Berlingske",
+    "url": "https://www.berlingske.dk/oekonomi/100-aar-gammel-lov-koster-danske-kryptoinvestorer-millioner-nu-vil-minister-problemet-til-livs",
+    "title": "100 år gammel lov koster danske kryptoinvestorer millioner. Nu vil minister problemet til livs",
+    "published": "2026-09-21T09:39:00+00:00",
+    "lang": "Danish",
+    "language_code": "da",
+    "country": "DK",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": null
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "berlingske.dk",
+     "outlet_name": "Berlingske",
+     "url": "https://www.berlingske.dk/oekonomi/100-aar-gammel-lov-koster-danske-kryptoinvestorer-millioner-nu-vil-minister-problemet-til-livs",
+     "title": "100 år gammel lov koster danske kryptoinvestorer millioner. Nu vil minister problemet til livs",
+     "published": "2026-09-21T09:39:00+00:00",
+     "lang": "Danish",
+     "language_code": "da",
+     "country": "DK",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": null
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "DK",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "23342b8b1a2d",
    "url": "https://www.kaupr.io/nyheter/dansk-skatteminister-moter-kryptobransjen-pa-christiansborg",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/23342b8b1a2d/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/23342b8b1a2d.json",
    "title": "Dansk skatteminister møter kryptobransjen på Christiansborg",
    "title_en": "Danish tax minister meets the crypto industry at Christiansborg",
@@ -181,7 +451,88 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "kaupr",
+    "outlet_name": "Kaupr",
+    "url": "https://www.kaupr.io/nyheter/dansk-skatteminister-moter-kryptobransjen-pa-christiansborg",
+    "title": "Dansk skatteminister møter kryptobransjen på Christiansborg",
+    "published": "2026-09-13T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "DK",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website"
+    },
+    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "kaupr",
+     "outlet_name": "Kaupr",
+     "url": "https://www.kaupr.io/nyheter/dansk-skatteminister-moter-kryptobransjen-pa-christiansborg",
+     "title": "Dansk skatteminister møter kryptobransjen på Christiansborg",
+     "published": "2026-09-13T12:00:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "DK",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+      "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website"
+     },
+     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "DK",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   }
  ]
 }

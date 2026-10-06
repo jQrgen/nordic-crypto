@@ -1,12 +1,12 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T00:46:21+00:00",
+ "generated_at": "2026-10-06T00:51:15+00:00",
  "preview": false,
  "item": {
   "id": "dbcac6be2b75",
   "url": "https://www.nettavisen.no/krypto/etterforskning/hordaland-tingrett/fant-hemmelig-passord-laste-opp-krypto-lommeboken/s/80-95-105422",
-  "html_url": null,
+  "html_url": "https://jqrgen.github.io/nordic-crypto/stories/dbcac6be2b75/",
   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/dbcac6be2b75.json",
   "title": "Fant hemmelig passord: Låste opp krypto-lommeboken",
   "title_en": "Found secret password: unlocked the crypto wallet",
@@ -32,6 +32,69 @@
   },
   "paywall": true,
   "links": [],
-  "own_story": false
+  "own_story": false,
+  "primary_source": {
+   "outlet": "nettavisen",
+   "outlet_name": "Nettavisen",
+   "url": "https://www.nettavisen.no/krypto/etterforskning/hordaland-tingrett/fant-hemmelig-passord-laste-opp-krypto-lommeboken/s/80-95-105422",
+   "title": "Fant hemmelig passord: Låste opp krypto-lommeboken",
+   "published": "2026-09-25T19:16:00+00:00",
+   "lang": "Norwegian",
+   "language_code": "no",
+   "country": "NO",
+   "source_type": "national",
+   "paywall": true,
+   "primary": true,
+   "logo": null
+  },
+  "also_covered_by": [],
+  "sources": [
+   {
+    "outlet": "nettavisen",
+    "outlet_name": "Nettavisen",
+    "url": "https://www.nettavisen.no/krypto/etterforskning/hordaland-tingrett/fant-hemmelig-passord-laste-opp-krypto-lommeboken/s/80-95-105422",
+    "title": "Fant hemmelig passord: Låste opp krypto-lommeboken",
+    "published": "2026-09-25T19:16:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": true,
+    "primary": true,
+    "logo": null
+   }
+  ],
+  "coverage": {
+   "count": 1,
+   "by_country": [
+    {
+     "country": "NO",
+     "count": 1,
+     "share": 1.0
+    }
+   ],
+   "by_source_type": [
+    {
+     "type": "national",
+     "count": 1,
+     "share": 1.0
+    },
+    {
+     "type": "regional",
+     "count": 0,
+     "share": 0.0
+    },
+    {
+     "type": "official",
+     "count": 0,
+     "share": 0.0
+    },
+    {
+     "type": "international",
+     "count": 0,
+     "share": 0.0
+    }
+   ]
+  }
  }
 }

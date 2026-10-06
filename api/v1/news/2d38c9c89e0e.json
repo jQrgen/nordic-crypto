@@ -1,12 +1,12 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T00:46:21+00:00",
+ "generated_at": "2026-10-06T00:51:15+00:00",
  "preview": false,
  "item": {
   "id": "2d38c9c89e0e",
   "url": "https://www.sydsvenskan.se/lund/uppgifter-tonaringar-silvertejpade-man-i-jakt-pa-kryptovaluta/",
-  "html_url": null,
+  "html_url": "https://jqrgen.github.io/nordic-crypto/stories/2d38c9c89e0e/",
   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/2d38c9c89e0e.json",
   "title": "Uppgifter: Tonåringar silvertejpade man i jakt på kryptovaluta",
   "title_en": "Reports: teenagers duct-taped a man in hunt for cryptocurrency",
@@ -32,6 +32,69 @@
   },
   "paywall": false,
   "links": [],
-  "own_story": false
+  "own_story": false,
+  "primary_source": {
+   "outlet": "sydsvenskan.se",
+   "outlet_name": "Sydsvenskan",
+   "url": "https://www.sydsvenskan.se/lund/uppgifter-tonaringar-silvertejpade-man-i-jakt-pa-kryptovaluta/",
+   "title": "Uppgifter: Tonåringar silvertejpade man i jakt på kryptovaluta",
+   "published": "2026-10-02T07:01:00+00:00",
+   "lang": "Swedish",
+   "language_code": "sv",
+   "country": "SE",
+   "source_type": "national",
+   "paywall": false,
+   "primary": true,
+   "logo": null
+  },
+  "also_covered_by": [],
+  "sources": [
+   {
+    "outlet": "sydsvenskan.se",
+    "outlet_name": "Sydsvenskan",
+    "url": "https://www.sydsvenskan.se/lund/uppgifter-tonaringar-silvertejpade-man-i-jakt-pa-kryptovaluta/",
+    "title": "Uppgifter: Tonåringar silvertejpade man i jakt på kryptovaluta",
+    "published": "2026-10-02T07:01:00+00:00",
+    "lang": "Swedish",
+    "language_code": "sv",
+    "country": "SE",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": null
+   }
+  ],
+  "coverage": {
+   "count": 1,
+   "by_country": [
+    {
+     "country": "SE",
+     "count": 1,
+     "share": 1.0
+    }
+   ],
+   "by_source_type": [
+    {
+     "type": "national",
+     "count": 1,
+     "share": 1.0
+    },
+    {
+     "type": "regional",
+     "count": 0,
+     "share": 0.0
+    },
+    {
+     "type": "official",
+     "count": 0,
+     "share": 0.0
+    },
+    {
+     "type": "international",
+     "count": 0,
+     "share": 0.0
+    }
+   ]
+  }
  }
 }

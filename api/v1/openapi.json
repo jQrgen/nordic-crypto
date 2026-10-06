@@ -936,6 +936,117 @@
     },
     "description": "Discovery"
    },
+   "NewsOutlet": {
+    "type": "object",
+    "required": [
+     "url",
+     "primary"
+    ],
+    "properties": {
+     "outlet": {
+      "type": "string",
+      "description": "Source id from sources.json."
+     },
+     "outlet_name": {
+      "type": "string"
+     },
+     "url": {
+      "type": "string"
+     },
+     "title": {
+      "type": "string",
+      "description": "That outlet's headline."
+     },
+     "published": {
+      "type": "string",
+      "description": "ISO 8601 date-time with offset."
+     },
+     "lang": {
+      "type": "string",
+      "description": "Language name, same vocabulary as language on the story."
+     },
+     "language_code": {
+      "type": "string",
+      "nullable": true
+     },
+     "country": {
+      "type": "string"
+     },
+     "source_type": {
+      "type": "string",
+      "enum": [
+       "national",
+       "regional",
+       "official",
+       "international"
+      ],
+      "description": "national, regional (regional and local), official (justice and official), or international."
+     },
+     "paywall": {
+      "type": "boolean"
+     },
+     "primary": {
+      "type": "boolean"
+     },
+     "logo": {
+      "type": "object",
+      "nullable": true
+     },
+     "source_note": {
+      "type": "string",
+      "nullable": true,
+      "description": "Set when the outlet is Kaupr: a news source only, never a sponsor."
+     }
+    }
+   },
+   "NewsCoverage": {
+    "type": "object",
+    "required": [
+     "count",
+     "by_country",
+     "by_source_type"
+    ],
+    "properties": {
+     "count": {
+      "type": "integer"
+     },
+     "by_country": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "country": {
+         "type": "string"
+        },
+        "count": {
+         "type": "integer"
+        },
+        "share": {
+         "type": "number"
+        }
+       }
+      }
+     },
+     "by_source_type": {
+      "type": "array",
+      "description": "Always national, regional, official and international, in that order. count 0 is included.",
+      "items": {
+       "type": "object",
+       "properties": {
+        "type": {
+         "type": "string"
+        },
+        "count": {
+         "type": "integer"
+        },
+        "share": {
+         "type": "number"
+        }
+       }
+      }
+     }
+    }
+   },
    "NewsItem": {
     "type": "object",
     "required": [
@@ -955,7 +1066,7 @@
      "html_url": {
       "type": "string",
       "nullable": true,
-      "description": "Our page, when the story is ours."
+      "description": "Our story page. For our own articles this is the article. For other outlets this is the coverage page; url is the primary outlet."
      },
      "api_url": {
       "type": "string"
@@ -1045,6 +1156,26 @@
      },
      "own_story": {
       "type": "boolean"
+     },
+     "primary_source": {
+      "$ref": "#/components/schemas/NewsOutlet"
+     },
+     "also_covered_by": {
+      "type": "array",
+      "items": {
+       "$ref": "#/components/schemas/NewsOutlet"
+      },
+      "description": "Other outlets on the same event. Empty when only the primary covered it."
+     },
+     "sources": {
+      "type": "array",
+      "items": {
+       "$ref": "#/components/schemas/NewsOutlet"
+      },
+      "description": "Primary first, then also_covered_by."
+     },
+     "coverage": {
+      "$ref": "#/components/schemas/NewsCoverage"
      }
     }
    },
@@ -1087,7 +1218,7 @@
         "html_url": {
          "type": "string",
          "nullable": true,
-         "description": "Our page, when the story is ours."
+         "description": "Our story page. For our own articles this is the article. For other outlets this is the coverage page; url is the primary outlet."
         },
         "api_url": {
          "type": "string"
@@ -1177,6 +1308,26 @@
         },
         "own_story": {
          "type": "boolean"
+        },
+        "primary_source": {
+         "$ref": "#/components/schemas/NewsOutlet"
+        },
+        "also_covered_by": {
+         "type": "array",
+         "items": {
+          "$ref": "#/components/schemas/NewsOutlet"
+         },
+         "description": "Other outlets on the same event. Empty when only the primary covered it."
+        },
+        "sources": {
+         "type": "array",
+         "items": {
+          "$ref": "#/components/schemas/NewsOutlet"
+         },
+         "description": "Primary first, then also_covered_by."
+        },
+        "coverage": {
+         "$ref": "#/components/schemas/NewsCoverage"
         }
        }
       }

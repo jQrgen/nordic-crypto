@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T00:46:21+00:00",
+ "generated_at": "2026-10-06T00:51:15+00:00",
  "preview": false,
  "topic": "defi",
  "count": 1,
@@ -9,7 +9,7 @@
   {
    "id": "4fec239ddb97",
    "url": "https://www.kaupr.io/nyheter/hilbert-finansierer-utlan-med-innskudd-pa-blokkjeden",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/4fec239ddb97/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/4fec239ddb97.json",
    "title": "Hilbert finansierer utlån med innskudd på blokkjeden",
    "title_en": "Hilbert funds lending with on-chain deposits",
@@ -44,7 +44,88 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "kaupr",
+    "outlet_name": "Kaupr",
+    "url": "https://www.kaupr.io/nyheter/hilbert-finansierer-utlan-med-innskudd-pa-blokkjeden",
+    "title": "Hilbert finansierer utlån med innskudd på blokkjeden",
+    "published": "2026-09-15T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "SE",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website"
+    },
+    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "kaupr",
+     "outlet_name": "Kaupr",
+     "url": "https://www.kaupr.io/nyheter/hilbert-finansierer-utlan-med-innskudd-pa-blokkjeden",
+     "title": "Hilbert finansierer utlån med innskudd på blokkjeden",
+     "published": "2026-09-15T12:00:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "SE",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+      "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website"
+     },
+     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   }
  ]
 }

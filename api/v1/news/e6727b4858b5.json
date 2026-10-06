@@ -1,12 +1,12 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T00:46:21+00:00",
+ "generated_at": "2026-10-06T00:51:15+00:00",
  "preview": false,
  "item": {
   "id": "e6727b4858b5",
   "url": "https://www.realtid.se/bors-finans/makro/sa-kan-sverige-anvandas-for-att-finansiera-karnvapen/",
-  "html_url": null,
+  "html_url": "https://jqrgen.github.io/nordic-crypto/stories/e6727b4858b5/",
   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/e6727b4858b5.json",
   "title": "Så kan Sverige användas för att finansiera kärnvapen",
   "title_en": "How Sweden can be used to finance nuclear weapons",
@@ -33,6 +33,69 @@
   },
   "paywall": false,
   "links": [],
-  "own_story": false
+  "own_story": false,
+  "primary_source": {
+   "outlet": "realtid",
+   "outlet_name": "Realtid",
+   "url": "https://www.realtid.se/bors-finans/makro/sa-kan-sverige-anvandas-for-att-finansiera-karnvapen/",
+   "title": "Så kan Sverige användas för att finansiera kärnvapen",
+   "published": "2026-10-02T17:00:00+00:00",
+   "lang": "Swedish",
+   "language_code": "sv",
+   "country": "SE",
+   "source_type": "national",
+   "paywall": false,
+   "primary": true,
+   "logo": null
+  },
+  "also_covered_by": [],
+  "sources": [
+   {
+    "outlet": "realtid",
+    "outlet_name": "Realtid",
+    "url": "https://www.realtid.se/bors-finans/makro/sa-kan-sverige-anvandas-for-att-finansiera-karnvapen/",
+    "title": "Så kan Sverige användas för att finansiera kärnvapen",
+    "published": "2026-10-02T17:00:00+00:00",
+    "lang": "Swedish",
+    "language_code": "sv",
+    "country": "SE",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": null
+   }
+  ],
+  "coverage": {
+   "count": 1,
+   "by_country": [
+    {
+     "country": "SE",
+     "count": 1,
+     "share": 1.0
+    }
+   ],
+   "by_source_type": [
+    {
+     "type": "national",
+     "count": 1,
+     "share": 1.0
+    },
+    {
+     "type": "regional",
+     "count": 0,
+     "share": 0.0
+    },
+    {
+     "type": "official",
+     "count": 0,
+     "share": 0.0
+    },
+    {
+     "type": "international",
+     "count": 0,
+     "share": 0.0
+    }
+   ]
+  }
  }
 }

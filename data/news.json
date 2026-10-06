@@ -26,7 +26,40 @@
     "is": "Fjármálaeftirlit Svíþjóðar telur að sýndareignir og ólögleg fjármálanet feli í sér mestu hættuna á að Íran og Norður-Kórea komist fram hjá refsiaðgerðum í gegnum Svíþjóð."
    },
    "paywall": false,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "1a95167a3af8",
@@ -51,7 +84,52 @@
     "is": "Þrír Norðmenn og einn Svíi hafa verið ákærðir í umfangsmiklu fíkniefnamáli með tengsl við útlönd, þar sem fíkniefni voru seld fyrir rafmyntir á myrkravefnum, að sögn ríkissaksóknaraembættisins í Suður-Noregi."
    },
    "paywall": true,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [
+    {
+     "outlet": "nettavisen",
+     "outlet_name": "Nettavisen",
+     "url": "https://www.nettavisen.no/nyheter/fire-menn-pagrepet-mistenkt-for-roller-i-storre-kriminelt-nettverk/s/80-95-127932",
+     "title": "Fire menn pågrepet mistenkt for roller i større kriminelt nettverk",
+     "published": "2026-10-02T10:56:53+00:00",
+     "lang": "Norwegian",
+     "country": "NO",
+     "source_type": "national",
+     "paywall": true
+    }
+   ],
+   "coverage": {
+    "count": 2,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 2,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 2,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "2d38c9c89e0e",
@@ -76,7 +154,40 @@
     "is": "Þrír unglingar hafa verið handteknir í Lundi, grunaðir um mannrán eftir að hafa að sögn bundið mann á staðnum með límbandi til að ræna af honum rafmyntum."
    },
    "paywall": false,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "7b2030aea964",
@@ -102,7 +213,40 @@
     "is": "Binance er til rannsóknar vegna gruns um að hafa boðið þjónustu í Evrópu án leyfisins sem nýjar rafmyntareglur ESB krefjast."
    },
    "paywall": false,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "8c0dda24b0ef",
@@ -135,7 +279,40 @@
     "is": "Í nýju áhættumati Finansinspektionen kemur fram að fjármögnun gereyðingarvopna fari líklegast fram með ólöglegri fjármálastarfsemi og sýndareignum."
    },
    "paywall": false,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "b3fdbc8f5eec",
@@ -161,7 +338,40 @@
     "is": "Binance sagðist ætla að yfirgefa Evrópu, en viðskiptavinir eiga enn viðskipti og fjármálayfirvöld ESB vilja nú vita hvernig."
    },
    "paywall": false,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "f616814dc40c",
@@ -191,7 +401,40 @@
     "is": "GreenMerc sker niður kostnað um 4,8 milljónir sænskra króna á ári á meðan Northcrypto skilar hagnaði, og fénu er beint í bankaþjónustuna Trijo One."
    },
    "paywall": false,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "8ae149a20f5f",
@@ -216,7 +459,40 @@
     "is": "Nýr rafmyntasjóður Joakims Hannisdahl, byggður á líkani sem kom vel út í sögulegum prófunum, hefur hækkað um 39 prósent frá því hann hóf göngu sína í ágúst."
    },
    "paywall": true,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "c81be998e21c",
@@ -242,7 +518,40 @@
     "is": "Á finnskum rafmyntaviðburði sögðu fjárfestar að samfélagið og tæknin dragi þá að rafmyntum, á meðan bitcoin hækkaði á ný."
    },
    "paywall": false,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "FI",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "dbcac6be2b75",
@@ -267,7 +576,40 @@
     "is": "Lögreglan hefur opnað rafmyntaveski NHH-nema sem ákærður er í fíkniefnamáli og fundið eignir að verðmæti nokkur hundruð þúsund króna."
    },
    "paywall": true,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "12425cc1e7ff",
@@ -298,7 +640,40 @@
     "is": "Finnska Coinmotion hefur valið norska K33 til að annast stór viðskipti, samstarf tveggja norrænna fyrirtækja með MiCA-leyfi."
    },
    "paywall": false,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "07e49032be5a",
@@ -329,7 +704,40 @@
     "is": "Sænska Safello prófar lausn sem gerir fyrirtækjum án eigin rafmyntastarfsemi kleift að bjóða kaup á rafmyntum undir MiCA-leyfi Safello."
    },
    "paywall": false,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "b0202ea8241d",
@@ -354,7 +762,40 @@
     "is": "Norskur karlmaður hefur verið ákærður fyrir stórfelldan fjárdrátt úr eigin fyrirtæki og er sagður hafa eytt fénu í rafmyntir."
    },
    "paywall": true,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "7996dadb43e7",
@@ -385,7 +826,40 @@
     "is": "NBX hefur samið við Tieto Banktech um greiðslukort sem gerir viðskiptavinum kleift að nota stöðugleikamyntir í daglegum innkaupum."
    },
    "paywall": false,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "a0c89b973576",
@@ -416,7 +890,40 @@
     "is": "Danske Bank segir að enginn einn banki geti byggt upp stöðugleikamynt í evrum á eigin spýtur og að evrópskir bankar ættu saman að byggja upp valkost við dollarann í gegnum Qivalis."
    },
    "paywall": false,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "DK",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "6753e8903e88",
@@ -442,7 +949,40 @@
     "is": "Yfirferð á nærri 1.000 dönskum skattamálum vegna rafmynta leiddi í ljós villur í 23, þar á meðal einstakling sem hafði greitt meira en milljón danskra króna of mikið, og skattamálaráðherrann Jakob Engel-Schmidt lofar einfaldari reglum."
    },
    "paywall": false,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "DK",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "30093293e03f",
@@ -468,7 +1008,40 @@
     "is": "Danir töpuðu 89 milljónum danskra króna á fjárfestingasvikum á fyrri helmingi ársins 2026 í 1.145 skráðum málum, og rafmyntir komu við sögu í 70,6 prósentum þeirra."
    },
    "paywall": false,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "DK",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "188b5b8ed9fb",
@@ -494,7 +1067,40 @@
     "is": "Svar frá danska ráðherranum Jakob Engel-Schmidt sýndi hversu margir Danir greiða skatt af rafmyntafjárfestingum sem þeir hafa tapað á, sem hann kallaði „í raun alveg galið“; nú vill hann laga aldargamla regluna sem liggur að baki."
    },
    "paywall": false,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "DK",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "5682c6aa22dd",
@@ -519,7 +1125,40 @@
     "is": "Norska rafmyntakauphöllin Firi aflaði 135 milljóna norskra króna árið 2024 en tapaði 44 milljónum norskra króna á fyrri helmingi þessa árs."
    },
    "paywall": true,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "f2ad120d7189",
@@ -544,7 +1183,40 @@
     "is": "Johanna Belitz, yfirmaður Valour á Norðurlöndum, telur að stöðugleikamyntir geti gert greiðslur milli landa mun hraðari og ódýrari."
    },
    "paywall": true,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "831bb86ab20c",
@@ -575,7 +1247,40 @@
     "is": "NBX fékk MiCA-leyfi á fyrri helmingi ársins 2026, en tekjur drógust saman um 45 prósent og tap eftir skatta jókst í 16,6 milljónir norskra króna."
    },
    "paywall": false,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "55643fb5a215",
@@ -608,7 +1313,40 @@
     "is": "Í skriflegri fyrirspurn á norska Stórþinginu er spurt hvenær ríkisstjórnin leggi fram fyrirhugað skipulagsákvæði ríkisins til að takmarka námugröft rafmynta og hvers vegna hún hafi komist að þeirri niðurstöðu að EES-samningurinn útiloki almennt bann."
    },
    "paywall": false,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "1abbecf31dff",
@@ -633,7 +1371,40 @@
     "is": "NBX tapaði 21,33 milljónum norskra króna fyrir skatta á fyrri helmingi ársins 2026, samanborið við 9,85 milljónir ári fyrr, og breytingar á verðmæti bitcoin drógu niðurstöðuna niður."
    },
    "paywall": true,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "c1431df81160",
@@ -664,7 +1435,40 @@
     "is": "Í erindi hjá Bitcoinpolitisk Institutt í Ósló heldur Rachel Geyer hjá European Bitcoin Energy Association því fram að fyrirhugað bann Noregs við námugreftri beinist að vanda sem landið glímir ekki við."
    },
    "paywall": false,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "a384452ed1b6",
@@ -695,7 +1499,40 @@
     "is": "GreenMerc hefur fallið frá MiCA-kæru sinni fyrir Ijort Invest og mun þjónusta sænska viðskiptavini Trijo undir leyfi finnska Northcrypto."
    },
    "paywall": false,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "b46e8d2a4dad",
@@ -726,7 +1563,40 @@
     "is": "Hvorki ESMA né sænska Finansinspektionen vilja segja hvort dreifing rafmyntaþjónustu undir eigin vörumerki krefjist sérstaks MiCA-leyfis."
    },
    "paywall": false,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "FI",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "e1e3eef6ecff",
@@ -757,7 +1627,40 @@
     "is": "Norwegian Block Exchange (NBX), sem skráð er á Euronext Growth Oslo, hefur verið skráð sem umboðsaðili MoneyGram International."
    },
    "paywall": false,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "5f757489d23c",
@@ -788,7 +1691,40 @@
     "is": "DNB hefur gengið til liðs við CBMT, þar sem evrópskir bankar prófa táknvæddar bankainnstæður, og bætir norsku krónunni við prófunarumhverfið."
    },
    "paywall": false,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "4d918e6a3378",
@@ -818,7 +1754,40 @@
     "is": "Firi hefur starfsemi í Svíþjóð í vikunni, á markaði þar sem um 1,1 milljón manna á þegar rafmyntir."
    },
    "paywall": false,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "4fec239ddb97",
@@ -849,7 +1818,40 @@
     "is": "Hilbert Finance tekur við innlánum í stöðugleikamyntum á bálkakeðjunni og lánar þær út í samstarfi við Ember Protocol."
    },
    "paywall": false,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "82697418efbc",
@@ -879,7 +1881,40 @@
     "is": "Kvarn Capital telur að samstarf þess við sænska Goobit falli utan banns MiCA við umboðsmönnum og reglna um útvistun."
    },
    "paywall": false,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "6e2887720a32",
@@ -910,7 +1945,40 @@
     "is": "Rafmyntakauphöllin Firi tapaði 43,6 milljónum norskra króna á fyrri helmingi ársins 2026 vegna minni viðskipta og mikils MiCA-kostnaðar og hefur fækkað starfsfólki á sama tíma og hún hefur starfsemi í Svíþjóð."
    },
    "paywall": true,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "9750ec7bf5d8",
@@ -941,7 +2009,40 @@
     "is": "Finnska Kvarn Capital leyfir norrænum fyrirtækjum að selja rafmyntaþjónustu undir MiCA-leyfi sínu og er Goobit fyrsti nafngreindi viðskiptavinurinn."
    },
    "paywall": false,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "e0cc8b0df8e7",
@@ -972,7 +2073,40 @@
     "is": "Eftir synjun sænska Finansinspektionen setur Goobit á markað Futureproof, sparnaðarvettvang fyrir bitcoin og gull, undir MiCA-leyfi finnska Kvarn Capital."
    },
    "paywall": false,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "a1d43879dcb4",
@@ -1003,7 +2137,40 @@
     "is": "Bitcoinpolitisk Institutt safnar saman fræðimönnum, fulltrúum greinarinnar og stjórnmálamönnum í Ósló á ókeypis málþing um námugröft bitcoin og norska raforku."
    },
    "paywall": false,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "eb685890cbc3",
@@ -1034,7 +2201,40 @@
     "is": "Sander Andersen hjá H100 Group segir að bitcoin-fyrirtæki sem eru minna en milljarðs dollara virði þurfi að kaupa hvert annað, því að standa í stað sé mesta áhættan."
    },
    "paywall": false,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "23342b8b1a2d",
@@ -1066,7 +2266,40 @@
     "is": "Skattamálaráðherra Danmerkur fundaði með fulltrúum rafmyntageirans í Kristjánsborg 17. september til að ræða skattlagningu rafmynta."
    },
    "paywall": false,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "DK",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "a2a605592458",
@@ -1097,7 +2330,40 @@
     "is": "Táknvæðing hjá Blockchain Sweden og úrslit Blockathon-forritunarkeppninnar settu bálkakeðjur á dagskrá í Stokkhólmi í vikunni."
    },
    "paywall": false,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "08a682f7d85d",
@@ -1128,7 +2394,40 @@
     "is": "Goobit færir BTCX úr viðskiptum fyrir eigin reikning yfir í miðlun og vísar til MiCA, sem lækkar skráðar tekjur en ekki vergan hagnað."
    },
    "paywall": false,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "2034a42ac260",
@@ -1159,7 +2458,40 @@
     "is": "Norges Bank hefur nafngreint tólf fjármálastofnanir í kortlagningu sinni á táknvæðingu, en Noregur er eina norræna landið sem á enga banka í evru-stöðugleikamyntahópnum Qivalis."
    },
    "paywall": false,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "6a94ab65ebff",
@@ -1190,7 +2522,40 @@
     "is": "QB Europe, félag í eigu Valuno, hefur tapað kæru sinni vegna MiCA-synjunar í Svíþjóð en heldur starfseminni áfram í gegnum samstarfsaðila með leyfi."
    },
    "paywall": false,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "f6301aef3314",
@@ -1221,7 +2586,40 @@
     "is": "Finnska fjármálaeftirlitið minnir á að þjónustuveitendur sýndareigna sem þjóna Finnlandi verða að hafa leyfi innan ESB (MiCA)."
    },
    "paywall": false,
-   "status": "published"
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "FI",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   }
  ]
 }

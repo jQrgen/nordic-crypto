@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T00:46:21+00:00",
+ "generated_at": "2026-10-06T00:51:15+00:00",
  "preview": false,
  "topic": "bitcoin",
  "count": 2,
@@ -9,7 +9,7 @@
   {
    "id": "c81be998e21c",
    "url": "https://yle.fi/a/74-20248505",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/c81be998e21c/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/c81be998e21c.json",
    "title": "Yhteisöllisyys ja teknologia kiehtovat kryptovaluuttoihin sijoittaneita – kryptotapahtumassa iloittiin bitcoinin uudesta nousurallista",
    "title_en": "Community and technology draw crypto investors: bitcoin's new rally celebrated at crypto event",
@@ -36,12 +36,75 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "yle",
+    "outlet_name": "Yle Uutiset (latest)",
+    "url": "https://yle.fi/a/74-20248505",
+    "title": "Yhteisöllisyys ja teknologia kiehtovat kryptovaluuttoihin sijoittaneita – kryptotapahtumassa iloittiin bitcoinin uudesta nousurallista",
+    "published": "2026-09-27T08:20:00+00:00",
+    "lang": "Finnish",
+    "language_code": "fi",
+    "country": "FI",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": null
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "yle",
+     "outlet_name": "Yle Uutiset (latest)",
+     "url": "https://yle.fi/a/74-20248505",
+     "title": "Yhteisöllisyys ja teknologia kiehtovat kryptovaluuttoihin sijoittaneita – kryptotapahtumassa iloittiin bitcoinin uudesta nousurallista",
+     "published": "2026-09-27T08:20:00+00:00",
+     "lang": "Finnish",
+     "language_code": "fi",
+     "country": "FI",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": null
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "FI",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "eb685890cbc3",
    "url": "https://www.kaupr.io/nyheter/h100-styrelederen-vil-ha-flere-oppkjop-i-bitcoinbransjen",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/eb685890cbc3/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/eb685890cbc3.json",
    "title": "H100-styrelederen vil ha flere oppkjøp i bitcoinbransjen",
    "title_en": "H100 chair wants more acquisitions in the bitcoin industry",
@@ -76,7 +139,88 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "kaupr",
+    "outlet_name": "Kaupr",
+    "url": "https://www.kaupr.io/nyheter/h100-styrelederen-vil-ha-flere-oppkjop-i-bitcoinbransjen",
+    "title": "H100-styrelederen vil ha flere oppkjøp i bitcoinbransjen",
+    "published": "2026-09-13T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "SE",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website"
+    },
+    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "kaupr",
+     "outlet_name": "Kaupr",
+     "url": "https://www.kaupr.io/nyheter/h100-styrelederen-vil-ha-flere-oppkjop-i-bitcoinbransjen",
+     "title": "H100-styrelederen vil ha flere oppkjøp i bitcoinbransjen",
+     "published": "2026-09-13T12:00:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "SE",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+      "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website"
+     },
+     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   }
  ]
 }

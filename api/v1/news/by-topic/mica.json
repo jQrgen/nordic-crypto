@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T00:46:21+00:00",
+ "generated_at": "2026-10-06T00:51:15+00:00",
  "preview": false,
  "topic": "mica",
  "count": 14,
@@ -9,7 +9,7 @@
   {
    "id": "7b2030aea964",
    "url": "https://www.realtid.se/bors-finans/kryptojatten-i-ny-kontrovers-erbjod-tjanster-i-europa-utan-licens/",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/7b2030aea964/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/7b2030aea964.json",
    "title": "Kryptojätten i ny kontrovers – erbjöd tjänster i Europa utan licens",
    "title_en": "Crypto giant in new controversy: offered services in Europe without a licence",
@@ -36,12 +36,75 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "realtid",
+    "outlet_name": "Realtid",
+    "url": "https://www.realtid.se/bors-finans/kryptojatten-i-ny-kontrovers-erbjod-tjanster-i-europa-utan-licens/",
+    "title": "Kryptojätten i ny kontrovers – erbjöd tjänster i Europa utan licens",
+    "published": "2026-10-01T11:04:00+00:00",
+    "lang": "Swedish",
+    "language_code": "sv",
+    "country": "SE",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": null
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "realtid",
+     "outlet_name": "Realtid",
+     "url": "https://www.realtid.se/bors-finans/kryptojatten-i-ny-kontrovers-erbjod-tjanster-i-europa-utan-licens/",
+     "title": "Kryptojätten i ny kontrovers – erbjöd tjänster i Europa utan licens",
+     "published": "2026-10-01T11:04:00+00:00",
+     "lang": "Swedish",
+     "language_code": "sv",
+     "country": "SE",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": null
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "b3fdbc8f5eec",
    "url": "https://www.dagensps.se/bors-finans/fintech/kryptovalutor/krypto-jatten-rundar-reglerna-i-europa-riskerar-att-kastas-ut/",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/b3fdbc8f5eec/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/b3fdbc8f5eec.json",
    "title": "Krypto-jätten rundar reglerna i Europa: Riskerar att kastas ut",
    "title_en": "Crypto giant skirts the rules in Europe and risks being thrown out",
@@ -68,12 +131,75 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "dagensps.se",
+    "outlet_name": "Dagens PS",
+    "url": "https://www.dagensps.se/bors-finans/fintech/kryptovalutor/krypto-jatten-rundar-reglerna-i-europa-riskerar-att-kastas-ut/",
+    "title": "Krypto-jätten rundar reglerna i Europa: Riskerar att kastas ut",
+    "published": "2026-10-01T01:31:00+00:00",
+    "lang": "Swedish",
+    "language_code": "sv",
+    "country": "SE",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": null
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "dagensps.se",
+     "outlet_name": "Dagens PS",
+     "url": "https://www.dagensps.se/bors-finans/fintech/kryptovalutor/krypto-jatten-rundar-reglerna-i-europa-riskerar-att-kastas-ut/",
+     "title": "Krypto-jätten rundar reglerna i Europa: Riskerar att kastas ut",
+     "published": "2026-10-01T01:31:00+00:00",
+     "lang": "Swedish",
+     "language_code": "sv",
+     "country": "SE",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": null
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "12425cc1e7ff",
    "url": "https://www.kaupr.io/nyheter/coinmotion-og-k33-inngar-nordisk-kryptosamarbeid-om-institusjonell-handel",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/12425cc1e7ff/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/12425cc1e7ff.json",
    "title": "Coinmotion og K33 inngår nordisk kryptosamarbeid om institusjonell handel",
    "title_en": "Coinmotion and K33 strike Nordic crypto partnership on institutional trading",
@@ -108,12 +234,93 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "kaupr",
+    "outlet_name": "Kaupr",
+    "url": "https://www.kaupr.io/nyheter/coinmotion-og-k33-inngar-nordisk-kryptosamarbeid-om-institusjonell-handel",
+    "title": "Coinmotion og K33 inngår nordisk kryptosamarbeid om institusjonell handel",
+    "published": "2026-09-24T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "SE",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website"
+    },
+    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "kaupr",
+     "outlet_name": "Kaupr",
+     "url": "https://www.kaupr.io/nyheter/coinmotion-og-k33-inngar-nordisk-kryptosamarbeid-om-institusjonell-handel",
+     "title": "Coinmotion og K33 inngår nordisk kryptosamarbeid om institusjonell handel",
+     "published": "2026-09-24T12:00:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "SE",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+      "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website"
+     },
+     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "07e49032be5a",
    "url": "https://www.kaupr.io/nyheter/safello-apner-for-at-andre-selskaper-kan-tilby-kryptokjop",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/07e49032be5a/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/07e49032be5a.json",
    "title": "Safello åpner for at andre selskaper kan tilby kryptokjøp",
    "title_en": "Safello opens up so other companies can offer crypto purchases",
@@ -148,12 +355,93 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "kaupr",
+    "outlet_name": "Kaupr",
+    "url": "https://www.kaupr.io/nyheter/safello-apner-for-at-andre-selskaper-kan-tilby-kryptokjop",
+    "title": "Safello åpner for at andre selskaper kan tilby kryptokjøp",
+    "published": "2026-09-24T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "SE",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website"
+    },
+    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "kaupr",
+     "outlet_name": "Kaupr",
+     "url": "https://www.kaupr.io/nyheter/safello-apner-for-at-andre-selskaper-kan-tilby-kryptokjop",
+     "title": "Safello åpner for at andre selskaper kan tilby kryptokjøp",
+     "published": "2026-09-24T12:00:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "SE",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+      "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website"
+     },
+     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "831bb86ab20c",
    "url": "https://www.kaupr.io/nyheter/nbx-mer-enn-doblet-tapet-i-halvaret-da-mica-lisensen-kom",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/831bb86ab20c/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/831bb86ab20c.json",
    "title": "NBX mer enn doblet tapet i halvåret da MiCA-lisensen kom",
    "title_en": "NBX more than doubled its half-year loss as the MiCA licence arrived",
@@ -188,12 +476,93 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "kaupr",
+    "outlet_name": "Kaupr",
+    "url": "https://www.kaupr.io/nyheter/nbx-mer-enn-doblet-tapet-i-halvaret-da-mica-lisensen-kom",
+    "title": "NBX mer enn doblet tapet i halvåret da MiCA-lisensen kom",
+    "published": "2026-09-18T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website"
+    },
+    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "kaupr",
+     "outlet_name": "Kaupr",
+     "url": "https://www.kaupr.io/nyheter/nbx-mer-enn-doblet-tapet-i-halvaret-da-mica-lisensen-kom",
+     "title": "NBX mer enn doblet tapet i halvåret da MiCA-lisensen kom",
+     "published": "2026-09-18T12:00:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+      "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website"
+     },
+     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "a384452ed1b6",
    "url": "https://www.kaupr.io/nyheter/greenmerc-trekker-mica-klage-og-bruker-northcryptos-lisens-i-sverige",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/a384452ed1b6/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/a384452ed1b6.json",
    "title": "GreenMerc trekker MiCA-klage og bruker Northcryptos lisens i Sverige",
    "title_en": "GreenMerc drops MiCA appeal and uses Northcrypto's licence in Sweden",
@@ -228,12 +597,93 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "kaupr",
+    "outlet_name": "Kaupr",
+    "url": "https://www.kaupr.io/nyheter/greenmerc-trekker-mica-klage-og-bruker-northcryptos-lisens-i-sverige",
+    "title": "GreenMerc trekker MiCA-klage og bruker Northcryptos lisens i Sverige",
+    "published": "2026-09-17T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "SE",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website"
+    },
+    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "kaupr",
+     "outlet_name": "Kaupr",
+     "url": "https://www.kaupr.io/nyheter/greenmerc-trekker-mica-klage-og-bruker-northcryptos-lisens-i-sverige",
+     "title": "GreenMerc trekker MiCA-klage og bruker Northcryptos lisens i Sverige",
+     "published": "2026-09-17T12:00:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "SE",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+      "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website"
+     },
+     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "b46e8d2a4dad",
    "url": "https://www.kaupr.io/nyheter/to-tilsyn-vil-ikke-si-om-kryptodistribusjon-krever-egen-tillatelse",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/b46e8d2a4dad/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/b46e8d2a4dad.json",
    "title": "To tilsyn vil ikke si om kryptodistribusjon krever egen tillatelse",
    "title_en": "Two regulators won't say whether crypto distribution needs its own licence",
@@ -268,12 +718,93 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "kaupr",
+    "outlet_name": "Kaupr",
+    "url": "https://www.kaupr.io/nyheter/to-tilsyn-vil-ikke-si-om-kryptodistribusjon-krever-egen-tillatelse",
+    "title": "To tilsyn vil ikke si om kryptodistribusjon krever egen tillatelse",
+    "published": "2026-09-17T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "FI",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website"
+    },
+    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "kaupr",
+     "outlet_name": "Kaupr",
+     "url": "https://www.kaupr.io/nyheter/to-tilsyn-vil-ikke-si-om-kryptodistribusjon-krever-egen-tillatelse",
+     "title": "To tilsyn vil ikke si om kryptodistribusjon krever egen tillatelse",
+     "published": "2026-09-17T12:00:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "FI",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+      "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website"
+     },
+     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "FI",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "82697418efbc",
    "url": "https://www.kaupr.io/nyheter/kvarn-avviser-at-goobit-avtalen-er-agentforhold-eller-outsourcing",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/82697418efbc/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/82697418efbc.json",
    "title": "Kvarn avviser at Goobit-avtalen er agentforhold eller outsourcing",
    "title_en": "Kvarn denies the Goobit deal is an agency or outsourcing arrangement",
@@ -307,12 +838,93 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "kaupr",
+    "outlet_name": "Kaupr",
+    "url": "https://www.kaupr.io/nyheter/kvarn-avviser-at-goobit-avtalen-er-agentforhold-eller-outsourcing",
+    "title": "Kvarn avviser at Goobit-avtalen er agentforhold eller outsourcing",
+    "published": "2026-09-15T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "SE",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website"
+    },
+    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "kaupr",
+     "outlet_name": "Kaupr",
+     "url": "https://www.kaupr.io/nyheter/kvarn-avviser-at-goobit-avtalen-er-agentforhold-eller-outsourcing",
+     "title": "Kvarn avviser at Goobit-avtalen er agentforhold eller outsourcing",
+     "published": "2026-09-15T12:00:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "SE",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+      "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website"
+     },
+     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "6e2887720a32",
    "url": "https://www.shifter.no/nyheter/firi-lanserer-i-sverige-etter-permitteringer-og-milliontap/475990",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/6e2887720a32/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/6e2887720a32.json",
    "title": "Firi lanserer i Sverige – etter permitteringer og milliontap",
    "title_en": "Firi launches in Sweden after layoffs and losses",
@@ -347,12 +959,91 @@
    },
    "paywall": true,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "shifter",
+    "outlet_name": "Shifter",
+    "url": "https://www.shifter.no/nyheter/firi-lanserer-i-sverige-etter-permitteringer-og-milliontap/475990",
+    "title": "Firi lanserer i Sverige – etter permitteringer og milliontap",
+    "published": "2026-09-15T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": true,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/shifter.svg",
+     "source_url": "https://www.shifter.no/view-resources/dachser2/public/shifter/logo.svg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website"
+    }
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "shifter",
+     "outlet_name": "Shifter",
+     "url": "https://www.shifter.no/nyheter/firi-lanserer-i-sverige-etter-permitteringer-og-milliontap/475990",
+     "title": "Firi lanserer i Sverige – etter permitteringer og milliontap",
+     "published": "2026-09-15T12:00:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "national",
+     "paywall": true,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/shifter.svg",
+      "source_url": "https://www.shifter.no/view-resources/dachser2/public/shifter/logo.svg",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website"
+     }
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "9750ec7bf5d8",
    "url": "https://www.kaupr.io/nyheter/finske-kvarn-leier-ut-mica-tillatelsen-sin-til-nordiske-partnere",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/9750ec7bf5d8/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/9750ec7bf5d8.json",
    "title": "Finske Kvarn leier ut MiCA-tillatelsen sin til nordiske partnere",
    "title_en": "Finnish Kvarn rents out its MiCA licence to Nordic partners",
@@ -387,12 +1078,93 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "kaupr",
+    "outlet_name": "Kaupr",
+    "url": "https://www.kaupr.io/nyheter/finske-kvarn-leier-ut-mica-tillatelsen-sin-til-nordiske-partnere",
+    "title": "Finske Kvarn leier ut MiCA-tillatelsen sin til nordiske partnere",
+    "published": "2026-09-14T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "SE",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website"
+    },
+    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "kaupr",
+     "outlet_name": "Kaupr",
+     "url": "https://www.kaupr.io/nyheter/finske-kvarn-leier-ut-mica-tillatelsen-sin-til-nordiske-partnere",
+     "title": "Finske Kvarn leier ut MiCA-tillatelsen sin til nordiske partnere",
+     "published": "2026-09-14T12:00:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "SE",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+      "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website"
+     },
+     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "e0cc8b0df8e7",
    "url": "https://www.kaupr.io/nyheter/goobit-lanserer-sparing-i-bitcoin-og-gull-pa-finsk-lisens",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/e0cc8b0df8e7/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/e0cc8b0df8e7.json",
    "title": "Goobit lanserer sparing i bitcoin og gull på finsk lisens",
    "title_en": "Goobit launches bitcoin and gold savings on a Finnish licence",
@@ -427,12 +1199,93 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "kaupr",
+    "outlet_name": "Kaupr",
+    "url": "https://www.kaupr.io/nyheter/goobit-lanserer-sparing-i-bitcoin-og-gull-pa-finsk-lisens",
+    "title": "Goobit lanserer sparing i bitcoin og gull på finsk lisens",
+    "published": "2026-09-14T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "SE",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website"
+    },
+    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "kaupr",
+     "outlet_name": "Kaupr",
+     "url": "https://www.kaupr.io/nyheter/goobit-lanserer-sparing-i-bitcoin-og-gull-pa-finsk-lisens",
+     "title": "Goobit lanserer sparing i bitcoin og gull på finsk lisens",
+     "published": "2026-09-14T12:00:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "SE",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+      "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website"
+     },
+     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "08a682f7d85d",
    "url": "https://www.kaupr.io/nyheter/btcx-blir-megler-og-goobits-rapporterte-inntekter-faller",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/08a682f7d85d/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/08a682f7d85d.json",
    "title": "BTCX blir megler, og Goobits rapporterte inntekter faller",
    "title_en": "BTCX becomes a broker, and Goobit's reported revenue falls",
@@ -467,12 +1320,93 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "kaupr",
+    "outlet_name": "Kaupr",
+    "url": "https://www.kaupr.io/nyheter/btcx-blir-megler-og-goobits-rapporterte-inntekter-faller",
+    "title": "BTCX blir megler, og Goobits rapporterte inntekter faller",
+    "published": "2026-09-10T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "SE",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website"
+    },
+    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "kaupr",
+     "outlet_name": "Kaupr",
+     "url": "https://www.kaupr.io/nyheter/btcx-blir-megler-og-goobits-rapporterte-inntekter-faller",
+     "title": "BTCX blir megler, og Goobits rapporterte inntekter faller",
+     "published": "2026-09-10T12:00:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "SE",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+      "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website"
+     },
+     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "6a94ab65ebff",
    "url": "https://www.kaupr.io/nyheter/nytt-nederlag-for-valuno-i-kampen-om-mica-lisens",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/6a94ab65ebff/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/6a94ab65ebff.json",
    "title": "Nytt nederlag for Valuno i kampen om MiCA-lisens",
    "title_en": "New defeat for Valuno in the fight for a MiCA licence",
@@ -507,12 +1441,93 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "kaupr",
+    "outlet_name": "Kaupr",
+    "url": "https://www.kaupr.io/nyheter/nytt-nederlag-for-valuno-i-kampen-om-mica-lisens",
+    "title": "Nytt nederlag for Valuno i kampen om MiCA-lisens",
+    "published": "2026-09-07T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "SE",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website"
+    },
+    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "kaupr",
+     "outlet_name": "Kaupr",
+     "url": "https://www.kaupr.io/nyheter/nytt-nederlag-for-valuno-i-kampen-om-mica-lisens",
+     "title": "Nytt nederlag for Valuno i kampen om MiCA-lisens",
+     "published": "2026-09-07T12:00:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "SE",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+      "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website"
+     },
+     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "f6301aef3314",
    "url": "https://www.finanssivalvonta.fi/en/publications-and-press-releases/news-releases/2026/crypto-asset-service-providers-in-finland-must-be-authorised-in-the-eu/",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/f6301aef3314/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/f6301aef3314.json",
    "title": "Crypto-asset service providers in Finland must be authorised in the EU",
    "title_en": null,
@@ -547,7 +1562,86 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "finanssivalvonta",
+    "outlet_name": "Finanssivalvonta",
+    "url": "https://www.finanssivalvonta.fi/en/publications-and-press-releases/news-releases/2026/crypto-asset-service-providers-in-finland-must-be-authorised-in-the-eu/",
+    "title": "Crypto-asset service providers in Finland must be authorised in the EU",
+    "published": "2026-06-30T12:00:00+00:00",
+    "lang": "English",
+    "language_code": "en",
+    "country": "FI",
+    "source_type": "official",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/fi-fiva.webp",
+     "source_url": "https://www.finanssivalvonta.fi/contentassets/2a88d63613bb4f049c687203e8731112/logo.png",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website"
+    }
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "finanssivalvonta",
+     "outlet_name": "Finanssivalvonta",
+     "url": "https://www.finanssivalvonta.fi/en/publications-and-press-releases/news-releases/2026/crypto-asset-service-providers-in-finland-must-be-authorised-in-the-eu/",
+     "title": "Crypto-asset service providers in Finland must be authorised in the EU",
+     "published": "2026-06-30T12:00:00+00:00",
+     "lang": "English",
+     "language_code": "en",
+     "country": "FI",
+     "source_type": "official",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/fi-fiva.webp",
+      "source_url": "https://www.finanssivalvonta.fi/contentassets/2a88d63613bb4f049c687203e8731112/logo.png",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website"
+     }
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "FI",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   }
  ]
 }

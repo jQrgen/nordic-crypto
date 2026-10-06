@@ -1,12 +1,12 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T00:46:21+00:00",
+ "generated_at": "2026-10-06T00:51:15+00:00",
  "preview": false,
  "item": {
   "id": "b3fdbc8f5eec",
   "url": "https://www.dagensps.se/bors-finans/fintech/kryptovalutor/krypto-jatten-rundar-reglerna-i-europa-riskerar-att-kastas-ut/",
-  "html_url": null,
+  "html_url": "https://jqrgen.github.io/nordic-crypto/stories/b3fdbc8f5eec/",
   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/b3fdbc8f5eec.json",
   "title": "Krypto-jätten rundar reglerna i Europa: Riskerar att kastas ut",
   "title_en": "Crypto giant skirts the rules in Europe and risks being thrown out",
@@ -33,6 +33,69 @@
   },
   "paywall": false,
   "links": [],
-  "own_story": false
+  "own_story": false,
+  "primary_source": {
+   "outlet": "dagensps.se",
+   "outlet_name": "Dagens PS",
+   "url": "https://www.dagensps.se/bors-finans/fintech/kryptovalutor/krypto-jatten-rundar-reglerna-i-europa-riskerar-att-kastas-ut/",
+   "title": "Krypto-jätten rundar reglerna i Europa: Riskerar att kastas ut",
+   "published": "2026-10-01T01:31:00+00:00",
+   "lang": "Swedish",
+   "language_code": "sv",
+   "country": "SE",
+   "source_type": "national",
+   "paywall": false,
+   "primary": true,
+   "logo": null
+  },
+  "also_covered_by": [],
+  "sources": [
+   {
+    "outlet": "dagensps.se",
+    "outlet_name": "Dagens PS",
+    "url": "https://www.dagensps.se/bors-finans/fintech/kryptovalutor/krypto-jatten-rundar-reglerna-i-europa-riskerar-att-kastas-ut/",
+    "title": "Krypto-jätten rundar reglerna i Europa: Riskerar att kastas ut",
+    "published": "2026-10-01T01:31:00+00:00",
+    "lang": "Swedish",
+    "language_code": "sv",
+    "country": "SE",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": null
+   }
+  ],
+  "coverage": {
+   "count": 1,
+   "by_country": [
+    {
+     "country": "SE",
+     "count": 1,
+     "share": 1.0
+    }
+   ],
+   "by_source_type": [
+    {
+     "type": "national",
+     "count": 1,
+     "share": 1.0
+    },
+    {
+     "type": "regional",
+     "count": 0,
+     "share": 0.0
+    },
+    {
+     "type": "official",
+     "count": 0,
+     "share": 0.0
+    },
+    {
+     "type": "international",
+     "count": 0,
+     "share": 0.0
+    }
+   ]
+  }
  }
 }

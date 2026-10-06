@@ -42,7 +42,8 @@ curl -fsS https://jqrgen.github.io/nordic-crypto/api/v1/newsletters.json
 curl -fsS https://jqrgen.github.io/nordic-crypto/api/v1/newsletters/001.json
 ```
 
-A single news item is api/v1/news/{id}.json (the id is on each item). A single newsletter issue is api/v1/newsletters/{id}.json and includes plain text and HTML. Country slices: api/v1/news/by-country/NO.json (also SE, DK, FI, IS).
+A single news item is api/v1/news/{id}.json (the id is on each item). primary_source is the outlet we lead with. also_covered_by is every other outlet on the same event. sources lists them with the primary first. coverage.by_country and coverage.by_source_type (national, regional, official, international) are the counts and shares, and empty types are included as zero. html_url is our coverage page. url is the primary outlet. 
+A single newsletter issue is api/v1/newsletters/{id}.json and includes plain text and HTML. Country slices: api/v1/news/by-country/NO.json (also SE, DK, FI, IS).
 
 ## Endpoints
 

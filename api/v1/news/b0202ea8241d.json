@@ -1,12 +1,12 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T00:46:21+00:00",
+ "generated_at": "2026-10-06T00:51:15+00:00",
  "preview": false,
  "item": {
   "id": "b0202ea8241d",
   "url": "https://www.oa.no/skal-ha-stalet-fra-egen-bedrift-brukte-pengene-pa-krypto/s/80-35-26289",
-  "html_url": null,
+  "html_url": "https://jqrgen.github.io/nordic-crypto/stories/b0202ea8241d/",
   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/b0202ea8241d.json",
   "title": "Skal ha stjålet fra egen bedrift – brukte pengene på krypto",
   "title_en": "Allegedly stole from his own company and spent the money on crypto",
@@ -32,6 +32,69 @@
   },
   "paywall": true,
   "links": [],
-  "own_story": false
+  "own_story": false,
+  "primary_source": {
+   "outlet": "oa",
+   "outlet_name": "Oppland Arbeiderblad",
+   "url": "https://www.oa.no/skal-ha-stalet-fra-egen-bedrift-brukte-pengene-pa-krypto/s/80-35-26289",
+   "title": "Skal ha stjålet fra egen bedrift – brukte pengene på krypto",
+   "published": "2026-09-23T16:08:00+00:00",
+   "lang": "Norwegian",
+   "language_code": "no",
+   "country": "NO",
+   "source_type": "national",
+   "paywall": true,
+   "primary": true,
+   "logo": null
+  },
+  "also_covered_by": [],
+  "sources": [
+   {
+    "outlet": "oa",
+    "outlet_name": "Oppland Arbeiderblad",
+    "url": "https://www.oa.no/skal-ha-stalet-fra-egen-bedrift-brukte-pengene-pa-krypto/s/80-35-26289",
+    "title": "Skal ha stjålet fra egen bedrift – brukte pengene på krypto",
+    "published": "2026-09-23T16:08:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": true,
+    "primary": true,
+    "logo": null
+   }
+  ],
+  "coverage": {
+   "count": 1,
+   "by_country": [
+    {
+     "country": "NO",
+     "count": 1,
+     "share": 1.0
+    }
+   ],
+   "by_source_type": [
+    {
+     "type": "national",
+     "count": 1,
+     "share": 1.0
+    },
+    {
+     "type": "regional",
+     "count": 0,
+     "share": 0.0
+    },
+    {
+     "type": "official",
+     "count": 0,
+     "share": 0.0
+    },
+    {
+     "type": "international",
+     "count": 0,
+     "share": 0.0
+    }
+   ]
+  }
  }
 }

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T00:46:21+00:00",
+ "generated_at": "2026-10-06T00:51:15+00:00",
  "preview": false,
  "topic": "regulation",
  "count": 7,
@@ -9,7 +9,7 @@
   {
    "id": "e6727b4858b5",
    "url": "https://www.realtid.se/bors-finans/makro/sa-kan-sverige-anvandas-for-att-finansiera-karnvapen/",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/e6727b4858b5/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/e6727b4858b5.json",
    "title": "Så kan Sverige användas för att finansiera kärnvapen",
    "title_en": "How Sweden can be used to finance nuclear weapons",
@@ -36,12 +36,75 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "realtid",
+    "outlet_name": "Realtid",
+    "url": "https://www.realtid.se/bors-finans/makro/sa-kan-sverige-anvandas-for-att-finansiera-karnvapen/",
+    "title": "Så kan Sverige användas för att finansiera kärnvapen",
+    "published": "2026-10-02T17:00:00+00:00",
+    "lang": "Swedish",
+    "language_code": "sv",
+    "country": "SE",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": null
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "realtid",
+     "outlet_name": "Realtid",
+     "url": "https://www.realtid.se/bors-finans/makro/sa-kan-sverige-anvandas-for-att-finansiera-karnvapen/",
+     "title": "Så kan Sverige användas för att finansiera kärnvapen",
+     "published": "2026-10-02T17:00:00+00:00",
+     "lang": "Swedish",
+     "language_code": "sv",
+     "country": "SE",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": null
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "7b2030aea964",
    "url": "https://www.realtid.se/bors-finans/kryptojatten-i-ny-kontrovers-erbjod-tjanster-i-europa-utan-licens/",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/7b2030aea964/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/7b2030aea964.json",
    "title": "Kryptojätten i ny kontrovers – erbjöd tjänster i Europa utan licens",
    "title_en": "Crypto giant in new controversy: offered services in Europe without a licence",
@@ -68,12 +131,75 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "realtid",
+    "outlet_name": "Realtid",
+    "url": "https://www.realtid.se/bors-finans/kryptojatten-i-ny-kontrovers-erbjod-tjanster-i-europa-utan-licens/",
+    "title": "Kryptojätten i ny kontrovers – erbjöd tjänster i Europa utan licens",
+    "published": "2026-10-01T11:04:00+00:00",
+    "lang": "Swedish",
+    "language_code": "sv",
+    "country": "SE",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": null
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "realtid",
+     "outlet_name": "Realtid",
+     "url": "https://www.realtid.se/bors-finans/kryptojatten-i-ny-kontrovers-erbjod-tjanster-i-europa-utan-licens/",
+     "title": "Kryptojätten i ny kontrovers – erbjöd tjänster i Europa utan licens",
+     "published": "2026-10-01T11:04:00+00:00",
+     "lang": "Swedish",
+     "language_code": "sv",
+     "country": "SE",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": null
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "8c0dda24b0ef",
    "url": "https://www.fi.se/sv/publicerat/nyheter/2026/har-ar-riskerna-for-finansiering-av-spridning-av-massforstorelsevapen-storst/",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/8c0dda24b0ef/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/8c0dda24b0ef.json",
    "title": "Här är riskerna för finansiering av spridning av massförstörelsevapen störst",
    "title_en": "Here is where the risk of financing proliferation of weapons of mass destruction is highest",
@@ -108,12 +234,91 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "fi-se",
+    "outlet_name": "Finansinspektionen (SE FSA)",
+    "url": "https://www.fi.se/sv/publicerat/nyheter/2026/har-ar-riskerna-for-finansiering-av-spridning-av-massforstorelsevapen-storst/",
+    "title": "Här är riskerna för finansiering av spridning av massförstörelsevapen störst",
+    "published": "2026-10-01T06:00:11+00:00",
+    "lang": "Swedish",
+    "language_code": "sv",
+    "country": "SE",
+    "source_type": "official",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/se-fi.svg",
+     "source_url": "https://commons.wikimedia.org/wiki/File:Finansinspektionen_logo.svg",
+     "author": "Finansinspektionen.",
+     "license": "Public domain",
+     "license_url": null,
+     "credit": "Wikimedia Commons"
+    }
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "fi-se",
+     "outlet_name": "Finansinspektionen (SE FSA)",
+     "url": "https://www.fi.se/sv/publicerat/nyheter/2026/har-ar-riskerna-for-finansiering-av-spridning-av-massforstorelsevapen-storst/",
+     "title": "Här är riskerna för finansiering av spridning av massförstörelsevapen störst",
+     "published": "2026-10-01T06:00:11+00:00",
+     "lang": "Swedish",
+     "language_code": "sv",
+     "country": "SE",
+     "source_type": "official",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/se-fi.svg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Finansinspektionen_logo.svg",
+      "author": "Finansinspektionen.",
+      "license": "Public domain",
+      "license_url": null,
+      "credit": "Wikimedia Commons"
+     }
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "b3fdbc8f5eec",
    "url": "https://www.dagensps.se/bors-finans/fintech/kryptovalutor/krypto-jatten-rundar-reglerna-i-europa-riskerar-att-kastas-ut/",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/b3fdbc8f5eec/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/b3fdbc8f5eec.json",
    "title": "Krypto-jätten rundar reglerna i Europa: Riskerar att kastas ut",
    "title_en": "Crypto giant skirts the rules in Europe and risks being thrown out",
@@ -140,12 +345,75 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "dagensps.se",
+    "outlet_name": "Dagens PS",
+    "url": "https://www.dagensps.se/bors-finans/fintech/kryptovalutor/krypto-jatten-rundar-reglerna-i-europa-riskerar-att-kastas-ut/",
+    "title": "Krypto-jätten rundar reglerna i Europa: Riskerar att kastas ut",
+    "published": "2026-10-01T01:31:00+00:00",
+    "lang": "Swedish",
+    "language_code": "sv",
+    "country": "SE",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": null
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "dagensps.se",
+     "outlet_name": "Dagens PS",
+     "url": "https://www.dagensps.se/bors-finans/fintech/kryptovalutor/krypto-jatten-rundar-reglerna-i-europa-riskerar-att-kastas-ut/",
+     "title": "Krypto-jätten rundar reglerna i Europa: Riskerar att kastas ut",
+     "published": "2026-10-01T01:31:00+00:00",
+     "lang": "Swedish",
+     "language_code": "sv",
+     "country": "SE",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": null
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "b46e8d2a4dad",
    "url": "https://www.kaupr.io/nyheter/to-tilsyn-vil-ikke-si-om-kryptodistribusjon-krever-egen-tillatelse",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/b46e8d2a4dad/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/b46e8d2a4dad.json",
    "title": "To tilsyn vil ikke si om kryptodistribusjon krever egen tillatelse",
    "title_en": "Two regulators won't say whether crypto distribution needs its own licence",
@@ -180,12 +448,93 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "kaupr",
+    "outlet_name": "Kaupr",
+    "url": "https://www.kaupr.io/nyheter/to-tilsyn-vil-ikke-si-om-kryptodistribusjon-krever-egen-tillatelse",
+    "title": "To tilsyn vil ikke si om kryptodistribusjon krever egen tillatelse",
+    "published": "2026-09-17T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "FI",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website"
+    },
+    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "kaupr",
+     "outlet_name": "Kaupr",
+     "url": "https://www.kaupr.io/nyheter/to-tilsyn-vil-ikke-si-om-kryptodistribusjon-krever-egen-tillatelse",
+     "title": "To tilsyn vil ikke si om kryptodistribusjon krever egen tillatelse",
+     "published": "2026-09-17T12:00:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "FI",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+      "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website"
+     },
+     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "FI",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "6a94ab65ebff",
    "url": "https://www.kaupr.io/nyheter/nytt-nederlag-for-valuno-i-kampen-om-mica-lisens",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/6a94ab65ebff/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/6a94ab65ebff.json",
    "title": "Nytt nederlag for Valuno i kampen om MiCA-lisens",
    "title_en": "New defeat for Valuno in the fight for a MiCA licence",
@@ -220,12 +569,93 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "kaupr",
+    "outlet_name": "Kaupr",
+    "url": "https://www.kaupr.io/nyheter/nytt-nederlag-for-valuno-i-kampen-om-mica-lisens",
+    "title": "Nytt nederlag for Valuno i kampen om MiCA-lisens",
+    "published": "2026-09-07T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "SE",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website"
+    },
+    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "kaupr",
+     "outlet_name": "Kaupr",
+     "url": "https://www.kaupr.io/nyheter/nytt-nederlag-for-valuno-i-kampen-om-mica-lisens",
+     "title": "Nytt nederlag for Valuno i kampen om MiCA-lisens",
+     "published": "2026-09-07T12:00:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "SE",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+      "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website"
+     },
+     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "f6301aef3314",
    "url": "https://www.finanssivalvonta.fi/en/publications-and-press-releases/news-releases/2026/crypto-asset-service-providers-in-finland-must-be-authorised-in-the-eu/",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/f6301aef3314/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/f6301aef3314.json",
    "title": "Crypto-asset service providers in Finland must be authorised in the EU",
    "title_en": null,
@@ -260,7 +690,86 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "finanssivalvonta",
+    "outlet_name": "Finanssivalvonta",
+    "url": "https://www.finanssivalvonta.fi/en/publications-and-press-releases/news-releases/2026/crypto-asset-service-providers-in-finland-must-be-authorised-in-the-eu/",
+    "title": "Crypto-asset service providers in Finland must be authorised in the EU",
+    "published": "2026-06-30T12:00:00+00:00",
+    "lang": "English",
+    "language_code": "en",
+    "country": "FI",
+    "source_type": "official",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/fi-fiva.webp",
+     "source_url": "https://www.finanssivalvonta.fi/contentassets/2a88d63613bb4f049c687203e8731112/logo.png",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website"
+    }
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "finanssivalvonta",
+     "outlet_name": "Finanssivalvonta",
+     "url": "https://www.finanssivalvonta.fi/en/publications-and-press-releases/news-releases/2026/crypto-asset-service-providers-in-finland-must-be-authorised-in-the-eu/",
+     "title": "Crypto-asset service providers in Finland must be authorised in the EU",
+     "published": "2026-06-30T12:00:00+00:00",
+     "lang": "English",
+     "language_code": "en",
+     "country": "FI",
+     "source_type": "official",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/fi-fiva.webp",
+      "source_url": "https://www.finanssivalvonta.fi/contentassets/2a88d63613bb4f049c687203e8731112/logo.png",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website"
+     }
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "FI",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   }
  ]
 }

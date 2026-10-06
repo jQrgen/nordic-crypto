@@ -1,12 +1,12 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T00:46:21+00:00",
+ "generated_at": "2026-10-06T00:51:15+00:00",
  "preview": false,
  "item": {
   "id": "55643fb5a215",
   "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Sporsmal/Skriftlige-sporsmal-og-svar/Skriftlig-sporsmal/?qnid=127181",
-  "html_url": null,
+  "html_url": "https://jqrgen.github.io/nordic-crypto/stories/55643fb5a215/",
   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/55643fb5a215.json",
   "title": "Regjeringen utreder midlertidig forbud mot nye kryptodatasentre (skriftlig spørsmål 15:3707)",
   "title_en": "Government studying a temporary ban on new crypto data centres (written question 15:3707)",
@@ -41,6 +41,85 @@
   },
   "paywall": false,
   "links": [],
-  "own_story": false
+  "own_story": false,
+  "primary_source": {
+   "outlet": "stortinget",
+   "outlet_name": "Stortinget",
+   "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Sporsmal/Skriftlige-sporsmal-og-svar/Skriftlig-sporsmal/?qnid=127181",
+   "title": "Regjeringen utreder midlertidig forbud mot nye kryptodatasentre (skriftlig spørsmål 15:3707)",
+   "published": "2026-09-18T12:00:00+00:00",
+   "lang": "Norwegian",
+   "language_code": "no",
+   "country": "NO",
+   "source_type": "official",
+   "paywall": false,
+   "primary": true,
+   "logo": {
+    "kind": "logo",
+    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/stortinget-finanskomiteen.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+    "author": "Worldlydev",
+    "license": "Public domain",
+    "license_url": null,
+    "credit": "Wikimedia Commons"
+   }
+  },
+  "also_covered_by": [],
+  "sources": [
+   {
+    "outlet": "stortinget",
+    "outlet_name": "Stortinget",
+    "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Sporsmal/Skriftlige-sporsmal-og-svar/Skriftlig-sporsmal/?qnid=127181",
+    "title": "Regjeringen utreder midlertidig forbud mot nye kryptodatasentre (skriftlig spørsmål 15:3707)",
+    "published": "2026-09-18T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "official",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/stortinget-finanskomiteen.svg",
+     "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+     "author": "Worldlydev",
+     "license": "Public domain",
+     "license_url": null,
+     "credit": "Wikimedia Commons"
+    }
+   }
+  ],
+  "coverage": {
+   "count": 1,
+   "by_country": [
+    {
+     "country": "NO",
+     "count": 1,
+     "share": 1.0
+    }
+   ],
+   "by_source_type": [
+    {
+     "type": "national",
+     "count": 0,
+     "share": 0.0
+    },
+    {
+     "type": "regional",
+     "count": 0,
+     "share": 0.0
+    },
+    {
+     "type": "official",
+     "count": 1,
+     "share": 1.0
+    },
+    {
+     "type": "international",
+     "count": 0,
+     "share": 0.0
+    }
+   ]
+  }
  }
 }

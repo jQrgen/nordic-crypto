@@ -34,6 +34,27 @@ ol.news h3{font-size:18px;line-height:1.3;margin:0 0 4px}ol.news h3 a{text-decor
 .meta{font-size:13.5px;color:var(--muted)}.meta b{color:var(--ink);font-weight:600}
 .src{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;vertical-align:middle;text-align:start}
 .src-logo{height:18px;width:auto;max-width:96px;object-fit:contain;flex:none;background:#fff;padding:1px}
+.covrow,.readat-row,.also,.covbars,.covsort,.covlist,.covgroup,.cov-by-country,.cov-by-time{text-align:start}
+.covrow{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:6px 8px;margin:6px 0 0}
+.cov-logo{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;text-decoration:none}
+.cov-more{font-size:13px;color:var(--ink);border:1px solid var(--line);padding:1px 6px;background:#fff;text-decoration:none}
+.cov-more:hover,.cov-more:focus-visible{border-color:var(--ink)}
+.readat{display:inline-block;padding:8px 14px;background:var(--ink);color:#fff;text-decoration:none;font-weight:700}
+.readat:hover,.readat:focus-visible{background:#000}
+.also{margin:8px 0}
+.covbars{margin:0 0 14px}
+.covbar{display:grid;grid-template-columns:minmax(7rem,12rem) minmax(4rem,16rem) 2rem;justify-content:start;align-items:center;gap:8px;margin:3px 0;font-size:14px;max-width:100%}
+@media(max-width:640px){.covbar{grid-template-columns:minmax(6rem,9rem) minmax(3rem,1fr) 2rem}}
+.covbar .track{display:block;height:8px;background:var(--line)}
+.covbar .fill{display:block;height:8px;background:var(--accent)}
+.covbar .covn{font-variant-numeric:tabular-nums}
+.covsort{margin:8px 0}
+.covgroup{margin:0 0 12px}
+.covgroup h3{display:flex;justify-content:flex-start;gap:8px;align-items:baseline;font-size:16px;margin:0 0 4px}
+.covlist{list-style:none;padding:0;margin:0}
+.covlist li{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:flex-start;gap:6px 12px;border-bottom:1px solid var(--line);padding:8px 0}
+.covlist .cov-title{flex:1 1 16rem;min-width:12rem}
+.cov-open{font-weight:600}
 .tag{display:inline-block;font-size:12px;padding:0 6px;border:1px solid var(--line);margin-left:4px;color:var(--muted)}
 .tag.pend{border-color:var(--warm);color:var(--warm);font-weight:600}.tag.paid{border-color:var(--warm);color:var(--warm)}
 .sum{margin:6px 0 0;max-width:75ch;line-height:1.45;text-align:left}.sum.pend{color:var(--warm);font-style:italic}
@@ -168,7 +189,7 @@ a.applink:hover,a.applink:focus-visible{background:var(--soft)}
 <div class="api-docs">
 <h1>Nordic Crypto data API</h1>
 <p class="lead">A public JSON feed of the site, for apps and for other tools. No account and no API key. It is regenerated whenever the site is built.</p>
-<p>Version 1. 42 news items, 1 newsletter issues, 12 events in this build. Generated 2026-10-06T00:46:21+00:00.</p>
+<p>Version 1. 42 news items, 1 newsletter issues, 12 events in this build. Generated 2026-10-06T00:51:15+00:00.</p>
 <h2>Start here</h2>
 <ul>
 <li><a href="https://jqrgen.github.io/nordic-crypto/api/v1/index.json">Discovery</a> — every endpoint and example URL.</li>
@@ -187,6 +208,8 @@ curl -fsS https://jqrgen.github.io/nordic-crypto/api/v1/newsletters/001.json</pr
 <p>The build fetches the exchanges. <code>.github/workflows/markets-refresh.yml</code> rewrites the JSON on gh-pages about once an hour, including the aggregated file and the icons. The markets page reloads this file, and refreshes Firi and Coinmotion in the browser because those APIs send <code>Access-Control-Allow-Origin: *</code>. NBX does not, so those rows follow the file. The same document on the gh-pages branch: <a href="https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json">raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json</a>.</p>
 <pre>curl -fsS https://jqrgen.github.io/nordic-crypto/api/v1/markets.json
 curl -fsS https://jqrgen.github.io/nordic-crypto/api/v1/markets/aggregated.json</pre>
+<h2>Several outlets, one story</h2>
+<p>A story keeps one primary outlet. Other outlets that covered the same event are in <code>also_covered_by</code>. <code>sources</code> lists the primary first, then the others. Each outlet has <code>outlet</code>, <code>outlet_name</code>, <code>url</code>, <code>title</code> (that outlet's headline), <code>published</code>, <code>lang</code>, <code>country</code>, <code>source_type</code> and <code>logo</code>. <code>source_type</code> is <code>national</code>, <code>regional</code> (regional and local), <code>official</code> (justice and official: police, prosecutors, courts, regulators) or <code>international</code>. <code>coverage.count</code> is the number of outlets. <code>coverage.by_country</code> and <code>coverage.by_source_type</code> are the counts and shares for the bars. Every source type is present, including a count of zero. <code>html_url</code> is our page for that story. <code>url</code> is the primary outlet. Kaupr stays a news source only.</p>
 <h2>Languages</h2>
 <p>English is the default field (<code>summary</code>, <code>title</code>, <code>text</code>). Translations that we have published sit in <code>summary_i18n</code>, <code>title_i18n</code>, <code>subtitle_i18n</code>, <code>note_i18n</code>, <code>text_i18n</code> and <code>about_i18n</code>, keyed by <code>nn</code>, <code>nb</code>, <code>sv</code>, <code>da</code>, <code>fi</code> and <code>is</code>. Other site languages use the English field until a translation is published. Headlines from other outlets stay in the original language. Dates are ISO 8601.</p>
 <p><a href="https://jqrgen.github.io/nordic-crypto/api/v1/languages.json"><code>/api/v1/languages.json</code></a> lists every site language with <code>code</code>, <code>native_name</code>, <code>english_name</code>, <code>rtl</code>, <code>html_lang</code> and <code>home</code>. <a href="https://jqrgen.github.io/nordic-crypto/api/v1/geo-language.json"><code>/api/v1/geo-language.json</code></a> is the country-to-language guess used on a first visit. The IP country comes from the tipworker <code>GET /api/geo</code> (Cloudflare <code>request.cf.country</code>). Nothing is stored. The <code>nc_lang</code> cookie, set by the language switcher, always wins.</p>

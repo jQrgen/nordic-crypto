@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T00:46:21+00:00",
+ "generated_at": "2026-10-06T00:51:15+00:00",
  "preview": false,
  "topic": "aml",
  "count": 2,
@@ -9,7 +9,7 @@
   {
    "id": "e6727b4858b5",
    "url": "https://www.realtid.se/bors-finans/makro/sa-kan-sverige-anvandas-for-att-finansiera-karnvapen/",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/e6727b4858b5/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/e6727b4858b5.json",
    "title": "Så kan Sverige användas för att finansiera kärnvapen",
    "title_en": "How Sweden can be used to finance nuclear weapons",
@@ -36,12 +36,75 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "realtid",
+    "outlet_name": "Realtid",
+    "url": "https://www.realtid.se/bors-finans/makro/sa-kan-sverige-anvandas-for-att-finansiera-karnvapen/",
+    "title": "Så kan Sverige användas för att finansiera kärnvapen",
+    "published": "2026-10-02T17:00:00+00:00",
+    "lang": "Swedish",
+    "language_code": "sv",
+    "country": "SE",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": null
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "realtid",
+     "outlet_name": "Realtid",
+     "url": "https://www.realtid.se/bors-finans/makro/sa-kan-sverige-anvandas-for-att-finansiera-karnvapen/",
+     "title": "Så kan Sverige användas för att finansiera kärnvapen",
+     "published": "2026-10-02T17:00:00+00:00",
+     "lang": "Swedish",
+     "language_code": "sv",
+     "country": "SE",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": null
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "8c0dda24b0ef",
    "url": "https://www.fi.se/sv/publicerat/nyheter/2026/har-ar-riskerna-for-finansiering-av-spridning-av-massforstorelsevapen-storst/",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/8c0dda24b0ef/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/8c0dda24b0ef.json",
    "title": "Här är riskerna för finansiering av spridning av massförstörelsevapen störst",
    "title_en": "Here is where the risk of financing proliferation of weapons of mass destruction is highest",
@@ -76,7 +139,86 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "fi-se",
+    "outlet_name": "Finansinspektionen (SE FSA)",
+    "url": "https://www.fi.se/sv/publicerat/nyheter/2026/har-ar-riskerna-for-finansiering-av-spridning-av-massforstorelsevapen-storst/",
+    "title": "Här är riskerna för finansiering av spridning av massförstörelsevapen störst",
+    "published": "2026-10-01T06:00:11+00:00",
+    "lang": "Swedish",
+    "language_code": "sv",
+    "country": "SE",
+    "source_type": "official",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/se-fi.svg",
+     "source_url": "https://commons.wikimedia.org/wiki/File:Finansinspektionen_logo.svg",
+     "author": "Finansinspektionen.",
+     "license": "Public domain",
+     "license_url": null,
+     "credit": "Wikimedia Commons"
+    }
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "fi-se",
+     "outlet_name": "Finansinspektionen (SE FSA)",
+     "url": "https://www.fi.se/sv/publicerat/nyheter/2026/har-ar-riskerna-for-finansiering-av-spridning-av-massforstorelsevapen-storst/",
+     "title": "Här är riskerna för finansiering av spridning av massförstörelsevapen störst",
+     "published": "2026-10-01T06:00:11+00:00",
+     "lang": "Swedish",
+     "language_code": "sv",
+     "country": "SE",
+     "source_type": "official",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/se-fi.svg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Finansinspektionen_logo.svg",
+      "author": "Finansinspektionen.",
+      "license": "Public domain",
+      "license_url": null,
+      "credit": "Wikimedia Commons"
+     }
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   }
  ]
 }

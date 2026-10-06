@@ -34,6 +34,27 @@ ol.news h3{font-size:18px;line-height:1.3;margin:0 0 4px}ol.news h3 a{text-decor
 .meta{font-size:13.5px;color:var(--muted)}.meta b{color:var(--ink);font-weight:600}
 .src{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;vertical-align:middle;text-align:start}
 .src-logo{height:18px;width:auto;max-width:96px;object-fit:contain;flex:none;background:#fff;padding:1px}
+.covrow,.readat-row,.also,.covbars,.covsort,.covlist,.covgroup,.cov-by-country,.cov-by-time{text-align:start}
+.covrow{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:6px 8px;margin:6px 0 0}
+.cov-logo{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;text-decoration:none}
+.cov-more{font-size:13px;color:var(--ink);border:1px solid var(--line);padding:1px 6px;background:#fff;text-decoration:none}
+.cov-more:hover,.cov-more:focus-visible{border-color:var(--ink)}
+.readat{display:inline-block;padding:8px 14px;background:var(--ink);color:#fff;text-decoration:none;font-weight:700}
+.readat:hover,.readat:focus-visible{background:#000}
+.also{margin:8px 0}
+.covbars{margin:0 0 14px}
+.covbar{display:grid;grid-template-columns:minmax(7rem,12rem) minmax(4rem,16rem) 2rem;justify-content:start;align-items:center;gap:8px;margin:3px 0;font-size:14px;max-width:100%}
+@media(max-width:640px){.covbar{grid-template-columns:minmax(6rem,9rem) minmax(3rem,1fr) 2rem}}
+.covbar .track{display:block;height:8px;background:var(--line)}
+.covbar .fill{display:block;height:8px;background:var(--accent)}
+.covbar .covn{font-variant-numeric:tabular-nums}
+.covsort{margin:8px 0}
+.covgroup{margin:0 0 12px}
+.covgroup h3{display:flex;justify-content:flex-start;gap:8px;align-items:baseline;font-size:16px;margin:0 0 4px}
+.covlist{list-style:none;padding:0;margin:0}
+.covlist li{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:flex-start;gap:6px 12px;border-bottom:1px solid var(--line);padding:8px 0}
+.covlist .cov-title{flex:1 1 16rem;min-width:12rem}
+.cov-open{font-weight:600}
 .tag{display:inline-block;font-size:12px;padding:0 6px;border:1px solid var(--line);margin-left:4px;color:var(--muted)}
 .tag.pend{border-color:var(--warm);color:var(--warm);font-weight:600}.tag.paid{border-color:var(--warm);color:var(--warm)}
 .sum{margin:6px 0 0;max-width:75ch;line-height:1.45;text-align:left}.sum.pend{color:var(--warm);font-style:italic}

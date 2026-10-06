@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T00:46:21+00:00",
+ "generated_at": "2026-10-06T00:51:15+00:00",
  "preview": false,
  "title": "Nordic Crypto data API",
  "sign_off": "The Nordic Crypto team",
@@ -54,7 +54,7 @@
   "org_relations": 15,
   "profiles": 20,
   "images": 64,
-  "changelog": 20,
+  "changelog": 21,
   "archive_articles": 42,
   "markets": 72,
   "markets_aggregated": 53,
@@ -228,8 +228,8 @@
    "url_custom_domain": "https://cryptonordic.no/api/v1/academia/{id}.json",
    "summary": "One academia row. The id is in academia.json.",
    "schema": "AcademiaItem",
-   "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/SE-DD2585.json",
-   "example_url_custom_domain": "https://cryptonordic.no/api/v1/academia/SE-DD2585.json"
+   "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/groups-www.linkedin.com-company-cbs-bitcoin.json",
+   "example_url_custom_domain": "https://cryptonordic.no/api/v1/academia/groups-www.linkedin.com-company-cbs-bitcoin.json"
   },
   {
    "id": "api-v1-orgchart",

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T00:46:21+00:00",
+ "generated_at": "2026-10-06T00:51:15+00:00",
  "preview": false,
  "topic": "funds",
  "count": 1,
@@ -9,7 +9,7 @@
   {
    "id": "8ae149a20f5f",
    "url": "https://www.finansavisen.no/finans/2026/09/28/8383782/pangstart-for-nytt-kryptofond",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/8ae149a20f5f/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/8ae149a20f5f.json",
    "title": "Pangstart for nytt kryptofond",
    "title_en": "Flying start for new crypto fund",
@@ -35,7 +35,70 @@
    },
    "paywall": true,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "finansavisen",
+    "outlet_name": "Finansavisen",
+    "url": "https://www.finansavisen.no/finans/2026/09/28/8383782/pangstart-for-nytt-kryptofond",
+    "title": "Pangstart for nytt kryptofond",
+    "published": "2026-09-28T08:01:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": true,
+    "primary": true,
+    "logo": null
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "finansavisen",
+     "outlet_name": "Finansavisen",
+     "url": "https://www.finansavisen.no/finans/2026/09/28/8383782/pangstart-for-nytt-kryptofond",
+     "title": "Pangstart for nytt kryptofond",
+     "published": "2026-09-28T08:01:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "national",
+     "paywall": true,
+     "primary": true,
+     "logo": null
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   }
  ]
 }

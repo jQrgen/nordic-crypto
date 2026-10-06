@@ -1,12 +1,12 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T00:46:21+00:00",
+ "generated_at": "2026-10-06T00:51:15+00:00",
  "preview": false,
  "item": {
   "id": "6e2887720a32",
   "url": "https://www.shifter.no/nyheter/firi-lanserer-i-sverige-etter-permitteringer-og-milliontap/475990",
-  "html_url": null,
+  "html_url": "https://jqrgen.github.io/nordic-crypto/stories/6e2887720a32/",
   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/6e2887720a32.json",
   "title": "Firi lanserer i Sverige – etter permitteringer og milliontap",
   "title_en": "Firi launches in Sweden after layoffs and losses",
@@ -41,6 +41,85 @@
   },
   "paywall": true,
   "links": [],
-  "own_story": false
+  "own_story": false,
+  "primary_source": {
+   "outlet": "shifter",
+   "outlet_name": "Shifter",
+   "url": "https://www.shifter.no/nyheter/firi-lanserer-i-sverige-etter-permitteringer-og-milliontap/475990",
+   "title": "Firi lanserer i Sverige – etter permitteringer og milliontap",
+   "published": "2026-09-15T12:00:00+00:00",
+   "lang": "Norwegian",
+   "language_code": "no",
+   "country": "NO",
+   "source_type": "national",
+   "paywall": true,
+   "primary": true,
+   "logo": {
+    "kind": "logo",
+    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/shifter.svg",
+    "source_url": "https://www.shifter.no/view-resources/dachser2/public/shifter/logo.svg",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website"
+   }
+  },
+  "also_covered_by": [],
+  "sources": [
+   {
+    "outlet": "shifter",
+    "outlet_name": "Shifter",
+    "url": "https://www.shifter.no/nyheter/firi-lanserer-i-sverige-etter-permitteringer-og-milliontap/475990",
+    "title": "Firi lanserer i Sverige – etter permitteringer og milliontap",
+    "published": "2026-09-15T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": true,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/shifter.svg",
+     "source_url": "https://www.shifter.no/view-resources/dachser2/public/shifter/logo.svg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website"
+    }
+   }
+  ],
+  "coverage": {
+   "count": 1,
+   "by_country": [
+    {
+     "country": "NO",
+     "count": 1,
+     "share": 1.0
+    }
+   ],
+   "by_source_type": [
+    {
+     "type": "national",
+     "count": 1,
+     "share": 1.0
+    },
+    {
+     "type": "regional",
+     "count": 0,
+     "share": 0.0
+    },
+    {
+     "type": "official",
+     "count": 0,
+     "share": 0.0
+    },
+    {
+     "type": "international",
+     "count": 0,
+     "share": 0.0
+    }
+   ]
+  }
  }
 }

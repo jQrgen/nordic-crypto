@@ -1,12 +1,12 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T00:46:21+00:00",
+ "generated_at": "2026-10-06T00:51:15+00:00",
  "preview": false,
  "item": {
   "id": "6753e8903e88",
   "url": "https://www.berlingske.dk/aktier/minister-i-nyt-skatteopgoer-vil-goere-op-med-junglen-af-urimelige-og-uforstaaelige-regler",
-  "html_url": null,
+  "html_url": "https://jqrgen.github.io/nordic-crypto/stories/6753e8903e88/",
   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/6753e8903e88.json",
   "title": "Minister i nyt skatteopgør: Vil gøre op med »junglen af urimelige og uforståelige regler«",
   "title_en": "Minister in new tax showdown: wants to clear the 'jungle of unreasonable and incomprehensible rules'",
@@ -33,6 +33,69 @@
   },
   "paywall": false,
   "links": [],
-  "own_story": false
+  "own_story": false,
+  "primary_source": {
+   "outlet": "berlingske.dk",
+   "outlet_name": "Berlingske",
+   "url": "https://www.berlingske.dk/aktier/minister-i-nyt-skatteopgoer-vil-goere-op-med-junglen-af-urimelige-og-uforstaaelige-regler",
+   "title": "Minister i nyt skatteopgør: Vil gøre op med »junglen af urimelige og uforståelige regler«",
+   "published": "2026-09-22T06:04:00+00:00",
+   "lang": "Danish",
+   "language_code": "da",
+   "country": "DK",
+   "source_type": "national",
+   "paywall": false,
+   "primary": true,
+   "logo": null
+  },
+  "also_covered_by": [],
+  "sources": [
+   {
+    "outlet": "berlingske.dk",
+    "outlet_name": "Berlingske",
+    "url": "https://www.berlingske.dk/aktier/minister-i-nyt-skatteopgoer-vil-goere-op-med-junglen-af-urimelige-og-uforstaaelige-regler",
+    "title": "Minister i nyt skatteopgør: Vil gøre op med »junglen af urimelige og uforståelige regler«",
+    "published": "2026-09-22T06:04:00+00:00",
+    "lang": "Danish",
+    "language_code": "da",
+    "country": "DK",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": null
+   }
+  ],
+  "coverage": {
+   "count": 1,
+   "by_country": [
+    {
+     "country": "DK",
+     "count": 1,
+     "share": 1.0
+    }
+   ],
+   "by_source_type": [
+    {
+     "type": "national",
+     "count": 1,
+     "share": 1.0
+    },
+    {
+     "type": "regional",
+     "count": 0,
+     "share": 0.0
+    },
+    {
+     "type": "official",
+     "count": 0,
+     "share": 0.0
+    },
+    {
+     "type": "international",
+     "count": 0,
+     "share": 0.0
+    }
+   ]
+  }
  }
 }

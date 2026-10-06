@@ -1,12 +1,12 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T00:46:21+00:00",
+ "generated_at": "2026-10-06T00:51:15+00:00",
  "preview": false,
  "item": {
   "id": "1abbecf31dff",
   "url": "https://e24.no/bors/nyheter/a/305563",
-  "html_url": null,
+  "html_url": "https://jqrgen.github.io/nordic-crypto/stories/1abbecf31dff/",
   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/1abbecf31dff.json",
   "title": "Verdiendringer i bitcoin tynger NBX",
   "title_en": "Bitcoin value swings weigh on NBX",
@@ -32,6 +32,69 @@
   },
   "paywall": true,
   "links": [],
-  "own_story": false
+  "own_story": false,
+  "primary_source": {
+   "outlet": "e24",
+   "outlet_name": "E24",
+   "url": "https://e24.no/bors/nyheter/a/305563",
+   "title": "Verdiendringer i bitcoin tynger NBX",
+   "published": "2026-09-18T11:36:00+00:00",
+   "lang": "Norwegian",
+   "language_code": "no",
+   "country": "NO",
+   "source_type": "national",
+   "paywall": true,
+   "primary": true,
+   "logo": null
+  },
+  "also_covered_by": [],
+  "sources": [
+   {
+    "outlet": "e24",
+    "outlet_name": "E24",
+    "url": "https://e24.no/bors/nyheter/a/305563",
+    "title": "Verdiendringer i bitcoin tynger NBX",
+    "published": "2026-09-18T11:36:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": true,
+    "primary": true,
+    "logo": null
+   }
+  ],
+  "coverage": {
+   "count": 1,
+   "by_country": [
+    {
+     "country": "NO",
+     "count": 1,
+     "share": 1.0
+    }
+   ],
+   "by_source_type": [
+    {
+     "type": "national",
+     "count": 1,
+     "share": 1.0
+    },
+    {
+     "type": "regional",
+     "count": 0,
+     "share": 0.0
+    },
+    {
+     "type": "official",
+     "count": 0,
+     "share": 0.0
+    },
+    {
+     "type": "international",
+     "count": 0,
+     "share": 0.0
+    }
+   ]
+  }
  }
 }

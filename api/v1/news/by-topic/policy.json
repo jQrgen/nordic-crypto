@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T00:46:21+00:00",
+ "generated_at": "2026-10-06T00:51:15+00:00",
  "preview": false,
  "topic": "policy",
  "count": 5,
@@ -9,7 +9,7 @@
   {
    "id": "6753e8903e88",
    "url": "https://www.berlingske.dk/aktier/minister-i-nyt-skatteopgoer-vil-goere-op-med-junglen-af-urimelige-og-uforstaaelige-regler",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/6753e8903e88/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/6753e8903e88.json",
    "title": "Minister i nyt skatteopgør: Vil gøre op med »junglen af urimelige og uforståelige regler«",
    "title_en": "Minister in new tax showdown: wants to clear the 'jungle of unreasonable and incomprehensible rules'",
@@ -36,12 +36,75 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "berlingske.dk",
+    "outlet_name": "Berlingske",
+    "url": "https://www.berlingske.dk/aktier/minister-i-nyt-skatteopgoer-vil-goere-op-med-junglen-af-urimelige-og-uforstaaelige-regler",
+    "title": "Minister i nyt skatteopgør: Vil gøre op med »junglen af urimelige og uforståelige regler«",
+    "published": "2026-09-22T06:04:00+00:00",
+    "lang": "Danish",
+    "language_code": "da",
+    "country": "DK",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": null
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "berlingske.dk",
+     "outlet_name": "Berlingske",
+     "url": "https://www.berlingske.dk/aktier/minister-i-nyt-skatteopgoer-vil-goere-op-med-junglen-af-urimelige-og-uforstaaelige-regler",
+     "title": "Minister i nyt skatteopgør: Vil gøre op med »junglen af urimelige og uforståelige regler«",
+     "published": "2026-09-22T06:04:00+00:00",
+     "lang": "Danish",
+     "language_code": "da",
+     "country": "DK",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": null
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "DK",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "188b5b8ed9fb",
    "url": "https://www.berlingske.dk/oekonomi/100-aar-gammel-lov-koster-danske-kryptoinvestorer-millioner-nu-vil-minister-problemet-til-livs",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/188b5b8ed9fb/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/188b5b8ed9fb.json",
    "title": "100 år gammel lov koster danske kryptoinvestorer millioner. Nu vil minister problemet til livs",
    "title_en": "100-year-old law costs Danish crypto investors millions; minister wants to fix it",
@@ -68,12 +131,75 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "berlingske.dk",
+    "outlet_name": "Berlingske",
+    "url": "https://www.berlingske.dk/oekonomi/100-aar-gammel-lov-koster-danske-kryptoinvestorer-millioner-nu-vil-minister-problemet-til-livs",
+    "title": "100 år gammel lov koster danske kryptoinvestorer millioner. Nu vil minister problemet til livs",
+    "published": "2026-09-21T09:39:00+00:00",
+    "lang": "Danish",
+    "language_code": "da",
+    "country": "DK",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": null
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "berlingske.dk",
+     "outlet_name": "Berlingske",
+     "url": "https://www.berlingske.dk/oekonomi/100-aar-gammel-lov-koster-danske-kryptoinvestorer-millioner-nu-vil-minister-problemet-til-livs",
+     "title": "100 år gammel lov koster danske kryptoinvestorer millioner. Nu vil minister problemet til livs",
+     "published": "2026-09-21T09:39:00+00:00",
+     "lang": "Danish",
+     "language_code": "da",
+     "country": "DK",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": null
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "DK",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "55643fb5a215",
    "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Sporsmal/Skriftlige-sporsmal-og-svar/Skriftlig-sporsmal/?qnid=127181",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/55643fb5a215/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/55643fb5a215.json",
    "title": "Regjeringen utreder midlertidig forbud mot nye kryptodatasentre (skriftlig spørsmål 15:3707)",
    "title_en": "Government studying a temporary ban on new crypto data centres (written question 15:3707)",
@@ -108,12 +234,91 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "stortinget",
+    "outlet_name": "Stortinget",
+    "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Sporsmal/Skriftlige-sporsmal-og-svar/Skriftlig-sporsmal/?qnid=127181",
+    "title": "Regjeringen utreder midlertidig forbud mot nye kryptodatasentre (skriftlig spørsmål 15:3707)",
+    "published": "2026-09-18T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "official",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/stortinget-finanskomiteen.svg",
+     "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+     "author": "Worldlydev",
+     "license": "Public domain",
+     "license_url": null,
+     "credit": "Wikimedia Commons"
+    }
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "stortinget",
+     "outlet_name": "Stortinget",
+     "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Sporsmal/Skriftlige-sporsmal-og-svar/Skriftlig-sporsmal/?qnid=127181",
+     "title": "Regjeringen utreder midlertidig forbud mot nye kryptodatasentre (skriftlig spørsmål 15:3707)",
+     "published": "2026-09-18T12:00:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "official",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/stortinget-finanskomiteen.svg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+      "author": "Worldlydev",
+      "license": "Public domain",
+      "license_url": null,
+      "credit": "Wikimedia Commons"
+     }
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "c1431df81160",
    "url": "https://podcasters.spotify.com/pod/show/bitcoinsnakk9/episodes/Norway-Wants-to-Ban-Bitcoin-Mining--The-Miners-Already-Left--Rachel-Geyer--EBEA-e3p0bb8",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/c1431df81160/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/c1431df81160.json",
    "title": "Norway Wants to Ban Bitcoin Mining. The Miners Already Left | Rachel Geyer, EBEA",
    "title_en": "Norway wants to ban bitcoin mining. The miners already left",
@@ -148,12 +353,91 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "bpi",
+    "outlet_name": "Bitcoinpolitisk institutt",
+    "url": "https://podcasters.spotify.com/pod/show/bitcoinsnakk9/episodes/Norway-Wants-to-Ban-Bitcoin-Mining--The-Miners-Already-Left--Rachel-Geyer--EBEA-e3p0bb8",
+    "title": "Norway Wants to Ban Bitcoin Mining. The Miners Already Left | Rachel Geyer, EBEA",
+    "published": "2026-09-17T18:30:43+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/bpi.svg",
+     "source_url": "https://bpinorge.no/wp-content/uploads/2025/04/bpinorge_footer_logo.svg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website"
+    }
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "bpi",
+     "outlet_name": "Bitcoinpolitisk institutt",
+     "url": "https://podcasters.spotify.com/pod/show/bitcoinsnakk9/episodes/Norway-Wants-to-Ban-Bitcoin-Mining--The-Miners-Already-Left--Rachel-Geyer--EBEA-e3p0bb8",
+     "title": "Norway Wants to Ban Bitcoin Mining. The Miners Already Left | Rachel Geyer, EBEA",
+     "published": "2026-09-17T18:30:43+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/bpi.svg",
+      "source_url": "https://bpinorge.no/wp-content/uploads/2025/04/bpinorge_footer_logo.svg",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website"
+     }
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   },
   {
    "id": "23342b8b1a2d",
    "url": "https://www.kaupr.io/nyheter/dansk-skatteminister-moter-kryptobransjen-pa-christiansborg",
-   "html_url": null,
+   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/23342b8b1a2d/",
    "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/23342b8b1a2d.json",
    "title": "Dansk skatteminister møter kryptobransjen på Christiansborg",
    "title_en": "Danish tax minister meets the crypto industry at Christiansborg",
@@ -189,7 +473,88 @@
    },
    "paywall": false,
    "links": [],
-   "own_story": false
+   "own_story": false,
+   "primary_source": {
+    "outlet": "kaupr",
+    "outlet_name": "Kaupr",
+    "url": "https://www.kaupr.io/nyheter/dansk-skatteminister-moter-kryptobransjen-pa-christiansborg",
+    "title": "Dansk skatteminister møter kryptobransjen på Christiansborg",
+    "published": "2026-09-13T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "DK",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website"
+    },
+    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "kaupr",
+     "outlet_name": "Kaupr",
+     "url": "https://www.kaupr.io/nyheter/dansk-skatteminister-moter-kryptobransjen-pa-christiansborg",
+     "title": "Dansk skatteminister møter kryptobransjen på Christiansborg",
+     "published": "2026-09-13T12:00:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "DK",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+      "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website"
+     },
+     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "DK",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
   }
  ]
 }
