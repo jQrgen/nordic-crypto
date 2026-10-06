@@ -3,6 +3,262 @@
  "launch_date": "2026-10-03",
  "entries": [
   {
+   "id": "domain-nordiccrypto-no",
+   "date": "2026-10-06",
+   "title": "New address: nordiccrypto.no",
+   "description": "The site has moved to https://nordiccrypto.no/. Old cryptonordic.no links still work and forward to the same page on the new address. nordiccrypto.dk, .se, .fi, .is and .eu lead here too.",
+   "i18n": {
+    "nb": {
+     "title": "Ny adresse: nordiccrypto.no",
+     "description": "Nettstedet har flyttet til https://nordiccrypto.no/. Gamle lenker til cryptonordic.no virker fortsatt og sender deg til samme side på den nye adressen. nordiccrypto.dk, .se, .fi, .is og .eu leder også hit."
+    },
+    "nn": {
+     "title": "Ny adresse: nordiccrypto.no",
+     "description": "Nettstaden har flytta til https://nordiccrypto.no/. Gamle lenkjer til cryptonordic.no verkar framleis og sender deg til same side på den nye adressa. nordiccrypto.dk, .se, .fi, .is og .eu leier òg hit."
+    },
+    "sv": {
+     "title": "Ny adress: nordiccrypto.no",
+     "description": "Webbplatsen har flyttat till https://nordiccrypto.no/. Gamla länkar till cryptonordic.no fungerar fortfarande och leder till samma sida på den nya adressen. nordiccrypto.dk, .se, .fi, .is och .eu leder också hit."
+    },
+    "da": {
+     "title": "Ny adresse: nordiccrypto.no",
+     "description": "Sitet er flyttet til https://nordiccrypto.no/. Gamle links til cryptonordic.no virker stadig og sender dig til samme side på den nye adresse. nordiccrypto.dk, .se, .fi, .is og .eu fører også hertil."
+    },
+    "fi": {
+     "title": "Uusi osoite: nordiccrypto.no",
+     "description": "Sivusto on siirtynyt osoitteeseen https://nordiccrypto.no/. Vanhat cryptonordic.no-linkit toimivat edelleen ja vievät samalle sivulle uudessa osoitteessa. Myös nordiccrypto.dk, .se, .fi, .is ja .eu ohjaavat tänne."
+    },
+    "is": {
+     "title": "Nýtt veffang: nordiccrypto.no",
+     "description": "Vefurinn hefur flutt á https://nordiccrypto.no/. Gamlir tenglar á cryptonordic.no virka áfram og vísa á sömu síðu á nýja veffanginu. nordiccrypto.dk, .se, .fi, .is og .eu vísa líka hingað."
+    }
+   }
+  },
+  {
+   "id": "mobile-language",
+   "date": "2026-10-06",
+   "title": "Language choice on phones",
+   "description": "On a narrow screen the language control is the phone's own menu. It lists every site language in that language's own name, and the language you are reading is marked. It no longer opens an empty panel over the article. The section links sit behind a menu button, so the header stays on two lines. Wider screens keep the same language list as before.",
+   "i18n": {
+    "nn": {
+     "title": "Språkval på telefon",
+     "description": "På ein smal skjerm er språkvalet den innebygde menyen på telefonen. Han viser kvart språk på nettstaden med sitt eige namn, og språket du les er merkt. Han opnar ikkje lenger eit tomt felt over artikkelen. Seksjonslenkjene ligg bak ein menyknapp, så toppfeltet held seg på to liner. Breiare skjermar har den same språklista som før."
+    },
+    "nb": {
+     "title": "Språkvalg på telefon",
+     "description": "På en smal skjerm er språkvalget den innebygde menyen på telefonen. Den viser hvert språk på nettstedet med sitt eget navn, og språket du leser er merket. Den åpner ikke lenger et tomt felt over artikkelen. Seksjonslenkene ligger bak en menyknapp, så toppfeltet holder seg på to linjer. Bredere skjermer har den samme språklisten som før."
+    },
+    "sv": {
+     "title": "Språkval på telefonen",
+     "description": "På en smal skärm är språkvalet telefonens egen meny. Den visar varje språk på webbplatsen med sitt eget namn, och språket du läser är markerat. Den öppnar inte längre en tom ruta över artikeln. Avsnittslänkarna ligger bakom en menyknapp, så sidhuvudet stannar på två rader. Bredare skärmar har samma språklista som förut."
+    },
+    "da": {
+     "title": "Sprogvalg på telefonen",
+     "description": "På en smal skærm er sprogvalget telefonens egen menu. Den viser hvert sprog på sitet med sit eget navn, og sproget du læser er markeret. Den åbner ikke længere et tomt felt over artiklen. Sektionslinkene ligger bag en menuknap, så toppen holder sig på to linjer. Bredere skærme har den samme sprogliste som før."
+    },
+    "fi": {
+     "title": "Kielivalinta puhelimessa",
+     "description": "Kapealla näytöllä kielivalinta on puhelimen oma valikko. Se näyttää jokaisen sivuston kielen omalla nimellään, ja kieli jota luet on merkitty. Se ei enää avaa tyhjää ruutua artikkelin päälle. Osioiden linkit ovat valikkopainikkeen takana, joten ylätunniste pysyy kahdella rivillä. Leveämmillä näytöillä kielilista on entisellään."
+    },
+    "is": {
+     "title": "Tungumálaval á síma",
+     "description": "Á mjóum skjá er tungumálavalið eigin valmynd símans. Hún sýnir hvert tungumál síðunnar með sínu eigin nafni, og tungumálið sem þú lest er merkt. Hún opnar ekki lengur tóman reit yfir greininni. Tenglar á hluta síðunnar eru bak við valmyndarhnapp, svo hausinn helst í tveimur línum. Breiðari skjáir hafa sama tungumálalista og áður."
+    }
+   }
+  },
+  {
+   "id": "community-links",
+   "date": "2026-10-06",
+   "title": "Nordic Crypto on Telegram and X",
+   "description": "The footer, the About page and the newsletter link to the Nordic Crypto brand accounts: Telegram at https://t.me/nordiccryptochat and X at https://x.com/xcryptonordic. The same links are in /api/v1/meta.json under social, for the iOS app. The link text is in English, Norwegian (nynorsk and bokmål), Swedish, Danish, Finnish and Icelandic. Other site languages use the English text. The source-code link stays.",
+   "i18n": {
+    "nn": {
+     "title": "Nordic Crypto på Telegram og X",
+     "description": "Botnteksten, Om oss og nyheitsbrevet lenkjer til merkevarekontoane til Nordic Crypto: Telegram på https://t.me/nordiccryptochat og X på https://x.com/xcryptonordic. Dei same lenkjene ligg i /api/v1/meta.json under social, for iOS-appen. Lenkjeteksten finst på engelsk, nynorsk, bokmål, svensk, dansk, finsk og islandsk. Andre språk på nettstaden bruker den engelske teksten. Kjeldekodelenkja står."
+    },
+    "nb": {
+     "title": "Nordic Crypto på Telegram og X",
+     "description": "Bunnteksten, Om oss og nyhetsbrevet lenker til merkevarekontoene til Nordic Crypto: Telegram på https://t.me/nordiccryptochat og X på https://x.com/xcryptonordic. De samme lenkene ligger i /api/v1/meta.json under social, for iOS-appen. Lenketeksten finnes på engelsk, nynorsk, bokmål, svensk, dansk, finsk og islandsk. Andre språk på nettstedet bruker den engelske teksten. Kildekodelenken står."
+    },
+    "sv": {
+     "title": "Nordic Crypto på Telegram och X",
+     "description": "Sidfoten, Om oss och nyhetsbrevet länkar till Nordic Cryptos varumärkeskonton: Telegram på https://t.me/nordiccryptochat och X på https://x.com/xcryptonordic. Samma länkar finns i /api/v1/meta.json under social, för iOS-appen. Länktexten finns på engelska, nynorska, bokmål, svenska, danska, finska och isländska. Övriga språk på webbplatsen använder den engelska texten. Länken till källkoden är kvar."
+    },
+    "da": {
+     "title": "Nordic Crypto på Telegram og X",
+     "description": "Sidefoden, Om os og nyhedsbrevet linker til Nordic Cryptos brandkonti: Telegram på https://t.me/nordiccryptochat og X på https://x.com/xcryptonordic. De samme links ligger i /api/v1/meta.json under social, til iOS-appen. Linkteksten findes på engelsk, nynorsk, bokmål, svensk, dansk, finsk og islandsk. Andre sprog på sitet bruger den engelske tekst. Linket til kildekoden bliver."
+    },
+    "fi": {
+     "title": "Nordic Crypto Telegramissa ja X:ssä",
+     "description": "Alatunniste, Tietoa meistä ja uutiskirje linkittävät Nordic Crypton bränditileihin: Telegram osoitteessa https://t.me/nordiccryptochat ja X osoitteessa https://x.com/xcryptonordic. Samat linkit ovat tiedostossa /api/v1/meta.json kohdassa social, iOS-sovellusta varten. Linkkiteksti on englanniksi, norjan nynorskiksi ja bokmåliksi, ruotsiksi, tanskaksi, suomeksi ja islanniksi. Sivuston muut kielet käyttävät englanninkielistä tekstiä. Lähdekoodilinkki säilyy."
+    },
+    "is": {
+     "title": "Nordic Crypto á Telegram og X",
+     "description": "Fóturinn, Um okkur og fréttabréfið tengja á vörumerkjareikninga Nordic Crypto: Telegram á https://t.me/nordiccryptochat og X á https://x.com/xcryptonordic. Sömu tenglar eru í /api/v1/meta.json undir social, fyrir iOS-appið. Tenglatextinn er á ensku, nýnorsku, bókmáli, sænsku, dönsku, finnsku og íslensku. Önnur tungumál síðunnar nota enska textann. Tengillinn á frumkóðann er áfram."
+    }
+   }
+  },
+  {
+   "id": "story-coverage",
+   "date": "2026-10-06",
+   "title": "Several outlets on one story",
+   "description": "A story can now list every outlet that covered the same event. The front page shows a compact row of outlet logos and a source count. The story page keeps Read at the primary outlet, adds Also covered by with a link to each other outlet, lists every outlet with its logo, country, headline and time, and shows coverage bars by country and by source type (national, regional and local, justice and official, international). The public news API includes primary_source, also_covered_by, sources and coverage. An article about the same event is attached to the existing story instead of published twice. The editor can set duplicate_of on the review-queue row.",
+   "i18n": {
+    "nn": {
+     "title": "Fleire medium på same sak",
+     "description": "Ei sak kan no lista kvart medium som dekte same hending. Framsida viser ei kort rad med logoar og eit tal på kjelder. Sakssida har Les hos den primære kjelda, Også dekt av med lenkje til kvart anna medium, ei liste med logo, land, tittel og tid, og søyler for dekning etter land og etter kjeldetype (nasjonale, regionale og lokale, justis og offentlege, internasjonale). Det offentlege nyheits-API-et har primary_source, also_covered_by, sources og coverage. Ein artikkel om same hending blir lagd på saka som finst, i staden for å bli publisert ein gong til. Redaktøren kan setja duplicate_of på rada i gjennomgangskøen."
+    },
+    "nb": {
+     "title": "Flere medier på samme sak",
+     "description": "En sak kan nå liste hvert medium som dekket samme hendelse. Forsiden viser en kort rad med logoer og et antall kilder. Saksiden har Les hos den primære kilden, Også dekket av med lenke til hvert annet medium, en liste med logo, land, tittel og tid, og søyler for dekning etter land og etter kildetype (nasjonale, regionale og lokale, justis og offentlige, internasjonale). Det offentlige nyhets-API-et har primary_source, also_covered_by, sources og coverage. En artikkel om samme hendelse legges på saken som finnes, i stedet for å bli publisert en gang til. Redaktøren kan sette duplicate_of på raden i gjennomgangskøen."
+    },
+    "sv": {
+     "title": "Flera medier på samma artikel",
+     "description": "En artikel kan nu lista varje medium som bevakade samma händelse. Startsidan visar en kort rad med logotyper och ett antal källor. Artikelsidan har Läs hos den primära källan, Även bevakad av med länk till varje annat medium, en lista med logotyp, land, rubrik och tid, och staplar för bevakning per land och per källtyp (nationella, regionala och lokala, rättsväsen och myndigheter, internationella). Det publika nyhets-API:t har primary_source, also_covered_by, sources och coverage. En artikel om samma händelse läggs på artikeln som redan finns, i stället för att publiceras en gång till. Redaktören kan sätta duplicate_of på raden i granskningskön."
+    },
+    "da": {
+     "title": "Flere medier på samme historie",
+     "description": "En historie kan nu liste hvert medie, der dækkede den samme hændelse. Forsiden viser en kort række logoer og et antal kilder. Historie-siden har Læs hos den primære kilde, Også dækket af med link til hvert andet medie, en liste med logo, land, overskrift og tid, og søjler for dækning efter land og efter kildetype (nationale, regionale og lokale, justits og offentlige, internationale). Det offentlige nyheds-API har primary_source, also_covered_by, sources og coverage. En artikel om den samme hændelse lægges på historien, der findes, i stedet for at blive offentliggjort en gang til. Redaktøren kan sætte duplicate_of på rækken i gennemgangskøen."
+    },
+    "fi": {
+     "title": "Useita medioita samassa jutussa",
+     "description": "Juttu voi nyt listata jokaisen median, joka uutisoi saman tapahtuman. Etusivu näyttää tiiviin logorivin ja lähteiden määrän. Juttusivulla on Lue lähteestä ensisijaisesta mediasta, Myös näiden uutisoima ja linkki jokaiseen muuhun mediaan, lista logolla, maalla, otsikolla ja ajalla, sekä palkit kattavuudesta maittain ja lähdetyypeittäin (valtakunnalliset, alueelliset ja paikalliset, oikeus ja viranomaiset, kansainväliset). Julkinen uutis-API sisältää primary_source, also_covered_by, sources ja coverage. Samaa tapahtumaa käsittelevä artikkeli liitetään olemassa olevaan juttuun, eikä sitä julkaista toiseen kertaan. Toimittaja voi asettaa duplicate_of tarkistusjonon riville."
+    },
+    "is": {
+     "title": "Fleiri miðlar á sömu frétt",
+     "description": "Frétt getur nú talið hvern miðil sem fjallaði um sama atburð. Forsíðan sýnir stutta röð af merkjum og fjölda heimilda. Fréttasíðan hefur Lesa hjá aðalheimildinni, Einnig fjallað um hjá með tengli á hvern annan miðil, lista með merki, landi, fyrirsögn og tíma, og súlur fyrir dreifingu eftir landi og tegund heimildar (landsmiðlar, héraðs- og staðarmiðlar, réttarkerfi og opinberir aðilar, alþjóðlegir). Opinbera fréttaviðmótið hefur primary_source, also_covered_by, sources og coverage. Grein um sama atburð er fest við fréttina sem er til, í stað þess að vera birt aftur. Ritstjórinn getur sett duplicate_of á línuna í yfirferðarröðinni."
+    }
+   }
+  },
+  {
+   "id": "frontpage-blurbs",
+   "date": "2026-10-05",
+   "title": "Longer summaries on the front page",
+   "description": "Each story on the front page now carries a summary of what the article says, two to four sentences, in English, Norwegian Nynorsk, Norwegian Bokmål, Swedish, Danish, Finnish and Icelandic. Other site languages show the English summary. A one-sentence editorial intro is no longer the only text on the card. The words are ours, from the headline and the public lead. We do not copy article text and we do not get around paywalls.",
+   "i18n": {
+    "nn": {
+     "title": "Lengre samandrag på framsida",
+     "description": "Kvar sak på framsida har no eit samandrag av kva artikkelen seier, to til fire setningar, på engelsk, nynorsk, bokmål, svensk, dansk, finsk og islandsk. Andre språk på nettstaden viser det engelske samandraget. Ein setning som ingress er ikkje lenger den einaste teksten på kortet. Orda er våre, frå tittelen og den offentlege ingressen. Vi kopierer ikkje artikkeltekst og går ikkje rundt betalingsmurar."
+    },
+    "nb": {
+     "title": "Lengre sammendrag på forsiden",
+     "description": "Hver sak på forsiden har nå et sammendrag av hva artikkelen sier, to til fire setninger, på engelsk, nynorsk, bokmål, svensk, dansk, finsk og islandsk. Andre språk på nettstedet viser det engelske sammendraget. Én setning som ingress er ikke lenger den eneste teksten på kortet. Ordene er våre, fra tittelen og den offentlige ingressen. Vi kopierer ikke artikkeltekst og går ikke rundt betalingsmurer."
+    },
+    "sv": {
+     "title": "Längre sammanfattningar på startsidan",
+     "description": "Varje artikel på startsidan har nu en sammanfattning av vad artikeln säger, två till fyra meningar, på engelska, nynorska, bokmål, svenska, danska, finska och isländska. Övriga språk på webbplatsen visar den engelska sammanfattningen. En mening som ingress är inte längre den enda texten på kortet. Orden är våra, från rubriken och den publika ingressen. Vi kopierar inte artikeltext och kringgår inte betalväggar."
+    },
+    "da": {
+     "title": "Længere resuméer på forsiden",
+     "description": "Hver artikel på forsiden har nu et resumé af, hvad artiklen siger, to til fire sætninger, på engelsk, nynorsk, bokmål, svensk, dansk, finsk og islandsk. Andre sprog på sitet viser det engelske resumé. Én sætning som manchet er ikke længere den eneste tekst på kortet. Ordene er vores, fra overskriften og den offentlige manchet. Vi kopierer ikke artikeltekst og går ikke uden om betalingsmure."
+    },
+    "fi": {
+     "title": "Pidemmät tiivistelmät etusivulla",
+     "description": "Jokaisella etusivun jutulla on nyt tiivistelmä siitä, mitä artikkeli sanoo, kahdesta neljään virkettä, englanniksi, norjan nynorskiksi ja bokmåliksi, ruotsiksi, tanskaksi, suomeksi ja islanniksi. Sivuston muut kielet näyttävät englanninkielisen tiivistelmän. Yhden virkkeen ingressi ei ole enää kortin ainoa teksti. Sanat ovat omiamme, otsikosta ja julkisesta ingressistä. Emme kopioi artikkelin tekstiä emmekä kierrä maksumuureja."
+    },
+    "is": {
+     "title": "Lengri samantektir á forsíðu",
+     "description": "Hver frétt á forsíðunni hefur nú samantekt um hvað greinin segir, tvær til fjórar setningar, á ensku, nýnorsku, bókmáli, sænsku, dönsku, finnsku og íslensku. Önnur tungumál síðunnar sýna ensku samantektina. Ein setning sem inngangur er ekki lengur eini textinn á spjaldinu. Orðin eru okkar, úr fyrirsögn og opnum inngangi. Við afritum ekki texta greina og förum ekki fram hjá áskriftarveggjum."
+    }
+   }
+  },
+  {
+   "id": "regulation-videos",
+   "date": "2026-10-05",
+   "title": "Regulation explainer videos",
+   "description": "Five country slots for Norway, Sweden, Denmark, Finland and Iceland are at /regulation-videos/, linked from How the rules are made and About. Each slot plays an HTML5 video when an MP4 is present. Until then it shows the title, narrator notes and sources. The films are not rendered yet. Iceland is in the EEA, not the EU, and Seðlabanki Íslands houses Fjármálaeftirlit. The sign-off is The Nordic Crypto team.",
+   "i18n": {
+    "nn": {
+     "title": "Videoforklaringar av reglane",
+     "description": "Fem plassar for Noreg, Sverige, Danmark, Finland og Island ligg på /regulation-videos/, med lenkje frå Slik blir reglane til og Om oss. Kvar plass spelar av ein HTML5-video når ein MP4 finst. Til då viser han tittel, forteljarnotat og kjelder. Filmane er ikkje laga enno. Island er i EØS, ikkje i EU, og Seðlabanki Íslands husar Fjármálaeftirlit. Avslutninga er The Nordic Crypto team."
+    },
+    "nb": {
+     "title": "Videoforklaringer av reglene",
+     "description": "Fem plasser for Norge, Sverige, Danmark, Finland og Island ligger på /regulation-videos/, med lenke fra Slik blir reglene til og Om oss. Hver plass spiller av en HTML5-video når en MP4 finnes. Inntil da viser den tittel, fortellernotater og kilder. Filmene er ikke laget ennå. Island er i EØS, ikke i EU, og Seðlabanki Íslands huser Fjármálaeftirlit. Avslutningen er The Nordic Crypto team."
+    },
+    "sv": {
+     "title": "Videoförklaringar av reglerna",
+     "description": "Fem platser för Norge, Sverige, Danmark, Finland och Island finns på /regulation-videos/, länkade från Så blir reglerna till och Om oss. Varje plats spelar upp en HTML5-video när en MP4 finns. Tills dess visas titel, berättarnoteringar och källor. Filmerna är inte gjorda än. Island ingår i EES, inte i EU, och Seðlabanki Íslands rymmer Fjármálaeftirlit. Signaturen är The Nordic Crypto team."
+    },
+    "da": {
+     "title": "Videoforklaringer af reglerne",
+     "description": "Fem pladser for Norge, Sverige, Danmark, Finland og Island ligger på /regulation-videos/, med link fra Sådan bliver reglerne til og Om os. Hver plads afspiller en HTML5-video, når en MP4 findes. Indtil da vises titel, fortællernoter og kilder. Filmene er ikke lavet endnu. Island er i EØS, ikke i EU, og Seðlabanki Íslands huser Fjármálaeftirlit. Signaturen er The Nordic Crypto team."
+    },
+    "fi": {
+     "title": "Sääntelyn selitysvideot",
+     "description": "Viisi maapaikkaa Norjalle, Ruotsille, Tanskalle, Suomelle ja Islannille on osoitteessa /regulation-videos/, linkitettynä sivuilta Näin säännöt syntyvät ja Tietoa meistä. Jokainen paikka toistaa HTML5-videon, kun MP4 on olemassa. Siihen asti näkyvät otsikko, kertojan muistiinpanot ja lähteet. Videoita ei ole vielä tehty. Islanti on ETA:ssa, ei EU:ssa, ja Seðlabanki Íslands pitää sisällään Fjármálaeftirlitin. Allekirjoitus on The Nordic Crypto team."
+    },
+    "is": {
+     "title": "Myndbandsskýringar á reglunum",
+     "description": "Fimm reitir fyrir Noreg, Svíþjóð, Danmörku, Finnland og Ísland eru á /regulation-videos/, með tengli frá Svona verða reglurnar til og Um okkur. Hver reitur spilar HTML5-myndband þegar MP4 er til. Þar til sýnir hann titil, glósur sögumanns og heimildir. Myndböndin eru ekki tilbúin. Ísland er í EES, ekki í ESB, og Seðlabanki Íslands hýsir Fjármálaeftirlit. Undirskriftin er The Nordic Crypto team."
+    }
+   }
+  },
+  {
+   "id": "outlet-logos",
+   "date": "2026-10-05",
+   "title": "Outlet logos on news",
+   "description": "News lists, the screen and our own story pages show the newspaper or outlet logo beside the source name when a checked logo is on file. The name stands alone when there is no logo. Kaupr stays a news source. The map from source id to image is in assets/img/logos/logos.json.",
+   "i18n": {
+    "nn": {
+     "title": "Logoar frå kjelda på nyhende",
+     "description": "Nyhendelister, skjermen og våre eigne sakssider viser logoen til avisa eller kjelda ved sida av namnet når ein kontrollert logo finst. Namnet står åleine når det ikkje finst ein logo. Kaupr er berre eit nyhendemedium. Kartlegginga frå kjelde-id til bilete ligg i assets/img/logos/logos.json."
+    },
+    "nb": {
+     "title": "Logoer fra kilden på nyheter",
+     "description": "Nyhetslister, skjermen og våre egne sakssider viser logoen til avisen eller kilden ved siden av navnet når en kontrollert logo finnes. Navnet står alene når det ikke finnes en logo. Kaupr er bare et nyhetsmedium. Kartleggingen fra kilde-id til bilde ligger i assets/img/logos/logos.json."
+    },
+    "sv": {
+     "title": "Logotyper från källan på nyheter",
+     "description": "Nyhetslistor, skärmen och våra egna artikelsidor visar tidningens eller källans logotyp bredvid namnet när en kontrollerad logotyp finns. Namnet står ensamt när det inte finns någon logotyp. Kaupr är bara en nyhetskälla. Kartan från käll-id till bild ligger i assets/img/logos/logos.json."
+    },
+    "da": {
+     "title": "Logoer fra kilden på nyheder",
+     "description": "Nyhedslister, skærmen og vores egne artikelsider viser avisens eller kildens logo ved siden af navnet, når et kontrolleret logo findes. Navnet står alene, når der ikke findes et logo. Kaupr er kun et nyhedsmedie. Kortet fra kilde-id til billede ligger i assets/img/logos/logos.json."
+    },
+    "fi": {
+     "title": "Lähteen logot uutisissa",
+     "description": "Uutislistat, näyttö ja omat juttusivumme näyttävät lehden tai lähteen logon nimen vieressä, kun tarkistettu logo on tallessa. Nimi näkyy yksin, jos logoa ei ole. Kaupr on vain uutislähde. Lähdetunnuksen ja kuvan vastaavuus on tiedostossa assets/img/logos/logos.json."
+    },
+    "is": {
+     "title": "Merki heimilda á fréttum",
+     "description": "Fréttalistar, skjárinn og eigin greinasíður sýna merki blaðsins eða heimildarinnar við hliðina á nafninu þegar yfirfarið merki er til. Nafnið stendur eitt þegar ekkert merki er til. Kaupr er aðeins fréttaheimild. Vörpunin frá heimildarauðkenni í mynd er í assets/img/logos/logos.json."
+    }
+   }
+  },
+  {
+   "id": "aggregated-market-prices",
+   "date": "2026-10-05",
+   "title": "Aggregated prices per pair",
+   "description": "The markets API now has one aggregated price per base-quote pair at /api/v1/markets/aggregated.json, also on /api/v1/markets.json and /api/v1/markets/by-asset/{symbol}.json. BTC-NOK is not mixed with BTC-EUR. The figure is the mean of published last prices, or the mean of bid and ask when no last exists. Min, max, exchange count and the contributing prices are included. Volume is shown and summed only when an exchange published it, and a 24-hour volume is not added to an unlabeled one. There is no volume-weighted price. Coin icons from cryptocurrency-icons (CC0 1.0) are served under /api/v1/markets/logos/ when that set includes the asset. The markets page shows the aggregate and the volume.",
+   "i18n": {
+    "nn": {
+     "title": "Samla pris per par",
+     "description": "Marknads-API-et har no éin samla pris per basis- og kvoteringspar på /api/v1/markets/aggregated.json, også på /api/v1/markets.json og /api/v1/markets/by-asset/{symbol}.json. BTC-NOK blir ikkje blanda med BTC-EUR. Talet er gjennomsnittet av publiserte sisteprisar, eller gjennomsnittet av kjøp og sal når ingen sistepris finst. Lågast, høgast, tal på børsar og prisane som er med, er tatt med. Volum blir vist og summert berre når ein børs har publisert det, og eit 24-timars volum blir ikkje lagt til eit volum utan oppgitt periode. Det finst ingen volumnvekta pris. Myntikon frå cryptocurrency-icons (CC0 1.0) blir tent under /api/v1/markets/logos/ når settet har eigendelen. Marknadssida viser samandraget og volumet."
+    },
+    "nb": {
+     "title": "Samlet pris per par",
+     "description": "Markeds-API-et har nå én samlet pris per basis- og kvoteringspar på /api/v1/markets/aggregated.json, også på /api/v1/markets.json og /api/v1/markets/by-asset/{symbol}.json. BTC-NOK blandes ikke med BTC-EUR. Tallet er gjennomsnittet av publiserte sistepriser, eller gjennomsnittet av kjøp og salg når ingen sistepris finnes. Lavest, høyest, antall børser og prisene som er med, er tatt med. Volum vises og summeres bare når en børs har publisert det, og et 24-timers volum legges ikke til et volum uten oppgitt periode. Det finnes ingen volumvektet pris. Myntikoner fra cryptocurrency-icons (CC0 1.0) serveres under /api/v1/markets/logos/ når settet har eiendelen. Markedssiden viser sammendraget og volumet."
+    },
+    "sv": {
+     "title": "Samlat pris per par",
+     "description": "Marknads-API:et har nu ett samlat pris per bas- och noteringspar på /api/v1/markets/aggregated.json, också på /api/v1/markets.json och /api/v1/markets/by-asset/{symbol}.json. BTC-NOK blandas inte med BTC-EUR. Siffran är medelvärdet av publicerade senaste priser, eller medelvärdet av köp och sälj när inget senaste pris finns. Lägst, högst, antal börser och de priser som ingår finns med. Volym visas och summeras bara när en börs har publicerat den, och en 24-timmarsvolym läggs inte till en volym utan angiven period. Det finns inget volymvägt pris. Myntikoner från cryptocurrency-icons (CC0 1.0) serveras under /api/v1/markets/logos/ när setet har tillgången. Marknadssidan visar sammandraget och volymen."
+    },
+    "da": {
+     "title": "Samlet pris pr. par",
+     "description": "Markeds-API'et har nu én samlet pris pr. basis- og noteringspar på /api/v1/markets/aggregated.json, også på /api/v1/markets.json og /api/v1/markets/by-asset/{symbol}.json. BTC-NOK blandes ikke med BTC-EUR. Tallet er gennemsnittet af offentliggjorte seneste priser, eller gennemsnittet af køb og salg, når der ikke findes en seneste pris. Lavest, højest, antal børser og de priser, der indgår, er med. Volumen vises og summeres kun, når en børs har offentliggjort den, og en 24-timers volumen lægges ikke til en volumen uden angivet periode. Der er ingen volumenvægtet pris. Møntikoner fra cryptocurrency-icons (CC0 1.0) serveres under /api/v1/markets/logos/, når sættet har aktivet. Markedssiden viser sammendraget og volumen."
+    },
+    "fi": {
+     "title": "Yhdistetty hinta paria kohti",
+     "description": "Markkinarajapinnassa on nyt yksi yhdistetty hinta per kohde- ja noteerauspari polussa /api/v1/markets/aggregated.json sekä tiedostoissa /api/v1/markets.json ja /api/v1/markets/by-asset/{symbol}.json. BTC-NOK ei sekoitu BTC-EUR-hintaan. Luku on julkaistujen viimeisten hintojen keskiarvo tai oston ja myynnin keskiarvo, jos viimeisintä hintaa ei ole. Pienin, suurin, pörssien määrä ja mukana olevat hinnat ovat mukana. Volyymi näytetään ja summataan vain, jos pörssi on julkaissut sen, eikä 24 tunnin volyymia lisätä volyymiin, jonka ajanjaksoa ei ole nimetty. Volyymipainotettua hintaa ei ole. cryptocurrency-icons-kuvakkeet (CC0 1.0) tarjotaan polussa /api/v1/markets/logos/, kun joukko sisältää varan. Markkinasivu näyttää yhteenvedon ja volyymin."
+    },
+    "is": {
+     "title": "Samanlagt verð á par",
+     "description": "Markaðs-API-ið hefur nú eitt samanlagt verð á hvert grunn- og skráningarpar á /api/v1/markets/aggregated.json, einnig á /api/v1/markets.json og /api/v1/markets/by-asset/{symbol}.json. BTC-NOK er ekki blandað við BTC-EUR. Talan er meðaltal birtra síðustu verða, eða meðaltal kaupa og sölu þegar ekkert síðasta verð er til. Lægst, hæst, fjöldi kauphalla og verðin sem koma við sögu fylgja með. Magn er sýnt og lagt saman aðeins þegar kauphöll hefur birt það, og 24 klst. magni er ekki bætt við magn án nefnds tímabils. Það er ekkert magnvegið verð. Mynttákn úr cryptocurrency-icons (CC0 1.0) eru þjónuð undir /api/v1/markets/logos/ þegar safnið hefur eignina. Markaðssíðan sýnir samantektina og magnið."
+    }
+   }
+  },
+  {
    "id": "ios-testflight",
    "date": "2026-10-05",
    "title": "iOS app on TestFlight",

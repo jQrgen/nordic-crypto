@@ -1,0 +1,60 @@
+{
+  "_note": "Slots for /regulation-videos/, built by tools/regulation_videos.py. Institution names and source URLs are read from rules.json at build time so this file does not restate legal claims. status scripts_ready means the script and storyboard exist and the MP4 does not. file/subs are looked up under regulation-videos/media/ (MP4s are gitignored). poster is under regulation-videos/posters/.",
+  "videos": [
+    {
+      "id": "reg-no",
+      "country": "NO",
+      "duration_target_s": 165,
+      "status": "scripts_ready",
+      "file": "video-no.mp4",
+      "poster": "poster-no.png",
+      "subs": "subs-no.vtt",
+      "script": "scripts/no-script.txt",
+      "storyboard": "storyboards/no-storyboard.md"
+    },
+    {
+      "id": "reg-se",
+      "country": "SE",
+      "duration_target_s": 165,
+      "status": "scripts_ready",
+      "file": "video-se.mp4",
+      "poster": "poster-se.png",
+      "subs": "subs-se.vtt",
+      "script": "scripts/se-script.txt",
+      "storyboard": "storyboards/se-storyboard.md"
+    },
+    {
+      "id": "reg-dk",
+      "country": "DK",
+      "duration_target_s": 165,
+      "status": "scripts_ready",
+      "file": "video-dk.mp4",
+      "poster": "poster-dk.png",
+      "subs": "subs-dk.vtt",
+      "script": "scripts/dk-script.txt",
+      "storyboard": "storyboards/dk-storyboard.md"
+    },
+    {
+      "id": "reg-fi",
+      "country": "FI",
+      "duration_target_s": 165,
+      "status": "scripts_ready",
+      "file": "video-fi.mp4",
+      "poster": "poster-fi.png",
+      "subs": "subs-fi.vtt",
+      "script": "scripts/fi-script.txt",
+      "storyboard": "storyboards/fi-storyboard.md"
+    },
+    {
+      "id": "reg-is",
+      "country": "IS",
+      "duration_target_s": 165,
+      "status": "scripts_ready",
+      "file": "video-is.mp4",
+      "poster": "poster-is.png",
+      "subs": "subs-is.vtt",
+      "script": "scripts/is-script.txt",
+      "storyboard": "storyboards/is-storyboard.md"
+    }
+  ]
+}

@@ -359,12 +359,13 @@ def rasterize(svg, png):
 
 
 def ensure_raster(key, rec):
-    """Every source logo gets a raster: an SVG gets <key>.png next to it ("raster"); WebP files are already raster."""
+    """Every news-outlet logo gets a raster: an SVG gets a PNG ("raster"); WebP files are already raster.
+    source:<id> entries write assets/img/logos/sources/<id>.png; plain keys (tools/fetch_logos.py) write <key>.png next to the SVG."""
     f = rec.get("file") or ""
     if not f.endswith(".svg"):
         rec.pop("raster", None)
         return True
-    rel = f"{REL}/{key}.png"
+    rel = f"{REL}/{key[7:]}.png" if key.startswith("source:") else f"{os.path.dirname(f)}/{key}.png"
     if rec.get("raster") == rel and os.path.exists(os.path.join(ROOT, rel)):
         return True
     if rasterize(os.path.join(ROOT, f), os.path.join(ROOT, rel)):
@@ -379,11 +380,17 @@ def main():
     dry = "--dry-run" in sys.argv
     only = [a for a in sys.argv[1:] if not a.startswith("--")]
     man = json.load(open(MAN, encoding="utf-8")) if os.path.exists(MAN) else {}
-    if "--raster-only" in sys.argv:  # no network: (re)write the PNG for every SVG source logo
-        bad = [k for k, v in man.items() if k.startswith("source:") and isinstance(v, dict) and not ensure_raster(k[7:], v)]
+    if "--raster-only" in sys.argv:  # no network: (re)write the PNG for every SVG logo a news source can resolve to
+        import source_logos
+        news = (json.load(open(os.path.join(ROOT, "data", "news.json"), encoding="utf-8")) or {}).get("items") or []
+        ids = {s["id"] for s in CFG["sources"]} | {i.get("source") for i in news if i.get("source")}
+        keys = {k for k, v in man.items() if k.startswith("source:") and isinstance(v, dict)}
+        for sid in ids:
+            keys.update(k for k in source_logos.candidates(sid) if isinstance(man.get(k), dict))
+        keys = {k for k in keys if man[k].get("file") and man[k].get("review") != "rejected"}
+        bad = sorted(k for k in keys if not ensure_raster(k, man[k]))
         json.dump(man, open(MAN, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-        n = sum(1 for k, v in man.items() if k.startswith("source:") and isinstance(v, dict))
-        print(f"raster: {n - len(bad)} of {n} source logos have a raster file" + (f"; failed: {', '.join(bad)}" if bad else ""))
+        print(f"raster: {len(keys) - len(bad)} of {len(keys)} news-outlet logos have a raster file" + (f"; failed: {', '.join(bad)}" if bad else ""))
         return
     man.setdefault("_how_to_sources", "Keys 'source:<id>' are news-source logos (id from sources.json, or an outlet shared by several "
                    "sources such as 'kaupr'), fetched by tools/fetch_source_logos.py into assets/img/logos/sources/. Same review rule: "
@@ -435,7 +442,7 @@ def main():
         if rec:
             rec = {k: v for k, v in rec.items() if v is not None}
             rec.update(source_id=key, outlet=src["name"], fetched=today, review="pending")
-            if not ensure_raster(key, rec):
+            if not ensure_raster(mk, rec):
                 print("  raster", key, "could not render", rec["file"])
             man[mk] = rec
             got.append(key)

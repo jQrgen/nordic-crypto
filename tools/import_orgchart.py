@@ -21,6 +21,9 @@ def load(p, d=None):
     except FileNotFoundError: return d
 SEC = {"offentlig": "public", "privat": "private"}
 def main():
+    if not os.path.exists(P("queue", "approved.json")):
+        print("orgchart: queue/approved.json is missing; leaving data/orgchart.json unchanged")
+        return
     subprocess.run([sys.executable, P("tools", "import_industrikart_no.py")], check=True)
     raw = load(P("data", "orgchart_no_raw.json"), {"entities": [], "relations": []}); en = load(P("data", "no_en.json"))
     nordic = load(P("data", "orgchart_nordic.json")); ap = (load(P("queue", "approved.json"), {}) or {}).get("org", {})

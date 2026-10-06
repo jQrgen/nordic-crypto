@@ -1,0 +1,30 @@
+# Nordic Crypto — Regulation explainer: Sweden (SE)
+Voice: en-GB-ThomasNeural (edge-tts, rate +2%). Brand on screen and in voice: Nordic Crypto.
+Sign-off: The Nordic Crypto team. No Kaupr-as-sponsor. Never say «made with AI» in the opener or narration.
+Layout: never centered — left-weighted newsreel lower-thirds (match newsletter/issues/001-video-v2).
+Facts: rules.json (approved) + orgchart regulation. Checked October 2026.
+
+[bumper @ 0.0s, bumper]
+(music/stinger only — reuse newsreel brass jingle pattern; ~5.5s)
+
+[open @ 5.5s, title]
+Good evening. This is Nordic Crypto. Tonight: how crypto and bitcoin rules are decided and enforced in Sweden.
+
+[path @ ~18s, section - THE LEGAL PATH]
+Sweden, Denmark and Finland are EU members, so MiCA applies directly as EU law.
+MiCA applies directly as EU law. Sweden's complementary act names Finansinspektionen as the national competent authority.
+
+[actors @ ~40s, section - WHO DECIDES]
+In Sweden, Finansdepartementet prepares the financial-markets bills. Riksdagen adopts the national acts. The national law that shapes crypto supervision here is the Swedish MiCA complementary act: Lag (2024:1159).
+
+[supervise @ ~65s, section - WHO SUPERVISES]
+Finansinspektionen is the financial supervisor that licences and oversees crypto-asset service providers under MiCA. Sveriges Riksbank works on the e-krona and payment systems; it is not the MiCA licensing authority.
+
+[enforce @ ~90s, section - WHO ENFORCES]
+Suspicious transactions are reported to the financial intelligence unit: Finanspolisen at Polismyndigheten. Tax on crypto-assets is handled by Skatteverket. Disputes and appeals go to the general courts (tingsrätt, hovrätt, Högsta domstolen) and administrative courts for licence appeals.
+
+[status @ ~115s, section - WHERE THINGS STAND]
+One FI-authorised CASP (Safello) as of 30 Jun 2026, plus 77 firms passporting from other EU countries. Two refusals (Valuno's QB Europe AB, GreenMerc's Ijort Invest AB). A new government was still being formed in early October 2026.
+
+[signoff @ ~140s, end]
+That is how the rules work in Sweden. For the full map across Norway, Sweden, Denmark, Finland and Iceland, with a source for every step, see the Nordic Crypto rules page. Nothing here is legal advice. The Nordic Crypto team. Good night.

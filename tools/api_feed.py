@@ -28,12 +28,19 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
+sys.path.insert(0, os.path.join(ROOT, "tools"))
 import i18n  # noqa: E402
+import site_url  # noqa: E402
+import source_logos  # noqa: E402
 
 API = "1"
 SITE_NAME = "Nordic Crypto"
 SIGN_OFF = "The Nordic Crypto team"
-CUSTOM_BASE = "https://cryptonordic.no/"
+CUSTOM_BASE = site_url.BASE
+# Brand accounts. The same URLs are linked from the site footer, About and the newsletter.
+SITE_X_URL = "https://x.com/xcryptonordic"
+SITE_TELEGRAM_URL = "https://t.me/nordiccryptochat"
+NORDIC_UI = ("nn", "nb", "sv", "da", "fi", "is")
 LANGS = list(i18n.ALL_LANGS)
 COUNTRIES = ["NO", "SE", "DK", "FI", "IS", "NORDIC", "EU"]
 
@@ -244,11 +251,10 @@ class Feed:
         self.site = site
         self.preview = bool(preview)
         self.base = base if base.endswith("/") else base + "/"
-        self.custom = CUSTOM_BASE
+        self.custom = self.base
         self.generated = dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat()
         self.endpoints = []
         self.examples = {}
-        self.source_logos = {}
 
     def abs(self, path):
         return self.base + path.lstrip("/")
@@ -304,12 +310,38 @@ class Feed:
         summary = item.get("summary") if public else None
         i18n_sum = item.get("summary_i18n") if public else None
         nid = item.get("id") or hashlib.sha256((url or item.get("title") or "").encode()).hexdigest()[:12]
-        nid = safe_id(nid) or hashlib.sha256(url.encode()).hexdigest()[:12]
+        nid = safe_id(nid) or hashlib.sha256((url or "").encode()).hexdigest()[:12]
+        if not own:
+            html_url = self.abs(f"stories/{nid}/")
+        elif url:
+            item["url"] = url
         source = item.get("source")
         source_name = item.get("source_name")
         note = None
         if is_kaupr(source, source_name):
             note = "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+        import coverage as coverage_mod
+        rows = coverage_mod.all_outlets(item)
+        def api_outlet(row):
+            logo = self.logo(source_logos.for_source(row.get("outlet"), preview=self.preview))
+            rec = {
+                "outlet": row.get("outlet"),
+                "outlet_name": row.get("outlet_name"),
+                "url": row.get("url"),
+                "title": row.get("title"),
+                "published": row.get("published"),
+                "lang": row.get("lang"),
+                "language_code": language_code(row.get("lang")),
+                "country": row.get("country"),
+                "source_type": row.get("source_type"),
+                "paywall": bool(row.get("paywall")),
+                "primary": bool(row.get("primary")),
+                "logo": logo,
+            }
+            if is_kaupr(row.get("outlet"), row.get("outlet_name")):
+                rec["source_note"] = "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+            return rec
+        outlets = [api_outlet(r) for r in rows]
         out = {
             "id": nid,
             "url": url or None,
@@ -319,6 +351,7 @@ class Feed:
             "title_en": item.get("title_en"),
             "source": source,
             "source_name": source_name,
+            "source_logo": self.logo(source_logos.for_source(source, preview=self.preview)),
             "source_note": note,
             "country": item.get("country"),
             "language": item.get("language"),
@@ -330,11 +363,13 @@ class Feed:
             "paywall": bool(item.get("paywall")),
             "links": [{"label": l.get("label"), "url": l.get("url")} for l in (item.get("links") or []) if l.get("url")],
             "own_story": own,
-            "source_logo_url": None,
+            "primary_source": outlets[0] if outlets else None,
+            "also_covered_by": outlets[1:],
+            "sources": outlets,
+            "coverage": coverage_mod.breakdown(rows),
         }
-        logo = None if own else _logo_lookup(self.source_logos, source)
-        if logo:
-            out["source_logo_url"] = _publish_logo(self, logo)["raster_url"]
+        # Raster URL of the same logo (PNG or WebP, never SVG) for apps that cannot draw SVG (SwiftUI AsyncImage).
+        out["source_logo_url"] = None if own else (out["source_logo"] or {}).get("raster_url")
         if self.preview:
             out["status"] = "pending" if status not in ("published", "owner") else status
         return out
@@ -381,6 +416,27 @@ class Feed:
             "license_url": raw.get("license_url"),
             "credit": raw.get("source") or raw.get("origin"),
         }
+
+    def logo(self, rec):
+        """News-outlet logo from source_logos.for_source(): the media fields plus raster_url.
+
+        raster_url is a PNG or WebP (never SVG) so SwiftUI AsyncImage can draw it: the PNG rendering of an SVG
+        (logos.json "raster"), or the WebP itself. Null when an SVG has no rendering yet. The original and the
+        raster are copied into the site, so every URL here resolves."""
+        out = self.media(rec, "logo")
+        if not out:
+            return None
+        raster = rec.get("raster")
+        out["raster_url"] = self.abs(raster) if raster else None
+        if self.site:
+            for f in (rec.get("file"), raster):
+                if not f or str(f).startswith("http"):
+                    continue
+                src, dst = os.path.join(ROOT, f), os.path.join(self.site, f)
+                if os.path.exists(src) and not os.path.exists(dst):
+                    os.makedirs(os.path.dirname(dst), exist_ok=True)
+                    shutil.copy(src, dst)
+        return out
 
     def entity(self, raw):
         eid = safe_id(raw.get("id"))
@@ -602,9 +658,8 @@ def _changelog(preview):
     return launch, rows
 
 
-def _sources(cfg, api=None):
+def _sources(cfg):
     outlets, search = [], []
-    logos = api.source_logos if api else {}
     for s in cfg.get("sources") or []:
         row = {
             "id": s.get("id"),
@@ -628,9 +683,6 @@ def _sources(cfg, api=None):
             row["source_note"] = "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
         else:
             row["source_note"] = None
-        logo = _publish_logo(api, logos.get(s.get("id"))) if api else None
-        row["logo_url"] = logo["raster_url"] if logo else None
-        row["logo"] = logo
         outlets.append(row)
         if s.get("type") == "bing":
             search.append({
@@ -655,76 +707,10 @@ def _sources(cfg, api=None):
     return outlets, search, events
 
 
-LOGOS_MANIFEST = os.path.join(ROOT, "assets", "img", "logos", "logos.json")
-SOURCE_LOGO_NOTE = ("logo_url (sources) and source_logo_url (news) point at the outlet's logo. Logos are the publishers' own "
-                    "trademarks, shown only to identify the source of a headline. They are null until the editor has checked the logo.")
-
-
-def _source_logos(feed, cfg, manifest=None):
-    """{source id or news-source domain: logo media} for news-source logos (logos.json keys 'source:<id>').
-
-    Public build: only review 'ok'. Preview build: 'pending' too, like the who's who logos. 'rejected' never.
-    A source with an `outlet` uses the outlet's logo. A news item whose source is a domain (search hits) uses the
-    logo of the source whose url is on that host."""
-    man = load(manifest or LOGOS_MANIFEST, {}) or {}
-    ok = {}
-    for key, rec in man.items():
-        if not key.startswith("source:") or not isinstance(rec, dict) or not rec.get("file"):
-            continue
-        review = rec.get("review", "pending")
-        if review != "ok" and not (feed.preview and review == "pending"):
-            continue
-        if not (rec.get("license") or rec.get("source_url")) or not os.path.exists(os.path.join(ROOT, rec["file"])):
-            continue
-        media = feed.media(rec, "source_logo")
-        # Apple's AsyncImage cannot draw SVG, so apps get a raster: the PNG rendering of an SVG, or the WebP/PNG itself.
-        raster = rec.get("raster") if str(rec["file"]).lower().endswith(".svg") else rec["file"]
-        if raster and not os.path.exists(os.path.join(ROOT, raster)):
-            raster = None
-        media["raster_url"] = feed.abs(raster) if raster else None
-        media["_files"] = [f for f in (rec["file"], raster) if f]  # dropped before publishing; copied into the site
-        ok[key[len("source:"):]] = media
-    out = {}
-    sources = (cfg or {}).get("sources") or []
-    for s in sources:
-        sid = s.get("id")
-        logo = ok.get(sid) or (ok.get(s.get("outlet")) if s.get("outlet") else None)
-        if sid and logo:
-            out[sid] = logo
-    for sid, logo in ok.items():  # outlets that are not a source row themselves (kaupr)
-        out.setdefault(sid, logo)
-    for s in sorted(sources, key=lambda s: bool(s.get("outlet"))):  # domain keys; the main row wins over a section feed
-        m = re.match(r"https?://([^/]+)", s.get("url") or "")
-        h = re.sub(r"^www\.", "", m.group(1).lower()) if m else ""
-        if h and s.get("id") in out and s.get("type") != "bing":
-            out.setdefault(h, out[s["id"]])
-    return out
-
-
-def _logo_lookup(logos, source):
-    """Logo media for a news item's `source` (a source id, or a domain for search hits), else None."""
-    if not source:
-        return None
-    if source in logos:
-        return logos[source]
-    h = re.sub(r"^www\.", "", str(source).lower())
-    while "." in h:
-        if h in logos:
-            return logos[h]
-        h = h.split(".", 1)[1]
-    return None
-
-
-def _publish_logo(feed, logo):
-    """Public copy of a logo media object (no local paths); copies the original and the raster into the site once."""
-    if not logo:
-        return None
-    for f in logo["_files"]:
-        dst = os.path.join(feed.site, f)
-        if not os.path.exists(dst):
-            os.makedirs(os.path.dirname(dst), exist_ok=True)
-            shutil.copy(os.path.join(ROOT, f), dst)
-    return {k: v for k, v in logo.items() if k != "_files"}
+SOURCE_LOGO_NOTE = ("logo / source_logo is the outlet's logo (file_url is the original, SVG or WebP). logo_url (sources) and "
+                    "source_logo_url (news) are the same logo as a raster image, PNG or WebP, never SVG, for apps that cannot draw SVG. "
+                    "Logos are the publishers' own trademarks, shown only to identify the source of a headline. "
+                    "They are null until the editor has checked the logo.")
 
 
 def _rules(preview, base):
@@ -795,13 +781,13 @@ def _newsletters(feed):
         en_html = ""
         en_path = os.path.join(pub, iid, "issue.html")
         if os.path.exists(en_path):
-            en_html = open(en_path, encoding="utf-8").read()
+            en_html = site_url.expand(open(en_path, encoding="utf-8").read())
         for lang in LANGS:
             if lang == "en":
                 continue
             p = os.path.join(pub, iid, f"issue.{lang}.html")
             if os.path.exists(p):
-                bodies[lang] = open(p, encoding="utf-8").read()
+                bodies[lang] = site_url.expand(open(p, encoding="utf-8").read())
                 texts[lang] = html_to_text(bodies[lang])
         full = {
             "id": iid,
@@ -860,12 +846,39 @@ def _archive(feed):
     return data.get("exported_at"), rows
 
 
+def brand_social():
+    """Nordic Crypto brand accounts for /api/v1/meta.json. English name, Nordic name_i18n, other languages use name."""
+    def names(key):
+        return {lang: i18n.t(lang, key) for lang in NORDIC_UI}
+    return {
+        "note": (
+            "Nordic Crypto brand accounts for the site and the iOS app. "
+            "label and name are English. name_i18n has nn, nb, sv, da, fi and is. "
+            "Other site languages use name."
+        ),
+        "telegram": {
+            "label": "Telegram",
+            "name": i18n.t("en", "tg_follow"),
+            "name_i18n": names("tg_follow"),
+            "url": SITE_TELEGRAM_URL,
+        },
+        "x": {
+            "label": "X",
+            "name": i18n.t("en", "x_follow"),
+            "name_i18n": names("x_follow"),
+            "url": SITE_X_URL,
+            "handle": "@xcryptonordic",
+        },
+    }
+
+
 def _meta(feed):
     pages = [
         ("", "News"),
         ("calendar/", "Events calendar, upcoming and past"),
         ("org-chart/", "Who's who: industry, regulators and the regulation overview"),
         ("rules/", "How EU crypto rules become law in the five countries"),
+        ("regulation-videos/", "Country explainer videos: how crypto rules are decided in each Nordic country"),
         ("academia/", "Courses, student groups, publications and research"),
         ("sources/", "News and event sources"),
         ("newsletter/", "Newsletter issues"),
@@ -909,14 +922,16 @@ def _meta(feed):
             "llms_txt": feed.abs("llms.txt"),
             "github": "https://github.com/jQrgen/nordic-crypto",
             "substack": "https://cryptonordic.substack.com",
-            "x": "https://x.com/xcryptonordic",
+            "telegram": SITE_TELEGRAM_URL,
+            "x": SITE_X_URL,
         },
+        social=brand_social(),
         url_note=(
-            "Absolute urls in this API use the GitHub Pages base, including the /nordic-crypto/ path. "
-            "On the custom domain the same file is at the site root: replace "
-            "https://jqrgen.github.io/nordic-crypto/ with https://cryptonordic.no/. "
-            "HTTPS on cryptonordic.no works once the certificate matches that name. "
-            "Until then, http://cryptonordic.no/ serves the same files and sends Access-Control-Allow-Origin: *."
+            "Absolute urls in this API use the public site origin "
+            f"({feed.base}). "
+            "GitHub Pages serves that origin from the repository root. "
+            "There is no /nordic-crypto/ path on this origin. "
+            "GitHub Pages sends Access-Control-Allow-Origin: * on these files."
         ),
         editorial={
             "sign_off": SIGN_OFF,
@@ -962,12 +977,20 @@ def _markets(feed, markets):
     files = markets_mod.documents(doc)
     for rel, obj in files.items():
         feed.write_json(rel, obj)
+    markets_mod.write_logos(feed.site)
     feed.add_endpoint(
         "markets",
         "api/v1/markets.json",
-        "Nordic exchange prices. Market data, not investment advice. Each ticker names the exchange, fetched_at and the source URL. NOK, SEK, DKK and EUR only.",
+        "Nordic exchange prices. Market data, not investment advice. Each ticker names the exchange, fetched_at, the source URL and volume when the exchange published it. NOK, SEK, DKK and EUR only. aggregated is one row per pair.",
         "MarketCatalogue",
         example="api/v1/markets/firi.json" if "api/v1/markets/firi.json" in files else None,
+    )
+    feed.add_endpoint(
+        "markets-aggregated",
+        "api/v1/markets/aggregated.json",
+        "One price per base-quote pair. BTC-NOK is separate from BTC-EUR. last is the mean of published last prices. mid is the mean of bid/ask midpoints and is not blended into last. Volume is summed only within the same field and the same pair. logo_url is a CC0 icon when cryptocurrency-icons includes the asset, otherwise null.",
+        "MarketAggregated",
+        example="api/v1/markets/aggregated.json" if "api/v1/markets/aggregated.json" in files else None,
     )
     feed.add_endpoint(
         "markets-exchange",
@@ -985,7 +1008,7 @@ def _markets(feed, markets):
     feed.add_endpoint(
         "markets-asset",
         "api/v1/markets/by-asset/{symbol}.json",
-        "Prices for one asset (the base symbol, such as BTC) on every included Nordic exchange.",
+        "Prices for one asset (the base symbol, such as BTC) on every included Nordic exchange, plus aggregated pairs for each quote currency and logo_url when an icon is available.",
         "MarketAsset",
         example=asset_example,
     )
@@ -995,7 +1018,6 @@ def _markets(feed, markets):
 def write(site, *, preview, base, items, events, entities, relations, org_updated, regulation, caveats, sources_cfg, news_updated, markets=None):
     feed = Feed(site, preview, base)
     os.makedirs(site, exist_ok=True)
-    feed.source_logos = _source_logos(feed, sources_cfg)
 
     news = [feed.news_item(i) for i in items]
     news = [n for n in news if n.get("id")]
@@ -1041,7 +1063,10 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
         e["html_url"] = feed.abs(f"changelog/#{eid}") if eid else feed.abs("changelog/")
         e["api_url"] = feed.abs(f"api/v1/changelog/{eid}.json") if eid else None
 
-    outlets, search, event_sources = _sources(sources_cfg or {}, feed)
+    outlets, search, event_sources = _sources(sources_cfg or {})
+    for row in outlets:
+        row["logo"] = feed.logo(source_logos.for_source(row.get("id"), preview=preview))
+        row["logo_url"] = (row["logo"] or {}).get("raster_url")
     rules = _rules(preview, feed.base)
     letters = _newsletters(feed)
     exported_at, articles = _archive(feed)
@@ -1054,6 +1079,14 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
         "summary is English. summary_i18n holds nn, nb, sv, da, fi and is when that translation is published. "
         "Other site languages use the English summary until a translation exists. "
         "title is the source headline. title_en is our English headline when we wrote one. "
+        "source_logo is the outlet image when assets/img/logos/logos.json has a checked file for the source id "
+        "(or its outlet, or a _source_alias). Null means show the source name as text. "
+        "primary_source is that outlet. also_covered_by lists every other outlet on the same event "
+        "(outlet, outlet_name, url, title, published, lang, country, source_type, paywall, logo). "
+        "sources is the primary plus those outlets. coverage.count is how many outlets, "
+        "coverage.by_country and coverage.by_source_type (national, regional, official, international) "
+        "are the counts and shares for the bars, including zeros. "
+        "html_url is our page for the story. url on the item is the primary outlet. "
         "The site language list is /api/v1/languages.json."
     )
     collection(
@@ -1114,9 +1147,9 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
     feed.add_endpoint("events-by-country", "api/v1/events/by-country/{country}.json",
                       "Public events for one country code.", "EventList", example="api/v1/events/by-country/NO.json")
 
-    collection("api/v1/sources.json", "News outlets, the public search terms, and event sources. Kaupr is marked as a news source only.", "SourceCatalogue",
+    collection("api/v1/sources.json", "News outlets, the public search terms, and event sources. Kaupr is marked as a news source only. logo is the outlet image for that source id when one is on file.", "SourceCatalogue",
                feed.env(
-                   user_agent=(sources_cfg or {}).get("user_agent"),
+                   user_agent=site_url.expand((sources_cfg or {}).get("user_agent") or ""),
                    min_delay_seconds=(sources_cfg or {}).get("min_delay_seconds"),
                    keyword_note=i18n.t("en", "src_kw"),
                    kaupr="Kaupr (kaupr.io) is one of the news sources. It is never a sponsor.",
@@ -1203,7 +1236,7 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
     )
 
     meta = _meta(feed)
-    collection("api/v1/meta.json", "Site name, languages, countries, page list, CORS and editorial notes.", "SiteMeta", meta)
+    collection("api/v1/meta.json", "Site name, languages, countries, page list, CORS, editorial notes and brand social accounts (social.telegram, social.x).", "SiteMeta", meta)
 
     # Discovery, OpenAPI, llms.txt and the human page. Registered after the datasets exist.
     index = feed.env(
@@ -1237,11 +1270,13 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
             "changelog": len(changes),
             "archive_articles": len(articles),
             "markets": market_doc.get("count") or 0,
+            "markets_aggregated": market_doc.get("aggregated_count") or 0,
             "markets_by_exchange": market_counts,
         },
         endpoints=list(feed.endpoints),
         start_here=[
             {"description": "Nordic exchange prices (market data, not investment advice)", "url": feed.abs("api/v1/markets.json")},
+            {"description": "Aggregated price per pair, one quote currency at a time", "url": feed.abs("api/v1/markets/aggregated.json")},
             {"description": "Prices from one exchange", "url": feed.abs("api/v1/markets/firi.json")},
             *([{"description": "Prices for one asset, on every included exchange", "url": feed.abs(f"api/v1/markets/by-asset/{example_asset}.json")}] if example_asset else []),
             {"description": "All published news", "url": feed.abs("api/v1/news.json")},
@@ -1325,7 +1360,7 @@ def openapi(feed, index):
             "title": "Nordic Crypto data API",
             "version": API,
             "description": (
-                "Public read-only JSON for Nordic Crypto (cryptonordic.no, GitHub Pages jqrgen.github.io/nordic-crypto). "
+                f"Public read-only JSON for Nordic Crypto ({feed.base}). "
                 "No authentication. News, newsletters, events, sources, academia, the who's who, profiles, images, "
                 "the rules map, the changelog, the article archive and Nordic exchange prices (market data, not investment advice). "
                 "Kaupr is a news source only, never a sponsor. The sign-off is The Nordic Crypto team. "
@@ -1339,8 +1374,7 @@ def openapi(feed, index):
             "contact": {"name": SITE_NAME, "url": feed.abs("about/")},
         },
         "servers": [
-            {"url": feed.base.rstrip("/"), "description": "GitHub Pages project site"},
-            {"url": feed.custom.rstrip("/"), "description": "cryptonordic.no (same paths at the domain root, once HTTPS serves this site)"},
+            {"url": feed.base.rstrip("/"), "description": "Public site"},
         ],
         "paths": paths,
         "components": {"schemas": schemas()},
@@ -1353,9 +1387,9 @@ def schemas():
                      "the logo (review ok); a preview build also lists pending logos. The publisher's trademark, shown only to identify the source.")
     source_logo = {
         "type": "object", "nullable": True,
-        "description": "Where the source logo comes from. Same fields as a who's who logo in images.json.",
+        "description": "Outlet logo for this source id (via outlet / _source_alias in assets/img/logos/logos.json). Null when no checked image is on file; show the name only. Same fields as a who's who logo in images.json, plus raster_url.",
         "properties": {
-            "kind": {"type": "string", "enum": ["source_logo"]},
+            "kind": {"type": "string", "enum": ["logo"]},
             "file_url": {"type": "string", "description": "The original file as fetched: SVG, or WebP for raster logos."},
             "raster_url": {"type": "string", "nullable": True, "description": "PNG rendering of an SVG (256 px on the long side, transparent), or the WebP itself. Same value as logo_url."},
             "source_url": {"type": "string", "nullable": True, "description": "Wikimedia Commons file page, or the image URL on the publisher's site."},
@@ -1392,12 +1426,13 @@ def schemas():
         "properties": {
             "id": {"type": "string"},
             "url": {"type": "string", "description": "Story the reader follows. Absolute."},
-            "html_url": {"type": "string", "nullable": True, "description": "Our page, when the story is ours."},
+            "html_url": {"type": "string", "nullable": True, "description": "Our story page. For our own articles this is the article. For other outlets this is the coverage page; url is the primary outlet."},
             "api_url": {"type": "string"},
             "title": {"type": "string"},
             "title_en": {"type": "string", "nullable": True},
-            "source": {"type": "string"},
+            "source": {"type": "string", "description": "Source id from sources.json."},
             "source_name": {"type": "string"},
+            "source_logo": source_logo,
             "source_note": {"type": "string", "nullable": True},
             "country": {"type": "string"},
             "language": {"type": "string"},
@@ -1409,7 +1444,39 @@ def schemas():
             "paywall": {"type": "boolean"},
             "links": {"type": "array", "items": {"type": "object"}},
             "own_story": {"type": "boolean"},
-            "source_logo_url": {"type": "string", "nullable": True, "description": logo_url_desc},
+            "source_logo_url": {"type": "string", "nullable": True, "description": logo_url_desc + " Same as source_logo.raster_url."},
+            "primary_source": {"$ref": "#/components/schemas/NewsOutlet"},
+            "also_covered_by": {"type": "array", "items": {"$ref": "#/components/schemas/NewsOutlet"}, "description": "Other outlets on the same event. Empty when only the primary covered it."},
+            "sources": {"type": "array", "items": {"$ref": "#/components/schemas/NewsOutlet"}, "description": "Primary first, then also_covered_by."},
+            "coverage": {"$ref": "#/components/schemas/NewsCoverage"},
+        },
+    }
+    news_outlet = {
+        "type": "object",
+        "required": ["url", "primary"],
+        "properties": {
+            "outlet": {"type": "string", "description": "Source id from sources.json."},
+            "outlet_name": {"type": "string"},
+            "url": {"type": "string"},
+            "title": {"type": "string", "description": "That outlet's headline."},
+            "published": {"type": "string", "description": "ISO 8601 date-time with offset."},
+            "lang": {"type": "string", "description": "Language name, same vocabulary as language on the story."},
+            "language_code": {"type": "string", "nullable": True},
+            "country": {"type": "string"},
+            "source_type": {"type": "string", "enum": ["national", "regional", "official", "international"], "description": "national, regional (regional and local), official (justice and official), or international."},
+            "paywall": {"type": "boolean"},
+            "primary": {"type": "boolean"},
+            "logo": source_logo,
+            "source_note": {"type": "string", "nullable": True, "description": "Set when the outlet is Kaupr: a news source only, never a sponsor."},
+        },
+    }
+    news_coverage = {
+        "type": "object",
+        "required": ["count", "by_country", "by_source_type"],
+        "properties": {
+            "count": {"type": "integer"},
+            "by_country": {"type": "array", "items": {"type": "object", "properties": {"country": {"type": "string"}, "count": {"type": "integer"}, "share": {"type": "number"}}}},
+            "by_source_type": {"type": "array", "description": "Always national, regional, official and international, in that order. count 0 is included.", "items": {"type": "object", "properties": {"type": {"type": "string"}, "count": {"type": "integer"}, "share": {"type": "number"}}}},
         },
     }
     event_item = {
@@ -1467,6 +1534,8 @@ def schemas():
     return {
         "Document": {"type": "object", "additionalProperties": True},
         "Discovery": wrap("Discovery", {"endpoints": {"type": "array"}, "counts": {"type": "object"}, "cors": {"type": "object"}}),
+        "NewsOutlet": news_outlet,
+        "NewsCoverage": news_coverage,
         "NewsItem": news_item,
         "NewsList": wrap("NewsList", {"count": {"type": "integer"}, "items": {"type": "array", "items": news_item}, "updated": {"type": "string", "nullable": True}, "logo_note": {"type": "string"}}),
         "TopicIndex": wrap("TopicIndex", {"topics": {"type": "array"}}),
@@ -1488,7 +1557,33 @@ def schemas():
         "ChangelogList": wrap("ChangelogList", {"entries": {"type": "array"}}),
         "Rules": wrap("Rules", {"available": {"type": "boolean"}, "checked": {"type": "string"}}),
         "ArticleArchive": wrap("ArticleArchive", {"articles": {"type": "array"}}),
-        "SiteMeta": wrap("SiteMeta", {"languages": {"type": "array"}, "countries": {"type": "array"}, "cors": {"type": "object"}, "ios": {"type": "object", "description": "Public TestFlight invite. Not an App Store listing."}}),
+        "SiteMeta": wrap("SiteMeta", {
+            "languages": {"type": "array"},
+            "countries": {"type": "array"},
+            "cors": {"type": "object"},
+            "ios": {"type": "object", "description": "Public TestFlight invite. Not an App Store listing."},
+            "social": {
+                "type": "object",
+                "description": "Nordic Crypto brand accounts. telegram is https://t.me/nordiccryptochat. x is https://x.com/xcryptonordic. label and name are English. name_i18n has nn, nb, sv, da, fi and is. Other languages use name.",
+                "properties": {
+                    "note": {"type": "string"},
+                    "telegram": {"type": "object", "properties": {
+                        "label": {"type": "string", "example": "Telegram"},
+                        "name": {"type": "string", "example": "Nordic Crypto on Telegram"},
+                        "name_i18n": {"type": "object"},
+                        "url": {"type": "string", "example": "https://t.me/nordiccryptochat"},
+                    }},
+                    "x": {"type": "object", "properties": {
+                        "label": {"type": "string", "example": "X"},
+                        "name": {"type": "string", "example": "Follow Nordic Crypto on X"},
+                        "name_i18n": {"type": "object"},
+                        "url": {"type": "string", "example": "https://x.com/xcryptonordic"},
+                        "handle": {"type": "string", "example": "@xcryptonordic"},
+                    }},
+                },
+            },
+            "urls": {"type": "object", "description": "github, substack, telegram and x, plus the API bases."},
+        }),
         "LanguageList": wrap("LanguageList", {
             "count": {"type": "integer"},
             "languages": {"type": "array", "items": {"type": "object"}},
@@ -1516,27 +1611,114 @@ def schemas():
                 }},
                 "fetched_at": {"type": "string", "description": "When Nordic Crypto fetched this row, ISO 8601 UTC."},
                 "source_url": {"type": "string", "description": "Exchange URL the figure was read from."},
-                "volume_base": {"type": "string", "nullable": True},
-                "volume_quote": {"type": "string", "nullable": True},
-                "volume_base_24h": {"type": "string", "nullable": True, "description": "Set only when the exchange names a 24-hour window."},
-                "volume_quote_24h": {"type": "string", "nullable": True},
+                "volume_base": {"type": "string", "nullable": True, "description": "Base-asset volume as published. Null when the exchange omits it. Firi's volume is stored here; that payload does not name a 24-hour window. Not treated as zero when missing."},
+                "volume_quote": {"type": "string", "nullable": True, "description": "Quote-currency volume as published, window not named. Null when omitted."},
+                "volume_base_24h": {"type": "string", "nullable": True, "description": "Base-asset volume over the last 24 hours. Set only when the exchange names that window (NBX). Not added to volume_base."},
+                "volume_quote_24h": {"type": "string", "nullable": True, "description": "Quote-currency volume over the last 24 hours (NBX). The unit is this pair's quote (NOK, SEK, DKK or EUR)."},
                 "high": {"type": "string", "nullable": True},
                 "low": {"type": "string", "nullable": True},
                 "change_pct": {"type": "string", "nullable": True},
                 "exchange_time": {"type": "string", "nullable": True, "description": "Timestamp from the exchange payload, when it sends one."},
             },
         },
+        "MarketLogo": {
+            "type": "object",
+            "nullable": True,
+            "description": "Present when cryptocurrency-icons (CC0-1.0) includes this asset. Null fields on the parent when it does not. Nordic Crypto does not draw substitutes.",
+            "properties": {
+                "format": {"type": "string", "example": "svg"},
+                "source": {"type": "string"},
+                "source_url": {"type": "string"},
+                "version": {"type": "string"},
+                "license": {"type": "string", "example": "CC0-1.0"},
+                "license_name": {"type": "string"},
+                "license_url": {"type": "string"},
+                "authors": {"type": "string"},
+                "attribution": {"type": "string"},
+            },
+        },
+        "MarketVolume": {
+            "type": "object",
+            "description": "Sums of like volume fields inside one pair. Fields are not mixed. A null sum means nobody published that field.",
+            "properties": {
+                "volume_base": {"type": "string", "nullable": True, "description": "Sum of volume_base. Unit: base asset. Window not named."},
+                "volume_base_exchanges": {"type": "integer"},
+                "volume_quote": {"type": "string", "nullable": True, "description": "Sum of volume_quote. Unit: quote currency. Window not named."},
+                "volume_quote_exchanges": {"type": "integer"},
+                "volume_base_24h": {"type": "string", "nullable": True, "description": "Sum of volume_base_24h. Unit: base asset over the last 24 hours."},
+                "volume_base_24h_exchanges": {"type": "integer"},
+                "volume_quote_24h": {"type": "string", "nullable": True, "description": "Sum of volume_quote_24h. Unit: quote currency over the last 24 hours."},
+                "volume_quote_24h_exchanges": {"type": "integer"},
+                "units": {"type": "object"},
+            },
+        },
+        "MarketAggregate": {
+            "type": "object",
+            "required": ["symbol", "base", "quote", "currency", "exchange_count", "updated_at", "method", "price", "last", "mid", "min", "max", "contributors", "volume"],
+            "properties": {
+                "symbol": {"type": "string", "example": "BTC-NOK", "description": "BASE-QUOTE. One bucket per quote currency."},
+                "base": {"type": "string"},
+                "name": {"type": "string", "nullable": True},
+                "quote": {"type": "string", "enum": ["NOK", "SEK", "DKK", "EUR"]},
+                "currency": {"type": "string", "description": "Same as quote. NOK is never combined with EUR, SEK or DKK."},
+                "updated_at": {"type": "string", "nullable": True, "description": "Newest fetched_at among the contributors, ISO 8601 UTC."},
+                "oldest_fetched_at": {"type": "string", "nullable": True},
+                "exchange_count": {"type": "integer", "description": "How many exchanges quoted this pair."},
+                "method": {"type": "string", "nullable": True, "enum": ["mean_last", "mean_bid_ask_mid"], "description": "mean_last when any last exists, otherwise mean_bid_ask_mid. Null when no price can be formed."},
+                "method_note": {"type": "string"},
+                "price": {"type": "string", "nullable": True, "description": "Equals last, or mid when no last exists."},
+                "min": {"type": "string", "nullable": True, "description": "Lowest value in the same series as price."},
+                "max": {"type": "string", "nullable": True, "description": "Highest value in the same series as price."},
+                "last": {"type": "string", "nullable": True, "description": "Arithmetic mean of published last prices. Null if none."},
+                "last_count": {"type": "integer"},
+                "last_min": {"type": "string", "nullable": True},
+                "last_max": {"type": "string", "nullable": True},
+                "mid": {"type": "string", "nullable": True, "description": "Arithmetic mean of (bid+ask)/2 where both were published. Not blended into last."},
+                "mid_count": {"type": "integer"},
+                "mid_min": {"type": "string", "nullable": True},
+                "mid_max": {"type": "string", "nullable": True},
+                "vwap": {"type": "string", "nullable": True, "description": "Always null. Volume windows are not comparable, so there is no VWAP."},
+                "volume_used_for_price": {"type": "boolean"},
+                "volume": {"$ref": "#/components/schemas/MarketVolume"},
+                "contributors": {"type": "array", "items": {"type": "object"}},
+                "logo_url": {"type": "string", "nullable": True, "description": "Absolute GitHub Pages URL of the SVG, or null."},
+                "logo_url_custom_domain": {"type": "string", "nullable": True},
+                "logo_path": {"type": "string", "nullable": True, "description": "Site-relative path, for example api/v1/markets/logos/btc.svg."},
+                "logo": {"$ref": "#/components/schemas/MarketLogo"},
+            },
+        },
         "MarketCatalogue": wrap("MarketCatalogue", {
             "disclaimer": {"type": "string"},
             "count": {"type": "integer"},
+            "aggregated_count": {"type": "integer"},
+            "aggregation": {"type": "object", "description": "How last, mid, volume and logos are derived."},
             "exchanges": {"type": "array"},
             "skipped": {"type": "array", "description": "Venues checked and left out because they have no public ticker."},
             "tickers": {"type": "array", "items": {"$ref": "#/components/schemas/MarketTicker"}},
+            "aggregated": {"type": "array", "items": {"$ref": "#/components/schemas/MarketAggregate"}},
             "urls": {"type": "object"},
             "refresh": {"type": "object"},
         }),
         "MarketExchange": wrap("MarketExchange", {"exchange": {"type": "object"}, "count": {"type": "integer"}, "tickers": {"type": "array", "items": {"$ref": "#/components/schemas/MarketTicker"}}}),
-        "MarketAsset": wrap("MarketAsset", {"symbol": {"type": "string"}, "count": {"type": "integer"}, "tickers": {"type": "array", "items": {"$ref": "#/components/schemas/MarketTicker"}}}),
+        "MarketAsset": wrap("MarketAsset", {
+            "symbol": {"type": "string"},
+            "name": {"type": "string", "nullable": True},
+            "count": {"type": "integer"},
+            "tickers": {"type": "array", "items": {"$ref": "#/components/schemas/MarketTicker"}},
+            "aggregated": {"type": "array", "items": {"$ref": "#/components/schemas/MarketAggregate"}, "description": "One object per quote currency for this asset."},
+            "aggregation": {"type": "object"},
+            "logo_url": {"type": "string", "nullable": True},
+            "logo_url_custom_domain": {"type": "string", "nullable": True},
+            "logo_path": {"type": "string", "nullable": True},
+            "logo": {"$ref": "#/components/schemas/MarketLogo"},
+        }),
+        "MarketAggregated": wrap("MarketAggregated", {
+            "kind": {"type": "string", "example": "markets-aggregated"},
+            "count": {"type": "integer"},
+            "aggregation": {"type": "object"},
+            "pairs": {"type": "array", "items": {"$ref": "#/components/schemas/MarketAggregate"}},
+            "urls": {"type": "object"},
+        }),
     }
 
 
@@ -1561,9 +1743,8 @@ def llms_txt(feed, index):
         "GitHub Pages sends Access-Control-Allow-Origin: * on every JSON file, so a browser can fetch them from any site. "
         "Use the file name (index.json). A directory URL does not serve the JSON.",
         "",
-        f"GitHub Pages base: {feed.base}",
-        f"Custom domain base (same paths at the root): {feed.custom}",
-        "Swap the base to move between the two. HTTPS on cryptonordic.no is the intended public name once the certificate matches that domain.",
+        f"Public site: {feed.base}",
+        "Absolute URLs in this file use that origin, at the domain root.",
         "",
         "## Start here",
         "",
@@ -1572,7 +1753,8 @@ def llms_txt(feed, index):
         f"- [OpenAPI JSON]({feed.abs('api/v1/openapi.json')}): OpenAPI 3.0.",
         f"- [OpenAPI YAML]({feed.abs('api/v1/openapi.yaml')}): the same document.",
         f"- [API catalog]({feed.abs('.well-known/api-catalog')}): RFC 9727 linkset. A .json copy is at {feed.abs('.well-known/api-catalog.json')}.",
-        f"- [Site meta]({feed.abs('api/v1/meta.json')}): languages, countries, page list, CORS.",
+        f"- [Site meta]({feed.abs('api/v1/meta.json')}): languages, countries, page list, CORS, and brand social accounts.",
+        f"- Telegram: {SITE_TELEGRAM_URL} (`social.telegram`). X: {SITE_X_URL} (`social.x`, also `urls.x`). `name` is English. `name_i18n` has nn, nb, sv, da, fi and is. Other languages use `name`.",
         f"- [Languages]({feed.abs('api/v1/languages.json')}): site UI languages (code, native name, English name, rtl, home).",
         f"- [Geo language]({feed.abs('api/v1/geo-language.json')}): country to default language. An IP guess; the nc_lang cookie wins.",
         "",
@@ -1580,13 +1762,24 @@ def llms_txt(feed, index):
         "",
         "Prices from Nordic exchanges with a public ticker (Firi and Norwegian Block Exchange in Norway, Coinmotion in Finland). "
         "Market data, not investment advice. Each ticker has symbol, base, quote, last, bid and ask when the exchange publishes them, "
-        "plus exchange id, name and country, fetched_at and source_url. Quotes are NOK, SEK, DKK or EUR. "
+        "plus exchange id, name and country, fetched_at and source_url. "
+        "volume_base is the base asset with no named window (Firi). volume_base_24h and volume_quote_24h are the last 24 hours (NBX), in the base asset and in the quote currency. "
+        "A missing volume is null, not zero. Quotes are NOK, SEK, DKK or EUR. "
         "A failed exchange is an error with a timestamp and no price. "
         "The file is fetched again when the site is built, and a GitHub Actions job rewrites it on gh-pages about hourly. "
         "Durable URL: https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json",
         "",
+        "Aggregated prices are one row per pair: /api/v1/markets/aggregated.json. "
+        "BTC-NOK is not averaged with BTC-EUR. last is the arithmetic mean of published last prices. "
+        "mid is the mean of (bid+ask)/2 and is not mixed into last. "
+        "min and max follow the same series as price. There is no VWAP, because the volume windows do not match. "
+        "Volume sums add only the same field inside the same pair. "
+        "logo_url points at api/v1/markets/logos/{symbol}.svg when cryptocurrency-icons (CC0-1.0) includes that asset, and is null otherwise. "
+        "The same pairs, with the logo, are on /api/v1/markets/by-asset/{symbol}.json.",
+        "",
         "```",
         f"curl -fsS {feed.abs('api/v1/markets.json')}",
+        f"curl -fsS {feed.abs('api/v1/markets/aggregated.json')}",
         "curl -fsS https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json",
         "```",
         "",
@@ -1602,6 +1795,10 @@ def llms_txt(feed, index):
         "```",
         "",
         "A single news item is api/v1/news/{id}.json (the id is on each item). "
+        "primary_source is the outlet we lead with. also_covered_by is every other outlet on the same event. "
+        "sources lists them with the primary first. coverage.by_country and coverage.by_source_type "
+        "(national, regional, official, international) are the counts and shares, and empty types are included as zero. "
+        "html_url is our coverage page. url is the primary outlet. ",
         "A single newsletter issue is api/v1/newsletters/{id}.json and includes plain text and HTML. "
         "Country slices: api/v1/news/by-country/NO.json (also SE, DK, FI, IS).",
         "",
@@ -1661,7 +1858,6 @@ def head_links(base):
 
 def docs_fragment(index):
     b = index["bases"]["github_pages"]
-    c = index["bases"]["custom_domain"]
     def row(ep):
         return (
             f"<tr><td>GET</td><td><a href=\"{html.escape(ep['url'])}\"><code>{html.escape(ep['path'])}</code></a></td>"
@@ -1695,11 +1891,15 @@ def docs_fragment(index):
 <h2>Fetch news and a newsletter</h2>
 <pre>curl -fsS {news}
 curl -fsS {letters}{html.escape(one_line)}</pre>
-<p>The same paths on the custom domain, at the site root: <code>{html.escape(c)}api/v1/news.json</code>. Swap <code>{html.escape(b)}</code> for <code>{html.escape(c)}</code>.</p>
+<p>Absolute URLs use the public site, at the domain root: <code>{html.escape(b)}api/v1/news.json</code>.</p>
 <h2>Market prices</h2>
-<p>Nordic exchange prices are market data, not investment advice. <a href="{html.escape(b)}api/v1/markets.json"><code>/api/v1/markets.json</code></a> lists each pair with symbol, base, quote, last, bid and ask when the exchange publishes them, the exchange id, name and country, <code>fetched_at</code> and the source URL. Quotes are NOK, SEK, DKK and EUR. One exchange is <a href="{html.escape(b)}api/v1/markets/firi.json"><code>/api/v1/markets/{{exchange}}.json</code></a> (<code>firi</code>, <code>nbx</code>, <code>coinmotion</code>). One asset is <a href="{html.escape(b)}api/v1/markets/by-asset/BTC.json"><code>/api/v1/markets/by-asset/{{symbol}}.json</code></a>. Venues without a public ticker are listed under <code>skipped</code> and are not given a made-up price.</p>
-<p>The build fetches the exchanges. <code>.github/workflows/markets-refresh.yml</code> rewrites the JSON on gh-pages about once an hour. The markets page reloads this file, and refreshes Firi and Coinmotion in the browser because those APIs send <code>Access-Control-Allow-Origin: *</code>. NBX does not, so those rows follow the file. The same document on the gh-pages branch: <a href="https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json">raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json</a>.</p>
-<pre>curl -fsS {html.escape(b)}api/v1/markets.json</pre>
+<p>Nordic exchange prices are market data, not investment advice. <a href="{html.escape(b)}api/v1/markets.json"><code>/api/v1/markets.json</code></a> lists each pair with symbol, base, quote, last, bid and ask when the exchange publishes them, the exchange id, name and country, <code>fetched_at</code>, the source URL, and volume when the exchange published it. <code>volume_base</code> is the base asset with no named window (Firi). <code>volume_base_24h</code> and <code>volume_quote_24h</code> are the last 24 hours (NBX). A missing volume is null, not zero. Quotes are NOK, SEK, DKK and EUR. One exchange is <a href="{html.escape(b)}api/v1/markets/firi.json"><code>/api/v1/markets/{{exchange}}.json</code></a> (<code>firi</code>, <code>nbx</code>, <code>coinmotion</code>). One asset is <a href="{html.escape(b)}api/v1/markets/by-asset/BTC.json"><code>/api/v1/markets/by-asset/{{symbol}}.json</code></a>. Venues without a public ticker are listed under <code>skipped</code> and are not given a made-up price.</p>
+<p><a href="{html.escape(b)}api/v1/markets/aggregated.json"><code>/api/v1/markets/aggregated.json</code></a> is one row per pair. BTC-NOK is not averaged with BTC-EUR. <code>last</code> is the arithmetic mean of published last prices. <code>mid</code> is the mean of (bid+ask)/2 and is not mixed into <code>last</code>. <code>price</code> equals <code>last</code> when any last exists, otherwise <code>mid</code>. <code>min</code> and <code>max</code> use that same series. There is no VWAP. Volume is summed only inside the same field and the same pair. <code>logo_url</code> is an SVG from <a href="https://github.com/spothq/cryptocurrency-icons" rel="noopener">cryptocurrency-icons</a> (CC0 1.0) when that set includes the asset, served at <code>/api/v1/markets/logos/{{symbol}}.svg</code>, and null otherwise. The per-asset file repeats <code>aggregated</code> and the logo.</p>
+<p>The build fetches the exchanges. <code>.github/workflows/markets-refresh.yml</code> rewrites the JSON on gh-pages about once an hour, including the aggregated file and the icons. The markets page reloads this file, and refreshes Firi and Coinmotion in the browser because those APIs send <code>Access-Control-Allow-Origin: *</code>. NBX does not, so those rows follow the file. The same document on the gh-pages branch: <a href="https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json">raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json</a>.</p>
+<pre>curl -fsS {html.escape(b)}api/v1/markets.json
+curl -fsS {html.escape(b)}api/v1/markets/aggregated.json</pre>
+<h2>Several outlets, one story</h2>
+<p>A story keeps one primary outlet. Other outlets that covered the same event are in <code>also_covered_by</code>. <code>sources</code> lists the primary first, then the others. Each outlet has <code>outlet</code>, <code>outlet_name</code>, <code>url</code>, <code>title</code> (that outlet's headline), <code>published</code>, <code>lang</code>, <code>country</code>, <code>source_type</code> and <code>logo</code>. <code>source_type</code> is <code>national</code>, <code>regional</code> (regional and local), <code>official</code> (justice and official: police, prosecutors, courts, regulators) or <code>international</code>. <code>coverage.count</code> is the number of outlets. <code>coverage.by_country</code> and <code>coverage.by_source_type</code> are the counts and shares for the bars. Every source type is present, including a count of zero. <code>html_url</code> is our page for that story. <code>url</code> is the primary outlet. Kaupr stays a news source only.</p>
 <h2>Languages</h2>
 <p>English is the default field (<code>summary</code>, <code>title</code>, <code>text</code>). Translations that we have published sit in <code>summary_i18n</code>, <code>title_i18n</code>, <code>subtitle_i18n</code>, <code>note_i18n</code>, <code>text_i18n</code> and <code>about_i18n</code>, keyed by <code>nn</code>, <code>nb</code>, <code>sv</code>, <code>da</code>, <code>fi</code> and <code>is</code>. Other site languages use the English field until a translation is published. Headlines from other outlets stay in the original language. Dates are ISO 8601.</p>
 <p><a href="{html.escape(b)}api/v1/languages.json"><code>/api/v1/languages.json</code></a> lists every site language with <code>code</code>, <code>native_name</code>, <code>english_name</code>, <code>rtl</code>, <code>html_lang</code> and <code>home</code>. <a href="{html.escape(b)}api/v1/geo-language.json"><code>/api/v1/geo-language.json</code></a> is the country-to-language guess used on a first visit. The IP country comes from the tipworker <code>GET /api/geo</code> (Cloudflare <code>request.cf.country</code>). Nothing is stored. The <code>nc_lang</code> cookie, set by the language switcher, always wins.</p>
@@ -1709,6 +1909,8 @@ curl -fsS {letters}{html.escape(one_line)}</pre>
 <p>GitHub Pages sends <code>Access-Control-Allow-Origin: *</code> on these files, so a page on another site can <code>fetch()</code> them. GitHub Pages does not apply a custom headers file. Use the <code>.json</code> file name; opening a directory does not return the JSON.</p>
 <h2>Editorial</h2>
 <p>The sign-off is The Nordic Crypto team. Kaupr (kaupr.io) is a news source only and is never a sponsor. Nothing here is investment advice.</p>
+<h2>Brand accounts</h2>
+<p><a href="{html.escape(b)}api/v1/meta.json"><code>/api/v1/meta.json</code></a> includes <code>social</code> for the iOS app. <code>social.telegram</code> is the Nordic Crypto chat at <a href="{SITE_TELEGRAM_URL}">{html.escape(SITE_TELEGRAM_URL)}</a>. <code>social.x</code> is the brand account at <a href="{SITE_X_URL}">{html.escape(SITE_X_URL)}</a> (<code>@xcryptonordic</code>), also listed as <code>urls.x</code>. <code>urls.telegram</code> repeats the chat URL. <code>label</code> is the short name (<code>Telegram</code>, <code>X</code>). <code>name</code> is the English link text. <code>name_i18n</code> has <code>nn</code>, <code>nb</code>, <code>sv</code>, <code>da</code>, <code>fi</code> and <code>is</code>. Other site languages use <code>name</code>.</p>
 <h2>Endpoints</h2>
 <div class="tablewrap"><table class="list"><thead><tr><th>Method</th><th>Path</th><th>Returns</th></tr></thead><tbody>
 {rows}
@@ -1742,7 +1944,7 @@ def main():
     write(
         site,
         preview=preview,
-        base="https://jqrgen.github.io/nordic-crypto/",
+        base=site_url.BASE,
         items=ctx["items"],
         events=events,
         entities=ctx["ents"],
