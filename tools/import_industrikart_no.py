@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Crypto Nordic copy of Kryptonytt's importer (unchanged parsing; output goes to data/orgchart_no_raw.json, Norwegian text,
+"""Nordic Crypto copy of Kryptonytt's importer (unchanged parsing; output goes to data/orgchart_no_raw.json, Norwegian text,
 which tools/import_orgchart.py translates via data/no_en.json).
 Bygger data/orgchart.json på nytt ved hver bygging fra:
   1) researcherens redaktørgodkjente eksport (queue/approved.json -> industrikart.export), alle «ifølge …»-forbehold beholdes ordrett
@@ -82,7 +82,7 @@ def main():
         print(f"industrikart: export file is missing ({exp_path or 'not set'}); leaving data/orgchart_no_raw.json unchanged")
         return
     exp = load(exp_path, None)
-    imgs = load(P("data", "images.json"), {}); extra = {"entities": [], "relations": []}  # Crypto Nordic: no Norwegian news extras
+    imgs = load(P("data", "images.json"), {}); extra = {"entities": [], "relations": []}  # Nordic Crypto: no Norwegian news extras
     E, R, skipped = {}, [], []
     excl = set(cfg.get("exclude_institutions", []))
     for row in (exp or {}).get("rader", []):

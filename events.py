@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Events (calendar) for Crypto Nordic: Norway, Sweden, Denmark, Finland and Iceland.
+"""Events (calendar) for Nordic Crypto: Norway, Sweden, Denmark, Finland and Iceland.
 Called from fetch.py in every run, or on its own:
   .venv/bin/python events.py                     # search event_sources in sources.json
   .venv/bin/python events.py --only id,id        # one or more event sources

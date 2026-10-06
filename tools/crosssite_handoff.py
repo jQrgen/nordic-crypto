@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Samarbeid om norske nyheter mellom Kryptonytt Norge og Crypto Nordic (begge retninger, idempotent).
-  Kryptonytt -> Crypto Nordic: Kryptonytts kandidater og godkjente saker (ikke avviste) legges i Crypto Nordic sin kø som
+"""Samarbeid om norske nyheter mellom Kryptonytt Norge og Nordic Crypto (begge retninger, idempotent).
+  Kryptonytt -> Nordic Crypto: Kryptonytts kandidater og godkjente saker (ikke avviste) legges i Nordic Crypto sin kø som
                                «suggested by Kryptonytt» (country NO).
-  Crypto Nordic -> Kryptonytt: Crypto Nordic sine NO-saker (ikke avviste) legges i Kryptonytts kø som «foreslått av Crypto Nordic».
+  Nordic Crypto -> Kryptonytt: Nordic Crypto sine NO-saker (ikke avviste) legges i Kryptonytts kø som «foreslått av Nordic Crypto».
 Bare tittel, URL, kilde, dato og tagger kopieres – aldri oppsummeringer eller teasere. Alt havner som status «pending»:
-hver redaksjon bestemmer selv og skriver sin egen oppsummering (Kryptonytt på norsk, Crypto Nordic på engelsk). Publiserer aldri.
+hver redaksjon bestemmer selv og skriver sin egen oppsummering (Kryptonytt på norsk, Nordic Crypto på engelsk). Publiserer aldri.
 Dedup: kanonisk URL mot ALLE saker i målet (også avviste) og målets approved.json -> rejected.
-Kalles fra ./fetch.sh (Kryptonytt) og routines/nightly-fetch.sh (Crypto Nordic). Identisk kopi ligger i begge repoene.
+Kalles fra ./fetch.sh (Kryptonytt) og routines/nightly-fetch.sh (Nordic Crypto). Identisk kopi ligger i begge repoene.
 Stier kan overstyres med KRYPTONYTT_DIR / NORDIC_CRYPTO_DIR.  Bruk: python3 tools/crosssite_handoff.py [--dry-run]"""
 import datetime as dt, fcntl, importlib.util, json, os, re, sys, urllib.parse
 KN = os.environ.get("KRYPTONYTT_DIR", "/workspace/kryptonytt"); NC = os.environ.get("NORDIC_CRYPTO_DIR", "/workspace/nordic-crypto")
@@ -100,11 +100,11 @@ def main():
         return {"title": it["title"], "source": it.get("source"), "source_name": it.get("source_name") or it.get("source"),
                 "via": "nordic-crypto", "seen_via": ["nordic-crypto"], "published": it["published"],
                 "topics": sorted({TOPIC_NC_TO_KN.get(t, t) for t in it.get("topics", [])}), "matched": [], "paywall": bool(it.get("paywall")),
-                "suggested_by": "Crypto Nordic", "origin": "tips fra Crypto Nordic", "suggested_status": "godkjent hos Crypto Nordic" if it.get("status") == "published" else "kandidat hos Crypto Nordic",
+                "suggested_by": "Nordic Crypto", "origin": "tips fra Nordic Crypto", "suggested_status": "godkjent hos Nordic Crypto" if it.get("status") == "published" else "kandidat hos Nordic Crypto",
                 "suggested_at": NOW}
     handoff(KN, NC, lambda i: i.get("status") in ("pending", "published"), kn_to_nc,
-            ("id", "country", "language", "title", "source_name", "url", "published", "topics", "suggested_by", "origin", "suggested_status"), "Kryptonytt -> Crypto Nordic", dry)
+            ("id", "country", "language", "title", "source_name", "url", "published", "topics", "suggested_by", "origin", "suggested_status"), "Kryptonytt -> Nordic Crypto", dry)
     handoff(NC, KN, lambda i: i.get("country") == "NO" and i.get("status") in ("pending", "published"), nc_to_kn,
-            ("id", "title", "source_name", "url", "published", "topics", "suggested_by", "origin", "suggested_status"), "Crypto Nordic -> Kryptonytt", dry)
+            ("id", "title", "source_name", "url", "published", "topics", "suggested_by", "origin", "suggested_status"), "Nordic Crypto -> Kryptonytt", dry)
 
 if __name__ == "__main__": main()

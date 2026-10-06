@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Crypto Nordic tip server (Python stdlib only). Listens on localhost; will later be exposed via a Cloudflare tunnel.
+"""Nordic Crypto tip server (Python stdlib only). Listens on localhost; will later be exposed via a Cloudflare tunnel.
   POST /api/tip     JSON or form fields: url (required, http/https), country (NO/SE/DK/FI/IS/unsure), note (<=1000 chars),
                     name (optional, <=100 chars), website (honeypot: must be empty). Stored in SQLite as status 'pending'.
   GET  /api/health  {"ok": true}

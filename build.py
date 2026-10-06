@@ -1330,6 +1330,7 @@ def events_for_site():
         if e["id"] in ap.get("paid", {}): e["paid"] = ap["paid"][e["id"]]
         if e["status"] == "published": e["note"] = ap.get("notes", {}).get(e["id"])  # archive/public: editor's note only
         e["note_i18n"] = (ap.get("notes_i18n") or {}).get(e["id"]) if e.get("note") else None
+        site_url.brand_note(e)  # approved.json is local and may still reverse the brand name
         e["past"] = dt.datetime.fromisoformat(e.get("end") or e["start"]) < now
         out.append({k: e.get(k) for k in ("id", "title", "title_orig", "start", "end", "place", "city", "country", "online", "organiser", "url", "source", "paid", "sponsored", "note", "note_i18n", "past", "status")})
     # Archive (committed to git): every event ever approved. jQrgen's rule: finished events are NEVER deleted, they move to
@@ -1345,6 +1346,7 @@ def events_for_site():
     for e in ark["events"]:  # archived events that have dropped out of data/events.json (e.g. finished ones)
         if e["id"] in seen or e["id"] in ap.get("reject", []): continue  # rejected: hidden, but kept in the archive
         e = dict(e); e["note_i18n"] = e.get("note_i18n") or ((ap.get("notes_i18n") or {}).get(e["id"]) if e.get("note") else None)
+        site_url.brand_note(e)
         e["past"] = dt.datetime.fromisoformat(e.get("end") or e["start"]) < now; out.append(e)
     return sorted(out, key=lambda e: dt.datetime.fromisoformat(e["start"])), now
 

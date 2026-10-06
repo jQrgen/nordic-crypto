@@ -15,7 +15,7 @@ Two channels:
 
 ## 1. Publication
 
-**Live embed title is not set by this site.** The iframe `https://cryptonordic.substack.com/embed` still shows the publication name **“jQrgen's Substack”** and the description **“My personal Substack”** (checked 2026-10-05). The site only chooses that URL (`newsletter/config.json` → `substack_url`). Rename it in Substack: Settings → Publication details → publication name **Nordic Crypto**, and replace the description. Sender name: **Nordic Crypto**. The subdomain stays **cryptonordic.substack.com**. The public site name is Nordic Crypto; do not set the publication name back to Crypto Nordic.
+**Live embed title is not set by this site.** The iframe `https://cryptonordic.substack.com/embed` still shows the publication name **“jQrgen's Substack”** and the description **“My personal Substack”** (checked 2026-10-05). The site only chooses that URL (`newsletter/config.json` → `substack_url`). Rename it in Substack: Settings → Publication details → publication name **Nordic Crypto**, and replace the description. Sender name: **Nordic Crypto**. The subdomain stays **cryptonordic.substack.com**. The public site name is Nordic Crypto. Keep that word order in the publication name.
 
 | Field | Proposal |
 |---|---|

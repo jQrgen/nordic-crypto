@@ -3,7 +3,7 @@
 //   MAIL_PROVIDER = "resend" | "webhook"     (default / unset: "none" – nothing is sent)
 //   MAIL_SEND_ENABLED = "1"
 // Provider settings (wrangler secrets / vars, never committed):
-//   resend:  RESEND_API_KEY, MAIL_FROM_<SITE> e.g. MAIL_FROM_NORDIC_CRYPTO = "Crypto Nordic <FROM-ADDRESS>" (jQrgen chooses the address)
+//   resend:  RESEND_API_KEY, MAIL_FROM_<SITE> e.g. MAIL_FROM_NORDIC_CRYPTO = "Nordic Crypto <FROM-ADDRESS>" (jQrgen chooses the address)
 //   webhook: MAIL_WEBHOOK_URL (https), MAIL_WEBHOOK_TOKEN – POSTs {to, from, subject, text, site, lang, kind} as JSON, for
 //            any other service (e.g. a small relay in front of Buttondown or Postmark).
 // Buttondown / Substack: they run their own double opt-in, so with them this Worker would only collect confirmed

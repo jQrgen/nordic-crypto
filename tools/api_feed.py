@@ -543,6 +543,7 @@ def public_events(preview, now=None):
         if e.get("status") == "published":
             e["note"] = ap.get("notes", {}).get(e["id"])
         e["note_i18n"] = (ap.get("notes_i18n") or {}).get(e["id"]) if e.get("note") else None
+        site_url.brand_note(e)  # same correction as build.events_for_site; approved.json is local
         end = e.get("end") or e["start"]
         e["past"] = dt.datetime.fromisoformat(end) < now
         out.append(e)
@@ -553,6 +554,7 @@ def public_events(preview, now=None):
             continue
         e = dict(raw)
         e["note_i18n"] = e.get("note_i18n") or ((ap.get("notes_i18n") or {}).get(e["id"]) if e.get("note") else None)
+        site_url.brand_note(e)
         end = e.get("end") or e.get("start")
         if not end:
             continue
