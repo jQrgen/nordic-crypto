@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T18:09:15+00:00",
+ "generated_at": "2026-10-06T22:02:53+00:00",
  "preview": false,
  "country": "NO",
  "count": 20,
@@ -70,14 +70,14 @@
    "source": "Oslo Blockchain Meetup (Meetup.com)",
    "paid": null,
    "sponsored": null,
-   "note": "Disclosure: the speaker, Jørgen S. Notland, is the publisher of Crypto Nordic.",
+   "note": "Disclosure: the speaker, Jørgen S. Notland, is the publisher of Nordic Crypto.",
    "note_i18n": {
-    "nn": "Til opplysing: foredragshaldaren, Jørgen S. Notland, er utgjevar av Crypto Nordic.",
-    "nb": "Til opplysning: foredragsholderen, Jørgen S. Notland, er utgiver av Crypto Nordic.",
-    "sv": "Upplysning: talaren, Jørgen S. Notland, är utgivare av Crypto Nordic.",
-    "da": "Oplysning: foredragsholderen, Jørgen S. Notland, er udgiver af Crypto Nordic.",
-    "fi": "Tiedoksi: puhuja Jørgen S. Notland on Crypto Nordicin julkaisija.",
-    "is": "Til upplýsingar: fyrirlesarinn, Jørgen S. Notland, er útgefandi Crypto Nordic."
+    "nn": "Til opplysing: foredragshaldaren, Jørgen S. Notland, er utgjevar av Nordic Crypto.",
+    "nb": "Til opplysning: foredragsholderen, Jørgen S. Notland, er utgiver av Nordic Crypto.",
+    "sv": "Upplysning: talaren, Jørgen S. Notland, är utgivare av Nordic Crypto.",
+    "da": "Oplysning: foredragsholderen, Jørgen S. Notland, er udgiver af Nordic Crypto.",
+    "fi": "Tiedoksi: puhuja Jørgen S. Notland on Nordic Crypton julkaisija.",
+    "is": "Til upplýsingar: fyrirlesarinn, Jørgen S. Notland, er útgefandi Nordic Crypto."
    },
    "past": false,
    "html_url": "https://nordiccrypto.no/calendar/#e-a1ea7afabcb0",

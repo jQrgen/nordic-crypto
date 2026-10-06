@@ -18,8 +18,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "89ced460e4ca",
@@ -45,8 +45,8 @@
     "fi": "Maksullinen (239 Norjan kruunua muille kuin jäsenille).",
     "is": "Aðgangseyrir (239 norskar krónur fyrir utanfélagsmenn)."
    },
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "c4a53ca9bd26",
@@ -65,8 +65,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "c6ee9cd06582",
@@ -85,8 +85,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "fe5a28d3a7b1",
@@ -105,8 +105,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "3ce4714a96ee",
@@ -125,8 +125,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "0b098c935814",
@@ -145,8 +145,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "a1ea7afabcb0",
@@ -163,17 +163,17 @@
    "source": "Oslo Blockchain Meetup (Meetup.com)",
    "paid": null,
    "sponsored": null,
-   "note": "Disclosure: the speaker, Jørgen S. Notland, is the publisher of Crypto Nordic.",
+   "note": "Disclosure: the speaker, Jørgen S. Notland, is the publisher of Nordic Crypto.",
    "note_i18n": {
-    "nn": "Til opplysing: foredragshaldaren, Jørgen S. Notland, er utgjevar av Crypto Nordic.",
-    "nb": "Til opplysning: foredragsholderen, Jørgen S. Notland, er utgiver av Crypto Nordic.",
-    "sv": "Upplysning: talaren, Jørgen S. Notland, är utgivare av Crypto Nordic.",
-    "da": "Oplysning: foredragsholderen, Jørgen S. Notland, er udgiver af Crypto Nordic.",
-    "fi": "Tiedoksi: puhuja Jørgen S. Notland on Crypto Nordicin julkaisija.",
-    "is": "Til upplýsingar: fyrirlesarinn, Jørgen S. Notland, er útgefandi Crypto Nordic."
+    "nn": "Til opplysing: foredragshaldaren, Jørgen S. Notland, er utgjevar av Nordic Crypto.",
+    "nb": "Til opplysning: foredragsholderen, Jørgen S. Notland, er utgiver av Nordic Crypto.",
+    "sv": "Upplysning: talaren, Jørgen S. Notland, är utgivare av Nordic Crypto.",
+    "da": "Oplysning: foredragsholderen, Jørgen S. Notland, er udgiver af Nordic Crypto.",
+    "fi": "Tiedoksi: puhuja Jørgen S. Notland on Nordic Crypton julkaisija.",
+    "is": "Til upplýsingar: fyrirlesarinn, Jørgen S. Notland, er útgefandi Nordic Crypto."
    },
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "2c0704b0bf52",
@@ -192,8 +192,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "0c744bd96cff",
@@ -212,8 +212,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "017a309037ae",
@@ -232,8 +232,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "a6cadcf35c22",
@@ -252,8 +252,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "ce0c87469bd8",
@@ -272,8 +272,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "ea150fe9ef9b",
@@ -292,8 +292,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "4e7eab1452a5",
@@ -312,8 +312,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "598739cc10bf",
@@ -332,8 +332,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "ed69ddbb7864",
@@ -352,8 +352,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "f2948688b4d9",
@@ -372,8 +372,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "972a763fbea5",
@@ -392,8 +392,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "566436a85a36",
@@ -412,8 +412,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "6bea6c0988e3",
@@ -432,8 +432,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "75cea2d3fc90",
@@ -452,8 +452,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "25bf77bad280",
@@ -472,8 +472,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "7adc8e1ede97",
@@ -492,8 +492,8 @@
    "sponsored": "Reese Legal",
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "3288cda49d6c",
@@ -512,8 +512,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "24ebb5b62ebf",
@@ -532,8 +532,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "91b9074db1b1",
@@ -552,8 +552,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "e884ba1f0333",
@@ -572,8 +572,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "451cf5765bfc",
@@ -592,8 +592,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "19b92e24ee50",
@@ -612,8 +612,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "c2857e1ace80",
@@ -632,8 +632,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "68a232990540",
@@ -652,8 +652,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "a54726dd0516",
@@ -672,8 +672,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "e45a15da257b",
@@ -692,8 +692,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "8d15b35ea642",
@@ -712,8 +712,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "86f923a87b0f",
@@ -732,8 +732,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "de007b1d355f",
@@ -752,8 +752,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "3c7c538ff512",
@@ -779,8 +779,8 @@
     "fi": "Osuu uudenvuodenpäivälle: tarkista järjestäjän sivu ennen lähtöä.",
     "is": "Ber upp á nýársdag: athugaðu síðu skipuleggjandans áður en þú ferð."
    },
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "bb519b9dfd20",
@@ -799,8 +799,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "5e77711287d9",
@@ -819,8 +819,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "f72cf971aa83",
@@ -839,8 +839,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "dd00441b09a9",
@@ -859,8 +859,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "6678abcc27a2",
@@ -879,8 +879,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "d898cf416e20",
@@ -899,8 +899,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "512348fcc819",
@@ -919,8 +919,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "e02d02bc90be",
@@ -939,8 +939,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "bcc9d52e6209",
@@ -959,8 +959,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "cf05fff07405",
@@ -979,8 +979,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "2c64b2595ac6",
@@ -999,8 +999,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "105f743dcf3d",
@@ -1019,8 +1019,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "f6f5b57b1403",
@@ -1039,8 +1039,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "c99504ca7f3f",
@@ -1059,8 +1059,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "2e368ae4e305",
@@ -1079,8 +1079,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "48e7c0a06a9a",
@@ -1099,8 +1099,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "751f63aebfc3",
@@ -1119,8 +1119,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "559010797e82",
@@ -1139,8 +1139,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "579c5a12cd20",
@@ -1159,8 +1159,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "d75d7014a0a1",
@@ -1179,8 +1179,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "f048fb72d579",
@@ -1199,8 +1199,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "7ef91a6a3bee",
@@ -1219,8 +1219,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "abfe126b4693",
@@ -1239,8 +1239,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "45cc7dbf3d08",
@@ -1259,8 +1259,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "5da62cc01ba5",
@@ -1279,8 +1279,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "4890c4caa4f8",
@@ -1299,8 +1299,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "55ccbf2ba429",
@@ -1319,8 +1319,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "e23218e45af6",
@@ -1339,8 +1339,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "9d7896f3cdb0",
@@ -1359,8 +1359,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "e9405130bad7",
@@ -1379,8 +1379,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "c37c1696b269",
@@ -1399,8 +1399,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "606299f6ced2",
@@ -1419,8 +1419,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "522a1cf31028",
@@ -1439,8 +1439,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "f08ee3f85c65",
@@ -1459,8 +1459,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "eb8075390ccd",
@@ -1479,8 +1479,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "63de65ff81cf",
@@ -1499,8 +1499,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "0b4a03cda83d",
@@ -1519,8 +1519,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "bfaa6fc43e63",
@@ -1539,8 +1539,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "783a8fcb7f18",
@@ -1559,8 +1559,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "64b38bbdc84c",
@@ -1579,8 +1579,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "e4f4fdaab927",
@@ -1599,8 +1599,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "a335d278580e",
@@ -1619,8 +1619,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "49f243745355",
@@ -1639,8 +1639,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "1a6ce600f68c",
@@ -1659,8 +1659,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "e8e61dc0a757",
@@ -1679,8 +1679,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "f6b244e1d0ff",
@@ -1699,8 +1699,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "bdd6931439b9",
@@ -1719,8 +1719,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "c9659a9d8e7c",
@@ -1739,8 +1739,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "9043fbdf3243",
@@ -1759,8 +1759,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "3d25d5db086a",
@@ -1779,8 +1779,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "3b6aa186df17",
@@ -1799,8 +1799,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "f0a0b05f1520",
@@ -1819,8 +1819,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "ef41b7907941",
@@ -1839,8 +1839,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "b6b14cc1f0de",
@@ -1859,8 +1859,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "8c63f490b5b2",
@@ -1879,8 +1879,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "4d7f1ab2a56e",
@@ -1899,8 +1899,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   }
  ]
 }
