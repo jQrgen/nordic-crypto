@@ -64,7 +64,7 @@ class PublishKeep(unittest.TestCase):
             timeout=60,
         )
         self.assertEqual(r.returncode, 0, r.stderr)
-        self.assertEqual(r.stdout, "cryptonordic.no\n")
+        self.assertEqual(r.stdout, "nordiccrypto.no\n")
 
     def test_stage_preserves_keep_and_replaces_built_trees(self):
         tmp = tempfile.mkdtemp(prefix="nc-stage-")
@@ -75,13 +75,13 @@ class PublishKeep(unittest.TestCase):
         os.makedirs(os.path.join(dest, "markets"))
         os.makedirs(os.path.join(src, "markets"))
         open(os.path.join(dest, ".git", "HEAD"), "w").write("ref: refs/heads/gh-pages\n")
-        open(os.path.join(dest, "CNAME"), "w").write("cryptonordic.no\n")
+        open(os.path.join(dest, "CNAME"), "w").write("nordiccrypto.no\n")
         open(os.path.join(dest, "kiosk", "web", "index.html"), "w").write("kiosk\n")
         open(os.path.join(dest, "doomed.txt"), "w").write("gone\n")
         open(os.path.join(dest, "markets", "index.html"), "w").write("OLD\n")
         open(os.path.join(dest, "markets", "stale.txt"), "w").write("stale\n")
         open(os.path.join(src, "index.html"), "w").write("NEW\n")
-        open(os.path.join(src, "CNAME"), "w").write("cryptonordic.no\n")
+        open(os.path.join(src, "CNAME"), "w").write("nordiccrypto.no\n")
         open(os.path.join(src, "markets", "index.html"), "w").write("NEW\n")
         keep = os.path.join(tmp, "keep.txt")
         open(keep, "w").write("# comment\nCNAME\nkiosk/\nextra\n")
@@ -89,7 +89,7 @@ class PublishKeep(unittest.TestCase):
         open(os.path.join(dest, "extra", "note.txt"), "w").write("keep me\n")
         r = stage(dest, src, keep)
         self.assertEqual(r.returncode, 0, r.stderr)
-        self.assertEqual(open(os.path.join(dest, "CNAME"), encoding="utf-8").read(), "cryptonordic.no\n")
+        self.assertEqual(open(os.path.join(dest, "CNAME"), encoding="utf-8").read(), "nordiccrypto.no\n")
         self.assertEqual(open(os.path.join(dest, "kiosk", "web", "index.html"), encoding="utf-8").read(), "kiosk\n")
         self.assertEqual(open(os.path.join(dest, "extra", "note.txt"), encoding="utf-8").read(), "keep me\n")
         self.assertEqual(open(os.path.join(dest, "index.html"), encoding="utf-8").read(), "NEW\n")
@@ -120,13 +120,13 @@ class PublishKeep(unittest.TestCase):
         dest, src = os.path.join(tmp, "publish"), os.path.join(tmp, "site")
         os.makedirs(dest)
         os.makedirs(src)
-        open(os.path.join(dest, "CNAME"), "w").write("cryptonordic.no\n")
+        open(os.path.join(dest, "CNAME"), "w").write("nordiccrypto.no\n")
         open(os.path.join(dest, "doomed.txt"), "w").write("stay\n")
         open(os.path.join(src, "CNAME"), "w").write("example.com\n")
         r = stage(dest, src, KEEP)
         self.assertNotEqual(r.returncode, 0)
         self.assertIn("lacks CNAME", r.stderr)
-        self.assertEqual(open(os.path.join(dest, "CNAME"), encoding="utf-8").read(), "cryptonordic.no\n")
+        self.assertEqual(open(os.path.join(dest, "CNAME"), encoding="utf-8").read(), "nordiccrypto.no\n")
         self.assertTrue(os.path.exists(os.path.join(dest, "doomed.txt")))
 
     def test_stage_keeps_existing_cname_when_site_has_none(self):
@@ -135,12 +135,12 @@ class PublishKeep(unittest.TestCase):
         dest, src = os.path.join(tmp, "publish"), os.path.join(tmp, "site")
         os.makedirs(os.path.join(dest, "kiosk"))
         os.makedirs(src)
-        open(os.path.join(dest, "CNAME"), "w").write("cryptonordic.no\n")
+        open(os.path.join(dest, "CNAME"), "w").write("nordiccrypto.no\n")
         open(os.path.join(dest, "kiosk", "VERSION"), "w").write("1\n")
         open(os.path.join(src, "index.html"), "w").write("NEW\n")
         r = stage(dest, src, KEEP)
         self.assertEqual(r.returncode, 0, r.stderr)
-        self.assertEqual(open(os.path.join(dest, "CNAME"), encoding="utf-8").read(), "cryptonordic.no\n")
+        self.assertEqual(open(os.path.join(dest, "CNAME"), encoding="utf-8").read(), "nordiccrypto.no\n")
         self.assertEqual(open(os.path.join(dest, "index.html"), encoding="utf-8").read(), "NEW\n")
         self.assertEqual(open(os.path.join(dest, "kiosk", "VERSION"), encoding="utf-8").read(), "1\n")
 
@@ -162,7 +162,7 @@ class PublishKeep(unittest.TestCase):
             ["python3", "-c", "import site_url; print(site_url.HOST)"],
             cwd=ROOT, capture_output=True, text=True, timeout=30,
         )
-        self.assertEqual(host.stdout.strip(), "cryptonordic.no", host.stderr)
+        self.assertEqual(host.stdout.strip(), "nordiccrypto.no", host.stderr)
 
     def test_wait_url_warns_quickly_and_accepts_200(self):
         r = subprocess.run(

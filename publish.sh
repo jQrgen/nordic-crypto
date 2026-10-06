@@ -105,7 +105,7 @@ CUSTOM="$URL"
 # on the first approved publish, stamp the launch date into changelog.json (entries dated "launch")
 [ "$DRY" = "--yes" ] && .venv/bin/python -c "import json,datetime;p='changelog.json';d=json.load(open(p));d['launch_date']=d.get('launch_date') or datetime.date.today().isoformat();json.dump(d,open(p,'w'),ensure_ascii=False,indent=1)"
 # build.py also fetches Nordic exchange prices into site/api/v1/markets.json (tools/markets.py)
-# and always writes site/CNAME (cryptonordic.no)
+# and always writes site/CNAME (nordiccrypto.no)
 .venv/bin/python build.py            # never --preview here
 [ -e site/.preview ] && { echo "refusing: site/ is a preview build"; exit 1; }
 .venv/bin/python tools/privacy_gate.py site

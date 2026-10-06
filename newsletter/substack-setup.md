@@ -21,7 +21,7 @@ Two channels:
 |---|---|
 | Publication name | **Nordic Crypto** |
 | Subdomain | **cryptonordic.substack.com** – created by jQrgen on 2026-10-05 (https://cryptonordic.substack.com, HTTP 200; `/subscribe` HTTP 200). |
-| Custom domain (optional, paid add-on) | not needed; the site is https://cryptonordic.no/ |
+| Custom domain (optional, paid add-on) | not needed; the site is https://nordiccrypto.no/ |
 | Language (Settings › Publication details) | English |
 | Sender name ("From" name) | **Nordic Crypto** (alternative: "Nordic Crypto – jQrgen") |
 | Reply-to | jQrgen decides (no public email address exists today; do **not** use a private address without deciding) |
@@ -46,7 +46,7 @@ Short Nordic variants (for the about page or social posts):
 >
 > The summaries are made with the help of artificial intelligence, with human editors (jQrgen and the Nordic Crypto editor). Jørgen S. Notland (jQrgen), Oslo, is the
 > responsible person. Nothing here is investment advice. The website also has a calendar of Nordic crypto events and a
-> who's who of the people and organisations in the field: https://cryptonordic.no/
+> who's who of the people and organisations in the field: https://nordiccrypto.no/
 >
 > Kaupr (kaupr.io) is one of the news sources we follow. Stories from Kaupr are credited to Kaupr.
 
@@ -81,7 +81,7 @@ Suggested accent colour in Substack's theme: **#0f5ea8**.
 > source. Some sources may require a subscription; we say so next to the story.
 >
 > Jørgen S. Notland (jQrgen) in Oslo is the responsible person. Nothing in the newsletter is investment advice. Spotted a mistake or a story we missed? Use
-> "Send a tip" on the website: https://cryptonordic.no/tip/
+> "Send a tip" on the website: https://nordiccrypto.no/tip/
 >
 > Kaupr (kaupr.io) is one of the news sources we follow. Stories from Kaupr are credited to Kaupr.
 >
