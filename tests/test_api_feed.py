@@ -86,6 +86,18 @@ def main():
                 fails.append("published not ISO " + item["id"])
             if item.get("source") == "kaupr" and "news source" not in (item.get("source_note") or ""):
                 fails.append("kaupr source note missing")
+            if item.get("source") == "kaupr":
+                logo = item.get("source_logo") or {}
+                if not str(logo.get("file_url") or "").endswith("/assets/img/logos/kaupr.webp"):
+                    fails.append("kaupr logo missing")
+            if item.get("source") == "fi-se":
+                logo = item.get("source_logo") or {}
+                if not str(logo.get("file_url") or "").endswith("/assets/img/logos/se-fi.svg"):
+                    fails.append("fi-se logo not aliased")
+            if item.get("source") == "e24" and item.get("source_logo"):
+                fails.append("unchecked e24 logo published")
+            if item.get("source") == "nordic-crypto" and item.get("source_logo"):
+                fails.append("invented Nordic Crypto logo")
         letters = json.load(open(os.path.join(tmp, "api/v1/newsletters.json"), encoding="utf-8"))
         if not any(i["id"] == "001" for i in letters["issues"]):
             fails.append("newsletter 001 missing")

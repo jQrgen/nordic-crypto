@@ -1,0 +1,30 @@
+# Nordic Crypto — Regulation explainer: Norway (NO)
+Voice: en-GB-ThomasNeural (edge-tts, rate +2%). Brand on screen and in voice: Nordic Crypto.
+Sign-off: The Nordic Crypto team. No Kaupr-as-sponsor. Never say «made with AI» in the opener or narration.
+Layout: never centered — left-weighted newsreel lower-thirds (match newsletter/issues/001-video-v2).
+Facts: rules.json (approved) + orgchart regulation. Checked October 2026.
+
+[bumper @ 0.0s, bumper]
+(music/stinger only — reuse newsreel brass jingle pattern; ~5.5s)
+
+[open @ 5.5s, title]
+Good evening. This is Nordic Crypto. Tonight: how crypto and bitcoin rules are decided and enforced in Norway.
+
+[path @ ~18s, section - THE LEGAL PATH]
+Norway and Iceland are in the European Economic Area, not the EU. MiCA reaches them through the EEA Agreement, then national law.
+MiCA applies in Norway through the EEA Agreement, given effect by the Crypto-Assets Act from 1 July 2025.
+
+[actors @ ~40s, section - WHO DECIDES]
+In Norway, Finansdepartementet prepares the financial-markets bills. Stortinget adopts the national acts. The national law that shapes crypto supervision here is the Crypto-Assets Act: Lov om kryptoeiendeler (LOV-2025-05-27-20).
+
+[supervise @ ~65s, section - WHO SUPERVISES]
+Finanstilsynet is the financial supervisor that licences and oversees crypto-asset service providers under MiCA. Norges Bank oversees payment systems and studies central-bank digital currency; it is not the MiCA licensing authority.
+
+[enforce @ ~90s, section - WHO ENFORCES]
+Suspicious transactions are reported to the financial intelligence unit: Økokrim. Tax on crypto-assets is handled by Skatteetaten. Disputes and appeals go to the ordinary courts (tingrett, lagmannsrett, Høyesterett).
+
+[status @ ~115s, section - WHERE THINGS STAND]
+Six CASPs authorised by Finanstilsynet as of 3 Oct 2026: Týr Markets, Firi, K33 Markets, Bare Bitcoin, NBX and AK Jensen Norway. A temporary ban on new power-intensive crypto data centres is being studied but not adopted.
+
+[signoff @ ~140s, end]
+That is how the rules work in Norway. For the full map across Norway, Sweden, Denmark, Finland and Iceland, with a source for every step, see the Nordic Crypto rules page. Nothing here is legal advice. The Nordic Crypto team. Good night.

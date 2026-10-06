@@ -81,6 +81,8 @@ ol.news li{padding:14px 0;border-bottom:1px solid var(--line)}
 ol.news h3{font-size:18px;line-height:1.3;margin:0 0 4px}ol.news h3 a{text-decoration:none}ol.news h3 a:hover{text-decoration:underline}
 .orig{font-size:13.5px;color:var(--muted);margin:0 0 3px}
 .meta{font-size:13.5px;color:var(--muted)}.meta b{color:var(--ink);font-weight:600}
+.src{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;vertical-align:middle;text-align:start}
+.src-logo{height:18px;width:auto;max-width:96px;object-fit:contain;flex:none;background:#fff;padding:1px}
 .tag{display:inline-block;font-size:12px;padding:0 6px;border:1px solid var(--line);margin-left:4px;color:var(--muted)}
 .tag.pend{border-color:var(--warm);color:var(--warm);font-weight:600}.tag.paid{border-color:var(--warm);color:var(--warm)}
 .sum{margin:6px 0 0;max-width:75ch;line-height:1.45;text-align:left}.sum.pend{color:var(--warm);font-style:italic}
@@ -500,6 +502,36 @@ def L18(obj, key, i18n_key=None):
     v = ((obj.get(i18n_key or key + "_i18n") or {}).get(LANG)) if LANG != "en" else None
     return (v, LANG) if v else (obj.get(key), "en")
 def lang_attr(l): return "" if l == LANG else f' lang="{l}"'
+def _source_logos():
+    sys.path.insert(0, P("tools"))
+    import source_logos
+    return source_logos
+def copy_repo_file(rel):
+    srcp = P(rel)
+    if not rel or not os.path.exists(srcp): return
+    dst = os.path.join(SITE, rel); os.makedirs(os.path.dirname(dst), exist_ok=True); shutil.copy(srcp, dst)
+def attach_source_logos(items):
+    """Put a checked outlet logo on each story. No logo: the name stays text only."""
+    sl = _source_logos()
+    for i in items:
+        lg = sl.for_source(i.get("source"), preview=PREVIEW)
+        if not lg:
+            i.pop("source_logo", None); continue
+        pub = {k: lg[k] for k in ("file", "source", "source_url", "license", "author") if lg.get(k)}
+        if lg.get("pending"): pub["pending"] = True
+        i["source_logo"] = pub
+        copy_repo_file(lg.get("file"))
+def source_mark(i, root=""):
+    """Outlet logo, then the source name, in one left-aligned (or RTL start-aligned) row. Text only when there is no logo."""
+    name = i.get("source_name") or ""
+    lg = i.get("source_logo")
+    if lg is None and i.get("source"):
+        lg = _source_logos().for_source(i.get("source"), preview=PREVIEW)
+    img = ""
+    if lg and lg.get("file"):
+        pend = f' title="{E(t("pending"))}"' if lg.get("pending") else ""
+        img = f'<img class="src-logo" src="{root}{E(lg["file"])}" alt="" height="18" loading="lazy"{pend}>'
+    return f'<span class="src">{img}<b>{E(name)}</b></span>'
 
 def build():
     global LANG
@@ -518,7 +550,8 @@ def build():
     ctx = {"news": news, "org": org, "cfg": cfg, "status": status, "approved": approved, "pending": pending, "blurbs": load_blurbs()}
     LANG = "en"; ctx["stories"] = build_stories(write=False)
     items = sorted(approved + pending + ctx["stories"], key=lambda i: i["published"], reverse=True); ctx["items"] = items
-    keys = ("id", "url", "title", "title_en", "source", "source_name", "country", "language", "published", "topics", "summary", "summary_i18n", "paywall", "links", "status", "own_story")
+    attach_source_logos(items)
+    keys = ("id", "url", "title", "title_en", "source", "source_name", "source_logo", "country", "language", "published", "topics", "summary", "summary_i18n", "paywall", "links", "status", "own_story")
     pub_items = [{k: i.get(k) for k in keys if k in i} for i in items]
     for i in pub_items:
         if i.get("status") not in ("published", "owner"): i["summary"] = None; i.pop("summary_i18n", None); i["status"] = "pending"
@@ -775,6 +808,7 @@ def build_markets(ctx):
 def build_lang(ctx):
     items, pending = ctx["items"], ctx["pending"]
     # ---- News ----
+    asset = "" if LANG == "en" else "../"
     srcs = sorted({(i["source"], i["source_name"]) for i in items}, key=lambda x: x[1].lower())
     lis = []
     for i in items:
@@ -806,7 +840,7 @@ def build_lang(ctx):
         hl = "" if head_l == LANG else f' lang="{head_l}"'
         lis.append(f'<li data-src="{E(i["source"])}" data-c="{E(i.get("country"))}" data-topics="{E(" ".join(i["topics"]))}">'
                    f'<h3><a href="{E(i["url"])}"{"" if i.get("own_story") else " rel=noopener target=_blank"}{hl}>{E(head)}</a></h3>{orig}'
-                   f'<div class="meta">{flag(i.get("country"))} {E(cname(i.get("country")))} · <b>{E(i["source_name"])}</b> · <time datetime="{E(i["published"])}">{endate(i["published"])}</time>{lang}{pw} {tags}'
+                   f'<div class="meta">{flag(i.get("country"))} {E(cname(i.get("country")))} · {source_mark(i, asset)} · <time datetime="{E(i["published"])}">{endate(i["published"])}</time>{lang}{pw} {tags}'
                    + (f' <span class="tag pend">{E(t("pending"))}</span>' if pend else "") + (f' <span class="tag pend">{E(t("owner"))}</span>' if own else "")
                    + (f' <span class="tag">{E(t("our_story"))}</span>' if i.get("own_story") else "") + f'</div>{summ}'
                    + "".join(f'<div class="meta">↳ <a href="{E(l["url"])}" rel="noopener" target="_blank">{E(l["label"])}</a></div>' for l in i.get("links", []) or []) + '</li>')
@@ -848,6 +882,7 @@ sel.addEventListener('change',function(){apply(1)});tc.concat(cc).forEach(functi
     build_columnist()
     build_newsletter()
     build_rules(ctx)
+    build_regulation_videos(ctx)
     about = lang_template("about").replace("{{UP}}", up1())
     page("about", t("about_title"), "about", about, t("about_desc"))
     build_ethics()
@@ -1007,7 +1042,7 @@ def build_stories(write=True):
             note = t("story_only_en")
             body = (f'<p class="meta"><a href="../../">{E(t("back_news"))}</a></p>' + (f'<p class="notice">{E(note)}</p>' if note and art_l == "en" and LANG != "en" else "")
                     + f'<article class="prose"{lang_attr(art_l)}><h1>{E(title)}</h1>'
-                    f'<p class="meta">{flag(country)} {E(cname(country))} · Nordic Crypto · {endate(pub)}'
+                    f'<p class="meta">{flag(country)} {E(cname(country))} · {source_mark({"source": "nordic-crypto", "source_name": "Nordic Crypto"}, up1() + "../")} · {endate(pub)}'
                     + (f' <span class="tag pend">{E(t("owner"))}</span>' if status == "owner" else "") + '</p>'
                     + "".join(f"<p>{md_inline(x)}</p>" for x in paras)
                     + f'<h2>{E(t("sources_h"))}</h2><ul>' + "".join(f"<li>{md_inline(s)}</li>" for s in srcs) + '</ul></article>'
@@ -1324,5 +1359,12 @@ def build_rules(ctx):
     try: import rules_page
     except ImportError: return
     rules_page.build(sys.modules[__name__], ctx)
+
+def build_regulation_videos(ctx):
+    """Country explainer slots (regulation-videos/): see tools/regulation_videos.py."""
+    sys.path.insert(0, P("tools"))
+    try: import regulation_videos
+    except ImportError: return
+    regulation_videos.build(sys.modules[__name__], ctx)
 
 if __name__ == "__main__": build()

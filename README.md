@@ -99,7 +99,23 @@ Public TestFlight invite, linked from the footer, the homepage, `/markets/` and 
 | Publish (later) | `./publish.sh --yes` | ONLY after jQrgen approves. Refuses a preview build; on first run creates the git repo and `jQrgen/nordic-crypto`, pushes `site/` to `gh-pages`, code to `main`, stamps the launch date in `changelog.json`. Without `--yes` it only builds and checks. |
 | QA screenshots | `.venv/bin/python tools/screens.py` | Serves `site/` on a free local port, screenshots every page into `shots/`, reports JS errors, 4xx and horizontal overflow. |
 
-Other tools: `tools/probe.py` (feed checks), `tools/import_orgchart.py` (merges the Norwegian Kryptonytt industry map, translated via `data/no_en.json`, with `data/orgchart_nordic.json`), `tools/import_academia.py` (reads the researcher's `academia.md` and its editor status column), `tools/seed_academia.py` (DOI-checked publication candidates), `tools/privacy_gate.py`, `tools/commons_photo.py` (Wikimedia Commons photos with licence + credit only), `tools/fetch_logos.py` (one logo per org from Wikidata/Commons or the org's own site → `assets/img/logos/logos.json`, review pending), `tools/rules_page.py` (rules page from `rules.json`), `tools/article_archive.py` (append-only article archive).
+Other tools: `tools/probe.py` (feed checks), `tools/import_orgchart.py` (merges the Norwegian Kryptonytt industry map, translated via `data/no_en.json`, with `data/orgchart_nordic.json`), `tools/import_academia.py` (reads the researcher's `academia.md` and its editor status column), `tools/seed_academia.py` (DOI-checked publication candidates), `tools/privacy_gate.py`, `tools/commons_photo.py` (Wikimedia Commons photos with licence + credit only), `tools/fetch_logos.py` (one logo per org and per news outlet from Wikidata/Commons or the outlet's own site → `assets/img/logos/logos.json`, review pending), `tools/rules_page.py` (rules page from `rules.json`), `tools/regulation_videos.py` (country explainer slots at `/regulation-videos/`), `tools/article_archive.py` (append-only article archive).
+
+## Outlet logos on news
+
+Whenever a story is shown (the news list, the screen, our own story pages, and the HTML newsletter digest) the outlet logo sits beside the source name when a checked image is on file. The name is text only when there is no logo. Nothing is drawn or invented. The site brand stays Nordic Crypto. Kaupr is a news source, and its logo appears only next to Kaupr stories.
+
+`assets/img/logos/logos.json` is the map. `tools/source_logos.py` resolves a story's `source` field like this:
+
+1. The id is the source id in `sources.json` (the same id stored on the news item).
+2. If that source has `outlet`, the parent id is used (for example `kaupr-no` → `kaupr`, `nrk-siste` → `nrk`).
+3. `_source_alias` sends a source id to a different logo key when the who's-who id is not the source id: `fi-se` → `se-fi`, `riksbank` → `se-riksbank`, `suomenpankki` → `fi-suomen-pankki`, `finanssivalvonta` → `fi-fiva`, `stortinget` → `stortinget-finanskomiteen` (the Storting coat of arms), `nbx-ir` → `nbx`, `digi-krypto` → `digi`.
+4. That key's `file` is the image path, relative to the repo root (`assets/img/logos/<id>.svg` or `.webp`).
+
+The public site shows a logo only when `review` is `ok` (a missing review counts as ok). `./build.sh --preview` also shows `pending`. `rejected`, a missing file, or no entry: text only. `python3 tools/fetch_logos.py` fills gaps for enabled outlets and for any source that already has a published or pending story. New files stay `pending` until an editor checks that the image belongs to that outlet.
+
+## Regulation explainer videos
+`/regulation-videos/` has one slot each for Norway, Sweden, Denmark, Finland and Iceland, linked from `/rules/` and About. Scripts, storyboards, posters and sources are in `regulation-videos/`. Institution names and source URLs are read from the editor-approved `rules.json` at build time. Iceland is in the EEA, not the EU, and Seðlabanki Íslands houses Fjármálaeftirlit. Drop `video-XX.mp4` in `regulation-videos/media/` (gitignored) and the slot plays it with the HTML5 player. Until then the slot shows the title, the narrator notes and the sources. The films are not rendered yet. Substack drafts in `regulation-videos/substack/` are for human review only; the build does not send them. Sign-off: The Nordic Crypto team. Kaupr is a news source only and is not a sponsor of these films.
 
 ## Approval model (`queue/approved.json`)
 - `items`: `{url, summary (2–4 sentences, English, own words, what the story says), summary_i18n {nn, nb, sv, da, fi, is}, summary_i18n_source (the English text the translations were made from – if the summary changes, the translations are dropped until redone), blurb and blurb_i18n (optional; stored in data/frontpage_blurbs.json when the summary is still a one-line intro), title_en, topics, approved_by, approved_at}`; `rejected`: `{url | title_contains, reason}`.

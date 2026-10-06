@@ -35,6 +35,70 @@
    }
   },
   {
+   "id": "regulation-videos",
+   "date": "2026-10-05",
+   "title": "Regulation explainer videos",
+   "description": "Five country slots for Norway, Sweden, Denmark, Finland and Iceland are at /regulation-videos/, linked from How the rules are made and About. Each slot plays an HTML5 video when an MP4 is present. Until then it shows the title, narrator notes and sources. The films are not rendered yet. Iceland is in the EEA, not the EU, and Seðlabanki Íslands houses Fjármálaeftirlit. The sign-off is The Nordic Crypto team.",
+   "i18n": {
+    "nn": {
+     "title": "Videoforklaringar av reglane",
+     "description": "Fem plassar for Noreg, Sverige, Danmark, Finland og Island ligg på /regulation-videos/, med lenkje frå Slik blir reglane til og Om oss. Kvar plass spelar av ein HTML5-video når ein MP4 finst. Til då viser han tittel, forteljarnotat og kjelder. Filmane er ikkje laga enno. Island er i EØS, ikkje i EU, og Seðlabanki Íslands husar Fjármálaeftirlit. Avslutninga er The Nordic Crypto team."
+    },
+    "nb": {
+     "title": "Videoforklaringer av reglene",
+     "description": "Fem plasser for Norge, Sverige, Danmark, Finland og Island ligger på /regulation-videos/, med lenke fra Slik blir reglene til og Om oss. Hver plass spiller av en HTML5-video når en MP4 finnes. Inntil da viser den tittel, fortellernotater og kilder. Filmene er ikke laget ennå. Island er i EØS, ikke i EU, og Seðlabanki Íslands huser Fjármálaeftirlit. Avslutningen er The Nordic Crypto team."
+    },
+    "sv": {
+     "title": "Videoförklaringar av reglerna",
+     "description": "Fem platser för Norge, Sverige, Danmark, Finland och Island finns på /regulation-videos/, länkade från Så blir reglerna till och Om oss. Varje plats spelar upp en HTML5-video när en MP4 finns. Tills dess visas titel, berättarnoteringar och källor. Filmerna är inte gjorda än. Island ingår i EES, inte i EU, och Seðlabanki Íslands rymmer Fjármálaeftirlit. Signaturen är The Nordic Crypto team."
+    },
+    "da": {
+     "title": "Videoforklaringer af reglerne",
+     "description": "Fem pladser for Norge, Sverige, Danmark, Finland og Island ligger på /regulation-videos/, med link fra Sådan bliver reglerne til og Om os. Hver plads afspiller en HTML5-video, når en MP4 findes. Indtil da vises titel, fortællernoter og kilder. Filmene er ikke lavet endnu. Island er i EØS, ikke i EU, og Seðlabanki Íslands huser Fjármálaeftirlit. Signaturen er The Nordic Crypto team."
+    },
+    "fi": {
+     "title": "Sääntelyn selitysvideot",
+     "description": "Viisi maapaikkaa Norjalle, Ruotsille, Tanskalle, Suomelle ja Islannille on osoitteessa /regulation-videos/, linkitettynä sivuilta Näin säännöt syntyvät ja Tietoa meistä. Jokainen paikka toistaa HTML5-videon, kun MP4 on olemassa. Siihen asti näkyvät otsikko, kertojan muistiinpanot ja lähteet. Videoita ei ole vielä tehty. Islanti on ETA:ssa, ei EU:ssa, ja Seðlabanki Íslands pitää sisällään Fjármálaeftirlitin. Allekirjoitus on The Nordic Crypto team."
+    },
+    "is": {
+     "title": "Myndbandsskýringar á reglunum",
+     "description": "Fimm reitir fyrir Noreg, Svíþjóð, Danmörku, Finnland og Ísland eru á /regulation-videos/, með tengli frá Svona verða reglurnar til og Um okkur. Hver reitur spilar HTML5-myndband þegar MP4 er til. Þar til sýnir hann titil, glósur sögumanns og heimildir. Myndböndin eru ekki tilbúin. Ísland er í EES, ekki í ESB, og Seðlabanki Íslands hýsir Fjármálaeftirlit. Undirskriftin er The Nordic Crypto team."
+    }
+   }
+  },
+  {
+   "id": "outlet-logos",
+   "date": "2026-10-05",
+   "title": "Outlet logos on news",
+   "description": "News lists, the screen and our own story pages show the newspaper or outlet logo beside the source name when a checked logo is on file. The name stands alone when there is no logo. Kaupr stays a news source. The map from source id to image is in assets/img/logos/logos.json.",
+   "i18n": {
+    "nn": {
+     "title": "Logoar frå kjelda på nyhende",
+     "description": "Nyhendelister, skjermen og våre eigne sakssider viser logoen til avisa eller kjelda ved sida av namnet når ein kontrollert logo finst. Namnet står åleine når det ikkje finst ein logo. Kaupr er berre eit nyhendemedium. Kartlegginga frå kjelde-id til bilete ligg i assets/img/logos/logos.json."
+    },
+    "nb": {
+     "title": "Logoer fra kilden på nyheter",
+     "description": "Nyhetslister, skjermen og våre egne sakssider viser logoen til avisen eller kilden ved siden av navnet når en kontrollert logo finnes. Navnet står alene når det ikke finnes en logo. Kaupr er bare et nyhetsmedium. Kartleggingen fra kilde-id til bilde ligger i assets/img/logos/logos.json."
+    },
+    "sv": {
+     "title": "Logotyper från källan på nyheter",
+     "description": "Nyhetslistor, skärmen och våra egna artikelsidor visar tidningens eller källans logotyp bredvid namnet när en kontrollerad logotyp finns. Namnet står ensamt när det inte finns någon logotyp. Kaupr är bara en nyhetskälla. Kartan från käll-id till bild ligger i assets/img/logos/logos.json."
+    },
+    "da": {
+     "title": "Logoer fra kilden på nyheder",
+     "description": "Nyhedslister, skærmen og vores egne artikelsider viser avisens eller kildens logo ved siden af navnet, når et kontrolleret logo findes. Navnet står alene, når der ikke findes et logo. Kaupr er kun et nyhedsmedie. Kortet fra kilde-id til billede ligger i assets/img/logos/logos.json."
+    },
+    "fi": {
+     "title": "Lähteen logot uutisissa",
+     "description": "Uutislistat, näyttö ja omat juttusivumme näyttävät lehden tai lähteen logon nimen vieressä, kun tarkistettu logo on tallessa. Nimi näkyy yksin, jos logoa ei ole. Kaupr on vain uutislähde. Lähdetunnuksen ja kuvan vastaavuus on tiedostossa assets/img/logos/logos.json."
+    },
+    "is": {
+     "title": "Merki heimilda á fréttum",
+     "description": "Fréttalistar, skjárinn og eigin greinasíður sýna merki blaðsins eða heimildarinnar við hliðina á nafninu þegar yfirfarið merki er til. Nafnið stendur eitt þegar ekkert merki er til. Kaupr er aðeins fréttaheimild. Vörpunin frá heimildarauðkenni í mynd er í assets/img/logos/logos.json."
+    }
+   }
+  },
+  {
    "id": "aggregated-market-prices",
    "date": "2026-10-05",
    "title": "Aggregated prices per pair",
