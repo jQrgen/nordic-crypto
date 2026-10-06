@@ -1,4 +1,4 @@
--- Crypto Nordic reader tips (same columns as tipserver/server.py's SQLite table, so tools/reader_tips.py can import them).
+-- Nordic Crypto reader tips (same columns as tipserver/server.py's SQLite table, so tools/reader_tips.py can import them).
 CREATE TABLE IF NOT EXISTS tips (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   created_at TEXT NOT NULL,                 -- UTC ISO timestamp, e.g. 2026-10-03T20:10:11+00:00

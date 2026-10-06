@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Deploys the Crypto Nordic tip Worker to workers.dev (Cloudflare Workers + D1). Needs env CLOUDFLARE_API_TOKEN
+# Deploys the Nordic Crypto tip Worker to workers.dev (Cloudflare Workers + D1). Needs env CLOUDFLARE_API_TOKEN
 # (permissions: Account > Workers Scripts:Edit, Account > D1:Edit, Account > Account Settings:Read, User > Memberships:Read is enough).
 #  1. finds the account id with the token (or uses CLOUDFLARE_ACCOUNT_ID)
 #  2. creates the D1 database 'nordic-crypto-tips' if missing and writes its id into wrangler.toml
