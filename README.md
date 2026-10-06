@@ -3,9 +3,11 @@
 Bitcoin, blockchain and crypto news, events, a who's who (industry + regulators), regulation by country and academia for
 **Norway, Sweden, Denmark, Finland and Iceland**. Static site. Cloudflare Web Analytics counts aggregate visits (no cookies, data not sold) when a token is set in `analytics.json`. No advertising trackers.
 Languages: English at `/`, and one directory per other site language. The list, native names and the IP-country guess are under [Site languages](#site-languages). External headlines and quotes stay in the original language; our own summaries are written first in English, then translated for the Nordic site languages (AI-assisted, editor-approved).
-Public URL: https://cryptonordic.no/ (`site_url.json`; all in-site links are relative). Run by jQrgen (Jørgen S. Notland), MIT licence.
+Public URL: https://nordiccrypto.no/ (`site_url.json`; all in-site links are relative). Run by jQrgen (Jørgen S. Notland), MIT licence.
 
-**Status:** live at https://cryptonordic.no/ (gh-pages, CNAME). Code on `main`. Every publish needs jQrgen's explicit approval.
+**Status:** live at https://nordiccrypto.no/ (gh-pages, CNAME). Code on `main`. Every publish needs jQrgen's explicit approval.
+
+**Domains:** the old address https://cryptonordic.no/ (and www) answers with a 301 to the same path on https://nordiccrypto.no/ (Cloudflare page rules on the cryptonordic.no zone). nordiccrypto.dk, .se, .fi, .is and .eu (apex and www) forward to https://nordiccrypto.no/ (Domeneshop HTTP forwarding). nordiccrypto.no DNS is at Domeneshop (GitHub Pages A/AAAA, www CNAME jqrgen.github.io).
 
 ## Site languages
 Site interface and page presentation. News outlets stay as listed in `sources.json`. UI strings live in `i18n/<code>.py`. A missing key falls back to English, which is how the languages beyond the Nordic set are shipped until a real translation is written. Article bodies are not machine-translated for those languages. English is the site root. Every other code is `/<code>/`.
@@ -48,7 +50,7 @@ After one automatic choice, `sessionStorage` `nc_auto` stops a second redirect i
 ## Data API
 Public JSON for apps and other tools, written into `site/` by `./build.sh` (`tools/api_feed.py`). No account. News, newsletters, events, sources, academia, the who's who, profiles, the rules map, the changelog and the article archive.
 
-- Human docs: https://cryptonordic.no/api/
+- Human docs: https://nordiccrypto.no/api/
 - Discovery: `/api/v1/index.json`
 - OpenAPI: `/api/v1/openapi.json` and `/api/v1/openapi.yaml`
 - Languages: `/api/v1/languages.json` (code, native name, English name, rtl, html lang, home URL). The same fields are on each entry in `/api/v1/meta.json` `languages`.
@@ -76,7 +78,7 @@ Skipped because no unauthenticated public ticker was found: Safello (OAuth `mark
 - One asset: `/api/v1/markets/by-asset/BTC.json` (the base symbol, with `aggregated` and `logo_url`)
 - Coin icon, when the CC0 set includes it: `/api/v1/markets/logos/btc.svg`
 - Durable URL: `https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json`
-- Same paths on the custom domain, at the site root (`https://cryptonordic.no/api/v1/markets.json`)
+- Same paths on the custom domain, at the site root (`https://nordiccrypto.no/api/v1/markets.json`)
 - Page: `/markets/` (linked from the nav and the homepage)
 
 Aggregation is one row per base-quote pair. BTC-NOK is not averaged with BTC-EUR. `last` is the arithmetic mean of published last prices (decimal arithmetic, not a float). `mid` is the mean of `(bid+ask)/2` where both exist, and is not mixed into `last`. `price` equals `last` when any last exists, otherwise `mid`. `min` and `max` use that same series. `exchange_count` is how many exchanges quoted the pair. `updated_at` is the newest `fetched_at`. There is no VWAP: the volume windows are not the same, so volume is not a weight. Volume sums add only the same field inside the same pair. `logo_url` is an SVG from [cryptocurrency-icons](https://github.com/spothq/cryptocurrency-icons) 0.18.1 (CC0-1.0) when that set includes the asset, and null otherwise. Nordic Crypto does not draw substitutes (POL has none; the MATIC icon is not reused).
@@ -104,7 +106,7 @@ The iOS app reads them from `social` on `/api/v1/meta.json` (`social.telegram`, 
 | Add an event by hand | `.venv/bin/python events.py --add-event URL --country XX [--title --start --place --organiser --paid --online]` | Event lands as `pending`. |
 | Local preview | `./build.sh --preview` | Builds `site/` incl. pending items, clearly marked, `noindex`, robots disallow, writes `site/.preview`. Then the privacy gate. |
 | Public build | `./build.sh` | Only approved content. |
-| Publish (later) | `./publish.sh --yes` | ONLY after jQrgen approves. Refuses a preview build; on first run creates the git repo and `jQrgen/nordic-crypto`, pushes `site/` to `gh-pages` while keeping `CNAME`, `kiosk/` and every top-level name in `publish-keep.txt`, sets the Pages custom domain to cryptonordic.no, pushes code to `main`, stamps the launch date in `changelog.json`. Without `--yes` it only builds and checks. Aborts if the staged gh-pages tree has no `CNAME`. |
+| Publish (later) | `./publish.sh --yes` | ONLY after jQrgen approves. Refuses a preview build; on first run creates the git repo and `jQrgen/nordic-crypto`, pushes `site/` to `gh-pages` while keeping `CNAME`, `kiosk/` and every top-level name in `publish-keep.txt`, sets the Pages custom domain to nordiccrypto.no, pushes code to `main`, stamps the launch date in `changelog.json`. Without `--yes` it only builds and checks. Aborts if the staged gh-pages tree has no `CNAME`. |
 | QA screenshots | `.venv/bin/python tools/screens.py` | Serves `site/` on a free local port, screenshots every page into `shots/`, reports JS errors, 4xx and horizontal overflow. |
 
 Other tools: `tools/probe.py` (feed checks), `tools/import_orgchart.py` (merges the Norwegian Kryptonytt industry map, translated via `data/no_en.json`, with `data/orgchart_nordic.json`), `tools/import_academia.py` (reads the researcher's `academia.md` and its editor status column), `tools/seed_academia.py` (DOI-checked publication candidates), `tools/privacy_gate.py`, `tools/commons_photo.py` (Wikimedia Commons photos with licence + credit only), `tools/fetch_logos.py` (one logo per org and per news outlet from Wikidata/Commons or the outlet's own site → `assets/img/logos/logos.json`, review pending), `tools/rules_page.py` (rules page from `rules.json`), `tools/regulation_videos.py` (country explainer slots at `/regulation-videos/`), `tools/article_archive.py` (append-only article archive).
@@ -185,7 +187,7 @@ Tips go to `tipserver/tips.db` (gitignored, mode 600) with a UTC timestamp and s
 - **Port 7844 is blocked from this box (re-checked 4 Oct 2026, TCP and QUIC, also with `--protocol http2`)** – every Cloudflare tunnel (quick or named) needs it, so the tunnel watchdog sits in `blocked-7844`. Public access needs a network that allows outbound 7844, or another way to expose the server.
 - No systemd/cron on the box: after a box restart nothing runs until `routines/nightly-fetch.sh` calls `tipserver/run.sh ensure` (or someone runs it by hand). While the box is off or the tunnel is down, the /tip/ page (once in server mode) shows the GitHub issue form as fallback.
 
-**GitHub issues (fallback).** The [Send a tip](https://cryptonordic.no/tip/) page currently opens the issue form `.github/ISSUE_TEMPLATE/tip.yml` (label `tip`; tips are public on GitHub). Issues are never commented on or closed automatically.
+**GitHub issues (fallback).** The [Send a tip](https://nordiccrypto.no/tip/) page currently opens the issue form `.github/ISSUE_TEMPLATE/tip.yml` (label `tip`; tips are public on GitHub). Issues are never commented on or closed automatically.
 
 **Nightly import.** `routines/nightly-fetch.sh` runs `tools/reader_tips.py`: pending rows in `tipserver/tips.db` -> `data/news.json` + `queue/review.json` as `pending` with origin `reader tip #<id>`, and the row is marked `imported` / `duplicate` / `invalid` (with `imported_at`, `queue_item_id`). Open `tip` issues are imported the same way with origin `reader tip (GitHub #N)`. Dedup: normalised-URL check from `tools/crosssite_handoff.py` against all stories (incl. rejected) and `approved.json`. Page metadata only where robots.txt allows. **The tipster's name is never read or copied**; the note stays in the local queue only (`tip_note_local_only`). Nothing is auto-published. Editor: treat tips like any other story. Dry run: `--dry-run`.
 

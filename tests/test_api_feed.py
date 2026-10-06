@@ -153,7 +153,7 @@ def main():
             fails.append("llms.txt")
         if "Access-Control-Allow-Origin" not in json.dumps(info.get("cors")):
             fails.append("cors")
-        if "https://cryptonordic.no/api/v1/news.json" not in json.dumps(info):
+        if "https://nordiccrypto.no/api/v1/news.json" not in json.dumps(info):
             fails.append("custom domain example")
         mk = json.load(open(os.path.join(tmp, "api/v1/markets.json"), encoding="utf-8"))
         if mk["tickers"][0]["last"] != "100.5" or mk["tickers"][0]["source_url"] != "https://api.firi.com/v2/markets/BTCNOK":

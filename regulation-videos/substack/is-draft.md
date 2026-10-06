@@ -8,7 +8,7 @@ Body (draft for cryptonordic.substack.com — DO NOT auto-publish; jQrgen must r
 
 🇮🇸 **Iceland** — who makes and enforces the crypto rules?
 
-This short explainer is from **Nordic Crypto**. It follows the same sourced map as our [How the rules are made](https://cryptonordic.no/rules/) page.
+This short explainer is from **Nordic Crypto**. It follows the same sourced map as our [How the rules are made](https://nordiccrypto.no/rules/) page.
 
 ### The legal path
 Iceland is outside the EU but in the EEA. The EEA Joint Committee incorporated MiCA; Alþingi gave it effect through Act No. 101/2025. From 1 July 2026 crypto-asset services require a licence.
@@ -34,7 +34,7 @@ One CASP authorised (Myntkaup, 25 Jun 2026) and one e-money token issuer (Moneri
 ### Video
 [Embed slot: regulation-videos / IS — paste HTML5 video or release URL when render is ready]
 
-Full sources and every step: [nordic-crypto / rules](https://cryptonordic.no/rules/).
+Full sources and every step: [nordic-crypto / rules](https://nordiccrypto.no/rules/).
 
 Nothing here is legal or investment advice.
 
