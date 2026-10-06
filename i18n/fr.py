@@ -3,4 +3,23 @@
 Chrome strings fall back to English in i18n.t() until a translation is added to S.
 This file does not translate article bodies or summaries. Nordic news sources are unchanged.
 """
-S = {}
+S = {
+"push_title": "Notifications",
+"push_lead": "Un seul message à chaque publication de nouveaux sujets. Plusieurs sujets dans la même publication forment un seul message, pas un par sujet.",
+"push_on": "Activer les notifications",
+"push_off": "Désactiver les notifications",
+"push_on_status": "Les notifications sont activées pour ce navigateur.",
+"push_off_status": "Les notifications sont désactivées.",
+"push_topics": "Pays",
+"push_all": "Tous les pays nordiques",
+"push_lang_note": "Les messages utilisent la langue de cette page. Ouvrez une autre langue et activez à nouveau les notifications pour en changer.",
+"push_privacy": "Nous ne conservons que l’abonnement push de votre navigateur (l’adresse et les deux clés qui chiffrent le message), la langue de cette page et les pays que vous choisissez. Pas de nom, pas d’adresse e-mail, et aucun suivi de ce que vous lisez. Le même bouton désactive les notifications et supprime l’abonnement. Cloudflare Web Analytics compte les visites de façon agrégée, sans cookies, et nous ne vendons pas ces données.",
+"push_unsupported": "Ce navigateur ne peut pas afficher de notifications.",
+"push_denied": "Les notifications sont bloquées pour ce site dans les réglages du navigateur.",
+"push_ios": "Sur iPhone ou iPad, ajoutez d’abord le site à l’écran d’accueil. iOS 16.4 ou plus récent peut ensuite utiliser ces notifications du navigateur. Le service push d’Apple (APNs) n’est pas utilisé.",
+"push_unavailable": "Le service de notification n’est pas encore activé.",
+"push_working": "Patientez …",
+"push_fail": "Impossible de mettre à jour les notifications. Réessayez.",
+"push_saved": "Enregistré.",
+"push_noscript": "Activer les notifications nécessite JavaScript.",
+}

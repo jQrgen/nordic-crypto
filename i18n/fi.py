@@ -202,3 +202,24 @@ S.update({
 "mk_logo_alt": "{name}, kuvake",
 "mk_icons": "Kolikkokuvakkeet ovat CC0 1.0. Nordic Crypto ei väitä niitä omikseen. Jos varaa ei ole joukossa, sillä ei ole kuvaketta. Lähde:",
 })
+# browser notifications (workers/push/). Missing keys still fall back to English.
+S.update({
+"push_title": "Ilmoitukset",
+"push_lead": "Saat yhden viestin aina, kun uusia juttuja julkaistaan. Saman julkaisun useat jutut ovat yksi viesti, eivät viesti jokaista kohti.",
+"push_on": "Ota ilmoitukset käyttöön",
+"push_off": "Poista ilmoitukset käytöstä",
+"push_on_status": "Ilmoitukset ovat käytössä tässä selaimessa.",
+"push_off_status": "Ilmoitukset ovat poissa käytöstä.",
+"push_topics": "Maat",
+"push_all": "Kaikki Pohjoismaat",
+"push_lang_note": "Viestit käyttävät tämän sivun kieltä. Avaa toinen kieli ja ota ilmoitukset uudelleen käyttöön, jos haluat vaihtaa.",
+"push_privacy": "Tallennamme vain selaimesi push-tilauksen (osoitteen ja kaksi avainta, joilla viesti salataan), tämän sivun kielen ja valitsemasi maat. Emme tallenna nimeä, sähköpostiosoitetta emmekä sitä, mitä luet. Samalla painikkeella poistat ilmoitukset käytöstä, ja tilaus poistetaan. Cloudflare Web Analytics laskee käynnit kootusti, ilman evästeitä, emmekä myy näitä tietoja.",
+"push_unsupported": "Tämä selain ei voi näyttää ilmoituksia.",
+"push_denied": "Ilmoitukset on estetty tältä sivustolta selaimen asetuksissa.",
+"push_ios": "Lisää sivusto iPhonessa tai iPadissa ensin kotinäytölle. iOS 16.4 tai uudempi voi sen jälkeen käyttää näitä selainilmoituksia. Applen oma push-palvelu (APNs) ei ole käytössä.",
+"push_unavailable": "Ilmoituspalvelu ei ole vielä käytössä.",
+"push_working": "Käsitellään…",
+"push_fail": "Ilmoituksia ei voitu päivittää. Yritä uudelleen.",
+"push_saved": "Tallennettu.",
+"push_noscript": "Ilmoitusten käyttöönotto vaatii JavaScriptin.",
+})

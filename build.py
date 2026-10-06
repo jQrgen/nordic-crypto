@@ -193,6 +193,14 @@ a.applink:hover,a.applink:focus-visible{background:var(--soft)}
 .mkagg .px{font-size:22px;font-weight:700;margin:2px 0 4px;text-align:left;font-variant-numeric:tabular-nums}
 .mkq{font-size:16px;color:var(--muted);margin:12px 0 6px;font-weight:600;text-align:left}
 @media(min-width:1100px){.markets h1{font-size:40px}.mkcard .px{font-size:34px}.mkcard .ba{font-size:20px}.mkagg .px{font-size:26px}}
+.pushopt{text-align:start;margin:0 0 16px;padding:0 0 14px;border-bottom:1px solid var(--line);max-width:72ch}
+.pushopt h2{font-size:16px;margin:0 0 6px;text-align:start}
+.pushopt p,.pushopt label{text-align:start}
+.pushopt .push-topics{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:6px 16px;margin:8px 0}
+.pushopt .push-c{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;font-size:14.5px;text-align:start}
+.pushopt button.push-btn{font:inherit;font-weight:600;padding:7px 12px;border:1px solid var(--ink);background:#fff;cursor:pointer;text-align:start}
+.pushopt button.push-btn:hover,.pushopt button.push-btn:focus-visible{background:var(--soft)}
+.pushopt .push-status{min-height:1.3em;margin:8px 0;text-align:start}
 """
 
 NAV = [("", "nav_news"), ("markets", "nav_markets"), ("calendar", "nav_calendar"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("sources", "nav_sources"), ("newsletter", "nav_newsletter"), ("about", "nav_about"), ("tip", "nav_tip")]
@@ -437,6 +445,65 @@ def langsel_script():
     global LANGSEL_JS
     if LANGSEL_JS is None: LANGSEL_JS = open(P("tools", "langselect.js"), encoding="utf-8").read()
     return LANGSEL_JS
+def push_endpoint():
+    """Worker origin for browser push, or None when it is not deployed yet.
+    Env PUSH_ENDPOINT wins (empty string hides it). Otherwise workers/push/public.json public_endpoint."""
+    e = os.environ.get("PUSH_ENDPOINT")
+    if e is not None:
+        return e.strip().rstrip("/") or None
+    cfg = load(P("workers", "push", "public.json"), {}) or {}
+    return (cfg.get("public_endpoint") or "").strip().rstrip("/") or None
+_PUSH_JS = None
+def push_panel(root):
+    """Opt-in block. Left-aligned (start-aligned in RTL). The same button turns notifications off."""
+    countries = "".join(
+        f'<label class="push-c"><input type="checkbox" name="country" value="{c}"> {flag(c)}{E(t("c_" + c))}</label>'
+        for c in COUNTRY_CODES)
+    return (
+        f'<section class="pushopt" id="notifications" data-root="{E(root)}">'
+        f'<h2>{E(t("push_title"))}</h2>'
+        f'<p>{E(t("push_lead"))}</p>'
+        f'<div class="push-topics" role="group" aria-label="{E(t("push_topics"))}">'
+        f'<label class="push-c"><input type="checkbox" name="country" value="ALL" checked> {E(t("push_all"))}</label>'
+        f'{countries}</div>'
+        f'<p class="meta">{E(t("push_lang_note"))}</p>'
+        f'<p><button type="button" class="push-btn">{E(t("push_on"))}</button></p>'
+        f'<p class="push-status" role="status" aria-live="polite"></p>'
+        f'<p class="meta">{E(t("push_privacy"))}</p>'
+        f'<p class="meta">{E(t("push_ios"))}</p>'
+        f'<noscript><p>{E(t("push_noscript"))}</p></noscript>'
+        f'</section>'
+    )
+def push_script():
+    global _PUSH_JS
+    if _PUSH_JS is None:
+        _PUSH_JS = open(P("assets", "push", "client.js"), encoding="utf-8").read()
+    keys = ("on", "off", "on_status", "off_status", "unsupported", "denied", "unavailable", "working", "fail", "saved")
+    cfg = {"endpoint": push_endpoint() or "", "lang": LANG, "strings": {k: t("push_" + k) for k in keys}}
+    return "<script>window.NC_PUSH=" + json.dumps(cfg, ensure_ascii=False) + ";</script><script>\n" + _PUSH_JS + "\n</script>"
+def write_push_assets():
+    """Service worker and manifest at the site root, so the scope covers every language directory."""
+    os.makedirs(os.path.join(SITE, "assets", "push"), exist_ok=True)
+    shutil.copy(P("assets", "push", "sw.js"), os.path.join(SITE, "sw.js"))
+    for name in ("icon-192.png", "icon-512.png"):
+        shutil.copy(P("assets", "push", name), os.path.join(SITE, "assets", "push", name))
+    manifest = {
+        "name": SITE_NAME,
+        "short_name": SITE_NAME,
+        "description": "Bitcoin, blockchain and crypto news from the Nordics",
+        "start_url": "./",
+        "scope": "./",
+        "display": "standalone",
+        "background_color": "#ffffff",
+        "theme_color": "#0f5ea8",
+        "icons": [
+            {"src": "assets/push/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+            {"src": "assets/push/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+        ],
+    }
+    with open(os.path.join(SITE, "manifest.json"), "w", encoding="utf-8") as f:
+        json.dump(manifest, f, ensure_ascii=False, indent=1)
+        f.write("\n")
 def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra=""):
     """Writes site/<lang>/<slug>/index.html for the current LANG (English at the root)."""
     depth = (slug.count("/") + 1 if slug else 0) + (0 if LANG == "en" else 1)
@@ -471,7 +538,7 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
     doc = f"""<!doctype html>
 <html lang="{i18n.HTML_LANG[LANG]}"{" dir=\"rtl\"" if i18n.rtl(LANG) else ""}><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 {pick}<title>{E(title)}{" – " + SITE_NAME if slug else ""}</title>
-<meta name="description" content="{E(desc)}"><link rel="canonical" href="{url}">{alt}{head_extra}{'<meta name="robots" content="noindex">' if PREVIEW else ''}
+<meta name="description" content="{E(desc)}"><link rel="canonical" href="{url}"><link rel="manifest" href="{root}manifest.json">{alt}{head_extra}{'<meta name="robots" content="noindex">' if PREVIEW else ''}
 <meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:url" content="{url}"><meta property="og:type" content="website"><meta property="og:locale" content="{i18n.OG_LOCALE[LANG]}">{''.join(f'<meta property="og:locale:alternate" content="{i18n.OG_LOCALE[l]}">' for l in langs if l != LANG)}
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230f5ea8'/%3E%3Crect x='4' width='3' height='16' fill='white'/%3E%3Crect y='6.5' width='16' height='3' fill='white'/%3E%3C/svg%3E">
@@ -481,8 +548,8 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
 {body}
 {s['top']}
 </main>
-<footer><div class="wrap">{nlfoot}{t("footer", site=SITE_NAME, rel=rel, root=root)}</div></footer>
-{s['script']}{setck}{extra_script}{newsletter_script()}{analytics_snippet()}
+<footer><div class="wrap">{nlfoot}{push_panel(root)}{t("footer", site=SITE_NAME, rel=rel, root=root)}</div></footer>
+{s['script']}{setck}{extra_script}{newsletter_script()}{push_script()}{analytics_snippet()}
 </body></html>"""
     d = os.path.join(SITE, lp(), slug); os.makedirs(d, exist_ok=True)
     open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(doc)
@@ -596,6 +663,7 @@ def build():
         if n not in seen: seen.add(n); act.append({"name": n, "country": "NO" if n == "Kaupr" else c})
     json.dump({"active": act}, open(os.path.join(SITE, "data", "sources.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     open(os.path.join(SITE, "robots.txt"), "w").write("User-agent: *\n" + ("Disallow: /\n" if PREVIEW else "Allow: /\n"))
+    write_push_assets()
     emit_api(ctx)
     sitemap()
     miss = sorted(i18n.MISSING)

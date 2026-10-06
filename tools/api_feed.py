@@ -1569,6 +1569,7 @@ def llms_txt(feed, index):
         f"- [Site meta]({feed.abs('api/v1/meta.json')}): languages, countries, page list, CORS.",
         f"- [Languages]({feed.abs('api/v1/languages.json')}): site UI languages (code, native name, English name, rtl, home).",
         f"- [Geo language]({feed.abs('api/v1/geo-language.json')}): country to default language. An IP guess; the nc_lang cookie wins.",
+        "- Browser notifications: opt-in Web Push. The Worker `GET /api/push/feed.json` repeats each publish as one batch (title, summary, URL). APNs is not implemented. Subscriptions are not in this API.",
         "",
         "## Market prices",
         "",
@@ -1705,6 +1706,8 @@ curl -fsS {html.escape(b)}api/v1/markets/aggregated.json</pre>
 <p>GitHub Pages sends <code>Access-Control-Allow-Origin: *</code> on these files, so a page on another site can <code>fetch()</code> them. GitHub Pages does not apply a custom headers file. Use the <code>.json</code> file name; opening a directory does not return the JSON.</p>
 <h2>Editorial</h2>
 <p>The sign-off is The Nordic Crypto team. Kaupr (kaupr.io) is a news source only and is never a sponsor. Nothing here is investment advice.</p>
+<h2>Browser notifications</h2>
+<p>The button at the bottom of each page is Web Push. Subscriptions live on a Cloudflare Worker, not in this static feed. After a publish, <code>GET /api/push/feed.json</code> on that Worker lists the same batches (title, short summary, URL, country, and translations when we have them). One publish is one batch. The document says <code>"apns": "not implemented"</code>: Apple Push Notification service is out of scope. An iOS app can poll the feed. The Worker URL is set when <code>workers/push/</code> is deployed; it is not a path on this site. Subscriptions are not in the feed. This API's <a href="{html.escape(b)}api/v1/news.json"><code>/api/v1/news.json</code></a> remains the full published list.</p>
 <h2>Endpoints</h2>
 <div class="tablewrap"><table class="list"><thead><tr><th>Method</th><th>Path</th><th>Returns</th></tr></thead><tbody>
 {rows}

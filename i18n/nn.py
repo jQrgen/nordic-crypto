@@ -202,3 +202,24 @@ S.update({
 "mk_logo_alt": "Ikon for {name}",
 "mk_icons": "Myntikon er CC0 1.0. Nordic Crypto gjer ikkje krav på dei. Ein eigendel som manglar i settet, har ikkje ikon her. Kjelde:",
 })
+# browser notifications (workers/push/). Missing keys still fall back to English.
+S.update({
+"push_title": "Varslingar",
+"push_lead": "Få éi melding kvar gong nye saker blir publiserte. Fleire saker i same publisering blir éi melding, ikkje ei for kvar.",
+"push_on": "Slå på varslingar",
+"push_off": "Slå av varslingar",
+"push_on_status": "Varslingar er på for denne nettlesaren.",
+"push_off_status": "Varslingar er av.",
+"push_topics": "Land",
+"push_all": "Alle dei nordiske landa",
+"push_lang_note": "Meldingane bruker språket på denne sida. Opne eit anna språk og slå på varslingar på nytt for å endre det.",
+"push_privacy": "Vi lagrar berre push-abonnementet frå nettlesaren din (adressa og dei to nøklane som krypterer meldinga), språket på denne sida og landa du vel. Ikkje namn, ikkje e-postadresse og inga sporing av kva du les. Slå av varslingar med same knapp; då blir abonnementet sletta. Cloudflare Web Analytics tel besøk samla, utan informasjonskapslar, og vi sel ikkje dei dataa.",
+"push_unsupported": "Denne nettlesaren kan ikkje vise varslingar.",
+"push_denied": "Varslingar er blokkerte for denne nettstaden i innstillingane til nettlesaren.",
+"push_ios": "På iPhone eller iPad må du først leggje nettstaden på heimeskjermen. iOS 16.4 eller nyare kan då bruke desse nettlesarvarslingane. Push-tenesta til Apple (APNs) blir ikkje brukt.",
+"push_unavailable": "Varslingstenesta er ikkje slått på enno.",
+"push_working": "Arbeider …",
+"push_fail": "Klarte ikkje å oppdatere varslingane. Prøv igjen.",
+"push_saved": "Lagra.",
+"push_noscript": "Å slå på varslingar treng JavaScript.",
+})

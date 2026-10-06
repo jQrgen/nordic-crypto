@@ -202,3 +202,24 @@ S.update({
 "mk_logo_alt": "Ikon for {name}",
 "mk_icons": "Myntikoner er CC0 1.0. Nordic Crypto gjør ikke krav på dem. En eiendel som mangler i settet, har ikke ikon her. Kilde:",
 })
+# browser notifications (workers/push/). Missing keys still fall back to English.
+S.update({
+"push_title": "Varsler",
+"push_lead": "Få én melding hver gang nye saker blir publisert. Flere saker i samme publisering blir én melding, ikke én for hver.",
+"push_on": "Slå på varsler",
+"push_off": "Slå av varsler",
+"push_on_status": "Varsler er på for denne nettleseren.",
+"push_off_status": "Varsler er av.",
+"push_topics": "Land",
+"push_all": "Alle de nordiske landene",
+"push_lang_note": "Meldingene bruker språket på denne siden. Åpne et annet språk og slå på varsler på nytt for å endre det.",
+"push_privacy": "Vi lagrer bare push-abonnementet fra nettleseren din (adressen og de to nøklene som krypterer meldingen), språket på denne siden og landene du velger. Ikke navn, ikke e-postadresse og ingen sporing av hva du leser. Slå av varsler med samme knapp; da slettes abonnementet. Cloudflare Web Analytics teller besøk samlet, uten informasjonskapsler, og vi selger ikke de dataene.",
+"push_unsupported": "Denne nettleseren kan ikke vise varsler.",
+"push_denied": "Varsler er blokkert for dette nettstedet i innstillingene til nettleseren.",
+"push_ios": "På iPhone eller iPad må du først legge nettstedet på hjemskjermen. iOS 16.4 eller nyere kan da bruke disse nettleservarslene. Push-tjenesten til Apple (APNs) brukes ikke.",
+"push_unavailable": "Varslingstjenesten er ikke slått på ennå.",
+"push_working": "Arbeider …",
+"push_fail": "Klarte ikke å oppdatere varslene. Prøv igjen.",
+"push_saved": "Lagret.",
+"push_noscript": "Å slå på varsler krever JavaScript.",
+})

@@ -1,0 +1,4 @@
+{
+  "public_endpoint": "",
+  "_comment": "After deploy.sh, this becomes the workers.dev URL (no trailing slash). It is public. Secrets never go in this file. Empty means the site still shows the button and says the service is not switched on yet."
+}

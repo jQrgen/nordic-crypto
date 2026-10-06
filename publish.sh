@@ -33,13 +33,23 @@ if [ ! -d .publish/.git ]; then
 fi
 git -C .publish config user.name "$(git config user.name)"; git -C .publish config user.email "$(git config user.email)"
 git -C .publish pull -q --ff-only origin gh-pages 2>/dev/null || true
+# previous public news list, so the push step can name only stories that were not already on gh-pages
+OLD_NEWS=$(mktemp)
+trap 'rm -f "$OLD_NEWS"' EXIT
+if [ -f .publish/data/news.json ]; then cp .publish/data/news.json "$OLD_NEWS"; else printf '%s\n' '{"items":[]}' > "$OLD_NEWS"; fi
 find .publish -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} + && cp -a site/. .publish/
 git -C .publish add -A
+GH_PUSHED=0
 if git -C .publish diff --cached --quiet; then echo "gh-pages: no changes"; else
-  git -C .publish commit -q -m "Publish $(date '+%Y-%m-%d %H:%M %Z')" && git -C .publish push -q origin gh-pages && echo "gh-pages: pushed"; fi
+  git -C .publish commit -q -m "Publish $(date '+%Y-%m-%d %H:%M %Z')" && git -C .publish push -q origin gh-pages && echo "gh-pages: pushed" && GH_PUSHED=1; fi
 gh api -X POST repos/jQrgen/nordic-crypto/pages -f "source[branch]=gh-pages" -f "source[path]=/" >/dev/null 2>&1 || true
 # 2) main: code and config only (see .gitignore)
 git add -A && { git diff --cached --quiet || git commit -q -m "Update pipeline $(date '+%Y-%m-%d')"; } && git push -q -u origin main || echo "warning: push to main failed"
 # 3) check that the site answers
 for i in $(seq 1 30); do code=$(curl -s -o /dev/null -w '%{http_code}' "$URL" || true); [ "$code" = 200 ] && break; sleep 10; done
 echo "live: $URL -> HTTP $code"
+# one batched browser notification for stories that were not in the previous gh-pages news.json
+# read-only on our data; skips (exit 0) when the Worker or PUSH_PUBLISH_TOKEN is not set
+if [ "${GH_PUSHED:-0}" = 1 ]; then
+  .venv/bin/python tools/push_notify.py --previous "$OLD_NEWS" --current site/data/news.json || echo "warning: browser push notify failed"
+fi

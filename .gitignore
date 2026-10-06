@@ -21,6 +21,10 @@ tipserver/tunnel-url.txt
 archive/articles.db
 archive/articles.db-*
 
+# push Worker secrets and local wrangler state (never commit)
+workers/push/.dev.vars
+workers/push/.wrangler/
+
 # generated newsletter digests (regenerate with newsletter/digest.py)
 newsletter/out/
 

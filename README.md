@@ -88,6 +88,13 @@ Refresh: `./build.sh` and `./publish.sh` fetch the exchanges while building `sit
 ### iOS app
 Public TestFlight invite, linked from the footer, the homepage, `/markets/` and About: https://testflight.apple.com/join/nQ2fpjZn. There is no App Store listing.
 
+### Browser notifications
+Opt-in Web Push. The button is at the bottom of every page (left-aligned, start-aligned in Arabic and Urdu). One publish sends one notification; several new stories are collapsed into that message. The reader can limit it to Norway, Sweden, Denmark, Finland and/or Iceland. The message uses the language of the page where they turned notifications on. Turning them off is the same button, and that deletes the subscription.
+
+The static site cannot store subscriptions. `workers/push/` is a Cloudflare Worker with KV. It stores only the push subscription (endpoint, two encryption keys), the language and the chosen countries. No name, no email, no IP address. Deploy steps and the three secrets (`VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`, `PUBLISH_TOKEN`) are in `workers/push/README.md`. Those values are not in the repo. `./publish.sh --yes` calls `tools/push_notify.py` only after gh-pages is pushed, with the stories that were not in the previous public `data/news.json`. If the Worker URL or `PUSH_PUBLISH_TOKEN` is unset, that step prints a line and does not fail the publish. It does not fetch or change story status.
+
+`GET /api/push/feed.json` on the Worker is the same batches, for a later iOS app. Apple Push Notification service (APNs) is not implemented. On iPhone and iPad, iOS 16.4 or newer can use these browser notifications after the site is added to the Home Screen.
+
 ## Pipeline
 | Step | Command | What it does |
 |---|---|---|
@@ -96,7 +103,7 @@ Public TestFlight invite, linked from the footer, the homepage, `/markets/` and 
 | Add an event by hand | `.venv/bin/python events.py --add-event URL --country XX [--title --start --place --organiser --paid --online]` | Event lands as `pending`. |
 | Local preview | `./build.sh --preview` | Builds `site/` incl. pending items, clearly marked, `noindex`, robots disallow, writes `site/.preview`. Then the privacy gate. |
 | Public build | `./build.sh` | Only approved content. |
-| Publish (later) | `./publish.sh --yes` | ONLY after jQrgen approves. Refuses a preview build; on first run creates the git repo and `jQrgen/nordic-crypto`, pushes `site/` to `gh-pages`, code to `main`, stamps the launch date in `changelog.json`. Without `--yes` it only builds and checks. |
+| Publish (later) | `./publish.sh --yes` | ONLY after jQrgen approves. Refuses a preview build; on first run creates the git repo and `jQrgen/nordic-crypto`, pushes `site/` to `gh-pages`, code to `main`, stamps the launch date in `changelog.json`. After a successful gh-pages push, notifies the push Worker about stories that were not in the previous public news list (one batch; skipped when the Worker is not configured). Without `--yes` it only builds and checks. |
 | QA screenshots | `.venv/bin/python tools/screens.py` | Serves `site/` on a free local port, screenshots every page into `shots/`, reports JS errors, 4xx and horizontal overflow. |
 
 Other tools: `tools/probe.py` (feed checks), `tools/import_orgchart.py` (merges the Norwegian Kryptonytt industry map, translated via `data/no_en.json`, with `data/orgchart_nordic.json`), `tools/import_academia.py` (reads the researcher's `academia.md` and its editor status column), `tools/seed_academia.py` (DOI-checked publication candidates), `tools/privacy_gate.py`, `tools/commons_photo.py` (Wikimedia Commons photos with licence + credit only), `tools/fetch_logos.py` (one logo per org and per news outlet from Wikidata/Commons or the outlet's own site → `assets/img/logos/logos.json`, review pending), `tools/rules_page.py` (rules page from `rules.json`), `tools/regulation_videos.py` (country explainer slots at `/regulation-videos/`), `tools/article_archive.py` (append-only article archive).
@@ -184,3 +191,5 @@ No health or private financial data about anyone, no org numbers, LEIs, addresse
 `data/` (stories, events, org chart, translations of the industry map, profile links, academia) is committed to the repo so the content is not stored only on the box; it is public content and passes the privacy gate (`tools/privacy_gate.py data`). `queue/`, `state/`, `logs/`, `site/` and `tipserver/tips.db` stay box-only (`queue/` can hold local-only reader-tip notes).
 
 **Language rule (text gate).** Our own Norwegian text (nn, nb) never says «AI» or «KI»; write «kunstig intelligens» in full. `tools/text_gate.py` checks the nn/nb interface strings, templates, summaries, event notes, changelog and rules-page strings, and runs in `build.sh` and `publish.sh`. External headlines are left as published.
+
+**Browser notifications.** Off until the reader turns them on. The Worker stores only the push subscription, the page language and the countries they picked. Unsubscribe is the same button. Cloudflare Web Analytics still counts visits in aggregate, without cookies, and that data is not sold. See [Browser notifications](#browser-notifications).
