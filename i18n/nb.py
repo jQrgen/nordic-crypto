@@ -13,7 +13,7 @@ S = {
 "home_desc": "Nyheter om bitcoin, blokkjede og krypto fra Norge, Sverige, Danmark, Finland og Island, med korte sammendrag, en arrangementskalender og en oversikt over hvem som er hvem.",
 "home_h1": "Nyheter om bitcoin, blokkjede og krypto fra Norden",
 "home_screen": "Skjermvisning for kontoret (fullskjerm, stående eller liggende, på engelsk) →",
-"home_lead": "Lenker til saker fra Norge, Sverige, Danmark, Finland og Island – aviser, kringkastere, tilsyn og sentralbanker – hver med et kort sammendrag laget med hjelp av kunstig intelligens, med menneskelige redaktører (jQrgen og Nordic Crypto-redaktøren) – skrevet på engelsk og oversatt til bokmål. Til oversettelsen er godkjent av redaktøren, viser vi det engelske sammendraget. Les hele saken hos kilden. Sist oppdatert {upd}. {n} saker{pend}.",
+"home_lead": "Lenker til saker fra Norge, Sverige, Danmark, Finland og Island – aviser, kringkastere, tilsyn og sentralbanker – hver med et sammendrag av hva saken sier, laget med hjelp av kunstig intelligens, med menneskelige redaktører (jQrgen og Nordic Crypto-redaktøren) – skrevet på engelsk og oversatt til bokmål. Til oversettelsen er godkjent av redaktøren, viser vi det engelske sammendraget. Les hele saken hos kilden. Sist oppdatert {upd}. {n} saker{pend}.",
 "home_pend": " ({n} venter på redaktøren)",
 "source": "Kilde", "all_sources": "Alle kilder", "topic": "Tema", "n_stories": "{n} saker", "no_stories": "Ingen publiserte saker ennå.",
 "home_notice": "Sammendragene er våre egne, skrevet ut fra tittelen og den offentlige ingressen. Vi gjengir ikke artikkeltekst og omgår ikke betalingsmurer. Saker merket «kan kreve abonnement» er fra medier med betalingsmur. Titlene vises slik kilden skrev dem. Ingenting her er investeringsråd.",

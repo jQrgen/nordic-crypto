@@ -13,7 +13,7 @@ S = {
 "home_desc": "Nyheiter om bitcoin, blokkjede og krypto frå Noreg, Sverige, Danmark, Finland og Island, med korte samandrag, ein kalender over arrangement og ei oversikt over kven som er kven.",
 "home_h1": "Nyheiter om bitcoin, blokkjede og krypto frå Norden",
 "home_screen": "Skjermvising for kontoret (fullskjerm, ståande eller liggjande, på engelsk) →",
-"home_lead": "Lenkjer til saker frå Noreg, Sverige, Danmark, Finland og Island – aviser, kringkastarar, tilsyn og sentralbankar – kvar med eit kort samandrag laga med hjelp av kunstig intelligens, med menneskelege redaktørar (jQrgen og Nordic Crypto-redaktøren) – skrive på engelsk og omsett til nynorsk. Til omsetjinga er godkjend av redaktøren, viser vi det engelske samandraget. Les heile saka hos kjelda. Sist oppdatert {upd}. {n} saker{pend}.",
+"home_lead": "Lenkjer til saker frå Noreg, Sverige, Danmark, Finland og Island – aviser, kringkastarar, tilsyn og sentralbankar – kvar med eit samandrag av kva saka seier, laga med hjelp av kunstig intelligens, med menneskelege redaktørar (jQrgen og Nordic Crypto-redaktøren) – skrive på engelsk og omsett til nynorsk. Til omsetjinga er godkjend av redaktøren, viser vi det engelske samandraget. Les heile saka hos kjelda. Sist oppdatert {upd}. {n} saker{pend}.",
 "home_pend": " ({n} ventar på redaktøren)",
 "source": "Kjelde", "all_sources": "Alle kjelder", "topic": "Tema", "n_stories": "{n} saker", "no_stories": "Ingen publiserte saker enno.",
 "home_notice": "Samandraga er våre eigne, skrivne ut frå tittelen og den offentlege ingressen. Vi attgjev ikkje artikkeltekst og omgår ikkje betalingsmurar. Saker merkte «kan krevje abonnement», er frå medium med betalingsmur. Titlane blir viste slik kjelda skreiv dei. Ingenting her er investeringsråd.",

@@ -3,7 +3,10 @@
 Only what is approved here is published. Org-chart approvals (approved.json -> org) are applied by tools/import_orgchart.py,
 events by build.py (events.*), academia by tools/import_academia.py (status column of the researcher's list).
 
-queue/approved.json -> items: [{"url": ..., "summary": "1–2 sentences IN ENGLISH, own words", "title_en": optional English headline,
+queue/approved.json -> items: [{"url": ..., "summary": "2–4 sentences IN ENGLISH, own words, what the story says", "title_en": optional English headline,
+                                "blurb": optional, same length, stored for the front page when summary stays a one-line intro,
+                                "blurb_i18n": {"nn": ..., "nb": ..., "sv": ..., "da": ..., "fi": ..., "is": ...},
+                                "blurb_i18n_source": "<the English blurb the translations were made from>",
                                 "summary_i18n": {"nn": ..., "nb": ..., "sv": ..., "da": ..., "fi": ..., "is": ...} (our own summary per site language),
                                 "summary_i18n_source": "<the English summary the translations were made from>",
                                 "summary_i18n_review": "pending" | "approved" (pending translations appear only in the preview build),
@@ -11,6 +14,8 @@ queue/approved.json -> items: [{"url": ..., "summary": "1–2 sentences IN ENGLI
                        rejected: [{"url": ... | "title_contains": ..., "reason": ...}]   # kept out even when a feed finds them again"""
 import json, os, sys, urllib.parse
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); P = lambda *a: os.path.join(ROOT, *a)
+sys.path.insert(0, ROOT)
+from tools.frontpage_blurbs import LANGS, substantive
 def load(p, d):
     try: return json.load(open(p, encoding="utf-8"))
     except FileNotFoundError: return d
@@ -23,7 +28,22 @@ def canon(url):
 ap = load(P("queue", "approved.json"), {})
 news = load(P("data", "news.json"), {"items": []})
 by = {canon(i["url"]): i for i in news["items"]}
-n_pub = n_rej = 0; missing = []
+def store_blurb(story_id, blurb, i18n_map, source):
+    path = P("data", "frontpage_blurbs.json")
+    data = load(path, {"langs": LANGS, "items": {}})
+    slot = data.setdefault("items", {}).setdefault(story_id, {})
+    if blurb:
+        slot["en"] = blurb
+    en = blurb or (slot.get("en") or "")
+    if i18n_map and (source is None or source == en):
+        for k, v in i18n_map.items():
+            if k in LANGS and k != "en" and (v or "").strip():
+                slot[k] = v.strip()
+    elif i18n_map:
+        print(f"warning: blurb translations dropped for {story_id}; blurb_i18n_source does not match the English blurb", file=sys.stderr)
+    save(path, data)
+
+n_pub = n_rej = 0; missing = []; short = []
 for a in ap.get("items", []):
     it = by.get(canon(a["url"]))
     if not it: missing.append(a["url"]); continue
@@ -37,6 +57,11 @@ for a in ap.get("items", []):
     # summary_i18n_review: "pending" (AI-assisted draft) or "approved" (editor checked); build.py shows pending ones only in --preview
     if a.get("summary_i18n") and a.get("summary_i18n_source", s) == s: it.update(summary_i18n=a["summary_i18n"], summary_i18n_review=a.get("summary_i18n_review", "approved"))
     else: it.pop("summary_i18n", None); it.pop("summary_i18n_review", None)
+    b = (a.get("blurb") or "").strip()
+    if b or a.get("blurb_i18n"):
+        store_blurb(it["id"], b, a.get("blurb_i18n") or {}, a.get("blurb_i18n_source"))
+    elif not substantive(s):
+        short.append(a["url"])
     n_pub += 1
 for r in ap.get("rejected", []):
     for it in news["items"]:
@@ -50,4 +75,6 @@ q = load(P("queue", "review.json"), None)
 if q:
     q["items_needing_summary"] = [x for x in q.get("items_needing_summary", []) if any(i["id"] == x["id"] and i["status"] == "pending" for i in news["items"])]
     save(P("queue", "review.json"), q)
+if short:
+    print(f"warning: {len(short)} approved summaries are still one sentence; the front page uses data/frontpage_blurbs.json until they are two to four sentences", file=sys.stderr)
 print(f"approvals: {n_pub} stories published, {n_rej} rejected" + (f"; {len(missing)} approved URLs missing from news.json (run ./fetch.sh --add URL --country XX): {missing}" if missing else ""))
