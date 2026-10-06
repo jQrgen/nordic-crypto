@@ -4,7 +4,7 @@
 import siteUrl from "../../site_url.json" with { type: "json" };
 const SITE_BASE = siteUrl.base.endsWith("/") ? siteUrl.base : siteUrl.base + "/";
 export const SITES = {
-  "nordic-crypto": { name: "Crypto Nordic", base: SITE_BASE, page: "newsletter/",
+  "nordic-crypto": { name: "Nordic Crypto", base: SITE_BASE, page: "newsletter/",
     langs: { en: "", nn: "nn/", nb: "nb/", sv: "sv/", da: "da/", fi: "fi/", is: "is/" }, def: "en" },
   "kryptonytt": { name: "Kryptonytt Norge", base: "https://jqrgen.github.io/kryptonytt/", page: "nyhetsbrev/",
     langs: { nn: "", nb: "bm/", en: "en/" }, def: "nn" },
@@ -57,5 +57,7 @@ export function confirmEmail(site, lang, link) {
 }
 export function welcomeEmail(site, lang, link) {
   const v = { name: SITES[site].name, site: SITES[site].base + (SITES[site].langs[lang] ?? ""), link };
-  return { subject: text(lang, "ws", v), text: text(lang, "wb", v) };
+  let body = text(lang, "wb", v);
+  if (site === "nordic-crypto" && !body.includes("The Nordic Crypto team")) body += "The Nordic Crypto team\n";
+  return { subject: text(lang, "ws", v), text: body };
 }

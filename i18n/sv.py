@@ -136,7 +136,9 @@ S.update({
 "nl_btn": "Prenumerera",
 "nl_foot": "Nyhetsbrev: en kort sammanfattning varje vecka via mejl.",
 "nl_more": "Mer om nyhetsbrevet",
-"nl_priv": "<b>Integritet:</b> vi sparar bara din e-postadress, språket du valde och tidpunkten – <b>inte</b> din IP-adress, Cloudflare Web Analytics räknar besök samlat, utan kakor, och vi säljer inte de uppgifterna. Du får ett mejl där du bekräftar prenumerationen; innan dess skickas inget mer, och adresser som inte bekräftas raderas efter 7 dagar. Varje nyhetsbrev har en länk för att avsluta prenumerationen. Listan används bara för Nordic Cryptos nyhetsbrev och kan flyttas till tjänsten vi skickar det med (till exempel Substack); den säljs eller delas aldrig för något annat.",
+"nl_priv": "<b>Integritet:</b> det här formuläret är vårt. Vi sparar bara din e-postadress, språket du valde och tidpunkten i en privat Cloudflare-databas – <b>inte</b> din IP-adress, och inte på GitHub. Cloudflare Web Analytics räknar besök samlat, utan kakor, och vi säljer inte de uppgifterna. Ett analysskript laddas från Cloudflare. Du får ett mejl där du bekräftar prenumerationen; innan dess skickas inget mer, och adresser som inte bekräftas raderas efter 7 dagar. Varje nyhetsbrev har en länk för att avsluta prenumerationen. Listan används bara för att skicka Nordic Cryptos nyhetsbrev. Den säljs eller delas aldrig.",
+"nl_consent": "Jag samtycker till att Nordic Crypto sparar den här adressen och skickar nyhetsbrevet. Jag kan avsluta prenumerationen i varje mejl.",
+"nl_soon": "Anmälningsformuläret på den här sidan sparar din adress i vår privata databas. Det visas här när e-posttjänsten är påslagen. Cloudflare Web Analytics räknar besök samlat, utan kakor, och vi säljer inte de uppgifterna.",
 "nl_sending": "Skickar …",
 "nl_sent": "Nästan klart: titta i din inkorg och öppna bekräftelselänken inom 7 dagar.",
 "nl_confirmed": "Tack, din prenumeration är bekräftad.",
@@ -146,9 +148,6 @@ S.update({
 "nl_e_link": "Länken är ogiltig eller har gått ut. Anmäl dig igen.",
 "nl_e_fail": "Något gick fel. Försök igen senare.",
 "nl_kaupr": "Kaupr (kaupr.io) är en av nyhetskällorna vi följer.",
-"nl_sub_btn": "Prenumerera på Substack →",
-"nl_sub_note": "Du anmäler dig hos Substack (cryptonordic.substack.com), som skickar nyhetsbrevet. Substack hanterar din e-postadress enligt sin egen integritetspolicy; den här webbplatsen sparar ingenting. Cloudflare Web Analytics räknar besök samlat, utan kakor, och vi säljer inte de uppgifterna. Varje nyhetsbrev har en länk för att avsluta prenumerationen.",
-"nl_embed_btn": "Visa Substacks anmälningsformulär", "nl_embed_note": "Formuläret laddas från substack.com först när du klickar på knappen. Substack kan då sätta egna kakor enligt sin integritetspolicy; den här webbplatsen sparar ingenting.", "nl_embed_title": "Substacks anmälningsformulär",
 # newsletter issues (/newsletter/ list, /newsletter/<id>/)
 "nav_newsletter": "Nyhetsbrev", "nl_issues_h": "Utgåvor", "nl_issues_lead": "Alla utgåvor, nyaste först. Läs dem här eller få dem via mejl.", "nl_issues_none": "Inga utgåvor ännu.", "nl_issue_n": "Utgåva #{n}", "nl_issue_period": "Nyheter från {a} till {b}", "nl_issue_count": "{s} nyheter och {e} evenemang", "nl_issue_video": "Video, {m} min", "nl_issue_en": "Den här utgåvan finns bara på engelska.", "bridge": "Artikeln är {where}. I korthet:", "nl_bridge": "Den här utgåvan är {where}. I korthet:", "nl_video_dl": "Ladda ner videon (MP4, {mb} MB)", "nl_video_subs": "Engelska undertexter (WebVTT)", "nl_video_fallback": "Din webbläsare kan inte spela upp videon här. Ladda ner den i stället:", "nl_video_note": "Videon spelas upp från den här webbplatsen, utan YouTube-spelare. Den har engelska undertexter.", "nl_all_issues": "Alla utgåvor av nyhetsbrevet", "nl_get_next": "Få nästa utgåva via mejl:",
 # the site's own X account (@xcryptonordic), header/footer/newsletter

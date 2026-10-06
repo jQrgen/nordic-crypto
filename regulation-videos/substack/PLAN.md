@@ -1,6 +1,6 @@
-# Substack draft plan (cryptonordic.substack.com)
+# Draft notes (not sent)
 
-**Status:** Drafts prepared as markdown under `substack/`. **Do not auto-publish.** Parent should use DraftExternalMessage / Substack draft flow only after jQrgen approves.
+**Status:** Drafts prepared as markdown under `substack/`. **Do not auto-send.** jQrgen reviews them before anything is mailed with `newsletter/send_issue.py`.
 
 ## Series option A (recommended): five posts
 1. NO — `substack/no-draft.md`
@@ -15,5 +15,5 @@ Publish cadence: one per weekday after site PR merges and (ideally) after each v
 Single post “How Nordic crypto rules are decided” linking to `/regulation-videos/` with five sections.
 
 ## Parent action
-- Prepare DraftExternalMessage cards OR save Substack drafts manually — **jQrgen must send**.
+- jQrgen reviews the draft, then sends with `newsletter/send_issue.py` if it should go out. The build does not send it.
 - Embed video URLs only when release assets exist.

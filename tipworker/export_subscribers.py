@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
-"""Exports CONFIRMED newsletter subscribers from D1 (table subscribers) as a CSV for a Substack import
-(Substack: Settings › Subscribers › Import; the file needs an "email" column). One file per site; the file is
-written with mode 600 under state/newsletter/ (gitignored) and the addresses are never printed – only counts.
-Pending and unsubscribed rows are never exported.
+"""Exports CONFIRMED newsletter subscribers from D1 (table subscribers) as a private CSV.
+One file per site; the file is written with mode 600 under state/newsletter/ (gitignored) and the addresses are
+never printed – only counts. Pending and unsubscribed rows are never exported. Delete the file when you are done.
 Usage: .venv/bin/python tipworker/export_subscribers.py --site nordic-crypto|kryptonytt [--lang nn] [--local] [--out PATH]
        [--from-json FILE]  (tests: rows as JSON instead of D1)
 Needs CLOUDFLARE_API_TOKEN (remote) or --local (wrangler dev's local D1)."""

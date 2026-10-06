@@ -92,7 +92,7 @@ has "one-click unsubscribed" "$(sql "SELECT status FROM subscribers WHERE id=$OI
 for i in 1 2 3 4 5; do sub "{\"email\":\"rl$i@example.org\",\"site\":\"nordic-crypto\"}" 203.0.113.50 >/dev/null; done
 r=$(sub '{"email":"rl6@example.org","site":"nordic-crypto"}' 203.0.113.50); chk "6th signup in 10 min 429" "${r##*|}" 429
 hasnt "no raw IP in D1" "$(sql "SELECT * FROM subscribers"; sql "SELECT * FROM rate_hits")" "203.0.113"
-# CSV export for Substack: only confirmed rows (local D1)
+# CSV export: only confirmed rows (local D1)
 r=$(sub '{"email":"exp@example.org","site":"kryptonytt","lang":"en"}' $(ip)); T2=$(val test_token <<<"$r"); curl -s -o /dev/null "$B/api/confirm?token=$T2&s=kryptonytt&l=en"
 X=$(mktemp -d)/k.csv; o=$(python3 export_subscribers.py --site kryptonytt --local --out "$X" 2>&1)
 has "export ran" "$o" "confirmed subscribers for kryptonytt"; hasnt "export prints no addresses" "$o" "@example.org"

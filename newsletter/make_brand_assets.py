@@ -1,4 +1,4 @@
-"""Renders Substack branding images from the sites' existing brand (wordmark colours + favicon mark) – PNGs + SVG source."""
+"""Renders newsletter branding images from the sites' existing brand (wordmark colours + favicon mark) – PNGs + SVG source."""
 from playwright.sync_api import sync_playwright
 NC_MARK = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='#0f5ea8'/><rect x='4' width='3' height='16' fill='white'/><rect y='6.5' width='16' height='3' fill='white'/></svg>"
 KN_MARK = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='#b45309'/><text x='8' y='12.5' font-size='12' text-anchor='middle' fill='white' font-family='DejaVu Sans, sans-serif' font-weight='bold'>K</text></svg>"

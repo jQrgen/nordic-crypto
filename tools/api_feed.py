@@ -891,7 +891,7 @@ def _meta(feed):
             "openapi": feed.abs("api/v1/openapi.json"),
             "llms_txt": feed.abs("llms.txt"),
             "github": "https://github.com/jQrgen/nordic-crypto",
-            "substack": "https://cryptonordic.substack.com",
+            "newsletter": feed.abs("newsletter/"),
             "telegram": SITE_TELEGRAM_URL,
             "x": SITE_X_URL,
         },
@@ -1522,7 +1522,7 @@ def schemas():
                     }},
                 },
             },
-            "urls": {"type": "object", "description": "github, substack, telegram and x, plus the API bases."},
+            "urls": {"type": "object", "description": "github, newsletter, telegram and x, plus the API bases. newsletter is the signup page on this site."},
         }),
         "LanguageList": wrap("LanguageList", {
             "count": {"type": "integer"},
