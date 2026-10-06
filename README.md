@@ -114,6 +114,22 @@ Whenever a story is shown (the news list, the screen, our own story pages, and t
 
 The public site shows a logo only when `review` is `ok` (a missing review counts as ok). `./build.sh --preview` also shows `pending`. `rejected`, a missing file, or no entry: text only. `python3 tools/fetch_logos.py` fills gaps for enabled outlets and for any source that already has a published or pending story. New files stay `pending` until an editor checks that the image belongs to that outlet.
 
+## Story pictures
+
+Story cards and story pages show one picture, with the credit under it. The picture is not stored on the news row. `tools/illustrations.py` assigns it at build and API time from `data/illustrations.json`, using the story's topics and country. An optional `illustration_id` (a catalogue id, never a URL) overrides that. Existing rows stay valid without the field.
+
+Allowed pictures, each with `source`, `author`, `license` and `url`:
+
+- Our own illustrations in `assets/img/illustrations/original-*.webp` (CC0, redrawn by `tools/make_illustrations.py`). Abstract shapes only: no real person, no copied logo.
+- Wikimedia Commons files under CC0, public domain, CC BY or CC BY-SA, with the author named. A crop is stated on the record.
+- Official pictures a public body released for free use, terms checked per agency and written on the record. In use: the Riksbank building (free use with credit) and the Norges Bank daytime facade (credit, no alteration, not for advertising).
+
+Assignment, first match: crime → Oslo tinghus; mining → mining machines; bitcoin → a physical bitcoin token; Swedish AML → the Riksbank building; Norwegian banking or funds → the Norges Bank facade; Swedish banking or funds → the Riksbank building; business, payments, stablecoins and the other market topics → our bar chart; policy and tax → our columns; regulation and the remaining topics → the parliament building for that country.
+
+`/api/v1/news.json` and each news item include `illustration` with those credit fields and `file_url`. The catalogue is also at `/api/v1/illustrations.json`.
+
+Newspaper photographs are not copied, stored, proxied or hotlinked. Åndsverkloven § 23 protects a news photo. `fetch.py` drops `og:image`, RSS `media:content` / `media:thumbnail` and image enclosures, and `tools/press_images.py` strips those fields before a news file is saved and again when the API is written. Outlet logos stay, only to name the source. The full audit and the terms checks are in `docs/image-policy.md`. The same rule is stated on the ethics page and, briefly, on About.
+
 ## Regulation explainer videos
 `/regulation-videos/` has one slot each for Norway, Sweden, Denmark, Finland and Iceland, linked from `/rules/` and About. Scripts, storyboards, posters and sources are in `regulation-videos/`. Institution names and source URLs are read from the editor-approved `rules.json` at build time. Iceland is in the EEA, not the EU, and Seðlabanki Íslands houses Fjármálaeftirlit. Drop `video-XX.mp4` in `regulation-videos/media/` (gitignored) and the slot plays it with the HTML5 player. Until then the slot shows the title, the narrator notes and the sources. The films are not rendered yet. Substack drafts in `regulation-videos/substack/` are for human review only; the build does not send them. Sign-off: The Nordic Crypto team. Kaupr is a news source only and is not a sponsor of these films.
 
