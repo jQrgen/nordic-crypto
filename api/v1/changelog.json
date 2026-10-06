@@ -1,11 +1,45 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T00:50:40+00:00",
+ "generated_at": "2026-10-06T05:34:26+00:00",
  "preview": false,
  "launch_date": "2026-10-03",
- "count": 21,
+ "count": 22,
  "entries": [
+  {
+   "id": "mobile-language",
+   "date": "2026-10-06",
+   "title": "Language choice on phones",
+   "description": "On a narrow screen the language control is the phone's own menu. It lists every site language in that language's own name, and the language you are reading is marked. It no longer opens an empty panel over the article. The section links sit behind a menu button, so the header stays on two lines. Wider screens keep the same language list as before.",
+   "i18n": {
+    "nn": {
+     "title": "Språkval på telefon",
+     "description": "På ein smal skjerm er språkvalet den innebygde menyen på telefonen. Han viser kvart språk på nettstaden med sitt eige namn, og språket du les er merkt. Han opnar ikkje lenger eit tomt felt over artikkelen. Seksjonslenkjene ligg bak ein menyknapp, så toppfeltet held seg på to liner. Breiare skjermar har den same språklista som før."
+    },
+    "nb": {
+     "title": "Språkvalg på telefon",
+     "description": "På en smal skjerm er språkvalget den innebygde menyen på telefonen. Den viser hvert språk på nettstedet med sitt eget navn, og språket du leser er merket. Den åpner ikke lenger et tomt felt over artikkelen. Seksjonslenkene ligger bak en menyknapp, så toppfeltet holder seg på to linjer. Bredere skjermer har den samme språklisten som før."
+    },
+    "sv": {
+     "title": "Språkval på telefonen",
+     "description": "På en smal skärm är språkvalet telefonens egen meny. Den visar varje språk på webbplatsen med sitt eget namn, och språket du läser är markerat. Den öppnar inte längre en tom ruta över artikeln. Avsnittslänkarna ligger bakom en menyknapp, så sidhuvudet stannar på två rader. Bredare skärmar har samma språklista som förut."
+    },
+    "da": {
+     "title": "Sprogvalg på telefonen",
+     "description": "På en smal skærm er sprogvalget telefonens egen menu. Den viser hvert sprog på sitet med sit eget navn, og sproget du læser er markeret. Den åbner ikke længere et tomt felt over artiklen. Sektionslinkene ligger bag en menuknap, så toppen holder sig på to linjer. Bredere skærme har den samme sprogliste som før."
+    },
+    "fi": {
+     "title": "Kielivalinta puhelimessa",
+     "description": "Kapealla näytöllä kielivalinta on puhelimen oma valikko. Se näyttää jokaisen sivuston kielen omalla nimellään, ja kieli jota luet on merkitty. Se ei enää avaa tyhjää ruutua artikkelin päälle. Osioiden linkit ovat valikkopainikkeen takana, joten ylätunniste pysyy kahdella rivillä. Leveämmillä näytöillä kielilista on entisellään."
+    },
+    "is": {
+     "title": "Tungumálaval á síma",
+     "description": "Á mjóum skjá er tungumálavalið eigin valmynd símans. Hún sýnir hvert tungumál síðunnar með sínu eigin nafni, og tungumálið sem þú lest er merkt. Hún opnar ekki lengur tóman reit yfir greininni. Tenglar á hluta síðunnar eru bak við valmyndarhnapp, svo hausinn helst í tveimur línum. Breiðari skjáir hafa sama tungumálalista og áður."
+    }
+   },
+   "html_url": "https://jqrgen.github.io/nordic-crypto/changelog/#mobile-language",
+   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/mobile-language.json"
+  },
   {
    "id": "community-links",
    "date": "2026-10-06",

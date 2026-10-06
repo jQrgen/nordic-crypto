@@ -1,7 +1,65 @@
 {
- "updated": "2026-10-04T01:42:55+00:00",
+ "updated": "2026-10-06T01:49:36+00:00",
  "preview": false,
  "items": [
+  {
+   "id": "fb9e8ca4fb40",
+   "url": "https://www.finansavisen.no/valuta/2026/10/05/8385368/smasparere-hamstret-krypto-under-renteuro",
+   "title": "Småsparere hamstret krypto under renteuro",
+   "title_en": "Norwegian retail investors kept buying crypto during rate turmoil",
+   "source": "finansavisen",
+   "source_name": "Finansavisen",
+   "country": "NO",
+   "language": "Norwegian",
+   "published": "2026-10-05T06:06:00+00:00",
+   "topics": [
+    "business"
+   ],
+   "summary": "Customers of Norwegian exchange Firi bought 16.1 million kroner more crypto than they sold in September, on trading of 313.5 million kroner, despite a turbulent month. Bitcoin was the top buy while many moved money out of XRP into bitcoin and solana; CEO Thuc Hoang sees rising US interest rates as the main risk.",
+   "summary_i18n": {
+    "nn": "Kundane på den norske kryptobørsen Firi kjøpte krypto for 16,1 millionar kroner meir enn dei selde i september, med ei omsetning på 313,5 millionar kroner, trass i ein uroleg månad. Bitcoin var mest kjøpt, medan mange flytta pengar frå XRP til bitcoin og solana; Firi-sjef Thuc Hoang ser stigande amerikanske renter som den største risikoen.",
+    "nb": "Kundene på den norske kryptobørsen Firi kjøpte krypto for 16,1 millioner kroner mer enn de solgte i september, med en omsetning på 313,5 millioner kroner, til tross for en urolig måned. Bitcoin var mest kjøpt, mens mange flyttet penger fra XRP til bitcoin og solana; Firi-sjef Thuc Hoang ser stigende amerikanske renter som den største risikoen.",
+    "sv": "Kunderna på den norska kryptobörsen Firi köpte krypto för 16,1 miljoner norska kronor mer än de sålde i september, med en omsättning på 313,5 miljoner kronor, trots en orolig månad. Bitcoin köptes mest, medan många flyttade pengar från XRP till bitcoin och solana; Firis vd Thuc Hoang ser stigande amerikanska räntor som den största risken.",
+    "da": "Kunderne på den norske kryptobørs Firi købte krypto for 16,1 millioner norske kroner mere, end de solgte i september, med en omsætning på 313,5 millioner kroner, trods en urolig måned. Bitcoin var mest købt, mens mange flyttede penge fra XRP til bitcoin og solana; Firis topchef Thuc Hoang ser stigende amerikanske renter som den største risiko.",
+    "fi": "Norjalaisen kryptopörssin Firin asiakkaat ostivat syyskuussa kryptovaluuttoja 16,1 miljoonalla Norjan kruunulla enemmän kuin myivät, kun kaupankäynnin arvo oli 313,5 miljoonaa kruunua, levottomasta kuukaudesta huolimatta. Bitcoin oli ostetuin, ja moni siirsi rahojaan XRP:stä bitcoiniin ja solanaan; Firin toimitusjohtaja Thuc Hoang pitää nousevia Yhdysvaltain korkoja suurimpana riskinä.",
+    "is": "Viðskiptavinir norsku rafmyntakauphallarinnar Firi keyptu rafmyntir fyrir 16,1 milljón norskra króna meira en þeir seldu í september, en heildarviðskipti námu 313,5 milljónum króna, þrátt fyrir óróa á markaði. Bitcoin var mest keypt og margir færðu fé úr XRP yfir í bitcoin og solana; Thuc Hoang, forstjóri Firi, telur hækkandi vexti í Bandaríkjunum vera mestu áhættuna."
+   },
+   "paywall": true,
+   "status": "published",
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
+  },
   {
    "id": "e6727b4858b5",
    "url": "https://www.realtid.se/bors-finans/makro/sa-kan-sverige-anvandas-for-att-finansiera-karnvapen/",

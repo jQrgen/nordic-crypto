@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T00:50:40+00:00",
+ "generated_at": "2026-10-06T05:34:26+00:00",
  "preview": false,
  "title": "Nordic Crypto data API",
  "sign_off": "The Nordic Crypto team",
@@ -29,9 +29,9 @@
   "not_investment_advice": true
  },
  "counts": {
-  "news": 42,
+  "news": 43,
   "news_by_country": {
-   "NO": 16,
+   "NO": 17,
    "SE": 18,
    "DK": 5,
    "FI": 3,
@@ -54,7 +54,7 @@
   "org_relations": 15,
   "profiles": 20,
   "images": 64,
-  "changelog": 21,
+  "changelog": 22,
   "archive_articles": 42,
   "markets": 72,
   "markets_aggregated": 53,
@@ -82,8 +82,8 @@
    "url_custom_domain": "https://cryptonordic.no/api/v1/news.json",
    "summary": "Published news and our own stories, newest first.",
    "schema": "NewsList",
-   "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/e6727b4858b5.json",
-   "example_url_custom_domain": "https://cryptonordic.no/api/v1/news/e6727b4858b5.json",
+   "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/fb9e8ca4fb40.json",
+   "example_url_custom_domain": "https://cryptonordic.no/api/v1/news/fb9e8ca4fb40.json",
    "item_path": "/api/v1/news/{id}.json",
    "item_url_template": "https://jqrgen.github.io/nordic-crypto/api/v1/news/{id}.json"
   },
@@ -228,8 +228,8 @@
    "url_custom_domain": "https://cryptonordic.no/api/v1/academia/{id}.json",
    "summary": "One academia row. The id is in academia.json.",
    "schema": "AcademiaItem",
-   "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/FI-CS-AJ0100.json",
-   "example_url_custom_domain": "https://cryptonordic.no/api/v1/academia/FI-CS-AJ0100.json"
+   "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/FI-LT00DF90.json",
+   "example_url_custom_domain": "https://cryptonordic.no/api/v1/academia/FI-LT00DF90.json"
   },
   {
    "id": "api-v1-orgchart",
@@ -301,8 +301,8 @@
    "url_custom_domain": "https://cryptonordic.no/api/v1/changelog.json",
    "summary": "Site changelog (product changes, not the news), newest first.",
    "schema": "ChangelogList",
-   "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/community-links.json",
-   "example_url_custom_domain": "https://cryptonordic.no/api/v1/changelog/community-links.json",
+   "example_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/mobile-language.json",
+   "example_url_custom_domain": "https://cryptonordic.no/api/v1/changelog/mobile-language.json",
    "item_path": "/api/v1/changelog/{id}.json",
    "item_url_template": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/{id}.json"
   },
@@ -423,7 +423,7 @@
   },
   {
    "description": "One news item",
-   "url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/e6727b4858b5.json"
+   "url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/fb9e8ca4fb40.json"
   },
   {
    "description": "Newsletter issues",
