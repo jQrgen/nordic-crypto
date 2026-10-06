@@ -104,10 +104,26 @@ The iOS app reads them from `social` on `/api/v1/meta.json` (`social.telegram`, 
 | Fetch | `./fetch.sh [--days N]` | Reads RSS feeds / list pages / news search per country (robots.txt respected, own UA, ≥2 s per host), filters on multilingual crypto keywords, adds new stories to `data/news.json` as `pending`, new events to `data/events.json` as `pending`, candidate entities to `queue/review.json`. |
 | Add a story by hand | `./fetch.sh --add URL --country XX [--date YYYY-MM-DD]` | Metadata only (title/description/date), never article text. |
 | Add an event by hand | `.venv/bin/python events.py --add-event URL --country XX [--title --start --place --organiser --paid --online]` | Event lands as `pending`. |
+| Refresh events only | `.venv/bin/python events.py` or `.venv/bin/python events.py --only id,id` | Same event search as `./fetch.sh`, without the news feeds. |
 | Local preview | `./build.sh --preview` | Builds `site/` incl. pending items, clearly marked, `noindex`, robots disallow, writes `site/.preview`. Then the privacy gate. |
 | Public build | `./build.sh` | Only approved content. |
 | Publish (later) | `./publish.sh --yes` | ONLY after jQrgen approves. Refuses a preview build; on first run creates the git repo and `jQrgen/nordic-crypto`, pushes `site/` to `gh-pages` while keeping `CNAME`, `kiosk/` and every top-level name in `publish-keep.txt`, sets the Pages custom domain to nordiccrypto.no, pushes code to `main`, stamps the launch date in `changelog.json`. Without `--yes` it only builds and checks. Aborts if the staged gh-pages tree has no `CNAME`. |
 | QA screenshots | `.venv/bin/python tools/screens.py` | Serves `site/` on a free local port, screenshots every page into `shots/`, reports JS errors, 4xx and horizontal overflow. |
+
+### Blockchain conference listings
+`event_sources` in `sources.json` includes International Conference Alerts country pages, `type: listing-jsonld`. Checked 6 Oct 2026; each URL returned a list of blockchain conferences:
+
+- Norway: https://internationalconferencealerts.com/blockchain/norway
+- Sweden: https://internationalconferencealerts.com/blockchain/sweden
+- Denmark: https://internationalconferencealerts.com/blockchain/denmark
+- Finland: https://internationalconferencealerts.com/blockchain/finland
+- Iceland: https://internationalconferencealerts.com/blockchain/iceland
+
+`events.py` reads the listing, keeps event links (`link_pattern`, crypto keywords unless the source is `trusted`, soonest first, at most `max_links`), and reads schema.org `Event` JSON-LD on each event page: title, start, end, place, organiser and URL. A street address under a Venue label is used when it is more specific than the city. Dates published as `00:00:00Z` are stored as that calendar day in the event country's time zone, and the calendar shows the dates without a clock time. No photos are copied. The calendar links to the event page.
+
+These pages list academic conferences that put blockchain in the title. They are not auto-published. New rows land as `pending` in `data/events.json`. `./build.sh --preview` shows them, marked as waiting for the editor. The public calendar shows one after its id is added to `events.approve` in `queue/approved.json` (date, place and organiser must be on the listing or the organiser's page).
+
+Refresh: `./fetch.sh` or `.venv/bin/python events.py`. One country: `.venv/bin/python events.py --only ica-blockchain-norway`. robots.txt is respected (the site allows `/`; `/*_rsc=` is disallowed and is not requested). The usual per-host delay applies. If Cloudflare returns a challenge instead of the HTML, that source is recorded as failed in `state/source_status.json` and events already stored are kept. On 6 Oct 2026 a direct fetch with this site's user agent got HTTP 403 ("Just a moment"). The conferences then on the five listings were parsed from the public HTML with this same code and stored as pending, so a later run that receives HTML adds new ones and does not duplicate these.
 
 Other tools: `tools/probe.py` (feed checks), `tools/import_orgchart.py` (merges the Norwegian Kryptonytt industry map, translated via `data/no_en.json`, with `data/orgchart_nordic.json`), `tools/import_academia.py` (reads the researcher's `academia.md` and its editor status column), `tools/seed_academia.py` (DOI-checked publication candidates), `tools/privacy_gate.py`, `tools/commons_photo.py` (Wikimedia Commons photos with licence + credit only), `tools/fetch_logos.py` (one logo per org and per news outlet from Wikidata/Commons or the outlet's own site → `assets/img/logos/logos.json`, review pending), `tools/rules_page.py` (rules page from `rules.json`), `tools/regulation_videos.py` (country explainer slots at `/regulation-videos/`), `tools/article_archive.py` (append-only article archive).
 
