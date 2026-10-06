@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Aave",
- "generated_at": "2026-10-06T00:51:15+00:00",
+ "generated_at": "2026-10-06T00:50:40+00:00",
  "preview": false,
  "kind": "markets",
  "disclaimer": "Market data, not investment advice. Each figure is the value published by the named exchange at fetched_at. Nordic Crypto does not set these prices and does not tell anyone to buy or sell.",
@@ -32,7 +32,7 @@
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-06T00:50:46+00:00",
+   "fetched_at": "2026-10-06T00:50:16+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
@@ -57,7 +57,7 @@
     "name": "Coinmotion",
     "country": "FI"
    },
-   "fetched_at": "2026-10-06T00:50:46+00:00",
+   "fetched_at": "2026-10-06T00:50:16+00:00",
    "source_url": "https://api.coinmotion.com/v2/rates",
    "volume_base": null,
    "volume_quote": null,
@@ -76,8 +76,8 @@
    "name": "Aave",
    "quote": "SEK",
    "currency": "SEK",
-   "updated_at": "2026-10-06T00:50:46+00:00",
-   "oldest_fetched_at": "2026-10-06T00:50:46+00:00",
+   "updated_at": "2026-10-06T00:50:16+00:00",
+   "oldest_fetched_at": "2026-10-06T00:50:16+00:00",
    "exchange_count": 1,
    "method": "mean_bid_ask_mid",
    "method_note": "No exchange published a last for this pair. price is the arithmetic mean of (bid+ask)/2 from exchanges that published both. It is not a last-trade average.",
@@ -125,7 +125,7 @@
      "volume_quote": null,
      "volume_base_24h": null,
      "volume_quote_24h": null,
-     "fetched_at": "2026-10-06T00:50:46+00:00",
+     "fetched_at": "2026-10-06T00:50:16+00:00",
      "source_url": "https://api.coinmotion.com/v2/rates",
      "included_in_price": true
     }
@@ -151,8 +151,8 @@
    "name": "Aave",
    "quote": "EUR",
    "currency": "EUR",
-   "updated_at": "2026-10-06T00:50:46+00:00",
-   "oldest_fetched_at": "2026-10-06T00:50:46+00:00",
+   "updated_at": "2026-10-06T00:50:16+00:00",
+   "oldest_fetched_at": "2026-10-06T00:50:16+00:00",
    "exchange_count": 1,
    "method": "mean_bid_ask_mid",
    "method_note": "No exchange published a last for this pair. price is the arithmetic mean of (bid+ask)/2 from exchanges that published both. It is not a last-trade average.",
@@ -200,7 +200,7 @@
      "volume_quote": null,
      "volume_base_24h": null,
      "volume_quote_24h": null,
-     "fetched_at": "2026-10-06T00:50:46+00:00",
+     "fetched_at": "2026-10-06T00:50:16+00:00",
      "source_url": "https://api.coinmotion.com/v2/rates",
      "included_in_price": true
     }
