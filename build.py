@@ -9,6 +9,7 @@ Share buttons are plain links. No advertising trackers and no external fonts. Cl
 Languages (i18n/ALL_LANGS): English at the root, then one directory per code. Nordic nn, nb, sv, da, fi, is plus the wider UI set. Missing strings fall back to English.
 Every page is built once per language; data/ (JSON), assets/ and screen/ (English) exist only at the root."""
 import json, os, re, shutil, subprocess, html, sys, calendar, datetime as dt
+import events as eventslib
 from zoneinfo import ZoneInfo
 import i18n
 from tools.frontpage_blurbs import card_text, load as load_blurbs, opening_sentences, substantive
@@ -1201,8 +1202,12 @@ def build_sources(ctx):
     erows = []
     for s in cfg.get("event_sources", []):
         st = status.get("ev-" + s["id"], {})
-        cls, lab = ("ok", t("st_monitored")) if s.get("enabled", True) and st.get("ok", True) else ("bad", t("st_broken") if s.get("enabled", True) else t("st_unused"))
-        erows.append(f'<tr><td>{flag(s.get("country"))}</td><td><a href="{E(s["url"])}" rel="noopener" target="_blank">{E(s["name"])}</a></td><td class="{cls}">{E(lab)}</td><td lang="en">{E(s.get("status", ""))}</td></tr>')
+        if (s.get("status") or "").lower().startswith("used"):
+            cls, lab = ("ok", t("st_used")) if s.get("enabled", True) and st.get("ok", True) is not False else ("bad", t("st_broken") if s.get("enabled", True) else t("st_unused"))
+        else:
+            cls, lab = ("ok", t("st_monitored")) if s.get("enabled", True) and st.get("ok", True) else ("bad", t("st_broken") if s.get("enabled", True) else t("st_unused"))
+        note = s.get("method") or s.get("status") or ""
+        erows.append(f'<tr><td>{flag(s.get("country"))}</td><td><a href="{E(s["url"])}" rel="noopener" target="_blank">{E(s["name"])}</a></td><td class="{cls}">{E(lab)}</td><td lang="en" style="text-align:left">{E(note)}</td></tr>')
     bing = [s for s in cfg["sources"] if s["type"] == "bing"]
     qs = "".join(f'<li>{flag(s["country"])} {E(", ".join(s.get("queries", [])))} – {E(t("src_only_tld", tld=s["allowed_tld"]))}</li>' for s in bing)
     body = f"""<h1>{E(t("src_h1"))}</h1>
@@ -1213,6 +1218,7 @@ def build_sources(ctx):
 <h2>{E(t("src_kw_h"))}</h2><p class="prose">{E(t("src_kw"))}</p>
 <h2 id="events">{E(t("src_ev_h"))}</h2>
 <div class="tablewrap"><table class="list"><thead><tr><th></th><th>{E(t("th_event_source"))}</th><th>{E(t("th_status"))}</th><th>{E(t("th_note"))}</th></tr></thead><tbody>{''.join(erows)}</tbody></table></div>
+<p class="meta" style="text-align:left">{E(t("src_ev_note"))}</p>
 <p class="meta">{t("src_missing")}</p>"""
     page("sources", t("src_title"), "sources", body, t("src_desc"))
 
@@ -1317,6 +1323,7 @@ def events_for_site():
         if e["id"] in (ap.get("title_en") or {}): e["title_orig"] = e["title"]; e["title"] = ap["title_en"][e["id"]]
         if e["id"] in ap.get("sponsored", []): e["sponsored"] = True
         if e["id"] in ap.get("sponsor", {}): e["sponsored"] = ap["sponsor"][e["id"]]
+        e["sponsored"] = eventslib.clear_kaupr_sponsor(e.get("sponsored"))
         if e["id"] in ap.get("paid", {}): e["paid"] = ap["paid"][e["id"]]
         if e["status"] == "published": e["note"] = ap.get("notes", {}).get(e["id"])  # archive/public: editor's note only
         e["note_i18n"] = (ap.get("notes_i18n") or {}).get(e["id"]) if e.get("note") else None
