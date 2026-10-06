@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "item": {
   "id": "initial-build",
@@ -34,7 +34,7 @@
     "description": "Fyrsta útgáfa síðunnar á ensku: fréttir frá Noregi, Svíþjóð, Finnlandi, Íslandi og Færeyjum með eigin stuttum samantektum; viðburðadagatal með mánaðaryfirliti, farsímalista og landssíu; yfirlit yfir hver er hvað í greininni og hjá stjórnvöldum, skipt í einkageira og hið opinbera, með landssíu; hlutinn Regluverk eftir löndum; listinn yfir heimildirnar sem við fylgjumst með; síðan Um okkur með leiðréttingum og fjarlægingu; og skjáhamur fyrir skrifstofuskjái, lóðrétta og lárétta."
    }
   },
-  "html_url": "https://jqrgen.github.io/nordic-crypto/changelog/#initial-build",
-  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/initial-build.json"
+  "html_url": "https://cryptonordic.no/changelog/#initial-build",
+  "api_url": "https://cryptonordic.no/api/v1/changelog/initial-build.json"
  }
 }

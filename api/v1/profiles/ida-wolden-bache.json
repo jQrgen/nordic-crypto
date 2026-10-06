@@ -1,14 +1,14 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "item": {
   "entity_id": "ida-wolden-bache",
   "name": "Ida Wolden Bache",
   "type": "person",
   "country": "NO",
-  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/profiles/ida-wolden-bache.json",
+  "api_url": "https://cryptonordic.no/api/v1/profiles/ida-wolden-bache.json",
   "links": [
    {
     "kind": "wikipedia",

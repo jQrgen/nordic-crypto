@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "country": "SE",
  "count": 5,
@@ -24,8 +24,8 @@
    "note": null,
    "note_i18n": {},
    "past": true,
-   "html_url": "https://jqrgen.github.io/nordic-crypto/calendar/#e-71149f675741",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/events/71149f675741.json"
+   "html_url": "https://cryptonordic.no/calendar/#e-71149f675741",
+   "api_url": "https://cryptonordic.no/api/v1/events/71149f675741.json"
   },
   {
    "id": "ccc2eea6b213",
@@ -45,8 +45,8 @@
    "note": null,
    "note_i18n": {},
    "past": false,
-   "html_url": "https://jqrgen.github.io/nordic-crypto/calendar/#e-ccc2eea6b213",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/events/ccc2eea6b213.json"
+   "html_url": "https://cryptonordic.no/calendar/#e-ccc2eea6b213",
+   "api_url": "https://cryptonordic.no/api/v1/events/ccc2eea6b213.json"
   },
   {
    "id": "c4a53ca9bd26",
@@ -66,8 +66,8 @@
    "note": null,
    "note_i18n": {},
    "past": false,
-   "html_url": "https://jqrgen.github.io/nordic-crypto/calendar/#e-c4a53ca9bd26",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/events/c4a53ca9bd26.json"
+   "html_url": "https://cryptonordic.no/calendar/#e-c4a53ca9bd26",
+   "api_url": "https://cryptonordic.no/api/v1/events/c4a53ca9bd26.json"
   },
   {
    "id": "a6cadcf35c22",
@@ -87,8 +87,8 @@
    "note": null,
    "note_i18n": {},
    "past": false,
-   "html_url": "https://jqrgen.github.io/nordic-crypto/calendar/#e-a6cadcf35c22",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/events/a6cadcf35c22.json"
+   "html_url": "https://cryptonordic.no/calendar/#e-a6cadcf35c22",
+   "api_url": "https://cryptonordic.no/api/v1/events/a6cadcf35c22.json"
   },
   {
    "id": "e884ba1f0333",
@@ -108,8 +108,8 @@
    "note": null,
    "note_i18n": {},
    "past": false,
-   "html_url": "https://jqrgen.github.io/nordic-crypto/calendar/#e-e884ba1f0333",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/events/e884ba1f0333.json"
+   "html_url": "https://cryptonordic.no/calendar/#e-e884ba1f0333",
+   "api_url": "https://cryptonordic.no/api/v1/events/e884ba1f0333.json"
   }
  ]
 }

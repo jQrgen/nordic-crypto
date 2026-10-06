@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "item": {
   "id": "issue-1-newsreel-3",
@@ -34,7 +34,7 @@
     "description": "Talað mál í fréttabréfi #1 er tekið upp að nýju (útgáfa newsletter-001-newsreel-3), svo það samræmist textanum. Upphafið segir ekki að þátturinn sé unninn með aðstoð gervigreindar. Kaupr er nefnt aðeins sem heimild fréttarinnar um GreenMerc. Niðurlagið er Nordic Crypto-teymið."
    }
   },
-  "html_url": "https://jqrgen.github.io/nordic-crypto/changelog/#issue-1-newsreel-3",
-  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/issue-1-newsreel-3.json"
+  "html_url": "https://cryptonordic.no/changelog/#issue-1-newsreel-3",
+  "api_url": "https://cryptonordic.no/api/v1/changelog/issue-1-newsreel-3.json"
  }
 }

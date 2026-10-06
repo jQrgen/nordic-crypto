@@ -1,12 +1,12 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "item": {
   "id": "k33",
-  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/k33.json",
-  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#k33",
+  "api_url": "https://cryptonordic.no/api/v1/orgchart/k33.json",
+  "html_url": "https://cryptonordic.no/org-chart/#k33",
   "name": "K33",
   "type": "organisation",
   "sector": "private",
@@ -28,7 +28,7 @@
   ],
   "logo": {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/k33.svg",
+   "file_url": "https://cryptonordic.no/assets/img/logos/k33.svg",
    "source_url": "https://cdn.prod.website-files.com/645396e8d92c58b99155faf3/6655c6d2cbd4b2bfd63048b6_YOUR%20ICON.svg",
    "author": null,
    "license": null,

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "item": {
   "id": "frontpage-blurbs",
@@ -34,7 +34,7 @@
     "description": "Hver frétt á forsíðunni hefur nú samantekt um hvað greinin segir, tvær til fjórar setningar, á ensku, nýnorsku, bókmáli, sænsku, dönsku, finnsku og íslensku. Önnur tungumál síðunnar sýna ensku samantektina. Ein setning sem inngangur er ekki lengur eini textinn á spjaldinu. Orðin eru okkar, úr fyrirsögn og opnum inngangi. Við afritum ekki texta greina og förum ekki fram hjá áskriftarveggjum."
    }
   },
-  "html_url": "https://jqrgen.github.io/nordic-crypto/changelog/#frontpage-blurbs",
-  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/frontpage-blurbs.json"
+  "html_url": "https://cryptonordic.no/changelog/#frontpage-blurbs",
+  "api_url": "https://cryptonordic.no/api/v1/changelog/frontpage-blurbs.json"
  }
 }

@@ -1,20 +1,20 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "item": {
   "id": "6a94ab65ebff",
   "url": "https://www.kaupr.io/nyheter/nytt-nederlag-for-valuno-i-kampen-om-mica-lisens",
-  "html_url": "https://jqrgen.github.io/nordic-crypto/stories/6a94ab65ebff/",
-  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/6a94ab65ebff.json",
+  "html_url": "https://cryptonordic.no/stories/6a94ab65ebff/",
+  "api_url": "https://cryptonordic.no/api/v1/news/6a94ab65ebff.json",
   "title": "Nytt nederlag for Valuno i kampen om MiCA-lisens",
   "title_en": "New defeat for Valuno in the fight for a MiCA licence",
   "source": "kaupr",
   "source_name": "Kaupr",
   "source_logo": {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+   "file_url": "https://cryptonordic.no/assets/img/logos/kaupr.webp",
    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
    "author": null,
    "license": null,
@@ -56,7 +56,7 @@
    "primary": true,
    "logo": {
     "kind": "logo",
-    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+    "file_url": "https://cryptonordic.no/assets/img/logos/kaupr.webp",
     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
     "author": null,
     "license": null,
@@ -81,7 +81,7 @@
     "primary": true,
     "logo": {
      "kind": "logo",
-     "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+     "file_url": "https://cryptonordic.no/assets/img/logos/kaupr.webp",
      "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
      "author": null,
      "license": null,

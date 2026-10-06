@@ -1,11 +1,11 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "item": {
   "id": "f2ad120d7189",
-  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/f2ad120d7189.json",
+  "api_url": "https://cryptonordic.no/api/v1/archive/articles/f2ad120d7189.json",
   "site": "nordic-crypto",
   "url": "https://www.finansavisen.no/personlig-okonomi/2026/09/20/8381719/slar-et-slag-for-stablecoins",
   "canonical_url": "https://finansavisen.no/personlig-okonomi/2026/09/20/8381719/slar-et-slag-for-stablecoins",
@@ -18,7 +18,7 @@
   "country": "NO",
   "published_at": "2026-09-20T06:18:00+00:00",
   "first_published_on_site": "2026-10-03T17:59:40+02:00",
-  "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+  "last_seen_on_site": "2026-10-06T07:35:14+02:00",
   "languages": [
    "en",
    "nn",

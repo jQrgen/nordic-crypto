@@ -1,12 +1,12 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "item": {
   "id": "alf-gunnar-skjerdal-andersen",
-  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/alf-gunnar-skjerdal-andersen.json",
-  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#alf-gunnar-skjerdal-andersen",
+  "api_url": "https://cryptonordic.no/api/v1/orgchart/alf-gunnar-skjerdal-andersen.json",
+  "html_url": "https://cryptonordic.no/org-chart/#alf-gunnar-skjerdal-andersen",
   "name": "Alf Gunnar Skjerdal Andersen",
   "type": "person",
   "sector": "private",

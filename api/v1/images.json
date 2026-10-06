@@ -1,13 +1,13 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "count": 64,
  "images": [
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/stortinget-finanskomiteen.svg",
+   "file_url": "https://cryptonordic.no/assets/img/logos/stortinget-finanskomiteen.svg",
    "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
    "author": "Worldlydev",
    "license": "Public domain",
@@ -18,7 +18,7 @@
   },
   {
    "kind": "photo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/people/tuva-moflag.jpg",
+   "file_url": "https://cryptonordic.no/assets/img/people/tuva-moflag.jpg",
    "source_url": "https://commons.wikimedia.org/wiki/File:Tuva_Moflag.jpg",
    "author": "Johannes Dalen Giske",
    "license": "CC BY-SA 4.0",
@@ -29,7 +29,7 @@
   },
   {
    "kind": "photo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/people/hans-andreas-limi.jpg",
+   "file_url": "https://cryptonordic.no/assets/img/people/hans-andreas-limi.jpg",
    "source_url": "https://commons.wikimedia.org/wiki/File:Hans_Andreas_Limi_(172948).jpg",
    "author": "Tore Sætre",
    "license": "CC BY-SA 4.0",
@@ -40,7 +40,7 @@
   },
   {
    "kind": "photo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/people/bjorn-arild-gram.jpg",
+   "file_url": "https://cryptonordic.no/assets/img/people/bjorn-arild-gram.jpg",
    "source_url": "https://commons.wikimedia.org/wiki/File:Nato-toppm%C3%B8te_i_Madrid_(cropped).jpg",
    "author": "Statsministerens kontor",
    "license": "CC BY-SA 2.0",
@@ -51,7 +51,7 @@
   },
   {
    "kind": "photo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/people/jens-stoltenberg.jpg",
+   "file_url": "https://cryptonordic.no/assets/img/people/jens-stoltenberg.jpg",
    "source_url": "https://commons.wikimedia.org/wiki/File:NATO_Secretary_General_Jens_Stoltenberg.jpg",
    "author": "U.S. Department of State from United States",
    "license": "Public domain",
@@ -62,7 +62,7 @@
   },
   {
    "kind": "photo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/people/lars-henrik-myrmel-johansen.jpg",
+   "file_url": "https://cryptonordic.no/assets/img/people/lars-henrik-myrmel-johansen.jpg",
    "source_url": "https://commons.wikimedia.org/wiki/File:Lars-Henrik_Myrmel-Johansen_p%C3%A5_Sentralbanksjefens_%C3%A5rstale_2018_(190159).jpg",
    "author": "Tore Sætre",
    "license": "CC BY-SA 4.0",
@@ -73,7 +73,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/finanstilsynet.webp",
+   "file_url": "https://cryptonordic.no/assets/img/logos/finanstilsynet.webp",
    "source_url": "https://www.finanstilsynet.no/Content/Favicons/apple-touch-icon-57x57.png",
    "author": null,
    "license": null,
@@ -84,7 +84,7 @@
   },
   {
    "kind": "photo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/people/finn-arnesen.jpg",
+   "file_url": "https://cryptonordic.no/assets/img/people/finn-arnesen.jpg",
    "source_url": "https://commons.wikimedia.org/wiki/File:Arnesen01.JPG",
    "author": "Bjoertvedt",
    "license": "CC BY 3.0",
@@ -95,7 +95,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/norges-bank.svg",
+   "file_url": "https://cryptonordic.no/assets/img/logos/norges-bank.svg",
    "source_url": "https://commons.wikimedia.org/wiki/File:Norges_Bank_logo.svg",
    "author": "Norges Bank",
    "license": "Public domain",
@@ -106,7 +106,7 @@
   },
   {
    "kind": "photo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/people/ida-wolden-bache.jpg",
+   "file_url": "https://cryptonordic.no/assets/img/people/ida-wolden-bache.jpg",
    "source_url": "https://commons.wikimedia.org/wiki/File:Ida_Wolden_Bache_p%C3%A5_Sentralbanksjefens_%C3%A5rstale_2018_(174929).jpg",
    "author": "Tore Sætre",
    "license": "CC BY-SA 4.0",
@@ -117,7 +117,7 @@
   },
   {
    "kind": "photo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/people/pal-longva.jpg",
+   "file_url": "https://cryptonordic.no/assets/img/people/pal-longva.jpg",
    "source_url": "https://commons.wikimedia.org/wiki/File:P%C3%A5l_Longva_p%C3%A5_Sentralbanksjefens_%C3%A5rstale_2018_(190841).jpg",
    "author": "Tore Sætre",
    "license": "CC BY-SA 4.0",
@@ -128,7 +128,7 @@
   },
   {
    "kind": "photo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/people/oystein-borsum.jpg",
+   "file_url": "https://cryptonordic.no/assets/img/people/oystein-borsum.jpg",
    "source_url": "https://commons.wikimedia.org/wiki/File:%C3%98ystein_B%C3%B8rsum_p%C3%A5_Sentralbanksjefens_%C3%A5rstale_2018_(191749).jpg",
    "author": "Tore Sætre",
    "license": "CC BY-SA 4.0",
@@ -139,7 +139,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/skatteetaten.webp",
+   "file_url": "https://cryptonordic.no/assets/img/logos/skatteetaten.webp",
    "source_url": "https://www.skatteetaten.no/static/img/skatteetatenlogo/fav-icon/57x57/png/favicon57x57.png",
    "author": null,
    "license": null,
@@ -150,7 +150,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/okokrim.svg",
+   "file_url": "https://cryptonordic.no/assets/img/logos/okokrim.svg",
    "source_url": "https://commons.wikimedia.org/wiki/File:Okokrim_logo_sort.svg",
    "author": "Lillian Nordby Øktner/Økokrim",
    "license": "Public domain",
@@ -161,7 +161,7 @@
   },
   {
    "kind": "photo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/people/torgeir-micaelsen.jpg",
+   "file_url": "https://cryptonordic.no/assets/img/people/torgeir-micaelsen.jpg",
    "source_url": "https://commons.wikimedia.org/wiki/File:Torgeir_Micaelsen_-_Arbeiderpartiet.jpg",
    "author": "Arbeiderpartiet from Oslo, Norway",
    "license": "CC BY-SA 2.0",
@@ -172,7 +172,7 @@
   },
   {
    "kind": "photo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/people/terje-aasland.jpg",
+   "file_url": "https://cryptonordic.no/assets/img/people/terje-aasland.jpg",
    "source_url": "https://commons.wikimedia.org/wiki/File:Terje_Aasland,_2025_(cropped).jpg",
    "author": "Mission of Norway to the EU",
    "license": "CC BY 4.0",
@@ -183,7 +183,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/nkom.svg",
+   "file_url": "https://cryptonordic.no/assets/img/logos/nkom.svg",
    "source_url": "https://commons.wikimedia.org/wiki/File:Emblem_of_the_Norwegian_Communications_Authority.svg",
    "author": "Norwegian Communications Authority",
    "license": "Public domain",
@@ -194,7 +194,7 @@
   },
   {
    "kind": "photo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/people/kjetil-lund.jpg",
+   "file_url": "https://cryptonordic.no/assets/img/people/kjetil-lund.jpg",
    "source_url": "https://commons.wikimedia.org/wiki/File:Kjetil_Lund._Foto-_NVE_(cropped).jpg",
    "author": "Kbug2023",
    "license": "CC BY-SA 4.0",
@@ -205,7 +205,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/statnett.svg",
+   "file_url": "https://cryptonordic.no/assets/img/logos/statnett.svg",
    "source_url": "https://commons.wikimedia.org/wiki/File:Statnett_logo.svg",
    "author": "Statnett",
    "license": "Public domain",
@@ -216,7 +216,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/esma.webp",
+   "file_url": "https://cryptonordic.no/assets/img/logos/esma.webp",
    "source_url": "https://commons.wikimedia.org/wiki/File:ESMALogo.png",
    "author": null,
    "license": "CC0",
@@ -227,7 +227,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/eba.svg",
+   "file_url": "https://cryptonordic.no/assets/img/logos/eba.svg",
    "source_url": "https://www.eba.europa.eu/themes/eba_theme/templates/components/site-logo/images/EBA-logo.svg",
    "author": null,
    "license": null,
@@ -238,7 +238,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/firi.svg",
+   "file_url": "https://cryptonordic.no/assets/img/logos/firi.svg",
    "source_url": "https://commons.wikimedia.org/wiki/File:Firi-logo.svg",
    "author": "Alexander Schipper",
    "license": "Public domain",
@@ -249,7 +249,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/nbx.svg",
+   "file_url": "https://cryptonordic.no/assets/img/logos/nbx.svg",
    "source_url": "https://cdn.prod.website-files.com/6152dfaed2ce58d94ef37b88/619509e489aaca39961511c2_DarkLogo.svg",
    "author": null,
    "license": null,
@@ -260,7 +260,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/k33.svg",
+   "file_url": "https://cryptonordic.no/assets/img/logos/k33.svg",
    "source_url": "https://cdn.prod.website-files.com/645396e8d92c58b99155faf3/6655c6d2cbd4b2bfd63048b6_YOUR%20ICON.svg",
    "author": null,
    "license": null,
@@ -271,7 +271,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/bare-bitcoin.svg",
+   "file_url": "https://cryptonordic.no/assets/img/logos/bare-bitcoin.svg",
    "source_url": "https://barebitcoin.no/_next/static/immutable/media/bare-bitcoin-scrolled.26x9d7blojzsg.svg",
    "author": null,
    "license": null,
@@ -282,7 +282,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/ak-jensen-norway.webp",
+   "file_url": "https://cryptonordic.no/assets/img/logos/ak-jensen-norway.webp",
    "source_url": "https://cdn.prod.website-files.com/655b7aeacc77bd33098fbac6/65df1e133a0bf545950eba18_svgviewer-png-output.png",
    "author": null,
    "license": null,
@@ -293,7 +293,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/dnb.svg",
+   "file_url": "https://cryptonordic.no/assets/img/logos/dnb.svg",
    "source_url": "https://commons.wikimedia.org/wiki/File:DNB_Logo.svg",
    "author": "DNB Bank ASA",
    "license": "Public domain",
@@ -304,7 +304,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/bpi.svg",
+   "file_url": "https://cryptonordic.no/assets/img/logos/bpi.svg",
    "source_url": "https://bpinorge.no/wp-content/uploads/2025/04/bpinorge_footer_logo.svg",
    "author": null,
    "license": null,
@@ -315,7 +315,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/finans-norge.svg",
+   "file_url": "https://cryptonordic.no/assets/img/logos/finans-norge.svg",
    "source_url": "https://commons.wikimedia.org/wiki/File:FinansNorge_Logo_RGB_Pos.svg",
    "author": "Tonje Westby",
    "license": "CC BY-SA 4.0",
@@ -326,7 +326,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/fintech-norway.webp",
+   "file_url": "https://cryptonordic.no/assets/img/logos/fintech-norway.webp",
    "source_url": "https://fintechnorway.com/wp-content/uploads/2024/10/FTN_Logo.png",
    "author": null,
    "license": null,
@@ -337,7 +337,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/shifter.svg",
+   "file_url": "https://cryptonordic.no/assets/img/logos/shifter.svg",
    "source_url": "https://www.shifter.no/view-resources/dachser2/public/shifter/logo.svg",
    "author": null,
    "license": null,
@@ -348,7 +348,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+   "file_url": "https://cryptonordic.no/assets/img/logos/kaupr.webp",
    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
    "author": null,
    "license": null,
@@ -359,7 +359,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/se-fi.svg",
+   "file_url": "https://cryptonordic.no/assets/img/logos/se-fi.svg",
    "source_url": "https://commons.wikimedia.org/wiki/File:Finansinspektionen_logo.svg",
    "author": "Finansinspektionen.",
    "license": "Public domain",
@@ -370,7 +370,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/se-riksbank.webp",
+   "file_url": "https://cryptonordic.no/assets/img/logos/se-riksbank.webp",
    "source_url": "https://commons.wikimedia.org/wiki/File:Riksbanken_skylt.jpg",
    "author": "Holger Ellgaard",
    "license": "CC BY-SA 3.0",
@@ -381,7 +381,7 @@
   },
   {
    "kind": "photo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/people/erik-thedeen.jpg",
+   "file_url": "https://cryptonordic.no/assets/img/people/erik-thedeen.jpg",
    "source_url": "https://commons.wikimedia.org/wiki/File:20230630_Almedalsvecka_Erik_Thedeen_01_(53012100722).jpg",
    "author": "Johan Wessman / News Oresund",
    "license": "CC BY 2.0",
@@ -392,7 +392,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/se-skatteverket.webp",
+   "file_url": "https://cryptonordic.no/assets/img/logos/se-skatteverket.webp",
    "source_url": "https://www.skatteverket.se/images/18.5d699354142b230302014c/1385975660374/SkatteverketLogo.png",
    "author": null,
    "license": null,
@@ -403,7 +403,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/valuno.svg",
+   "file_url": "https://cryptonordic.no/assets/img/logos/valuno.svg",
    "source_url": "https://valuno.com/images/index-redesign/footer/valuno-logo.svg",
    "author": null,
    "license": null,
@@ -414,7 +414,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/greenmerc.webp",
+   "file_url": "https://cryptonordic.no/assets/img/logos/greenmerc.webp",
    "source_url": "https://greenmerc.com/images/greenmerc-logo.png",
    "author": null,
    "license": null,
@@ -425,7 +425,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/svenska-bitcoinforeningen.webp",
+   "file_url": "https://cryptonordic.no/assets/img/logos/svenska-bitcoinforeningen.webp",
    "source_url": "https://www.bitcoinforeningen.se/wp-content/uploads/2023/06/logoBitcoinforeningen_logo.png",
    "author": null,
    "license": null,
@@ -436,7 +436,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/fi-fiva.webp",
+   "file_url": "https://cryptonordic.no/assets/img/logos/fi-fiva.webp",
    "source_url": "https://www.finanssivalvonta.fi/contentassets/2a88d63613bb4f049c687203e8731112/logo.png",
    "author": null,
    "license": null,
@@ -447,7 +447,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/fi-suomen-pankki.webp",
+   "file_url": "https://cryptonordic.no/assets/img/logos/fi-suomen-pankki.webp",
    "source_url": "https://commons.wikimedia.org/wiki/File:Logo-bof.png",
    "author": "Bank of Finland, Mikael Kivelä",
    "license": "Public domain",
@@ -458,7 +458,7 @@
   },
   {
    "kind": "photo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/people/olli-rehn.jpg",
+   "file_url": "https://cryptonordic.no/assets/img/people/olli-rehn.jpg",
    "source_url": "https://commons.wikimedia.org/wiki/File:Olli_Rehn_by_Moritz_Kosinsky_2.jpg",
    "author": "Moritz Kosinsky",
    "license": "CC BY-SA 3.0 de",
@@ -469,7 +469,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/fi-vero.svg",
+   "file_url": "https://cryptonordic.no/assets/img/logos/fi-vero.svg",
    "source_url": "https://www.vero.fi/static/img/logos/logo-vero-v2023.svg",
    "author": null,
    "license": null,
@@ -480,7 +480,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/coinmotion.webp",
+   "file_url": "https://cryptonordic.no/assets/img/logos/coinmotion.webp",
    "source_url": "https://coinmotion.com/wp-content/uploads/2020/06/cm_favicon_light_blue512_.png",
    "author": null,
    "license": null,
@@ -491,7 +491,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/bittimaatti.webp",
+   "file_url": "https://cryptonordic.no/assets/img/logos/bittimaatti.webp",
    "source_url": "https://bittimaatti.fi/wp-content/uploads/2025/01/bittimaatti_logo_UusiSininen1000px-2.png",
    "author": null,
    "license": null,
@@ -502,7 +502,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/northcrypto.webp",
+   "file_url": "https://cryptonordic.no/assets/img/logos/northcrypto.webp",
    "source_url": "https://www.northcrypto.com/images/logo-blue-250.png",
    "author": null,
    "license": null,
@@ -513,7 +513,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kvarn-x.svg",
+   "file_url": "https://cryptonordic.no/assets/img/logos/kvarn-x.svg",
    "source_url": "https://www.kvarnx.com/icons/kvarnlogodarkmode.svg",
    "author": null,
    "license": null,
@@ -524,7 +524,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/paxos-eu.webp",
+   "file_url": "https://cryptonordic.no/assets/img/logos/paxos-eu.webp",
    "source_url": "https://framerusercontent.com/images/sEBLMaJQfU8QUDmUdzdI0us1gJ0.png",
    "author": null,
    "license": null,
@@ -535,7 +535,7 @@
   },
   {
    "kind": "photo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/people/asgeir-jonsson.jpg",
+   "file_url": "https://cryptonordic.no/assets/img/people/asgeir-jonsson.jpg",
    "source_url": "https://commons.wikimedia.org/wiki/File:%C3%81sgeir_J%C3%B3nsson_2022.jpg",
    "author": "Ifimero",
    "license": "CC BY-SA 4.0",
@@ -546,7 +546,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/is-skatturinn.svg",
+   "file_url": "https://cryptonordic.no/assets/img/logos/is-skatturinn.svg",
    "source_url": "https://www.skatturinn.is/skin/rsk/i/sitelogo.svg",
    "author": null,
    "license": null,
@@ -557,7 +557,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/myntkaup.svg",
+   "file_url": "https://cryptonordic.no/assets/img/logos/myntkaup.svg",
    "source_url": "https://myntkaup.is/images/logoBlack.svg",
    "author": null,
    "license": null,
@@ -568,7 +568,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/monerium.svg",
+   "file_url": "https://cryptonordic.no/assets/img/logos/monerium.svg",
    "source_url": "https://monerium.com/assets/monerium-logo.svg",
    "author": null,
    "license": null,
@@ -579,7 +579,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/dk-erhvervsministeriet.webp",
+   "file_url": "https://cryptonordic.no/assets/img/logos/dk-erhvervsministeriet.webp",
    "source_url": "https://commons.wikimedia.org/wiki/File:Logo_of_the_Danish_Ministry_of_Industry,_Business_and_Financial_Affairs.png",
    "author": "Danish Ministry of Industry, Business and Financial Affairs",
    "license": "Public domain",
@@ -590,7 +590,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/dk-penning.svg",
+   "file_url": "https://cryptonordic.no/assets/img/logos/dk-penning.svg",
    "source_url": "https://www.penning.io/images/logo-mark.svg",
    "author": null,
    "license": null,
@@ -601,7 +601,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/dk-lunar-block.svg",
+   "file_url": "https://cryptonordic.no/assets/img/logos/dk-lunar-block.svg",
    "source_url": "https://www.lunar.app/favicon.svg",
    "author": null,
    "license": null,
@@ -612,7 +612,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/dk-gcex.webp",
+   "file_url": "https://cryptonordic.no/assets/img/logos/dk-gcex.webp",
    "source_url": "https://gc.exchange/hs-fs/hubfs/chub_backup/GCEX%20Logo%20Black%20Background%20Image-1-1-1.jpg?width=400&amp;height=240&amp;name=GCEX%20Logo%20Black%20Background%20Image-1-1-1.jpg",
    "author": null,
    "license": null,
@@ -623,7 +623,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/dk-coinify.webp",
+   "file_url": "https://cryptonordic.no/assets/img/logos/dk-coinify.webp",
    "source_url": "https://images.squarespace-cdn.com/content/v1/638a48377c09bb00bbc62b94/019e9ada-f799-47ec-b429-c4b6c5f426ec/coinify_logomark_orange.png?format=1500w",
    "author": null,
    "license": null,
@@ -634,7 +634,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/dk-januar.svg",
+   "file_url": "https://cryptonordic.no/assets/img/logos/dk-januar.svg",
    "source_url": "https://cdn.prod.website-files.com/68d11830cc9d61bad348fb81/68d11830cc9d61bad348fbb8_januar-logo-mark.svg",
    "author": null,
    "license": null,
@@ -645,7 +645,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/dk-aryze.svg",
+   "file_url": "https://cryptonordic.no/assets/img/logos/dk-aryze.svg",
    "source_url": "https://www.aryze.io/logo/Logo_Wordmark_Dark.svg?dpl=dpl_7DZfxWaGmDdWgCFn27TWMsXrTNK1",
    "author": null,
    "license": null,
@@ -656,7 +656,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/se-divly.svg",
+   "file_url": "https://cryptonordic.no/assets/img/logos/se-divly.svg",
    "source_url": "https://divly.fra1.cdn.digitaloceanspaces.com/static/images/logo.svg",
    "author": null,
    "license": null,
@@ -667,7 +667,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/se-h100.webp",
+   "file_url": "https://cryptonordic.no/assets/img/logos/se-h100.webp",
    "source_url": "https://cdn.prod.website-files.com/6785fc8ea8039f2244adbbd5/684ca8b2bba62b9e3593ceb3_Logo.png",
    "author": null,
    "license": null,
@@ -678,7 +678,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/se-hilbert-group.svg",
+   "file_url": "https://cryptonordic.no/assets/img/logos/se-hilbert-group.svg",
    "source_url": "https://www.hilbert.group/icon.svg",
    "author": null,
    "license": null,
@@ -689,7 +689,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/intl-swift.svg",
+   "file_url": "https://cryptonordic.no/assets/img/logos/intl-swift.svg",
    "source_url": "https://commons.wikimedia.org/wiki/File:SWIFT_2023_logo.svg",
    "author": null,
    "license": "Public domain",
@@ -700,7 +700,7 @@
   },
   {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/intl-d-fine.svg",
+   "file_url": "https://cryptonordic.no/assets/img/logos/intl-d-fine.svg",
    "source_url": "https://www.d-fine.com/fileadmin/templates/img/d-fine_logo-blue_RGB.svg",
    "author": null,
    "license": null,

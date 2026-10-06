@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "topic": "payments",
  "count": 1,
@@ -9,15 +9,15 @@
   {
    "id": "e1e3eef6ecff",
    "url": "https://www.inderes.se/en/releases/nbx-nbx-registered-as-moneygram-agent",
-   "html_url": "https://jqrgen.github.io/nordic-crypto/stories/e1e3eef6ecff/",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/e1e3eef6ecff.json",
+   "html_url": "https://cryptonordic.no/stories/e1e3eef6ecff/",
+   "api_url": "https://cryptonordic.no/api/v1/news/e1e3eef6ecff.json",
    "title": "NBX registrert som MoneyGram-agent (børsmelding, engelsk)",
    "title_en": "NBX registered as a MoneyGram agent (stock exchange release)",
    "source": "nbx-ir",
    "source_name": "NBX (børsmelding)",
    "source_logo": {
     "kind": "logo",
-    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/nbx.svg",
+    "file_url": "https://cryptonordic.no/assets/img/logos/nbx.svg",
     "source_url": "https://cdn.prod.website-files.com/6152dfaed2ce58d94ef37b88/619509e489aaca39961511c2_DarkLogo.svg",
     "author": null,
     "license": null,
@@ -59,7 +59,7 @@
     "primary": true,
     "logo": {
      "kind": "logo",
-     "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/nbx.svg",
+     "file_url": "https://cryptonordic.no/assets/img/logos/nbx.svg",
      "source_url": "https://cdn.prod.website-files.com/6152dfaed2ce58d94ef37b88/619509e489aaca39961511c2_DarkLogo.svg",
      "author": null,
      "license": null,
@@ -83,7 +83,7 @@
      "primary": true,
      "logo": {
       "kind": "logo",
-      "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/nbx.svg",
+      "file_url": "https://cryptonordic.no/assets/img/logos/nbx.svg",
       "source_url": "https://cdn.prod.website-files.com/6152dfaed2ce58d94ef37b88/619509e489aaca39961511c2_DarkLogo.svg",
       "author": null,
       "license": null,

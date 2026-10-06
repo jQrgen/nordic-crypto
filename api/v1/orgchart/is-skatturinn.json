@@ -1,12 +1,12 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "item": {
   "id": "is-skatturinn",
-  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/is-skatturinn.json",
-  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#is-skatturinn",
+  "api_url": "https://cryptonordic.no/api/v1/orgchart/is-skatturinn.json",
+  "html_url": "https://cryptonordic.no/org-chart/#is-skatturinn",
   "name": "Skatturinn (Iceland Revenue and Customs)",
   "type": "organisation",
   "sector": "public",
@@ -28,7 +28,7 @@
   ],
   "logo": {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/is-skatturinn.svg",
+   "file_url": "https://cryptonordic.no/assets/img/logos/is-skatturinn.svg",
    "source_url": "https://www.skatturinn.is/skin/rsk/i/sitelogo.svg",
    "author": null,
    "license": null,

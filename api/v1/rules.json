@@ -1,12 +1,12 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "available": true,
  "review": "approved",
  "checked": "2026-10-04",
- "html_url": "https://jqrgen.github.io/nordic-crypto/rules/",
+ "html_url": "https://cryptonordic.no/rules/",
  "not_legal_advice": true,
  "sources": {
   "mica": {

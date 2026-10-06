@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "sign_off": "The Nordic Crypto team",
  "description": "Bitcoin, blockchain and crypto news, events, a who's who, regulation and academia for Norway, Sweden, Denmark, Finland and Iceland.",
@@ -23,7 +23,7 @@
    "rtl": false,
    "html_lang": "en",
    "og_locale": "en_GB",
-   "home": "https://jqrgen.github.io/nordic-crypto/"
+   "home": "https://cryptonordic.no/"
   },
   {
    "code": "nn",
@@ -33,7 +33,7 @@
    "rtl": false,
    "html_lang": "nn",
    "og_locale": "nn_NO",
-   "home": "https://jqrgen.github.io/nordic-crypto/nn/"
+   "home": "https://cryptonordic.no/nn/"
   },
   {
    "code": "nb",
@@ -43,7 +43,7 @@
    "rtl": false,
    "html_lang": "nb",
    "og_locale": "nb_NO",
-   "home": "https://jqrgen.github.io/nordic-crypto/nb/"
+   "home": "https://cryptonordic.no/nb/"
   },
   {
    "code": "sv",
@@ -53,7 +53,7 @@
    "rtl": false,
    "html_lang": "sv",
    "og_locale": "sv_SE",
-   "home": "https://jqrgen.github.io/nordic-crypto/sv/"
+   "home": "https://cryptonordic.no/sv/"
   },
   {
    "code": "da",
@@ -63,7 +63,7 @@
    "rtl": false,
    "html_lang": "da",
    "og_locale": "da_DK",
-   "home": "https://jqrgen.github.io/nordic-crypto/da/"
+   "home": "https://cryptonordic.no/da/"
   },
   {
    "code": "fi",
@@ -73,7 +73,7 @@
    "rtl": false,
    "html_lang": "fi",
    "og_locale": "fi_FI",
-   "home": "https://jqrgen.github.io/nordic-crypto/fi/"
+   "home": "https://cryptonordic.no/fi/"
   },
   {
    "code": "is",
@@ -83,7 +83,7 @@
    "rtl": false,
    "html_lang": "is",
    "og_locale": "is_IS",
-   "home": "https://jqrgen.github.io/nordic-crypto/is/"
+   "home": "https://cryptonordic.no/is/"
   },
   {
    "code": "zh",
@@ -93,7 +93,7 @@
    "rtl": false,
    "html_lang": "zh",
    "og_locale": "zh_CN",
-   "home": "https://jqrgen.github.io/nordic-crypto/zh/"
+   "home": "https://cryptonordic.no/zh/"
   },
   {
    "code": "hi",
@@ -103,7 +103,7 @@
    "rtl": false,
    "html_lang": "hi",
    "og_locale": "hi_IN",
-   "home": "https://jqrgen.github.io/nordic-crypto/hi/"
+   "home": "https://cryptonordic.no/hi/"
   },
   {
    "code": "es",
@@ -113,7 +113,7 @@
    "rtl": false,
    "html_lang": "es",
    "og_locale": "es_ES",
-   "home": "https://jqrgen.github.io/nordic-crypto/es/"
+   "home": "https://cryptonordic.no/es/"
   },
   {
    "code": "fr",
@@ -123,7 +123,7 @@
    "rtl": false,
    "html_lang": "fr",
    "og_locale": "fr_FR",
-   "home": "https://jqrgen.github.io/nordic-crypto/fr/"
+   "home": "https://cryptonordic.no/fr/"
   },
   {
    "code": "ar",
@@ -133,7 +133,7 @@
    "rtl": true,
    "html_lang": "ar",
    "og_locale": "ar_SA",
-   "home": "https://jqrgen.github.io/nordic-crypto/ar/"
+   "home": "https://cryptonordic.no/ar/"
   },
   {
    "code": "bn",
@@ -143,7 +143,7 @@
    "rtl": false,
    "html_lang": "bn",
    "og_locale": "bn_BD",
-   "home": "https://jqrgen.github.io/nordic-crypto/bn/"
+   "home": "https://cryptonordic.no/bn/"
   },
   {
    "code": "pt",
@@ -153,7 +153,7 @@
    "rtl": false,
    "html_lang": "pt",
    "og_locale": "pt_BR",
-   "home": "https://jqrgen.github.io/nordic-crypto/pt/"
+   "home": "https://cryptonordic.no/pt/"
   },
   {
    "code": "ru",
@@ -163,7 +163,7 @@
    "rtl": false,
    "html_lang": "ru",
    "og_locale": "ru_RU",
-   "home": "https://jqrgen.github.io/nordic-crypto/ru/"
+   "home": "https://cryptonordic.no/ru/"
   },
   {
    "code": "ur",
@@ -173,7 +173,7 @@
    "rtl": true,
    "html_lang": "ur",
    "og_locale": "ur_PK",
-   "home": "https://jqrgen.github.io/nordic-crypto/ur/"
+   "home": "https://cryptonordic.no/ur/"
   },
   {
    "code": "id",
@@ -183,7 +183,7 @@
    "rtl": false,
    "html_lang": "id",
    "og_locale": "id_ID",
-   "home": "https://jqrgen.github.io/nordic-crypto/id/"
+   "home": "https://cryptonordic.no/id/"
   },
   {
    "code": "de",
@@ -193,7 +193,7 @@
    "rtl": false,
    "html_lang": "de",
    "og_locale": "de_DE",
-   "home": "https://jqrgen.github.io/nordic-crypto/de/"
+   "home": "https://cryptonordic.no/de/"
   },
   {
    "code": "ja",
@@ -203,7 +203,7 @@
    "rtl": false,
    "html_lang": "ja",
    "og_locale": "ja_JP",
-   "home": "https://jqrgen.github.io/nordic-crypto/ja/"
+   "home": "https://cryptonordic.no/ja/"
   },
   {
    "code": "sw",
@@ -213,7 +213,7 @@
    "rtl": false,
    "html_lang": "sw",
    "og_locale": "sw_KE",
-   "home": "https://jqrgen.github.io/nordic-crypto/sw/"
+   "home": "https://cryptonordic.no/sw/"
   },
   {
    "code": "mr",
@@ -223,7 +223,7 @@
    "rtl": false,
    "html_lang": "mr",
    "og_locale": "mr_IN",
-   "home": "https://jqrgen.github.io/nordic-crypto/mr/"
+   "home": "https://cryptonordic.no/mr/"
   }
  ],
  "language_note": "Site languages, with native_name, english_name and rtl, are listed in languages and in /api/v1/languages.json. Our own text is written in English first. summary_i18n, title_i18n, subtitle_i18n, note_i18n and about_i18n carry published translations, today nn, nb, sv, da, fi and is. Other site languages fall back to the English field until a translation is published. External headlines stay in the source language (see language and language_code). There is no query string for language: each JSON document already carries every published translation. The language switcher's country default is a guess; see /api/v1/geo-language.json. The nc_lang cookie wins.",
@@ -258,12 +258,12 @@
   }
  ],
  "urls": {
-  "github_pages": "https://jqrgen.github.io/nordic-crypto/",
+  "github_pages": "https://cryptonordic.no/",
   "custom_domain": "https://cryptonordic.no/",
-  "docs": "https://jqrgen.github.io/nordic-crypto/api/",
-  "discovery": "https://jqrgen.github.io/nordic-crypto/api/v1/index.json",
-  "openapi": "https://jqrgen.github.io/nordic-crypto/api/v1/openapi.json",
-  "llms_txt": "https://jqrgen.github.io/nordic-crypto/llms.txt",
+  "docs": "https://cryptonordic.no/api/",
+  "discovery": "https://cryptonordic.no/api/v1/index.json",
+  "openapi": "https://cryptonordic.no/api/v1/openapi.json",
+  "llms_txt": "https://cryptonordic.no/llms.txt",
   "github": "https://github.com/jQrgen/nordic-crypto",
   "substack": "https://cryptonordic.substack.com",
   "telegram": "https://t.me/nordiccryptochat",
@@ -299,7 +299,7 @@
    "handle": "@xcryptonordic"
   }
  },
- "url_note": "Absolute urls in this API use the GitHub Pages base, including the /nordic-crypto/ path. On the custom domain the same file is at the site root: replace https://jqrgen.github.io/nordic-crypto/ with https://cryptonordic.no/. HTTPS on cryptonordic.no works once the certificate matches that name. Until then, http://cryptonordic.no/ serves the same files and sends Access-Control-Allow-Origin: *.",
+ "url_note": "Absolute urls in this API use the public site origin (https://cryptonordic.no/). GitHub Pages serves that origin from the repository root. There is no /nordic-crypto/ path on this origin. GitHub Pages sends Access-Control-Allow-Origin: * on these files.",
  "editorial": {
   "sign_off": "The Nordic Crypto team",
   "kaupr": "Kaupr (kaupr.io) is a news source only. It is never a sponsor of Nordic Crypto.",
@@ -308,82 +308,82 @@
  "site_pages": [
   {
    "path": "/",
-   "url": "https://jqrgen.github.io/nordic-crypto/",
+   "url": "https://cryptonordic.no/",
    "title": "News"
   },
   {
    "path": "/calendar/",
-   "url": "https://jqrgen.github.io/nordic-crypto/calendar/",
+   "url": "https://cryptonordic.no/calendar/",
    "title": "Events calendar, upcoming and past"
   },
   {
    "path": "/org-chart/",
-   "url": "https://jqrgen.github.io/nordic-crypto/org-chart/",
+   "url": "https://cryptonordic.no/org-chart/",
    "title": "Who's who: industry, regulators and the regulation overview"
   },
   {
    "path": "/rules/",
-   "url": "https://jqrgen.github.io/nordic-crypto/rules/",
+   "url": "https://cryptonordic.no/rules/",
    "title": "How EU crypto rules become law in the five countries"
   },
   {
    "path": "/regulation-videos/",
-   "url": "https://jqrgen.github.io/nordic-crypto/regulation-videos/",
+   "url": "https://cryptonordic.no/regulation-videos/",
    "title": "Country explainer videos: how crypto rules are decided in each Nordic country"
   },
   {
    "path": "/academia/",
-   "url": "https://jqrgen.github.io/nordic-crypto/academia/",
+   "url": "https://cryptonordic.no/academia/",
    "title": "Courses, student groups, publications and research"
   },
   {
    "path": "/sources/",
-   "url": "https://jqrgen.github.io/nordic-crypto/sources/",
+   "url": "https://cryptonordic.no/sources/",
    "title": "News and event sources"
   },
   {
    "path": "/newsletter/",
-   "url": "https://jqrgen.github.io/nordic-crypto/newsletter/",
+   "url": "https://cryptonordic.no/newsletter/",
    "title": "Newsletter issues"
   },
   {
    "path": "/about/",
-   "url": "https://jqrgen.github.io/nordic-crypto/about/",
+   "url": "https://cryptonordic.no/about/",
    "title": "About, privacy, corrections and removal"
   },
   {
    "path": "/ethics/",
-   "url": "https://jqrgen.github.io/nordic-crypto/ethics/",
+   "url": "https://cryptonordic.no/ethics/",
    "title": "Editorial ethics (Vær Varsom-plakaten)"
   },
   {
    "path": "/changelog/",
-   "url": "https://jqrgen.github.io/nordic-crypto/changelog/",
+   "url": "https://cryptonordic.no/changelog/",
    "title": "Site changelog"
   },
   {
    "path": "/tip/",
-   "url": "https://jqrgen.github.io/nordic-crypto/tip/",
+   "url": "https://cryptonordic.no/tip/",
    "title": "Send a tip (not part of this data API)"
   },
   {
    "path": "/columnist/",
-   "url": "https://jqrgen.github.io/nordic-crypto/columnist/",
+   "url": "https://cryptonordic.no/columnist/",
    "title": "Apply as a columnist (not part of this data API)"
   },
   {
    "path": "/markets/",
-   "url": "https://jqrgen.github.io/nordic-crypto/markets/",
+   "url": "https://cryptonordic.no/markets/",
    "title": "Prices on Nordic exchanges (market data, not investment advice)"
   },
   {
    "path": "/screen/",
-   "url": "https://jqrgen.github.io/nordic-crypto/screen/",
+   "url": "https://cryptonordic.no/screen/",
    "title": "News screen, English"
   },
   {
    "path": "/api/",
-   "url": "https://jqrgen.github.io/nordic-crypto/api/",
+   "url": "https://cryptonordic.no/api/",
    "title": "This API, human documentation"
   }
  ],

@@ -1,12 +1,12 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "item": {
   "id": "norges-bank",
-  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/norges-bank.json",
-  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#norges-bank",
+  "api_url": "https://cryptonordic.no/api/v1/orgchart/norges-bank.json",
+  "html_url": "https://cryptonordic.no/org-chart/#norges-bank",
   "name": "Norges Bank (central bank of Norway)",
   "type": "organisation",
   "sector": "public",
@@ -46,7 +46,7 @@
   ],
   "logo": {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/norges-bank.svg",
+   "file_url": "https://cryptonordic.no/assets/img/logos/norges-bank.svg",
    "source_url": "https://commons.wikimedia.org/wiki/File:Norges_Bank_logo.svg",
    "author": "Norges Bank",
    "license": "Public domain",

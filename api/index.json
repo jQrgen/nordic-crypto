@@ -1,11 +1,11 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "current": "v1",
- "index_url": "https://jqrgen.github.io/nordic-crypto/api/v1/index.json",
- "docs_url": "https://jqrgen.github.io/nordic-crypto/api/",
- "openapi_url": "https://jqrgen.github.io/nordic-crypto/api/v1/openapi.json",
- "llms_txt_url": "https://jqrgen.github.io/nordic-crypto/llms.txt"
+ "index_url": "https://cryptonordic.no/api/v1/index.json",
+ "docs_url": "https://cryptonordic.no/api/",
+ "openapi_url": "https://cryptonordic.no/api/v1/openapi.json",
+ "llms_txt_url": "https://cryptonordic.no/llms.txt"
 }

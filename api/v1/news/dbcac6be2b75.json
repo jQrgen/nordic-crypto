@@ -1,13 +1,13 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "item": {
   "id": "dbcac6be2b75",
   "url": "https://www.nettavisen.no/krypto/etterforskning/hordaland-tingrett/fant-hemmelig-passord-laste-opp-krypto-lommeboken/s/80-95-105422",
-  "html_url": "https://jqrgen.github.io/nordic-crypto/stories/dbcac6be2b75/",
-  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/dbcac6be2b75.json",
+  "html_url": "https://cryptonordic.no/stories/dbcac6be2b75/",
+  "api_url": "https://cryptonordic.no/api/v1/news/dbcac6be2b75.json",
   "title": "Fant hemmelig passord: Låste opp krypto-lommeboken",
   "title_en": "Found secret password: unlocked the crypto wallet",
   "source": "nettavisen",

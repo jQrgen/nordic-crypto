@@ -1,11 +1,11 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "item": {
   "id": "c1431df81160",
-  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/c1431df81160.json",
+  "api_url": "https://cryptonordic.no/api/v1/archive/articles/c1431df81160.json",
   "site": "nordic-crypto",
   "url": "https://podcasters.spotify.com/pod/show/bitcoinsnakk9/episodes/Norway-Wants-to-Ban-Bitcoin-Mining--The-Miners-Already-Left--Rachel-Geyer--EBEA-e3p0bb8",
   "canonical_url": "https://podcasters.spotify.com/pod/show/bitcoinsnakk9/episodes/Norway-Wants-to-Ban-Bitcoin-Mining--The-Miners-Already-Left--Rachel-Geyer--EBEA-e3p0bb8",
@@ -18,7 +18,7 @@
   "country": "NO",
   "published_at": "2026-09-17T18:30:43+00:00",
   "first_published_on_site": "2026-10-03T17:59:40+02:00",
-  "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+  "last_seen_on_site": "2026-10-06T07:35:14+02:00",
   "languages": [
    "en",
    "nn",

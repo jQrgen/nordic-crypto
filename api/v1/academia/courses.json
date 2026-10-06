@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "section": "courses",
  "count": 7,
@@ -20,7 +20,7 @@
    "about_i18n": {},
    "id": "NO-TTM4195",
    "section": "courses",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/NO-TTM4195.json"
+   "api_url": "https://cryptonordic.no/api/v1/academia/NO-TTM4195.json"
   },
   {
    "country": "NO",
@@ -36,7 +36,7 @@
    "about_i18n": {},
    "id": "NO-IN5420",
    "section": "courses",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/NO-IN5420.json"
+   "api_url": "https://cryptonordic.no/api/v1/academia/NO-IN5420.json"
   },
   {
    "country": "NO",
@@ -52,7 +52,7 @@
    "about_i18n": {},
    "id": "NO-BAN435",
    "section": "courses",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/NO-BAN435.json"
+   "api_url": "https://cryptonordic.no/api/v1/academia/NO-BAN435.json"
   },
   {
    "country": "SE",
@@ -68,7 +68,7 @@
    "about_i18n": {},
    "id": "SE-DD2585",
    "section": "courses",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/SE-DD2585.json"
+   "api_url": "https://cryptonordic.no/api/v1/academia/SE-DD2585.json"
   },
   {
    "country": "FI",
@@ -84,7 +84,7 @@
    "about_i18n": {},
    "id": "FI-COMM.NET.500",
    "section": "courses",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/FI-COMM.NET.500.json"
+   "api_url": "https://cryptonordic.no/api/v1/academia/FI-COMM.NET.500.json"
   },
   {
    "country": "FI",
@@ -100,7 +100,7 @@
    "about_i18n": {},
    "id": "FI-LT00DF90",
    "section": "courses",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/FI-LT00DF90.json"
+   "api_url": "https://cryptonordic.no/api/v1/academia/FI-LT00DF90.json"
   },
   {
    "country": "FI",
@@ -116,7 +116,7 @@
    "about_i18n": {},
    "id": "FI-CS-AJ0100",
    "section": "courses",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/FI-CS-AJ0100.json"
+   "api_url": "https://cryptonordic.no/api/v1/academia/FI-CS-AJ0100.json"
   }
  ]
 }

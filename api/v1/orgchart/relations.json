@@ -1,13 +1,13 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "count": 15,
  "relations": [
   {
    "id": "r-greenmerc-northcrypto",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/r-greenmerc-northcrypto.json",
+   "api_url": "https://cryptonordic.no/api/v1/orgchart/relations/r-greenmerc-northcrypto.json",
    "from": "greenmerc",
    "to": "northcrypto",
    "type": "uses licence",
@@ -23,7 +23,7 @@
   },
   {
    "id": "r-goobit-kvarn",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/r-goobit-kvarn.json",
+   "api_url": "https://cryptonordic.no/api/v1/orgchart/relations/r-goobit-kvarn.json",
    "from": "goobit",
    "to": "kvarn-x",
    "type": "uses licence",
@@ -39,7 +39,7 @@
   },
   {
    "id": "r-coinmotion-k33",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/r-coinmotion-k33.json",
+   "api_url": "https://cryptonordic.no/api/v1/orgchart/relations/r-coinmotion-k33.json",
    "from": "coinmotion",
    "to": "k33",
    "type": "partner",
@@ -55,7 +55,7 @@
   },
   {
    "id": "r-fi-safello",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/r-fi-safello.json",
+   "api_url": "https://cryptonordic.no/api/v1/orgchart/relations/r-fi-safello.json",
    "from": "se-fi",
    "to": "safello",
    "type": "licensed",
@@ -77,7 +77,7 @@
   },
   {
    "id": "r-fi-valuno",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/r-fi-valuno.json",
+   "api_url": "https://cryptonordic.no/api/v1/orgchart/relations/r-fi-valuno.json",
    "from": "se-fi",
    "to": "valuno",
    "type": "refused",
@@ -93,7 +93,7 @@
   },
   {
    "id": "r-fi-greenmerc",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/r-fi-greenmerc.json",
+   "api_url": "https://cryptonordic.no/api/v1/orgchart/relations/r-fi-greenmerc.json",
    "from": "se-fi",
    "to": "greenmerc",
    "type": "refused",
@@ -109,7 +109,7 @@
   },
   {
    "id": "r-sbf-meetups",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/r-sbf-meetups.json",
+   "api_url": "https://cryptonordic.no/api/v1/orgchart/relations/r-sbf-meetups.json",
    "from": "swedish-bitcoin-meetups",
    "to": "svenska-bitcoinforeningen",
    "type": "collaboration",
@@ -125,7 +125,7 @@
   },
   {
    "id": "r-cbis-myntkaup",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/r-cbis-myntkaup.json",
+   "api_url": "https://cryptonordic.no/api/v1/orgchart/relations/r-cbis-myntkaup.json",
    "from": "is-fme",
    "to": "myntkaup",
    "type": "licensed",
@@ -141,7 +141,7 @@
   },
   {
    "id": "r-cbis-monerium",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/r-cbis-monerium.json",
+   "api_url": "https://cryptonordic.no/api/v1/orgchart/relations/r-cbis-monerium.json",
    "from": "is-fme",
    "to": "monerium",
    "type": "supervises",
@@ -157,7 +157,7 @@
   },
   {
    "id": "r-fiva-coinmotion",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/r-fiva-coinmotion.json",
+   "api_url": "https://cryptonordic.no/api/v1/orgchart/relations/r-fiva-coinmotion.json",
    "from": "fi-fiva",
    "to": "coinmotion",
    "type": "licensed",
@@ -173,7 +173,7 @@
   },
   {
    "id": "r-fiva-tesseract",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/r-fiva-tesseract.json",
+   "api_url": "https://cryptonordic.no/api/v1/orgchart/relations/r-fiva-tesseract.json",
    "from": "fi-fiva",
    "to": "tesseract",
    "type": "licensed",
@@ -189,7 +189,7 @@
   },
   {
    "id": "r-fiva-bittimaatti",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/r-fiva-bittimaatti.json",
+   "api_url": "https://cryptonordic.no/api/v1/orgchart/relations/r-fiva-bittimaatti.json",
    "from": "fi-fiva",
    "to": "bittimaatti",
    "type": "licensed",
@@ -205,7 +205,7 @@
   },
   {
    "id": "r-fiva-northcrypto",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/r-fiva-northcrypto.json",
+   "api_url": "https://cryptonordic.no/api/v1/orgchart/relations/r-fiva-northcrypto.json",
    "from": "fi-fiva",
    "to": "northcrypto",
    "type": "licensed",
@@ -221,7 +221,7 @@
   },
   {
    "id": "r-fiva-kvarn-x",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/r-fiva-kvarn-x.json",
+   "api_url": "https://cryptonordic.no/api/v1/orgchart/relations/r-fiva-kvarn-x.json",
    "from": "fi-fiva",
    "to": "kvarn-x",
    "type": "licensed",
@@ -237,7 +237,7 @@
   },
   {
    "id": "r-fiva-paxos",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/r-fiva-paxos.json",
+   "api_url": "https://cryptonordic.no/api/v1/orgchart/relations/r-fiva-paxos.json",
    "from": "fi-fiva",
    "to": "paxos-eu",
    "type": "supervises",

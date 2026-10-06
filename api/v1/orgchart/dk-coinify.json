@@ -1,12 +1,12 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "item": {
   "id": "dk-coinify",
-  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/dk-coinify.json",
-  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#dk-coinify",
+  "api_url": "https://cryptonordic.no/api/v1/orgchart/dk-coinify.json",
+  "html_url": "https://cryptonordic.no/org-chart/#dk-coinify",
   "name": "Coinify (Coinify ApS)",
   "type": "organisation",
   "sector": "private",
@@ -28,7 +28,7 @@
   ],
   "logo": {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/dk-coinify.webp",
+   "file_url": "https://cryptonordic.no/assets/img/logos/dk-coinify.webp",
    "source_url": "https://images.squarespace-cdn.com/content/v1/638a48377c09bb00bbc62b94/019e9ada-f799-47ec-b429-c4b6c5f426ec/coinify_logomark_orange.png?format=1500w",
    "author": null,
    "license": null,

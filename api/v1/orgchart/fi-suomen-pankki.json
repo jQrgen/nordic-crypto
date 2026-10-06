@@ -1,12 +1,12 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "item": {
   "id": "fi-suomen-pankki",
-  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/fi-suomen-pankki.json",
-  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#fi-suomen-pankki",
+  "api_url": "https://cryptonordic.no/api/v1/orgchart/fi-suomen-pankki.json",
+  "html_url": "https://cryptonordic.no/org-chart/#fi-suomen-pankki",
   "name": "Suomen Pankki (Bank of Finland)",
   "type": "organisation",
   "sector": "public",
@@ -28,7 +28,7 @@
   ],
   "logo": {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/fi-suomen-pankki.webp",
+   "file_url": "https://cryptonordic.no/assets/img/logos/fi-suomen-pankki.webp",
    "source_url": "https://commons.wikimedia.org/wiki/File:Logo-bof.png",
    "author": "Bank of Finland, Mikael Kivelä",
    "license": "Public domain",

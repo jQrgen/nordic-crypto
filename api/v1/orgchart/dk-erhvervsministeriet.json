@@ -1,12 +1,12 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "item": {
   "id": "dk-erhvervsministeriet",
-  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/dk-erhvervsministeriet.json",
-  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#dk-erhvervsministeriet",
+  "api_url": "https://cryptonordic.no/api/v1/orgchart/dk-erhvervsministeriet.json",
+  "html_url": "https://cryptonordic.no/org-chart/#dk-erhvervsministeriet",
   "name": "Erhvervsministeriet (Ministry of Industry, Business and Financial Affairs)",
   "type": "organisation",
   "sector": "public",
@@ -28,7 +28,7 @@
   ],
   "logo": {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/dk-erhvervsministeriet.webp",
+   "file_url": "https://cryptonordic.no/assets/img/logos/dk-erhvervsministeriet.webp",
    "source_url": "https://commons.wikimedia.org/wiki/File:Logo_of_the_Danish_Ministry_of_Industry,_Business_and_Financial_Affairs.png",
    "author": "Danish Ministry of Industry, Business and Financial Affairs",
    "license": "Public domain",

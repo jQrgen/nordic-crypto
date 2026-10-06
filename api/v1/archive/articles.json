@@ -1,14 +1,14 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
- "exported_at": "2026-10-04T15:39:53+02:00",
- "count": 42,
+ "exported_at": "2026-10-06T07:35:14+02:00",
+ "count": 43,
  "articles": [
   {
    "id": "07e49032be5a",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/07e49032be5a.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/07e49032be5a.json",
    "site": "nordic-crypto",
    "url": "https://www.kaupr.io/nyheter/safello-apner-for-at-andre-selskaper-kan-tilby-kryptokjop",
    "canonical_url": "https://kaupr.io/nyheter/safello-apner-for-at-andre-selskaper-kan-tilby-kryptokjop",
@@ -21,7 +21,7 @@
    "country": "SE",
    "published_at": "2026-09-24T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -49,7 +49,7 @@
   },
   {
    "id": "08a682f7d85d",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/08a682f7d85d.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/08a682f7d85d.json",
    "site": "nordic-crypto",
    "url": "https://www.kaupr.io/nyheter/btcx-blir-megler-og-goobits-rapporterte-inntekter-faller",
    "canonical_url": "https://kaupr.io/nyheter/btcx-blir-megler-og-goobits-rapporterte-inntekter-faller",
@@ -62,7 +62,7 @@
    "country": "SE",
    "published_at": "2026-09-10T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -90,7 +90,7 @@
   },
   {
    "id": "12425cc1e7ff",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/12425cc1e7ff.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/12425cc1e7ff.json",
    "site": "nordic-crypto",
    "url": "https://www.kaupr.io/nyheter/coinmotion-og-k33-inngar-nordisk-kryptosamarbeid-om-institusjonell-handel",
    "canonical_url": "https://kaupr.io/nyheter/coinmotion-og-k33-inngar-nordisk-kryptosamarbeid-om-institusjonell-handel",
@@ -103,7 +103,7 @@
    "country": "SE",
    "published_at": "2026-09-24T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -131,7 +131,7 @@
   },
   {
    "id": "2d38c9c89e0e",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/2d38c9c89e0e.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/2d38c9c89e0e.json",
    "site": "nordic-crypto",
    "url": "https://www.sydsvenskan.se/lund/uppgifter-tonaringar-silvertejpade-man-i-jakt-pa-kryptovaluta/",
    "canonical_url": "https://sydsvenskan.se/lund/uppgifter-tonaringar-silvertejpade-man-i-jakt-pa-kryptovaluta",
@@ -144,7 +144,7 @@
    "country": "SE",
    "published_at": "2026-10-02T07:01:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -171,7 +171,7 @@
   },
   {
    "id": "4d918e6a3378",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/4d918e6a3378.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/4d918e6a3378.json",
    "site": "nordic-crypto",
    "url": "https://www.kaupr.io/nyheter/firi-tar-opp-kampen-om-1-1-millioner-svenske-kryptoeiere",
    "canonical_url": "https://kaupr.io/nyheter/firi-tar-opp-kampen-om-1-1-millioner-svenske-kryptoeiere",
@@ -184,7 +184,7 @@
    "country": "SE",
    "published_at": "2026-09-15T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -211,7 +211,7 @@
   },
   {
    "id": "4fec239ddb97",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/4fec239ddb97.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/4fec239ddb97.json",
    "site": "nordic-crypto",
    "url": "https://www.kaupr.io/nyheter/hilbert-finansierer-utlan-med-innskudd-pa-blokkjeden",
    "canonical_url": "https://kaupr.io/nyheter/hilbert-finansierer-utlan-med-innskudd-pa-blokkjeden",
@@ -224,7 +224,7 @@
    "country": "SE",
    "published_at": "2026-09-15T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -252,7 +252,7 @@
   },
   {
    "id": "5682c6aa22dd",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/5682c6aa22dd.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/5682c6aa22dd.json",
    "site": "nordic-crypto",
    "url": "https://www.finansavisen.no/valuta/2026/09/20/8380762/kollaps-for-kryptoborsen-firi",
    "canonical_url": "https://finansavisen.no/valuta/2026/09/20/8380762/kollaps-for-kryptoborsen-firi",
@@ -265,7 +265,7 @@
    "country": "NO",
    "published_at": "2026-09-20T07:41:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -292,7 +292,7 @@
   },
   {
    "id": "5f757489d23c",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/5f757489d23c.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/5f757489d23c.json",
    "site": "nordic-crypto",
    "url": "https://www.kaupr.io/nyheter/dnb-tester-tokeniserte-innskudd-i-kroner-med-europeiske-banker",
    "canonical_url": "https://kaupr.io/nyheter/dnb-tester-tokeniserte-innskudd-i-kroner-med-europeiske-banker",
@@ -305,7 +305,7 @@
    "country": "NO",
    "published_at": "2026-09-16T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -333,7 +333,7 @@
   },
   {
    "id": "6a94ab65ebff",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/6a94ab65ebff.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/6a94ab65ebff.json",
    "site": "nordic-crypto",
    "url": "https://www.kaupr.io/nyheter/nytt-nederlag-for-valuno-i-kampen-om-mica-lisens",
    "canonical_url": "https://kaupr.io/nyheter/nytt-nederlag-for-valuno-i-kampen-om-mica-lisens",
@@ -346,7 +346,7 @@
    "country": "SE",
    "published_at": "2026-09-07T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -374,7 +374,7 @@
   },
   {
    "id": "7996dadb43e7",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/7996dadb43e7.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/7996dadb43e7.json",
    "site": "nordic-crypto",
    "url": "https://www.kaupr.io/nyheter/nbx-inngar-avtale-med-tieto-om-betalingskort-for-stablecoins",
    "canonical_url": "https://kaupr.io/nyheter/nbx-inngar-avtale-med-tieto-om-betalingskort-for-stablecoins",
@@ -387,7 +387,7 @@
    "country": "NO",
    "published_at": "2026-09-23T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -415,7 +415,7 @@
   },
   {
    "id": "7b2030aea964",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/7b2030aea964.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/7b2030aea964.json",
    "site": "nordic-crypto",
    "url": "https://www.realtid.se/bors-finans/kryptojatten-i-ny-kontrovers-erbjod-tjanster-i-europa-utan-licens/",
    "canonical_url": "https://realtid.se/bors-finans/kryptojatten-i-ny-kontrovers-erbjod-tjanster-i-europa-utan-licens",
@@ -428,7 +428,7 @@
    "country": "SE",
    "published_at": "2026-10-01T11:04:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -456,7 +456,7 @@
   },
   {
    "id": "82697418efbc",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/82697418efbc.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/82697418efbc.json",
    "site": "nordic-crypto",
    "url": "https://www.kaupr.io/nyheter/kvarn-avviser-at-goobit-avtalen-er-agentforhold-eller-outsourcing",
    "canonical_url": "https://kaupr.io/nyheter/kvarn-avviser-at-goobit-avtalen-er-agentforhold-eller-outsourcing",
@@ -469,7 +469,7 @@
    "country": "SE",
    "published_at": "2026-09-15T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -496,7 +496,7 @@
   },
   {
    "id": "831bb86ab20c",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/831bb86ab20c.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/831bb86ab20c.json",
    "site": "nordic-crypto",
    "url": "https://www.kaupr.io/nyheter/nbx-mer-enn-doblet-tapet-i-halvaret-da-mica-lisensen-kom",
    "canonical_url": "https://kaupr.io/nyheter/nbx-mer-enn-doblet-tapet-i-halvaret-da-mica-lisensen-kom",
@@ -509,7 +509,7 @@
    "country": "NO",
    "published_at": "2026-09-18T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -537,7 +537,7 @@
   },
   {
    "id": "8ae149a20f5f",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/8ae149a20f5f.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/8ae149a20f5f.json",
    "site": "nordic-crypto",
    "url": "https://www.finansavisen.no/finans/2026/09/28/8383782/pangstart-for-nytt-kryptofond",
    "canonical_url": "https://finansavisen.no/finans/2026/09/28/8383782/pangstart-for-nytt-kryptofond",
@@ -550,7 +550,7 @@
    "country": "NO",
    "published_at": "2026-09-28T08:01:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -577,7 +577,7 @@
   },
   {
    "id": "8c0dda24b0ef",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/8c0dda24b0ef.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/8c0dda24b0ef.json",
    "site": "nordic-crypto",
    "url": "https://www.fi.se/sv/publicerat/nyheter/2026/har-ar-riskerna-for-finansiering-av-spridning-av-massforstorelsevapen-storst/",
    "canonical_url": "https://fi.se/sv/publicerat/nyheter/2026/har-ar-riskerna-for-finansiering-av-spridning-av-massforstorelsevapen-storst",
@@ -590,7 +590,7 @@
    "country": "SE",
    "published_at": "2026-10-01T06:00:11+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -618,7 +618,7 @@
   },
   {
    "id": "9750ec7bf5d8",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/9750ec7bf5d8.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/9750ec7bf5d8.json",
    "site": "nordic-crypto",
    "url": "https://www.kaupr.io/nyheter/finske-kvarn-leier-ut-mica-tillatelsen-sin-til-nordiske-partnere",
    "canonical_url": "https://kaupr.io/nyheter/finske-kvarn-leier-ut-mica-tillatelsen-sin-til-nordiske-partnere",
@@ -631,7 +631,7 @@
    "country": "SE",
    "published_at": "2026-09-14T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -659,7 +659,7 @@
   },
   {
    "id": "a1d43879dcb4",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/a1d43879dcb4.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/a1d43879dcb4.json",
    "site": "nordic-crypto",
    "url": "https://www.kaupr.io/nyheter/bitcoin-utvinning-og-norsk-kraft-pa-seminar-i-oslo",
    "canonical_url": "https://kaupr.io/nyheter/bitcoin-utvinning-og-norsk-kraft-pa-seminar-i-oslo",
@@ -672,7 +672,7 @@
    "country": "NO",
    "published_at": "2026-09-14T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -700,7 +700,7 @@
   },
   {
    "id": "a2a605592458",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/a2a605592458.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/a2a605592458.json",
    "site": "nordic-crypto",
    "url": "https://www.kaupr.io/nyheter/blockchain-pa-tech-scenen-og-pa-dagsorden-i-stockholm",
    "canonical_url": "https://kaupr.io/nyheter/blockchain-pa-tech-scenen-og-pa-dagsorden-i-stockholm",
@@ -713,7 +713,7 @@
    "country": "SE",
    "published_at": "2026-09-10T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -741,7 +741,7 @@
   },
   {
    "id": "a384452ed1b6",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/a384452ed1b6.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/a384452ed1b6.json",
    "site": "nordic-crypto",
    "url": "https://www.kaupr.io/nyheter/greenmerc-trekker-mica-klage-og-bruker-northcryptos-lisens-i-sverige",
    "canonical_url": "https://kaupr.io/nyheter/greenmerc-trekker-mica-klage-og-bruker-northcryptos-lisens-i-sverige",
@@ -754,7 +754,7 @@
    "country": "SE",
    "published_at": "2026-09-17T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -782,7 +782,7 @@
   },
   {
    "id": "b3fdbc8f5eec",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/b3fdbc8f5eec.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/b3fdbc8f5eec.json",
    "site": "nordic-crypto",
    "url": "https://www.dagensps.se/bors-finans/fintech/kryptovalutor/krypto-jatten-rundar-reglerna-i-europa-riskerar-att-kastas-ut/",
    "canonical_url": "https://dagensps.se/bors-finans/fintech/kryptovalutor/krypto-jatten-rundar-reglerna-i-europa-riskerar-att-kastas-ut",
@@ -795,7 +795,7 @@
    "country": "SE",
    "published_at": "2026-10-01T01:31:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -823,7 +823,7 @@
   },
   {
    "id": "b46e8d2a4dad",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/b46e8d2a4dad.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/b46e8d2a4dad.json",
    "site": "nordic-crypto",
    "url": "https://www.kaupr.io/nyheter/to-tilsyn-vil-ikke-si-om-kryptodistribusjon-krever-egen-tillatelse",
    "canonical_url": "https://kaupr.io/nyheter/to-tilsyn-vil-ikke-si-om-kryptodistribusjon-krever-egen-tillatelse",
@@ -836,7 +836,7 @@
    "country": "FI",
    "published_at": "2026-09-17T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -864,7 +864,7 @@
   },
   {
    "id": "c1431df81160",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/c1431df81160.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/c1431df81160.json",
    "site": "nordic-crypto",
    "url": "https://podcasters.spotify.com/pod/show/bitcoinsnakk9/episodes/Norway-Wants-to-Ban-Bitcoin-Mining--The-Miners-Already-Left--Rachel-Geyer--EBEA-e3p0bb8",
    "canonical_url": "https://podcasters.spotify.com/pod/show/bitcoinsnakk9/episodes/Norway-Wants-to-Ban-Bitcoin-Mining--The-Miners-Already-Left--Rachel-Geyer--EBEA-e3p0bb8",
@@ -877,7 +877,7 @@
    "country": "NO",
    "published_at": "2026-09-17T18:30:43+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -905,7 +905,7 @@
   },
   {
    "id": "c81be998e21c",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/c81be998e21c.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/c81be998e21c.json",
    "site": "nordic-crypto",
    "url": "https://yle.fi/a/74-20248505",
    "canonical_url": "https://yle.fi/a/74-20248505",
@@ -918,7 +918,7 @@
    "country": "FI",
    "published_at": "2026-09-27T08:20:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -946,7 +946,7 @@
   },
   {
    "id": "e0cc8b0df8e7",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/e0cc8b0df8e7.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/e0cc8b0df8e7.json",
    "site": "nordic-crypto",
    "url": "https://www.kaupr.io/nyheter/goobit-lanserer-sparing-i-bitcoin-og-gull-pa-finsk-lisens",
    "canonical_url": "https://kaupr.io/nyheter/goobit-lanserer-sparing-i-bitcoin-og-gull-pa-finsk-lisens",
@@ -959,7 +959,7 @@
    "country": "SE",
    "published_at": "2026-09-14T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -987,7 +987,7 @@
   },
   {
    "id": "e6727b4858b5",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/e6727b4858b5.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/e6727b4858b5.json",
    "site": "nordic-crypto",
    "url": "https://www.realtid.se/bors-finans/makro/sa-kan-sverige-anvandas-for-att-finansiera-karnvapen/",
    "canonical_url": "https://realtid.se/bors-finans/makro/sa-kan-sverige-anvandas-for-att-finansiera-karnvapen",
@@ -1000,7 +1000,7 @@
    "country": "SE",
    "published_at": "2026-10-02T17:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -1028,7 +1028,7 @@
   },
   {
    "id": "eb685890cbc3",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/eb685890cbc3.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/eb685890cbc3.json",
    "site": "nordic-crypto",
    "url": "https://www.kaupr.io/nyheter/h100-styrelederen-vil-ha-flere-oppkjop-i-bitcoinbransjen",
    "canonical_url": "https://kaupr.io/nyheter/h100-styrelederen-vil-ha-flere-oppkjop-i-bitcoinbransjen",
@@ -1041,7 +1041,7 @@
    "country": "SE",
    "published_at": "2026-09-13T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -1069,7 +1069,7 @@
   },
   {
    "id": "f2ad120d7189",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/f2ad120d7189.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/f2ad120d7189.json",
    "site": "nordic-crypto",
    "url": "https://www.finansavisen.no/personlig-okonomi/2026/09/20/8381719/slar-et-slag-for-stablecoins",
    "canonical_url": "https://finansavisen.no/personlig-okonomi/2026/09/20/8381719/slar-et-slag-for-stablecoins",
@@ -1082,7 +1082,7 @@
    "country": "NO",
    "published_at": "2026-09-20T06:18:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -1109,7 +1109,7 @@
   },
   {
    "id": "f616814dc40c",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/f616814dc40c.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/f616814dc40c.json",
    "site": "nordic-crypto",
    "url": "https://www.kaupr.io/nyheter/greenmerc-kutter-4-8-millioner-i-aret---northcrypto-gar-med-overskudd",
    "canonical_url": "https://kaupr.io/nyheter/greenmerc-kutter-4-8-millioner-i-aret---northcrypto-gar-med-overskudd",
@@ -1122,7 +1122,7 @@
    "country": "SE",
    "published_at": "2026-09-30T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -1149,7 +1149,7 @@
   },
   {
    "id": "f6301aef3314",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/f6301aef3314.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/f6301aef3314.json",
    "site": "nordic-crypto",
    "url": "https://www.finanssivalvonta.fi/en/publications-and-press-releases/news-releases/2026/crypto-asset-service-providers-in-finland-must-be-authorised-in-the-eu/",
    "canonical_url": "https://finanssivalvonta.fi/en/publications-and-press-releases/news-releases/2026/crypto-asset-service-providers-in-finland-must-be-authorised-in-the-eu",
@@ -1160,7 +1160,7 @@
    "country": "FI",
    "published_at": "2026-06-30T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -1188,7 +1188,7 @@
   },
   {
    "id": "188b5b8ed9fb",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/188b5b8ed9fb.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/188b5b8ed9fb.json",
    "site": "nordic-crypto",
    "url": "https://www.berlingske.dk/oekonomi/100-aar-gammel-lov-koster-danske-kryptoinvestorer-millioner-nu-vil-minister-problemet-til-livs",
    "canonical_url": "https://berlingske.dk/oekonomi/100-aar-gammel-lov-koster-danske-kryptoinvestorer-millioner-nu-vil-minister-problemet-til-livs",
@@ -1201,7 +1201,7 @@
    "country": "DK",
    "published_at": "2026-09-21T09:39:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -1229,7 +1229,7 @@
   },
   {
    "id": "1a95167a3af8",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/1a95167a3af8.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/1a95167a3af8.json",
    "site": "nordic-crypto",
    "url": "https://www.aftenposten.no/norge/i/vlQARB/tiltalt-for-dopsalg-mot-kryptovaluta-paa-det-moerke-nettet",
    "canonical_url": "https://aftenposten.no/norge/i/vlQARB/tiltalt-for-dopsalg-mot-kryptovaluta-paa-det-moerke-nettet",
@@ -1242,7 +1242,7 @@
    "country": "NO",
    "published_at": "2026-10-02T11:07:26+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -1269,7 +1269,7 @@
   },
   {
    "id": "1abbecf31dff",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/1abbecf31dff.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/1abbecf31dff.json",
    "site": "nordic-crypto",
    "url": "https://e24.no/bors/nyheter/a/305563",
    "canonical_url": "https://e24.no/bors/nyheter/a/305563",
@@ -1282,7 +1282,7 @@
    "country": "NO",
    "published_at": "2026-09-18T11:36:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -1309,7 +1309,7 @@
   },
   {
    "id": "2034a42ac260",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/2034a42ac260.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/2034a42ac260.json",
    "site": "nordic-crypto",
    "url": "https://www.kaupr.io/nyheter/norges-bank-utforsker-tokenisering-med-tolv-aktorer",
    "canonical_url": "https://kaupr.io/nyheter/norges-bank-utforsker-tokenisering-med-tolv-aktorer",
@@ -1322,7 +1322,7 @@
    "country": "NO",
    "published_at": "2026-09-08T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -1350,7 +1350,7 @@
   },
   {
    "id": "23342b8b1a2d",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/23342b8b1a2d.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/23342b8b1a2d.json",
    "site": "nordic-crypto",
    "url": "https://www.kaupr.io/nyheter/dansk-skatteminister-moter-kryptobransjen-pa-christiansborg",
    "canonical_url": "https://kaupr.io/nyheter/dansk-skatteminister-moter-kryptobransjen-pa-christiansborg",
@@ -1363,7 +1363,7 @@
    "country": "DK",
    "published_at": "2026-09-13T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -1392,7 +1392,7 @@
   },
   {
    "id": "30093293e03f",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/30093293e03f.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/30093293e03f.json",
    "site": "nordic-crypto",
    "url": "https://ekstrabladet.dk/penge/danskere-svindlet-for-89-millioner-kroner-paa-seks-maaneder/11297364",
    "canonical_url": "https://ekstrabladet.dk/penge/danskere-svindlet-for-89-millioner-kroner-paa-seks-maaneder/11297364",
@@ -1405,7 +1405,7 @@
    "country": "DK",
    "published_at": "2026-09-22T02:58:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -1433,7 +1433,7 @@
   },
   {
    "id": "55643fb5a215",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/55643fb5a215.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/55643fb5a215.json",
    "site": "nordic-crypto",
    "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Sporsmal/Skriftlige-sporsmal-og-svar/Skriftlig-sporsmal/?qnid=127181",
    "canonical_url": "https://stortinget.no/no/Saker-og-publikasjoner/Sporsmal/Skriftlige-sporsmal-og-svar/Skriftlig-sporsmal?qnid=127181",
@@ -1446,7 +1446,7 @@
    "country": "NO",
    "published_at": "2026-09-18T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -1474,7 +1474,7 @@
   },
   {
    "id": "6753e8903e88",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/6753e8903e88.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/6753e8903e88.json",
    "site": "nordic-crypto",
    "url": "https://www.berlingske.dk/aktier/minister-i-nyt-skatteopgoer-vil-goere-op-med-junglen-af-urimelige-og-uforstaaelige-regler",
    "canonical_url": "https://berlingske.dk/aktier/minister-i-nyt-skatteopgoer-vil-goere-op-med-junglen-af-urimelige-og-uforstaaelige-regler",
@@ -1487,7 +1487,7 @@
    "country": "DK",
    "published_at": "2026-09-22T06:04:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -1515,7 +1515,7 @@
   },
   {
    "id": "6e2887720a32",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/6e2887720a32.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/6e2887720a32.json",
    "site": "nordic-crypto",
    "url": "https://www.shifter.no/nyheter/firi-lanserer-i-sverige-etter-permitteringer-og-milliontap/475990",
    "canonical_url": "https://shifter.no/nyheter/firi-lanserer-i-sverige-etter-permitteringer-og-milliontap/475990",
@@ -1528,7 +1528,7 @@
    "country": "NO",
    "published_at": "2026-09-15T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -1556,7 +1556,7 @@
   },
   {
    "id": "a0c89b973576",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/a0c89b973576.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/a0c89b973576.json",
    "site": "nordic-crypto",
    "url": "https://www.kaupr.io/nyheter/danske-bank-ingen-bank-kan-bygge-euro-stablecoin-alene",
    "canonical_url": "https://kaupr.io/nyheter/danske-bank-ingen-bank-kan-bygge-euro-stablecoin-alene",
@@ -1569,7 +1569,7 @@
    "country": "DK",
    "published_at": "2026-09-22T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -1597,7 +1597,7 @@
   },
   {
    "id": "b0202ea8241d",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/b0202ea8241d.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/b0202ea8241d.json",
    "site": "nordic-crypto",
    "url": "https://www.oa.no/skal-ha-stalet-fra-egen-bedrift-brukte-pengene-pa-krypto/s/80-35-26289",
    "canonical_url": "https://oa.no/skal-ha-stalet-fra-egen-bedrift-brukte-pengene-pa-krypto/s/80-35-26289",
@@ -1610,7 +1610,7 @@
    "country": "NO",
    "published_at": "2026-09-23T16:08:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -1637,7 +1637,7 @@
   },
   {
    "id": "dbcac6be2b75",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/dbcac6be2b75.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/dbcac6be2b75.json",
    "site": "nordic-crypto",
    "url": "https://www.nettavisen.no/krypto/etterforskning/hordaland-tingrett/fant-hemmelig-passord-laste-opp-krypto-lommeboken/s/80-95-105422",
    "canonical_url": "https://nettavisen.no/krypto/etterforskning/hordaland-tingrett/fant-hemmelig-passord-laste-opp-krypto-lommeboken/s/80-95-105422",
@@ -1650,7 +1650,7 @@
    "country": "NO",
    "published_at": "2026-09-25T19:16:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -1677,7 +1677,7 @@
   },
   {
    "id": "e1e3eef6ecff",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/e1e3eef6ecff.json",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/e1e3eef6ecff.json",
    "site": "nordic-crypto",
    "url": "https://www.inderes.se/en/releases/nbx-nbx-registered-as-moneygram-agent",
    "canonical_url": "https://inderes.se/en/releases/nbx-nbx-registered-as-moneygram-agent",
@@ -1690,7 +1690,7 @@
    "country": "NO",
    "published_at": "2026-09-17T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
    "languages": [
     "en",
     "nn",
@@ -1712,6 +1712,46 @@
    "topics": [
     "business",
     "payments"
+   ],
+   "removed": false,
+   "removed_at": null
+  },
+  {
+   "id": "fb9e8ca4fb40",
+   "api_url": "https://cryptonordic.no/api/v1/archive/articles/fb9e8ca4fb40.json",
+   "site": "nordic-crypto",
+   "url": "https://www.finansavisen.no/valuta/2026/10/05/8385368/smasparere-hamstret-krypto-under-renteuro",
+   "canonical_url": "https://finansavisen.no/valuta/2026/10/05/8385368/smasparere-hamstret-krypto-under-renteuro",
+   "title": "Småsparere hamstret krypto under renteuro",
+   "titles": {
+    "en": "Norwegian retail investors kept buying crypto during rate turmoil"
+   },
+   "source": "finansavisen",
+   "source_name": "Finansavisen",
+   "country": "NO",
+   "published_at": "2026-10-05T06:06:00+00:00",
+   "first_published_on_site": "2026-10-06T07:35:14+02:00",
+   "last_seen_on_site": "2026-10-06T07:35:14+02:00",
+   "languages": [
+    "en",
+    "nn",
+    "nb",
+    "sv",
+    "da",
+    "fi",
+    "is"
+   ],
+   "summaries": {
+    "en": "Customers of Norwegian exchange Firi bought 16.1 million kroner more crypto than they sold in September, on trading of 313.5 million kroner, despite a turbulent month. Bitcoin was the top buy while many moved money out of XRP into bitcoin and solana; CEO Thuc Hoang sees rising US interest rates as the main risk.",
+    "nn": "Kundane på den norske kryptobørsen Firi kjøpte krypto for 16,1 millionar kroner meir enn dei selde i september, med ei omsetning på 313,5 millionar kroner, trass i ein uroleg månad. Bitcoin var mest kjøpt, medan mange flytta pengar frå XRP til bitcoin og solana; Firi-sjef Thuc Hoang ser stigande amerikanske renter som den største risikoen.",
+    "nb": "Kundene på den norske kryptobørsen Firi kjøpte krypto for 16,1 millioner kroner mer enn de solgte i september, med en omsetning på 313,5 millioner kroner, til tross for en urolig måned. Bitcoin var mest kjøpt, mens mange flyttet penger fra XRP til bitcoin og solana; Firi-sjef Thuc Hoang ser stigende amerikanske renter som den største risikoen.",
+    "sv": "Kunderna på den norska kryptobörsen Firi köpte krypto för 16,1 miljoner norska kronor mer än de sålde i september, med en omsättning på 313,5 miljoner kronor, trots en orolig månad. Bitcoin köptes mest, medan många flyttade pengar från XRP till bitcoin och solana; Firis vd Thuc Hoang ser stigande amerikanska räntor som den största risken.",
+    "da": "Kunderne på den norske kryptobørs Firi købte krypto for 16,1 millioner norske kroner mere, end de solgte i september, med en omsætning på 313,5 millioner kroner, trods en urolig måned. Bitcoin var mest købt, mens mange flyttede penge fra XRP til bitcoin og solana; Firis topchef Thuc Hoang ser stigende amerikanske renter som den største risiko.",
+    "fi": "Norjalaisen kryptopörssin Firin asiakkaat ostivat syyskuussa kryptovaluuttoja 16,1 miljoonalla Norjan kruunulla enemmän kuin myivät, kun kaupankäynnin arvo oli 313,5 miljoonaa kruunua, levottomasta kuukaudesta huolimatta. Bitcoin oli ostetuin, ja moni siirsi rahojaan XRP:stä bitcoiniin ja solanaan; Firin toimitusjohtaja Thuc Hoang pitää nousevia Yhdysvaltain korkoja suurimpana riskinä.",
+    "is": "Viðskiptavinir norsku rafmyntakauphallarinnar Firi keyptu rafmyntir fyrir 16,1 milljón norskra króna meira en þeir seldu í september, en heildarviðskipti námu 313,5 milljónum króna, þrátt fyrir óróa á markaði. Bitcoin var mest keypt og margir færðu fé úr XRP yfir í bitcoin og solana; Thuc Hoang, forstjóri Firi, telur hækkandi vexti í Bandaríkjunum vera mestu áhættuna."
+   },
+   "topics": [
+    "business"
    ],
    "removed": false,
    "removed_at": null

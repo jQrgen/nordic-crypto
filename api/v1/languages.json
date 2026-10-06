@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "note": "Site UI languages (chrome and presentation). English is the default; its home URL is the site root. native_name is the language-switcher label. rtl is true for Arabic and Urdu. Published article translations today are English plus summary_i18n for nn, nb, sv, da, fi and is. Other site languages fall back to the English field until a translation is published. These codes are not news-source languages, and this list does not add outlets.",
  "count": 21,
@@ -14,7 +14,7 @@
    "rtl": false,
    "html_lang": "en",
    "og_locale": "en_GB",
-   "home": "https://jqrgen.github.io/nordic-crypto/"
+   "home": "https://cryptonordic.no/"
   },
   {
    "code": "nn",
@@ -24,7 +24,7 @@
    "rtl": false,
    "html_lang": "nn",
    "og_locale": "nn_NO",
-   "home": "https://jqrgen.github.io/nordic-crypto/nn/"
+   "home": "https://cryptonordic.no/nn/"
   },
   {
    "code": "nb",
@@ -34,7 +34,7 @@
    "rtl": false,
    "html_lang": "nb",
    "og_locale": "nb_NO",
-   "home": "https://jqrgen.github.io/nordic-crypto/nb/"
+   "home": "https://cryptonordic.no/nb/"
   },
   {
    "code": "sv",
@@ -44,7 +44,7 @@
    "rtl": false,
    "html_lang": "sv",
    "og_locale": "sv_SE",
-   "home": "https://jqrgen.github.io/nordic-crypto/sv/"
+   "home": "https://cryptonordic.no/sv/"
   },
   {
    "code": "da",
@@ -54,7 +54,7 @@
    "rtl": false,
    "html_lang": "da",
    "og_locale": "da_DK",
-   "home": "https://jqrgen.github.io/nordic-crypto/da/"
+   "home": "https://cryptonordic.no/da/"
   },
   {
    "code": "fi",
@@ -64,7 +64,7 @@
    "rtl": false,
    "html_lang": "fi",
    "og_locale": "fi_FI",
-   "home": "https://jqrgen.github.io/nordic-crypto/fi/"
+   "home": "https://cryptonordic.no/fi/"
   },
   {
    "code": "is",
@@ -74,7 +74,7 @@
    "rtl": false,
    "html_lang": "is",
    "og_locale": "is_IS",
-   "home": "https://jqrgen.github.io/nordic-crypto/is/"
+   "home": "https://cryptonordic.no/is/"
   },
   {
    "code": "zh",
@@ -84,7 +84,7 @@
    "rtl": false,
    "html_lang": "zh",
    "og_locale": "zh_CN",
-   "home": "https://jqrgen.github.io/nordic-crypto/zh/"
+   "home": "https://cryptonordic.no/zh/"
   },
   {
    "code": "hi",
@@ -94,7 +94,7 @@
    "rtl": false,
    "html_lang": "hi",
    "og_locale": "hi_IN",
-   "home": "https://jqrgen.github.io/nordic-crypto/hi/"
+   "home": "https://cryptonordic.no/hi/"
   },
   {
    "code": "es",
@@ -104,7 +104,7 @@
    "rtl": false,
    "html_lang": "es",
    "og_locale": "es_ES",
-   "home": "https://jqrgen.github.io/nordic-crypto/es/"
+   "home": "https://cryptonordic.no/es/"
   },
   {
    "code": "fr",
@@ -114,7 +114,7 @@
    "rtl": false,
    "html_lang": "fr",
    "og_locale": "fr_FR",
-   "home": "https://jqrgen.github.io/nordic-crypto/fr/"
+   "home": "https://cryptonordic.no/fr/"
   },
   {
    "code": "ar",
@@ -124,7 +124,7 @@
    "rtl": true,
    "html_lang": "ar",
    "og_locale": "ar_SA",
-   "home": "https://jqrgen.github.io/nordic-crypto/ar/"
+   "home": "https://cryptonordic.no/ar/"
   },
   {
    "code": "bn",
@@ -134,7 +134,7 @@
    "rtl": false,
    "html_lang": "bn",
    "og_locale": "bn_BD",
-   "home": "https://jqrgen.github.io/nordic-crypto/bn/"
+   "home": "https://cryptonordic.no/bn/"
   },
   {
    "code": "pt",
@@ -144,7 +144,7 @@
    "rtl": false,
    "html_lang": "pt",
    "og_locale": "pt_BR",
-   "home": "https://jqrgen.github.io/nordic-crypto/pt/"
+   "home": "https://cryptonordic.no/pt/"
   },
   {
    "code": "ru",
@@ -154,7 +154,7 @@
    "rtl": false,
    "html_lang": "ru",
    "og_locale": "ru_RU",
-   "home": "https://jqrgen.github.io/nordic-crypto/ru/"
+   "home": "https://cryptonordic.no/ru/"
   },
   {
    "code": "ur",
@@ -164,7 +164,7 @@
    "rtl": true,
    "html_lang": "ur",
    "og_locale": "ur_PK",
-   "home": "https://jqrgen.github.io/nordic-crypto/ur/"
+   "home": "https://cryptonordic.no/ur/"
   },
   {
    "code": "id",
@@ -174,7 +174,7 @@
    "rtl": false,
    "html_lang": "id",
    "og_locale": "id_ID",
-   "home": "https://jqrgen.github.io/nordic-crypto/id/"
+   "home": "https://cryptonordic.no/id/"
   },
   {
    "code": "de",
@@ -184,7 +184,7 @@
    "rtl": false,
    "html_lang": "de",
    "og_locale": "de_DE",
-   "home": "https://jqrgen.github.io/nordic-crypto/de/"
+   "home": "https://cryptonordic.no/de/"
   },
   {
    "code": "ja",
@@ -194,7 +194,7 @@
    "rtl": false,
    "html_lang": "ja",
    "og_locale": "ja_JP",
-   "home": "https://jqrgen.github.io/nordic-crypto/ja/"
+   "home": "https://cryptonordic.no/ja/"
   },
   {
    "code": "sw",
@@ -204,7 +204,7 @@
    "rtl": false,
    "html_lang": "sw",
    "og_locale": "sw_KE",
-   "home": "https://jqrgen.github.io/nordic-crypto/sw/"
+   "home": "https://cryptonordic.no/sw/"
   },
   {
    "code": "mr",
@@ -214,7 +214,7 @@
    "rtl": false,
    "html_lang": "mr",
    "og_locale": "mr_IN",
-   "home": "https://jqrgen.github.io/nordic-crypto/mr/"
+   "home": "https://cryptonordic.no/mr/"
   }
  ]
 }

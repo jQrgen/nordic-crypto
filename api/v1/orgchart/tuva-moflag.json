@@ -1,12 +1,12 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "item": {
   "id": "tuva-moflag",
-  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/tuva-moflag.json",
-  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#tuva-moflag",
+  "api_url": "https://cryptonordic.no/api/v1/orgchart/tuva-moflag.json",
+  "html_url": "https://cryptonordic.no/org-chart/#tuva-moflag",
   "name": "Tuva Moflag",
   "type": "person",
   "sector": "public",
@@ -29,7 +29,7 @@
   "logo": null,
   "image": {
    "kind": "photo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/people/tuva-moflag.jpg",
+   "file_url": "https://cryptonordic.no/assets/img/people/tuva-moflag.jpg",
    "source_url": "https://commons.wikimedia.org/wiki/File:Tuva_Moflag.jpg",
    "author": "Johannes Dalen Giske",
    "license": "CC BY-SA 4.0",

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "item": {
   "id": "issue-1-newsreel-2",
@@ -34,7 +34,7 @@
     "description": "Skipt var út myndbandi fréttabréfsins #1 í loftinu fyrir leiðréttu newsreel-skrána (útgáfa newsletter-001-newsreel-2). Kaupr er nefnt aðeins þegar frétt kemur frá Kaupr. Upphafið segir ekki lengur að tölublaðið sé unnið með aðstoð gervigreindar."
    }
   },
-  "html_url": "https://jqrgen.github.io/nordic-crypto/changelog/#issue-1-newsreel-2",
-  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/issue-1-newsreel-2.json"
+  "html_url": "https://cryptonordic.no/changelog/#issue-1-newsreel-2",
+  "api_url": "https://cryptonordic.no/api/v1/changelog/issue-1-newsreel-2.json"
  }
 }

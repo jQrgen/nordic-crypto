@@ -1,11 +1,11 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "item": {
   "id": "r-coinmotion-k33",
-  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/relations/r-coinmotion-k33.json",
+  "api_url": "https://cryptonordic.no/api/v1/orgchart/relations/r-coinmotion-k33.json",
   "from": "coinmotion",
   "to": "k33",
   "type": "partner",

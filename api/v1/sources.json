@@ -1,9 +1,9 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
- "user_agent": "CryptoNordicBot/0.1 (+https://jqrgen.github.io/nordic-crypto/about/; news headline bot)",
+ "user_agent": "CryptoNordicBot/0.1 (+__SITE__about/; news headline bot)",
  "min_delay_seconds": 2,
  "keyword_note": "A story is picked up when its title or teaser mentions, for example: bitcoin, crypto, blockchain, stablecoin, MiCA, CBDC (all languages); krypto, kryptovaluta, blokkjede (Norwegian); kryptoaktiver, blokkæde (Danish); kryptotillgångar, blockkedja, e-krona (Swedish); kryptovaluutta, lohkoketju, virtuaalivaluutta (Finnish); rafmynt, sýndareignir, bálkakeðja (Icelandic); or Nordic crypto firms such as Firi, NBX, K33, Safello, Coinmotion, Northcrypto, Myntkaup, Monerium and Coinify. The editor reviews every hit before it is published.",
  "kaupr": "Kaupr (kaupr.io) is one of the news sources. It is never a sponsor.",
@@ -73,7 +73,7 @@
    "source_note": null,
    "logo": {
     "kind": "logo",
-    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/shifter.svg",
+    "file_url": "https://cryptonordic.no/assets/img/logos/shifter.svg",
     "source_url": "https://www.shifter.no/view-resources/dachser2/public/shifter/logo.svg",
     "author": null,
     "license": null,
@@ -145,7 +145,7 @@
    "source_note": null,
    "logo": {
     "kind": "logo",
-    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/finanstilsynet.webp",
+    "file_url": "https://cryptonordic.no/assets/img/logos/finanstilsynet.webp",
     "source_url": "https://www.finanstilsynet.no/Content/Favicons/apple-touch-icon-57x57.png",
     "author": null,
     "license": null,
@@ -169,7 +169,7 @@
    "source_note": null,
    "logo": {
     "kind": "logo",
-    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/norges-bank.svg",
+    "file_url": "https://cryptonordic.no/assets/img/logos/norges-bank.svg",
     "source_url": "https://commons.wikimedia.org/wiki/File:Norges_Bank_logo.svg",
     "author": "Norges Bank",
     "license": "Public domain",
@@ -193,7 +193,7 @@
    "source_note": null,
    "logo": {
     "kind": "logo",
-    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/bpi.svg",
+    "file_url": "https://cryptonordic.no/assets/img/logos/bpi.svg",
     "source_url": "https://bpinorge.no/wp-content/uploads/2025/04/bpinorge_footer_logo.svg",
     "author": null,
     "license": null,
@@ -281,7 +281,7 @@
    "source_note": null,
    "logo": {
     "kind": "logo",
-    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/se-fi.svg",
+    "file_url": "https://cryptonordic.no/assets/img/logos/se-fi.svg",
     "source_url": "https://commons.wikimedia.org/wiki/File:Finansinspektionen_logo.svg",
     "author": "Finansinspektionen.",
     "license": "Public domain",
@@ -305,7 +305,7 @@
    "source_note": null,
    "logo": {
     "kind": "logo",
-    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/se-riksbank.webp",
+    "file_url": "https://cryptonordic.no/assets/img/logos/se-riksbank.webp",
     "source_url": "https://commons.wikimedia.org/wiki/File:Riksbanken_skylt.jpg",
     "author": "Holger Ellgaard",
     "license": "CC BY-SA 3.0",
@@ -345,7 +345,7 @@
    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
    "logo": {
     "kind": "logo",
-    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+    "file_url": "https://cryptonordic.no/assets/img/logos/kaupr.webp",
     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
     "author": null,
     "license": null,
@@ -497,7 +497,7 @@
    "source_note": null,
    "logo": {
     "kind": "logo",
-    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/fi-fiva.webp",
+    "file_url": "https://cryptonordic.no/assets/img/logos/fi-fiva.webp",
     "source_url": "https://www.finanssivalvonta.fi/contentassets/2a88d63613bb4f049c687203e8731112/logo.png",
     "author": null,
     "license": null,
@@ -521,7 +521,7 @@
    "source_note": null,
    "logo": {
     "kind": "logo",
-    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/fi-suomen-pankki.webp",
+    "file_url": "https://cryptonordic.no/assets/img/logos/fi-suomen-pankki.webp",
     "source_url": "https://commons.wikimedia.org/wiki/File:Logo-bof.png",
     "author": "Bank of Finland, Mikael Kivelä",
     "license": "Public domain",
@@ -545,7 +545,7 @@
    "source_note": null,
    "logo": {
     "kind": "logo",
-    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/fi-suomen-pankki.webp",
+    "file_url": "https://cryptonordic.no/assets/img/logos/fi-suomen-pankki.webp",
     "source_url": "https://commons.wikimedia.org/wiki/File:Logo-bof.png",
     "author": "Bank of Finland, Mikael Kivelä",
     "license": "Public domain",
@@ -569,7 +569,7 @@
    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
    "logo": {
     "kind": "logo",
-    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+    "file_url": "https://cryptonordic.no/assets/img/logos/kaupr.webp",
     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
     "author": null,
     "license": null,
@@ -593,7 +593,7 @@
    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
    "logo": {
     "kind": "logo",
-    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+    "file_url": "https://cryptonordic.no/assets/img/logos/kaupr.webp",
     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
     "author": null,
     "license": null,
@@ -617,7 +617,7 @@
    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
    "logo": {
     "kind": "logo",
-    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/kaupr.webp",
+    "file_url": "https://cryptonordic.no/assets/img/logos/kaupr.webp",
     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
     "author": null,
     "license": null,
@@ -1425,7 +1425,7 @@
    "source_note": null,
    "logo": {
     "kind": "logo",
-    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/norges-bank.svg",
+    "file_url": "https://cryptonordic.no/assets/img/logos/norges-bank.svg",
     "source_url": "https://commons.wikimedia.org/wiki/File:Norges_Bank_logo.svg",
     "author": "Norges Bank",
     "license": "Public domain",
@@ -1449,7 +1449,7 @@
    "source_note": null,
    "logo": {
     "kind": "logo",
-    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/norges-bank.svg",
+    "file_url": "https://cryptonordic.no/assets/img/logos/norges-bank.svg",
     "source_url": "https://commons.wikimedia.org/wiki/File:Norges_Bank_logo.svg",
     "author": "Norges Bank",
     "license": "Public domain",
@@ -1473,7 +1473,7 @@
    "source_note": null,
    "logo": {
     "kind": "logo",
-    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/skatteetaten.webp",
+    "file_url": "https://cryptonordic.no/assets/img/logos/skatteetaten.webp",
     "source_url": "https://www.skatteetaten.no/static/img/skatteetatenlogo/fav-icon/57x57/png/favicon57x57.png",
     "author": null,
     "license": null,
@@ -1513,7 +1513,7 @@
    "source_note": null,
    "logo": {
     "kind": "logo",
-    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/okokrim.svg",
+    "file_url": "https://cryptonordic.no/assets/img/logos/okokrim.svg",
     "source_url": "https://commons.wikimedia.org/wiki/File:Okokrim_logo_sort.svg",
     "author": "Lillian Nordby Øktner/Økokrim",
     "license": "Public domain",
@@ -1537,7 +1537,7 @@
    "source_note": null,
    "logo": {
     "kind": "logo",
-    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/nbx.svg",
+    "file_url": "https://cryptonordic.no/assets/img/logos/nbx.svg",
     "source_url": "https://cdn.prod.website-files.com/6152dfaed2ce58d94ef37b88/619509e489aaca39961511c2_DarkLogo.svg",
     "author": null,
     "license": null,
@@ -1561,7 +1561,7 @@
    "source_note": null,
    "logo": {
     "kind": "logo",
-    "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/stortinget-finanskomiteen.svg",
+    "file_url": "https://cryptonordic.no/assets/img/logos/stortinget-finanskomiteen.svg",
     "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
     "author": "Worldlydev",
     "license": "Public domain",

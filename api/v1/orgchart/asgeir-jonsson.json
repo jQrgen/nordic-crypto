@@ -1,12 +1,12 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "item": {
   "id": "asgeir-jonsson",
-  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/asgeir-jonsson.json",
-  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#asgeir-jonsson",
+  "api_url": "https://cryptonordic.no/api/v1/orgchart/asgeir-jonsson.json",
+  "html_url": "https://cryptonordic.no/org-chart/#asgeir-jonsson",
   "name": "Ásgeir Jónsson",
   "type": "person",
   "sector": "public",
@@ -29,7 +29,7 @@
   "logo": null,
   "image": {
    "kind": "photo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/people/asgeir-jonsson.jpg",
+   "file_url": "https://cryptonordic.no/assets/img/people/asgeir-jonsson.jpg",
    "source_url": "https://commons.wikimedia.org/wiki/File:%C3%81sgeir_J%C3%B3nsson_2022.jpg",
    "author": "Ifimero",
    "license": "CC BY-SA 4.0",

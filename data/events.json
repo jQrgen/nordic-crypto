@@ -18,8 +18,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "89ced460e4ca",
@@ -45,8 +45,8 @@
     "fi": "Maksullinen (239 Norjan kruunua muille kuin jäsenille).",
     "is": "Aðgangseyrir (239 norskar krónur fyrir utanfélagsmenn)."
    },
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "c4a53ca9bd26",
@@ -65,8 +65,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "a1ea7afabcb0",
@@ -92,8 +92,8 @@
     "fi": "Tiedoksi: puhuja Jørgen S. Notland on Crypto Nordicin julkaisija.",
     "is": "Til upplýsingar: fyrirlesarinn, Jørgen S. Notland, er útgefandi Crypto Nordic."
    },
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "a6cadcf35c22",
@@ -112,8 +112,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "ce0c87469bd8",
@@ -132,8 +132,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "7adc8e1ede97",
@@ -152,8 +152,8 @@
    "sponsored": "Reese Legal",
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "e884ba1f0333",
@@ -172,8 +172,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "19b92e24ee50",
@@ -192,8 +192,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "3c7c538ff512",
@@ -219,8 +219,8 @@
     "fi": "Osuu uudenvuodenpäivälle: tarkista järjestäjän sivu ennen lähtöä.",
     "is": "Ber upp á nýársdag: athugaðu síðu skipuleggjandans áður en þú ferð."
    },
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "105f743dcf3d",
@@ -239,8 +239,8 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   }
  ]
 }

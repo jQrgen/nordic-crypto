@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "item": {
   "id": "regulation-videos",
@@ -34,7 +34,7 @@
     "description": "Fimm reitir fyrir Noreg, Svíþjóð, Danmörku, Finnland og Ísland eru á /regulation-videos/, með tengli frá Svona verða reglurnar til og Um okkur. Hver reitur spilar HTML5-myndband þegar MP4 er til. Þar til sýnir hann titil, glósur sögumanns og heimildir. Myndböndin eru ekki tilbúin. Ísland er í EES, ekki í ESB, og Seðlabanki Íslands hýsir Fjármálaeftirlit. Undirskriftin er The Nordic Crypto team."
    }
   },
-  "html_url": "https://jqrgen.github.io/nordic-crypto/changelog/#regulation-videos",
-  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/changelog/regulation-videos.json"
+  "html_url": "https://cryptonordic.no/changelog/#regulation-videos",
+  "api_url": "https://cryptonordic.no/api/v1/changelog/regulation-videos.json"
  }
 }

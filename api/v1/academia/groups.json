@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "section": "groups",
  "count": 3,
@@ -26,7 +26,7 @@
    },
    "id": "groups-kryptokom.se",
    "section": "groups",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/groups-kryptokom.se.json"
+   "api_url": "https://cryptonordic.no/api/v1/academia/groups-kryptokom.se.json"
   },
   {
    "country": "FI",
@@ -48,7 +48,7 @@
    },
    "id": "groups-www.linkedin.com-company-aalto-bitcoin",
    "section": "groups",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/groups-www.linkedin.com-company-aalto-bitcoin.json"
+   "api_url": "https://cryptonordic.no/api/v1/academia/groups-www.linkedin.com-company-aalto-bitcoin.json"
   },
   {
    "country": "DK",
@@ -70,7 +70,7 @@
    },
    "id": "groups-www.linkedin.com-company-cbs-bitcoin",
    "section": "groups",
-   "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/groups-www.linkedin.com-company-cbs-bitcoin.json"
+   "api_url": "https://cryptonordic.no/api/v1/academia/groups-www.linkedin.com-company-cbs-bitcoin.json"
   }
  ]
 }

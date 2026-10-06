@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "item": {
   "country": "NO",
@@ -21,6 +21,6 @@
   },
   "id": "research-www.mn.uio.no-ifi-english-research-networks-blockchainlab",
   "section": "research",
-  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/academia/research-www.mn.uio.no-ifi-english-research-networks-blockchainlab.json"
+  "api_url": "https://cryptonordic.no/api/v1/academia/research-www.mn.uio.no-ifi-english-research-networks-blockchainlab.json"
  }
 }

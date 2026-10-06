@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "item": {
   "id": "89ced460e4ca",
@@ -28,7 +28,7 @@
    "is": "Aðgangseyrir (239 norskar krónur fyrir utanfélagsmenn)."
   },
   "past": false,
-  "html_url": "https://jqrgen.github.io/nordic-crypto/calendar/#e-89ced460e4ca",
-  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/events/89ced460e4ca.json"
+  "html_url": "https://cryptonordic.no/calendar/#e-89ced460e4ca",
+  "api_url": "https://cryptonordic.no/api/v1/events/89ced460e4ca.json"
  }
 }

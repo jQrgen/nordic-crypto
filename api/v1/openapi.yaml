@@ -2,18 +2,16 @@ openapi: 3.0.3
 info:
   title: Nordic Crypto data API
   version: "1"
-  description: "Public read-only JSON for Nordic Crypto (cryptonordic.no, GitHub Pages jqrgen.github.io/nordic-crypto). No authentication. News, newsletters, events, sources, academia, the who's who, profiles, images, the rules map, the changelog, the article archive and Nordic exchange prices (market data, not investment advice). Kaupr is a news source only, never a sponsor. The sign-off is The Nordic Crypto team. GitHub Pages sends Access-Control-Allow-Origin: * so browsers can fetch these files. English text is the default; published translations are inside each object under *_i18n. Site languages: /api/v1/languages.json. IP-country language guess: /api/v1/geo-language.json (the nc_lang cookie wins). Discovery: https://jqrgen.github.io/nordic-crypto/api/v1/index.json. Human docs: https://jqrgen.github.io/nordic-crypto/api/."
+  description: "Public read-only JSON for Nordic Crypto (https://cryptonordic.no/). No authentication. News, newsletters, events, sources, academia, the who's who, profiles, images, the rules map, the changelog, the article archive and Nordic exchange prices (market data, not investment advice). Kaupr is a news source only, never a sponsor. The sign-off is The Nordic Crypto team. GitHub Pages sends Access-Control-Allow-Origin: * so browsers can fetch these files. English text is the default; published translations are inside each object under *_i18n. Site languages: /api/v1/languages.json. IP-country language guess: /api/v1/geo-language.json (the nc_lang cookie wins). Discovery: https://cryptonordic.no/api/v1/index.json. Human docs: https://cryptonordic.no/api/."
   license:
     name: MIT
     url: "https://github.com/jQrgen/nordic-crypto/blob/main/LICENSE"
   contact:
     name: Nordic Crypto
-    url: "https://jqrgen.github.io/nordic-crypto/about/"
+    url: "https://cryptonordic.no/about/"
 servers:
-  - url: "https://jqrgen.github.io/nordic-crypto"
-    description: GitHub Pages project site
   - url: "https://cryptonordic.no"
-    description: "cryptonordic.no (same paths at the domain root, once HTTPS serves this site)"
+    description: Public site
 paths:
   "/api/v1/index.json":
     get:

@@ -1,12 +1,12 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "item": {
   "id": "bare-bitcoin",
-  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/bare-bitcoin.json",
-  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#bare-bitcoin",
+  "api_url": "https://cryptonordic.no/api/v1/orgchart/bare-bitcoin.json",
+  "html_url": "https://cryptonordic.no/org-chart/#bare-bitcoin",
   "name": "Bare Bitcoin",
   "type": "organisation",
   "sector": "private",
@@ -34,7 +34,7 @@
   ],
   "logo": {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/bare-bitcoin.svg",
+   "file_url": "https://cryptonordic.no/assets/img/logos/bare-bitcoin.svg",
    "source_url": "https://barebitcoin.no/_next/static/immutable/media/bare-bitcoin-scrolled.26x9d7blojzsg.svg",
    "author": null,
    "license": null,

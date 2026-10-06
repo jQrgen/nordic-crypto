@@ -1,13 +1,13 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "item": {
   "id": "1abbecf31dff",
   "url": "https://e24.no/bors/nyheter/a/305563",
-  "html_url": "https://jqrgen.github.io/nordic-crypto/stories/1abbecf31dff/",
-  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/news/1abbecf31dff.json",
+  "html_url": "https://cryptonordic.no/stories/1abbecf31dff/",
+  "api_url": "https://cryptonordic.no/api/v1/news/1abbecf31dff.json",
   "title": "Verdiendringer i bitcoin tynger NBX",
   "title_en": "Bitcoin value swings weigh on NBX",
   "source": "e24",

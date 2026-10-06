@@ -1,12 +1,12 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "item": {
   "id": "dk-gcex",
-  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/dk-gcex.json",
-  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#dk-gcex",
+  "api_url": "https://cryptonordic.no/api/v1/orgchart/dk-gcex.json",
+  "html_url": "https://cryptonordic.no/org-chart/#dk-gcex",
   "name": "GCEX (GC Exchange A/S)",
   "type": "organisation",
   "sector": "private",
@@ -28,7 +28,7 @@
   ],
   "logo": {
    "kind": "logo",
-   "file_url": "https://jqrgen.github.io/nordic-crypto/assets/img/logos/dk-gcex.webp",
+   "file_url": "https://cryptonordic.no/assets/img/logos/dk-gcex.webp",
    "source_url": "https://gc.exchange/hs-fs/hubfs/chub_backup/GCEX%20Logo%20Black%20Background%20Image-1-1-1.jpg?width=400&amp;height=240&amp;name=GCEX%20Logo%20Black%20Background%20Image-1-1-1.jpg",
    "author": null,
    "license": null,

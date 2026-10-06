@@ -1,11 +1,11 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "item": {
   "id": "eb685890cbc3",
-  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/archive/articles/eb685890cbc3.json",
+  "api_url": "https://cryptonordic.no/api/v1/archive/articles/eb685890cbc3.json",
   "site": "nordic-crypto",
   "url": "https://www.kaupr.io/nyheter/h100-styrelederen-vil-ha-flere-oppkjop-i-bitcoinbransjen",
   "canonical_url": "https://kaupr.io/nyheter/h100-styrelederen-vil-ha-flere-oppkjop-i-bitcoinbransjen",
@@ -18,7 +18,7 @@
   "country": "SE",
   "published_at": "2026-09-13T12:00:00+00:00",
   "first_published_on_site": "2026-10-03T17:59:40+02:00",
-  "last_seen_on_site": "2026-10-04T15:39:53+02:00",
+  "last_seen_on_site": "2026-10-06T07:35:14+02:00",
   "languages": [
    "en",
    "nn",

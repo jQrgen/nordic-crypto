@@ -1,12 +1,12 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T05:34:26+00:00",
+ "generated_at": "2026-10-06T06:10:04+00:00",
  "preview": false,
  "item": {
   "id": "helsinki-bitcoin-hobbyists",
-  "api_url": "https://jqrgen.github.io/nordic-crypto/api/v1/orgchart/helsinki-bitcoin-hobbyists.json",
-  "html_url": "https://jqrgen.github.io/nordic-crypto/org-chart/#helsinki-bitcoin-hobbyists",
+  "api_url": "https://cryptonordic.no/api/v1/orgchart/helsinki-bitcoin-hobbyists.json",
+  "html_url": "https://cryptonordic.no/org-chart/#helsinki-bitcoin-hobbyists",
   "name": "Helsinki Bitcoin Hobbyists",
   "type": "organisation",
   "sector": "private",
