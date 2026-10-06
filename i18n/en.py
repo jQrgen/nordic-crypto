@@ -165,6 +165,8 @@ S.update({
 "nav_newsletter": "Newsletter", "nl_issues_h": "Issues", "nl_issues_lead": "Every issue, newest first. Read them here or get them by email.", "nl_issues_none": "No issues yet.", "nl_issue_n": "Issue #{n}", "nl_issue_period": "News from {a} to {b}", "nl_issue_count": "{s} stories and {e} events", "nl_issue_video": "Video, {m} min", "nl_issue_en": "This issue is in English.", "bridge": "This article is {where}. In short:", "nl_bridge": "This issue is {where}. In short:", "nl_video_dl": "Download the video (MP4, {mb} MB)", "nl_video_subs": "English subtitles (WebVTT)", "nl_video_fallback": "Your browser can't play the video here. Download it instead:", "nl_video_note": "The video plays from this website, with no YouTube player. It has English subtitles.", "nl_all_issues": "All newsletter issues", "nl_get_next": "Get the next issue by email:",
 # the site's own X account (@xcryptonordic), header/footer/newsletter
 "x_btn": "Follow on X", "x_follow": "Follow Nordic Crypto on X", "x_title": "Nordic Crypto on X (@xcryptonordic), the site's own account",
+"tg_label": "Telegram", "tg_follow": "Nordic Crypto on Telegram", "tg_title": "Nordic Crypto on Telegram (t.me/nordiccryptochat), the brand chat",
+"social_h": "Community", "social_aria": "Nordic Crypto on social media", "social_lead": "The Nordic Crypto chat is on Telegram, and the brand account is on X.",
 "nl_write": "Want to write for Nordic Crypto? <a href=\"{href}\">Apply as a columnist</a>. The editor reads every pitch. Publication is not guaranteed, and a column is not investment advice.",
 "col_title": "Apply as a columnist",
 "col_desc": "Apply to write a column for Nordic Crypto on crypto, bitcoin or blockchain in the Nordics.",

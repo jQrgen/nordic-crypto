@@ -43,7 +43,7 @@ function top({ url, title, lang = "en", networks, source }) {
 }
 
 const CSS = social.CSS + `
-.share{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin:14px 0}
+.share{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;text-align:start;gap:6px 8px;margin:14px 0;width:fit-content;max-width:100%}
 .share-label{font-size:13px;color:var(--muted,#4B5563);margin-right:2px}
 .share a,.share button{font:inherit;font-size:13.5px;line-height:1.2;color:var(--ink,#000);background:var(--paper,#fff);border:1px solid var(--line,#000);padding:5px 10px;text-decoration:none;cursor:pointer}
 .share a:hover,.share button:hover{background:var(--band,#000);color:var(--band-ink,#fff)}
