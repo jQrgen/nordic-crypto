@@ -1,0 +1,27 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-06T18:09:15+00:00",
+ "preview": false,
+ "item": {
+  "id": "9043fbdf3243",
+  "title": "International Conference on Blockchain and Cybersecurity in Big Data Systems (ICBCBDS)",
+  "title_original": null,
+  "start": "2027-06-23T00:00:00+02:00",
+  "end": "2027-06-24T23:59:00+02:00",
+  "place": "Malmo, Sweden",
+  "city": "Malmo",
+  "country": "SE",
+  "online": false,
+  "organiser": "TSRD",
+  "url": "https://internationalconferencealerts.com/event-icbcbds-malmo-se-202706-102075808",
+  "source": "International Conference Alerts – blockchain, Sweden",
+  "paid": null,
+  "sponsored": null,
+  "note": null,
+  "note_i18n": {},
+  "past": false,
+  "html_url": "https://nordiccrypto.no/calendar/#e-9043fbdf3243",
+  "api_url": "https://nordiccrypto.no/api/v1/events/9043fbdf3243.json"
+ }
+}

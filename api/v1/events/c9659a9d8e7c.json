@@ -1,0 +1,27 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-06T18:09:15+00:00",
+ "preview": false,
+ "item": {
+  "id": "c9659a9d8e7c",
+  "title": "International Conference on Blockchain and Cybersecurity for Big Data Governance (ICBCBDG)",
+  "title_original": null,
+  "start": "2027-06-23T00:00:00+03:00",
+  "end": "2027-06-24T23:59:00+03:00",
+  "place": "Oulu, Finland",
+  "city": "Oulu",
+  "country": "FI",
+  "online": false,
+  "organiser": "Research Leagues",
+  "url": "https://internationalconferencealerts.com/event-icbcbdg-oulu-fi-202706-101983707",
+  "source": "International Conference Alerts – blockchain, Finland",
+  "paid": null,
+  "sponsored": null,
+  "note": null,
+  "note_i18n": {},
+  "past": false,
+  "html_url": "https://nordiccrypto.no/calendar/#e-c9659a9d8e7c",
+  "api_url": "https://nordiccrypto.no/api/v1/events/c9659a9d8e7c.json"
+ }
+}

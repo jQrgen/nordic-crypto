@@ -1,0 +1,27 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-06T18:09:15+00:00",
+ "preview": false,
+ "item": {
+  "id": "de007b1d355f",
+  "title": "International Conference on Water Resource Engineering and Blockchain (ICWREB)",
+  "title_original": null,
+  "start": "2026-12-23T00:00:00+01:00",
+  "end": "2026-12-24T23:59:00+01:00",
+  "place": "Malmo Municipality, Sweden",
+  "city": "Malmo Municipality",
+  "country": "SE",
+  "online": false,
+  "organiser": "ISAR",
+  "url": "https://internationalconferencealerts.com/event-icwreb-malmo-municipality-se-202612-101234792",
+  "source": "International Conference Alerts – blockchain, Sweden",
+  "paid": null,
+  "sponsored": null,
+  "note": null,
+  "note_i18n": {},
+  "past": false,
+  "html_url": "https://nordiccrypto.no/calendar/#e-de007b1d355f",
+  "api_url": "https://nordiccrypto.no/api/v1/events/de007b1d355f.json"
+ }
+}

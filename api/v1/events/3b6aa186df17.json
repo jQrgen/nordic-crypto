@@ -1,0 +1,27 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-06T18:09:15+00:00",
+ "preview": false,
+ "item": {
+  "id": "3b6aa186df17",
+  "title": "International Conference on Blockchain-Enhanced Cybersecurity in Big Data Analytics (ICBCBDA)",
+  "title_original": null,
+  "start": "2027-06-23T00:00:00+02:00",
+  "end": "2027-06-24T23:59:00+02:00",
+  "place": "Kobenhavn, Denmark",
+  "city": "Kobenhavn",
+  "country": "DK",
+  "online": false,
+  "organiser": "EFSTM",
+  "url": "https://internationalconferencealerts.com/event-icbcbda-kobenhavn-dk-202706-101978308",
+  "source": "International Conference Alerts – blockchain, Denmark",
+  "paid": null,
+  "sponsored": null,
+  "note": null,
+  "note_i18n": {},
+  "past": false,
+  "html_url": "https://nordiccrypto.no/calendar/#e-3b6aa186df17",
+  "api_url": "https://nordiccrypto.no/api/v1/events/3b6aa186df17.json"
+ }
+}

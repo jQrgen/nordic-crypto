@@ -1,0 +1,27 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-06T18:09:15+00:00",
+ "preview": false,
+ "item": {
+  "id": "017a309037ae",
+  "title": "International Conference on Blockchain-Enabled Secure Data Sharing in Big Data (ICBSSD)",
+  "title_original": null,
+  "start": "2026-11-05T00:00:00+00:00",
+  "end": "2026-11-06T23:59:00+00:00",
+  "place": "Hotel Kriunes, Kríunes, 203 Kópavogur, Iceland",
+  "city": "Kopavogur",
+  "country": "IS",
+  "online": false,
+  "organiser": "ISIT",
+  "url": "https://internationalconferencealerts.com/event-icbssd-kopavogur-is-202611-101238392",
+  "source": "International Conference Alerts – blockchain, Iceland",
+  "paid": null,
+  "sponsored": null,
+  "note": null,
+  "note_i18n": {},
+  "past": false,
+  "html_url": "https://nordiccrypto.no/calendar/#e-017a309037ae",
+  "api_url": "https://nordiccrypto.no/api/v1/events/017a309037ae.json"
+ }
+}

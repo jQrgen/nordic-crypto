@@ -1,0 +1,27 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-06T18:09:15+00:00",
+ "preview": false,
+ "item": {
+  "id": "579c5a12cd20",
+  "title": "International Conference on Blockchain and Big Data Cybersecurity Tools and Techniques (ICBBC2T)",
+  "title_original": null,
+  "start": "2027-02-22T00:00:00+01:00",
+  "end": "2027-02-23T23:59:00+01:00",
+  "place": "Grand Hotel Oslo, Karl Johans gt. 31, 0159 Oslo, Norway",
+  "city": "Oslo",
+  "country": "NO",
+  "online": false,
+  "organiser": "SCIENCENET",
+  "url": "https://internationalconferencealerts.com/event-icbbc2t-oslo-no-202702-101662315",
+  "source": "International Conference Alerts – blockchain, Norway",
+  "paid": null,
+  "sponsored": null,
+  "note": null,
+  "note_i18n": {},
+  "past": false,
+  "html_url": "https://nordiccrypto.no/calendar/#e-579c5a12cd20",
+  "api_url": "https://nordiccrypto.no/api/v1/events/579c5a12cd20.json"
+ }
+}

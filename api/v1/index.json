@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-06T17:55:37+00:00",
+ "generated_at": "2026-10-06T18:09:15+00:00",
  "preview": false,
  "title": "Nordic Crypto data API",
  "sign_off": "The Nordic Crypto team",
@@ -40,8 +40,8 @@
    "EU": 0
   },
   "newsletters": 1,
-  "events": 12,
-  "events_upcoming": 11,
+  "events": 95,
+  "events_upcoming": 94,
   "events_past": 1,
   "sources": 116,
   "academia": {
@@ -228,8 +228,8 @@
    "url_custom_domain": "https://nordiccrypto.no/api/v1/academia/{id}.json",
    "summary": "One academia row. The id is in academia.json.",
    "schema": "AcademiaItem",
-   "example_url": "https://nordiccrypto.no/api/v1/academia/NO-BAN435.json",
-   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/academia/NO-BAN435.json"
+   "example_url": "https://nordiccrypto.no/api/v1/academia/research-www.ru.is-en-research-center-ru-fintech.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/academia/research-www.ru.is-en-research-center-ru-fintech.json"
   },
   {
    "id": "api-v1-orgchart",

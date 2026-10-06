@@ -1,0 +1,27 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-06T18:09:15+00:00",
+ "preview": false,
+ "item": {
+  "id": "4d7f1ab2a56e",
+  "title": "International Conference on Blockchain-Driven Cybersecurity Strategies for Big Data (ICBDCSBD)",
+  "title_original": null,
+  "start": "2027-06-30T00:00:00+02:00",
+  "end": "2027-07-01T23:59:00+02:00",
+  "place": "Absalon Hotel, Helgolandsgade 15, 1653 København V, Denmark",
+  "city": "Copenhagen",
+  "country": "DK",
+  "online": false,
+  "organiser": "IARF",
+  "url": "https://internationalconferencealerts.com/event-icbdcsbd-copenhagen-dk-202706-101978014",
+  "source": "International Conference Alerts – blockchain, Denmark",
+  "paid": null,
+  "sponsored": null,
+  "note": null,
+  "note_i18n": {},
+  "past": false,
+  "html_url": "https://nordiccrypto.no/calendar/#e-4d7f1ab2a56e",
+  "api_url": "https://nordiccrypto.no/api/v1/events/4d7f1ab2a56e.json"
+ }
+}

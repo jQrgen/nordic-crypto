@@ -1,0 +1,27 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-06T18:09:15+00:00",
+ "preview": false,
+ "item": {
+  "id": "bb519b9dfd20",
+  "title": "International Conference on Blockchain and Big Data Forensics in Cybersecurity (ICBBD-FC)",
+  "title_original": null,
+  "start": "2027-01-06T00:00:00+01:00",
+  "end": "2027-01-07T23:59:00+01:00",
+  "place": "Grand Hotel Oslo, Karl Johans gt. 31, 0159 Oslo, Norway",
+  "city": "Oslo",
+  "country": "NO",
+  "online": false,
+  "organiser": "ISAR",
+  "url": "https://internationalconferencealerts.com/event-icbbd-fc-oslo-no-202701-101661979",
+  "source": "International Conference Alerts – blockchain, Norway",
+  "paid": null,
+  "sponsored": null,
+  "note": null,
+  "note_i18n": {},
+  "past": false,
+  "html_url": "https://nordiccrypto.no/calendar/#e-bb519b9dfd20",
+  "api_url": "https://nordiccrypto.no/api/v1/events/bb519b9dfd20.json"
+ }
+}
