@@ -1316,15 +1316,15 @@ def build_stories(write=True):
     return out
 
 def events_for_site():
-    ev = load(P("data", "events.json"), {"events": []}); ap = (load(P("queue", "approved.json"), {}) or {}).get("events", {})
+    ev = load(P("data", "events.json"), {"events": []})
+    ap_path = P("queue", "approved.json"); approvals_present = os.path.exists(ap_path)
+    ap = (load(ap_path, {}) or {}).get("events", {}) or {}
     now = dt.datetime.now(OSLO); out = []  # "finished" is judged in Oslo time
     for e in ev["events"]:
         e = dict(e)
-        if event_block.blocked_event(e): continue  # predatory conference listing
-        if e["id"] in ap.get("reject", []): continue
-        if e["id"] in ap.get("approve", []): e["status"] = "published"
-        elif e["id"] in ap.get("ready_for_owner", []): e["status"] = "owner"  # editor-approved, waits for jQrgen; preview only
-        if e["status"] != "published" and not (PREVIEW and e["status"] in ("pending", "owner")): continue
+        status = event_block.publication_status(e, ap, PREVIEW, approvals_present, from_archive=False)
+        if not status: continue
+        e["status"] = status
         if not (e.get("place") or e.get("online")) or not e.get("organiser") or not e.get("start"): continue  # rule: date, place and organiser
         e["note"] = ap.get("notes", {}).get(e["id"]) or (e.get("note") if PREVIEW else None)
         if e["id"] in (ap.get("title_en") or {}): e["title_orig"] = e["title"]; e["title"] = ap["title_en"][e["id"]]
@@ -1336,8 +1336,8 @@ def events_for_site():
         site_url.brand_note(e)  # approved.json is local and may still reverse the brand name
         e["past"] = dt.datetime.fromisoformat(e.get("end") or e["start"]) < now
         out.append({k: e.get(k) for k in ("id", "title", "title_orig", "start", "end", "place", "city", "country", "online", "organiser", "url", "source", "paid", "sponsored", "note", "note_i18n", "past", "status")})
-    # Archive (committed to git): every editor-approved event. Finished events stay under "Past events".
-    # Pending/preview events are not archived. Predatory conference listings are removed and are not shown.
+    # Archive: events whose ids are in events.approve. A status of "published" on the row is not
+    # approval. Finished events stay under "Past events". Predatory listings are removed and not shown.
     arkf = P("archive", "events.json"); ark = load(arkf, {"events": []}); by = {}
     for raw in ark.get("events") or []:
         if event_block.blocked_event(raw): continue
@@ -1345,14 +1345,18 @@ def events_for_site():
     for e in out:
         if e["status"] == "published" and not event_block.blocked_event(e):
             by[e["id"]] = {k: v for k, v in e.items() if k != "past"}
-    ark["_how_to"] = "Add-only archive of every editor-approved event (written by build.py). Finished events stay under 'Past events'. Predatory conference listings are removed and are not shown."
+    ark["_how_to"] = "Archive of editor-approved events (written by build.py). An event is published only when its id is in queue/approved.json events.approve. Finished events stay under 'Past events'. Predatory conference listings are removed and are not shown."
     ark["events"] = sorted(by.values(), key=lambda e: dt.datetime.fromisoformat(e["start"]))
     os.makedirs(os.path.dirname(arkf), exist_ok=True)
     json.dump(ark, open(arkf, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     seen = {e["id"] for e in out}
-    for e in ark["events"]:  # archived events that have dropped out of data/events.json (e.g. finished ones)
-        if e["id"] in seen or e["id"] in ap.get("reject", []) or event_block.blocked_event(e): continue  # rejected: hidden, but kept in the archive
-        e = dict(e); e["note_i18n"] = e.get("note_i18n") or ((ap.get("notes_i18n") or {}).get(e["id"]) if e.get("note") else None)
+    for raw in ark["events"]:  # archived events that have dropped out of data/events.json (e.g. finished ones)
+        if raw["id"] in seen: continue
+        e = dict(raw)
+        status = event_block.publication_status(e, ap, PREVIEW, approvals_present, from_archive=True)
+        if not status: continue  # not on the approve list, rejected, or a predatory listing
+        e["status"] = status
+        e["note_i18n"] = e.get("note_i18n") or ((ap.get("notes_i18n") or {}).get(e["id"]) if e.get("note") else None)
         site_url.brand_note(e)
         e["past"] = dt.datetime.fromisoformat(e.get("end") or e["start"]) < now; out.append(e)
     return sorted(out, key=lambda e: dt.datetime.fromisoformat(e["start"])), now

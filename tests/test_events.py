@@ -131,6 +131,12 @@ def blocklist(parsed):
         {"organiser": "Institute for Scientific and Engineering Research"},
         {"organiser": "Academics World"},
         {"organiser": "World Academics"},
+        {"organiser": "KSAA"},
+        {"organiser": "ISSER"},
+        {"organiser": "GASR"},
+        {"organiser": "Research Plus"},
+        {"organiser": "Scholars Forum"},
+        {"organiser": "IIRD"},
         {"source": "International Conference Alerts – blockchain, Norway"},
         {"source": "Conference Alerts"},
         {"source": "All Conference Alert"},
@@ -171,6 +177,63 @@ def blocklist(parsed):
     catalogue = json.load(open(os.path.join(ROOT, "sources.json"), encoding="utf-8"))
     bad_src = [s.get("id") for s in catalogue.get("event_sources") or [] if event_block.blocked_source(s)]
     check(bad_src == [], "event_sources has no predatory listings" + (": " + ", ".join(bad_src) if bad_src else ""))
+    ids = {s.get("id") for s in catalogue.get("event_sources") or []}
+    for sid in (
+        "ica-blockchain-norway", "ica-blockchain-sweden", "ica-blockchain-denmark",
+        "ica-blockchain-finland", "ica-blockchain-iceland",
+    ):
+        check(sid not in ids, sid + " is not an event source")
+    fetch_src = open(os.path.join(ROOT, "fetch.py"), encoding="utf-8").read()
+    check("event_block.blocked_source" in fetch_src, "fetch.py consults the blocklist")
+    approval_bypass()
+    meetup_note()
+
+
+def approval_bypass():
+    """A stored status of published does not publish. Only events.approve does."""
+    row = {
+        "id": "not-approved",
+        "title": "International Conference on Example Blockchain",
+        "status": "published",
+        "url": "https://www.meetup.com/example/events/1/",
+        "organiser": "Swedish Bitcoin Meetups",
+        "source": "Archive import",
+        "place": "Oslo",
+        "start": "2026-11-21T18:00:00+01:00",
+    }
+    approvals = {"approve": ["kept-meetup"], "reject": []}
+    check(event_block.publication_status(row, approvals, False, True, from_archive=True) is None,
+          "archive row marked published is not published")
+    check(event_block.publication_status(row, approvals, False, True, from_archive=False) is None,
+          "data row marked published is not published")
+    check(event_block.publication_status(dict(row, id="kept-meetup"), approvals, False, True) == "published",
+          "id on events.approve is published")
+    predatory = dict(row, id="kept-meetup", organiser="Scholars Forum",
+                     url="https://internationalconferencealerts.com/event-example")
+    check(event_block.publication_status(predatory, approvals, False, True) is None,
+          "approve list does not publish a predatory listing")
+    check(event_block.publication_status(dict(row, id="archive-only"), {}, False, False, from_archive=True) == "published",
+          "committed archive stays public when the approval file is absent")
+    check(event_block.publication_status(dict(row, id="data-pub"), {}, False, False, from_archive=False) is None,
+          "a stored published status in data is not approval")
+    for rel in ("build.py", os.path.join("tools", "api_feed.py")):
+        src = open(os.path.join(ROOT, rel), encoding="utf-8").read()
+        check("publication_status" in src, rel + " publishes only approved events")
+    kept = json.load(open(os.path.join(ROOT, "data", "events.json"), encoding="utf-8"))["events"]
+    check(len(kept) == 12, f"twelve stored events kept, got {len(kept)}")
+    orgs = {e.get("organiser") for e in kept}
+    for name in ("Swedish Bitcoin Meetups", "Polyteknisk Forening", "Oslo Blockchain Meetup", "Helsinki Bitcoin Hobbyists"):
+        check(name in orgs, "kept " + name)
+
+
+def meetup_note():
+    """Oslo Blockchain Meetup disclosure uses the public name."""
+    rows = json.load(open(os.path.join(ROOT, "archive", "events.json"), encoding="utf-8"))["events"]
+    ev = next(e for e in rows if e["id"] == "a1ea7afabcb0")
+    reversed_name = "Crypto" + " Nordic"
+    check("Nordic Crypto" in (ev.get("note") or "") and reversed_name not in (ev.get("note") or ""), "meetup note")
+    for lang, text in (ev.get("note_i18n") or {}).items():
+        check(reversed_name not in (text or ""), "meetup note " + lang)
 
 
 if __name__ == "__main__":

@@ -49,6 +49,11 @@ _NAME = re.compile(
     r"|institute for scientific and engineering research"
     r"|\bISER\b"
     r"|international society for engineers and researchers"
+    r"|\bKSAA\b"
+    r"|\bGASR\b"
+    r"|\bIIRD\b"
+    r"|research\s+plus"
+    r"|scholars\s+forum"
     r"|academics\s+world"
     r"|world\s+academics"
     r"|international conference alerts"
@@ -109,3 +114,34 @@ def blocked_source(src):
         "source": src.get("name"),
         "organiser": src.get("organiser"),
     })
+
+
+def _ids(approvals, key):
+    return set((approvals or {}).get(key) or [])
+
+
+def publication_status(event, approvals, preview, approvals_present, from_archive=False):
+    """Status to show, or None to leave the event off the public calendar.
+
+    Only an id in queue/approved.json events.approve is published. A stored
+    status of "published" is not approval: that is how the International
+    Conference Alerts rows were written into the archive and then shown.
+    When the approval file is absent, the committed archive stays the public
+    record and rows in data/events.json are not promoted. A predatory listing
+    is omitted even if its id is on the approve list.
+    """
+    if not event or blocked_event(event):
+        return None
+    approvals = approvals or {}
+    eid = event.get("id")
+    if eid in _ids(approvals, "reject"):
+        return None
+    if eid in _ids(approvals, "approve"):
+        return "published"
+    if eid in _ids(approvals, "ready_for_owner"):
+        return "owner" if preview else None
+    if preview and not from_archive and event.get("status") in ("pending", "owner"):
+        return event.get("status")
+    if from_archive and not approvals_present and event.get("status") == "published":
+        return "published"
+    return None

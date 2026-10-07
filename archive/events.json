@@ -250,5 +250,5 @@
    "status": "published"
   }
  ],
- "_how_to": "Add-only archive of every editor-approved event (written by build.py). Finished events stay under 'Past events'. Predatory conference listings are removed and are not shown."
+ "_how_to": "Archive of editor-approved events (written by build.py). An event is published only when its id is in queue/approved.json events.approve. Finished events stay under 'Past events'. Predatory conference listings are removed and are not shown."
 }
