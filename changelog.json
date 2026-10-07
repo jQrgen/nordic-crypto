@@ -3,6 +3,13 @@
  "launch_date": "2026-10-03",
  "entries": [
   {
+   "id": "event-nft-prototype",
+   "date": null,
+   "review": "pending",
+   "title": "Event NFT prototype, not live",
+   "description": "A prototype, switched off in the public build, for a generated event NFT on Nexa and Bitcoin Cash. Upcoming events can mint a pre-event card. The minting treasury has its own page, with placeholder addresses for both chains. Nothing is minted."
+  },
+  {
    "id": "domain-nordiccrypto-no",
    "date": "2026-10-06",
    "title": "New address: nordiccrypto.no",

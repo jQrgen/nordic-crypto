@@ -1,0 +1,21 @@
+{
+  "_note": "Prototype fixture for the event-NFT minting treasury. These are not live balances and not real keys. Do not send funds to the placeholder addresses. A live build replaces this file with a public-node lookup. The treasury key is never stored here.",
+  "nexa": {
+    "address": "placeholder:nexa:nordic-crypto-minting-treasury",
+    "balance_nex": 25000,
+    "floor_nex": 5000,
+    "low_nex": 8000,
+    "mints_paid": 12,
+    "network_nex": 20,
+    "airdrop_nex": 1000
+  },
+  "bch": {
+    "address": "placeholder:bch:nordic-crypto-minting-treasury",
+    "balance_sats": 5000000,
+    "floor_sats": 200000,
+    "low_sats": 500000,
+    "mints_paid": 4,
+    "network_sats": 1500,
+    "airdrop_sats": 10000
+  }
+}

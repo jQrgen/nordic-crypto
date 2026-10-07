@@ -1,0 +1,239 @@
+# Event NFTs
+
+A generated card for a public event, minted once per identity, paid for by a treasury anyone can fund. The person minting pays nothing. This document is the design. The website prototype behind it does not mint, does not hold a key, and is off in the public build.
+
+Two chains, two moments:
+
+| | Before the event starts | While the event is running |
+| --- | --- | --- |
+| Nexa | Pre-event card, "I'm going". Received in Wally Wallet. | Ongoing card, "I was there". Received in Wally Wallet. |
+| Bitcoin Cash | Pre-event card, "I'm going". CashTokens NFT. | Ongoing card, "I was there". CashTokens NFT. |
+
+That is four cards per event. Each chain has its own treasury. The rule is one card per identity, per chain, per kind. A person may hold the pre-event card and, later, the ongoing card. They may not hold two of the same kind on the same chain.
+
+## What's on the NFT and visible in Wally
+
+Wally Wallet reads a Nexa NFT v2 zip. The fields it shows on the token screen are `title`, `series`, `author`, the host of the signed document URL as the provider, `info` (rendered as HTML), and `license`. `keywords`, `appuri` and `data` travel in the same `info.json`. The zip also carries `cardf` (front, square, at most 300 px and 2 MB in the live format; the prototype preview is 640 px), `cardb` (back) and `public` (the image used in public listings). The subgroup id of a Nexa NFT is the double SHA-256 of that zip, so two identical zips are the same token definition.
+
+The card carries general event facts only:
+
+- event title, as the organiser published it
+- start and end
+- venue, city and country
+- organiser
+- event URL
+- data-source name, source URL, and the time the record was retrieved
+- the number of registered participants, only when that source states a number, with the count's own source and retrieval time
+
+It never carries an attendee name, handle, email, photo of a person, NexaID, or Bitcoin Cash address. The minter's own identity is used only for the one-per-identity check and is not written into the public metadata.
+
+The same sentences are what a CashTokens wallet shows, via the BCMR `description` and the NFT type. Wally is not the BCH wallet. See below.
+
+### Example: Crypto killer apps (ongoing, Nexa)
+
+This is a real row in `data/events.json` (`89ced460e4ca`). The source record does not state a registered count, so the field is null. A count is never invented.
+
+```json
+{
+  "niftyVer": "2.0",
+  "title": "Crypto killer apps",
+  "series": "Nordic Crypto · I was there",
+  "author": "Nordic Crypto",
+  "keywords": "event, Oslo, Norway, 2026, I was there",
+  "info": "<p>Crypto killer apps. I was there. 2026-10-14T17:30:00+02:00 – 2026-10-14T18:30:00+02:00. Rosenkrantz' gate 7, 0159 Oslo (inngang fra Kristian IVs gate), Oslo, Norway. Organiser: Polyteknisk Forening. Event page: https://www.polyteknisk.no/program/crypto-killer-apps. Data source: Polyteknisk Forening (program) (https://www.polyteknisk.no/program/crypto-killer-apps), retrieved 2026-10-03T15:23:20+00:00. Registered participants: not stated in the source record.</p>",
+  "license": "CC BY 4.0",
+  "appuri": "https://nordiccrypto.no/events/89ced460e4ca/",
+  "data": {
+    "event_id": "89ced460e4ca",
+    "kind": "ongoing",
+    "kind_label": "I was there",
+    "title": "Crypto killer apps",
+    "start": "2026-10-14T17:30:00+02:00",
+    "end": "2026-10-14T18:30:00+02:00",
+    "venue": "Rosenkrantz' gate 7, 0159 Oslo (inngang fra Kristian IVs gate)",
+    "city": "Oslo",
+    "country": "Norway",
+    "organiser": "Polyteknisk Forening",
+    "event_url": "https://www.polyteknisk.no/program/crypto-killer-apps",
+    "source": {
+      "name": "Polyteknisk Forening (program)",
+      "url": "https://www.polyteknisk.no/program/crypto-killer-apps",
+      "retrieved_at": "2026-10-03T15:23:20+00:00"
+    },
+    "registered": {
+      "count": null,
+      "source_name": null,
+      "source_url": null,
+      "retrieved_at": null,
+      "note": "The source record does not state a number of registered participants."
+    }
+  }
+}
+```
+
+When a source does state a count, `registered.count` is that integer and `source_name`, `source_url` and `retrieved_at` name where it came from. Capacity, "spots left" and estimates are not a count and are not used. That rule already exists in `tools/event_select.py`.
+
+The pre-event card for the same event uses `series` "Nordic Crypto · I'm going" and the sentence "I'm going." The Bitcoin Cash description is the same paragraph. Its on-chain commitment is the SHA-256 of those public facts, hex-encoded. That hash identifies the card, not a person.
+
+## Bitcoin Cash
+
+CashTokens (CHIP-2022-02, final) gives Bitcoin Cash a native non-fungible token: a 32-byte category, a commitment of 0 to 40 bytes, and a capability of `minting`, `mutable` or `none`. The category id is the genesis transaction. A minting-capability output can be spent to create further NFTs in that category. The child we give the minter is `none` (immutable). The minting output returns to the treasury.
+
+Metadata does not fit in 40 bytes. CHIP-2022-10 BCMR is the JSON registry wallets read for name, description, symbol and icon. Sequential NFTs map a commitment to a type in that registry. This design uses one type per event per kind. The commitment is the content hash above, so a wallet that understands BCMR shows the same facts as Wally's `info`.
+
+Wallets that receive and display CashTokens, and that can attach a BCMR when a token is created:
+
+- Paytaca, including its public BCMR indexer
+- Cashonize, which creates tokens and reads BCMR, including parsable NFTs
+- Electron Cash, which imports BCMR metadata
+
+Wally Wallet does not. In the current Wally source, `supportedBlockchains` in `NewAccountScreen.kt` offers Nexa, testnet Nexa and regtest Nexa. The Bitcoin Cash lines are commented out, so a new Wally account cannot be a BCH wallet. The BCH card is received in Paytaca, Cashonize or Electron Cash. It is not sent to Wally.
+
+There is no TDPP equivalent to lean on for BCH. The mint transaction is built and broadcast by the treasury, not by the minter's wallet. The wallet only proves it controls the receive address.
+
+## Artwork
+
+The picture is generated from the event id, the kind (`pre` or `ongoing`) and the chain. The same inputs always produce the same PNG. The front says "I'M GOING" or "I WAS THERE", the chain, the title, the time, the city and country, and the organiser. A strip of bars is taken from the SHA-256 of those inputs so two events do not look identical. The back repeats the facts and is labelled as the back.
+
+No photograph is composited. This repository has no rights-cleared event photography, and a photo of people is out of bounds even when a licence exists. If a later event has an image we have a licence to use, it may sit on the card only with the credit and the licence stored beside it. A missing licence means the image is not used. The generated geometry needs no external licence. The card text is credited to the event source inside `info`.
+
+The `license` field on the token is CC BY 4.0 for the generated card. The event name and the facts stay attributed to the organiser and the listed source. Whether that licence is the one the owner wants is an open question.
+
+Every copy of one card is the same zip, so on Nexa they share one subgroup and on Bitcoin Cash they share one commitment. The marketplace sees one card, not a portrait of the holder. A public edition number ("copy 12") would make each zip unique and would reveal mint order. It would still not name the holder. The prototype uses identical copies. Numbered editions are an open question.
+
+Files for a live mint are hosted at `https://nordiccrypto.no/assets/nft/`, which is this site. The token's `appuri` and the BCMR web URI point at the event page. The prototype writes those images only when the feature flag is on.
+
+## Mint flow
+
+The minter pays nothing. The treasury signs and broadcasts. The wallet's job is to prove an identity and name the address that should receive the card and the fee float.
+
+Nexa:
+
+1. The button is shown on the ongoing hero while the event is running, and the pre-event button is shown on the upcoming card and the event page before the start. After the end, neither button is offered. The server checks the same window. The page clock is not the authority.
+2. Wally answers a NexaID login (`nexid://` challenge, wallet returns an address and a signature). That proves control of the address. It is not written onto the NFT.
+3. The worker refuses the mint if `SHA-256(chain | identity | event id | kind)` is already stored.
+4. The worker builds one transaction: treasury inputs pay the network fee; a new NFT output of this card's subgroup goes to the NexaID address; about 1000 NEXA goes to that same address; the mint authority and the change stay with the treasury.
+5. The worker broadcasts. The minter does not sign a payment. TDPP is the wrong tool here, because TDPP is how a wallet approves a transaction it pays for. A "watch for the card in Wally" state is enough.
+
+Bitcoin Cash:
+
+1. The same windows: pre-event before the start, ongoing while it runs.
+2. The wallet signs a challenge for a Bitcoin Cash address (a signed message, or CashID where the wallet still speaks it). Paytaca, Cashonize and Electron Cash can hold the resulting NFT. Wally cannot, as shipped today.
+3. The same one-per-identity check, with the BCH address as the identity.
+4. The worker spends the minting-capability NFT, sends an immutable NFT with this card's commitment to the address, returns the minting NFT to the treasury, and adds the sat float in the same transaction.
+
+The prototype does none of this. The button opens a preview, a QR code and a link to this site. The label says nothing is minted and no wallet is opened.
+
+## One per identity
+
+Store only `SHA-256(chain | identity | event id | kind)` in Cloudflare D1, with the time of the first mint. A unique constraint on the hash closes the race. Do not store the raw NexaID, the raw address, or an IP address on that row. The worker may rate-limit by IP on the login request itself, in memory, and then forget it.
+
+NexaID is the Nexa identity. It is the address Wally returns from the login, not a second account.
+
+Bitcoin Cash has no NexaID. The proposed rule is one card per address that signed the challenge, per event, per kind. Trade-offs, which the owner should pick among:
+
+- A signed address needs no account and works in the wallets above. It is not a person. Someone with two wallets can mint twice. Someone who loses the wallet cannot mint again from a new address. That is the recommended v1, because it matches "one card per receiving identity" without collecting anything else.
+- CashID is a documented login, but support across Paytaca, Cashonize and Electron Cash is uneven. It is not the default.
+- Linking a NexaID to a BCH address would give one identity across chains and would put a cross-chain identifier in the worker. That is more surveillance than this feature needs. Not recommended.
+- Doing nothing on BCH, and only deduplicating Nexa, leaves the BCH airdrop open to a fresh address every time. Not acceptable once the sat float is real.
+
+The check is per chain and per kind. The pre-event card does not consume the ongoing card, and Nexa does not consume Bitcoin Cash.
+
+## Minting treasury
+
+Two addresses, one page at `/treasury/` (and `/faucet/` redirects there). The mint card links to that page. It does not embed the address, the QR or the balance.
+
+Anyone can send NEXA to the Nexa address or BCH to the Bitcoin Cash address. The worker spends those coins. The key is not in this repository, not in the static site, and not in the iOS or Android app.
+
+Who holds the key is an open decision. The options:
+
+- A Cloudflare Worker secret, one key per chain. Simplest. The operator can be robbed if the secret leaks, and can censor by refusing to sign. This is the practical v1 if the owner accepts a single online key.
+- A multisig, so more than one person must sign. Slower, and a mint can no longer be fully automatic unless the signers are online.
+- A covenant. Nexa scripts can inspect the transaction they are spent in, which is enough to require that a treasury output only moves into a known mint shape (the NFT to the visitor, the float, and change back). Bitcoin Cash can do the same with a CashScript covenant that may only emit this category. A covenant is the best long-term custody, and it needs a reviewed script before any coin sits in it. It is not part of the prototype.
+
+Until that choice is made, the published addresses are placeholders:
+
+- `placeholder:nexa:nordic-crypto-minting-treasury`
+- `placeholder:bch:nordic-crypto-minting-treasury`
+
+They are not valid payment addresses. The page says so. Do not send funds to them.
+
+### What one mint costs
+
+The float dominates. The network allowance is a configuration ceiling. The live worker replaces it with the fee of the transaction it actually builds, and refuses the mint if that fee is above the ceiling.
+
+| | Network allowance | Fee float to the minter | Drawn per mint | Where the numbers live |
+| --- | --- | --- | --- | --- |
+| Nexa | 20 NEXA | 1000 NEXA | 1020 NEXA | `data/event_nft_fixture.json` |
+| Bitcoin Cash | 1,500 sats | 10,000 sats | 11,500 sats | the same file |
+
+1000 NEXA is the owner's figure for later transfer fees. 10,000 sats is the proposed BCH equivalent: enough for several token moves, small enough that the one-per-address rule matters. Both are config. A plain BCH output's dust is 546 sats; a token output is larger, which is why the network allowance sits above that.
+
+The treasury page shows the balance, the number of mints paid, the network cost, the float, and the total drawn per mint.
+
+### When the treasury runs low
+
+`status` is `ok`, `low` or `empty`.
+
+- `empty` when the balance cannot cover one more mint, or when it is at or under the floor. The mint button becomes "Treasury empty, fund it" and links to `/treasury/`. No mint is attempted.
+- `low` when the balance is under the low-water mark and still above the floor. Minting still works. The card says the treasury is low and links to the page.
+- `ok` otherwise.
+
+The top-level `status` is the worse of the two chains. `needs_funding` is true for `low` and for `empty`.
+
+Sample figures in the fixture (not a live lookup): Nexa floor 5,000 NEXA, low-water 8,000 NEXA; Bitcoin Cash floor 200,000 sats, low-water 500,000 sats.
+
+### Abuse
+
+The float makes this a faucet. The limits:
+
+- one mint per identity per chain per kind per event (the D1 unique hash)
+- a daily cap per chain, config, proposed at 50 mints
+- a per-event cap, config, so one popular event cannot drain the treasury
+- the floor, so the last coins are not spent
+- an in-memory IP limit on the login endpoint
+- the server re-checks that the event is actually upcoming or ongoing
+
+A person who attends many events can still collect many floats. A monthly cap per identity is an open question.
+
+### Apps
+
+The iOS app (public TestFlight, including Apple TV) and the Android app are not in this repository. They should read `GET /api/v1/treasury.json`.
+
+Show a funding prompt only when `needs_funding` is true, that is when `status` is `low` or `empty`. When `status` is `ok`, show nothing. Use `nexa.needs_funding` and `bch.needs_funding` so the prompt can name the chain. The prompt links to `page` (`/treasury/`). The app does not embed a key and does not construct a mint transaction.
+
+The discovery document lists the endpoint when the flag is on. The human page at `/api/` lists it with the other GET routes.
+
+## Prototype
+
+Off by default. It turns on when `NC_EVENT_NFT=1` or when `queue/approved.json` has `features.event_nft` set. The public build does neither, so the live site does not grow a treasury page or a mint button until the owner asks.
+
+With the flag on, in every site language, left aligned:
+
+- The ongoing hero has "Mint event NFT in Wally" and "Mint event NFT on Bitcoin Cash".
+- An upcoming card, the calendar row, and `/events/<id>/` have the pre-event pair, "I'm going".
+- Opening a button shows the generated image, the fields Wally or a CashTokens wallet would show, the fee-float sentence, the one-per-identity sentence, and a QR code of a link on this site. Nothing is broadcast.
+- If that chain is `empty`, the button is the funding link instead.
+- `/treasury/` shows both placeholder addresses, both QR codes, the sample balance, the mint count and the cost. `/faucet/` redirects there. The nav and the footer link to it.
+- `/api/v1/treasury.json` is the document above, with `prototype: true`.
+
+Copy is in `i18n/event_nft_strings.py` for all 21 languages. The brand name stays Nordic Crypto.
+
+## Privacy and security
+
+The public token is the event, not the person. The worker's dedupe table is a hash. Logs for a mint should keep the event id, the chain, the kind and the success or refusal, not the address and not the IP.
+
+The treasury key, if it is a Worker secret, is a high-value target because of the float. A leak drains the treasury. That is the main reason to prefer a covenant or a multisig once the amounts are real. The static site cannot spend. The placeholder strings in git are not keys.
+
+Abuse of the float is limited by the rules above. The worker must not mint when the event is outside its window, even if a modified page still shows the button.
+
+## Open questions for the owner
+
+1. Treasury custody, per chain: a Worker secret, a multisig, or a reviewed covenant.
+2. Confirm the floats (1,000 NEXA and 10,000 sats) and the daily and per-event caps. Is there a monthly cap per identity?
+3. Bitcoin Cash identity: one card per signed address (recommended), or wait for something stronger.
+4. Identical cards for every minter (this design), or public edition numbers that do not name the holder.
+5. Is CC BY 4.0 the licence for the generated card?
+6. Confirm the floor and low-water amounts.
+7. The site has no per-event page today. The prototype adds `/events/<id>/` while the flag is on. Should that page stay when minting goes live?
+8. The apps need a small change to read `needs_funding`. The app source is not in this repo.

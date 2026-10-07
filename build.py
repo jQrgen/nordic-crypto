@@ -14,7 +14,7 @@ import i18n
 import site_url
 import event_block
 from tools.frontpage_blurbs import card_text, load as load_blurbs, opening_sentences, substantive
-from tools import event_backfill, event_select
+from tools import event_backfill, event_nft, event_select
 ROOT = os.path.dirname(os.path.abspath(__file__)); P = lambda *a: os.path.join(ROOT, *a)
 BASE = site_url.BASE
 SITE = os.environ.get("NC_SITE_DIR") or P("site")   # NC_SITE_DIR: scratch build dir (tipworker/publish_tip_page.sh)
@@ -44,6 +44,13 @@ def site_now():
 LANG = "en"   # language being built (set by build() for each pass)
 def t(key, **kw): return i18n.t(LANG, key, **kw)
 def lp(lang=None): lang = lang or LANG; return "" if lang == "en" else lang + "/"
+def site_root(slug):
+    """Relative path from this page back to site/, where assets/ and api/ live."""
+    depth = (slug.count("/") + 1 if slug else 0) + (0 if LANG == "en" else 1)
+    return "../" * depth or "./"
+def page_rel(slug):
+    """Relative path from this page to this language's home, matching page()."""
+    return site_root(slug) + lp()
 def up1(): return "../../" if LANG != "en" else "../"   # from a top-level page (e.g. calendar/) to the site root (data/, assets/)
 def endate(iso):
     return i18n.short_date(LANG, dt.datetime.fromisoformat(iso).astimezone(OSLO))
@@ -279,6 +286,7 @@ a.applink:hover,a.applink:focus-visible{background:var(--soft)}
 .mkq{font-size:16px;color:var(--muted);margin:12px 0 6px;font-weight:600;text-align:left}
 @media(min-width:1100px){.markets h1{font-size:40px}.mkcard .px{font-size:34px}.mkcard .ba{font-size:20px}.mkagg .px{font-size:26px}}
 """
+CSS += event_nft.CSS
 
 NAV = [("", "nav_news"), ("markets", "nav_markets"), ("calendar", "nav_calendar"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("sources", "nav_sources"), ("newsletter", "nav_newsletter"), ("about", "nav_about"), ("tip", "nav_tip")]
 COOKIE_PATH = site_url.PATH   # "/" on the public domain; a path prefix if BASE ever has one
@@ -541,7 +549,8 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
     rel = root + lp()                      # home of this language
     url = BASE + lp() + (slug + "/" if slug else "")
     s = snippets(url, f"{title} – {SITE_NAME}" if slug else f"{SITE_NAME} – {t('site_desc_suffix')}")
-    nav_html = "".join(f'<a href="{rel}{n + "/" if n else ""}"{" aria-current=page" if n == nav else ""}>{E(t(k))}</a>' for n, k in NAV)
+    nav_rows = list(NAV) + ([("treasury", "nav_treasury")] if event_nft.enabled() else [])
+    nav_html = "".join(f'<a href="{rel}{n + "/" if n else ""}"{" aria-current=page" if n == nav else ""}>{E(t(k))}</a>' for n, k in nav_rows)
     langs = langs or i18n.LANGS
     alt = "".join(f'<link rel="alternate" hreflang="{i18n.HTML_LANG[l]}" href="{BASE}{lp(l)}{slug + "/" if slug else ""}">' for l in langs) + \
         f'<link rel="alternate" hreflang="x-default" href="{BASE}{slug + "/" if slug else ""}">'
@@ -594,7 +603,7 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
 {body}
 {s['top']}
 </main>
-<footer><div class="wrap">{nlfoot}{community_links()}{t("footer", site=SITE_NAME, rel=rel, root=root, ios_tv=t("ios_tv"))}</div></footer>
+<footer><div class="wrap">{nlfoot}{community_links()}{t("footer", site=SITE_NAME, rel=rel, root=root, ios_tv=t("ios_tv"))}{f' · <a href="{rel}treasury/">{E(t("nav_treasury"))}</a>' if event_nft.enabled() else ''}</div></footer>
 {s['script']}{setck}{extra_script}{newsletter_script()}{analytics_snippet()}
 </body></html>"""
     d = os.path.join(SITE, lp(), slug); os.makedirs(d, exist_ok=True)
@@ -809,6 +818,8 @@ def build():
     ctx.update(ents=ents, rels=rels, pub_org=pub_org)
     ctx["events"] = events_for_site()
     _evs, _ev_now = ctx["events"]
+    if event_nft.enabled():
+        event_nft.prepare(SITE, BASE, _evs, _ev_now)
     _prev = previous_page_rows(_evs, _ev_now)
     json.dump({"preview": PREVIEW, "events": [e for e in _evs if not e["past"]], "previous": _prev}, open(os.path.join(SITE, "data", "events.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     sys.path.insert(0, P("tools"))
@@ -1136,6 +1147,7 @@ sel.addEventListener('change',function(){apply(1)});tc.concat(cc).forEach(functi
     build_calendar(ctx)
     _ev = ctx.get("events")
     build_previous(*(_ev if isinstance(_ev, tuple) else (_ev or [], site_now())))
+    build_event_nft(ctx)
     build_academia()
     build_changelog()
     build_tip()
@@ -1380,7 +1392,7 @@ def event_place_short(e):
     if place and city and city not in place: place = place + ", " + city
     if place: return place
     return t("online") if e.get("online") else ""
-def event_card(e, hidden=False):
+def event_card(e, hidden=False, root="./", rel="./"):
     """One event. Credited location and attendee lines sit in .evmeta (shown on the hero and the previous page)."""
     hid = " hidden" if hidden else ""
     place = event_place_short(e)
@@ -1413,15 +1425,21 @@ def event_card(e, hidden=False):
         videos = event_backfill.videos_fact(e)
         if videos:
             extra.append(f'<p class="evmeta"><b>{E(t("ev_videos"))}:</b> <a href="{E(videos["url"])}" rel="noopener">{E(t("ev_videos"))}</a></p>' + _source_line(videos["credit"]))
+    mint = ""
+    if event_nft.enabled() and e.get("id"):
+        phase_now = event_select.classify(e, site_now())
+        if phase_now in ("ongoing", "upcoming"):
+            mint = event_nft.mint_blocks(e, "ongoing" if phase_now == "ongoing" else "upcoming", root, rel, t, E)
     return (f'<article class="evcard" id="e-{E(e.get("id") or "")}"{hid} data-start="{E(e.get("start") or "")}" data-end="{E(e.get("end") or "")}" data-id="{E(e.get("id") or "")}">'
             f'<h3><a href="{E(e.get("url") or "")}" rel="noopener">{E(event_title(e))}</a></h3>'
             f'<p class="meta evplace">{flag(e.get("country"))} <time datetime="{E(e.get("start") or "")}"><b>{E(event_when(e))}</b></time>{place_bit}</p>'
-            + "".join(extra) + "</article>")
+            + "".join(extra) + mint + "</article>")
 def front_events_block(events, now):
     """Hero (only while something is ongoing) and the next events that have not started."""
     part = event_select.partition(events, now, event_select.FRONT_LIMIT)
-    hero_cards = "".join(event_card(e) for e in part["ongoing"])
-    cards = "".join(event_card(e) for e in part["upcoming"]) + "".join(event_card(e, hidden=True) for e in part["upcoming_rest"])
+    root, rel = site_root(""), page_rel("")
+    hero_cards = "".join(event_card(e, root=root, rel=rel) for e in part["ongoing"])
+    cards = "".join(event_card(e, root=root, rel=rel) for e in part["upcoming"]) + "".join(event_card(e, hidden=True, root=root, rel=rel) for e in part["upcoming_rest"])
     hidden = "" if part["ongoing"] else " hidden"
     empty = "" if cards else f'<p class="empty">{E(t("no_upcoming"))}</p>'
     return f'''<section class="evhero" id="evhero"{hidden} aria-labelledby="evhero-h">
@@ -1444,12 +1462,29 @@ function ms(el,k){var v=el.getAttribute(k);return v?new Date(v).getTime():NaN}
 cards.sort(function(a,b){var d=ms(a,'data-start')-ms(b,'data-start');if(d)return d;var ia=a.getAttribute('data-id')||'',ib=b.getAttribute('data-id')||'';return ia<ib?-1:ia>ib?1:0});
 var ongoing=[],upcoming=[],t=now.getTime();
 cards.forEach(function(el){var s=ms(el,'data-start'),e=ms(el,'data-end');if(s>t)upcoming.push(el);else if(!isNaN(e)&&s<=t&&t<=e)ongoing.push(el);else el.hidden=true});
-ongoing.forEach(function(el){el.hidden=false;hlist.appendChild(el)});
+function nft(el,mode){var n=el.querySelector('[data-nft="ongoing"]'),p=el.querySelector('[data-nft="pre"]');if(n)n.hidden=mode!=='ongoing';if(p)p.hidden=mode!=='pre'}
+ongoing.forEach(function(el){el.hidden=false;nft(el,'ongoing');hlist.appendChild(el)});
 hero.hidden=!ongoing.length;
 var keep=upcoming.slice(0,LIMIT),rest=upcoming.slice(LIMIT);
-keep.forEach(function(el){el.hidden=false;list.appendChild(el)});
-rest.forEach(function(el){el.hidden=true;list.appendChild(el)});
+keep.forEach(function(el){el.hidden=false;nft(el,'pre');list.appendChild(el)});
+rest.forEach(function(el){el.hidden=true;nft(el,'pre');list.appendChild(el)});
 var empty=list.querySelector('.empty');if(empty)empty.hidden=keep.length>0})();</script>""" % (fixed, limit)
+def build_event_nft(ctx):
+    """Treasury page, faucet redirect, and one page per current or upcoming event. Off unless the flag is on."""
+    if not event_nft.enabled():
+        return
+    evs, now = ctx["events"] if isinstance(ctx.get("events"), tuple) else (ctx.get("events") or [], site_now())
+    doc = event_nft.treasury_document(BASE + "treasury/")
+    page("treasury", t("tre_title"), "treasury", event_nft.treasury_body(doc, site_root("treasury"), t, E), t("tre_lead"))
+    event_nft.faucet_redirect(SITE, LANG)
+    for e in evs:
+        kind = event_select.classify(e, now)
+        if kind not in ("upcoming", "ongoing") or not e.get("id"):
+            continue
+        slug = "events/" + e["id"]
+        phase = "ongoing" if kind == "ongoing" else "upcoming"
+        body = event_nft.event_body(e, phase, site_root(slug), page_rel(slug), t, E, event_when(e), event_place_short(e))
+        page(slug, event_title(e), "calendar", body, t("nft_event_lead"), event_nft.clock_script(os.environ.get("NC_NOW") or None))
 def previous_page_rows(events, now):
     """Finished calendar events plus the backfill. Backfill is not part of `events`."""
     cal = [e for e in event_select.partition(events, now)["previous"] if e.get("status") == "published"]
@@ -1461,7 +1496,7 @@ def build_previous(events, now):
 <p class="lead">{E(t("prev_lead"))}</p>
 <p>{E(t("prev_extra"))}</p>
 <p class="meta"><a href="../calendar/">{E(t("prev_back"))}</a></p>
-<div class="evfull">{''.join(event_card(e) for e in rows) or f'<p class="empty">{E(t("prev_empty"))}</p>'}</div>"""
+<div class="evfull">{''.join(event_card(e, root=site_root("events/previous"), rel=page_rel("events/previous")) for e in rows) or f'<p class="empty">{E(t("prev_empty"))}</p>'}</div>"""
     page("events/previous", t("prev_title"), "calendar", body, t("prev_desc"))
 def events_for_site():
     ev = load(P("data", "events.json"), {"events": []})
@@ -1531,7 +1566,9 @@ def build_calendar(ctx):
         return (f'<li id="e-{E(e["id"])}" data-c="{E(e.get("country"))}"><h3><a href="{E(e["url"])}" rel="noopener" target="_blank">{E(ttl)}</a></h3>'
                 f'<div class="meta">{flag(e.get("country"))} <time datetime="{E(e["start"])}"><b>{E(when(e))}</b></time> · {E(e.get("place") or t("online"))}{(", " + E(e["city"])) if e.get("city") and e["city"] not in (e.get("place") or "") else ""} {badges(e)}</div>'
                 + (f'<p class="orig">{E(t("orig_title_ev"))}{E(e["title_orig"])}</p>' if e.get("title_orig") and LANG == "en" else "") + f'<div class="meta">{E(t("organiser"))}: {E(e["organiser"])} · {E(t("listed_at"))}: <a href="{E(e["url"])}" rel="noopener" target="_blank">{E(e["source"])}</a></div>'
-                + (f'<p class="sum"{lang_attr(nl)}><b>{E(t("note"))}:</b> {E(note)}</p>' if note else "") + '</li>')
+                + (f'<p class="sum"{lang_attr(nl)}><b>{E(t("note"))}:</b> {E(note)}</p>' if note else "")
+                + (f'<p class="meta"><a href="{page_rel("calendar")}events/{E(e["id"])}/">{E(t("nft_page"))}</a></p>' if event_nft.enabled() and not e.get("past") else "")
+                + '</li>')
     loc = lambda e: dt.datetime.fromisoformat(e["start"])
     months = sorted({(now.year, now.month)} | {(loc(e).year, loc(e).month) for e in up})[:6]
     grids = []
