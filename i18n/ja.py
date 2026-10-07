@@ -45,3 +45,42 @@ S = {
 }
 
 S.update({'nav_talks': '講演', 'talks_title': '講演 – 北欧の公開クリプト講演', 'talks_desc': '北欧諸国で行われたビットコイン、暗号資産、ブロックチェーンについての公開講演。動画と、投稿者が記した事実を載せています。', 'talks_h1': '講演', 'talks_lead': 'ビットコイン白書以降、ノルウェー、スウェーデン、デンマーク、フィンランド、アイスランド、フェロー諸島、グリーンランド、オーランドで行われた、ビットコイン、暗号資産、ブロックチェーンについての公開講演の録画です。新しい順です。プレーヤーは再生を押したあと、そのプラットフォームが埋め込みを許可している場合にだけ読み込まれます。', 'talks_n': '{n} 件の講演', 'talks_none': 'この条件に合う講演はありません。', 'talks_year': '年', 'talks_year_all': 'すべての年', 'talks_language': '言語', 'talks_lang_unknown': '言語の記載なし', 'talks_play': '再生', 'talks_watch': 'プラットフォームで見る', 'talks_speakers': '講演者', 'talks_event': 'イベント', 'talks_channel': 'チャンネル', 'talks_published': '動画の公開', 'talks_duration': '長さ', 'talks_held': '開催', 'talks_source': '出典', 'talks_calendar': 'カレンダーの項目', 'talks_embed_note': 'プレーヤーは、再生を押したあとでプラットフォームから読み込まれます。', 'talks_not_embed': 'このプラットフォームは埋め込み用プレーヤーを提供していません。リンク先が動画です。', 'past_talks': '公開講演の録画は<a href="{href}">講演アーカイブ</a>にあります。', 'c_FO': 'フェロー諸島', 'c_GL': 'グリーンランド', 'c_AX': 'オーランド'})
+
+# Shared shoutbox. One room; these strings are the UI only.
+S.update({
+"nav_chat": "チャット",
+"chat_title": "チャット",
+"chat_desc": "Nordic Crypto の共有シャウトボックス。読者の書き込みであり、編集記事ではありません。",
+"chat_h1": "チャット",
+"chat_lead": "Nordic Crypto のすべての言語で一つの部屋です。書き込みは書かれたままです。",
+"chat_shared": "全員が同じ書き込みを見ます。このページは翻訳しません。",
+"chat_user": "これらの書き込みは読者によるものです。Nordic Crypto の編集コンテンツではありません。",
+"chat_rules": "<a href=\"{ethics}\">ルール</a>：嫌がらせ、個人情報の晒し、金融アドバイスの勧誘、詐欺や紹介リンクは禁止です。モデレーターが削除することがあります。",
+"chat_nick": "ニックネーム",
+"chat_message": "メッセージ",
+"chat_send": "送信",
+"chat_report": "報告",
+"chat_reported": "報告しました。モデレーターが確認できます。",
+"chat_ph_nick": "名前",
+"chat_ph_msg": "メッセージを書く",
+"chat_privacy": "シャウトボックスはニックネーム、メッセージ、および毎日替わる IP アドレスのハッシュだけを保存します。乱用防止のためです。IP アドレスそのものは保存しません。ニックネームはこのブラウザのローカルストレージにのみ残り、cookie ではありません。Cloudflare Web Analytics は訪問を集計し、cookie は使わず、そのデータは販売しません。",
+"chat_full": "チャット全体を開く",
+"chat_toggle_show": "チャットを表示",
+"chat_toggle_hide": "チャットを隠す",
+"chat_empty": "まだメッセージはありません。",
+"chat_sending": "送信しています…",
+"chat_sent": "送信しました。",
+"chat_fail": "送信できませんでした。もう一度試してください。",
+"chat_rate": "短時間に送信が多すぎます。しばらく待ってください。",
+"chat_spam": "そのメッセージはブロックされました。",
+"chat_turnstile": "確認を終えてから、もう一度送信してください。",
+"chat_nick_err": "ニックネームは2〜24文字です。",
+"chat_msg_err": "メッセージは1〜280文字です。",
+"chat_banned": "今は書き込めません。",
+"chat_older": "古いメッセージ",
+"chat_time_now": "たった今",
+"chat_time_m": "{n}分前",
+"chat_time_h": "{n}時間前",
+"chat_time_d": "{n}日前",
+"chat_noscript": "チャットには JavaScript が必要です。",
+})

@@ -9,6 +9,10 @@ preview_urls = false
 [observability]
 enabled = false
 
+# Shoutbox secrets are not in this file and are not set by deploy.sh.
+#   wrangler secret put TURNSTILE_SECRET
+#   wrangler secret put SHOUT_ADMIN_TOKEN
+
 [[d1_databases]]
 binding = "DB"
 database_name = "nordic-crypto-tips"

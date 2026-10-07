@@ -327,3 +327,42 @@ S.update({
 })
 
 S.update({'nav_talks': 'Foredrag', 'talks_title': 'Foredrag – offentlige krypto-foredrag i Norden', 'talks_desc': 'Offentlige foredrag om bitcoin, kryptovaluta og blokkjede holdt i de nordiske landene, med videoen og fakta utgiveren har oppgitt.', 'talks_h1': 'Foredrag', 'talks_lead': 'Opptak av offentlige foredrag om bitcoin, kryptovaluta og blokkjede holdt i Norge, Sverige, Danmark, Finland, Island, Færøyene, Grønland og Åland siden bitcoin-hvitboken. Nyeste først. Avspilleren lastes bare etter at du trykker spill, og bare når plattformen tillater innbygging.', 'talks_n': '{n} foredrag', 'talks_none': 'Ingen foredrag passer disse filtrene.', 'talks_year': 'År', 'talks_year_all': 'Alle år', 'talks_language': 'Språk', 'talks_lang_unknown': 'Språk ikke oppgitt', 'talks_play': 'Spill av', 'talks_watch': 'Se på plattformen', 'talks_speakers': 'Innledere', 'talks_event': 'Arrangement', 'talks_channel': 'Kanal', 'talks_published': 'Video publisert', 'talks_duration': 'Lengde', 'talks_held': 'Holdt', 'talks_source': 'Kilde', 'talks_calendar': 'Kalenderoppføring', 'talks_embed_note': 'Avspilleren lastes fra plattformen først når du trykker spill.', 'talks_not_embed': 'Plattformen tilbød ikke en avspiller som kan bygges inn. Lenken går til videoen.', 'past_talks': 'Opptak av offentlige foredrag ligger i <a href="{href}">foredragsarkivet</a>.', 'c_FO': 'Færøyene', 'c_GL': 'Grønland', 'c_AX': 'Åland'})
+
+# Shared shoutbox. One room; these strings are the UI only.
+S.update({
+"nav_chat": "Chat",
+"chat_title": "Chat",
+"chat_desc": "Ett felles rop på Nordic Crypto. Meldinger fra lesere, ikke redaksjonelt innhold.",
+"chat_h1": "Chat",
+"chat_lead": "Ett rom for alle språk på Nordic Crypto. Meldingene blir stående slik de ble skrevet.",
+"chat_shared": "Alle ser de samme meldingene. Denne siden oversetter dem ikke.",
+"chat_user": "Disse meldingene er skrevet av lesere. De er ikke redaksjonelt innhold fra Nordic Crypto.",
+"chat_rules": "<a href=\"{ethics}\">Husregler</a>: ingen trakassering, ingen doxxing, ingen reklame for finansråd, og ingen svindel eller vervelenker. Moderatorer kan fjerne innlegg.",
+"chat_nick": "Kallenavn",
+"chat_message": "Melding",
+"chat_send": "Send",
+"chat_report": "Rapporter",
+"chat_reported": "Rapportert. Moderatorer kan se på det.",
+"chat_ph_nick": "Navn",
+"chat_ph_msg": "Skriv en melding",
+"chat_privacy": "Ropet lagrer kallenavnet, meldingen og en hash av IP-adressen som byttes hver dag, bare for å begrense misbruk. Selve IP-adressen lagres ikke. Kallenavnet blir bare liggende i lokal lagring i denne nettleseren, ikke i en informasjonskapsel. Cloudflare Web Analytics teller besøk samlet, uten informasjonskapsler, og vi selger ikke de dataene.",
+"chat_full": "Åpne hele chatten",
+"chat_toggle_show": "Vis chat",
+"chat_toggle_hide": "Skjul chat",
+"chat_empty": "Ingen meldinger ennå.",
+"chat_sending": "Sender …",
+"chat_sent": "Sendt.",
+"chat_fail": "Kunne ikke sende. Prøv igjen.",
+"chat_rate": "For mange meldinger på kort tid. Vent litt.",
+"chat_spam": "Meldingen ble stoppet.",
+"chat_turnstile": "Fullfør kontrollen, og send en gang til.",
+"chat_nick_err": "Kallenavnet må være 2–24 tegn.",
+"chat_msg_err": "Meldingen må være 1–280 tegn.",
+"chat_banned": "Du kan ikke skrive akkurat nå.",
+"chat_older": "Eldre meldinger",
+"chat_time_now": "nå nettopp",
+"chat_time_m": "{n} min siden",
+"chat_time_h": "{n} t siden",
+"chat_time_d": "{n} d siden",
+"chat_noscript": "Chatten trenger JavaScript.",
+})

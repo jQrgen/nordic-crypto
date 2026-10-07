@@ -327,3 +327,42 @@ S.update({
 })
 
 S.update({'nav_talks': 'Föredrag', 'talks_title': 'Föredrag – offentliga kryptoföredrag i Norden', 'talks_desc': 'Offentliga föredrag om bitcoin, kryptovaluta och blockkedja som hållits i de nordiska länderna, med videon och de fakta avsändaren har angett.', 'talks_h1': 'Föredrag', 'talks_lead': 'Inspelningar av offentliga föredrag om bitcoin, kryptovaluta och blockkedja som hållits i Norge, Sverige, Danmark, Finland, Island, Färöarna, Grönland och Åland sedan bitcoins vitbok. Nyast först. Spelaren laddas bara efter att du trycker på spela, och bara när plattformen tillåter inbäddning.', 'talks_n': '{n} föredrag', 'talks_none': 'Inga föredrag matchar de här filtren.', 'talks_year': 'År', 'talks_year_all': 'Alla år', 'talks_language': 'Språk', 'talks_lang_unknown': 'Språk inte angivet', 'talks_play': 'Spela', 'talks_watch': 'Titta på plattformen', 'talks_speakers': 'Talare', 'talks_event': 'Evenemang', 'talks_channel': 'Kanal', 'talks_published': 'Video publicerad', 'talks_duration': 'Längd', 'talks_held': 'Hållet', 'talks_source': 'Källa', 'talks_calendar': 'Kalenderpost', 'talks_embed_note': 'Spelaren laddas från plattformen först när du trycker på spela.', 'talks_not_embed': 'Plattformen erbjöd inte en spelare som kan bäddas in. Länken går till videon.', 'past_talks': 'Inspelningar av offentliga föredrag finns i <a href="{href}">föredragsarkivet</a>.', 'c_FO': 'Färöarna', 'c_GL': 'Grönland', 'c_AX': 'Åland'})
+
+# Shared shoutbox. One room; these strings are the UI only.
+S.update({
+"nav_chat": "Chatt",
+"chat_title": "Chatt",
+"chat_desc": "Ett gemensamt rop på Nordic Crypto. Läsarmeddelanden, inte redaktionellt innehåll.",
+"chat_h1": "Chatt",
+"chat_lead": "Ett rum för alla språk på Nordic Crypto. Meddelandena står kvar som de skrevs.",
+"chat_shared": "Alla ser samma meddelanden. Den här sidan översätter dem inte.",
+"chat_user": "De här meddelandena är skrivna av läsare. De är inte redaktionellt innehåll från Nordic Crypto.",
+"chat_rules": "<a href=\"{ethics}\">Husregler</a>: inga trakasserier, ingen doxxning, ingen reklam för finansiell rådgivning, och inga bedrägerier eller värvningslänkar. Moderatorer kan ta bort inlägg.",
+"chat_nick": "Smeknamn",
+"chat_message": "Meddelande",
+"chat_send": "Skicka",
+"chat_report": "Rapportera",
+"chat_reported": "Rapporterat. Moderatorer kan granska det.",
+"chat_ph_nick": "Namn",
+"chat_ph_msg": "Skriv ett meddelande",
+"chat_privacy": "Ropet sparar smeknamnet, meddelandet och en hash av IP-adressen som byts varje dag, bara för att begränsa missbruk. Själva IP-adressen sparas inte. Smeknamnet ligger bara i lokal lagring i den här webbläsaren, inte i en kaka. Cloudflare Web Analytics räknar besök samlat, utan kakor, och vi säljer inte de uppgifterna.",
+"chat_full": "Öppna hela chatten",
+"chat_toggle_show": "Visa chatt",
+"chat_toggle_hide": "Dölj chatt",
+"chat_empty": "Inga meddelanden ännu.",
+"chat_sending": "Skickar …",
+"chat_sent": "Skickat.",
+"chat_fail": "Kunde inte skicka. Försök igen.",
+"chat_rate": "För många meddelanden på kort tid. Vänta lite.",
+"chat_spam": "Meddelandet stoppades.",
+"chat_turnstile": "Slutför kontrollen och skicka igen.",
+"chat_nick_err": "Smeknamnet måste vara 2–24 tecken.",
+"chat_msg_err": "Meddelandet måste vara 1–280 tecken.",
+"chat_banned": "Du kan inte skriva just nu.",
+"chat_older": "Äldre meddelanden",
+"chat_time_now": "nyss",
+"chat_time_m": "{n} min sedan",
+"chat_time_h": "{n} tim sedan",
+"chat_time_d": "{n} d sedan",
+"chat_noscript": "Chatten behöver JavaScript.",
+})

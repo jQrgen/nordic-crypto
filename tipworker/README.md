@@ -37,6 +37,65 @@ Files: `src/worker.js`, `migrations/0001_tips.sql`, `migrations/0002_articles.sq
   mailer + token in the response; never set in production), `python3 tests/test_export.py`, and the real-browser form test
   `tests/browser_newsletter.py` (see its docstring). `npm test` runs all of them except the browser test.
 
+## Shoutbox (one shared room) – `src/shouts.js`, `migrations/0004_shouts.sql`
+
+One room for every language and every reader. `lang` on a post is only a tag for the page it was sent from. `GET /api/shouts` ignores `lang`, `room` and `channel` and returns the same visible rows to everyone. Messages are not translated.
+
+- `GET /api/shouts?limit=50&before=<id>&after=<id>` – up to 50 visible messages, oldest first inside that page. No nickname hash, no IP hash.
+- `POST /api/shouts` – JSON: `nickname` (2–24), `message` (1–280, plain text; tags stripped), optional `lang`, `cf-turnstile-response`, honeypot `website`. URLs are stored as text and the page does not turn them into links.
+- `POST /api/shouts/report` – `{id}`. The same daily hash can report a message once. After 3 distinct hashes the message is hidden for review.
+- `GET /api/shouts/admin` and `POST /api/shouts/admin` – `Authorization: Bearer <SHOUT_ADMIN_TOKEN>`. Actions: `hide`, `delete`, `restore`, `ban`, `unban`. Ban takes `id` (that row’s hash) or `hash` (64 hex). No CORS on these responses. A ban also hides that hash’s visible rows.
+- Rate limit: 5 posts / 10 min per hash, 100 posts / 10 min in total, 30 reports / 10 min per hash. `shout_hits` keeps only the hash.
+- Turnstile: posts are refused unless `SHOUT_TEST=1` (tests only; never set in production) or `TURNSTILE_SECRET` is set. The siteverify call does not send the IP. A missing secret is HTTP 503, not an open post.
+- Privacy: raw IPs are not stored. `ip_hash` is SHA-256 of the UTC day’s random salt and the IP. The salt is deleted when the day changes, so a ban lasts until the next UTC day and the old hash cannot be linked to an IP. No logging (`console` is not used; observability stays off).
+
+The public site stays dark until `chat/config.json` has `"enabled": true` and an `endpoint`. While it is false, the build omits the widget and the `/chat/` pages.
+
+### Deploy (do this by hand; this repo does not run it)
+
+1. In the Cloudflare dashboard, add a Turnstile widget (managed) for `nordiccrypto.no`, `www.nordiccrypto.no`, and the country domains `nordiccrypto.se`, `.fi`, `.dk`, `.is` (apex and www). Copy the **site key** (public) and the **secret key**.
+2. From `tipworker/`, set the two secrets. Wrangler prompts for the value. Do not commit them and do not pass them on the command line if your shell history is shared. `deploy.sh` does **not** set these.
+   ```
+   openssl rand -hex 32
+   npx wrangler secret put TURNSTILE_SECRET
+   npx wrangler secret put SHOUT_ADMIN_TOKEN
+   ```
+   `SHOUT_ADMIN_TOKEN` is the hex from `openssl`. Needs `CLOUDFLARE_API_TOKEN`.
+3. Apply the D1 migration (also done by `./deploy.sh`):
+   ```
+   npx wrangler d1 migrations apply nordic-crypto-tips --remote
+   ```
+   That applies `migrations/0004_shouts.sql` on the existing database `nordic-crypto-tips`.
+4. Deploy the worker, still without publishing the site:
+   ```
+   ./deploy.sh
+   ```
+   Check `https://nordic-crypto-tips.nordiccrypto.workers.dev/api/health`. Posts stay closed until step 2 has been done.
+5. Turn the static site on by editing `chat/config.json` (the site key is public; the secret stays in step 2):
+   ```json
+   {
+     "enabled": true,
+     "endpoint": "https://nordic-crypto-tips.nordiccrypto.workers.dev",
+     "turnstile_site_key": "<Turnstile site key>"
+   }
+   ```
+6. Publish the HTML only after jQrgen’s explicit approval: `./publish.sh --yes` from the repo root.
+
+Moderation after deploy:
+
+```
+curl -sS -H "Authorization: Bearer $SHOUT_ADMIN_TOKEN" \
+  https://nordic-crypto-tips.nordiccrypto.workers.dev/api/shouts/admin
+curl -sS -X POST -H "Authorization: Bearer $SHOUT_ADMIN_TOKEN" \
+  -H 'Content-Type: application/json' \
+  -d '{"action":"hide","id":123}' \
+  https://nordic-crypto-tips.nordiccrypto.workers.dev/api/shouts/admin
+```
+
+`action` is `hide`, `delete`, `restore`, `ban` or `unban`.
+
+Local preview against the mock (not the live worker): `python3 tipworker/shout_mock.py`, then `NC_CHAT=1 CHAT_ENDPOINT=http://127.0.0.1:8791 NC_SITE_DIR=/tmp/nc-chat .venv/bin/python build.py`.
+
 ## Deploy (needs `CLOUDFLARE_API_TOKEN`)
     tipworker/deploy.sh          # D1 create-if-missing, migrations --remote, wrangler deploy, health check, sets tipserver/config.json public_endpoint
     tipworker/publish_tip_page.sh        # dry run: scratch public build, privacy gate, diff of tip/index.html vs gh-pages

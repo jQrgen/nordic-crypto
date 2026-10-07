@@ -346,3 +346,42 @@ S.update({
 })
 
 S.update({'nav_talks': 'Talks', 'talks_title': 'Talks – public Nordic crypto talks', 'talks_desc': 'Public talks on bitcoin, cryptocurrencies and blockchain held in the Nordic countries, with the video and the facts the uploader stated.', 'talks_h1': 'Talks', 'talks_lead': 'Recordings of public talks on bitcoin, cryptocurrencies and blockchain held in Norway, Sweden, Denmark, Finland, Iceland, the Faroe Islands, Greenland and Åland since the Bitcoin white paper. Newest first. A player loads only after you press play, and only when that platform allows embedding.', 'talks_n': '{n} talks', 'talks_none': 'No talks match these filters.', 'talks_year': 'Year', 'talks_year_all': 'All years', 'talks_language': 'Language', 'talks_lang_unknown': 'Language not stated', 'talks_play': 'Play', 'talks_watch': 'Watch on the platform', 'talks_speakers': 'Speakers', 'talks_event': 'Event', 'talks_channel': 'Channel', 'talks_published': 'Video published', 'talks_duration': 'Length', 'talks_held': 'Held', 'talks_source': 'Source', 'talks_calendar': 'Calendar entry', 'talks_embed_note': 'The player loads from the platform only after you press play.', 'talks_not_embed': 'This platform did not offer an embeddable player. The link goes to the video.', 'past_talks': 'Recordings of public talks are in the <a href="{href}">talks archive</a>.', 'c_FO': 'Faroe Islands', 'c_GL': 'Greenland', 'c_AX': 'Åland'})
+
+# Shared shoutbox. One room; these strings are the UI only.
+S.update({
+"nav_chat": "Chat",
+"chat_title": "Chat",
+"chat_desc": "One shared shoutbox on Nordic Crypto. Reader messages, not editorial content.",
+"chat_h1": "Chat",
+"chat_lead": "One room for every language on Nordic Crypto. Messages stay as they were written.",
+"chat_shared": "Everyone sees the same messages. This page does not translate them.",
+"chat_user": "These messages are written by readers. They are not editorial content from Nordic Crypto.",
+"chat_rules": "<a href=\"{ethics}\">House rules</a>: no harassment, no doxxing, no financial-advice shilling, and no scams or referral links. Moderators may remove posts.",
+"chat_nick": "Nickname",
+"chat_message": "Message",
+"chat_send": "Send",
+"chat_report": "Report",
+"chat_reported": "Reported. Moderators can review it.",
+"chat_ph_nick": "Name",
+"chat_ph_msg": "Write a message",
+"chat_privacy": "The shoutbox stores the nickname, the message and a daily-rotated hash of the IP address, used only to limit abuse. The raw IP address is not stored. The nickname is kept in this browser’s local storage only, not in a cookie. Cloudflare Web Analytics counts visits in aggregate, without cookies, and we do not sell that data.",
+"chat_full": "Open the full chat",
+"chat_toggle_show": "Show chat",
+"chat_toggle_hide": "Hide chat",
+"chat_empty": "No messages yet.",
+"chat_sending": "Sending…",
+"chat_sent": "Sent.",
+"chat_fail": "Could not send. Try again.",
+"chat_rate": "Too many messages in a short time. Please wait.",
+"chat_spam": "That message was blocked.",
+"chat_turnstile": "Complete the check, then send again.",
+"chat_nick_err": "The nickname must be 2–24 characters.",
+"chat_msg_err": "The message must be 1–280 characters.",
+"chat_banned": "You cannot post right now.",
+"chat_older": "Older messages",
+"chat_time_now": "just now",
+"chat_time_m": "{n} min ago",
+"chat_time_h": "{n} h ago",
+"chat_time_d": "{n} d ago",
+"chat_noscript": "The chat needs JavaScript.",
+})
