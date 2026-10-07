@@ -2,7 +2,7 @@
 
 Bitcoin, blockchain and crypto news, events, a who's who (industry + regulators), regulation by country and academia for
 **Norway, Sweden, Denmark, Finland and Iceland**. Static site. Cloudflare Web Analytics counts aggregate visits (no cookies, data not sold) when a token is set in `analytics.json`. No advertising trackers.
-Languages: English at `/`, and one directory per other site language. The list, native names and the IP-country guess are under [Site languages](#site-languages). External headlines and quotes stay in the original language; our own summaries are written first in English, then translated for the Nordic site languages (AI-assisted, editor-approved).
+Languages: English at `/`, and one directory per other site language. The list, native names and the IP-country guess are under [Site languages](#site-languages). A story card shows the headline in the language of the page. When the source headline is in another language, that headline is shown underneath, smaller. Our own summaries and those headlines are written first in English, then for the Nordic site languages (AI-assisted, editor-approved). Quotes stay as the source wrote them.
 Public URL: https://nordiccrypto.no/ (`site_url.json`; all in-site links are relative). Run by jQrgen (Jørgen S. Notland), MIT licence.
 
 **Status:** live at https://nordiccrypto.no/ (gh-pages, CNAME). Code on `main`. Every publish needs jQrgen's explicit approval.
@@ -48,7 +48,7 @@ Site interface and page presentation. News outlets stay as listed in `sources.js
 After one automatic choice, `sessionStorage` `nc_auto` stops a second redirect in that tab. The full country map is in `tools/langselect.js` (`BY_COUNTRY`) and in `/api/v1/geo-language.json`.
 
 ## Data API
-Public JSON for apps and other tools, written into `site/` by `./build.sh` (`tools/api_feed.py`). No account. News, newsletters, events, sources, academia, the who's who, profiles, the rules map, the changelog and the article archive.
+Public JSON for apps and other tools, written into `site/` by `./build.sh` (`tools/api_feed.py`). No account. News, newsletters, events, talks, sources, academia, the who's who, profiles, the rules map, the changelog and the article archive.
 
 - Human docs: https://nordiccrypto.no/api/
 - Discovery: `/api/v1/index.json`
@@ -58,6 +58,23 @@ Public JSON for apps and other tools, written into `site/` by `./build.sh` (`too
 - `llms.txt` at the site root, and `/.well-known/api-catalog`
 
 News: `/api/v1/news.json` and `/api/v1/news/{id}.json`. Newsletters: `/api/v1/newsletters.json` and `/api/v1/newsletters/001.json`. GitHub Pages sends `Access-Control-Allow-Origin: *` on the files. `python3 tools/api_feed.py` writes the same JSON from the committed public data without building the rest of the HTML. That command also fetches live exchange prices (see below).
+
+### Talks
+Public recordings of talks on bitcoin, cryptocurrencies and blockchain held in Norway, Sweden, Denmark, Finland, Iceland, the Faroe Islands, Greenland and Åland, from the Bitcoin white paper (31 October 2008) onward. The page is `/talks/`, linked from the nav, the footer and the calendar's previous-events section. The data file is `data/talks.json`. The API is `/api/v1/talks.json`, `/api/v1/talks/{id}.json` and `/api/v1/talks/by-country/{country}.json` (`NO`, `SE`, `DK`, `FI`, `IS`, `FO`, `GL`, `AX`).
+
+`title`, speakers, dates, duration, channel and `embed` come from the platform at `source_url` (YouTube oEmbed, the watch page, and the length shown on YouTube's own search result when the watch-page player omits it). `description` is ours, a short note, not the platform text. A field the platform did not state is null. `embed` is true only when that platform's oEmbed response includes a player. The HTML page does not load the player until a click: YouTube via `youtube-nocookie.com`, Vimeo via `player.vimeo.com`. Thumbnails are not stored in the repo.
+
+`data/talks-backfill-state.json` records which years, countries, queries, channels, universities and events have been searched, and for each run how many candidates were checked and how many talks were added. A first results page is marked sampled, not exhausted, unless the query returned nothing relevant.
+
+### Source logos
+So apps can show the outlet's logo next to its stories. Fields (v1, added; nothing removed):
+
+- `/api/v1/sources.json`, each row in `sources`: `logo_url` (absolute URL on the GitHub Pages base of a raster image, PNG or WebP, never SVG, so SwiftUI `AsyncImage` can draw it; or `null`) and `logo` (`{kind: "logo", file_url, source_url, author, license, license_url, credit, raster_url}` or `null`). `file_url` is the original file (SVG or WebP); `raster_url` is the same as `logo_url`: the PNG rendering of an SVG (256 px on the long side, transparent background) or the WebP itself. The document also has `logo_note`.
+- `/api/v1/news.json`, `/api/v1/news/{id}.json` and the by-country / by-topic slices, each item: `source_logo` (same object as `logo`, see [Outlet logos on news](#outlet-logos-on-news)) and `source_logo_url` (same as `source_logo.raster_url`, or `null`). Own stories have `null`. Each outlet in `sources` / `also_covered_by` has `logo` with `raster_url` too.
+
+The logo is resolved by `tools/source_logos.py` (see [Outlet logos on news](#outlet-logos-on-news)): the `fetch_logos.py` key first, then the `source:<id>` entries from `fetch_source_logos.py`. `logo_url` is `null` unless that logo's `review` is `ok` in `assets/img/logos/logos.json` (a missing review counts as ok). A preview build (`./build.sh --preview`, `python3 tools/api_feed.py --preview`) also lists `pending` logos. `rejected` is never listed. Search feeds (`bing-*`) and podcasts on hosting platforms have no logo.
+
+Fetch: `python3 tools/fetch_source_logos.py [--force] [--dry-run] [id ...]`. It tries the Wikidata item whose official website is the outlet's host (logo P154 on Wikimedia Commons, licence and author recorded), then the outlet's own site (apple-touch-icon, a large icon, an `<img>` marked logo, `og:logo`), recorded with `source_url` and `license` "Publisher's own logo, used only to identify the source of a headline". robots.txt is respected on publisher sites, own user agent, ≥2 s per host. An SVG also gets a PNG next to it (`<id>.png`, `raster` in `logos.json`; rendered with `rsvg-convert`, or `cairosvg` when that is missing). `--raster-only` re-renders the PNGs without any network request. Files land in `assets/img/logos/sources/`, metadata in `assets/img/logos/logos.json` under `source:<id>` with `"review": "pending"`. The logos are the publishers' trademarks, shown only to identify the source of a headline.
 
 ### Market prices
 Public tickers from Nordic exchanges, as market data, not investment advice. Each row has `symbol`, `base`, `quote`, `last`, `bid` and `ask` when the exchange publishes them, plus `exchange` (`id`, `name`, `country`), `fetched_at` (ISO 8601) and `source_url`. Volume is included only when the exchange published it: `volume_base` is the base asset with no named window (Firi's `volume`), and `volume_base_24h` / `volume_quote_24h` are the last 24 hours in the base asset and in the quote currency (NBX). A missing volume is null, not zero. Quotes are NOK, SEK, DKK and EUR only. Nothing is converted between currencies. A failed exchange is an `error` with a timestamp and no price.
@@ -98,16 +115,23 @@ Nordic Crypto brand accounts, linked from the footer, About and the newsletter, 
 
 The iOS app reads them from `social` on `/api/v1/meta.json` (`social.telegram`, `social.x`). `name` is English. `name_i18n` has nn, nb, sv, da, fi and is. The source-code link on each page stays.
 
+### Browser notifications
+Opt-in Web Push. Until `workers/push/public.json` has a `public_endpoint`, every page says the notification service is not switched on yet and does not show a button. Once that URL is set, the button is at the bottom of every page (left-aligned, start-aligned in Arabic and Urdu). One publish sends one notification; several new stories are collapsed into that message. The reader can limit it to Norway, Sweden, Denmark, Finland and/or Iceland. The message uses the language of the page where they turned notifications on. Turning them off is the same button, and that deletes the subscription.
+
+The static site cannot store subscriptions. `workers/push/` is a Cloudflare Worker with KV. It stores only the push subscription (endpoint, two encryption keys), the language and the chosen countries. No name, no email, no IP address. Deploy steps and the three secrets (`VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`, `PUBLISH_TOKEN`) are in `workers/push/README.md`. Those values are not in the repo. `./publish.sh --yes` calls `tools/push_notify.py` only after gh-pages is pushed, with the stories that were not in the previous public `data/news.json`. If the Worker URL or `PUSH_PUBLISH_TOKEN` is unset, that step prints a line and does not fail the publish. It does not fetch or change story status.
+
+`GET /api/push/feed.json` on the Worker is the same batches, for a later iOS app. Apple Push Notification service (APNs) is not implemented. On iPhone and iPad, iOS 16.4 or newer can use these browser notifications after the site is added to the Home Screen.
+
 ## Pipeline
 | Step | Command | What it does |
 |---|---|---|
-| Fetch | `./fetch.sh [--days N]` | Reads RSS feeds / list pages / news search per country (robots.txt respected, own UA, ≥2 s per host), filters on multilingual crypto keywords, adds new stories to `data/news.json` as `pending`, new events to `data/events.json` as `pending`, candidate entities to `queue/review.json`. |
+| Fetch | `./fetch.sh [--days N]` | Reads RSS feeds / list pages / news search per country (robots.txt respected, own UA, ≥2 s per host, several hosts at once). Local newspapers and justice pages are keyword-filtered. A source with no RSS is read from sitemap.xml or its public index page (title, date, link and summary only; robots.txt and the same per-host delay). One dead feed is logged and skipped. Adds new stories to `data/news.json` as `pending`, new events to `data/events.json` as `pending`, candidate entities to `queue/review.json`. |
 | Add a story by hand | `./fetch.sh --add URL --country XX [--date YYYY-MM-DD]` | Metadata only (title/description/date), never article text. |
 | Add an event by hand | `.venv/bin/python events.py --add-event URL --country XX [--title --start --place --organiser --paid --online]` | Event lands as `pending`. |
 | Refresh events only | `.venv/bin/python events.py` or `.venv/bin/python events.py --only id,id` | Same event search as `./fetch.sh`, without the news feeds. |
 | Local preview | `./build.sh --preview` | Builds `site/` incl. pending items, clearly marked, `noindex`, robots disallow, writes `site/.preview`. Then the privacy gate. |
 | Public build | `./build.sh` | Only approved content. |
-| Publish (later) | `./publish.sh --yes` | ONLY after jQrgen approves. Refuses a preview build; on first run creates the git repo and `jQrgen/nordic-crypto`, pushes `site/` to `gh-pages` while keeping `CNAME`, `kiosk/` and every top-level name in `publish-keep.txt`, sets the Pages custom domain to nordiccrypto.no, pushes code to `main`, stamps the launch date in `changelog.json`. Without `--yes` it only builds and checks. Aborts if the staged gh-pages tree has no `CNAME`. |
+| Publish (later) | `./publish.sh --yes` | ONLY after jQrgen approves. Refuses a preview build; on first run creates the git repo and `jQrgen/nordic-crypto`, pushes `site/` to `gh-pages` while keeping `CNAME`, `kiosk/` and every top-level name in `publish-keep.txt`, sets the Pages custom domain to nordiccrypto.no, pushes code to `main`, stamps the launch date in `changelog.json`. After a successful gh-pages push, notifies the push Worker about stories that were not in the previous public news list (one batch; skipped when the Worker is not configured). Without `--yes` it only builds and checks. Aborts if the staged gh-pages tree has no `CNAME`. |
 | QA screenshots | `.venv/bin/python tools/screens.py` | Serves `site/` on a free local port, screenshots every page into `shots/`, reports JS errors, 4xx and horizontal overflow. |
 
 ### Event listings
@@ -121,7 +145,48 @@ Earlier public events in the Nordic countries, from 31 October 2008, are kept in
 
 Predatory conference listings are not sources. `event_block.py` refuses International Conference Alerts, Conference Alerts, All Conference Alert, Conference Next, WASET (`waset.org` and `conferenceindex.org`) and the organisers WASET, IRAJ, IIER, ISER, ISSER, KSAA, GASR, IIRD, Research Plus, Scholars Forum, Academics World and World Academics. A matching URL, source or organiser is not imported (`events.py` and `fetch.py`), is dropped from `data/events.json` and the editor queue, and is not shown on the calendar. `--add-event` refuses them too.
 
-Other tools: `tools/probe.py` (feed checks), `tools/import_orgchart.py` (merges the Norwegian Kryptonytt industry map, translated via `data/no_en.json`, with `data/orgchart_nordic.json`), `tools/import_academia.py` (reads the researcher's `academia.md` and its editor status column), `tools/seed_academia.py` (DOI-checked publication candidates), `tools/privacy_gate.py`, `tools/commons_photo.py` (Wikimedia Commons photos with licence + credit only), `tools/fetch_logos.py` (one logo per org and per news outlet from Wikidata/Commons or the outlet's own site → `assets/img/logos/logos.json`, review pending), `tools/rules_page.py` (rules page from `rules.json`), `tools/regulation_videos.py` (country explainer slots at `/regulation-videos/`), `tools/article_archive.py` (append-only article archive).
+Other tools: `tools/probe.py` (feed checks), `tools/import_orgchart.py` (merges the Norwegian Kryptonytt industry map, translated via `data/no_en.json`, with `data/orgchart_nordic.json`), `tools/import_academia.py` (merges `research/academia/works.json` and the researcher's `academia.md` status column into `data/academia.json`), `tools/seed_academia.py` (DOI-checked publication candidates), `tools/privacy_gate.py`, `tools/commons_photo.py` (Wikimedia Commons photos with licence + credit only), `tools/fetch_logos.py` (one logo per org and per news outlet from Wikidata/Commons or the outlet's own site → `assets/img/logos/logos.json`, review pending), `tools/fetch_source_logos.py` (a second, robots.txt-checked pass for news outlets → `assets/img/logos/sources/`, keys `source:<id>` in `logos.json`, review pending, plus PNG renderings of SVG logos; see [Source logos](#source-logos)), `tools/rules_page.py` (rules page from `rules.json`), `tools/regulation_videos.py` (country explainer slots at `/regulation-videos/`), `tools/article_archive.py` (append-only article archive).
+
+## Calendar intake (Luma and Eventbrite)
+
+`python3 events.py` reads `event_sources` in `sources.json` (`.venv/bin/python events.py` when that virtualenv exists). New events land in `data/events.json` as `pending`. A finished event that is already stored is kept. The site build files published past events in `archive/events.json` and does not delete them. One source that fails is recorded under `state/source_status.json` and the run continues. The same title, calendar date and venue is one event even when the URL differs. Sources with `"trusted": false` are kept only when the title, description or place matches the crypto keyword list (English and the Nordic languages). The source name is not part of that text, so a mixed calendar keeps only the matching events. Country and city come from the venue text or `addressCountry`. A physical event that cannot be placed in Norway, Sweden, Denmark, Finland or Iceland is dropped. An online event with no Nordic city and no Nordic country is dropped. Kaupr is never stored as a sponsor.
+
+### Luma — public iCal, not city or category discovery
+
+The intake is the public calendar Subscribe feed, with no account:
+
+`https://api.lu.ma/ics/get?entity=calendar&id=cal-…`
+
+An individual event page (`"type": "luma-event"`) is schema.org Event JSON-LD.
+
+General discovery is not connected. [Luma's terms of use](https://luma.com/terms) say, under Acceptable Use, that you must not access the Service by any means other than their publicly supported interfaces, and that site content may not be reproduced except through those interfaces. The [official API](https://docs.luma.com) needs Luma Plus, a per-calendar API key, and only covers calendars you administer. City pages such as `luma.com/oslo` do embed a short schema.org ItemList and `__NEXT_DATA__` (`discover-place`, about twenty popular events). `luma.com/crypto` and `luma.com/ai` are worldwide category pages. `luma.com/web3` is a 2021 event slug, not a category. No `api.lu.ma` discover URL is a documented public interface, and bulk-copying the city JSON is not one either. `robots.txt` allows most of those HTML pages; that does not override the terms. City slugs are also unreliable: `luma.com/bergen` describes the New York metro, and several Nordic slugs are empty or missing. On 6 Oct 2026 the Oslo, Stockholm, Copenhagen and Helsinki city pages had no crypto keyword hits in the events they embed.
+
+Calendars in use, each with its Subscribe iCal URL on the source:
+
+| Country | Calendar | Page |
+|---|---|---|
+| Norway | K33 Markets | https://luma.com/k33 |
+| Sweden | Nordic Blockchain Association | https://luma.com/nordicblockchain |
+| Sweden | KTH Software Meetup (keyword filter; mixed software calendar) | https://luma.com/kth-assert |
+| Finland | BTCHEL Fridays | https://luma.com/btchel |
+
+Denmark and Iceland have no verified public Luma calendar in this list. Personal calendars and global calendars (Solana Foundation, DFNS) are not subscribed.
+
+### Eventbrite — v3 organizers and venues, not search
+
+The public search API was removed in 2020. URLs under `/d/` are not fetched. When `EVENTBRITE_TOKEN` is set in the environment (see `.env.example`; the value is not committed and is not written into the public API), `events.py` calls:
+
+`GET https://www.eventbriteapi.com/v3/organizers/{id}/events/?status=live&time_filter=current_future&expand=venue,organizer`
+
+and the same path for `venues/{id}`. The token is sent as `Authorization: Bearer` and is never put in the URL or the log. Without a token, or when that call errors, the `event_pages` listed on the source are read as JSON-LD. One dead event page is skipped. A successful API response, including an empty list, does not also scrape old pages.
+
+| Country | Organizer | Id |
+|---|---|---|
+| Sweden | Blockchain Smart Solutions | 46541998283 |
+| Sweden | Virtune AB (publ) | 67900216533 |
+| Finland | Web3 Community | 49444554943 |
+
+No verified organizer was found for Denmark or Iceland. `"type": "eventbrite-venue"` and `venue_id` are implemented. No physical Nordic venue is subscribed: the venue ids published on the Blockchain Smart Solutions collection are online classrooms.
 
 ## Outlet logos on news
 
@@ -134,7 +199,11 @@ Whenever a story is shown (the news list, the screen, our own story pages, and t
 3. `_source_alias` sends a source id to a different logo key when the who's-who id is not the source id: `fi-se` → `se-fi`, `riksbank` → `se-riksbank`, `suomenpankki` → `fi-suomen-pankki`, `finanssivalvonta` → `fi-fiva`, `stortinget` → `stortinget-finanskomiteen` (the Storting coat of arms), `nbx-ir` → `nbx`, `digi-krypto` → `digi`.
 4. That key's `file` is the image path, relative to the repo root (`assets/img/logos/<id>.svg` or `.webp`).
 
-The public site shows a logo only when `review` is `ok` (a missing review counts as ok). `./build.sh --preview` also shows `pending`. `rejected`, a missing file, or no entry: text only. `python3 tools/fetch_logos.py` fills gaps for enabled outlets and for any source that already has a published or pending story. New files stay `pending` until an editor checks that the image belongs to that outlet.
+The public site shows a logo only when `review` is `ok` (a missing review counts as ok). `./build.sh --preview` also shows `pending`. `rejected`, a missing file, or no entry: text only. The image sits in a link to the outlet. It is nominative use: the outlet's own mark, small, unaltered except a raster scale to about 64px, with no implication of endorsement.
+
+`python3 tools/fetch_logos.py --sources` fetches one mark for every source in `sources.json` (not only the enabled feeds). It prefers the outlet's own apple-touch icon, favicon or logo file. When that file is the outlet's own mark, `review` is set to `ok` and `logo_source` on the source record stores the URL it came from. Outlets whose terms explicitly forbid logo use are skipped (`logo_skipped`) and stay text-only. `python3 tools/fetch_logos.py` without `--sources` still fills organisation logos as `pending`.
+
+If the key from steps 1–4 has no usable logo (no entry, no file, `rejected`, or `pending` on the public site), `tools/source_logos.py` tries `source:<key>`, `source:<source id>` and `source:<outlet>` next: entries written by `tools/fetch_source_logos.py`, with the same review rule. A one-off domain id on a search hit (for example `itavisen.no`) also tries the keys of the source whose `url` is on that host. Every SVG a news source can resolve to has a PNG rendering (`raster` in `logos.json`), which the API serves as `logo_url` / `source_logo_url`. `python3 tools/fetch_logos.py` fills gaps for enabled outlets and for any source that already has a published or pending story. New files stay `pending` until an editor checks that the image belongs to that outlet.
 
 ## Same event, several outlets
 
@@ -150,14 +219,34 @@ The public news objects add `primary_source`, `also_covered_by`, `sources` (prim
 
 **Editor.** On a row in `queue/review.json` → `items_needing_summary`, or on the `queue/approved.json` item, set `duplicate_of` to the existing story id or URL. No summary is required. The next `./build.sh` adds the article to `also_covered_by` and does not publish it on its own (`status` becomes `merged`). If `queue/approved.json` is missing, the build leaves `data/news.json` and `data/orgchart.json` as they are and does not withdraw published stories.
 
+## Story pictures
+
+Story cards and story pages show one picture, with the credit under it. The picture is not stored on the news row. `tools/illustrations.py` assigns it at build and API time from `data/illustrations.json`, using the story's topics and country. An optional `illustration_id` (a catalogue id, never a URL) overrides that. Existing rows stay valid without the field.
+
+Allowed pictures, each with `source`, `author`, `license` and `url`:
+
+- Our own illustrations in `assets/img/illustrations/original-*.webp` (CC0, redrawn by `tools/make_illustrations.py`). Abstract shapes only: no real person, no copied logo.
+- Wikimedia Commons files under CC0, public domain, CC BY or CC BY-SA, with the author named. A crop is stated on the record.
+- Official pictures a public body released for free use, terms checked per agency and written on the record. In use: the Riksbank building (free use with credit) and the Norges Bank daytime facade (credit, no alteration, not for advertising).
+
+Assignment, first match: crime → Oslo tinghus; mining → mining machines; bitcoin → a physical bitcoin token; Swedish AML → the Riksbank building; Norwegian banking or funds → the Norges Bank facade; Swedish banking or funds → the Riksbank building; business, payments, stablecoins and the other market topics → our bar chart; policy and tax → our columns; regulation and the remaining topics → the parliament building for that country.
+
+`/api/v1/news.json` and each news item include `illustration` with those credit fields and `file_url`. The catalogue is also at `/api/v1/illustrations.json`.
+
+Newspaper photographs are not copied, stored, proxied or hotlinked. Åndsverkloven § 23 protects a news photo. `fetch.py` drops `og:image`, RSS `media:content` / `media:thumbnail` and image enclosures, and `tools/press_images.py` strips those fields before a news file is saved and again when the API is written. Outlet logos stay, only to name the source. The full audit and the terms checks are in `docs/image-policy.md`. The same rule is stated on the ethics page and, briefly, on About.
+
+## Press and justice registry
+
+`sources.json` lists national, regional and local newspapers and justice-system press pages for Norway, Sweden, Denmark, Finland, Iceland, the Faroe Islands, Greenland and Åland. `type` is how a source is read (`rss`, `rss-all`, `html`, `sitemap`, `bing`, `search`). A source with no RSS is read from `sitemap.xml` or its public index page; only the title, date, link and summary are kept. `coverage` is `national`, `regional`, `local` or `justice`. A source with no working feed stays in the file with `feed` null so it can be monitored by hand or via news search. Local papers and justice pages use `rss`, so only keyword hits reach the review queue. `fetch_workers` reads several hosts at once; each host still waits `min_delay_seconds`. One dead feed is logged and skipped. Faroe Islands, Greenland and Åland appear on the sources page. They are not chips on the front-page country filter. The list was checked against Medietilsynet's newspaper register, Amedia, Polaris Media, Uutismedian liitto, Gota Media (including the Bonnier News Local titles on that page), Stampen and a Danish local-press list, plus the justice, police, prosecution, court, customs, tax and FIU pages that publish news. Kaupr is a news source only and is never a sponsor.
+
 ## Regulation explainer videos
-`/regulation-videos/` has one slot each for Norway, Sweden, Denmark, Finland and Iceland, linked from `/rules/` and About. Scripts, storyboards, posters and sources are in `regulation-videos/`. Institution names and source URLs are read from the editor-approved `rules.json` at build time. Iceland is in the EEA, not the EU, and Seðlabanki Íslands houses Fjármálaeftirlit. Drop `video-XX.mp4` in `regulation-videos/media/` (gitignored) and the slot plays it with the HTML5 player. Until then the slot shows the title, the narrator notes and the sources. The films are not rendered yet. Substack drafts in `regulation-videos/substack/` are for human review only; the build does not send them. Sign-off: The Nordic Crypto team. Kaupr is a news source only and is not a sponsor of these films.
+`/regulation-videos/` has one slot each for Norway, Sweden, Denmark, Finland and Iceland, linked from `/rules/` and About. Scripts, storyboards, posters and sources are in `regulation-videos/`. Institution names and source URLs are read from the editor-approved `rules.json` at build time. Iceland is in the EEA, not the EU, and Seðlabanki Íslands houses Fjármálaeftirlit. Drop `video-XX.mp4` in `regulation-videos/media/` (gitignored) and the slot plays it with the HTML5 player. Until then the slot shows the title, the narrator notes and the sources. The films are not rendered yet. Draft notes in `regulation-videos/substack/` are for human review only; the build does not send them. Sign-off: The Nordic Crypto team. Kaupr is a news source only and is not a sponsor of these films.
 
 ## Approval model (`queue/approved.json`)
-- `items`: `{url, summary (2–4 sentences, English, own words, what the story says), summary_i18n {nn, nb, sv, da, fi, is}, summary_i18n_source (the English text the translations were made from – if the summary changes, the translations are dropped until redone), blurb and blurb_i18n (optional; stored in data/frontpage_blurbs.json when the summary is still a one-line intro), title_en, topics, approved_by, approved_at}`; `duplicate_of` (story id or URL) attaches that article to an existing story instead of publishing it; `rejected`: `{url | title_contains, reason}`. Same field on a `queue/review.json` row.
+- `items`: `{url, summary (2–4 sentences, English, own words, what the story says), summary_i18n {nn, nb, sv, da, fi, is}, summary_i18n_source (the English text the translations were made from – if the summary changes, the translations are dropped until redone), blurb and blurb_i18n (optional; stored in data/frontpage_blurbs.json when the summary is still a one-line intro), title_en, title_i18n {nn, nb, sv, da, fi, is} (our headline; omit the source language), title_i18n_source (the source headline those translations were made from), topics, approved_by, approved_at}`; `duplicate_of` (story id or URL) attaches that article to an existing story instead of publishing it; `rejected`: `{url | title_contains, reason}`. Same field on a `queue/review.json` row. Published stories that do not yet have `title_i18n` on the item use `data/title_i18n.json`.
 - `events`: `approve`, `reject`, `ready_for_owner` (editor-approved, waiting for jQrgen: preview only), `notes`, `notes_i18n {id: {lang: text}}`, `sponsor {id: name}`, `paid`, `title_en`.
 - `stories`: own articles in markdown (`files {slug: path}`), `ready_for_owner`, `approve`; the "Editor notes" part is never rendered.
-- `org`: `approve`, `approve_countries`, `reject`. Rows, people, logos, photos and profile links added by research carry `"review": "pending"` and are NOT covered by `approve_countries`: list their ids in `org.approve` (logos/photos: set `review` to `ok` in `assets/img/logos/logos.json` / `assets/img/people/photos.json`; profile links: `status: published` in `data/profiles.json`). The preview build shows all pending items, marked.
+- `org`: `approve`, `approve_countries`, `reject`. Rows, people, logos, photos and profile links added by research carry `"review": "pending"` and are NOT covered by `approve_countries`: list their ids in `org.approve` (logos/photos: set `review` to `ok` in `assets/img/logos/logos.json` / `assets/img/people/photos.json`; news-source logos (`source:<id>` keys): set `review` to `ok` there too, nothing else, and they appear as `logo_url` / `source_logo_url` in the public API; profile links: `status: published` in `data/profiles.json`). The preview build shows all pending items, marked.
 - `rules.json`: the rules page (`/rules/`) stays a placeholder until its `review` is set to `approved`.
 - Changelog entries with `"review": "pending"` are only shown in the preview.
 - Academia: status column (`APPROVED` / pending / unverified / OUT) in `/workspace/nordic-crypto-research/academia.md`; only APPROVED rows reach the page.
@@ -166,7 +255,7 @@ The public news objects add `primary_source`, `also_covered_by`, `sources` (prim
 ## Bots
 **Researcher (6031f46c)**: run `./fetch.sh --days 2` (daily), check `state/source_status.json` for failing sources, add missed stories/events with `--add` / `--add-event`, research org-chart candidates in `queue/review.json` and academia rows in `/workspace/nordic-crypto-research/academia.md` (every row: source, check date, status). Never invent; never circumvent blocks (vb.is returns 403 and stays disabled).
 
-**Editor (0b7181d5)**: review `queue/review.json`; for each story write a 2–4 sentence English summary of what the story says, in your own words (plus `title_en` for Nordic-language headlines) into `queue/approved.json`, or reject. A one-sentence intro is not enough for the front page. Stories already published with a one-sentence summary keep a longer blurb in `data/frontpage_blurbs.json` (en, nn, nb, sv, da, fi, is) until the summary itself is two or more sentences; other site languages show the English blurb. Approve/reject events (date, place, organiser must be on the organiser's page; label paid/sponsored; reject online webinars without a Nordic link). Approve org rows only when every row and link has a source. Then `./build.sh --preview` and look at it. Things involving jQrgen himself (e.g. events where he speaks, own stories) go to `ready_for_owner`, never straight to `approve`. After the English summary: write `summary_i18n` for nn, nb, sv, da, fi, is (own words, same facts, no new claims) and set `summary_i18n_source` to the English text; check new org rows, people, logos (does the image belong to the org?), photos (licence, right person) and profile links before approving them; check the rules page against `research/rules-claims-*.md`.
+**Editor (0b7181d5)**: review `queue/review.json`; for each story write a 2–4 sentence English summary of what the story says, in your own words (plus `title_en` for Nordic-language headlines, and `title_i18n` for nn, nb, sv, da, fi, is, omitting the source language) into `queue/approved.json`, or reject. A one-sentence intro is not enough for the front page. Stories already published with a one-sentence summary keep a longer blurb in `data/frontpage_blurbs.json` (en, nn, nb, sv, da, fi, is) until the summary itself is two or more sentences; other site languages show the English blurb. Approve/reject events (date, place, organiser must be on the organiser's page; label paid/sponsored; reject online webinars without a Nordic link). Approve org rows only when every row and link has a source. Then `./build.sh --preview` and look at it. Things involving jQrgen himself (e.g. events where he speaks, own stories) go to `ready_for_owner`, never straight to `approve`. After the English summary: write `summary_i18n` for nn, nb, sv, da, fi, is (own words, same facts, no new claims) and set `summary_i18n_source` to the English text; check new org rows, people, logos (does the image belong to the org?), photos (licence, right person) and profile links before approving them; check the rules page against `research/rules-claims-*.md`.
 
 ## Denmark (added 3 Oct 2026)
 Denmark (DK) is in the country set, the fetch config and the event detection. No Danish content goes live without the editor's approval: Danish stories and events land as `pending`. Org-chart rows: the editor reviewed the 14 Danish rows and added DK to `org.approve_countries` on 3 Oct 2026, so Danish org rows are now approved per country like NO/SE/FI/IS (new Danish rows must still have a source for every row and link before they are added to `data/orgchart_nordic.json`). Researcher: Danish stories, events, org chart (Finanstilsynet, Danmarks Nationalbank, Erhvervsministeriet, Skatteministeriet/Skattestyrelsen, the FIU (Hvidvasksekretariatet), MiCA CASPs authorised in Denmark per the ESMA register) and academia rows.
@@ -206,13 +295,8 @@ Tips go to `tipserver/tips.db` (gitignored, mode 600) with a UTC timestamp and s
 ## Article archive
 `archive/articles.db` (SQLite, gitignored) + `archive/articles.json` (committed export). Schema `archive/schema.sql`, shared with Kryptonytt (plus the additive `country` column); D1 mirror `tipworker/migrations/0002_articles.sql`. Rows are never deleted (triggers); a story that disappears gets `removed = 1` and `removed_at`. `routines/morning-publish.sh` runs `tools/article_archive.py record` after each successful publish; `backfill` reads the gh-pages history.
 
-## Newsletter (Substack live 2026-10-05; own form OFF)
-`newsletter/substack-setup.md` (publication name, subdomain, texts, branding in `newsletter/assets/`, welcome email, digest
-template, Kaupr disclosure, checklist for jQrgen). `newsletter/digest.py` builds the weekly digest from the **public** build
-only (approved stories). Signup form (footer + `/newsletter/`, 7 languages, privacy note) is behind `newsletter/config.json`
-`enabled: false`; it posts to the tipworker (`/api/subscribe`, double opt-in, see `tipworker/README.md`).
-Substack publication: https://cryptonordic.substack.com (created by jQrgen 2026-10-05). `substack_url` in `newsletter/config.json`
-makes the footer and `/newsletter/` (7 languages) link to its `/subscribe` page on its own, independent of `enabled`.
+## Newsletter (own list)
+`newsletter/email-list.md` is the setup for jQrgen: D1 table `subscribers`, DNS for Resend or Mailgun, Worker secrets, and how to send an issue. Cloudflare Email Routing can receive replies; it does not send the list. The site form (footer, front page, `/newsletter/#signup`, 7 languages, consent checkbox, privacy note) stays behind `newsletter/config.json` `enabled: false` until the Worker is deployed and that flag is set. While it is off, those places do not show an email field. They say signup opens soon and link to each language's `rss.xml`, Telegram and X. It posts to the tipworker (`/api/subscribe`, double opt-in, private D1, see `tipworker/README.md`). `newsletter/digest.py` builds a weekly digest from the **public** build only. `newsletter/send_issue.py` mails a published issue, or that digest, to confirmed addresses. Nothing is sent unless `MAIL_SEND_ENABLED=1`. Sign-off: The Nordic Crypto team. Kaupr is a news source only.
 
 ## Privacy
 No health or private financial data about anyone, no org numbers, LEIs, addresses of private persons, emails or tokens. `state/private_terms.json` (never printed, never committed) feeds the privacy gate, which blocks the build if it finds them. The gate also blocks organisation numbers in visible text, including source titles (NO 9-digit, SE NNNNNN-NNNN, DK CVR, «org.nr …»); register links are fine, the number itself must not be written out.
@@ -220,3 +304,5 @@ No health or private financial data about anyone, no org numbers, LEIs, addresse
 `data/` (stories, events, org chart, translations of the industry map, profile links, academia) is committed to the repo so the content is not stored only on the box; it is public content and passes the privacy gate (`tools/privacy_gate.py data`). `queue/`, `state/`, `logs/`, `site/` and `tipserver/tips.db` stay box-only (`queue/` can hold local-only reader-tip notes).
 
 **Language rule (text gate).** Our own Norwegian text (nn, nb) never says «AI» or «KI»; write «kunstig intelligens» in full. `tools/text_gate.py` checks the nn/nb interface strings, templates, summaries, event notes, changelog and rules-page strings, and runs in `build.sh` and `publish.sh`. External headlines are left as published.
+
+**Browser notifications.** Off until the reader turns them on. The Worker stores only the push subscription, the page language and the countries they picked. Unsubscribe is the same button. Cloudflare Web Analytics still counts visits in aggregate, without cookies, and that data is not sold. See [Browser notifications](#browser-notifications).

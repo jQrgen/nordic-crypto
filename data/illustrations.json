@@ -1,0 +1,315 @@
+{
+ "_policy": "Story pictures only. No newspaper photograph is stored or linked. See docs/image-policy.md. Each record has source, author, license and url. kind is original (drawn for Nordic Crypto), commons (Wikimedia Commons) or official-press (a public body that released the picture for free use, terms checked). assign picks one record per story from topics, then country. illustration_id on a story, when it matches an id here, wins. Outlet logos are not in this file.",
+ "fallback": "original-crypto",
+ "country": {
+  "NO": "commons-no",
+  "SE": "commons-se",
+  "DK": "commons-dk",
+  "FI": "commons-fi",
+  "IS": "commons-is"
+ },
+ "assign": [
+  {
+   "topics": [
+    "crime"
+   ],
+   "id": "commons-court"
+  },
+  {
+   "topics": [
+    "mining"
+   ],
+   "id": "commons-mining"
+  },
+  {
+   "topics": [
+    "bitcoin"
+   ],
+   "id": "commons-bitcoin"
+  },
+  {
+   "topics": [
+    "aml"
+   ],
+   "countries": [
+    "SE"
+   ],
+   "id": "official-riksbank",
+   "why": "Swedish AML and sanctions stories use the Riksbank building, which Sveriges Riksbank released for free use."
+  },
+  {
+   "topics": [
+    "banking",
+    "funds"
+   ],
+   "countries": [
+    "NO"
+   ],
+   "id": "official-norges-bank",
+   "why": "Norwegian banking and fund stories use the Norges Bank facade, copied under the bank's own terms."
+  },
+  {
+   "topics": [
+    "banking",
+    "funds"
+   ],
+   "countries": [
+    "SE"
+   ],
+   "id": "official-riksbank"
+  },
+  {
+   "topics": [
+    "banking",
+    "funds",
+    "companies",
+    "business",
+    "payments",
+    "stablecoins",
+    "defi",
+    "tokenisation"
+   ],
+   "id": "original-exchange"
+  },
+  {
+   "topics": [
+    "policy",
+    "tax",
+    "cbdc",
+    "consumer protection"
+   ],
+   "id": "original-regulation"
+  },
+  {
+   "topics": [
+    "regulation",
+    "mica"
+   ],
+   "id": "country"
+  },
+  {
+   "topics": [
+    "events",
+    "community"
+   ],
+   "id": "country"
+  },
+  {
+   "id": "country"
+  }
+ ],
+ "images": [
+  {
+   "id": "original-bitcoin",
+   "kind": "original",
+   "file": "assets/img/illustrations/original-bitcoin.webp",
+   "alt": "Abstract gold disc. Nordic Crypto illustration, not a photograph and not a logo.",
+   "source": "Nordic Crypto",
+   "author": "Nordic Crypto",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "url": "https://cryptonordic.no/ethics/",
+   "width": 960,
+   "height": 540
+  },
+  {
+   "id": "original-regulation",
+   "kind": "original",
+   "file": "assets/img/illustrations/original-regulation.webp",
+   "alt": "Abstract blue columns. Nordic Crypto illustration, not a photograph.",
+   "source": "Nordic Crypto",
+   "author": "Nordic Crypto",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "url": "https://cryptonordic.no/ethics/",
+   "width": 960,
+   "height": 540
+  },
+  {
+   "id": "original-court",
+   "kind": "original",
+   "file": "assets/img/illustrations/original-court.webp",
+   "alt": "Abstract courthouse: a roof and two columns, no people and no badge. Nordic Crypto illustration.",
+   "source": "Nordic Crypto",
+   "author": "Nordic Crypto",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "url": "https://cryptonordic.no/ethics/",
+   "width": 960,
+   "height": 540
+  },
+  {
+   "id": "original-exchange",
+   "kind": "original",
+   "file": "assets/img/illustrations/original-exchange.webp",
+   "alt": "Abstract bar chart in blue and black. Nordic Crypto illustration, not a picture of an exchange.",
+   "source": "Nordic Crypto",
+   "author": "Nordic Crypto",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "url": "https://cryptonordic.no/ethics/",
+   "width": 960,
+   "height": 540
+  },
+  {
+   "id": "original-mining",
+   "kind": "original",
+   "file": "assets/img/illustrations/original-mining.webp",
+   "alt": "Abstract cubes in grey and gold. Nordic Crypto illustration, not a photograph of a mine.",
+   "source": "Nordic Crypto",
+   "author": "Nordic Crypto",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "url": "https://cryptonordic.no/ethics/",
+   "width": 960,
+   "height": 540
+  },
+  {
+   "id": "original-crypto",
+   "kind": "original",
+   "file": "assets/img/illustrations/original-crypto.webp",
+   "alt": "Abstract chain of four blocks. Nordic Crypto illustration.",
+   "source": "Nordic Crypto",
+   "author": "Nordic Crypto",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "url": "https://cryptonordic.no/ethics/",
+   "width": 960,
+   "height": 540
+  },
+  {
+   "id": "commons-bitcoin",
+   "kind": "commons",
+   "file": "assets/img/illustrations/commons-bitcoin.webp",
+   "alt": "A physical bitcoin token in a clear case.",
+   "source": "Wikimedia Commons",
+   "author": "Heuboden",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "url": "https://commons.wikimedia.org/wiki/File:Bitcoin_coin_in_plastic_packaging.jpg",
+   "modifications": "Cropped by Nordic Crypto to leave out a person at the edge of the frame.",
+   "width": 365,
+   "height": 872
+  },
+  {
+   "id": "commons-mining",
+   "kind": "commons",
+   "file": "assets/img/illustrations/commons-mining.webp",
+   "alt": "Rows of cryptocurrency mining machines indoors.",
+   "source": "Wikimedia Commons",
+   "author": "Jasper Reichardt",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "url": "https://commons.wikimedia.org/wiki/File:Mining-Rig.jpg",
+   "width": 960,
+   "height": 720
+  },
+  {
+   "id": "commons-court",
+   "kind": "commons",
+   "file": "assets/img/illustrations/commons-court.webp",
+   "alt": "Oslo courthouse, Oslo tinghus.",
+   "source": "Wikimedia Commons",
+   "author": "Mahlum",
+   "license": "Public domain",
+   "license_url": "https://commons.wikimedia.org/wiki/File:Oslo_tinghus.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:Oslo_tinghus.jpg",
+   "width": 960,
+   "height": 663
+  },
+  {
+   "id": "commons-no",
+   "kind": "commons",
+   "file": "assets/img/illustrations/commons-no.webp",
+   "alt": "The Storting building in Oslo.",
+   "source": "Wikimedia Commons",
+   "author": "Alexander Ottesen",
+   "license": "CC BY 2.0",
+   "license_url": "https://creativecommons.org/licenses/by/2.0/",
+   "url": "https://commons.wikimedia.org/wiki/File:Stortinget_2009.jpg",
+   "modifications": "Cropped by Nordic Crypto to leave out people in the square.",
+   "width": 960,
+   "height": 348
+  },
+  {
+   "id": "commons-se",
+   "kind": "commons",
+   "file": "assets/img/illustrations/commons-se.webp",
+   "alt": "The Swedish parliament building, Riksdagshuset, in Stockholm.",
+   "source": "Wikimedia Commons",
+   "author": "Sahlen",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "url": "https://commons.wikimedia.org/wiki/File:Riksdagshuset_i_Stockholm.jpg",
+   "width": 960,
+   "height": 547
+  },
+  {
+   "id": "commons-dk",
+   "kind": "commons",
+   "file": "assets/img/illustrations/commons-dk.webp",
+   "alt": "Christiansborg Palace in Copenhagen.",
+   "source": "Wikimedia Commons",
+   "author": "Moahim",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "url": "https://commons.wikimedia.org/wiki/File:2018_-_Christiansborg_from_the_Marble_Bridge.jpg",
+   "width": 960,
+   "height": 634
+  },
+  {
+   "id": "commons-fi",
+   "kind": "commons",
+   "file": "assets/img/illustrations/commons-fi.webp",
+   "alt": "The Parliament House in Helsinki.",
+   "source": "Wikimedia Commons",
+   "author": "Safa Hovinen",
+   "license": "CC BY 2.0",
+   "license_url": "https://creativecommons.org/licenses/by/2.0/",
+   "url": "https://commons.wikimedia.org/wiki/File:Parliament_House_in_Helsinki_in_Finland,_2024_December.jpg",
+   "width": 960,
+   "height": 639
+  },
+  {
+   "id": "commons-is",
+   "kind": "commons",
+   "file": "assets/img/illustrations/commons-is.webp",
+   "alt": "Alþingishúsið, the parliament building in Reykjavík.",
+   "source": "Wikimedia Commons",
+   "author": "APK",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "url": "https://commons.wikimedia.org/wiki/File:Al%C3%BEingish%C3%BAsi%C3%B0.jpg",
+   "width": 960,
+   "height": 872
+  },
+  {
+   "id": "official-riksbank",
+   "kind": "official-press",
+   "file": "assets/img/illustrations/official-riksbank.webp",
+   "alt": "The Riksbank building in Stockholm.",
+   "source": "Sveriges Riksbank",
+   "author": "Sveriges Riksbank",
+   "license": "Free use, credit Sveriges Riksbank",
+   "license_url": "https://www.riksbank.se/sv/press-och-publicerat/presskontakt/bildbank/riksbankshuset/",
+   "url": "https://www.riksbank.se/sv/press-och-publicerat/presskontakt/bildbank/riksbankshuset/",
+   "terms": "Checked 2026-10-06. The Riksbank image bank says these pictures may be downloaded and used freely if Sveriges Riksbank is credited. Pictures of banknotes and coins on the same site are not free in that way and are not used. This file is the building, scaled to 960 pixels wide and saved as WebP. It is not cropped or recoloured.",
+   "width": 960,
+   "height": 640
+  },
+  {
+   "id": "official-norges-bank",
+   "kind": "official-press",
+   "file": "assets/img/illustrations/official-norges-bank.webp",
+   "alt": "Norges Bank headquarters in Oslo, daytime facade.",
+   "source": "Norges Bank",
+   "author": "Esten Borgos",
+   "license": "Norges Bank terms: credit, no alteration, not for advertising",
+   "license_url": "https://www.norges-bank.no/en/topics/about/copyright/",
+   "url": "https://www.norges-bank.no/en/topics/about/Media-enquiries/Press-photos/",
+   "terms": "Checked 2026-10-06. Norges Bank's copyright page allows copying from norges-bank.no when Norges Bank is named as the source, the content is not changed, and it is not used in advertising. This is the daytime facade from the press-photo page (photo: Esten Borgos). It is scaled to 960 pixels wide and saved as WebP, not cropped or recoloured. Portraits and pictures of notes and coins from the same page are not used.",
+   "width": 960,
+   "height": 720
+  }
+ ]
+}

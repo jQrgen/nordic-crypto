@@ -1,7 +1,7 @@
 # Sources (editor-approved rules.json + org-chart regulation notes)
 
 Primary data: `rules.json` (review: approved, checked 2026-10-04) and `data/orgchart.json` regulation rows.
-Do not invent new legal claims. Prefer these URLs in on-screen lower-thirds and Substack footnotes.
+Do not invent new legal claims. Prefer these URLs in on-screen lower-thirds and newsletter footnotes.
 
 - **mica**: [Regulation (EU) 2023/1114 (MiCA), Art. 149 and closing formula](https://eur-lex.europa.eu/eli/reg/2023/1114/oj/eng) — EUR-Lex
 - **tfr**: [Regulation (EU) 2023/1113 (transfer of funds and certain crypto-assets), Art. 40](https://eur-lex.europa.eu/eli/reg/2023/1113/oj/eng) — EUR-Lex

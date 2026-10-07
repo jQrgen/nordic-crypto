@@ -33,6 +33,8 @@ def variants(it):
     for k, v in (it.get("summary_i18n") or {}).items():
         if k in LANGS and (v or "").strip(): s[k] = v
     t = {"en": it["title_en"]} if it.get("title_en") else {}
+    for k, v in (it.get("title_i18n") or {}).items():
+        if k in LANGS and k != "en" and (v or "").strip(): t[k] = v
     return s, t
 def topics(it):
     tp = it.get("topics") or []

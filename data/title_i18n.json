@@ -1,0 +1,358 @@
+{
+ "_note": "Headlines for story cards, in our own words, from the source headline. source is the stored title these translations were made from; a changed title drops them until they are redone. nn, nb, sv, da, fi and is are omitted when that language is already the source language. English is title_en on the news item. The card shows the page-language headline first and the source headline underneath when they differ. One headline only when the page language is the source language. We do not copy article text.",
+ "langs": [
+  "nn",
+  "nb",
+  "sv",
+  "da",
+  "fi",
+  "is"
+ ],
+ "items": {
+  "fb9e8ca4fb40": {
+   "source": "Småsparere hamstret krypto under renteuro",
+   "nn": "Småspararar hamstra krypto under renteuro",
+   "sv": "Småsparare hamstrade krypto under ränteoro",
+   "da": "Småsparere hamstrede krypto under renteuro",
+   "fi": "Piensijoittajat hamstrasivat kryptoa korkoheilunnassa",
+   "is": "Smásparifólk hamstraði rafmynt í vaxtaóróa"
+  },
+  "e6727b4858b5": {
+   "source": "Så kan Sverige användas för att finansiera kärnvapen",
+   "nn": "Slik kan Sverige brukast til å finansiere kjernevåpen",
+   "nb": "Slik kan Sverige brukes til å finansiere kjernevåpen",
+   "da": "Sådan kan Sverige bruges til at finansiere kernevåben",
+   "fi": "Näin Ruotsia voidaan käyttää ydinaseiden rahoittamiseen",
+   "is": "Svona má nota Svíþjóð til að fjármagna kjarnavopn"
+  },
+  "1a95167a3af8": {
+   "source": "Tiltalt for dopsalg mot kryptovaluta på det mørke nettet",
+   "nn": "Tiltala for narkosalg mot kryptovaluta på det mørke nettet",
+   "sv": "Åtalad för narkotikaförsäljning mot kryptovaluta på det mörka nätet",
+   "da": "Tiltalt for narkosalg mod kryptovaluta på det mørke net",
+   "fi": "Syyte huumekaupasta kryptovaluuttaa vastaan pimeässä verkossa",
+   "is": "Ákærður fyrir fíkniefnasölu gegn rafmynt á myrka vefnum"
+  },
+  "2d38c9c89e0e": {
+   "source": "Uppgifter: Tonåringar silvertejpade man i jakt på kryptovaluta",
+   "nn": "Opplysningar: Tenåringar sølvteipa mann i jakt på kryptovaluta",
+   "nb": "Opplysninger: Tenåringer sølvteipet mann i jakt på kryptovaluta",
+   "da": "Oplysninger: Teenagere tapede en mand med sølvtape i jagten på kryptovaluta",
+   "fi": "Tietojen mukaan teinit teippasivat miehen ilmastointiteipillä kryptovaluutan takia",
+   "is": "Upplýsingar: Unglingar bundu mann með límbandi í leit að rafmynt"
+  },
+  "7b2030aea964": {
+   "source": "Kryptojätten i ny kontrovers – erbjöd tjänster i Europa utan licens",
+   "nn": "Kryptokjempa i ny kontrovers – tilbaud tenester i Europa utan løyve",
+   "nb": "Kryptokjempen i ny kontrovers – tilbød tjenester i Europa uten lisens",
+   "da": "Kryptogiganten i ny kontrovers – tilbød tjenester i Europa uden licens",
+   "fi": "Kryptojätti uudessa kiistassa – tarjosi palveluja Euroopassa ilman lupaa",
+   "is": "Rafmyntarisinn í nýju deilumáli – bauð þjónustu í Evrópu án leyfis"
+  },
+  "8c0dda24b0ef": {
+   "source": "Här är riskerna för finansiering av spridning av massförstörelsevapen störst",
+   "nn": "Her er risikoen for finansiering av spreiing av masseøydeleggingsvåpen størst",
+   "nb": "Her er risikoen for finansiering av spredning av masseødeleggelsesvåpen størst",
+   "da": "Her er risikoen for finansiering af spredning af masseødelæggelsesvåben størst",
+   "fi": "Tässä riski rahoittaa joukkotuhoaseiden leviämistä on suurin",
+   "is": "Hér er áhættan af því að fjármagna útbreiðslu gereyðingarvopna mest"
+  },
+  "b3fdbc8f5eec": {
+   "source": "Krypto-jätten rundar reglerna i Europa: Riskerar att kastas ut",
+   "nn": "Kryptokjempa går rundt reglane i Europa: Risiko for å bli kasta ut",
+   "nb": "Kryptokjempen går rundt reglene i Europa: Risikerer å bli kastet ut",
+   "da": "Kryptogiganten omgår reglerne i Europa: Risikerer at blive smidt ud",
+   "fi": "Kryptojätti kiertää Euroopan sääntöjä ja vaarana on ulosheitto",
+   "is": "Rafmyntarisinn sniðgengur reglurnar í Evrópu og á hættu á að verða rekinn út"
+  },
+  "f616814dc40c": {
+   "source": "GreenMerc kutter 4,8 millioner i året – Northcrypto går med overskudd",
+   "nn": "GreenMerc kuttar 4,8 millionar i året – Northcrypto går med overskot",
+   "sv": "GreenMerc skär ner 4,8 miljoner om året – Northcrypto går med vinst",
+   "da": "GreenMerc skærer 4,8 millioner om året – Northcrypto giver overskud",
+   "fi": "GreenMerc leikkaa 4,8 miljoonaa vuodessa – Northcrypto tekee voittoa",
+   "is": "GreenMerc skerðir 4,8 milljónir á ári – Northcrypto skilar hagnaði"
+  },
+  "8ae149a20f5f": {
+   "source": "Pangstart for nytt kryptofond",
+   "nn": "Pangstart for nytt kryptofond",
+   "sv": "Flygande start för ny kryptofond",
+   "da": "Flyvende start for ny kryptofond",
+   "fi": "Vauhdikas alku uudelle kryptorahastolle",
+   "is": "Hraðbyrjun fyrir nýjan rafmyntasjóð"
+  },
+  "c81be998e21c": {
+   "source": "Yhteisöllisyys ja teknologia kiehtovat kryptovaluuttoihin sijoittaneita – kryptotapahtumassa iloittiin bitcoinin uudesta nousurallista",
+   "nn": "Fellesskap og teknologi dreg dei som har investert i kryptovaluta – på eit kryptoarrangement gledde dei seg over den nye oppgangen til bitcoin",
+   "nb": "Fellesskap og teknologi trekker dem som har investert i kryptovaluta – på et kryptoarrangement gledet de seg over bitcoins nye opptur",
+   "sv": "Gemenskap och teknik lockar dem som investerat i kryptovaluta – på ett kryptoevenemang firades bitcoins nya uppgång",
+   "da": "Fællesskab og teknologi trækker dem, der har investeret i kryptovaluta – ved et kryptoarrangement blev bitcoins nye optur fejret",
+   "is": "Samfélag og tækni heilla þá sem hafa fjárfest í rafmyntum – á rafmyntaviðburði var fagnað nýrri hækkun bitcoins"
+  },
+  "dbcac6be2b75": {
+   "source": "Fant hemmelig passord: Låste opp krypto-lommeboken",
+   "nn": "Fann hemmeleg passord: Låste opp kryptolommeboka",
+   "sv": "Hittade hemligt lösenord: Låste upp kryptoplånboken",
+   "da": "Fandt hemmelig adgangskode: Låste kryptopungen op",
+   "fi": "Löysi salaisen salasanan ja avasi kryptolompakon",
+   "is": "Fann leynilegt lykilorð og opnaði rafmyntaveskið"
+  },
+  "12425cc1e7ff": {
+   "source": "Coinmotion og K33 inngår nordisk kryptosamarbeid om institusjonell handel",
+   "nn": "Coinmotion og K33 inngår eit nordisk kryptosamarbeid om institusjonell handel",
+   "sv": "Coinmotion och K33 ingår nordiskt kryptosamarbete om institutionell handel",
+   "da": "Coinmotion og K33 indgår et nordisk kryptosamarbejde om institutionel handel",
+   "fi": "Coinmotion ja K33 aloittavat pohjoismaisen kryptoyhteistyön institutionaalisessa kaupassa",
+   "is": "Coinmotion og K33 gera norrænt rafmyntasamstarf um stofnanaviðskipti"
+  },
+  "07e49032be5a": {
+   "source": "Safello åpner for at andre selskaper kan tilby kryptokjøp",
+   "nn": "Safello opnar for at andre selskap kan tilby kryptokjøp",
+   "sv": "Safello öppnar för att andra bolag kan erbjuda kryptoköp",
+   "da": "Safello åbner for, at andre selskaber kan tilbyde kryptokøb",
+   "fi": "Safello antaa muiden yhtiöiden tarjota kryptokauppaa",
+   "is": "Safello opnar á að önnur fyrirtæki geti boðið kaup á rafmyntum"
+  },
+  "b0202ea8241d": {
+   "source": "Skal ha stjålet fra egen bedrift – brukte pengene på krypto",
+   "nn": "Skal ha stole frå eiga bedrift – brukte pengane på krypto",
+   "sv": "Ska ha stulit från det egna företaget och använde pengarna på krypto",
+   "da": "Skal have stjålet fra egen virksomhed og brugte pengene på krypto",
+   "fi": "Varasti väitetysti omalta firmalta ja käytti rahat kryptoihin",
+   "is": "Á að hafa stolið frá eigin fyrirtæki og notaði peningana í rafmynt"
+  },
+  "7996dadb43e7": {
+   "source": "NBX inngår avtale med Tieto om betalingskort for stablecoins",
+   "nn": "NBX inngår avtale med Tieto om betalingskort for stablecoins",
+   "sv": "NBX ingår avtal med Tieto om betalkort för stablecoins",
+   "da": "NBX indgår aftale med Tieto om betalingskort til stablecoins",
+   "fi": "NBX sopii Tieton kanssa stablecoin-maksukortista",
+   "is": "NBX gerir samning við Tieto um greiðslukort fyrir stablecoins"
+  },
+  "a0c89b973576": {
+   "source": "Danske Bank: Ingen bank kan bygge euro-stablecoin alene",
+   "nn": "Danske Bank: Ingen bank kan byggje euro-stablecoin åleine",
+   "sv": "Danske Bank: Ingen bank kan bygga en eurostablecoin ensam",
+   "da": "Danske Bank: Ingen bank kan bygge en euro-stablecoin alene",
+   "fi": "Danske Bank: Yksikään pankki ei voi rakentaa eurostablecoinia yksin",
+   "is": "Danske Bank: Enginn banki getur byggt evru-stablecoin einn"
+  },
+  "6753e8903e88": {
+   "source": "Minister i nyt skatteopgør: Vil gøre op med »junglen af urimelige og uforståelige regler«",
+   "nn": "Minister i nytt skatteoppgjer: Vil gjere opp med «jungelen av urimelege og uforståelege reglar»",
+   "nb": "Minister i nytt skatteoppgjør: Vil gjøre opp med «jungelen av urimelige og uforståelige regler»",
+   "sv": "Minister i ny skatteuppgörelse: Vill göra upp med ”djungeln av orimliga och obegripliga regler”",
+   "fi": "Ministeri uudessa verokiistassa: aikoo tehdä selvää kohtuuttomien ja käsittämättömien sääntöjen viidakosta",
+   "is": "Ráðherra í nýju skattauppgjöri: Vill taka á „frumskógi ósanngjarnra og óskiljanlegra reglna“"
+  },
+  "30093293e03f": {
+   "source": "Danskere svindlet for 89 millioner kroner på seks måneder",
+   "nn": "Danskar svindla for 89 millionar kroner på seks månader",
+   "nb": "Dansker svindlet for 89 millioner kroner på seks måneder",
+   "sv": "Danskar svindlade på 89 miljoner kronor på sex månader",
+   "fi": "Tanskalaisilta huijattiin 89 miljoonaa kruunua kuudessa kuukaudessa",
+   "is": "Danir sviknir um 89 milljónir króna á sex mánuðum"
+  },
+  "188b5b8ed9fb": {
+   "source": "100 år gammel lov koster danske kryptoinvestorer millioner. Nu vil minister problemet til livs",
+   "nn": "100 år gammal lov kostar danske kryptoinvestorar millionar. No vil ministeren få bukt med problemet",
+   "nb": "100 år gammel lov koster danske kryptoinvestorer millioner. Nå vil ministeren få bukt med problemet",
+   "sv": "100 år gammal lag kostar danska kryptoinvesterare miljoner. Nu vill ministern få bukt med problemet",
+   "fi": "100 vuotta vanha laki maksaa tanskalaisille kryptosijoittajille miljoonia. Nyt ministeri haluaa kitkeä ongelman",
+   "is": "100 ára gömul lög kosta danska rafmyntafjárfesta milljónir. Nú vill ráðherrann ráða bót á vandanum"
+  },
+  "5682c6aa22dd": {
+   "source": "Kollaps for kryptobørs",
+   "nn": "Kollaps for kryptobørs",
+   "sv": "Kollaps för kryptobörs",
+   "da": "Kollaps for kryptobørs",
+   "fi": "Kryptopörssi romahti",
+   "is": "Hrun hjá rafmyntakauphöll"
+  },
+  "f2ad120d7189": {
+   "source": "Slår et slag for stablecoins",
+   "nn": "Slår eit slag for stablecoins",
+   "sv": "Slår ett slag för stablecoins",
+   "da": "Slår et slag for stablecoins",
+   "fi": "Puolustaa stablecoineja",
+   "is": "Berst fyrir stablecoins"
+  },
+  "831bb86ab20c": {
+   "source": "NBX mer enn doblet tapet i halvåret da MiCA-lisensen kom",
+   "nn": "NBX meir enn dobla tapet i halvåret då MiCA-løyvet kom",
+   "sv": "NBX mer än fördubblade förlusten det halvår MiCA-tillståndet kom",
+   "da": "NBX mere end fordoblede tabet i det halvår, hvor MiCA-licensen kom",
+   "fi": "NBX yli kaksinkertaisti tappionsa sillä puolivuotiskaudella, jona MiCA-lupa tuli",
+   "is": "NBX meira en tvöfaldaði tapið á hálfsárinu þegar MiCA-leyfið kom"
+  },
+  "55643fb5a215": {
+   "source": "Regjeringen utreder midlertidig forbud mot nye kryptodatasentre (skriftlig spørsmål 15:3707)",
+   "nn": "Regjeringa utgreier mellombels forbod mot nye kryptodatasenter (skriftleg spørsmål 15:3707)",
+   "sv": "Regeringen utreder ett tillfälligt förbud mot nya kryptodatacenter (skriftlig fråga 15:3707)",
+   "da": "Regeringen undersøger et midlertidigt forbud mod nye kryptodatacentre (skriftligt spørgsmål 15:3707)",
+   "fi": "Hallitus selvittää väliaikaista kieltoa uusille kryptodatakeskuksille (kirjallinen kysymys 15:3707)",
+   "is": "Ríkisstjórnin kannar tímabundið bann við nýjum rafmyntagagnaverum (skrifleg fyrirspurn 15:3707)"
+  },
+  "1abbecf31dff": {
+   "source": "Verdiendringer i bitcoin tynger NBX",
+   "nn": "Verdiendringar i bitcoin tyngjer NBX",
+   "sv": "Värdeförändringar i bitcoin tynger NBX",
+   "da": "Værdiændringer i bitcoin tynger NBX",
+   "fi": "Bitcoinin arvonmuutokset painavat NBX:ää",
+   "is": "Verðbreytingar á bitcoin þyngja NBX"
+  },
+  "c1431df81160": {
+   "source": "Norway Wants to Ban Bitcoin Mining. The Miners Already Left | Rachel Geyer, EBEA",
+   "nn": "Noreg vil forby utvinning av bitcoin. Gruvearbeidarane har alt reist | Rachel Geyer, EBEA",
+   "sv": "Norge vill förbjuda bitcoinbrytning. Gruvarbetarna har redan lämnat | Rachel Geyer, EBEA",
+   "da": "Norge vil forby udvinding af bitcoin. Minearbejderne er allerede rejst | Rachel Geyer, EBEA",
+   "fi": "Norja haluaa kieltää bitcoinin louhinnan. Louhijat ovat jo lähteneet | Rachel Geyer, EBEA",
+   "is": "Noregur vill banna bitcoin-nám. Námumennirnir eru þegar farnir | Rachel Geyer, EBEA"
+  },
+  "a384452ed1b6": {
+   "source": "GreenMerc trekker MiCA-klage og bruker Northcryptos lisens i Sverige",
+   "nn": "GreenMerc trekkjer MiCA-klage og bruker Northcrypto sitt løyve i Sverige",
+   "sv": "GreenMerc drar tillbaka MiCA-överklagandet och använder Northcryptos tillstånd i Sverige",
+   "da": "GreenMerc trækker MiCA-klagen tilbage og bruger Northcryptos licens i Sverige",
+   "fi": "GreenMerc peruu MiCA-valituksensa ja käyttää Northcrypton lupaa Ruotsissa",
+   "is": "GreenMerc dreg MiCA-kæru til baka og notar leyfi Northcrypto í Svíþjóð"
+  },
+  "b46e8d2a4dad": {
+   "source": "To tilsyn vil ikke si om kryptodistribusjon krever egen tillatelse",
+   "nn": "To tilsyn vil ikkje seie om kryptodistribusjon krev eige løyve",
+   "sv": "Två tillsynsmyndigheter vill inte säga om kryptodistribution kräver ett eget tillstånd",
+   "da": "To tilsyn vil ikke sige, om kryptodistribution kræver egen tilladelse",
+   "fi": "Kaksi valvojaa ei sano, vaatiiko kryptojen jakelu oman luvan",
+   "is": "Tvö eftirlitsstjórnvöld vilja ekki segja hvort dreifing rafmynta krefjist sérstaks leyfis"
+  },
+  "e1e3eef6ecff": {
+   "source": "NBX registrert som MoneyGram-agent (børsmelding, engelsk)",
+   "nn": "NBX er registrert som MoneyGram-agent (børsmelding, engelsk)",
+   "sv": "NBX registrerat som MoneyGram-ombud (börsmeddelande, engelska)",
+   "da": "NBX registreret som MoneyGram-agent (børsmeddelelse, engelsk)",
+   "fi": "NBX rekisteröity MoneyGram-agentiksi (pörssitiedote, englanniksi)",
+   "is": "NBX skráð sem umboðsaðili MoneyGram (kauphallartilkynning, á ensku)"
+  },
+  "5f757489d23c": {
+   "source": "DNB tester tokeniserte innskudd i kroner med europeiske banker",
+   "nn": "DNB testar tokeniserte innskot i kroner med europeiske bankar",
+   "sv": "DNB testar tokeniserade insättningar i kronor med europeiska banker",
+   "da": "DNB tester tokeniserede indskud i kroner med europæiske banker",
+   "fi": "DNB testaa tokenisoituja kruunutalletuksia eurooppalaisten pankkien kanssa",
+   "is": "DNB prófar tokeniserðar innstæður í krónum með evrópskum bönkum"
+  },
+  "4d918e6a3378": {
+   "source": "Firi tar opp kampen om 1,1 millioner svenske kryptoeiere",
+   "nn": "Firi tek opp kampen om 1,1 millionar svenske kryptoeigarar",
+   "sv": "Firi tar upp kampen om 1,1 miljoner svenska kryptoägare",
+   "da": "Firi tager kampen op om 1,1 millioner svenske krypto-ejere",
+   "fi": "Firi haastaa 1,1 miljoonaa ruotsalaista kryptonomistajaa",
+   "is": "Firi tekur upp baráttuna um 1,1 milljón sænskra rafmyntaeigenda"
+  },
+  "4fec239ddb97": {
+   "source": "Hilbert finansierer utlån med innskudd på blokkjeden",
+   "nn": "Hilbert finansierer utlån med innskot på blokkjeda",
+   "sv": "Hilbert finansierar utlåning med insättningar på blockkedjan",
+   "da": "Hilbert finansierer udlån med indskud på blockchainen",
+   "fi": "Hilbert rahoittaa luotonantoa talletuksilla lohkoketjussa",
+   "is": "Hilbert fjármagnar útlán með innstæðum á bálkakeðjunni"
+  },
+  "82697418efbc": {
+   "source": "Kvarn avviser at Goobit-avtalen er agentforhold eller outsourcing",
+   "nn": "Kvarn avviser at Goobit-avtalen er eit agentforhold eller outsourcing",
+   "sv": "Kvarn tillbakavisar att Goobit-avtalet är ett agentförhållande eller outsourcing",
+   "da": "Kvarn afviser, at Goobit-aftalen er et agentforhold eller outsourcing",
+   "fi": "Kvarn kiistää, että Goobit-sopimus olisi agentuuri tai ulkoistusta",
+   "is": "Kvarn hafnar því að Goobit-samningurinn sé umboðssamband eða útvistun"
+  },
+  "6e2887720a32": {
+   "source": "Firi lanserer i Sverige – etter permitteringer og milliontap",
+   "nn": "Firi lanserer i Sverige – etter permitteringar og milliontap",
+   "sv": "Firi lanserar i Sverige – efter varsel och miljonförluster",
+   "da": "Firi lancerer i Sverige – efter fyringer og milliontab",
+   "fi": "Firi avaa Ruotsissa irtisanomisten ja miljoonatapioiden jälkeen",
+   "is": "Firi opnar í Svíþjóð eftir uppsagnir og milljónatap"
+  },
+  "9750ec7bf5d8": {
+   "source": "Finske Kvarn leier ut MiCA-tillatelsen sin til nordiske partnere",
+   "nn": "Finske Kvarn leiger ut MiCA-løyvet sitt til nordiske partnarar",
+   "sv": "Finska Kvarn hyr ut sitt MiCA-tillstånd till nordiska partner",
+   "da": "Finske Kvarn lejer sin MiCA-tilladelse ud til nordiske partnere",
+   "fi": "Suomalainen Kvarn vuokraa MiCA-lupansa pohjoismaisille kumppaneille",
+   "is": "Finnska Kvarn leigir MiCA-leyfi sitt til norrænna samstarfsaðila"
+  },
+  "e0cc8b0df8e7": {
+   "source": "Goobit lanserer sparing i bitcoin og gull på finsk lisens",
+   "nn": "Goobit lanserer sparing i bitcoin og gull på finsk løyve",
+   "sv": "Goobit lanserar sparande i bitcoin och guld på finsk licens",
+   "da": "Goobit lancerer opsparing i bitcoin og guld på finsk licens",
+   "fi": "Goobit tuo bitcoin- ja kultasäästämisen suomalaisella luvalla",
+   "is": "Goobit býður sparnað í bitcoin og gulli á finnsku leyfi"
+  },
+  "a1d43879dcb4": {
+   "source": "Bitcoin-utvinning og norsk kraft på seminar i Oslo",
+   "nn": "Bitcoin-utvinning og norsk kraft på seminar i Oslo",
+   "sv": "Bitcoinbrytning och norsk el på seminarium i Oslo",
+   "da": "Bitcoin-udvinding og norsk strøm på seminar i Oslo",
+   "fi": "Bitcoinin louhinta ja norjalainen sähkö Oslon seminaarissa",
+   "is": "Bitcoin-nám og norsk orka á ráðstefnu í Osló"
+  },
+  "eb685890cbc3": {
+   "source": "H100-styrelederen vil ha flere oppkjøp i bitcoinbransjen",
+   "nn": "H100-styreleiaren vil ha fleire oppkjøp i bitcoinbransjen",
+   "sv": "H100:s styrelseordförande vill se fler förvärv i bitcoinbranschen",
+   "da": "H100-formanden vil have flere opkøb i bitcoinbranchen",
+   "fi": "H100:n hallituksen puheenjohtaja haluaa lisää yrityskauppoja bitcoin-alalla",
+   "is": "Stjórnarformaður H100 vill fleiri yfirtökur í bitcoin-geiranum"
+  },
+  "23342b8b1a2d": {
+   "source": "Dansk skatteminister møter kryptobransjen på Christiansborg",
+   "nn": "Dansk skatteminister møter kryptobransjen på Christiansborg",
+   "sv": "Dansk skatteminister möter kryptobranschen på Christiansborg",
+   "da": "Dansk skatteminister møder kryptobranchen på Christiansborg",
+   "fi": "Tanskan veroministeri tapaa kryptoalan Christiansborgissa",
+   "is": "Danskur skattamálaráðherra hittir rafmyntageirann á Christiansborg"
+  },
+  "a2a605592458": {
+   "source": "Blockchain på tech-scenen og på dagsorden i Stockholm",
+   "nn": "Blockchain på tech-scenen og på dagsorden i Stockholm",
+   "sv": "Blockchain på techscenen och på dagordningen i Stockholm",
+   "da": "Blockchain på techscenen og på dagsordenen i Stockholm",
+   "fi": "Lohkoketju tekniikkanäyttämöllä ja esityslistalla Tukholmassa",
+   "is": "Bálkakeðja á tæknisviðinu og á dagskrá í Stokkhólmi"
+  },
+  "08a682f7d85d": {
+   "source": "BTCX blir megler, og Goobits rapporterte inntekter faller",
+   "nn": "BTCX blir meklar, og dei rapporterte inntektene til Goobit fell",
+   "sv": "BTCX blir mäklare, och Goobits rapporterade intäkter faller",
+   "da": "BTCX bliver mægler, og Goobits rapporterede indtægter falder",
+   "fi": "BTCX:stä tulee välittäjä, ja Goobitin raportoidut tuotot laskevat",
+   "is": "BTCX verður miðlari og tilkynntar tekjur Goobit lækka"
+  },
+  "2034a42ac260": {
+   "source": "Norges Bank utforsker tokenisering med tolv aktører",
+   "nn": "Norges Bank utforskar tokenisering med tolv aktørar",
+   "sv": "Norges Bank utforskar tokenisering med tolv aktörer",
+   "da": "Norges Bank udforsker tokenisering med tolv aktører",
+   "fi": "Norges Bank selvittää tokenisaatiota kahdentoista toimijan kanssa",
+   "is": "Norges Bank kannar tókavæðingu með tólf aðilum"
+  },
+  "6a94ab65ebff": {
+   "source": "Nytt nederlag for Valuno i kampen om MiCA-lisens",
+   "nn": "Nytt nederlag for Valuno i kampen om MiCA-løyve",
+   "sv": "Nytt nederlag för Valuno i kampen om MiCA-tillstånd",
+   "da": "Nyt nederlag for Valuno i kampen om MiCA-licens",
+   "fi": "Uusi tappio Valunolle MiCA-luvan taistelussa",
+   "is": "Nýtt ósigur fyrir Valuno í baráttunni um MiCA-leyfi"
+  },
+  "f6301aef3314": {
+   "source": "Crypto-asset service providers in Finland must be authorised in the EU",
+   "nn": "Tilbydarar av kryptoeigedelstenester i Finland må ha løyve i EU",
+   "nb": "Tilbydere av kryptoeiendeltjenester i Finland må ha tillatelse i EU",
+   "sv": "Leverantörer av kryptotillgångstjänster i Finland måste ha tillstånd i EU",
+   "da": "Udbydere af kryptoaktivtjenester i Finland skal have tilladelse i EU",
+   "fi": "Kryptovarapalvelujen tarjoajilla Suomessa on oltava toimilupa EU:ssa",
+   "is": "Þjónustuveitendur sýndareigna í Finnlandi verða að hafa leyfi í ESB"
+  }
+ }
+}
