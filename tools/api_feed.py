@@ -513,7 +513,7 @@ class Feed:
         sources = []
         for s in raw.get("sources") or []:
             sources.append({"url": s.get("url"), "title": s.get("title"), "source_name": s.get("source_name"), "date": s.get("date")})
-        return {
+        out = {
             "id": eid,
             "api_url": self.abs(f"api/v1/orgchart/{eid}.json"),
             "html_url": self.abs(f"org-chart/#{eid}"),
@@ -533,6 +533,49 @@ class Feed:
             "image": self.media(raw.get("image"), "photo"),
             "profiles": profiles,
         }
+        ids = [str(item) for item in (raw.get("talk_ids") or []) if item]
+        if ids:
+            out["talk_ids"] = ids
+        events = [str(item) for item in (raw.get("event_ids") or []) if item]
+        if events:
+            out["event_ids"] = events
+        talks = []
+        for item in raw.get("talks") or []:
+            if not isinstance(item, dict) or not item.get("id"):
+                continue
+            brief = {"id": str(item.get("id")), "title": item.get("title") or ""}
+            if item.get("video_url"):
+                brief["video_url"] = item.get("video_url")
+            if item.get("event_id"):
+                brief["event_id"] = item.get("event_id")
+            if item.get("date"):
+                brief["date"] = item.get("date")
+            talks.append(brief)
+        if talks:
+            out["talks"] = talks
+        affiliations = []
+        for item in raw.get("affiliations") or []:
+            if not isinstance(item, dict):
+                continue
+            if not (item.get("organisation") and item.get("source_url") and item.get("retrieved_at")):
+                continue
+            aff = {
+                "talk_id": item.get("talk_id"),
+                "organisation": item.get("organisation"),
+                "source_url": item.get("source_url"),
+                "source_name": item.get("source_name"),
+                "retrieved_at": item.get("retrieved_at"),
+            }
+            if item.get("role"):
+                aff["role"] = item.get("role")
+            if item.get("date"):
+                aff["date"] = item.get("date")
+            if item.get("event_id"):
+                aff["event_id"] = item.get("event_id")
+            affiliations.append(aff)
+        if affiliations:
+            out["affiliations"] = affiliations
+        return out
 
     def relation(self, raw):
         rid = safe_id(raw.get("id")) or safe_id(f"{raw.get('from')}-{raw.get('to')}-{raw.get('type')}")
@@ -590,7 +633,7 @@ def public_org(preview):
 
 TALK_FIELDS = (
     "id", "video_url", "platform", "title", "speakers", "event_name", "event_url",
-    "calendar_event_id", "event_id", "unlink_reason", "city", "country", "date", "published", "duration", "language",
+    "calendar_event_id", "event_id", "unlink_reason", "speaker_ids", "city", "country", "date", "published", "duration", "language",
     "channel", "description", "source_url", "retrieved_at", "added_at", "embed",
 )
 
@@ -604,7 +647,7 @@ def public_talks():
         row = {}
         for key in TALK_FIELDS:
             value = item.get(key)
-            if key == "speakers":
+            if key in ("speakers", "speaker_ids"):
                 row[key] = [s for s in value if isinstance(s, str) and s] if isinstance(value, list) else []
             elif key == "embed":
                 row[key] = bool(value)
@@ -1329,7 +1372,7 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
     feed.add_endpoint("academia-item", "api/v1/academia/{id}.json", "One academia row. The id is in academia.json.", "AcademiaItem",
                       example=f"api/v1/academia/{next(iter(ac_ids))}.json" if ac_ids else None)
 
-    collection("api/v1/orgchart.json", "Published who's who: organisations, people, relations, regulation notes and caveats.", "OrgChart",
+    collection("api/v1/orgchart.json", "Published who's who: organisations, people, relations, regulation notes and caveats. A person named on a talk has talk_ids, event_ids and talks. affiliations lists the organisation the talk page stated for that talk, with the talk date when the page gave one, the source URL and the retrieval time. An affiliation the page did not state is omitted.", "OrgChart",
                feed.env(updated=org_updated, count=len(ents), entities=ents, relations=rels, regulation=regulation, caveats=caveats),
                example=f"api/v1/orgchart/{ents[0]['id']}.json" if ents else None,
                item_template="api/v1/orgchart/{id}.json")
@@ -1737,6 +1780,7 @@ def schemas():
             "retrieved_at": {"type": "string", "description": "ISO 8601 timestamp."},
             "added_at": {"type": "string", "description": "ISO 8601 timestamp."},
             "embed": {"type": "boolean", "description": "True when the platform's oEmbed response includes an official player."},
+            "speaker_ids": {"type": "array", "items": {"type": "string"}, "description": "Who's who ids for speakers, in the same order as speakers. Empty when the page named nobody."},
             "html_url": {"type": "string"},
             "api_url": {"type": "string"},
         },
@@ -1787,7 +1831,20 @@ def schemas():
         "Academia": wrap("Academia", {"courses": {"type": "array"}, "groups": {"type": "array"}, "publications": {"type": "array"}, "research": {"type": "array"}}),
         "AcademiaSection": wrap("AcademiaSection", {"section": {"type": "string"}, "items": {"type": "array"}}),
         "AcademiaItem": wrap("AcademiaItem", {"item": {"type": "object"}}),
-        "OrgChart": wrap("OrgChart", {"entities": {"type": "array"}, "relations": {"type": "array"}, "regulation": {"type": "array"}}),
+        "OrgEntity": {
+            "type": "object",
+            "required": ["id", "name"],
+            "properties": {
+                "id": {"type": "string"},
+                "name": {"type": "string"},
+                "type": {"type": "string"},
+                "talk_ids": {"type": "array", "items": {"type": "string"}, "description": "Talks in /api/v1/talks.json that name this person. Omitted when none are linked."},
+                "event_ids": {"type": "array", "items": {"type": "string"}, "description": "Events those talks belong to. Omitted when none are linked."},
+                "talks": {"type": "array", "description": "id, title, video_url, and event_id and date when the talk has them."},
+                "affiliations": {"type": "array", "description": "One organisation per talk, only when the talk page stated it. Each item has organisation, talk_id, source_url, source_name and retrieved_at. role and date are present when the page stated them. An affiliation without a source is omitted."},
+            },
+        },
+        "OrgChart": wrap("OrgChart", {"entities": {"type": "array", "items": {"$ref": "#/components/schemas/OrgEntity"}}, "relations": {"type": "array"}, "regulation": {"type": "array"}}),
         "Relation": {"type": "object"},
         "RelationList": wrap("RelationList", {"relations": {"type": "array"}}),
         "RegulationList": wrap("RegulationList", {"regulation": {"type": "array"}}),
@@ -2177,7 +2234,7 @@ curl -fsS {letters}{html.escape(one_line)}</pre>
 <pre>curl -fsS {html.escape(b)}api/v1/markets.json
 curl -fsS {html.escape(b)}api/v1/markets/aggregated.json</pre>
 <h2>Talks</h2>
-<p>Public talks on bitcoin, cryptocurrencies and blockchain held in Norway, Sweden, Denmark, Finland, Iceland, the Faroe Islands, Greenland and Åland are at <a href="{html.escape(b)}api/v1/talks.json"><code>/api/v1/talks.json</code></a>, newest first. One talk is <code>/api/v1/talks/{{id}}.json</code>. One country is <a href="{html.escape(b)}api/v1/talks/by-country/NO.json"><code>/api/v1/talks/by-country/{{country}}.json</code></a> (<code>NO</code>, <code>SE</code>, <code>DK</code>, <code>FI</code>, <code>IS</code>, <code>FO</code>, <code>GL</code>, <code>AX</code>). <code>description</code> is ours. <code>title</code>, dates, duration, channel and speakers come from the platform at <code>source_url</code>. A field the platform did not state is null. <code>embed</code> is true only when that platform's oEmbed response includes a player. The HTML page loads the player after a click: YouTube via youtube-nocookie.com, Vimeo via player.vimeo.com. <code>event_id</code> and <code>calendar_event_id</code> are the same event id when the talk is linked. That event is <code>/api/v1/events/{{id}}.json</code> (and <code>/api/v1/events/previous.json</code> when it is a past event) and the page is <code>/calendar/{{id}}/</code>. <code>talk_ids</code> on the event lists those talks. <code>unlink_reason</code> is set when the video page did not state a day or a place, and <code>event_id</code> is then null.</p>
+<p>Public talks on bitcoin, cryptocurrencies and blockchain held in Norway, Sweden, Denmark, Finland, Iceland, the Faroe Islands, Greenland and Åland are at <a href="{html.escape(b)}api/v1/talks.json"><code>/api/v1/talks.json</code></a>, newest first. One talk is <code>/api/v1/talks/{{id}}.json</code>. One country is <a href="{html.escape(b)}api/v1/talks/by-country/NO.json"><code>/api/v1/talks/by-country/{{country}}.json</code></a> (<code>NO</code>, <code>SE</code>, <code>DK</code>, <code>FI</code>, <code>IS</code>, <code>FO</code>, <code>GL</code>, <code>AX</code>). <code>description</code> is ours. <code>title</code>, dates, duration, channel and speakers come from the platform at <code>source_url</code>. A field the platform did not state is null. <code>embed</code> is true only when that platform's oEmbed response includes a player. The HTML page loads the player after a click: YouTube via youtube-nocookie.com, Vimeo via player.vimeo.com. <code>event_id</code> and <code>calendar_event_id</code> are the same event id when the talk is linked. That event is <code>/api/v1/events/{{id}}.json</code> (and <code>/api/v1/events/previous.json</code> when it is a past event) and the page is <code>/calendar/{{id}}/</code>. <code>talk_ids</code> on the event lists those talks. <code>unlink_reason</code> is set when the video page did not state a day or a place, and <code>event_id</code> is then null. <code>speaker_ids</code> are who's who ids in the same order as <code>speakers</code>. The person, at <code>/api/v1/orgchart/{{id}}.json</code>, lists those talks and any affiliation the talk page stated.</p>
 <h2>Several outlets, one story</h2>
 <p>A story keeps one primary outlet. Other outlets that covered the same event are in <code>also_covered_by</code>. <code>sources</code> lists the primary first, then the others. Each outlet has <code>outlet</code>, <code>outlet_name</code>, <code>url</code>, <code>title</code> (that outlet's headline), <code>published</code>, <code>lang</code>, <code>country</code>, <code>source_type</code> and <code>logo</code>. <code>source_type</code> is <code>national</code>, <code>regional</code> (regional and local), <code>official</code> (justice and official: police, prosecutors, courts, regulators) or <code>international</code>. <code>coverage.count</code> is the number of outlets. <code>coverage.by_country</code> and <code>coverage.by_source_type</code> are the counts and shares for the bars. Every source type is present, including a count of zero. <code>html_url</code> is our page for that story. <code>url</code> is the primary outlet. Kaupr stays a news source only.</p>
 <h2>Events</h2>

@@ -158,6 +158,7 @@ def main():
             check('href="../talks/"' in html or 'href="talks/"' in html or "/talks/" in html, f"{lang} talks href", fails)
             check("Nordic Crypto" in html, f"{lang} brand", fails)
             check('href="../calendar/' in html and "#e-" not in html, f"{lang} talk links to the event page", fails)
+            check('href="../org-chart/#' in html, f"{lang} talk links to the speaker", fails)
         # Calendar previous-events link, English and Norwegian.
         now = dt.datetime(2026, 10, 7, tzinfo=dt.timezone.utc)
         for lang in ("en", "nn"):

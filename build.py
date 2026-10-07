@@ -2373,12 +2373,20 @@ def build_one_event(e):
         if any(talk["url"] == x["url"] for x in talks):
             continue
         credit = event_select.credit_block(talk.get("source_name") or t("ev_source"), talk.get("source_url") or talk["url"], talk.get("retrieved"))
-        talks.append({"title": talk.get("title") or t("ev_videos"), "url": talk["url"], "credit": credit, "speakers": talk.get("speakers") or []})
+        talks.append({"title": talk.get("title") or t("ev_videos"), "url": talk["url"], "credit": credit, "speakers": talk.get("speakers") or [], "speaker_ids": talk.get("speaker_ids") or []})
     if talks:
         items = []
         for talk in talks:
             names = [s for s in (talk.get("speakers") or []) if s]
-            who = f' <span class="meta">{E(t("ev_speakers"))}: {E(", ".join(names))}</span>' if names else ""
+            ids = talk.get("speaker_ids") or []
+            if names:
+                linked = []
+                for i, name in enumerate(names):
+                    sid = ids[i] if i < len(ids) and ids[i] else ""
+                    linked.append(f'<a href="../../org-chart/#{E(sid)}">{E(name)}</a>' if sid else E(name))
+                who = f' <span class="meta">{E(t("ev_speakers"))}: {", ".join(linked)}</span>'
+            else:
+                who = ""
             items.append(f'<li><a href="{E(talk["url"])}" rel="noopener">{E(talk["title"])}</a>{who}' + _source_line(talk.get("credit")) + "</li>")
         bits.append(f'<h2>{E(t("ev_talks"))}</h2><ul class="evpage">{"".join(items)}</ul>')
     if not fact and e.get("source") and e.get("source") != "backfill":
@@ -2484,7 +2492,12 @@ def build_talks():
             place = ", ".join(p for p in (r.get("city"), cname(r.get("country")) if r.get("country") else "") if p)
             bits.append(f'{flag(r.get("country"))} {E(place)}' if r.get("country") else E(place))
         if speakers:
-            bits.append(f'{E(t("talks_speakers"))}: {E(", ".join(speakers))}')
+            ids = r.get("speaker_ids") or []
+            linked = []
+            for i, name in enumerate(speakers):
+                sid = ids[i] if i < len(ids) and ids[i] else ""
+                linked.append(f'<a href="../org-chart/#{E(sid)}">{E(name)}</a>' if sid else E(name))
+            bits.append(f'{E(t("talks_speakers"))}: {", ".join(linked)}')
         if duration:
             bits.append(f'{E(t("talks_duration"))}: {E(duration)}')
         if r.get("language"):

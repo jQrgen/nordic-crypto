@@ -23,7 +23,8 @@
    "source_url": "https://www.youtube.com/watch?v=ZJHTEXcyePQ&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": []
   },
   {
    "id": "yt-sDb2GJTIpPo",
@@ -68,7 +69,29 @@
    "source_url": "https://www.youtube.com/watch?v=sDb2GJTIpPo&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-rebecca-koskinen",
+    "spk-christer-ekman",
+    "spk-christopher-beck",
+    "spk-julian-hotzel",
+    "spk-stijn-vander-straeten",
+    "spk-omri-ross",
+    "christopher-kock",
+    "spk-damien-schuler",
+    "spk-frank-schuil",
+    "spk-jacob-lindberg",
+    "spk-quentin-werle",
+    "spk-elena-gonta",
+    "spk-mykolas-majauskas",
+    "spk-pascal-hugli",
+    "spk-karl-naim",
+    "spk-staffan-larsson",
+    "spk-andrej-majcen",
+    "spk-nina-luisa-siedler",
+    "spk-ronit-ghose",
+    "spk-hanna-raftell"
+   ]
   },
   {
    "id": "yt-rfLLR9vhoYI",
@@ -112,7 +135,28 @@
    "source_url": "https://www.youtube.com/watch?v=rfLLR9vhoYI&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-orest-gavryliak",
+    "spk-uve-poom",
+    "spk-andries-doets",
+    "spk-alexandra-lloyd",
+    "spk-pete-eskew",
+    "spk-ettore-zauli",
+    "spk-havard-terland",
+    "spk-marina-danylyuk-kerem",
+    "magnus-jones",
+    "spk-alireza-siadat",
+    "spk-elvin-sababi",
+    "spk-zarina-bjorklund-rehn",
+    "spk-burcu-mavis",
+    "spk-emelie-moritz",
+    "spk-ted-scheiman",
+    "spk-martin-wichmann",
+    "spk-gustav-arentoft",
+    "spk-matthew-breen",
+    "jakob-mikkel-hansen"
+   ]
   },
   {
    "id": "yt-qlf-5yZtzVE",
@@ -155,7 +199,27 @@
    "source_url": "https://www.youtube.com/watch?v=qlf-5yZtzVE&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-charlotte-bossen-nielsen",
+    "spk-kasper-luyckx",
+    "spk-laurent-marochini",
+    "spk-gerry-afentakis",
+    "spk-anya-nova",
+    "spk-kylie-poole",
+    "spk-ilja-tomilin",
+    "spk-christian-alvarez",
+    "spk-graham-cooke",
+    "spk-danny-bailey",
+    "spk-victoria-gago",
+    "spk-giovanni-ruggiero",
+    "spk-oskars-jepsis",
+    "spk-asa-skalen",
+    "spk-nikhil-sharma",
+    "spk-stephan-lutz",
+    "spk-jack-nikogosian",
+    "spk-michael-akampa"
+   ]
   },
   {
    "id": "yt-hINk3yZvDdY",
@@ -196,7 +260,25 @@
    "source_url": "https://www.youtube.com/watch?v=hINk3yZvDdY&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-daniel-hinders",
+    "spk-simon-seiter",
+    "spk-paul-afshar",
+    "spk-marcus-molleskov",
+    "spk-ariane-batchelor",
+    "spk-hachem-hassan",
+    "ole-morten-sunde",
+    "spk-georges-mansourati",
+    "spk-courtney-williams",
+    "spk-jon-blankfield",
+    "spk-jennifer-shaughnessy",
+    "spk-daniel-elsawey",
+    "spk-dorian-vincileoni",
+    "torbjorn-bull-jenssen",
+    "spk-marco-poblete",
+    "spk-radoslav-poljasevic"
+   ]
   },
   {
    "id": "yt-ffmB3P1dqw0",
@@ -238,7 +320,26 @@
    "source_url": "https://www.youtube.com/watch?v=ffmB3P1dqw0&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-alexandra-overgaag",
+    "spk-cesar-soto-valero",
+    "spk-elias-faltin",
+    "spk-devon-martens",
+    "spk-boris-bohrer-bilowitzki",
+    "spk-anna-tutova",
+    "spk-liam-karwan",
+    "spk-jacob-stenum-czepluch",
+    "spk-halvor-bakke-veiby",
+    "spk-joel-valenzuela",
+    "spk-shirly-valge",
+    "spk-luke-dufour",
+    "spk-gustav-buder",
+    "spk-maximilian-gartner",
+    "spk-andreas-soreby-karlsson",
+    "spk-carl-gardsell",
+    "spk-marie-christin-rinke"
+   ]
   },
   {
    "id": "yt-RTcqp3MqRtU",
@@ -278,7 +379,24 @@
    "source_url": "https://www.youtube.com/watch?v=RTcqp3MqRtU&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-alexandra-overgaag",
+    "spk-janne-jutila",
+    "spk-agata-slater",
+    "spk-martin-coxall",
+    "spk-raido-saar",
+    "spk-karola-xenia-kassai",
+    "spk-tord-eide",
+    "stig-aleksander-kjos-mathisen",
+    "spk-asgeir-oskarsson",
+    "spk-johannes-wirtz",
+    "spk-marc-oris-muller",
+    "spk-dan-haj",
+    "spk-jonathan-pallares",
+    "spk-erica-stanford",
+    "spk-stevan-radonjanin"
+   ]
   },
   {
    "id": "yt-FXf5cpY0oY4",
@@ -324,7 +442,30 @@
    "source_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-reinis-znotins",
+    "spk-svetlana-prussova",
+    "spk-anna-agu-alekseitsik",
+    "spk-tim-zolitz",
+    "spk-eleonora-pavliouk",
+    "spk-erwin-heuvelman",
+    "spk-henrik-westerberg",
+    "spk-marius-smith",
+    "spk-marc-vanlerberghe",
+    "spk-jon-isaksen",
+    "spk-candice-teo",
+    "spk-christos-efthymiopoulos",
+    "spk-tommaso-astazi",
+    "spk-hadley-chilton",
+    "spk-mauro-lorenzo-halve",
+    "spk-jacqueline-cooper",
+    "spk-lorenz-carl-flethenmacher",
+    "jakob-mikkel-hansen",
+    "spk-johan-toll",
+    "spk-wojtek-jeznach",
+    "spk-arun-maharajan"
+   ]
   },
   {
    "id": "yt--4I2b_hFG0A",
@@ -367,7 +508,27 @@
    "source_url": "https://www.youtube.com/watch?v=-4I2b_hFG0A&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "jakob-mikkel-hansen",
+    "spk-frederik-gregaard",
+    "spk-niklas-reichert",
+    "spk-mads-clemmensen",
+    "spk-jon-helgi-egilsson",
+    "spk-gabriel-bizama",
+    "spk-christian-omvik",
+    "spk-hanna-raftell",
+    "spk-viktor-mollborg",
+    "spk-mehtaj-syed",
+    "magnus-jones",
+    "spk-ken-siva-lie",
+    "spk-lars-marius-saeverhagen",
+    "spk-mikkel-thrane",
+    "spk-thomas-eichenberger",
+    "spk-nina-luisa-siedler",
+    "ole-morten-sunde",
+    "spk-tobias-lipfert"
+   ]
   },
   {
    "id": "yt-CV0WndNSP5Q",
@@ -393,7 +554,10 @@
    "source_url": "https://www.youtube.com/watch?v=CV0WndNSP5Q&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-disha-l-dinesha"
+   ]
   },
   {
    "id": "yt-n5gpUEGfQV4",
@@ -422,7 +586,13 @@
    "source_url": "https://www.youtube.com/watch?v=n5gpUEGfQV4&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-abubakar-nur-khalil",
+    "spk-anaise-kanimba",
+    "spk-obi-nwosu",
+    "spk-sabina-waithira-gitau"
+   ]
   },
   {
    "id": "yt-aYlA0ADZbQc",
@@ -449,7 +619,11 @@
    "source_url": "https://www.youtube.com/watch?v=aYlA0ADZbQc&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-elizabeth-stark",
+    "spk-ben-perrin"
+   ]
   },
   {
    "id": "yt-QPrEQ-_4Aig",
@@ -475,7 +649,10 @@
    "source_url": "https://www.youtube.com/watch?v=QPrEQ-_4Aig&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-lars-christensen"
+   ]
   },
   {
    "id": "yt-1SxQoVVlK6c",
@@ -501,7 +678,10 @@
    "source_url": "https://www.youtube.com/watch?v=1SxQoVVlK6c&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-joe-bryan"
+   ]
   },
   {
    "id": "yt-nAalwctPBvo",
@@ -527,7 +707,10 @@
    "source_url": "https://www.youtube.com/watch?v=nAalwctPBvo&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-veronika-kuett"
+   ]
   },
   {
    "id": "yt-NVPhJ0aCKOw",
@@ -551,7 +734,8 @@
    "source_url": "https://www.youtube.com/watch?v=NVPhJ0aCKOw&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": []
   },
   {
    "id": "yt-DBKNHVjX_Zc",
@@ -575,7 +759,8 @@
    "source_url": "https://www.youtube.com/watch?v=DBKNHVjX_Zc&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": []
   },
   {
    "id": "yt-Tw6eKuJ94x0",
@@ -601,7 +786,10 @@
    "source_url": "https://www.youtube.com/watch?v=Tw6eKuJ94x0&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-hadiya-masieh"
+   ]
   },
   {
    "id": "yt-9CxNmT9Ee94",
@@ -627,7 +815,10 @@
    "source_url": "https://www.youtube.com/watch?v=9CxNmT9Ee94&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-ben-perrin"
+   ]
   },
   {
    "id": "yt-b7okSZgwNaY",
@@ -653,7 +844,10 @@
    "source_url": "https://www.youtube.com/watch?v=b7okSZgwNaY&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-erasmus-hagen"
+   ]
   },
   {
    "id": "yt-Rsj3CJvLgsw",
@@ -679,7 +873,10 @@
    "source_url": "https://www.youtube.com/watch?v=Rsj3CJvLgsw&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-martin-wichmann"
+   ]
   },
   {
    "id": "yt-gn50NxhPk-0",
@@ -707,7 +904,12 @@
    "source_url": "https://www.youtube.com/watch?v=gn50NxhPk-0&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "pal-longva",
+    "spk-lars-fredrik-oksendal",
+    "spk-morten-soberg"
+   ]
   },
   {
    "id": "yt-8UUXKBprVE4",
@@ -735,7 +937,12 @@
    "source_url": "https://www.youtube.com/watch?v=8UUXKBprVE4&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-stefan-ingves",
+    "spk-gary-gorton",
+    "spk-pehr-wissen"
+   ]
   },
   {
    "id": "yt-HwznOY5BhGI",
@@ -767,7 +974,16 @@
    "source_url": "https://www.youtube.com/watch?v=HwznOY5BhGI&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-sophia-adampour",
+    "magnus-jones",
+    "spk-christian-houge",
+    "spk-vincent-langaard",
+    "spk-emil-erlingson",
+    "spk-cornelia-svedman",
+    "spk-elise-anthonisen"
+   ]
   },
   {
    "id": "yt-f4ePT_GRGUk",
@@ -795,7 +1011,12 @@
    "source_url": "https://www.youtube.com/watch?v=f4ePT_GRGUk&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-alejandro-machado",
+    "spk-paolo-ardoino",
+    "spk-ire-aderinokun"
+   ]
   },
   {
    "id": "yt-McCMg7UVCIk",
@@ -821,7 +1042,10 @@
    "source_url": "https://www.youtube.com/watch?v=McCMg7UVCIk&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-zikry-kholil"
+   ]
   },
   {
    "id": "yt-kmkqz30MYYI",
@@ -847,7 +1071,10 @@
    "source_url": "https://www.youtube.com/watch?v=kmkqz30MYYI&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-helga-valfells"
+   ]
   },
   {
    "id": "yt-SzDDpevbB0Q",
@@ -873,7 +1100,10 @@
    "source_url": "https://www.youtube.com/watch?v=SzDDpevbB0Q&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-gunnar-stefansson"
+   ]
   },
   {
    "id": "yt-M8_wI2rSz9U",
@@ -899,7 +1129,10 @@
    "source_url": "https://www.youtube.com/watch?v=M8_wI2rSz9U&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-gisli-kristjansson"
+   ]
   },
   {
    "id": "yt-AAjvDsJihaI",
@@ -925,7 +1158,10 @@
    "source_url": "https://www.youtube.com/watch?v=AAjvDsJihaI&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-kristjan-ingi-mikaelsson"
+   ]
   },
   {
    "id": "yt-_16L8E2poFU",
@@ -949,7 +1185,8 @@
    "source_url": "https://www.youtube.com/watch?v=_16L8E2poFU&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": []
   },
   {
    "id": "yt-Revpbwe_SfA",
@@ -973,7 +1210,8 @@
    "source_url": "https://www.youtube.com/watch?v=Revpbwe_SfA&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": []
   },
   {
    "id": "yt-L1xCEyn2a8s",
@@ -999,7 +1237,10 @@
    "source_url": "https://www.youtube.com/watch?v=L1xCEyn2a8s&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-vinay-gupta"
+   ]
   },
   {
    "id": "yt-lzS9pb-0Wak",
@@ -1025,7 +1266,10 @@
    "source_url": "https://www.youtube.com/watch?v=lzS9pb-0Wak&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-matthew-bryce"
+   ]
   },
   {
    "id": "yt-eH39kTAyqpQ",
@@ -1049,7 +1293,8 @@
    "source_url": "https://www.youtube.com/watch?v=eH39kTAyqpQ&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": []
   },
   {
    "id": "yt-J5Vdn-1i7cE",
@@ -1073,7 +1318,8 @@
    "source_url": "https://www.youtube.com/watch?v=J5Vdn-1i7cE&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": []
   },
   {
    "id": "yt-Z7FA53GIE34",
@@ -1102,7 +1348,13 @@
    "source_url": "https://www.youtube.com/watch?v=Z7FA53GIE34&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-preethi-kasireddy",
+    "spk-joey-krug",
+    "spk-vinay-gupta",
+    "spk-richard-muirhead"
+   ]
   },
   {
    "id": "yt-t6FF3e-hGqw",
@@ -1128,7 +1380,10 @@
    "source_url": "https://www.youtube.com/watch?v=t6FF3e-hGqw&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-anita-kristjansdottir"
+   ]
   },
   {
    "id": "yt-AipJd3l5-pE",
@@ -1154,7 +1409,10 @@
    "source_url": "https://www.youtube.com/watch?v=AipJd3l5-pE&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-mats-broden"
+   ]
   },
   {
    "id": "yt-40L56Dh3SsY",
@@ -1180,7 +1438,10 @@
    "source_url": "https://www.youtube.com/watch?v=40L56Dh3SsY&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-jonas-foyn-therkelsen"
+   ]
   },
   {
    "id": "yt-f4U676prxCo",
@@ -1204,7 +1465,8 @@
    "source_url": "https://www.youtube.com/watch?v=f4U676prxCo&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": []
   },
   {
    "id": "yt-JaxgfxpmUmk",
@@ -1232,7 +1494,12 @@
    "source_url": "https://www.youtube.com/watch?v=JaxgfxpmUmk&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "torbjorn-bull-jenssen",
+    "spk-asker-voldsgaard",
+    "spk-morten-clausen"
+   ]
   },
   {
    "id": "yt-V5qDo7Qd3Yk",
@@ -1258,7 +1525,10 @@
    "source_url": "https://www.youtube.com/watch?v=V5qDo7Qd3Yk&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-vedran-maslic"
+   ]
   },
   {
    "id": "yt-h1ZaK2i9LBI",
@@ -1284,7 +1554,10 @@
    "source_url": "https://www.youtube.com/watch?v=h1ZaK2i9LBI&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-andreas-antonopoulos"
+   ]
   },
   {
    "id": "yt-PTD7MxsDeY8",
@@ -1310,7 +1583,10 @@
    "source_url": "https://www.youtube.com/watch?v=PTD7MxsDeY8&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-chris-coney"
+   ]
   },
   {
    "id": "yt-eo-0BgrKxiI",
@@ -1336,7 +1612,10 @@
    "source_url": "https://www.youtube.com/watch?v=eo-0BgrKxiI&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-andreas-m-antonopoulos"
+   ]
   },
   {
    "id": "yt-ibI_S_RcxZQ",
@@ -1360,7 +1639,8 @@
    "source_url": "https://www.youtube.com/watch?v=ibI_S_RcxZQ&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": []
   },
   {
    "id": "yt-kmizKAmfsWU",
@@ -1389,7 +1669,13 @@
    "source_url": "https://www.youtube.com/watch?v=kmizKAmfsWU&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-ken-umezaki",
+    "spk-marko-ahtisaari",
+    "spk-turo-pekari",
+    "spk-bruno-guez"
+   ]
   },
   {
    "id": "yt-EBs5zp-I3sk",
@@ -1415,7 +1701,10 @@
    "source_url": "https://www.youtube.com/watch?v=EBs5zp-I3sk&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-nic-cary"
+   ]
   },
   {
    "id": "yt-zi2JsPOm5HE",
@@ -1441,7 +1730,10 @@
    "source_url": "https://www.youtube.com/watch?v=zi2JsPOm5HE&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-aleksi-suomalainen"
+   ]
   },
   {
    "id": "yt-wogzCQdqoUA",
@@ -1467,7 +1759,10 @@
    "source_url": "https://www.youtube.com/watch?v=wogzCQdqoUA&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-christoffer-o-hernaes"
+   ]
   },
   {
    "id": "yt-rf9C6qr7ew0",
@@ -1493,7 +1788,10 @@
    "source_url": "https://www.youtube.com/watch?v=rf9C6qr7ew0&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-john-lilic"
+   ]
   },
   {
    "id": "yt-oWjsqKmIPLo",
@@ -1519,7 +1817,10 @@
    "source_url": "https://www.youtube.com/watch?v=oWjsqKmIPLo&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-garrick-hileman"
+   ]
   },
   {
    "id": "yt-oOCdi5c-xvc",
@@ -1545,7 +1846,10 @@
    "source_url": "https://www.youtube.com/watch?v=oOCdi5c-xvc&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-maria-flyvberg-bo"
+   ]
   },
   {
    "id": "yt-lRKRitXY76A",
@@ -1571,7 +1875,10 @@
    "source_url": "https://www.youtube.com/watch?v=lRKRitXY76A&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-manuel-lains"
+   ]
   },
   {
    "id": "yt-k0mr4Q0U_oM",
@@ -1597,7 +1904,10 @@
    "source_url": "https://www.youtube.com/watch?v=k0mr4Q0U_oM&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-henning-diedrich"
+   ]
   },
   {
    "id": "yt-jxRBL4iY0bM",
@@ -1623,7 +1933,10 @@
    "source_url": "https://www.youtube.com/watch?v=jxRBL4iY0bM&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-burak-yetiskin"
+   ]
   },
   {
    "id": "yt-i87UEsneU9c",
@@ -1649,7 +1962,10 @@
    "source_url": "https://www.youtube.com/watch?v=i87UEsneU9c&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-jack-du-rose"
+   ]
   },
   {
    "id": "yt-bwXhIPL_bHA",
@@ -1675,7 +1991,10 @@
    "source_url": "https://www.youtube.com/watch?v=bwXhIPL_bHA&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-fredrik-winther"
+   ]
   },
   {
    "id": "yt-brHf3DTIsig",
@@ -1701,7 +2020,10 @@
    "source_url": "https://www.youtube.com/watch?v=brHf3DTIsig&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-phil-barry"
+   ]
   },
   {
    "id": "yt-_OWFROsjBVI",
@@ -1727,7 +2049,10 @@
    "source_url": "https://www.youtube.com/watch?v=_OWFROsjBVI&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-lasse-meholm"
+   ]
   },
   {
    "id": "yt-ZipWu7rqxeo",
@@ -1753,7 +2078,10 @@
    "source_url": "https://www.youtube.com/watch?v=ZipWu7rqxeo&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-martin-gallardo-hipolito"
+   ]
   },
   {
    "id": "yt-ZOMpmc-lrNA",
@@ -1779,7 +2107,10 @@
    "source_url": "https://www.youtube.com/watch?v=ZOMpmc-lrNA&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-nicholas-o-malley"
+   ]
   },
   {
    "id": "yt-V5t-uKsNYJI",
@@ -1805,7 +2136,10 @@
    "source_url": "https://www.youtube.com/watch?v=V5t-uKsNYJI&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-paul-francis-walvik-joynt"
+   ]
   },
   {
    "id": "yt-Os_XNjqLw8A",
@@ -1831,7 +2165,10 @@
    "source_url": "https://www.youtube.com/watch?v=Os_XNjqLw8A&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-heikki-palm-henriksen"
+   ]
   },
   {
    "id": "yt-MvNDt8cYBnU",
@@ -1857,7 +2194,10 @@
    "source_url": "https://www.youtube.com/watch?v=MvNDt8cYBnU&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-chris-skinner"
+   ]
   },
   {
    "id": "yt-H0ksQfF52bc",
@@ -1883,7 +2223,10 @@
    "source_url": "https://www.youtube.com/watch?v=H0ksQfF52bc&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-pal-krogdahl"
+   ]
   },
   {
    "id": "yt-6sN36dNYwq8",
@@ -1909,7 +2252,10 @@
    "source_url": "https://www.youtube.com/watch?v=6sN36dNYwq8&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-jesse-grushack"
+   ]
   },
   {
    "id": "yt-5qOqPd5KcxQ",
@@ -1935,7 +2281,10 @@
    "source_url": "https://www.youtube.com/watch?v=5qOqPd5KcxQ&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-jarle-lindseth"
+   ]
   },
   {
    "id": "yt-5jGIiwLS4yc",
@@ -1961,7 +2310,10 @@
    "source_url": "https://www.youtube.com/watch?v=5jGIiwLS4yc&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-mariusz-nowostawski"
+   ]
   },
   {
    "id": "yt-5Nt0v-_PA04",
@@ -1987,7 +2339,10 @@
    "source_url": "https://www.youtube.com/watch?v=5Nt0v-_PA04&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-vinay-gupta"
+   ]
   },
   {
    "id": "yt-40-zccLg7rw",
@@ -2013,7 +2368,10 @@
    "source_url": "https://www.youtube.com/watch?v=40-zccLg7rw&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-daniel-grassinger"
+   ]
   },
   {
    "id": "yt-3YQ3KPcwY80",
@@ -2039,7 +2397,10 @@
    "source_url": "https://www.youtube.com/watch?v=3YQ3KPcwY80&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-bjorn-bjercke"
+   ]
   },
   {
    "id": "yt-0iXX02OYI5s",
@@ -2065,7 +2426,10 @@
    "source_url": "https://www.youtube.com/watch?v=0iXX02OYI5s&hl=en",
    "retrieved_at": "2026-10-07T20:57:16Z",
    "added_at": "2026-10-07T20:57:16Z",
-   "embed": true
+   "embed": true,
+   "speaker_ids": [
+    "spk-roman-mandeleil"
+   ]
   }
  ]
 }

@@ -104,7 +104,7 @@ def main():
         talk_path = os.path.join(site, "fixture-talks.json")
         json.dump({"talks": [{
             "event_id": ev["id"], "title": "Opening", "video_url": "https://example.test/v",
-            "speakers": ["Ada Lovelace"], "source_name": "Archive",
+            "speakers": ["Ada Lovelace"], "speaker_ids": ["spk-ada-lovelace"], "source_name": "Archive",
             "source_url": "https://example.test/src", "retrieved_at": "2026-10-07T21:00:00+00:00",
         }]}, open(talk_path, "w", encoding="utf-8"))
         old_talks = build.event_page.TALKS_PATH
@@ -117,6 +117,7 @@ def main():
         listed = open(os.path.join(site, "calendar", ev["id"], "index.html"), encoding="utf-8").read()
         check("Opening" in listed and "Ada Lovelace" in listed and "Speakers" in listed, "event page lists the talk, speaker and video")
         check('href="https://example.test/v"' in listed, "event page links the video")
+        check('href="../../org-chart/#spk-ada-lovelace"' in listed, "event page links the speaker")
         check("text-align:center" not in listed.split(".evpage,.evpage h1")[1].split("}")[0], "talk list stays left aligned")
     if fails:
         print(f"{len(fails)} failed")

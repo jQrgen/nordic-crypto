@@ -138,6 +138,9 @@ def related_talks(event_id, path=None):
         speakers = [s.strip() for s in (row.get("speakers") or []) if isinstance(s, str) and s.strip()]
         if speakers:
             item["speakers"] = speakers
+        speaker_ids = [s.strip() for s in (row.get("speaker_ids") or []) if isinstance(s, str) and s.strip()]
+        if speaker_ids:
+            item["speaker_ids"] = speaker_ids
         out.append(item)
     return out
 
