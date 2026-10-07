@@ -415,8 +415,9 @@ CSS += """
 """
 
 # api is the human-readable docs at /api/ (English only). The href is the site root, not /<lang>/api/.
-# Talks stay in the footer until the nav PR puts them back. Chat is inserted by nav_items() only while enabled.
-NAV = [("", "nav_news"), ("newsletter", "nav_newsletter"), ("calendar", "nav_calendar"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("markets", "nav_markets"), ("sources", "nav_sources"), ("about", "nav_about"), ("tip", "nav_tip"), ("api", "nav_api")]
+# Same list on every page and in the phone menu: News, Newsletter, Calendar, Talks, then the rest.
+# Chat is inserted by nav_items() only while enabled.
+NAV = [("", "nav_news"), ("newsletter", "nav_newsletter"), ("calendar", "nav_calendar"), ("talks", "nav_talks"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("markets", "nav_markets"), ("sources", "nav_sources"), ("about", "nav_about"), ("tip", "nav_tip"), ("api", "nav_api")]
 COOKIE_PATH = site_url.PATH   # "/" on the public domain; a path prefix if BASE ever has one
 def geo_endpoint():
     """Country lookup: GET <tipworker>/api/geo (Cloudflare request.cf.country). Only when the Worker is deployed,
