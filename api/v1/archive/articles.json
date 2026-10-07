@@ -1,9 +1,9 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T05:38:51+00:00",
+ "generated_at": "2026-10-07T11:52:47+00:00",
  "preview": false,
- "exported_at": "2026-10-07T07:35:51+02:00",
+ "exported_at": "2026-10-07T07:39:44+02:00",
  "count": 43,
  "articles": [
   {
@@ -21,7 +21,7 @@
    "country": "SE",
    "published_at": "2026-09-24T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -62,7 +62,7 @@
    "country": "SE",
    "published_at": "2026-09-10T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -103,7 +103,7 @@
    "country": "SE",
    "published_at": "2026-09-24T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -144,7 +144,7 @@
    "country": "SE",
    "published_at": "2026-10-02T07:01:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -184,7 +184,7 @@
    "country": "SE",
    "published_at": "2026-09-15T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -224,7 +224,7 @@
    "country": "SE",
    "published_at": "2026-09-15T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -265,7 +265,7 @@
    "country": "NO",
    "published_at": "2026-09-20T07:41:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -305,7 +305,7 @@
    "country": "NO",
    "published_at": "2026-09-16T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -346,7 +346,7 @@
    "country": "SE",
    "published_at": "2026-09-07T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -387,7 +387,7 @@
    "country": "NO",
    "published_at": "2026-09-23T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -428,7 +428,7 @@
    "country": "SE",
    "published_at": "2026-10-01T11:04:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -469,7 +469,7 @@
    "country": "SE",
    "published_at": "2026-09-15T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -509,7 +509,7 @@
    "country": "NO",
    "published_at": "2026-09-18T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -550,7 +550,7 @@
    "country": "NO",
    "published_at": "2026-09-28T08:01:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -590,7 +590,7 @@
    "country": "SE",
    "published_at": "2026-10-01T06:00:11+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -631,7 +631,7 @@
    "country": "SE",
    "published_at": "2026-09-14T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -672,7 +672,7 @@
    "country": "NO",
    "published_at": "2026-09-14T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -713,7 +713,7 @@
    "country": "SE",
    "published_at": "2026-09-10T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -754,7 +754,7 @@
    "country": "SE",
    "published_at": "2026-09-17T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -795,7 +795,7 @@
    "country": "SE",
    "published_at": "2026-10-01T01:31:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -836,7 +836,7 @@
    "country": "FI",
    "published_at": "2026-09-17T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -877,7 +877,7 @@
    "country": "NO",
    "published_at": "2026-09-17T18:30:43+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -918,7 +918,7 @@
    "country": "FI",
    "published_at": "2026-09-27T08:20:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -959,7 +959,7 @@
    "country": "SE",
    "published_at": "2026-09-14T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -1000,7 +1000,7 @@
    "country": "SE",
    "published_at": "2026-10-02T17:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -1041,7 +1041,7 @@
    "country": "SE",
    "published_at": "2026-09-13T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -1082,7 +1082,7 @@
    "country": "NO",
    "published_at": "2026-09-20T06:18:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -1122,7 +1122,7 @@
    "country": "SE",
    "published_at": "2026-09-30T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -1160,7 +1160,7 @@
    "country": "FI",
    "published_at": "2026-06-30T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -1201,7 +1201,7 @@
    "country": "DK",
    "published_at": "2026-09-21T09:39:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -1242,7 +1242,7 @@
    "country": "NO",
    "published_at": "2026-10-02T11:07:26+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -1282,7 +1282,7 @@
    "country": "NO",
    "published_at": "2026-09-18T11:36:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -1322,7 +1322,7 @@
    "country": "NO",
    "published_at": "2026-09-08T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -1363,7 +1363,7 @@
    "country": "DK",
    "published_at": "2026-09-13T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -1405,7 +1405,7 @@
    "country": "DK",
    "published_at": "2026-09-22T02:58:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -1446,7 +1446,7 @@
    "country": "NO",
    "published_at": "2026-09-18T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -1487,7 +1487,7 @@
    "country": "DK",
    "published_at": "2026-09-22T06:04:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -1528,7 +1528,7 @@
    "country": "NO",
    "published_at": "2026-09-15T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -1569,7 +1569,7 @@
    "country": "DK",
    "published_at": "2026-09-22T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -1610,7 +1610,7 @@
    "country": "NO",
    "published_at": "2026-09-23T16:08:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -1650,7 +1650,7 @@
    "country": "NO",
    "published_at": "2026-09-25T19:16:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -1690,7 +1690,7 @@
    "country": "NO",
    "published_at": "2026-09-17T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
@@ -1731,7 +1731,7 @@
    "country": "NO",
    "published_at": "2026-10-05T06:06:00+00:00",
    "first_published_on_site": "2026-10-06T07:35:14+02:00",
-   "last_seen_on_site": "2026-10-07T07:35:51+02:00",
+   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
     "en",
     "nn",
