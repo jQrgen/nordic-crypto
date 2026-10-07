@@ -74,18 +74,20 @@ def cname(c): return t("c_" + c) if c and (c in COUNTRY_CODES or c in EXTRA_C_CO
 def flags_js(): return json.dumps({c: flag(c) for c in COUNTRY_CODES + EXTRA_C_CODES})
 
 CSS = """
-:root{--ink:#111;--muted:#4B5563;--line:#d1d5db;--paper:#fff;--accent:#0f5ea8;--warm:#b45309;--soft:#f5f7fa;--pub:#1d4ed8;--priv:#047857}
+:root{--nc-or:#F4C430;--nc-gules:#A0202A;--nc-sable:#141210;--nc-argent:#F7F6F2;--nc-cendree:#A7B0BA;--ink:#141210;--muted:#4B5563;--line:var(--nc-cendree);--paper:var(--nc-argent);--accent:#0f5ea8;--warm:#b45309;--soft:#f5f7fa;--pub:#1d4ed8;--priv:#047857}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
-body{margin:0;font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--paper)}
+body{margin:0;font:16px/1.55 "Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--nc-sable);background:var(--paper)}
 a{color:inherit}a:hover{text-decoration-thickness:2px}
 .wrap{max-width:1140px;margin:0 auto;padding:0 16px}
 header.top{border-bottom:3px solid var(--ink)}
 header.top,header.top .wrap{text-align:start}
 header.top .wrap{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:flex-start;gap:6px 22px;padding-top:14px;padding-bottom:10px}
-.brand{font-weight:800;font-size:22px;letter-spacing:-.01em;text-decoration:none;text-align:start}.brand span{color:var(--accent)}
+.brand{font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif;font-weight:600;font-size:28px;letter-spacing:0;text-decoration:none;display:inline-flex;align-items:center;gap:8px;color:var(--nc-sable);line-height:1;text-align:start}.brand .w{color:var(--nc-gules)}
+.brandmark{width:32px;height:32px;flex:none;display:block}
 nav.main{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:baseline;gap:4px 16px;font-size:15px;text-align:start}
 nav.main a{text-decoration:none;padding:2px 0;border-bottom:2px solid transparent}nav.main a[aria-current]{border-color:var(--accent);font-weight:600}
 .preview{background:#fef3c7;border-bottom:2px solid var(--warm);font-size:14px}.preview .wrap{padding-top:6px;padding-bottom:6px}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif;font-weight:600}
 h1{font-size:28px;line-height:1.2;margin:22px 0 4px}h2{font-size:20px;margin:28px 0 8px}
 .lead{color:var(--muted);margin:4px 0 10px;max-width:72ch}
 .filters{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin:14px 0;padding:10px 12px;background:var(--soft);border:1px solid var(--line)}
@@ -331,6 +333,14 @@ table.mkpairs .sub{display:block;text-align:left}
 .mkvol table.mkshare{width:auto;max-width:100%;margin:8px 0 0;text-align:left}
 .mkvol caption{text-align:left;font-weight:600;padding:6px 0}
 /* end markets */
+.motto-sample{font-family:"Schibsted Grotesk",sans-serif;font-weight:500;letter-spacing:.22em;font-size:15px;margin:8px 0 16px}
+.hdr-sample{margin:12px 0 18px;padding:14px 16px 8px;background:var(--nc-argent);border-bottom:3px solid var(--nc-sable);max-width:36rem;text-align:start}
+.hdr-sample.dark{background:#0b0d10}.hdr-sample.dark .brand{color:#F5F5F4}.hdr-sample.dark .brand .w{color:var(--nc-or)}
+.hdr-sample figcaption{margin:8px 0 4px;text-align:start}
+.lockup{display:block;height:auto;max-width:100%;width:640px;margin:8px 0 16px}
+.swatches{list-style:none;padding:0;margin:8px 0 18px;text-align:start}.swatches li{display:flex;align-items:center;justify-content:flex-start;gap:10px;margin:6px 0}
+.swatches i{width:36px;height:36px;flex:none;border:1px solid var(--nc-sable);display:block}
+.filelist{padding-left:1.2em;text-align:start}.filelist li{margin:3px 0}
 """
 CSS += """
 .pushopt{text-align:start;margin:0 0 16px;padding:0 0 14px;border-bottom:1px solid var(--line);max-width:72ch}
@@ -667,11 +677,11 @@ def write_push_assets():
         "start_url": "./",
         "scope": "./",
         "display": "standalone",
-        "background_color": "#ffffff",
-        "theme_color": "#0f5ea8",
+        "background_color": "#F7F6F2",
+        "theme_color": "#141210",
         "icons": [
-            {"src": "assets/push/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
-            {"src": "assets/push/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+            {"src": "assets/brand/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+            {"src": "assets/brand/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
         ],
     }
     with open(os.path.join(SITE, "manifest.json"), "w", encoding="utf-8") as f:
@@ -729,9 +739,18 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
 <meta name="description" content="{E(desc)}"><link rel="canonical" href="{url}"><link rel="manifest" href="{root}manifest.json">{alt}<link rel="alternate" type="application/rss+xml" title="{E(SITE_NAME)}" href="{E(rel)}rss.xml">{head_extra}{'<meta name="robots" content="noindex">' if PREVIEW else ''}
 <meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:url" content="{url}"><meta property="og:type" content="website"><meta property="og:locale" content="{i18n.OG_LOCALE[LANG]}">{''.join(f'<meta property="og:locale:alternate" content="{i18n.OG_LOCALE[l]}">' for l in langs if l != LANG)}
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230f5ea8'/%3E%3Crect x='4' width='3' height='16' fill='white'/%3E%3Crect y='6.5' width='16' height='3' fill='white'/%3E%3C/svg%3E">
+<link rel="icon" href="{root}favicon.svg" type="image/svg+xml">
+<link rel="icon" href="{root}favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="{root}assets/brand/apple-touch-icon.png">
+<link rel="icon" href="{root}assets/logo-concepts/responsive/small-64-light.png" sizes="64x64" type="image/png">
+<meta name="theme-color" content="#141210">
+<meta property="og:image" content="{BASE}assets/brand/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Nordic Crypto">
+<link rel="stylesheet" href="{root}assets/brand/nordic-crypto.css">
 <style>{CSS}{s['css']}</style></head>
-<body>{banner}<header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="{rel}">Nordic <span>Crypto</span></a><span class="hdrbtns">{header_buttons(rel)}</span></div>{nav_btn}<nav id="sitenav" class="main" aria-label="{E(t("main_menu"))}">{nav_html}</nav>{switcher}</div></header>
+<body>{banner}<header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="{rel}"><img class="brandmark" src="{root}assets/brand/icon.svg" width="32" height="32" alt="Nordic Crypto"><span aria-hidden="true">Nordic <span class="w">Crypto</span></span></a><span class="hdrbtns">{header_buttons(rel)}</span></div>{nav_btn}<nav id="sitenav" class="main" aria-label="{E(t("main_menu"))}">{nav_html}</nav>{switcher}</div></header>
 <main class="wrap">
 {body}
 {s['top']}
@@ -764,7 +783,18 @@ def _source_logos():
 def copy_repo_file(rel):
     srcp = P(rel)
     if not rel or not os.path.exists(srcp): return
-    dst = os.path.join(SITE, rel); os.makedirs(os.path.dirname(dst), exist_ok=True); shutil.copy(srcp, dst)
+    dst = os.path.join(SITE, rel); os.makedirs(os.path.dirname(dst) or SITE, exist_ok=True); shutil.copy(srcp, dst)
+def copy_brand():
+    """Crest, favicons, fonts and the token stylesheet. Paths stay relative to the site root."""
+    for rel in ("favicon.svg", "favicon.ico", "manifest.webmanifest"):
+        copy_repo_file(rel)
+    for folder in ("assets/brand", "assets/fonts", "assets/media", "assets/logo-concepts/responsive"):
+        src = P(folder)
+        if not os.path.isdir(src): continue
+        for dp, dns, fns in os.walk(src):
+            dns[:] = [d for d in dns if d != "__pycache__"]
+            for fn in fns:
+                copy_repo_file(os.path.relpath(os.path.join(dp, fn), ROOT))
 def attach_source_logos(items):
     """Put a checked outlet logo on each story. No logo: the name stays text only."""
     sl = _source_logos()
@@ -940,6 +970,7 @@ def build():
     os.makedirs(os.path.join(SITE, "data"))
     open(os.path.join(SITE, ".nojekyll"), "w").close()
     write_cname()
+    copy_brand()
     if PREVIEW: open(os.path.join(SITE, ".preview"), "w").write("local preview build – never publish\n")
     for i in news["items"]:  # translated summaries: public only once the editor approved them (summary_i18n_review)
         if not PREVIEW and i.get("summary_i18n_review", "approved") != "approved": i.pop("summary_i18n", None)
@@ -1067,6 +1098,68 @@ def lang_template(stem):
         if os.path.exists(path):
             return open(path, encoding="utf-8").read()
     return open(P("templates", f"{stem}.html"), encoding="utf-8").read()
+
+MEDIA_FILES = (
+    ("assets/brand/crest.svg", "Crest, SVG"),
+    ("assets/brand/crest-mono.svg", "One colour, SVG"),
+    ("assets/media/nordic-crypto-crest.png", "Crest, PNG, long side 4096 px"),
+    ("assets/logo-concepts/responsive/large-light.png", "Crest on white"),
+    ("assets/logo-concepts/responsive/large-dark.png", "Crest on #0b0d10"),
+    ("assets/logo-concepts/responsive/one-colour.png", "One colour, PNG"),
+    ("assets/brand/wordmark.svg", "Lockup, light, SVG"),
+    ("assets/brand/wordmark-dark.svg", "Lockup, dark, SVG"),
+    ("assets/media/wordmark-light.png", "Lockup, light, PNG"),
+    ("assets/media/wordmark-dark.png", "Lockup, dark, PNG"),
+    ("assets/media/og-image.png", "Social image, 1200×630"),
+    ("assets/logo-concepts/responsive/medium.svg", "Medium crest, SVG"),
+    ("assets/logo-concepts/responsive/medium-512-light.png", "Medium, 512 px, light"),
+    ("assets/logo-concepts/responsive/medium-512-dark.png", "Medium, 512 px, dark"),
+    ("assets/logo-concepts/responsive/medium-128-light.png", "Medium, 128 px, light"),
+    ("assets/logo-concepts/responsive/medium-128-dark.png", "Medium, 128 px, dark"),
+    ("assets/brand/icon.svg", "Small favicon, simplified charge, SVG"),
+    ("favicon.ico", "Favicon, 16 and 32"),
+    ("assets/brand/icon-16.png", "Small, 16 px"),
+    ("assets/brand/icon-32.png", "Small, 32 px"),
+    ("assets/logo-concepts/responsive/small-64-light.png", "Small, 64 px, light"),
+    ("assets/logo-concepts/responsive/small-64-dark.png", "Small, 64 px, dark"),
+    ("assets/brand/apple-touch-icon.png", "Apple touch icon, 180 px"),
+    ("assets/brand/icon-192.png", "App icon, 192 px"),
+    ("assets/brand/icon-512.png", "App icon, 512 px"),
+    ("assets/brand/nordic-crypto.css", "Stylesheet and colour tokens"),
+    ("assets/logo-concepts/responsive/preview-sheet.png", "Preview sheet"),
+)
+def build_media():
+    """Public logo kit. Nordic languages have their own strings; every other language uses English."""
+    root = up1()
+    files = "".join(
+        f'<li><a href="{root}{E(path)}">{E(label)}</a></li>' for path, label in MEDIA_FILES)
+    body = f"""<h1>{E(t("media_h1"))}</h1>
+<p class="lead">{E(t("media_lead"))}</p>
+<figure class="hdr-sample">
+<div class="brandrow"><span class="brand"><img class="brandmark" src="{root}assets/brand/icon.svg" width="32" height="32" alt=""><span aria-hidden="true">Nordic <span class="w">Crypto</span></span></span></div>
+<p class="motto-sample">NORDIC CRYPTO</p>
+<figcaption>{E(t("media_hdr_cap"))}</figcaption>
+</figure>
+<figure class="hdr-sample dark">
+<div class="brandrow"><span class="brand"><img class="brandmark" src="{root}assets/brand/icon.svg" width="32" height="32" alt=""><span aria-hidden="true">Nordic <span class="w">Crypto</span></span></span></div>
+<figcaption>{E(t("media_hdr_dark_cap"))}</figcaption>
+</figure>
+<img class="lockup" src="{root}assets/media/wordmark-light.png" alt="Nordic Crypto" width="640">
+<img class="lockup" src="{root}assets/media/wordmark-dark.png" alt="" width="640">
+<h2>{E(t("media_colours_h"))}</h2>
+<ul class="swatches">
+<li><i style="background:var(--nc-or)"></i><span><b>or</b> · gold · <code>--nc-or</code> #F4C430</span></li>
+<li><i style="background:var(--nc-gules)"></i><span><b>gules</b> · red · <code>--nc-gules</code> #A0202A</span></li>
+<li><i style="background:var(--nc-sable)"></i><span><b>sable</b> · text, raven · <code>--nc-sable</code> #141210</span></li>
+<li><i style="background:var(--nc-argent)"></i><span><b>argent</b> · page, motto scroll · <code>--nc-argent</code> #F7F6F2</span></li>
+<li><i style="background:var(--nc-cendree)"></i><span><b>cendrée</b> · lines · <code>--nc-cendree</code> #A7B0BA</span></li>
+</ul>
+<p>{E(t("media_colours_note"))}</p>
+<h2>{E(t("media_use_h"))}</h2>
+<p class="prose">{E(t("media_use"))}</p>
+<h2>{E(t("media_files_h"))}</h2>
+<ul class="filelist">{files}</ul>"""
+    page("media", t("media_title"), "media", body, t("media_desc"))
 
 def build_ethics():
     """Press ethics: Nordic Crypto follows Vær Varsom-plakaten. Own wording, not a copy of the code."""
@@ -1738,6 +1831,7 @@ sel.addEventListener('change',function(){apply(1)});tc.concat(cc).forEach(functi
     build_regulation_videos(ctx)
     about = lang_template("about").replace("{{UP}}", up1()).replace("{{COMMUNITY}}", community_section()).replace("{{IOS_TV}}", E(t("ios_tv")))
     page("about", t("about_title"), "about", about, t("about_desc"))
+    build_media()
     build_ethics()
 
 # ---- Industry map: categories from the org chart data (group + description keywords; overrides in industry_map.json) ----

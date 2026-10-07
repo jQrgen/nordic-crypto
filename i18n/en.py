@@ -5,7 +5,7 @@ S = {
 "nav_about": "About", "nav_tip": "Send a tip", "nav_api": "API", "main_menu": "Main menu", "lang_label": "Language", "lang_choose": "Choose language",
 "site_desc_suffix": "Nordic crypto news",
 "preview_banner": "<b>Local preview – not published.</b> Everything marked “Pending editor review” has not been checked by the editor yet; summaries are not written yet. Only approved items go into the public build.",
-"footer": "{site} covers Norway, Sweden, Denmark, Finland and Iceland. Run by Jørgen S. Notland (jQrgen), Oslo, Made with the help of artificial intelligence, with human editors (jQrgen and the Nordic Crypto editor). Not investment advice. Cloudflare Web Analytics counts visits in aggregate, without cookies, and we do not sell that data. One cookie, only if you choose a language. <a href=\"{rel}about/\">About, privacy, corrections and removal</a> · <a href=\"{rel}tip/\">Send a tip</a> · <a href=\"{rel}columnist/\">Apply as a columnist</a> · <a href=\"{rel}changelog/\">Changelog</a> · <a href=\"{rel}ethics/\">Editorial ethics</a> · <a href=\"https://testflight.apple.com/join/nQ2fpjZn\" rel=\"noopener\">iOS app (TestFlight)</a> {ios_tv} · <a href=\"{rel}talks/\">Talks</a> · <a href=\"{rel}markets/\">Markets</a> · <a href=\"{root}api/\">Data API</a>.",
+"footer": "{site} covers Norway, Sweden, Denmark, Finland and Iceland. Run by Jørgen S. Notland (jQrgen), Oslo, Made with the help of artificial intelligence, with human editors (jQrgen and the Nordic Crypto editor). Not investment advice. Cloudflare Web Analytics counts visits in aggregate, without cookies, and we do not sell that data. One cookie, only if you choose a language. <a href=\"{rel}about/\">About, privacy, corrections and removal</a> · <a href=\"{rel}tip/\">Send a tip</a> · <a href=\"{rel}columnist/\">Apply as a columnist</a> · <a href=\"{rel}media/\">Logo and media kit</a> · <a href=\"{rel}changelog/\">Changelog</a> · <a href=\"{rel}ethics/\">Editorial ethics</a> · <a href=\"https://testflight.apple.com/join/nQ2fpjZn\" rel=\"noopener\">iOS app (TestFlight)</a> {ios_tv} · <a href=\"{rel}talks/\">Talks</a> · <a href=\"{rel}markets/\">Markets</a> · <a href=\"{root}api/\">Data API</a>.",
 "moved": "This page has moved to",
 # dates
 "time_local": "{city}, local time", "at_time": "{t}",
@@ -145,6 +145,17 @@ S = {
 # about
 "about_title": "About Nordic Crypto", "about_desc": "About Nordic Crypto: who runs it, how it works, privacy, corrections and removal.",
 "ethics_title": "Editorial ethics", "ethics_desc": "Nordic Crypto follows Vær Varsom-plakaten. A named editor approves everything.",
+"media_title": "Logo and media kit",
+"media_desc": "Nordic Crypto crest, wordmark, favicon, one-colour mark and colour tokens.",
+"media_h1": "Logo and media kit",
+"media_lead": "The crest continues the Trondheim Open Blockchain Meetup seal: an or heater, a gules eight-petal rosette and a sable raven. Two lions are supporters. The scroll reads NORDIC CRYPTO. The primary lockup places the crest beside the wordmark, aligned to the left.",
+"media_hdr_cap": "Header sample, light. Cormorant Garamond for the name, Schibsted Grotesk for this line and the spaced motto. Crypto is gules.",
+"media_hdr_dark_cap": "Header sample on #0b0d10. Crypto is or, so the word stays readable.",
+"media_use_h": "How to use it",
+"media_use": "Original artwork in the Nordic municipal heraldry style: flat charges, few tinctures, no gradients. It is not a national or royal arms. Do not draw a crowned gold lion with an axe on red. The one-colour file is for print, stickers and merch. Buttons on the website stay blue.",
+"media_files_h": "Files",
+"media_colours_h": "Tinctures",
+"media_colours_note": "Cendrée is for lines. Small text stays sable, because cendrée on argent is too faint to read.",
 # tip
 "tip_title": "Send a tip", "tip_desc": "Tip Nordic Crypto about an article on crypto, bitcoin or blockchain in the Nordics.",
 "tip_lead": "Seen a story about crypto, bitcoin or blockchain in Norway, Sweden, Denmark, Finland or Iceland that we have missed? Send us the link.",

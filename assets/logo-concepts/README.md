@@ -1,54 +1,57 @@
 # Nordic Crypto logo
 
-The mark continues the Trondheim Open Blockchain Meetup crest and then adds animals of its own. Same structure and palette: a gold heater shield, a dark-red rosette with a ring at the centre, a black raven with spread wings, gold and dark-red mantling, and a pale silver scroll. The scroll reads NORDIC CRYPTO. The rosette keeps eight pointed petals, with the four cardinal petals longer, so it also reads as a cross.
+Direction E, Våpen. The mark continues the Trondheim Open Blockchain Meetup crest. The raven on top is that bird: the same silhouette, head to the viewer’s left, wings displayed, with the feather fan kept. The shield is a gold heater charged with a dark-red eight-petal rosette (ring at the centre, cardinal petals longer). Two lions are supporters. A pale silver scroll reads NORDIC CRYPTO. There is no third animal.
 
-Three more animals sit on the large crest only: a crowned lion holding a short axe, a second lion without a crown or an axe, and a polar bear seated and facing forward. They are supporters. They are not a copy of any national or royal arms. See the legal note below.
+Style is Nordic municipal heraldry: strict, flat and modern. Few tinctures, flat charges, bold clean outlines. No gradients and no cartoon shading.
 
-The name on the site is **Nordic Crypto**. Wordmarks stay left-aligned: icon, then the name.
+The name on the site is **Nordic Crypto**. The primary lockup is the crest with the wordmark beside it, aligned to the left. A shield on its own can be read as a public authority, so the crest is not used as a centred page lockup. The motto on the scroll itself is centred on the ribbon. The app icon may sit in the middle of its square.
 
-## Three detail levels
+## Blazon
 
-Each level is drawn for the size it will actually be used at. Light and dark files are the same drawing, placed on white and on `#0b0d10`. The raven carries a gold edge so the black shape still shows on the dark ground.
+Or, a rosette of eight petals gules, the centre a ring. Crest: a raven displayed sable, beaked and membered sable, the chest charged with the same rosette, the whole edged or. Mantling gules doubled or. Supporters: dexter a lion rampant gules, armed and langued or, uncrowned and without an axe; sinister a lion rampant regardant sable, armed sable and langued gules, uncrowned and without a weapon. Motto, on a scroll argent: NORDIC CRYPTO.
 
-| Level | Use | What is in it |
-| --- | --- | --- |
-| Large | Print, press, `/media`. Long side 4096 px. | Full achievement: raven, mantling, shield and rosette, both lions, polar bear, scroll. |
-| Medium | About 128–512 px. Headers and social cards. | One mantling scroll each side, two simplified lions, no bear, thicker strokes, scroll kept. |
-| Small | 16, 32 and 64 px. Favicon and app icon. | Shield, red cross-rosette with a hole in the hub, and a raven silhouette. No text. |
+## Tinctures
 
-Palette: gold `#F4C430`, dark red `#A0202A`, raven `#141210`, ink `#1A1206`, silver `#D9DDE3`. On a light wordmark, “Nordic” is `#111111` and “Crypto” is `#A0202A`. On a dark wordmark, “Nordic” is `#F5F5F4` and “Crypto” is `#F4C430`. Buttons on the site stay `#0f5ea8`.
+| Token | Tincture | Use | Hex |
+| --- | --- | --- | --- |
+| `--nc-or` | or | gold field, lining, dexter tongue | `#F4C430` |
+| `--nc-gules` | gules | rosette, dexter lion, “Crypto” on a light ground | `#A0202A` |
+| `--nc-sable` | sable | raven, sinister lion, text | `#141210` |
+| `--nc-argent` | argent | page, motto scroll | `#F7F6F2` |
+| `--nc-cendree` | cendrée | lines and the date rule | `#A7B0BA` |
+
+On a dark ground (`#0b0d10`), “Nordic” is `#F5F5F4` and “Crypto” is or `#F4C430`. Gold on white is a field colour, not small text. The raven keeps a gold edge so it still shows on the dark ground. Buttons on the website stay `#0f5ea8`.
+
+Headlines and the wordmark use Cormorant Garamond. Body text and the spaced-capitals motto line use Schibsted Grotesk. Both are self-hosted (SIL Open Font License, `assets/fonts/`). The scroll lettering is outlined paths, not live SVG text.
+
+The stylesheet is `assets/brand/nordic-crypto.css`.
 
 ## Files
 
-All three levels, with light and dark renders:
-
-- `responsive/large.svg` — full crest (same drawing as `assets/brand/crest.svg`)
-- `responsive/large.png` — transparent PNG, 3200×4096 (same file as `assets/media/nordic-crypto-crest.png`)
-- `responsive/large-light.png` — full crest on white, 3200×4096
-- `responsive/large-dark.png` — full crest on `#0b0d10`, 3200×4096
-- `responsive/medium.svg`
+- `assets/brand/crest.svg` — full achievement (same drawing as `responsive/large.svg` and `responsive/medium.svg`)
+- `assets/brand/crest-mono.svg` — one colour, for print, stickers and merch (same drawing as `responsive/one-colour.svg`)
+- `assets/media/nordic-crypto-crest.png` — transparent PNG, long side 4096 px (same file as `responsive/large.png`)
+- `responsive/large-light.png`, `responsive/large-dark.png` — full crest on white and on `#0b0d10`
 - `responsive/medium-512-light.png`, `responsive/medium-512-dark.png`
-- `responsive/medium-128-light.png`, `responsive/medium-128-dark.png`
-- `responsive/small.svg` — same drawing as `assets/brand/icon.svg`
-- `responsive/small-64-light.png`, `responsive/small-64-dark.png`
-- `responsive/small-32-light.png`, `responsive/small-32-dark.png`
-- `responsive/small-16-light.png`, `responsive/small-16-dark.png`
-- `responsive/preview-sheet.png` — all three levels at those sizes, on white and on `#0b0d10`
+- `responsive/medium-128-light.png`, `responsive/medium-128-dark.png` — motto still readable
+- `assets/brand/wordmark.svg`, `wordmark-dark.svg` — left-aligned lockup
+- `assets/media/wordmark-light.png`, `wordmark-dark.png`
+- `assets/brand/og-image.png` and `assets/media/og-image.png` — 1200×630, left-aligned
+- `assets/brand/icon.svg` — 16×16 simplified charge (same drawing as `responsive/small.svg` and `favicon.svg`)
+- `assets/brand/icon-16.png`, `icon-32.png`, `favicon.ico` (16 and 32)
+- `assets/brand/apple-touch-icon.png` (180), `icon-192.png`, `icon-512.png`
+- `manifest.webmanifest`
+- `responsive/one-colour.png`, `assets/brand/crest-mono-print.png`
+- `responsive/preview-sheet.png`
+- `assets/brand/nordic-crypto.css`
 
 ## Not a state or royal arms
 
 This is original artwork for Nordic Crypto. It must not be presented as an official coat of arms.
 
-Nordic arms are protected and were used only as a reference for which animals exist in the tradition:
+Nordic national arms are protected. Norway’s riksvåpen is a crowned gold lion holding an axe on red. That combination — crown, axe and a gold lion on red, as one figure — is not used. The dexter lion is gules, rampant, uncrowned, and holds nothing. The sinister lion is sable, rampant regardant, uncrowned, and holds nothing. Neither is the Danish lions passant on gold with hearts, the Swedish matched crowned regardant lions with forked tails, or the Finnish crowned lion with a sword trampling a sabre. The shield is or, not gules or azure. The charge is a rosette, not three crowns and not a cross of national colours. Iceland’s four guardian beasts are not used. There is no polar bear.
 
-- Norway: a crowned lion with an axe, on red (Kongehuset, Kongevåpenet; the government’s riksvåpen).
-- Sweden: greater arms under Lag (1982:268), with three crowns and two matching crowned lions whose tails fork (Riksarkivet).
-- Denmark: three blue lions passant and hearts.
-- Finland: a lion with a sword, trampling a sabre, and roses.
-- Iceland: a shield quartered with four guardian beings.
-- Faroe Islands, Greenland and Åland: ram, walking polar bear, stag.
-
-The Nordic Crypto shield is gold, not red or blue, and the charge is a rosette. The lions are supporters, not the only charge. One has a plain three-point coronet and a short axe. The other has neither. The tails end in a single point. The polar bear sits facing the viewer and appears only on the large crest.
+A simple three-point coronet is not used either. Both supporters are bare-headed, so neither can be mistaken for a royal lion.
 
 ## Earlier sketches
 
