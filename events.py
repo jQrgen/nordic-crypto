@@ -1,12 +1,25 @@
 #!/usr/bin/env python3
-"""Events (calendar) for Crypto Nordic: Norway, Sweden, Denmark, Finland and Iceland.
+"""Events (calendar) for Nordic Crypto: Norway, Sweden, Denmark, Finland and Iceland.
 Called from fetch.py in every run, or on its own:
   .venv/bin/python events.py                     # search event_sources in sources.json
+  .venv/bin/python events.py --only id,id        # one or more event sources
   .venv/bin/python events.py --add-event URL     # add from the organiser's page (JSON-LD or iCal) – researcher
 Rules (editor): only events where the organiser's own page or a public listing shows date, place and organiser,
 and which are genuinely about crypto, bitcoin or blockchain. Paid and sponsored events are labelled. Never invented.
 EVERY new event gets status "pending"; the editor approves/rejects in queue/approved.json -> events.approve / events.reject (id).
 Times keep the event's own UTC offset (Helsinki is one hour ahead of Oslo/Stockholm, Reykjavík is behind).
+
+type listing-jsonld: read the country listing, follow event links (link_pattern, crypto keywords unless trusted,
+soonest first, max_links), and read schema.org Event JSON-LD on each page (title, dates, place, organiser, url).
+A street address under a Venue label is used when it is more specific than the city. A timestamp of 00:00:00Z is
+stored as that calendar day in the event country's time zone, not as midnight UTC shifted into the previous evening.
+No images are stored. The calendar links to the event page. Refresh with the commands above; a failed fetch keeps
+events already in data/events.json.
+
+Predatory conference listings are never imported (event_block.py): International Conference Alerts, Conference
+Alerts, All Conference Alert, Conference Next, WASET, conferenceindex.org, and the organisers WASET, IRAJ, IIER,
+ISER, Academics World and World Academics. A matching URL, source or organiser is dropped, including a row already
+in data/events.json and an event added with --add-event.
 
 Luma: public calendar Subscribe iCal only (api.lu.ma/ics/get?entity=calendar&id=cal-…).
 Individual event pages are schema.org JSON-LD. City pages, category pages and api.lu.ma discover
@@ -19,6 +32,8 @@ import argparse, datetime as dt, hashlib, json, os, re, sys, time, urllib.parse
 from zoneinfo import ZoneInfo
 import requests
 from bs4 import BeautifulSoup
+from event_block import blocked_event, blocked_source
+import site_url
 ROOT = os.path.dirname(os.path.abspath(__file__)); P = lambda *a: os.path.join(ROOT, *a)
 TZ = {"NO": "Europe/Oslo", "SE": "Europe/Stockholm", "DK": "Europe/Copenhagen", "FI": "Europe/Helsinki", "IS": "Atlantic/Reykjavik"}
 UTC = dt.timezone.utc
@@ -207,6 +222,78 @@ def eventbrite_api_events(kind, ident, token, robots_ok, pause, ua, tz):
         url = f"https://www.eventbriteapi.com/v3/{kind}/{ident}/events/?{q}&continuation={urllib.parse.quote(cont)}"
     return out
 def eid(e): return hashlib.sha1(f"{(e.get('url') or '').split('?')[0]}|{e['start'].date() if e.get('start') else ''}|{(e.get('title') or '').lower()}".encode()).hexdigest()[:12]
+_LIST_MON = {m: i for i, m in enumerate(["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"], 1)}
+def listing_blocked(html):
+    s = BeautifulSoup(html or "", "lxml"); title = s.title.string if s.title and s.title.string else ""
+    return "Just a moment" in title
+def listing_event_links(html, base, pattern):
+    """Event links on a listing page. pattern is matched against the path and the raw href. No images."""
+    s = BeautifulSoup(html or "", "lxml"); rx = re.compile(pattern); out, seen = [], set()
+    for a in s.find_all("a", href=True):
+        raw = a["href"].split("#")[0].split("?")[0]
+        if not raw or raw.startswith(("mailto:", "javascript:")): continue
+        absu = urllib.parse.urljoin(base, raw); path = urllib.parse.urlparse(absu).path or raw
+        if not (rx.search(path) or rx.search(raw)): continue
+        if absu in seen: continue
+        seen.add(absu); out.append({"url": absu, "text": re.sub(r"\s+", " ", a.get_text(" ", strip=True))})
+    return out
+def listing_span(text):
+    """First and last 'Mon D, YYYY' dates in a listing card, used only to order and skip finished cards."""
+    found = []
+    for m in re.finditer(r"\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+(\d{1,2}),\s+(20\d\d)", text or "", re.I):
+        try: found.append(dt.date(int(m.group(3)), _LIST_MON[m.group(1)[:3].lower()], int(m.group(2))))
+        except ValueError: continue
+    return (found[0], found[-1]) if found else (None, None)
+def civil_from_utc_midnight(d, tz, end=False):
+    """00:00:00Z means that calendar day on the listing, not midnight UTC. Keep the day in tz (end of that day if end)."""
+    if not d: return d
+    u = d.astimezone(UTC)
+    if (u.hour, u.minute, u.second, u.microsecond) != (0, 0, 0, 0): return d
+    if end: return dt.datetime(u.year, u.month, u.day, 23, 59, tzinfo=ZoneInfo(tz))
+    return dt.datetime(u.year, u.month, u.day, 0, 0, tzinfo=ZoneInfo(tz))
+def venue_place(html):
+    """Street address from a Venue label. Text only; photos on the page are ignored."""
+    if not html: return None
+    s = BeautifulSoup(html, "lxml")
+    for node in s.find_all(string=re.compile(r"^\s*Venue\s*$")):
+        card = node.find_parent(attrs={"data-slot": "card"}) or node.find_parent("div")
+        if card is None: continue
+        p = card.find("p")
+        if p is None: continue
+        lines = [ln.strip(" ,") for ln in p.get_text("\n").splitlines() if ln.strip()]
+        if not lines: continue
+        place = ", ".join(dict.fromkeys(lines))
+        return place[:300].rsplit(",", 1)[0] if len(place) > 300 else place
+    return None
+def listing_jsonld_events(src, listing_html, fetch_text, matches, today, tz):
+    """Follow event links on a listing and read schema.org Event JSON-LD. fetch_text(url) returns HTML.
+    Raises if the listing is a bot challenge. Returns (events, links_seen, page_errors)."""
+    if listing_blocked(listing_html): raise RuntimeError("Cloudflare challenge instead of the listing")
+    links = listing_event_links(listing_html, src["url"], src.get("link_pattern") or r"/event-[a-z0-9-]+$")
+    if not src.get("trusted"): links = [x for x in links if matches(x["text"])]
+    def start_of(x):
+        a, _b = listing_span(x["text"]); return a or dt.date.max
+    kept = []
+    for x in links:
+        a, b = listing_span(x["text"]); last = b or a
+        if last and last < today: continue
+        kept.append(x)
+    kept.sort(key=start_of); cap = int(src.get("max_links") or 40)
+    events, errors = [], []
+    for x in kept[:cap]:
+        try: html = fetch_text(x["url"])
+        except Exception as ex:
+            errors.append(f"{x['url']}: {type(ex).__name__}: {ex}"); continue
+        if listing_blocked(html):
+            errors.append(f"{x['url']}: Cloudflare challenge"); continue
+        for ev in jsonld_events(html, tz):
+            ev["start"] = civil_from_utc_midnight(ev.get("start"), tz, end=False)
+            ev["end"] = civil_from_utc_midnight(ev.get("end"), tz, end=True)
+            venue = venue_place(html)
+            if venue and (any(ch.isdigit() for ch in venue) or venue.count(",") >= 2): ev["place"] = venue
+            if not ev.get("url"): ev["url"] = x["url"]
+            events.append(ev)
+    return events, len(links), errors
 CITIES = {"NO": ["Oslo", "Bergen", "Trondheim", "Stavanger", "Kristiansand", "Tromsø", "Bodø", "Drammen", "Fredrikstad", "Ålesund", "Fornebu", "Lysaker", "Lillehammer"],
           "SE": ["Stockholm", "Göteborg", "Gothenburg", "Malmö", "Uppsala", "Linköping", "Örebro", "Västerås", "Umeå", "Lund", "Luleå", "Boden"],
           "DK": ["København", "Copenhagen", "Frederiksberg", "Aarhus", "Odense", "Aalborg", "Esbjerg", "Kolding", "Roskilde", "Lyngby"],
@@ -219,12 +306,41 @@ def guess_city(place):
             if place and re.search(rf"\b{x}\b", place, re.I): return x, c
     return None, None
 
-def run(get, robots_ok, matches, log, cfg, add_url=None, a=None, root=None, now=None):
+def _drop_queue_ids(gone, log, base=None):
+    """Remove predatory event ids from the editor queue and the approval list, when those files exist."""
+    root = base or ROOT
+    qf = os.path.join(root, "queue", "review.json"); q = _load(qf, None)
+    if isinstance(q, dict) and isinstance(q.get("events_pending"), list):
+        kept = [e for e in q["events_pending"] if e.get("id") not in gone and not blocked_event(e)]
+        if len(kept) != len(q["events_pending"]):
+            q["events_pending"] = kept; _save(qf, q); log("event: removed predatory listings from the editor queue")
+    af = os.path.join(root, "queue", "approved.json"); ap = _load(af, None)
+    evs = ap.get("events") if isinstance(ap, dict) else None
+    if not isinstance(evs, dict): return
+    changed = False
+    for key in ("approve", "reject", "ready_for_owner", "sponsored"):
+        if isinstance(evs.get(key), list):
+            nxt = [i for i in evs[key] if i not in gone]
+            if nxt != evs[key]: evs[key] = nxt; changed = True
+    for key in ("notes", "notes_i18n", "sponsor", "paid", "title_en"):
+        if isinstance(evs.get(key), dict):
+            for i in gone:
+                if evs[key].pop(i, None) is not None: changed = True
+    if changed: _save(af, ap); log("event: removed predatory listings from the approval list")
+
+def run(get, robots_ok, matches, log, cfg, add_url=None, a=None, only=None, root=None, now=None):
     base = root or ROOT
     def lp(*parts): return os.path.join(base, *parts)
-    for d in ("data", "state", "queue"): os.makedirs(os.path.join(base, d), exist_ok=True)
-    data = _load(lp("data", "events.json"), {"events": []}); by = {e["id"]: e for e in data["events"]}
-    original = [dict(e) for e in data["events"]]  # finished events are never removed
+    for d in ("data", "state", "queue"): os.makedirs(lp(d), exist_ok=True)
+    data = _load(lp("data", "events.json"), {"events": []})
+    dropped = [e for e in data["events"] if blocked_event(e)]
+    if dropped:
+        gone = {e["id"] for e in dropped}
+        data["events"] = [e for e in data["events"] if e["id"] not in gone]
+        log(f"event: removed {len(dropped)} predatory conference listing(s)")
+        _drop_queue_ids(gone, log, base)
+    by = {e["id"]: e for e in data["events"]}
+    original = [dict(e) for e in data["events"]]  # non-predatory rows already stored are kept
     status = _load(lp("state", "source_status.json"), {}); now = now or dt.datetime.now(UTC)
     if now.tzinfo is None: now = now.replace(tzinfo=UTC)
     new = []
@@ -233,6 +349,7 @@ def run(get, robots_ok, matches, log, cfg, add_url=None, a=None, root=None, now=
             v = ev.get(k)
             if v and not old.get(k): old[k] = v.isoformat() if hasattr(v, "isoformat") else v
     def take(ev, src, trusted):
+        if blocked_event(ev, src): return  # predatory listing: refused even when the source is marked trusted
         if not ev.get("title") or not ev.get("start"): return
         text = f"{ev['title']} {ev.get('description', '')} {ev.get('place') or ''}"
         if not trusted and not matches(text): return
@@ -267,8 +384,18 @@ def run(get, robots_ok, matches, log, cfg, add_url=None, a=None, root=None, now=
     def fetch_page(u):
         if not robots_ok(u): raise RuntimeError("robots.txt disallows")
         r = get(u); r.raise_for_status(); return r
-    sources = cfg.get("event_sources", [])
-    if add_url:
+    sources = [s for s in cfg.get("event_sources", []) if not blocked_source(s)]
+    refused = [s for s in cfg.get("event_sources", []) if blocked_source(s)]
+    for src in refused:
+        if only and src.get("id") not in only: continue
+        status["ev-" + src["id"]] = {"checked": now.isoformat(timespec="seconds"), "ok": False, "entries": 0, "new": 0,
+                                     "error": "blocked: predatory conference listing"}
+        log(f"event {src.get('id', '?'):<28} blocked predatory conference listing")
+    manual = a or argparse.Namespace(organiser=None, source_name=None)
+    if add_url and blocked_event({"url": add_url, "organiser": manual.organiser},
+                                 {"url": add_url, "name": manual.source_name, "organiser": manual.organiser}):
+        log(f"event: refused {add_url} (predatory conference listing)")
+    elif add_url:
         tz = TZ.get(a.country or "NO", "Europe/Oslo")
         r = fetch_page(add_url); evs = jsonld_events(r.text, tz)
         if not evs:
@@ -285,9 +412,11 @@ def run(get, robots_ok, matches, log, cfg, add_url=None, a=None, root=None, now=
         for n in new: n["note"] = "added manually by the researcher – editor must approve"
         log(f"event: {len(new)} added from {add_url}" if new else f"event: found no new dated events on {add_url} (use --title/--start/--place/--organiser/--country)")
     else:
-        pause = cfg.get("min_delay_seconds", 2); ua = cfg.get("user_agent") or "CryptoNordicBot/0.1"
+        pause = cfg.get("min_delay_seconds", 2)
+        ua = site_url.expand(cfg.get("user_agent") or ("NordicCryptoBot/0.1 (+" + site_url.BASE + "about/; news headline bot)"))
         for src in sources:
             if not src.get("enabled", True): continue
+            if only and src["id"] not in only: continue
             err = None; n0 = len(new); n_found = 0; tz = TZ.get(src.get("country"), "Europe/Oslo")
             try:
                 if src["type"] == "luma-ical":
@@ -304,6 +433,13 @@ def run(get, robots_ok, matches, log, cfg, add_url=None, a=None, root=None, now=
                 elif src["type"] == "jsonld":
                     r = fetch_page(src["url"]); evs = jsonld_events(r.text, tz); n_found = len(evs)
                     for ev in evs: take(ev, src, src.get("trusted", False))
+                elif src["type"] == "listing-jsonld":
+                    r = fetch_page(src["url"])
+                    evs, _n_links, page_errors = listing_jsonld_events(src, r.text, lambda u: fetch_page(u).text, matches, now.date(), tz)
+                    n_found = len(evs)
+                    for ev in evs: take(ev, src, src.get("trusted", False))
+                    if page_errors and not evs: raise RuntimeError(page_errors[0][:180])
+                    if page_errors: log(f"event {src['id']}: {len(page_errors)} event page(s) failed, first {page_errors[0][:120]}")
                 elif src["type"] == "listing-ical":
                     r = fetch_page(src["url"]); s = BeautifulSoup(r.text, "lxml")
                     links = {urllib.parse.urljoin(src["url"], x["href"]) for x in s.find_all("a", href=True)
@@ -323,10 +459,10 @@ def run(get, robots_ok, matches, log, cfg, add_url=None, a=None, root=None, now=
             except Exception as ex: err = f"{type(ex).__name__}: {ex}"[:200]
             status["ev-" + src["id"]] = {"checked": now.isoformat(timespec="seconds"), "ok": err is None, "entries": n_found, "new": len(new) - n0, "error": err}
             log(f"event {src['id']:<28} found={n_found} new={len(new) - n0} err={err}")
-    # Never drop an event that was already stored. Finished ones move to the past archive in the build.
+    # Predatory rows were removed above and are not restored. Every other stored event stays.
     stored = {e["id"] for e in data["events"]}
     for old in original:
-        if old["id"] not in stored: data["events"].append(old)
+        if old["id"] not in stored and not blocked_event(old): data["events"].append(old)
     data["events"].sort(key=lambda e: dt.datetime.fromisoformat(e["start"])); data["updated"] = now.isoformat(timespec="seconds")
     _save(lp("data", "events.json"), data); _save(lp("state", "source_status.json"), status)
     q = _load(lp("queue", "review.json"), {"items_needing_summary": [], "candidate_entities": []})
@@ -342,5 +478,7 @@ if __name__ == "__main__":
     ap.add_argument("--title"); ap.add_argument("--start", help="YYYY-MM-DDTHH:MM (local time in --country)"); ap.add_argument("--end"); ap.add_argument("--place"); ap.add_argument("--city")
     ap.add_argument("--country", choices=list(TZ), help="NO, SE, DK, FI or IS"); ap.add_argument("--online", action="store_true")
     ap.add_argument("--paid", type=lambda s: s.lower() in ("1", "true", "yes", "ja"), default=None)
+    ap.add_argument("--only", help="comma-separated event source ids")
     a, _ = ap.parse_known_args()
-    run(fetch.get, fetch.robots_ok, lambda t: bool(fetch.matches(t)), fetch.log, fetch.CFG, a.add_event, a)
+    only = {x.strip() for x in a.only.split(",") if x.strip()} if a.only else None
+    run(fetch.get, fetch.robots_ok, lambda t: bool(fetch.matches(t)), fetch.log, fetch.CFG, a.add_event, a, only)

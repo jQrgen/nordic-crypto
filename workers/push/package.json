@@ -1,0 +1,14 @@
+{
+  "name": "nordic-crypto-push",
+  "private": true,
+  "type": "module",
+  "description": "Nordic Crypto Web Push subscriptions and one notification per publish",
+  "scripts": {
+    "test": "node --test test/*.mjs",
+    "keys": "node keys.mjs",
+    "dev": "wrangler dev --local"
+  },
+  "devDependencies": {
+    "wrangler": "4.147.0"
+  }
+}

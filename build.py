@@ -3,7 +3,7 @@
 Also writes the public JSON API under site/api/v1/ (see tools/api_feed.py), /api/ docs, /llms.txt and OpenAPI.
   .venv/bin/python build.py            # public build: ONLY editor-approved content (what publish.sh would push)
   .venv/bin/python build.py --preview  # local review build: also shows pending items, clearly marked "Pending editor review"
-All paths are relative, so the site works at https://jqrgen.github.io/nordic-crypto/ and on a local server.
+All paths are relative, so the site works at the public origin (site_url.BASE) and on a local server.
 Share buttons are plain links. No advertising trackers and no external fonts. Cloudflare Web Analytics
 (aggregate visits, no cookies) is injected only when analytics.json or CF_WEB_ANALYTICS_TOKEN has a real token.
 Languages (i18n/ALL_LANGS): English at the root, then one directory per code. Nordic nn, nb, sv, da, fi, is plus the wider UI set. Missing strings fall back to English.
@@ -12,12 +12,18 @@ import json, os, re, shutil, subprocess, html, sys, calendar, datetime as dt
 import events as eventslib
 from zoneinfo import ZoneInfo
 import i18n
+import site_url
+import event_block
 from tools.frontpage_blurbs import card_text, load as load_blurbs, opening_sentences, substantive
 ROOT = os.path.dirname(os.path.abspath(__file__)); P = lambda *a: os.path.join(ROOT, *a)
-BASE = "https://jqrgen.github.io/nordic-crypto/"
+BASE = site_url.BASE
 SITE = os.environ.get("NC_SITE_DIR") or P("site")   # NC_SITE_DIR: scratch build dir (tipworker/publish_tip_page.sh)
 PREVIEW = "--preview" in sys.argv
 SITE_NAME = "Nordic Crypto"
+CUSTOM_DOMAIN = site_url.HOST   # GitHub Pages CNAME; publish.sh will not push gh-pages without it
+def write_cname():
+    """site/CNAME, so a publish keeps the custom domain (a missing file clears it on GitHub Pages)."""
+    open(os.path.join(SITE, "CNAME"), "w", encoding="utf-8").write(CUSTOM_DOMAIN + "\n")
 def load(p, d=None):
     try: return json.load(open(p, encoding="utf-8"))
     except FileNotFoundError: return d
@@ -40,7 +46,7 @@ class _C(dict):  # country names in the current language
     def __contains__(self, c): return c in COUNTRY_CODES
     def __len__(self): return len(COUNTRY_CODES)
 COUNTRIES = _C()
-EXTRA_C_CODES = ["NORDIC", "EU"]
+EXTRA_C_CODES = ["NORDIC", "EU", "FO", "GL", "AX"]
 # small inline SVG flags (Nordic crosses) – no emoji fonts or external images needed
 _FL = {"NO": ("#BA0C2F", "#fff", "#00205B"), "SE": ("#006AA7", "#FECC00", None), "DK": ("#C8102E", "#fff", None), "FI": ("#fff", "#002F6C", None),
        "IS": ("#02529C", "#fff", "#DC1E35")}
@@ -78,8 +84,14 @@ select,input[type=search]{font:inherit;font-size:15px;padding:5px 8px;border:1px
 .flag{vertical-align:-2px;flex:none;border-radius:1px}
 .cc{display:inline-block;font-size:11px;font-weight:700;padding:0 4px;border:1px solid var(--line);color:var(--muted);vertical-align:1px}
 ol.news{list-style:none;margin:0;padding:0;text-align:left}
-ol.news li{padding:14px 0;border-bottom:1px solid var(--line)}
+ol.news li{display:flex;flex-direction:row;align-items:flex-start;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);text-align:start}
+ol.news .storybody{min-width:0;flex:1;text-align:start}
 ol.news h3{font-size:18px;line-height:1.3;margin:0 0 4px}ol.news h3 a{text-decoration:none}ol.news h3 a:hover{text-decoration:underline}
+.ill{margin:0 0 10px;text-align:start}
+.ill img{display:block;width:100%;max-width:720px;height:auto;background:var(--soft)}
+ol.news .ill{flex:0 0 220px;width:220px;margin:0}
+ol.news .ill img{width:220px;height:124px;object-fit:cover;object-position:left center}
+@media(max-width:640px){ol.news li{flex-direction:column}ol.news .ill{flex:none;width:100%;max-width:480px}ol.news .ill img{width:100%;height:auto;max-height:240px}}
 .orig{font-size:13.5px;color:var(--muted);margin:0 0 3px}
 .meta{font-size:13.5px;color:var(--muted)}.meta b{color:var(--ink);font-weight:600}
 .src{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;vertical-align:middle;text-align:start}
@@ -143,7 +155,7 @@ footer{margin-top:40px;border-top:1px solid var(--line);padding:18px 0 30px;font
 #detail{position:sticky;bottom:0;background:#fff;border:2px solid var(--ink);padding:12px 14px;margin-top:14px;max-height:60vh;overflow:auto}
 #detail[hidden]{display:none}#detail h3{margin:0 0 4px;font-size:19px}#detail .close{float:right;font:inherit;border:1px solid var(--ink);background:#fff;cursor:pointer}
 #detail ul{padding-left:18px;margin:6px 0}#detail .row{display:flex;gap:14px;align-items:flex-start}
-.credit{font-size:12px;color:var(--muted)}
+.credit{font-size:12px;color:var(--muted);text-align:start;margin:4px 0 0}
 .tablewrap{overflow-x:auto}
 table.list{width:100%;border-collapse:collapse;font-size:14.5px}table.list th,table.list td{border-bottom:1px solid var(--line);padding:6px 6px;text-align:left;vertical-align:top}
 table.list th{font-size:13px;color:var(--muted)}
@@ -248,10 +260,29 @@ a.applink:hover,a.applink:focus-visible{background:var(--soft)}
 .mkagg .px{font-size:22px;font-weight:700;margin:2px 0 4px;text-align:left;font-variant-numeric:tabular-nums}
 .mkq{font-size:16px;color:var(--muted);margin:12px 0 6px;font-weight:600;text-align:left}
 @media(min-width:1100px){.markets h1{font-size:40px}.mkcard .px{font-size:34px}.mkcard .ba{font-size:20px}.mkagg .px{font-size:26px}}
+.pushopt{text-align:start;margin:0 0 16px;padding:0 0 14px;border-bottom:1px solid var(--line);max-width:72ch}
+.pushopt h2{font-size:16px;margin:0 0 6px;text-align:start}
+.pushopt p,.pushopt label{text-align:start}
+.pushopt .push-topics{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:6px 16px;margin:8px 0}
+.pushopt .push-c{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;font-size:14.5px;text-align:start}
+.pushopt button.push-btn{font:inherit;font-weight:600;padding:7px 12px;border:1px solid var(--ink);background:#fff;cursor:pointer;text-align:start}
+.pushopt button.push-btn:hover,.pushopt button.push-btn:focus-visible{background:var(--soft)}
+.pushopt .push-status{min-height:1.3em;margin:8px 0;text-align:start}
+"""
+CSS += """
+nav.main a.nav-quiet{font-size:14px}
+.talks,.talks h1,.talks h2,.talks p,.talks article,.talks label,.talks select,.talks .filters{text-align:start}
+.talks article{padding:16px 0;border-bottom:1px solid var(--line);max-width:74ch}
+.talks h2{font-size:20px;margin:0 0 4px}
+.talks .talk-play{display:inline-block;margin:8px 0;padding:8px 14px;font:inherit;font-weight:600;text-align:start;border:1px solid var(--ink);background:#fff;cursor:pointer}
+.talks .talk-play:hover,.talks .talk-play:focus-visible{background:var(--soft)}
+.talks iframe{display:block;width:100%;max-width:720px;aspect-ratio:16/9;height:auto;border:0;background:#111;margin:8px 0}
+.talks .filters{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:center;gap:8px 16px}
+.talks .filters select{font:inherit;text-align:start;max-width:100%}
 """
 
-NAV = [("", "nav_news"), ("markets", "nav_markets"), ("calendar", "nav_calendar"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("sources", "nav_sources"), ("newsletter", "nav_newsletter"), ("about", "nav_about"), ("tip", "nav_tip")]
-COOKIE_PATH = "/" + BASE.split("://", 1)[1].split("/", 1)[1]   # /nordic-crypto/
+NAV = [("", "nav_news"), ("markets", "nav_markets"), ("calendar", "nav_calendar"), ("talks", "nav_talks"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("sources", "nav_sources"), ("newsletter", "nav_newsletter"), ("about", "nav_about"), ("tip", "nav_tip")]
+COOKIE_PATH = site_url.PATH   # "/" on the public domain; a path prefix if BASE ever has one
 def geo_endpoint():
     """Country lookup: GET <tipworker>/api/geo (Cloudflare request.cf.country). Only when the Worker is deployed,
     i.e. tipserver/config.json -> public_endpoint is a workers.dev URL (or env GEO_ENDPOINT)."""
@@ -414,7 +445,7 @@ def build_issue(iss):
     iid = iss["id"]; v = iss.get("video") or {}; slug = f"newsletter/{iid}"
     depth = 2 + (0 if LANG == "en" else 1); root = "../" * depth; a = f"{root}newsletter/{iid}/"
     title, tl = nl_i18n(iss, "title"); subtitle, sl = nl_i18n(iss, "subtitle")
-    txt, hl = nl_issue_html(iss); txt = txt.replace(BASE, root + lp())  # site links stay in the reader's language
+    txt, hl = nl_issue_html(iss); txt = site_url.expand(txt).replace(BASE, root + lp())  # site links stay in the reader's language
     tla, sla, hla = lang_attr(tl), lang_attr(sl), lang_attr(hl)
     per = iss.get("period") or []
     per_s = (" · " + E(t("nl_issue_period", a=i18n.short_dm(LANG, dt.date.fromisoformat(per[0])), b=i18n.short_date(LANG, dt.date.fromisoformat(per[1]))))) if len(per) == 2 else ""
@@ -504,6 +535,77 @@ def langsel_script():
     global LANGSEL_JS
     if LANGSEL_JS is None: LANGSEL_JS = open(P("tools", "langselect.js"), encoding="utf-8").read()
     return LANGSEL_JS
+def push_endpoint():
+    """Worker origin for browser push, or None when it is not deployed yet.
+    Env PUSH_ENDPOINT wins (empty string hides it). Otherwise workers/push/public.json public_endpoint."""
+    e = os.environ.get("PUSH_ENDPOINT")
+    if e is not None:
+        return e.strip().rstrip("/") or None
+    cfg = load(P("workers", "push", "public.json"), {}) or {}
+    return (cfg.get("public_endpoint") or "").strip().rstrip("/") or None
+_PUSH_JS = None
+def push_panel(root):
+    """Opt-in block. Left-aligned (start-aligned in RTL). The same button turns notifications off.
+
+    Without a configured Worker URL the page only says the service is not switched on.
+    There is no button and no request to a missing backend."""
+    if not push_endpoint():
+        return (
+            f'<section class="pushopt" id="notifications">'
+            f'<h2>{E(t("push_title"))}</h2>'
+            f'<p>{E(t("push_unavailable"))}</p>'
+            f'</section>'
+        )
+    countries = "".join(
+        f'<label class="push-c"><input type="checkbox" name="country" value="{c}"> {flag(c)}{E(t("c_" + c))}</label>'
+        for c in COUNTRY_CODES)
+    return (
+        f'<section class="pushopt" id="notifications" data-root="{E(root)}">'
+        f'<h2>{E(t("push_title"))}</h2>'
+        f'<p>{E(t("push_lead"))}</p>'
+        f'<div class="push-topics" role="group" aria-label="{E(t("push_topics"))}">'
+        f'<label class="push-c"><input type="checkbox" name="country" value="ALL" checked> {E(t("push_all"))}</label>'
+        f'{countries}</div>'
+        f'<p class="meta">{E(t("push_lang_note"))}</p>'
+        f'<p><button type="button" class="push-btn">{E(t("push_on"))}</button></p>'
+        f'<p class="push-status" role="status" aria-live="polite"></p>'
+        f'<p class="meta">{E(t("push_privacy"))}</p>'
+        f'<p class="meta">{E(t("push_ios"))}</p>'
+        f'<noscript><p>{E(t("push_noscript"))}</p></noscript>'
+        f'</section>'
+    )
+def push_script():
+    global _PUSH_JS
+    if not push_endpoint():
+        return ""
+    if _PUSH_JS is None:
+        _PUSH_JS = open(P("assets", "push", "client.js"), encoding="utf-8").read()
+    keys = ("on", "off", "on_status", "off_status", "unsupported", "denied", "unavailable", "working", "fail", "saved")
+    cfg = {"endpoint": push_endpoint() or "", "lang": LANG, "strings": {k: t("push_" + k) for k in keys}}
+    return "<script>window.NC_PUSH=" + json.dumps(cfg, ensure_ascii=False) + ";</script><script>\n" + _PUSH_JS + "\n</script>"
+def write_push_assets():
+    """Service worker and manifest at the site root, so the scope covers every language directory."""
+    os.makedirs(os.path.join(SITE, "assets", "push"), exist_ok=True)
+    shutil.copy(P("assets", "push", "sw.js"), os.path.join(SITE, "sw.js"))
+    for name in ("icon-192.png", "icon-512.png"):
+        shutil.copy(P("assets", "push", name), os.path.join(SITE, "assets", "push", name))
+    manifest = {
+        "name": SITE_NAME,
+        "short_name": SITE_NAME,
+        "description": "Bitcoin, blockchain and crypto news from the Nordics",
+        "start_url": "./",
+        "scope": "./",
+        "display": "standalone",
+        "background_color": "#ffffff",
+        "theme_color": "#0f5ea8",
+        "icons": [
+            {"src": "assets/push/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+            {"src": "assets/push/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+        ],
+    }
+    with open(os.path.join(SITE, "manifest.json"), "w", encoding="utf-8") as f:
+        json.dump(manifest, f, ensure_ascii=False, indent=1)
+        f.write("\n")
 def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra=""):
     """Writes site/<lang>/<slug>/index.html for the current LANG (English at the root)."""
     depth = (slug.count("/") + 1 if slug else 0) + (0 if LANG == "en" else 1)
@@ -511,7 +613,12 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
     rel = root + lp()                      # home of this language
     url = BASE + lp() + (slug + "/" if slug else "")
     s = snippets(url, f"{title} – {SITE_NAME}" if slug else f"{SITE_NAME} – {t('site_desc_suffix')}")
-    nav_html = "".join(f'<a href="{rel}{n + "/" if n else ""}"{" aria-current=page" if n == nav else ""}>{E(t(k))}</a>' for n, k in NAV)
+    def _nav_a(n, k):
+        quiet = ' class="nav-quiet"' if n == "talks" else ""
+        href = rel + (n + "/" if n else "")
+        current = " aria-current=page" if n == nav else ""
+        return f'<a{quiet} href="{href}"{current}>{E(t(k))}</a>'
+    nav_html = "".join(_nav_a(n, k) for n, k in NAV)
     langs = langs or i18n.LANGS
     alt = "".join(f'<link rel="alternate" hreflang="{i18n.HTML_LANG[l]}" href="{BASE}{lp(l)}{slug + "/" if slug else ""}">' for l in langs) + \
         f'<link rel="alternate" hreflang="x-default" href="{BASE}{slug + "/" if slug else ""}">'
@@ -554,7 +661,7 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
 <html lang="{i18n.HTML_LANG[LANG]}"{" dir=\"rtl\"" if i18n.rtl(LANG) else ""}><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <script>document.documentElement.classList.add("js")</script>
 {pick}<title>{E(title)}{" – " + SITE_NAME if slug else ""}</title>
-<meta name="description" content="{E(desc)}"><link rel="canonical" href="{url}">{alt}{head_extra}{'<meta name="robots" content="noindex">' if PREVIEW else ''}
+<meta name="description" content="{E(desc)}"><link rel="canonical" href="{url}"><link rel="manifest" href="{root}manifest.json">{alt}{head_extra}{'<meta name="robots" content="noindex">' if PREVIEW else ''}
 <meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:url" content="{url}"><meta property="og:type" content="website"><meta property="og:locale" content="{i18n.OG_LOCALE[LANG]}">{''.join(f'<meta property="og:locale:alternate" content="{i18n.OG_LOCALE[l]}">' for l in langs if l != LANG)}
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230f5ea8'/%3E%3Crect x='4' width='3' height='16' fill='white'/%3E%3Crect y='6.5' width='16' height='3' fill='white'/%3E%3C/svg%3E">
@@ -564,8 +671,8 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
 {body}
 {s['top']}
 </main>
-<footer><div class="wrap">{nlfoot}{community_links()}{t("footer", site=SITE_NAME, rel=rel, root=root)}</div></footer>
-{s['script']}{setck}{extra_script}{newsletter_script()}{analytics_snippet()}
+<footer><div class="wrap">{nlfoot}{community_links()}{push_panel(root)}{t("footer", site=SITE_NAME, rel=rel, root=root)}</div></footer>
+{s['script']}{setck}{extra_script}{newsletter_script()}{push_script()}{analytics_snippet()}
 </body></html>"""
     d = os.path.join(SITE, lp(), slug); os.makedirs(d, exist_ok=True)
     open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(doc)
@@ -720,6 +827,41 @@ def source_mark(i, root=""):
         img = f'<img class="src-logo" src="{root}{E(lg["file"])}" alt="" height="18" loading="lazy"{pend}>'
     return f'<span class="src">{img}<b>{E(name)}</b></span>'
 
+def _illustrations():
+    sys.path.insert(0, P("tools"))
+    import illustrations
+    return illustrations
+def ill_labels():
+    return {k: t(k) for k in ("ill_photo", "ill_drawing", "ill_licence", "ill_source", "ill_cropped")}
+def asset_prefix(slug):
+    """Path from this page to the site root, where assets/ lives."""
+    depth = (slug.count("/") + 1 if slug else 0) + (0 if LANG == "en" else 1)
+    return "../" * depth
+def story_path(i):
+    """Our page for this story. Own stories already have a relative url."""
+    if i.get("own_story"):
+        u = i.get("url") or ""
+        if u and not str(u).startswith("http"):
+            return u
+    return f"stories/{i['id']}/"
+def news_head(i):
+    """Headline for a card or story page. External headlines stay in the source language."""
+    src_l = i18n.SRC_LANG.get(i.get("language") or "", "en")
+    if LANG == "en" or i.get("own_story"):
+        head = i.get("title_en") or i["title"]
+        head_l = "en" if i.get("title_en") or i.get("own_story") else src_l
+        orig = ""
+        if i.get("title_en") and LANG == "en":
+            lname = t("lname_" + i["language"]) if i18n.has("en", "lname_" + (i.get("language") or "")) else (i.get("language") or "")
+            orig = f'<p class="orig">{E(t("orig_title", l=lname))}<span lang="{src_l}">{E(i["title"])}</span></p>'
+        return head, head_l, orig
+    return i["title"], src_l, ""
+def story_figure(i, slug, href=None):
+    rec = i.get("illustration")
+    if not rec:
+        return ""
+    return _illustrations().figure_html(rec, asset_prefix(slug), ill_labels(), href=href)
+
 def build():
     global LANG
     subprocess.run([sys.executable, P("tools", "apply_approvals.py")], check=True)
@@ -729,6 +871,7 @@ def build():
     if os.path.exists(SITE): shutil.rmtree(SITE)
     os.makedirs(os.path.join(SITE, "data"))
     open(os.path.join(SITE, ".nojekyll"), "w").close()
+    write_cname()
     if PREVIEW: open(os.path.join(SITE, ".preview"), "w").write("local preview build – never publish\n")
     for i in news["items"]:  # translated summaries: public only once the editor approved them (summary_i18n_review)
         if not PREVIEW and i.get("summary_i18n_review", "approved") != "approved": i.pop("summary_i18n", None)
@@ -738,7 +881,14 @@ def build():
     LANG = "en"; ctx["stories"] = build_stories(write=False)
     items = sorted(approved + pending + ctx["stories"], key=lambda i: i["published"], reverse=True); ctx["items"] = items
     attach_source_logos(items)
-    keys = ("id", "url", "title", "title_en", "source", "source_name", "source_logo", "country", "language", "published", "topics", "summary", "summary_i18n", "paywall", "links", "status", "own_story")
+    _illustrations().attach(items)
+    seen_ill = set()
+    for i in items:
+        rec = i.get("illustration") or {}
+        if rec.get("file") and rec["file"] not in seen_ill:
+            seen_ill.add(rec["file"])
+            copy_repo_file(rec["file"])
+    keys = ("id", "url", "title", "title_en", "source", "source_name", "source_logo", "country", "language", "published", "topics", "summary", "summary_i18n", "paywall", "links", "status", "own_story", "illustration")
     cov = _coverage(); sl = _source_logos()
     pub_items = []
     for i in items:
@@ -790,7 +940,7 @@ def build():
     LANG = "en"
     os.makedirs(os.path.join(SITE, "screen"), exist_ok=True)
     open(os.path.join(SITE, "screen", "index.html"), "w", encoding="utf-8").write(
-        open(P("templates", "screen.html"), encoding="utf-8").read().replace("__BASE__", BASE).replace("__FLAGS__", flags_js()).replace("__PREVIEW__", "true" if PREVIEW else "false").replace("__ANALYTICS__", analytics_snippet()))
+        open(P("templates", "screen.html"), encoding="utf-8").read().replace("__BASE__", BASE).replace("__HOST__", site_url.HOST).replace("__FLAGS__", flags_js()).replace("__PREVIEW__", "true" if PREVIEW else "false").replace("__ANALYTICS__", analytics_snippet()))
     for old, new in (("kalender", "calendar"), ("skjerm", "screen"), ("organisasjonskart", "org-chart"), ("kilder", "sources"), ("om", "about"), ("akademia", "academia")): redirect(old, new)
     active = sorted({(s.get("outlet") and next((x["name"] for x in cfg["sources"] if x["id"] == s.get("outlet")), s["name"]) or s["name"]).split(" (")[0] + "|" + s["country"]
                      for s in cfg["sources"] if s.get("enabled") and s["type"] not in ("bing", "search") and status.get(s["id"], {}).get("ok", True)})
@@ -799,9 +949,14 @@ def build():
         n, c = a.split("|")
         if n not in seen: seen.add(n); act.append({"name": n, "country": "NO" if n == "Kaupr" else c})
     json.dump({"active": act}, open(os.path.join(SITE, "data", "sources.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    open(os.path.join(SITE, "robots.txt"), "w").write("User-agent: *\n" + ("Disallow: /\n" if PREVIEW else "Allow: /\n"))
+    robots = "User-agent: *\n" + ("Disallow: /\n" if PREVIEW else "Allow: /\n")
+    if not PREVIEW:
+        robots += f"Sitemap: {BASE}sitemap.xml\n"
+    open(os.path.join(SITE, "robots.txt"), "w").write(robots)
+    write_push_assets()
     emit_api(ctx)
     sitemap()
+    write_cname()
     miss = sorted(i18n.MISSING)
     if miss: print(f"i18n: {len(miss)} missing strings fell back to English: {miss[:12]}{' …' if len(miss) > 12 else ''}")
     print(f"build{' (PREVIEW)' if PREVIEW else ''}: {len(items)} stories ({len(approved)} approved, {len(pending)} pending), "
@@ -1030,13 +1185,9 @@ def build_lang(ctx):
         src_ids = " ".join(dict.fromkeys(x for x in [i.get("source")] + [r.get("outlet") for r in rows] if x))
         tags = "".join(f'<span class="tag">{E(topic_label(x))}</span>' for x in i["topics"])
         pw = f' · <span class="pw">{E(t("paywall"))}</span>' if i.get("paywall") else ""
-        src_l = i18n.SRC_LANG.get(i.get("language") or "", "en")
-        if LANG == "en" or i.get("own_story"):  # English: our English headline + the original below; own stories: our title
-            head, head_l = (i.get("title_en") or i["title"]), ("en" if i.get("title_en") or i.get("own_story") else src_l)
-            orig = (f'<p class="orig">{E(t("orig_title", l=t("lname_" + i["language"]) if i18n.has("en", "lname_" + (i.get("language") or "")) else (i.get("language") or "")))}<span lang="{src_l}">{E(i["title"])}</span></p>'
-                    if i.get("title_en") and LANG == "en" else "")
-        else:  # other languages: the external headline exactly as in the source
-            head, head_l, orig = i["title"], src_l, ""
+        head, head_l, orig = news_head(i)
+        href = story_path(i)
+        fig = story_figure(i, "", href)
         lname = i.get("language") or ""
         foreign = bool(lname and i18n.has("en", "lang_" + lname) and lname != i18n.SAME_LANG.get(LANG, "") and head_l != LANG)
         if pend:
@@ -1054,12 +1205,14 @@ def build_lang(ctx):
                 summ = f'<p class="sum"{lang_attr(tl)}>{E(txt)}</p>'
         hl = "" if head_l == LANG else f' lang="{head_l}"'
         lis.append(f'<li data-src="{E(i["source"])}" data-sources="{E(src_ids)}" data-c="{E(i.get("country"))}" data-topics="{E(" ".join(i["topics"]))}">'
+                   f'{fig}<div class="storybody">'
                    f'<h3><a href="{E(href)}"{"" if not ext else " rel=noopener target=_blank"}{hl}>{E(head)}</a></h3>{orig}'
                    f'<div class="meta">{flag(i.get("country"))} {E(cname(i.get("country")))} · {source_mark(i, asset)} · <time datetime="{E(i["published"])}">{endate(i["published"])}</time>{lang}{pw} {tags}'
                    + (f' <span class="tag pend">{E(t("pending"))}</span>' if pend else "") + (f' <span class="tag pend">{E(t("owner"))}</span>' if own else "")
                    + (f' <span class="tag">{E(t("our_story"))}</span>' if i.get("own_story") else "") + f'</div>{summ}'
                    + coverage_row(rows, asset, f"stories/{i['id']}/")
-                   + "".join(f'<div class="meta">↳ <a href="{E(l["url"])}" rel="noopener" target="_blank">{E(l["label"])}</a></div>' for l in i.get("links", []) or []) + '</li>')
+                   + "".join(f'<div class="meta">↳ <a href="{E(l["url"])}" rel="noopener" target="_blank">{E(l["label"])}</a></div>' for l in i.get("links", []) or [])
+                   + '</div></li>')
     opts = "".join(f'<option value="{E(k)}">{E(n)}</option>' for k, n in srcs)
     tchips = "".join(f'<button type="button" class="chip tchip" data-t="{k}" aria-pressed="false">{E(topic_label(k))}</button>' for k in TOPICS)
     news = ctx["news"]; upd = endate(news["updated"]) if news.get("updated") else ""
@@ -1089,10 +1242,12 @@ sel.addEventListener('change',function(){apply(1)});tc.concat(cc).forEach(functi
     page("", t("home_title"), "", body, t("home_desc"), js)
     build_coverage_pages(items, ctx["blurbs"])
     build_stories(write=True)
+    build_external_stories(ctx)
     build_markets(ctx)
     build_org(ctx)
     build_sources(ctx)
     build_calendar(ctx)
+    build_talks()
     build_academia()
     build_changelog()
     build_tip()
@@ -1201,6 +1356,7 @@ def build_sources(ctx):
                         f'<td class="{cls}">{E(lab)}</td><td lang="en">{E(s.get("status", ""))}</td></tr>')
     erows = []
     for s in cfg.get("event_sources", []):
+        if event_block.blocked_source(s): continue
         st = status.get("ev-" + s["id"], {})
         if (s.get("status") or "").lower().startswith("used"):
             cls, lab = ("ok", t("st_used")) if s.get("enabled", True) and st.get("ok", True) is not False else ("bad", t("st_broken") if s.get("enabled", True) else t("st_unused"))
@@ -1254,13 +1410,18 @@ def build_coverage_pages(items, blurbs):
             txt, tl = card_text(i, LANG, blurbs)
             summ = f'<p class="sum"{lang_attr(tl)}>{E(txt)}</p>'
         pw = f' · <span class="pw">{E(t("paywall"))}</span>' if i.get("paywall") else ""
+        fig = story_figure(i, "stories/" + i["id"])
+        rec = i.get("illustration") or {}
+        og = f'<meta property="og:image" content="{E(BASE + rec["file"])}">' if rec.get("file") else ""
+        picture = fig + (f'<p class="notice">{E(t("ill_not_press"))}</p>' if rec else "")
         body = (f'<p class="meta"><a href="{back}">{E(t("back_news"))}</a></p>'
-                f'<article class="prose"><h1{hl}>{E(head)}</h1>{orig}'
+                + picture
+                + f'<article class="prose"><h1{hl}>{E(head)}</h1>{orig}'
                 f'<p class="meta">{flag(i.get("country"))} {E(cname(i.get("country")))} · {source_mark(i, root)} · <time datetime="{E(i["published"])}">{endate(i["published"])}</time>{pw}'
                 + (f' <span class="tag pend">{E(t("pending"))}</span>' if pend else "") + '</p>'
                 + summ + coverage_block(rows, root) + '</article>'
                 + f'<p class="notice">{E(t("home_notice"))}</p>')
-        page("stories/" + i["id"], head, "", body, (i.get("summary") or head or "")[:200], COV_SORT_JS)
+        page("stories/" + i["id"], head, "", body, (i.get("summary") or head or "")[:200], COV_SORT_JS, head_extra=og)
 def build_stories(write=True):
     """Own stories written by the editor (markdown, English). Public build: only slugs in approved.json stories.approve.
     Preview: also stories.ready_for_owner, tagged as awaiting jQrgen's final approval. The 'Editor notes' part is internal and never rendered.
@@ -1291,16 +1452,23 @@ def build_stories(write=True):
             cur.append(l)
         if cur: paras.append(" ".join(cur))
         pub = dt.datetime.fromtimestamp(os.path.getmtime(path), OSLO).replace(microsecond=0).isoformat()
+        story = {"id": "story-" + slug, "url": f"stories/{slug}/", "title": title, "source": "nordic-crypto", "source_name": "Nordic Crypto",
+                 "country": country, "language": "English", "published": pub, "topics": ["regulation"], "status": status, "own_story": True}
+        ill = _illustrations().assign(story)
         if write:
             note = t("story_only_en")
+            fig = _illustrations().figure_html(ill, asset_prefix("stories/" + slug), ill_labels())
+            og = f'<meta property="og:image" content="{E(BASE + ill["file"])}">' if ill else ""
             body = (f'<p class="meta"><a href="../../">{E(t("back_news"))}</a></p>' + (f'<p class="notice">{E(note)}</p>' if note and art_l == "en" and LANG != "en" else "")
+                    + fig
+                    + f'<p class="notice">{E(t("ill_not_press"))}</p>'
                     + f'<article class="prose"{lang_attr(art_l)}><h1>{E(title)}</h1>'
                     f'<p class="meta">{flag(country)} {E(cname(country))} · {source_mark({"source": "nordic-crypto", "source_name": "Nordic Crypto"}, up1() + "../")} · {endate(pub)}'
                     + (f' <span class="tag pend">{E(t("owner"))}</span>' if status == "owner" else "") + '</p>'
                     + "".join(f"<p>{md_inline(x)}</p>" for x in paras)
                     + f'<h2>{E(t("sources_h"))}</h2><ul>' + "".join(f"<li>{md_inline(s)}</li>" for s in srcs) + '</ul></article>'
                     + f'<p class="notice">{t("story_notice", rel="../../")}</p>')
-            page("stories/" + slug, title, "stories", body, paras[0][:200] if paras else title)
+            page("stories/" + slug, title, "stories", body, paras[0][:200] if paras else title, head_extra=og)
         editor_sum = ((st.get("summaries") or {}).get(slug) or "").strip()
         opening = opening_sentences(" ".join(paras)) if paras else ""
         first = editor_sum if substantive(editor_sum) else (opening or editor_sum or (first_sentence(paras[0]) if paras else ""))
@@ -1309,15 +1477,46 @@ def build_stories(write=True):
                     "summary_i18n": (st.get("summaries_i18n") or {}).get(slug) or {}, "status": status, "own_story": True})
     return out
 
+def build_external_stories(ctx):
+    """Pictures and the source link are written by build_coverage_pages, which also keeps the outlet list."""
+    return
+    """One page per external story: our picture, our summary, a link to the source. No article text."""
+    asset = asset_prefix("stories/x")
+    for i in ctx["items"]:
+        if i.get("own_story") or not i.get("id"):
+            continue
+        slug = "stories/" + i["id"]
+        head, head_l, orig = news_head(i)
+        hl = "" if head_l == LANG else f' lang="{head_l}"'
+        fig = story_figure(i, slug)
+        rec = i.get("illustration") or {}
+        og = f'<meta property="og:image" content="{E(BASE + rec["file"])}">' if rec.get("file") else ""
+        if i.get("status") not in ("published", "owner"):
+            summ = f'<p class="sum pend">{E(t("sum_pending"))}</p>'
+        else:
+            txt, tl = card_text(i, LANG, ctx.get("blurbs"))
+            summ = f'<p class="sum"{lang_attr(tl)}>{E(txt)}</p>' if txt else ""
+        pw = f' <span class="pw">{E(t("paywall"))}</span>' if i.get("paywall") else ""
+        body = (f'<p class="meta"><a href="../../">{E(t("back_news"))}</a></p>'
+                + fig
+                + f'<p class="notice">{E(t("ill_not_press"))}</p>'
+                + f'<article class="story"><h1{hl}>{E(head)}</h1>{orig}'
+                + f'<p class="meta">{flag(i.get("country"))} {E(cname(i.get("country")))} · {source_mark(i, asset)} · <time datetime="{E(i["published"])}">{endate(i["published"])}</time>{pw}</p>'
+                + summ
+                + f'<p><a href="{E(i["url"])}" rel="noopener">{E(t("read_at", source=i.get("source_name") or ""))}</a></p>'
+                + "</article>")
+        page(slug, head, "", body, (i.get("summary") or head or "")[:200], head_extra=og)
+
 def events_for_site():
-    ev = load(P("data", "events.json"), {"events": []}); ap = (load(P("queue", "approved.json"), {}) or {}).get("events", {})
+    ev = load(P("data", "events.json"), {"events": []})
+    ap_path = P("queue", "approved.json"); approvals_present = os.path.exists(ap_path)
+    ap = (load(ap_path, {}) or {}).get("events", {}) or {}
     now = dt.datetime.now(OSLO); out = []  # "finished" is judged in Oslo time
     for e in ev["events"]:
         e = dict(e)
-        if e["id"] in ap.get("reject", []): continue
-        if e["id"] in ap.get("approve", []): e["status"] = "published"
-        elif e["id"] in ap.get("ready_for_owner", []): e["status"] = "owner"  # editor-approved, waits for jQrgen; preview only
-        if e["status"] != "published" and not (PREVIEW and e["status"] in ("pending", "owner")): continue
+        status = event_block.publication_status(e, ap, PREVIEW, approvals_present, from_archive=False)
+        if not status: continue
+        e["status"] = status
         if not (e.get("place") or e.get("online")) or not e.get("organiser") or not e.get("start"): continue  # rule: date, place and organiser
         e["note"] = ap.get("notes", {}).get(e["id"]) or (e.get("note") if PREVIEW else None)
         if e["id"] in (ap.get("title_en") or {}): e["title_orig"] = e["title"]; e["title"] = ap["title_en"][e["id"]]
@@ -1327,23 +1526,179 @@ def events_for_site():
         if e["id"] in ap.get("paid", {}): e["paid"] = ap["paid"][e["id"]]
         if e["status"] == "published": e["note"] = ap.get("notes", {}).get(e["id"])  # archive/public: editor's note only
         e["note_i18n"] = (ap.get("notes_i18n") or {}).get(e["id"]) if e.get("note") else None
+        site_url.brand_note(e)  # approved.json is local and may still reverse the brand name
         e["past"] = dt.datetime.fromisoformat(e.get("end") or e["start"]) < now
         out.append({k: e.get(k) for k in ("id", "title", "title_orig", "start", "end", "place", "city", "country", "online", "organiser", "url", "source", "paid", "sponsored", "note", "note_i18n", "past", "status")})
-    # Archive (committed to git): every event ever approved. jQrgen's rule: finished events are NEVER deleted, they move to
-    # "Past events". Fetch and build may only add or update archive entries, never remove them. Pending/preview events are not archived.
-    arkf = P("archive", "events.json"); ark = load(arkf, {"events": []}); by = {e["id"]: e for e in ark["events"]}
+    # Archive: events whose ids are in events.approve. A status of "published" on the row is not
+    # approval. Finished events stay under "Past events". Predatory listings are removed and not shown.
+    arkf = P("archive", "events.json"); ark = load(arkf, {"events": []}); by = {}
+    for raw in ark.get("events") or []:
+        if event_block.blocked_event(raw): continue
+        by[raw["id"]] = raw
     for e in out:
-        if e["status"] == "published": by[e["id"]] = {k: v for k, v in e.items() if k != "past"}
-    ark["_how_to"] = "Add-only archive of every editor-approved event (written by build.py). Never delete entries; finished events are shown under 'Past events'."
+        if e["status"] == "published" and not event_block.blocked_event(e):
+            by[e["id"]] = {k: v for k, v in e.items() if k != "past"}
+    ark["_how_to"] = "Archive of editor-approved events (written by build.py). An event is published only when its id is in queue/approved.json events.approve. Finished events stay under 'Past events'. Predatory conference listings are removed and are not shown."
     ark["events"] = sorted(by.values(), key=lambda e: dt.datetime.fromisoformat(e["start"]))
     os.makedirs(os.path.dirname(arkf), exist_ok=True)
     json.dump(ark, open(arkf, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     seen = {e["id"] for e in out}
-    for e in ark["events"]:  # archived events that have dropped out of data/events.json (e.g. finished ones)
-        if e["id"] in seen or e["id"] in ap.get("reject", []): continue  # rejected: hidden, but kept in the archive
-        e = dict(e); e["note_i18n"] = e.get("note_i18n") or ((ap.get("notes_i18n") or {}).get(e["id"]) if e.get("note") else None)
+    for raw in ark["events"]:  # archived events that have dropped out of data/events.json (e.g. finished ones)
+        if raw["id"] in seen: continue
+        e = dict(raw)
+        status = event_block.publication_status(e, ap, PREVIEW, approvals_present, from_archive=True)
+        if not status: continue  # not on the approve list, rejected, or a predatory listing
+        e["status"] = status
+        e["note_i18n"] = e.get("note_i18n") or ((ap.get("notes_i18n") or {}).get(e["id"]) if e.get("note") else None)
+        site_url.brand_note(e)
         e["past"] = dt.datetime.fromisoformat(e.get("end") or e["start"]) < now; out.append(e)
     return sorted(out, key=lambda e: dt.datetime.fromisoformat(e["start"])), now
+
+TALK_COUNTRIES = ["NO", "SE", "DK", "FI", "IS", "FO", "GL", "AX"]
+_TALK_LANG = {
+    "en": "lname_English", "no": "lname_Norwegian", "nb": "lname_Norwegian", "nn": "lname_Norwegian",
+    "sv": "lname_Swedish", "da": "lname_Danish", "fi": "lname_Finnish", "is": "lname_Icelandic",
+}
+
+def load_talks():
+    """Public talk rows from data/talks.json, newest talk date first (publish date if the talk date is empty)."""
+    raw = load(P("data", "talks.json"), {"talks": []}) or {"talks": []}
+    rows = [t for t in (raw.get("talks") or []) if isinstance(t, dict) and t.get("id") and t.get("video_url")]
+    def key(row):
+        return row.get("date") or row.get("published") or ""
+    return sorted(rows, key=key, reverse=True)
+
+def _talk_embed(row):
+    """Official player URL, only when the stored oEmbed check said embedding is allowed."""
+    if not row.get("embed"):
+        return None
+    sys.path.insert(0, P("tools"))
+    import talks as talks_mod
+    platform = row.get("platform")
+    if platform == "youtube":
+        vid = talks_mod.youtube_id(row.get("video_url"))
+        return f"https://www.youtube-nocookie.com/embed/{vid}?rel=0" if vid else None
+    if platform == "vimeo":
+        vid = talks_mod.vimeo_id(row.get("video_url"))
+        return f"https://player.vimeo.com/video/{vid}" if vid else None
+    return None
+
+def _talk_when(iso):
+    if not iso or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", iso):
+        return ""
+    try:
+        return i18n.short_date(LANG, dt.date.fromisoformat(iso))
+    except ValueError:
+        return iso
+
+def _talk_duration(value):
+    """ISO 8601 duration from the platform, shown as H:MM:SS. Empty when the platform did not state a length."""
+    if not value:
+        return ""
+    m = re.fullmatch(r"PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?", value)
+    if not m or not any(m.groups()):
+        return value
+    hours, minutes, seconds = (int(m.group(1) or 0), int(m.group(2) or 0), int(m.group(3) or 0))
+    if hours:
+        return f"{hours}:{minutes:02d}:{seconds:02d}"
+    return f"{minutes}:{seconds:02d}"
+
+def _talk_lang_label(code):
+    key = _TALK_LANG.get(code or "")
+    if key and i18n.has("en", key):
+        return t(key)
+    return code or ""
+
+def build_talks():
+    """ /talks/ : public Nordic crypto talks, newest first. The player is not in the HTML until a click."""
+    rows = load_talks()
+    years = sorted({(r.get("date") or r.get("published") or "")[:4] for r in rows if (r.get("date") or r.get("published") or "")[:4].isdigit()}, reverse=True)
+    langs = []
+    for r in rows:
+        code = r.get("language") or ""
+        if code and code not in langs:
+            langs.append(code)
+    unknown = any(not r.get("language") for r in rows)
+    def chips(codes):
+        return "".join(
+            f'<button type="button" class="chip tcountry" data-c="{E(c)}" aria-pressed="false">{flag(c)}{E(t("c_" + c) if i18n.has("en", "c_" + c) else c)}</button>'
+            for c in codes)
+    lang_chips = "".join(
+        f'<button type="button" class="chip tlang" data-l="{E(c)}" aria-pressed="false">{E(_talk_lang_label(c))}</button>'
+        for c in langs)
+    if unknown:
+        lang_chips += f'<button type="button" class="chip tlang" data-l="" aria-pressed="false">{E(t("talks_lang_unknown"))}</button>'
+    year_opts = f'<option value="">{E(t("talks_year_all"))}</option>' + "".join(f'<option value="{E(y)}">{E(y)}</option>' for y in years)
+    def article(r):
+        embed = _talk_embed(r)
+        held = _talk_when(r.get("date"))
+        published = _talk_when(r.get("published"))
+        duration = _talk_duration(r.get("duration"))
+        speakers = [s for s in (r.get("speakers") or []) if s]
+        bits = []
+        if held:
+            bits.append(f'{E(t("talks_held"))}: <time datetime="{E(r.get("date"))}">{E(held)}</time>')
+        if r.get("city") or r.get("country"):
+            place = ", ".join(p for p in (r.get("city"), cname(r.get("country")) if r.get("country") else "") if p)
+            bits.append(f'{flag(r.get("country"))} {E(place)}' if r.get("country") else E(place))
+        if speakers:
+            bits.append(f'{E(t("talks_speakers"))}: {E(", ".join(speakers))}')
+        if duration:
+            bits.append(f'{E(t("talks_duration"))}: {E(duration)}')
+        if r.get("language"):
+            bits.append(f'{E(t("talks_language"))}: {E(_talk_lang_label(r.get("language")))}')
+        meta = " · ".join(bits)
+        if embed:
+            host = "youtube-nocookie.com" if r.get("platform") == "youtube" else ("player.vimeo.com" if r.get("platform") == "vimeo" else "")
+            media = (f'<button type="button" class="talk-play" data-embed="{E(embed)}">{E(t("talks_play"))}</button>'
+                     f'<p class="meta">{E(t("talks_embed_note"))}</p>')
+        else:
+            media = (f'<p><a href="{E(r.get("video_url"))}" rel="noopener" target="_blank">{E(t("talks_watch"))}</a></p>'
+                     f'<p class="meta">{E(t("talks_not_embed"))}</p>')
+        extra = []
+        if r.get("event_name"):
+            if r.get("event_url"):
+                extra.append(f'{E(t("talks_event"))}: <a href="{E(r["event_url"])}" rel="noopener" target="_blank">{E(r["event_name"])}</a>')
+            else:
+                extra.append(f'{E(t("talks_event"))}: {E(r["event_name"])}')
+        if r.get("calendar_event_id"):
+            extra.append(f'<a href="../calendar/#e-{E(r["calendar_event_id"])}">{E(t("talks_calendar"))}</a>')
+        if r.get("channel"):
+            extra.append(f'{E(t("talks_channel"))}: {E(r["channel"])}')
+        if published:
+            extra.append(f'{E(t("talks_published"))}: <time datetime="{E(r.get("published"))}">{E(published)}</time>')
+        if r.get("source_url"):
+            extra.append(f'{E(t("talks_source"))}: <a href="{E(r["source_url"])}" rel="noopener" target="_blank">{E(r["source_url"])}</a>')
+        year = (r.get("date") or r.get("published") or "")[:4]
+        return (f'<article id="{E(r["id"])}" data-c="{E(r.get("country") or "")}" data-y="{E(year)}" data-l="{E(r.get("language") or "")}">'
+                f'<h2><a href="{E(r.get("video_url"))}" rel="noopener" target="_blank">{E(r.get("title") or "")}</a></h2>'
+                f'<p class="meta">{meta}</p>{media}'
+                + (f'<p class="sum">{E(r.get("description") or "")}</p>' if r.get("description") else "")
+                + (f'<p class="meta">{" · ".join(extra)}</p>' if extra else "")
+                + '</article>')
+    body = f"""<div class="talks"><h1>{E(t("talks_h1"))}</h1>
+<p class="lead">{E(t("talks_lead"))}</p>
+<div class="filters" role="group" aria-label="{E(t("filters"))}">
+<span class="lbl">{E(t("country"))}</span><div class="chips">{chips(TALK_COUNTRIES)}</div>
+<label for="talk-year">{E(t("talks_year"))}</label> <select id="talk-year">{year_opts}</select>
+<span class="lbl">{E(t("talks_language"))}</span><div class="chips">{lang_chips}</div>
+<span id="talk-count" class="meta" aria-live="polite"></span>
+</div>
+<div id="talk-list">{''.join(article(r) for r in rows) or f'<p class="empty">{E(t("talks_none"))}</p>'}</div>
+</div>"""
+    js = r"""<script>(function(){var N=%s,arts=[].slice.call(document.querySelectorAll('#talk-list article')),cc=[].slice.call(document.querySelectorAll('.tcountry')),lc=[].slice.call(document.querySelectorAll('.tlang')),year=document.getElementById('talk-year'),cnt=document.getElementById('talk-count');
+function on(list,key){return list.filter(function(b){return b.getAttribute('aria-pressed')==='true'}).map(function(b){return b.dataset[key]})}
+function apply(push){var c=on(cc,'c'),l=on(lc,'l'),y=year.value,n=0;arts.forEach(function(a){var ok=(!c.length||c.indexOf(a.dataset.c)>=0)&&(!y||a.dataset.y===y)&&(!l.length||l.indexOf(a.dataset.l)>=0);a.hidden=!ok;if(ok)n++});cnt.textContent=N.replace('{n}',n);if(push){var p=new URLSearchParams();if(c.length)p.set('country',c.join(','));if(y)p.set('year',y);if(l.length)p.set('lang',l.join(','));history.replaceState(null,'',p.toString()?'#'+p:location.pathname)}}
+var h=new URLSearchParams(location.hash.slice(1));(h.get('country')||'').split(',').forEach(function(x){cc.forEach(function(b){if(b.dataset.c===x)b.setAttribute('aria-pressed','true')})});
+(h.get('lang')||'').split(',').forEach(function(x){lc.forEach(function(b){if((b.dataset.l||'')===x)b.setAttribute('aria-pressed','true')})});
+if(h.get('year'))year.value=h.get('year');
+cc.concat(lc).forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');apply(1)})});
+year.addEventListener('change',function(){apply(1)});
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.talk-play');if(!b)return;var src=b.getAttribute('data-embed');if(!src)return;var f=document.createElement('iframe');f.src=src;f.title=b.textContent||'';f.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');f.setAttribute('allowfullscreen','');f.setAttribute('referrerpolicy','strict-origin-when-cross-origin');b.replaceWith(f)});
+apply(0)})();</script>""" % json.dumps(t("talks_n", n="{n}"))
+    page("talks", t("talks_title"), "talks", body, t("talks_desc"), js)
+    if LANG == "en":
+        print(f"talks: {len(rows)}")
 
 def build_calendar(ctx):
     evs, now = ctx["events"]
@@ -1351,8 +1706,14 @@ def build_calendar(ctx):
     def when(e):
         a = dt.datetime.fromisoformat(e["start"]); b = dt.datetime.fromisoformat(e["end"]) if e.get("end") else None
         # Weekday names exist for the Nordic languages. The wider set uses English until translated.
-        s = f'{i18n.WD.get(LANG, i18n.WD["en"])[a.weekday()]} {i18n.short_date(LANG, a)}, {i18n.hm(LANG, a)}'
-        s += (f'–{i18n.hm_end(LANG, b)}' if b and b.date() == a.date() else (f' – {i18n.short_dm(LANG, b)}' if b else ""))
+        # A listing that only publishes calendar days is stored as 00:00–23:59 local. Show the dates, not a clock.
+        date_only = a.hour == 0 and a.minute == 0 and (b is None or (b.hour, b.minute) in ((0, 0), (23, 59)))
+        if date_only:
+            s = f'{i18n.WD.get(LANG, i18n.WD["en"])[a.weekday()]} {i18n.short_date(LANG, a)}'
+            if b and b.date() != a.date(): s += f' – {i18n.short_dm(LANG, b)}'
+        else:
+            s = f'{i18n.WD.get(LANG, i18n.WD["en"])[a.weekday()]} {i18n.short_date(LANG, a)}, {i18n.hm(LANG, a)}'
+            s += (f'–{i18n.hm_end(LANG, b)}' if b and b.date() == a.date() else (f' – {i18n.short_dm(LANG, b)}' if b else ""))
         c = e.get("country")
         return s + f' ({t("time_local", city=t("city_" + c)) if c in COUNTRY_CODES else t("city_local")})'
     def badges(e):
@@ -1394,7 +1755,7 @@ def build_calendar(ctx):
 <p class="meta">{" · ".join(f"{flag(c)} {E(n)}: {per_c[c]}" for c, n in COUNTRIES.items())}</p>
 <div class="calgrid">{''.join(grids)}</div>
 <h2>{E(t("upcoming_h"))}</h2><ol class="news" id="evlist">{''.join(li(e) for e in up) or f'<li class="empty">{E(t("no_upcoming"))}</li>'}</ol>
-<h2 id="past">{E(t("past_h"))}</h2><p class="meta">{E(t("past_note"))}</p><ol class="news past">{''.join(li(e) for e in past) or f'<li class="empty">{E(t("no_past"))}</li>'}</ol>
+<h2 id="past">{E(t("past_h"))}</h2><p class="meta">{E(t("past_note"))}</p><p class="meta">{t("past_talks", href="../talks/")}</p><ol class="news past">{''.join(li(e) for e in past) or f'<li class="empty">{E(t("no_past"))}</li>'}</ol>
 <p class="meta">{t("cal_how")}</p>"""
     js = """<script>(function(){var NU=%s,cc=[].slice.call(document.querySelectorAll('.cchip')),n=[].slice.call(document.querySelectorAll('#evlist li[data-c], .calgrid a[data-c], ol.past li[data-c]')),cnt=document.getElementById('ecount');
 function apply(){var c=cc.filter(function(x){return x.getAttribute('aria-pressed')==='true'}).map(function(x){return x.dataset.c}),k=0;n.forEach(function(el){var ok=!c.length||c.indexOf(el.dataset.c)>=0;el.hidden=!ok;if(ok&&el.parentNode.id==='evlist')k++});cnt.textContent=NU.replace('{n}',k);history.replaceState(null,'',c.length?'#country='+c.join(','):location.pathname)}
@@ -1436,11 +1797,34 @@ def build_academia():
     groups = bycountry(secs["groups"], lambda r: f'<h3><a href="{E(r["url"])}" rel="noopener" target="_blank">{E(r["name"])}</a> '
         f'<span class="tag {"act" if r["active"] else "inact"}">{E(t("active") if r["active"] else t("inactive"))}</span></h3>'
         f'<div class="meta">{flag(r["country"])} <b>{E(r["institution"])}</b></div>{about(r, "group")}{foot(r)}')
-    def au(a): return ", ".join(a[:4]) + (t("et_al") if len(a) > 4 else "")
-    pubs = bycountry(sorted(secs["publications"], key=lambda r: -(r.get("year") or 0)), lambda r: f'<h3><a href="{E(r["url"])}" rel="noopener" target="_blank">{E(r["title"])}</a></h3>'
-        f'<div class="meta">{flag(r["country"])} {E(au(r["authors"]))} ({E(r["year"])}). <i>{E(r.get("venue") or "")}</i>'
-        + (f' · {E(r["institution"])}' if r.get("institution") else "") + '</div>'
-        f'<div class="meta">DOI: <a href="{E(r["url"])}" rel="noopener" target="_blank">{E(r["doi"])}</a> · <a href="{E(r["db"])}" rel="noopener" target="_blank">{E(t("ac_record", db=r.get("db_name") or t("database")))}</a></div>{foot(r)}')
+    def au(a):
+        a = a or []
+        return (", ".join(a[:4]) + (t("et_al") if len(a) > 4 else "")) if a else ""
+    def pub_type(r):
+        return {"master": "Master's thesis", "phd": "PhD dissertation", "paper": "Paper", "conference": "Conference"}.get(r.get("type") or "paper", r.get("type") or "Paper")
+    def pub_meta(r):
+        bits = [flag(r["country"])]
+        authors = au(r.get("authors"))
+        if authors: bits.append(E(authors))
+        if r.get("year"): bits.append(f'({E(r["year"])})')
+        bits.append(f'<span class="tag">{E(pub_type(r))}</span>')
+        if r.get("venue"): bits.append(f'<i>{E(r["venue"])}</i>')
+        if r.get("institution"): bits.append(E(r["institution"]))
+        return " · ".join(bits)
+    def pub_ids(r):
+        parts = []
+        if r.get("doi"):
+            parts.append(f'DOI: <a href="{E(r["url"])}" rel="noopener" target="_blank">{E(r["doi"])}</a>')
+        db = r.get("db") or r.get("url")
+        if db:
+            parts.append(f'<a href="{E(db)}" rel="noopener" target="_blank">{E(t("ac_record", db=r.get("db_name") or t("database")))}</a>')
+        if r.get("about"):
+            parts.append(f'<span{en}>{E(r["about"])}</span>')
+        return " · ".join(parts)
+    pubs = bycountry(sorted(secs["publications"], key=lambda r: (-(r.get("year") or 0), r.get("title") or "")),
+        lambda r: f'<h3><a href="{E(r["url"])}" rel="noopener" target="_blank">{E(r["title"])}</a></h3>'
+        f'<div class="meta">{pub_meta(r)}</div>'
+        f'<div class="meta">{pub_ids(r)}</div>{foot(r)}')
     research = bycountry(secs["research"], lambda r: f'<h3><a href="{E(r["url"])}" rel="noopener" target="_blank">{E(r["name"])}</a></h3>'
         f'<div class="meta">{flag(r["country"])} <b>{E(r["institution"])}</b></div>{about(r)}{foot(r)}')
     allrows = sum(len(v) for v in secs.values())

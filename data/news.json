@@ -1,6 +1,101 @@
 {
  "items": [
   {
+   "id": "fb9e8ca4fb40",
+   "url": "https://www.finansavisen.no/valuta/2026/10/05/8385368/smasparere-hamstret-krypto-under-renteuro",
+   "title": "Småsparere hamstret krypto under renteuro",
+   "title_en": "Norwegian retail investors kept buying crypto during rate turmoil",
+   "source": "finansavisen",
+   "source_name": "Finansavisen",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "bing-no",
+   "seen_via": [
+    "bing-no",
+    "bing-no-kn"
+   ],
+   "published": "2026-10-05T06:06:00+00:00",
+   "fetched": "2026-10-06T01:49:36+00:00",
+   "topics": [
+    "business"
+   ],
+   "matched": [
+    "\\bFiri\\b",
+    "\\bkrypto(?!graf)\\w*"
+   ],
+   "paywall": true,
+   "status": "published",
+   "summary": "Customers of Norwegian exchange Firi bought 16.1 million kroner more crypto than they sold in September, on trading of 313.5 million kroner, despite a turbulent month. Bitcoin was the top buy while many moved money out of XRP into bitcoin and solana; CEO Thuc Hoang sees rising US interest rates as the main risk.",
+   "approved_by": "Nordic Crypto redaktør",
+   "approved_at": "2026-10-06T04:25:00+02:00",
+   "summary_i18n": {
+    "nn": "Kundane på den norske kryptobørsen Firi kjøpte krypto for 16,1 millionar kroner meir enn dei selde i september, med ei omsetning på 313,5 millionar kroner, trass i ein uroleg månad. Bitcoin var mest kjøpt, medan mange flytta pengar frå XRP til bitcoin og solana; Firi-sjef Thuc Hoang ser stigande amerikanske renter som den største risikoen.",
+    "nb": "Kundene på den norske kryptobørsen Firi kjøpte krypto for 16,1 millioner kroner mer enn de solgte i september, med en omsetning på 313,5 millioner kroner, til tross for en urolig måned. Bitcoin var mest kjøpt, mens mange flyttet penger fra XRP til bitcoin og solana; Firi-sjef Thuc Hoang ser stigende amerikanske renter som den største risikoen.",
+    "sv": "Kunderna på den norska kryptobörsen Firi köpte krypto för 16,1 miljoner norska kronor mer än de sålde i september, med en omsättning på 313,5 miljoner kronor, trots en orolig månad. Bitcoin köptes mest, medan många flyttade pengar från XRP till bitcoin och solana; Firis vd Thuc Hoang ser stigande amerikanska räntor som den största risken.",
+    "da": "Kunderne på den norske kryptobørs Firi købte krypto for 16,1 millioner norske kroner mere, end de solgte i september, med en omsætning på 313,5 millioner kroner, trods en urolig måned. Bitcoin var mest købt, mens mange flyttede penge fra XRP til bitcoin og solana; Firis topchef Thuc Hoang ser stigende amerikanske renter som den største risiko.",
+    "fi": "Norjalaisen kryptopörssin Firin asiakkaat ostivat syyskuussa kryptovaluuttoja 16,1 miljoonalla Norjan kruunulla enemmän kuin myivät, kun kaupankäynnin arvo oli 313,5 miljoonaa kruunua, levottomasta kuukaudesta huolimatta. Bitcoin oli ostetuin, ja moni siirsi rahojaan XRP:stä bitcoiniin ja solanaan; Firin toimitusjohtaja Thuc Hoang pitää nousevia Yhdysvaltain korkoja suurimpana riskinä.",
+    "is": "Viðskiptavinir norsku rafmyntakauphallarinnar Firi keyptu rafmyntir fyrir 16,1 milljón norskra króna meira en þeir seldu í september, en heildarviðskipti námu 313,5 milljónum króna, þrátt fyrir óróa á markaði. Bitcoin var mest keypt og margir færðu fé úr XRP yfir í bitcoin og solana; Thuc Hoang, forstjóri Firi, telur hækkandi vexti í Bandaríkjunum vera mestu áhættuna."
+   },
+   "summary_i18n_review": "approved"
+  },
+  {
+   "title": "Nye datasenter-støt mot Alvdal: Sveitsere snuser på den gamle «bitcoin-tomta»",
+   "title_en": null,
+   "source": "alvdalmiv.no",
+   "source_name": "alvdalmiv",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-10-04T08:35:00+00:00",
+   "topics": [
+    "bitcoin"
+   ],
+   "matched": [],
+   "paywall": false,
+   "suggested_by": "Kryptonytt",
+   "origin": "suggested by Kryptonytt",
+   "suggested_status": "candidate on Kryptonytt",
+   "suggested_at": "2026-10-06T02:02:32+00:00",
+   "id": "a51e74dda6a0",
+   "url": "https://www.alvdalmiv.no/2026/nyheter/naeringsliv/nye-datasenter-stot-mot-alvdal-sveitsere-snuser-pa-den-gamle-bitcoin-tomta/",
+   "status": "rejected",
+   "summary": null,
+   "fetched": "2026-10-06T02:02:32+00:00",
+   "reject_reason": "Data-centre interest in a former bitcoin-mining plot: crypto only as the site's history, and the article text could not be checked"
+  },
+  {
+   "title": "Eksperter: Økning i antall krypto-ran",
+   "title_en": null,
+   "source": "nettavisen",
+   "source_name": "Nettavisen",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt",
+    "bing-no-kn"
+   ],
+   "published": "2026-10-04T02:13:25+00:00",
+   "topics": [
+    "crypto"
+   ],
+   "matched": [],
+   "paywall": true,
+   "suggested_by": "Kryptonytt",
+   "origin": "suggested by Kryptonytt",
+   "suggested_status": "candidate on Kryptonytt",
+   "suggested_at": "2026-10-04T03:30:09+00:00",
+   "id": "f8936b3a784a",
+   "url": "https://www.nettavisen.no/nyheter/eksperter-okning-i-antall-krypto-ran/s/80-95-130440",
+   "status": "rejected",
+   "summary": null,
+   "fetched": "2026-10-04T03:30:09+00:00",
+   "reject_reason": "No Nordic angle: Chainalysis report (via BBC) on violent crypto robberies in France, the UK and elsewhere"
+  },
+  {
    "id": "fd3554c61e93",
    "url": "https://www.kauppalehti.fi/uutiset/a/bb5da177-5a05-413d-8093-25133b3e4067",
    "title": "Bitcoinjätti teki hurjan ennusteen kryptovaluuttojen tulevaisuudesta – ”120 biljoonaa”",
@@ -472,6 +567,35 @@
    "fetched": "2026-10-03T16:17:59+00:00",
    "origin": "suggested by Kryptonytt",
    "reject_reason": "Crypto angle too thin (former crypto company); story is about a person's finances"
+  },
+  {
+   "title": "K33: Bitcoin kan få ny opptur etter stor derivatopprydding",
+   "title_en": null,
+   "source": "investornytt",
+   "source_name": "Investornytt",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-09-29T12:00:00+00:00",
+   "topics": [
+    "bitcoin",
+    "companies"
+   ],
+   "matched": [],
+   "paywall": false,
+   "suggested_by": "Kryptonytt",
+   "origin": "suggested by Kryptonytt",
+   "suggested_status": "candidate on Kryptonytt",
+   "suggested_at": "2026-10-04T03:31:04+00:00",
+   "id": "f17e66cd2ee6",
+   "url": "https://www.investornytt.no/krypto/spekulantene-tar-gevinst-k33-oyner-ny-bitcoin-opptur/546305",
+   "status": "rejected",
+   "summary": null,
+   "fetched": "2026-10-04T03:31:04+00:00",
+   "reject_reason": "Weekly bitcoin price and derivatives outlook: price commentary, skipped under our coverage priorities"
   },
   {
    "title": "#75 MAX HILLEBRAND - The unseen cost of fiat.",
@@ -2852,62 +2976,7 @@
     "is": "Finnska fjármálaeftirlitið minnir á að þjónustuveitendur sýndareigna sem þjóna Finnlandi verða að hafa leyfi innan ESB (MiCA)."
    },
    "summary_i18n_review": "approved"
-  },
-  {
-   "title": "Eksperter: Økning i antall krypto-ran",
-   "title_en": null,
-   "source": "nettavisen",
-   "source_name": "Nettavisen",
-   "country": "NO",
-   "language": "Norwegian",
-   "via": "kryptonytt",
-   "seen_via": [
-    "kryptonytt"
-   ],
-   "published": "2026-10-04T02:13:25+00:00",
-   "topics": [
-    "crypto"
-   ],
-   "matched": [],
-   "paywall": true,
-   "suggested_by": "Kryptonytt",
-   "origin": "suggested by Kryptonytt",
-   "suggested_status": "candidate on Kryptonytt",
-   "suggested_at": "2026-10-04T03:30:09+00:00",
-   "id": "f8936b3a784a",
-   "url": "https://www.nettavisen.no/nyheter/eksperter-okning-i-antall-krypto-ran/s/80-95-130440",
-   "status": "pending",
-   "summary": null,
-   "fetched": "2026-10-04T03:30:09+00:00"
-  },
-  {
-   "title": "K33: Bitcoin kan få ny opptur etter stor derivatopprydding",
-   "title_en": null,
-   "source": "investornytt",
-   "source_name": "Investornytt",
-   "country": "NO",
-   "language": "Norwegian",
-   "via": "kryptonytt",
-   "seen_via": [
-    "kryptonytt"
-   ],
-   "published": "2026-09-29T12:00:00+00:00",
-   "topics": [
-    "bitcoin",
-    "companies"
-   ],
-   "matched": [],
-   "paywall": false,
-   "suggested_by": "Kryptonytt",
-   "origin": "suggested by Kryptonytt",
-   "suggested_status": "candidate on Kryptonytt",
-   "suggested_at": "2026-10-04T03:31:04+00:00",
-   "id": "f17e66cd2ee6",
-   "url": "https://www.investornytt.no/krypto/spekulantene-tar-gevinst-k33-oyner-ny-bitcoin-opptur/546305",
-   "status": "pending",
-   "summary": null,
-   "fetched": "2026-10-04T03:31:04+00:00"
   }
  ],
- "updated": "2026-10-04T01:42:55+00:00"
+ "updated": "2026-10-07T01:48:50+00:00"
 }

@@ -1,0 +1,6 @@
+# Copy to .dev.vars for `npx wrangler dev --local`. .dev.vars is gitignored.
+# Generate values with `node keys.mjs` and paste them here. Do not commit .dev.vars.
+VAPID_PUBLIC_KEY=
+VAPID_PRIVATE_KEY=
+PUBLISH_TOKEN=
+VAPID_SUBJECT=mailto:push@cryptonordic.no

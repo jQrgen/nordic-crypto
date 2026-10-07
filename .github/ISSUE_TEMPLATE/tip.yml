@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for the tip! Our editor checks every tip against [our rules](https://jqrgen.github.io/nordic-crypto/tip/). A tip does not guarantee publication.
+        Thanks for the tip! Our editor checks every tip against [our rules](https://nordiccrypto.no/tip/). A tip does not guarantee publication.
 
         **Privacy:** tips are **public** on GitHub, together with your GitHub username. Do not share personal or sensitive information (about yourself or anyone else) – just the link and, if you like, a short note.
   - type: input
