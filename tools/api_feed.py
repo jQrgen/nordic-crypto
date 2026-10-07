@@ -728,6 +728,11 @@ def _sources(cfg):
             "status": s.get("status") or "",
             "verified": s.get("verified"),
             "language": s.get("language"),
+            "coverage": s.get("coverage"),
+            "region": s.get("region"),
+            "method": s.get("method") or ("rss" if s.get("type") in ("rss", "rss-all") else "html" if s.get("type") == "html" else "sitemap" if s.get("type") == "sitemap" else "search" if s.get("type") == "bing" else "manual"),
+            "icon_url": s.get("logo") if isinstance(s.get("logo"), str) and str(s.get("logo")).startswith("https://") else None,
+            "logo_source": s.get("logo_source") if isinstance(s.get("logo_source"), str) and str(s.get("logo_source")).startswith("https://") else None,
         }
         feed = s.get("feed")
         if feed and "{q}" not in feed and s.get("type") != "bing":
@@ -1236,7 +1241,7 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
         example="api/v1/talks/by-country/NO.json",
     )
 
-    collection("api/v1/sources.json", "News outlets, the public search terms, and event sources. Event sources name the intake method. Luma calendars use a public iCal subscribe URL. Eventbrite organizers and venues use the v3 API when the server has EVENTBRITE_TOKEN; the token is not in this feed. Without it, event pages are schema.org JSON-LD. Kaupr is marked as a news source only and is never an event sponsor. logo is the outlet image for that source id when one is on file.", "SourceCatalogue",
+    collection("api/v1/sources.json", "News outlets, justice-system press pages, the public search terms, and event sources. coverage is national, regional, local or justice. region is the place. feed is null when no working RSS, sitemap or index page was verified. method is rss, html, sitemap, search or manual. Event sources name the intake method. Luma calendars use a public iCal subscribe URL. Eventbrite organizers and venues use the v3 API when the server has EVENTBRITE_TOKEN; the token is not in this feed. Without it, event pages are schema.org JSON-LD. icon_url is a public icon from the outlet when one was easy to find. logo_source is the URL the stored logo was fetched from. logo is the checked outlet image for that source id when one is on file, used only to identify the source. Kaupr is marked as a news source only and is never an event sponsor.", "SourceCatalogue",
                feed.env(
                    user_agent=site_url.expand((sources_cfg or {}).get("user_agent") or ""),
                    min_delay_seconds=(sources_cfg or {}).get("min_delay_seconds"),

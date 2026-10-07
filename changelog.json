@@ -35,6 +35,38 @@
    }
   },
   {
+   "id": "nordic-press-justice-sources",
+   "date": "2026-10-06",
+   "title": "Nordic newspapers, justice press pages, and outlet logos",
+   "description": "The source list now covers national, regional and local newspapers in Norway, Sweden, Denmark, Finland, Iceland, the Faroe Islands, Greenland and Åland, plus police, prosecution, court, customs, tax and financial-intelligence press pages where they publish news. A verified RSS or Atom feed is read when one works. A source with no RSS is read from its sitemap or public index page (title, date, link and summary only), including the Bare Bitcoin blog. A source that still has nothing to read stays on the list for manual monitoring. Local papers and justice pages are keyword-filtered, and one dead feed does not stop a run. Where we have the outlet's own logo, it is shown beside the name only to identify the source, and it links to the outlet. Kaupr remains a news source only.",
+   "i18n": {
+    "nn": {
+     "title": "Nordiske aviser, justispressemeldingar og logoar",
+     "description": "Kjeldelista dekkjer no nasjonale, regionale og lokale aviser i Noreg, Sverige, Danmark, Finland, Island, Færøyane, Grønland og Åland, pluss pressemeldingar frå politi, påtalemakt, domstolar, toll, skatt og finansiell etterretning der dei publiserer nytt. Ein verifisert RSS- eller Atom-straum blir lesen når han fungerer. Ei kjelde utan RSS blir lesen frå nettstadkart eller ei open indeks-side (tittel, dato, lenkje og samandrag), også bloggen til Bare Bitcoin. Ei kjelde som framleis ikkje kan lesast, blir ståande for manuell oppfølging. Lokalaviser og justiskjelder blir filtrerte på nøkkelord, og ein daud straum stoppar ikkje køyringa. Der vi har kjelda sin eigen logo, står han ved namnet berre for å identifisere kjelda, og han lenkjer til kjelda. Kaupr er berre eit nyhendemedium."
+    },
+    "nb": {
+     "title": "Nordiske aviser, justispressemeldinger og logoer",
+     "description": "Kildelisten dekker nå nasjonale, regionale og lokale aviser i Norge, Sverige, Danmark, Finland, Island, Færøyene, Grønland og Åland, pluss pressemeldinger fra politi, påtalemyndighet, domstoler, toll, skatt og finansiell etterretning der de publiserer nytt. En verifisert RSS- eller Atom-strøm leses når den fungerer. En kilde uten RSS leses fra nettstedskart eller en offentlig indeksside (tittel, dato, lenke og sammendrag), også bloggen til Bare Bitcoin. En kilde som fortsatt ikke kan leses, blir stående for manuell oppfølging. Lokalaviser og justiskilder filtreres på nøkkelord, og en død strøm stopper ikke kjøringen. Der vi har kildens egen logo, vises den ved navnet bare for å identifisere kilden, og den lenker til kilden. Kaupr er bare et nyhetsmedium."
+    },
+    "sv": {
+     "title": "Nordiska tidningar, press från rättsväsendet och logotyper",
+     "description": "Källistan omfattar nu nationella, regionala och lokala tidningar i Norge, Sverige, Danmark, Finland, Island, Färöarna, Grönland och Åland, plus pressmeddelanden från polis, åklagare, domstolar, tull, skatt och finansunderrättelse där de publicerar nyheter. Ett verifierat RSS- eller Atom-flöde läses när ett fungerar. En källa utan RSS läses från webbplatskarta eller en publik indexsida (titel, datum, länk och sammanfattning), även Bare Bitcoins blogg. En källa som fortfarande inte kan läsas står kvar för manuell bevakning. Lokaltidningar och rättskällor filtreras på nyckelord, och ett dött flöde stoppar inte körningen. Där vi har utgivarens egen logotyp visas den bredvid namnet bara för att identifiera källan, och den länkar till utgivaren. Kaupr är bara en nyhetskälla."
+    },
+    "da": {
+     "title": "Nordiske aviser, pressemeddelelser fra retssystemet og logoer",
+     "description": "Kildelisten dækker nu nationale, regionale og lokale aviser i Norge, Sverige, Danmark, Finland, Island, Færøerne, Grønland og Åland, plus pressemeddelelser fra politi, anklagemyndighed, domstole, told, skat og finansiel efterretning, hvor de udgiver nyheder. Et verificeret RSS- eller Atom-feed læses, når et virker. En kilde uden RSS læses fra sitemap eller en offentlig indeksside (titel, dato, link og resumé), også Bare Bitcoins blog. En kilde der stadig ikke kan læses, bliver stående til manuel overvågning. Lokalaviser og retskilder filtreres på nøgleord, og et dødt feed stopper ikke kørslen. Hvor vi har mediets eget logo, vises det ved navnet kun for at identificere kilden, og det linker til mediet. Kaupr er kun et nyhedsmedie."
+    },
+    "fi": {
+     "title": "Pohjoismaiset lehdet, oikeuslaitoksen tiedotteet ja logot",
+     "description": "Lähdeluettelo kattaa nyt valtakunnalliset, alueelliset ja paikalliset sanomalehdet Norjassa, Ruotsissa, Tanskassa, Suomessa, Islannissa, Färsaarilla, Grönlannissa ja Ahvenanmaalla, sekä poliisin, syyttäjän, tuomioistuinten, tullin, verohallinnon ja rahanpesun selvittelykeskuksen tiedotteet siellä, missä niitä julkaistaan. Vahvistettu RSS- tai Atom-syöte luetaan, kun sellainen toimii. Lähde ilman RSS-syötettä luetaan sivukartasta tai julkiselta hakemistosivulta (otsikko, päivä, linkki ja tiivistelmä), myös Bare Bitcoinin blogi. Lähde, jota ei edelleenkään voi lukea, jää listalle käsin seurattavaksi. Paikallislehdet ja oikeuslähteet suodatetaan avainsanoilla, eikä yksi kuollut syöte keskeytä ajoa. Kun meillä on julkaisun oma logo, se näytetään nimen vieressä vain lähteen tunnistamiseksi, ja se vie julkaisun sivulle. Kaupr on vain uutislähde."
+    },
+    "is": {
+     "title": "Norræn dagblöð, fréttatilkynningar réttarvörslunnar og merki",
+     "description": "Heimildalisti nær nú yfir landsdekkandi, svæðisbundin og staðbundin dagblöð í Noregi, Svíþjóð, Danmörku, Finnlandi, á Íslandi, í Færeyjum, á Grænlandi og á Álandseyjum, auk fréttatilkynninga lögreglu, ákæruvalds, dómstóla, tolls, skatts og fjármálagreiningar þar sem þær eru birtar. Staðfestur RSS- eða Atom-straumur er lesinn þegar hann virkar. Heimild án RSS er lesin úr veftré eða af opinni yfirlitssíðu (titill, dagsetning, tengill og samantekt), einnig bloggið hjá Bare Bitcoin. Heimild sem enn er ekki hægt að lesa stendur á listanum til handvirks eftirlits. Staðblöð og réttarheimildir eru síaðar á lykilorðum og einn dauður straumur stöðvar ekki keyrsluna. Þar sem við höfum eigið merki miðilsins er það sýnt við nafnið eingöngu til að auðkenna heimildina, og það tengir á miðilinn. Kaupr er aðeins fréttamiðill."
+    }
+   }
+  },
+  {
    "id": "luma-eventbrite-intake",
    "date": "2026-10-06",
    "title": "Luma and Eventbrite on the calendar",

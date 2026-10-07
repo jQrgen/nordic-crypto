@@ -38,7 +38,7 @@ S = {
 "topic_bitcoin": "Bitcoin", "topic_blockchain": "Blockchain", "topic_crypto": "Crypto", "topic_regulation": "Regulation", "topic_companies": "Companies",
 "topic_mica": "MiCA", "topic_aml": "AML", "topic_defi": "DeFi", "topic_nft": "NFT", "topic_cbdc": "CBDC",
 # countries / cities
-"c_NO": "Norway", "c_SE": "Sweden", "c_DK": "Denmark", "c_FI": "Finland", "c_IS": "Iceland", "c_NORDIC": "Nordic-wide", "c_EU": "EU",
+"c_NO": "Norway", "c_SE": "Sweden", "c_DK": "Denmark", "c_FI": "Finland", "c_IS": "Iceland", "c_FO": "Faroe Islands", "c_GL": "Greenland", "c_AX": "Åland", "c_NORDIC": "Nordic-wide", "c_EU": "EU",
 "city_NO": "Oslo", "city_SE": "Stockholm", "city_DK": "Copenhagen", "city_FI": "Helsinki", "city_IS": "Reykjavík", "city_local": "local time",
 # stories
 "back_news": "← News", "sources_h": "Sources",
@@ -70,16 +70,20 @@ S = {
 "js_links": "Links", "js_sources": "Sources", "js_link": "link", "js_source_n": "source {n}", "js_pub": "Public", "js_priv": "Private",
 "js_profiles": "Profiles", "js_logo_alt": "{name} logo",
 # sources
-"src_title": "Sources", "src_desc": "Nordic newspapers, broadcasters, regulators and crypto media that Nordic Crypto follows, with the status of each feed.",
+"src_title": "Sources", "src_desc": "Nordic newspapers, justice-system press pages, broadcasters, regulators and crypto media that Nordic Crypto follows, with the status of each feed.",
 "src_h1": "Sources we follow",
-"src_lead": "Newspapers, broadcasters, regulators, central banks and crypto media in the five countries. We read RSS feeds, public list pages (only links and page metadata) and a news search limited to each country's domains. We respect robots.txt, identify ourselves with our own user agent, wait at least {d} seconds between requests to the same site, and never fetch article text behind a paywall. If a site blocks us, we leave it.",
-"th_source": "Source", "th_feed": "Feed", "th_status": "Status", "th_note": "Note", "th_event_source": "Event source",
+"src_lead": "National, regional and local newspapers, plus broadcasters, regulators, central banks, crypto media and justice-system press pages, in Norway, Sweden, Denmark, Finland, Iceland, the Faroe Islands, Greenland and Åland. We read an RSS or Atom feed when one works. Local papers and justice pages are keyword-filtered, so a story enters the review queue only when the title or teaser is about crypto, bitcoin, blockchain or a related financial crime. A source with no working feed stays on this list for manual monitoring or news search. We respect robots.txt, identify ourselves with our own user agent, wait at least {d} seconds between requests to the same site, and never fetch article text behind a paywall. One dead feed does not stop the run. If a site blocks us, we leave it. Where we have the outlet's own logo, it is shown beside the name only to identify the source, and it links to the outlet. If a source has no RSS, we read its sitemap or public index page instead: title, date, link and summary only.",
+"th_source": "Source", "th_feed": "Feed", "th_method": "Method", "th_status": "Status", "th_note": "Note", "th_event_source": "Event source",
+"method_rss": "RSS", "method_html": "HTML", "method_sitemap": "Sitemap", "method_search": "Search", "method_manual": "Manual",
+"th_coverage": "Reach", "th_region": "Place", "th_language": "Language",
+"cov_national": "National", "cov_regional": "Regional", "cov_local": "Local", "cov_justice": "Justice",
+"src_filter": "Filter", "src_all": "All", "src_search_ph": "Search sources",
 "st_manual": "added manually", "st_monitored": "monitored", "st_items": " ({n} items last run)", "st_fallback": "feed not working (covered via news search)",
 "st_broken": "not working", "st_unused": "not used", "st_used": "used", "feed": "feed", "list_page": "list page", "search_w": "search", "paywall_w": "paywall",
 "kaupr": "<b>Kaupr:</b> Kaupr (kaupr.io) is one of the news sources we follow.",
 "src_terms_h": "News search terms", "src_only_tld": "only {tld} domains", "src_search_note": "Links from the search always go straight to the original story.",
 "src_kw_h": "Keywords",
-"src_kw": "A story is picked up when its title or teaser mentions, for example: bitcoin, crypto, blockchain, stablecoin, MiCA, CBDC (all languages); krypto, kryptovaluta, blokkjede (Norwegian); kryptoaktiver, blokkæde (Danish); kryptotillgångar, blockkedja, e-krona (Swedish); kryptovaluutta, lohkoketju, virtuaalivaluutta (Finnish); rafmynt, sýndareignir, bálkakeðja (Icelandic); or Nordic crypto firms such as Firi, NBX, K33, Safello, Coinmotion, Northcrypto, Myntkaup, Monerium and Coinify. The editor reviews every hit before it is published.",
+"src_kw": "A story is picked up when its title or teaser mentions, for example: bitcoin, crypto, blockchain, stablecoin, MiCA, CBDC, darknet (all languages); krypto, kryptovaluta, blokkjede, hvitvasking (Norwegian); kryptovaluta, kryptoaktiver, blokkæde, hvidvask (Danish); kryptotillgångar, blockkedja, e-krona, penningtvätt (Swedish); kryptovaluutta, lohkoketju, virtuaalivaluutta, rahanpesu (Finnish); rafmynt, sýndareignir, bálkakeðja, peningaþvætti (Icelandic); or Nordic crypto firms such as Firi, NBX, K33, Safello, Coinmotion, Northcrypto, Myntkaup, Monerium and Coinify. Local and justice items use the same filter. The editor reviews every hit before it is published.",
 "src_ev_h": "Where we find events",
 "src_ev_note": "Luma is read from each calendar's public Subscribe iCal feed. City pages such as luma.com/oslo, category pages such as luma.com/crypto, and Luma's discover API are not used: the terms of use only allow publicly supported interfaces, and the official API needs Luma Plus and only covers calendars you administer. An individual Luma event page is read as schema.org JSON-LD. Eventbrite uses the v3 organizers and venues API when EVENTBRITE_TOKEN is set on the server. The token is not published. Without it, the event page's JSON-LD is used. The public search API is not used. The same title, date and venue is listed once. One broken feed does not stop the run. Finished events stay under Past events. Kaupr is a news source only and is never a sponsor of an event.",
 "src_missing": "Missing a source? Suggest it as an issue on <a href=\"https://github.com/jQrgen/nordic-crypto/issues\" rel=\"noopener\">GitHub</a>.",
@@ -146,7 +150,7 @@ S = {
 "kind_Association blog": "Association blog", "kind_Broadcaster": "Broadcaster", "kind_Business media": "Business media", "kind_Business newspaper": "Business newspaper",
 "kind_Central bank": "Central bank", "kind_Central bank and FSA": "Central bank and FSA", "kind_Crypto media": "Crypto media", "kind_Crypto media (Nordic)": "Crypto media (Nordic)",
 "kind_Magazine (English)": "Magazine (English)", "kind_Ministry": "Ministry", "kind_News site": "News site", "kind_Newspaper": "Newspaper",
-"kind_Public broadcaster": "Public broadcaster", "kind_Regulator": "Regulator", "kind_Search feed": "Search feed", "kind_Tax authority": "Tax authority",
+"kind_Public broadcaster": "Public broadcaster", "kind_Regulator": "Regulator", "kind_Search feed": "Search feed", "kind_Tax authority": "Tax authority", "kind_Police": "Police", "kind_Prosecution": "Prosecution", "kind_Court": "Court", "kind_Customs": "Customs", "kind_Financial intelligence": "Financial intelligence",
 "kind_Tech media": "Tech media", "kind_Tech/startup media": "Tech/startup media",
 }
 # newsletter signup (feature flag newsletter.enabled in queue/approved.json; see build_newsletter in build.py)

@@ -199,8 +199,12 @@ def main():
                 logo = item.get("source_logo") or {}
                 if not str(logo.get("file_url") or "").endswith("/assets/img/logos/se-fi.svg"):
                     fails.append("fi-se logo not aliased")
-            if item.get("source") == "e24" and item.get("source_logo"):
-                fails.append("unchecked e24 logo published")
+            if item.get("source") == "e24":
+                shown = bool((item.get("source_logo") or {}).get("file_url"))
+                e24 = json.load(open(os.path.join(ROOT, "assets/img/logos/logos.json"), encoding="utf-8")).get("e24") or {}
+                public = (e24.get("review") or "ok") == "ok" and bool(e24.get("file"))
+                if shown != public:
+                    fails.append("e24 logo visibility")
             if item.get("source") == "nordic-crypto" and item.get("source_logo"):
                 fails.append("invented Nordic Crypto logo")
             cov = item.get("coverage") or {}

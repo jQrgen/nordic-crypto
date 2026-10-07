@@ -58,7 +58,8 @@ def flag(c, big=False):
     border = ' stroke="#9ca3af" stroke-width=".6"' if bg == "#fff" else ""
     return (f'<svg class="flag" viewBox="0 0 22 16" width="{w*(1.4 if big else 1):.0f}" height="{h*(1.4 if big else 1):.0f}" role="img" aria-label="{E(cname(c))}">'
             f'<title>{E(cname(c))}</title><rect width="22" height="16" fill="{bg}"{border}/><rect x="6" width="4" height="16" fill="{a}"/><rect y="6" width="22" height="4" fill="{a}"/>{inner}</svg>')
-def cname(c): return t("c_" + c) if c in COUNTRY_CODES or c in EXTRA_C_CODES else (c or "")
+SOURCE_PLACES = ["NO", "SE", "DK", "FI", "IS", "FO", "GL", "AX"]
+def cname(c): return t("c_" + c) if c and (c in COUNTRY_CODES or c in EXTRA_C_CODES or i18n.has("en", "c_" + str(c))) else (c or "")
 def flags_js(): return json.dumps({c: flag(c) for c in COUNTRY_CODES + EXTRA_C_CODES})
 
 CSS = """
@@ -95,6 +96,7 @@ ol.news .ill img{width:220px;height:124px;object-fit:cover;object-position:left 
 .orig{font-size:13.5px;color:var(--muted);margin:0 0 3px}
 .meta{font-size:13.5px;color:var(--muted)}.meta b{color:var(--ink);font-weight:600}
 .src{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;vertical-align:middle;text-align:start}
+.src-logo-link{display:inline-flex;flex:none;align-items:center;line-height:0}
 .src-logo{height:18px;width:auto;max-width:96px;object-fit:contain;flex:none;background:#fff;padding:1px}
 .covrow,.readat-row,.also,.covbars,.covsort,.covlist,.covgroup,.cov-by-country,.cov-by-time{text-align:start}
 .covrow{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:6px 8px;margin:6px 0 0}
@@ -825,6 +827,9 @@ def source_mark(i, root=""):
     if lg and lg.get("file"):
         pend = f' title="{E(t("pending"))}"' if lg.get("pending") else ""
         img = f'<img class="src-logo" src="{root}{E(lg["file"])}" alt="" height="18" loading="lazy"{pend}>'
+        home = i.get("source_url") or _source_logos().homepage(i.get("source"))
+        if home:
+            img = f'<a class="src-logo-link" href="{E(home)}" rel="noopener">{img}</a>'
     return f'<span class="src">{img}<b>{E(name)}</b></span>'
 
 def _illustrations():
@@ -1343,17 +1348,37 @@ def build_org(ctx):
 def build_sources(ctx):
     cfg, status = ctx["cfg"], ctx["status"]
     rows = []
-    for c in COUNTRY_CODES:
-        for s in [x for x in cfg["sources"] if x.get("country") == c]:
-            st = status.get(s["id"], {})
-            if s["type"] == "search": cls, lab = "ok", t("st_manual")
-            elif s.get("enabled") and st.get("ok", True) is not False: cls, lab = "ok", t("st_monitored") + (t("st_items", n=st.get("entries")) if st.get("entries") is not None else "")
-            elif s.get("search_fallback"): cls, lab = "bad", t("st_fallback")
-            else: cls, lab = "bad", t("st_broken") if s.get("enabled") else t("st_unused")
-            feed = f'<a href="{E(s["feed"])}" rel="noopener">{E(t("feed") if s["type"] in ("rss", "rss-all") else t("list_page"))}</a>' if s.get("feed") and "{q}" not in s["feed"] else (E(t("search_w")) if s.get("feed") else "–")
-            kind = t("kind_" + s["kind"]) if i18n.has("en", "kind_" + s["kind"]) else s["kind"]
-            rows.append(f'<tr data-c="{c}"><td>{flag(c)}</td><td><a href="{E(s["url"])}" rel="noopener" target="_blank">{E(s["name"])}</a>{" <span class=pw>" + E(t("paywall_w")) + "</span>" if s.get("paywall") else ""}</td><td>{E(kind)}</td><td>{feed}</td>'
-                        f'<td class="{cls}">{E(lab)}</td><td lang="en">{E(s.get("status", ""))}</td></tr>')
+    order = {c: i for i, c in enumerate(SOURCE_PLACES)}
+    listed = sorted(cfg["sources"], key=lambda s: (order.get(s.get("country"), 50), (s.get("coverage") or "z"), (s.get("name") or "").lower()))
+    for s in listed:
+        c = s.get("country") or ""
+        st = status.get(s["id"], {})
+        if s["type"] == "search" and not s.get("enabled"): cls, lab = "ok", t("st_manual")
+        elif s["type"] == "search": cls, lab = "ok", t("st_manual")
+        elif s.get("enabled") and st.get("ok", True) is not False: cls, lab = "ok", t("st_monitored") + (t("st_items", n=st.get("entries")) if st.get("entries") is not None else "")
+        elif s.get("search_fallback"): cls, lab = "bad", t("st_fallback")
+        else: cls, lab = "bad", t("st_broken") if s.get("enabled") else t("st_unused")
+        meth = (st or {}).get("method") or s.get("method") or {"rss": "rss", "rss-all": "rss", "html": "html", "sitemap": "sitemap", "bing": "search"}.get(s.get("type"), "manual")
+        if meth not in ("rss", "html", "sitemap", "search", "manual"):
+            meth = "manual"
+        meth_l = t("method_" + meth) if i18n.has("en", "method_" + meth) else meth
+        feed_label = {"rss": t("method_rss"), "sitemap": t("method_sitemap"), "html": t("method_html")}.get(meth, t("list_page"))
+        feed = f'<a href="{E(s["feed"])}" rel="noopener">{E(feed_label)}</a>' if s.get("feed") and "{q}" not in str(s["feed"]) else (E(t("search_w")) if s.get("feed") else "–")
+        kind = t("kind_" + s["kind"]) if i18n.has("en", "kind_" + s["kind"]) else s["kind"]
+        cov = s.get("coverage") or ""
+        cov_l = t("cov_" + cov) if cov and i18n.has("en", "cov_" + cov) else cov
+        place = s.get("region") or ""
+        lang = s.get("language") or ""
+        lang_code = {"Norwegian": "nb", "Norwegian Nynorsk": "nn", "Swedish": "sv", "Danish": "da", "Finnish": "fi", "Icelandic": "is", "Faroese": "fo", "Greenlandic": "kl", "English": "en", "Northern Sámi": "se", "German": "de"}.get(lang, "")
+        lang_attr = f' lang="{lang_code}"' if lang_code else ""
+        lg = _source_logos().for_source(s["id"], preview=PREVIEW)
+        mark = ""
+        if lg and lg.get("file"):
+            copy_repo_file(lg["file"])
+            mark = f'<img class="src-logo" src="{up1()}{E(lg["file"])}" alt="" height="18" loading="lazy"> '
+        rows.append(f'<tr data-c="{E(c)}" data-cov="{E(cov)}"><td>{flag(c)}</td><td><a href="{E(s["url"])}" rel="noopener" target="_blank">{mark}{E(s["name"])}</a>{" <span class=pw>" + E(t("paywall_w")) + "</span>" if s.get("paywall") else ""}</td>'
+                    f'<td>{E(cov_l)}</td><td>{E(place)}</td><td{lang_attr}>{E(lang)}</td><td>{E(kind)}</td><td>{E(meth_l)}</td><td>{feed}</td>'
+                    f'<td class="{cls}">{E(lab)}</td><td lang="en">{E(s.get("status", ""))}</td></tr>')
     erows = []
     for s in cfg.get("event_sources", []):
         if event_block.blocked_source(s): continue
@@ -1366,9 +1391,20 @@ def build_sources(ctx):
         erows.append(f'<tr><td>{flag(s.get("country"))}</td><td><a href="{E(s["url"])}" rel="noopener" target="_blank">{E(s["name"])}</a></td><td class="{cls}">{E(lab)}</td><td lang="en" style="text-align:left">{E(note)}</td></tr>')
     bing = [s for s in cfg["sources"] if s["type"] == "bing"]
     qs = "".join(f'<li>{flag(s["country"])} {E(", ".join(s.get("queries", [])))} – {E(t("src_only_tld", tld=s["allowed_tld"]))}</li>' for s in bing)
+    present = [c for c in SOURCE_PLACES if any(s.get("country") == c for s in cfg["sources"])]
+    covs = [c for c in ("national", "regional", "local", "justice") if any(s.get("coverage") == c for s in cfg["sources"])]
+    cchips = "".join(f'<button type="button" class="chip src-c" data-c="{c}" aria-pressed="false">{flag(c)} {E(cname(c))}</button>' for c in present)
+    vchips = "".join(f'<button type="button" class="chip src-v" data-cov="{c}" aria-pressed="false">{E(t("cov_" + c))}</button>' for c in covs)
     body = f"""<h1>{E(t("src_h1"))}</h1>
 <p class="lead">{E(t("src_lead", d=cfg.get("min_delay_seconds", 2)))}</p>
-<div class="tablewrap"><table class="list"><thead><tr><th></th><th>{E(t("th_source"))}</th><th>{E(t("th_type"))}</th><th>{E(t("th_feed"))}</th><th>{E(t("th_status"))}</th><th>{E(t("th_note"))}</th></tr></thead><tbody>{''.join(rows)}</tbody></table></div>
+<div class="filters" style="justify-content:flex-start;text-align:left">
+<label for="srcq">{E(t("src_filter"))}</label>
+<input id="srcq" type="search" placeholder="{E(t("src_search_ph"))}" style="text-align:left">
+<div class="chips">{cchips}</div>
+<div class="chips">{vchips}</div>
+</div>
+<p class="meta" id="srccount" style="text-align:left"></p>
+<div class="tablewrap"><table class="list" style="text-align:left"><thead><tr><th></th><th>{E(t("th_source"))}</th><th>{E(t("th_coverage"))}</th><th>{E(t("th_region"))}</th><th>{E(t("th_language"))}</th><th>{E(t("th_type"))}</th><th>{E(t("th_method"))}</th><th>{E(t("th_feed"))}</th><th>{E(t("th_status"))}</th><th>{E(t("th_note"))}</th></tr></thead><tbody id="srclist">{''.join(rows)}</tbody></table></div>
 <p class="notice" id="kaupr">{t("kaupr")}</p>
 <h2>{E(t("src_terms_h"))}</h2><ul class="prose">{qs}</ul><p class="prose">{E(t("src_search_note"))}</p>
 <h2>{E(t("src_kw_h"))}</h2><p class="prose">{E(t("src_kw"))}</p>
@@ -1376,7 +1412,21 @@ def build_sources(ctx):
 <div class="tablewrap"><table class="list"><thead><tr><th></th><th>{E(t("th_event_source"))}</th><th>{E(t("th_status"))}</th><th>{E(t("th_note"))}</th></tr></thead><tbody>{''.join(erows)}</tbody></table></div>
 <p class="meta" style="text-align:left">{E(t("src_ev_note"))}</p>
 <p class="meta">{t("src_missing")}</p>"""
-    page("sources", t("src_title"), "sources", body, t("src_desc"))
+    script = """<script>(function(){
+var q=document.getElementById('srcq'), rows=[].slice.call(document.querySelectorAll('#srclist tr')), n=document.getElementById('srccount');
+function on(sel){return [].slice.call(document.querySelectorAll(sel)).filter(function(b){return b.getAttribute('aria-pressed')==='true'}).map(function(b){return b.dataset.c||b.dataset.cov});}
+function apply(){
+  var cs=on('.src-c'), vs=on('.src-v'), term=(q.value||'').toLowerCase(), k=0;
+  rows.forEach(function(tr){
+    var ok=(!cs.length||cs.indexOf(tr.dataset.c)>=0)&&(!vs.length||vs.indexOf(tr.dataset.cov)>=0)&&(!term||tr.textContent.toLowerCase().indexOf(term)>=0);
+    tr.hidden=!ok; if(ok) k++;
+  });
+  if(n) n.textContent=k;
+}
+document.querySelectorAll('.src-c,.src-v').forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed', b.getAttribute('aria-pressed')==='true'?'false':'true'); apply();});});
+q.addEventListener('input', apply); apply();
+})();</script>"""
+    page("sources", t("src_title"), "sources", body, t("src_desc"), script)
 
 def md_inline(s):
     s = E(s)
