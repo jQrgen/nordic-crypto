@@ -1,7 +1,5 @@
 {
- "_note": "Newsletter signup on the site. OFF until the tipworker (with /api/subscribe) is deployed AND jQrgen approves. To switch on: set enabled to true (endpoint: the Worker URL, or null to use tipserver/config.json public_endpoint when it is a workers.dev URL). Test builds: NC_NEWSLETTER=1 NEWSLETTER_ENDPOINT=http://127.0.0.1:8789. substack_url: the Substack publication (created 2026-10-05); its /subscribe link is shown in the footer and on /newsletter/ even while enabled is false. substack_embed: \"click\" (default) shows Substack's embed form (<substack_url>/embed) on /newsletter/ and the front page, loaded only after the reader clicks; \"auto\" loads it with the page (only after the About/privacy texts are updated, since they promise no third-party scripts); \"off\" hides it.",
+ "_note": "Newsletter signup on this site. OFF until the tipworker (POST /api/subscribe) is deployed AND jQrgen sets enabled to true. endpoint: the Worker URL, or null to use tipserver/config.json public_endpoint when it is a workers.dev URL. Test builds: NC_NEWSLETTER=1 NEWSLETTER_ENDPOINT=http://127.0.0.1:8789. Confirmed addresses live in the Worker's private D1 table subscribers (not in git). Sending an issue: newsletter/email-list.md and newsletter/send_issue.py.",
  "enabled": false,
- "endpoint": null,
- "substack_url": "https://cryptonordic.substack.com",
- "substack_embed": "click"
+ "endpoint": null
 }

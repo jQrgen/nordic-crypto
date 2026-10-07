@@ -989,7 +989,8 @@ def _meta(feed):
             "openapi": feed.abs("api/v1/openapi.json"),
             "llms_txt": feed.abs("llms.txt"),
             "github": "https://github.com/jQrgen/nordic-crypto",
-            "substack": "https://cryptonordic.substack.com",
+            "newsletter": feed.abs("newsletter/"),
+            "rss": feed.abs("rss.xml"),
             "telegram": SITE_TELEGRAM_URL,
             "x": SITE_X_URL,
         },
@@ -1743,7 +1744,7 @@ def schemas():
                     }},
                 },
             },
-            "urls": {"type": "object", "description": "github, substack, telegram and x, plus the API bases."},
+            "urls": {"type": "object", "description": "github, newsletter, rss, telegram and x, plus the API bases. newsletter is the signup page on this site. rss is the English story feed."},
         }),
         "LanguageList": wrap("LanguageList", {
             "count": {"type": "integer"},
@@ -2099,7 +2100,7 @@ curl -fsS {html.escape(b)}api/v1/markets/aggregated.json</pre>
 <h2>Editorial</h2>
 <p>The sign-off is The Nordic Crypto team. Kaupr (kaupr.io) is a news source only and is never a sponsor. Nothing here is investment advice.</p>
 <h2>Brand accounts</h2>
-<p><a href="{html.escape(b)}api/v1/meta.json"><code>/api/v1/meta.json</code></a> includes <code>social</code> for the iOS app. <code>social.telegram</code> is the Nordic Crypto chat at <a href="{SITE_TELEGRAM_URL}">{html.escape(SITE_TELEGRAM_URL)}</a>. <code>social.x</code> is the brand account at <a href="{SITE_X_URL}">{html.escape(SITE_X_URL)}</a> (<code>@xcryptonordic</code>), also listed as <code>urls.x</code>. <code>urls.telegram</code> repeats the chat URL. <code>label</code> is the short name (<code>Telegram</code>, <code>X</code>). <code>name</code> is the English link text. <code>name_i18n</code> has <code>nn</code>, <code>nb</code>, <code>sv</code>, <code>da</code>, <code>fi</code> and <code>is</code>. Other site languages use <code>name</code>.</p>
+<p><a href="{html.escape(b)}api/v1/meta.json"><code>/api/v1/meta.json</code></a> includes <code>social</code> for the iOS app. <code>social.telegram</code> is the Nordic Crypto chat at <a href="{SITE_TELEGRAM_URL}">{html.escape(SITE_TELEGRAM_URL)}</a>. <code>social.x</code> is the brand account at <a href="{SITE_X_URL}">{html.escape(SITE_X_URL)}</a> (<code>@xcryptonordic</code>), also listed as <code>urls.x</code>. <code>urls.telegram</code> repeats the chat URL. <code>urls.rss</code> is the English story feed at <a href="{html.escape(b)}rss.xml"><code>/rss.xml</code></a>. Each language home has its own <code>rss.xml</code>. <code>urls.newsletter</code> is the signup page on this site. <code>label</code> is the short name (<code>Telegram</code>, <code>X</code>). <code>name</code> is the English link text. <code>name_i18n</code> has <code>nn</code>, <code>nb</code>, <code>sv</code>, <code>da</code>, <code>fi</code> and <code>is</code>. Other site languages use <code>name</code>.</p>
 <h2>Browser notifications</h2>
 <p>When <code>workers/push/public.json</code> has a Worker URL, a button at the bottom of each page is Web Push. Until then the page says the service is not switched on and does not call a Worker. Subscriptions live on a Cloudflare Worker, not in this static feed. After a publish, <code>GET /api/push/feed.json</code> on that Worker lists the same batches (title, short summary, URL, country, and translations when we have them). One publish is one batch. The document says <code>"apns": "not implemented"</code>: Apple Push Notification service is out of scope. An iOS app can poll the feed. The Worker URL is set when <code>workers/push/</code> is deployed; it is not a path on this site. Subscriptions are not in the feed. This API's <a href="{html.escape(b)}api/v1/news.json"><code>/api/v1/news.json</code></a> remains the full published list.</p>
 <h2>Endpoints</h2>

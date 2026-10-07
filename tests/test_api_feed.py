@@ -309,6 +309,8 @@ def main():
         urls = meta.get("urls") or {}
         if urls.get("telegram") != "https://t.me/nordiccryptochat" or urls.get("x") != "https://x.com/xcryptonordic":
             fails.append("meta urls social")
+        if not str(urls.get("rss") or "").endswith("/rss.xml") or "substack" in urls:
+            fails.append("meta urls rss, no substack signup")
         schema = (spec.get("components") or {}).get("schemas") or {}
         if "social" not in ((schema.get("SiteMeta") or {}).get("properties") or {}):
             fails.append("openapi social")
