@@ -3,6 +3,38 @@
  "launch_date": "2026-10-03",
  "entries": [
   {
+   "id": "talks-archive",
+   "date": "2026-10-07",
+   "title": "Talks archive",
+   "description": "A talks page lists public recordings of bitcoin, cryptocurrency and blockchain talks held in the Nordic countries, newest first, with filters for country, year and language. The player loads only after a click, and only when the platform allows embedding. The same talks are in /api/v1/talks.json. The first batch is a verified sample, not a complete archive.",
+   "i18n": {
+    "nn": {
+     "title": "Foredragsarkiv",
+     "description": "Ei foredragsside listar opptak av offentlege foredrag om bitcoin, kryptovaluta og blokkjede haldne i dei nordiske landa, nyaste først, med filter for land, år og språk. Avspelaren lastar berre etter eit klikk, og berre når plattforma tillèt innbygging. Dei same foredraga ligg i /api/v1/talks.json. Første bolken er eit kontrollert utval, ikkje eit komplett arkiv."
+    },
+    "nb": {
+     "title": "Foredragsarkiv",
+     "description": "En foredragsside lister opptak av offentlige foredrag om bitcoin, kryptovaluta og blokkjede holdt i de nordiske landene, nyeste først, med filter for land, år og språk. Avspilleren lastes bare etter et klikk, og bare når plattformen tillater innbygging. De samme foredragene ligger i /api/v1/talks.json. Første bolken er et kontrollert utvalg, ikke et komplett arkiv."
+    },
+    "sv": {
+     "title": "Föredragsarkiv",
+     "description": "En föredragssida listar inspelningar av offentliga föredrag om bitcoin, kryptovaluta och blockkedja som hållits i de nordiska länderna, nyast först, med filter för land, år och språk. Spelaren laddas bara efter ett klick, och bara när plattformen tillåter inbäddning. Samma föredrag finns i /api/v1/talks.json. Första omgången är ett kontrollerat urval, inte ett komplett arkiv."
+    },
+    "da": {
+     "title": "Foredragsarkiv",
+     "description": "En foredragsside viser optagelser af offentlige foredrag om bitcoin, kryptovaluta og blockchain holdt i de nordiske lande, nyeste først, med filter for land, år og sprog. Afspilleren indlæses kun efter et klik, og kun når platformen tillader indlejring. De samme foredrag ligger i /api/v1/talks.json. Første portion er et kontrolleret udvalg, ikke et komplet arkiv."
+    },
+    "fi": {
+     "title": "Esitelmäarkisto",
+     "description": "Esitelmäsivu listaa tallenteet julkisista esitelmistä bitcoinista, kryptovaluutoista ja lohkoketjusta Pohjoismaissa, uusimmat ensin, suodattimilla maan, vuoden ja kielen mukaan. Soitin latautuu vasta klikkauksen jälkeen, ja vain jos alusta sallii upotuksen. Samat esitelmät ovat osoitteessa /api/v1/talks.json. Ensimmäinen erä on tarkistettu otos, ei täydellinen arkisto."
+    },
+    "is": {
+     "title": "Erindasafn",
+     "description": "Erindasíða listar upptökur af opinberum erindum um bitcoin, rafmyntir og bálkakeðju á Norðurlöndum, nýjustu fyrst, með síum fyrir land, ár og tungumál. Spilarinn hleðst aðeins eftir smell, og aðeins þegar vettvangurinn leyfir ívefjun. Sömu erindi eru í /api/v1/talks.json. Fyrsti hópurinn er yfirfarinn úrtak, ekki fullkomið safn."
+    }
+   }
+  },
+  {
    "id": "domain-nordiccrypto-no",
    "date": "2026-10-06",
    "title": "New address: nordiccrypto.no",

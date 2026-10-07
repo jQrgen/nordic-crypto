@@ -48,7 +48,7 @@ Site interface and page presentation. News outlets stay as listed in `sources.js
 After one automatic choice, `sessionStorage` `nc_auto` stops a second redirect in that tab. The full country map is in `tools/langselect.js` (`BY_COUNTRY`) and in `/api/v1/geo-language.json`.
 
 ## Data API
-Public JSON for apps and other tools, written into `site/` by `./build.sh` (`tools/api_feed.py`). No account. News, newsletters, events, sources, academia, the who's who, profiles, the rules map, the changelog and the article archive.
+Public JSON for apps and other tools, written into `site/` by `./build.sh` (`tools/api_feed.py`). No account. News, newsletters, events, talks, sources, academia, the who's who, profiles, the rules map, the changelog and the article archive.
 
 - Human docs: https://nordiccrypto.no/api/
 - Discovery: `/api/v1/index.json`
@@ -58,6 +58,13 @@ Public JSON for apps and other tools, written into `site/` by `./build.sh` (`too
 - `llms.txt` at the site root, and `/.well-known/api-catalog`
 
 News: `/api/v1/news.json` and `/api/v1/news/{id}.json`. Newsletters: `/api/v1/newsletters.json` and `/api/v1/newsletters/001.json`. GitHub Pages sends `Access-Control-Allow-Origin: *` on the files. `python3 tools/api_feed.py` writes the same JSON from the committed public data without building the rest of the HTML. That command also fetches live exchange prices (see below).
+
+### Talks
+Public recordings of talks on bitcoin, cryptocurrencies and blockchain held in Norway, Sweden, Denmark, Finland, Iceland, the Faroe Islands, Greenland and Åland, from the Bitcoin white paper (31 October 2008) onward. The page is `/talks/`, linked from the nav, the footer and the calendar's previous-events section. The data file is `data/talks.json`. The API is `/api/v1/talks.json`, `/api/v1/talks/{id}.json` and `/api/v1/talks/by-country/{country}.json` (`NO`, `SE`, `DK`, `FI`, `IS`, `FO`, `GL`, `AX`).
+
+`title`, speakers, dates, duration, channel and `embed` come from the platform at `source_url` (YouTube oEmbed, the watch page, and the length shown on YouTube's own search result when the watch-page player omits it). `description` is ours, a short note, not the platform text. A field the platform did not state is null. `embed` is true only when that platform's oEmbed response includes a player. The HTML page does not load the player until a click: YouTube via `youtube-nocookie.com`, Vimeo via `player.vimeo.com`. Thumbnails are not stored in the repo.
+
+`data/talks-backfill-state.json` records which years, countries, queries, channels, universities and events have been searched, and for each run how many candidates were checked and how many talks were added. A first results page is marked sampled, not exhausted, unless the query returned nothing relevant.
 
 ### Market prices
 Public tickers from Nordic exchanges, as market data, not investment advice. Each row has `symbol`, `base`, `quote`, `last`, `bid` and `ask` when the exchange publishes them, plus `exchange` (`id`, `name`, `country`), `fetched_at` (ISO 8601) and `source_url`. Volume is included only when the exchange published it: `volume_base` is the base asset with no named window (Firi's `volume`), and `volume_base_24h` / `volume_quote_24h` are the last 24 hours in the base asset and in the quote currency (NBX). A missing volume is null, not zero. Quotes are NOK, SEK, DKK and EUR only. Nothing is converted between currencies. A failed exchange is an `error` with a timestamp and no price.
