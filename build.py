@@ -1019,7 +1019,7 @@ def build():
                      for s in cfg["sources"] if s.get("enabled") and s["type"] not in ("bing", "search") and status.get(s["id"], {}).get("ok", True)})
     seen = set(); act = []
     for a in active:
-        n, c = a.split("|")
+        n, c = a.rsplit("|", 1)
         if n not in seen: seen.add(n); act.append({"name": n, "country": "NO" if n == "Kaupr" else c})
     json.dump({"active": act}, open(os.path.join(SITE, "data", "sources.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     robots = "User-agent: *\n" + ("Disallow: /\n" if PREVIEW else "Allow: /\n")
