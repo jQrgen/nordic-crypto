@@ -10,6 +10,15 @@ compatibility_date = "2026-09-01"
 workers_dev = true
 preview_urls = false
 
+# Public testnet hot-wallet (refill) addresses. Not secrets.
+# Nexa testnet and Bitcoin Cash chipnet (token-aware cashaddr; the plain form is
+# bchtest:qpahmsq06pyhkzfygww3kyrrpc00vl8mrcvrz45zkl, same key).
+# NC_EVENT_NFT and MINT_NETWORK are passed with --var at deploy time, so a plain
+# `wrangler deploy` from this file leaves signing off.
+[vars]
+NEXA_HOT_ADDRESS = "nexatest:nqtsq5g5xjg5cqg2kx5wgg4wag9hfjach7zaqxxekdrpgx5v"
+BCH_HOT_ADDRESS = "bchtest:zpahmsq06pyhkzfygww3kyrrpc00vl8mrctf3t6yfv"
+
 [observability]
 enabled = false
 
@@ -19,5 +28,5 @@ crons = ["17 * * * *"]
 [[d1_databases]]
 binding = "DB"
 database_name = "nordic-crypto-mint"
-database_id = "00000000-0000-0000-0000-000000000000"
+database_id = "4adc0fb4-1bec-4ee4-94ab-bf4c6a6d16f9"
 migrations_dir = "migrations"
