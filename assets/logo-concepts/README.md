@@ -1,50 +1,57 @@
-# Nordic Crypto logo concepts
+# Nordic Crypto logo
 
-Two original marks. Neither is wired into the site. The live header, favicon and newsletter logo stay as they are until one of these is chosen.
+The mark continues the Trondheim Open Blockchain Meetup crest and then adds animals of its own. Same structure and palette: a gold heater shield, a dark-red rosette with a ring at the centre, a black raven with spread wings, gold and dark-red mantling, and a pale silver scroll. The scroll reads NORDIC CRYPTO. The rosette keeps eight pointed petals, with the four cardinal petals longer, so it also reads as a cross.
 
-The name is **Nordic Crypto**. Wordmarks are left-aligned: icon, then the name.
+Three more animals sit on the large crest only: a crowned lion holding a short axe, a second lion without a crown or an axe, and a polar bear seated and facing forward. They are supporters. They are not a copy of any national or royal arms. See the legal note below.
 
-Site colours used as context: ink `#111`, paper `#fff`, accent `#0f5ea8`, and the office-screen dark background `#0b0d10` with text `#f5f5f4`.
+The name on the site is **Nordic Crypto**. Wordmarks stay left-aligned: icon, then the name.
 
-## A. Kalmar Union
+## Three detail levels
 
-A square banner in the colours of the Kalmar Union flag: a red Nordic cross on a yellow-gold field. The upright is set toward the hoist (more gold on the right than on the left).
+Each level is drawn for the size it will actually be used at. Light and dark files are the same drawing, placed on white and on `#0b0d10`. The raven carries a gold edge so the black shape still shows on the dark ground.
 
-The crypto touch is the joint of the cross. The arms meet in a square plate, and a small gold eye sits in that plate. At 16 px it still reads as a cross. Larger, the eye is a chain link.
-
-A dark keyline keeps the gold field visible on white and on `#0b0d10`.
-
-| | Light | Dark |
+| Level | Use | What is in it |
 | --- | --- | --- |
-| Field | `#F6C445` | same |
-| Cross | `#C8102E` | same |
-| Keyline | `#1A1206` | same |
-| “Nordic” | `#111111` | `#F5F5F4` |
-| “Crypto” | `#C8102E` | `#FF5C6C` |
+| Large | Print, press, `/media`. Long side 4096 px. | Full achievement: raven, mantling, shield and rosette, both lions, polar bear, scroll. |
+| Medium | About 128–512 px. Headers and social cards. | One mantling scroll each side, two simplified lions, no bear, thicker strokes, scroll kept. |
+| Small | 16, 32 and 64 px. Favicon and app icon. | Shield, red cross-rosette with a hole in the hub, and a raven silhouette. No text. |
 
-`#C8102E` on white is strong enough for the word. On the near-black screen it is not, so the dark wordmark uses `#FF5C6C` (same red, lighter). The cross itself stays `#C8102E`: it sits on gold, and the cross is large.
-
-## B. Heraldic
-
-A shield and crown drawn for Nordic Crypto. It is not the Trondheim Blockchain Meetup logo and not the coat of arms of Trondheim.
-
-Blue shield, gold Nordic cross (upright toward the hoist), a red square block where the arms cross, and a three-point gold crown. The block is the crypto charge: a single link you can still see at 16 px. The shield blue is in the same family as the site accent, a step deeper so the gold cross stays clear.
-
-| | Light | Dark |
-| --- | --- | --- |
-| Shield | `#0C447C` | same |
-| Cross and crown | `#F4C430` | same |
-| Block | `#C8102E` | same |
-| Keyline | `#1A1206` | same |
-| “Nordic” | `#111111` | `#F5F5F4` |
-| “Crypto” | `#0C447C` | `#F4C430` |
-
-`#F4C430` is the cross colour. It is too close to white to use for the word on a light page, so on light the word uses the shield blue. On the dark screen the gold word is the one that reads.
+Palette: gold `#F4C430`, dark red `#A0202A`, raven `#141210`, ink `#1A1206`, silver `#D9DDE3`. On a light wordmark, “Nordic” is `#111111` and “Crypto” is `#A0202A`. On a dark wordmark, “Nordic” is `#F5F5F4` and “Crypto” is `#F4C430`. Buttons on the site stay `#0f5ea8`.
 
 ## Files
 
-- `kalmar/icon.svg`, `kalmar/wordmark.svg`, `kalmar/wordmark-dark.svg`
-- `heraldic/icon.svg`, `heraldic/wordmark.svg`, `heraldic/wordmark-dark.svg`
-- `previews/` — each icon rendered at 512, 32 and 16 px, then placed on white `#fff` and on the screen dark `#0b0d10`, plus the wordmarks and a front-page header mockup. `side-by-side.png` puts both concepts on one sheet.
+All three levels, with light and dark renders:
 
-The header mockups use the current site header (left-aligned, accent `#0f5ea8` on the buttons) with that concept’s mark in the brand. They are pictures for review, not a change to `build.py`.
+- `responsive/large.svg` — full crest (same drawing as `assets/brand/crest.svg`)
+- `responsive/large.png` — transparent PNG, 3200×4096 (same file as `assets/media/nordic-crypto-crest.png`)
+- `responsive/large-light.png` — full crest on white, 3200×4096
+- `responsive/large-dark.png` — full crest on `#0b0d10`, 3200×4096
+- `responsive/medium.svg`
+- `responsive/medium-512-light.png`, `responsive/medium-512-dark.png`
+- `responsive/medium-128-light.png`, `responsive/medium-128-dark.png`
+- `responsive/small.svg` — same drawing as `assets/brand/icon.svg`
+- `responsive/small-64-light.png`, `responsive/small-64-dark.png`
+- `responsive/small-32-light.png`, `responsive/small-32-dark.png`
+- `responsive/small-16-light.png`, `responsive/small-16-dark.png`
+- `responsive/preview-sheet.png` — all three levels at those sizes, on white and on `#0b0d10`
+
+## Not a state or royal arms
+
+This is original artwork for Nordic Crypto. It must not be presented as an official coat of arms.
+
+Nordic arms are protected and were used only as a reference for which animals exist in the tradition:
+
+- Norway: a crowned lion with an axe, on red (Kongehuset, Kongevåpenet; the government’s riksvåpen).
+- Sweden: greater arms under Lag (1982:268), with three crowns and two matching crowned lions whose tails fork (Riksarkivet).
+- Denmark: three blue lions passant and hearts.
+- Finland: a lion with a sword, trampling a sabre, and roses.
+- Iceland: a shield quartered with four guardian beings.
+- Faroe Islands, Greenland and Åland: ram, walking polar bear, stag.
+
+The Nordic Crypto shield is gold, not red or blue, and the charge is a rosette. The lions are supporters, not the only charge. One has a plain three-point coronet and a short axe. The other has neither. The tails end in a single point. The polar bear sits facing the viewer and appears only on the large crest.
+
+## Earlier sketches
+
+`kalmar/` keeps the Kalmar-style cross concept (gold field `#F6C445`, red cross `#C8102E`). It is not the chosen mark.
+
+`heraldic/icon.svg` and the heraldic wordmarks were a first shield sketch (blue field, gold cross). They are superseded by `responsive/`.
