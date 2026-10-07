@@ -1621,11 +1621,34 @@ def build_academia():
     groups = bycountry(secs["groups"], lambda r: f'<h3><a href="{E(r["url"])}" rel="noopener" target="_blank">{E(r["name"])}</a> '
         f'<span class="tag {"act" if r["active"] else "inact"}">{E(t("active") if r["active"] else t("inactive"))}</span></h3>'
         f'<div class="meta">{flag(r["country"])} <b>{E(r["institution"])}</b></div>{about(r, "group")}{foot(r)}')
-    def au(a): return ", ".join(a[:4]) + (t("et_al") if len(a) > 4 else "")
-    pubs = bycountry(sorted(secs["publications"], key=lambda r: -(r.get("year") or 0)), lambda r: f'<h3><a href="{E(r["url"])}" rel="noopener" target="_blank">{E(r["title"])}</a></h3>'
-        f'<div class="meta">{flag(r["country"])} {E(au(r["authors"]))} ({E(r["year"])}). <i>{E(r.get("venue") or "")}</i>'
-        + (f' · {E(r["institution"])}' if r.get("institution") else "") + '</div>'
-        f'<div class="meta">DOI: <a href="{E(r["url"])}" rel="noopener" target="_blank">{E(r["doi"])}</a> · <a href="{E(r["db"])}" rel="noopener" target="_blank">{E(t("ac_record", db=r.get("db_name") or t("database")))}</a></div>{foot(r)}')
+    def au(a):
+        a = a or []
+        return (", ".join(a[:4]) + (t("et_al") if len(a) > 4 else "")) if a else ""
+    def pub_type(r):
+        return {"master": "Master's thesis", "phd": "PhD dissertation", "paper": "Paper", "conference": "Conference"}.get(r.get("type") or "paper", r.get("type") or "Paper")
+    def pub_meta(r):
+        bits = [flag(r["country"])]
+        authors = au(r.get("authors"))
+        if authors: bits.append(E(authors))
+        if r.get("year"): bits.append(f'({E(r["year"])})')
+        bits.append(f'<span class="tag">{E(pub_type(r))}</span>')
+        if r.get("venue"): bits.append(f'<i>{E(r["venue"])}</i>')
+        if r.get("institution"): bits.append(E(r["institution"]))
+        return " · ".join(bits)
+    def pub_ids(r):
+        parts = []
+        if r.get("doi"):
+            parts.append(f'DOI: <a href="{E(r["url"])}" rel="noopener" target="_blank">{E(r["doi"])}</a>')
+        db = r.get("db") or r.get("url")
+        if db:
+            parts.append(f'<a href="{E(db)}" rel="noopener" target="_blank">{E(t("ac_record", db=r.get("db_name") or t("database")))}</a>')
+        if r.get("about"):
+            parts.append(f'<span{en}>{E(r["about"])}</span>')
+        return " · ".join(parts)
+    pubs = bycountry(sorted(secs["publications"], key=lambda r: (-(r.get("year") or 0), r.get("title") or "")),
+        lambda r: f'<h3><a href="{E(r["url"])}" rel="noopener" target="_blank">{E(r["title"])}</a></h3>'
+        f'<div class="meta">{pub_meta(r)}</div>'
+        f'<div class="meta">{pub_ids(r)}</div>{foot(r)}')
     research = bycountry(secs["research"], lambda r: f'<h3><a href="{E(r["url"])}" rel="noopener" target="_blank">{E(r["name"])}</a></h3>'
         f'<div class="meta">{flag(r["country"])} <b>{E(r["institution"])}</b></div>{about(r)}{foot(r)}')
     allrows = sum(len(v) for v in secs.values())
