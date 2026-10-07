@@ -2,6 +2,38 @@
  "launch_date": "2026-10-03",
  "entries": [
   {
+   "id": "crest-media-kit",
+   "date": "2026-10-07",
+   "title": "Crest and media kit",
+   "description": "The header uses the Nordic Crypto crest: a gold shield, a dark-red rosette, a black raven and two lions. The name sits to the right of the mark, left-aligned. Favicons, an app icon, a one-colour version and a 1200×630 social image are on the logo and media kit at /media/. Colours are the tokens --nc-or, --nc-gules, --nc-sable, --nc-argent and --nc-cendree. Headlines use Cormorant Garamond. Body text uses Schibsted Grotesk.",
+   "i18n": {
+    "nn": {
+     "title": "Våpen og mediepakke",
+     "description": "Toppfeltet bruker våpenet til Nordic Crypto: eit gullskjold, ein mørkeraud rose, ein svart ravn og to løver. Namnet står til høgre for merket, venstrejustert. Favicon, app-ikon, ein einfarga versjon og eit delingsbilete på 1200×630 ligg i logo- og mediepakka på /media/. Fargane er tokenane --nc-or, --nc-gules, --nc-sable, --nc-argent og --nc-cendree. Overskrifter bruker Cormorant Garamond. Brødtekst bruker Schibsted Grotesk."
+    },
+    "nb": {
+     "title": "Våpen og mediepakke",
+     "description": "Toppfeltet bruker våpenet til Nordic Crypto: et gullskjold, en mørkerød rose, en svart ravn og to løver. Navnet står til høyre for merket, venstrejustert. Favicon, app-ikon, en enfarget versjon og et delingsbilde på 1200×630 ligger i logo- og mediepakken på /media/. Fargene er tokenene --nc-or, --nc-gules, --nc-sable, --nc-argent og --nc-cendree. Overskrifter bruker Cormorant Garamond. Brødtekst bruker Schibsted Grotesk."
+    },
+    "sv": {
+     "title": "Vapen och mediapaket",
+     "description": "Sidhuvudet använder vapnet för Nordic Crypto: en guldsköld, en mörkröd ros, en svart korp och två lejon. Namnet står till höger om märket, vänsterställt. Favicon, appikon, en enfärgad version och en delningsbild på 1200×630 finns i logotyp- och mediapaketet på /media/. Färgerna är token --nc-or, --nc-gules, --nc-sable, --nc-argent och --nc-cendree. Rubriker använder Cormorant Garamond. Brödtext använder Schibsted Grotesk."
+    },
+    "da": {
+     "title": "Våben og mediepakke",
+     "description": "Topfeltet bruger våbnet for Nordic Crypto: et guldskjold, en mørkerød rose, en sort ravn og to løver. Navnet står til højre for mærket, venstrestillet. Favicon, app-ikon, en ensfarvet version og et dele-billede på 1200×630 ligger i logo- og mediepakken på /media/. Farverne er tokens --nc-or, --nc-gules, --nc-sable, --nc-argent og --nc-cendree. Overskrifter bruger Cormorant Garamond. Brødtekst bruger Schibsted Grotesk."
+    },
+    "fi": {
+     "title": "Vaakuna ja mediapaketti",
+     "description": "Ylätunniste käyttää Nordic Crypton vaakunaa: kultakilpi, tummanpunainen ruusu, musta korppi ja kaksi leijonaa. Nimi on merkin oikealla puolella, vasemmalle tasattuna. Favicon, sovelluskuvake, yksivärinen versio ja 1200×630-jakokuva ovat logo- ja mediapaketissa osoitteessa /media/. Värit ovat tokenit --nc-or, --nc-gules, --nc-sable, --nc-argent ja --nc-cendree. Otsikot käyttävät Cormorant Garamondia. Leipäteksti käyttää Schibsted Groteskia."
+    },
+    "is": {
+     "title": "Skjaldarmerki og efnispakki",
+     "description": "Hausinn notar skjaldarmerki Nordic Crypto: gullskjöldur, dökkrauð rós, svartur hrafn og tvö ljón. Nafnið stendur hægra megin við merkið, vinstrijafnað. Favicon, app-tákn, einlit útgáfa og deilingarmynd 1200×630 eru í merki- og efnispakkanum á /media/. Litirnir eru tokenin --nc-or, --nc-gules, --nc-sable, --nc-argent og --nc-cendree. Fyrirsagnir nota Cormorant Garamond. Meginmál notar Schibsted Grotesk."
+    }
+   }
+  },
+  {
    "id": "header-subscribe-telegram",
    "date": "2026-10-07",
    "title": "Subscribe and Telegram in the header",

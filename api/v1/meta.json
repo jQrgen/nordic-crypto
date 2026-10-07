@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T22:52:55+00:00",
+ "generated_at": "2026-10-07T23:13:04+00:00",
  "preview": false,
  "sign_off": "The Nordic Crypto team",
  "description": "Bitcoin, blockchain and crypto news, events, a who's who, regulation and academia for Norway, Sweden, Denmark, Finland and Iceland.",
@@ -292,7 +292,14 @@
   "newsletter": "https://nordiccrypto.no/newsletter/",
   "rss": "https://nordiccrypto.no/rss.xml",
   "telegram": "https://t.me/nordiccryptochat",
-  "x": "https://x.com/xcryptonordic"
+  "x": "https://x.com/xcryptonordic",
+  "logo": "https://nordiccrypto.no/assets/brand/crest.svg",
+  "logo_png": "https://nordiccrypto.no/assets/media/nordic-crypto-crest.png",
+  "wordmark": "https://nordiccrypto.no/assets/brand/wordmark.svg",
+  "icon": "https://nordiccrypto.no/assets/brand/icon.svg",
+  "og_image": "https://nordiccrypto.no/assets/brand/og-image.png",
+  "media": "https://nordiccrypto.no/media/",
+  "stylesheet": "https://nordiccrypto.no/assets/brand/nordic-crypto.css"
  },
  "social": {
   "note": "Nordic Crypto brand accounts for the site and the iOS app. label and name are English. name_i18n has nn, nb, sv, da, fi and is. Other site languages use name.",
@@ -385,6 +392,11 @@
    "path": "/about/",
    "url": "https://nordiccrypto.no/about/",
    "title": "About, privacy, corrections and removal"
+  },
+  {
+   "path": "/media/",
+   "url": "https://nordiccrypto.no/media/",
+   "title": "Logo and media kit"
   },
   {
    "path": "/ethics/",

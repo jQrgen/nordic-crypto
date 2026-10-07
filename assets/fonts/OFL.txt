@@ -1,0 +1,2 @@
+Cormorant Garamond and Schibsted Grotesk are used under the SIL Open Font License.
+See https://openfontlicense.org/ and the upstream Google Fonts repositories.
