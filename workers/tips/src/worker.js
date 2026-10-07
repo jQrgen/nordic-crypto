@@ -1,5 +1,5 @@
 // Private tip intake for Nordic Crypto.
-// POST /api/tip          public form (Cloudflare Turnstile)
+// POST /api/tip          public form (Cloudflare Turnstile) or onion forward (bearer ONION_INGEST_TOKEN)
 // GET  /api/tips         list tips (Authorization: Bearer READ_TOKEN)
 // POST /api/tips/:id     set status new|read|handled and editor notes (same bearer)
 // GET  /api/health
@@ -32,6 +32,7 @@ const MAX_NOTES = 4000;
 const MAX_LINKS = 10;
 const MAX_URL = 2000;
 const RATE_N = 5;
+const ONION_N = 60;
 const RATE_GLOBAL = 200;
 const RATE_WINDOW = 600;
 const PAGE_PATH = /^\/(?:[a-z]{2,8}\/)?tip\/?$/;
@@ -87,11 +88,16 @@ export function pageOk(page) {
   const p = page.trim();
   if (!p || p.length > 500) return false;
   if (PAGE_PATH.test(p)) return true;
+  if (/^\/(?:[a-z]{2,8}\/)?$/.test(p.endsWith("/") ? p : p + "/")) return true;
   let u;
   try { u = new URL(p); } catch { return false; }
   if (u.username || u.password || u.search || u.hash) return false;
   const host = u.hostname.toLowerCase();
   const path = u.pathname;
+  if (host.endsWith(".onion")) {
+    const p = path.endsWith("/") ? path : path + "/";
+    return u.protocol === "http:" && /^[a-z2-7]{56}\.onion$/.test(host) && /^\/(?:[a-z]{2,8}\/)?$/.test(p);
+  }
   if (u.protocol !== "https:") return false;
   const site = SITE_HOSTS.includes(host) || host === "jqrgen.github.io";
   if (!site) return false;
@@ -301,6 +307,14 @@ async function turnstile(env, token) {
   }
 }
 
+function onionAuthed(req, env) {
+  const want = env.ONION_INGEST_TOKEN || "";
+  const got = bearer(req);
+  if (!want || !got) return false;
+  if ((env.READ_TOKEN || "") && safeEqual(want, env.READ_TOKEN)) return false;
+  return safeEqual(got, want);
+}
+
 function rowOut(r) {
   let attachments = [];
   if (r.attachments) {
@@ -350,10 +364,11 @@ async function postTip(req, env) {
   const langGuess = parsed.fields && typeof parsed.fields.language === "string" ? parsed.fields.language : "en";
   if (parsed.error) return fail(req, env, parsed, langGuess, parsed.error, parsed.error === "too_long" ? 413 : 400);
   const hp = parsed.fields.website;
+  const onion = onionAuthed(req, env);
   const ip = (req.headers.get("CF-Connecting-IP") || "").trim().slice(0, 64);
-  const key = ip || "unknown";
+  const key = onion ? "onion" : (ip || "unknown");
   try {
-    if (!(await rateOk(env.DB, key, RATE_N))) {
+    if (!(await rateOk(env.DB, key, onion ? ONION_N : RATE_N))) {
       return fail(req, env, parsed, langGuess, "rate", 429);
     }
   } catch {
@@ -364,10 +379,12 @@ async function postTip(req, env) {
   }
   const [tip, err] = validateTip(parsed.fields);
   if (err) return fail(req, env, parsed, langGuess, err, 400);
-  const token = parsed.fields["cf-turnstile-response"] || parsed.fields.turnstile || "";
-  const tv = await turnstile(env, typeof token === "string" ? token : "");
-  if (tv === "unconfigured" || tv === "offline") return fail(req, env, parsed, tip.language, "offline", 503);
-  if (tv !== "ok") return fail(req, env, parsed, tip.language, "turnstile", 400);
+  if (!onion) {
+    const token = parsed.fields["cf-turnstile-response"] || parsed.fields.turnstile || "";
+    const tv = await turnstile(env, typeof token === "string" ? token : "");
+    if (tv === "unconfigured" || tv === "offline") return fail(req, env, parsed, tip.language, "offline", 503);
+    if (tv !== "ok") return fail(req, env, parsed, tip.language, "turnstile", 400);
+  }
   let id;
   try {
     const row = await env.DB.prepare(

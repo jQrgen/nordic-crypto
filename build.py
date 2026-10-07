@@ -1749,7 +1749,8 @@ f.addEventListener('submit',function(ev){ev.preventDefault();if(!f.reportValidit
 def tip_intake_config():
     """Public tip intake settings (workers/tips/public.json). No secrets.
     The form stays off unless enabled is true. TIP_INTAKE=1 forces it on for a local build; TIP_INTAKE=0 forces it off.
-    TIP_INTAKE_ENDPOINT and TIP_TURNSTILE_SITEKEY override the file when set, including empty."""
+    TIP_INTAKE_ENDPOINT, TIP_TURNSTILE_SITEKEY and TIP_ONION override the file when set, including empty.
+    onion is a v3 http:// address, or empty until the Tor service has generated one."""
     cfg = load(P("workers", "tips", "public.json"), {}) or {}
     flag = os.environ.get("TIP_INTAKE")
     if flag == "1": enabled = True
@@ -1764,18 +1765,33 @@ def tip_intake_config():
         ep = ""
     if not re.fullmatch(r"[0-9A-Za-z_-]{8,80}", key):
         key = ""
-    return enabled, ep, key
+    onion = pick("TIP_ONION", "onion").strip()
+    if not re.fullmatch(r"http://[a-z2-7]{56}\.onion/?", onion):
+        onion = ""
+    else:
+        onion = onion.rstrip("/")
+    return enabled, ep, key, onion
 
 def build_tip():
     """Send a tip to the private Cloudflare inbox (workers/tips/). Never a public GitHub issue.
     While the intake is off, or the Turnstile site key is missing, the page says the inbox is not open and shows no form.
     The page is left-aligned, including on right-to-left languages."""
     if LANG == "en": write_tip_endpoint_file()
-    enabled, ep, key = tip_intake_config()
+    enabled, ep, key, onion = tip_intake_config()
     ready = bool(enabled and ep and key)
     page_path = "/" + lp() + "tip/"
+    if onion:
+        onion_href = onion + "/" + LANG + "/"
+        onion_block = (f'<p class="notice"><b>{E(t("tip_onion_h"))}.</b> {E(t("tip_onion_ready"))} '
+                       f'<a href="{E(onion_href)}">{E(t("tip_onion_link"))}</a> '
+                       f'(<span class="meta">{E(onion_href)}</span>).</p>')
+        head = f'<meta http-equiv="onion-location" content="{E(onion_href)}">'
+    else:
+        onion_block = f'<p class="notice"><b>{E(t("tip_onion_h"))}.</b> {E(t("tip_onion_pending"))}</p>'
+        head = ""
     intro = (f'<p>{E(t("tip_intro"))} <a href="../about/">{E(t("about_title"))}</a>. '
              f'<a href="../ethics/">{E(t("ethics_title"))}</a>.</p>'
+             f'{onion_block}'
              f'<p class="notice"><b>{E(t("tip_privacy_h"))}.</b> {E(t("tip_privacy"))}</p>')
     if not ready:
         notice = t("tip_not_ready") if enabled else t("tip_opening")
@@ -1785,7 +1801,7 @@ def build_tip():
 <p class="notice"><b>{E(t("tip_opening_h"))}.</b> {E(notice)}</p>
 {intro}
 </div>"""
-        page("tip", t("tip_title"), "tip", body, t("tip_desc"))
+        page("tip", t("tip_title"), "tip", body, t("tip_desc"), head_extra=head)
         return
     widget = ('<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>'
               f'<div class="tip-turnstile"><div class="cf-turnstile" data-sitekey="{E(key)}" data-response-field-name="cf-turnstile-response"></div></div>')
@@ -1827,7 +1843,7 @@ f.addEventListener('submit',function(ev){ev.preventDefault();if(!f.reportValidit
    else if(x.s>=500)say(M.offline,'warn');
    else {var er=x.j&&x.j.error;say((er&&M[er])||M.fail,'warn')}})
   .catch(function(){clearTimeout(tm);b.disabled=false;say(M.offline,'warn')})})})();</script>""" % json.dumps(msgs, ensure_ascii=False)
-    page("tip", t("tip_title"), "tip", body, t("tip_desc"), js)
+    page("tip", t("tip_title"), "tip", body, t("tip_desc"), js, head_extra=head)
 
 def build_columnist():
     """'Apply as a columnist' page. A plain HTML form (GET, no JavaScript, no tracking) that opens a prefilled public

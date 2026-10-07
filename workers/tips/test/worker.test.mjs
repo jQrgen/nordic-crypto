@@ -181,6 +181,22 @@ test("the sixth tip in the window is limited", async () => {
   assert.equal(db.tips.length, 5);
 });
 
+test("onion bearer skips Turnstile and does not hash the VPS address", async () => {
+  const db = new Mem();
+  const ingest = "ingest-" + "0123456789abcdef";
+  const addr = "http://" + "b".repeat(56) + ".onion/da/";
+  const res = await post(db, "/api/tip", tipBody({ "cf-turnstile-response": "", page: addr }), {
+    Authorization: "Bearer " + ingest,
+  }, { ONION_INGEST_TOKEN: ingest });
+  assert.equal(res.status, 201);
+  assert.equal(JSON.stringify(db.hits).includes(IP), false);
+  assert.equal(db.tips[0].page, addr);
+  const same = await post(db, "/api/tip", tipBody({ "cf-turnstile-response": "" }), {
+    Authorization: "Bearer " + READ,
+  }, { ONION_INGEST_TOKEN: READ, READ_TOKEN: READ });
+  assert.equal(same.status, 400);
+});
+
 test("form POST returns a left-aligned confirmation", async () => {
   const db = new Mem();
   const body = new URLSearchParams({

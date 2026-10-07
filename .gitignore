@@ -31,3 +31,5 @@ tipserver/tunnel.state
 # tip intake: local secrets and worker state, never committed
 workers/tips/.dev.vars
 workers/tips/.wrangler/
+onion/.env
+onion/data/

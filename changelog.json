@@ -3,6 +3,38 @@
  "launch_date": "2026-10-03",
  "entries": [
   {
+   "id": "onion-tip-page",
+   "date": "2026-10-07",
+   "title": "Tor onion tip page",
+   "description": "A self-contained Tor onion tip page for Nordic Crypto is in the repository, for a small VPS. It has no JavaScript and no external resources, and it forwards tips into the same private inbox as the website. The /tip/ page says a Tor address is being prepared and does not publish an address until one exists. Nothing in this change is deployed.",
+   "i18n": {
+    "nn": {
+     "title": "Tor-onion-tipsside",
+     "description": "Ei sjølvstendig Tor-onion-tipsside for Nordic Crypto ligg i lageret, for ein liten VPS. Ho har ikkje JavaScript og ingen eksterne ressursar, og ho sender tips vidare til den same private innboksen som nettstaden. Sida /tip/ seier at ei Tor-adresse er under førebuing og kunngjer ikkje ei adresse før ho finst. Ingenting i denne endringa er teke i bruk."
+    },
+    "nb": {
+     "title": "Tor-onion-tipsside",
+     "description": "En selvstendig Tor-onion-tipsside for Nordic Crypto ligger i lageret, for en liten VPS. Den har ikke JavaScript og ingen eksterne ressurser, og den sender tips videre til den samme private innboksen som nettstedet. Siden /tip/ sier at en Tor-adresse er under forberedelse og offentliggjør ikke en adresse før den finnes. Ingenting i denne endringen er tatt i bruk."
+    },
+    "sv": {
+     "title": "Tor-onion-tipssida",
+     "description": "En fristående Tor-onion-tipssida för Nordic Crypto finns i repot, för en liten VPS. Den har inget JavaScript och inga externa resurser, och den skickar tips vidare till samma privata inkorg som webbplatsen. Sidan /tip/ säger att en Tor-adress förbereds och publicerar ingen adress förrän en finns. Ingenting i den här ändringen är driftsatt."
+    },
+    "da": {
+     "title": "Tor-onion-tipside",
+     "description": "En selvstændig Tor-onion-tipside for Nordic Crypto ligger i lageret, til en lille VPS. Den har ikke JavaScript og ingen eksterne ressourcer, og den sender tip videre til den samme private indbakke som webstedet. Siden /tip/ siger, at en Tor-adresse er under forberedelse, og offentliggør ikke en adresse, før den findes. Intet i denne ændring er sat i drift."
+    },
+    "fi": {
+     "title": "Tor-onion-vinkkisivu",
+     "description": "Itsenäinen Tor-onion-vinkkisivu Nordic Cryptolle on repossa, pientä VPS-palvelinta varten. Siinä ei ole JavaScriptiä eikä ulkoisia resursseja, ja se välittää vinkit samaan yksityiseen laatikkoon kuin sivusto. /tip/-sivu kertoo, että Tor-osoitetta valmistellaan, eikä julkaise osoitetta ennen kuin sellainen on olemassa. Mitään tästä muutoksesta ei ole otettu käyttöön."
+    },
+    "is": {
+     "title": "Tor-onion-ábendingasíða",
+     "description": "Sjálfstæð Tor-onion-ábendingasíða fyrir Nordic Crypto er í geymslunni, fyrir lítinn VPS. Hún hefur ekki JavaScript og engar ytri tilföng, og hún sendir ábendingar áfram í sama einkainnhólf og vefsíðan. Síðan /tip/ segir að Tor-slóð sé í undirbúningi og birtir ekki slóð fyrr en hún er til. Ekkert í þessari breytingu er sett í rekstur."
+    }
+   }
+  },
+  {
    "id": "private-tip-intake",
    "date": "2026-10-07",
    "title": "Private tip inbox",

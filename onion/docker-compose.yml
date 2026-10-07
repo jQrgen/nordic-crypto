@@ -1,0 +1,33 @@
+# Tor onion tip page. Does not publish a clearnet port.
+# Copy .env.example to .env and set ONION_INGEST_TOKEN before starting. Do not commit .env.
+services:
+  tip:
+    build: ./app
+    restart: unless-stopped
+    environment:
+      WORKER_URL: ${WORKER_URL:-https://tips.nordiccrypto.no}
+      ONION_INGEST_TOKEN: ${ONION_INGEST_TOKEN:-}
+      ONION_HOST: ${ONION_HOST:-}
+      QUEUE_DIR: /var/lib/nordic-tips
+      BIND: 0.0.0.0
+      PORT: "8080"
+      DROP_UID: "65532"
+    volumes:
+      - tipqueue:/var/lib/nordic-tips
+    networks: [onionnet]
+    logging:
+      driver: "none"
+  tor:
+    build: ./tor
+    restart: unless-stopped
+    depends_on: [tip]
+    volumes:
+      - onionkeys:/var/lib/tor
+    networks: [onionnet]
+    logging:
+      driver: "none"
+volumes:
+  tipqueue:
+  onionkeys:
+networks:
+  onionnet:
