@@ -19,6 +19,7 @@
   var seen = Object.create(null);
   var token = "";
   var wid = "";
+  var stickNext = true;
   var NICK_KEY = "nc_shout_nick";
 
   try { nick.value = localStorage.getItem(NICK_KEY) || ""; } catch (e) {}
@@ -119,14 +120,21 @@
 
   function endpoint(path) { return String(cfg.endpoint).replace(/\/$/, "") + path; }
 
+  function atBottom() {
+    return list.scrollHeight - list.scrollTop - list.clientHeight < 48;
+  }
+
   function refresh() {
     // Latest window only. No lang, room or channel query: one shared stream.
+    var stick = stickNext || atBottom();
+    stickNext = false;
     return fetch(endpoint("/api/shouts?limit=50"), { headers: { Accept: "application/json" } })
       .then(function (r) { return r.json(); })
       .then(function (data) {
         var rows = (data && data.shouts) || [];
         dropMissing(rows);
         remember(rows);
+        if (stick) list.scrollTop = list.scrollHeight;
         if (older && !older.dataset.done) older.hidden = rows.length < 50;
       })
       .catch(function () {});
@@ -205,6 +213,7 @@
       msg.value = "";
       token = "";
       if (window.turnstile && wid) window.turnstile.reset(wid);
+      stickNext = true;
       refresh();
     }).catch(function () { submit.disabled = false; say("fail"); });
   });
