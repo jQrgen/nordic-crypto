@@ -211,5 +211,26 @@ S.update({
 "mk_logo_alt": "Ikon for {name}",
 "mk_icons": "Myntikoner er CC0 1.0. Nordic Crypto gjør ikke krav på dem. En eiendel som mangler i settet, har ikke ikon her. Kilde:",
 })
+# browser notifications (workers/push/). Missing keys still fall back to English.
+S.update({
+"push_title": "Varsler",
+"push_lead": "Få én melding hver gang nye saker blir publisert. Flere saker i samme publisering blir én melding, ikke én for hver.",
+"push_on": "Slå på varsler",
+"push_off": "Slå av varsler",
+"push_on_status": "Varsler er på for denne nettleseren.",
+"push_off_status": "Varsler er av.",
+"push_topics": "Land",
+"push_all": "Alle de nordiske landene",
+"push_lang_note": "Meldingene bruker språket på denne siden. Åpne et annet språk og slå på varsler på nytt for å endre det.",
+"push_privacy": "Vi lagrer bare push-abonnementet fra nettleseren din (adressen og de to nøklene som krypterer meldingen), språket på denne siden og landene du velger. Ikke navn, ikke e-postadresse og ingen sporing av hva du leser. Slå av varsler med samme knapp; da slettes abonnementet. Cloudflare Web Analytics teller besøk samlet, uten informasjonskapsler, og vi selger ikke de dataene.",
+"push_unsupported": "Denne nettleseren kan ikke vise varsler.",
+"push_denied": "Varsler er blokkert for dette nettstedet i innstillingene til nettleseren.",
+"push_ios": "På iPhone eller iPad må du først legge nettstedet på hjemskjermen. iOS 16.4 eller nyere kan da bruke disse nettleservarslene. Push-tjenesten til Apple (APNs) brukes ikke.",
+"push_unavailable": "Varslingstjenesten er ikke slått på ennå.",
+"push_working": "Arbeider …",
+"push_fail": "Klarte ikke å oppdatere varslene. Prøv igjen.",
+"push_saved": "Lagret.",
+"push_noscript": "Å slå på varsler krever JavaScript.",
+})
 
 S.update({'nav_talks': 'Foredrag', 'talks_title': 'Foredrag – offentlige krypto-foredrag i Norden', 'talks_desc': 'Offentlige foredrag om bitcoin, kryptovaluta og blokkjede holdt i de nordiske landene, med videoen og fakta utgiveren har oppgitt.', 'talks_h1': 'Foredrag', 'talks_lead': 'Opptak av offentlige foredrag om bitcoin, kryptovaluta og blokkjede holdt i Norge, Sverige, Danmark, Finland, Island, Færøyene, Grønland og Åland siden bitcoin-hvitboken. Nyeste først. Avspilleren lastes bare etter at du trykker spill, og bare når plattformen tillater innbygging.', 'talks_n': '{n} foredrag', 'talks_none': 'Ingen foredrag passer disse filtrene.', 'talks_year': 'År', 'talks_year_all': 'Alle år', 'talks_language': 'Språk', 'talks_lang_unknown': 'Språk ikke oppgitt', 'talks_play': 'Spill av', 'talks_watch': 'Se på plattformen', 'talks_speakers': 'Innledere', 'talks_event': 'Arrangement', 'talks_channel': 'Kanal', 'talks_published': 'Video publisert', 'talks_duration': 'Lengde', 'talks_held': 'Holdt', 'talks_source': 'Kilde', 'talks_calendar': 'Kalenderoppføring', 'talks_embed_note': 'Avspilleren lastes fra plattformen først når du trykker spill.', 'talks_not_embed': 'Plattformen tilbød ikke en avspiller som kan bygges inn. Lenken går til videoen.', 'past_talks': 'Opptak av offentlige foredrag ligger i <a href="{href}">foredragsarkivet</a>.', 'c_FO': 'Færøyene', 'c_GL': 'Grønland', 'c_AX': 'Åland'})

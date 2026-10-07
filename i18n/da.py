@@ -211,5 +211,26 @@ S.update({
 "mk_logo_alt": "Ikon for {name}",
 "mk_icons": "Møntikoner er CC0 1.0. Nordic Crypto gør ikke krav på dem. Et aktiv, der mangler i sættet, har ikke noget ikon her. Kilde:",
 })
+# browser notifications (workers/push/). Missing keys still fall back to English.
+S.update({
+"push_title": "Notifikationer",
+"push_lead": "Få én besked, hver gang nye artikler udgives. Flere artikler i samme udgivelse bliver én besked, ikke én for hver.",
+"push_on": "Slå notifikationer til",
+"push_off": "Slå notifikationer fra",
+"push_on_status": "Notifikationer er slået til i denne browser.",
+"push_off_status": "Notifikationer er slået fra.",
+"push_topics": "Lande",
+"push_all": "Alle de nordiske lande",
+"push_lang_note": "Beskederne bruger sproget på denne side. Åbn et andet sprog og slå notifikationer til igen for at skifte.",
+"push_privacy": "Vi gemmer kun push-abonnementet fra din browser (adressen og de to nøgler, der krypterer beskeden), sproget på denne side og de lande, du vælger. Intet navn, ingen e-mailadresse og ingen sporing af, hvad du læser. Slå notifikationer fra med den samme knap; så slettes abonnementet. Cloudflare Web Analytics tæller besøg samlet, uden cookies, og vi sælger ikke de data.",
+"push_unsupported": "Denne browser kan ikke vise notifikationer.",
+"push_denied": "Notifikationer er blokeret for dette site i browserens indstillinger.",
+"push_ios": "På iPhone eller iPad skal du først føje sitet til hjemmeskærmen. iOS 16.4 eller nyere kan derefter bruge disse browsernotifikationer. Apples egen push-tjeneste (APNs) bruges ikke.",
+"push_unavailable": "Notifikationstjenesten er ikke slået til endnu.",
+"push_working": "Arbejder …",
+"push_fail": "Kunne ikke opdatere notifikationerne. Prøv igen.",
+"push_saved": "Gemt.",
+"push_noscript": "JavaScript skal være slået til for at slå notifikationer til.",
+})
 
 S.update({'nav_talks': 'Foredrag', 'talks_title': 'Foredrag – offentlige kryptoforedrag i Norden', 'talks_desc': 'Offentlige foredrag om bitcoin, kryptovaluta og blockchain holdt i de nordiske lande, med videoen og de fakta udgiveren har angivet.', 'talks_h1': 'Foredrag', 'talks_lead': 'Optagelser af offentlige foredrag om bitcoin, kryptovaluta og blockchain holdt i Norge, Sverige, Danmark, Finland, Island, Færøerne, Grønland og Åland siden bitcoins hvidbog. Nyeste først. Afspilleren indlæses kun, når du trykker på afspil, og kun når platformen tillader indlejring.', 'talks_n': '{n} foredrag', 'talks_none': 'Ingen foredrag matcher disse filtre.', 'talks_year': 'År', 'talks_year_all': 'Alle år', 'talks_language': 'Sprog', 'talks_lang_unknown': 'Sprog ikke angivet', 'talks_play': 'Afspil', 'talks_watch': 'Se på platformen', 'talks_speakers': 'Talere', 'talks_event': 'Arrangement', 'talks_channel': 'Kanal', 'talks_published': 'Video udgivet', 'talks_duration': 'Længde', 'talks_held': 'Holdt', 'talks_source': 'Kilde', 'talks_calendar': 'Kalenderpost', 'talks_embed_note': 'Afspilleren indlæses fra platformen først, når du trykker på afspil.', 'talks_not_embed': 'Platformen tilbød ikke en afspiller, der kan indlejres. Linket går til videoen.', 'past_talks': 'Optagelser af offentlige foredrag ligger i <a href="{href}">foredragsarkivet</a>.', 'c_FO': 'Færøerne', 'c_GL': 'Grønland', 'c_AX': 'Åland'})

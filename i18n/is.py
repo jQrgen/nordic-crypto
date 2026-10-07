@@ -211,5 +211,26 @@ S.update({
 "mk_logo_alt": "Tákn fyrir {name}",
 "mk_icons": "Mynttákn eru CC0 1.0. Nordic Crypto gerir ekki tilkall til þeirra. Eign sem vantar í safninu hefur ekkert tákn hér. Heimild:",
 })
+# browser notifications (workers/push/). Missing keys still fall back to English.
+S.update({
+"push_title": "Tilkynningar",
+"push_lead": "Fáðu ein skilaboð í hvert sinn sem nýjar fréttir eru birtar. Nokkrar fréttir í sömu birtingu verða ein skilaboð, ekki ein fyrir hverja.",
+"push_on": "Kveikja á tilkynningum",
+"push_off": "Slökkva á tilkynningum",
+"push_on_status": "Tilkynningar eru virkar í þessum vafra.",
+"push_off_status": "Tilkynningar eru óvirkar.",
+"push_topics": "Lönd",
+"push_all": "Öll Norðurlöndin",
+"push_lang_note": "Skilaboðin nota tungumál þessarar síðu. Opnaðu annað tungumál og kveiktu aftur á tilkynningum til að breyta því.",
+"push_privacy": "Við vistum aðeins push-áskriftina úr vafranum þínum (vistfangið og lyklana tvo sem dulkóða skilaboðin), tungumál þessarar síðu og löndin sem þú velur. Ekkert nafn, ekkert netfang og engin rakning á því sem þú lest. Sami hnappur slekkur á tilkynningum og eyðir áskriftinni. Ein birting sendir ein skilaboð, líka þegar nokkrar fréttir koma saman. Cloudflare Web Analytics telur heimsóknir saman, án vafrakaka, og við seljum ekki þau gögn.",
+"push_unsupported": "Þessi vafri getur ekki sýnt tilkynningar.",
+"push_denied": "Tilkynningar eru læstar fyrir þessa síðu í stillingum vafrans.",
+"push_ios": "Á iPhone eða iPad bætirðu síðunni fyrst við heimaskjáinn. iOS 16.4 eða nýrra getur þá notað þessar vafratilkynningar. Eigin push-þjónusta Apple (APNs) er ekki notuð.",
+"push_unavailable": "Tilkynningaþjónustan er ekki enn virk.",
+"push_working": "Vinnsla …",
+"push_fail": "Tókst ekki að uppfæra tilkynningar. Reyndu aftur.",
+"push_saved": "Vistað.",
+"push_noscript": "JavaScript þarf að vera virkt til að kveikja á tilkynningum.",
+})
 
 S.update({'nav_talks': 'Erindi', 'talks_title': 'Erindi – opinber erindi um rafmyntir á Norðurlöndum', 'talks_desc': 'Opinber erindi um bitcoin, rafmyntir og bálkakeðju haldin á Norðurlöndum, með myndbandinu og þeim staðreyndum sem útgefandinn gaf upp.', 'talks_h1': 'Erindi', 'talks_lead': 'Upptökur af opinberum erindum um bitcoin, rafmyntir og bálkakeðju haldin í Noregi, Svíþjóð, Danmörku, Finnlandi, á Íslandi, í Færeyjum, á Grænlandi og á Álandseyjum frá hvítbók bitcoin. Nýjustu fyrst. Spilarinn hleðst aðeins eftir að þú ýtir á spila, og aðeins þegar vettvangurinn leyfir ívefjun.', 'talks_n': '{n} erindi', 'talks_none': 'Engin erindi passa við þessar síur.', 'talks_year': 'Ár', 'talks_year_all': 'Öll ár', 'talks_language': 'Tungumál', 'talks_lang_unknown': 'Tungumál ekki tilgreint', 'talks_play': 'Spila', 'talks_watch': 'Horfa á vettvanginum', 'talks_speakers': 'Fyrirlesarar', 'talks_event': 'Viðburður', 'talks_channel': 'Rás', 'talks_published': 'Myndband birt', 'talks_duration': 'Lengd', 'talks_held': 'Haldið', 'talks_source': 'Heimild', 'talks_calendar': 'Færsla í dagatali', 'talks_embed_note': 'Spilarinn hleðst af vettvanginum fyrst þegar þú ýtir á spila.', 'talks_not_embed': 'Vettvangurinn bauð ekki upp á spilara sem má ívefja. Tengillinn fer á myndbandið.', 'past_talks': 'Upptökur af opinberum erindum eru í <a href="{href}">erindasafninu</a>.', 'c_FO': 'Færeyjar', 'c_GL': 'Grænland', 'c_AX': 'Álandseyjar'})

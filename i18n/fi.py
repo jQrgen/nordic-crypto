@@ -211,5 +211,26 @@ S.update({
 "mk_logo_alt": "{name}, kuvake",
 "mk_icons": "Kolikkokuvakkeet ovat CC0 1.0. Nordic Crypto ei väitä niitä omikseen. Jos varaa ei ole joukossa, sillä ei ole kuvaketta. Lähde:",
 })
+# browser notifications (workers/push/). Missing keys still fall back to English.
+S.update({
+"push_title": "Ilmoitukset",
+"push_lead": "Saat yhden viestin aina, kun uusia juttuja julkaistaan. Saman julkaisun useat jutut ovat yksi viesti, eivät viesti jokaista kohti.",
+"push_on": "Ota ilmoitukset käyttöön",
+"push_off": "Poista ilmoitukset käytöstä",
+"push_on_status": "Ilmoitukset ovat käytössä tässä selaimessa.",
+"push_off_status": "Ilmoitukset ovat poissa käytöstä.",
+"push_topics": "Maat",
+"push_all": "Kaikki Pohjoismaat",
+"push_lang_note": "Viestit käyttävät tämän sivun kieltä. Avaa toinen kieli ja ota ilmoitukset uudelleen käyttöön, jos haluat vaihtaa.",
+"push_privacy": "Tallennamme vain selaimesi push-tilauksen (osoitteen ja kaksi avainta, joilla viesti salataan), tämän sivun kielen ja valitsemasi maat. Emme tallenna nimeä, sähköpostiosoitetta emmekä sitä, mitä luet. Samalla painikkeella poistat ilmoitukset käytöstä, ja tilaus poistetaan. Cloudflare Web Analytics laskee käynnit kootusti, ilman evästeitä, emmekä myy näitä tietoja.",
+"push_unsupported": "Tämä selain ei voi näyttää ilmoituksia.",
+"push_denied": "Ilmoitukset on estetty tältä sivustolta selaimen asetuksissa.",
+"push_ios": "Lisää sivusto iPhonessa tai iPadissa ensin kotinäytölle. iOS 16.4 tai uudempi voi sen jälkeen käyttää näitä selainilmoituksia. Applen oma push-palvelu (APNs) ei ole käytössä.",
+"push_unavailable": "Ilmoituspalvelu ei ole vielä käytössä.",
+"push_working": "Käsitellään…",
+"push_fail": "Ilmoituksia ei voitu päivittää. Yritä uudelleen.",
+"push_saved": "Tallennettu.",
+"push_noscript": "Ilmoitusten käyttöönotto vaatii JavaScriptin.",
+})
 
 S.update({'nav_talks': 'Esitelmät', 'talks_title': 'Esitelmät – julkiset kryptoesitelmät Pohjoismaissa', 'talks_desc': 'Julkisia esitelmiä bitcoinista, kryptovaluutoista ja lohkoketjusta Pohjoismaissa, videon ja julkaisijan ilmoittamien tietojen kanssa.', 'talks_h1': 'Esitelmät', 'talks_lead': 'Tallenteita julkisista esitelmistä bitcoinista, kryptovaluutoista ja lohkoketjusta Norjassa, Ruotsissa, Tanskassa, Suomessa, Islannissa, Färsaarilla, Grönlannissa ja Ahvenanmaalla bitcoin-valkoisesta kirjasta alkaen. Uusimmat ensin. Soitin latautuu vasta, kun painat toistoa, ja vain jos alusta sallii upotuksen.', 'talks_n': '{n} esitelmää', 'talks_none': 'Yksikään esitelmä ei vastaa näitä suodattimia.', 'talks_year': 'Vuosi', 'talks_year_all': 'Kaikki vuodet', 'talks_language': 'Kieli', 'talks_lang_unknown': 'Kieltä ei ole ilmoitettu', 'talks_play': 'Toista', 'talks_watch': 'Katso alustalla', 'talks_speakers': 'Puhujat', 'talks_event': 'Tapahtuma', 'talks_channel': 'Kanava', 'talks_published': 'Video julkaistu', 'talks_duration': 'Kesto', 'talks_held': 'Pidetty', 'talks_source': 'Lähde', 'talks_calendar': 'Kalenterimerkintä', 'talks_embed_note': 'Soitin latautuu alustalta vasta, kun painat toistoa.', 'talks_not_embed': 'Alusta ei tarjonnut upotettavaa soitinta. Linkki vie videoon.', 'past_talks': 'Julkisten esitelmien tallenteet ovat <a href="{href}">esitelmäarkistossa</a>.', 'c_FO': 'Färsaaret', 'c_GL': 'Grönlanti', 'c_AX': 'Ahvenanmaa'})

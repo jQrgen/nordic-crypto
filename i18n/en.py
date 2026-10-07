@@ -230,5 +230,26 @@ S.update({
 "mk_logo_alt": "{name} icon",
 "mk_icons": "Coin icons are CC0 1.0. Nordic Crypto does not claim them. An asset missing from that set has no icon here. Source:",
 })
+# browser notifications (workers/push/). Missing keys still fall back to English.
+S.update({
+"push_title": "Notifications",
+"push_lead": "Get one message each time new stories are published. Several stories in the same publish are one message, not one each.",
+"push_on": "Turn on notifications",
+"push_off": "Turn off notifications",
+"push_on_status": "Notifications are on for this browser.",
+"push_off_status": "Notifications are off.",
+"push_topics": "Countries",
+"push_all": "All Nordic countries",
+"push_lang_note": "Messages use the language of this page. Open another language and turn notifications on again to change it.",
+"push_privacy": "We store only the push subscription from your browser (the address and the two keys used to encrypt the message), the language of this page and the countries you pick. No name, no email address and no tracking of what you read. Turn notifications off with the same button; that deletes the subscription. Cloudflare Web Analytics counts visits in aggregate, without cookies, and we do not sell that data.",
+"push_unsupported": "This browser cannot show notifications.",
+"push_denied": "Notifications are blocked for this site in the browser settings.",
+"push_ios": "On iPhone or iPad, add this site to your Home Screen first. iOS 16.4 or newer can then use these browser notifications. Apple’s push service (APNs) is not used.",
+"push_unavailable": "The notification service is not switched on yet.",
+"push_working": "Working…",
+"push_fail": "Could not update notifications. Try again.",
+"push_saved": "Saved.",
+"push_noscript": "Turning notifications on needs JavaScript.",
+})
 
 S.update({'nav_talks': 'Talks', 'talks_title': 'Talks – public Nordic crypto talks', 'talks_desc': 'Public talks on bitcoin, cryptocurrencies and blockchain held in the Nordic countries, with the video and the facts the uploader stated.', 'talks_h1': 'Talks', 'talks_lead': 'Recordings of public talks on bitcoin, cryptocurrencies and blockchain held in Norway, Sweden, Denmark, Finland, Iceland, the Faroe Islands, Greenland and Åland since the Bitcoin white paper. Newest first. A player loads only after you press play, and only when that platform allows embedding.', 'talks_n': '{n} talks', 'talks_none': 'No talks match these filters.', 'talks_year': 'Year', 'talks_year_all': 'All years', 'talks_language': 'Language', 'talks_lang_unknown': 'Language not stated', 'talks_play': 'Play', 'talks_watch': 'Watch on the platform', 'talks_speakers': 'Speakers', 'talks_event': 'Event', 'talks_channel': 'Channel', 'talks_published': 'Video published', 'talks_duration': 'Length', 'talks_held': 'Held', 'talks_source': 'Source', 'talks_calendar': 'Calendar entry', 'talks_embed_note': 'The player loads from the platform only after you press play.', 'talks_not_embed': 'This platform did not offer an embeddable player. The link goes to the video.', 'past_talks': 'Recordings of public talks are in the <a href="{href}">talks archive</a>.', 'c_FO': 'Faroe Islands', 'c_GL': 'Greenland', 'c_AX': 'Åland'})
