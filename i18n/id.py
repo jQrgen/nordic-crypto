@@ -45,3 +45,42 @@ S = {
 }
 
 S.update({'nav_talks': 'Ceramah', 'talks_title': 'Ceramah – ceramah publik tentang kripto di negara-negara Nordik', 'talks_desc': 'Ceramah publik tentang bitcoin, mata uang kripto, dan blockchain yang diadakan di negara-negara Nordik, dengan video dan fakta yang dicantumkan pengunggah.', 'talks_h1': 'Ceramah', 'talks_lead': 'Rekaman ceramah publik tentang bitcoin, mata uang kripto, dan blockchain yang diadakan di Norwegia, Swedia, Denmark, Finlandia, Islandia, Kepulauan Faroe, Greenland, dan Åland sejak kertas putih bitcoin. Yang terbaru di atas. Pemutar hanya dimuat setelah Anda menekan putar, dan hanya jika platform mengizinkan sematan.', 'talks_n': '{n} ceramah', 'talks_none': 'Tidak ada ceramah yang cocok dengan filter ini.', 'talks_year': 'Tahun', 'talks_year_all': 'Semua tahun', 'talks_language': 'Bahasa', 'talks_lang_unknown': 'Bahasa tidak disebutkan', 'talks_play': 'Putar', 'talks_watch': 'Tonton di platform', 'talks_speakers': 'Pembicara', 'talks_event': 'Acara', 'talks_channel': 'Kanal', 'talks_published': 'Video terbit', 'talks_duration': 'Durasi', 'talks_held': 'Diadakan', 'talks_source': 'Sumber', 'talks_calendar': 'Entri kalender', 'talks_embed_note': 'Pemutar dimuat dari platform hanya setelah Anda menekan putar.', 'talks_not_embed': 'Platform ini tidak menawarkan pemutar yang dapat disematkan. Tautan menuju video.', 'past_talks': 'Rekaman ceramah publik ada di <a href="{href}">arsip ceramah</a>.', 'c_FO': 'Kepulauan Faroe', 'c_GL': 'Greenland', 'c_AX': 'Åland'})
+
+# Shared shoutbox. One room; these strings are the UI only.
+S.update({
+"nav_chat": "Obrolan",
+"chat_title": "Obrolan",
+"chat_desc": "Satu papan bersama di Nordic Crypto. Pesan pembaca, bukan materi redaksi.",
+"chat_h1": "Obrolan",
+"chat_lead": "Satu ruang untuk setiap bahasa di Nordic Crypto. Pesan tetap seperti yang ditulis.",
+"chat_shared": "Semua orang melihat pesan yang sama. Halaman ini tidak menerjemahkannya.",
+"chat_user": "Pesan ini ditulis pembaca. Ini bukan materi redaksi Nordic Crypto.",
+"chat_rules": "<a href=\"{ethics}\">Aturan</a>: tanpa pelecehan, tanpa doxxing, tanpa promosi nasihat keuangan, dan tanpa penipuan atau tautan rujukan. Moderator dapat menghapus kiriman.",
+"chat_nick": "Nama panggilan",
+"chat_message": "Pesan",
+"chat_send": "Kirim",
+"chat_report": "Laporkan",
+"chat_reported": "Dilaporkan. Moderator dapat meninjaunya.",
+"chat_ph_nick": "Nama",
+"chat_ph_msg": "Tulis pesan",
+"chat_privacy": "Papan ini menyimpan nama panggilan, pesan, dan hash alamat IP yang berganti setiap hari, hanya untuk membatasi penyalahgunaan. Alamat IP itu sendiri tidak disimpan. Nama panggilan hanya ada di penyimpanan lokal peramban ini, bukan di cookie. Cloudflare Web Analytics menghitung kunjungan secara gabungan, tanpa kuki, dan kami tidak menjual data itu.",
+"chat_full": "Buka obrolan penuh",
+"chat_toggle_show": "Tampilkan obrolan",
+"chat_toggle_hide": "Sembunyikan obrolan",
+"chat_empty": "Belum ada pesan.",
+"chat_sending": "Mengirim…",
+"chat_sent": "Terkirim.",
+"chat_fail": "Tidak terkirim. Coba lagi.",
+"chat_rate": "Terlalu banyak pesan dalam waktu singkat. Tunggu sebentar.",
+"chat_spam": "Pesan itu diblokir.",
+"chat_turnstile": "Selesaikan pemeriksaan, lalu kirim lagi.",
+"chat_nick_err": "Nama panggilan harus 2–24 karakter.",
+"chat_msg_err": "Pesan harus 1–280 karakter.",
+"chat_banned": "Anda tidak dapat menulis sekarang.",
+"chat_older": "Pesan lebih lama",
+"chat_time_now": "baru saja",
+"chat_time_m": "{n} mnt lalu",
+"chat_time_h": "{n} jam lalu",
+"chat_time_d": "{n} h lalu",
+"chat_noscript": "Obrolan membutuhkan JavaScript.",
+})

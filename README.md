@@ -141,6 +141,10 @@ Every event has its own page at `/calendar/<id>/` (and `/<language>/calendar/<id
 
 Earlier public events in the Nordic countries, from 31 October 2008, are kept in `data/events_backfill.json` with `source` set to `backfill`. Each fact has a source URL and a retrieval time. They appear on `/events/previous/` and in `/api/v1/events/previous.json` only, not on the calendar and not in the upcoming list. `data/events_backfill_state.json` records the countries, queries and counts for each run so the archive can keep growing and then taper off.
 
+A talk in `data/talks.json` is linked to one of those events, or to a calendar event, when the series, the day (the same day, or a day inside the event's span), the city, the country and the organiser agree. The talk stores `event_id` (and the same value in `calendar_event_id`). The event stores `talk_ids`. `python3 tools/event_backfill.py` does this after a talk or event backfill: it looks up an existing event first, then creates a previous event when the video page states the name, the day, the city, the country, the type and the organiser. A venue and an official URL are stored only when that page states them. Predatory conference listings are refused. A talk that cannot be dated or placed stays unlinked, with `unlink_reason`. The event page lists the linked talks (title, speakers, video). Each talk on `/talks/` links to its event page.
+
+Every speaker named on a talk is in the who's who. `python3 tools/talk_speakers.py` matches an existing person by name or public handle and does not create a duplicate. A new person has no photo. An affiliation is stored on that talk only when the video page states it (`Name (Organisation)`, `Name (role at Organisation)` or `Name, role at Organisation`), with the talk date when the page gave one, the page URL and the retrieval time. A title stays in `role`. A trailing "speaking at …" is not an employer. The talk stores `speaker_ids`. The person stores `talk_ids`, `event_ids` and `affiliations`. Speakers without a known country are listed under Speakers, not assigned to a country. `/api/v1/orgchart/{id}.json` includes those links. An affiliation without a source is omitted.
+
 `events.py` reads `event_sources` in `sources.json`. A `listing-jsonld` source is a page of event links (`link_pattern`, crypto keywords unless the source is `trusted`, soonest first, at most `max_links`), then schema.org `Event` JSON-LD on each page: title, start, end, place, organiser and URL. A street address under a Venue label is used when it is more specific than the city. Dates published as `00:00:00Z` are stored as that calendar day in the event country's time zone, and the calendar shows the dates without a clock time. No photos are copied. New rows land as `pending`. The public calendar shows an event only when its id is in `events.approve` in `queue/approved.json`. A `published` status stored on the row is not approval. When that file is absent, the committed archive stays on the calendar and rows in `data/events.json` are not promoted.
 
 Predatory conference listings are not sources. `event_block.py` refuses International Conference Alerts, Conference Alerts, All Conference Alert, Conference Next, WASET (`waset.org` and `conferenceindex.org`) and the organisers WASET, IRAJ, IIER, ISER, ISSER, KSAA, GASR, IIRD, Research Plus, Scholars Forum, Academics World and World Academics. A matching URL, source or organiser is not imported (`events.py` and `fetch.py`), is dropped from `data/events.json` and the editor queue, and is not shown on the calendar. `--add-event` refuses them too.
@@ -221,7 +225,7 @@ The public news objects add `primary_source`, `also_covered_by`, `sources` (prim
 
 ## Story pictures
 
-Story cards and story pages show one picture, with the credit under it. The picture is not stored on the news row. `tools/illustrations.py` assigns it at build and API time from `data/illustrations.json`, using the story's topics and country. An optional `illustration_id` (a catalogue id, never a URL) overrides that. Existing rows stay valid without the field.
+Story cards and story pages do not show the assigned picture. The same few files repeated across stories. `tools/illustrations.py` still assigns one at build and API time from `data/illustrations.json`, using the story's topics and country, and the news item keeps that record. An optional `illustration_id` (a catalogue id, never a URL) overrides the assignment. Existing rows stay valid without the field. Outlet logos stay next to the source name.
 
 Allowed pictures, each with `source`, `author`, `license` and `url`:
 
@@ -298,6 +302,23 @@ Tips go to `tipserver/tips.db` (gitignored, mode 600) with a UTC timestamp and s
 ## Newsletter (own list)
 `newsletter/email-list.md` is the setup for jQrgen: D1 table `subscribers`, DNS for Resend or Mailgun, Worker secrets, and how to send an issue. Cloudflare Email Routing can receive replies; it does not send the list. The site form (footer, front page, `/newsletter/#signup`, 7 languages, consent checkbox, privacy note) stays behind `newsletter/config.json` `enabled: false` until the Worker is deployed and that flag is set. While it is off, those places do not show an email field. They say signup opens soon and link to each language's `rss.xml`, Telegram and X. It posts to the tipworker (`/api/subscribe`, double opt-in, private D1, see `tipworker/README.md`). `newsletter/digest.py` builds a weekly digest from the **public** build only. `newsletter/send_issue.py` mails a published issue, or that digest, to confirmed addresses. Nothing is sent unless `MAIL_SEND_ENABLED=1`. Sign-off: The Nordic Crypto team. Kaupr is a news source only.
 
+## Shoutbox
+One shared reader chat for every language. The front page can show a compact box (a sidebar on a wide screen, a collapsible block on a phone) and each language has `/chat/` (or `/sv/chat/` and so on). Every one of those pages reads and writes the same message list. Only the buttons and the house rules are translated. A small language tag can show which page a message was sent from. The messages themselves are not translated.
+
+It is off. `chat/config.json` is `"enabled": false` and `"endpoint": null`. While that is false, the build does not include the widget or the chat pages. Nothing on the live site calls a missing backend.
+
+The worker is the existing `nordic-crypto-tips` Worker (`tipworker/`, D1 `nordic-crypto-tips`). Posts need Cloudflare Turnstile. A daily-rotated hash of the IP is stored for rate limits, reports and bans. The raw IP is not stored, and the chat does not set a cookie. The nickname is kept in the browser’s local storage. House rules sit on the box and link to [Editorial ethics](https://nordiccrypto.no/ethics/) (Vær Varsom): no harassment, no doxxing, no financial-advice shilling, no scams or referral links. Moderators may remove posts. Three reports from different daily hashes hide a message until it is reviewed. Reader messages are not editorial content.
+
+This change does not deploy the worker and does not set secrets. The steps (migration `tipworker/migrations/0004_shouts.sql`, Turnstile site key, `TURNSTILE_SECRET`, `SHOUT_ADMIN_TOKEN`) are in [tipworker/README.md](tipworker/README.md#shoutbox-one-shared-room--srcshoutsjs-migrations0004_shoutssql). Short form, run by hand from `tipworker/` after `CLOUDFLARE_API_TOKEN` is set:
+
+1. Create a Turnstile widget for nordiccrypto.no (and www, plus nordiccrypto.se / .fi / .dk / .is, apex and www). Keep the secret key out of git.
+2. `npx wrangler secret put TURNSTILE_SECRET` and `npx wrangler secret put SHOUT_ADMIN_TOKEN` (`openssl rand -hex 32` for the admin token). `deploy.sh` does not set these.
+3. `npx wrangler d1 migrations apply nordic-crypto-tips --remote` (or `./deploy.sh`, which applies migrations and deploys the worker, and still does not publish the site).
+4. Set `chat/config.json` to `"enabled": true`, `"endpoint": "https://nordic-crypto-tips.nordiccrypto.workers.dev"` and `"turnstile_site_key": "<site key>"`.
+5. `./publish.sh --yes` only with jQrgen’s approval.
+
+Hide, delete, restore, ban and unban: `POST /api/shouts/admin` with `Authorization: Bearer <SHOUT_ADMIN_TOKEN>`. A ban matches today’s hash only, because yesterday’s salt is deleted.
+
 ## Privacy
 No health or private financial data about anyone, no org numbers, LEIs, addresses of private persons, emails or tokens. `state/private_terms.json` (never printed, never committed) feeds the privacy gate, which blocks the build if it finds them. The gate also blocks organisation numbers in visible text, including source titles (NO 9-digit, SE NNNNNN-NNNN, DK CVR, «org.nr …»); register links are fine, the number itself must not be written out.
 
@@ -306,3 +327,5 @@ No health or private financial data about anyone, no org numbers, LEIs, addresse
 **Language rule (text gate).** Our own Norwegian text (nn, nb) never says «AI» or «KI»; write «kunstig intelligens» in full. `tools/text_gate.py` checks the nn/nb interface strings, templates, summaries, event notes, changelog and rules-page strings, and runs in `build.sh` and `publish.sh`. External headlines are left as published.
 
 **Browser notifications.** Off until the reader turns them on. The Worker stores only the push subscription, the page language and the countries they picked. Unsubscribe is the same button. Cloudflare Web Analytics still counts visits in aggregate, without cookies, and that data is not sold. See [Browser notifications](#browser-notifications).
+
+**Shoutbox.** Off until `chat/config.json` is enabled. When it is on, the worker stores the nickname, the message and a daily-rotated IP hash. It does not store the raw IP and it does not set a cookie. The nickname stays in local storage. Cloudflare Web Analytics is unchanged: aggregate visits, no cookies, data not sold. The About page says the same.

@@ -8,6 +8,14 @@ result for that video id. Unknown fields stay null. This module does not write
 descriptions; those are ours and live in data/talks.json.
 
   python3 tools/talks.py URL     # print platform metadata as JSON
+
+After new rows are written to data/talks.json, run `python3 tools/event_backfill.py`.
+That pass looks up an existing event (series, date span, city, country, organiser)
+and creates a previous event when the video page states the day, the place, the
+type and the organiser. A talk that cannot be dated or placed stays unlinked.
+Then run `python3 tools/talk_speakers.py`. It adds each speaker to the who's who
+(matching an existing name or handle) and keeps an affiliation only when this
+page states one.
 """
 import json
 import re
