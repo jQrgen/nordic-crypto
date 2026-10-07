@@ -38,12 +38,14 @@ test("mailer sends nothing unless a provider AND MAIL_SEND_ENABLED=1 are set", a
   assert.equal(providerName({ MAIL_PROVIDER: "resend" }), "none");
   assert.equal(providerName({ MAIL_PROVIDER: "resend", MAIL_SEND_ENABLED: "1" }), "resend");
   assert.equal(providerName({ MAIL_PROVIDER: "test", MAIL_SEND_ENABLED: "1" }), "none");
+  assert.equal(providerName({ MAIL_PROVIDER: "mailgun", MAIL_SEND_ENABLED: "1" }), "mailgun");
   assert.equal(providerName({ MAIL_PROVIDER: "evil", MAIL_SEND_ENABLED: "1" }), "none");
   assert.equal(providerName({ SUBSCRIBE_TEST: "1", MAIL_PROVIDER: "resend", MAIL_SEND_ENABLED: "1" }), "test");
   const real = globalThis.fetch; let called = 0; globalThis.fetch = async () => { called++; return new Response("{}"); };
   try {
     assert.equal((await sendMail({}, { to: "a@b.no", site: "kryptonytt" })).sent, false);
     assert.equal((await sendMail({ MAIL_PROVIDER: "resend", MAIL_SEND_ENABLED: "1" }, { to: "a@b.no", site: "kryptonytt" })).sent, false); // no key/from
+    assert.equal((await sendMail({ MAIL_PROVIDER: "mailgun", MAIL_SEND_ENABLED: "1" }, { to: "a@b.no", site: "kryptonytt" })).sent, false); // no key/domain/from
     assert.equal((await sendMail({ MAIL_PROVIDER: "webhook", MAIL_SEND_ENABLED: "1", MAIL_WEBHOOK_URL: "http://x" }, { to: "a", site: "kryptonytt" })).sent, false); // https only
     await sendMail({ SUBSCRIBE_TEST: "1" }, { to: "t@b.no", site: "kryptonytt" }); assert.equal(TEST_OUTBOX.at(-1).to, "t@b.no");
     assert.equal(called, 0);
