@@ -105,7 +105,7 @@ Refresh: `./build.sh` and `./publish.sh` fetch the exchanges while building `sit
 `python3 tools/markets.py` prints a short summary. `python3 tools/markets.py --write DIR` writes the JSON tree. `--keep-if-empty` is what the hourly job uses.
 
 ### iOS app
-Public TestFlight invite, linked from the footer, the homepage, `/markets/` and About: https://testflight.apple.com/join/nQ2fpjZn. There is no App Store listing.
+Public TestFlight invite, linked from the footer, the homepage, `/markets/` and About: https://testflight.apple.com/join/nQ2fpjZn. There is no App Store listing. The Nordic Crypto TestFlight version especially supports Apple TV.
 
 ### Community
 Nordic Crypto brand accounts, linked from the footer, About and the newsletter, in every site language (English until a translation is written):
@@ -135,6 +135,12 @@ The static site cannot store subscriptions. `workers/push/` is a Cloudflare Work
 | QA screenshots | `.venv/bin/python tools/screens.py` | Serves `site/` on a free local port, screenshots every page into `shots/`, reports JS errors, 4xx and horizontal overflow. |
 
 ### Event listings
+The front page and the office screen show the next six events that have not started, in start order. That list changes when an event starts: the event leaves the list and stays in the “happening now” card until it ends. Finished events stay in the data and on `/events/previous/` (newest first). The calendar list is the same events as before, with a link to the previous-events page.
+
+Every event has its own page at `/calendar/<id>/` (and `/<language>/calendar/<id>/`). The id is the stable 12-hex event id. The calendar, the front-page list, the happening-now card and the previous-events archive link to that page. The page shows the stored date, place, organiser and official link, plus a summary, a participant count, topics or talk videos only when those are already in the data with a source. The page includes schema.org Event data, a canonical URL and hreflang links. `/api/v1/events/<id>.json` points at the same page.
+
+Earlier public events in the Nordic countries, from 31 October 2008, are kept in `data/events_backfill.json` with `source` set to `backfill`. Each fact has a source URL and a retrieval time. They appear on `/events/previous/` and in `/api/v1/events/previous.json` only, not on the calendar and not in the upcoming list. `data/events_backfill_state.json` records the countries, queries and counts for each run so the archive can keep growing and then taper off.
+
 `events.py` reads `event_sources` in `sources.json`. A `listing-jsonld` source is a page of event links (`link_pattern`, crypto keywords unless the source is `trusted`, soonest first, at most `max_links`), then schema.org `Event` JSON-LD on each page: title, start, end, place, organiser and URL. A street address under a Venue label is used when it is more specific than the city. Dates published as `00:00:00Z` are stored as that calendar day in the event country's time zone, and the calendar shows the dates without a clock time. No photos are copied. New rows land as `pending`. The public calendar shows an event only when its id is in `events.approve` in `queue/approved.json`. A `published` status stored on the row is not approval. When that file is absent, the committed archive stays on the calendar and rows in `data/events.json` are not promoted.
 
 Predatory conference listings are not sources. `event_block.py` refuses International Conference Alerts, Conference Alerts, All Conference Alert, Conference Next, WASET (`waset.org` and `conferenceindex.org`) and the organisers WASET, IRAJ, IIER, ISER, ISSER, KSAA, GASR, IIRD, Research Plus, Scholars Forum, Academics World and World Academics. A matching URL, source or organiser is not imported (`events.py` and `fetch.py`), is dropped from `data/events.json` and the editor queue, and is not shown on the calendar. `--add-event` refuses them too.

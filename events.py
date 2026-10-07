@@ -14,7 +14,9 @@ soonest first, max_links), and read schema.org Event JSON-LD on each page (title
 A street address under a Venue label is used when it is more specific than the city. A timestamp of 00:00:00Z is
 stored as that calendar day in the event country's time zone, not as midnight UTC shifted into the previous evening.
 No images are stored. The calendar links to the event page. Refresh with the commands above; a failed fetch keeps
-events already in data/events.json.
+events already in data/events.json. A finished event is not deleted from data/events.json.
+JSON-LD attendeeCount (and the same kind of explicit count) and an iCal X-GUEST-COUNT are stored with the
+page URL and the time they were read. Seat capacity is not a participant count and is not stored.
 
 Predatory conference listings are never imported (event_block.py): International Conference Alerts, Conference
 Alerts, All Conference Alert, Conference Next, WASET, conferenceindex.org, and the organisers WASET, IRAJ, IIER,
@@ -34,6 +36,7 @@ import requests
 from bs4 import BeautifulSoup
 from event_block import blocked_event, blocked_source
 import site_url
+from tools.event_select import explicit_attendee_count, explicit_ics_count
 ROOT = os.path.dirname(os.path.abspath(__file__)); P = lambda *a: os.path.join(ROOT, *a)
 TZ = {"NO": "Europe/Oslo", "SE": "Europe/Stockholm", "DK": "Europe/Copenhagen", "FI": "Europe/Helsinki", "IS": "Atlantic/Reykjavik"}
 UTC = dt.timezone.utc
@@ -94,11 +97,12 @@ def jsonld_events(html, tz="Europe/Oslo"):
             org = x.get("organizer") or {}; org = org[0] if isinstance(org, list) and org else org
             offers = x.get("offers") or {}; offers = offers if isinstance(offers, list) else [offers]
             prices = [float(o.get("price")) for o in offers if isinstance(o, dict) and str(o.get("price", "")).replace(".", "", 1).isdigit()]
+            # A stated registered-count only. maximumAttendeeCapacity is seats, not people who signed up.
             out.append({"title": x.get("name"), "start": parse_dt(x.get("startDate"), tz), "end": parse_dt(x.get("endDate"), tz), "place": place or None,
                         "city": (city or "").strip() or None, "country_hint": ctry if isinstance(ctry, str) else None, "online": online,
                         "organiser": org.get("name") if isinstance(org, dict) else None,
                         "url": x.get("url"), "description": BeautifulSoup(x.get("description") or "", "lxml").get_text(" ")[:600],
-                        "paid": (max(prices) > 0) if prices else None})
+                        "paid": (max(prices) > 0) if prices else None, "attendees_count": explicit_attendee_count(x)})
     return out
 def _ics_unescape(v):
     return v.replace("\\,", ",").replace("\\n", " ").replace("\\;", ";").strip()
@@ -120,7 +124,7 @@ def ics_events(text, tz="Europe/Oslo"):
         place = f.get("LOCATION")
         if place and re.match(r"https?://", place.strip()): place = None
         out.append({"title": f.get("SUMMARY"), "start": parse_dt(f.get("DTSTART"), tz), "end": parse_dt(f.get("DTEND"), tz), "place": place,
-                    "city": None, "online": False, "organiser": f.get("ORGANIZER_CN"), "url": url, "description": desc[:600], "paid": None})
+                    "city": None, "online": False, "organiser": f.get("ORGANIZER_CN"), "url": url, "description": desc[:600], "paid": None, "attendees_count": explicit_ics_count(f)})
     return out
 def clear_kaupr_sponsor(value):
     """Kaupr is a news source only. Never record it as a sponsor of an event."""
@@ -300,6 +304,17 @@ CITIES = {"NO": ["Oslo", "Bergen", "Trondheim", "Stavanger", "Kristiansand", "Tr
           "FI": ["Helsinki", "Helsingfors", "Espoo", "Tampere", "Turku", "Åbo", "Oulu", "Vantaa", "Jyväskylä"],
           "IS": ["Reykjavík", "Reykjavik", "Akureyri", "Kópavogur", "Hafnarfjörður"]}
 CC = {"NO": "NO", "NOR": "NO", "NORWAY": "NO", "SE": "SE", "SWE": "SE", "SWEDEN": "SE", "DK": "DK", "DNK": "DK", "DENMARK": "DK", "FI": "FI", "FIN": "FI", "FINLAND": "FI", "IS": "IS", "ISL": "IS", "ICELAND": "IS"}
+def _attendee_block(count, name, url, retrieved):
+    """Store a registered count only with the page it came from and when it was read."""
+    if isinstance(count, bool) or not isinstance(count, int) or count < 0: return None
+    if not name or not url: return None
+    return {"count": count, "source_name": name, "source_url": url, "retrieved": retrieved}
+def _place_block(name, url, retrieved):
+    if not name or not url: return None
+    return {"name": name, "url": url, "retrieved": retrieved}
+def retain_events(rows):
+    """Every event stays, including after it has ended. Only a predatory listing is removed."""
+    return [e for e in (rows or []) if not blocked_event(e)]
 def guess_city(place):
     for c, cs in CITIES.items():
         for x in cs:
@@ -371,15 +386,27 @@ def run(get, robots_ok, matches, log, cfg, add_url=None, a=None, only=None, root
         twin = next((old for old in by.values() if same_event(ev, old)), None)
         if twin: _fill(twin, ev); return  # same title, date and venue, whatever the URL
         i = eid(ev)
-        if i in by: _fill(by[i], ev); return
+        page = ev.get("url") or src.get("page") or src["url"]
+        retrieved = now.isoformat(timespec="seconds")
+        attendees = _attendee_block(ev.get("attendees_count"), src["name"], page, retrieved)
+        place_source = _place_block(src["name"], page, retrieved) if (ev.get("place") or ev.get("online")) else None
+        if i in by:
+            _fill(by[i], ev)
+            # Fill a count or a place credit only when the row does not have one. Never replace a stored count.
+            if attendees and not by[i].get("attendees"): by[i]["attendees"] = attendees
+            if place_source and not by[i].get("place_source") and (by[i].get("place") or by[i].get("online") or ev.get("place") or ev.get("online")):
+                by[i]["place_source"] = place_source
+            return
         if (ev.get("end") or ev["start"]) < now: return  # do not add a finished event; ones already stored stay
         complete = bool(ev.get("place") or ev.get("online")) and bool(ev.get("organiser"))
         rec = {"id": i, "title": ev["title"], "start": ev["start"].isoformat(), "end": ev["end"].isoformat() if ev.get("end") else None,
                "place": ev.get("place"), "city": ev.get("city"), "country": country, "online": bool(ev.get("online")), "organiser": ev.get("organiser"),
                "url": ev["url"], "source": src["name"], "source_url": src.get("page") or src["url"], "paid": ev.get("paid"),
                "sponsored": clear_kaupr_sponsor(None),
-               "trusted_source": bool(trusted), "found": now.isoformat(timespec="seconds"), "status": "pending",
+               "trusted_source": bool(trusted), "found": retrieved, "status": "pending",
                "note": None if complete else "missing place or organiser – check the organiser's page"}
+        if attendees: rec["attendees"] = attendees
+        if place_source: rec["place_source"] = place_source
         data["events"].append(rec); by[i] = rec; new.append(rec)
     def fetch_page(u):
         if not robots_ok(u): raise RuntimeError("robots.txt disallows")
@@ -459,7 +486,8 @@ def run(get, robots_ok, matches, log, cfg, add_url=None, a=None, only=None, root
             except Exception as ex: err = f"{type(ex).__name__}: {ex}"[:200]
             status["ev-" + src["id"]] = {"checked": now.isoformat(timespec="seconds"), "ok": err is None, "entries": n_found, "new": len(new) - n0, "error": err}
             log(f"event {src['id']:<28} found={n_found} new={len(new) - n0} err={err}")
-    # Predatory rows were removed above and are not restored. Every other stored event stays.
+    # Finished events stay in this file. Predatory rows were removed above and are not restored.
+    data["events"] = retain_events(data["events"])
     stored = {e["id"] for e in data["events"]}
     for old in original:
         if old["id"] not in stored and not blocked_event(old): data["events"].append(old)

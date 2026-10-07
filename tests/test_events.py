@@ -187,6 +187,7 @@ def blocklist(parsed):
     check("event_block.blocked_source" in fetch_src, "fetch.py consults the blocklist")
     approval_bypass()
     meetup_note()
+    counts_stay()
 
 
 def approval_bypass():
@@ -224,6 +225,24 @@ def approval_bypass():
     orgs = {e.get("organiser") for e in kept}
     for name in ("Swedish Bitcoin Meetups", "Polyteknisk Forening", "Oslo Blockchain Meetup", "Helsinki Bitcoin Hobbyists"):
         check(name in orgs, "kept " + name)
+
+
+def counts_stay():
+    """A finished event stays. Capacity is not a registered count. A predatory listing is still dropped."""
+    check(events.explicit_attendee_count({"maximumAttendeeCapacity": 400, "remainingAttendeeCapacity": 12}) is None,
+          "capacity is not a count")
+    check(events.explicit_attendee_count({"attendeeCount": 18}) == 18, "json-ld attendeeCount")
+    html = """<script type="application/ld+json">{"@type":"Event","name":"Count meetup","startDate":"2026-11-01T18:00:00+01:00",
+"attendeeCount":9,"maximumAttendeeCapacity":200}</script>"""
+    parsed = events.jsonld_events("<html><body>" + html + "</body></html>")
+    check(len(parsed) == 1 and parsed[0]["attendees_count"] == 9, "json-ld stores the explicit count")
+    ics = "BEGIN:VEVENT\nSUMMARY:Ics meetup\nDTSTART:20261101T170000Z\nX-GUEST-COUNT:4\nEND:VEVENT\n"
+    check(events.ics_events(ics)[0]["attendees_count"] == 4, "ics guest count")
+    finished = {"id": "old", "title": "Old meetup", "start": "2020-01-01T18:00:00+01:00", "url": "https://example.test/old"}
+    predatory = {"id": "bad", "title": "International Conference on Example Blockchain", "organiser": "Scholars Forum",
+                 "url": "https://internationalconferencealerts.com/event-example", "start": "2026-11-21T00:00:00+01:00"}
+    kept = events.retain_events([finished, predatory])
+    check([e["id"] for e in kept] == ["old"], "finished events stay and predatory listings do not")
 
 
 def meetup_note():
