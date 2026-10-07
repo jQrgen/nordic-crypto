@@ -83,8 +83,14 @@ select,input[type=search]{font:inherit;font-size:15px;padding:5px 8px;border:1px
 .flag{vertical-align:-2px;flex:none;border-radius:1px}
 .cc{display:inline-block;font-size:11px;font-weight:700;padding:0 4px;border:1px solid var(--line);color:var(--muted);vertical-align:1px}
 ol.news{list-style:none;margin:0;padding:0;text-align:left}
-ol.news li{padding:14px 0;border-bottom:1px solid var(--line)}
+ol.news li{display:flex;flex-direction:row;align-items:flex-start;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);text-align:start}
+ol.news .storybody{min-width:0;flex:1;text-align:start}
 ol.news h3{font-size:18px;line-height:1.3;margin:0 0 4px}ol.news h3 a{text-decoration:none}ol.news h3 a:hover{text-decoration:underline}
+.ill{margin:0 0 10px;text-align:start}
+.ill img{display:block;width:100%;max-width:720px;height:auto;background:var(--soft)}
+ol.news .ill{flex:0 0 220px;width:220px;margin:0}
+ol.news .ill img{width:220px;height:124px;object-fit:cover;object-position:left center}
+@media(max-width:640px){ol.news li{flex-direction:column}ol.news .ill{flex:none;width:100%;max-width:480px}ol.news .ill img{width:100%;height:auto;max-height:240px}}
 .orig{font-size:13.5px;color:var(--muted);margin:0 0 3px}
 .meta{font-size:13.5px;color:var(--muted)}.meta b{color:var(--ink);font-weight:600}
 .src{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;vertical-align:middle;text-align:start}
@@ -148,7 +154,7 @@ footer{margin-top:40px;border-top:1px solid var(--line);padding:18px 0 30px;font
 #detail{position:sticky;bottom:0;background:#fff;border:2px solid var(--ink);padding:12px 14px;margin-top:14px;max-height:60vh;overflow:auto}
 #detail[hidden]{display:none}#detail h3{margin:0 0 4px;font-size:19px}#detail .close{float:right;font:inherit;border:1px solid var(--ink);background:#fff;cursor:pointer}
 #detail ul{padding-left:18px;margin:6px 0}#detail .row{display:flex;gap:14px;align-items:flex-start}
-.credit{font-size:12px;color:var(--muted)}
+.credit{font-size:12px;color:var(--muted);text-align:start;margin:4px 0 0}
 .tablewrap{overflow-x:auto}
 table.list{width:100%;border-collapse:collapse;font-size:14.5px}table.list th,table.list td{border-bottom:1px solid var(--line);padding:6px 6px;text-align:left;vertical-align:top}
 table.list th{font-size:13px;color:var(--muted)}
@@ -820,6 +826,41 @@ def source_mark(i, root=""):
         img = f'<img class="src-logo" src="{root}{E(lg["file"])}" alt="" height="18" loading="lazy"{pend}>'
     return f'<span class="src">{img}<b>{E(name)}</b></span>'
 
+def _illustrations():
+    sys.path.insert(0, P("tools"))
+    import illustrations
+    return illustrations
+def ill_labels():
+    return {k: t(k) for k in ("ill_photo", "ill_drawing", "ill_licence", "ill_source", "ill_cropped")}
+def asset_prefix(slug):
+    """Path from this page to the site root, where assets/ lives."""
+    depth = (slug.count("/") + 1 if slug else 0) + (0 if LANG == "en" else 1)
+    return "../" * depth
+def story_path(i):
+    """Our page for this story. Own stories already have a relative url."""
+    if i.get("own_story"):
+        u = i.get("url") or ""
+        if u and not str(u).startswith("http"):
+            return u
+    return f"stories/{i['id']}/"
+def news_head(i):
+    """Headline for a card or story page. External headlines stay in the source language."""
+    src_l = i18n.SRC_LANG.get(i.get("language") or "", "en")
+    if LANG == "en" or i.get("own_story"):
+        head = i.get("title_en") or i["title"]
+        head_l = "en" if i.get("title_en") or i.get("own_story") else src_l
+        orig = ""
+        if i.get("title_en") and LANG == "en":
+            lname = t("lname_" + i["language"]) if i18n.has("en", "lname_" + (i.get("language") or "")) else (i.get("language") or "")
+            orig = f'<p class="orig">{E(t("orig_title", l=lname))}<span lang="{src_l}">{E(i["title"])}</span></p>'
+        return head, head_l, orig
+    return i["title"], src_l, ""
+def story_figure(i, slug, href=None):
+    rec = i.get("illustration")
+    if not rec:
+        return ""
+    return _illustrations().figure_html(rec, asset_prefix(slug), ill_labels(), href=href)
+
 def build():
     global LANG
     subprocess.run([sys.executable, P("tools", "apply_approvals.py")], check=True)
@@ -839,7 +880,14 @@ def build():
     LANG = "en"; ctx["stories"] = build_stories(write=False)
     items = sorted(approved + pending + ctx["stories"], key=lambda i: i["published"], reverse=True); ctx["items"] = items
     attach_source_logos(items)
-    keys = ("id", "url", "title", "title_en", "source", "source_name", "source_logo", "country", "language", "published", "topics", "summary", "summary_i18n", "paywall", "links", "status", "own_story")
+    _illustrations().attach(items)
+    seen_ill = set()
+    for i in items:
+        rec = i.get("illustration") or {}
+        if rec.get("file") and rec["file"] not in seen_ill:
+            seen_ill.add(rec["file"])
+            copy_repo_file(rec["file"])
+    keys = ("id", "url", "title", "title_en", "source", "source_name", "source_logo", "country", "language", "published", "topics", "summary", "summary_i18n", "paywall", "links", "status", "own_story", "illustration")
     cov = _coverage(); sl = _source_logos()
     pub_items = []
     for i in items:
@@ -1136,13 +1184,9 @@ def build_lang(ctx):
         src_ids = " ".join(dict.fromkeys(x for x in [i.get("source")] + [r.get("outlet") for r in rows] if x))
         tags = "".join(f'<span class="tag">{E(topic_label(x))}</span>' for x in i["topics"])
         pw = f' · <span class="pw">{E(t("paywall"))}</span>' if i.get("paywall") else ""
-        src_l = i18n.SRC_LANG.get(i.get("language") or "", "en")
-        if LANG == "en" or i.get("own_story"):  # English: our English headline + the original below; own stories: our title
-            head, head_l = (i.get("title_en") or i["title"]), ("en" if i.get("title_en") or i.get("own_story") else src_l)
-            orig = (f'<p class="orig">{E(t("orig_title", l=t("lname_" + i["language"]) if i18n.has("en", "lname_" + (i.get("language") or "")) else (i.get("language") or "")))}<span lang="{src_l}">{E(i["title"])}</span></p>'
-                    if i.get("title_en") and LANG == "en" else "")
-        else:  # other languages: the external headline exactly as in the source
-            head, head_l, orig = i["title"], src_l, ""
+        head, head_l, orig = news_head(i)
+        href = story_path(i)
+        fig = story_figure(i, "", href)
         lname = i.get("language") or ""
         foreign = bool(lname and i18n.has("en", "lang_" + lname) and lname != i18n.SAME_LANG.get(LANG, "") and head_l != LANG)
         if pend:
@@ -1160,12 +1204,14 @@ def build_lang(ctx):
                 summ = f'<p class="sum"{lang_attr(tl)}>{E(txt)}</p>'
         hl = "" if head_l == LANG else f' lang="{head_l}"'
         lis.append(f'<li data-src="{E(i["source"])}" data-sources="{E(src_ids)}" data-c="{E(i.get("country"))}" data-topics="{E(" ".join(i["topics"]))}">'
+                   f'{fig}<div class="storybody">'
                    f'<h3><a href="{E(href)}"{"" if not ext else " rel=noopener target=_blank"}{hl}>{E(head)}</a></h3>{orig}'
                    f'<div class="meta">{flag(i.get("country"))} {E(cname(i.get("country")))} · {source_mark(i, asset)} · <time datetime="{E(i["published"])}">{endate(i["published"])}</time>{lang}{pw} {tags}'
                    + (f' <span class="tag pend">{E(t("pending"))}</span>' if pend else "") + (f' <span class="tag pend">{E(t("owner"))}</span>' if own else "")
                    + (f' <span class="tag">{E(t("our_story"))}</span>' if i.get("own_story") else "") + f'</div>{summ}'
                    + coverage_row(rows, asset, f"stories/{i['id']}/")
-                   + "".join(f'<div class="meta">↳ <a href="{E(l["url"])}" rel="noopener" target="_blank">{E(l["label"])}</a></div>' for l in i.get("links", []) or []) + '</li>')
+                   + "".join(f'<div class="meta">↳ <a href="{E(l["url"])}" rel="noopener" target="_blank">{E(l["label"])}</a></div>' for l in i.get("links", []) or [])
+                   + '</div></li>')
     opts = "".join(f'<option value="{E(k)}">{E(n)}</option>' for k, n in srcs)
     tchips = "".join(f'<button type="button" class="chip tchip" data-t="{k}" aria-pressed="false">{E(topic_label(k))}</button>' for k in TOPICS)
     news = ctx["news"]; upd = endate(news["updated"]) if news.get("updated") else ""
@@ -1195,6 +1241,7 @@ sel.addEventListener('change',function(){apply(1)});tc.concat(cc).forEach(functi
     page("", t("home_title"), "", body, t("home_desc"), js)
     build_coverage_pages(items, ctx["blurbs"])
     build_stories(write=True)
+    build_external_stories(ctx)
     build_markets(ctx)
     build_org(ctx)
     build_sources(ctx)
@@ -1357,13 +1404,18 @@ def build_coverage_pages(items, blurbs):
             txt, tl = card_text(i, LANG, blurbs)
             summ = f'<p class="sum"{lang_attr(tl)}>{E(txt)}</p>'
         pw = f' · <span class="pw">{E(t("paywall"))}</span>' if i.get("paywall") else ""
+        fig = story_figure(i, "stories/" + i["id"])
+        rec = i.get("illustration") or {}
+        og = f'<meta property="og:image" content="{E(BASE + rec["file"])}">' if rec.get("file") else ""
+        picture = fig + (f'<p class="notice">{E(t("ill_not_press"))}</p>' if rec else "")
         body = (f'<p class="meta"><a href="{back}">{E(t("back_news"))}</a></p>'
-                f'<article class="prose"><h1{hl}>{E(head)}</h1>{orig}'
+                + picture
+                + f'<article class="prose"><h1{hl}>{E(head)}</h1>{orig}'
                 f'<p class="meta">{flag(i.get("country"))} {E(cname(i.get("country")))} · {source_mark(i, root)} · <time datetime="{E(i["published"])}">{endate(i["published"])}</time>{pw}'
                 + (f' <span class="tag pend">{E(t("pending"))}</span>' if pend else "") + '</p>'
                 + summ + coverage_block(rows, root) + '</article>'
                 + f'<p class="notice">{E(t("home_notice"))}</p>')
-        page("stories/" + i["id"], head, "", body, (i.get("summary") or head or "")[:200], COV_SORT_JS)
+        page("stories/" + i["id"], head, "", body, (i.get("summary") or head or "")[:200], COV_SORT_JS, head_extra=og)
 def build_stories(write=True):
     """Own stories written by the editor (markdown, English). Public build: only slugs in approved.json stories.approve.
     Preview: also stories.ready_for_owner, tagged as awaiting jQrgen's final approval. The 'Editor notes' part is internal and never rendered.
@@ -1394,16 +1446,23 @@ def build_stories(write=True):
             cur.append(l)
         if cur: paras.append(" ".join(cur))
         pub = dt.datetime.fromtimestamp(os.path.getmtime(path), OSLO).replace(microsecond=0).isoformat()
+        story = {"id": "story-" + slug, "url": f"stories/{slug}/", "title": title, "source": "nordic-crypto", "source_name": "Nordic Crypto",
+                 "country": country, "language": "English", "published": pub, "topics": ["regulation"], "status": status, "own_story": True}
+        ill = _illustrations().assign(story)
         if write:
             note = t("story_only_en")
+            fig = _illustrations().figure_html(ill, asset_prefix("stories/" + slug), ill_labels())
+            og = f'<meta property="og:image" content="{E(BASE + ill["file"])}">' if ill else ""
             body = (f'<p class="meta"><a href="../../">{E(t("back_news"))}</a></p>' + (f'<p class="notice">{E(note)}</p>' if note and art_l == "en" and LANG != "en" else "")
+                    + fig
+                    + f'<p class="notice">{E(t("ill_not_press"))}</p>'
                     + f'<article class="prose"{lang_attr(art_l)}><h1>{E(title)}</h1>'
                     f'<p class="meta">{flag(country)} {E(cname(country))} · {source_mark({"source": "nordic-crypto", "source_name": "Nordic Crypto"}, up1() + "../")} · {endate(pub)}'
                     + (f' <span class="tag pend">{E(t("owner"))}</span>' if status == "owner" else "") + '</p>'
                     + "".join(f"<p>{md_inline(x)}</p>" for x in paras)
                     + f'<h2>{E(t("sources_h"))}</h2><ul>' + "".join(f"<li>{md_inline(s)}</li>" for s in srcs) + '</ul></article>'
                     + f'<p class="notice">{t("story_notice", rel="../../")}</p>')
-            page("stories/" + slug, title, "stories", body, paras[0][:200] if paras else title)
+            page("stories/" + slug, title, "stories", body, paras[0][:200] if paras else title, head_extra=og)
         editor_sum = ((st.get("summaries") or {}).get(slug) or "").strip()
         opening = opening_sentences(" ".join(paras)) if paras else ""
         first = editor_sum if substantive(editor_sum) else (opening or editor_sum or (first_sentence(paras[0]) if paras else ""))
@@ -1411,6 +1470,36 @@ def build_stories(write=True):
                     "country": country, "language": "English", "published": pub, "topics": ["regulation"], "summary": first,
                     "summary_i18n": (st.get("summaries_i18n") or {}).get(slug) or {}, "status": status, "own_story": True})
     return out
+
+def build_external_stories(ctx):
+    """Pictures and the source link are written by build_coverage_pages, which also keeps the outlet list."""
+    return
+    """One page per external story: our picture, our summary, a link to the source. No article text."""
+    asset = asset_prefix("stories/x")
+    for i in ctx["items"]:
+        if i.get("own_story") or not i.get("id"):
+            continue
+        slug = "stories/" + i["id"]
+        head, head_l, orig = news_head(i)
+        hl = "" if head_l == LANG else f' lang="{head_l}"'
+        fig = story_figure(i, slug)
+        rec = i.get("illustration") or {}
+        og = f'<meta property="og:image" content="{E(BASE + rec["file"])}">' if rec.get("file") else ""
+        if i.get("status") not in ("published", "owner"):
+            summ = f'<p class="sum pend">{E(t("sum_pending"))}</p>'
+        else:
+            txt, tl = card_text(i, LANG, ctx.get("blurbs"))
+            summ = f'<p class="sum"{lang_attr(tl)}>{E(txt)}</p>' if txt else ""
+        pw = f' <span class="pw">{E(t("paywall"))}</span>' if i.get("paywall") else ""
+        body = (f'<p class="meta"><a href="../../">{E(t("back_news"))}</a></p>'
+                + fig
+                + f'<p class="notice">{E(t("ill_not_press"))}</p>'
+                + f'<article class="story"><h1{hl}>{E(head)}</h1>{orig}'
+                + f'<p class="meta">{flag(i.get("country"))} {E(cname(i.get("country")))} · {source_mark(i, asset)} · <time datetime="{E(i["published"])}">{endate(i["published"])}</time>{pw}</p>'
+                + summ
+                + f'<p><a href="{E(i["url"])}" rel="noopener">{E(t("read_at", source=i.get("source_name") or ""))}</a></p>'
+                + "</article>")
+        page(slug, head, "", body, (i.get("summary") or head or "")[:200], head_extra=og)
 
 def events_for_site():
     ev = load(P("data", "events.json"), {"events": []})

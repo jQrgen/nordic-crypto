@@ -18,6 +18,8 @@ S = {
 "source": "Kilde", "all_sources": "Alle kilder", "topic": "Emne", "n_stories": "{n} artikler", "no_stories": "Ingen offentliggjorte artikler endnu.",
 "home_notice": "Resuméerne er vores egne, skrevet ud fra overskriften og den offentlige manchet. Vi gengiver ikke artikeltekst, og vi omgår ikke betalingsmure. Artikler markeret »kan kræve abonnement« er fra medier med betalingsmur. Overskrifterne vises, som kilden skrev dem. Intet her er investeringsrådgivning.",
 "paywall": "kan kræve abonnement", "orig_title": "Original overskrift ({l}): ",
+"ill_photo": "Foto", "ill_drawing": "Illustration", "ill_licence": "Licens", "ill_source": "Kilde", "ill_cropped": "Beskåret.",
+"ill_not_press": "Billedet er ikke avisens fotografi. Vi kopierer ikke nyhedsbilleder og henter dem ikke fra avisens server.",
 "also_covered": "Også dækket af", "read_at": "Læs hos {name}",
 "n_sources": "{n} kilder", "n_sources_1": "1 kilde", "n_sources_more": "+{n} kilder",
 "cov_h": "Medier der dækker historien", "cov_breakdown": "Dækning",

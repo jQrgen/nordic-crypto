@@ -18,6 +18,8 @@ S = {
 "source": "Lähde", "all_sources": "Kaikki lähteet", "topic": "Aihe", "n_stories": "{n} juttua", "no_stories": "Julkaistuja juttuja ei vielä ole.",
 "home_notice": "Tiivistelmät ovat omiamme, ja ne on kirjoitettu otsikon ja julkisen ingressin pohjalta. Emme toista artikkelien tekstiä emmekä kierrä maksumuureja. Merkintä ”voi vaatia tilauksen” tarkoittaa maksumuurin takana olevaa mediaa. Otsikot näytetään sellaisina kuin lähde ne kirjoitti. Mikään täällä ei ole sijoitusneuvontaa.",
 "paywall": "voi vaatia tilauksen", "orig_title": "Alkuperäinen otsikko ({l}): ",
+"ill_photo": "Kuva", "ill_drawing": "Kuvitus", "ill_licence": "Lisenssi", "ill_source": "Lähde", "ill_cropped": "Rajattu.",
+"ill_not_press": "Kuva ei ole lehden valokuva. Emme kopioi uutiskuvia emmekä lataa niitä lehden palvelimelta.",
 "also_covered": "Myös näiden uutisoima", "read_at": "Lue lähteestä {name}",
 "n_sources": "{n} lähdettä", "n_sources_1": "1 lähde", "n_sources_more": "+{n} lähdettä",
 "cov_h": "Jutun uutisoineet mediat", "cov_breakdown": "Kattavuus",

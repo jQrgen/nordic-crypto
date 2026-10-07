@@ -18,6 +18,8 @@ S = {
 "source": "Kilde", "all_sources": "Alle kilder", "topic": "Tema", "n_stories": "{n} saker", "no_stories": "Ingen publiserte saker ennå.",
 "home_notice": "Sammendragene er våre egne, skrevet ut fra tittelen og den offentlige ingressen. Vi gjengir ikke artikkeltekst og omgår ikke betalingsmurer. Saker merket «kan kreve abonnement» er fra medier med betalingsmur. Titlene vises slik kilden skrev dem. Ingenting her er investeringsråd.",
 "paywall": "kan kreve abonnement", "orig_title": "Originaltittel ({l}): ",
+"ill_photo": "Foto", "ill_drawing": "Illustrasjon", "ill_licence": "Lisens", "ill_source": "Kilde", "ill_cropped": "Beskåret.",
+"ill_not_press": "Bildet er ikke avisens fotografi. Vi kopierer ikke nyhetsbilder og henter dem ikke fra avisens tjener.",
 "also_covered": "Også dekket av", "read_at": "Les hos {name}",
 "n_sources": "{n} kilder", "n_sources_1": "1 kilde", "n_sources_more": "+{n} kilder",
 "cov_h": "Medier som dekker saken", "cov_breakdown": "Dekning",

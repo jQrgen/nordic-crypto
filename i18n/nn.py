@@ -18,6 +18,8 @@ S = {
 "source": "Kjelde", "all_sources": "Alle kjelder", "topic": "Tema", "n_stories": "{n} saker", "no_stories": "Ingen publiserte saker enno.",
 "home_notice": "Samandraga er våre eigne, skrivne ut frå tittelen og den offentlege ingressen. Vi attgjev ikkje artikkeltekst og omgår ikkje betalingsmurar. Saker merkte «kan krevje abonnement», er frå medium med betalingsmur. Titlane blir viste slik kjelda skreiv dei. Ingenting her er investeringsråd.",
 "paywall": "kan krevje abonnement", "orig_title": "Originaltittel ({l}): ",
+"ill_photo": "Foto", "ill_drawing": "Illustrasjon", "ill_licence": "Lisens", "ill_source": "Kjelde", "ill_cropped": "Skore til.",
+"ill_not_press": "Biletet er ikkje avisa sitt fotografi. Vi kopierer ikkje nyhendebilete og hentar dei ikkje frå avisa sin tenar.",
 "also_covered": "Også dekt av", "read_at": "Les hos {name}",
 "n_sources": "{n} kjelder", "n_sources_1": "1 kjelde", "n_sources_more": "+{n} kjelder",
 "cov_h": "Medium som dekkjer saka", "cov_breakdown": "Dekning",

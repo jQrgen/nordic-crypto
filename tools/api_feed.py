@@ -30,6 +30,8 @@ if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 sys.path.insert(0, os.path.join(ROOT, "tools"))
 import i18n  # noqa: E402
+import illustrations  # noqa: E402
+import press_images  # noqa: E402
 import site_url  # noqa: E402
 import source_logos  # noqa: E402
 import event_block  # noqa: E402
@@ -300,11 +302,6 @@ class Feed:
         item = dict(raw)
         url = item.get("url") or ""
         own = bool(item.get("own_story"))
-        if own and url and not url.startswith("http"):
-            html_url = self.abs(url)
-            url = html_url
-        else:
-            html_url = self.abs(url) if own else None
         status = item.get("status") or "published"
         # Pending rows are listed in a preview build without the unpublished summary, matching the site.
         public = status in ("published", "owner")
@@ -312,10 +309,18 @@ class Feed:
         i18n_sum = item.get("summary_i18n") if public else None
         nid = item.get("id") or hashlib.sha256((url or item.get("title") or "").encode()).hexdigest()[:12]
         nid = safe_id(nid) or hashlib.sha256((url or "").encode()).hexdigest()[:12]
+        press_images.strip_press_images(item)
         if not own:
             html_url = self.abs(f"stories/{nid}/")
-        elif url:
+        elif url and not str(url).startswith("http"):
+            html_url = self.abs(url)
+            url = html_url
             item["url"] = url
+        elif url:
+            html_url = self.abs(url)
+            item["url"] = url
+        else:
+            html_url = None
         source = item.get("source")
         source_name = item.get("source_name")
         note = None
@@ -364,6 +369,7 @@ class Feed:
             "paywall": bool(item.get("paywall")),
             "links": [{"label": l.get("label"), "url": l.get("url")} for l in (item.get("links") or []) if l.get("url")],
             "own_story": own,
+            "illustration": illustrations.api_record(illustrations.assign(item), self.abs),
             "primary_source": outlets[0] if outlets else None,
             "also_covered_by": outlets[1:],
             "sources": outlets,
@@ -1131,6 +1137,8 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
         "title is the source headline. title_en is our English headline when we wrote one. "
         "source_logo is the outlet image when assets/img/logos/logos.json has a checked file for the source id "
         "(or its outlet, or a _source_alias). Null means show the source name as text. "
+        "illustration is a picture we may show, with source, author, license and url. "
+        "It is never a photograph copied or hotlinked from another newspaper. "
         "primary_source is that outlet. also_covered_by lists every other outlet on the same event "
         "(outlet, outlet_name, url, title, published, lang, country, source_type, paywall, logo). "
         "sources is the primary plus those outlets. coverage.count is how many outlets, "
@@ -1265,8 +1273,15 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
     for p in profiles:
         feed.write_json(f"api/v1/profiles/{p['entity_id']}.json", feed.env(item=p))
 
-    collection("api/v1/images.json", "Logos and photos used on the public who's who, with licence and credit.", "ImageList",
+    collection("api/v1/images.json", "Logos and photos used on the public who's who, with licence and credit. These are not newspaper photographs.", "ImageList",
                feed.env(count=len(images), images=images))
+    story_pictures = illustrations.catalogue(feed.abs)
+    collection("api/v1/illustrations.json",
+               "Pictures used on story cards and story pages. Each record has source, author, license and url. "
+               "No photograph from another newspaper is included. Outlet logos are in images.json and on each news item as source_logo.",
+               "IllustrationList",
+               feed.env(count=len(story_pictures), images=story_pictures,
+                        policy="Nordic Crypto does not copy, store, proxy or hotlink news photographs. See docs/image-policy.md."))
 
     collection("api/v1/changelog.json", "Site changelog (product changes, not the news), newest first.", "ChangelogList",
                feed.env(launch_date=launch, count=len(changes), entries=changes),
@@ -1342,6 +1357,7 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
             "org_relations": len(rels),
             "profiles": len(profiles),
             "images": len(images),
+            "illustrations": len(story_pictures),
             "changelog": len(changes),
             "archive_articles": len(articles),
             "markets": market_doc.get("count") or 0,
@@ -1506,7 +1522,7 @@ def schemas():
         "properties": {
             "id": {"type": "string"},
             "url": {"type": "string", "description": "Story the reader follows. Absolute."},
-            "html_url": {"type": "string", "nullable": True, "description": "Our story page. For our own articles this is the article. For other outlets this is the coverage page; url is the primary outlet."},
+            "html_url": {"type": "string", "nullable": True, "description": "Our story page: summary, licensed picture and the outlets. For our own articles this is the article. For other outlets this is the coverage page; url is the primary outlet."},
             "api_url": {"type": "string"},
             "title": {"type": "string"},
             "title_en": {"type": "string", "nullable": True},
@@ -1524,6 +1540,27 @@ def schemas():
             "paywall": {"type": "boolean"},
             "links": {"type": "array", "items": {"type": "object"}},
             "own_story": {"type": "boolean"},
+            "illustration": {
+                "type": "object",
+                "nullable": True,
+                "description": "Picture for the card and the story page. source, author, license and url are the credit. file_url is our copy. Never a newspaper photograph.",
+                "properties": {
+                    "id": {"type": "string"},
+                    "kind": {"type": "string", "enum": ["original", "commons", "official-press"]},
+                    "file_url": {"type": "string"},
+                    "width": {"type": "integer"},
+                    "height": {"type": "integer"},
+                    "alt": {"type": "string"},
+                    "source": {"type": "string"},
+                    "author": {"type": "string"},
+                    "license": {"type": "string"},
+                    "license_url": {"type": "string", "nullable": True},
+                    "url": {"type": "string"},
+                    "credit": {"type": "string"},
+                    "modifications": {"type": "string", "nullable": True},
+                    "terms": {"type": "string", "nullable": True},
+                },
+            },
             "source_logo_url": {"type": "string", "nullable": True, "description": logo_url_desc + " Same as source_logo.raster_url."},
             "primary_source": {"$ref": "#/components/schemas/NewsOutlet"},
             "also_covered_by": {"type": "array", "items": {"$ref": "#/components/schemas/NewsOutlet"}, "description": "Other outlets on the same event. Empty when only the primary covered it."},
@@ -1665,6 +1702,7 @@ def schemas():
         "RegulationList": wrap("RegulationList", {"regulation": {"type": "array"}}),
         "ProfileList": wrap("ProfileList", {"profiles": {"type": "array"}}),
         "ImageList": wrap("ImageList", {"images": {"type": "array"}}),
+        "IllustrationList": wrap("IllustrationList", {"images": {"type": "array"}, "policy": {"type": "string"}}),
         "ChangelogList": wrap("ChangelogList", {"entries": {"type": "array"}}),
         "Rules": wrap("Rules", {"available": {"type": "boolean"}, "checked": {"type": "string"}}),
         "ArticleArchive": wrap("ArticleArchive", {"articles": {"type": "array"}}),

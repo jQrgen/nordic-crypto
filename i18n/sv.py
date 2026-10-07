@@ -18,6 +18,8 @@ S = {
 "source": "Källa", "all_sources": "Alla källor", "topic": "Ämne", "n_stories": "{n} artiklar", "no_stories": "Inga publicerade artiklar än.",
 "home_notice": "Sammanfattningarna är våra egna, skrivna utifrån rubriken och den publika ingressen. Vi återger inte artikeltext och vi kringgår inte betalväggar. Artiklar märkta ”kan kräva prenumeration” kommer från medier med betalvägg. Rubrikerna visas så som källan skrev dem. Inget här är investeringsrådgivning.",
 "paywall": "kan kräva prenumeration", "orig_title": "Originalrubrik ({l}): ",
+"ill_photo": "Foto", "ill_drawing": "Illustration", "ill_licence": "Licens", "ill_source": "Källa", "ill_cropped": "Beskuren.",
+"ill_not_press": "Bilden är inte tidningens fotografi. Vi kopierar inte nyhetsbilder och hämtar dem inte från tidningens server.",
 "also_covered": "Även bevakad av", "read_at": "Läs hos {name}",
 "n_sources": "{n} källor", "n_sources_1": "1 källa", "n_sources_more": "+{n} källor",
 "cov_h": "Medier som bevakar artikeln", "cov_breakdown": "Bevakning",

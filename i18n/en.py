@@ -22,6 +22,8 @@ S = {
 "source": "Source", "all_sources": "All sources", "topic": "Topic", "n_stories": "{n} stories", "no_stories": "No published stories yet.",
 "home_notice": "Summaries are our own, written in English from the headline and the public teaser. We do not reproduce article text and we do not get around paywalls. Stories marked “may require a subscription” are from outlets with a paywall. Nothing here is investment advice.",
 "paywall": "may require a subscription", "orig_title": "Original title ({l}): ",
+"ill_photo": "Photo", "ill_drawing": "Illustration", "ill_licence": "Licence", "ill_source": "Source", "ill_cropped": "Cropped.",
+"ill_not_press": "This picture is not the newspaper’s photograph. We do not copy news photos or load them from the newspaper’s server.",
 "also_covered": "Also covered by", "read_at": "Read at {name}",
 "n_sources": "{n} sources", "n_sources_1": "1 source", "n_sources_more": "+{n} sources",
 "cov_h": "Outlets covering this story", "cov_breakdown": "Coverage",

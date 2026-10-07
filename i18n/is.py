@@ -18,6 +18,8 @@ S = {
 "source": "Heimild", "all_sources": "Allar heimildir", "topic": "Efni", "n_stories": "{n} fréttir", "no_stories": "Engar birtar fréttir enn.",
 "home_notice": "Samantektirnar eru okkar eigin, skrifaðar út frá fyrirsögn og opinberum inngangi. Við endurbirtum ekki texta greina og förum ekki fram hjá áskriftarveggjum. „Gæti krafist áskriftar“ merkir miðil með áskriftarvegg. Fyrirsagnir eru birtar eins og heimildin skrifaði þær. Ekkert hér er fjárfestingarráðgjöf.",
 "paywall": "gæti krafist áskriftar", "orig_title": "Upprunaleg fyrirsögn ({l}): ",
+"ill_photo": "Mynd", "ill_drawing": "Teikning", "ill_licence": "Leyfi", "ill_source": "Heimild", "ill_cropped": "Skorið.",
+"ill_not_press": "Myndin er ekki ljósmynd blaðsins. Við afritum ekki fréttamyndir og sækjum þær ekki á netþjón blaðsins.",
 "also_covered": "Einnig fjallað um hjá", "read_at": "Lesa hjá {name}",
 "n_sources": "{n} miðlar", "n_sources_1": "1 miðill", "n_sources_more": "+{n} miðlar",
 "cov_h": "Miðlar sem fjalla um fréttina", "cov_breakdown": "Dreifing",

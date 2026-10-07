@@ -9,14 +9,18 @@ data/news.json and the editor queue queue/review.json. Events are searched in th
 New items get status "pending" and are NOT published until the editor has written a summary in English
 in our own words (queue/approved.json) – see README.md. The front page needs two to four sentences of what the story says; a one-sentence intro is not enough. The feed teaser is stored only locally in
 state/teasers.json as working material for the editor and is never published. Article text is never fetched
-(we respect paywalls and robots.txt).
+(we respect paywalls and robots.txt). Article pictures are never stored either:
+og:image, RSS media:content, media:thumbnail and image enclosures are ignored.
+See tools/press_images.py and docs/image-policy.md.
 """
 import argparse, datetime as dt, hashlib, json, os, re, sys, time, urllib.parse, urllib.robotparser
 import requests, feedparser
 from bs4 import BeautifulSoup
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "tools"))
 import coverage
 import event_block
+from tools.press_images import entry_carries_article_image, ignored_count, note_og_image, strip_press_images
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 P = lambda *a: os.path.join(ROOT, *a)
@@ -159,12 +163,14 @@ def candidates(text):
 
 EN_MONTHS = {m: i for i, m in enumerate(["January","February","March","April","May","June","July","August","September","October","November","December"], 1)}
 def page_meta(url):
-    """Fetches only public metadata (title, description, date) from a page. Never article text."""
+    """Fetches only public metadata (title, description, date) from a page. Never article text.
+    og:image is seen and dropped. The picture URL is not returned."""
     if not robots_ok(url): raise RuntimeError("robots.txt disallows")
     r = get(url); r.raise_for_status(); soup = BeautifulSoup(r.text, "lxml")
     m = lambda **k: (soup.find("meta", attrs=k) or {}).get("content")
     title = m(property="og:title") or (soup.title.string if soup.title else "") or ""
     desc = m(property="og:description") or m(name="description") or ""
+    note_og_image(m(property="og:image"))
     date = None
     iso = m(property="article:published_time") or m(name="date") or m(name="DC.date") or m(name="dcterms.date") or m(itemprop="datePublished")
     if not iso:
@@ -244,6 +250,7 @@ def main():
               "published": published.isoformat(), "fetched": NOW.isoformat(timespec="seconds"),
               "topics": topics_of(text), "matched": hits, "paywall": bool(SRC.get(outlet, {}).get("paywall", False)),
               "status": "pending", "summary": None}
+        strip_press_images(it)
         news["items"].append(it); by_url[cu] = it; by_title[norm_title(title)] = it
         teasers[it["id"]] = teaser[:600]; new.append(it)
 
@@ -293,6 +300,7 @@ def main():
                 if r.status_code != 200: err = f"HTTP {r.status_code}"; continue
                 f = feedparser.parse(r.content); n_ok += 1; n_items += len(f.entries)
                 for e in f.entries:
+                    entry_carries_article_image(e)  # media:content / enclosure: counted, URL not stored
                     link = e.get("link") or ""
                     title = clean(e.get("title"))
                     teaser = clean(e.get("summary") or e.get("description") or "")
@@ -338,6 +346,11 @@ def main():
         "A new article is attached on its own when the headline matches, the title is close within three days, or two known organisations appear in both texts (see coverage_attached). "
         "Candidate entities: add confirmed ones to data/orgchart_nordic.json with a source link, then set status accepted/rejected here. "
         "Events: see events_pending. Then run ./build.sh (local) – publishing needs jQrgen's OK.")
+    n_stripped = 0
+    for it in news["items"]:
+        n_stripped += len(strip_press_images(it))
+    if n_stripped or ignored_count():
+        log(f"article images ignored: {ignored_count()} seen in feeds or pages, {n_stripped} fields removed from news rows (URLs not stored)")
     news["items"].sort(key=lambda i: i["published"], reverse=True); news["updated"] = NOW.isoformat(timespec="seconds")
     save(P("data", "news.json"), news); save(P("state", "teasers.json"), teasers); save(P("queue", "review.json"), queue)
     save(P("state", "source_status.json"), status); save(P("state", "http_cache.json"), http_cache); save(P("state", "html_seen.json"), seen_html)
