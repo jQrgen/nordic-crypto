@@ -69,7 +69,7 @@ a{color:inherit}a:hover{text-decoration-thickness:2px}
 header.top{border-bottom:3px solid var(--ink)}
 header.top .wrap{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 22px;padding-top:14px;padding-bottom:10px}
 .brand{font-weight:800;font-size:22px;letter-spacing:-.01em;text-decoration:none}.brand span{color:var(--accent)}
-nav.main{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:15px}
+nav.main{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:baseline;gap:4px 16px;font-size:15px;text-align:left}
 nav.main a{text-decoration:none;padding:2px 0;border-bottom:2px solid transparent}nav.main a[aria-current]{border-color:var(--accent);font-weight:600}
 .preview{background:#fef3c7;border-bottom:2px solid var(--warm);font-size:14px}.preview .wrap{padding-top:6px;padding-bottom:6px}
 h1{font-size:28px;line-height:1.2;margin:22px 0 4px}h2{font-size:20px;margin:28px 0 8px}
@@ -253,9 +253,23 @@ a.applink:hover,a.applink:focus-visible{background:var(--soft)}
 .mkagg .px{font-size:22px;font-weight:700;margin:2px 0 4px;text-align:left;font-variant-numeric:tabular-nums}
 .mkq{font-size:16px;color:var(--muted);margin:12px 0 6px;font-weight:600;text-align:left}
 @media(min-width:1100px){.markets h1{font-size:40px}.mkcard .px{font-size:34px}.mkcard .ba{font-size:20px}.mkagg .px{font-size:26px}}
+.mkvol{margin:4px 0 22px;text-align:left}
+.mkvol h2,.mkvol p,.mkvol figcaption{text-align:left}
+.mkvol-row{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:flex-start;gap:6px 28px;text-align:left}
+.mkvol svg{width:220px;max-width:100%;height:auto;flex:none;display:block}
+.mklegend{list-style:none;margin:0;padding:0;text-align:left;flex:1 1 18rem;max-width:40rem}
+.mklegend li{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:8px;padding:4px 0;text-align:left}
+.mklegend .sw{width:14px;height:14px;flex:none;display:inline-block;border:1px solid rgba(17,17,17,.18)}
+.mklegend img{width:22px;height:22px;flex:none;display:block}
+.mklegend .nm{text-align:left}
+.mklegend .pct{font-weight:700;font-variant-numeric:tabular-nums}
+.mklegend .meta{flex:1 0 100%;padding-left:22px;text-align:left}
+.mkvol table.mkshare{width:auto;max-width:100%;margin:8px 0 0;text-align:left}
+.mkvol caption{text-align:left;font-weight:600;padding:6px 0}
 """
 
-NAV = [("", "nav_news"), ("markets", "nav_markets"), ("calendar", "nav_calendar"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("sources", "nav_sources"), ("newsletter", "nav_newsletter"), ("about", "nav_about"), ("tip", "nav_tip")]
+# api is the human-readable docs at /api/ (English only). The href is the site root, not /<lang>/api/.
+NAV = [("", "nav_news"), ("calendar", "nav_calendar"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("markets", "nav_markets"), ("sources", "nav_sources"), ("newsletter", "nav_newsletter"), ("about", "nav_about"), ("tip", "nav_tip"), ("api", "nav_api")]
 COOKIE_PATH = site_url.PATH   # "/" on the public domain; a path prefix if BASE ever has one
 def geo_endpoint():
     """Country lookup: GET <tipworker>/api/geo (Cloudflare request.cf.country). Only when the Worker is deployed,
@@ -509,6 +523,14 @@ def langsel_script():
     global LANGSEL_JS
     if LANGSEL_JS is None: LANGSEL_JS = open(P("tools", "langselect.js"), encoding="utf-8").read()
     return LANGSEL_JS
+def _nav_html(rel, root, current):
+    """Main nav, same list on every page and in the phone menu. API docs are /api/ at the site root."""
+    parts = []
+    for n, k in NAV:
+        href = root + "api/" if n == "api" else rel + (n + "/" if n else "")
+        cur = " aria-current=page" if n == current else ""
+        parts.append(f'<a href="{href}"{cur}>{E(t(k))}</a>')
+    return "".join(parts)
 def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra=""):
     """Writes site/<lang>/<slug>/index.html for the current LANG (English at the root)."""
     depth = (slug.count("/") + 1 if slug else 0) + (0 if LANG == "en" else 1)
@@ -516,7 +538,7 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
     rel = root + lp()                      # home of this language
     url = BASE + lp() + (slug + "/" if slug else "")
     s = snippets(url, f"{title} – {SITE_NAME}" if slug else f"{SITE_NAME} – {t('site_desc_suffix')}")
-    nav_html = "".join(f'<a href="{rel}{n + "/" if n else ""}"{" aria-current=page" if n == nav else ""}>{E(t(k))}</a>' for n, k in NAV)
+    nav_html = _nav_html(rel, root, nav)
     langs = langs or i18n.LANGS
     alt = "".join(f'<link rel="alternate" hreflang="{i18n.HTML_LANG[l]}" href="{BASE}{lp(l)}{slug + "/" if slug else ""}">' for l in langs) + \
         f'<link rel="alternate" hreflang="x-default" href="{BASE}{slug + "/" if slug else ""}">'
@@ -870,6 +892,114 @@ def sitemap():
 def _mk_when(iso):
     return (iso or "").replace("T", " ").replace("+00:00", " UTC")
 
+_SHARE_COLORS = ["#0f5ea8", "#111111", "#b45309", "#047857", "#7c3aed", "#be123c", "#0e7490", "#a16207"]
+_SHARE_OTHER = "#9ca3af"
+
+def _tenths_str(n):
+    """One decimal from an integer count of tenths. Floor division is wrong for negatives."""
+    sign = "-" if n < 0 else ""
+    n = abs(n)
+    return f"{sign}{n // 10}.{n % 10}"
+
+def _share_pct(sl):
+    return "<0.1" if sl.get("tenths") == 0 else sl["pct"]
+
+def _donut_svg(slices, quote, title):
+    title_id, desc_id = f"mkvol-t-{quote}", f"mkvol-d-{quote}"
+    desc = ", ".join(f'{sl["label"]} {_share_pct(sl)}%' for sl in slices)
+    drawn = [sl for sl in slices if sl["tenths"]]
+    if len(drawn) == 1 and drawn[0]["tenths"] >= 1000:
+        rings = (
+            f'<circle cx="21" cy="21" r="15.9155" fill="none" stroke="{drawn[0]["color"]}" stroke-width="6">'
+            f'<title>{E(drawn[0]["label"])} {E(_share_pct(drawn[0]))}%</title></circle>'
+        )
+    else:
+        rings = []
+        offset = 250
+        for sl in slices:
+            if not sl["tenths"]:
+                continue
+            gap = 1000 - sl["tenths"]
+            pct = _tenths_str(sl["tenths"])
+            gap_s = _tenths_str(gap)
+            off = _tenths_str(offset)
+            rings.append(
+                f'<circle cx="21" cy="21" r="15.9155" fill="none" stroke="{sl["color"]}" stroke-width="6" '
+                f'stroke-dasharray="{pct} {gap_s}" stroke-dashoffset="{off}">'
+                f'<title>{E(sl["label"])} {E(_share_pct(sl))}%</title></circle>'
+            )
+            offset -= sl["tenths"]
+        rings = "".join(rings)
+    return (
+        f'<svg viewBox="0 0 42 42" role="img" aria-labelledby="{title_id} {desc_id}">'
+        f'<title id="{title_id}">{E(title)}</title><desc id="{desc_id}">{E(desc)}</desc>{rings}'
+        f'<text x="21" y="20.4" text-anchor="middle" font-family="system-ui,sans-serif" font-size="3.4" font-weight="700" fill="#111">{E(quote)}</text>'
+        f'<text x="21" y="23.8" text-anchor="middle" font-family="system-ui,sans-serif" font-size="2.1" fill="#4B5563">24h</text></svg>'
+    )
+
+def _mk_share_html(tickers, root):
+    """Donut of 24-hour quote volume. Also the text table, so the figures exist without the graphic."""
+    sys.path.insert(0, P("tools"))
+    import markets as M
+    groups = M.volume_shares(tickers)
+    head = f'<h2>{E(t("mk_share_h"))}</h2><p class="meta">{E(t("mk_share_note"))}</p>'
+    if not groups:
+        return f'<section class="mkvol">{head}<p class="meta">{E(t("mk_share_empty"))}</p></section>'
+    figures = []
+    for g in groups:
+        q = g["quote"]
+        color_i = 0
+        slices = []
+        for sl in g["slices"]:
+            color = _SHARE_OTHER if sl["other"] else _SHARE_COLORS[color_i % len(_SHARE_COLORS)]
+            if not sl["other"]:
+                color_i += 1
+            if sl["other"]:
+                label = t("mk_share_other")
+            else:
+                name = sl["name"]
+                label = f"{name} ({sl['base']})" if name and name != sl["base"] else sl["base"]
+            slices.append(dict(sl, color=color, label=label))
+        title = t("mk_share_caption", q=q)
+        legend = []
+        rows = []
+        for sl in slices:
+            img = ""
+            if sl.get("logo_path"):
+                img = f'<img src="{root}{E(sl["logo_path"])}" width="22" height="22" alt="{E(t("mk_logo_alt", name=sl["label"]))}">'
+            extra = ""
+            if sl["other"] and sl.get("members"):
+                extra = f'<span class="meta">{E(t("mk_share_includes", names=", ".join(sl["members"])))}</span>'
+            legend.append(
+                f'<li><span class="sw" style="background:{sl["color"]}"></span>{img}'
+                f'<span class="nm">{E(sl["label"])}</span>{extra}<span class="pct">{E(_share_pct(sl))}%</span></li>'
+            )
+            rows.append(
+                f'<tr><th scope="row">{E(sl["label"])}</th>'
+                f'<td>{E(M.format_price(sl["volume"]))} {E(q)}</td><td>{E(_share_pct(sl))}%</td></tr>'
+            )
+        sources = []
+        for src in g.get("sources") or []:
+            name = src.get("name") or src.get("id") or ""
+            url = src.get("url") or ""
+            sources.append(f'<a href="{E(url)}" rel="noopener">{E(name)}</a>' if url else E(name))
+        meta = E(t("mk_share_window", q=q))
+        if g.get("updated_at"):
+            meta += " " + E(t("mk_share_updated", when=_mk_when(g["updated_at"])))
+        if sources:
+            meta += " " + E(t("mk_share_source")) + ": " + ", ".join(sources)
+        meta += " " + E(t("mk_share_group"))
+        figures.append(
+            f'<figure class="mkvol-fig"><div class="mkvol-row">{_donut_svg(slices, q, title)}'
+            f'<ul class="mklegend">{"".join(legend)}</ul></div><p class="meta">{meta}</p>'
+            f'<table class="list mkshare"><caption>{E(title)}</caption><thead><tr>'
+            f'<th scope="col">{E(t("mk_share_coin"))}</th>'
+            f'<th scope="col">{E(t("mk_share_vol", q=q))}</th>'
+            f'<th scope="col">{E(t("mk_share_pct"))}</th></tr></thead>'
+            f'<tbody>{"".join(rows)}</tbody></table></figure>'
+        )
+    return f'<section class="mkvol">{head}{"".join(figures)}</section>'
+
 def _mk_volume(row, base, quote, summed):
     """Volume lines. A missing field is omitted. A published zero is shown."""
     bits = []
@@ -988,10 +1118,18 @@ def build_markets(ctx):
         "vol_24h": t("mk_vol_24h"), "vol_plain": t("mk_vol_plain"),
         "vol_sum_24h": t("mk_vol_sum_24h"), "vol_sum_plain": t("mk_vol_sum_plain"),
         "logo_alt": t("mk_logo_alt"),
+        "share_h": t("mk_share_h"), "share_window": t("mk_share_window"),
+        "share_updated": t("mk_share_updated"), "share_source": t("mk_share_source"),
+        "share_group": t("mk_share_group"), "share_note": t("mk_share_note"),
+        "share_other": t("mk_share_other"), "share_coin": t("mk_share_coin"),
+        "share_vol": t("mk_share_vol"), "share_pct": t("mk_share_pct"),
+        "share_empty": t("mk_share_empty"), "share_caption": t("mk_share_caption"),
+        "share_includes": t("mk_share_includes"),
     }
     script = open(P("tools", "markets.js"), encoding="utf-8").read()
     body_html = f"""<div class="markets" id="mk" data-json="{root}api/v1/markets.json">
 <h1>{E(t("mk_h1"))}</h1>
+<div id="mk-share">{_mk_share_html(tickers, root)}</div>
 <p class="lead">{E(t("mk_lead"))}</p>
 <p class="notice">{E(body.get("disclaimer") or t("mk_lead"))}</p>
 <p class="appbar"><a class="applink" href="{E(M.IOS_TESTFLIGHT)}" rel="noopener">{E(t("ios_link"))}</a></p>

@@ -1,7 +1,7 @@
 # Suomi (/fi/)
 S = {
 "nav_news": "Uutiset", "nav_markets": "Markkinat", "nav_calendar": "Kalenteri", "nav_org": "Kuka kukin on", "nav_academia": "Tutkimus ja opetus", "nav_sources": "Lähteet",
-"nav_about": "Tietoa meistä", "nav_tip": "Lähetä vinkki", "main_menu": "Päävalikko", "lang_label": "Kieli", "lang_choose": "Valitse kieli",
+"nav_about": "Tietoa meistä", "nav_tip": "Lähetä vinkki", "nav_api": "API", "main_menu": "Päävalikko", "lang_label": "Kieli", "lang_choose": "Valitse kieli",
 "site_desc_suffix": "kryptouutisia Pohjoismaista",
 "preview_banner": "<b>Paikallinen esikatselu – ei julkaistu.</b> Toimittaja ei ole vielä tarkistanut mitään, mikä on merkitty ”Odottaa toimittajan tarkistusta”, eikä tiivistelmiä ole vielä kirjoitettu. Julkiseen versioon tulee vain hyväksytty sisältö.",
 "footer": "{site} seuraa Norjaa, Ruotsia, Tanskaa, Suomea ja Islantia. Sivustoa ylläpitää Jørgen S. Notland (jQrgen), Oslo, Tehty tekoälyn avulla, ihmistoimittajina jQrgen ja Nordic Crypton toimittaja. Ei sijoitusneuvontaa. Cloudflare Web Analytics laskee käynnit kootusti, ilman evästeitä, emmekä myy näitä tietoja. Yksi eväste, vain jos valitset kielen. <a href=\"{rel}about/\">Tietoa meistä, tietosuoja, korjaukset ja poistot</a> · <a href=\"{rel}tip/\">Lähetä vinkki</a> · <a href=\"{rel}columnist/\">Hae kolumnistiksi</a> · <a href=\"{rel}changelog/\">Muutosloki</a> · <a href=\"{rel}ethics/\">Toimituksen etiikka</a> · <a href=\"https://testflight.apple.com/join/nQ2fpjZn\" rel=\"noopener\">iOS-sovellus (TestFlight)</a> · <a href=\"{rel}markets/\">Markkinat</a> · <a href=\"{root}api/\">Data-API</a>.",
@@ -210,4 +210,17 @@ S.update({
 "mk_vol_sum_plain": "Volyymi yhteensä: {n} {unit}. Pörssejä summassa: {count}. Ajanjaksoa ei ole nimetty, joten tätä ei lisätä 24 tunnin summaan.",
 "mk_logo_alt": "{name}, kuvake",
 "mk_icons": "Kolikkokuvakkeet ovat CC0 1.0. Nordic Crypto ei väitä niitä omikseen. Jos varaa ei ole joukossa, sillä ei ole kuvaketta. Lähde:",
+"mk_share_h": "Kaupankäyntivolyymin osuus",
+"mk_share_window": "24 tunnin volyymi valuutassa {q}.",
+"mk_share_updated": "Päivitetty {when}.",
+"mk_share_source": "Lähde",
+"mk_share_group": "Kolikot, joiden osuus tästä summasta on alle 3 %, on koottu kohtaan Muut.",
+"mk_share_note": "Mukaan lasketaan vain 24 tunnin volyymi noteerausvaluutassa. Kolikkona mitattu volyymi tai volyymi ilman ajanjaksoa jää pois. NOK-, SEK-, DKK- ja EUR-määriä ei muunneta toisiinsa.",
+"mk_share_other": "Muut",
+"mk_share_coin": "Kolikko",
+"mk_share_vol": "24 tunnin volyymi ({q})",
+"mk_share_pct": "Osuus",
+"mk_share_empty": "Noteerausvaluutan 24 tunnin volyymia ei ole julkaistu, joten kaaviota ei ole.",
+"mk_share_caption": "Osuus 24 tunnin volyymista valuutassa {q}",
+"mk_share_includes": "Mukana: {names}.",
 })

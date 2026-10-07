@@ -1,7 +1,7 @@
 # Norsk nynorsk (/nn/) – standard for norske lesarar
 S = {
 "nav_news": "Nyheiter", "nav_markets": "Marknader", "nav_calendar": "Kalender", "nav_org": "Kven er kven", "nav_academia": "Akademia", "nav_sources": "Kjelder",
-"nav_about": "Om oss", "nav_tip": "Send tips", "main_menu": "Hovudmeny", "lang_label": "Språk", "lang_choose": "Vel språk",
+"nav_about": "Om oss", "nav_tip": "Send tips", "nav_api": "API", "main_menu": "Hovudmeny", "lang_label": "Språk", "lang_choose": "Vel språk",
 "site_desc_suffix": "kryptonyheiter frå Norden",
 "preview_banner": "<b>Lokal førehandsvising – ikkje publisert.</b> Alt som er merkt «Ventar på redaktøren», er ikkje kontrollert av redaktøren enno, og samandraga er ikkje skrivne. Berre godkjent innhald kjem med i den offentlege versjonen.",
 "footer": "{site} dekkjer Noreg, Sverige, Danmark, Finland og Island. Driven av Jørgen S. Notland (jQrgen), Oslo, Laga med hjelp av kunstig intelligens, med menneskelege redaktørar (jQrgen og Nordic Crypto-redaktøren). Ikkje investeringsråd. Cloudflare Web Analytics tel besøk samla, utan informasjonskapslar, og vi sel ikkje dei dataa. Éin informasjonskapsel, berre om du vel språk. <a href=\"{rel}about/\">Om oss, personvern, rettingar og fjerning</a> · <a href=\"{rel}tip/\">Send tips</a> · <a href=\"{rel}columnist/\">Søk som spaltist</a> · <a href=\"{rel}changelog/\">Endringslogg</a> · <a href=\"{rel}ethics/\">Redaksjonsetikk</a> · <a href=\"https://testflight.apple.com/join/nQ2fpjZn\" rel=\"noopener\">iOS-app (TestFlight)</a> · <a href=\"{rel}markets/\">Marknader</a> · <a href=\"{root}api/\">Data-API</a>.",
@@ -210,4 +210,17 @@ S.update({
 "mk_vol_sum_plain": "Volum, summert: {n} {unit}. Børsar i summen: {count}. Perioden er ikkje oppgitt, så dette er ikkje lagt til 24-timarssummen.",
 "mk_logo_alt": "Ikon for {name}",
 "mk_icons": "Myntikon er CC0 1.0. Nordic Crypto gjer ikkje krav på dei. Ein eigendel som manglar i settet, har ikkje ikon her. Kjelde:",
+"mk_share_h": "Del av handelsvolum",
+"mk_share_window": "Volum siste 24 timar i {q}.",
+"mk_share_updated": "Oppdatert {when}.",
+"mk_share_source": "Kjelde",
+"mk_share_group": "Myntar under 3 % av denne summen er samla som Andre.",
+"mk_share_note": "Berre 24-timars volum i noteringsvalutaen blir telt. Volum målt i sjølve mynten, eller utan tidsvindauge, er utelate. NOK, SEK, DKK og EUR blir ikkje rekna om til kvarandre.",
+"mk_share_other": "Andre",
+"mk_share_coin": "Mynt",
+"mk_share_vol": "Volum 24 t ({q})",
+"mk_share_pct": "Del",
+"mk_share_empty": "Ingen 24-timars volum i noteringsvalutaen er publisert, så det er ikkje noko diagram.",
+"mk_share_caption": "Del av 24-timars volum i {q}",
+"mk_share_includes": "Omfattar {names}.",
 })

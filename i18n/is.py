@@ -1,7 +1,7 @@
 # Íslenska (/is/)
 S = {
 "nav_news": "Fréttir", "nav_markets": "Markaðir", "nav_calendar": "Viðburðir", "nav_org": "Hver er hvað", "nav_academia": "Rannsóknir og kennsla", "nav_sources": "Heimildir",
-"nav_about": "Um okkur", "nav_tip": "Senda ábendingu", "main_menu": "Aðalvalmynd", "lang_label": "Tungumál", "lang_choose": "Veldu tungumál",
+"nav_about": "Um okkur", "nav_tip": "Senda ábendingu", "nav_api": "API", "main_menu": "Aðalvalmynd", "lang_label": "Tungumál", "lang_choose": "Veldu tungumál",
 "site_desc_suffix": "rafmyntafréttir frá Norðurlöndunum",
 "preview_banner": "<b>Staðbundin forskoðun – ekki birt.</b> Ritstjóri hefur ekki enn farið yfir neitt sem merkt er „Bíður yfirferðar ritstjóra“ og samantektir hafa ekki enn verið skrifaðar. Aðeins samþykkt efni fer í opinberu útgáfuna.",
 "footer": "{site} fylgist með Noregi, Svíþjóð, Danmörku, Finnlandi og Íslandi. Síðunni er haldið úti af Jørgen S. Notland (jQrgen), Ósló, Unnið með aðstoð gervigreindar, með mannlegum ritstjórum (jQrgen og ritstjóra Nordic Crypto). Ekki fjárfestingarráðgjöf. Cloudflare Web Analytics telur heimsóknir saman, án vafrakaka, og við seljum ekki þau gögn. Ein vafrakaka, aðeins ef þú velur tungumál. <a href=\"{rel}about/\">Um okkur, persónuvernd, leiðréttingar og fjarlægingar</a> · <a href=\"{rel}tip/\">Senda ábendingu</a> · <a href=\"{rel}columnist/\">Sækja um að skrifa pistil</a> · <a href=\"{rel}changelog/\">Breytingaskrá</a> · <a href=\"{rel}ethics/\">Siðareglur ritstjórnar</a> · <a href=\"https://testflight.apple.com/join/nQ2fpjZn\" rel=\"noopener\">iOS-app (TestFlight)</a> · <a href=\"{rel}markets/\">Markaðir</a> · <a href=\"{root}api/\">Gagna-API</a>.",
@@ -210,4 +210,17 @@ S.update({
 "mk_vol_sum_plain": "Magn, lagt saman: {n} {unit}. Kauphallir í summunni: {count}. Tímabilið er ekki nefnt, svo þessu er ekki bætt við 24 klst. summuna.",
 "mk_logo_alt": "Tákn fyrir {name}",
 "mk_icons": "Mynttákn eru CC0 1.0. Nordic Crypto gerir ekki tilkall til þeirra. Eign sem vantar í safninu hefur ekkert tákn hér. Heimild:",
+"mk_share_h": "Hlutfall viðskiptamagns",
+"mk_share_window": "24 klst. magn í {q}.",
+"mk_share_updated": "Uppfært {when}.",
+"mk_share_source": "Heimild",
+"mk_share_group": "Myntir undir 3% af þessari summu eru teknar saman sem Annað.",
+"mk_share_note": "Aðeins 24 klst. magn í skráningargjaldmiðli er talið. Magn mælt í myntinni sjálfri, eða án tímabils, er undanskilið. NOK, SEK, DKK og EUR eru ekki umreiknaðar hvor í aðra.",
+"mk_share_other": "Annað",
+"mk_share_coin": "Mynt",
+"mk_share_vol": "Magn 24 klst. ({q})",
+"mk_share_pct": "Hlutfall",
+"mk_share_empty": "Ekkert 24 klst. magn í skráningargjaldmiðli hefur verið birt, svo ekkert graf er til.",
+"mk_share_caption": "Hlutfall 24 klst. magns í {q}",
+"mk_share_includes": "Nær yfir {names}.",
 })

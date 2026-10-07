@@ -1,7 +1,7 @@
 # Svenska (/sv/)
 S = {
 "nav_news": "Nyheter", "nav_markets": "Marknader", "nav_calendar": "Kalender", "nav_org": "Vem är vem", "nav_academia": "Akademi", "nav_sources": "Källor",
-"nav_about": "Om oss", "nav_tip": "Tipsa oss", "main_menu": "Huvudmeny", "lang_label": "Språk", "lang_choose": "Välj språk",
+"nav_about": "Om oss", "nav_tip": "Tipsa oss", "nav_api": "API", "main_menu": "Huvudmeny", "lang_label": "Språk", "lang_choose": "Välj språk",
 "site_desc_suffix": "kryptonyheter från Norden",
 "preview_banner": "<b>Lokal förhandsvisning – inte publicerad.</b> Allt som är märkt ”Väntar på redaktören” har inte granskats av redaktören än, och sammanfattningarna är inte skrivna. Bara godkänt innehåll kommer med i den publika versionen.",
 "footer": "{site} bevakar Norge, Sverige, Danmark, Finland och Island. Drivs av Jørgen S. Notland (jQrgen), Oslo, Gjort med hjälp av artificiell intelligens, med mänskliga redaktörer (jQrgen och Nordic Crypto-redaktören). Inte investeringsrådgivning. Cloudflare Web Analytics räknar besök samlat, utan kakor, och vi säljer inte de uppgifterna. En kaka, bara om du väljer språk. <a href=\"{rel}about/\">Om oss, integritet, rättelser och borttagning</a> · <a href=\"{rel}tip/\">Tipsa oss</a> · <a href=\"{rel}columnist/\">Ansök som krönikör</a> · <a href=\"{rel}changelog/\">Ändringslogg</a> · <a href=\"{rel}ethics/\">Redaktionell etik</a> · <a href=\"https://testflight.apple.com/join/nQ2fpjZn\" rel=\"noopener\">iOS-app (TestFlight)</a> · <a href=\"{rel}markets/\">Marknader</a> · <a href=\"{root}api/\">Data-API</a>.",
@@ -210,4 +210,17 @@ S.update({
 "mk_vol_sum_plain": "Volym, summerad: {n} {unit}. Börser i summan: {count}. Perioden är inte angiven, så detta läggs inte till 24-timmarssumman.",
 "mk_logo_alt": "Ikon för {name}",
 "mk_icons": "Myntikoner är CC0 1.0. Nordic Crypto gör inte anspråk på dem. En tillgång som saknas i setet har ingen ikon här. Källa:",
+"mk_share_h": "Andel av handelsvolym",
+"mk_share_window": "Volym senaste 24 timmarna i {q}.",
+"mk_share_updated": "Uppdaterad {when}.",
+"mk_share_source": "Källa",
+"mk_share_group": "Mynt under 3 % av den här summan samlas som Övriga.",
+"mk_share_note": "Bara 24-timmarsvolym i noteringsvalutan räknas. Volym mätt i själva myntet, eller utan tidsfönster, ingår inte. NOK, SEK, DKK och EUR räknas inte om till varandra.",
+"mk_share_other": "Övriga",
+"mk_share_coin": "Mynt",
+"mk_share_vol": "Volym 24 h ({q})",
+"mk_share_pct": "Andel",
+"mk_share_empty": "Ingen 24-timmarsvolym i noteringsvalutan är publicerad, så det finns inget diagram.",
+"mk_share_caption": "Andel av 24-timmarsvolym i {q}",
+"mk_share_includes": "Omfattar {names}.",
 })

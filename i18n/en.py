@@ -2,7 +2,7 @@
 S = {
 # chrome
 "nav_news": "News", "nav_markets": "Markets", "nav_calendar": "Calendar", "nav_org": "Who's who", "nav_academia": "Academia", "nav_sources": "Sources",
-"nav_about": "About", "nav_tip": "Send a tip", "main_menu": "Main menu", "lang_label": "Language", "lang_choose": "Choose language",
+"nav_about": "About", "nav_tip": "Send a tip", "nav_api": "API", "main_menu": "Main menu", "lang_label": "Language", "lang_choose": "Choose language",
 "site_desc_suffix": "Nordic crypto news",
 "preview_banner": "<b>Local preview – not published.</b> Everything marked “Pending editor review” has not been checked by the editor yet; summaries are not written yet. Only approved items go into the public build.",
 "footer": "{site} covers Norway, Sweden, Denmark, Finland and Iceland. Run by Jørgen S. Notland (jQrgen), Oslo, Made with the help of artificial intelligence, with human editors (jQrgen and the Nordic Crypto editor). Not investment advice. Cloudflare Web Analytics counts visits in aggregate, without cookies, and we do not sell that data. One cookie, only if you choose a language. <a href=\"{rel}about/\">About, privacy, corrections and removal</a> · <a href=\"{rel}tip/\">Send a tip</a> · <a href=\"{rel}columnist/\">Apply as a columnist</a> · <a href=\"{rel}changelog/\">Changelog</a> · <a href=\"{rel}ethics/\">Editorial ethics</a> · <a href=\"https://testflight.apple.com/join/nQ2fpjZn\" rel=\"noopener\">iOS app (TestFlight)</a> · <a href=\"{rel}markets/\">Markets</a> · <a href=\"{root}api/\">Data API</a>.",
@@ -229,4 +229,17 @@ S.update({
 "mk_vol_sum_plain": "Volume, summed: {n} {unit}. Exchanges in this sum: {count}. The window is not named, so this is not added to the 24-hour sum.",
 "mk_logo_alt": "{name} icon",
 "mk_icons": "Coin icons are CC0 1.0. Nordic Crypto does not claim them. An asset missing from that set has no icon here. Source:",
+"mk_share_h": "Share of trading volume",
+"mk_share_window": "24-hour volume in {q}.",
+"mk_share_updated": "Updated {when}.",
+"mk_share_source": "Source",
+"mk_share_group": "Coins under 3% of this total are grouped as Other.",
+"mk_share_note": "Only 24-hour volume in the quote currency is counted. Volume measured in the coin, or with no time window, is left out. NOK, SEK, DKK and EUR are not converted into one another.",
+"mk_share_other": "Other",
+"mk_share_coin": "Coin",
+"mk_share_vol": "24h volume ({q})",
+"mk_share_pct": "Share",
+"mk_share_empty": "No 24-hour volume in the quote currency was published, so there is no chart.",
+"mk_share_caption": "Share of 24-hour volume in {q}",
+"mk_share_includes": "Includes {names}.",
 })

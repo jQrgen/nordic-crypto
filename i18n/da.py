@@ -1,7 +1,7 @@
 # Dansk (/da/)
 S = {
 "nav_news": "Nyheder", "nav_markets": "Markeder", "nav_calendar": "Kalender", "nav_org": "Hvem er hvem", "nav_academia": "Akademia", "nav_sources": "Kilder",
-"nav_about": "Om os", "nav_tip": "Send et tip", "main_menu": "Hovedmenu", "lang_label": "Sprog", "lang_choose": "Vælg sprog",
+"nav_about": "Om os", "nav_tip": "Send et tip", "nav_api": "API", "main_menu": "Hovedmenu", "lang_label": "Sprog", "lang_choose": "Vælg sprog",
 "site_desc_suffix": "kryptonyheder fra Norden",
 "preview_banner": "<b>Lokal forhåndsvisning – ikke offentliggjort.</b> Alt, der er markeret »Afventer redaktøren«, er ikke kontrolleret af redaktøren endnu, og resuméerne er ikke skrevet. Kun godkendt indhold kommer med i den offentlige version.",
 "footer": "{site} dækker Norge, Sverige, Danmark, Finland og Island. Drives af Jørgen S. Notland (jQrgen), Oslo, Lavet med hjælp fra kunstig intelligens, med menneskelige redaktører (jQrgen og Nordic Crypto-redaktøren). Ikke investeringsrådgivning. Cloudflare Web Analytics tæller besøg samlet, uden cookies, og vi sælger ikke de data. Én cookie, kun hvis du vælger sprog. <a href=\"{rel}about/\">Om os, privatliv, rettelser og fjernelse</a> · <a href=\"{rel}tip/\">Send et tip</a> · <a href=\"{rel}columnist/\">Søg som klummeskribent</a> · <a href=\"{rel}changelog/\">Ændringslog</a> · <a href=\"{rel}ethics/\">Redaktionel etik</a> · <a href=\"https://testflight.apple.com/join/nQ2fpjZn\" rel=\"noopener\">iOS-app (TestFlight)</a> · <a href=\"{rel}markets/\">Markeder</a> · <a href=\"{root}api/\">Data-API</a>.",
@@ -210,4 +210,17 @@ S.update({
 "mk_vol_sum_plain": "Volumen, summeret: {n} {unit}. Børser i summen: {count}. Perioden er ikke angivet, så dette er ikke lagt til 24-timerssummen.",
 "mk_logo_alt": "Ikon for {name}",
 "mk_icons": "Møntikoner er CC0 1.0. Nordic Crypto gør ikke krav på dem. Et aktiv, der mangler i sættet, har ikke noget ikon her. Kilde:",
+"mk_share_h": "Andel af handelsvolumen",
+"mk_share_window": "Volumen de seneste 24 timer i {q}.",
+"mk_share_updated": "Opdateret {when}.",
+"mk_share_source": "Kilde",
+"mk_share_group": "Mønter under 3 % af denne sum er samlet som Andre.",
+"mk_share_note": "Kun 24-timers volumen i noteringsvalutaen tælles. Volumen målt i selve mønten, eller uden tidsvindue, er udeladt. NOK, SEK, DKK og EUR omregnes ikke til hinanden.",
+"mk_share_other": "Andre",
+"mk_share_coin": "Mønt",
+"mk_share_vol": "Volumen 24 t ({q})",
+"mk_share_pct": "Andel",
+"mk_share_empty": "Ingen 24-timers volumen i noteringsvalutaen er offentliggjort, så der er ikke noget diagram.",
+"mk_share_caption": "Andel af 24-timers volumen i {q}",
+"mk_share_includes": "Omfatter {names}.",
 })

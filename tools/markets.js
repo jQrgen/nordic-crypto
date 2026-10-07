@@ -188,6 +188,144 @@ var NCMarkets = (function () {
     });
   }
 
+  var SHARE_NUM = 3, SHARE_DEN = 100;
+  var SHARE_COLORS = ["#0f5ea8", "#111111", "#b45309", "#047857", "#7c3aed", "#be123c", "#0e7490", "#a16207"];
+  var SHARE_OTHER = "#9ca3af";
+
+  function decInt(text, scale) {
+    var item = parseDec(text);
+    if (!item || typeof BigInt !== "function") return null;
+    var frac = item.frac;
+    while (frac.length < scale) frac += "0";
+    var n = BigInt(item.whole + frac);
+    return item.neg ? -n : n;
+  }
+  function isPositive(text) {
+    var item = parseDec(text);
+    if (!item || item.neg) return false;
+    return item.whole.replace(/0/g, "") !== "" || item.frac.replace(/0/g, "") !== "";
+  }
+  function belowShare(part, total, num, den) {
+    if (!isPositive(part) || !isPositive(total)) return true;
+    var scale = Math.max(parseDec(part).frac.length, parseDec(total).frac.length);
+    var p = decInt(part, scale), t = decInt(total, scale);
+    return p * BigInt(den) < t * BigInt(num);
+  }
+  function tenthsDivision(part, total) {
+    if (!isPositive(part) || !isPositive(total)) return [0, 0n, 1n];
+    var scale = Math.max(parseDec(part).frac.length, parseDec(total).frac.length);
+    var p = decInt(part, scale), t = decInt(total, scale);
+    var num = p * 1000n;
+    return [Number(num / t), num % t, t];
+  }
+  function volumeShares(tickers, names, logoMap) {
+    names = names || {};
+    logoMap = logoMap || {};
+    if (typeof BigInt !== "function") return [];
+    var byQuote = {};
+    (tickers || []).forEach(function (row) {
+      if (!row || !row.base || !row.quote || !isPositive(row.volume_quote_24h)) return;
+      var g = byQuote[row.quote] || (byQuote[row.quote] = {});
+      (g[row.base] || (g[row.base] = [])).push(row);
+    });
+    function quoteRank(q) { var i = FIAT.indexOf(q); return (i < 0 ? 99 : i) + q; }
+    var quotes = Object.keys(byQuote).sort(function (a, b) { return quoteRank(a) < quoteRank(b) ? -1 : quoteRank(a) > quoteRank(b) ? 1 : 0; });
+    return quotes.map(function (quote) {
+      var coins = [];
+      Object.keys(byQuote[quote]).forEach(function (base) {
+        var rows = dedupe(byQuote[quote][base]).filter(function (row) { return isPositive(row.volume_quote_24h); });
+        var total = rows.length ? sumDecimal(rows.map(function (row) { return row.volume_quote_24h; })) : null;
+        if (!isPositive(total)) return;
+        var sources = [], seen = {};
+        rows.forEach(function (row) {
+          var ex = row.exchange || {};
+          var key = (ex.id || "") + "\n" + (row.source_url || "");
+          if (seen[key]) return;
+          seen[key] = true;
+          sources.push({id: ex.id || "", name: ex.name || ex.id || "", url: row.source_url || ""});
+        });
+        sources.sort(function (a, b) { return exKey(a.id) < exKey(b.id) ? -1 : exKey(a.id) > exKey(b.id) ? 1 : (a.url < b.url ? -1 : a.url > b.url ? 1 : 0); });
+        var fetched = [];
+        rows.forEach(function (row) { if (row.fetched_at) fetched.push(row.fetched_at); });
+        coins.push({
+          base: base,
+          name: names[base] || base,
+          volume: total,
+          logo_path: (logoMap[base] && logoMap[base].logo_path) || null,
+          fetched: fetched,
+          sources: sources
+        });
+      });
+      if (!coins.length) return null;
+      var grand = sumDecimal(coins.map(function (c) { return c.volume; }));
+      if (!isPositive(grand)) return null;
+      coins.sort(function (a, b) {
+        var cmp = 0;
+        var sa = parseDec(a.volume), sb = parseDec(b.volume);
+        var scale = Math.max(sa.frac.length, sb.frac.length);
+        var ia = decInt(a.volume, scale), ib = decInt(b.volume, scale);
+        if (ia !== ib) cmp = ia > ib ? -1 : 1;
+        else cmp = a.base < b.base ? -1 : a.base > b.base ? 1 : 0;
+        return cmp;
+      });
+      var large = [], small = [];
+      coins.forEach(function (c) { (belowShare(c.volume, grand, SHARE_NUM, SHARE_DEN) ? small : large).push(c); });
+      if (!large.length) { large = coins; small = []; }
+      var slices = large.map(function (c) {
+        return {base: c.base, name: c.name, volume: c.volume, logo_path: c.logo_path, other: false, members: [c.base]};
+      });
+      if (small.length) {
+        small.sort(function (a, b) {
+          var sa = parseDec(a.volume), sb = parseDec(b.volume);
+          var scale = Math.max(sa.frac.length, sb.frac.length);
+          var ia = decInt(a.volume, scale), ib = decInt(b.volume, scale);
+          if (ia !== ib) return ia > ib ? -1 : 1;
+          return a.base < b.base ? -1 : a.base > b.base ? 1 : 0;
+        });
+        slices.push({
+          base: null, name: null,
+          volume: sumDecimal(small.map(function (c) { return c.volume; })),
+          logo_path: null, other: true,
+          members: small.map(function (c) { return c.base; })
+        });
+      }
+      var parts = slices.map(function (sl) { return tenthsDivision(sl.volume, grand); });
+      var allocated = 0;
+      parts.forEach(function (p) { allocated += p[0]; });
+      var remain = 1000 - allocated;
+      var order = parts.map(function (_p, i) { return i; });
+      order.sort(function (i, j) {
+        var left = parts[i][1] * parts[j][2], right = parts[j][1] * parts[i][2];
+        if (left !== right) return left > right ? -1 : 1;
+        return i - j;
+      });
+      var tenths = parts.map(function (p) { return p[0]; });
+      for (var n = 0; n < remain && n < order.length; n++) tenths[order[n]] += 1;
+      slices.forEach(function (sl, i) {
+        sl.tenths = tenths[i];
+        sl.pct = String(Math.floor(tenths[i] / 10)) + "." + String(tenths[i] % 10);
+      });
+      var fetched = [];
+      var sources = [], seenSrc = {};
+      coins.forEach(function (c) {
+        c.fetched.forEach(function (f) { fetched.push(f); });
+        c.sources.forEach(function (src) {
+          var key = src.id + "\n" + src.url;
+          if (seenSrc[key]) return;
+          seenSrc[key] = true;
+          sources.push(src);
+        });
+      });
+      fetched.sort();
+      sources.sort(function (a, b) { return exKey(a.id) < exKey(b.id) ? -1 : exKey(a.id) > exKey(b.id) ? 1 : (a.url < b.url ? -1 : a.url > b.url ? 1 : 0); });
+      return {
+        quote: quote, window: "24h", field: "volume_quote_24h", total: grand,
+        updated_at: fetched.length ? fetched[fetched.length - 1] : null,
+        sources: sources, threshold_pct: SHARE_NUM, slices: slices
+      };
+    }).filter(Boolean);
+  }
+
   function boot() {
     var root = document.getElementById("mk");
     if (!root) return;
@@ -286,8 +424,90 @@ var NCMarkets = (function () {
         (row.source_url ? ' · <a href="' + esc(row.source_url) + '" rel="noopener">' + esc(S.source || "Source") + "</a>" : "") +
         "</p></article>";
     }
+    function sliceLabel(sl) {
+      if (sl.other) return S.share_other || "Other";
+      var name = sl.name || sl.base;
+      return name && name !== sl.base ? name + " (" + sl.base + ")" : (sl.base || "");
+    }
+    function tenthsStr(n) {
+      var sign = n < 0 ? "-" : "";
+      n = Math.abs(n);
+      return sign + Math.floor(n / 10) + "." + (n % 10);
+    }
+    function sharePct(sl) { return sl.tenths ? sl.pct : "<0.1"; }
+    function donutSvg(slices, quote, title) {
+      var titleId = "mkvol-t-" + quote;
+      var descId = "mkvol-d-" + quote;
+      var desc = slices.map(function (sl) { return sliceLabel(sl) + " " + sharePct(sl) + "%"; }).join(", ");
+      var rings = "";
+      var drawn = slices.filter(function (sl) { return sl.tenths; });
+      if (drawn.length === 1 && drawn[0].tenths >= 1000) {
+        rings = '<circle cx="21" cy="21" r="15.9155" fill="none" stroke="' + drawn[0].color + '" stroke-width="6"><title>' + esc(sliceLabel(drawn[0])) + " " + esc(sharePct(drawn[0])) + "%</title></circle>";
+      } else {
+        var offset = 250;
+        slices.forEach(function (sl) {
+          if (!sl.tenths) return;
+          var gap = 1000 - sl.tenths;
+          var pct = tenthsStr(sl.tenths);
+          var gapS = tenthsStr(gap);
+          var off = tenthsStr(offset);
+          rings += '<circle cx="21" cy="21" r="15.9155" fill="none" stroke="' + sl.color + '" stroke-width="6" stroke-dasharray="' + pct + " " + gapS + '" stroke-dashoffset="' + off + '"><title>' + esc(sliceLabel(sl)) + " " + esc(sharePct(sl)) + "%</title></circle>";
+          offset -= sl.tenths;
+        });
+      }
+      return '<svg viewBox="0 0 42 42" role="img" aria-labelledby="' + titleId + " " + descId + '">' +
+        '<title id="' + titleId + '">' + esc(title) + "</title>" +
+        '<desc id="' + descId + '">' + esc(desc) + "</desc>" +
+        rings +
+        '<text x="21" y="20.4" text-anchor="middle" font-family="system-ui,sans-serif" font-size="3.4" font-weight="700" fill="#111">' + esc(quote) + "</text>" +
+        '<text x="21" y="23.8" text-anchor="middle" font-family="system-ui,sans-serif" font-size="2.1" fill="#4B5563">24h</text></svg>';
+    }
+    function shareHtml(groups) {
+      var head = '<h2>' + esc(S.share_h || "") + "</h2><p class=\"meta\">" + esc(S.share_note || "") + "</p>";
+      if (!groups.length) return '<section class="mkvol">' + head + '<p class="meta">' + esc(S.share_empty || "") + "</p></section>";
+      var figures = groups.map(function (g) {
+        var q = g.quote;
+        var colorI = 0;
+        var slices = g.slices.map(function (sl) {
+          var color = sl.other ? SHARE_OTHER : SHARE_COLORS[colorI % SHARE_COLORS.length];
+          if (!sl.other) colorI += 1;
+          var copy = {};
+          Object.keys(sl).forEach(function (k) { copy[k] = sl[k]; });
+          copy.color = color;
+          return copy;
+        });
+        var title = fill(S.share_caption || "", {q: q});
+        var legend = slices.map(function (sl) {
+          var label = sliceLabel(sl);
+          var img = sl.logo_path ? '<img src="' + esc(siteRoot() + sl.logo_path) + '" width="22" height="22" alt="' + esc(fill(S.logo_alt || "", {name: label})) + '">' : "";
+          var extra = sl.other && sl.members && sl.members.length ? '<span class="meta">' + esc(fill(S.share_includes || "", {names: sl.members.join(", ")})) + "</span>" : "";
+          return '<li><span class="sw" style="background:' + sl.color + '"></span>' + img + '<span class="nm">' + esc(label) + "</span>" + extra + '<span class="pct">' + esc(sharePct(sl)) + "%</span></li>";
+        }).join("");
+        var rows = slices.map(function (sl) {
+          return "<tr><th scope=\"row\">" + esc(sliceLabel(sl)) + "</th><td>" + esc(fmt(sl.volume)) + " " + esc(q) + "</td><td>" + esc(sharePct(sl)) + "%</td></tr>";
+        }).join("");
+        var src = (g.sources || []).map(function (s) {
+          var name = s.name || s.id || "";
+          return s.url ? '<a href="' + esc(s.url) + '" rel="noopener">' + esc(name) + "</a>" : esc(name);
+        }).filter(Boolean).join(", ");
+        var meta = esc(fill(S.share_window || "", {q: q}));
+        if (g.updated_at) meta += " " + esc(fill(S.share_updated || "", {when: when(g.updated_at)}));
+        if (src) meta += " " + esc(S.share_source || "") + ": " + src;
+        meta += " " + esc(S.share_group || "");
+        return '<figure class="mkvol-fig"><div class="mkvol-row">' + donutSvg(slices, q, title) + '<ul class="mklegend">' + legend + "</ul></div>" +
+          '<p class="meta">' + meta + "</p>" +
+          '<table class="list mkshare"><caption>' + esc(title) + "</caption><thead><tr><th scope=\"col\">" + esc(S.share_coin || "") + "</th><th scope=\"col\">" + esc(fill(S.share_vol || "", {q: q})) + "</th><th scope=\"col\">" + esc(S.share_pct || "") + "</th></tr></thead><tbody>" + rows + "</tbody></table></figure>";
+      }).join("");
+      return '<section class="mkvol">' + head + figures + "</section>";
+    }
+    function renderShare() {
+      var host = document.getElementById("mk-share");
+      if (!host || !state) return;
+      host.innerHTML = shareHtml(volumeShares(state.tickers || [], NAMES, logos));
+    }
     function render() {
       if (!state || !box) return;
+      renderShare();
       var pick = (document.getElementById("mk-asset") || {}).value || "";
       var rows = (state.tickers || []).filter(function (r) { return !pick || r.base === pick; });
       var groups = {};
@@ -436,6 +656,6 @@ var NCMarkets = (function () {
   }
 
   if (typeof document !== "undefined") boot();
-  return {meanDecimal: meanDecimal, sumDecimal: sumDecimal, aggregatePairs: aggregatePairs};
+  return {meanDecimal: meanDecimal, sumDecimal: sumDecimal, aggregatePairs: aggregatePairs, volumeShares: volumeShares};
 })();
 if (typeof module !== "undefined" && module.exports) module.exports = NCMarkets;
