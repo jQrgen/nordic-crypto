@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": null,
- "generated_at": "2026-10-07T05:38:51+00:00",
+ "generated_at": "2026-10-07T08:47:15+00:00",
  "preview": false,
  "kind": "markets",
  "disclaimer": "Market data, not investment advice. Each figure is the value published by the named exchange at fetched_at. Nordic Crypto does not set these prices and does not tell anyone to buy or sell.",
@@ -32,12 +32,12 @@
     "name": "Norwegian Block Exchange",
     "country": "NO"
    },
-   "fetched_at": "2026-10-07T05:36:34+00:00",
+   "fetched_at": "2026-10-07T08:47:14+00:00",
    "source_url": "https://api.nbx.com/tickers",
    "volume_base": null,
    "volume_quote": null,
-   "volume_base_24h": "0.013706",
-   "volume_quote_24h": "19.85",
+   "volume_base_24h": "0.000000",
+   "volume_quote_24h": "0.00",
    "high": null,
    "low": null,
    "change_pct": null
@@ -56,7 +56,7 @@
     "name": "Norwegian Block Exchange",
     "country": "NO"
    },
-   "fetched_at": "2026-10-07T05:36:34+00:00",
+   "fetched_at": "2026-10-07T08:47:14+00:00",
    "source_url": "https://api.nbx.com/tickers",
    "volume_base": null,
    "volume_quote": null,
@@ -74,8 +74,8 @@
    "name": null,
    "quote": "NOK",
    "currency": "NOK",
-   "updated_at": "2026-10-07T05:36:34+00:00",
-   "oldest_fetched_at": "2026-10-07T05:36:34+00:00",
+   "updated_at": "2026-10-07T08:47:14+00:00",
+   "oldest_fetched_at": "2026-10-07T08:47:14+00:00",
    "exchange_count": 1,
    "method": "mean_last",
    "method_note": "Arithmetic mean of last prices from exchanges that published a last for this pair. Exchanges without a last stay in contributors and are left out of last, min and max. Not weighted by volume. mid is the mean of bid/ask midpoints and is not mixed into last.",
@@ -103,9 +103,9 @@
     "volume_base_exchanges": 0,
     "volume_quote": null,
     "volume_quote_exchanges": 0,
-    "volume_base_24h": "0.013706",
+    "volume_base_24h": "0.000000",
     "volume_base_24h_exchanges": 1,
-    "volume_quote_24h": "19.85",
+    "volume_quote_24h": "0.00",
     "volume_quote_24h_exchanges": 1
    },
    "contributors": [
@@ -121,9 +121,9 @@
      "included_in_mid": true,
      "volume_base": null,
      "volume_quote": null,
-     "volume_base_24h": "0.013706",
-     "volume_quote_24h": "19.85",
-     "fetched_at": "2026-10-07T05:36:34+00:00",
+     "volume_base_24h": "0.000000",
+     "volume_quote_24h": "0.00",
+     "fetched_at": "2026-10-07T08:47:14+00:00",
      "source_url": "https://api.nbx.com/tickers",
      "included_in_price": true
     }
@@ -139,8 +139,8 @@
    "name": null,
    "quote": "EUR",
    "currency": "EUR",
-   "updated_at": "2026-10-07T05:36:34+00:00",
-   "oldest_fetched_at": "2026-10-07T05:36:34+00:00",
+   "updated_at": "2026-10-07T08:47:14+00:00",
+   "oldest_fetched_at": "2026-10-07T08:47:14+00:00",
    "exchange_count": 1,
    "method": "mean_last",
    "method_note": "Arithmetic mean of last prices from exchanges that published a last for this pair. Exchanges without a last stay in contributors and are left out of last, min and max. Not weighted by volume. mid is the mean of bid/ask midpoints and is not mixed into last.",
@@ -188,7 +188,7 @@
      "volume_quote": null,
      "volume_base_24h": "0.000000",
      "volume_quote_24h": "0.0000000000",
-     "fetched_at": "2026-10-07T05:36:34+00:00",
+     "fetched_at": "2026-10-07T08:47:14+00:00",
      "source_url": "https://api.nbx.com/tickers",
      "included_in_price": true
     }
