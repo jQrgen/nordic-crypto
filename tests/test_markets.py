@@ -266,8 +266,40 @@ def main():
     sitebuild.LANG = "en"
     if "justify-content:flex-start" not in sitebuild.CSS.split("nav.main{")[1].split("}")[0]:
         fails.append("nav not left aligned")
-    if "text-align:center" in sitebuild.CSS.split(".mkvol{")[1].split(".mkcards")[0]:
-        fails.append("volume chart centered")
+    dash = sitebuild.CSS.split(".markets h1{")[1].split("/* end markets */")[0]
+    if "text-align:center" in dash:
+        fails.append("markets overview centered")
+    firi_ex = {"id": "firi", "name": "Firi", "country": "NO"}
+    nbx_ex = {"id": "nbx", "name": "Norwegian Block Exchange", "country": "NO"}
+    overview_rows = [
+        markets.ticker(firi_ex, "BTCNOK", "BTC", "NOK", "2026-10-07T21:50:37+00:00", "https://api.firi.com/v2/markets/BTCNOK", last="100", bid="99", ask="101", volume_base="2", change_pct="-1.5"),
+        markets.ticker(nbx_ex, "BTC-NOK", "BTC", "NOK", "2026-10-07T21:50:38+00:00", "https://api.nbx.com/tickers", last="110", bid="109", ask="111", volume_quote_24h="1000"),
+        markets.ticker(nbx_ex, "ETH-EUR", "ETH", "EUR", "2026-10-07T21:50:38+00:00", "https://api.nbx.com/tickers", last="10", volume_quote_24h="50"),
+    ]
+    overview_ex = [
+        {"id": "firi", "name": "Firi", "status": "ok", "website": "https://firi.com/", "fetched_at": "2026-10-07T21:50:37+00:00"},
+        {"id": "nbx", "name": "Norwegian Block Exchange", "status": "ok", "website": "https://nbx.com/", "fetched_at": "2026-10-07T21:50:38+00:00"},
+    ]
+    sitebuild.LANG = "en"
+    pairs = markets.aggregate_pairs(overview_rows)
+    summary = sitebuild._mk_summary_html(overview_rows, overview_ex, pairs, "../")
+    board = sitebuild._mk_board_html(overview_rows, pairs, "../")
+    if "mktile" not in summary or "Bitcoin" not in summary or "NOK" not in summary:
+        fails.append("overview tiles missing")
+    if "Firi -1.5%" not in summary and "Firi -1.50%" not in summary:
+        fails.append("change not labelled as the publishing exchange: " + summary)
+    if "1 000" not in summary or "50" not in summary:
+        fails.append("per-currency volume tiles missing")
+    if "1 050" in summary or "1050" in summary:
+        fails.append("volume summed across currencies")
+    if "window not named" not in summary:
+        fails.append("change window invented as 24h")
+    if 'id="mk-q"' not in board or "mkpairs" not in board or "105" not in board:
+        fails.append("pair table missing aggregate")
+    if "2 BTC" not in board or "24h" not in board:
+        fails.append("volume column mixed fields")
+    if "TestFlight" in summary or "TestFlight" in board:
+        fails.append("app note belongs on the page, not inside the tiles")
 
     try:
         live = markets.fetch()
