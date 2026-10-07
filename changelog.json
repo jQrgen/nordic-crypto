@@ -3,6 +3,70 @@
  "launch_date": "2026-10-03",
  "entries": [
   {
+   "id": "header-subscribe-telegram",
+   "date": "2026-10-07",
+   "title": "Subscribe and Telegram in the header",
+   "description": "The header button says Subscribe and opens the newsletter page on this site. Join on Telegram sits next to Follow on X. Email signup opens when the mail worker is on. Until then the page says so and links to RSS, Telegram and X. It does not take an address.",
+   "i18n": {
+    "nb": {
+     "title": "Abonner og Telegram i toppen",
+     "description": "Knappen i toppen heter Abonner og åpner nyhetsbrevsiden på dette nettstedet. Bli med på Telegram står ved siden av Følg på X. E-postpåmelding åpner når e-posttjenesten er på. Inntil da sier siden det, og lenker til RSS, Telegram og X. Den ber ikke om en adresse."
+    },
+    "nn": {
+     "title": "Abonner og Telegram i toppen",
+     "description": "Knappen i toppen heiter Abonner og opnar nyheitsbrevsida på denne nettstaden. Bli med på Telegram står ved sida av Følg på X. E-postpåmelding opnar når e-posttenesta er på. Fram til då seier sida det, og lenkjer til RSS, Telegram og X. Ho ber ikkje om ei adresse."
+    },
+    "sv": {
+     "title": "Prenumerera och Telegram i sidhuvudet",
+     "description": "Knappen i sidhuvudet heter Prenumerera och öppnar nyhetsbrevssidan på den här webbplatsen. Gå med på Telegram står bredvid Följ på X. E-postanmälan öppnar när e-posttjänsten är på. Tills dess säger sidan det och länkar till RSS, Telegram och X. Den tar inte emot en adress."
+    },
+    "da": {
+     "title": "Abonnér og Telegram i toppen",
+     "description": "Knappen i toppen hedder Abonnér og åbner nyhedsbrevssiden på dette websted. Deltag på Telegram står ved siden af Følg på X. Tilmelding via e-mail åbner, når e-mailtjenesten er slået til. Indtil da siger siden det og linker til RSS, Telegram og X. Den beder ikke om en adresse."
+    },
+    "fi": {
+     "title": "Tilaa ja Telegram ylätunnisteessa",
+     "description": "Ylätunnisteen painike sanoo Tilaa ja avaa uutiskirjesivun tällä sivustolla. Liity Telegramiin on Seuraa X:ssä -painikkeen vieressä. Sähköpostitilaus avautuu, kun sähköpostipalvelu on käytössä. Siihen asti sivu kertoo sen ja linkittää RSS-syötteeseen, Telegramiin ja X:ään. Se ei pyydä osoitetta."
+    },
+    "is": {
+     "title": "Áskrift og Telegram í hausnum",
+     "description": "Hnappurinn í hausnum segir Gerast áskrifandi og opnar fréttabréfssíðuna á þessum vef. Taktu þátt á Telegram stendur við hliðina á Fylgdu á X. Skráning með tölvupósti opnar þegar póstþjónustan er í gangi. Þar til þá segir síðan frá því og vísar á RSS, Telegram og X. Hún tekur ekki við netfangi."
+    }
+   }
+  },
+  {
+   "id": "newsletter-own-list",
+   "date": "2026-10-06",
+   "title": "Newsletter signup on this site",
+   "description": "The newsletter signup is a form on this site. We store the email address in a private database and send each issue ourselves. Cloudflare Web Analytics still counts visits in aggregate, without cookies, and we do not sell that data. Every issue has an unsubscribe link.",
+   "i18n": {
+    "nb": {
+     "title": "Påmelding til nyhetsbrevet på dette nettstedet",
+     "description": "Påmeldingen til nyhetsbrevet er et skjema på dette nettstedet. Vi lagrer e-postadressen i en privat database og sender hver utgave selv. Cloudflare Web Analytics teller fortsatt besøk samlet, uten informasjonskapsler, og vi selger ikke de dataene. Hver utgave har en lenke for å melde seg av."
+    },
+    "nn": {
+     "title": "Påmelding til nyheitsbrevet på denne nettstaden",
+     "description": "Påmeldinga til nyheitsbrevet er eit skjema på denne nettstaden. Vi lagrar e-postadressa i ein privat database og sender kvar utgåve sjølve. Cloudflare Web Analytics tel framleis besøk samla, utan informasjonskapslar, og vi sel ikkje dei dataa. Kvar utgåve har ei lenkje for å melde seg av."
+    },
+    "sv": {
+     "title": "Anmälan till nyhetsbrevet på den här webbplatsen",
+     "description": "Anmälan till nyhetsbrevet är ett formulär på den här webbplatsen. Vi sparar e-postadressen i en privat databas och skickar varje utgåva själva. Cloudflare Web Analytics räknar fortfarande besök samlat, utan kakor, och vi säljer inte de uppgifterna. Varje utgåva har en länk för att avsluta prenumerationen."
+    },
+    "da": {
+     "title": "Tilmelding til nyhedsbrevet på dette websted",
+     "description": "Tilmeldingen til nyhedsbrevet er en formular på dette websted. Vi gemmer e-mailadressen i en privat database og sender hver udgave selv. Cloudflare Web Analytics tæller stadig besøg samlet, uden cookies, og vi sælger ikke de data. Hver udgave har et link til afmelding."
+    },
+    "fi": {
+     "title": "Uutiskirjeen tilaus tällä sivustolla",
+     "description": "Uutiskirjeen tilaus on lomake tällä sivustolla. Tallennamme sähköpostiosoitteen yksityiseen tietokantaan ja lähetämme jokaisen numeron itse. Cloudflare Web Analytics laskee yhä käynnit kootusti, ilman evästeitä, emmekä myy näitä tietoja. Jokaisessa numerossa on linkki tilauksen perumiseen."
+    },
+    "is": {
+     "title": "Skráning á fréttabréfið á þessum vef",
+     "description": "Skráning á fréttabréfið er eyðublað á þessum vef. Við geymum netfangið í einkagagnagrunni og sendum hvert tölublað sjálf. Cloudflare Web Analytics telur enn heimsóknir saman, án vafrakaka, og við seljum ekki þau gögn. Í hverju tölublaði er tengill til að segja upp áskrift."
+    }
+   }
+  },
+  {
    "id": "domain-nordiccrypto-no",
    "date": "2026-10-06",
    "title": "New address: nordiccrypto.no",
@@ -486,31 +550,31 @@
    "id": "newsletter-tab-issue-1",
    "date": "2026-10-05",
    "title": "Newsletter tab and the first issue, with video",
-   "description": "The main menu has a new Newsletter tab. It lists every issue, newest first, next to the Substack signup. Issue #1 (Binance under scrutiny and Sweden's crypto sanctions warning) can be read in full on the site, with a short video that plays from this website, with English subtitles and no third-party player.",
+   "description": "The main menu has a new Newsletter tab. It lists every issue, newest first, with signup on this site. Issue #1 (Binance under scrutiny and Sweden's crypto sanctions warning) can be read in full on the site, with a short video that plays from this website, with English subtitles and no third-party player.",
    "i18n": {
     "nb": {
      "title": "Fanen Nyhetsbrev og den første utgaven, med video",
-     "description": "Hovedmenyen har fått en ny fane, Nyhetsbrev. Der finner du alle utgavene, nyeste først, sammen med påmeldingen hos Substack. Utgave #1 (Binance under lupen og Sveriges advarsel om krypto og sanksjoner) kan leses i sin helhet på nettstedet, med en kort video som spilles av herfra, med engelske undertekster og uten avspiller fra tredjeparter. Utgaven er på engelsk."
+     "description": "Hovedmenyen har fått en ny fane, Nyhetsbrev. Der finner du alle utgavene, nyeste først, med påmelding på dette nettstedet. Utgave #1 (Binance under lupen og Sveriges advarsel om krypto og sanksjoner) kan leses i sin helhet på nettstedet, med en kort video som spilles av herfra, med engelske undertekster og uten avspiller fra tredjeparter. Utgaven er på engelsk."
     },
     "nn": {
      "title": "Fana Nyheitsbrev og den første utgåva, med video",
-     "description": "Hovudmenyen har fått ei ny fane, Nyheitsbrev. Der finn du alle utgåvene, nyaste først, saman med påmeldinga hos Substack. Utgåve #1 (Binance under lupa og Sveriges åtvaring om krypto og sanksjonar) kan lesast i heilskap på nettstaden, med ein kort video som blir spelt av herifrå, med engelske undertekstar og utan avspelar frå tredjepartar. Utgåva er på engelsk."
+     "description": "Hovudmenyen har fått ei ny fane, Nyheitsbrev. Der finn du alle utgåvene, nyaste først, med påmelding på denne nettstaden. Utgåve #1 (Binance under lupa og Sveriges åtvaring om krypto og sanksjonar) kan lesast i heilskap på nettstaden, med ein kort video som blir spelt av herifrå, med engelske undertekstar og utan avspelar frå tredjepartar. Utgåva er på engelsk."
     },
     "sv": {
      "title": "Fliken Nyhetsbrev och det första numret, med video",
-     "description": "Huvudmenyn har fått en ny flik, Nyhetsbrev. Där finns alla utgåvor, nyaste först, tillsammans med anmälan hos Substack. Utgåva #1 (Binance granskas och Sveriges varning om krypto och sanktioner) kan läsas i sin helhet på webbplatsen, med en kort video som spelas upp härifrån, med engelska undertexter och utan spelare från tredje part. Utgåvan är på engelska."
+     "description": "Huvudmenyn har fått en ny flik, Nyhetsbrev. Där finns alla utgåvor, nyaste först, med anmälan på den här webbplatsen. Utgåva #1 (Binance granskas och Sveriges varning om krypto och sanktioner) kan läsas i sin helhet på webbplatsen, med en kort video som spelas upp härifrån, med engelska undertexter och utan spelare från tredje part. Utgåvan är på engelska."
     },
     "da": {
      "title": "Fanen Nyhedsbrev og den første udgave, med video",
-     "description": "Hovedmenuen har fået en ny fane, Nyhedsbrev. Her finder du alle udgaver, nyeste først, sammen med tilmeldingen hos Substack. Udgave #1 (Binance under lup og Sveriges advarsel om krypto og sanktioner) kan læses i sin helhed på sitet, med en kort video, der afspilles herfra, med engelske undertekster og uden afspiller fra tredjeparter. Udgaven er på engelsk."
+     "description": "Hovedmenuen har fået en ny fane, Nyhedsbrev. Her finder du alle udgaver, nyeste først, med tilmelding på dette websted. Udgave #1 (Binance under lup og Sveriges advarsel om krypto og sanktioner) kan læses i sin helhed på sitet, med en kort video, der afspilles herfra, med engelske undertekster og uden afspiller fra tredjeparter. Udgaven er på engelsk."
     },
     "fi": {
      "title": "Uutiskirje-välilehti ja ensimmäinen numero videon kera",
-     "description": "Päävalikossa on uusi Uutiskirje-välilehti. Siellä ovat kaikki numerot uusimmasta alkaen sekä Substack-tilaus. Numeron 1 (Binance tarkastelussa ja Ruotsin varoitus kryptoista ja pakotteista) voi lukea kokonaan sivustolla, ja mukana on lyhyt video, joka toistetaan tältä sivustolta englanninkielisin tekstityksin ilman kolmannen osapuolen soitinta. Numero on englanniksi."
+     "description": "Päävalikossa on uusi Uutiskirje-välilehti. Siellä ovat kaikki numerot uusimmasta alkaen sekä tilauslomake tällä sivustolla. Numeron 1 (Binance tarkastelussa ja Ruotsin varoitus kryptoista ja pakotteista) voi lukea kokonaan sivustolla, ja mukana on lyhyt video, joka toistetaan tältä sivustolta englanninkielisin tekstityksin ilman kolmannen osapuolen soitinta. Numero on englanniksi."
     },
     "is": {
      "title": "Flipinn Fréttabréf og fyrsta tölublaðið, með myndbandi",
-     "description": "Aðalvalmyndin hefur fengið nýjan flipa, Fréttabréf. Þar eru öll tölublöð, nýjasta fyrst, ásamt skráningu hjá Substack. Tölublað #1 (Binance til skoðunar og viðvörun Svíþjóðar um kriptó og refsiaðgerðir) má lesa í heild á vefnum, með stuttu myndbandi sem er spilað héðan, með enskum texta og án spilara frá þriðja aðila. Tölublaðið er á ensku."
+     "description": "Aðalvalmyndin hefur fengið nýjan flipa, Fréttabréf. Þar eru öll tölublöð, nýjasta fyrst, ásamt skráningu á þessum vef. Tölublað #1 (Binance til skoðunar og viðvörun Svíþjóðar um kriptó og refsiaðgerðir) má lesa í heild á vefnum, með stuttu myndbandi sem er spilað héðan, með enskum texta og án spilara frá þriðja aðila. Tölublaðið er á ensku."
     }
    }
   },
@@ -518,31 +582,31 @@
    "id": "rename-crypto-nordic",
    "date": "2026-10-05",
    "title": "The name is Nordic Crypto",
-   "description": "The site is called Nordic Crypto. The newsletter signup links to https://cryptonordic.substack.com/subscribe. The domain cryptonordic.no and the X account @xcryptonordic stay as they are.",
+   "description": "The site is called Nordic Crypto. The newsletter signup is the form on this site. The domain cryptonordic.no and the X account @xcryptonordic stay as they are.",
    "i18n": {
     "nb": {
      "title": "Navnet er Nordic Crypto",
-     "description": "Nettstedet heter Nordic Crypto. Påmeldingen til nyhetsbrevet lenker til https://cryptonordic.substack.com/subscribe. Domenet cryptonordic.no og X-kontoen @xcryptonordic er som før."
+     "description": "Nettstedet heter Nordic Crypto. Påmeldingen til nyhetsbrevet er skjemaet på dette nettstedet. Domenet cryptonordic.no og X-kontoen @xcryptonordic er som før."
     },
     "nn": {
      "title": "Namnet er Nordic Crypto",
-     "description": "Nettstaden heiter Nordic Crypto. Påmeldinga til nyheitsbrevet lenkjer til https://cryptonordic.substack.com/subscribe. Domenet cryptonordic.no og X-kontoen @xcryptonordic er som før."
+     "description": "Nettstaden heiter Nordic Crypto. Påmeldinga til nyheitsbrevet er skjemaet på denne nettstaden. Domenet cryptonordic.no og X-kontoen @xcryptonordic er som før."
     },
     "sv": {
      "title": "Namnet är Nordic Crypto",
-     "description": "Webbplatsen heter Nordic Crypto. Anmälan till nyhetsbrevet länkar till https://cryptonordic.substack.com/subscribe. Domänen cryptonordic.no och X-kontot @xcryptonordic är som förut."
+     "description": "Webbplatsen heter Nordic Crypto. Anmälan till nyhetsbrevet är formuläret på den här webbplatsen. Domänen cryptonordic.no och X-kontot @xcryptonordic är som förut."
     },
     "da": {
      "title": "Navnet er Nordic Crypto",
-     "description": "Sitet hedder Nordic Crypto. Tilmeldingen til nyhedsbrevet linker til https://cryptonordic.substack.com/subscribe. Domænet cryptonordic.no og X-kontoen @xcryptonordic er som før."
+     "description": "Sitet hedder Nordic Crypto. Tilmeldingen til nyhedsbrevet er formularen på dette websted. Domænet cryptonordic.no og X-kontoen @xcryptonordic er som før."
     },
     "fi": {
      "title": "Nimi on Nordic Crypto",
-     "description": "Sivuston nimi on Nordic Crypto. Uutiskirjeen tilauslinkki vie osoitteeseen https://cryptonordic.substack.com/subscribe. Verkkotunnus cryptonordic.no ja X-tili @xcryptonordic pysyvät ennallaan."
+     "description": "Sivuston nimi on Nordic Crypto. Uutiskirjeen tilaus on lomake tällä sivustolla. Verkkotunnus cryptonordic.no ja X-tili @xcryptonordic pysyvät ennallaan."
     },
     "is": {
      "title": "Nafnið er Nordic Crypto",
-     "description": "Vefurinn heitir Nordic Crypto. Skráning á fréttabréfið vísar á https://cryptonordic.substack.com/subscribe. Lénið cryptonordic.no og X-reikningurinn @xcryptonordic eru óbreytt."
+     "description": "Vefurinn heitir Nordic Crypto. Skráning á fréttabréfið er eyðublaðið á þessum vef. Lénið cryptonordic.no og X-reikningurinn @xcryptonordic eru óbreytt."
     }
    }
   },

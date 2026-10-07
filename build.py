@@ -67,8 +67,9 @@ body{margin:0;font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica
 a{color:inherit}a:hover{text-decoration-thickness:2px}
 .wrap{max-width:1140px;margin:0 auto;padding:0 16px}
 header.top{border-bottom:3px solid var(--ink)}
-header.top .wrap{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 22px;padding-top:14px;padding-bottom:10px}
-.brand{font-weight:800;font-size:22px;letter-spacing:-.01em;text-decoration:none}.brand span{color:var(--accent)}
+header.top,header.top .wrap{text-align:start}
+header.top .wrap{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:flex-start;gap:6px 22px;padding-top:14px;padding-bottom:10px}
+.brand{font-weight:800;font-size:22px;letter-spacing:-.01em;text-decoration:none;text-align:start}.brand span{color:var(--accent)}
 nav.main{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:15px}
 nav.main a{text-decoration:none;padding:2px 0;border-bottom:2px solid transparent}nav.main a[aria-current]{border-color:var(--accent);font-weight:600}
 .preview{background:#fef3c7;border-bottom:2px solid var(--warm);font-size:14px}.preview .wrap{padding-top:6px;padding-bottom:6px}
@@ -214,19 +215,19 @@ html.nc-pick body{visibility:hidden}
 .tile .logo,.tile .av{width:40px;height:40px}.tile .fl{display:flex;gap:3px;align-items:center;color:var(--muted);font-size:10.5px}
 .imap[data-view=country] .imap-bycat,.imap[data-view=cat] .imap-bycountry{display:none}
 .rules-c .seg{margin:8px 0}
-.nlform{margin:12px 0}.nlform input[type=email]{padding:6px;width:100%;max-width:320px}.nlform button{padding:7px 14px;font-size:15px}.nlform .hp{position:absolute;left:-9999px}
-.nlmsg{display:block;margin-top:6px}.nlmsg.ok{color:#14532d}.nlmsg.warn{color:#9a3412}.nlfoot{margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--line)}.nlfoot .nlform{display:inline}.nlc label{position:absolute;left:-9999px}
-.ssembed{margin:14px 0}.ssload{font:inherit;font-weight:600;border:0;cursor:pointer}.ssembed iframe{display:block;width:480px;max-width:100%;height:320px}.ssembed .meta{margin-top:6px}.nlhome{margin:28px 0 8px;padding-top:12px;border-top:1px solid var(--line)}
-.nlsub{display:inline-block;padding:6px 14px;border-radius:6px;background:#0f5ea8;color:#fff!important;text-decoration:none;font-weight:600}.nlsub:hover,.nlsub:focus{background:#0b4a85}
-.brandrow{display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap}
-.hdrsub{display:inline-block;padding:5px 12px;border-radius:6px;background:#0f5ea8;color:#fff!important;text-decoration:none;font-weight:600;font-size:14px;line-height:1.3;white-space:nowrap}.hdrsub:hover,.hdrsub:focus{background:#0b4a85}
-.hdrbtns{display:flex;align-items:center;gap:6px;flex-wrap:wrap;min-width:0}
-.hdrx{display:inline-block;padding:4px 10px;border:1px solid var(--ink);border-radius:6px;color:var(--ink)!important;background:#fff;text-decoration:none;font-weight:600;font-size:13px;line-height:1.3;white-space:nowrap}.hdrx:hover,.hdrx:focus{background:#f1f1f1}.hdrx .xs{display:none}
+.nlform{margin:12px 0;text-align:start}.nlform input[type=email]{padding:6px;width:100%;max-width:320px}.nlform button{padding:7px 14px;font-size:15px}.nlform .hp{position:absolute;left:-9999px}
+.nlconsent{display:block;margin:8px 0;max-width:40rem;text-align:start;font-size:15px}
+.nlmsg{display:block;margin-top:6px}.nlmsg.ok{color:#14532d}.nlmsg.warn{color:#9a3412}.nlfoot{margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--line);text-align:start}.nlfoot .nlform{display:block;max-width:40rem}.nlc label:not(.nlconsent){position:absolute;left:-9999px}
+.nlhome{margin:28px 0 8px;padding-top:12px;border-top:1px solid var(--line);text-align:start}
+.brandrow{display:flex;align-items:center;justify-content:flex-start;gap:10px 14px;flex-wrap:wrap;text-align:start}
+.hdrsub{display:inline-block;padding:5px 12px;border-radius:6px;background:#0f5ea8;color:#fff!important;text-decoration:none;font-weight:600;font-size:14px;line-height:1.3;white-space:nowrap;text-align:start}.hdrsub:hover,.hdrsub:focus{background:#0b4a85}
+.hdrbtns{display:flex;align-items:center;justify-content:flex-start;gap:6px;flex-wrap:wrap;min-width:0;text-align:start}
+.hdrx,.hdrtg{display:inline-block;padding:4px 10px;border:1px solid var(--ink);border-radius:6px;color:var(--ink)!important;background:#fff;text-decoration:none;font-weight:600;font-size:13px;line-height:1.3;white-space:nowrap;text-align:start}.hdrx:hover,.hdrx:focus,.hdrtg:hover,.hdrtg:focus{background:#f1f1f1}.hdrx .xs{display:none}
 .xfollow,.tgfollow{display:inline-block;padding:5px 12px;border:1px solid var(--ink);border-radius:6px;color:var(--ink)!important;text-decoration:none;font-weight:600;text-align:start}.xfollow:hover,.xfollow:focus,.tgfollow:hover,.tgfollow:focus{background:#f1f1f1}
 nav.community{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:center;gap:8px 10px;margin:8px 0 12px;text-align:start;width:fit-content;max-width:100%}
 footer,footer .wrap,.nlfoot,.nlhome{text-align:start}
-@media(max-width:640px){.brandrow{width:100%;justify-content:space-between;flex-wrap:nowrap}.brandrow .brand{white-space:nowrap;flex:none}.hdrsub{font-size:13px;padding:5px 10px;white-space:normal;text-align:center;min-width:0}.hdrbtns{flex-wrap:nowrap;justify-content:flex-end}.hdrx{flex:none}}
-@media(max-width:480px){.hdrx{padding:4px 9px}.hdrx .xf{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.hdrx .xs{display:inline}}
+@media(max-width:640px){.brandrow{width:100%;justify-content:flex-start;flex-wrap:wrap;align-items:center}.brandrow .brand{white-space:nowrap;flex:none;text-align:start}.hdrsub{font-size:13px;padding:5px 10px;white-space:normal;text-align:start;min-width:0}.hdrbtns{flex:1 1 100%;flex-wrap:wrap;justify-content:flex-start}.hdrx,.hdrtg{flex:none;text-align:start}}
+@media(max-width:480px){.hdrx,.hdrtg{padding:4px 9px}}
 .nlissues{list-style:none;margin:8px 0 18px;padding:0}.nlissues li{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line)}
 .nlissues .th{flex:none;width:200px;max-width:40%}.nlissues img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--line)}
 .nlissues h3{font-size:18px;line-height:1.3;margin:0 0 4px}.nlissues h3 a{text-decoration:none}.nlissues h3 a:hover{text-decoration:underline}.nlissues .sum{margin-top:4px}
@@ -276,6 +277,7 @@ def newsletter_endpoint():
 NL_N = [0]
 def newsletter_form(compact=False):
     """Signup form (posts to the Worker; works without JavaScript via a 303 back to /newsletter/). Honeypot 'website'.
+    The required consent checkbox is the on-page agreement. The Worker confirms by email before anything else is sent.
     The Worker still accepts the original seven site languages, so a newer UI language posts English."""
     ep = newsletter_endpoint()
     if not ep: return ""
@@ -284,6 +286,7 @@ def newsletter_form(compact=False):
             f'<input type="hidden" name="site" value="nordic-crypto"><input type="hidden" name="lang" value="{LANG if LANG in ("en", "nn", "nb", "sv", "da", "fi", "is") else "en"}">'
             f'<label for="nl-email-{i}">{E(t("nl_email"))}</label> <input id="nl-email-{i}" name="email" type="email" required maxlength="254" autocomplete="email" inputmode="email">'
             f'<span class="hp" aria-hidden="true"><label for="nl-w-{i}">website</label><input id="nl-w-{i}" name="website" tabindex="-1" autocomplete="off"></span>'
+            f'<label class="nlconsent"><input id="nl-c-{i}" name="consent" type="checkbox" value="yes" required> {E(t("nl_consent"))}</label>'
             f' <button type="submit">{E(t("nl_btn"))}</button><span class="nlmsg" role="status" aria-live="polite"></span></form>')
 def newsletter_script():
     if not newsletter_endpoint(): return ""
@@ -295,41 +298,33 @@ if(q.get('sent'))say(f0,'sent');else if(q.get('confirmed'))say(f0,'confirmed');e
 F.forEach(function(f){f.addEventListener('submit',function(ev){ev.preventDefault();var b=f.querySelector('button'),d={};new FormData(f).forEach(function(v,k){d[k]=v});
 b.disabled=true;say(f,'sending');fetch(f.getAttribute('data-ep')+'/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(d)})
 .then(function(r){return r.json().then(function(j){b.disabled=false;if(r.ok){say(f,'sent');f.reset()}else say(f,E[j.error]||'e_fail')})}).catch(function(){b.disabled=false;say(f,'e_fail')})})})})();</script>""" % json.dumps(m, ensure_ascii=False)
-def substack_subscribe_url():
-    """Substack signup page (newsletter/config.json substack_url + /subscribe), or None. Independent of the own form:
-    the Substack link is shown even while enabled is false (Substack handles signup and privacy itself)."""
-    u = (NL_CFG.get("substack_url") or "").strip().rstrip("/")
-    if not u.startswith("https://"): return None
-    return u if u.endswith("/subscribe") else u + "/subscribe"
-def newsletter_on(): return bool(newsletter_endpoint() or substack_subscribe_url())
-def substack_button():
-    sub = substack_subscribe_url()
-    return f'<a class="nlsub" href="{E(sub)}" rel="noopener">{E(t("nl_sub_btn"))}</a>' if sub else ""
-def substack_embed():
-    """Substack's embeddable signup form (<substack_url>/embed), responsive (max-width:100%). newsletter/config.json substack_embed:
-    "click" (default) = the iframe loads only after the reader clicks, so no third-party content or cookies load with the page
-    (the About page promises no third-party scripts); "auto" = loads with the page (switch only after the privacy texts are updated);
-    "off" = not shown."""
-    u = (NL_CFG.get("substack_url") or "").strip().rstrip("/"); mode = NL_CFG.get("substack_embed", "click")
-    if not u.startswith("https://") or mode == "off": return ""
-    src = u + "/embed"; tt = E(t("nl_embed_title"))
-    if mode == "auto":
-        return f'<div class="ssembed"><iframe src="{E(src)}" title="{tt}" width="480" height="320" style="border:1px solid #EEE;background:white" frameborder="0" scrolling="no" loading="lazy"></iframe></div>'
-    return (f'<div class="ssembed" data-src="{E(src)}" data-title="{tt}"><button type="button" class="nlsub ssload">{E(t("nl_embed_btn"))}</button>'
-            f'<p class="meta">{E(t("nl_embed_note"))}</p></div>'
-            "<script>(function(){document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.ssload');if(!b)return;"
-            "var w=b.closest('.ssembed'),f=document.createElement('iframe');f.src=w.getAttribute('data-src');f.title=w.getAttribute('data-title');"
-            "f.width='480';f.height='320';f.setAttribute('frameborder','0');f.setAttribute('scrolling','no');f.style.border='1px solid #EEE';f.style.background='white';"
-            "w.innerHTML='';w.appendChild(f)})})();</script>")
-def header_sub_button():
-    """'Subscribe on Substack' button at the top of every page (same Substack link as the footer, label without the arrow)."""
-    sub = substack_subscribe_url()
-    return f'<a class="hdrsub" href="{E(sub)}" rel="noopener">{E(t("nl_sub_btn").replace("→", "").strip())}</a>' if sub else ""
+def newsletter_closed(rel, compact=False):
+    """Shown while the Worker is off. There is no email field, so an address cannot be stored or dropped."""
+    links = t("nl_fallback", rss=E(rel + "rss.xml"), tg=SITE_TELEGRAM, x=SITE_X)
+    if compact:
+        return f'<span class="nlsoon">{E(t("nl_soon_short"))} {links}</span>'
+    return f'<p class="notice">{E(t("nl_soon"))}</p><p class="nlsoon">{links}</p>'
+def newsletter_offer(rel, privacy=False, compact=False):
+    """The live form when the Worker is on. Otherwise the closed notice and the RSS, Telegram and X links."""
+    form = newsletter_form(compact)
+    if not form:
+        return newsletter_closed(rel, compact)
+    note = f'<p class="notice">{t("nl_priv")}</p>' if privacy else ""
+    return form + note
+def header_subscribe_button(rel):
+    """Subscribe link at the top of every page. It opens the form on this site (/newsletter/#signup)."""
+    return f'<a class="hdrsub" href="{rel}newsletter/#signup">{E(t("nl_btn"))}</a>'
+def header_buttons(rel):
+    """Subscribe, then Join on Telegram, then Follow on X. Left-aligned, in that order."""
+    return header_subscribe_button(rel) + header_telegram_button() + header_x_button()
 # Nordic Crypto brand accounts (not jQrgen's personal profiles). Plain links only: no widgets, scripts or embeds.
 SITE_X = "https://x.com/xcryptonordic"
 SITE_TELEGRAM = "https://t.me/nordiccryptochat"
+def header_telegram_button():
+    """'Join on Telegram' in the header, same outline style as Follow on X. The label stays visible on phones."""
+    return f'<a class="hdrtg" href="{SITE_TELEGRAM}" rel="noopener" title="{E(t("tg_title"))}">{E(t("tg_btn"))}</a>'
 def header_x_button():
-    """Small 'Follow on X' link next to the header Substack button; on narrow phones it shrinks to an 'X' pill (full label kept for screen readers)."""
+    """'Follow on X' beside the header Telegram button. The full label stays visible; the short X is only a fallback mark."""
     return (f'<a class="hdrx" href="{SITE_X}" rel="noopener" title="{E(t("x_title"))}">'
             f'<span class="xf">{E(t("x_btn"))}</span><span class="xs" aria-hidden="true">X</span></a>')
 def x_link():
@@ -436,7 +431,7 @@ def build_issue(iss):
                    f'<source src="{a}{E(v.get("file") or "video.mp4")}" type="video/mp4">{track}<p>{E(t("nl_video_fallback"))} {dl}</p></video>'
                    f'<figcaption class="meta">{E(t("nl_video_note"))}<br>{dl}{subs}</figcaption></figure>')
         elif dl: vid = f'<p class="notice">{dl}</p>'
-    sub = substack_button()
+    signup = newsletter_offer("../../")
     body = f"""<article class="issue">
 <p class="meta"><a href="../">← {E(t("nl_all_issues"))}</a></p>
 <h1{tla}>{E(title)}</h1>
@@ -446,17 +441,18 @@ def build_issue(iss):
 {vid}
 <div class="prose issuetext"{hla}>
 {txt}</div>
-<section class="nlhome">{f'<p><b>{E(t("nl_get_next"))}</b> {sub}</p>' if sub else ''}
+<section class="nlhome"><p><b>{E(t("nl_get_next"))}</b></p>
+{signup}
 {community_links()}
 <p>{t("nl_write", href="../../columnist/")}</p></section>
 <p class="meta"><a href="../">← {E(t("nl_all_issues"))}</a></p>
 </article>"""
     page(slug, title, "newsletter", body, subtitle or t("nl_desc"))
 def build_newsletter():
-    """/newsletter/ in every language (the Newsletter tab): the issues (newest first, each with its own page), the own
-    form (only when on), the Substack signup link (whenever substack_url is set), the privacy note and the Kaupr disclosure."""
+    """/newsletter/ in every language (the Newsletter tab): the issues (newest first, each with its own page), the
+    signup form when the Worker is on, the privacy note and the Kaupr disclosure."""
     issues = nl_issues()
-    if not newsletter_on() and not issues: return
+    if not issues and not newsletter_endpoint(): return
     root = "../" * (1 + (0 if LANG == "en" else 1))
     lis = []
     for iss in issues:
@@ -468,22 +464,15 @@ def build_newsletter():
               if v.get("poster") else "")
         lis.append(f'<li>{th}<div><h3{lang_attr(tl)}><a href="{E(iss["id"])}/">{E(title)}</a></h3><div class="meta">{nl_meta(iss)}</div>'
                    f'<p class="sum"{lang_attr(sl)}>{E(subtitle)}</p></div></li>')
-    form = newsletter_form()
-    sub = substack_button()
-    priv = f'<p class="notice">{t("nl_priv")}</p>' if form else ""
-    subnote = f'<p class="notice">{t("nl_sub_note")}</p>' if sub and not form else ""
     body = f"""<h1>{E(t("nl_title"))}</h1>
 <p class="lead">{E(t("nl_lead"))}</p>
-{form}
-{f'<p>{sub}</p>' if sub else ''}
+<section id="signup">{newsletter_offer("../", privacy=True)}</section>
 {community_links()}
 <h2 id="issues">{E(t("nl_issues_h"))}</h2>
 <p class="meta">{E(t("nl_issues_lead"))}</p>
 <ol class="nlissues">{''.join(lis) or f'<li class="empty">{E(t("nl_issues_none"))}</li>'}</ol>
 <p>{t("nl_write", href="../columnist/")}</p>
-{substack_embed()}
-<div class="prose">{priv}{subnote}
-<p class="meta">{t("nl_kaupr")}</p></div>"""
+<div class="prose"><p class="meta">{t("nl_kaupr")}</p></div>"""
     page("newsletter", t("nl_title"), "newsletter", body, t("nl_desc"))
 _ANALYTICS_TOKEN = re.compile(r"^[A-Za-z0-9_-]{16,128}$")
 def analytics_token():
@@ -553,18 +542,17 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
              "document.addEventListener('change',function(e){var s=e.target;if(!s||!s.matches||!s.matches('select.langsel'))return;var o=s.options[s.selectedIndex];if(!o)return;setLang(o.getAttribute('data-lang'));if(o.value)location.href=o.value});"
              "var b=document.querySelector('.navtoggle'),n=document.getElementById('sitenav');if(b&&n){b.addEventListener('click',function(){var open=n.classList.toggle('is-open');b.setAttribute('aria-expanded',open?'true':'false')});"
              "document.addEventListener('keydown',function(e){if(e.key==='Escape'&&n.classList.contains('is-open')){n.classList.remove('is-open');b.setAttribute('aria-expanded','false');b.focus()}})}})();</script>")
-    nlfoot = (f'<div class="nlfoot"><b>{E(t("nl_foot"))}</b> {" ".join(x for x in (newsletter_form(True), substack_button()) if x)} <a href="{rel}newsletter/">{E(t("nl_more"))}</a></div>' if newsletter_on() and slug != "newsletter"
-              else "")
+    nlfoot = (f'<div class="nlfoot"><b>{E(t("nl_foot"))}</b> {newsletter_offer(rel, compact=True)} <a href="{rel}newsletter/#signup">{E(t("nl_more"))}</a></div>' if slug != "newsletter" else "")
     doc = f"""<!doctype html>
 <html lang="{i18n.HTML_LANG[LANG]}"{" dir=\"rtl\"" if i18n.rtl(LANG) else ""}><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <script>document.documentElement.classList.add("js")</script>
 {pick}<title>{E(title)}{" – " + SITE_NAME if slug else ""}</title>
-<meta name="description" content="{E(desc)}"><link rel="canonical" href="{url}">{alt}{head_extra}{'<meta name="robots" content="noindex">' if PREVIEW else ''}
+<meta name="description" content="{E(desc)}"><link rel="canonical" href="{url}">{alt}<link rel="alternate" type="application/rss+xml" title="{E(SITE_NAME)}" href="{E(rel)}rss.xml">{head_extra}{'<meta name="robots" content="noindex">' if PREVIEW else ''}
 <meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:url" content="{url}"><meta property="og:type" content="website"><meta property="og:locale" content="{i18n.OG_LOCALE[LANG]}">{''.join(f'<meta property="og:locale:alternate" content="{i18n.OG_LOCALE[l]}">' for l in langs if l != LANG)}
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230f5ea8'/%3E%3Crect x='4' width='3' height='16' fill='white'/%3E%3Crect y='6.5' width='16' height='3' fill='white'/%3E%3C/svg%3E">
 <style>{CSS}{s['css']}</style></head>
-<body>{banner}<header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="{rel}">Nordic <span>Crypto</span></a><span class="hdrbtns">{header_sub_button()}{header_x_button()}</span></div>{nav_btn}<nav id="sitenav" class="main" aria-label="{E(t("main_menu"))}">{nav_html}</nav>{switcher}</div></header>
+<body>{banner}<header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="{rel}">Nordic <span>Crypto</span></a><span class="hdrbtns">{header_buttons(rel)}</span></div>{nav_btn}<nav id="sitenav" class="main" aria-label="{E(t("main_menu"))}">{nav_html}</nav>{switcher}</div></header>
 <main class="wrap">
 {body}
 {s['top']}
@@ -1019,6 +1007,54 @@ def build_markets(ctx):
     page("markets", t("mk_title"), "markets", body_html, t("mk_desc"),
          f"<script>window.NC_MK={json.dumps(strings, ensure_ascii=False)};</script><script>{script}</script>")
 
+def rss_pubdate(s):
+    """RFC 822 date for an RSS item. Empty when the source timestamp cannot be parsed."""
+    if not s:
+        return ""
+    try:
+        d = dt.datetime.fromisoformat(str(s).replace("Z", "+00:00"))
+    except ValueError:
+        return ""
+    if d.tzinfo is None:
+        d = d.replace(tzinfo=dt.timezone.utc)
+    from email.utils import format_datetime
+    return format_datetime(d.astimezone(dt.timezone.utc))
+def write_rss(items):
+    """One RSS file per language (rss.xml next to that language's home). Published stories only."""
+    rows = [i for i in items if i.get("status") == "published" and (i.get("url") or i.get("title") or i.get("title_en"))]
+    rows.sort(key=lambda i: i.get("published") or "", reverse=True)
+    bits = []
+    for i in rows[:40]:
+        if LANG == "en" or i.get("own_story"):
+            title = i.get("title_en") or i.get("title") or ""
+        else:
+            title = i.get("title") or ""
+        desc = ((i.get("summary_i18n") or {}).get(LANG) or "") if LANG != "en" else ""
+        desc = desc or i.get("summary") or ""
+        link = i.get("url") or ""
+        if link and not link.startswith("http"):
+            link = BASE + lp() + link.lstrip("/")
+        if not title or not link.startswith("http"):
+            continue
+        when = rss_pubdate(i.get("published"))
+        pub = f"<pubDate>{html.escape(when)}</pubDate>" if when else ""
+        bits.append("<item>"
+                    f"<title>{html.escape(title)}</title>"
+                    f"<link>{html.escape(link)}</link>"
+                    f"<guid isPermaLink=\"true\">{html.escape(link)}</guid>"
+                    f"{pub}<description>{html.escape(desc)}</description></item>")
+    home = BASE + lp()
+    xml = ("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+           "<rss version=\"2.0\" xmlns:atom=\"http://www.w3.org/2005/Atom\"><channel>"
+           f"<title>{html.escape(SITE_NAME)}</title>"
+           f"<link>{html.escape(home)}</link>"
+           f"<description>{html.escape(t('home_desc'))}</description>"
+           f"<language>{html.escape(i18n.HTML_LANG[LANG])}</language>"
+           f"<atom:link href=\"{html.escape(home + 'rss.xml')}\" rel=\"self\" type=\"application/rss+xml\"/>"
+           + "".join(bits) + "</channel></rss>\n")
+    d = SITE if LANG == "en" else os.path.join(SITE, LANG)
+    os.makedirs(d, exist_ok=True)
+    open(os.path.join(d, "rss.xml"), "w", encoding="utf-8").write(xml)
 def build_lang(ctx):
     items, pending = ctx["items"], ctx["pending"]
     # ---- News ----
@@ -1074,6 +1110,8 @@ def build_lang(ctx):
     tchips = "".join(f'<button type="button" class="chip tchip" data-t="{k}" aria-pressed="false">{E(topic_label(k))}</button>' for k in TOPICS)
     news = ctx["news"]; upd = endate(news["updated"]) if news.get("updated") else ""
     root = "../" if LANG != "en" else ""
+    home_signup = newsletter_offer("")
+    write_rss(items)
     body = f"""<h1>{E(t("home_h1"))}</h1>
 <p class="meta"><a href="{root}screen/">{E(t("home_screen"))}</a> · <a href="markets/">{E(t("mk_home_link"))}</a></p>
 <p class="appbar"><a class="applink" href="https://testflight.apple.com/join/nQ2fpjZn" rel="noopener">{E(t("ios_link"))}</a></p>
@@ -1083,7 +1121,7 @@ def build_lang(ctx):
 <label for="fsrc">{E(t("source"))}</label><select id="fsrc"><option value="">{E(t("all_sources"))}</option>{opts}</select>
 <span class="lbl">{E(t("topic"))}</span><div class="chips">{tchips}</div><span id="count" class="meta" aria-live="polite"></span></div>
 <ol class="news" id="news">{''.join(lis) or f'<li class="empty">{E(t("no_stories"))}</li>'}</ol>
-{f'<section class="nlhome" aria-labelledby="nlhome-h"><h2 id="nlhome-h">{E(t("nl_title"))}</h2>{substack_embed()}{community_links()}</section>' if substack_embed() else f'<section class="nlhome">{community_links()}</section>'}
+<section class="nlhome" aria-labelledby="nlhome-h"><h2 id="nlhome-h">{E(t("nl_title"))}</h2>{home_signup}{community_links()}</section>
 <p class="notice">{E(t("home_notice"))}</p>"""
     js = """<script>
 (function(){var NS=%s,sel=document.getElementById('fsrc'),tc=[].slice.call(document.querySelectorAll('.tchip')),cc=[].slice.call(document.querySelectorAll('.cchip')),lis=[].slice.call(document.querySelectorAll('#news li[data-src]')),cnt=document.getElementById('count');

@@ -898,7 +898,8 @@ def _meta(feed):
             "openapi": feed.abs("api/v1/openapi.json"),
             "llms_txt": feed.abs("llms.txt"),
             "github": "https://github.com/jQrgen/nordic-crypto",
-            "substack": "https://cryptonordic.substack.com",
+            "newsletter": feed.abs("newsletter/"),
+            "rss": feed.abs("rss.xml"),
             "telegram": SITE_TELEGRAM_URL,
             "x": SITE_X_URL,
         },
@@ -1529,7 +1530,7 @@ def schemas():
                     }},
                 },
             },
-            "urls": {"type": "object", "description": "github, substack, telegram and x, plus the API bases."},
+            "urls": {"type": "object", "description": "github, newsletter, rss, telegram and x, plus the API bases. newsletter is the signup page on this site. rss is the English story feed."},
         }),
         "LanguageList": wrap("LanguageList", {
             "count": {"type": "integer"},
@@ -1846,7 +1847,7 @@ curl -fsS {html.escape(b)}api/v1/markets/aggregated.json</pre>
 <h2>Editorial</h2>
 <p>The sign-off is The Nordic Crypto team. Kaupr (kaupr.io) is a news source only and is never a sponsor. Nothing here is investment advice.</p>
 <h2>Brand accounts</h2>
-<p><a href="{html.escape(b)}api/v1/meta.json"><code>/api/v1/meta.json</code></a> includes <code>social</code> for the iOS app. <code>social.telegram</code> is the Nordic Crypto chat at <a href="{SITE_TELEGRAM_URL}">{html.escape(SITE_TELEGRAM_URL)}</a>. <code>social.x</code> is the brand account at <a href="{SITE_X_URL}">{html.escape(SITE_X_URL)}</a> (<code>@xcryptonordic</code>), also listed as <code>urls.x</code>. <code>urls.telegram</code> repeats the chat URL. <code>label</code> is the short name (<code>Telegram</code>, <code>X</code>). <code>name</code> is the English link text. <code>name_i18n</code> has <code>nn</code>, <code>nb</code>, <code>sv</code>, <code>da</code>, <code>fi</code> and <code>is</code>. Other site languages use <code>name</code>.</p>
+<p><a href="{html.escape(b)}api/v1/meta.json"><code>/api/v1/meta.json</code></a> includes <code>social</code> for the iOS app. <code>social.telegram</code> is the Nordic Crypto chat at <a href="{SITE_TELEGRAM_URL}">{html.escape(SITE_TELEGRAM_URL)}</a>. <code>social.x</code> is the brand account at <a href="{SITE_X_URL}">{html.escape(SITE_X_URL)}</a> (<code>@xcryptonordic</code>), also listed as <code>urls.x</code>. <code>urls.telegram</code> repeats the chat URL. <code>urls.rss</code> is the English story feed at <a href="{html.escape(b)}rss.xml"><code>/rss.xml</code></a>. Each language home has its own <code>rss.xml</code>. <code>urls.newsletter</code> is the signup page on this site. <code>label</code> is the short name (<code>Telegram</code>, <code>X</code>). <code>name</code> is the English link text. <code>name_i18n</code> has <code>nn</code>, <code>nb</code>, <code>sv</code>, <code>da</code>, <code>fi</code> and <code>is</code>. Other site languages use <code>name</code>.</p>
 <h2>Endpoints</h2>
 <div class="tablewrap"><table class="list"><thead><tr><th>Method</th><th>Path</th><th>Returns</th></tr></thead><tbody>
 {rows}

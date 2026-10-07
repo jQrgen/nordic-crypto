@@ -2,7 +2,7 @@ Title: How crypto rules are decided in Iceland — Nordic Crypto explainer
 
 Subtitle: Parliament, ministry, supervisor, central bank, FIU, courts — and how MiCA applies via the EEA
 
-Body (draft for cryptonordic.substack.com — DO NOT auto-publish; jQrgen must review/send):
+Body (draft newsletter note — do not auto-send; jQrgen must review):
 
 ---
 
