@@ -1,0 +1,27 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T05:38:51+00:00",
+ "preview": false,
+ "item": {
+  "id": "566436a85a36",
+  "title": "International Conference on Blockchain-Driven Cybersecurity Strategies for Big Data (ICBDCSBD)",
+  "title_original": null,
+  "start": "2026-11-21T00:00:00+02:00",
+  "end": "2026-11-22T23:59:00+02:00",
+  "place": "Vantaa, Finland",
+  "city": "Vantaa",
+  "country": "FI",
+  "online": false,
+  "organiser": "Research Plus",
+  "url": "https://internationalconferencealerts.com/event-icbdcsbd-vantaa-fi-202611-101249760",
+  "source": "International Conference Alerts – blockchain, Finland",
+  "paid": null,
+  "sponsored": null,
+  "note": null,
+  "note_i18n": {},
+  "past": false,
+  "html_url": "https://nordiccrypto.no/calendar/#e-566436a85a36",
+  "api_url": "https://nordiccrypto.no/api/v1/events/566436a85a36.json"
+ }
+}

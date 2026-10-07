@@ -1,0 +1,27 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T05:38:51+00:00",
+ "preview": false,
+ "item": {
+  "id": "3d25d5db086a",
+  "title": "International Conference on Blockchain and Cybersecurity Standards in Big Data (ICBCSBD)",
+  "title_original": null,
+  "start": "2027-06-23T00:00:00+02:00",
+  "end": "2027-06-24T23:59:00+02:00",
+  "place": "Aalborg, Denmark",
+  "city": "Aalborg",
+  "country": "DK",
+  "online": false,
+  "organiser": "AFTER",
+  "url": "https://internationalconferencealerts.com/event-icbcsbd-aalborg-dk-202706-101976388",
+  "source": "International Conference Alerts – blockchain, Denmark",
+  "paid": null,
+  "sponsored": null,
+  "note": null,
+  "note_i18n": {},
+  "past": false,
+  "html_url": "https://nordiccrypto.no/calendar/#e-3d25d5db086a",
+  "api_url": "https://nordiccrypto.no/api/v1/events/3d25d5db086a.json"
+ }
+}

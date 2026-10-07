@@ -1,0 +1,27 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T05:38:51+00:00",
+ "preview": false,
+ "item": {
+  "id": "0c744bd96cff",
+  "title": "International Conference on Chemical Engineering Applications of Blockchain (ICCEAB)",
+  "title_original": null,
+  "start": "2026-11-04T00:00:00+01:00",
+  "end": "2026-11-05T23:59:00+01:00",
+  "place": "Absalon Hotel, Helgolandsgade 15, 1653 København V, Denmark",
+  "city": "Copenhagen",
+  "country": "DK",
+  "online": false,
+  "organiser": "KSAA",
+  "url": "https://internationalconferencealerts.com/event-icceab-copenhagen-dk-202611-101347176",
+  "source": "International Conference Alerts – blockchain, Denmark",
+  "paid": null,
+  "sponsored": null,
+  "note": null,
+  "note_i18n": {},
+  "past": false,
+  "html_url": "https://nordiccrypto.no/calendar/#e-0c744bd96cff",
+  "api_url": "https://nordiccrypto.no/api/v1/events/0c744bd96cff.json"
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T05:38:51+00:00",
+ "preview": false,
+ "item": {
+  "id": "c99504ca7f3f",
+  "title": "International Conference on Blockchain and Cybersecurity Incident Response in Big Data (ICBCIRBD)",
+  "title_original": null,
+  "start": "2027-02-10T00:00:00+01:00",
+  "end": "2027-02-11T23:59:00+01:00",
+  "place": "Absalon Hotel, Helgolandsgade 15, 1653 København V, Denmark",
+  "city": "Copenhagen",
+  "country": "DK",
+  "online": false,
+  "organiser": "ISER",
+  "url": "https://internationalconferencealerts.com/event-icbcirbd-copenhagen-dk-202702-101595407",
+  "source": "International Conference Alerts – blockchain, Denmark",
+  "paid": null,
+  "sponsored": null,
+  "note": null,
+  "note_i18n": {},
+  "past": false,
+  "html_url": "https://nordiccrypto.no/calendar/#e-c99504ca7f3f",
+  "api_url": "https://nordiccrypto.no/api/v1/events/c99504ca7f3f.json"
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T05:38:51+00:00",
+ "preview": false,
+ "item": {
+  "id": "e8e61dc0a757",
+  "title": "International Conference on Blockchain and Cybersecurity Standards in Big Data (ICBCSBD)",
+  "title_original": null,
+  "start": "2027-05-29T00:00:00+02:00",
+  "end": "2027-05-30T23:59:00+02:00",
+  "place": "Sheraton Stockholm Hotel, Tegelbacken 6, 101 23 Stockholm, Sweden",
+  "city": "Stockholm",
+  "country": "SE",
+  "online": false,
+  "organiser": "ISSER",
+  "url": "https://internationalconferencealerts.com/event-icbcsbd-stockholm-se-202705-102076325",
+  "source": "International Conference Alerts – blockchain, Sweden",
+  "paid": null,
+  "sponsored": null,
+  "note": null,
+  "note_i18n": {},
+  "past": false,
+  "html_url": "https://nordiccrypto.no/calendar/#e-e8e61dc0a757",
+  "api_url": "https://nordiccrypto.no/api/v1/events/e8e61dc0a757.json"
+ }
+}

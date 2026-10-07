@@ -1,0 +1,27 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T05:38:51+00:00",
+ "preview": false,
+ "item": {
+  "id": "91b9074db1b1",
+  "title": "International Conference on Blockchain and Big Data Forensics in Cybersecurity (ICBBD-FC)",
+  "title_original": null,
+  "start": "2026-12-03T00:00:00+01:00",
+  "end": "2026-12-04T23:59:00+01:00",
+  "place": "Absalon Hotel, Helgolandsgade 15, 1653 København V, Denmark",
+  "city": "Copenhagen",
+  "country": "DK",
+  "online": false,
+  "organiser": "CSGAC",
+  "url": "https://internationalconferencealerts.com/event-icbbd-fc-copenhagen-dk-202612-101342586",
+  "source": "International Conference Alerts – blockchain, Denmark",
+  "paid": null,
+  "sponsored": null,
+  "note": null,
+  "note_i18n": {},
+  "past": false,
+  "html_url": "https://nordiccrypto.no/calendar/#e-91b9074db1b1",
+  "api_url": "https://nordiccrypto.no/api/v1/events/91b9074db1b1.json"
+ }
+}

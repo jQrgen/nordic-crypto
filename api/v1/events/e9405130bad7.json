@@ -1,0 +1,27 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T05:38:51+00:00",
+ "preview": false,
+ "item": {
+  "id": "e9405130bad7",
+  "title": "International Conference on Environmental Engineering and Blockchain Solutions (ICEEBS)",
+  "title_original": null,
+  "start": "2027-04-03T00:00:00+03:00",
+  "end": "2027-04-04T23:59:00+03:00",
+  "place": "Holiday Inn Helsinki - West Ruoholahti, Sulhasenkuja 3, 00180 Helsinki, Finland",
+  "city": "Helsinki",
+  "country": "FI",
+  "online": false,
+  "organiser": "AFTER",
+  "url": "https://internationalconferencealerts.com/event-iceebs-helsinki-fi-202704-101983012",
+  "source": "International Conference Alerts – blockchain, Finland",
+  "paid": null,
+  "sponsored": null,
+  "note": null,
+  "note_i18n": {},
+  "past": false,
+  "html_url": "https://nordiccrypto.no/calendar/#e-e9405130bad7",
+  "api_url": "https://nordiccrypto.no/api/v1/events/e9405130bad7.json"
+ }
+}

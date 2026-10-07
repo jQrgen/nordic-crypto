@@ -1,0 +1,27 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T05:38:51+00:00",
+ "preview": false,
+ "item": {
+  "id": "9d7896f3cdb0",
+  "title": "International Conference on Blockchain-Enhanced Authentication for Big Data Cybersecurity (ICBA-BD)",
+  "title_original": null,
+  "start": "2027-03-24T00:00:00+02:00",
+  "end": "2027-03-25T23:59:00+02:00",
+  "place": "Holiday Inn Helsinki - West Ruoholahti, Sulhasenkuja 3, 00180 Helsinki, Finland",
+  "city": "Helsinki",
+  "country": "FI",
+  "online": false,
+  "organiser": "ASAR",
+  "url": "https://internationalconferencealerts.com/event-icba-bd-helsinki-fi-202703-101601747",
+  "source": "International Conference Alerts – blockchain, Finland",
+  "paid": null,
+  "sponsored": null,
+  "note": null,
+  "note_i18n": {},
+  "past": false,
+  "html_url": "https://nordiccrypto.no/calendar/#e-9d7896f3cdb0",
+  "api_url": "https://nordiccrypto.no/api/v1/events/9d7896f3cdb0.json"
+ }
+}
