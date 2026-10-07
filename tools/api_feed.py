@@ -1206,8 +1206,8 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
         "Other site languages use title_en. "
         "source_logo is the outlet image when assets/img/logos/logos.json has a checked file for the source id "
         "(or its outlet, or a _source_alias). Null means show the source name as text. "
-        "illustration is a picture we may show, with source, author, license and url. "
-        "It is never a photograph copied or hotlinked from another newspaper. "
+        "illustration is the licensed picture assigned to the story, with source, author, license and url. "
+        "The site does not render it. It is never a photograph copied or hotlinked from another newspaper. "
         "primary_source is that outlet. also_covered_by lists every other outlet on the same event "
         "(outlet, outlet_name, url, title, published, lang, country, source_type, paywall, logo). "
         "sources is the primary plus those outlets. coverage.count is how many outlets, "
@@ -1618,7 +1618,7 @@ def schemas():
             "illustration": {
                 "type": "object",
                 "nullable": True,
-                "description": "Picture for the card and the story page. source, author, license and url are the credit. file_url is our copy. Never a newspaper photograph.",
+                "description": "Licensed picture assigned to this story. The site does not render it. source, author, license and url are the credit. file_url is our copy. Never a newspaper photograph.",
                 "properties": {
                     "id": {"type": "string"},
                     "kind": {"type": "string", "enum": ["original", "commons", "official-press"]},

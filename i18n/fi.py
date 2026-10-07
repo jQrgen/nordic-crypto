@@ -83,7 +83,7 @@ S = {
 "cal_preview": "<b>Esikatselu:</b> {p}/{n} tulevaa tapahtumaa odottaa toimittajan tarkistusta; {o} on toimittajan hyväksymiä ja odottaa jQrgenin lopullista hyväksyntää. Mikään niistä ei ole vielä julkisessa versiossa.",
 "n_upcoming": "{n} tulossa", "upcoming_h": "Tulossa", "no_upcoming": "Tulevia tapahtumia ei ole kirjattu.",
 "past_h": "Menneet tapahtumat", "past_note": "Tapahtumat siirtyvät tänne automaattisesti, kun ne ovat päättyneet (Norjan aikaa). Emme koskaan poista niitä.", "no_past": "Menneitä tapahtumia ei vielä ole.",
-"ongoing_h": "Käynnissä nyt", "front_ev_h": "Seuraavat tapahtumat", "front_ev_cal": "Koko kalenteri",
+"ongoing_h": "Käynnissä nyt", "front_ev_h": "Seuraavat tapahtumat", "front_ev_cal": "Koko kalenteri", "latest_h": "Uusimmat",
 "prev_link": "Aiemmat tapahtumat", "prev_title": "Aiemmat tapahtumat",
 "prev_desc": "Päättyneet krypto-, bitcoin- ja lohkoketjutapahtumat Pohjoismaissa, uusin ensin. Tapahtuma säilyy listalla sen päätyttyä.",
 "prev_h": "Aiemmat tapahtumat",

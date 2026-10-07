@@ -83,7 +83,7 @@ S = {
 "cal_preview": "<b>Forskoðun:</b> {p} af {n} væntanlegum viðburðum bíða yfirferðar ritstjóra; {o} eru samþykktir af ritstjóra og bíða lokasamþykkis jQrgen. Enginn þeirra er enn í opinberu útgáfunni.",
 "n_upcoming": "{n} væntanlegir", "upcoming_h": "Væntanlegt", "no_upcoming": "Engir væntanlegir viðburðir skráðir.",
 "past_h": "Liðnir viðburðir", "past_note": "Viðburðir færast hingað sjálfkrafa þegar þeim er lokið (norskur tími). Við eyðum þeim aldrei.", "no_past": "Engir liðnir viðburðir enn.",
-"ongoing_h": "Í gangi núna", "front_ev_h": "Næstu viðburðir", "front_ev_cal": "Allt dagatalið",
+"ongoing_h": "Í gangi núna", "front_ev_h": "Næstu viðburðir", "front_ev_cal": "Allt dagatalið", "latest_h": "Nýjast",
 "prev_link": "Fyrri viðburðir", "prev_title": "Fyrri viðburðir",
 "prev_desc": "Rafmynta-, bitcoin- og bálkakeðjuviðburðir á Norðurlöndunum sem er lokið, nýjast fyrst. Viðburður helst á skrá eftir að honum lýkur.",
 "prev_h": "Fyrri viðburðir",
