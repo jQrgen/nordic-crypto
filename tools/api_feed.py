@@ -31,6 +31,7 @@ sys.path.insert(0, os.path.join(ROOT, "tools"))
 import i18n  # noqa: E402
 import site_url  # noqa: E402
 import source_logos  # noqa: E402
+import event_block  # noqa: E402
 
 API = "1"
 SITE_NAME = "Nordic Crypto"
@@ -512,7 +513,9 @@ def public_org(preview):
 def public_events(preview, now=None):
     """Read-only mirror of build.events_for_site (does not rewrite the archive)."""
     ev = load(os.path.join(ROOT, "data", "events.json"), {"events": []}) or {"events": []}
-    ap = (load(os.path.join(ROOT, "queue", "approved.json"), {}) or {}).get("events", {}) or {}
+    ap_path = os.path.join(ROOT, "queue", "approved.json")
+    approvals_present = os.path.exists(ap_path)
+    ap = (load(ap_path, {}) or {}).get("events", {}) or {}
     now = now or dt.datetime.now(dt.timezone.utc).astimezone()
     # Compare with offset-aware datetimes. Source times carry an offset.
     if now.tzinfo is None:
@@ -520,14 +523,10 @@ def public_events(preview, now=None):
     out = []
     for raw in ev.get("events") or []:
         e = dict(raw)
-        if e.get("id") in ap.get("reject", []):
+        status = event_block.publication_status(e, ap, preview, approvals_present, from_archive=False)
+        if not status:
             continue
-        if e.get("id") in ap.get("approve", []):
-            e["status"] = "published"
-        elif e.get("id") in ap.get("ready_for_owner", []):
-            e["status"] = "owner"
-        if e.get("status") != "published" and not (preview and e.get("status") in ("pending", "owner")):
-            continue
+        e["status"] = status
         if not (e.get("place") or e.get("online")) or not e.get("organiser") or not e.get("start"):
             continue
         e["note"] = ap.get("notes", {}).get(e["id"]) or (e.get("note") if preview else None)
@@ -550,9 +549,13 @@ def public_events(preview, now=None):
     ark = load(os.path.join(ROOT, "archive", "events.json"), {"events": []}) or {"events": []}
     seen = {e["id"] for e in out}
     for raw in ark.get("events") or []:
-        if raw.get("id") in seen or raw.get("id") in ap.get("reject", []):
+        if raw.get("id") in seen:
             continue
         e = dict(raw)
+        status = event_block.publication_status(e, ap, preview, approvals_present, from_archive=True)
+        if not status:
+            continue
+        e["status"] = status
         e["note_i18n"] = e.get("note_i18n") or ((ap.get("notes_i18n") or {}).get(e["id"]) if e.get("note") else None)
         site_url.brand_note(e)
         end = e.get("end") or e.get("start")
@@ -671,6 +674,8 @@ def _sources(cfg):
             })
     events = []
     for s in cfg.get("event_sources") or []:
+        if event_block.blocked_source(s):
+            continue
         events.append({
             "id": s.get("id"),
             "name": s.get("name"),
