@@ -141,6 +141,47 @@ Predatory conference listings are not sources. `event_block.py` refuses Internat
 
 Other tools: `tools/probe.py` (feed checks), `tools/import_orgchart.py` (merges the Norwegian Kryptonytt industry map, translated via `data/no_en.json`, with `data/orgchart_nordic.json`), `tools/import_academia.py` (merges `research/academia/works.json` and the researcher's `academia.md` status column into `data/academia.json`), `tools/seed_academia.py` (DOI-checked publication candidates), `tools/privacy_gate.py`, `tools/commons_photo.py` (Wikimedia Commons photos with licence + credit only), `tools/fetch_logos.py` (one logo per org and per news outlet from Wikidata/Commons or the outlet's own site → `assets/img/logos/logos.json`, review pending), `tools/fetch_source_logos.py` (a second, robots.txt-checked pass for news outlets → `assets/img/logos/sources/`, keys `source:<id>` in `logos.json`, review pending, plus PNG renderings of SVG logos; see [Source logos](#source-logos)), `tools/rules_page.py` (rules page from `rules.json`), `tools/regulation_videos.py` (country explainer slots at `/regulation-videos/`), `tools/article_archive.py` (append-only article archive).
 
+## Calendar intake (Luma and Eventbrite)
+
+`python3 events.py` reads `event_sources` in `sources.json` (`.venv/bin/python events.py` when that virtualenv exists). New events land in `data/events.json` as `pending`. A finished event that is already stored is kept. The site build files published past events in `archive/events.json` and does not delete them. One source that fails is recorded under `state/source_status.json` and the run continues. The same title, calendar date and venue is one event even when the URL differs. Sources with `"trusted": false` are kept only when the title, description or place matches the crypto keyword list (English and the Nordic languages). The source name is not part of that text, so a mixed calendar keeps only the matching events. Country and city come from the venue text or `addressCountry`. A physical event that cannot be placed in Norway, Sweden, Denmark, Finland or Iceland is dropped. An online event with no Nordic city and no Nordic country is dropped. Kaupr is never stored as a sponsor.
+
+### Luma — public iCal, not city or category discovery
+
+The intake is the public calendar Subscribe feed, with no account:
+
+`https://api.lu.ma/ics/get?entity=calendar&id=cal-…`
+
+An individual event page (`"type": "luma-event"`) is schema.org Event JSON-LD.
+
+General discovery is not connected. [Luma's terms of use](https://luma.com/terms) say, under Acceptable Use, that you must not access the Service by any means other than their publicly supported interfaces, and that site content may not be reproduced except through those interfaces. The [official API](https://docs.luma.com) needs Luma Plus, a per-calendar API key, and only covers calendars you administer. City pages such as `luma.com/oslo` do embed a short schema.org ItemList and `__NEXT_DATA__` (`discover-place`, about twenty popular events). `luma.com/crypto` and `luma.com/ai` are worldwide category pages. `luma.com/web3` is a 2021 event slug, not a category. No `api.lu.ma` discover URL is a documented public interface, and bulk-copying the city JSON is not one either. `robots.txt` allows most of those HTML pages; that does not override the terms. City slugs are also unreliable: `luma.com/bergen` describes the New York metro, and several Nordic slugs are empty or missing. On 6 Oct 2026 the Oslo, Stockholm, Copenhagen and Helsinki city pages had no crypto keyword hits in the events they embed.
+
+Calendars in use, each with its Subscribe iCal URL on the source:
+
+| Country | Calendar | Page |
+|---|---|---|
+| Norway | K33 Markets | https://luma.com/k33 |
+| Sweden | Nordic Blockchain Association | https://luma.com/nordicblockchain |
+| Sweden | KTH Software Meetup (keyword filter; mixed software calendar) | https://luma.com/kth-assert |
+| Finland | BTCHEL Fridays | https://luma.com/btchel |
+
+Denmark and Iceland have no verified public Luma calendar in this list. Personal calendars and global calendars (Solana Foundation, DFNS) are not subscribed.
+
+### Eventbrite — v3 organizers and venues, not search
+
+The public search API was removed in 2020. URLs under `/d/` are not fetched. When `EVENTBRITE_TOKEN` is set in the environment (see `.env.example`; the value is not committed and is not written into the public API), `events.py` calls:
+
+`GET https://www.eventbriteapi.com/v3/organizers/{id}/events/?status=live&time_filter=current_future&expand=venue,organizer`
+
+and the same path for `venues/{id}`. The token is sent as `Authorization: Bearer` and is never put in the URL or the log. Without a token, or when that call errors, the `event_pages` listed on the source are read as JSON-LD. One dead event page is skipped. A successful API response, including an empty list, does not also scrape old pages.
+
+| Country | Organizer | Id |
+|---|---|---|
+| Sweden | Blockchain Smart Solutions | 46541998283 |
+| Sweden | Virtune AB (publ) | 67900216533 |
+| Finland | Web3 Community | 49444554943 |
+
+No verified organizer was found for Denmark or Iceland. `"type": "eventbrite-venue"` and `venue_id` are implemented. No physical Nordic venue is subscribed: the venue ids published on the Blockchain Smart Solutions collection are online classrooms.
+
 ## Outlet logos on news
 
 Whenever a story is shown (the news list, the screen, our own story pages, and the HTML newsletter digest) the outlet logo sits beside the source name when a checked image is on file. The name is text only when there is no logo. Nothing is drawn or invented. The site brand stays Nordic Crypto. Kaupr is a news source, and its logo appears only next to Kaupr stories.

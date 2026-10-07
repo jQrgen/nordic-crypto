@@ -584,6 +584,7 @@ def public_talks():
 
 def public_events(preview, now=None):
     """Read-only mirror of build.events_for_site (does not rewrite the archive)."""
+    import events as eventslib
     ev = load(os.path.join(ROOT, "data", "events.json"), {"events": []}) or {"events": []}
     ap_path = os.path.join(ROOT, "queue", "approved.json")
     approvals_present = os.path.exists(ap_path)
@@ -609,6 +610,7 @@ def public_events(preview, now=None):
             e["sponsored"] = True
         if e["id"] in ap.get("sponsor", {}):
             e["sponsored"] = ap["sponsor"][e["id"]]
+        e["sponsored"] = eventslib.clear_kaupr_sponsor(e.get("sponsored"))
         if e["id"] in ap.get("paid", {}):
             e["paid"] = ap["paid"][e["id"]]
         if e.get("status") == "published":
@@ -758,6 +760,11 @@ def _sources(cfg):
             "enabled": bool(s.get("enabled", True)),
             "trusted": bool(s.get("trusted")),
             "status": s.get("status") or "",
+            "method": s.get("method") or "",
+            "intake": s.get("type"),
+            "ics": s.get("ics"),
+            "organizer_id": s.get("organizer_id"),
+            "venue_id": s.get("venue_id"),
         })
     return outlets, search, events
 
@@ -1229,7 +1236,7 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
         example="api/v1/talks/by-country/NO.json",
     )
 
-    collection("api/v1/sources.json", "News outlets, the public search terms, and event sources. Kaupr is marked as a news source only. logo is the outlet image for that source id when one is on file.", "SourceCatalogue",
+    collection("api/v1/sources.json", "News outlets, the public search terms, and event sources. Event sources name the intake method. Luma calendars use a public iCal subscribe URL. Eventbrite organizers and venues use the v3 API when the server has EVENTBRITE_TOKEN; the token is not in this feed. Without it, event pages are schema.org JSON-LD. Kaupr is marked as a news source only and is never an event sponsor. logo is the outlet image for that source id when one is on file.", "SourceCatalogue",
                feed.env(
                    user_agent=site_url.expand((sources_cfg or {}).get("user_agent") or ""),
                    min_delay_seconds=(sources_cfg or {}).get("min_delay_seconds"),
@@ -1933,6 +1940,17 @@ def llms_txt(feed, index):
         "curl -fsS https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json",
         "```",
         "",
+        "## Events",
+        "",
+        "Luma calendars use the public iCal subscribe URL (the Subscribe link). "
+        "City pages, category pages and the Luma discover API are not used: the terms only allow publicly supported interfaces, "
+        "and the official API needs Luma Plus and only covers calendars you administer. "
+        "An individual Luma event page is schema.org JSON-LD. "
+        "Eventbrite organizers and venues use the v3 API when EVENTBRITE_TOKEN is set on the server. "
+        "The token is not in this feed. Without it, the event page JSON-LD is used. "
+        "The same title, date and venue is listed once. Finished events are kept. "
+        "Kaupr is a news source only and is never an event sponsor.",
+        "",
         "## Fetch news and newsletters",
         "",
         "```",
@@ -2037,6 +2055,7 @@ def docs_fragment(index):
 .api-docs pre{{overflow:auto;padding:10px 12px;background:#f6f7f8;border:1px solid #e5e7eb;font-size:13px}}
 .api-docs code{{font-size:.92em}}
 .api-docs td:first-child{{white-space:nowrap}}
+.api-docs, .api-docs p, .api-docs li, .api-docs td, .api-docs th{{text-align:left}}
 </style>
 <div class="api-docs">
 <h1>Nordic Crypto data API</h1>
@@ -2063,6 +2082,8 @@ curl -fsS {html.escape(b)}api/v1/markets/aggregated.json</pre>
 <p>Public talks on bitcoin, cryptocurrencies and blockchain held in Norway, Sweden, Denmark, Finland, Iceland, the Faroe Islands, Greenland and Åland are at <a href="{html.escape(b)}api/v1/talks.json"><code>/api/v1/talks.json</code></a>, newest first. One talk is <code>/api/v1/talks/{{id}}.json</code>. One country is <a href="{html.escape(b)}api/v1/talks/by-country/NO.json"><code>/api/v1/talks/by-country/{{country}}.json</code></a> (<code>NO</code>, <code>SE</code>, <code>DK</code>, <code>FI</code>, <code>IS</code>, <code>FO</code>, <code>GL</code>, <code>AX</code>). <code>description</code> is ours. <code>title</code>, dates, duration, channel and speakers come from the platform at <code>source_url</code>. A field the platform did not state is null. <code>embed</code> is true only when that platform's oEmbed response includes a player. The HTML page loads the player after a click: YouTube via youtube-nocookie.com, Vimeo via player.vimeo.com. <code>calendar_event_id</code> is the id in <code>/api/v1/events.json</code> when the talk is that calendar event.</p>
 <h2>Several outlets, one story</h2>
 <p>A story keeps one primary outlet. Other outlets that covered the same event are in <code>also_covered_by</code>. <code>sources</code> lists the primary first, then the others. Each outlet has <code>outlet</code>, <code>outlet_name</code>, <code>url</code>, <code>title</code> (that outlet's headline), <code>published</code>, <code>lang</code>, <code>country</code>, <code>source_type</code> and <code>logo</code>. <code>source_type</code> is <code>national</code>, <code>regional</code> (regional and local), <code>official</code> (justice and official: police, prosecutors, courts, regulators) or <code>international</code>. <code>coverage.count</code> is the number of outlets. <code>coverage.by_country</code> and <code>coverage.by_source_type</code> are the counts and shares for the bars. Every source type is present, including a count of zero. <code>html_url</code> is our page for that story. <code>url</code> is the primary outlet. Kaupr stays a news source only.</p>
+<h2>Events</h2>
+<p>Upcoming and past events are in <a href="{html.escape(b)}api/v1/events.json"><code>/api/v1/events.json</code></a>. Luma calendars are taken from the public Subscribe iCal URL on each event source (<code>ics</code>). Luma city pages, category pages and the discover API are not used. An individual Luma event page is schema.org JSON-LD. Eventbrite organizers and venues are read with the v3 API when the server has <code>EVENTBRITE_TOKEN</code>. That token is not in this feed and is not committed. Without it, the event page JSON-LD is used. The same title, date and venue is one event. Finished events stay in the feed. Kaupr is never a sponsor.</p>
 <h2>Languages</h2>
 <p>English is the default field (<code>summary</code>, <code>title</code>, <code>text</code>). Translations that we have published sit in <code>summary_i18n</code>, <code>title_i18n</code>, <code>subtitle_i18n</code>, <code>note_i18n</code>, <code>text_i18n</code> and <code>about_i18n</code>, keyed by <code>nn</code>, <code>nb</code>, <code>sv</code>, <code>da</code>, <code>fi</code> and <code>is</code>. Other site languages use the English field until a translation is published. Headlines from other outlets stay in the original language. Dates are ISO 8601.</p>
 <p><a href="{html.escape(b)}api/v1/languages.json"><code>/api/v1/languages.json</code></a> lists every site language with <code>code</code>, <code>native_name</code>, <code>english_name</code>, <code>rtl</code>, <code>html_lang</code> and <code>home</code>. <a href="{html.escape(b)}api/v1/geo-language.json"><code>/api/v1/geo-language.json</code></a> is the country-to-language guess used on a first visit. The IP country comes from the tipworker <code>GET /api/geo</code> (Cloudflare <code>request.cf.country</code>). Nothing is stored. The <code>nc_lang</code> cookie, set by the language switcher, always wins.</p>
