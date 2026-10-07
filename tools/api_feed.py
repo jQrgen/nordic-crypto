@@ -32,6 +32,7 @@ import i18n  # noqa: E402
 import site_url  # noqa: E402
 import source_logos  # noqa: E402
 import event_block  # noqa: E402
+import event_backfill  # noqa: E402
 import event_select  # noqa: E402
 
 API = "1"
@@ -397,9 +398,24 @@ class Feed:
             "note_i18n": {k: v for k, v in (raw.get("note_i18n") or {}).items() if k in LANGS and v} if raw.get("note") else {},
             "past": bool(raw.get("past")),
             "ongoing": event_select.classify(raw, self.now) == "ongoing",
-            "html_url": self.abs(f"calendar/#e-{eid}"),
+            "html_url": self.abs(f"events/previous/#e-{eid}") if raw.get("backfill") else self.abs(f"calendar/#e-{eid}"),
             "api_url": self.abs(f"api/v1/events/{eid}.json"),
         }
+        if raw.get("backfill"):
+            out["backfill"] = True
+            out["source"] = "backfill"
+            if raw.get("event_type"):
+                out["event_type"] = raw.get("event_type")
+            if raw.get("language"):
+                out["language"] = raw.get("language")
+            speakers = event_backfill.speakers_fact(raw)
+            if speakers:
+                out["speakers_count"] = speakers["count"]
+            videos = event_backfill.videos_fact(raw)
+            if videos:
+                out["videos_url"] = videos["url"]
+            if raw.get("credits"):
+                out["credits"] = raw.get("credits")
         fact = event_select.location_fact(raw)
         if fact:
             out["place_source"] = fact["credit"]
@@ -1028,10 +1044,16 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
         uniq.append(n)
     news = uniq
 
-    evs = [e for e in (feed.event_item(e) for e in events) if e]
+    raw_events = list(events or [])
+    evs = [e for e in (feed.event_item(e) for e in raw_events) if e]
     upcoming = [e for e in evs if not e["past"]]
     past = [e for e in evs if e["past"]][::-1]
     ongoing = [e for e in evs if e.get("ongoing")]
+    # Backfill is previous-archive only. It is not part of the calendar lists above.
+    raw_past = [e for e in raw_events if e.get("past")]
+    previous = [e for e in (feed.event_item(e) for e in event_backfill.merge_previous(raw_past, feed.now)) if e]
+    known = {e["id"] for e in evs}
+    backfill = [e for e in previous if e.get("backfill") and e["id"] not in known]
 
     ents = [e for e in (feed.entity(e) for e in entities) if e]
     rels = [feed.relation(r) for r in relations]
@@ -1133,8 +1155,10 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
     ev_doc("api/v1/events.json", "Public events, soonest start first, including past events.", evs, example=f"api/v1/events/{evs[0]['id']}.json" if evs else None)
     collection("api/v1/events/upcoming.json", "Events that have not ended, soonest first. Judged in the event's own offset.", "EventList", feed.env(count=len(upcoming), events=upcoming, ongoing=ongoing))
     collection("api/v1/events/past.json", "Finished public events, newest first. Finished events stay in the archive.", "EventList", feed.env(count=len(past), events=past))
-    collection("api/v1/events/previous.json", "Previous events, newest first. The same finished events as past.json. Rows are kept after they end.", "EventList", feed.env(count=len(past), events=past))
+    collection("api/v1/events/previous.json", "Previous events, newest finish first. Finished calendar events plus backfilled public events (source backfill). Backfill is not on the calendar or in upcoming or past.", "EventList", feed.env(count=len(previous), events=previous))
     for e in evs:
+        feed.write_json(f"api/v1/events/{e['id']}.json", feed.env(item=e))
+    for e in backfill:
         feed.write_json(f"api/v1/events/{e['id']}.json", feed.env(item=e))
     for c in COUNTRIES:
         rows = [e for e in evs if e.get("country") == c]
@@ -1256,6 +1280,7 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
             "events_upcoming": len(upcoming),
             "events_ongoing": len(ongoing),
             "events_past": len(past),
+            "events_previous": len(previous),
             "sources": len(outlets),
             "academia": ac_counts,
             "org_entities": len(ents),
@@ -1473,6 +1498,12 @@ def schemas():
             "attendees": {"type": "object", "nullable": True, "description": "Registered participant count with source_name, source_url and retrieved. Omitted when the source did not state a count. Capacity is not a count."},
             "html_url": {"type": "string"},
             "api_url": {"type": "string"},
+            "backfill": {"type": "boolean", "description": "True when the row comes from the previous-events backfill. Absent on calendar events. Those rows are only in previous.json."},
+            "event_type": {"type": "string", "nullable": True, "enum": ["conference", "meetup", "hackathon", "seminar"], "description": "Set on backfilled events when a source supports the type."},
+            "language": {"type": "string", "nullable": True, "description": "Language code when a source states it. Omitted when unknown."},
+            "speakers_count": {"type": "integer", "nullable": True, "description": "Exact speaker count when a source states one. Omitted otherwise. A session count is not a speaker count."},
+            "videos_url": {"type": "string", "nullable": True, "description": "Link to talk videos when a source gives one."},
+            "credits": {"type": "object", "nullable": True, "description": "Per-field source_name, source_url and retrieved_at on backfilled events."},
         },
     }
     issue = {

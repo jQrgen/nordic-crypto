@@ -5,4 +5,15 @@ This file does not translate article bodies or summaries. Nordic news sources ar
 """
 S = {
 "ios_tv": 'خاص طور پر Apple TV کی معاونت کرتا ہے۔',
+"prev_extra": "نورڈک ممالک کی پرانی عوامی تقریبیں یہاں تب آتی ہیں جب ماخذ تاریخ، جگہ اور منتظم بتائے۔",
+"ev_type": "قسم",
+"ev_type_conference": "کانفرنس",
+"ev_type_meetup": "میٹ اپ",
+"ev_type_hackathon": "ہیکاتھون",
+"ev_type_seminar": "سیمینار",
+"ev_language": "زبان",
+"ev_lang_en": "انگریزی",
+"ev_lang_is": "آئس لینڈی",
+"ev_speakers": "مقررین",
+"ev_videos": "تقریر کی ویڈیوز",
 }

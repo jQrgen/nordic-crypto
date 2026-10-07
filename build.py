@@ -14,7 +14,7 @@ import i18n
 import site_url
 import event_block
 from tools.frontpage_blurbs import card_text, load as load_blurbs, opening_sentences, substantive
-from tools import event_select
+from tools import event_backfill, event_select
 ROOT = os.path.dirname(os.path.abspath(__file__)); P = lambda *a: os.path.join(ROOT, *a)
 BASE = site_url.BASE
 SITE = os.environ.get("NC_SITE_DIR") or P("site")   # NC_SITE_DIR: scratch build dir (tipworker/publish_tip_page.sh)
@@ -809,7 +809,7 @@ def build():
     ctx.update(ents=ents, rels=rels, pub_org=pub_org)
     ctx["events"] = events_for_site()
     _evs, _ev_now = ctx["events"]
-    _prev = [e for e in event_select.partition(_evs, _ev_now)["previous"] if e.get("status") == "published"]
+    _prev = previous_page_rows(_evs, _ev_now)
     json.dump({"preview": PREVIEW, "events": [e for e in _evs if not e["past"]], "previous": _prev}, open(os.path.join(SITE, "data", "events.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     sys.path.insert(0, P("tools"))
     import markets as markets_mod
@@ -1399,7 +1399,21 @@ def event_card(e, hidden=False):
     att = event_select.attendees_fact(e)
     if att:
         extra.append(f'<p class="evmeta"><b>{E(t("ev_attendees"))}:</b> {att["count"]}</p>' + _source_line(att["credit"]))
-    return (f'<article class="evcard"{hid} data-start="{E(e.get("start") or "")}" data-end="{E(e.get("end") or "")}" data-id="{E(e.get("id") or "")}">'
+    if e.get("backfill"):
+        kind = e.get("event_type")
+        if kind:
+            extra.append(f'<p class="evmeta"><b>{E(t("ev_type"))}:</b> {E(t("ev_type_" + kind))}</p>' + _source_line(event_backfill.display_credit(e, "event_type")))
+        if e.get("organiser"):
+            extra.append(f'<p class="evmeta"><b>{E(t("organiser"))}:</b> {E(e["organiser"])}</p>' + _source_line(event_backfill.display_credit(e, "organiser")))
+        if e.get("language"):
+            extra.append(f'<p class="evmeta"><b>{E(t("ev_language"))}:</b> {E(t("ev_lang_" + e["language"]))}</p>' + _source_line(event_backfill.display_credit(e, "language")))
+        speakers = event_backfill.speakers_fact(e)
+        if speakers:
+            extra.append(f'<p class="evmeta"><b>{E(t("ev_speakers"))}:</b> {speakers["count"]}</p>' + _source_line(speakers["credit"]))
+        videos = event_backfill.videos_fact(e)
+        if videos:
+            extra.append(f'<p class="evmeta"><b>{E(t("ev_videos"))}:</b> <a href="{E(videos["url"])}" rel="noopener">{E(t("ev_videos"))}</a></p>' + _source_line(videos["credit"]))
+    return (f'<article class="evcard" id="e-{E(e.get("id") or "")}"{hid} data-start="{E(e.get("start") or "")}" data-end="{E(e.get("end") or "")}" data-id="{E(e.get("id") or "")}">'
             f'<h3><a href="{E(e.get("url") or "")}" rel="noopener">{E(event_title(e))}</a></h3>'
             f'<p class="meta evplace">{flag(e.get("country"))} <time datetime="{E(e.get("start") or "")}"><b>{E(event_when(e))}</b></time>{place_bit}</p>'
             + "".join(extra) + "</article>")
@@ -1436,11 +1450,16 @@ var keep=upcoming.slice(0,LIMIT),rest=upcoming.slice(LIMIT);
 keep.forEach(function(el){el.hidden=false;list.appendChild(el)});
 rest.forEach(function(el){el.hidden=true;list.appendChild(el)});
 var empty=list.querySelector('.empty');if(empty)empty.hidden=keep.length>0})();</script>""" % (fixed, limit)
+def previous_page_rows(events, now):
+    """Finished calendar events plus the backfill. Backfill is not part of `events`."""
+    cal = [e for e in event_select.partition(events, now)["previous"] if e.get("status") == "published"]
+    return event_backfill.merge_previous(cal, now)
 def build_previous(events, now):
     """Own page. The calendar page is left as it is, apart from a link here."""
-    rows = [e for e in event_select.partition(events, now)["previous"] if e.get("status") == "published"]
+    rows = previous_page_rows(events, now)
     body = f"""<h1>{E(t("prev_h"))}</h1>
 <p class="lead">{E(t("prev_lead"))}</p>
+<p>{E(t("prev_extra"))}</p>
 <p class="meta"><a href="../calendar/">{E(t("prev_back"))}</a></p>
 <div class="evfull">{''.join(event_card(e) for e in rows) or f'<p class="empty">{E(t("prev_empty"))}</p>'}</div>"""
     page("events/previous", t("prev_title"), "calendar", body, t("prev_desc"))

@@ -206,8 +206,23 @@ def main():
             fails.append("upcoming includes a finished event")
         if any(e["id"] not in {x["id"] for x in upcoming["events"]} for e in upcoming["ongoing"]):
             fails.append("ongoing event missing from not-ended list")
-        if [e["id"] for e in previous.get("events") or []] != [e["id"] for e in past_doc.get("events") or []]:
-            fails.append("previous.json differs from past.json")
+        past_ids = [e["id"] for e in past_doc.get("events") or []]
+        prev_ids = [e["id"] for e in previous.get("events") or []]
+        if any(i not in prev_ids for i in past_ids):
+            fails.append("previous.json dropped a finished calendar event")
+        backfill_ids = {e["id"] for e in previous.get("events") or [] if e.get("backfill")}
+        if not backfill_ids:
+            fails.append("previous.json has no backfill")
+        main_ids = {e["id"] for e in json.load(open(os.path.join(tmp, "api/v1/events.json"), encoding="utf-8")).get("events") or []}
+        up_ids = {e["id"] for e in upcoming.get("events") or []}
+        if backfill_ids & set(past_ids) or backfill_ids & up_ids or backfill_ids & main_ids:
+            fails.append("backfill leaked into the calendar API")
+        one = json.load(open(os.path.join(tmp, f"api/v1/events/{next(iter(backfill_ids))}.json"), encoding="utf-8"))
+        item = one.get("item") or {}
+        if item.get("source") != "backfill" or "events/previous/#e-" not in (item.get("html_url") or ""):
+            fails.append("backfill event document")
+        if not item.get("credits"):
+            fails.append("backfill credits missing from the API")
         social = meta.get("social") or {}
         tg = social.get("telegram") or {}
         xacc = social.get("x") or {}
