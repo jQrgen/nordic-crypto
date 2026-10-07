@@ -10,7 +10,7 @@ queue/approved.json -> items: [{"url": ..., "summary": "2–4 sentences IN ENGLI
                                 "summary_i18n": {"nn": ..., "nb": ..., "sv": ..., "da": ..., "fi": ..., "is": ...} (our own summary per site language),
                                 "summary_i18n_source": "<the English summary the translations were made from>",
                                 "summary_i18n_review": "pending" | "approved" (pending translations appear only in the preview build),
-                                "topics": [optional], "approved_by": "Crypto Nordic editor", "approved_at": "YYYY-MM-DD"}]
+                                "topics": [optional], "approved_by": "Nordic Crypto editor", "approved_at": "YYYY-MM-DD"}]
                        rejected: [{"url": ... | "title_contains": ..., "reason": ...}]   # kept out even when a feed finds them again"""
 import json, os, sys, urllib.parse
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); P = lambda *a: os.path.join(ROOT, *a)
@@ -90,7 +90,7 @@ for a in ap.get("items", []):
     if not it: missing.append(a["url"]); continue
     s = (a.get("summary") or "").strip()
     if not s: print(f"warning: no summary for {a['url']}", file=sys.stderr); continue
-    it.update(status="published", summary=s, approved_by=a.get("approved_by", "Crypto Nordic editor"), approved_at=a.get("approved_at"))
+    it.update(status="published", summary=s, approved_by=a.get("approved_by", "Nordic Crypto editor"), approved_at=a.get("approved_at"))
     for k in ("topics", "title_en", "source_name", "links", "country"):
         if a.get(k): it[k] = a[k]
     # translations only count while they were made from the current English summary (summary_i18n_source); otherwise the

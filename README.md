@@ -48,7 +48,7 @@ Site interface and page presentation. News outlets stay as listed in `sources.js
 After one automatic choice, `sessionStorage` `nc_auto` stops a second redirect in that tab. The full country map is in `tools/langselect.js` (`BY_COUNTRY`) and in `/api/v1/geo-language.json`.
 
 ## Data API
-Public JSON for apps and other tools, written into `site/` by `./build.sh` (`tools/api_feed.py`). No account. News, newsletters, events, sources, academia, the who's who, profiles, the rules map, the changelog and the article archive.
+Public JSON for apps and other tools, written into `site/` by `./build.sh` (`tools/api_feed.py`). No account. News, newsletters, events, talks, sources, academia, the who's who, profiles, the rules map, the changelog and the article archive.
 
 - Human docs: https://nordiccrypto.no/api/
 - Discovery: `/api/v1/index.json`
@@ -58,6 +58,13 @@ Public JSON for apps and other tools, written into `site/` by `./build.sh` (`too
 - `llms.txt` at the site root, and `/.well-known/api-catalog`
 
 News: `/api/v1/news.json` and `/api/v1/news/{id}.json`. Newsletters: `/api/v1/newsletters.json` and `/api/v1/newsletters/001.json`. GitHub Pages sends `Access-Control-Allow-Origin: *` on the files. `python3 tools/api_feed.py` writes the same JSON from the committed public data without building the rest of the HTML. That command also fetches live exchange prices (see below).
+
+### Talks
+Public recordings of talks on bitcoin, cryptocurrencies and blockchain held in Norway, Sweden, Denmark, Finland, Iceland, the Faroe Islands, Greenland and Åland, from the Bitcoin white paper (31 October 2008) onward. The page is `/talks/`, linked from the nav, the footer and the calendar's previous-events section. The data file is `data/talks.json`. The API is `/api/v1/talks.json`, `/api/v1/talks/{id}.json` and `/api/v1/talks/by-country/{country}.json` (`NO`, `SE`, `DK`, `FI`, `IS`, `FO`, `GL`, `AX`).
+
+`title`, speakers, dates, duration, channel and `embed` come from the platform at `source_url` (YouTube oEmbed, the watch page, and the length shown on YouTube's own search result when the watch-page player omits it). `description` is ours, a short note, not the platform text. A field the platform did not state is null. `embed` is true only when that platform's oEmbed response includes a player. The HTML page does not load the player until a click: YouTube via `youtube-nocookie.com`, Vimeo via `player.vimeo.com`. Thumbnails are not stored in the repo.
+
+`data/talks-backfill-state.json` records which years, countries, queries, channels, universities and events have been searched, and for each run how many candidates were checked and how many talks were added. A first results page is marked sampled, not exhausted, unless the query returned nothing relevant.
 
 ### Source logos
 So apps can show the outlet's logo next to its stories. Fields (v1, added; nothing removed):
@@ -120,22 +127,12 @@ The iOS app reads them from `social` on `/api/v1/meta.json` (`social.telegram`, 
 | Publish (later) | `./publish.sh --yes` | ONLY after jQrgen approves. Refuses a preview build; on first run creates the git repo and `jQrgen/nordic-crypto`, pushes `site/` to `gh-pages` while keeping `CNAME`, `kiosk/` and every top-level name in `publish-keep.txt`, sets the Pages custom domain to nordiccrypto.no, pushes code to `main`, stamps the launch date in `changelog.json`. Without `--yes` it only builds and checks. Aborts if the staged gh-pages tree has no `CNAME`. |
 | QA screenshots | `.venv/bin/python tools/screens.py` | Serves `site/` on a free local port, screenshots every page into `shots/`, reports JS errors, 4xx and horizontal overflow. |
 
-### Blockchain conference listings
-`event_sources` in `sources.json` includes International Conference Alerts country pages, `type: listing-jsonld`. Checked 6 Oct 2026; each URL returned a list of blockchain conferences:
+### Event listings
+`events.py` reads `event_sources` in `sources.json`. A `listing-jsonld` source is a page of event links (`link_pattern`, crypto keywords unless the source is `trusted`, soonest first, at most `max_links`), then schema.org `Event` JSON-LD on each page: title, start, end, place, organiser and URL. A street address under a Venue label is used when it is more specific than the city. Dates published as `00:00:00Z` are stored as that calendar day in the event country's time zone, and the calendar shows the dates without a clock time. No photos are copied. New rows land as `pending`. The public calendar shows an event only when its id is in `events.approve` in `queue/approved.json`. A `published` status stored on the row is not approval. When that file is absent, the committed archive stays on the calendar and rows in `data/events.json` are not promoted.
 
-- Norway: https://internationalconferencealerts.com/blockchain/norway
-- Sweden: https://internationalconferencealerts.com/blockchain/sweden
-- Denmark: https://internationalconferencealerts.com/blockchain/denmark
-- Finland: https://internationalconferencealerts.com/blockchain/finland
-- Iceland: https://internationalconferencealerts.com/blockchain/iceland
+Predatory conference listings are not sources. `event_block.py` refuses International Conference Alerts, Conference Alerts, All Conference Alert, Conference Next, WASET (`waset.org` and `conferenceindex.org`) and the organisers WASET, IRAJ, IIER, ISER, ISSER, KSAA, GASR, IIRD, Research Plus, Scholars Forum, Academics World and World Academics. A matching URL, source or organiser is not imported (`events.py` and `fetch.py`), is dropped from `data/events.json` and the editor queue, and is not shown on the calendar. `--add-event` refuses them too.
 
-`events.py` reads the listing, keeps event links (`link_pattern`, crypto keywords unless the source is `trusted`, soonest first, at most `max_links`), and reads schema.org `Event` JSON-LD on each event page: title, start, end, place, organiser and URL. A street address under a Venue label is used when it is more specific than the city. Dates published as `00:00:00Z` are stored as that calendar day in the event country's time zone, and the calendar shows the dates without a clock time. No photos are copied. The calendar links to the event page.
-
-These pages list academic conferences that put blockchain in the title. They are not auto-published. New rows land as `pending` in `data/events.json`. `./build.sh --preview` shows them, marked as waiting for the editor. The public calendar shows one after its id is added to `events.approve` in `queue/approved.json` (date, place and organiser must be on the listing or the organiser's page).
-
-Refresh: `./fetch.sh` or `.venv/bin/python events.py`. One country: `.venv/bin/python events.py --only ica-blockchain-norway`. robots.txt is respected (the site allows `/`; `/*_rsc=` is disallowed and is not requested). The usual per-host delay applies. If Cloudflare returns a challenge instead of the HTML, that source is recorded as failed in `state/source_status.json` and events already stored are kept. On 6 Oct 2026 a direct fetch with this site's user agent got HTTP 403 ("Just a moment"). The conferences then on the five listings were parsed from the public HTML with this same code and stored as pending, so a later run that receives HTML adds new ones and does not duplicate these.
-
-Other tools: `tools/probe.py` (feed checks), `tools/import_orgchart.py` (merges the Norwegian Kryptonytt industry map, translated via `data/no_en.json`, with `data/orgchart_nordic.json`), `tools/import_academia.py` (reads the researcher's `academia.md` and its editor status column), `tools/seed_academia.py` (DOI-checked publication candidates), `tools/privacy_gate.py`, `tools/commons_photo.py` (Wikimedia Commons photos with licence + credit only), `tools/fetch_logos.py` (one logo per org and per news outlet from Wikidata/Commons or the outlet's own site → `assets/img/logos/logos.json`, review pending), `tools/fetch_source_logos.py` (a second, robots.txt-checked pass for news outlets → `assets/img/logos/sources/`, keys `source:<id>` in `logos.json`, review pending, plus PNG renderings of SVG logos; see [Source logos](#source-logos)), `tools/rules_page.py` (rules page from `rules.json`), `tools/regulation_videos.py` (country explainer slots at `/regulation-videos/`), `tools/article_archive.py` (append-only article archive).
+Other tools: `tools/probe.py` (feed checks), `tools/import_orgchart.py` (merges the Norwegian Kryptonytt industry map, translated via `data/no_en.json`, with `data/orgchart_nordic.json`), `tools/import_academia.py` (merges `research/academia/works.json` and the researcher's `academia.md` status column into `data/academia.json`), `tools/seed_academia.py` (DOI-checked publication candidates), `tools/privacy_gate.py`, `tools/commons_photo.py` (Wikimedia Commons photos with licence + credit only), `tools/fetch_logos.py` (one logo per org and per news outlet from Wikidata/Commons or the outlet's own site → `assets/img/logos/logos.json`, review pending), `tools/fetch_source_logos.py` (a second, robots.txt-checked pass for news outlets → `assets/img/logos/sources/`, keys `source:<id>` in `logos.json`, review pending, plus PNG renderings of SVG logos; see [Source logos](#source-logos)), `tools/rules_page.py` (rules page from `rules.json`), `tools/regulation_videos.py` (country explainer slots at `/regulation-videos/`), `tools/article_archive.py` (append-only article archive).
 
 ## Outlet logos on news
 

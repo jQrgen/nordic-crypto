@@ -7,7 +7,7 @@ import json, os, sys, time, requests
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 import site_url
-UA = {"User-Agent": f"CryptoNordic/0.1 (local preview; {site_url.BASE})"}
+UA = {"User-Agent": f"NordicCrypto/0.1 (local preview; {site_url.BASE})"}
 C = "2026-10-03"; ST = "awaiting editor"
 # (country, code, name, institution, level, url, about)
 courses = [

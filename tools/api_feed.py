@@ -32,6 +32,7 @@ sys.path.insert(0, os.path.join(ROOT, "tools"))
 import i18n  # noqa: E402
 import site_url  # noqa: E402
 import source_logos  # noqa: E402
+import event_block  # noqa: E402
 
 API = "1"
 SITE_NAME = "Nordic Crypto"
@@ -403,6 +404,18 @@ class Feed:
             out["status"] = raw.get("status")
         return out
 
+    def talk_item(self, raw):
+        tid = safe_id(raw.get("id"))
+        if not tid:
+            return None
+        out = {key: raw.get(key) for key in TALK_FIELDS}
+        out["id"] = tid
+        out["speakers"] = raw.get("speakers") or []
+        out["embed"] = bool(raw.get("embed"))
+        out["html_url"] = self.abs(f"talks/#{tid}")
+        out["api_url"] = self.abs(f"api/v1/talks/{tid}.json")
+        return out
+
     def media(self, raw, kind):
         if not raw or not raw.get("file"):
             return None
@@ -533,10 +546,42 @@ def public_org(preview):
     return ents, rels, org.get("updated"), org.get("regulation") or [], org.get("caveats") or []
 
 
+TALK_FIELDS = (
+    "id", "video_url", "platform", "title", "speakers", "event_name", "event_url",
+    "calendar_event_id", "city", "country", "date", "published", "duration", "language",
+    "channel", "description", "source_url", "retrieved_at", "added_at", "embed",
+)
+
+def public_talks():
+    """Talks archive. Empty fields stay null. Newest talk date first."""
+    raw = load(os.path.join(ROOT, "data", "talks.json"), {"talks": []}) or {"talks": []}
+    rows = []
+    for item in raw.get("talks") or []:
+        if not isinstance(item, dict) or not item.get("id"):
+            continue
+        row = {}
+        for key in TALK_FIELDS:
+            value = item.get(key)
+            if key == "speakers":
+                row[key] = [s for s in value if isinstance(s, str) and s] if isinstance(value, list) else []
+            elif key == "embed":
+                row[key] = bool(value)
+            elif value in ("", None):
+                row[key] = None if key != "title" else value
+            else:
+                row[key] = value
+        if not row.get("title"):
+            row["title"] = None
+        rows.append(row)
+    rows.sort(key=lambda r: (r.get("date") or r.get("published") or "", r.get("id") or ""), reverse=True)
+    return rows
+
 def public_events(preview, now=None):
     """Read-only mirror of build.events_for_site (does not rewrite the archive)."""
     ev = load(os.path.join(ROOT, "data", "events.json"), {"events": []}) or {"events": []}
-    ap = (load(os.path.join(ROOT, "queue", "approved.json"), {}) or {}).get("events", {}) or {}
+    ap_path = os.path.join(ROOT, "queue", "approved.json")
+    approvals_present = os.path.exists(ap_path)
+    ap = (load(ap_path, {}) or {}).get("events", {}) or {}
     now = now or dt.datetime.now(dt.timezone.utc).astimezone()
     # Compare with offset-aware datetimes. Source times carry an offset.
     if now.tzinfo is None:
@@ -544,14 +589,10 @@ def public_events(preview, now=None):
     out = []
     for raw in ev.get("events") or []:
         e = dict(raw)
-        if e.get("id") in ap.get("reject", []):
+        status = event_block.publication_status(e, ap, preview, approvals_present, from_archive=False)
+        if not status:
             continue
-        if e.get("id") in ap.get("approve", []):
-            e["status"] = "published"
-        elif e.get("id") in ap.get("ready_for_owner", []):
-            e["status"] = "owner"
-        if e.get("status") != "published" and not (preview and e.get("status") in ("pending", "owner")):
-            continue
+        e["status"] = status
         if not (e.get("place") or e.get("online")) or not e.get("organiser") or not e.get("start"):
             continue
         e["note"] = ap.get("notes", {}).get(e["id"]) or (e.get("note") if preview else None)
@@ -567,16 +608,22 @@ def public_events(preview, now=None):
         if e.get("status") == "published":
             e["note"] = ap.get("notes", {}).get(e["id"])
         e["note_i18n"] = (ap.get("notes_i18n") or {}).get(e["id"]) if e.get("note") else None
+        site_url.brand_note(e)  # same correction as build.events_for_site; approved.json is local
         end = e.get("end") or e["start"]
         e["past"] = dt.datetime.fromisoformat(end) < now
         out.append(e)
     ark = load(os.path.join(ROOT, "archive", "events.json"), {"events": []}) or {"events": []}
     seen = {e["id"] for e in out}
     for raw in ark.get("events") or []:
-        if raw.get("id") in seen or raw.get("id") in ap.get("reject", []):
+        if raw.get("id") in seen:
             continue
         e = dict(raw)
+        status = event_block.publication_status(e, ap, preview, approvals_present, from_archive=True)
+        if not status:
+            continue
+        e["status"] = status
         e["note_i18n"] = e.get("note_i18n") or ((ap.get("notes_i18n") or {}).get(e["id"]) if e.get("note") else None)
+        site_url.brand_note(e)
         end = e.get("end") or e.get("start")
         if not end:
             continue
@@ -693,6 +740,8 @@ def _sources(cfg):
             })
     events = []
     for s in cfg.get("event_sources") or []:
+        if event_block.blocked_source(s):
+            continue
         events.append({
             "id": s.get("id"),
             "name": s.get("name"),
@@ -876,6 +925,7 @@ def _meta(feed):
     pages = [
         ("", "News"),
         ("calendar/", "Events calendar, upcoming and past"),
+        ("talks/", "Public talks on bitcoin, cryptocurrencies and blockchain in the Nordics, with video"),
         ("org-chart/", "Who's who: industry, regulators and the regulation overview"),
         ("rules/", "How EU crypto rules become law in the five countries"),
         ("regulation-videos/", "Country explainer videos: how crypto rules are decided in each Nordic country"),
@@ -1147,6 +1197,30 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
     feed.add_endpoint("events-by-country", "api/v1/events/by-country/{country}.json",
                       "Public events for one country code.", "EventList", example="api/v1/events/by-country/NO.json")
 
+    talks = [t for t in (feed.talk_item(raw) for raw in public_talks()) if t]
+    collection(
+        "api/v1/talks.json",
+        "Public talks on bitcoin, cryptocurrencies and blockchain in the Nordic countries, newest first. "
+        "A player is embedded on the site only when embed is true (YouTube via youtube-nocookie.com, or the Vimeo player). "
+        "Unknown fields are null. description is ours; title and the other details come from the platform.",
+        "TalkList",
+        feed.env(count=len(talks), talks=talks),
+        example=f"api/v1/talks/{talks[0]['id']}.json" if talks else None,
+        item_template="api/v1/talks/{id}.json",
+    )
+    for talk in talks:
+        feed.write_json(f"api/v1/talks/{talk['id']}.json", feed.env(item=talk))
+    for code in ("NO", "SE", "DK", "FI", "IS", "FO", "GL", "AX"):
+        subset = [t for t in talks if t.get("country") == code]
+        feed.write_json(f"api/v1/talks/by-country/{code}.json", feed.env(country=code, count=len(subset), talks=subset))
+    feed.add_endpoint(
+        "talks-by-country",
+        "api/v1/talks/by-country/{country}.json",
+        "Public talks for one country code: NO, SE, DK, FI, IS, FO (Faroe Islands), GL (Greenland) or AX (Åland).",
+        "TalkList",
+        example="api/v1/talks/by-country/NO.json",
+    )
+
     collection("api/v1/sources.json", "News outlets, the public search terms, and event sources. Kaupr is marked as a news source only. logo is the outlet image for that source id when one is on file.", "SourceCatalogue",
                feed.env(
                    user_agent=site_url.expand((sources_cfg or {}).get("user_agent") or ""),
@@ -1261,6 +1335,7 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
             "events": len(evs),
             "events_upcoming": len(upcoming),
             "events_past": len(past),
+            "talks": len(talks),
             "sources": len(outlets),
             "academia": ac_counts,
             "org_entities": len(ents),
@@ -1341,7 +1416,12 @@ def openapi(feed, index):
     def add_path(path, operation, summary, schema):
         params = []
         for name in re.findall(r"\{([^}]+)\}", path):
-            enum = COUNTRIES if name == "country" else None
+            if name == "country" and "/talks/" in path:
+                enum = ["NO", "SE", "DK", "FI", "IS", "FO", "GL", "AX"]
+            elif name == "country":
+                enum = COUNTRIES
+            else:
+                enum = None
             params.append({"name": name, "in": "path", "required": True, "schema": {"type": "string", **({"enum": enum} if enum else {})}})
         paths[path] = {"get": {
             "operationId": operation,
@@ -1362,7 +1442,7 @@ def openapi(feed, index):
             "description": (
                 f"Public read-only JSON for Nordic Crypto ({feed.base}). "
                 "No authentication. News, newsletters, events, sources, academia, the who's who, profiles, images, "
-                "the rules map, the changelog, the article archive and Nordic exchange prices (market data, not investment advice). "
+                "the rules map, the changelog, the article archive, public talk videos and Nordic exchange prices (market data, not investment advice). "
                 "Kaupr is a news source only, never a sponsor. The sign-off is The Nordic Crypto team. "
                 "GitHub Pages sends Access-Control-Allow-Origin: * so browsers can fetch these files. "
                 "English text is the default; published translations are inside each object under *_i18n. "
@@ -1504,6 +1584,35 @@ def schemas():
             "api_url": {"type": "string"},
         },
     }
+    talk_item = {
+        "type": "object",
+        "required": ["id", "video_url", "platform", "title", "source_url", "retrieved_at", "added_at"],
+        "description": "A public talk. Unknown fields are null. description is written by Nordic Crypto. The other details come from the platform named in source_url.",
+        "properties": {
+            "id": {"type": "string"},
+            "video_url": {"type": "string"},
+            "platform": {"type": "string", "enum": ["youtube", "vimeo", "university", "other"]},
+            "title": {"type": "string"},
+            "speakers": {"type": "array", "items": {"type": "string"}, "description": "Names the platform page states. Empty when none are stated."},
+            "event_name": {"type": "string", "nullable": True},
+            "event_url": {"type": "string", "nullable": True},
+            "calendar_event_id": {"type": "string", "nullable": True, "description": "Id of the matching event in /api/v1/events.json, when one exists."},
+            "city": {"type": "string", "nullable": True},
+            "country": {"type": "string", "nullable": True, "description": "NO, SE, DK, FI, IS, FO, GL or AX."},
+            "date": {"type": "string", "nullable": True, "description": "Calendar date of the talk, YYYY-MM-DD, when the source states it."},
+            "published": {"type": "string", "nullable": True, "description": "Date the video was published, YYYY-MM-DD."},
+            "duration": {"type": "string", "nullable": True, "description": "ISO 8601 duration when the platform states a length."},
+            "language": {"type": "string", "nullable": True, "description": "Language of the talk when the source states it."},
+            "channel": {"type": "string", "nullable": True},
+            "description": {"type": "string", "description": "Short neutral summary in our own words."},
+            "source_url": {"type": "string", "description": "Page the metadata was retrieved from."},
+            "retrieved_at": {"type": "string", "description": "ISO 8601 timestamp."},
+            "added_at": {"type": "string", "description": "ISO 8601 timestamp."},
+            "embed": {"type": "boolean", "description": "True when the platform's oEmbed response includes an official player."},
+            "html_url": {"type": "string"},
+            "api_url": {"type": "string"},
+        },
+    }
     issue = {
         "type": "object",
         "required": ["id", "date", "title"],
@@ -1541,6 +1650,8 @@ def schemas():
         "TopicIndex": wrap("TopicIndex", {"topics": {"type": "array"}}),
         "Event": event_item,
         "EventList": wrap("EventList", {"count": {"type": "integer"}, "events": {"type": "array", "items": event_item}}),
+        "Talk": talk_item,
+        "TalkList": wrap("TalkList", {"count": {"type": "integer"}, "talks": {"type": "array", "items": talk_item}}),
         "NewsletterIssue": issue,
         "NewsletterList": wrap("NewsletterList", {"count": {"type": "integer"}, "issues": {"type": "array", "items": issue}}),
         "Source": source_row,
@@ -1732,7 +1843,7 @@ def llms_txt(feed, index):
     lines = [
         f"# {SITE_NAME}",
         "",
-        "> Public JSON feed of Nordic crypto news, newsletters, events, sources, academia and the who's who. No account. No API key.",
+        "> Public JSON feed of Nordic crypto news, newsletters, events, talks, sources, academia and the who's who. No account. No API key.",
         "",
         f"{SITE_NAME} covers Norway, Sweden, Denmark, Finland and Iceland. "
         "The sign-off is The Nordic Crypto team. Kaupr (kaupr.io) is a news source only and is never a sponsor. "
@@ -1811,6 +1922,17 @@ def llms_txt(feed, index):
         "They are the publishers' trademarks, shown only to identify the source of a headline. "
         "A logo is null until the editor has checked it.",
         "",
+        "## Talks",
+        "",
+        "Public talks on bitcoin, cryptocurrencies and blockchain in the Nordic countries, newest first. "
+        "description is ours. title, dates, duration, channel and speakers come from the platform at source_url. "
+        "A missing detail is null. embed is true only when that platform's oEmbed response includes a player. "
+        "Country files use NO, SE, DK, FI, IS, FO (Faroe Islands), GL (Greenland) and AX (Åland).",
+        "",
+        "```",
+        f"curl -fsS {feed.abs('api/v1/talks.json')}",
+        "```",
+        "",
         "## Endpoints",
         "",
     ]
@@ -1880,7 +2002,7 @@ def docs_fragment(index):
 <div class="api-docs">
 <h1>Nordic Crypto data API</h1>
 <p class="lead">A public JSON feed of the site, for apps and for other tools. No account and no API key. It is regenerated whenever the site is built.</p>
-<p>Version 1. {html.escape(str(counts.get('news', 0)))} news items, {html.escape(str(counts.get('newsletters', 0)))} newsletter issues, {html.escape(str(counts.get('events', 0)))} events in this build. Generated {html.escape(index.get('generated_at') or '')}.</p>
+<p>Version 1. {html.escape(str(counts.get('news', 0)))} news items, {html.escape(str(counts.get('newsletters', 0)))} newsletter issues, {html.escape(str(counts.get('events', 0)))} events and {html.escape(str(counts.get('talks', 0)))} talks in this build. Generated {html.escape(index.get('generated_at') or '')}.</p>
 <h2>Start here</h2>
 <ul>
 <li><a href="{html.escape(b)}api/v1/index.json">Discovery</a> — every endpoint and example URL.</li>
@@ -1898,6 +2020,8 @@ curl -fsS {letters}{html.escape(one_line)}</pre>
 <p>The build fetches the exchanges. <code>.github/workflows/markets-refresh.yml</code> rewrites the JSON on gh-pages about once an hour, including the aggregated file and the icons. The markets page reloads this file, and refreshes Firi and Coinmotion in the browser because those APIs send <code>Access-Control-Allow-Origin: *</code>. NBX does not, so those rows follow the file. The same document on the gh-pages branch: <a href="https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json">raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json</a>.</p>
 <pre>curl -fsS {html.escape(b)}api/v1/markets.json
 curl -fsS {html.escape(b)}api/v1/markets/aggregated.json</pre>
+<h2>Talks</h2>
+<p>Public talks on bitcoin, cryptocurrencies and blockchain held in Norway, Sweden, Denmark, Finland, Iceland, the Faroe Islands, Greenland and Åland are at <a href="{html.escape(b)}api/v1/talks.json"><code>/api/v1/talks.json</code></a>, newest first. One talk is <code>/api/v1/talks/{{id}}.json</code>. One country is <a href="{html.escape(b)}api/v1/talks/by-country/NO.json"><code>/api/v1/talks/by-country/{{country}}.json</code></a> (<code>NO</code>, <code>SE</code>, <code>DK</code>, <code>FI</code>, <code>IS</code>, <code>FO</code>, <code>GL</code>, <code>AX</code>). <code>description</code> is ours. <code>title</code>, dates, duration, channel and speakers come from the platform at <code>source_url</code>. A field the platform did not state is null. <code>embed</code> is true only when that platform's oEmbed response includes a player. The HTML page loads the player after a click: YouTube via youtube-nocookie.com, Vimeo via player.vimeo.com. <code>calendar_event_id</code> is the id in <code>/api/v1/events.json</code> when the talk is that calendar event.</p>
 <h2>Several outlets, one story</h2>
 <p>A story keeps one primary outlet. Other outlets that covered the same event are in <code>also_covered_by</code>. <code>sources</code> lists the primary first, then the others. Each outlet has <code>outlet</code>, <code>outlet_name</code>, <code>url</code>, <code>title</code> (that outlet's headline), <code>published</code>, <code>lang</code>, <code>country</code>, <code>source_type</code> and <code>logo</code>. <code>source_type</code> is <code>national</code>, <code>regional</code> (regional and local), <code>official</code> (justice and official: police, prosecutors, courts, regulators) or <code>international</code>. <code>coverage.count</code> is the number of outlets. <code>coverage.by_country</code> and <code>coverage.by_source_type</code> are the counts and shares for the bars. Every source type is present, including a count of zero. <code>html_url</code> is our page for that story. <code>url</code> is the primary outlet. Kaupr stays a news source only.</p>
 <h2>Languages</h2>

@@ -18,7 +18,7 @@ honeypot, limits and responses as `tipserver/server.py` (checked by `test_parity
 Files: `src/worker.js`, `migrations/0001_tips.sql`, `migrations/0002_articles.sql` (append-only article archive, same schema as `archive/schema.sql`; applied by `deploy.sh` with the other migrations, not applied yet), `wrangler.toml`, `deploy.sh`, `pull.py`, `test_local.sh`,
 `test_parity.sh`, `tests/browser_cors.py`, `publish_tip_page.sh`, `env.sh` (wrangler 4 needs Node ≥ 22; uses `~/.local/node22` when present).
 
-## Newsletter signup (Crypto Nordic + Kryptonytt) – `src/newsletter.js`, `src/mailer.js`, `src/messages.js`, `migrations/0003_subscribers.sql`
+## Newsletter signup (Nordic Crypto + Kryptonytt) – `src/newsletter.js`, `src/mailer.js`, `src/messages.js`, `migrations/0003_subscribers.sql`
 - `POST /api/subscribe` – JSON or form: `email`, `site` (`nordic-crypto` | `kryptonytt`), `lang` (a language of that site),
   `website` (honeypot). Same answer for new / pending / already confirmed addresses (202 `{"ok":true,"pending":true}`, or a
   303 back to the site's newsletter page `?sent=1`), so nobody can test who subscribes. Body ≤ 2 KB, 5 per visitor / 10 min

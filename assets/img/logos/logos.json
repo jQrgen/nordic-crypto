@@ -19,7 +19,7 @@
   "wikidata": "Q109016",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)",
+  "reviewed": "2026-10-04 (Nordic Crypto editor)",
   "raster": "assets/img/logos/stortinget-finanskomiteen.png"
  },
  "finanstilsynet": {
@@ -30,7 +30,7 @@
   "kind": "touch",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "norges-bank": {
   "source": "Wikimedia Commons",
@@ -41,7 +41,7 @@
   "wikidata": "Q970769",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)",
+  "reviewed": "2026-10-04 (Nordic Crypto editor)",
   "raster": "assets/img/logos/norges-bank.png"
  },
  "skatteetaten": {
@@ -52,7 +52,7 @@
   "kind": "touch",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "okokrim": {
   "source": "Wikimedia Commons",
@@ -63,7 +63,7 @@
   "wikidata": "Q308084",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)",
+  "reviewed": "2026-10-04 (Nordic Crypto editor)",
   "raster": "assets/img/logos/okokrim.png"
  },
  "nkom": {
@@ -75,7 +75,7 @@
   "wikidata": "Q1772077",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "nve": {
   "file": "assets/img/logos/nve.svg",
@@ -103,7 +103,7 @@
   "wikidata": "Q602621",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "esma": {
   "source": "Wikimedia Commons",
@@ -114,7 +114,7 @@
   "wikidata": "Q769112",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "eba": {
   "file": "assets/img/logos/eba.svg",
@@ -124,7 +124,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "firi": {
   "source": "Wikimedia Commons",
@@ -135,7 +135,7 @@
   "wikidata": "Q110516569",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "nbx": {
   "file": "assets/img/logos/nbx.svg",
@@ -145,7 +145,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)",
+  "reviewed": "2026-10-04 (Nordic Crypto editor)",
   "raster": "assets/img/logos/nbx.png"
  },
  "k33": {
@@ -156,7 +156,7 @@
   "kind": "svgicon",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "bare-bitcoin": {
   "file": "assets/img/logos/bare-bitcoin.svg",
@@ -166,7 +166,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "dnb": {
   "source": "Wikimedia Commons",
@@ -177,7 +177,7 @@
   "wikidata": "Q80788",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "tydal-data-center": {
   "source": "Official website",
@@ -187,7 +187,7 @@
   "fetched": "2026-10-03",
   "review": "rejected",
   "reason": "editor: rejected (shows the owner Bitdeer's logo); left blank",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "schibsted-ventures": {
   "source": "Official website",
@@ -197,7 +197,7 @@
   "fetched": "2026-10-03",
   "review": "rejected",
   "reason": "editor: rejected",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "finans-norge": {
   "source": "Wikimedia Commons",
@@ -208,7 +208,7 @@
   "wikidata": "Q3936909",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "kaupr": {
   "file": "assets/img/logos/kaupr.webp",
@@ -218,7 +218,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "se-fi": {
   "source": "Wikimedia Commons",
@@ -229,7 +229,7 @@
   "wikidata": "Q5449671",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)",
+  "reviewed": "2026-10-04 (Nordic Crypto editor)",
   "raster": "assets/img/logos/se-fi.png"
  },
  "se-riksbank": {
@@ -241,7 +241,7 @@
   "wikidata": "Q564652",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "se-skatteverket": {
   "file": "assets/img/logos/se-skatteverket.webp",
@@ -251,7 +251,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "valuno": {
   "file": "assets/img/logos/valuno.svg",
@@ -261,7 +261,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "goobit": {
   "source": "Official website",
@@ -281,7 +281,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "fi-fiva": {
   "file": "assets/img/logos/fi-fiva.webp",
@@ -291,7 +291,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "fi-suomen-pankki": {
   "source": "Wikimedia Commons",
@@ -302,7 +302,7 @@
   "wikidata": "Q194060",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "fi-vero": {
   "file": "assets/img/logos/fi-vero.svg",
@@ -312,7 +312,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "coinmotion": {
   "file": "assets/img/logos/coinmotion.webp",
@@ -322,7 +322,7 @@
   "kind": "touch",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "tesseract": {
   "source": "Official website",
@@ -342,7 +342,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "northcrypto": {
   "file": "assets/img/logos/northcrypto.webp",
@@ -352,7 +352,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "kvarn-x": {
   "file": "assets/img/logos/kvarn-x.svg",
@@ -362,7 +362,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "paxos-eu": {
   "file": "assets/img/logos/paxos-eu.webp",
@@ -372,7 +372,7 @@
   "kind": "touch",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "btchel": {
   "source": "Official website",
@@ -392,7 +392,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "is-sfl": {
   "source": "Official website",
@@ -412,7 +412,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "monerium": {
   "file": "assets/img/logos/monerium.svg",
@@ -422,7 +422,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "dk-finanstilsynet": {
   "source": "Official website",
@@ -443,7 +443,7 @@
   "wikidata": "Q12310249",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "dk-skatteministeriet": {
   "source": "Official website",
@@ -473,7 +473,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "dk-lunar-block": {
   "file": "assets/img/logos/dk-lunar-block.svg",
@@ -483,7 +483,7 @@
   "kind": "svgicon",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "dk-gcex": {
   "file": "assets/img/logos/dk-gcex.webp",
@@ -493,7 +493,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "dk-northstake": {
   "source": "Official website",
@@ -513,7 +513,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "dk-januar": {
   "file": "assets/img/logos/dk-januar.svg",
@@ -523,7 +523,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "dk-safelynx": {
   "source": "Official website",
@@ -553,7 +553,7 @@
   "fetched": "2026-10-03",
   "review": "rejected",
   "reason": "editor: rejected",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "dk-bloxcel": {
   "source": "Official website",
@@ -563,7 +563,7 @@
   "fetched": "2026-10-03",
   "review": "rejected",
   "reason": "editor: rejected (org rejected)",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "se-divly": {
   "file": "assets/img/logos/se-divly.svg",
@@ -573,7 +573,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "se-h100": {
   "file": "assets/img/logos/se-h100.webp",
@@ -583,7 +583,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "se-hilbert-group": {
   "file": "assets/img/logos/se-hilbert-group.svg",
@@ -593,7 +593,7 @@
   "kind": "svgicon",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "se-pretax": {
   "source": "Official website",
@@ -624,7 +624,7 @@
   "wikidata": "Q257597",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "intl-d-fine": {
   "file": "assets/img/logos/intl-d-fine.svg",
@@ -634,7 +634,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "intl-okx": {
   "source": "Official website",
@@ -674,7 +674,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "ak-jensen-norway": {
   "file": "assets/img/logos/ak-jensen-norway.webp",
@@ -684,7 +684,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "bpi": {
   "file": "assets/img/logos/bpi.svg",
@@ -694,7 +694,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)",
+  "reviewed": "2026-10-04 (Nordic Crypto editor)",
   "raster": "assets/img/logos/bpi.png"
  },
  "nordic-blockchain-association": {
@@ -715,7 +715,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "shifter": {
   "file": "assets/img/logos/shifter.svg",
@@ -725,7 +725,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)",
+  "reviewed": "2026-10-04 (Nordic Crypto editor)",
   "raster": "assets/img/logos/shifter.png"
  },
  "greenmerc": {
@@ -736,7 +736,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "abcnyheter": {
   "file": "assets/img/logos/abcnyheter.svg",

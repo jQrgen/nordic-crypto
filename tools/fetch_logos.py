@@ -16,7 +16,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 import site_url
 DIR = os.path.join(ROOT, "assets", "img", "logos"); MAN = os.path.join(DIR, "logos.json")
-UA = {"User-Agent": f"CryptoNordicLogoBot/1.0 ({site_url.BASE}; editorial use)"}
+UA = {"User-Agent": f"NordicCryptoLogoBot/1.0 ({site_url.BASE}; editorial use)"}
 # Official domains for orgs whose data entry has no url (checked by hand 2026-10-03).
 DOMAIN = {"stortinget-finanskomiteen": "https://www.stortinget.no", "finansdepartementet": "https://www.regjeringen.no", "fma": "https://www.regjeringen.no",
   "finanstilsynet": "https://www.finanstilsynet.no", "norges-bank": "https://www.norges-bank.no", "skatteetaten": "https://www.skatteetaten.no",
@@ -38,7 +38,7 @@ def get(url, n=3_000_000):
         return r.read(n), r.headers.get("Content-Type", ""), r.geturl()
     except Exception as ex:  # some TLS stacks / WAFs reject urllib; retry once with curl (same request, browser-like UA)
         if isinstance(ex, urllib.error.HTTPError) and ex.code == 404: raise
-        out = subprocess.run(["curl", "-sSL", "--max-time", "20", "-A", "Mozilla/5.0 (X11; Linux x86_64) CryptoNordicLogoBot/1.0", "-w", "\n%{content_type}\n%{url_effective}", url],
+        out = subprocess.run(["curl", "-sSL", "--max-time", "20", "-A", "Mozilla/5.0 (X11; Linux x86_64) NordicCryptoLogoBot/1.0", "-w", "\n%{content_type}\n%{url_effective}", url],
                              capture_output=True, timeout=30)
         if out.returncode: raise
         body, ct, final = out.stdout.rsplit(b"\n", 2)

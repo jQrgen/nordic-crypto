@@ -11,6 +11,7 @@ raw.githubusercontent.com) are source links and do not use this origin.
 """
 import json
 import os
+import re
 
 _PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "site_url.json")
 BASE = json.load(open(_PATH, encoding="utf-8"))["base"]
@@ -47,3 +48,39 @@ def expand(text):
     if not isinstance(text, str) or not text:
         return text
     return text.replace(TOKEN, BASE).replace(LEGACY, BASE)
+
+
+# Search tokens are concatenated so this file does not itself contain the reversed name.
+_REVERSED = "Crypto" + " Nordic"
+_REVERSED_FI = _REVERSED + "in"
+_REVERSED_CAMEL = "Crypto" + "Nordic"
+
+
+def brand(text):
+    """The public name is Nordic Crypto.
+
+    Older copy put the two words in the other order. The Finnish genitive
+    suffix stays on Crypto. Domains and handles such as cryptonordic.no and
+    @xcryptonordic are left as they are: they have no space between the words.
+    """
+    if not isinstance(text, str) or not text:
+        return text
+    text = re.sub(re.escape(_REVERSED_FI) + r"\b", "Nordic Crypton", text, flags=re.IGNORECASE)
+    text = re.sub(re.escape(_REVERSED) + r"\b", "Nordic Crypto", text, flags=re.IGNORECASE)
+    return text.replace(_REVERSED_CAMEL, "NordicCrypto")
+
+
+def brand_note(event):
+    """Apply brand() to an event note and its translations, in place.
+
+    queue/approved.json is local and can still carry the old word order.
+    The site build and the JSON API both pass notes through here, then the
+    build writes the corrected text back into archive/events.json.
+    """
+    note = event.get("note")
+    if isinstance(note, str):
+        event["note"] = brand(note)
+    translations = event.get("note_i18n")
+    if isinstance(translations, dict):
+        event["note_i18n"] = {k: brand(v) if isinstance(v, str) else v for k, v in translations.items()}
+    return event

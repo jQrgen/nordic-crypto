@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Builds data/orgchart.json for Crypto Nordic (run by build.py on every build):
+"""Builds data/orgchart.json for Nordic Crypto (run by build.py on every build):
   1) Norway: the editor-approved Kryptonytt export (queue/approved.json -> industrikart.export) parsed by
      tools/import_industrikart_no.py, then translated with data/no_en.json. Rows without an English entry are LEFT OUT.
   2) Sweden, Denmark, Finland, Iceland, Nordic (plus Norwegian companies missing from the Kryptonytt export):

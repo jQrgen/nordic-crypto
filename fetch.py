@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Crypto Nordic – fetches feeds and public list pages for Norway, Sweden, Denmark, Finland and Iceland,
+"""Nordic Crypto – fetches feeds and public list pages for Norway, Sweden, Denmark, Finland and Iceland,
 filters on crypto keywords (Norwegian, Swedish, Danish, Finnish, Icelandic, English), de-duplicates and updates
 data/news.json and the editor queue queue/review.json. Events are searched in the same run (events.py).
 
@@ -16,6 +16,7 @@ import requests, feedparser
 from bs4 import BeautifulSoup
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "tools"))
 import coverage
+import event_block
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 P = lambda *a: os.path.join(ROOT, *a)
@@ -346,8 +347,18 @@ def main():
         f"{len(queue['items_needing_summary'])} awaiting an English summary, "
         f"{sum(1 for c in queue['candidate_entities'] if c['status']=='new')} new candidate entities in queue/review.json")
 
+def event_sources(cfg):
+    """Event sources for this run, with predatory conference listings removed."""
+    kept = []
+    for src in (cfg or {}).get("event_sources") or []:
+        if event_block.blocked_source(src):
+            log(f"event source {src.get('id', '?')} blocked predatory conference listing")
+            continue
+        kept.append(src)
+    return kept
+
 if __name__ == "__main__":
     main()
     if "--add" not in sys.argv and "--no-events" not in sys.argv:  # events are searched in every run
         import events
-        events.run(get, robots_ok, lambda t: bool(matches(t)), log, CFG)
+        events.run(get, robots_ok, lambda t: bool(matches(t)), log, dict(CFG, event_sources=event_sources(CFG)))
