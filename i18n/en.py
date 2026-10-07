@@ -69,6 +69,7 @@ S = {
 "js_photo": "Photo", "js_logo": "Logo", "js_source": "source", "js_close": "Close", "js_person": "Person", "js_org": "Organisation", "js_website": "website",
 "js_links": "Links", "js_sources": "Sources", "js_link": "link", "js_source_n": "source {n}", "js_pub": "Public", "js_priv": "Private",
 "js_profiles": "Profiles", "js_logo_alt": "{name} logo",
+"js_speakers": "Speakers", "js_talks": "Talks", "js_affiliation": "Affiliation at the time of the talk", "js_event": "Event",
 # sources
 "src_title": "Sources", "src_desc": "Nordic newspapers, justice-system press pages, broadcasters, regulators and crypto media that Nordic Crypto follows, with the status of each feed.",
 "src_h1": "Sources we follow",
