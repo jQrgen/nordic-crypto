@@ -7,6 +7,8 @@ KEYS = (
     "tre_cost", "tre_air", "tre_total", "tre_status", "tre_ok", "tre_low", "tre_empty", "tre_how_h", "tre_how",
     "tre_app", "tre_api", "tre_floor", "tre_proto",
     "tre_small", "tre_refill", "tre_target", "tre_event_cap", "tre_day_cap",
+    "tre_hist_h", "tre_chart_h", "tre_when", "tre_kind", "tre_kind_refill", "tre_kind_mint",
+    "tre_tx", "tre_event", "tre_amount", "tre_hist_note",
 )
 
 def _pack(lang, values):
@@ -47,6 +49,9 @@ S = {
 "Hot balance target",
 "Mint cap for one event",
 "Mint cap per day",
+"Refill and mint history", "Balance over time", "Date", "Kind", "Refill", "Mint",
+"Transaction", "Event", "Amount",
+"Public transaction ids only. This table does not name who sent the coins. The rows are a sample until the mint worker is recording live movements.",
 )),
 "nn": _pack("nn", (
 "Pregekasse", "Eg var der", "Eg skal dit",
@@ -79,6 +84,9 @@ S = {
 "Tak for den varme saldoen",
 "Tak for pregingar på eitt arrangement",
 "Tak for pregingar per dag",
+"Historikk for påfyll og preging", "Saldo over tid", "Dato", "Type", "Påfyll", "Preging",
+"Transaksjon", "Arrangement", "Sum",
+"Berre offentlege transaksjons-id-ar. Tabellen nemner ikkje kven som sende myntane. Radene er eit døme til pregearbeidaren tek opp rørsler.",
 )),
 "nb": _pack("nb", (
 "Pregekasse", "Jeg var der", "Jeg skal dit",
@@ -111,6 +119,9 @@ S = {
 "Tak for den varme saldoen",
 "Tak for preginger på ett arrangement",
 "Tak for preginger per dag",
+"Historikk for påfyll og preging", "Saldo over tid", "Dato", "Type", "Påfyll", "Preging",
+"Transaksjon", "Arrangement", "Beløp",
+"Bare offentlige transaksjons-id-er. Tabellen nevner ikke hvem som sendte myntene. Radene er et eksempel til pregearbeideren tar opp bevegelser.",
 )),
 "sv": _pack("sv", (
 "Präglingskassa", "Jag var där", "Jag ska dit",
@@ -143,6 +154,9 @@ S = {
 "Tak för det heta saldot",
 "Präglingstak för ett event",
 "Präglingstak per dag",
+"Historik för påfyllning och prägling", "Saldo över tid", "Datum", "Typ", "Påfyllning", "Prägling",
+"Transaktion", "Evenemang", "Belopp",
+"Bara offentliga transaktions-id. Tabellen namnger inte vem som skickade mynten. Raderna är ett exempel tills mint-arbetaren registrerar riktiga rörelser.",
 )),
 "da": _pack("da", (
 "Prægekasse", "Jeg var der", "Jeg skal derhen",
@@ -175,6 +189,9 @@ S = {
 "Loft for den varme saldo",
 "Prægeloft for ét event",
 "Prægeloft pr. dag",
+"Historik for påfyldning og prægning", "Saldo over tid", "Dato", "Type", "Påfyldning", "Prægning",
+"Transaktion", "Begivenhed", "Beløb",
+"Kun offentlige transaktions-id. Tabellen nævner ikke hvem der sendte mønterne. Rækkerne er et eksempel, indtil mint-arbejderen registrerer rigtige bevægelser.",
 )),
 "fi": _pack("fi", (
 "Lyöntikassa", "Olin siellä", "Aion mennä",
@@ -207,6 +224,9 @@ S = {
 "Kuuman saldon katto",
 "Lyöntikatto yhdelle tapahtumalle",
 "Lyöntikatto päivässä",
+"Täydennys- ja lyöntihistoria", "Saldo ajan kuluessa", "Päivämäärä", "Laji", "Täydennys", "Lyönti",
+"Siirto", "Tapahtuma", "Määrä",
+"Vain julkiset siirto-id:t. Taulukko ei nimeä kuka lähetti kolikot. Rivit ovat esimerkki, kunnes mint-työntekijä kirjaa oikeat liikkeet.",
 )),
 "is": _pack("is", (
 "Pregkassi", "Ég var þar", "Ég ætla að fara",
@@ -239,6 +259,9 @@ S = {
 "Þak á heitu innistæðunni",
 "Pregþak fyrir einn viðburð",
 "Pregþak á dag",
+"Saga áfyllinga og pregingar", "Staða yfir tíma", "Dagsetning", "Tegund", "Áfylling", "Preging",
+"Færsla", "Viðburður", "Upphæð",
+"Aðeins opinber færsluauðkenni. Taflan nefnir ekki hver sendi myntin. Línurnar eru dæmi þar til pregingarverkamaðurinn skráir raunverulegar hreyfingar.",
 )),
 "zh": _pack("zh", (
 "铸造金库", "我去过", "我要去",
@@ -271,6 +294,9 @@ S = {
 "热钱包余额上限",
 "单场活动铸造上限",
 "每日铸造上限",
+"充值与铸造记录", "余额随时间变化", "日期", "类型", "充值", "铸造",
+"交易", "活动", "金额",
+"只显示公开的交易号。表格不写出是谁转入的。这些行是示例，直到铸造服务开始记录真实变动。",
 )),
 "hi": _pack("hi", (
 "मिंटिंग कोष", "मैं वहाँ था", "मैं जा रहा हूँ",
@@ -303,6 +329,9 @@ S = {
 "हॉट बैलेंस की सीमा",
 "एक इवेंट की मिंट सीमा",
 "प्रति दिन मिंट सीमा",
+"रीफिल और मिंट इतिहास", "समय के साथ शेष", "तिथि", "प्रकार", "रीफिल", "मिंट",
+"लेनदेन", "इवेंट", "राशि",
+"केवल सार्वजनिक लेनदेन आईडी। तालिका यह नहीं बताती कि सिक्के किसने भेजे। ये पंक्तियाँ नमूना हैं, जब तक मिंट वर्कर वास्तविक गतिविधि दर्ज नहीं करता।",
 )),
 "es": _pack("es", (
 "Tesorería de acuñación", "Estuve allí", "Voy a ir",
@@ -335,6 +364,9 @@ S = {
 "Tope del saldo caliente",
 "Tope de acuñaciones de un evento",
 "Tope de acuñaciones por día",
+"Historial de recargas y acuñaciones", "Saldo a lo largo del tiempo", "Fecha", "Tipo", "Recarga", "Acuñación",
+"Transacción", "Evento", "Importe",
+"Solo identificadores públicos de transacción. La tabla no dice quién envió las monedas. Estas filas son un ejemplo hasta que el trabajador de acuñación registre movimientos reales.",
 )),
 "fr": _pack("fr", (
 "Trésorerie de frappe", "J’y étais", "J’y vais",
@@ -367,6 +399,9 @@ S = {
 "Plafond du solde chaud",
 "Plafond de frappes pour un événement",
 "Plafond de frappes par jour",
+"Historique des recharges et des frappes", "Solde dans le temps", "Date", "Type", "Recharge", "Frappe",
+"Transaction", "Événement", "Montant",
+"Identifiants de transaction publics seulement. Le tableau ne nomme pas qui a envoyé les pièces. Ces lignes sont un exemple jusqu’à ce que le worker d’émission enregistre les mouvements réels.",
 )),
 "ar": _pack("ar", (
 "خزينة السك", "كنت هناك", "سأذهب",
@@ -399,6 +434,9 @@ S = {
 "سقف الرصيد الساخن",
 "سقف السك لفعالية واحدة",
 "سقف السك في اليوم",
+"سجل التعبئة والسك", "الرصيد عبر الزمن", "التاريخ", "النوع", "تعبئة", "سك",
+"المعاملة", "الفعالية", "المبلغ",
+"معرّفات معاملات علنية فقط. الجدول لا يذكر من أرسل العملات. هذه الصفوف مثال إلى أن يسجّل عامل السك الحركات الحقيقية.",
 )),
 "bn": _pack("bn", (
 "মিন্টিং তহবিল", "আমি সেখানে ছিলাম", "আমি যাচ্ছি",
@@ -431,6 +469,9 @@ S = {
 "হট ব্যালেন্সের সীমা",
 "এক ইভেন্টের মিন্ট সীমা",
 "প্রতিদিনের মিন্ট সীমা",
+"রিফিল ও মিন্টের ইতিহাস", "সময়ের সাথে ব্যালেন্স", "তারিখ", "ধরন", "রিফিল", "মিন্ট",
+"লেনদেন", "ইভেন্ট", "পরিমাণ",
+"শুধু প্রকাশ্য লেনদেন আইডি। সারণি বলে না কে মুদ্রা পাঠিয়েছে। এই সারিগুলো নমুনা, যতক্ষণ না মিন্ট ওয়ার্কার আসল চলাচল লেখে।",
 )),
 "pt": _pack("pt", (
 "Tesouraria de cunhagem", "Eu estive lá", "Eu vou",
@@ -463,6 +504,9 @@ S = {
 "Teto do saldo quente",
 "Teto de cunhagens de um evento",
 "Teto de cunhagens por dia",
+"Histórico de recargas e cunhagens", "Saldo ao longo do tempo", "Data", "Tipo", "Recarga", "Cunhagem",
+"Transação", "Evento", "Valor",
+"Só identificadores públicos de transação. A tabela não diz quem enviou as moedas. Estas linhas são um exemplo até o worker de cunhagem registar movimentos reais.",
 )),
 "ru": _pack("ru", (
 "Казна для выпуска", "Я был там", "Я иду",
@@ -495,6 +539,9 @@ S = {
 "Потолок горячего баланса",
 "Потолок выпусков на одно событие",
 "Потолок выпусков в день",
+"История пополнений и выпусков", "Баланс во времени", "Дата", "Вид", "Пополнение", "Выпуск",
+"Транзакция", "Событие", "Сумма",
+"Только публичные идентификаторы транзакций. Таблица не называет, кто отправил монеты. Эти строки — пример, пока воркер выпуска не записывает реальные движения.",
 )),
 "ur": _pack("ur", (
 "ٹکسال کا خزانہ", "میں وہاں تھا", "میں جا رہا ہوں",
@@ -527,6 +574,9 @@ S = {
 "ہاٹ بیلنس کی حد",
 "ایک ایونٹ کی منٹ حد",
 "روزانہ منٹ حد",
+"ریفِل اور منٹ کی تاریخ", "وقت کے ساتھ بقایا", "تاریخ", "قسم", "ریفِل", "منٹ",
+"لین دین", "ایونٹ", "رقم",
+"صرف عوامی لین دین کی شناخت۔ جدول نہیں بتاتا کہ سکے کس نے بھیجے۔ یہ قطاریں مثال ہیں جب تک منٹ ورکر اصل حرکت درج نہ کرے۔",
 )),
 "id": _pack("id", (
 "Kas pencetakan", "Saya ada di sana", "Saya akan datang",
@@ -559,6 +609,9 @@ S = {
 "Batas saldo panas",
 "Batas cetak untuk satu acara",
 "Batas cetak per hari",
+"Riwayat isi ulang dan cetak", "Saldo dari waktu ke waktu", "Tanggal", "Jenis", "Isi ulang", "Cetak",
+"Transaksi", "Acara", "Jumlah",
+"Hanya id transaksi publik. Tabel tidak menyebut siapa yang mengirim koin. Baris ini contoh sampai pekerja cetak mencatat pergerakan sungguhan.",
 )),
 "de": _pack("de", (
 "Prägekasse", "Ich war dort", "Ich gehe hin",
@@ -591,6 +644,9 @@ S = {
 "Obergrenze des Hot-Saldos",
 "Prägeobergrenze für ein Event",
 "Prägeobergrenze pro Tag",
+"Verlauf der Auffüllungen und Prägungen", "Saldo im Zeitverlauf", "Datum", "Art", "Auffüllung", "Prägung",
+"Transaktion", "Veranstaltung", "Betrag",
+"Nur öffentliche Transaktionskennungen. Die Tabelle nennt nicht, wer die Münzen gesendet hat. Die Zeilen sind ein Beispiel, bis der Präge-Worker echte Bewegungen aufzeichnet.",
 )),
 "ja": _pack("ja", (
 "ミント金庫", "参加した", "参加する",
@@ -623,6 +679,9 @@ S = {
 "ホット残高の上限",
 "1 イベントのミント上限",
 "1 日のミント上限",
+"補充とミントの履歴", "残高の推移", "日付", "種類", "補充", "ミント",
+"トランザクション", "イベント", "金額",
+"公開のトランザクションIDだけを示します。誰が送ったかは書きません。ミントワーカーが実際の動きを記録するまでの見本です。",
 )),
 "sw": _pack("sw", (
 "Hazina ya kutengeneza", "Nilikuwepo", "Nitaenda",
@@ -655,6 +714,9 @@ S = {
 "Kikomo cha salio la moto",
 "Kikomo cha mint kwa tukio moja",
 "Kikomo cha mint kwa siku",
+"Historia ya kujaza na mint", "Salio kwa muda", "Tarehe", "Aina", "Ujazaji", "Mint",
+"Muamala", "Tukio", "Kiasi",
+"Vitambulisho vya miamala vya umma tu. Jedwali halitaji nani aliyetuma sarafu. Mistari hii ni mfano hadi mfanyakazi wa mint aandike mienendo halisi.",
 )),
 "mr": _pack("mr", (
 "मिंटिंग खजिना", "मी तिथे होतो", "मी जाणार आहे",
@@ -687,5 +749,8 @@ S = {
 "हॉट शिलकीची मर्यादा",
 "एका इव्हेंटची मिंट मर्यादा",
 "दररोजची मिंट मर्यादा",
+"रिफिल आणि मिंट इतिहास", "काळानुसार शिल्लक", "दिनांक", "प्रकार", "रिफिल", "मिंट",
+"व्यवहार", "इव्हेंट", "रक्कम",
+"फक्त सार्वजनिक व्यवहार ओळख. कोष्टक सांगत नाही की नाणी कोणी पाठवली. या ओळी नमुना आहेत जोपर्यंत मिंट वर्कर खऱ्या हालचाली नोंदवत नाही.",
 )),
 }

@@ -19,6 +19,10 @@ FIXTURE = os.path.join(ROOT, "data", "event_nft_fixture.json")
 CAPS = os.path.join(ROOT, "mintworker", "caps.json")
 PLACEHOLDER_NEXA = "placeholder:nexa:nordic-crypto-minting-treasury"
 PLACEHOLDER_BCH = "placeholder:bch:nordic-crypto-minting-treasury"
+EXPLORER = {
+    "nexa": "https://testnet-explorer.nexa.org/tx/",
+    "bch": "https://chipnet.imaginary.cash/tx/",
+}
 COUNTRY = {
     "NO": "Norway", "SE": "Sweden", "DK": "Denmark", "FI": "Finland", "IS": "Iceland",
     "NORDIC": "Nordic", "EU": "EU",
@@ -40,6 +44,11 @@ a.nftbtn{display:inline-block;padding:8px 14px;background:var(--ink);color:#fff;
 .trecol{flex:1 1 280px;max-width:440px;text-align:start}
 .trecol img{width:168px;height:168px;display:block;background:#fff;border:1px solid var(--line)}
 .placeholder{border:1px solid var(--warm);background:#fffbeb;padding:8px 10px;text-align:start}
+.trehist{width:100%;max-width:44rem;border-collapse:collapse;text-align:start;margin:8px 0 18px}
+.trehist th,.trehist td{text-align:start;padding:4px 12px 4px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.trecharts{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start;justify-content:flex-start}
+.trechart{margin:4px 0 16px;max-width:440px;text-align:start}
+.trechart svg{width:100%;height:auto;display:block}
 """
 
 
@@ -111,10 +120,51 @@ def _chain_view(raw, chain, caps):
     }
 
 
+def public_ledger(raw_rows):
+    """Allow-list for a ledger row. Satoshis in, display units out. No sender name."""
+    public = []
+    for row in raw_rows or []:
+        chain, kind = row.get("chain"), row.get("kind")
+        txid = str(row.get("txid") or "").lower()
+        if chain not in CHAINS or kind not in ("refill", "mint"):
+            continue
+        if len(txid) != 64 or any(c not in "0123456789abcdef" for c in txid):
+            continue
+        amount = int(row["amount"])
+        shown = amount // 100 if chain == "nexa" else amount
+        item = {
+            "chain": chain,
+            "kind": kind,
+            "at": row["at"],
+            "amount": shown,
+            "unit": "NEXA" if chain == "nexa" else "sats",
+            "txid": txid,
+            "explorer_url": EXPLORER[chain] + txid,
+        }
+        if kind == "mint" and row.get("event_id"):
+            item["event_id"] = row["event_id"]
+        public.append(item)
+    public.sort(key=lambda r: r["at"])
+    return public
+
+
+def balance_series(chain, rows):
+    """Running balance in the same display units as the public ledger."""
+    bal, out = 0, []
+    for row in rows:
+        if row["chain"] != chain:
+            continue
+        bal += row["amount"] if row["kind"] == "refill" else -row["amount"]
+        out.append({"at": row["at"], "amount": bal})
+    return out
+
+
 def treasury_document(page_url):
     """Public API body. Caps from mintworker/caps.json. Sample balances, not a chain lookup."""
     raw, caps = load_fixture(), load_caps()
     nexa, bch = _chain_view(raw["nexa"], "nexa", caps), _chain_view(raw["bch"], "bch", caps)
+    history = public_ledger(raw.get("ledger"))
+    series = {chain: balance_series(chain, history) for chain in CHAINS}
     rank = {"ok": 0, "low": 1, "empty": 2}
     worst = nexa if rank[nexa["status"]] >= rank[bch["status"]] else bch
     return {
@@ -122,6 +172,7 @@ def treasury_document(page_url):
         "prototype": True,
         "intentionally_small": True,
         "note": "Hot wallets are intentionally small and refilled by hand. The addresses are those hot wallets. These values are placeholders and sample balances, not a live chain lookup. Do not send funds.",
+        "history_note": "Sample ledger until the mint worker is recording live refills and mints. A public row is the time, the kind, the amount, the transaction id and, for a mint, the event id.",
         "status": worst["status"],
         "needs_funding": worst["needs_funding"],
         "app_prompt": {
@@ -130,7 +181,20 @@ def treasury_document(page_url):
         },
         "nexa": nexa,
         "bch": bch,
+        "history": history,
+        "balance_series": series,
         "page": page_url,
+    }
+
+
+def history_document():
+    """Same history the treasury document carries, for /api/v1/treasury/history.json."""
+    doc = treasury_document("https://nordiccrypto.no/treasury/")
+    return {
+        "feature": "event_nft",
+        "prototype": True,
+        "history": doc["history"],
+        "balance_series": doc["balance_series"],
     }
 
 
@@ -464,6 +528,53 @@ document.querySelectorAll('[data-nft-start]').forEach(function(box){
 });})();</script>""" % fixed
 
 
+def _chart_svg(series, label, E):
+    """One polyline. No chart library."""
+    if not series:
+        return ""
+    w, h, pad = 440, 150, 18
+    amounts = [p["amount"] for p in series]
+    lo, hi = min(amounts), max(amounts)
+    if lo == hi:
+        lo, hi = lo - 1, hi + 1
+    n = len(series)
+
+    def xy(i, value):
+        x = pad if n == 1 else pad + i * (w - 2 * pad) / (n - 1)
+        y = pad + (hi - value) * (h - 2 * pad) / (hi - lo)
+        return x, y
+
+    pts = " ".join("%.1f,%.1f" % xy(i, v) for i, v in enumerate(amounts))
+    lx, ly = xy(n - 1, amounts[-1])
+    return (
+        f'<figure class="trechart"><svg viewBox="0 0 {w} {h}" role="img" width="{w}" height="{h}" '
+        f'aria-label="{E(label)}"><polyline fill="none" stroke="currentColor" stroke-width="2" points="{pts}"/>'
+        f'<circle cx="{lx:.1f}" cy="{ly:.1f}" r="3" fill="currentColor"/></svg>'
+        f'<figcaption class="meta">{E(label)}</figcaption></figure>'
+    )
+
+
+def _history_table(rows, t, E):
+    body = []
+    for row in sorted(rows, key=lambda r: r["at"], reverse=True):
+        kind = t("tre_kind_refill") if row["kind"] == "refill" else t("tre_kind_mint")
+        txid = row["txid"]
+        short = txid[:10] + "…" + txid[-6:]
+        url = row.get("explorer_url")
+        cell = f'<a href="{E(url)}">{E(short)}</a>' if url else E(short)
+        event = E(row["event_id"]) if row.get("event_id") else ""
+        body.append(
+            f'<tr><td>{E(row["at"][:10])}</td><td>{E(kind)}</td>'
+            f'<td>{row["amount"]} {E(row["unit"])}</td><td>{cell}</td><td>{event}</td></tr>'
+        )
+    return (
+        f'<table class="trehist"><thead><tr>'
+        f'<th>{E(t("tre_when"))}</th><th>{E(t("tre_kind"))}</th><th>{E(t("tre_amount"))}</th>'
+        f'<th>{E(t("tre_tx"))}</th><th>{E(t("tre_event"))}</th>'
+        f'</tr></thead><tbody>{"".join(body)}</tbody></table>'
+    )
+
+
 def treasury_body(doc, root, t, E):
     def col(key, heading):
         row = doc[key]
@@ -494,10 +605,18 @@ def treasury_body(doc, root, t, E):
 {col("nexa", t("tre_nexa_h"))}
 {col("bch", t("tre_bch_h"))}
 </div>
+<h2>{E(t("tre_hist_h"))}</h2>
+<p>{E(t("tre_hist_note"))}</p>
+{_history_table(doc.get("history") or [], t, E)}
+<h2>{E(t("tre_chart_h"))}</h2>
+<div class="trecharts">
+{_chart_svg((doc.get("balance_series") or {}).get("nexa") or [], t("tre_nexa_h"), E)}
+{_chart_svg((doc.get("balance_series") or {}).get("bch") or [], t("tre_bch_h"), E)}
+</div>
 <h2>{E(t("tre_how_h"))}</h2>
 <p>{E(t("tre_how"))}</p>
 <p>{E(t("tre_app"))}</p>
-<p class="meta">{E(t("tre_api"))}: <a href="{E(root)}api/v1/treasury.json">/api/v1/treasury.json</a></p>'''
+<p class="meta">{E(t("tre_api"))}: <a href="{E(root)}api/v1/treasury.json">/api/v1/treasury.json</a> · <a href="{E(root)}api/v1/treasury/history.json">/api/v1/treasury/history.json</a></p>'''
 
 
 def event_body(event, phase, root, rel, t, E, when, place):

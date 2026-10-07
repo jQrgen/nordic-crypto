@@ -1,13 +1,22 @@
 {
-  "_note": "Sample balances for the event-NFT prototype. Not live, and not keys. Do not send funds to the placeholder addresses. Policy numbers (target, reserve, caps, airdrop) live in mintworker/caps.json. The hot key is a Cloudflare Worker secret, not a field in this file.",
+  "_note": "Sample balances and a sample ledger for the event-NFT prototype. Not live, and not keys. Do not send funds to the placeholder addresses. Policy numbers live in mintworker/caps.json. The hot key is a Cloudflare Worker secret, not a field in this file. Ledger amounts are satoshis (1 NEXA = 100). A from or name field on a row is a trap: the public page and the API must drop it.",
   "nexa": {
     "address": "placeholder:nexa:nordic-crypto-minting-treasury",
-    "balance_nex": 25000,
-    "mints_paid": 12
+    "balance_nex": 37960,
+    "mints_paid": 2
   },
   "bch": {
     "address": "placeholder:bch:nordic-crypto-minting-treasury",
-    "balance_sats": 120000,
-    "mints_paid": 4
-  }
+    "balance_sats": 137000,
+    "mints_paid": 2
+  },
+  "ledger": [
+    {"chain": "nexa", "kind": "refill", "txid": "a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1", "amount": 3000000, "at": "2026-08-12T09:00:00Z", "from": "do-not-publish", "name": "do-not-publish"},
+    {"chain": "nexa", "kind": "mint", "txid": "b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2", "amount": 102000, "at": "2026-09-03T15:00:00Z", "event_id": "89ced460e4ca"},
+    {"chain": "nexa", "kind": "refill", "txid": "c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3", "amount": 1000000, "at": "2026-09-20T11:00:00Z"},
+    {"chain": "nexa", "kind": "mint", "txid": "d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4", "amount": 102000, "at": "2026-10-02T16:00:00Z", "event_id": "89ced460e4ca"},
+    {"chain": "bch", "kind": "refill", "txid": "e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5", "amount": 160000, "at": "2026-08-12T09:30:00Z"},
+    {"chain": "bch", "kind": "mint", "txid": "f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6", "amount": 11500, "at": "2026-09-03T15:30:00Z", "event_id": "89ced460e4ca"},
+    {"chain": "bch", "kind": "mint", "txid": "a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7", "amount": 11500, "at": "2026-10-02T16:30:00Z", "event_id": "89ced460e4ca"}
+  ]
 }

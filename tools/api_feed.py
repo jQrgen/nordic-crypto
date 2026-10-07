@@ -1261,9 +1261,15 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
         treasury = event_nft.treasury_document(feed.abs("treasury/"))
         collection(
             "api/v1/treasury.json",
-            "Minting treasury for event NFTs on Nexa and Bitcoin Cash. Placeholder addresses and sample balances while the prototype flag is on.",
+            "Minting treasury for event NFTs on Nexa and Bitcoin Cash. Placeholder addresses, sample balances, refill history and a balance series while the prototype flag is on.",
             "MintTreasury",
             feed.env(**treasury),
+        )
+        collection(
+            "api/v1/treasury/history.json",
+            "Public refill and mint history for the event-NFT treasuries, plus the balance series. Transaction id and amount only.",
+            "MintTreasuryHistory",
+            feed.env(**event_nft.history_document()),
         )
 
     meta = _meta(feed)

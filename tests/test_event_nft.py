@@ -56,6 +56,25 @@ def main():
     blob_doc = json.dumps(doc).lower()
     if "private" in blob_doc or "nexaid" in blob_doc or "secret" in blob_doc:
         fail("treasury document leaked an identity field")
+    if "do-not-publish" in blob_doc or any(row.get("from") or row.get("name") for row in doc["history"]):
+        fail("history leaked a sender")
+    if doc["nexa"]["balance"]["amount"] != doc["balance_series"]["nexa"][-1]["amount"]:
+        fail("nexa series must end at the sample balance")
+    if doc["bch"]["balance"]["amount"] != doc["balance_series"]["bch"][-1]["amount"]:
+        fail("bch series must end at the sample balance")
+    kinds = {row["kind"] for row in doc["history"]}
+    if kinds != {"refill", "mint"}:
+        fail("history must list refills and mints")
+    if not all(str(row["explorer_url"]).startswith("https://") for row in doc["history"]):
+        fail("each history row needs an explorer link")
+    hist = event_nft.history_document()
+    if hist["history"] != doc["history"] or "nexa" not in hist["balance_series"]:
+        fail("history endpoint")
+    page = event_nft.treasury_body(doc, "./", lambda k, **kw: i18n.t("en", k, **kw), lambda s: str(s))
+    if "<table" not in page or "<svg" not in page or 'class="trehist"' not in page:
+        fail("treasury page needs the history table and the chart")
+    if "do-not-publish" in page or "text-align:start" not in event_nft.CSS:
+        fail("history layout or a sender on the page")
 
     ev = next(e for e in json.load(open("data/events.json", encoding="utf-8"))["events"] if e["id"] == "89ced460e4ca")
     urls = event_nft.media_urls("https://nordiccrypto.no", ev["id"], "ongoing", "nexa")

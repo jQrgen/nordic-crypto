@@ -1,6 +1,6 @@
 # Event NFTs
 
-A generated card for a public event, minted once per identity, paid for by a treasury anyone can fund. The person minting pays nothing. This document is the design. The website prototype behind it does not mint, does not hold a key, and is off in the public build.
+A generated card for a public event, minted once per identity, paid for by a treasury anyone can fund. The person minting pays nothing. This document is the design. The public site stays off until the flag is on. The mint worker can sign and broadcast on testnet when that flag is on and `MINT_NETWORK` is `testnet`. No key is in git, and nothing here is deployed.
 
 Two chains, two moments:
 
@@ -119,7 +119,7 @@ Bitcoin Cash:
 
 1. The same windows: pre-event before the start, ongoing while it runs.
 2. The wallet signs a challenge for a Bitcoin Cash address (a signed message, or CashID where the wallet still speaks it). Paytaca, Cashonize and Electron Cash can hold the resulting NFT. Wally cannot, as shipped today.
-3. The same one-per-event check, with the BCH address as the identity. The recommended proof is a signature over a challenge (WalletConnect or CashConnect). This draft hashes the identity string the client sends and does not check a signature yet.
+3. The same one-per-event check, with the BCH address as the identity. The proof is a signature over `nordic-crypto-mint|bch|<event id>|<address>`, the message Electron Cash and CashConnect's `bch_signMessage` produce. The worker checks that signature when testnet signing is on. The browser WalletConnect pairing screen is not in this draft.
 4. The worker spends the minting-capability NFT, sends an immutable NFT with this card's commitment to the address, returns the minting NFT to the treasury, and adds the sat float in the same transaction.
 
 The prototype does none of this. The button opens a preview, a QR code and a link to this site. The label says nothing is minted and no wallet is opened.
@@ -130,10 +130,10 @@ Store only `SHA-256(chain | identity | event id)` in the mint Worker's D1, with 
 
 NexaID is the Nexa identity. It is the address Wally returns from the login, not a second account.
 
-Bitcoin Cash has no NexaID. The code default, which is still an open choice, is one mint per address per event, plus the day and event caps, plus Turnstile when `TURNSTILE_SECRET` is set. Trade-offs:
+Bitcoin Cash has no NexaID. The code default is one mint per address per event, plus the day and event caps, plus Turnstile when `TURNSTILE_SECRET` is set. Trade-offs:
 
-- A signature over a challenge (WalletConnect or CashConnect) proves control of the address and needs no account. It is not a person. Someone with two wallets can mint twice. Someone who loses the wallet cannot mint again from a new address. That is the recommended v1. The worker does not verify that signature yet.
-- An address string with no signature is not enough. The current handler hashes whatever identity string the client posts.
+- A signature over a challenge proves control of the address and needs no account. It is not a person. Someone with two wallets can mint twice. Someone who loses the wallet cannot mint again from a new address. That is the v1 check, and the worker verifies it on the testnet path. The page does not yet open a WalletConnect session; a wallet that can sign the challenge string can already satisfy the worker.
+- An address string with no signature is refused once signing is on (`signature_invalid`). The flag-off path still returns the policy decision and does not sign.
 - CashID is a documented login, but support across Paytaca, Cashonize and Electron Cash is uneven. It is not the default.
 - Linking a NexaID to a BCH address would give one identity across chains and would put a cross-chain identifier in the worker. That is more surveillance than this feature needs. Not recommended.
 - Doing nothing on BCH leaves the sat float open to a fresh address every time. Not acceptable once the float is real.
@@ -158,7 +158,7 @@ This is the persistence mechanism. A seed phrase on paper, and a copy in a passw
 
 The public refill address is a non-secret var, `NEXA_HOT_ADDRESS` or `BCH_HOT_ADDRESS`. Until the operator sets it, the site shows the placeholder. The address is not a secret.
 
-`mintworker/` is separate from `tipworker/` for two reasons. The tip Worker accepts public form posts and its database holds newsletter email addresses, so a spend key does not belong there. This repository also has no Nexa group-token signer that runs inside a Worker. The mint Worker enforces the caps and stops. `signs` on `/api/health` is false. It does not broadcast.
+`mintworker/` is separate from `tipworker/` because the tip Worker accepts public form posts and its database holds newsletter email addresses. A spend key does not belong there. This Worker signs with `libnexa-ts` (Nexa NFT and the 1,000 NEXA airdrop) and `@bitauth/libauth` (CashTokens and the 10,000 sat airdrop). Signing runs only when `NC_EVENT_NFT=1` and `MINT_NETWORK=testnet`. `signs` on `/api/health` is true only in that case, and the network field is `testnet`. A mainnet address or a mainnet key is refused. The Worker has not been deployed. UTXOs come from the testnet electrum nodes (`testnet-electrum.nexa.org` and chipnet), not from the client. If those coins are missing, the mint stops with `utxo_unavailable`.
 
 If a later signer cannot run in a Worker, that process still does not invent a second key. It reads the same platform secret, or, if the key must sit in a database, an encrypted-at-rest column in D1 or Postgres whose encryption key is itself a platform secret. The process loads that key on startup. A new instance picks up the same key. That database path is the fallback, not the v1 store. v1 is the Worker secret.
 
@@ -183,6 +183,14 @@ A leak of the tip Worker does not reveal this key. A bug that logs request bodie
 
 jQrgen sends NEXA or BCH from his own wallet to the hot address, up to the target and not beyond. The treasury page and `treasury.json` show that address as `refill_address` (the same string as `address`) and the target. When the observed balance is at or under the reserve, or too small for one mint, or unknown, the worker refuses and `needs_funding` is true. A missing balance fails closed. It does not trust a balance posted by the client. This prototype still shows sample balances from `data/event_nft_fixture.json`.
 
+### Public history
+
+Every refill and every mint is a public row: time, kind (`refill` or `mint`), amount, transaction id, and an explorer link. A mint also carries the event id. The row does not carry a name, a NexaID, or a funder label. The transaction id is already public on the chain; the page does not add who sent it.
+
+The mint worker stores that ledger in D1 (`treasury_ledger`) when a testnet broadcast is accepted. A refill is recorded two ways. The hourly cron reads the hot address history from the testnet indexer and keeps an incoming payment whose inputs are someone else's address and whose amounts are integer satoshis. A float amount is skipped, because some explorers quote whole coins and a guessed conversion would be wrong. The same cron also accepts `REFILL_FEED`, a JSON document `{nexa:[], bch:[]}` of `{txid, amount, at}` in satoshis, and ignores any name or from field on those objects. `balance_snapshot` is written in that same hourly cron from the observed hot balance.
+
+The static page, while the worker is not live, draws the same shape from the sample ledger in the fixture. `/treasury/` shows a left-aligned table and an SVG line chart per chain. `/api/v1/treasury.json` includes `history` and `balance_series`. `/api/v1/treasury/history.json` is those two fields on their own. The worker serves the same pair at `/api/treasury` and `/api/treasury/history`. Nexa amounts in the public JSON are NEXA (the ledger stores satoshis, 100 per NEXA). Bitcoin Cash amounts stay in satoshis.
+
 ### What one mint costs
 
 The float dominates. The network allowance is a configuration ceiling. The live worker replaces it with the fee of the transaction it actually builds, and refuses the mint if that fee is above the ceiling.
@@ -194,11 +202,11 @@ The float dominates. The network allowance is a configuration ceiling. The live 
 
 1000 NEXA is the owner's figure for later transfer fees. 10,000 sats is the proposed BCH equivalent: enough for several token moves, small enough that the one-per-address rule matters. Both are config. A plain BCH output's dust is 546 sats; a token output is larger, which is why the network allowance sits above that.
 
-The treasury page shows the balance, the hot-balance target, the mint caps, the number of mints paid, the network cost, the float, and the total drawn per mint. It says the hot wallet is intentionally small and names the refill address.
+The treasury page shows the balance, the hot-balance target, the mint caps, the number of mints paid, the network cost, the float, and the total drawn per mint. It says the hot wallet is intentionally small and names the refill address. Below that it shows the refill and mint table and the balance chart.
 
 ### Caps
 
-`mintworker/caps.json` is the only copy of these numbers. The Worker and the treasury page both read it. The defaults below are open choices. They are what the code enforces until they change.
+`mintworker/caps.json` is the only copy of these numbers. The Worker and the treasury page both read it. jQrgen accepted the defaults below.
 
 | | Hot target | Reserve (refuse at or under) | Low-water | Per event | Per day | One mint draws |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -217,7 +225,7 @@ A full Nexa hot wallet covers about 49 mints. The day cap of 15 and the event ca
 
 The top-level `status` is the worse of the two chains. Identity, event-cap and day-cap refusals do not by themselves set `needs_funding` when the balance is otherwise ok.
 
-Sample balances in the fixture (not a live lookup): 25,000 NEXA and 120,000 sats. Both sit under the target and above the low-water mark, so the sample app prompt stays off.
+Sample balances in the fixture (not a live lookup): 37,960 NEXA and 137,000 sats, which is where the sample ledger ends. Both sit under the target and above the low-water mark, so the sample app prompt stays off.
 
 ### Abuse
 
@@ -248,10 +256,10 @@ With the flag on, in every site language, left aligned:
 
 - The ongoing hero has "Mint event NFT in Wally" and "Mint event NFT on Bitcoin Cash".
 - An upcoming card, the calendar row, and `/events/<id>/` have the pre-event pair, "I'm going".
-- Opening a button shows the generated image, the fields Wally or a CashTokens wallet would show, the fee-float sentence, the one-per-identity sentence, and a QR code of a link on this site. Nothing is broadcast.
+- Opening a button shows the generated image, the fields Wally or a CashTokens wallet would show, the fee-float sentence, the one-per-identity sentence, and a QR code of a link on this site. The static page does not broadcast. The mint worker broadcasts on testnet when the flag is on.
 - If that chain is `empty`, the button is the funding link instead.
-- `/treasury/` shows both placeholder addresses, both QR codes, the sample balance, the hot-wallet target, the event and day caps, the mint count and the cost. It says the hot wallet is intentionally small. `/faucet/` redirects there. The nav and the footer link to it.
-- `/api/v1/treasury.json` is the document above, with `prototype: true`.
+- `/treasury/` shows both placeholder addresses, both QR codes, the sample balance, the hot-wallet target, the event and day caps, the mint count and the cost. It says the hot wallet is intentionally small. It also shows the refill and mint table and a balance chart for each chain. `/faucet/` redirects there. The nav and the footer link to it.
+- `/api/v1/treasury.json` is the document above, with `prototype: true`, `history` and `balance_series`. `/api/v1/treasury/history.json` repeats the history and the series.
 
 Copy is in `i18n/event_nft_strings.py` for all 21 languages. The brand name stays Nordic Crypto.
 
@@ -259,16 +267,15 @@ Copy is in `i18n/event_nft_strings.py` for all 21 languages. The brand name stay
 
 The public token is the event, not the person. The worker's dedupe table is a hash. Logs for a mint should keep the event id, the chain and the success or refusal, not the address and not the IP. The hot key never appears in a log or a response.
 
-Abuse of the float is limited by the caps above. The worker must not mint when the event is outside its window, even if a modified page still shows the button. This draft does not mint at all.
+Abuse of the float is limited by the caps above. The worker must not mint when the event is outside its window, even if a modified page still shows the button. The static site does not mint. The worker will sign a testnet transaction when the flag is on. It has not been deployed, and a mainnet broadcast is refused. A confirming testnet mint still needs a funded hot wallet; the public nodes parsed a signed mint and rejected it for missing inputs.
 
 ## Open questions for the owner
 
-Custody is decided: a small hot key in the Worker secret store, refilled by hand, persisted across redeploy. These are still open:
+Custody is decided: a small hot key in the Worker secret store, refilled by hand, persisted across redeploy. The cap defaults in `mintworker/caps.json` are accepted. The Bitcoin Cash check is a signature over the challenge, verified by the worker on the testnet path; the browser WalletConnect session is not built. These are still open:
 
-1. Confirm the cap defaults in `mintworker/caps.json` (1,000 NEXA and 10,000 sats; Nexa 20 per event and 15 per day with a 50,000 NEXA target; Bitcoin Cash 8 per event and 6 per day with a 0.002 BCH target). Is there a monthly cap per identity?
-2. Bitcoin Cash double-mint prevention: one mint per address that signed a challenge, plus Turnstile (recommended and implemented as the default policy), or wait for something stronger. The signature check itself is not wired yet.
-3. Keep one mint per NexaID per event (what the code does), or allow the pre-event card and the ongoing card as two mints.
-4. Identical cards for every minter (this design), or public edition numbers that do not name the holder.
-5. Is CC BY 4.0 the licence for the generated card?
-6. The site has no per-event page today. The prototype adds `/events/<id>/` while the flag is on. Should that page stay when minting goes live?
-7. The apps need a small change to read `needs_funding`. The app source is not in this repo.
+1. Is there a monthly cap per identity, on top of the day cap and the one-per-event rule?
+2. Keep one mint per NexaID per event (what the code does), or allow the pre-event card and the ongoing card as two mints.
+3. Identical cards for every minter (this design), or public edition numbers that do not name the holder.
+4. Is CC BY 4.0 the licence for the generated card?
+5. The prototype adds `/events/<id>/` while the flag is on. Should that page stay when minting goes live?
+6. The apps need a small change to read `needs_funding`. The app source is not in this repo.

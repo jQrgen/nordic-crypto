@@ -12,10 +12,13 @@ export function keyConfigured(env, chain) {
 }
 
 export function loadHotKey(env, chain) {
-  // Returned only to the signer path, which this draft does not call.
-  // Do not pass the result to JSON.stringify, console, or a Response.
+  // Returned only to the signer. Do not pass the result to JSON.stringify, console, or a Response.
   if (!keyConfigured(env, chain)) return null;
   return env[KEY[chain]];
+}
+
+export function signingEnabled(env) {
+  return !!(env && env.NC_EVENT_NFT === "1" && env.MINT_NETWORK === "testnet");
 }
 
 export function keyFlags(env) {
@@ -29,5 +32,12 @@ export function refillAddress(env, chain, placeholder) {
 }
 
 export function publicHealth(env) {
-  return { ok: true, service: "nordic-crypto-mint", keys: keyFlags(env), signs: false };
+  const signs = signingEnabled(env);
+  return {
+    ok: true,
+    service: "nordic-crypto-mint",
+    keys: keyFlags(env),
+    signs,
+    network: signs ? "testnet" : "off",
+  };
 }

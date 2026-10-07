@@ -1,27 +1,25 @@
-// Nordic Crypto event-NFT mint policy. Separate from the tip Worker on purpose.
-// GET  /api/health     booleans only. Never the key.
-// GET  /api/treasury   caps, refill address, observed balance. Never the key.
-// POST /api/mint       runs the caps. Does not sign and does not broadcast.
+// Nordic Crypto event-NFT mint Worker. Separate from the tip Worker.
+// GET  /api/health            booleans only. Never the key.
+// GET  /api/treasury          caps, refill address, observed balance, history.
+// GET  /api/treasury/history  refills, mints, and the balance series.
+// POST /api/mint              caps, then (testnet flag only) sign and broadcast.
 //
-// The hot key is env.NEXA_HOT_KEY / env.BCH_HOT_KEY, injected by Cloudflare on
-// every isolate, including after a redeploy. This handler loads it only to see
-// that it is present. It is not copied into a response.
+// The hot key is env.NEXA_HOT_KEY / env.BCH_HOT_KEY. Signing runs only when
+// NC_EVENT_NFT=1 and MINT_NETWORK=testnet. Mainnet is not broadcast.
 
 import caps from "../caps.json" with { type: "json" };
-import { evaluate } from "./policy.js";
-import { loadHotKey, publicHealth, refillAddress } from "./secrets.js";
+import { performMint } from "./mint.js";
+import { loadHotKey, publicHealth, refillAddress, signingEnabled } from "./secrets.js";
+import { broadcastBch, broadcastNexa } from "./broadcast.js";
+import { ingestRefills, publicHistory, recordSnapshot } from "./history.js";
+import { bchAddress } from "./bch/sign.js";
+import { nexaAddressOf } from "./nexa/message.js";
+import { lookupUtxos, syncChainRefills } from "./utxos.js";
 
 const PLACEHOLDER = {
   nexa: "placeholder:nexa:nordic-crypto-minting-treasury",
   bch: "placeholder:bch:nordic-crypto-minting-treasury",
 };
-
-const hex = (buf) => [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, "0")).join("");
-
-async function identityHash(chain, identity, eventId) {
-  const raw = chain + "|" + String(identity || "").trim() + "|" + String(eventId || "").trim();
-  return hex(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(raw)));
-}
 
 function send(obj, status = 200) {
   return new Response(JSON.stringify(obj), {
@@ -36,27 +34,34 @@ async function observed(env, chain) {
   return row ? Number(row.amount) : null;
 }
 
-async function counts(env, chain, eventId, day) {
-  if (!env || !env.DB) return { claims: new Set(), eventCounts: {}, dayCounts: {} };
-  const eventRow = await env.DB.prepare("SELECT COUNT(*) AS n FROM mint_claim WHERE chain = ? AND event_id = ?").bind(chain, eventId).first();
-  const dayRow = await env.DB.prepare("SELECT COUNT(*) AS n FROM mint_claim WHERE chain = ? AND day = ?").bind(chain, day).first();
-  return {
-    claims: new Set(),
-    eventCounts: { [chain + "|" + eventId]: Number(eventRow.n) },
-    dayCounts: { [chain + "|" + day]: Number(dayRow.n) },
+async function treasuryBody(env) {
+  const history = await publicHistory(env && env.DB);
+  const out = {
+    feature: "event_nft",
+    prototype: !signingEnabled(env),
+    intentionally_small: true,
+    signs: signingEnabled(env),
+    network: signingEnabled(env) ? "testnet" : "off",
+    caps,
+    history: history.history,
+    balance_series: history.balance_series,
   };
-}
-
-async function already(env, hash) {
-  if (!env || !env.DB) return false;
-  const row = await env.DB.prepare("SELECT 1 AS x FROM mint_claim WHERE h = ?").bind(hash).first();
-  return !!row;
+  for (const chain of ["nexa", "bch"]) {
+    const addr = refillAddress(env, chain, PLACEHOLDER[chain]);
+    const balance = await observed(env, chain);
+    out[chain] = {
+      ...addr,
+      balance,
+      refill_address: addr.address,
+      hot_balance_target: caps[chain].hot_balance_target,
+      unit: caps[chain].unit,
+    };
+  }
+  return out;
 }
 
 export default {
   async fetch(req, env) {
-    // Load the binding so a missing secret fails closed. The value is not used
-    // for signing in this draft and is not placed on `out`.
     const nexaKey = loadHotKey(env, "nexa");
     const bchKey = loadHotKey(env, "bch");
     void nexaKey;
@@ -64,34 +69,52 @@ export default {
 
     const url = new URL(req.url);
     if (req.method === "GET" && url.pathname === "/api/health") return send(publicHealth(env));
-    if (req.method === "GET" && url.pathname === "/api/treasury") {
-      const out = { feature: "event_nft", prototype: true, intentionally_small: true, signs: false, caps };
-      for (const chain of ["nexa", "bch"]) {
-        const addr = refillAddress(env, chain, PLACEHOLDER[chain]);
-        const balance = await observed(env, chain);
-        out[chain] = { ...addr, balance, refill_address: addr.address, hot_balance_target: caps[chain].hot_balance_target, unit: caps[chain].unit };
-      }
-      return send(out);
+    if (req.method === "GET" && (url.pathname === "/api/treasury" || url.pathname === "/api/treasury/")) {
+      return send(await treasuryBody(env));
+    }
+    if (req.method === "GET" && url.pathname === "/api/treasury/history") {
+      return send(await publicHistory(env && env.DB));
     }
     if (req.method === "POST" && url.pathname === "/api/mint") {
       let body;
       try { body = await req.json(); } catch { return send({ allow: false, reason: "bad_json" }, 400); }
-      const chain = body && body.chain;
-      const eventId = body && typeof body.event_id === "string" ? body.event_id : "";
-      const identity = body && typeof body.identity === "string" ? body.identity : "";
-      if (!caps[chain] || !eventId || !identity) return send({ allow: false, reason: "bad_request" }, 400);
-      if (chain === "bch" && caps.bch.turnstile && env && env.TURNSTILE_SECRET && !body.turnstile) {
-        return send({ allow: false, reason: "turnstile_required", needs_funding: false }, 400);
-      }
-      const hash = await identityHash(chain, identity, eventId);
-      const day = new Date().toISOString().slice(0, 10);
-      const balance = await observed(env, chain);
-      const state = await counts(env, chain, eventId, day);
-      if (await already(env, hash)) state.claims.add(hash);
-      const decision = evaluate(caps, state, { chain, eventId, day, balance, identityHash: hash });
-      // No signer is wired. A passed policy still does not broadcast and does not record a claim.
-      return send({ ...decision, signed: false, broadcast: false });
+      const result = await performMint(env, body, caps, {
+        fetchUtxos: (chain, secret) => lookupUtxos(env, chain, secret),
+        broadcast: async (chain, hex) => chain === "nexa" ? broadcastNexa(hex) : broadcastBch(hex),
+      });
+      const status = result.reason === "bad_request" || result.reason === "bad_json" ? 400 : 200;
+      return send(result, status);
     }
     return send({ error: "not_found" }, 404);
   },
+
+  async scheduled(_event, env) {
+    if (!signingEnabled(env) || !env.DB) return;
+    const at = new Date().toISOString();
+    for (const chain of ["nexa", "bch"]) {
+      const row = await env.DB.prepare("SELECT amount FROM hot_observed WHERE chain = ?").bind(chain).first();
+      if (row) await recordSnapshot(env.DB, chain, Number(row.amount), at);
+    }
+    for (const chain of ["nexa", "bch"]) {
+      try {
+        const named = chain === "nexa" ? env.NEXA_HOT_ADDRESS : env.BCH_HOT_ADDRESS;
+        const key = loadHotKey(env, chain);
+        let address = named && !String(named).startsWith("placeholder:") ? named : null;
+        if (!address && key) address = chain === "nexa" ? nexaAddressOf(key) : await bchAddress(key);
+        if (address) await syncChainRefills(env.DB, chain, address);
+      } catch {
+        // A node that is down leaves the ledger as it was.
+      }
+    }
+    if (!env.REFILL_FEED) return;
+    const res = await fetch(env.REFILL_FEED);
+    if (!res.ok) return;
+    const doc = await res.json();
+    for (const chain of ["nexa", "bch"]) {
+      const rows = (doc && doc[chain]) || [];
+      await ingestRefills(env.DB, chain, rows);
+    }
+  },
 };
+
+export { ingestRefills };
