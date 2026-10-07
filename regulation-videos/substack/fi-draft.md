@@ -8,7 +8,7 @@ Body (draft for cryptonordic.substack.com — DO NOT auto-publish; jQrgen must r
 
 🇫🇮 **Finland** — who makes and enforces the crypto rules?
 
-This short explainer is from **Nordic Crypto**. It follows the same sourced map as our [How the rules are made](https://jqrgen.github.io/nordic-crypto/rules/) page.
+This short explainer is from **Nordic Crypto**. It follows the same sourced map as our [How the rules are made](https://nordiccrypto.no/rules/) page.
 
 ### The legal path
 MiCA applies directly as EU law. Act 402/2024 supplements MiCA; under its section 2, Finanssivalvonta supervises compliance.
@@ -34,7 +34,7 @@ Five FIN-FSA-authorised CASPs in the ESMA register (Coinmotion, Tesseract, Bitti
 ### Video
 [Embed slot: regulation-videos / FI — paste HTML5 video or release URL when render is ready]
 
-Full sources and every step: [nordic-crypto / rules](https://jqrgen.github.io/nordic-crypto/rules/).
+Full sources and every step: [nordic-crypto / rules](https://nordiccrypto.no/rules/).
 
 Nothing here is legal or investment advice.
 

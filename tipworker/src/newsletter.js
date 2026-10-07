@@ -1,4 +1,4 @@
-// Newsletter signup (double opt-in) for Crypto Nordic and Kryptonytt. Used by worker.js.
+// Newsletter signup (double opt-in) for Nordic Crypto and Kryptonytt. Used by worker.js.
 //   POST /api/subscribe       JSON or form: email, site (nordic-crypto | kryptonytt), lang, website (honeypot).
 //                             Always the same answer for a valid request (202 {"ok":true,"pending":true}, or 303 to the
 //                             site's newsletter page ?sent=1), whether the address is new, pending or already confirmed,
@@ -43,7 +43,7 @@ export async function unsubscribeUrl(env, origin, row) {
   return `${origin}/api/unsubscribe?` + new URLSearchParams({ id: String(row.id), sig, s: row.site, l: row.lang });
 }
 
-const siteLang = (q) => {   // site + lang from the query, for redirects; falls back to Crypto Nordic English
+const siteLang = (q) => {   // site + lang from the query, for redirects; falls back to Nordic Crypto English
   const s = Object.prototype.hasOwnProperty.call(SITES, q.get("s") || "") ? q.get("s") : "nordic-crypto";
   const l = Object.prototype.hasOwnProperty.call(SITES[s].langs, q.get("l") || "") ? q.get("l") : SITES[s].def;
   return [s, l];

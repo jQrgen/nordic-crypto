@@ -3,6 +3,38 @@
  "launch_date": "2026-10-03",
  "entries": [
   {
+   "id": "talks-archive",
+   "date": "2026-10-07",
+   "title": "Talks archive",
+   "description": "A talks page lists public recordings of bitcoin, cryptocurrency and blockchain talks held in the Nordic countries, newest first, with filters for country, year and language. The player loads only after a click, and only when the platform allows embedding. The same talks are in /api/v1/talks.json. The first batch is a verified sample, not a complete archive.",
+   "i18n": {
+    "nn": {
+     "title": "Foredragsarkiv",
+     "description": "Ei foredragsside listar opptak av offentlege foredrag om bitcoin, kryptovaluta og blokkjede haldne i dei nordiske landa, nyaste først, med filter for land, år og språk. Avspelaren lastar berre etter eit klikk, og berre når plattforma tillèt innbygging. Dei same foredraga ligg i /api/v1/talks.json. Første bolken er eit kontrollert utval, ikkje eit komplett arkiv."
+    },
+    "nb": {
+     "title": "Foredragsarkiv",
+     "description": "En foredragsside lister opptak av offentlige foredrag om bitcoin, kryptovaluta og blokkjede holdt i de nordiske landene, nyeste først, med filter for land, år og språk. Avspilleren lastes bare etter et klikk, og bare når plattformen tillater innbygging. De samme foredragene ligger i /api/v1/talks.json. Første bolken er et kontrollert utvalg, ikke et komplett arkiv."
+    },
+    "sv": {
+     "title": "Föredragsarkiv",
+     "description": "En föredragssida listar inspelningar av offentliga föredrag om bitcoin, kryptovaluta och blockkedja som hållits i de nordiska länderna, nyast först, med filter för land, år och språk. Spelaren laddas bara efter ett klick, och bara när plattformen tillåter inbäddning. Samma föredrag finns i /api/v1/talks.json. Första omgången är ett kontrollerat urval, inte ett komplett arkiv."
+    },
+    "da": {
+     "title": "Foredragsarkiv",
+     "description": "En foredragsside viser optagelser af offentlige foredrag om bitcoin, kryptovaluta og blockchain holdt i de nordiske lande, nyeste først, med filter for land, år og sprog. Afspilleren indlæses kun efter et klik, og kun når platformen tillader indlejring. De samme foredrag ligger i /api/v1/talks.json. Første portion er et kontrolleret udvalg, ikke et komplet arkiv."
+    },
+    "fi": {
+     "title": "Esitelmäarkisto",
+     "description": "Esitelmäsivu listaa tallenteet julkisista esitelmistä bitcoinista, kryptovaluutoista ja lohkoketjusta Pohjoismaissa, uusimmat ensin, suodattimilla maan, vuoden ja kielen mukaan. Soitin latautuu vasta klikkauksen jälkeen, ja vain jos alusta sallii upotuksen. Samat esitelmät ovat osoitteessa /api/v1/talks.json. Ensimmäinen erä on tarkistettu otos, ei täydellinen arkisto."
+    },
+    "is": {
+     "title": "Erindasafn",
+     "description": "Erindasíða listar upptökur af opinberum erindum um bitcoin, rafmyntir og bálkakeðju á Norðurlöndum, nýjustu fyrst, með síum fyrir land, ár og tungumál. Spilarinn hleðst aðeins eftir smell, og aðeins þegar vettvangurinn leyfir ívefjun. Sömu erindi eru í /api/v1/talks.json. Fyrsti hópurinn er yfirfarinn úrtak, ekki fullkomið safn."
+    }
+   }
+  },
+  {
    "id": "nordic-press-justice-sources",
    "date": "2026-10-06",
    "title": "Nordic newspapers, justice press pages, and outlet logos",
@@ -31,6 +63,230 @@
     "is": {
      "title": "Norræn dagblöð, fréttatilkynningar réttarvörslunnar og merki",
      "description": "Heimildalisti nær nú yfir landsdekkandi, svæðisbundin og staðbundin dagblöð í Noregi, Svíþjóð, Danmörku, Finnlandi, á Íslandi, í Færeyjum, á Grænlandi og á Álandseyjum, auk fréttatilkynninga lögreglu, ákæruvalds, dómstóla, tolls, skatts og fjármálagreiningar þar sem þær eru birtar. Staðfestur RSS- eða Atom-straumur er lesinn þegar hann virkar. Heimild án RSS er lesin úr veftré eða af opinni yfirlitssíðu (titill, dagsetning, tengill og samantekt), einnig bloggið hjá Bare Bitcoin. Heimild sem enn er ekki hægt að lesa stendur á listanum til handvirks eftirlits. Staðblöð og réttarheimildir eru síaðar á lykilorðum og einn dauður straumur stöðvar ekki keyrsluna. Þar sem við höfum eigið merki miðilsins er það sýnt við nafnið eingöngu til að auðkenna heimildina, og það tengir á miðilinn. Kaupr er aðeins fréttamiðill."
+    }
+   }
+  },
+  {
+   "id": "luma-eventbrite-intake",
+   "date": "2026-10-06",
+   "title": "Luma and Eventbrite on the calendar",
+   "description": "Luma and Eventbrite are event sources. Luma is each calendar's public Subscribe iCal feed, plus schema.org JSON-LD on an individual event page. City pages, category pages and Luma's discover API are not used: the terms of use only allow publicly supported interfaces, and the official API needs Luma Plus and only covers calendars you administer. Eventbrite uses the v3 organizers and venues API when EVENTBRITE_TOKEN is set on the server. The token is not committed. Without it, the event page's JSON-LD is used. The public search API, removed in 2020, is not used. Events are kept only when the title, description or place matches bitcoin, crypto or blockchain keywords, including Nordic-language forms. The same title, date and venue is listed once. Country and city are tagged from the venue. One broken feed does not stop the run. Finished events stay in the past archive. Kaupr is a news source only and is never a sponsor of an event.",
+   "i18n": {
+    "nn": {
+     "title": "Luma og Eventbrite på kalenderen",
+     "description": "Luma og Eventbrite er kjelder til arrangement. Luma er den offentlege iCal-straumen til kvar kalender (Subscribe), og schema.org JSON-LD på ei einskild arrangementsside. Bysider, kategorisider og oppdagings-API-et til Luma blir ikkje brukt: vilkåra tillet berre offentleg støtta grensesnitt, og det offisielle API-et krev Luma Plus og dekkjer berre kalendrar du sjølv driv. Eventbrite bruker v3-API-et for arrangørar og lokale når EVENTBRITE_TOKEN er sett på tenaren. Tokenet blir ikkje lagra i git. Utan det blir JSON-LD på arrangementsida brukt. Det offentlege søkje-API-et, som blei fjerna i 2020, blir ikkje brukt. Eit arrangement blir med berre når tittel, skildring eller stad treffer bitcoin-, krypto- eller blokkjedefilteret, også på nordiske språk. Same tittel, dato og stad blir lista éin gong. Land og by blir merkte frå staden. Éin straum som er nede, stoppar ikkje køyringa. Avslutta arrangement blir ståande i arkivet. Kaupr er berre ei nyheitskjelde og er aldrei sponsor for eit arrangement."
+    },
+    "nb": {
+     "title": "Luma og Eventbrite på kalenderen",
+     "description": "Luma og Eventbrite er kilder til arrangementer. Luma er den offentlige iCal-strømmen til hver kalender (Subscribe), og schema.org JSON-LD på en enkelt arrangementsside. Bysider, kategorisider og Lumas oppdagelses-API brukes ikke: vilkårene tillater bare offentlig støttede grensesnitt, og det offisielle API-et krever Luma Plus og dekker bare kalendere du selv driver. Eventbrite bruker v3-API-et for arrangører og lokaler når EVENTBRITE_TOKEN er satt på tjeneren. Tokenet lagres ikke i git. Uten det brukes JSON-LD på arrangementssiden. Det offentlige søke-API-et, som ble fjernet i 2020, brukes ikke. Et arrangement tas med bare når tittel, beskrivelse eller sted treffer bitcoin-, krypto- eller blokkjedefilteret, også på nordiske språk. Samme tittel, dato og sted listes én gang. Land og by merkes fra stedet. Én strøm som er nede, stopper ikke kjøringen. Avsluttede arrangementer blir stående i arkivet. Kaupr er bare en nyhetskilde og er aldri sponsor for et arrangement."
+    },
+    "sv": {
+     "title": "Luma och Eventbrite i kalendern",
+     "description": "Luma och Eventbrite är evenemangskällor. Luma är varje kalenders offentliga iCal-flöde (Subscribe), plus schema.org JSON-LD på en enskild evenemangssida. Stadssidor, kategorisidor och Lumas discover-API används inte: villkoren tillåter bara offentligt stödda gränssnitt, och det officiella API:t kräver Luma Plus och täcker bara kalendrar du själv driver. Eventbrite använder v3-API:t för arrangörer och platser när EVENTBRITE_TOKEN är satt på servern. Token sparas inte i git. Utan den används JSON-LD på evenemangssidan. Det offentliga sök-API:t, som togs bort 2020, används inte. Ett evenemang tas med bara när rubrik, beskrivning eller plats träffar bitcoin-, krypto- eller blockkedjefiltret, även på nordiska språk. Samma titel, datum och plats listas en gång. Land och stad märks från platsen. Ett trasigt flöde stoppar inte körningen. Avslutade evenemang ligger kvar i arkivet. Kaupr är bara en nyhetskälla och är aldrig sponsor för ett evenemang."
+    },
+    "da": {
+     "title": "Luma og Eventbrite i kalenderen",
+     "description": "Luma og Eventbrite er kilder til arrangementer. Luma er hver kalenders offentlige iCal-feed (Subscribe) og schema.org JSON-LD på en enkelt arrangementside. Bysider, kategorisider og Lumas discover-API bruges ikke: vilkårene tillader kun offentligt understøttede grænseflader, og det officielle API kræver Luma Plus og dækker kun kalendere, du selv driver. Eventbrite bruger v3-API'et for arrangører og steder, når EVENTBRITE_TOKEN er sat på serveren. Tokenet gemmes ikke i git. Uden det bruges JSON-LD på arrangementsiden. Det offentlige søge-API, som blev fjernet i 2020, bruges ikke. Et arrangement tages kun med, når titel, beskrivelse eller sted rammer bitcoin-, krypto- eller blockchain-filteret, også på nordiske sprog. Samme titel, dato og sted listes én gang. Land og by mærkes fra stedet. Ét dødt feed stopper ikke kørslen. Afsluttede arrangementer bliver i arkivet. Kaupr er kun en nyhedskilde og er aldrig sponsor for et arrangement."
+    },
+    "fi": {
+     "title": "Luma ja Eventbrite kalenterissa",
+     "description": "Luma ja Eventbrite ovat tapahtumalähteitä. Luma on kunkin kalenterin julkinen iCal-syöte (Subscribe) ja schema.org JSON-LD yksittäisellä tapahtumasivulla. Kaupunkisivuja, luokkasivuja ja Luman discover-rajapintaa ei käytetä: käyttöehdot sallivat vain julkisesti tuetut rajapinnat, ja virallinen rajapinta vaatii Luma Plus -tilauksen ja kattaa vain kalenterit, joita itse hallinnoit. Eventbrite käyttää v3-rajapintaa järjestäjille ja tapahtumapaikoille, kun EVENTBRITE_TOKEN on asetettu palvelimella. Tunnusta ei tallenneta gitiin. Ilman sitä käytetään tapahtumasivun JSON-LD:tä. Julkista hakurajapintaa, joka poistettiin vuonna 2020, ei käytetä. Tapahtuma otetaan mukaan vain, kun otsikko, kuvaus tai paikka osuu bitcoin-, krypto- tai lohkoketjusuodattimeen, myös pohjoismaisilla kielillä. Sama otsikko, päivä ja paikka listataan kerran. Maa ja kaupunki merkitään paikasta. Yksi rikki oleva syöte ei keskeytä ajoa. Päättyneet tapahtumat jäävät arkistoon. Kaupr on vain uutislähde eikä koskaan tapahtuman sponsori."
+    },
+    "is": {
+     "title": "Luma og Eventbrite á dagatalinu",
+     "description": "Luma og Eventbrite eru heimildir um viðburði. Luma er opinbert iCal-streymi hvers dagatals (Subscribe) og schema.org JSON-LD á einstakri viðburðasíðu. Borgarsíður, flokkasíður og discover-API Luma eru ekki notuð: skilmálarnir leyfa aðeins opinberlega studd viðmót, og opinbera API-ið krefst Luma Plus og nær aðeins yfir dagatöl sem þú rekur. Eventbrite notar v3-API fyrir skipuleggjendur og staði þegar EVENTBRITE_TOKEN er sett á netþjóninum. Táknið er ekki vistað í git. Án þess er JSON-LD á viðburðasíðunni notað. Opna leitar-API-ið, sem var fjarlægt 2020, er ekki notað. Viðburður er tekinn með aðeins þegar titill, lýsing eða staður fellur að bitcoin-, krypto- eða bálkakeðjusíu, einnig á norrænum málum. Sami titill, dagsetning og staður er skráður einu sinni. Land og borg eru merkt út frá staðnum. Einn dauður straumur stöðvar ekki keyrsluna. Liðnir viðburðir standa áfram í skjalasafninu. Kaupr er aðeins fréttamiðill og er aldrei styrktaraðili viðburðar."
+    }
+   }
+  },
+  {
+   "id": "story-illustrations",
+   "date": "2026-10-06",
+   "title": "Licensed pictures on stories, no newspaper photos",
+   "description": "Story cards and story pages now show a picture, with the credit under it: source, author, licence and a link. The pictures are our own illustrations, Wikimedia Commons files under CC0, CC BY or CC BY-SA, or an official picture a public body released for free use (the Riksbank building, and the Norges Bank facade under that bank’s terms). We do not copy, store or hotlink photographs from other newspapers. An audit of the site, the build and /api/v1/ found no such pictures stored. The import now drops og:image, RSS media:content and image enclosures instead of saving them. Outlet logos stay, only to name the source.",
+   "i18n": {
+    "nn": {
+     "title": "Lisensierte bilete på saker, ingen avisbilete",
+     "description": "Kort og sakssider viser no eit bilete, med kreditering under: kjelde, opphavsperson, lisens og ei lenkje. Bileta er våre eigne illustrasjonar, filer frå Wikimedia Commons under CC0, CC BY eller CC BY-SA, eller eit offisielt bilete ein offentleg verksemd har gitt fri bruk av (Riksbank-bygningen, og fasaden til Noregs Bank på vilkåra deira). Vi kopierer, lagrar eller hentar ikkje fotografi frå andre aviser. Ein gjennomgang av nettstaden, bygginga og /api/v1/ fann ingen slike bilete lagra. Importen droppar no og:image, RSS media:content og bildevellegg i staden for å lagre dei. Logoar frå media blir ståande, berre for å nemne kjelda."
+    },
+    "nb": {
+     "title": "Lisensierte bilder på saker, ingen avisbilder",
+     "description": "Kort og sakssider viser nå et bilde, med kreditering under: kilde, opphavsperson, lisens og en lenke. Bildene er våre egne illustrasjoner, filer fra Wikimedia Commons under CC0, CC BY eller CC BY-SA, eller et offisielt bilde en offentlig virksomhet har gitt fri bruk av (Riksbank-bygningen, og fasaden til Norges Bank på vilkårene deres). Vi kopierer, lagrer eller henter ikke fotografier fra andre aviser. En gjennomgang av nettstedet, byggingen og /api/v1/ fant ingen slike bilder lagret. Importen dropper nå og:image, RSS media:content og bildevedlegg i stedet for å lagre dem. Logoer fra mediene blir stående, bare for å nevne kilden."
+    },
+    "sv": {
+     "title": "Licensierade bilder på artiklar, inga tidningsfoton",
+     "description": "Kort och artikelsidor visar nu en bild, med kredit under: källa, upphovsperson, licens och en länk. Bilderna är våra egna illustrationer, filer från Wikimedia Commons under CC0, CC BY eller CC BY-SA, eller en officiell bild som en myndighet har släppt för fri användning (Riksbankshuset, och Norges Banks fasad enligt bankens villkor). Vi kopierar, lagrar eller hämtar inte fotografier från andra tidningar. En genomgång av webbplatsen, bygget och /api/v1/ hittade inga sådana bilder lagrade. Importen släpper nu og:image, RSS media:content och bildbilagor i stället för att spara dem. Medielogotyper är kvar, bara för att namnge källan."
+    },
+    "da": {
+     "title": "Licenserede billeder på artikler, ingen avisbilleder",
+     "description": "Kort og artikelsider viser nu et billede, med kreditering under: kilde, ophavsperson, licens og et link. Billederne er vores egne illustrationer, filer fra Wikimedia Commons under CC0, CC BY eller CC BY-SA, eller et officielt billede en myndighed har givet fri brug af (Riksbankens bygning, og Norges Banks facade på bankens vilkår). Vi kopierer, gemmer eller henter ikke fotografier fra andre aviser. En gennemgang af sitet, bygningen og /api/v1/ fandt ingen sådanne billeder gemt. Importen dropper nu og:image, RSS media:content og billedvedhæftninger i stedet for at gemme dem. Medielogoer bliver, kun for at nævne kilden."
+    },
+    "fi": {
+     "title": "Lisensoidut kuvat jutuissa, ei lehtien valokuvia",
+     "description": "Kortit ja juttusivut näyttävät nyt kuvan, ja krediitti on sen alla: lähde, tekijä, lisenssi ja linkki. Kuvat ovat omia kuvituksiamme, Wikimedia Commonsin CC0-, CC BY- tai CC BY-SA-tiedostoja, tai virallinen kuva, jonka viranomainen on antanut vapaaseen käyttöön (Riksbankin rakennus ja Norges Bankin julkisivu pankin ehdoilla). Emme kopioi, tallenna emmekä lataa valokuvia muista lehdistä. Sivuston, koosteen ja /api/v1/-rajapinnan läpikäynti ei löytänyt tällaisia tallennettuja kuvia. Tuonti hylkää nyt og:image-tiedot, RSS:n media:content-kentät ja kuvien liitteet sen sijaan että tallentaisi ne. Medioiden logot jäävät, vain lähteen nimeämiseksi."
+    },
+    "is": {
+     "title": "Leyfismyndir á fréttum, engar blaðaljósmyndir",
+     "description": "Spjöld og fréttasíður sýna nú mynd, með heimild undir: heimild, höfund, leyfi og tengil. Myndirnar eru okkar eigin teikningar, skrár af Wikimedia Commons með CC0, CC BY eða CC BY-SA, eða opinber mynd sem stofnun hefur gefið til frjálsrar notkunar (bygging Riksbank, og framhlið Norges Bank samkvæmt skilmálum bankans). Við afritum, geymum eða sækjum ekki ljósmyndir frá öðrum blöðum. Yfirferð á síðunni, byggingunni og /api/v1/ fann engar slíkar myndir vistaðar. Innflutningurinn hendir nú og:image, RSS media:content og myndaviðhengjum í stað þess að vista þau. Merki miðla standa, aðeins til að nefna heimildina."
+    }
+   }
+  },
+  {
+   "id": "browser-notifications",
+   "date": "2026-10-06",
+   "title": "Browser notifications when new stories are published",
+   "description": "A button at the bottom of every page turns on browser notifications. One publish sends one message, even when several stories go out together. You can limit it to one or more of Norway, Sweden, Denmark, Finland and Iceland, and the message uses the language of the page. We store only the push subscription, that language and those countries. The same button turns notifications off and deletes the subscription. Cloudflare Web Analytics still counts visits in aggregate, without cookies, and that data is not sold. A JSON feed of the same batches is there for a later iOS app. Apple push (APNs) is not used. Until that service is switched on, the page says so and does not offer the button.",
+   "i18n": {
+    "nn": {
+     "title": "Varslingar i nettlesaren når nye saker blir publiserte",
+     "description": "Ein knapp nedst på kvar side slår på varslingar i nettlesaren. Éin publisering sender éi melding, òg når fleire saker kjem saman. Du kan avgrense til eitt eller fleire av Noreg, Sverige, Danmark, Finland og Island, og meldinga bruker språket på sida. Vi lagrar berre push-abonnementet, det språket og dei landa. Same knapp slår av varslingar og slettar abonnementet. Cloudflare Web Analytics tel framleis besøk samla, utan informasjonskapslar, og dei dataa blir ikkje selde. Eit JSON-grensesnitt med dei same gruppene ligg klart for ein seinare iOS-app. Push-tenesta til Apple (APNs) blir ikkje brukt. Før tenesta er slått på, seier sida det og viser ikkje knappen."
+    },
+    "nb": {
+     "title": "Varsler i nettleseren når nye saker blir publisert",
+     "description": "En knapp nederst på hver side slår på varsler i nettleseren. Én publisering sender én melding, også når flere saker kommer sammen. Du kan avgrense til ett eller flere av Norge, Sverige, Danmark, Finland og Island, og meldingen bruker språket på siden. Vi lagrer bare push-abonnementet, det språket og de landene. Samme knapp slår av varsler og sletter abonnementet. Cloudflare Web Analytics teller fortsatt besøk samlet, uten informasjonskapsler, og de dataene blir ikke solgt. Et JSON-grensesnitt med de samme gruppene ligger klart for en senere iOS-app. Push-tjenesten til Apple (APNs) brukes ikke. Før tjenesten er slått på, sier siden det og viser ikke knappen."
+    },
+    "sv": {
+     "title": "Aviseringar i webbläsaren när nya artiklar publiceras",
+     "description": "En knapp längst ner på varje sida slår på aviseringar i webbläsaren. En publicering skickar ett meddelande, även när flera artiklar kommer tillsammans. Du kan begränsa det till ett eller flera av Norge, Sverige, Danmark, Finland och Island, och meddelandet använder sidans språk. Vi sparar bara push-prenumerationen, det språket och de länderna. Samma knapp stänger av aviseringar och raderar prenumerationen. Cloudflare Web Analytics räknar fortfarande besök samlat, utan kakor, och de uppgifterna säljs inte. Ett JSON-flöde med samma grupper finns för en senare iOS-app. Apples push-tjänst (APNs) används inte. Tills tjänsten är påslagen säger sidan det och visar inte knappen."
+    },
+    "da": {
+     "title": "Browsernotifikationer når nye artikler udgives",
+     "description": "En knap nederst på hver side slår notifikationer til i browseren. Én udgivelse sender én besked, også når flere artikler kommer sammen. Du kan begrænse den til et eller flere af Norge, Sverige, Danmark, Finland og Island, og beskeden bruger sidens sprog. Vi gemmer kun push-abonnementet, det sprog og de lande. Den samme knap slår notifikationer fra og sletter abonnementet. Cloudflare Web Analytics tæller stadig besøg samlet, uden cookies, og de data sælges ikke. Et JSON-feed med de samme grupper ligger klar til en senere iOS-app. Apples push-tjeneste (APNs) bruges ikke. Indtil tjenesten er slået til, siger siden det og viser ikke knappen."
+    },
+    "fi": {
+     "title": "Selainilmoitukset, kun uusia juttuja julkaistaan",
+     "description": "Painike jokaisen sivun alareunassa ottaa selainilmoitukset käyttöön. Yksi julkaisu lähettää yhden viestin, myös kun useita juttuja ilmestyy yhdessä. Voit rajata sen yhteen tai useampaan maahan: Norja, Ruotsi, Tanska, Suomi ja Islanti. Viesti käyttää sivun kieltä. Tallennamme vain push-tilauksen, tuon kielen ja ne maat. Sama painike poistaa ilmoitukset käytöstä ja poistaa tilauksen. Cloudflare Web Analytics laskee yhä käynnit kootusti, ilman evästeitä, eikä niitä tietoja myydä. Sama lista on JSONina myöhempää iOS-sovellusta varten. Applen oma push-palvelu (APNs) ei ole käytössä. Kunnes palvelu on kytketty päälle, sivu kertoo sen eikä näytä painiketta."
+    },
+    "is": {
+     "title": "Vafratilkynningar þegar nýjar fréttir eru birtar",
+     "description": "Hnappur neðst á hverri síðu kveikir á tilkynningum í vafranum. Ein birting sendir ein skilaboð, líka þegar nokkrar fréttir koma saman. Þú getur takmarkað þær við eitt eða fleiri af Noregi, Svíþjóð, Danmörku, Finnlandi og Íslandi, og skilaboðin nota tungumál síðunnar. Við vistum aðeins push-áskriftina, það tungumál og þau lönd. Sami hnappur slekkur á tilkynningum og eyðir áskriftinni. Cloudflare Web Analytics telur enn heimsóknir saman, án vafrakaka, og þau gögn eru ekki seld. JSON-listi yfir sömu hópa er til fyrir síðara iOS-app. Push-þjónusta Apple (APNs) er ekki notuð. Þar til þjónustan er kveikt segir síðan það og sýnir ekki hnappinn."
+    }
+   }
+  },
+  {
+   "id": "domain-nordiccrypto-no",
+   "date": "2026-10-06",
+   "title": "New address: nordiccrypto.no",
+   "description": "The site has moved to https://nordiccrypto.no/. Old cryptonordic.no links still work and forward to the same page on the new address. nordiccrypto.dk, .se, .fi, .is and .eu lead here too.",
+   "i18n": {
+    "nb": {
+     "title": "Ny adresse: nordiccrypto.no",
+     "description": "Nettstedet har flyttet til https://nordiccrypto.no/. Gamle lenker til cryptonordic.no virker fortsatt og sender deg til samme side på den nye adressen. nordiccrypto.dk, .se, .fi, .is og .eu leder også hit."
+    },
+    "nn": {
+     "title": "Ny adresse: nordiccrypto.no",
+     "description": "Nettstaden har flytta til https://nordiccrypto.no/. Gamle lenkjer til cryptonordic.no verkar framleis og sender deg til same side på den nye adressa. nordiccrypto.dk, .se, .fi, .is og .eu leier òg hit."
+    },
+    "sv": {
+     "title": "Ny adress: nordiccrypto.no",
+     "description": "Webbplatsen har flyttat till https://nordiccrypto.no/. Gamla länkar till cryptonordic.no fungerar fortfarande och leder till samma sida på den nya adressen. nordiccrypto.dk, .se, .fi, .is och .eu leder också hit."
+    },
+    "da": {
+     "title": "Ny adresse: nordiccrypto.no",
+     "description": "Sitet er flyttet til https://nordiccrypto.no/. Gamle links til cryptonordic.no virker stadig og sender dig til samme side på den nye adresse. nordiccrypto.dk, .se, .fi, .is og .eu fører også hertil."
+    },
+    "fi": {
+     "title": "Uusi osoite: nordiccrypto.no",
+     "description": "Sivusto on siirtynyt osoitteeseen https://nordiccrypto.no/. Vanhat cryptonordic.no-linkit toimivat edelleen ja vievät samalle sivulle uudessa osoitteessa. Myös nordiccrypto.dk, .se, .fi, .is ja .eu ohjaavat tänne."
+    },
+    "is": {
+     "title": "Nýtt veffang: nordiccrypto.no",
+     "description": "Vefurinn hefur flutt á https://nordiccrypto.no/. Gamlir tenglar á cryptonordic.no virka áfram og vísa á sömu síðu á nýja veffanginu. nordiccrypto.dk, .se, .fi, .is og .eu vísa líka hingað."
+    }
+   }
+  },
+  {
+   "id": "mobile-language",
+   "date": "2026-10-06",
+   "title": "Language choice on phones",
+   "description": "On a narrow screen the language control is the phone's own menu. It lists every site language in that language's own name, and the language you are reading is marked. It no longer opens an empty panel over the article. The section links sit behind a menu button, so the header stays on two lines. Wider screens keep the same language list as before.",
+   "i18n": {
+    "nn": {
+     "title": "Språkval på telefon",
+     "description": "På ein smal skjerm er språkvalet den innebygde menyen på telefonen. Han viser kvart språk på nettstaden med sitt eige namn, og språket du les er merkt. Han opnar ikkje lenger eit tomt felt over artikkelen. Seksjonslenkjene ligg bak ein menyknapp, så toppfeltet held seg på to liner. Breiare skjermar har den same språklista som før."
+    },
+    "nb": {
+     "title": "Språkvalg på telefon",
+     "description": "På en smal skjerm er språkvalget den innebygde menyen på telefonen. Den viser hvert språk på nettstedet med sitt eget navn, og språket du leser er merket. Den åpner ikke lenger et tomt felt over artikkelen. Seksjonslenkene ligger bak en menyknapp, så toppfeltet holder seg på to linjer. Bredere skjermer har den samme språklisten som før."
+    },
+    "sv": {
+     "title": "Språkval på telefonen",
+     "description": "På en smal skärm är språkvalet telefonens egen meny. Den visar varje språk på webbplatsen med sitt eget namn, och språket du läser är markerat. Den öppnar inte längre en tom ruta över artikeln. Avsnittslänkarna ligger bakom en menyknapp, så sidhuvudet stannar på två rader. Bredare skärmar har samma språklista som förut."
+    },
+    "da": {
+     "title": "Sprogvalg på telefonen",
+     "description": "På en smal skærm er sprogvalget telefonens egen menu. Den viser hvert sprog på sitet med sit eget navn, og sproget du læser er markeret. Den åbner ikke længere et tomt felt over artiklen. Sektionslinkene ligger bag en menuknap, så toppen holder sig på to linjer. Bredere skærme har den samme sprogliste som før."
+    },
+    "fi": {
+     "title": "Kielivalinta puhelimessa",
+     "description": "Kapealla näytöllä kielivalinta on puhelimen oma valikko. Se näyttää jokaisen sivuston kielen omalla nimellään, ja kieli jota luet on merkitty. Se ei enää avaa tyhjää ruutua artikkelin päälle. Osioiden linkit ovat valikkopainikkeen takana, joten ylätunniste pysyy kahdella rivillä. Leveämmillä näytöillä kielilista on entisellään."
+    },
+    "is": {
+     "title": "Tungumálaval á síma",
+     "description": "Á mjóum skjá er tungumálavalið eigin valmynd símans. Hún sýnir hvert tungumál síðunnar með sínu eigin nafni, og tungumálið sem þú lest er merkt. Hún opnar ekki lengur tóman reit yfir greininni. Tenglar á hluta síðunnar eru bak við valmyndarhnapp, svo hausinn helst í tveimur línum. Breiðari skjáir hafa sama tungumálalista og áður."
+    }
+   }
+  },
+  {
+   "id": "community-links",
+   "date": "2026-10-06",
+   "title": "Nordic Crypto on Telegram and X",
+   "description": "The footer, the About page and the newsletter link to the Nordic Crypto brand accounts: Telegram at https://t.me/nordiccryptochat and X at https://x.com/xcryptonordic. The same links are in /api/v1/meta.json under social, for the iOS app. The link text is in English, Norwegian (nynorsk and bokmål), Swedish, Danish, Finnish and Icelandic. Other site languages use the English text. The source-code link stays.",
+   "i18n": {
+    "nn": {
+     "title": "Nordic Crypto på Telegram og X",
+     "description": "Botnteksten, Om oss og nyheitsbrevet lenkjer til merkevarekontoane til Nordic Crypto: Telegram på https://t.me/nordiccryptochat og X på https://x.com/xcryptonordic. Dei same lenkjene ligg i /api/v1/meta.json under social, for iOS-appen. Lenkjeteksten finst på engelsk, nynorsk, bokmål, svensk, dansk, finsk og islandsk. Andre språk på nettstaden bruker den engelske teksten. Kjeldekodelenkja står."
+    },
+    "nb": {
+     "title": "Nordic Crypto på Telegram og X",
+     "description": "Bunnteksten, Om oss og nyhetsbrevet lenker til merkevarekontoene til Nordic Crypto: Telegram på https://t.me/nordiccryptochat og X på https://x.com/xcryptonordic. De samme lenkene ligger i /api/v1/meta.json under social, for iOS-appen. Lenketeksten finnes på engelsk, nynorsk, bokmål, svensk, dansk, finsk og islandsk. Andre språk på nettstedet bruker den engelske teksten. Kildekodelenken står."
+    },
+    "sv": {
+     "title": "Nordic Crypto på Telegram och X",
+     "description": "Sidfoten, Om oss och nyhetsbrevet länkar till Nordic Cryptos varumärkeskonton: Telegram på https://t.me/nordiccryptochat och X på https://x.com/xcryptonordic. Samma länkar finns i /api/v1/meta.json under social, för iOS-appen. Länktexten finns på engelska, nynorska, bokmål, svenska, danska, finska och isländska. Övriga språk på webbplatsen använder den engelska texten. Länken till källkoden är kvar."
+    },
+    "da": {
+     "title": "Nordic Crypto på Telegram og X",
+     "description": "Sidefoden, Om os og nyhedsbrevet linker til Nordic Cryptos brandkonti: Telegram på https://t.me/nordiccryptochat og X på https://x.com/xcryptonordic. De samme links ligger i /api/v1/meta.json under social, til iOS-appen. Linkteksten findes på engelsk, nynorsk, bokmål, svensk, dansk, finsk og islandsk. Andre sprog på sitet bruger den engelske tekst. Linket til kildekoden bliver."
+    },
+    "fi": {
+     "title": "Nordic Crypto Telegramissa ja X:ssä",
+     "description": "Alatunniste, Tietoa meistä ja uutiskirje linkittävät Nordic Crypton bränditileihin: Telegram osoitteessa https://t.me/nordiccryptochat ja X osoitteessa https://x.com/xcryptonordic. Samat linkit ovat tiedostossa /api/v1/meta.json kohdassa social, iOS-sovellusta varten. Linkkiteksti on englanniksi, norjan nynorskiksi ja bokmåliksi, ruotsiksi, tanskaksi, suomeksi ja islanniksi. Sivuston muut kielet käyttävät englanninkielistä tekstiä. Lähdekoodilinkki säilyy."
+    },
+    "is": {
+     "title": "Nordic Crypto á Telegram og X",
+     "description": "Fóturinn, Um okkur og fréttabréfið tengja á vörumerkjareikninga Nordic Crypto: Telegram á https://t.me/nordiccryptochat og X á https://x.com/xcryptonordic. Sömu tenglar eru í /api/v1/meta.json undir social, fyrir iOS-appið. Tenglatextinn er á ensku, nýnorsku, bókmáli, sænsku, dönsku, finnsku og íslensku. Önnur tungumál síðunnar nota enska textann. Tengillinn á frumkóðann er áfram."
+    }
+   }
+  },
+  {
+   "id": "story-coverage",
+   "date": "2026-10-06",
+   "title": "Several outlets on one story",
+   "description": "A story can now list every outlet that covered the same event. The front page shows a compact row of outlet logos and a source count. The story page keeps Read at the primary outlet, adds Also covered by with a link to each other outlet, lists every outlet with its logo, country, headline and time, and shows coverage bars by country and by source type (national, regional and local, justice and official, international). The public news API includes primary_source, also_covered_by, sources and coverage. An article about the same event is attached to the existing story instead of published twice. The editor can set duplicate_of on the review-queue row.",
+   "i18n": {
+    "nn": {
+     "title": "Fleire medium på same sak",
+     "description": "Ei sak kan no lista kvart medium som dekte same hending. Framsida viser ei kort rad med logoar og eit tal på kjelder. Sakssida har Les hos den primære kjelda, Også dekt av med lenkje til kvart anna medium, ei liste med logo, land, tittel og tid, og søyler for dekning etter land og etter kjeldetype (nasjonale, regionale og lokale, justis og offentlege, internasjonale). Det offentlege nyheits-API-et har primary_source, also_covered_by, sources og coverage. Ein artikkel om same hending blir lagd på saka som finst, i staden for å bli publisert ein gong til. Redaktøren kan setja duplicate_of på rada i gjennomgangskøen."
+    },
+    "nb": {
+     "title": "Flere medier på samme sak",
+     "description": "En sak kan nå liste hvert medium som dekket samme hendelse. Forsiden viser en kort rad med logoer og et antall kilder. Saksiden har Les hos den primære kilden, Også dekket av med lenke til hvert annet medium, en liste med logo, land, tittel og tid, og søyler for dekning etter land og etter kildetype (nasjonale, regionale og lokale, justis og offentlige, internasjonale). Det offentlige nyhets-API-et har primary_source, also_covered_by, sources og coverage. En artikkel om samme hendelse legges på saken som finnes, i stedet for å bli publisert en gang til. Redaktøren kan sette duplicate_of på raden i gjennomgangskøen."
+    },
+    "sv": {
+     "title": "Flera medier på samma artikel",
+     "description": "En artikel kan nu lista varje medium som bevakade samma händelse. Startsidan visar en kort rad med logotyper och ett antal källor. Artikelsidan har Läs hos den primära källan, Även bevakad av med länk till varje annat medium, en lista med logotyp, land, rubrik och tid, och staplar för bevakning per land och per källtyp (nationella, regionala och lokala, rättsväsen och myndigheter, internationella). Det publika nyhets-API:t har primary_source, also_covered_by, sources och coverage. En artikel om samma händelse läggs på artikeln som redan finns, i stället för att publiceras en gång till. Redaktören kan sätta duplicate_of på raden i granskningskön."
+    },
+    "da": {
+     "title": "Flere medier på samme historie",
+     "description": "En historie kan nu liste hvert medie, der dækkede den samme hændelse. Forsiden viser en kort række logoer og et antal kilder. Historie-siden har Læs hos den primære kilde, Også dækket af med link til hvert andet medie, en liste med logo, land, overskrift og tid, og søjler for dækning efter land og efter kildetype (nationale, regionale og lokale, justits og offentlige, internationale). Det offentlige nyheds-API har primary_source, also_covered_by, sources og coverage. En artikel om den samme hændelse lægges på historien, der findes, i stedet for at blive offentliggjort en gang til. Redaktøren kan sætte duplicate_of på rækken i gennemgangskøen."
+    },
+    "fi": {
+     "title": "Useita medioita samassa jutussa",
+     "description": "Juttu voi nyt listata jokaisen median, joka uutisoi saman tapahtuman. Etusivu näyttää tiiviin logorivin ja lähteiden määrän. Juttusivulla on Lue lähteestä ensisijaisesta mediasta, Myös näiden uutisoima ja linkki jokaiseen muuhun mediaan, lista logolla, maalla, otsikolla ja ajalla, sekä palkit kattavuudesta maittain ja lähdetyypeittäin (valtakunnalliset, alueelliset ja paikalliset, oikeus ja viranomaiset, kansainväliset). Julkinen uutis-API sisältää primary_source, also_covered_by, sources ja coverage. Samaa tapahtumaa käsittelevä artikkeli liitetään olemassa olevaan juttuun, eikä sitä julkaista toiseen kertaan. Toimittaja voi asettaa duplicate_of tarkistusjonon riville."
+    },
+    "is": {
+     "title": "Fleiri miðlar á sömu frétt",
+     "description": "Frétt getur nú talið hvern miðil sem fjallaði um sama atburð. Forsíðan sýnir stutta röð af merkjum og fjölda heimilda. Fréttasíðan hefur Lesa hjá aðalheimildinni, Einnig fjallað um hjá með tengli á hvern annan miðil, lista með merki, landi, fyrirsögn og tíma, og súlur fyrir dreifingu eftir landi og tegund heimildar (landsmiðlar, héraðs- og staðarmiðlar, réttarkerfi og opinberir aðilar, alþjóðlegir). Opinbera fréttaviðmótið hefur primary_source, also_covered_by, sources og coverage. Grein um sama atburð er fest við fréttina sem er til, í stað þess að vera birt aftur. Ritstjórinn getur sett duplicate_of á línuna í yfirferðarröðinni."
     }
    }
   },

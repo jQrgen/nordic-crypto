@@ -1,5 +1,5 @@
 {
- "_how_to": "One logo per id. News articles use the source id on the story (the same id as sources.json). If that source has outlet, the outlet id is used. _source_alias maps a source id onto another key when the who's-who id differs. file is relative to the repo root; source_url is where the image was fetched (also copied to sources.json logo_source). A news source whose file is the outlet's own logo, favicon or apple-touch icon is review ok: nominative use, small, unaltered except a raster scale to about 64px, linked to the outlet, no endorsement. Terms that explicitly forbid logo use are review rejected and the name stays text. Other new files stay pending until an editor checks them. The public build shows review ok only (a missing review counts as ok) and --preview also shows pending. rejected, a missing file, or no entry: the source name is text only. Never invent a logo and never edit one (colour, crop). News sources: python3 tools/fetch_logos.py --sources. One id: python3 tools/fetch_logos.py --sources <id>.",
+ "_how_to": "One logo per id. News articles use the source id on the story (the same id as sources.json). If that source has outlet, the outlet id is used. _source_alias maps a source id onto another key when the who's-who id differs (same file, not a copy). file is relative to the repo root; source_url is where the image was fetched. review: pending until the editor has checked the logo belongs to that outlet; the public build shows review 'ok' only (a missing review counts as ok) and --preview also shows pending. rejected, a missing file, or no entry: the source name is text only. Never invent a logo and never edit one (colour, crop); raster images are only scaled to about 64px. Refetch: python3 tools/fetch_logos.py --force <id>.",
  "_source_alias": {
   "_how": "source id → logo key. Applied after outlet. fi-se, riksbank, suomenpankki and finanssivalvonta are the news ids of orgs whose logos were filed under the who's-who ids. stortinget uses the Storting coat of arms already checked for the finance committee. nbx-ir is NBX company announcements, so it uses the checked NBX logo. digi-krypto is Digi.no's crypto feed.",
   "fi-se": "se-fi",
@@ -19,7 +19,8 @@
   "wikidata": "Q109016",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)",
+  "raster": "assets/img/logos/stortinget-finanskomiteen.png"
  },
  "finanstilsynet": {
   "file": "assets/img/logos/finanstilsynet.webp",
@@ -29,7 +30,7 @@
   "kind": "touch",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "norges-bank": {
   "source": "Wikimedia Commons",
@@ -40,7 +41,8 @@
   "wikidata": "Q970769",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)",
+  "raster": "assets/img/logos/norges-bank.png"
  },
  "skatteetaten": {
   "file": "assets/img/logos/skatteetaten.webp",
@@ -50,7 +52,7 @@
   "kind": "touch",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "okokrim": {
   "source": "Wikimedia Commons",
@@ -61,7 +63,8 @@
   "wikidata": "Q308084",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)",
+  "raster": "assets/img/logos/okokrim.png"
  },
  "nkom": {
   "source": "Wikimedia Commons",
@@ -72,7 +75,7 @@
   "wikidata": "Q1772077",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "nve": {
   "file": "assets/img/logos/nve.svg",
@@ -100,7 +103,7 @@
   "wikidata": "Q602621",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "esma": {
   "source": "Wikimedia Commons",
@@ -111,7 +114,7 @@
   "wikidata": "Q769112",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "eba": {
   "file": "assets/img/logos/eba.svg",
@@ -121,7 +124,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "firi": {
   "source": "Wikimedia Commons",
@@ -132,7 +135,7 @@
   "wikidata": "Q110516569",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "nbx": {
   "file": "assets/img/logos/nbx.svg",
@@ -142,7 +145,8 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)",
+  "raster": "assets/img/logos/nbx.png"
  },
  "k33": {
   "file": "assets/img/logos/k33.svg",
@@ -152,7 +156,7 @@
   "kind": "svgicon",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "bare-bitcoin": {
   "file": "assets/img/logos/bare-bitcoin.svg",
@@ -162,7 +166,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "dnb": {
   "source": "Wikimedia Commons",
@@ -173,7 +177,7 @@
   "wikidata": "Q80788",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "tydal-data-center": {
   "source": "Official website",
@@ -183,7 +187,7 @@
   "fetched": "2026-10-03",
   "review": "rejected",
   "reason": "editor: rejected (shows the owner Bitdeer's logo); left blank",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "schibsted-ventures": {
   "source": "Official website",
@@ -193,7 +197,7 @@
   "fetched": "2026-10-03",
   "review": "rejected",
   "reason": "editor: rejected",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "finans-norge": {
   "source": "Wikimedia Commons",
@@ -204,7 +208,7 @@
   "wikidata": "Q3936909",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "kaupr": {
   "file": "assets/img/logos/kaupr.webp",
@@ -214,7 +218,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "se-fi": {
   "source": "Wikimedia Commons",
@@ -225,7 +229,8 @@
   "wikidata": "Q5449671",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)",
+  "raster": "assets/img/logos/se-fi.png"
  },
  "se-riksbank": {
   "source": "Wikimedia Commons",
@@ -236,7 +241,7 @@
   "wikidata": "Q564652",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "se-skatteverket": {
   "file": "assets/img/logos/se-skatteverket.webp",
@@ -246,7 +251,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "valuno": {
   "file": "assets/img/logos/valuno.svg",
@@ -256,7 +261,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "goobit": {
   "source": "Official website",
@@ -276,7 +281,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "fi-fiva": {
   "file": "assets/img/logos/fi-fiva.webp",
@@ -286,7 +291,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "fi-suomen-pankki": {
   "source": "Wikimedia Commons",
@@ -297,7 +302,7 @@
   "wikidata": "Q194060",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "fi-vero": {
   "file": "assets/img/logos/fi-vero.svg",
@@ -307,7 +312,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "coinmotion": {
   "file": "assets/img/logos/coinmotion.webp",
@@ -317,7 +322,7 @@
   "kind": "touch",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "tesseract": {
   "source": "Official website",
@@ -337,7 +342,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "northcrypto": {
   "file": "assets/img/logos/northcrypto.webp",
@@ -347,7 +352,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "kvarn-x": {
   "file": "assets/img/logos/kvarn-x.svg",
@@ -357,7 +362,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "paxos-eu": {
   "file": "assets/img/logos/paxos-eu.webp",
@@ -367,7 +372,7 @@
   "kind": "touch",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "btchel": {
   "source": "Official website",
@@ -387,7 +392,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "is-sfl": {
   "source": "Official website",
@@ -407,7 +412,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "monerium": {
   "file": "assets/img/logos/monerium.svg",
@@ -417,7 +422,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "dk-finanstilsynet": {
   "source": "Official website",
@@ -438,7 +443,7 @@
   "wikidata": "Q12310249",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "dk-skatteministeriet": {
   "source": "Official website",
@@ -468,7 +473,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "dk-lunar-block": {
   "file": "assets/img/logos/dk-lunar-block.svg",
@@ -478,7 +483,7 @@
   "kind": "svgicon",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "dk-gcex": {
   "file": "assets/img/logos/dk-gcex.webp",
@@ -488,7 +493,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "dk-northstake": {
   "source": "Official website",
@@ -508,7 +513,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "dk-januar": {
   "file": "assets/img/logos/dk-januar.svg",
@@ -518,7 +523,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "dk-safelynx": {
   "source": "Official website",
@@ -548,7 +553,7 @@
   "fetched": "2026-10-03",
   "review": "rejected",
   "reason": "editor: rejected",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "dk-bloxcel": {
   "source": "Official website",
@@ -558,7 +563,7 @@
   "fetched": "2026-10-03",
   "review": "rejected",
   "reason": "editor: rejected (org rejected)",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "se-divly": {
   "file": "assets/img/logos/se-divly.svg",
@@ -568,7 +573,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "se-h100": {
   "file": "assets/img/logos/se-h100.webp",
@@ -578,7 +583,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "se-hilbert-group": {
   "file": "assets/img/logos/se-hilbert-group.svg",
@@ -588,7 +593,7 @@
   "kind": "svgicon",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "se-pretax": {
   "source": "Official website",
@@ -619,7 +624,7 @@
   "wikidata": "Q257597",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "intl-d-fine": {
   "file": "assets/img/logos/intl-d-fine.svg",
@@ -629,7 +634,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "intl-okx": {
   "source": "Official website",
@@ -669,7 +674,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "ak-jensen-norway": {
   "file": "assets/img/logos/ak-jensen-norway.webp",
@@ -679,7 +684,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "bpi": {
   "file": "assets/img/logos/bpi.svg",
@@ -689,7 +694,8 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)",
+  "raster": "assets/img/logos/bpi.png"
  },
  "nordic-blockchain-association": {
   "source": "Official website",
@@ -709,7 +715,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "shifter": {
   "file": "assets/img/logos/shifter.svg",
@@ -719,7 +725,8 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)",
+  "raster": "assets/img/logos/shifter.png"
  },
  "greenmerc": {
   "file": "assets/img/logos/greenmerc.webp",
@@ -729,7 +736,7 @@
   "kind": "img",
   "fetched": "2026-10-03",
   "review": "ok",
-  "reviewed": "2026-10-04 (Crypto Nordic editor)"
+  "reviewed": "2026-10-04 (Nordic Crypto editor)"
  },
  "abcnyheter": {
   "file": "assets/img/logos/abcnyheter.svg",
@@ -739,6 +746,7 @@
   "kind": "img",
   "fetched": "2026-10-05",
   "review": "ok",
+  "raster": "assets/img/logos/abcnyheter.png",
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)"
@@ -751,7 +759,8 @@
   "file": "assets/img/logos/adressa.svg",
   "wikidata": "Q367105",
   "fetched": "2026-10-05",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/adressa.png"
  },
  "aftenbladet": {
   "file": "assets/img/logos/aftenbladet.webp",
@@ -774,6 +783,7 @@
   "wikidata": "Q388841",
   "fetched": "2026-10-05",
   "review": "ok",
+  "raster": "assets/img/logos/aftenposten.png",
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)"
@@ -811,6 +821,7 @@
   "wikidata": "Q1757863",
   "fetched": "2026-10-05",
   "review": "ok",
+  "raster": "assets/img/logos/ba.png",
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)"
@@ -842,6 +853,7 @@
   "kind": "img",
   "fetched": "2026-10-05",
   "review": "ok",
+  "raster": "assets/img/logos/borsen.png",
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)"
@@ -854,6 +866,7 @@
   "kind": "img",
   "fetched": "2026-10-05",
   "review": "ok",
+  "raster": "assets/img/logos/breakit.png",
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)"
@@ -900,6 +913,7 @@
   "kind": "img",
   "fetched": "2026-10-05",
   "review": "ok",
+  "raster": "assets/img/logos/computerworld-dk.png",
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)"
@@ -913,6 +927,7 @@
   "wikidata": "Q1157193",
   "fetched": "2026-10-05",
   "review": "ok",
+  "raster": "assets/img/logos/dagbladet.png",
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)"
@@ -925,6 +940,7 @@
   "kind": "img",
   "fetched": "2026-10-05",
   "review": "ok",
+  "raster": "assets/img/logos/dagensperspektiv.png",
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)"
@@ -936,7 +952,8 @@
   "page": "https://www.dagensps.se",
   "kind": "img",
   "fetched": "2026-10-05",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/dagensps.se.png"
  },
  "dagsavisen": {
   "file": "assets/img/logos/dagsavisen.svg",
@@ -946,6 +963,7 @@
   "kind": "img",
   "fetched": "2026-10-05",
   "review": "ok",
+  "raster": "assets/img/logos/dagsavisen.png",
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)"
@@ -968,6 +986,7 @@
   "kind": "img",
   "fetched": "2026-10-05",
   "review": "ok",
+  "raster": "assets/img/logos/digi.png",
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)"
@@ -993,6 +1012,7 @@
   "wikidata": "Q1164334",
   "fetched": "2026-10-05",
   "review": "ok",
+  "raster": "assets/img/logos/dr-penge.png",
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)"
@@ -1026,7 +1046,8 @@
   "page": "https://zeno.fm/podcast/en-og-tyve-tanker-twenty-one-thoughts/",
   "kind": "svgicon",
   "fetched": "2026-10-05",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/enogtyvetanker.png"
  },
  "finans-dk": {
   "file": "assets/img/logos/finans-dk.webp",
@@ -1073,6 +1094,7 @@
   "wikidata": "Q2147151",
   "fetched": "2026-10-05",
   "review": "ok",
+  "raster": "assets/img/logos/grapevine.png",
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)"
@@ -1097,6 +1119,7 @@
   "kind": "svgicon",
   "fetched": "2026-10-05",
   "review": "ok",
+  "raster": "assets/img/logos/heimildin.png",
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)"
@@ -1110,6 +1133,7 @@
   "wikidata": "Q366921",
   "fetched": "2026-10-05",
   "review": "ok",
+  "raster": "assets/img/logos/hs.png",
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)"
@@ -1134,6 +1158,7 @@
   "kind": "img",
   "fetched": "2026-10-05",
   "review": "ok",
+  "raster": "assets/img/logos/ingenioren.png",
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)"
@@ -1180,6 +1205,7 @@
   "wikidata": "Q6378858",
   "fetched": "2026-10-05",
   "review": "ok",
+  "raster": "assets/img/logos/kauppalehti.png",
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)"
@@ -1217,6 +1243,7 @@
   "kind": "img",
   "fetched": "2026-10-05",
   "review": "ok",
+  "raster": "assets/img/logos/kom24.png",
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)"
@@ -1240,7 +1267,8 @@
   "page": "https://www.mbl.is/frettir/",
   "kind": "img",
   "fetched": "2026-10-05",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/mbl.png"
  },
  "morgenbladet": {
   "source": "Wikimedia Commons",
@@ -1263,7 +1291,8 @@
   "file": "assets/img/logos/nationen.svg",
   "wikidata": "Q3351661",
   "fetched": "2026-10-05",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/nationen.png"
  },
  "nettavisen": {
   "source": "Wikimedia Commons",
@@ -1274,6 +1303,7 @@
   "wikidata": "Q6516221",
   "fetched": "2026-10-05",
   "review": "ok",
+  "raster": "assets/img/logos/nettavisen.png",
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)"
@@ -1299,6 +1329,7 @@
   "wikidata": "Q190238",
   "fetched": "2026-10-05",
   "review": "ok",
+  "raster": "assets/img/logos/nrk.png",
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)"
@@ -1324,6 +1355,7 @@
   "wikidata": "Q373133",
   "fetched": "2026-10-05",
   "review": "ok",
+  "raster": "assets/img/logos/politiken.png",
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)"
@@ -1360,6 +1392,7 @@
   "kind": "img",
   "fetched": "2026-10-05",
   "review": "ok",
+  "raster": "assets/img/logos/realtid.png",
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)"
@@ -1373,6 +1406,7 @@
   "wikidata": "Q608708",
   "fetched": "2026-10-05",
   "review": "ok",
+  "raster": "assets/img/logos/ruv.png",
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)"
@@ -1398,6 +1432,7 @@
   "wikidata": "Q1504847",
   "fetched": "2026-10-05",
   "review": "ok",
+  "raster": "assets/img/logos/svd.png",
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)"
@@ -1410,7 +1445,8 @@
   "file": "assets/img/logos/svt.svg",
   "wikidata": "Q31899538",
   "fetched": "2026-10-05",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/svt.png"
  },
  "sydsvenskan.se": {
   "file": "assets/img/logos/sydsvenskan.se.svg",
@@ -1419,7 +1455,8 @@
   "page": "https://www.sydsvenskan.se",
   "kind": "svgicon",
   "fetched": "2026-10-05",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/sydsvenskan.se.png"
  },
  "ta": {
   "file": "assets/img/logos/ta.webp",
@@ -1442,6 +1479,7 @@
   "wikidata": "Q11896186",
   "fetched": "2026-10-05",
   "review": "ok",
+  "raster": "assets/img/logos/talouselama.png",
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)"
@@ -1478,6 +1516,7 @@
   "kind": "svgicon",
   "fetched": "2026-10-05",
   "review": "ok",
+  "raster": "assets/img/logos/tivi.png",
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)"
@@ -1490,13 +1529,19 @@
   "file": "assets/img/logos/tv2.svg",
   "wikidata": "Q1853722",
   "fetched": "2026-10-05",
-  "review": "pending"
+  "review": "pending",
+  "raster": "assets/img/logos/tv2.png"
  },
  "version2": {
-  "review": "rejected",
-  "reason": "not the outlet's own mark",
+  "file": "assets/img/logos/version2.svg",
+  "source": "Official website",
   "source_url": "https://www.version2.dk/themes/mi/mu/images/subsite-logos/ingenioren.svg?itok=sEIepxiQ",
-  "fetched": "2026-10-05"
+  "page": "https://www.version2.dk",
+  "kind": "img",
+  "fetched": "2026-10-05",
+  "review": "rejected",
+  "raster": "assets/img/logos/version2.png",
+  "reason": "not the outlet's own mark"
  },
  "vg": {
   "source": "Wikimedia Commons",
@@ -1507,15 +1552,21 @@
   "wikidata": "Q1139355",
   "fetched": "2026-10-05",
   "review": "ok",
+  "raster": "assets/img/logos/vg.png",
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)"
  },
  "visir": {
-  "review": "rejected",
-  "reason": "not the outlet's own mark",
+  "file": "assets/img/logos/visir.svg",
+  "source": "Official website",
   "source_url": "https://www.visir.is/static/1.0.1285/img/radio/color/new/GullBylgjan-logo-blue-lodrett-vector.svg",
-  "fetched": "2026-10-05"
+  "page": "https://www.visir.is",
+  "kind": "img",
+  "fetched": "2026-10-05",
+  "review": "rejected",
+  "raster": "assets/img/logos/visir.png",
+  "reason": "not the outlet's own mark"
  },
  "yle": {
   "source": "Wikimedia Commons",
@@ -1526,9 +1577,955 @@
   "wikidata": "Q8053995",
   "fetched": "2026-10-05",
   "review": "ok",
+  "raster": "assets/img/logos/yle.png",
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)"
+ },
+ "_how_to_sources": "Keys 'source:<id>' are news-source logos (id from sources.json, or an outlet shared by several sources such as 'kaupr'), fetched by tools/fetch_source_logos.py into assets/img/logos/sources/. Same review rule: pending until the editor has checked the image is that outlet's own logo; then set review 'ok'. Only 'ok' logos appear as logo_url / source_logo_url in the public API (preview: pending too). Raster images are scaled to about 128 px tall, never otherwise edited; an SVG also gets a 256 px PNG ('raster'), which the API serves as logo_url (Apple's AsyncImage cannot draw SVG). These are the publishers' trademarks, shown only to identify the source of a headline. Refetch: python3 tools/fetch_source_logos.py --force <id>.",
+ "source:e24": {
+  "file": "assets/img/logos/sources/e24.webp",
+  "source": "Official website",
+  "source_url": "https://e24.no/vgc/gfx/icon-180x180-1.0.png",
+  "page": "https://e24.no",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "e24",
+  "outlet": "E24",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:vg": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:VG_logo.svg",
+  "license": "Public domain",
+  "author": "VG",
+  "file": "assets/img/logos/sources/vg.svg",
+  "wikidata": "Q1139355",
+  "source_id": "vg",
+  "outlet": "VG",
+  "fetched": "2026-10-06",
+  "review": "pending",
+  "raster": "assets/img/logos/sources/vg.png"
+ },
+ "source:reuters-norden": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Reuters_logo_2024.svg",
+  "license": "Public domain",
+  "author": "Reuters",
+  "file": "assets/img/logos/sources/reuters-norden.svg",
+  "wikidata": "Q130879",
+  "source_id": "reuters-norden",
+  "outlet": "Reuters (Nordic coverage)",
+  "fetched": "2026-10-06",
+  "review": "pending",
+  "raster": "assets/img/logos/sources/reuters-norden.png"
+ },
+ "source:shifter": {
+  "file": "assets/img/logos/sources/shifter.webp",
+  "source": "Official website",
+  "source_url": "https://www.shifter.no/view-resources/dachser2/public/shifter/favicon-180x180.png",
+  "page": "https://www.shifter.no",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "shifter",
+  "outlet": "Shifter",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:nrk": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:NRK_Norsk_rikskringkasting_corporate_logo.svg",
+  "license": "Public domain",
+  "author": "™/®Norsk rikskringkasting AS, typeface designed by Typotheque",
+  "file": "assets/img/logos/sources/nrk.svg",
+  "wikidata": "Q190238",
+  "source_id": "nrk",
+  "outlet": "NRK",
+  "fetched": "2026-10-06",
+  "review": "pending",
+  "raster": "assets/img/logos/sources/nrk.png"
+ },
+ "source:finanstilsynet": {
+  "file": "assets/img/logos/sources/finanstilsynet.webp",
+  "source": "Official website",
+  "source_url": "https://www.finanstilsynet.no/Content/Favicons/apple-touch-icon-152x152.png",
+  "page": "https://www.finanstilsynet.no",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "finanstilsynet",
+  "outlet": "Finanstilsynet (NO FSA)",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:norges-bank": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Norges_Bank_logo.svg",
+  "license": "Public domain",
+  "author": "Norges Bank",
+  "file": "assets/img/logos/sources/norges-bank.svg",
+  "wikidata": "Q970769",
+  "source_id": "norges-bank",
+  "outlet": "Norges Bank (press releases)",
+  "fetched": "2026-10-06",
+  "review": "pending",
+  "raster": "assets/img/logos/sources/norges-bank.png"
+ },
+ "source:bpi": {
+  "file": "assets/img/logos/sources/bpi.webp",
+  "source": "Official website",
+  "source_url": "https://i0.wp.com/bpinorge.no/wp-content/uploads/2025/01/bpi_emblem.png?fit=180%2C180&ssl=1",
+  "page": "https://bpinorge.no",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "bpi",
+  "outlet": "Bitcoinpolitisk institutt",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:di": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Dagens-industri_RGB.png",
+  "license": "Public domain",
+  "author": "Dagens industri",
+  "file": "assets/img/logos/sources/di.webp",
+  "wikidata": "Q734293",
+  "source_id": "di",
+  "outlet": "Dagens industri",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:breakit": {
+  "file": "assets/img/logos/sources/breakit.webp",
+  "source": "Official website",
+  "source_url": "https://www.breakit.se/img/icons/favicons/apple-touch-icon-180x180.png",
+  "page": "https://www.breakit.se",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "breakit",
+  "outlet": "Breakit",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:svd": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Svenska_Dagbladet_wordmark.svg",
+  "license": "Public domain",
+  "file": "assets/img/logos/sources/svd.svg",
+  "wikidata": "Q1504847",
+  "source_id": "svd",
+  "outlet": "Svenska Dagbladet",
+  "fetched": "2026-10-06",
+  "review": "pending",
+  "raster": "assets/img/logos/sources/svd.png"
+ },
+ "source:svt": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:SVT_2016.svg",
+  "license": "Public domain",
+  "author": "SVT, User:AxG converted to SVG",
+  "file": "assets/img/logos/sources/svt.svg",
+  "wikidata": "Q215363",
+  "source_id": "svt",
+  "outlet": "SVT Nyheter (economy)",
+  "fetched": "2026-10-06",
+  "review": "pending",
+  "raster": "assets/img/logos/sources/svt.png"
+ },
+ "source:fi-se": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Finansinspektionen_logo.svg",
+  "license": "Public domain",
+  "author": "Finansinspektionen.",
+  "file": "assets/img/logos/sources/fi-se.svg",
+  "wikidata": "Q5449671",
+  "source_id": "fi-se",
+  "outlet": "Finansinspektionen (SE FSA)",
+  "fetched": "2026-10-06",
+  "review": "pending",
+  "raster": "assets/img/logos/sources/fi-se.png"
+ },
+ "source:riksbank": {
+  "file": "assets/img/logos/sources/riksbank.webp",
+  "source": "Official website",
+  "source_url": "https://www.riksbank.se/riksbanken-ikon.png",
+  "page": "https://www.riksbank.se",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "riksbank",
+  "outlet": "Sveriges Riksbank (press releases)",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:realtid": {
+  "file": "assets/img/logos/sources/realtid.webp",
+  "source": "Official website",
+  "source_url": "https://www.realtid.se/favicons/apple-touch-icon.png",
+  "page": "https://www.realtid.se",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "realtid",
+  "outlet": "Realtid",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:kauppalehti": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Kauppalehti_wordmark.svg",
+  "license": "Public domain",
+  "author": "Unknown authorUnknown author",
+  "file": "assets/img/logos/sources/kauppalehti.svg",
+  "wikidata": "Q6378858",
+  "source_id": "kauppalehti",
+  "outlet": "Kauppalehti",
+  "fetched": "2026-10-06",
+  "review": "pending",
+  "raster": "assets/img/logos/sources/kauppalehti.png"
+ },
+ "source:hs": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Helsingin_Sanomat_wordmark.svg",
+  "license": "Public domain",
+  "author": "Trademarked by Sanoma Osakeyhtiö.",
+  "file": "assets/img/logos/sources/hs.svg",
+  "wikidata": "Q366921",
+  "source_id": "hs",
+  "outlet": "Helsingin Sanomat (business)",
+  "fetched": "2026-10-06",
+  "review": "pending",
+  "raster": "assets/img/logos/sources/hs.png"
+ },
+ "source:yle": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Ylen_logo.svg",
+  "license": "Public domain",
+  "author": "Saku Heinänen",
+  "file": "assets/img/logos/sources/yle.svg",
+  "wikidata": "Q54718",
+  "source_id": "yle",
+  "outlet": "Yle Uutiset (latest)",
+  "fetched": "2026-10-06",
+  "review": "pending",
+  "raster": "assets/img/logos/sources/yle.png"
+ },
+ "source:talouselama": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Talousel%C3%A4m%C3%A4_logo.svg",
+  "license": "Public domain",
+  "file": "assets/img/logos/sources/talouselama.svg",
+  "wikidata": "Q11896186",
+  "source_id": "talouselama",
+  "outlet": "Talouselämä",
+  "fetched": "2026-10-06",
+  "review": "pending",
+  "raster": "assets/img/logos/sources/talouselama.png"
+ },
+ "source:tivi": {
+  "file": "assets/img/logos/sources/tivi.webp",
+  "source": "Official website",
+  "source_url": "https://assets.almatalent.fi/static/favicon/tv/apple-touch-icon.png",
+  "page": "https://www.tivi.fi",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "tivi",
+  "outlet": "Tivi",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:finanssivalvonta": {
+  "file": "assets/img/logos/sources/finanssivalvonta.webp",
+  "source": "Official website",
+  "source_url": "https://www.finanssivalvonta.fi/static/favicon/apple-icon-180x180.png",
+  "page": "https://www.finanssivalvonta.fi",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "finanssivalvonta",
+  "outlet": "Finanssivalvonta (FIN-FSA)",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:suomenpankki": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Logo-bof.png",
+  "license": "Public domain",
+  "author": "Bank of Finland, Mikael Kivelä",
+  "file": "assets/img/logos/sources/suomenpankki.webp",
+  "wikidata": "Q194060",
+  "source_id": "suomenpankki",
+  "outlet": "Suomen Pankki / Bank of Finland (releases)",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:ruv": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:R%C3%9AV_ohf_2019_logo.svg",
+  "license": "Public domain",
+  "author": "RÚV",
+  "file": "assets/img/logos/sources/ruv.svg",
+  "wikidata": "Q608708",
+  "source_id": "ruv",
+  "outlet": "RÚV",
+  "fetched": "2026-10-06",
+  "review": "pending",
+  "raster": "assets/img/logos/sources/ruv.png"
+ },
+ "source:mbl": {
+  "file": "assets/img/logos/sources/mbl.webp",
+  "source": "Official website",
+  "source_url": "https://www.mbl.is/apple-touch-icon.png",
+  "page": "https://www.mbl.is/frettir/",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "mbl",
+  "outlet": "mbl.is (business)",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:grapevine": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:The_Reykjav%C3%ADk_Grapevine_logo.svg",
+  "license": "Public domain",
+  "author": "The Reykjavík Grapevine",
+  "file": "assets/img/logos/sources/grapevine.svg",
+  "wikidata": "Q2147151",
+  "source_id": "grapevine",
+  "outlet": "Reykjavík Grapevine",
+  "fetched": "2026-10-06",
+  "review": "pending",
+  "raster": "assets/img/logos/sources/grapevine.png"
+ },
+ "source:borsen": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Dagbladet_B%C3%B8rsen_logo_(2011).svg",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0",
+  "author": "Jan Andersen (Danish designer)",
+  "file": "assets/img/logos/sources/borsen.svg",
+  "wikidata": "Q5208470",
+  "source_id": "borsen",
+  "outlet": "Børsen",
+  "fetched": "2026-10-06",
+  "review": "pending",
+  "raster": "assets/img/logos/sources/borsen.png"
+ },
+ "source:finans-dk": {
+  "file": "assets/img/logos/sources/finans-dk.webp",
+  "source": "Official website",
+  "source_url": "https://finans.dk/static/finans.dk/favicon/apple-touch-icon.png",
+  "page": "https://finans.dk",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "finans-dk",
+  "outlet": "Finans.dk (Jyllands-Posten)",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:dr-penge": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:DR_logo.svg",
+  "license": "Public domain",
+  "author": "DR",
+  "file": "assets/img/logos/sources/dr-penge.svg",
+  "wikidata": "Q1164334",
+  "source_id": "dr-penge",
+  "outlet": "DR (Penge)",
+  "fetched": "2026-10-06",
+  "review": "pending",
+  "raster": "assets/img/logos/sources/dr-penge.png"
+ },
+ "source:politiken": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Politiken-Logo.svg",
+  "license": "Public domain",
+  "author": "Politiken",
+  "file": "assets/img/logos/sources/politiken.svg",
+  "wikidata": "Q373133",
+  "source_id": "politiken",
+  "outlet": "Politiken",
+  "fetched": "2026-10-06",
+  "review": "pending",
+  "raster": "assets/img/logos/sources/politiken.png"
+ },
+ "source:computerworld-dk": {
+  "file": "assets/img/logos/sources/computerworld-dk.webp",
+  "source": "Official website",
+  "source_url": "https://www.computerworld.dk/images/favicon/apple-touch-icon.png",
+  "page": "https://www.computerworld.dk",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "computerworld-dk",
+  "outlet": "Computerworld Danmark",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:version2": {
+  "file": "assets/img/logos/sources/version2.webp",
+  "source": "Official website",
+  "source_url": "https://www.version2.dk/apple-touch-icon.png",
+  "page": "https://www.version2.dk",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "version2",
+  "outlet": "Version2",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:ingenioren": {
+  "file": "assets/img/logos/sources/ingenioren.webp",
+  "source": "Official website",
+  "source_url": "https://ing.dk/apple-touch-icon.png",
+  "page": "https://ing.dk",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "ingenioren",
+  "outlet": "Ingeniøren",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:finanstilsynet-dk": {
+  "file": "assets/img/logos/sources/finanstilsynet-dk.svg",
+  "source": "Official website",
+  "source_url": "https://cdn.finanstilsynet.dk/finanstilsynet/Media/638204279936716910/footer-crown-2.svg?width=180&height=180",
+  "page": "https://www.finanstilsynet.dk",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "finanstilsynet-dk",
+  "outlet": "Finanstilsynet (Danish FSA)",
+  "fetched": "2026-10-06",
+  "review": "pending",
+  "raster": "assets/img/logos/sources/finanstilsynet-dk.png"
+ },
+ "source:erhvervsministeriet": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Logo_of_the_Danish_Ministry_of_Industry,_Business_and_Financial_Affairs.png",
+  "license": "Public domain",
+  "author": "Danish Ministry of Industry, Business and Financial Affairs",
+  "file": "assets/img/logos/sources/erhvervsministeriet.webp",
+  "wikidata": "Q12310249",
+  "source_id": "erhvervsministeriet",
+  "outlet": "Erhvervsministeriet (Ministry of Industry, Business and Financial Affairs)",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:skattestyrelsen": {
+  "file": "assets/img/logos/sources/skattestyrelsen.webp",
+  "source": "Official website",
+  "source_url": "https://skat.dk/favicon/apple-touch-icon.png",
+  "page": "https://skat.dk/borger",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "skattestyrelsen",
+  "outlet": "Skattestyrelsen (Danish Tax Agency)",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:tv2-dk": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:TV_2_News_2023.svg",
+  "license": "Public domain",
+  "author": "CillBill",
+  "file": "assets/img/logos/sources/tv2-dk.svg",
+  "wikidata": "Q7672275",
+  "source_id": "tv2-dk",
+  "outlet": "TV 2 (Denmark)",
+  "fetched": "2026-10-06",
+  "review": "pending",
+  "raster": "assets/img/logos/sources/tv2-dk.png"
+ },
+ "source:aftenposten": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Aftenposten_logo.svg",
+  "license": "Public domain",
+  "author": "Aftenposten",
+  "file": "assets/img/logos/sources/aftenposten.svg",
+  "wikidata": "Q388841",
+  "source_id": "aftenposten",
+  "outlet": "Aftenposten",
+  "fetched": "2026-10-06",
+  "review": "pending",
+  "raster": "assets/img/logos/sources/aftenposten.png"
+ },
+ "source:dagbladet": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Dagbladet_logo.svg",
+  "license": "Public domain",
+  "author": "Dagbladet",
+  "file": "assets/img/logos/sources/dagbladet.svg",
+  "wikidata": "Q1157193",
+  "source_id": "dagbladet",
+  "outlet": "Dagbladet",
+  "fetched": "2026-10-06",
+  "review": "pending",
+  "raster": "assets/img/logos/sources/dagbladet.png"
+ },
+ "source:nettavisen": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Nettavisen_logo.svg",
+  "license": "Public domain",
+  "author": "Nettavisen",
+  "file": "assets/img/logos/sources/nettavisen.svg",
+  "wikidata": "Q6516221",
+  "source_id": "nettavisen",
+  "outlet": "Nettavisen",
+  "fetched": "2026-10-06",
+  "review": "pending",
+  "raster": "assets/img/logos/sources/nettavisen.png"
+ },
+ "source:tv2": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:TV_2_Gruppen_Egmont_2021_v2.png",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "author": "TV 2 Gruppen",
+  "file": "assets/img/logos/sources/tv2.webp",
+  "wikidata": "Q1782918",
+  "source_id": "tv2",
+  "outlet": "TV 2",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:digi": {
+  "file": "assets/img/logos/sources/digi.webp",
+  "source": "Official website",
+  "source_url": "https://www.digi.no/view-resources/dachser2/public/digi/favicons/favicon-512x512.png",
+  "page": "https://www.digi.no",
+  "kind": "icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "digi",
+  "outlet": "Digi.no",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:tek": {
+  "file": "assets/img/logos/sources/tek.webp",
+  "source": "Official website",
+  "source_url": "https://www.tek.no/assets/apple-touch-icon-180x180.png",
+  "page": "https://www.tek.no",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "tek",
+  "outlet": "Tek.no",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:kode24": {
+  "file": "assets/img/logos/sources/kode24.webp",
+  "source": "Official website",
+  "source_url": "https://www.kode24.no/apple-touch-icon.png",
+  "page": "https://www.kode24.no",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "kode24",
+  "outlet": "Kode24",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:itavisen": {
+  "file": "assets/img/logos/sources/itavisen.webp",
+  "source": "Official website",
+  "source_url": "https://static.itavisen.no/wp-content/uploads/2021/03/cropped-11059778_10153605555841015_197702695720629027_o-1-180x180.jpg",
+  "page": "https://itavisen.no",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "itavisen",
+  "outlet": "ITavisen",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:finansfokus": {
+  "file": "assets/img/logos/sources/finansfokus.webp",
+  "source": "Official website",
+  "source_url": "https://www.finansforbundet.no/content/uploads/sites/5/2021/03/cropped-cropped-android-chrome-512x512-2_1694945fa4-180x180.png",
+  "page": "https://www.finansfokus.no",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "finansfokus",
+  "outlet": "Finansfokus",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:bt": {
+  "file": "assets/img/logos/sources/bt.webp",
+  "source": "Official website",
+  "source_url": "https://www.bt.no/seksjon/dist/img/apple-touch-icon-180x180.png",
+  "page": "https://www.bt.no",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "bt",
+  "outlet": "Bergens Tidende",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:aftenbladet": {
+  "file": "assets/img/logos/sources/aftenbladet.webp",
+  "source": "Official website",
+  "source_url": "https://www.aftenbladet.no/seksjon/dist/img/apple-touch-icon-180x180.png",
+  "page": "https://www.aftenbladet.no",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "aftenbladet",
+  "outlet": "Stavanger Aftenblad",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:adressa": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Adresseavisen.svg",
+  "license": "Public domain",
+  "author": "https://wikidata.org/wiki/Q367105",
+  "file": "assets/img/logos/sources/adressa.svg",
+  "wikidata": "Q367105",
+  "source_id": "adressa",
+  "outlet": "Adresseavisen",
+  "fetched": "2026-10-06",
+  "review": "pending",
+  "raster": "assets/img/logos/sources/adressa.png"
+ },
+ "source:fvn": {
+  "file": "assets/img/logos/sources/fvn.webp",
+  "source": "Official website",
+  "source_url": "https://www.fvn.no/applefavicon.png",
+  "page": "https://www.fvn.no",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "fvn",
+  "outlet": "Fædrelandsvennen",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:itromso": {
+  "file": "assets/img/logos/sources/itromso.webp",
+  "source": "Official website",
+  "source_url": "https://www.itromso.no/applefavicon.png",
+  "page": "https://www.itromso.no",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "itromso",
+  "outlet": "iTromsø",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:smp": {
+  "file": "assets/img/logos/sources/smp.webp",
+  "source": "Official website",
+  "source_url": "https://www.smp.no/applefavicon.png",
+  "page": "https://www.smp.no",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "smp",
+  "outlet": "Sunnmørsposten",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:nordlys": {
+  "file": "assets/img/logos/sources/nordlys.webp",
+  "source": "Official website",
+  "source_url": "https://r.acdn.no/local/v3/publications/www.nordlys.no/gfx/square_logo.jpg",
+  "page": "https://www.nordlys.no",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "nordlys",
+  "outlet": "Nordlys",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:ba": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Bergensavisen_BA_logo.svg",
+  "license": "Public domain",
+  "author": "Bergensavisen, amedia",
+  "file": "assets/img/logos/sources/ba.svg",
+  "wikidata": "Q1757863",
+  "source_id": "ba",
+  "outlet": "Bergensavisen",
+  "fetched": "2026-10-06",
+  "review": "pending",
+  "raster": "assets/img/logos/sources/ba.png"
+ },
+ "source:rb": {
+  "file": "assets/img/logos/sources/rb.webp",
+  "source": "Official website",
+  "source_url": "https://r.acdn.no/local/v3/publications/www.rb.no/gfx/square_logo.jpg",
+  "page": "https://www.rb.no",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "rb",
+  "outlet": "Romerikes Blad",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:dagsavisen": {
+  "file": "assets/img/logos/sources/dagsavisen.webp",
+  "source": "Official website",
+  "source_url": "https://www.dagsavisen.no/view-resources/dachser2/public/dagsavisen/newerfavicon/apple-touch-icon.png",
+  "page": "https://www.dagsavisen.no",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "dagsavisen",
+  "outlet": "Dagsavisen",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:skatteetaten": {
+  "file": "assets/img/logos/sources/skatteetaten.webp",
+  "source": "Official website",
+  "source_url": "https://www.skatteetaten.no/static/img/skatteetatenlogo/fav-icon/57x57/png/favicon57x57.png",
+  "page": "https://www.skatteetaten.no/person/",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "skatteetaten",
+  "outlet": "Skatteetaten (pressemeldinger)",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:regjeringen": {
+  "file": "assets/img/logos/sources/regjeringen.webp",
+  "source": "Official website",
+  "source_url": "https://www.regjeringen.no/dist-web/ico/apple-touch-icon-180x180.png",
+  "page": "https://www.regjeringen.no/no/id4/",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "regjeringen",
+  "outlet": "Regjeringen",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:okokrim": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Okokrim_logo_sort.svg",
+  "license": "Public domain",
+  "author": "Lillian Nordby Øktner/Økokrim",
+  "file": "assets/img/logos/sources/okokrim.svg",
+  "wikidata": "Q308084",
+  "source_id": "okokrim",
+  "outlet": "Økokrim",
+  "fetched": "2026-10-06",
+  "review": "pending",
+  "raster": "assets/img/logos/sources/okokrim.png"
+ },
+ "source:stortinget": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+  "license": "Public domain",
+  "author": "Worldlydev",
+  "file": "assets/img/logos/sources/stortinget.svg",
+  "wikidata": "Q109016",
+  "source_id": "stortinget",
+  "outlet": "Stortinget",
+  "fetched": "2026-10-06",
+  "review": "pending",
+  "raster": "assets/img/logos/sources/stortinget.png"
+ },
+ "source:kryptografen": {
+  "file": "assets/img/logos/sources/kryptografen.webp",
+  "source": "Official website",
+  "source_url": "https://e53rrtjrr3f.exactdn.com/wp-content/uploads/2022/01/cropped-avatar-kryptografen.png?strip=all&quality=92&resize=180%2C180",
+  "page": "https://kryptografen.no",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "kryptografen",
+  "outlet": "Kryptografen.no",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:barebitcoin": {
+  "file": "assets/img/logos/sources/barebitcoin.webp",
+  "source": "Official website",
+  "source_url": "https://barebitcoin.no/apple-icon.png",
+  "page": "https://barebitcoin.no",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "barebitcoin",
+  "outlet": "Bare Bitcoin (blogg)",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:rbnett": {
+  "file": "assets/img/logos/sources/rbnett.webp",
+  "source": "Official website",
+  "source_url": "https://www.rbnett.no/applefavicon.png",
+  "page": "https://www.rbnett.no",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "rbnett",
+  "outlet": "Romsdals Budstikke",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:glomdalen": {
+  "file": "assets/img/logos/sources/glomdalen.webp",
+  "source": "Official website",
+  "source_url": "https://r.acdn.no/local/v3/publications/www.glomdalen.no/gfx/square_logo.jpg",
+  "page": "https://www.glomdalen.no",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "glomdalen",
+  "outlet": "Østlendingen/Glåmdalen",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:oa": {
+  "file": "assets/img/logos/sources/oa.webp",
+  "source": "Official website",
+  "source_url": "https://r.acdn.no/local/v3/publications/www.oa.no/gfx/square_logo.jpg",
+  "page": "https://www.oa.no",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "oa",
+  "outlet": "Oppland Arbeiderblad",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:budstikka": {
+  "file": "assets/img/logos/sources/budstikka.webp",
+  "source": "Official website",
+  "source_url": "https://r.acdn.no/local/v3/publications/www.budstikka.no/gfx/square_logo.jpg",
+  "page": "https://www.budstikka.no",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "budstikka",
+  "outlet": "Budstikka",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:tb": {
+  "file": "assets/img/logos/sources/tb.webp",
+  "source": "Official website",
+  "source_url": "https://r.acdn.no/local/v3/publications/www.tb.no/gfx/square_logo.jpg",
+  "page": "https://www.tb.no",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "tb",
+  "outlet": "Tønsbergs Blad",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:h-avis": {
+  "file": "assets/img/logos/sources/h-avis.webp",
+  "source": "Official website",
+  "source_url": "https://r.acdn.no/local/v3/publications/www.h-avis.no/gfx/square_logo.jpg",
+  "page": "https://www.h-avis.no",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "h-avis",
+  "outlet": "Haugesunds Avis",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:ta": {
+  "file": "assets/img/logos/sources/ta.webp",
+  "source": "Official website",
+  "source_url": "https://r.acdn.no/local/v3/publications/www.ta.no/gfx/square_logo.jpg",
+  "page": "https://www.ta.no",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "ta",
+  "outlet": "Telemarksavisa",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:an": {
+  "file": "assets/img/logos/sources/an.webp",
+  "source": "Official website",
+  "source_url": "https://r.acdn.no/local/v3/publications/www.an.no/gfx/square_logo.jpg",
+  "page": "https://www.an.no",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "an",
+  "outlet": "Avisa Nordland",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:morgenbladet": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Morgenbladet_logo_2022-.png",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "author": "Morgenbladet2023",
+  "file": "assets/img/logos/sources/morgenbladet.webp",
+  "wikidata": "Q1460924",
+  "source_id": "morgenbladet",
+  "outlet": "Morgenbladet",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:dagensperspektiv": {
+  "file": "assets/img/logos/sources/dagensperspektiv.webp",
+  "source": "Official website",
+  "source_url": "https://www.dagensperspektiv.no/view-resources/dachser2/public/dagensperspektiv/favicon/apple-touch-icon.png",
+  "page": "https://www.dagensperspektiv.no",
+  "kind": "apple-touch-icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "dagensperspektiv",
+  "outlet": "Dagens Perspektiv",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:nationen": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Nationen.svg",
+  "license": "CC BY-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "author": "Ekbryn",
+  "file": "assets/img/logos/sources/nationen.svg",
+  "wikidata": "Q3351661",
+  "source_id": "nationen",
+  "outlet": "Nationen",
+  "fetched": "2026-10-06",
+  "review": "pending",
+  "raster": "assets/img/logos/sources/nationen.png"
+ },
+ "source:klassekampen": {
+  "source": "Wikimedia Commons",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Klassekampen_logo.gif",
+  "license": "Public domain",
+  "author": "Klassekampen",
+  "file": "assets/img/logos/sources/klassekampen.webp",
+  "wikidata": "Q1702232",
+  "source_id": "klassekampen",
+  "outlet": "Klassekampen",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:nbx-ir": {
+  "file": "assets/img/logos/nbx.svg",
+  "source": "Official website",
+  "source_url": "https://cdn.prod.website-files.com/6152dfaed2ce58d94ef37b88/619509e489aaca39961511c2_DarkLogo.svg",
+  "page": "https://nbx.com",
+  "kind": "img",
+  "same_as": "nbx",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "nbx-ir",
+  "outlet": "NBX børsmeldinger (via Inderes)",
+  "fetched": "2026-10-06",
+  "review": "pending",
+  "raster": "assets/img/logos/sources/nbx-ir.png"
+ },
+ "source:kaupr": {
+  "file": "assets/img/logos/kaupr.webp",
+  "source": "Official website",
+  "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+  "page": "https://www.kaupr.io",
+  "kind": "img",
+  "same_as": "kaupr",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "source_id": "kaupr",
+  "outlet": "Kaupr",
+  "fetched": "2026-10-06",
+  "review": "pending"
+ },
+ "source:digi-krypto": {
+  "file": "assets/img/logos/sources/digi.webp",
+  "source": "Official website",
+  "source_url": "https://www.digi.no/view-resources/dachser2/public/digi/favicons/favicon-512x512.png",
+  "page": "https://www.digi.no",
+  "kind": "icon",
+  "license": "Publisher's own logo, used only to identify the source of a headline",
+  "same_as": "source:digi",
+  "source_id": "digi-krypto",
+  "outlet": "Digi.no (crypto tag)",
+  "fetched": "2026-10-06",
+  "review": "pending"
  },
  "aamulehti": {
   "file": "assets/img/logos/aamulehti.svg",
@@ -1540,7 +2537,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/aamulehti.png"
  },
  "100-avesta": {
   "file": "assets/img/logos/100-avesta.svg",
@@ -1552,7 +2550,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/100-avesta.png"
  },
  "aamuset-kaupunkimedia": {
   "file": "assets/img/logos/aamuset-kaupunkimedia.svg",
@@ -1564,7 +2563,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/aamuset-kaupunkimedia.png"
  },
  "aarhus-events": {
   "file": "assets/img/logos/aarhus-events.svg",
@@ -1576,7 +2576,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/aarhus-events.png"
  },
  "aalborg-nu": {
   "file": "assets/img/logos/aalborg-nu.svg",
@@ -1588,7 +2589,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/aalborg-nu.png"
  },
  "aalborg-nu-midt-vest": {
   "file": "assets/img/logos/aalborg-nu-midt-vest.svg",
@@ -1600,7 +2602,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/aalborg-nu-midt-vest.png"
  },
  "aalborg-nu-norresundby": {
   "file": "assets/img/logos/aalborg-nu-norresundby.svg",
@@ -1612,7 +2615,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/aalborg-nu-norresundby.png"
  },
  "aalborg-nu-vejgaard": {
   "file": "assets/img/logos/aalborg-nu-vejgaard.svg",
@@ -1624,7 +2628,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/aalborg-nu-vejgaard.png"
  },
  "adresseavisen-syddjurs": {
   "file": "assets/img/logos/adresseavisen-syddjurs.svg",
@@ -1636,7 +2641,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/adresseavisen-syddjurs.png"
  },
  "aftonbladet": {
   "file": "assets/img/logos/aftonbladet.svg",
@@ -1648,7 +2654,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/aftonbladet.png"
  },
  "abo-underrattelser": {
   "file": "assets/img/logos/abo-underrattelser.svg",
@@ -1660,7 +2667,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/abo-underrattelser.png"
  },
  "akers-avis-groruddalen": {
   "review": "rejected",
@@ -1678,7 +2686,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/akureyri-net.png"
  },
  "alandstidningen": {
   "file": "assets/img/logos/alandstidningen.svg",
@@ -1690,7 +2699,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/alandstidningen.png"
  },
  "albertslund-posten": {
   "file": "assets/img/logos/albertslund-posten.svg",
@@ -1702,7 +2712,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/albertslund-posten.png"
  },
  "alands-polismyndighet": {
   "file": "assets/img/logos/alands-polismyndighet.svg",
@@ -1714,7 +2725,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/alands-polismyndighet.png"
  },
  "allerod-nyt": {
   "file": "assets/img/logos/allerod-nyt.svg",
@@ -1726,7 +2738,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/allerod-nyt.png"
  },
  "altinget": {
   "file": "assets/img/logos/altinget.svg",
@@ -1738,7 +2751,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/altinget.png"
  },
  "alueviesti-riippumaton-ja-itsenainen-kaupunkileh": {
   "file": "assets/img/logos/alueviesti-riippumaton-ja-itsenainen-kaupunkileh.svg",
@@ -1750,7 +2764,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/alueviesti-riippumaton-ja-itsenainen-kaupunkileh.png"
  },
  "anr-alborg": {
   "file": "assets/img/logos/anr-alborg.svg",
@@ -1762,7 +2777,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/anr-alborg.png"
  },
  "arbetarbladet": {
   "file": "assets/img/logos/arbetarbladet.svg",
@@ -1774,7 +2790,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/arbetarbladet.png"
  },
  "askoy24": {
   "file": "assets/img/logos/askoy24.svg",
@@ -1786,7 +2803,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/askoy24.png"
  },
  "akersposten": {
   "file": "assets/img/logos/akersposten.webp",
@@ -2326,7 +3344,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/baejarins-besta.png"
  },
  "bargslagsbladet-argoba-tidning": {
   "file": "assets/img/logos/bargslagsbladet-argoba-tidning.webp",
@@ -3322,7 +4341,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/finanstilsynet-dk.png"
  },
  "finanswatch": {
   "file": "assets/img/logos/finanswatch.webp",
@@ -3550,7 +4570,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/flamman.png"
  },
  "folkebladet-djursland": {
   "file": "assets/img/logos/folkebladet-djursland.webp",
@@ -4678,7 +5699,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/ilta-sanomat.png"
  },
  "iharstad": {
   "file": "assets/img/logos/iharstad.webp",
@@ -4798,7 +5820,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/jamsan-seutu.png"
  },
  "jaerbladet": {
   "file": "assets/img/logos/jaerbladet.webp",
@@ -4822,7 +5845,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/janakkalan-sanomat.png"
  },
  "joroisten-lehti": {
   "file": "assets/img/logos/joroisten-lehti.webp",
@@ -5110,7 +6134,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/kankaanpaan-seutu.png"
  },
  "karjalainen": {
   "file": "assets/img/logos/karjalainen.webp",
@@ -5338,7 +6363,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/kmv-lehti.png"
  },
  "kobenhavnliv": {
   "file": "assets/img/logos/kobenhavnliv.webp",
@@ -6550,7 +7576,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/merikarvia-lehti.png"
  },
  "midtjyllands-avis": {
   "file": "assets/img/logos/midtjyllands-avis.webp",
@@ -6886,7 +7913,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/nokian-uutiset.png"
  },
  "mosfellingur-baejarbladid-i-mosfellsbae": {
   "file": "assets/img/logos/mosfellingur-baejarbladid-i-mosfellsbae.webp",
@@ -8122,7 +9150,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/rannikkoseutu.png"
  },
  "rantalakeus": {
   "file": "assets/img/logos/rantalakeus.webp",
@@ -8146,7 +9175,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/raumalainen.png"
  },
  "raumnes": {
   "file": "assets/img/logos/raumnes.webp",
@@ -8446,7 +9476,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/satakunnan-kansa-lansi-suomi.png"
  },
  "sarpsborg-arbeiderblad": {
   "file": "assets/img/logos/sarpsborg-arbeiderblad.webp",
@@ -9214,7 +10245,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/suur-keuruu.png"
  },
  "sunnhordland-no": {
   "file": "assets/img/logos/sunnhordland-no.webp",
@@ -9250,7 +10282,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/sydan-satakunta.png"
  },
  "syd-osterbotten": {
   "file": "assets/img/logos/syd-osterbotten.webp",
@@ -9826,7 +10859,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/tyrvaan-sanomat.png"
  },
  "tvedestrandsposten": {
   "file": "assets/img/logos/tvedestrandsposten.webp",
@@ -9862,7 +10896,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/tysnes-kommune.png"
  },
  "ugeavisen-bramming": {
   "file": "assets/img/logos/ugeavisen-bramming.webp",
@@ -10534,7 +11569,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/valkeakosken-sanomat.png"
  },
  "valdres": {
   "file": "assets/img/logos/valdres.webp",
@@ -10726,7 +11762,8 @@
   "use": "nominative",
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)",
-  "fetched": "2026-10-06"
+  "fetched": "2026-10-06",
+  "raster": "assets/img/logos/vekkari.png"
  },
  "vastgota-bladet": {
   "file": "assets/img/logos/vastgota-bladet.webp",

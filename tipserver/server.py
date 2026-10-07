@@ -1,20 +1,23 @@
 #!/usr/bin/env python3
-"""Crypto Nordic tip server (Python stdlib only). Listens on localhost; will later be exposed via a Cloudflare tunnel.
+"""Nordic Crypto tip server (Python stdlib only). Listens on localhost; will later be exposed via a Cloudflare tunnel.
   POST /api/tip     JSON or form fields: url (required, http/https), country (NO/SE/DK/FI/IS/unsure), note (<=1000 chars),
                     name (optional, <=100 chars), website (honeypot: must be empty). Stored in SQLite as status 'pending'.
   GET  /api/health  {"ok": true}
 Privacy: the IP address is never stored or logged (it is only held in memory, hashed, for the rate limit) and the request
 body is never logged. No user agent or other metadata is stored. Body capped at 4 KB.
-CORS: only https://jqrgen.github.io (plus TIP_EXTRA_ORIGINS for local tests). A browser POST from any other Origin is refused.
+CORS: the public site origin (site_url.ORIGIN) and https://jqrgen.github.io (Kryptonytt), plus TIP_EXTRA_ORIGINS for local tests. A browser POST from any other Origin is refused.
 Env: TIP_PORT (8787), TIP_HOST (127.0.0.1), TIP_DB (tipserver/tips.db), TIP_EXTRA_ORIGINS (comma-separated, tests only)."""
 import hashlib, json, os, re, secrets, sqlite3, sys, threading, time, urllib.parse, datetime as dt
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.dirname(HERE))
+import site_url
 PORT = int(os.environ.get("TIP_PORT", "8787")); HOST = os.environ.get("TIP_HOST", "127.0.0.1")
 DB = os.environ.get("TIP_DB", os.path.join(HERE, "tips.db"))
-ORIGINS = {"https://jqrgen.github.io"} | {o.strip() for o in os.environ.get("TIP_EXTRA_ORIGINS", "").split(",") if o.strip()}
-THANKS = "https://jqrgen.github.io/nordic-crypto/tip/"
+# github.io stays allowed so Kryptonytt, which still lives there, can post.
+ORIGINS = {site_url.ORIGIN, "https://jqrgen.github.io"} | {o.strip() for o in os.environ.get("TIP_EXTRA_ORIGINS", "").split(",") if o.strip()}
+THANKS = site_url.join("tip/")
 MAX_BODY = 4096; MAX_NOTE = 1000; MAX_NAME = 100; MAX_URL = 2000
 COUNTRIES = {"NO", "SE", "DK", "FI", "IS", "UNSURE"}
 RATE_N, RATE_WINDOW = 5, 600          # max 5 tips per IP per 10 minutes

@@ -1,0 +1,20 @@
+# Nordic Crypto browser push (Cloudflare Workers + KV).
+# Deploy with ./deploy.sh. Do not put secrets in this file.
+# Secrets (wrangler secret put, never committed): VAPID_PUBLIC_KEY, VAPID_PRIVATE_KEY, PUBLISH_TOKEN.
+name = "nordic-crypto-push"
+main = "src/worker.js"
+compatibility_date = "2026-09-01"
+workers_dev = true
+preview_urls = false
+
+# No request logs. The Worker also never logs a subscription or a token.
+[observability]
+enabled = false
+
+[vars]
+VAPID_SUBJECT = "mailto:push@cryptonordic.no"
+
+[[kv_namespaces]]
+binding = "SUBSCRIPTIONS"
+id = "00000000-0000-0000-0000-000000000000"   # replaced by deploy.sh with the real id
+preview_id = "local-push-preview"

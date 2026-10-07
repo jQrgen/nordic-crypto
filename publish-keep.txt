@@ -1,0 +1,15 @@
+# Top-level gh-pages names that publish.sh must not delete before copying site/ over.
+# The build does not produce these. One name per line. Blank lines and # comments are ignored.
+# A trailing slash is optional. Only the first path segment is used (the wipe is one level deep).
+#
+# Not listed, on purpose:
+#   markets/              build_lang() always calls build_markets() — site/markets/index.html
+#                         and the per-language pages. Price JSON is api/v1/markets/, also written
+#                         by the build (and refreshed hourly on gh-pages).
+#   regulation-videos/    build_lang() always calls build_regulation_videos() when rules.json
+#                         and data/regulation-videos.json exist (both are in the repo; rules are
+#                         approved). That writes the HTML page and copies posters from
+#                         regulation-videos/posters/.
+
+CNAME
+kiosk

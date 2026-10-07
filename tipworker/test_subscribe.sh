@@ -5,6 +5,7 @@
 # Usage: ./test_subscribe.sh   (port: TW_PORT, default 8789)
 set -uo pipefail
 cd "$(dirname "$0")"; source ./env.sh
+NC=$(python3 -c 'import sys; sys.path.insert(0, ".."); import site_url; print(site_url.BASE)')
 PORT=${TW_PORT:-8789}; B="http://127.0.0.1:$PORT"; GOOD=https://jqrgen.github.io; BAD=https://evil.example; SECRET=test-unsub-secret
 pass=0; failc=0
 ok() { echo "PASS  $1"; pass=$((pass+1)); }; ko() { echo "FAIL  $1  ($2)"; failc=$((failc+1)); }
@@ -65,12 +66,12 @@ r=$(sub '{"email":"kari@example.org","site":"kryptonytt","lang":"nn"}' $(ip)); c
 has "confirmed stays confirmed" "$(sql "SELECT status FROM subscribers WHERE email='kari@example.org' AND site='kryptonytt'")" '"confirmed"'
 # expiry
 sql "UPDATE subscribers SET token_expires = 1 WHERE email='kari@example.org' AND site='nordic-crypto'" >/dev/null
-h=$(hdr "$B/api/confirm?token=$TOK_NC&s=nordic-crypto&l=sv"); has "expired token -> invalid_link (sv page)" "$h" "location: https://jqrgen.github.io/nordic-crypto/sv/newsletter/?error=invalid_link"
+h=$(hdr "$B/api/confirm?token=$TOK_NC&s=nordic-crypto&l=sv"); has "expired token -> invalid_link (sv page)" "$h" "location: ${NC}sv/newsletter/?error=invalid_link"
 sub '{"email":"other@example.org","site":"nordic-crypto"}' $(ip) >/dev/null
 hasnt "expired pending row deleted on next signup" "$(sql "SELECT site FROM subscribers WHERE email='kari@example.org'")" "nordic-crypto"
 # form post (no JS) -> 303 back to the site's page
 h=$(hdr -H "CF-Connecting-IP: $(ip)" -H "Origin: $GOOD" --data-urlencode 'email=form@example.org' --data-urlencode 'site=nordic-crypto' --data-urlencode 'lang=fi' "$B/api/subscribe")
-has "form 303" "$h" "HTTP/1.1 303"; has "form -> fi page sent=1" "$h" "location: https://jqrgen.github.io/nordic-crypto/fi/newsletter/?sent=1"
+has "form 303" "$h" "HTTP/1.1 303"; has "form -> fi page sent=1" "$h" "location: ${NC}fi/newsletter/?sent=1"
 h=$(hdr -H "CF-Connecting-IP: $(ip)" -H "Origin: $GOOD" --data-urlencode 'email=nope' --data-urlencode 'site=kryptonytt' --data-urlencode 'lang=nn' "$B/api/subscribe")
 has "form error -> nn page" "$h" "location: https://jqrgen.github.io/kryptonytt/nyhetsbrev/?error=email"
 # unsubscribe (HMAC link, nothing stored)

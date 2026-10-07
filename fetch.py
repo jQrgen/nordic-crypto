@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Crypto Nordic – fetches feeds and public list pages for Norway, Sweden, Denmark, Finland and Iceland,
+"""Nordic Crypto – fetches feeds and public list pages for Norway, Sweden, Denmark, Finland and Iceland,
 filters on crypto keywords (Norwegian, Swedish, Danish, Finnish, Icelandic, English), de-duplicates and updates
 data/news.json and the editor queue queue/review.json. Events are searched in the same run (events.py).
 
@@ -9,12 +9,19 @@ data/news.json and the editor queue queue/review.json. Events are searched in th
 New items get status "pending" and are NOT published until the editor has written a summary in English
 in our own words (queue/approved.json) – see README.md. The front page needs two to four sentences of what the story says; a one-sentence intro is not enough. The feed teaser is stored only locally in
 state/teasers.json as working material for the editor and is never published. Article text is never fetched
-(we respect paywalls and robots.txt).
+(we respect paywalls and robots.txt). Article pictures are never stored either:
+og:image, RSS media:content, media:thumbnail and image enclosures are ignored.
+See tools/press_images.py and docs/image-policy.md.
 """
 import argparse, datetime as dt, hashlib, json, os, re, sys, threading, time, urllib.parse, urllib.robotparser
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import requests, feedparser
 from bs4 import BeautifulSoup
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "tools"))
+import coverage
+import event_block
+from tools.press_images import entry_carries_article_image, ignored_count, note_og_image, strip_press_images
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(ROOT, "tools"))
@@ -33,7 +40,8 @@ def save(path, data):
     os.replace(tmp, path)
 
 CFG = load(P("sources.json"), None)
-UA = CFG["user_agent"]; DELAY = CFG.get("min_delay_seconds", 2)
+import site_url
+UA = site_url.expand(CFG["user_agent"]); DELAY = CFG.get("min_delay_seconds", 2)
 LOG = open(P("logs", dt.datetime.now().strftime("fetch-%Y%m%d-%H%M%S.log")), "w", encoding="utf-8")
 def log(*a):
     s = " ".join(str(x) for x in a)
@@ -194,12 +202,14 @@ def candidates(text):
 
 EN_MONTHS = {m: i for i, m in enumerate(["January","February","March","April","May","June","July","August","September","October","November","December"], 1)}
 def page_meta(url):
-    """Fetches only public metadata (title, description, date) from a page. Never article text."""
+    """Fetches only public metadata (title, description, date) from a page. Never article text.
+    og:image is seen and dropped. The picture URL is not returned."""
     if not robots_ok(url): raise RuntimeError("robots.txt disallows")
     r = get(url); r.raise_for_status(); soup = BeautifulSoup(r.text, "lxml")
     m = lambda **k: (soup.find("meta", attrs=k) or {}).get("content")
     title = m(property="og:title") or (soup.title.string if soup.title else "") or ""
     desc = m(property="og:description") or m(name="description") or ""
+    note_og_image(m(property="og:image"))
     date = None
     iso = m(property="article:published_time") or m(name="date") or m(name="DC.date") or m(name="dcterms.date") or m(itemprop="datePublished")
     if not iso:
@@ -239,7 +249,7 @@ def main():
     queue = load(P("queue", "review.json"), {"items_needing_summary": [], "candidate_entities": []})
     org = load(P("data", "orgchart.json"), {"entities": [], "relations": []})
     known_names = {e["name"].lower() for e in org["entities"]}
-    by_url = {canon(i["url"]): i for i in news["items"]}
+    by_url = coverage.index_urls(news["items"])
     by_title = {norm_title(i["title"]): i for i in news["items"]}
     status = load(P("state", "source_status.json"), {})
     new = []
@@ -260,15 +270,29 @@ def main():
                 return
         if not title or not published or published < cutoff: return
         cu = canon(url)
-        if cu in by_url or norm_title(title) in by_title:
-            ex = by_url.get(cu) or by_title.get(norm_title(title))
+        if cu in by_url:
+            ex = by_url[cu]
             if src not in ex.setdefault("seen_via", []): ex["seen_via"].append(src)
+            return
+        cand = {"url": url, "title": title, "published": published.isoformat(), "text": f"{title}. {teaser}"}
+        match, why = coverage.find_match(cand, news["items"], teasers)
+        if match:
+            rec = coverage.record_from_parts(outlet, outlet_name, url, title, published, lang or LANG.get(country), country,
+                                             paywall=bool(SRC.get(outlet, {}).get("paywall", False)))
+            if coverage.attach(match, rec):
+                note = {"url": url, "title": title, "outlet": outlet, "outlet_name": outlet_name,
+                        "attached_to": match.get("id"), "reason": why, "at": NOW.isoformat(timespec="seconds")}
+                got = queue.setdefault("coverage_attached", [])
+                got[:] = [n for n in got if coverage.canon(n.get("url")) != cu] + [note]
+                log(f"ATTACHED {outlet_name} to {match.get('id')} ({why}): {title[:80]}")
+            by_url[cu] = match
             return
         it = {"id": iid(url), "url": url, "title": title, "title_en": None, "source": outlet, "source_name": outlet_name,
               "country": country, "language": lang or LANG.get(country), "via": src, "seen_via": [src],
               "published": published.isoformat(), "fetched": NOW.isoformat(timespec="seconds"),
               "topics": topics_of(text), "matched": hits, "paywall": bool(SRC.get(outlet, {}).get("paywall", False)),
               "status": "pending", "summary": None}
+        strip_press_images(it)
         news["items"].append(it); by_url[cu] = it; by_title[norm_title(title)] = it
         teasers[it["id"]] = teaser[:600]; new.append(it)
 
@@ -375,6 +399,7 @@ def main():
                 if r.status_code != 200: err = f"HTTP {r.status_code}"; continue
                 f = feedparser.parse(r.content); n_ok += 1; n_items += len(f.entries)
                 for e in f.entries:
+                    entry_carries_article_image(e)  # media:content / enclosure: counted, URL not stored
                     link = e.get("link") or ""
                     title = clean(e.get("title"))
                     teaser = clean(e.get("summary") or e.get("description") or "")
@@ -405,12 +430,15 @@ def main():
                 fut.result()
 
     # queue: stories without an editorial summary + candidate entities
-    pend = {q["id"] for q in queue["items_needing_summary"]}
+    pend = {q["id"]: q for q in queue["items_needing_summary"]}
     for it in news["items"]:
         if it["status"] == "pending" and it["id"] not in pend:
-            queue["items_needing_summary"].append({"id": it["id"], "country": it.get("country"), "language": it.get("language"),
+            row = {"id": it["id"], "country": it.get("country"), "language": it.get("language"),
                 "title": it["title"], "source": it["source_name"], "url": it["url"], "published": it["published"],
-                "teaser_local_only": teasers.get(it["id"], "")})
+                "teaser_local_only": teasers.get(it["id"], "")}
+            prev = pend.get(it["id"]) or {}
+            if prev.get("duplicate_of"): row["duplicate_of"] = prev["duplicate_of"]
+            queue["items_needing_summary"].append(row)
     queue["items_needing_summary"] = [q for q in queue["items_needing_summary"]
         if any(i["id"] == q["id"] and i["status"] == "pending" for i in news["items"])]
     seen_c = {(c["name"].lower(), c.get("item_id")) for c in queue["candidate_entities"]}
@@ -423,8 +451,16 @@ def main():
     queue["_how_to"] = ("Editor: for each story in items_needing_summary, add an entry to queue/approved.json -> items with the url, "
         "a 2–4 sentence summary IN ENGLISH in our own words of what the story says (never copied or machine-copied text; not only a one-line intro), an optional title_en, and topics; "
         "or add it to rejected if it is not about crypto in NO/SE/DK/FI/IS. teaser_local_only is working material and is never published. "
+        "Same event, another outlet: set duplicate_of to the existing story id or URL on this queue row (or on the approved.json item, with no summary). "
+        "The next build adds it to also_covered_by on that story and does not publish a second story. "
+        "A new article is attached on its own when the headline matches, the title is close within three days, or two known organisations appear in both texts (see coverage_attached). "
         "Candidate entities: add confirmed ones to data/orgchart_nordic.json with a source link, then set status accepted/rejected here. "
         "Events: see events_pending. Then run ./build.sh (local) – publishing needs jQrgen's OK.")
+    n_stripped = 0
+    for it in news["items"]:
+        n_stripped += len(strip_press_images(it))
+    if n_stripped or ignored_count():
+        log(f"article images ignored: {ignored_count()} seen in feeds or pages, {n_stripped} fields removed from news rows (URLs not stored)")
     news["items"].sort(key=lambda i: i["published"], reverse=True); news["updated"] = NOW.isoformat(timespec="seconds")
     save(P("data", "news.json"), news); save(P("state", "teasers.json"), teasers); save(P("queue", "review.json"), queue)
     save(P("state", "source_status.json"), status); save(P("state", "http_cache.json"), http_cache); save(P("state", "html_seen.json"), seen_html)
@@ -434,8 +470,18 @@ def main():
         f"{len(queue['items_needing_summary'])} awaiting an English summary, "
         f"{sum(1 for c in queue['candidate_entities'] if c['status']=='new')} new candidate entities in queue/review.json")
 
+def event_sources(cfg):
+    """Event sources for this run, with predatory conference listings removed."""
+    kept = []
+    for src in (cfg or {}).get("event_sources") or []:
+        if event_block.blocked_source(src):
+            log(f"event source {src.get('id', '?')} blocked predatory conference listing")
+            continue
+        kept.append(src)
+    return kept
+
 if __name__ == "__main__":
     main()
     if "--add" not in sys.argv and "--no-events" not in sys.argv:  # events are searched in every run
         import events
-        events.run(get, robots_ok, lambda t: bool(matches(t)), log, CFG)
+        events.run(get, robots_ok, lambda t: bool(matches(t)), log, dict(CFG, event_sources=event_sources(CFG)))

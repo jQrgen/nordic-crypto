@@ -1,0 +1,21 @@
+# Cloudflare Worker for the country domains. Deploy: npx wrangler deploy (needs CLOUDFLARE_API_TOKEN with
+# Workers Scripts Edit + Workers Routes Edit on the four zones). The routes below are zone routes; no workers.dev.
+name = "nordiccrypto-country-domains"
+main = "worker.js"
+compatibility_date = "2026-09-01"
+workers_dev = false
+preview_urls = false
+
+routes = [
+  { pattern = "nordiccrypto.se/*", zone_name = "nordiccrypto.se" },
+  { pattern = "www.nordiccrypto.se/*", zone_name = "nordiccrypto.se" },
+  { pattern = "nordiccrypto.fi/*", zone_name = "nordiccrypto.fi" },
+  { pattern = "www.nordiccrypto.fi/*", zone_name = "nordiccrypto.fi" },
+  { pattern = "nordiccrypto.dk/*", zone_name = "nordiccrypto.dk" },
+  { pattern = "www.nordiccrypto.dk/*", zone_name = "nordiccrypto.dk" },
+  { pattern = "nordiccrypto.is/*", zone_name = "nordiccrypto.is" },
+  { pattern = "www.nordiccrypto.is/*", zone_name = "nordiccrypto.is" },
+]
+
+[observability]
+enabled = false

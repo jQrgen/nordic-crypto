@@ -19,12 +19,15 @@ header{display:flex;align-items:center;gap:2vmin;border-bottom:.45vmin solid var
 .panel{background:var(--card);border:1px solid var(--line);padding:1.4vmin 1.8vmin;overflow:hidden;position:relative;min-height:0;display:flex;flex-direction:column}
 .panel h2{margin:0 0 .6em;font-size:1em;text-transform:uppercase;letter-spacing:.12em;color:var(--acc)}
 .news{list-style:none;margin:0;padding:0;flex:1;min-height:0;overflow:hidden}
-.news li{padding:.75em 0;border-bottom:1px solid var(--line);transition:opacity .6s}
+.news li{display:flex;align-items:flex-start;gap:.8em;padding:.75em 0;border-bottom:1px solid var(--line);transition:opacity .6s;text-align:start}
+.news .pic{flex:none;width:8.2em;text-align:start}
+.news .ill{display:block;width:8.2em;height:4.6em;object-fit:cover;object-position:left center;background:#111}
 .news .t{font-weight:700;font-size:1.55em;line-height:1.2}
 .news .m{color:var(--mut);font-size:.95em;margin:.25em 0;text-align:start}.news .m b{color:var(--fg)}
 .src{display:inline-flex;align-items:center;justify-content:flex-start;gap:.35em;text-align:start;vertical-align:middle}
 .src-logo{height:1.05em;width:auto;max-width:5em;object-fit:contain;flex:none;background:#fff;padding:.06em}
 .news .s{font-size:1.1em}.news .s.pend{color:var(--acc);font-style:italic}.news .o{color:var(--mut);font-size:.95em}
+.cov{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:center;gap:.35em .6em;margin:.15em 0;text-align:start}
 .flag{vertical-align:-.12em;width:1.1em;height:.8em;margin-right:.3em}
 .tag.pend{border-color:var(--acc);color:var(--acc);font-weight:700}
 .pv{background:#78350f;color:#fff;padding:.2em .6em;font-size:.8em;font-weight:700}
@@ -66,7 +69,7 @@ footer{color:var(--mut);font-size:.8em;display:flex;gap:1.5em;flex-wrap:wrap}
 <section class="panel" id="pNews" aria-live="polite"><h2>Latest news</h2><ol class="news" id="news"></ol><div class="pager" id="pager"></div></section>
 <section class="panel" id="pOrg"><h2>Who's who</h2><div class="spot" id="spot"></div><div class="stats" id="stats"></div></section>
 <section class="panel" id="pSrc"><div id="evbox" hidden><h2>Upcoming events</h2><ul class="evs" id="evs"></ul></div><h2>Sources we follow</h2><ul class="srcs" id="srcs"></ul></section>
-<footer><span id="upd">Loading …</span><span>Summaries are made with the help of artificial intelligence, with human editors (jQrgen and the Nordic Crypto editor). Not investment advice. Cloudflare Web Analytics counts visits in aggregate, without cookies, and we do not sell that data.</span><span>jqrgen.github.io/nordic-crypto · Oslo time</span></footer>
+<footer><span id="upd">Loading …</span><span>Summaries are made with the help of artificial intelligence, with human editors (jQrgen and the Nordic Crypto editor). Not investment advice. Cloudflare Web Analytics counts visits in aggregate, without cookies, and we do not sell that data.</span><span>__HOST__ · Oslo time</span></footer>
 </div>
 <script>
 (function(){
@@ -77,8 +80,9 @@ var TZ='Europe/Oslo',fl=function(c){return FLAGS[c]||''};
 function fmt(iso){return new Date(iso).toLocaleDateString('en-GB',{day:'numeric',month:'short',timeZone:TZ})}
 function tick(){var d=new Date();$('clock').textContent=d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit',timeZone:TZ});$('date').textContent=d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric',timeZone:TZ})}
 function perPage(){return window.matchMedia('(orientation: portrait)').matches?7:5}
+function covRow(i){var xs=i.also_covered_by||[];if(!xs.length)return '';var all=[{source_name:i.source_name,source_logo:i.source_logo,url:i.url}].concat(xs);var shown=all.slice(0,6);var bits=shown.map(function(s){var im=s.source_logo&&s.source_logo.file?'<img class="src-logo" alt="" src="../'+esc(s.source_logo.file)+'">':'';var name=esc(s.outlet_name||s.source_name||'');return '<a class="src" href="'+esc(s.url)+'" target="_blank" rel="noopener">'+(im||name)+'</a>'});var rest=all.length-shown.length;var label=rest?('+'+rest+' sources'):(all.length+' sources');return '<div class="cov">'+bits.join('')+'<span>'+label+'</span></div>'}
 function renderNews(){var n=DATA.news,per=perPage(),pages=Math.max(1,Math.ceil(n.length/per));page=page%pages;var ol=$('news');ol.style.opacity=0;
- setTimeout(function(){ol.innerHTML=n.slice(page*per,page*per+per).map(function(i){var pend=i.status!=='published'&&i.status!=='owner',own=i.status==='owner';var lg=i.source_logo&&i.source_logo.file?'<img class="src-logo" alt="" src="../'+esc(i.source_logo.file)+'">':'';return '<li><div class="t">'+esc(i.title_en||i.title)+'</div>'+(i.title_en?'<div class="o">'+esc(i.title)+'</div>':'')+'<div class="m">'+fl(i.country)+'<span class="src">'+lg+'<b>'+esc(i.source_name)+'</b></span> · '+fmt(i.published)+(i.language&&i.language!=='English'&&!i.title_en?' · in '+esc(i.language):'')+(i.topics||[]).map(function(t){return '<span class="tag">'+esc(t)+'</span>'}).join('')+(pend?'<span class="tag pend">Pending editor review</span>':'')+(own?'<span class="tag pend">Awaiting jQrgen\'s approval</span>':'')+'</div>'+(pend?'<div class="s pend">English summary not written yet.</div>':'<div class="s">'+esc(i.summary)+'</div>')+'</li>'}).join('')||'<li>No stories yet.</li>';
+ setTimeout(function(){ol.innerHTML=n.slice(page*per,page*per+per).map(function(i){var pend=i.status!=='published'&&i.status!=='owner',own=i.status==='owner';var lg=i.source_logo&&i.source_logo.file?'<img class="src-logo" alt="" src="../'+esc(i.source_logo.file)+'">':'';var pic=i.illustration&&i.illustration.file?'<div class="pic"><img class="ill" alt="" src="../'+esc(i.illustration.file)+'" width="160" height="90" loading="lazy"><div class="credit">'+esc(i.illustration.author||'')+', '+esc(i.illustration.license||'')+'</div></div>':'';return '<li>'+pic+'<div><div class="t">'+esc(i.title_en||i.title)+'</div>'+(i.title_en?'<div class="o">'+esc(i.title)+'</div>':'')+'<div class="m">'+fl(i.country)+'<span class="src">'+lg+'<b>'+esc(i.source_name)+'</b></span> · '+fmt(i.published)+(i.language&&i.language!=='English'&&!i.title_en?' · in '+esc(i.language):'')+(i.topics||[]).map(function(t){return '<span class="tag">'+esc(t)+'</span>'}).join('')+(pend?'<span class="tag pend">Pending editor review</span>':'')+(own?'<span class="tag pend">Awaiting jQrgen\'s approval</span>':'')+'</div>'+covRow(i)+(pend?'<div class="s pend">English summary not written yet.</div>':'<div class="s">'+esc(i.summary)+'</div>')+'</div></li>'}).join('')||'<li>No stories yet.</li>';
  var lis=[].slice.call(ol.children);for(var k=lis.length-1;k>0&&ol.scrollHeight>ol.clientHeight+2;k--){lis[k].remove()}
  ol.style.opacity=1;$('pager').textContent=n.length?('Page '+(page+1)+' of '+pages+' · '+n.length+' stories'):''},300)}
 function initials(n){return n.split(/[\s-]+/).filter(Boolean).slice(0,2).map(function(w){return w[0]}).join('').toUpperCase()}

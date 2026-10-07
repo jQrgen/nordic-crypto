@@ -1,5 +1,6 @@
 // node --test tests/newsletter.test.mjs  – unit tests for signup validation, texts and the mailer guard (no network).
 import test from "node:test"; import assert from "node:assert/strict";
+import siteUrl from "../../site_url.json" with { type: "json" };
 import { validateSignup } from "../src/newsletter.js";
 import { SITES, LANG_KEYS, confirmEmail, welcomeEmail, text, pageUrl } from "../src/messages.js";
 import { providerName, sendMail, TEST_OUTBOX } from "../src/mailer.js";
@@ -24,7 +25,7 @@ test("every site language has all texts, with the link", () => {
     for (const k of ["ut", "uq", "ub", "ux"]) assert.ok(!text(lang, k, { name: s.name }).includes("{"), k);
   }
   assert.equal(pageUrl("kryptonytt", "nb"), "https://jqrgen.github.io/kryptonytt/bm/nyhetsbrev/");
-  assert.equal(pageUrl("nordic-crypto", "en"), "https://jqrgen.github.io/nordic-crypto/newsletter/");
+  assert.equal(pageUrl("nordic-crypto", "en"), siteUrl.base + "newsletter/");
 });
 
 test("Norwegian texts never say AI or KI", () => {

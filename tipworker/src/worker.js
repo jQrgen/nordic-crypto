@@ -1,22 +1,26 @@
-// Crypto Nordic tip intake – Cloudflare Worker + D1. Port of tipserver/server.py (same fields, validation, honeypot,
+// Nordic Crypto tip intake – Cloudflare Worker + D1. Port of tipserver/server.py (same fields, validation, honeypot,
 // limits and responses).
 //   POST /api/tip     JSON or form fields: url (required, http/https), country (NO/SE/DK/FI/IS/unsure), note (<=1000 chars),
 //                     name (optional, <=100 chars), website (honeypot: must be empty). Stored in D1 as status 'pending'.
 //   GET  /api/health  {"ok": true, "service": "nordic-crypto-tips"}
 //   GET  /api/geo     {"country": "NO"} – only the two-letter country code Cloudflare already attaches to the request
 //                     (request.cf.country), or null. Used once by the site's language picker. Nothing is stored or logged,
-//                     Cache-Control: no-store, CORS only for https://jqrgen.github.io. For local tests only, the header
+//                     Cache-Control: no-store, CORS only for the public site origin and https://jqrgen.github.io. For local tests only, the header
 //                     X-Test-Country is honoured when the variable GEO_TEST is "1" (never set in wrangler.toml / production).
 // Privacy: never logs anything (no console.* calls, observability off in wrangler.toml); the IP is never stored – only a
 // SHA-256 of (daily random salt + IP) is kept for the 10-minute rate-limit window (see migrations/0001_tips.sql).
 // No user agent or other metadata is stored. Body capped at 4 KB.
-// CORS: only https://jqrgen.github.io. A browser POST from any other Origin is refused (403).
-// Newsletter signup (Crypto Nordic + Kryptonytt, double opt-in): POST /api/subscribe, GET /api/confirm, GET/POST
+// CORS: the public site origin (site_url.json) and https://jqrgen.github.io. A browser POST from any other Origin is refused (403).
+// Newsletter signup (Nordic Crypto + Kryptonytt, double opt-in): POST /api/subscribe, GET /api/confirm, GET/POST
 // /api/unsubscribe – see src/newsletter.js (D1 table subscribers, migrations/0003_subscribers.sql) and src/mailer.js.
 import { subscribe, confirm, unsubscribe } from "./newsletter.js";
+import siteUrl from "../../site_url.json" with { type: "json" };
 
-const ORIGINS = new Set(["https://jqrgen.github.io"]);
-const THANKS = "https://jqrgen.github.io/nordic-crypto/tip/";
+const SITE_BASE = siteUrl.base.endsWith("/") ? siteUrl.base : siteUrl.base + "/";
+const SITE_ORIGIN = new URL(SITE_BASE).origin;
+// github.io stays allowed so Kryptonytt, which still lives there, can post.
+const ORIGINS = new Set([SITE_ORIGIN, "https://jqrgen.github.io"]);
+const THANKS = SITE_BASE + "tip/";
 const MAX_BODY = 4096, MAX_NOTE = 1000, MAX_NAME = 100, MAX_URL = 2000;
 const COUNTRIES = new Set(["NO", "SE", "DK", "FI", "IS", "UNSURE"]);
 const RATE_N = 5, RATE_WINDOW = 600;   // max 5 tips per IP per 10 minutes
