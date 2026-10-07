@@ -27,3 +27,7 @@ newsletter/out/
 # local screenshot build of the tip page (tip server mode), never published
 site-tip-preview/
 tipserver/tunnel.state
+
+# tip intake: local secrets and worker state, never committed
+workers/tips/.dev.vars
+workers/tips/.wrangler/

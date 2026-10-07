@@ -3,6 +3,38 @@
  "launch_date": "2026-10-03",
  "entries": [
   {
+   "id": "private-tip-intake",
+   "date": "2026-10-07",
+   "title": "Private tip inbox",
+   "description": "The tip page in every language no longer opens a public GitHub issue. It is wired to a private Cloudflare intake (a Worker and a D1 database) for Nordic Crypto at tips.nordiccrypto.no. The intake is switched off until that Worker is deployed, so the page says the inbox is opening soon and shows no form. When it is open, the editorial team reads tips, including an editor that is artificial intelligence, and that editor is not a human. Nothing in this change is deployed.",
+   "i18n": {
+    "nn": {
+     "title": "Privat tipsinnboks",
+     "description": "Tipssida på alle språk opnar ikkje lenger ei offentleg sak på GitHub. Ho er kopla til eit privat Cloudflare-mottak (ein Worker og ein D1-database) for Nordic Crypto på tips.nordiccrypto.no. Mottaket er slått av til den Workeren er teken i bruk, så sida seier at innboksen opnar snart og viser ikkje noko skjema. Når han er open, les redaksjonen tips, medrekna ein redaktør som er kunstig intelligens, og den redaktøren er ikkje eit menneske. Ingenting i denne endringa er teke i bruk."
+    },
+    "nb": {
+     "title": "Privat tipsinnboks",
+     "description": "Tipssiden på alle språk åpner ikke lenger en offentlig sak på GitHub. Den er koblet til et privat Cloudflare-mottak (en Worker og en D1-database) for Nordic Crypto på tips.nordiccrypto.no. Mottaket er slått av til den Workeren er tatt i bruk, så siden sier at innboksen åpner snart og viser ikke noe skjema. Når den er åpen, leser redaksjonen tips, inkludert en redaktør som er kunstig intelligens, og den redaktøren er ikke et menneske. Ingenting i denne endringen er tatt i bruk."
+    },
+    "sv": {
+     "title": "Privat tipsinkorg",
+     "description": "Tipssidan på alla språk öppnar inte längre ett offentligt ärende på GitHub. Den är kopplad till ett privat Cloudflare-mottagande (en Worker och en D1-databas) för Nordic Crypto på tips.nordiccrypto.no. Mottagandet är avstängt tills den Workern är i drift, så sidan säger att inkorgen öppnar snart och visar inget formulär. När den är öppen läser redaktionen tips, inklusive en redaktör som är artificiell intelligens, och den redaktören är inte en människa. Ingenting i den här ändringen är driftsatt."
+    },
+    "da": {
+     "title": "Privat tipindbakke",
+     "description": "Tipsiden på alle sprog åbner ikke længere en offentlig sag på GitHub. Den er koblet til et privat Cloudflare-indtag (en Worker og en D1-database) for Nordic Crypto på tips.nordiccrypto.no. Indtaget er slået fra, indtil den Worker er sat i drift, så siden siger, at indbakken åbner snart, og viser ingen formular. Når den er åben, læser redaktionen tip, herunder en redaktør, der er kunstig intelligens, og den redaktør er ikke et menneske. Intet i denne ændring er sat i drift."
+    },
+    "fi": {
+     "title": "Yksityinen vinkkilaatikko",
+     "description": "Vinkkisivu kaikilla kielillä ei enää avaa julkista tikettiä GitHubissa. Se on kytketty Nordic Crypton yksityiseen Cloudflare-vastaanottoon (Worker ja D1-tietokanta) osoitteessa tips.nordiccrypto.no. Vastaanotto on pois päältä, kunnes Worker on otettu käyttöön, joten sivu kertoo laatikon avautuvan pian eikä näytä lomaketta. Kun se on auki, toimitus lukee vinkit, mukaan lukien toimittaja, joka on tekoäly, eikä tämä toimittaja ole ihminen. Mitään tästä muutoksesta ei ole otettu käyttöön."
+    },
+    "is": {
+     "title": "Einkainnhólf fyrir ábendingar",
+     "description": "Ábendingasíðan á öllum tungumálum opnar ekki lengur opinbert mál á GitHub. Hún er tengd einkamóttöku Nordic Crypto á Cloudflare (Worker og D1-gagnagrunnur) á tips.nordiccrypto.no. Móttakan er slökkt þar til Workerinn er tekinn í notkun, svo síðan segir að innhólfið opni bráðum og sýnir ekkert eyðublað. Þegar það er opið les ritstjórnin ábendingar, þar á meðal ritstjóri sem er gervigreind, og þessi ritstjóri er ekki manneskja. Ekkert í þessari breytingu er sett í rekstur."
+    }
+   }
+  },
+  {
    "id": "talks-archive",
    "date": "2026-10-07",
    "title": "Talks archive",
