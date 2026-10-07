@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T21:33:28+00:00",
+ "generated_at": "2026-10-07T22:52:55+00:00",
  "preview": false,
  "title": "Nordic Crypto data API",
  "sign_off": "The Nordic Crypto team",
@@ -22,7 +22,7 @@
   "github_pages": "https://nordiccrypto.no/",
   "custom_domain": "https://nordiccrypto.no/"
  },
- "language_note": "Site languages, with native_name, english_name and rtl, are listed in languages and in /api/v1/languages.json. Our own text is written in English first. summary_i18n, title_i18n, subtitle_i18n, note_i18n and about_i18n carry published translations, today nn, nb, sv, da, fi and is. Other site languages fall back to the English field until a translation is published. External headlines stay in the source language (see language and language_code). There is no query string for language: each JSON document already carries every published translation. The language switcher's country default is a guess; see /api/v1/geo-language.json. The nc_lang cookie wins.",
+ "language_note": "Site languages, with native_name, english_name and rtl, are listed in languages and in /api/v1/languages.json. Our own text is written in English first. summary_i18n, title_i18n, subtitle_i18n, note_i18n and about_i18n carry published translations, today nn, nb, sv, da, fi and is. Other site languages fall back to the English field until a translation is published. On a news item, title is the source headline, title_en is our English headline and title_i18n is our headline in nn, nb, sv, da, fi and is. The site shows the page-language headline first and the source headline underneath when they differ. Outlet headlines inside sources stay in that outlet's language. There is no query string for language: each JSON document already carries every published translation. The language switcher's country default is a guess; see /api/v1/geo-language.json. The nc_lang cookie wins.",
  "editorial": {
   "sign_off": "The Nordic Crypto team",
   "kaupr": "Kaupr (kaupr.io) is a news source only. It is never a sponsor of Nordic Crypto.",
@@ -42,9 +42,11 @@
   "newsletters": 1,
   "events": 12,
   "events_upcoming": 11,
+  "events_ongoing": 0,
   "events_past": 1,
+  "events_previous": 15,
   "talks": 74,
-  "sources": 116,
+  "sources": 1032,
   "academia": {
    "courses": 7,
    "groups": 3,
@@ -55,7 +57,8 @@
   "org_relations": 15,
   "profiles": 20,
   "images": 64,
-  "changelog": 24,
+  "illustrations": 16,
+  "changelog": 31,
   "archive_articles": 43,
   "markets": 72,
   "markets_aggregated": 53,
@@ -157,6 +160,15 @@
    "schema": "EventList"
   },
   {
+   "id": "api-v1-events-previous",
+   "method": "GET",
+   "path": "/api/v1/events/previous.json",
+   "url": "https://nordiccrypto.no/api/v1/events/previous.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/events/previous.json",
+   "summary": "Previous events, newest finish first. Finished calendar events plus backfilled public events (source backfill). Backfill is not on the calendar or in upcoming or past.",
+   "schema": "EventList"
+  },
+  {
    "id": "events-by-country",
    "method": "GET",
    "path": "/api/v1/events/by-country/{country}.json",
@@ -197,7 +209,7 @@
    "path": "/api/v1/sources.json",
    "url": "https://nordiccrypto.no/api/v1/sources.json",
    "url_custom_domain": "https://nordiccrypto.no/api/v1/sources.json",
-   "summary": "News outlets, the public search terms, and event sources. Kaupr is marked as a news source only. logo is the outlet image for that source id when one is on file.",
+   "summary": "News outlets, justice-system press pages, the public search terms, and event sources. coverage is national, regional, local or justice. region is the place. feed is null when no working RSS, sitemap or index page was verified. method is rss, html, sitemap, search or manual. Event sources name the intake method. Luma calendars use a public iCal subscribe URL. Eventbrite organizers and venues use the v3 API when the server has EVENTBRITE_TOKEN; the token is not in this feed. Without it, event pages are schema.org JSON-LD. icon_url is a public icon from the outlet when one was easy to find. logo_source is the URL the stored logo was fetched from. logo is the checked outlet image for that source id when one is on file, used only to identify the source. Kaupr is marked as a news source only and is never an event sponsor.",
    "schema": "SourceCatalogue"
   },
   {
@@ -253,8 +265,8 @@
    "url_custom_domain": "https://nordiccrypto.no/api/v1/academia/{id}.json",
    "summary": "One academia row. The id is in academia.json.",
    "schema": "AcademiaItem",
-   "example_url": "https://nordiccrypto.no/api/v1/academia/groups-www.linkedin.com-company-cbs-bitcoin.json",
-   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/academia/groups-www.linkedin.com-company-cbs-bitcoin.json"
+   "example_url": "https://nordiccrypto.no/api/v1/academia/research-www.ru.is-en-research-center-ru-fintech.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/academia/research-www.ru.is-en-research-center-ru-fintech.json"
   },
   {
    "id": "api-v1-orgchart",
@@ -315,8 +327,17 @@
    "path": "/api/v1/images.json",
    "url": "https://nordiccrypto.no/api/v1/images.json",
    "url_custom_domain": "https://nordiccrypto.no/api/v1/images.json",
-   "summary": "Logos and photos used on the public who's who, with licence and credit.",
+   "summary": "Logos and photos used on the public who's who, with licence and credit. These are not newspaper photographs.",
    "schema": "ImageList"
+  },
+  {
+   "id": "api-v1-illustrations",
+   "method": "GET",
+   "path": "/api/v1/illustrations.json",
+   "url": "https://nordiccrypto.no/api/v1/illustrations.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/illustrations.json",
+   "summary": "Pictures used on story cards and story pages. Each record has source, author, license and url. No photograph from another newspaper is included. Outlet logos are in images.json and on each news item as source_logo.",
+   "schema": "IllustrationList"
   },
   {
    "id": "api-v1-changelog",
@@ -326,8 +347,8 @@
    "url_custom_domain": "https://nordiccrypto.no/api/v1/changelog.json",
    "summary": "Site changelog (product changes, not the news), newest first.",
    "schema": "ChangelogList",
-   "example_url": "https://nordiccrypto.no/api/v1/changelog/talks-archive.json",
-   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/changelog/talks-archive.json",
+   "example_url": "https://nordiccrypto.no/api/v1/changelog/header-subscribe-telegram.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/changelog/header-subscribe-telegram.json",
    "item_path": "/api/v1/changelog/{id}.json",
    "item_url_template": "https://nordiccrypto.no/api/v1/changelog/{id}.json"
   },

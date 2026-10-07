@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T21:33:28+00:00",
+ "generated_at": "2026-10-07T22:52:55+00:00",
  "preview": false,
  "item": {
   "id": "89ced460e4ca",
@@ -28,7 +28,35 @@
    "is": "Aðgangseyrir (239 norskar krónur fyrir utanfélagsmenn)."
   },
   "past": false,
-  "html_url": "https://nordiccrypto.no/calendar/#e-89ced460e4ca",
-  "api_url": "https://nordiccrypto.no/api/v1/events/89ced460e4ca.json"
+  "ongoing": false,
+  "html_url": "https://nordiccrypto.no/calendar/89ced460e4ca/",
+  "html_urls": {
+   "en": "https://nordiccrypto.no/calendar/89ced460e4ca/",
+   "nn": "https://nordiccrypto.no/nn/calendar/89ced460e4ca/",
+   "nb": "https://nordiccrypto.no/nb/calendar/89ced460e4ca/",
+   "sv": "https://nordiccrypto.no/sv/calendar/89ced460e4ca/",
+   "da": "https://nordiccrypto.no/da/calendar/89ced460e4ca/",
+   "fi": "https://nordiccrypto.no/fi/calendar/89ced460e4ca/",
+   "is": "https://nordiccrypto.no/is/calendar/89ced460e4ca/",
+   "zh": "https://nordiccrypto.no/zh/calendar/89ced460e4ca/",
+   "hi": "https://nordiccrypto.no/hi/calendar/89ced460e4ca/",
+   "es": "https://nordiccrypto.no/es/calendar/89ced460e4ca/",
+   "fr": "https://nordiccrypto.no/fr/calendar/89ced460e4ca/",
+   "ar": "https://nordiccrypto.no/ar/calendar/89ced460e4ca/",
+   "bn": "https://nordiccrypto.no/bn/calendar/89ced460e4ca/",
+   "pt": "https://nordiccrypto.no/pt/calendar/89ced460e4ca/",
+   "ru": "https://nordiccrypto.no/ru/calendar/89ced460e4ca/",
+   "ur": "https://nordiccrypto.no/ur/calendar/89ced460e4ca/",
+   "id": "https://nordiccrypto.no/id/calendar/89ced460e4ca/",
+   "de": "https://nordiccrypto.no/de/calendar/89ced460e4ca/",
+   "ja": "https://nordiccrypto.no/ja/calendar/89ced460e4ca/",
+   "sw": "https://nordiccrypto.no/sw/calendar/89ced460e4ca/",
+   "mr": "https://nordiccrypto.no/mr/calendar/89ced460e4ca/"
+  },
+  "api_url": "https://nordiccrypto.no/api/v1/events/89ced460e4ca.json",
+  "place_source": {
+   "name": "Polyteknisk Forening (program)",
+   "url": "https://www.polyteknisk.no/program/crypto-killer-apps"
+  }
  }
 }

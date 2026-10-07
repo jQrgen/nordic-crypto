@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T21:33:28+00:00",
+ "generated_at": "2026-10-07T22:52:55+00:00",
  "preview": false,
  "item": {
   "id": "2034a42ac260",
@@ -10,6 +10,13 @@
   "api_url": "https://nordiccrypto.no/api/v1/news/2034a42ac260.json",
   "title": "Norges Bank utforsker tokenisering med tolv aktører",
   "title_en": "Norges Bank explores tokenisation with twelve players",
+  "title_i18n": {
+   "nn": "Norges Bank utforskar tokenisering med tolv aktørar",
+   "sv": "Norges Bank utforskar tokenisering med tolv aktörer",
+   "da": "Norges Bank udforsker tokenisering med tolv aktører",
+   "fi": "Norges Bank selvittää tokenisaatiota kahdentoista toimijan kanssa",
+   "is": "Norges Bank kannar tókavæðingu með tólf aðilum"
+  },
   "source": "kaupr",
   "source_name": "Kaupr",
   "source_logo": {
@@ -19,7 +26,8 @@
    "author": null,
    "license": null,
    "license_url": null,
-   "credit": "Official website"
+   "credit": "Official website",
+   "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
   },
   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
   "country": "NO",
@@ -42,6 +50,22 @@
   "paywall": false,
   "links": [],
   "own_story": false,
+  "illustration": {
+   "id": "official-norges-bank",
+   "kind": "official-press",
+   "file_url": "https://nordiccrypto.no/assets/img/illustrations/official-norges-bank.webp",
+   "width": 960,
+   "height": 720,
+   "alt": "Norges Bank headquarters in Oslo, daytime facade.",
+   "source": "Norges Bank",
+   "author": "Esten Borgos",
+   "license": "Norges Bank terms: credit, no alteration, not for advertising",
+   "license_url": "https://www.norges-bank.no/en/topics/about/copyright/",
+   "url": "https://www.norges-bank.no/en/topics/about/Media-enquiries/Press-photos/",
+   "credit": "Photo: Esten Borgos. Licence: Norges Bank terms: credit, no alteration, not for advertising. Source: Norges Bank.",
+   "modifications": null,
+   "terms": "Checked 2026-10-06. Norges Bank's copyright page allows copying from norges-bank.no when Norges Bank is named as the source, the content is not changed, and it is not used in advertising. This is the daytime facade from the press-photo page (photo: Esten Borgos). It is scaled to 960 pixels wide and saved as WebP, not cropped or recoloured. Portraits and pictures of notes and coins from the same page are not used."
+  },
   "primary_source": {
    "outlet": "kaupr",
    "outlet_name": "Kaupr",
@@ -61,7 +85,8 @@
     "author": null,
     "license": null,
     "license_url": null,
-    "credit": "Official website"
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
    },
    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
   },
@@ -86,7 +111,8 @@
      "author": null,
      "license": null,
      "license_url": null,
-     "credit": "Official website"
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    }
@@ -122,6 +148,7 @@
      "share": 0.0
     }
    ]
-  }
+  },
+  "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
  }
 }

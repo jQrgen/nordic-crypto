@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T21:33:28+00:00",
+ "generated_at": "2026-10-07T22:52:55+00:00",
  "preview": false,
  "topic": "consumer protection",
  "count": 1,
@@ -13,14 +13,30 @@
    "api_url": "https://nordiccrypto.no/api/v1/news/30093293e03f.json",
    "title": "Danskere svindlet for 89 millioner kroner på seks måneder",
    "title_en": "Danes defrauded of DKK 89 million in six months",
+   "title_i18n": {
+    "nn": "Danskar svindla for 89 millionar kroner på seks månader",
+    "nb": "Dansker svindlet for 89 millioner kroner på seks måneder",
+    "sv": "Danskar svindlade på 89 miljoner kronor på sex månader",
+    "fi": "Tanskalaisilta huijattiin 89 miljoonaa kruunua kuudessa kuukaudessa",
+    "is": "Danir sviknir um 89 milljónir króna á sex mánuðum"
+   },
    "source": "ekstrabladet.dk",
    "source_name": "Ekstra Bladet",
-   "source_logo": null,
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/ekstra-bladet.webp",
+    "source_url": "https://ekstrabladet.dk/assets/img/icons/apple-touch-icon.png",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/ekstra-bladet.webp"
+   },
    "source_note": null,
    "country": "DK",
    "language": "Danish",
    "language_code": "da",
-   "published": "2026-09-22T02:58:00+00:00",
+   "published": "2026-09-22T09:58:59+00:00",
    "topics": [
     "crime",
     "consumer protection"
@@ -37,19 +53,44 @@
    "paywall": false,
    "links": [],
    "own_story": false,
+   "illustration": {
+    "id": "commons-court",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-court.webp",
+    "width": 960,
+    "height": 663,
+    "alt": "Oslo courthouse, Oslo tinghus.",
+    "source": "Wikimedia Commons",
+    "author": "Mahlum",
+    "license": "Public domain",
+    "license_url": "https://commons.wikimedia.org/wiki/File:Oslo_tinghus.jpg",
+    "url": "https://commons.wikimedia.org/wiki/File:Oslo_tinghus.jpg",
+    "credit": "Photo: Mahlum. Licence: Public domain. Source: Wikimedia Commons.",
+    "modifications": null,
+    "terms": null
+   },
    "primary_source": {
     "outlet": "ekstrabladet.dk",
     "outlet_name": "Ekstra Bladet",
     "url": "https://ekstrabladet.dk/penge/danskere-svindlet-for-89-millioner-kroner-paa-seks-maaneder/11297364",
     "title": "Danskere svindlet for 89 millioner kroner på seks måneder",
-    "published": "2026-09-22T02:58:00+00:00",
+    "published": "2026-09-22T09:58:59+00:00",
     "lang": "Danish",
     "language_code": "da",
     "country": "DK",
     "source_type": "national",
     "paywall": false,
     "primary": true,
-    "logo": null
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/ekstra-bladet.webp",
+     "source_url": "https://ekstrabladet.dk/assets/img/icons/apple-touch-icon.png",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/ekstra-bladet.webp"
+    }
    },
    "also_covered_by": [],
    "sources": [
@@ -58,14 +99,23 @@
      "outlet_name": "Ekstra Bladet",
      "url": "https://ekstrabladet.dk/penge/danskere-svindlet-for-89-millioner-kroner-paa-seks-maaneder/11297364",
      "title": "Danskere svindlet for 89 millioner kroner på seks måneder",
-     "published": "2026-09-22T02:58:00+00:00",
+     "published": "2026-09-22T09:58:59+00:00",
      "lang": "Danish",
      "language_code": "da",
      "country": "DK",
      "source_type": "national",
      "paywall": false,
      "primary": true,
-     "logo": null
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/ekstra-bladet.webp",
+      "source_url": "https://ekstrabladet.dk/assets/img/icons/apple-touch-icon.png",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/ekstra-bladet.webp"
+     }
     }
    ],
    "coverage": {
@@ -99,7 +149,8 @@
       "share": 0.0
      }
     ]
-   }
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/ekstra-bladet.webp"
   }
  ]
 }

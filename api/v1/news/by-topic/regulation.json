@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T21:33:28+00:00",
+ "generated_at": "2026-10-07T22:52:55+00:00",
  "preview": false,
  "topic": "regulation",
  "count": 7,
@@ -13,14 +13,30 @@
    "api_url": "https://nordiccrypto.no/api/v1/news/e6727b4858b5.json",
    "title": "Så kan Sverige användas för att finansiera kärnvapen",
    "title_en": "How Sweden can be used to finance nuclear weapons",
+   "title_i18n": {
+    "nn": "Slik kan Sverige brukast til å finansiere kjernevåpen",
+    "nb": "Slik kan Sverige brukes til å finansiere kjernevåpen",
+    "da": "Sådan kan Sverige bruges til at finansiere kernevåben",
+    "fi": "Näin Ruotsia voidaan käyttää ydinaseiden rahoittamiseen",
+    "is": "Svona má nota Svíþjóð til að fjármagna kjarnavopn"
+   },
    "source": "realtid",
    "source_name": "Realtid",
-   "source_logo": null,
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/realtid.svg",
+    "source_url": "https://www.realtid.se/_next/static/media/logo.1b3426b7.svg",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
+   },
    "source_note": null,
    "country": "SE",
    "language": "Swedish",
    "language_code": "sv",
-   "published": "2026-10-02T17:00:00+00:00",
+   "published": "2026-10-03T05:00:00+00:00",
    "topics": [
     "regulation",
     "aml"
@@ -37,19 +53,44 @@
    "paywall": false,
    "links": [],
    "own_story": false,
+   "illustration": {
+    "id": "official-riksbank",
+    "kind": "official-press",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/official-riksbank.webp",
+    "width": 960,
+    "height": 640,
+    "alt": "The Riksbank building in Stockholm.",
+    "source": "Sveriges Riksbank",
+    "author": "Sveriges Riksbank",
+    "license": "Free use, credit Sveriges Riksbank",
+    "license_url": "https://www.riksbank.se/sv/press-och-publicerat/presskontakt/bildbank/riksbankshuset/",
+    "url": "https://www.riksbank.se/sv/press-och-publicerat/presskontakt/bildbank/riksbankshuset/",
+    "credit": "Photo: Sveriges Riksbank. Licence: Free use, credit Sveriges Riksbank. Source: Sveriges Riksbank.",
+    "modifications": null,
+    "terms": "Checked 2026-10-06. The Riksbank image bank says these pictures may be downloaded and used freely if Sveriges Riksbank is credited. Pictures of banknotes and coins on the same site are not free in that way and are not used. This file is the building, scaled to 960 pixels wide and saved as WebP. It is not cropped or recoloured."
+   },
    "primary_source": {
     "outlet": "realtid",
     "outlet_name": "Realtid",
     "url": "https://www.realtid.se/bors-finans/makro/sa-kan-sverige-anvandas-for-att-finansiera-karnvapen/",
     "title": "Så kan Sverige användas för att finansiera kärnvapen",
-    "published": "2026-10-02T17:00:00+00:00",
+    "published": "2026-10-03T05:00:00+00:00",
     "lang": "Swedish",
     "language_code": "sv",
     "country": "SE",
     "source_type": "national",
     "paywall": false,
     "primary": true,
-    "logo": null
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/realtid.svg",
+     "source_url": "https://www.realtid.se/_next/static/media/logo.1b3426b7.svg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
+    }
    },
    "also_covered_by": [],
    "sources": [
@@ -58,14 +99,23 @@
      "outlet_name": "Realtid",
      "url": "https://www.realtid.se/bors-finans/makro/sa-kan-sverige-anvandas-for-att-finansiera-karnvapen/",
      "title": "Så kan Sverige användas för att finansiera kärnvapen",
-     "published": "2026-10-02T17:00:00+00:00",
+     "published": "2026-10-03T05:00:00+00:00",
      "lang": "Swedish",
      "language_code": "sv",
      "country": "SE",
      "source_type": "national",
      "paywall": false,
      "primary": true,
-     "logo": null
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/realtid.svg",
+      "source_url": "https://www.realtid.se/_next/static/media/logo.1b3426b7.svg",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
+     }
     }
    ],
    "coverage": {
@@ -99,7 +149,8 @@
       "share": 0.0
      }
     ]
-   }
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
   },
   {
    "id": "7b2030aea964",
@@ -108,14 +159,30 @@
    "api_url": "https://nordiccrypto.no/api/v1/news/7b2030aea964.json",
    "title": "Kryptojätten i ny kontrovers – erbjöd tjänster i Europa utan licens",
    "title_en": "Crypto giant in new controversy: offered services in Europe without a licence",
+   "title_i18n": {
+    "nn": "Kryptokjempa i ny kontrovers – tilbaud tenester i Europa utan løyve",
+    "nb": "Kryptokjempen i ny kontrovers – tilbød tjenester i Europa uten lisens",
+    "da": "Kryptogiganten i ny kontrovers – tilbød tjenester i Europa uden licens",
+    "fi": "Kryptojätti uudessa kiistassa – tarjosi palveluja Euroopassa ilman lupaa",
+    "is": "Rafmyntarisinn í nýju deilumáli – bauð þjónustu í Evrópu án leyfis"
+   },
    "source": "realtid",
    "source_name": "Realtid",
-   "source_logo": null,
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/realtid.svg",
+    "source_url": "https://www.realtid.se/_next/static/media/logo.1b3426b7.svg",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
+   },
    "source_note": null,
    "country": "SE",
    "language": "Swedish",
    "language_code": "sv",
-   "published": "2026-10-01T11:04:00+00:00",
+   "published": "2026-10-01T18:04:00+00:00",
    "topics": [
     "regulation",
     "mica"
@@ -132,12 +199,165 @@
    "paywall": false,
    "links": [],
    "own_story": false,
+   "illustration": {
+    "id": "commons-se",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-se.webp",
+    "width": 960,
+    "height": 547,
+    "alt": "The Swedish parliament building, Riksdagshuset, in Stockholm.",
+    "source": "Wikimedia Commons",
+    "author": "Sahlen",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "url": "https://commons.wikimedia.org/wiki/File:Riksdagshuset_i_Stockholm.jpg",
+    "credit": "Photo: Sahlen. Licence: CC0 1.0. Source: Wikimedia Commons.",
+    "modifications": null,
+    "terms": null
+   },
    "primary_source": {
     "outlet": "realtid",
     "outlet_name": "Realtid",
     "url": "https://www.realtid.se/bors-finans/kryptojatten-i-ny-kontrovers-erbjod-tjanster-i-europa-utan-licens/",
     "title": "Kryptojätten i ny kontrovers – erbjöd tjänster i Europa utan licens",
-    "published": "2026-10-01T11:04:00+00:00",
+    "published": "2026-10-01T18:04:00+00:00",
+    "lang": "Swedish",
+    "language_code": "sv",
+    "country": "SE",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/realtid.svg",
+     "source_url": "https://www.realtid.se/_next/static/media/logo.1b3426b7.svg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
+    }
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "realtid",
+     "outlet_name": "Realtid",
+     "url": "https://www.realtid.se/bors-finans/kryptojatten-i-ny-kontrovers-erbjod-tjanster-i-europa-utan-licens/",
+     "title": "Kryptojätten i ny kontrovers – erbjöd tjänster i Europa utan licens",
+     "published": "2026-10-01T18:04:00+00:00",
+     "lang": "Swedish",
+     "language_code": "sv",
+     "country": "SE",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/realtid.svg",
+      "source_url": "https://www.realtid.se/_next/static/media/logo.1b3426b7.svg",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
+     }
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
+  },
+  {
+   "id": "b3fdbc8f5eec",
+   "url": "https://www.dagensps.se/bors-finans/fintech/kryptovalutor/krypto-jatten-rundar-reglerna-i-europa-riskerar-att-kastas-ut/",
+   "html_url": "https://nordiccrypto.no/stories/b3fdbc8f5eec/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/b3fdbc8f5eec.json",
+   "title": "Krypto-jätten rundar reglerna i Europa: Riskerar att kastas ut",
+   "title_en": "Crypto giant skirts the rules in Europe and risks being thrown out",
+   "title_i18n": {
+    "nn": "Kryptokjempa går rundt reglane i Europa: Risiko for å bli kasta ut",
+    "nb": "Kryptokjempen går rundt reglene i Europa: Risikerer å bli kastet ut",
+    "da": "Kryptogiganten omgår reglerne i Europa: Risikerer at blive smidt ud",
+    "fi": "Kryptojätti kiertää Euroopan sääntöjä ja vaarana on ulosheitto",
+    "is": "Rafmyntarisinn sniðgengur reglurnar í Evrópu og á hættu á að verða rekinn út"
+   },
+   "source": "dagensps.se",
+   "source_name": "Dagens PS",
+   "source_logo": null,
+   "source_note": null,
+   "country": "SE",
+   "language": "Swedish",
+   "language_code": "sv",
+   "published": "2026-10-01T08:30:56+00:00",
+   "topics": [
+    "regulation",
+    "mica"
+   ],
+   "summary": "Binance said it would leave Europe, but customers are still trading, and EU financial authorities now want to know how.",
+   "summary_i18n": {
+    "nn": "Binance sa at selskapet skulle forlate Europa, men kundane handlar framleis, og finansstyresmaktene i EU vil no vite korleis.",
+    "nb": "Binance sa at selskapet skulle forlate Europa, men kundene handler fortsatt, og EUs finansmyndigheter vil nå vite hvordan.",
+    "sv": "Binance sa att bolaget skulle lämna Europa, men kunderna handlar fortfarande, och EU:s finansmyndigheter vill nu veta hur.",
+    "da": "Binance sagde, at selskabet ville forlade Europa, men kunderne handler stadig, og EU's finansmyndigheder vil nu vide hvordan.",
+    "fi": "Binance sanoi lähtevänsä Euroopasta, mutta asiakkaat käyvät yhä kauppaa, ja EU:n rahoitusviranomaiset haluavat nyt tietää, miten.",
+    "is": "Binance sagðist ætla að yfirgefa Evrópu, en viðskiptavinir eiga enn viðskipti og fjármálayfirvöld ESB vilja nú vita hvernig."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "commons-se",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-se.webp",
+    "width": 960,
+    "height": 547,
+    "alt": "The Swedish parliament building, Riksdagshuset, in Stockholm.",
+    "source": "Wikimedia Commons",
+    "author": "Sahlen",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "url": "https://commons.wikimedia.org/wiki/File:Riksdagshuset_i_Stockholm.jpg",
+    "credit": "Photo: Sahlen. Licence: CC0 1.0. Source: Wikimedia Commons.",
+    "modifications": null,
+    "terms": null
+   },
+   "primary_source": {
+    "outlet": "dagensps.se",
+    "outlet_name": "Dagens PS",
+    "url": "https://www.dagensps.se/bors-finans/fintech/kryptovalutor/krypto-jatten-rundar-reglerna-i-europa-riskerar-att-kastas-ut/",
+    "title": "Krypto-jätten rundar reglerna i Europa: Riskerar att kastas ut",
+    "published": "2026-10-01T08:30:56+00:00",
     "lang": "Swedish",
     "language_code": "sv",
     "country": "SE",
@@ -149,11 +369,11 @@
    "also_covered_by": [],
    "sources": [
     {
-     "outlet": "realtid",
-     "outlet_name": "Realtid",
-     "url": "https://www.realtid.se/bors-finans/kryptojatten-i-ny-kontrovers-erbjod-tjanster-i-europa-utan-licens/",
-     "title": "Kryptojätten i ny kontrovers – erbjöd tjänster i Europa utan licens",
-     "published": "2026-10-01T11:04:00+00:00",
+     "outlet": "dagensps.se",
+     "outlet_name": "Dagens PS",
+     "url": "https://www.dagensps.se/bors-finans/fintech/kryptovalutor/krypto-jatten-rundar-reglerna-i-europa-riskerar-att-kastas-ut/",
+     "title": "Krypto-jätten rundar reglerna i Europa: Riskerar att kastas ut",
+     "published": "2026-10-01T08:30:56+00:00",
      "lang": "Swedish",
      "language_code": "sv",
      "country": "SE",
@@ -194,7 +414,8 @@
       "share": 0.0
      }
     ]
-   }
+   },
+   "source_logo_url": null
   },
   {
    "id": "8c0dda24b0ef",
@@ -203,6 +424,13 @@
    "api_url": "https://nordiccrypto.no/api/v1/news/8c0dda24b0ef.json",
    "title": "Här är riskerna för finansiering av spridning av massförstörelsevapen störst",
    "title_en": "Here is where the risk of financing proliferation of weapons of mass destruction is highest",
+   "title_i18n": {
+    "nn": "Her er risikoen for finansiering av spreiing av masseøydeleggingsvåpen størst",
+    "nb": "Her er risikoen for finansiering av spredning av masseødeleggelsesvåpen størst",
+    "da": "Her er risikoen for finansiering af spredning af masseødelæggelsesvåben størst",
+    "fi": "Tässä riski rahoittaa joukkotuhoaseiden leviämistä on suurin",
+    "is": "Hér er áhættan af því að fjármagna útbreiðslu gereyðingarvopna mest"
+   },
    "source": "fi-se",
    "source_name": "Finansinspektionen (SE FSA)",
    "source_logo": {
@@ -212,7 +440,8 @@
     "author": "Finansinspektionen.",
     "license": "Public domain",
     "license_url": null,
-    "credit": "Wikimedia Commons"
+    "credit": "Wikimedia Commons",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/se-fi.png"
    },
    "source_note": null,
    "country": "SE",
@@ -235,6 +464,22 @@
    "paywall": false,
    "links": [],
    "own_story": false,
+   "illustration": {
+    "id": "official-riksbank",
+    "kind": "official-press",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/official-riksbank.webp",
+    "width": 960,
+    "height": 640,
+    "alt": "The Riksbank building in Stockholm.",
+    "source": "Sveriges Riksbank",
+    "author": "Sveriges Riksbank",
+    "license": "Free use, credit Sveriges Riksbank",
+    "license_url": "https://www.riksbank.se/sv/press-och-publicerat/presskontakt/bildbank/riksbankshuset/",
+    "url": "https://www.riksbank.se/sv/press-och-publicerat/presskontakt/bildbank/riksbankshuset/",
+    "credit": "Photo: Sveriges Riksbank. Licence: Free use, credit Sveriges Riksbank. Source: Sveriges Riksbank.",
+    "modifications": null,
+    "terms": "Checked 2026-10-06. The Riksbank image bank says these pictures may be downloaded and used freely if Sveriges Riksbank is credited. Pictures of banknotes and coins on the same site are not free in that way and are not used. This file is the building, scaled to 960 pixels wide and saved as WebP. It is not cropped or recoloured."
+   },
    "primary_source": {
     "outlet": "fi-se",
     "outlet_name": "Finansinspektionen (SE FSA)",
@@ -254,7 +499,8 @@
      "author": "Finansinspektionen.",
      "license": "Public domain",
      "license_url": null,
-     "credit": "Wikimedia Commons"
+     "credit": "Wikimedia Commons",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/se-fi.png"
     }
    },
    "also_covered_by": [],
@@ -278,7 +524,8 @@
       "author": "Finansinspektionen.",
       "license": "Public domain",
       "license_url": null,
-      "credit": "Wikimedia Commons"
+      "credit": "Wikimedia Commons",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/se-fi.png"
      }
     }
    ],
@@ -313,102 +560,8 @@
       "share": 0.0
      }
     ]
-   }
-  },
-  {
-   "id": "b3fdbc8f5eec",
-   "url": "https://www.dagensps.se/bors-finans/fintech/kryptovalutor/krypto-jatten-rundar-reglerna-i-europa-riskerar-att-kastas-ut/",
-   "html_url": "https://nordiccrypto.no/stories/b3fdbc8f5eec/",
-   "api_url": "https://nordiccrypto.no/api/v1/news/b3fdbc8f5eec.json",
-   "title": "Krypto-jätten rundar reglerna i Europa: Riskerar att kastas ut",
-   "title_en": "Crypto giant skirts the rules in Europe and risks being thrown out",
-   "source": "dagensps.se",
-   "source_name": "Dagens PS",
-   "source_logo": null,
-   "source_note": null,
-   "country": "SE",
-   "language": "Swedish",
-   "language_code": "sv",
-   "published": "2026-10-01T01:31:00+00:00",
-   "topics": [
-    "regulation",
-    "mica"
-   ],
-   "summary": "Binance said it would leave Europe, but customers are still trading, and EU financial authorities now want to know how.",
-   "summary_i18n": {
-    "nn": "Binance sa at selskapet skulle forlate Europa, men kundane handlar framleis, og finansstyresmaktene i EU vil no vite korleis.",
-    "nb": "Binance sa at selskapet skulle forlate Europa, men kundene handler fortsatt, og EUs finansmyndigheter vil nå vite hvordan.",
-    "sv": "Binance sa att bolaget skulle lämna Europa, men kunderna handlar fortfarande, och EU:s finansmyndigheter vill nu veta hur.",
-    "da": "Binance sagde, at selskabet ville forlade Europa, men kunderne handler stadig, og EU's finansmyndigheder vil nu vide hvordan.",
-    "fi": "Binance sanoi lähtevänsä Euroopasta, mutta asiakkaat käyvät yhä kauppaa, ja EU:n rahoitusviranomaiset haluavat nyt tietää, miten.",
-    "is": "Binance sagðist ætla að yfirgefa Evrópu, en viðskiptavinir eiga enn viðskipti og fjármálayfirvöld ESB vilja nú vita hvernig."
    },
-   "paywall": false,
-   "links": [],
-   "own_story": false,
-   "primary_source": {
-    "outlet": "dagensps.se",
-    "outlet_name": "Dagens PS",
-    "url": "https://www.dagensps.se/bors-finans/fintech/kryptovalutor/krypto-jatten-rundar-reglerna-i-europa-riskerar-att-kastas-ut/",
-    "title": "Krypto-jätten rundar reglerna i Europa: Riskerar att kastas ut",
-    "published": "2026-10-01T01:31:00+00:00",
-    "lang": "Swedish",
-    "language_code": "sv",
-    "country": "SE",
-    "source_type": "national",
-    "paywall": false,
-    "primary": true,
-    "logo": null
-   },
-   "also_covered_by": [],
-   "sources": [
-    {
-     "outlet": "dagensps.se",
-     "outlet_name": "Dagens PS",
-     "url": "https://www.dagensps.se/bors-finans/fintech/kryptovalutor/krypto-jatten-rundar-reglerna-i-europa-riskerar-att-kastas-ut/",
-     "title": "Krypto-jätten rundar reglerna i Europa: Riskerar att kastas ut",
-     "published": "2026-10-01T01:31:00+00:00",
-     "lang": "Swedish",
-     "language_code": "sv",
-     "country": "SE",
-     "source_type": "national",
-     "paywall": false,
-     "primary": true,
-     "logo": null
-    }
-   ],
-   "coverage": {
-    "count": 1,
-    "by_country": [
-     {
-      "country": "SE",
-      "count": 1,
-      "share": 1.0
-     }
-    ],
-    "by_source_type": [
-     {
-      "type": "national",
-      "count": 1,
-      "share": 1.0
-     },
-     {
-      "type": "regional",
-      "count": 0,
-      "share": 0.0
-     },
-     {
-      "type": "official",
-      "count": 0,
-      "share": 0.0
-     },
-     {
-      "type": "international",
-      "count": 0,
-      "share": 0.0
-     }
-    ]
-   }
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/se-fi.png"
   },
   {
    "id": "b46e8d2a4dad",
@@ -417,6 +570,13 @@
    "api_url": "https://nordiccrypto.no/api/v1/news/b46e8d2a4dad.json",
    "title": "To tilsyn vil ikke si om kryptodistribusjon krever egen tillatelse",
    "title_en": "Two regulators won't say whether crypto distribution needs its own licence",
+   "title_i18n": {
+    "nn": "To tilsyn vil ikkje seie om kryptodistribusjon krev eige løyve",
+    "sv": "Två tillsynsmyndigheter vill inte säga om kryptodistribution kräver ett eget tillstånd",
+    "da": "To tilsyn vil ikke sige, om kryptodistribution kræver egen tilladelse",
+    "fi": "Kaksi valvojaa ei sano, vaatiiko kryptojen jakelu oman luvan",
+    "is": "Tvö eftirlitsstjórnvöld vilja ekki segja hvort dreifing rafmynta krefjist sérstaks leyfis"
+   },
    "source": "kaupr",
    "source_name": "Kaupr",
    "source_logo": {
@@ -426,7 +586,8 @@
     "author": null,
     "license": null,
     "license_url": null,
-    "credit": "Official website"
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
    },
    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
    "country": "FI",
@@ -449,6 +610,22 @@
    "paywall": false,
    "links": [],
    "own_story": false,
+   "illustration": {
+    "id": "commons-fi",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-fi.webp",
+    "width": 960,
+    "height": 639,
+    "alt": "The Parliament House in Helsinki.",
+    "source": "Wikimedia Commons",
+    "author": "Safa Hovinen",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "url": "https://commons.wikimedia.org/wiki/File:Parliament_House_in_Helsinki_in_Finland,_2024_December.jpg",
+    "credit": "Photo: Safa Hovinen. Licence: CC BY 2.0. Source: Wikimedia Commons.",
+    "modifications": null,
+    "terms": null
+   },
    "primary_source": {
     "outlet": "kaupr",
     "outlet_name": "Kaupr",
@@ -468,7 +645,8 @@
      "author": null,
      "license": null,
      "license_url": null,
-     "credit": "Official website"
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    },
@@ -493,7 +671,8 @@
       "author": null,
       "license": null,
       "license_url": null,
-      "credit": "Official website"
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
      },
      "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
     }
@@ -529,7 +708,8 @@
       "share": 0.0
      }
     ]
-   }
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
   },
   {
    "id": "6a94ab65ebff",
@@ -538,6 +718,13 @@
    "api_url": "https://nordiccrypto.no/api/v1/news/6a94ab65ebff.json",
    "title": "Nytt nederlag for Valuno i kampen om MiCA-lisens",
    "title_en": "New defeat for Valuno in the fight for a MiCA licence",
+   "title_i18n": {
+    "nn": "Nytt nederlag for Valuno i kampen om MiCA-løyve",
+    "sv": "Nytt nederlag för Valuno i kampen om MiCA-tillstånd",
+    "da": "Nyt nederlag for Valuno i kampen om MiCA-licens",
+    "fi": "Uusi tappio Valunolle MiCA-luvan taistelussa",
+    "is": "Nýtt ósigur fyrir Valuno í baráttunni um MiCA-leyfi"
+   },
    "source": "kaupr",
    "source_name": "Kaupr",
    "source_logo": {
@@ -547,7 +734,8 @@
     "author": null,
     "license": null,
     "license_url": null,
-    "credit": "Official website"
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
    },
    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
    "country": "SE",
@@ -570,6 +758,22 @@
    "paywall": false,
    "links": [],
    "own_story": false,
+   "illustration": {
+    "id": "commons-se",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-se.webp",
+    "width": 960,
+    "height": 547,
+    "alt": "The Swedish parliament building, Riksdagshuset, in Stockholm.",
+    "source": "Wikimedia Commons",
+    "author": "Sahlen",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "url": "https://commons.wikimedia.org/wiki/File:Riksdagshuset_i_Stockholm.jpg",
+    "credit": "Photo: Sahlen. Licence: CC0 1.0. Source: Wikimedia Commons.",
+    "modifications": null,
+    "terms": null
+   },
    "primary_source": {
     "outlet": "kaupr",
     "outlet_name": "Kaupr",
@@ -589,7 +793,8 @@
      "author": null,
      "license": null,
      "license_url": null,
-     "credit": "Official website"
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    },
@@ -614,7 +819,8 @@
       "author": null,
       "license": null,
       "license_url": null,
-      "credit": "Official website"
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
      },
      "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
     }
@@ -650,7 +856,8 @@
       "share": 0.0
      }
     ]
-   }
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
   },
   {
    "id": "f6301aef3314",
@@ -659,6 +866,14 @@
    "api_url": "https://nordiccrypto.no/api/v1/news/f6301aef3314.json",
    "title": "Crypto-asset service providers in Finland must be authorised in the EU",
    "title_en": null,
+   "title_i18n": {
+    "nn": "Tilbydarar av kryptoeigedelstenester i Finland må ha løyve i EU",
+    "nb": "Tilbydere av kryptoeiendeltjenester i Finland må ha tillatelse i EU",
+    "sv": "Leverantörer av kryptotillgångstjänster i Finland måste ha tillstånd i EU",
+    "da": "Udbydere af kryptoaktivtjenester i Finland skal have tilladelse i EU",
+    "fi": "Kryptovarapalvelujen tarjoajilla Suomessa on oltava toimilupa EU:ssa",
+    "is": "Þjónustuveitendur sýndareigna í Finnlandi verða að hafa leyfi í ESB"
+   },
    "source": "finanssivalvonta",
    "source_name": "Finanssivalvonta",
    "source_logo": {
@@ -668,7 +883,8 @@
     "author": null,
     "license": null,
     "license_url": null,
-    "credit": "Official website"
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/fi-fiva.webp"
    },
    "source_note": null,
    "country": "FI",
@@ -691,6 +907,22 @@
    "paywall": false,
    "links": [],
    "own_story": false,
+   "illustration": {
+    "id": "commons-fi",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-fi.webp",
+    "width": 960,
+    "height": 639,
+    "alt": "The Parliament House in Helsinki.",
+    "source": "Wikimedia Commons",
+    "author": "Safa Hovinen",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "url": "https://commons.wikimedia.org/wiki/File:Parliament_House_in_Helsinki_in_Finland,_2024_December.jpg",
+    "credit": "Photo: Safa Hovinen. Licence: CC BY 2.0. Source: Wikimedia Commons.",
+    "modifications": null,
+    "terms": null
+   },
    "primary_source": {
     "outlet": "finanssivalvonta",
     "outlet_name": "Finanssivalvonta",
@@ -710,7 +942,8 @@
      "author": null,
      "license": null,
      "license_url": null,
-     "credit": "Official website"
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/fi-fiva.webp"
     }
    },
    "also_covered_by": [],
@@ -734,7 +967,8 @@
       "author": null,
       "license": null,
       "license_url": null,
-      "credit": "Official website"
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/fi-fiva.webp"
      }
     }
    ],
@@ -769,7 +1003,8 @@
       "share": 0.0
      }
     ]
-   }
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/fi-fiva.webp"
   }
  ]
 }

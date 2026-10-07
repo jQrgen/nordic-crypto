@@ -1,0 +1,100 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T22:52:55+00:00",
+ "preview": false,
+ "item": {
+  "id": "faa749a8058c",
+  "title": "BTCHEL 2025",
+  "title_original": null,
+  "start": "2025-08-15T00:00:00+03:00",
+  "end": "2025-08-16T23:59:00+03:00",
+  "place": "",
+  "city": "Helsinki",
+  "country": "FI",
+  "online": false,
+  "organiser": "BTCHEL",
+  "url": "https://bt.cx/en/news/2025/07/24/03-BTCHEL-2025-The-Biggest-Bitcoin-Celebration-in-the-Nordics-Is-Coming/",
+  "source": "backfill",
+  "paid": null,
+  "sponsored": null,
+  "note": null,
+  "note_i18n": {},
+  "past": true,
+  "ongoing": false,
+  "html_url": "https://nordiccrypto.no/calendar/faa749a8058c/",
+  "html_urls": {
+   "en": "https://nordiccrypto.no/calendar/faa749a8058c/",
+   "nn": "https://nordiccrypto.no/nn/calendar/faa749a8058c/",
+   "nb": "https://nordiccrypto.no/nb/calendar/faa749a8058c/",
+   "sv": "https://nordiccrypto.no/sv/calendar/faa749a8058c/",
+   "da": "https://nordiccrypto.no/da/calendar/faa749a8058c/",
+   "fi": "https://nordiccrypto.no/fi/calendar/faa749a8058c/",
+   "is": "https://nordiccrypto.no/is/calendar/faa749a8058c/",
+   "zh": "https://nordiccrypto.no/zh/calendar/faa749a8058c/",
+   "hi": "https://nordiccrypto.no/hi/calendar/faa749a8058c/",
+   "es": "https://nordiccrypto.no/es/calendar/faa749a8058c/",
+   "fr": "https://nordiccrypto.no/fr/calendar/faa749a8058c/",
+   "ar": "https://nordiccrypto.no/ar/calendar/faa749a8058c/",
+   "bn": "https://nordiccrypto.no/bn/calendar/faa749a8058c/",
+   "pt": "https://nordiccrypto.no/pt/calendar/faa749a8058c/",
+   "ru": "https://nordiccrypto.no/ru/calendar/faa749a8058c/",
+   "ur": "https://nordiccrypto.no/ur/calendar/faa749a8058c/",
+   "id": "https://nordiccrypto.no/id/calendar/faa749a8058c/",
+   "de": "https://nordiccrypto.no/de/calendar/faa749a8058c/",
+   "ja": "https://nordiccrypto.no/ja/calendar/faa749a8058c/",
+   "sw": "https://nordiccrypto.no/sw/calendar/faa749a8058c/",
+   "mr": "https://nordiccrypto.no/mr/calendar/faa749a8058c/"
+  },
+  "api_url": "https://nordiccrypto.no/api/v1/events/faa749a8058c.json",
+  "backfill": true,
+  "event_type": "conference",
+  "credits": {
+   "title": {
+    "source_name": "BTCX",
+    "source_url": "https://bt.cx/en/news/2025/07/24/03-BTCHEL-2025-The-Biggest-Bitcoin-Celebration-in-the-Nordics-Is-Coming/",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "start": {
+    "source_name": "BTCX",
+    "source_url": "https://bt.cx/en/news/2025/07/24/03-BTCHEL-2025-The-Biggest-Bitcoin-Celebration-in-the-Nordics-Is-Coming/",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "end": {
+    "source_name": "BTCX",
+    "source_url": "https://bt.cx/en/news/2025/07/24/03-BTCHEL-2025-The-Biggest-Bitcoin-Celebration-in-the-Nordics-Is-Coming/",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "city": {
+    "source_name": "BTCX",
+    "source_url": "https://bt.cx/en/news/2025/07/24/03-BTCHEL-2025-The-Biggest-Bitcoin-Celebration-in-the-Nordics-Is-Coming/",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "country": {
+    "source_name": "BTCX",
+    "source_url": "https://bt.cx/en/news/2025/07/24/03-BTCHEL-2025-The-Biggest-Bitcoin-Celebration-in-the-Nordics-Is-Coming/",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "organiser": {
+    "source_name": "BTCX",
+    "source_url": "https://bt.cx/en/news/2025/07/24/03-BTCHEL-2025-The-Biggest-Bitcoin-Celebration-in-the-Nordics-Is-Coming/",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "url": {
+    "source_name": "BTCX",
+    "source_url": "https://bt.cx/en/news/2025/07/24/03-BTCHEL-2025-The-Biggest-Bitcoin-Celebration-in-the-Nordics-Is-Coming/",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "event_type": {
+    "source_name": "BTCX",
+    "source_url": "https://bt.cx/en/news/2025/07/24/03-BTCHEL-2025-The-Biggest-Bitcoin-Celebration-in-the-Nordics-Is-Coming/",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   }
+  },
+  "place_source": {
+   "name": "BTCX",
+   "url": "https://bt.cx/en/news/2025/07/24/03-BTCHEL-2025-The-Biggest-Bitcoin-Celebration-in-the-Nordics-Is-Coming/",
+   "retrieved": "2026-10-07T21:00:00+00:00"
+  }
+ }
+}

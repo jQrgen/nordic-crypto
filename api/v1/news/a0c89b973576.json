@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T21:33:28+00:00",
+ "generated_at": "2026-10-07T22:52:55+00:00",
  "preview": false,
  "item": {
   "id": "a0c89b973576",
@@ -10,6 +10,13 @@
   "api_url": "https://nordiccrypto.no/api/v1/news/a0c89b973576.json",
   "title": "Danske Bank: Ingen bank kan bygge euro-stablecoin alene",
   "title_en": "Danske Bank: no bank can build a euro stablecoin alone",
+  "title_i18n": {
+   "nn": "Danske Bank: Ingen bank kan byggje euro-stablecoin åleine",
+   "sv": "Danske Bank: Ingen bank kan bygga en eurostablecoin ensam",
+   "da": "Danske Bank: Ingen bank kan bygge en euro-stablecoin alene",
+   "fi": "Danske Bank: Yksikään pankki ei voi rakentaa eurostablecoinia yksin",
+   "is": "Danske Bank: Enginn banki getur byggt evru-stablecoin einn"
+  },
   "source": "kaupr",
   "source_name": "Kaupr",
   "source_logo": {
@@ -19,7 +26,8 @@
    "author": null,
    "license": null,
    "license_url": null,
-   "credit": "Official website"
+   "credit": "Official website",
+   "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
   },
   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
   "country": "DK",
@@ -42,6 +50,22 @@
   "paywall": false,
   "links": [],
   "own_story": false,
+  "illustration": {
+   "id": "original-exchange",
+   "kind": "original",
+   "file_url": "https://nordiccrypto.no/assets/img/illustrations/original-exchange.webp",
+   "width": 960,
+   "height": 540,
+   "alt": "Abstract bar chart in blue and black. Nordic Crypto illustration, not a picture of an exchange.",
+   "source": "Nordic Crypto",
+   "author": "Nordic Crypto",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "url": "https://cryptonordic.no/ethics/",
+   "credit": "Illustration: Nordic Crypto. Licence: CC0 1.0. Source: Nordic Crypto.",
+   "modifications": null,
+   "terms": null
+  },
   "primary_source": {
    "outlet": "kaupr",
    "outlet_name": "Kaupr",
@@ -61,7 +85,8 @@
     "author": null,
     "license": null,
     "license_url": null,
-    "credit": "Official website"
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
    },
    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
   },
@@ -86,7 +111,8 @@
      "author": null,
      "license": null,
      "license_url": null,
-     "credit": "Official website"
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    }
@@ -122,6 +148,7 @@
      "share": 0.0
     }
    ]
-  }
+  },
+  "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
  }
 }

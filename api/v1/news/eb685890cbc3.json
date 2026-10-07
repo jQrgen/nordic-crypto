@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T21:33:28+00:00",
+ "generated_at": "2026-10-07T22:52:55+00:00",
  "preview": false,
  "item": {
   "id": "eb685890cbc3",
@@ -10,6 +10,13 @@
   "api_url": "https://nordiccrypto.no/api/v1/news/eb685890cbc3.json",
   "title": "H100-styrelederen vil ha flere oppkjøp i bitcoinbransjen",
   "title_en": "H100 chair wants more acquisitions in the bitcoin industry",
+  "title_i18n": {
+   "nn": "H100-styreleiaren vil ha fleire oppkjøp i bitcoinbransjen",
+   "sv": "H100:s styrelseordförande vill se fler förvärv i bitcoinbranschen",
+   "da": "H100-formanden vil have flere opkøb i bitcoinbranchen",
+   "fi": "H100:n hallituksen puheenjohtaja haluaa lisää yrityskauppoja bitcoin-alalla",
+   "is": "Stjórnarformaður H100 vill fleiri yfirtökur í bitcoin-geiranum"
+  },
   "source": "kaupr",
   "source_name": "Kaupr",
   "source_logo": {
@@ -19,7 +26,8 @@
    "author": null,
    "license": null,
    "license_url": null,
-   "credit": "Official website"
+   "credit": "Official website",
+   "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
   },
   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
   "country": "SE",
@@ -42,6 +50,22 @@
   "paywall": false,
   "links": [],
   "own_story": false,
+  "illustration": {
+   "id": "commons-bitcoin",
+   "kind": "commons",
+   "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-bitcoin.webp",
+   "width": 365,
+   "height": 872,
+   "alt": "A physical bitcoin token in a clear case.",
+   "source": "Wikimedia Commons",
+   "author": "Heuboden",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "url": "https://commons.wikimedia.org/wiki/File:Bitcoin_coin_in_plastic_packaging.jpg",
+   "credit": "Photo: Heuboden. Licence: CC BY-SA 4.0. Source: Wikimedia Commons. Cropped.",
+   "modifications": "Cropped by Nordic Crypto to leave out a person at the edge of the frame.",
+   "terms": null
+  },
   "primary_source": {
    "outlet": "kaupr",
    "outlet_name": "Kaupr",
@@ -61,7 +85,8 @@
     "author": null,
     "license": null,
     "license_url": null,
-    "credit": "Official website"
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
    },
    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
   },
@@ -86,7 +111,8 @@
      "author": null,
      "license": null,
      "license_url": null,
-     "credit": "Official website"
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    }
@@ -122,6 +148,7 @@
      "share": 0.0
     }
    ]
-  }
+  },
+  "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
  }
 }

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T21:33:28+00:00",
+ "generated_at": "2026-10-07T22:52:55+00:00",
  "preview": false,
  "item": {
   "id": "f6301aef3314",
@@ -10,6 +10,14 @@
   "api_url": "https://nordiccrypto.no/api/v1/news/f6301aef3314.json",
   "title": "Crypto-asset service providers in Finland must be authorised in the EU",
   "title_en": null,
+  "title_i18n": {
+   "nn": "Tilbydarar av kryptoeigedelstenester i Finland må ha løyve i EU",
+   "nb": "Tilbydere av kryptoeiendeltjenester i Finland må ha tillatelse i EU",
+   "sv": "Leverantörer av kryptotillgångstjänster i Finland måste ha tillstånd i EU",
+   "da": "Udbydere af kryptoaktivtjenester i Finland skal have tilladelse i EU",
+   "fi": "Kryptovarapalvelujen tarjoajilla Suomessa on oltava toimilupa EU:ssa",
+   "is": "Þjónustuveitendur sýndareigna í Finnlandi verða að hafa leyfi í ESB"
+  },
   "source": "finanssivalvonta",
   "source_name": "Finanssivalvonta",
   "source_logo": {
@@ -19,7 +27,8 @@
    "author": null,
    "license": null,
    "license_url": null,
-   "credit": "Official website"
+   "credit": "Official website",
+   "raster_url": "https://nordiccrypto.no/assets/img/logos/fi-fiva.webp"
   },
   "source_note": null,
   "country": "FI",
@@ -42,6 +51,22 @@
   "paywall": false,
   "links": [],
   "own_story": false,
+  "illustration": {
+   "id": "commons-fi",
+   "kind": "commons",
+   "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-fi.webp",
+   "width": 960,
+   "height": 639,
+   "alt": "The Parliament House in Helsinki.",
+   "source": "Wikimedia Commons",
+   "author": "Safa Hovinen",
+   "license": "CC BY 2.0",
+   "license_url": "https://creativecommons.org/licenses/by/2.0/",
+   "url": "https://commons.wikimedia.org/wiki/File:Parliament_House_in_Helsinki_in_Finland,_2024_December.jpg",
+   "credit": "Photo: Safa Hovinen. Licence: CC BY 2.0. Source: Wikimedia Commons.",
+   "modifications": null,
+   "terms": null
+  },
   "primary_source": {
    "outlet": "finanssivalvonta",
    "outlet_name": "Finanssivalvonta",
@@ -61,7 +86,8 @@
     "author": null,
     "license": null,
     "license_url": null,
-    "credit": "Official website"
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/fi-fiva.webp"
    }
   },
   "also_covered_by": [],
@@ -85,7 +111,8 @@
      "author": null,
      "license": null,
      "license_url": null,
-     "credit": "Official website"
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/fi-fiva.webp"
     }
    }
   ],
@@ -120,6 +147,7 @@
      "share": 0.0
     }
    ]
-  }
+  },
+  "source_logo_url": "https://nordiccrypto.no/assets/img/logos/fi-fiva.webp"
  }
 }

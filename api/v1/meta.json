@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T21:33:28+00:00",
+ "generated_at": "2026-10-07T22:52:55+00:00",
  "preview": false,
  "sign_off": "The Nordic Crypto team",
  "description": "Bitcoin, blockchain and crypto news, events, a who's who, regulation and academia for Norway, Sweden, Denmark, Finland and Iceland.",
@@ -12,7 +12,31 @@
   "distribution": "TestFlight",
   "label": "iOS app (TestFlight)",
   "url": "https://testflight.apple.com/join/nQ2fpjZn",
-  "note": "Public TestFlight invite. This feed does not list an App Store page."
+  "note": "Public TestFlight invite. This feed does not list an App Store page. The Nordic Crypto TestFlight version especially supports Apple TV.",
+  "apple_tv": "Especially supports Apple TV.",
+  "apple_tv_i18n": {
+   "en": "Especially supports Apple TV.",
+   "nn": "Støtter særleg Apple TV.",
+   "nb": "Støtter særlig Apple TV.",
+   "sv": "Stöder särskilt Apple TV.",
+   "da": "Understøtter især Apple TV.",
+   "fi": "Tukee erityisesti Apple TV:tä.",
+   "is": "Styður sérstaklega Apple TV.",
+   "zh": "特别支持 Apple TV。",
+   "hi": "विशेष रूप से Apple TV का समर्थन करता है।",
+   "es": "Compatible especialmente con Apple TV.",
+   "fr": "Prend en charge Apple TV en particulier.",
+   "ar": "يدعم Apple TV بشكل خاص.",
+   "bn": "বিশেষভাবে Apple TV সমর্থন করে।",
+   "pt": "Suporta especialmente a Apple TV.",
+   "ru": "Особенно поддерживает Apple TV.",
+   "ur": "خاص طور پر Apple TV کی معاونت کرتا ہے۔",
+   "id": "Khususnya mendukung Apple TV.",
+   "de": "Unterstützt besonders Apple TV.",
+   "ja": "特に Apple TV に対応。",
+   "sw": "Inaunga mkono Apple TV hasa.",
+   "mr": "विशेषतः Apple TV ला समर्थन करते."
+  }
  },
  "languages": [
   {
@@ -226,7 +250,7 @@
    "home": "https://nordiccrypto.no/mr/"
   }
  ],
- "language_note": "Site languages, with native_name, english_name and rtl, are listed in languages and in /api/v1/languages.json. Our own text is written in English first. summary_i18n, title_i18n, subtitle_i18n, note_i18n and about_i18n carry published translations, today nn, nb, sv, da, fi and is. Other site languages fall back to the English field until a translation is published. External headlines stay in the source language (see language and language_code). There is no query string for language: each JSON document already carries every published translation. The language switcher's country default is a guess; see /api/v1/geo-language.json. The nc_lang cookie wins.",
+ "language_note": "Site languages, with native_name, english_name and rtl, are listed in languages and in /api/v1/languages.json. Our own text is written in English first. summary_i18n, title_i18n, subtitle_i18n, note_i18n and about_i18n carry published translations, today nn, nb, sv, da, fi and is. Other site languages fall back to the English field until a translation is published. On a news item, title is the source headline, title_en is our English headline and title_i18n is our headline in nn, nb, sv, da, fi and is. The site shows the page-language headline first and the source headline underneath when they differ. Outlet headlines inside sources stay in that outlet's language. There is no query string for language: each JSON document already carries every published translation. The language switcher's country default is a guess; see /api/v1/geo-language.json. The nc_lang cookie wins.",
  "countries": [
   {
    "code": "NO",
@@ -265,7 +289,8 @@
   "openapi": "https://nordiccrypto.no/api/v1/openapi.json",
   "llms_txt": "https://nordiccrypto.no/llms.txt",
   "github": "https://github.com/jQrgen/nordic-crypto",
-  "substack": "https://cryptonordic.substack.com",
+  "newsletter": "https://nordiccrypto.no/newsletter/",
+  "rss": "https://nordiccrypto.no/rss.xml",
   "telegram": "https://t.me/nordiccryptochat",
   "x": "https://x.com/xcryptonordic"
  },
@@ -315,6 +340,11 @@
    "path": "/calendar/",
    "url": "https://nordiccrypto.no/calendar/",
    "title": "Events calendar, upcoming and past"
+  },
+  {
+   "path": "/events/previous/",
+   "url": "https://nordiccrypto.no/events/previous/",
+   "title": "Previous events, newest first. Finished events are kept."
   },
   {
    "path": "/talks/",

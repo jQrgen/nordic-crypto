@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T21:33:28+00:00",
+ "generated_at": "2026-10-07T22:52:55+00:00",
  "preview": false,
  "item": {
   "id": "6e2887720a32",
@@ -10,6 +10,13 @@
   "api_url": "https://nordiccrypto.no/api/v1/news/6e2887720a32.json",
   "title": "Firi lanserer i Sverige – etter permitteringer og milliontap",
   "title_en": "Firi launches in Sweden after layoffs and losses",
+  "title_i18n": {
+   "nn": "Firi lanserer i Sverige – etter permitteringar og milliontap",
+   "sv": "Firi lanserar i Sverige – efter varsel och miljonförluster",
+   "da": "Firi lancerer i Sverige – efter fyringer og milliontab",
+   "fi": "Firi avaa Ruotsissa irtisanomisten ja miljoonatapioiden jälkeen",
+   "is": "Firi opnar í Svíþjóð eftir uppsagnir og milljónatap"
+  },
   "source": "shifter",
   "source_name": "Shifter",
   "source_logo": {
@@ -19,13 +26,14 @@
    "author": null,
    "license": null,
    "license_url": null,
-   "credit": "Official website"
+   "credit": "Official website",
+   "raster_url": "https://nordiccrypto.no/assets/img/logos/shifter.png"
   },
   "source_note": null,
   "country": "NO",
   "language": "Norwegian",
   "language_code": "no",
-  "published": "2026-09-15T12:00:00+00:00",
+  "published": "2026-09-15T08:49:33+00:00",
   "topics": [
    "business",
    "mica"
@@ -42,12 +50,28 @@
   "paywall": true,
   "links": [],
   "own_story": false,
+  "illustration": {
+   "id": "original-exchange",
+   "kind": "original",
+   "file_url": "https://nordiccrypto.no/assets/img/illustrations/original-exchange.webp",
+   "width": 960,
+   "height": 540,
+   "alt": "Abstract bar chart in blue and black. Nordic Crypto illustration, not a picture of an exchange.",
+   "source": "Nordic Crypto",
+   "author": "Nordic Crypto",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "url": "https://cryptonordic.no/ethics/",
+   "credit": "Illustration: Nordic Crypto. Licence: CC0 1.0. Source: Nordic Crypto.",
+   "modifications": null,
+   "terms": null
+  },
   "primary_source": {
    "outlet": "shifter",
    "outlet_name": "Shifter",
    "url": "https://www.shifter.no/nyheter/firi-lanserer-i-sverige-etter-permitteringer-og-milliontap/475990",
    "title": "Firi lanserer i Sverige – etter permitteringer og milliontap",
-   "published": "2026-09-15T12:00:00+00:00",
+   "published": "2026-09-15T08:49:33+00:00",
    "lang": "Norwegian",
    "language_code": "no",
    "country": "NO",
@@ -61,7 +85,8 @@
     "author": null,
     "license": null,
     "license_url": null,
-    "credit": "Official website"
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/shifter.png"
    }
   },
   "also_covered_by": [],
@@ -71,7 +96,7 @@
     "outlet_name": "Shifter",
     "url": "https://www.shifter.no/nyheter/firi-lanserer-i-sverige-etter-permitteringer-og-milliontap/475990",
     "title": "Firi lanserer i Sverige – etter permitteringer og milliontap",
-    "published": "2026-09-15T12:00:00+00:00",
+    "published": "2026-09-15T08:49:33+00:00",
     "lang": "Norwegian",
     "language_code": "no",
     "country": "NO",
@@ -85,7 +110,8 @@
      "author": null,
      "license": null,
      "license_url": null,
-     "credit": "Official website"
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/shifter.png"
     }
    }
   ],
@@ -120,6 +146,7 @@
      "share": 0.0
     }
    ]
-  }
+  },
+  "source_logo_url": "https://nordiccrypto.no/assets/img/logos/shifter.png"
  }
 }

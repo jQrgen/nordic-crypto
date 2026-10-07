@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T21:33:28+00:00",
+ "generated_at": "2026-10-07T22:52:55+00:00",
  "preview": false,
  "item": {
   "id": "fb9e8ca4fb40",
@@ -10,6 +10,13 @@
   "api_url": "https://nordiccrypto.no/api/v1/news/fb9e8ca4fb40.json",
   "title": "Småsparere hamstret krypto under renteuro",
   "title_en": "Norwegian retail investors kept buying crypto during rate turmoil",
+  "title_i18n": {
+   "nn": "Småspararar hamstra krypto under renteuro",
+   "sv": "Småsparare hamstrade krypto under ränteoro",
+   "da": "Småsparere hamstrede krypto under renteuro",
+   "fi": "Piensijoittajat hamstrasivat kryptoa korkoheilunnassa",
+   "is": "Smásparifólk hamstraði rafmynt í vaxtaóróa"
+  },
   "source": "finansavisen",
   "source_name": "Finansavisen",
   "source_logo": null,
@@ -17,7 +24,7 @@
   "country": "NO",
   "language": "Norwegian",
   "language_code": "no",
-  "published": "2026-10-05T06:06:00+00:00",
+  "published": "2026-10-05T13:06:17+00:00",
   "topics": [
    "business"
   ],
@@ -33,12 +40,28 @@
   "paywall": true,
   "links": [],
   "own_story": false,
+  "illustration": {
+   "id": "original-exchange",
+   "kind": "original",
+   "file_url": "https://nordiccrypto.no/assets/img/illustrations/original-exchange.webp",
+   "width": 960,
+   "height": 540,
+   "alt": "Abstract bar chart in blue and black. Nordic Crypto illustration, not a picture of an exchange.",
+   "source": "Nordic Crypto",
+   "author": "Nordic Crypto",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "url": "https://cryptonordic.no/ethics/",
+   "credit": "Illustration: Nordic Crypto. Licence: CC0 1.0. Source: Nordic Crypto.",
+   "modifications": null,
+   "terms": null
+  },
   "primary_source": {
    "outlet": "finansavisen",
    "outlet_name": "Finansavisen",
    "url": "https://www.finansavisen.no/valuta/2026/10/05/8385368/smasparere-hamstret-krypto-under-renteuro",
    "title": "Småsparere hamstret krypto under renteuro",
-   "published": "2026-10-05T06:06:00+00:00",
+   "published": "2026-10-05T13:06:17+00:00",
    "lang": "Norwegian",
    "language_code": "no",
    "country": "NO",
@@ -54,7 +77,7 @@
     "outlet_name": "Finansavisen",
     "url": "https://www.finansavisen.no/valuta/2026/10/05/8385368/smasparere-hamstret-krypto-under-renteuro",
     "title": "Småsparere hamstret krypto under renteuro",
-    "published": "2026-10-05T06:06:00+00:00",
+    "published": "2026-10-05T13:06:17+00:00",
     "lang": "Norwegian",
     "language_code": "no",
     "country": "NO",
@@ -95,6 +118,7 @@
      "share": 0.0
     }
    ]
-  }
+  },
+  "source_logo_url": null
  }
 }

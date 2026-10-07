@@ -1,0 +1,40 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T22:52:55+00:00",
+ "preview": false,
+ "item": {
+  "id": "newsletter-own-list",
+  "date": "2026-10-06",
+  "title": "Newsletter signup on this site",
+  "description": "The newsletter signup is a form on this site. We store the email address in a private database and send each issue ourselves. Cloudflare Web Analytics still counts visits in aggregate, without cookies, and we do not sell that data. Every issue has an unsubscribe link.",
+  "i18n": {
+   "nb": {
+    "title": "Påmelding til nyhetsbrevet på dette nettstedet",
+    "description": "Påmeldingen til nyhetsbrevet er et skjema på dette nettstedet. Vi lagrer e-postadressen i en privat database og sender hver utgave selv. Cloudflare Web Analytics teller fortsatt besøk samlet, uten informasjonskapsler, og vi selger ikke de dataene. Hver utgave har en lenke for å melde seg av."
+   },
+   "nn": {
+    "title": "Påmelding til nyheitsbrevet på denne nettstaden",
+    "description": "Påmeldinga til nyheitsbrevet er eit skjema på denne nettstaden. Vi lagrar e-postadressa i ein privat database og sender kvar utgåve sjølve. Cloudflare Web Analytics tel framleis besøk samla, utan informasjonskapslar, og vi sel ikkje dei dataa. Kvar utgåve har ei lenkje for å melde seg av."
+   },
+   "sv": {
+    "title": "Anmälan till nyhetsbrevet på den här webbplatsen",
+    "description": "Anmälan till nyhetsbrevet är ett formulär på den här webbplatsen. Vi sparar e-postadressen i en privat databas och skickar varje utgåva själva. Cloudflare Web Analytics räknar fortfarande besök samlat, utan kakor, och vi säljer inte de uppgifterna. Varje utgåva har en länk för att avsluta prenumerationen."
+   },
+   "da": {
+    "title": "Tilmelding til nyhedsbrevet på dette websted",
+    "description": "Tilmeldingen til nyhedsbrevet er en formular på dette websted. Vi gemmer e-mailadressen i en privat database og sender hver udgave selv. Cloudflare Web Analytics tæller stadig besøg samlet, uden cookies, og vi sælger ikke de data. Hver udgave har et link til afmelding."
+   },
+   "fi": {
+    "title": "Uutiskirjeen tilaus tällä sivustolla",
+    "description": "Uutiskirjeen tilaus on lomake tällä sivustolla. Tallennamme sähköpostiosoitteen yksityiseen tietokantaan ja lähetämme jokaisen numeron itse. Cloudflare Web Analytics laskee yhä käynnit kootusti, ilman evästeitä, emmekä myy näitä tietoja. Jokaisessa numerossa on linkki tilauksen perumiseen."
+   },
+   "is": {
+    "title": "Skráning á fréttabréfið á þessum vef",
+    "description": "Skráning á fréttabréfið er eyðublað á þessum vef. Við geymum netfangið í einkagagnagrunni og sendum hvert tölublað sjálf. Cloudflare Web Analytics telur enn heimsóknir saman, án vafrakaka, og við seljum ekki þau gögn. Í hverju tölublaði er tengill til að segja upp áskrift."
+   }
+  },
+  "html_url": "https://nordiccrypto.no/changelog/#newsletter-own-list",
+  "api_url": "https://nordiccrypto.no/api/v1/changelog/newsletter-own-list.json"
+ }
+}

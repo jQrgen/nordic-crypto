@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T21:33:28+00:00",
+ "generated_at": "2026-10-07T22:52:55+00:00",
  "preview": false,
  "item": {
   "id": "1a95167a3af8",
@@ -10,9 +10,25 @@
   "api_url": "https://nordiccrypto.no/api/v1/news/1a95167a3af8.json",
   "title": "Tiltalt for dopsalg mot kryptovaluta på det mørke nettet",
   "title_en": "Charged with selling drugs for cryptocurrency on the dark web",
+  "title_i18n": {
+   "nn": "Tiltala for narkosalg mot kryptovaluta på det mørke nettet",
+   "sv": "Åtalad för narkotikaförsäljning mot kryptovaluta på det mörka nätet",
+   "da": "Tiltalt for narkosalg mod kryptovaluta på det mørke net",
+   "fi": "Syyte huumekaupasta kryptovaluuttaa vastaan pimeässä verkossa",
+   "is": "Ákærður fyrir fíkniefnasölu gegn rafmynt á myrka vefnum"
+  },
   "source": "aftenposten",
   "source_name": "Aftenposten",
-  "source_logo": null,
+  "source_logo": {
+   "kind": "logo",
+   "file_url": "https://nordiccrypto.no/assets/img/logos/aftenposten.svg",
+   "source_url": "https://commons.wikimedia.org/wiki/File:Aftenposten_logo.svg",
+   "author": "Aftenposten",
+   "license": "Public domain",
+   "license_url": null,
+   "credit": "Wikimedia Commons",
+   "raster_url": "https://nordiccrypto.no/assets/img/logos/aftenposten.png"
+  },
   "source_note": null,
   "country": "NO",
   "language": "Norwegian",
@@ -33,6 +49,22 @@
   "paywall": true,
   "links": [],
   "own_story": false,
+  "illustration": {
+   "id": "commons-court",
+   "kind": "commons",
+   "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-court.webp",
+   "width": 960,
+   "height": 663,
+   "alt": "Oslo courthouse, Oslo tinghus.",
+   "source": "Wikimedia Commons",
+   "author": "Mahlum",
+   "license": "Public domain",
+   "license_url": "https://commons.wikimedia.org/wiki/File:Oslo_tinghus.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:Oslo_tinghus.jpg",
+   "credit": "Photo: Mahlum. Licence: Public domain. Source: Wikimedia Commons.",
+   "modifications": null,
+   "terms": null
+  },
   "primary_source": {
    "outlet": "aftenposten",
    "outlet_name": "Aftenposten",
@@ -45,7 +77,16 @@
    "source_type": "national",
    "paywall": true,
    "primary": true,
-   "logo": null
+   "logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/aftenposten.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Aftenposten_logo.svg",
+    "author": "Aftenposten",
+    "license": "Public domain",
+    "license_url": null,
+    "credit": "Wikimedia Commons",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/aftenposten.png"
+   }
   },
   "also_covered_by": [
    {
@@ -60,7 +101,16 @@
     "source_type": "national",
     "paywall": true,
     "primary": false,
-    "logo": null
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/nettavisen.svg",
+     "source_url": "https://commons.wikimedia.org/wiki/File:Nettavisen_logo.svg",
+     "author": "Nettavisen",
+     "license": "Public domain",
+     "license_url": null,
+     "credit": "Wikimedia Commons",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/nettavisen.png"
+    }
    }
   ],
   "sources": [
@@ -76,7 +126,16 @@
     "source_type": "national",
     "paywall": true,
     "primary": true,
-    "logo": null
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/aftenposten.svg",
+     "source_url": "https://commons.wikimedia.org/wiki/File:Aftenposten_logo.svg",
+     "author": "Aftenposten",
+     "license": "Public domain",
+     "license_url": null,
+     "credit": "Wikimedia Commons",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/aftenposten.png"
+    }
    },
    {
     "outlet": "nettavisen",
@@ -90,7 +149,16 @@
     "source_type": "national",
     "paywall": true,
     "primary": false,
-    "logo": null
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/nettavisen.svg",
+     "source_url": "https://commons.wikimedia.org/wiki/File:Nettavisen_logo.svg",
+     "author": "Nettavisen",
+     "license": "Public domain",
+     "license_url": null,
+     "credit": "Wikimedia Commons",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/nettavisen.png"
+    }
    }
   ],
   "coverage": {
@@ -124,6 +192,7 @@
      "share": 0.0
     }
    ]
-  }
+  },
+  "source_logo_url": "https://nordiccrypto.no/assets/img/logos/aftenposten.png"
  }
 }

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T21:33:28+00:00",
+ "generated_at": "2026-10-07T22:52:55+00:00",
  "preview": false,
  "item": {
   "id": "7adc8e1ede97",
@@ -21,7 +21,35 @@
   "note": null,
   "note_i18n": {},
   "past": false,
-  "html_url": "https://nordiccrypto.no/calendar/#e-7adc8e1ede97",
-  "api_url": "https://nordiccrypto.no/api/v1/events/7adc8e1ede97.json"
+  "ongoing": false,
+  "html_url": "https://nordiccrypto.no/calendar/7adc8e1ede97/",
+  "html_urls": {
+   "en": "https://nordiccrypto.no/calendar/7adc8e1ede97/",
+   "nn": "https://nordiccrypto.no/nn/calendar/7adc8e1ede97/",
+   "nb": "https://nordiccrypto.no/nb/calendar/7adc8e1ede97/",
+   "sv": "https://nordiccrypto.no/sv/calendar/7adc8e1ede97/",
+   "da": "https://nordiccrypto.no/da/calendar/7adc8e1ede97/",
+   "fi": "https://nordiccrypto.no/fi/calendar/7adc8e1ede97/",
+   "is": "https://nordiccrypto.no/is/calendar/7adc8e1ede97/",
+   "zh": "https://nordiccrypto.no/zh/calendar/7adc8e1ede97/",
+   "hi": "https://nordiccrypto.no/hi/calendar/7adc8e1ede97/",
+   "es": "https://nordiccrypto.no/es/calendar/7adc8e1ede97/",
+   "fr": "https://nordiccrypto.no/fr/calendar/7adc8e1ede97/",
+   "ar": "https://nordiccrypto.no/ar/calendar/7adc8e1ede97/",
+   "bn": "https://nordiccrypto.no/bn/calendar/7adc8e1ede97/",
+   "pt": "https://nordiccrypto.no/pt/calendar/7adc8e1ede97/",
+   "ru": "https://nordiccrypto.no/ru/calendar/7adc8e1ede97/",
+   "ur": "https://nordiccrypto.no/ur/calendar/7adc8e1ede97/",
+   "id": "https://nordiccrypto.no/id/calendar/7adc8e1ede97/",
+   "de": "https://nordiccrypto.no/de/calendar/7adc8e1ede97/",
+   "ja": "https://nordiccrypto.no/ja/calendar/7adc8e1ede97/",
+   "sw": "https://nordiccrypto.no/sw/calendar/7adc8e1ede97/",
+   "mr": "https://nordiccrypto.no/mr/calendar/7adc8e1ede97/"
+  },
+  "api_url": "https://nordiccrypto.no/api/v1/events/7adc8e1ede97.json",
+  "place_source": {
+   "name": "Oslo Blockchain Meetup (Meetup.com)",
+   "url": "https://www.meetup.com/oslo-blockchain-meetup/events/316768461/"
+  }
  }
 }

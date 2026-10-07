@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T21:33:28+00:00",
+ "generated_at": "2026-10-07T22:52:55+00:00",
  "preview": false,
  "country": "SE",
  "count": 18,
@@ -13,14 +13,30 @@
    "api_url": "https://nordiccrypto.no/api/v1/news/e6727b4858b5.json",
    "title": "Så kan Sverige användas för att finansiera kärnvapen",
    "title_en": "How Sweden can be used to finance nuclear weapons",
+   "title_i18n": {
+    "nn": "Slik kan Sverige brukast til å finansiere kjernevåpen",
+    "nb": "Slik kan Sverige brukes til å finansiere kjernevåpen",
+    "da": "Sådan kan Sverige bruges til at finansiere kernevåben",
+    "fi": "Näin Ruotsia voidaan käyttää ydinaseiden rahoittamiseen",
+    "is": "Svona má nota Svíþjóð til að fjármagna kjarnavopn"
+   },
    "source": "realtid",
    "source_name": "Realtid",
-   "source_logo": null,
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/realtid.svg",
+    "source_url": "https://www.realtid.se/_next/static/media/logo.1b3426b7.svg",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
+   },
    "source_note": null,
    "country": "SE",
    "language": "Swedish",
    "language_code": "sv",
-   "published": "2026-10-02T17:00:00+00:00",
+   "published": "2026-10-03T05:00:00+00:00",
    "topics": [
     "regulation",
     "aml"
@@ -37,19 +53,44 @@
    "paywall": false,
    "links": [],
    "own_story": false,
+   "illustration": {
+    "id": "official-riksbank",
+    "kind": "official-press",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/official-riksbank.webp",
+    "width": 960,
+    "height": 640,
+    "alt": "The Riksbank building in Stockholm.",
+    "source": "Sveriges Riksbank",
+    "author": "Sveriges Riksbank",
+    "license": "Free use, credit Sveriges Riksbank",
+    "license_url": "https://www.riksbank.se/sv/press-och-publicerat/presskontakt/bildbank/riksbankshuset/",
+    "url": "https://www.riksbank.se/sv/press-och-publicerat/presskontakt/bildbank/riksbankshuset/",
+    "credit": "Photo: Sveriges Riksbank. Licence: Free use, credit Sveriges Riksbank. Source: Sveriges Riksbank.",
+    "modifications": null,
+    "terms": "Checked 2026-10-06. The Riksbank image bank says these pictures may be downloaded and used freely if Sveriges Riksbank is credited. Pictures of banknotes and coins on the same site are not free in that way and are not used. This file is the building, scaled to 960 pixels wide and saved as WebP. It is not cropped or recoloured."
+   },
    "primary_source": {
     "outlet": "realtid",
     "outlet_name": "Realtid",
     "url": "https://www.realtid.se/bors-finans/makro/sa-kan-sverige-anvandas-for-att-finansiera-karnvapen/",
     "title": "Så kan Sverige användas för att finansiera kärnvapen",
-    "published": "2026-10-02T17:00:00+00:00",
+    "published": "2026-10-03T05:00:00+00:00",
     "lang": "Swedish",
     "language_code": "sv",
     "country": "SE",
     "source_type": "national",
     "paywall": false,
     "primary": true,
-    "logo": null
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/realtid.svg",
+     "source_url": "https://www.realtid.se/_next/static/media/logo.1b3426b7.svg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
+    }
    },
    "also_covered_by": [],
    "sources": [
@@ -58,14 +99,23 @@
      "outlet_name": "Realtid",
      "url": "https://www.realtid.se/bors-finans/makro/sa-kan-sverige-anvandas-for-att-finansiera-karnvapen/",
      "title": "Så kan Sverige användas för att finansiera kärnvapen",
-     "published": "2026-10-02T17:00:00+00:00",
+     "published": "2026-10-03T05:00:00+00:00",
      "lang": "Swedish",
      "language_code": "sv",
      "country": "SE",
      "source_type": "national",
      "paywall": false,
      "primary": true,
-     "logo": null
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/realtid.svg",
+      "source_url": "https://www.realtid.se/_next/static/media/logo.1b3426b7.svg",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
+     }
     }
    ],
    "coverage": {
@@ -99,7 +149,8 @@
       "share": 0.0
      }
     ]
-   }
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
   },
   {
    "id": "2d38c9c89e0e",
@@ -108,14 +159,30 @@
    "api_url": "https://nordiccrypto.no/api/v1/news/2d38c9c89e0e.json",
    "title": "Uppgifter: Tonåringar silvertejpade man i jakt på kryptovaluta",
    "title_en": "Reports: teenagers duct-taped a man in hunt for cryptocurrency",
+   "title_i18n": {
+    "nn": "Opplysningar: Tenåringar sølvteipa mann i jakt på kryptovaluta",
+    "nb": "Opplysninger: Tenåringer sølvteipet mann i jakt på kryptovaluta",
+    "da": "Oplysninger: Teenagere tapede en mand med sølvtape i jagten på kryptovaluta",
+    "fi": "Tietojen mukaan teinit teippasivat miehen ilmastointiteipillä kryptovaluutan takia",
+    "is": "Upplýsingar: Unglingar bundu mann með límbandi í leit að rafmynt"
+   },
    "source": "sydsvenskan.se",
    "source_name": "Sydsvenskan",
-   "source_logo": null,
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/sydsvenskan.webp",
+    "source_url": "https://www.sydsvenskan.se/apple-icon-v2.png",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/sydsvenskan.webp"
+   },
    "source_note": null,
    "country": "SE",
    "language": "Swedish",
    "language_code": "sv",
-   "published": "2026-10-02T07:01:00+00:00",
+   "published": "2026-10-02T12:00:00+00:00",
    "topics": [
     "crime"
    ],
@@ -131,19 +198,44 @@
    "paywall": false,
    "links": [],
    "own_story": false,
+   "illustration": {
+    "id": "commons-court",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-court.webp",
+    "width": 960,
+    "height": 663,
+    "alt": "Oslo courthouse, Oslo tinghus.",
+    "source": "Wikimedia Commons",
+    "author": "Mahlum",
+    "license": "Public domain",
+    "license_url": "https://commons.wikimedia.org/wiki/File:Oslo_tinghus.jpg",
+    "url": "https://commons.wikimedia.org/wiki/File:Oslo_tinghus.jpg",
+    "credit": "Photo: Mahlum. Licence: Public domain. Source: Wikimedia Commons.",
+    "modifications": null,
+    "terms": null
+   },
    "primary_source": {
     "outlet": "sydsvenskan.se",
     "outlet_name": "Sydsvenskan",
     "url": "https://www.sydsvenskan.se/lund/uppgifter-tonaringar-silvertejpade-man-i-jakt-pa-kryptovaluta/",
     "title": "Uppgifter: Tonåringar silvertejpade man i jakt på kryptovaluta",
-    "published": "2026-10-02T07:01:00+00:00",
+    "published": "2026-10-02T12:00:00+00:00",
     "lang": "Swedish",
     "language_code": "sv",
     "country": "SE",
     "source_type": "national",
     "paywall": false,
     "primary": true,
-    "logo": null
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/sydsvenskan.webp",
+     "source_url": "https://www.sydsvenskan.se/apple-icon-v2.png",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/sydsvenskan.webp"
+    }
    },
    "also_covered_by": [],
    "sources": [
@@ -152,14 +244,23 @@
      "outlet_name": "Sydsvenskan",
      "url": "https://www.sydsvenskan.se/lund/uppgifter-tonaringar-silvertejpade-man-i-jakt-pa-kryptovaluta/",
      "title": "Uppgifter: Tonåringar silvertejpade man i jakt på kryptovaluta",
-     "published": "2026-10-02T07:01:00+00:00",
+     "published": "2026-10-02T12:00:00+00:00",
      "lang": "Swedish",
      "language_code": "sv",
      "country": "SE",
      "source_type": "national",
      "paywall": false,
      "primary": true,
-     "logo": null
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/sydsvenskan.webp",
+      "source_url": "https://www.sydsvenskan.se/apple-icon-v2.png",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/sydsvenskan.webp"
+     }
     }
    ],
    "coverage": {
@@ -193,7 +294,8 @@
       "share": 0.0
      }
     ]
-   }
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/sydsvenskan.webp"
   },
   {
    "id": "7b2030aea964",
@@ -202,14 +304,30 @@
    "api_url": "https://nordiccrypto.no/api/v1/news/7b2030aea964.json",
    "title": "Kryptojätten i ny kontrovers – erbjöd tjänster i Europa utan licens",
    "title_en": "Crypto giant in new controversy: offered services in Europe without a licence",
+   "title_i18n": {
+    "nn": "Kryptokjempa i ny kontrovers – tilbaud tenester i Europa utan løyve",
+    "nb": "Kryptokjempen i ny kontrovers – tilbød tjenester i Europa uten lisens",
+    "da": "Kryptogiganten i ny kontrovers – tilbød tjenester i Europa uden licens",
+    "fi": "Kryptojätti uudessa kiistassa – tarjosi palveluja Euroopassa ilman lupaa",
+    "is": "Rafmyntarisinn í nýju deilumáli – bauð þjónustu í Evrópu án leyfis"
+   },
    "source": "realtid",
    "source_name": "Realtid",
-   "source_logo": null,
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/realtid.svg",
+    "source_url": "https://www.realtid.se/_next/static/media/logo.1b3426b7.svg",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
+   },
    "source_note": null,
    "country": "SE",
    "language": "Swedish",
    "language_code": "sv",
-   "published": "2026-10-01T11:04:00+00:00",
+   "published": "2026-10-01T18:04:00+00:00",
    "topics": [
     "regulation",
     "mica"
@@ -226,12 +344,165 @@
    "paywall": false,
    "links": [],
    "own_story": false,
+   "illustration": {
+    "id": "commons-se",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-se.webp",
+    "width": 960,
+    "height": 547,
+    "alt": "The Swedish parliament building, Riksdagshuset, in Stockholm.",
+    "source": "Wikimedia Commons",
+    "author": "Sahlen",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "url": "https://commons.wikimedia.org/wiki/File:Riksdagshuset_i_Stockholm.jpg",
+    "credit": "Photo: Sahlen. Licence: CC0 1.0. Source: Wikimedia Commons.",
+    "modifications": null,
+    "terms": null
+   },
    "primary_source": {
     "outlet": "realtid",
     "outlet_name": "Realtid",
     "url": "https://www.realtid.se/bors-finans/kryptojatten-i-ny-kontrovers-erbjod-tjanster-i-europa-utan-licens/",
     "title": "Kryptojätten i ny kontrovers – erbjöd tjänster i Europa utan licens",
-    "published": "2026-10-01T11:04:00+00:00",
+    "published": "2026-10-01T18:04:00+00:00",
+    "lang": "Swedish",
+    "language_code": "sv",
+    "country": "SE",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/realtid.svg",
+     "source_url": "https://www.realtid.se/_next/static/media/logo.1b3426b7.svg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
+    }
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "realtid",
+     "outlet_name": "Realtid",
+     "url": "https://www.realtid.se/bors-finans/kryptojatten-i-ny-kontrovers-erbjod-tjanster-i-europa-utan-licens/",
+     "title": "Kryptojätten i ny kontrovers – erbjöd tjänster i Europa utan licens",
+     "published": "2026-10-01T18:04:00+00:00",
+     "lang": "Swedish",
+     "language_code": "sv",
+     "country": "SE",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/realtid.svg",
+      "source_url": "https://www.realtid.se/_next/static/media/logo.1b3426b7.svg",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
+     }
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
+  },
+  {
+   "id": "b3fdbc8f5eec",
+   "url": "https://www.dagensps.se/bors-finans/fintech/kryptovalutor/krypto-jatten-rundar-reglerna-i-europa-riskerar-att-kastas-ut/",
+   "html_url": "https://nordiccrypto.no/stories/b3fdbc8f5eec/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/b3fdbc8f5eec.json",
+   "title": "Krypto-jätten rundar reglerna i Europa: Riskerar att kastas ut",
+   "title_en": "Crypto giant skirts the rules in Europe and risks being thrown out",
+   "title_i18n": {
+    "nn": "Kryptokjempa går rundt reglane i Europa: Risiko for å bli kasta ut",
+    "nb": "Kryptokjempen går rundt reglene i Europa: Risikerer å bli kastet ut",
+    "da": "Kryptogiganten omgår reglerne i Europa: Risikerer at blive smidt ud",
+    "fi": "Kryptojätti kiertää Euroopan sääntöjä ja vaarana on ulosheitto",
+    "is": "Rafmyntarisinn sniðgengur reglurnar í Evrópu og á hættu á að verða rekinn út"
+   },
+   "source": "dagensps.se",
+   "source_name": "Dagens PS",
+   "source_logo": null,
+   "source_note": null,
+   "country": "SE",
+   "language": "Swedish",
+   "language_code": "sv",
+   "published": "2026-10-01T08:30:56+00:00",
+   "topics": [
+    "regulation",
+    "mica"
+   ],
+   "summary": "Binance said it would leave Europe, but customers are still trading, and EU financial authorities now want to know how.",
+   "summary_i18n": {
+    "nn": "Binance sa at selskapet skulle forlate Europa, men kundane handlar framleis, og finansstyresmaktene i EU vil no vite korleis.",
+    "nb": "Binance sa at selskapet skulle forlate Europa, men kundene handler fortsatt, og EUs finansmyndigheter vil nå vite hvordan.",
+    "sv": "Binance sa att bolaget skulle lämna Europa, men kunderna handlar fortfarande, och EU:s finansmyndigheter vill nu veta hur.",
+    "da": "Binance sagde, at selskabet ville forlade Europa, men kunderne handler stadig, og EU's finansmyndigheder vil nu vide hvordan.",
+    "fi": "Binance sanoi lähtevänsä Euroopasta, mutta asiakkaat käyvät yhä kauppaa, ja EU:n rahoitusviranomaiset haluavat nyt tietää, miten.",
+    "is": "Binance sagðist ætla að yfirgefa Evrópu, en viðskiptavinir eiga enn viðskipti og fjármálayfirvöld ESB vilja nú vita hvernig."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "commons-se",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-se.webp",
+    "width": 960,
+    "height": 547,
+    "alt": "The Swedish parliament building, Riksdagshuset, in Stockholm.",
+    "source": "Wikimedia Commons",
+    "author": "Sahlen",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "url": "https://commons.wikimedia.org/wiki/File:Riksdagshuset_i_Stockholm.jpg",
+    "credit": "Photo: Sahlen. Licence: CC0 1.0. Source: Wikimedia Commons.",
+    "modifications": null,
+    "terms": null
+   },
+   "primary_source": {
+    "outlet": "dagensps.se",
+    "outlet_name": "Dagens PS",
+    "url": "https://www.dagensps.se/bors-finans/fintech/kryptovalutor/krypto-jatten-rundar-reglerna-i-europa-riskerar-att-kastas-ut/",
+    "title": "Krypto-jätten rundar reglerna i Europa: Riskerar att kastas ut",
+    "published": "2026-10-01T08:30:56+00:00",
     "lang": "Swedish",
     "language_code": "sv",
     "country": "SE",
@@ -243,11 +514,11 @@
    "also_covered_by": [],
    "sources": [
     {
-     "outlet": "realtid",
-     "outlet_name": "Realtid",
-     "url": "https://www.realtid.se/bors-finans/kryptojatten-i-ny-kontrovers-erbjod-tjanster-i-europa-utan-licens/",
-     "title": "Kryptojätten i ny kontrovers – erbjöd tjänster i Europa utan licens",
-     "published": "2026-10-01T11:04:00+00:00",
+     "outlet": "dagensps.se",
+     "outlet_name": "Dagens PS",
+     "url": "https://www.dagensps.se/bors-finans/fintech/kryptovalutor/krypto-jatten-rundar-reglerna-i-europa-riskerar-att-kastas-ut/",
+     "title": "Krypto-jätten rundar reglerna i Europa: Riskerar att kastas ut",
+     "published": "2026-10-01T08:30:56+00:00",
      "lang": "Swedish",
      "language_code": "sv",
      "country": "SE",
@@ -288,7 +559,8 @@
       "share": 0.0
      }
     ]
-   }
+   },
+   "source_logo_url": null
   },
   {
    "id": "8c0dda24b0ef",
@@ -297,6 +569,13 @@
    "api_url": "https://nordiccrypto.no/api/v1/news/8c0dda24b0ef.json",
    "title": "Här är riskerna för finansiering av spridning av massförstörelsevapen störst",
    "title_en": "Here is where the risk of financing proliferation of weapons of mass destruction is highest",
+   "title_i18n": {
+    "nn": "Her er risikoen for finansiering av spreiing av masseøydeleggingsvåpen størst",
+    "nb": "Her er risikoen for finansiering av spredning av masseødeleggelsesvåpen størst",
+    "da": "Her er risikoen for finansiering af spredning af masseødelæggelsesvåben størst",
+    "fi": "Tässä riski rahoittaa joukkotuhoaseiden leviämistä on suurin",
+    "is": "Hér er áhættan af því að fjármagna útbreiðslu gereyðingarvopna mest"
+   },
    "source": "fi-se",
    "source_name": "Finansinspektionen (SE FSA)",
    "source_logo": {
@@ -306,7 +585,8 @@
     "author": "Finansinspektionen.",
     "license": "Public domain",
     "license_url": null,
-    "credit": "Wikimedia Commons"
+    "credit": "Wikimedia Commons",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/se-fi.png"
    },
    "source_note": null,
    "country": "SE",
@@ -329,6 +609,22 @@
    "paywall": false,
    "links": [],
    "own_story": false,
+   "illustration": {
+    "id": "official-riksbank",
+    "kind": "official-press",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/official-riksbank.webp",
+    "width": 960,
+    "height": 640,
+    "alt": "The Riksbank building in Stockholm.",
+    "source": "Sveriges Riksbank",
+    "author": "Sveriges Riksbank",
+    "license": "Free use, credit Sveriges Riksbank",
+    "license_url": "https://www.riksbank.se/sv/press-och-publicerat/presskontakt/bildbank/riksbankshuset/",
+    "url": "https://www.riksbank.se/sv/press-och-publicerat/presskontakt/bildbank/riksbankshuset/",
+    "credit": "Photo: Sveriges Riksbank. Licence: Free use, credit Sveriges Riksbank. Source: Sveriges Riksbank.",
+    "modifications": null,
+    "terms": "Checked 2026-10-06. The Riksbank image bank says these pictures may be downloaded and used freely if Sveriges Riksbank is credited. Pictures of banknotes and coins on the same site are not free in that way and are not used. This file is the building, scaled to 960 pixels wide and saved as WebP. It is not cropped or recoloured."
+   },
    "primary_source": {
     "outlet": "fi-se",
     "outlet_name": "Finansinspektionen (SE FSA)",
@@ -348,7 +644,8 @@
      "author": "Finansinspektionen.",
      "license": "Public domain",
      "license_url": null,
-     "credit": "Wikimedia Commons"
+     "credit": "Wikimedia Commons",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/se-fi.png"
     }
    },
    "also_covered_by": [],
@@ -372,7 +669,8 @@
       "author": "Finansinspektionen.",
       "license": "Public domain",
       "license_url": null,
-      "credit": "Wikimedia Commons"
+      "credit": "Wikimedia Commons",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/se-fi.png"
      }
     }
    ],
@@ -407,102 +705,8 @@
       "share": 0.0
      }
     ]
-   }
-  },
-  {
-   "id": "b3fdbc8f5eec",
-   "url": "https://www.dagensps.se/bors-finans/fintech/kryptovalutor/krypto-jatten-rundar-reglerna-i-europa-riskerar-att-kastas-ut/",
-   "html_url": "https://nordiccrypto.no/stories/b3fdbc8f5eec/",
-   "api_url": "https://nordiccrypto.no/api/v1/news/b3fdbc8f5eec.json",
-   "title": "Krypto-jätten rundar reglerna i Europa: Riskerar att kastas ut",
-   "title_en": "Crypto giant skirts the rules in Europe and risks being thrown out",
-   "source": "dagensps.se",
-   "source_name": "Dagens PS",
-   "source_logo": null,
-   "source_note": null,
-   "country": "SE",
-   "language": "Swedish",
-   "language_code": "sv",
-   "published": "2026-10-01T01:31:00+00:00",
-   "topics": [
-    "regulation",
-    "mica"
-   ],
-   "summary": "Binance said it would leave Europe, but customers are still trading, and EU financial authorities now want to know how.",
-   "summary_i18n": {
-    "nn": "Binance sa at selskapet skulle forlate Europa, men kundane handlar framleis, og finansstyresmaktene i EU vil no vite korleis.",
-    "nb": "Binance sa at selskapet skulle forlate Europa, men kundene handler fortsatt, og EUs finansmyndigheter vil nå vite hvordan.",
-    "sv": "Binance sa att bolaget skulle lämna Europa, men kunderna handlar fortfarande, och EU:s finansmyndigheter vill nu veta hur.",
-    "da": "Binance sagde, at selskabet ville forlade Europa, men kunderne handler stadig, og EU's finansmyndigheder vil nu vide hvordan.",
-    "fi": "Binance sanoi lähtevänsä Euroopasta, mutta asiakkaat käyvät yhä kauppaa, ja EU:n rahoitusviranomaiset haluavat nyt tietää, miten.",
-    "is": "Binance sagðist ætla að yfirgefa Evrópu, en viðskiptavinir eiga enn viðskipti og fjármálayfirvöld ESB vilja nú vita hvernig."
    },
-   "paywall": false,
-   "links": [],
-   "own_story": false,
-   "primary_source": {
-    "outlet": "dagensps.se",
-    "outlet_name": "Dagens PS",
-    "url": "https://www.dagensps.se/bors-finans/fintech/kryptovalutor/krypto-jatten-rundar-reglerna-i-europa-riskerar-att-kastas-ut/",
-    "title": "Krypto-jätten rundar reglerna i Europa: Riskerar att kastas ut",
-    "published": "2026-10-01T01:31:00+00:00",
-    "lang": "Swedish",
-    "language_code": "sv",
-    "country": "SE",
-    "source_type": "national",
-    "paywall": false,
-    "primary": true,
-    "logo": null
-   },
-   "also_covered_by": [],
-   "sources": [
-    {
-     "outlet": "dagensps.se",
-     "outlet_name": "Dagens PS",
-     "url": "https://www.dagensps.se/bors-finans/fintech/kryptovalutor/krypto-jatten-rundar-reglerna-i-europa-riskerar-att-kastas-ut/",
-     "title": "Krypto-jätten rundar reglerna i Europa: Riskerar att kastas ut",
-     "published": "2026-10-01T01:31:00+00:00",
-     "lang": "Swedish",
-     "language_code": "sv",
-     "country": "SE",
-     "source_type": "national",
-     "paywall": false,
-     "primary": true,
-     "logo": null
-    }
-   ],
-   "coverage": {
-    "count": 1,
-    "by_country": [
-     {
-      "country": "SE",
-      "count": 1,
-      "share": 1.0
-     }
-    ],
-    "by_source_type": [
-     {
-      "type": "national",
-      "count": 1,
-      "share": 1.0
-     },
-     {
-      "type": "regional",
-      "count": 0,
-      "share": 0.0
-     },
-     {
-      "type": "official",
-      "count": 0,
-      "share": 0.0
-     },
-     {
-      "type": "international",
-      "count": 0,
-      "share": 0.0
-     }
-    ]
-   }
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/se-fi.png"
   },
   {
    "id": "f616814dc40c",
@@ -511,6 +715,13 @@
    "api_url": "https://nordiccrypto.no/api/v1/news/f616814dc40c.json",
    "title": "GreenMerc kutter 4,8 millioner i året – Northcrypto går med overskudd",
    "title_en": "GreenMerc cuts SEK 4.8 million a year as Northcrypto turns a profit",
+   "title_i18n": {
+    "nn": "GreenMerc kuttar 4,8 millionar i året – Northcrypto går med overskot",
+    "sv": "GreenMerc skär ner 4,8 miljoner om året – Northcrypto går med vinst",
+    "da": "GreenMerc skærer 4,8 millioner om året – Northcrypto giver overskud",
+    "fi": "GreenMerc leikkaa 4,8 miljoonaa vuodessa – Northcrypto tekee voittoa",
+    "is": "GreenMerc skerðir 4,8 milljónir á ári – Northcrypto skilar hagnaði"
+   },
    "source": "kaupr",
    "source_name": "Kaupr",
    "source_logo": {
@@ -520,7 +731,8 @@
     "author": null,
     "license": null,
     "license_url": null,
-    "credit": "Official website"
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
    },
    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
    "country": "SE",
@@ -542,6 +754,22 @@
    "paywall": false,
    "links": [],
    "own_story": false,
+   "illustration": {
+    "id": "original-exchange",
+    "kind": "original",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/original-exchange.webp",
+    "width": 960,
+    "height": 540,
+    "alt": "Abstract bar chart in blue and black. Nordic Crypto illustration, not a picture of an exchange.",
+    "source": "Nordic Crypto",
+    "author": "Nordic Crypto",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "url": "https://cryptonordic.no/ethics/",
+    "credit": "Illustration: Nordic Crypto. Licence: CC0 1.0. Source: Nordic Crypto.",
+    "modifications": null,
+    "terms": null
+   },
    "primary_source": {
     "outlet": "kaupr",
     "outlet_name": "Kaupr",
@@ -561,7 +789,8 @@
      "author": null,
      "license": null,
      "license_url": null,
-     "credit": "Official website"
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    },
@@ -586,7 +815,8 @@
       "author": null,
       "license": null,
       "license_url": null,
-      "credit": "Official website"
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
      },
      "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
     }
@@ -622,7 +852,8 @@
       "share": 0.0
      }
     ]
-   }
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
   },
   {
    "id": "12425cc1e7ff",
@@ -631,6 +862,13 @@
    "api_url": "https://nordiccrypto.no/api/v1/news/12425cc1e7ff.json",
    "title": "Coinmotion og K33 inngår nordisk kryptosamarbeid om institusjonell handel",
    "title_en": "Coinmotion and K33 strike Nordic crypto partnership on institutional trading",
+   "title_i18n": {
+    "nn": "Coinmotion og K33 inngår eit nordisk kryptosamarbeid om institusjonell handel",
+    "sv": "Coinmotion och K33 ingår nordiskt kryptosamarbete om institutionell handel",
+    "da": "Coinmotion og K33 indgår et nordisk kryptosamarbejde om institutionel handel",
+    "fi": "Coinmotion ja K33 aloittavat pohjoismaisen kryptoyhteistyön institutionaalisessa kaupassa",
+    "is": "Coinmotion og K33 gera norrænt rafmyntasamstarf um stofnanaviðskipti"
+   },
    "source": "kaupr",
    "source_name": "Kaupr",
    "source_logo": {
@@ -640,7 +878,8 @@
     "author": null,
     "license": null,
     "license_url": null,
-    "credit": "Official website"
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
    },
    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
    "country": "SE",
@@ -663,6 +902,22 @@
    "paywall": false,
    "links": [],
    "own_story": false,
+   "illustration": {
+    "id": "original-exchange",
+    "kind": "original",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/original-exchange.webp",
+    "width": 960,
+    "height": 540,
+    "alt": "Abstract bar chart in blue and black. Nordic Crypto illustration, not a picture of an exchange.",
+    "source": "Nordic Crypto",
+    "author": "Nordic Crypto",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "url": "https://cryptonordic.no/ethics/",
+    "credit": "Illustration: Nordic Crypto. Licence: CC0 1.0. Source: Nordic Crypto.",
+    "modifications": null,
+    "terms": null
+   },
    "primary_source": {
     "outlet": "kaupr",
     "outlet_name": "Kaupr",
@@ -682,7 +937,8 @@
      "author": null,
      "license": null,
      "license_url": null,
-     "credit": "Official website"
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    },
@@ -707,7 +963,8 @@
       "author": null,
       "license": null,
       "license_url": null,
-      "credit": "Official website"
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
      },
      "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
     }
@@ -743,7 +1000,8 @@
       "share": 0.0
      }
     ]
-   }
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
   },
   {
    "id": "07e49032be5a",
@@ -752,6 +1010,13 @@
    "api_url": "https://nordiccrypto.no/api/v1/news/07e49032be5a.json",
    "title": "Safello åpner for at andre selskaper kan tilby kryptokjøp",
    "title_en": "Safello opens up so other companies can offer crypto purchases",
+   "title_i18n": {
+    "nn": "Safello opnar for at andre selskap kan tilby kryptokjøp",
+    "sv": "Safello öppnar för att andra bolag kan erbjuda kryptoköp",
+    "da": "Safello åbner for, at andre selskaber kan tilbyde kryptokøb",
+    "fi": "Safello antaa muiden yhtiöiden tarjota kryptokauppaa",
+    "is": "Safello opnar á að önnur fyrirtæki geti boðið kaup á rafmyntum"
+   },
    "source": "kaupr",
    "source_name": "Kaupr",
    "source_logo": {
@@ -761,7 +1026,8 @@
     "author": null,
     "license": null,
     "license_url": null,
-    "credit": "Official website"
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
    },
    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
    "country": "SE",
@@ -784,6 +1050,22 @@
    "paywall": false,
    "links": [],
    "own_story": false,
+   "illustration": {
+    "id": "original-exchange",
+    "kind": "original",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/original-exchange.webp",
+    "width": 960,
+    "height": 540,
+    "alt": "Abstract bar chart in blue and black. Nordic Crypto illustration, not a picture of an exchange.",
+    "source": "Nordic Crypto",
+    "author": "Nordic Crypto",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "url": "https://cryptonordic.no/ethics/",
+    "credit": "Illustration: Nordic Crypto. Licence: CC0 1.0. Source: Nordic Crypto.",
+    "modifications": null,
+    "terms": null
+   },
    "primary_source": {
     "outlet": "kaupr",
     "outlet_name": "Kaupr",
@@ -803,7 +1085,8 @@
      "author": null,
      "license": null,
      "license_url": null,
-     "credit": "Official website"
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    },
@@ -828,7 +1111,8 @@
       "author": null,
       "license": null,
       "license_url": null,
-      "credit": "Official website"
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
      },
      "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
     }
@@ -864,7 +1148,8 @@
       "share": 0.0
      }
     ]
-   }
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
   },
   {
    "id": "a384452ed1b6",
@@ -873,6 +1158,13 @@
    "api_url": "https://nordiccrypto.no/api/v1/news/a384452ed1b6.json",
    "title": "GreenMerc trekker MiCA-klage og bruker Northcryptos lisens i Sverige",
    "title_en": "GreenMerc drops MiCA appeal and uses Northcrypto's licence in Sweden",
+   "title_i18n": {
+    "nn": "GreenMerc trekkjer MiCA-klage og bruker Northcrypto sitt løyve i Sverige",
+    "sv": "GreenMerc drar tillbaka MiCA-överklagandet och använder Northcryptos tillstånd i Sverige",
+    "da": "GreenMerc trækker MiCA-klagen tilbage og bruger Northcryptos licens i Sverige",
+    "fi": "GreenMerc peruu MiCA-valituksensa ja käyttää Northcrypton lupaa Ruotsissa",
+    "is": "GreenMerc dreg MiCA-kæru til baka og notar leyfi Northcrypto í Svíþjóð"
+   },
    "source": "kaupr",
    "source_name": "Kaupr",
    "source_logo": {
@@ -882,7 +1174,8 @@
     "author": null,
     "license": null,
     "license_url": null,
-    "credit": "Official website"
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
    },
    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
    "country": "SE",
@@ -905,6 +1198,22 @@
    "paywall": false,
    "links": [],
    "own_story": false,
+   "illustration": {
+    "id": "original-exchange",
+    "kind": "original",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/original-exchange.webp",
+    "width": 960,
+    "height": 540,
+    "alt": "Abstract bar chart in blue and black. Nordic Crypto illustration, not a picture of an exchange.",
+    "source": "Nordic Crypto",
+    "author": "Nordic Crypto",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "url": "https://cryptonordic.no/ethics/",
+    "credit": "Illustration: Nordic Crypto. Licence: CC0 1.0. Source: Nordic Crypto.",
+    "modifications": null,
+    "terms": null
+   },
    "primary_source": {
     "outlet": "kaupr",
     "outlet_name": "Kaupr",
@@ -924,7 +1233,8 @@
      "author": null,
      "license": null,
      "license_url": null,
-     "credit": "Official website"
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    },
@@ -949,7 +1259,8 @@
       "author": null,
       "license": null,
       "license_url": null,
-      "credit": "Official website"
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
      },
      "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
     }
@@ -985,7 +1296,8 @@
       "share": 0.0
      }
     ]
-   }
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
   },
   {
    "id": "4d918e6a3378",
@@ -994,6 +1306,13 @@
    "api_url": "https://nordiccrypto.no/api/v1/news/4d918e6a3378.json",
    "title": "Firi tar opp kampen om 1,1 millioner svenske kryptoeiere",
    "title_en": "Firi takes on the fight for 1.1 million Swedish crypto owners",
+   "title_i18n": {
+    "nn": "Firi tek opp kampen om 1,1 millionar svenske kryptoeigarar",
+    "sv": "Firi tar upp kampen om 1,1 miljoner svenska kryptoägare",
+    "da": "Firi tager kampen op om 1,1 millioner svenske krypto-ejere",
+    "fi": "Firi haastaa 1,1 miljoonaa ruotsalaista kryptonomistajaa",
+    "is": "Firi tekur upp baráttuna um 1,1 milljón sænskra rafmyntaeigenda"
+   },
    "source": "kaupr",
    "source_name": "Kaupr",
    "source_logo": {
@@ -1003,7 +1322,8 @@
     "author": null,
     "license": null,
     "license_url": null,
-    "credit": "Official website"
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
    },
    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
    "country": "SE",
@@ -1025,6 +1345,22 @@
    "paywall": false,
    "links": [],
    "own_story": false,
+   "illustration": {
+    "id": "original-exchange",
+    "kind": "original",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/original-exchange.webp",
+    "width": 960,
+    "height": 540,
+    "alt": "Abstract bar chart in blue and black. Nordic Crypto illustration, not a picture of an exchange.",
+    "source": "Nordic Crypto",
+    "author": "Nordic Crypto",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "url": "https://cryptonordic.no/ethics/",
+    "credit": "Illustration: Nordic Crypto. Licence: CC0 1.0. Source: Nordic Crypto.",
+    "modifications": null,
+    "terms": null
+   },
    "primary_source": {
     "outlet": "kaupr",
     "outlet_name": "Kaupr",
@@ -1044,7 +1380,8 @@
      "author": null,
      "license": null,
      "license_url": null,
-     "credit": "Official website"
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    },
@@ -1069,7 +1406,8 @@
       "author": null,
       "license": null,
       "license_url": null,
-      "credit": "Official website"
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
      },
      "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
     }
@@ -1105,7 +1443,8 @@
       "share": 0.0
      }
     ]
-   }
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
   },
   {
    "id": "4fec239ddb97",
@@ -1114,6 +1453,13 @@
    "api_url": "https://nordiccrypto.no/api/v1/news/4fec239ddb97.json",
    "title": "Hilbert finansierer utlån med innskudd på blokkjeden",
    "title_en": "Hilbert funds lending with on-chain deposits",
+   "title_i18n": {
+    "nn": "Hilbert finansierer utlån med innskot på blokkjeda",
+    "sv": "Hilbert finansierar utlåning med insättningar på blockkedjan",
+    "da": "Hilbert finansierer udlån med indskud på blockchainen",
+    "fi": "Hilbert rahoittaa luotonantoa talletuksilla lohkoketjussa",
+    "is": "Hilbert fjármagnar útlán með innstæðum á bálkakeðjunni"
+   },
    "source": "kaupr",
    "source_name": "Kaupr",
    "source_logo": {
@@ -1123,7 +1469,8 @@
     "author": null,
     "license": null,
     "license_url": null,
-    "credit": "Official website"
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
    },
    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
    "country": "SE",
@@ -1146,6 +1493,22 @@
    "paywall": false,
    "links": [],
    "own_story": false,
+   "illustration": {
+    "id": "original-exchange",
+    "kind": "original",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/original-exchange.webp",
+    "width": 960,
+    "height": 540,
+    "alt": "Abstract bar chart in blue and black. Nordic Crypto illustration, not a picture of an exchange.",
+    "source": "Nordic Crypto",
+    "author": "Nordic Crypto",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "url": "https://cryptonordic.no/ethics/",
+    "credit": "Illustration: Nordic Crypto. Licence: CC0 1.0. Source: Nordic Crypto.",
+    "modifications": null,
+    "terms": null
+   },
    "primary_source": {
     "outlet": "kaupr",
     "outlet_name": "Kaupr",
@@ -1165,7 +1528,8 @@
      "author": null,
      "license": null,
      "license_url": null,
-     "credit": "Official website"
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    },
@@ -1190,7 +1554,8 @@
       "author": null,
       "license": null,
       "license_url": null,
-      "credit": "Official website"
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
      },
      "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
     }
@@ -1226,7 +1591,8 @@
       "share": 0.0
      }
     ]
-   }
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
   },
   {
    "id": "82697418efbc",
@@ -1235,6 +1601,13 @@
    "api_url": "https://nordiccrypto.no/api/v1/news/82697418efbc.json",
    "title": "Kvarn avviser at Goobit-avtalen er agentforhold eller outsourcing",
    "title_en": "Kvarn denies the Goobit deal is an agency or outsourcing arrangement",
+   "title_i18n": {
+    "nn": "Kvarn avviser at Goobit-avtalen er eit agentforhold eller outsourcing",
+    "sv": "Kvarn tillbakavisar att Goobit-avtalet är ett agentförhållande eller outsourcing",
+    "da": "Kvarn afviser, at Goobit-aftalen er et agentforhold eller outsourcing",
+    "fi": "Kvarn kiistää, että Goobit-sopimus olisi agentuuri tai ulkoistusta",
+    "is": "Kvarn hafnar því að Goobit-samningurinn sé umboðssamband eða útvistun"
+   },
    "source": "kaupr",
    "source_name": "Kaupr",
    "source_logo": {
@@ -1244,7 +1617,8 @@
     "author": null,
     "license": null,
     "license_url": null,
-    "credit": "Official website"
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
    },
    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
    "country": "SE",
@@ -1266,6 +1640,22 @@
    "paywall": false,
    "links": [],
    "own_story": false,
+   "illustration": {
+    "id": "commons-se",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-se.webp",
+    "width": 960,
+    "height": 547,
+    "alt": "The Swedish parliament building, Riksdagshuset, in Stockholm.",
+    "source": "Wikimedia Commons",
+    "author": "Sahlen",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "url": "https://commons.wikimedia.org/wiki/File:Riksdagshuset_i_Stockholm.jpg",
+    "credit": "Photo: Sahlen. Licence: CC0 1.0. Source: Wikimedia Commons.",
+    "modifications": null,
+    "terms": null
+   },
    "primary_source": {
     "outlet": "kaupr",
     "outlet_name": "Kaupr",
@@ -1285,7 +1675,8 @@
      "author": null,
      "license": null,
      "license_url": null,
-     "credit": "Official website"
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    },
@@ -1310,7 +1701,8 @@
       "author": null,
       "license": null,
       "license_url": null,
-      "credit": "Official website"
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
      },
      "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
     }
@@ -1346,7 +1738,8 @@
       "share": 0.0
      }
     ]
-   }
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
   },
   {
    "id": "9750ec7bf5d8",
@@ -1355,6 +1748,13 @@
    "api_url": "https://nordiccrypto.no/api/v1/news/9750ec7bf5d8.json",
    "title": "Finske Kvarn leier ut MiCA-tillatelsen sin til nordiske partnere",
    "title_en": "Finnish Kvarn rents out its MiCA licence to Nordic partners",
+   "title_i18n": {
+    "nn": "Finske Kvarn leiger ut MiCA-løyvet sitt til nordiske partnarar",
+    "sv": "Finska Kvarn hyr ut sitt MiCA-tillstånd till nordiska partner",
+    "da": "Finske Kvarn lejer sin MiCA-tilladelse ud til nordiske partnere",
+    "fi": "Suomalainen Kvarn vuokraa MiCA-lupansa pohjoismaisille kumppaneille",
+    "is": "Finnska Kvarn leigir MiCA-leyfi sitt til norrænna samstarfsaðila"
+   },
    "source": "kaupr",
    "source_name": "Kaupr",
    "source_logo": {
@@ -1364,7 +1764,8 @@
     "author": null,
     "license": null,
     "license_url": null,
-    "credit": "Official website"
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
    },
    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
    "country": "SE",
@@ -1387,6 +1788,22 @@
    "paywall": false,
    "links": [],
    "own_story": false,
+   "illustration": {
+    "id": "original-exchange",
+    "kind": "original",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/original-exchange.webp",
+    "width": 960,
+    "height": 540,
+    "alt": "Abstract bar chart in blue and black. Nordic Crypto illustration, not a picture of an exchange.",
+    "source": "Nordic Crypto",
+    "author": "Nordic Crypto",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "url": "https://cryptonordic.no/ethics/",
+    "credit": "Illustration: Nordic Crypto. Licence: CC0 1.0. Source: Nordic Crypto.",
+    "modifications": null,
+    "terms": null
+   },
    "primary_source": {
     "outlet": "kaupr",
     "outlet_name": "Kaupr",
@@ -1406,7 +1823,8 @@
      "author": null,
      "license": null,
      "license_url": null,
-     "credit": "Official website"
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    },
@@ -1431,7 +1849,8 @@
       "author": null,
       "license": null,
       "license_url": null,
-      "credit": "Official website"
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
      },
      "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
     }
@@ -1467,7 +1886,8 @@
       "share": 0.0
      }
     ]
-   }
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
   },
   {
    "id": "e0cc8b0df8e7",
@@ -1476,6 +1896,13 @@
    "api_url": "https://nordiccrypto.no/api/v1/news/e0cc8b0df8e7.json",
    "title": "Goobit lanserer sparing i bitcoin og gull på finsk lisens",
    "title_en": "Goobit launches bitcoin and gold savings on a Finnish licence",
+   "title_i18n": {
+    "nn": "Goobit lanserer sparing i bitcoin og gull på finsk løyve",
+    "sv": "Goobit lanserar sparande i bitcoin och guld på finsk licens",
+    "da": "Goobit lancerer opsparing i bitcoin og guld på finsk licens",
+    "fi": "Goobit tuo bitcoin- ja kultasäästämisen suomalaisella luvalla",
+    "is": "Goobit býður sparnað í bitcoin og gulli á finnsku leyfi"
+   },
    "source": "kaupr",
    "source_name": "Kaupr",
    "source_logo": {
@@ -1485,7 +1912,8 @@
     "author": null,
     "license": null,
     "license_url": null,
-    "credit": "Official website"
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
    },
    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
    "country": "SE",
@@ -1508,6 +1936,22 @@
    "paywall": false,
    "links": [],
    "own_story": false,
+   "illustration": {
+    "id": "original-exchange",
+    "kind": "original",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/original-exchange.webp",
+    "width": 960,
+    "height": 540,
+    "alt": "Abstract bar chart in blue and black. Nordic Crypto illustration, not a picture of an exchange.",
+    "source": "Nordic Crypto",
+    "author": "Nordic Crypto",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "url": "https://cryptonordic.no/ethics/",
+    "credit": "Illustration: Nordic Crypto. Licence: CC0 1.0. Source: Nordic Crypto.",
+    "modifications": null,
+    "terms": null
+   },
    "primary_source": {
     "outlet": "kaupr",
     "outlet_name": "Kaupr",
@@ -1527,7 +1971,8 @@
      "author": null,
      "license": null,
      "license_url": null,
-     "credit": "Official website"
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    },
@@ -1552,7 +1997,8 @@
       "author": null,
       "license": null,
       "license_url": null,
-      "credit": "Official website"
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
      },
      "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
     }
@@ -1588,7 +2034,8 @@
       "share": 0.0
      }
     ]
-   }
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
   },
   {
    "id": "eb685890cbc3",
@@ -1597,6 +2044,13 @@
    "api_url": "https://nordiccrypto.no/api/v1/news/eb685890cbc3.json",
    "title": "H100-styrelederen vil ha flere oppkjøp i bitcoinbransjen",
    "title_en": "H100 chair wants more acquisitions in the bitcoin industry",
+   "title_i18n": {
+    "nn": "H100-styreleiaren vil ha fleire oppkjøp i bitcoinbransjen",
+    "sv": "H100:s styrelseordförande vill se fler förvärv i bitcoinbranschen",
+    "da": "H100-formanden vil have flere opkøb i bitcoinbranchen",
+    "fi": "H100:n hallituksen puheenjohtaja haluaa lisää yrityskauppoja bitcoin-alalla",
+    "is": "Stjórnarformaður H100 vill fleiri yfirtökur í bitcoin-geiranum"
+   },
    "source": "kaupr",
    "source_name": "Kaupr",
    "source_logo": {
@@ -1606,7 +2060,8 @@
     "author": null,
     "license": null,
     "license_url": null,
-    "credit": "Official website"
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
    },
    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
    "country": "SE",
@@ -1629,6 +2084,22 @@
    "paywall": false,
    "links": [],
    "own_story": false,
+   "illustration": {
+    "id": "commons-bitcoin",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-bitcoin.webp",
+    "width": 365,
+    "height": 872,
+    "alt": "A physical bitcoin token in a clear case.",
+    "source": "Wikimedia Commons",
+    "author": "Heuboden",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "url": "https://commons.wikimedia.org/wiki/File:Bitcoin_coin_in_plastic_packaging.jpg",
+    "credit": "Photo: Heuboden. Licence: CC BY-SA 4.0. Source: Wikimedia Commons. Cropped.",
+    "modifications": "Cropped by Nordic Crypto to leave out a person at the edge of the frame.",
+    "terms": null
+   },
    "primary_source": {
     "outlet": "kaupr",
     "outlet_name": "Kaupr",
@@ -1648,7 +2119,8 @@
      "author": null,
      "license": null,
      "license_url": null,
-     "credit": "Official website"
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    },
@@ -1673,7 +2145,8 @@
       "author": null,
       "license": null,
       "license_url": null,
-      "credit": "Official website"
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
      },
      "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
     }
@@ -1709,7 +2182,8 @@
       "share": 0.0
      }
     ]
-   }
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
   },
   {
    "id": "a2a605592458",
@@ -1718,6 +2192,12 @@
    "api_url": "https://nordiccrypto.no/api/v1/news/a2a605592458.json",
    "title": "Blockchain på tech-scenen og på dagsorden i Stockholm",
    "title_en": "Blockchain on the tech scene and on the agenda in Stockholm",
+   "title_i18n": {
+    "sv": "Blockchain på techscenen och på dagordningen i Stockholm",
+    "da": "Blockchain på techscenen og på dagsordenen i Stockholm",
+    "fi": "Lohkoketju tekniikkanäyttämöllä ja esityslistalla Tukholmassa",
+    "is": "Bálkakeðja á tæknisviðinu og á dagskrá í Stokkhólmi"
+   },
    "source": "kaupr",
    "source_name": "Kaupr",
    "source_logo": {
@@ -1727,7 +2207,8 @@
     "author": null,
     "license": null,
     "license_url": null,
-    "credit": "Official website"
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
    },
    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
    "country": "SE",
@@ -1750,6 +2231,22 @@
    "paywall": false,
    "links": [],
    "own_story": false,
+   "illustration": {
+    "id": "original-exchange",
+    "kind": "original",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/original-exchange.webp",
+    "width": 960,
+    "height": 540,
+    "alt": "Abstract bar chart in blue and black. Nordic Crypto illustration, not a picture of an exchange.",
+    "source": "Nordic Crypto",
+    "author": "Nordic Crypto",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "url": "https://cryptonordic.no/ethics/",
+    "credit": "Illustration: Nordic Crypto. Licence: CC0 1.0. Source: Nordic Crypto.",
+    "modifications": null,
+    "terms": null
+   },
    "primary_source": {
     "outlet": "kaupr",
     "outlet_name": "Kaupr",
@@ -1769,7 +2266,8 @@
      "author": null,
      "license": null,
      "license_url": null,
-     "credit": "Official website"
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    },
@@ -1794,7 +2292,8 @@
       "author": null,
       "license": null,
       "license_url": null,
-      "credit": "Official website"
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
      },
      "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
     }
@@ -1830,7 +2329,8 @@
       "share": 0.0
      }
     ]
-   }
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
   },
   {
    "id": "08a682f7d85d",
@@ -1839,6 +2339,13 @@
    "api_url": "https://nordiccrypto.no/api/v1/news/08a682f7d85d.json",
    "title": "BTCX blir megler, og Goobits rapporterte inntekter faller",
    "title_en": "BTCX becomes a broker, and Goobit's reported revenue falls",
+   "title_i18n": {
+    "nn": "BTCX blir meklar, og dei rapporterte inntektene til Goobit fell",
+    "sv": "BTCX blir mäklare, och Goobits rapporterade intäkter faller",
+    "da": "BTCX bliver mægler, og Goobits rapporterede indtægter falder",
+    "fi": "BTCX:stä tulee välittäjä, ja Goobitin raportoidut tuotot laskevat",
+    "is": "BTCX verður miðlari og tilkynntar tekjur Goobit lækka"
+   },
    "source": "kaupr",
    "source_name": "Kaupr",
    "source_logo": {
@@ -1848,7 +2355,8 @@
     "author": null,
     "license": null,
     "license_url": null,
-    "credit": "Official website"
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
    },
    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
    "country": "SE",
@@ -1871,6 +2379,22 @@
    "paywall": false,
    "links": [],
    "own_story": false,
+   "illustration": {
+    "id": "original-exchange",
+    "kind": "original",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/original-exchange.webp",
+    "width": 960,
+    "height": 540,
+    "alt": "Abstract bar chart in blue and black. Nordic Crypto illustration, not a picture of an exchange.",
+    "source": "Nordic Crypto",
+    "author": "Nordic Crypto",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "url": "https://cryptonordic.no/ethics/",
+    "credit": "Illustration: Nordic Crypto. Licence: CC0 1.0. Source: Nordic Crypto.",
+    "modifications": null,
+    "terms": null
+   },
    "primary_source": {
     "outlet": "kaupr",
     "outlet_name": "Kaupr",
@@ -1890,7 +2414,8 @@
      "author": null,
      "license": null,
      "license_url": null,
-     "credit": "Official website"
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    },
@@ -1915,7 +2440,8 @@
       "author": null,
       "license": null,
       "license_url": null,
-      "credit": "Official website"
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
      },
      "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
     }
@@ -1951,7 +2477,8 @@
       "share": 0.0
      }
     ]
-   }
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
   },
   {
    "id": "6a94ab65ebff",
@@ -1960,6 +2487,13 @@
    "api_url": "https://nordiccrypto.no/api/v1/news/6a94ab65ebff.json",
    "title": "Nytt nederlag for Valuno i kampen om MiCA-lisens",
    "title_en": "New defeat for Valuno in the fight for a MiCA licence",
+   "title_i18n": {
+    "nn": "Nytt nederlag for Valuno i kampen om MiCA-løyve",
+    "sv": "Nytt nederlag för Valuno i kampen om MiCA-tillstånd",
+    "da": "Nyt nederlag for Valuno i kampen om MiCA-licens",
+    "fi": "Uusi tappio Valunolle MiCA-luvan taistelussa",
+    "is": "Nýtt ósigur fyrir Valuno í baráttunni um MiCA-leyfi"
+   },
    "source": "kaupr",
    "source_name": "Kaupr",
    "source_logo": {
@@ -1969,7 +2503,8 @@
     "author": null,
     "license": null,
     "license_url": null,
-    "credit": "Official website"
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
    },
    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
    "country": "SE",
@@ -1992,6 +2527,22 @@
    "paywall": false,
    "links": [],
    "own_story": false,
+   "illustration": {
+    "id": "commons-se",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-se.webp",
+    "width": 960,
+    "height": 547,
+    "alt": "The Swedish parliament building, Riksdagshuset, in Stockholm.",
+    "source": "Wikimedia Commons",
+    "author": "Sahlen",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "url": "https://commons.wikimedia.org/wiki/File:Riksdagshuset_i_Stockholm.jpg",
+    "credit": "Photo: Sahlen. Licence: CC0 1.0. Source: Wikimedia Commons.",
+    "modifications": null,
+    "terms": null
+   },
    "primary_source": {
     "outlet": "kaupr",
     "outlet_name": "Kaupr",
@@ -2011,7 +2562,8 @@
      "author": null,
      "license": null,
      "license_url": null,
-     "credit": "Official website"
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    },
@@ -2036,7 +2588,8 @@
       "author": null,
       "license": null,
       "license_url": null,
-      "credit": "Official website"
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
      },
      "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
     }
@@ -2072,7 +2625,8 @@
       "share": 0.0
      }
     ]
-   }
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
   }
  ]
 }

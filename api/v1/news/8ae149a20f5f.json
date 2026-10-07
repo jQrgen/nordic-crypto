@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T21:33:28+00:00",
+ "generated_at": "2026-10-07T22:52:55+00:00",
  "preview": false,
  "item": {
   "id": "8ae149a20f5f",
@@ -10,6 +10,12 @@
   "api_url": "https://nordiccrypto.no/api/v1/news/8ae149a20f5f.json",
   "title": "Pangstart for nytt kryptofond",
   "title_en": "Flying start for new crypto fund",
+  "title_i18n": {
+   "sv": "Flygande start för ny kryptofond",
+   "da": "Flyvende start for ny kryptofond",
+   "fi": "Vauhdikas alku uudelle kryptorahastolle",
+   "is": "Hraðbyrjun fyrir nýjan rafmyntasjóð"
+  },
   "source": "finansavisen",
   "source_name": "Finansavisen",
   "source_logo": null,
@@ -17,7 +23,7 @@
   "country": "NO",
   "language": "Norwegian",
   "language_code": "no",
-  "published": "2026-09-28T08:01:00+00:00",
+  "published": "2026-09-28T15:01:08+00:00",
   "topics": [
    "funds"
   ],
@@ -33,12 +39,28 @@
   "paywall": true,
   "links": [],
   "own_story": false,
+  "illustration": {
+   "id": "official-norges-bank",
+   "kind": "official-press",
+   "file_url": "https://nordiccrypto.no/assets/img/illustrations/official-norges-bank.webp",
+   "width": 960,
+   "height": 720,
+   "alt": "Norges Bank headquarters in Oslo, daytime facade.",
+   "source": "Norges Bank",
+   "author": "Esten Borgos",
+   "license": "Norges Bank terms: credit, no alteration, not for advertising",
+   "license_url": "https://www.norges-bank.no/en/topics/about/copyright/",
+   "url": "https://www.norges-bank.no/en/topics/about/Media-enquiries/Press-photos/",
+   "credit": "Photo: Esten Borgos. Licence: Norges Bank terms: credit, no alteration, not for advertising. Source: Norges Bank.",
+   "modifications": null,
+   "terms": "Checked 2026-10-06. Norges Bank's copyright page allows copying from norges-bank.no when Norges Bank is named as the source, the content is not changed, and it is not used in advertising. This is the daytime facade from the press-photo page (photo: Esten Borgos). It is scaled to 960 pixels wide and saved as WebP, not cropped or recoloured. Portraits and pictures of notes and coins from the same page are not used."
+  },
   "primary_source": {
    "outlet": "finansavisen",
    "outlet_name": "Finansavisen",
    "url": "https://www.finansavisen.no/finans/2026/09/28/8383782/pangstart-for-nytt-kryptofond",
    "title": "Pangstart for nytt kryptofond",
-   "published": "2026-09-28T08:01:00+00:00",
+   "published": "2026-09-28T15:01:08+00:00",
    "lang": "Norwegian",
    "language_code": "no",
    "country": "NO",
@@ -54,7 +76,7 @@
     "outlet_name": "Finansavisen",
     "url": "https://www.finansavisen.no/finans/2026/09/28/8383782/pangstart-for-nytt-kryptofond",
     "title": "Pangstart for nytt kryptofond",
-    "published": "2026-09-28T08:01:00+00:00",
+    "published": "2026-09-28T15:01:08+00:00",
     "lang": "Norwegian",
     "language_code": "no",
     "country": "NO",
@@ -95,6 +117,7 @@
      "share": 0.0
     }
    ]
-  }
+  },
+  "source_logo_url": null
  }
 }

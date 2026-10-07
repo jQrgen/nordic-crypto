@@ -1,0 +1,40 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T22:52:55+00:00",
+ "preview": false,
+ "item": {
+  "id": "story-illustrations",
+  "date": "2026-10-06",
+  "title": "Licensed pictures on stories, no newspaper photos",
+  "description": "Story cards and story pages now show a picture, with the credit under it: source, author, licence and a link. The pictures are our own illustrations, Wikimedia Commons files under CC0, CC BY or CC BY-SA, or an official picture a public body released for free use (the Riksbank building, and the Norges Bank facade under that bank’s terms). We do not copy, store or hotlink photographs from other newspapers. An audit of the site, the build and /api/v1/ found no such pictures stored. The import now drops og:image, RSS media:content and image enclosures instead of saving them. Outlet logos stay, only to name the source.",
+  "i18n": {
+   "nn": {
+    "title": "Lisensierte bilete på saker, ingen avisbilete",
+    "description": "Kort og sakssider viser no eit bilete, med kreditering under: kjelde, opphavsperson, lisens og ei lenkje. Bileta er våre eigne illustrasjonar, filer frå Wikimedia Commons under CC0, CC BY eller CC BY-SA, eller eit offisielt bilete ein offentleg verksemd har gitt fri bruk av (Riksbank-bygningen, og fasaden til Noregs Bank på vilkåra deira). Vi kopierer, lagrar eller hentar ikkje fotografi frå andre aviser. Ein gjennomgang av nettstaden, bygginga og /api/v1/ fann ingen slike bilete lagra. Importen droppar no og:image, RSS media:content og bildevellegg i staden for å lagre dei. Logoar frå media blir ståande, berre for å nemne kjelda."
+   },
+   "nb": {
+    "title": "Lisensierte bilder på saker, ingen avisbilder",
+    "description": "Kort og sakssider viser nå et bilde, med kreditering under: kilde, opphavsperson, lisens og en lenke. Bildene er våre egne illustrasjoner, filer fra Wikimedia Commons under CC0, CC BY eller CC BY-SA, eller et offisielt bilde en offentlig virksomhet har gitt fri bruk av (Riksbank-bygningen, og fasaden til Norges Bank på vilkårene deres). Vi kopierer, lagrer eller henter ikke fotografier fra andre aviser. En gjennomgang av nettstedet, byggingen og /api/v1/ fant ingen slike bilder lagret. Importen dropper nå og:image, RSS media:content og bildevedlegg i stedet for å lagre dem. Logoer fra mediene blir stående, bare for å nevne kilden."
+   },
+   "sv": {
+    "title": "Licensierade bilder på artiklar, inga tidningsfoton",
+    "description": "Kort och artikelsidor visar nu en bild, med kredit under: källa, upphovsperson, licens och en länk. Bilderna är våra egna illustrationer, filer från Wikimedia Commons under CC0, CC BY eller CC BY-SA, eller en officiell bild som en myndighet har släppt för fri användning (Riksbankshuset, och Norges Banks fasad enligt bankens villkor). Vi kopierar, lagrar eller hämtar inte fotografier från andra tidningar. En genomgång av webbplatsen, bygget och /api/v1/ hittade inga sådana bilder lagrade. Importen släpper nu og:image, RSS media:content och bildbilagor i stället för att spara dem. Medielogotyper är kvar, bara för att namnge källan."
+   },
+   "da": {
+    "title": "Licenserede billeder på artikler, ingen avisbilleder",
+    "description": "Kort og artikelsider viser nu et billede, med kreditering under: kilde, ophavsperson, licens og et link. Billederne er vores egne illustrationer, filer fra Wikimedia Commons under CC0, CC BY eller CC BY-SA, eller et officielt billede en myndighed har givet fri brug af (Riksbankens bygning, og Norges Banks facade på bankens vilkår). Vi kopierer, gemmer eller henter ikke fotografier fra andre aviser. En gennemgang af sitet, bygningen og /api/v1/ fandt ingen sådanne billeder gemt. Importen dropper nu og:image, RSS media:content og billedvedhæftninger i stedet for at gemme dem. Medielogoer bliver, kun for at nævne kilden."
+   },
+   "fi": {
+    "title": "Lisensoidut kuvat jutuissa, ei lehtien valokuvia",
+    "description": "Kortit ja juttusivut näyttävät nyt kuvan, ja krediitti on sen alla: lähde, tekijä, lisenssi ja linkki. Kuvat ovat omia kuvituksiamme, Wikimedia Commonsin CC0-, CC BY- tai CC BY-SA-tiedostoja, tai virallinen kuva, jonka viranomainen on antanut vapaaseen käyttöön (Riksbankin rakennus ja Norges Bankin julkisivu pankin ehdoilla). Emme kopioi, tallenna emmekä lataa valokuvia muista lehdistä. Sivuston, koosteen ja /api/v1/-rajapinnan läpikäynti ei löytänyt tällaisia tallennettuja kuvia. Tuonti hylkää nyt og:image-tiedot, RSS:n media:content-kentät ja kuvien liitteet sen sijaan että tallentaisi ne. Medioiden logot jäävät, vain lähteen nimeämiseksi."
+   },
+   "is": {
+    "title": "Leyfismyndir á fréttum, engar blaðaljósmyndir",
+    "description": "Spjöld og fréttasíður sýna nú mynd, með heimild undir: heimild, höfund, leyfi og tengil. Myndirnar eru okkar eigin teikningar, skrár af Wikimedia Commons með CC0, CC BY eða CC BY-SA, eða opinber mynd sem stofnun hefur gefið til frjálsrar notkunar (bygging Riksbank, og framhlið Norges Bank samkvæmt skilmálum bankans). Við afritum, geymum eða sækjum ekki ljósmyndir frá öðrum blöðum. Yfirferð á síðunni, byggingunni og /api/v1/ fann engar slíkar myndir vistaðar. Innflutningurinn hendir nú og:image, RSS media:content og myndaviðhengjum í stað þess að vista þau. Merki miðla standa, aðeins til að nefna heimildina."
+   }
+  },
+  "html_url": "https://nordiccrypto.no/changelog/#story-illustrations",
+  "api_url": "https://nordiccrypto.no/api/v1/changelog/story-illustrations.json"
+ }
+}

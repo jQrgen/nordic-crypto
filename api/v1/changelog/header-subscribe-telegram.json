@@ -1,0 +1,40 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T22:52:55+00:00",
+ "preview": false,
+ "item": {
+  "id": "header-subscribe-telegram",
+  "date": "2026-10-07",
+  "title": "Subscribe and Telegram in the header",
+  "description": "The header button says Subscribe and opens the newsletter page on this site. Join on Telegram sits next to Follow on X. Email signup opens when the mail worker is on. Until then the page says so and links to RSS, Telegram and X. It does not take an address.",
+  "i18n": {
+   "nb": {
+    "title": "Abonner og Telegram i toppen",
+    "description": "Knappen i toppen heter Abonner og åpner nyhetsbrevsiden på dette nettstedet. Bli med på Telegram står ved siden av Følg på X. E-postpåmelding åpner når e-posttjenesten er på. Inntil da sier siden det, og lenker til RSS, Telegram og X. Den ber ikke om en adresse."
+   },
+   "nn": {
+    "title": "Abonner og Telegram i toppen",
+    "description": "Knappen i toppen heiter Abonner og opnar nyheitsbrevsida på denne nettstaden. Bli med på Telegram står ved sida av Følg på X. E-postpåmelding opnar når e-posttenesta er på. Fram til då seier sida det, og lenkjer til RSS, Telegram og X. Ho ber ikkje om ei adresse."
+   },
+   "sv": {
+    "title": "Prenumerera och Telegram i sidhuvudet",
+    "description": "Knappen i sidhuvudet heter Prenumerera och öppnar nyhetsbrevssidan på den här webbplatsen. Gå med på Telegram står bredvid Följ på X. E-postanmälan öppnar när e-posttjänsten är på. Tills dess säger sidan det och länkar till RSS, Telegram och X. Den tar inte emot en adress."
+   },
+   "da": {
+    "title": "Abonnér og Telegram i toppen",
+    "description": "Knappen i toppen hedder Abonnér og åbner nyhedsbrevssiden på dette websted. Deltag på Telegram står ved siden af Følg på X. Tilmelding via e-mail åbner, når e-mailtjenesten er slået til. Indtil da siger siden det og linker til RSS, Telegram og X. Den beder ikke om en adresse."
+   },
+   "fi": {
+    "title": "Tilaa ja Telegram ylätunnisteessa",
+    "description": "Ylätunnisteen painike sanoo Tilaa ja avaa uutiskirjesivun tällä sivustolla. Liity Telegramiin on Seuraa X:ssä -painikkeen vieressä. Sähköpostitilaus avautuu, kun sähköpostipalvelu on käytössä. Siihen asti sivu kertoo sen ja linkittää RSS-syötteeseen, Telegramiin ja X:ään. Se ei pyydä osoitetta."
+   },
+   "is": {
+    "title": "Áskrift og Telegram í hausnum",
+    "description": "Hnappurinn í hausnum segir Gerast áskrifandi og opnar fréttabréfssíðuna á þessum vef. Taktu þátt á Telegram stendur við hliðina á Fylgdu á X. Skráning með tölvupósti opnar þegar póstþjónustan er í gangi. Þar til þá segir síðan frá því og vísar á RSS, Telegram og X. Hún tekur ekki við netfangi."
+   }
+  },
+  "html_url": "https://nordiccrypto.no/changelog/#header-subscribe-telegram",
+  "api_url": "https://nordiccrypto.no/api/v1/changelog/header-subscribe-telegram.json"
+ }
+}

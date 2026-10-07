@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T21:33:28+00:00",
+ "generated_at": "2026-10-07T22:52:55+00:00",
  "preview": false,
  "item": {
   "id": "a1ea7afabcb0",
@@ -28,7 +28,35 @@
    "is": "Til upplýsingar: fyrirlesarinn, Jørgen S. Notland, er útgefandi Nordic Crypto."
   },
   "past": false,
-  "html_url": "https://nordiccrypto.no/calendar/#e-a1ea7afabcb0",
-  "api_url": "https://nordiccrypto.no/api/v1/events/a1ea7afabcb0.json"
+  "ongoing": false,
+  "html_url": "https://nordiccrypto.no/calendar/a1ea7afabcb0/",
+  "html_urls": {
+   "en": "https://nordiccrypto.no/calendar/a1ea7afabcb0/",
+   "nn": "https://nordiccrypto.no/nn/calendar/a1ea7afabcb0/",
+   "nb": "https://nordiccrypto.no/nb/calendar/a1ea7afabcb0/",
+   "sv": "https://nordiccrypto.no/sv/calendar/a1ea7afabcb0/",
+   "da": "https://nordiccrypto.no/da/calendar/a1ea7afabcb0/",
+   "fi": "https://nordiccrypto.no/fi/calendar/a1ea7afabcb0/",
+   "is": "https://nordiccrypto.no/is/calendar/a1ea7afabcb0/",
+   "zh": "https://nordiccrypto.no/zh/calendar/a1ea7afabcb0/",
+   "hi": "https://nordiccrypto.no/hi/calendar/a1ea7afabcb0/",
+   "es": "https://nordiccrypto.no/es/calendar/a1ea7afabcb0/",
+   "fr": "https://nordiccrypto.no/fr/calendar/a1ea7afabcb0/",
+   "ar": "https://nordiccrypto.no/ar/calendar/a1ea7afabcb0/",
+   "bn": "https://nordiccrypto.no/bn/calendar/a1ea7afabcb0/",
+   "pt": "https://nordiccrypto.no/pt/calendar/a1ea7afabcb0/",
+   "ru": "https://nordiccrypto.no/ru/calendar/a1ea7afabcb0/",
+   "ur": "https://nordiccrypto.no/ur/calendar/a1ea7afabcb0/",
+   "id": "https://nordiccrypto.no/id/calendar/a1ea7afabcb0/",
+   "de": "https://nordiccrypto.no/de/calendar/a1ea7afabcb0/",
+   "ja": "https://nordiccrypto.no/ja/calendar/a1ea7afabcb0/",
+   "sw": "https://nordiccrypto.no/sw/calendar/a1ea7afabcb0/",
+   "mr": "https://nordiccrypto.no/mr/calendar/a1ea7afabcb0/"
+  },
+  "api_url": "https://nordiccrypto.no/api/v1/events/a1ea7afabcb0.json",
+  "place_source": {
+   "name": "Oslo Blockchain Meetup (Meetup.com)",
+   "url": "https://www.meetup.com/oslo-blockchain-meetup/events/316768752/"
+  }
  }
 }

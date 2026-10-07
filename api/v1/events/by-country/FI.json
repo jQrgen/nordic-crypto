@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T21:33:28+00:00",
+ "generated_at": "2026-10-07T22:52:55+00:00",
  "preview": false,
  "country": "FI",
  "count": 4,
@@ -24,8 +24,36 @@
    "note": null,
    "note_i18n": {},
    "past": false,
-   "html_url": "https://nordiccrypto.no/calendar/#e-ce0c87469bd8",
-   "api_url": "https://nordiccrypto.no/api/v1/events/ce0c87469bd8.json"
+   "ongoing": false,
+   "html_url": "https://nordiccrypto.no/calendar/ce0c87469bd8/",
+   "html_urls": {
+    "en": "https://nordiccrypto.no/calendar/ce0c87469bd8/",
+    "nn": "https://nordiccrypto.no/nn/calendar/ce0c87469bd8/",
+    "nb": "https://nordiccrypto.no/nb/calendar/ce0c87469bd8/",
+    "sv": "https://nordiccrypto.no/sv/calendar/ce0c87469bd8/",
+    "da": "https://nordiccrypto.no/da/calendar/ce0c87469bd8/",
+    "fi": "https://nordiccrypto.no/fi/calendar/ce0c87469bd8/",
+    "is": "https://nordiccrypto.no/is/calendar/ce0c87469bd8/",
+    "zh": "https://nordiccrypto.no/zh/calendar/ce0c87469bd8/",
+    "hi": "https://nordiccrypto.no/hi/calendar/ce0c87469bd8/",
+    "es": "https://nordiccrypto.no/es/calendar/ce0c87469bd8/",
+    "fr": "https://nordiccrypto.no/fr/calendar/ce0c87469bd8/",
+    "ar": "https://nordiccrypto.no/ar/calendar/ce0c87469bd8/",
+    "bn": "https://nordiccrypto.no/bn/calendar/ce0c87469bd8/",
+    "pt": "https://nordiccrypto.no/pt/calendar/ce0c87469bd8/",
+    "ru": "https://nordiccrypto.no/ru/calendar/ce0c87469bd8/",
+    "ur": "https://nordiccrypto.no/ur/calendar/ce0c87469bd8/",
+    "id": "https://nordiccrypto.no/id/calendar/ce0c87469bd8/",
+    "de": "https://nordiccrypto.no/de/calendar/ce0c87469bd8/",
+    "ja": "https://nordiccrypto.no/ja/calendar/ce0c87469bd8/",
+    "sw": "https://nordiccrypto.no/sw/calendar/ce0c87469bd8/",
+    "mr": "https://nordiccrypto.no/mr/calendar/ce0c87469bd8/"
+   },
+   "api_url": "https://nordiccrypto.no/api/v1/events/ce0c87469bd8.json",
+   "place_source": {
+    "name": "Helsinki Bitcoin Hobbyists (Meetup.com)",
+    "url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/events/qjzrxgyjcpbjb/"
+   }
   },
   {
    "id": "19b92e24ee50",
@@ -45,8 +73,36 @@
    "note": null,
    "note_i18n": {},
    "past": false,
-   "html_url": "https://nordiccrypto.no/calendar/#e-19b92e24ee50",
-   "api_url": "https://nordiccrypto.no/api/v1/events/19b92e24ee50.json"
+   "ongoing": false,
+   "html_url": "https://nordiccrypto.no/calendar/19b92e24ee50/",
+   "html_urls": {
+    "en": "https://nordiccrypto.no/calendar/19b92e24ee50/",
+    "nn": "https://nordiccrypto.no/nn/calendar/19b92e24ee50/",
+    "nb": "https://nordiccrypto.no/nb/calendar/19b92e24ee50/",
+    "sv": "https://nordiccrypto.no/sv/calendar/19b92e24ee50/",
+    "da": "https://nordiccrypto.no/da/calendar/19b92e24ee50/",
+    "fi": "https://nordiccrypto.no/fi/calendar/19b92e24ee50/",
+    "is": "https://nordiccrypto.no/is/calendar/19b92e24ee50/",
+    "zh": "https://nordiccrypto.no/zh/calendar/19b92e24ee50/",
+    "hi": "https://nordiccrypto.no/hi/calendar/19b92e24ee50/",
+    "es": "https://nordiccrypto.no/es/calendar/19b92e24ee50/",
+    "fr": "https://nordiccrypto.no/fr/calendar/19b92e24ee50/",
+    "ar": "https://nordiccrypto.no/ar/calendar/19b92e24ee50/",
+    "bn": "https://nordiccrypto.no/bn/calendar/19b92e24ee50/",
+    "pt": "https://nordiccrypto.no/pt/calendar/19b92e24ee50/",
+    "ru": "https://nordiccrypto.no/ru/calendar/19b92e24ee50/",
+    "ur": "https://nordiccrypto.no/ur/calendar/19b92e24ee50/",
+    "id": "https://nordiccrypto.no/id/calendar/19b92e24ee50/",
+    "de": "https://nordiccrypto.no/de/calendar/19b92e24ee50/",
+    "ja": "https://nordiccrypto.no/ja/calendar/19b92e24ee50/",
+    "sw": "https://nordiccrypto.no/sw/calendar/19b92e24ee50/",
+    "mr": "https://nordiccrypto.no/mr/calendar/19b92e24ee50/"
+   },
+   "api_url": "https://nordiccrypto.no/api/v1/events/19b92e24ee50.json",
+   "place_source": {
+    "name": "Helsinki Bitcoin Hobbyists (Meetup.com)",
+    "url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/events/qjzrxgyjcqbgb/"
+   }
   },
   {
    "id": "3c7c538ff512",
@@ -73,8 +129,36 @@
     "is": "Ber upp á nýársdag: athugaðu síðu skipuleggjandans áður en þú ferð."
    },
    "past": false,
-   "html_url": "https://nordiccrypto.no/calendar/#e-3c7c538ff512",
-   "api_url": "https://nordiccrypto.no/api/v1/events/3c7c538ff512.json"
+   "ongoing": false,
+   "html_url": "https://nordiccrypto.no/calendar/3c7c538ff512/",
+   "html_urls": {
+    "en": "https://nordiccrypto.no/calendar/3c7c538ff512/",
+    "nn": "https://nordiccrypto.no/nn/calendar/3c7c538ff512/",
+    "nb": "https://nordiccrypto.no/nb/calendar/3c7c538ff512/",
+    "sv": "https://nordiccrypto.no/sv/calendar/3c7c538ff512/",
+    "da": "https://nordiccrypto.no/da/calendar/3c7c538ff512/",
+    "fi": "https://nordiccrypto.no/fi/calendar/3c7c538ff512/",
+    "is": "https://nordiccrypto.no/is/calendar/3c7c538ff512/",
+    "zh": "https://nordiccrypto.no/zh/calendar/3c7c538ff512/",
+    "hi": "https://nordiccrypto.no/hi/calendar/3c7c538ff512/",
+    "es": "https://nordiccrypto.no/es/calendar/3c7c538ff512/",
+    "fr": "https://nordiccrypto.no/fr/calendar/3c7c538ff512/",
+    "ar": "https://nordiccrypto.no/ar/calendar/3c7c538ff512/",
+    "bn": "https://nordiccrypto.no/bn/calendar/3c7c538ff512/",
+    "pt": "https://nordiccrypto.no/pt/calendar/3c7c538ff512/",
+    "ru": "https://nordiccrypto.no/ru/calendar/3c7c538ff512/",
+    "ur": "https://nordiccrypto.no/ur/calendar/3c7c538ff512/",
+    "id": "https://nordiccrypto.no/id/calendar/3c7c538ff512/",
+    "de": "https://nordiccrypto.no/de/calendar/3c7c538ff512/",
+    "ja": "https://nordiccrypto.no/ja/calendar/3c7c538ff512/",
+    "sw": "https://nordiccrypto.no/sw/calendar/3c7c538ff512/",
+    "mr": "https://nordiccrypto.no/mr/calendar/3c7c538ff512/"
+   },
+   "api_url": "https://nordiccrypto.no/api/v1/events/3c7c538ff512.json",
+   "place_source": {
+    "name": "Helsinki Bitcoin Hobbyists (Meetup.com)",
+    "url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/events/qjzrxgykccbcb/"
+   }
   },
   {
    "id": "105f743dcf3d",
@@ -94,8 +178,36 @@
    "note": null,
    "note_i18n": {},
    "past": false,
-   "html_url": "https://nordiccrypto.no/calendar/#e-105f743dcf3d",
-   "api_url": "https://nordiccrypto.no/api/v1/events/105f743dcf3d.json"
+   "ongoing": false,
+   "html_url": "https://nordiccrypto.no/calendar/105f743dcf3d/",
+   "html_urls": {
+    "en": "https://nordiccrypto.no/calendar/105f743dcf3d/",
+    "nn": "https://nordiccrypto.no/nn/calendar/105f743dcf3d/",
+    "nb": "https://nordiccrypto.no/nb/calendar/105f743dcf3d/",
+    "sv": "https://nordiccrypto.no/sv/calendar/105f743dcf3d/",
+    "da": "https://nordiccrypto.no/da/calendar/105f743dcf3d/",
+    "fi": "https://nordiccrypto.no/fi/calendar/105f743dcf3d/",
+    "is": "https://nordiccrypto.no/is/calendar/105f743dcf3d/",
+    "zh": "https://nordiccrypto.no/zh/calendar/105f743dcf3d/",
+    "hi": "https://nordiccrypto.no/hi/calendar/105f743dcf3d/",
+    "es": "https://nordiccrypto.no/es/calendar/105f743dcf3d/",
+    "fr": "https://nordiccrypto.no/fr/calendar/105f743dcf3d/",
+    "ar": "https://nordiccrypto.no/ar/calendar/105f743dcf3d/",
+    "bn": "https://nordiccrypto.no/bn/calendar/105f743dcf3d/",
+    "pt": "https://nordiccrypto.no/pt/calendar/105f743dcf3d/",
+    "ru": "https://nordiccrypto.no/ru/calendar/105f743dcf3d/",
+    "ur": "https://nordiccrypto.no/ur/calendar/105f743dcf3d/",
+    "id": "https://nordiccrypto.no/id/calendar/105f743dcf3d/",
+    "de": "https://nordiccrypto.no/de/calendar/105f743dcf3d/",
+    "ja": "https://nordiccrypto.no/ja/calendar/105f743dcf3d/",
+    "sw": "https://nordiccrypto.no/sw/calendar/105f743dcf3d/",
+    "mr": "https://nordiccrypto.no/mr/calendar/105f743dcf3d/"
+   },
+   "api_url": "https://nordiccrypto.no/api/v1/events/105f743dcf3d.json",
+   "place_source": {
+    "name": "Helsinki Bitcoin Hobbyists (Meetup.com)",
+    "url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/events/qjzrxgykcdbhb/"
+   }
   }
  ]
 }

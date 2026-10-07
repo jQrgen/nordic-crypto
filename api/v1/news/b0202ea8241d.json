@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T21:33:28+00:00",
+ "generated_at": "2026-10-07T22:52:55+00:00",
  "preview": false,
  "item": {
   "id": "b0202ea8241d",
@@ -10,14 +10,30 @@
   "api_url": "https://nordiccrypto.no/api/v1/news/b0202ea8241d.json",
   "title": "Skal ha stjålet fra egen bedrift – brukte pengene på krypto",
   "title_en": "Allegedly stole from his own company and spent the money on crypto",
+  "title_i18n": {
+   "nn": "Skal ha stole frå eiga bedrift – brukte pengane på krypto",
+   "sv": "Ska ha stulit från det egna företaget och använde pengarna på krypto",
+   "da": "Skal have stjålet fra egen virksomhed og brugte pengene på krypto",
+   "fi": "Varasti väitetysti omalta firmalta ja käytti rahat kryptoihin",
+   "is": "Á að hafa stolið frá eigin fyrirtæki og notaði peningana í rafmynt"
+  },
   "source": "oa",
   "source_name": "Oppland Arbeiderblad",
-  "source_logo": null,
+  "source_logo": {
+   "kind": "logo",
+   "file_url": "https://nordiccrypto.no/assets/img/logos/oa.webp",
+   "source_url": "https://r.acdn.no/local/v3/publications/www.oa.no/gfx/square_logo.jpg",
+   "author": null,
+   "license": null,
+   "license_url": null,
+   "credit": "Official website",
+   "raster_url": "https://nordiccrypto.no/assets/img/logos/oa.webp"
+  },
   "source_note": null,
   "country": "NO",
   "language": "Norwegian",
   "language_code": "no",
-  "published": "2026-09-23T16:08:00+00:00",
+  "published": "2026-09-23T14:16:55+00:00",
   "topics": [
    "crime"
   ],
@@ -33,19 +49,44 @@
   "paywall": true,
   "links": [],
   "own_story": false,
+  "illustration": {
+   "id": "commons-court",
+   "kind": "commons",
+   "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-court.webp",
+   "width": 960,
+   "height": 663,
+   "alt": "Oslo courthouse, Oslo tinghus.",
+   "source": "Wikimedia Commons",
+   "author": "Mahlum",
+   "license": "Public domain",
+   "license_url": "https://commons.wikimedia.org/wiki/File:Oslo_tinghus.jpg",
+   "url": "https://commons.wikimedia.org/wiki/File:Oslo_tinghus.jpg",
+   "credit": "Photo: Mahlum. Licence: Public domain. Source: Wikimedia Commons.",
+   "modifications": null,
+   "terms": null
+  },
   "primary_source": {
    "outlet": "oa",
    "outlet_name": "Oppland Arbeiderblad",
    "url": "https://www.oa.no/skal-ha-stalet-fra-egen-bedrift-brukte-pengene-pa-krypto/s/80-35-26289",
    "title": "Skal ha stjålet fra egen bedrift – brukte pengene på krypto",
-   "published": "2026-09-23T16:08:00+00:00",
+   "published": "2026-09-23T14:16:55+00:00",
    "lang": "Norwegian",
    "language_code": "no",
    "country": "NO",
    "source_type": "national",
    "paywall": true,
    "primary": true,
-   "logo": null
+   "logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/oa.webp",
+    "source_url": "https://r.acdn.no/local/v3/publications/www.oa.no/gfx/square_logo.jpg",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/oa.webp"
+   }
   },
   "also_covered_by": [],
   "sources": [
@@ -54,14 +95,23 @@
     "outlet_name": "Oppland Arbeiderblad",
     "url": "https://www.oa.no/skal-ha-stalet-fra-egen-bedrift-brukte-pengene-pa-krypto/s/80-35-26289",
     "title": "Skal ha stjålet fra egen bedrift – brukte pengene på krypto",
-    "published": "2026-09-23T16:08:00+00:00",
+    "published": "2026-09-23T14:16:55+00:00",
     "lang": "Norwegian",
     "language_code": "no",
     "country": "NO",
     "source_type": "national",
     "paywall": true,
     "primary": true,
-    "logo": null
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/oa.webp",
+     "source_url": "https://r.acdn.no/local/v3/publications/www.oa.no/gfx/square_logo.jpg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/oa.webp"
+    }
    }
   ],
   "coverage": {
@@ -95,6 +145,7 @@
      "share": 0.0
     }
    ]
-  }
+  },
+  "source_logo_url": "https://nordiccrypto.no/assets/img/logos/oa.webp"
  }
 }

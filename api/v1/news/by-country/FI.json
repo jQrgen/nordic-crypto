@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T21:33:28+00:00",
+ "generated_at": "2026-10-07T22:52:55+00:00",
  "preview": false,
  "country": "FI",
  "count": 3,
@@ -13,14 +13,30 @@
    "api_url": "https://nordiccrypto.no/api/v1/news/c81be998e21c.json",
    "title": "Yhteisöllisyys ja teknologia kiehtovat kryptovaluuttoihin sijoittaneita – kryptotapahtumassa iloittiin bitcoinin uudesta nousurallista",
    "title_en": "Community and technology draw crypto investors: bitcoin's new rally celebrated at crypto event",
+   "title_i18n": {
+    "nn": "Fellesskap og teknologi dreg dei som har investert i kryptovaluta – på eit kryptoarrangement gledde dei seg over den nye oppgangen til bitcoin",
+    "nb": "Fellesskap og teknologi trekker dem som har investert i kryptovaluta – på et kryptoarrangement gledet de seg over bitcoins nye opptur",
+    "sv": "Gemenskap och teknik lockar dem som investerat i kryptovaluta – på ett kryptoevenemang firades bitcoins nya uppgång",
+    "da": "Fællesskab og teknologi trækker dem, der har investeret i kryptovaluta – ved et kryptoarrangement blev bitcoins nye optur fejret",
+    "is": "Samfélag og tækni heilla þá sem hafa fjárfest í rafmyntum – á rafmyntaviðburði var fagnað nýrri hækkun bitcoins"
+   },
    "source": "yle",
    "source_name": "Yle Uutiset (latest)",
-   "source_logo": null,
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/yle.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Yle_Uutiset_Logo_2024.svg",
+    "author": "Yleisradio",
+    "license": "Public domain",
+    "license_url": null,
+    "credit": "Wikimedia Commons",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/yle.png"
+   },
    "source_note": null,
    "country": "FI",
    "language": "Finnish",
    "language_code": "fi",
-   "published": "2026-09-27T08:20:00+00:00",
+   "published": "2026-09-27T15:20:53+00:00",
    "topics": [
     "community",
     "bitcoin"
@@ -37,19 +53,44 @@
    "paywall": false,
    "links": [],
    "own_story": false,
+   "illustration": {
+    "id": "commons-bitcoin",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-bitcoin.webp",
+    "width": 365,
+    "height": 872,
+    "alt": "A physical bitcoin token in a clear case.",
+    "source": "Wikimedia Commons",
+    "author": "Heuboden",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "url": "https://commons.wikimedia.org/wiki/File:Bitcoin_coin_in_plastic_packaging.jpg",
+    "credit": "Photo: Heuboden. Licence: CC BY-SA 4.0. Source: Wikimedia Commons. Cropped.",
+    "modifications": "Cropped by Nordic Crypto to leave out a person at the edge of the frame.",
+    "terms": null
+   },
    "primary_source": {
     "outlet": "yle",
     "outlet_name": "Yle Uutiset (latest)",
     "url": "https://yle.fi/a/74-20248505",
     "title": "Yhteisöllisyys ja teknologia kiehtovat kryptovaluuttoihin sijoittaneita – kryptotapahtumassa iloittiin bitcoinin uudesta nousurallista",
-    "published": "2026-09-27T08:20:00+00:00",
+    "published": "2026-09-27T15:20:53+00:00",
     "lang": "Finnish",
     "language_code": "fi",
     "country": "FI",
     "source_type": "national",
     "paywall": false,
     "primary": true,
-    "logo": null
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/yle.svg",
+     "source_url": "https://commons.wikimedia.org/wiki/File:Yle_Uutiset_Logo_2024.svg",
+     "author": "Yleisradio",
+     "license": "Public domain",
+     "license_url": null,
+     "credit": "Wikimedia Commons",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/yle.png"
+    }
    },
    "also_covered_by": [],
    "sources": [
@@ -58,14 +99,23 @@
      "outlet_name": "Yle Uutiset (latest)",
      "url": "https://yle.fi/a/74-20248505",
      "title": "Yhteisöllisyys ja teknologia kiehtovat kryptovaluuttoihin sijoittaneita – kryptotapahtumassa iloittiin bitcoinin uudesta nousurallista",
-     "published": "2026-09-27T08:20:00+00:00",
+     "published": "2026-09-27T15:20:53+00:00",
      "lang": "Finnish",
      "language_code": "fi",
      "country": "FI",
      "source_type": "national",
      "paywall": false,
      "primary": true,
-     "logo": null
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/yle.svg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Yle_Uutiset_Logo_2024.svg",
+      "author": "Yleisradio",
+      "license": "Public domain",
+      "license_url": null,
+      "credit": "Wikimedia Commons",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/yle.png"
+     }
     }
    ],
    "coverage": {
@@ -99,7 +149,8 @@
       "share": 0.0
      }
     ]
-   }
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/yle.png"
   },
   {
    "id": "b46e8d2a4dad",
@@ -108,6 +159,13 @@
    "api_url": "https://nordiccrypto.no/api/v1/news/b46e8d2a4dad.json",
    "title": "To tilsyn vil ikke si om kryptodistribusjon krever egen tillatelse",
    "title_en": "Two regulators won't say whether crypto distribution needs its own licence",
+   "title_i18n": {
+    "nn": "To tilsyn vil ikkje seie om kryptodistribusjon krev eige løyve",
+    "sv": "Två tillsynsmyndigheter vill inte säga om kryptodistribution kräver ett eget tillstånd",
+    "da": "To tilsyn vil ikke sige, om kryptodistribution kræver egen tilladelse",
+    "fi": "Kaksi valvojaa ei sano, vaatiiko kryptojen jakelu oman luvan",
+    "is": "Tvö eftirlitsstjórnvöld vilja ekki segja hvort dreifing rafmynta krefjist sérstaks leyfis"
+   },
    "source": "kaupr",
    "source_name": "Kaupr",
    "source_logo": {
@@ -117,7 +175,8 @@
     "author": null,
     "license": null,
     "license_url": null,
-    "credit": "Official website"
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
    },
    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
    "country": "FI",
@@ -140,6 +199,22 @@
    "paywall": false,
    "links": [],
    "own_story": false,
+   "illustration": {
+    "id": "commons-fi",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-fi.webp",
+    "width": 960,
+    "height": 639,
+    "alt": "The Parliament House in Helsinki.",
+    "source": "Wikimedia Commons",
+    "author": "Safa Hovinen",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "url": "https://commons.wikimedia.org/wiki/File:Parliament_House_in_Helsinki_in_Finland,_2024_December.jpg",
+    "credit": "Photo: Safa Hovinen. Licence: CC BY 2.0. Source: Wikimedia Commons.",
+    "modifications": null,
+    "terms": null
+   },
    "primary_source": {
     "outlet": "kaupr",
     "outlet_name": "Kaupr",
@@ -159,7 +234,8 @@
      "author": null,
      "license": null,
      "license_url": null,
-     "credit": "Official website"
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    },
@@ -184,7 +260,8 @@
       "author": null,
       "license": null,
       "license_url": null,
-      "credit": "Official website"
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
      },
      "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
     }
@@ -220,7 +297,8 @@
       "share": 0.0
      }
     ]
-   }
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
   },
   {
    "id": "f6301aef3314",
@@ -229,6 +307,14 @@
    "api_url": "https://nordiccrypto.no/api/v1/news/f6301aef3314.json",
    "title": "Crypto-asset service providers in Finland must be authorised in the EU",
    "title_en": null,
+   "title_i18n": {
+    "nn": "Tilbydarar av kryptoeigedelstenester i Finland må ha løyve i EU",
+    "nb": "Tilbydere av kryptoeiendeltjenester i Finland må ha tillatelse i EU",
+    "sv": "Leverantörer av kryptotillgångstjänster i Finland måste ha tillstånd i EU",
+    "da": "Udbydere af kryptoaktivtjenester i Finland skal have tilladelse i EU",
+    "fi": "Kryptovarapalvelujen tarjoajilla Suomessa on oltava toimilupa EU:ssa",
+    "is": "Þjónustuveitendur sýndareigna í Finnlandi verða að hafa leyfi í ESB"
+   },
    "source": "finanssivalvonta",
    "source_name": "Finanssivalvonta",
    "source_logo": {
@@ -238,7 +324,8 @@
     "author": null,
     "license": null,
     "license_url": null,
-    "credit": "Official website"
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/fi-fiva.webp"
    },
    "source_note": null,
    "country": "FI",
@@ -261,6 +348,22 @@
    "paywall": false,
    "links": [],
    "own_story": false,
+   "illustration": {
+    "id": "commons-fi",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-fi.webp",
+    "width": 960,
+    "height": 639,
+    "alt": "The Parliament House in Helsinki.",
+    "source": "Wikimedia Commons",
+    "author": "Safa Hovinen",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0/",
+    "url": "https://commons.wikimedia.org/wiki/File:Parliament_House_in_Helsinki_in_Finland,_2024_December.jpg",
+    "credit": "Photo: Safa Hovinen. Licence: CC BY 2.0. Source: Wikimedia Commons.",
+    "modifications": null,
+    "terms": null
+   },
    "primary_source": {
     "outlet": "finanssivalvonta",
     "outlet_name": "Finanssivalvonta",
@@ -280,7 +383,8 @@
      "author": null,
      "license": null,
      "license_url": null,
-     "credit": "Official website"
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/fi-fiva.webp"
     }
    },
    "also_covered_by": [],
@@ -304,7 +408,8 @@
       "author": null,
       "license": null,
       "license_url": null,
-      "credit": "Official website"
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/fi-fiva.webp"
      }
     }
    ],
@@ -339,7 +444,8 @@
       "share": 0.0
      }
     ]
-   }
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/fi-fiva.webp"
   }
  ]
 }

@@ -1,14 +1,15 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T21:33:28+00:00",
+ "generated_at": "2026-10-07T22:52:55+00:00",
  "preview": false,
- "updated": "2026-10-05",
+ "updated": "2026-10-06",
  "inclusion_rules": [
   "A course is listed only when blockchain or crypto is a substantial part of the syllabus on its own course page.",
-  "Every DOI or research-database link is checked before it is listed.",
+  "Every DOI or research-database link is sourced before it is listed; no fabricated citations.",
   "A student group is marked active only with dated activity in the last 12 months; otherwise inactive.",
-  "Every row carries a source, a check date and a status. Only editor-approved rows are shown."
+  "Every row carries a source, a check date and a status. Only editor-approved rows are shown.",
+  "Publication types: master | phd | paper | conference (from research/academia/works.json)."
  ],
  "counts": {
   "courses": 7,

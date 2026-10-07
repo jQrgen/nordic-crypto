@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T21:33:28+00:00",
+ "generated_at": "2026-10-07T22:52:55+00:00",
  "preview": false,
  "exported_at": "2026-10-07T07:39:44+02:00",
  "count": 43,
@@ -142,7 +142,7 @@
    "source": "sydsvenskan.se",
    "source_name": "Sydsvenskan",
    "country": "SE",
-   "published_at": "2026-10-02T07:01:00+00:00",
+   "published_at": "2026-10-02T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
    "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
@@ -263,7 +263,7 @@
    "source": "finansavisen",
    "source_name": "Finansavisen",
    "country": "NO",
-   "published_at": "2026-09-20T07:41:00+00:00",
+   "published_at": "2026-09-20T14:40:45+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
    "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
@@ -426,7 +426,7 @@
    "source": "realtid",
    "source_name": "Realtid",
    "country": "SE",
-   "published_at": "2026-10-01T11:04:00+00:00",
+   "published_at": "2026-10-01T18:04:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
    "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
@@ -548,7 +548,7 @@
    "source": "finansavisen",
    "source_name": "Finansavisen",
    "country": "NO",
-   "published_at": "2026-09-28T08:01:00+00:00",
+   "published_at": "2026-09-28T15:01:08+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
    "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
@@ -793,7 +793,7 @@
    "source": "dagensps.se",
    "source_name": "Dagens PS",
    "country": "SE",
-   "published_at": "2026-10-01T01:31:00+00:00",
+   "published_at": "2026-10-01T08:30:56+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
    "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
@@ -916,7 +916,7 @@
    "source": "yle",
    "source_name": "Yle Uutiset (latest)",
    "country": "FI",
-   "published_at": "2026-09-27T08:20:00+00:00",
+   "published_at": "2026-09-27T15:20:53+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
    "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
@@ -998,7 +998,7 @@
    "source": "realtid",
    "source_name": "Realtid",
    "country": "SE",
-   "published_at": "2026-10-02T17:00:00+00:00",
+   "published_at": "2026-10-03T05:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
    "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
@@ -1199,7 +1199,7 @@
    "source": "berlingske.dk",
    "source_name": "Berlingske",
    "country": "DK",
-   "published_at": "2026-09-21T09:39:00+00:00",
+   "published_at": "2026-09-21T16:39:08+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
    "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
@@ -1280,7 +1280,7 @@
    "source": "e24",
    "source_name": "E24",
    "country": "NO",
-   "published_at": "2026-09-18T11:36:00+00:00",
+   "published_at": "2026-09-18T18:36:49+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
    "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
@@ -1403,7 +1403,7 @@
    "source": "ekstrabladet.dk",
    "source_name": "Ekstra Bladet",
    "country": "DK",
-   "published_at": "2026-09-22T02:58:00+00:00",
+   "published_at": "2026-09-22T09:58:59+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
    "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
@@ -1485,7 +1485,7 @@
    "source": "berlingske.dk",
    "source_name": "Berlingske",
    "country": "DK",
-   "published_at": "2026-09-22T06:04:00+00:00",
+   "published_at": "2026-09-22T13:04:30+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
    "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
@@ -1526,7 +1526,7 @@
    "source": "shifter",
    "source_name": "Shifter",
    "country": "NO",
-   "published_at": "2026-09-15T12:00:00+00:00",
+   "published_at": "2026-09-15T08:49:33+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
    "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
@@ -1608,7 +1608,7 @@
    "source": "oa",
    "source_name": "Oppland Arbeiderblad",
    "country": "NO",
-   "published_at": "2026-09-23T16:08:00+00:00",
+   "published_at": "2026-09-23T14:16:55+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
    "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
@@ -1648,7 +1648,7 @@
    "source": "nettavisen",
    "source_name": "Nettavisen",
    "country": "NO",
-   "published_at": "2026-09-25T19:16:00+00:00",
+   "published_at": "2026-09-26T00:16:16+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
    "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
@@ -1688,7 +1688,7 @@
    "source": "nbx-ir",
    "source_name": "NBX (børsmelding)",
    "country": "NO",
-   "published_at": "2026-09-17T12:00:00+00:00",
+   "published_at": "2026-09-17T06:00:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
    "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [
@@ -1729,7 +1729,7 @@
    "source": "finansavisen",
    "source_name": "Finansavisen",
    "country": "NO",
-   "published_at": "2026-10-05T06:06:00+00:00",
+   "published_at": "2026-10-05T13:06:17+00:00",
    "first_published_on_site": "2026-10-06T07:35:14+02:00",
    "last_seen_on_site": "2026-10-07T07:39:44+02:00",
    "languages": [

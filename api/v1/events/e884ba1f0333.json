@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T21:33:28+00:00",
+ "generated_at": "2026-10-07T22:52:55+00:00",
  "preview": false,
  "item": {
   "id": "e884ba1f0333",
@@ -21,7 +21,35 @@
   "note": null,
   "note_i18n": {},
   "past": false,
-  "html_url": "https://nordiccrypto.no/calendar/#e-e884ba1f0333",
-  "api_url": "https://nordiccrypto.no/api/v1/events/e884ba1f0333.json"
+  "ongoing": false,
+  "html_url": "https://nordiccrypto.no/calendar/e884ba1f0333/",
+  "html_urls": {
+   "en": "https://nordiccrypto.no/calendar/e884ba1f0333/",
+   "nn": "https://nordiccrypto.no/nn/calendar/e884ba1f0333/",
+   "nb": "https://nordiccrypto.no/nb/calendar/e884ba1f0333/",
+   "sv": "https://nordiccrypto.no/sv/calendar/e884ba1f0333/",
+   "da": "https://nordiccrypto.no/da/calendar/e884ba1f0333/",
+   "fi": "https://nordiccrypto.no/fi/calendar/e884ba1f0333/",
+   "is": "https://nordiccrypto.no/is/calendar/e884ba1f0333/",
+   "zh": "https://nordiccrypto.no/zh/calendar/e884ba1f0333/",
+   "hi": "https://nordiccrypto.no/hi/calendar/e884ba1f0333/",
+   "es": "https://nordiccrypto.no/es/calendar/e884ba1f0333/",
+   "fr": "https://nordiccrypto.no/fr/calendar/e884ba1f0333/",
+   "ar": "https://nordiccrypto.no/ar/calendar/e884ba1f0333/",
+   "bn": "https://nordiccrypto.no/bn/calendar/e884ba1f0333/",
+   "pt": "https://nordiccrypto.no/pt/calendar/e884ba1f0333/",
+   "ru": "https://nordiccrypto.no/ru/calendar/e884ba1f0333/",
+   "ur": "https://nordiccrypto.no/ur/calendar/e884ba1f0333/",
+   "id": "https://nordiccrypto.no/id/calendar/e884ba1f0333/",
+   "de": "https://nordiccrypto.no/de/calendar/e884ba1f0333/",
+   "ja": "https://nordiccrypto.no/ja/calendar/e884ba1f0333/",
+   "sw": "https://nordiccrypto.no/sw/calendar/e884ba1f0333/",
+   "mr": "https://nordiccrypto.no/mr/calendar/e884ba1f0333/"
+  },
+  "api_url": "https://nordiccrypto.no/api/v1/events/e884ba1f0333.json",
+  "place_source": {
+   "name": "Swedish Bitcoin Meetups (Meetup.com)",
+   "url": "https://www.meetup.com/swedish-bitcoin-meetups/events/312669070/"
+  }
  }
 }

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T21:33:28+00:00",
+ "generated_at": "2026-10-07T22:52:55+00:00",
  "preview": false,
  "item": {
   "id": "6a94ab65ebff",
@@ -10,6 +10,13 @@
   "api_url": "https://nordiccrypto.no/api/v1/news/6a94ab65ebff.json",
   "title": "Nytt nederlag for Valuno i kampen om MiCA-lisens",
   "title_en": "New defeat for Valuno in the fight for a MiCA licence",
+  "title_i18n": {
+   "nn": "Nytt nederlag for Valuno i kampen om MiCA-løyve",
+   "sv": "Nytt nederlag för Valuno i kampen om MiCA-tillstånd",
+   "da": "Nyt nederlag for Valuno i kampen om MiCA-licens",
+   "fi": "Uusi tappio Valunolle MiCA-luvan taistelussa",
+   "is": "Nýtt ósigur fyrir Valuno í baráttunni um MiCA-leyfi"
+  },
   "source": "kaupr",
   "source_name": "Kaupr",
   "source_logo": {
@@ -19,7 +26,8 @@
    "author": null,
    "license": null,
    "license_url": null,
-   "credit": "Official website"
+   "credit": "Official website",
+   "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
   },
   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
   "country": "SE",
@@ -42,6 +50,22 @@
   "paywall": false,
   "links": [],
   "own_story": false,
+  "illustration": {
+   "id": "commons-se",
+   "kind": "commons",
+   "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-se.webp",
+   "width": 960,
+   "height": 547,
+   "alt": "The Swedish parliament building, Riksdagshuset, in Stockholm.",
+   "source": "Wikimedia Commons",
+   "author": "Sahlen",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "url": "https://commons.wikimedia.org/wiki/File:Riksdagshuset_i_Stockholm.jpg",
+   "credit": "Photo: Sahlen. Licence: CC0 1.0. Source: Wikimedia Commons.",
+   "modifications": null,
+   "terms": null
+  },
   "primary_source": {
    "outlet": "kaupr",
    "outlet_name": "Kaupr",
@@ -61,7 +85,8 @@
     "author": null,
     "license": null,
     "license_url": null,
-    "credit": "Official website"
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
    },
    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
   },
@@ -86,7 +111,8 @@
      "author": null,
      "license": null,
      "license_url": null,
-     "credit": "Official website"
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    }
@@ -122,6 +148,7 @@
      "share": 0.0
     }
    ]
-  }
+  },
+  "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
  }
 }

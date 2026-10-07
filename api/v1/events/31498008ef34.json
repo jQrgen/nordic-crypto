@@ -1,0 +1,105 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T22:52:55+00:00",
+ "preview": false,
+ "item": {
+  "id": "31498008ef34",
+  "title": "Pan-Nordic Bitcoin Conference 2013",
+  "title_original": null,
+  "start": "2013-11-28T09:00:00+01:00",
+  "end": "2013-11-28T17:00:00+01:00",
+  "place": "Charlottehaven Konference center, Hjørringgade 12C, DK-2100 København Ø",
+  "city": "København",
+  "country": "DK",
+  "online": false,
+  "organiser": "CFIR (Copenhagen Finance IT Region)",
+  "url": "https://bt.cx/en/news/2013/10/30/btcx-discount-on-pan-nordic-bitcoin-conference-2013/",
+  "source": "backfill",
+  "paid": null,
+  "sponsored": null,
+  "note": null,
+  "note_i18n": {},
+  "past": true,
+  "ongoing": false,
+  "html_url": "https://nordiccrypto.no/calendar/31498008ef34/",
+  "html_urls": {
+   "en": "https://nordiccrypto.no/calendar/31498008ef34/",
+   "nn": "https://nordiccrypto.no/nn/calendar/31498008ef34/",
+   "nb": "https://nordiccrypto.no/nb/calendar/31498008ef34/",
+   "sv": "https://nordiccrypto.no/sv/calendar/31498008ef34/",
+   "da": "https://nordiccrypto.no/da/calendar/31498008ef34/",
+   "fi": "https://nordiccrypto.no/fi/calendar/31498008ef34/",
+   "is": "https://nordiccrypto.no/is/calendar/31498008ef34/",
+   "zh": "https://nordiccrypto.no/zh/calendar/31498008ef34/",
+   "hi": "https://nordiccrypto.no/hi/calendar/31498008ef34/",
+   "es": "https://nordiccrypto.no/es/calendar/31498008ef34/",
+   "fr": "https://nordiccrypto.no/fr/calendar/31498008ef34/",
+   "ar": "https://nordiccrypto.no/ar/calendar/31498008ef34/",
+   "bn": "https://nordiccrypto.no/bn/calendar/31498008ef34/",
+   "pt": "https://nordiccrypto.no/pt/calendar/31498008ef34/",
+   "ru": "https://nordiccrypto.no/ru/calendar/31498008ef34/",
+   "ur": "https://nordiccrypto.no/ur/calendar/31498008ef34/",
+   "id": "https://nordiccrypto.no/id/calendar/31498008ef34/",
+   "de": "https://nordiccrypto.no/de/calendar/31498008ef34/",
+   "ja": "https://nordiccrypto.no/ja/calendar/31498008ef34/",
+   "sw": "https://nordiccrypto.no/sw/calendar/31498008ef34/",
+   "mr": "https://nordiccrypto.no/mr/calendar/31498008ef34/"
+  },
+  "api_url": "https://nordiccrypto.no/api/v1/events/31498008ef34.json",
+  "backfill": true,
+  "event_type": "conference",
+  "credits": {
+   "title": {
+    "source_name": "BTCX",
+    "source_url": "https://bt.cx/en/news/2013/10/30/btcx-discount-on-pan-nordic-bitcoin-conference-2013/",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "start": {
+    "source_name": "BTCX",
+    "source_url": "https://bt.cx/en/news/2013/10/30/btcx-discount-on-pan-nordic-bitcoin-conference-2013/",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "end": {
+    "source_name": "BTCX",
+    "source_url": "https://bt.cx/en/news/2013/10/30/btcx-discount-on-pan-nordic-bitcoin-conference-2013/",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "place": {
+    "source_name": "BTCX",
+    "source_url": "https://bt.cx/en/news/2013/10/30/btcx-discount-on-pan-nordic-bitcoin-conference-2013/",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "city": {
+    "source_name": "BTCX",
+    "source_url": "https://bt.cx/en/news/2013/10/30/btcx-discount-on-pan-nordic-bitcoin-conference-2013/",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "country": {
+    "source_name": "BTCX",
+    "source_url": "https://bt.cx/en/news/2013/10/30/btcx-discount-on-pan-nordic-bitcoin-conference-2013/",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "organiser": {
+    "source_name": "BTCX",
+    "source_url": "https://bt.cx/en/news/2013/10/30/btcx-discount-on-pan-nordic-bitcoin-conference-2013/",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "url": {
+    "source_name": "BTCX",
+    "source_url": "https://bt.cx/en/news/2013/10/30/btcx-discount-on-pan-nordic-bitcoin-conference-2013/",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "event_type": {
+    "source_name": "BTCX",
+    "source_url": "https://bt.cx/en/news/2013/10/30/btcx-discount-on-pan-nordic-bitcoin-conference-2013/",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   }
+  },
+  "place_source": {
+   "name": "BTCX",
+   "url": "https://bt.cx/en/news/2013/10/30/btcx-discount-on-pan-nordic-bitcoin-conference-2013/",
+   "retrieved": "2026-10-07T21:00:00+00:00"
+  }
+ }
+}

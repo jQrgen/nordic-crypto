@@ -1,0 +1,40 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T22:52:55+00:00",
+ "preview": false,
+ "item": {
+  "id": "browser-notifications",
+  "date": "2026-10-06",
+  "title": "Browser notifications when new stories are published",
+  "description": "A button at the bottom of every page turns on browser notifications. One publish sends one message, even when several stories go out together. You can limit it to one or more of Norway, Sweden, Denmark, Finland and Iceland, and the message uses the language of the page. We store only the push subscription, that language and those countries. The same button turns notifications off and deletes the subscription. Cloudflare Web Analytics still counts visits in aggregate, without cookies, and that data is not sold. A JSON feed of the same batches is there for a later iOS app. Apple push (APNs) is not used. Until that service is switched on, the page says so and does not offer the button.",
+  "i18n": {
+   "nn": {
+    "title": "Varslingar i nettlesaren når nye saker blir publiserte",
+    "description": "Ein knapp nedst på kvar side slår på varslingar i nettlesaren. Éin publisering sender éi melding, òg når fleire saker kjem saman. Du kan avgrense til eitt eller fleire av Noreg, Sverige, Danmark, Finland og Island, og meldinga bruker språket på sida. Vi lagrar berre push-abonnementet, det språket og dei landa. Same knapp slår av varslingar og slettar abonnementet. Cloudflare Web Analytics tel framleis besøk samla, utan informasjonskapslar, og dei dataa blir ikkje selde. Eit JSON-grensesnitt med dei same gruppene ligg klart for ein seinare iOS-app. Push-tenesta til Apple (APNs) blir ikkje brukt. Før tenesta er slått på, seier sida det og viser ikkje knappen."
+   },
+   "nb": {
+    "title": "Varsler i nettleseren når nye saker blir publisert",
+    "description": "En knapp nederst på hver side slår på varsler i nettleseren. Én publisering sender én melding, også når flere saker kommer sammen. Du kan avgrense til ett eller flere av Norge, Sverige, Danmark, Finland og Island, og meldingen bruker språket på siden. Vi lagrer bare push-abonnementet, det språket og de landene. Samme knapp slår av varsler og sletter abonnementet. Cloudflare Web Analytics teller fortsatt besøk samlet, uten informasjonskapsler, og de dataene blir ikke solgt. Et JSON-grensesnitt med de samme gruppene ligger klart for en senere iOS-app. Push-tjenesten til Apple (APNs) brukes ikke. Før tjenesten er slått på, sier siden det og viser ikke knappen."
+   },
+   "sv": {
+    "title": "Aviseringar i webbläsaren när nya artiklar publiceras",
+    "description": "En knapp längst ner på varje sida slår på aviseringar i webbläsaren. En publicering skickar ett meddelande, även när flera artiklar kommer tillsammans. Du kan begränsa det till ett eller flera av Norge, Sverige, Danmark, Finland och Island, och meddelandet använder sidans språk. Vi sparar bara push-prenumerationen, det språket och de länderna. Samma knapp stänger av aviseringar och raderar prenumerationen. Cloudflare Web Analytics räknar fortfarande besök samlat, utan kakor, och de uppgifterna säljs inte. Ett JSON-flöde med samma grupper finns för en senare iOS-app. Apples push-tjänst (APNs) används inte. Tills tjänsten är påslagen säger sidan det och visar inte knappen."
+   },
+   "da": {
+    "title": "Browsernotifikationer når nye artikler udgives",
+    "description": "En knap nederst på hver side slår notifikationer til i browseren. Én udgivelse sender én besked, også når flere artikler kommer sammen. Du kan begrænse den til et eller flere af Norge, Sverige, Danmark, Finland og Island, og beskeden bruger sidens sprog. Vi gemmer kun push-abonnementet, det sprog og de lande. Den samme knap slår notifikationer fra og sletter abonnementet. Cloudflare Web Analytics tæller stadig besøg samlet, uden cookies, og de data sælges ikke. Et JSON-feed med de samme grupper ligger klar til en senere iOS-app. Apples push-tjeneste (APNs) bruges ikke. Indtil tjenesten er slået til, siger siden det og viser ikke knappen."
+   },
+   "fi": {
+    "title": "Selainilmoitukset, kun uusia juttuja julkaistaan",
+    "description": "Painike jokaisen sivun alareunassa ottaa selainilmoitukset käyttöön. Yksi julkaisu lähettää yhden viestin, myös kun useita juttuja ilmestyy yhdessä. Voit rajata sen yhteen tai useampaan maahan: Norja, Ruotsi, Tanska, Suomi ja Islanti. Viesti käyttää sivun kieltä. Tallennamme vain push-tilauksen, tuon kielen ja ne maat. Sama painike poistaa ilmoitukset käytöstä ja poistaa tilauksen. Cloudflare Web Analytics laskee yhä käynnit kootusti, ilman evästeitä, eikä niitä tietoja myydä. Sama lista on JSONina myöhempää iOS-sovellusta varten. Applen oma push-palvelu (APNs) ei ole käytössä. Kunnes palvelu on kytketty päälle, sivu kertoo sen eikä näytä painiketta."
+   },
+   "is": {
+    "title": "Vafratilkynningar þegar nýjar fréttir eru birtar",
+    "description": "Hnappur neðst á hverri síðu kveikir á tilkynningum í vafranum. Ein birting sendir ein skilaboð, líka þegar nokkrar fréttir koma saman. Þú getur takmarkað þær við eitt eða fleiri af Noregi, Svíþjóð, Danmörku, Finnlandi og Íslandi, og skilaboðin nota tungumál síðunnar. Við vistum aðeins push-áskriftina, það tungumál og þau lönd. Sami hnappur slekkur á tilkynningum og eyðir áskriftinni. Cloudflare Web Analytics telur enn heimsóknir saman, án vafrakaka, og þau gögn eru ekki seld. JSON-listi yfir sömu hópa er til fyrir síðara iOS-app. Push-þjónusta Apple (APNs) er ekki notuð. Þar til þjónustan er kveikt segir síðan það og sýnir ekki hnappinn."
+   }
+  },
+  "html_url": "https://nordiccrypto.no/changelog/#browser-notifications",
+  "api_url": "https://nordiccrypto.no/api/v1/changelog/browser-notifications.json"
+ }
+}

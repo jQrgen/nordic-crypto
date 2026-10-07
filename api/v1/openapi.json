@@ -295,6 +295,24 @@
     }
    }
   },
+  "/api/v1/events/previous.json": {
+   "get": {
+    "operationId": "api_v1_events_previous",
+    "summary": "Previous events, newest finish first. Finished calendar events plus backfilled public events (source backfill). Backfill is not on the calendar or in upcoming or past.",
+    "responses": {
+     "200": {
+      "description": "Previous events, newest finish first. Finished calendar events plus backfilled public events (source backfill). Backfill is not on the calendar or in upcoming or past.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/EventList"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
   "/api/v1/events/by-country/{country}.json": {
    "get": {
     "operationId": "events_by_country",
@@ -419,10 +437,10 @@
   "/api/v1/sources.json": {
    "get": {
     "operationId": "api_v1_sources",
-    "summary": "News outlets, the public search terms, and event sources. Kaupr is marked as a news source only. logo is the outlet image for that source id when one is on file.",
+    "summary": "News outlets, justice-system press pages, the public search terms, and event sources. coverage is national, regional, local or justice. region is the place. feed is null when no working RSS, sitemap or index page was verified. method is rss, html, sitemap, search or manual. Event sources name the intake method. Luma calendars use a public iCal subscribe URL. Eventbrite organizers and venues use the v3 API when the server has EVENTBRITE_TOKEN; the token is not in this feed. Without it, event pages are schema.org JSON-LD. icon_url is a public icon from the outlet when one was easy to find. logo_source is the URL the stored logo was fetched from. logo is the checked outlet image for that source id when one is on file, used only to identify the source. Kaupr is marked as a news source only and is never an event sponsor.",
     "responses": {
      "200": {
-      "description": "News outlets, the public search terms, and event sources. Kaupr is marked as a news source only. logo is the outlet image for that source id when one is on file.",
+      "description": "News outlets, justice-system press pages, the public search terms, and event sources. coverage is national, regional, local or justice. region is the place. feed is null when no working RSS, sitemap or index page was verified. method is rss, html, sitemap, search or manual. Event sources name the intake method. Luma calendars use a public iCal subscribe URL. Eventbrite organizers and venues use the v3 API when the server has EVENTBRITE_TOKEN; the token is not in this feed. Without it, event pages are schema.org JSON-LD. icon_url is a public icon from the outlet when one was easy to find. logo_source is the URL the stored logo was fetched from. logo is the checked outlet image for that source id when one is on file, used only to identify the source. Kaupr is marked as a news source only and is never an event sponsor.",
       "content": {
        "application/json": {
         "schema": {
@@ -711,14 +729,32 @@
   "/api/v1/images.json": {
    "get": {
     "operationId": "api_v1_images",
-    "summary": "Logos and photos used on the public who's who, with licence and credit.",
+    "summary": "Logos and photos used on the public who's who, with licence and credit. These are not newspaper photographs.",
     "responses": {
      "200": {
-      "description": "Logos and photos used on the public who's who, with licence and credit.",
+      "description": "Logos and photos used on the public who's who, with licence and credit. These are not newspaper photographs.",
       "content": {
        "application/json": {
         "schema": {
          "$ref": "#/components/schemas/ImageList"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/illustrations.json": {
+   "get": {
+    "operationId": "api_v1_illustrations",
+    "summary": "Pictures used on story cards and story pages. Each record has source, author, license and url. No photograph from another newspaper is included. Outlet logos are in images.json and on each news item as source_logo.",
+    "responses": {
+     "200": {
+      "description": "Pictures used on story cards and story pages. Each record has source, author, license and url. No photograph from another newspaper is included. Outlet logos are in images.json and on each news item as source_logo.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/IllustrationList"
         }
        }
       }
@@ -1070,7 +1106,48 @@
      },
      "logo": {
       "type": "object",
-      "nullable": true
+      "nullable": true,
+      "description": "Outlet logo for this source id (via outlet / _source_alias in assets/img/logos/logos.json). Null when no checked image is on file; show the name only. Same fields as a who's who logo in images.json, plus raster_url.",
+      "properties": {
+       "kind": {
+        "type": "string",
+        "enum": [
+         "logo"
+        ]
+       },
+       "file_url": {
+        "type": "string",
+        "description": "The original file as fetched: SVG, or WebP for raster logos."
+       },
+       "raster_url": {
+        "type": "string",
+        "nullable": true,
+        "description": "PNG rendering of an SVG (256 px on the long side, transparent), or the WebP itself. Same value as logo_url."
+       },
+       "source_url": {
+        "type": "string",
+        "nullable": true,
+        "description": "Wikimedia Commons file page, or the image URL on the publisher's site."
+       },
+       "author": {
+        "type": "string",
+        "nullable": true
+       },
+       "license": {
+        "type": "string",
+        "nullable": true,
+        "description": "Commons licence, or \"Publisher's own logo, used only to identify the source of a headline\"."
+       },
+       "license_url": {
+        "type": "string",
+        "nullable": true
+       },
+       "credit": {
+        "type": "string",
+        "nullable": true,
+        "description": "Wikimedia Commons or Official website."
+       }
+      }
      },
      "source_note": {
       "type": "string",
@@ -1146,17 +1223,26 @@
      "html_url": {
       "type": "string",
       "nullable": true,
-      "description": "Our story page. For our own articles this is the article. For other outlets this is the coverage page; url is the primary outlet."
+      "description": "Our story page: summary, licensed picture and the outlets. For our own articles this is the article. For other outlets this is the coverage page; url is the primary outlet."
      },
      "api_url": {
       "type": "string"
      },
      "title": {
-      "type": "string"
+      "type": "string",
+      "description": "Source headline."
      },
      "title_en": {
       "type": "string",
-      "nullable": true
+      "nullable": true,
+      "description": "Our English headline, when the source headline is not English."
+     },
+     "title_i18n": {
+      "type": "object",
+      "additionalProperties": {
+       "type": "string"
+      },
+      "description": "Our headline in nn, nb, sv, da, fi and is, when that language is not already the source headline. English is title_en."
      },
      "source": {
       "type": "string",
@@ -1168,24 +1254,45 @@
      "source_logo": {
       "type": "object",
       "nullable": true,
-      "description": "Outlet logo for this source id. Null when no checked image is on file; show the name only. file_url is the image. The id → file map is assets/img/logos/logos.json.",
+      "description": "Outlet logo for this source id (via outlet / _source_alias in assets/img/logos/logos.json). Null when no checked image is on file; show the name only. Same fields as a who's who logo in images.json, plus raster_url.",
       "properties": {
        "kind": {
-        "type": "string"
+        "type": "string",
+        "enum": [
+         "logo"
+        ]
        },
        "file_url": {
-        "type": "string"
+        "type": "string",
+        "description": "The original file as fetched: SVG, or WebP for raster logos."
+       },
+       "raster_url": {
+        "type": "string",
+        "nullable": true,
+        "description": "PNG rendering of an SVG (256 px on the long side, transparent), or the WebP itself. Same value as logo_url."
        },
        "source_url": {
-        "type": "string"
+        "type": "string",
+        "nullable": true,
+        "description": "Wikimedia Commons file page, or the image URL on the publisher's site."
+       },
+       "author": {
+        "type": "string",
+        "nullable": true
        },
        "license": {
+        "type": "string",
+        "nullable": true,
+        "description": "Commons licence, or \"Publisher's own logo, used only to identify the source of a headline\"."
+       },
+       "license_url": {
         "type": "string",
         "nullable": true
        },
        "credit": {
         "type": "string",
-        "nullable": true
+        "nullable": true,
+        "description": "Wikimedia Commons or Official website."
        }
       }
      },
@@ -1236,6 +1343,68 @@
      },
      "own_story": {
       "type": "boolean"
+     },
+     "illustration": {
+      "type": "object",
+      "nullable": true,
+      "description": "Picture for the card and the story page. source, author, license and url are the credit. file_url is our copy. Never a newspaper photograph.",
+      "properties": {
+       "id": {
+        "type": "string"
+       },
+       "kind": {
+        "type": "string",
+        "enum": [
+         "original",
+         "commons",
+         "official-press"
+        ]
+       },
+       "file_url": {
+        "type": "string"
+       },
+       "width": {
+        "type": "integer"
+       },
+       "height": {
+        "type": "integer"
+       },
+       "alt": {
+        "type": "string"
+       },
+       "source": {
+        "type": "string"
+       },
+       "author": {
+        "type": "string"
+       },
+       "license": {
+        "type": "string"
+       },
+       "license_url": {
+        "type": "string",
+        "nullable": true
+       },
+       "url": {
+        "type": "string"
+       },
+       "credit": {
+        "type": "string"
+       },
+       "modifications": {
+        "type": "string",
+        "nullable": true
+       },
+       "terms": {
+        "type": "string",
+        "nullable": true
+       }
+      }
+     },
+     "source_logo_url": {
+      "type": "string",
+      "nullable": true,
+      "description": "Absolute URL of the news source's logo as a raster image (PNG or WebP, never SVG, so SwiftUI AsyncImage can draw it) on the GitHub Pages base. Null until the editor has checked the logo (review ok); a preview build also lists pending logos. The publisher's trademark, shown only to identify the source. Same as source_logo.raster_url."
      },
      "primary_source": {
       "$ref": "#/components/schemas/NewsOutlet"
@@ -1298,17 +1467,26 @@
         "html_url": {
          "type": "string",
          "nullable": true,
-         "description": "Our story page. For our own articles this is the article. For other outlets this is the coverage page; url is the primary outlet."
+         "description": "Our story page: summary, licensed picture and the outlets. For our own articles this is the article. For other outlets this is the coverage page; url is the primary outlet."
         },
         "api_url": {
          "type": "string"
         },
         "title": {
-         "type": "string"
+         "type": "string",
+         "description": "Source headline."
         },
         "title_en": {
          "type": "string",
-         "nullable": true
+         "nullable": true,
+         "description": "Our English headline, when the source headline is not English."
+        },
+        "title_i18n": {
+         "type": "object",
+         "additionalProperties": {
+          "type": "string"
+         },
+         "description": "Our headline in nn, nb, sv, da, fi and is, when that language is not already the source headline. English is title_en."
         },
         "source": {
          "type": "string",
@@ -1320,24 +1498,45 @@
         "source_logo": {
          "type": "object",
          "nullable": true,
-         "description": "Outlet logo for this source id. Null when no checked image is on file; show the name only. file_url is the image. The id → file map is assets/img/logos/logos.json.",
+         "description": "Outlet logo for this source id (via outlet / _source_alias in assets/img/logos/logos.json). Null when no checked image is on file; show the name only. Same fields as a who's who logo in images.json, plus raster_url.",
          "properties": {
           "kind": {
-           "type": "string"
+           "type": "string",
+           "enum": [
+            "logo"
+           ]
           },
           "file_url": {
-           "type": "string"
+           "type": "string",
+           "description": "The original file as fetched: SVG, or WebP for raster logos."
+          },
+          "raster_url": {
+           "type": "string",
+           "nullable": true,
+           "description": "PNG rendering of an SVG (256 px on the long side, transparent), or the WebP itself. Same value as logo_url."
           },
           "source_url": {
-           "type": "string"
+           "type": "string",
+           "nullable": true,
+           "description": "Wikimedia Commons file page, or the image URL on the publisher's site."
+          },
+          "author": {
+           "type": "string",
+           "nullable": true
           },
           "license": {
+           "type": "string",
+           "nullable": true,
+           "description": "Commons licence, or \"Publisher's own logo, used only to identify the source of a headline\"."
+          },
+          "license_url": {
            "type": "string",
            "nullable": true
           },
           "credit": {
            "type": "string",
-           "nullable": true
+           "nullable": true,
+           "description": "Wikimedia Commons or Official website."
           }
          }
         },
@@ -1389,6 +1588,68 @@
         "own_story": {
          "type": "boolean"
         },
+        "illustration": {
+         "type": "object",
+         "nullable": true,
+         "description": "Picture for the card and the story page. source, author, license and url are the credit. file_url is our copy. Never a newspaper photograph.",
+         "properties": {
+          "id": {
+           "type": "string"
+          },
+          "kind": {
+           "type": "string",
+           "enum": [
+            "original",
+            "commons",
+            "official-press"
+           ]
+          },
+          "file_url": {
+           "type": "string"
+          },
+          "width": {
+           "type": "integer"
+          },
+          "height": {
+           "type": "integer"
+          },
+          "alt": {
+           "type": "string"
+          },
+          "source": {
+           "type": "string"
+          },
+          "author": {
+           "type": "string"
+          },
+          "license": {
+           "type": "string"
+          },
+          "license_url": {
+           "type": "string",
+           "nullable": true
+          },
+          "url": {
+           "type": "string"
+          },
+          "credit": {
+           "type": "string"
+          },
+          "modifications": {
+           "type": "string",
+           "nullable": true
+          },
+          "terms": {
+           "type": "string",
+           "nullable": true
+          }
+         }
+        },
+        "source_logo_url": {
+         "type": "string",
+         "nullable": true,
+         "description": "Absolute URL of the news source's logo as a raster image (PNG or WebP, never SVG, so SwiftUI AsyncImage can draw it) on the GitHub Pages base. Null until the editor has checked the logo (review ok); a preview build also lists pending logos. The publisher's trademark, shown only to identify the source. Same as source_logo.raster_url."
+        },
         "primary_source": {
          "$ref": "#/components/schemas/NewsOutlet"
         },
@@ -1415,6 +1676,9 @@
      "updated": {
       "type": "string",
       "nullable": true
+     },
+     "logo_note": {
+      "type": "string"
      }
     },
     "description": "NewsList"
@@ -1510,11 +1774,65 @@
      "past": {
       "type": "boolean"
      },
+     "ongoing": {
+      "type": "boolean",
+      "description": "True while start <= now <= end. Additive. Events with no end are never ongoing."
+     },
+     "place_source": {
+      "type": "object",
+      "nullable": true,
+      "description": "Credit for the venue or online flag: name, url, retrieved. Omitted when the place cannot be credited."
+     },
+     "attendees": {
+      "type": "object",
+      "nullable": true,
+      "description": "Registered participant count with source_name, source_url and retrieved. Omitted when the source did not state a count. Capacity is not a count."
+     },
      "html_url": {
-      "type": "string"
+      "type": "string",
+      "description": "This event's page on the site, /calendar/<id>/."
+     },
+     "html_urls": {
+      "type": "object",
+      "description": "The same page in every site language. English is at the root. Other codes are /<code>/calendar/<id>/."
      },
      "api_url": {
       "type": "string"
+     },
+     "backfill": {
+      "type": "boolean",
+      "description": "True when the row comes from the previous-events backfill. Absent on calendar events. Those rows are only in previous.json."
+     },
+     "event_type": {
+      "type": "string",
+      "nullable": true,
+      "enum": [
+       "conference",
+       "meetup",
+       "hackathon",
+       "seminar"
+      ],
+      "description": "Set on backfilled events when a source supports the type."
+     },
+     "language": {
+      "type": "string",
+      "nullable": true,
+      "description": "Language code when a source states it. Omitted when unknown."
+     },
+     "speakers_count": {
+      "type": "integer",
+      "nullable": true,
+      "description": "Exact speaker count when a source states one. Omitted otherwise. A session count is not a speaker count."
+     },
+     "videos_url": {
+      "type": "string",
+      "nullable": true,
+      "description": "Link to talk videos when a source gives one."
+     },
+     "credits": {
+      "type": "object",
+      "nullable": true,
+      "description": "Per-field source_name, source_url and retrieved_at on backfilled events."
      }
     }
    },
@@ -1608,11 +1926,65 @@
         "past": {
          "type": "boolean"
         },
+        "ongoing": {
+         "type": "boolean",
+         "description": "True while start <= now <= end. Additive. Events with no end are never ongoing."
+        },
+        "place_source": {
+         "type": "object",
+         "nullable": true,
+         "description": "Credit for the venue or online flag: name, url, retrieved. Omitted when the place cannot be credited."
+        },
+        "attendees": {
+         "type": "object",
+         "nullable": true,
+         "description": "Registered participant count with source_name, source_url and retrieved. Omitted when the source did not state a count. Capacity is not a count."
+        },
         "html_url": {
-         "type": "string"
+         "type": "string",
+         "description": "This event's page on the site, /calendar/<id>/."
+        },
+        "html_urls": {
+         "type": "object",
+         "description": "The same page in every site language. English is at the root. Other codes are /<code>/calendar/<id>/."
         },
         "api_url": {
          "type": "string"
+        },
+        "backfill": {
+         "type": "boolean",
+         "description": "True when the row comes from the previous-events backfill. Absent on calendar events. Those rows are only in previous.json."
+        },
+        "event_type": {
+         "type": "string",
+         "nullable": true,
+         "enum": [
+          "conference",
+          "meetup",
+          "hackathon",
+          "seminar"
+         ],
+         "description": "Set on backfilled events when a source supports the type."
+        },
+        "language": {
+         "type": "string",
+         "nullable": true,
+         "description": "Language code when a source states it. Omitted when unknown."
+        },
+        "speakers_count": {
+         "type": "integer",
+         "nullable": true,
+         "description": "Exact speaker count when a source states one. Omitted otherwise. A session count is not a speaker count."
+        },
+        "videos_url": {
+         "type": "string",
+         "nullable": true,
+         "description": "Link to talk videos when a source gives one."
+        },
+        "credits": {
+         "type": "object",
+         "nullable": true,
+         "description": "Per-field source_name, source_url and retrieved_at on backfilled events."
         }
        }
       }
@@ -2046,6 +2418,111 @@
     },
     "description": "NewsletterList"
    },
+   "Source": {
+    "type": "object",
+    "required": [
+     "id",
+     "name",
+     "country"
+    ],
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "name": {
+      "type": "string"
+     },
+     "country": {
+      "type": "string"
+     },
+     "kind": {
+      "type": "string",
+      "nullable": true
+     },
+     "url": {
+      "type": "string",
+      "nullable": true
+     },
+     "type": {
+      "type": "string"
+     },
+     "paywall": {
+      "type": "boolean"
+     },
+     "enabled": {
+      "type": "boolean"
+     },
+     "status": {
+      "type": "string"
+     },
+     "verified": {
+      "type": "string",
+      "nullable": true
+     },
+     "language": {
+      "type": "string",
+      "nullable": true
+     },
+     "feed": {
+      "type": "string",
+      "nullable": true
+     },
+     "source_note": {
+      "type": "string",
+      "nullable": true
+     },
+     "logo_url": {
+      "type": "string",
+      "nullable": true,
+      "description": "Absolute URL of the news source's logo as a raster image (PNG or WebP, never SVG, so SwiftUI AsyncImage can draw it) on the GitHub Pages base. Null until the editor has checked the logo (review ok); a preview build also lists pending logos. The publisher's trademark, shown only to identify the source."
+     },
+     "logo": {
+      "type": "object",
+      "nullable": true,
+      "description": "Outlet logo for this source id (via outlet / _source_alias in assets/img/logos/logos.json). Null when no checked image is on file; show the name only. Same fields as a who's who logo in images.json, plus raster_url.",
+      "properties": {
+       "kind": {
+        "type": "string",
+        "enum": [
+         "logo"
+        ]
+       },
+       "file_url": {
+        "type": "string",
+        "description": "The original file as fetched: SVG, or WebP for raster logos."
+       },
+       "raster_url": {
+        "type": "string",
+        "nullable": true,
+        "description": "PNG rendering of an SVG (256 px on the long side, transparent), or the WebP itself. Same value as logo_url."
+       },
+       "source_url": {
+        "type": "string",
+        "nullable": true,
+        "description": "Wikimedia Commons file page, or the image URL on the publisher's site."
+       },
+       "author": {
+        "type": "string",
+        "nullable": true
+       },
+       "license": {
+        "type": "string",
+        "nullable": true,
+        "description": "Commons licence, or \"Publisher's own logo, used only to identify the source of a headline\"."
+       },
+       "license_url": {
+        "type": "string",
+        "nullable": true
+       },
+       "credit": {
+        "type": "string",
+        "nullable": true,
+        "description": "Wikimedia Commons or Official website."
+       }
+      }
+     }
+    }
+   },
    "SourceCatalogue": {
     "type": "object",
     "properties": {
@@ -2061,8 +2538,116 @@
      "preview": {
       "type": "boolean"
      },
+     "logo_note": {
+      "type": "string"
+     },
      "sources": {
-      "type": "array"
+      "type": "array",
+      "items": {
+       "type": "object",
+       "required": [
+        "id",
+        "name",
+        "country"
+       ],
+       "properties": {
+        "id": {
+         "type": "string"
+        },
+        "name": {
+         "type": "string"
+        },
+        "country": {
+         "type": "string"
+        },
+        "kind": {
+         "type": "string",
+         "nullable": true
+        },
+        "url": {
+         "type": "string",
+         "nullable": true
+        },
+        "type": {
+         "type": "string"
+        },
+        "paywall": {
+         "type": "boolean"
+        },
+        "enabled": {
+         "type": "boolean"
+        },
+        "status": {
+         "type": "string"
+        },
+        "verified": {
+         "type": "string",
+         "nullable": true
+        },
+        "language": {
+         "type": "string",
+         "nullable": true
+        },
+        "feed": {
+         "type": "string",
+         "nullable": true
+        },
+        "source_note": {
+         "type": "string",
+         "nullable": true
+        },
+        "logo_url": {
+         "type": "string",
+         "nullable": true,
+         "description": "Absolute URL of the news source's logo as a raster image (PNG or WebP, never SVG, so SwiftUI AsyncImage can draw it) on the GitHub Pages base. Null until the editor has checked the logo (review ok); a preview build also lists pending logos. The publisher's trademark, shown only to identify the source."
+        },
+        "logo": {
+         "type": "object",
+         "nullable": true,
+         "description": "Outlet logo for this source id (via outlet / _source_alias in assets/img/logos/logos.json). Null when no checked image is on file; show the name only. Same fields as a who's who logo in images.json, plus raster_url.",
+         "properties": {
+          "kind": {
+           "type": "string",
+           "enum": [
+            "logo"
+           ]
+          },
+          "file_url": {
+           "type": "string",
+           "description": "The original file as fetched: SVG, or WebP for raster logos."
+          },
+          "raster_url": {
+           "type": "string",
+           "nullable": true,
+           "description": "PNG rendering of an SVG (256 px on the long side, transparent), or the WebP itself. Same value as logo_url."
+          },
+          "source_url": {
+           "type": "string",
+           "nullable": true,
+           "description": "Wikimedia Commons file page, or the image URL on the publisher's site."
+          },
+          "author": {
+           "type": "string",
+           "nullable": true
+          },
+          "license": {
+           "type": "string",
+           "nullable": true,
+           "description": "Commons licence, or \"Publisher's own logo, used only to identify the source of a headline\"."
+          },
+          "license_url": {
+           "type": "string",
+           "nullable": true
+          },
+          "credit": {
+           "type": "string",
+           "nullable": true,
+           "description": "Wikimedia Commons or Official website."
+          }
+         }
+        }
+       }
+      }
      },
      "search": {
       "type": "array"
@@ -2262,6 +2847,30 @@
     },
     "description": "ImageList"
    },
+   "IllustrationList": {
+    "type": "object",
+    "properties": {
+     "api_version": {
+      "type": "string"
+     },
+     "name": {
+      "type": "string"
+     },
+     "generated_at": {
+      "type": "string"
+     },
+     "preview": {
+      "type": "boolean"
+     },
+     "images": {
+      "type": "array"
+     },
+     "policy": {
+      "type": "string"
+     }
+    },
+    "description": "IllustrationList"
+   },
    "ChangelogList": {
     "type": "object",
     "properties": {
@@ -2354,7 +2963,31 @@
      },
      "ios": {
       "type": "object",
-      "description": "Public TestFlight invite. Not an App Store listing."
+      "description": "Public TestFlight invite for the Nordic Crypto iOS app. Not an App Store listing. apple_tv is English. apple_tv_i18n has every site language, including en.",
+      "properties": {
+       "name": {
+        "type": "string",
+        "example": "Nordic Crypto"
+       },
+       "distribution": {
+        "type": "string"
+       },
+       "label": {
+        "type": "string"
+       },
+       "url": {
+        "type": "string"
+       },
+       "note": {
+        "type": "string"
+       },
+       "apple_tv": {
+        "type": "string"
+       },
+       "apple_tv_i18n": {
+        "type": "object"
+       }
+      }
      },
      "social": {
       "type": "object",
@@ -2411,7 +3044,7 @@
      },
      "urls": {
       "type": "object",
-      "description": "github, substack, telegram and x, plus the API bases."
+      "description": "github, newsletter, rss, telegram and x, plus the API bases. newsletter is the signup page on this site. rss is the English story feed."
      }
     },
     "description": "SiteMeta"

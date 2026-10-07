@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T21:33:28+00:00",
+ "generated_at": "2026-10-07T22:52:55+00:00",
  "preview": false,
  "item": {
   "id": "4d918e6a3378",
@@ -10,6 +10,13 @@
   "api_url": "https://nordiccrypto.no/api/v1/news/4d918e6a3378.json",
   "title": "Firi tar opp kampen om 1,1 millioner svenske kryptoeiere",
   "title_en": "Firi takes on the fight for 1.1 million Swedish crypto owners",
+  "title_i18n": {
+   "nn": "Firi tek opp kampen om 1,1 millionar svenske kryptoeigarar",
+   "sv": "Firi tar upp kampen om 1,1 miljoner svenska kryptoägare",
+   "da": "Firi tager kampen op om 1,1 millioner svenske krypto-ejere",
+   "fi": "Firi haastaa 1,1 miljoonaa ruotsalaista kryptonomistajaa",
+   "is": "Firi tekur upp baráttuna um 1,1 milljón sænskra rafmyntaeigenda"
+  },
   "source": "kaupr",
   "source_name": "Kaupr",
   "source_logo": {
@@ -19,7 +26,8 @@
    "author": null,
    "license": null,
    "license_url": null,
-   "credit": "Official website"
+   "credit": "Official website",
+   "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
   },
   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
   "country": "SE",
@@ -41,6 +49,22 @@
   "paywall": false,
   "links": [],
   "own_story": false,
+  "illustration": {
+   "id": "original-exchange",
+   "kind": "original",
+   "file_url": "https://nordiccrypto.no/assets/img/illustrations/original-exchange.webp",
+   "width": 960,
+   "height": 540,
+   "alt": "Abstract bar chart in blue and black. Nordic Crypto illustration, not a picture of an exchange.",
+   "source": "Nordic Crypto",
+   "author": "Nordic Crypto",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "url": "https://cryptonordic.no/ethics/",
+   "credit": "Illustration: Nordic Crypto. Licence: CC0 1.0. Source: Nordic Crypto.",
+   "modifications": null,
+   "terms": null
+  },
   "primary_source": {
    "outlet": "kaupr",
    "outlet_name": "Kaupr",
@@ -60,7 +84,8 @@
     "author": null,
     "license": null,
     "license_url": null,
-    "credit": "Official website"
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
    },
    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
   },
@@ -85,7 +110,8 @@
      "author": null,
      "license": null,
      "license_url": null,
-     "credit": "Official website"
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    }
@@ -121,6 +147,7 @@
      "share": 0.0
     }
    ]
-  }
+  },
+  "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
  }
 }

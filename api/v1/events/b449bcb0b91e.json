@@ -1,0 +1,105 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T22:52:55+00:00",
+ "preview": false,
+ "item": {
+  "id": "b449bcb0b91e",
+  "title": "Information Propagation in the Bitcoin Network",
+  "title_original": null,
+  "start": "2014-02-07T10:15:00+02:00",
+  "end": "2014-02-07T11:15:00+02:00",
+  "place": "Exactum B119, Gustaf Hällströmin katu 2b",
+  "city": "Helsinki",
+  "country": "FI",
+  "online": false,
+  "organiser": "Department of Computer Science, University of Helsinki",
+  "url": "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html",
+  "source": "backfill",
+  "paid": null,
+  "sponsored": null,
+  "note": null,
+  "note_i18n": {},
+  "past": true,
+  "ongoing": false,
+  "html_url": "https://nordiccrypto.no/calendar/b449bcb0b91e/",
+  "html_urls": {
+   "en": "https://nordiccrypto.no/calendar/b449bcb0b91e/",
+   "nn": "https://nordiccrypto.no/nn/calendar/b449bcb0b91e/",
+   "nb": "https://nordiccrypto.no/nb/calendar/b449bcb0b91e/",
+   "sv": "https://nordiccrypto.no/sv/calendar/b449bcb0b91e/",
+   "da": "https://nordiccrypto.no/da/calendar/b449bcb0b91e/",
+   "fi": "https://nordiccrypto.no/fi/calendar/b449bcb0b91e/",
+   "is": "https://nordiccrypto.no/is/calendar/b449bcb0b91e/",
+   "zh": "https://nordiccrypto.no/zh/calendar/b449bcb0b91e/",
+   "hi": "https://nordiccrypto.no/hi/calendar/b449bcb0b91e/",
+   "es": "https://nordiccrypto.no/es/calendar/b449bcb0b91e/",
+   "fr": "https://nordiccrypto.no/fr/calendar/b449bcb0b91e/",
+   "ar": "https://nordiccrypto.no/ar/calendar/b449bcb0b91e/",
+   "bn": "https://nordiccrypto.no/bn/calendar/b449bcb0b91e/",
+   "pt": "https://nordiccrypto.no/pt/calendar/b449bcb0b91e/",
+   "ru": "https://nordiccrypto.no/ru/calendar/b449bcb0b91e/",
+   "ur": "https://nordiccrypto.no/ur/calendar/b449bcb0b91e/",
+   "id": "https://nordiccrypto.no/id/calendar/b449bcb0b91e/",
+   "de": "https://nordiccrypto.no/de/calendar/b449bcb0b91e/",
+   "ja": "https://nordiccrypto.no/ja/calendar/b449bcb0b91e/",
+   "sw": "https://nordiccrypto.no/sw/calendar/b449bcb0b91e/",
+   "mr": "https://nordiccrypto.no/mr/calendar/b449bcb0b91e/"
+  },
+  "api_url": "https://nordiccrypto.no/api/v1/events/b449bcb0b91e.json",
+  "backfill": true,
+  "event_type": "seminar",
+  "credits": {
+   "title": {
+    "source_name": "Department of Computer Science, University of Helsinki",
+    "source_url": "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "start": {
+    "source_name": "Department of Computer Science, University of Helsinki",
+    "source_url": "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "end": {
+    "source_name": "Department of Computer Science, University of Helsinki",
+    "source_url": "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "place": {
+    "source_name": "Department of Computer Science, University of Helsinki",
+    "source_url": "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "city": {
+    "source_name": "Department of Computer Science, University of Helsinki",
+    "source_url": "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "country": {
+    "source_name": "Department of Computer Science, University of Helsinki",
+    "source_url": "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "organiser": {
+    "source_name": "Department of Computer Science, University of Helsinki",
+    "source_url": "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "url": {
+    "source_name": "Department of Computer Science, University of Helsinki",
+    "source_url": "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "event_type": {
+    "source_name": "Department of Computer Science, University of Helsinki",
+    "source_url": "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   }
+  },
+  "place_source": {
+   "name": "Department of Computer Science, University of Helsinki",
+   "url": "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html",
+   "retrieved": "2026-10-07T21:00:00+00:00"
+  }
+ }
+}

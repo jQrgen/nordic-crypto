@@ -1,0 +1,105 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T22:52:55+00:00",
+ "preview": false,
+ "item": {
+  "id": "4cd0147fef4e",
+  "title": "The European Mining Summit",
+  "title_original": null,
+  "start": "2026-09-23T09:30:00+03:00",
+  "end": "2026-09-23T18:00:00+03:00",
+  "place": "Kaapelitehdas, Kaapeliaukio 3, 00180 Helsinki",
+  "city": "Helsinki",
+  "country": "FI",
+  "online": false,
+  "organiser": "BTCHEL and the European Bitcoin Energy Association",
+  "url": "https://info.btchel.com/index.html",
+  "source": "backfill",
+  "paid": null,
+  "sponsored": null,
+  "note": null,
+  "note_i18n": {},
+  "past": true,
+  "ongoing": false,
+  "html_url": "https://nordiccrypto.no/calendar/4cd0147fef4e/",
+  "html_urls": {
+   "en": "https://nordiccrypto.no/calendar/4cd0147fef4e/",
+   "nn": "https://nordiccrypto.no/nn/calendar/4cd0147fef4e/",
+   "nb": "https://nordiccrypto.no/nb/calendar/4cd0147fef4e/",
+   "sv": "https://nordiccrypto.no/sv/calendar/4cd0147fef4e/",
+   "da": "https://nordiccrypto.no/da/calendar/4cd0147fef4e/",
+   "fi": "https://nordiccrypto.no/fi/calendar/4cd0147fef4e/",
+   "is": "https://nordiccrypto.no/is/calendar/4cd0147fef4e/",
+   "zh": "https://nordiccrypto.no/zh/calendar/4cd0147fef4e/",
+   "hi": "https://nordiccrypto.no/hi/calendar/4cd0147fef4e/",
+   "es": "https://nordiccrypto.no/es/calendar/4cd0147fef4e/",
+   "fr": "https://nordiccrypto.no/fr/calendar/4cd0147fef4e/",
+   "ar": "https://nordiccrypto.no/ar/calendar/4cd0147fef4e/",
+   "bn": "https://nordiccrypto.no/bn/calendar/4cd0147fef4e/",
+   "pt": "https://nordiccrypto.no/pt/calendar/4cd0147fef4e/",
+   "ru": "https://nordiccrypto.no/ru/calendar/4cd0147fef4e/",
+   "ur": "https://nordiccrypto.no/ur/calendar/4cd0147fef4e/",
+   "id": "https://nordiccrypto.no/id/calendar/4cd0147fef4e/",
+   "de": "https://nordiccrypto.no/de/calendar/4cd0147fef4e/",
+   "ja": "https://nordiccrypto.no/ja/calendar/4cd0147fef4e/",
+   "sw": "https://nordiccrypto.no/sw/calendar/4cd0147fef4e/",
+   "mr": "https://nordiccrypto.no/mr/calendar/4cd0147fef4e/"
+  },
+  "api_url": "https://nordiccrypto.no/api/v1/events/4cd0147fef4e.json",
+  "backfill": true,
+  "event_type": "conference",
+  "credits": {
+   "title": {
+    "source_name": "BTCHEL",
+    "source_url": "https://info.btchel.com/index.html",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "start": {
+    "source_name": "BTCHEL",
+    "source_url": "https://info.btchel.com/index.html",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "end": {
+    "source_name": "BTCHEL",
+    "source_url": "https://info.btchel.com/index.html",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "place": {
+    "source_name": "BTCHEL",
+    "source_url": "https://info.btchel.com/index.html",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "city": {
+    "source_name": "BTCHEL",
+    "source_url": "https://info.btchel.com/index.html",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "country": {
+    "source_name": "BTCHEL",
+    "source_url": "https://info.btchel.com/index.html",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "organiser": {
+    "source_name": "BTCHEL",
+    "source_url": "https://info.btchel.com/index.html",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "url": {
+    "source_name": "BTCHEL",
+    "source_url": "https://info.btchel.com/index.html",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "event_type": {
+    "source_name": "BTCHEL",
+    "source_url": "https://info.btchel.com/index.html",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   }
+  },
+  "place_source": {
+   "name": "BTCHEL",
+   "url": "https://info.btchel.com/index.html",
+   "retrieved": "2026-10-07T21:00:00+00:00"
+  }
+ }
+}

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T21:33:28+00:00",
+ "generated_at": "2026-10-07T22:52:55+00:00",
  "preview": false,
  "item": {
   "id": "7b2030aea964",
@@ -10,14 +10,30 @@
   "api_url": "https://nordiccrypto.no/api/v1/news/7b2030aea964.json",
   "title": "Kryptojätten i ny kontrovers – erbjöd tjänster i Europa utan licens",
   "title_en": "Crypto giant in new controversy: offered services in Europe without a licence",
+  "title_i18n": {
+   "nn": "Kryptokjempa i ny kontrovers – tilbaud tenester i Europa utan løyve",
+   "nb": "Kryptokjempen i ny kontrovers – tilbød tjenester i Europa uten lisens",
+   "da": "Kryptogiganten i ny kontrovers – tilbød tjenester i Europa uden licens",
+   "fi": "Kryptojätti uudessa kiistassa – tarjosi palveluja Euroopassa ilman lupaa",
+   "is": "Rafmyntarisinn í nýju deilumáli – bauð þjónustu í Evrópu án leyfis"
+  },
   "source": "realtid",
   "source_name": "Realtid",
-  "source_logo": null,
+  "source_logo": {
+   "kind": "logo",
+   "file_url": "https://nordiccrypto.no/assets/img/logos/realtid.svg",
+   "source_url": "https://www.realtid.se/_next/static/media/logo.1b3426b7.svg",
+   "author": null,
+   "license": null,
+   "license_url": null,
+   "credit": "Official website",
+   "raster_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
+  },
   "source_note": null,
   "country": "SE",
   "language": "Swedish",
   "language_code": "sv",
-  "published": "2026-10-01T11:04:00+00:00",
+  "published": "2026-10-01T18:04:00+00:00",
   "topics": [
    "regulation",
    "mica"
@@ -34,19 +50,44 @@
   "paywall": false,
   "links": [],
   "own_story": false,
+  "illustration": {
+   "id": "commons-se",
+   "kind": "commons",
+   "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-se.webp",
+   "width": 960,
+   "height": 547,
+   "alt": "The Swedish parliament building, Riksdagshuset, in Stockholm.",
+   "source": "Wikimedia Commons",
+   "author": "Sahlen",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "url": "https://commons.wikimedia.org/wiki/File:Riksdagshuset_i_Stockholm.jpg",
+   "credit": "Photo: Sahlen. Licence: CC0 1.0. Source: Wikimedia Commons.",
+   "modifications": null,
+   "terms": null
+  },
   "primary_source": {
    "outlet": "realtid",
    "outlet_name": "Realtid",
    "url": "https://www.realtid.se/bors-finans/kryptojatten-i-ny-kontrovers-erbjod-tjanster-i-europa-utan-licens/",
    "title": "Kryptojätten i ny kontrovers – erbjöd tjänster i Europa utan licens",
-   "published": "2026-10-01T11:04:00+00:00",
+   "published": "2026-10-01T18:04:00+00:00",
    "lang": "Swedish",
    "language_code": "sv",
    "country": "SE",
    "source_type": "national",
    "paywall": false,
    "primary": true,
-   "logo": null
+   "logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/realtid.svg",
+    "source_url": "https://www.realtid.se/_next/static/media/logo.1b3426b7.svg",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
+   }
   },
   "also_covered_by": [],
   "sources": [
@@ -55,14 +96,23 @@
     "outlet_name": "Realtid",
     "url": "https://www.realtid.se/bors-finans/kryptojatten-i-ny-kontrovers-erbjod-tjanster-i-europa-utan-licens/",
     "title": "Kryptojätten i ny kontrovers – erbjöd tjänster i Europa utan licens",
-    "published": "2026-10-01T11:04:00+00:00",
+    "published": "2026-10-01T18:04:00+00:00",
     "lang": "Swedish",
     "language_code": "sv",
     "country": "SE",
     "source_type": "national",
     "paywall": false,
     "primary": true,
-    "logo": null
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/realtid.svg",
+     "source_url": "https://www.realtid.se/_next/static/media/logo.1b3426b7.svg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
+    }
    }
   ],
   "coverage": {
@@ -96,6 +146,7 @@
      "share": 0.0
     }
    ]
-  }
+  },
+  "source_logo_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
  }
 }

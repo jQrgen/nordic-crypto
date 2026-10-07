@@ -1,0 +1,100 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T22:52:55+00:00",
+ "preview": false,
+ "item": {
+  "id": "c4dd9c6f0526",
+  "title": "CBDC hackathon with Fintech Norway and Virke",
+  "title_original": null,
+  "start": "2023-03-15T00:00:00+01:00",
+  "end": "2023-03-17T23:59:00+01:00",
+  "place": "",
+  "city": "Oslo",
+  "country": "NO",
+  "online": false,
+  "organiser": "Norges Bank, Fintech Norway and Virke",
+  "url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+  "source": "backfill",
+  "paid": null,
+  "sponsored": null,
+  "note": null,
+  "note_i18n": {},
+  "past": true,
+  "ongoing": false,
+  "html_url": "https://nordiccrypto.no/calendar/c4dd9c6f0526/",
+  "html_urls": {
+   "en": "https://nordiccrypto.no/calendar/c4dd9c6f0526/",
+   "nn": "https://nordiccrypto.no/nn/calendar/c4dd9c6f0526/",
+   "nb": "https://nordiccrypto.no/nb/calendar/c4dd9c6f0526/",
+   "sv": "https://nordiccrypto.no/sv/calendar/c4dd9c6f0526/",
+   "da": "https://nordiccrypto.no/da/calendar/c4dd9c6f0526/",
+   "fi": "https://nordiccrypto.no/fi/calendar/c4dd9c6f0526/",
+   "is": "https://nordiccrypto.no/is/calendar/c4dd9c6f0526/",
+   "zh": "https://nordiccrypto.no/zh/calendar/c4dd9c6f0526/",
+   "hi": "https://nordiccrypto.no/hi/calendar/c4dd9c6f0526/",
+   "es": "https://nordiccrypto.no/es/calendar/c4dd9c6f0526/",
+   "fr": "https://nordiccrypto.no/fr/calendar/c4dd9c6f0526/",
+   "ar": "https://nordiccrypto.no/ar/calendar/c4dd9c6f0526/",
+   "bn": "https://nordiccrypto.no/bn/calendar/c4dd9c6f0526/",
+   "pt": "https://nordiccrypto.no/pt/calendar/c4dd9c6f0526/",
+   "ru": "https://nordiccrypto.no/ru/calendar/c4dd9c6f0526/",
+   "ur": "https://nordiccrypto.no/ur/calendar/c4dd9c6f0526/",
+   "id": "https://nordiccrypto.no/id/calendar/c4dd9c6f0526/",
+   "de": "https://nordiccrypto.no/de/calendar/c4dd9c6f0526/",
+   "ja": "https://nordiccrypto.no/ja/calendar/c4dd9c6f0526/",
+   "sw": "https://nordiccrypto.no/sw/calendar/c4dd9c6f0526/",
+   "mr": "https://nordiccrypto.no/mr/calendar/c4dd9c6f0526/"
+  },
+  "api_url": "https://nordiccrypto.no/api/v1/events/c4dd9c6f0526.json",
+  "backfill": true,
+  "event_type": "hackathon",
+  "credits": {
+   "title": {
+    "source_name": "Norges Bank",
+    "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "start": {
+    "source_name": "Norges Bank",
+    "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "end": {
+    "source_name": "Norges Bank",
+    "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "city": {
+    "source_name": "Norges Bank",
+    "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "country": {
+    "source_name": "Norges Bank",
+    "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "organiser": {
+    "source_name": "Norges Bank",
+    "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "url": {
+    "source_name": "Norges Bank",
+    "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "event_type": {
+    "source_name": "Norges Bank",
+    "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   }
+  },
+  "place_source": {
+   "name": "Norges Bank",
+   "url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+   "retrieved": "2026-10-07T21:00:00+00:00"
+  }
+ }
+}

@@ -1,0 +1,1416 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T22:52:55+00:00",
+ "preview": false,
+ "count": 15,
+ "events": [
+  {
+   "id": "af88ac54b25d",
+   "title": "BTCHEL 2026",
+   "title_original": null,
+   "start": "2026-09-25T09:00:00+03:00",
+   "end": "2026-09-26T19:00:00+03:00",
+   "place": "Kaapelitehdas, Kaapeliaukio 3, 00180 Helsinki",
+   "city": "Helsinki",
+   "country": "FI",
+   "online": false,
+   "organiser": "BTCHEL",
+   "url": "https://btchel.com/",
+   "source": "backfill",
+   "paid": null,
+   "sponsored": null,
+   "note": null,
+   "note_i18n": {},
+   "past": true,
+   "ongoing": false,
+   "html_url": "https://nordiccrypto.no/calendar/af88ac54b25d/",
+   "html_urls": {
+    "en": "https://nordiccrypto.no/calendar/af88ac54b25d/",
+    "nn": "https://nordiccrypto.no/nn/calendar/af88ac54b25d/",
+    "nb": "https://nordiccrypto.no/nb/calendar/af88ac54b25d/",
+    "sv": "https://nordiccrypto.no/sv/calendar/af88ac54b25d/",
+    "da": "https://nordiccrypto.no/da/calendar/af88ac54b25d/",
+    "fi": "https://nordiccrypto.no/fi/calendar/af88ac54b25d/",
+    "is": "https://nordiccrypto.no/is/calendar/af88ac54b25d/",
+    "zh": "https://nordiccrypto.no/zh/calendar/af88ac54b25d/",
+    "hi": "https://nordiccrypto.no/hi/calendar/af88ac54b25d/",
+    "es": "https://nordiccrypto.no/es/calendar/af88ac54b25d/",
+    "fr": "https://nordiccrypto.no/fr/calendar/af88ac54b25d/",
+    "ar": "https://nordiccrypto.no/ar/calendar/af88ac54b25d/",
+    "bn": "https://nordiccrypto.no/bn/calendar/af88ac54b25d/",
+    "pt": "https://nordiccrypto.no/pt/calendar/af88ac54b25d/",
+    "ru": "https://nordiccrypto.no/ru/calendar/af88ac54b25d/",
+    "ur": "https://nordiccrypto.no/ur/calendar/af88ac54b25d/",
+    "id": "https://nordiccrypto.no/id/calendar/af88ac54b25d/",
+    "de": "https://nordiccrypto.no/de/calendar/af88ac54b25d/",
+    "ja": "https://nordiccrypto.no/ja/calendar/af88ac54b25d/",
+    "sw": "https://nordiccrypto.no/sw/calendar/af88ac54b25d/",
+    "mr": "https://nordiccrypto.no/mr/calendar/af88ac54b25d/"
+   },
+   "api_url": "https://nordiccrypto.no/api/v1/events/af88ac54b25d.json",
+   "backfill": true,
+   "event_type": "conference",
+   "language": "en",
+   "credits": {
+    "title": {
+     "source_name": "BTCHEL",
+     "source_url": "https://btchel.com/press-kit/",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "start": {
+     "source_name": "BTCHEL",
+     "source_url": "https://info.btchel.com/index.html",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "end": {
+     "source_name": "BTCHEL",
+     "source_url": "https://info.btchel.com/index.html",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "place": {
+     "source_name": "BTCHEL",
+     "source_url": "https://info.btchel.com/index.html",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "city": {
+     "source_name": "BTCHEL",
+     "source_url": "https://btchel.com/press-kit/",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "country": {
+     "source_name": "BTCHEL",
+     "source_url": "https://btchel.com/press-kit/",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "organiser": {
+     "source_name": "BTCHEL",
+     "source_url": "https://btchel.com/",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "url": {
+     "source_name": "BTCHEL",
+     "source_url": "https://btchel.com/",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "event_type": {
+     "source_name": "BTCHEL",
+     "source_url": "https://info.btchel.com/index.html",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "language": {
+     "source_name": "BTCHEL",
+     "source_url": "https://info.btchel.com/index.html",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    }
+   },
+   "place_source": {
+    "name": "BTCHEL",
+    "url": "https://info.btchel.com/index.html",
+    "retrieved": "2026-10-07T21:00:00+00:00"
+   }
+  },
+  {
+   "id": "2019e48c3cb9",
+   "title": "Bitcoin Mining Academy in Helsinki",
+   "title_original": null,
+   "start": "2026-09-24T09:00:00+03:00",
+   "end": "2026-09-24T18:00:00+03:00",
+   "place": "Mechelininkatu 3 C, 00100 Helsinki",
+   "city": "Helsinki",
+   "country": "FI",
+   "online": false,
+   "organiser": "AmityAge with OurPool",
+   "url": "https://info.btchel.com/index.html",
+   "source": "backfill",
+   "paid": null,
+   "sponsored": null,
+   "note": null,
+   "note_i18n": {},
+   "past": true,
+   "ongoing": false,
+   "html_url": "https://nordiccrypto.no/calendar/2019e48c3cb9/",
+   "html_urls": {
+    "en": "https://nordiccrypto.no/calendar/2019e48c3cb9/",
+    "nn": "https://nordiccrypto.no/nn/calendar/2019e48c3cb9/",
+    "nb": "https://nordiccrypto.no/nb/calendar/2019e48c3cb9/",
+    "sv": "https://nordiccrypto.no/sv/calendar/2019e48c3cb9/",
+    "da": "https://nordiccrypto.no/da/calendar/2019e48c3cb9/",
+    "fi": "https://nordiccrypto.no/fi/calendar/2019e48c3cb9/",
+    "is": "https://nordiccrypto.no/is/calendar/2019e48c3cb9/",
+    "zh": "https://nordiccrypto.no/zh/calendar/2019e48c3cb9/",
+    "hi": "https://nordiccrypto.no/hi/calendar/2019e48c3cb9/",
+    "es": "https://nordiccrypto.no/es/calendar/2019e48c3cb9/",
+    "fr": "https://nordiccrypto.no/fr/calendar/2019e48c3cb9/",
+    "ar": "https://nordiccrypto.no/ar/calendar/2019e48c3cb9/",
+    "bn": "https://nordiccrypto.no/bn/calendar/2019e48c3cb9/",
+    "pt": "https://nordiccrypto.no/pt/calendar/2019e48c3cb9/",
+    "ru": "https://nordiccrypto.no/ru/calendar/2019e48c3cb9/",
+    "ur": "https://nordiccrypto.no/ur/calendar/2019e48c3cb9/",
+    "id": "https://nordiccrypto.no/id/calendar/2019e48c3cb9/",
+    "de": "https://nordiccrypto.no/de/calendar/2019e48c3cb9/",
+    "ja": "https://nordiccrypto.no/ja/calendar/2019e48c3cb9/",
+    "sw": "https://nordiccrypto.no/sw/calendar/2019e48c3cb9/",
+    "mr": "https://nordiccrypto.no/mr/calendar/2019e48c3cb9/"
+   },
+   "api_url": "https://nordiccrypto.no/api/v1/events/2019e48c3cb9.json",
+   "backfill": true,
+   "event_type": "seminar",
+   "credits": {
+    "title": {
+     "source_name": "BTCHEL",
+     "source_url": "https://info.btchel.com/index.html",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "start": {
+     "source_name": "BTCHEL",
+     "source_url": "https://info.btchel.com/index.html",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "end": {
+     "source_name": "BTCHEL",
+     "source_url": "https://info.btchel.com/index.html",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "place": {
+     "source_name": "BTCHEL",
+     "source_url": "https://info.btchel.com/index.html",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "city": {
+     "source_name": "BTCHEL",
+     "source_url": "https://info.btchel.com/index.html",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "country": {
+     "source_name": "BTCHEL",
+     "source_url": "https://info.btchel.com/index.html",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "organiser": {
+     "source_name": "BTCHEL",
+     "source_url": "https://info.btchel.com/index.html",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "url": {
+     "source_name": "BTCHEL",
+     "source_url": "https://info.btchel.com/index.html",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "event_type": {
+     "source_name": "BTCHEL",
+     "source_url": "https://info.btchel.com/index.html",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    }
+   },
+   "place_source": {
+    "name": "BTCHEL",
+    "url": "https://info.btchel.com/index.html",
+    "retrieved": "2026-10-07T21:00:00+00:00"
+   }
+  },
+  {
+   "id": "4cd0147fef4e",
+   "title": "The European Mining Summit",
+   "title_original": null,
+   "start": "2026-09-23T09:30:00+03:00",
+   "end": "2026-09-23T18:00:00+03:00",
+   "place": "Kaapelitehdas, Kaapeliaukio 3, 00180 Helsinki",
+   "city": "Helsinki",
+   "country": "FI",
+   "online": false,
+   "organiser": "BTCHEL and the European Bitcoin Energy Association",
+   "url": "https://info.btchel.com/index.html",
+   "source": "backfill",
+   "paid": null,
+   "sponsored": null,
+   "note": null,
+   "note_i18n": {},
+   "past": true,
+   "ongoing": false,
+   "html_url": "https://nordiccrypto.no/calendar/4cd0147fef4e/",
+   "html_urls": {
+    "en": "https://nordiccrypto.no/calendar/4cd0147fef4e/",
+    "nn": "https://nordiccrypto.no/nn/calendar/4cd0147fef4e/",
+    "nb": "https://nordiccrypto.no/nb/calendar/4cd0147fef4e/",
+    "sv": "https://nordiccrypto.no/sv/calendar/4cd0147fef4e/",
+    "da": "https://nordiccrypto.no/da/calendar/4cd0147fef4e/",
+    "fi": "https://nordiccrypto.no/fi/calendar/4cd0147fef4e/",
+    "is": "https://nordiccrypto.no/is/calendar/4cd0147fef4e/",
+    "zh": "https://nordiccrypto.no/zh/calendar/4cd0147fef4e/",
+    "hi": "https://nordiccrypto.no/hi/calendar/4cd0147fef4e/",
+    "es": "https://nordiccrypto.no/es/calendar/4cd0147fef4e/",
+    "fr": "https://nordiccrypto.no/fr/calendar/4cd0147fef4e/",
+    "ar": "https://nordiccrypto.no/ar/calendar/4cd0147fef4e/",
+    "bn": "https://nordiccrypto.no/bn/calendar/4cd0147fef4e/",
+    "pt": "https://nordiccrypto.no/pt/calendar/4cd0147fef4e/",
+    "ru": "https://nordiccrypto.no/ru/calendar/4cd0147fef4e/",
+    "ur": "https://nordiccrypto.no/ur/calendar/4cd0147fef4e/",
+    "id": "https://nordiccrypto.no/id/calendar/4cd0147fef4e/",
+    "de": "https://nordiccrypto.no/de/calendar/4cd0147fef4e/",
+    "ja": "https://nordiccrypto.no/ja/calendar/4cd0147fef4e/",
+    "sw": "https://nordiccrypto.no/sw/calendar/4cd0147fef4e/",
+    "mr": "https://nordiccrypto.no/mr/calendar/4cd0147fef4e/"
+   },
+   "api_url": "https://nordiccrypto.no/api/v1/events/4cd0147fef4e.json",
+   "backfill": true,
+   "event_type": "conference",
+   "credits": {
+    "title": {
+     "source_name": "BTCHEL",
+     "source_url": "https://info.btchel.com/index.html",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "start": {
+     "source_name": "BTCHEL",
+     "source_url": "https://info.btchel.com/index.html",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "end": {
+     "source_name": "BTCHEL",
+     "source_url": "https://info.btchel.com/index.html",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "place": {
+     "source_name": "BTCHEL",
+     "source_url": "https://info.btchel.com/index.html",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "city": {
+     "source_name": "BTCHEL",
+     "source_url": "https://info.btchel.com/index.html",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "country": {
+     "source_name": "BTCHEL",
+     "source_url": "https://info.btchel.com/index.html",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "organiser": {
+     "source_name": "BTCHEL",
+     "source_url": "https://info.btchel.com/index.html",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "url": {
+     "source_name": "BTCHEL",
+     "source_url": "https://info.btchel.com/index.html",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "event_type": {
+     "source_name": "BTCHEL",
+     "source_url": "https://info.btchel.com/index.html",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    }
+   },
+   "place_source": {
+    "name": "BTCHEL",
+    "url": "https://info.btchel.com/index.html",
+    "retrieved": "2026-10-07T21:00:00+00:00"
+   }
+  },
+  {
+   "id": "71149f675741",
+   "title": "Arne Ryde Conference on Crypto, Fintech and Payments",
+   "title_original": null,
+   "start": "2026-08-25T08:30:00+02:00",
+   "end": "2026-08-26T12:30:00+02:00",
+   "place": "Grand Hotel, Bantorget 1, Lund",
+   "city": "Lund",
+   "country": "SE",
+   "online": false,
+   "organiser": "Knut Wicksell Centre for Financial Studies, Lund University School of Economics and Management",
+   "url": "https://www.lusem.lu.se/calendar/arne-ryde-conference-crypto-fintech-and-payments",
+   "source": "Lund University School of Economics and Management (lusem.lu.se)",
+   "paid": null,
+   "sponsored": null,
+   "note": null,
+   "note_i18n": {},
+   "past": true,
+   "ongoing": false,
+   "html_url": "https://nordiccrypto.no/calendar/71149f675741/",
+   "html_urls": {
+    "en": "https://nordiccrypto.no/calendar/71149f675741/",
+    "nn": "https://nordiccrypto.no/nn/calendar/71149f675741/",
+    "nb": "https://nordiccrypto.no/nb/calendar/71149f675741/",
+    "sv": "https://nordiccrypto.no/sv/calendar/71149f675741/",
+    "da": "https://nordiccrypto.no/da/calendar/71149f675741/",
+    "fi": "https://nordiccrypto.no/fi/calendar/71149f675741/",
+    "is": "https://nordiccrypto.no/is/calendar/71149f675741/",
+    "zh": "https://nordiccrypto.no/zh/calendar/71149f675741/",
+    "hi": "https://nordiccrypto.no/hi/calendar/71149f675741/",
+    "es": "https://nordiccrypto.no/es/calendar/71149f675741/",
+    "fr": "https://nordiccrypto.no/fr/calendar/71149f675741/",
+    "ar": "https://nordiccrypto.no/ar/calendar/71149f675741/",
+    "bn": "https://nordiccrypto.no/bn/calendar/71149f675741/",
+    "pt": "https://nordiccrypto.no/pt/calendar/71149f675741/",
+    "ru": "https://nordiccrypto.no/ru/calendar/71149f675741/",
+    "ur": "https://nordiccrypto.no/ur/calendar/71149f675741/",
+    "id": "https://nordiccrypto.no/id/calendar/71149f675741/",
+    "de": "https://nordiccrypto.no/de/calendar/71149f675741/",
+    "ja": "https://nordiccrypto.no/ja/calendar/71149f675741/",
+    "sw": "https://nordiccrypto.no/sw/calendar/71149f675741/",
+    "mr": "https://nordiccrypto.no/mr/calendar/71149f675741/"
+   },
+   "api_url": "https://nordiccrypto.no/api/v1/events/71149f675741.json",
+   "place_source": {
+    "name": "Lund University School of Economics and Management (lusem.lu.se)",
+    "url": "https://www.lusem.lu.se/calendar/arne-ryde-conference-crypto-fintech-and-payments"
+   }
+  },
+  {
+   "id": "faa749a8058c",
+   "title": "BTCHEL 2025",
+   "title_original": null,
+   "start": "2025-08-15T00:00:00+03:00",
+   "end": "2025-08-16T23:59:00+03:00",
+   "place": "",
+   "city": "Helsinki",
+   "country": "FI",
+   "online": false,
+   "organiser": "BTCHEL",
+   "url": "https://bt.cx/en/news/2025/07/24/03-BTCHEL-2025-The-Biggest-Bitcoin-Celebration-in-the-Nordics-Is-Coming/",
+   "source": "backfill",
+   "paid": null,
+   "sponsored": null,
+   "note": null,
+   "note_i18n": {},
+   "past": true,
+   "ongoing": false,
+   "html_url": "https://nordiccrypto.no/calendar/faa749a8058c/",
+   "html_urls": {
+    "en": "https://nordiccrypto.no/calendar/faa749a8058c/",
+    "nn": "https://nordiccrypto.no/nn/calendar/faa749a8058c/",
+    "nb": "https://nordiccrypto.no/nb/calendar/faa749a8058c/",
+    "sv": "https://nordiccrypto.no/sv/calendar/faa749a8058c/",
+    "da": "https://nordiccrypto.no/da/calendar/faa749a8058c/",
+    "fi": "https://nordiccrypto.no/fi/calendar/faa749a8058c/",
+    "is": "https://nordiccrypto.no/is/calendar/faa749a8058c/",
+    "zh": "https://nordiccrypto.no/zh/calendar/faa749a8058c/",
+    "hi": "https://nordiccrypto.no/hi/calendar/faa749a8058c/",
+    "es": "https://nordiccrypto.no/es/calendar/faa749a8058c/",
+    "fr": "https://nordiccrypto.no/fr/calendar/faa749a8058c/",
+    "ar": "https://nordiccrypto.no/ar/calendar/faa749a8058c/",
+    "bn": "https://nordiccrypto.no/bn/calendar/faa749a8058c/",
+    "pt": "https://nordiccrypto.no/pt/calendar/faa749a8058c/",
+    "ru": "https://nordiccrypto.no/ru/calendar/faa749a8058c/",
+    "ur": "https://nordiccrypto.no/ur/calendar/faa749a8058c/",
+    "id": "https://nordiccrypto.no/id/calendar/faa749a8058c/",
+    "de": "https://nordiccrypto.no/de/calendar/faa749a8058c/",
+    "ja": "https://nordiccrypto.no/ja/calendar/faa749a8058c/",
+    "sw": "https://nordiccrypto.no/sw/calendar/faa749a8058c/",
+    "mr": "https://nordiccrypto.no/mr/calendar/faa749a8058c/"
+   },
+   "api_url": "https://nordiccrypto.no/api/v1/events/faa749a8058c.json",
+   "backfill": true,
+   "event_type": "conference",
+   "credits": {
+    "title": {
+     "source_name": "BTCX",
+     "source_url": "https://bt.cx/en/news/2025/07/24/03-BTCHEL-2025-The-Biggest-Bitcoin-Celebration-in-the-Nordics-Is-Coming/",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "start": {
+     "source_name": "BTCX",
+     "source_url": "https://bt.cx/en/news/2025/07/24/03-BTCHEL-2025-The-Biggest-Bitcoin-Celebration-in-the-Nordics-Is-Coming/",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "end": {
+     "source_name": "BTCX",
+     "source_url": "https://bt.cx/en/news/2025/07/24/03-BTCHEL-2025-The-Biggest-Bitcoin-Celebration-in-the-Nordics-Is-Coming/",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "city": {
+     "source_name": "BTCX",
+     "source_url": "https://bt.cx/en/news/2025/07/24/03-BTCHEL-2025-The-Biggest-Bitcoin-Celebration-in-the-Nordics-Is-Coming/",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "country": {
+     "source_name": "BTCX",
+     "source_url": "https://bt.cx/en/news/2025/07/24/03-BTCHEL-2025-The-Biggest-Bitcoin-Celebration-in-the-Nordics-Is-Coming/",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "organiser": {
+     "source_name": "BTCX",
+     "source_url": "https://bt.cx/en/news/2025/07/24/03-BTCHEL-2025-The-Biggest-Bitcoin-Celebration-in-the-Nordics-Is-Coming/",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "url": {
+     "source_name": "BTCX",
+     "source_url": "https://bt.cx/en/news/2025/07/24/03-BTCHEL-2025-The-Biggest-Bitcoin-Celebration-in-the-Nordics-Is-Coming/",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "event_type": {
+     "source_name": "BTCX",
+     "source_url": "https://bt.cx/en/news/2025/07/24/03-BTCHEL-2025-The-Biggest-Bitcoin-Celebration-in-the-Nordics-Is-Coming/",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    }
+   },
+   "place_source": {
+    "name": "BTCX",
+    "url": "https://bt.cx/en/news/2025/07/24/03-BTCHEL-2025-The-Biggest-Bitcoin-Celebration-in-the-Nordics-Is-Coming/",
+    "retrieved": "2026-10-07T21:00:00+00:00"
+   }
+  },
+  {
+   "id": "c4dd9c6f0526",
+   "title": "CBDC hackathon with Fintech Norway and Virke",
+   "title_original": null,
+   "start": "2023-03-15T00:00:00+01:00",
+   "end": "2023-03-17T23:59:00+01:00",
+   "place": "",
+   "city": "Oslo",
+   "country": "NO",
+   "online": false,
+   "organiser": "Norges Bank, Fintech Norway and Virke",
+   "url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+   "source": "backfill",
+   "paid": null,
+   "sponsored": null,
+   "note": null,
+   "note_i18n": {},
+   "past": true,
+   "ongoing": false,
+   "html_url": "https://nordiccrypto.no/calendar/c4dd9c6f0526/",
+   "html_urls": {
+    "en": "https://nordiccrypto.no/calendar/c4dd9c6f0526/",
+    "nn": "https://nordiccrypto.no/nn/calendar/c4dd9c6f0526/",
+    "nb": "https://nordiccrypto.no/nb/calendar/c4dd9c6f0526/",
+    "sv": "https://nordiccrypto.no/sv/calendar/c4dd9c6f0526/",
+    "da": "https://nordiccrypto.no/da/calendar/c4dd9c6f0526/",
+    "fi": "https://nordiccrypto.no/fi/calendar/c4dd9c6f0526/",
+    "is": "https://nordiccrypto.no/is/calendar/c4dd9c6f0526/",
+    "zh": "https://nordiccrypto.no/zh/calendar/c4dd9c6f0526/",
+    "hi": "https://nordiccrypto.no/hi/calendar/c4dd9c6f0526/",
+    "es": "https://nordiccrypto.no/es/calendar/c4dd9c6f0526/",
+    "fr": "https://nordiccrypto.no/fr/calendar/c4dd9c6f0526/",
+    "ar": "https://nordiccrypto.no/ar/calendar/c4dd9c6f0526/",
+    "bn": "https://nordiccrypto.no/bn/calendar/c4dd9c6f0526/",
+    "pt": "https://nordiccrypto.no/pt/calendar/c4dd9c6f0526/",
+    "ru": "https://nordiccrypto.no/ru/calendar/c4dd9c6f0526/",
+    "ur": "https://nordiccrypto.no/ur/calendar/c4dd9c6f0526/",
+    "id": "https://nordiccrypto.no/id/calendar/c4dd9c6f0526/",
+    "de": "https://nordiccrypto.no/de/calendar/c4dd9c6f0526/",
+    "ja": "https://nordiccrypto.no/ja/calendar/c4dd9c6f0526/",
+    "sw": "https://nordiccrypto.no/sw/calendar/c4dd9c6f0526/",
+    "mr": "https://nordiccrypto.no/mr/calendar/c4dd9c6f0526/"
+   },
+   "api_url": "https://nordiccrypto.no/api/v1/events/c4dd9c6f0526.json",
+   "backfill": true,
+   "event_type": "hackathon",
+   "credits": {
+    "title": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "start": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "end": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "city": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "country": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "organiser": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "url": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "event_type": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    }
+   },
+   "place_source": {
+    "name": "Norges Bank",
+    "url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+    "retrieved": "2026-10-07T21:00:00+00:00"
+   }
+  },
+  {
+   "id": "211a89133561",
+   "title": "CBDC presentations at Norges Bank",
+   "title_original": null,
+   "start": "2023-01-19T00:00:00+01:00",
+   "end": "2023-01-19T23:59:00+01:00",
+   "place": "Norges Bank's auditorium",
+   "city": "",
+   "country": "NO",
+   "online": false,
+   "organiser": "Norges Bank",
+   "url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+   "source": "backfill",
+   "paid": null,
+   "sponsored": null,
+   "note": null,
+   "note_i18n": {},
+   "past": true,
+   "ongoing": false,
+   "html_url": "https://nordiccrypto.no/calendar/211a89133561/",
+   "html_urls": {
+    "en": "https://nordiccrypto.no/calendar/211a89133561/",
+    "nn": "https://nordiccrypto.no/nn/calendar/211a89133561/",
+    "nb": "https://nordiccrypto.no/nb/calendar/211a89133561/",
+    "sv": "https://nordiccrypto.no/sv/calendar/211a89133561/",
+    "da": "https://nordiccrypto.no/da/calendar/211a89133561/",
+    "fi": "https://nordiccrypto.no/fi/calendar/211a89133561/",
+    "is": "https://nordiccrypto.no/is/calendar/211a89133561/",
+    "zh": "https://nordiccrypto.no/zh/calendar/211a89133561/",
+    "hi": "https://nordiccrypto.no/hi/calendar/211a89133561/",
+    "es": "https://nordiccrypto.no/es/calendar/211a89133561/",
+    "fr": "https://nordiccrypto.no/fr/calendar/211a89133561/",
+    "ar": "https://nordiccrypto.no/ar/calendar/211a89133561/",
+    "bn": "https://nordiccrypto.no/bn/calendar/211a89133561/",
+    "pt": "https://nordiccrypto.no/pt/calendar/211a89133561/",
+    "ru": "https://nordiccrypto.no/ru/calendar/211a89133561/",
+    "ur": "https://nordiccrypto.no/ur/calendar/211a89133561/",
+    "id": "https://nordiccrypto.no/id/calendar/211a89133561/",
+    "de": "https://nordiccrypto.no/de/calendar/211a89133561/",
+    "ja": "https://nordiccrypto.no/ja/calendar/211a89133561/",
+    "sw": "https://nordiccrypto.no/sw/calendar/211a89133561/",
+    "mr": "https://nordiccrypto.no/mr/calendar/211a89133561/"
+   },
+   "api_url": "https://nordiccrypto.no/api/v1/events/211a89133561.json",
+   "backfill": true,
+   "event_type": "seminar",
+   "credits": {
+    "title": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "start": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "end": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "place": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "country": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "organiser": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "url": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "event_type": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    }
+   },
+   "place_source": {
+    "name": "Norges Bank",
+    "url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+    "retrieved": "2026-10-07T21:00:00+00:00"
+   }
+  },
+  {
+   "id": "c578c333e352",
+   "title": "Workshop on CBDC, IoT and machine-to-machine payments",
+   "title_original": null,
+   "start": "2023-01-10T00:00:00+01:00",
+   "end": "2023-01-10T23:59:00+01:00",
+   "place": "University of Oslo",
+   "city": "Oslo",
+   "country": "NO",
+   "online": false,
+   "organiser": "Norges Bank and the Blockchain Lab at the University of Oslo",
+   "url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+   "source": "backfill",
+   "paid": null,
+   "sponsored": null,
+   "note": null,
+   "note_i18n": {},
+   "past": true,
+   "ongoing": false,
+   "html_url": "https://nordiccrypto.no/calendar/c578c333e352/",
+   "html_urls": {
+    "en": "https://nordiccrypto.no/calendar/c578c333e352/",
+    "nn": "https://nordiccrypto.no/nn/calendar/c578c333e352/",
+    "nb": "https://nordiccrypto.no/nb/calendar/c578c333e352/",
+    "sv": "https://nordiccrypto.no/sv/calendar/c578c333e352/",
+    "da": "https://nordiccrypto.no/da/calendar/c578c333e352/",
+    "fi": "https://nordiccrypto.no/fi/calendar/c578c333e352/",
+    "is": "https://nordiccrypto.no/is/calendar/c578c333e352/",
+    "zh": "https://nordiccrypto.no/zh/calendar/c578c333e352/",
+    "hi": "https://nordiccrypto.no/hi/calendar/c578c333e352/",
+    "es": "https://nordiccrypto.no/es/calendar/c578c333e352/",
+    "fr": "https://nordiccrypto.no/fr/calendar/c578c333e352/",
+    "ar": "https://nordiccrypto.no/ar/calendar/c578c333e352/",
+    "bn": "https://nordiccrypto.no/bn/calendar/c578c333e352/",
+    "pt": "https://nordiccrypto.no/pt/calendar/c578c333e352/",
+    "ru": "https://nordiccrypto.no/ru/calendar/c578c333e352/",
+    "ur": "https://nordiccrypto.no/ur/calendar/c578c333e352/",
+    "id": "https://nordiccrypto.no/id/calendar/c578c333e352/",
+    "de": "https://nordiccrypto.no/de/calendar/c578c333e352/",
+    "ja": "https://nordiccrypto.no/ja/calendar/c578c333e352/",
+    "sw": "https://nordiccrypto.no/sw/calendar/c578c333e352/",
+    "mr": "https://nordiccrypto.no/mr/calendar/c578c333e352/"
+   },
+   "api_url": "https://nordiccrypto.no/api/v1/events/c578c333e352.json",
+   "backfill": true,
+   "event_type": "seminar",
+   "credits": {
+    "title": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "start": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "end": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "place": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "city": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "country": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "organiser": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "url": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "event_type": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    }
+   },
+   "place_source": {
+    "name": "Norges Bank",
+    "url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+    "retrieved": "2026-10-07T21:00:00+00:00"
+   }
+  },
+  {
+   "id": "456d06c0b3c1",
+   "title": "CBDC brainstorming with Digdir",
+   "title_original": null,
+   "start": "2022-11-22T00:00:00+01:00",
+   "end": "2022-11-22T23:59:00+01:00",
+   "place": "Digdir's premises",
+   "city": "",
+   "country": "NO",
+   "online": false,
+   "organiser": "Norges Bank and Digdir",
+   "url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+   "source": "backfill",
+   "paid": null,
+   "sponsored": null,
+   "note": null,
+   "note_i18n": {},
+   "past": true,
+   "ongoing": false,
+   "html_url": "https://nordiccrypto.no/calendar/456d06c0b3c1/",
+   "html_urls": {
+    "en": "https://nordiccrypto.no/calendar/456d06c0b3c1/",
+    "nn": "https://nordiccrypto.no/nn/calendar/456d06c0b3c1/",
+    "nb": "https://nordiccrypto.no/nb/calendar/456d06c0b3c1/",
+    "sv": "https://nordiccrypto.no/sv/calendar/456d06c0b3c1/",
+    "da": "https://nordiccrypto.no/da/calendar/456d06c0b3c1/",
+    "fi": "https://nordiccrypto.no/fi/calendar/456d06c0b3c1/",
+    "is": "https://nordiccrypto.no/is/calendar/456d06c0b3c1/",
+    "zh": "https://nordiccrypto.no/zh/calendar/456d06c0b3c1/",
+    "hi": "https://nordiccrypto.no/hi/calendar/456d06c0b3c1/",
+    "es": "https://nordiccrypto.no/es/calendar/456d06c0b3c1/",
+    "fr": "https://nordiccrypto.no/fr/calendar/456d06c0b3c1/",
+    "ar": "https://nordiccrypto.no/ar/calendar/456d06c0b3c1/",
+    "bn": "https://nordiccrypto.no/bn/calendar/456d06c0b3c1/",
+    "pt": "https://nordiccrypto.no/pt/calendar/456d06c0b3c1/",
+    "ru": "https://nordiccrypto.no/ru/calendar/456d06c0b3c1/",
+    "ur": "https://nordiccrypto.no/ur/calendar/456d06c0b3c1/",
+    "id": "https://nordiccrypto.no/id/calendar/456d06c0b3c1/",
+    "de": "https://nordiccrypto.no/de/calendar/456d06c0b3c1/",
+    "ja": "https://nordiccrypto.no/ja/calendar/456d06c0b3c1/",
+    "sw": "https://nordiccrypto.no/sw/calendar/456d06c0b3c1/",
+    "mr": "https://nordiccrypto.no/mr/calendar/456d06c0b3c1/"
+   },
+   "api_url": "https://nordiccrypto.no/api/v1/events/456d06c0b3c1.json",
+   "backfill": true,
+   "event_type": "seminar",
+   "credits": {
+    "title": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "start": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "end": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "place": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "country": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "organiser": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "url": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "event_type": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    }
+   },
+   "place_source": {
+    "name": "Norges Bank",
+    "url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+    "retrieved": "2026-10-07T21:00:00+00:00"
+   }
+  },
+  {
+   "id": "2d2d72207fd4",
+   "title": "CBDC conference and hackathon in Bergen",
+   "title_original": null,
+   "start": "2022-10-21T00:00:00+02:00",
+   "end": "2022-10-21T23:59:00+02:00",
+   "place": "",
+   "city": "Bergen",
+   "country": "NO",
+   "online": false,
+   "organiser": "Norges Bank, Simula and the University of Bergen",
+   "url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+   "source": "backfill",
+   "paid": null,
+   "sponsored": null,
+   "note": null,
+   "note_i18n": {},
+   "past": true,
+   "ongoing": false,
+   "html_url": "https://nordiccrypto.no/calendar/2d2d72207fd4/",
+   "html_urls": {
+    "en": "https://nordiccrypto.no/calendar/2d2d72207fd4/",
+    "nn": "https://nordiccrypto.no/nn/calendar/2d2d72207fd4/",
+    "nb": "https://nordiccrypto.no/nb/calendar/2d2d72207fd4/",
+    "sv": "https://nordiccrypto.no/sv/calendar/2d2d72207fd4/",
+    "da": "https://nordiccrypto.no/da/calendar/2d2d72207fd4/",
+    "fi": "https://nordiccrypto.no/fi/calendar/2d2d72207fd4/",
+    "is": "https://nordiccrypto.no/is/calendar/2d2d72207fd4/",
+    "zh": "https://nordiccrypto.no/zh/calendar/2d2d72207fd4/",
+    "hi": "https://nordiccrypto.no/hi/calendar/2d2d72207fd4/",
+    "es": "https://nordiccrypto.no/es/calendar/2d2d72207fd4/",
+    "fr": "https://nordiccrypto.no/fr/calendar/2d2d72207fd4/",
+    "ar": "https://nordiccrypto.no/ar/calendar/2d2d72207fd4/",
+    "bn": "https://nordiccrypto.no/bn/calendar/2d2d72207fd4/",
+    "pt": "https://nordiccrypto.no/pt/calendar/2d2d72207fd4/",
+    "ru": "https://nordiccrypto.no/ru/calendar/2d2d72207fd4/",
+    "ur": "https://nordiccrypto.no/ur/calendar/2d2d72207fd4/",
+    "id": "https://nordiccrypto.no/id/calendar/2d2d72207fd4/",
+    "de": "https://nordiccrypto.no/de/calendar/2d2d72207fd4/",
+    "ja": "https://nordiccrypto.no/ja/calendar/2d2d72207fd4/",
+    "sw": "https://nordiccrypto.no/sw/calendar/2d2d72207fd4/",
+    "mr": "https://nordiccrypto.no/mr/calendar/2d2d72207fd4/"
+   },
+   "api_url": "https://nordiccrypto.no/api/v1/events/2d2d72207fd4.json",
+   "backfill": true,
+   "event_type": "conference",
+   "credits": {
+    "title": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "start": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "end": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "city": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "country": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "organiser": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "url": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "event_type": {
+     "source_name": "Norges Bank",
+     "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    }
+   },
+   "place_source": {
+    "name": "Norges Bank",
+    "url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+    "retrieved": "2026-10-07T21:00:00+00:00"
+   }
+  },
+  {
+   "id": "419358586d18",
+   "title": "Er bálkakeðja framtíðin?",
+   "title_original": null,
+   "start": "2018-11-27T12:00:00+00:00",
+   "end": null,
+   "place": "Háskólinn í Reykjavík",
+   "city": "Reykjavík",
+   "country": "IS",
+   "online": false,
+   "organiser": "Háskólinn í Reykjavík",
+   "url": "https://medium.com/rafmyntar%C3%A1%C3%B0/fyrirlestur-%C3%AD-hr-27-n%C3%B3vember-99b06030f92f",
+   "source": "backfill",
+   "paid": null,
+   "sponsored": null,
+   "note": null,
+   "note_i18n": {},
+   "past": true,
+   "ongoing": false,
+   "html_url": "https://nordiccrypto.no/calendar/419358586d18/",
+   "html_urls": {
+    "en": "https://nordiccrypto.no/calendar/419358586d18/",
+    "nn": "https://nordiccrypto.no/nn/calendar/419358586d18/",
+    "nb": "https://nordiccrypto.no/nb/calendar/419358586d18/",
+    "sv": "https://nordiccrypto.no/sv/calendar/419358586d18/",
+    "da": "https://nordiccrypto.no/da/calendar/419358586d18/",
+    "fi": "https://nordiccrypto.no/fi/calendar/419358586d18/",
+    "is": "https://nordiccrypto.no/is/calendar/419358586d18/",
+    "zh": "https://nordiccrypto.no/zh/calendar/419358586d18/",
+    "hi": "https://nordiccrypto.no/hi/calendar/419358586d18/",
+    "es": "https://nordiccrypto.no/es/calendar/419358586d18/",
+    "fr": "https://nordiccrypto.no/fr/calendar/419358586d18/",
+    "ar": "https://nordiccrypto.no/ar/calendar/419358586d18/",
+    "bn": "https://nordiccrypto.no/bn/calendar/419358586d18/",
+    "pt": "https://nordiccrypto.no/pt/calendar/419358586d18/",
+    "ru": "https://nordiccrypto.no/ru/calendar/419358586d18/",
+    "ur": "https://nordiccrypto.no/ur/calendar/419358586d18/",
+    "id": "https://nordiccrypto.no/id/calendar/419358586d18/",
+    "de": "https://nordiccrypto.no/de/calendar/419358586d18/",
+    "ja": "https://nordiccrypto.no/ja/calendar/419358586d18/",
+    "sw": "https://nordiccrypto.no/sw/calendar/419358586d18/",
+    "mr": "https://nordiccrypto.no/mr/calendar/419358586d18/"
+   },
+   "api_url": "https://nordiccrypto.no/api/v1/events/419358586d18.json",
+   "backfill": true,
+   "event_type": "seminar",
+   "language": "is",
+   "credits": {
+    "title": {
+     "source_name": "Rafmyntaráð Íslands",
+     "source_url": "https://medium.com/rafmyntar%C3%A1%C3%B0/fyrirlestur-%C3%AD-hr-27-n%C3%B3vember-99b06030f92f",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "start": {
+     "source_name": "Rafmyntaráð Íslands",
+     "source_url": "https://medium.com/rafmyntar%C3%A1%C3%B0/fyrirlestur-%C3%AD-hr-27-n%C3%B3vember-99b06030f92f",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "place": {
+     "source_name": "Rafmyntaráð Íslands",
+     "source_url": "https://medium.com/rafmyntar%C3%A1%C3%B0/fyrirlestur-%C3%AD-hr-27-n%C3%B3vember-99b06030f92f",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "city": {
+     "source_name": "Rafmyntaráð Íslands",
+     "source_url": "https://medium.com/rafmyntar%C3%A1%C3%B0/fyrirlestur-%C3%AD-hr-27-n%C3%B3vember-99b06030f92f",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "country": {
+     "source_name": "Rafmyntaráð Íslands",
+     "source_url": "https://medium.com/rafmyntar%C3%A1%C3%B0/fyrirlestur-%C3%AD-hr-27-n%C3%B3vember-99b06030f92f",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "organiser": {
+     "source_name": "Rafmyntaráð Íslands",
+     "source_url": "https://medium.com/rafmyntar%C3%A1%C3%B0/fyrirlestur-%C3%AD-hr-27-n%C3%B3vember-99b06030f92f",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "url": {
+     "source_name": "Rafmyntaráð Íslands",
+     "source_url": "https://medium.com/rafmyntar%C3%A1%C3%B0/fyrirlestur-%C3%AD-hr-27-n%C3%B3vember-99b06030f92f",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "event_type": {
+     "source_name": "Rafmyntaráð Íslands",
+     "source_url": "https://medium.com/rafmyntar%C3%A1%C3%B0/fyrirlestur-%C3%AD-hr-27-n%C3%B3vember-99b06030f92f",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "language": {
+     "source_name": "Rafmyntaráð Íslands",
+     "source_url": "https://medium.com/rafmyntar%C3%A1%C3%B0/fyrirlestur-%C3%AD-hr-27-n%C3%B3vember-99b06030f92f",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    }
+   },
+   "place_source": {
+    "name": "Rafmyntaráð Íslands",
+    "url": "https://medium.com/rafmyntar%C3%A1%C3%B0/fyrirlestur-%C3%AD-hr-27-n%C3%B3vember-99b06030f92f",
+    "retrieved": "2026-10-07T21:00:00+00:00"
+   }
+  },
+  {
+   "id": "fbacdd896bf4",
+   "title": "Rafmynt - fundur fyrir alla félagsmenn",
+   "title_original": null,
+   "start": "2018-04-18T16:45:00+00:00",
+   "end": null,
+   "place": "stofa V-158 í VR-II við Hjarðarhaga",
+   "city": "",
+   "country": "IS",
+   "online": false,
+   "organiser": "Íslenska stærðfræðafélagið",
+   "url": "https://stae.is/ísf/event/51617",
+   "source": "backfill",
+   "paid": null,
+   "sponsored": null,
+   "note": null,
+   "note_i18n": {},
+   "past": true,
+   "ongoing": false,
+   "html_url": "https://nordiccrypto.no/calendar/fbacdd896bf4/",
+   "html_urls": {
+    "en": "https://nordiccrypto.no/calendar/fbacdd896bf4/",
+    "nn": "https://nordiccrypto.no/nn/calendar/fbacdd896bf4/",
+    "nb": "https://nordiccrypto.no/nb/calendar/fbacdd896bf4/",
+    "sv": "https://nordiccrypto.no/sv/calendar/fbacdd896bf4/",
+    "da": "https://nordiccrypto.no/da/calendar/fbacdd896bf4/",
+    "fi": "https://nordiccrypto.no/fi/calendar/fbacdd896bf4/",
+    "is": "https://nordiccrypto.no/is/calendar/fbacdd896bf4/",
+    "zh": "https://nordiccrypto.no/zh/calendar/fbacdd896bf4/",
+    "hi": "https://nordiccrypto.no/hi/calendar/fbacdd896bf4/",
+    "es": "https://nordiccrypto.no/es/calendar/fbacdd896bf4/",
+    "fr": "https://nordiccrypto.no/fr/calendar/fbacdd896bf4/",
+    "ar": "https://nordiccrypto.no/ar/calendar/fbacdd896bf4/",
+    "bn": "https://nordiccrypto.no/bn/calendar/fbacdd896bf4/",
+    "pt": "https://nordiccrypto.no/pt/calendar/fbacdd896bf4/",
+    "ru": "https://nordiccrypto.no/ru/calendar/fbacdd896bf4/",
+    "ur": "https://nordiccrypto.no/ur/calendar/fbacdd896bf4/",
+    "id": "https://nordiccrypto.no/id/calendar/fbacdd896bf4/",
+    "de": "https://nordiccrypto.no/de/calendar/fbacdd896bf4/",
+    "ja": "https://nordiccrypto.no/ja/calendar/fbacdd896bf4/",
+    "sw": "https://nordiccrypto.no/sw/calendar/fbacdd896bf4/",
+    "mr": "https://nordiccrypto.no/mr/calendar/fbacdd896bf4/"
+   },
+   "api_url": "https://nordiccrypto.no/api/v1/events/fbacdd896bf4.json",
+   "backfill": true,
+   "event_type": "seminar",
+   "credits": {
+    "title": {
+     "source_name": "Íslenska stærðfræðafélagið",
+     "source_url": "https://stae.is/ísf/event/51617",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "start": {
+     "source_name": "Íslenska stærðfræðafélagið",
+     "source_url": "https://stae.is/ísf/event/51617",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "place": {
+     "source_name": "Íslenska stærðfræðafélagið",
+     "source_url": "https://stae.is/ísf/event/51617",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "country": {
+     "source_name": "Íslenska stærðfræðafélagið",
+     "source_url": "https://stae.is/ísf/event/51617",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "organiser": {
+     "source_name": "Íslenska stærðfræðafélagið",
+     "source_url": "https://stae.is/ísf/event/51617",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "url": {
+     "source_name": "Íslenska stærðfræðafélagið",
+     "source_url": "https://stae.is/ísf/event/51617",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "event_type": {
+     "source_name": "Íslenska stærðfræðafélagið",
+     "source_url": "https://stae.is/ísf/event/51617",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    }
+   },
+   "place_source": {
+    "name": "Íslenska stærðfræðafélagið",
+    "url": "https://stae.is/ísf/event/51617",
+    "retrieved": "2026-10-07T21:00:00+00:00"
+   }
+  },
+  {
+   "id": "50f03a7f9898",
+   "title": "Do we need an e-krona?",
+   "title_original": null,
+   "start": "2017-12-08T00:00:00+01:00",
+   "end": "2017-12-08T23:59:00+01:00",
+   "place": "Swedish House of Finance",
+   "city": "Stockholm",
+   "country": "SE",
+   "online": false,
+   "organiser": "Sveriges Riksbank",
+   "url": "https://www.riksbank.se/globalassets/media/tal/engelska/ingves/2017/tal_ingves_171208_eng.pdf",
+   "source": "backfill",
+   "paid": null,
+   "sponsored": null,
+   "note": null,
+   "note_i18n": {},
+   "past": true,
+   "ongoing": false,
+   "html_url": "https://nordiccrypto.no/calendar/50f03a7f9898/",
+   "html_urls": {
+    "en": "https://nordiccrypto.no/calendar/50f03a7f9898/",
+    "nn": "https://nordiccrypto.no/nn/calendar/50f03a7f9898/",
+    "nb": "https://nordiccrypto.no/nb/calendar/50f03a7f9898/",
+    "sv": "https://nordiccrypto.no/sv/calendar/50f03a7f9898/",
+    "da": "https://nordiccrypto.no/da/calendar/50f03a7f9898/",
+    "fi": "https://nordiccrypto.no/fi/calendar/50f03a7f9898/",
+    "is": "https://nordiccrypto.no/is/calendar/50f03a7f9898/",
+    "zh": "https://nordiccrypto.no/zh/calendar/50f03a7f9898/",
+    "hi": "https://nordiccrypto.no/hi/calendar/50f03a7f9898/",
+    "es": "https://nordiccrypto.no/es/calendar/50f03a7f9898/",
+    "fr": "https://nordiccrypto.no/fr/calendar/50f03a7f9898/",
+    "ar": "https://nordiccrypto.no/ar/calendar/50f03a7f9898/",
+    "bn": "https://nordiccrypto.no/bn/calendar/50f03a7f9898/",
+    "pt": "https://nordiccrypto.no/pt/calendar/50f03a7f9898/",
+    "ru": "https://nordiccrypto.no/ru/calendar/50f03a7f9898/",
+    "ur": "https://nordiccrypto.no/ur/calendar/50f03a7f9898/",
+    "id": "https://nordiccrypto.no/id/calendar/50f03a7f9898/",
+    "de": "https://nordiccrypto.no/de/calendar/50f03a7f9898/",
+    "ja": "https://nordiccrypto.no/ja/calendar/50f03a7f9898/",
+    "sw": "https://nordiccrypto.no/sw/calendar/50f03a7f9898/",
+    "mr": "https://nordiccrypto.no/mr/calendar/50f03a7f9898/"
+   },
+   "api_url": "https://nordiccrypto.no/api/v1/events/50f03a7f9898.json",
+   "backfill": true,
+   "event_type": "seminar",
+   "credits": {
+    "title": {
+     "source_name": "Sveriges Riksbank",
+     "source_url": "https://www.riksbank.se/globalassets/media/tal/engelska/ingves/2017/tal_ingves_171208_eng.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "start": {
+     "source_name": "Sveriges Riksbank",
+     "source_url": "https://www.riksbank.se/globalassets/media/tal/engelska/ingves/2017/tal_ingves_171208_eng.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "end": {
+     "source_name": "Sveriges Riksbank",
+     "source_url": "https://www.riksbank.se/globalassets/media/tal/engelska/ingves/2017/tal_ingves_171208_eng.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "place": {
+     "source_name": "Sveriges Riksbank",
+     "source_url": "https://www.riksbank.se/globalassets/media/tal/engelska/ingves/2017/tal_ingves_171208_eng.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "city": {
+     "source_name": "Sveriges Riksbank",
+     "source_url": "https://www.riksbank.se/globalassets/media/tal/engelska/ingves/2017/tal_ingves_171208_eng.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "country": {
+     "source_name": "Sveriges Riksbank",
+     "source_url": "https://www.riksbank.se/globalassets/media/tal/engelska/ingves/2017/tal_ingves_171208_eng.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "organiser": {
+     "source_name": "Sveriges Riksbank",
+     "source_url": "https://www.riksbank.se/globalassets/media/tal/engelska/ingves/2017/tal_ingves_171208_eng.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "url": {
+     "source_name": "Sveriges Riksbank",
+     "source_url": "https://www.riksbank.se/globalassets/media/tal/engelska/ingves/2017/tal_ingves_171208_eng.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "event_type": {
+     "source_name": "Sveriges Riksbank",
+     "source_url": "https://www.riksbank.se/globalassets/media/tal/engelska/ingves/2017/tal_ingves_171208_eng.pdf",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    }
+   },
+   "place_source": {
+    "name": "Sveriges Riksbank",
+    "url": "https://www.riksbank.se/globalassets/media/tal/engelska/ingves/2017/tal_ingves_171208_eng.pdf",
+    "retrieved": "2026-10-07T21:00:00+00:00"
+   }
+  },
+  {
+   "id": "b449bcb0b91e",
+   "title": "Information Propagation in the Bitcoin Network",
+   "title_original": null,
+   "start": "2014-02-07T10:15:00+02:00",
+   "end": "2014-02-07T11:15:00+02:00",
+   "place": "Exactum B119, Gustaf Hällströmin katu 2b",
+   "city": "Helsinki",
+   "country": "FI",
+   "online": false,
+   "organiser": "Department of Computer Science, University of Helsinki",
+   "url": "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html",
+   "source": "backfill",
+   "paid": null,
+   "sponsored": null,
+   "note": null,
+   "note_i18n": {},
+   "past": true,
+   "ongoing": false,
+   "html_url": "https://nordiccrypto.no/calendar/b449bcb0b91e/",
+   "html_urls": {
+    "en": "https://nordiccrypto.no/calendar/b449bcb0b91e/",
+    "nn": "https://nordiccrypto.no/nn/calendar/b449bcb0b91e/",
+    "nb": "https://nordiccrypto.no/nb/calendar/b449bcb0b91e/",
+    "sv": "https://nordiccrypto.no/sv/calendar/b449bcb0b91e/",
+    "da": "https://nordiccrypto.no/da/calendar/b449bcb0b91e/",
+    "fi": "https://nordiccrypto.no/fi/calendar/b449bcb0b91e/",
+    "is": "https://nordiccrypto.no/is/calendar/b449bcb0b91e/",
+    "zh": "https://nordiccrypto.no/zh/calendar/b449bcb0b91e/",
+    "hi": "https://nordiccrypto.no/hi/calendar/b449bcb0b91e/",
+    "es": "https://nordiccrypto.no/es/calendar/b449bcb0b91e/",
+    "fr": "https://nordiccrypto.no/fr/calendar/b449bcb0b91e/",
+    "ar": "https://nordiccrypto.no/ar/calendar/b449bcb0b91e/",
+    "bn": "https://nordiccrypto.no/bn/calendar/b449bcb0b91e/",
+    "pt": "https://nordiccrypto.no/pt/calendar/b449bcb0b91e/",
+    "ru": "https://nordiccrypto.no/ru/calendar/b449bcb0b91e/",
+    "ur": "https://nordiccrypto.no/ur/calendar/b449bcb0b91e/",
+    "id": "https://nordiccrypto.no/id/calendar/b449bcb0b91e/",
+    "de": "https://nordiccrypto.no/de/calendar/b449bcb0b91e/",
+    "ja": "https://nordiccrypto.no/ja/calendar/b449bcb0b91e/",
+    "sw": "https://nordiccrypto.no/sw/calendar/b449bcb0b91e/",
+    "mr": "https://nordiccrypto.no/mr/calendar/b449bcb0b91e/"
+   },
+   "api_url": "https://nordiccrypto.no/api/v1/events/b449bcb0b91e.json",
+   "backfill": true,
+   "event_type": "seminar",
+   "credits": {
+    "title": {
+     "source_name": "Department of Computer Science, University of Helsinki",
+     "source_url": "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "start": {
+     "source_name": "Department of Computer Science, University of Helsinki",
+     "source_url": "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "end": {
+     "source_name": "Department of Computer Science, University of Helsinki",
+     "source_url": "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "place": {
+     "source_name": "Department of Computer Science, University of Helsinki",
+     "source_url": "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "city": {
+     "source_name": "Department of Computer Science, University of Helsinki",
+     "source_url": "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "country": {
+     "source_name": "Department of Computer Science, University of Helsinki",
+     "source_url": "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "organiser": {
+     "source_name": "Department of Computer Science, University of Helsinki",
+     "source_url": "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "url": {
+     "source_name": "Department of Computer Science, University of Helsinki",
+     "source_url": "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "event_type": {
+     "source_name": "Department of Computer Science, University of Helsinki",
+     "source_url": "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    }
+   },
+   "place_source": {
+    "name": "Department of Computer Science, University of Helsinki",
+    "url": "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html",
+    "retrieved": "2026-10-07T21:00:00+00:00"
+   }
+  },
+  {
+   "id": "31498008ef34",
+   "title": "Pan-Nordic Bitcoin Conference 2013",
+   "title_original": null,
+   "start": "2013-11-28T09:00:00+01:00",
+   "end": "2013-11-28T17:00:00+01:00",
+   "place": "Charlottehaven Konference center, Hjørringgade 12C, DK-2100 København Ø",
+   "city": "København",
+   "country": "DK",
+   "online": false,
+   "organiser": "CFIR (Copenhagen Finance IT Region)",
+   "url": "https://bt.cx/en/news/2013/10/30/btcx-discount-on-pan-nordic-bitcoin-conference-2013/",
+   "source": "backfill",
+   "paid": null,
+   "sponsored": null,
+   "note": null,
+   "note_i18n": {},
+   "past": true,
+   "ongoing": false,
+   "html_url": "https://nordiccrypto.no/calendar/31498008ef34/",
+   "html_urls": {
+    "en": "https://nordiccrypto.no/calendar/31498008ef34/",
+    "nn": "https://nordiccrypto.no/nn/calendar/31498008ef34/",
+    "nb": "https://nordiccrypto.no/nb/calendar/31498008ef34/",
+    "sv": "https://nordiccrypto.no/sv/calendar/31498008ef34/",
+    "da": "https://nordiccrypto.no/da/calendar/31498008ef34/",
+    "fi": "https://nordiccrypto.no/fi/calendar/31498008ef34/",
+    "is": "https://nordiccrypto.no/is/calendar/31498008ef34/",
+    "zh": "https://nordiccrypto.no/zh/calendar/31498008ef34/",
+    "hi": "https://nordiccrypto.no/hi/calendar/31498008ef34/",
+    "es": "https://nordiccrypto.no/es/calendar/31498008ef34/",
+    "fr": "https://nordiccrypto.no/fr/calendar/31498008ef34/",
+    "ar": "https://nordiccrypto.no/ar/calendar/31498008ef34/",
+    "bn": "https://nordiccrypto.no/bn/calendar/31498008ef34/",
+    "pt": "https://nordiccrypto.no/pt/calendar/31498008ef34/",
+    "ru": "https://nordiccrypto.no/ru/calendar/31498008ef34/",
+    "ur": "https://nordiccrypto.no/ur/calendar/31498008ef34/",
+    "id": "https://nordiccrypto.no/id/calendar/31498008ef34/",
+    "de": "https://nordiccrypto.no/de/calendar/31498008ef34/",
+    "ja": "https://nordiccrypto.no/ja/calendar/31498008ef34/",
+    "sw": "https://nordiccrypto.no/sw/calendar/31498008ef34/",
+    "mr": "https://nordiccrypto.no/mr/calendar/31498008ef34/"
+   },
+   "api_url": "https://nordiccrypto.no/api/v1/events/31498008ef34.json",
+   "backfill": true,
+   "event_type": "conference",
+   "credits": {
+    "title": {
+     "source_name": "BTCX",
+     "source_url": "https://bt.cx/en/news/2013/10/30/btcx-discount-on-pan-nordic-bitcoin-conference-2013/",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "start": {
+     "source_name": "BTCX",
+     "source_url": "https://bt.cx/en/news/2013/10/30/btcx-discount-on-pan-nordic-bitcoin-conference-2013/",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "end": {
+     "source_name": "BTCX",
+     "source_url": "https://bt.cx/en/news/2013/10/30/btcx-discount-on-pan-nordic-bitcoin-conference-2013/",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "place": {
+     "source_name": "BTCX",
+     "source_url": "https://bt.cx/en/news/2013/10/30/btcx-discount-on-pan-nordic-bitcoin-conference-2013/",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "city": {
+     "source_name": "BTCX",
+     "source_url": "https://bt.cx/en/news/2013/10/30/btcx-discount-on-pan-nordic-bitcoin-conference-2013/",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "country": {
+     "source_name": "BTCX",
+     "source_url": "https://bt.cx/en/news/2013/10/30/btcx-discount-on-pan-nordic-bitcoin-conference-2013/",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "organiser": {
+     "source_name": "BTCX",
+     "source_url": "https://bt.cx/en/news/2013/10/30/btcx-discount-on-pan-nordic-bitcoin-conference-2013/",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "url": {
+     "source_name": "BTCX",
+     "source_url": "https://bt.cx/en/news/2013/10/30/btcx-discount-on-pan-nordic-bitcoin-conference-2013/",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    },
+    "event_type": {
+     "source_name": "BTCX",
+     "source_url": "https://bt.cx/en/news/2013/10/30/btcx-discount-on-pan-nordic-bitcoin-conference-2013/",
+     "retrieved_at": "2026-10-07T21:00:00+00:00"
+    }
+   },
+   "place_source": {
+    "name": "BTCX",
+    "url": "https://bt.cx/en/news/2013/10/30/btcx-discount-on-pan-nordic-bitcoin-conference-2013/",
+    "retrieved": "2026-10-07T21:00:00+00:00"
+   }
+  }
+ ]
+}

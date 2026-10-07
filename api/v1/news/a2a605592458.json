@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T21:33:28+00:00",
+ "generated_at": "2026-10-07T22:52:55+00:00",
  "preview": false,
  "item": {
   "id": "a2a605592458",
@@ -10,6 +10,12 @@
   "api_url": "https://nordiccrypto.no/api/v1/news/a2a605592458.json",
   "title": "Blockchain på tech-scenen og på dagsorden i Stockholm",
   "title_en": "Blockchain on the tech scene and on the agenda in Stockholm",
+  "title_i18n": {
+   "sv": "Blockchain på techscenen och på dagordningen i Stockholm",
+   "da": "Blockchain på techscenen og på dagsordenen i Stockholm",
+   "fi": "Lohkoketju tekniikkanäyttämöllä ja esityslistalla Tukholmassa",
+   "is": "Bálkakeðja á tæknisviðinu og á dagskrá í Stokkhólmi"
+  },
   "source": "kaupr",
   "source_name": "Kaupr",
   "source_logo": {
@@ -19,7 +25,8 @@
    "author": null,
    "license": null,
    "license_url": null,
-   "credit": "Official website"
+   "credit": "Official website",
+   "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
   },
   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
   "country": "SE",
@@ -42,6 +49,22 @@
   "paywall": false,
   "links": [],
   "own_story": false,
+  "illustration": {
+   "id": "original-exchange",
+   "kind": "original",
+   "file_url": "https://nordiccrypto.no/assets/img/illustrations/original-exchange.webp",
+   "width": 960,
+   "height": 540,
+   "alt": "Abstract bar chart in blue and black. Nordic Crypto illustration, not a picture of an exchange.",
+   "source": "Nordic Crypto",
+   "author": "Nordic Crypto",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "url": "https://cryptonordic.no/ethics/",
+   "credit": "Illustration: Nordic Crypto. Licence: CC0 1.0. Source: Nordic Crypto.",
+   "modifications": null,
+   "terms": null
+  },
   "primary_source": {
    "outlet": "kaupr",
    "outlet_name": "Kaupr",
@@ -61,7 +84,8 @@
     "author": null,
     "license": null,
     "license_url": null,
-    "credit": "Official website"
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
    },
    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
   },
@@ -86,7 +110,8 @@
      "author": null,
      "license": null,
      "license_url": null,
-     "credit": "Official website"
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    }
@@ -122,6 +147,7 @@
      "share": 0.0
     }
    ]
-  }
+  },
+  "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
  }
 }

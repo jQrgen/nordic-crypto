@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T21:33:28+00:00",
+ "generated_at": "2026-10-07T22:52:55+00:00",
  "preview": false,
  "item": {
   "id": "f2ad120d7189",
@@ -10,6 +10,12 @@
   "api_url": "https://nordiccrypto.no/api/v1/news/f2ad120d7189.json",
   "title": "Slår et slag for stablecoins",
   "title_en": "Making the case for stablecoins",
+  "title_i18n": {
+   "nn": "Slår eit slag for stablecoins",
+   "sv": "Slår ett slag för stablecoins",
+   "fi": "Puolustaa stablecoineja",
+   "is": "Berst fyrir stablecoins"
+  },
   "source": "finansavisen",
   "source_name": "Finansavisen",
   "source_logo": null,
@@ -33,6 +39,22 @@
   "paywall": true,
   "links": [],
   "own_story": false,
+  "illustration": {
+   "id": "original-exchange",
+   "kind": "original",
+   "file_url": "https://nordiccrypto.no/assets/img/illustrations/original-exchange.webp",
+   "width": 960,
+   "height": 540,
+   "alt": "Abstract bar chart in blue and black. Nordic Crypto illustration, not a picture of an exchange.",
+   "source": "Nordic Crypto",
+   "author": "Nordic Crypto",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "url": "https://cryptonordic.no/ethics/",
+   "credit": "Illustration: Nordic Crypto. Licence: CC0 1.0. Source: Nordic Crypto.",
+   "modifications": null,
+   "terms": null
+  },
   "primary_source": {
    "outlet": "finansavisen",
    "outlet_name": "Finansavisen",
@@ -95,6 +117,7 @@
      "share": 0.0
     }
    ]
-  }
+  },
+  "source_logo_url": null
  }
 }

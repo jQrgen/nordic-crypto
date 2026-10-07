@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T21:33:28+00:00",
+ "generated_at": "2026-10-07T22:52:55+00:00",
  "preview": false,
  "item": {
   "id": "55643fb5a215",
@@ -10,6 +10,13 @@
   "api_url": "https://nordiccrypto.no/api/v1/news/55643fb5a215.json",
   "title": "Regjeringen utreder midlertidig forbud mot nye kryptodatasentre (skriftlig spørsmål 15:3707)",
   "title_en": "Government studying a temporary ban on new crypto data centres (written question 15:3707)",
+  "title_i18n": {
+   "nn": "Regjeringa utgreier mellombels forbod mot nye kryptodatasenter (skriftleg spørsmål 15:3707)",
+   "sv": "Regeringen utreder ett tillfälligt förbud mot nya kryptodatacenter (skriftlig fråga 15:3707)",
+   "da": "Regeringen undersøger et midlertidigt forbud mod nye kryptodatacentre (skriftligt spørgsmål 15:3707)",
+   "fi": "Hallitus selvittää väliaikaista kieltoa uusille kryptodatakeskuksille (kirjallinen kysymys 15:3707)",
+   "is": "Ríkisstjórnin kannar tímabundið bann við nýjum rafmyntagagnaverum (skrifleg fyrirspurn 15:3707)"
+  },
   "source": "stortinget",
   "source_name": "Stortinget",
   "source_logo": {
@@ -19,7 +26,8 @@
    "author": "Worldlydev",
    "license": "Public domain",
    "license_url": null,
-   "credit": "Wikimedia Commons"
+   "credit": "Wikimedia Commons",
+   "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
   },
   "source_note": null,
   "country": "NO",
@@ -42,6 +50,22 @@
   "paywall": false,
   "links": [],
   "own_story": false,
+  "illustration": {
+   "id": "commons-mining",
+   "kind": "commons",
+   "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-mining.webp",
+   "width": 960,
+   "height": 720,
+   "alt": "Rows of cryptocurrency mining machines indoors.",
+   "source": "Wikimedia Commons",
+   "author": "Jasper Reichardt",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "url": "https://commons.wikimedia.org/wiki/File:Mining-Rig.jpg",
+   "credit": "Photo: Jasper Reichardt. Licence: CC BY-SA 4.0. Source: Wikimedia Commons.",
+   "modifications": null,
+   "terms": null
+  },
   "primary_source": {
    "outlet": "stortinget",
    "outlet_name": "Stortinget",
@@ -61,7 +85,8 @@
     "author": "Worldlydev",
     "license": "Public domain",
     "license_url": null,
-    "credit": "Wikimedia Commons"
+    "credit": "Wikimedia Commons",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
    }
   },
   "also_covered_by": [],
@@ -85,7 +110,8 @@
      "author": "Worldlydev",
      "license": "Public domain",
      "license_url": null,
-     "credit": "Wikimedia Commons"
+     "credit": "Wikimedia Commons",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
     }
    }
   ],
@@ -120,6 +146,7 @@
      "share": 0.0
     }
    ]
-  }
+  },
+  "source_logo_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
  }
 }

@@ -1,0 +1,105 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T22:52:55+00:00",
+ "preview": false,
+ "item": {
+  "id": "50f03a7f9898",
+  "title": "Do we need an e-krona?",
+  "title_original": null,
+  "start": "2017-12-08T00:00:00+01:00",
+  "end": "2017-12-08T23:59:00+01:00",
+  "place": "Swedish House of Finance",
+  "city": "Stockholm",
+  "country": "SE",
+  "online": false,
+  "organiser": "Sveriges Riksbank",
+  "url": "https://www.riksbank.se/globalassets/media/tal/engelska/ingves/2017/tal_ingves_171208_eng.pdf",
+  "source": "backfill",
+  "paid": null,
+  "sponsored": null,
+  "note": null,
+  "note_i18n": {},
+  "past": true,
+  "ongoing": false,
+  "html_url": "https://nordiccrypto.no/calendar/50f03a7f9898/",
+  "html_urls": {
+   "en": "https://nordiccrypto.no/calendar/50f03a7f9898/",
+   "nn": "https://nordiccrypto.no/nn/calendar/50f03a7f9898/",
+   "nb": "https://nordiccrypto.no/nb/calendar/50f03a7f9898/",
+   "sv": "https://nordiccrypto.no/sv/calendar/50f03a7f9898/",
+   "da": "https://nordiccrypto.no/da/calendar/50f03a7f9898/",
+   "fi": "https://nordiccrypto.no/fi/calendar/50f03a7f9898/",
+   "is": "https://nordiccrypto.no/is/calendar/50f03a7f9898/",
+   "zh": "https://nordiccrypto.no/zh/calendar/50f03a7f9898/",
+   "hi": "https://nordiccrypto.no/hi/calendar/50f03a7f9898/",
+   "es": "https://nordiccrypto.no/es/calendar/50f03a7f9898/",
+   "fr": "https://nordiccrypto.no/fr/calendar/50f03a7f9898/",
+   "ar": "https://nordiccrypto.no/ar/calendar/50f03a7f9898/",
+   "bn": "https://nordiccrypto.no/bn/calendar/50f03a7f9898/",
+   "pt": "https://nordiccrypto.no/pt/calendar/50f03a7f9898/",
+   "ru": "https://nordiccrypto.no/ru/calendar/50f03a7f9898/",
+   "ur": "https://nordiccrypto.no/ur/calendar/50f03a7f9898/",
+   "id": "https://nordiccrypto.no/id/calendar/50f03a7f9898/",
+   "de": "https://nordiccrypto.no/de/calendar/50f03a7f9898/",
+   "ja": "https://nordiccrypto.no/ja/calendar/50f03a7f9898/",
+   "sw": "https://nordiccrypto.no/sw/calendar/50f03a7f9898/",
+   "mr": "https://nordiccrypto.no/mr/calendar/50f03a7f9898/"
+  },
+  "api_url": "https://nordiccrypto.no/api/v1/events/50f03a7f9898.json",
+  "backfill": true,
+  "event_type": "seminar",
+  "credits": {
+   "title": {
+    "source_name": "Sveriges Riksbank",
+    "source_url": "https://www.riksbank.se/globalassets/media/tal/engelska/ingves/2017/tal_ingves_171208_eng.pdf",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "start": {
+    "source_name": "Sveriges Riksbank",
+    "source_url": "https://www.riksbank.se/globalassets/media/tal/engelska/ingves/2017/tal_ingves_171208_eng.pdf",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "end": {
+    "source_name": "Sveriges Riksbank",
+    "source_url": "https://www.riksbank.se/globalassets/media/tal/engelska/ingves/2017/tal_ingves_171208_eng.pdf",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "place": {
+    "source_name": "Sveriges Riksbank",
+    "source_url": "https://www.riksbank.se/globalassets/media/tal/engelska/ingves/2017/tal_ingves_171208_eng.pdf",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "city": {
+    "source_name": "Sveriges Riksbank",
+    "source_url": "https://www.riksbank.se/globalassets/media/tal/engelska/ingves/2017/tal_ingves_171208_eng.pdf",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "country": {
+    "source_name": "Sveriges Riksbank",
+    "source_url": "https://www.riksbank.se/globalassets/media/tal/engelska/ingves/2017/tal_ingves_171208_eng.pdf",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "organiser": {
+    "source_name": "Sveriges Riksbank",
+    "source_url": "https://www.riksbank.se/globalassets/media/tal/engelska/ingves/2017/tal_ingves_171208_eng.pdf",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "url": {
+    "source_name": "Sveriges Riksbank",
+    "source_url": "https://www.riksbank.se/globalassets/media/tal/engelska/ingves/2017/tal_ingves_171208_eng.pdf",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "event_type": {
+    "source_name": "Sveriges Riksbank",
+    "source_url": "https://www.riksbank.se/globalassets/media/tal/engelska/ingves/2017/tal_ingves_171208_eng.pdf",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   }
+  },
+  "place_source": {
+   "name": "Sveriges Riksbank",
+   "url": "https://www.riksbank.se/globalassets/media/tal/engelska/ingves/2017/tal_ingves_171208_eng.pdf",
+   "retrieved": "2026-10-07T21:00:00+00:00"
+  }
+ }
+}

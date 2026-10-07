@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T21:33:28+00:00",
+ "generated_at": "2026-10-07T22:52:55+00:00",
  "preview": false,
  "item": {
   "id": "8c0dda24b0ef",
@@ -10,6 +10,13 @@
   "api_url": "https://nordiccrypto.no/api/v1/news/8c0dda24b0ef.json",
   "title": "Här är riskerna för finansiering av spridning av massförstörelsevapen störst",
   "title_en": "Here is where the risk of financing proliferation of weapons of mass destruction is highest",
+  "title_i18n": {
+   "nn": "Her er risikoen for finansiering av spreiing av masseøydeleggingsvåpen størst",
+   "nb": "Her er risikoen for finansiering av spredning av masseødeleggelsesvåpen størst",
+   "da": "Her er risikoen for finansiering af spredning af masseødelæggelsesvåben størst",
+   "fi": "Tässä riski rahoittaa joukkotuhoaseiden leviämistä on suurin",
+   "is": "Hér er áhættan af því að fjármagna útbreiðslu gereyðingarvopna mest"
+  },
   "source": "fi-se",
   "source_name": "Finansinspektionen (SE FSA)",
   "source_logo": {
@@ -19,7 +26,8 @@
    "author": "Finansinspektionen.",
    "license": "Public domain",
    "license_url": null,
-   "credit": "Wikimedia Commons"
+   "credit": "Wikimedia Commons",
+   "raster_url": "https://nordiccrypto.no/assets/img/logos/se-fi.png"
   },
   "source_note": null,
   "country": "SE",
@@ -42,6 +50,22 @@
   "paywall": false,
   "links": [],
   "own_story": false,
+  "illustration": {
+   "id": "official-riksbank",
+   "kind": "official-press",
+   "file_url": "https://nordiccrypto.no/assets/img/illustrations/official-riksbank.webp",
+   "width": 960,
+   "height": 640,
+   "alt": "The Riksbank building in Stockholm.",
+   "source": "Sveriges Riksbank",
+   "author": "Sveriges Riksbank",
+   "license": "Free use, credit Sveriges Riksbank",
+   "license_url": "https://www.riksbank.se/sv/press-och-publicerat/presskontakt/bildbank/riksbankshuset/",
+   "url": "https://www.riksbank.se/sv/press-och-publicerat/presskontakt/bildbank/riksbankshuset/",
+   "credit": "Photo: Sveriges Riksbank. Licence: Free use, credit Sveriges Riksbank. Source: Sveriges Riksbank.",
+   "modifications": null,
+   "terms": "Checked 2026-10-06. The Riksbank image bank says these pictures may be downloaded and used freely if Sveriges Riksbank is credited. Pictures of banknotes and coins on the same site are not free in that way and are not used. This file is the building, scaled to 960 pixels wide and saved as WebP. It is not cropped or recoloured."
+  },
   "primary_source": {
    "outlet": "fi-se",
    "outlet_name": "Finansinspektionen (SE FSA)",
@@ -61,7 +85,8 @@
     "author": "Finansinspektionen.",
     "license": "Public domain",
     "license_url": null,
-    "credit": "Wikimedia Commons"
+    "credit": "Wikimedia Commons",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/se-fi.png"
    }
   },
   "also_covered_by": [],
@@ -85,7 +110,8 @@
      "author": "Finansinspektionen.",
      "license": "Public domain",
      "license_url": null,
-     "credit": "Wikimedia Commons"
+     "credit": "Wikimedia Commons",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/se-fi.png"
     }
    }
   ],
@@ -120,6 +146,7 @@
      "share": 0.0
     }
    ]
-  }
+  },
+  "source_logo_url": "https://nordiccrypto.no/assets/img/logos/se-fi.png"
  }
 }

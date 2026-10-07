@@ -1,0 +1,106 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T22:52:55+00:00",
+ "preview": false,
+ "item": {
+  "id": "419358586d18",
+  "title": "Er bálkakeðja framtíðin?",
+  "title_original": null,
+  "start": "2018-11-27T12:00:00+00:00",
+  "end": null,
+  "place": "Háskólinn í Reykjavík",
+  "city": "Reykjavík",
+  "country": "IS",
+  "online": false,
+  "organiser": "Háskólinn í Reykjavík",
+  "url": "https://medium.com/rafmyntar%C3%A1%C3%B0/fyrirlestur-%C3%AD-hr-27-n%C3%B3vember-99b06030f92f",
+  "source": "backfill",
+  "paid": null,
+  "sponsored": null,
+  "note": null,
+  "note_i18n": {},
+  "past": true,
+  "ongoing": false,
+  "html_url": "https://nordiccrypto.no/calendar/419358586d18/",
+  "html_urls": {
+   "en": "https://nordiccrypto.no/calendar/419358586d18/",
+   "nn": "https://nordiccrypto.no/nn/calendar/419358586d18/",
+   "nb": "https://nordiccrypto.no/nb/calendar/419358586d18/",
+   "sv": "https://nordiccrypto.no/sv/calendar/419358586d18/",
+   "da": "https://nordiccrypto.no/da/calendar/419358586d18/",
+   "fi": "https://nordiccrypto.no/fi/calendar/419358586d18/",
+   "is": "https://nordiccrypto.no/is/calendar/419358586d18/",
+   "zh": "https://nordiccrypto.no/zh/calendar/419358586d18/",
+   "hi": "https://nordiccrypto.no/hi/calendar/419358586d18/",
+   "es": "https://nordiccrypto.no/es/calendar/419358586d18/",
+   "fr": "https://nordiccrypto.no/fr/calendar/419358586d18/",
+   "ar": "https://nordiccrypto.no/ar/calendar/419358586d18/",
+   "bn": "https://nordiccrypto.no/bn/calendar/419358586d18/",
+   "pt": "https://nordiccrypto.no/pt/calendar/419358586d18/",
+   "ru": "https://nordiccrypto.no/ru/calendar/419358586d18/",
+   "ur": "https://nordiccrypto.no/ur/calendar/419358586d18/",
+   "id": "https://nordiccrypto.no/id/calendar/419358586d18/",
+   "de": "https://nordiccrypto.no/de/calendar/419358586d18/",
+   "ja": "https://nordiccrypto.no/ja/calendar/419358586d18/",
+   "sw": "https://nordiccrypto.no/sw/calendar/419358586d18/",
+   "mr": "https://nordiccrypto.no/mr/calendar/419358586d18/"
+  },
+  "api_url": "https://nordiccrypto.no/api/v1/events/419358586d18.json",
+  "backfill": true,
+  "event_type": "seminar",
+  "language": "is",
+  "credits": {
+   "title": {
+    "source_name": "Rafmyntaráð Íslands",
+    "source_url": "https://medium.com/rafmyntar%C3%A1%C3%B0/fyrirlestur-%C3%AD-hr-27-n%C3%B3vember-99b06030f92f",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "start": {
+    "source_name": "Rafmyntaráð Íslands",
+    "source_url": "https://medium.com/rafmyntar%C3%A1%C3%B0/fyrirlestur-%C3%AD-hr-27-n%C3%B3vember-99b06030f92f",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "place": {
+    "source_name": "Rafmyntaráð Íslands",
+    "source_url": "https://medium.com/rafmyntar%C3%A1%C3%B0/fyrirlestur-%C3%AD-hr-27-n%C3%B3vember-99b06030f92f",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "city": {
+    "source_name": "Rafmyntaráð Íslands",
+    "source_url": "https://medium.com/rafmyntar%C3%A1%C3%B0/fyrirlestur-%C3%AD-hr-27-n%C3%B3vember-99b06030f92f",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "country": {
+    "source_name": "Rafmyntaráð Íslands",
+    "source_url": "https://medium.com/rafmyntar%C3%A1%C3%B0/fyrirlestur-%C3%AD-hr-27-n%C3%B3vember-99b06030f92f",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "organiser": {
+    "source_name": "Rafmyntaráð Íslands",
+    "source_url": "https://medium.com/rafmyntar%C3%A1%C3%B0/fyrirlestur-%C3%AD-hr-27-n%C3%B3vember-99b06030f92f",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "url": {
+    "source_name": "Rafmyntaráð Íslands",
+    "source_url": "https://medium.com/rafmyntar%C3%A1%C3%B0/fyrirlestur-%C3%AD-hr-27-n%C3%B3vember-99b06030f92f",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "event_type": {
+    "source_name": "Rafmyntaráð Íslands",
+    "source_url": "https://medium.com/rafmyntar%C3%A1%C3%B0/fyrirlestur-%C3%AD-hr-27-n%C3%B3vember-99b06030f92f",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   },
+   "language": {
+    "source_name": "Rafmyntaráð Íslands",
+    "source_url": "https://medium.com/rafmyntar%C3%A1%C3%B0/fyrirlestur-%C3%AD-hr-27-n%C3%B3vember-99b06030f92f",
+    "retrieved_at": "2026-10-07T21:00:00+00:00"
+   }
+  },
+  "place_source": {
+   "name": "Rafmyntaráð Íslands",
+   "url": "https://medium.com/rafmyntar%C3%A1%C3%B0/fyrirlestur-%C3%AD-hr-27-n%C3%B3vember-99b06030f92f",
+   "retrieved": "2026-10-07T21:00:00+00:00"
+  }
+ }
+}

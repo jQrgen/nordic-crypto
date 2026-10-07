@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T21:33:28+00:00",
+ "generated_at": "2026-10-07T22:52:55+00:00",
  "preview": false,
  "item": {
   "id": "105f743dcf3d",
@@ -21,7 +21,35 @@
   "note": null,
   "note_i18n": {},
   "past": false,
-  "html_url": "https://nordiccrypto.no/calendar/#e-105f743dcf3d",
-  "api_url": "https://nordiccrypto.no/api/v1/events/105f743dcf3d.json"
+  "ongoing": false,
+  "html_url": "https://nordiccrypto.no/calendar/105f743dcf3d/",
+  "html_urls": {
+   "en": "https://nordiccrypto.no/calendar/105f743dcf3d/",
+   "nn": "https://nordiccrypto.no/nn/calendar/105f743dcf3d/",
+   "nb": "https://nordiccrypto.no/nb/calendar/105f743dcf3d/",
+   "sv": "https://nordiccrypto.no/sv/calendar/105f743dcf3d/",
+   "da": "https://nordiccrypto.no/da/calendar/105f743dcf3d/",
+   "fi": "https://nordiccrypto.no/fi/calendar/105f743dcf3d/",
+   "is": "https://nordiccrypto.no/is/calendar/105f743dcf3d/",
+   "zh": "https://nordiccrypto.no/zh/calendar/105f743dcf3d/",
+   "hi": "https://nordiccrypto.no/hi/calendar/105f743dcf3d/",
+   "es": "https://nordiccrypto.no/es/calendar/105f743dcf3d/",
+   "fr": "https://nordiccrypto.no/fr/calendar/105f743dcf3d/",
+   "ar": "https://nordiccrypto.no/ar/calendar/105f743dcf3d/",
+   "bn": "https://nordiccrypto.no/bn/calendar/105f743dcf3d/",
+   "pt": "https://nordiccrypto.no/pt/calendar/105f743dcf3d/",
+   "ru": "https://nordiccrypto.no/ru/calendar/105f743dcf3d/",
+   "ur": "https://nordiccrypto.no/ur/calendar/105f743dcf3d/",
+   "id": "https://nordiccrypto.no/id/calendar/105f743dcf3d/",
+   "de": "https://nordiccrypto.no/de/calendar/105f743dcf3d/",
+   "ja": "https://nordiccrypto.no/ja/calendar/105f743dcf3d/",
+   "sw": "https://nordiccrypto.no/sw/calendar/105f743dcf3d/",
+   "mr": "https://nordiccrypto.no/mr/calendar/105f743dcf3d/"
+  },
+  "api_url": "https://nordiccrypto.no/api/v1/events/105f743dcf3d.json",
+  "place_source": {
+   "name": "Helsinki Bitcoin Hobbyists (Meetup.com)",
+   "url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/events/qjzrxgykcdbhb/"
+  }
  }
 }

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T21:33:28+00:00",
+ "generated_at": "2026-10-07T22:52:55+00:00",
  "preview": false,
  "country": "SE",
  "count": 5,
@@ -24,8 +24,36 @@
    "note": null,
    "note_i18n": {},
    "past": true,
-   "html_url": "https://nordiccrypto.no/calendar/#e-71149f675741",
-   "api_url": "https://nordiccrypto.no/api/v1/events/71149f675741.json"
+   "ongoing": false,
+   "html_url": "https://nordiccrypto.no/calendar/71149f675741/",
+   "html_urls": {
+    "en": "https://nordiccrypto.no/calendar/71149f675741/",
+    "nn": "https://nordiccrypto.no/nn/calendar/71149f675741/",
+    "nb": "https://nordiccrypto.no/nb/calendar/71149f675741/",
+    "sv": "https://nordiccrypto.no/sv/calendar/71149f675741/",
+    "da": "https://nordiccrypto.no/da/calendar/71149f675741/",
+    "fi": "https://nordiccrypto.no/fi/calendar/71149f675741/",
+    "is": "https://nordiccrypto.no/is/calendar/71149f675741/",
+    "zh": "https://nordiccrypto.no/zh/calendar/71149f675741/",
+    "hi": "https://nordiccrypto.no/hi/calendar/71149f675741/",
+    "es": "https://nordiccrypto.no/es/calendar/71149f675741/",
+    "fr": "https://nordiccrypto.no/fr/calendar/71149f675741/",
+    "ar": "https://nordiccrypto.no/ar/calendar/71149f675741/",
+    "bn": "https://nordiccrypto.no/bn/calendar/71149f675741/",
+    "pt": "https://nordiccrypto.no/pt/calendar/71149f675741/",
+    "ru": "https://nordiccrypto.no/ru/calendar/71149f675741/",
+    "ur": "https://nordiccrypto.no/ur/calendar/71149f675741/",
+    "id": "https://nordiccrypto.no/id/calendar/71149f675741/",
+    "de": "https://nordiccrypto.no/de/calendar/71149f675741/",
+    "ja": "https://nordiccrypto.no/ja/calendar/71149f675741/",
+    "sw": "https://nordiccrypto.no/sw/calendar/71149f675741/",
+    "mr": "https://nordiccrypto.no/mr/calendar/71149f675741/"
+   },
+   "api_url": "https://nordiccrypto.no/api/v1/events/71149f675741.json",
+   "place_source": {
+    "name": "Lund University School of Economics and Management (lusem.lu.se)",
+    "url": "https://www.lusem.lu.se/calendar/arne-ryde-conference-crypto-fintech-and-payments"
+   }
   },
   {
    "id": "ccc2eea6b213",
@@ -45,8 +73,36 @@
    "note": null,
    "note_i18n": {},
    "past": false,
-   "html_url": "https://nordiccrypto.no/calendar/#e-ccc2eea6b213",
-   "api_url": "https://nordiccrypto.no/api/v1/events/ccc2eea6b213.json"
+   "ongoing": false,
+   "html_url": "https://nordiccrypto.no/calendar/ccc2eea6b213/",
+   "html_urls": {
+    "en": "https://nordiccrypto.no/calendar/ccc2eea6b213/",
+    "nn": "https://nordiccrypto.no/nn/calendar/ccc2eea6b213/",
+    "nb": "https://nordiccrypto.no/nb/calendar/ccc2eea6b213/",
+    "sv": "https://nordiccrypto.no/sv/calendar/ccc2eea6b213/",
+    "da": "https://nordiccrypto.no/da/calendar/ccc2eea6b213/",
+    "fi": "https://nordiccrypto.no/fi/calendar/ccc2eea6b213/",
+    "is": "https://nordiccrypto.no/is/calendar/ccc2eea6b213/",
+    "zh": "https://nordiccrypto.no/zh/calendar/ccc2eea6b213/",
+    "hi": "https://nordiccrypto.no/hi/calendar/ccc2eea6b213/",
+    "es": "https://nordiccrypto.no/es/calendar/ccc2eea6b213/",
+    "fr": "https://nordiccrypto.no/fr/calendar/ccc2eea6b213/",
+    "ar": "https://nordiccrypto.no/ar/calendar/ccc2eea6b213/",
+    "bn": "https://nordiccrypto.no/bn/calendar/ccc2eea6b213/",
+    "pt": "https://nordiccrypto.no/pt/calendar/ccc2eea6b213/",
+    "ru": "https://nordiccrypto.no/ru/calendar/ccc2eea6b213/",
+    "ur": "https://nordiccrypto.no/ur/calendar/ccc2eea6b213/",
+    "id": "https://nordiccrypto.no/id/calendar/ccc2eea6b213/",
+    "de": "https://nordiccrypto.no/de/calendar/ccc2eea6b213/",
+    "ja": "https://nordiccrypto.no/ja/calendar/ccc2eea6b213/",
+    "sw": "https://nordiccrypto.no/sw/calendar/ccc2eea6b213/",
+    "mr": "https://nordiccrypto.no/mr/calendar/ccc2eea6b213/"
+   },
+   "api_url": "https://nordiccrypto.no/api/v1/events/ccc2eea6b213.json",
+   "place_source": {
+    "name": "Swedish Bitcoin Meetups (Meetup.com)",
+    "url": "https://www.meetup.com/swedish-bitcoin-meetups/events/316047111/"
+   }
   },
   {
    "id": "c4a53ca9bd26",
@@ -66,8 +122,36 @@
    "note": null,
    "note_i18n": {},
    "past": false,
-   "html_url": "https://nordiccrypto.no/calendar/#e-c4a53ca9bd26",
-   "api_url": "https://nordiccrypto.no/api/v1/events/c4a53ca9bd26.json"
+   "ongoing": false,
+   "html_url": "https://nordiccrypto.no/calendar/c4a53ca9bd26/",
+   "html_urls": {
+    "en": "https://nordiccrypto.no/calendar/c4a53ca9bd26/",
+    "nn": "https://nordiccrypto.no/nn/calendar/c4a53ca9bd26/",
+    "nb": "https://nordiccrypto.no/nb/calendar/c4a53ca9bd26/",
+    "sv": "https://nordiccrypto.no/sv/calendar/c4a53ca9bd26/",
+    "da": "https://nordiccrypto.no/da/calendar/c4a53ca9bd26/",
+    "fi": "https://nordiccrypto.no/fi/calendar/c4a53ca9bd26/",
+    "is": "https://nordiccrypto.no/is/calendar/c4a53ca9bd26/",
+    "zh": "https://nordiccrypto.no/zh/calendar/c4a53ca9bd26/",
+    "hi": "https://nordiccrypto.no/hi/calendar/c4a53ca9bd26/",
+    "es": "https://nordiccrypto.no/es/calendar/c4a53ca9bd26/",
+    "fr": "https://nordiccrypto.no/fr/calendar/c4a53ca9bd26/",
+    "ar": "https://nordiccrypto.no/ar/calendar/c4a53ca9bd26/",
+    "bn": "https://nordiccrypto.no/bn/calendar/c4a53ca9bd26/",
+    "pt": "https://nordiccrypto.no/pt/calendar/c4a53ca9bd26/",
+    "ru": "https://nordiccrypto.no/ru/calendar/c4a53ca9bd26/",
+    "ur": "https://nordiccrypto.no/ur/calendar/c4a53ca9bd26/",
+    "id": "https://nordiccrypto.no/id/calendar/c4a53ca9bd26/",
+    "de": "https://nordiccrypto.no/de/calendar/c4a53ca9bd26/",
+    "ja": "https://nordiccrypto.no/ja/calendar/c4a53ca9bd26/",
+    "sw": "https://nordiccrypto.no/sw/calendar/c4a53ca9bd26/",
+    "mr": "https://nordiccrypto.no/mr/calendar/c4a53ca9bd26/"
+   },
+   "api_url": "https://nordiccrypto.no/api/v1/events/c4a53ca9bd26.json",
+   "place_source": {
+    "name": "Swedish Bitcoin Meetups (Meetup.com)",
+    "url": "https://www.meetup.com/swedish-bitcoin-meetups/events/316799619/"
+   }
   },
   {
    "id": "a6cadcf35c22",
@@ -87,8 +171,36 @@
    "note": null,
    "note_i18n": {},
    "past": false,
-   "html_url": "https://nordiccrypto.no/calendar/#e-a6cadcf35c22",
-   "api_url": "https://nordiccrypto.no/api/v1/events/a6cadcf35c22.json"
+   "ongoing": false,
+   "html_url": "https://nordiccrypto.no/calendar/a6cadcf35c22/",
+   "html_urls": {
+    "en": "https://nordiccrypto.no/calendar/a6cadcf35c22/",
+    "nn": "https://nordiccrypto.no/nn/calendar/a6cadcf35c22/",
+    "nb": "https://nordiccrypto.no/nb/calendar/a6cadcf35c22/",
+    "sv": "https://nordiccrypto.no/sv/calendar/a6cadcf35c22/",
+    "da": "https://nordiccrypto.no/da/calendar/a6cadcf35c22/",
+    "fi": "https://nordiccrypto.no/fi/calendar/a6cadcf35c22/",
+    "is": "https://nordiccrypto.no/is/calendar/a6cadcf35c22/",
+    "zh": "https://nordiccrypto.no/zh/calendar/a6cadcf35c22/",
+    "hi": "https://nordiccrypto.no/hi/calendar/a6cadcf35c22/",
+    "es": "https://nordiccrypto.no/es/calendar/a6cadcf35c22/",
+    "fr": "https://nordiccrypto.no/fr/calendar/a6cadcf35c22/",
+    "ar": "https://nordiccrypto.no/ar/calendar/a6cadcf35c22/",
+    "bn": "https://nordiccrypto.no/bn/calendar/a6cadcf35c22/",
+    "pt": "https://nordiccrypto.no/pt/calendar/a6cadcf35c22/",
+    "ru": "https://nordiccrypto.no/ru/calendar/a6cadcf35c22/",
+    "ur": "https://nordiccrypto.no/ur/calendar/a6cadcf35c22/",
+    "id": "https://nordiccrypto.no/id/calendar/a6cadcf35c22/",
+    "de": "https://nordiccrypto.no/de/calendar/a6cadcf35c22/",
+    "ja": "https://nordiccrypto.no/ja/calendar/a6cadcf35c22/",
+    "sw": "https://nordiccrypto.no/sw/calendar/a6cadcf35c22/",
+    "mr": "https://nordiccrypto.no/mr/calendar/a6cadcf35c22/"
+   },
+   "api_url": "https://nordiccrypto.no/api/v1/events/a6cadcf35c22.json",
+   "place_source": {
+    "name": "Swedish Bitcoin Meetups (Meetup.com)",
+    "url": "https://www.meetup.com/swedish-bitcoin-meetups/events/312669067/"
+   }
   },
   {
    "id": "e884ba1f0333",
@@ -108,8 +220,36 @@
    "note": null,
    "note_i18n": {},
    "past": false,
-   "html_url": "https://nordiccrypto.no/calendar/#e-e884ba1f0333",
-   "api_url": "https://nordiccrypto.no/api/v1/events/e884ba1f0333.json"
+   "ongoing": false,
+   "html_url": "https://nordiccrypto.no/calendar/e884ba1f0333/",
+   "html_urls": {
+    "en": "https://nordiccrypto.no/calendar/e884ba1f0333/",
+    "nn": "https://nordiccrypto.no/nn/calendar/e884ba1f0333/",
+    "nb": "https://nordiccrypto.no/nb/calendar/e884ba1f0333/",
+    "sv": "https://nordiccrypto.no/sv/calendar/e884ba1f0333/",
+    "da": "https://nordiccrypto.no/da/calendar/e884ba1f0333/",
+    "fi": "https://nordiccrypto.no/fi/calendar/e884ba1f0333/",
+    "is": "https://nordiccrypto.no/is/calendar/e884ba1f0333/",
+    "zh": "https://nordiccrypto.no/zh/calendar/e884ba1f0333/",
+    "hi": "https://nordiccrypto.no/hi/calendar/e884ba1f0333/",
+    "es": "https://nordiccrypto.no/es/calendar/e884ba1f0333/",
+    "fr": "https://nordiccrypto.no/fr/calendar/e884ba1f0333/",
+    "ar": "https://nordiccrypto.no/ar/calendar/e884ba1f0333/",
+    "bn": "https://nordiccrypto.no/bn/calendar/e884ba1f0333/",
+    "pt": "https://nordiccrypto.no/pt/calendar/e884ba1f0333/",
+    "ru": "https://nordiccrypto.no/ru/calendar/e884ba1f0333/",
+    "ur": "https://nordiccrypto.no/ur/calendar/e884ba1f0333/",
+    "id": "https://nordiccrypto.no/id/calendar/e884ba1f0333/",
+    "de": "https://nordiccrypto.no/de/calendar/e884ba1f0333/",
+    "ja": "https://nordiccrypto.no/ja/calendar/e884ba1f0333/",
+    "sw": "https://nordiccrypto.no/sw/calendar/e884ba1f0333/",
+    "mr": "https://nordiccrypto.no/mr/calendar/e884ba1f0333/"
+   },
+   "api_url": "https://nordiccrypto.no/api/v1/events/e884ba1f0333.json",
+   "place_source": {
+    "name": "Swedish Bitcoin Meetups (Meetup.com)",
+    "url": "https://www.meetup.com/swedish-bitcoin-meetups/events/312669070/"
+   }
   }
  ]
 }

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T21:33:28+00:00",
+ "generated_at": "2026-10-07T22:52:55+00:00",
  "preview": false,
  "item": {
   "id": "b3fdbc8f5eec",
@@ -10,6 +10,13 @@
   "api_url": "https://nordiccrypto.no/api/v1/news/b3fdbc8f5eec.json",
   "title": "Krypto-jätten rundar reglerna i Europa: Riskerar att kastas ut",
   "title_en": "Crypto giant skirts the rules in Europe and risks being thrown out",
+  "title_i18n": {
+   "nn": "Kryptokjempa går rundt reglane i Europa: Risiko for å bli kasta ut",
+   "nb": "Kryptokjempen går rundt reglene i Europa: Risikerer å bli kastet ut",
+   "da": "Kryptogiganten omgår reglerne i Europa: Risikerer at blive smidt ud",
+   "fi": "Kryptojätti kiertää Euroopan sääntöjä ja vaarana on ulosheitto",
+   "is": "Rafmyntarisinn sniðgengur reglurnar í Evrópu og á hættu á að verða rekinn út"
+  },
   "source": "dagensps.se",
   "source_name": "Dagens PS",
   "source_logo": null,
@@ -17,7 +24,7 @@
   "country": "SE",
   "language": "Swedish",
   "language_code": "sv",
-  "published": "2026-10-01T01:31:00+00:00",
+  "published": "2026-10-01T08:30:56+00:00",
   "topics": [
    "regulation",
    "mica"
@@ -34,12 +41,28 @@
   "paywall": false,
   "links": [],
   "own_story": false,
+  "illustration": {
+   "id": "commons-se",
+   "kind": "commons",
+   "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-se.webp",
+   "width": 960,
+   "height": 547,
+   "alt": "The Swedish parliament building, Riksdagshuset, in Stockholm.",
+   "source": "Wikimedia Commons",
+   "author": "Sahlen",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "url": "https://commons.wikimedia.org/wiki/File:Riksdagshuset_i_Stockholm.jpg",
+   "credit": "Photo: Sahlen. Licence: CC0 1.0. Source: Wikimedia Commons.",
+   "modifications": null,
+   "terms": null
+  },
   "primary_source": {
    "outlet": "dagensps.se",
    "outlet_name": "Dagens PS",
    "url": "https://www.dagensps.se/bors-finans/fintech/kryptovalutor/krypto-jatten-rundar-reglerna-i-europa-riskerar-att-kastas-ut/",
    "title": "Krypto-jätten rundar reglerna i Europa: Riskerar att kastas ut",
-   "published": "2026-10-01T01:31:00+00:00",
+   "published": "2026-10-01T08:30:56+00:00",
    "lang": "Swedish",
    "language_code": "sv",
    "country": "SE",
@@ -55,7 +78,7 @@
     "outlet_name": "Dagens PS",
     "url": "https://www.dagensps.se/bors-finans/fintech/kryptovalutor/krypto-jatten-rundar-reglerna-i-europa-riskerar-att-kastas-ut/",
     "title": "Krypto-jätten rundar reglerna i Europa: Riskerar att kastas ut",
-    "published": "2026-10-01T01:31:00+00:00",
+    "published": "2026-10-01T08:30:56+00:00",
     "lang": "Swedish",
     "language_code": "sv",
     "country": "SE",
@@ -96,6 +119,7 @@
      "share": 0.0
     }
    ]
-  }
+  },
+  "source_logo_url": null
  }
 }

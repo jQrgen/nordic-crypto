@@ -1,0 +1,40 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T22:52:55+00:00",
+ "preview": false,
+ "item": {
+  "id": "luma-eventbrite-intake",
+  "date": "2026-10-06",
+  "title": "Luma and Eventbrite on the calendar",
+  "description": "Luma and Eventbrite are event sources. Luma is each calendar's public Subscribe iCal feed, plus schema.org JSON-LD on an individual event page. City pages, category pages and Luma's discover API are not used: the terms of use only allow publicly supported interfaces, and the official API needs Luma Plus and only covers calendars you administer. Eventbrite uses the v3 organizers and venues API when EVENTBRITE_TOKEN is set on the server. The token is not committed. Without it, the event page's JSON-LD is used. The public search API, removed in 2020, is not used. Events are kept only when the title, description or place matches bitcoin, crypto or blockchain keywords, including Nordic-language forms. The same title, date and venue is listed once. Country and city are tagged from the venue. One broken feed does not stop the run. Finished events stay in the past archive. Kaupr is a news source only and is never a sponsor of an event.",
+  "i18n": {
+   "nn": {
+    "title": "Luma og Eventbrite på kalenderen",
+    "description": "Luma og Eventbrite er kjelder til arrangement. Luma er den offentlege iCal-straumen til kvar kalender (Subscribe), og schema.org JSON-LD på ei einskild arrangementsside. Bysider, kategorisider og oppdagings-API-et til Luma blir ikkje brukt: vilkåra tillet berre offentleg støtta grensesnitt, og det offisielle API-et krev Luma Plus og dekkjer berre kalendrar du sjølv driv. Eventbrite bruker v3-API-et for arrangørar og lokale når EVENTBRITE_TOKEN er sett på tenaren. Tokenet blir ikkje lagra i git. Utan det blir JSON-LD på arrangementsida brukt. Det offentlege søkje-API-et, som blei fjerna i 2020, blir ikkje brukt. Eit arrangement blir med berre når tittel, skildring eller stad treffer bitcoin-, krypto- eller blokkjedefilteret, også på nordiske språk. Same tittel, dato og stad blir lista éin gong. Land og by blir merkte frå staden. Éin straum som er nede, stoppar ikkje køyringa. Avslutta arrangement blir ståande i arkivet. Kaupr er berre ei nyheitskjelde og er aldrei sponsor for eit arrangement."
+   },
+   "nb": {
+    "title": "Luma og Eventbrite på kalenderen",
+    "description": "Luma og Eventbrite er kilder til arrangementer. Luma er den offentlige iCal-strømmen til hver kalender (Subscribe), og schema.org JSON-LD på en enkelt arrangementsside. Bysider, kategorisider og Lumas oppdagelses-API brukes ikke: vilkårene tillater bare offentlig støttede grensesnitt, og det offisielle API-et krever Luma Plus og dekker bare kalendere du selv driver. Eventbrite bruker v3-API-et for arrangører og lokaler når EVENTBRITE_TOKEN er satt på tjeneren. Tokenet lagres ikke i git. Uten det brukes JSON-LD på arrangementssiden. Det offentlige søke-API-et, som ble fjernet i 2020, brukes ikke. Et arrangement tas med bare når tittel, beskrivelse eller sted treffer bitcoin-, krypto- eller blokkjedefilteret, også på nordiske språk. Samme tittel, dato og sted listes én gang. Land og by merkes fra stedet. Én strøm som er nede, stopper ikke kjøringen. Avsluttede arrangementer blir stående i arkivet. Kaupr er bare en nyhetskilde og er aldri sponsor for et arrangement."
+   },
+   "sv": {
+    "title": "Luma och Eventbrite i kalendern",
+    "description": "Luma och Eventbrite är evenemangskällor. Luma är varje kalenders offentliga iCal-flöde (Subscribe), plus schema.org JSON-LD på en enskild evenemangssida. Stadssidor, kategorisidor och Lumas discover-API används inte: villkoren tillåter bara offentligt stödda gränssnitt, och det officiella API:t kräver Luma Plus och täcker bara kalendrar du själv driver. Eventbrite använder v3-API:t för arrangörer och platser när EVENTBRITE_TOKEN är satt på servern. Token sparas inte i git. Utan den används JSON-LD på evenemangssidan. Det offentliga sök-API:t, som togs bort 2020, används inte. Ett evenemang tas med bara när rubrik, beskrivning eller plats träffar bitcoin-, krypto- eller blockkedjefiltret, även på nordiska språk. Samma titel, datum och plats listas en gång. Land och stad märks från platsen. Ett trasigt flöde stoppar inte körningen. Avslutade evenemang ligger kvar i arkivet. Kaupr är bara en nyhetskälla och är aldrig sponsor för ett evenemang."
+   },
+   "da": {
+    "title": "Luma og Eventbrite i kalenderen",
+    "description": "Luma og Eventbrite er kilder til arrangementer. Luma er hver kalenders offentlige iCal-feed (Subscribe) og schema.org JSON-LD på en enkelt arrangementside. Bysider, kategorisider og Lumas discover-API bruges ikke: vilkårene tillader kun offentligt understøttede grænseflader, og det officielle API kræver Luma Plus og dækker kun kalendere, du selv driver. Eventbrite bruger v3-API'et for arrangører og steder, når EVENTBRITE_TOKEN er sat på serveren. Tokenet gemmes ikke i git. Uden det bruges JSON-LD på arrangementsiden. Det offentlige søge-API, som blev fjernet i 2020, bruges ikke. Et arrangement tages kun med, når titel, beskrivelse eller sted rammer bitcoin-, krypto- eller blockchain-filteret, også på nordiske sprog. Samme titel, dato og sted listes én gang. Land og by mærkes fra stedet. Ét dødt feed stopper ikke kørslen. Afsluttede arrangementer bliver i arkivet. Kaupr er kun en nyhedskilde og er aldrig sponsor for et arrangement."
+   },
+   "fi": {
+    "title": "Luma ja Eventbrite kalenterissa",
+    "description": "Luma ja Eventbrite ovat tapahtumalähteitä. Luma on kunkin kalenterin julkinen iCal-syöte (Subscribe) ja schema.org JSON-LD yksittäisellä tapahtumasivulla. Kaupunkisivuja, luokkasivuja ja Luman discover-rajapintaa ei käytetä: käyttöehdot sallivat vain julkisesti tuetut rajapinnat, ja virallinen rajapinta vaatii Luma Plus -tilauksen ja kattaa vain kalenterit, joita itse hallinnoit. Eventbrite käyttää v3-rajapintaa järjestäjille ja tapahtumapaikoille, kun EVENTBRITE_TOKEN on asetettu palvelimella. Tunnusta ei tallenneta gitiin. Ilman sitä käytetään tapahtumasivun JSON-LD:tä. Julkista hakurajapintaa, joka poistettiin vuonna 2020, ei käytetä. Tapahtuma otetaan mukaan vain, kun otsikko, kuvaus tai paikka osuu bitcoin-, krypto- tai lohkoketjusuodattimeen, myös pohjoismaisilla kielillä. Sama otsikko, päivä ja paikka listataan kerran. Maa ja kaupunki merkitään paikasta. Yksi rikki oleva syöte ei keskeytä ajoa. Päättyneet tapahtumat jäävät arkistoon. Kaupr on vain uutislähde eikä koskaan tapahtuman sponsori."
+   },
+   "is": {
+    "title": "Luma og Eventbrite á dagatalinu",
+    "description": "Luma og Eventbrite eru heimildir um viðburði. Luma er opinbert iCal-streymi hvers dagatals (Subscribe) og schema.org JSON-LD á einstakri viðburðasíðu. Borgarsíður, flokkasíður og discover-API Luma eru ekki notuð: skilmálarnir leyfa aðeins opinberlega studd viðmót, og opinbera API-ið krefst Luma Plus og nær aðeins yfir dagatöl sem þú rekur. Eventbrite notar v3-API fyrir skipuleggjendur og staði þegar EVENTBRITE_TOKEN er sett á netþjóninum. Táknið er ekki vistað í git. Án þess er JSON-LD á viðburðasíðunni notað. Opna leitar-API-ið, sem var fjarlægt 2020, er ekki notað. Viðburður er tekinn með aðeins þegar titill, lýsing eða staður fellur að bitcoin-, krypto- eða bálkakeðjusíu, einnig á norrænum málum. Sami titill, dagsetning og staður er skráður einu sinni. Land og borg eru merkt út frá staðnum. Einn dauður straumur stöðvar ekki keyrsluna. Liðnir viðburðir standa áfram í skjalasafninu. Kaupr er aðeins fréttamiðill og er aldrei styrktaraðili viðburðar."
+   }
+  },
+  "html_url": "https://nordiccrypto.no/changelog/#luma-eventbrite-intake",
+  "api_url": "https://nordiccrypto.no/api/v1/changelog/luma-eventbrite-intake.json"
+ }
+}

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T21:33:28+00:00",
+ "generated_at": "2026-10-07T22:52:55+00:00",
  "preview": false,
  "item": {
   "id": "2d38c9c89e0e",
@@ -16,7 +16,7 @@
   "source": "sydsvenskan.se",
   "source_name": "Sydsvenskan",
   "country": "SE",
-  "published_at": "2026-10-02T07:01:00+00:00",
+  "published_at": "2026-10-02T12:00:00+00:00",
   "first_published_on_site": "2026-10-03T17:59:40+02:00",
   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
   "languages": [
