@@ -104,6 +104,17 @@ def main():
         )
         body = json.load(open(os.path.join(tmp, "api/v1/talks.json"), encoding="utf-8"))
         check(body["count"] == len(rows), "talks.json count", fails)
+        linked = [item for item in body["talks"] if item.get("event_id")]
+        check(linked, "api lists a linked talk", fails)
+        check(all(item["calendar_event_id"] == item["event_id"] and not item.get("unlink_reason") for item in linked), "api event ids agree", fails)
+        unlinked = [item for item in body["talks"] if not item.get("event_id")]
+        check(unlinked and all(item.get("unlink_reason") for item in unlinked), "api keeps unlink reasons", fails)
+        previous = json.load(open(os.path.join(tmp, "api/v1/events/previous.json"), encoding="utf-8"))
+        sample = linked[0]
+        host = next(event for event in previous["events"] if event["id"] == sample["event_id"])
+        check(sample["id"] in host.get("talk_ids", []), "previous.json lists the talk", fails)
+        one_event = json.load(open(os.path.join(tmp, "api/v1/events", sample["event_id"] + ".json"), encoding="utf-8"))
+        check(sample["id"] in (one_event.get("item") or {}).get("talk_ids", []), "event document lists the talk", fails)
         check(body["talks"][0]["api_url"].endswith("/talks/" + body["talks"][0]["id"] + ".json"), "per-id url", fails)
         one = json.load(open(os.path.join(tmp, "api/v1/talks", body["talks"][0]["id"] + ".json"), encoding="utf-8"))
         check(one["item"]["id"] == body["talks"][0]["id"], "per-id file", fails)
@@ -113,6 +124,8 @@ def main():
         check(fo["count"] == 0, "FO empty file still exists", fails)
         spec = json.load(open(os.path.join(tmp, "api/v1/openapi.json"), encoding="utf-8"))
         check("Talk" in spec["components"]["schemas"], "openapi Talk", fails)
+        spec_talk = spec["components"]["schemas"]["Talk"]["properties"]
+        check("event_id" in spec_talk and "unlink_reason" in spec_talk and "talk_ids" in spec["components"]["schemas"]["Event"]["properties"], "openapi link fields", fails)
         check("/api/v1/talks.json" in spec["paths"], "openapi path", fails)
         country_param = None
         for param in spec["paths"]["/api/v1/talks/by-country/{country}.json"]["get"]["parameters"]:
@@ -144,6 +157,7 @@ def main():
             check(i18n.t(lang, "nav_talks") in html, f"{lang} nav label", fails)
             check('href="../talks/"' in html or 'href="talks/"' in html or "/talks/" in html, f"{lang} talks href", fails)
             check("Nordic Crypto" in html, f"{lang} brand", fails)
+            check('href="../calendar/' in html and "#e-" not in html, f"{lang} talk links to the event page", fails)
         # Calendar previous-events link, English and Norwegian.
         now = dt.datetime(2026, 10, 7, tzinfo=dt.timezone.utc)
         for lang in ("en", "nn"):

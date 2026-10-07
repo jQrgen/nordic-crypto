@@ -2373,11 +2373,13 @@ def build_one_event(e):
         if any(talk["url"] == x["url"] for x in talks):
             continue
         credit = event_select.credit_block(talk.get("source_name") or t("ev_source"), talk.get("source_url") or talk["url"], talk.get("retrieved"))
-        talks.append({"title": talk.get("title") or t("ev_videos"), "url": talk["url"], "credit": credit})
+        talks.append({"title": talk.get("title") or t("ev_videos"), "url": talk["url"], "credit": credit, "speakers": talk.get("speakers") or []})
     if talks:
         items = []
         for talk in talks:
-            items.append(f'<li><a href="{E(talk["url"])}" rel="noopener">{E(talk["title"])}</a>' + _source_line(talk.get("credit")) + "</li>")
+            names = [s for s in (talk.get("speakers") or []) if s]
+            who = f' <span class="meta">{E(t("ev_speakers"))}: {E(", ".join(names))}</span>' if names else ""
+            items.append(f'<li><a href="{E(talk["url"])}" rel="noopener">{E(talk["title"])}</a>{who}' + _source_line(talk.get("credit")) + "</li>")
         bits.append(f'<h2>{E(t("ev_talks"))}</h2><ul class="evpage">{"".join(items)}</ul>')
     if not fact and e.get("source") and e.get("source") != "backfill":
         credit = event_select.place_credit(e)
@@ -2496,13 +2498,15 @@ def build_talks():
             media = (f'<p><a href="{E(r.get("video_url"))}" rel="noopener" target="_blank">{E(t("talks_watch"))}</a></p>'
                      f'<p class="meta">{E(t("talks_not_embed"))}</p>')
         extra = []
-        if r.get("event_name"):
-            if r.get("event_url"):
-                extra.append(f'{E(t("talks_event"))}: <a href="{E(r["event_url"])}" rel="noopener" target="_blank">{E(r["event_name"])}</a>')
-            else:
-                extra.append(f'{E(t("talks_event"))}: {E(r["event_name"])}')
-        if r.get("calendar_event_id"):
-            extra.append(f'<a href="../calendar/#e-{E(r["calendar_event_id"])}">{E(t("talks_calendar"))}</a>')
+        eid = r.get("event_id") or r.get("calendar_event_id")
+        if r.get("event_name") and eid:
+            extra.append(f'{E(t("talks_event"))}: <a href="../calendar/{E(eid)}/">{E(r["event_name"])}</a>')
+        elif r.get("event_name") and r.get("event_url"):
+            extra.append(f'{E(t("talks_event"))}: <a href="{E(r["event_url"])}" rel="noopener" target="_blank">{E(r["event_name"])}</a>')
+        elif r.get("event_name"):
+            extra.append(f'{E(t("talks_event"))}: {E(r["event_name"])}')
+        elif eid:
+            extra.append(f'<a href="../calendar/{E(eid)}/">{E(t("talks_calendar"))}</a>')
         if r.get("channel"):
             extra.append(f'{E(t("talks_channel"))}: {E(r["channel"])}')
         if published:

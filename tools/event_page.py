@@ -101,7 +101,7 @@ def _talk_url(row):
 def _talk_event_id(row):
     if not isinstance(row, dict):
         return ""
-    return str(row.get("event_id") or row.get("event") or "").strip()
+    return str(row.get("event_id") or row.get("calendar_event_id") or row.get("event") or "").strip()
 
 
 def related_talks(event_id, path=None):
@@ -135,6 +135,9 @@ def related_talks(event_id, path=None):
         when = row.get("retrieved_at") or row.get("retrieved")
         if when:
             item["retrieved"] = when
+        speakers = [s.strip() for s in (row.get("speakers") or []) if isinstance(s, str) and s.strip()]
+        if speakers:
+            item["speakers"] = speakers
         out.append(item)
     return out
 

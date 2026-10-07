@@ -439,6 +439,9 @@ class Feed:
                 "source_url": att["credit"]["url"],
                 "retrieved": att["credit"].get("retrieved"),
             }
+        ids = [str(item) for item in (raw.get("talk_ids") or []) if item]
+        if ids:
+            out["talk_ids"] = ids
         if self.preview:
             out["status"] = raw.get("status")
         return out
@@ -587,7 +590,7 @@ def public_org(preview):
 
 TALK_FIELDS = (
     "id", "video_url", "platform", "title", "speakers", "event_name", "event_url",
-    "calendar_event_id", "city", "country", "date", "published", "duration", "language",
+    "calendar_event_id", "event_id", "unlink_reason", "city", "country", "date", "published", "duration", "language",
     "channel", "description", "source_url", "retrieved_at", "added_at", "embed",
 )
 
@@ -1703,6 +1706,7 @@ def schemas():
             "language": {"type": "string", "nullable": True, "description": "Language code when a source states it. Omitted when unknown."},
             "speakers_count": {"type": "integer", "nullable": True, "description": "Exact speaker count when a source states one. Omitted otherwise. A session count is not a speaker count."},
             "videos_url": {"type": "string", "nullable": True, "description": "Link to talk videos when a source gives one."},
+            "talk_ids": {"type": "array", "items": {"type": "string"}, "description": "Ids of talks in /api/v1/talks.json recorded at this event. Omitted when none are linked."},
             "credits": {"type": "object", "nullable": True, "description": "Per-field source_name, source_url and retrieved_at on backfilled events."},
         },
     }
@@ -1718,7 +1722,9 @@ def schemas():
             "speakers": {"type": "array", "items": {"type": "string"}, "description": "Names the platform page states. Empty when none are stated."},
             "event_name": {"type": "string", "nullable": True},
             "event_url": {"type": "string", "nullable": True},
-            "calendar_event_id": {"type": "string", "nullable": True, "description": "Id of the matching event in /api/v1/events.json, when one exists."},
+            "calendar_event_id": {"type": "string", "nullable": True, "description": "Same value as event_id. The event page is /calendar/<id>/ and the document is /api/v1/events/<id>.json. Previous events are also listed in /api/v1/events/previous.json."},
+            "event_id": {"type": "string", "nullable": True, "description": "Id of the event this talk belongs to. Null when the talk could not be dated or placed."},
+            "unlink_reason": {"type": "string", "nullable": True, "description": "Why the talk is not linked to an event. Null when event_id is set."},
             "city": {"type": "string", "nullable": True},
             "country": {"type": "string", "nullable": True, "description": "NO, SE, DK, FI, IS, FO, GL or AX."},
             "date": {"type": "string", "nullable": True, "description": "Calendar date of the talk, YYYY-MM-DD, when the source states it."},
@@ -2171,7 +2177,7 @@ curl -fsS {letters}{html.escape(one_line)}</pre>
 <pre>curl -fsS {html.escape(b)}api/v1/markets.json
 curl -fsS {html.escape(b)}api/v1/markets/aggregated.json</pre>
 <h2>Talks</h2>
-<p>Public talks on bitcoin, cryptocurrencies and blockchain held in Norway, Sweden, Denmark, Finland, Iceland, the Faroe Islands, Greenland and Åland are at <a href="{html.escape(b)}api/v1/talks.json"><code>/api/v1/talks.json</code></a>, newest first. One talk is <code>/api/v1/talks/{{id}}.json</code>. One country is <a href="{html.escape(b)}api/v1/talks/by-country/NO.json"><code>/api/v1/talks/by-country/{{country}}.json</code></a> (<code>NO</code>, <code>SE</code>, <code>DK</code>, <code>FI</code>, <code>IS</code>, <code>FO</code>, <code>GL</code>, <code>AX</code>). <code>description</code> is ours. <code>title</code>, dates, duration, channel and speakers come from the platform at <code>source_url</code>. A field the platform did not state is null. <code>embed</code> is true only when that platform's oEmbed response includes a player. The HTML page loads the player after a click: YouTube via youtube-nocookie.com, Vimeo via player.vimeo.com. <code>calendar_event_id</code> is the id in <code>/api/v1/events.json</code> when the talk is that calendar event.</p>
+<p>Public talks on bitcoin, cryptocurrencies and blockchain held in Norway, Sweden, Denmark, Finland, Iceland, the Faroe Islands, Greenland and Åland are at <a href="{html.escape(b)}api/v1/talks.json"><code>/api/v1/talks.json</code></a>, newest first. One talk is <code>/api/v1/talks/{{id}}.json</code>. One country is <a href="{html.escape(b)}api/v1/talks/by-country/NO.json"><code>/api/v1/talks/by-country/{{country}}.json</code></a> (<code>NO</code>, <code>SE</code>, <code>DK</code>, <code>FI</code>, <code>IS</code>, <code>FO</code>, <code>GL</code>, <code>AX</code>). <code>description</code> is ours. <code>title</code>, dates, duration, channel and speakers come from the platform at <code>source_url</code>. A field the platform did not state is null. <code>embed</code> is true only when that platform's oEmbed response includes a player. The HTML page loads the player after a click: YouTube via youtube-nocookie.com, Vimeo via player.vimeo.com. <code>event_id</code> and <code>calendar_event_id</code> are the same event id when the talk is linked. That event is <code>/api/v1/events/{{id}}.json</code> (and <code>/api/v1/events/previous.json</code> when it is a past event) and the page is <code>/calendar/{{id}}/</code>. <code>talk_ids</code> on the event lists those talks. <code>unlink_reason</code> is set when the video page did not state a day or a place, and <code>event_id</code> is then null.</p>
 <h2>Several outlets, one story</h2>
 <p>A story keeps one primary outlet. Other outlets that covered the same event are in <code>also_covered_by</code>. <code>sources</code> lists the primary first, then the others. Each outlet has <code>outlet</code>, <code>outlet_name</code>, <code>url</code>, <code>title</code> (that outlet's headline), <code>published</code>, <code>lang</code>, <code>country</code>, <code>source_type</code> and <code>logo</code>. <code>source_type</code> is <code>national</code>, <code>regional</code> (regional and local), <code>official</code> (justice and official: police, prosecutors, courts, regulators) or <code>international</code>. <code>coverage.count</code> is the number of outlets. <code>coverage.by_country</code> and <code>coverage.by_source_type</code> are the counts and shares for the bars. Every source type is present, including a count of zero. <code>html_url</code> is our page for that story. <code>url</code> is the primary outlet. Kaupr stays a news source only.</p>
 <h2>Events</h2>

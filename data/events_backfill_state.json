@@ -62,6 +62,115 @@
     {"name": "Programme URL on simula-uib.com cited by Norges Bank", "reason": "Not used as the official link. The Norges Bank PDF is the source for the Bergen conference."},
     {"name": "Approximate and capacity figures", "reason": "approximately 50, estimated 100, over 1,000 and limited to 30 were not stored."}
    ]
+  },
+  {
+   "kind": "talk-links",
+   "retrieved_at": "2026-10-07T22:40:00+00:00",
+   "included": 18,
+   "by_country": {
+    "NO": 8,
+    "SE": 1,
+    "DK": 1,
+    "FI": 6,
+    "IS": 2,
+    "FO": 0,
+    "GL": 0,
+    "AX": 0
+   },
+   "by_year": {
+    "2013": 1,
+    "2014": 1,
+    "2017": 3,
+    "2018": 2,
+    "2022": 2,
+    "2023": 3,
+    "2025": 1,
+    "2026": 3,
+    "2016": 2
+   },
+   "by_country_year": {
+    "NO": {
+     "2022": 2,
+     "2023": 3,
+     "2016": 1,
+     "2017": 2
+    },
+    "SE": {
+     "2017": 1
+    },
+    "DK": {
+     "2013": 1
+    },
+    "FI": {
+     "2014": 1,
+     "2025": 1,
+     "2026": 3,
+     "2016": 1
+    },
+    "IS": {
+     "2018": 2
+    },
+    "FO": {},
+    "GL": {},
+    "AX": {}
+   },
+   "years_with_events": [
+    2013,
+    2014,
+    2016,
+    2017,
+    2018,
+    2022,
+    2023,
+    2025,
+    2026
+   ],
+   "note": "Talks are matched to an existing calendar or backfill event first (series, date span, city, country and organiser). When none matches, a previous event is created from facts the video page stated: name, day, city, country, venue, organiser and official URL. A talk with no day or no place stays unlinked with unlink_reason. Predatory conference listings are not sources.",
+   "talks": {
+    "linked_existing": 0,
+    "created_events": 4,
+    "talks_on_new": 27,
+    "unlinked": 47,
+    "unlinked_reasons": {
+     "the video page did not state the day": 45,
+     "the video page did not state the city": 1,
+     "the video page did not name the event": 1
+    }
+   },
+   "queries": [
+    "https://www.youtube.com/watch?v=0iXX02OYI5s&hl=en",
+    "https://www.youtube.com/watch?v=eo-0BgrKxiI&hl=en",
+    "https://www.youtube.com/watch?v=ibI_S_RcxZQ&hl=en",
+    "https://www.youtube.com/watch?v=zi2JsPOm5HE&hl=en"
+   ],
+   "sources_used": [
+    "Blockchangers",
+    "Ethereum Helsinki",
+    "Jørgen Svennevik Notland",
+    "aantonop"
+   ],
+   "rejected": [
+    {
+     "host": "internationalconferencealerts.com",
+     "reason": "Predatory conference listing. Not a source."
+    },
+    {
+     "host": "waset.org",
+     "reason": "Predatory conference listing. Not a source."
+    },
+    {
+     "host": "conferenceindex.org",
+     "reason": "Predatory conference listing. Not a source."
+    },
+    {
+     "host": "conferencenext.com",
+     "reason": "Predatory conference listing. Greenland search hits on this host were not opened and not included."
+    },
+    {
+     "host": "conferencealert.com",
+     "reason": "Predatory conference listing. Greenland search hits on this host were not opened and not included."
+    }
+   ]
   }
  ]
 }
