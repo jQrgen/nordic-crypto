@@ -4,7 +4,7 @@ S = {
 "nav_about": "Om os", "nav_tip": "Send et tip", "main_menu": "Hovedmenu", "lang_label": "Sprog", "lang_choose": "Vælg sprog",
 "site_desc_suffix": "kryptonyheder fra Norden",
 "preview_banner": "<b>Lokal forhåndsvisning – ikke offentliggjort.</b> Alt, der er markeret »Afventer redaktøren«, er ikke kontrolleret af redaktøren endnu, og resuméerne er ikke skrevet. Kun godkendt indhold kommer med i den offentlige version.",
-"footer": "{site} dækker Norge, Sverige, Danmark, Finland og Island. Drives af Jørgen S. Notland (jQrgen), Oslo, Lavet med hjælp fra kunstig intelligens, med menneskelige redaktører (jQrgen og Nordic Crypto-redaktøren). Ikke investeringsrådgivning. Cloudflare Web Analytics tæller besøg samlet, uden cookies, og vi sælger ikke de data. Én cookie, kun hvis du vælger sprog. <a href=\"{rel}about/\">Om os, privatliv, rettelser og fjernelse</a> · <a href=\"{rel}tip/\">Send et tip</a> · <a href=\"{rel}columnist/\">Søg som klummeskribent</a> · <a href=\"{rel}changelog/\">Ændringslog</a> · <a href=\"{rel}ethics/\">Redaktionel etik</a> · <a href=\"https://testflight.apple.com/join/nQ2fpjZn\" rel=\"noopener\">iOS-app (TestFlight)</a> · <a href=\"{rel}markets/\">Markeder</a> · <a href=\"{root}api/\">Data-API</a>.",
+"footer": "{site} dækker Norge, Sverige, Danmark, Finland og Island. Drives af Jørgen S. Notland (jQrgen), Oslo, Lavet med hjælp fra kunstig intelligens, med menneskelige redaktører (jQrgen og Nordic Crypto-redaktøren). Ikke investeringsrådgivning. Cloudflare Web Analytics tæller besøg samlet, uden cookies, og vi sælger ikke de data. Én cookie, kun hvis du vælger sprog. <a href=\"{rel}about/\">Om os, privatliv, rettelser og fjernelse</a> · <a href=\"{rel}tip/\">Send et tip</a> · <a href=\"{rel}columnist/\">Søg som klummeskribent</a> · <a href=\"{rel}changelog/\">Ændringslog</a> · <a href=\"{rel}ethics/\">Redaktionel etik</a> · <a href=\"https://testflight.apple.com/join/nQ2fpjZn\" rel=\"noopener\">iOS-app (TestFlight)</a> · <a href=\"{rel}talks/\">Foredrag</a> · <a href=\"{rel}markets/\">Markeder</a> · <a href=\"{root}api/\">Data-API</a>.",
 "moved": "Siden er flyttet til",
 "time_local": "{city}, lokal tid", "at_time": "{t}",
 "pending": "Afventer redaktøren", "owner": "Godkendt af redaktøren · afventer jQrgens endelige godkendelse", "our_story": "Vores artikel",
@@ -18,6 +18,13 @@ S = {
 "source": "Kilde", "all_sources": "Alle kilder", "topic": "Emne", "n_stories": "{n} artikler", "no_stories": "Ingen offentliggjorte artikler endnu.",
 "home_notice": "Resuméerne er vores egne, skrevet ud fra overskriften og den offentlige manchet. Vi gengiver ikke artikeltekst, og vi omgår ikke betalingsmure. Artikler markeret »kan kræve abonnement« er fra medier med betalingsmur. Overskrifterne vises, som kilden skrev dem. Intet her er investeringsrådgivning.",
 "paywall": "kan kræve abonnement", "orig_title": "Original overskrift ({l}): ",
+"also_covered": "Også dækket af", "read_at": "Læs hos {name}",
+"n_sources": "{n} kilder", "n_sources_1": "1 kilde", "n_sources_more": "+{n} kilder",
+"cov_h": "Medier der dækker historien", "cov_breakdown": "Dækning",
+"cov_by_country": "Efter land", "cov_by_type": "Efter kildetype",
+"cov_national": "Nationale", "cov_regional": "Regionale og lokale", "cov_official": "Justits og offentlige", "cov_international": "Internationale",
+"cov_sort": "Sortér medier", "cov_sort_country": "Gruppér efter land", "cov_sort_time": "Efter tid",
+"cov_primary": "Primær", "cov_open": "Læs", "cov_unknown": "Land ikke sat",
 "sum_pending": "Afventer redaktøren – resuméet er ikke skrevet endnu. Læs artiklen hos kilden.",
 "lang_Norwegian": "på norsk", "lang_Swedish": "på svensk", "lang_Danish": "på dansk", "lang_Finnish": "på finsk", "lang_Icelandic": "på islandsk", "lang_English": "på engelsk",
 "lname_Norwegian": "norsk", "lname_Swedish": "svensk", "lname_Danish": "dansk", "lname_Finnish": "finsk", "lname_Icelandic": "islandsk", "lname_English": "engelsk",
@@ -146,6 +153,8 @@ S.update({
 "nav_newsletter": "Nyhedsbrev", "nl_issues_h": "Udgaver", "nl_issues_lead": "Alle udgaver, nyeste først. Læs dem her, eller få dem på e-mail.", "nl_issues_none": "Ingen udgaver endnu.", "nl_issue_n": "Udgave #{n}", "nl_issue_period": "Nyheder fra {a} til {b}", "nl_issue_count": "{s} historier og {e} arrangementer", "nl_issue_video": "Video, {m} min.", "nl_issue_en": "Denne udgave er kun på engelsk.", "bridge": "Artiklen er {where}. Kort fortalt:", "nl_bridge": "Denne udgave er {where}. Kort fortalt:", "nl_video_dl": "Download videoen (MP4, {mb} MB)", "nl_video_subs": "Engelske undertekster (WebVTT)", "nl_video_fallback": "Din browser kan ikke afspille videoen her. Download den i stedet:", "nl_video_note": "Videoen afspilles fra denne hjemmeside, uden YouTube-afspiller. Den har engelske undertekster.", "nl_all_issues": "Alle udgaver af nyhedsbrevet", "nl_get_next": "Få næste udgave på e-mail:",
 # the site's own X account (@xcryptonordic), header/footer/newsletter
 "x_btn": "Følg på X", "x_follow": "Følg Nordic Crypto på X", "x_title": "Nordic Crypto på X (@xcryptonordic), webstedets egen konto",
+"tg_label": "Telegram", "tg_follow": "Nordic Crypto på Telegram", "tg_title": "Nordic Crypto på Telegram (t.me/nordiccryptochat), brandets chat",
+"social_h": "Fællesskab", "social_aria": "Nordic Crypto på de sociale medier", "social_lead": "Nordic Cryptos chat er på Telegram, og brandkontoen er på X.",
 "nl_write": "Vil du skrive for Nordic Crypto? <a href=\"{href}\">Søg som klummeskribent</a>. Redaktøren læser hver ansøgning. Udgivelse er ikke garanteret, og en klumme er ikke investeringsrådgivning.",
 "col_title": "Søg som klummeskribent",
 "col_desc": "Søg om at skrive en klumme for Nordic Crypto om krypto, bitcoin eller blockchain i Norden.",
@@ -223,3 +232,5 @@ S.update({
 "push_saved": "Gemt.",
 "push_noscript": "JavaScript skal være slået til for at slå notifikationer til.",
 })
+
+S.update({'nav_talks': 'Foredrag', 'talks_title': 'Foredrag – offentlige kryptoforedrag i Norden', 'talks_desc': 'Offentlige foredrag om bitcoin, kryptovaluta og blockchain holdt i de nordiske lande, med videoen og de fakta udgiveren har angivet.', 'talks_h1': 'Foredrag', 'talks_lead': 'Optagelser af offentlige foredrag om bitcoin, kryptovaluta og blockchain holdt i Norge, Sverige, Danmark, Finland, Island, Færøerne, Grønland og Åland siden bitcoins hvidbog. Nyeste først. Afspilleren indlæses kun, når du trykker på afspil, og kun når platformen tillader indlejring.', 'talks_n': '{n} foredrag', 'talks_none': 'Ingen foredrag matcher disse filtre.', 'talks_year': 'År', 'talks_year_all': 'Alle år', 'talks_language': 'Sprog', 'talks_lang_unknown': 'Sprog ikke angivet', 'talks_play': 'Afspil', 'talks_watch': 'Se på platformen', 'talks_speakers': 'Talere', 'talks_event': 'Arrangement', 'talks_channel': 'Kanal', 'talks_published': 'Video udgivet', 'talks_duration': 'Længde', 'talks_held': 'Holdt', 'talks_source': 'Kilde', 'talks_calendar': 'Kalenderpost', 'talks_embed_note': 'Afspilleren indlæses fra platformen først, når du trykker på afspil.', 'talks_not_embed': 'Platformen tilbød ikke en afspiller, der kan indlejres. Linket går til videoen.', 'past_talks': 'Optagelser af offentlige foredrag ligger i <a href="{href}">foredragsarkivet</a>.', 'c_FO': 'Færøerne', 'c_GL': 'Grønland', 'c_AX': 'Åland'})

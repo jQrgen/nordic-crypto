@@ -4,7 +4,7 @@ S = {
 "nav_about": "Om oss", "nav_tip": "Send tips", "main_menu": "Hovudmeny", "lang_label": "Språk", "lang_choose": "Vel språk",
 "site_desc_suffix": "kryptonyheiter frå Norden",
 "preview_banner": "<b>Lokal førehandsvising – ikkje publisert.</b> Alt som er merkt «Ventar på redaktøren», er ikkje kontrollert av redaktøren enno, og samandraga er ikkje skrivne. Berre godkjent innhald kjem med i den offentlege versjonen.",
-"footer": "{site} dekkjer Noreg, Sverige, Danmark, Finland og Island. Driven av Jørgen S. Notland (jQrgen), Oslo, Laga med hjelp av kunstig intelligens, med menneskelege redaktørar (jQrgen og Nordic Crypto-redaktøren). Ikkje investeringsråd. Cloudflare Web Analytics tel besøk samla, utan informasjonskapslar, og vi sel ikkje dei dataa. Éin informasjonskapsel, berre om du vel språk. <a href=\"{rel}about/\">Om oss, personvern, rettingar og fjerning</a> · <a href=\"{rel}tip/\">Send tips</a> · <a href=\"{rel}columnist/\">Søk som spaltist</a> · <a href=\"{rel}changelog/\">Endringslogg</a> · <a href=\"{rel}ethics/\">Redaksjonsetikk</a> · <a href=\"https://testflight.apple.com/join/nQ2fpjZn\" rel=\"noopener\">iOS-app (TestFlight)</a> · <a href=\"{rel}markets/\">Marknader</a> · <a href=\"{root}api/\">Data-API</a>.",
+"footer": "{site} dekkjer Noreg, Sverige, Danmark, Finland og Island. Driven av Jørgen S. Notland (jQrgen), Oslo, Laga med hjelp av kunstig intelligens, med menneskelege redaktørar (jQrgen og Nordic Crypto-redaktøren). Ikkje investeringsråd. Cloudflare Web Analytics tel besøk samla, utan informasjonskapslar, og vi sel ikkje dei dataa. Éin informasjonskapsel, berre om du vel språk. <a href=\"{rel}about/\">Om oss, personvern, rettingar og fjerning</a> · <a href=\"{rel}tip/\">Send tips</a> · <a href=\"{rel}columnist/\">Søk som spaltist</a> · <a href=\"{rel}changelog/\">Endringslogg</a> · <a href=\"{rel}ethics/\">Redaksjonsetikk</a> · <a href=\"https://testflight.apple.com/join/nQ2fpjZn\" rel=\"noopener\">iOS-app (TestFlight)</a> · <a href=\"{rel}talks/\">Foredrag</a> · <a href=\"{rel}markets/\">Marknader</a> · <a href=\"{root}api/\">Data-API</a>.",
 "moved": "Denne sida er flytta til",
 "time_local": "{city}, lokal tid", "at_time": "{t}",
 "pending": "Ventar på redaktøren", "owner": "Godkjend av redaktøren · ventar på den endelege godkjenninga til jQrgen", "our_story": "Vår sak",
@@ -18,6 +18,13 @@ S = {
 "source": "Kjelde", "all_sources": "Alle kjelder", "topic": "Tema", "n_stories": "{n} saker", "no_stories": "Ingen publiserte saker enno.",
 "home_notice": "Samandraga er våre eigne, skrivne ut frå tittelen og den offentlege ingressen. Vi attgjev ikkje artikkeltekst og omgår ikkje betalingsmurar. Saker merkte «kan krevje abonnement», er frå medium med betalingsmur. Titlane blir viste slik kjelda skreiv dei. Ingenting her er investeringsråd.",
 "paywall": "kan krevje abonnement", "orig_title": "Originaltittel ({l}): ",
+"also_covered": "Også dekt av", "read_at": "Les hos {name}",
+"n_sources": "{n} kjelder", "n_sources_1": "1 kjelde", "n_sources_more": "+{n} kjelder",
+"cov_h": "Medium som dekkjer saka", "cov_breakdown": "Dekning",
+"cov_by_country": "Etter land", "cov_by_type": "Etter kjeldetype",
+"cov_national": "Nasjonale", "cov_regional": "Regionale og lokale", "cov_official": "Justis og offentlege", "cov_international": "Internasjonale",
+"cov_sort": "Sorter medium", "cov_sort_country": "Grupper etter land", "cov_sort_time": "Etter tid",
+"cov_primary": "Primær", "cov_open": "Les", "cov_unknown": "Land ikkje sett",
 "sum_pending": "Ventar på redaktøren – samandraget er ikkje skrive enno. Les saka hos kjelda.",
 "lang_Norwegian": "på norsk", "lang_Swedish": "på svensk", "lang_Danish": "på dansk", "lang_Finnish": "på finsk", "lang_Icelandic": "på islandsk", "lang_English": "på engelsk",
 "lname_Norwegian": "norsk", "lname_Swedish": "svensk", "lname_Danish": "dansk", "lname_Finnish": "finsk", "lname_Icelandic": "islandsk", "lname_English": "engelsk",
@@ -146,6 +153,8 @@ S.update({
 "nav_newsletter": "Nyheitsbrev", "nl_issues_h": "Utgåver", "nl_issues_lead": "Alle utgåvene, nyaste først. Les dei her eller få dei på e-post.", "nl_issues_none": "Ingen utgåver enno.", "nl_issue_n": "Utgåve #{n}", "nl_issue_period": "Nyheiter frå {a} til {b}", "nl_issue_count": "{s} saker og {e} arrangement", "nl_issue_video": "Video, {m} min", "nl_issue_en": "Denne utgåva er berre på engelsk.", "bridge": "Denne saka er {where}. Kort forklart:", "nl_bridge": "Denne utgåva er {where}. Kort forklart:", "nl_video_dl": "Last ned videoen (MP4, {mb} MB)", "nl_video_subs": "Engelske undertekstar (WebVTT)", "nl_video_fallback": "Nettlesaren din kan ikkje spele av videoen her. Last han ned i staden:", "nl_video_note": "Videoen blir spelt av frå denne nettstaden, utan YouTube-spelar. Han har engelske undertekstar.", "nl_all_issues": "Alle utgåvene av nyheitsbrevet", "nl_get_next": "Få neste utgåve på e-post:",
 # the site's own X account (@xcryptonordic), header/footer/newsletter
 "x_btn": "Følg på X", "x_follow": "Følg Nordic Crypto på X", "x_title": "Nordic Crypto på X (@xcryptonordic), nettstaden sin eigen konto",
+"tg_label": "Telegram", "tg_follow": "Nordic Crypto på Telegram", "tg_title": "Nordic Crypto på Telegram (t.me/nordiccryptochat), merkevaren sin chat",
+"social_h": "Fellesskap", "social_aria": "Nordic Crypto i sosiale medium", "social_lead": "Nordic Crypto-chatten er på Telegram, og merkevarekontoen er på X.",
 "nl_write": "Vil du skrive for Nordic Crypto? <a href=\"{href}\">Søk som spaltist</a>. Redaktøren les kvar søknad. Publisering er ikkje garantert, og ein spalte er ikkje investeringsråd.",
 "col_title": "Søk som spaltist",
 "col_desc": "Søk om å skrive ein spalte for Nordic Crypto om krypto, bitcoin eller blokkjede i Norden.",
@@ -223,3 +232,5 @@ S.update({
 "push_saved": "Lagra.",
 "push_noscript": "Å slå på varslingar treng JavaScript.",
 })
+
+S.update({'nav_talks': 'Foredrag', 'talks_title': 'Foredrag – offentlege krypto-foredrag i Norden', 'talks_desc': 'Offentlege foredrag om bitcoin, kryptovaluta og blokkjede haldne i dei nordiske landa, med videoen og fakta utgjevaren har oppgitt.', 'talks_h1': 'Foredrag', 'talks_lead': 'Opptak av offentlege foredrag om bitcoin, kryptovaluta og blokkjede haldne i Noreg, Sverige, Danmark, Finland, Island, Færøyane, Grønland og Åland sidan bitcoin-kvitboka. Nyaste først. Avspelaren lastar berre etter at du trykkjer spel, og berre når plattforma tillèt innbygging.', 'talks_n': '{n} foredrag', 'talks_none': 'Ingen foredrag passar desse filtera.', 'talks_year': 'År', 'talks_year_all': 'Alle år', 'talks_language': 'Språk', 'talks_lang_unknown': 'Språk ikkje oppgitt', 'talks_play': 'Spel av', 'talks_watch': 'Sjå på plattforma', 'talks_speakers': 'Innleiarar', 'talks_event': 'Arrangement', 'talks_channel': 'Kanal', 'talks_published': 'Video publisert', 'talks_duration': 'Lengd', 'talks_held': 'Halde', 'talks_source': 'Kjelde', 'talks_calendar': 'Kalenderoppføring', 'talks_embed_note': 'Avspelaren blir lasta frå plattforma først når du trykkjer spel.', 'talks_not_embed': 'Plattforma tilbaud ikkje ein avspelar som kan byggjast inn. Lenkja går til videoen.', 'past_talks': 'Opptak av offentlege foredrag ligg i <a href="{href}">foredragsarkivet</a>.', 'c_FO': 'Færøyane', 'c_GL': 'Grønland', 'c_AX': 'Åland'})

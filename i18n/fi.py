@@ -4,7 +4,7 @@ S = {
 "nav_about": "Tietoa meistä", "nav_tip": "Lähetä vinkki", "main_menu": "Päävalikko", "lang_label": "Kieli", "lang_choose": "Valitse kieli",
 "site_desc_suffix": "kryptouutisia Pohjoismaista",
 "preview_banner": "<b>Paikallinen esikatselu – ei julkaistu.</b> Toimittaja ei ole vielä tarkistanut mitään, mikä on merkitty ”Odottaa toimittajan tarkistusta”, eikä tiivistelmiä ole vielä kirjoitettu. Julkiseen versioon tulee vain hyväksytty sisältö.",
-"footer": "{site} seuraa Norjaa, Ruotsia, Tanskaa, Suomea ja Islantia. Sivustoa ylläpitää Jørgen S. Notland (jQrgen), Oslo, Tehty tekoälyn avulla, ihmistoimittajina jQrgen ja Nordic Crypton toimittaja. Ei sijoitusneuvontaa. Cloudflare Web Analytics laskee käynnit kootusti, ilman evästeitä, emmekä myy näitä tietoja. Yksi eväste, vain jos valitset kielen. <a href=\"{rel}about/\">Tietoa meistä, tietosuoja, korjaukset ja poistot</a> · <a href=\"{rel}tip/\">Lähetä vinkki</a> · <a href=\"{rel}columnist/\">Hae kolumnistiksi</a> · <a href=\"{rel}changelog/\">Muutosloki</a> · <a href=\"{rel}ethics/\">Toimituksen etiikka</a> · <a href=\"https://testflight.apple.com/join/nQ2fpjZn\" rel=\"noopener\">iOS-sovellus (TestFlight)</a> · <a href=\"{rel}markets/\">Markkinat</a> · <a href=\"{root}api/\">Data-API</a>.",
+"footer": "{site} seuraa Norjaa, Ruotsia, Tanskaa, Suomea ja Islantia. Sivustoa ylläpitää Jørgen S. Notland (jQrgen), Oslo, Tehty tekoälyn avulla, ihmistoimittajina jQrgen ja Nordic Crypton toimittaja. Ei sijoitusneuvontaa. Cloudflare Web Analytics laskee käynnit kootusti, ilman evästeitä, emmekä myy näitä tietoja. Yksi eväste, vain jos valitset kielen. <a href=\"{rel}about/\">Tietoa meistä, tietosuoja, korjaukset ja poistot</a> · <a href=\"{rel}tip/\">Lähetä vinkki</a> · <a href=\"{rel}columnist/\">Hae kolumnistiksi</a> · <a href=\"{rel}changelog/\">Muutosloki</a> · <a href=\"{rel}ethics/\">Toimituksen etiikka</a> · <a href=\"https://testflight.apple.com/join/nQ2fpjZn\" rel=\"noopener\">iOS-sovellus (TestFlight)</a> · <a href=\"{rel}talks/\">Esitelmät</a> · <a href=\"{rel}markets/\">Markkinat</a> · <a href=\"{root}api/\">Data-API</a>.",
 "moved": "Sivu on siirretty osoitteeseen",
 "time_local": "{city}, paikallista aikaa", "at_time": "{t}",
 "pending": "Odottaa toimittajan tarkistusta", "owner": "Toimittajan hyväksymä · odottaa jQrgenin lopullista hyväksyntää", "our_story": "Oma juttumme",
@@ -18,6 +18,13 @@ S = {
 "source": "Lähde", "all_sources": "Kaikki lähteet", "topic": "Aihe", "n_stories": "{n} juttua", "no_stories": "Julkaistuja juttuja ei vielä ole.",
 "home_notice": "Tiivistelmät ovat omiamme, ja ne on kirjoitettu otsikon ja julkisen ingressin pohjalta. Emme toista artikkelien tekstiä emmekä kierrä maksumuureja. Merkintä ”voi vaatia tilauksen” tarkoittaa maksumuurin takana olevaa mediaa. Otsikot näytetään sellaisina kuin lähde ne kirjoitti. Mikään täällä ei ole sijoitusneuvontaa.",
 "paywall": "voi vaatia tilauksen", "orig_title": "Alkuperäinen otsikko ({l}): ",
+"also_covered": "Myös näiden uutisoima", "read_at": "Lue lähteestä {name}",
+"n_sources": "{n} lähdettä", "n_sources_1": "1 lähde", "n_sources_more": "+{n} lähdettä",
+"cov_h": "Jutun uutisoineet mediat", "cov_breakdown": "Kattavuus",
+"cov_by_country": "Maittain", "cov_by_type": "Lähdetyypeittäin",
+"cov_national": "Valtakunnalliset", "cov_regional": "Alueelliset ja paikalliset", "cov_official": "Oikeus ja viranomaiset", "cov_international": "Kansainväliset",
+"cov_sort": "Järjestä mediat", "cov_sort_country": "Ryhmitä maittain", "cov_sort_time": "Ajan mukaan",
+"cov_primary": "Ensisijainen", "cov_open": "Lue", "cov_unknown": "Maata ei ole asetettu",
 "sum_pending": "Odottaa toimittajan tarkistusta – tiivistelmää ei ole vielä kirjoitettu. Lue juttu lähteestä.",
 "lang_Norwegian": "norjaksi", "lang_Swedish": "ruotsiksi", "lang_Danish": "tanskaksi", "lang_Finnish": "suomeksi", "lang_Icelandic": "islanniksi", "lang_English": "englanniksi",
 "lname_Norwegian": "norja", "lname_Swedish": "ruotsi", "lname_Danish": "tanska", "lname_Finnish": "suomi", "lname_Icelandic": "islanti", "lname_English": "englanti",
@@ -146,6 +153,8 @@ S.update({
 "nav_newsletter": "Uutiskirje", "nl_issues_h": "Numerot", "nl_issues_lead": "Kaikki numerot, uusin ensin. Lue ne täällä tai tilaa ne sähköpostiisi.", "nl_issues_none": "Ei vielä numeroita.", "nl_issue_n": "Numero {n}", "nl_issue_period": "Uutiset {a}–{b}", "nl_issue_count": "{s} uutista ja {e} tapahtumaa", "nl_issue_video": "Video, {m} min", "nl_issue_en": "Tämä numero on vain englanniksi.", "bridge": "Tämä juttu on {where}. Lyhyesti:", "nl_bridge": "Tämä numero on {where}. Lyhyesti:", "nl_video_dl": "Lataa video (MP4, {mb} Mt)", "nl_video_subs": "Englanninkieliset tekstitykset (WebVTT)", "nl_video_fallback": "Selaimesi ei voi toistaa videota täällä. Lataa se sen sijaan:", "nl_video_note": "Video toistetaan tältä sivustolta, ilman YouTube-soitinta. Videossa on englanninkieliset tekstitykset.", "nl_all_issues": "Kaikki uutiskirjeen numerot", "nl_get_next": "Saat seuraavan numeron sähköpostiisi:",
 # the site's own X account (@xcryptonordic), header/footer/newsletter
 "x_btn": "Seuraa X:ssä", "x_follow": "Seuraa Nordic Cryptoa X:ssä", "x_title": "Nordic Crypto X:ssä (@xcryptonordic), sivuston oma tili",
+"tg_label": "Telegram", "tg_follow": "Nordic Crypto Telegramissa", "tg_title": "Nordic Crypto Telegramissa (t.me/nordiccryptochat), brändin keskustelu",
+"social_h": "Yhteisö", "social_aria": "Nordic Crypto sosiaalisessa mediassa", "social_lead": "Nordic Crypton keskustelu on Telegramissa, ja bränditili on X:ssä.",
 "nl_write": "Haluatko kirjoittaa Nordic Cryptolle? <a href=\"{href}\">Hae kolumnistiksi</a>. Toimittaja lukee jokaisen hakemuksen. Julkaisua ei taata, eikä kolumni ole sijoitusneuvontaa.",
 "col_title": "Hae kolumnistiksi",
 "col_desc": "Hae kirjoittamaan kolumnia Nordic Cryptolle kryptosta, bitcoinista tai lohkoketjuista Pohjoismaissa.",
@@ -223,3 +232,5 @@ S.update({
 "push_saved": "Tallennettu.",
 "push_noscript": "Ilmoitusten käyttöönotto vaatii JavaScriptin.",
 })
+
+S.update({'nav_talks': 'Esitelmät', 'talks_title': 'Esitelmät – julkiset kryptoesitelmät Pohjoismaissa', 'talks_desc': 'Julkisia esitelmiä bitcoinista, kryptovaluutoista ja lohkoketjusta Pohjoismaissa, videon ja julkaisijan ilmoittamien tietojen kanssa.', 'talks_h1': 'Esitelmät', 'talks_lead': 'Tallenteita julkisista esitelmistä bitcoinista, kryptovaluutoista ja lohkoketjusta Norjassa, Ruotsissa, Tanskassa, Suomessa, Islannissa, Färsaarilla, Grönlannissa ja Ahvenanmaalla bitcoin-valkoisesta kirjasta alkaen. Uusimmat ensin. Soitin latautuu vasta, kun painat toistoa, ja vain jos alusta sallii upotuksen.', 'talks_n': '{n} esitelmää', 'talks_none': 'Yksikään esitelmä ei vastaa näitä suodattimia.', 'talks_year': 'Vuosi', 'talks_year_all': 'Kaikki vuodet', 'talks_language': 'Kieli', 'talks_lang_unknown': 'Kieltä ei ole ilmoitettu', 'talks_play': 'Toista', 'talks_watch': 'Katso alustalla', 'talks_speakers': 'Puhujat', 'talks_event': 'Tapahtuma', 'talks_channel': 'Kanava', 'talks_published': 'Video julkaistu', 'talks_duration': 'Kesto', 'talks_held': 'Pidetty', 'talks_source': 'Lähde', 'talks_calendar': 'Kalenterimerkintä', 'talks_embed_note': 'Soitin latautuu alustalta vasta, kun painat toistoa.', 'talks_not_embed': 'Alusta ei tarjonnut upotettavaa soitinta. Linkki vie videoon.', 'past_talks': 'Julkisten esitelmien tallenteet ovat <a href="{href}">esitelmäarkistossa</a>.', 'c_FO': 'Färsaaret', 'c_GL': 'Grönlanti', 'c_AX': 'Ahvenanmaa'})

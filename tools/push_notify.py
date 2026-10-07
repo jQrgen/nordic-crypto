@@ -11,7 +11,9 @@ Exit 1 when a configured Worker rejects the call.
 """
 import argparse, json, os, sys, urllib.request
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PUBLIC = "https://cryptonordic.no/"
+sys.path.insert(0, ROOT)
+import site_url
+PUBLIC = site_url.BASE
 LANG_OF = {
     "Norwegian": ("nn", "nb"), "Swedish": ("sv",), "Danish": ("da",),
     "Finnish": ("fi",), "Icelandic": ("is",), "English": ("en",),

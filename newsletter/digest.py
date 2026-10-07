@@ -9,7 +9,8 @@ import argparse, datetime as dt, html, json, os, re, sys
 from zoneinfo import ZoneInfo
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); sys.path.insert(0, ROOT)
 import i18n
-BASE = "https://jqrgen.github.io/nordic-crypto/"; OSLO = ZoneInfo("Europe/Oslo")
+import site_url
+BASE = site_url.BASE; OSLO = ZoneInfo("Europe/Oslo")
 T = {
  "en": dict(h="Nordic Crypto weekly", intro="The week’s crypto, bitcoin and blockchain stories from the Nordics that our editor has approved. Each item links to the original source.",
             orig="original", more="All stories, the calendar and the who’s who", none="No approved stories this week.",

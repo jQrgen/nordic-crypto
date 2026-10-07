@@ -32,7 +32,7 @@ class DiffTest(unittest.TestCase):
         mod = load_mod()
         cur = {"items": [item("s", url="stories/hello/", own_story=True, summary="", title_en="Our piece")]}
         out = mod.new_stories({"items": []}, cur)
-        self.assertEqual(out[0]["url"], "https://cryptonordic.no/stories/hello/")
+        self.assertEqual(out[0]["url"], "https://nordiccrypto.no/stories/hello/")
 
     def test_pending_is_not_new(self):
         mod = load_mod()
@@ -66,9 +66,15 @@ class DiffTest(unittest.TestCase):
         self.assertIn("text-align:start", build.CSS)
         self.assertNotIn(".pushopt{text-align:center", build.CSS.replace(" ", ""))
         build.LANG = "en"
+        off = build.push_panel("./")
+        self.assertIn('id="notifications"', off)
+        self.assertIn("not switched on yet", off)
+        self.assertNotIn("Turn on notifications", off)
+        self.assertNotIn('value="ALL"', off)
+        self.assertNotIn("<button", off)
+        os.environ["PUSH_ENDPOINT"] = "https://push.example.test"
         html = build.push_panel("./")
         self.assertIn("Turn on notifications", html)
-        self.assertIn('id="notifications"', html)
         self.assertIn('value="ALL"', html)
         self.assertIn("Cloudflare Web Analytics", html)
         build.LANG = "nn"
@@ -78,6 +84,8 @@ class DiffTest(unittest.TestCase):
         self.assertNotRegex(nn, r"(?<![\w-])(?:AI|KI)(?![\w])")
         build.LANG = "de"
         self.assertIn("Mitteilungen einschalten", build.push_panel("./"))
+        os.environ["PUSH_ENDPOINT"] = ""
+        self.assertEqual(build.push_script(), "")
         with open(os.path.join(ROOT, "assets", "push", "sw.js"), encoding="utf-8") as f:
             sw = f.read()
         self.assertNotIn("caches.open", sw)

@@ -4,7 +4,7 @@ S = {
 "nav_about": "Um okkur", "nav_tip": "Senda ábendingu", "main_menu": "Aðalvalmynd", "lang_label": "Tungumál", "lang_choose": "Veldu tungumál",
 "site_desc_suffix": "rafmyntafréttir frá Norðurlöndunum",
 "preview_banner": "<b>Staðbundin forskoðun – ekki birt.</b> Ritstjóri hefur ekki enn farið yfir neitt sem merkt er „Bíður yfirferðar ritstjóra“ og samantektir hafa ekki enn verið skrifaðar. Aðeins samþykkt efni fer í opinberu útgáfuna.",
-"footer": "{site} fylgist með Noregi, Svíþjóð, Danmörku, Finnlandi og Íslandi. Síðunni er haldið úti af Jørgen S. Notland (jQrgen), Ósló, Unnið með aðstoð gervigreindar, með mannlegum ritstjórum (jQrgen og ritstjóra Nordic Crypto). Ekki fjárfestingarráðgjöf. Cloudflare Web Analytics telur heimsóknir saman, án vafrakaka, og við seljum ekki þau gögn. Ein vafrakaka, aðeins ef þú velur tungumál. <a href=\"{rel}about/\">Um okkur, persónuvernd, leiðréttingar og fjarlægingar</a> · <a href=\"{rel}tip/\">Senda ábendingu</a> · <a href=\"{rel}columnist/\">Sækja um að skrifa pistil</a> · <a href=\"{rel}changelog/\">Breytingaskrá</a> · <a href=\"{rel}ethics/\">Siðareglur ritstjórnar</a> · <a href=\"https://testflight.apple.com/join/nQ2fpjZn\" rel=\"noopener\">iOS-app (TestFlight)</a> · <a href=\"{rel}markets/\">Markaðir</a> · <a href=\"{root}api/\">Gagna-API</a>.",
+"footer": "{site} fylgist með Noregi, Svíþjóð, Danmörku, Finnlandi og Íslandi. Síðunni er haldið úti af Jørgen S. Notland (jQrgen), Ósló, Unnið með aðstoð gervigreindar, með mannlegum ritstjórum (jQrgen og ritstjóra Nordic Crypto). Ekki fjárfestingarráðgjöf. Cloudflare Web Analytics telur heimsóknir saman, án vafrakaka, og við seljum ekki þau gögn. Ein vafrakaka, aðeins ef þú velur tungumál. <a href=\"{rel}about/\">Um okkur, persónuvernd, leiðréttingar og fjarlægingar</a> · <a href=\"{rel}tip/\">Senda ábendingu</a> · <a href=\"{rel}columnist/\">Sækja um að skrifa pistil</a> · <a href=\"{rel}changelog/\">Breytingaskrá</a> · <a href=\"{rel}ethics/\">Siðareglur ritstjórnar</a> · <a href=\"https://testflight.apple.com/join/nQ2fpjZn\" rel=\"noopener\">iOS-app (TestFlight)</a> · <a href=\"{rel}talks/\">Erindi</a> · <a href=\"{rel}markets/\">Markaðir</a> · <a href=\"{root}api/\">Gagna-API</a>.",
 "moved": "Síðan hefur verið flutt á",
 "time_local": "{city}, staðartími", "at_time": "kl. {t}",
 "pending": "Bíður yfirferðar ritstjóra", "owner": "Samþykkt af ritstjóra · bíður lokasamþykkis jQrgen", "our_story": "Okkar frétt",
@@ -18,6 +18,13 @@ S = {
 "source": "Heimild", "all_sources": "Allar heimildir", "topic": "Efni", "n_stories": "{n} fréttir", "no_stories": "Engar birtar fréttir enn.",
 "home_notice": "Samantektirnar eru okkar eigin, skrifaðar út frá fyrirsögn og opinberum inngangi. Við endurbirtum ekki texta greina og förum ekki fram hjá áskriftarveggjum. „Gæti krafist áskriftar“ merkir miðil með áskriftarvegg. Fyrirsagnir eru birtar eins og heimildin skrifaði þær. Ekkert hér er fjárfestingarráðgjöf.",
 "paywall": "gæti krafist áskriftar", "orig_title": "Upprunaleg fyrirsögn ({l}): ",
+"also_covered": "Einnig fjallað um hjá", "read_at": "Lesa hjá {name}",
+"n_sources": "{n} miðlar", "n_sources_1": "1 miðill", "n_sources_more": "+{n} miðlar",
+"cov_h": "Miðlar sem fjalla um fréttina", "cov_breakdown": "Dreifing",
+"cov_by_country": "Eftir landi", "cov_by_type": "Eftir tegund heimildar",
+"cov_national": "Landsmiðlar", "cov_regional": "Héraðs- og staðarmiðlar", "cov_official": "Réttarkerfi og opinberir aðilar", "cov_international": "Alþjóðlegir",
+"cov_sort": "Raða miðlum", "cov_sort_country": "Hópa eftir landi", "cov_sort_time": "Eftir tíma",
+"cov_primary": "Aðalheimild", "cov_open": "Lesa", "cov_unknown": "Land vantar",
 "sum_pending": "Bíður yfirferðar ritstjóra – samantekt hefur ekki enn verið skrifuð. Lestu fréttina hjá heimildinni.",
 "lang_Norwegian": "á norsku", "lang_Swedish": "á sænsku", "lang_Danish": "á dönsku", "lang_Finnish": "á finnsku", "lang_Icelandic": "á íslensku", "lang_English": "á ensku",
 "lname_Norwegian": "norska", "lname_Swedish": "sænska", "lname_Danish": "danska", "lname_Finnish": "finnska", "lname_Icelandic": "íslenska", "lname_English": "enska",
@@ -146,6 +153,8 @@ S.update({
 "nav_newsletter": "Fréttabréf", "nl_issues_h": "Tölublöð", "nl_issues_lead": "Öll tölublöð, nýjasta fyrst. Lestu þau hér eða fáðu þau í tölvupósti.", "nl_issues_none": "Engin tölublöð enn.", "nl_issue_n": "Tölublað #{n}", "nl_issue_period": "Fréttir frá {a} til {b}", "nl_issue_count": "{s} fréttir og {e} viðburðir", "nl_issue_video": "Myndband, {m} mín.", "nl_issue_en": "Þetta tölublað er aðeins á ensku.", "bridge": "Þessi frétt er {where}. Í stuttu máli:", "nl_bridge": "Þetta tölublað er {where}. Í stuttu máli:", "nl_video_dl": "Sækja myndbandið (MP4, {mb} MB)", "nl_video_subs": "Enskur texti (WebVTT)", "nl_video_fallback": "Vafrinn þinn getur ekki spilað myndbandið hér. Sæktu það í staðinn:", "nl_video_note": "Myndbandið er spilað af þessum vef, án YouTube-spilara. Myndbandið er með enskum texta.", "nl_all_issues": "Öll tölublöð fréttabréfsins", "nl_get_next": "Fáðu næsta tölublað í tölvupósti:",
 # the site's own X account (@xcryptonordic), header/footer/newsletter
 "x_btn": "Fylgdu á X", "x_follow": "Fylgdu Nordic Crypto á X", "x_title": "Nordic Crypto á X (@xcryptonordic), eigin reikningur síðunnar",
+"tg_label": "Telegram", "tg_follow": "Nordic Crypto á Telegram", "tg_title": "Nordic Crypto á Telegram (t.me/nordiccryptochat), spjall vörumerkisins",
+"social_h": "Samfélag", "social_aria": "Nordic Crypto á samfélagsmiðlum", "social_lead": "Spjall Nordic Crypto er á Telegram, og vörumerkjareikningurinn er á X.",
 "nl_write": "Viltu skrifa fyrir Nordic Crypto? <a href=\"{href}\">Sækja um að skrifa pistil</a>. Ritstjórinn les hverja umsókn. Birting er ekki tryggð og pistill er ekki fjárfestingarráðgjöf.",
 "col_title": "Sækja um að skrifa pistil",
 "col_desc": "Sæktu um að skrifa pistil fyrir Nordic Crypto um rafmyntir, bitcoin eða bálkakeðjur á Norðurlöndum.",
@@ -223,3 +232,5 @@ S.update({
 "push_saved": "Vistað.",
 "push_noscript": "JavaScript þarf að vera virkt til að kveikja á tilkynningum.",
 })
+
+S.update({'nav_talks': 'Erindi', 'talks_title': 'Erindi – opinber erindi um rafmyntir á Norðurlöndum', 'talks_desc': 'Opinber erindi um bitcoin, rafmyntir og bálkakeðju haldin á Norðurlöndum, með myndbandinu og þeim staðreyndum sem útgefandinn gaf upp.', 'talks_h1': 'Erindi', 'talks_lead': 'Upptökur af opinberum erindum um bitcoin, rafmyntir og bálkakeðju haldin í Noregi, Svíþjóð, Danmörku, Finnlandi, á Íslandi, í Færeyjum, á Grænlandi og á Álandseyjum frá hvítbók bitcoin. Nýjustu fyrst. Spilarinn hleðst aðeins eftir að þú ýtir á spila, og aðeins þegar vettvangurinn leyfir ívefjun.', 'talks_n': '{n} erindi', 'talks_none': 'Engin erindi passa við þessar síur.', 'talks_year': 'Ár', 'talks_year_all': 'Öll ár', 'talks_language': 'Tungumál', 'talks_lang_unknown': 'Tungumál ekki tilgreint', 'talks_play': 'Spila', 'talks_watch': 'Horfa á vettvanginum', 'talks_speakers': 'Fyrirlesarar', 'talks_event': 'Viðburður', 'talks_channel': 'Rás', 'talks_published': 'Myndband birt', 'talks_duration': 'Lengd', 'talks_held': 'Haldið', 'talks_source': 'Heimild', 'talks_calendar': 'Færsla í dagatali', 'talks_embed_note': 'Spilarinn hleðst af vettvanginum fyrst þegar þú ýtir á spila.', 'talks_not_embed': 'Vettvangurinn bauð ekki upp á spilara sem má ívefja. Tengillinn fer á myndbandið.', 'past_talks': 'Upptökur af opinberum erindum eru í <a href="{href}">erindasafninu</a>.', 'c_FO': 'Færeyjar', 'c_GL': 'Grænland', 'c_AX': 'Álandseyjar'})

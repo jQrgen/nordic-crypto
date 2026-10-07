@@ -5,7 +5,7 @@ S = {
 "nav_about": "About", "nav_tip": "Send a tip", "main_menu": "Main menu", "lang_label": "Language", "lang_choose": "Choose language",
 "site_desc_suffix": "Nordic crypto news",
 "preview_banner": "<b>Local preview – not published.</b> Everything marked “Pending editor review” has not been checked by the editor yet; summaries are not written yet. Only approved items go into the public build.",
-"footer": "{site} covers Norway, Sweden, Denmark, Finland and Iceland. Run by Jørgen S. Notland (jQrgen), Oslo, Made with the help of artificial intelligence, with human editors (jQrgen and the Nordic Crypto editor). Not investment advice. Cloudflare Web Analytics counts visits in aggregate, without cookies, and we do not sell that data. One cookie, only if you choose a language. <a href=\"{rel}about/\">About, privacy, corrections and removal</a> · <a href=\"{rel}tip/\">Send a tip</a> · <a href=\"{rel}columnist/\">Apply as a columnist</a> · <a href=\"{rel}changelog/\">Changelog</a> · <a href=\"{rel}ethics/\">Editorial ethics</a> · <a href=\"https://testflight.apple.com/join/nQ2fpjZn\" rel=\"noopener\">iOS app (TestFlight)</a> · <a href=\"{rel}markets/\">Markets</a> · <a href=\"{root}api/\">Data API</a>.",
+"footer": "{site} covers Norway, Sweden, Denmark, Finland and Iceland. Run by Jørgen S. Notland (jQrgen), Oslo, Made with the help of artificial intelligence, with human editors (jQrgen and the Nordic Crypto editor). Not investment advice. Cloudflare Web Analytics counts visits in aggregate, without cookies, and we do not sell that data. One cookie, only if you choose a language. <a href=\"{rel}about/\">About, privacy, corrections and removal</a> · <a href=\"{rel}tip/\">Send a tip</a> · <a href=\"{rel}columnist/\">Apply as a columnist</a> · <a href=\"{rel}changelog/\">Changelog</a> · <a href=\"{rel}ethics/\">Editorial ethics</a> · <a href=\"https://testflight.apple.com/join/nQ2fpjZn\" rel=\"noopener\">iOS app (TestFlight)</a> · <a href=\"{rel}talks/\">Talks</a> · <a href=\"{rel}markets/\">Markets</a> · <a href=\"{root}api/\">Data API</a>.",
 "moved": "This page has moved to",
 # dates
 "time_local": "{city}, local time", "at_time": "{t}",
@@ -22,6 +22,13 @@ S = {
 "source": "Source", "all_sources": "All sources", "topic": "Topic", "n_stories": "{n} stories", "no_stories": "No published stories yet.",
 "home_notice": "Summaries are our own, written in English from the headline and the public teaser. We do not reproduce article text and we do not get around paywalls. Stories marked “may require a subscription” are from outlets with a paywall. Nothing here is investment advice.",
 "paywall": "may require a subscription", "orig_title": "Original title ({l}): ",
+"also_covered": "Also covered by", "read_at": "Read at {name}",
+"n_sources": "{n} sources", "n_sources_1": "1 source", "n_sources_more": "+{n} sources",
+"cov_h": "Outlets covering this story", "cov_breakdown": "Coverage",
+"cov_by_country": "By country", "cov_by_type": "By source type",
+"cov_national": "National", "cov_regional": "Regional and local", "cov_official": "Justice and official", "cov_international": "International",
+"cov_sort": "Sort outlets", "cov_sort_country": "Group by country", "cov_sort_time": "By time",
+"cov_primary": "Primary", "cov_open": "Read", "cov_unknown": "Country not set",
 "sum_pending": "Pending editor review – an English summary has not been written yet. Read the story at the source.",
 "sum_fallback": "",
 "lang_Norwegian": "in Norwegian", "lang_Swedish": "in Swedish", "lang_Danish": "in Danish", "lang_Finnish": "in Finnish", "lang_Icelandic": "in Icelandic", "lang_English": "in English",
@@ -165,6 +172,8 @@ S.update({
 "nav_newsletter": "Newsletter", "nl_issues_h": "Issues", "nl_issues_lead": "Every issue, newest first. Read them here or get them by email.", "nl_issues_none": "No issues yet.", "nl_issue_n": "Issue #{n}", "nl_issue_period": "News from {a} to {b}", "nl_issue_count": "{s} stories and {e} events", "nl_issue_video": "Video, {m} min", "nl_issue_en": "This issue is in English.", "bridge": "This article is {where}. In short:", "nl_bridge": "This issue is {where}. In short:", "nl_video_dl": "Download the video (MP4, {mb} MB)", "nl_video_subs": "English subtitles (WebVTT)", "nl_video_fallback": "Your browser can't play the video here. Download it instead:", "nl_video_note": "The video plays from this website, with no YouTube player. It has English subtitles.", "nl_all_issues": "All newsletter issues", "nl_get_next": "Get the next issue by email:",
 # the site's own X account (@xcryptonordic), header/footer/newsletter
 "x_btn": "Follow on X", "x_follow": "Follow Nordic Crypto on X", "x_title": "Nordic Crypto on X (@xcryptonordic), the site's own account",
+"tg_label": "Telegram", "tg_follow": "Nordic Crypto on Telegram", "tg_title": "Nordic Crypto on Telegram (t.me/nordiccryptochat), the brand chat",
+"social_h": "Community", "social_aria": "Nordic Crypto on social media", "social_lead": "The Nordic Crypto chat is on Telegram, and the brand account is on X.",
 "nl_write": "Want to write for Nordic Crypto? <a href=\"{href}\">Apply as a columnist</a>. The editor reads every pitch. Publication is not guaranteed, and a column is not investment advice.",
 "col_title": "Apply as a columnist",
 "col_desc": "Apply to write a column for Nordic Crypto on crypto, bitcoin or blockchain in the Nordics.",
@@ -242,3 +251,5 @@ S.update({
 "push_saved": "Saved.",
 "push_noscript": "Turning notifications on needs JavaScript.",
 })
+
+S.update({'nav_talks': 'Talks', 'talks_title': 'Talks – public Nordic crypto talks', 'talks_desc': 'Public talks on bitcoin, cryptocurrencies and blockchain held in the Nordic countries, with the video and the facts the uploader stated.', 'talks_h1': 'Talks', 'talks_lead': 'Recordings of public talks on bitcoin, cryptocurrencies and blockchain held in Norway, Sweden, Denmark, Finland, Iceland, the Faroe Islands, Greenland and Åland since the Bitcoin white paper. Newest first. A player loads only after you press play, and only when that platform allows embedding.', 'talks_n': '{n} talks', 'talks_none': 'No talks match these filters.', 'talks_year': 'Year', 'talks_year_all': 'All years', 'talks_language': 'Language', 'talks_lang_unknown': 'Language not stated', 'talks_play': 'Play', 'talks_watch': 'Watch on the platform', 'talks_speakers': 'Speakers', 'talks_event': 'Event', 'talks_channel': 'Channel', 'talks_published': 'Video published', 'talks_duration': 'Length', 'talks_held': 'Held', 'talks_source': 'Source', 'talks_calendar': 'Calendar entry', 'talks_embed_note': 'The player loads from the platform only after you press play.', 'talks_not_embed': 'This platform did not offer an embeddable player. The link goes to the video.', 'past_talks': 'Recordings of public talks are in the <a href="{href}">talks archive</a>.', 'c_FO': 'Faroe Islands', 'c_GL': 'Greenland', 'c_AX': 'Åland'})

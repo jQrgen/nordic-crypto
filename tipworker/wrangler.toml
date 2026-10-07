@@ -1,4 +1,4 @@
-# Crypto Nordic reader tip intake (Cloudflare Workers + D1). Deploy with ./deploy.sh (needs CLOUDFLARE_API_TOKEN).
+# Nordic Crypto reader tip intake (Cloudflare Workers + D1). Deploy with ./deploy.sh (needs CLOUDFLARE_API_TOKEN).
 name = "nordic-crypto-tips"
 main = "src/worker.js"
 compatibility_date = "2026-09-01"
