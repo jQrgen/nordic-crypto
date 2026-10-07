@@ -8,7 +8,7 @@ Body (draft for cryptonordic.substack.com — DO NOT auto-publish; jQrgen must r
 
 🇳🇴 **Norway** — who makes and enforces the crypto rules?
 
-This short explainer is from **Nordic Crypto**. It follows the same sourced map as our [How the rules are made](https://jqrgen.github.io/nordic-crypto/rules/) page.
+This short explainer is from **Nordic Crypto**. It follows the same sourced map as our [How the rules are made](https://nordiccrypto.no/rules/) page.
 
 ### The legal path
 MiCA applies in Norway through the EEA Agreement, given effect by the Crypto-Assets Act from 1 July 2025.
@@ -34,7 +34,7 @@ Six CASPs authorised by Finanstilsynet as of 3 Oct 2026: Týr Markets, Firi, K33
 ### Video
 [Embed slot: regulation-videos / NO — paste HTML5 video or release URL when render is ready]
 
-Full sources and every step: [nordic-crypto / rules](https://jqrgen.github.io/nordic-crypto/rules/).
+Full sources and every step: [nordic-crypto / rules](https://nordiccrypto.no/rules/).
 
 Nothing here is legal or investment advice.
 

@@ -19,7 +19,7 @@ function links({ lang = "en", only } = {}) {
   return `<nav class="social" aria-label="${esc(L.aria)}"><span class="social-label">${esc(L.follow)}</span>${a}</nav>`;
 }
 const CSS = `
-.social{display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;margin:6px 0 0;font-size:13.5px}
+.social{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;text-align:start;gap:4px 12px;margin:6px 0 0;font-size:13.5px;width:fit-content;max-width:100%}
 .social-label{color:var(--muted,#4B5563)}
 .social a{color:var(--ink,#000);text-decoration:underline;text-underline-offset:2px}
 .social a:hover{text-decoration-thickness:2px}

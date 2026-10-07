@@ -8,7 +8,7 @@ Body (draft for cryptonordic.substack.com — DO NOT auto-publish; jQrgen must r
 
 🇸🇪 **Sweden** — who makes and enforces the crypto rules?
 
-This short explainer is from **Nordic Crypto**. It follows the same sourced map as our [How the rules are made](https://jqrgen.github.io/nordic-crypto/rules/) page.
+This short explainer is from **Nordic Crypto**. It follows the same sourced map as our [How the rules are made](https://nordiccrypto.no/rules/) page.
 
 ### The legal path
 MiCA applies directly as EU law. Sweden's complementary act names Finansinspektionen as the national competent authority.
@@ -34,7 +34,7 @@ One FI-authorised CASP (Safello) as of 30 Jun 2026, plus 77 firms passporting fr
 ### Video
 [Embed slot: regulation-videos / SE — paste HTML5 video or release URL when render is ready]
 
-Full sources and every step: [nordic-crypto / rules](https://jqrgen.github.io/nordic-crypto/rules/).
+Full sources and every step: [nordic-crypto / rules](https://nordiccrypto.no/rules/).
 
 Nothing here is legal or investment advice.
 
