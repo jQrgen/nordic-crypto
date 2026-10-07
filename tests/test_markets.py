@@ -234,7 +234,7 @@ def main():
         fails.append("summed exchanges " + str(summed and [(s["base"], s["volume"], s["pct"]) for s in summed[0]["slices"]]))
 
     import build as sitebuild
-    if [n for n, _k in sitebuild.NAV] != ["", "calendar", "org-chart", "academia", "markets", "sources", "newsletter", "about", "tip", "api"]:
+    if [n for n, _k in sitebuild.NAV] != ["", "newsletter", "calendar", "org-chart", "academia", "markets", "sources", "about", "tip", "api"]:
         fails.append("nav order")
     sv = sitebuild._nav_html("../sv/", "../../", "markets")
     if 'href="../../api/"' not in sv or "sv/api/" in sv:
@@ -242,11 +242,28 @@ def main():
     if 'href="../sv/markets/" aria-current=page' not in sv:
         fails.append("markets active state")
     labels = re.findall(r">([^<]+)</a>", sv)
-    if labels != ["News", "Calendar", "Who&#x27;s who", "Academia", "Markets", "Sources", "Newsletter", "About", "Send a tip", "API"]:
+    if labels != ["News", "Newsletter", "Calendar", "Who&#x27;s who", "Academia", "Markets", "Sources", "About", "Send a tip", "API"]:
         fails.append("nav labels " + str(labels))
     api_nav = sitebuild._nav_html("../", "../", "api")
     if 'href="../api/" aria-current=page>API' not in api_nav:
         fails.append("api active state")
+    translated = {
+        "sv": ["Nyheter", "Nyhetsbrev", "Kalender", "Vem är vem", "Akademi", "Marknader", "Källor", "Om oss", "Tipsa oss", "API"],
+        "nn": ["Nyheiter", "Nyheitsbrev", "Kalender", "Kven er kven", "Akademia", "Marknader", "Kjelder", "Om oss", "Send tips", "API"],
+        "nb": ["Nyheter", "Nyhetsbrev", "Kalender", "Hvem er hvem", "Akademia", "Markeder", "Kilder", "Om oss", "Send tips", "API"],
+        "da": ["Nyheder", "Nyhedsbrev", "Kalender", "Hvem er hvem", "Akademia", "Markeder", "Kilder", "Om os", "Send et tip", "API"],
+        "fi": ["Uutiset", "Uutiskirje", "Kalenteri", "Kuka kukin on", "Tutkimus ja opetus", "Markkinat", "Lähteet", "Tietoa meistä", "Lähetä vinkki", "API"],
+        "is": ["Fréttir", "Fréttabréf", "Viðburðir", "Hver er hvað", "Rannsóknir og kennsla", "Markaðir", "Heimildir", "Um okkur", "Senda ábendingu", "API"],
+        "ar": ["News", "Newsletter", "Calendar", "Who&#x27;s who", "Academia", "Markets", "Sources", "About", "Send a tip", "API"],
+    }
+    for code, expect in translated.items():
+        sitebuild.LANG = code
+        got = re.findall(r">([^<]+)</a>", sitebuild._nav_html("../" + code + "/", "../../", "newsletter"))
+        if got != expect:
+            fails.append(code + " nav " + str(got))
+        if 'href="../' + code + '/newsletter/" aria-current=page' not in sitebuild._nav_html("../" + code + "/", "../../", "newsletter"):
+            fails.append(code + " newsletter active")
+    sitebuild.LANG = "en"
     if "justify-content:flex-start" not in sitebuild.CSS.split("nav.main{")[1].split("}")[0]:
         fails.append("nav not left aligned")
     if "text-align:center" in sitebuild.CSS.split(".mkvol{")[1].split(".mkcards")[0]:
