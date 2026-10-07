@@ -51,8 +51,113 @@ def meta_ios_later(tmp):
     return (meta.get("ios") or {}).get("url")
 
 
+def _write(tmp, ctx, preview):
+    ev = ctx["events"][0] if isinstance(ctx["events"], tuple) else ctx["events"]
+    return api_feed.write(
+        tmp, preview=preview, base=build.BASE,
+        items=ctx["items"], events=ev, entities=ctx["ents"], relations=ctx["rels"],
+        org_updated=ctx["org"].get("updated"), regulation=ctx["org"].get("regulation") or [],
+        caveats=ctx["org"].get("caveats") or [], sources_cfg=ctx["cfg"],
+        news_updated=ctx["news"].get("updated"), markets=_markets_fixture(),
+    )
+
+
+def source_logos(fails):
+    """logo_url / source_logo_url are null unless the logo's review is 'ok' (preview: 'pending' too, never 'rejected')."""
+    ctx = api_feed.repo_context(False)
+    real = json.load(open(api_feed.source_logos.MANIFEST, encoding="utf-8"))
+    with tempfile.TemporaryDirectory() as tmp:  # the committed manifest, public build
+        _write(tmp, ctx, False)
+        srcs = json.load(open(os.path.join(tmp, "api/v1/sources.json"), encoding="utf-8"))
+        for s in srcs["sources"]:
+            if "logo_url" not in s or "logo" not in s:
+                fails.append("sources.json row without logo_url/logo: " + s["id"])
+                continue
+            if s["logo_url"]:
+                lg = api_feed.source_logos.for_source(s["id"], preview=False)
+                if not lg or (real.get(lg["id"]) or {}).get("review", "ok") != "ok":
+                    fails.append("unapproved source logo in public build: " + s["id"])
+                if not s["logo_url"].lower().endswith((".png", ".webp")) or s["logo_url"] != (s["logo"] or {}).get("raster_url"):
+                    fails.append("logo_url is not the raster of logo: " + s["id"])
+                if not s["logo_url"].startswith(build.BASE) or not os.path.exists(os.path.join(tmp, s["logo_url"][len(build.BASE):])):
+                    fails.append("source logo file not in site: " + s["id"])
+        news = json.load(open(os.path.join(tmp, "api/v1/news.json"), encoding="utf-8"))
+        if any("source_logo_url" not in n for n in news["items"]):
+            fails.append("news item without source_logo_url")
+        for n in news["items"]:
+            if n.get("source_logo_url") != ((n.get("source_logo") or {}).get("raster_url")):
+                fails.append("source_logo_url differs from source_logo.raster_url: " + n["id"])
+        if not srcs.get("logo_note") or "trademark" not in srcs["logo_note"]:
+            fails.append("sources.json logo_note")
+    # Every SVG a news source can resolve to has a PNG rendering (Apple's AsyncImage cannot draw SVG).
+    for sid in [x["id"] for x in ctx["cfg"]["sources"]] + [i.get("source") for i in ctx["items"] if i.get("source")]:
+        for preview in (False, True):
+            lg = api_feed.source_logos.for_source(sid, preview=preview)
+            if lg and str(lg["file"]).endswith(".svg") and not str(lg.get("raster") or "").endswith(".png"):
+                fails.append(f"SVG logo without a PNG raster: {sid} -> {lg['id']}")
+    svg, png = "assets/img/logos/sources/vg.svg", "assets/img/logos/sources/vg.png"
+    fixture = {
+        "source:e24": {"file": svg, "raster": png, "source": "Official website", "source_url": "https://e24.no/x.png",
+                       "license": "Publisher's own logo, used only to identify the source of a headline", "review": "ok"},
+        "source:nrk": {"file": svg, "raster": png, "source": "Wikimedia Commons", "source_url": "https://commons.wikimedia.org/wiki/File:X.svg",
+                       "license": "Public domain", "review": "ok"},
+        "source:svd": {"file": svg, "source": "Wikimedia Commons", "source_url": "https://commons.wikimedia.org/wiki/File:Y.svg",
+                       "license": "Public domain", "review": "ok"},  # SVG without a raster: logo listed, logo_url null
+        "source:kaupr": {"file": "assets/img/logos/kaupr.webp", "source": "Official website", "source_url": "https://www.kaupr.io/x.png", "review": "ok"},
+        "source:vg": {"file": svg, "raster": png, "source": "Official website", "source_url": "https://www.vg.no/x.png", "review": "pending"},
+        "source:dn": {"file": svg, "raster": png, "source": "Official website", "source_url": "https://www.dn.no/x.png", "review": "rejected"},
+    }
+    saved = api_feed.source_logos.MANIFEST
+    with tempfile.TemporaryDirectory() as tmp:
+        man = os.path.join(tmp, "logos.json")
+        json.dump(fixture, open(man, "w", encoding="utf-8"))
+        api_feed.source_logos.MANIFEST = man
+        try:
+            for preview in (False, True):
+                out = os.path.join(tmp, "preview" if preview else "public")
+                _write(out, api_feed.repo_context(preview), preview)
+                by = {s["id"]: s for s in json.load(open(os.path.join(out, "api/v1/sources.json"), encoding="utf-8"))["sources"]}
+                tag = "preview" if preview else "public"
+                want = build.BASE + png
+                lg = by["e24"]["logo"] or {}
+                if by["e24"]["logo_url"] != want or lg.get("kind") != "logo":
+                    fails.append(f"{tag}: approved logo missing (e24)")
+                if lg.get("file_url") != build.BASE + svg or lg.get("raster_url") != want:
+                    fails.append(f"{tag}: logo.file_url should be the SVG and logo.raster_url the PNG (e24)")
+                if by["svd"]["logo_url"] is not None or (by["svd"]["logo"] or {}).get("raster_url") is not None:
+                    fails.append(f"{tag}: an SVG without a raster must not become logo_url (svd)")
+                kp = (by["kaupr-no"]["logo"] or {})
+                if by["kaupr-no"]["logo_url"] != build.BASE + "assets/img/logos/kaupr.webp" or kp.get("raster_url") != kp.get("file_url"):
+                    fails.append(f"{tag}: a WebP logo is its own raster (kaupr-no)")
+                for s in by.values():
+                    if s["logo_url"] and not s["logo_url"].lower().endswith((".png", ".webp", ".jpg", ".jpeg")):
+                        fails.append(f"{tag}: logo_url is not a raster: {s['id']}")
+                if by["nrk-siste"]["logo_url"] != want:
+                    fails.append(f"{tag}: outlet logo not used for nrk-siste")
+                if by["dn"]["logo_url"] is not None:
+                    fails.append(f"{tag}: rejected logo published (dn)")
+                if (by["vg"]["logo_url"] is not None) != preview:
+                    fails.append(f"{tag}: pending logo (vg) should be {'listed' if preview else 'null'}")
+                if by["bing-no"]["logo_url"] is not None:
+                    fails.append(f"{tag}: search feed got a logo")
+                if not (os.path.exists(os.path.join(out, svg)) and os.path.exists(os.path.join(out, png))):
+                    fails.append(f"{tag}: logo SVG and PNG not both copied into the site")
+                news = json.load(open(os.path.join(out, "api/v1/news.json"), encoding="utf-8"))["items"]
+                for n in news:
+                    if n.get("source") in ("kaupr", "e24") and not n.get("source_logo_url"):
+                        fails.append(f"{tag}: news {n['id']} ({n['source']}) has no source_logo_url")
+                    if n.get("source") == "dn" and n.get("source_logo_url"):
+                        fails.append(f"{tag}: news {n['id']} uses a rejected logo")
+                    one = json.load(open(os.path.join(out, "api/v1/news", n["id"] + ".json"), encoding="utf-8"))["item"]
+                    if one.get("source_logo_url") != n.get("source_logo_url"):
+                        fails.append(f"{tag}: news/{n['id']}.json source_logo_url differs from the list")
+        finally:
+            api_feed.source_logos.MANIFEST = saved
+
+
 def main():
     fails = []
+    source_logos(fails)
     ctx = api_feed.repo_context(False)
     with tempfile.TemporaryDirectory() as tmp:
         ev = ctx["events"][0]
@@ -94,8 +199,12 @@ def main():
                 logo = item.get("source_logo") or {}
                 if not str(logo.get("file_url") or "").endswith("/assets/img/logos/se-fi.svg"):
                     fails.append("fi-se logo not aliased")
-            if item.get("source") == "e24" and item.get("source_logo"):
-                fails.append("unchecked e24 logo published")
+            if item.get("source") == "e24":
+                shown = bool((item.get("source_logo") or {}).get("file_url"))
+                e24 = json.load(open(os.path.join(ROOT, "assets/img/logos/logos.json"), encoding="utf-8")).get("e24") or {}
+                public = (e24.get("review") or "ok") == "ok" and bool(e24.get("file"))
+                if shown != public:
+                    fails.append("e24 logo visibility")
             if item.get("source") == "nordic-crypto" and item.get("source_logo"):
                 fails.append("invented Nordic Crypto logo")
             cov = item.get("coverage") or {}
