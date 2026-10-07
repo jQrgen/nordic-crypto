@@ -1,0 +1,78 @@
+/* Nordic Crypto brand stylesheet.
+   Municipal heraldry palette from the crest. Flat tinctures, no gradients.
+   Cormorant Garamond: wordmark and headlines.
+   Schibsted Grotesk: body text and the spaced-capitals motto line.
+   Font files are SIL Open Font License; see assets/fonts/OFL.txt. */
+@font-face{
+  font-family:"Cormorant Garamond";
+  src:url("../fonts/CormorantGaramond-SemiBold.ttf") format("truetype");
+  font-weight:600;
+  font-style:normal;
+  font-display:swap;
+}
+@font-face{
+  font-family:"Schibsted Grotesk";
+  src:url("../fonts/SchibstedGrotesk-Regular.ttf") format("truetype");
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+@font-face{
+  font-family:"Schibsted Grotesk";
+  src:url("../fonts/SchibstedGrotesk-Medium.ttf") format("truetype");
+  font-weight:500;
+  font-style:normal;
+  font-display:swap;
+}
+:root{
+  --nc-or:#F4C430;
+  --nc-gules:#A0202A;
+  --nc-sable:#141210;
+  --nc-argent:#F7F6F2;
+  --nc-cendree:#A7B0BA;
+}
+body{
+  font-family:"Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:var(--nc-sable);
+  background:var(--nc-argent);
+}
+h1,h2,h3,.brand{
+  font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  font-weight:600;
+}
+.brand{
+  font-size:28px;
+  letter-spacing:0;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:var(--nc-sable);
+  line-height:1;
+}
+.brand .w{color:var(--nc-gules)}
+.brandmark{width:32px;height:32px;flex:none;display:block}
+.motto-sample{
+  font-family:"Schibsted Grotesk",sans-serif;
+  font-weight:500;
+  letter-spacing:.22em;
+  font-size:15px;
+  margin:8px 0 16px;
+}
+.hdr-sample{
+  margin:12px 0 18px;
+  padding:14px 16px 8px;
+  background:var(--nc-argent);
+  border-bottom:3px solid var(--nc-sable);
+  max-width:36rem;
+}
+.hdr-sample.dark{background:#0b0d10}
+.hdr-sample.dark .brand{color:#F5F5F4}
+.hdr-sample.dark .brand .w{color:var(--nc-or)}
+.hdr-sample figcaption{margin:8px 0 4px}
+.lockup{display:block;height:auto;max-width:100%;width:640px;margin:8px 0 16px}
+.swatches{list-style:none;padding:0;margin:8px 0 18px}
+.swatches li{display:flex;align-items:center;gap:10px;margin:6px 0}
+.swatches i{width:36px;height:36px;flex:none;border:1px solid var(--nc-sable);display:block}
+.filelist{padding-left:1.2em}
+.filelist li{margin:3px 0}

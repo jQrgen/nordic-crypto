@@ -8,10 +8,16 @@ data/news.json and the editor queue queue/review.json. Events are searched in th
 
 New items get status "pending" and are NOT published until the editor has written a summary in English
 in our own words (queue/approved.json) – see README.md. The front page needs two to four sentences of what the story says; a one-sentence intro is not enough. The feed teaser is stored only locally in
-state/teasers.json as working material for the editor and is never published. Article text is never fetched
-(we respect paywalls and robots.txt). Article pictures are never stored either:
+state/teasers.json as working material for the editor and is never published. The article page is read
+only for public metadata (title, description, publish time). Article text is never stored. robots.txt
+and the per-host delay are respected. Article pictures are never stored either:
 og:image, RSS media:content, media:thumbnail and image enclosures are ignored.
 See tools/press_images.py and docs/image-policy.md.
+
+The published time is the article's own time: article:published_time, then JSON-LD datePublished,
+then <time datetime>, and only then the feed's published date. Updated, modified and fetch times are
+not used. Naive times are read in the publisher's zone (Europe/Oslo and Europe/Stockholm, and the
+other Nordic zones) including daylight saving time, and stored as UTC. See tools/published_time.py.
 """
 import argparse, datetime as dt, hashlib, json, os, re, sys, threading, time, urllib.parse, urllib.robotparser
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -21,6 +27,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "tools"))
 import coverage
 import event_block
+import published_time as pubtime
 from tools.press_images import entry_carries_article_image, ignored_count, note_og_image, strip_press_images
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -85,20 +92,37 @@ def robots_ok(url):
             with _io:
                 _robots[base] = rp
         return rp.can_fetch(UA, url)
-def get(url):
+def get(url, conditional=True):
     host = urllib.parse.urlparse(url).netloc
     with _host_lock(host):
         _pace(host)
         h = {"User-Agent": UA, "Accept": "application/rss+xml, application/xml, text/xml, text/html, */*"}
         with _io:
             c = dict(http_cache.get(url, {}))
-        if c.get("etag"): h["If-None-Match"] = c["etag"]
-        if c.get("lm"): h["If-Modified-Since"] = c["lm"]
+        if conditional:
+            if c.get("etag"): h["If-None-Match"] = c["etag"]
+            if c.get("lm"): h["If-Modified-Since"] = c["lm"]
         r = requests.get(url, headers=h, timeout=25)
-        if r.status_code == 200:
+        if r.status_code == 200 and conditional:
             with _io:
                 http_cache[url] = {"etag": r.headers.get("ETag"), "lm": r.headers.get("Last-Modified")}
         return r
+def read_html(url):
+    """Public HTML for metadata. A redirect loop falls back to a browser read; a robots block does not."""
+    if not robots_ok(url):
+        raise RuntimeError("robots.txt disallows")
+    try:
+        r = get(url, conditional=False)
+    except requests.TooManyRedirects:
+        host = urllib.parse.urlparse(url).netloc
+        with _host_lock(host):
+            _pace(host)
+        html = pubtime.browser_html(url, UA)
+        if not html:
+            raise
+        return html
+    r.raise_for_status()
+    return r.text
 
 # ---------- keywords (NO, SE, DK, FI, IS, EN) ----------
 KW = [
@@ -157,10 +181,10 @@ def canon(url):
     return urllib.parse.urlunparse((p.scheme.lower() or "https", p.netloc.lower().removeprefix("www."), p.path.rstrip("/") or "/", "", urllib.parse.urlencode(q), ""))
 def norm_title(t): return re.sub(r"[^\w]+", " ", t.lower()).strip()
 def iid(url): return hashlib.sha1(canon(url).encode()).hexdigest()[:12]
-def when(e):
-    for k in ("published_parsed", "updated_parsed"):
-        if e.get(k): return dt.datetime(*e[k][:6], tzinfo=dt.timezone.utc)
-    return None
+def when(e, country=None, url=None):
+    """Feed published time only. Updated/modified is not a publish time."""
+    inst = pubtime.from_feed_entry(e, pubtime.zone_for(country=country, url=url))
+    return inst.dt if inst else None
 
 # ---------- source map (domain -> outlet, country) ----------
 SRC = {s["id"]: s for s in CFG["sources"]}
@@ -202,21 +226,22 @@ def candidates(text):
 
 EN_MONTHS = {m: i for i, m in enumerate(["January","February","March","April","May","June","July","August","September","October","November","December"], 1)}
 def page_meta(url):
-    """Fetches only public metadata (title, description, date) from a page. Never article text.
+    """Public metadata only (title, description, publish time). Article text is not stored.
     og:image is seen and dropped. The picture URL is not returned."""
-    if not robots_ok(url): raise RuntimeError("robots.txt disallows")
-    r = get(url); r.raise_for_status(); soup = BeautifulSoup(r.text, "lxml")
+    html = read_html(url); soup = BeautifulSoup(html, "lxml")
     m = lambda **k: (soup.find("meta", attrs=k) or {}).get("content")
     title = m(property="og:title") or (soup.title.string if soup.title else "") or ""
     desc = m(property="og:description") or m(name="description") or ""
     note_og_image(m(property="og:image"))
-    date = None
-    iso = m(property="article:published_time") or m(name="date") or m(name="DC.date") or m(name="dcterms.date") or m(itemprop="datePublished")
-    if not iso:
-        t = soup.find("time", attrs={"datetime": True}); iso = t["datetime"] if t else None
-    if iso:
-        try: date = dt.datetime.fromisoformat(iso.strip().replace("Z", "+00:00"))
-        except ValueError: date = None
+    zone = pubtime.zone_for(url=url)
+    inst = pubtime.published_from_soup(soup, zone)
+    date = inst.dt if inst else None
+    if not date:
+        # Last resort for official pages that publish neither the three signals nor a feed.
+        iso = m(name="DC.date") or m(name="dcterms.date") or m(name="date")
+        if iso and not re.search(r"modif", iso, re.I):
+            legacy = pubtime.parse_instant(iso, zone)
+            date = legacy.dt if legacy else None
     if not date:
         t = soup.get_text(" ", strip=True)
         main = soup.find("main") or soup.find("article")
@@ -232,6 +257,7 @@ def page_meta(url):
             x = re.search(r"\b(\d{1,2})\.(\d{1,2})\.(20\d\d)\b", t)
             if x: date = dt.datetime(int(x[3]), int(x[2]), int(x[1]), 12, tzinfo=dt.timezone.utc)
     if date and date.tzinfo is None: date = date.replace(tzinfo=dt.timezone.utc)
+    if date: date = dt.datetime.fromisoformat(pubtime.utc_iso(date))
     return clean(title), clean(desc), date
 
 def main():
@@ -255,6 +281,8 @@ def main():
     new = []
 
     def add(url, title, teaser, published, src, outlet, outlet_name, country, extra=(), all_rel=False, lang=None):
+        if isinstance(published, dt.datetime):
+            published = dt.datetime.fromisoformat(pubtime.utc_iso(published))
         with _io:
             _add(url, title, teaser, published, src, outlet, outlet_name, country, extra, all_rel, lang)
     def _add(url, title, teaser, published, src, outlet, outlet_name, country, extra=(), all_rel=False, lang=None):
@@ -309,6 +337,29 @@ def main():
         add(a.add, title, desc, date, "manual", out, oname, c, all_rel=True)
         log(("ADDED: " if len(new) > before else "ALREADY THERE / OUTSIDE PERIOD (--days): ") + f"{title} ({date.date()}, {oname}, {c})")
         a.only = "__none__"
+    def resolve_published(url, title, teaser, entry, country, extra, all_rel):
+        """Page publish time for a feed entry, else the feed's published date. Never updated/fetch time."""
+        zone = pubtime.zone_for(country=country, url=url)
+        feed = pubtime.from_feed_entry(entry, zone)
+        feed_dt = feed.dt if feed else None
+        text = f"{title}. {teaser}"
+        if not url or (not matches(text, extra) and not all_rel):
+            return feed_dt
+        if is_gambling(text, url) and not GAMBLING_REGULATOR.search(text):
+            return feed_dt
+        if feed_dt and feed_dt < cutoff - dt.timedelta(days=2):
+            return feed_dt
+        page = None
+        try:
+            if robots_ok(url):
+                page = pubtime.published_from_html(read_html(url), zone)
+        except Exception as ex:
+            log("DATE", type(ex).__name__, url[:100])
+        chosen = pubtime.choose_published(page, feed)
+        if page and feed_dt and chosen and abs((chosen - feed_dt).total_seconds()) >= 1:
+            log(f"DATE {pubtime.utc_iso(feed_dt)} -> {pubtime.utc_iso(chosen)} ({page.source}) {url[:90]}")
+        return chosen
+
     seen_html = load(P("state", "html_seen.json"), {})
     def ingest(s):
         """One source. Any failure is stored on that source and does not stop the others."""
@@ -408,10 +459,12 @@ def main():
                         link = (qs.get("url") or [link])[0]
                         if not urllib.parse.urlparse(link).netloc.endswith(s["allowed_tld"]): continue
                         out, oname = outlet_for(link, (e.get("news_source") or "").strip())
-                        add(link, title, teaser, when(e), s["id"], out, oname, s["country"])
+                        extra, all_rel, lang = (), False, None
                     else:
                         out = s.get("outlet", s["id"]); oname = SRC.get(out, s)["name"]
-                        add(link, title, teaser, when(e), s["id"], out, oname, s["country"], s.get("match_extra", ()), s["type"] == "rss-all", lang=s.get("language"))
+                        extra, all_rel, lang = s.get("match_extra", ()), s["type"] == "rss-all", s.get("language")
+                    published = resolve_published(link, title, teaser, e, s["country"], extra, all_rel)
+                    add(link, title, teaser, published, s["id"], out, oname, s["country"], extra, all_rel, lang)
             except Exception as ex:
                 err = f"{type(ex).__name__}: {ex}"[:200]; log("ERR", s["id"], u, err)
         with _io:

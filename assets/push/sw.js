@@ -16,8 +16,8 @@ self.addEventListener("push", function (event) {
   var title = data.title || "Nordic Crypto";
   var options = {
     body: data.body || "",
-    icon: "assets/push/icon-192.png",
-    badge: "assets/push/icon-192.png",
+    icon: "assets/brand/icon-192.png",
+    badge: "assets/brand/icon-192.png",
     lang: data.lang || "en",
     tag: data.tag || "nordic-crypto-latest",
     renotify: true,

@@ -36,6 +36,8 @@ import press_images  # noqa: E402
 import site_url  # noqa: E402
 import source_logos  # noqa: E402
 import event_block  # noqa: E402
+import event_backfill  # noqa: E402
+import event_select  # noqa: E402
 
 API = "1"
 SITE_NAME = "Nordic Crypto"
@@ -251,12 +253,13 @@ def yaml_dump(obj, indent=0):
 
 
 class Feed:
-    def __init__(self, site, preview, base):
+    def __init__(self, site, preview, base, now=None):
         self.site = site
         self.preview = bool(preview)
         self.base = base if base.endswith("/") else base + "/"
         self.custom = self.base
         self.generated = dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat()
+        self.now = event_select.clock(now)
         self.endpoints = []
         self.examples = {}
 
@@ -405,9 +408,40 @@ class Feed:
             "note": raw.get("note"),
             "note_i18n": {k: v for k, v in (raw.get("note_i18n") or {}).items() if k in LANGS and v} if raw.get("note") else {},
             "past": bool(raw.get("past")),
-            "html_url": self.abs(f"calendar/#e-{eid}"),
+            "ongoing": event_select.classify(raw, self.now) == "ongoing",
+            "html_url": self.abs(f"calendar/{eid}/"),
+            "html_urls": {lang: self.abs(("" if lang == "en" else lang + "/") + f"calendar/{eid}/") for lang in i18n.ALL_LANGS},
             "api_url": self.abs(f"api/v1/events/{eid}.json"),
         }
+        if raw.get("backfill"):
+            out["backfill"] = True
+            out["source"] = "backfill"
+            if raw.get("event_type"):
+                out["event_type"] = raw.get("event_type")
+            if raw.get("language"):
+                out["language"] = raw.get("language")
+            speakers = event_backfill.speakers_fact(raw)
+            if speakers:
+                out["speakers_count"] = speakers["count"]
+            videos = event_backfill.videos_fact(raw)
+            if videos:
+                out["videos_url"] = videos["url"]
+            if raw.get("credits"):
+                out["credits"] = raw.get("credits")
+        fact = event_select.location_fact(raw)
+        if fact:
+            out["place_source"] = fact["credit"]
+        att = event_select.attendees_fact(raw)
+        if att:
+            out["attendees"] = {
+                "count": att["count"],
+                "source_name": att["credit"]["name"],
+                "source_url": att["credit"]["url"],
+                "retrieved": att["credit"].get("retrieved"),
+            }
+        ids = [str(item) for item in (raw.get("talk_ids") or []) if item]
+        if ids:
+            out["talk_ids"] = ids
         if self.preview:
             out["status"] = raw.get("status")
         return out
@@ -479,7 +513,7 @@ class Feed:
         sources = []
         for s in raw.get("sources") or []:
             sources.append({"url": s.get("url"), "title": s.get("title"), "source_name": s.get("source_name"), "date": s.get("date")})
-        return {
+        out = {
             "id": eid,
             "api_url": self.abs(f"api/v1/orgchart/{eid}.json"),
             "html_url": self.abs(f"org-chart/#{eid}"),
@@ -499,6 +533,49 @@ class Feed:
             "image": self.media(raw.get("image"), "photo"),
             "profiles": profiles,
         }
+        ids = [str(item) for item in (raw.get("talk_ids") or []) if item]
+        if ids:
+            out["talk_ids"] = ids
+        events = [str(item) for item in (raw.get("event_ids") or []) if item]
+        if events:
+            out["event_ids"] = events
+        talks = []
+        for item in raw.get("talks") or []:
+            if not isinstance(item, dict) or not item.get("id"):
+                continue
+            brief = {"id": str(item.get("id")), "title": item.get("title") or ""}
+            if item.get("video_url"):
+                brief["video_url"] = item.get("video_url")
+            if item.get("event_id"):
+                brief["event_id"] = item.get("event_id")
+            if item.get("date"):
+                brief["date"] = item.get("date")
+            talks.append(brief)
+        if talks:
+            out["talks"] = talks
+        affiliations = []
+        for item in raw.get("affiliations") or []:
+            if not isinstance(item, dict):
+                continue
+            if not (item.get("organisation") and item.get("source_url") and item.get("retrieved_at")):
+                continue
+            aff = {
+                "talk_id": item.get("talk_id"),
+                "organisation": item.get("organisation"),
+                "source_url": item.get("source_url"),
+                "source_name": item.get("source_name"),
+                "retrieved_at": item.get("retrieved_at"),
+            }
+            if item.get("role"):
+                aff["role"] = item.get("role")
+            if item.get("date"):
+                aff["date"] = item.get("date")
+            if item.get("event_id"):
+                aff["event_id"] = item.get("event_id")
+            affiliations.append(aff)
+        if affiliations:
+            out["affiliations"] = affiliations
+        return out
 
     def relation(self, raw):
         rid = safe_id(raw.get("id")) or safe_id(f"{raw.get('from')}-{raw.get('to')}-{raw.get('type')}")
@@ -556,7 +633,7 @@ def public_org(preview):
 
 TALK_FIELDS = (
     "id", "video_url", "platform", "title", "speakers", "event_name", "event_url",
-    "calendar_event_id", "city", "country", "date", "published", "duration", "language",
+    "calendar_event_id", "event_id", "unlink_reason", "speaker_ids", "city", "country", "date", "published", "duration", "language",
     "channel", "description", "source_url", "retrieved_at", "added_at", "embed",
 )
 
@@ -570,7 +647,7 @@ def public_talks():
         row = {}
         for key in TALK_FIELDS:
             value = item.get(key)
-            if key == "speakers":
+            if key in ("speakers", "speaker_ids"):
                 row[key] = [s for s in value if isinstance(s, str) and s] if isinstance(value, list) else []
             elif key == "embed":
                 row[key] = bool(value)
@@ -945,6 +1022,7 @@ def _meta(feed):
     pages = [
         ("", "News"),
         ("calendar/", "Events calendar, upcoming and past"),
+        ("events/previous/", "Previous events, newest first. Finished events are kept."),
         ("talks/", "Public talks on bitcoin, cryptocurrencies and blockchain in the Nordics, with video"),
         ("org-chart/", "Who's who: industry, regulators and the regulation overview"),
         ("rules/", "How EU crypto rules become law in the five countries"),
@@ -953,6 +1031,7 @@ def _meta(feed):
         ("sources/", "News and event sources"),
         ("newsletter/", "Newsletter issues"),
         ("about/", "About, privacy, corrections and removal"),
+        ("media/", "Logo and media kit"),
         ("ethics/", "Editorial ethics (Vær Varsom-plakaten)"),
         ("changelog/", "Site changelog"),
         ("tip/", "Send a tip (not part of this data API)"),
@@ -971,7 +1050,9 @@ def _meta(feed):
             "distribution": "TestFlight",
             "label": "iOS app (TestFlight)",
             "url": "https://testflight.apple.com/join/nQ2fpjZn",
-            "note": "Public TestFlight invite. This feed does not list an App Store page.",
+            "note": "Public TestFlight invite. This feed does not list an App Store page. The Nordic Crypto TestFlight version especially supports Apple TV.",
+            "apple_tv": i18n.t("en", "ios_tv"),
+            "apple_tv_i18n": {lang: i18n.t(lang, "ios_tv") for lang in i18n.ALL_LANGS},
         },
         languages=language_rows(feed),
         language_note=(
@@ -997,6 +1078,13 @@ def _meta(feed):
             "rss": feed.abs("rss.xml"),
             "telegram": SITE_TELEGRAM_URL,
             "x": SITE_X_URL,
+            "logo": feed.abs("assets/brand/crest.svg"),
+            "logo_png": feed.abs("assets/media/nordic-crypto-crest.png"),
+            "wordmark": feed.abs("assets/brand/wordmark.svg"),
+            "icon": feed.abs("assets/brand/icon.svg"),
+            "og_image": feed.abs("assets/brand/og-image.png"),
+            "media": feed.abs("media/"),
+            "stylesheet": feed.abs("assets/brand/nordic-crypto.css"),
         },
         social=brand_social(),
         url_note=(
@@ -1088,8 +1176,8 @@ def _markets(feed, markets):
     return doc
 
 
-def write(site, *, preview, base, items, events, entities, relations, org_updated, regulation, caveats, sources_cfg, news_updated, markets=None):
-    feed = Feed(site, preview, base)
+def write(site, *, preview, base, items, events, entities, relations, org_updated, regulation, caveats, sources_cfg, news_updated, markets=None, now=None):
+    feed = Feed(site, preview, base, now=now)
     os.makedirs(site, exist_ok=True)
 
     news = [feed.news_item(i) for i in items]
@@ -1107,9 +1195,16 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
         uniq.append(n)
     news = uniq
 
-    evs = [e for e in (feed.event_item(e) for e in events) if e]
+    raw_events = list(events or [])
+    evs = [e for e in (feed.event_item(e) for e in raw_events) if e]
     upcoming = [e for e in evs if not e["past"]]
     past = [e for e in evs if e["past"]][::-1]
+    ongoing = [e for e in evs if e.get("ongoing")]
+    # Backfill is previous-archive only. It is not part of the calendar lists above.
+    raw_past = [e for e in raw_events if e.get("past")]
+    previous = [e for e in (feed.event_item(e) for e in event_backfill.merge_previous(raw_past, feed.now)) if e]
+    known = {e["id"] for e in evs}
+    backfill = [e for e in previous if e.get("backfill") and e["id"] not in known]
 
     ents = [e for e in (feed.entity(e) for e in entities) if e]
     rels = [feed.relation(r) for r in relations]
@@ -1157,8 +1252,8 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
         "Other site languages use title_en. "
         "source_logo is the outlet image when assets/img/logos/logos.json has a checked file for the source id "
         "(or its outlet, or a _source_alias). Null means show the source name as text. "
-        "illustration is a picture we may show, with source, author, license and url. "
-        "It is never a photograph copied or hotlinked from another newspaper. "
+        "illustration is the licensed picture assigned to the story, with source, author, license and url. "
+        "The site does not render it. It is never a photograph copied or hotlinked from another newspaper. "
         "primary_source is that outlet. also_covered_by lists every other outlet on the same event "
         "(outlet, outlet_name, url, title, published, lang, country, source_type, paywall, logo). "
         "sources is the primary plus those outlets. coverage.count is how many outlets, "
@@ -1215,9 +1310,12 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
     def ev_doc(rel, summary, rows, example=None):
         collection(rel, summary, "EventList", feed.env(count=len(rows), events=rows), example=example, item_template="api/v1/events/{id}.json" if rel == "api/v1/events.json" else None)
     ev_doc("api/v1/events.json", "Public events, soonest start first, including past events.", evs, example=f"api/v1/events/{evs[0]['id']}.json" if evs else None)
-    collection("api/v1/events/upcoming.json", "Events that have not ended, soonest first. Judged in the event's own offset.", "EventList", feed.env(count=len(upcoming), events=upcoming))
+    collection("api/v1/events/upcoming.json", "Events that have not ended, soonest first. Judged in the event's own offset.", "EventList", feed.env(count=len(upcoming), events=upcoming, ongoing=ongoing))
     collection("api/v1/events/past.json", "Finished public events, newest first. Finished events stay in the archive.", "EventList", feed.env(count=len(past), events=past))
+    collection("api/v1/events/previous.json", "Previous events, newest finish first. Finished calendar events plus backfilled public events (source backfill). Backfill is not on the calendar or in upcoming or past.", "EventList", feed.env(count=len(previous), events=previous))
     for e in evs:
+        feed.write_json(f"api/v1/events/{e['id']}.json", feed.env(item=e))
+    for e in backfill:
         feed.write_json(f"api/v1/events/{e['id']}.json", feed.env(item=e))
     for c in COUNTRIES:
         rows = [e for e in evs if e.get("country") == c]
@@ -1274,7 +1372,7 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
     feed.add_endpoint("academia-item", "api/v1/academia/{id}.json", "One academia row. The id is in academia.json.", "AcademiaItem",
                       example=f"api/v1/academia/{next(iter(ac_ids))}.json" if ac_ids else None)
 
-    collection("api/v1/orgchart.json", "Published who's who: organisations, people, relations, regulation notes and caveats.", "OrgChart",
+    collection("api/v1/orgchart.json", "Published who's who: organisations, people, relations, regulation notes and caveats. A person named on a talk has talk_ids, event_ids and talks. affiliations lists the organisation the talk page stated for that talk, with the talk date when the page gave one, the source URL and the retrieval time. An affiliation the page did not state is omitted.", "OrgChart",
                feed.env(updated=org_updated, count=len(ents), entities=ents, relations=rels, regulation=regulation, caveats=caveats),
                example=f"api/v1/orgchart/{ents[0]['id']}.json" if ents else None,
                item_template="api/v1/orgchart/{id}.json")
@@ -1369,7 +1467,9 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
             "newsletters": len(letters),
             "events": len(evs),
             "events_upcoming": len(upcoming),
+            "events_ongoing": len(ongoing),
             "events_past": len(past),
+            "events_previous": len(previous),
             "talks": len(talks),
             "sources": len(outlets),
             "academia": ac_counts,
@@ -1564,7 +1664,7 @@ def schemas():
             "illustration": {
                 "type": "object",
                 "nullable": True,
-                "description": "Picture for the card and the story page. source, author, license and url are the credit. file_url is our copy. Never a newspaper photograph.",
+                "description": "Licensed picture assigned to this story. The site does not render it. source, author, license and url are the credit. file_url is our copy. Never a newspaper photograph.",
                 "properties": {
                     "id": {"type": "string"},
                     "kind": {"type": "string", "enum": ["original", "commons", "official-press"]},
@@ -1638,8 +1738,19 @@ def schemas():
             "note": {"type": "string", "nullable": True},
             "note_i18n": i18n_obj,
             "past": {"type": "boolean"},
-            "html_url": {"type": "string"},
+            "ongoing": {"type": "boolean", "description": "True while start <= now <= end. Additive. Events with no end are never ongoing."},
+            "place_source": {"type": "object", "nullable": True, "description": "Credit for the venue or online flag: name, url, retrieved. Omitted when the place cannot be credited."},
+            "attendees": {"type": "object", "nullable": True, "description": "Registered participant count with source_name, source_url and retrieved. Omitted when the source did not state a count. Capacity is not a count."},
+            "html_url": {"type": "string", "description": "This event's page on the site, /calendar/<id>/."},
+            "html_urls": {"type": "object", "description": "The same page in every site language. English is at the root. Other codes are /<code>/calendar/<id>/."},
             "api_url": {"type": "string"},
+            "backfill": {"type": "boolean", "description": "True when the row comes from the previous-events backfill. Absent on calendar events. Those rows are only in previous.json."},
+            "event_type": {"type": "string", "nullable": True, "enum": ["conference", "meetup", "hackathon", "seminar"], "description": "Set on backfilled events when a source supports the type."},
+            "language": {"type": "string", "nullable": True, "description": "Language code when a source states it. Omitted when unknown."},
+            "speakers_count": {"type": "integer", "nullable": True, "description": "Exact speaker count when a source states one. Omitted otherwise. A session count is not a speaker count."},
+            "videos_url": {"type": "string", "nullable": True, "description": "Link to talk videos when a source gives one."},
+            "talk_ids": {"type": "array", "items": {"type": "string"}, "description": "Ids of talks in /api/v1/talks.json recorded at this event. Omitted when none are linked."},
+            "credits": {"type": "object", "nullable": True, "description": "Per-field source_name, source_url and retrieved_at on backfilled events."},
         },
     }
     talk_item = {
@@ -1654,7 +1765,9 @@ def schemas():
             "speakers": {"type": "array", "items": {"type": "string"}, "description": "Names the platform page states. Empty when none are stated."},
             "event_name": {"type": "string", "nullable": True},
             "event_url": {"type": "string", "nullable": True},
-            "calendar_event_id": {"type": "string", "nullable": True, "description": "Id of the matching event in /api/v1/events.json, when one exists."},
+            "calendar_event_id": {"type": "string", "nullable": True, "description": "Same value as event_id. The event page is /calendar/<id>/ and the document is /api/v1/events/<id>.json. Previous events are also listed in /api/v1/events/previous.json."},
+            "event_id": {"type": "string", "nullable": True, "description": "Id of the event this talk belongs to. Null when the talk could not be dated or placed."},
+            "unlink_reason": {"type": "string", "nullable": True, "description": "Why the talk is not linked to an event. Null when event_id is set."},
             "city": {"type": "string", "nullable": True},
             "country": {"type": "string", "nullable": True, "description": "NO, SE, DK, FI, IS, FO, GL or AX."},
             "date": {"type": "string", "nullable": True, "description": "Calendar date of the talk, YYYY-MM-DD, when the source states it."},
@@ -1667,6 +1780,7 @@ def schemas():
             "retrieved_at": {"type": "string", "description": "ISO 8601 timestamp."},
             "added_at": {"type": "string", "description": "ISO 8601 timestamp."},
             "embed": {"type": "boolean", "description": "True when the platform's oEmbed response includes an official player."},
+            "speaker_ids": {"type": "array", "items": {"type": "string"}, "description": "Who's who ids for speakers, in the same order as speakers. Empty when the page named nobody."},
             "html_url": {"type": "string"},
             "api_url": {"type": "string"},
         },
@@ -1717,7 +1831,20 @@ def schemas():
         "Academia": wrap("Academia", {"courses": {"type": "array"}, "groups": {"type": "array"}, "publications": {"type": "array"}, "research": {"type": "array"}}),
         "AcademiaSection": wrap("AcademiaSection", {"section": {"type": "string"}, "items": {"type": "array"}}),
         "AcademiaItem": wrap("AcademiaItem", {"item": {"type": "object"}}),
-        "OrgChart": wrap("OrgChart", {"entities": {"type": "array"}, "relations": {"type": "array"}, "regulation": {"type": "array"}}),
+        "OrgEntity": {
+            "type": "object",
+            "required": ["id", "name"],
+            "properties": {
+                "id": {"type": "string"},
+                "name": {"type": "string"},
+                "type": {"type": "string"},
+                "talk_ids": {"type": "array", "items": {"type": "string"}, "description": "Talks in /api/v1/talks.json that name this person. Omitted when none are linked."},
+                "event_ids": {"type": "array", "items": {"type": "string"}, "description": "Events those talks belong to. Omitted when none are linked."},
+                "talks": {"type": "array", "description": "id, title, video_url, and event_id and date when the talk has them."},
+                "affiliations": {"type": "array", "description": "One organisation per talk, only when the talk page stated it. Each item has organisation, talk_id, source_url, source_name and retrieved_at. role and date are present when the page stated them. An affiliation without a source is omitted."},
+            },
+        },
+        "OrgChart": wrap("OrgChart", {"entities": {"type": "array", "items": {"$ref": "#/components/schemas/OrgEntity"}}, "relations": {"type": "array"}, "regulation": {"type": "array"}}),
         "Relation": {"type": "object"},
         "RelationList": wrap("RelationList", {"relations": {"type": "array"}}),
         "RegulationList": wrap("RegulationList", {"regulation": {"type": "array"}}),
@@ -1731,7 +1858,19 @@ def schemas():
             "languages": {"type": "array"},
             "countries": {"type": "array"},
             "cors": {"type": "object"},
-            "ios": {"type": "object", "description": "Public TestFlight invite. Not an App Store listing."},
+            "ios": {
+                "type": "object",
+                "description": "Public TestFlight invite for the Nordic Crypto iOS app. Not an App Store listing. apple_tv is English. apple_tv_i18n has every site language, including en.",
+                "properties": {
+                    "name": {"type": "string", "example": "Nordic Crypto"},
+                    "distribution": {"type": "string"},
+                    "label": {"type": "string"},
+                    "url": {"type": "string"},
+                    "note": {"type": "string"},
+                    "apple_tv": {"type": "string"},
+                    "apple_tv_i18n": {"type": "object"},
+                },
+            },
             "social": {
                 "type": "object",
                 "description": "Nordic Crypto brand accounts. telegram is https://t.me/nordiccryptochat. x is https://x.com/xcryptonordic. label and name are English. name_i18n has nn, nb, sv, da, fi and is. Other languages use name.",
@@ -1926,6 +2065,7 @@ def llms_txt(feed, index):
         f"- [API catalog]({feed.abs('.well-known/api-catalog')}): RFC 9727 linkset. A .json copy is at {feed.abs('.well-known/api-catalog.json')}.",
         f"- [Site meta]({feed.abs('api/v1/meta.json')}): languages, countries, page list, CORS, and brand social accounts.",
         f"- Telegram: {SITE_TELEGRAM_URL} (`social.telegram`). X: {SITE_X_URL} (`social.x`, also `urls.x`). `name` is English. `name_i18n` has nn, nb, sv, da, fi and is. Other languages use `name`.",
+        "- iOS app: public TestFlight invite in `ios`. `apple_tv` is English. `apple_tv_i18n` has every site language. The Nordic Crypto TestFlight version especially supports Apple TV. No App Store listing.",
         f"- [Languages]({feed.abs('api/v1/languages.json')}): site UI languages (code, native name, English name, rtl, home).",
         f"- [Geo language]({feed.abs('api/v1/geo-language.json')}): country to default language. An IP guess; the nc_lang cookie wins.",
         "- Browser notifications: opt-in Web Push. The Worker `GET /api/push/feed.json` repeats each publish as one batch (title, summary, URL). APNs is not implemented. Subscriptions are not in this API.",
@@ -2094,7 +2234,7 @@ curl -fsS {letters}{html.escape(one_line)}</pre>
 <pre>curl -fsS {html.escape(b)}api/v1/markets.json
 curl -fsS {html.escape(b)}api/v1/markets/aggregated.json</pre>
 <h2>Talks</h2>
-<p>Public talks on bitcoin, cryptocurrencies and blockchain held in Norway, Sweden, Denmark, Finland, Iceland, the Faroe Islands, Greenland and Åland are at <a href="{html.escape(b)}api/v1/talks.json"><code>/api/v1/talks.json</code></a>, newest first. One talk is <code>/api/v1/talks/{{id}}.json</code>. One country is <a href="{html.escape(b)}api/v1/talks/by-country/NO.json"><code>/api/v1/talks/by-country/{{country}}.json</code></a> (<code>NO</code>, <code>SE</code>, <code>DK</code>, <code>FI</code>, <code>IS</code>, <code>FO</code>, <code>GL</code>, <code>AX</code>). <code>description</code> is ours. <code>title</code>, dates, duration, channel and speakers come from the platform at <code>source_url</code>. A field the platform did not state is null. <code>embed</code> is true only when that platform's oEmbed response includes a player. The HTML page loads the player after a click: YouTube via youtube-nocookie.com, Vimeo via player.vimeo.com. <code>calendar_event_id</code> is the id in <code>/api/v1/events.json</code> when the talk is that calendar event.</p>
+<p>Public talks on bitcoin, cryptocurrencies and blockchain held in Norway, Sweden, Denmark, Finland, Iceland, the Faroe Islands, Greenland and Åland are at <a href="{html.escape(b)}api/v1/talks.json"><code>/api/v1/talks.json</code></a>, newest first. One talk is <code>/api/v1/talks/{{id}}.json</code>. One country is <a href="{html.escape(b)}api/v1/talks/by-country/NO.json"><code>/api/v1/talks/by-country/{{country}}.json</code></a> (<code>NO</code>, <code>SE</code>, <code>DK</code>, <code>FI</code>, <code>IS</code>, <code>FO</code>, <code>GL</code>, <code>AX</code>). <code>description</code> is ours. <code>title</code>, dates, duration, channel and speakers come from the platform at <code>source_url</code>. A field the platform did not state is null. <code>embed</code> is true only when that platform's oEmbed response includes a player. The HTML page loads the player after a click: YouTube via youtube-nocookie.com, Vimeo via player.vimeo.com. <code>event_id</code> and <code>calendar_event_id</code> are the same event id when the talk is linked. That event is <code>/api/v1/events/{{id}}.json</code> (and <code>/api/v1/events/previous.json</code> when it is a past event) and the page is <code>/calendar/{{id}}/</code>. <code>talk_ids</code> on the event lists those talks. <code>unlink_reason</code> is set when the video page did not state a day or a place, and <code>event_id</code> is then null. <code>speaker_ids</code> are who's who ids in the same order as <code>speakers</code>. The person, at <code>/api/v1/orgchart/{{id}}.json</code>, lists those talks and any affiliation the talk page stated.</p>
 <h2>Several outlets, one story</h2>
 <p>A story keeps one primary outlet. Other outlets that covered the same event are in <code>also_covered_by</code>. <code>sources</code> lists the primary first, then the others. Each outlet has <code>outlet</code>, <code>outlet_name</code>, <code>url</code>, <code>title</code> (that outlet's headline), <code>published</code>, <code>lang</code>, <code>country</code>, <code>source_type</code> and <code>logo</code>. <code>source_type</code> is <code>national</code>, <code>regional</code> (regional and local), <code>official</code> (justice and official: police, prosecutors, courts, regulators) or <code>international</code>. <code>coverage.count</code> is the number of outlets. <code>coverage.by_country</code> and <code>coverage.by_source_type</code> are the counts and shares for the bars. Every source type is present, including a count of zero. <code>html_url</code> is our page for that story. <code>url</code> is the primary outlet. Kaupr stays a news source only.</p>
 <h2>Events</h2>
@@ -2109,6 +2249,7 @@ curl -fsS {html.escape(b)}api/v1/markets/aggregated.json</pre>
 <h2>Editorial</h2>
 <p>The sign-off is The Nordic Crypto team. Kaupr (kaupr.io) is a news source only and is never a sponsor. Nothing here is investment advice.</p>
 <h2>Brand accounts</h2>
+<p><code>ios</code> in <a href="{html.escape(b)}api/v1/meta.json"><code>/api/v1/meta.json</code></a> is the public TestFlight invite for the Nordic Crypto iOS app. There is no App Store listing. <code>apple_tv</code> says the TestFlight version especially supports Apple TV. <code>apple_tv_i18n</code> has that short sentence in every site language. The brand name stays Nordic Crypto.</p>
 <p><a href="{html.escape(b)}api/v1/meta.json"><code>/api/v1/meta.json</code></a> includes <code>social</code> for the iOS app. <code>social.telegram</code> is the Nordic Crypto chat at <a href="{SITE_TELEGRAM_URL}">{html.escape(SITE_TELEGRAM_URL)}</a>. <code>social.x</code> is the brand account at <a href="{SITE_X_URL}">{html.escape(SITE_X_URL)}</a> (<code>@xcryptonordic</code>), also listed as <code>urls.x</code>. <code>urls.telegram</code> repeats the chat URL. <code>urls.rss</code> is the English story feed at <a href="{html.escape(b)}rss.xml"><code>/rss.xml</code></a>. Each language home has its own <code>rss.xml</code>. <code>urls.newsletter</code> is the signup page on this site. <code>label</code> is the short name (<code>Telegram</code>, <code>X</code>). <code>name</code> is the English link text. <code>name_i18n</code> has <code>nn</code>, <code>nb</code>, <code>sv</code>, <code>da</code>, <code>fi</code> and <code>is</code>. Other site languages use <code>name</code>.</p>
 <h2>Browser notifications</h2>
 <p>When <code>workers/push/public.json</code> has a Worker URL, a button at the bottom of each page is Web Push. Until then the page says the service is not switched on and does not call a Worker. Subscriptions live on a Cloudflare Worker, not in this static feed. After a publish, <code>GET /api/push/feed.json</code> on that Worker lists the same batches (title, short summary, URL, country, and translations when we have them). One publish is one batch. The document says <code>"apns": "not implemented"</code>: Apple Push Notification service is out of scope. An iOS app can poll the feed. The Worker URL is set when <code>workers/push/</code> is deployed; it is not a path on this site. Subscriptions are not in the feed. This API's <a href="{html.escape(b)}api/v1/news.json"><code>/api/v1/news.json</code></a> remains the full published list.</p>

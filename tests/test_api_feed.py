@@ -8,6 +8,7 @@ sys.path.insert(0, ROOT)
 sys.path.insert(0, os.path.join(ROOT, "tools"))
 import api_feed
 import build
+import i18n
 import markets
 
 EMAIL = re.compile(r"[\w.+-]+@[\w-]+\.[\w.-]+")
@@ -293,6 +294,50 @@ def main():
         if meta_ios_later(tmp) != "https://testflight.apple.com/join/nQ2fpjZn":
             fails.append("testflight url missing from meta")
         meta = json.load(open(os.path.join(tmp, "api/v1/meta.json"), encoding="utf-8"))
+        ios = meta.get("ios") or {}
+        if ios.get("name") != "Nordic Crypto" or ios.get("apple_tv") != "Especially supports Apple TV.":
+            fails.append("apple tv english")
+        tv = ios.get("apple_tv_i18n") or {}
+        if tv.get("nn") != "Støtter særleg Apple TV." or tv.get("en") != "Especially supports Apple TV.":
+            fails.append("apple tv i18n")
+        if tv.get("de") != "Unterstützt besonders Apple TV." or tv.get("ar") != "يدعم Apple TV بشكل خاص.":
+            fails.append("apple tv wider languages")
+        if set(tv) != set(i18n.ALL_LANGS):
+            fails.append("apple tv missing a site language")
+        if ("Crypto" + " Nordic") in json.dumps(ios):
+            fails.append("reversed brand in ios")
+        upcoming = json.load(open(os.path.join(tmp, "api/v1/events/upcoming.json"), encoding="utf-8"))
+        past_doc = json.load(open(os.path.join(tmp, "api/v1/events/past.json"), encoding="utf-8"))
+        previous = json.load(open(os.path.join(tmp, "api/v1/events/previous.json"), encoding="utf-8"))
+        if "ongoing" not in upcoming or not isinstance(upcoming["ongoing"], list):
+            fails.append("upcoming missing ongoing")
+        if any(e.get("past") for e in upcoming.get("events") or []):
+            fails.append("upcoming includes a finished event")
+        if any(e["id"] not in {x["id"] for x in upcoming["events"]} for e in upcoming["ongoing"]):
+            fails.append("ongoing event missing from not-ended list")
+        past_ids = [e["id"] for e in past_doc.get("events") or []]
+        prev_ids = [e["id"] for e in previous.get("events") or []]
+        if any(i not in prev_ids for i in past_ids):
+            fails.append("previous.json dropped a finished calendar event")
+        backfill_ids = {e["id"] for e in previous.get("events") or [] if e.get("backfill")}
+        if not backfill_ids:
+            fails.append("previous.json has no backfill")
+        main_ids = {e["id"] for e in json.load(open(os.path.join(tmp, "api/v1/events.json"), encoding="utf-8")).get("events") or []}
+        up_ids = {e["id"] for e in upcoming.get("events") or []}
+        if backfill_ids & set(past_ids) or backfill_ids & up_ids or backfill_ids & main_ids:
+            fails.append("backfill leaked into the calendar API")
+        one = json.load(open(os.path.join(tmp, f"api/v1/events/{next(iter(backfill_ids))}.json"), encoding="utf-8"))
+        item = one.get("item") or {}
+        if item.get("source") != "backfill" or f"/calendar/{item.get('id')}/" not in (item.get("html_url") or ""):
+            fails.append("backfill event document")
+        urls = item.get("html_urls") or {}
+        if "/calendar/" not in (urls.get("en") or "") or "/nn/calendar/" not in (urls.get("nn") or ""):
+            fails.append("event html_urls")
+        up0 = (upcoming.get("events") or [None])[0]
+        if not up0 or f"/calendar/{up0.get('id')}/" not in (up0.get("html_url") or "") or "#e-" in (up0.get("html_url") or ""):
+            fails.append("upcoming event page url")
+        if not item.get("credits"):
+            fails.append("backfill credits missing from the API")
         social = meta.get("social") or {}
         tg = social.get("telegram") or {}
         xacc = social.get("x") or {}

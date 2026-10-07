@@ -2,6 +2,8 @@
 """Several outlets for one event.
 
 A story keeps its existing primary fields (source, source_name, url, title, published, language, country).
+``published`` on the primary and on each extra outlet is that article's own publish time
+(page meta, else the feed's published date) — not an updated time or the time we fetched it.
 Other outlets that covered the same event sit in also_covered_by:
 
   {outlet, outlet_name, url, title, published, lang, country, source_type}
@@ -122,7 +124,10 @@ def _clean_record(rec):
 
 def record_from_parts(outlet, outlet_name, url, title, published, lang=None, country=None, source_type=None, paywall=None):
     src = load_sources().get(outlet) or {}
-    published = published.isoformat() if isinstance(published, dt.datetime) else published
+    if isinstance(published, dt.datetime):
+        if published.tzinfo is None:
+            published = published.replace(tzinfo=dt.timezone.utc)
+        published = published.astimezone(dt.timezone.utc).replace(microsecond=0).isoformat(timespec="seconds")
     rec = {
         "outlet": outlet,
         "outlet_name": outlet_name or src.get("name") or outlet,

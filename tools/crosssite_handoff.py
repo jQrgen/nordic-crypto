@@ -34,6 +34,22 @@ def canon_of(repo, name):
     spec = importlib.util.spec_from_file_location(name, os.path.join(repo, "fetch.py")); m = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(m); return m.canon, m.iid
 
+def refresh_published(d_news, d_q, canon_url, published):
+    """Copy a corrected Nordic Crypto publish time onto rows Kryptonytt already imported (via nordic-crypto)."""
+    n = 0
+    for i in d_news["items"]:
+        if i.get("via") == "nordic-crypto" and norm_url(i.get("url") or "") == canon_url and i.get("published") != published:
+            i["published"] = published
+            n += 1
+            for q in d_q.get("items_needing_summary", []):
+                if q.get("id") == i.get("id"):
+                    q["published"] = published
+        for ex in i.get("also_covered_by") or []:
+            if isinstance(ex, dict) and norm_url(ex.get("url") or "") == canon_url and ex.get("published") != published:
+                ex["published"] = published
+                n += 1
+    return n
+
 def handoff(src, dst, pick, convert, queue_fields, label, dry):
     s_news = load(os.path.join(src, "data", "news.json"), {"items": []})
     d_newsf = os.path.join(dst, "data", "news.json"); d_news = load(d_newsf, {"items": []})
@@ -50,10 +66,17 @@ def handoff(src, dst, pick, convert, queue_fields, label, dry):
         for ex in i.get("also_covered_by") or []:
             if isinstance(ex, dict) and ex.get("url"): have.add(canon(ex["url"]))
     added, attached = [], []
+    refreshed = 0
     for it in s_news["items"]:
         if not pick(it): continue
         c = canon(it["url"])
-        if c in have: continue
+        if c in have:
+            # Nordic Crypto -> Kryptonytt: an already imported row keeps via nordic-crypto and
+            # must pick up a corrected publish time. The other direction does not overwrite a
+            # page time we have already stored.
+            if "Nordic Crypto ->" in label and it.get("published"):
+                refreshed += refresh_published(d_news, d_q, c, it["published"])
+            continue
         url = strip_tracking(it["url"])
         new = convert(it); new.update(id=iid(url), url=url, status="pending", summary=None, fetched=NOW)
         if cov:
@@ -81,9 +104,9 @@ def handoff(src, dst, pick, convert, queue_fields, label, dry):
         src_i = org.get(q.get("id"))
         if src_i and not q.get("origin"):
             q["origin"] = src_i["origin"]; q.setdefault("suggested_by", src_i.get("suggested_by")); fixed += 1
-    if (added or fixed or attached) and not dry:
+    if (added or fixed or attached or refreshed) and not dry:
         save(d_newsf, d_news); save(d_qf, d_q)
-    print(f"handoff {label}: {len(added)} nye forslag, {len(attached)} lagt på en sak som finnes" + (" (dry-run)" if dry else ""))
+    print(f"handoff {label}: {len(added)} nye forslag, {len(attached)} lagt på en sak som finnes, {refreshed} datoer oppdatert" + (" (dry-run)" if dry else ""))
     for a in added: print(f"   + {a['published'][:10]} {a['source_name']}: {a['title'][:90]}")
     return added
 
