@@ -32,6 +32,7 @@ import i18n  # noqa: E402
 import site_url  # noqa: E402
 import source_logos  # noqa: E402
 import event_block  # noqa: E402
+import event_select  # noqa: E402
 
 API = "1"
 SITE_NAME = "Nordic Crypto"
@@ -247,12 +248,13 @@ def yaml_dump(obj, indent=0):
 
 
 class Feed:
-    def __init__(self, site, preview, base):
+    def __init__(self, site, preview, base, now=None):
         self.site = site
         self.preview = bool(preview)
         self.base = base if base.endswith("/") else base + "/"
         self.custom = self.base
         self.generated = dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat()
+        self.now = event_select.clock(now)
         self.endpoints = []
         self.examples = {}
 
@@ -394,9 +396,21 @@ class Feed:
             "note": raw.get("note"),
             "note_i18n": {k: v for k, v in (raw.get("note_i18n") or {}).items() if k in LANGS and v} if raw.get("note") else {},
             "past": bool(raw.get("past")),
+            "ongoing": event_select.classify(raw, self.now) == "ongoing",
             "html_url": self.abs(f"calendar/#e-{eid}"),
             "api_url": self.abs(f"api/v1/events/{eid}.json"),
         }
+        fact = event_select.location_fact(raw)
+        if fact:
+            out["place_source"] = fact["credit"]
+        att = event_select.attendees_fact(raw)
+        if att:
+            out["attendees"] = {
+                "count": att["count"],
+                "source_name": att["credit"]["name"],
+                "source_url": att["credit"]["url"],
+                "retrieved": att["credit"].get("retrieved"),
+            }
         if self.preview:
             out["status"] = raw.get("status")
         return out
@@ -853,6 +867,7 @@ def _meta(feed):
     pages = [
         ("", "News"),
         ("calendar/", "Events calendar, upcoming and past"),
+        ("events/previous/", "Previous events, newest first. Finished events are kept."),
         ("org-chart/", "Who's who: industry, regulators and the regulation overview"),
         ("rules/", "How EU crypto rules become law in the five countries"),
         ("regulation-videos/", "Country explainer videos: how crypto rules are decided in each Nordic country"),
@@ -878,7 +893,9 @@ def _meta(feed):
             "distribution": "TestFlight",
             "label": "iOS app (TestFlight)",
             "url": "https://testflight.apple.com/join/nQ2fpjZn",
-            "note": "Public TestFlight invite. This feed does not list an App Store page.",
+            "note": "Public TestFlight invite. This feed does not list an App Store page. The Nordic Crypto TestFlight version especially supports Apple TV.",
+            "apple_tv": i18n.t("en", "ios_tv"),
+            "apple_tv_i18n": {lang: i18n.t(lang, "ios_tv") for lang in i18n.ALL_LANGS},
         },
         languages=language_rows(feed),
         language_note=(
@@ -992,8 +1009,8 @@ def _markets(feed, markets):
     return doc
 
 
-def write(site, *, preview, base, items, events, entities, relations, org_updated, regulation, caveats, sources_cfg, news_updated, markets=None):
-    feed = Feed(site, preview, base)
+def write(site, *, preview, base, items, events, entities, relations, org_updated, regulation, caveats, sources_cfg, news_updated, markets=None, now=None):
+    feed = Feed(site, preview, base, now=now)
     os.makedirs(site, exist_ok=True)
 
     news = [feed.news_item(i) for i in items]
@@ -1014,6 +1031,7 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
     evs = [e for e in (feed.event_item(e) for e in events) if e]
     upcoming = [e for e in evs if not e["past"]]
     past = [e for e in evs if e["past"]][::-1]
+    ongoing = [e for e in evs if e.get("ongoing")]
 
     ents = [e for e in (feed.entity(e) for e in entities) if e]
     rels = [feed.relation(r) for r in relations]
@@ -1113,8 +1131,9 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
     def ev_doc(rel, summary, rows, example=None):
         collection(rel, summary, "EventList", feed.env(count=len(rows), events=rows), example=example, item_template="api/v1/events/{id}.json" if rel == "api/v1/events.json" else None)
     ev_doc("api/v1/events.json", "Public events, soonest start first, including past events.", evs, example=f"api/v1/events/{evs[0]['id']}.json" if evs else None)
-    collection("api/v1/events/upcoming.json", "Events that have not ended, soonest first. Judged in the event's own offset.", "EventList", feed.env(count=len(upcoming), events=upcoming))
+    collection("api/v1/events/upcoming.json", "Events that have not ended, soonest first. Judged in the event's own offset.", "EventList", feed.env(count=len(upcoming), events=upcoming, ongoing=ongoing))
     collection("api/v1/events/past.json", "Finished public events, newest first. Finished events stay in the archive.", "EventList", feed.env(count=len(past), events=past))
+    collection("api/v1/events/previous.json", "Previous events, newest first. The same finished events as past.json. Rows are kept after they end.", "EventList", feed.env(count=len(past), events=past))
     for e in evs:
         feed.write_json(f"api/v1/events/{e['id']}.json", feed.env(item=e))
     for c in COUNTRIES:
@@ -1235,6 +1254,7 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
             "newsletters": len(letters),
             "events": len(evs),
             "events_upcoming": len(upcoming),
+            "events_ongoing": len(ongoing),
             "events_past": len(past),
             "sources": len(outlets),
             "academia": ac_counts,
@@ -1448,6 +1468,9 @@ def schemas():
             "note": {"type": "string", "nullable": True},
             "note_i18n": i18n_obj,
             "past": {"type": "boolean"},
+            "ongoing": {"type": "boolean", "description": "True while start <= now <= end. Additive. Events with no end are never ongoing."},
+            "place_source": {"type": "object", "nullable": True, "description": "Credit for the venue or online flag: name, url, retrieved. Omitted when the place cannot be credited."},
+            "attendees": {"type": "object", "nullable": True, "description": "Registered participant count with source_name, source_url and retrieved. Omitted when the source did not state a count. Capacity is not a count."},
             "html_url": {"type": "string"},
             "api_url": {"type": "string"},
         },
@@ -1508,7 +1531,19 @@ def schemas():
             "languages": {"type": "array"},
             "countries": {"type": "array"},
             "cors": {"type": "object"},
-            "ios": {"type": "object", "description": "Public TestFlight invite. Not an App Store listing."},
+            "ios": {
+                "type": "object",
+                "description": "Public TestFlight invite for the Nordic Crypto iOS app. Not an App Store listing. apple_tv is English. apple_tv_i18n has every site language, including en.",
+                "properties": {
+                    "name": {"type": "string", "example": "Nordic Crypto"},
+                    "distribution": {"type": "string"},
+                    "label": {"type": "string"},
+                    "url": {"type": "string"},
+                    "note": {"type": "string"},
+                    "apple_tv": {"type": "string"},
+                    "apple_tv_i18n": {"type": "object"},
+                },
+            },
             "social": {
                 "type": "object",
                 "description": "Nordic Crypto brand accounts. telegram is https://t.me/nordiccryptochat. x is https://x.com/xcryptonordic. label and name are English. name_i18n has nn, nb, sv, da, fi and is. Other languages use name.",
@@ -1702,6 +1737,7 @@ def llms_txt(feed, index):
         f"- [API catalog]({feed.abs('.well-known/api-catalog')}): RFC 9727 linkset. A .json copy is at {feed.abs('.well-known/api-catalog.json')}.",
         f"- [Site meta]({feed.abs('api/v1/meta.json')}): languages, countries, page list, CORS, and brand social accounts.",
         f"- Telegram: {SITE_TELEGRAM_URL} (`social.telegram`). X: {SITE_X_URL} (`social.x`, also `urls.x`). `name` is English. `name_i18n` has nn, nb, sv, da, fi and is. Other languages use `name`.",
+        "- iOS app: public TestFlight invite in `ios`. `apple_tv` is English. `apple_tv_i18n` has every site language. The Nordic Crypto TestFlight version especially supports Apple TV. No App Store listing.",
         f"- [Languages]({feed.abs('api/v1/languages.json')}): site UI languages (code, native name, English name, rtl, home).",
         f"- [Geo language]({feed.abs('api/v1/geo-language.json')}): country to default language. An IP guess; the nc_lang cookie wins.",
         "",
@@ -1846,6 +1882,7 @@ curl -fsS {html.escape(b)}api/v1/markets/aggregated.json</pre>
 <h2>Editorial</h2>
 <p>The sign-off is The Nordic Crypto team. Kaupr (kaupr.io) is a news source only and is never a sponsor. Nothing here is investment advice.</p>
 <h2>Brand accounts</h2>
+<p><code>ios</code> in <a href="{html.escape(b)}api/v1/meta.json"><code>/api/v1/meta.json</code></a> is the public TestFlight invite for the Nordic Crypto iOS app. There is no App Store listing. <code>apple_tv</code> says the TestFlight version especially supports Apple TV. <code>apple_tv_i18n</code> has that short sentence in every site language. The brand name stays Nordic Crypto.</p>
 <p><a href="{html.escape(b)}api/v1/meta.json"><code>/api/v1/meta.json</code></a> includes <code>social</code> for the iOS app. <code>social.telegram</code> is the Nordic Crypto chat at <a href="{SITE_TELEGRAM_URL}">{html.escape(SITE_TELEGRAM_URL)}</a>. <code>social.x</code> is the brand account at <a href="{SITE_X_URL}">{html.escape(SITE_X_URL)}</a> (<code>@xcryptonordic</code>), also listed as <code>urls.x</code>. <code>urls.telegram</code> repeats the chat URL. <code>label</code> is the short name (<code>Telegram</code>, <code>X</code>). <code>name</code> is the English link text. <code>name_i18n</code> has <code>nn</code>, <code>nb</code>, <code>sv</code>, <code>da</code>, <code>fi</code> and <code>is</code>. Other site languages use <code>name</code>.</p>
 <h2>Endpoints</h2>
 <div class="tablewrap"><table class="list"><thead><tr><th>Method</th><th>Path</th><th>Returns</th></tr></thead><tbody>

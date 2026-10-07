@@ -88,7 +88,7 @@ Refresh: `./build.sh` and `./publish.sh` fetch the exchanges while building `sit
 `python3 tools/markets.py` prints a short summary. `python3 tools/markets.py --write DIR` writes the JSON tree. `--keep-if-empty` is what the hourly job uses.
 
 ### iOS app
-Public TestFlight invite, linked from the footer, the homepage, `/markets/` and About: https://testflight.apple.com/join/nQ2fpjZn. There is no App Store listing.
+Public TestFlight invite, linked from the footer, the homepage, `/markets/` and About: https://testflight.apple.com/join/nQ2fpjZn. There is no App Store listing. The Nordic Crypto TestFlight version especially supports Apple TV.
 
 ### Community
 Nordic Crypto brand accounts, linked from the footer, About and the newsletter, in every site language (English until a translation is written):
@@ -111,6 +111,8 @@ The iOS app reads them from `social` on `/api/v1/meta.json` (`social.telegram`, 
 | QA screenshots | `.venv/bin/python tools/screens.py` | Serves `site/` on a free local port, screenshots every page into `shots/`, reports JS errors, 4xx and horizontal overflow. |
 
 ### Event listings
+The front page and the office screen show the next six events that have not started, in start order. That list changes when an event starts: the event leaves the list and stays in the “happening now” card until it ends. Finished events stay in the data and on `/events/previous/` (newest first). The calendar page is unchanged apart from a link to that page.
+
 `events.py` reads `event_sources` in `sources.json`. A `listing-jsonld` source is a page of event links (`link_pattern`, crypto keywords unless the source is `trusted`, soonest first, at most `max_links`), then schema.org `Event` JSON-LD on each page: title, start, end, place, organiser and URL. A street address under a Venue label is used when it is more specific than the city. Dates published as `00:00:00Z` are stored as that calendar day in the event country's time zone, and the calendar shows the dates without a clock time. No photos are copied. New rows land as `pending`. The public calendar shows an event only when its id is in `events.approve` in `queue/approved.json`. A `published` status stored on the row is not approval. When that file is absent, the committed archive stays on the calendar and rows in `data/events.json` are not promoted.
 
 Predatory conference listings are not sources. `event_block.py` refuses International Conference Alerts, Conference Alerts, All Conference Alert, Conference Next, WASET (`waset.org` and `conferenceindex.org`) and the organisers WASET, IRAJ, IIER, ISER, ISSER, KSAA, GASR, IIRD, Research Plus, Scholars Forum, Academics World and World Academics. A matching URL, source or organiser is not imported (`events.py` and `fetch.py`), is dropped from `data/events.json` and the editor queue, and is not shown on the calendar. `--add-event` refuses them too.

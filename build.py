@@ -14,6 +14,7 @@ import i18n
 import site_url
 import event_block
 from tools.frontpage_blurbs import card_text, load as load_blurbs, opening_sentences, substantive
+from tools import event_select
 ROOT = os.path.dirname(os.path.abspath(__file__)); P = lambda *a: os.path.join(ROOT, *a)
 BASE = site_url.BASE
 SITE = os.environ.get("NC_SITE_DIR") or P("site")   # NC_SITE_DIR: scratch build dir (tipworker/publish_tip_page.sh)
@@ -31,6 +32,15 @@ def snippets(url, title):
     try: return json.loads(subprocess.check_output(["node", P("tools", "snippets.js"), url, title, LANG]))
     except Exception: return {"top": "", "bar": "", "css": "", "script": ""}
 OSLO = ZoneInfo("Europe/Oslo")
+def site_now():
+    """Europe/Oslo clock. NC_NOW (ISO) freezes it for tests and screenshots; production leaves it unset."""
+    raw = os.environ.get("NC_NOW")
+    if raw:
+        n = dt.datetime.fromisoformat(raw)
+        if n.tzinfo is None:
+            n = n.replace(tzinfo=OSLO)
+        return n.astimezone(OSLO)
+    return dt.datetime.now(OSLO)
 LANG = "en"   # language being built (set by build() for each pass)
 def t(key, **kw): return i18n.t(LANG, key, **kw)
 def lp(lang=None): lang = lang or LANG; return "" if lang == "en" else lang + "/"
@@ -85,6 +95,21 @@ select,input[type=search]{font:inherit;font-size:15px;padding:5px 8px;border:1px
 ol.news{list-style:none;margin:0;padding:0;text-align:left}
 ol.news li{padding:14px 0;border-bottom:1px solid var(--line)}
 ol.news h3{font-size:18px;line-height:1.3;margin:0 0 4px}ol.news h3 a{text-decoration:none}ol.news h3 a:hover{text-decoration:underline}
+.evhero,.evsoon,.evfull,.evcard,.evmeta,.evsrc,.evplace{text-align:left}
+.evhero{border-left:4px solid var(--accent);background:var(--soft);padding:12px 14px;margin:14px 0}
+.evhero h2,.evsoon h2{text-align:left}
+.evhero h3{font-size:26px;line-height:1.25;margin:0 0 6px;text-align:left}
+.evsoon{margin:8px 0 18px}
+.evsoon h3,.evfull h3{font-size:18px;line-height:1.3;margin:0 0 4px;text-align:left}
+.evhero h3 a,.evsoon h3 a,.evfull h3 a{text-decoration:none}
+.evhero h3 a:hover,.evsoon h3 a:hover,.evfull h3 a:hover{text-decoration:underline}
+.evcard{padding:10px 0;border-bottom:1px solid var(--line)}
+.evhero .evcard{border-bottom:0;padding:8px 0}
+.evhero .evcard+.evcard{border-top:1px solid var(--line)}
+.evsoon .evmeta{display:none}
+.evhero .evmeta,.evfull .evmeta{display:block}
+.evsrc{font-size:13.5px;color:var(--muted);margin:2px 0 0}
+@media(max-width:640px){.evhero h3{font-size:22px}}
 .orig{font-size:13.5px;color:var(--muted);margin:0 0 3px}
 .meta{font-size:13.5px;color:var(--muted)}.meta b{color:var(--ink);font-weight:600}
 .src{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;vertical-align:middle;text-align:start}
@@ -237,7 +262,7 @@ footer,footer .wrap,.nlfoot,.nlhome{text-align:start}
 @media(max-width:520px){.nlissues li{flex-direction:column;gap:8px}.nlissues .th{width:100%;max-width:100%}h1{font-size:24px}}
 """
 CSS += """
-.appbar{margin:10px 0 14px;text-align:left}
+.appbar{margin:10px 0 14px;text-align:left}.ios-tv{text-align:left;margin:2px 0 10px}
 a.applink{display:inline-block;padding:8px 14px;border:2px solid var(--ink);font-weight:700;font-size:18px;line-height:1.3;text-decoration:none;text-align:left}
 a.applink:hover,a.applink:focus-visible{background:var(--soft)}
 .markets h1{font-size:32px}
@@ -569,7 +594,7 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
 {body}
 {s['top']}
 </main>
-<footer><div class="wrap">{nlfoot}{community_links()}{t("footer", site=SITE_NAME, rel=rel, root=root)}</div></footer>
+<footer><div class="wrap">{nlfoot}{community_links()}{t("footer", site=SITE_NAME, rel=rel, root=root, ios_tv=t("ios_tv"))}</div></footer>
 {s['script']}{setck}{extra_script}{newsletter_script()}{analytics_snippet()}
 </body></html>"""
     d = os.path.join(SITE, lp(), slug); os.makedirs(d, exist_ok=True)
@@ -783,7 +808,9 @@ def build():
                 dst = os.path.join(SITE, im["file"]); os.makedirs(os.path.dirname(dst), exist_ok=True); shutil.copy(P(im["file"]), dst)
     ctx.update(ents=ents, rels=rels, pub_org=pub_org)
     ctx["events"] = events_for_site()
-    json.dump({"preview": PREVIEW, "events": [e for e in ctx["events"][0] if not e["past"]]}, open(os.path.join(SITE, "data", "events.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    _evs, _ev_now = ctx["events"]
+    _prev = [e for e in event_select.partition(_evs, _ev_now)["previous"] if e.get("status") == "published"]
+    json.dump({"preview": PREVIEW, "events": [e for e in _evs if not e["past"]], "previous": _prev}, open(os.path.join(SITE, "data", "events.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     sys.path.insert(0, P("tools"))
     import markets as markets_mod
     try:
@@ -796,7 +823,7 @@ def build():
     LANG = "en"
     os.makedirs(os.path.join(SITE, "screen"), exist_ok=True)
     open(os.path.join(SITE, "screen", "index.html"), "w", encoding="utf-8").write(
-        open(P("templates", "screen.html"), encoding="utf-8").read().replace("__BASE__", BASE).replace("__HOST__", site_url.HOST).replace("__FLAGS__", flags_js()).replace("__PREVIEW__", "true" if PREVIEW else "false").replace("__ANALYTICS__", analytics_snippet()))
+        open(P("templates", "screen.html"), encoding="utf-8").read().replace("__BASE__", BASE).replace("__HOST__", site_url.HOST).replace("__FLAGS__", flags_js()).replace("__PREVIEW__", "true" if PREVIEW else "false").replace("__EV_LIMIT__", str(event_select.FRONT_LIMIT)).replace("__ANALYTICS__", analytics_snippet()))
     for old, new in (("kalender", "calendar"), ("skjerm", "screen"), ("organisasjonskart", "org-chart"), ("kilder", "sources"), ("om", "about"), ("akademia", "academia")): redirect(old, new)
     active = sorted({(s.get("outlet") and next((x["name"] for x in cfg["sources"] if x["id"] == s.get("outlet")), s["name"]) or s["name"]).split(" (")[0] + "|" + s["country"]
                      for s in cfg["sources"] if s.get("enabled") and s["type"] not in ("bing", "search") and status.get(s["id"], {}).get("ok", True)})
@@ -823,9 +850,10 @@ def emit_api(ctx):
     import api_feed
     ev = ctx.get("events") or ([], None)
     events = ev[0] if isinstance(ev, tuple) else ev
+    ev_now = ev[1] if isinstance(ev, tuple) else None
     info = api_feed.write(
         SITE, preview=PREVIEW, base=BASE,
-        items=ctx.get("items") or [], events=events or [],
+        items=ctx.get("items") or [], events=events or [], now=ev_now,
         entities=ctx.get("ents") or [], relations=ctx.get("rels") or [],
         org_updated=(ctx.get("org") or {}).get("updated"),
         regulation=(ctx.get("org") or {}).get("regulation") or [],
@@ -996,6 +1024,7 @@ def build_markets(ctx):
 <p class="notice">{E(body.get("disclaimer") or t("mk_lead"))}</p>
 <p class="appbar"><a class="applink" href="{E(M.IOS_TESTFLIGHT)}" rel="noopener">{E(t("ios_link"))}</a></p>
 <p class="meta">{E(t("ios_note"))}</p>
+<p class="meta ios-tv">{E(t("ios_tv"))}</p>
 {f'<p class="meta">{E(t("mk_included", names=included))}</p>' if included else ''}
 <div class="filters"><label for="mk-asset">{E(t("mk_asset"))}</label>
 <select id="mk-asset"><option value="">{E(t("mk_all"))}</option>{opts}</select></div>
@@ -1078,7 +1107,9 @@ def build_lang(ctx):
 <p class="meta"><a href="{root}screen/">{E(t("home_screen"))}</a> · <a href="markets/">{E(t("mk_home_link"))}</a></p>
 <p class="appbar"><a class="applink" href="https://testflight.apple.com/join/nQ2fpjZn" rel="noopener">{E(t("ios_link"))}</a></p>
 <p class="meta">{E(t("ios_note"))}</p>
+<p class="meta ios-tv">{E(t("ios_tv"))}</p>
 <p class="lead">{E(t("home_lead", upd=upd, n=len(items), pend=t("home_pend", n=len(pending)) if pending else ""))}</p>
+{front_events_block(*(ctx["events"] if isinstance(ctx.get("events"), tuple) else (ctx.get("events") or [], site_now())))}
 <div class="filters" role="group" aria-label="{E(t("filters"))}"><span class="lbl">{E(t("country"))}</span><div class="chips">{country_chips()}</div>
 <label for="fsrc">{E(t("source"))}</label><select id="fsrc"><option value="">{E(t("all_sources"))}</option>{opts}</select>
 <span class="lbl">{E(t("topic"))}</span><div class="chips">{tchips}</div><span id="count" class="meta" aria-live="polite"></span></div>
@@ -1096,13 +1127,15 @@ var p=new URLSearchParams(location.hash.slice(1));if(p.get('source'))sel.value=p
 (p.get('country')||'').split(',').forEach(function(x){cc.forEach(function(c){if(c.dataset.c===x)c.setAttribute('aria-pressed','true')})});
 sel.addEventListener('change',function(){apply(1)});tc.concat(cc).forEach(function(c){c.addEventListener('click',function(){c.setAttribute('aria-pressed',c.getAttribute('aria-pressed')==='true'?'false':'true');apply(1)})});apply(0)})();
 </script>""" % json.dumps(i18n.strings(LANG).get("n_stories") or i18n.strings("en")["n_stories"])
-    page("", t("home_title"), "", body, t("home_desc"), js)
+    page("", t("home_title"), "", body, t("home_desc"), js + front_events_script())
     build_coverage_pages(items, ctx["blurbs"])
     build_stories(write=True)
     build_markets(ctx)
     build_org(ctx)
     build_sources(ctx)
     build_calendar(ctx)
+    _ev = ctx.get("events")
+    build_previous(*(_ev if isinstance(_ev, tuple) else (_ev or [], site_now())))
     build_academia()
     build_changelog()
     build_tip()
@@ -1110,7 +1143,7 @@ sel.addEventListener('change',function(){apply(1)});tc.concat(cc).forEach(functi
     build_newsletter()
     build_rules(ctx)
     build_regulation_videos(ctx)
-    about = lang_template("about").replace("{{UP}}", up1()).replace("{{COMMUNITY}}", community_section())
+    about = lang_template("about").replace("{{UP}}", up1()).replace("{{COMMUNITY}}", community_section()).replace("{{IOS_TV}}", E(t("ios_tv")))
     page("about", t("about_title"), "about", about, t("about_desc"))
     build_ethics()
 
@@ -1315,11 +1348,107 @@ def build_stories(write=True):
                     "summary_i18n": (st.get("summaries_i18n") or {}).get(slug) or {}, "status": status, "own_story": True})
     return out
 
+def event_when(e):
+    """Same date line the calendar uses. Date-only rows (00:00–23:59) show the day, not a clock."""
+    a = dt.datetime.fromisoformat(e["start"]); b = dt.datetime.fromisoformat(e["end"]) if e.get("end") else None
+    date_only = a.hour == 0 and a.minute == 0 and (b is None or (b.hour, b.minute) in ((0, 0), (23, 59)))
+    if date_only:
+        s = f'{i18n.WD.get(LANG, i18n.WD["en"])[a.weekday()]} {i18n.short_date(LANG, a)}'
+        if b and b.date() != a.date(): s += f' – {i18n.short_dm(LANG, b)}'
+    else:
+        s = f'{i18n.WD.get(LANG, i18n.WD["en"])[a.weekday()]} {i18n.short_date(LANG, a)}, {i18n.hm(LANG, a)}'
+        s += (f'–{i18n.hm_end(LANG, b)}' if b and b.date() == a.date() else (f' – {i18n.short_dm(LANG, b)}' if b else ""))
+    c = e.get("country")
+    return s + f' ({t("time_local", city=t("city_" + c)) if c in COUNTRY_CODES else t("city_local")})'
+def _retrieved_label(iso):
+    if not iso: return ""
+    try: d = dt.datetime.fromisoformat(iso)
+    except ValueError: return ""
+    if d.tzinfo: d = d.astimezone(OSLO)
+    return t("ev_retrieved", d=i18n.short_date(LANG, d))
+def _source_line(credit):
+    if not credit or not credit.get("url") or not credit.get("name"): return ""
+    when = _retrieved_label(credit.get("retrieved"))
+    tail = f" · {E(when)}" if when else ""
+    return (f'<p class="evmeta evsrc">{E(t("ev_source"))}: '
+            f'<a href="{E(credit["url"])}" rel="noopener">{E(credit["name"])}</a>{tail}</p>')
+def event_title(e):
+    return e["title"] if LANG == "en" or not e.get("title_orig") else e["title_orig"]
+def event_place_short(e):
+    place = (e.get("place") or "").strip()
+    city = (e.get("city") or "").strip()
+    if place and city and city not in place: place = place + ", " + city
+    if place: return place
+    return t("online") if e.get("online") else ""
+def event_card(e, hidden=False):
+    """One event. Credited location and attendee lines sit in .evmeta (shown on the hero and the previous page)."""
+    hid = " hidden" if hidden else ""
+    place = event_place_short(e)
+    place_bit = f" · {E(place)}" if place else ""
+    extra = []
+    fact = event_select.location_fact(e)
+    if fact:
+        if fact["text"] and fact["online"]: loc = fact["text"] + " · " + t("online")
+        elif fact["text"]: loc = fact["text"]
+        else: loc = t("online")
+        c = e.get("country")
+        if c in COUNTRY_CODES:
+            name = cname(c)
+            if name and name not in loc: loc = loc + ", " + name
+        extra.append(f'<p class="evmeta"><b>{E(t("ev_location"))}:</b> {E(loc)}</p>' + _source_line(fact["credit"]))
+    att = event_select.attendees_fact(e)
+    if att:
+        extra.append(f'<p class="evmeta"><b>{E(t("ev_attendees"))}:</b> {att["count"]}</p>' + _source_line(att["credit"]))
+    return (f'<article class="evcard"{hid} data-start="{E(e.get("start") or "")}" data-end="{E(e.get("end") or "")}" data-id="{E(e.get("id") or "")}">'
+            f'<h3><a href="{E(e.get("url") or "")}" rel="noopener">{E(event_title(e))}</a></h3>'
+            f'<p class="meta evplace">{flag(e.get("country"))} <time datetime="{E(e.get("start") or "")}"><b>{E(event_when(e))}</b></time>{place_bit}</p>'
+            + "".join(extra) + "</article>")
+def front_events_block(events, now):
+    """Hero (only while something is ongoing) and the next events that have not started."""
+    part = event_select.partition(events, now, event_select.FRONT_LIMIT)
+    hero_cards = "".join(event_card(e) for e in part["ongoing"])
+    cards = "".join(event_card(e) for e in part["upcoming"]) + "".join(event_card(e, hidden=True) for e in part["upcoming_rest"])
+    hidden = "" if part["ongoing"] else " hidden"
+    empty = "" if cards else f'<p class="empty">{E(t("no_upcoming"))}</p>'
+    return f'''<section class="evhero" id="evhero"{hidden} aria-labelledby="evhero-h">
+<h2 id="evhero-h">{E(t("ongoing_h"))}</h2>
+<div id="evhero-list">{hero_cards}</div>
+</section>
+<section class="evsoon" id="evsoon" aria-labelledby="evsoon-h">
+<h2 id="evsoon-h">{E(t("front_ev_h"))}</h2>
+<div id="evsoon-list">{cards}{empty}</div>
+<p class="meta"><a href="calendar/">{E(t("front_ev_cal"))}</a> · <a href="events/previous/">{E(t("prev_link"))}</a></p>
+</section>'''
+def front_events_script():
+    """Re-apply the same window in the browser so a reload after a start shows the new list. No shuffle."""
+    fixed = json.dumps(os.environ.get("NC_NOW") or None)
+    limit = event_select.FRONT_LIMIT
+    return """<script>(function(){var FIXED=%s,LIMIT=%d,now=FIXED?new Date(FIXED):new Date(),hero=document.getElementById('evhero'),hlist=document.getElementById('evhero-list'),list=document.getElementById('evsoon-list');
+if(!hero||!hlist||!list)return;
+var cards=[].slice.call(document.querySelectorAll('#evhero .evcard, #evsoon .evcard'));
+function ms(el,k){var v=el.getAttribute(k);return v?new Date(v).getTime():NaN}
+cards.sort(function(a,b){var d=ms(a,'data-start')-ms(b,'data-start');if(d)return d;var ia=a.getAttribute('data-id')||'',ib=b.getAttribute('data-id')||'';return ia<ib?-1:ia>ib?1:0});
+var ongoing=[],upcoming=[],t=now.getTime();
+cards.forEach(function(el){var s=ms(el,'data-start'),e=ms(el,'data-end');if(s>t)upcoming.push(el);else if(!isNaN(e)&&s<=t&&t<=e)ongoing.push(el);else el.hidden=true});
+ongoing.forEach(function(el){el.hidden=false;hlist.appendChild(el)});
+hero.hidden=!ongoing.length;
+var keep=upcoming.slice(0,LIMIT),rest=upcoming.slice(LIMIT);
+keep.forEach(function(el){el.hidden=false;list.appendChild(el)});
+rest.forEach(function(el){el.hidden=true;list.appendChild(el)});
+var empty=list.querySelector('.empty');if(empty)empty.hidden=keep.length>0})();</script>""" % (fixed, limit)
+def build_previous(events, now):
+    """Own page. The calendar page is left as it is, apart from a link here."""
+    rows = [e for e in event_select.partition(events, now)["previous"] if e.get("status") == "published"]
+    body = f"""<h1>{E(t("prev_h"))}</h1>
+<p class="lead">{E(t("prev_lead"))}</p>
+<p class="meta"><a href="../calendar/">{E(t("prev_back"))}</a></p>
+<div class="evfull">{''.join(event_card(e) for e in rows) or f'<p class="empty">{E(t("prev_empty"))}</p>'}</div>"""
+    page("events/previous", t("prev_title"), "calendar", body, t("prev_desc"))
 def events_for_site():
     ev = load(P("data", "events.json"), {"events": []})
     ap_path = P("queue", "approved.json"); approvals_present = os.path.exists(ap_path)
     ap = (load(ap_path, {}) or {}).get("events", {}) or {}
-    now = dt.datetime.now(OSLO); out = []  # "finished" is judged in Oslo time
+    now = site_now(); out = []  # "finished" is judged in Oslo time
     for e in ev["events"]:
         e = dict(e)
         status = event_block.publication_status(e, ap, PREVIEW, approvals_present, from_archive=False)
@@ -1335,7 +1464,7 @@ def events_for_site():
         e["note_i18n"] = (ap.get("notes_i18n") or {}).get(e["id"]) if e.get("note") else None
         site_url.brand_note(e)  # approved.json is local and may still reverse the brand name
         e["past"] = dt.datetime.fromisoformat(e.get("end") or e["start"]) < now
-        out.append({k: e.get(k) for k in ("id", "title", "title_orig", "start", "end", "place", "city", "country", "online", "organiser", "url", "source", "paid", "sponsored", "note", "note_i18n", "past", "status")})
+        out.append({k: e.get(k) for k in ("id", "title", "title_orig", "start", "end", "place", "city", "country", "online", "organiser", "url", "source", "source_url", "found", "attendees", "place_source", "paid", "sponsored", "note", "note_i18n", "past", "status")})
     # Archive: events whose ids are in events.approve. A status of "published" on the row is not
     # approval. Finished events stay under "Past events". Predatory listings are removed and not shown.
     arkf = P("archive", "events.json"); ark = load(arkf, {"events": []}); by = {}
@@ -1365,18 +1494,8 @@ def build_calendar(ctx):
     evs, now = ctx["events"]
     up = [e for e in evs if not e["past"]]; past = [e for e in evs if e["past"] and e.get("status") == "published"][::-1]  # all finished, newest first
     def when(e):
-        a = dt.datetime.fromisoformat(e["start"]); b = dt.datetime.fromisoformat(e["end"]) if e.get("end") else None
-        # Weekday names exist for the Nordic languages. The wider set uses English until translated.
-        # A listing that only publishes calendar days is stored as 00:00–23:59 local. Show the dates, not a clock.
-        date_only = a.hour == 0 and a.minute == 0 and (b is None or (b.hour, b.minute) in ((0, 0), (23, 59)))
-        if date_only:
-            s = f'{i18n.WD.get(LANG, i18n.WD["en"])[a.weekday()]} {i18n.short_date(LANG, a)}'
-            if b and b.date() != a.date(): s += f' – {i18n.short_dm(LANG, b)}'
-        else:
-            s = f'{i18n.WD.get(LANG, i18n.WD["en"])[a.weekday()]} {i18n.short_date(LANG, a)}, {i18n.hm(LANG, a)}'
-            s += (f'–{i18n.hm_end(LANG, b)}' if b and b.date() == a.date() else (f' – {i18n.short_dm(LANG, b)}' if b else ""))
-        c = e.get("country")
-        return s + f' ({t("time_local", city=t("city_" + c)) if c in COUNTRY_CODES else t("city_local")})'
+        # Same line as the front page. The calendar lists themselves are unchanged.
+        return event_when(e)
     def badges(e):
         b = []
         if e.get("status") == "owner": b.append(f'<span class="tag pend">{E(t("owner"))}</span>')
@@ -1411,6 +1530,7 @@ def build_calendar(ctx):
     npend = sum(e.get("status") == "pending" for e in up); nown = sum(e.get("status") == "owner" for e in up)
     body = f"""<h1>{E(t("cal_h1"))}</h1>
 <p class="lead">{E(t("cal_lead"))}</p>
+<p class="meta"><a href="../events/previous/">{E(t("prev_link"))}</a></p>
 {f'<p class="notice warn">{t("cal_preview", p=npend, n=len(up), o=nown)}</p>' if PREVIEW and (npend or nown) else ''}
 <div class="filters" role="group" aria-label="{E(t("countries_aria"))}"><span class="lbl">{E(t("country"))}</span><div class="chips">{country_chips()}</div><span id="ecount" class="meta" aria-live="polite"></span></div>
 <p class="meta">{" · ".join(f"{flag(c)} {E(n)}: {per_c[c]}" for c, n in COUNTRIES.items())}</p>
