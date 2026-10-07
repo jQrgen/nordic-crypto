@@ -83,7 +83,7 @@ S = {
 "cal_preview": "<b>Forhåndsvisning:</b> {p} af {n} kommende begivenheder afventer redaktøren; {o} er godkendt af redaktøren og afventer jQrgens endelige godkendelse. Ingen af dem er i den offentlige version endnu.",
 "n_upcoming": "{n} kommende", "upcoming_h": "Kommende", "no_upcoming": "Ingen kommende begivenheder registreret.",
 "past_h": "Tidligere begivenheder", "past_note": "Begivenheder flyttes automatisk hertil, når de er slut (norsk tid). Vi sletter dem aldrig.", "no_past": "Ingen tidligere begivenheder endnu.",
-"ongoing_h": "I gang nu", "front_ev_h": "Næste begivenheder", "front_ev_cal": "Hele kalenderen",
+"ongoing_h": "I gang nu", "front_ev_h": "Næste begivenheder", "front_ev_cal": "Hele kalenderen", "latest_h": "Seneste",
 "prev_link": "Tidligere begivenheder", "prev_title": "Tidligere begivenheder",
 "prev_desc": "Begivenheder om krypto, bitcoin og blockchain i Norden, der er slut, nyeste først. Begivenhederne bliver stående, efter de er slut.",
 "prev_h": "Tidligere begivenheder",

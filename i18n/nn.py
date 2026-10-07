@@ -83,7 +83,7 @@ S = {
 "cal_preview": "<b>Førehandsvising:</b> {p} av {n} komande arrangement ventar på redaktøren; {o} er godkjende av redaktøren og ventar på den endelege godkjenninga til jQrgen. Ingen av dei er i den offentlege versjonen enno.",
 "n_upcoming": "{n} komande", "upcoming_h": "Komande", "no_upcoming": "Ingen komande arrangement registrerte.",
 "past_h": "Tidlegare arrangement", "past_note": "Arrangement blir flytta hit automatisk når dei er over (norsk tid). Vi slettar dei aldri.", "no_past": "Ingen tidlegare arrangement enno.",
-"ongoing_h": "Pågår no", "front_ev_h": "Neste arrangement", "front_ev_cal": "Heile kalenderen",
+"ongoing_h": "Pågår no", "front_ev_h": "Neste arrangement", "front_ev_cal": "Heile kalenderen", "latest_h": "Siste",
 "prev_link": "Tidlegare arrangement", "prev_title": "Tidlegare arrangement",
 "prev_desc": "Arrangement om krypto, bitcoin og blokkjede i Norden som er ferdige, nyaste først. Arrangementa blir ståande etter at dei er over.",
 "prev_h": "Tidlegare arrangement",

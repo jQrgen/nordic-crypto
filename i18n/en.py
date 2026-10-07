@@ -95,7 +95,7 @@ S = {
 "cal_preview": "<b>Preview:</b> {p} of {n} upcoming events are pending editor review; {o} editor-approved and awaiting jQrgen's final approval. None of them is in the public build yet.",
 "n_upcoming": "{n} upcoming", "upcoming_h": "Upcoming", "no_upcoming": "No upcoming events registered.",
 "past_h": "Past events", "past_note": "Events move here automatically once they have ended (Oslo time). We never delete them.", "no_past": "No past events yet.",
-"ongoing_h": "Happening now", "front_ev_h": "Next events", "front_ev_cal": "Full calendar",
+"ongoing_h": "Happening now", "front_ev_h": "Next events", "front_ev_cal": "Full calendar", "latest_h": "Latest",
 "prev_link": "Previous events", "prev_title": "Previous events",
 "prev_desc": "Crypto, bitcoin and blockchain events in the Nordics that have finished, newest first. Events stay listed after they end.",
 "prev_h": "Previous events",

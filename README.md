@@ -221,7 +221,7 @@ The public news objects add `primary_source`, `also_covered_by`, `sources` (prim
 
 ## Story pictures
 
-Story cards and story pages show one picture, with the credit under it. The picture is not stored on the news row. `tools/illustrations.py` assigns it at build and API time from `data/illustrations.json`, using the story's topics and country. An optional `illustration_id` (a catalogue id, never a URL) overrides that. Existing rows stay valid without the field.
+Story cards and story pages do not show the assigned picture. The same few files repeated across stories. `tools/illustrations.py` still assigns one at build and API time from `data/illustrations.json`, using the story's topics and country, and the news item keeps that record. An optional `illustration_id` (a catalogue id, never a URL) overrides the assignment. Existing rows stay valid without the field. Outlet logos stay next to the source name.
 
 Allowed pictures, each with `source`, `author`, `license` and `url`:
 

@@ -123,9 +123,20 @@ ol.news h3{font-size:18px;line-height:1.3;margin:0 0 4px}ol.news h3 a{text-decor
 @media(max-width:640px){.evhero h3{font-size:22px}}
 .ill{margin:0 0 10px;text-align:start}
 .ill img{display:block;width:100%;max-width:720px;height:auto;background:var(--soft)}
-ol.news .ill{flex:0 0 220px;width:220px;margin:0}
-ol.news .ill img{width:220px;height:124px;object-fit:cover;object-position:left center}
-@media(max-width:640px){ol.news li{flex-direction:column}ol.news .ill{flex:none;width:100%;max-width:480px}ol.news .ill img{width:100%;height:auto;max-height:240px}}
+.leadstory,.latest,.storygrid,.storycard,.leadstory h2,.latest h2,.storycard h3,.leadstory .sum,.storycard .sum,.leadstory .meta,.storycard .meta,.leadstory .orig,.storycard .orig{text-align:start}
+.leadstory{margin:4px 0 2px;padding:0 0 12px;border-bottom:3px solid var(--ink)}
+.leadstory h2{font-size:36px;line-height:1.12;margin:0 0 4px;text-align:start}
+.leadstory h2 a,.storycard h3 a{text-decoration:none}
+.leadstory h2 a:hover,.storycard h3 a:hover{text-decoration:underline}
+.leadstory .sum{font-size:18px;line-height:1.45;margin:8px 0 0;max-width:68ch}
+.latest h2{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin:18px 0 2px;text-align:start}
+.storygrid{display:grid;grid-template-columns:1fr;column-gap:32px;align-items:start;text-align:start}
+.storycard{padding:10px 0 12px;border-bottom:1px solid var(--line);min-width:0;text-align:start}
+.storycard h3{font-size:18px;line-height:1.25;margin:0 0 2px;text-align:start}
+.storycard .sum{font-size:14.5px;line-height:1.4;margin:4px 0 0}
+@media(min-width:760px){.storygrid{grid-template-columns:1fr 1fr}}
+@media(min-width:1080px){.storygrid{grid-template-columns:1fr 1fr 1fr}}
+@media(max-width:640px){.leadstory h2{font-size:28px}}
 .orig{font-size:13.5px;color:var(--muted);margin:0 0 3px;line-height:1.35;font-weight:400;text-align:start}
 .meta{font-size:13.5px;color:var(--muted)}.meta b{color:var(--ink);font-weight:600}
 .src{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;vertical-align:middle;text-align:start}
@@ -195,7 +206,7 @@ footer{margin-top:40px;border-top:1px solid var(--line);padding:18px 0 30px;font
 table.list{width:100%;border-collapse:collapse;font-size:14.5px}table.list th,table.list td{border-bottom:1px solid var(--line);padding:6px 6px;text-align:left;vertical-align:top}
 table.list th{font-size:13px;color:var(--muted)}
 .ok{color:#047857;font-weight:600}.bad{color:#b91c1c;font-weight:600}
-.prose{max-width:72ch}
+.prose{max-width:72ch;text-align:start}
 .tag.act{border-color:#047857;color:#047857;font-weight:600}.tag.inact{border-color:#9ca3af;color:#6b7280}
 .reg{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px;margin:10px 0}
 .reg article{border:1px solid var(--line);padding:10px 12px;background:#fff}.reg h3{display:flex;gap:8px;align-items:center;margin:0 0 6px;font-size:17px}
@@ -1732,56 +1743,62 @@ def write_rss(items):
     d = SITE if LANG == "en" else os.path.join(SITE, LANG)
     os.makedirs(d, exist_ok=True)
     open(os.path.join(d, "rss.xml"), "w", encoding="utf-8").write(xml)
+def front_card(i, blurbs, asset, lead=False):
+    """One front-page story. No picture. Headline, original title, summary, source, date. Left-aligned."""
+    pend = i.get("status") not in ("published", "owner")
+    own = i.get("status") == "owner"
+    rows = story_outlets(i)
+    multi = len(rows) > 1 and not i.get("own_story")
+    ext = not (i.get("own_story") or multi)
+    tags = "".join(f'<span class="tag">{E(topic_label(x))}</span>' for x in (i.get("topics") or []))
+    pw = f' · <span class="pw">{E(t("paywall"))}</span>' if i.get("paywall") else ""
+    head, head_l, hl, orig = story_heads(i)
+    href = story_path(i)
+    lname = i.get("language") or ""
+    foreign = source_is_foreign(i, head_l)
+    if pend:
+        summ = f'<p class="sum pend">{E(t("sum_pending"))}</p>'
+        lang = f' · {E(t("lang_" + lname))}' if foreign else ""
+    else:
+        txt, tl = card_text(i, LANG, blurbs)
+        if foreign and tl == LANG and (txt or "").strip():
+            lang = ""
+            summ = (f'<p class="bridge">{E(t("bridge", where=t("lang_" + lname)))}</p>'
+                    f'<p class="sum"{lang_attr(tl)}>{E(txt)}</p>')
+        else:
+            lang = f' · {E(t("lang_" + lname))}' if foreign else ""
+            summ = f'<p class="sum"{lang_attr(tl)}>{E(txt)}</p>'
+    ext_attr = "" if not ext else ' rel="noopener" target="_blank"'
+    title_tag = "h2" if lead else "h3"
+    klass = "leadstory" if lead else "storycard"
+    badges = ""
+    if pend: badges += f' <span class="tag pend">{E(t("pending"))}</span>'
+    if own: badges += f' <span class="tag pend">{E(t("owner"))}</span>'
+    if i.get("own_story"): badges += f' <span class="tag">{E(t("our_story"))}</span>'
+    links = "".join(
+        f'<div class="meta">↳ <a href="{E(l["url"])}" rel="noopener" target="_blank">{E(l["label"])}</a></div>'
+        for l in (i.get("links") or []) if l.get("url"))
+    return (
+        f'<article class="{klass}">'
+        f'<{title_tag}><a href="{E(href)}"{ext_attr}{hl}>{E(head)}</a></{title_tag}>{orig}'
+        f'{summ}'
+        f'<p class="meta">{flag(i.get("country"))} {E(cname(i.get("country")))} · {source_mark(i, asset)} · '
+        f'<time datetime="{E(i.get("published") or "")}">{endate(i["published"])}</time>{lang}{pw} {tags}{badges}</p>'
+        + coverage_row(rows, asset, f"stories/{i['id']}/")
+        + links
+        + "</article>")
 def build_lang(ctx):
     items, pending = ctx["items"], ctx["pending"]
     # ---- News ----
     asset = "" if LANG == "en" else "../"
-    src_pairs = {}
-    for i in items:
-        if i.get("source") and i.get("source_name"): src_pairs[i["source"]] = i["source_name"]
-        for r in i.get("also_covered_by") or []:
-            if isinstance(r, dict) and r.get("outlet"): src_pairs.setdefault(r["outlet"], r.get("outlet_name") or r["outlet"])
-    srcs = sorted(src_pairs.items(), key=lambda x: (x[1] or "").lower())
-    lis = []
-    for i in items:
-        pend = i.get("status") not in ("published", "owner"); own = i.get("status") == "owner"
-        rows = story_outlets(i)
-        multi = len(rows) > 1 and not i.get("own_story")
-        if i.get("own_story"): href, ext = i["url"], False
-        elif multi: href, ext = f"stories/{i['id']}/", False
-        else: href, ext = i["url"], True
-        src_ids = " ".join(dict.fromkeys(x for x in [i.get("source")] + [r.get("outlet") for r in rows] if x))
-        tags = "".join(f'<span class="tag">{E(topic_label(x))}</span>' for x in i["topics"])
-        pw = f' · <span class="pw">{E(t("paywall"))}</span>' if i.get("paywall") else ""
-        head, head_l, hl, orig = story_heads(i)
-        href = story_path(i)
-        fig = story_figure(i, "", href)
-        lname = i.get("language") or ""
-        foreign = source_is_foreign(i, head_l)
-        if pend:
-            summ = f'<p class="sum pend">{E(t("sum_pending"))}</p>'
-            lang = f' · {E(t("lang_" + lname))}' if foreign else ""
-        else:
-            txt, tl = card_text(i, LANG, ctx["blurbs"])
-            # Source language differs from the page: a sentence in the page language, then the summary. Not only «på engelsk».
-            if foreign and tl == LANG and (txt or "").strip():
-                lang = ""
-                summ = (f'<p class="bridge">{E(t("bridge", where=t("lang_" + lname)))}</p>'
-                        f'<p class="sum"{lang_attr(tl)}>{E(txt)}</p>')
-            else:
-                lang = f' · {E(t("lang_" + lname))}' if foreign else ""
-                summ = f'<p class="sum"{lang_attr(tl)}>{E(txt)}</p>'
-        lis.append(f'<li data-src="{E(i["source"])}" data-sources="{E(src_ids)}" data-c="{E(i.get("country"))}" data-topics="{E(" ".join(i["topics"]))}">'
-                   f'{fig}<div class="storybody">'
-                   f'<h3><a href="{E(href)}"{"" if not ext else " rel=noopener target=_blank"}{hl}>{E(head)}</a></h3>{orig}'
-                   f'<div class="meta">{flag(i.get("country"))} {E(cname(i.get("country")))} · {source_mark(i, asset)} · <time datetime="{E(i["published"])}">{endate(i["published"])}</time>{lang}{pw} {tags}'
-                   + (f' <span class="tag pend">{E(t("pending"))}</span>' if pend else "") + (f' <span class="tag pend">{E(t("owner"))}</span>' if own else "")
-                   + (f' <span class="tag">{E(t("our_story"))}</span>' if i.get("own_story") else "") + f'</div>{summ}'
-                   + coverage_row(rows, asset, f"stories/{i['id']}/")
-                   + "".join(f'<div class="meta">↳ <a href="{E(l["url"])}" rel="noopener" target="_blank">{E(l["label"])}</a></div>' for l in i.get("links", []) or [])
-                   + '</div></li>')
-    opts = "".join(f'<option value="{E(k)}">{E(n)}</option>' for k, n in srcs)
-    tchips = "".join(f'<button type="button" class="chip tchip" data-t="{k}" aria-pressed="false">{E(topic_label(k))}</button>' for k in TOPICS)
+    cards = [front_card(i, ctx["blurbs"], asset, lead=(n == 0)) for n, i in enumerate(items)]
+    if not cards:
+        paper = f'<p class="empty">{E(t("no_stories"))}</p>'
+    else:
+        rest = "".join(cards[1:])
+        latest = (f'<section class="latest" aria-labelledby="latest-h"><h2 id="latest-h">{E(t("latest_h"))}</h2>'
+                  f'<div class="storygrid">{rest}</div></section>') if rest else ""
+        paper = cards[0] + latest
     news = ctx["news"]; upd = endate(news["updated"]) if news.get("updated") else ""
     root = "../" if LANG != "en" else ""
     home_signup = newsletter_offer("")
@@ -1793,24 +1810,10 @@ def build_lang(ctx):
 <p class="meta ios-tv">{E(t("ios_tv"))}</p>
 <p class="lead">{E(t("home_lead", upd=upd, n=len(items), pend=t("home_pend", n=len(pending)) if pending else ""))}</p>
 {front_events_block(*(ctx["events"] if isinstance(ctx.get("events"), tuple) else (ctx.get("events") or [], site_now())))}
-<div class="filters" role="group" aria-label="{E(t("filters"))}"><span class="lbl">{E(t("country"))}</span><div class="chips">{country_chips()}</div>
-<label for="fsrc">{E(t("source"))}</label><select id="fsrc"><option value="">{E(t("all_sources"))}</option>{opts}</select>
-<span class="lbl">{E(t("topic"))}</span><div class="chips">{tchips}</div><span id="count" class="meta" aria-live="polite"></span></div>
-<ol class="news" id="news">{''.join(lis) or f'<li class="empty">{E(t("no_stories"))}</li>'}</ol>
+{paper}
 <section class="nlhome" aria-labelledby="nlhome-h"><h2 id="nlhome-h">{E(t("nl_title"))}</h2>{home_signup}{community_links()}</section>
 <p class="notice">{E(t("home_notice"))}</p>"""
-    js = """<script>
-(function(){var NS=%s,sel=document.getElementById('fsrc'),tc=[].slice.call(document.querySelectorAll('.tchip')),cc=[].slice.call(document.querySelectorAll('.cchip')),lis=[].slice.call(document.querySelectorAll('#news li[data-src]')),cnt=document.getElementById('count');
-function on(a,k){return a.filter(function(c){return c.getAttribute('aria-pressed')==='true'}).map(function(c){return c.dataset[k]})}
-function apply(push){var s=sel.value,t=on(tc,'t'),c=on(cc,'c'),n=0;
-lis.forEach(function(li){var ids=(li.dataset.sources||li.dataset.src||'').split(' ');var ok=(!s||ids.indexOf(s)>=0)&&(!c.length||c.indexOf(li.dataset.c)>=0)&&(!t.length||t.some(function(x){return (' '+li.dataset.topics+' ').indexOf(' '+x+' ')>=0}));li.hidden=!ok;if(ok)n++});
-cnt.textContent=NS.replace('{n}',n);if(push){var p=new URLSearchParams();if(c.length)p.set('country',c.join(','));if(s)p.set('source',s);if(t.length)p.set('topic',t.join(','));history.replaceState(null,'',p.toString()?'#'+p:location.pathname)}}
-var p=new URLSearchParams(location.hash.slice(1));if(p.get('source'))sel.value=p.get('source');
-(p.get('topic')||'').split(',').forEach(function(x){tc.forEach(function(c){if(c.dataset.t===x)c.setAttribute('aria-pressed','true')})});
-(p.get('country')||'').split(',').forEach(function(x){cc.forEach(function(c){if(c.dataset.c===x)c.setAttribute('aria-pressed','true')})});
-sel.addEventListener('change',function(){apply(1)});tc.concat(cc).forEach(function(c){c.addEventListener('click',function(){c.setAttribute('aria-pressed',c.getAttribute('aria-pressed')==='true'?'false':'true');apply(1)})});apply(0)})();
-</script>""" % json.dumps(i18n.strings(LANG).get("n_stories") or i18n.strings("en")["n_stories"])
-    page("", t("home_title"), "", body, t("home_desc"), js + front_events_script())
+    page("", t("home_title"), "", body, t("home_desc"), front_events_script())
     build_coverage_pages(items, ctx["blurbs"])
     build_stories(write=True)
     build_external_stories(ctx)
@@ -2022,18 +2025,14 @@ def build_coverage_pages(items, blurbs):
             txt, tl = card_text(i, LANG, blurbs)
             summ = f'<p class="sum"{lang_attr(tl)}>{E(txt)}</p>'
         pw = f' · <span class="pw">{E(t("paywall"))}</span>' if i.get("paywall") else ""
-        fig = story_figure(i, "stories/" + i["id"])
-        rec = i.get("illustration") or {}
-        og = f'<meta property="og:image" content="{E(BASE + rec["file"])}">' if rec.get("file") else ""
-        picture = fig + (f'<p class="notice">{E(t("ill_not_press"))}</p>' if rec else "")
         body = (f'<p class="meta"><a href="{back}">{E(t("back_news"))}</a></p>'
-                + picture
                 + f'<article class="prose"><h1{hl}>{E(head)}</h1>{orig}'
-                f'<p class="meta">{flag(i.get("country"))} {E(cname(i.get("country")))} · {source_mark(i, root)} · <time datetime="{E(i["published"])}">{endate(i["published"])}</time>{pw}'
+                + summ
+                + f'<p class="meta">{flag(i.get("country"))} {E(cname(i.get("country")))} · {source_mark(i, root)} · <time datetime="{E(i["published"])}">{endate(i["published"])}</time>{pw}'
                 + (f' <span class="tag pend">{E(t("pending"))}</span>' if pend else "") + '</p>'
-                + summ + coverage_block(rows, root) + '</article>'
+                + coverage_block(rows, root) + '</article>'
                 + f'<p class="notice">{E(t("home_notice"))}</p>')
-        page("stories/" + i["id"], head, "", body, (i.get("summary") or head or "")[:200], COV_SORT_JS, head_extra=og)
+        page("stories/" + i["id"], head, "", body, (i.get("summary") or head or "")[:200], COV_SORT_JS)
 def build_stories(write=True):
     """Own stories written by the editor (markdown, English). Public build: only slugs in approved.json stories.approve.
     Preview: also stories.ready_for_owner, tagged as awaiting jQrgen's final approval. The 'Editor notes' part is internal and never rendered.
@@ -2064,23 +2063,16 @@ def build_stories(write=True):
             cur.append(l)
         if cur: paras.append(" ".join(cur))
         pub = dt.datetime.fromtimestamp(os.path.getmtime(path), OSLO).replace(microsecond=0).isoformat()
-        story = {"id": "story-" + slug, "url": f"stories/{slug}/", "title": title, "source": "nordic-crypto", "source_name": "Nordic Crypto",
-                 "country": country, "language": "English", "published": pub, "topics": ["regulation"], "status": status, "own_story": True}
-        ill = _illustrations().assign(story)
         if write:
             note = t("story_only_en")
-            fig = _illustrations().figure_html(ill, asset_prefix("stories/" + slug), ill_labels())
-            og = f'<meta property="og:image" content="{E(BASE + ill["file"])}">' if ill else ""
             body = (f'<p class="meta"><a href="../../">{E(t("back_news"))}</a></p>' + (f'<p class="notice">{E(note)}</p>' if note and art_l == "en" and LANG != "en" else "")
-                    + fig
-                    + f'<p class="notice">{E(t("ill_not_press"))}</p>'
                     + f'<article class="prose"{lang_attr(art_l)}><h1>{E(title)}</h1>'
                     f'<p class="meta">{flag(country)} {E(cname(country))} · {source_mark({"source": "nordic-crypto", "source_name": "Nordic Crypto"}, up1() + "../")} · {endate(pub)}'
                     + (f' <span class="tag pend">{E(t("owner"))}</span>' if status == "owner" else "") + '</p>'
                     + "".join(f"<p>{md_inline(x)}</p>" for x in paras)
                     + f'<h2>{E(t("sources_h"))}</h2><ul>' + "".join(f"<li>{md_inline(s)}</li>" for s in srcs) + '</ul></article>'
                     + f'<p class="notice">{t("story_notice", rel="../../")}</p>')
-            page("stories/" + slug, title, "stories", body, paras[0][:200] if paras else title, head_extra=og)
+            page("stories/" + slug, title, "stories", body, paras[0][:200] if paras else title)
         editor_sum = ((st.get("summaries") or {}).get(slug) or "").strip()
         opening = opening_sentences(" ".join(paras)) if paras else ""
         first = editor_sum if substantive(editor_sum) else (opening or editor_sum or (first_sentence(paras[0]) if paras else ""))
@@ -2210,34 +2202,8 @@ def build_previous(events, now):
 <div class="evfull">{''.join(event_card(e, href_prefix="../../") for e in rows) or f'<p class="empty">{E(t("prev_empty"))}</p>'}</div>"""
     page("events/previous", t("prev_title"), "calendar", body, t("prev_desc"))
 def build_external_stories(ctx):
-    """Pictures and the source link are written by build_coverage_pages, which also keeps the outlet list."""
+    """Coverage pages are written by build_coverage_pages, without the assigned picture."""
     return
-    """One page per external story: our picture, our summary, a link to the source. No article text."""
-    asset = asset_prefix("stories/x")
-    for i in ctx["items"]:
-        if i.get("own_story") or not i.get("id"):
-            continue
-        slug = "stories/" + i["id"]
-        head, head_l, orig = news_head(i)
-        hl = "" if head_l == LANG else f' lang="{head_l}"'
-        fig = story_figure(i, slug)
-        rec = i.get("illustration") or {}
-        og = f'<meta property="og:image" content="{E(BASE + rec["file"])}">' if rec.get("file") else ""
-        if i.get("status") not in ("published", "owner"):
-            summ = f'<p class="sum pend">{E(t("sum_pending"))}</p>'
-        else:
-            txt, tl = card_text(i, LANG, ctx.get("blurbs"))
-            summ = f'<p class="sum"{lang_attr(tl)}>{E(txt)}</p>' if txt else ""
-        pw = f' <span class="pw">{E(t("paywall"))}</span>' if i.get("paywall") else ""
-        body = (f'<p class="meta"><a href="../../">{E(t("back_news"))}</a></p>'
-                + fig
-                + f'<p class="notice">{E(t("ill_not_press"))}</p>'
-                + f'<article class="story"><h1{hl}>{E(head)}</h1>{orig}'
-                + f'<p class="meta">{flag(i.get("country"))} {E(cname(i.get("country")))} · {source_mark(i, asset)} · <time datetime="{E(i["published"])}">{endate(i["published"])}</time>{pw}</p>'
-                + summ
-                + f'<p><a href="{E(i["url"])}" rel="noopener">{E(t("read_at", source=i.get("source_name") or ""))}</a></p>'
-                + "</article>")
-        page(slug, head, "", body, (i.get("summary") or head or "")[:200], head_extra=og)
 def events_for_site():
     ev = load(P("data", "events.json"), {"events": []})
     ap_path = P("queue", "approved.json"); approvals_present = os.path.exists(ap_path)

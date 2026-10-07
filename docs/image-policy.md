@@ -80,8 +80,10 @@ Country pictures: Stortinget (NO, CC BY 2.0, cropped), Riksdagshuset (SE, CC0), 
 
 ## How the picture is shown
 
-- Story cards and story pages. The card image links to our story page. The headline still links to the newspaper.
-- Left-aligned. The card is a row with the picture on the start side. Nothing is centered.
-- WebP, `loading="lazy"`, `decoding="async"`, width and height set.
-- Credit under the picture: photo or illustration, author, licence, source, and "Cropped." when we cropped it.
-- `og:image` on our story pages points at our file on this site, never at a newspaper.
+The site does not render the assigned picture. The same few files were reused across many stories and took the width of each card. The front page, the screen listing and story pages are text: the headline in the page language, the source headline underneath when it differs, the summary, the outlet logo and name, and the date. Nothing in that block is centred.
+
+The JSON API still includes `illustration` on each news item, and `/api/v1/illustrations.json` still lists the catalogue. The field is the licensed record (source, author, license, url, file_url), not a decorative stand-in, so a client that already reads it keeps the credit. `file_url` still points at the file on this site.
+
+`og:image` on story pages is the Nordic Crypto brand image, not the assigned picture.
+
+Outlet logos stay next to the outlet name. They are not this picture.
