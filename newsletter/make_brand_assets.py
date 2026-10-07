@@ -1,11 +1,11 @@
-"""Renders Substack branding images from the sites' existing brand (wordmark colours + favicon mark) – PNGs + SVG source."""
+"""Renders newsletter branding images from the sites' existing brand (wordmark colours + favicon mark) – PNGs + SVG source."""
 from playwright.sync_api import sync_playwright
 NC_MARK = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='#0f5ea8'/><rect x='4' width='3' height='16' fill='white'/><rect y='6.5' width='16' height='3' fill='white'/></svg>"
 KN_MARK = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='#b45309'/><text x='8' y='12.5' font-size='12' text-anchor='middle' fill='white' font-family='DejaVu Sans, sans-serif' font-weight='bold'>K</text></svg>"
 FONT = "font-family:system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif"   # same stack as the sites (no quotes: used inside style='…')
 # The wordmark is wrapped in ONE inline span with a non-breaking space: as direct children of a flex container, the text node
-# "Crypto " and the coloured <span> became separate flex items and the space between them was dropped ("CryptoNordic").
-def word(nc): return ("<span style='white-space:nowrap'>Crypto&nbsp;<span style='color:#0f5ea8'>Nordic</span></span>" if nc
+# "Nordic " and the coloured <span> became separate flex items and the space between them was dropped.
+def word(nc): return ("<span style='white-space:nowrap'>Nordic&nbsp;<span style='color:#0f5ea8'>Crypto</span></span>" if nc
                       else "<span style='white-space:nowrap'>Krypto<span style='color:#b45309'>nytt</span>&nbsp;Norge</span>")
 def tag(nc): return ("Crypto news from the Nordics" if nc else "Norske nyheiter om bitcoin, blokkjede og krypto")
 import sys

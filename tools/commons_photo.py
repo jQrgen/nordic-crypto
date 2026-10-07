@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 import site_url
-UA = f"CryptoNordic/0.1 ({site_url.BASE}; github.com/jQrgen/nordic-crypto)"
+UA = f"NordicCrypto/0.1 ({site_url.BASE}; github.com/jQrgen/nordic-crypto)"
 OK = re.compile(r"^(CC0|Public domain|PD|CC BY(-SA)? \d\.\d( \w+)?|CC BY(-SA)?)", re.I)
 def txt(h): return BeautifulSoup(h or "", "lxml").get_text(" ", strip=True)
 def fetch(eid, fname):

@@ -18,7 +18,7 @@ honeypot, limits and responses as `tipserver/server.py` (checked by `test_parity
 Files: `src/worker.js`, `migrations/0001_tips.sql`, `migrations/0002_articles.sql` (append-only article archive, same schema as `archive/schema.sql`; applied by `deploy.sh` with the other migrations, not applied yet), `wrangler.toml`, `deploy.sh`, `pull.py`, `test_local.sh`,
 `test_parity.sh`, `tests/browser_cors.py`, `publish_tip_page.sh`, `env.sh` (wrangler 4 needs Node ≥ 22; uses `~/.local/node22` when present).
 
-## Newsletter signup (Crypto Nordic + Kryptonytt) – `src/newsletter.js`, `src/mailer.js`, `src/messages.js`, `migrations/0003_subscribers.sql`
+## Newsletter signup (Nordic Crypto + Kryptonytt) – `src/newsletter.js`, `src/mailer.js`, `src/messages.js`, `migrations/0003_subscribers.sql`
 - `POST /api/subscribe` – JSON or form: `email`, `site` (`nordic-crypto` | `kryptonytt`), `lang` (a language of that site),
   `website` (honeypot). Same answer for new / pending / already confirmed addresses (202 `{"ok":true,"pending":true}`, or a
   303 back to the site's newsletter page `?sent=1`), so nobody can test who subscribes. Body ≤ 2 KB, 5 per visitor / 10 min
@@ -29,10 +29,10 @@ Files: `src/worker.js`, `migrations/0001_tips.sql`, `migrations/0002_articles.sq
   `sig` = HMAC-SHA-256(`UNSUB_SECRET`, `id|email|site`), so no unsubscribe token is stored. `deploy.sh` creates the secret once.
 - D1 `subscribers`: email, site, lang, status (pending/confirmed/unsubscribed), token_hash, timestamps. **No IP, no user agent.**
   Unsubscribed rows keep the address with status `unsubscribed` (so it is never exported or mailed again).
-- Mail: **nothing is sent** unless `MAIL_PROVIDER` (`resend` | `webhook`) **and** `MAIL_SEND_ENABLED=1` are set (provider not
-  chosen yet; settings in `src/mailer.js`). Buttondown/Substack run their own opt-in: use the CSV export instead.
-- Export for a Substack import: `.venv/bin/python tipworker/export_subscribers.py --site nordic-crypto|kryptonytt [--lang xx]`
-  → `state/newsletter/<site>-confirmed-<date>.csv` (confirmed only, mode 600, addresses never printed).
+- Mail: **nothing is sent** unless `MAIL_PROVIDER` (`resend` | `mailgun` | `webhook`) **and** `MAIL_SEND_ENABLED=1` are set
+  (settings in `src/mailer.js`; placeholders only, no keys in git). Issue mail is `newsletter/send_issue.py` (see `newsletter/email-list.md`).
+- Operator export of confirmed rows: `.venv/bin/python tipworker/export_subscribers.py --site nordic-crypto|kryptonytt [--lang xx]`
+  → `state/newsletter/<site>-confirmed-<date>.csv` (confirmed only, mode 600, addresses never printed, gitignored). Delete the file when done.
 - Tests: `node --test tests/newsletter.test.mjs`, `./test_subscribe.sh` (wrangler dev, `SUBSCRIBE_TEST=1` = in-memory test
   mailer + token in the response; never set in production), `python3 tests/test_export.py`, and the real-browser form test
   `tests/browser_newsletter.py` (see its docstring). `npm test` runs all of them except the browser test.

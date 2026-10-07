@@ -1,13 +1,13 @@
-// Pluggable sender for the newsletter's confirmation and welcome emails. The provider is not chosen yet.
-// Nothing is sent unless BOTH are set on the deployed Worker (jQrgen's decision):
-//   MAIL_PROVIDER = "resend" | "webhook"     (default / unset: "none" – nothing is sent)
+// Pluggable sender for the newsletter's confirmation and welcome emails.
+// Issue mail is sent by newsletter/send_issue.py (same provider names and env vars). Nothing is sent unless BOTH are set
+// on the deployed Worker (jQrgen's decision):
+//   MAIL_PROVIDER = "resend" | "mailgun" | "webhook"     (default / unset: "none" – nothing is sent)
 //   MAIL_SEND_ENABLED = "1"
-// Provider settings (wrangler secrets / vars, never committed):
-//   resend:  RESEND_API_KEY, MAIL_FROM_<SITE> e.g. MAIL_FROM_NORDIC_CRYPTO = "Crypto Nordic <FROM-ADDRESS>" (jQrgen chooses the address)
-//   webhook: MAIL_WEBHOOK_URL (https), MAIL_WEBHOOK_TOKEN – POSTs {to, from, subject, text, site, lang, kind} as JSON, for
-//            any other service (e.g. a small relay in front of Buttondown or Postmark).
-// Buttondown / Substack: they run their own double opt-in, so with them this Worker would only collect confirmed
-// addresses and tools export them (tipworker/export_subscribers.py → CSV import); no mail is sent from here.
+// Provider settings (wrangler secrets / vars, never committed; placeholders only):
+//   resend:  RESEND_API_KEY, MAIL_FROM_<SITE> e.g. MAIL_FROM_NORDIC_CRYPTO = "Nordic Crypto <FROM-ADDRESS>"
+//   mailgun: MAILGUN_API_KEY, MAILGUN_DOMAIN, optional MAILGUN_API_BASE (default https://api.mailgun.net)
+//   webhook: MAIL_WEBHOOK_URL (https), MAIL_WEBHOOK_TOKEN – POSTs {to, from, subject, text, html, site, lang, kind} as JSON
+// Cloudflare Email Routing receives mail for the domain. It does not send this list. See newsletter/email-list.md.
 // Test builds (SUBSCRIBE_TEST = "1", never in production) use the "test" provider, which only records the message in memory.
 export const TEST_OUTBOX = [];
 
@@ -18,10 +18,26 @@ const PROVIDERS = {
   test: async (env, m) => { TEST_OUTBOX.push(m); if (TEST_OUTBOX.length > 50) TEST_OUTBOX.shift(); return { sent: false, reason: "test outbox" }; },
   resend: async (env, m) => {
     if (!env.RESEND_API_KEY || !fromFor(env, m.site)) return { sent: false, reason: "resend not configured" };
+    const payload = { from: fromFor(env, m.site), to: [m.to], subject: m.subject, text: m.text };
+    if (m.html) payload.html = m.html;
+    if (m.unsubscribe) payload.headers = { "List-Unsubscribe": `<${m.unsubscribe}>`, "List-Unsubscribe-Post": "List-Unsubscribe=One-Click" };
     const r = await fetch("https://api.resend.com/emails", { method: "POST",
       headers: { Authorization: "Bearer " + env.RESEND_API_KEY, "Content-Type": "application/json" },
-      body: JSON.stringify({ from: fromFor(env, m.site), to: [m.to], subject: m.subject, text: m.text,
-        headers: m.unsubscribe ? { "List-Unsubscribe": `<${m.unsubscribe}>`, "List-Unsubscribe-Post": "List-Unsubscribe=One-Click" } : undefined }) });
+      body: JSON.stringify(payload) });
+    return { sent: r.ok, reason: r.ok ? "" : "provider error " + r.status };
+  },
+  mailgun: async (env, m) => {
+    const from = fromFor(env, m.site), domain = env.MAILGUN_DOMAIN, key = env.MAILGUN_API_KEY;
+    if (!key || !domain || !from) return { sent: false, reason: "mailgun not configured" };
+    const base = (env.MAILGUN_API_BASE || "https://api.mailgun.net").replace(/\/$/, "");
+    const body = new URLSearchParams({ from, to: m.to, subject: m.subject, text: m.text || "" });
+    if (m.html) body.set("html", m.html);
+    if (m.unsubscribe) {
+      body.set("h:List-Unsubscribe", `<${m.unsubscribe}>`);
+      body.set("h:List-Unsubscribe-Post", "List-Unsubscribe=One-Click");
+    }
+    const r = await fetch(`${base}/v3/${domain}/messages`, { method: "POST",
+      headers: { Authorization: "Basic " + btoa("api:" + key) }, body });
     return { sent: r.ok, reason: r.ok ? "" : "provider error " + r.status };
   },
   webhook: async (env, m) => {

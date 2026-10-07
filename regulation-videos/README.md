@@ -9,7 +9,7 @@ Five short Nordic Crypto explainers — Norway, Sweden, Denmark, Finland and Ice
 | `sources/SOURCES.md` | Source list taken from `rules.json`. The page links the same URLs. |
 | `posters/` | Still frames used as the HTML5 poster. They are not the film. |
 | `media/` | Drop `video-XX.mp4` and `subs-XX.vtt` here. MP4s are gitignored. |
-| `substack/` | Draft posts for later human review. The build does not send them. |
+| `substack/` | Draft notes for later human review. The build does not send them. |
 | `pipeline/README.md` | How a later render can reuse the newsletter newsreel. |
 
 The films are not rendered yet. Each slot plays an MP4 from this site when the file is present. Until then the slot shows the title, the narrator notes and the sources.

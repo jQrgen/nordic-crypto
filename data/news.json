@@ -39,6 +39,34 @@
    "summary_i18n_review": "approved"
   },
   {
+   "title": "Nye datasenter-støt mot Alvdal: Sveitsere snuser på den gamle «bitcoin-tomta»",
+   "title_en": null,
+   "source": "alvdalmiv.no",
+   "source_name": "alvdalmiv",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-10-04T08:35:00+00:00",
+   "topics": [
+    "bitcoin"
+   ],
+   "matched": [],
+   "paywall": false,
+   "suggested_by": "Kryptonytt",
+   "origin": "suggested by Kryptonytt",
+   "suggested_status": "candidate on Kryptonytt",
+   "suggested_at": "2026-10-06T02:02:32+00:00",
+   "id": "a51e74dda6a0",
+   "url": "https://www.alvdalmiv.no/2026/nyheter/naeringsliv/nye-datasenter-stot-mot-alvdal-sveitsere-snuser-pa-den-gamle-bitcoin-tomta/",
+   "status": "rejected",
+   "summary": null,
+   "fetched": "2026-10-06T02:02:32+00:00",
+   "reject_reason": "Data-centre interest in a former bitcoin-mining plot: crypto only as the site's history, and the article text could not be checked"
+  },
+  {
    "title": "Eksperter: Økning i antall krypto-ran",
    "title_en": null,
    "source": "nettavisen",
@@ -2948,35 +2976,7 @@
     "is": "Finnska fjármálaeftirlitið minnir á að þjónustuveitendur sýndareigna sem þjóna Finnlandi verða að hafa leyfi innan ESB (MiCA)."
    },
    "summary_i18n_review": "approved"
-  },
-  {
-   "title": "Nye datasenter-støt mot Alvdal: Sveitsere snuser på den gamle «bitcoin-tomta»",
-   "title_en": null,
-   "source": "alvdalmiv.no",
-   "source_name": "alvdalmiv",
-   "country": "NO",
-   "language": "Norwegian",
-   "via": "kryptonytt",
-   "seen_via": [
-    "kryptonytt"
-   ],
-   "published": "2026-10-04T08:35:00+00:00",
-   "topics": [
-    "bitcoin"
-   ],
-   "matched": [],
-   "paywall": false,
-   "suggested_by": "Kryptonytt",
-   "origin": "suggested by Kryptonytt",
-   "suggested_status": "candidate on Kryptonytt",
-   "suggested_at": "2026-10-06T02:02:32+00:00",
-   "id": "a51e74dda6a0",
-   "url": "https://www.alvdalmiv.no/2026/nyheter/naeringsliv/nye-datasenter-stot-mot-alvdal-sveitsere-snuser-pa-den-gamle-bitcoin-tomta/",
-   "status": "rejected",
-   "summary": null,
-   "fetched": "2026-10-06T02:02:32+00:00",
-   "reject_reason": "Data-centre interest in a former bitcoin-mining plot: crypto only as the site's history, and the article text could not be checked"
   }
  ],
- "updated": "2026-10-06T01:49:36+00:00"
+ "updated": "2026-10-07T01:48:50+00:00"
 }
