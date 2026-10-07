@@ -16,4 +16,12 @@ S = {
 "ev_lang_is": "冰岛语",
 "ev_speakers": "演讲者",
 "ev_videos": "演讲视频",
+"ev_official": "官方活动页面",
+"ev_map": "地图",
+"ev_tz": "时区",
+"ev_about": "简介",
+"ev_topics": "主题",
+"ev_talks": "演讲",
+"ev_cal_link": "日历",
+"ev_orig_below": "原文",
 }

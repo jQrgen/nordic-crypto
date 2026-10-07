@@ -16,4 +16,12 @@ S = {
 "ev_lang_is": "アイスランド語",
 "ev_speakers": "登壇者",
 "ev_videos": "講演動画",
+"ev_official": "公式イベントページ",
+"ev_map": "地図",
+"ev_tz": "タイムゾーン",
+"ev_about": "概要",
+"ev_topics": "トピック",
+"ev_talks": "講演",
+"ev_cal_link": "カレンダー",
+"ev_orig_below": "原文",
 }

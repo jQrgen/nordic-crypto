@@ -16,4 +16,12 @@ S = {
 "ev_lang_is": "Islandia",
 "ev_speakers": "Pembicara",
 "ev_videos": "Video pembicara",
+"ev_official": "Halaman resmi acara",
+"ev_map": "Peta",
+"ev_tz": "Zona waktu",
+"ev_about": "Tentang acara",
+"ev_topics": "Topik",
+"ev_talks": "Pembicaraan",
+"ev_cal_link": "Kalender",
+"ev_orig_below": "Teks asli",
 }

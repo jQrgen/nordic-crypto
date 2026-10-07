@@ -16,4 +16,12 @@ S = {
 "ev_lang_is": "आइसलैंडिक",
 "ev_speakers": "वक्ता",
 "ev_videos": "वार्ता वीडियो",
+"ev_official": "आधिकारिक कार्यक्रम पृष्ठ",
+"ev_map": "नक्शा",
+"ev_tz": "समय क्षेत्र",
+"ev_about": "परिचय",
+"ev_topics": "विषय",
+"ev_talks": "वार्ताएँ",
+"ev_cal_link": "कैलेंडर",
+"ev_orig_below": "मूल पाठ",
 }

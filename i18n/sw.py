@@ -16,4 +16,12 @@ S = {
 "ev_lang_is": "Kiislandi",
 "ev_speakers": "Wazungumzaji",
 "ev_videos": "Video za mazungumzo",
+"ev_official": "Ukurasa rasmi wa tukio",
+"ev_map": "Ramani",
+"ev_tz": "Saa za eneo",
+"ev_about": "Kuhusu tukio",
+"ev_topics": "Mada",
+"ev_talks": "Mazungumzo",
+"ev_cal_link": "Kalenda",
+"ev_orig_below": "Maandishi asilia",
 }

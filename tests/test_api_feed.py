@@ -219,8 +219,14 @@ def main():
             fails.append("backfill leaked into the calendar API")
         one = json.load(open(os.path.join(tmp, f"api/v1/events/{next(iter(backfill_ids))}.json"), encoding="utf-8"))
         item = one.get("item") or {}
-        if item.get("source") != "backfill" or "events/previous/#e-" not in (item.get("html_url") or ""):
+        if item.get("source") != "backfill" or f"/calendar/{item.get('id')}/" not in (item.get("html_url") or ""):
             fails.append("backfill event document")
+        urls = item.get("html_urls") or {}
+        if "/calendar/" not in (urls.get("en") or "") or "/nn/calendar/" not in (urls.get("nn") or ""):
+            fails.append("event html_urls")
+        up0 = (upcoming.get("events") or [None])[0]
+        if not up0 or f"/calendar/{up0.get('id')}/" not in (up0.get("html_url") or "") or "#e-" in (up0.get("html_url") or ""):
+            fails.append("upcoming event page url")
         if not item.get("credits"):
             fails.append("backfill credits missing from the API")
         social = meta.get("social") or {}

@@ -16,4 +16,12 @@ S = {
 "ev_lang_is": "islandês",
 "ev_speakers": "Palestrantes",
 "ev_videos": "Vídeos das palestras",
+"ev_official": "Página oficial do evento",
+"ev_map": "Mapa",
+"ev_tz": "Fuso horário",
+"ev_about": "Sobre o evento",
+"ev_topics": "Temas",
+"ev_talks": "Palestras",
+"ev_cal_link": "Calendário",
+"ev_orig_below": "Texto original",
 }

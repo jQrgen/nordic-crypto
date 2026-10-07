@@ -16,4 +16,12 @@ S = {
 "ev_lang_is": "آئس لینڈی",
 "ev_speakers": "مقررین",
 "ev_videos": "تقریر کی ویڈیوز",
+"ev_official": "تقریب کا سرکاری صفحہ",
+"ev_map": "نقشہ",
+"ev_tz": "منطقۂ وقت",
+"ev_about": "تعارف",
+"ev_topics": "موضوعات",
+"ev_talks": "تقاریر",
+"ev_cal_link": "کیلنڈر",
+"ev_orig_below": "اصل متن",
 }

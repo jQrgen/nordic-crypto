@@ -398,7 +398,8 @@ class Feed:
             "note_i18n": {k: v for k, v in (raw.get("note_i18n") or {}).items() if k in LANGS and v} if raw.get("note") else {},
             "past": bool(raw.get("past")),
             "ongoing": event_select.classify(raw, self.now) == "ongoing",
-            "html_url": self.abs(f"events/previous/#e-{eid}") if raw.get("backfill") else self.abs(f"calendar/#e-{eid}"),
+            "html_url": self.abs(f"calendar/{eid}/"),
+            "html_urls": {lang: self.abs(("" if lang == "en" else lang + "/") + f"calendar/{eid}/") for lang in i18n.ALL_LANGS},
             "api_url": self.abs(f"api/v1/events/{eid}.json"),
         }
         if raw.get("backfill"):
@@ -1496,7 +1497,8 @@ def schemas():
             "ongoing": {"type": "boolean", "description": "True while start <= now <= end. Additive. Events with no end are never ongoing."},
             "place_source": {"type": "object", "nullable": True, "description": "Credit for the venue or online flag: name, url, retrieved. Omitted when the place cannot be credited."},
             "attendees": {"type": "object", "nullable": True, "description": "Registered participant count with source_name, source_url and retrieved. Omitted when the source did not state a count. Capacity is not a count."},
-            "html_url": {"type": "string"},
+            "html_url": {"type": "string", "description": "This event's page on the site, /calendar/<id>/."},
+            "html_urls": {"type": "object", "description": "The same page in every site language. English is at the root. Other codes are /<code>/calendar/<id>/."},
             "api_url": {"type": "string"},
             "backfill": {"type": "boolean", "description": "True when the row comes from the previous-events backfill. Absent on calendar events. Those rows are only in previous.json."},
             "event_type": {"type": "string", "nullable": True, "enum": ["conference", "meetup", "hackathon", "seminar"], "description": "Set on backfilled events when a source supports the type."},

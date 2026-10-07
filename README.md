@@ -111,7 +111,9 @@ The iOS app reads them from `social` on `/api/v1/meta.json` (`social.telegram`, 
 | QA screenshots | `.venv/bin/python tools/screens.py` | Serves `site/` on a free local port, screenshots every page into `shots/`, reports JS errors, 4xx and horizontal overflow. |
 
 ### Event listings
-The front page and the office screen show the next six events that have not started, in start order. That list changes when an event starts: the event leaves the list and stays in the “happening now” card until it ends. Finished events stay in the data and on `/events/previous/` (newest first). The calendar page is unchanged apart from a link to that page.
+The front page and the office screen show the next six events that have not started, in start order. That list changes when an event starts: the event leaves the list and stays in the “happening now” card until it ends. Finished events stay in the data and on `/events/previous/` (newest first). The calendar list is the same events as before, with a link to the previous-events page.
+
+Every event has its own page at `/calendar/<id>/` (and `/<language>/calendar/<id>/`). The id is the stable 12-hex event id. The calendar, the front-page list, the happening-now card and the previous-events archive link to that page. The page shows the stored date, place, organiser and official link, plus a summary, a participant count, topics or talk videos only when those are already in the data with a source. The page includes schema.org Event data, a canonical URL and hreflang links. `/api/v1/events/<id>.json` points at the same page.
 
 Earlier public events in the Nordic countries, from 31 October 2008, are kept in `data/events_backfill.json` with `source` set to `backfill`. Each fact has a source URL and a retrieval time. They appear on `/events/previous/` and in `/api/v1/events/previous.json` only, not on the calendar and not in the upcoming list. `data/events_backfill_state.json` records the countries, queries and counts for each run so the archive can keep growing and then taper off.
 
