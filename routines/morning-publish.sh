@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Morning publish for Crypto Nordic (routine). Public build with ONLY editor-approved content (queue/approved.json),
+# Morning publish for Nordic Crypto (routine). Public build with ONLY editor-approved content (queue/approved.json),
 # privacy gate, push site/ to gh-pages and code to main, then check the live URL. Refuses preview builds (publish.sh).
 # After a successful publish it records every published story in the append-only archive (tools/article_archive.py record;
 # archive/articles.db + archive/articles.json – rows are never deleted, stories that disappear are marked removed).

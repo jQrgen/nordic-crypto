@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fetch one logo per organisation in the org chart and record its source in assets/img/logos/logos.json.
+"""Fetch one logo per organisation and per news outlet, and record it in assets/img/logos/logos.json.
 
 Order of sources (first hit wins):
   1. Wikidata: the item whose official website (P856) matches the org's domain -> logo image (P154) on Wikimedia Commons.
@@ -7,13 +7,16 @@ Order of sources (first hit wins):
   2. The organisation's own website: an <img>/<svg> marked "logo" in the page, else the declared SVG icon or apple-touch-icon.
 The image itself is never edited (no recolouring or cropping); raster images are only scaled to about 64px tall.
 SVGs with scripts, event handlers or external references are rejected. Entries already in logos.json are kept (use --force to refetch).
-Entries are written with "review": "pending" – the editor checks each logo against the org before publishing (see logos.json _how_to).
+Entries are written with "review": "pending" – the editor checks each logo before publishing (see logos.json _how_to).
+Nothing is drawn when a source has no file. News ids that share a who's-who logo are listed in _source_alias and are not fetched again.
 Usage: python3 tools/fetch_logos.py [--force] [id ...]
 """
 import html as H, io, json, subprocess, os, re, sys, urllib.parse, urllib.request, datetime
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, ROOT)
+import site_url
 DIR = os.path.join(ROOT, "assets", "img", "logos"); MAN = os.path.join(DIR, "logos.json")
-UA = {"User-Agent": "CryptoNordicLogoBot/1.0 (https://jqrgen.github.io/nordic-crypto/; editorial use)"}
+UA = {"User-Agent": f"NordicCryptoLogoBot/1.0 ({site_url.BASE}; editorial use)"}
 # Official domains for orgs whose data entry has no url (checked by hand 2026-10-03).
 DOMAIN = {"stortinget-finanskomiteen": "https://www.stortinget.no", "finansdepartementet": "https://www.regjeringen.no", "fma": "https://www.regjeringen.no",
   "finanstilsynet": "https://www.finanstilsynet.no", "norges-bank": "https://www.norges-bank.no", "skatteetaten": "https://www.skatteetaten.no",
@@ -35,7 +38,7 @@ def get(url, n=3_000_000):
         return r.read(n), r.headers.get("Content-Type", ""), r.geturl()
     except Exception as ex:  # some TLS stacks / WAFs reject urllib; retry once with curl (same request, browser-like UA)
         if isinstance(ex, urllib.error.HTTPError) and ex.code == 404: raise
-        out = subprocess.run(["curl", "-sSL", "--max-time", "20", "-A", "Mozilla/5.0 (X11; Linux x86_64) CryptoNordicLogoBot/1.0", "-w", "\n%{content_type}\n%{url_effective}", url],
+        out = subprocess.run(["curl", "-sSL", "--max-time", "20", "-A", "Mozilla/5.0 (X11; Linux x86_64) NordicCryptoLogoBot/1.0", "-w", "\n%{content_type}\n%{url_effective}", url],
                              capture_output=True, timeout=30)
         if out.returncode: raise
         body, ct, final = out.stdout.rsplit(b"\n", 2)
@@ -103,12 +106,46 @@ def official(site, eid):
             return {"file": f"assets/img/logos/{f}", "source": "Official website", "source_url": u, "page": final, "kind": kind}
         except Exception as ex: print("   ", eid, kind, u, ex)
 
+HOW = ("One logo per id. News articles use the source id on the story (the same id as sources.json). "
+       "If that source has outlet, the outlet id is used. _source_alias maps a source id onto another key when the who's-who id differs. "
+       "file is relative to the repo root; source_url is where the image was fetched. "
+       "review: pending until the editor has checked the logo belongs to that outlet; the public build shows review 'ok' only "
+       "(a missing review counts as ok) and --preview also shows pending. rejected, a missing file, or no entry: the source name is text only. "
+       "Never invent a logo and never edit one (colour, crop); raster images are only scaled to about 64px. "
+       "Refetch: python3 tools/fetch_logos.py --force <id>.")
+
+def store(man, eid, rec, today):
+    for ext in ("svg", "webp"):  # drop a stale file of the other type
+        p = os.path.join(DIR, f"{eid}.{ext}")
+        if os.path.exists(p) and not rec["file"].endswith(ext): os.remove(p)
+    rec.update(fetched=today, review="pending")
+    man[eid] = rec
+    print("ok", eid, rec["source"], rec["file"])
+    json.dump(man, open(MAN, "w"), ensure_ascii=False, indent=1)
+
+def fetch_logo(eid, name, site):
+    rec = None
+    try:
+        qid, fn = wikidata(name, site)
+        if fn:
+            rec = commons(fn, eid)
+            if rec: rec["wikidata"] = qid
+    except Exception as ex:
+        print("  wd", eid, ex)
+    if not rec:
+        try:
+            rec = official(site, eid)
+        except Exception as ex:
+            print("  site", eid, ex)
+    return rec
+
 def main():
+    sys.path.insert(0, os.path.join(ROOT, "tools"))
+    import source_logos
     force = "--force" in sys.argv; only = [a for a in sys.argv[1:] if not a.startswith("--")]
     man = json.load(open(MAN)) if os.path.exists(MAN) else {}
-    man.setdefault("_how_to", "One logo per org id. file is relative to the repo root; source_url is where the image was fetched. "
-        "review: pending until the editor has checked the logo belongs to the org; build.py only shows logos with review 'ok' (preview: all). "
-        "Never edit a logo (colour, crop); raster images are only scaled to about 64px. Refetch: python3 tools/fetch_logos.py --force <id>.")
+    if not str(man.get("_how_to") or "").startswith("One logo per id"):
+        man["_how_to"] = HOW
     org = json.load(open(os.path.join(ROOT, "data", "orgchart.json")))
     today = datetime.date.today().isoformat()
     for e in org["entities"]:
@@ -117,19 +154,12 @@ def main():
         if eid in man and not force: continue
         site = DOMAIN.get(eid) or e.get("url")
         if not site: print("no site", eid); continue
-        rec = None
-        try:
-            qid, fn = wikidata(e["name"], site)
-            if fn: rec = commons(fn, eid); rec and rec.update(wikidata=qid)
-        except Exception as ex: print("  wd", eid, ex)
-        if not rec:
-            try: rec = official(site, eid)
-            except Exception as ex: print("  site", eid, ex)
-        if rec:
-            for ext in ("svg", "webp"):  # drop a stale file of the other type
-                p = os.path.join(DIR, f"{eid}.{ext}")
-                if os.path.exists(p) and not rec["file"].endswith(ext): os.remove(p)
-            rec.update(fetched=today, review="pending"); man[eid] = rec; print("ok", eid, rec["source"], rec["file"])
+        rec = fetch_logo(eid, e["name"], site)
+        if rec: store(man, eid, rec, today)
         else: print("none", eid)
-        json.dump(man, open(MAN, "w"), ensure_ascii=False, indent=1)
+    for job in source_logos.outlets_to_fetch(man, force=force, only=only):
+        print("news", job["id"], job["url"])
+        rec = fetch_logo(job["id"], job["name"], job["url"])
+        if rec: store(man, job["id"], rec, today)
+        else: print("none", job["id"])
 main()

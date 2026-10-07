@@ -9,7 +9,8 @@ import argparse, datetime as dt, html, json, os, re, sys
 from zoneinfo import ZoneInfo
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); sys.path.insert(0, ROOT)
 import i18n
-BASE = "https://jqrgen.github.io/nordic-crypto/"; OSLO = ZoneInfo("Europe/Oslo")
+import site_url
+BASE = site_url.BASE; OSLO = ZoneInfo("Europe/Oslo")
 T = {
  "en": dict(h="Nordic Crypto weekly", intro="The week’s crypto, bitcoin and blockchain stories from the Nordics that our editor has approved. Each item links to the original source.",
             orig="original", more="All stories, the calendar and the who’s who", none="No approved stories this week.",
@@ -67,9 +68,11 @@ def render(items, lang, since, until):
         meta = [i["source_name"], i18n.short_date(lang, i["_d"])]
         if i.get("paywall") is True: meta.append(i18n.t(lang, "paywall"))
         orig = f" ({s['orig']}: {i['title']})" if title != i["title"] else ""
+        lg = (i.get("source_logo") or {}).get("file") if isinstance(i.get("source_logo"), dict) else None
+        logo = (f'<img src="{html.escape(BASE + lg)}" alt="" height="18" style="height:18px;width:auto;max-width:96px;object-fit:contain;vertical-align:middle;margin:0 6px 0 0;background:#fff">' if lg else "")
         md += [f"**[{title}]({i['url']})**{orig}  ", f"{summ}  ", f"*{' · '.join(meta)}*", ""]
         tx += [title + orig, summ, " · ".join(meta), i["url"], ""]
-        hm.append(f'<p style="margin:0 0 14px"><a href="{html.escape(i["url"])}" style="font-weight:bold;color:#0f5ea8">{html.escape(title)}</a>{html.escape(orig)}<br>{html.escape(summ)}<br><span style="color:#4B5563;font-size:13px">{html.escape(" · ".join(meta))}</span></p>')
+        hm.append(f'<p style="margin:0 0 14px;text-align:left"><a href="{html.escape(i["url"])}" style="font-weight:bold;color:#0f5ea8">{html.escape(title)}</a>{html.escape(orig)}<br>{html.escape(summ)}<br><span style="color:#4B5563;font-size:13px;text-align:left">{logo}{html.escape(" · ".join(meta))}</span></p>')
     if not items: md += [s["none"], ""]; tx += [s["none"], ""]; hm.append(f"<p>{html.escape(s['none'])}</p>")
     md += [f"[{s['more']}]({home})", "", "---", "", s["foot"], "", f"*{s['why']}*", ""]
     tx += [f"{s['more']}: {home}", "", "--", s["foot"], "", s["why"], "{{unsubscribe}}", ""]

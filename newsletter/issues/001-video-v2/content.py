@@ -6,12 +6,15 @@ Unlimited conflict disclosure. Kaupr is named only as the source of the
 GreenMerc story. Nothing in the narration says the programme is made with AI.
 """
 # Calm male newsreader (NRK Gislefoss manner). Not RyanNeural at +20%.
+import os, sys
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..")))
+import site_url
 VOICE = "en-GB-ThomasNeural"
 RATE = "+2%"
 ISSUE = "Issue #1"
 DATES = "27 September – 2 October 2026"
 DATES_SHORT = "27 Sep – 2 Oct 2026"
-SITE = "jqrgen.github.io/nordic-crypto"
+SITE = site_url.HOST
 
 # story key -> lower third + graphic data
 STORIES = {

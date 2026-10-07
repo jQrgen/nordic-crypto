@@ -8,9 +8,9 @@ honeypot, limits and responses as `tipserver/server.py` (checked by `test_parity
 - `GET /api/health` – `{"ok":true,"service":"nordic-crypto-tips"}` (also checks D1).
 - `GET /api/geo` – `{"country":"NO"}` or `{"country":null}`: only the two-letter code Cloudflare already attaches to the
   request (`request.cf.country`; `XX`/`T1` → null). Used once per visit by the site's language picker
-  (`tools/langselect.js`). Nothing stored or logged, `Cache-Control: no-store`, CORS only for github.io. No third-party
+  (`tools/langselect.js`). Nothing stored or logged, `Cache-Control: no-store`, CORS for the public site origin (`site_url.json`) and https://jqrgen.github.io. No third-party
   geo-IP service. Tests set `--var GEO_TEST:1` so the `X-Test-Country` header can fake a country; production never sets it.
-- CORS: only `https://jqrgen.github.io`; other browser origins get 403 and no `Access-Control-Allow-Origin`.
+- CORS: the public site origin (`site_url.json`) and `https://jqrgen.github.io` (Kryptonytt); other browser origins get 403 and no `Access-Control-Allow-Origin`.
 - Rate limit: 5 tips / 10 min per visitor, 200 / 10 min in total. No raw IPs: `SHA-256(daily random salt | IP)` kept
   10 minutes in `rate_hits`; the salt is replaced every UTC day and the old one deleted.
 - No logging: no `console.*`, `[observability] enabled = false`.
@@ -18,7 +18,7 @@ honeypot, limits and responses as `tipserver/server.py` (checked by `test_parity
 Files: `src/worker.js`, `migrations/0001_tips.sql`, `migrations/0002_articles.sql` (append-only article archive, same schema as `archive/schema.sql`; applied by `deploy.sh` with the other migrations, not applied yet), `wrangler.toml`, `deploy.sh`, `pull.py`, `test_local.sh`,
 `test_parity.sh`, `tests/browser_cors.py`, `publish_tip_page.sh`, `env.sh` (wrangler 4 needs Node ≥ 22; uses `~/.local/node22` when present).
 
-## Newsletter signup (Crypto Nordic + Kryptonytt) – `src/newsletter.js`, `src/mailer.js`, `src/messages.js`, `migrations/0003_subscribers.sql`
+## Newsletter signup (Nordic Crypto + Kryptonytt) – `src/newsletter.js`, `src/mailer.js`, `src/messages.js`, `migrations/0003_subscribers.sql`
 - `POST /api/subscribe` – JSON or form: `email`, `site` (`nordic-crypto` | `kryptonytt`), `lang` (a language of that site),
   `website` (honeypot). Same answer for new / pending / already confirmed addresses (202 `{"ok":true,"pending":true}`, or a
   303 back to the site's newsletter page `?sent=1`), so nobody can test who subscribes. Body ≤ 2 KB, 5 per visitor / 10 min

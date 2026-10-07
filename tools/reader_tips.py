@@ -6,7 +6,9 @@ Sources:
      origin 'reader tip #<id>'; the row is then marked 'imported' (or 'duplicate' / 'invalid') with imported_at + queue_item_id.
   2. Fallback: open GitHub issues labelled 'tip' (form .github/ISSUE_TEMPLATE/tip.yml) -> origin 'reader tip (GitHub #<n>)'.
      Issues are left open and are never commented on or closed automatically.
-Dedup: normalised-URL check from tools/crosssite_handoff.py against ALL stories (incl. rejected) and approved.json.
+Dedup: normalised-URL check from tools/crosssite_handoff.py against ALL stories (incl. rejected), extra outlets
+on an existing story, and approved.json. A tip about the same event as a story already in the file is attached
+as an extra source (tools/coverage.py) instead of a second pending story.
 Page metadata (title/date) is read only where robots.txt allows (fetch.page_meta). The tipster's name is NEVER copied
 (not to news.json, not to the queue); the note is kept only in the local queue (tip_note_local_only), never published.
 Usage: python3 tools/reader_tips.py [--dry-run] [--no-github]"""
@@ -14,6 +16,7 @@ import datetime as dt, importlib.util, json, os, re, sqlite3, subprocess, sys, u
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); P = lambda *a: os.path.join(ROOT, *a)
 REPO = "jQrgen/nordic-crypto"; DB = os.environ.get("TIP_DB", P("tipserver", "tips.db"))
 sys.path.insert(0, P("tools")); from crosssite_handoff import norm_url, strip_tracking  # noqa: E402
+import coverage  # noqa: E402
 NOW = dt.datetime.now(dt.timezone.utc)
 
 def load(p, d):
@@ -38,7 +41,11 @@ class Queue:
         self.dry = dry; self.newsf, self.qf = P("data", "news.json"), P("queue", "review.json")
         self.news = load(self.newsf, {"items": []}); self.q = load(self.qf, {"items_needing_summary": [], "candidate_entities": []})
         ap = load(P("queue", "approved.json"), {})
-        self.have = {norm_url(i["url"]): i for i in self.news["items"]}
+        self.have = {norm_url(i["url"]): i for i in self.news["items"] if i.get("url")}
+        for i in self.news["items"]:
+            for ex in i.get("also_covered_by") or []:
+                if isinstance(ex, dict) and ex.get("url"):
+                    self.have.setdefault(norm_url(ex["url"]), i)
         self.rej = {norm_url(r["url"]) for r in ap.get("rejected", []) if r.get("url")} | {norm_url(a["url"]) for a in ap.get("items", []) if a.get("url")}
         self.added = []; self.skipped = []
     def add(self, raw_url, country, note, origin, created, fallback_title="", link=None):
@@ -60,6 +67,16 @@ class Queue:
               "via": "reader-tip", "seen_via": ["reader-tip"], "published": (date or created).isoformat(),
               "fetched": NOW.isoformat(timespec="seconds"), "topics": F.topics_of(f"{title}. {desc}"), "matched": F.matches(f"{title}. {desc}"),
               "paywall": bool(F.SRC.get(out, {}).get("paywall", False)), "status": "pending", "summary": None, "origin": origin}
+        match, why = coverage.find_match(
+            {"url": url, "title": it["title"], "published": it["published"], "text": f"{it['title']}. {desc}"}, self.news["items"])
+        if match:
+            coverage.attach(match, coverage.record_from_item(it))
+            self.q.setdefault("coverage_attached", []).append(
+                {"url": url, "title": it["title"], "outlet": out, "attached_to": match.get("id"), "reason": why,
+                 "at": NOW.isoformat(timespec="seconds"), "origin": origin})
+            self.have[c] = match
+            self.skipped.append((origin, f"same event as {match.get('id')} ({why})"))
+            return "duplicate", match.get("id")
         self.news["items"].append(it); self.have[c] = it; self.added.append(it)
         row = {"id": it["id"], "country": country, "language": it["language"], "title": it["title"], "source": oname, "url": url,
                "published": it["published"], "origin": origin, "tip_note_local_only": (note or "")[:1000], "teaser_local_only": desc[:600],

@@ -1,0 +1,29 @@
+# Nordic Crypto — Regulation explainer: Iceland (IS)
+Voice: en-GB-ThomasNeural (edge-tts, rate +2%). Brand on screen and in voice: Nordic Crypto.
+Sign-off: The Nordic Crypto team. No Kaupr-as-sponsor. Never say «made with AI» in the opener or narration.
+Layout: never centered — left-weighted newsreel lower-thirds (match newsletter/issues/001-video-v2).
+Facts: rules.json (approved) + orgchart regulation. Checked October 2026.
+
+[bumper @ 0.0s, bumper]
+(music/stinger only — reuse newsreel brass jingle pattern; ~5.5s)
+
+[open @ 5.5s, title]
+Good evening. This is Nordic Crypto. Tonight: how crypto and bitcoin rules are decided and enforced in Iceland.
+
+[path @ ~18s, section - THE LEGAL PATH]
+Iceland is in the European Economic Area, not the EU. MiCA reaches Iceland through the EEA Agreement, then national law. The EEA Joint Committee incorporated MiCA; Alþingi gave it effect through Act No. 101/2025. From 1 July 2026 crypto-asset services require a licence.
+
+[actors @ ~40s, section - WHO DECIDES]
+In Iceland, Fjármála- og efnahagsráðuneytið prepares the financial-markets bills. Alþingi adopts the national acts. The national law that shapes crypto supervision here is Act No. 101/2025 on markets in crypto-assets: Lög nr. 101/2025.
+
+[supervise @ ~65s, section - WHO SUPERVISES]
+Seðlabanki Íslands – Fjármálaeftirlit (Financial Supervision) is the financial supervisor that licences and oversees crypto-asset service providers under MiCA. Unlike the other Nordics, the Central Bank of Iceland also houses financial supervision (Fjármálaeftirlit), so the same institution both issues monetary policy and licences crypto-asset service providers under MiCA.
+
+[enforce @ ~90s, section - WHO ENFORCES]
+Suspicious transactions are reported to the financial intelligence unit: Skrifstofa fjármálagreininga lögreglu. Tax on crypto-assets is handled by Skatturinn. Disputes and appeals go to the Icelandic courts, including Hæstiréttur for final appeal.
+
+[status @ ~115s, section - WHERE THINGS STAND]
+One CASP authorised (Myntkaup, 25 Jun 2026) and one e-money token issuer (Monerium) in the ESMA register.
+
+[signoff @ ~140s, end]
+That is how the rules work in Iceland. For the full map across Norway, Sweden, Denmark, Finland and Iceland, with a source for every step, see the Nordic Crypto rules page. Nothing here is legal advice. The Nordic Crypto team. Good night.

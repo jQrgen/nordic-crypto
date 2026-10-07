@@ -3,6 +3,7 @@
 # Usage: ./test_local.sh   (port: TW_PORT, default 8788)
 set -uo pipefail
 cd "$(dirname "$0")"; source ./env.sh
+NC=$(python3 -c 'import sys; sys.path.insert(0, ".."); import site_url; print(site_url.BASE)')
 PORT=${TW_PORT:-8788}; B="http://127.0.0.1:$PORT"; GOOD=https://jqrgen.github.io; BAD=https://evil.example
 pass=0; failc=0
 ok() { echo "PASS  $1"; pass=$((pass+1)); }; ko() { echo "FAIL  $1  ($2)"; failc=$((failc+1)); }
@@ -59,8 +60,8 @@ big=$(printf 'y%.0s' $(seq 5000)); r=$(v "{\"url\":\"https://e24.no/a\",\"note\"
 r=$(v '{"url":"https://e24.no/honeypot","country":"NO","website":"http://spam"}'); chk "honeypot 200" "${r##*|}" 200
 # form post (no JS) -> 303 to /tip/?sent=1; country 'Sweden (SE)' normalised
 h=$(hdr -H "CF-Connecting-IP: $(ipn)" -H "Origin: $GOOD" --data-urlencode 'url=https://di.se/b2' --data-urlencode 'country=Sweden (SE)' "$B/api/tip")
-has "form 303" "$h" "HTTP/1.1 303"; has "form redirect sent=1" "$h" "location: https://jqrgen.github.io/nordic-crypto/tip/?sent=1"
-h=$(hdr -H "CF-Connecting-IP: $(ipn)" -H "Origin: $GOOD" --data-urlencode 'url=nope' "$B/api/tip"); has "form error redirect" "$h" "location: https://jqrgen.github.io/nordic-crypto/tip/?error="
+has "form 303" "$h" "HTTP/1.1 303"; has "form redirect sent=1" "$h" "location: ${NC}tip/?sent=1"
+h=$(hdr -H "CF-Connecting-IP: $(ipn)" -H "Origin: $GOOD" --data-urlencode 'url=nope' "$B/api/tip"); has "form error redirect" "$h" "location: ${NC}tip/?error="
 # stored rows: a1 (NO) and b2 (SE), no honeypot row; no IP column anywhere
 rows=$(sql "SELECT url, country, note, name, status FROM tips ORDER BY id")
 has "stored a1" "$rows" "https://e24.no/a1"; has "stored b2 as SE" "$rows" '"country": "SE"'; hasnt "honeypot not stored" "$rows" "honeypot"

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Crypto Nordic tip server control: run.sh start|stop|restart|status|ensure
+# Nordic Crypto tip server control: run.sh start|stop|restart|status|ensure
 #   Starts two detached watchdogs (setsid + nohup): supervise.sh (tip server on 127.0.0.1:${TIP_PORT:-8787}) and, if
 #   config.json has quick_tunnel: true (and no fixed public_endpoint), tunnel.sh (Cloudflare quick tunnel + publishes tip-endpoint.json when the URL changes).
 #   The box has no systemd/cron: routines/nightly-fetch.sh calls 'run.sh ensure' to bring both back after a box restart.
@@ -38,6 +38,6 @@ case "${1:-status}" in
       alive tunnel.pid && echo "tunnel watchdog running (pid $(cat tunnel.pid))" || echo "tunnel watchdog NOT running"
       echo "tunnel state: $(cat tunnel.state 2>/dev/null || echo unknown)"; fi
     echo "public endpoint: $(python3 endpoint.py)"; pubhealth && echo "public health: ok" || echo "public health: down"
-    echo "published tip-endpoint.json: $(curl -fsS --max-time 10 "https://jqrgen.github.io/nordic-crypto/tip-endpoint.json?t=$(date +%s)" 2>/dev/null | tr -d '\n ' || echo none)" ;;
+    echo "published tip-endpoint.json: $(curl -fsS --max-time 10 "$(python3 -c 'import sys; sys.path.insert(0, ".."); import site_url; print(site_url.join("tip-endpoint.json"))')?t=$(date +%s)" 2>/dev/null | tr -d '\n ' || echo none)" ;;
   *) echo "usage: $0 start|stop|restart|status|ensure"; exit 2 ;;
 esac

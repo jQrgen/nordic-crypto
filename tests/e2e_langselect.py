@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """End-to-end tests of the language selection with Playwright (Chromium). The site is served from a local build
-(default /tmp/nce, built with GEO_ENDPOINT=https://geo.test.invalid) by routing https://jqrgen.github.io/nordic-crypto/*
+(default /tmp/nce, built with GEO_ENDPOINT=https://geo.test.invalid) by routing the public origin
 to the files, and the geo endpoint is mocked. Nothing leaves the box.
   GEO_ENDPOINT=https://geo.test.invalid NC_SITE_DIR=/tmp/nce .venv/bin/python build.py && .venv/bin/python tests/e2e_langselect.py [/tmp/nce]"""
 import mimetypes, os, sys, json
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+import site_url
 from playwright.sync_api import sync_playwright
-SITE = sys.argv[1] if len(sys.argv) > 1 else "/tmp/nce"; BASE = "https://jqrgen.github.io/nordic-crypto/"; GEO = "https://geo.test.invalid/api/geo"
+SITE = sys.argv[1] if len(sys.argv) > 1 else "/tmp/nce"; BASE = site_url.BASE; GEO = "https://geo.test.invalid/api/geo"
 fails, n = [], 0
 def serve(route):
     path = route.request.url.split("?")[0].split("#")[0][len(BASE):]
@@ -15,11 +17,11 @@ def serve(route):
 def ctx(b, country=None, langs=("en-US",), cookie=None, geo_fail=False, calls=None):
     c = b.new_context(locale=langs[0], extra_http_headers={"Accept-Language": ",".join(langs)})
     c.add_init_script(f"Object.defineProperty(navigator,'languages',{{get:()=>{json.dumps(list(langs))}}})")
-    c.route("https://jqrgen.github.io/**", serve)
+    c.route(site_url.ORIGIN + "/**", serve)
     def geo(route):
         if calls is not None: calls.append(1)
         if geo_fail: return route.abort()
-        route.fulfill(status=200, body=json.dumps({"country": country}), content_type="application/json", headers={"Access-Control-Allow-Origin": "https://jqrgen.github.io"})
+        route.fulfill(status=200, body=json.dumps({"country": country}), content_type="application/json", headers={"Access-Control-Allow-Origin": site_url.ORIGIN})
     c.route(GEO, geo)
     if cookie: c.add_cookies([{"name": "nc_lang", "value": cookie, "url": BASE}])
     return c
@@ -49,7 +51,7 @@ with sync_playwright() as pw:
     p.locator('.langsw summary').first.click(); p.locator('.langsw a[data-lang="da"]').first.click(); p.wait_for_load_state(); p.wait_for_timeout(300)
     ck = {x["name"]: x for x in c.cookies()}.get("nc_lang")
     check("switcher click sets nc_lang cookie", bool(ck) and ck["value"] == "da", str(ck and ck["value"]))
-    check("cookie scoped to /nordic-crypto/, 1 year, SameSite=Lax", bool(ck) and ck["path"] == "/nordic-crypto/" and ck["sameSite"] == "Lax" and ck["expires"] > 3e7 + __import__("time").time(), str(ck and (ck["path"], ck["sameSite"])))
+    check("cookie scoped to the site path, 1 year, SameSite=Lax", bool(ck) and ck["path"] == site_url.PATH and ck["sameSite"] == "Lax" and ck["expires"] > 3e7 + __import__("time").time(), str(ck and (ck["path"], ck["sameSite"])))
     p2 = c.new_page(); p2.goto(BASE); p2.wait_for_timeout(900); check("after picking da, root opens /da/ despite geo NO", p2.url == BASE + "da/", p2.url); c.close()
     c = ctx(b, country="FI"); p, u = landed(c); check("fi page has a visible sv quick link", p.locator('a.quick[data-lang="sv"]').count() == 1 and p.locator('a.quick[data-lang="sv"]').is_visible()); c.close()
     b.close()

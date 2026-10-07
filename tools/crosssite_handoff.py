@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Samarbeid om norske nyheter mellom Kryptonytt Norge og Crypto Nordic (begge retninger, idempotent).
-  Kryptonytt -> Crypto Nordic: Kryptonytts kandidater og godkjente saker (ikke avviste) legges i Crypto Nordic sin kø som
+"""Samarbeid om norske nyheter mellom Kryptonytt Norge og Nordic Crypto (begge retninger, idempotent).
+  Kryptonytt -> Nordic Crypto: Kryptonytts kandidater og godkjente saker (ikke avviste) legges i Nordic Crypto sin kø som
                                «suggested by Kryptonytt» (country NO).
-  Crypto Nordic -> Kryptonytt: Crypto Nordic sine NO-saker (ikke avviste) legges i Kryptonytts kø som «foreslått av Crypto Nordic».
+  Nordic Crypto -> Kryptonytt: Nordic Crypto sine NO-saker (ikke avviste) legges i Kryptonytts kø som «foreslått av Nordic Crypto».
 Bare tittel, URL, kilde, dato og tagger kopieres – aldri oppsummeringer eller teasere. Alt havner som status «pending»:
-hver redaksjon bestemmer selv og skriver sin egen oppsummering (Kryptonytt på norsk, Crypto Nordic på engelsk). Publiserer aldri.
+hver redaksjon bestemmer selv og skriver sin egen oppsummering (Kryptonytt på norsk, Nordic Crypto på engelsk). Publiserer aldri.
 Dedup: kanonisk URL mot ALLE saker i målet (også avviste) og målets approved.json -> rejected.
-Kalles fra ./fetch.sh (Kryptonytt) og routines/nightly-fetch.sh (Crypto Nordic). Identisk kopi ligger i begge repoene.
+Kalles fra ./fetch.sh (Kryptonytt) og routines/nightly-fetch.sh (Nordic Crypto). Identisk kopi ligger i begge repoene.
 Stier kan overstyres med KRYPTONYTT_DIR / NORDIC_CRYPTO_DIR.  Bruk: python3 tools/crosssite_handoff.py [--dry-run]"""
 import datetime as dt, fcntl, importlib.util, json, os, re, sys, urllib.parse
 KN = os.environ.get("KRYPTONYTT_DIR", "/workspace/kryptonytt"); NC = os.environ.get("NORDIC_CRYPTO_DIR", "/workspace/nordic-crypto")
@@ -40,14 +40,34 @@ def handoff(src, dst, pick, convert, queue_fields, label, dry):
     d_qf = os.path.join(dst, "queue", "review.json"); d_q = load(d_qf, {"items_needing_summary": [], "candidate_entities": []})
     d_ap = load(os.path.join(dst, "queue", "approved.json"), {})
     _, iid = canon_of(dst, "dst_fetch_" + os.path.basename(dst).replace("-", "_")); canon = norm_url
-    have = {canon(i["url"]) for i in d_news["items"]} | {canon(r["url"]) for r in d_ap.get("rejected", []) if r.get("url")}
-    added = []
+    cov_path = os.path.join(dst, "tools", "coverage.py")
+    cov = None
+    if os.path.exists(cov_path):
+        spec = importlib.util.spec_from_file_location("nc_coverage_" + os.path.basename(dst).replace("-", "_"), cov_path)
+        cov = importlib.util.module_from_spec(spec); spec.loader.exec_module(cov)
+    have = {canon(i["url"]) for i in d_news["items"] if i.get("url")} | {canon(r["url"]) for r in d_ap.get("rejected", []) if r.get("url")}
+    for i in d_news["items"]:
+        for ex in i.get("also_covered_by") or []:
+            if isinstance(ex, dict) and ex.get("url"): have.add(canon(ex["url"]))
+    added, attached = [], []
     for it in s_news["items"]:
         if not pick(it): continue
         c = canon(it["url"])
         if c in have: continue
         url = strip_tracking(it["url"])
         new = convert(it); new.update(id=iid(url), url=url, status="pending", summary=None, fetched=NOW)
+        if cov:
+            match, why = cov.find_match(
+                {"url": url, "title": new.get("title"), "published": new.get("published"), "text": new.get("title") or ""}, d_news["items"])
+            if match:
+                rec = cov.record_from_parts(new.get("source"), new.get("source_name"), url, new.get("title"), new.get("published"),
+                                            new.get("language"), new.get("country"), paywall=new.get("paywall"))
+                cov.attach(match, rec)
+                have.add(c); attached.append(new)
+                d_q.setdefault("coverage_attached", []).append(
+                    {"url": url, "title": new.get("title"), "outlet": new.get("source"), "attached_to": match.get("id"),
+                     "reason": why, "at": NOW, "origin": new.get("origin")})
+                continue
         d_news["items"].append(new); have.add(c); added.append(new)
         d_q.setdefault("items_needing_summary", []).append({k: new.get(k) for k in queue_fields})
     # eldre forslag uten origin får den nå (bare forslag fra denne retningen)
@@ -61,9 +81,9 @@ def handoff(src, dst, pick, convert, queue_fields, label, dry):
         src_i = org.get(q.get("id"))
         if src_i and not q.get("origin"):
             q["origin"] = src_i["origin"]; q.setdefault("suggested_by", src_i.get("suggested_by")); fixed += 1
-    if (added or fixed) and not dry:
+    if (added or fixed or attached) and not dry:
         save(d_newsf, d_news); save(d_qf, d_q)
-    print(f"handoff {label}: {len(added)} nye forslag" + (" (dry-run)" if dry else ""))
+    print(f"handoff {label}: {len(added)} nye forslag, {len(attached)} lagt på en sak som finnes" + (" (dry-run)" if dry else ""))
     for a in added: print(f"   + {a['published'][:10]} {a['source_name']}: {a['title'][:90]}")
     return added
 
@@ -80,11 +100,11 @@ def main():
         return {"title": it["title"], "source": it.get("source"), "source_name": it.get("source_name") or it.get("source"),
                 "via": "nordic-crypto", "seen_via": ["nordic-crypto"], "published": it["published"],
                 "topics": sorted({TOPIC_NC_TO_KN.get(t, t) for t in it.get("topics", [])}), "matched": [], "paywall": bool(it.get("paywall")),
-                "suggested_by": "Crypto Nordic", "origin": "tips fra Crypto Nordic", "suggested_status": "godkjent hos Crypto Nordic" if it.get("status") == "published" else "kandidat hos Crypto Nordic",
+                "suggested_by": "Nordic Crypto", "origin": "tips fra Nordic Crypto", "suggested_status": "godkjent hos Nordic Crypto" if it.get("status") == "published" else "kandidat hos Nordic Crypto",
                 "suggested_at": NOW}
     handoff(KN, NC, lambda i: i.get("status") in ("pending", "published"), kn_to_nc,
-            ("id", "country", "language", "title", "source_name", "url", "published", "topics", "suggested_by", "origin", "suggested_status"), "Kryptonytt -> Crypto Nordic", dry)
+            ("id", "country", "language", "title", "source_name", "url", "published", "topics", "suggested_by", "origin", "suggested_status"), "Kryptonytt -> Nordic Crypto", dry)
     handoff(NC, KN, lambda i: i.get("country") == "NO" and i.get("status") in ("pending", "published"), nc_to_kn,
-            ("id", "title", "source_name", "url", "published", "topics", "suggested_by", "origin", "suggested_status"), "Crypto Nordic -> Kryptonytt", dry)
+            ("id", "title", "source_name", "url", "published", "topics", "suggested_by", "origin", "suggested_status"), "Nordic Crypto -> Kryptonytt", dry)
 
 if __name__ == "__main__": main()

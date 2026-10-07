@@ -32,5 +32,6 @@ git -C .publish diff --cached --quiet && { echo "gh-pages: tip page unchanged"; 
 git -C .publish diff --cached --name-only
 git -C .publish commit -q -m "Tip page: post tips to our own tip server (${ep:-quick tunnel, runtime tip-endpoint.json})" -- $pages tip-endpoint.json
 git -C .publish push -q origin gh-pages
-for i in $(seq 1 40); do curl -fsS "https://jqrgen.github.io/nordic-crypto/tip/?t=$(date +%s)" | grep -q "$want" && { echo "live: /tip/ uses ${ep:-runtime tip-endpoint.json}"; exit 0; }; sleep 10; done
+NC=$(python3 -c 'import site_url; print(site_url.BASE)')
+for i in $(seq 1 40); do curl -fsS "${NC}tip/?t=$(date +%s)" | grep -q "$want" && { echo "live: /tip/ uses ${ep:-runtime tip-endpoint.json}"; exit 0; }; sleep 10; done
 echo "pushed, but the live page does not show the new version yet"; exit 1

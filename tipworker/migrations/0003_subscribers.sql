@@ -1,4 +1,4 @@
--- Newsletter signups for Crypto Nordic and Kryptonytt (double opt-in). One row per (email, site).
+-- Newsletter signups for Nordic Crypto and Kryptonytt (double opt-in). One row per (email, site).
 -- No IP address, user agent or other request metadata is stored. Rate limiting reuses rate_hits (salted hash, 10 minutes).
 -- token_hash = SHA-256 of the confirmation token; the token itself only exists in the confirmation link (never stored).
 -- Unsubscribe links carry an HMAC (UNSUB_SECRET) over id + email, so no unsubscribe token is stored either.
