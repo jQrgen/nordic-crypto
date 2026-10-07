@@ -1,0 +1,32 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-nAalwctPBvo",
+  "video_url": "https://www.youtube.com/watch?v=nAalwctPBvo",
+  "platform": "youtube",
+  "title": "Arkade: An Execution Layer for Bitcoin-Native Applications |  Project Spotlight",
+  "speakers": [
+   "Veronika Kuett"
+  ],
+  "event_name": "Oslo Freedom Forum",
+  "event_url": "https://oslofreedomforum.com/",
+  "calendar_event_id": null,
+  "city": "Oslo",
+  "country": "NO",
+  "date": null,
+  "published": "2025-06-05",
+  "duration": "PT5M41S",
+  "language": null,
+  "channel": "Oslo Freedom Forum",
+  "description": "Veronika Kuett of Ark Labs presents the Arkade project for bitcoin payments, in a recording on the Oslo Freedom Forum channel.",
+  "source_url": "https://www.youtube.com/watch?v=nAalwctPBvo&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-nAalwctPBvo",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-nAalwctPBvo.json"
+ }
+}

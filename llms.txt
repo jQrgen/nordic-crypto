@@ -1,6 +1,6 @@
 # Nordic Crypto
 
-> Public JSON feed of Nordic crypto news, newsletters, events, sources, academia and the who's who. No account. No API key.
+> Public JSON feed of Nordic crypto news, newsletters, events, talks, sources, academia and the who's who. No account. No API key.
 
 Nordic Crypto covers Norway, Sweden, Denmark, Finland and Iceland. The sign-off is The Nordic Crypto team. Kaupr (kaupr.io) is a news source only and is never a sponsor. Summaries are ours, in English, with translations in summary_i18n (nn, nb, sv, da, fi, is) when published. Other site languages fall back to English until a translation is published. External headlines stay in the original language.
 
@@ -44,6 +44,14 @@ curl -fsS https://nordiccrypto.no/api/v1/newsletters/001.json
 A single news item is api/v1/news/{id}.json (the id is on each item). primary_source is the outlet we lead with. also_covered_by is every other outlet on the same event. sources lists them with the primary first. coverage.by_country and coverage.by_source_type (national, regional, official, international) are the counts and shares, and empty types are included as zero. html_url is our coverage page. url is the primary outlet. 
 A single newsletter issue is api/v1/newsletters/{id}.json and includes plain text and HTML. Country slices: api/v1/news/by-country/NO.json (also SE, DK, FI, IS).
 
+## Talks
+
+Public talks on bitcoin, cryptocurrencies and blockchain in the Nordic countries, newest first. description is ours. title, dates, duration, channel and speakers come from the platform at source_url. A missing detail is null. embed is true only when that platform's oEmbed response includes a player. Country files use NO, SE, DK, FI, IS, FO (Faroe Islands), GL (Greenland) and AX (Åland).
+
+```
+curl -fsS https://nordiccrypto.no/api/v1/talks.json
+```
+
 ## Endpoints
 
 - [/api/v1/index.json](https://nordiccrypto.no/api/v1/index.json): Discovery document: every endpoint, with example URLs.
@@ -55,6 +63,8 @@ A single newsletter issue is api/v1/newsletters/{id}.json and includes plain tex
 - [/api/v1/events/upcoming.json](https://nordiccrypto.no/api/v1/events/upcoming.json): Events that have not ended, soonest first. Judged in the event's own offset.
 - [/api/v1/events/past.json](https://nordiccrypto.no/api/v1/events/past.json): Finished public events, newest first. Finished events stay in the archive.
 - [/api/v1/events/by-country/{country}.json](https://nordiccrypto.no/api/v1/events/by-country/{country}.json): Public events for one country code.
+- [/api/v1/talks.json](https://nordiccrypto.no/api/v1/talks.json): Public talks on bitcoin, cryptocurrencies and blockchain in the Nordic countries, newest first. A player is embedded on the site only when embed is true (YouTube via youtube-nocookie.com, or the Vimeo player). Unknown fields are null. description is ours; title and the other details come from the platform.
+- [/api/v1/talks/by-country/{country}.json](https://nordiccrypto.no/api/v1/talks/by-country/{country}.json): Public talks for one country code: NO, SE, DK, FI, IS, FO (Faroe Islands), GL (Greenland) or AX (Åland).
 - [/api/v1/sources.json](https://nordiccrypto.no/api/v1/sources.json): News outlets, the public search terms, and event sources. Kaupr is marked as a news source only. logo is the outlet image for that source id when one is on file.
 - [/api/v1/academia.json](https://nordiccrypto.no/api/v1/academia.json): Editor-approved courses, student groups, publications and research.
 - [/api/v1/academia/courses.json](https://nordiccrypto.no/api/v1/academia/courses.json): Academia section: courses.

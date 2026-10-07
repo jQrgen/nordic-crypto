@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T11:52:47+00:00",
+ "generated_at": "2026-10-07T21:33:28+00:00",
  "preview": false,
  "updated": "2026-10-07T01:48:50+00:00",
  "language_note": "summary is English. summary_i18n holds nn, nb, sv, da, fi and is when that translation is published. Other site languages use the English summary until a translation exists. title is the source headline. title_en is our English headline when we wrote one. source_logo is the outlet image when assets/img/logos/logos.json has a checked file for the source id (or its outlet, or a _source_alias). Null means show the source name as text. primary_source is that outlet. also_covered_by lists every other outlet on the same event (outlet, outlet_name, url, title, published, lang, country, source_type, paywall, logo). sources is the primary plus those outlets. coverage.count is how many outlets, coverage.by_country and coverage.by_source_type (national, regional, official, international) are the counts and shares for the bars, including zeros. html_url is our page for the story. url on the item is the primary outlet. The site language list is /api/v1/languages.json.",

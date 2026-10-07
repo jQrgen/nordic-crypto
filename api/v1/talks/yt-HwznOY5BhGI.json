@@ -1,0 +1,38 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-HwznOY5BhGI",
+  "video_url": "https://www.youtube.com/watch?v=HwznOY5BhGI",
+  "platform": "youtube",
+  "title": "Oslo Kulturnatt: Der krypto skaper kunst og verdier hos 'verse",
+  "speakers": [
+   "Sophia Adampour",
+   "Magnus Jones",
+   "Christian Houge",
+   "Vincent Langaard",
+   "Emil Erlingson",
+   "Cornelia Svedman",
+   "Elise Anthonisen"
+  ],
+  "event_name": "Oslo Kulturnatt 2022",
+  "event_url": null,
+  "calendar_event_id": null,
+  "city": "Oslo",
+  "country": "NO",
+  "date": null,
+  "published": "2022-09-22",
+  "duration": "PT43M18S",
+  "language": null,
+  "channel": "Polyteknisk Forening*Norway's Polytechnic Society",
+  "description": "A public conversation on crypto, art and value during Oslo Kulturnatt 2022, arranged by Polyteknisk Forening and the 'verse gallery.",
+  "source_url": "https://www.youtube.com/watch?v=HwznOY5BhGI&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-HwznOY5BhGI",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-HwznOY5BhGI.json"
+ }
+}

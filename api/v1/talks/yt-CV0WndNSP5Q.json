@@ -1,0 +1,32 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-CV0WndNSP5Q",
+  "video_url": "https://www.youtube.com/watch?v=CV0WndNSP5Q",
+  "platform": "youtube",
+  "title": "Disha L. Dinesha: Blockchain Enabled Smart Microgrids",
+  "speakers": [
+   "Disha L. Dinesha"
+  ],
+  "event_name": "DTU PES Summer School 2026",
+  "event_url": "https://energy-markets-school.dk/",
+  "calendar_event_id": null,
+  "city": "Copenhagen",
+  "country": "DK",
+  "date": null,
+  "published": "2026-06-14",
+  "duration": "PT23M17S",
+  "language": null,
+  "channel": "DTU: Lectures on Power & Energy Systems",
+  "description": "Disha L. Dinesha presents blockchain-enabled smart microgrids at the DTU PES Summer School 2026, held 18–22 May 2026 at the Technical University of Denmark in Copenhagen.",
+  "source_url": "https://www.youtube.com/watch?v=CV0WndNSP5Q&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-CV0WndNSP5Q",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-CV0WndNSP5Q.json"
+ }
+}

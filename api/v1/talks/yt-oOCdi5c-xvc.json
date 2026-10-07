@@ -1,0 +1,32 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-oOCdi5c-xvc",
+  "video_url": "https://www.youtube.com/watch?v=oOCdi5c-xvc",
+  "platform": "youtube",
+  "title": "Design Thinking on Blockchain: The importance of designing for the end-user. Oslo Blockchain Day",
+  "speakers": [
+   "Maria Flyvberg Bo"
+  ],
+  "event_name": "Oslo Blockchain Day",
+  "event_url": null,
+  "calendar_event_id": null,
+  "city": "Oslo",
+  "country": "NO",
+  "date": "2016-04-19",
+  "published": "2016-04-28",
+  "duration": "PT8M52S",
+  "language": null,
+  "channel": "Blockchangers",
+  "description": "Maria Flyvberg Bo speaks at Oslo Blockchain Day, a conference at Oslo Science Park in Oslo on 19 April 2016, about designing blockchain products for the end user.",
+  "source_url": "https://www.youtube.com/watch?v=oOCdi5c-xvc&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-oOCdi5c-xvc",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-oOCdi5c-xvc.json"
+ }
+}

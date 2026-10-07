@@ -1,0 +1,32 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-AipJd3l5-pE",
+  "video_url": "https://www.youtube.com/watch?v=AipJd3l5-pE",
+  "platform": "youtube",
+  "title": "Blockchain og kryptovaluta i en nanoverden, Mats Broden, CEO, Embedded Nano Europe AB",
+  "speakers": [
+   "Mats Broden"
+  ],
+  "event_name": null,
+  "event_url": null,
+  "calendar_event_id": null,
+  "city": null,
+  "country": "NO",
+  "date": null,
+  "published": "2018-06-13",
+  "duration": "PT12M57S",
+  "language": null,
+  "channel": "NTNU Accel",
+  "description": "Mats Broden of Embedded Nano presents how blockchain and cryptocurrency could be used in nanotechnology, in a recording published by NTNU Accel.",
+  "source_url": "https://www.youtube.com/watch?v=AipJd3l5-pE&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-AipJd3l5-pE",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-AipJd3l5-pE.json"
+ }
+}

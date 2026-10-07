@@ -1,0 +1,32 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-AAjvDsJihaI",
+  "video_url": "https://www.youtube.com/watch?v=AAjvDsJihaI",
+  "platform": "youtube",
+  "title": "Sókn rafmynta og framtíðarhorfur - Bálkakeðjur á miðvikudögum",
+  "speakers": [
+   "Kristján Ingi Mikaelsson"
+  ],
+  "event_name": "Bálkakeðjur á miðvikudögum",
+  "event_url": null,
+  "calendar_event_id": null,
+  "city": null,
+  "country": "IS",
+  "date": null,
+  "published": "2020-10-07",
+  "duration": "PT53M21S",
+  "language": null,
+  "channel": "Icelandic Blockchain Foundation",
+  "description": "Kristján Ingi Mikaelsson lectures on the outlook for cryptocurrencies in Bálkakeðjur á miðvikudögum, a public lecture series that began at the University of Iceland on 9 September 2020.",
+  "source_url": "https://www.youtube.com/watch?v=AAjvDsJihaI&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-AAjvDsJihaI",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-AAjvDsJihaI.json"
+ }
+}

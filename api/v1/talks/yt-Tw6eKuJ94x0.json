@@ -1,0 +1,32 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-Tw6eKuJ94x0",
+  "video_url": "https://www.youtube.com/watch?v=Tw6eKuJ94x0",
+  "platform": "youtube",
+  "title": "Hadiya Masieh | How Bitcoin Can Fund Counter-terrorism",
+  "speakers": [
+   "Hadiya Masieh"
+  ],
+  "event_name": "Oslo Freedom Forum 2024",
+  "event_url": "https://oslofreedomforum.com/",
+  "calendar_event_id": null,
+  "city": "Oslo",
+  "country": "NO",
+  "date": null,
+  "published": "2024-07-10",
+  "duration": "PT9M50S",
+  "language": null,
+  "channel": "Oslo Freedom Forum",
+  "description": "Hadiya Masieh speaks at the 2024 Oslo Freedom Forum about using bitcoin to fund counter-terrorism work and to support communities.",
+  "source_url": "https://www.youtube.com/watch?v=Tw6eKuJ94x0&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-Tw6eKuJ94x0",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-Tw6eKuJ94x0.json"
+ }
+}

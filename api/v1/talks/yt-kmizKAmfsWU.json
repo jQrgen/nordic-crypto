@@ -1,0 +1,35 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-kmizKAmfsWU",
+  "video_url": "https://www.youtube.com/watch?v=kmizKAmfsWU",
+  "platform": "youtube",
+  "title": "Blockchain, Music and Next Steps | Slush Music 2016",
+  "speakers": [
+   "Ken Umezaki",
+   "Marko Ahtisaari",
+   "Turo Pekari",
+   "Bruno Guez"
+  ],
+  "event_name": "Slush Music 2016",
+  "event_url": "http://music.slush.org/",
+  "calendar_event_id": null,
+  "city": "Helsinki",
+  "country": "FI",
+  "date": null,
+  "published": "2016-12-12",
+  "duration": "PT31M57S",
+  "language": null,
+  "channel": "Slush",
+  "description": "Ken Umezaki, Marko Ahtisaari, Turo Pekari and Bruno Guez discuss blockchain and music at Slush Music 2016 in Helsinki.",
+  "source_url": "https://www.youtube.com/watch?v=kmizKAmfsWU&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-kmizKAmfsWU",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-kmizKAmfsWU.json"
+ }
+}

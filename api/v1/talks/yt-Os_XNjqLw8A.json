@@ -1,0 +1,32 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-Os_XNjqLw8A",
+  "video_url": "https://www.youtube.com/watch?v=Os_XNjqLw8A",
+  "platform": "youtube",
+  "title": "Trust and digital identity in the Ethereum blockchain. Oslo Blockchain Day",
+  "speakers": [
+   "Heikki Palm Henriksen"
+  ],
+  "event_name": "Oslo Blockchain Day",
+  "event_url": null,
+  "calendar_event_id": null,
+  "city": "Oslo",
+  "country": "NO",
+  "date": "2016-04-19",
+  "published": "2016-05-13",
+  "duration": "PT13M17S",
+  "language": null,
+  "channel": "Blockchangers",
+  "description": "Heikki Palm Henriksen speaks at Oslo Blockchain Day, a conference at Oslo Science Park in Oslo on 19 April 2016, about trust and digital identity on Ethereum.",
+  "source_url": "https://www.youtube.com/watch?v=Os_XNjqLw8A&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-Os_XNjqLw8A",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-Os_XNjqLw8A.json"
+ }
+}

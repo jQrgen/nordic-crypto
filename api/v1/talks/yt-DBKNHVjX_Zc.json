@@ -1,0 +1,30 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-DBKNHVjX_Zc",
+  "video_url": "https://www.youtube.com/watch?v=DBKNHVjX_Zc",
+  "platform": "youtube",
+  "title": "Bitcoin Meetup 2024 – Helsinki",
+  "speakers": [],
+  "event_name": "Bitcoin Meetup 2024",
+  "event_url": null,
+  "calendar_event_id": null,
+  "city": "Helsinki",
+  "country": "FI",
+  "date": null,
+  "published": "2024-10-26",
+  "duration": "PT15M43S",
+  "language": null,
+  "channel": "Sheikki Hassan",
+  "description": "A conversation about bitcoin recorded at a Bitcoin meetup in Helsinki in 2024.",
+  "source_url": "https://www.youtube.com/watch?v=DBKNHVjX_Zc&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-DBKNHVjX_Zc",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-DBKNHVjX_Zc.json"
+ }
+}

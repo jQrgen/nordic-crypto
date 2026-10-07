@@ -1,0 +1,32 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-b7okSZgwNaY",
+  "video_url": "https://www.youtube.com/watch?v=b7okSZgwNaY",
+  "platform": "youtube",
+  "title": "AI Certificates with Erasmus Hagen, Director of Product, at Nordic Blockchain Conference 2024",
+  "speakers": [
+   "Erasmus Hagen"
+  ],
+  "event_name": "Nordic Blockchain Conference 2024",
+  "event_url": null,
+  "calendar_event_id": null,
+  "city": null,
+  "country": null,
+  "date": null,
+  "published": "2024-06-24",
+  "duration": "PT16M41S",
+  "language": null,
+  "channel": "Concordium",
+  "description": "Erasmus Hagen of Concordium speaks about AI certificates at Nordic Blockchain Conference 2024.",
+  "source_url": "https://www.youtube.com/watch?v=b7okSZgwNaY&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-b7okSZgwNaY",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-b7okSZgwNaY.json"
+ }
+}

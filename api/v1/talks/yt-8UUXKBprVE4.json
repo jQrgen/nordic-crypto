@@ -1,0 +1,34 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-8UUXKBprVE4",
+  "video_url": "https://www.youtube.com/watch?v=8UUXKBprVE4",
+  "platform": "youtube",
+  "title": "The Future of Money with Yale's Professor Gary Gorton and Sveriges Riksbank's Governor Stefan Ingves",
+  "speakers": [
+   "Stefan Ingves",
+   "Gary Gorton",
+   "Pehr Wissén"
+  ],
+  "event_name": "Swedish House of Finance seminar",
+  "event_url": "https://www.houseoffinance.se/",
+  "calendar_event_id": null,
+  "city": null,
+  "country": "SE",
+  "date": null,
+  "published": "2022-10-06",
+  "duration": "PT54M38S",
+  "language": null,
+  "channel": "Swedish House of Finance",
+  "description": "Stefan Ingves of Sveriges Riksbank and Gary Gorton discuss digital currency and decentralized finance at the Swedish House of Finance. Pehr Wissén moderates.",
+  "source_url": "https://www.youtube.com/watch?v=8UUXKBprVE4&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-8UUXKBprVE4",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-8UUXKBprVE4.json"
+ }
+}

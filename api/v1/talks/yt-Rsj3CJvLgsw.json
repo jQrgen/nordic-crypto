@@ -1,0 +1,32 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-Rsj3CJvLgsw",
+  "video_url": "https://www.youtube.com/watch?v=Rsj3CJvLgsw",
+  "platform": "youtube",
+  "title": "Martin Wichman talk in Ton Helsinki Meetup#3",
+  "speakers": [
+   "Martin Wichmann"
+  ],
+  "event_name": "TON Helsinki Meetup",
+  "event_url": null,
+  "calendar_event_id": null,
+  "city": "Helsinki",
+  "country": "FI",
+  "date": null,
+  "published": "2024-03-29",
+  "duration": "PT10M54S",
+  "language": null,
+  "channel": "TON Helsinki",
+  "description": "Martin Wichmann gives an overview of cryptocurrencies in Finland and beyond at TON Helsinki Meetup #3.",
+  "source_url": "https://www.youtube.com/watch?v=Rsj3CJvLgsw&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-Rsj3CJvLgsw",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-Rsj3CJvLgsw.json"
+ }
+}

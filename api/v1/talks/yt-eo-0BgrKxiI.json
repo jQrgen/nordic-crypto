@@ -1,0 +1,32 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-eo-0BgrKxiI",
+  "video_url": "https://www.youtube.com/watch?v=eo-0BgrKxiI",
+  "platform": "youtube",
+  "title": "Open Blockchains for Cashless Developed Economies",
+  "speakers": [
+   "Andreas M. Antonopoulos"
+  ],
+  "event_name": "Oslo Blockchain Day",
+  "event_url": "https://www.meetup.com/blockchangers/events/230837354/",
+  "calendar_event_id": null,
+  "city": "Oslo",
+  "country": "NO",
+  "date": "2017-04-25",
+  "published": "2017-08-13",
+  "duration": null,
+  "language": null,
+  "channel": "aantonop",
+  "description": "Andreas M. Antonopoulos speaks at Oslo Blockchain Day on 25 April 2017 in Oslo, hosted with the Nordic Creators' Community, about open blockchains in largely cashless economies.",
+  "source_url": "https://www.youtube.com/watch?v=eo-0BgrKxiI&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-eo-0BgrKxiI",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-eo-0BgrKxiI.json"
+ }
+}

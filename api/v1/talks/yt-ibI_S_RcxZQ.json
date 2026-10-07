@@ -1,0 +1,30 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-ibI_S_RcxZQ",
+  "video_url": "https://www.youtube.com/watch?v=ibI_S_RcxZQ",
+  "platform": "youtube",
+  "title": "Blockchain Meetup Trondheim 09.02.2017: Blockchain intro, a story from the future + QA",
+  "speakers": [],
+  "event_name": "Trondheim Blockchain Meetup",
+  "event_url": "https://www.meetup.com/Trondheim-Blockchain-Meetup/",
+  "calendar_event_id": null,
+  "city": "Trondheim",
+  "country": "NO",
+  "date": "2017-02-09",
+  "published": "2017-02-10",
+  "duration": "PT37M56S",
+  "language": null,
+  "channel": "Jørgen Svennevik Notland",
+  "description": "An introduction to blockchain, with questions from the room, recorded at the Trondheim Blockchain Meetup on 9 February 2017.",
+  "source_url": "https://www.youtube.com/watch?v=ibI_S_RcxZQ&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-ibI_S_RcxZQ",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-ibI_S_RcxZQ.json"
+ }
+}

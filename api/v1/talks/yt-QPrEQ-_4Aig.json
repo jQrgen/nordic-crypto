@@ -1,0 +1,32 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-QPrEQ-_4Aig",
+  "video_url": "https://www.youtube.com/watch?v=QPrEQ-_4Aig",
+  "platform": "youtube",
+  "title": "Lars Christensen: Pengenes udvikling i verden og Danmark ⚡ Bitcoin Copenhagen 2026",
+  "speakers": [
+   "Lars Christensen"
+  ],
+  "event_name": "Bitcoin Copenhagen 2026",
+  "event_url": "https://bitcoincopenhagen.dk/",
+  "calendar_event_id": null,
+  "city": "Copenhagen",
+  "country": "DK",
+  "date": null,
+  "published": "2026-04-11",
+  "duration": "PT32M32S",
+  "language": null,
+  "channel": "Bitcoin Copenhagen",
+  "description": "Lars Christensen speaks at Bitcoin Copenhagen 2026 about how money has developed in the world and in Denmark.",
+  "source_url": "https://www.youtube.com/watch?v=QPrEQ-_4Aig&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-QPrEQ-_4Aig",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-QPrEQ-_4Aig.json"
+ }
+}

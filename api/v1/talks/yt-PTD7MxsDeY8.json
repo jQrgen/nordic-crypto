@@ -1,0 +1,32 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-PTD7MxsDeY8",
+  "video_url": "https://www.youtube.com/watch?v=PTD7MxsDeY8",
+  "platform": "youtube",
+  "title": "Decentralized Exchange - As Fast As Possible - Chris Coney At Cryptofinance 2017 Oslo, Norway",
+  "speakers": [
+   "Chris Coney"
+  ],
+  "event_name": "CryptoFinance 2017",
+  "event_url": null,
+  "calendar_event_id": null,
+  "city": "Oslo",
+  "country": "NO",
+  "date": null,
+  "published": "2017-10-21",
+  "duration": "PT12M51S",
+  "language": null,
+  "channel": "The Cryptoverse",
+  "description": "Chris Coney speaks about decentralized exchanges at CryptoFinance 2017 in Oslo, hosted by Bitgate.",
+  "source_url": "https://www.youtube.com/watch?v=PTD7MxsDeY8&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-PTD7MxsDeY8",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-PTD7MxsDeY8.json"
+ }
+}

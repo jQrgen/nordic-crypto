@@ -1,0 +1,30 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-NVPhJ0aCKOw",
+  "video_url": "https://www.youtube.com/watch?v=NVPhJ0aCKOw",
+  "platform": "youtube",
+  "title": "LIVE: Oslo Freedom Forum 2025 - Freedom Tech Track",
+  "speakers": [],
+  "event_name": "Oslo Freedom Forum 2025",
+  "event_url": "https://oslofreedomforum.com/event/oslo-freedom-forum-2025/freedomtech/",
+  "calendar_event_id": null,
+  "city": "Oslo",
+  "country": "NO",
+  "date": null,
+  "published": "2025-05-28",
+  "duration": "PT5H54M16S",
+  "language": null,
+  "channel": "Bitcoin Magazine",
+  "description": "A livestream of the Freedom Tech track at Oslo Freedom Forum 2025, published by Bitcoin Magazine, with sessions on bitcoin, privacy and related tools.",
+  "source_url": "https://www.youtube.com/watch?v=NVPhJ0aCKOw&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-NVPhJ0aCKOw",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-NVPhJ0aCKOw.json"
+ }
+}

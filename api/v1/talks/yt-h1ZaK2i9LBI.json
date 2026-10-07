@@ -1,0 +1,32 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-h1ZaK2i9LBI",
+  "video_url": "https://www.youtube.com/watch?v=h1ZaK2i9LBI",
+  "platform": "youtube",
+  "title": "Andreas Antonopoulos, Key Note - Internetdagarna 2017",
+  "speakers": [
+   "Andreas Antonopoulos"
+  ],
+  "event_name": "Internetdagarna 2017",
+  "event_url": "https://internetdagarna.se/program/bitcoin/",
+  "calendar_event_id": null,
+  "city": "Stockholm",
+  "country": "SE",
+  "date": null,
+  "published": "2017-11-28",
+  "duration": "PT25M52S",
+  "language": null,
+  "channel": "Bitjoin Studios",
+  "description": "Andreas Antonopoulos gives a keynote at Internetdagarna 2017 in Stockholm on how bitcoin changes payments and banking.",
+  "source_url": "https://www.youtube.com/watch?v=h1ZaK2i9LBI&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-h1ZaK2i9LBI",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-h1ZaK2i9LBI.json"
+ }
+}

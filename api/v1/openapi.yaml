@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   title: Nordic Crypto data API
   version: "1"
-  description: "Public read-only JSON for Nordic Crypto (https://nordiccrypto.no/). No authentication. News, newsletters, events, sources, academia, the who's who, profiles, images, the rules map, the changelog, the article archive and Nordic exchange prices (market data, not investment advice). Kaupr is a news source only, never a sponsor. The sign-off is The Nordic Crypto team. GitHub Pages sends Access-Control-Allow-Origin: * so browsers can fetch these files. English text is the default; published translations are inside each object under *_i18n. Site languages: /api/v1/languages.json. IP-country language guess: /api/v1/geo-language.json (the nc_lang cookie wins). Discovery: https://nordiccrypto.no/api/v1/index.json. Human docs: https://nordiccrypto.no/api/."
+  description: "Public read-only JSON for Nordic Crypto (https://nordiccrypto.no/). No authentication. News, newsletters, events, sources, academia, the who's who, profiles, images, the rules map, the changelog, the article archive, public talk videos and Nordic exchange prices (market data, not investment advice). Kaupr is a news source only, never a sponsor. The sign-off is The Nordic Crypto team. GitHub Pages sends Access-Control-Allow-Origin: * so browsers can fetch these files. English text is the default; published translations are inside each object under *_i18n. Site languages: /api/v1/languages.json. IP-country language guess: /api/v1/geo-language.json (the nc_lang cookie wins). Discovery: https://nordiccrypto.no/api/v1/index.json. Human docs: https://nordiccrypto.no/api/."
   license:
     name: MIT
     url: "https://github.com/jQrgen/nordic-crypto/blob/main/LICENSE"
@@ -208,6 +208,60 @@ paths:
               - IS
               - NORDIC
               - EU
+  "/api/v1/talks.json":
+    get:
+      operationId: api_v1_talks
+      summary: "Public talks on bitcoin, cryptocurrencies and blockchain in the Nordic countries, newest first. A player is embedded on the site only when embed is true (YouTube via youtube-nocookie.com, or the Vimeo player). Unknown fields are null. description is ours; title and the other details come from the platform."
+      responses:
+        "200":
+          description: "Public talks on bitcoin, cryptocurrencies and blockchain in the Nordic countries, newest first. A player is embedded on the site only when embed is true (YouTube via youtube-nocookie.com, or the Vimeo player). Unknown fields are null. description is ours; title and the other details come from the platform."
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/TalkList"
+  "/api/v1/talks/{id}.json":
+    get:
+      operationId: api_v1_talks_item
+      summary: One item from /api/v1/talks.json
+      responses:
+        "200":
+          description: One item from /api/v1/talks.json
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/Document"
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+  "/api/v1/talks/by-country/{country}.json":
+    get:
+      operationId: talks_by_country
+      summary: "Public talks for one country code: NO, SE, DK, FI, IS, FO (Faroe Islands), GL (Greenland) or AX (Åland)."
+      responses:
+        "200":
+          description: "Public talks for one country code: NO, SE, DK, FI, IS, FO (Faroe Islands), GL (Greenland) or AX (Åland)."
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/TalkList"
+      parameters:
+        - name: country
+          in: path
+          required: true
+          schema:
+            type: string
+            enum:
+              - "NO"
+              - SE
+              - DK
+              - FI
+              - IS
+              - FO
+              - GL
+              - AX
   "/api/v1/sources.json":
     get:
       operationId: api_v1_sources
@@ -1001,6 +1055,192 @@ components:
               api_url:
                 type: string
       description: EventList
+    Talk:
+      type: object
+      required:
+        - id
+        - video_url
+        - platform
+        - title
+        - source_url
+        - retrieved_at
+        - added_at
+      description: A public talk. Unknown fields are null. description is written by Nordic Crypto. The other details come from the platform named in source_url.
+      properties:
+        id:
+          type: string
+        video_url:
+          type: string
+        platform:
+          type: string
+          enum:
+            - youtube
+            - vimeo
+            - university
+            - other
+        title:
+          type: string
+        speakers:
+          type: array
+          items:
+            type: string
+          description: Names the platform page states. Empty when none are stated.
+        event_name:
+          type: string
+          nullable: true
+        event_url:
+          type: string
+          nullable: true
+        calendar_event_id:
+          type: string
+          nullable: true
+          description: "Id of the matching event in /api/v1/events.json, when one exists."
+        city:
+          type: string
+          nullable: true
+        country:
+          type: string
+          nullable: true
+          description: "NO, SE, DK, FI, IS, FO, GL or AX."
+        date:
+          type: string
+          nullable: true
+          description: "Calendar date of the talk, YYYY-MM-DD, when the source states it."
+        published:
+          type: string
+          nullable: true
+          description: "Date the video was published, YYYY-MM-DD."
+        duration:
+          type: string
+          nullable: true
+          description: ISO 8601 duration when the platform states a length.
+        language:
+          type: string
+          nullable: true
+          description: Language of the talk when the source states it.
+        channel:
+          type: string
+          nullable: true
+        description:
+          type: string
+          description: Short neutral summary in our own words.
+        source_url:
+          type: string
+          description: Page the metadata was retrieved from.
+        retrieved_at:
+          type: string
+          description: ISO 8601 timestamp.
+        added_at:
+          type: string
+          description: ISO 8601 timestamp.
+        embed:
+          type: boolean
+          description: "True when the platform's oEmbed response includes an official player."
+        html_url:
+          type: string
+        api_url:
+          type: string
+    TalkList:
+      type: object
+      properties:
+        api_version:
+          type: string
+        name:
+          type: string
+        generated_at:
+          type: string
+        preview:
+          type: boolean
+        count:
+          type: integer
+        talks:
+          type: array
+          items:
+            type: object
+            required:
+              - id
+              - video_url
+              - platform
+              - title
+              - source_url
+              - retrieved_at
+              - added_at
+            description: A public talk. Unknown fields are null. description is written by Nordic Crypto. The other details come from the platform named in source_url.
+            properties:
+              id:
+                type: string
+              video_url:
+                type: string
+              platform:
+                type: string
+                enum:
+                  - youtube
+                  - vimeo
+                  - university
+                  - other
+              title:
+                type: string
+              speakers:
+                type: array
+                items:
+                  type: string
+                description: Names the platform page states. Empty when none are stated.
+              event_name:
+                type: string
+                nullable: true
+              event_url:
+                type: string
+                nullable: true
+              calendar_event_id:
+                type: string
+                nullable: true
+                description: "Id of the matching event in /api/v1/events.json, when one exists."
+              city:
+                type: string
+                nullable: true
+              country:
+                type: string
+                nullable: true
+                description: "NO, SE, DK, FI, IS, FO, GL or AX."
+              date:
+                type: string
+                nullable: true
+                description: "Calendar date of the talk, YYYY-MM-DD, when the source states it."
+              published:
+                type: string
+                nullable: true
+                description: "Date the video was published, YYYY-MM-DD."
+              duration:
+                type: string
+                nullable: true
+                description: ISO 8601 duration when the platform states a length.
+              language:
+                type: string
+                nullable: true
+                description: Language of the talk when the source states it.
+              channel:
+                type: string
+                nullable: true
+              description:
+                type: string
+                description: Short neutral summary in our own words.
+              source_url:
+                type: string
+                description: Page the metadata was retrieved from.
+              retrieved_at:
+                type: string
+                description: ISO 8601 timestamp.
+              added_at:
+                type: string
+                description: ISO 8601 timestamp.
+              embed:
+                type: boolean
+                description: "True when the platform's oEmbed response includes an official player."
+              html_url:
+                type: string
+              api_url:
+                type: string
+      description: TalkList
     NewsletterIssue:
       type: object
       required:

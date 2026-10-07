@@ -1,0 +1,32 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-t6FF3e-hGqw",
+  "video_url": "https://www.youtube.com/watch?v=t6FF3e-hGqw",
+  "platform": "youtube",
+  "title": "Blockchain in Education - Aníta Kristjánsdóttir - Icelandic Blockchain Foundation",
+  "speakers": [
+   "Aníta Kristjánsdóttir"
+  ],
+  "event_name": "Icelandic Blockchain Foundation conference weekend",
+  "event_url": null,
+  "calendar_event_id": null,
+  "city": null,
+  "country": "IS",
+  "date": null,
+  "published": "2018-08-23",
+  "duration": "PT9M48S",
+  "language": null,
+  "channel": "Icelandic Blockchain Foundation",
+  "description": "Aníta Kristjánsdóttir talks about the University of Iceland Smiley Coin project and blockchain in education, recorded at an April conference weekend in Iceland by the Icelandic Blockchain Foundation.",
+  "source_url": "https://www.youtube.com/watch?v=t6FF3e-hGqw&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-t6FF3e-hGqw",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-t6FF3e-hGqw.json"
+ }
+}

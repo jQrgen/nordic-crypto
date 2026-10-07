@@ -1,0 +1,32 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-9CxNmT9Ee94",
+  "video_url": "https://www.youtube.com/watch?v=9CxNmT9Ee94",
+  "platform": "youtube",
+  "title": "Ben Perrin | Using Bitcoin in a High Fee Environment",
+  "speakers": [
+   "Ben Perrin"
+  ],
+  "event_name": "Oslo Freedom Forum 2024",
+  "event_url": "https://oslofreedomforum.com/",
+  "calendar_event_id": null,
+  "city": "Oslo",
+  "country": "NO",
+  "date": null,
+  "published": "2024-07-10",
+  "duration": "PT8M42S",
+  "language": null,
+  "channel": "Oslo Freedom Forum",
+  "description": "Ben Perrin speaks at the 2024 Oslo Freedom Forum about using bitcoin when network fees are high.",
+  "source_url": "https://www.youtube.com/watch?v=9CxNmT9Ee94&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-9CxNmT9Ee94",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-9CxNmT9Ee94.json"
+ }
+}

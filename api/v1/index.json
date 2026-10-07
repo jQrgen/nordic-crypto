@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T11:52:47+00:00",
+ "generated_at": "2026-10-07T21:33:28+00:00",
  "preview": false,
  "title": "Nordic Crypto data API",
  "sign_off": "The Nordic Crypto team",
@@ -43,6 +43,7 @@
   "events": 12,
   "events_upcoming": 11,
   "events_past": 1,
+  "talks": 74,
   "sources": 116,
   "academia": {
    "courses": 7,
@@ -54,7 +55,7 @@
   "org_relations": 15,
   "profiles": 20,
   "images": 64,
-  "changelog": 23,
+  "changelog": 24,
   "archive_articles": 43,
   "markets": 72,
   "markets_aggregated": 53,
@@ -167,6 +168,30 @@
    "example_url_custom_domain": "https://nordiccrypto.no/api/v1/events/by-country/NO.json"
   },
   {
+   "id": "api-v1-talks",
+   "method": "GET",
+   "path": "/api/v1/talks.json",
+   "url": "https://nordiccrypto.no/api/v1/talks.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/talks.json",
+   "summary": "Public talks on bitcoin, cryptocurrencies and blockchain in the Nordic countries, newest first. A player is embedded on the site only when embed is true (YouTube via youtube-nocookie.com, or the Vimeo player). Unknown fields are null. description is ours; title and the other details come from the platform.",
+   "schema": "TalkList",
+   "example_url": "https://nordiccrypto.no/api/v1/talks/yt-ZJHTEXcyePQ.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/talks/yt-ZJHTEXcyePQ.json",
+   "item_path": "/api/v1/talks/{id}.json",
+   "item_url_template": "https://nordiccrypto.no/api/v1/talks/{id}.json"
+  },
+  {
+   "id": "talks-by-country",
+   "method": "GET",
+   "path": "/api/v1/talks/by-country/{country}.json",
+   "url": "https://nordiccrypto.no/api/v1/talks/by-country/{country}.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/talks/by-country/{country}.json",
+   "summary": "Public talks for one country code: NO, SE, DK, FI, IS, FO (Faroe Islands), GL (Greenland) or AX (Åland).",
+   "schema": "TalkList",
+   "example_url": "https://nordiccrypto.no/api/v1/talks/by-country/NO.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/talks/by-country/NO.json"
+  },
+  {
    "id": "api-v1-sources",
    "method": "GET",
    "path": "/api/v1/sources.json",
@@ -228,8 +253,8 @@
    "url_custom_domain": "https://nordiccrypto.no/api/v1/academia/{id}.json",
    "summary": "One academia row. The id is in academia.json.",
    "schema": "AcademiaItem",
-   "example_url": "https://nordiccrypto.no/api/v1/academia/research-www.ru.is-en-research-center-ru-fintech.json",
-   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/academia/research-www.ru.is-en-research-center-ru-fintech.json"
+   "example_url": "https://nordiccrypto.no/api/v1/academia/groups-www.linkedin.com-company-cbs-bitcoin.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/academia/groups-www.linkedin.com-company-cbs-bitcoin.json"
   },
   {
    "id": "api-v1-orgchart",
@@ -301,8 +326,8 @@
    "url_custom_domain": "https://nordiccrypto.no/api/v1/changelog.json",
    "summary": "Site changelog (product changes, not the news), newest first.",
    "schema": "ChangelogList",
-   "example_url": "https://nordiccrypto.no/api/v1/changelog/domain-nordiccrypto-no.json",
-   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/changelog/domain-nordiccrypto-no.json",
+   "example_url": "https://nordiccrypto.no/api/v1/changelog/talks-archive.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/changelog/talks-archive.json",
    "item_path": "/api/v1/changelog/{id}.json",
    "item_url_template": "https://nordiccrypto.no/api/v1/changelog/{id}.json"
   },

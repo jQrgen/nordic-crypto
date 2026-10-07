@@ -1,0 +1,30 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-f4U676prxCo",
+  "video_url": "https://www.youtube.com/watch?v=f4U676prxCo",
+  "platform": "youtube",
+  "title": "E-krona, Money and Trust Among Strangers",
+  "speakers": [],
+  "event_name": "Swedish House of Finance seminar",
+  "event_url": "https://www.houseoffinance.se/",
+  "calendar_event_id": null,
+  "city": null,
+  "country": "SE",
+  "date": null,
+  "published": "2018-04-28",
+  "duration": "PT1H25M8S",
+  "language": null,
+  "channel": "Swedish House of Finance",
+  "description": "A seminar at the Swedish House of Finance on the Riksbank's e-krona idea and on what supports trust in money.",
+  "source_url": "https://www.youtube.com/watch?v=f4U676prxCo&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-f4U676prxCo",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-f4U676prxCo.json"
+ }
+}

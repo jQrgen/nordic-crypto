@@ -1,0 +1,32 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-zi2JsPOm5HE",
+  "video_url": "https://www.youtube.com/watch?v=zi2JsPOm5HE",
+  "platform": "youtube",
+  "title": "'Ethereum Light Client for Mobile and IoT Devices' by Aleksi Suomalainen",
+  "speakers": [
+   "Aleksi Suomalainen"
+  ],
+  "event_name": "Ethereum Helsinki Meetup",
+  "event_url": "http://www.meetup.com/Helsinki-Ethereum-Meetup",
+  "calendar_event_id": null,
+  "city": "Helsinki",
+  "country": "FI",
+  "date": "2016-05-11",
+  "published": "2016-05-15",
+  "duration": "PT15M40S",
+  "language": null,
+  "channel": "Ethereum Helsinki",
+  "description": "Aleksi Suomalainen presents an Ethereum light client for phones and small devices at the Ethereum Helsinki Meetup on 11 May 2016 at Microsoft Flux in Helsinki. This recording is part 1 of 4.",
+  "source_url": "https://www.youtube.com/watch?v=zi2JsPOm5HE&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-zi2JsPOm5HE",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-zi2JsPOm5HE.json"
+ }
+}

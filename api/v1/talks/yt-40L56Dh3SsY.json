@@ -1,0 +1,32 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-40L56Dh3SsY",
+  "video_url": "https://www.youtube.com/watch?v=40L56Dh3SsY",
+  "platform": "youtube",
+  "title": "Blockchain fra A-Å - Jonas Foyn Therkelsen, Co-founder, Blockchangers",
+  "speakers": [
+   "Jonas Foyn Therkelsen"
+  ],
+  "event_name": null,
+  "event_url": null,
+  "calendar_event_id": null,
+  "city": null,
+  "country": "NO",
+  "date": null,
+  "published": "2018-06-12",
+  "duration": "PT37M10S",
+  "language": null,
+  "channel": "NTNU Accel",
+  "description": "Jonas Foyn Therkelsen, CTO of Blockchangers, gives an introduction to blockchain technology in a recording published by NTNU Accel.",
+  "source_url": "https://www.youtube.com/watch?v=40L56Dh3SsY&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-40L56Dh3SsY",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-40L56Dh3SsY.json"
+ }
+}

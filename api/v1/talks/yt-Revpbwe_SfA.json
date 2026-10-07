@@ -1,0 +1,30 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-Revpbwe_SfA",
+  "video_url": "https://www.youtube.com/watch?v=Revpbwe_SfA",
+  "platform": "youtube",
+  "title": "IOTA, Jaguar Land Rover and +CityxChange presenting at NTNU in Trondheim, Norway (28/8-19)",
+  "speakers": [],
+  "event_name": null,
+  "event_url": null,
+  "calendar_event_id": null,
+  "city": "Trondheim",
+  "country": "NO",
+  "date": "2019-08-28",
+  "published": "2019-08-31",
+  "duration": "PT1H12M37S",
+  "language": null,
+  "channel": "IOTA Norway",
+  "description": "IOTA, Jaguar Land Rover and +CityxChange present work on distributed ledgers for smart cities at NTNU in Trondheim on 28 August 2019.",
+  "source_url": "https://www.youtube.com/watch?v=Revpbwe_SfA&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-Revpbwe_SfA",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-Revpbwe_SfA.json"
+ }
+}

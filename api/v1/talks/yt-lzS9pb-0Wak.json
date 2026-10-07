@@ -1,0 +1,32 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-lzS9pb-0Wak",
+  "video_url": "https://www.youtube.com/watch?v=lzS9pb-0Wak",
+  "platform": "youtube",
+  "title": "Digital Assets in Norway with Norges Bank, EY, BitGate, Arcane Crypto, NBX and Matthew Bryce",
+  "speakers": [
+   "Matthew Bryce"
+  ],
+  "event_name": "Oslo Big Data Day 2019",
+  "event_url": null,
+  "calendar_event_id": null,
+  "city": "Oslo",
+  "country": "NO",
+  "date": null,
+  "published": "2019-03-29",
+  "duration": "PT37M15S",
+  "language": null,
+  "channel": "BitSpace",
+  "description": "A panel on digital assets in Norway at Oslo Big Data Day 2019, with Norges Bank, EY, BitGate, Arcane Crypto, Norwegian Block Exchange and Matthew Bryce of BitSpace.",
+  "source_url": "https://www.youtube.com/watch?v=lzS9pb-0Wak&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-lzS9pb-0Wak",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-lzS9pb-0Wak.json"
+ }
+}

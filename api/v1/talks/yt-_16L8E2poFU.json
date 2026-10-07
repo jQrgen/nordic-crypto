@@ -1,0 +1,30 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-_16L8E2poFU",
+  "video_url": "https://www.youtube.com/watch?v=_16L8E2poFU",
+  "platform": "youtube",
+  "title": "16.01.2020 Tieteiden yö rahamuseossa - Virtuaalivaluutat",
+  "speakers": [],
+  "event_name": "Tieteiden yö, Rahamuseo",
+  "event_url": null,
+  "calendar_event_id": null,
+  "city": null,
+  "country": "FI",
+  "date": "2020-01-16",
+  "published": "2020-01-24",
+  "duration": "PT27M19S",
+  "language": null,
+  "channel": "Suomen Pankki",
+  "description": "A lecture on virtual currencies at the Money Museum during Tieteiden yö on 16 January 2020, published by the Bank of Finland.",
+  "source_url": "https://www.youtube.com/watch?v=_16L8E2poFU&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-_16L8E2poFU",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-_16L8E2poFU.json"
+ }
+}

@@ -1,0 +1,30 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-ZJHTEXcyePQ",
+  "video_url": "https://www.youtube.com/watch?v=ZJHTEXcyePQ",
+  "platform": "youtube",
+  "title": "Nordic Blockchain Conference 2026: Market Abuse in Web3",
+  "speakers": [],
+  "event_name": "Nordic Blockchain Conference 2026",
+  "event_url": null,
+  "calendar_event_id": null,
+  "city": null,
+  "country": null,
+  "date": null,
+  "published": "2026-08-24",
+  "duration": "PT11M38S",
+  "language": null,
+  "channel": "DAAvern",
+  "description": "A talk at Nordic Blockchain Conference 2026 on market-abuse rules for crypto assets.",
+  "source_url": "https://www.youtube.com/watch?v=ZJHTEXcyePQ&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-ZJHTEXcyePQ",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-ZJHTEXcyePQ.json"
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-V5qDo7Qd3Yk",
+  "video_url": "https://www.youtube.com/watch?v=V5qDo7Qd3Yk",
+  "platform": "youtube",
+  "title": "Introduction to Blockchain @ Chalmers Entrepreneurship Society - CES",
+  "speakers": [
+   "Vedran Maslic"
+  ],
+  "event_name": "Chalmers Entrepreneurship Society",
+  "event_url": null,
+  "calendar_event_id": null,
+  "city": null,
+  "country": "SE",
+  "date": null,
+  "published": "2017-11-30",
+  "duration": "PT57M57S",
+  "language": null,
+  "channel": "Vedran Maslic",
+  "description": "Vedran Maslic gives an introduction to blockchain for the Chalmers Entrepreneurship Society.",
+  "source_url": "https://www.youtube.com/watch?v=V5qDo7Qd3Yk&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-V5qDo7Qd3Yk",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-V5qDo7Qd3Yk.json"
+ }
+}

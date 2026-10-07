@@ -1,0 +1,34 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-JaxgfxpmUmk",
+  "video_url": "https://www.youtube.com/watch?v=JaxgfxpmUmk",
+  "platform": "youtube",
+  "title": "What gives cryptocurrencies value?",
+  "speakers": [
+   "Torbjørn Bull Jenssen",
+   "Asker Voldsgaard",
+   "Morten Clausen"
+  ],
+  "event_name": "Rethinking Finance",
+  "event_url": null,
+  "calendar_event_id": null,
+  "city": "Oslo",
+  "country": "NO",
+  "date": null,
+  "published": "2018-04-26",
+  "duration": "PT2H1M52S",
+  "language": null,
+  "channel": "Rethinking Economics Norge",
+  "description": "Torbjørn Bull Jenssen and Asker Voldsgaard, with moderator Morten Clausen, discuss what gives cryptocurrencies their value at the Rethinking Finance conference in Oslo.",
+  "source_url": "https://www.youtube.com/watch?v=JaxgfxpmUmk&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-JaxgfxpmUmk",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-JaxgfxpmUmk.json"
+ }
+}

@@ -1,0 +1,35 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-n5gpUEGfQV4",
+  "video_url": "https://www.youtube.com/watch?v=n5gpUEGfQV4",
+  "platform": "youtube",
+  "title": "Deep Dive : Bitcoin Adoption in Practice | Oslo Freedom Forum 2026",
+  "speakers": [
+   "Abubakar Nur Khalil",
+   "Anaïse Kanimba",
+   "Obi Nwosu",
+   "Sabina Waithira Gitau"
+  ],
+  "event_name": "Oslo Freedom Forum 2026",
+  "event_url": "https://oslofreedomforum.com/",
+  "calendar_event_id": null,
+  "city": "Oslo",
+  "country": "NO",
+  "date": null,
+  "published": "2026-06-09",
+  "duration": "PT14M3S",
+  "language": null,
+  "channel": "Oslo Freedom Forum",
+  "description": "Abubakar Nur Khalil, Anaïse Kanimba, Obi Nwosu and Sabina Waithira Gitau discuss bitcoin adoption in practice at Oslo Freedom Forum 2026.",
+  "source_url": "https://www.youtube.com/watch?v=n5gpUEGfQV4&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-n5gpUEGfQV4",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-n5gpUEGfQV4.json"
+ }
+}

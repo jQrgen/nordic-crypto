@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-aYlA0ADZbQc",
+  "video_url": "https://www.youtube.com/watch?v=aYlA0ADZbQc",
+  "platform": "youtube",
+  "title": "Elizabeth Stark & Ben Perrin | How Bitcoin and AI Expand Freedom Worldwide | Fireside Chat",
+  "speakers": [
+   "Elizabeth Stark",
+   "Ben Perrin"
+  ],
+  "event_name": "Oslo Freedom Forum 2026",
+  "event_url": "https://oslofreedomforum.com/",
+  "calendar_event_id": null,
+  "city": "Oslo",
+  "country": "NO",
+  "date": null,
+  "published": "2026-06-03",
+  "duration": "PT12M53S",
+  "language": null,
+  "channel": "Oslo Freedom Forum",
+  "description": "Elizabeth Stark and Ben Perrin talk on the Freedom Tech track at Oslo Freedom Forum 2026 about bitcoin, open tools and personal freedom.",
+  "source_url": "https://www.youtube.com/watch?v=aYlA0ADZbQc&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-aYlA0ADZbQc",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-aYlA0ADZbQc.json"
+ }
+}

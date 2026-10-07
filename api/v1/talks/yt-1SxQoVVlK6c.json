@@ -1,0 +1,32 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-1SxQoVVlK6c",
+  "video_url": "https://www.youtube.com/watch?v=1SxQoVVlK6c",
+  "platform": "youtube",
+  "title": "Joe Bryan: What's The Problem? ⚡ Bitcoin Copenhagen 2026",
+  "speakers": [
+   "Joe Bryan"
+  ],
+  "event_name": "Bitcoin Copenhagen 2026",
+  "event_url": "https://bitcoincopenhagen.dk/",
+  "calendar_event_id": null,
+  "city": "Copenhagen",
+  "country": "DK",
+  "date": null,
+  "published": "2026-03-29",
+  "duration": "PT37M58S",
+  "language": null,
+  "channel": "Bitcoin Copenhagen",
+  "description": "Joe Bryan speaks at Bitcoin Copenhagen 2026 about problems he traces to the quality of money.",
+  "source_url": "https://www.youtube.com/watch?v=1SxQoVVlK6c&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-1SxQoVVlK6c",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-1SxQoVVlK6c.json"
+ }
+}

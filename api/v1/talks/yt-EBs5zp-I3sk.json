@@ -1,0 +1,32 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-EBs5zp-I3sk",
+  "video_url": "https://www.youtube.com/watch?v=EBs5zp-I3sk",
+  "platform": "youtube",
+  "title": "Blockchain The Holy Grail of Fintech | Nicolas Cary | Slush 2016",
+  "speakers": [
+   "Nic Cary"
+  ],
+  "event_name": "Slush 2016",
+  "event_url": "http://www.slush.org/",
+  "calendar_event_id": null,
+  "city": "Helsinki",
+  "country": "FI",
+  "date": null,
+  "published": "2016-12-06",
+  "duration": "PT13M21S",
+  "language": null,
+  "channel": "Slush",
+  "description": "Nic Cary, co-founder of Blockchain, speaks at Slush 2016 in Helsinki about blockchain in financial technology.",
+  "source_url": "https://www.youtube.com/watch?v=EBs5zp-I3sk&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-EBs5zp-I3sk",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-EBs5zp-I3sk.json"
+ }
+}

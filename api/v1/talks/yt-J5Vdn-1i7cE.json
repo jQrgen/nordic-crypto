@@ -1,0 +1,30 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-J5Vdn-1i7cE",
+  "video_url": "https://www.youtube.com/watch?v=J5Vdn-1i7cE",
+  "platform": "youtube",
+  "title": "Helsinki Blockchain Summit - IoT and Blockchain part 2",
+  "speakers": [],
+  "event_name": "Helsinki Blockchain Summit",
+  "event_url": null,
+  "calendar_event_id": null,
+  "city": "Helsinki",
+  "country": "FI",
+  "date": null,
+  "published": "2018-12-13",
+  "duration": "PT5M53S",
+  "language": null,
+  "channel": "Thinklair",
+  "description": "Part 2 of a talk at Helsinki Blockchain Summit on what blockchains can add to the Internet of Things.",
+  "source_url": "https://www.youtube.com/watch?v=J5Vdn-1i7cE&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-J5Vdn-1i7cE",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-J5Vdn-1i7cE.json"
+ }
+}

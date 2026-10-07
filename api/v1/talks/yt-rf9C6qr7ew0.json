@@ -1,0 +1,32 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-rf9C6qr7ew0",
+  "video_url": "https://www.youtube.com/watch?v=rf9C6qr7ew0",
+  "platform": "youtube",
+  "title": "Enterprise landscape across Ethereum. Oslo Blockchain Day",
+  "speakers": [
+   "John Lilic"
+  ],
+  "event_name": "Oslo Blockchain Day",
+  "event_url": null,
+  "calendar_event_id": null,
+  "city": "Oslo",
+  "country": "NO",
+  "date": "2016-04-19",
+  "published": "2016-04-26",
+  "duration": "PT12M59S",
+  "language": null,
+  "channel": "Blockchangers",
+  "description": "John Lilic speaks at Oslo Blockchain Day, a conference at Oslo Science Park in Oslo on 19 April 2016, about enterprise use of Ethereum.",
+  "source_url": "https://www.youtube.com/watch?v=rf9C6qr7ew0&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-rf9C6qr7ew0",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-rf9C6qr7ew0.json"
+ }
+}

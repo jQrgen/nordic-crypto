@@ -1,0 +1,32 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-M8_wI2rSz9U",
+  "video_url": "https://www.youtube.com/watch?v=M8_wI2rSz9U",
+  "platform": "youtube",
+  "title": "Monerium og DeFi - Bálkakeðjur á miðvikudögum",
+  "speakers": [
+   "Gísli Kristjánsson"
+  ],
+  "event_name": "Bálkakeðjur á miðvikudögum",
+  "event_url": null,
+  "calendar_event_id": null,
+  "city": null,
+  "country": "IS",
+  "date": null,
+  "published": "2020-10-07",
+  "duration": "PT56M6S",
+  "language": null,
+  "channel": "Icelandic Blockchain Foundation",
+  "description": "Gísli Kristjánsson lectures on Monerium and decentralized finance in Bálkakeðjur á miðvikudögum, a public lecture series that began at the University of Iceland on 9 September 2020.",
+  "source_url": "https://www.youtube.com/watch?v=M8_wI2rSz9U&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-M8_wI2rSz9U",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-M8_wI2rSz9U.json"
+ }
+}

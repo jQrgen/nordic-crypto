@@ -1,0 +1,32 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-L1xCEyn2a8s",
+  "video_url": "https://www.youtube.com/watch?v=L1xCEyn2a8s",
+  "platform": "youtube",
+  "title": "Vinay Gupta - Oslo Blockchain Day - Merging the Physical and the Digital using blockchains",
+  "speakers": [
+   "Vinay Gupta"
+  ],
+  "event_name": "Oslo Blockchain Day",
+  "event_url": null,
+  "calendar_event_id": null,
+  "city": "Oslo",
+  "country": "NO",
+  "date": null,
+  "published": "2019-05-04",
+  "duration": "PT29M0S",
+  "language": null,
+  "channel": "Vinay Gupta",
+  "description": "Vinay Gupta speaks at Oslo Blockchain Day about using blockchains to connect physical things with digital records.",
+  "source_url": "https://www.youtube.com/watch?v=L1xCEyn2a8s&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-L1xCEyn2a8s",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-L1xCEyn2a8s.json"
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-jxRBL4iY0bM",
+  "video_url": "https://www.youtube.com/watch?v=jxRBL4iY0bM",
+  "platform": "youtube",
+  "title": "From Bitcoins to Banks, An Evolutionary Journey of Trustless Networks. Oslo Blockchain Day",
+  "speakers": [
+   "Burak Yetiskin"
+  ],
+  "event_name": "Oslo Blockchain Day",
+  "event_url": null,
+  "calendar_event_id": null,
+  "city": "Oslo",
+  "country": "NO",
+  "date": "2016-04-19",
+  "published": "2016-05-03",
+  "duration": "PT47M41S",
+  "language": null,
+  "channel": "Blockchangers",
+  "description": "Burak Yetiskin speaks at Oslo Blockchain Day, a conference at Oslo Science Park in Oslo on 19 April 2016, about trustless networks, from bitcoin toward banks.",
+  "source_url": "https://www.youtube.com/watch?v=jxRBL4iY0bM&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-jxRBL4iY0bM",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-jxRBL4iY0bM.json"
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-40-zccLg7rw",
+  "video_url": "https://www.youtube.com/watch?v=40-zccLg7rw",
+  "platform": "youtube",
+  "title": "Overview of European blockchain start-ups. Oslo Blockchain Day",
+  "speakers": [
+   "Daniel Grassinger"
+  ],
+  "event_name": "Oslo Blockchain Day",
+  "event_url": null,
+  "calendar_event_id": null,
+  "city": "Oslo",
+  "country": "NO",
+  "date": "2016-04-19",
+  "published": "2016-04-28",
+  "duration": "PT18M52S",
+  "language": null,
+  "channel": "Blockchangers",
+  "description": "Daniel Grassinger speaks at Oslo Blockchain Day, a conference at Oslo Science Park in Oslo on 19 April 2016, about European blockchain start-ups.",
+  "source_url": "https://www.youtube.com/watch?v=40-zccLg7rw&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-40-zccLg7rw",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-40-zccLg7rw.json"
+ }
+}

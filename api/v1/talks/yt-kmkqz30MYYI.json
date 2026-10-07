@@ -1,0 +1,32 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-kmkqz30MYYI",
+  "video_url": "https://www.youtube.com/watch?v=kmkqz30MYYI",
+  "platform": "youtube",
+  "title": "Sýn fjárfestis á bálkakeðjur - Bálkakeðjur á miðvikudögum",
+  "speakers": [
+   "Helga Valfells"
+  ],
+  "event_name": "Bálkakeðjur á miðvikudögum",
+  "event_url": null,
+  "calendar_event_id": null,
+  "city": null,
+  "country": "IS",
+  "date": null,
+  "published": "2020-10-07",
+  "duration": "PT43M24S",
+  "language": null,
+  "channel": "Icelandic Blockchain Foundation",
+  "description": "Helga Valfells lectures on an investor's view of blockchains in Bálkakeðjur á miðvikudögum, a public lecture series that began at the University of Iceland on 9 September 2020.",
+  "source_url": "https://www.youtube.com/watch?v=kmkqz30MYYI&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-kmkqz30MYYI",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-kmkqz30MYYI.json"
+ }
+}

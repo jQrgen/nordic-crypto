@@ -1,0 +1,34 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-f4ePT_GRGUk",
+  "video_url": "https://www.youtube.com/watch?v=f4ePT_GRGUk",
+  "platform": "youtube",
+  "title": "The Rise of Stablecoins in Emerging Markets and Authoritarian Regimes | 2022 Oslo Freedom Forum",
+  "speakers": [
+   "Alejandro Machado",
+   "Paolo Ardoino",
+   "Ire Aderinokun"
+  ],
+  "event_name": "Oslo Freedom Forum 2022",
+  "event_url": "https://oslofreedomforum.com/",
+  "calendar_event_id": null,
+  "city": "Oslo",
+  "country": "NO",
+  "date": null,
+  "published": "2022-07-17",
+  "duration": "PT17M51S",
+  "language": null,
+  "channel": "Oslo Freedom Forum",
+  "description": "Alejandro Machado, Paolo Ardoino and Ire Aderinokun discuss stablecoins at the 2022 Oslo Freedom Forum.",
+  "source_url": "https://www.youtube.com/watch?v=f4ePT_GRGUk&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-f4ePT_GRGUk",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-f4ePT_GRGUk.json"
+ }
+}

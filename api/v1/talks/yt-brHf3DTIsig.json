@@ -1,0 +1,32 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-07T21:33:28+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-brHf3DTIsig",
+  "video_url": "https://www.youtube.com/watch?v=brHf3DTIsig",
+  "platform": "youtube",
+  "title": "Rebuilding the music industry on the blockchain. Oslo Blockchain Day",
+  "speakers": [
+   "Phil Barry"
+  ],
+  "event_name": "Oslo Blockchain Day",
+  "event_url": null,
+  "calendar_event_id": null,
+  "city": "Oslo",
+  "country": "NO",
+  "date": "2016-04-19",
+  "published": "2016-04-30",
+  "duration": "PT9M31S",
+  "language": null,
+  "channel": "Blockchangers",
+  "description": "Phil Barry speaks at Oslo Blockchain Day, a conference at Oslo Science Park in Oslo on 19 April 2016, about rebuilding parts of the music industry on a blockchain.",
+  "source_url": "https://www.youtube.com/watch?v=brHf3DTIsig&hl=en",
+  "retrieved_at": "2026-10-07T20:57:16Z",
+  "added_at": "2026-10-07T20:57:16Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-brHf3DTIsig",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-brHf3DTIsig.json"
+ }
+}
