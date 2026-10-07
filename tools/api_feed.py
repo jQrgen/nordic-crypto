@@ -22,6 +22,7 @@ import html
 import json
 import os
 import re
+import shutil
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -323,7 +324,7 @@ class Feed:
         import coverage as coverage_mod
         rows = coverage_mod.all_outlets(item)
         def api_outlet(row):
-            logo = self.media(source_logos.for_source(row.get("outlet"), preview=self.preview), "logo")
+            logo = self.logo(source_logos.for_source(row.get("outlet"), preview=self.preview))
             rec = {
                 "outlet": row.get("outlet"),
                 "outlet_name": row.get("outlet_name"),
@@ -351,7 +352,7 @@ class Feed:
             "title_en": item.get("title_en"),
             "source": source,
             "source_name": source_name,
-            "source_logo": self.media(source_logos.for_source(source, preview=self.preview), "logo"),
+            "source_logo": self.logo(source_logos.for_source(source, preview=self.preview)),
             "source_note": note,
             "country": item.get("country"),
             "language": item.get("language"),
@@ -368,6 +369,8 @@ class Feed:
             "sources": outlets,
             "coverage": coverage_mod.breakdown(rows),
         }
+        # Raster URL of the same logo (PNG or WebP, never SVG) for apps that cannot draw SVG (SwiftUI AsyncImage).
+        out["source_logo_url"] = None if own else (out["source_logo"] or {}).get("raster_url")
         if self.preview:
             out["status"] = "pending" if status not in ("published", "owner") else status
         return out
@@ -426,6 +429,27 @@ class Feed:
             "license_url": raw.get("license_url"),
             "credit": raw.get("source") or raw.get("origin"),
         }
+
+    def logo(self, rec):
+        """News-outlet logo from source_logos.for_source(): the media fields plus raster_url.
+
+        raster_url is a PNG or WebP (never SVG) so SwiftUI AsyncImage can draw it: the PNG rendering of an SVG
+        (logos.json "raster"), or the WebP itself. Null when an SVG has no rendering yet. The original and the
+        raster are copied into the site, so every URL here resolves."""
+        out = self.media(rec, "logo")
+        if not out:
+            return None
+        raster = rec.get("raster")
+        out["raster_url"] = self.abs(raster) if raster else None
+        if self.site:
+            for f in (rec.get("file"), raster):
+                if not f or str(f).startswith("http"):
+                    continue
+                src, dst = os.path.join(ROOT, f), os.path.join(self.site, f)
+                if os.path.exists(src) and not os.path.exists(dst):
+                    os.makedirs(os.path.dirname(dst), exist_ok=True)
+                    shutil.copy(src, dst)
+        return out
 
     def entity(self, raw):
         eid = safe_id(raw.get("id"))
@@ -730,6 +754,12 @@ def _sources(cfg):
             "status": s.get("status") or "",
         })
     return outlets, search, events
+
+
+SOURCE_LOGO_NOTE = ("logo / source_logo is the outlet's logo (file_url is the original, SVG or WebP). logo_url (sources) and "
+                    "source_logo_url (news) are the same logo as a raster image, PNG or WebP, never SVG, for apps that cannot draw SVG. "
+                    "Logos are the publishers' own trademarks, shown only to identify the source of a headline. "
+                    "They are null until the editor has checked the logo.")
 
 
 def _rules(preview, base):
@@ -1085,7 +1115,8 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
 
     outlets, search, event_sources = _sources(sources_cfg or {})
     for row in outlets:
-        row["logo"] = feed.media(source_logos.for_source(row.get("id"), preview=preview), "logo")
+        row["logo"] = feed.logo(source_logos.for_source(row.get("id"), preview=preview))
+        row["logo_url"] = (row["logo"] or {}).get("raster_url")
     rules = _rules(preview, feed.base)
     letters = _newsletters(feed)
     exported_at, articles = _archive(feed)
@@ -1112,7 +1143,7 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
         "api/v1/news.json",
         "Published news and our own stories, newest first.",
         "NewsList",
-        feed.env(updated=news_updated, language_note=lang_note, count=len(news), items=news),
+        feed.env(updated=news_updated, language_note=lang_note, logo_note=SOURCE_LOGO_NOTE, count=len(news), items=news),
         example=f"api/v1/news/{news[0]['id']}.json" if news else None,
         item_template="api/v1/news/{id}.json",
     )
@@ -1196,6 +1227,7 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
                    min_delay_seconds=(sources_cfg or {}).get("min_delay_seconds"),
                    keyword_note=i18n.t("en", "src_kw"),
                    kaupr="Kaupr (kaupr.io) is one of the news sources. It is never a sponsor.",
+                   logo_note=SOURCE_LOGO_NOTE,
                    count=len(outlets),
                    sources=outlets,
                    search=search,
@@ -1431,6 +1463,43 @@ def openapi(feed, index):
 
 def schemas():
     i18n_obj = {"type": "object", "additionalProperties": {"type": "string"}, "description": "Keys are site language codes: nn, nb, sv, da, fi, is. English lives in the sibling field."}
+    logo_url_desc = ("Absolute URL of the news source's logo as a raster image (PNG or WebP, never SVG, so SwiftUI AsyncImage can draw it) on the GitHub Pages base. Null until the editor has checked "
+                     "the logo (review ok); a preview build also lists pending logos. The publisher's trademark, shown only to identify the source.")
+    source_logo = {
+        "type": "object", "nullable": True,
+        "description": "Outlet logo for this source id (via outlet / _source_alias in assets/img/logos/logos.json). Null when no checked image is on file; show the name only. Same fields as a who's who logo in images.json, plus raster_url.",
+        "properties": {
+            "kind": {"type": "string", "enum": ["logo"]},
+            "file_url": {"type": "string", "description": "The original file as fetched: SVG, or WebP for raster logos."},
+            "raster_url": {"type": "string", "nullable": True, "description": "PNG rendering of an SVG (256 px on the long side, transparent), or the WebP itself. Same value as logo_url."},
+            "source_url": {"type": "string", "nullable": True, "description": "Wikimedia Commons file page, or the image URL on the publisher's site."},
+            "author": {"type": "string", "nullable": True},
+            "license": {"type": "string", "nullable": True, "description": "Commons licence, or \"Publisher's own logo, used only to identify the source of a headline\"."},
+            "license_url": {"type": "string", "nullable": True},
+            "credit": {"type": "string", "nullable": True, "description": "Wikimedia Commons or Official website."},
+        },
+    }
+    source_row = {
+        "type": "object",
+        "required": ["id", "name", "country"],
+        "properties": {
+            "id": {"type": "string"},
+            "name": {"type": "string"},
+            "country": {"type": "string"},
+            "kind": {"type": "string", "nullable": True},
+            "url": {"type": "string", "nullable": True},
+            "type": {"type": "string"},
+            "paywall": {"type": "boolean"},
+            "enabled": {"type": "boolean"},
+            "status": {"type": "string"},
+            "verified": {"type": "string", "nullable": True},
+            "language": {"type": "string", "nullable": True},
+            "feed": {"type": "string", "nullable": True},
+            "source_note": {"type": "string", "nullable": True},
+            "logo_url": {"type": "string", "nullable": True, "description": logo_url_desc},
+            "logo": source_logo,
+        },
+    }
     news_item = {
         "type": "object",
         "required": ["id", "title", "published", "api_url"],
@@ -1443,18 +1512,7 @@ def schemas():
             "title_en": {"type": "string", "nullable": True},
             "source": {"type": "string", "description": "Source id from sources.json."},
             "source_name": {"type": "string"},
-            "source_logo": {
-                "type": "object",
-                "nullable": True,
-                "description": "Outlet logo for this source id. Null when no checked image is on file; show the name only. file_url is the image. The id → file map is assets/img/logos/logos.json.",
-                "properties": {
-                    "kind": {"type": "string"},
-                    "file_url": {"type": "string"},
-                    "source_url": {"type": "string"},
-                    "license": {"type": "string", "nullable": True},
-                    "credit": {"type": "string", "nullable": True},
-                },
-            },
+            "source_logo": source_logo,
             "source_note": {"type": "string", "nullable": True},
             "country": {"type": "string"},
             "language": {"type": "string"},
@@ -1466,6 +1524,7 @@ def schemas():
             "paywall": {"type": "boolean"},
             "links": {"type": "array", "items": {"type": "object"}},
             "own_story": {"type": "boolean"},
+            "source_logo_url": {"type": "string", "nullable": True, "description": logo_url_desc + " Same as source_logo.raster_url."},
             "primary_source": {"$ref": "#/components/schemas/NewsOutlet"},
             "also_covered_by": {"type": "array", "items": {"$ref": "#/components/schemas/NewsOutlet"}, "description": "Other outlets on the same event. Empty when only the primary covered it."},
             "sources": {"type": "array", "items": {"$ref": "#/components/schemas/NewsOutlet"}, "description": "Primary first, then also_covered_by."},
@@ -1487,7 +1546,7 @@ def schemas():
             "source_type": {"type": "string", "enum": ["national", "regional", "official", "international"], "description": "national, regional (regional and local), official (justice and official), or international."},
             "paywall": {"type": "boolean"},
             "primary": {"type": "boolean"},
-            "logo": {"type": "object", "nullable": True},
+            "logo": source_logo,
             "source_note": {"type": "string", "nullable": True, "description": "Set when the outlet is Kaupr: a news source only, never a sponsor."},
         },
     }
@@ -1587,7 +1646,7 @@ def schemas():
         "NewsOutlet": news_outlet,
         "NewsCoverage": news_coverage,
         "NewsItem": news_item,
-        "NewsList": wrap("NewsList", {"count": {"type": "integer"}, "items": {"type": "array", "items": news_item}, "updated": {"type": "string", "nullable": True}}),
+        "NewsList": wrap("NewsList", {"count": {"type": "integer"}, "items": {"type": "array", "items": news_item}, "updated": {"type": "string", "nullable": True}, "logo_note": {"type": "string"}}),
         "TopicIndex": wrap("TopicIndex", {"topics": {"type": "array"}}),
         "Event": event_item,
         "EventList": wrap("EventList", {"count": {"type": "integer"}, "events": {"type": "array", "items": event_item}}),
@@ -1595,7 +1654,8 @@ def schemas():
         "TalkList": wrap("TalkList", {"count": {"type": "integer"}, "talks": {"type": "array", "items": talk_item}}),
         "NewsletterIssue": issue,
         "NewsletterList": wrap("NewsletterList", {"count": {"type": "integer"}, "issues": {"type": "array", "items": issue}}),
-        "SourceCatalogue": wrap("SourceCatalogue", {"sources": {"type": "array"}, "search": {"type": "array"}, "event_sources": {"type": "array"}}),
+        "Source": source_row,
+        "SourceCatalogue": wrap("SourceCatalogue", {"logo_note": {"type": "string"}, "sources": {"type": "array", "items": source_row}, "search": {"type": "array"}, "event_sources": {"type": "array"}}),
         "Academia": wrap("Academia", {"courses": {"type": "array"}, "groups": {"type": "array"}, "publications": {"type": "array"}, "research": {"type": "array"}}),
         "AcademiaSection": wrap("AcademiaSection", {"section": {"type": "string"}, "items": {"type": "array"}}),
         "AcademiaItem": wrap("AcademiaItem", {"item": {"type": "object"}}),
@@ -1853,6 +1913,15 @@ def llms_txt(feed, index):
         "A single newsletter issue is api/v1/newsletters/{id}.json and includes plain text and HTML. "
         "Country slices: api/v1/news/by-country/NO.json (also SE, DK, FI, IS).",
         "",
+        "## Source logos",
+        "",
+        f"Each outlet in {feed.abs('api/v1/sources.json')} has logo_url (absolute PNG or WebP URL, never SVG, or null) and logo "
+        "(kind, file_url (the original, SVG or WebP), raster_url (same as logo_url), source_url, author, license, license_url, credit, or null). "
+        "Each news item has source_logo_url, the logo of the outlet that published the headline. "
+        "Logos come from Wikimedia Commons (with licence and author) or the publisher's own site. "
+        "They are the publishers' trademarks, shown only to identify the source of a headline. "
+        "A logo is null until the editor has checked it.",
+        "",
         "## Talks",
         "",
         "Public talks on bitcoin, cryptocurrencies and blockchain in the Nordic countries, newest first. "
@@ -1958,6 +2027,8 @@ curl -fsS {html.escape(b)}api/v1/markets/aggregated.json</pre>
 <h2>Languages</h2>
 <p>English is the default field (<code>summary</code>, <code>title</code>, <code>text</code>). Translations that we have published sit in <code>summary_i18n</code>, <code>title_i18n</code>, <code>subtitle_i18n</code>, <code>note_i18n</code>, <code>text_i18n</code> and <code>about_i18n</code>, keyed by <code>nn</code>, <code>nb</code>, <code>sv</code>, <code>da</code>, <code>fi</code> and <code>is</code>. Other site languages use the English field until a translation is published. Headlines from other outlets stay in the original language. Dates are ISO 8601.</p>
 <p><a href="{html.escape(b)}api/v1/languages.json"><code>/api/v1/languages.json</code></a> lists every site language with <code>code</code>, <code>native_name</code>, <code>english_name</code>, <code>rtl</code>, <code>html_lang</code> and <code>home</code>. <a href="{html.escape(b)}api/v1/geo-language.json"><code>/api/v1/geo-language.json</code></a> is the country-to-language guess used on a first visit. The IP country comes from the tipworker <code>GET /api/geo</code> (Cloudflare <code>request.cf.country</code>). Nothing is stored. The <code>nc_lang</code> cookie, set by the language switcher, always wins.</p>
+<h2>Source logos</h2>
+<p>Each outlet in <a href="{html.escape(b)}api/v1/sources.json"><code>/api/v1/sources.json</code></a> has <code>logo_url</code> (absolute PNG or WebP URL, never SVG, or <code>null</code>) and <code>logo</code> (<code>kind</code>, <code>file_url</code> (the original, SVG or WebP), <code>raster_url</code> (same as <code>logo_url</code>), <code>source_url</code>, <code>author</code>, <code>license</code>, <code>license_url</code>, <code>credit</code>, or <code>null</code>). Each news item has <code>source_logo_url</code>, so an app can show the outlet's logo next to the headline. Logos come from Wikimedia Commons (with the licence) or the publisher's own site. They are the publishers' trademarks, shown only to identify the source of a headline. A logo stays <code>null</code> until the editor has checked it.</p>
 <h2>CORS</h2>
 <p>GitHub Pages sends <code>Access-Control-Allow-Origin: *</code> on these files, so a page on another site can <code>fetch()</code> them. GitHub Pages does not apply a custom headers file. Use the <code>.json</code> file name; opening a directory does not return the JSON.</p>
 <h2>Editorial</h2>

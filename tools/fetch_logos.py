@@ -162,4 +162,5 @@ def main():
         rec = fetch_logo(job["id"], job["name"], job["url"])
         if rec: store(man, job["id"], rec, today)
         else: print("none", job["id"])
-main()
+if __name__ == "__main__":  # tools/fetch_source_logos.py imports the helpers above
+    main()
