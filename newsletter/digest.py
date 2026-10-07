@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Weekly newsletter digest for Nordic Crypto, generated ONLY from editor-approved stories: it reads data/news.json of a
 PUBLIC build (default site/; refuses a preview build), so nothing pending or rejected can end up in a newsletter.
-Writes Markdown (paste into the Substack editor), plain text and simple email HTML to newsletter/out/ (gitignored).
-Sends nothing.
+Writes Markdown, plain text and simple email HTML to newsletter/out/ (gitignored).
+Sends nothing. newsletter/send_issue.py mails a file from here, or a published issue, to the private list.
 Usage: .venv/bin/python newsletter/digest.py [--lang en|nn|nb|sv|da|fi|is] [--days 7] [--until YYYY-MM-DD] [--site-dir site]
 Language rule: Norwegian (nn/nb) text says «kunstig intelligens», never AI or KI (checked before writing)."""
 import argparse, datetime as dt, html, json, os, re, sys
@@ -10,36 +10,44 @@ from zoneinfo import ZoneInfo
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); sys.path.insert(0, ROOT)
 import i18n
 import site_url
+from tools.headlines import card_headline
 BASE = site_url.BASE; OSLO = ZoneInfo("Europe/Oslo")
 T = {
  "en": dict(h="Nordic Crypto weekly", intro="The week’s crypto, bitcoin and blockchain stories from the Nordics that our editor has approved. Each item links to the original source.",
             orig="original", more="All stories, the calendar and the who’s who", none="No approved stories this week.",
             foot="Nordic Crypto is run by Jørgen S. Notland (jQrgen), Oslo. Made with the help of artificial intelligence, with human editors (jQrgen and the Nordic Crypto editor). Not investment advice.",
-            why="You get this email because you subscribed to the Nordic Crypto newsletter."),
+            why="You get this email because you subscribed to the Nordic Crypto newsletter.",
+            unsub="Unsubscribe", sign="The Nordic Crypto team"),
  "nn": dict(h="Nordic Crypto – veka som gjekk", intro="Saker om krypto, bitcoin og blokkjede frå Norden som redaktøren vår har godkjent denne veka. Kvar sak lenkjer til kjelda.",
             orig="original", more="Alle sakene, kalenderen og kven er kven", none="Ingen godkjende saker denne veka.",
             foot="Nordic Crypto blir driven av Jørgen S. Notland (jQrgen), Oslo. Laga med hjelp av kunstig intelligens, med menneskelege redaktørar (jQrgen og Nordic Crypto-redaktøren). Ikkje investeringsråd.",
-            why="Du får denne e-posten fordi du har abonnert på nyheitsbrevet frå Nordic Crypto."),
+            why="Du får denne e-posten fordi du har abonnert på nyheitsbrevet frå Nordic Crypto.",
+            unsub="Meld deg av", sign="The Nordic Crypto team"),
  "nb": dict(h="Nordic Crypto – uka som gikk", intro="Saker om krypto, bitcoin og blokkjede fra Norden som redaktøren vår har godkjent denne uka. Hver sak lenker til kilden.",
             orig="original", more="Alle sakene, kalenderen og hvem er hvem", none="Ingen godkjente saker denne uka.",
             foot="Nordic Crypto drives av Jørgen S. Notland (jQrgen), Oslo. Laget med hjelp av kunstig intelligens, med menneskelige redaktører (jQrgen og Nordic Crypto-redaktøren). Ikke investeringsråd.",
-            why="Du får denne e-posten fordi du har abonnert på nyhetsbrevet fra Nordic Crypto."),
+            why="Du får denne e-posten fordi du har abonnert på nyhetsbrevet fra Nordic Crypto.",
+            unsub="Meld deg av", sign="The Nordic Crypto team"),
  "sv": dict(h="Nordic Crypto – veckan som gick", intro="Veckans nyheter om krypto, bitcoin och blockkedjor från Norden som vår redaktör har godkänt. Varje nyhet länkar till källan.",
             orig="original", more="Alla nyheter, kalendern och vem är vem", none="Inga godkända nyheter den här veckan.",
             foot="Nordic Crypto drivs av Jørgen S. Notland (jQrgen), Oslo. Gjort med hjälp av artificiell intelligens, med mänskliga redaktörer (jQrgen och Nordic Crypto-redaktören). Inga investeringsråd.",
-            why="Du får det här mejlet eftersom du prenumererar på Nordic Cryptos nyhetsbrev."),
+            why="Du får det här mejlet eftersom du prenumererar på Nordic Cryptos nyhetsbrev.",
+            unsub="Avsluta prenumerationen", sign="The Nordic Crypto team"),
  "da": dict(h="Nordic Crypto – ugen der gik", intro="Ugens historier om krypto, bitcoin og blockchain fra Norden, som vores redaktør har godkendt. Hver historie linker til kilden.",
             orig="original", more="Alle historier, kalenderen og hvem er hvem", none="Ingen godkendte historier i denne uge.",
             foot="Nordic Crypto drives af Jørgen S. Notland (jQrgen), Oslo. Lavet med hjælp fra kunstig intelligens, med menneskelige redaktører (jQrgen og Nordic Crypto-redaktøren). Ikke investeringsrådgivning.",
-            why="Du får denne e-mail, fordi du abonnerer på Nordic Cryptos nyhedsbrev."),
+            why="Du får denne e-mail, fordi du abonnerer på Nordic Cryptos nyhedsbrev.",
+            unsub="Afmeld", sign="The Nordic Crypto team"),
  "fi": dict(h="Nordic Crypto – viikon uutiset", intro="Viikon krypto-, bitcoin- ja lohkoketjuuutiset Pohjoismaista, jotka toimittajamme on hyväksynyt. Jokainen uutinen linkittää lähteeseen.",
             orig="alkuperäinen", more="Kaikki uutiset, kalenteri ja kuka on kuka", none="Tällä viikolla ei hyväksyttyjä uutisia.",
             foot="Nordic Cryptoa pitää Jørgen S. Notland (jQrgen), Oslo. Tehty tekoälyn avulla, ihmistoimittajina jQrgen ja Nordic Crypton toimittaja. Ei sijoitusneuvontaa.",
-            why="Saat tämän viestin, koska olet tilannut Nordic Crypton uutiskirjeen."),
+            why="Saat tämän viestin, koska olet tilannut Nordic Crypton uutiskirjeen.",
+            unsub="Peru tilaus", sign="The Nordic Crypto team"),
  "is": dict(h="Nordic Crypto – vikan sem leið", intro="Fréttir vikunnar um kriptó, bitcoin og bálkakeðjur frá Norðurlöndum sem ritstjórinn okkar hefur samþykkt. Hver frétt tengir á heimildina.",
             orig="upprunalegt", more="Allar fréttir, dagatalið og hver er hver", none="Engar samþykktar fréttir þessa vikuna.",
             foot="Nordic Crypto er rekið af Jørgen S. Notland (jQrgen), Osló. Unnið með aðstoð gervigreindar, með mannlegum ritstjórum (jQrgen og ritstjóra Nordic Crypto). Ekki fjárfestingarráðgjöf.",
-            why="Þú færð þennan póst vegna þess að þú ert áskrifandi að fréttabréfi Nordic Crypto."),
+            why="Þú færð þennan póst vegna þess að þú ert áskrifandi að fréttabréfi Nordic Crypto.",
+            unsub="Segja upp áskrift", sign="The Nordic Crypto team"),
 }
 NO_AIKI = re.compile(r"(?<![\w-])(?:AI|KI)(?![\w])")
 COUNTRY_ORDER = ["NO", "SE", "DK", "FI", "IS", "NORDIC", "EU"]
@@ -62,23 +70,26 @@ def render(items, lang, since, until):
         if i["country"] != cur:
             cur = i["country"]; cn = i18n.t(lang, "c_" + cur)
             md += [f"## {cn}", ""]; tx += [cn.upper(), ""]; hm.append(f'<h2 style="font-size:18px;margin:20px 0 6px">{html.escape(cn)}</h2>')
-        title = i.get("title_en") if lang == "en" and i.get("title_en") else i["title"]
+        title, _hl, orig_title = card_headline(i, lang)
+        orig_title = orig_title or ""
         summ = (i.get("summary_i18n") or {}).get(lang) if lang != "en" else None
         summ = summ or i["summary"]
         meta = [i["source_name"], i18n.short_date(lang, i["_d"])]
         if i.get("paywall") is True: meta.append(i18n.t(lang, "paywall"))
-        orig = f" ({s['orig']}: {i['title']})" if title != i["title"] else ""
+        orig = f" ({s['orig']}: {orig_title})" if orig_title else ""
         lg = (i.get("source_logo") or {}).get("file") if isinstance(i.get("source_logo"), dict) else None
         logo = (f'<img src="{html.escape(BASE + lg)}" alt="" height="18" style="height:18px;width:auto;max-width:96px;object-fit:contain;vertical-align:middle;margin:0 6px 0 0;background:#fff">' if lg else "")
         md += [f"**[{title}]({i['url']})**{orig}  ", f"{summ}  ", f"*{' · '.join(meta)}*", ""]
         tx += [title + orig, summ, " · ".join(meta), i["url"], ""]
         hm.append(f'<p style="margin:0 0 14px;text-align:left"><a href="{html.escape(i["url"])}" style="font-weight:bold;color:#0f5ea8">{html.escape(title)}</a>{html.escape(orig)}<br>{html.escape(summ)}<br><span style="color:#4B5563;font-size:13px;text-align:left">{logo}{html.escape(" · ".join(meta))}</span></p>')
     if not items: md += [s["none"], ""]; tx += [s["none"], ""]; hm.append(f"<p>{html.escape(s['none'])}</p>")
-    md += [f"[{s['more']}]({home})", "", "---", "", s["foot"], "", f"*{s['why']}*", ""]
-    tx += [f"{s['more']}: {home}", "", "--", s["foot"], "", s["why"], "{{unsubscribe}}", ""]
-    hm.append(f'<p><a href="{home}">{html.escape(s["more"])}</a></p><hr style="border:0;border-top:1px solid #d1d5db">'
-              f'<p style="font-size:13px;color:#4B5563">{html.escape(s["foot"])}</p><p style="font-size:13px;color:#4B5563">{html.escape(s["why"])} <a href="{{{{unsubscribe}}}}">Unsubscribe</a></p>')
-    page = f'<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><title>{html.escape(s["h"])}</title></head><body style="margin:0;padding:20px;font:16px/1.5 Arial,sans-serif;color:#111"><div style="max-width:640px;margin:0 auto">{"".join(hm)}</div></body></html>\n'
+    md += [f"[{s['more']}]({home})", "", "---", "", s["foot"], "", s["sign"], "", f"*{s['why']}*", ""]
+    tx += [f"{s['more']}: {home}", "", "--", s["foot"], "", s["sign"], "", s["why"], "{{unsubscribe}}", ""]
+    hm.append(f'<p style="text-align:left"><a href="{home}">{html.escape(s["more"])}</a></p><hr style="border:0;border-top:1px solid #d1d5db">'
+              f'<p style="font-size:13px;color:#4B5563;text-align:left">{html.escape(s["foot"])}</p>'
+              f'<p style="font-size:13px;color:#4B5563;text-align:left">{html.escape(s["sign"])}</p>'
+              f'<p style="font-size:13px;color:#4B5563;text-align:left">{html.escape(s["why"])} <a href="{{{{unsubscribe}}}}">{html.escape(s["unsub"])}</a></p>')
+    page = f'<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><title>{html.escape(s["h"])}</title></head><body style="margin:0;padding:20px;text-align:left;font:16px/1.5 Arial,sans-serif;color:#111"><div style="max-width:640px;margin:0;text-align:left">{"".join(hm)}</div></body></html>\n'
     return "\n".join(md), "\n".join(tx), page
 
 def main(argv=None):

@@ -29,10 +29,10 @@ Files: `src/worker.js`, `migrations/0001_tips.sql`, `migrations/0002_articles.sq
   `sig` = HMAC-SHA-256(`UNSUB_SECRET`, `id|email|site`), so no unsubscribe token is stored. `deploy.sh` creates the secret once.
 - D1 `subscribers`: email, site, lang, status (pending/confirmed/unsubscribed), token_hash, timestamps. **No IP, no user agent.**
   Unsubscribed rows keep the address with status `unsubscribed` (so it is never exported or mailed again).
-- Mail: **nothing is sent** unless `MAIL_PROVIDER` (`resend` | `webhook`) **and** `MAIL_SEND_ENABLED=1` are set (provider not
-  chosen yet; settings in `src/mailer.js`). Buttondown/Substack run their own opt-in: use the CSV export instead.
-- Export for a Substack import: `.venv/bin/python tipworker/export_subscribers.py --site nordic-crypto|kryptonytt [--lang xx]`
-  → `state/newsletter/<site>-confirmed-<date>.csv` (confirmed only, mode 600, addresses never printed).
+- Mail: **nothing is sent** unless `MAIL_PROVIDER` (`resend` | `mailgun` | `webhook`) **and** `MAIL_SEND_ENABLED=1` are set
+  (settings in `src/mailer.js`; placeholders only, no keys in git). Issue mail is `newsletter/send_issue.py` (see `newsletter/email-list.md`).
+- Operator export of confirmed rows: `.venv/bin/python tipworker/export_subscribers.py --site nordic-crypto|kryptonytt [--lang xx]`
+  → `state/newsletter/<site>-confirmed-<date>.csv` (confirmed only, mode 600, addresses never printed, gitignored). Delete the file when done.
 - Tests: `node --test tests/newsletter.test.mjs`, `./test_subscribe.sh` (wrangler dev, `SUBSCRIBE_TEST=1` = in-memory test
   mailer + token in the response; never set in production), `python3 tests/test_export.py`, and the real-browser form test
   `tests/browser_newsletter.py` (see its docstring). `npm test` runs all of them except the browser test.
