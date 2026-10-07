@@ -16,6 +16,7 @@ import event_select
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FIXTURE = os.path.join(ROOT, "data", "event_nft_fixture.json")
+CAPS = os.path.join(ROOT, "mintworker", "caps.json")
 PLACEHOLDER_NEXA = "placeholder:nexa:nordic-crypto-minting-treasury"
 PLACEHOLDER_BCH = "placeholder:bch:nordic-crypto-minting-treasury"
 COUNTRY = {
@@ -61,6 +62,11 @@ def load_fixture():
     return doc
 
 
+def load_caps():
+    """Same numbers the mint Worker enforces. The page does not keep a second copy."""
+    return json.load(open(CAPS, encoding="utf-8"))
+
+
 def judge(balance, floor, low, total):
     """ok, low, or empty. Empty means one more mint would cross the floor or the fee."""
     if balance < total or balance <= floor:
@@ -70,27 +76,32 @@ def judge(balance, floor, low, total):
     return "ok"
 
 
-def _chain_view(raw, chain):
-    if chain == "nexa":
-        network, airdrop = int(raw["network_nex"]), int(raw["airdrop_nex"])
-        total = network + airdrop
-        balance, floor, low = int(raw["balance_nex"]), int(raw["floor_nex"]), int(raw["low_nex"])
-        unit = "NEXA"
-    else:
-        network, airdrop = int(raw["network_sats"]), int(raw["airdrop_sats"])
-        total = network + airdrop
-        balance, floor, low = int(raw["balance_sats"]), int(raw["floor_sats"]), int(raw["low_sats"])
-        unit = "sats"
+def _chain_view(raw, chain, caps):
+    spec = caps[chain]
+    network, airdrop = int(spec["network"]), int(spec["airdrop"])
+    total = network + airdrop
+    floor, low = int(spec["reserve"]), int(spec["low_below"])
+    target = int(spec["hot_balance_target"])
+    balance = int(raw["balance_nex"] if chain == "nexa" else raw["balance_sats"])
+    unit = spec["unit"]
     status = judge(balance, floor, low, total)
+    address = raw["address"]
     return {
         "chain": chain,
         "status": status,
         "needs_funding": status in ("low", "empty"),
-        "address": raw["address"],
+        "intentionally_small": True,
+        "address": address,
+        "refill_address": address,
         "address_placeholder": True,
         "balance": {"amount": balance, "unit": unit},
+        "hot_balance_target": {"amount": target, "unit": unit},
+        "above_target": balance > target,
         "floor": {"amount": floor, "unit": unit},
         "low_below": {"amount": low, "unit": unit},
+        "per_event": int(spec["per_event"]),
+        "per_day": int(spec["per_day"]),
+        "per_identity": spec["per_identity"],
         "mints_paid": int(raw["mints_paid"]),
         "per_mint": {
             "network": {"amount": network, "unit": unit},
@@ -101,15 +112,16 @@ def _chain_view(raw, chain):
 
 
 def treasury_document(page_url):
-    """Public API body. Sample figures from the fixture, not a chain lookup."""
-    raw = load_fixture()
-    nexa, bch = _chain_view(raw["nexa"], "nexa"), _chain_view(raw["bch"], "bch")
+    """Public API body. Caps from mintworker/caps.json. Sample balances, not a chain lookup."""
+    raw, caps = load_fixture(), load_caps()
+    nexa, bch = _chain_view(raw["nexa"], "nexa", caps), _chain_view(raw["bch"], "bch", caps)
     rank = {"ok": 0, "low": 1, "empty": 2}
     worst = nexa if rank[nexa["status"]] >= rank[bch["status"]] else bch
     return {
         "feature": "event_nft",
         "prototype": True,
-        "note": "Placeholder addresses and sample balances. Not a live chain lookup. Do not send funds.",
+        "intentionally_small": True,
+        "note": "Hot wallets are intentionally small and refilled by hand. The addresses are those hot wallets. These values are placeholders and sample balances, not a live chain lookup. Do not send funds.",
         "status": worst["status"],
         "needs_funding": worst["needs_funding"],
         "app_prompt": {
@@ -463,11 +475,16 @@ def treasury_body(doc, root, t, E):
 <p class="placeholder"><b>{E(t("tre_ph"))}</b><br><code>{E(row["address"])}</code></p>
 <img src="{E(qr)}" alt="{E(t("nft_qr_alt"))}" width="168" height="168">
 <p><b>{E(t("tre_status"))}:</b> {E(_status_label(t, row["status"]))}</p>
+<p>{E(t("tre_small"))}</p>
+<p class="meta">{E(t("tre_refill"))}</p>
 <p><b>{E(t("tre_balance"))}:</b> {row["balance"]["amount"]} {E(unit)}</p>
+<p><b>{E(t("tre_target"))}:</b> {row["hot_balance_target"]["amount"]} {E(unit)}</p>
 <p><b>{E(t("tre_mints"))}:</b> {row["mints_paid"]}</p>
 <p><b>{E(t("tre_cost"))}:</b> {per["network"]["amount"]} {E(unit)}</p>
 <p><b>{E(t("tre_air"))}:</b> {per["airdrop"]["amount"]} {E(unit)}</p>
 <p><b>{E(t("tre_total"))}:</b> {per["total"]["amount"]} {E(unit)}</p>
+<p><b>{E(t("tre_event_cap"))}:</b> {row["per_event"]}</p>
+<p><b>{E(t("tre_day_cap"))}:</b> {row["per_day"]}</p>
 <p class="meta">{E(t("tre_floor"))}</p>
 </div>'''
     return f'''<h1>{E(t("tre_title"))}</h1>

@@ -1,0 +1,9 @@
+{
+  "name": "nordic-crypto-mintworker",
+  "private": true,
+  "type": "module",
+  "description": "Caps and hot-key binding for Nordic Crypto event NFTs. Does not sign.",
+  "scripts": {
+    "test": "node --test tests/policy.test.mjs"
+  }
+}

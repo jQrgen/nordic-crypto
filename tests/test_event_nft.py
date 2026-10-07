@@ -43,7 +43,18 @@ def main():
         fail("bch address must stay a placeholder")
     if doc["needs_funding"] or doc["app_prompt"]["show"]:
         fail("sample fixture is funded, so the app prompt stays off")
-    if "private" in json.dumps(doc).lower() or "nexaid" in json.dumps(doc).lower():
+    if doc["nexa"]["hot_balance_target"]["amount"] != 50000 or doc["bch"]["hot_balance_target"]["amount"] != 200000:
+        fail("hot balance targets must come from mintworker/caps.json")
+    if doc["nexa"]["per_event"] != 20 or doc["nexa"]["per_day"] != 15:
+        fail("nexa mint caps")
+    if doc["bch"]["per_event"] != 8 or doc["bch"]["per_day"] != 6:
+        fail("bch mint caps")
+    if not doc["intentionally_small"] or doc["nexa"]["refill_address"] != doc["nexa"]["address"]:
+        fail("refill address is the hot wallet, and the wallet is intentionally small")
+    if doc["nexa"]["above_target"] or doc["bch"]["above_target"]:
+        fail("sample balances sit under the hot target")
+    blob_doc = json.dumps(doc).lower()
+    if "private" in blob_doc or "nexaid" in blob_doc or "secret" in blob_doc:
         fail("treasury document leaked an identity field")
 
     ev = next(e for e in json.load(open("data/events.json", encoding="utf-8"))["events"] if e["id"] == "89ced460e4ca")

@@ -7,7 +7,7 @@
    "date": null,
    "review": "pending",
    "title": "Event NFT prototype, not live",
-   "description": "A prototype, switched off in the public build, for a generated event NFT on Nexa and Bitcoin Cash. Upcoming events can mint a pre-event card. The minting treasury has its own page, with placeholder addresses for both chains. Nothing is minted."
+   "description": "A prototype, switched off in the public build, for a generated event NFT on Nexa and Bitcoin Cash. Upcoming events can mint a pre-event card. The minting treasury has its own page. The hot key is a Worker secret so a redeploy keeps it, and the hot wallets stay small. Nothing is minted."
   },
   {
    "id": "domain-nordiccrypto-no",

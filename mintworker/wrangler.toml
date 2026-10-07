@@ -1,0 +1,20 @@
+# Event-NFT mint policy. Not the tip Worker. Deploy is manual and is not part of publish.sh.
+# Secrets (never put the values in this file):
+#   wrangler secret put NEXA_HOT_KEY
+#   wrangler secret put BCH_HOT_KEY
+# Optional: wrangler secret put TURNSTILE_SECRET
+# Those secrets survive a restart and a redeploy. A new isolate loads the same values.
+name = "nordic-crypto-mint"
+main = "src/worker.js"
+compatibility_date = "2026-09-01"
+workers_dev = true
+preview_urls = false
+
+[observability]
+enabled = false
+
+[[d1_databases]]
+binding = "DB"
+database_name = "nordic-crypto-mint"
+database_id = "00000000-0000-0000-0000-000000000000"
+migrations_dir = "migrations"
