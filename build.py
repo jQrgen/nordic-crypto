@@ -83,7 +83,7 @@ header.top{border-bottom:3px solid var(--ink)}
 header.top,header.top .wrap{text-align:start}
 header.top .wrap{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:flex-start;gap:6px 22px;padding-top:14px;padding-bottom:10px}
 .brand{font-weight:800;font-size:22px;letter-spacing:-.01em;text-decoration:none;text-align:start}.brand span{color:var(--accent)}
-nav.main{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:15px}
+nav.main{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:baseline;gap:4px 16px;font-size:15px;text-align:start}
 nav.main a{text-decoration:none;padding:2px 0;border-bottom:2px solid transparent}nav.main a[aria-current]{border-color:var(--accent);font-weight:600}
 .preview{background:#fef3c7;border-bottom:2px solid var(--warm);font-size:14px}.preview .wrap{padding-top:6px;padding-bottom:6px}
 h1{font-size:28px;line-height:1.2;margin:22px 0 4px}h2{font-size:20px;margin:28px 0 8px}
@@ -281,18 +281,58 @@ CSS += """
 a.applink{display:inline-block;padding:8px 14px;border:2px solid var(--ink);font-weight:700;font-size:18px;line-height:1.3;text-decoration:none;text-align:left}
 a.applink:hover,a.applink:focus-visible{background:var(--soft)}
 .markets h1{font-size:32px}
-.markets .lead,.markets p,.markets h2,.markets h3,.mkcard,.mkagg,.mkasset{text-align:left}
-.mkcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin:0 0 8px}
-.mkcard{border:1px solid var(--line);padding:12px 14px;background:#fff;text-align:left}
-.mkcard .px{font-size:28px;font-weight:700;line-height:1.15;margin:6px 0;font-variant-numeric:tabular-nums;text-align:left}
-.mkcard .unit{font-size:16px;font-weight:600;color:var(--muted)}
-.mkcard .ba{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:6px 18px;font-size:18px;margin:0}
-.mkasset>h2{display:flex;align-items:center;justify-content:flex-start;gap:10px;font-size:26px;margin:22px 0 4px;text-align:left}
-.mkasset>h2 img{width:28px;height:28px;flex:none;display:block}
-.mkagg{border-left:4px solid var(--ink);padding:8px 12px;margin:8px 0 10px;background:var(--soft);text-align:left}
-.mkagg .px{font-size:22px;font-weight:700;margin:2px 0 4px;text-align:left;font-variant-numeric:tabular-nums}
-.mkq{font-size:16px;color:var(--muted);margin:12px 0 6px;font-weight:600;text-align:left}
-@media(min-width:1100px){.markets h1{font-size:40px}.mkcard .px{font-size:34px}.mkcard .ba{font-size:20px}.mkagg .px{font-size:26px}}
+.markets .lead,.markets p,.markets h2,.markets h3,.mkdash,.mktile,.mkboard{text-align:left}
+.mkcredit{margin:0 0 8px;text-align:left}
+.mktiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(10.5rem,1fr));gap:10px;justify-content:flex-start;align-items:stretch;margin:0 0 8px;text-align:left}
+.mktile{border:1px solid var(--line);background:#fff;padding:10px 12px;text-align:left;min-width:0}
+.mktile .k{display:flex;align-items:center;justify-content:flex-start;gap:8px;margin:0;font-weight:600;text-align:left}
+.mktile .k img{width:22px;height:22px;flex:none;display:block}
+.mktile .sym{font-weight:500;color:var(--muted)}
+.mktile .px{font-size:22px;font-weight:700;line-height:1.15;margin:4px 0;font-variant-numeric:tabular-nums;text-align:left;overflow-wrap:anywhere}
+.mktile .unit{font-size:14px;font-weight:600;color:var(--muted)}
+.mktile .chg{margin:0;font-weight:600;font-variant-numeric:tabular-nums;text-align:left}
+.chg.up{color:var(--priv)}.chg.dn{color:#b91c1c}.chg.flat{color:var(--muted);font-weight:500}
+.mkstats{list-style:none;margin:6px 0 0;padding:0;text-align:left}
+.mkstats li{text-align:left;font-variant-numeric:tabular-nums;margin:2px 0}
+.mkstats b{font-size:22px;font-weight:700;margin-right:6px}
+.mkboard h2{margin-top:8px;text-align:left}
+.mkwrap{overflow-x:auto;text-align:left;max-width:100%}
+table.mkpairs{width:100%;border-collapse:collapse;font-size:14.5px;text-align:left}
+table.mkpairs caption{text-align:left;font-weight:600;padding:4px 0}
+table.mkpairs th,table.mkpairs td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+table.mkpairs th{font-size:13px;color:var(--muted);font-weight:600}
+table.mkpairs button.sort{font:inherit;font-size:13px;font-weight:600;color:var(--muted);background:none;border:0;padding:0;cursor:pointer;text-align:left}
+table.mkpairs button.sort[aria-pressed=true]{color:var(--ink);border-bottom:2px solid var(--accent)}
+table.mkpairs .coin{display:flex;align-items:center;justify-content:flex-start;gap:8px;text-align:left}
+table.mkpairs .coin img{width:22px;height:22px;flex:none;display:block}
+table.mkpairs .pxs{font-weight:700;font-variant-numeric:tabular-nums;display:block;text-align:left}
+table.mkpairs .sub{display:block;text-align:left}
+@media(max-width:720px){
+ .mktiles{grid-template-columns:1fr 1fr}
+ table.mkpairs thead{display:none}
+ table.mkpairs,table.mkpairs tbody,table.mkpairs tr,table.mkpairs td{display:block;width:auto}
+ table.mkpairs tr{border:1px solid var(--line);margin:0 0 10px;padding:8px 10px}
+ table.mkpairs td{border:0;padding:3px 0;text-align:left}
+ table.mkpairs td::before{content:attr(data-label);display:block;font-size:12px;color:var(--muted);font-weight:600;text-align:left}
+}
+@media(max-width:420px){.mktiles{grid-template-columns:1fr}}
+@media(min-width:1100px){.markets h1{font-size:40px}.mktile .px{font-size:26px}}
+.mkvol{margin:8px 0 22px;text-align:left}
+.mkvol h2,.mkvol p,.mkvol figcaption{text-align:left}
+.mkvol-row{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:flex-start;gap:6px 28px;text-align:left}
+.mkvol svg{width:220px;max-width:100%;height:auto;flex:none;display:block}
+.mklegend{list-style:none;margin:0;padding:0;text-align:left;flex:1 1 18rem;max-width:40rem}
+.mklegend li{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:8px;padding:4px 0;text-align:left}
+.mklegend .sw{width:14px;height:14px;flex:none;display:inline-block;border:1px solid rgba(17,17,17,.18)}
+.mklegend img{width:22px;height:22px;flex:none;display:block}
+.mklegend .nm{text-align:left}
+.mklegend .pct{font-weight:700;font-variant-numeric:tabular-nums}
+.mklegend .meta{flex:1 0 100%;padding-left:22px;text-align:left}
+.mkvol table.mkshare{width:auto;max-width:100%;margin:8px 0 0;text-align:left}
+.mkvol caption{text-align:left;font-weight:600;padding:6px 0}
+/* end markets */
+"""
+CSS += """
 .pushopt{text-align:start;margin:0 0 16px;padding:0 0 14px;border-bottom:1px solid var(--line);max-width:72ch}
 .pushopt h2{font-size:16px;margin:0 0 6px;text-align:start}
 .pushopt p,.pushopt label{text-align:start}
@@ -313,8 +353,9 @@ nav.main a.nav-quiet{font-size:14px}
 .talks .filters{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:center;gap:8px 16px}
 .talks .filters select{font:inherit;text-align:start;max-width:100%}
 """
-
-NAV = [("", "nav_news"), ("markets", "nav_markets"), ("calendar", "nav_calendar"), ("talks", "nav_talks"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("sources", "nav_sources"), ("newsletter", "nav_newsletter"), ("about", "nav_about"), ("tip", "nav_tip")]
+# api is the human-readable docs at /api/ (English only). The href is the site root, not /<lang>/api/.
+# Talks stay in the footer. This list is News, Newsletter, Calendar, then the rest.
+NAV = [("", "nav_news"), ("newsletter", "nav_newsletter"), ("calendar", "nav_calendar"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("markets", "nav_markets"), ("sources", "nav_sources"), ("about", "nav_about"), ("tip", "nav_tip"), ("api", "nav_api")]
 COOKIE_PATH = site_url.PATH   # "/" on the public domain; a path prefix if BASE ever has one
 def geo_endpoint():
     """Country lookup: GET <tipworker>/api/geo (Cloudflare request.cf.country). Only when the Worker is deployed,
@@ -556,6 +597,15 @@ def langsel_script():
     global LANGSEL_JS
     if LANGSEL_JS is None: LANGSEL_JS = open(P("tools", "langselect.js"), encoding="utf-8").read()
     return LANGSEL_JS
+def _nav_html(rel, root, current):
+    """Main nav, same list on every page and in the phone menu. API docs are /api/ at the site root."""
+    parts = []
+    for n, k in NAV:
+        quiet = ' class="nav-quiet"' if n == "talks" else ""
+        href = root + "api/" if n == "api" else rel + (n + "/" if n else "")
+        cur = " aria-current=page" if n == current else ""
+        parts.append(f'<a{quiet} href="{href}"{cur}>{E(t(k))}</a>')
+    return "".join(parts)
 def push_endpoint():
     """Worker origin for browser push, or None when it is not deployed yet.
     Env PUSH_ENDPOINT wins (empty string hides it). Otherwise workers/push/public.json public_endpoint."""
@@ -634,12 +684,7 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
     rel = root + lp()                      # home of this language
     url = BASE + lp() + (slug + "/" if slug else "")
     s = snippets(url, f"{title} – {SITE_NAME}" if slug else f"{SITE_NAME} – {t('site_desc_suffix')}")
-    def _nav_a(n, k):
-        quiet = ' class="nav-quiet"' if n == "talks" else ""
-        href = rel + (n + "/" if n else "")
-        current = " aria-current=page" if n == nav else ""
-        return f'<a{quiet} href="{href}"{current}>{E(t(k))}</a>'
-    nav_html = "".join(_nav_a(n, k) for n, k in NAV)
+    nav_html = _nav_html(rel, root, nav)
     langs = langs or i18n.LANGS
     alt = "".join(f'<link rel="alternate" hreflang="{i18n.HTML_LANG[l]}" href="{BASE}{lp(l)}{slug + "/" if slug else ""}">' for l in langs) + \
         f'<link rel="alternate" hreflang="x-default" href="{BASE}{slug + "/" if slug else ""}">'
@@ -1044,101 +1089,421 @@ def sitemap():
 def _mk_when(iso):
     return (iso or "").replace("T", " ").replace("+00:00", " UTC")
 
-def _mk_volume(row, base, quote, summed):
-    """Volume lines. A missing field is omitted. A published zero is shown."""
-    bits = []
-    def add(key, unit, day):
-        if row.get(key) in (None, ""):
-            return
-        tmpl = ("mk_vol_sum_24h" if day else "mk_vol_sum_plain") if summed else ("mk_vol_24h" if day else "mk_vol_plain")
-        bits.append(t(tmpl, n=M_format(row[key]), unit=unit, count=row.get(key + "_exchanges") or 0))
-    add("volume_base_24h", base, True)
-    add("volume_quote_24h", quote, True)
-    add("volume_base", base, False)
-    add("volume_quote", quote, False)
-    if not bits:
-        return ""
-    return '<p class="meta vol">' + " · ".join(E(b) for b in bits) + "</p>"
+_SHARE_COLORS = ["#0f5ea8", "#111111", "#b45309", "#047857", "#7c3aed", "#be123c", "#0e7490", "#a16207"]
+_SHARE_OTHER = "#9ca3af"
+
+def _tenths_str(n):
+    """One decimal from an integer count of tenths. Floor division is wrong for negatives."""
+    sign = "-" if n < 0 else ""
+    n = abs(n)
+    return f"{sign}{n // 10}.{n % 10}"
+
+def _share_pct(sl):
+    return "<0.1" if sl.get("tenths") == 0 else sl["pct"]
+
+def _donut_svg(slices, quote, title):
+    title_id, desc_id = f"mkvol-t-{quote}", f"mkvol-d-{quote}"
+    desc = ", ".join(f'{sl["label"]} {_share_pct(sl)}%' for sl in slices)
+    drawn = [sl for sl in slices if sl["tenths"]]
+    if len(drawn) == 1 and drawn[0]["tenths"] >= 1000:
+        rings = (
+            f'<circle cx="21" cy="21" r="15.9155" fill="none" stroke="{drawn[0]["color"]}" stroke-width="6">'
+            f'<title>{E(drawn[0]["label"])} {E(_share_pct(drawn[0]))}%</title></circle>'
+        )
+    else:
+        rings = []
+        offset = 250
+        for sl in slices:
+            if not sl["tenths"]:
+                continue
+            gap = 1000 - sl["tenths"]
+            pct = _tenths_str(sl["tenths"])
+            gap_s = _tenths_str(gap)
+            off = _tenths_str(offset)
+            rings.append(
+                f'<circle cx="21" cy="21" r="15.9155" fill="none" stroke="{sl["color"]}" stroke-width="6" '
+                f'stroke-dasharray="{pct} {gap_s}" stroke-dashoffset="{off}">'
+                f'<title>{E(sl["label"])} {E(_share_pct(sl))}%</title></circle>'
+            )
+            offset -= sl["tenths"]
+        rings = "".join(rings)
+    return (
+        f'<svg viewBox="0 0 42 42" role="img" aria-labelledby="{title_id} {desc_id}">'
+        f'<title id="{title_id}">{E(title)}</title><desc id="{desc_id}">{E(desc)}</desc>{rings}'
+        f'<text x="21" y="20.4" text-anchor="middle" font-family="system-ui,sans-serif" font-size="3.4" font-weight="700" fill="#111">{E(quote)}</text>'
+        f'<text x="21" y="23.8" text-anchor="middle" font-family="system-ui,sans-serif" font-size="2.1" fill="#4B5563">24h</text></svg>'
+    )
+
+def _mk_share_html(tickers, root):
+    """Donut of 24-hour quote volume. Also the text table, so the figures exist without the graphic."""
+    sys.path.insert(0, P("tools"))
+    import markets as M
+    groups = M.volume_shares(tickers)
+    head = f'<h2>{E(t("mk_share_h"))}</h2><p class="meta">{E(t("mk_share_note"))}</p>'
+    if not groups:
+        return f'<section class="mkvol">{head}<p class="meta">{E(t("mk_share_empty"))}</p></section>'
+    figures = []
+    for g in groups:
+        q = g["quote"]
+        color_i = 0
+        slices = []
+        for sl in g["slices"]:
+            color = _SHARE_OTHER if sl["other"] else _SHARE_COLORS[color_i % len(_SHARE_COLORS)]
+            if not sl["other"]:
+                color_i += 1
+            if sl["other"]:
+                label = t("mk_share_other")
+            else:
+                name = sl["name"]
+                label = f"{name} ({sl['base']})" if name and name != sl["base"] else sl["base"]
+            slices.append(dict(sl, color=color, label=label))
+        title = t("mk_share_caption", q=q)
+        legend = []
+        rows = []
+        for sl in slices:
+            img = ""
+            if sl.get("logo_path"):
+                img = f'<img src="{root}{E(sl["logo_path"])}" width="22" height="22" alt="{E(t("mk_logo_alt", name=sl["label"]))}">'
+            extra = ""
+            if sl["other"] and sl.get("members"):
+                extra = f'<span class="meta">{E(t("mk_share_includes", names=", ".join(sl["members"])))}</span>'
+            legend.append(
+                f'<li><span class="sw" style="background:{sl["color"]}"></span>{img}'
+                f'<span class="nm">{E(sl["label"])}</span>{extra}<span class="pct">{E(_share_pct(sl))}%</span></li>'
+            )
+            rows.append(
+                f'<tr><th scope="row">{E(sl["label"])}</th>'
+                f'<td>{E(M.format_price(sl["volume"]))} {E(q)}</td><td>{E(_share_pct(sl))}%</td></tr>'
+            )
+        sources = []
+        for src in g.get("sources") or []:
+            name = src.get("name") or src.get("id") or ""
+            url = src.get("url") or ""
+            sources.append(f'<a href="{E(url)}" rel="noopener">{E(name)}</a>' if url else E(name))
+        meta = E(t("mk_share_window", q=q))
+        if g.get("updated_at"):
+            meta += " " + E(t("mk_share_updated", when=_mk_when(g["updated_at"])))
+        if sources:
+            meta += " " + E(t("mk_share_source")) + ": " + ", ".join(sources)
+        meta += " " + E(t("mk_share_group"))
+        figures.append(
+            f'<figure class="mkvol-fig"><div class="mkvol-row">{_donut_svg(slices, q, title)}'
+            f'<ul class="mklegend">{"".join(legend)}</ul></div><p class="meta">{meta}</p>'
+            f'<table class="list mkshare"><caption>{E(title)}</caption><thead><tr>'
+            f'<th scope="col">{E(t("mk_share_coin"))}</th>'
+            f'<th scope="col">{E(t("mk_share_vol", q=q))}</th>'
+            f'<th scope="col">{E(t("mk_share_pct"))}</th></tr></thead>'
+            f'<tbody>{"".join(rows)}</tbody></table></figure>'
+        )
+    return f'<section class="mkvol">{head}{"".join(figures)}</section>'
 
 def M_format(value):
     import markets as M
     return M.format_price(value)
 
-def _mk_agg(pair):
-    if not pair:
+_KEY_COINS = ("BTC", "ETH", "SOL", "XRP")
+_EX_SHORT = {"firi": "Firi", "nbx": "NBX", "coinmotion": "Coinmotion"}
+
+def _chg_kind(text):
+    """up / dn / flat. A published zero stays flat. A missing value is blank."""
+    if text in (None, ""):
         return ""
-    q = pair["quote"]
-    if pair.get("price"):
-        price = f'<p class="px">{E(M_format(pair["price"]))} <span class="unit">{E(q)}</span></p>'
+    s = str(text)
+    body = s[1:] if s.startswith("-") else s
+    if body.replace(".", "").strip("0") == "":
+        return "flat"
+    return "dn" if s.startswith("-") else "up"
+
+def _chg_shown(text):
+    shown = M_format(text)
+    return "+" + shown if _chg_kind(text) == "up" else shown
+
+def _ex_short(ex):
+    ex = ex or {}
+    eid = ex.get("id") or ""
+    return _EX_SHORT.get(eid) or ex.get("name") or eid
+
+def _mk_latest(rows):
+    times = [r.get("fetched_at") for r in rows or [] if r.get("fetched_at")]
+    return max(times) if times else ""
+
+def _mk_by_ex(tickers):
+    """Newest row per exchange inside one base-quote pair."""
+    out = {}
+    for row in tickers or []:
+        key = (row.get("base"), row.get("quote"))
+        eid = (row.get("exchange") or {}).get("id") or ""
+        if not key[0] or not key[1] or not eid:
+            continue
+        slot = out.setdefault(key, {})
+        prev = slot.get(eid)
+        if prev is None or (row.get("fetched_at") or "") >= (prev.get("fetched_at") or ""):
+            slot[eid] = row
+    return out
+
+def _mk_ex_ids(tickers):
+    import markets as M
+    ids = {(r.get("exchange") or {}).get("id") for r in tickers or []}
+    ids.discard(None)
+    ids.discard("")
+    return sorted(ids, key=lambda i: (M.EXCHANGE_ORDER.index(i) if i in M.EXCHANGE_ORDER else len(M.EXCHANGE_ORDER), i))
+
+def _mk_quote_list(quotes):
+    import markets as M
+    return sorted(quotes, key=lambda q: (M.QUOTE_ORDER.index(q) if q in M.QUOTE_ORDER else len(M.QUOTE_ORDER), q))
+
+def _mk_asset_key(base):
+    import markets as M
+    return (M.ASSET_ORDER.index(base) if base in M.ASSET_ORDER else len(M.ASSET_ORDER), base)
+
+def _mk_coin_name(base):
+    import markets as M
+    name = M.ASSET_NAMES.get(base) or base
+    full = f"{name} ({base})" if name != base else base
+    return name, full
+
+def _mk_ex_names(tickers):
+    names = {}
+    for row in tickers or []:
+        ex = row.get("exchange") or {}
+        if ex.get("id") and ex["id"] not in names:
+            names[ex["id"]] = ex.get("name") or ex["id"]
+    return names
+
+def _vol_bits(vol, base, quote):
+    """24h quote volume first. Unlabeled volume is a separate labelled line, never added in."""
+    vol = vol or {}
+    q24, b24 = vol.get("volume_quote_24h"), vol.get("volume_base_24h")
+    base_u, quote_u = vol.get("volume_base"), vol.get("volume_quote")
+    bits = []
+    if q24 not in (None, ""):
+        bits.append(("main", f"{M_format(q24)} {quote}", "24h"))
+    elif b24 not in (None, ""):
+        bits.append(("main", f"{M_format(b24)} {base}", "24h"))
+    if base_u not in (None, ""):
+        bits.append(("sub" if bits else "main", f"{M_format(base_u)} {base}", "window"))
+    elif quote_u not in (None, "") and q24 in (None, ""):
+        bits.append(("sub" if bits else "main", f"{M_format(quote_u)} {quote}", "window"))
+    return bits
+
+def _vol_cell(vol, base, quote):
+    bits = _vol_bits(vol, base, quote)
+    if not bits:
+        return '<span class="meta">—</span>'
+    out = []
+    for kind, text, tag in bits:
+        label = "24h" if tag == "24h" else t("mk_vol_window")
+        if kind == "main":
+            out.append(f'<span class="pxs">{E(text)}</span><span class="meta sub">{E(label)}</span>')
+        else:
+            out.append(f'<span class="meta sub">{E(text)} · {E(label)}</span>')
+    return "".join(out)
+
+def _ex_cell(row):
+    if not row:
+        return '<span class="meta">—</span>'
+    bits = []
+    if row.get("last") not in (None, ""):
+        bits.append(f'<span class="pxs">{E(M_format(row["last"]))}</span>')
     else:
-        price = f'<p class="px">{E(t("mk_agg_none"))}</p>'
-    if pair.get("method") == "mean_last":
-        how = t("mk_agg_last", n=pair.get("last_count") or 0)
-    elif pair.get("method") == "mean_bid_ask_mid":
-        how = t("mk_agg_mid", n=pair.get("mid_count") or 0)
-    else:
-        how = t("mk_agg_none")
-    span = ""
-    if pair.get("min") is not None and pair.get("max") is not None:
-        span = " " + t("mk_agg_minmax", min=M_format(pair["min"]), max=M_format(pair["max"]), q=q)
-    bits = [how + span, t("mk_agg_exchanges", n=pair.get("exchange_count") or 0)]
-    if pair.get("updated_at"):
-        bits.append(t("mk_agg_updated", when=_mk_when(pair["updated_at"])))
-    vol = pair.get("volume") or {}
+        ba = []
+        if row.get("bid") not in (None, ""):
+            ba.append(E(t("mk_bid")) + " " + E(M_format(row.get("bid"))))
+        if row.get("ask") not in (None, ""):
+            ba.append(E(t("mk_ask")) + " " + E(M_format(row.get("ask"))))
+        if not ba:
+            bits.append(f'<span class="meta">{E(t("mk_no_last"))}</span>')
+        else:
+            bits.append(f'<span class="pxs">{ba[0]}</span>')
+            if len(ba) > 1:
+                bits.append(f'<span class="meta sub">{ba[1]}</span>')
+    if row.get("change_pct") not in (None, ""):
+        kind = _chg_kind(row.get("change_pct"))
+        bits.append(
+            f'<span class="chg {kind}" title="{E(t("mk_chg_tip"))}">{E(_chg_shown(row.get("change_pct")))}%</span>'
+        )
+    return "".join(bits)
+
+def _sort_th(key, label, pressed, title=""):
+    extra = f' title="{E(title)}"' if title else ""
+    pr = "true" if pressed else "false"
     return (
-        f'<div class="mkagg"><p class="meta"><b>{E(t("mk_agg"))}</b> · {E(pair["base"])}/{E(q)}</p>'
-        f"{price}<p class=\"meta\">{E(' '.join(bits))}</p>"
-        f'{_mk_volume(vol, pair["base"], q, True)}</div>'
+        f'<th scope="col"{extra}><button type="button" class="sort" data-sort="{E(key)}" '
+        f'aria-pressed="{pr}">{E(label)}</button></th>'
+    )
+
+def _mk_credit_html(tickers, exchanges):
+    when = _mk_latest(tickers)
+    updated = E(t("mk_updated", when=_mk_when(when))) if when else ""
+    links = []
+    for ex in exchanges or []:
+        if ex.get("status") != "ok":
+            continue
+        name = ex.get("name") or ex.get("id") or ""
+        url = ex.get("website") or ""
+        links.append(f'<a href="{E(url)}" rel="noopener">{E(name)}</a>' if url else E(name))
+    src = (E(t("mk_sources")) + ": " + ", ".join(links)) if links else ""
+    return f'<p class="meta mkcredit" id="mk-credit">{" ".join(x for x in (updated, src) if x)}</p>'
+
+def _mk_summary_html(tickers, exchanges, pairs, root):
+    """Glance tiles: key-coin aggregates, 24h quote volume per currency, and how much is tracked."""
+    import markets as M
+    by = {(p["base"], p["quote"]): p for p in pairs}
+    indexed = _mk_by_ex(tickers)
+    tiles = []
+    for base in _KEY_COINS:
+        pair = None
+        for quote in M.QUOTE_ORDER:
+            cand = by.get((base, quote))
+            if cand and cand.get("price"):
+                pair = cand
+                break
+        if not pair:
+            continue
+        name, full = _mk_coin_name(base)
+        img = ""
+        if pair.get("logo_path"):
+            img = f'<img src="{root}{E(pair["logo_path"])}" width="22" height="22" alt="{E(t("mk_logo_alt", name=full))}">'
+        if pair.get("method") == "mean_last":
+            how = t("mk_mean_last", n=pair.get("last_count") or 0)
+        elif pair.get("method") == "mean_bid_ask_mid":
+            how = t("mk_mean_mid", n=pair.get("mid_count") or 0)
+        else:
+            how = t("mk_agg_none")
+        chg = []
+        slot = indexed.get((base, pair["quote"])) or {}
+        for eid in _mk_ex_ids(list(slot.values())):
+            row = slot.get(eid)
+            if not row or row.get("change_pct") in (None, ""):
+                continue
+            kind = _chg_kind(row.get("change_pct"))
+            chg.append(
+                f'<p class="chg {kind}">{E(t("mk_chg", name=_ex_short(row.get("exchange")), n=_chg_shown(row.get("change_pct"))))}</p>'
+            )
+        tiles.append(
+            f'<article class="mktile"><p class="k">{img}{E(name)} <span class="sym">{E(base)}</span></p>'
+            f'<p class="px">{E(M_format(pair["price"]))} <span class="unit">{E(pair["quote"])}</span></p>'
+            f'{"".join(chg)}<p class="meta">{E(how)}</p></article>'
+        )
+    for g in M.volume_shares(tickers):
+        tiles.append(
+            f'<article class="mktile"><p class="k">{E(t("mk_vol_tile"))}</p>'
+            f'<p class="px">{E(M.format_price(g["total"]))} <span class="unit">{E(g["quote"])}</span></p>'
+            f'<p class="meta">{E(t("mk_vol_tile_note"))}</p></article>'
+        )
+    ok = [ex for ex in (exchanges or []) if ex.get("status") == "ok"]
+    bases = {r.get("base") for r in tickers or [] if r.get("base")}
+    tiles.append(
+        f'<article class="mktile"><p class="k">{E(t("mk_tracked"))}</p><ul class="mkstats">'
+        f'<li><b>{len(ok)}</b> {E(t("mk_n_ex"))}</li>'
+        f'<li><b>{len(pairs)}</b> {E(t("mk_n_pairs"))}</li>'
+        f'<li><b>{len(bases)}</b> {E(t("mk_n_coins"))}</li></ul></article>'
+    )
+    inner = f'<div class="mktiles">{"".join(tiles)}</div>' if tickers else f'<p class="empty">{E(t("mk_empty"))}</p>'
+    return (
+        f'<section class="mkdash" id="mk-summary" aria-labelledby="mk-glance">'
+        f'<h2 id="mk-glance">{E(t("mk_glance"))}</h2>{inner}</section>'
+    )
+
+def _mk_pair_rows(pairs):
+    import markets as M
+    return sorted(pairs, key=lambda p: (
+        _mk_asset_key(p["base"]),
+        M.QUOTE_ORDER.index(p["quote"]) if p["quote"] in M.QUOTE_ORDER else len(M.QUOTE_ORDER),
+        p["quote"],
+    ))
+
+def _mk_tr(pair, exrows, ids, names, root):
+    base, quote = pair["base"], pair["quote"]
+    name, _full = _mk_coin_name(base)
+    img = ""
+    if pair.get("logo_path"):
+        img = f'<img src="{root}{E(pair["logo_path"])}" width="22" height="22" alt="">'
+    if pair.get("price"):
+        price = f'<span class="pxs">{E(M_format(pair["price"]))}</span><span class="meta sub">{E(quote)}</span>'
+    else:
+        price = f'<span class="meta">{E(t("mk_agg_none"))}</span>'
+    search = [base, name, quote]
+    tds = [
+        f'<td data-label="{E(t("mk_col_coin"))}"><div class="coin">{img}<span>{E(name)} <span class="sym">{E(base)}</span></span></div></td>',
+        f'<td data-label="{E(t("mk_col_quote"))}">{E(quote)}</td>',
+        f'<td data-label="{E(t("mk_col_price"))}">{price}</td>',
+        f'<td data-label="{E(t("mk_col_vol"))}">{_vol_cell(pair.get("volume") or {}, base, quote)}</td>',
+    ]
+    for eid in ids:
+        row = exrows.get(eid)
+        short = _EX_SHORT.get(eid) or names.get(eid) or eid
+        search.append(short)
+        search.append(names.get(eid) or "")
+        if row and row.get("exchange"):
+            search.append(row["exchange"].get("name") or "")
+        tds.append(f'<td data-label="{E(short)}">{_ex_cell(row)}</td>')
+    blob = " ".join(x for x in search if x).lower()
+    return f'<tr data-base="{E(base)}" data-quote="{E(quote)}" data-search="{E(blob)}">{"".join(tds)}</tr>'
+
+def _mk_table_html(tickers, pairs, root, sort="coin"):
+    ids = _mk_ex_ids(tickers)
+    names = _mk_ex_names(tickers)
+    indexed = _mk_by_ex(tickers)
+    heads = [
+        _sort_th("coin", t("mk_col_coin"), sort == "coin"),
+        _sort_th("quote", t("mk_col_quote"), sort == "quote"),
+        _sort_th("price", t("mk_col_price"), sort in ("price", "price-desc")),
+        _sort_th("vol", t("mk_col_vol"), sort == "vol"),
+    ]
+    for eid in ids:
+        short = _EX_SHORT.get(eid) or names.get(eid) or eid
+        heads.append(_sort_th("ex:" + eid, short, sort == "ex:" + eid, title=names.get(eid) or short))
+    body = "".join(
+        _mk_tr(p, indexed.get((p["base"], p["quote"])) or {}, ids, names, root)
+        for p in _mk_pair_rows(pairs)
+    )
+    if not body:
+        return f'<p class="empty">{E(t("mk_empty"))}</p>'
+    return (
+        f'<div class="mkwrap"><table class="list mkpairs"><caption>{E(t("mk_table_h"))}</caption>'
+        f'<thead><tr>{"".join(heads)}</tr></thead><tbody>{body}</tbody></table></div>'
+    )
+
+def _mk_board_html(tickers, pairs, root):
+    quotes = _mk_quote_list({p["quote"] for p in pairs})
+    ids = _mk_ex_ids(tickers)
+    names = _mk_ex_names(tickers)
+    qopts = "".join(f'<option value="{E(q)}">{E(q)}</option>' for q in quotes)
+    sopts = [
+        f'<option value="coin">{E(t("mk_sort_coin"))}</option>',
+        f'<option value="quote">{E(t("mk_sort_quote"))}</option>',
+        f'<option value="price">{E(t("mk_sort_price"))}</option>',
+        f'<option value="price-desc">{E(t("mk_sort_price_desc"))}</option>',
+        f'<option value="vol">{E(t("mk_sort_vol"))}</option>',
+    ]
+    for eid in ids:
+        short = _EX_SHORT.get(eid) or names.get(eid) or eid
+        sopts.append(f'<option value="ex:{E(eid)}">{E(t("mk_sort_ex", name=short))}</option>')
+    table = _mk_table_html(tickers, pairs, root) if pairs else f'<p class="empty">{E(t("mk_empty"))}</p>'
+    return (
+        f'<section class="mkboard" id="mk-board" aria-labelledby="mk-pairs-h">'
+        f'<h2 id="mk-pairs-h">{E(t("mk_table_h"))}</h2>'
+        f'<p class="meta">{E(t("mk_table_note"))}</p>'
+        f'<div class="filters" id="mk-filters">'
+        f'<label for="mk-q">{E(t("mk_filter"))}</label> '
+        f'<input id="mk-q" type="search" placeholder="{E(t("mk_filter_ph"))}" autocomplete="off"> '
+        f'<label for="mk-quote">{E(t("mk_quote_f"))}</label> '
+        f'<select id="mk-quote"><option value="">{E(t("mk_all_quotes"))}</option>{qopts}</select> '
+        f'<label for="mk-sort">{E(t("mk_sort"))}</label> '
+        f'<select id="mk-sort">{"".join(sopts)}</select></div>'
+        f'<p class="meta" id="mk-shown">{E(t("mk_row_count", n=len(pairs)))}</p>'
+        f'<div id="mk-tables">{table}</div></section>'
     )
 
 def build_markets(ctx):
-    """Prices page. Static cards from the build-time fetch; markets.js refreshes the JSON and the CORS exchanges."""
+    """Overview: summary tiles, volume share, then one filterable table. markets.js redraws from the same JSON."""
     sys.path.insert(0, P("tools"))
     import markets as M
     body = ctx.get("markets") or {}
     tickers = body.get("tickers") or []
-    groups = {}
-    for row in tickers:
-        groups.setdefault(row["base"], {}).setdefault(row["quote"], []).append(row)
-    def asset_key(b):
-        return (M.ASSET_ORDER.index(b) if b in M.ASSET_ORDER else len(M.ASSET_ORDER), b)
-    def quote_key(q):
-        return (M.QUOTE_ORDER.index(q) if q in M.QUOTE_ORDER else len(M.QUOTE_ORDER), q)
-    def label(b):
-        name = M.ASSET_NAMES.get(b)
-        return f"{name} ({b})" if name and name != b else b
     root = up1()
-    pairs = {(p["base"], p["quote"]): p for p in M.aggregate_pairs(tickers, M.PAGES_BASE, M.CUSTOM_BASE)}
-    sections = []
-    for base in sorted(groups, key=asset_key):
-        logo = M.logo_for(base, M.PAGES_BASE, M.CUSTOM_BASE)
-        img = ""
-        if logo.get("logo_path"):
-            img = f'<img src="{root}{E(logo["logo_path"])}" width="28" height="28" alt="{E(t("mk_logo_alt", name=label(base)))}">'
-        bits = [f'<section class="mkasset"><h2>{img}{E(label(base))}</h2>']
-        for quote in sorted(groups[base], key=quote_key):
-            cards = []
-            for row in groups[base][quote]:
-                ex = row["exchange"]
-                if row.get("last"):
-                    price = f'<p class="px">{E(M.format_price(row["last"]))} <span class="unit">{E(row["quote"])}</span></p>'
-                else:
-                    price = f'<p class="px">{E(t("mk_no_last"))}</p>'
-                cards.append(
-                    f'<article class="mkcard" data-base="{E(base)}">'
-                    f'<p class="meta"><b>{E(ex["name"])}</b> · {flag(ex.get("country"))} {E(cname(ex.get("country")))} · {E(base)}/{E(quote)}</p>'
-                    f'{price}'
-                    f'<p class="ba"><span>{E(t("mk_bid"))} {E(M.format_price(row.get("bid")))}</span>'
-                    f'<span>{E(t("mk_ask"))} {E(M.format_price(row.get("ask")))}</span></p>'
-                    f'{_mk_volume(row, base, quote, False)}'
-                    f'<p class="meta">{E(t("mk_fetched"))} <time datetime="{E(row.get("fetched_at"))}">{E(_mk_when(row.get("fetched_at")))}</time>'
-                    f' · <a href="{E(row.get("source_url"))}" rel="noopener">{E(t("mk_source"))}</a></p>'
-                    f'</article>'
-                )
-            bits.append(f'{_mk_agg(pairs.get((base, quote)))}<h3 class="mkq">{E(t("mk_in", q=quote))}</h3><div class="mkcards">{"".join(cards)}</div>')
-        bits.append("</section>")
-        sections.append("".join(bits))
-    opts = "".join(f'<option value="{E(b)}">{E(label(b))}</option>' for b in sorted(groups, key=asset_key))
+    pairs = M.aggregate_pairs(tickers, M.PAGES_BASE, M.CUSTOM_BASE)
     errs = "".join(
         f'<p class="notice warn">{E(t("mk_error", name=ex.get("name") or ex.get("id"), when=_mk_when(ex.get("fetched_at"))))}</p>'
         for ex in (body.get("exchanges") or []) if ex.get("status") != "ok"
@@ -1147,21 +1512,26 @@ def build_markets(ctx):
         f'<li><b>{E(s.get("name"))}</b> ({E(s.get("country"))}): {E(s.get("reason"))}</li>'
         for s in (body.get("skipped") or [])
     )
-    included = ", ".join(
-        f'{ex.get("name")} ({cname(ex.get("country"))})'
-        for ex in (body.get("exchanges") or []) if ex.get("status") == "ok"
-    )
     strings = {
         "bid": t("mk_bid"), "ask": t("mk_ask"), "fetched": t("mk_fetched"), "source": t("mk_source"),
         "live": t("mk_live"), "file": t("mk_file"), "browser": t("mk_browser"), "empty": t("mk_empty"),
-        "no_last": t("mk_no_last"), "in_quote": t("mk_in", q="{q}"), "all": t("mk_all"),
-        "error": t("mk_error"),
-        "agg": t("mk_agg"), "agg_last": t("mk_agg_last"), "agg_mid": t("mk_agg_mid"),
-        "agg_minmax": t("mk_agg_minmax"), "agg_exchanges": t("mk_agg_exchanges"),
-        "agg_updated": t("mk_agg_updated"), "agg_none": t("mk_agg_none"),
-        "vol_24h": t("mk_vol_24h"), "vol_plain": t("mk_vol_plain"),
-        "vol_sum_24h": t("mk_vol_sum_24h"), "vol_sum_plain": t("mk_vol_sum_plain"),
-        "logo_alt": t("mk_logo_alt"),
+        "no_last": t("mk_no_last"), "error": t("mk_error"),
+        "agg_none": t("mk_agg_none"), "logo_alt": t("mk_logo_alt"),
+        "share_h": t("mk_share_h"), "share_window": t("mk_share_window"),
+        "share_updated": t("mk_share_updated"), "share_source": t("mk_share_source"),
+        "share_group": t("mk_share_group"), "share_note": t("mk_share_note"),
+        "share_other": t("mk_share_other"), "share_coin": t("mk_share_coin"),
+        "share_vol": t("mk_share_vol"), "share_pct": t("mk_share_pct"),
+        "share_empty": t("mk_share_empty"), "share_caption": t("mk_share_caption"),
+        "share_includes": t("mk_share_includes"),
+        "updated": t("mk_updated"), "sources": t("mk_sources"),
+        "glance": t("mk_glance"), "chg": t("mk_chg"), "chg_tip": t("mk_chg_tip"),
+        "vol_tile": t("mk_vol_tile"), "vol_tile_note": t("mk_vol_tile_note"),
+        "tracked": t("mk_tracked"), "n_ex": t("mk_n_ex"), "n_pairs": t("mk_n_pairs"), "n_coins": t("mk_n_coins"),
+        "table_h": t("mk_table_h"), "col_coin": t("mk_col_coin"), "col_quote": t("mk_col_quote"),
+        "col_price": t("mk_col_price"), "col_vol": t("mk_col_vol"),
+        "mean_last": t("mk_mean_last"), "mean_mid": t("mk_mean_mid"),
+        "vol_window": t("mk_vol_window"), "no_match": t("mk_no_match"), "row_count": t("mk_row_count"),
     }
     script = open(P("tools", "markets.js"), encoding="utf-8").read()
     body_html = f"""<div class="markets" id="mk" data-json="{root}api/v1/markets.json">
@@ -1171,12 +1541,12 @@ def build_markets(ctx):
 <p class="appbar"><a class="applink" href="{E(M.IOS_TESTFLIGHT)}" rel="noopener">{E(t("ios_link"))}</a></p>
 <p class="meta">{E(t("ios_note"))}</p>
 <p class="meta ios-tv">{E(t("ios_tv"))}</p>
-{f'<p class="meta">{E(t("mk_included", names=included))}</p>' if included else ''}
-<div class="filters"><label for="mk-asset">{E(t("mk_asset"))}</label>
-<select id="mk-asset"><option value="">{E(t("mk_all"))}</option>{opts}</select></div>
+{_mk_credit_html(tickers, body.get("exchanges") or [])}
 <p class="meta" id="mk-status">{E(t("mk_file"))}</p>
 <div id="mk-errors">{errs}</div>
-<div id="mk-tables">{''.join(sections) or f'<p class="empty">{E(t("mk_empty"))}</p>'}</div>
+{_mk_summary_html(tickers, body.get("exchanges") or [], pairs, root)}
+<div id="mk-share">{_mk_share_html(tickers, root)}</div>
+{_mk_board_html(tickers, pairs, root)}
 <h2>{E(t("mk_skipped_h"))}</h2>
 <p class="meta">{E(t("mk_skipped_lead"))}</p>
 <ul>{skipped}</ul>

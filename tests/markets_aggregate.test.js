@@ -45,6 +45,41 @@ check(eur.method, "mean_bid_ask_mid", "eur method");
 check(eur.last, null, "eur last");
 check(eur.price, "10.00", "eur price");
 check(eur.volume.volume_base, null, "eur vol");
+const shares = m.volumeShares([
+  {base: "BTC", quote: "NOK", volume_quote_24h: "50", volume_base: "999", exchange: {id: "nbx", name: "Norwegian Block Exchange"}, fetched_at: "2026-10-05T21:00:00+00:00", source_url: "https://api.nbx.com/tickers"},
+  {base: "BTC", quote: "NOK", volume_quote_24h: "999", exchange: {id: "nbx", name: "Norwegian Block Exchange"}, fetched_at: "2026-10-05T20:00:00+00:00", source_url: "https://api.nbx.com/tickers"},
+  {base: "ETH", quote: "NOK", volume_quote_24h: "30", exchange: {id: "nbx", name: "Norwegian Block Exchange"}, fetched_at: "2026-10-05T21:00:00+00:00", source_url: "https://api.nbx.com/tickers"},
+  {base: "XRP", quote: "NOK", volume_quote_24h: "15", exchange: {id: "nbx", name: "Norwegian Block Exchange"}, fetched_at: "2026-10-05T21:00:00+00:00", source_url: "https://api.nbx.com/tickers"},
+  {base: "SOL", quote: "NOK", volume_quote_24h: "2", exchange: {id: "nbx", name: "Norwegian Block Exchange"}, fetched_at: "2026-10-05T21:00:00+00:00", source_url: "https://api.nbx.com/tickers"},
+  {base: "ADA", quote: "NOK", volume_quote_24h: "2", exchange: {id: "nbx", name: "Norwegian Block Exchange"}, fetched_at: "2026-10-05T21:00:00+00:00", source_url: "https://api.nbx.com/tickers"},
+  {base: "DOGE", quote: "NOK", volume_quote_24h: "1", exchange: {id: "nbx", name: "Norwegian Block Exchange"}, fetched_at: "2026-10-05T21:00:00+00:00", source_url: "https://api.nbx.com/tickers"},
+  {base: "BTC", quote: "NOK", volume_base: "999", exchange: {id: "firi", name: "Firi"}, fetched_at: "2026-10-05T21:00:00+00:00", source_url: "https://api.firi.com/v2/markets/BTCNOK"},
+  {base: "ETH", quote: "EUR", volume_quote_24h: "50", exchange: {id: "nbx", name: "Norwegian Block Exchange"}, fetched_at: "2026-10-05T21:00:00+00:00", source_url: "https://api.nbx.com/tickers"}
+], {BTC: "Bitcoin"}, {BTC: {logo_path: "api/v1/markets/logos/btc.svg"}});
+const jsBy = {};
+shares.forEach(function (g) { jsBy[g.quote] = g; });
+check(Object.keys(jsBy).join(","), "NOK,EUR", "share quotes");
+const jsNok = jsBy.NOK;
+check(jsNok.slices.map(function (s) { return s.base; }).join(","), "BTC,ETH,XRP,", "nok slices");
+check(jsNok.slices[0].volume, "50", "deduped volume");
+check(jsNok.slices[0].pct, "50.0", "btc pct");
+check(jsNok.slices[0].logo_path, "api/v1/markets/logos/btc.svg", "logo");
+check(jsNok.slices[3].other, true, "other flag");
+check(jsNok.slices[3].volume, "5", "other volume");
+check(jsNok.slices[3].members.join(","), "ADA,SOL,DOGE", "other members");
+check(jsNok.slices[3].pct, "5.0", "other pct");
+check(jsNok.window, "24h", "window");
+check(jsNok.total, "100", "total");
+if (jsNok.slices.reduce(function (n, s) { return n + s.tenths; }, 0) !== 1000) fails.push("nok tenths");
+if (jsNok.sources.some(function (s) { return s.id === "firi"; })) fails.push("firi in sources");
+check(jsBy.EUR.slices[0].pct, "100.0", "eur pct");
+const thirds = m.volumeShares([
+  {base: "AAA", quote: "SEK", volume_quote_24h: "1", exchange: {id: "nbx", name: "NBX"}, fetched_at: "2026-10-05T21:00:00+00:00"},
+  {base: "BBB", quote: "SEK", volume_quote_24h: "1", exchange: {id: "nbx", name: "NBX"}, fetched_at: "2026-10-05T21:00:00+00:00"},
+  {base: "CCC", quote: "SEK", volume_quote_24h: "1", exchange: {id: "nbx", name: "NBX"}, fetched_at: "2026-10-05T21:00:00+00:00"}
+]);
+check(thirds[0].slices.map(function (s) { return s.pct; }).join(","), "33.4,33.3,33.3", "remainder");
+
 if (fails.length) {
   console.log("FAILED");
   fails.forEach(function (f) { console.log(" -", f); });
