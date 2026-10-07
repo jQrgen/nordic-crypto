@@ -242,3 +242,42 @@ S.update({
 })
 
 S.update({'nav_talks': 'Esitelmät', 'talks_title': 'Esitelmät – julkiset kryptoesitelmät Pohjoismaissa', 'talks_desc': 'Julkisia esitelmiä bitcoinista, kryptovaluutoista ja lohkoketjusta Pohjoismaissa, videon ja julkaisijan ilmoittamien tietojen kanssa.', 'talks_h1': 'Esitelmät', 'talks_lead': 'Tallenteita julkisista esitelmistä bitcoinista, kryptovaluutoista ja lohkoketjusta Norjassa, Ruotsissa, Tanskassa, Suomessa, Islannissa, Färsaarilla, Grönlannissa ja Ahvenanmaalla bitcoin-valkoisesta kirjasta alkaen. Uusimmat ensin. Soitin latautuu vasta, kun painat toistoa, ja vain jos alusta sallii upotuksen.', 'talks_n': '{n} esitelmää', 'talks_none': 'Yksikään esitelmä ei vastaa näitä suodattimia.', 'talks_year': 'Vuosi', 'talks_year_all': 'Kaikki vuodet', 'talks_language': 'Kieli', 'talks_lang_unknown': 'Kieltä ei ole ilmoitettu', 'talks_play': 'Toista', 'talks_watch': 'Katso alustalla', 'talks_speakers': 'Puhujat', 'talks_event': 'Tapahtuma', 'talks_channel': 'Kanava', 'talks_published': 'Video julkaistu', 'talks_duration': 'Kesto', 'talks_held': 'Pidetty', 'talks_source': 'Lähde', 'talks_calendar': 'Kalenterimerkintä', 'talks_embed_note': 'Soitin latautuu alustalta vasta, kun painat toistoa.', 'talks_not_embed': 'Alusta ei tarjonnut upotettavaa soitinta. Linkki vie videoon.', 'past_talks': 'Julkisten esitelmien tallenteet ovat <a href="{href}">esitelmäarkistossa</a>.', 'c_FO': 'Färsaaret', 'c_GL': 'Grönlanti', 'c_AX': 'Ahvenanmaa'})
+
+# Shared shoutbox. One room; these strings are the UI only.
+S.update({
+"nav_chat": "Chat",
+"chat_title": "Chat",
+"chat_desc": "Yksi yhteinen huutolaatikko Nordic Cryptossa. Lukijoiden viestejä, ei toimituksellista sisältöä.",
+"chat_h1": "Chat",
+"chat_lead": "Yksi huone kaikille Nordic Crypton kielille. Viestit jäävät niin kuin ne kirjoitettiin.",
+"chat_shared": "Kaikki näkevät samat viestit. Tämä sivu ei käännä niitä.",
+"chat_user": "Nämä viestit ovat lukijoiden kirjoittamia. Ne eivät ole Nordic Crypton toimituksellista sisältöä.",
+"chat_rules": "<a href=\"{ethics}\">Säännöt</a>: ei häirintää, ei doxxausta, ei talousneuvonnan kehumista eikä huijauksia tai suosittelulinkkejä. Valvojat voivat poistaa viestejä.",
+"chat_nick": "Nimimerkki",
+"chat_message": "Viesti",
+"chat_send": "Lähetä",
+"chat_report": "Ilmoita",
+"chat_reported": "Ilmoitettu. Valvojat voivat tarkistaa sen.",
+"chat_ph_nick": "Nimi",
+"chat_ph_msg": "Kirjoita viesti",
+"chat_privacy": "Huutolaatikko tallentaa nimimerkin, viestin ja IP-osoitteen tiivisteen, joka vaihtuu joka päivä, vain väärinkäytön rajoittamiseen. Itse IP-osoitetta ei tallenneta. Nimimerkki pysyy vain tämän selaimen paikallisessa tallennuksessa, ei evästeenä. Cloudflare Web Analytics laskee käynnit kootusti, ilman evästeitä, emmekä myy näitä tietoja.",
+"chat_full": "Avaa koko chat",
+"chat_toggle_show": "Näytä chat",
+"chat_toggle_hide": "Piilota chat",
+"chat_empty": "Ei vielä viestejä.",
+"chat_sending": "Lähetetään…",
+"chat_sent": "Lähetetty.",
+"chat_fail": "Lähetys ei onnistunut. Yritä uudelleen.",
+"chat_rate": "Liian monta viestiä lyhyessä ajassa. Odota hetki.",
+"chat_spam": "Viesti estettiin.",
+"chat_turnstile": "Tee tarkistus ja lähetä uudelleen.",
+"chat_nick_err": "Nimimerkin on oltava 2–24 merkkiä.",
+"chat_msg_err": "Viestin on oltava 1–280 merkkiä.",
+"chat_banned": "Et voi kirjoittaa juuri nyt.",
+"chat_older": "Vanhemmat viestit",
+"chat_time_now": "juuri nyt",
+"chat_time_m": "{n} min sitten",
+"chat_time_h": "{n} t sitten",
+"chat_time_d": "{n} pv sitten",
+"chat_noscript": "Chat tarvitsee JavaScriptin.",
+})

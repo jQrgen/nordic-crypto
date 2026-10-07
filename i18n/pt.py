@@ -25,3 +25,42 @@ S = {
 }
 
 S.update({'nav_talks': 'Palestras', 'talks_title': 'Palestras – palestras públicas sobre cripto nos países nórdicos', 'talks_desc': 'Palestras públicas sobre bitcoin, criptomoedas e blockchain realizadas nos países nórdicos, com o vídeo e os dados indicados por quem publicou.', 'talks_h1': 'Palestras', 'talks_lead': 'Gravações de palestras públicas sobre bitcoin, criptomoedas e blockchain realizadas na Noruega, na Suécia, na Dinamarca, na Finlândia, na Islândia, nas Ilhas Faroé, na Groenlândia e em Åland desde o white paper do bitcoin. As mais recentes primeiro. O player só carrega depois que você clica em reproduzir, e só quando a plataforma permite incorporar.', 'talks_n': '{n} palestras', 'talks_none': 'Nenhuma palestra corresponde a estes filtros.', 'talks_year': 'Ano', 'talks_year_all': 'Todos os anos', 'talks_language': 'Língua', 'talks_lang_unknown': 'Língua não indicada', 'talks_play': 'Reproduzir', 'talks_watch': 'Ver na plataforma', 'talks_speakers': 'Palestrantes', 'talks_event': 'Evento', 'talks_channel': 'Canal', 'talks_published': 'Vídeo publicado', 'talks_duration': 'Duração', 'talks_held': 'Realizada', 'talks_source': 'Fonte', 'talks_calendar': 'Entrada do calendário', 'talks_embed_note': 'O player só carrega da plataforma depois que você clica em reproduzir.', 'talks_not_embed': 'Esta plataforma não ofereceu um player que possa ser incorporado. O link vai para o vídeo.', 'past_talks': 'As gravações de palestras públicas estão no <a href="{href}">arquivo de palestras</a>.', 'c_FO': 'Ilhas Faroé', 'c_GL': 'Groenlândia', 'c_AX': 'Åland'})
+
+# Shared shoutbox. One room; these strings are the UI only.
+S.update({
+"nav_chat": "Chat",
+"chat_title": "Chat",
+"chat_desc": "Um só mural no Nordic Crypto. Mensagens de leitores, não conteúdo editorial.",
+"chat_h1": "Chat",
+"chat_lead": "Uma sala para todas as línguas do Nordic Crypto. As mensagens ficam como foram escritas.",
+"chat_shared": "Toda a gente vê as mesmas mensagens. Esta página não as traduz.",
+"chat_user": "Estas mensagens são escritas por leitores. Não são conteúdo editorial do Nordic Crypto.",
+"chat_rules": "<a href=\"{ethics}\">Regras</a>: sem assédio, sem doxxing, sem promoção de aconselhamento financeiro e sem burlas ou ligações de referência. Os moderadores podem remover mensagens.",
+"chat_nick": "Alcunha",
+"chat_message": "Mensagem",
+"chat_send": "Enviar",
+"chat_report": "Denunciar",
+"chat_reported": "Denunciado. Os moderadores podem rever.",
+"chat_ph_nick": "Nome",
+"chat_ph_msg": "Escreve uma mensagem",
+"chat_privacy": "O mural guarda a alcunha, a mensagem e um hash do endereço IP que muda todos os dias, só para limitar abusos. O endereço IP em si não é guardado. A alcunha fica apenas no armazenamento local deste navegador, não num cookie. O Cloudflare Web Analytics conta as visitas em agregado, sem cookies, e não vendemos esses dados.",
+"chat_full": "Abrir o chat completo",
+"chat_toggle_show": "Mostrar o chat",
+"chat_toggle_hide": "Esconder o chat",
+"chat_empty": "Ainda não há mensagens.",
+"chat_sending": "A enviar…",
+"chat_sent": "Enviado.",
+"chat_fail": "Não foi possível enviar. Tenta de novo.",
+"chat_rate": "Demasiadas mensagens num curto espaço de tempo. Espera.",
+"chat_spam": "Essa mensagem foi bloqueada.",
+"chat_turnstile": "Conclui a verificação e envia outra vez.",
+"chat_nick_err": "A alcunha tem de ter 2–24 caracteres.",
+"chat_msg_err": "A mensagem tem de ter 1–280 caracteres.",
+"chat_banned": "Não podes escrever agora.",
+"chat_older": "Mensagens mais antigas",
+"chat_time_now": "agora mesmo",
+"chat_time_m": "há {n} min",
+"chat_time_h": "há {n} h",
+"chat_time_d": "há {n} d",
+"chat_noscript": "O chat precisa de JavaScript.",
+})

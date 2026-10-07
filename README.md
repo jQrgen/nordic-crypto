@@ -292,6 +292,23 @@ Tips go to `tipserver/tips.db` (gitignored, mode 600) with a UTC timestamp and s
 ## Newsletter (own list)
 `newsletter/email-list.md` is the setup for jQrgen: D1 table `subscribers`, DNS for Resend or Mailgun, Worker secrets, and how to send an issue. Cloudflare Email Routing can receive replies; it does not send the list. The site form (footer, front page, `/newsletter/#signup`, 7 languages, consent checkbox, privacy note) stays behind `newsletter/config.json` `enabled: false` until the Worker is deployed and that flag is set. While it is off, those places do not show an email field. They say signup opens soon and link to each language's `rss.xml`, Telegram and X. It posts to the tipworker (`/api/subscribe`, double opt-in, private D1, see `tipworker/README.md`). `newsletter/digest.py` builds a weekly digest from the **public** build only. `newsletter/send_issue.py` mails a published issue, or that digest, to confirmed addresses. Nothing is sent unless `MAIL_SEND_ENABLED=1`. Sign-off: The Nordic Crypto team. Kaupr is a news source only.
 
+## Shoutbox
+One shared reader chat for every language. The front page can show a compact box (a sidebar on a wide screen, a collapsible block on a phone) and each language has `/chat/` (or `/sv/chat/` and so on). Every one of those pages reads and writes the same message list. Only the buttons and the house rules are translated. A small language tag can show which page a message was sent from. The messages themselves are not translated.
+
+It is off. `chat/config.json` is `"enabled": false` and `"endpoint": null`. While that is false, the build does not include the widget or the chat pages. Nothing on the live site calls a missing backend.
+
+The worker is the existing `nordic-crypto-tips` Worker (`tipworker/`, D1 `nordic-crypto-tips`). Posts need Cloudflare Turnstile. A daily-rotated hash of the IP is stored for rate limits, reports and bans. The raw IP is not stored, and the chat does not set a cookie. The nickname is kept in the browser’s local storage. House rules sit on the box and link to [Editorial ethics](https://nordiccrypto.no/ethics/) (Vær Varsom): no harassment, no doxxing, no financial-advice shilling, no scams or referral links. Moderators may remove posts. Three reports from different daily hashes hide a message until it is reviewed. Reader messages are not editorial content.
+
+This change does not deploy the worker and does not set secrets. The steps (migration `tipworker/migrations/0004_shouts.sql`, Turnstile site key, `TURNSTILE_SECRET`, `SHOUT_ADMIN_TOKEN`) are in [tipworker/README.md](tipworker/README.md#shoutbox-one-shared-room--srcshoutsjs-migrations0004_shoutssql). Short form, run by hand from `tipworker/` after `CLOUDFLARE_API_TOKEN` is set:
+
+1. Create a Turnstile widget for nordiccrypto.no (and www, plus nordiccrypto.se / .fi / .dk / .is, apex and www). Keep the secret key out of git.
+2. `npx wrangler secret put TURNSTILE_SECRET` and `npx wrangler secret put SHOUT_ADMIN_TOKEN` (`openssl rand -hex 32` for the admin token). `deploy.sh` does not set these.
+3. `npx wrangler d1 migrations apply nordic-crypto-tips --remote` (or `./deploy.sh`, which applies migrations and deploys the worker, and still does not publish the site).
+4. Set `chat/config.json` to `"enabled": true`, `"endpoint": "https://nordic-crypto-tips.nordiccrypto.workers.dev"` and `"turnstile_site_key": "<site key>"`.
+5. `./publish.sh --yes` only with jQrgen’s approval.
+
+Hide, delete, restore, ban and unban: `POST /api/shouts/admin` with `Authorization: Bearer <SHOUT_ADMIN_TOKEN>`. A ban matches today’s hash only, because yesterday’s salt is deleted.
+
 ## Privacy
 No health or private financial data about anyone, no org numbers, LEIs, addresses of private persons, emails or tokens. `state/private_terms.json` (never printed, never committed) feeds the privacy gate, which blocks the build if it finds them. The gate also blocks organisation numbers in visible text, including source titles (NO 9-digit, SE NNNNNN-NNNN, DK CVR, «org.nr …»); register links are fine, the number itself must not be written out.
 
@@ -300,3 +317,5 @@ No health or private financial data about anyone, no org numbers, LEIs, addresse
 **Language rule (text gate).** Our own Norwegian text (nn, nb) never says «AI» or «KI»; write «kunstig intelligens» in full. `tools/text_gate.py` checks the nn/nb interface strings, templates, summaries, event notes, changelog and rules-page strings, and runs in `build.sh` and `publish.sh`. External headlines are left as published.
 
 **Browser notifications.** Off until the reader turns them on. The Worker stores only the push subscription, the page language and the countries they picked. Unsubscribe is the same button. Cloudflare Web Analytics still counts visits in aggregate, without cookies, and that data is not sold. See [Browser notifications](#browser-notifications).
+
+**Shoutbox.** Off until `chat/config.json` is enabled. When it is on, the worker stores the nickname, the message and a daily-rotated IP hash. It does not store the raw IP and it does not set a cookie. The nickname stays in local storage. Cloudflare Web Analytics is unchanged: aggregate visits, no cookies, data not sold. The About page says the same.

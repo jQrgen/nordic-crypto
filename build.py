@@ -284,6 +284,45 @@ nav.main a.nav-quiet{font-size:14px}
 .talks .filters{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:center;gap:8px 16px}
 .talks .filters select{font:inherit;text-align:start;max-width:100%}
 """
+CSS += """
+/* shoutbox */
+.home-with-chat{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;text-align:start}
+.home-with-chat .home-main{min-width:0;text-align:start}
+.shoutbox,.shout-panel,.shout-list,.shout-form,.shout-rules,.shout-privacy,.shout-user,.shout-shared,.shout-item,.shout-meta,.shout-msg{text-align:start}
+.shoutbox{border:1px solid var(--line);background:var(--soft);padding:10px 12px;margin:0 0 16px}
+.shout-panel h2{font-size:18px;margin:0 0 6px;text-align:start}
+.shout-user,.shout-shared,.shout-rules,.shout-privacy,.shout-more{font-size:13.5px;margin:0 0 8px;text-align:start}
+.shout-rules a{font-weight:600}
+.shout-list{list-style:none;margin:0 0 8px;padding:0;max-height:280px;overflow:auto;text-align:start}
+.shoutbox-full .shout-list{max-height:70vh}
+.shout-item{border-bottom:1px solid var(--line);padding:6px 0;text-align:start}
+.shout-meta{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:4px 8px;font-size:13px;color:var(--muted)}
+.shout-nick{font-weight:700;color:var(--ink)}
+.shout-lang{font-size:12px;border:1px solid var(--line);padding:0 4px;background:#fff}
+.shout-msg{margin:2px 0 4px;white-space:pre-wrap;overflow-wrap:anywhere;text-align:start}
+.shout-form label{display:block;margin:8px 0 0;text-align:start}
+.shout-form input,.shout-form textarea{display:block;width:100%;max-width:100%;box-sizing:border-box;font:inherit;text-align:start;padding:6px}
+.shout-form textarea{min-height:4.5em;resize:vertical}
+.shout-form button,.shout-report,.shout-older,.shout-toggle{font:inherit;font-weight:600;text-align:start;cursor:pointer;border:1px solid var(--ink);background:#fff;padding:6px 10px}
+.shout-form button{margin-top:8px}
+.shout-report{font-size:12px;font-weight:500;padding:2px 6px;color:var(--muted)}
+.shout-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.shout-status{min-height:1.2em;font-size:14px;text-align:start}
+.shout-toggle{display:none;width:100%;justify-content:flex-start}
+@media(min-width:960px){
+ .home-with-chat{display:grid;grid-template-columns:minmax(0,1fr) 300px;column-gap:28px;align-items:start;justify-content:start}
+ .shoutbox{position:sticky;top:12px;margin:0}
+ .shout-toggle{display:none}
+ .shout-panel{display:block}
+}
+@media(max-width:959px){
+ .home-with-chat .shoutbox{order:-1}
+ .shoutbox:not(.shoutbox-full) .shout-toggle{display:flex}
+ .shoutbox:not(.shoutbox-full) .shout-panel{display:none}
+ .shoutbox:not(.shoutbox-full).is-open .shout-panel{display:block}
+}
+/* /shoutbox */
+"""
 
 NAV = [("", "nav_news"), ("markets", "nav_markets"), ("calendar", "nav_calendar"), ("talks", "nav_talks"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("sources", "nav_sources"), ("newsletter", "nav_newsletter"), ("about", "nav_about"), ("tip", "nav_tip")]
 COOKIE_PATH = site_url.PATH   # "/" on the public domain; a path prefix if BASE ever has one
@@ -296,6 +335,24 @@ def geo_endpoint():
     return ep if ep and ".workers.dev" in ep else None
 # ---- Newsletter signup (newsletter/config.json; OFF until the Worker is deployed and jQrgen approves) ----
 NL_CFG = load(P("newsletter", "config.json"), {}) or {}
+CHAT_CFG = load(P("chat", "config.json"), {}) or {}
+def chat_endpoint():
+    """Worker origin for the shared shoutbox, or None when the flag is off.
+    On only when chat/config.json enabled is true (or env NC_CHAT=1 for a test build) and an endpoint is set."""
+    if not (CHAT_CFG.get("enabled") is True or os.environ.get("NC_CHAT") == "1"): return None
+    e = os.environ.get("CHAT_ENDPOINT")
+    if e is None: e = CHAT_CFG.get("endpoint")
+    return (e or "").strip().rstrip("/") or None
+def chat_turnstile_key():
+    k = os.environ.get("CHAT_TURNSTILE_SITE_KEY")
+    if k is None: k = CHAT_CFG.get("turnstile_site_key")
+    return (k or "").strip() or None
+def nav_items():
+    items = list(NAV)
+    if chat_endpoint():
+        at = next((i for i, x in enumerate(items) if x[0] == "about"), len(items))
+        items.insert(at, ("chat", "nav_chat"))
+    return items
 def newsletter_endpoint():
     """Worker base URL for POST /api/subscribe, or None = no signup form anywhere on the site.
     On only when newsletter/config.json enabled is true (or env NC_NEWSLETTER=1 for test builds) AND an endpoint is known:
@@ -598,6 +655,71 @@ def write_push_assets():
     with open(os.path.join(SITE, "manifest.json"), "w", encoding="utf-8") as f:
         json.dump(manifest, f, ensure_ascii=False, indent=1)
         f.write("\n")
+_SHOUT_JS = None
+def shoutbox_html(ethics_href, full=False):
+    """Compact widget or the full-page room. Empty when the flag is off, so nothing broken is rendered."""
+    ep = chat_endpoint()
+    if not ep: return ""
+    key = chat_turnstile_key()
+    turn = ""
+    if key:
+        turn = (f'<div class="shout-turnstile" data-sitekey="{E(key)}"></div>'
+                f'<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>')
+    toggle = "" if full else (f'<button type="button" class="shout-toggle" aria-expanded="false" aria-controls="shout-panel">{E(t("chat_toggle_show"))}</button>')
+    full_link = "" if full else f'<p class="shout-more"><a href="chat/">{E(t("chat_full"))}</a></p>'
+    older = f'<button type="button" class="shout-older" hidden>{E(t("chat_older"))}</button>' if full else ""
+    heading = "" if full else f'<h2>{E(t("chat_h1"))}</h2>'
+    cls = "shoutbox shoutbox-full" if full else "shoutbox"
+    return (f'<aside class="{cls}" data-endpoint="{E(ep)}" data-lang="{E(LANG)}">'
+            f'{toggle}<div class="shout-panel" id="shout-panel">{heading}'
+            f'<p class="shout-user">{E(t("chat_user"))}</p>'
+            f'<p class="shout-shared">{E(t("chat_shared"))}</p>'
+            f'<p class="shout-rules">{t("chat_rules", ethics=E(ethics_href))}</p>'
+            f'<p class="shout-empty">{E(t("chat_empty"))}</p>'
+            f'<ol class="shout-list"></ol>{older}'
+            f'<form class="shout-form" action="#chat" autocomplete="off">'
+            f'<label>{E(t("chat_nick"))}<input name="nickname" required minlength="2" maxlength="24" autocomplete="off" placeholder="{E(t("chat_ph_nick"))}"></label>'
+            f'<label>{E(t("chat_message"))}<textarea name="message" required maxlength="280" placeholder="{E(t("chat_ph_msg"))}"></textarea></label>'
+            f'<span class="shout-hp" aria-hidden="true"><label>website</label><input name="website" tabindex="-1" autocomplete="off"></span>'
+            f'{turn}<button type="submit">{E(t("chat_send"))}</button>'
+            f'<p class="shout-status" role="status" aria-live="polite"></p></form>'
+            f'{full_link}<p class="shout-privacy">{E(t("chat_privacy"))}</p>'
+            f'<noscript><p>{E(t("chat_noscript"))}</p></noscript></div></aside>')
+def home_with_chat(body):
+    chat = shoutbox_html("ethics/", full=False)
+    if not chat: return body
+    return f'<div class="home-with-chat"><div class="home-main">{body}</div>{chat}</div>'
+def shout_script():
+    """Polling client. Omitted entirely while the shoutbox is off."""
+    global _SHOUT_JS
+    if not chat_endpoint(): return ""
+    if _SHOUT_JS is None:
+        _SHOUT_JS = open(P("assets", "chat", "client.js"), encoding="utf-8").read()
+    strings = {
+        "sending": t("chat_sending"), "sent": t("chat_sent"), "fail": t("chat_fail"),
+        "rate": t("chat_rate"), "spam": t("chat_spam"), "turnstile": t("chat_turnstile"),
+        "nick_err": t("chat_nick_err"), "msg_err": t("chat_msg_err"), "banned": t("chat_banned"),
+        "report": t("chat_report"), "reported": t("chat_reported"),
+        "toggle_show": t("chat_toggle_show"), "toggle_hide": t("chat_toggle_hide"),
+        "empty": t("chat_empty"), "time_now": t("chat_time_now"), "time_m": t("chat_time_m"),
+        "time_h": t("chat_time_h"), "time_d": t("chat_time_d"),
+    }
+    cfg = {
+        "endpoint": chat_endpoint(),
+        "lang": LANG,
+        "turnstileSiteKey": chat_turnstile_key() or "",
+        "pollMs": 15000,
+        "strings": strings,
+        "langNames": {code: i18n.NAME[code] for code in i18n.ALL_LANGS},
+    }
+    payload = json.dumps(cfg, ensure_ascii=False).replace("<", "\\u003c")
+    return "<script>window.NC_SHOUT=" + payload + ";</script><script>\n" + _SHOUT_JS + "\n</script>"
+def build_chat():
+    """Full /chat/ page for this language. Same endpoint as every other language. Not built while the flag is off."""
+    if not chat_endpoint(): return
+    body = (f'<h1>{E(t("chat_h1"))}</h1><p class="lead">{E(t("chat_lead"))}</p>'
+            + shoutbox_html("../ethics/", full=True))
+    page("chat", t("chat_title"), "chat", body, t("chat_desc"))
 def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra=""):
     """Writes site/<lang>/<slug>/index.html for the current LANG (English at the root)."""
     depth = (slug.count("/") + 1 if slug else 0) + (0 if LANG == "en" else 1)
@@ -610,7 +732,7 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
         href = rel + (n + "/" if n else "")
         current = " aria-current=page" if n == nav else ""
         return f'<a{quiet} href="{href}"{current}>{E(t(k))}</a>'
-    nav_html = "".join(_nav_a(n, k) for n, k in NAV)
+    nav_html = "".join(_nav_a(n, k) for n, k in nav_items())
     langs = langs or i18n.LANGS
     alt = "".join(f'<link rel="alternate" hreflang="{i18n.HTML_LANG[l]}" href="{BASE}{lp(l)}{slug + "/" if slug else ""}">' for l in langs) + \
         f'<link rel="alternate" hreflang="x-default" href="{BASE}{slug + "/" if slug else ""}">'
@@ -663,7 +785,7 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
 {s['top']}
 </main>
 <footer><div class="wrap">{nlfoot}{community_links()}{push_panel(root)}{t("footer", site=SITE_NAME, rel=rel, root=root)}</div></footer>
-{s['script']}{setck}{extra_script}{newsletter_script()}{push_script()}{analytics_snippet()}
+{s['script']}{setck}{extra_script}{newsletter_script()}{push_script()}{shout_script()}{analytics_snippet()}
 </body></html>"""
     d = os.path.join(SITE, lp(), slug); os.makedirs(d, exist_ok=True)
     open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(doc)
@@ -1301,6 +1423,7 @@ def build_lang(ctx):
 <ol class="news" id="news">{''.join(lis) or f'<li class="empty">{E(t("no_stories"))}</li>'}</ol>
 <section class="nlhome" aria-labelledby="nlhome-h"><h2 id="nlhome-h">{E(t("nl_title"))}</h2>{home_signup}{community_links()}</section>
 <p class="notice">{E(t("home_notice"))}</p>"""
+    body = home_with_chat(body)
     js = """<script>
 (function(){var NS=%s,sel=document.getElementById('fsrc'),tc=[].slice.call(document.querySelectorAll('.tchip')),cc=[].slice.call(document.querySelectorAll('.cchip')),lis=[].slice.call(document.querySelectorAll('#news li[data-src]')),cnt=document.getElementById('count');
 function on(a,k){return a.filter(function(c){return c.getAttribute('aria-pressed')==='true'}).map(function(c){return c.dataset[k]})}
@@ -1331,6 +1454,7 @@ sel.addEventListener('change',function(){apply(1)});tc.concat(cc).forEach(functi
     about = lang_template("about").replace("{{UP}}", up1()).replace("{{COMMUNITY}}", community_section())
     page("about", t("about_title"), "about", about, t("about_desc"))
     build_ethics()
+    build_chat()
 
 # ---- Industry map: categories from the org chart data (group + description keywords; overrides in industry_map.json) ----
 MAP_CATS = ["exchanges", "wallets", "infra", "payments", "finance", "consulting", "media", "academia", "other", "intl", "public"]

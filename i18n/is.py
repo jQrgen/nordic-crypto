@@ -242,3 +242,42 @@ S.update({
 })
 
 S.update({'nav_talks': 'Erindi', 'talks_title': 'Erindi – opinber erindi um rafmyntir á Norðurlöndum', 'talks_desc': 'Opinber erindi um bitcoin, rafmyntir og bálkakeðju haldin á Norðurlöndum, með myndbandinu og þeim staðreyndum sem útgefandinn gaf upp.', 'talks_h1': 'Erindi', 'talks_lead': 'Upptökur af opinberum erindum um bitcoin, rafmyntir og bálkakeðju haldin í Noregi, Svíþjóð, Danmörku, Finnlandi, á Íslandi, í Færeyjum, á Grænlandi og á Álandseyjum frá hvítbók bitcoin. Nýjustu fyrst. Spilarinn hleðst aðeins eftir að þú ýtir á spila, og aðeins þegar vettvangurinn leyfir ívefjun.', 'talks_n': '{n} erindi', 'talks_none': 'Engin erindi passa við þessar síur.', 'talks_year': 'Ár', 'talks_year_all': 'Öll ár', 'talks_language': 'Tungumál', 'talks_lang_unknown': 'Tungumál ekki tilgreint', 'talks_play': 'Spila', 'talks_watch': 'Horfa á vettvanginum', 'talks_speakers': 'Fyrirlesarar', 'talks_event': 'Viðburður', 'talks_channel': 'Rás', 'talks_published': 'Myndband birt', 'talks_duration': 'Lengd', 'talks_held': 'Haldið', 'talks_source': 'Heimild', 'talks_calendar': 'Færsla í dagatali', 'talks_embed_note': 'Spilarinn hleðst af vettvanginum fyrst þegar þú ýtir á spila.', 'talks_not_embed': 'Vettvangurinn bauð ekki upp á spilara sem má ívefja. Tengillinn fer á myndbandið.', 'past_talks': 'Upptökur af opinberum erindum eru í <a href="{href}">erindasafninu</a>.', 'c_FO': 'Færeyjar', 'c_GL': 'Grænland', 'c_AX': 'Álandseyjar'})
+
+# Shared shoutbox. One room; these strings are the UI only.
+S.update({
+"nav_chat": "Spjall",
+"chat_title": "Spjall",
+"chat_desc": "Eitt sameiginlegt kallborð á Nordic Crypto. Skilaboð frá lesendum, ekki ritstjórnarefni.",
+"chat_h1": "Spjall",
+"chat_lead": "Eitt herbergi fyrir öll tungumál á Nordic Crypto. Skilaboðin standa eins og þau voru skrifuð.",
+"chat_shared": "Allir sjá sömu skilaboðin. Þessi síða þýðir þau ekki.",
+"chat_user": "Þessi skilaboð eru skrifuð af lesendum. Þau eru ekki ritstjórnarefni frá Nordic Crypto.",
+"chat_rules": "<a href=\"{ethics}\">Húsreglur</a>: engin áreitni, engin doxxun, engin auglýsing á fjárhagsráðgjöf og engin svik eða tilvísunartenglar. Umsjónarmenn mega fjarlægja færslur.",
+"chat_nick": "Gælunafn",
+"chat_message": "Skilaboð",
+"chat_send": "Senda",
+"chat_report": "Tilkynna",
+"chat_reported": "Tilkynnt. Umsjónarmenn geta skoðað það.",
+"chat_ph_nick": "Nafn",
+"chat_ph_msg": "Skrifaðu skilaboð",
+"chat_privacy": "Kallborðið vistar gælunafnið, skilaboðin og tæti af IP-tölunni sem skiptist á hverjum degi, aðeins til að takmarka misnotkun. Sjálf IP-talan er ekki vistuð. Gælunafnið er aðeins í staðbundinni vistun þessa vafra, ekki í vafraköku. Cloudflare Web Analytics telur heimsóknir saman, án vafrakaka, og við seljum ekki þau gögn.",
+"chat_full": "Opna allt spjallið",
+"chat_toggle_show": "Sýna spjall",
+"chat_toggle_hide": "Fela spjall",
+"chat_empty": "Engin skilaboð enn.",
+"chat_sending": "Sendi …",
+"chat_sent": "Sent.",
+"chat_fail": "Tókst ekki að senda. Reyndu aftur.",
+"chat_rate": "Of mörg skilaboð á stuttum tíma. Bíddu aðeins.",
+"chat_spam": "Skilaboðin voru stöðvuð.",
+"chat_turnstile": "Ljúktu við athugunina og sendu aftur.",
+"chat_nick_err": "Gælunafnið verður að vera 2–24 stafir.",
+"chat_msg_err": "Skilaboðin verða að vera 1–280 stafir.",
+"chat_banned": "Þú getur ekki skrifað núna.",
+"chat_older": "Eldri skilaboð",
+"chat_time_now": "rétt í þessu",
+"chat_time_m": "fyrir {n} mín.",
+"chat_time_h": "fyrir {n} klst.",
+"chat_time_d": "fyrir {n} d.",
+"chat_noscript": "Spjallið þarfnast JavaScript.",
+})
