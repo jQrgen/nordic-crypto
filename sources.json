@@ -2116,66 +2116,6 @@
    "status": "no structured data; not used",
    "country": "NO",
    "merged_from": "kryptonytt 2026-10-04"
-  },
-  {
-   "id": "ica-blockchain-norway",
-   "name": "International Conference Alerts – blockchain, Norway",
-   "url": "https://internationalconferencealerts.com/blockchain/norway",
-   "type": "listing-jsonld",
-   "link_pattern": "^/event-[a-z0-9-]+$",
-   "max_links": 40,
-   "trusted": false,
-   "enabled": true,
-   "status": "Country listing plus schema.org Event JSON-LD on each event page (title, dates, place, organiser, url). Checked 2026-10-06. Academic conferences that name blockchain; editor reviews before publication. No images copied. Refresh: .venv/bin/python events.py --only ica-blockchain-norway. Direct fetch can get a Cloudflare challenge; events already stored are kept.",
-   "country": "NO"
-  },
-  {
-   "id": "ica-blockchain-sweden",
-   "name": "International Conference Alerts – blockchain, Sweden",
-   "url": "https://internationalconferencealerts.com/blockchain/sweden",
-   "type": "listing-jsonld",
-   "link_pattern": "^/event-[a-z0-9-]+$",
-   "max_links": 40,
-   "trusted": false,
-   "enabled": true,
-   "status": "Same listing-jsonld ingest as Norway. URL checked 2026-10-06. Refresh: .venv/bin/python events.py --only ica-blockchain-sweden",
-   "country": "SE"
-  },
-  {
-   "id": "ica-blockchain-denmark",
-   "name": "International Conference Alerts – blockchain, Denmark",
-   "url": "https://internationalconferencealerts.com/blockchain/denmark",
-   "type": "listing-jsonld",
-   "link_pattern": "^/event-[a-z0-9-]+$",
-   "max_links": 40,
-   "trusted": false,
-   "enabled": true,
-   "status": "Same listing-jsonld ingest as Norway. URL checked 2026-10-06. Refresh: .venv/bin/python events.py --only ica-blockchain-denmark",
-   "country": "DK"
-  },
-  {
-   "id": "ica-blockchain-finland",
-   "name": "International Conference Alerts – blockchain, Finland",
-   "url": "https://internationalconferencealerts.com/blockchain/finland",
-   "type": "listing-jsonld",
-   "link_pattern": "^/event-[a-z0-9-]+$",
-   "max_links": 40,
-   "trusted": false,
-   "enabled": true,
-   "status": "Same listing-jsonld ingest as Norway. URL checked 2026-10-06. Refresh: .venv/bin/python events.py --only ica-blockchain-finland",
-   "country": "FI"
-  },
-  {
-   "id": "ica-blockchain-iceland",
-   "name": "International Conference Alerts – blockchain, Iceland",
-   "url": "https://internationalconferencealerts.com/blockchain/iceland",
-   "type": "listing-jsonld",
-   "link_pattern": "^/event-[a-z0-9-]+$",
-   "max_links": 40,
-   "trusted": false,
-   "enabled": true,
-   "status": "Same listing-jsonld ingest as Norway. Country page checked 2026-10-06 (not only a city page). Refresh: .venv/bin/python events.py --only ica-blockchain-iceland",
-   "country": "IS"
   }
  ]
 }

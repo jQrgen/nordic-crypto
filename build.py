@@ -12,6 +12,7 @@ import json, os, re, shutil, subprocess, html, sys, calendar, datetime as dt
 from zoneinfo import ZoneInfo
 import i18n
 import site_url
+import event_block
 from tools.frontpage_blurbs import card_text, load as load_blurbs, opening_sentences, substantive
 ROOT = os.path.dirname(os.path.abspath(__file__)); P = lambda *a: os.path.join(ROOT, *a)
 BASE = site_url.BASE
@@ -1210,6 +1211,7 @@ def build_sources(ctx):
                         f'<td class="{cls}">{E(lab)}</td><td lang="en">{E(s.get("status", ""))}</td></tr>')
     erows = []
     for s in cfg.get("event_sources", []):
+        if event_block.blocked_source(s): continue
         st = status.get("ev-" + s["id"], {})
         cls, lab = ("ok", t("st_monitored")) if s.get("enabled", True) and st.get("ok", True) else ("bad", t("st_broken") if s.get("enabled", True) else t("st_unused"))
         erows.append(f'<tr><td>{flag(s.get("country"))}</td><td><a href="{E(s["url"])}" rel="noopener" target="_blank">{E(s["name"])}</a></td><td class="{cls}">{E(lab)}</td><td lang="en">{E(s.get("status", ""))}</td></tr>')
@@ -1318,6 +1320,7 @@ def events_for_site():
     now = dt.datetime.now(OSLO); out = []  # "finished" is judged in Oslo time
     for e in ev["events"]:
         e = dict(e)
+        if event_block.blocked_event(e): continue  # predatory conference listing
         if e["id"] in ap.get("reject", []): continue
         if e["id"] in ap.get("approve", []): e["status"] = "published"
         elif e["id"] in ap.get("ready_for_owner", []): e["status"] = "owner"  # editor-approved, waits for jQrgen; preview only
@@ -1333,18 +1336,22 @@ def events_for_site():
         site_url.brand_note(e)  # approved.json is local and may still reverse the brand name
         e["past"] = dt.datetime.fromisoformat(e.get("end") or e["start"]) < now
         out.append({k: e.get(k) for k in ("id", "title", "title_orig", "start", "end", "place", "city", "country", "online", "organiser", "url", "source", "paid", "sponsored", "note", "note_i18n", "past", "status")})
-    # Archive (committed to git): every event ever approved. jQrgen's rule: finished events are NEVER deleted, they move to
-    # "Past events". Fetch and build may only add or update archive entries, never remove them. Pending/preview events are not archived.
-    arkf = P("archive", "events.json"); ark = load(arkf, {"events": []}); by = {e["id"]: e for e in ark["events"]}
+    # Archive (committed to git): every editor-approved event. Finished events stay under "Past events".
+    # Pending/preview events are not archived. Predatory conference listings are removed and are not shown.
+    arkf = P("archive", "events.json"); ark = load(arkf, {"events": []}); by = {}
+    for raw in ark.get("events") or []:
+        if event_block.blocked_event(raw): continue
+        by[raw["id"]] = raw
     for e in out:
-        if e["status"] == "published": by[e["id"]] = {k: v for k, v in e.items() if k != "past"}
-    ark["_how_to"] = "Add-only archive of every editor-approved event (written by build.py). Never delete entries; finished events are shown under 'Past events'."
+        if e["status"] == "published" and not event_block.blocked_event(e):
+            by[e["id"]] = {k: v for k, v in e.items() if k != "past"}
+    ark["_how_to"] = "Add-only archive of every editor-approved event (written by build.py). Finished events stay under 'Past events'. Predatory conference listings are removed and are not shown."
     ark["events"] = sorted(by.values(), key=lambda e: dt.datetime.fromisoformat(e["start"]))
     os.makedirs(os.path.dirname(arkf), exist_ok=True)
     json.dump(ark, open(arkf, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     seen = {e["id"] for e in out}
     for e in ark["events"]:  # archived events that have dropped out of data/events.json (e.g. finished ones)
-        if e["id"] in seen or e["id"] in ap.get("reject", []): continue  # rejected: hidden, but kept in the archive
+        if e["id"] in seen or e["id"] in ap.get("reject", []) or event_block.blocked_event(e): continue  # rejected: hidden, but kept in the archive
         e = dict(e); e["note_i18n"] = e.get("note_i18n") or ((ap.get("notes_i18n") or {}).get(e["id"]) if e.get("note") else None)
         site_url.brand_note(e)
         e["past"] = dt.datetime.fromisoformat(e.get("end") or e["start"]) < now; out.append(e)

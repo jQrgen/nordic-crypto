@@ -31,6 +31,7 @@ sys.path.insert(0, os.path.join(ROOT, "tools"))
 import i18n  # noqa: E402
 import site_url  # noqa: E402
 import source_logos  # noqa: E402
+import event_block  # noqa: E402
 
 API = "1"
 SITE_NAME = "Nordic Crypto"
@@ -520,6 +521,8 @@ def public_events(preview, now=None):
     out = []
     for raw in ev.get("events") or []:
         e = dict(raw)
+        if event_block.blocked_event(e):
+            continue
         if e.get("id") in ap.get("reject", []):
             continue
         if e.get("id") in ap.get("approve", []):
@@ -550,7 +553,7 @@ def public_events(preview, now=None):
     ark = load(os.path.join(ROOT, "archive", "events.json"), {"events": []}) or {"events": []}
     seen = {e["id"] for e in out}
     for raw in ark.get("events") or []:
-        if raw.get("id") in seen or raw.get("id") in ap.get("reject", []):
+        if raw.get("id") in seen or raw.get("id") in ap.get("reject", []) or event_block.blocked_event(raw):
             continue
         e = dict(raw)
         e["note_i18n"] = e.get("note_i18n") or ((ap.get("notes_i18n") or {}).get(e["id"]) if e.get("note") else None)
@@ -671,6 +674,8 @@ def _sources(cfg):
             })
     events = []
     for s in cfg.get("event_sources") or []:
+        if event_block.blocked_source(s):
+            continue
         events.append({
             "id": s.get("id"),
             "name": s.get("name"),

@@ -9,15 +9,21 @@ and which are genuinely about crypto, bitcoin or blockchain. Paid and sponsored 
 EVERY new event gets status "pending"; the editor approves/rejects in queue/approved.json -> events.approve / events.reject (id).
 Times keep the event's own UTC offset (Helsinki is one hour ahead of Oslo/Stockholm, Reykjavík is behind).
 
-type listing-jsonld (conference listings such as International Conference Alerts): read the country listing,
-follow event links (link_pattern, crypto keywords unless trusted, soonest first, max_links), and read schema.org
-Event JSON-LD on each page (title, dates, place, organiser, url). A street address under a Venue label is used
-when it is more specific than the city. A timestamp of 00:00:00Z is stored as that calendar day in the event
-country's time zone, not as midnight UTC shifted into the previous evening. No images are stored. The calendar
-links to the event page. Refresh with the commands above; a failed fetch keeps events already in data/events.json."""
+type listing-jsonld: read the country listing, follow event links (link_pattern, crypto keywords unless trusted,
+soonest first, max_links), and read schema.org Event JSON-LD on each page (title, dates, place, organiser, url).
+A street address under a Venue label is used when it is more specific than the city. A timestamp of 00:00:00Z is
+stored as that calendar day in the event country's time zone, not as midnight UTC shifted into the previous evening.
+No images are stored. The calendar links to the event page. Refresh with the commands above; a failed fetch keeps
+events already in data/events.json.
+
+Predatory conference listings are never imported (event_block.py): International Conference Alerts, Conference
+Alerts, All Conference Alert, Conference Next, WASET, conferenceindex.org, and the organisers WASET, IRAJ, IIER,
+ISER, Academics World and World Academics. A matching URL, source or organiser is dropped, including a row already
+in data/events.json and an event added with --add-event."""
 import argparse, datetime as dt, hashlib, json, os, re, sys, urllib.parse
 from zoneinfo import ZoneInfo
 from bs4 import BeautifulSoup
+from event_block import blocked_event, blocked_source
 ROOT = os.path.dirname(os.path.abspath(__file__)); P = lambda *a: os.path.join(ROOT, *a)
 TZ = {"NO": "Europe/Oslo", "SE": "Europe/Stockholm", "DK": "Europe/Copenhagen", "FI": "Europe/Helsinki", "IS": "Atlantic/Reykjavik"}
 UTC = dt.timezone.utc
@@ -160,10 +166,39 @@ def guess_city(place):
             if place and re.search(rf"\b{x}\b", place, re.I): return x, c
     return None, None
 
+def _drop_queue_ids(gone, log):
+    """Remove predatory event ids from the editor queue and the approval list, when those files exist."""
+    qf = P("queue", "review.json"); q = _load(qf, None)
+    if isinstance(q, dict) and isinstance(q.get("events_pending"), list):
+        kept = [e for e in q["events_pending"] if e.get("id") not in gone and not blocked_event(e)]
+        if len(kept) != len(q["events_pending"]):
+            q["events_pending"] = kept; _save(qf, q); log("event: removed predatory listings from the editor queue")
+    af = P("queue", "approved.json"); ap = _load(af, None)
+    evs = ap.get("events") if isinstance(ap, dict) else None
+    if not isinstance(evs, dict): return
+    changed = False
+    for key in ("approve", "reject", "ready_for_owner", "sponsored"):
+        if isinstance(evs.get(key), list):
+            nxt = [i for i in evs[key] if i not in gone]
+            if nxt != evs[key]: evs[key] = nxt; changed = True
+    for key in ("notes", "notes_i18n", "sponsor", "paid", "title_en"):
+        if isinstance(evs.get(key), dict):
+            for i in gone:
+                if evs[key].pop(i, None) is not None: changed = True
+    if changed: _save(af, ap); log("event: removed predatory listings from the approval list")
+
 def run(get, robots_ok, matches, log, cfg, add_url=None, a=None, only=None):
-    data = _load(P("data", "events.json"), {"events": []}); by = {e["id"]: e for e in data["events"]}
+    data = _load(P("data", "events.json"), {"events": []})
+    dropped = [e for e in data["events"] if blocked_event(e)]
+    if dropped:
+        gone = {e["id"] for e in dropped}
+        data["events"] = [e for e in data["events"] if e["id"] not in gone]
+        log(f"event: removed {len(dropped)} predatory conference listing(s)")
+        _drop_queue_ids(gone, log)
+    by = {e["id"]: e for e in data["events"]}
     status = _load(P("state", "source_status.json"), {}); now = dt.datetime.now(UTC); new = []
     def take(ev, src, trusted):
+        if blocked_event(ev, src): return  # predatory listing: refused even when the source is marked trusted
         if not ev.get("title") or not ev.get("start"): return
         text = f"{ev['title']} {ev.get('description', '')}"
         if not trusted and not matches(text): return
@@ -197,8 +232,18 @@ def run(get, robots_ok, matches, log, cfg, add_url=None, a=None, only=None):
     def fetch_page(u):
         if not robots_ok(u): raise RuntimeError("robots.txt disallows")
         r = get(u); r.raise_for_status(); return r
-    sources = cfg.get("event_sources", [])
-    if add_url:
+    sources = [s for s in cfg.get("event_sources", []) if not blocked_source(s)]
+    refused = [s for s in cfg.get("event_sources", []) if blocked_source(s)]
+    for src in refused:
+        if only and src.get("id") not in only: continue
+        status["ev-" + src["id"]] = {"checked": now.isoformat(timespec="seconds"), "ok": False, "entries": 0, "new": 0,
+                                     "error": "blocked: predatory conference listing"}
+        log(f"event {src.get('id', '?'):<28} blocked predatory conference listing")
+    manual = a or argparse.Namespace(organiser=None, source_name=None)
+    if add_url and blocked_event({"url": add_url, "organiser": manual.organiser},
+                                 {"url": add_url, "name": manual.source_name, "organiser": manual.organiser}):
+        log(f"event: refused {add_url} (predatory conference listing)")
+    elif add_url:
         tz = TZ.get(a.country or "NO", "Europe/Oslo")
         r = fetch_page(add_url); evs = jsonld_events(r.text, tz)
         if not evs:
