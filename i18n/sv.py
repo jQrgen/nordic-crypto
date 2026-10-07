@@ -16,7 +16,7 @@ S = {
 "home_lead": "Länkar till artiklar från Norge, Sverige, Danmark, Finland och Island – tidningar, public service, tillsynsmyndigheter och centralbanker – var och en med en sammanfattning av vad artikeln säger, gjord med hjälp av artificiell intelligens, med mänskliga redaktörer (jQrgen och Nordic Crypto-redaktören) – skriven på engelska och översatt till svenska. Tills översättningen har godkänts av redaktören visar vi den engelska sammanfattningen. Läs hela artikeln hos källan. Senast uppdaterad {upd}. {n} artiklar{pend}.",
 "home_pend": " ({n} väntar på redaktören)",
 "source": "Källa", "all_sources": "Alla källor", "topic": "Ämne", "n_stories": "{n} artiklar", "no_stories": "Inga publicerade artiklar än.",
-"home_notice": "Sammanfattningarna är våra egna, skrivna utifrån rubriken och den publika ingressen. Vi återger inte artikeltext och vi kringgår inte betalväggar. Artiklar märkta ”kan kräva prenumeration” kommer från medier med betalvägg. Rubrikerna visas så som källan skrev dem. Inget här är investeringsrådgivning.",
+"home_notice": "Sammanfattningarna är våra egna, skrivna utifrån rubriken och den publika ingressen. Vi återger inte artikeltext och vi kringgår inte betalväggar. Artiklar märkta ”kan kräva prenumeration” kommer från medier med betalvägg. Rubriken är på språket du läser. Originalrubriken står under när källan skrev den på ett annat språk. Inget här är investeringsrådgivning.",
 "paywall": "kan kräva prenumeration", "orig_title": "Originalrubrik ({l}): ",
 "ill_photo": "Foto", "ill_drawing": "Illustration", "ill_licence": "Licens", "ill_source": "Källa", "ill_cropped": "Beskuren.",
 "ill_not_press": "Bilden är inte tidningens fotografi. Vi kopierar inte nyhetsbilder och hämtar dem inte från tidningens server.",

@@ -29,6 +29,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 sys.path.insert(0, os.path.join(ROOT, "tools"))
+import headlines as headlines_mod  # noqa: E402
 import i18n  # noqa: E402
 import illustrations  # noqa: E402
 import press_images  # noqa: E402
@@ -133,7 +134,7 @@ DOCS_DESC = (
 BANNED_KEYS = {
     "token", "secret", "password", "private_key", "api_key",
     "approved_by", "approved_at", "reject_reason", "editor_note",
-    "summary_i18n_review", "summary_i18n_source", "matched", "fetched", "seen_via", "via",
+    "summary_i18n_review", "summary_i18n_source", "title_i18n_source", "matched", "fetched", "seen_via", "via",
     "suggested_by", "suggested_status", "suggested_at", "merged_from", "site_terms",
     "removal_reason", "reviewed",
 }
@@ -355,6 +356,7 @@ class Feed:
             "api_url": self.abs(f"api/v1/news/{nid}.json"),
             "title": item.get("title"),
             "title_en": item.get("title_en"),
+            "title_i18n": headlines_mod.public_title_i18n(item) if public else {},
             "source": source,
             "source_name": source_name,
             "source_logo": self.logo(source_logos.for_source(source, preview=self.preview)),
@@ -976,7 +978,9 @@ def _meta(feed):
             "Site languages, with native_name, english_name and rtl, are listed in languages and in /api/v1/languages.json. "
             "Our own text is written in English first. summary_i18n, title_i18n, subtitle_i18n, note_i18n and about_i18n "
             "carry published translations, today nn, nb, sv, da, fi and is. Other site languages fall back to the English field "
-            "until a translation is published. External headlines stay in the source language (see language and language_code). "
+            "until a translation is published. On a news item, title is the source headline, title_en is our English headline "
+            "and title_i18n is our headline in nn, nb, sv, da, fi and is. The site shows the page-language headline first "
+            "and the source headline underneath when they differ. Outlet headlines inside sources stay in that outlet's language. "
             "There is no query string for language: each JSON document already carries every published translation. "
             "The language switcher's country default is a guess; see /api/v1/geo-language.json. The nc_lang cookie wins."
         ),
@@ -1148,6 +1152,9 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
         "summary is English. summary_i18n holds nn, nb, sv, da, fi and is when that translation is published. "
         "Other site languages use the English summary until a translation exists. "
         "title is the source headline. title_en is our English headline when we wrote one. "
+        "title_i18n holds nn, nb, sv, da, fi and is when that headline is not already the source headline. "
+        "The site shows the page-language headline first and the source headline under it when they differ. "
+        "Other site languages use title_en. "
         "source_logo is the outlet image when assets/img/logos/logos.json has a checked file for the source id "
         "(or its outlet, or a _source_alias). Null means show the source name as text. "
         "illustration is a picture we may show, with source, author, license and url. "
@@ -1537,8 +1544,9 @@ def schemas():
             "url": {"type": "string", "description": "Story the reader follows. Absolute."},
             "html_url": {"type": "string", "nullable": True, "description": "Our story page: summary, licensed picture and the outlets. For our own articles this is the article. For other outlets this is the coverage page; url is the primary outlet."},
             "api_url": {"type": "string"},
-            "title": {"type": "string"},
-            "title_en": {"type": "string", "nullable": True},
+            "title": {"type": "string", "description": "Source headline."},
+            "title_en": {"type": "string", "nullable": True, "description": "Our English headline, when the source headline is not English."},
+            "title_i18n": {"type": "object", "additionalProperties": {"type": "string"}, "description": "Our headline in nn, nb, sv, da, fi and is, when that language is not already the source headline. English is title_en."},
             "source": {"type": "string", "description": "Source id from sources.json."},
             "source_name": {"type": "string"},
             "source_logo": source_logo,
@@ -1900,7 +1908,8 @@ def llms_txt(feed, index):
         "The sign-off is The Nordic Crypto team. Kaupr (kaupr.io) is a news source only and is never a sponsor. "
         "Summaries are ours, in English, with translations in summary_i18n (nn, nb, sv, da, fi, is) when published. "
         "Other site languages fall back to English until a translation is published. "
-        "External headlines stay in the original language.",
+        "title on a news item is the source headline. title_en and title_i18n are our headlines. "
+        "The pages show the page-language headline first and the source headline underneath when they differ.",
         "",
         "GitHub Pages sends Access-Control-Allow-Origin: * on every JSON file, so a browser can fetch them from any site. "
         "Use the file name (index.json). A directory URL does not serve the JSON.",
@@ -2091,7 +2100,7 @@ curl -fsS {html.escape(b)}api/v1/markets/aggregated.json</pre>
 <h2>Events</h2>
 <p>Upcoming and past events are in <a href="{html.escape(b)}api/v1/events.json"><code>/api/v1/events.json</code></a>. Luma calendars are taken from the public Subscribe iCal URL on each event source (<code>ics</code>). Luma city pages, category pages and the discover API are not used. An individual Luma event page is schema.org JSON-LD. Eventbrite organizers and venues are read with the v3 API when the server has <code>EVENTBRITE_TOKEN</code>. That token is not in this feed and is not committed. Without it, the event page JSON-LD is used. The same title, date and venue is one event. Finished events stay in the feed. Kaupr is never a sponsor.</p>
 <h2>Languages</h2>
-<p>English is the default field (<code>summary</code>, <code>title</code>, <code>text</code>). Translations that we have published sit in <code>summary_i18n</code>, <code>title_i18n</code>, <code>subtitle_i18n</code>, <code>note_i18n</code>, <code>text_i18n</code> and <code>about_i18n</code>, keyed by <code>nn</code>, <code>nb</code>, <code>sv</code>, <code>da</code>, <code>fi</code> and <code>is</code>. Other site languages use the English field until a translation is published. Headlines from other outlets stay in the original language. Dates are ISO 8601.</p>
+<p>English is the default field (<code>summary</code>, <code>title</code>, <code>text</code>). Translations that we have published sit in <code>summary_i18n</code>, <code>title_i18n</code>, <code>subtitle_i18n</code>, <code>note_i18n</code>, <code>text_i18n</code> and <code>about_i18n</code>, keyed by <code>nn</code>, <code>nb</code>, <code>sv</code>, <code>da</code>, <code>fi</code> and <code>is</code>. Other site languages use the English field until a translation is published. On a news item, <code>title</code> stays the source headline, <code>title_en</code> is our English headline and <code>title_i18n</code> is our headline in the Nordic site languages. The pages show the page-language headline first and the source headline underneath when they differ. Each outlet's own headline, inside <code>sources</code>, stays in that outlet's language. Dates are ISO 8601.</p>
 <p><a href="{html.escape(b)}api/v1/languages.json"><code>/api/v1/languages.json</code></a> lists every site language with <code>code</code>, <code>native_name</code>, <code>english_name</code>, <code>rtl</code>, <code>html_lang</code> and <code>home</code>. <a href="{html.escape(b)}api/v1/geo-language.json"><code>/api/v1/geo-language.json</code></a> is the country-to-language guess used on a first visit. The IP country comes from the tipworker <code>GET /api/geo</code> (Cloudflare <code>request.cf.country</code>). Nothing is stored. The <code>nc_lang</code> cookie, set by the language switcher, always wins.</p>
 <h2>Source logos</h2>
 <p>Each outlet in <a href="{html.escape(b)}api/v1/sources.json"><code>/api/v1/sources.json</code></a> has <code>logo_url</code> (absolute PNG or WebP URL, never SVG, or <code>null</code>) and <code>logo</code> (<code>kind</code>, <code>file_url</code> (the original, SVG or WebP), <code>raster_url</code> (same as <code>logo_url</code>), <code>source_url</code>, <code>author</code>, <code>license</code>, <code>license_url</code>, <code>credit</code>, or <code>null</code>). Each news item has <code>source_logo_url</code>, so an app can show the outlet's logo next to the headline. Logos come from Wikimedia Commons (with the licence) or the publisher's own site. They are the publishers' trademarks, shown only to identify the source of a headline. A logo stays <code>null</code> until the editor has checked it.</p>

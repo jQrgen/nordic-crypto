@@ -16,7 +16,7 @@ S = {
 "home_lead": "Lenkjer til saker frå Noreg, Sverige, Danmark, Finland og Island – aviser, kringkastarar, tilsyn og sentralbankar – kvar med eit samandrag av kva saka seier, laga med hjelp av kunstig intelligens, med menneskelege redaktørar (jQrgen og Nordic Crypto-redaktøren) – skrive på engelsk og omsett til nynorsk. Til omsetjinga er godkjend av redaktøren, viser vi det engelske samandraget. Les heile saka hos kjelda. Sist oppdatert {upd}. {n} saker{pend}.",
 "home_pend": " ({n} ventar på redaktøren)",
 "source": "Kjelde", "all_sources": "Alle kjelder", "topic": "Tema", "n_stories": "{n} saker", "no_stories": "Ingen publiserte saker enno.",
-"home_notice": "Samandraga er våre eigne, skrivne ut frå tittelen og den offentlege ingressen. Vi attgjev ikkje artikkeltekst og omgår ikkje betalingsmurar. Saker merkte «kan krevje abonnement», er frå medium med betalingsmur. Titlane blir viste slik kjelda skreiv dei. Ingenting her er investeringsråd.",
+"home_notice": "Samandraga er våre eigne, skrivne ut frå tittelen og den offentlege ingressen. Vi attgjev ikkje artikkeltekst og omgår ikkje betalingsmurar. Saker merkte «kan krevje abonnement», er frå medium med betalingsmur. Tittelen er på språket du les. Originaltittelen står under når kjelda skreiv han på eit anna språk. Ingenting her er investeringsråd.",
 "paywall": "kan krevje abonnement", "orig_title": "Originaltittel ({l}): ",
 "ill_photo": "Foto", "ill_drawing": "Illustrasjon", "ill_licence": "Lisens", "ill_source": "Kjelde", "ill_cropped": "Skore til.",
 "ill_not_press": "Biletet er ikkje avisa sitt fotografi. Vi kopierer ikkje nyhendebilete og hentar dei ikkje frå avisa sin tenar.",

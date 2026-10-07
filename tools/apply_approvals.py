@@ -4,6 +4,8 @@ Only what is approved here is published. Org-chart approvals (approved.json -> o
 events by build.py (events.*), academia by tools/import_academia.py (status column of the researcher's list).
 
 queue/approved.json -> items: [{"url": ..., "summary": "2–4 sentences IN ENGLISH, own words, what the story says", "title_en": optional English headline,
+                                "title_i18n": {"nn": ..., "nb": ..., "sv": ..., "da": ..., "fi": ..., "is": ...} (our headline in each Nordic site language; omit the source language),
+                                "title_i18n_source": "<the source headline the translations were made from>",
                                 "blurb": optional, same length, stored for the front page when summary stays a one-line intro,
                                 "blurb_i18n": {"nn": ..., "nb": ..., "sv": ..., "da": ..., "fi": ..., "is": ...},
                                 "blurb_i18n_source": "<the English blurb the translations were made from>",
@@ -93,6 +95,13 @@ for a in ap.get("items", []):
     it.update(status="published", summary=s, approved_by=a.get("approved_by", "Nordic Crypto editor"), approved_at=a.get("approved_at"))
     for k in ("topics", "title_en", "source_name", "links", "country"):
         if a.get(k): it[k] = a[k]
+    src_title = it.get("title") or ""
+    if a.get("title_i18n") and a.get("title_i18n_source", src_title) == src_title:
+        cleaned = {k: v.strip() for k, v in a["title_i18n"].items() if k in LANGS and k != "en" and (v or "").strip()}
+        it["title_i18n"] = cleaned
+        it["title_i18n_source"] = src_title
+    elif it.get("title_i18n_source") and it.get("title_i18n_source") != src_title:
+        it.pop("title_i18n", None); it.pop("title_i18n_source", None)
     # translations only count while they were made from the current English summary (summary_i18n_source); otherwise the
     # other languages fall back to the English summary until the editor re-translates
     # summary_i18n_review: "pending" (AI-assisted draft) or "approved" (editor checked); build.py shows pending ones only in --preview

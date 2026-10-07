@@ -10,6 +10,7 @@ from zoneinfo import ZoneInfo
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); sys.path.insert(0, ROOT)
 import i18n
 import site_url
+from tools.headlines import card_headline
 BASE = site_url.BASE; OSLO = ZoneInfo("Europe/Oslo")
 T = {
  "en": dict(h="Nordic Crypto weekly", intro="The week’s crypto, bitcoin and blockchain stories from the Nordics that our editor has approved. Each item links to the original source.",
@@ -69,12 +70,13 @@ def render(items, lang, since, until):
         if i["country"] != cur:
             cur = i["country"]; cn = i18n.t(lang, "c_" + cur)
             md += [f"## {cn}", ""]; tx += [cn.upper(), ""]; hm.append(f'<h2 style="font-size:18px;margin:20px 0 6px">{html.escape(cn)}</h2>')
-        title = i.get("title_en") if lang == "en" and i.get("title_en") else i["title"]
+        title, _hl, orig_title = card_headline(i, lang)
+        orig_title = orig_title or ""
         summ = (i.get("summary_i18n") or {}).get(lang) if lang != "en" else None
         summ = summ or i["summary"]
         meta = [i["source_name"], i18n.short_date(lang, i["_d"])]
         if i.get("paywall") is True: meta.append(i18n.t(lang, "paywall"))
-        orig = f" ({s['orig']}: {i['title']})" if title != i["title"] else ""
+        orig = f" ({s['orig']}: {orig_title})" if orig_title else ""
         lg = (i.get("source_logo") or {}).get("file") if isinstance(i.get("source_logo"), dict) else None
         logo = (f'<img src="{html.escape(BASE + lg)}" alt="" height="18" style="height:18px;width:auto;max-width:96px;object-fit:contain;vertical-align:middle;margin:0 6px 0 0;background:#fff">' if lg else "")
         md += [f"**[{title}]({i['url']})**{orig}  ", f"{summ}  ", f"*{' · '.join(meta)}*", ""]

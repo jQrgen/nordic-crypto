@@ -16,7 +16,7 @@ S = {
 "home_lead": "Lenker til saker fra Norge, Sverige, Danmark, Finland og Island – aviser, kringkastere, tilsyn og sentralbanker – hver med et sammendrag av hva saken sier, laget med hjelp av kunstig intelligens, med menneskelige redaktører (jQrgen og Nordic Crypto-redaktøren) – skrevet på engelsk og oversatt til bokmål. Til oversettelsen er godkjent av redaktøren, viser vi det engelske sammendraget. Les hele saken hos kilden. Sist oppdatert {upd}. {n} saker{pend}.",
 "home_pend": " ({n} venter på redaktøren)",
 "source": "Kilde", "all_sources": "Alle kilder", "topic": "Tema", "n_stories": "{n} saker", "no_stories": "Ingen publiserte saker ennå.",
-"home_notice": "Sammendragene er våre egne, skrevet ut fra tittelen og den offentlige ingressen. Vi gjengir ikke artikkeltekst og omgår ikke betalingsmurer. Saker merket «kan kreve abonnement» er fra medier med betalingsmur. Titlene vises slik kilden skrev dem. Ingenting her er investeringsråd.",
+"home_notice": "Sammendragene er våre egne, skrevet ut fra tittelen og den offentlige ingressen. Vi gjengir ikke artikkeltekst og omgår ikke betalingsmurer. Saker merket «kan kreve abonnement» er fra medier med betalingsmur. Tittelen er på språket du leser. Originaltittelen står under når kilden skrev den på et annet språk. Ingenting her er investeringsråd.",
 "paywall": "kan kreve abonnement", "orig_title": "Originaltittel ({l}): ",
 "ill_photo": "Foto", "ill_drawing": "Illustrasjon", "ill_licence": "Lisens", "ill_source": "Kilde", "ill_cropped": "Beskåret.",
 "ill_not_press": "Bildet er ikke avisens fotografi. Vi kopierer ikke nyhetsbilder og henter dem ikke fra avisens tjener.",

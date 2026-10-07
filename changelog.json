@@ -67,6 +67,38 @@
    }
   },
   {
+   "id": "translated-headlines",
+   "date": "2026-10-06",
+   "title": "Headlines in the language of the page",
+   "description": "A story card now leads with the headline in the language you are reading. When the source wrote the headline in another language, that headline is shown underneath, in smaller type. If the source language is the page language, there is still only one headline. The short summary under «In short» is unchanged. The same pair is on the front page and on the story page, in every site language.",
+   "i18n": {
+    "nn": {
+     "title": "Titlar på språket til sida",
+     "description": "Eit sakkort har no tittelen på språket du les, først. Når kjelda skreiv tittelen på eit anna språk, står den tittelen under, i mindre skrift. Er kjeldespråket det same som sidesspråket, er det framleis berre éin tittel. Det korte samandraget under «Kort forklart» er som før. Det same paret står på framsida og på sakssida, på kvart språk."
+    },
+    "nb": {
+     "title": "Titler på sidens språk",
+     "description": "Et sakkort har nå tittelen på språket du leser, først. Når kilden skrev tittelen på et annet språk, står den tittelen under, i mindre skrift. Er kildespråket det samme som sidens språk, er det fortsatt bare én tittel. Det korte sammendraget under «Kort forklart» er som før. Det samme paret står på forsiden og på sakssiden, på hvert språk."
+    },
+    "sv": {
+     "title": "Rubriker på sidans språk",
+     "description": "Ett artikelkort har nu rubriken på språket du läser, först. När källan skrev rubriken på ett annat språk står den rubriken under, i mindre stil. Är källspråket samma som sidans språk finns fortfarande bara en rubrik. Den korta sammanfattningen under «I korthet» är som förut. Samma par står på startsidan och på artikelsidan, på varje språk."
+    },
+    "da": {
+     "title": "Overskrifter på sidens sprog",
+     "description": "Et artikelkort har nu overskriften på det sprog, du læser, først. Når kilden skrev overskriften på et andet sprog, står den overskrift under, i mindre skrift. Er kildesproget det samme som sidens sprog, er der stadig kun én overskrift. Det korte resumé under «Kort fortalt» er som før. Det samme par står på forsiden og på artikelsiden, på hvert sprog."
+    },
+    "fi": {
+     "title": "Otsikot sivun kielellä",
+     "description": "Juttukortin ensimmäinen otsikko on nyt kielellä, jota luet. Kun lähde kirjoitti otsikon toisella kielellä, se otsikko näkyy alla pienemmällä. Jos lähteen kieli on sivun kieli, otsikkoja on yhä vain yksi. Lyhyt tiivistelmä «Lyhyesti»-rivin alla on ennallaan. Sama pari on etusivulla ja juttusivulla, jokaisella kielellä."
+    },
+    "is": {
+     "title": "Fyrirsagnir á tungumáli síðunnar",
+     "description": "Fréttaspjald sýnir nú fyrst fyrirsögnina á tungumálinu sem þú lest. Þegar heimildin skrifaði fyrirsögnina á öðru tungumáli stendur sú fyrirsögn undir, í minna letri. Ef tungumál heimildarinnar er tungumál síðunnar er áfram aðeins ein fyrirsögn. Stutta samantektin undir «Í stuttu máli» er óbreytt. Sama par er á forsíðu og á fréttasíðu, á hverju tungumáli."
+    }
+   }
+  },
+  {
    "id": "newsletter-own-list",
    "date": "2026-10-06",
    "title": "Newsletter signup on this site",
