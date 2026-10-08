@@ -3,6 +3,38 @@
  "launch_date": "2026-10-03",
  "entries": [
   {
+   "id": "event-descriptions",
+   "date": "2026-10-07",
+   "title": "Event descriptions",
+   "description": "Each event page shows the organiser's description under the date, when a source page stated one. The text is in the language of the site, and the original is shown underneath when they differ. An event with no sourced description has no description section.",
+   "i18n": {
+    "nn": {
+     "title": "Skildring av arrangement",
+     "description": "Kvar arrangementsside viser skildringa frå arrangøren under datoen, når kjeldesida har ei. Teksten er på språket til sida, og originalen står under når dei er ulike. Eit arrangement utan kjeldetekst har inga skildring."
+    },
+    "nb": {
+     "title": "Beskrivelse av arrangementer",
+     "description": "Hver arrangementsside viser arrangørens beskrivelse under datoen, når en kildeside har en. Teksten er på sidens språk, og originalen står under når de er ulike. Et arrangement uten kildetekst har ingen beskrivelse."
+    },
+    "sv": {
+     "title": "Beskrivningar av evenemang",
+     "description": "Varje evenemangssida visar arrangörens beskrivning under datumet, när en källsida har en. Texten är på sidans språk, och originalet står under när de skiljer sig. Ett evenemang utan källtext har ingen beskrivning."
+    },
+    "da": {
+     "title": "Beskrivelser af arrangementer",
+     "description": "Hver arrangementsside viser arrangørens beskrivelse under datoen, når en kildeside har en. Teksten er på sidens sprog, og originalen står under, når de er forskellige. Et arrangement uden kildetekst har ingen beskrivelse."
+    },
+    "fi": {
+     "title": "Tapahtumakuvaukset",
+     "description": "Jokainen tapahtumasivu näyttää järjestäjän kuvauksen päivämäärän alla, kun lähdesivulla on sellainen. Teksti on sivun kielellä, ja alkuperäinen teksti on alla, kun ne eroavat. Tapahtumalla ilman lähdetekstiä ei ole kuvausta."
+    },
+    "is": {
+     "title": "Lýsingar viðburða",
+     "description": "Hver viðburðarsíða sýnir lýsingu skipuleggjanda undir dagsetningunni, þegar heimildarsíða hefur slíka. Textinn er á tungumáli síðunnar, og frumtextinn er fyrir neðan þegar þeir eru ólíkir. Viðburður án heimildartexta hefur enga lýsingu."
+    }
+   }
+  },
+  {
    "id": "crest-media-kit",
    "date": "2026-10-07",
    "title": "Crest and media kit",

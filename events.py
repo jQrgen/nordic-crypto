@@ -17,6 +17,9 @@ No images are stored. The calendar links to the event page. Refresh with the com
 events already in data/events.json. A finished event is not deleted from data/events.json.
 JSON-LD attendeeCount (and the same kind of explicit count) and an iCal X-GUEST-COUNT are stored with the
 page URL and the time they were read. Seat capacity is not a participant count and is not stored.
+The organiser's description (JSON-LD, iCal, Eventbrite, or the Meetup event object) is stored with
+the page URL and its language. A description that is only the title, a URL, or a sponsor line is not
+stored. A predatory listing is not a source for that text. Kaupr is never kept in it.
 
 Predatory conference listings are never imported (event_block.py): International Conference Alerts, Conference
 Alerts, All Conference Alert, Conference Next, WASET, conferenceindex.org, and the organisers WASET, IRAJ, IIER,
@@ -36,6 +39,7 @@ import requests
 from bs4 import BeautifulSoup
 from event_block import blocked_event, blocked_source
 import site_url
+from tools.event_description import language_of, prefer as prefer_description, record as description_record
 from tools.event_select import explicit_attendee_count, explicit_ics_count
 ROOT = os.path.dirname(os.path.abspath(__file__)); P = lambda *a: os.path.join(ROOT, *a)
 TZ = {"NO": "Europe/Oslo", "SE": "Europe/Stockholm", "DK": "Europe/Copenhagen", "FI": "Europe/Helsinki", "IS": "Atlantic/Reykjavik"}
@@ -75,8 +79,33 @@ def _ld_nodes(d):
             continue
         out.append(x)
     return out
+def _apply_next_description(html, events):
+    """Meetup puts the full description in __NEXT_DATA__, and a short one in JSON-LD."""
+    s = BeautifulSoup(html or "", "lxml")
+    node = s.find("script", id="__NEXT_DATA__")
+    if node is None or not node.string:
+        return
+    try:
+        data = json.loads(node.string)
+    except Exception:
+        return
+    ev = ((data.get("props") or {}).get("pageProps") or {}).get("event") or {}
+    if not isinstance(ev, dict):
+        return
+    desc = ev.get("description") or ""
+    if not isinstance(desc, str) or not desc.strip():
+        return
+    url = (ev.get("eventUrl") or "").split("?")[0].rstrip("/")
+    title = ev.get("title") or ""
+    for row in events:
+        row_url = (row.get("url") or "").split("?")[0].rstrip("/")
+        if (url and row_url == url) or (title and row.get("title") == title):
+            if len(desc) > len(row.get("description") or ""):
+                row["description"] = desc
+                row["description_lang"] = language_of(desc, None, None)
 def jsonld_events(html, tz="Europe/Oslo"):
     s = BeautifulSoup(html, "lxml"); out = []
+    html_lang = s.html.get("lang") if s.html else None
     for sc in s.find_all("script", type="application/ld+json"):
         try: d = json.loads(sc.string or "")
         except Exception: continue
@@ -97,12 +126,17 @@ def jsonld_events(html, tz="Europe/Oslo"):
             org = x.get("organizer") or {}; org = org[0] if isinstance(org, list) and org else org
             offers = x.get("offers") or {}; offers = offers if isinstance(offers, list) else [offers]
             prices = [float(o.get("price")) for o in offers if isinstance(o, dict) and str(o.get("price", "")).replace(".", "", 1).isdigit()]
+            raw_desc = x.get("description") or ""
+            if not isinstance(raw_desc, str): raw_desc = ""
+            desc = BeautifulSoup(raw_desc, "lxml").get_text("\n")
             # A stated registered-count only. maximumAttendeeCapacity is seats, not people who signed up.
             out.append({"title": x.get("name"), "start": parse_dt(x.get("startDate"), tz), "end": parse_dt(x.get("endDate"), tz), "place": place or None,
                         "city": (city or "").strip() or None, "country_hint": ctry if isinstance(ctry, str) else None, "online": online,
                         "organiser": org.get("name") if isinstance(org, dict) else None,
-                        "url": x.get("url"), "description": BeautifulSoup(x.get("description") or "", "lxml").get_text(" ")[:600],
+                        "url": x.get("url"), "description": desc,
+                        "description_lang": language_of(desc, x.get("inLanguage"), html_lang),
                         "paid": (max(prices) > 0) if prices else None, "attendees_count": explicit_attendee_count(x)})
+    _apply_next_description(html, out)
     return out
 def _ics_unescape(v):
     return v.replace("\\,", ",").replace("\\n", " ").replace("\\;", ";").strip()
@@ -124,7 +158,8 @@ def ics_events(text, tz="Europe/Oslo"):
         place = f.get("LOCATION")
         if place and re.match(r"https?://", place.strip()): place = None
         out.append({"title": f.get("SUMMARY"), "start": parse_dt(f.get("DTSTART"), tz), "end": parse_dt(f.get("DTEND"), tz), "place": place,
-                    "city": None, "online": False, "organiser": f.get("ORGANIZER_CN"), "url": url, "description": desc[:600], "paid": None, "attendees_count": explicit_ics_count(f)})
+                    "city": None, "online": False, "organiser": f.get("ORGANIZER_CN"), "url": url, "description": desc,
+                    "description_lang": language_of(desc), "paid": None, "attendees_count": explicit_ics_count(f)})
     return out
 def clear_kaupr_sponsor(value):
     """Kaupr is a news source only. Never record it as a sponsor of an event."""
@@ -163,6 +198,7 @@ def eventbrite_to_event(raw, tz="Europe/Oslo"):
     parts = [v for v in parts if not any(v != w and v in w for w in parts)]
     online = bool(raw.get("online_event"))
     free = raw.get("is_free")
+    desc = BeautifulSoup(_eb_text(raw.get("description")), "lxml").get_text("\n")
     return {"title": BeautifulSoup(_eb_text(raw.get("name")), "lxml").get_text(" ").strip() or None,
             "start": parse_dt(start.get("utc") or start.get("local"), start.get("timezone") or tz),
             "end": parse_dt(end.get("utc") or end.get("local"), end.get("timezone") or tz),
@@ -170,7 +206,7 @@ def eventbrite_to_event(raw, tz="Europe/Oslo"):
             "city": (addr.get("city") or "").strip() or None,
             "country_hint": addr.get("country") if isinstance(addr.get("country"), str) else None,
             "online": online, "organiser": org.get("name"), "url": raw.get("url"),
-            "description": BeautifulSoup(_eb_text(raw.get("description")), "lxml").get_text(" ")[:600],
+            "description": desc, "description_lang": language_of(desc),
             "paid": (not free) if isinstance(free, bool) else None}
 def eb_get(url, token, robots_ok, pause, ua):
     """Authorized Eventbrite v3 GET. The token stays in the header and is never logged."""
@@ -384,10 +420,13 @@ def run(get, robots_ok, matches, log, cfg, add_url=None, a=None, only=None, root
         if ev.get("url") is None: ev["url"] = src.get("page") or src["url"]
         ev["paid"] = ev["paid"] if ev.get("paid") is not None else ev.get("paid_hint")
         twin = next((old for old in by.values() if same_event(ev, old)), None)
-        if twin: _fill(twin, ev); return  # same title, date and venue, whatever the URL
-        i = eid(ev)
         page = ev.get("url") or src.get("page") or src["url"]
         retrieved = now.isoformat(timespec="seconds")
+        if twin:
+            _fill(twin, ev)
+            prefer_description(twin, description_record(ev.get("description"), ev.get("description_lang"), page, src.get("name"), retrieved, ev.get("title")))
+            return  # same title, date and venue, whatever the URL
+        i = eid(ev)
         attendees = _attendee_block(ev.get("attendees_count"), src["name"], page, retrieved)
         place_source = _place_block(src["name"], page, retrieved) if (ev.get("place") or ev.get("online")) else None
         if i in by:
@@ -396,6 +435,7 @@ def run(get, robots_ok, matches, log, cfg, add_url=None, a=None, only=None, root
             if attendees and not by[i].get("attendees"): by[i]["attendees"] = attendees
             if place_source and not by[i].get("place_source") and (by[i].get("place") or by[i].get("online") or ev.get("place") or ev.get("online")):
                 by[i]["place_source"] = place_source
+            prefer_description(by[i], description_record(ev.get("description"), ev.get("description_lang"), page, src.get("name"), retrieved, ev.get("title")))
             return
         if (ev.get("end") or ev["start"]) < now: return  # do not add a finished event; ones already stored stay
         complete = bool(ev.get("place") or ev.get("online")) and bool(ev.get("organiser"))
@@ -407,6 +447,8 @@ def run(get, robots_ok, matches, log, cfg, add_url=None, a=None, only=None, root
                "note": None if complete else "missing place or organiser – check the organiser's page"}
         if attendees: rec["attendees"] = attendees
         if place_source: rec["place_source"] = place_source
+        desc = description_record(ev.get("description"), ev.get("description_lang"), page, src.get("name"), retrieved, ev.get("title"))
+        if desc: rec["description"] = desc
         data["events"].append(rec); by[i] = rec; new.append(rec)
     def fetch_page(u):
         if not robots_ok(u): raise RuntimeError("robots.txt disallows")
@@ -478,7 +520,7 @@ def run(get, robots_ok, matches, log, cfg, add_url=None, a=None, only=None, root
                         price = re.search(r"kr\.?\s?(\d[\d .]*),?-?", ps.get_text(" "))
                         for ev in ics_events(fetch_page(urllib.parse.urljoin(u, ic)).text, tz):
                             n_found += 1; ev["paid_hint"] = True if price and int(re.sub(r"\D", "", price[1]) or 0) > 0 else None
-                            ev["description"] = ps.get_text(" ")[:1500]; src2 = dict(src, page=u); take(ev, src2, src.get("trusted", False))
+                            src2 = dict(src, page=u); take(ev, src2, src.get("trusted", False))
                 elif src["type"] == "manual":
                     n_found = 0
                 else:

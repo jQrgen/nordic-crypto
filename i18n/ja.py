@@ -19,7 +19,7 @@ S = {
 "ev_official": "公式イベントページ",
 "ev_map": "地図",
 "ev_tz": "タイムゾーン",
-"ev_about": "概要",
+"ev_about": "このイベントについて",
 "ev_topics": "トピック",
 "ev_talks": "講演",
 "ev_cal_link": "カレンダー",

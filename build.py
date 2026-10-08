@@ -15,7 +15,7 @@ import i18n
 import site_url
 import event_block
 from tools.frontpage_blurbs import card_text, load as load_blurbs, opening_sentences, substantive
-from tools import event_backfill, event_page, event_select
+from tools import event_backfill, event_description, event_page, event_select
 from tools.headlines import card_headline, public_title_i18n
 ROOT = os.path.dirname(os.path.abspath(__file__)); P = lambda *a: os.path.join(ROOT, *a)
 BASE = site_url.BASE
@@ -117,6 +117,7 @@ ol.news h3{font-size:18px;line-height:1.3;margin:0 0 4px}ol.news h3 a{text-decor
 .evhero .evmeta,.evfull .evmeta{display:block}
 .evsrc{font-size:13.5px;color:var(--muted);margin:2px 0 0}
 .evpage,.evpage h1,.evpage h2,.evpage p,.evpage li{text-align:left}
+.evpage .evdesc{display:block;text-align:left;max-width:75ch;margin:8px 0 14px;line-height:1.45}
 .evofficial{display:inline-block;margin:10px 0 14px;padding:8px 14px;background:var(--accent);color:#fff;text-decoration:none;text-align:left}
 .evofficial:hover{text-decoration:underline;color:#fff}
 .evpage .evmeta{display:block;margin:4px 0}
@@ -1031,7 +1032,11 @@ def build():
     ctx["events"] = events_for_site()
     _evs, _ev_now = ctx["events"]
     _prev = previous_page_rows(_evs, _ev_now)
-    json.dump({"preview": PREVIEW, "events": [e for e in _evs if not e["past"]], "previous": _prev}, open(os.path.join(SITE, "data", "events.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    def _pub_ev(e):
+        row = dict(e)
+        row["description"] = event_description.public(e)
+        return row
+    json.dump({"preview": PREVIEW, "events": [_pub_ev(e) for e in _evs if not e["past"]], "previous": [_pub_ev(e) for e in _prev]}, open(os.path.join(SITE, "data", "events.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     sys.path.insert(0, P("tools"))
     import markets as markets_mod
     try:
@@ -2259,7 +2264,7 @@ def events_for_site():
         e["note_i18n"] = (ap.get("notes_i18n") or {}).get(e["id"]) if e.get("note") else None
         site_url.brand_note(e)  # approved.json is local and may still reverse the brand name
         e["past"] = dt.datetime.fromisoformat(e.get("end") or e["start"]) < now
-        out.append({k: e.get(k) for k in ("id", "title", "title_orig", "start", "end", "place", "city", "country", "online", "organiser", "url", "source", "source_url", "found", "attendees", "place_source", "paid", "sponsored", "note", "note_i18n", "past", "status")})
+        out.append({k: e.get(k) for k in ("id", "title", "title_orig", "start", "end", "place", "city", "country", "online", "organiser", "url", "source", "source_url", "found", "attendees", "place_source", "paid", "sponsored", "note", "note_i18n", "description", "past", "status")})
     # Archive: events whose ids are in events.approve. A status of "published" on the row is not
     # approval. Finished events stay under "Past events". Predatory listings are removed and not shown.
     arkf = P("archive", "events.json"); ark = load(arkf, {"events": []}); by = {}
@@ -2304,7 +2309,10 @@ def build_one_event(e):
     note, nl = L18(e, "note")
     when = event_when(e)
     place = event_place_short(e)
-    if note:
+    about, about_lang, about_orig = event_description.show(e, LANG)
+    if about:
+        desc = " ".join(about.split())[:180]
+    elif note:
         desc = " ".join(note.split())[:180]
     else:
         desc = ". ".join(x for x in (heading, when, place) if x)
@@ -2318,6 +2326,11 @@ def build_one_event(e):
     bits.append(f'<p class="meta"><time datetime="{E(e.get("start") or "")}"><b>{E(when)}</b></time></p>')
     if tz:
         bits.append(f'<p class="evmeta"><b>{E(t("ev_tz"))}:</b> {E(tz)}</p>')
+    if about:
+        bits.append(f'<h2>{E(t("ev_about"))}</h2><p class="evdesc"{lang_attr(about_lang)}>{E(about)}</p>')
+        if about_orig:
+            src_lang = (e.get("description") or {}).get("lang") or about_lang
+            bits.append(f'<p class="orig evdesc"{lang_attr(src_lang)}><b>{E(t("ev_orig_below"))}:</b> {E(about_orig)}</p>')
     fact = event_select.location_fact(e)
     if fact:
         if fact["text"] and fact["online"]:
@@ -2358,7 +2371,7 @@ def build_one_event(e):
     if speakers:
         bits.append(f'<p class="evmeta"><b>{E(t("ev_speakers"))}:</b> {speakers["count"]}</p>' + _source_line(speakers["credit"]))
     if note:
-        bits.append(f'<h2>{E(t("ev_about"))}</h2><p class="sum"{lang_attr(nl)}>{E(note)}</p>')
+        bits.append(f'<h2>{E(t("note"))}</h2><p class="sum"{lang_attr(nl)}>{E(note)}</p>')
         original = e.get("note")
         if LANG != "en" and original and original != note:
             bits.append(f'<p class="orig"{lang_attr("en")}><b>{E(t("ev_orig_below"))}:</b> {E(original)}</p>')
@@ -2385,7 +2398,7 @@ def build_one_event(e):
         if line:
             bits.append(line)
     body = f'<article class="evpage">{"".join(bits)}</article>'
-    data = event_page.jsonld(e, BASE + lp() + event_page.slug(e) + "/", note or None)
+    data = event_page.jsonld(e, BASE + lp() + event_page.slug(e) + "/", about or note or None)
     page(event_page.slug(e), heading, "calendar", body, desc, head_extra=f'<script type="application/ld+json">{json.dumps(data, ensure_ascii=False).replace("<", "\\u003c")}</script>')
 def build_event_pages(events, now):
     rows = listed_events(events, now)

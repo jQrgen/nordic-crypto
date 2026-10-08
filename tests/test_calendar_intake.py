@@ -299,6 +299,68 @@ class CalendarIntakeTests(unittest.TestCase):
                     new = self._run(root, [src], get)
         self.assertEqual(new, [])
 
+    def test_description_is_stored_and_sponsor_lines_are_not(self):
+        body = (
+            "This event is a meetup about bitcoin and how the Lightning Network is used for payments in Oslo. Everyone is welcome. "
+            "Sponsor: https://kaupr.io"
+        )
+        text = ics(vevent(
+            "Bitcoin meetup Oslo", FUTURE, "https://luma.com/a",
+            place="Sentrum, Oslo", desc=body + " https://luma.com/evt-a",
+        ))
+        sources = [{
+            "id": "a", "name": "Cal A", "type": "luma-ical", "url": "https://luma.com/a",
+            "ics": "https://api.lu.ma/ics/a", "country": "NO", "city": "Oslo", "enabled": True, "trusted": False,
+        }]
+        with tempfile.TemporaryDirectory() as root:
+            new = self._run(root, sources, lambda url: Resp(text))
+        self.assertEqual(len(new), 1)
+        desc = new[0].get("description") or {}
+        self.assertIn("Lightning Network", desc.get("text") or "")
+        self.assertNotIn("kaupr", (desc.get("text") or "").lower())
+        self.assertNotIn("http", desc.get("text") or "")
+        self.assertEqual(desc.get("lang"), "en")
+        self.assertTrue(str(desc.get("source_url") or "").startswith("https://"))
+        self.assertTrue(desc.get("retrieved"))
+
+    def test_title_only_description_is_omitted(self):
+        text = ics(vevent(
+            "Bitcoin meetup Oslo", FUTURE, "https://luma.com/a",
+            place="Sentrum, Oslo", desc="Bitcoin meetup Oslo",
+        ))
+        sources = [{
+            "id": "a", "name": "Cal A", "type": "luma-ical", "url": "https://luma.com/a",
+            "ics": "https://api.lu.ma/ics/a", "country": "NO", "city": "Oslo", "enabled": True, "trusted": True,
+        }]
+        with tempfile.TemporaryDirectory() as root:
+            new = self._run(root, sources, lambda url: Resp(text))
+        self.assertEqual(len(new), 1)
+        self.assertNotIn("description", new[0])
+
+    def test_next_data_description_replaces_the_short_jsonld(self):
+        short = "We want to provide friendly events."
+        full = short + " If you are new to bitcoin, this is the place for a proper discussion of how it is used."
+        ld = {
+            "@context": "https://schema.org", "@type": "Event", "name": "Göteborg Bitcoin Meetup",
+            "startDate": "2026-11-15T18:00:00+01:00",
+            "location": {"@type": "Place", "name": "Hall", "address": {"addressLocality": "Göteborg", "addressCountry": "SE"}},
+            "organizer": {"@type": "Organization", "name": "Swedish Bitcoin Meetups"},
+            "url": "https://www.meetup.com/swedish-bitcoin-meetups/events/1/",
+            "description": short,
+        }
+        nxt = {"props": {"pageProps": {"event": {
+            "title": "Göteborg Bitcoin Meetup",
+            "eventUrl": "https://www.meetup.com/swedish-bitcoin-meetups/events/1/",
+            "description": full,
+        }}}}
+        html = (
+            "<html><script type=\"application/ld+json\">" + json.dumps(ld) + "</script>"
+            "<script id=\"__NEXT_DATA__\" type=\"application/json\">" + json.dumps(nxt) + "</script></html>"
+        )
+        evs = events.jsonld_events(html, "Europe/Stockholm")
+        self.assertEqual(len(evs), 1)
+        self.assertEqual(evs[0]["description"], full)
+
     def test_clear_kaupr_sponsor(self):
         self.assertIsNone(events.clear_kaupr_sponsor("Kaupr"))
         self.assertIsNone(events.clear_kaupr_sponsor("sponsored by KAUPR AS"))

@@ -8,7 +8,9 @@ Do not machine-translate article bodies into those files.
 Editor workflow: our own text (story summaries, event notes, changelog entries) gets per-language variants in
 queue/approved.json (items[].summary_i18n, events.notes_i18n) and changelog.json (entries[].i18n). Story headlines
 are translated the same way (items[].title_i18n, or data/title_i18n.json): the card shows that headline in the page
-language, and the source headline underneath when the languages differ. Quotes and other source text stay as written.
+language, and the source headline underneath when the languages differ. Event descriptions use the same
+rule (data/event_description_i18n.json): the page shows that text in the page language, and the original
+underneath when they differ. A missing translation leaves the original only. Quotes and other source text stay as written.
 
 The IP country → language guess lives in tools/langselect.js (BY_COUNTRY) and is published as
 /api/v1/geo-language.json. It is a default only. The nc_lang cookie from the language switcher wins.
