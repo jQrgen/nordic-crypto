@@ -160,6 +160,7 @@ S = {
 # tip
 "tip_title": "Send a tip", "tip_desc": "Tip Nordic Crypto about an article on crypto, bitcoin or blockchain in the Nordics.",
 "tip_lead": "Seen a story about crypto, bitcoin or blockchain in Norway, Sweden, Denmark, Finland or Iceland that we have missed? Send us the link.",
+"tip_private_soon": "We are working on a way to send tips privately. Until it is ready, this page does not take tips.",
 "tip_srv_p": "Tips go straight to Nordic Crypto's own tip inbox. Our editor reviews new tips regularly and checks each one against <a href=\"../about/\">our rules</a>: the story must be about crypto, bitcoin or blockchain in the Nordics, and we link to the original source with a short summary in our own words. <b>A tip does not guarantee publication</b>, and we don't reply to individual tips.",
 "tip_srv_priv": "<b>Privacy:</b> tips are not public. We store the link, country, note, optional name and the time – <b>not</b> your IP address (for spam protection, only a scrambled code derived from it is kept for 10 minutes, then deleted). Your name is never published. The tip inbox runs on Cloudflare. Please don't include personal or sensitive information about anyone in the note.",
 "tip_noscript": "The tip form needs JavaScript. Without it, you can send a <a href=\"{gh}\" rel=\"noopener\">tip as a public GitHub issue</a> instead.",
