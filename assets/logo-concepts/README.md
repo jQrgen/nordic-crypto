@@ -37,13 +37,25 @@ The brand stylesheet (tincture tokens and fonts) is `assets/brand/nordic-crypto.
 - `assets/brand/wordmark.svg`, `wordmark-dark.svg` — left-aligned lockup
 - `assets/media/wordmark-light.png`, `wordmark-dark.png`
 - `assets/brand/og-image.png` and `assets/media/og-image.png` — 1200×630, left-aligned
-- `assets/brand/icon.svg` — 16×16 simplified charge (same drawing as `responsive/small.svg` and `favicon.svg`)
-- `assets/brand/icon-16.png`, `icon-32.png`, `favicon.ico` (16 and 32)
+- `assets/brand/icon.svg` — 16×16 simplified charge (same drawing as `responsive/small.svg`)
+- `assets/brand/icon-16.png`, `icon-32.png` (16 and 32)
 - `assets/brand/apple-touch-icon.png` (180), `icon-192.png`, `icon-512.png`
 - `manifest.webmanifest`
 - `responsive/one-colour.png`, `assets/brand/crest-mono-print.png`
 - `responsive/preview-sheet.png`
 - `assets/brand/nordic-crypto.css`
+
+## Site mark
+
+The website's header, footer, favicon and app icons use the Våpen shield from the logo sheet (option E) in the Langskip colours (option A): per pale North Sea `#1E3A45` and gold `#D9A034`, a key palewise counterchanged, outlined in Sailcloth `#F0F1EC` on the North Sea band and in North Sea on a light ground. The crest above and its files are unchanged, and the media kit page still shows the crest.
+
+`tools/make_mark.py` draws it and renders the set (needs `rsvg-convert`):
+
+- `assets/brand/shield.svg` (light ground) and `assets/brand/shield-band.svg` (the band)
+- `favicon.svg` — the shield on a rounded North Sea tile; `favicon.ico` (16 and 32)
+- `assets/brand/mark-16.png`, `mark-32.png`, `mark-64.png`, `mark-192.png`, `mark-512.png`; `mark-180.png` is the Apple touch icon (square, iOS rounds it)
+
+Keep one upright key. Bremen has a silver key on red and crossed keys belong to the Vatican; this mark uses neither.
 
 ## Not a state or royal arms
 

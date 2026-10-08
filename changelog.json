@@ -7,31 +7,31 @@
    "date": null,
    "review": "pending",
    "title": "A new look",
-   "description": "The site has a new look: a North Sea blue header, a light grey page with white story cards, and gold for highlights. The front page opens on the same blue, and the lead story sits on it too. Headlines are set in Cormorant Garamond. The site follows your device's dark mode.",
+   "description": "The site has a new look: a North Sea blue header, a light grey page with white story cards, and gold for highlights. The front page opens on the same blue, and the lead story sits on it too. Headlines are set in Cormorant Garamond. The site follows your device's dark mode. The new mark in the header is a shield split in blue and gold, with a key whose colours swap across the split.",
    "i18n": {
     "nn": {
      "title": "Ny utsjånad",
-     "description": "Sida har fått ein ny utsjånad: eit nordsjøblått toppfelt, ei lys grå side med kvite kort for sakene og gull til markeringar. Framsida opnar i same blåfarge, og hovudsaka står òg på han. Titlane er sette i Cormorant Garamond. Sida følgjer mørk modus på eininga di."
+     "description": "Sida har fått ein ny utsjånad: eit nordsjøblått toppfelt, ei lys grå side med kvite kort for sakene og gull til markeringar. Framsida opnar i same blåfarge, og hovudsaka står òg på han. Titlane er sette i Cormorant Garamond. Sida følgjer mørk modus på eininga di. Det nye merket i toppfeltet er eit skjold delt i blått og gull, med ein nøkkel som byter farge over delinga."
     },
     "nb": {
      "title": "Nytt utseende",
-     "description": "Siden har fått et nytt utseende: et nordsjøblått toppfelt, en lys grå side med hvite kort for sakene og gull til markeringer. Forsiden åpner i samme blåfarge, og hovedsaken står også på den. Titlene er satt i Cormorant Garamond. Siden følger mørk modus på enheten din."
+     "description": "Siden har fått et nytt utseende: et nordsjøblått toppfelt, en lys grå side med hvite kort for sakene og gull til markeringer. Forsiden åpner i samme blåfarge, og hovedsaken står også på den. Titlene er satt i Cormorant Garamond. Siden følger mørk modus på enheten din. Det nye merket i toppfeltet er et skjold delt i blått og gull, med en nøkkel som bytter farge over delingen."
     },
     "sv": {
      "title": "Nytt utseende",
-     "description": "Sajten har fått ett nytt utseende: ett nordsjöblått sidhuvud, en ljusgrå sida med vita kort för artiklarna och guld för markeringar. Startsidan öppnar i samma blå färg, och huvudnyheten ligger också på den. Rubrikerna är satta i Cormorant Garamond. Sajten följer mörkt läge på din enhet."
+     "description": "Sajten har fått ett nytt utseende: ett nordsjöblått sidhuvud, en ljusgrå sida med vita kort för artiklarna och guld för markeringar. Startsidan öppnar i samma blå färg, och huvudnyheten ligger också på den. Rubrikerna är satta i Cormorant Garamond. Sajten följer mörkt läge på din enhet. Den nya symbolen i sidhuvudet är en sköld delad i blått och guld, med en nyckel vars färger byter plats över delningen."
     },
     "da": {
      "title": "Nyt udseende",
-     "description": "Siden har fået et nyt udseende: et nordsøblåt sidehoved, en lysegrå side med hvide kort til historierne og guld til fremhævninger. Forsiden åbner i samme blå farve, og tophistorien ligger også på den. Overskrifterne er sat i Cormorant Garamond. Siden følger mørk tilstand på din enhed."
+     "description": "Siden har fået et nyt udseende: et nordsøblåt sidehoved, en lysegrå side med hvide kort til historierne og guld til fremhævninger. Forsiden åbner i samme blå farve, og tophistorien ligger også på den. Overskrifterne er sat i Cormorant Garamond. Siden følger mørk tilstand på din enhed. Det nye mærke i sidehovedet er et skjold delt i blåt og guld med en nøgle, hvis farver bytter plads over delingen."
     },
     "fi": {
      "title": "Uusi ilme",
-     "description": "Sivusto on saanut uuden ilmeen: Pohjanmeren sininen yläpalkki, vaaleanharmaa sivu, valkoiset uutiskortit ja kultaa korostuksiin. Etusivu alkaa samalla sinisellä, ja pääuutinen on myös sen päällä. Otsikot ovat Cormorant Garamond -kirjaimin. Sivusto noudattaa laitteesi tummaa tilaa."
+     "description": "Sivusto on saanut uuden ilmeen: Pohjanmeren sininen yläpalkki, vaaleanharmaa sivu, valkoiset uutiskortit ja kultaa korostuksiin. Etusivu alkaa samalla sinisellä, ja pääuutinen on myös sen päällä. Otsikot ovat Cormorant Garamond -kirjaimin. Sivusto noudattaa laitteesi tummaa tilaa. Yläpalkin uusi tunnus on sinisiin ja kultaisiin puolikkaisiin jaettu kilpi, jossa avaimen värit vaihtuvat jakoviivan kohdalla."
     },
     "is": {
      "title": "Nýtt útlit",
-     "description": "Vefurinn hefur fengið nýtt útlit: norðursjávarbláan haus, ljósgráa síðu með hvítum fréttaspjöldum og gull til áherslu. Forsíðan opnast í sama bláa litnum og aðalfréttin er líka á honum. Fyrirsagnir eru settar í Cormorant Garamond. Vefurinn fylgir dökkri stillingu tækisins."
+     "description": "Vefurinn hefur fengið nýtt útlit: norðursjávarbláan haus, ljósgráa síðu með hvítum fréttaspjöldum og gull til áherslu. Forsíðan opnast í sama bláa litnum og aðalfréttin er líka á honum. Fyrirsagnir eru settar í Cormorant Garamond. Vefurinn fylgir dökkri stillingu tækisins. Nýja merkið í hausnum er skjöldur, skiptur í blátt og gull, með lykli sem skiptir um lit yfir skiptinguna."
     }
    }
   },

@@ -413,8 +413,8 @@ def write_push_assets():
         "background_color": "#F0F1EC",
         "theme_color": "#1E3A45",
         "icons": [
-            {"src": "assets/brand/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
-            {"src": "assets/brand/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+            {"src": "assets/brand/mark-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+            {"src": "assets/brand/mark-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
         ],
     }
     with open(os.path.join(SITE, "manifest.json"), "w", encoding="utf-8") as f:
@@ -540,8 +540,8 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="icon" href="{root}favicon.svg" type="image/svg+xml">
 <link rel="icon" href="{root}favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="{root}assets/brand/apple-touch-icon.png">
-<link rel="icon" href="{root}assets/logo-concepts/responsive/small-64-light.png" sizes="64x64" type="image/png">
+<link rel="apple-touch-icon" href="{root}assets/brand/mark-180.png">
+<link rel="icon" href="{root}assets/brand/mark-64.png" sizes="64x64" type="image/png">
 <meta name="theme-color" content="#1E3A45" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#15303A" media="(prefers-color-scheme: dark)">
 <meta property="og:image" content="{BASE}assets/brand/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -549,12 +549,12 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
 <meta property="og:image:alt" content="Nordic Crypto">
 <link rel="stylesheet" href="{root}assets/brand/nordic-crypto.css">
 <style>{CSS}{s['css']}</style></head>
-<body>{banner}<header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="{rel}"><img class="brandmark" src="{root}assets/brand/icon.svg" width="32" height="32" alt="Nordic Crypto"><span aria-hidden="true">Nordic <span class="w">Crypto</span></span></a><span class="hdrbtns">{header_buttons(rel)}</span></div>{nav_btn}<nav id="sitenav" class="main" aria-label="{E(t("main_menu"))}">{nav_html}</nav>{switcher}</div></header>{hero}
+<body>{banner}<header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="{rel}"><img class="brandmark" src="{root}assets/brand/shield-band.svg" width="34" height="40" alt="Nordic Crypto"><span aria-hidden="true">Nordic <span class="w">Crypto</span></span></a><span class="hdrbtns">{header_buttons(rel)}</span></div>{nav_btn}<nav id="sitenav" class="main" aria-label="{E(t("main_menu"))}">{nav_html}</nav>{switcher}</div></header>{hero}
 <main class="wrap">
 {body}
 {s['top']}
 </main>
-<footer><div class="wrap">{nlfoot}{community_links()}{push_panel(root)}{t("footer", site=SITE_NAME, rel=rel, root=root, ios_tv=t("ios_tv"))}</div></footer>
+<footer><div class="wrap"><a class="brand footbrand" href="{rel}"><img class="brandmark" src="{root}assets/brand/shield-band.svg" width="34" height="40" alt=""><span>Nordic <span class="w">Crypto</span></span></a>{nlfoot}{community_links()}{push_panel(root)}{t("footer", site=SITE_NAME, rel=rel, root=root, ios_tv=t("ios_tv"))}</div></footer>
 {s['script']}{setck}{extra_script}{newsletter_script()}{push_script()}{shout_script()}{analytics_snippet()}
 </body></html>"""
     d = os.path.join(SITE, lp(), slug); os.makedirs(d, exist_ok=True)
