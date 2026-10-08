@@ -20,5 +20,3 @@ footer .pushopt{margin:28px 0 0;padding:20px 0 0;border-top:1px solid var(--line
 @media(max-width:860px){.foot-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.foot-brand{grid-column:1/-1}}
 nav.community{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:center;gap:8px 10px;margin:10px 0 14px;text-align:start;width:fit-content;max-width:100%}
 .xfollow,.tgfollow{display:inline-block;padding:7px 14px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);color:var(--fg)!important;text-decoration:none;font-weight:500;text-align:start}.xfollow:hover,.xfollow:focus-visible,.tgfollow:hover,.tgfollow:focus-visible{border-color:var(--fg)}
-.issue .nlhome{margin:40px 0 8px;padding:24px 28px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r)}
-.issue .nlhome h2{margin:0 0 8px}

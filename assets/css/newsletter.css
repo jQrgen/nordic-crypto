@@ -19,4 +19,4 @@
 .issue h1{overflow-wrap:break-word}.issue .nlbox{margin:36px 0 14px}
 .nlvideo{margin:18px 0 22px;max-width:960px}.nlvideo video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000;border-radius:var(--r)}.nlvideo figcaption{margin-top:6px}
 .issuetext{overflow-wrap:break-word;max-width:70ch;line-height:1.65}.issuetext h2{font-size:24px}.issuetext ul{padding-left:20px}.issuetext li{margin:4px 0}.issuetext hr{border:0;border-top:1px solid var(--line);margin:24px 0}
-@media(max-width:520px){.nlissues li{gap:12px}.nlissues .th{width:112px}.nlissues h3{font-size:19px}.nlbox{padding:14px}h1{font-size:28px}}
+@media(max-width:520px){.nlissues li{gap:12px}.nlissues .th{width:112px}.nlissues h3{font-size:19px}.nlbox{padding:14px}}

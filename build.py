@@ -1549,7 +1549,7 @@ def build_markets(ctx):
         "share_table": t("mk_share_table"), "tiles_note": t("mk_tiles_note"), "chg_short": t("mk_chg_short"),
     }
     script = open(P("tools", "markets.js"), encoding="utf-8").read()
-    body_html = f"""<div class="markets" id="mk" data-json="{root}api/v1/markets.json">
+    body_html = site_css.style("markets") + f"""<div class="markets" id="mk" data-json="{root}api/v1/markets.json">
 <h1>{E(t("mk_h1"))}</h1>
 <p class="lead">{E(t("mk_lead"))}</p>
 <p class="meta mkstatus">{_mk_credit_html(tickers, body.get("exchanges") or [])} <span id="mk-status">{E(t("mk_file"))}</span></p>
@@ -2512,7 +2512,7 @@ def build_talks():
                 f'{meta}'
                 + (f'<p class="sum">{E(r.get("description") or "")}</p>' if r.get("description") else "")
                 + f'{spk}<div class="tact">{act}{tail}</div></article>')
-    body = f"""<div class="talks"><h1>{E(t("talks_h1"))}</h1>
+    body = site_css.style("talks") + f"""<div class="talks"><h1>{E(t("talks_h1"))}</h1>
 <p class="lead">{E(t("talks_lead"))}</p>
 <div class="filters tfilters" role="group" aria-label="{E(t("filters"))}">
 <div class="tf tf-c"><span class="lbl" id="tf-c">{E(t("country"))}</span><div class="chips" role="group" aria-labelledby="tf-c">{chips}</div></div>

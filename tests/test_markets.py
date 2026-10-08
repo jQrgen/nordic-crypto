@@ -271,7 +271,8 @@ def main():
     sitebuild.LANG = "en"
     if "justify-content:flex-start" not in sitebuild.CSS.split("nav.main{")[1].split("}")[0]:
         fails.append("nav not left aligned")
-    dash = sitebuild.CSS.split(".markets h1{")[1].split("/* end markets */")[0]
+    import site_css   # markets.css is inlined on the markets page only
+    dash = site_css.read("markets").split(".markets h1{")[1].split("/* end markets */")[0]
     if "text-align:center" in dash:
         fails.append("markets overview centered")
     firi_ex = {"id": "firi", "name": "Firi", "country": "NO"}

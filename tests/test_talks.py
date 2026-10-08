@@ -171,7 +171,7 @@ def main():
             check(i18n.t(lang, "past_talks", href="../talks/") in html, f"{lang} calendar sentence", fails)
 
     import site_css
-    css = site_css.bundle()
+    css = site_css.read("talks")   # inlined on the talks page only
     check(".talks,.talks h1" in css and "text-align:start" in css, "talks css is left aligned", fails)
     if fails:
         print(f"\n{len(fails)} failed")
