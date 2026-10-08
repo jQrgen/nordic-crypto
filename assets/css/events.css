@@ -34,12 +34,3 @@
 .evofficial:hover,.evofficial:focus-visible{background:var(--btn-hover);border-color:var(--btn-hover);transform:translateY(-1px)}
 .evpage .evmeta{display:block;margin:4px 0}
 @media(max-width:640px){.evhero h3{font-size:24px}}
-/* month calendar */
-.calgrid{display:none}@media(min-width:760px){.calgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(460px,1fr));gap:28px;margin:22px 0}}
-table.cal{border-collapse:separate;border-spacing:0;width:100%;table-layout:fixed;font-size:13px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}table.cal caption{text-align:left;font:700 24px/1.2 var(--f-display);padding:4px 0 10px}
-table.cal th{font:500 11px/1.2 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--band-muted);padding:8px 2px;background:var(--band)}table.cal td{border-top:1px solid var(--line);border-inline-start:1px solid var(--line);vertical-align:top;height:72px;padding:4px 6px;overflow:hidden}
-table.cal td:first-child{border-inline-start:0}
-table.cal td .d{font-variant-numeric:tabular-nums;color:var(--muted);font-size:12px}
-table.cal td.out{opacity:.35}table.cal td.today .d{background:var(--gold);color:var(--on-gold);font-weight:700;padding:1px 6px;border-radius:var(--r-xs)}table.cal td.has{background:color-mix(in srgb,var(--foam) 22%,var(--surface))}
-table.cal td a{display:flex;gap:4px;align-items:flex-start;font-size:11.5px;line-height:1.25;margin-top:4px;text-decoration:none}table.cal td a span{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:break-word;hyphens:auto}table.cal td a:hover{text-decoration:underline}
-table.cal td a .flag{width:13px;height:10px;margin-top:1px}ol.past{opacity:.75}

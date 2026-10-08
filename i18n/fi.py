@@ -402,4 +402,7 @@ S.update({
 "src_how": "Näin luemme lähteitä",
 "src_samefeed": "”Same feed as …” tarkoittaa, että kahdella lehdellä on yhteinen syöte. Se luetaan kerran, jotta juttu ei päädy väärän lehden alle.",
 "src_n_mon": "{n} seurannassa",
+"cal_months_h": "Kuukausittain",
+"past_show": "Näytä {n} mennyttä tapahtumaa",
+"past_all": "Kaikki aiemmat tapahtumat",
 })

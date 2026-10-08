@@ -402,4 +402,7 @@ S.update({
 "src_how": "Hvernig við lesum heimildirnar",
 "src_samefeed": "„Same feed as …“ merkir að tveir miðlar deila einu streymi. Það er lesið einu sinni svo að frétt lendi ekki undir röngum miðli.",
 "src_n_mon": "{n} í vöktun",
+"cal_months_h": "Mánuð fyrir mánuð",
+"past_show": "Sýna {n} liðna viðburði",
+"past_all": "Allir fyrri viðburðir",
 })

@@ -402,4 +402,7 @@ S.update({
 "src_how": "Korleis vi les kjeldene",
 "src_samefeed": "«Same feed as …» tyder at to titlar deler éin feed. Han blir lesen éin gong, så ei sak blir ikkje ført under feil tittel.",
 "src_n_mon": "{n} blir følgde",
+"cal_months_h": "Månad for månad",
+"past_show": "Vis {n} tidlegare arrangement",
+"past_all": "Alle tidlegare arrangement",
 })

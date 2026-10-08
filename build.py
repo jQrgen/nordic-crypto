@@ -1949,7 +1949,7 @@ def build_sources(ctx):
     first = first_sentence(lead)
     rest = lead[len(first):].strip()
     total = len(listed)
-    body = f"""{site_css.style("lists")}<div class="srcpage">
+    body = f"""{site_css.style("filterbar")}{site_css.style("lists")}<div class="srcpage">
 <h1>{E(t("src_h1"))}</h1>
 <p class="lead">{E(first)}</p>
 <details class="srchow"><summary>{E(t("src_how"))}</summary><p>{E(rest)}</p><p>{E(t("src_samefeed"))}</p><p><a href="#events">{E(t("src_ev_h"))}</a> · <a href="#terms">{E(t("src_terms_h"))}</a> · <a href="#keywords">{E(t("src_kw_h"))}</a></p></details>
@@ -2589,59 +2589,92 @@ apply(0)})();</script>""" % json.dumps(t("talks_n", n="{n}"))
     page("talks", t("talks_title"), "talks", body, t("talks_desc"), js)
     if LANG == "en":
         print(f"talks: {len(rows)}")
+def cal_row(e, full=True, href_prefix="", hl="h4"):
+    """One event in the calendar or the previous-events list: a date badge, the title, then country, weekday, time, place and
+    labels. full adds the original title, the organiser and where it is listed, and the editor's note."""
+    a = dt.datetime.fromisoformat(e["start"])
+    ttl = event_title(e)
+    out = [f'<li id="e-{E(e["id"])}" data-c="{E(e.get("country") or "")}"><span class="evdate"><b>{a.day}</b> <span>{E(i18n.badge_month(LANG, a))}</span></span><div class="evb">'
+           f'<{hl}><a href="{E(href_prefix + e["id"])}/">{E(ttl)}</a></{hl}>']
+    if full and e.get("title_orig") and LANG == "en" and e["title_orig"] != e.get("title"):
+        out.append(f'<p class="orig">{E(t("orig_title_ev"))}{E(e["title_orig"])}</p>')
+    place = event_place_short(e)
+    tags = cal_tags(e) if full else ""
+    out.append(f'<p class="meta">{flag(e.get("country"))} <time datetime="{E(e["start"])}">{E(event_when_short(e))}</time>{" · " + E(place) if place else ""}{" " + tags if tags else ""}</p>')
+    if full:
+        org = [f'{E(t("organiser"))}: {E(e["organiser"])}'] if e.get("organiser") else []
+        if e.get("url") and e.get("source"): org.append(f'{E(t("listed_at"))}: <a href="{E(e["url"])}" rel="noopener" target="_blank">{E(e["source"])}</a>')
+        if org: out.append(f'<p class="meta evorg">{" · ".join(org)}</p>')
+        note, nl = L18(e, "note")
+        if note: out.append(f'<p class="sum"{lang_attr(nl)}><b>{E(t("note"))}:</b> {E(note)}</p>')
+    return "".join(out) + "</div></li>"
+def cal_tags(e):
+    b = []
+    if e.get("status") == "owner": b.append(f'<span class="tag pend">{E(t("owner"))}</span>')
+    elif e.get("status") not in (None, "published"): b.append(f'<span class="tag pend">{E(t("pending"))}</span>')
+    if e.get("paid"): b.append(f'<span class="tag paid">{E(t("paid"))}</span>')
+    elif e.get("paid") is False: b.append(f'<span class="tag">{E(t("free"))}</span>')
+    if e.get("sponsored"): b.append('<span class="tag paid">' + (E(t("sponsored_by", x=e["sponsored"])) if isinstance(e["sponsored"], str) else E(t("sponsored"))) + '</span>')
+    if e.get("online"): b.append(f'<span class="tag">{E(t("online"))}</span>')
+    return " ".join(b)
+def cal_months(rows, full=True, cls="", href_prefix="", head="h3", hl="h4"):
+    """Events under one heading per month (the year is in the heading, the day and month in each badge)."""
+    out, cur = [], None
+    for e in rows:
+        a = dt.datetime.fromisoformat(e["start"])
+        if (a.year, a.month) != cur:
+            if cur: out.append("</ol></div>")
+            cur = (a.year, a.month)
+            out.append(f'<div class="evmg"><{head} class="evm">{E(i18n.month_caption(LANG, a.year, a.month))}</{head}><ol class="evl{" " + cls if cls else ""}">')
+        out.append(cal_row(e, full, href_prefix, hl))
+    if cur: out.append("</ol></div>")
+    return "".join(out)
+CAL_JS = """<script>(function(){var NU=%s,cc=[].slice.call(document.querySelectorAll('.cchip')),n=[].slice.call(document.querySelectorAll('#evlist li[data-c], .calgrid a[data-c], ol.past li[data-c]')),cnt=document.getElementById('ecount'),mg=[].slice.call(document.querySelectorAll('.evmg'));
+function apply(push){var c=cc.filter(function(x){return x.getAttribute('aria-pressed')==='true'}).map(function(x){return x.dataset.c}),k=0;n.forEach(function(el){var ok=!c.length||c.indexOf(el.dataset.c)>=0;el.hidden=!ok;if(ok&&el.closest('#evlist'))k++});
+mg.forEach(function(g){g.hidden=!g.querySelector('li[data-c]:not([hidden])')});cnt.textContent=NU.replace('{n}',k);if(push)history.replaceState(null,'',c.length?'#country='+c.join(','):location.pathname)}
+var h=new URLSearchParams(location.hash.slice(1));(h.get('country')||'').split(',').forEach(function(x){cc.forEach(function(b){if(b.dataset.c===x)b.setAttribute('aria-pressed','true')})});
+cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');apply(1)})});apply(0);
+function reveal(){var id=location.hash.slice(1),el=id&&id.indexOf('=')<0&&document.getElementById(id),d=el&&(el.tagName==='DETAILS'?el:el.closest('details'));if(d&&!d.open){d.open=true;el.scrollIntoView()}}
+window.addEventListener('hashchange',reveal);reveal()})();</script>"""
 def build_calendar(ctx):
+    """ /calendar/ : the upcoming events first (date badges, one heading per month), then the month grids on wide screens,
+    then the finished events behind a summary. Country chips with counts filter all three."""
     evs, now = ctx["events"]
     up = [e for e in evs if not e["past"]]; past = [e for e in evs if e["past"] and e.get("status") == "published"][::-1]  # all finished, newest first
-    def when(e):
-        # Same line as the front page. The calendar lists themselves are unchanged.
-        return event_when(e)
-    def badges(e):
-        b = []
-        if e.get("status") == "owner": b.append(f'<span class="tag pend">{E(t("owner"))}</span>')
-        elif e.get("status") != "published": b.append(f'<span class="tag pend">{E(t("pending"))}</span>')
-        if e.get("paid"): b.append(f'<span class="tag paid">{E(t("paid"))}</span>')
-        elif e.get("paid") is False: b.append(f'<span class="tag">{E(t("free"))}</span>')
-        if e.get("sponsored"): b.append('<span class="tag paid">' + (E(t("sponsored_by", x=e["sponsored"])) if isinstance(e["sponsored"], str) else E(t("sponsored"))) + '</span>')
-        if e.get("online"): b.append(f'<span class="tag">{E(t("online"))}</span>')
-        return " ".join(b)
-    def li(e):
-        # event titles: English pages keep the editor's English title (+ original); other languages show the organiser's original title
-        ttl = e["title"] if LANG == "en" or not e.get("title_orig") else e["title_orig"]
-        note, nl = L18(e, "note")
-        return (f'<li id="e-{E(e["id"])}" data-c="{E(e.get("country"))}"><h3><a href="{E(e["id"])}/">{E(ttl)}</a></h3>'
-                f'<div class="meta">{flag(e.get("country"))} <time datetime="{E(e["start"])}"><b>{E(when(e))}</b></time> · {E(e.get("place") or t("online"))}{(", " + E(e["city"])) if e.get("city") and e["city"] not in (e.get("place") or "") else ""} {badges(e)}</div>'
-                + (f'<p class="orig">{E(t("orig_title_ev"))}{E(e["title_orig"])}</p>' if e.get("title_orig") and LANG == "en" else "") + f'<div class="meta">{E(t("organiser"))}: {E(e["organiser"])} · {E(t("listed_at"))}: <a href="{E(e["url"])}" rel="noopener" target="_blank">{E(e["source"])}</a></div>'
-                + (f'<p class="sum"{lang_attr(nl)}><b>{E(t("note"))}:</b> {E(note)}</p>' if note else "") + '</li>')
     loc = lambda e: dt.datetime.fromisoformat(e["start"])
     months = sorted({(now.year, now.month)} | {(loc(e).year, loc(e).month) for e in up})[:6]
+    today = now.astimezone(OSLO).date()
     grids = []
     for y, m in months:
         cells = []
         for wk in calendar.Calendar(0).monthdatescalendar(y, m):
             row = []
             for d in wk:
+                if d.month != m:
+                    row.append('<td class="out"></td>'); continue
                 de = [e for e in up if loc(e).date() == d]
-                cls = " ".join(c for c in ["out" if d.month != m else "", "today" if d == now.astimezone(OSLO).date() else "", "has" if de else ""] if c)
-                row.append(f'<td class="{cls}"><span class="d">{d.day}</span>' + "".join(f'<a href="{E(e["id"])}/" data-c="{E(e.get("country"))}" title="{E(cname(e.get("country")))}: {E(e["title"] if LANG == "en" else e.get("title_orig") or e["title"])}">{flag(e.get("country"))}<span>{E(e["title"] if LANG == "en" else e.get("title_orig") or e["title"])}</span></a>' for e in de) + '</td>')
+                links = "".join(f'<a href="{E(e["id"])}/" data-c="{E(e.get("country"))}" title="{E(cname(e.get("country")))}: {E(event_title(e))}" aria-label="{E(cname(e.get("country")))}: {E(event_title(e))}">{_deco_mark(e.get("country"))}</a>' for e in de)
+                row.append(f'<td{" class=today" if d == today else ""}>{d.day}{links}</td>')
             cells.append("<tr>" + "".join(row) + "</tr>")
         grids.append(f'<table class="cal"><caption>{E(i18n.month_caption(LANG, y, m))}</caption><thead><tr>{"".join(f"<th>{E(d)}</th>" for d in i18n.wd_head(LANG))}</tr></thead><tbody>{"".join(cells)}</tbody></table>')
     per_c = {c: sum(e.get("country") == c for e in up) for c in COUNTRY_CODES}
+    chips = "".join(f'<button type="button" class="chip cchip" data-c="{c}" aria-pressed="false">{_deco_flag(c)}{E(cname(c))} <span class="n">{per_c[c]}</span></button>' for c in COUNTRY_CODES if per_c[c] or any(e.get("country") == c for e in past))
     npend = sum(e.get("status") == "pending" for e in up); nown = sum(e.get("status") == "owner" for e in up)
-    body = f"""<h1>{E(t("cal_h1"))}</h1>
-<p class="lead">{E(t("cal_lead"))}</p>
-<p class="meta"><a href="../events/previous/">{E(t("prev_link"))}</a></p>
+    lead = t("cal_lead"); first = first_sentence(lead); rest = lead[len(first):].strip()
+    body = f"""{site_css.style("filterbar")}{site_css.style("calendar")}<div class="calpage">
+<h1>{E(t("cal_h1"))}</h1>
+<p class="lead">{E(first)}</p>
 {f'<p class="notice warn">{t("cal_preview", p=npend, n=len(up), o=nown)}</p>' if PREVIEW and (npend or nown) else ''}
-<div class="filters" role="group" aria-label="{E(t("countries_aria"))}"><span class="lbl">{E(t("country"))}</span><div class="chips">{country_chips()}</div><span id="ecount" class="meta" aria-live="polite"></span></div>
-<p class="meta">{" · ".join(f"{flag(c)} {E(n)}: {per_c[c]}" for c, n in COUNTRIES.items())}</p>
-<div class="calgrid">{''.join(grids)}</div>
-<h2>{E(t("upcoming_h"))}</h2><ol class="news" id="evlist">{''.join(li(e) for e in up) or f'<li class="empty">{E(t("no_upcoming"))}</li>'}</ol>
-<h2 id="past">{E(t("past_h"))}</h2><p class="meta">{E(t("past_note"))}</p><p class="meta">{t("past_talks", href="../talks/")}</p><ol class="news past">{''.join(li(e) for e in past) or f'<li class="empty">{E(t("no_past"))}</li>'}</ol>
-<p class="meta">{t("cal_how")}</p>"""
-    js = """<script>(function(){var NU=%s,cc=[].slice.call(document.querySelectorAll('.cchip')),n=[].slice.call(document.querySelectorAll('#evlist li[data-c], .calgrid a[data-c], ol.past li[data-c]')),cnt=document.getElementById('ecount');
-function apply(){var c=cc.filter(function(x){return x.getAttribute('aria-pressed')==='true'}).map(function(x){return x.dataset.c}),k=0;n.forEach(function(el){var ok=!c.length||c.indexOf(el.dataset.c)>=0;el.hidden=!ok;if(ok&&el.parentNode.id==='evlist')k++});cnt.textContent=NU.replace('{n}',k);history.replaceState(null,'',c.length?'#country='+c.join(','):location.pathname)}
-var h=new URLSearchParams(location.hash.slice(1));(h.get('country')||'').split(',').forEach(function(x){cc.forEach(function(b){if(b.dataset.c===x)b.setAttribute('aria-pressed','true')})});
-cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');apply()})});apply()})();</script>""" % json.dumps(t("n_upcoming", n="{n}"))
-    page("calendar", t("cal_title"), "calendar", body, t("cal_desc"), js)
+<div class="filters lfilters" role="group" aria-label="{E(t("countries_aria"))}"><div class="lf"><span class="lbl" id="cf-c">{E(t("country"))}</span><div class="chips" role="group" aria-labelledby="cf-c">{chips}</div></div><p id="ecount" class="meta lcount" aria-live="polite">{E(t("n_upcoming", n=len(up)))}</p></div>
+<section aria-labelledby="up-h"><h2 class="seclbl" id="up-h">{E(t("upcoming_h"))}</h2>
+<div id="evlist">{cal_months(up) or f'<p class="empty">{E(t("no_upcoming"))}</p>'}</div></section>
+<section class="calmonths" aria-labelledby="mo-h"><h2 class="seclbl" id="mo-h">{E(t("cal_months_h"))}</h2><div class="calgrid">{''.join(grids)}</div></section>
+<section aria-labelledby="past"><h2 class="seclbl" id="past">{E(t("past_h"))}</h2><p class="meta">{E(t("past_note"))} {t("past_talks", href="../talks/")}</p>
+{f'<details class="pastev"><summary>{E(t("past_show", n=len(past)))}</summary>{cal_months(past, full=False, cls="past")}</details>' if past else f'<p class="empty">{E(t("no_past"))}</p>'}
+<p class="meta"><a href="../events/previous/">{E(t("past_all"))}</a></p></section>
+<div class="calhow"><p class="meta">{E(rest)}</p><p class="meta">{t("cal_how")}</p></div>
+</div>"""
+    page("calendar", t("cal_title"), "calendar", body, t("cal_desc"), CAL_JS % json.dumps(t("n_upcoming", n="{n}")))
     if LANG == "en": print(f"calendar: {len(up)} upcoming {per_c}, {len(past)} past")
 
 def build_academia():
@@ -2712,7 +2745,7 @@ def build_academia():
     dn = t("data_en_note")
     chips = "".join(f'<button type="button" class="chip cchip" data-c="{c}" aria-pressed="false">{_deco_flag(c)}{E(cname(c))} <span class="n">{per_c[c]}</span></button>' for c in COUNTRY_CODES if per_c[c])
     jump = "".join(f'<a href="#{k}">{E(t(lab))} <span class="n" data-s="{k}">{len(secs[k])}</span></a>' for k, lab in (("courses", "ac_courses"), ("groups", "ac_groups"), ("publications", "ac_pubs"), ("research", "ac_research")))
-    body = f"""{site_css.style("lists")}<div class="acpage">
+    body = f"""{site_css.style("filterbar")}{site_css.style("lists")}<div class="acpage">
 <h1>{E(t("ac_h1"))}</h1>
 <p class="lead">{E(t("ac_lead"))}</p>
 {f'<p class="notice warn">{t("ac_preview", n=allrows)}</p>' if PREVIEW else ''}

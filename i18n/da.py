@@ -402,4 +402,7 @@ S.update({
 "src_how": "Sådan læser vi kilderne",
 "src_samefeed": "»Same feed as …« betyder, at to titler deler ét feed. Det læses én gang, så en historie ikke havner under den forkerte titel.",
 "src_n_mon": "{n} følges",
+"cal_months_h": "Måned for måned",
+"past_show": "Vis {n} tidligere begivenheder",
+"past_all": "Alle tidligere begivenheder",
 })
