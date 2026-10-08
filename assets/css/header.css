@@ -24,12 +24,12 @@ nav.main a:hover{color:var(--fg);border-bottom-color:var(--band-line)}
 nav.main a[aria-current]{color:var(--fg);border-color:var(--gold);font-weight:700}
 .langsw{position:relative;font-size:14px;display:flex;gap:10px;align-items:center}
 .langsw a.quick{color:var(--muted)}.langsw a.quick:hover{color:var(--fg)}
-.langsw details{position:relative}.langsw summary{display:flex;align-items:center;height:36px;cursor:pointer;list-style:none;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:transparent;padding:0 11px}
+.langsw details{position:relative}.langsw summary{display:flex;align-items:center;gap:6px;height:36px;cursor:pointer;list-style:none;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:transparent;padding:0 11px}
 .langsw summary:hover,.langsw details[open] summary{border-color:var(--band-muted);background:var(--soft)}
 .langsw summary::-webkit-details-marker{display:none}
 .langsw ul{position:absolute;right:0;z-index:20;margin:8px 0 0;padding:6px;list-style:none;background:var(--band-deep);border:1px solid var(--band-line);border-radius:var(--r);box-shadow:var(--shadow-lg);min-width:13rem;max-height:70vh;overflow:auto}
 html[dir=rtl] .langsw ul{right:auto;left:0}
-.langsw li a{display:block;padding:6px 12px;border-radius:var(--r-sm);text-decoration:none;text-align:left}.langsw li a:hover,.langsw li a:focus{background:var(--soft)}
+.langsw li a{display:block;padding:6px 12px;border-radius:var(--r-sm);text-decoration:none;text-align:start}.langsw li a:hover,.langsw li a:focus{background:var(--soft)}
 .langsw li a[aria-current]{font-weight:700;color:var(--gold)}.langsw .quick{font-size:13.5px;color:var(--muted)}
 header.top select{color-scheme:dark;background:transparent}
 header.top select option{color:var(--nc-tar);background:var(--nc-sail)}
@@ -40,7 +40,7 @@ header.top select option{color:var(--nc-tar);background:var(--nc-sail)}
 /* Phones: iOS Safari paints an empty bordered box for an absolutely positioned list inside <details>.
    A native <select> is the control there. The list below is only the no-JS fallback, in normal flow. */
 @media(max-width:960px),(hover:none) and (pointer:coarse){
- .langsw{width:auto;max-width:100%;justify-content:flex-start;align-items:center;flex-wrap:wrap;text-align:left}
+ .langsw{width:auto;max-width:100%;justify-content:flex-start;align-items:center;flex-wrap:wrap;text-align:start}
  .langsw ul{position:static;right:auto;left:auto;width:100%;min-width:0;max-height:60vh;overflow:auto;box-shadow:none}
  .langsw li a{padding:10px 12px}
 }
@@ -59,12 +59,12 @@ header.top select option{color:var(--nc-tar);background:var(--nc-sail)}
  .js .navtoggle[aria-expanded=true] .navbars span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
  .js .navtoggle:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
  .js nav.main,.js .hdrbtns,.js .langsw{display:none}
- .js nav.main{order:5;flex:1 0 100%;flex-direction:column;align-items:stretch;gap:0;margin:4px 0 0;text-align:left;border-top:1px solid var(--band-line)}
+ .js nav.main{order:5;flex:1 0 100%;flex-direction:column;align-items:stretch;gap:0;margin:4px 0 0;text-align:start;border-top:1px solid var(--band-line)}
  .js header.top.nav-open nav.main{display:flex}
- .js nav.main a{display:block;width:100%;text-align:left;padding:12px 2px;margin:0;border-bottom:1px solid var(--band-line);font-size:17px}
+ .js nav.main a{display:block;width:100%;text-align:start;padding:12px 2px;margin:0;border-bottom:1px solid var(--band-line);font-size:17px}
  .js nav.main a.nav-more{font-size:15px;padding:10px 2px;color:var(--muted)}
  .js nav.main a[aria-current]{border-bottom-color:var(--band-line);box-shadow:inset 3px 0 0 var(--gold);padding-left:14px;color:var(--fg)}
- html[dir=rtl] .js nav.main a[aria-current]{box-shadow:inset -3px 0 0 var(--gold);padding-left:2px;padding-right:14px}
+ html.js[dir=rtl] nav.main a[aria-current]{box-shadow:inset -3px 0 0 var(--gold);padding-left:2px;padding-right:14px}
  .js header.top.nav-open .hdrbtns{display:flex;order:6;flex:1 0 100%;padding-top:6px}
  .js header.top.nav-open .langsw{display:flex;order:7;flex:1 0 100%;padding-bottom:6px}
  .js .hdrx .lbl,.js .hdrtg .lbl{position:static;width:auto;height:auto;margin:0;overflow:visible;clip:auto}
@@ -72,11 +72,11 @@ header.top select option{color:var(--nc-tar);background:var(--nc-sail)}
 }
 @media(max-width:960px),(hover:none) and (pointer:coarse){
  .js .langsw details{display:none}
- .js .langglobe{display:inline;font-size:16px;line-height:1}
- .js .langpick{display:inline-flex;align-items:center;justify-content:flex-start;min-width:0;max-width:100%;text-align:left}
- .js .langpick select{font-size:16px;line-height:1.3;min-height:44px;width:12rem;max-width:100%;text-align:left;text-align-last:left;padding:8px 28px 8px 10px;border-color:var(--line-strong)}
+ .js .langglobe{display:inline-flex;align-items:center;line-height:1}
+ .js .langpick{display:inline-flex;align-items:center;justify-content:flex-start;min-width:0;max-width:100%;text-align:start}
+ .js .langpick select{font-size:16px;line-height:1.3;min-height:44px;width:12rem;max-width:100%;text-align:start;text-align-last:start;padding:8px 28px 8px 10px;border-color:var(--field-line)}
  .js .langpick select:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
- .js .langsw .quick{font-size:16px;padding:10px 0;text-align:left}
+ .js .langsw .quick{font-size:16px;padding:10px 0;text-align:start}
 }
 /* Front page: a short title band under the header, then the news. */
 .hero{background:var(--lattice),var(--band);border-bottom:4px solid var(--band-rule);text-align:start}
@@ -84,3 +84,4 @@ header.top select option{color:var(--nc-tar);background:var(--nc-sail)}
 .hero h1{margin:0;max-width:26ch;font-size:clamp(28px,3.4vw,42px);line-height:1.06;letter-spacing:-.015em;color:var(--fg)}
 .hero .lead{color:var(--muted);font-size:15px;line-height:1.6;max-width:78ch;margin:10px 0 0}
 @media(max-width:640px){.hero .lead{font-size:14px}}
+.hero-meta{margin:10px 0 0;font:500 12px/1.4 var(--f-mono);letter-spacing:.06em;color:var(--muted)}

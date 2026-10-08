@@ -2,10 +2,11 @@
    Sailcloth page, Pine Tar text, North Sea for the header band and dark sections, Shield Gold for tags and highlights,
    Sea Foam for lines and quiet panels. --band* is the North Sea band (header, hero, lead story, footer); text on it uses --band-ink.
    --mk-* are the market chart's series colours, in fixed order; both sets pass the colour-vision checks on their own page colour.
+   --field-line is the border of text fields and selects (3:1 against the page, WCAG 1.4.11).
    The other modules use these names only. Light is the default. Dark applies only when the reader picks it with the header switch,
    which sets data-theme="dark" on <html> (stored as nc-theme in localStorage, read by an inline script in <head>, so there is no flash). */
 :root{
-  --bg:#F0F1EC;--surface:#FFFFFF;--fg:#1D1C1A;--muted:#55605F;--line:#D5DEDC;--line-strong:#A9BEBE;--soft:#E4EAE7;--foam:#BFD3D3;--panel:#DFE7E3;
+  --bg:#F0F1EC;--surface:#FFFFFF;--fg:#1D1C1A;--muted:#55605F;--line:#D5DEDC;--line-strong:#A9BEBE;--field-line:#7A8C8C;--soft:#E4EAE7;--foam:#BFD3D3;--panel:#DFE7E3;
   --accent:#1E3A45;--on-accent:#F0F1EC;--gold:#D9A034;--gold-ink:#8A5A0C;--on-gold:#1D1C1A;--focus:#1E3A45;--brand-w:#D9A034;
   --band:#1E3A45;--band-deep:#152C35;--band-ink:#F0F1EC;--band-muted:#BFD3D3;--band-line:rgb(191 211 211 / .24);--band-rule:#BFD3D3;
   --btn:#1E3A45;--btn-hover:#152C35;--btn-ink:#F0F1EC;
@@ -23,6 +24,6 @@
   --ink:var(--fg);--paper:var(--surface);
   color-scheme:light;
 }
-:root[data-theme=dark]{--bg:#0D181D;--surface:#13232A;--fg:#ECEEE8;--muted:#9FB3B2;--line:#22373F;--line-strong:#37525C;--soft:#182C34;--panel:#152A32;--accent:#BFD3D3;--on-accent:#0D181D;--gold:#E0A93E;--gold-ink:#E6B455;--on-gold:#1D1C1A;--focus:#E0A93E;--brand-w:#E0A93E;--band:#15303A;--band-deep:#10252D;--band-ink:#F0F1EC;--band-muted:#A9C2C2;--band-line:rgb(191 211 211 / .16);--band-rule:#2E4D58;--btn:#E0A93E;--btn-hover:#EBBB5A;--btn-ink:#1D1C1A;--warm:#E3A55A;--warm-bg:#2B2216;--pub:#8DB4DC;--priv:#86C3A1;--up:#86C3A1;--down:#F08A8F;--shadow:0 1px 2px rgb(0 0 0 / .3),0 12px 30px -14px rgb(0 0 0 / .6);--shadow-lg:0 2px 6px rgb(0 0 0 / .3),0 24px 48px -18px rgb(0 0 0 / .7);--mk-1:#4F8AD6;--mk-2:#B5841C;--mk-3:#CC3D55;--mk-4:#937BDB;--mk-5:#2FA894;--mk-6:#CF6F2E;--mk-7:#C2649F;--mk-8:#5FA352;--mk-other:#6E665D;color-scheme:dark}
+:root[data-theme=dark]{--bg:#0D181D;--surface:#13232A;--fg:#ECEEE8;--muted:#9FB3B2;--line:#22373F;--line-strong:#37525C;--field-line:#6A8590;--soft:#182C34;--panel:#152A32;--accent:#BFD3D3;--on-accent:#0D181D;--gold:#E0A93E;--gold-ink:#E6B455;--on-gold:#1D1C1A;--focus:#E0A93E;--brand-w:#E0A93E;--band:#15303A;--band-deep:#10252D;--band-ink:#F0F1EC;--band-muted:#A9C2C2;--band-line:rgb(191 211 211 / .16);--band-rule:#2E4D58;--btn:#E0A93E;--btn-hover:#EBBB5A;--btn-ink:#1D1C1A;--warm:#E3A55A;--warm-bg:#2B2216;--pub:#8DB4DC;--priv:#86C3A1;--up:#86C3A1;--down:#F08A8F;--shadow:0 1px 2px rgb(0 0 0 / .3),0 12px 30px -14px rgb(0 0 0 / .6);--shadow-lg:0 2px 6px rgb(0 0 0 / .3),0 24px 48px -18px rgb(0 0 0 / .7);--mk-1:#4F8AD6;--mk-2:#B5841C;--mk-3:#CC3D55;--mk-4:#937BDB;--mk-5:#2FA894;--mk-6:#CF6F2E;--mk-7:#C2649F;--mk-8:#5FA352;--mk-other:#6E665D;color-scheme:dark}
 /* On the North Sea band (header, hero, lead story, footer) the same names re-point to light-on-dark values in both themes. */
-header.top,.hero,.leadstory,footer{--fg:var(--band-ink);--muted:var(--band-muted);--line:var(--band-line);--line-strong:rgb(191 211 211 / .4);--surface:rgb(240 241 236 / .06);--soft:rgb(240 241 236 / .08);--accent:var(--gold);--on-accent:var(--on-gold);--focus:var(--gold);--gold-ink:var(--gold);--btn:var(--gold);--btn-hover:#E8B655;--btn-ink:var(--on-gold);color:var(--fg)}
+header.top,.hero,.leadstory,footer{--fg:var(--band-ink);--muted:var(--band-muted);--line:var(--band-line);--line-strong:rgb(191 211 211 / .4);--field-line:rgb(191 211 211 / .6);--surface:rgb(240 241 236 / .06);--soft:rgb(240 241 236 / .08);--accent:var(--gold);--on-accent:var(--on-gold);--focus:var(--gold);--gold-ink:var(--gold);--btn:var(--gold);--btn-hover:#E8B655;--btn-ink:var(--on-gold);color:var(--fg)}

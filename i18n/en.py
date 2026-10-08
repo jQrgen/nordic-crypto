@@ -439,3 +439,14 @@ S.update({
 "ev_when": "Date and time",
 "past_show_1": "Show 1 past event",
 })
+
+# Review fixes: skip link, short front-page intro, empty filter states
+S.update({
+"skip": "Skip to content",
+"home_sub": "Stories from Nordic newspapers, broadcasters, regulators and central banks, each with a short summary made with the help of artificial intelligence and approved by our editors.",
+"home_updated": "Updated {upd} · {n} stories{pend}",
+"filters_none": "Nothing matches these filters.",
+"filters_clear": "Clear filters",
+"n_row1": "1 row",
+"foot_source": "Source code",
+})

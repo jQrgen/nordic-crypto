@@ -420,3 +420,14 @@ S.update({
 "ev_when": "Dato og tid",
 "past_show_1": "Vis 1 tidligere begivenhed",
 })
+
+# Review fixes: skip link, short front-page intro, empty filter states
+S.update({
+"skip": "Gå til indholdet",
+"home_sub": "Artikler fra nordiske aviser, radio og tv, tilsynsmyndigheder og centralbanker, hver med et kort resumé lavet med hjælp fra kunstig intelligens og godkendt af vores redaktører.",
+"home_updated": "Opdateret {upd} · {n} artikler{pend}",
+"filters_none": "Intet passer til disse filtre.",
+"filters_clear": "Ryd filtrene",
+"n_row1": "1 række",
+"foot_source": "Kildekode",
+})

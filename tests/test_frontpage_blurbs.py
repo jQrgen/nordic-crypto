@@ -54,9 +54,9 @@ class FrontPageBlurbs(unittest.TestCase):
     def test_layout_stays_left(self):
         import site_css
         css = site_css.bundle()
-        self.assertIn("ol.news{list-style:none;margin:0;padding:0;text-align:left}", css)
-        self.assertIn(".sum{margin:6px 0 0;max-width:72ch;line-height:1.55;text-align:left}", css)
-        self.assertIn(".bridge{margin:6px 0 0;font-weight:500;text-align:left}", css)
+        self.assertIn("ol.news{list-style:none;margin:0;padding:0;text-align:start}", css)
+        self.assertIn(".sum{margin:6px 0 0;max-width:72ch;line-height:1.55;text-align:start}", css)
+        self.assertIn(".bridge{margin:6px 0 0;font-weight:500;text-align:start}", css)
 
     def test_blurbs_do_not_call_kaupr_a_sponsor(self):
         raw = open(os.path.join(ROOT, "data", "frontpage_blurbs.json"), encoding="utf-8").read().lower()

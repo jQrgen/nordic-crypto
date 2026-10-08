@@ -15,7 +15,7 @@
 .talks time{unicode-bidi:plaintext}
 .talks .sum{margin:0 0 6px;font-size:15.5px;line-height:1.5}
 .tspk{margin:0 0 4px;font-size:14px;color:var(--muted)}.tspk a{color:var(--fg)}.tspk p{margin:2px 0}
-.tspk summary{cursor:pointer;padding:3px 0;width:max-content;max-width:100%}
+.tspk summary{cursor:pointer;padding:10px 0;width:max-content;max-width:100%}
 .tact{display:flex;align-items:center;gap:6px 14px;margin-top:10px}
 .tact:has(iframe){flex-wrap:wrap}
 .tact .meta{font-size:13px;line-height:1.4}

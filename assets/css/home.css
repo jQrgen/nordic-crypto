@@ -23,3 +23,5 @@
 .raillinks a:hover{text-decoration:underline;text-decoration-color:var(--gold)}
 .raillinks .meta{display:block;font-size:12.5px;margin-top:2px}
 .home-note{margin:40px 0 0;font-size:13.5px;max-width:90ch}
+/* Phones: three events before the stories, the rest are one tap away in the calendar. */
+@media(max-width:1023px){#evsoon-list .evcard:nth-child(n+4){display:none}}

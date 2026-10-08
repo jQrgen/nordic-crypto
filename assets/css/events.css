@@ -1,14 +1,14 @@
 /* Events: happening now and next events (the front-page rail). The calendar, previous events and event pages have their own modules.
    In the rail each event is a row: a date badge, the title, then country, weekday, time and city. */
-.evhero,.evsoon,.evcard,.evmeta,.evsrc,.evplace{text-align:left}
+.evhero,.evsoon,.evcard,.evmeta,.evsrc,.evplace{text-align:start}
 .evhero{position:relative;border:1px solid var(--line);border-inline-start:4px solid var(--gold);border-radius:var(--r-sm);background:var(--surface);padding:12px 14px;margin:0 0 22px}
-.evhero h2,.evsoon h2{text-align:left;margin:0 0 4px}
+.evhero h2,.evsoon h2{text-align:start;margin:0 0 4px}
 .evhero h2{color:var(--gold-ink);margin-top:2px}
 .evhero h2::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold)}
 .evsoon h2{margin:0 0 6px}
-.evhero h3{font-size:24px;line-height:1.15;margin:0 0 6px;text-align:left}
+.evhero h3{font-size:24px;line-height:1.15;margin:0 0 6px;text-align:start}
 .evsoon{margin:8px 0 22px}
-.evsoon h3{font-size:22px;line-height:1.18;margin:0 0 6px;text-align:left}
+.evsoon h3{font-size:22px;line-height:1.18;margin:0 0 6px;text-align:start}
 .evhero h3 a,.evsoon h3 a{text-decoration:none}
 .evhero h3 a:hover,.evsoon h3 a:hover{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px}
 .evcard{padding:14px 0 16px;border-bottom:1px solid var(--line)}
@@ -29,3 +29,4 @@
 .evsoon>.meta{margin:10px 0 0;font-size:14px}
 .evsrc{font-size:13.5px;color:var(--muted);margin:2px 0 0}
 @media(max-width:640px){.evhero h3{font-size:24px}}
+@media(max-width:860px){.evsoon>.meta a{display:inline-block;padding:10px 0}}

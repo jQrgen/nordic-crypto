@@ -13,7 +13,7 @@
 .ofilters{gap:10px 26px;margin:0 0 6px;padding:12px 14px;box-shadow:none}
 .of{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;min-width:0}
 .of-q{flex:1 1 15rem}
-.of-q input{flex:1 1 10rem;min-width:0;min-height:40px;font:inherit;font-size:15px;color:var(--fg);background:var(--bg);border:1px solid var(--line-strong);border-radius:var(--r-sm);padding:7px 11px}
+.of-q input{flex:1 1 10rem;min-width:0;min-height:40px;font:inherit;font-size:15px;color:var(--fg);background:var(--bg);border:1px solid var(--field-line);border-radius:var(--r-sm);padding:7px 11px}
 .ofilters .chip{min-height:36px}
 .ofilters .seg button{min-height:36px}
 .cchip .n{font:500 11px var(--f-mono);opacity:.75}

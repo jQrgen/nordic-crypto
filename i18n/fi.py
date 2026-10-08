@@ -420,3 +420,14 @@ S.update({
 "ev_when": "Aika",
 "past_show_1": "Näytä 1 mennyt tapahtuma",
 })
+
+# Review fixes: skip link, short front-page intro, empty filter states
+S.update({
+"skip": "Siirry sisältöön",
+"home_sub": "Juttuja pohjoismaisista sanomalehdistä, yleisradioyhtiöistä, valvojilta ja keskuspankeilta, jokaisessa lyhyt tiivistelmä, joka on tehty tekoälyn avulla ja jonka toimittajamme ovat hyväksyneet.",
+"home_updated": "Päivitetty {upd} · {n} juttua{pend}",
+"filters_none": "Mikään ei vastaa näitä suodattimia.",
+"filters_clear": "Tyhjennä suodattimet",
+"n_row1": "1 rivi",
+"foot_source": "Lähdekoodi",
+})

@@ -396,7 +396,7 @@ class CalendarIntakeTests(unittest.TestCase):
         # start = left in left-to-right languages, right on the Arabic and Urdu pages
         self.assertIn("table.list th,table.list td{border-bottom:1px solid var(--line);padding:8px 8px;text-align:start", text)
         self.assertIn('t("st_used")', text)
-        self.assertIn('style="text-align:left"', text)
+        self.assertIn('style="text-align:start"', text)
         en = open(os.path.join(ROOT, "i18n", "en.py"), encoding="utf-8").read()
         self.assertIn('"st_used"', en)
         self.assertIn("publicly supported interfaces", en)

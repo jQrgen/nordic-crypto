@@ -59,14 +59,14 @@ def main():
         build.LANG = "en"
         build.build_coverage_pages([one] + ([two] if two else []) + [i for i in items if i not in (one, two)][:6], {})
         html = open(os.path.join(tmp, "stories", one["id"], "index.html"), encoding="utf-8").read()
-        body = html.split('<main class="wrap">', 1)[1].split("</main>", 1)[0]
+        body = html.split('<main class="wrap"', 1)[1].split(">", 1)[1].split("</main>", 1)[0]
         check('class="readat"' in body and 'class="coverage"' not in body, "one outlet: the Read at button, no outlet list")
         check('class="morenews"' in body and body.count("<li><a href=") == build.MORE_NEWS_N, "latest stories under the story")
         check(f'stories/{one["id"]}/' not in body.split('class="morenews"', 1)[1].split("</aside>", 1)[0], "the story is not in its own list")
         check("text-align:center" not in body, "story page not centred")
         if two:
             html2 = open(os.path.join(tmp, "stories", two["id"], "index.html"), encoding="utf-8").read()
-            body2 = html2.split('<main class="wrap">', 1)[1].split("</main>", 1)[0]
+            body2 = html2.split('<main class="wrap"', 1)[1].split(">", 1)[1].split("</main>", 1)[0]
             check('class="coverage"' in body2, "two outlets: the outlet list")
             for row in build.story_outlets(two):
                 url = build.E(row["url"])

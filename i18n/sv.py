@@ -420,3 +420,14 @@ S.update({
 "ev_when": "Datum och tid",
 "past_show_1": "Visa 1 tidigare evenemang",
 })
+
+# Review fixes: skip link, short front-page intro, empty filter states
+S.update({
+"skip": "Hoppa till innehållet",
+"home_sub": "Artiklar från nordiska tidningar, public service, tillsynsmyndigheter och centralbanker, var och en med en kort sammanfattning gjord med hjälp av artificiell intelligens och godkänd av våra redaktörer.",
+"home_updated": "Uppdaterad {upd} · {n} artiklar{pend}",
+"filters_none": "Inget matchar de här filtren.",
+"filters_clear": "Rensa filtren",
+"n_row1": "1 rad",
+"foot_source": "Källkod",
+})

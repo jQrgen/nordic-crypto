@@ -170,14 +170,16 @@ def newsletter_offer(rel, privacy=False, compact=False):
     note = f'<p class="notice">{t("nl_priv")}</p>' if privacy else ""
     return form + note
 def header_subscribe_button(rel):
-    """Subscribe link at the top of every page. It opens the form on this site (/newsletter/#signup)."""
-    return f'<a class="hdrsub" href="{rel}newsletter/#signup">{E(t("nl_btn"))}</a>'
+    """The gold button at the top of every page. It opens /newsletter/#signup on this site: the form while signup is open
+    ("Subscribe"), otherwise the RSS, Telegram and X links ("Follow"), so the label says what the reader will find."""
+    return f'<a class="hdrsub" href="{rel}newsletter/#signup">{E(t("nl_btn") if newsletter_form(True) else t("foot_follow"))}</a>'
 def header_buttons(rel):
     """Subscribe, then Join on Telegram, then Follow on X. Left-aligned, in that order."""
     return header_subscribe_button(rel) + header_telegram_button() + header_x_button()
 # Nordic Crypto brand accounts (not jQrgen's personal profiles). Plain links only: no widgets, scripts or embeds.
 SITE_X = "https://x.com/xcryptonordic"
 SITE_TELEGRAM = "https://t.me/nordiccryptochat"
+ICON_GLOBE = '<svg class="ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>'
 ICON_TG = ('<svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" '
            'd="M21.9 4.3 18.7 19.4c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13 1.4 11.5c-1-.3-1.1-1 .2-1.5L20.5 2.8c.9-.3 1.7.2 1.4 1.5z"/></svg>')
 ICON_X = ('<svg class="ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" '
@@ -534,6 +536,7 @@ def build_chat():
     body = (f'<h1>{E(t("chat_h1"))}</h1><p class="lead">{E(t("chat_lead"))}</p>'
             + shoutbox_html("../ethics/", full=True))
     page("chat", t("chat_title"), "chat", body, t("chat_desc"))
+RTL_ARROWS = str.maketrans({"←": "→", "→": "←"})
 def site_footer(rel, root, slug=""):
     """Brand, three link columns (the header sections, the pages about the site, where to follow), the newsletter form while
     signup is open, notifications while the Worker is set, then the colophon (the i18n footer string)."""
@@ -543,7 +546,7 @@ def site_footer(rel, root, slug=""):
     sections = "".join(li(root + "api/" if n == "api" else rel + (n + "/" if n else ""), t(k)) for n, k in nav_items()[:NAV_MAIN])
     site = (li(rel + "about/", t("nav_about")) + li(rel + "sources/", t("nav_sources")) + li(rel + "ethics/", t("ethics_title"))
             + li(rel + "changelog/", t("cl_title")) + li(rel + "media/", t("media_title")) + li(rel + "columnist/", t("col_title"))
-            + li(rel + "tip/", t("nav_tip")) + li(root + "api/", t("foot_api")))
+            + li(rel + "tip/", t("nav_tip")) + li(root + "api/", t("foot_api")) + li("https://github.com/jQrgen/nordic-crypto", t("foot_source"), True))
     follow = (li(rel + "newsletter/", t("nav_newsletter")) + li(SITE_TELEGRAM, t("tg_label"), True) + li(SITE_X, "X", True) + li(rel + "rss.xml", "RSS")
               + li("https://testflight.apple.com/join/nQ2fpjZn", t("ios_link"), True, t("ios_tv")) + li(root + "screen/", t("screen_short")))
     nlfoot = (f'<div class="nlfoot"><b>{E(t("nl_foot"))}</b> {newsletter_offer(rel, compact=True)}</div>'
@@ -582,9 +585,10 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
     q = i18n.QUICK.get(LANG)
     quick = (f'<a class="quick" href="{root}{lp(q)}{slug + "/" if slug else ""}" hreflang="{q}" lang="{q}" data-lang="{q}">{E(i18n.NAME[q])}</a>' if q in langs else "")
     # Phones use a native <select> (the iOS picker). Desktop keeps the <details> list. Both list native names.
-    pick_html = (f'<span class="langglobe" aria-hidden="true">🌐</span><label class="langpick"><span class="vh">{E(t("lang_choose"))}</span>'
+    pick_html = (f'<span class="langglobe" aria-hidden="true">{ICON_GLOBE}</span><label class="langpick"><span class="vh">{E(t("lang_choose"))}</span>'
                  f'<select class="langsel">{"".join(_opt(l) for l in langs)}</select></label>')
-    switcher = (f'<div class="langsw">{quick}{pick_html}<details><summary aria-label="{E(t("lang_choose"))}">🌐 {E(i18n.NAME[LANG])}</summary>'
+    # the visible language name is part of the accessible name ("Choose language: English"), so voice control finds it
+    switcher = (f'<div class="langsw">{quick}{pick_html}<details><summary>{ICON_GLOBE}<span class="vh">{E(t("lang_choose"))}: </span>{E(i18n.NAME[LANG])}</summary>'
                 f'<ul role="list" aria-label="{E(t("lang_label"))}">{sw}</ul></details></div>')
     nav_btn = (f'<button type="button" class="navtoggle" aria-expanded="false" aria-controls="sitenav" aria-label="{E(t("main_menu"))}">'
                f'<span class="navbars" aria-hidden="true"><span></span><span></span><span></span></span></button>')
@@ -607,6 +611,9 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
     theme_btn = (f'<button type="button" class="themetoggle" aria-pressed="false" title="{E(t("theme_dark"))}"><span class="vh">{E(t("theme_dark"))}</span>'
                  '<svg class="ico i-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.7 14.6A8.6 8.6 0 0 1 9.4 3.3a.6.6 0 0 0-.8-.7A9.8 9.8 0 1 0 21.4 15.4a.6.6 0 0 0-.7-.8z"/></svg>'
                  '<svg class="ico i-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg></button>')
+    # the share bar and the source-code line: only on pages about one thing (a story, an event, a newsletter issue);
+    # the source code is linked from the footer on every page
+    share_here = slug.startswith(("stories/", "newsletter/")) or (slug.startswith("calendar/") and slug != "calendar")
     doc = f"""<!doctype html>
 <html lang="{i18n.HTML_LANG[LANG]}"{" dir=\"rtl\"" if i18n.rtl(LANG) else ""}><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <script>(function(d){{d.classList.add("js");try{{if(localStorage.getItem("nc-theme")==="dark")d.setAttribute("data-theme","dark")}}catch(e){{}}}})(document.documentElement)</script>
@@ -626,15 +633,17 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Nordic Crypto">
 <style>{CSS}{s['css']}</style></head>
-<body>{banner}<header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="{rel}"><img class="brandmark" src="{root}assets/brand/shield-band.svg" width="34" height="40" alt="Nordic Crypto"><span aria-hidden="true">Nordic <span class="w">Crypto</span></span></a></div><div class="hdrtools"><span class="hdrbtns">{header_buttons(rel)}</span>{theme_btn}{switcher}{nav_btn}</div><nav id="sitenav" class="main" aria-label="{E(t("main_menu"))}">{nav_html}</nav></div></header>{hero}
-<main class="wrap">
+<body><a class="skip" href="#main">{E(t("skip"))}</a>{banner}<header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="{rel}"><img class="brandmark" src="{root}assets/brand/shield-band.svg" width="34" height="40" alt="Nordic Crypto"><span aria-hidden="true">Nordic <span class="w">Crypto</span></span></a></div><div class="hdrtools"><span class="hdrbtns">{header_buttons(rel)}</span>{theme_btn}{switcher}{nav_btn}</div><nav id="sitenav" class="main" aria-label="{E(t("main_menu"))}">{nav_html}</nav></div></header>{hero}
+<main class="wrap" id="main" tabindex="-1">
 {body}
-{s['top']}
+{s['top'] if share_here else ""}
 </main>
 {site_footer(rel, root, slug)}
-{s['script']}{setck}{extra_script}{newsletter_script()}{push_script()}{shout_script()}{analytics_snippet()}
+{s['script'] if share_here else ''}{setck}{extra_script}{newsletter_script()}{push_script()}{shout_script()}{analytics_snippet()}
 </body></html>"""
     doc = doc.replace("<body>", "<body>" + flag_sprite(doc), 1)
+    if i18n.rtl(LANG):   # back and forward arrows in strings ("← News", "… →") point the other way on right-to-left pages
+        doc = doc.translate(RTL_ARROWS)
     d = os.path.join(SITE, lp(), slug); os.makedirs(d, exist_ok=True)
     open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(doc)
 
@@ -808,14 +817,14 @@ def source_mark(i, root=""):
     lg = i.get("source_logo")
     if lg is None and i.get("source"):
         lg = _source_logos().for_source(i.get("source"), preview=PREVIEW)
-    img = ""
     if lg and lg.get("file"):
         pend = f' title="{E(t("pending"))}"' if lg.get("pending") else ""
-        img = f'<img class="src-logo" src="{root}{E(lg["file"])}" alt="" height="18" loading="lazy"{pend}>'
+        img = f'<img class="src-logo" src="{root}{E(lg["file"])}" alt="" height="18" loading="lazy" decoding="async"{pend}>'
         home = i.get("source_url") or _source_logos().homepage(i.get("source"))
-        if home:
-            img = f'<a class="src-logo-link" href="{E(home)}" rel="noopener">{img}</a>'
-    return f'<span class="src">{img}<b>{E(name)}</b></span>'
+        if home:   # one link holding the logo and the name, so it has a name and is one tab stop
+            return f'<span class="src"><a class="src-logo-link" href="{E(home)}" rel="noopener">{img}<b>{E(name)}</b></a></span>'
+        return f'<span class="src">{img}<b>{E(name)}</b></span>'
+    return f'<span class="src"><b>{E(name)}</b></span>'
 
 def _illustrations():
     sys.path.insert(0, P("tools"))
@@ -1702,7 +1711,7 @@ def front_card(i, blurbs, asset, lead=False):
         else:
             lang = f' · {E(t("lang_" + lname))}' if foreign else ""
             summ = f'<p class="sum"{lang_attr(tl)}>{E(txt)}</p>'
-    ext_attr = "" if not ext else ' rel="noopener" target="_blank"'
+    ext_attr = ""   # the headline goes to our story page (same tab); "Read at" there opens the source
     title_tag = "h2" if lead else "h3"
     klass = "leadstory" if lead else "storycard"
     badges = ""
@@ -1743,7 +1752,8 @@ def build_lang(ctx):
     # the latest stories follow, then newsletter and tools. The same order on every screen, so reading and tab order match.
     hero = f"""<section class="hero" aria-labelledby="home-h1"><div class="wrap">
 <h1 id="home-h1">{E(t("home_h1"))}</h1>
-<p class="lead">{E(t("home_lead", upd=upd, n=len(items), pend=t("home_pend", n=len(pending)) if pending else ""))}</p>
+<p class="lead">{E(t("home_sub"))}</p>
+<p class="hero-meta">{E(t("home_updated", upd=upd, n=len(items), pend=t("home_pend", n=len(pending)) if pending else ""))}</p>
 </div></section>"""
     events_block = front_events_block(*(ctx["events"] if isinstance(ctx.get("events"), tuple) else (ctx.get("events") or [], site_now())), compact=True)
     tools = (f'<section class="railbox"><h2>{E(t("rail_more"))}</h2><ul class="raillinks">'
@@ -1756,7 +1766,7 @@ def build_lang(ctx):
 {latest}
 <aside class="home-more" aria-labelledby="nlhome-h"><section class="railbox nlhome"><h2 id="nlhome-h">{E(t("nl_title"))}</h2>{home_signup}</section>{tools}</aside>
 </div>
-<p class="notice home-note">{E(t("home_notice"))}</p>"""
+<div class="notice home-note"><p>{E(t("home_lead", upd=upd, n=len(items), pend=t("home_pend", n=len(pending)) if pending else ""))}</p><p>{E(t("home_notice"))}</p></div>"""
     body = home_with_chat(body)
     page("", t("home_title"), "", body, t("home_desc"), front_events_script() + MORE_STORIES_JS, hero=hero)
     build_coverage_pages(items, ctx["blurbs"])
@@ -1991,7 +2001,7 @@ def build_sources(ctx):
                          + "".join(r[1] for r in rows if r[0] == v) + '</tbody>' for v in list(SRC_REACH) + sorted({r[0] for r in rows} - set(SRC_REACH)) if any(r[0] == v for r in rows))
         summ = f'{E(n_sources_label(len(rows)))} · {E(t("src_n_mon", n=n_ok[c]))}'
         groups.append(f'<details class="srcg" id="src-{E(c)}" data-c="{E(c)}"><summary><h2>{_deco_mark(c)}{E(cname(c))}</h2><span class="n" data-t="{summ}">{summ}</span></summary>'
-                      f'<table class="list" style="text-align:left">{head}{bodies}</table></details>')
+                      f'<table class="list" style="text-align:start">{head}{bodies}</table></details>')
     erows = []
     for s in cfg.get("event_sources", []):
         if event_block.blocked_source(s): continue
@@ -2015,7 +2025,7 @@ def build_sources(ctx):
 <h1>{E(t("src_h1"))}</h1>
 <p class="lead">{E(first)}</p>
 <details class="srchow"><summary>{E(t("src_how"))}</summary><p>{E(rest)}</p><p>{E(t("src_samefeed"))}</p><p><a href="#events">{E(t("src_ev_h"))}</a> · <a href="#terms">{E(t("src_terms_h"))}</a> · <a href="#keywords">{E(t("src_kw_h"))}</a></p></details>
-<div class="filters lfilters" style="justify-content:flex-start;text-align:left">
+<div class="filters lfilters" style="justify-content:flex-start;text-align:start">
 <div class="lf lf-q"><label class="vh" for="srcq">{E(t("src_search_ph"))}</label><input id="srcq" type="search" placeholder="{E(t("src_search_ph"))}" autocomplete="off"><p class="meta lcount" id="srccount" aria-live="polite">{E(n_sources_label(total))}</p></div>
 <div class="lf"><span class="lbl" id="lf-v">{E(t("th_coverage"))}</span><div class="chips" role="group" aria-labelledby="lf-v">{vchips}</div></div>
 </div>
@@ -2638,15 +2648,17 @@ def build_talks():
 <p id="talk-count" class="meta" aria-live="polite">{E(t("talks_n", n=len(rows)))}</p>
 </div>
 <div id="talk-list">{''.join(article(r) for r in rows) or f'<p class="empty">{E(t("talks_none"))}</p>'}</div>
+<p class="empty fnone" id="talk-none" hidden>{E(t("talks_none"))} <button type="button" class="linkbtn" data-clear>{E(t("filters_clear"))}</button></p>
 </div>"""
-    js = r"""<script>(function(){var N=%s,arts=[].slice.call(document.querySelectorAll('#talk-list article')),cc=[].slice.call(document.querySelectorAll('.tcountry')),lc=[].slice.call(document.querySelectorAll('.tlang')),year=document.getElementById('talk-year'),cnt=document.getElementById('talk-count');
+    js = r"""<script>(function(){var N=%s,arts=[].slice.call(document.querySelectorAll('#talk-list article')),cc=[].slice.call(document.querySelectorAll('.tcountry')),lc=[].slice.call(document.querySelectorAll('.tlang')),year=document.getElementById('talk-year'),cnt=document.getElementById('talk-count'),none=document.getElementById('talk-none');
 function on(list,key){return list.filter(function(b){return b.getAttribute('aria-pressed')==='true'}).map(function(b){return b.dataset[key]})}
-function apply(push){var c=on(cc,'c'),l=on(lc,'l'),y=year.value,n=0;arts.forEach(function(a){var ok=(!c.length||c.indexOf(a.dataset.c)>=0)&&(!y||a.dataset.y===y)&&(!l.length||l.indexOf(a.dataset.l)>=0);a.hidden=!ok;if(ok)n++});cnt.textContent=N.replace('{n}',n);if(push){var p=new URLSearchParams();if(c.length)p.set('country',c.join(','));if(y)p.set('year',y);if(l.length)p.set('lang',l.join(','));history.replaceState(null,'',p.toString()?'#'+p:location.pathname)}}
+function apply(push){var c=on(cc,'c'),l=on(lc,'l'),y=year.value,n=0;arts.forEach(function(a){var ok=(!c.length||c.indexOf(a.dataset.c)>=0)&&(!y||a.dataset.y===y)&&(!l.length||l.indexOf(a.dataset.l)>=0);a.hidden=!ok;if(ok)n++});cnt.textContent=N.replace('{n}',n);if(none)none.hidden=n>0;if(push){var p=new URLSearchParams();if(c.length)p.set('country',c.join(','));if(y)p.set('year',y);if(l.length)p.set('lang',l.join(','));history.replaceState(null,'',p.toString()?'#'+p:location.pathname)}}
 var h=new URLSearchParams(location.hash.slice(1));(h.get('country')||'').split(',').forEach(function(x){cc.forEach(function(b){if(b.dataset.c===x)b.setAttribute('aria-pressed','true')})});
 (h.has('lang')?h.get('lang').split(','):[]).forEach(function(x){lc.forEach(function(b){if((b.dataset.l||'')===x)b.setAttribute('aria-pressed','true')})});
 if(h.get('year'))year.value=h.get('year');
 cc.concat(lc).forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');apply(1)})});
 year.addEventListener('change',function(){apply(1)});
+if(none)none.querySelector('[data-clear]').addEventListener('click',function(){cc.concat(lc).forEach(function(b){b.setAttribute('aria-pressed','false')});year.value='';apply(1);if(cc[0])cc[0].focus()});
 document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.talk-play');if(!b)return;var src=b.getAttribute('data-embed');if(!src)return;var hd=document.getElementById(b.getAttribute('aria-describedby')||''),f=document.createElement('iframe');f.src=src;f.title=(hd&&hd.textContent)||b.textContent||'';f.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');f.setAttribute('allowfullscreen','');f.setAttribute('referrerpolicy','strict-origin-when-cross-origin');b.replaceWith(f);f.focus()});
 apply(0)})();</script>""" % json.dumps(t("talks_n", n="{n}"))
     page("talks", t("talks_title"), "talks", body, t("talks_desc"), js)
@@ -2816,18 +2828,20 @@ def build_academia():
 {f'<p class="meta">{E(dn)}</p>' if dn else ''}
 <div class="filters lfilters" role="group" aria-label="{E(t("countries_aria"))}"><div class="lf"><span class="lbl" id="lf-c">{E(t("country"))}</span><div class="chips" role="group" aria-labelledby="lf-c">{chips}</div></div><p id="acount" class="meta lcount" aria-live="polite">{E(t("n_rows", n=allrows))}</p></div>
 <nav class="acjump" aria-label="{E(t("toc_h"))}">{jump}</nav>
+<p class="empty fnone" id="ac-none" hidden>{E(t("filters_none"))} <button type="button" class="linkbtn" data-clear>{E(t("filters_clear"))}</button></p>
 <section aria-labelledby="courses"><h2 id="courses">{E(t("ac_courses_h"))}</h2><p class="meta acnote">{E(t("ac_courses_m"))}</p>{courses}</section>
 <section aria-labelledby="groups"><h2 id="groups">{E(t("ac_groups_h"))}</h2><p class="meta acnote">{E(t("ac_groups_m"))}</p>{groups}</section>
 <section aria-labelledby="publications"><h2 id="publications">{E(t("ac_pubs_h"))}</h2><p class="meta acnote">{E(t("ac_pubs_m"))}</p>{pubs}</section>
 <section aria-labelledby="research"><h2 id="research">{E(t("ac_research_h"))}</h2>{research}</section>
 <p class="notice">{t("ac_notice")}</p>
 </div>"""
-    js = """<script>(function(){var NR=%s,cc=[].slice.call(document.querySelectorAll('.cchip')),n=[].slice.call(document.querySelectorAll('.aclist li[data-c]')),cnt=document.getElementById('acount'),js=[].slice.call(document.querySelectorAll('.acjump .n'));
-function apply(){var c=cc.filter(function(x){return x.getAttribute('aria-pressed')==='true'}).map(function(x){return x.dataset.c}),k=0;n.forEach(function(el){var ok=!c.length||c.indexOf(el.dataset.c)>=0;el.hidden=!ok;if(ok)k++});cnt.textContent=NR.replace('{n}',k);
-js.forEach(function(s){var l=document.querySelector('.aclist[data-s="'+s.dataset.s+'"]');if(l)s.textContent=l.querySelectorAll('li[data-c]:not([hidden])').length});
+    js = """<script>(function(){var NR=%s,NR1=%s,none=document.getElementById('ac-none'),cc=[].slice.call(document.querySelectorAll('.cchip')),n=[].slice.call(document.querySelectorAll('.aclist li[data-c]')),cnt=document.getElementById('acount'),js=[].slice.call(document.querySelectorAll('.acjump .n'));
+function apply(){var c=cc.filter(function(x){return x.getAttribute('aria-pressed')==='true'}).map(function(x){return x.dataset.c}),k=0;n.forEach(function(el){var ok=!c.length||c.indexOf(el.dataset.c)>=0;el.hidden=!ok;if(ok)k++});cnt.textContent=k===1?NR1:NR.replace('{n}',k);none.hidden=k>0;
+js.forEach(function(s){var l=document.querySelector('.aclist[data-s="'+s.dataset.s+'"]');if(!l)return;var v=l.querySelectorAll('li[data-c]:not([hidden])').length;s.textContent=v;var sec=l.closest('section');if(sec)sec.hidden=!!c.length&&!v});
 history.replaceState(null,'',c.length?'#country='+c.join(','):location.pathname+location.hash.replace(/#country=.*/,''))}
 var h=new URLSearchParams(location.hash.slice(1));(h.get('country')||'').split(',').forEach(function(x){cc.forEach(function(b){if(b.dataset.c===x)b.setAttribute('aria-pressed','true')})});
-cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');apply()})});apply()})();</script>""" % json.dumps(t("n_rows", n="{n}"))
+cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');apply()})});
+none.querySelector('[data-clear]').addEventListener('click',function(){cc.forEach(function(b){b.setAttribute('aria-pressed','false')});apply();if(cc[0])cc[0].focus()});apply()})();</script>""" % (json.dumps(t("n_rows", n="{n}")), json.dumps(t("n_row1")))
     page("academia", t("ac_title"), "academia", body, t("ac_desc"), js)
     if LANG == "en": print(f"academia: {allrows} editor-approved rows shown {per_c}")
 

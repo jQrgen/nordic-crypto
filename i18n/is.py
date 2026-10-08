@@ -420,3 +420,14 @@ S.update({
 "ev_when": "Dagsetning og tími",
 "past_show_1": "Sýna 1 liðinn viðburð",
 })
+
+# Review fixes: skip link, short front-page intro, empty filter states
+S.update({
+"skip": "Fara beint í efnið",
+"home_sub": "Fréttir frá norrænum dagblöðum, ljósvakamiðlum, eftirlitsstofnunum og seðlabönkum, hver með stuttri samantekt sem er unnin með aðstoð gervigreindar og samþykkt af ritstjórum okkar.",
+"home_updated": "Uppfært {upd} · {n} fréttir{pend}",
+"filters_none": "Ekkert passar við þessar síur.",
+"filters_clear": "Hreinsa síur",
+"n_row1": "1 lína",
+"foot_source": "Frumkóði",
+})
