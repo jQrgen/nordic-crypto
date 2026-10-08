@@ -35,6 +35,7 @@ if ROOT not in sys.path:
 sys.path.insert(0, os.path.join(ROOT, "tools"))
 
 import event_block  # noqa: E402
+import event_description  # noqa: E402
 import event_select  # noqa: E402
 
 DATA_PATH = os.path.join(ROOT, "data", "events_backfill.json")
@@ -189,6 +190,7 @@ def row_problems(row):
         out.extend(_credit_problems(credits.get(field), field))
     if row.get("online") is True:
         out.extend(_credit_problems(credits.get("online"), "online"))
+    out.extend(event_description.problems(row))
     return out
 
 

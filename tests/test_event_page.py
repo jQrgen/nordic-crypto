@@ -101,6 +101,40 @@ def main():
         nn = open(os.path.join(site, "nn", "calendar", ev["id"], "index.html"), encoding="utf-8").read()
         check("Offisiell side for arrangementet" in nn, "nynorsk official link")
         check('rel="canonical" href="https://nordiccrypto.no/nn/calendar/ccc2eea6b213/"' in nn, "nynorsk canonical")
+        check("About this event" not in html, "no description section without a sourced description")
+        described = dict(ev, description={
+            "text": "Vi møtes for å snakke om bitcoin og lynnettet.",
+            "lang": "nb",
+            "source_url": ev["url"],
+            "source_name": "Swedish Bitcoin Meetups (Meetup.com)",
+            "retrieved": "2026-10-07T23:50:00+00:00",
+            "i18n": {"en": "We meet to talk about bitcoin and the Lightning Network."},
+            "i18n_source": "Vi møtes for å snakke om bitcoin og lynnettet.",
+        })
+        build.LANG = "en"
+        build.build_one_event(described)
+        en_html = open(os.path.join(site, "calendar", ev["id"], "index.html"), encoding="utf-8").read()
+        check("About this event" in en_html and "We meet to talk about bitcoin and the Lightning Network." in en_html, "english description")
+        check("Vi møtes for å snakke om bitcoin og lynnettet." in en_html, "original under the translation")
+        about = en_html.split("About this event", 1)[1][:500]
+        check("text-align:center" not in about and 'class="evdesc"' in en_html, "description is left aligned")
+        check(en_html.index("About this event") < en_html.index("Location") or "Location" not in en_html, "description sits under the date")
+        build.LANG = "nb"
+        build.build_one_event(described)
+        nb_html = open(os.path.join(site, "nb", "calendar", ev["id"], "index.html"), encoding="utf-8").read()
+        check("Vi møtes for å snakke om bitcoin og lynnettet." in nb_html, "bokmål page shows the original")
+        check("Originaltekst" not in nb_html, "same language has no original line")
+        bare = dict(ev, description={
+            "text": "A meetup about bitcoin in Gothenburg.",
+            "lang": "en",
+            "source_url": ev["url"],
+            "source_name": "Meetup",
+            "retrieved": "2026-10-07T23:50:00+00:00",
+        })
+        build.LANG = "sv"
+        build.build_one_event(bare)
+        sv_html = open(os.path.join(site, "sv", "calendar", ev["id"], "index.html"), encoding="utf-8").read()
+        check("A meetup about bitcoin in Gothenburg." in sv_html and "Originaltext" not in sv_html, "missing translation shows the original only")
         talk_path = os.path.join(site, "fixture-talks.json")
         json.dump({"talks": [{
             "event_id": ev["id"], "title": "Opening", "video_url": "https://example.test/v",

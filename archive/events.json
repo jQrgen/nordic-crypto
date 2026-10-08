@@ -17,7 +17,14 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "status": "published"
+   "status": "published",
+   "description": {
+    "text": "Keynote lectures: Christine Parlour, UC Berkeley Haas, and Tobias Berg, Goethe University.",
+    "lang": "en",
+    "source_url": "https://www.lusem.lu.se/calendar/arne-ryde-conference-crypto-fintech-and-payments",
+    "source_name": "Lund University School of Economics and Management (lusem.lu.se)",
+    "retrieved": "2026-10-07T23:50:00+00:00"
+   }
   },
   {
    "id": "ccc2eea6b213",
@@ -40,7 +47,14 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "status": "published"
+   "status": "published",
+   "description": {
+    "text": "We want to provide friendly and open events where we discuss bitcoin and its current and potential role in the global economy. If you're new to the idea, this is the place to go for educated discussions from both professionals and experienced amateurs in the space. And if you are said professional or experienced amateur, this is your opportunity to go in depth in the topic with like minded peers. Note! This is a Bitcoin Only-event. We are not interested in NFT's, altcoins or general blockchain discussions.",
+    "lang": "en",
+    "source_url": "https://www.meetup.com/swedish-bitcoin-meetups/events/316047111/",
+    "source_name": "Swedish Bitcoin Meetups (Meetup.com)",
+    "retrieved": "2026-10-07T23:50:00+00:00"
+   }
   },
   {
    "id": "89ced460e4ca",
@@ -70,7 +84,14 @@
     "fi": "Maksullinen (239 Norjan kruunua muille kuin jäsenille).",
     "is": "Aðgangseyrir (239 norskar krónur fyrir utanfélagsmenn)."
    },
-   "status": "published"
+   "status": "published",
+   "description": {
+    "text": "I kjølvannet av bitcoin har vi fått en rekke apper som endrer samtiden vår og utvider finanssektoren. Stikkord er fremtidsmarkeder som «Polymarket», kryptobanken «Aave», nyvinninger innen forsikring, stablecoins og nye former for statlige penger. I samarbeid med Bitcoinpolitisk Institutt Norge presenterer Polyteknisk Forening appene som bitcoin har ført med seg, i tillegg til bitcoin selv.",
+    "lang": "nb",
+    "source_url": "https://www.polyteknisk.no/program/crypto-killer-apps",
+    "source_name": "Polyteknisk Forening (program)",
+    "retrieved": "2026-10-07T23:50:00+00:00"
+   }
   },
   {
    "id": "c4a53ca9bd26",
@@ -93,7 +114,14 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "status": "published"
+   "status": "published",
+   "description": {
+    "text": "A casual meetup for Bitcoiners and anyone curious about Bitcoin. Come hang out, meet new people, exchange ideas and talk about everything from Bitcoin and Lightning to sovereignty, technology, or whatever else comes up. No presentations or formal agenda, just an open and relaxed space to connect. Whether you've been into Bitcoin for years or are just starting to explore it, you're welcome. Bitcoin only. No crypto.",
+    "lang": "en",
+    "source_url": "https://www.meetup.com/swedish-bitcoin-meetups/events/316799619/",
+    "source_name": "Swedish Bitcoin Meetups (Meetup.com)",
+    "retrieved": "2026-10-07T23:50:00+00:00"
+   }
   },
   {
    "id": "a1ea7afabcb0",
@@ -123,7 +151,14 @@
     "fi": "Tiedoksi: puhuja Jørgen S. Notland on Nordic Crypton julkaisija.",
     "is": "Til upplýsingar: fyrirlesarinn, Jørgen S. Notland, er útgefandi Nordic Crypto."
    },
-   "status": "published"
+   "status": "published",
+   "description": {
+    "text": "Nexa blockchain: Scaling Bitcoin Tech-demo m/overraskelse og pizza! At this event jQrgen, member of Bitcoin Unlimited that works with the Nexa blockchain project will present what is unique about the Nexa blockchain. The Bitcoin Unlimited team has a long history of working with core Bitcoin and Bitcoin Cash software. The Nexa blockchain is the latest project. Nexa is a work in progress software-fork of Bitcoin/Bitcoin Cash with its own genesis block.",
+    "lang": "en",
+    "source_url": "https://www.meetup.com/oslo-blockchain-meetup/events/316768752/",
+    "source_name": "Oslo Blockchain Meetup (Meetup.com)",
+    "retrieved": "2026-10-07T23:50:00+00:00"
+   }
   },
   {
    "id": "a6cadcf35c22",
@@ -146,7 +181,14 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "status": "published"
+   "status": "published",
+   "description": {
+    "text": "We want to provide friendly and open events where we discuss bitcoin and its current and potential role in the global economy. If you're new to the idea, this is the place to go for educated discussions from both professionals and experienced amateurs in the space. And if you are said professional or experienced amateur, this is your opportunity to go in depth in the topic with like minded peers. Note! This is a Bitcoin Only-event. We are not interested in NFT's, altcoins or general blockchain discussions.",
+    "lang": "en",
+    "source_url": "https://www.meetup.com/swedish-bitcoin-meetups/events/312669067/",
+    "source_name": "Swedish Bitcoin Meetups (Meetup.com)",
+    "retrieved": "2026-10-07T23:50:00+00:00"
+   }
   },
   {
    "id": "ce0c87469bd8",
@@ -169,7 +211,14 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "status": "published"
+   "status": "published",
+   "description": {
+    "text": "Bitcoin meetup - meet the local bitcoiners, network, present your projects and ideas or just hang out! Topics include everything that remotely touches Bitcoin.",
+    "lang": "en",
+    "source_url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/events/qjzrxgyjcpbjb/",
+    "source_name": "Helsinki Bitcoin Hobbyists (Meetup.com)",
+    "retrieved": "2026-10-07T23:50:00+00:00"
+   }
   },
   {
    "id": "7adc8e1ede97",
@@ -192,7 +241,14 @@
    "sponsored": "Reese Legal",
    "note": null,
    "note_i18n": null,
-   "status": "published"
+   "status": "published",
+   "description": {
+    "text": "Krypto-skatt: Reese Legal kommer til Oslo Blockchain Meetup! Skattereglene for gevinst og tap ved salg av kryptovaluta, DEFI-transaksjoner, lån, gaver og formue i kryptovaluta. Hvordan beregne gevinst, tap og formue riktig, også med mange transaksjoner, og tips til verktøy for beregning og dokumentasjon. Hvordan kryptovaluta skal føres i skattemeldingen. Hva man risikerer hvis det blir feil eller man ikke rapporterer, de vanligste feilene, og eksempler fra Skatteetatens praksis.",
+    "lang": "nb",
+    "source_url": "https://www.meetup.com/oslo-blockchain-meetup/events/316768461/",
+    "source_name": "Oslo Blockchain Meetup (Meetup.com)",
+    "retrieved": "2026-10-07T23:50:00+00:00"
+   }
   },
   {
    "id": "e884ba1f0333",
@@ -215,7 +271,14 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "status": "published"
+   "status": "published",
+   "description": {
+    "text": "We want to provide friendly and open events where we discuss bitcoin and its current and potential role in the global economy. If you're new to the idea, this is the place to go for educated discussions from both professionals and experienced amateurs in the space. And if you are said professional or experienced amateur, this is your opportunity to go in depth in the topic with like minded peers. Note! This is a Bitcoin Only-event. We are not interested in NFT's, altcoins or general blockchain discussions.",
+    "lang": "en",
+    "source_url": "https://www.meetup.com/swedish-bitcoin-meetups/events/312669070/",
+    "source_name": "Swedish Bitcoin Meetups (Meetup.com)",
+    "retrieved": "2026-10-07T23:50:00+00:00"
+   }
   },
   {
    "id": "19b92e24ee50",
@@ -238,7 +301,14 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "status": "published"
+   "status": "published",
+   "description": {
+    "text": "Bitcoin meetup - meet the local bitcoiners, network, present your projects and ideas or just hang out! Topics include everything that remotely touches Bitcoin.",
+    "lang": "en",
+    "source_url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/events/qjzrxgyjcqbgb/",
+    "source_name": "Helsinki Bitcoin Hobbyists (Meetup.com)",
+    "retrieved": "2026-10-07T23:50:00+00:00"
+   }
   },
   {
    "id": "3c7c538ff512",
@@ -268,7 +338,14 @@
     "fi": "Osuu uudenvuodenpäivälle: tarkista järjestäjän sivu ennen lähtöä.",
     "is": "Ber upp á nýársdag: athugaðu síðu skipuleggjandans áður en þú ferð."
    },
-   "status": "published"
+   "status": "published",
+   "description": {
+    "text": "Bitcoin meetup - meet the local bitcoiners, network, present your projects and ideas or just hang out! Topics include everything that remotely touches Bitcoin.",
+    "lang": "en",
+    "source_url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/events/qjzrxgykccbcb/",
+    "source_name": "Helsinki Bitcoin Hobbyists (Meetup.com)",
+    "retrieved": "2026-10-07T23:50:00+00:00"
+   }
   },
   {
    "id": "105f743dcf3d",
@@ -291,7 +368,14 @@
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "status": "published"
+   "status": "published",
+   "description": {
+    "text": "Bitcoin meetup - meet the local bitcoiners, network, present your projects and ideas or just hang out! Topics include everything that remotely touches Bitcoin.",
+    "lang": "en",
+    "source_url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/events/qjzrxgykcdbhb/",
+    "source_name": "Helsinki Bitcoin Hobbyists (Meetup.com)",
+    "retrieved": "2026-10-07T23:50:00+00:00"
+   }
   }
  ],
  "_how_to": "Archive of editor-approved events (written by build.py). An event is published only when its id is in queue/approved.json events.approve. Finished events stay under 'Past events'. Predatory conference listings are removed and are not shown."

@@ -37,6 +37,7 @@ import site_url  # noqa: E402
 import source_logos  # noqa: E402
 import event_block  # noqa: E402
 import event_backfill  # noqa: E402
+import event_description  # noqa: E402
 import event_select  # noqa: E402
 
 API = "1"
@@ -408,6 +409,7 @@ class Feed:
             "sponsored": sponsor_public(raw.get("sponsored")),
             "note": raw.get("note"),
             "note_i18n": {k: v for k, v in (raw.get("note_i18n") or {}).items() if k in LANGS and v} if raw.get("note") else {},
+            "description": event_description.public(raw),
             "past": bool(raw.get("past")),
             "ongoing": event_select.classify(raw, self.now) == "ongoing",
             "html_url": self.abs(f"calendar/{eid}/"),
@@ -1749,6 +1751,19 @@ def schemas():
             "sponsored": {"nullable": True, "description": "false, true, or the sponsor's name. Never Kaupr."},
             "note": {"type": "string", "nullable": True},
             "note_i18n": i18n_obj,
+            "description": {
+                "type": "object",
+                "nullable": True,
+                "description": "The organiser's description. text is the original wording, lang is its language code, source_url is the page it was taken from. i18n holds nn, nb, sv, da, fi and is, and en when the original is not English. A missing translation is omitted. Null when no description was sourced. Kaupr is not included.",
+                "properties": {
+                    "text": {"type": "string"},
+                    "lang": {"type": "string", "nullable": True},
+                    "source_url": {"type": "string"},
+                    "source_name": {"type": "string", "nullable": True},
+                    "retrieved": {"type": "string", "nullable": True},
+                    "i18n": i18n_obj,
+                },
+            },
             "past": {"type": "boolean"},
             "ongoing": {"type": "boolean", "description": "True while start <= now <= end. Additive. Events with no end are never ongoing."},
             "place_source": {"type": "object", "nullable": True, "description": "Credit for the venue or online flag: name, url, retrieved. Omitted when the place cannot be credited."},
@@ -2252,7 +2267,7 @@ curl -fsS {html.escape(b)}api/v1/markets/aggregated.json</pre>
 <h2>Several outlets, one story</h2>
 <p>A story keeps one primary outlet. Other outlets that covered the same event are in <code>also_covered_by</code>. <code>sources</code> lists the primary first, then the others. Each outlet has <code>outlet</code>, <code>outlet_name</code>, <code>url</code>, <code>title</code> (that outlet's headline), <code>published</code>, <code>lang</code>, <code>country</code>, <code>source_type</code> and <code>logo</code>. <code>source_type</code> is <code>national</code>, <code>regional</code> (regional and local), <code>official</code> (justice and official: police, prosecutors, courts, regulators) or <code>international</code>. <code>coverage.count</code> is the number of outlets. <code>coverage.by_country</code> and <code>coverage.by_source_type</code> are the counts and shares for the bars. Every source type is present, including a count of zero. <code>html_url</code> is our page for that story. <code>url</code> is the primary outlet. Kaupr stays a news source only.</p>
 <h2>Events</h2>
-<p>Upcoming and past events are in <a href="{html.escape(b)}api/v1/events.json"><code>/api/v1/events.json</code></a>. Luma calendars are taken from the public Subscribe iCal URL on each event source (<code>ics</code>). Luma city pages, category pages and the discover API are not used. An individual Luma event page is schema.org JSON-LD. Eventbrite organizers and venues are read with the v3 API when the server has <code>EVENTBRITE_TOKEN</code>. That token is not in this feed and is not committed. Without it, the event page JSON-LD is used. The same title, date and venue is one event. Finished events stay in the feed. Kaupr is never a sponsor.</p>
+<p>Upcoming and past events are in <a href="{html.escape(b)}api/v1/events.json"><code>/api/v1/events.json</code></a>. Luma calendars are taken from the public Subscribe iCal URL on each event source (<code>ics</code>). Luma city pages, category pages and the discover API are not used. An individual Luma event page is schema.org JSON-LD. Eventbrite organizers and venues are read with the v3 API when the server has <code>EVENTBRITE_TOKEN</code>. That token is not in this feed and is not committed. Without it, the event page JSON-LD is used. The same title, date and venue is one event. Finished events stay in the feed. <code>description.text</code> is the organiser's own wording, <code>description.lang</code> is the language of that text, and <code>description.source_url</code> is the page it came from. <code>description.i18n</code> holds a translation where we have one. The field is null when the source had no description. Predatory conference listings are not a source. Kaupr is never a sponsor.</p>
 <h2>Languages</h2>
 <p>English is the default field (<code>summary</code>, <code>title</code>, <code>text</code>). Translations that we have published sit in <code>summary_i18n</code>, <code>title_i18n</code>, <code>subtitle_i18n</code>, <code>note_i18n</code>, <code>text_i18n</code> and <code>about_i18n</code>, keyed by <code>nn</code>, <code>nb</code>, <code>sv</code>, <code>da</code>, <code>fi</code> and <code>is</code>. Other site languages use the English field until a translation is published. On a news item, <code>title</code> stays the source headline, <code>title_en</code> is our English headline and <code>title_i18n</code> is our headline in the Nordic site languages. The pages show the page-language headline first and the source headline underneath when they differ. Each outlet's own headline, inside <code>sources</code>, stays in that outlet's language. Dates are ISO 8601.</p>
 <p><a href="{html.escape(b)}api/v1/languages.json"><code>/api/v1/languages.json</code></a> lists every site language with <code>code</code>, <code>native_name</code>, <code>english_name</code>, <code>rtl</code>, <code>html_lang</code> and <code>home</code>. <a href="{html.escape(b)}api/v1/geo-language.json"><code>/api/v1/geo-language.json</code></a> is the country-to-language guess used on a first visit. The IP country comes from the tipworker <code>GET /api/geo</code> (Cloudflare <code>request.cf.country</code>). Nothing is stored. The <code>nc_lang</code> cookie, set by the language switcher, always wins.</p>

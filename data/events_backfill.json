@@ -73,6 +73,13 @@
     "name": "BTCX",
     "url": "https://bt.cx/en/news/2013/10/30/btcx-discount-on-pan-nordic-bitcoin-conference-2013/",
     "retrieved": "2026-10-07T21:00:00+00:00"
+   },
+   "description": {
+    "text": "This event is your opportunity to understand the Bitcoin community, get a better understanding of what Bitcoin actually is, how to buy Bitcoins, how to use Bitcoins, and how this new payment tool is now being developed into a more open economy. Jon Matonis, executive director of the Bitcoin Foundation, is the keynote speaker and will also take part in the panel discussions.",
+    "lang": "en",
+    "source_url": "https://bt.cx/en/news/2013/10/30/btcx-discount-on-pan-nordic-bitcoin-conference-2013/",
+    "source_name": "BTCX",
+    "retrieved": "2026-10-07T23:50:00+00:00"
    }
   },
   {
@@ -147,6 +154,13 @@
     "name": "Department of Computer Science, University of Helsinki",
     "url": "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html",
     "retrieved": "2026-10-07T21:00:00+00:00"
+   },
+   "description": {
+    "text": "Bitcoin is a digital currency that unlike traditional currencies does not rely on a centralized authority. Instead Bitcoin relies on a network of volunteers that collectively implement a replicated ledger and verify transactions. In this paper we analyze how Bitcoin uses a multi-hop broadcast to propagate transactions and blocks through the network to update the ledger replicas. We then use the gathered information to verify the conjecture that the propagation delay in the network is the primary cause for blockchain forks.",
+    "lang": "en",
+    "source_url": "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html",
+    "source_name": "Department of Computer Science, University of Helsinki",
+    "retrieved": "2026-10-07T23:50:00+00:00"
    }
   },
   {
@@ -221,6 +235,13 @@
     "name": "Sveriges Riksbank",
     "url": "https://www.riksbank.se/globalassets/media/tal/engelska/ingves/2017/tal_ingves_171208_eng.pdf",
     "retrieved": "2026-10-07T21:00:00+00:00"
+   },
+   "description": {
+    "text": "Do we need digital cash – an e-krona as the Riksbank calls it? The Riksbank wants to investigate whether an e-krona could be the solution to provide the general public with continued access to central bank money even when Sweden has stopped using cash.",
+    "lang": "en",
+    "source_url": "https://www.riksbank.se/globalassets/media/tal/engelska/ingves/2017/tal_ingves_171208_eng.pdf",
+    "source_name": "Sveriges Riksbank",
+    "retrieved": "2026-10-07T23:50:00+00:00"
    }
   },
   {
@@ -285,6 +306,13 @@
     "name": "Íslenska stærðfræðafélagið",
     "url": "https://stae.is/ísf/event/51617",
     "retrieved": "2026-10-07T21:00:00+00:00"
+   },
+   "description": {
+    "text": "Fundur verður haldinn í félaginu miðvikudaginn 18. apríl í stofu V-158 í VR-II við Hjarðarhaga. Að venju hefst fundurinn með kaffidrykkju kl. 16:45, en kl. 17:00 heldur Gunnar Stefánsson prófessor við HÍ fyrirlestur sem hann nefnir Rafmynt: Bitcoin og broskallar. Í erindi sínu mun Gunnar fjalla um rafmyntir og taka dæmi um notkun Bitcoin og Broskalla. Farið verður yfir virkni myntanna gagnvart notanda, um uppbyggingu bunkakeðjunnar (blockchain) og hvernig fjármagnsfærslur fara fram.",
+    "lang": "is",
+    "source_url": "https://stae.is/ísf/event/51617",
+    "source_name": "Íslenska stærðfræðafélagið",
+    "retrieved": "2026-10-07T23:50:00+00:00"
    }
   },
   {
@@ -428,6 +456,13 @@
     "name": "Norges Bank",
     "url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
     "retrieved": "2026-10-07T21:00:00+00:00"
+   },
+   "description": {
+    "text": "The first CBDC conference was held in Bergen in October 2022, with Simula and the University of Bergen. The conference was research-oriented, with participants from academia, the FinTech community and central banks. Topics included Norges Bank's CBDC work, DeFi and legal issues, AML and CBDC, data protection, quantum technology and OpenCBDC. The conference was the kick-off for a hackathon on transferring CBDC tokens through bridges between openCBDC and EVM-compatible networks.",
+    "lang": "en",
+    "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+    "source_name": "Norges Bank",
+    "retrieved": "2026-10-07T23:50:00+00:00"
    }
   },
   {
@@ -497,6 +532,13 @@
     "name": "Norges Bank",
     "url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
     "retrieved": "2026-10-07T21:00:00+00:00"
+   },
+   "description": {
+    "text": "Norges Bank and Digdir arranged a brainstorming session on 22 November 2022. The theme was which existing problems a CBDC can solve, and which new opportunities a CBDC can provide to society. The same day started a technical hackathon, with groups programming solutions in Norges Bank's prototype.",
+    "lang": "en",
+    "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+    "source_name": "Norges Bank",
+    "retrieved": "2026-10-07T23:50:00+00:00"
    }
   },
   {
@@ -571,6 +613,13 @@
     "name": "Norges Bank",
     "url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
     "retrieved": "2026-10-07T21:00:00+00:00"
+   },
+   "description": {
+    "text": "A technical workshop on CBDC, the Internet of Things and machine-to-machine payments was held at the University of Oslo on 10 January 2023. Lecturers from the Blockchain Lab covered blockchain technology, including IT security, environmental protection and processing capacity, and machine-to-machine communication and payments.",
+    "lang": "en",
+    "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+    "source_name": "Norges Bank",
+    "retrieved": "2026-10-07T23:50:00+00:00"
    }
   },
   {
@@ -640,6 +689,13 @@
     "name": "Norges Bank",
     "url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
     "retrieved": "2026-10-07T21:00:00+00:00"
+   },
+   "description": {
+    "text": "11 groups presented suggestions on the advantages of CBDCs at an event in Norges Bank's auditorium on 19 January 2023. The groups came from the hackathon started with Digdir.",
+    "lang": "en",
+    "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+    "source_name": "Norges Bank",
+    "retrieved": "2026-10-07T23:50:00+00:00"
    }
   },
   {
@@ -709,6 +765,13 @@
     "name": "Norges Bank",
     "url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
     "retrieved": "2026-10-07T21:00:00+00:00"
+   },
+   "description": {
+    "text": "The hackathon was for members of Fintech Norway and Virke and was held in person in Oslo on 15–17 March 2023. It was the most compact hackathon in this phase of Norges Bank's CBDC work and engaged private market participants with the prototype.",
+    "lang": "en",
+    "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+    "source_name": "Norges Bank",
+    "retrieved": "2026-10-07T23:50:00+00:00"
    }
   },
   {
@@ -778,6 +841,13 @@
     "name": "BTCX",
     "url": "https://bt.cx/en/news/2025/07/24/03-BTCHEL-2025-The-Biggest-Bitcoin-Celebration-in-the-Nordics-Is-Coming/",
     "retrieved": "2026-10-07T21:00:00+00:00"
+   },
+   "description": {
+    "text": "On August 15–16, 2025, the Bitcoin community will gather in Helsinki for BTCHEL, the very first large-scale Bitcoin conference ever held in Finland.",
+    "lang": "en",
+    "source_url": "https://bt.cx/en/news/2025/07/24/03-BTCHEL-2025-The-Biggest-Bitcoin-Celebration-in-the-Nordics-Is-Coming/",
+    "source_name": "BTCX",
+    "retrieved": "2026-10-07T23:50:00+00:00"
    }
   },
   {
@@ -857,6 +927,13 @@
     "name": "BTCHEL",
     "url": "https://info.btchel.com/index.html",
     "retrieved": "2026-10-07T21:00:00+00:00"
+   },
+   "description": {
+    "text": "The Nordic Bitcoin Conference, 25–26 September 2026 at Kaapelitehdas in Helsinki. Featuring developments in Bitcoin payments, finances, and mining. A Bitcoin conference dedicated to the Nordic region, bringing local and international perspectives together.",
+    "lang": "en",
+    "source_url": "https://btchel.com/",
+    "source_name": "BTCHEL",
+    "retrieved": "2026-10-07T23:50:00+00:00"
    }
   },
   {
@@ -931,6 +1008,13 @@
     "name": "BTCHEL",
     "url": "https://info.btchel.com/index.html",
     "retrieved": "2026-10-07T21:00:00+00:00"
+   },
+   "description": {
+    "text": "A day for Bitcoin mining and Nordic energy professionals, exploring grid stability, heat reuse and surplus power. Co-organized by BTCHEL and EBEA.",
+    "lang": "en",
+    "source_url": "https://info.btchel.com/index.html",
+    "source_name": "BTCHEL",
+    "retrieved": "2026-10-07T23:50:00+00:00"
    }
   },
   {
@@ -1005,6 +1089,13 @@
     "name": "BTCHEL",
     "url": "https://info.btchel.com/index.html",
     "retrieved": "2026-10-07T21:00:00+00:00"
+   },
+   "description": {
+    "text": "A hands-on, one-day workshop on mining economics, profitability models, infrastructure, power markets and financing. Organized by AmityAge with OurPool.",
+    "lang": "en",
+    "source_url": "https://info.btchel.com/index.html",
+    "source_name": "BTCHEL",
+    "retrieved": "2026-10-07T23:50:00+00:00"
    }
   },
   {

@@ -117,7 +117,7 @@ S = {
 "ev_official": "Official event page",
 "ev_map": "Map",
 "ev_tz": "Time zone",
-"ev_about": "About",
+"ev_about": "About this event",
 "ev_topics": "Topics",
 "ev_talks": "Talks",
 "ev_cal_link": "Calendar",

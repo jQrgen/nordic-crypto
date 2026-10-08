@@ -20,7 +20,7 @@ S = {
 "ev_official": "Page officielle de l’événement",
 "ev_map": "Carte",
 "ev_tz": "Fuseau horaire",
-"ev_about": "À propos",
+"ev_about": "À propos de cet événement",
 "ev_topics": "Sujets",
 "ev_talks": "Interventions",
 "ev_cal_link": "Calendrier",
