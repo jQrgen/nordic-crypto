@@ -1,9 +1,14 @@
-/* Footer: newsletter line, community buttons, notifications, the site note. A sable rule like the header's. */
-footer{margin-top:64px;border-top:3px solid var(--fg);background:var(--soft);padding:28px 0 44px;font-size:14px;line-height:1.6;color:var(--muted)}
+/* Footer: newsletter line, community buttons, notifications, the site note. A North Sea band like the header, opened by the same Sea Foam rule. */
+footer{margin-top:72px;border-top:4px solid var(--band-rule);background:var(--lattice),linear-gradient(180deg,var(--band) 0%,var(--band-deep) 100%);padding:40px 0 56px;font-size:14px;line-height:1.65;color:var(--muted)}
 footer,footer .wrap,.nlfoot,.nlhome{text-align:start}
 footer b{color:var(--fg)}
-footer h2{font-size:20px;margin:18px 0 6px}
-.nlfoot{margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--line);text-align:start}.nlfoot .nlform{display:block;max-width:40rem}
-nav.community{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:center;gap:8px 10px;margin:10px 0 14px;text-align:start;width:fit-content;max-width:100%}
-.xfollow,.tgfollow{display:inline-block;padding:6px 13px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);color:var(--fg)!important;text-decoration:none;font-weight:500;text-align:start}.xfollow:hover,.xfollow:focus-visible,.tgfollow:hover,.tgfollow:focus-visible{border-color:var(--fg)}
-.nlhome{margin:36px 0 8px;padding-top:16px;border-top:1px solid var(--line);text-align:start}
+footer a{color:var(--fg);text-decoration-color:color-mix(in srgb,var(--gold) 55%,transparent)}
+footer a:hover{text-decoration-color:var(--gold)}
+footer h2{font-size:24px;margin:20px 0 8px;color:var(--fg)}
+footer .wrap::before{content:"";display:block;width:44px;height:4px;margin:0 0 22px;background:var(--gold);border-radius:2px}
+.nlfoot{margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid var(--line);text-align:start}.nlfoot .nlform{display:block;max-width:40rem}
+nav.community{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:center;gap:8px 10px;margin:12px 0 16px;text-align:start;width:fit-content;max-width:100%}
+.xfollow,.tgfollow{display:inline-block;padding:7px 14px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);color:var(--fg)!important;text-decoration:none;font-weight:500;text-align:start;transition:border-color .15s,background .15s,transform .15s}.xfollow:hover,.xfollow:focus-visible,.tgfollow:hover,.tgfollow:focus-visible{border-color:var(--gold);transform:translateY(-1px)}
+.nlhome{position:relative;margin:48px 0 8px;padding:clamp(22px,3.4vw,36px) clamp(20px,3.4vw,40px);background:var(--panel);border:1px solid var(--line);border-radius:calc(var(--r) + 4px);text-align:start}
+.nlhome h2{margin:0 0 8px;font-size:clamp(26px,3vw,34px)}
+.nlhome::before{content:"";display:block;width:44px;height:4px;margin:0 0 18px;background:var(--gold);border-radius:2px}

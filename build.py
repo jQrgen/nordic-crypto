@@ -410,8 +410,8 @@ def write_push_assets():
         "start_url": "./",
         "scope": "./",
         "display": "standalone",
-        "background_color": "#F7F6F2",
-        "theme_color": "#141210",
+        "background_color": "#F0F1EC",
+        "theme_color": "#1E3A45",
         "icons": [
             {"src": "assets/brand/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
             {"src": "assets/brand/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
@@ -485,8 +485,9 @@ def build_chat():
     body = (f'<h1>{E(t("chat_h1"))}</h1><p class="lead">{E(t("chat_lead"))}</p>'
             + shoutbox_html("../ethics/", full=True))
     page("chat", t("chat_title"), "chat", body, t("chat_desc"))
-def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra=""):
-    """Writes site/<lang>/<slug>/index.html for the current LANG (English at the root)."""
+def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="", hero=""):
+    """Writes site/<lang>/<slug>/index.html for the current LANG (English at the root).
+    hero: optional full-width band between the header and <main> (the front page title block)."""
     depth = (slug.count("/") + 1 if slug else 0) + (0 if LANG == "en" else 1)
     root = "../" * depth or "./"           # site root (data/, assets/, screen/)
     rel = root + lp()                      # home of this language
@@ -541,14 +542,14 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
 <link rel="icon" href="{root}favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="{root}assets/brand/apple-touch-icon.png">
 <link rel="icon" href="{root}assets/logo-concepts/responsive/small-64-light.png" sizes="64x64" type="image/png">
-<meta name="theme-color" content="#F6F4EE" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#13110E" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#1E3A45" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#15303A" media="(prefers-color-scheme: dark)">
 <meta property="og:image" content="{BASE}assets/brand/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Nordic Crypto">
 <link rel="stylesheet" href="{root}assets/brand/nordic-crypto.css">
 <style>{CSS}{s['css']}</style></head>
-<body>{banner}<header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="{rel}"><img class="brandmark" src="{root}assets/brand/icon.svg" width="32" height="32" alt="Nordic Crypto"><span aria-hidden="true">Nordic <span class="w">Crypto</span></span></a><span class="hdrbtns">{header_buttons(rel)}</span></div>{nav_btn}<nav id="sitenav" class="main" aria-label="{E(t("main_menu"))}">{nav_html}</nav>{switcher}</div></header>
+<body>{banner}<header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="{rel}"><img class="brandmark" src="{root}assets/brand/icon.svg" width="32" height="32" alt="Nordic Crypto"><span aria-hidden="true">Nordic <span class="w">Crypto</span></span></a><span class="hdrbtns">{header_buttons(rel)}</span></div>{nav_btn}<nav id="sitenav" class="main" aria-label="{E(t("main_menu"))}">{nav_html}</nav>{switcher}</div></header>{hero}
 <main class="wrap">
 {body}
 {s['top']}
@@ -1615,18 +1616,21 @@ def build_lang(ctx):
     root = "../" if LANG != "en" else ""
     home_signup = newsletter_offer("")
     write_rss(items)
-    body = f"""<h1>{E(t("home_h1"))}</h1>
-<p class="meta"><a href="{root}screen/">{E(t("home_screen"))}</a> · <a href="markets/">{E(t("mk_home_link"))}</a></p>
-<p class="appbar"><a class="applink" href="https://testflight.apple.com/join/nQ2fpjZn" rel="noopener">{E(t("ios_link"))}</a></p>
-<p class="meta">{E(t("ios_note"))}</p>
-<p class="meta ios-tv">{E(t("ios_tv"))}</p>
+    # The title block is the hero band under the header. The kicker is the five country codes, decorative (the lead names the countries).
+    hero = f"""<section class="hero" aria-labelledby="home-h1"><div class="wrap">
+<p class="hero-kicker" aria-hidden="true">NO · SE · DK · FI · IS</p>
+<h1 id="home-h1">{E(t("home_h1"))}</h1>
 <p class="lead">{E(t("home_lead", upd=upd, n=len(items), pend=t("home_pend", n=len(pending)) if pending else ""))}</p>
-{front_events_block(*(ctx["events"] if isinstance(ctx.get("events"), tuple) else (ctx.get("events") or [], site_now())))}
+<div class="hero-acts"><p class="appbar"><a class="applink" href="https://testflight.apple.com/join/nQ2fpjZn" rel="noopener">{E(t("ios_link"))}</a></p>
+<p class="meta"><a href="{root}screen/">{E(t("home_screen"))}</a> · <a href="markets/">{E(t("mk_home_link"))}</a></p></div>
+<p class="hero-note">{E(t("ios_note"))} <span class="ios-tv">{E(t("ios_tv"))}</span></p>
+</div></section>"""
+    body = f"""{front_events_block(*(ctx["events"] if isinstance(ctx.get("events"), tuple) else (ctx.get("events") or [], site_now())))}
 {paper}
 <section class="nlhome" aria-labelledby="nlhome-h"><h2 id="nlhome-h">{E(t("nl_title"))}</h2>{home_signup}{community_links()}</section>
 <p class="notice">{E(t("home_notice"))}</p>"""
     body = home_with_chat(body)
-    page("", t("home_title"), "", body, t("home_desc"), front_events_script())
+    page("", t("home_title"), "", body, t("home_desc"), front_events_script(), hero=hero)
     build_coverage_pages(items, ctx["blurbs"])
     build_stories(write=True)
     build_external_stories(ctx)

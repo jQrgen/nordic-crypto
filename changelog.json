@@ -6,32 +6,32 @@
    "id": "crest-look",
    "date": null,
    "review": "pending",
-   "title": "A calmer look",
-   "description": "The site has a new look taken from the crest: a warm off-white page, dark text, red accents and gold highlights, with more space between lines and sections. Dates and section labels are set in a small fixed-width type. The site follows your device's dark mode.",
+   "title": "A new look",
+   "description": "The site has a new look: a North Sea blue header, a light grey page with white story cards, and gold for highlights. The front page opens on the same blue, and the lead story sits on it too. Headlines are set in Cormorant Garamond. The site follows your device's dark mode.",
    "i18n": {
     "nn": {
-     "title": "Roligare utsjånad",
-     "description": "Sida har fått ein ny utsjånad henta frå våpenskjoldet: varm kvit bakgrunn, mørk tekst, raude markeringar og gull, med meir luft mellom linjer og bolkar. Datoar og namn på bolkar står i ein liten skrift med fast breidd. Sida følgjer mørk modus på eininga di."
+     "title": "Ny utsjånad",
+     "description": "Sida har fått ein ny utsjånad: eit nordsjøblått toppfelt, ei lys grå side med kvite kort for sakene og gull til markeringar. Framsida opnar i same blåfarge, og hovudsaka står òg på han. Titlane er sette i Cormorant Garamond. Sida følgjer mørk modus på eininga di."
     },
     "nb": {
-     "title": "Roligere utseende",
-     "description": "Siden har fått et nytt utseende hentet fra våpenskjoldet: varm hvit bakgrunn, mørk tekst, røde markeringer og gull, med mer luft mellom linjer og seksjoner. Datoer og navn på seksjoner står i en liten skrift med fast bredde. Siden følger mørk modus på enheten din."
+     "title": "Nytt utseende",
+     "description": "Siden har fått et nytt utseende: et nordsjøblått toppfelt, en lys grå side med hvite kort for sakene og gull til markeringer. Forsiden åpner i samme blåfarge, og hovedsaken står også på den. Titlene er satt i Cormorant Garamond. Siden følger mørk modus på enheten din."
     },
     "sv": {
-     "title": "Ett lugnare utseende",
-     "description": "Sajten har fått ett nytt utseende hämtat från vapnet: varm vit bakgrund, mörk text, röda accenter och guld, med mer luft mellan rader och avsnitt. Datum och avsnittsnamn står i en liten skrift med fast bredd. Sajten följer mörkt läge på din enhet."
+     "title": "Nytt utseende",
+     "description": "Sajten har fått ett nytt utseende: ett nordsjöblått sidhuvud, en ljusgrå sida med vita kort för artiklarna och guld för markeringar. Startsidan öppnar i samma blå färg, och huvudnyheten ligger också på den. Rubrikerna är satta i Cormorant Garamond. Sajten följer mörkt läge på din enhet."
     },
     "da": {
-     "title": "Et roligere udseende",
-     "description": "Siden har fået et nyt udseende hentet fra våbenskjoldet: varm hvid baggrund, mørk tekst, røde accenter og guld, med mere luft mellem linjer og afsnit. Datoer og navne på afsnit står i en lille skrift med fast bredde. Siden følger mørk tilstand på din enhed."
+     "title": "Nyt udseende",
+     "description": "Siden har fået et nyt udseende: et nordsøblåt sidehoved, en lysegrå side med hvide kort til historierne og guld til fremhævninger. Forsiden åbner i samme blå farve, og tophistorien ligger også på den. Overskrifterne er sat i Cormorant Garamond. Siden følger mørk tilstand på din enhed."
     },
     "fi": {
-     "title": "Rauhallisempi ulkoasu",
-     "description": "Sivusto on saanut vaakunasta johdetun uuden ulkoasun: lämmin valkoinen tausta, tumma teksti, punaiset korostukset ja kulta sekä enemmän tilaa rivien ja osioiden välillä. Päivämäärät ja osioiden nimet on ladottu pienellä tasalevyisellä kirjasimella. Sivusto noudattaa laitteesi tummaa tilaa."
+     "title": "Uusi ilme",
+     "description": "Sivusto on saanut uuden ilmeen: Pohjanmeren sininen yläpalkki, vaaleanharmaa sivu, valkoiset uutiskortit ja kultaa korostuksiin. Etusivu alkaa samalla sinisellä, ja pääuutinen on myös sen päällä. Otsikot ovat Cormorant Garamond -kirjaimin. Sivusto noudattaa laitteesi tummaa tilaa."
     },
     "is": {
-     "title": "Rólegra útlit",
-     "description": "Vefurinn hefur fengið nýtt útlit sem byggir á skjaldarmerkinu: hlýr hvítur bakgrunnur, dökkur texti, rauðar áherslur og gull, með meira bili milli lína og hluta. Dagsetningar og heiti hluta eru í litlu jafnbreiðu letri. Vefurinn fylgir dökkri stillingu tækisins."
+     "title": "Nýtt útlit",
+     "description": "Vefurinn hefur fengið nýtt útlit: norðursjávarbláan haus, ljósgráa síðu með hvítum fréttaspjöldum og gull til áherslu. Forsíðan opnast í sama bláa litnum og aðalfréttin er líka á honum. Fyrirsagnir eru settar í Cormorant Garamond. Vefurinn fylgir dökkri stillingu tækisins."
     }
    }
   },

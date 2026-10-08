@@ -1,6 +1,6 @@
 /* API docs page (/api/). Inlined by tools/api_feed.py. */
 .api-docs{max-width:80ch}
-.api-docs pre{overflow:auto;padding:12px 14px;background:var(--soft);border:1px solid var(--line);border-radius:var(--r);font-size:13px;line-height:1.55}
+.api-docs pre{overflow:auto;padding:14px 16px;background:var(--band-deep);color:var(--band-ink);border:1px solid var(--line);border-inline-start:4px solid var(--gold);border-radius:var(--r-sm);font-size:13px;line-height:1.6}
 .api-docs code{font-size:.9em}
 .api-docs td:first-child{white-space:nowrap}
 .api-docs, .api-docs p, .api-docs li, .api-docs td, .api-docs th{text-align:left}
