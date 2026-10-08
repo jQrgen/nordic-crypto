@@ -1844,6 +1844,31 @@ def org_page_data(pub_org):
     rels = [dict(pick(r, K["relation"]), sources=[pick(s, ("url", "source_name")) for s in r.get("sources") or []]) for r in pub_org["relations"]]
     return {"entities": [ent(e) for e in pub_org["entities"]], "relations": rels}
 
+ORG_ORDER = ["NO", "SE", "DK", "FI", "IS", "NORDIC", "EU"]
+def org_groups(ents):
+    """Entries per country row of the chart, as tools/orgchart.js counts them: a person with an organisation counts
+    under that organisation's country; people with neither a country nor an organisation are the speakers ("_")."""
+    by = {e["id"]: e for e in ents}
+    G = {}
+    for e in ents:
+        h = by[e["org"]] if e["type"] == "person" and e.get("org") in by else e
+        d = G.setdefault(h.get("country") or "_", {"o": 0, "p": 0})
+        d["o" if e["type"] != "person" else "p"] += 1
+    rank = lambda g: (999 if g == "_" else ORG_ORDER.index(g) if g in ORG_ORDER else 100, cname(g))
+    return {g: G[g] for g in sorted(G, key=rank)}
+def org_rows(G):
+    """The chart's collapsed rows in the HTML, the same markup the script draws first, so nothing moves when it runs."""
+    def fd(c):
+        f = flag(c)
+        return re.sub(r"<title>.*?</title>", "", f.replace(f' role="img" aria-label="{E(cname(c))}"', ' aria-hidden="true"')) if f.startswith("<svg") else ""
+    def n(k1, kn, x): return t(k1) if x == 1 else t(kn, n=x)
+    out = []
+    for g, d in G.items():
+        cnt = " · ".join(x for x in (n("js_n_org1", "js_n_orgs", d["o"]) if d["o"] else "", n("js_n_person1", "js_n_people", d["p"]) if d["p"] else "") if x)
+        out.append(f'<section class="cgrp" data-c="{E(g)}"><h3><button type="button" class="gh" aria-expanded="false" aria-controls="g-{E(g)}" data-g="{E(g)}">{fd(g)}'
+                   f'<span class="gt"><span class="gn">{E(t("js_speakers") if g == "_" else cname(g))}</span><span class="gc">{E(cnt)}</span></span></button></h3><div class="gb" id="g-{E(g)}" hidden></div></section>')
+    return "".join(out)
+
 def build_org(ctx):
     """Who's who (org-chart/): a short jump list, the organisation chart (filters, then one collapsed row per country that
     tools/orgchart.js opens on demand), regulation by country in aligned columns, the industry map and the full list
@@ -1860,6 +1885,8 @@ def build_org(ctx):
     i18n_js = {k[3:]: t(k) for k in i18n.strings("en") if k.startswith("js_")}
     groups = {g: t("grp_" + g) for g in sorted({e.get("group") for e in ents if e.get("group")}) if i18n.has("en", "grp_" + g)}
     dn = t("data_en_note")
+    G = org_groups(ents)
+    chips = re.sub(r'(data-c="(\w+)"[^>]*>.*?)</button>', lambda m: m.group(1) + (f'<span class="n">{G[m.group(2)]["o"] + G[m.group(2)]["p"]}</span>' if m.group(2) in G else "") + "</button>", country_chips())
     subnav = "".join(f'<a href="#{a}">{E(t(k))}</a>' for a, k in (("org", "org_chart_h"), ("regulation", "org_reg_h"), ("industry-map", "map_h"), ("list", "list_h")))
     caveats = (f'<details class="caveats"><summary>{E(t("caveats"))}</summary><ul{bidi_attr("en")}>' + "".join(f"<li>{E(x)}</li>" for x in org.get("caveats", [])) + '</ul></details>') if org.get("caveats") else ''
     data = json.dumps(org_page_data(pub_org), ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
@@ -1870,11 +1897,11 @@ def build_org(ctx):
 {f'<p class="meta">{E(dn)}</p>' if dn else ''}
 <nav class="orgsub" aria-label="{E(t("toc_h"))}">{subnav}</nav>
 <section class="osec ochart" aria-labelledby="org"><h2 id="org">{E(t("org_chart_h"))}</h2>
-<div class="filters ofilters"><div class="of" role="group" aria-label="{E(t("countries_aria"))}"><span class="lbl">{E(t("country"))}</span><div class="chips">{country_chips()}</div></div>
+<div class="filters ofilters"><div class="of" role="group" aria-label="{E(t("countries_aria"))}"><span class="lbl">{E(t("country"))}</span><div class="chips">{chips}</div></div>
 <div class="of"><span class="lbl" aria-hidden="true">{E(t("sector_aria"))}</span><div class="seg" id="secseg" role="group" aria-label="{E(t("sector_aria"))}"><button type="button" data-v="both" aria-pressed="true">{E(t("both"))}</button><button type="button" data-v="private" aria-pressed="false">{E(t("private_sector"))}</button><button type="button" data-v="public" aria-pressed="false">{E(t("public_sector"))}</button></div></div>
 <div class="of of-q"><label for="osearch">{E(t("search"))}</label><input type="search" id="osearch" placeholder="{E(t("search_ph"))}" autocomplete="off"></div></div>
 <p id="ostat" class="meta" aria-live="polite"></p>
-<div id="chart"><noscript>{E(t("chart_noscript"))}</noscript></div>
+<div id="chart"><noscript><p class="notice">{E(t("chart_noscript"))}</p></noscript>{org_rows(G)}</div>
 <section id="detail" hidden aria-live="polite"></section></section>
 <section class="osec" aria-labelledby="regulation"><h2 id="regulation">{E(t("org_reg_h"))}</h2>
 <div class="reg">{''.join(regs)}</div>

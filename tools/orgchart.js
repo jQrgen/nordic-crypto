@@ -97,8 +97,7 @@ document.addEventListener('keydown',function(ev){if(ev.key==='Escape'&&!det.hidd
 [].forEach.call(segb,function(b){b.addEventListener('click',function(){setSeg(b.dataset.v);render()})});
 function regf(){var c=selC();[].forEach.call(document.querySelectorAll('.reg article[data-c]'),function(a){a.hidden=!!(c.length&&c.indexOf(a.dataset.c)<0)})}
 function mapf(){var c=selC();if(!im)return;[].forEach.call(im.querySelectorAll('.tile[data-c]'),function(t){t.hidden=!!(c.length&&c.indexOf(t.dataset.c)<0)});[].forEach.call(im.querySelectorAll('.imap-cat'),function(s){s.hidden=!s.querySelector('.tile:not([hidden])')})}
-[].forEach.call(chips,function(b){var g=G[b.dataset.c];if(g)b.insertAdjacentHTML('beforeend','<span class="n">'+g.n+'</span>');
- b.addEventListener('click',function(){var on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',on?'true':'false');if(on)open[b.dataset.c]=1;regf();render();mapf()})});
+[].forEach.call(chips,function(b){b.addEventListener('click',function(){var on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',on?'true':'false');if(on)open[b.dataset.c]=1;regf();render();mapf()})});
 var qt;q.addEventListener('input',function(){clearTimeout(qt);qt=setTimeout(function(){var v=q.value.trim().toLowerCase();v=v.length>1?v:'';if(v!==qv){qv=v;shut={};render()}},150)});
 /* industry map: the country view is built from the category view's tiles the first time it is asked for */
 function mapByCountry(){var g={},cs=[];[].forEach.call(im.querySelectorAll('.imap-bycat .tile'),function(t){var c=t.dataset.c;if(!g[c]){g[c]=[];cs.push(c)}g[c].push(t)});
