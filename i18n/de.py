@@ -6,6 +6,7 @@ This file does not translate article bodies or summaries. Nordic news sources ar
 S = {
 "primary_source": "Primärquelle",
 "ios_tv": 'Unterstützt besonders Apple TV.',
+"contributors": 'Mitwirkende',
 "prev_extra": "Frühere öffentliche Veranstaltungen in den nordischen Ländern stehen hier, wenn eine Quelle Datum, Ort und Veranstalter nennt.",
 "ev_type": "Art",
 "ev_type_conference": "Konferenz",

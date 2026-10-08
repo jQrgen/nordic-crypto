@@ -114,7 +114,7 @@ def apple_tv():
           "office screen uses the start-based window")
     for lang in i18n.ALL_LANGS:
         sentence = i18n.t(lang, "ios_tv")
-        footer = i18n.t(lang, "footer", site="Nordic Crypto", rel="", root="", ios_tv=sentence)
+        footer = i18n.t(lang, "footer", site="Nordic Crypto", rel="", root="", ios_tv=sentence, contributors="")
         check("Apple TV" in sentence and REVERSED not in sentence, "sentence " + lang)
         check("https://testflight.apple.com/join/nQ2fpjZn" in footer and sentence in footer, "footer " + lang)
         check(REVERSED not in footer, "brand " + lang)

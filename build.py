@@ -175,6 +175,11 @@ def x_link():
 def telegram_link():
     """'Nordic Crypto on Telegram' link. The brand chat, t.me/nordiccryptochat."""
     return f'<a class="tgfollow" href="{SITE_TELEGRAM}" rel="noopener noreferrer" title="{E(t("tg_title"))}">{E(t("tg_follow"))}</a>'
+# The repo's contributor list on GitHub. One plain footer link, no list on the site, no API call at build time.
+REPO_CONTRIBUTORS = "https://github.com/jQrgen/nordic-crypto/graphs/contributors"
+def contributors_link():
+    """Footer link to the contributors page on GitHub. The label comes from i18n ("contributors")."""
+    return f'<a href="{REPO_CONTRIBUTORS}" rel="noopener">{E(t("contributors"))}</a>'
 def community_links():
     """Left-aligned brand links for the footer, About and the newsletter. The source-code link stays separate."""
     return f'<nav class="community" aria-label="{E(t("social_aria"))}">{telegram_link()}{x_link()}</nav>'
@@ -558,7 +563,7 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
 {body}
 {s['top']}
 </main>
-<footer><div class="wrap"><a class="brand footbrand" href="{rel}"><img class="brandmark" src="{root}assets/brand/shield-band.svg" width="34" height="40" alt=""><span>Nordic <span class="w">Crypto</span></span></a>{nlfoot}{community_links()}{push_panel(root)}{t("footer", site=SITE_NAME, rel=rel, root=root, ios_tv=t("ios_tv"))}</div></footer>
+<footer><div class="wrap"><a class="brand footbrand" href="{rel}"><img class="brandmark" src="{root}assets/brand/shield-band.svg" width="34" height="40" alt=""><span>Nordic <span class="w">Crypto</span></span></a>{nlfoot}{community_links()}{push_panel(root)}{t("footer", site=SITE_NAME, rel=rel, root=root, ios_tv=t("ios_tv"), contributors=contributors_link())}</div></footer>
 {s['script']}{setck}{extra_script}{newsletter_script()}{push_script()}{shout_script()}{analytics_snippet()}{th.get('script', '')}
 </body></html>"""
     d = os.path.join(SITE, lp(), slug); os.makedirs(d, exist_ok=True)

@@ -6,6 +6,7 @@ This file does not translate article bodies or summaries. Nordic news sources ar
 S = {
 "primary_source": "المصدر الأساسي",
 "ios_tv": 'يدعم Apple TV بشكل خاص.',
+"contributors": 'المساهمون',
 "prev_extra": "تُدرج هنا الفعاليات العامة الأقدم في بلدان الشمال عندما يذكر المصدر التاريخ والمكان والجهة المنظمة.",
 "ev_type": "النوع",
 "ev_type_conference": "مؤتمر",

@@ -6,6 +6,7 @@ This file does not translate article bodies or summaries. Nordic news sources ar
 S = {
 "primary_source": "Sumber utama",
 "ios_tv": 'Khususnya mendukung Apple TV.',
+"contributors": 'Kontributor',
 "prev_extra": "Acara publik yang lebih lama di negara-negara Nordik tercantum di sini jika sumber menyebut tanggal, tempat, dan penyelenggara.",
 "ev_type": "Jenis",
 "ev_type_conference": "Konferensi",
