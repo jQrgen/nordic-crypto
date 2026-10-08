@@ -384,7 +384,7 @@ def build(m, ctx):
         call = f'<p class="rv-call">{E(S["is_note"])}</p>' if c == "IS" else ""
         script = os.path.join(_root(), "regulation-videos", v.get("script") or "")
         lines = narrator_lines(script)
-        notes_lang = "" if L == "en" else ' lang="en"'
+        notes_lang = m.bidi_attr("en")   # English notes: lang="en" on other pages, and dir="ltr" on right-to-left ones
         en_note = "" if L == "en" else f'<p class="meta">{E(S["notes_en"])}</p>'
         notes = (f'<details class="rv-nbox"><summary>{E(S["narrator"])}</summary>{en_note}<div class="rv-notes"{notes_lang}>'
                  + "".join(f"<p>{E(line)}</p>" for line in lines) + "</div></details>") if lines else ""
