@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Front page: no filter bar, no story picture, lead plus a left-aligned grid."""
+"""Front page: no filter bar, no events, no story picture, lead plus a left-aligned grid."""
 import json, os, sys, tempfile, unittest
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
@@ -23,7 +23,8 @@ class FrontLayout(unittest.TestCase):
         self.assertNotIn('id="fsrc"', home)
         self.assertNotIn("tchip", home)
         self.assertNotIn('aria-label="{E(t("filters"))}"', home)
-        self.assertIn("front_events_block", home)
+        self.assertNotIn("front_events_block(", home)   # events moved off the front page (calendar only)
+        self.assertNotIn("front_events_script()", home)
         self.assertIn("front_card", home)
 
     def test_card_has_no_picture_and_keeps_the_logo(self):

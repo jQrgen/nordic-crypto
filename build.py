@@ -1629,12 +1629,12 @@ def build_lang(ctx):
 <p class="meta"><a href="{root}screen/">{E(t("home_screen"))}</a> · <a href="markets/">{E(t("mk_home_link"))}</a></p></div>
 <p class="hero-note">{E(t("ios_note"))} <span class="ios-tv">{E(t("ios_tv"))}</span></p>
 </div></section>"""
-    body = f"""{front_events_block(*(ctx["events"] if isinstance(ctx.get("events"), tuple) else (ctx.get("events") or [], site_now())))}
-{paper}
+    # No events on the front page: they live on the calendar (calendar/). front_events_block stays for tests and reuse.
+    body = f"""{paper}
 <section class="nlhome" aria-labelledby="nlhome-h"><h2 id="nlhome-h">{E(t("nl_title"))}</h2>{home_signup}{community_links()}</section>
 <p class="notice">{E(t("home_notice"))}</p>"""
     body = home_with_chat(body)
-    page("", t("home_title"), "", body, t("home_desc"), front_events_script(), hero=hero)
+    page("", t("home_title"), "", body, t("home_desc"), hero=hero)
     build_coverage_pages(items, ctx["blurbs"])
     build_stories(write=True)
     build_external_stories(ctx)
