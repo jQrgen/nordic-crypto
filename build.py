@@ -1799,61 +1799,94 @@ def map_category(e, over):
     if re.search(r"\b(media|news|podcast|community|association|meetup)", d): return "media"
     return "other"
 def ini(n): return "".join(w[0] for w in re.split(r"[\s-]+", re.sub(r"\(.*?\)", "", n)) if w)[:2].upper()
-def logo_html(e, cls="logo", root=""):
+def logo_html(e, cls="logo", root="", alt=None):
+    """alt="" when the name is written next to the logo (the industry map tiles)."""
     lg = e.get("logo")
     if lg and lg.get("file"):
-        return f'<img class="{cls}" src="{root}{E(lg["file"])}" alt="{E(t("js_logo_alt", name=e["name"]))}" loading="lazy" width="40" height="40">'
+        a = t("js_logo_alt", name=e["name"]) if alt is None else alt
+        return f'<img class="{cls}" src="{root}{E(lg["file"])}" alt="{E(a)}" loading="lazy" decoding="async" width="28" height="28">'
     return f'<span class="av org" aria-hidden="true">{E(ini(e["name"]))}</span>'
 def industry_map(ents):
+    """The industry map: organisations by category, as small logo tiles. Only the category view is in the HTML;
+    tools/orgchart.js builds the country view from the same tiles when a reader asks for it."""
     over = (load(P("industry_map.json"), {}) or {}).get("category", {})
     orgs = [e for e in ents if e["type"] != "person" and e.get("group") != "Legislation"]
     root = up1()
     by = {}
     for e in orgs: by.setdefault(map_category(e, over), []).append(e)
     def tile(e):
-        return (f'<a class="tile" href="#{E(e["id"])}" data-c="{E(e["country"])}" data-go="{E(e["id"])}">{logo_html(e, root=root)}'
-                f'<span>{E(e["name"])}</span><span class="fl">{flag(e["country"]) if e["country"] in COUNTRY_CODES else E(e["country"])}</span></a>')
+        return (f'<a class="tile" href="#{E(e["id"])}" data-c="{E(e["country"])}" data-go="{E(e["id"])}">{logo_html(e, root=root, alt="")}'
+                f'{E(e["name"])}{flag(e["country"]) if e["country"] in COUNTRY_CODES else ""}</a>')
     srt = lambda L: sorted(L, key=lambda e: (([*COUNTRY_CODES, "NORDIC", "EU"].index(e["country"]) if e["country"] in [*COUNTRY_CODES, "NORDIC", "EU"] else 9), e["name"].lower()))
-    bycat = "".join(f'<section class="imap-cat{" pub" if c == "public" else ""}" data-cat="{c}"><h3><span>{E(t("cat_" + c))}</span><span class="meta">{len(by[c])}</span></h3><div class="tiles">{"".join(tile(e) for e in srt(by[c]))}</div></section>'
+    bycat = "".join(f'<section class="imap-cat" data-cat="{c}"><h3>{E(t("cat_" + c))} <span class="n">{len(by[c])}</span></h3><div class="tiles">{"".join(tile(e) for e in srt(by[c]))}</div></section>'
                     for c in MAP_CATS if by.get(c))
-    cs = [c for c in [*COUNTRY_CODES, "NORDIC", "EU"] if any(e["country"] == c for e in orgs)]
-    bycountry = "".join(f'<section class="imap-cat" data-c="{c}"><h3><span>{flag(c) if c in COUNTRY_CODES else ""} {E(cname(c))}</span><span class="meta">{sum(e["country"] == c for e in orgs)}</span></h3><div class="tiles">'
-                        + "".join(tile(e) for cat in MAP_CATS for e in sorted(by.get(cat, []), key=lambda e: e["name"].lower()) if e["country"] == c) + '</div></section>' for c in cs)
-    return (f'<h2 id="industry-map">{E(t("map_h"))}</h2><p class="lead">{E(t("map_lead"))} <a href="../rules/">{E(t("rules_link"))}</a></p><p class="notice">{t("map_kaupr")}</p>'
+    return (f'<section class="osec" aria-labelledby="industry-map"><h2 id="industry-map">{E(t("map_h"))}</h2><p class="olead">{E(t("map_lead"))}</p>'
             f'<div class="seg" role="group" aria-label="{E(t("map_group"))}"><button type="button" data-view="cat" aria-pressed="true">{E(t("map_by_cat"))}</button><button type="button" data-view="country" aria-pressed="false">{E(t("map_by_country"))}</button></div>'
-            f'<div class="imap" id="imap" data-view="cat"><div class="imap-cats imap-bycat">{bycat}</div><div class="imap-cats imap-bycountry">{bycountry}</div></div>'), {c: len(v) for c, v in by.items()}
+            f'<div class="imap" id="imap" data-view="cat"><div class="imap-cats imap-bycat">{bycat}</div></div></section>'), {c: len(v) for c, v in by.items()}
+
+ORG_JS_KEYS = {  # what tools/orgchart.js reads; the page carries only these (data/orgchart.json and the API keep every field)
+    "entity": ("id", "name", "type", "sector", "country", "org", "group", "role", "description", "status", "url", "logo", "image", "profiles", "affiliations", "talks", "sources"),
+    "logo": ("file", "source_url"), "image": ("file", "author", "license", "license_url", "source_page"),
+    "profiles": ("url", "label", "kind", "status"), "affiliations": ("role", "organisation", "date", "source_url", "source_name"),
+    "talks": ("id", "title", "event_id"), "sources": ("url", "title", "source_name", "date"),
+    "relation": ("from", "to", "type", "label", "sources")}
+def org_page_data(pub_org):
+    """The organisation chart's data as the page script uses it: the same entries, without the fields it never reads."""
+    K = ORG_JS_KEYS
+    def pick(d, keys): return {k: d[k] for k in keys if d.get(k) not in (None, "", [], {})}
+    def ent(e):
+        o = pick(e, K["entity"])
+        for k in ("logo", "image"):
+            if k in o: o[k] = pick(o[k], K[k])
+        for k in ("profiles", "affiliations", "talks", "sources"):
+            if k in o: o[k] = [pick(x, K[k]) for x in o[k]]
+        return o
+    rels = [dict(pick(r, K["relation"]), sources=[pick(s, ("url", "source_name")) for s in r.get("sources") or []]) for r in pub_org["relations"]]
+    return {"entities": [ent(e) for e in pub_org["entities"]], "relations": rels}
 
 def build_org(ctx):
+    """Who's who (org-chart/): a short jump list, the organisation chart (filters, then one collapsed row per country that
+    tools/orgchart.js opens on demand), regulation by country in aligned columns, the industry map and the full list
+    (rendered when opened). Page-only CSS: assets/css/orgchart.css."""
     org, ents, pub_org = ctx["org"], ctx["ents"], ctx["pub_org"]
+    fields = (("reg_mica", "mica"), ("reg_law", "law"), ("reg_auth", "regulator"), ("reg_status", "status"))
     regs = []
     for r in org.get("regulation", []):
-        regs.append(f'<article data-c="{E(r["country"])}"><h3>{flag(r["country"], True)}{E(cname(r["country"]))}</h3><dl lang="en"><dt>{E(t("reg_mica"))}</dt><dd>{E(r["mica"])}</dd><dt>{E(t("reg_law"))}</dt><dd>{E(r["law"])}</dd>'
-                    f'<dt>{E(t("reg_auth"))}</dt><dd>{E(r["regulator"])}</dd><dt>{E(t("reg_status"))}</dt><dd>{E(r["status"])}</dd></dl><p class="meta">{E(t("reg_sources"))} '
+        regs.append(f'<article data-c="{E(r["country"])}"><h3>{flag(r["country"])}{E(cname(r["country"]))}</h3><dl lang="en">'
+                    + "".join(f'<div><dt>{E(t(k))}</dt><dd>{E(r[f])}</dd></div>' for k, f in fields) + f'</dl><p class="meta">{E(t("reg_sources"))} '
                     + ", ".join(f'<a href="{E(s["url"])}" rel="noopener" target="_blank">{E(s["source_name"])}</a>' for s in r["sources"]) + '</p></article>')
     cnt_pend = sum(e["status"] == "pending" for e in ents)
     imap, per_cat = industry_map(ents)
     i18n_js = {k[3:]: t(k) for k in i18n.strings("en") if k.startswith("js_")}
-    groups = {g: t("grp_" + g) for g in {e.get("group") for e in ents if e.get("group")} if i18n.has("en", "grp_" + g)}
+    groups = {g: t("grp_" + g) for g in sorted({e.get("group") for e in ents if e.get("group")}) if i18n.has("en", "grp_" + g)}
     dn = t("data_en_note")
-    body = f"""<h1>{E(t("org_title"))}</h1>
-<p class="lead">{E(t("org_lead"))} <a href="#industry-map">{E(t("map_h"))} ↓</a> · <a href="../rules/">{E(t("rules_link"))}</a></p>
+    subnav = "".join(f'<a href="#{a}">{E(t(k))}</a>' for a, k in (("org", "org_chart_h"), ("regulation", "org_reg_h"), ("industry-map", "map_h"), ("list", "list_h")))
+    caveats = (f'<details class="caveats"><summary>{E(t("caveats"))}</summary><ul lang="en">' + "".join(f"<li>{E(x)}</li>" for x in org.get("caveats", [])) + '</ul></details>') if org.get("caveats") else ''
+    data = json.dumps(org_page_data(pub_org), ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    body = f"""{site_css.style("orgchart")}<div class="whos">
+<h1>{E(t("org_title"))}</h1>
+<p class="lead">{E(t("org_lead"))}</p>
 {f'<p class="notice warn">{t("org_preview", p=cnt_pend, n=len(ents))}</p>' if PREVIEW and cnt_pend else ''}
 {f'<p class="meta">{E(dn)}</p>' if dn else ''}
-<h2 id="regulation">{E(t("org_reg_h"))}</h2>
+<nav class="orgsub" aria-label="{E(t("toc_h"))}">{subnav}</nav>
+<section class="osec ochart" aria-labelledby="org"><h2 id="org">{E(t("org_chart_h"))}</h2>
+<div class="filters ofilters"><div class="of" role="group" aria-label="{E(t("countries_aria"))}"><span class="lbl">{E(t("country"))}</span><div class="chips">{country_chips()}</div></div>
+<div class="of"><span class="lbl" aria-hidden="true">{E(t("sector_aria"))}</span><div class="seg" id="secseg" role="group" aria-label="{E(t("sector_aria"))}"><button type="button" data-v="both" aria-pressed="true">{E(t("both"))}</button><button type="button" data-v="private" aria-pressed="false">{E(t("private_sector"))}</button><button type="button" data-v="public" aria-pressed="false">{E(t("public_sector"))}</button></div></div>
+<div class="of of-q"><label for="osearch">{E(t("search"))}</label><input type="search" id="osearch" placeholder="{E(t("search_ph"))}" autocomplete="off"></div></div>
+<p id="ostat" class="meta" aria-live="polite"></p>
+<div id="chart"><noscript>{E(t("chart_noscript"))}</noscript></div>
+<section id="detail" hidden aria-live="polite"></section></section>
+<section class="osec" aria-labelledby="regulation"><h2 id="regulation">{E(t("org_reg_h"))}</h2>
 <div class="reg">{''.join(regs)}</div>
-{(f'<details class="notice"><summary>{E(t("caveats"))}</summary><ul lang="en">' + "".join(f"<li>{E(x)}</li>" for x in org.get("caveats", [])) + '</ul></details>') if org.get("caveats") else ''}
-<h2 id="org">{E(t("org_chart_h"))}</h2>
-<div class="filters"><span class="lbl">{E(t("country"))}</span><div class="chips">{country_chips()}</div>
-<div class="seg" id="secseg" role="group" aria-label="{E(t("sector_aria"))}"><button type="button" data-v="both" aria-pressed="true">{E(t("both"))}</button><button type="button" data-v="private" aria-pressed="false">{E(t("private_sector"))}</button><button type="button" data-v="public" aria-pressed="false">{E(t("public_sector"))}</button></div>
-<label for="osearch">{E(t("search"))}</label><input type="search" id="osearch" placeholder="{E(t("search_ph"))}"></div>
-<div id="chart" class="cols"><noscript>{E(t("chart_noscript"))}</noscript></div>
-<section id="detail" hidden aria-live="polite"></section>
+<p class="regmore"><a href="../rules/">{E(t("rules_link"))}</a></p>
+{caveats}</section>
 {imap}
-<h2 id="list">{E(t("list_h"))}</h2>
-<div class="tablewrap"><table class="list" id="olist"><thead><tr><th>{E(t("th_name"))}</th><th>{E(t("th_country"))}</th><th>{E(t("th_type"))}</th><th>{E(t("th_sector"))}</th><th>{E(t("th_role"))}</th><th>{E(t("th_sources"))}</th></tr></thead><tbody></tbody></table></div>
-<p class="notice">{t("org_notice")}</p>
-<p class="notice">{t("org_kaupr")}</p>
-<script id="orgdata" type="application/json">{json.dumps(pub_org, ensure_ascii=False).replace("</", "<\\/")}</script>
+<section class="osec" aria-labelledby="list"><h2 id="list">{E(t("list_h"))}</h2>
+<details class="olistbox" id="olistbox"><summary>{E(t("org_list_show", n=len(ents)))}</summary>
+<div class="tablewrap"><table class="list" id="olist"><thead><tr><th>{E(t("th_name"))}</th><th>{E(t("th_country"))}</th><th>{E(t("th_type"))}</th><th>{E(t("th_sector"))}</th><th>{E(t("th_role"))}</th><th>{E(t("th_sources"))}</th></tr></thead><tbody></tbody></table></div></details></section>
+<div class="onotes"><p class="meta">{t("org_notice")}</p><p class="meta">{t("org_kaupr")}</p></div>
+</div>
+<script id="orgdata" type="application/json">{data}</script>
 <script>window.FLAGS={flags_js()};window.CNAME={json.dumps({c: cname(c) for c in COUNTRY_CODES + EXTRA_C_CODES}, ensure_ascii=False)};window.T={json.dumps(i18n_js, ensure_ascii=False)};window.GRP={json.dumps(groups, ensure_ascii=False)};window.ROOT={json.dumps(up1())};window.LANG={json.dumps(LANG)};</script>"""
     page("org-chart", t("org_title"), "org-chart", body, t("org_desc"),
          "<script>" + open(P("tools", "orgchart.js"), encoding="utf-8").read() + "</script>")

@@ -396,3 +396,15 @@ S.update({
 "more_news_h": "Fleiri fréttir",
 "all_news": "Allar fréttir",
 })
+
+# Who's who: country rows with counts, search matches, the full list on demand
+S.update({
+"org_list_show": "Sýna allar {n} færslur",
+"js_n_orgs": "{n} stofnanir",
+"js_n_org1": "1 stofnun",
+"js_n_people": "{n} einstaklingar",
+"js_n_person1": "1 einstaklingur",
+"js_n_match": "{n} niðurstöður",
+"js_n_match1": "1 niðurstaða",
+"js_no_match": "Ekkert passar við leitina.",
+})
