@@ -157,7 +157,7 @@ def build(m, ctx):
     def node(kind, name, extra="", rc="", route=""):
         return (f'<div class="rnode"{f" data-rc={chr(34)}{rc}{chr(34)}" if rc else ""}{f" data-route={chr(34)}{route}{chr(34)}" if route else ""}>'
                 f'<span class="k">{E(kind)}</span><b>{E(name)}</b>{extra}</div>')
-    flagname = lambda c: f'{m.flag(c)} {E(m.cname(c))}'
+    flagname = lambda c: f'{m.flag(c, deco=True)} {E(m.cname(c))}'
     # 1. EU
     eu = R["eu"]
     n1 = "".join(node(S["propose"] if i["role"] == "propose" else S["adopt"], i["name"], f'<div class="ln">{s(i["src"])}</div>') for i in eu["institutions"])
@@ -184,7 +184,7 @@ def build(m, ctx):
             + "".join(f'<li><a href="#step-{i + 1}">{E(h)}</a></li>' for i, (h, _p, _n, _x) in enumerate(steps)) + '</ol></nav>')
     seg = (f'<div class="rules-c"><span class="lbl" aria-hidden="true">{E(S["country"])}</span><div class="chips" id="rcountry" role="group" aria-label="{E(S["country"])}">'
            f'<button type="button" class="chip" data-c="all" aria-pressed="true">{E(S["all"])}</button>'
-           + "".join(f'<button type="button" class="chip" data-c="{c}" aria-pressed="false">{m.flag(c)}{E(m.cname(c))}</button>' for c in order) + '</div></div>')
+           + "".join(f'<button type="button" class="chip" data-c="{c}" aria-pressed="false">{m.flag(c, deco=True)}{E(m.cname(c))}</button>' for c in order) + '</div></div>')
     pend = f'<p class="notice">{E(S["pending"])}</p>' if R.get("review") == "pending" else ""
     links = (f'<p class="rlinks"><a href="../org-chart/">{E(S["back"])}</a><a href="../org-chart/#industry-map">{E(S["see_map"])}</a>'
              f'<a href="../regulation-videos/">{E(S["videos"])}</a></p>')

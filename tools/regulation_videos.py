@@ -332,7 +332,7 @@ def build(m, ctx):
         return m.i18n.long_date(L, datetime.date.fromisoformat(iso))
 
     jump = (f'<nav class="rv-jump" aria-label="{E(S["jump"])}">'
-            + "".join(f'<a href="#{c}">{m.flag(c)}{E(m.cname(c))}</a>' for c in order)
+            + "".join(f'<a href="#{c}">{m.flag(c, deco=True)}{E(m.cname(c))}</a>' for c in order)
             + "</nav>")
     blocks = []
     for c in order:
@@ -342,7 +342,7 @@ def build(m, ctx):
         h = S["slot_title"].format(country=name)
         route = S["eea"] if row.get("route") == "eea" else S["eu"]
         minutes = S["minutes"].format(m=max(1, int(round((v.get("duration_target_s") or 0) / 60)))) if v.get("duration_target_s") else ""
-        kicker = (f'<p class="rv-kicker">{m.flag(c)}<span>{E(name)}</span><span>{E(route)}</span>'
+        kicker = (f'<p class="rv-kicker">{m.flag(c, deco=True)}<span>{E(name)}</span><span>{E(route)}</span>'
                   + (f'<span>{E(minutes)}</span>' if minutes else "")
                   + "</p>")
         vid = media_path(v.get("file"))

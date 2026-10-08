@@ -67,14 +67,18 @@ def _flag_shapes(c):
     inner = f'<rect x="7" width="2" height="16" fill="{b}"/><rect y="7" width="22" height="2" fill="{b}"/>' if b else ""
     border = ' stroke="#9ca3af" stroke-width=".6"' if bg == "#fff" else ""
     return f'<rect width="22" height="16" fill="{bg}"{border}/><rect x="6" width="4" height="16" fill="{a}"/><rect y="6" width="22" height="4" fill="{a}"/>{inner}'
-def flag(c, big=False, inline=False):
+def flag(c, big=False, inline=False, deco=False):
     """Nordic cross flag. On pages it points at a shared <symbol> (page() adds one per flag the page uses), so a long
-    list repeats a few bytes, not the drawing. inline=True draws it in place (office screen, which is not built by page())."""
+    list repeats a few bytes, not the drawing. inline=True draws it in place (office screen, which is not built by page()).
+    deco=True: the country's name is written right beside it, so the flag is hidden from screen readers (no double name)."""
     if c not in _FL:
+        if deco: return f'<span class="cc" aria-hidden="true">{E("Nordic" if c == "NORDIC" else c)}</span>' if c else ""
         return f'<span class="cc" title="{E(cname(c))}">{E("Nordic" if c == "NORDIC" else c)}</span>'
     w, h = (22, 16)
     body = _flag_shapes(c) if inline else f'<use href="#fl-{c}"/>'
-    return (f'<svg class="flag" viewBox="0 0 22 16" width="{w*(1.4 if big else 1):.0f}" height="{h*(1.4 if big else 1):.0f}" role="img" aria-label="{E(cname(c))}">'
+    size = f'width="{w*(1.4 if big else 1):.0f}" height="{h*(1.4 if big else 1):.0f}"'
+    if deco: return f'<svg class="flag" viewBox="0 0 22 16" {size} aria-hidden="true" focusable="false">{body}</svg>'
+    return (f'<svg class="flag" viewBox="0 0 22 16" {size} role="img" aria-label="{E(cname(c))}">'
             f'<title>{E(cname(c))}</title>{body}</svg>')
 def flag_sprite(doc):
     """One hidden <svg> with a <symbol> for every flag the page refers to (#fl-XX)."""
@@ -416,7 +420,7 @@ def push_panel(root):
             f'</section>'
         )
     countries = "".join(
-        f'<label class="push-c"><input type="checkbox" name="country" value="{c}"> {flag(c)}{E(t("c_" + c))}</label>'
+        f'<label class="push-c"><input type="checkbox" name="country" value="{c}"> {flag(c, deco=True)}{E(t("c_" + c))}</label>'
         for c in COUNTRY_CODES)
     return (
         f'<section class="pushopt" id="notifications" data-root="{E(root)}">'
@@ -643,7 +647,7 @@ def redirect(old, new):
 TOPICS = ["bitcoin", "blockchain", "crypto", "regulation", "companies", "mica", "aml", "defi", "nft", "cbdc"]
 def topic_label(k): return t("topic_" + k) if i18n.has("en", "topic_" + k) else (k.upper() if len(k) <= 4 else k.capitalize())
 def country_chips():
-    return "".join(f'<button type="button" class="chip cchip" data-c="{c}" aria-pressed="false">{flag(c)}{E(n)}</button>' for c, n in COUNTRIES.items())
+    return "".join(f'<button type="button" class="chip cchip" data-c="{c}" aria-pressed="false">{flag(c, deco=True)}{E(n)}</button>' for c, n in COUNTRIES.items())
 def L18(obj, key, i18n_key=None):
     """Own text in the current language: obj[i18n_key][LANG] if present, else obj[key] (English). Returns (text, lang)."""
     v = ((obj.get(i18n_key or key + "_i18n") or {}).get(LANG)) if LANG != "en" else None
@@ -735,7 +739,7 @@ def coverage_bars(rows):
     for r in br["by_country"]:
         if not r.get("count"): continue
         c = r.get("country") or ""
-        if c in COUNTRY_CODES or c in EXTRA_C_CODES: lab = f"{flag(c)} {E(cname(c))}"
+        if c in COUNTRY_CODES or c in EXTRA_C_CODES: lab = f"{flag(c, deco=True)} {E(cname(c))}"
         else: lab = E(c or t("cov_unknown"))
         countries.append(_bar(lab, r["count"], r["share"]))
     types = "".join(_bar(E(t("cov_" + r["type"])), r["count"], r["share"]) for r in br["by_source_type"] if r.get("count"))
@@ -778,7 +782,7 @@ def coverage_block(rows, root):
     else:
         blocks = []
         for c in sorted(groups, key=lambda c: (order.index(c) if c in order else 50, c)):
-            if c in COUNTRY_CODES or c in EXTRA_C_CODES: head = f"{flag(c)} {E(cname(c))}"
+            if c in COUNTRY_CODES or c in EXTRA_C_CODES: head = f"{flag(c, deco=True)} {E(cname(c))}"
             else: head = E(c or t("cov_unknown"))
             blocks.append(f'<section class="covgroup"><h3>{head} <span class="meta">{len(groups[c])}</span></h3>'
                           f'<ul class="covlist">{"".join(_outlet_li(s, root) for s in ordered(groups[c]))}</ul></section>')
@@ -1712,7 +1716,7 @@ def front_card(i, blurbs, asset, lead=False):
         f'<article class="{klass}">'
         f'<{title_tag}><a href="{E(href)}"{ext_attr}{hl}>{E(head)}</a></{title_tag}>{orig}'
         f'{summ}'
-        f'<p class="meta">{flag(i.get("country"))} {E(cname(i.get("country")))} · {source_mark(i, asset)} · '
+        f'<p class="meta">{flag(i.get("country"), deco=True)} {E(cname(i.get("country")))} · {source_mark(i, asset)} · '
         f'<time datetime="{E(i.get("published") or "")}">{endate(i["published"])}</time>{lang}{pw} {tags}{badges}</p>'
         + coverage_row(rows, asset, f"stories/{i['id']}/")
         + links
@@ -1858,9 +1862,7 @@ def org_groups(ents):
     return {g: G[g] for g in sorted(G, key=rank)}
 def org_rows(G):
     """The chart's collapsed rows in the HTML, the same markup the script draws first, so nothing moves when it runs."""
-    def fd(c):
-        f = flag(c)
-        return re.sub(r"<title>.*?</title>", "", f.replace(f' role="img" aria-label="{E(cname(c))}"', ' aria-hidden="true"')) if f.startswith("<svg") else ""
+    def fd(c): return flag(c, deco=True) if c in _FL else ""
     def n(k1, kn, x): return t(k1) if x == 1 else t(kn, n=x)
     out = []
     for g, d in G.items():
@@ -1877,7 +1879,7 @@ def build_org(ctx):
     fields = (("reg_mica", "mica"), ("reg_law", "law"), ("reg_auth", "regulator"), ("reg_status", "status"))
     regs = []
     for r in org.get("regulation", []):
-        regs.append(f'<article data-c="{E(r["country"])}"><h3>{flag(r["country"])}{E(cname(r["country"]))}</h3><dl{bidi_attr("en")}>'
+        regs.append(f'<article data-c="{E(r["country"])}"><h3>{flag(r["country"], deco=True)}{E(cname(r["country"]))}</h3><dl{bidi_attr("en")}>'
                     + "".join(f'<div><dt>{E(t(k))}</dt><dd>{E(r[f])}</dd></div>' for k, f in fields) + f'</dl><p class="meta">{E(t("reg_sources"))} '
                     + ", ".join(f'<a href="{E(s["url"])}" rel="noopener" target="_blank">{E(s["source_name"])}</a>' for s in r["sources"]) + '</p></article>')
     cnt_pend = sum(e["status"] == "pending" for e in ents)
@@ -1952,7 +1954,7 @@ def source_method(s, st):
     return E(label)
 def _deco_mark(c):
     """Flag or code beside text that already names the country, hidden from screen readers."""
-    return _deco_flag(c) or (f'<span class="cc" aria-hidden="true">{E(c)}</span>' if c else "")
+    return flag(c, deco=True)
 def build_sources(ctx):
     """ /sources/ : one collapsed group per country (count and how many are monitored in the summary), a table per group with
     the source, how it is read and its status. The groups are the country filter; search and the reach chips open the groups that match. The note keeps only what is
@@ -2099,7 +2101,7 @@ def build_coverage_pages(items, blurbs):
             txt, tl = card_text(i, LANG, blurbs)
             summ = f'<p class="sum lede"{bidi_attr(tl)}>{E(txt)}</p>'
         article = (f'<article class="prose story"><p class="backlink"><a href="{back}">{E(t("back_news"))}</a></p><h1{bidi_attr(head_l)}>{E(head)}</h1>{orig}'
-                   + f'<p class="meta byline">{flag(i.get("country"))} {E(cname(i.get("country")))} · {source_mark(i, root)} · <time datetime="{E(i["published"])}">{endate(i["published"])}</time>'
+                   + f'<p class="meta byline">{flag(i.get("country"), deco=True)} {E(cname(i.get("country")))} · {source_mark(i, root)} · <time datetime="{E(i["published"])}">{endate(i["published"])}</time>'
                    + (f' <span class="tag pend">{E(t("pending"))}</span>' if pend else "") + '</p>'
                    + summ + read_at_row(rows[0], i.get("paywall")) + cited_source(i)
                    + coverage_block(rows, root) + '</article>')
@@ -2142,7 +2144,7 @@ def build_stories(write=True, latest=None):
             article = (f'<article class="prose story own"><p class="backlink"><a href="{back}">{E(t("back_news"))}</a></p>'
                        + (f'<p class="notice">{E(note)}</p>' if note and art_l == "en" and LANG != "en" else "")
                        + f'<h1{bd}>{E(title)}</h1>'
-                       f'<p class="meta byline">{flag(country)} {E(cname(country))} · {source_mark({"source": "nordic-crypto", "source_name": "Nordic Crypto"}, up1() + "../")} · <time datetime="{E(pub)}">{endate(pub)}</time>'
+                       f'<p class="meta byline">{flag(country, deco=True)} {E(cname(country))} · {source_mark({"source": "nordic-crypto", "source_name": "Nordic Crypto"}, up1() + "../")} · <time datetime="{E(pub)}">{endate(pub)}</time>'
                        + (f' <span class="tag pend">{E(t("owner"))}</span>' if status == "owner" else "") + '</p>'
                        + f'<div class="story-body"{bd}>' + "".join(f'<p{" class=\"lede\"" if n == 0 else ""}>{md_inline(x)}</p>' for n, x in enumerate(paras)) + '</div>'
                        + (f'<h2>{E(t("sources_h"))}</h2><ul class="story-sources"{bd}>' + "".join(f"<li>{md_inline(s)}</li>" for s in srcs) + '</ul>' if srcs else "")
@@ -2534,8 +2536,8 @@ def _talk_lang_label(code):
     return code or ""
 
 def _deco_flag(c):
-    """A flag next to text that already names the country: hidden from screen readers, drawn from the page's flag sprite."""
-    return f'<svg class="flag" viewBox="0 0 22 16" width="22" height="16" aria-hidden="true" focusable="false"><use href="#fl-{c}"/></svg>' if c in _FL else ""
+    """A flag next to text that already names the country (nothing for codes without a flag)."""
+    return flag(c, deco=True) if c in _FL else ""
 
 def build_talks():
     """ /talks/ : public Nordic crypto talks, newest first, one compact row each. The player is not in the HTML until a click."""
