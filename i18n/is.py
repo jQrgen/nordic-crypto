@@ -405,4 +405,5 @@ S.update({
 "cal_months_h": "Mánuð fyrir mánuð",
 "past_show": "Sýna {n} liðna viðburði",
 "past_all": "Allir fyrri viðburðir",
+"ev_when": "Dagsetning og tími",
 })

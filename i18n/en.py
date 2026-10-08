@@ -424,4 +424,5 @@ S.update({
 "cal_months_h": "Month by month",
 "past_show": "Show {n} past events",
 "past_all": "All previous events",
+"ev_when": "Date and time",
 })

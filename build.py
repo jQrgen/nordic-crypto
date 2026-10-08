@@ -2232,13 +2232,15 @@ def previous_page_rows(events, now):
     cal = [e for e in event_select.partition(events, now)["previous"] if e.get("status") == "published"]
     return event_backfill.merge_previous(cal, now)
 def build_previous(events, now):
-    """Own page. The calendar page is left as it is, apart from a link here."""
+    """Own page: finished events and the backfill, newest first, one heading per year and a compact row each (date badge, title,
+    weekday, time and place). The full facts and their sources are on each event's page."""
     rows = previous_page_rows(events, now)
-    body = f"""<h1>{E(t("prev_h"))}</h1>
+    body = f"""{site_css.style("calendar")}<div class="calpage prevpage">
+<h1>{E(t("prev_h"))}</h1>
 <p class="lead">{E(t("prev_lead"))}</p>
-<p>{E(t("prev_extra"))}</p>
-<p class="meta"><a href="../calendar/">{E(t("prev_back"))}</a></p>
-<div class="evfull">{''.join(event_card(e, href_prefix="../../") for e in rows) or f'<p class="empty">{E(t("prev_empty"))}</p>'}</div>"""
+<p class="meta">{E(t("prev_extra"))} <a href="../../calendar/">{E(t("prev_back"))}</a></p>
+<div class="prevlist">{cal_months(rows, full=False, cls="prev", href_prefix="../../calendar/", head="h2", hl="h3", by_year=True) or f'<p class="empty">{E(t("prev_empty"))}</p>'}</div>
+</div>"""
     page("events/previous", t("prev_title"), "calendar", body, t("prev_desc"))
 def build_external_stories(ctx):
     """Coverage pages are written by build_coverage_pages, without the assigned picture."""
@@ -2304,7 +2306,9 @@ def listed_events(events, now):
             seen.add(e["id"])
     return rows
 def build_one_event(e):
-    """Full event page. Fields without a stored value are left out."""
+    """Full event page: the title, then one block with when, where, who and what (each with its source; one source line when
+    they all share it) and the official page as the main button, then the description, the editor's note, topics and talks.
+    Fields without a stored value are left out."""
     heading = event_title(e)
     note, nl = L18(e, "note")
     when = event_when(e)
@@ -2316,60 +2320,62 @@ def build_one_event(e):
         desc = " ".join(note.split())[:180]
     else:
         desc = ". ".join(x for x in (heading, when, place) if x)
-    bits = [f'<p class="meta"><a href="../">{E(t("ev_cal_link"))}</a> · <a href="../../events/previous/">{E(t("prev_link"))}</a></p>',
+    bits = [f'<p class="meta evback"><a href="../">{E(t("ev_cal_link"))}</a> · <a href="../../events/previous/">{E(t("prev_link"))}</a></p>',
             f'<h1>{E(heading)}</h1>']
     if e.get("title_orig") and LANG == "en" and e.get("title_orig") != e.get("title"):
         bits.append(f'<p class="orig">{E(t("orig_title_ev"))}{E(e["title_orig"])}</p>')
-    if e.get("url"):
-        bits.append(f'<p><a class="evofficial" href="{E(e["url"])}" rel="noopener">{E(t("ev_official"))}</a></p>')
+    tags = []
+    if e.get("paid"): tags.append(f'<span class="tag paid">{E(t("paid"))}</span>')
+    elif e.get("paid") is False: tags.append(f'<span class="tag">{E(t("free"))}</span>')
+    if e.get("sponsored"):
+        tags.append(f'<span class="tag paid">{E(t("sponsored_by", x=e["sponsored"]) if isinstance(e["sponsored"], str) else t("sponsored"))}</span>')
+    if tags: bits.append(f'<p class="evtags">{" ".join(tags)}</p>')
+    facts = []   # (label, value html, source line)
     tz = event_page.offset_label(e.get("start"))
-    bits.append(f'<p class="meta"><time datetime="{E(e.get("start") or "")}"><b>{E(when)}</b></time></p>')
-    if tz:
-        bits.append(f'<p class="evmeta"><b>{E(t("ev_tz"))}:</b> {E(tz)}</p>')
+    facts.append((t("ev_when"), f'<time datetime="{E(e.get("start") or "")}"><b>{E(when)}</b></time>' + (f'<span class="evtz">{E(t("ev_tz"))}: {E(tz)}</span>' if tz else ""), ""))
+    murl = event_page.map_url(e)
+    maplink = f' · <a href="{E(murl)}" rel="noopener">{E(t("ev_map"))}</a>' if murl else ""
+    fact = event_select.location_fact(e)
+    if fact:
+        if fact["text"] and fact["online"]: loc = fact["text"] + " · " + t("online")
+        elif fact["text"]: loc = fact["text"]
+        else: loc = t("online")
+        c = e.get("country")
+        if c in COUNTRY_CODES:
+            name = cname(c)
+            if name and name not in loc: loc = loc + ", " + name
+        facts.append((t("ev_location"), E(loc) + maplink, _source_line(fact["credit"])))
+    elif e.get("online"):
+        facts.append((t("ev_location"), E(t("online")) + maplink, ""))
+    elif murl:
+        facts.append((t("ev_location"), maplink[3:], ""))
+    if e.get("organiser"):
+        facts.append((t("organiser"), E(e["organiser"]), _source_line(event_backfill.display_credit(e, "organiser"))))
+    kind = e.get("event_type")
+    if kind:
+        facts.append((t("ev_type"), E(t("ev_type_" + kind)), _source_line(event_backfill.display_credit(e, "event_type"))))
+    if e.get("language"):
+        facts.append((t("ev_language"), E(t("ev_lang_" + e["language"])), _source_line(event_backfill.display_credit(e, "language"))))
+    att = event_select.attendees_fact(e)
+    if att:
+        facts.append((t("ev_attendees"), str(att["count"]), _source_line(att["credit"])))
+    speakers = event_backfill.speakers_fact(e)
+    if speakers:
+        facts.append((t("ev_speakers"), str(speakers["count"]), _source_line(speakers["credit"])))
+    lines = [x[2] for x in facts if x[2]]
+    shared = lines[0] if len(lines) > 1 and all(x == lines[0] for x in lines) else ""   # one source line when every fact has the same one
+    tail = shared
+    if not fact and e.get("source") and e.get("source") != "backfill":
+        line = _source_line(event_select.place_credit(e))
+        if line and line != tail: tail += line
+    rows = "".join(f'<dt>{E(label)}</dt><dd>{value}{"" if shared else line}</dd>' for label, value, line in facts)
+    official = f'<p class="evact"><a class="evofficial" href="{E(e["url"])}" rel="noopener">{E(t("ev_official"))}</a></p>' if e.get("url") else ""
+    bits.append(f'<div class="evwhen"><dl class="evfacts">{rows}</dl>{tail}{official}</div>')
     if about:
         bits.append(f'<h2>{E(t("ev_about"))}</h2><p class="evdesc"{lang_attr(about_lang)}>{E(about)}</p>')
         if about_orig:
             src_lang = (e.get("description") or {}).get("lang") or about_lang
             bits.append(f'<p class="orig evdesc"{lang_attr(src_lang)}><b>{E(t("ev_orig_below"))}:</b> {E(about_orig)}</p>')
-    fact = event_select.location_fact(e)
-    if fact:
-        if fact["text"] and fact["online"]:
-            loc = fact["text"] + " · " + t("online")
-        elif fact["text"]:
-            loc = fact["text"]
-        else:
-            loc = t("online")
-        c = e.get("country")
-        if c in COUNTRY_CODES:
-            name = cname(c)
-            if name and name not in loc:
-                loc = loc + ", " + name
-        bits.append(f'<p class="evmeta"><b>{E(t("ev_location"))}:</b> {E(loc)}</p>' + _source_line(fact["credit"]))
-    elif e.get("online"):
-        bits.append(f'<p class="evmeta"><b>{E(t("ev_location"))}:</b> {E(t("online"))}</p>')
-    murl = event_page.map_url(e)
-    if murl:
-        bits.append(f'<p class="evmeta"><a href="{E(murl)}" rel="noopener">{E(t("ev_map"))}</a></p>')
-    if e.get("organiser"):
-        bits.append(f'<p class="evmeta"><b>{E(t("organiser"))}:</b> {E(e["organiser"])}</p>' + _source_line(event_backfill.display_credit(e, "organiser")))
-    kind = e.get("event_type")
-    if kind:
-        bits.append(f'<p class="evmeta"><b>{E(t("ev_type"))}:</b> {E(t("ev_type_" + kind))}</p>' + _source_line(event_backfill.display_credit(e, "event_type")))
-    if e.get("language"):
-        bits.append(f'<p class="evmeta"><b>{E(t("ev_language"))}:</b> {E(t("ev_lang_" + e["language"]))}</p>' + _source_line(event_backfill.display_credit(e, "language")))
-    if e.get("paid"):
-        bits.append(f'<p class="evmeta"><span class="tag paid">{E(t("paid"))}</span></p>')
-    elif e.get("paid") is False:
-        bits.append(f'<p class="evmeta"><span class="tag">{E(t("free"))}</span></p>')
-    if e.get("sponsored"):
-        label = t("sponsored_by", x=e["sponsored"]) if isinstance(e["sponsored"], str) else t("sponsored")
-        bits.append(f'<p class="evmeta"><span class="tag paid">{E(label)}</span></p>')
-    att = event_select.attendees_fact(e)
-    if att:
-        bits.append(f'<p class="evmeta"><b>{E(t("ev_attendees"))}:</b> {att["count"]}</p>' + _source_line(att["credit"]))
-    speakers = event_backfill.speakers_fact(e)
-    if speakers:
-        bits.append(f'<p class="evmeta"><b>{E(t("ev_speakers"))}:</b> {speakers["count"]}</p>' + _source_line(speakers["credit"]))
     if note:
         bits.append(f'<h2>{E(t("note"))}</h2><p class="sum"{lang_attr(nl)}>{E(note)}</p>')
         original = e.get("note")
@@ -2401,13 +2407,8 @@ def build_one_event(e):
             else:
                 who = ""
             items.append(f'<li><a href="{E(talk["url"])}" rel="noopener">{E(talk["title"])}</a>{who}' + _source_line(talk.get("credit")) + "</li>")
-        bits.append(f'<h2>{E(t("ev_talks"))}</h2><ul class="evpage">{"".join(items)}</ul>')
-    if not fact and e.get("source") and e.get("source") != "backfill":
-        credit = event_select.place_credit(e)
-        line = _source_line(credit)
-        if line:
-            bits.append(line)
-    body = f'<article class="evpage">{"".join(bits)}</article>'
+        bits.append(f'<h2>{E(t("ev_talks"))}</h2><ul class="evtalks">{"".join(items)}</ul>')
+    body = site_css.style("evpage") + f'<article class="evpage">{"".join(bits)}</article>'
     data = event_page.jsonld(e, BASE + lp() + event_page.slug(e) + "/", about or note or None)
     page(event_page.slug(e), heading, "calendar", body, desc, head_extra=f'<script type="application/ld+json">{json.dumps(data, ensure_ascii=False).replace("<", "\\u003c")}</script>')
 def build_event_pages(events, now):
@@ -2594,11 +2595,11 @@ def cal_row(e, full=True, href_prefix="", hl="h4"):
     labels. full adds the original title, the organiser and where it is listed, and the editor's note."""
     a = dt.datetime.fromisoformat(e["start"])
     ttl = event_title(e)
-    out = [f'<li id="e-{E(e["id"])}" data-c="{E(e.get("country") or "")}"><span class="evdate"><b>{a.day}</b> <span>{E(i18n.badge_month(LANG, a))}</span></span><div class="evb">'
-           f'<{hl}><a href="{E(href_prefix + e["id"])}/">{E(ttl)}</a></{hl}>']
+    out = [f'<li id="e-{E(e.get("id") or "")}" data-c="{E(e.get("country") or "")}"><span class="evdate"><b>{a.day}</b> <span>{E(i18n.badge_month(LANG, a))}</span></span><div class="evb">'
+           f'<{hl}><a href="{E(href_prefix + e["id"] + "/" if e.get("id") else e.get("url") or "")}">{E(ttl)}</a></{hl}>']
     if full and e.get("title_orig") and LANG == "en" and e["title_orig"] != e.get("title"):
         out.append(f'<p class="orig">{E(t("orig_title_ev"))}{E(e["title_orig"])}</p>')
-    place = event_place_short(e)
+    place = event_place_short(e) or ((event_select.location_fact(e) or {}).get("text") or "")   # backfill rows keep the place in the credited location
     tags = cal_tags(e) if full else ""
     out.append(f'<p class="meta">{flag(e.get("country"))} <time datetime="{E(e["start"])}">{E(event_when_short(e))}</time>{" · " + E(place) if place else ""}{" " + tags if tags else ""}</p>')
     if full:
@@ -2617,15 +2618,16 @@ def cal_tags(e):
     if e.get("sponsored"): b.append('<span class="tag paid">' + (E(t("sponsored_by", x=e["sponsored"])) if isinstance(e["sponsored"], str) else E(t("sponsored"))) + '</span>')
     if e.get("online"): b.append(f'<span class="tag">{E(t("online"))}</span>')
     return " ".join(b)
-def cal_months(rows, full=True, cls="", href_prefix="", head="h3", hl="h4"):
-    """Events under one heading per month (the year is in the heading, the day and month in each badge)."""
+def cal_months(rows, full=True, cls="", href_prefix="", head="h3", hl="h4", by_year=False):
+    """Events under one heading per month (the year is in the heading, the day and month in each badge). by_year: one heading per year."""
     out, cur = [], None
     for e in rows:
         a = dt.datetime.fromisoformat(e["start"])
-        if (a.year, a.month) != cur:
+        key = a.year if by_year else (a.year, a.month)
+        if key != cur:
             if cur: out.append("</ol></div>")
-            cur = (a.year, a.month)
-            out.append(f'<div class="evmg"><{head} class="evm">{E(i18n.month_caption(LANG, a.year, a.month))}</{head}><ol class="evl{" " + cls if cls else ""}">')
+            cur = key
+            out.append(f'<div class="evmg"><{head} class="evm">{a.year if by_year else E(i18n.month_caption(LANG, a.year, a.month))}</{head}><ol class="evl{" " + cls if cls else ""}">')
         out.append(cal_row(e, full, href_prefix, hl))
     if cur: out.append("</ol></div>")
     return "".join(out)

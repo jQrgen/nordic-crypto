@@ -405,4 +405,5 @@ S.update({
 "cal_months_h": "Kuukausittain",
 "past_show": "Näytä {n} mennyttä tapahtumaa",
 "past_all": "Kaikki aiemmat tapahtumat",
+"ev_when": "Aika",
 })

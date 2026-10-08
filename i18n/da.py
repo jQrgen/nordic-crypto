@@ -405,4 +405,5 @@ S.update({
 "cal_months_h": "Måned for måned",
 "past_show": "Vis {n} tidligere begivenheder",
 "past_all": "Alle tidligere begivenheder",
+"ev_when": "Dato og tid",
 })
