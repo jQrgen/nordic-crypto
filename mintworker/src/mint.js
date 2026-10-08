@@ -10,6 +10,7 @@ import { signBchMint } from "./bch/sign.js";
 import { verifyBchChallenge } from "./bch/message.js";
 import { readObservedSats, writeObservedSats } from "./balance.js";
 import { policyAmount, recordLedger } from "./history.js";
+import { tokenConfig } from "./setup.js";
 
 const hex = (buf) => [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, "0")).join("");
 
@@ -39,9 +40,8 @@ async function counts(env, chain, eventId, day) {
   };
 }
 
-async function observedSats(env, chain, deps) {
-  let raw = await readObservedSats(env, chain);
-  if (raw == null && deps && deps.observeBalance) raw = await deps.observeBalance(chain);
+async function observedSats(env, chain) {
+  const raw = await readObservedSats(env, chain);
   if (raw == null) return null;
   const n = Number(raw);
   return Number.isFinite(n) ? n : null;
@@ -66,7 +66,7 @@ export async function performMint(env, body, caps, deps = {}) {
   }
   const hash = await identityHash(chain, identity, eventId);
   const day = (deps.now ? deps.now() : new Date()).toISOString().slice(0, 10);
-  const rawSats = await observedSats(env, chain, deps);
+  const rawSats = await observedSats(env, chain);
   const balance = policyAmount(chain, rawSats);
   const state = await counts(env, chain, eventId, day);
   if (await already(env, hash)) state.claims.add(hash);
@@ -89,11 +89,12 @@ export async function performMint(env, body, caps, deps = {}) {
   let signed;
   try {
     if (chain === "nexa") {
-      if (!zipAllowed(body.zip_url) || !env.NEXA_PARENT_GROUP) return fail("config_missing");
+      const parent = await tokenConfig(env, "nexa");
+      if (!zipAllowed(body.zip_url) || !parent) return fail("config_missing");
       signed = signNexaMint({
         secret: key,
         recipient: identity,
-        parentGroup: env.NEXA_PARENT_GROUP,
+        parentGroup: parent.public_id,
         zipUrl: body.zip_url,
         zipHash: body.zip_hash,
         authority: utxos.authority,
@@ -102,12 +103,13 @@ export async function performMint(env, body, caps, deps = {}) {
         feeCeilingSats: caps.nexa.network * 100,
       });
     } else {
-      if (!env.BCH_CATEGORY) return fail("config_missing");
+      const category = await tokenConfig(env, "bch");
+      if (!category) return fail("config_missing");
       const commitment = hex(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(eventId + "|bch")));
       signed = await signBchMint({
         secret: key,
         recipient: identity,
-        categoryHex: env.BCH_CATEGORY,
+        categoryHex: category.public_id,
         commitmentHex: commitment,
         minting: utxos.minting,
         funding: utxos.funding,

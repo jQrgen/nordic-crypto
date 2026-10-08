@@ -216,7 +216,7 @@ function base58Decode(text) {
   return out;
 }
 
-export function decodeWif(text) {
+function wifParts(text) {
   const decoded = base58Decode(String(text).trim());
   if (!decoded || decoded.length < 5) return null;
   const data = decoded.subarray(0, decoded.length - 4);
@@ -229,7 +229,17 @@ export function decodeWif(text) {
   const privateKey = compressed ? payload.subarray(0, 32) : payload;
   if (privateKey.length !== 32) return null;
   if (version !== 0x80 && version !== 0xef) return null;
-  return privateKey;
+  return { version, privateKey };
+}
+
+export function wifVersion(text) {
+  const parts = wifParts(text);
+  return parts ? parts.version : null;
+}
+
+export function decodeWif(text) {
+  const parts = wifParts(text);
+  return parts ? parts.privateKey : null;
 }
 
 export function compressedPublicKey(privateKey) {

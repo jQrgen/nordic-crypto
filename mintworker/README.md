@@ -8,7 +8,7 @@ When `NC_EVENT_NFT=1` and `MINT_NETWORK=testnet`, this Worker signs a Nexa NFT p
 
 The Bitcoin Cash signer is pure JavaScript (`@noble/curves` and `@noble/hashes`, plus a small CashAddr and transaction codec in `src/bch/`). It does not import `@bitauth/libauth`. That library compiles WASM from bytes when the module loads, and workerd rejects that (`Wasm code generation disallowed by embedder`, then `Top-level await in module is unsettled`). `libnexa-ts` is also pure JavaScript. It uses `Buffer`, so `wrangler.toml` sets `compatibility_flags = ["nodejs_compat"]`.
 
-`GET /api/treasury` and `GET /api/treasury/history` return the public ledger and `balance_series`. Amounts in the database are satoshis. The public Nexa balance is those satoshis divided by 100. The hourly cron reads each hot-wallet balance from electrum and stores it, including when signing is off, so the first mint is not refused with `balance_unknown`. `POST /api/treasury/observe` does the same read on demand. A row is the time, the kind, the amount and the txid. It does not name the sender.
+`GET /api/treasury` and `GET /api/treasury/history` return the public ledger and `balance_series`. Amounts in the database are satoshis. The public Nexa balance is those satoshis divided by 100. The hourly cron reads each hot-wallet balance from electrum and stores it, including when signing is off. A mint reads that stored balance. It does not call electrum for a missing balance, and it does not call electrum until the in-memory rate limit (8 requests per 10 minutes per client, 40 per isolate) and the caps have allowed the request. The raw IP is hashed in memory and not stored. `POST /api/treasury/observe` does the same balance read on demand and requires `ADMIN_TOKEN`. A row is the time, the kind, the amount and the txid. It does not name the sender.
 
 ## Hot key
 
@@ -24,22 +24,25 @@ The public refill address is the same hot wallet. It is a var (`NEXA_HOT_ADDRESS
 
 ## Token setup
 
-Nothing in the Worker creates the Nexa group or the CashTokens category. The operator runs this once, locally:
+The hot keys exist only as Worker secrets, so the operator creates the Nexa group and the CashTokens category through the Worker. The route is `POST /api/admin/setup-tokens?chain=nexa` or `?chain=bch`. It runs only when `NC_EVENT_NFT=1` and `MINT_NETWORK=testnet`. A mainnet address or a mainnet key is refused. Each chain can succeed once: the public id and txid are stored in D1 (`token_setup`), and a second call returns `already_setup` without signing again.
+
+The request needs `Authorization: Bearer <ADMIN_TOKEN>`. The compare is constant-time. A missing token is `unauthorized` and does not open a socket.
 
 ```
-MINT_SETUP_I_AM_THE_OPERATOR=yes node scripts/setup-tokens.mjs
+printf '%s' "$ADMIN_TOKEN" | npx wrangler secret put ADMIN_TOKEN
+npx wrangler d1 migrations apply nordic-crypto-mint --remote
+curl -sS -X POST -H "Authorization: Bearer $ADMIN_TOKEN" \
+  "https://nordic-crypto-mint.nordiccrypto.workers.dev/api/admin/setup-tokens?chain=nexa"
+curl -sS -X POST -H "Authorization: Bearer $ADMIN_TOKEN" \
+  "https://nordic-crypto-mint.nordiccrypto.workers.dev/api/admin/setup-tokens?chain=bch"
+npx wrangler secret delete ADMIN_TOKEN
 ```
 
-The script reads `NEXA_HOT_KEY` and `BCH_HOT_KEY` from the environment, or asks once on a terminal with echo off. It does not write a file and it does not print the key. Default is Nexa testnet and Bitcoin Cash chipnet. `--mainnet` is required before it will touch mainnet. `--chain nexa` or `--chain bch` limits the run. `--dry-run` builds the transaction and prints the ids without broadcasting.
+The body contains the public id and the txid only. It does not contain the key or the raw transaction. Copy the ids into `wrangler.toml` as `NEXA_PARENT_GROUP` and `BCH_CATEGORY` and deploy again, so a rebuilt database is not required. Until that deploy, the mint reads the D1 row when the var is unset. The var wins when both are set.
 
-It prints only:
+Nexa needs a plain coin of at least 5,000 sats. Bitcoin Cash needs a vout-0 coin of at least 1,746 sats (800 token dust + 546 change + 400 fee). If the only coin is not at vout 0 and is at least 2,146 sats, the Worker pays the hot address first and then creates the category. An empty wallet returns `unfunded` with `have_sats`, `need_sats` and `detail` (`no_coins` or `no_vout0`).
 
-```
-NEXA_PARENT_GROUP=nexatest:...
-BCH_CATEGORY=<64 hex chars>
-```
-
-Set those as Worker vars before a signing deploy. The hot wallet needs a coin to spend: Nexa at least 5,000 sats for the group transaction, and Bitcoin Cash a vout-0 coin of at least 1,746 sats (800 token dust + 546 change + 400 fee). If the only coin is larger and not at vout 0, the script first pays the hot address so genesis has a vout-0 parent.
+`scripts/setup-tokens.mjs` remains for a machine that has the key locally. It refuses mainnet. The deployed keys are not in that script.
 
 ## Caps
 

@@ -4,7 +4,7 @@
   "type": "module",
   "description": "Testnet event-NFT mint signer. Caps, Worker-secret keys, no mainnet broadcast.",
   "scripts": {
-    "test": "node --test tests/policy.test.mjs tests/sign.test.mjs tests/balance.test.mjs tests/setup.test.mjs"
+    "test": "node --test tests/policy.test.mjs tests/sign.test.mjs tests/balance.test.mjs tests/setup.test.mjs tests/admin.test.mjs"
   },
   "dependencies": {
     "@noble/curves": "^1.9.1",

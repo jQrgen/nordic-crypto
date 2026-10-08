@@ -2,8 +2,15 @@
 # Secrets (never put the values in this file):
 #   wrangler secret put NEXA_HOT_KEY
 #   wrangler secret put BCH_HOT_KEY
+#   wrangler secret put ADMIN_TOKEN
 # Optional: wrangler secret put TURNSTILE_SECRET
 # Those secrets survive a restart and a redeploy. A new isolate loads the same values.
+# Delete ADMIN_TOKEN after the one-off token setup: wrangler secret delete ADMIN_TOKEN
+#
+# After setup, commit the printed public ids here so a rebuilt D1 is not required.
+# Until then the Worker reads token_setup. The mint still prefers these vars.
+# NEXA_PARENT_GROUP = "nexatest:..."
+# BCH_CATEGORY = "<64 hex chars>"
 name = "nordic-crypto-mint"
 main = "src/worker.js"
 compatibility_date = "2026-09-01"

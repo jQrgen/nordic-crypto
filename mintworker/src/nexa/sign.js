@@ -16,15 +16,13 @@ import {
   UnitUtils,
 } from "libnexa-ts";
 
-const NETWORKS = { testnet: Networks.testnet, mainnet: Networks.mainnet };
-
 export function nexaKey(secret, network) {
   if (network !== "testnet") {
     const err = new Error("mainnet_blocked");
     err.code = "mainnet_blocked";
     throw err;
   }
-  const key = PrivateKey.fromWIF(String(secret).trim(), NETWORKS.testnet);
+  const key = PrivateKey.fromWIF(String(secret).trim(), Networks.testnet);
   if (key.network && key.network.name !== "testnet") {
     const err = new Error("mainnet_blocked");
     err.code = "mainnet_blocked";
@@ -106,17 +104,15 @@ export function signNexaMint({
   };
 }
 
-// Create the parent group on the hot key. The group id is public. network
-// defaults to testnet; "mainnet" is accepted only when the caller passes it
-// (the setup script does that solely after --mainnet). The mint path does
-// not call this.
+// Create the parent group on the hot key. The group id is public.
+// Testnet only. The admin setup path is the caller. Mainnet is refused.
 export function signNexaGroup({ secret, utxo, network = "testnet" }) {
-  if (network !== "testnet" && network !== "mainnet") {
-    const err = new Error("bad_network");
-    err.code = "bad_network";
+  if (network !== "testnet") {
+    const err = new Error("mainnet_blocked");
+    err.code = "mainnet_blocked";
     throw err;
   }
-  const nets = network === "mainnet" ? Networks.mainnet : Networks.testnet;
+  const nets = Networks.testnet;
   const key = PrivateKey.fromWIF(String(secret).trim(), nets);
   if (network === "testnet" && key.network && key.network.name !== "testnet") {
     const err = new Error("mainnet_blocked");
@@ -124,7 +120,7 @@ export function signNexaGroup({ secret, utxo, network = "testnet" }) {
     throw err;
   }
   const hot = key.toAddress().toString();
-  const want = network === "mainnet" ? "nexa:" : "nexatest:";
+  const want = "nexatest:";
   if (!hot.startsWith(want)) {
     const err = new Error("bad_key");
     err.code = "bad_key";

@@ -1,8 +1,7 @@
 // Sign a Bitcoin Cash testnet (chipnet / bchtest) CashTokens mint.
 // Spends the minting-capability output, sends an immutable NFT plus the sat
 // airdrop to the visitor, and returns the minting capability to the hot key.
-// Mainnet (bitcoincash:) is refused by signBchMint. The setup script is the
-// only caller that may pass prefix "bitcoincash", and only after --mainnet.
+// Mainnet (bitcoincash:) is refused. Setup and mint both stay on bchtest.
 
 import {
   bytesToHex,
@@ -228,7 +227,7 @@ export async function signBchMint({
 // Create the category. The category id is the transaction id of the output 0
 // being spent (CHIP-2022-02). The new output is a minting NFT on the hot key.
 export function signBchGenesis({ secret, funding, prefix = "bchtest", feeSats = 400 }) {
-  if (prefix !== "bchtest" && prefix !== "bitcoincash") throw fail("bad_network");
+  if (prefix !== "bchtest") throw fail("mainnet_blocked");
   if (Number(funding.vout) !== 0) throw fail("genesis_needs_vout0");
   const privateKey = bchKey(secret);
   const hotLock = lockOf(privateKey);
@@ -258,7 +257,7 @@ export function signBchGenesis({ secret, funding, prefix = "bchtest", feeSats = 
 
 // Pay the hot address at output 0 so a later genesis has a vout-0 coin.
 export function signBchToSelf({ secret, funding, prefix = "bchtest", feeSats = 400 }) {
-  if (prefix !== "bchtest" && prefix !== "bitcoincash") throw fail("bad_network");
+  if (prefix !== "bchtest") throw fail("mainnet_blocked");
   const privateKey = bchKey(secret);
   const hotLock = lockOf(privateKey);
   const value = BigInt(funding.satoshis);

@@ -4,13 +4,13 @@ import { decodeTransaction, hexToBin } from "@bitauth/libauth";
 import { PrivateKey } from "libnexa-ts";
 import { freshBchKey, signBchGenesis, signBchMint } from "../src/bch/sign.js";
 import { signNexaGroup } from "../src/nexa/sign.js";
-import { assertOperatorNetwork, chainsFromArgs, networkFromArgs } from "../scripts/setup-tokens.mjs";
+import { assertOperatorNetwork, chainsFromArgs, networkFromArgs } from "../src/setup.js";
 
-test("the setup script defaults to testnet and refuses mainnet without the flag", () => {
+test("the setup script defaults to testnet and refuses mainnet", () => {
   assert.equal(networkFromArgs([]), "testnet");
   assert.equal(networkFromArgs(["--chain", "nexa"]), "testnet");
-  assert.equal(networkFromArgs(["--mainnet"]), "mainnet");
   assert.throws(() => assertOperatorNetwork([], "no"), (e) => e.code === "not_operator");
+  assert.throws(() => assertOperatorNetwork(["--mainnet"], "yes"), (e) => e.code === "mainnet_blocked");
   const net = assertOperatorNetwork(["--chain", "bch"], "yes");
   assert.equal(net, "testnet");
   assert.deepEqual(chainsFromArgs(["--chain", "nexa"]), ["nexa"]);
@@ -30,7 +30,7 @@ test("a Nexa group id is a testnet group address and the key is not in the resul
     secret: hot.toWIF(),
     utxo: { outpoint: "11".repeat(32), satoshis: 500000 },
     network: "regtest",
-  }), (e) => e.code === "bad_network");
+  }), (e) => e.code === "mainnet_blocked");
 });
 
 test("a CashTokens genesis category is the vout-0 parent txid", async () => {

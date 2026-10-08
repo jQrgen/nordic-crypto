@@ -8,6 +8,7 @@ import { BCH_ELECTRUM, NEXA_ELECTRUM, electrumRequest } from "./broadcast.js";
 import { bchAddress } from "./bch/sign.js";
 import { recordLedger, refillFromTx } from "./history.js";
 import { nexaAddressOf } from "./nexa/message.js";
+import { tokenConfig } from "./setup.js";
 
 const AUTHORITY = GroupToken.authFlags.AUTHORITY;
 
@@ -60,7 +61,8 @@ async function firstOk(urls, method, params, request) {
 }
 
 async function nexaUtxos(env, secret, request) {
-  const parent = String(env.NEXA_PARENT_GROUP || "");
+  const configured = await tokenConfig(env, "nexa");
+  const parent = configured ? configured.public_id : "";
   if (!parent) return null;
   const address = nexaAddressOf(secret);
   const tokens = await request(NEXA_ELECTRUM, "token.address.listunspent", [address, null]);
@@ -95,7 +97,8 @@ async function nexaUtxos(env, secret, request) {
 }
 
 async function bchUtxos(env, secret, request) {
-  const category = String(env.BCH_CATEGORY || "").replace(/^0x/i, "").toLowerCase();
+  const configured = await tokenConfig(env, "bch");
+  const category = String(configured ? configured.public_id : "").replace(/^0x/i, "").toLowerCase();
   if (!/^[0-9a-f]{64}$/.test(category)) return null;
   const address = await bchAddress(secret);
   const listed = await firstOk(BCH_ELECTRUM, "blockchain.address.listunspent", [address, "include_tokens"], request);

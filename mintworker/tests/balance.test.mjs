@@ -111,14 +111,21 @@ test("observe stores satoshis for the configured address and omits the key", asy
   assert.equal(await hotAddress({ NEXA_HOT_ADDRESS: "placeholder:nexa" }, "nexa"), null);
 });
 
-test("a missing balance stays unknown until electrum answers", async () => {
+test("a missing balance is refused before any utxo lookup", async () => {
   const db = memDb();
-  const quiet = await performMint({ DB: db, MINT_NETWORK: "testnet" }, {
+  let calls = 0;
+  const quiet = await performMint({ DB: db, MINT_NETWORK: "testnet", NC_EVENT_NFT: "1" }, {
     chain: "nexa", event_id: "evt", identity: "nexatest:someone",
-  }, caps, {});
+  }, caps, {
+    observeBalance: async () => { calls += 1; return 5000000; },
+    fetchUtxos: async () => { calls += 1; return {}; },
+    broadcast: async () => { calls += 1; return { ok: true }; },
+  });
   assert.equal(quiet.reason, "balance_unknown");
+  assert.equal(calls, 0);
   assert.equal(db.observed.nexa, undefined);
 
+  db.observed.nexa = 5000000;
   const hot = PrivateKey.fromRandom("testnet");
   const visitor = PrivateKey.fromRandom("testnet");
   const address = visitor.toAddress().toString();
@@ -138,7 +145,6 @@ test("a missing balance stays unknown until electrum answers", async () => {
     zip_hash: "cd".repeat(32),
   }, caps, {
     now: () => new Date("2026-10-07T12:00:00.000Z"),
-    observeBalance: async () => 5000000,
     fetchUtxos: async () => ({
       authority: { outpoint: "11".repeat(32), satoshis: 2000, groupAmount: auth },
       funds: [{ outpoint: "22".repeat(32), satoshis: 500000 }],
@@ -148,6 +154,26 @@ test("a missing balance stays unknown until electrum answers", async () => {
   assert.equal(result.broadcast, true, result.reason);
   assert.equal(db.observed.nexa, 5000000 - (100000 + result.fee));
   assert.equal(JSON.stringify(result).includes(hot.toWIF()), false);
+});
+
+test("a balance under the reserve does not open a socket", async () => {
+  const db = memDb();
+  db.observed.nexa = 10000;
+  let calls = 0;
+  const result = await performMint({
+    DB: db,
+    NC_EVENT_NFT: "1",
+    MINT_NETWORK: "testnet",
+    NEXA_HOT_KEY: "nexa-hot-key-material-not-for-logs-0123456789",
+    NEXA_PARENT_GROUP: "nexatest:tq",
+  }, {
+    chain: "nexa", event_id: "evt", identity: "nexatest:someone",
+  }, caps, {
+    fetchUtxos: async () => { calls += 1; return {}; },
+    broadcast: async () => { calls += 1; return { ok: true }; },
+  });
+  assert.equal(result.reason, "below_reserve");
+  assert.equal(calls, 0);
 });
 
 test("a Nexa history value in whole NEXA is stored as satoshis", () => {
