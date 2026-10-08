@@ -37,8 +37,8 @@
      "is": "Við viljum vingjarnlega og opna fundi þar sem rætt er um bitcoin og hlutverk þess í hagkerfi heimsins. Ef þú ert nýr í efninu er þetta staðurinn fyrir upplýstar umræður fagaðila og vanra áhugamanna. Ef þú ert slíkur geturðu farið djúpt í efnið með líkum. Athugið: þetta er aðeins bitcoin-viðburður. Við höfum ekki áhuga á NFT, altcoins eða almennum umræðum um bálkakeðju."
     }
    },
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "89ced460e4ca",
@@ -83,8 +83,8 @@
      "is": "Í kjölfar bitcoin hafa komið fram fjölmörg öpp sem breyta samtímanum og víkka fjármálageirann. Dæmi eru framtíðarmarkaðir eins og Polymarket, kryptobankinn Aave, nýjungar í tryggingum, stablecoins og ný form ríkisfjár. Í samstarfi við Bitcoinpolitisk Institutt Norge kynnir Polyteknisk Forening öppin sem bitcoin hefur leitt af sér, auk bitcoin sjálfs."
     }
    },
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "c4a53ca9bd26",
@@ -122,8 +122,8 @@
      "is": "Óformlegur fundur fyrir þá sem fást við bitcoin og þá sem eru forvitnir. Komdu og hittu fólk, skiptu á hugmyndum og ræddu allt frá bitcoin og Lightning til sjálfsforræðis, tækni eða þess sem kemur upp. Engar kynningar og engin föst dagskrá, bara opið og afslappað rými. Þú ert velkominn hvort sem þú hefur fengist við bitcoin í mörg ár eða ert rétt að byrja. Aðeins bitcoin. Ekki annað krypto."
     }
    },
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "a1ea7afabcb0",
@@ -168,8 +168,8 @@
      "is": "Nexa-bálkakeðja: skala bitcoin. Tæknisýning með óvæntu og pítsu. Á þessum fundi kynnir jQrgen, meðlimur í Bitcoin Unlimited sem vinnur að Nexa, hvað er sérstakt við Nexa-bálkakeðjuna. Bitcoin Unlimited hefur lengi unnið að hugbúnaði fyrir Bitcoin og Bitcoin Cash. Nexa er nýjasta verkefnið. Nexa er hugbúnaðargrein af Bitcoin/Bitcoin Cash í vinnslu, með eigin genesis-blokk."
     }
    },
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "a6cadcf35c22",
@@ -207,8 +207,8 @@
      "is": "Við viljum vingjarnlega og opna fundi þar sem rætt er um bitcoin og hlutverk þess í hagkerfi heimsins. Ef þú ert nýr í efninu er þetta staðurinn fyrir upplýstar umræður fagaðila og vanra áhugamanna. Ef þú ert slíkur geturðu farið djúpt í efnið með líkum. Athugið: þetta er aðeins bitcoin-viðburður. Við höfum ekki áhuga á NFT, altcoins eða almennum umræðum um bálkakeðju."
     }
    },
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "ce0c87469bd8",
@@ -246,8 +246,8 @@
      "is": "Bitcoin-fundur. Hittu við heimafólk, tengstu, kynntu verkefni og hugmyndir eða komdu bara. Efnin eru allt sem snertir bitcoin."
     }
    },
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "7adc8e1ede97",
@@ -285,8 +285,8 @@
      "is": "Kryptoskattur: Reese Legal kemur á Oslo Blockchain Meetup. Skattareglurnar um hagnað og tap af sölu rafmynta, DeFi-færslur, lán, gjafir og eignir í rafmynt. Hvernig hagnaður, tap og eignir eru reiknuð rétt, líka með mörgum færslum, og verkfæri til útreiknings og skjala. Hvernig rafmynt er færð á skattframtal. Hvað er í húfi ef það verður rangt eða ekki tilkynnt, algengustu mistökin og dæmi úr framkvæmd Skatteetaten."
     }
    },
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "e884ba1f0333",
@@ -324,8 +324,8 @@
      "is": "Við viljum vingjarnlega og opna fundi þar sem rætt er um bitcoin og hlutverk þess í hagkerfi heimsins. Ef þú ert nýr í efninu er þetta staðurinn fyrir upplýstar umræður fagaðila og vanra áhugamanna. Ef þú ert slíkur geturðu farið djúpt í efnið með líkum. Athugið: þetta er aðeins bitcoin-viðburður. Við höfum ekki áhuga á NFT, altcoins eða almennum umræðum um bálkakeðju."
     }
    },
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "19b92e24ee50",
@@ -363,8 +363,8 @@
      "is": "Bitcoin-fundur. Hittu við heimafólk, tengstu, kynntu verkefni og hugmyndir eða komdu bara. Efnin eru allt sem snertir bitcoin."
     }
    },
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "3c7c538ff512",
@@ -409,8 +409,8 @@
      "is": "Bitcoin-fundur. Hittu við heimafólk, tengstu, kynntu verkefni og hugmyndir eða komdu bara. Efnin eru allt sem snertir bitcoin."
     }
    },
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   },
   {
    "id": "105f743dcf3d",
@@ -448,8 +448,8 @@
      "is": "Bitcoin-fundur. Hittu við heimafólk, tengstu, kynntu verkefni og hugmyndir eða komdu bara. Efnin eru allt sem snertir bitcoin."
     }
    },
-   "past": false,
-   "status": "published"
+   "status": "published",
+   "past": false
   }
  ],
  "previous": [
@@ -724,6 +724,41 @@
      "da": "En dag for bitcoin-minedrift og nordiske energifagfolk, om stabilitet i nettet, genbrug af varme og overskudskraft. I samarbejde mellem BTCHEL og EBEA.",
      "fi": "Päivä bitcoin-louhinnalle ja pohjoismaisille energia-ammattilaisille, aiheina verkon vakaus, lämmön uusiokäyttö ja ylijäämäsähkö. BTCHELin ja EBEA:n yhdessä järjestämä.",
      "is": "Dagur fyrir bitcoin-námugröft og norræna orkusérfræðinga, um stöðugleika nets, endurnýtingu varma og umframorku. Í samstarfi BTCHEL og EBEA."
+    }
+   },
+   "past": true
+  },
+  {
+   "id": "71149f675741",
+   "title": "Arne Ryde Conference on Crypto, Fintech and Payments",
+   "title_orig": null,
+   "start": "2026-08-25T08:30:00+02:00",
+   "end": "2026-08-26T12:30:00+02:00",
+   "place": "Grand Hotel, Bantorget 1, Lund",
+   "city": "Lund",
+   "country": "SE",
+   "online": false,
+   "organiser": "Knut Wicksell Centre for Financial Studies, Lund University School of Economics and Management",
+   "url": "https://www.lusem.lu.se/calendar/arne-ryde-conference-crypto-fintech-and-payments",
+   "source": "Lund University School of Economics and Management (lusem.lu.se)",
+   "paid": null,
+   "sponsored": null,
+   "note": null,
+   "note_i18n": null,
+   "status": "published",
+   "description": {
+    "text": "Keynote lectures: Christine Parlour, UC Berkeley Haas, and Tobias Berg, Goethe University.",
+    "lang": "en",
+    "source_url": "https://www.lusem.lu.se/calendar/arne-ryde-conference-crypto-fintech-and-payments",
+    "source_name": "Lund University School of Economics and Management (lusem.lu.se)",
+    "retrieved": "2026-10-07T23:50:00+00:00",
+    "i18n": {
+     "nn": "Hovudføredrag: Christine Parlour, UC Berkeley Haas, og Tobias Berg, Goethe-universitetet.",
+     "nb": "Hovedforedrag: Christine Parlour, UC Berkeley Haas, og Tobias Berg, Goethe-universitetet.",
+     "sv": "Huvudföredrag: Christine Parlour, UC Berkeley Haas, och Tobias Berg, Goethe-universitetet.",
+     "da": "Hovedforedrag: Christine Parlour, UC Berkeley Haas, og Tobias Berg, Goethe-universitetet.",
+     "fi": "Pääesitelmät: Christine Parlour, UC Berkeley Haas, ja Tobias Berg, Goethen yliopisto.",
+     "is": "Aðalfyrirlestrar: Christine Parlour, UC Berkeley Haas, og Tobias Berg, Goethe-háskóli."
     }
    },
    "past": true

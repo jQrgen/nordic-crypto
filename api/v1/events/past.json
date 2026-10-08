@@ -1,8 +1,73 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T12:50:39+00:00",
+ "generated_at": "2026-10-08T18:28:50+00:00",
  "preview": false,
- "count": 0,
- "events": []
+ "count": 1,
+ "events": [
+  {
+   "id": "71149f675741",
+   "title": "Arne Ryde Conference on Crypto, Fintech and Payments",
+   "title_original": null,
+   "start": "2026-08-25T08:30:00+02:00",
+   "end": "2026-08-26T12:30:00+02:00",
+   "place": "Grand Hotel, Bantorget 1, Lund",
+   "city": "Lund",
+   "country": "SE",
+   "online": false,
+   "organiser": "Knut Wicksell Centre for Financial Studies, Lund University School of Economics and Management",
+   "url": "https://www.lusem.lu.se/calendar/arne-ryde-conference-crypto-fintech-and-payments",
+   "source": "Lund University School of Economics and Management (lusem.lu.se)",
+   "paid": null,
+   "sponsored": null,
+   "note": null,
+   "note_i18n": {},
+   "description": {
+    "text": "Keynote lectures: Christine Parlour, UC Berkeley Haas, and Tobias Berg, Goethe University.",
+    "lang": "en",
+    "source_url": "https://www.lusem.lu.se/calendar/arne-ryde-conference-crypto-fintech-and-payments",
+    "source_name": "Lund University School of Economics and Management (lusem.lu.se)",
+    "retrieved": "2026-10-07T23:50:00+00:00",
+    "i18n": {
+     "nn": "Hovudføredrag: Christine Parlour, UC Berkeley Haas, og Tobias Berg, Goethe-universitetet.",
+     "nb": "Hovedforedrag: Christine Parlour, UC Berkeley Haas, og Tobias Berg, Goethe-universitetet.",
+     "sv": "Huvudföredrag: Christine Parlour, UC Berkeley Haas, och Tobias Berg, Goethe-universitetet.",
+     "da": "Hovedforedrag: Christine Parlour, UC Berkeley Haas, og Tobias Berg, Goethe-universitetet.",
+     "fi": "Pääesitelmät: Christine Parlour, UC Berkeley Haas, ja Tobias Berg, Goethen yliopisto.",
+     "is": "Aðalfyrirlestrar: Christine Parlour, UC Berkeley Haas, og Tobias Berg, Goethe-háskóli."
+    }
+   },
+   "past": true,
+   "ongoing": false,
+   "html_url": "https://nordiccrypto.no/calendar/71149f675741/",
+   "html_urls": {
+    "en": "https://nordiccrypto.no/calendar/71149f675741/",
+    "nn": "https://nordiccrypto.no/nn/calendar/71149f675741/",
+    "nb": "https://nordiccrypto.no/nb/calendar/71149f675741/",
+    "sv": "https://nordiccrypto.no/sv/calendar/71149f675741/",
+    "da": "https://nordiccrypto.no/da/calendar/71149f675741/",
+    "fi": "https://nordiccrypto.no/fi/calendar/71149f675741/",
+    "is": "https://nordiccrypto.no/is/calendar/71149f675741/",
+    "zh": "https://nordiccrypto.no/zh/calendar/71149f675741/",
+    "hi": "https://nordiccrypto.no/hi/calendar/71149f675741/",
+    "es": "https://nordiccrypto.no/es/calendar/71149f675741/",
+    "fr": "https://nordiccrypto.no/fr/calendar/71149f675741/",
+    "ar": "https://nordiccrypto.no/ar/calendar/71149f675741/",
+    "bn": "https://nordiccrypto.no/bn/calendar/71149f675741/",
+    "pt": "https://nordiccrypto.no/pt/calendar/71149f675741/",
+    "ru": "https://nordiccrypto.no/ru/calendar/71149f675741/",
+    "ur": "https://nordiccrypto.no/ur/calendar/71149f675741/",
+    "id": "https://nordiccrypto.no/id/calendar/71149f675741/",
+    "de": "https://nordiccrypto.no/de/calendar/71149f675741/",
+    "ja": "https://nordiccrypto.no/ja/calendar/71149f675741/",
+    "sw": "https://nordiccrypto.no/sw/calendar/71149f675741/",
+    "mr": "https://nordiccrypto.no/mr/calendar/71149f675741/"
+   },
+   "api_url": "https://nordiccrypto.no/api/v1/events/71149f675741.json",
+   "place_source": {
+    "name": "Lund University School of Economics and Management (lusem.lu.se)",
+    "url": "https://www.lusem.lu.se/calendar/arne-ryde-conference-crypto-fintech-and-payments"
+   }
+  }
+ ]
 }

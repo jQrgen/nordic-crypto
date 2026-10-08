@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T12:50:39+00:00",
+ "generated_at": "2026-10-08T18:28:50+00:00",
  "preview": false,
  "item": {
   "id": "ccc2eea6b213",
@@ -36,7 +36,7 @@
    }
   },
   "past": false,
-  "ongoing": false,
+  "ongoing": true,
   "html_url": "https://nordiccrypto.no/calendar/ccc2eea6b213/",
   "html_urls": {
    "en": "https://nordiccrypto.no/calendar/ccc2eea6b213/",
