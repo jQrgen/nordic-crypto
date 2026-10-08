@@ -4,7 +4,7 @@ S = {
 "nav_about": "Tietoa meistä", "nav_tip": "Lähetä vinkki", "nav_api": "API", "main_menu": "Päävalikko", "lang_label": "Kieli", "lang_choose": "Valitse kieli",
 "site_desc_suffix": "kryptouutisia Pohjoismaista",
 "preview_banner": "<b>Paikallinen esikatselu – ei julkaistu.</b> Toimittaja ei ole vielä tarkistanut mitään, mikä on merkitty ”Odottaa toimittajan tarkistusta”, eikä tiivistelmiä ole vielä kirjoitettu. Julkiseen versioon tulee vain hyväksytty sisältö.",
-"footer": "{site} seuraa Norjaa, Ruotsia, Tanskaa, Suomea ja Islantia. Sivustoa ylläpitää Jørgen S. Notland (jQrgen), Oslo, Tehty tekoälyn avulla, ihmistoimittajina jQrgen ja Nordic Crypton toimittaja. Ei sijoitusneuvontaa. Cloudflare Web Analytics laskee käynnit kootusti, ilman evästeitä, emmekä myy näitä tietoja. Yksi eväste, vain jos valitset kielen. <a href=\"{rel}about/\">Tietoa meistä, tietosuoja, korjaukset ja poistot</a> · <a href=\"{rel}tip/\">Lähetä vinkki</a> · <a href=\"{rel}columnist/\">Hae kolumnistiksi</a> · <a href=\"{rel}media/\">Logo ja mediapaketti</a> · <a href=\"{rel}changelog/\">Muutosloki</a> · <a href=\"{rel}ethics/\">Toimituksen etiikka</a> · <a href=\"https://testflight.apple.com/join/nQ2fpjZn\" rel=\"noopener\">iOS-sovellus (TestFlight)</a> {ios_tv} · <a href=\"{rel}talks/\">Esitelmät</a> · <a href=\"{rel}markets/\">Markkinat</a> · <a href=\"{root}api/\">Data-API</a>.",
+"footer": "{site} seuraa Norjaa, Ruotsia, Tanskaa, Suomea ja Islantia. Sivustoa ylläpitää Jørgen S. Notland (jQrgen), Oslo, Tehty tekoälyn avulla, ihmistoimittajina jQrgen ja Nordic Crypton toimittaja. Ei sijoitusneuvontaa. Cloudflare Web Analytics laskee käynnit kootusti, ilman evästeitä, emmekä myy näitä tietoja. Yksi eväste, vain jos valitset kielen. <a href=\"{rel}about/\">Tietoa meistä, tietosuoja, korjaukset ja poistot</a>.",
 "moved": "Sivu on siirretty osoitteeseen",
 "time_local": "{city}, paikallista aikaa", "at_time": "{t}",
 "pending": "Odottaa toimittajan tarkistusta", "owner": "Toimittajan hyväksymä · odottaa jQrgenin lopullista hyväksyntää", "our_story": "Oma juttumme",
@@ -365,4 +365,16 @@ S.update({
 "chat_time_h": "{n} t sitten",
 "chat_time_d": "{n} pv sitten",
 "chat_noscript": "Chat tarvitsee JavaScriptin.",
+})
+
+# Layout renovation: theme switch, more stories, footer columns, front-page rail
+S.update({
+"theme_dark": "Tumma tila",
+"more_stories": "Näytä {n} uutista lisää",
+"foot_sections": "Osiot",
+"foot_site": "Tietoa sivustosta",
+"foot_follow": "Seuraa",
+"foot_api": "Data-API",
+"screen_short": "Toimiston näyttötila",
+"rail_more": "Lisää Nordic Cryptolta",
 })

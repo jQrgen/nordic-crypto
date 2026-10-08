@@ -4,7 +4,7 @@ S = {
 "nav_about": "Om os", "nav_tip": "Send et tip", "nav_api": "API", "main_menu": "Hovedmenu", "lang_label": "Sprog", "lang_choose": "Vælg sprog",
 "site_desc_suffix": "kryptonyheder fra Norden",
 "preview_banner": "<b>Lokal forhåndsvisning – ikke offentliggjort.</b> Alt, der er markeret »Afventer redaktøren«, er ikke kontrolleret af redaktøren endnu, og resuméerne er ikke skrevet. Kun godkendt indhold kommer med i den offentlige version.",
-"footer": "{site} dækker Norge, Sverige, Danmark, Finland og Island. Drives af Jørgen S. Notland (jQrgen), Oslo, Lavet med hjælp fra kunstig intelligens, med menneskelige redaktører (jQrgen og Nordic Crypto-redaktøren). Ikke investeringsrådgivning. Cloudflare Web Analytics tæller besøg samlet, uden cookies, og vi sælger ikke de data. Én cookie, kun hvis du vælger sprog. <a href=\"{rel}about/\">Om os, privatliv, rettelser og fjernelse</a> · <a href=\"{rel}tip/\">Send et tip</a> · <a href=\"{rel}columnist/\">Søg som klummeskribent</a> · <a href=\"{rel}media/\">Logo og mediepakke</a> · <a href=\"{rel}changelog/\">Ændringslog</a> · <a href=\"{rel}ethics/\">Redaktionel etik</a> · <a href=\"https://testflight.apple.com/join/nQ2fpjZn\" rel=\"noopener\">iOS-app (TestFlight)</a> {ios_tv} · <a href=\"{rel}talks/\">Foredrag</a> · <a href=\"{rel}markets/\">Markeder</a> · <a href=\"{root}api/\">Data-API</a>.",
+"footer": "{site} dækker Norge, Sverige, Danmark, Finland og Island. Drives af Jørgen S. Notland (jQrgen), Oslo, Lavet med hjælp fra kunstig intelligens, med menneskelige redaktører (jQrgen og Nordic Crypto-redaktøren). Ikke investeringsrådgivning. Cloudflare Web Analytics tæller besøg samlet, uden cookies, og vi sælger ikke de data. Én cookie, kun hvis du vælger sprog. <a href=\"{rel}about/\">Om os, privatliv, rettelser og fjernelse</a>.",
 "moved": "Siden er flyttet til",
 "time_local": "{city}, lokal tid", "at_time": "{t}",
 "pending": "Afventer redaktøren", "owner": "Godkendt af redaktøren · afventer jQrgens endelige godkendelse", "our_story": "Vores artikel",
@@ -365,4 +365,16 @@ S.update({
 "chat_time_h": "{n} t siden",
 "chat_time_d": "{n} d siden",
 "chat_noscript": "Chatten kræver JavaScript.",
+})
+
+# Layout renovation: theme switch, more stories, footer columns, front-page rail
+S.update({
+"theme_dark": "Mørk tilstand",
+"more_stories": "Vis {n} historier mere",
+"foot_sections": "Sektioner",
+"foot_site": "Om siden",
+"foot_follow": "Følg os",
+"foot_api": "Data-API",
+"screen_short": "Skærmvisning til kontoret",
+"rail_more": "Mere fra Nordic Crypto",
 })

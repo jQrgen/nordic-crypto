@@ -4,7 +4,7 @@ S = {
 "nav_about": "Um okkur", "nav_tip": "Senda ábendingu", "nav_api": "API", "main_menu": "Aðalvalmynd", "lang_label": "Tungumál", "lang_choose": "Veldu tungumál",
 "site_desc_suffix": "rafmyntafréttir frá Norðurlöndunum",
 "preview_banner": "<b>Staðbundin forskoðun – ekki birt.</b> Ritstjóri hefur ekki enn farið yfir neitt sem merkt er „Bíður yfirferðar ritstjóra“ og samantektir hafa ekki enn verið skrifaðar. Aðeins samþykkt efni fer í opinberu útgáfuna.",
-"footer": "{site} fylgist með Noregi, Svíþjóð, Danmörku, Finnlandi og Íslandi. Síðunni er haldið úti af Jørgen S. Notland (jQrgen), Ósló, Unnið með aðstoð gervigreindar, með mannlegum ritstjórum (jQrgen og ritstjóra Nordic Crypto). Ekki fjárfestingarráðgjöf. Cloudflare Web Analytics telur heimsóknir saman, án vafrakaka, og við seljum ekki þau gögn. Ein vafrakaka, aðeins ef þú velur tungumál. <a href=\"{rel}about/\">Um okkur, persónuvernd, leiðréttingar og fjarlægingar</a> · <a href=\"{rel}tip/\">Senda ábendingu</a> · <a href=\"{rel}columnist/\">Sækja um að skrifa pistil</a> · <a href=\"{rel}media/\">Merki og efnispakki</a> · <a href=\"{rel}changelog/\">Breytingaskrá</a> · <a href=\"{rel}ethics/\">Siðareglur ritstjórnar</a> · <a href=\"https://testflight.apple.com/join/nQ2fpjZn\" rel=\"noopener\">iOS-app (TestFlight)</a> {ios_tv} · <a href=\"{rel}talks/\">Erindi</a> · <a href=\"{rel}markets/\">Markaðir</a> · <a href=\"{root}api/\">Gagna-API</a>.",
+"footer": "{site} fylgist með Noregi, Svíþjóð, Danmörku, Finnlandi og Íslandi. Síðunni er haldið úti af Jørgen S. Notland (jQrgen), Ósló, Unnið með aðstoð gervigreindar, með mannlegum ritstjórum (jQrgen og ritstjóra Nordic Crypto). Ekki fjárfestingarráðgjöf. Cloudflare Web Analytics telur heimsóknir saman, án vafrakaka, og við seljum ekki þau gögn. Ein vafrakaka, aðeins ef þú velur tungumál. <a href=\"{rel}about/\">Um okkur, persónuvernd, leiðréttingar og fjarlægingar</a>.",
 "moved": "Síðan hefur verið flutt á",
 "time_local": "{city}, staðartími", "at_time": "kl. {t}",
 "pending": "Bíður yfirferðar ritstjóra", "owner": "Samþykkt af ritstjóra · bíður lokasamþykkis jQrgen", "our_story": "Okkar frétt",
@@ -365,4 +365,16 @@ S.update({
 "chat_time_h": "fyrir {n} klst.",
 "chat_time_d": "fyrir {n} d.",
 "chat_noscript": "Spjallið þarfnast JavaScript.",
+})
+
+# Layout renovation: theme switch, more stories, footer columns, front-page rail
+S.update({
+"theme_dark": "Dökk stilling",
+"more_stories": "Sýna {n} fréttir í viðbót",
+"foot_sections": "Efnisflokkar",
+"foot_site": "Um vefinn",
+"foot_follow": "Fylgstu með",
+"foot_api": "Gagna-API",
+"screen_short": "Skjáhamur fyrir skrifstofuna",
+"rail_more": "Meira frá Nordic Crypto",
 })

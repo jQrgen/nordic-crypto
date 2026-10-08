@@ -62,24 +62,37 @@ EXTRA_C_CODES = ["NORDIC", "EU", "FO", "GL", "AX"]
 # small inline SVG flags (Nordic crosses) – no emoji fonts or external images needed
 _FL = {"NO": ("#BA0C2F", "#fff", "#00205B"), "SE": ("#006AA7", "#FECC00", None), "DK": ("#C8102E", "#fff", None), "FI": ("#fff", "#002F6C", None),
        "IS": ("#02529C", "#fff", "#DC1E35")}
-def flag(c, big=False):
-    if c not in _FL:
-        return f'<span class="cc" title="{E(cname(c))}">{E("Nordic" if c == "NORDIC" else c)}</span>'
-    bg, a, b = _FL[c]; w, h = (22, 16)
+def _flag_shapes(c):
+    bg, a, b = _FL[c]
     inner = f'<rect x="7" width="2" height="16" fill="{b}"/><rect y="7" width="22" height="2" fill="{b}"/>' if b else ""
     border = ' stroke="#9ca3af" stroke-width=".6"' if bg == "#fff" else ""
+    return f'<rect width="22" height="16" fill="{bg}"{border}/><rect x="6" width="4" height="16" fill="{a}"/><rect y="6" width="22" height="4" fill="{a}"/>{inner}'
+def flag(c, big=False, inline=False):
+    """Nordic cross flag. On pages it points at a shared <symbol> (page() adds one per flag the page uses), so a long
+    list repeats a few bytes, not the drawing. inline=True draws it in place (office screen, which is not built by page())."""
+    if c not in _FL:
+        return f'<span class="cc" title="{E(cname(c))}">{E("Nordic" if c == "NORDIC" else c)}</span>'
+    w, h = (22, 16)
+    body = _flag_shapes(c) if inline else f'<use href="#fl-{c}"/>'
     return (f'<svg class="flag" viewBox="0 0 22 16" width="{w*(1.4 if big else 1):.0f}" height="{h*(1.4 if big else 1):.0f}" role="img" aria-label="{E(cname(c))}">'
-            f'<title>{E(cname(c))}</title><rect width="22" height="16" fill="{bg}"{border}/><rect x="6" width="4" height="16" fill="{a}"/><rect y="6" width="22" height="4" fill="{a}"/>{inner}</svg>')
+            f'<title>{E(cname(c))}</title>{body}</svg>')
+def flag_sprite(doc):
+    """One hidden <svg> with a <symbol> for every flag the page refers to (#fl-XX)."""
+    used = sorted(set(re.findall(r"#fl-([A-Z]{2,6})\b", doc)) & set(_FL))
+    if not used: return ""
+    return ('<svg class="sprite" aria-hidden="true" focusable="false">'
+            + "".join(f'<symbol id="fl-{c}" viewBox="0 0 22 16">{_flag_shapes(c)}</symbol>' for c in used) + '</svg>')
 SOURCE_PLACES = ["NO", "SE", "DK", "FI", "IS", "FO", "GL", "AX"]
 def cname(c): return t("c_" + c) if c and (c in COUNTRY_CODES or c in EXTRA_C_CODES or i18n.has("en", "c_" + str(c))) else (c or "")
-def flags_js(): return json.dumps({c: flag(c) for c in COUNTRY_CODES + EXTRA_C_CODES})
+def flags_js(inline=False): return json.dumps({c: flag(c, inline=inline) for c in COUNTRY_CODES + EXTRA_C_CODES})
 
-CSS = site_css.bundle()   # assets/css/*.css, in site_css.SITE order; inlined into every page
+CSS = site_css.bundle().replace("__ROOT__", site_url.PATH)   # assets/css/*.css, in site_css.SITE order; inlined into every page. Font URLs are root-relative.
 
 # api is the human-readable docs at /api/ (English only). The href is the site root, not /<lang>/api/.
-# Same list on every page and in the phone menu: News, Newsletter, Calendar, Talks, then the rest.
-# Chat is inserted by nav_items() only while enabled.
-NAV = [("", "nav_news"), ("newsletter", "nav_newsletter"), ("calendar", "nav_calendar"), ("talks", "nav_talks"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("markets", "nav_markets"), ("sources", "nav_sources"), ("about", "nav_about"), ("tip", "nav_tip"), ("api", "nav_api")]
+# The first NAV_MAIN entries are the sections in the header. The rest (newsletter = the Subscribe button, and the pages
+# about the site) are in the footer columns, and all of them are in the phone menu. Chat is inserted by nav_items() only while enabled.
+NAV = [("", "nav_news"), ("calendar", "nav_calendar"), ("markets", "nav_markets"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("talks", "nav_talks"), ("newsletter", "nav_newsletter"), ("sources", "nav_sources"), ("about", "nav_about"), ("tip", "nav_tip"), ("api", "nav_api")]
+NAV_MAIN = 6
 COOKIE_PATH = site_url.PATH   # "/" on the public domain; a path prefix if BASE ever has one
 def geo_endpoint():
     """Country lookup: GET <tipworker>/api/geo (Cloudflare request.cf.country). Only when the Worker is deployed,
@@ -161,13 +174,16 @@ def header_buttons(rel):
 # Nordic Crypto brand accounts (not jQrgen's personal profiles). Plain links only: no widgets, scripts or embeds.
 SITE_X = "https://x.com/xcryptonordic"
 SITE_TELEGRAM = "https://t.me/nordiccryptochat"
+ICON_TG = ('<svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" '
+           'd="M21.9 4.3 18.7 19.4c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13 1.4 11.5c-1-.3-1.1-1 .2-1.5L20.5 2.8c.9-.3 1.7.2 1.4 1.5z"/></svg>')
+ICON_X = ('<svg class="ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" '
+          'd="M18.2 2.3h3.4l-7.4 8.4 8.7 11.5h-6.8l-5.3-7-6.1 7H1.3l7.9-9L.8 2.3h7l4.8 6.4zm-1.2 17.9h1.9L6.9 4.2H4.9z"/></svg>')
 def header_telegram_button():
-    """'Join on Telegram' in the header, same outline style as Follow on X. The label stays visible on phones."""
-    return f'<a class="hdrtg" href="{SITE_TELEGRAM}" rel="noopener" title="{E(t("tg_title"))}">{E(t("tg_btn"))}</a>'
+    """'Join on Telegram' in the header: an icon on wide screens (the label stays for screen readers), icon and label in the phone menu."""
+    return f'<a class="hdrtg" href="{SITE_TELEGRAM}" rel="noopener" title="{E(t("tg_title"))}">{ICON_TG}<span class="lbl">{E(t("tg_btn"))}</span></a>'
 def header_x_button():
-    """'Follow on X' beside the header Telegram button. The full label stays visible; the short X is only a fallback mark."""
-    return (f'<a class="hdrx" href="{SITE_X}" rel="noopener" title="{E(t("x_title"))}">'
-            f'<span class="xf">{E(t("x_btn"))}</span><span class="xs" aria-hidden="true">X</span></a>')
+    """'Follow on X' beside the Telegram button, built the same way."""
+    return f'<a class="hdrx" href="{SITE_X}" rel="noopener" title="{E(t("x_title"))}">{ICON_X}<span class="lbl">{E(t("x_btn"))}</span></a>'
 def x_link():
     """'Follow Nordic Crypto on X' link. The brand account @xcryptonordic."""
     return f'<a class="xfollow" href="{SITE_X}" rel="noopener noreferrer" title="{E(t("x_title"))}">{E(t("x_follow"))}</a>'
@@ -343,11 +359,11 @@ def _nav_html(rel, root, current):
     """Main nav, same list on every page and in the phone menu. API docs are /api/ at the site root.
     Chat is included only while chat_endpoint() is set."""
     parts = []
-    for n, k in nav_items():
-        quiet = ' class="nav-quiet"' if n == "talks" else ""
+    for i, (n, k) in enumerate(nav_items()):
+        more = ' class="nav-more"' if i >= NAV_MAIN else ""
         href = root + "api/" if n == "api" else rel + (n + "/" if n else "")
         cur = " aria-current=page" if n == current else ""
-        parts.append(f'<a{quiet} href="{href}"{cur}>{E(t(k))}</a>')
+        parts.append(f'<a{more} href="{href}"{cur}>{E(t(k))}</a>')
     return "".join(parts)
 def push_endpoint():
     """Worker origin for browser push, or None when it is not deployed yet.
@@ -485,6 +501,28 @@ def build_chat():
     body = (f'<h1>{E(t("chat_h1"))}</h1><p class="lead">{E(t("chat_lead"))}</p>'
             + shoutbox_html("../ethics/", full=True))
     page("chat", t("chat_title"), "chat", body, t("chat_desc"))
+def site_footer(rel, root, slug=""):
+    """Brand, three link columns (the header sections, the pages about the site, where to follow), the newsletter form while
+    signup is open, notifications while the Worker is set, then the colophon (the i18n footer string)."""
+    def li(href, label, ext=False, note=""):
+        return (f'<li><a href="{E(href)}"{" rel=\"noopener\"" if ext else ""}>{E(label)}</a>'
+                + (f' <span class="meta">{E(note)}</span>' if note else "") + '</li>')
+    sections = "".join(li(root + "api/" if n == "api" else rel + (n + "/" if n else ""), t(k)) for n, k in nav_items()[:NAV_MAIN])
+    site = (li(rel + "about/", t("nav_about")) + li(rel + "sources/", t("nav_sources")) + li(rel + "ethics/", t("ethics_title"))
+            + li(rel + "changelog/", t("cl_title")) + li(rel + "media/", t("media_title")) + li(rel + "columnist/", t("col_title"))
+            + li(rel + "tip/", t("nav_tip")) + li(root + "api/", t("foot_api")))
+    follow = (li(rel + "newsletter/", t("nav_newsletter")) + li(SITE_TELEGRAM, t("tg_label"), True) + li(SITE_X, "X", True) + li(rel + "rss.xml", "RSS")
+              + li("https://testflight.apple.com/join/nQ2fpjZn", t("ios_link"), True, t("ios_tv")) + li(root + "screen/", t("screen_short")))
+    nlfoot = (f'<div class="nlfoot"><b>{E(t("nl_foot"))}</b> {newsletter_offer(rel, compact=True)}</div>'
+              if slug != "newsletter" and newsletter_form(True) else "")
+    pushfoot = push_panel(root) if push_endpoint() else ""
+    return (f'<footer><div class="wrap"><div class="foot-grid"><div class="foot-brand"><a class="brand footbrand" href="{rel}">'
+            f'<img class="brandmark" src="{root}assets/brand/shield-band.svg" width="34" height="40" alt=""><span>Nordic <span class="w">Crypto</span></span></a>'
+            f'<p>{E(t("home_h1"))}</p></div>'
+            f'<nav class="foot-col" aria-labelledby="ft-sec"><h2 id="ft-sec">{E(t("foot_sections"))}</h2><ul>{sections}</ul></nav>'
+            f'<nav class="foot-col" aria-labelledby="ft-site"><h2 id="ft-site">{E(t("foot_site"))}</h2><ul>{site}</ul></nav>'
+            f'<div class="foot-col"><h2>{E(t("foot_follow"))}</h2><ul>{follow}</ul></div></div>'
+            f'{nlfoot}{pushfoot}<p class="colophon">{t("footer", site=SITE_NAME, rel=rel, root=root, ios_tv=t("ios_tv"))}</p></div></footer>')
 def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="", hero=""):
     """Writes site/<lang>/<slug>/index.html for the current LANG (English at the root).
     hero: optional full-width band between the header and <main> (the front page title block)."""
@@ -528,12 +566,17 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
              "try{localStorage.setItem('nc_lang',c)}catch(err){}}"
              "document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[data-lang]');if(a)setLang(a.getAttribute('data-lang'))});"
              "document.addEventListener('change',function(e){var s=e.target;if(!s||!s.matches||!s.matches('select.langsel'))return;var o=s.options[s.selectedIndex];if(!o)return;setLang(o.getAttribute('data-lang'));if(o.value)location.href=o.value});"
-             "var b=document.querySelector('.navtoggle'),n=document.getElementById('sitenav');if(b&&n){b.addEventListener('click',function(){var open=n.classList.toggle('is-open');b.setAttribute('aria-expanded',open?'true':'false')});"
-             "document.addEventListener('keydown',function(e){if(e.key==='Escape'&&n.classList.contains('is-open')){n.classList.remove('is-open');b.setAttribute('aria-expanded','false');b.focus()}})}})();</script>")
-    nlfoot = (f'<div class="nlfoot"><b>{E(t("nl_foot"))}</b> {newsletter_offer(rel, compact=True)} <a href="{rel}newsletter/#signup">{E(t("nl_more"))}</a></div>' if slug != "newsletter" else "")
+             "var h=document.querySelector('header.top'),b=document.querySelector('.navtoggle'),n=document.getElementById('sitenav');if(b&&n){b.addEventListener('click',function(){var open=n.classList.toggle('is-open');h.classList.toggle('nav-open',open);b.setAttribute('aria-expanded',open?'true':'false')});"
+             "document.addEventListener('keydown',function(e){if(e.key==='Escape'&&n.classList.contains('is-open')){n.classList.remove('is-open');h.classList.remove('nav-open');b.setAttribute('aria-expanded','false');b.focus()}})}"
+             # light is the default; dark only when the reader picks it (stored as nc-theme, the key the office screen uses too)
+             "var d=document.documentElement,tb=document.querySelector('.themetoggle');if(tb){var sync=function(){tb.setAttribute('aria-pressed',d.getAttribute('data-theme')==='dark'?'true':'false')};sync();"
+             "tb.addEventListener('click',function(){var dark=d.getAttribute('data-theme')!=='dark';if(dark)d.setAttribute('data-theme','dark');else d.removeAttribute('data-theme');try{localStorage.setItem('nc-theme',dark?'dark':'light')}catch(err){}sync()})}})();</script>")
+    theme_btn = (f'<button type="button" class="themetoggle" aria-pressed="false" title="{E(t("theme_dark"))}"><span class="vh">{E(t("theme_dark"))}</span>'
+                 '<svg class="ico i-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.7 14.6A8.6 8.6 0 0 1 9.4 3.3a.6.6 0 0 0-.8-.7A9.8 9.8 0 1 0 21.4 15.4a.6.6 0 0 0-.7-.8z"/></svg>'
+                 '<svg class="ico i-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg></button>')
     doc = f"""<!doctype html>
 <html lang="{i18n.HTML_LANG[LANG]}"{" dir=\"rtl\"" if i18n.rtl(LANG) else ""}><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<script>document.documentElement.classList.add("js")</script>
+<script>(function(d){{d.classList.add("js");try{{if(localStorage.getItem("nc-theme")==="dark")d.setAttribute("data-theme","dark")}}catch(e){{}}}})(document.documentElement)</script>
 {pick}<title>{E(title)}{" – " + SITE_NAME if slug else ""}</title>
 <meta name="description" content="{E(desc)}"><link rel="canonical" href="{url}"><link rel="manifest" href="{root}manifest.json">{alt}<link rel="alternate" type="application/rss+xml" title="{E(SITE_NAME)}" href="{E(rel)}rss.xml">{head_extra}{'<meta name="robots" content="noindex">' if PREVIEW else ''}
 <meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:url" content="{url}"><meta property="og:type" content="website"><meta property="og:locale" content="{i18n.OG_LOCALE[LANG]}">{''.join(f'<meta property="og:locale:alternate" content="{i18n.OG_LOCALE[l]}">' for l in langs if l != LANG)}
@@ -542,21 +585,23 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
 <link rel="icon" href="{root}favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="{root}assets/brand/mark-180.png">
 <link rel="icon" href="{root}assets/brand/mark-64.png" sizes="64x64" type="image/png">
-<meta name="theme-color" content="#1E3A45" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#15303A" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#1E3A45">
+<link rel="preload" href="{root}assets/fonts/SchibstedGrotesk-VF-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{root}assets/fonts/CormorantGaramond-Bold-latin.woff2" as="font" type="font/woff2" crossorigin>
 <meta property="og:image" content="{BASE}assets/brand/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Nordic Crypto">
-<link rel="stylesheet" href="{root}assets/brand/nordic-crypto.css">
 <style>{CSS}{s['css']}</style></head>
-<body>{banner}<header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="{rel}"><img class="brandmark" src="{root}assets/brand/shield-band.svg" width="34" height="40" alt="Nordic Crypto"><span aria-hidden="true">Nordic <span class="w">Crypto</span></span></a><span class="hdrbtns">{header_buttons(rel)}</span></div>{nav_btn}<nav id="sitenav" class="main" aria-label="{E(t("main_menu"))}">{nav_html}</nav>{switcher}</div></header>{hero}
+<body>{banner}<header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="{rel}"><img class="brandmark" src="{root}assets/brand/shield-band.svg" width="34" height="40" alt="Nordic Crypto"><span aria-hidden="true">Nordic <span class="w">Crypto</span></span></a></div><div class="hdrtools"><span class="hdrbtns">{header_buttons(rel)}</span>{theme_btn}{switcher}{nav_btn}</div><nav id="sitenav" class="main" aria-label="{E(t("main_menu"))}">{nav_html}</nav></div></header>{hero}
 <main class="wrap">
 {body}
 {s['top']}
 </main>
-<footer><div class="wrap"><a class="brand footbrand" href="{rel}"><img class="brandmark" src="{root}assets/brand/shield-band.svg" width="34" height="40" alt=""><span>Nordic <span class="w">Crypto</span></span></a>{nlfoot}{community_links()}{push_panel(root)}{t("footer", site=SITE_NAME, rel=rel, root=root, ios_tv=t("ios_tv"))}</div></footer>
+{site_footer(rel, root, slug)}
 {s['script']}{setck}{extra_script}{newsletter_script()}{push_script()}{shout_script()}{analytics_snippet()}
 </body></html>"""
+    doc = doc.replace("<body>", "<body>" + flag_sprite(doc), 1)
     d = os.path.join(SITE, lp(), slug); os.makedirs(d, exist_ok=True)
     open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(doc)
 
@@ -848,7 +893,7 @@ def build():
     LANG = "en"
     os.makedirs(os.path.join(SITE, "screen"), exist_ok=True)
     open(os.path.join(SITE, "screen", "index.html"), "w", encoding="utf-8").write(
-        open(P("templates", "screen.html"), encoding="utf-8").read().replace("__BASE__", BASE).replace("__HOST__", site_url.HOST).replace("__FLAGS__", flags_js()).replace("__PREVIEW__", "true" if PREVIEW else "false").replace("__EV_LIMIT__", str(event_select.FRONT_LIMIT)).replace("__ANALYTICS__", analytics_snippet()))
+        open(P("templates", "screen.html"), encoding="utf-8").read().replace("__BASE__", BASE).replace("__HOST__", site_url.HOST).replace("__FLAGS__", flags_js(inline=True)).replace("__PREVIEW__", "true" if PREVIEW else "false").replace("__EV_LIMIT__", str(event_select.FRONT_LIMIT)).replace("__ANALYTICS__", analytics_snippet()))
     for old, new in (("kalender", "calendar"), ("skjerm", "screen"), ("organisasjonskart", "org-chart"), ("kilder", "sources"), ("om", "about"), ("akademia", "academia")): redirect(old, new)
     active = sorted({(s.get("outlet") and next((x["name"] for x in cfg["sources"] if x["id"] == s.get("outlet")), s["name"]) or s["name"]).split(" (")[0] + "|" + s["country"]
                      for s in cfg["sources"] if s.get("enabled") and s["type"] not in ("bing", "search") and status.get(s["id"], {}).get("ok", True)})
@@ -1605,32 +1650,38 @@ def build_lang(ctx):
     # ---- News ----
     asset = "" if LANG == "en" else "../"
     cards = [front_card(i, ctx["blurbs"], asset, lead=(n == 0)) for n, i in enumerate(items)]
-    if not cards:
-        paper = f'<p class="empty">{E(t("no_stories"))}</p>'
-    else:
-        rest = "".join(cards[1:])
-        latest = (f'<section class="latest" aria-labelledby="latest-h"><h2 id="latest-h">{E(t("latest_h"))}</h2>'
-                  f'<div class="storygrid">{rest}</div></section>') if rest else ""
-        paper = cards[0] + latest
+    # The first FRONT_SHOWN latest stories are shown; with JavaScript the rest wait behind one button (without it, all are shown).
+    lead = cards[0] if cards else f'<p class="empty">{E(t("no_stories"))}</p>'
+    rest_cards = cards[1:]
+    rest = "".join(c if n < FRONT_SHOWN else c.replace('<article class="storycard"', '<article class="storycard later"', 1) for n, c in enumerate(rest_cards))
+    more_btn = (f'<button type="button" class="morebtn" data-more>{E(t("more_stories", n=len(rest_cards) - FRONT_SHOWN))}</button>'
+                if len(rest_cards) > FRONT_SHOWN else "")
+    latest = (f'<section class="latest home-river" aria-labelledby="latest-h"><h2 id="latest-h">{E(t("latest_h"))}</h2>'
+              f'<div class="storygrid">{rest}</div>{more_btn}</section>') if rest_cards else ""
     news = ctx["news"]; upd = endate(news["updated"]) if news.get("updated") else ""
     root = "../" if LANG != "en" else ""
-    home_signup = newsletter_offer("")
+    home_signup = newsletter_offer("", compact=True)
     write_rss(items)
-    # The title block is the hero band under the header. The kicker is the five country codes, decorative (the lead names the countries).
+    # A short title band, then the news. The lead story comes first; the rail beside it (below it on phones) has the next events;
+    # the latest stories follow, then newsletter and tools. The same order on every screen, so reading and tab order match.
     hero = f"""<section class="hero" aria-labelledby="home-h1"><div class="wrap">
-<p class="hero-kicker" aria-hidden="true">NO · SE · DK · FI · IS</p>
 <h1 id="home-h1">{E(t("home_h1"))}</h1>
 <p class="lead">{E(t("home_lead", upd=upd, n=len(items), pend=t("home_pend", n=len(pending)) if pending else ""))}</p>
-<div class="hero-acts"><p class="appbar"><a class="applink" href="https://testflight.apple.com/join/nQ2fpjZn" rel="noopener">{E(t("ios_link"))}</a></p>
-<p class="meta"><a href="{root}screen/">{E(t("home_screen"))}</a> · <a href="markets/">{E(t("mk_home_link"))}</a></p></div>
-<p class="hero-note">{E(t("ios_note"))} <span class="ios-tv">{E(t("ios_tv"))}</span></p>
 </div></section>"""
-    body = f"""{front_events_block(*(ctx["events"] if isinstance(ctx.get("events"), tuple) else (ctx.get("events") or [], site_now())))}
-{paper}
-<section class="nlhome" aria-labelledby="nlhome-h"><h2 id="nlhome-h">{E(t("nl_title"))}</h2>{home_signup}{community_links()}</section>
-<p class="notice">{E(t("home_notice"))}</p>"""
+    events_block = front_events_block(*(ctx["events"] if isinstance(ctx.get("events"), tuple) else (ctx.get("events") or [], site_now())), compact=True)
+    tools = (f'<section class="railbox"><h2>{E(t("rail_more"))}</h2><ul class="raillinks">'
+             f'<li><a href="markets/">{E(t("mk_home_link"))}</a></li>'
+             f'<li><a href="{root}screen/">{E(t("screen_short"))}</a></li>'
+             f'<li><a href="https://testflight.apple.com/join/nQ2fpjZn" rel="noopener">{E(t("ios_link"))}</a> <span class="meta">{E(t("ios_note"))} {E(t("ios_tv"))}</span></li></ul></section>')
+    body = f"""<div class="home">
+<div class="home-lead">{lead}</div>
+<aside class="home-events" aria-labelledby="evsoon-h">{events_block}</aside>
+{latest}
+<aside class="home-more" aria-labelledby="nlhome-h"><section class="railbox nlhome"><h2 id="nlhome-h">{E(t("nl_title"))}</h2>{home_signup}</section>{tools}</aside>
+</div>
+<p class="notice home-note">{E(t("home_notice"))}</p>"""
     body = home_with_chat(body)
-    page("", t("home_title"), "", body, t("home_desc"), front_events_script(), hero=hero)
+    page("", t("home_title"), "", body, t("home_desc"), front_events_script() + MORE_STORIES_JS, hero=hero)
     build_coverage_pages(items, ctx["blurbs"])
     build_stories(write=True)
     build_external_stories(ctx)
@@ -1973,11 +2024,30 @@ def event_card(e, hidden=False, href_prefix=""):
             f'<h3><a href="{E(event_link(e, href_prefix))}">{E(event_title(e))}</a></h3>'
             f'<p class="meta evplace">{flag(e.get("country"))} <time datetime="{E(e.get("start") or "")}"><b>{E(event_when(e))}</b></time>{place_bit}</p>'
             + "".join(extra) + "</article>")
-def front_events_block(events, now):
-    """Hero (only while something is ongoing) and the next events that have not started."""
+def event_when_short(e):
+    """Weekday and clock time for a row whose date sits in a badge beside it. Several days: the end date too."""
+    a = dt.datetime.fromisoformat(e["start"]); b = dt.datetime.fromisoformat(e["end"]) if e.get("end") else None
+    wd = i18n.WD.get(LANG, i18n.WD["en"])[a.weekday()]
+    date_only = a.hour == 0 and a.minute == 0 and (b is None or (b.hour, b.minute) in ((0, 0), (23, 59)))
+    multi = f' – {i18n.short_dm(LANG, b)}' if b and b.date() != a.date() else ""
+    if date_only: return wd + multi
+    return f'{wd} {i18n.hm(LANG, a)}' + (f'–{i18n.hm_end(LANG, b)}' if b and b.date() == a.date() else multi)
+def event_row(e, hidden=False, href_prefix=""):
+    """Compact event for the front page: a date badge, the title, then country, weekday, time and city.
+    Same .evcard element and data attributes as event_card(), so front_events_script() can move and hide it."""
+    a = dt.datetime.fromisoformat(e["start"])
+    hid = " hidden" if hidden else ""
+    where = (e.get("city") or "").strip() or event_place_short(e)
+    return (f'<article class="evcard evrow" id="e-{E(e.get("id") or "")}"{hid} data-start="{E(e.get("start") or "")}" data-end="{E(e.get("end") or "")}" data-id="{E(e.get("id") or "")}">'
+            f'<span class="evdate"><b>{a.day}</b> <span>{E(i18n.badge_month(LANG, a))}</span></span>'
+            f'<div class="evbody"><h3><a href="{E(event_link(e, href_prefix))}">{E(event_title(e))}</a></h3>'
+            f'<p class="meta evplace">{flag(e.get("country"))} <time datetime="{E(e.get("start") or "")}">{E(event_when_short(e))}</time>{" · " + E(where) if where else ""}</p></div></article>')
+def front_events_block(events, now, compact=False):
+    """Hero (only while something is ongoing) and the next events that have not started. compact: rows for the front-page rail."""
     part = event_select.partition(events, now, event_select.FRONT_LIMIT)
-    hero_cards = "".join(event_card(e) for e in part["ongoing"])
-    cards = "".join(event_card(e) for e in part["upcoming"]) + "".join(event_card(e, hidden=True, href_prefix="") for e in part["upcoming_rest"])
+    card = event_row if compact else event_card
+    hero_cards = "".join(card(e) for e in part["ongoing"])
+    cards = "".join(card(e) for e in part["upcoming"]) + "".join(card(e, hidden=True, href_prefix="") for e in part["upcoming_rest"])
     hidden = "" if part["ongoing"] else " hidden"
     empty = "" if cards else f'<p class="empty">{E(t("no_upcoming"))}</p>'
     return f'''<section class="evhero" id="evhero"{hidden} aria-labelledby="evhero-h">
@@ -1989,6 +2059,10 @@ def front_events_block(events, now):
 <div id="evsoon-list">{cards}{empty}</div>
 <p class="meta"><a href="calendar/">{E(t("front_ev_cal"))}</a> · <a href="events/previous/">{E(t("prev_link"))}</a></p>
 </section>'''
+FRONT_SHOWN = 20
+MORE_STORIES_JS = ("<script>(function(){var b=document.querySelector('[data-more]');if(!b)return;b.addEventListener('click',function(){"
+                   "var l=[].slice.call(document.querySelectorAll('.storycard.later'));l.forEach(function(a){a.classList.remove('later')});"
+                   "b.remove();var f=l[0]&&l[0].querySelector('a');if(f)f.focus()})})();</script>")
 def front_events_script():
     """Re-apply the same window in the browser so a reload after a start shows the new list. No shuffle."""
     fixed = json.dumps(os.environ.get("NC_NOW") or None)

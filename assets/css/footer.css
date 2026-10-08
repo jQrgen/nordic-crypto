@@ -1,14 +1,24 @@
-/* Footer: newsletter line, community buttons, notifications, the site note. A North Sea band like the header, opened by the same Sea Foam rule. */
-footer{margin-top:72px;border-top:4px solid var(--band-rule);background:var(--lattice),linear-gradient(180deg,var(--band) 0%,var(--band-deep) 100%);padding:40px 0 56px;font-size:14px;line-height:1.65;color:var(--muted)}
+/* Footer: the North Sea band, opened by the Sea Foam rule. Brand, then three link columns (sections, pages about the site,
+   where to follow), the newsletter form while signup is open, notifications while the service is on, and the colophon. */
+footer{margin-top:64px;border-top:4px solid var(--band-rule);background:var(--lattice),var(--band);padding:40px 0 36px;font-size:14.5px;line-height:1.6;color:var(--muted)}
 footer,footer .wrap,.nlfoot,.nlhome{text-align:start}
 footer b{color:var(--fg)}
 footer a{color:var(--fg);text-decoration-color:color-mix(in srgb,var(--gold) 55%,transparent)}
 footer a:hover{text-decoration-color:var(--gold)}
-footer h2{font-size:24px;margin:20px 0 8px;color:var(--fg)}
-.footbrand{font-size:28px;margin:0 0 22px;color:var(--fg)}.footbrand .brandmark{width:30px;height:35px}
-.nlfoot{margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid var(--line);text-align:start}.nlfoot .nlform{display:block;max-width:40rem}
-nav.community{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:center;gap:8px 10px;margin:12px 0 16px;text-align:start;width:fit-content;max-width:100%}
-.xfollow,.tgfollow{display:inline-block;padding:7px 14px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);color:var(--fg)!important;text-decoration:none;font-weight:500;text-align:start;transition:border-color .15s,background .15s,transform .15s}.xfollow:hover,.xfollow:focus-visible,.tgfollow:hover,.tgfollow:focus-visible{border-color:var(--gold);transform:translateY(-1px)}
-.nlhome{position:relative;margin:48px 0 8px;padding:clamp(22px,3.4vw,36px) clamp(20px,3.4vw,40px);background:var(--panel);border:1px solid var(--line);border-radius:calc(var(--r) + 4px);text-align:start}
-.nlhome h2{margin:0 0 8px;font-size:clamp(26px,3vw,34px)}
-.nlhome::before{content:"";display:block;width:44px;height:4px;margin:0 0 18px;background:var(--gold);border-radius:2px}
+footer h2{font-size:22px;margin:0 0 8px;color:var(--fg)}
+.foot-grid{display:grid;grid-template-columns:minmax(0,1.3fr) repeat(3,minmax(0,1fr));gap:28px 40px}
+.footbrand{font-size:26px;color:var(--fg)}.footbrand .brandmark{width:28px;height:33px}
+.foot-brand p{margin:12px 0 0;max-width:28ch;color:var(--muted)}
+.foot-col h2{font:500 11.5px/1.2 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:6px 0 12px}
+.foot-col ul{list-style:none;margin:0;padding:0}
+.foot-col li{margin:0 0 7px}
+.foot-col a{text-decoration:none}
+.foot-col a:hover{text-decoration:underline}
+.nlfoot{margin:28px 0 0;padding-top:20px;border-top:1px solid var(--line);text-align:start}.nlfoot .nlform{display:block;max-width:40rem}
+footer .pushopt{margin:28px 0 0;padding:20px 0 0;border-top:1px solid var(--line);border-bottom:0}
+.colophon{margin:32px 0 0;padding-top:18px;border-top:1px solid var(--line);font-size:13px;max-width:110ch}
+@media(max-width:860px){.foot-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.foot-brand{grid-column:1/-1}}
+nav.community{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:center;gap:8px 10px;margin:10px 0 14px;text-align:start;width:fit-content;max-width:100%}
+.xfollow,.tgfollow{display:inline-block;padding:7px 14px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);color:var(--fg)!important;text-decoration:none;font-weight:500;text-align:start}.xfollow:hover,.xfollow:focus-visible,.tgfollow:hover,.tgfollow:focus-visible{border-color:var(--fg)}
+.issue .nlhome{margin:40px 0 8px;padding:24px 28px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r)}
+.issue .nlhome h2{margin:0 0 8px}

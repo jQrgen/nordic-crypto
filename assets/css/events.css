@@ -1,13 +1,12 @@
-/* Events: happening now, next events on the front page, event pages and the month calendar.
-   Front-page events are ticket cards with a gold edge at the inline start; stories are the white cards below them. */
+/* Events: happening now and next events (the front-page rail), event pages, previous events and the month calendar.
+   In the rail each event is a row: a date badge, the title, then country, weekday, time and city. */
 .evhero,.evsoon,.evfull,.evcard,.evmeta,.evsrc,.evplace{text-align:left}
-.evhero{position:relative;border:1px solid var(--line);border-inline-start:4px solid var(--gold);border-radius:var(--r);background:var(--surface);box-shadow:var(--shadow);padding:16px 22px;margin:32px 0 0}
+.evhero{position:relative;border:1px solid var(--line);border-inline-start:4px solid var(--gold);border-radius:var(--r-sm);background:var(--surface);padding:12px 14px;margin:0 0 22px}
 .evhero h2,.evsoon h2{text-align:left;margin:0 0 4px}
 .evhero h2{color:var(--gold-ink);margin-top:2px}
-.evhero h2::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgb(217 160 52 / .6);animation:nc-pulse 2s infinite}
-@keyframes nc-pulse{70%{box-shadow:0 0 0 8px rgb(217 160 52 / 0)}100%{box-shadow:0 0 0 0 rgb(217 160 52 / 0)}}
-.evsoon h2{margin:40px 0 18px}
-.evhero h3{font-size:30px;line-height:1.12;margin:0 0 6px;text-align:left}
+.evhero h2::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.evsoon h2{margin:0 0 6px}
+.evhero h3{font-size:24px;line-height:1.15;margin:0 0 6px;text-align:left}
 .evsoon{margin:8px 0 22px}
 .evsoon h3,.evfull h3{font-size:22px;line-height:1.18;margin:0 0 6px;text-align:left}
 .evhero h3 a,.evsoon h3 a,.evfull h3 a{text-decoration:none}
@@ -17,14 +16,17 @@
 .evcard time b{font-weight:600;color:var(--fg)}
 .evhero .evcard{border-bottom:0;padding:10px 0}
 .evhero .evcard+.evcard{border-top:1px solid var(--line)}
-#evsoon-list .evcard{position:relative;border:1px solid var(--line);border-inline-start:3px solid var(--gold);border-radius:var(--r-sm) var(--r) var(--r) var(--r-sm);background:var(--surface);padding:16px 20px 16px 18px;margin:0 0 14px;transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s}
-html[dir=rtl] #evsoon-list .evcard{border-radius:var(--r) var(--r-sm) var(--r-sm) var(--r)}
-#evsoon-list .evcard:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 .evsoon .evmeta{display:none}
 .evhero .evmeta,.evfull .evmeta{display:block}
-@media(min-width:760px){#evsoon-list{display:grid;grid-template-columns:1fr 1fr;column-gap:18px;align-items:stretch}}
-@media(min-width:1080px){#evsoon-list{grid-template-columns:1fr 1fr 1fr}}
-.evsoon>.meta{margin:4px 0 0}
+/* rail rows */
+.evrow{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;align-items:start;padding:12px 0;border-bottom:1px solid var(--line)}
+.evhero .evrow{padding:8px 0;border-bottom:0}
+.evdate{display:flex;flex-direction:column;align-items:center;padding:5px 0 6px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);line-height:1;text-align:start}
+.evdate b{font:700 20px/1 var(--f-display);font-variant-numeric:lining-nums;color:var(--fg)}
+.evdate span{font:500 10.5px/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--gold-ink);margin-top:3px}
+.evrow h3{font-size:18px;line-height:1.2;margin:0 0 3px}
+.evrow .meta{font-size:13px;line-height:1.45;margin:0}
+.evsoon>.meta{margin:10px 0 0;font-size:14px}
 .evsrc{font-size:13.5px;color:var(--muted);margin:2px 0 0}
 .evpage,.evpage h1,.evpage h2,.evpage p,.evpage li{text-align:left}
 .evpage .evdesc{display:block;text-align:left;max-width:70ch;margin:12px 0 18px;line-height:1.65}
