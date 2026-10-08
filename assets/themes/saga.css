@@ -1,0 +1,38 @@
+/* About: a Norse saga under the northern lights. Waving aurora curtains, twinkling stars, a band of runes that
+   light up one by one, and our longship with a striped sail rowing across the fjord. */
+html{background:#0B1320}
+body.th-saga{--bg:#0B1320;--surface:rgb(18 30 46 / .82);--fg:#EEE8D8;--muted:#AEB8C4;--line:#2C3D52;--line-strong:#4A6380;--soft:rgb(24 38 58 / .8);--panel:rgb(20 34 52 / .85);--foam:#2C3D52;
+  --accent:#7EE3B8;--on-accent:#0B1320;--gold:#D9A034;--gold-ink:#E9BA5A;--on-gold:#1D1C1A;--focus:#7EE3B8;--brand-w:#D9A034;
+  --band:#0E1A2B;--band-deep:#08111D;--band-ink:#EEE8D8;--band-muted:#AEB8C4;--band-line:rgb(126 227 184 / .18);--band-rule:#D9A034;
+  --warm:#E9BA5A;--warm-bg:#2A2214;--btn:#D9A034;--btn-hover:#E9BA5A;--btn-ink:#1D1C1A;
+  --shadow:0 0 0 1px #2C3D52,0 16px 30px -18px #000;--shadow-lg:0 0 0 1px #7EE3B8,0 0 30px -10px rgb(126 227 184 / .5);--lattice:none;color-scheme:dark;background:transparent}
+.th-saga main{padding-bottom:170px}
+.th-saga main h1{letter-spacing:.04em;color:#F4EEDC;text-shadow:0 0 24px rgb(126 227 184 / .45);animation:sg-rise 1.4s ease-out both}
+@keyframes sg-rise{from{opacity:0;letter-spacing:.4em;filter:blur(6px)}to{opacity:1}}
+.th-saga main h1::before{width:90px;background:linear-gradient(90deg,#D9A034,#7EE3B8)}
+.th-saga h2::before{content:"ᛟ ";color:#D9A034}
+.th-saga main p{text-shadow:0 1px 2px #000}
+.th-saga .card,.th-saga article,.th-saga table{background:var(--surface)!important;border-color:#2C3D52!important}
+.th-saga header.top{background:rgb(8 17 29 / .88);backdrop-filter:blur(4px)}
+/* decoration */
+.th-saga .sg-stars i{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;animation:sg-tw 3s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes sg-tw{50%{opacity:.15;transform:scale(.6)}}
+.th-saga .sg-aurora{position:absolute;inset:0 0 40% 0;filter:blur(38px);opacity:.75;mix-blend-mode:screen}
+.th-saga .sg-aurora i{position:absolute;top:-10%;width:60%;height:70%;border-radius:40%;background:linear-gradient(180deg,transparent,#3BF0A0 40%,#2A9CFF 70%,transparent);animation:sg-wave 14s ease-in-out infinite alternate}
+.th-saga .sg-aurora i:nth-child(1){left:-5%}
+.th-saga .sg-aurora i:nth-child(2){left:30%;background:linear-gradient(180deg,transparent,#B26BFF 35%,#3BF0A0 70%,transparent);animation-duration:18s;animation-delay:-6s}
+.th-saga .sg-aurora i:nth-child(3){left:60%;animation-duration:22s;animation-delay:-11s}
+@keyframes sg-wave{0%{transform:skewX(-20deg) translateX(-6%) scaleY(.8)}50%{transform:skewX(15deg) translateX(8%) scaleY(1.15)}100%{transform:skewX(-8deg) translateX(-2%) scaleY(.95)}}
+.th-saga .sg-runes{position:absolute;bottom:18px;z-index:2;left:0;right:0;display:flex;justify-content:center;gap:clamp(6px,1.6vw,18px);font-size:22px;color:#4A6380}
+.th-saga .sg-runes span{animation:sg-rune 6s ease-in-out infinite;animation-delay:calc(var(--i) * .22s)}
+@keyframes sg-rune{0%,70%,100%{color:#3A4E68;text-shadow:none}10%,20%{color:#7EE3B8;text-shadow:0 0 12px #7EE3B8,0 0 24px #3BF0A0}}
+.th-saga .sg-sea{position:absolute;left:0;right:0;bottom:0;height:150px}
+.th-saga .sg-water{position:absolute;left:0;right:0;bottom:0;height:60px;background:repeating-linear-gradient(90deg,rgb(126 227 184 / .15) 0 40px,transparent 40px 90px) 0 6px/200% 3px no-repeat,linear-gradient(#0F2236,#060D17);border-top:1px solid rgb(126 227 184 / .35);animation:sg-glint 6s linear infinite}
+@keyframes sg-glint{to{background-position:-180px 6px,0 0}}
+.th-saga .sg-shipwrap{position:absolute;bottom:32px;left:-240px;animation:sg-sail 55s linear infinite}
+.th-saga .sg-ship{position:relative;animation:pr-bob2 3.4s ease-in-out infinite}
+@keyframes sg-sail{to{left:105%}}
+@keyframes pr-bob2{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg) translateY(-6px)}}
+.th-saga .sg-sail{animation:sg-billow 3s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 0}
+@keyframes sg-billow{50%{transform:scaleY(1.06) skewX(-3deg)}}
+@media (max-width:760px){.th-saga .sg-runes{display:none}.th-saga .sg-ship{width:150px}}

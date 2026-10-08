@@ -1,0 +1,48 @@
+/* Data API: a crashed space station hackerspace. Drifting starfield, our own tilted station with turning rings,
+   blinking beacons and an orbiting satellite, sunk into a planet horizon; HUD corners, LED strip and mission clock. */
+html{background:#05070D}
+body.th-cbase{--bg:#05070D;--surface:rgb(14 22 40 / .86);--fg:#DCE8FF;--muted:#8EA3C8;--line:#24324F;--line-strong:#3D5584;--soft:rgb(22 34 60 / .8);--panel:rgb(18 28 50 / .85);--foam:#24324F;
+  --accent:#FF7A1A;--on-accent:#05070D;--gold:#FF7A1A;--gold-ink:#FFA458;--on-gold:#05070D;--focus:#2FD4FF;--brand-w:#FF7A1A;
+  --band:#0A0F1C;--band-deep:#060912;--band-ink:#DCE8FF;--band-muted:#8EA3C8;--band-line:rgb(47 212 255 / .2);--band-rule:#FF7A1A;
+  --warm:#FFA458;--warm-bg:#2A1A0C;--btn:#FF7A1A;--btn-hover:#FF9645;--btn-ink:#05070D;--pub:#2FD4FF;--priv:#7CF29C;--up:#7CF29C;--down:#FF6A7A;
+  --f-display:var(--f-mono);--shadow:0 0 0 1px #24324F,0 14px 30px -16px rgb(0 0 0 / .9);--shadow-lg:0 0 0 1px #FF7A1A,0 0 30px -8px rgb(255 122 26 / .5);--lattice:none;color-scheme:dark;
+  background:radial-gradient(80% 60% at 80% 10%,rgb(47 80 160 / .25),transparent 70%),radial-gradient(60% 50% at 10% 90%,rgb(255 122 26 / .10),transparent 70%),#05070D;background-attachment:fixed}
+.th-cbase h1,.th-cbase h2,.th-cbase h3{text-transform:uppercase;letter-spacing:.08em}
+.th-cbase main h1{color:#fff;text-shadow:0 0 18px rgb(47 212 255 / .55)}
+.th-cbase main h1::before{width:180px;height:3px;background:linear-gradient(90deg,#FF7A1A,#2FD4FF);box-shadow:0 0 14px #FF7A1A;animation:cb-scan 2.4s ease-in-out infinite alternate}
+@keyframes cb-scan{to{width:280px}}
+.th-cbase h2::before{content:"// ";color:#FF7A1A}
+.th-cbase pre,.th-cbase code{background:rgb(4 8 18 / .9)!important;color:#9DF0FF;border-color:#24324F}
+.th-cbase pre{position:relative;border:1px solid #24324F;border-radius:4px;padding:16px 18px;box-shadow:inset 0 0 30px rgb(47 212 255 / .06)}
+.th-cbase pre::before,.th-cbase pre::after{content:"";position:absolute;width:14px;height:14px;border:2px solid #FF7A1A}
+.th-cbase pre::before{top:-2px;left:-2px;border-right:0;border-bottom:0}.th-cbase pre::after{bottom:-2px;right:-2px;border-left:0;border-top:0}
+.th-cbase table,.th-cbase .card{background:rgb(10 16 30 / .88)!important;border-color:#24324F!important}
+.th-cbase th{color:#FF7A1A;text-transform:uppercase;letter-spacing:.06em}
+.th-cbase a{text-decoration-color:rgb(255 122 26 / .55)}.th-cbase a:hover{color:#FFA458}
+.th-cbase header.top{background:rgb(6 9 18 / .9);backdrop-filter:blur(4px)}
+/* decoration */
+.th-cbase .cb-stars{inset:0}
+.th-cbase .cb-planet{position:absolute;left:-10%;right:-10%;bottom:-62vh;height:80vh;border-radius:50%;background:radial-gradient(circle at 50% 0%,#2A3A66,#0B1226 55%);box-shadow:0 -6px 40px rgb(47 212 255 / .35),inset 0 10px 30px rgb(47 212 255 / .25)}
+.th-cbase .cb-station{right:-30px;bottom:6vh;opacity:.9;filter:drop-shadow(0 0 20px rgb(47 212 255 / .25));animation:cb-drift 16s ease-in-out infinite}
+@keyframes cb-drift{50%{transform:translate(-16px,-12px) rotate(-2deg)}}
+.th-cbase .cb-tilt{transform:rotate(-24deg)}
+.th-cbase .cb-ring1{animation:cb-spin 22s linear infinite}
+.th-cbase .cb-ring2{animation:cb-spin 40s linear infinite reverse}
+@keyframes cb-spin{to{transform:rotate(360deg)}}
+.th-cbase .cb-ring1 ellipse{animation:cb-dash 3s linear infinite}
+@keyframes cb-dash{to{stroke-dashoffset:-56}}
+.th-cbase .cb-win circle{fill:#FFD27A;animation:cb-win 4s ease-in-out infinite}
+.th-cbase .cb-win circle:nth-child(2){animation-delay:-1s}.th-cbase .cb-win circle:nth-child(3){animation-delay:-2.2s}.th-cbase .cb-win circle:nth-child(4){animation-delay:-3s}
+@keyframes cb-win{50%{fill:#7A5A2A}}
+.th-cbase .cb-led{fill:#FF3B3B;animation:cb-beacon 1.2s steps(1) infinite}
+.th-cbase .cb-led2{fill:#2FD4FF;animation-delay:-.6s}
+@keyframes cb-beacon{50%{opacity:.15}}
+.th-cbase .cb-sat{animation:cb-spin 12s linear infinite}
+.th-cbase .cb-hud{position:absolute;left:16px;bottom:14px;display:flex;align-items:center;gap:14px;font:12px var(--f-mono);color:#8EA3C8;letter-spacing:.1em}
+.th-cbase .cb-leds{display:flex;gap:4px}
+.th-cbase .cb-leds i{width:7px;height:7px;border-radius:50%;background:#7CF29C;box-shadow:0 0 6px #7CF29C;animation:cb-beacon 1.6s steps(1) infinite;animation-delay:var(--d)}
+.th-cbase .cb-leds i:nth-child(3n){background:#FF7A1A;box-shadow:0 0 6px #FF7A1A}.th-cbase .cb-leds i:nth-child(5n){background:#2FD4FF;box-shadow:0 0 6px #2FD4FF}
+.th-cbase .cb-corner{position:absolute;width:34px;height:34px;border:2px solid rgb(255 122 26 / .7)}
+.th-cbase .cb-tl{top:84px;left:10px;border-right:0;border-bottom:0}.th-cbase .cb-tr{top:84px;right:10px;border-left:0;border-bottom:0}
+.th-cbase .cb-bl{bottom:40px;left:10px;border-right:0;border-top:0}.th-cbase .cb-br{bottom:40px;right:10px;border-left:0;border-top:0}
+@media (max-width:760px){.th-cbase .cb-station{width:240px;height:240px;right:-60px;opacity:.5}.th-cbase .cb-corner{display:none}}
