@@ -79,7 +79,7 @@ header.top select option{color:var(--nc-tar);background:var(--nc-sail)}
  .js .langsw .quick{font-size:16px;padding:10px 0;text-align:start}
 }
 /* Front page: a short title band under the header, then the news. */
-.hero{background:var(--lattice),var(--band);border-bottom:4px solid var(--band-rule);text-align:start}
+.hero{position:relative;overflow:hidden;isolation:isolate;background:var(--lattice),var(--band);border-bottom:4px solid var(--band-rule);text-align:start}
 .hero .wrap{padding-top:clamp(22px,3vw,34px);padding-bottom:clamp(22px,3vw,30px)}
 .hero h1{margin:0;max-width:26ch;font-size:clamp(28px,3.4vw,42px);line-height:1.06;letter-spacing:-.015em;color:var(--fg)}
 .hero .lead{color:var(--muted);font-size:15px;line-height:1.6;max-width:78ch;margin:10px 0 0}

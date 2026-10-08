@@ -90,13 +90,14 @@ SOURCE_PLACES = ["NO", "SE", "DK", "FI", "IS", "FO", "GL", "AX"]
 def cname(c): return t("c_" + c) if c and (c in COUNTRY_CODES or c in EXTRA_C_CODES or i18n.has("en", "c_" + str(c))) else (c or "")
 def flags_js(inline=False): return json.dumps({c: flag(c, inline=inline) for c in COUNTRY_CODES + EXTRA_C_CODES})
 
+import themes
 CSS = site_css.bundle().replace("__ROOT__", site_url.PATH)   # assets/css/*.css, in site_css.SITE order; inlined into every page. Font URLs are root-relative.
 
 # api is the human-readable docs at /api/ (English only). The href is the site root, not /<lang>/api/.
 # The first NAV_MAIN entries are the sections in the header. The rest (newsletter = the Subscribe button, and the pages
 # about the site) are in the footer columns, and all of them are in the phone menu. Chat is inserted by nav_items() only while enabled.
-NAV = [("", "nav_news"), ("calendar", "nav_calendar"), ("markets", "nav_markets"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("talks", "nav_talks"), ("newsletter", "nav_newsletter"), ("sources", "nav_sources"), ("about", "nav_about"), ("tip", "nav_tip"), ("api", "nav_api")]
-NAV_MAIN = 6
+NAV = [("", "nav_news"), ("calendar", "nav_calendar"), ("markets", "nav_markets"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("books", "nav_books"), ("talks", "nav_talks"), ("newsletter", "nav_newsletter"), ("sources", "nav_sources"), ("about", "nav_about"), ("tip", "nav_tip"), ("api", "nav_api")]
+NAV_MAIN = 7
 COOKIE_PATH = site_url.PATH   # "/" on the public domain; a path prefix if BASE ever has one
 def geo_endpoint():
     """Country lookup: GET <tipworker>/api/geo (Cloudflare request.cf.country). Only when the Worker is deployed,
@@ -196,6 +197,11 @@ def x_link():
 def telegram_link():
     """'Nordic Crypto on Telegram' link. The brand chat, t.me/nordiccryptochat."""
     return f'<a class="tgfollow" href="{SITE_TELEGRAM}" rel="noopener noreferrer" title="{E(t("tg_title"))}">{E(t("tg_follow"))}</a>'
+# The repo's contributor list on GitHub. One plain footer link, no list on the site, no API call at build time.
+REPO_CONTRIBUTORS = "https://github.com/jQrgen/nordic-crypto/graphs/contributors"
+def contributors_link():
+    """Footer link to the contributors page on GitHub. The label comes from i18n ("contributors")."""
+    return f'<a href="{REPO_CONTRIBUTORS}" rel="noopener">{E(t("contributors"))}</a>'
 def community_links():
     """Left-aligned brand links for the footer, About and the newsletter. The source-code link stays separate."""
     return f'<nav class="community" aria-label="{E(t("social_aria"))}">{telegram_link()}{x_link()}</nav>'
@@ -277,7 +283,9 @@ def nl_meta(iss, with_video=True, text_lang=None):
     if text_lang and text_lang != LANG and i18n.has("en", "lang_English"): parts.append(E(t("lang_English") if text_lang == "en" else text_lang))
     return " · ".join(parts)
 def nl_body_bridge(iss, text_lang):
-    """When the issue HTML is not in the page language, explain the issue in the page language."""
+    """Explainer above an issue in another language («This issue is in English. In short: …»). Switched off on
+    8 Oct 2026: the site shows no such explainer texts. Kept so it can be turned back on."""
+    return ""
     if not text_lang or text_lang == LANG:
         return ""
     phrase = t("lang_English") if text_lang == "en" and i18n.has("en", "lang_English") else text_lang
@@ -546,7 +554,8 @@ def site_footer(rel, root, slug=""):
     sections = "".join(li(root + "api/" if n == "api" else rel + (n + "/" if n else ""), t(k)) for n, k in nav_items()[:NAV_MAIN])
     site = (li(rel + "about/", t("nav_about")) + li(rel + "sources/", t("nav_sources")) + li(rel + "ethics/", t("ethics_title"))
             + li(rel + "changelog/", t("cl_title")) + li(rel + "media/", t("media_title")) + li(rel + "columnist/", t("col_title"))
-            + li(rel + "tip/", t("nav_tip")) + li(root + "api/", t("foot_api")) + li("https://github.com/jQrgen/nordic-crypto", t("foot_source"), True))
+            + li(rel + "tip/", t("nav_tip")) + li(root + "api/", t("foot_api")) + li("https://github.com/jQrgen/nordic-crypto", t("foot_source"), True)
+            + li(REPO_CONTRIBUTORS, t("contributors"), True))
     follow = (li(rel + "newsletter/", t("nav_newsletter")) + li(SITE_TELEGRAM, t("tg_label"), True) + li(SITE_X, "X", True) + li(rel + "rss.xml", "RSS")
               + li("https://testflight.apple.com/join/nQ2fpjZn", t("ios_link"), True, t("ios_tv")) + li(root + "screen/", t("screen_short")))
     nlfoot = (f'<div class="nlfoot"><b>{E(t("nl_foot"))}</b> {newsletter_offer(rel, compact=True)}</div>'
@@ -558,7 +567,7 @@ def site_footer(rel, root, slug=""):
             f'<nav class="foot-col" aria-labelledby="ft-sec"><h2 id="ft-sec">{E(t("foot_sections"))}</h2><ul>{sections}</ul></nav>'
             f'<nav class="foot-col" aria-labelledby="ft-site"><h2 id="ft-site">{E(t("foot_site"))}</h2><ul>{site}</ul></nav>'
             f'<div class="foot-col"><h2>{E(t("foot_follow"))}</h2><ul>{follow}</ul></div></div>'
-            f'{nlfoot}{pushfoot}<p class="colophon">{t("footer", site=SITE_NAME, rel=rel, root=root, ios_tv=t("ios_tv"))}</p></div></footer>')
+            f'{nlfoot}{pushfoot}<p class="colophon">{t("footer", site=SITE_NAME, rel=rel, root=root, ios_tv=t("ios_tv"), contributors=contributors_link())}</p></div></footer>')
 def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="", hero=""):
     """Writes site/<lang>/<slug>/index.html for the current LANG (English at the root).
     hero: optional full-width band between the header and <main> (the front page title block)."""
@@ -614,6 +623,8 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
     # the share bar and the source-code line: only on pages about one thing (a story, an event, a newsletter issue);
     # the source code is linked from the footer on every page
     share_here = slug.startswith(("stories/", "newsletter/")) or (slug.startswith("calendar/") and slug != "calendar")
+    th = themes.for_nav(nav) or {}
+    th_color = f'<meta name="theme-color" content="{th.get("theme_color") or "#1E3A45"}">'
     doc = f"""<!doctype html>
 <html lang="{i18n.HTML_LANG[LANG]}"{" dir=\"rtl\"" if i18n.rtl(LANG) else ""}><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <script>(function(d){{d.classList.add("js");try{{if(localStorage.getItem("nc-theme")==="dark")d.setAttribute("data-theme","dark")}}catch(e){{}}}})(document.documentElement)</script>
@@ -625,23 +636,23 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
 <link rel="icon" href="{root}favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="{root}assets/brand/mark-180.png">
 <link rel="icon" href="{root}assets/brand/mark-64.png" sizes="64x64" type="image/png">
-<meta name="theme-color" content="#1E3A45">
+{th_color}
 <link rel="preload" href="{root}assets/fonts/SchibstedGrotesk-VF-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{root}assets/fonts/CormorantGaramond-Bold-latin.woff2" as="font" type="font/woff2" crossorigin>
 <meta property="og:image" content="{BASE}assets/brand/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Nordic Crypto">
-<style>{CSS}{s['css']}</style></head>
-<body><a class="skip" href="#main">{E(t("skip"))}</a>{banner}<header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="{rel}"><img class="brandmark" src="{root}assets/brand/shield-band.svg" width="34" height="40" alt="Nordic Crypto"><span aria-hidden="true">Nordic <span class="w">Crypto</span></span></a></div><div class="hdrtools"><span class="hdrbtns">{header_buttons(rel)}</span>{theme_btn}{switcher}{nav_btn}</div><nav id="sitenav" class="main" aria-label="{E(t("main_menu"))}">{nav_html}</nav></div></header>{hero}
+<style>{CSS}{s['css']}{th.get('css', '')}</style></head>
+<body{' class="' + th['body_class'] + '"' if th else ''}><a class="skip" href="#main">{E(t("skip"))}</a>{th.get('deco', '')}{banner}<header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="{rel}"><img class="brandmark" src="{root}assets/brand/shield-band.svg" width="34" height="40" alt="Nordic Crypto"><span aria-hidden="true">Nordic <span class="w">Crypto</span></span></a></div><div class="hdrtools"><span class="hdrbtns">{header_buttons(rel)}</span>{theme_btn}{switcher}{nav_btn}</div><nav id="sitenav" class="main" aria-label="{E(t("main_menu"))}">{nav_html}</nav></div></header>{hero}
 <main class="wrap" id="main" tabindex="-1">
 {body}
 {s['top'] if share_here else ""}
 </main>
 {site_footer(rel, root, slug)}
-{s['script'] if share_here else ''}{setck}{extra_script}{newsletter_script()}{push_script()}{shout_script()}{analytics_snippet()}
+{s['script'] if share_here else ''}{setck}{extra_script}{newsletter_script()}{push_script()}{shout_script()}{analytics_snippet()}{th.get('script', '')}
 </body></html>"""
-    doc = doc.replace("<body>", "<body>" + flag_sprite(doc), 1)
+    doc = re.sub(r"<body[^>]*>", lambda m: m.group(0) + flag_sprite(doc), doc, count=1)
     if i18n.rtl(LANG):   # back and forward arrows in strings ("← News", "… →") point the other way on right-to-left pages
         doc = doc.translate(RTL_ARROWS)
     d = os.path.join(SITE, lp(), slug); os.makedirs(d, exist_ok=True)
@@ -1028,62 +1039,61 @@ def text_page(html_body, toc=True, cls="", toc_label=None, attrs=""):
             f'{nav}<div class="tp-body">{rest}</div></div>')
 
 MEDIA_FILES = (
-    ("assets/brand/crest.svg", "Crest"),
-    ("assets/brand/crest-mono.svg", "One colour"),
-    ("assets/media/nordic-crypto-crest.png", "Crest, long side 4096 px"),
-    ("assets/logo-concepts/responsive/large-light.png", "Crest on white"),
-    ("assets/logo-concepts/responsive/large-dark.png", "Crest on #0b0d10"),
-    ("assets/logo-concepts/responsive/one-colour.png", "One colour"),
-    ("assets/brand/wordmark.svg", "Lockup, light"),
-    ("assets/brand/wordmark-dark.svg", "Lockup, dark"),
-    ("assets/media/wordmark-light.png", "Lockup, light"),
-    ("assets/media/wordmark-dark.png", "Lockup, dark"),
-    ("assets/media/og-image.png", "Social image, 1200×630"),
-    ("assets/logo-concepts/responsive/medium.svg", "Medium crest"),
-    ("assets/logo-concepts/responsive/medium-512-light.png", "Medium, 512 px, light"),
-    ("assets/logo-concepts/responsive/medium-512-dark.png", "Medium, 512 px, dark"),
-    ("assets/logo-concepts/responsive/medium-128-light.png", "Medium, 128 px, light"),
-    ("assets/logo-concepts/responsive/medium-128-dark.png", "Medium, 128 px, dark"),
-    ("assets/brand/icon.svg", "Small favicon, simplified charge"),
-    ("favicon.ico", "Favicon, 16 and 32"),
-    ("assets/brand/icon-16.png", "Small, 16 px"),
-    ("assets/brand/icon-32.png", "Small, 32 px"),
-    ("assets/logo-concepts/responsive/small-64-light.png", "Small, 64 px, light"),
-    ("assets/logo-concepts/responsive/small-64-dark.png", "Small, 64 px, dark"),
-    ("assets/brand/apple-touch-icon.png", "Apple touch icon, 180 px"),
-    ("assets/brand/icon-192.png", "App icon, 192 px"),
-    ("assets/brand/icon-512.png", "App icon, 512 px"),
-    ("assets/brand/nordic-crypto.css", "Stylesheet and colour tokens"),
-    ("assets/logo-concepts/responsive/preview-sheet.png", "Preview sheet"),
+    ("assets/brand/shield.svg", "Shield, light grounds, SVG"),
+    ("assets/brand/shield-band.svg", "Shield, dark grounds, SVG"),
+    ("assets/brand/shield-mono.svg", "Shield, one colour, SVG"),
+    ("assets/media/shield-4096.png", "Shield, PNG, 4096 px tall"),
+    ("assets/media/shield-mono-2048.png", "Shield, one colour, PNG, 2048 px tall"),
+    ("assets/brand/lockup.svg", "Lockup, light grounds, SVG"),
+    ("assets/brand/lockup-band.svg", "Lockup, dark grounds, SVG"),
+    ("assets/media/lockup-light.png", "Lockup, light, PNG, 2400 px wide"),
+    ("assets/media/lockup-dark.png", "Lockup on North Sea, PNG, 2400 px wide"),
+    ("favicon.svg", "Favicon tile, SVG"),
+    ("favicon.ico", "Favicon, 16 and 32 px"),
+    ("assets/brand/mark-32.png", "Icon, 32 px"),
+    ("assets/brand/mark-64.png", "Icon, 64 px"),
+    ("assets/brand/mark-180.png", "Apple touch icon, 180 px"),
+    ("assets/brand/mark-192.png", "App icon, 192 px"),
+    ("assets/brand/mark-512.png", "App icon, 512 px"),
+    ("assets/fonts/CormorantGaramond-Bold-latin.woff2", "Cormorant Garamond Bold (SIL Open Font License)"),
+)
+MEDIA_COLOURS = (   # Langskip palette, the same values as assets/css/tokens.css
+    ("#1E3A45", "North Sea", "--band"), ("#D9A034", "Shield Gold", "--gold"), ("#F0F1EC", "Sailcloth", "--bg"),
+    ("#1D1C1A", "Pine Tar", "--fg"), ("#BFD3D3", "Sea Foam", "--foam"), ("#8A5A0C", "Dark gold (text)", "--gold-ink"),
 )
 def build_media():
-    """Public logo kit. Nordic languages have their own strings; every other language uses English.
-    Samples side by side, the tinctures as a grid, the files as a two-column list with the format."""
+    """Public logo kit around the key shield from the front page (tools/make_mark.py, tools/make_brand.py).
+    Nordic languages have their own strings; every other language uses English. File labels stay English."""
     root = up1()
-    files = "".join(
-        f'<li><a href="{root}{E(path)}">{E(label)}</a> <span class="fmt">{E(path.rsplit(".", 1)[-1].upper())}</span></li>' for path, label in MEDIA_FILES)
-    brand = (f'<div class="brandrow"><span class="brand"><img class="brandmark" src="{root}assets/brand/icon.svg" width="32" height="32" alt="">'
-             f'<span aria-hidden="true">Nordic <span class="w">Crypto</span></span></span></div>')
-    sw = (("or", "gold", "--nc-or", "#F4C430"), ("gules", "red", "--nc-gules", "#A0202A"), ("sable", "text, raven", "--nc-sable", "#141210"),
-          ("argent", "page, motto scroll", "--nc-argent", "#F7F6F2"), ("cendrée", "lines", "--nc-cendree", "#A7B0BA"))
-    swatches = "".join(f'<li><i style="background:var({v})"></i><span><b>{n}</b> · {u}<br><code>{v}</code> {h}</span></li>' for n, u, v, h in sw)
-    body = site_css.style("brand") + f"""<h1>{E(t("media_h1"))}</h1>
+    files = "".join(f'<li><a href="{root}{E(path)}">{E(label)}</a></li>' for path, label in MEDIA_FILES)
+    sw = "".join(f'<li><i style="background:{hx}"></i><span><b>{E(name)}</b> · <code>{hx}</code> · <code>{tok}</code></span></li>'
+                 for hx, name, tok in MEDIA_COLOURS)
+    body = f"""<h1>{E(t("media_h1"))}</h1>
 <p class="lead">{E(t("media_lead"))}</p>
-<div class="mk-samples">
-<figure class="hdr-sample">{brand}<p class="motto-sample">NORDIC CRYPTO</p><figcaption>{E(t("media_hdr_cap"))}</figcaption></figure>
-<figure class="hdr-sample dark">{brand}<figcaption>{E(t("media_hdr_dark_cap"))}</figcaption></figure>
+<div class="mk-row">
+<figure class="mk-tile mk-light"><img src="{root}assets/brand/shield.svg" width="120" height="141" alt="Nordic Crypto"></figure>
+<figure class="mk-tile mk-band"><img src="{root}assets/brand/shield-band.svg" width="120" height="141" alt=""></figure>
+<figure class="mk-tile mk-light"><img src="{root}assets/brand/shield-mono.svg" width="120" height="141" alt=""></figure>
+<figure class="mk-tile mk-light mk-fav"><img src="{root}favicon.svg" width="64" height="64" alt=""><img src="{root}favicon.svg" width="32" height="32" alt=""><img src="{root}favicon.svg" width="16" height="16" alt=""></figure>
 </div>
-<div class="mk-lockups">
-<img class="lockup" src="{root}assets/media/wordmark-light.png" alt="Nordic Crypto" width="603" height="280" loading="lazy" decoding="async">
-<img class="lockup" src="{root}assets/media/wordmark-dark.png" alt="" width="603" height="280" loading="lazy" decoding="async">
-</div>
-<h2 id="tinctures">{E(t("media_colours_h"))}</h2>
-<ul class="swatches">{swatches}</ul>
-<p class="mk-note">{E(t("media_colours_note"))}</p>
-<h2 id="use">{E(t("media_use_h"))}</h2>
-<p class="mk-note">{E(t("media_use"))}</p>
-<h2 id="files">{E(t("media_files_h"))}</h2>
-<ul class="filelist">{files}</ul>"""
+<figure class="mk-lockup mk-light"><img src="{root}assets/brand/lockup.svg" alt="Nordic Crypto" width="560"><figcaption>{E(t("media_hdr_cap"))}</figcaption></figure>
+<figure class="mk-lockup mk-band"><img src="{root}assets/brand/lockup-band.svg" alt="" width="560"><figcaption>{E(t("media_hdr_dark_cap"))}</figcaption></figure>
+<h2>{E(t("media_colours_h"))}</h2>
+<ul class="swatches">{sw}</ul>
+<p>{E(t("media_colours_note"))}</p>
+<h2>{E(t("media_use_h"))}</h2>
+<p class="prose">{E(t("media_use"))}</p>
+<h2>{E(t("media_files_h"))}</h2>
+<ul class="filelist">{files}</ul>
+<style>.mk-row{{display:flex;flex-wrap:wrap;gap:14px;margin:18px 0 22px}}
+.mk-tile{{margin:0;width:180px;height:180px;display:flex;align-items:center;justify-content:center;gap:14px;border-radius:var(--r);border:1px solid var(--line)}}
+.mk-tile img{{display:block;height:auto;max-height:78%;width:auto}}.mk-light{{background:#FFFFFF}}.mk-band{{background:#1E3A45;border-color:#1E3A45}}
+.mk-fav{{align-items:flex-end;padding-bottom:58px}}
+.mk-lockup{{margin:0 0 16px;padding:26px 28px 16px;border-radius:var(--r);border:1px solid var(--line);max-width:680px}}
+.mk-lockup img{{display:block;width:100%;max-width:560px;height:auto}}
+.mk-lockup figcaption{{margin-top:14px;font-size:14px;color:#55605F}}.mk-band figcaption{{color:#BFD3D3}}
+.swatches i{{border-radius:6px;border-color:var(--line-strong)}}
+@media (max-width:420px){{.mk-tile{{width:calc(50% - 7px);height:150px}}}}</style>"""
     page("media", t("media_title"), "media", body, t("media_desc"))
 
 def build_about():
@@ -1705,9 +1715,9 @@ def front_card(i, blurbs, asset, lead=False):
     else:
         txt, tl = card_text(i, LANG, blurbs)
         if foreign and tl == LANG and (txt or "").strip():
+            # No «This story is in Swedish. In short:» line (removed 8 Oct 2026); the original-title line names the language.
             lang = ""
-            summ = (f'<p class="bridge">{E(t("bridge", where=t("lang_" + lname)))}</p>'
-                    f'<p class="sum"{lang_attr(tl)}>{E(txt)}</p>')
+            summ = f'<p class="sum"{lang_attr(tl)}>{E(txt)}</p>'
         else:
             lang = f' · {E(t("lang_" + lname))}' if foreign else ""
             summ = f'<p class="sum"{lang_attr(tl)}>{E(txt)}</p>'
@@ -1781,6 +1791,7 @@ def build_lang(ctx):
     build_event_pages(*(_ev if isinstance(_ev, tuple) else (_ev or [], site_now())))
     build_talks()
     build_academia()
+    build_books()
     build_changelog()
     build_tip()
     build_columnist()
@@ -2845,6 +2856,54 @@ none.querySelector('[data-clear]').addEventListener('click',function(){cc.forEac
     page("academia", t("ac_title"), "academia", body, t("ac_desc"), js)
     if LANG == "en": print(f"academia: {allrows} editor-approved rows shown {per_c}")
 
+def _book_lang_label(code):
+    """Language of a book. Norwegian shows the written standard too: Norwegian (Nynorsk) / Norwegian (Bokmål)."""
+    if code in ("nn", "nb"):
+        return f'{_talk_lang_label(code)} ({i18n.NATIVE[code]})'
+    return _talk_lang_label(code)
+
+def build_books():
+    """ /books/ : published books on bitcoin, crypto and blockchain by Nordic authors or about the Nordics (data/books.json, tools/books.py).
+    Compact list, left-aligned, no cover images. The title links to the catalogue or publisher page where the row was checked."""
+    sys.path.insert(0, P("tools"))
+    import books as books_mod
+    rows = books_mod.rows()
+    if LANG == "en":
+        for msg in books_mod.problems():
+            print("books: " + msg)
+    en = lang_attr("en")
+    def dom(u): return re.sub(r"^https?://(www[0-9]?\.)?", "", u).split("/")[0]
+    def item(r):
+        tl = r["language"] if r["language"] in i18n.ALL_LANGS else None
+        la = f' lang="{tl}"' if tl and tl != LANG else ""
+        sub = f'<span class="booksub"{la}>: {E(r["subtitle"])}</span>' if r.get("subtitle") else ""
+        who = ", ".join(E(a) for a in r["authors"]) + (f' {E(t("books_eds"))}' if r.get("author_role") == "editors" else "")
+        bits = [flag(r["country"]), f'<b>{who}</b>', E(str(r["year"])), E(r["publisher"]), E(_book_lang_label(r["language"]))]
+        if r.get("isbn"):
+            bits.append(f'ISBN {E(r["isbn"])}')
+        more = "".join(f' · <a href="{E(u)}" rel="noopener" target="_blank">{E(dom(u))}</a>' for u in r["more_sources"])
+        return (f'<li id="{E(r["id"])}" data-c="{E(r["country"])}"><div class="storybody"><h3><a href="{E(r["source"])}" rel="noopener" target="_blank"{la}>{E(r["title"])}</a>{sub}</h3>'
+                f'<div class="meta">{" · ".join(bits)}</div>'
+                f'<p class="sum"{en}>{E(r["about"])}</p>'
+                f'<div class="meta">{E(t("books_source"))}: <a href="{E(r["source"])}" rel="noopener" target="_blank">{E(r["source_name"])}</a>{more}</div></div></li>')
+    present = [c for c in books_mod.COUNTRY_ORDER if any(r["country"] == c for r in rows)]
+    per_c = {c: sum(r["country"] == c for r in rows) for c in present}
+    chips = "".join(f'<button type="button" class="chip cchip" data-c="{c}" aria-pressed="false">{flag(c)}{E(cname(c))}</button>' for c in present)
+    listing = ('<ol class="news books" id="book-list">' + "".join(item(r) for r in rows) + '</ol>') if rows else f'<p class="empty">{E(t("books_empty"))}</p>'
+    body = f"""<h1>{E(t("books_h1"))}</h1>
+<p class="lead">{E(t("books_lead"))}</p>
+<p class="meta">{E(t("books_note"))}</p>
+<div class="filters" role="group" aria-label="{E(t("countries_aria"))}"><span class="lbl">{E(t("country"))}</span><div class="chips">{chips}</div><span id="bcount" class="meta" aria-live="polite"></span></div>
+<p class="meta">{" · ".join(f"{flag(c)} {E(cname(c))}: {per_c[c]}" for c in present)}</p>
+{listing}
+<p class="notice">{t("books_notice")}</p>"""
+    js = """<script>(function(){var NR=%s,cc=[].slice.call(document.querySelectorAll('.cchip')),n=[].slice.call(document.querySelectorAll('#book-list li[data-c]')),cnt=document.getElementById('bcount');
+function apply(){var c=cc.filter(function(x){return x.getAttribute('aria-pressed')==='true'}).map(function(x){return x.dataset.c}),k=0;n.forEach(function(el){var ok=!c.length||c.indexOf(el.dataset.c)>=0;el.hidden=!ok;if(ok)k++});cnt.textContent=NR.replace('{n}',k);if(c.length)history.replaceState(null,'','#country='+c.join(','));else if(location.hash.indexOf('#country=')===0)history.replaceState(null,'',location.pathname)}
+var h=new URLSearchParams(location.hash.slice(1));(h.get('country')||'').split(',').forEach(function(x){cc.forEach(function(b){if(b.dataset.c===x)b.setAttribute('aria-pressed','true')})});
+cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');apply()})});apply()})();</script>""" % json.dumps(t("books_n", n="{n}"))
+    page("books", t("books_title"), "books", body, t("books_desc"), js)
+    if LANG == "en": print(f"books: {len(rows)} {per_c}")
+
 TIP_FORM = "https://github.com/jQrgen/nordic-crypto/issues/new?template=tip.yml"
 COL_FORM = "https://github.com/jQrgen/nordic-crypto/issues/new?template=columnist.yml"
 def tip_endpoint():
@@ -2919,31 +2978,19 @@ f.addEventListener('submit',function(ev){ev.preventDefault();if(!f.reportValidit
     page("tip", t("tip_title"), "tip", text_page(body, toc=False, cls="formpage"), t("tip_desc"), js)
 
 def build_tip():
-    """'Send a tip' page. Static: a plain HTML form (GET, no JavaScript, no tracking) that opens the prefilled GitHub issue form
-    (.github/ISSUE_TEMPLATE/tip.yml, label 'tip'). There is no public e-mail address, so GitHub is the only channel.
+    """'Send a tip' page. Without the private tip intake it shows a notice that private tips are coming; the public GitHub
+    issue form (.github/ISSUE_TEMPLATE/tip.yml) is no longer offered on the page.
     routines/nightly-fetch.sh -> tools/reader_tips.py puts open tips in the editor queue as pending; nothing is auto-published.
 
     TODO (jQrgen): disable this public GitHub issue form and the GitHub fallback in build_tip_server. Tips should go
     only to the private Cloudflare intake (tipworker/). Do not switch the page until that intake is the live path."""
     if LANG == "en": write_tip_endpoint_file()
     if tip_endpoint() or tip_page_uses_server(): return build_tip_server(tip_endpoint())  # GitHub issue form only as fallback link
-    # the option values stay English: they fill in the GitHub issue form (tip.yml), which tools/reader_tips.py parses
-    opts = f'<option value="Not sure">{E(t("tip_unsure"))}</option>' + "".join(f'<option value="{E(t_en)} ({c})">{E(t("c_" + c))}</option>' for c, t_en in ((c, i18n.t("en", "c_" + c)) for c in COUNTRY_CODES))
+    # The public GitHub issue form is switched off (8 Oct 2026): tips there were public. Until the private intake
+    # (tipworker/) is the live path, the page only says that private tips are on the way.
     body = f"""<h1>{E(t("tip_title"))}</h1>
-<p class="lead">{E(t("tip_lead"))}</p>
-<div class="prose">
-<p>{t("tip_gh_p")}</p>
-<p class="notice warn">{t("tip_gh_priv")}</p>
-<form class="tipform form" method="get" action="https://github.com/jQrgen/nordic-crypto/issues/new">
-<input type="hidden" name="template" value="tip.yml">
-{form_field("t-url", t("tip_url"), t("tip_required"), '<input id="t-url" name="url" type="url" required placeholder="https://">')}
-{form_field("t-country", t("tip_country"), "", f'<select id="t-country" name="country">{opts}</select>')}
-{form_field("t-note", t("tip_note"), t("tip_note_opt_gh"), '<textarea id="t-note" name="note" rows="4"></textarea>')}
-<div class="form-actions"><button type="submit">{E(t("tip_gh_btn"))}</button><p class="meta">{E(t("tip_gh_meta"))}</p></div>
-</form>
-<p class="meta">{t("tip_gh_direct", gh=TIP_FORM)}</p>
-</div>"""
-    page("tip", t("tip_title"), "tip", text_page(body, toc=False, cls="formpage"), t("tip_desc"))
+<p class="notice">{t("tip_private_soon")}</p>"""
+    page("tip", t("tip_title"), "tip", text_page(body, toc=False), t("tip_desc"))
 
 def build_columnist():
     """'Apply as a columnist' page. Same privacy pattern as the static tip page: a plain HTML form (GET, no JavaScript,

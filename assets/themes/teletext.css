@@ -1,0 +1,38 @@
+/* Sources: Nordic tekst-TV. Black screen, the eight teletext colours, a page header with a live clock and a
+   cycling sub-page, blinking mosaic blocks, coloured fastext keys and a CRT scan line. */
+html{background:#000}
+body.th-teletext{--bg:#000;--surface:#000;--fg:#FFFFFF;--muted:#00FFFF;--line:#0000FF;--line-strong:#00FFFF;--soft:#000080;--panel:#000080;--foam:#0000FF;
+  --accent:#FFFF00;--on-accent:#000;--gold:#FFFF00;--gold-ink:#FFFF00;--on-gold:#000;--focus:#FF00FF;--brand-w:#FFFF00;
+  --band:#0000FF;--band-deep:#000080;--band-ink:#FFFFFF;--band-muted:#FFFF00;--band-line:rgb(255 255 255 / .3);--band-rule:#FFFF00;
+  --btn:#FFFF00;--btn-hover:#00FFFF;--btn-ink:#000;--up:#00FF00;--down:#FF0000;--pub:#00FFFF;--priv:#00FF00;--warm:#FFFF00;--warm-bg:#000080;
+  --f-display:var(--f-mono);--f-ui:var(--f-mono);--r:0;--r-sm:0;--r-xs:0;--shadow:none;--shadow-lg:0 0 0 2px #FFFF00;--lattice:none;color-scheme:dark;background:#000;padding-top:34px}
+.th-teletext h1,.th-teletext h2,.th-teletext h3{text-transform:uppercase;letter-spacing:.06em}
+.th-teletext main h1{display:inline-block;background:#0000FF;color:#FFFF00;padding:4px 14px;font-size:clamp(28px,4vw,44px);transform-origin:top;animation:tt-tall 1s steps(4) both}
+@keyframes tt-tall{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+.th-teletext main h1::before{display:none}
+.th-teletext h2{color:#00FF00}.th-teletext h3{color:#00FFFF}
+.th-teletext a{color:#FFFF00;text-decoration-color:#FFFF00}.th-teletext a:hover{background:#FFFF00;color:#000}
+.th-teletext .card,.th-teletext article,.th-teletext table,.th-teletext li{border-color:#0000FF!important;background:transparent}
+.th-teletext table tr:nth-child(4n+1) td{color:#00FFFF}.th-teletext table tr:nth-child(4n+2) td{color:#FFFFFF}.th-teletext table tr:nth-child(4n+3) td{color:#00FF00}.th-teletext table tr:nth-child(4n) td{color:#FF00FF}
+.th-teletext th{background:#FF0000;color:#FFF}
+.th-teletext img{image-rendering:pixelated;filter:contrast(1.4) saturate(1.6)}
+.th-teletext header.top{border-bottom:4px solid #FFFF00}
+.th-teletext footer{background:#0000FF}
+/* decoration */
+.th-teletext .tt-head{position:absolute;top:0;left:0;right:0;height:30px;display:flex;align-items:center;gap:22px;padding:0 14px;background:#000;font:700 16px var(--f-mono);letter-spacing:.12em;color:#fff;z-index:2}
+.th-teletext .tt-pg{color:#00FF00}.th-teletext .tt-name{color:#FFFF00;background:#0000FF;padding:0 10px;animation:tt-blink 2s steps(1) infinite}
+.th-teletext .tt-sub{color:#00FFFF}.th-teletext .tt-clock{margin-left:auto;color:#FFFF00}
+@keyframes tt-blink{50%{color:#00FFFF}}
+.th-teletext .tt-bars{position:absolute;left:0;right:0;bottom:44px;display:flex;height:16px}
+.th-teletext .tt-bars i{flex:1;background:var(--c);animation:tt-flash 2.4s steps(1) infinite;animation-delay:var(--d)}
+@keyframes tt-flash{50%{opacity:0}}
+.th-teletext .tt-mosaic{position:absolute;right:20px;bottom:76px;width:144px;height:96px;background:
+  linear-gradient(#FF0000 0 0) 0 0/24px 24px no-repeat,linear-gradient(#FFFF00 0 0) 24px 24px/24px 24px no-repeat,linear-gradient(#00FF00 0 0) 48px 48px/24px 24px no-repeat,
+  linear-gradient(#00FFFF 0 0) 72px 24px/24px 24px no-repeat,linear-gradient(#FF00FF 0 0) 96px 0/24px 24px no-repeat,linear-gradient(#0000FF 0 0) 120px 48px/24px 48px no-repeat,linear-gradient(#FFF 0 0) 24px 72px/72px 24px no-repeat;
+  animation:tt-mos 3s steps(1) infinite;opacity:.8}
+@keyframes tt-mos{33%{filter:hue-rotate(120deg)}66%{filter:hue-rotate(240deg)}}
+.th-teletext .tt-scan{position:absolute;left:0;right:0;height:3px;background:rgb(255 255 255 / .12);animation:tt-scan 4s linear infinite}
+@keyframes tt-scan{from{top:0}to{top:100%}}
+.th-teletext .tt-keys{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;gap:42px;font-size:22px}
+.th-teletext .tt-keys b{color:var(--c);animation:tt-flash 3s steps(1) infinite}.th-teletext .tt-keys b:nth-child(2){animation-delay:-.7s}.th-teletext .tt-keys b:nth-child(3){animation-delay:-1.5s}.th-teletext .tt-keys b:nth-child(4){animation-delay:-2.2s}
+@media (max-width:760px){.th-teletext .tt-mosaic{display:none}.th-teletext .tt-head{gap:10px;font-size:12px}}

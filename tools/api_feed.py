@@ -3,7 +3,7 @@
 
 Versioned files live under api/v1/. No server, no auth. Only data the public site
 already shows: approved news and own stories, published newsletter issues, the
-events calendar (upcoming and past), sources, academia, the who's who, profiles,
+events calendar (upcoming and past), sources, academia, books, the who's who, profiles,
 licensed images, the rules map, the changelog and the article archive.
 
 Not published: editor queue, pending drafts (except a preview build), rejected
@@ -40,6 +40,7 @@ import event_block  # noqa: E402
 import event_backfill  # noqa: E402
 import event_description  # noqa: E402
 import event_select  # noqa: E402
+import books as books_mod  # noqa: E402
 
 API = "1"
 SITE_NAME = "Nordic Crypto"
@@ -1032,6 +1033,7 @@ def _meta(feed):
         ("rules/", "How EU crypto rules become law in the five countries"),
         ("regulation-videos/", "Country explainer videos: how crypto rules are decided in each Nordic country"),
         ("academia/", "Courses, student groups, publications and research"),
+        ("books/", "Published books on bitcoin, crypto and blockchain by Nordic authors or about the Nordics"),
         ("sources/", "News and event sources"),
         ("newsletter/", "Newsletter issues"),
         ("about/", "About, privacy, corrections and removal"),
@@ -1378,6 +1380,17 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
     feed.add_endpoint("academia-item", "api/v1/academia/{id}.json", "One academia row. The id is in academia.json.", "AcademiaItem",
                       example=f"api/v1/academia/{next(iter(ac_ids))}.json" if ac_ids else None)
 
+    book_rows = []
+    for row in books_mod.rows():
+        row = dict(row, language_name=i18n.ENGLISH.get(row["language"], row["language"]), html_url=feed.abs("books/#" + row["id"]))
+        book_rows.append(row)
+    collection("api/v1/books.json",
+               "Published books on bitcoin, crypto and blockchain by Nordic authors or about the Nordic countries. "
+               "title is the original title. authors are as printed; author_role is \"editors\" for an edited volume. "
+               "language is a code (nn, nb, sv, da, fi, en). source is the library catalogue or publisher page where the row was checked. "
+               "about is our one-line description in English. No cover images.",
+               "BookList", feed.env(updated=books_mod.updated(), count=len(book_rows), books=book_rows))
+
     collection("api/v1/orgchart.json", "Published who's who: organisations, people, relations, regulation notes and caveats. A person named on a talk has talk_ids, event_ids and talks. affiliations lists the organisation the talk page stated for that talk, with the talk date when the page gave one, the source URL and the retrieval time. An affiliation the page did not state is omitted.", "OrgChart",
                feed.env(updated=org_updated, count=len(ents), entities=ents, relations=rels, regulation=regulation, caveats=caveats),
                example=f"api/v1/orgchart/{ents[0]['id']}.json" if ents else None,
@@ -1479,6 +1492,7 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
             "talks": len(talks),
             "sources": len(outlets),
             "academia": ac_counts,
+            "books": len(book_rows),
             "org_entities": len(ents),
             "org_relations": len(rels),
             "profiles": len(profiles),
@@ -1583,7 +1597,7 @@ def openapi(feed, index):
             "version": API,
             "description": (
                 f"Public read-only JSON for Nordic Crypto ({feed.base}). "
-                "No authentication. News, newsletters, events, sources, academia, the who's who, profiles, images, "
+                "No authentication. News, newsletters, events, sources, academia, books, the who's who, profiles, images, "
                 "the rules map, the changelog, the article archive, public talk videos and Nordic exchange prices (market data, not investment advice). "
                 "Kaupr is a news source only, never a sponsor. The sign-off is The Nordic Crypto team. "
                 "GitHub Pages sends Access-Control-Allow-Origin: * so browsers can fetch these files. "
@@ -1859,6 +1873,30 @@ def schemas():
         "Academia": wrap("Academia", {"courses": {"type": "array"}, "groups": {"type": "array"}, "publications": {"type": "array"}, "research": {"type": "array"}}),
         "AcademiaSection": wrap("AcademiaSection", {"section": {"type": "string"}, "items": {"type": "array"}}),
         "AcademiaItem": wrap("AcademiaItem", {"item": {"type": "object"}}),
+        "Book": {
+            "type": "object",
+            "required": ["id", "title", "authors", "year", "publisher", "language", "country", "source"],
+            "properties": {
+                "id": {"type": "string"},
+                "title": {"type": "string", "description": "Title in the original language, as printed."},
+                "subtitle": {"type": "string", "nullable": True},
+                "original_title": {"type": "string", "nullable": True, "description": "Title of the original work when this edition is a translation. Null for an original work."},
+                "authors": {"type": "array", "items": {"type": "string"}, "description": "Names as printed."},
+                "author_role": {"type": "string", "nullable": True, "description": "\"editors\" for an edited volume, otherwise null (authors)."},
+                "year": {"type": "integer"},
+                "publisher": {"type": "string"},
+                "language": {"type": "string", "description": "nn, nb, sv, da, fi, is or en."},
+                "language_name": {"type": "string"},
+                "country": {"type": "string", "description": "NO, SE, DK, FI, IS, FO, GL or AX: the author's country, or the country the book is about."},
+                "isbn": {"type": "string", "nullable": True, "description": "ISBN-13 of the edition we checked, when the catalogue gave one."},
+                "about": {"type": "string", "description": "Our one-line description, in English."},
+                "source": {"type": "string", "description": "Catalogue or publisher page where title, authors, year and publisher were checked."},
+                "source_name": {"type": "string"},
+                "more_sources": {"type": "array", "items": {"type": "string"}},
+                "html_url": {"type": "string"},
+            },
+        },
+        "BookList": wrap("BookList", {"updated": {"type": "string", "nullable": True}, "count": {"type": "integer"}, "books": {"type": "array", "items": {"$ref": "#/components/schemas/Book"}}}),
         "OrgEntity": {
             "type": "object",
             "required": ["id", "name"],
@@ -2069,7 +2107,7 @@ def llms_txt(feed, index):
     lines = [
         f"# {SITE_NAME}",
         "",
-        "> Public JSON feed of Nordic crypto news, newsletters, events, talks, sources, academia and the who's who. No account. No API key.",
+        "> Public JSON feed of Nordic crypto news, newsletters, events, talks, sources, academia, books and the who's who. No account. No API key.",
         "",
         f"{SITE_NAME} covers Norway, Sweden, Denmark, Finland and Iceland. "
         "The sign-off is The Nordic Crypto team. Kaupr (kaupr.io) is a news source only and is never a sponsor. "

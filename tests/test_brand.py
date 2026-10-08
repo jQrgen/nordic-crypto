@@ -52,10 +52,19 @@ def main():
     check(event["note_i18n"]["en"] == "Nordic Crypto", "already correct translation")
 
     hits = []
+    # Only files git would commit: gitignored local state (logs/, queue/) is not the repo.
+    import subprocess
+    try:
+        ignored = set(subprocess.run(["git", "-C", ROOT, "ls-files", "--others", "--ignored", "--exclude-standard", "-z"],
+                                     capture_output=True, text=True, check=True).stdout.split("\0"))
+    except (OSError, subprocess.CalledProcessError):
+        ignored = set()
     for dirpath, dirnames, filenames in os.walk(ROOT):
         dirnames[:] = [d for d in dirnames if d not in SKIP_DIRS and not d.startswith(".")]
         for name in filenames:
             path = os.path.join(dirpath, name)
+            if os.path.relpath(path, ROOT) in ignored:
+                continue
             try:
                 text = open(path, encoding="utf-8").read()
             except (UnicodeDecodeError, OSError):

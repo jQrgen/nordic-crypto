@@ -1,0 +1,170 @@
+# Build Nordic Crypto on every push to main, run the privacy gate and the text gate,
+# and publish site/ to gh-pages when the repository variable NC_CI_DEPLOY is true.
+# Do not enable xtrace in this workflow: NC_PRIVATE_TERMS_JSON must not be printed.
+# Do not upload state/ or site/ as an artifact.
+name: Deploy site
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      # These paths are not read by the public build.
+      - "tests/**"
+      - "research/**"
+      - "docs/**"
+      - "tipworker/**"
+      - "routines/**"
+      - "regulation-videos/storyboards/**"
+      - "regulation-videos/substack/**"
+      - "regulation-videos/pipeline/**"
+      - "newsletter/issues/**"
+      - ".github/ISSUE_TEMPLATE/**"
+      - "assets/logo-concepts/**"
+      - "README.md"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Shared with markets-refresh.yml. queue: max keeps every pending run (the default
+# keeps one pending run and cancels the older one). A price refresh must not cancel
+# a site publish. cancel-in-progress stays false; queue: max cannot be combined with true.
+concurrency:
+  group: gh-pages-deploy
+  cancel-in-progress: false
+  queue: max
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  deploy:
+    name: Build, gate, publish
+    if: >-
+      github.repository == 'jQrgen/nordic-crypto'
+      && github.actor != 'github-actions[bot]'
+      && (github.event_name != 'push'
+          || (!contains(github.event.head_commit.message || '', '[skip ci]')
+              && !contains(github.event.head_commit.message || '', '[ci skip]')))
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Install Python dependencies
+        run: python3 -m pip install -r requirements.txt
+
+      - name: Check Node for share snippets
+        run: node --version
+
+      - name: Write privacy terms
+        env:
+          NC_PRIVATE_TERMS_JSON: ${{ secrets.NC_PRIVATE_TERMS_JSON }}
+        run: python3 tools/ci_write_terms.py
+
+      - name: Public build
+        id: build
+        run: |
+          set -euo pipefail
+          python3 build.py
+          if [ -e site/.preview ]; then
+            echo "::error::refusing: site/ is a preview build (site/.preview). CI never passes --preview."
+            exit 1
+          fi
+
+      - name: Privacy gate
+        run: python3 tools/privacy_gate.py site
+
+      - name: Delete privacy terms
+        if: always()
+        run: |
+          set -euo pipefail
+          rm -f state/private_terms.json
+          if [ -e state/private_terms.json ]; then
+            echo "::error::could not delete state/private_terms.json"
+            exit 1
+          fi
+
+      - name: Text gate
+        run: python3 tools/text_gate.py
+
+      - name: Summarise tracked files the build rewrote
+        if: always() && steps.build.outcome == 'success'
+        run: |
+          {
+            echo "### Tracked files the build rewrote"
+            echo
+            echo "CI does not commit these and does not push \`main\`. The box, which has the approvals, commits \`data/\` and \`archive/events.json\`."
+            echo
+            echo '```'
+            git status --short
+            echo '```'
+            echo
+            echo '```'
+            git diff --stat
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Checkout gh-pages
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: gh-pages
+          # The gh-pages history is about 460 MB. Depth 1 is the published tree only.
+          fetch-depth: 1
+
+      - name: Compare the build with gh-pages
+        run: python3 tools/ci_pages_diff.py site gh-pages | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Record the deploy switch and the parity gaps
+        run: |
+          {
+            echo "### Deploy switch and parity"
+            echo
+            if [ "$NC_CI_DEPLOY" = "true" ]; then
+              echo "\`NC_CI_DEPLOY\` is true. gh-pages will be updated."
+            else
+              echo "\`NC_CI_DEPLOY\` is not true. The build and both gates ran. gh-pages will not be updated."
+            fi
+            echo
+            echo "CI has no \`queue/approved.json\`, no \`state/source_status.json\`, and no \`/workspace/nordic-crypto-research/academia.md\`."
+            echo "Own stories in \`stories.approve\` are omitted. Rows in \`data/events.json\` are not promoted. Every enabled source counts as ok."
+            echo "\`data/news.json\`, \`data/orgchart.json\` and \`data/academia.json\` stay as they are committed on \`main\`."
+            echo "Browser push notifications are still sent only by \`./publish.sh --yes\` on the box."
+          } >> "$GITHUB_STEP_SUMMARY"
+        env:
+          NC_CI_DEPLOY: ${{ vars.NC_CI_DEPLOY }}
+
+      - name: Publish to gh-pages
+        if: vars.NC_CI_DEPLOY == 'true'
+        run: |
+          set -euo pipefail
+          if [ -e state/private_terms.json ]; then
+            echo "::error::state/private_terms.json is still on disk; refusing to publish"
+            exit 1
+          fi
+          if [ -e site/.preview ]; then
+            echo "::error::refusing: site/ is a preview build"
+            exit 1
+          fi
+          msg="Publish $(date -u '+%Y-%m-%d %H:%M UTC') from main@${GITHUB_SHA} [skip ci]"
+          tools/ci_gh_pages.sh gh-pages site publish-keep.txt "$msg"
+
+      - name: Check the live site
+        if: vars.NC_CI_DEPLOY == 'true'
+        run: |
+          set -euo pipefail
+          # wait_url prints a warning and does not fail the job.
+          source ./publish.sh
+          wait_url "https://nordiccrypto.no/" 120

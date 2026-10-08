@@ -84,13 +84,15 @@ def homepage(source_id, by_id=None):
     own = by_id.get(source_id) or {}
     if own.get("url"):
         return own["url"]
-    key = canonical_id(source_id, by_id)
+    # Read the alias map once: canonical_id() would otherwise re-parse logos.json for every source below.
+    alias = aliases()
+    key = canonical_id(source_id, by_id, alias)
     hit = (by_id.get(key) or {}).get("url") if key else None
     if hit:
         return hit
     # Some logo keys (kaupr) are a parent outlet with no row of their own.
     for s in by_id.values():
-        if s.get("url") and (s.get("outlet") == source_id or canonical_id(s.get("id"), by_id) == source_id):
+        if s.get("url") and (s.get("outlet") == source_id or canonical_id(s.get("id"), by_id, alias) == source_id):
             return s["url"]
     return None
 

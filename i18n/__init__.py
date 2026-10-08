@@ -2,7 +2,7 @@
 
 English is the default (site root); every other code lives under /<code>/.
 Strings: i18n/<code>.py -> S = {key: text}. Missing keys fall back to English (and build.py warns).
-The languages added beyond the Nordic set ship as English stubs until a real translation is written.
+The languages beyond the Nordic set have their UI strings translated (AI-assisted, 8 Oct 2026); a key added later falls back to English until it is translated.
 Do not machine-translate article bodies into those files.
 
 Editor workflow: our own text (story summaries, event notes, changelog entries) gets per-language variants in

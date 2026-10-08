@@ -1,0 +1,61 @@
+/* Academia: classical Athens. Veined marble page, black-figure pottery colours (terracotta and black), a running
+   Greek-key border top and bottom, Doric columns that rise on load, a temple front that draws itself, Athena's owl
+   that blinks, swaying laurel, an amphora and olive leaves drifting down. Inscription-style capitals for headings. */
+html{background:#F4EFE4}
+body.th-athens{--bg:#F4EFE4;--surface:rgb(255 252 245 / .92);--fg:#1E1410;--muted:#5E4B3C;--line:#D8CDB8;--line-strong:#A8977A;--soft:#EDE5D4;--panel:#EFE7D6;--foam:#E3D8C2;
+  --accent:#A8461C;--on-accent:#FFF8EC;--gold:#C8642A;--gold-ink:#8E3A14;--on-gold:#FFF8EC;--focus:#A8461C;--brand-w:#E58A4E;
+  --band:#1E1410;--band-deep:#140D0A;--band-ink:#F4EFE4;--band-muted:#D8C3A8;--band-line:rgb(244 239 228 / .18);--band-rule:#C8642A;
+  --btn:#1E1410;--btn-hover:#A8461C;--btn-ink:#FFF8EC;--pub:#2F5B7A;--priv:#56692E;--up:#56692E;--down:#A8461C;--warm:#8E3A14;--warm-bg:#F6E3D2;
+  --f-display:"Cormorant Garamond",Garamond,Georgia,serif;--r:2px;--r-sm:2px;
+  --shadow:0 1px 0 #D8CDB8,0 14px 26px -18px rgb(30 20 16 / .45);--shadow-lg:0 2px 0 #A8977A,0 22px 34px -18px rgb(30 20 16 / .55);--lattice:none;color-scheme:light;background:transparent}
+.th-athens main{padding:0 clamp(16px,6vw,120px) 120px}
+.th-athens main h1{text-transform:uppercase;letter-spacing:.14em;font-size:clamp(32px,4.4vw,54px);line-height:1.1;text-align:center;animation:at-carve 1.6s cubic-bezier(.2,.7,.2,1) both}
+.th-athens main h1::before{width:100%;height:14px;margin:0 0 22px;border-radius:0;background:
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 14'%3E%3Cpath d='M0 13H26V1H4V9H18V5H10' fill='none' stroke='%23C8642A' stroke-width='2'/%3E%3C/svg%3E") 0 0/28px 14px repeat-x;animation:at-run 6s linear infinite}
+@keyframes at-carve{from{letter-spacing:.6em;opacity:0;filter:blur(3px)}to{opacity:1}}
+@keyframes at-run{to{background-position:28px 0}}
+.th-athens main h1+.lead{text-align:center;max-width:60ch;margin-inline:auto;font-style:italic}
+.th-athens h2{text-transform:uppercase;letter-spacing:.12em;color:#8E3A14;border-bottom:2px solid #1E1410;padding-bottom:6px;display:flex;align-items:center;gap:12px}
+.th-athens h2::before{content:"";width:22px;height:22px;flex:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22'%3E%3Cpath d='M1 21V1H21V17H5V5H17V13H9V9' fill='none' stroke='%231E1410' stroke-width='2'/%3E%3C/svg%3E") center/contain no-repeat}
+.th-athens h3{color:#1E1410}
+.th-athens .card,.th-athens article,.th-athens table,.th-athens .work,.th-athens li.work,.th-athens .filters,.th-athens form{background:var(--surface)!important;border:1px solid #D8CDB8!important;border-top:4px solid #1E1410!important;border-radius:2px!important}
+.th-athens .card:hover,.th-athens article:hover{border-top-color:#C8642A!important;transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.th-athens th{background:#1E1410;color:#F4EFE4;text-transform:uppercase;letter-spacing:.08em;font-size:12px}
+.th-athens tr:nth-child(even) td{background:rgb(200 100 42 / .05)}
+.th-athens a{text-decoration-color:rgb(168 70 28 / .5)}.th-athens a:hover{color:#8E3A14}
+.th-athens .chip[aria-pressed=true]{background:#1E1410;color:#F4EFE4;border-color:#1E1410}
+.th-athens header.top{background:#1E1410;border-bottom:0;box-shadow:inset 0 -6px 0 #C8642A}
+.th-athens footer{background:#1E1410}
+/* decoration */
+.th-athens .at-marble{position:absolute;inset:0;background:
+  linear-gradient(115deg,transparent 0 30%,rgb(168 151 122 / .14) 31%,transparent 33% 62%,rgb(168 151 122 / .10) 63%,transparent 64%),
+  linear-gradient(35deg,transparent 0 45%,rgb(168 151 122 / .10) 46%,transparent 47.5%),
+  radial-gradient(60% 40% at 20% 10%,#FFFDF7,transparent 70%),radial-gradient(50% 50% at 85% 85%,#EDE4D1,transparent 70%),#F4EFE4}
+.th-athens .at-meander{left:0;right:0;width:100%;height:20px;opacity:.85}
+.th-athens .at-top{top:0}.th-athens .at-bottom{bottom:0;transform:scaleY(-1)}
+.th-athens .at-meander rect{animation:at-slide 12s linear infinite}
+@keyframes at-slide{to{transform:translateX(40px)}}
+.th-athens .at-col{bottom:20px;height:calc(100vh - 140px);width:auto;max-height:520px;transform-origin:bottom;animation:at-rise 1.4s cubic-bezier(.2,.8,.2,1) both}
+.th-athens .at-colL{left:max(4px,calc(50% - 720px))}.th-athens .at-colR{right:max(4px,calc(50% - 720px));animation-delay:.2s}
+@keyframes at-rise{from{transform:scaleY(0);opacity:0}to{transform:scaleY(1);opacity:1}}
+@media (max-width:1300px){.th-athens .at-col{opacity:.35}}
+.th-athens .at-temple{left:50%;top:80px;margin-left:-260px;opacity:.12}
+.th-athens .at-draw{stroke-dasharray:2400;stroke-dashoffset:2400;animation:at-draw 4.5s .4s ease-in-out forwards}
+@keyframes at-draw{to{stroke-dashoffset:0}}
+.th-athens .at-owl{right:calc(max(4px,calc(50% - 720px)) + 12px);bottom:calc(min(100vh - 140px,520px) + 18px);transform-origin:bottom;animation:at-perch 6s ease-in-out infinite}
+@media (max-width:1300px){.th-athens .at-owl{right:16px;bottom:30px;width:84px;height:105px}}
+@keyframes at-perch{0%,100%{transform:rotate(0)}45%{transform:rotate(-6deg)}55%{transform:rotate(5deg)}}
+.th-athens .at-lid{animation:at-blink 5s steps(1) infinite}
+@keyframes at-blink{0%,93%,100%{height:0}95%,97%{height:32px}}
+.th-athens .at-laurel{top:24px;transform-origin:50% 100%;animation:at-sway 5s ease-in-out infinite;opacity:.8}
+.th-athens .at-laurelL{left:calc(50% - 360px)}.th-athens .at-laurelR{right:calc(50% - 360px);transform:scaleX(-1);animation-name:at-sway2}
+@keyframes at-sway{50%{transform:rotate(4deg)}}
+@keyframes at-sway2{0%,100%{transform:scaleX(-1)}50%{transform:scaleX(-1) rotate(4deg)}}
+.th-athens .at-amphora{left:calc(max(4px,calc(50% - 720px)) + 6px);bottom:calc(min(100vh - 140px,520px) + 20px);animation:at-tilt 7s ease-in-out infinite;transform-origin:50% 100%}
+@media (max-width:1300px){.th-athens .at-amphora{left:12px;bottom:30px;width:70px;height:117px;opacity:.6}}
+@keyframes at-tilt{50%{transform:rotate(-3deg)}}
+.th-athens .at-leaves i{position:absolute;top:-30px;width:16px;height:7px;border-radius:50%;background:#869A4C;opacity:.7;animation:at-fall var(--s) linear infinite;animation-delay:var(--d)}
+.th-athens .at-leaves i:nth-child(3n){background:#6E7F3E}
+@keyframes at-fall{0%{transform:translate(0,0) rotate(0)}25%{transform:translate(30px,25vh) rotate(120deg)}50%{transform:translate(-20px,50vh) rotate(220deg)}75%{transform:translate(25px,75vh) rotate(300deg)}100%{transform:translate(0,105vh) rotate(400deg)}}
+@media (max-width:760px){.th-athens .at-temple,.th-athens .at-laurel,.th-athens .at-owl,.th-athens .at-amphora{display:none}.th-athens main{padding:0 16px 60px}}
+.th-athens main .meta,.th-athens main .sum{overflow-wrap:anywhere;min-width:0}

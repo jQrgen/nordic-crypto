@@ -62,6 +62,12 @@ def card_text(item, lang, blurbs=None):
         return page, lang
     return en_sum, "en"
 
+def own_summary(item, lang):
+    """The editorial summary of a story in one language ("en" is the base summary)."""
+    if lang == "en":
+        return (item.get("summary") or "").strip()
+    return ((item.get("summary_i18n") or {}).get(lang) or "").strip()
+
 def opening_sentences(text, n_max=4):
     """First two to four sentences of our own story, for the front-page card."""
     parts = sentences(text)
@@ -70,17 +76,19 @@ def opening_sentences(text, n_max=4):
     return " ".join(parts[:n_max]).strip()
 
 def check(path=None):
-    """Exit 1 if a published story lacks a 2–4 sentence blurb in every front-page language."""
+    """Exit 1 if a published story lacks a 2–4 sentence blurb in a front-page language whose summary is one sentence."""
     news = json.load(open(os.path.join(ROOT, "data", "news.json"), encoding="utf-8"))
     blurbs = load(path)
     published = [i for i in news["items"] if i.get("status") == "published" and (i.get("summary") or "").strip()]
     bad = []
     for it in published:
-        b = blurbs.get(it["id"])
-        if not b:
+        b = blurbs.get(it["id"]) or {}
+        # A blurb is needed only where the editorial summary in that language is a single sentence.
+        need = [lang for lang in LANGS if not substantive(own_summary(it, lang))]
+        if need and not b:
             bad.append(f"{it['id']}: no blurb")
             continue
-        for lang in LANGS:
+        for lang in need:
             text = (b.get(lang) or "").strip()
             n = len(sentences(text))
             if n < 2 or n > 4:
