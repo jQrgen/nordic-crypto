@@ -8,7 +8,8 @@ import { signNexaMint } from "./nexa/sign.js";
 import { verifyNexaChallenge } from "./nexa/message.js";
 import { signBchMint } from "./bch/sign.js";
 import { verifyBchChallenge } from "./bch/message.js";
-import { recordLedger } from "./history.js";
+import { readObservedSats, writeObservedSats } from "./balance.js";
+import { policyAmount, recordLedger } from "./history.js";
 
 const hex = (buf) => [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, "0")).join("");
 
@@ -38,10 +39,12 @@ async function counts(env, chain, eventId, day) {
   };
 }
 
-async function observed(env, chain) {
-  if (!env || !env.DB) return null;
-  const row = await env.DB.prepare("SELECT amount FROM hot_observed WHERE chain = ?").bind(chain).first();
-  return row ? Number(row.amount) : null;
+async function observedSats(env, chain, deps) {
+  let raw = await readObservedSats(env, chain);
+  if (raw == null && deps && deps.observeBalance) raw = await deps.observeBalance(chain);
+  if (raw == null) return null;
+  const n = Number(raw);
+  return Number.isFinite(n) ? n : null;
 }
 
 function zipAllowed(url) {
@@ -63,7 +66,8 @@ export async function performMint(env, body, caps, deps = {}) {
   }
   const hash = await identityHash(chain, identity, eventId);
   const day = (deps.now ? deps.now() : new Date()).toISOString().slice(0, 10);
-  const balance = await observed(env, chain);
+  const rawSats = await observedSats(env, chain, deps);
+  const balance = policyAmount(chain, rawSats);
   const state = await counts(env, chain, eventId, day);
   if (await already(env, hash)) state.claims.add(hash);
   const decision = evaluate(caps, state, { chain, eventId, day, balance, identityHash: hash });
@@ -127,11 +131,7 @@ export async function performMint(env, body, caps, deps = {}) {
     ).bind(hash, chain, eventId, day, at).run();
     const spent = chain === "nexa" ? signed.airdropSats + signed.feeSats : signed.spentSats;
     await recordLedger(env.DB, { txid: signed.txid, chain, kind: "mint", amount: spent, at, event_id: eventId });
-    if (balance != null) {
-      await env.DB.prepare(
-        "INSERT INTO hot_observed (chain, amount, observed_at) VALUES (?, ?, ?) ON CONFLICT(chain) DO UPDATE SET amount = excluded.amount, observed_at = excluded.observed_at"
-      ).bind(chain, balance - spent, at).run();
-    }
+    if (rawSats != null) await writeObservedSats(env.DB, chain, rawSats - spent, at);
   }
   return {
     ...decision,

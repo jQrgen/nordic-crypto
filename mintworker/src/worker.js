@@ -1,8 +1,12 @@
 // Nordic Crypto event-NFT mint Worker. Separate from the tip Worker.
 // GET  /api/health            booleans only. Never the key.
 // GET  /api/treasury          caps, refill address, observed balance, history.
+// POST /api/treasury/observe  read each hot-wallet balance from electrum and store it.
 // GET  /api/treasury/history  refills, mints, and the balance series.
 // POST /api/mint              caps, then (testnet flag only) sign and broadcast.
+//
+// The hourly cron stores each chain's balance before any mint, including when
+// signing is off. A mint with no stored balance asks electrum once.
 //
 // The hot key is env.NEXA_HOT_KEY / env.BCH_HOT_KEY. Signing runs only when
 // NC_EVENT_NFT=1 and MINT_NETWORK=testnet. Mainnet is not broadcast.
@@ -11,9 +15,8 @@ import caps from "../caps.json" with { type: "json" };
 import { performMint } from "./mint.js";
 import { loadHotKey, publicHealth, refillAddress, signingEnabled } from "./secrets.js";
 import { broadcastBch, broadcastNexa } from "./broadcast.js";
-import { ingestRefills, publicHistory, recordSnapshot } from "./history.js";
-import { bchAddress } from "./bch/sign.js";
-import { nexaAddressOf } from "./nexa/message.js";
+import { displayAmount, ingestRefills, publicHistory, recordSnapshot } from "./history.js";
+import { hotAddress, observeChain, observeChains, readObservedSats } from "./balance.js";
 import { lookupUtxos, syncChainRefills } from "./utxos.js";
 
 const PLACEHOLDER = {
@@ -28,10 +31,8 @@ function send(obj, status = 200) {
   });
 }
 
-async function observed(env, chain) {
-  if (!env || !env.DB) return null;
-  const row = await env.DB.prepare("SELECT amount FROM hot_observed WHERE chain = ?").bind(chain).first();
-  return row ? Number(row.amount) : null;
+async function observedDisplay(env, chain) {
+  return displayAmount(chain, await readObservedSats(env, chain));
 }
 
 async function treasuryBody(env) {
@@ -48,7 +49,7 @@ async function treasuryBody(env) {
   };
   for (const chain of ["nexa", "bch"]) {
     const addr = refillAddress(env, chain, PLACEHOLDER[chain]);
-    const balance = await observed(env, chain);
+    const balance = await observedDisplay(env, chain);
     out[chain] = {
       ...addr,
       balance,
@@ -69,6 +70,15 @@ export default {
 
     const url = new URL(req.url);
     if (req.method === "GET" && url.pathname === "/api/health") return send(publicHealth(env));
+    if (req.method === "POST" && url.pathname === "/api/treasury/observe") {
+      const refreshed = await observeChains(env);
+      const body = await treasuryBody(env);
+      body.refreshed = {
+        nexa: !!(refreshed.nexa && refreshed.nexa.ok),
+        bch: !!(refreshed.bch && refreshed.bch.ok),
+      };
+      return send(body);
+    }
     if (req.method === "GET" && (url.pathname === "/api/treasury" || url.pathname === "/api/treasury/")) {
       return send(await treasuryBody(env));
     }
@@ -81,6 +91,10 @@ export default {
       const result = await performMint(env, body, caps, {
         fetchUtxos: (chain, secret) => lookupUtxos(env, chain, secret),
         broadcast: async (chain, hex) => chain === "nexa" ? broadcastNexa(hex) : broadcastBch(hex),
+        observeBalance: async (chain) => {
+          const seen = await observeChain(env, chain);
+          return seen.ok ? seen.sats : null;
+        },
       });
       const status = result.reason === "bad_request" || result.reason === "bad_json" ? 400 : 200;
       return send(result, status);
@@ -89,18 +103,16 @@ export default {
   },
 
   async scheduled(_event, env) {
-    if (!signingEnabled(env) || !env.DB) return;
+    if (!env.DB) return;
     const at = new Date().toISOString();
     for (const chain of ["nexa", "bch"]) {
-      const row = await env.DB.prepare("SELECT amount FROM hot_observed WHERE chain = ?").bind(chain).first();
-      if (row) await recordSnapshot(env.DB, chain, Number(row.amount), at);
-    }
-    for (const chain of ["nexa", "bch"]) {
       try {
-        const named = chain === "nexa" ? env.NEXA_HOT_ADDRESS : env.BCH_HOT_ADDRESS;
-        const key = loadHotKey(env, chain);
-        let address = named && !String(named).startsWith("placeholder:") ? named : null;
-        if (!address && key) address = chain === "nexa" ? nexaAddressOf(key) : await bchAddress(key);
+        const seen = await observeChain(env, chain);
+        if (!seen.ok) {
+          const sats = await readObservedSats(env, chain);
+          if (sats != null) await recordSnapshot(env.DB, chain, sats, at);
+        }
+        const address = await hotAddress(env, chain);
         if (address) await syncChainRefills(env.DB, chain, address);
       } catch {
         // A node that is down leaves the ledger as it was.

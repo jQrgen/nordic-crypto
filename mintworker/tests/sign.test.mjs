@@ -73,6 +73,29 @@ test("a NexaID signature is bound to the address and the event", () => {
   assert.equal(verifyNexaChallenge({ address: other, eventId: "evt-1", signature }), false);
 });
 
+const PINNED_BCH_MINT =
+  "020000000211111111111111111111111111111111111111111111111111111111111111110000000064417afa874b4dbb521f198dcab687caa4ef6ed5444e2655faa2d56a144e7239d7dcae6dee012aaa9226686f72ddcff266aca27455368d996091a3fa74098ba208a941210279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798ffffffff22222222222222222222222222222222222222222222222222222222222222220100000064411c76bde6ceca250ff749a2c7027b25a5be376965c15f41bdef7ad669d88634fe12ee756afd77ff79cb37223dc91dfad3bf52ef1f6d3f7a354a5fa704c39276ae41210279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798ffffffff0420030000000000003bef33333333333333333333333333333333333333333333333333333333333333332276a914751e76e8199196d454941c45d1b3a323f1433bd688ac20030000000000005cef33333333333333333333333333333333333333333333333333333333333333336020444444444444444444444444444444444444444444444444444444444444444476a91406afd46bcdfd22ef94ac122aa11f241244a37ecc88ac10270000000000001976a91406afd46bcdfd22ef94ac122aa11f241244a37ecc88acc00c0100000000001976a914751e76e8199196d454941c45d1b3a323f1433bd688ac00000000";
+
+test("a CashTokens mint matches the pinned pure-JS vector", async () => {
+  const secret = "00".repeat(31) + "01";
+  const who = "00".repeat(31) + "02";
+  const signed = await signBchMint({
+    secret,
+    recipient: await bchAddress(who),
+    categoryHex: "33".repeat(32),
+    commitmentHex: "44".repeat(32),
+    minting: { txid: "11".repeat(32), vout: 0, satoshis: 800 },
+    funding: { txid: "22".repeat(32), vout: 1, satoshis: 80000 },
+    airdropSats: 10000,
+    feeCeilingSats: 1500,
+  });
+  assert.equal(signed.hex, PINNED_BCH_MINT);
+  assert.equal(signed.txid, "28fae59df721ba0dc09ebd94da859124f642bfef74f1f710528a45783a922115");
+  assert.equal(signed.hotAddress, "bchtest:zp63uahgrxged4z5jswyt5dn5v3lzsem6c8d8cpfjc");
+  assert.equal(signed.feeSats, 400);
+  assert.equal(JSON.stringify(signed).includes(secret), false);
+});
+
 test("a CashTokens mint returns the authority and pays 10000 sats", async () => {
   const hot = freshBchKey();
   const who = freshBchKey();

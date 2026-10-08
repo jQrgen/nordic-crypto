@@ -2,6 +2,10 @@
 // The node answer is returned as text so a caller can tell a rejected
 // input from a transaction the node could not decode.
 
+// Outbound WebSocket from a Worker. These are not port 443. compatibility_date
+// 2026-09-01 includes custom-port subrequests (the default since 2024-09-02),
+// which is also what the Workers WebSocket client uses. Checked 2026-10-07:
+// both sockets answer server.version (Nexa Rostrum 14.0.1, chipnet Fulcrum 2.1.3).
 const NEXA_ELECTRUM = "wss://testnet-electrum.nexa.org:30004";
 // Chipnet. The old fullstack.cash HTTP route answers 405 and never sees the
 // transaction. Electrum broadcast is what a chipnet node actually parses.

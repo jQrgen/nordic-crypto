@@ -9,6 +9,23 @@ const EXPLORER = {
 
 const NEXA_PER_SAT = 100;
 
+// hot_observed stores the chain's smallest unit (satoshis). Nexa's public
+// unit is NEXA, and 1 NEXA is 100 of those. Policy compares NEXA, so a Nexa
+// balance is divided here. Floor keeps a partial NEXA from counting as a
+// whole one against the reserve.
+export function displayAmount(chain, sats) {
+  if (sats == null) return null;
+  const n = Number(sats);
+  if (!Number.isFinite(n)) return null;
+  return chain === "nexa" ? n / NEXA_PER_SAT : n;
+}
+
+export function policyAmount(chain, sats) {
+  const shown = displayAmount(chain, sats);
+  if (shown == null) return null;
+  return chain === "nexa" ? Math.floor(shown) : shown;
+}
+
 export function explorerUrl(chain, txid) {
   const base = EXPLORER[chain];
   if (!base || !/^[0-9a-fA-F]{64}$/.test(String(txid))) return null;
