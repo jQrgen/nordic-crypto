@@ -74,6 +74,7 @@ SOURCE_PLACES = ["NO", "SE", "DK", "FI", "IS", "FO", "GL", "AX"]
 def cname(c): return t("c_" + c) if c and (c in COUNTRY_CODES or c in EXTRA_C_CODES or i18n.has("en", "c_" + str(c))) else (c or "")
 def flags_js(): return json.dumps({c: flag(c) for c in COUNTRY_CODES + EXTRA_C_CODES})
 
+import themes
 CSS = site_css.bundle()   # assets/css/*.css, in site_css.SITE order; inlined into every page
 
 # api is the human-readable docs at /api/ (English only). The href is the site root, not /<lang>/api/.
@@ -530,6 +531,9 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
              "document.addEventListener('change',function(e){var s=e.target;if(!s||!s.matches||!s.matches('select.langsel'))return;var o=s.options[s.selectedIndex];if(!o)return;setLang(o.getAttribute('data-lang'));if(o.value)location.href=o.value});"
              "var b=document.querySelector('.navtoggle'),n=document.getElementById('sitenav');if(b&&n){b.addEventListener('click',function(){var open=n.classList.toggle('is-open');b.setAttribute('aria-expanded',open?'true':'false')});"
              "document.addEventListener('keydown',function(e){if(e.key==='Escape'&&n.classList.contains('is-open')){n.classList.remove('is-open');b.setAttribute('aria-expanded','false');b.focus()}})}})();</script>")
+    th = themes.for_nav(nav) or {}
+    th_color = (f'<meta name="theme-color" content="{th["theme_color"]}">' if th.get("theme_color") else
+                '<meta name="theme-color" content="#1E3A45" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#15303A" media="(prefers-color-scheme: dark)">')
     nlfoot = (f'<div class="nlfoot"><b>{E(t("nl_foot"))}</b> {newsletter_offer(rel, compact=True)} <a href="{rel}newsletter/#signup">{E(t("nl_more"))}</a></div>' if slug != "newsletter" else "")
     doc = f"""<!doctype html>
 <html lang="{i18n.HTML_LANG[LANG]}"{" dir=\"rtl\"" if i18n.rtl(LANG) else ""}><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -542,20 +546,20 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
 <link rel="icon" href="{root}favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="{root}assets/brand/mark-180.png">
 <link rel="icon" href="{root}assets/brand/mark-64.png" sizes="64x64" type="image/png">
-<meta name="theme-color" content="#1E3A45" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#15303A" media="(prefers-color-scheme: dark)">
+{th_color}
 <meta property="og:image" content="{BASE}assets/brand/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Nordic Crypto">
 <link rel="stylesheet" href="{root}assets/brand/nordic-crypto.css">
-<style>{CSS}{s['css']}</style></head>
-<body>{banner}<header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="{rel}"><img class="brandmark" src="{root}assets/brand/shield-band.svg" width="34" height="40" alt="Nordic Crypto"><span aria-hidden="true">Nordic <span class="w">Crypto</span></span></a><span class="hdrbtns">{header_buttons(rel)}</span></div>{nav_btn}<nav id="sitenav" class="main" aria-label="{E(t("main_menu"))}">{nav_html}</nav>{switcher}</div></header>{hero}
+<style>{CSS}{s['css']}{th.get('css', '')}</style></head>
+<body{' class="' + th['body_class'] + '"' if th else ''}>{th.get('deco', '')}{banner}<header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="{rel}"><img class="brandmark" src="{root}assets/brand/shield-band.svg" width="34" height="40" alt="Nordic Crypto"><span aria-hidden="true">Nordic <span class="w">Crypto</span></span></a><span class="hdrbtns">{header_buttons(rel)}</span></div>{nav_btn}<nav id="sitenav" class="main" aria-label="{E(t("main_menu"))}">{nav_html}</nav>{switcher}</div></header>{hero}
 <main class="wrap">
 {body}
 {s['top']}
 </main>
 <footer><div class="wrap"><a class="brand footbrand" href="{rel}"><img class="brandmark" src="{root}assets/brand/shield-band.svg" width="34" height="40" alt=""><span>Nordic <span class="w">Crypto</span></span></a>{nlfoot}{community_links()}{push_panel(root)}{t("footer", site=SITE_NAME, rel=rel, root=root, ios_tv=t("ios_tv"))}</div></footer>
-{s['script']}{setck}{extra_script}{newsletter_script()}{push_script()}{shout_script()}{analytics_snippet()}
+{s['script']}{setck}{extra_script}{newsletter_script()}{push_script()}{shout_script()}{analytics_snippet()}{th.get('script', '')}
 </body></html>"""
     d = os.path.join(SITE, lp(), slug); os.makedirs(d, exist_ok=True)
     open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(doc)
