@@ -1,0 +1,32 @@
+/* Academia (inlined only there, after filterbar.css): compact rows under a short jump list with counts; on wide screens
+   the title, institution and source on the left and what it is about on the right. Start-aligned in every language. */
+.acpage,.aclist,.acjump{text-align:start}
+.acjump .n{font:500 11px var(--f-mono);opacity:.8}
+.acpage .lfilters{margin-bottom:10px}
+.acjump{display:flex;flex-wrap:wrap;gap:2px 22px;margin:0 0 6px;padding:4px 0 10px;border-bottom:1px solid var(--line)}
+.acjump a{display:inline-flex;align-items:center;gap:6px;min-height:40px;font-size:14.5px;text-decoration:none}
+.acjump a:hover{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px}
+.acpage section{max-width:76ch}
+.acpage h2{scroll-margin-top:16px;margin:34px 0 4px}
+.acnote{margin:0 0 6px;line-height:1.5}
+.aclist{list-style:none;margin:0;padding:0}
+.aclist li{padding:14px 0 13px;border-bottom:1px solid var(--line)}
+.aclist li:last-child{border-bottom:0}
+.aclist h3{font-size:21px;line-height:1.22;margin:0 0 3px}
+.aclist h3 a{text-decoration:none}
+.aclist h3 a:hover{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px}
+.aclist h3 .tag{vertical-align:3px;font-family:var(--f-ui);letter-spacing:0}
+.aclist .meta{margin:0;line-height:1.5}
+.aclist .flag{vertical-align:-2px}
+.aclist .sum{margin:5px 0 0;font-size:15.5px;line-height:1.55}
+.acsrc{margin:5px 0 0;font-size:13px;color:var(--muted)}
+.acpage .empty{padding:8px 0;margin:0}
+.acpage>.notice{max-width:76ch;margin-top:28px}
+@media(min-width:960px){
+ .acpage section{max-width:none}
+ .aclist li{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);grid-template-rows:auto auto 1fr;column-gap:36px}
+ .aclist li>*{grid-column:1}
+ .aclist li>.sum,.aclist li>.acids{grid-column:2;grid-row:1/span 3;margin:2px 0 0}
+ .aclist .acsrc{margin-top:4px}
+}
+@media(max-width:640px){.aclist h3{font-size:19.5px}.aclist .sum{font-size:15px}}

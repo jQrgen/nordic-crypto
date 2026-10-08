@@ -1949,7 +1949,7 @@ def build_sources(ctx):
     first = first_sentence(lead)
     rest = lead[len(first):].strip()
     total = len(listed)
-    body = f"""{site_css.style("filterbar")}{site_css.style("lists")}<div class="srcpage">
+    body = f"""{site_css.style("filterbar")}{site_css.style("sources")}<div class="srcpage">
 <h1>{E(t("src_h1"))}</h1>
 <p class="lead">{E(first)}</p>
 <details class="srchow"><summary>{E(t("src_how"))}</summary><p>{E(rest)}</p><p>{E(t("src_samefeed"))}</p><p><a href="#events">{E(t("src_ev_h"))}</a> · <a href="#terms">{E(t("src_terms_h"))}</a> · <a href="#keywords">{E(t("src_kw_h"))}</a></p></details>
@@ -2747,7 +2747,7 @@ def build_academia():
     dn = t("data_en_note")
     chips = "".join(f'<button type="button" class="chip cchip" data-c="{c}" aria-pressed="false">{_deco_flag(c)}{E(cname(c))} <span class="n">{per_c[c]}</span></button>' for c in COUNTRY_CODES if per_c[c])
     jump = "".join(f'<a href="#{k}">{E(t(lab))} <span class="n" data-s="{k}">{len(secs[k])}</span></a>' for k, lab in (("courses", "ac_courses"), ("groups", "ac_groups"), ("publications", "ac_pubs"), ("research", "ac_research")))
-    body = f"""{site_css.style("filterbar")}{site_css.style("lists")}<div class="acpage">
+    body = f"""{site_css.style("filterbar")}{site_css.style("academia")}<div class="acpage">
 <h1>{E(t("ac_h1"))}</h1>
 <p class="lead">{E(t("ac_lead"))}</p>
 {f'<p class="notice warn">{t("ac_preview", n=allrows)}</p>' if PREVIEW else ''}
