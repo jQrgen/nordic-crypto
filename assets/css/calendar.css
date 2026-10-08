@@ -40,6 +40,7 @@ table.cal caption{padding:0 0 6px;font:700 18px/1.2 var(--f-display);text-align:
 table.cal th{padding:4px 3px;font:500 10.5px/1.2 var(--f-mono);letter-spacing:.04em;text-transform:uppercase;color:var(--muted);text-align:start;border-bottom:1px solid var(--line-strong)}
 table.cal td{height:40px;padding:3px 4px;vertical-align:top;color:var(--muted);font-variant-numeric:tabular-nums;border-bottom:1px solid var(--line)}
 table.cal td:has(a:not([hidden])){background:color-mix(in srgb,var(--foam) 32%,var(--surface));color:var(--fg);font-weight:700}
+:root[data-theme=dark] table.cal td:has(a:not([hidden])){background:var(--panel)}
 table.cal td.today{box-shadow:inset 0 0 0 2px var(--gold)}
 table.cal td a{display:flex;width:max-content;margin-top:2px;padding:1px 0;line-height:0}
 table.cal td a .flag{width:17px;height:12px}

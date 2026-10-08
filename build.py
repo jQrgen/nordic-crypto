@@ -1977,7 +1977,7 @@ function apply(){
     var ok=(!vs.length||vs.indexOf(tr.dataset.cov)>=0)&&(!term||txt[i].indexOf(term)>=0);
     tr.hidden=!ok; if(ok) k++;
   });
-  bodies.forEach(function(b){b.hidden=!b.querySelector('tr[data-c]:not([hidden])')});
+  bodies.forEach(function(b){var m=b.querySelectorAll('tr[data-c]:not([hidden])').length,c=b.querySelector('.sub .n');b.hidden=!m;if(c)c.textContent=m});
   if(active&&!saved) saved=groups.map(function(d){return d.open});
   groups.forEach(function(d,i){
     var m=d.querySelectorAll('tr[data-c]:not([hidden])').length,s=d.querySelector('summary .n');
