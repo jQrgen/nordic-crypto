@@ -230,11 +230,25 @@ def nl_video_file(iss):
         except Exception as ex: print(f"newsletter: WARNING, no video for issue {iid}: {ex}")
     else: print(f"newsletter: WARNING, no video file for issue {iid}")
     NL_VIDEO_OK[iid] = ok; return ok
+def nl_poster_files(iss):
+    """Light copies of the poster beside it in newsletter/published/<id>/, when they exist: <stem>-320.avif and <stem>-320.jpg
+    (the issue list, 320x180) and <stem>.webp (the video poster). Made once from the PNG, for example:
+      ffmpeg -i thumbnail.png -vf scale=320:180:flags=lanczos t.png && avifenc -q 60 t.png thumbnail-320.avif
+      ffmpeg -i thumbnail.png -vf scale=320:180:flags=lanczos -q:v 6 thumbnail-320.jpg
+      ffmpeg -i thumbnail.png -c:v libwebp -quality 78 thumbnail.webp
+    Without them the pages use the PNG."""
+    poster = (iss.get("video") or {}).get("poster") or ""
+    if not poster: return {}
+    stem = os.path.splitext(poster)[0]
+    names = {"avif": f"{stem}-320.avif", "jpg": f"{stem}-320.jpg", "webp": f"{stem}.webp"}
+    return {k: n for k, n in names.items() if os.path.exists(os.path.join(NL_PUB, iss["id"], n))}
 def nl_copy_assets(iss):
-    """Copies poster, subtitles and video ONCE into site/newsletter/<id>/ (all languages link to that copy)."""
+    """Copies poster (and its light copies), subtitles and video ONCE into site/newsletter/<id>/ (all languages link to that copy)."""
     v = iss.get("video") or {}; d = os.path.join(SITE, "newsletter", iss["id"]); os.makedirs(d, exist_ok=True)
     for k in ("poster", "subs"):
         if v.get(k) and os.path.exists(os.path.join(NL_PUB, iss["id"], v[k])): shutil.copy(os.path.join(NL_PUB, iss["id"], v[k]), os.path.join(d, v[k]))
+    for name in nl_poster_files(iss).values():
+        shutil.copy(os.path.join(NL_PUB, iss["id"], name), os.path.join(d, name))
     vf = nl_video_file(iss) if v else None
     if vf: shutil.copy(vf, os.path.join(d, v.get("file") or "video.mp4"))
 def nl_i18n(iss, key):
@@ -282,13 +296,13 @@ def build_issue(iss):
         dl = f'<a href="{E(v["url"])}" rel="noopener" download>{E(t("nl_video_dl", mb=mb))}</a>' if v.get("url") else ""
         subs = f' · <a href="{a}{E(v["subs"])}" download>{E(t("nl_video_subs"))}</a>' if v.get("subs") else ""
         if nl_video_file(iss):
-            poster = f' poster="{a}{E(v["poster"])}"' if v.get("poster") else ""
+            poster_name = nl_poster_files(iss).get("webp") or v.get("poster")   # WebP poster: about a quarter of the PNG
+            poster = f' poster="{a}{E(poster_name)}"' if poster_name else ""
             track = f'<track kind="subtitles" srclang="en" label="{E(t("lname_English"))}" src="{a}{E(v["subs"])}">' if v.get("subs") else ""
             vid = (f'<figure class="nlvideo"><video controls preload="metadata" playsinline{poster} width="{v.get("width", 1920)}" height="{v.get("height", 1080)}">'
                    f'<source src="{a}{E(v.get("file") or "video.mp4")}" type="video/mp4">{track}<p>{E(t("nl_video_fallback"))} {dl}</p></video>'
                    f'<figcaption class="meta">{E(t("nl_video_note"))}<br>{dl}{subs}</figcaption></figure>')
         elif dl: vid = f'<p class="notice">{dl}</p>'
-    signup = newsletter_offer("../../")
     body = f"""<article class="issue">
 <p class="meta"><a href="../">← {E(t("nl_all_issues"))}</a></p>
 <h1{tla}>{E(title)}</h1>
@@ -298,13 +312,21 @@ def build_issue(iss):
 {vid}
 <div class="prose issuetext"{hla}>
 {txt}</div>
-<section class="nlhome"><p><b>{E(t("nl_get_next"))}</b></p>
-{signup}
-{community_links()}
-<p>{t("nl_write", href="../../columnist/")}</p></section>
-<p class="meta"><a href="../">← {E(t("nl_all_issues"))}</a></p>
+{nl_follow_box("../../", "nl-next-h")}
+<p class="meta"><a href="../">← {E(t("nl_all_issues"))}</a> · {t("nl_write", href="../../columnist/")}</p>
 </article>"""
     page(slug, title, "newsletter", body, subtitle or t("nl_desc"))
+ICON_RSS = ('<svg class="ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" '
+            'd="M4 4.5v3a12.5 12.5 0 0 1 12.5 12.5h3A15.5 15.5 0 0 0 4 4.5zm0 6v3a6.5 6.5 0 0 1 6.5 6.5h3A9.5 9.5 0 0 0 4 10.5zM6.2 15.6a2.2 2.2 0 1 0 0 4.4 2.2 2.2 0 0 0 0-4.4z"/></svg>')
+def nl_follow_box(rel, hid, privacy=False):
+    """The signup block on /newsletter/ and on each issue: the form while signup is open (otherwise one line saying it opens
+    soon; no email field, so nothing can be stored), then RSS, Telegram and X as plain links."""
+    form = newsletter_form()
+    top = (form + (f'<p class="notice">{t("nl_priv")}</p>' if privacy else "")) if form else f'<p class="nlsoon">{E(t("nl_soon"))}</p>'
+    ways = (f'<p class="nlways"><a href="{E(rel)}rss.xml">{ICON_RSS}{E(t("nl_rss"))}</a>'
+            f'<a href="{SITE_TELEGRAM}" rel="noopener">{ICON_TG}{E(t("tg_btn"))}</a>'
+            f'<a href="{SITE_X}" rel="noopener">{ICON_X}{E(t("x_btn"))}</a></p>')
+    return f'<section class="nlbox" id="{"signup" if privacy else "nl-next"}" aria-labelledby="{hid}"><h2 id="{hid}">{E(t("nl_next_h"))}</h2>{top}{ways}</section>'
 def build_newsletter():
     """/newsletter/ in every language (the Newsletter tab): the issues (newest first, each with its own page), the
     signup form when the Worker is on, the privacy note and the Kaupr disclosure."""
@@ -317,19 +339,26 @@ def build_newsletter():
         build_issue(iss)
         v = iss.get("video") or {}
         title, tl = nl_i18n(iss, "title"); subtitle, sl = nl_i18n(iss, "subtitle"); _, hl = nl_issue_html(iss)
-        th = (f'<a class="th" href="{E(iss["id"])}/" tabindex="-1" aria-hidden="true"><img src="{root}newsletter/{E(iss["id"])}/{E(v["poster"])}" alt="" width="320" height="180" loading="lazy"></a>'
-              if v.get("poster") else "")
-        lis.append(f'<li>{th}<div><h3{lang_attr(tl)}><a href="{E(iss["id"])}/">{E(title)}</a></h3><div class="meta">{nl_meta(iss)}</div>'
+        th = ""
+        if v.get("poster"):
+            src = f'{root}newsletter/{E(iss["id"])}/'
+            light = nl_poster_files(iss)
+            lazy = ' loading="lazy"' if lis else ""   # the newest issue is near the top; the rest wait until scrolled to
+            img = (f'<img src="{src}{E(light.get("jpg") or v["poster"])}" alt="" width="320" height="180"{lazy} decoding="async">')
+            if light.get("avif"):
+                img = f'<picture><source type="image/avif" srcset="{src}{E(light["avif"])}">{img}</picture>'
+            th = f'<a class="th" href="{E(iss["id"])}/" tabindex="-1" aria-hidden="true">{img}</a>'
+        lis.append(f'<li>{th}<div><h3{lang_attr(tl)}><a href="{E(iss["id"])}/">{E(title)}</a></h3><p class="meta">{nl_meta(iss)}</p>'
                    f'<p class="sum"{lang_attr(sl)}>{E(subtitle)}</p></div></li>')
-    body = f"""<h1>{E(t("nl_title"))}</h1>
+    body = f"""<div class="nlpage">
+<h1>{E(t("nl_title"))}</h1>
 <p class="lead">{E(t("nl_lead"))}</p>
-<section id="signup">{newsletter_offer("../", privacy=True)}</section>
-{community_links()}
-<h2 id="issues">{E(t("nl_issues_h"))}</h2>
+{nl_follow_box("../", "nl-follow-h", privacy=True)}
+<section class="nllist" aria-labelledby="issues"><h2 id="issues">{E(t("nl_issues_h"))}</h2>
 <p class="meta">{E(t("nl_issues_lead"))}</p>
-<ol class="nlissues">{''.join(lis) or f'<li class="empty">{E(t("nl_issues_none"))}</li>'}</ol>
-<p>{t("nl_write", href="../columnist/")}</p>
-<div class="prose"><p class="meta">{t("nl_kaupr")}</p></div>"""
+<ol class="nlissues">{''.join(lis) or f'<li class="empty">{E(t("nl_issues_none"))}</li>'}</ol></section>
+<p class="meta nlfine">{t("nl_write", href="../columnist/")} {t("nl_kaupr")}</p>
+</div>"""
     page("newsletter", t("nl_title"), "newsletter", body, t("nl_desc"))
 _ANALYTICS_TOKEN = re.compile(r"^[A-Za-z0-9_-]{16,128}$")
 def analytics_token():
@@ -1081,7 +1110,7 @@ def _mk_share_html(tickers, root):
     sys.path.insert(0, P("tools"))
     import markets as M
     groups = M.volume_shares(tickers)
-    head = f'<h2>{E(t("mk_share_h"))}</h2><p class="meta">{E(t("mk_share_note"))}</p>'
+    head = f'<h2 id="mk-share-h">{E(t("mk_share_h"))}</h2><p class="meta">{E(t("mk_share_note"))}</p>'
     if not groups:
         return f'<section class="mkvol">{head}<p class="meta">{E(t("mk_share_empty"))}</p></section>'
     figures = []
@@ -1105,7 +1134,7 @@ def _mk_share_html(tickers, root):
         for sl in slices:
             img = ""
             if sl.get("logo_path"):
-                img = f'<img src="{root}{E(sl["logo_path"])}" width="22" height="22" alt="{E(t("mk_logo_alt", name=sl["label"]))}">'
+                img = f'<img src="{root}{E(sl["logo_path"])}" width="22" height="22" alt="{E(t("mk_logo_alt", name=sl["label"]))}" loading="lazy">'
             extra = ""
             if sl["other"] and sl.get("members"):
                 extra = f'<span class="meta">{E(t("mk_share_includes", names=", ".join(sl["members"])))}</span>'
@@ -1126,18 +1155,19 @@ def _mk_share_html(tickers, root):
         if g.get("updated_at"):
             meta += " " + E(t("mk_share_updated", when=_mk_when(g["updated_at"])))
         if sources:
-            meta += " " + E(t("mk_share_source")) + ": " + ", ".join(sources)
+            meta += " " + E(t("mk_share_source")) + ": " + ", ".join(sources) + "."
         meta += " " + E(t("mk_share_group"))
         figures.append(
             f'<figure class="mkvol-fig"><div class="mkvol-row">{_donut_svg(slices, q, title)}'
-            f'<ul class="mklegend">{"".join(legend)}</ul></div><p class="meta">{meta}</p>'
+            f'<ul class="mklegend">{"".join(legend)}</ul></div><figcaption class="meta">{meta}</figcaption>'
+            f'<details class="mkshare-d"><summary>{E(t("mk_share_table"))}</summary>'
             f'<table class="list mkshare"><caption>{E(title)}</caption><thead><tr>'
             f'<th scope="col">{E(t("mk_share_coin"))}</th>'
             f'<th scope="col">{E(t("mk_share_vol", q=q))}</th>'
             f'<th scope="col">{E(t("mk_share_pct"))}</th></tr></thead>'
-            f'<tbody>{"".join(rows)}</tbody></table></figure>'
+            f'<tbody>{"".join(rows)}</tbody></table></details></figure>'
         )
-    return f'<section class="mkvol">{head}{"".join(figures)}</section>'
+    return f'<section class="mkvol">{head}<div class="mkvol-figs">{"".join(figures)}</div></section>'
 
 def M_format(value):
     import markets as M
@@ -1231,7 +1261,7 @@ def _vol_bits(vol, base, quote):
 def _vol_cell(vol, base, quote):
     bits = _vol_bits(vol, base, quote)
     if not bits:
-        return '<span class="meta">—</span>'
+        return '<span class="meta none">—</span>'
     out = []
     for kind, text, tag in bits:
         label = "24h" if tag == "24h" else t("mk_vol_window")
@@ -1243,7 +1273,7 @@ def _vol_cell(vol, base, quote):
 
 def _ex_cell(row):
     if not row:
-        return '<span class="meta">—</span>'
+        return '<span class="meta none">—</span>'
     bits = []
     if row.get("last") not in (None, ""):
         bits.append(f'<span class="pxs">{E(M_format(row["last"]))}</span>')
@@ -1285,7 +1315,7 @@ def _mk_credit_html(tickers, exchanges):
         url = ex.get("website") or ""
         links.append(f'<a href="{E(url)}" rel="noopener">{E(name)}</a>' if url else E(name))
     src = (E(t("mk_sources")) + ": " + ", ".join(links)) if links else ""
-    return f'<p class="meta mkcredit" id="mk-credit">{" ".join(x for x in (updated, src) if x)}</p>'
+    return f'<span class="mkcredit" id="mk-credit">{" ".join(x for x in (updated, src) if x)}</span>'
 
 def _mk_summary_html(tickers, exchanges, pairs, root):
     """Glance tiles: key-coin aggregates, 24h quote volume per currency, and how much is tracked."""
@@ -1320,7 +1350,7 @@ def _mk_summary_html(tickers, exchanges, pairs, root):
                 continue
             kind = _chg_kind(row.get("change_pct"))
             chg.append(
-                f'<p class="chg {kind}">{E(t("mk_chg", name=_ex_short(row.get("exchange")), n=_chg_shown(row.get("change_pct"))))}</p>'
+                f'<p class="chg {kind}" title="{E(t("mk_chg_tip"))}">{E(t("mk_chg_short", name=_ex_short(row.get("exchange")), n=_chg_shown(row.get("change_pct"))))}</p>'
             )
         tiles.append(
             f'<article class="mktile"><p class="k">{img}{E(name)} <span class="sym">{E(base)}</span></p>'
@@ -1329,22 +1359,19 @@ def _mk_summary_html(tickers, exchanges, pairs, root):
         )
     for g in M.volume_shares(tickers):
         tiles.append(
-            f'<article class="mktile"><p class="k">{E(t("mk_vol_tile"))}</p>'
-            f'<p class="px">{E(M.format_price(g["total"]))} <span class="unit">{E(g["quote"])}</span></p>'
-            f'<p class="meta">{E(t("mk_vol_tile_note"))}</p></article>'
+            f'<article class="mktile vol"><p class="k">{E(t("mk_vol_tile"))}</p>'
+            f'<p class="px">{E(M.format_price(g["total"]))} <span class="unit">{E(g["quote"])}</span></p></article>'
         )
     ok = [ex for ex in (exchanges or []) if ex.get("status") == "ok"]
     bases = {r.get("base") for r in tickers or [] if r.get("base")}
-    tiles.append(
-        f'<article class="mktile"><p class="k">{E(t("mk_tracked"))}</p><ul class="mkstats">'
-        f'<li><b>{len(ok)}</b> {E(t("mk_n_ex"))}</li>'
-        f'<li><b>{len(pairs)}</b> {E(t("mk_n_pairs"))}</li>'
-        f'<li><b>{len(bases)}</b> {E(t("mk_n_coins"))}</li></ul></article>'
+    note = (
+        f'<p class="meta mknote"><span class="mkstats">{E(t("mk_tracked"))}: <b>{len(ok)}</b> {E(t("mk_n_ex"))}'
+        f' · <b>{len(pairs)}</b> {E(t("mk_n_pairs"))} · <b>{len(bases)}</b> {E(t("mk_n_coins"))}.</span> {E(t("mk_tiles_note"))}</p>'
     )
-    inner = f'<div class="mktiles">{"".join(tiles)}</div>' if tickers else f'<p class="empty">{E(t("mk_empty"))}</p>'
+    inner = f'<div class="mktiles">{"".join(tiles)}</div>{note}' if tickers else f'<p class="empty">{E(t("mk_empty"))}</p>'
     return (
         f'<section class="mkdash" id="mk-summary" aria-labelledby="mk-glance">'
-        f'<h2 id="mk-glance">{E(t("mk_glance"))}</h2>{inner}</section>'
+        f'<h2 id="mk-glance" class="mklbl">{E(t("mk_glance"))}</h2>{inner}</section>'
     )
 
 def _mk_pair_rows(pairs):
@@ -1360,9 +1387,9 @@ def _mk_tr(pair, exrows, ids, names, root):
     name, _full = _mk_coin_name(base)
     img = ""
     if pair.get("logo_path"):
-        img = f'<img src="{root}{E(pair["logo_path"])}" width="22" height="22" alt="">'
+        img = f'<img src="{root}{E(pair["logo_path"])}" width="22" height="22" alt="" loading="lazy">'
     if pair.get("price"):
-        price = f'<span class="pxs">{E(M_format(pair["price"]))}</span><span class="meta sub">{E(quote)}</span>'
+        price = f'<span class="pxs">{E(M_format(pair["price"]))}</span>'
     else:
         price = f'<span class="meta">{E(t("mk_agg_none"))}</span>'
     search = [base, name, quote]
@@ -1403,7 +1430,7 @@ def _mk_table_html(tickers, pairs, root, sort="coin"):
     if not body:
         return f'<p class="empty">{E(t("mk_empty"))}</p>'
     return (
-        f'<div class="mkwrap"><table class="list mkpairs"><caption>{E(t("mk_table_h"))}</caption>'
+        f'<div class="mkwrap"><table class="list mkpairs"><caption class="vh">{E(t("mk_table_h"))}</caption>'
         f'<thead><tr>{"".join(heads)}</tr></thead><tbody>{body}</tbody></table></div>'
     )
 
@@ -1425,16 +1452,15 @@ def _mk_board_html(tickers, pairs, root):
     table = _mk_table_html(tickers, pairs, root) if pairs else f'<p class="empty">{E(t("mk_empty"))}</p>'
     return (
         f'<section class="mkboard" id="mk-board" aria-labelledby="mk-pairs-h">'
-        f'<h2 id="mk-pairs-h">{E(t("mk_table_h"))}</h2>'
-        f'<p class="meta">{E(t("mk_table_note"))}</p>'
-        f'<div class="filters" id="mk-filters">'
-        f'<label for="mk-q">{E(t("mk_filter"))}</label> '
-        f'<input id="mk-q" type="search" placeholder="{E(t("mk_filter_ph"))}" autocomplete="off"> '
-        f'<label for="mk-quote">{E(t("mk_quote_f"))}</label> '
-        f'<select id="mk-quote"><option value="">{E(t("mk_all_quotes"))}</option>{qopts}</select> '
-        f'<label for="mk-sort">{E(t("mk_sort"))}</label> '
+        f'<h2 id="mk-pairs-h" class="mklbl">{E(t("mk_table_h"))}</h2>'
+        f'<div class="filters mkfilters" id="mk-filters" role="search">'
+        f'<div class="fld q"><label for="mk-q">{E(t("mk_filter"))}</label>'
+        f'<input id="mk-q" type="search" placeholder="{E(t("mk_filter_ph"))}" autocomplete="off"></div>'
+        f'<div class="fld"><label for="mk-quote">{E(t("mk_quote_f"))}</label>'
+        f'<select id="mk-quote"><option value="">{E(t("mk_all_quotes"))}</option>{qopts}</select></div>'
+        f'<div class="fld"><label for="mk-sort">{E(t("mk_sort"))}</label>'
         f'<select id="mk-sort">{"".join(sopts)}</select></div>'
-        f'<p class="meta" id="mk-shown">{E(t("mk_row_count", n=len(pairs)))}</p>'
+        f'<p class="meta" id="mk-shown" aria-live="polite">{E(t("mk_row_count", n=len(pairs)))}</p></div>'
         f'<div id="mk-tables">{table}</div></section>'
     )
 
@@ -1454,6 +1480,9 @@ def build_markets(ctx):
         f'<li><b>{E(s.get("name"))}</b> ({E(s.get("country"))}): {E(s.get("reason"))}</li>'
         for s in (body.get("skipped") or [])
     )
+    n_skipped = len(body.get("skipped") or [])
+    skipped_html = (f'<details class="mkskip-d"><summary>{E(t("mk_skipped_h"))} ({n_skipped})</summary>'
+                    f'<p class="meta">{E(t("mk_skipped_lead"))}</p><ul class="mkskip">{skipped}</ul></details>' if skipped else "")
     strings = {
         "bid": t("mk_bid"), "ask": t("mk_ask"), "fetched": t("mk_fetched"), "source": t("mk_source"),
         "live": t("mk_live"), "file": t("mk_file"), "browser": t("mk_browser"), "empty": t("mk_empty"),
@@ -1467,32 +1496,31 @@ def build_markets(ctx):
         "share_empty": t("mk_share_empty"), "share_caption": t("mk_share_caption"),
         "share_includes": t("mk_share_includes"),
         "updated": t("mk_updated"), "sources": t("mk_sources"),
-        "glance": t("mk_glance"), "chg": t("mk_chg"), "chg_tip": t("mk_chg_tip"),
-        "vol_tile": t("mk_vol_tile"), "vol_tile_note": t("mk_vol_tile_note"),
+        "glance": t("mk_glance"), "chg_tip": t("mk_chg_tip"),
+        "vol_tile": t("mk_vol_tile"),
         "tracked": t("mk_tracked"), "n_ex": t("mk_n_ex"), "n_pairs": t("mk_n_pairs"), "n_coins": t("mk_n_coins"),
         "table_h": t("mk_table_h"), "col_coin": t("mk_col_coin"), "col_quote": t("mk_col_quote"),
         "col_price": t("mk_col_price"), "col_vol": t("mk_col_vol"),
         "mean_last": t("mk_mean_last"), "mean_mid": t("mk_mean_mid"),
         "vol_window": t("mk_vol_window"), "no_match": t("mk_no_match"), "row_count": t("mk_row_count"),
+        "share_table": t("mk_share_table"), "tiles_note": t("mk_tiles_note"), "chg_short": t("mk_chg_short"),
     }
     script = open(P("tools", "markets.js"), encoding="utf-8").read()
     body_html = f"""<div class="markets" id="mk" data-json="{root}api/v1/markets.json">
 <h1>{E(t("mk_h1"))}</h1>
 <p class="lead">{E(t("mk_lead"))}</p>
-<p class="notice">{E(body.get("disclaimer") or t("mk_lead"))}</p>
-<p class="appbar"><a class="applink" href="{E(M.IOS_TESTFLIGHT)}" rel="noopener">{E(t("ios_link"))}</a></p>
-<p class="meta">{E(t("ios_note"))}</p>
-<p class="meta ios-tv">{E(t("ios_tv"))}</p>
-{_mk_credit_html(tickers, body.get("exchanges") or [])}
-<p class="meta" id="mk-status">{E(t("mk_file"))}</p>
+<p class="meta mkstatus">{_mk_credit_html(tickers, body.get("exchanges") or [])} <span id="mk-status">{E(t("mk_file"))}</span></p>
+<nav class="mksub" aria-label="{E(t("mk_onpage"))}"><a href="#mk-board">{E(t("mk_table_h"))}</a><a href="#mk-share-h">{E(t("mk_share_h"))}</a><a href="#mk-about">{E(t("mk_about_h"))}</a></nav>
 <div id="mk-errors">{errs}</div>
 {_mk_summary_html(tickers, body.get("exchanges") or [], pairs, root)}
-<div id="mk-share">{_mk_share_html(tickers, root)}</div>
 {_mk_board_html(tickers, pairs, root)}
-<h2>{E(t("mk_skipped_h"))}</h2>
-<p class="meta">{E(t("mk_skipped_lead"))}</p>
-<ul>{skipped}</ul>
+<div id="mk-share">{_mk_share_html(tickers, root)}</div>
+<section class="mkabout" id="mk-about" aria-labelledby="mk-about-h">
+<h2 id="mk-about-h">{E(t("mk_about_h"))}</h2>
+<p class="notice">{E(body.get("disclaimer") or t("mk_lead"))}</p>
+<p>{E(t("mk_table_note"))}</p>
 <p class="meta">{E(t("mk_refresh"))}</p>
+{skipped_html}
 <p class="meta"><a href="{root}api/v1/markets.json">{E(t("mk_json"))}</a>
  · <a href="{root}api/v1/markets/aggregated.json">{E(t("mk_agg_json"))}</a>
  · <a href="{root}api/v1/markets/firi.json">firi</a>
@@ -1501,7 +1529,9 @@ def build_markets(ctx):
  · <a href="{root}api/v1/markets/by-asset/BTC.json">BTC</a>
  · <a href="https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json" rel="noopener">{E(t("mk_raw"))}</a></p>
 <p class="meta">{E(t("mk_icons"))} <a href="https://github.com/spothq/cryptocurrency-icons" rel="noopener">cryptocurrency-icons</a>.</p>
+<p class="mkapp"><a class="applink" href="{E(M.IOS_TESTFLIGHT)}" rel="noopener">{E(t("ios_link"))}</a> <span class="meta">{E(t("ios_note"))} <span class="ios-tv">{E(t("ios_tv"))}</span></span></p>
 <noscript><p class="notice">{E(t("mk_noscript"))}</p></noscript>
+</section>
 </div>"""
     page("markets", t("mk_title"), "markets", body_html, t("mk_desc"),
          f"<script>window.NC_MK={json.dumps(strings, ensure_ascii=False)};</script><script>{script}</script>")
@@ -2325,87 +2355,107 @@ def _talk_lang_label(code):
         return t(key)
     return code or ""
 
+def _deco_flag(c):
+    """A flag next to text that already names the country: hidden from screen readers, drawn from the page's flag sprite."""
+    return f'<svg class="flag" viewBox="0 0 22 16" width="22" height="16" aria-hidden="true" focusable="false"><use href="#fl-{c}"/></svg>' if c in _FL else ""
+
 def build_talks():
-    """ /talks/ : public Nordic crypto talks, newest first. The player is not in the HTML until a click."""
+    """ /talks/ : public Nordic crypto talks, newest first, one compact row each. The player is not in the HTML until a click."""
     rows = load_talks()
-    years = sorted({(r.get("date") or r.get("published") or "")[:4] for r in rows if (r.get("date") or r.get("published") or "")[:4].isdigit()}, reverse=True)
+    def year_of(r):
+        return (r.get("date") or r.get("published") or "")[:4]
+    years = sorted({year_of(r) for r in rows if year_of(r).isdigit()}, reverse=True)
+    by_country, by_lang, by_year = {}, {}, {}
+    for r in rows:
+        by_country[r.get("country") or ""] = by_country.get(r.get("country") or "", 0) + 1
+        by_lang[r.get("language") or ""] = by_lang.get(r.get("language") or "", 0) + 1
+        by_year[year_of(r)] = by_year.get(year_of(r), 0) + 1
     langs = []
     for r in rows:
         code = r.get("language") or ""
         if code and code not in langs:
             langs.append(code)
-    unknown = any(not r.get("language") for r in rows)
-    def chips(codes):
-        return "".join(
-            f'<button type="button" class="chip tcountry" data-c="{E(c)}" aria-pressed="false">{flag(c)}{E(t("c_" + c) if i18n.has("en", "c_" + c) else c)}</button>'
-            for c in codes)
+    unknown = by_lang.get("", 0)
+    # Only countries with at least one talk get a chip; each chip shows how many talks it holds.
+    chips = "".join(
+        f'<button type="button" class="chip tcountry" data-c="{E(c)}" aria-pressed="false">{_deco_flag(c)}{E(cname(c))} <span class="n">{by_country[c]}</span></button>'
+        for c in TALK_COUNTRIES if by_country.get(c))
     lang_chips = "".join(
-        f'<button type="button" class="chip tlang" data-l="{E(c)}" aria-pressed="false">{E(_talk_lang_label(c))}</button>'
+        f'<button type="button" class="chip tlang" data-l="{E(c)}" aria-pressed="false">{E(_talk_lang_label(c))} <span class="n">{by_lang[c]}</span></button>'
         for c in langs)
     if unknown:
-        lang_chips += f'<button type="button" class="chip tlang" data-l="" aria-pressed="false">{E(t("talks_lang_unknown"))}</button>'
-    year_opts = f'<option value="">{E(t("talks_year_all"))}</option>' + "".join(f'<option value="{E(y)}">{E(y)}</option>' for y in years)
+        lang_chips += f'<button type="button" class="chip tlang" data-l="" aria-pressed="false">{E(t("talks_lang_unknown"))} <span class="n">{unknown}</span></button>'
+    year_opts = f'<option value="">{E(t("talks_year_all"))}</option>' + "".join(f'<option value="{E(y)}">{E(y)} ({by_year[y]})</option>' for y in years)
+    # A language filter with a single choice filters nothing; it appears once the talks name two or more.
+    lang_group = (f'<div class="tf tf-l"><span class="lbl" id="tf-l">{E(t("talks_language"))}</span><div class="chips" role="group" aria-labelledby="tf-l">{lang_chips}</div></div>'
+                  if len(langs) + (1 if unknown else 0) > 1 else "")
     def article(r):
+        rid = r["id"]
         embed = _talk_embed(r)
         held = _talk_when(r.get("date"))
         published = _talk_when(r.get("published"))
         duration = _talk_duration(r.get("duration"))
         speakers = [s for s in (r.get("speakers") or []) if s]
+        # One meta line: place, date held, event, language. The length sits on the play button.
         bits = []
-        if held:
-            bits.append(f'{E(t("talks_held"))}: <time datetime="{E(r.get("date"))}">{E(held)}</time>')
         if r.get("city") or r.get("country"):
             place = ", ".join(p for p in (r.get("city"), cname(r.get("country")) if r.get("country") else "") if p)
-            bits.append(f'{flag(r.get("country"))} {E(place)}' if r.get("country") else E(place))
+            bits.append(f'{_deco_flag(r.get("country"))}{E(place)}')
+        if held:
+            bits.append(f'<time datetime="{E(r.get("date"))}">{E(held)}</time>')
+        eid = r.get("event_id") or r.get("calendar_event_id")
+        if r.get("event_name") and eid:
+            bits.append(f'<a href="../calendar/{E(eid)}/">{E(r["event_name"])}</a>')
+        elif r.get("event_name") and r.get("event_url"):
+            bits.append(f'<a href="{E(r["event_url"])}" rel="noopener" target="_blank">{E(r["event_name"])}</a>')
+        elif r.get("event_name") and r["event_name"].lower() not in (r.get("title") or "").lower():   # the title often names the event already
+            bits.append(E(r["event_name"]))
+        elif eid:
+            bits.append(f'<a href="../calendar/{E(eid)}/">{E(t("talks_calendar"))}</a>')
+        if r.get("language"):
+            bits.append(E(_talk_lang_label(r.get("language"))))
+        if not embed and duration:
+            bits.append(E(duration))
+        meta = f'<p class="meta tmeta">{" · ".join(bits)}</p>' if bits else ""
+        spk = ""
         if speakers:
             ids = r.get("speaker_ids") or []
             linked = []
             for i, name in enumerate(speakers):
                 sid = ids[i] if i < len(ids) and ids[i] else ""
                 linked.append(f'<a href="../org-chart/#{E(sid)}">{E(name)}</a>' if sid else E(name))
-            bits.append(f'{E(t("talks_speakers"))}: {", ".join(linked)}')
-        if duration:
-            bits.append(f'{E(t("talks_duration"))}: {E(duration)}')
-        if r.get("language"):
-            bits.append(f'{E(t("talks_language"))}: {E(_talk_lang_label(r.get("language")))}')
-        meta = " · ".join(bits)
+            if len(linked) > 4:   # long panel lists wait behind a summary
+                spk = f'<details class="tspk"><summary>{E(t("talks_speakers"))} ({len(linked)})</summary><p>{", ".join(linked)}</p></details>'
+            else:
+                spk = f'<p class="tspk">{E(t("talks_speakers"))}: {", ".join(linked)}</p>'
+        dur = f'<span class="dur">{E(duration)}</span>' if duration else ""
         if embed:
-            host = "youtube-nocookie.com" if r.get("platform") == "youtube" else ("player.vimeo.com" if r.get("platform") == "vimeo" else "")
-            media = (f'<button type="button" class="talk-play" data-embed="{E(embed)}">{E(t("talks_play"))}</button>'
-                     f'<p class="meta">{E(t("talks_embed_note"))}</p>')
+            act = (f'<button type="button" class="talk-play" data-embed="{E(embed)}" aria-describedby="{E(rid)}-t">'
+                   f'{E(t("talks_play"))}{dur}</button>')
         else:
-            media = (f'<p><a href="{E(r.get("video_url"))}" rel="noopener" target="_blank">{E(t("talks_watch"))}</a></p>'
-                     f'<p class="meta">{E(t("talks_not_embed"))}</p>')
+            act = (f'<a class="talk-out" href="{E(r.get("video_url"))}" rel="noopener" target="_blank" title="{E(t("talks_not_embed"))}">'
+                   f'{E(t("talks_watch"))}</a>')
         extra = []
-        eid = r.get("event_id") or r.get("calendar_event_id")
-        if r.get("event_name") and eid:
-            extra.append(f'{E(t("talks_event"))}: <a href="../calendar/{E(eid)}/">{E(r["event_name"])}</a>')
-        elif r.get("event_name") and r.get("event_url"):
-            extra.append(f'{E(t("talks_event"))}: <a href="{E(r["event_url"])}" rel="noopener" target="_blank">{E(r["event_name"])}</a>')
-        elif r.get("event_name"):
-            extra.append(f'{E(t("talks_event"))}: {E(r["event_name"])}')
-        elif eid:
-            extra.append(f'<a href="../calendar/{E(eid)}/">{E(t("talks_calendar"))}</a>')
         if r.get("channel"):
             extra.append(f'{E(t("talks_channel"))}: {E(r["channel"])}')
         if published:
             extra.append(f'{E(t("talks_published"))}: <time datetime="{E(r.get("published"))}">{E(published)}</time>')
-        if r.get("source_url"):
-            extra.append(f'{E(t("talks_source"))}: <a href="{E(r["source_url"])}" rel="noopener" target="_blank">{E(r["source_url"])}</a>')
-        year = (r.get("date") or r.get("published") or "")[:4]
-        return (f'<article id="{E(r["id"])}" data-c="{E(r.get("country") or "")}" data-y="{E(year)}" data-l="{E(r.get("language") or "")}">'
-                f'<h2><a href="{E(r.get("video_url"))}" rel="noopener" target="_blank">{E(r.get("title") or "")}</a></h2>'
-                f'<p class="meta">{meta}</p>{media}'
+        # The source link is shown when it is not the video page the title already links to.
+        if r.get("source_url") and re.sub(r"[?&]hl=[a-z-]+$", "", r["source_url"]) != r.get("video_url"):
+            extra.append(f'<a href="{E(r["source_url"])}" rel="noopener" target="_blank">{E(t("talks_source"))}</a>')
+        tail = f'<span class="meta">{" · ".join(extra)}</span>' if extra else ""
+        return (f'<article id="{E(rid)}" data-c="{E(r.get("country") or "")}" data-y="{E(year_of(r))}" data-l="{E(r.get("language") or "")}">'
+                f'<h2 id="{E(rid)}-t"><a href="{E(r.get("video_url"))}" rel="noopener" target="_blank">{E(r.get("title") or "")}</a></h2>'
+                f'{meta}'
                 + (f'<p class="sum">{E(r.get("description") or "")}</p>' if r.get("description") else "")
-                + (f'<p class="meta">{" · ".join(extra)}</p>' if extra else "")
-                + '</article>')
+                + f'{spk}<div class="tact">{act}{tail}</div></article>')
     body = f"""<div class="talks"><h1>{E(t("talks_h1"))}</h1>
 <p class="lead">{E(t("talks_lead"))}</p>
-<div class="filters" role="group" aria-label="{E(t("filters"))}">
-<span class="lbl">{E(t("country"))}</span><div class="chips">{chips(TALK_COUNTRIES)}</div>
-<label for="talk-year">{E(t("talks_year"))}</label> <select id="talk-year">{year_opts}</select>
-<span class="lbl">{E(t("talks_language"))}</span><div class="chips">{lang_chips}</div>
-<span id="talk-count" class="meta" aria-live="polite"></span>
+<div class="filters tfilters" role="group" aria-label="{E(t("filters"))}">
+<div class="tf tf-c"><span class="lbl" id="tf-c">{E(t("country"))}</span><div class="chips" role="group" aria-labelledby="tf-c">{chips}</div></div>
+<div class="tf tf-y"><label for="talk-year">{E(t("talks_year"))}</label><select id="talk-year">{year_opts}</select></div>
+{lang_group}
+<p id="talk-count" class="meta" aria-live="polite">{E(t("talks_n", n=len(rows)))}</p>
 </div>
 <div id="talk-list">{''.join(article(r) for r in rows) or f'<p class="empty">{E(t("talks_none"))}</p>'}</div>
 </div>"""
@@ -2413,11 +2463,11 @@ def build_talks():
 function on(list,key){return list.filter(function(b){return b.getAttribute('aria-pressed')==='true'}).map(function(b){return b.dataset[key]})}
 function apply(push){var c=on(cc,'c'),l=on(lc,'l'),y=year.value,n=0;arts.forEach(function(a){var ok=(!c.length||c.indexOf(a.dataset.c)>=0)&&(!y||a.dataset.y===y)&&(!l.length||l.indexOf(a.dataset.l)>=0);a.hidden=!ok;if(ok)n++});cnt.textContent=N.replace('{n}',n);if(push){var p=new URLSearchParams();if(c.length)p.set('country',c.join(','));if(y)p.set('year',y);if(l.length)p.set('lang',l.join(','));history.replaceState(null,'',p.toString()?'#'+p:location.pathname)}}
 var h=new URLSearchParams(location.hash.slice(1));(h.get('country')||'').split(',').forEach(function(x){cc.forEach(function(b){if(b.dataset.c===x)b.setAttribute('aria-pressed','true')})});
-(h.get('lang')||'').split(',').forEach(function(x){lc.forEach(function(b){if((b.dataset.l||'')===x)b.setAttribute('aria-pressed','true')})});
+(h.has('lang')?h.get('lang').split(','):[]).forEach(function(x){lc.forEach(function(b){if((b.dataset.l||'')===x)b.setAttribute('aria-pressed','true')})});
 if(h.get('year'))year.value=h.get('year');
 cc.concat(lc).forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');apply(1)})});
 year.addEventListener('change',function(){apply(1)});
-document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.talk-play');if(!b)return;var src=b.getAttribute('data-embed');if(!src)return;var f=document.createElement('iframe');f.src=src;f.title=b.textContent||'';f.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');f.setAttribute('allowfullscreen','');f.setAttribute('referrerpolicy','strict-origin-when-cross-origin');b.replaceWith(f)});
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.talk-play');if(!b)return;var src=b.getAttribute('data-embed');if(!src)return;var hd=document.getElementById(b.getAttribute('aria-describedby')||''),f=document.createElement('iframe');f.src=src;f.title=(hd&&hd.textContent)||b.textContent||'';f.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');f.setAttribute('allowfullscreen','');f.setAttribute('referrerpolicy','strict-origin-when-cross-origin');b.replaceWith(f);f.focus()});
 apply(0)})();</script>""" % json.dumps(t("talks_n", n="{n}"))
     page("talks", t("talks_title"), "talks", body, t("talks_desc"), js)
     if LANG == "en":

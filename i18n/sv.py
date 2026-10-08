@@ -378,3 +378,14 @@ S.update({
 "screen_short": "Skärmläge för kontoret",
 "rail_more": "Mer från Nordic Crypto",
 })
+
+# Media pages: markets, talks and newsletter layout
+S.update({
+"mk_tiles_note": "Förändring i %: som varje börs publicerade den, perioden är inte angiven. Volym 24 h: bara börser som har publicerat en 24-timmarssiffra; valutorna läggs inte ihop.",
+"mk_chg_short": "{name} {n} %",
+"mk_share_table": "Visa siffrorna som tabell",
+"mk_onpage": "På den här sidan",
+"mk_about_h": "Om siffrorna",
+"nl_next_h": "Få nästa utgåva",
+"nl_rss": "RSS-flöde",
+})

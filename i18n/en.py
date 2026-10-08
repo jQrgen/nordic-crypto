@@ -397,3 +397,14 @@ S.update({
 "screen_short": "Office screen mode",
 "rail_more": "More from Nordic Crypto",
 })
+
+# Media pages: markets, talks and newsletter layout
+S.update({
+"mk_tiles_note": "Change in %: as published by each exchange, window not named. 24h volume: only exchanges that published a 24-hour figure; currencies are not added together.",
+"mk_chg_short": "{name} {n}%",
+"mk_share_table": "Show the figures as a table",
+"mk_onpage": "On this page",
+"mk_about_h": "About these figures",
+"nl_next_h": "Get the next issue",
+"nl_rss": "RSS feed",
+})

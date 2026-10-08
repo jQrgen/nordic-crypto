@@ -378,3 +378,14 @@ S.update({
 "screen_short": "Toimiston näyttötila",
 "rail_more": "Lisää Nordic Cryptolta",
 })
+
+# Media pages: markets, talks and newsletter layout
+S.update({
+"mk_tiles_note": "Muutos %: kuten kukin pörssi sen julkaisi, ajanjaksoa ei ole nimetty. 24 tunnin volyymi: vain pörssit, jotka ovat julkaisseet 24 tunnin luvun; valuuttoja ei lasketa yhteen.",
+"mk_chg_short": "{name} {n} %",
+"mk_share_table": "Näytä luvut taulukkona",
+"mk_onpage": "Tällä sivulla",
+"mk_about_h": "Tietoa luvuista",
+"nl_next_h": "Saat seuraavan numeron",
+"nl_rss": "RSS-syöte",
+})
