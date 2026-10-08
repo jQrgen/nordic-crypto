@@ -6,6 +6,7 @@ This file does not translate article bodies or summaries. Nordic news sources ar
 S = {
 "primary_source": "प्राथमिक स्रोत",
 "ios_tv": 'विशेषतः Apple TV ला समर्थन करते.',
+"contributors": 'योगदानकर्ते',
 "prev_extra": "नॉर्डिक देशांतील आधीचे सार्वजनिक कार्यक्रम येथे येतात, जेव्हा स्रोत तारीख, ठिकाण आणि आयोजक सांगतो.",
 "ev_type": "प्रकार",
 "ev_type_conference": "परिषद",

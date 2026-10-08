@@ -6,6 +6,7 @@ This file does not translate article bodies or summaries. Nordic news sources ar
 S = {
 "primary_source": "主要来源",
 "ios_tv": '特别支持 Apple TV。',
+"contributors": '贡献者',
 "prev_extra": "较早的北欧公开活动会列在这里，前提是来源写明了日期、地点和主办方。",
 "ev_type": "类型",
 "ev_type_conference": "会议",

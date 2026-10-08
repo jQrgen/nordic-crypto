@@ -6,6 +6,7 @@ This file does not translate article bodies or summaries. Nordic news sources ar
 S = {
 "primary_source": "Source principale",
 "ios_tv": 'Prend en charge Apple TV en particulier.',
+"contributors": 'Contributeurs',
 "prev_extra": "Les événements publics plus anciens dans les pays nordiques figurent ici lorsqu’une source indique la date, le lieu et l’organisateur.",
 "ev_type": "Type",
 "ev_type_conference": "Conférence",

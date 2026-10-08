@@ -5,7 +5,7 @@ S = {
 "nav_about": "About", "nav_tip": "Send a tip", "nav_api": "API", "main_menu": "Main menu", "lang_label": "Language", "lang_choose": "Choose language",
 "site_desc_suffix": "Nordic crypto news",
 "preview_banner": "<b>Local preview – not published.</b> Everything marked “Pending editor review” has not been checked by the editor yet; summaries are not written yet. Only approved items go into the public build.",
-"footer": "{site} covers Norway, Sweden, Denmark, Finland and Iceland. Run by Jørgen S. Notland (jQrgen), Oslo, Made with the help of artificial intelligence, with human editors (jQrgen and the Nordic Crypto editor). Not investment advice. Cloudflare Web Analytics counts visits in aggregate, without cookies, and we do not sell that data. One cookie, only if you choose a language. <a href=\"{rel}about/\">About, privacy, corrections and removal</a> · <a href=\"{rel}tip/\">Send a tip</a> · <a href=\"{rel}columnist/\">Apply as a columnist</a> · <a href=\"{rel}media/\">Logo and media kit</a> · <a href=\"{rel}changelog/\">Changelog</a> · <a href=\"{rel}ethics/\">Editorial ethics</a> · <a href=\"https://testflight.apple.com/join/nQ2fpjZn\" rel=\"noopener\">iOS app (TestFlight)</a> {ios_tv} · <a href=\"{rel}talks/\">Talks</a> · <a href=\"{rel}markets/\">Markets</a> · <a href=\"{root}api/\">Data API</a>.",
+"footer": "{site} covers Norway, Sweden, Denmark, Finland and Iceland. Run by Jørgen S. Notland (jQrgen), Oslo, Made with the help of artificial intelligence, with human editors (jQrgen and the Nordic Crypto editor). Not investment advice. Cloudflare Web Analytics counts visits in aggregate, without cookies, and we do not sell that data. One cookie, only if you choose a language. <a href=\"{rel}about/\">About, privacy, corrections and removal</a> · <a href=\"{rel}tip/\">Send a tip</a> · <a href=\"{rel}columnist/\">Apply as a columnist</a> · <a href=\"{rel}media/\">Logo and media kit</a> · <a href=\"{rel}changelog/\">Changelog</a> · <a href=\"{rel}ethics/\">Editorial ethics</a> · <a href=\"https://testflight.apple.com/join/nQ2fpjZn\" rel=\"noopener\">iOS app (TestFlight)</a> {ios_tv} · <a href=\"{rel}talks/\">Talks</a> · <a href=\"{rel}markets/\">Markets</a> · <a href=\"{root}api/\">Data API</a> · {contributors}.",
 "moved": "This page has moved to",
 # dates
 "time_local": "{city}, local time", "at_time": "{t}",
@@ -242,6 +242,7 @@ S.update({
 "ios_link": "Get the iOS app (TestFlight)",
 "ios_note": "Public TestFlight invite. There is no App Store listing.",
 "ios_tv": "Especially supports Apple TV.",
+"contributors": "Contributors",
 "mk_title": "Nordic market overview",
 "mk_desc": "Overview of coins quoted on Nordic exchanges: aggregated prices, 24-hour volume where an exchange published it, and each exchange's own price. Not investment advice.",
 "mk_h1": "Nordic market overview",

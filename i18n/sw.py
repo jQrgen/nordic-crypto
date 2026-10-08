@@ -6,6 +6,7 @@ This file does not translate article bodies or summaries. Nordic news sources ar
 S = {
 "primary_source": "Chanzo kikuu",
 "ios_tv": 'Inaunga mkono Apple TV hasa.',
+"contributors": 'Wachangiaji',
 "prev_extra": "Matukio ya umma ya awali katika nchi za Nordic yako hapa ikiwa chanzo kinataja tarehe, mahali na mpangaji.",
 "ev_type": "Aina",
 "ev_type_conference": "Mkutano",
