@@ -1,13 +1,266 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T00:14:44+00:00",
+ "generated_at": "2026-10-08T06:00:27+00:00",
  "preview": false,
- "updated": "2026-10-07T01:48:50+00:00",
+ "updated": "2026-10-08T02:28:44+00:00",
  "language_note": "summary is English. summary_i18n holds nn, nb, sv, da, fi and is when that translation is published. Other site languages use the English summary until a translation exists. title is the source headline. title_en is our English headline when we wrote one. title_i18n holds nn, nb, sv, da, fi and is when that headline is not already the source headline. The site shows the page-language headline first and the source headline under it when they differ. Other site languages use title_en. source_logo is the outlet image when assets/img/logos/logos.json has a checked file for the source id (or its outlet, or a _source_alias). Null means show the source name as text. illustration is the licensed picture assigned to the story, with source, author, license and url. The site does not render it. It is never a photograph copied or hotlinked from another newspaper. primary_source is that outlet. also_covered_by lists every other outlet on the same event (outlet, outlet_name, url, title, published, lang, country, source_type, paywall, logo). sources is the primary plus those outlets. coverage.count is how many outlets, coverage.by_country and coverage.by_source_type (national, regional, official, international) are the counts and shares for the bars, including zeros. html_url is our page for the story. url on the item is the primary outlet. The site language list is /api/v1/languages.json.",
  "logo_note": "logo / source_logo is the outlet's logo (file_url is the original, SVG or WebP). logo_url (sources) and source_logo_url (news) are the same logo as a raster image, PNG or WebP, never SVG, for apps that cannot draw SVG. Logos are the publishers' own trademarks, shown only to identify the source of a headline. They are null until the editor has checked the logo.",
- "count": 43,
+ "count": 46,
  "items": [
+  {
+   "id": "31ee174aa583",
+   "url": "https://nyheter24.se/nyheter/inrikes/1519244-fi-varnar-for-fler-bluffaktorer",
+   "html_url": "https://nordiccrypto.no/stories/31ee174aa583/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/31ee174aa583.json",
+   "title": "30 nya namn på varningslistan – akta dig för företagen",
+   "title_en": "Swedish regulator warns against 30 more fake investment firms",
+   "title_i18n": {},
+   "source": "nyheter24.se",
+   "source_name": "Nyheter24",
+   "source_logo": null,
+   "source_note": null,
+   "country": "SE",
+   "language": "Swedish",
+   "language_code": "sv",
+   "published": "2026-10-06T08:33:27+00:00",
+   "topics": [
+    "crime",
+    "consumer protection"
+   ],
+   "summary": "Sweden's Finansinspektionen has warned against 30 more firms that look legitimate but lack a licence; several lure consumers with trading in shares, crypto and currencies, and some are clone firms using details of real financial companies. FI has now warned against 227 suspected investment-fraud operators so far in 2026 and urges people to check its company register before sending money.",
+   "summary_i18n": {
+    "nb": "Finansinspektionen i Sverige advarer mot 30 nye aktører som ser seriøse ut, men mangler tillatelse; flere lokker med handel i aksjer, krypto og valuta, og noen er klonselskaper som bruker opplysninger fra ekte finansselskaper. FI har dermed advart mot 227 aktører som mistenkes for investeringsbedrageri hittil i 2026, og ber folk sjekke selskapsregisteret før de overfører penger.",
+    "nn": "Finansinspektionen i Sverige åtvarar mot 30 nye aktørar som ser seriøse ut, men manglar løyve; fleire lokkar med handel i aksjar, krypto og valuta, og nokre er klonselskap som brukar opplysningar frå ekte finansselskap. FI har dermed åtvara mot 227 aktørar som er mistenkte for investeringssvindel så langt i 2026, og ber folk sjekke selskapsregisteret før dei overfører pengar.",
+    "sv": "Finansinspektionen varnar för 30 nya aktörer som ser seriösa ut men saknar tillstånd; flera lockar med handel i aktier, krypto och valutor, och några är klonföretag som använder uppgifter från riktiga finansbolag. FI har därmed varnat för 227 aktörer som misstänks för investeringsbedrägerier hittills under 2026 och uppmanar alla att kontrollera företagsregistret innan de för över pengar.",
+    "da": "Det svenske Finansinspektionen advarer mod 30 nye aktører, der ser seriøse ud, men mangler tilladelse; flere lokker med handel i aktier, krypto og valuta, og nogle er klonselskaber, der bruger oplysninger fra rigtige finansielle virksomheder. FI har dermed advaret mod 227 aktører, der mistænkes for investeringssvindel, indtil videre i 2026 og opfordrer folk til at tjekke virksomhedsregistret, før de overfører penge.",
+    "fi": "Ruotsin Finansinspektionen varoittaa 30 uudesta toimijasta, jotka näyttävät luotettavilta mutta joilla ei ole toimilupaa; useat houkuttelevat kuluttajia osake-, krypto- ja valuuttakaupalla, ja osa on klooniyrityksiä, jotka käyttävät oikeiden rahoitusyhtiöiden tietoja. FI on näin varoittanut vuonna 2026 jo 227 toimijasta, joita epäillään sijoituspetoksista, ja kehottaa tarkistamaan yritysrekisterin ennen rahan siirtämistä.",
+    "is": "Sænska fjármálaeftirlitið Finansinspektionen varar við 30 nýjum aðilum sem virðast traustir en hafa ekki starfsleyfi; nokkrir lokka neytendur með viðskiptum með hlutabréf, rafmyntir og gjaldeyri, og sumir eru klónfyrirtæki sem nota upplýsingar frá raunverulegum fjármálafyrirtækjum. FI hefur þar með varað við 227 aðilum sem grunaðir eru um fjárfestingarsvik það sem af er 2026 og hvetur fólk til að kanna fyrirtækjaskrána áður en það millifærir peninga."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "commons-court",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-court.webp",
+    "width": 960,
+    "height": 663,
+    "alt": "Oslo courthouse, Oslo tinghus.",
+    "source": "Wikimedia Commons",
+    "author": "Mahlum",
+    "license": "Public domain",
+    "license_url": "https://commons.wikimedia.org/wiki/File:Oslo_tinghus.jpg",
+    "url": "https://commons.wikimedia.org/wiki/File:Oslo_tinghus.jpg",
+    "credit": "Photo: Mahlum. Licence: Public domain. Source: Wikimedia Commons.",
+    "modifications": null,
+    "terms": null
+   },
+   "primary_source": {
+    "outlet": "nyheter24.se",
+    "outlet_name": "Nyheter24",
+    "url": "https://nyheter24.se/nyheter/inrikes/1519244-fi-varnar-for-fler-bluffaktorer",
+    "title": "30 nya namn på varningslistan – akta dig för företagen",
+    "published": "2026-10-06T08:33:27+00:00",
+    "lang": "Swedish",
+    "language_code": "sv",
+    "country": "SE",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": null
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "nyheter24.se",
+     "outlet_name": "Nyheter24",
+     "url": "https://nyheter24.se/nyheter/inrikes/1519244-fi-varnar-for-fler-bluffaktorer",
+     "title": "30 nya namn på varningslistan – akta dig för företagen",
+     "published": "2026-10-06T08:33:27+00:00",
+     "lang": "Swedish",
+     "language_code": "sv",
+     "country": "SE",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": null
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": null
+  },
+  {
+   "id": "02e9e79168d3",
+   "url": "https://www.fi.se/sv/publicerat/nyheter/2026/amla-foreslar-tre-tekniska-standarder-enligt-penningtvattsforordningen/",
+   "html_url": "https://nordiccrypto.no/stories/02e9e79168d3/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/02e9e79168d3.json",
+   "title": "Amla föreslår tre tekniska standarder enligt penningtvättsförordningen",
+   "title_en": "EU's AML authority sends three standards to the Commission, with crypto rules",
+   "title_i18n": {},
+   "source": "fi-se",
+   "source_name": "Finansinspektionen (SE FSA)",
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/se-fi.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Finansinspektionen_logo.svg",
+    "author": "Finansinspektionen.",
+    "license": "Public domain",
+    "license_url": null,
+    "credit": "Wikimedia Commons",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/se-fi.png"
+   },
+   "source_note": null,
+   "country": "SE",
+   "language": "Swedish",
+   "language_code": "sv",
+   "published": "2026-10-05T13:53:01+00:00",
+   "topics": [
+    "aml",
+    "regulation"
+   ],
+   "summary": "The EU anti-money-laundering authority AMLA has sent three final draft technical standards under the new AML regulation to the European Commission, Sweden's Finansinspektionen reports; they still need the Commission's adoption. Under AMLA's report, crypto-asset service providers must consider whether a customer has made three or more transactions in 12 months when deciding if there is a business relationship, use a one-month window for linked transactions, and keep the €1,000 threshold for occasional transactions.",
+   "summary_i18n": {
+    "nb": "EUs hvitvaskingsmyndighet AMLA har sendt tre endelige utkast til tekniske standarder under den nye hvitvaskingsforordningen til EU-kommisjonen, melder svenske Finansinspektionen; Kommisjonen må fortsatt vedta dem. Ifølge AMLAs rapport må kryptotjenestetilbydere vurdere om en kunde har gjort tre eller flere transaksjoner på 12 måneder når de avgjør om det foreligger et kundeforhold, bruke et vindu på én måned for sammenknyttede transaksjoner og beholde terskelen på 1 000 euro for enkeltstående transaksjoner.",
+    "nn": "EUs kvitvaskingsstyresmakt AMLA har sendt tre endelege utkast til tekniske standardar under den nye kvitvaskingsforordninga til EU-kommisjonen, melder svenske Finansinspektionen; Kommisjonen må framleis vedta dei. Ifølgje rapporten til AMLA må kryptotenestetilbydarar vurdere om ein kunde har gjort tre eller fleire transaksjonar på 12 månader når dei avgjer om det ligg føre eit kundeforhold, bruke eit vindauge på éin månad for samankopla transaksjonar og halde på terskelen på 1 000 euro for enkeltståande transaksjonar.",
+    "sv": "EU:s penningtvättsmyndighet AMLA har skickat tre slutliga utkast till tekniska standarder enligt den nya penningtvättsförordningen till EU-kommissionen, rapporterar Finansinspektionen; kommissionen måste fortfarande anta dem. Enligt AMLA:s rapport ska kryptotjänsteleverantörer beakta om en kund har gjort tre eller fler transaktioner på 12 månader när de bedömer om det finns en affärsförbindelse, använda ett fönster på en månad för sammanlänkade transaktioner och behålla tröskeln på 1 000 euro för enstaka transaktioner.",
+    "da": "EU's hvidvaskmyndighed AMLA har sendt tre endelige udkast til tekniske standarder under den nye hvidvaskforordning til EU-Kommissionen, oplyser det svenske Finansinspektionen; Kommissionen skal stadig vedtage dem. Ifølge AMLA's rapport skal udbydere af kryptoaktivtjenester overveje, om en kunde har foretaget tre eller flere transaktioner på 12 måneder, når de vurderer, om der er en forretningsforbindelse, bruge et vindue på én måned for forbundne transaktioner og fastholde tærsklen på 1.000 euro for lejlighedsvise transaktioner.",
+    "fi": "EU:n rahanpesun vastainen viranomainen AMLA on lähettänyt Euroopan komissiolle kolme lopullista teknisten standardien luonnosta uuden rahanpesuasetuksen nojalla, kertoo Ruotsin Finansinspektionen; komission on vielä hyväksyttävä ne. AMLA:n raportin mukaan kryptopalvelujen tarjoajien on otettava huomioon, onko asiakas tehnyt kolme tai useampia liiketoimia 12 kuukauden aikana, kun ne arvioivat asiakassuhteen olemassaoloa, käytettävä yhden kuukauden jaksoa toisiinsa liittyville liiketoimille ja pidettävä satunnaisten liiketoimien 1 000 euron raja.",
+    "is": "Peningaþvættiseftirlit ESB, AMLA, hefur sent framkvæmdastjórn ESB þrjú endanleg drög að tæknilegum stöðlum samkvæmt nýju peningaþvættisreglugerðinni, segir sænska fjármálaeftirlitið Finansinspektionen; framkvæmdastjórnin á enn eftir að samþykkja þau. Samkvæmt skýrslu AMLA skulu þjónustuveitendur rafmynta líta til þess hvort viðskiptavinur hafi átt þrjú eða fleiri viðskipti á 12 mánuðum þegar metið er hvort viðskiptasamband sé til staðar, nota eins mánaðar tímabil fyrir tengd viðskipti og halda 1.000 evra viðmiðinu fyrir stök viðskipti."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "official-riksbank",
+    "kind": "official-press",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/official-riksbank.webp",
+    "width": 960,
+    "height": 640,
+    "alt": "The Riksbank building in Stockholm.",
+    "source": "Sveriges Riksbank",
+    "author": "Sveriges Riksbank",
+    "license": "Free use, credit Sveriges Riksbank",
+    "license_url": "https://www.riksbank.se/sv/press-och-publicerat/presskontakt/bildbank/riksbankshuset/",
+    "url": "https://www.riksbank.se/sv/press-och-publicerat/presskontakt/bildbank/riksbankshuset/",
+    "credit": "Photo: Sveriges Riksbank. Licence: Free use, credit Sveriges Riksbank. Source: Sveriges Riksbank.",
+    "modifications": null,
+    "terms": "Checked 2026-10-06. The Riksbank image bank says these pictures may be downloaded and used freely if Sveriges Riksbank is credited. Pictures of banknotes and coins on the same site are not free in that way and are not used. This file is the building, scaled to 960 pixels wide and saved as WebP. It is not cropped or recoloured."
+   },
+   "primary_source": {
+    "outlet": "fi-se",
+    "outlet_name": "Finansinspektionen (SE FSA)",
+    "url": "https://www.fi.se/sv/publicerat/nyheter/2026/amla-foreslar-tre-tekniska-standarder-enligt-penningtvattsforordningen/",
+    "title": "Amla föreslår tre tekniska standarder enligt penningtvättsförordningen",
+    "published": "2026-10-05T13:53:01+00:00",
+    "lang": "Swedish",
+    "language_code": "sv",
+    "country": "SE",
+    "source_type": "official",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/se-fi.svg",
+     "source_url": "https://commons.wikimedia.org/wiki/File:Finansinspektionen_logo.svg",
+     "author": "Finansinspektionen.",
+     "license": "Public domain",
+     "license_url": null,
+     "credit": "Wikimedia Commons",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/se-fi.png"
+    }
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "fi-se",
+     "outlet_name": "Finansinspektionen (SE FSA)",
+     "url": "https://www.fi.se/sv/publicerat/nyheter/2026/amla-foreslar-tre-tekniska-standarder-enligt-penningtvattsforordningen/",
+     "title": "Amla föreslår tre tekniska standarder enligt penningtvättsförordningen",
+     "published": "2026-10-05T13:53:01+00:00",
+     "lang": "Swedish",
+     "language_code": "sv",
+     "country": "SE",
+     "source_type": "official",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/se-fi.svg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Finansinspektionen_logo.svg",
+      "author": "Finansinspektionen.",
+      "license": "Public domain",
+      "license_url": null,
+      "credit": "Wikimedia Commons",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/se-fi.png"
+     }
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/se-fi.png"
+  },
   {
    "id": "fb9e8ca4fb40",
    "url": "https://www.finansavisen.no/valuta/2026/10/05/8385368/smasparere-hamstret-krypto-under-renteuro",
@@ -125,6 +378,146 @@
     ]
    },
    "source_logo_url": null
+  },
+  {
+   "id": "e88e8e0c9a77",
+   "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/",
+   "html_url": "https://nordiccrypto.no/stories/e88e8e0c9a77/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/e88e8e0c9a77.json",
+   "title": "Rødt foreslår midlertidig stans for nye datasentre",
+   "title_en": "Red Party proposes a temporary halt for new data centres",
+   "title_i18n": {},
+   "source": "stortinget",
+   "source_name": "Stortinget",
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+    "author": "Worldlydev",
+    "license": "Public domain",
+    "license_url": null,
+    "credit": "Wikimedia Commons",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
+   },
+   "source_note": null,
+   "country": "NO",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-10-05T12:00:00+00:00",
+   "topics": [
+    "mining",
+    "policy"
+   ],
+   "summary": "The Red Party (Rødt) has proposed in the Storting a temporary halt for new data centres, along with a licensing regime and other measures. Its reasoning says crypto-mining data centres get power ahead of key local industries and that the crypto-mining ban the Storting has asked for three times in two years is still not in place, though none of the proposals singles out crypto.",
+   "summary_i18n": {
+    "nb": "Rødt har foreslått på Stortinget en midlertidig stans for nye datasentre, sammen med en konsesjonsordning og andre tiltak. Begrunnelsen sier at datasentre som utvinner kryptovaluta får strømtilgang foran hjørnesteinsbedrifter, og at kryptoforbudet Stortinget har bedt om tre ganger på to år fortsatt ikke er på plass, men ingen av forslagene gjelder krypto særskilt.",
+    "nn": "Raudt har føreslått på Stortinget ein mellombels stans for nye datasenter, saman med ei konsesjonsordning og andre tiltak. Grunngjevinga seier at datasenter som utvinn kryptovaluta får straumtilgang framfor hjørnesteinsbedrifter, og at kryptoforbodet Stortinget har bede om tre gonger på to år framleis ikkje er på plass, men ingen av forslaga gjeld krypto særskilt.",
+    "sv": "Rødt har i Stortinget föreslagit ett tillfälligt stopp för nya datacenter, tillsammans med ett tillståndssystem och andra åtgärder. Motiveringen säger att datacenter som utvinner kryptovaluta får elanslutning före viktiga lokala industrier och att kryptoförbudet som Stortinget har begärt tre gånger på två år fortfarande inte är på plats, men inget av förslagen gäller specifikt krypto.",
+    "da": "Rødt har i Stortinget foreslået et midlertidigt stop for nye datacentre sammen med en tilladelsesordning og andre tiltag. Begrundelsen siger, at datacentre, der udvinder kryptovaluta, får strømadgang før vigtige lokale virksomheder, og at det kryptoforbud, som Stortinget har bedt om tre gange på to år, stadig ikke er på plads, men ingen af forslagene handler specifikt om krypto.",
+    "fi": "Norjan Punainen puolue (Rødt) on ehdottanut suurkäräjillä uusien datakeskusten väliaikaista pysäyttämistä sekä lupajärjestelmää ja muita toimia. Perustelujen mukaan kryptovaluuttaa louhivat datakeskukset saavat sähköliittymän ennen tärkeitä paikallisia yrityksiä, eikä suurkäräjien kolmesti kahdessa vuodessa pyytämää kryptolouhinnan kieltoa ole yhä otettu käyttöön, mutta mikään ehdotuksista ei koske erityisesti kryptoa.",
+    "is": "Rauði flokkurinn (Rødt) hefur lagt til á Stórþinginu tímabundna stöðvun nýrra gagnavera, ásamt leyfiskerfi og öðrum aðgerðum. Í rökstuðningnum segir að gagnaver sem grafa eftir rafmyntum fái rafmagnstengingu á undan mikilvægum fyrirtækjum í heimabyggð og að bann við rafmyntagreftri, sem Stórþingið hefur þrisvar beðið um á tveimur árum, sé enn ekki komið á, en engin tillagnanna snýr sérstaklega að rafmyntum."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "commons-mining",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-mining.webp",
+    "width": 960,
+    "height": 720,
+    "alt": "Rows of cryptocurrency mining machines indoors.",
+    "source": "Wikimedia Commons",
+    "author": "Jasper Reichardt",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "url": "https://commons.wikimedia.org/wiki/File:Mining-Rig.jpg",
+    "credit": "Photo: Jasper Reichardt. Licence: CC BY-SA 4.0. Source: Wikimedia Commons.",
+    "modifications": null,
+    "terms": null
+   },
+   "primary_source": {
+    "outlet": "stortinget",
+    "outlet_name": "Stortinget",
+    "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/",
+    "title": "Rødt foreslår midlertidig stans for nye datasentre",
+    "published": "2026-10-05T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "official",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
+     "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+     "author": "Worldlydev",
+     "license": "Public domain",
+     "license_url": null,
+     "credit": "Wikimedia Commons",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
+    }
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "stortinget",
+     "outlet_name": "Stortinget",
+     "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/",
+     "title": "Rødt foreslår midlertidig stans for nye datasentre",
+     "published": "2026-10-05T12:00:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "official",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+      "author": "Worldlydev",
+      "license": "Public domain",
+      "license_url": null,
+      "credit": "Wikimedia Commons",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
+     }
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
   },
   {
    "id": "e6727b4858b5",

@@ -1,11 +1,124 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T00:14:44+00:00",
+ "generated_at": "2026-10-08T06:00:27+00:00",
  "preview": false,
  "topic": "crime",
- "count": 5,
+ "count": 6,
  "items": [
+  {
+   "id": "31ee174aa583",
+   "url": "https://nyheter24.se/nyheter/inrikes/1519244-fi-varnar-for-fler-bluffaktorer",
+   "html_url": "https://nordiccrypto.no/stories/31ee174aa583/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/31ee174aa583.json",
+   "title": "30 nya namn på varningslistan – akta dig för företagen",
+   "title_en": "Swedish regulator warns against 30 more fake investment firms",
+   "title_i18n": {},
+   "source": "nyheter24.se",
+   "source_name": "Nyheter24",
+   "source_logo": null,
+   "source_note": null,
+   "country": "SE",
+   "language": "Swedish",
+   "language_code": "sv",
+   "published": "2026-10-06T08:33:27+00:00",
+   "topics": [
+    "crime",
+    "consumer protection"
+   ],
+   "summary": "Sweden's Finansinspektionen has warned against 30 more firms that look legitimate but lack a licence; several lure consumers with trading in shares, crypto and currencies, and some are clone firms using details of real financial companies. FI has now warned against 227 suspected investment-fraud operators so far in 2026 and urges people to check its company register before sending money.",
+   "summary_i18n": {
+    "nb": "Finansinspektionen i Sverige advarer mot 30 nye aktører som ser seriøse ut, men mangler tillatelse; flere lokker med handel i aksjer, krypto og valuta, og noen er klonselskaper som bruker opplysninger fra ekte finansselskaper. FI har dermed advart mot 227 aktører som mistenkes for investeringsbedrageri hittil i 2026, og ber folk sjekke selskapsregisteret før de overfører penger.",
+    "nn": "Finansinspektionen i Sverige åtvarar mot 30 nye aktørar som ser seriøse ut, men manglar løyve; fleire lokkar med handel i aksjar, krypto og valuta, og nokre er klonselskap som brukar opplysningar frå ekte finansselskap. FI har dermed åtvara mot 227 aktørar som er mistenkte for investeringssvindel så langt i 2026, og ber folk sjekke selskapsregisteret før dei overfører pengar.",
+    "sv": "Finansinspektionen varnar för 30 nya aktörer som ser seriösa ut men saknar tillstånd; flera lockar med handel i aktier, krypto och valutor, och några är klonföretag som använder uppgifter från riktiga finansbolag. FI har därmed varnat för 227 aktörer som misstänks för investeringsbedrägerier hittills under 2026 och uppmanar alla att kontrollera företagsregistret innan de för över pengar.",
+    "da": "Det svenske Finansinspektionen advarer mod 30 nye aktører, der ser seriøse ud, men mangler tilladelse; flere lokker med handel i aktier, krypto og valuta, og nogle er klonselskaber, der bruger oplysninger fra rigtige finansielle virksomheder. FI har dermed advaret mod 227 aktører, der mistænkes for investeringssvindel, indtil videre i 2026 og opfordrer folk til at tjekke virksomhedsregistret, før de overfører penge.",
+    "fi": "Ruotsin Finansinspektionen varoittaa 30 uudesta toimijasta, jotka näyttävät luotettavilta mutta joilla ei ole toimilupaa; useat houkuttelevat kuluttajia osake-, krypto- ja valuuttakaupalla, ja osa on klooniyrityksiä, jotka käyttävät oikeiden rahoitusyhtiöiden tietoja. FI on näin varoittanut vuonna 2026 jo 227 toimijasta, joita epäillään sijoituspetoksista, ja kehottaa tarkistamaan yritysrekisterin ennen rahan siirtämistä.",
+    "is": "Sænska fjármálaeftirlitið Finansinspektionen varar við 30 nýjum aðilum sem virðast traustir en hafa ekki starfsleyfi; nokkrir lokka neytendur með viðskiptum með hlutabréf, rafmyntir og gjaldeyri, og sumir eru klónfyrirtæki sem nota upplýsingar frá raunverulegum fjármálafyrirtækjum. FI hefur þar með varað við 227 aðilum sem grunaðir eru um fjárfestingarsvik það sem af er 2026 og hvetur fólk til að kanna fyrirtækjaskrána áður en það millifærir peninga."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "commons-court",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-court.webp",
+    "width": 960,
+    "height": 663,
+    "alt": "Oslo courthouse, Oslo tinghus.",
+    "source": "Wikimedia Commons",
+    "author": "Mahlum",
+    "license": "Public domain",
+    "license_url": "https://commons.wikimedia.org/wiki/File:Oslo_tinghus.jpg",
+    "url": "https://commons.wikimedia.org/wiki/File:Oslo_tinghus.jpg",
+    "credit": "Photo: Mahlum. Licence: Public domain. Source: Wikimedia Commons.",
+    "modifications": null,
+    "terms": null
+   },
+   "primary_source": {
+    "outlet": "nyheter24.se",
+    "outlet_name": "Nyheter24",
+    "url": "https://nyheter24.se/nyheter/inrikes/1519244-fi-varnar-for-fler-bluffaktorer",
+    "title": "30 nya namn på varningslistan – akta dig för företagen",
+    "published": "2026-10-06T08:33:27+00:00",
+    "lang": "Swedish",
+    "language_code": "sv",
+    "country": "SE",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": null
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "nyheter24.se",
+     "outlet_name": "Nyheter24",
+     "url": "https://nyheter24.se/nyheter/inrikes/1519244-fi-varnar-for-fler-bluffaktorer",
+     "title": "30 nya namn på varningslistan – akta dig för företagen",
+     "published": "2026-10-06T08:33:27+00:00",
+     "lang": "Swedish",
+     "language_code": "sv",
+     "country": "SE",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": null
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": null
+  },
   {
    "id": "2d38c9c89e0e",
    "url": "https://www.sydsvenskan.se/lund/uppgifter-tonaringar-silvertejpade-man-i-jakt-pa-kryptovaluta/",

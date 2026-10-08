@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T00:14:44+00:00",
+ "generated_at": "2026-10-08T06:00:27+00:00",
  "preview": false,
  "country": "FI",
  "count": 4,
@@ -52,7 +52,8 @@
    "api_url": "https://nordiccrypto.no/api/v1/events/ce0c87469bd8.json",
    "place_source": {
     "name": "Helsinki Bitcoin Hobbyists (Meetup.com)",
-    "url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/events/qjzrxgyjcpbjb/"
+    "url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/",
+    "retrieved": "2026-10-03T15:23:20+00:00"
    }
   },
   {
@@ -101,7 +102,8 @@
    "api_url": "https://nordiccrypto.no/api/v1/events/19b92e24ee50.json",
    "place_source": {
     "name": "Helsinki Bitcoin Hobbyists (Meetup.com)",
-    "url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/events/qjzrxgyjcqbgb/"
+    "url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/",
+    "retrieved": "2026-10-03T15:23:20+00:00"
    }
   },
   {
@@ -157,7 +159,8 @@
    "api_url": "https://nordiccrypto.no/api/v1/events/3c7c538ff512.json",
    "place_source": {
     "name": "Helsinki Bitcoin Hobbyists (Meetup.com)",
-    "url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/events/qjzrxgykccbcb/"
+    "url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/",
+    "retrieved": "2026-10-03T15:23:20+00:00"
    }
   },
   {
@@ -206,7 +209,8 @@
    "api_url": "https://nordiccrypto.no/api/v1/events/105f743dcf3d.json",
    "place_source": {
     "name": "Helsinki Bitcoin Hobbyists (Meetup.com)",
-    "url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/events/qjzrxgykcdbhb/"
+    "url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/",
+    "retrieved": "2026-10-03T15:23:20+00:00"
    }
   }
  ]

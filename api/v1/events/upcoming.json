@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T00:14:44+00:00",
+ "generated_at": "2026-10-08T06:00:27+00:00",
  "preview": false,
  "count": 11,
  "events": [
@@ -51,7 +51,8 @@
    "api_url": "https://nordiccrypto.no/api/v1/events/ccc2eea6b213.json",
    "place_source": {
     "name": "Swedish Bitcoin Meetups (Meetup.com)",
-    "url": "https://www.meetup.com/swedish-bitcoin-meetups/events/316047111/"
+    "url": "https://www.meetup.com/swedish-bitcoin-meetups/",
+    "retrieved": "2026-10-03T15:23:20+00:00"
    }
   },
   {
@@ -107,7 +108,8 @@
    "api_url": "https://nordiccrypto.no/api/v1/events/89ced460e4ca.json",
    "place_source": {
     "name": "Polyteknisk Forening (program)",
-    "url": "https://www.polyteknisk.no/program/crypto-killer-apps"
+    "url": "https://www.polyteknisk.no/program/crypto-killer-apps",
+    "retrieved": "2026-10-03T15:23:20+00:00"
    }
   },
   {
@@ -156,7 +158,8 @@
    "api_url": "https://nordiccrypto.no/api/v1/events/c4a53ca9bd26.json",
    "place_source": {
     "name": "Swedish Bitcoin Meetups (Meetup.com)",
-    "url": "https://www.meetup.com/swedish-bitcoin-meetups/events/316799619/"
+    "url": "https://www.meetup.com/swedish-bitcoin-meetups/",
+    "retrieved": "2026-10-03T15:23:20+00:00"
    }
   },
   {
@@ -212,7 +215,8 @@
    "api_url": "https://nordiccrypto.no/api/v1/events/a1ea7afabcb0.json",
    "place_source": {
     "name": "Oslo Blockchain Meetup (Meetup.com)",
-    "url": "https://www.meetup.com/oslo-blockchain-meetup/events/316768752/"
+    "url": "https://www.meetup.com/oslo-blockchain-meetup/",
+    "retrieved": "2026-10-03T15:23:20+00:00"
    }
   },
   {
@@ -261,7 +265,8 @@
    "api_url": "https://nordiccrypto.no/api/v1/events/a6cadcf35c22.json",
    "place_source": {
     "name": "Swedish Bitcoin Meetups (Meetup.com)",
-    "url": "https://www.meetup.com/swedish-bitcoin-meetups/events/312669067/"
+    "url": "https://www.meetup.com/swedish-bitcoin-meetups/",
+    "retrieved": "2026-10-03T15:23:20+00:00"
    }
   },
   {
@@ -310,7 +315,8 @@
    "api_url": "https://nordiccrypto.no/api/v1/events/ce0c87469bd8.json",
    "place_source": {
     "name": "Helsinki Bitcoin Hobbyists (Meetup.com)",
-    "url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/events/qjzrxgyjcpbjb/"
+    "url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/",
+    "retrieved": "2026-10-03T15:23:20+00:00"
    }
   },
   {
@@ -359,7 +365,8 @@
    "api_url": "https://nordiccrypto.no/api/v1/events/7adc8e1ede97.json",
    "place_source": {
     "name": "Oslo Blockchain Meetup (Meetup.com)",
-    "url": "https://www.meetup.com/oslo-blockchain-meetup/events/316768461/"
+    "url": "https://www.meetup.com/oslo-blockchain-meetup/",
+    "retrieved": "2026-10-03T15:23:20+00:00"
    }
   },
   {
@@ -408,7 +415,8 @@
    "api_url": "https://nordiccrypto.no/api/v1/events/e884ba1f0333.json",
    "place_source": {
     "name": "Swedish Bitcoin Meetups (Meetup.com)",
-    "url": "https://www.meetup.com/swedish-bitcoin-meetups/events/312669070/"
+    "url": "https://www.meetup.com/swedish-bitcoin-meetups/",
+    "retrieved": "2026-10-03T15:23:20+00:00"
    }
   },
   {
@@ -457,7 +465,8 @@
    "api_url": "https://nordiccrypto.no/api/v1/events/19b92e24ee50.json",
    "place_source": {
     "name": "Helsinki Bitcoin Hobbyists (Meetup.com)",
-    "url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/events/qjzrxgyjcqbgb/"
+    "url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/",
+    "retrieved": "2026-10-03T15:23:20+00:00"
    }
   },
   {
@@ -513,7 +522,8 @@
    "api_url": "https://nordiccrypto.no/api/v1/events/3c7c538ff512.json",
    "place_source": {
     "name": "Helsinki Bitcoin Hobbyists (Meetup.com)",
-    "url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/events/qjzrxgykccbcb/"
+    "url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/",
+    "retrieved": "2026-10-03T15:23:20+00:00"
    }
   },
   {
@@ -562,7 +572,8 @@
    "api_url": "https://nordiccrypto.no/api/v1/events/105f743dcf3d.json",
    "place_source": {
     "name": "Helsinki Bitcoin Hobbyists (Meetup.com)",
-    "url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/events/qjzrxgykcdbhb/"
+    "url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/",
+    "retrieved": "2026-10-03T15:23:20+00:00"
    }
   }
  ],

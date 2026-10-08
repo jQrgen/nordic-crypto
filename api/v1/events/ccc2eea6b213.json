@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T00:14:44+00:00",
+ "generated_at": "2026-10-08T06:00:27+00:00",
  "preview": false,
  "item": {
   "id": "ccc2eea6b213",
@@ -49,7 +49,8 @@
   "api_url": "https://nordiccrypto.no/api/v1/events/ccc2eea6b213.json",
   "place_source": {
    "name": "Swedish Bitcoin Meetups (Meetup.com)",
-   "url": "https://www.meetup.com/swedish-bitcoin-meetups/events/316047111/"
+   "url": "https://www.meetup.com/swedish-bitcoin-meetups/",
+   "retrieved": "2026-10-03T15:23:20+00:00"
   }
  }
 }

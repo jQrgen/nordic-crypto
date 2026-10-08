@@ -1,11 +1,151 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T00:14:44+00:00",
+ "generated_at": "2026-10-08T06:00:27+00:00",
  "preview": false,
  "topic": "regulation",
- "count": 7,
+ "count": 8,
  "items": [
+  {
+   "id": "02e9e79168d3",
+   "url": "https://www.fi.se/sv/publicerat/nyheter/2026/amla-foreslar-tre-tekniska-standarder-enligt-penningtvattsforordningen/",
+   "html_url": "https://nordiccrypto.no/stories/02e9e79168d3/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/02e9e79168d3.json",
+   "title": "Amla föreslår tre tekniska standarder enligt penningtvättsförordningen",
+   "title_en": "EU's AML authority sends three standards to the Commission, with crypto rules",
+   "title_i18n": {},
+   "source": "fi-se",
+   "source_name": "Finansinspektionen (SE FSA)",
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/se-fi.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Finansinspektionen_logo.svg",
+    "author": "Finansinspektionen.",
+    "license": "Public domain",
+    "license_url": null,
+    "credit": "Wikimedia Commons",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/se-fi.png"
+   },
+   "source_note": null,
+   "country": "SE",
+   "language": "Swedish",
+   "language_code": "sv",
+   "published": "2026-10-05T13:53:01+00:00",
+   "topics": [
+    "aml",
+    "regulation"
+   ],
+   "summary": "The EU anti-money-laundering authority AMLA has sent three final draft technical standards under the new AML regulation to the European Commission, Sweden's Finansinspektionen reports; they still need the Commission's adoption. Under AMLA's report, crypto-asset service providers must consider whether a customer has made three or more transactions in 12 months when deciding if there is a business relationship, use a one-month window for linked transactions, and keep the €1,000 threshold for occasional transactions.",
+   "summary_i18n": {
+    "nb": "EUs hvitvaskingsmyndighet AMLA har sendt tre endelige utkast til tekniske standarder under den nye hvitvaskingsforordningen til EU-kommisjonen, melder svenske Finansinspektionen; Kommisjonen må fortsatt vedta dem. Ifølge AMLAs rapport må kryptotjenestetilbydere vurdere om en kunde har gjort tre eller flere transaksjoner på 12 måneder når de avgjør om det foreligger et kundeforhold, bruke et vindu på én måned for sammenknyttede transaksjoner og beholde terskelen på 1 000 euro for enkeltstående transaksjoner.",
+    "nn": "EUs kvitvaskingsstyresmakt AMLA har sendt tre endelege utkast til tekniske standardar under den nye kvitvaskingsforordninga til EU-kommisjonen, melder svenske Finansinspektionen; Kommisjonen må framleis vedta dei. Ifølgje rapporten til AMLA må kryptotenestetilbydarar vurdere om ein kunde har gjort tre eller fleire transaksjonar på 12 månader når dei avgjer om det ligg føre eit kundeforhold, bruke eit vindauge på éin månad for samankopla transaksjonar og halde på terskelen på 1 000 euro for enkeltståande transaksjonar.",
+    "sv": "EU:s penningtvättsmyndighet AMLA har skickat tre slutliga utkast till tekniska standarder enligt den nya penningtvättsförordningen till EU-kommissionen, rapporterar Finansinspektionen; kommissionen måste fortfarande anta dem. Enligt AMLA:s rapport ska kryptotjänsteleverantörer beakta om en kund har gjort tre eller fler transaktioner på 12 månader när de bedömer om det finns en affärsförbindelse, använda ett fönster på en månad för sammanlänkade transaktioner och behålla tröskeln på 1 000 euro för enstaka transaktioner.",
+    "da": "EU's hvidvaskmyndighed AMLA har sendt tre endelige udkast til tekniske standarder under den nye hvidvaskforordning til EU-Kommissionen, oplyser det svenske Finansinspektionen; Kommissionen skal stadig vedtage dem. Ifølge AMLA's rapport skal udbydere af kryptoaktivtjenester overveje, om en kunde har foretaget tre eller flere transaktioner på 12 måneder, når de vurderer, om der er en forretningsforbindelse, bruge et vindue på én måned for forbundne transaktioner og fastholde tærsklen på 1.000 euro for lejlighedsvise transaktioner.",
+    "fi": "EU:n rahanpesun vastainen viranomainen AMLA on lähettänyt Euroopan komissiolle kolme lopullista teknisten standardien luonnosta uuden rahanpesuasetuksen nojalla, kertoo Ruotsin Finansinspektionen; komission on vielä hyväksyttävä ne. AMLA:n raportin mukaan kryptopalvelujen tarjoajien on otettava huomioon, onko asiakas tehnyt kolme tai useampia liiketoimia 12 kuukauden aikana, kun ne arvioivat asiakassuhteen olemassaoloa, käytettävä yhden kuukauden jaksoa toisiinsa liittyville liiketoimille ja pidettävä satunnaisten liiketoimien 1 000 euron raja.",
+    "is": "Peningaþvættiseftirlit ESB, AMLA, hefur sent framkvæmdastjórn ESB þrjú endanleg drög að tæknilegum stöðlum samkvæmt nýju peningaþvættisreglugerðinni, segir sænska fjármálaeftirlitið Finansinspektionen; framkvæmdastjórnin á enn eftir að samþykkja þau. Samkvæmt skýrslu AMLA skulu þjónustuveitendur rafmynta líta til þess hvort viðskiptavinur hafi átt þrjú eða fleiri viðskipti á 12 mánuðum þegar metið er hvort viðskiptasamband sé til staðar, nota eins mánaðar tímabil fyrir tengd viðskipti og halda 1.000 evra viðmiðinu fyrir stök viðskipti."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "official-riksbank",
+    "kind": "official-press",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/official-riksbank.webp",
+    "width": 960,
+    "height": 640,
+    "alt": "The Riksbank building in Stockholm.",
+    "source": "Sveriges Riksbank",
+    "author": "Sveriges Riksbank",
+    "license": "Free use, credit Sveriges Riksbank",
+    "license_url": "https://www.riksbank.se/sv/press-och-publicerat/presskontakt/bildbank/riksbankshuset/",
+    "url": "https://www.riksbank.se/sv/press-och-publicerat/presskontakt/bildbank/riksbankshuset/",
+    "credit": "Photo: Sveriges Riksbank. Licence: Free use, credit Sveriges Riksbank. Source: Sveriges Riksbank.",
+    "modifications": null,
+    "terms": "Checked 2026-10-06. The Riksbank image bank says these pictures may be downloaded and used freely if Sveriges Riksbank is credited. Pictures of banknotes and coins on the same site are not free in that way and are not used. This file is the building, scaled to 960 pixels wide and saved as WebP. It is not cropped or recoloured."
+   },
+   "primary_source": {
+    "outlet": "fi-se",
+    "outlet_name": "Finansinspektionen (SE FSA)",
+    "url": "https://www.fi.se/sv/publicerat/nyheter/2026/amla-foreslar-tre-tekniska-standarder-enligt-penningtvattsforordningen/",
+    "title": "Amla föreslår tre tekniska standarder enligt penningtvättsförordningen",
+    "published": "2026-10-05T13:53:01+00:00",
+    "lang": "Swedish",
+    "language_code": "sv",
+    "country": "SE",
+    "source_type": "official",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/se-fi.svg",
+     "source_url": "https://commons.wikimedia.org/wiki/File:Finansinspektionen_logo.svg",
+     "author": "Finansinspektionen.",
+     "license": "Public domain",
+     "license_url": null,
+     "credit": "Wikimedia Commons",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/se-fi.png"
+    }
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "fi-se",
+     "outlet_name": "Finansinspektionen (SE FSA)",
+     "url": "https://www.fi.se/sv/publicerat/nyheter/2026/amla-foreslar-tre-tekniska-standarder-enligt-penningtvattsforordningen/",
+     "title": "Amla föreslår tre tekniska standarder enligt penningtvättsförordningen",
+     "published": "2026-10-05T13:53:01+00:00",
+     "lang": "Swedish",
+     "language_code": "sv",
+     "country": "SE",
+     "source_type": "official",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/se-fi.svg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Finansinspektionen_logo.svg",
+      "author": "Finansinspektionen.",
+      "license": "Public domain",
+      "license_url": null,
+      "credit": "Wikimedia Commons",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/se-fi.png"
+     }
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/se-fi.png"
+  },
   {
    "id": "e6727b4858b5",
    "url": "https://www.realtid.se/bors-finans/makro/sa-kan-sverige-anvandas-for-att-finansiera-karnvapen/",

@@ -1,10 +1,10 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T00:14:44+00:00",
+ "generated_at": "2026-10-08T06:00:27+00:00",
  "preview": false,
  "country": "NO",
- "count": 17,
+ "count": 18,
  "items": [
   {
    "id": "fb9e8ca4fb40",
@@ -123,6 +123,146 @@
     ]
    },
    "source_logo_url": null
+  },
+  {
+   "id": "e88e8e0c9a77",
+   "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/",
+   "html_url": "https://nordiccrypto.no/stories/e88e8e0c9a77/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/e88e8e0c9a77.json",
+   "title": "Rødt foreslår midlertidig stans for nye datasentre",
+   "title_en": "Red Party proposes a temporary halt for new data centres",
+   "title_i18n": {},
+   "source": "stortinget",
+   "source_name": "Stortinget",
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+    "author": "Worldlydev",
+    "license": "Public domain",
+    "license_url": null,
+    "credit": "Wikimedia Commons",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
+   },
+   "source_note": null,
+   "country": "NO",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-10-05T12:00:00+00:00",
+   "topics": [
+    "mining",
+    "policy"
+   ],
+   "summary": "The Red Party (Rødt) has proposed in the Storting a temporary halt for new data centres, along with a licensing regime and other measures. Its reasoning says crypto-mining data centres get power ahead of key local industries and that the crypto-mining ban the Storting has asked for three times in two years is still not in place, though none of the proposals singles out crypto.",
+   "summary_i18n": {
+    "nb": "Rødt har foreslått på Stortinget en midlertidig stans for nye datasentre, sammen med en konsesjonsordning og andre tiltak. Begrunnelsen sier at datasentre som utvinner kryptovaluta får strømtilgang foran hjørnesteinsbedrifter, og at kryptoforbudet Stortinget har bedt om tre ganger på to år fortsatt ikke er på plass, men ingen av forslagene gjelder krypto særskilt.",
+    "nn": "Raudt har føreslått på Stortinget ein mellombels stans for nye datasenter, saman med ei konsesjonsordning og andre tiltak. Grunngjevinga seier at datasenter som utvinn kryptovaluta får straumtilgang framfor hjørnesteinsbedrifter, og at kryptoforbodet Stortinget har bede om tre gonger på to år framleis ikkje er på plass, men ingen av forslaga gjeld krypto særskilt.",
+    "sv": "Rødt har i Stortinget föreslagit ett tillfälligt stopp för nya datacenter, tillsammans med ett tillståndssystem och andra åtgärder. Motiveringen säger att datacenter som utvinner kryptovaluta får elanslutning före viktiga lokala industrier och att kryptoförbudet som Stortinget har begärt tre gånger på två år fortfarande inte är på plats, men inget av förslagen gäller specifikt krypto.",
+    "da": "Rødt har i Stortinget foreslået et midlertidigt stop for nye datacentre sammen med en tilladelsesordning og andre tiltag. Begrundelsen siger, at datacentre, der udvinder kryptovaluta, får strømadgang før vigtige lokale virksomheder, og at det kryptoforbud, som Stortinget har bedt om tre gange på to år, stadig ikke er på plads, men ingen af forslagene handler specifikt om krypto.",
+    "fi": "Norjan Punainen puolue (Rødt) on ehdottanut suurkäräjillä uusien datakeskusten väliaikaista pysäyttämistä sekä lupajärjestelmää ja muita toimia. Perustelujen mukaan kryptovaluuttaa louhivat datakeskukset saavat sähköliittymän ennen tärkeitä paikallisia yrityksiä, eikä suurkäräjien kolmesti kahdessa vuodessa pyytämää kryptolouhinnan kieltoa ole yhä otettu käyttöön, mutta mikään ehdotuksista ei koske erityisesti kryptoa.",
+    "is": "Rauði flokkurinn (Rødt) hefur lagt til á Stórþinginu tímabundna stöðvun nýrra gagnavera, ásamt leyfiskerfi og öðrum aðgerðum. Í rökstuðningnum segir að gagnaver sem grafa eftir rafmyntum fái rafmagnstengingu á undan mikilvægum fyrirtækjum í heimabyggð og að bann við rafmyntagreftri, sem Stórþingið hefur þrisvar beðið um á tveimur árum, sé enn ekki komið á, en engin tillagnanna snýr sérstaklega að rafmyntum."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "commons-mining",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-mining.webp",
+    "width": 960,
+    "height": 720,
+    "alt": "Rows of cryptocurrency mining machines indoors.",
+    "source": "Wikimedia Commons",
+    "author": "Jasper Reichardt",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "url": "https://commons.wikimedia.org/wiki/File:Mining-Rig.jpg",
+    "credit": "Photo: Jasper Reichardt. Licence: CC BY-SA 4.0. Source: Wikimedia Commons.",
+    "modifications": null,
+    "terms": null
+   },
+   "primary_source": {
+    "outlet": "stortinget",
+    "outlet_name": "Stortinget",
+    "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/",
+    "title": "Rødt foreslår midlertidig stans for nye datasentre",
+    "published": "2026-10-05T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "official",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
+     "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+     "author": "Worldlydev",
+     "license": "Public domain",
+     "license_url": null,
+     "credit": "Wikimedia Commons",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
+    }
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "stortinget",
+     "outlet_name": "Stortinget",
+     "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/",
+     "title": "Rødt foreslår midlertidig stans for nye datasentre",
+     "published": "2026-10-05T12:00:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "official",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+      "author": "Worldlydev",
+      "license": "Public domain",
+      "license_url": null,
+      "credit": "Wikimedia Commons",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
+     }
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
   },
   {
    "id": "1a95167a3af8",

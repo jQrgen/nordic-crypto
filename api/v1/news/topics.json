@@ -1,12 +1,12 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T00:14:44+00:00",
+ "generated_at": "2026-10-08T06:00:27+00:00",
  "preview": false,
  "topics": [
   {
    "id": "aml",
-   "count": 2,
+   "count": 3,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/aml.json"
   },
   {
@@ -31,12 +31,12 @@
   },
   {
    "id": "consumer protection",
-   "count": 1,
+   "count": 2,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/consumer-protection.json"
   },
   {
    "id": "crime",
-   "count": 5,
+   "count": 6,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/crime.json"
   },
   {
@@ -61,7 +61,7 @@
   },
   {
    "id": "mining",
-   "count": 3,
+   "count": 4,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/mining.json"
   },
   {
@@ -71,12 +71,12 @@
   },
   {
    "id": "policy",
-   "count": 5,
+   "count": 6,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/policy.json"
   },
   {
    "id": "regulation",
-   "count": 7,
+   "count": 8,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/regulation.json"
   },
   {

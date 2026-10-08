@@ -21,10 +21,6 @@
    "country": "DK"
   },
   {
-   "name": "Aamulehti",
-   "country": "FI"
-  },
-  {
    "name": "Aamuset Kaupunkimedia",
    "country": "FI"
   },
@@ -57,10 +53,6 @@
    "country": "FI"
   },
   {
-   "name": "Akers Avis Groruddalen",
-   "country": "NO"
-  },
-  {
    "name": "Akershus Amtstidende",
    "country": "NO"
   },
@@ -73,24 +65,8 @@
    "country": "IS"
   },
   {
-   "name": "Alasatakunta",
-   "country": "FI"
-  },
-  {
-   "name": "Albertslund Posten",
-   "country": "DK"
-  },
-  {
-   "name": "AlbertslundRadio",
-   "country": "DK"
-  },
-  {
    "name": "Alingsås Tidning",
    "country": "SE"
-  },
-  {
-   "name": "Allerød Nyt",
-   "country": "DK"
   },
   {
    "name": "Altinget",
@@ -137,10 +113,6 @@
    "country": "SE"
   },
   {
-   "name": "ArcticStartup",
-   "country": "FI"
-  },
-  {
    "name": "Arendals Tidende",
    "country": "NO"
   },
@@ -155,10 +127,6 @@
   {
    "name": "Aust-Agder Blad",
    "country": "NO"
-  },
-  {
-   "name": "Austurfrétt",
-   "country": "IS"
   },
   {
    "name": "Avisa Gaula",
@@ -194,10 +162,6 @@
   },
   {
    "name": "B.T.",
-   "country": "DK"
-  },
-  {
-   "name": "Ballerup Bladet",
    "country": "DK"
   },
   {
@@ -265,10 +229,6 @@
    "country": "FI"
   },
   {
-   "name": "Bornholms Tidende",
-   "country": "DK"
-  },
-  {
    "name": "Borås Tidning",
    "country": "SE"
   },
@@ -285,16 +245,8 @@
    "country": "DK"
   },
   {
-   "name": "Brønshøj-Husum Avis",
-   "country": "DK"
-  },
-  {
    "name": "Budstikka",
    "country": "NO"
-  },
-  {
-   "name": "By og Land Holbæk",
-   "country": "DK"
   },
   {
    "name": "Bygdebladet",
@@ -353,38 +305,6 @@
    "country": "DK"
   },
   {
-   "name": "Dagbladet Køge: Faxe",
-   "country": "DK"
-  },
-  {
-   "name": "Dagbladet Køge: Stevns",
-   "country": "DK"
-  },
-  {
-   "name": "Dagbladet Køge",
-   "country": "DK"
-  },
-  {
-   "name": "Dagbladet Ringkøbing-Skjern",
-   "country": "DK"
-  },
-  {
-   "name": "Dagbladet Ringsted: Sorø",
-   "country": "DK"
-  },
-  {
-   "name": "Dagbladet Ringsted",
-   "country": "DK"
-  },
-  {
-   "name": "Dagbladet Roskilde",
-   "country": "DK"
-  },
-  {
-   "name": "Dagbladet Struer",
-   "country": "DK"
-  },
-  {
    "name": "Dagbladet",
    "country": "NO"
   },
@@ -425,15 +345,7 @@
    "country": "NO"
   },
   {
-   "name": "Dalum Hjallese Avis",
-   "country": "DK"
-  },
-  {
    "name": "Danmarks Nationalbank",
-   "country": "DK"
-  },
-  {
-   "name": "Den Lille Avis",
    "country": "DK"
   },
   {
@@ -441,24 +353,8 @@
    "country": "DK"
   },
   {
-   "name": "Der Nordschleswiger",
-   "country": "DK"
-  },
-  {
-   "name": "Destination Sjælland",
-   "country": "DK"
-  },
-  {
-   "name": "Det Grønne Område",
-   "country": "DK"
-  },
-  {
    "name": "Digi.no",
    "country": "NO"
-  },
-  {
-   "name": "Dimmalætting",
-   "country": "FO"
   },
   {
    "name": "Document.no",
@@ -467,10 +363,6 @@
   {
    "name": "Domstolene",
    "country": "NO"
-  },
-  {
-   "name": "Dragør Nyt",
-   "country": "DK"
   },
   {
    "name": "Drammens Tidende",
@@ -503,10 +395,6 @@
   {
    "name": "Ekobrottsmyndigheten",
    "country": "SE"
-  },
-  {
-   "name": "Ekstra Bladet",
-   "country": "DK"
   },
   {
    "name": "Ekstra Posten",
@@ -565,10 +453,6 @@
    "country": "NO"
   },
   {
-   "name": "Farsø Avis",
-   "country": "DK"
-  },
-  {
    "name": "Faxe Netavis",
    "country": "DK"
   },
@@ -583,10 +467,6 @@
   {
    "name": "Finans.dk",
    "country": "DK"
-  },
-  {
-   "name": "Finansavisen",
-   "country": "NO"
   },
   {
    "name": "Finansfokus",
@@ -615,10 +495,6 @@
   {
    "name": "Finnmarksposten",
    "country": "NO"
-  },
-  {
-   "name": "Finnveden nu",
-   "country": "SE"
   },
   {
    "name": "Firdaposten",
@@ -665,10 +541,6 @@
    "country": "DK"
   },
   {
-   "name": "Folkebladet for Glostrup",
-   "country": "DK"
-  },
-  {
    "name": "Forssan Lehti",
    "country": "FI"
   },
@@ -681,15 +553,7 @@
    "country": "DK"
   },
   {
-   "name": "Frederiksberg Bladet",
-   "country": "DK"
-  },
-  {
    "name": "FrederiksbergLIV",
-   "country": "DK"
-  },
-  {
-   "name": "Frederiksborg Amts Avis",
    "country": "DK"
   },
   {
@@ -717,18 +581,6 @@
    "country": "NO"
   },
   {
-   "name": "Frøya.no",
-   "country": "NO"
-  },
-  {
-   "name": "Fuglebjerg-Posten/Glumsø Ugeblad",
-   "country": "DK"
-  },
-  {
-   "name": "Furesø Avis",
-   "country": "DK"
-  },
-  {
    "name": "Fyens Stiftstidende",
    "country": "DK"
   },
@@ -749,20 +601,12 @@
    "country": "SE"
   },
   {
-   "name": "Give Avis",
-   "country": "DK"
-  },
-  {
    "name": "Gjengangeren",
    "country": "NO"
   },
   {
    "name": "Gjesdalbuen",
    "country": "NO"
-  },
-  {
-   "name": "Gladsaxebladet",
-   "country": "DK"
   },
   {
    "name": "Gotlands Allehanda",
@@ -809,10 +653,6 @@
    "country": "SE"
   },
   {
-   "name": "Halsnæs Avis",
-   "country": "DK"
-  },
-  {
    "name": "Hamar Arbeiderblad",
    "country": "NO"
   },
@@ -837,24 +677,12 @@
    "country": "NO"
   },
   {
-   "name": "Haslev Faxe Posten",
-   "country": "DK"
-  },
-  {
    "name": "Haugesunds Avis",
    "country": "NO"
   },
   {
-   "name": "Hedensted Avis",
-   "country": "DK"
-  },
-  {
    "name": "Hedensted-Juelsminde Avis",
    "country": "DK"
-  },
-  {
-   "name": "Hegnar.no",
-   "country": "NO"
   },
   {
    "name": "Heimildin",
@@ -889,10 +717,6 @@
    "country": "DK"
   },
   {
-   "name": "Herning Bladet",
-   "country": "DK"
-  },
-  {
    "name": "Herning Folkeblad",
    "country": "DK"
   },
@@ -901,15 +725,7 @@
    "country": "FI"
   },
   {
-   "name": "Hillerød Posten",
-   "country": "DK"
-  },
-  {
    "name": "Hirtshals & Bindslev Avis",
-   "country": "DK"
-  },
-  {
-   "name": "Holstebro Onsdag",
    "country": "DK"
   },
   {
@@ -919,10 +735,6 @@
   {
    "name": "Horsens Folkeblad",
    "country": "DK"
-  },
-  {
-   "name": "Hudiksvalls tidning",
-   "country": "SE"
   },
   {
    "name": "Hufvudstadsbladet",
@@ -973,16 +785,8 @@
    "country": "FI"
   },
   {
-   "name": "Iitinseutu-lehti",
-   "country": "FI"
-  },
-  {
    "name": "Ikast Avis /Ikast-Brande Nyt",
    "country": "DK"
-  },
-  {
-   "name": "Ilta-Sanomat",
-   "country": "FI"
   },
   {
    "name": "Iltalehti",
@@ -1025,14 +829,6 @@
    "country": "FI"
   },
   {
-   "name": "Itäväylä",
-   "country": "FI"
-  },
-  {
-   "name": "Janakkalan Sanomat",
-   "country": "FI"
-  },
-  {
    "name": "Jarlsberg Avis",
    "country": "NO"
   },
@@ -1046,10 +842,6 @@
   },
   {
    "name": "Joroisten Lehti",
-   "country": "FI"
-  },
-  {
-   "name": "Joutsan Seutu",
    "country": "FI"
   },
   {
@@ -1069,10 +861,6 @@
    "country": "DK"
   },
   {
-   "name": "Jämsän Seutu",
-   "country": "FI"
-  },
-  {
    "name": "Jærbladet",
    "country": "NO"
   },
@@ -1081,16 +869,8 @@
    "country": "SE"
   },
   {
-   "name": "KANAL 1",
-   "country": "DK"
-  },
-  {
    "name": "KB",
    "country": "SE"
-  },
-  {
-   "name": "KMV-lehti",
-   "country": "FI"
   },
   {
    "name": "KRS - Avisen Kristiansand",
@@ -1125,14 +905,6 @@
    "country": "SE"
   },
   {
-   "name": "Kalundborg Folkeblad",
-   "country": "DK"
-  },
-  {
-   "name": "Kalundborg Nyt",
-   "country": "DK"
-  },
-  {
    "name": "Kanal Gladsaxe",
    "country": "DK"
   },
@@ -1146,10 +918,6 @@
   },
   {
    "name": "Kangasniemen Kunnallislehti",
-   "country": "FI"
-  },
-  {
-   "name": "Kankaanpään Seutu",
    "country": "FI"
   },
   {
@@ -1173,24 +941,12 @@
    "country": "SE"
   },
   {
-   "name": "Kauhajoki-lehti",
-   "country": "FI"
-  },
-  {
    "name": "Kauppalehti",
    "country": "FI"
   },
   {
    "name": "Kaupr",
    "country": "NO"
-  },
-  {
-   "name": "Kaupunkilehti PK &#038; Ankkuri",
-   "country": "FI"
-  },
-  {
-   "name": "Kerteminde Ugeavis",
-   "country": "DK"
   },
   {
    "name": "Keski-Häme",
@@ -1207,10 +963,6 @@
   {
    "name": "Keskusrikospoliisi",
    "country": "FI"
-  },
-  {
-   "name": "Kinda-Posten",
-   "country": "SE"
   },
   {
    "name": "Kiuruvesi",
@@ -1253,10 +1005,6 @@
    "country": "FI"
   },
   {
-   "name": "Koti-Karjala",
-   "country": "FI"
-  },
-  {
    "name": "Koti-Lappi",
    "country": "FI"
   },
@@ -1275,10 +1023,6 @@
   {
    "name": "Kragerø Blad Vestmar",
    "country": "NO"
-  },
-  {
-   "name": "Kristeligt Dagblad",
-   "country": "DK"
   },
   {
    "name": "Kristianstadsbladet",
@@ -1305,19 +1049,7 @@
    "country": "FI"
   },
   {
-   "name": "KultuNaut - mails vedr. kalenderen",
-   "country": "DK"
-  },
-  {
-   "name": "KultuNaut - mails vedr. pressemeddelelse",
-   "country": "DK"
-  },
-  {
    "name": "Kunnallislehti Paimio-Sauvo-Kaarina",
-   "country": "FI"
-  },
-  {
-   "name": "Kurikka-lehti",
    "country": "FI"
   },
   {
@@ -1333,20 +1065,8 @@
    "country": "FI"
   },
   {
-   "name": "Kyrönmaa-lehti",
-   "country": "FI"
-  },
-  {
    "name": "Kópavogsblaðið",
    "country": "IS"
-  },
-  {
-   "name": "KøbenhavnLIV",
-   "country": "DK"
-  },
-  {
-   "name": "KøbenhavnerLiv",
-   "country": "DK"
   },
   {
    "name": "LT",
@@ -1366,10 +1086,6 @@
   },
   {
    "name": "Lappeenrannan Uutiset",
-   "country": "FI"
-  },
-  {
-   "name": "Lapuan Sanomat",
    "country": "FI"
   },
   {
@@ -1409,24 +1125,12 @@
    "country": "NO"
   },
   {
-   "name": "Ljusdals posten",
-   "country": "SE"
-  },
-  {
-   "name": "Ljusnan",
-   "country": "SE"
-  },
-  {
    "name": "Lofot-Tidende",
    "country": "NO"
   },
   {
    "name": "Lofotposten",
    "country": "NO"
-  },
-  {
-   "name": "Loimaan Lehti",
-   "country": "FI"
   },
   {
    "name": "LokalAvisen Assens",
@@ -1437,68 +1141,16 @@
    "country": "DK"
   },
   {
-   "name": "LokalAvisen Nyborg",
-   "country": "DK"
-  },
-  {
    "name": "Lokalavisa Trysil-Engerdal",
    "country": "NO"
-  },
-  {
-   "name": "Lokalavisen Egedal",
-   "country": "DK"
-  },
-  {
-   "name": "Lokalavisen Frederiksberg",
-   "country": "DK"
-  },
-  {
-   "name": "Lokalavisen Frederikssund",
-   "country": "DK"
   },
   {
    "name": "Lokalavisen Helsingør",
    "country": "DK"
   },
   {
-   "name": "Lokalavisen Lemvig",
-   "country": "DK"
-  },
-  {
-   "name": "Lokalavisen Nordsjælland",
-   "country": "DK"
-  },
-  {
-   "name": "Lokalavisen Taastrup",
-   "country": "DK"
-  },
-  {
-   "name": "Lokalavisen Trehøje-Aulum-Ha.",
-   "country": "DK"
-  },
-  {
-   "name": "Lokalavisen Vesterbro",
-   "country": "DK"
-  },
-  {
-   "name": "Lokalbladet Ringsted",
-   "country": "DK"
-  },
-  {
-   "name": "Lokalradioerne i Brønderslev",
-   "country": "DK"
-  },
-  {
    "name": "Lokaltidningen Mitt i",
    "country": "SE"
-  },
-  {
-   "name": "Lokaltidningen",
-   "country": "SE"
-  },
-  {
-   "name": "Lolland-Falsters Folketidende",
-   "country": "DK"
   },
   {
    "name": "Lopen Lehti",
@@ -1585,16 +1237,8 @@
    "country": "FI"
   },
   {
-   "name": "Medier24",
-   "country": "NO"
-  },
-  {
    "name": "Melfar Posten",
    "country": "DK"
-  },
-  {
-   "name": "Merikarvia-lehti",
-   "country": "FI"
   },
   {
    "name": "Meråkerposten",
@@ -1609,10 +1253,6 @@
    "country": "NO"
   },
   {
-   "name": "Midtfyns Posten",
-   "country": "DK"
-  },
-  {
    "name": "Midthimmerl. Folkebl. Støvring",
    "country": "DK"
   },
@@ -1625,20 +1265,8 @@
    "country": "NO"
   },
   {
-   "name": "Midtsjællands Folkeblad/ Lokalavisen Lejre",
-   "country": "DK"
-  },
-  {
-   "name": "Midtvendsyssel Avis",
-   "country": "DK"
-  },
-  {
    "name": "Mikkelin Kaupunkilehti",
    "country": "FI"
-  },
-  {
-   "name": "MinByNyt",
-   "country": "DK"
   },
   {
    "name": "Mitt Kongsvinger",
@@ -1669,16 +1297,8 @@
    "country": "SE"
   },
   {
-   "name": "Motparten.no",
-   "country": "NO"
-  },
-  {
    "name": "Mäntsälän Uutiset",
    "country": "FI"
-  },
-  {
-   "name": "Møre",
-   "country": "NO"
   },
   {
    "name": "NBX børsmeldinger",
@@ -1733,10 +1353,6 @@
    "country": "FI"
   },
   {
-   "name": "Nokian Uutiset",
-   "country": "FI"
-  },
-  {
    "name": "Norddalen",
    "country": "NO"
   },
@@ -1758,22 +1374,6 @@
   },
   {
    "name": "Nordsø Posten",
-   "country": "DK"
-  },
-  {
-   "name": "Nordvestnyt - Holbæk",
-   "country": "DK"
-  },
-  {
-   "name": "Nordvestnyt - Kalundborg",
-   "country": "DK"
-  },
-  {
-   "name": "Nordvestnyt - Odsherred",
-   "country": "DK"
-  },
-  {
-   "name": "Nordvestnyt",
    "country": "DK"
   },
   {
@@ -1833,24 +1433,8 @@
    "country": "NO"
   },
   {
-   "name": "Nyhedsradioen 24-7",
-   "country": "DK"
-  },
-  {
-   "name": "Nykypäivä",
-   "country": "FI"
-  },
-  {
    "name": "Nynäshamns Posten",
    "country": "SE"
-  },
-  {
-   "name": "Næstved Lokalradio",
-   "country": "DK"
-  },
-  {
-   "name": "Næstved Netavis",
-   "country": "DK"
   },
   {
    "name": "Nørrebro/NordvestLIV",
@@ -1861,24 +1445,12 @@
    "country": "DK"
   },
   {
-   "name": "Onsdag Holstebro",
-   "country": "DK"
-  },
-  {
    "name": "Oppland Arbeiderblad",
    "country": "NO"
   },
   {
-   "name": "Orimattilan Sanomat",
-   "country": "FI"
-  },
-  {
    "name": "Oriveden Sanomat",
    "country": "FI"
-  },
-  {
-   "name": "Osterlen magasinet",
-   "country": "SE"
   },
   {
    "name": "Outokummun Seutu",
@@ -1953,15 +1525,7 @@
    "country": "FI"
   },
   {
-   "name": "Pohjankyrö-lehti",
-   "country": "FI"
-  },
-  {
    "name": "Pohjoisen Polut",
-   "country": "FI"
-  },
-  {
-   "name": "Poliisi",
    "country": "FI"
   },
   {
@@ -1985,10 +1549,6 @@
    "country": "FO"
   },
   {
-   "name": "Psykologisk.no",
-   "country": "NO"
-  },
-  {
    "name": "Punkalaitumen Sanomat Oy",
    "country": "FI"
   },
@@ -1998,10 +1558,6 @@
   },
   {
    "name": "Puruvesi",
-   "country": "FI"
-  },
-  {
-   "name": "Puumala-lehti",
    "country": "FI"
   },
   {
@@ -2029,10 +1585,6 @@
    "country": "FI"
   },
   {
-   "name": "Rahanpesun selvittelykeskus",
-   "country": "FI"
-  },
-  {
    "name": "Rakkestad Avis",
    "country": "NO"
   },
@@ -2049,19 +1601,11 @@
    "country": "DK"
   },
   {
-   "name": "Rannikkoseutu",
-   "country": "FI"
-  },
-  {
    "name": "Rantalakeus",
    "country": "FI"
   },
   {
    "name": "Rantapohja",
-   "country": "FI"
-  },
-  {
-   "name": "Raumalainen",
    "country": "FI"
   },
   {
@@ -2101,18 +1645,6 @@
    "country": "NO"
   },
   {
-   "name": "Roskilde Avis",
-   "country": "DK"
-  },
-  {
-   "name": "Rudersdal Avis",
-   "country": "DK"
-  },
-  {
-   "name": "Ruovesi-lehti",
-   "country": "FI"
-  },
-  {
    "name": "Ryfylke.no",
    "country": "NO"
   },
@@ -2123,10 +1655,6 @@
   {
    "name": "Ríkissaksóknari",
    "country": "IS"
-  },
-  {
-   "name": "Rødovre Lokal Nyt",
-   "country": "DK"
   },
   {
    "name": "Røyken og Hurums Avis",
@@ -2177,14 +1705,6 @@
    "country": "NO"
   },
   {
-   "name": "Satakunnan Kansa Länsi-Suomi",
-   "country": "FI"
-  },
-  {
-   "name": "Satakunnan Viikko",
-   "country": "FI"
-  },
-  {
    "name": "SeutuMajakka",
    "country": "FI"
   },
@@ -2203,10 +1723,6 @@
   {
    "name": "Siikajokilaakso",
    "country": "FI"
-  },
-  {
-   "name": "Sjællandske Nyheder",
-   "country": "DK"
   },
   {
    "name": "SkLT",
@@ -2230,10 +1746,6 @@
   },
   {
    "name": "Skatturinn - skattar og gjöld",
-   "country": "IS"
-  },
-  {
-   "name": "Skessuhorn",
    "country": "IS"
   },
   {
@@ -2301,28 +1813,12 @@
    "country": "NO"
   },
   {
-   "name": "Solrød Avis",
-   "country": "DK"
-  },
-  {
-   "name": "Solrød Nyt",
-   "country": "DK"
-  },
-  {
    "name": "Solungavisa",
    "country": "NO"
   },
   {
    "name": "Sompio",
    "country": "FI"
-  },
-  {
-   "name": "Sorø Avis",
-   "country": "DK"
-  },
-  {
-   "name": "Sosialurin",
-   "country": "FO"
   },
   {
    "name": "Sotkamo-lehti",
@@ -2343,10 +1839,6 @@
   {
    "name": "Steinkjer-Avisa",
    "country": "NO"
-  },
-  {
-   "name": "Stevnsbladet",
-   "country": "DK"
   },
   {
    "name": "Storfjordnytt",
@@ -2397,10 +1889,6 @@
    "country": "FI"
   },
   {
-   "name": "Suur-Keuruu",
-   "country": "FI"
-  },
-  {
    "name": "Svelvikposten",
    "country": "NO"
   },
@@ -2421,19 +1909,7 @@
    "country": "FI"
   },
   {
-   "name": "Sydfalster Nyt",
-   "country": "DK"
-  },
-  {
    "name": "SydhavnenLIV",
-   "country": "DK"
-  },
-  {
-   "name": "Sydkysten",
-   "country": "DK"
-  },
-  {
-   "name": "Sydsjællands Tidende",
    "country": "DK"
   },
   {
@@ -2449,10 +1925,6 @@
    "country": "FI"
   },
   {
-   "name": "Sydän-Satakunta",
-   "country": "FI"
-  },
-  {
    "name": "Sydöstran",
    "country": "SE"
   },
@@ -2463,10 +1935,6 @@
   {
    "name": "Syyttäjälaitos",
    "country": "FI"
-  },
-  {
-   "name": "Söderhamns kuriren",
-   "country": "SE"
   },
   {
    "name": "Södermanlands Nyheter",
@@ -2517,14 +1985,6 @@
    "country": "FI"
   },
   {
-   "name": "Teisko-Aitolahti-lehti",
-   "country": "FI"
-  },
-  {
-   "name": "Tejuka-lehti",
-   "country": "FI"
-  },
-  {
    "name": "Tek.no",
    "country": "NO"
   },
@@ -2535,10 +1995,6 @@
   {
    "name": "Telen",
    "country": "NO"
-  },
-  {
-   "name": "Tervareitti",
-   "country": "FI"
   },
   {
    "name": "Tidens Krav",
@@ -2585,10 +2041,6 @@
    "country": "NO"
   },
   {
-   "name": "Tulli",
-   "country": "FI"
-  },
-  {
    "name": "Tullverket",
    "country": "SE"
   },
@@ -2609,16 +2061,8 @@
    "country": "FI"
   },
   {
-   "name": "Turun Tienoo",
-   "country": "FI"
-  },
-  {
    "name": "Tvedestrandsposten",
    "country": "NO"
-  },
-  {
-   "name": "Tyrvään Sanomat",
-   "country": "FI"
   },
   {
    "name": "Tysnes kommune",
@@ -2637,18 +2081,6 @@
    "country": "NO"
   },
   {
-   "name": "Uge-Nyt Fredensborg",
-   "country": "DK"
-  },
-  {
-   "name": "UgeAvisen Nordfyn",
-   "country": "DK"
-  },
-  {
-   "name": "UgeAvisen Odense",
-   "country": "DK"
-  },
-  {
    "name": "UgeAvisen Svendborg",
    "country": "DK"
   },
@@ -2657,19 +2089,7 @@
    "country": "DK"
   },
   {
-   "name": "Ugeavisen Aabenraa",
-   "country": "DK"
-  },
-  {
-   "name": "Ugeavisen Bramming",
-   "country": "DK"
-  },
-  {
    "name": "Ugeavisen ElboBladet",
-   "country": "DK"
-  },
-  {
-   "name": "Ugeavisen Esbjerg",
    "country": "DK"
   },
   {
@@ -2677,27 +2097,7 @@
    "country": "DK"
   },
   {
-   "name": "Ugeavisen Grindsted",
-   "country": "DK"
-  },
-  {
-   "name": "Ugeavisen Haderslev",
-   "country": "DK"
-  },
-  {
-   "name": "Ugeavisen Kalundborg",
-   "country": "DK"
-  },
-  {
    "name": "Ugeavisen Karup",
-   "country": "DK"
-  },
-  {
-   "name": "Ugeavisen Kolding",
-   "country": "DK"
-  },
-  {
-   "name": "Ugeavisen Køge",
    "country": "DK"
   },
   {
@@ -2705,23 +2105,7 @@
    "country": "DK"
   },
   {
-   "name": "Ugeavisen MidtSyd",
-   "country": "DK"
-  },
-  {
    "name": "Ugeavisen Ny Tirsdag",
-   "country": "DK"
-  },
-  {
-   "name": "Ugeavisen Næstved",
-   "country": "DK"
-  },
-  {
-   "name": "Ugeavisen Odsherred",
-   "country": "DK"
-  },
-  {
-   "name": "Ugeavisen Ribe",
    "country": "DK"
   },
   {
@@ -2729,39 +2113,7 @@
    "country": "DK"
   },
   {
-   "name": "Ugeavisen Slagelse",
-   "country": "DK"
-  },
-  {
-   "name": "Ugeavisen Struer",
-   "country": "DK"
-  },
-  {
-   "name": "Ugeavisen Sønderborg",
-   "country": "DK"
-  },
-  {
-   "name": "Ugeavisen Tønder",
-   "country": "DK"
-  },
-  {
-   "name": "Ugeavisen Vamdrup",
-   "country": "DK"
-  },
-  {
-   "name": "Ugeavisen Varde",
-   "country": "DK"
-  },
-  {
-   "name": "Ugeavisen Vejen",
-   "country": "DK"
-  },
-  {
    "name": "Ugeavisen Vejle",
-   "country": "DK"
-  },
-  {
-   "name": "Ugeavisen Vesterhavsposten",
    "country": "DK"
   },
   {
@@ -2769,44 +2121,12 @@
    "country": "DK"
   },
   {
-   "name": "Ugeavisen Ølgod",
-   "country": "DK"
-  },
-  {
-   "name": "Ugebladet Hørsholm",
-   "country": "DK"
-  },
-  {
    "name": "Ugebladet Tinglev",
-   "country": "DK"
-  },
-  {
-   "name": "Ugebladet Vestsjælland",
-   "country": "DK"
-  },
-  {
-   "name": "Ugebladet for Møn",
-   "country": "DK"
-  },
-  {
-   "name": "Ugeposten Gribskov",
-   "country": "DK"
-  },
-  {
-   "name": "Ugeposten Kibæk",
-   "country": "DK"
-  },
-  {
-   "name": "Ugeposten Skjern",
    "country": "DK"
   },
   {
    "name": "Ulricehamns Tidning",
    "country": "SE"
-  },
-  {
-   "name": "Ulvilan Seutu &#8211; UutisLuotsi",
-   "country": "FI"
   },
   {
    "name": "Upsala Nya Tidning",
@@ -2822,10 +2142,6 @@
   },
   {
    "name": "Uusi Rovaniemi",
-   "country": "FI"
-  },
-  {
-   "name": "Uusi Suomi",
    "country": "FI"
   },
   {
@@ -2853,19 +2169,7 @@
    "country": "DK"
   },
   {
-   "name": "Vaarojen Sanomat",
-   "country": "FI"
-  },
-  {
    "name": "Vaasa",
-   "country": "FI"
-  },
-  {
-   "name": "Vadum Bladet",
-   "country": "DK"
-  },
-  {
-   "name": "Vakka-Suomen Sanomat",
    "country": "FI"
   },
   {
@@ -2879,10 +2183,6 @@
   {
    "name": "Valdres",
    "country": "NO"
-  },
-  {
-   "name": "Valkeakosken Sanomat",
-   "country": "FI"
   },
   {
    "name": "VanløseLIV - Vanløse Bladet",
@@ -2905,10 +2205,6 @@
    "country": "DK"
   },
   {
-   "name": "Vekkari",
-   "country": "FI"
-  },
-  {
    "name": "Verdinytt",
    "country": "NO"
   },
@@ -2929,19 +2225,11 @@
    "country": "NO"
   },
   {
-   "name": "Vestavind - Bygdeblad for Sveio",
-   "country": "NO"
-  },
-  {
    "name": "Vestby Avis",
    "country": "NO"
   },
   {
    "name": "VesterbroLIV",
-   "country": "DK"
-  },
-  {
-   "name": "VesterhavsPosten",
    "country": "DK"
   },
   {
@@ -2967,10 +2255,6 @@
   {
    "name": "Vetlanda posten",
    "country": "SE"
-  },
-  {
-   "name": "Viborg Nyt",
-   "country": "DK"
   },
   {
    "name": "Viborg Stifts Folkeblad",
@@ -3005,14 +2289,6 @@
    "country": "IS"
   },
   {
-   "name": "Vikublaðið",
-   "country": "FO"
-  },
-  {
-   "name": "Villabyerne",
-   "country": "DK"
-  },
-  {
    "name": "Vimmerby Tidning",
    "country": "SE"
   },
@@ -3021,15 +2297,7 @@
    "country": "DK"
   },
   {
-   "name": "Visit Nordsjælland",
-   "country": "DK"
-  },
-  {
    "name": "VisitOdsherred",
-   "country": "DK"
-  },
-  {
-   "name": "Vodskov Avis",
    "country": "DK"
   },
   {
@@ -3038,10 +2306,6 @@
   },
   {
    "name": "Värnamo nyheter",
-   "country": "SE"
-  },
-  {
-   "name": "Västboandan",
    "country": "SE"
   },
   {
@@ -3059,18 +2323,6 @@
   {
    "name": "Västra Nyland",
    "country": "FI"
-  },
-  {
-   "name": "Vårt Land",
-   "country": "NO"
-  },
-  {
-   "name": "VårtOslo",
-   "country": "NO"
-  },
-  {
-   "name": "Víkurfréttir",
-   "country": "IS"
   },
   {
    "name": "Vísir",
@@ -3098,10 +2350,6 @@
   },
   {
    "name": "Ylä-Karjala",
-   "country": "FI"
-  },
-  {
-   "name": "Ylä-Satakunta",
    "country": "FI"
   },
   {
@@ -3137,10 +2385,6 @@
    "country": "NO"
   },
   {
-   "name": "askoy24",
-   "country": "NO"
-  },
-  {
    "name": "av-avis.no",
    "country": "NO"
   },
@@ -3169,27 +2413,11 @@
    "country": "NO"
   },
   {
-   "name": "dagensmedisin",
-   "country": "NO"
-  },
-  {
-   "name": "dagen",
-   "country": "NO"
-  },
-  {
-   "name": "dagogtid",
-   "country": "NO"
-  },
-  {
    "name": "dolen.no",
    "country": "NO"
   },
   {
    "name": "driva.no",
-   "country": "NO"
-  },
-  {
-   "name": "firdatidend",
    "country": "NO"
   },
   {
@@ -3237,10 +2465,6 @@
    "country": "NO"
   },
   {
-   "name": "grenda",
-   "country": "NO"
-  },
-  {
    "name": "hitra-froya.no",
    "country": "NO"
   },
@@ -3267,10 +2491,6 @@
   {
    "name": "iVerdal",
    "country": "NO"
-  },
-  {
-   "name": "in.fo",
-   "country": "FO"
   },
   {
    "name": "innherred.no",
@@ -3329,10 +2549,6 @@
    "country": "DK"
   },
   {
-   "name": "minerva",
-   "country": "NO"
-  },
-  {
    "name": "miðjan.is",
    "country": "IS"
   },
@@ -3369,14 +2585,6 @@
    "country": "NO"
   },
   {
-   "name": "saltenposten",
-   "country": "NO"
-  },
-  {
-   "name": "samtiden",
-   "country": "NO"
-  },
-  {
    "name": "selbyggen",
    "country": "NO"
   },
@@ -3401,24 +2609,12 @@
    "country": "NO"
   },
   {
-   "name": "suldalsposten",
-   "country": "NO"
-  },
-  {
    "name": "sunnhordland.no",
    "country": "NO"
   },
   {
    "name": "sunnlenska.is",
    "country": "IS"
-  },
-  {
-   "name": "svalbardposten",
-   "country": "NO"
-  },
-  {
-   "name": "sydkystdanmark.dk",
-   "country": "DK"
   },
   {
    "name": "tronderbladet.no",
@@ -3441,10 +2637,6 @@
    "country": "NO"
   },
   {
-   "name": "varldenidag",
-   "country": "SE"
-  },
-  {
    "name": "venneslatidende.no",
    "country": "NO"
   },
@@ -3465,10 +2657,6 @@
    "country": "DK"
   },
   {
-   "name": "visitodsherred.dk",
-   "country": "DK"
-  },
-  {
    "name": "vtd distribution",
    "country": "SE"
   },
@@ -3485,14 +2673,6 @@
    "country": "SE"
   },
   {
-   "name": "Ålands polismyndighet",
-   "country": "AX"
-  },
-  {
-   "name": "Ålandstidningen",
-   "country": "AX"
-  },
-  {
    "name": "Århus Stiftstidende",
    "country": "DK"
   },
@@ -3503,10 +2683,6 @@
   {
    "name": "Åsane Tidende",
    "country": "NO"
-  },
-  {
-   "name": "Ærø Dagblad",
-   "country": "DK"
   },
   {
    "name": "ÖB",
@@ -3522,10 +2698,6 @@
   },
   {
    "name": "Östgöta Correspondenten",
-   "country": "SE"
-  },
-  {
-   "name": "Östran / Nyheterna",
    "country": "SE"
   },
   {
@@ -3567,14 +2739,6 @@
   {
    "name": "Østlendingen",
    "country": "NO"
-  },
-  {
-   "name": "Østvendsyssel Avis",
-   "country": "DK"
-  },
-  {
-   "name": "Østvendsyssel Folkeblad",
-   "country": "DK"
   },
   {
    "name": "ØyBlikk",

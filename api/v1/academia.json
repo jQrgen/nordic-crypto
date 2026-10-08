@@ -1,9 +1,9 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T00:14:44+00:00",
+ "generated_at": "2026-10-08T06:00:27+00:00",
  "preview": false,
- "updated": "2026-10-06",
+ "updated": "2026-10-08",
  "inclusion_rules": [
   "A course is listed only when blockchain or crypto is a substantial part of the syllabus on its own course page.",
   "Every DOI or research-database link is sourced before it is listed; no fabricated citations.",
