@@ -913,65 +913,61 @@ def lang_template(stem):
     return open(P("templates", f"{stem}.html"), encoding="utf-8").read()
 
 MEDIA_FILES = (
-    ("assets/brand/crest.svg", "Crest, SVG"),
-    ("assets/brand/crest-mono.svg", "One colour, SVG"),
-    ("assets/media/nordic-crypto-crest.png", "Crest, PNG, long side 4096 px"),
-    ("assets/logo-concepts/responsive/large-light.png", "Crest on white"),
-    ("assets/logo-concepts/responsive/large-dark.png", "Crest on #0b0d10"),
-    ("assets/logo-concepts/responsive/one-colour.png", "One colour, PNG"),
-    ("assets/brand/wordmark.svg", "Lockup, light, SVG"),
-    ("assets/brand/wordmark-dark.svg", "Lockup, dark, SVG"),
-    ("assets/media/wordmark-light.png", "Lockup, light, PNG"),
-    ("assets/media/wordmark-dark.png", "Lockup, dark, PNG"),
-    ("assets/media/og-image.png", "Social image, 1200×630"),
-    ("assets/logo-concepts/responsive/medium.svg", "Medium crest, SVG"),
-    ("assets/logo-concepts/responsive/medium-512-light.png", "Medium, 512 px, light"),
-    ("assets/logo-concepts/responsive/medium-512-dark.png", "Medium, 512 px, dark"),
-    ("assets/logo-concepts/responsive/medium-128-light.png", "Medium, 128 px, light"),
-    ("assets/logo-concepts/responsive/medium-128-dark.png", "Medium, 128 px, dark"),
-    ("assets/brand/icon.svg", "Small favicon, simplified charge, SVG"),
-    ("favicon.ico", "Favicon, 16 and 32"),
-    ("assets/brand/icon-16.png", "Small, 16 px"),
-    ("assets/brand/icon-32.png", "Small, 32 px"),
-    ("assets/logo-concepts/responsive/small-64-light.png", "Small, 64 px, light"),
-    ("assets/logo-concepts/responsive/small-64-dark.png", "Small, 64 px, dark"),
-    ("assets/brand/apple-touch-icon.png", "Apple touch icon, 180 px"),
-    ("assets/brand/icon-192.png", "App icon, 192 px"),
-    ("assets/brand/icon-512.png", "App icon, 512 px"),
-    ("assets/brand/nordic-crypto.css", "Stylesheet and colour tokens"),
-    ("assets/logo-concepts/responsive/preview-sheet.png", "Preview sheet"),
+    ("assets/brand/shield.svg", "Shield, light grounds, SVG"),
+    ("assets/brand/shield-band.svg", "Shield, dark grounds, SVG"),
+    ("assets/brand/shield-mono.svg", "Shield, one colour, SVG"),
+    ("assets/media/shield-4096.png", "Shield, PNG, 4096 px tall"),
+    ("assets/media/shield-mono-2048.png", "Shield, one colour, PNG, 2048 px tall"),
+    ("assets/brand/lockup.svg", "Lockup, light grounds, SVG"),
+    ("assets/brand/lockup-band.svg", "Lockup, dark grounds, SVG"),
+    ("assets/media/lockup-light.png", "Lockup, light, PNG, 2400 px wide"),
+    ("assets/media/lockup-dark.png", "Lockup on North Sea, PNG, 2400 px wide"),
+    ("favicon.svg", "Favicon tile, SVG"),
+    ("favicon.ico", "Favicon, 16 and 32 px"),
+    ("assets/brand/mark-32.png", "Icon, 32 px"),
+    ("assets/brand/mark-64.png", "Icon, 64 px"),
+    ("assets/brand/mark-180.png", "Apple touch icon, 180 px"),
+    ("assets/brand/mark-192.png", "App icon, 192 px"),
+    ("assets/brand/mark-512.png", "App icon, 512 px"),
+    ("assets/fonts/CormorantGaramond-Bold-latin.woff2", "Cormorant Garamond Bold (SIL Open Font License)"),
+)
+MEDIA_COLOURS = (   # Langskip palette, the same values as assets/css/tokens.css
+    ("#1E3A45", "North Sea", "--band"), ("#D9A034", "Shield Gold", "--gold"), ("#F0F1EC", "Sailcloth", "--bg"),
+    ("#1D1C1A", "Pine Tar", "--fg"), ("#BFD3D3", "Sea Foam", "--foam"), ("#8A5A0C", "Dark gold (text)", "--gold-ink"),
 )
 def build_media():
-    """Public logo kit. Nordic languages have their own strings; every other language uses English."""
+    """Public logo kit around the key shield from the front page (tools/make_mark.py, tools/make_brand.py).
+    Nordic languages have their own strings; every other language uses English. File labels stay English."""
     root = up1()
-    files = "".join(
-        f'<li><a href="{root}{E(path)}">{E(label)}</a></li>' for path, label in MEDIA_FILES)
+    files = "".join(f'<li><a href="{root}{E(path)}">{E(label)}</a></li>' for path, label in MEDIA_FILES)
+    sw = "".join(f'<li><i style="background:{hx}"></i><span><b>{E(name)}</b> · <code>{hx}</code> · <code>{tok}</code></span></li>'
+                 for hx, name, tok in MEDIA_COLOURS)
     body = f"""<h1>{E(t("media_h1"))}</h1>
 <p class="lead">{E(t("media_lead"))}</p>
-<figure class="hdr-sample">
-<div class="brandrow"><span class="brand"><img class="brandmark" src="{root}assets/brand/icon.svg" width="32" height="32" alt=""><span aria-hidden="true">Nordic <span class="w">Crypto</span></span></span></div>
-<p class="motto-sample">NORDIC CRYPTO</p>
-<figcaption>{E(t("media_hdr_cap"))}</figcaption>
-</figure>
-<figure class="hdr-sample dark">
-<div class="brandrow"><span class="brand"><img class="brandmark" src="{root}assets/brand/icon.svg" width="32" height="32" alt=""><span aria-hidden="true">Nordic <span class="w">Crypto</span></span></span></div>
-<figcaption>{E(t("media_hdr_dark_cap"))}</figcaption>
-</figure>
-<img class="lockup" src="{root}assets/media/wordmark-light.png" alt="Nordic Crypto" width="640">
-<img class="lockup" src="{root}assets/media/wordmark-dark.png" alt="" width="640">
+<div class="mk-row">
+<figure class="mk-tile mk-light"><img src="{root}assets/brand/shield.svg" width="120" height="141" alt="Nordic Crypto"></figure>
+<figure class="mk-tile mk-band"><img src="{root}assets/brand/shield-band.svg" width="120" height="141" alt=""></figure>
+<figure class="mk-tile mk-light"><img src="{root}assets/brand/shield-mono.svg" width="120" height="141" alt=""></figure>
+<figure class="mk-tile mk-light mk-fav"><img src="{root}favicon.svg" width="64" height="64" alt=""><img src="{root}favicon.svg" width="32" height="32" alt=""><img src="{root}favicon.svg" width="16" height="16" alt=""></figure>
+</div>
+<figure class="mk-lockup mk-light"><img src="{root}assets/brand/lockup.svg" alt="Nordic Crypto" width="560"><figcaption>{E(t("media_hdr_cap"))}</figcaption></figure>
+<figure class="mk-lockup mk-band"><img src="{root}assets/brand/lockup-band.svg" alt="" width="560"><figcaption>{E(t("media_hdr_dark_cap"))}</figcaption></figure>
 <h2>{E(t("media_colours_h"))}</h2>
-<ul class="swatches">
-<li><i style="background:var(--nc-or)"></i><span><b>or</b> · gold · <code>--nc-or</code> #F4C430</span></li>
-<li><i style="background:var(--nc-gules)"></i><span><b>gules</b> · red · <code>--nc-gules</code> #A0202A</span></li>
-<li><i style="background:var(--nc-sable)"></i><span><b>sable</b> · text, raven · <code>--nc-sable</code> #141210</span></li>
-<li><i style="background:var(--nc-argent)"></i><span><b>argent</b> · page, motto scroll · <code>--nc-argent</code> #F7F6F2</span></li>
-<li><i style="background:var(--nc-cendree)"></i><span><b>cendrée</b> · lines · <code>--nc-cendree</code> #A7B0BA</span></li>
-</ul>
+<ul class="swatches">{sw}</ul>
 <p>{E(t("media_colours_note"))}</p>
 <h2>{E(t("media_use_h"))}</h2>
 <p class="prose">{E(t("media_use"))}</p>
 <h2>{E(t("media_files_h"))}</h2>
-<ul class="filelist">{files}</ul>"""
+<ul class="filelist">{files}</ul>
+<style>.mk-row{{display:flex;flex-wrap:wrap;gap:14px;margin:18px 0 22px}}
+.mk-tile{{margin:0;width:180px;height:180px;display:flex;align-items:center;justify-content:center;gap:14px;border-radius:var(--r);border:1px solid var(--line)}}
+.mk-tile img{{display:block;height:auto;max-height:78%;width:auto}}.mk-light{{background:#FFFFFF}}.mk-band{{background:#1E3A45;border-color:#1E3A45}}
+.mk-fav{{align-items:flex-end;padding-bottom:58px}}
+.mk-lockup{{margin:0 0 16px;padding:26px 28px 16px;border-radius:var(--r);border:1px solid var(--line);max-width:680px}}
+.mk-lockup img{{display:block;width:100%;max-width:560px;height:auto}}
+.mk-lockup figcaption{{margin-top:14px;font-size:14px;color:#55605F}}.mk-band figcaption{{color:#BFD3D3}}
+.swatches i{{border-radius:6px;border-color:var(--line-strong)}}
+@media (max-width:420px){{.mk-tile{{width:calc(50% - 7px);height:150px}}}}</style>"""
     page("media", t("media_title"), "media", body, t("media_desc"))
 
 def build_ethics():
