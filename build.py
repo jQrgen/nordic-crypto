@@ -2663,20 +2663,20 @@ def build_academia():
     def st(r): return (f'<span class="tag pend">{E(t("owner"))}</span>' if PREVIEW else "")
     def dom(u): return re.sub(r"^https?://(www[0-9]?\.)?", "", u).split("/")[0]
     def foot(r):
-        return f'<div class="meta">{E(t("ac_source"))}: <a href="{E(r["source"])}" rel="noopener" target="_blank">{E(dom(r["source"]))}</a> · {E(t("ac_checked", d=r["checked"]))} {st(r)}</div>'
+        return f'<p class="acsrc">{E(t("ac_source"))}: <a href="{E(r["source"])}" rel="noopener" target="_blank">{E(dom(r["source"]))}</a> · {E(t("ac_checked", d=r["checked"]))} {st(r)}</p>'
     tr = load(P("data", "academia_i18n.json"), {}) or {}   # optional translations of research 'about' / group 'activity' texts, keyed by url
     def about(r, k="about"):
         x = (tr.get(r["url"]) or {}).get(LANG) if LANG != "en" else None
         return f'<p class="sum">{E(x)}</p>' if x else f'<p class="sum"{en}>{E(" ".join(v for v in (r.get("about"), r.get("activity")) if v) if k == "group" else r["about"])}</p>'
     def row(c, inner): return f'<li data-c="{E(c)}">{inner}</li>'
-    def bycountry(rows, fn):
+    def bycountry(rows, fn, sec):
         if not rows: return f'<p class="empty">{E(t("ac_empty"))}</p>'
-        return '<ol class="news">' + "".join(row(r["country"], fn(r)) for c in COUNTRY_CODES for r in rows if r["country"] == c) + '</ol>'
+        return f'<ol class="aclist" data-s="{sec}">' + "".join(row(r["country"], fn(r)) for c in COUNTRY_CODES for r in rows if r["country"] == c) + '</ol>'
     courses = bycountry(secs["courses"], lambda r: f'<h3><a href="{E(r["url"])}" rel="noopener" target="_blank">{E(r["code"])} {E(r["name"])}</a></h3>'
-        f'<div class="meta">{flag(r["country"])} <b>{E(r["institution"])}</b> · <span{en}>{E(r["level"])}</span>' + (f' · <b{en}>{E(r["term"])}</b>' if r.get("term") else "") + f'</div><p class="sum"{en}>{E(r["about"])}</p>{foot(r)}')
+        f'<p class="meta">{flag(r["country"])} <b>{E(r["institution"])}</b> · <span{en}>{E(r["level"])}</span>' + (f' · <b{en}>{E(r["term"])}</b>' if r.get("term") else "") + f'</p><p class="sum"{en}>{E(r["about"])}</p>{foot(r)}', "courses")
     groups = bycountry(secs["groups"], lambda r: f'<h3><a href="{E(r["url"])}" rel="noopener" target="_blank">{E(r["name"])}</a> '
         f'<span class="tag {"act" if r["active"] else "inact"}">{E(t("active") if r["active"] else t("inactive"))}</span></h3>'
-        f'<div class="meta">{flag(r["country"])} <b>{E(r["institution"])}</b></div>{about(r, "group")}{foot(r)}')
+        f'<p class="meta">{flag(r["country"])} <b>{E(r["institution"])}</b></p>{about(r, "group")}{foot(r)}', "groups")
     def au(a):
         a = a or []
         return (", ".join(a[:4]) + (t("et_al") if len(a) > 4 else "")) if a else ""
@@ -2703,26 +2703,32 @@ def build_academia():
         return " · ".join(parts)
     pubs = bycountry(sorted(secs["publications"], key=lambda r: (-(r.get("year") or 0), r.get("title") or "")),
         lambda r: f'<h3><a href="{E(r["url"])}" rel="noopener" target="_blank">{E(r["title"])}</a></h3>'
-        f'<div class="meta">{pub_meta(r)}</div>'
-        f'<div class="meta">{pub_ids(r)}</div>{foot(r)}')
+        f'<p class="meta">{pub_meta(r)}</p>'
+        f'<p class="meta acids">{pub_ids(r)}</p>{foot(r)}', "publications")
     research = bycountry(secs["research"], lambda r: f'<h3><a href="{E(r["url"])}" rel="noopener" target="_blank">{E(r["name"])}</a></h3>'
-        f'<div class="meta">{flag(r["country"])} <b>{E(r["institution"])}</b></div>{about(r)}{foot(r)}')
+        f'<p class="meta">{flag(r["country"])} <b>{E(r["institution"])}</b></p>{about(r)}{foot(r)}', "research")
     allrows = sum(len(v) for v in secs.values())
     per_c = {c: sum(r["country"] == c for v in secs.values() for r in v) for c in COUNTRY_CODES}
     dn = t("data_en_note")
-    body = f"""<h1>{E(t("ac_h1"))}</h1>
+    chips = "".join(f'<button type="button" class="chip cchip" data-c="{c}" aria-pressed="false">{_deco_flag(c)}{E(cname(c))} <span class="n">{per_c[c]}</span></button>' for c in COUNTRY_CODES if per_c[c])
+    jump = "".join(f'<a href="#{k}">{E(t(lab))} <span class="n" data-s="{k}">{len(secs[k])}</span></a>' for k, lab in (("courses", "ac_courses"), ("groups", "ac_groups"), ("publications", "ac_pubs"), ("research", "ac_research")))
+    body = f"""{site_css.style("lists")}<div class="acpage">
+<h1>{E(t("ac_h1"))}</h1>
 <p class="lead">{E(t("ac_lead"))}</p>
 {f'<p class="notice warn">{t("ac_preview", n=allrows)}</p>' if PREVIEW else ''}
 {f'<p class="meta">{E(dn)}</p>' if dn else ''}
-<div class="filters" role="group" aria-label="{E(t("countries_aria"))}"><span class="lbl">{E(t("country"))}</span><div class="chips">{country_chips()}</div><span id="acount" class="meta" aria-live="polite"></span></div>
-<p class="meta">{" · ".join(f"{flag(c)} {E(n)}: {per_c[c]}" for c, n in COUNTRIES.items())} · <a href="#courses">{E(t("ac_courses"))}</a> · <a href="#groups">{E(t("ac_groups"))}</a> · <a href="#publications">{E(t("ac_pubs"))}</a> · <a href="#research">{E(t("ac_research"))}</a></p>
-<h2 id="courses">{E(t("ac_courses_h"))}</h2><p class="meta">{E(t("ac_courses_m"))}</p>{courses}
-<h2 id="groups">{E(t("ac_groups_h"))}</h2><p class="meta">{E(t("ac_groups_m"))}</p>{groups}
-<h2 id="publications">{E(t("ac_pubs_h"))}</h2><p class="meta">{E(t("ac_pubs_m"))}</p>{pubs}
-<h2 id="research">{E(t("ac_research_h"))}</h2>{research}
-<p class="notice">{t("ac_notice")}</p>"""
-    js = """<script>(function(){var NR=%s,cc=[].slice.call(document.querySelectorAll('.cchip')),n=[].slice.call(document.querySelectorAll('ol.news li[data-c]')),cnt=document.getElementById('acount');
-function apply(){var c=cc.filter(function(x){return x.getAttribute('aria-pressed')==='true'}).map(function(x){return x.dataset.c}),k=0;n.forEach(function(el){var ok=!c.length||c.indexOf(el.dataset.c)>=0;el.hidden=!ok;if(ok)k++});cnt.textContent=NR.replace('{n}',k);history.replaceState(null,'',c.length?'#country='+c.join(','):location.pathname+location.hash.replace(/#country=.*/,''))}
+<div class="filters lfilters" role="group" aria-label="{E(t("countries_aria"))}"><div class="lf"><span class="lbl" id="lf-c">{E(t("country"))}</span><div class="chips" role="group" aria-labelledby="lf-c">{chips}</div></div><p id="acount" class="meta lcount" aria-live="polite">{E(t("n_rows", n=allrows))}</p></div>
+<nav class="acjump" aria-label="{E(t("toc_h"))}">{jump}</nav>
+<section aria-labelledby="courses"><h2 id="courses">{E(t("ac_courses_h"))}</h2><p class="meta acnote">{E(t("ac_courses_m"))}</p>{courses}</section>
+<section aria-labelledby="groups"><h2 id="groups">{E(t("ac_groups_h"))}</h2><p class="meta acnote">{E(t("ac_groups_m"))}</p>{groups}</section>
+<section aria-labelledby="publications"><h2 id="publications">{E(t("ac_pubs_h"))}</h2><p class="meta acnote">{E(t("ac_pubs_m"))}</p>{pubs}</section>
+<section aria-labelledby="research"><h2 id="research">{E(t("ac_research_h"))}</h2>{research}</section>
+<p class="notice">{t("ac_notice")}</p>
+</div>"""
+    js = """<script>(function(){var NR=%s,cc=[].slice.call(document.querySelectorAll('.cchip')),n=[].slice.call(document.querySelectorAll('.aclist li[data-c]')),cnt=document.getElementById('acount'),js=[].slice.call(document.querySelectorAll('.acjump .n'));
+function apply(){var c=cc.filter(function(x){return x.getAttribute('aria-pressed')==='true'}).map(function(x){return x.dataset.c}),k=0;n.forEach(function(el){var ok=!c.length||c.indexOf(el.dataset.c)>=0;el.hidden=!ok;if(ok)k++});cnt.textContent=NR.replace('{n}',k);
+js.forEach(function(s){var l=document.querySelector('.aclist[data-s="'+s.dataset.s+'"]');if(l)s.textContent=l.querySelectorAll('li[data-c]:not([hidden])').length});
+history.replaceState(null,'',c.length?'#country='+c.join(','):location.pathname+location.hash.replace(/#country=.*/,''))}
 var h=new URLSearchParams(location.hash.slice(1));(h.get('country')||'').split(',').forEach(function(x){cc.forEach(function(b){if(b.dataset.c===x)b.setAttribute('aria-pressed','true')})});
 cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');apply()})});apply()})();</script>""" % json.dumps(t("n_rows", n="{n}"))
     page("academia", t("ac_title"), "academia", body, t("ac_desc"), js)
