@@ -8,6 +8,7 @@ import i18n
 
 KEYS = [k for k in i18n.strings("en") if k == "nav_chat" or k.startswith("chat_")]
 CLIENT = os.path.join(ROOT, "assets", "chat", "client.js")
+REVERSED = "Crypto" + " Nordic"
 
 
 class ChatPages(unittest.TestCase):
@@ -40,7 +41,7 @@ class ChatPages(unittest.TestCase):
             rules = i18n.t(lang, "chat_rules", ethics="../ethics/")
             self.assertIn("../ethics/", rules)
             self.assertIn("{n}", i18n.strings(lang)["chat_time_m"])
-            self.assertNotIn("Crypto Nordic", i18n.t(lang, "chat_user"))
+            self.assertNotIn(REVERSED, i18n.t(lang, "chat_user"))
 
     def test_nothing_is_rendered_while_disabled(self):
         build.LANG = "en"
@@ -99,7 +100,7 @@ class ChatPages(unittest.TestCase):
             self.assertIn("15000", html)
             self.assertIn('class="shoutbox shoutbox-full"', html)
             self.assertIn("Nordic Crypto", html)
-            self.assertNotIn("Crypto Nordic", html)
+            self.assertNotIn(REVERSED, html)
         self.assertIn("Skicka", pages["sv"])
         self.assertIn("Husregler", pages["sv"])
         self.assertIn("القواعد", pages["ar"])

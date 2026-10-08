@@ -7621,6 +7621,26 @@
    "method": "rss"
   },
   {
+   "id": "aamuposti",
+   "name": "Aamuposti",
+   "country": "FI",
+   "region": "",
+   "coverage": "local",
+   "language": "Finnish",
+   "kind": "Newspaper",
+   "url": "https://www.aamuposti.fi/",
+   "feed": "https://www.aamuposti.fi/feed/rss",
+   "type": "rss",
+   "paywall": false,
+   "enabled": true,
+   "status": "Site RSS. Nurmijärven Uutiset is a section on this site, not a separate feed.",
+   "verified": "2026-10-08",
+   "directory": "Uutismedian liitto sanomalehtihaku",
+   "logo": "https://www.aamuposti.fi/favicon.png",
+   "logo_source": "https://www.aamuposti.fi/icon-180.png",
+   "method": "rss"
+  },
+  {
    "id": "nurmijarven-uutiset",
    "name": "Nurmijärven Uutiset",
    "country": "FI",
@@ -7629,16 +7649,16 @@
    "language": "Finnish",
    "kind": "Newspaper",
    "url": "https://www.aamuposti.fi/aihe/Nurmij%C3%A4rvi",
-   "feed": "https://www.aamuposti.fi/feed/rss",
+   "feed": null,
    "type": "rss",
    "paywall": false,
-   "enabled": true,
-   "status": "ok (30 items on 2026-10-06)",
-   "verified": "2026-10-06",
+   "enabled": false,
+   "status": "Section of Aamuposti. The RSS is the whole Aamuposti feed and is fetched as aamuposti.",
+   "verified": "2026-10-08",
    "directory": "Uutismedian liitto sanomalehtihaku",
    "logo": "https://www.aamuposti.fi/favicon.png",
    "logo_source": "https://www.aamuposti.fi/icon-180.png",
-   "method": "rss"
+   "method": "manual"
   },
   {
    "id": "mikkelin-kaupunkilehti",
@@ -11488,7 +11508,7 @@
   },
   {
    "id": "tv2-lorry",
-   "name": "TV2 Lorry",
+   "name": "TV 2 Kosmopol",
    "country": "DK",
    "region": "Distrikt København",
    "coverage": "local",

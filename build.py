@@ -207,6 +207,7 @@ table.list{width:100%;border-collapse:collapse;font-size:14.5px}table.list th,ta
 table.list th{font-size:13px;color:var(--muted)}
 .ok{color:#047857;font-weight:600}.bad{color:#b91c1c;font-weight:600}
 .prose{max-width:72ch;text-align:start}
+.primary-src{font-size:13.5px;margin:6px 0 0;text-align:start}
 .tag.act{border-color:#047857;color:#047857;font-weight:600}.tag.inact{border-color:#9ca3af;color:#6b7280}
 .reg{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px;margin:10px 0}
 .reg article{border:1px solid var(--line);padding:10px 12px;background:#fff}.reg h3{display:flex;gap:8px;align-items:center;margin:0 0 6px;font-size:17px}
@@ -1144,6 +1145,7 @@ def build():
             extras.append(ex)
         pub["also_covered_by"] = extras
         pub["coverage"] = cov.breakdown(rows)
+        pub.update(public_extra(i))
         pub_items.append(pub)
     for i in pub_items:
         if i.get("status") not in ("published", "owner"): i["summary"] = None; i.pop("summary_i18n", None); i["status"] = "pending"
@@ -1868,6 +1870,25 @@ def write_rss(items):
     d = SITE if LANG == "en" else os.path.join(SITE, LANG)
     os.makedirs(d, exist_ok=True)
     open(os.path.join(d, "rss.xml"), "w", encoding="utf-8").write(xml)
+def public_extra(item):
+    """Fields added to the public news JSON for one story. The lead outlet is not copied here."""
+    extra = {}
+    doc = _coverage().editor_primary_source((item or {}).get("primary_source"))
+    if doc:
+        extra["primary_source"] = doc
+    if (item or {}).get("published_unverified"):
+        extra["published_unverified"] = True
+    return extra
+def cited_source(item):
+    """Link to an editor-recorded original document, such as a regulator press release.
+
+    This is not the lead outlet. The line is start-aligned.
+    """
+    doc = _coverage().editor_primary_source((item or {}).get("primary_source"))
+    if not doc:
+        return ""
+    return (f'<p class="primary-src">{E(t("primary_source"))}: '
+            f'<a href="{E(doc["url"])}" rel="noopener" target="_blank">{E(doc["name"])}</a></p>')
 def front_card(i, blurbs, asset, lead=False):
     """One front-page story. No picture. Headline, original title, summary, source, date. Left-aligned."""
     pend = i.get("status") not in ("published", "owner")
@@ -1911,6 +1932,7 @@ def front_card(i, blurbs, asset, lead=False):
         f'<time datetime="{E(i.get("published") or "")}">{endate(i["published"])}</time>{lang}{pw} {tags}{badges}</p>'
         + coverage_row(rows, asset, f"stories/{i['id']}/")
         + links
+        + cited_source(i)
         + "</article>")
 def build_lang(ctx):
     items, pending = ctx["items"], ctx["pending"]
@@ -2157,7 +2179,7 @@ def build_coverage_pages(items, blurbs):
                 + summ
                 + f'<p class="meta">{flag(i.get("country"))} {E(cname(i.get("country")))} · {source_mark(i, root)} · <time datetime="{E(i["published"])}">{endate(i["published"])}</time>{pw}'
                 + (f' <span class="tag pend">{E(t("pending"))}</span>' if pend else "") + '</p>'
-                + coverage_block(rows, root) + '</article>'
+                + coverage_block(rows, root) + cited_source(i) + '</article>'
                 + f'<p class="notice">{E(t("home_notice"))}</p>')
         page("stories/" + i["id"], head, "", body, (i.get("summary") or head or "")[:200], COV_SORT_JS)
 def build_stories(write=True):

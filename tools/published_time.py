@@ -276,6 +276,7 @@ def from_feed_entry(entry, zone=None):
     inst = parse_instant(raw, zone) if raw else None
     if inst:
         inst.source = "feed"
+        inst.unverified = False
         return inst
     parsed = entry.get("published_parsed")
     if not parsed:
@@ -284,7 +285,68 @@ def from_feed_entry(entry, zone=None):
         when = dt.datetime(*parsed[:6], tzinfo=UTC)
     except (TypeError, ValueError):
         return None
-    return Instant(when, False, _zone(zone), when.date(), "feed")
+    inst = Instant(when, False, _zone(zone), when.date(), "feed")
+    inst.unverified = False
+    return inst
+
+
+_FALSE_GMT = re.compile(r"(?:\s*(?:GMT|UTC|Z)|(?:\s*[+-]00:?00))\s*$", re.I)
+_RFC822_CLOCK = re.compile(
+    r"^(?:[A-Za-z]{3},\s*)?(\d{1,2})\s+([A-Za-z]{3})\s+(\d{4})\s+(\d{2}):(\d{2})(?::(\d{2}))?"
+)
+_RFC_MONTHS = {name: i for i, name in enumerate(
+    ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], 1)}
+BING_ZONE = "America/Los_Angeles"
+
+
+def bing_instant(entry):
+    """Bing News RSS stamps Pacific wall time and labels it GMT.
+
+    The clock is read in America/Los_Angeles, including daylight saving time.
+    The result is unverified: a page time or the outlet's own feed should win.
+    """
+    if not entry:
+        return None
+    raw = str(entry.get("published") or entry.get("pubDate") or "").strip()
+    parsed = entry.get("published_parsed")
+    # A real non-zero offset is not Bing's false GMT label.
+    if re.search(r"[+-](?!00(?::?00)?$)\d{2}:?\d{2}$", raw):
+        inst = parse_instant(raw, BING_ZONE)
+        if inst:
+            inst.source = "bing"
+            inst.unverified = True
+            return inst
+    text = _FALSE_GMT.sub("", raw).strip()
+    la = _zone(BING_ZONE)
+    naive = None
+    match = _RFC822_CLOCK.match(text)
+    if match:
+        mon = _RFC_MONTHS.get(match.group(2)[:3].title())
+        if mon:
+            try:
+                naive = dt.datetime(
+                    int(match.group(3)), mon, int(match.group(1)),
+                    int(match.group(4)), int(match.group(5)), int(match.group(6) or 0),
+                )
+            except ValueError:
+                naive = None
+    if naive is None and text:
+        inst = parse_instant(text, BING_ZONE)
+        if inst:
+            inst.source = "bing"
+            inst.unverified = True
+            return inst
+    if naive is None and parsed:
+        try:
+            naive = dt.datetime(*parsed[:6])
+        except (TypeError, ValueError):
+            return None
+    if naive is None or la is None:
+        return None
+    when = naive.replace(tzinfo=la)
+    inst = Instant(when.astimezone(UTC), False, la, when.date(), "bing")
+    inst.unverified = True
+    return inst
 
 
 def choose_published(page, feed):

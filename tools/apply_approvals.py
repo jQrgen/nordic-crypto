@@ -12,7 +12,8 @@ queue/approved.json -> items: [{"url": ..., "summary": "2–4 sentences IN ENGLI
                                 "summary_i18n": {"nn": ..., "nb": ..., "sv": ..., "da": ..., "fi": ..., "is": ...} (our own summary per site language),
                                 "summary_i18n_source": "<the English summary the translations were made from>",
                                 "summary_i18n_review": "pending" | "approved" (pending translations appear only in the preview build),
-                                "topics": [optional], "approved_by": "Nordic Crypto editor", "approved_at": "YYYY-MM-DD"}]
+                                "topics": [optional], "primary_source": {"name": "Finanstilsynet", "url": "https://..."} (original document, optional),
+                                "approved_by": "Nordic Crypto redaktør", "approved_at": "YYYY-MM-DD"}]
                        rejected: [{"url": ... | "title_contains": ..., "reason": ...}]   # kept out even when a feed finds them again"""
 import json, os, sys, urllib.parse
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); P = lambda *a: os.path.join(ROOT, *a)
@@ -20,6 +21,7 @@ sys.path.insert(0, ROOT)
 sys.path.insert(0, os.path.join(ROOT, "tools"))
 from tools.frontpage_blurbs import LANGS, substantive
 import coverage
+import site_url
 def load(p, d):
     try: return json.load(open(p, encoding="utf-8"))
     except FileNotFoundError: return d
@@ -92,7 +94,10 @@ for a in ap.get("items", []):
     if not it: missing.append(a["url"]); continue
     s = (a.get("summary") or "").strip()
     if not s: print(f"warning: no summary for {a['url']}", file=sys.stderr); continue
-    it.update(status="published", summary=s, approved_by=a.get("approved_by", "Nordic Crypto editor"), approved_at=a.get("approved_at"))
+    it.update(status="published", summary=s, approved_by=site_url.brand(a.get("approved_by") or "Nordic Crypto redaktør"), approved_at=a.get("approved_at"))
+    doc = coverage.editor_primary_source(a.get("primary_source"))
+    if doc:
+        it["primary_source"] = doc
     for k in ("topics", "title_en", "source_name", "links", "country"):
         if a.get(k): it[k] = a[k]
     src_title = it.get("title") or ""

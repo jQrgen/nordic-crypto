@@ -126,6 +126,22 @@ def main():
     check(pub.utc_iso(pub.choose_published(pub.parse_instant("2026-10-05", "Europe/Oslo"), other)) == "2026-10-05T12:00:00+00:00",
           "a date-only page replaces a feed time on another day")
 
+    july = pub.bing_instant({"published": "Wed, 01 Jul 2026 01:33:00 GMT"})
+    check(july and july.unverified and pub.utc_iso(july) == "2026-07-01T08:33:00+00:00",
+          "July Bing GMT is Pacific daylight")
+    october = pub.bing_instant({"published": "Mon, 05 Oct 2026 01:33:00 GMT"})
+    check(october and october.unverified and pub.utc_iso(october) == "2026-10-05T08:33:00+00:00",
+          "October Bing GMT is still Pacific daylight")
+    january = pub.bing_instant({"published": "Thu, 15 Jan 2026 01:33:00 GMT"})
+    check(january and january.unverified and pub.utc_iso(january) == "2026-01-15T09:33:00+00:00",
+          "January Bing GMT is Pacific standard time")
+    finans = pub.bing_instant({"published": "2026-10-05T06:06:00Z"})
+    check(finans and finans.unverified and pub.utc_iso(finans) == "2026-10-05T13:06:00+00:00",
+          "Bing 06:06Z on 5 October is 13:06Z")
+    real = pub.bing_instant({"published": "2026-10-05T15:06:17+02:00"})
+    check(real and pub.utc_iso(real) == "2026-10-05T13:06:17+00:00",
+          "a real offset is not read as Pacific")
+
     check(pub.zone_for(country="NO", url="https://www.sydsvenskan.se/lund/x") == "Europe/Stockholm",
           "the article host picks the zone")
     check(pub.zone_for(country="SE", url="https://www.finansavisen.no/valuta/x") == "Europe/Oslo",

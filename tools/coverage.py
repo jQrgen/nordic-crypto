@@ -349,6 +349,28 @@ def fold_into(items, source_item, target_ref):
     return target
 
 
+def editor_primary_source(raw):
+    """Editor-recorded original document, such as a regulator press release.
+
+    Returns ``{name, url}`` or None. A coverage outlet row (no document URL) is not a citation.
+    """
+    if not raw:
+        return None
+    if isinstance(raw, str):
+        url, name = raw.strip(), ""
+    elif isinstance(raw, dict):
+        url = str(raw.get("url") or raw.get("href") or "").strip()
+        name = str(raw.get("name") or raw.get("title") or raw.get("label") or raw.get("source_name") or raw.get("outlet_name") or "").strip()
+    else:
+        return None
+    if not url.startswith(("http://", "https://")):
+        return None
+    if not name:
+        host = urllib.parse.urlparse(url).netloc.lower().removeprefix("www.")
+        name = host or url
+    return {"name": name, "url": url}
+
+
 def index_urls(items):
     """Primary and extra URLs → story, so a later fetch of an outlet we already list is not a new story."""
     by = {}
