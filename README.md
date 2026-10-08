@@ -104,6 +104,16 @@ Refresh: `./build.sh` and `./publish.sh` fetch the exchanges while building `sit
 
 `python3 tools/markets.py` prints a short summary. `python3 tools/markets.py --write DIR` writes the JSON tree. `--keep-if-empty` is what the hourly job uses.
 
+### Visitor stats
+
+`/stats/` (every site language) shows visits and page views per day (last 30 days), per ISO week (last 26 weeks) and per calendar month, with a "last updated" time. `/api/v1/stats.json` is the same data. The numbers come from Cloudflare Web Analytics: aggregate counts per UTC day only, no IP addresses, user agents, paths, referrers or countries. Until there is data, the page says the stats are being set up.
+
+`tools/fetch_stats.py` reads `rumPageloadEventsAdaptiveGroups` from the Cloudflare GraphQL Analytics API (sum of `visits` and `count` of page views, grouped by `date`, filtered by the site tag). It goes back as far as Cloudflare keeps data (about six months) and merges the result into the rows already saved, so months stay on the page after Cloudflare has expired the days. Configuration: `CF_ANALYTICS_TOKEN` (API token with Account → Account Analytics → Read only), `CF_ACCOUNT_ID` and `CF_WA_SITE_TAG` (the Web Analytics site tag, not the public beacon token). Without all three it prints "not configured" and writes nothing. `--check` prints totals only.
+
+Refresh: `.github/workflows/stats-refresh.yml` runs once a day and rewrites `api/v1/stats.json` on `gh-pages` (secret `CF_ANALYTICS_TOKEN`, repository variables `CF_ACCOUNT_ID` and `CF_WA_SITE_TAG`; it skips when they are missing). It uses the `gh-pages-deploy` concurrency group like the other two jobs. The page reloads that file in the browser, so new numbers show without a new build. A build uses the newer of `data/stats.json` and the published file, so a deploy does not roll the numbers back. `NC_STATS_LIVE=0` keeps the build offline.
+
+The beacon itself is `analytics.json` (or `CF_WEB_ANALYTICS_TOKEN`): the public site token of a Web Analytics site for `nordiccrypto.no`. Without it the site loads no analytics script and the stats stay empty.
+
 ### iOS app
 Public TestFlight invite, linked from the footer, the homepage, `/markets/` and About: https://testflight.apple.com/join/nQ2fpjZn. There is no App Store listing. The Nordic Crypto TestFlight version especially supports Apple TV.
 

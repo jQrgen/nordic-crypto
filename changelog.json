@@ -3,6 +3,39 @@
  "launch_date": "2026-10-03",
  "entries": [
   {
+   "id": "visitor-stats",
+   "date": null,
+   "review": "pending",
+   "title": "Visitor stats",
+   "description": "A new Stats page shows visits and page views per day, week and month. The numbers come from Cloudflare Web Analytics, which counts visits in aggregate and uses no cookies. The same numbers are in the data API as stats.json.",
+   "i18n": {
+    "nn": {
+     "title": "Besøksstatistikk",
+     "description": "Ei ny statistikkside viser besøk og sidevisingar per dag, veke og månad. Tala kjem frå Cloudflare Web Analytics, som tel besøk samla og ikkje brukar informasjonskapslar. Dei same tala ligg i data-API-et som stats.json."
+    },
+    "nb": {
+     "title": "Besøksstatistikk",
+     "description": "En ny statistikkside viser besøk og sidevisninger per dag, uke og måned. Tallene kommer fra Cloudflare Web Analytics, som teller besøk samlet og ikke bruker informasjonskapsler. De samme tallene ligger i data-API-et som stats.json."
+    },
+    "sv": {
+     "title": "Besöksstatistik",
+     "description": "En ny statistiksida visar besök och sidvisningar per dag, vecka och månad. Siffrorna kommer från Cloudflare Web Analytics, som räknar besök samlat och inte använder cookies. Samma siffror finns i data-API:t som stats.json."
+    },
+    "da": {
+     "title": "Besøgsstatistik",
+     "description": "En ny statistikside viser besøg og sidevisninger pr. dag, uge og måned. Tallene kommer fra Cloudflare Web Analytics, som tæller besøg samlet og ikke bruger cookies. De samme tal findes i data-API'et som stats.json."
+    },
+    "fi": {
+     "title": "Kävijätilastot",
+     "description": "Uusi tilastosivu näyttää käynnit ja sivunlataukset päivittäin, viikoittain ja kuukausittain. Luvut tulevat Cloudflare Web Analyticsista, joka laskee käynnit yhteenlaskettuina eikä käytä evästeitä. Samat luvut ovat data-API:ssa tiedostona stats.json."
+    },
+    "is": {
+     "title": "Heimsóknartölfræði",
+     "description": "Ný tölfræðisíða sýnir heimsóknir og síðuflettingar á dag, viku og mánuð. Tölurnar koma úr Cloudflare Web Analytics, sem telur heimsóknir í heild og notar ekki vafrakökur. Sömu tölur eru í gagna-API-inu sem stats.json."
+    }
+   }
+  },
+  {
    "id": "crest-look",
    "date": null,
    "review": "pending",

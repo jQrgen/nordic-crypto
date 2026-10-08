@@ -1126,6 +1126,25 @@ def cors_doc():
     }
 
 
+def _stats(feed, stats):
+    """Write /api/v1/stats.json. Aggregate visits and page views from Cloudflare Web Analytics only.
+    Same shape as the file tools/fetch_stats.py writes on gh-pages. generated_at is when the numbers were fetched."""
+    import fetch_stats
+    doc = stats if isinstance(stats, dict) else fetch_stats.current(feed.base)
+    body = fetch_stats.empty(doc.get("status") or "pending")
+    body.update({k: v for k, v in doc.items() if k in body})
+    body["preview"] = feed.preview
+    body["generated_at"] = body.get("generated_at") or feed.generated
+    feed.write_json("api/v1/stats.json", body)
+    feed.add_endpoint(
+        "stats",
+        "api/v1/stats.json",
+        "Aggregate visitor counts from Cloudflare Web Analytics (no cookies): visits and page views per UTC day, ISO week and calendar month. updated_at is null and the lists are empty until the Web Analytics site and the refresh token are configured.",
+        "VisitorStats",
+        example="api/v1/stats.json",
+    )
+    return body
+
 def _markets(feed, markets):
     """Write /api/v1/markets*.json. markets is the body from tools/markets.py, or None to fetch live."""
     sys.path.insert(0, os.path.join(ROOT, "tools"))
@@ -1180,7 +1199,7 @@ def _markets(feed, markets):
     return doc
 
 
-def write(site, *, preview, base, items, events, entities, relations, org_updated, regulation, caveats, sources_cfg, news_updated, markets=None, now=None):
+def write(site, *, preview, base, items, events, entities, relations, org_updated, regulation, caveats, sources_cfg, news_updated, markets=None, stats=None, now=None):
     feed = Feed(site, preview, base, now=now)
     os.makedirs(site, exist_ok=True)
 
@@ -1425,6 +1444,7 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
     for a in articles:
         feed.write_json(f"api/v1/archive/articles/{a['id']}.json", feed.env(item=a))
 
+    stats_doc = _stats(feed, stats)
     market_doc = _markets(feed, markets)
     market_counts = {}
     for ex in market_doc.get("exchanges") or []:
@@ -1489,6 +1509,7 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
             "markets": market_doc.get("count") or 0,
             "markets_aggregated": market_doc.get("aggregated_count") or 0,
             "markets_by_exchange": market_counts,
+            "stats_days": len(stats_doc.get("daily") or []),
         },
         endpoints=list(feed.endpoints),
         start_here=[
@@ -1496,6 +1517,7 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
             {"description": "Aggregated price per pair, one quote currency at a time", "url": feed.abs("api/v1/markets/aggregated.json")},
             {"description": "Prices from one exchange", "url": feed.abs("api/v1/markets/firi.json")},
             *([{"description": "Prices for one asset, on every included exchange", "url": feed.abs(f"api/v1/markets/by-asset/{example_asset}.json")}] if example_asset else []),
+            {"description": "Visitor stats (aggregate visits and page views)", "url": feed.abs("api/v1/stats.json")},
             {"description": "All published news", "url": feed.abs("api/v1/news.json")},
             {"description": "One news item", "url": news[0]["api_url"] if news else None},
             {"description": "Newsletter issues", "url": feed.abs("api/v1/newsletters.json")},
@@ -2036,7 +2058,20 @@ def schemas():
             "urls": {"type": "object"},
             "refresh": {"type": "object"},
         }),
-        "MarketExchange": wrap("MarketExchange", {"exchange": {"type": "object"}, "count": {"type": "integer"}, "tickers": {"type": "array", "items": {"$ref": "#/components/schemas/MarketTicker"}}}),
+                "VisitorStats": wrap("VisitorStats", {
+            "source": {"type": "string"},
+            "status": {"type": "string", "description": "ok when daily rows exist, otherwise pending."},
+            "timezone": {"type": "string"},
+            "note": {"type": "string"},
+            "schema": {"type": "integer"},
+            "first_date": {"type": "string", "nullable": True},
+            "last_date": {"type": "string", "nullable": True},
+            "updated_at": {"type": "string", "nullable": True, "description": "When the stats file was last fetched from Cloudflare."},
+            "daily": {"type": "array", "items": {"type": "object"}},
+            "weekly": {"type": "array", "items": {"type": "object"}},
+            "monthly": {"type": "array", "items": {"type": "object"}},
+        }),
+"MarketExchange": wrap("MarketExchange", {"exchange": {"type": "object"}, "count": {"type": "integer"}, "tickers": {"type": "array", "items": {"$ref": "#/components/schemas/MarketTicker"}}}),
         "MarketAsset": wrap("MarketAsset", {
             "symbol": {"type": "string"},
             "name": {"type": "string", "nullable": True},
@@ -2097,6 +2132,16 @@ def llms_txt(feed, index):
         f"- [Languages]({feed.abs('api/v1/languages.json')}): site UI languages (code, native name, English name, rtl, home).",
         f"- [Geo language]({feed.abs('api/v1/geo-language.json')}): country to default language. An IP guess; the nc_lang cookie wins.",
         "- Browser notifications: opt-in Web Push. The Worker `GET /api/push/feed.json` repeats each publish as one batch (title, summary, URL). APNs is not implemented. Subscriptions are not in this API.",
+        "",
+        "## Visitor stats",
+        "",
+        "Aggregate visits and page views from Cloudflare Web Analytics (no cookies, no personal data): /api/v1/stats.json. "
+        "Days are UTC. Weeks are ISO weeks. Empty until the Web Analytics site tag and the Account Analytics token are set. "
+        "A scheduled job rewrites the file on gh-pages about once a day.",
+        "",
+        "```",
+        f"curl -fsS {feed.abs('api/v1/stats.json')}",
+        "```",
         "",
         "## Market prices",
         "",
@@ -2258,6 +2303,9 @@ curl -fsS {letters}{html.escape(one_line)}</pre>
 <p>The build fetches the exchanges. <code>.github/workflows/markets-refresh.yml</code> rewrites the JSON on gh-pages about once an hour, including the aggregated file and the icons. The markets page reloads this file, and refreshes Firi and Coinmotion in the browser because those APIs send <code>Access-Control-Allow-Origin: *</code>. NBX does not, so those rows follow the file. The same document on the gh-pages branch: <a href="https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json">raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json</a>.</p>
 <pre>curl -fsS {html.escape(b)}api/v1/markets.json
 curl -fsS {html.escape(b)}api/v1/markets/aggregated.json</pre>
+<h2>Visitor stats</h2>
+<p>Aggregate visits and page views from Cloudflare Web Analytics (no cookies). <a href="{html.escape(b)}api/v1/stats.json"><code>/api/v1/stats.json</code></a> lists <code>daily</code>, <code>weekly</code> (ISO) and <code>monthly</code> rows with <code>visits</code> and <code>pageviews</code> only. Days are UTC. The file is empty until the Web Analytics site and the refresh token are configured. <code>.github/workflows/stats-refresh.yml</code> rewrites it on gh-pages about once a day.</p>
+<pre>curl -fsS {html.escape(b)}api/v1/stats.json</pre>
 <h2>Talks</h2>
 <p>Public talks on bitcoin, cryptocurrencies and blockchain held in Norway, Sweden, Denmark, Finland, Iceland, the Faroe Islands, Greenland and Åland are at <a href="{html.escape(b)}api/v1/talks.json"><code>/api/v1/talks.json</code></a>, newest first. One talk is <code>/api/v1/talks/{{id}}.json</code>. One country is <a href="{html.escape(b)}api/v1/talks/by-country/NO.json"><code>/api/v1/talks/by-country/{{country}}.json</code></a> (<code>NO</code>, <code>SE</code>, <code>DK</code>, <code>FI</code>, <code>IS</code>, <code>FO</code>, <code>GL</code>, <code>AX</code>). <code>description</code> is ours. <code>title</code>, dates, duration, channel and speakers come from the platform at <code>source_url</code>. A field the platform did not state is null. <code>embed</code> is true only when that platform's oEmbed response includes a player. The HTML page loads the player after a click: YouTube via youtube-nocookie.com, Vimeo via player.vimeo.com. <code>event_id</code> and <code>calendar_event_id</code> are the same event id when the talk is linked. That event is <code>/api/v1/events/{{id}}.json</code> (and <code>/api/v1/events/previous.json</code> when it is a past event) and the page is <code>/calendar/{{id}}/</code>. <code>talk_ids</code> on the event lists those talks. <code>unlink_reason</code> is set when the video page did not state a day or a place, and <code>event_id</code> is then null. <code>speaker_ids</code> are who's who ids in the same order as <code>speakers</code>. The person, at <code>/api/v1/orgchart/{{id}}.json</code>, lists those talks and any affiliation the talk page stated.</p>
 <h2>Several outlets, one story</h2>
