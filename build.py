@@ -1852,7 +1852,7 @@ def build_org(ctx):
     fields = (("reg_mica", "mica"), ("reg_law", "law"), ("reg_auth", "regulator"), ("reg_status", "status"))
     regs = []
     for r in org.get("regulation", []):
-        regs.append(f'<article data-c="{E(r["country"])}"><h3>{flag(r["country"])}{E(cname(r["country"]))}</h3><dl lang="en">'
+        regs.append(f'<article data-c="{E(r["country"])}"><h3>{flag(r["country"])}{E(cname(r["country"]))}</h3><dl{bidi_attr("en")}>'
                     + "".join(f'<div><dt>{E(t(k))}</dt><dd>{E(r[f])}</dd></div>' for k, f in fields) + f'</dl><p class="meta">{E(t("reg_sources"))} '
                     + ", ".join(f'<a href="{E(s["url"])}" rel="noopener" target="_blank">{E(s["source_name"])}</a>' for s in r["sources"]) + '</p></article>')
     cnt_pend = sum(e["status"] == "pending" for e in ents)
@@ -1861,7 +1861,7 @@ def build_org(ctx):
     groups = {g: t("grp_" + g) for g in sorted({e.get("group") for e in ents if e.get("group")}) if i18n.has("en", "grp_" + g)}
     dn = t("data_en_note")
     subnav = "".join(f'<a href="#{a}">{E(t(k))}</a>' for a, k in (("org", "org_chart_h"), ("regulation", "org_reg_h"), ("industry-map", "map_h"), ("list", "list_h")))
-    caveats = (f'<details class="caveats"><summary>{E(t("caveats"))}</summary><ul lang="en">' + "".join(f"<li>{E(x)}</li>" for x in org.get("caveats", [])) + '</ul></details>') if org.get("caveats") else ''
+    caveats = (f'<details class="caveats"><summary>{E(t("caveats"))}</summary><ul{bidi_attr("en")}>' + "".join(f"<li>{E(x)}</li>" for x in org.get("caveats", [])) + '</ul></details>') if org.get("caveats") else ''
     data = json.dumps(org_page_data(pub_org), ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
     body = f"""{site_css.style("orgchart")}<div class="whos">
 <h1>{E(t("org_title"))}</h1>
