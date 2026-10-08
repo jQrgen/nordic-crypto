@@ -419,6 +419,9 @@ def apply_listing_sources(sources):
         if s.get("type") == "html" and s.get("link_pattern"):
             s["method"] = "html"
             continue
+        if s.get("type") == "dok8":
+            s["method"] = "html"
+            continue
         if s.get("type") == "bing":
             s["method"] = "search"
             continue

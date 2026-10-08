@@ -93,6 +93,9 @@ def main():
         {"id": "politiet", "type": "search", "enabled": False, "feed": None, "url": "https://www.politiet.no",
          "status": "No working RSS; robots.txt disallows the feed"},
         {"id": "vb", "type": "rss", "enabled": False, "feed": None, "url": "https://www.vb.no", "status": "blocked: HTTP 403"},
+        {"id": "stortinget", "type": "dok8", "enabled": True,
+         "feed": "https://data.stortinget.no/eksport/publikasjoner?publikasjontype=dok8&format=json",
+         "url": "https://www.stortinget.no", "status": "no rss found; representative proposals"},
     ]
     changed = listing.apply_listing_sources(sources)
     by = {s["id"]: s for s in sources}
@@ -104,6 +107,8 @@ def main():
     check(by["kaupr-no"]["method"] == "html" and by["kaupr-no"]["type"] == "html", "kaupr stays an html list")
     check(by["politiet"]["enabled"] is False and by["politiet"]["feed"] is None and by["politiet"]["method"] == "manual", "robots source stays manual")
     check(by["vb"]["enabled"] is False and by["vb"]["method"] == "manual", "blocked source stays off")
+    check(by["stortinget"]["type"] == "dok8" and by["stortinget"]["method"] == "html", "dok8 is not turned into a sitemap")
+    check("stortinget" not in changed, "dok8 is not in the switched-on list")
 
     if fails:
         print("FAIL")
