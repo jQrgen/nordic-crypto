@@ -397,3 +397,10 @@ S.update({
 "screen_short": "Office screen mode",
 "rail_more": "More from Nordic Crypto",
 })
+
+# Story and text pages: jump list, more news under a story
+S.update({
+"toc_h": "On this page",
+"more_news_h": "More news",
+"all_news": "All news",
+})

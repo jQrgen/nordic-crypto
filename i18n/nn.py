@@ -378,3 +378,10 @@ S.update({
 "screen_short": "Skjermvising for kontoret",
 "rail_more": "Meir frå Nordic Crypto",
 })
+
+# Story and text pages: jump list, more news under a story
+S.update({
+"toc_h": "På denne sida",
+"more_news_h": "Fleire nyheiter",
+"all_news": "Alle nyheiter",
+})
