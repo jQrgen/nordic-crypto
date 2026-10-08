@@ -291,6 +291,8 @@ now supported by `fetch.py`). Keywords `Bitmynt` and `H100` were added. This add
 `tools/crosssite_handoff.py` still runs; its Nordic Crypto -> Kryptonytt direction is now redundant (the import enriches those rows).
 
 ## Reader tips (added 3 Oct 2026; own tip server 3 Oct 2026)
+**Since 8 Oct 2026 the public site takes no tips:** `/tip/` only says that private tips are on the way. The public GitHub issue form is no longer offered on the page; the private intake (`tipworker/`) replaces it when it goes live.
+
 **Own tip server (primary, not public yet).** `tipserver/server.py` (Python stdlib + SQLite) listens on `127.0.0.1:8787`:
 `POST /api/tip` (JSON or form: `url` required http/https, `country` NO/SE/DK/FI/IS/unsure, `note` ≤ 1000 chars, optional `name` ≤ 100, honeypot `website` must be empty) and `GET /api/health`.
 Body capped at 4 KB, in-memory per-IP rate limit (5 per 10 min; IPs are hashed in memory only, using `CF-Connecting-IP` behind the tunnel), CORS for the public site origin and `https://jqrgen.github.io` (Kryptonytt), other browser origins get 403.

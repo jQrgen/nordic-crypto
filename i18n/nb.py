@@ -144,6 +144,7 @@ S = {
 "media_colours_note": "Cendrée er til linjer. Liten tekst er sable, fordi cendrée på argent er for blek til å lese.",
 "tip_title": "Send tips", "tip_desc": "Tips Nordic Crypto om en sak om krypto, bitcoin eller blokkjede i Norden.",
 "tip_lead": "Har du sett en sak om krypto, bitcoin eller blokkjede i Norge, Sverige, Danmark, Finland eller Island som vi har gått glipp av? Send oss lenken.",
+"tip_private_soon": "Vi jobber med en løsning for private tips. Til den er klar, tar ikke denne siden imot tips.",
 "tip_srv_p": "Tipsene går rett til Nordic Cryptos egen tipskasse. Redaktøren går jevnlig gjennom nye tips og vurderer hvert av dem opp mot <a href=\"../about/\">reglene våre</a>: saken må handle om krypto, bitcoin eller blokkjede i Norden, og vi lenker til den opprinnelige kilden med et kort sammendrag med egne ord. <b>Et tips er ingen garanti for publisering</b>, og vi svarer ikke på enkelttips.",
 "tip_srv_priv": "<b>Personvern:</b> tipsene er ikke offentlige. Vi lagrer lenken, landet, merknaden, et eventuelt navn og tidspunktet – <b>ikke</b> IP-adressen din (mot spam lagres bare en enveiskode (hash) avledet av den, i 10 minutter, før den slettes). Navnet ditt publiseres aldri. Tipskassen kjører hos Cloudflare. Ikke skriv personlige eller sensitive opplysninger om noen i merknaden.",
 "tip_noscript": "Tipsskjemaet krever JavaScript. Uten det kan du i stedet sende <a href=\"{gh}\" rel=\"noopener\">tipset som en offentlig sak på GitHub</a>.",

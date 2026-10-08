@@ -2612,31 +2612,18 @@ f.addEventListener('submit',function(ev){ev.preventDefault();if(!f.reportValidit
     page("tip", t("tip_title"), "tip", body, t("tip_desc"), js)
 
 def build_tip():
-    """'Send a tip' page. Static: a plain HTML form (GET, no JavaScript, no tracking) that opens the prefilled GitHub issue form
-    (.github/ISSUE_TEMPLATE/tip.yml, label 'tip'). There is no public e-mail address, so GitHub is the only channel.
+    """'Send a tip' page. Without the private tip intake it shows a notice that private tips are coming; the public GitHub
+    issue form (.github/ISSUE_TEMPLATE/tip.yml) is no longer offered on the page.
     routines/nightly-fetch.sh -> tools/reader_tips.py puts open tips in the editor queue as pending; nothing is auto-published.
 
     TODO (jQrgen): disable this public GitHub issue form and the GitHub fallback in build_tip_server. Tips should go
     only to the private Cloudflare intake (tipworker/). Do not switch the page until that intake is the live path."""
     if LANG == "en": write_tip_endpoint_file()
     if tip_endpoint() or tip_page_uses_server(): return build_tip_server(tip_endpoint())  # GitHub issue form only as fallback link
-    # the option values stay English: they fill in the GitHub issue form (tip.yml), which tools/reader_tips.py parses
-    opts = f'<option value="Not sure">{E(t("tip_unsure"))}</option>' + "".join(f'<option value="{E(t_en)} ({c})">{E(t("c_" + c))}</option>' for c, t_en in ((c, i18n.t("en", "c_" + c)) for c in COUNTRY_CODES))
+    # The public GitHub issue form is switched off (8 Oct 2026): tips there were public. Until the private intake
+    # (tipworker/) is the live path, the page only says that private tips are on the way.
     body = f"""<h1>{E(t("tip_title"))}</h1>
-<p class="lead">{E(t("tip_lead"))}</p>
-<div class="prose">
-<p>{t("tip_gh_p")}</p>
-<p class="notice warn">{t("tip_gh_priv")}</p>
-</div>
-<form class="tipform" method="get" action="https://github.com/jQrgen/nordic-crypto/issues/new">
-<input type="hidden" name="template" value="tip.yml">
-<p><label for="t-url"><b>{E(t("tip_url"))}</b> {E(t("tip_required"))}</label><br><input id="t-url" name="url" type="url" required placeholder="https://" style="width:100%;max-width:560px;padding:6px"></p>
-<p><label for="t-country"><b>{E(t("tip_country"))}</b></label><br><select id="t-country" name="country" style="padding:6px">{opts}</select></p>
-<p><label for="t-note"><b>{E(t("tip_note"))}</b> {E(t("tip_note_opt_gh"))}</label><br><textarea id="t-note" name="note" rows="3" style="width:100%;max-width:560px;padding:6px"></textarea></p>
-<p><button type="submit" style="padding:8px 14px;font-size:15px">{E(t("tip_gh_btn"))}</button></p>
-<p class="meta">{E(t("tip_gh_meta"))}</p>
-</form>
-<p class="prose">{t("tip_gh_direct", gh=TIP_FORM)}</p>"""
+<p class="notice">{t("tip_private_soon")}</p>"""
     page("tip", t("tip_title"), "tip", body, t("tip_desc"))
 
 def build_columnist():
