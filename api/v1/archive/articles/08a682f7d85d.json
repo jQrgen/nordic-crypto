@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "08a682f7d85d",
@@ -11,14 +11,19 @@
   "canonical_url": "https://kaupr.io/nyheter/btcx-blir-megler-og-goobits-rapporterte-inntekter-faller",
   "title": "BTCX blir megler, og Goobits rapporterte inntekter faller",
   "titles": {
-   "en": "BTCX becomes a broker, and Goobit's reported revenue falls"
+   "en": "BTCX becomes a broker, and Goobit's reported revenue falls",
+   "nn": "BTCX blir meklar, og dei rapporterte inntektene til Goobit fell",
+   "sv": "BTCX blir mäklare, och Goobits rapporterade intäkter faller",
+   "da": "BTCX bliver mægler, og Goobits rapporterede indtægter falder",
+   "fi": "BTCX:stä tulee välittäjä, ja Goobitin raportoidut tuotot laskevat",
+   "is": "BTCX verður miðlari og tilkynntar tekjur Goobit lækka"
   },
   "source": "kaupr",
   "source_name": "Kaupr",
   "country": "SE",
   "published_at": "2026-09-10T12:00:00+00:00",
   "first_published_on_site": "2026-10-03T17:59:40+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

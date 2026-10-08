@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "c1431df81160",
@@ -11,14 +11,19 @@
   "canonical_url": "https://podcasters.spotify.com/pod/show/bitcoinsnakk9/episodes/Norway-Wants-to-Ban-Bitcoin-Mining--The-Miners-Already-Left--Rachel-Geyer--EBEA-e3p0bb8",
   "title": "Norway Wants to Ban Bitcoin Mining. The Miners Already Left | Rachel Geyer, EBEA",
   "titles": {
-   "en": "Norway wants to ban bitcoin mining. The miners already left"
+   "en": "Norway wants to ban bitcoin mining. The miners already left",
+   "nn": "Noreg vil forby utvinning av bitcoin. Gruvearbeidarane har alt reist | Rachel Geyer, EBEA",
+   "sv": "Norge vill förbjuda bitcoinbrytning. Gruvarbetarna har redan lämnat | Rachel Geyer, EBEA",
+   "da": "Norge vil forby udvinding af bitcoin. Minearbejderne er allerede rejst | Rachel Geyer, EBEA",
+   "fi": "Norja haluaa kieltää bitcoinin louhinnan. Louhijat ovat jo lähteneet | Rachel Geyer, EBEA",
+   "is": "Noregur vill banna bitcoin-nám. Námumennirnir eru þegar farnir | Rachel Geyer, EBEA"
   },
   "source": "bpi",
   "source_name": "Bitcoinpolitisk institutt",
   "country": "NO",
   "published_at": "2026-09-17T18:30:43+00:00",
   "first_published_on_site": "2026-10-03T17:59:40+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

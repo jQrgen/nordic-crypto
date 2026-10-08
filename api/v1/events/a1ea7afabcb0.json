@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "a1ea7afabcb0",
@@ -26,6 +26,21 @@
    "da": "Oplysning: foredragsholderen, Jørgen S. Notland, er udgiver af Nordic Crypto.",
    "fi": "Tiedoksi: puhuja Jørgen S. Notland on Nordic Crypton julkaisija.",
    "is": "Til upplýsingar: fyrirlesarinn, Jørgen S. Notland, er útgefandi Nordic Crypto."
+  },
+  "description": {
+   "text": "Nexa blockchain: Scaling Bitcoin Tech-demo m/overraskelse og pizza! At this event jQrgen, member of Bitcoin Unlimited that works with the Nexa blockchain project will present what is unique about the Nexa blockchain. The Bitcoin Unlimited team has a long history of working with core Bitcoin and Bitcoin Cash software. The Nexa blockchain is the latest project. Nexa is a work in progress software-fork of Bitcoin/Bitcoin Cash with its own genesis block.",
+   "lang": "en",
+   "source_url": "https://www.meetup.com/oslo-blockchain-meetup/events/316768752/",
+   "source_name": "Oslo Blockchain Meetup (Meetup.com)",
+   "retrieved": "2026-10-07T23:50:00+00:00",
+   "i18n": {
+    "nn": "Nexa-blockchain: skalering av bitcoin. Tekniske demonstrasjon med overrasking og pizza. På dette treffet legg jQrgen, medlem av Bitcoin Unlimited som arbeider med Nexa, fram kva som er særskilt med Nexa-blockchain. Bitcoin Unlimited har lenge arbeidd med programvare for Bitcoin og Bitcoin Cash. Nexa er det siste prosjektet. Nexa er ein programvareforgrening av Bitcoin/Bitcoin Cash under arbeid, med sin eigen genesis-blokk.",
+    "nb": "Nexa-blockchain: skalering av bitcoin. Teknisk demo med overraskelse og pizza. På dette treffet presenterer jQrgen, medlem av Bitcoin Unlimited som arbeider med Nexa, hva som er særegent med Nexa-blockchain. Bitcoin Unlimited har lenge arbeidet med programvare for Bitcoin og Bitcoin Cash. Nexa er det siste prosjektet. Nexa er en programvareforgrening av Bitcoin/Bitcoin Cash under arbeid, med sin egen genesis-blokk.",
+    "sv": "Nexa-blockkedjan: skalning av bitcoin. Teknikdemo med en överraskning och pizza. På den här träffen presenterar jQrgen, medlem i Bitcoin Unlimited som arbetar med Nexa, vad som är särskilt med Nexa-blockkedjan. Bitcoin Unlimited har länge arbetat med programvara för Bitcoin och Bitcoin Cash. Nexa är det senaste projektet. Nexa är en programvaruförgrening av Bitcoin/Bitcoin Cash under arbete, med ett eget genesis-block.",
+    "da": "Nexa-blockchain: skalering af bitcoin. Teknisk demo med en overraskelse og pizza. På dette møde præsenterer jQrgen, medlem af Bitcoin Unlimited som arbejder med Nexa, hvad der er særligt ved Nexa-blockchain. Bitcoin Unlimited har længe arbejdet med software til Bitcoin og Bitcoin Cash. Nexa er det seneste projekt. Nexa er en softwareforgrening af Bitcoin/Bitcoin Cash under arbejde, med sin egen genesis-blok.",
+    "fi": "Nexa-lohkoketju: bitcoinin skaalaus. Tekninen demo, yllätys ja pizza. Tässä tapaamisessa jQrgen, Bitcoin Unlimitedin jäsen joka työskentelee Nexan parissa, esittelee mikä Nexa-lohkoketjussa on erityistä. Bitcoin Unlimited on pitkään tehnyt Bitcoin- ja Bitcoin Cash -ohjelmistoa. Nexa on uusin hanke. Nexa on keskeneräinen ohjelmistohaarukka Bitcoinista ja Bitcoin Cashista, omalla genesis-lohkollaan.",
+    "is": "Nexa-bálkakeðja: skala bitcoin. Tæknisýning með óvæntu og pítsu. Á þessum fundi kynnir jQrgen, meðlimur í Bitcoin Unlimited sem vinnur að Nexa, hvað er sérstakt við Nexa-bálkakeðjuna. Bitcoin Unlimited hefur lengi unnið að hugbúnaði fyrir Bitcoin og Bitcoin Cash. Nexa er nýjasta verkefnið. Nexa er hugbúnaðargrein af Bitcoin/Bitcoin Cash í vinnslu, með eigin genesis-blokk."
+   }
   },
   "past": false,
   "ongoing": false,

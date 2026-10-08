@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "5682c6aa22dd",
@@ -11,14 +11,17 @@
   "canonical_url": "https://finansavisen.no/valuta/2026/09/20/8380762/kollaps-for-kryptoborsen-firi",
   "title": "Kollaps for kryptobørs",
   "titles": {
-   "en": "Collapse for crypto exchange Firi"
+   "en": "Collapse for crypto exchange Firi",
+   "sv": "Kollaps för kryptobörs",
+   "fi": "Kryptopörssi romahti",
+   "is": "Hrun hjá rafmyntakauphöll"
   },
   "source": "finansavisen",
   "source_name": "Finansavisen",
   "country": "NO",
   "published_at": "2026-09-20T14:40:45+00:00",
   "first_published_on_site": "2026-10-03T17:59:40+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

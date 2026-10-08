@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "topic": "aml",
  "count": 3,
@@ -86,6 +86,7 @@
      "raster_url": "https://nordiccrypto.no/assets/img/logos/se-fi.png"
     }
    },
+   "primary_source_document": null,
    "also_covered_by": [],
    "sources": [
     {
@@ -232,6 +233,7 @@
      "raster_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
     }
    },
+   "primary_source_document": null,
    "also_covered_by": [],
    "sources": [
     {
@@ -378,6 +380,7 @@
      "raster_url": "https://nordiccrypto.no/assets/img/logos/se-fi.png"
     }
    },
+   "primary_source_document": null,
    "also_covered_by": [],
    "sources": [
     {

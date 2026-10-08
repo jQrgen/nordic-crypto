@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "07e49032be5a",
@@ -11,14 +11,19 @@
   "canonical_url": "https://kaupr.io/nyheter/safello-apner-for-at-andre-selskaper-kan-tilby-kryptokjop",
   "title": "Safello åpner for at andre selskaper kan tilby kryptokjøp",
   "titles": {
-   "en": "Safello opens up so other companies can offer crypto purchases"
+   "en": "Safello opens up so other companies can offer crypto purchases",
+   "nn": "Safello opnar for at andre selskap kan tilby kryptokjøp",
+   "sv": "Safello öppnar för att andra bolag kan erbjuda kryptoköp",
+   "da": "Safello åbner for, at andre selskaber kan tilbyde kryptokøb",
+   "fi": "Safello antaa muiden yhtiöiden tarjota kryptokauppaa",
+   "is": "Safello opnar á að önnur fyrirtæki geti boðið kaup á rafmyntum"
   },
   "source": "kaupr",
   "source_name": "Kaupr",
   "country": "SE",
   "published_at": "2026-09-24T12:00:00+00:00",
   "first_published_on_site": "2026-10-03T17:59:40+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

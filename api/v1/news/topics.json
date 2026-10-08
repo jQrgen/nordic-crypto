@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "topics": [
   {
@@ -16,12 +16,12 @@
   },
   {
    "id": "bitcoin",
-   "count": 2,
+   "count": 3,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/bitcoin.json"
   },
   {
    "id": "business",
-   "count": 17,
+   "count": 18,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/business.json"
   },
   {
@@ -61,7 +61,7 @@
   },
   {
    "id": "mining",
-   "count": 4,
+   "count": 6,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/mining.json"
   },
   {
@@ -71,7 +71,7 @@
   },
   {
    "id": "policy",
-   "count": 6,
+   "count": 7,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/policy.json"
   },
   {

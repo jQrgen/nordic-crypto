@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "2d2d72207fd4",
@@ -20,6 +20,21 @@
   "sponsored": null,
   "note": null,
   "note_i18n": {},
+  "description": {
+   "text": "The first CBDC conference was held in Bergen in October 2022, with Simula and the University of Bergen. The conference was research-oriented, with participants from academia, the FinTech community and central banks. Topics included Norges Bank's CBDC work, DeFi and legal issues, AML and CBDC, data protection, quantum technology and OpenCBDC. The conference was the kick-off for a hackathon on transferring CBDC tokens through bridges between openCBDC and EVM-compatible networks.",
+   "lang": "en",
+   "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+   "source_name": "Norges Bank",
+   "retrieved": "2026-10-07T23:50:00+00:00",
+   "i18n": {
+    "nn": "Den første CBDC-konferansen blei halden i Bergen i oktober 2022, saman med Simula og Universitetet i Bergen. Konferansen var forskingsretta, med deltakarar frå akademia, fintech-miljøet og sentralbankar. Emne var CBDC-arbeidet i Noregs Bank, DeFi og juridiske spørsmål, AML og CBDC, personvern, kvanteteknologi og OpenCBDC. Konferansen var starten på ein hackathon om å flytte CBDC-token gjennom bruer mellom openCBDC og EVM-kompatible nett.",
+    "nb": "Den første CBDC-konferansen ble holdt i Bergen i oktober 2022, sammen med Simula og Universitetet i Bergen. Konferansen var forskningsrettet, med deltakere fra akademia, fintech-miljøet og sentralbanker. Temaer var CBDC-arbeidet i Norges Bank, DeFi og juridiske spørsmål, AML og CBDC, personvern, kvanteteknologi og OpenCBDC. Konferansen var starten på en hackathon om å flytte CBDC-token gjennom broer mellom openCBDC og EVM-kompatible nett.",
+    "sv": "Den första CBDC-konferensen hölls i Bergen i oktober 2022, tillsammans med Simula och Universitetet i Bergen. Konferensen var forskningsinriktad, med deltagare från akademin, fintech-miljön och centralbanker. Ämnen var Norges Banks CBDC-arbete, DeFi och juridiska frågor, AML och CBDC, dataskydd, kvantteknik och OpenCBDC. Konferensen var starten på ett hackathon om att flytta CBDC-token genom broar mellan openCBDC och EVM-kompatibla nät.",
+    "da": "Den første CBDC-konference blev holdt i Bergen i oktober 2022, sammen med Simula og Universitetet i Bergen. Konferencen var forskningsrettet, med deltagere fra akademia, fintech-miljøet og centralbanker. Emner var Norges Banks CBDC-arbejde, DeFi og juridiske spørgsmål, AML og CBDC, databeskyttelse, kvanteteknologi og OpenCBDC. Konferencen var starten på et hackathon om at flytte CBDC-token gennem broer mellem openCBDC og EVM-kompatible net.",
+    "fi": "Ensimmäinen CBDC-konferenssi pidettiin Bergenissä lokakuussa 2022 yhdessä Simulan ja Bergenin yliopiston kanssa. Konferenssi oli tutkimuspainotteinen, ja mukana oli tutkijoita, fintech-toimijoita ja keskuspankkeja. Aiheina olivat Norges Bankin CBDC-työ, DeFi ja oikeudelliset kysymykset, AML ja CBDC, tietosuoja, kvanttitekniikka ja OpenCBDC. Konferenssi käynnisti hackathonin CBDC-tokenien siirtämisestä siltojen kautta openCBDC:n ja EVM-yhteensopivien verkkojen välillä.",
+    "is": "Fyrsta CBDC-ráðstefnan var haldin í Bergen í október 2022, með Simula og Háskólanum í Bergen. Ráðstefnan var rannsóknarmiðuð, með þátttakendum úr háskóla, fintech-umhverfi og seðlabönkum. Efni voru CBDC-vinna Norges Bank, DeFi og lögfræðileg álitamál, AML og CBDC, persónuvernd, skammtatækni og OpenCBDC. Ráðstefnan var upphaf hackathon um að flytja CBDC-tóka yfir brýr milli openCBDC og EVM-samhæfðra neta."
+   }
+  },
   "past": true,
   "ongoing": false,
   "html_url": "https://nordiccrypto.no/calendar/2d2d72207fd4/",

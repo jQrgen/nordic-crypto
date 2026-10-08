@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "afc88c305513",
@@ -20,6 +20,7 @@
   "sponsored": null,
   "note": null,
   "note_i18n": {},
+  "description": null,
   "past": true,
   "ongoing": false,
   "html_url": "https://nordiccrypto.no/calendar/afc88c305513/",

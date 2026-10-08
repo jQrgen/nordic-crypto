@@ -911,6 +911,15 @@ components:
           description: "Absolute URL of the news source's logo as a raster image (PNG or WebP, never SVG, so SwiftUI AsyncImage can draw it) on the GitHub Pages base. Null until the editor has checked the logo (review ok); a preview build also lists pending logos. The publisher's trademark, shown only to identify the source. Same as source_logo.raster_url."
         primary_source:
           "$ref": "#/components/schemas/NewsOutlet"
+        primary_source_document:
+          type: object
+          nullable: true
+          description: "Editor-recorded original document, such as a regulator press release. name and url. Not the lead coverage outlet."
+          properties:
+            name:
+              type: string
+            url:
+              type: string
         also_covered_by:
           type: array
           items:
@@ -1088,6 +1097,15 @@ components:
                 description: "Absolute URL of the news source's logo as a raster image (PNG or WebP, never SVG, so SwiftUI AsyncImage can draw it) on the GitHub Pages base. Null until the editor has checked the logo (review ok); a preview build also lists pending logos. The publisher's trademark, shown only to identify the source. Same as source_logo.raster_url."
               primary_source:
                 "$ref": "#/components/schemas/NewsOutlet"
+              primary_source_document:
+                type: object
+                nullable: true
+                description: "Editor-recorded original document, such as a regulator press release. name and url. Not the lead coverage outlet."
+                properties:
+                  name:
+                    type: string
+                  url:
+                    type: string
               also_covered_by:
                 type: array
                 items:
@@ -1169,6 +1187,29 @@ components:
           additionalProperties:
             type: string
           description: "Keys are site language codes: nn, nb, sv, da, fi, is. English lives in the sibling field."
+        description:
+          type: object
+          nullable: true
+          description: "The organiser's description. text is the original wording, lang is its language code, source_url is the page it was taken from. i18n holds nn, nb, sv, da, fi and is, and en when the original is not English. A missing translation is omitted. Null when no description was sourced. Kaupr is not included."
+          properties:
+            text:
+              type: string
+            lang:
+              type: string
+              nullable: true
+            source_url:
+              type: string
+            source_name:
+              type: string
+              nullable: true
+            retrieved:
+              type: string
+              nullable: true
+            i18n:
+              type: object
+              additionalProperties:
+                type: string
+              description: "Keys are site language codes: nn, nb, sv, da, fi, is. English lives in the sibling field."
         past:
           type: boolean
         ongoing:
@@ -1287,6 +1328,29 @@ components:
                 additionalProperties:
                   type: string
                 description: "Keys are site language codes: nn, nb, sv, da, fi, is. English lives in the sibling field."
+              description:
+                type: object
+                nullable: true
+                description: "The organiser's description. text is the original wording, lang is its language code, source_url is the page it was taken from. i18n holds nn, nb, sv, da, fi and is, and en when the original is not English. A missing translation is omitted. Null when no description was sourced. Kaupr is not included."
+                properties:
+                  text:
+                    type: string
+                  lang:
+                    type: string
+                    nullable: true
+                  source_url:
+                    type: string
+                  source_name:
+                    type: string
+                    nullable: true
+                  retrieved:
+                    type: string
+                    nullable: true
+                  i18n:
+                    type: object
+                    additionalProperties:
+                      type: string
+                    description: "Keys are site language codes: nn, nb, sv, da, fi, is. English lives in the sibling field."
               past:
                 type: boolean
               ongoing:

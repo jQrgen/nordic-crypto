@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "title": "Nordic Crypto data API",
  "sign_off": "The Nordic Crypto team",
@@ -29,9 +29,9 @@
   "not_investment_advice": true
  },
  "counts": {
-  "news": 46,
+  "news": 49,
   "news_by_country": {
-   "NO": 18,
+   "NO": 21,
    "SE": 20,
    "DK": 5,
    "FI": 3,
@@ -46,7 +46,7 @@
   "events_past": 0,
   "events_previous": 18,
   "talks": 74,
-  "sources": 1032,
+  "sources": 1034,
   "academia": {
    "courses": 7,
    "groups": 3,
@@ -58,8 +58,8 @@
   "profiles": 20,
   "images": 64,
   "illustrations": 16,
-  "changelog": 34,
-  "archive_articles": 43,
+  "changelog": 35,
+  "archive_articles": 46,
   "markets": 72,
   "markets_aggregated": 53,
   "markets_by_exchange": {
@@ -86,8 +86,8 @@
    "url_custom_domain": "https://nordiccrypto.no/api/v1/news.json",
    "summary": "Published news and our own stories, newest first.",
    "schema": "NewsList",
-   "example_url": "https://nordiccrypto.no/api/v1/news/31ee174aa583.json",
-   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/news/31ee174aa583.json",
+   "example_url": "https://nordiccrypto.no/api/v1/news/9755cf9957e9.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/news/9755cf9957e9.json",
    "item_path": "/api/v1/news/{id}.json",
    "item_url_template": "https://nordiccrypto.no/api/v1/news/{id}.json"
   },
@@ -265,8 +265,8 @@
    "url_custom_domain": "https://nordiccrypto.no/api/v1/academia/{id}.json",
    "summary": "One academia row. The id is in academia.json.",
    "schema": "AcademiaItem",
-   "example_url": "https://nordiccrypto.no/api/v1/academia/groups-www.linkedin.com-company-cbs-bitcoin.json",
-   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/academia/groups-www.linkedin.com-company-cbs-bitcoin.json"
+   "example_url": "https://nordiccrypto.no/api/v1/academia/FI-CS-AJ0100.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/academia/FI-CS-AJ0100.json"
   },
   {
    "id": "api-v1-orgchart",
@@ -347,8 +347,8 @@
    "url_custom_domain": "https://nordiccrypto.no/api/v1/changelog.json",
    "summary": "Site changelog (product changes, not the news), newest first.",
    "schema": "ChangelogList",
-   "example_url": "https://nordiccrypto.no/api/v1/changelog/shoutbox.json",
-   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/changelog/shoutbox.json",
+   "example_url": "https://nordiccrypto.no/api/v1/changelog/event-descriptions.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/changelog/event-descriptions.json",
    "item_path": "/api/v1/changelog/{id}.json",
    "item_url_template": "https://nordiccrypto.no/api/v1/changelog/{id}.json"
   },
@@ -469,7 +469,7 @@
   },
   {
    "description": "One news item",
-   "url": "https://nordiccrypto.no/api/v1/news/31ee174aa583.json"
+   "url": "https://nordiccrypto.no/api/v1/news/9755cf9957e9.json"
   },
   {
    "description": "Newsletter issues",

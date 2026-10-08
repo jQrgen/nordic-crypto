@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "fb9e8ca4fb40",
@@ -11,14 +11,19 @@
   "canonical_url": "https://finansavisen.no/valuta/2026/10/05/8385368/smasparere-hamstret-krypto-under-renteuro",
   "title": "Småsparere hamstret krypto under renteuro",
   "titles": {
-   "en": "Norwegian retail investors kept buying crypto during rate turmoil"
+   "en": "Norwegian retail investors kept buying crypto during rate turmoil",
+   "nn": "Småspararar hamstra krypto under renteuro",
+   "sv": "Småsparare hamstrade krypto under ränteoro",
+   "da": "Småsparere hamstrede krypto under renteuro",
+   "fi": "Piensijoittajat hamstrasivat kryptoa korkoheilunnassa",
+   "is": "Smásparifólk hamstraði rafmynt í vaxtaóróa"
   },
   "source": "finansavisen",
   "source_name": "Finansavisen",
   "country": "NO",
   "published_at": "2026-10-05T13:06:17+00:00",
   "first_published_on_site": "2026-10-06T07:35:14+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

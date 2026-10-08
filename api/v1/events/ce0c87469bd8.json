@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "ce0c87469bd8",
@@ -20,6 +20,21 @@
   "sponsored": null,
   "note": null,
   "note_i18n": {},
+  "description": {
+   "text": "Bitcoin meetup - meet the local bitcoiners, network, present your projects and ideas or just hang out! Topics include everything that remotely touches Bitcoin.",
+   "lang": "en",
+   "source_url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/events/qjzrxgyjcpbjb/",
+   "source_name": "Helsinki Bitcoin Hobbyists (Meetup.com)",
+   "retrieved": "2026-10-07T23:50:00+00:00",
+   "i18n": {
+    "nn": "Bitcoin-treff. Møt dei lokale, knyt kontakt, legg fram prosjekta og ideane dine, eller berre ver der. Emna er alt som rører bitcoin.",
+    "nb": "Bitcoin-treff. Møt de lokale, knytt kontakt, legg frem prosjektene og ideene dine, eller bare vær der. Temaene er alt som rører bitcoin.",
+    "sv": "Bitcointräff. Träffa de lokala, knyt kontakter, presentera dina projekt och idéer, eller bara var där. Ämnena är allt som rör bitcoin.",
+    "da": "Bitcoin-møde. Mød de lokale, netværk, præsentér dine projekter og idéer, eller bare vær der. Emnerne er alt, der rører bitcoin.",
+    "fi": "Bitcoin-tapaaminen. Tapaa paikalliset, verkostoidu, esittele hankkeitasi ja ideoitasi tai tule vain olemaan. Aiheet ovat kaikki, mikä etäisesti koskee bitcoinia.",
+    "is": "Bitcoin-fundur. Hittu við heimafólk, tengstu, kynntu verkefni og hugmyndir eða komdu bara. Efnin eru allt sem snertir bitcoin."
+   }
+  },
   "past": false,
   "ongoing": false,
   "html_url": "https://nordiccrypto.no/calendar/ce0c87469bd8/",

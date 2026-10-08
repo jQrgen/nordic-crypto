@@ -21,6 +21,10 @@
    "country": "DK"
   },
   {
+   "name": "Aamuposti",
+   "country": "FI"
+  },
+  {
    "name": "Aamuset Kaupunkimedia",
    "country": "FI"
   },
@@ -1413,10 +1417,6 @@
    "country": "NO"
   },
   {
-   "name": "Nurmijärven Uutiset",
-   "country": "FI"
-  },
-  {
    "name": "Nya Wermlands-Tidningen",
    "country": "SE"
   },
@@ -1937,6 +1937,10 @@
    "country": "FI"
   },
   {
+   "name": "Ságat",
+   "country": "NO"
+  },
+  {
    "name": "Södermanlands Nyheter",
    "country": "SE"
   },
@@ -1953,6 +1957,10 @@
    "country": "SE"
   },
   {
+   "name": "TV 2 Kosmopol",
+   "country": "DK"
+  },
+  {
    "name": "TV 2",
    "country": "NO"
   },
@@ -1962,10 +1970,6 @@
   },
   {
    "name": "TV2 Fyn",
-   "country": "DK"
-  },
-  {
-   "name": "TV2 Lorry",
    "country": "DK"
   },
   {

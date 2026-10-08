@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "country": "DK",
  "count": 5,
@@ -92,6 +92,7 @@
      "raster_url": "https://nordiccrypto.no/assets/img/logos/berlingske.webp"
     }
    },
+   "primary_source_document": null,
    "also_covered_by": [],
    "sources": [
     {
@@ -239,6 +240,7 @@
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    },
+   "primary_source_document": null,
    "also_covered_by": [],
    "sources": [
     {
@@ -386,6 +388,7 @@
      "raster_url": "https://nordiccrypto.no/assets/img/logos/ekstra-bladet.webp"
     }
    },
+   "primary_source_document": null,
    "also_covered_by": [],
    "sources": [
     {
@@ -532,6 +535,7 @@
      "raster_url": "https://nordiccrypto.no/assets/img/logos/berlingske.webp"
     }
    },
+   "primary_source_document": null,
    "also_covered_by": [],
    "sources": [
     {
@@ -679,6 +683,7 @@
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    },
+   "primary_source_document": null,
    "also_covered_by": [],
    "sources": [
     {

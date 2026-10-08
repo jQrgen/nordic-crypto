@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "f6301aef3314",
@@ -10,13 +10,20 @@
   "url": "https://www.finanssivalvonta.fi/en/publications-and-press-releases/news-releases/2026/crypto-asset-service-providers-in-finland-must-be-authorised-in-the-eu/",
   "canonical_url": "https://finanssivalvonta.fi/en/publications-and-press-releases/news-releases/2026/crypto-asset-service-providers-in-finland-must-be-authorised-in-the-eu",
   "title": "Crypto-asset service providers in Finland must be authorised in the EU",
-  "titles": {},
+  "titles": {
+   "nn": "Tilbydarar av kryptoeigedelstenester i Finland må ha løyve i EU",
+   "nb": "Tilbydere av kryptoeiendeltjenester i Finland må ha tillatelse i EU",
+   "sv": "Leverantörer av kryptotillgångstjänster i Finland måste ha tillstånd i EU",
+   "da": "Udbydere af kryptoaktivtjenester i Finland skal have tilladelse i EU",
+   "fi": "Kryptovarapalvelujen tarjoajilla Suomessa on oltava toimilupa EU:ssa",
+   "is": "Þjónustuveitendur sýndareigna í Finnlandi verða að hafa leyfi í ESB"
+  },
   "source": "finanssivalvonta",
   "source_name": "Finanssivalvonta",
   "country": "FI",
   "published_at": "2026-06-30T12:00:00+00:00",
   "first_published_on_site": "2026-10-03T17:59:40+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

@@ -1,7 +1,78 @@
 {
- "updated": "2026-10-08T02:28:44+00:00",
+ "updated": "2026-10-08T06:57:05+00:00",
  "preview": false,
  "items": [
+  {
+   "id": "9755cf9957e9",
+   "url": "https://sagat.no/innrommer-litt-kryptoutvinning/19.59848",
+   "title": "Innrømmer «litt» kryptoutvinning",
+   "title_en": "Data-centre firm admits to “a little” crypto mining",
+   "source": "sagat",
+   "source_name": "Ságat",
+   "country": "NO",
+   "language": "Norwegian",
+   "published": "2026-10-07T10:14:12+00:00",
+   "topics": [
+    "mining"
+   ],
+   "summary": "Data-centre company Arctic Core says in writing that its business uses crypto mining to generate income during a test phase, but argues this does not change the basic character of the warehouse building it has been granted a permit for, the local paper Ságat reports.",
+   "summary_i18n": {
+    "nb": "Datasenterselskapet Arctic Core skriver at virksomheten bruker kryptoutvinning for å skaffe inntekter i en testfase, men mener at dette ikke endrer den grunnleggende karakteren til lagerbygget selskapet har fått tillatelse til, melder lokalavisen Ságat.",
+    "nn": "Datasenterselskapet Arctic Core skriv at verksemda brukar kryptoutvinning for å skaffe inntekter i ein testfase, men meiner at dette ikkje endrar den grunnleggjande karakteren til lagerbygget selskapet har fått løyve til, melder lokalavisa Ságat.",
+    "sv": "Datacenterföretaget Arctic Core skriver att verksamheten använder kryptoutvinning för att skapa intäkter under en testfas, men menar att det inte ändrar den grundläggande karaktären hos lagerbyggnaden som företaget har fått tillstånd för, rapporterar lokaltidningen Ságat.",
+    "da": "Datacentervirksomheden Arctic Core skriver, at virksomheden bruger kryptoudvinding til at skabe indtægter i en testfase, men mener, at det ikke ændrer den grundlæggende karakter af den lagerbygning, virksomheden har fået tilladelse til, oplyser lokalavisen Ságat.",
+    "fi": "Datakeskusyhtiö Arctic Core kirjoittaa käyttävänsä testivaiheessa kryptolouhintaa tulojen hankkimiseen, mutta sen mukaan tämä ei muuta sen varastorakennuksen perusluonnetta, jolle yhtiö on saanut luvan, kertoo paikallislehti Ságat.",
+    "is": "Gagnaversfyrirtækið Arctic Core segir skriflega að starfsemin noti rafmyntagröft til að afla tekna á prófunartímabili, en telur að það breyti ekki grundvallareðli vöruhússins sem fyrirtækið hefur fengið leyfi fyrir, að sögn héraðsblaðsins Ságat."
+   },
+   "paywall": true,
+   "status": "published",
+   "illustration": {
+    "id": "commons-mining",
+    "kind": "commons",
+    "file": "assets/img/illustrations/commons-mining.webp",
+    "alt": "Rows of cryptocurrency mining machines indoors.",
+    "source": "Wikimedia Commons",
+    "author": "Jasper Reichardt",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "url": "https://commons.wikimedia.org/wiki/File:Mining-Rig.jpg",
+    "width": 960,
+    "height": 720
+   },
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
+  },
   {
    "id": "31ee174aa583",
    "url": "https://nyheter24.se/nyheter/inrikes/1519244-fi-varnar-for-fler-bluffaktorer",
@@ -72,6 +143,10 @@
       "share": 0.0
      }
     ]
+   },
+   "primary_source": {
+    "name": "fi.se",
+    "url": "https://www.fi.se/sv/publicerat/nyheter/2026/fi-varnar-for-30-nya-falska-aktorer/"
    }
   },
   {
@@ -261,6 +336,167 @@
     "da": "Rødt har i Stortinget foreslået et midlertidigt stop for nye datacentre sammen med en tilladelsesordning og andre tiltag. Begrundelsen siger, at datacentre, der udvinder kryptovaluta, får strømadgang før vigtige lokale virksomheder, og at det kryptoforbud, som Stortinget har bedt om tre gange på to år, stadig ikke er på plads, men ingen af forslagene handler specifikt om krypto.",
     "fi": "Norjan Punainen puolue (Rødt) on ehdottanut suurkäräjillä uusien datakeskusten väliaikaista pysäyttämistä sekä lupajärjestelmää ja muita toimia. Perustelujen mukaan kryptovaluuttaa louhivat datakeskukset saavat sähköliittymän ennen tärkeitä paikallisia yrityksiä, eikä suurkäräjien kolmesti kahdessa vuodessa pyytämää kryptolouhinnan kieltoa ole yhä otettu käyttöön, mutta mikään ehdotuksista ei koske erityisesti kryptoa.",
     "is": "Rauði flokkurinn (Rødt) hefur lagt til á Stórþinginu tímabundna stöðvun nýrra gagnavera, ásamt leyfiskerfi og öðrum aðgerðum. Í rökstuðningnum segir að gagnaver sem grafa eftir rafmyntum fái rafmagnstengingu á undan mikilvægum fyrirtækjum í heimabyggð og að bann við rafmyntagreftri, sem Stórþingið hefur þrisvar beðið um á tveimur árum, sé enn ekki komið á, en engin tillagnanna snýr sérstaklega að rafmyntum."
+   },
+   "paywall": false,
+   "status": "published",
+   "illustration": {
+    "id": "commons-mining",
+    "kind": "commons",
+    "file": "assets/img/illustrations/commons-mining.webp",
+    "alt": "Rows of cryptocurrency mining machines indoors.",
+    "source": "Wikimedia Commons",
+    "author": "Jasper Reichardt",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "url": "https://commons.wikimedia.org/wiki/File:Mining-Rig.jpg",
+    "width": 960,
+    "height": 720
+   },
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   }
+  },
+  {
+   "id": "47156e99927b",
+   "url": "https://kaupr.io/nyheter/ace-digital-tjente-6-3-millioner-kroner-i-tredje-kvartal",
+   "title": "Ace Digital tjente 6,3 millioner kroner i tredje kvartal",
+   "title_en": "Ace Digital reports NOK 6.3 million Q3 net profit",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "source_logo": {
+    "file": "assets/img/logos/kaupr.webp",
+    "source": "Official website",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg"
+   },
+   "country": "NO",
+   "language": "Norwegian",
+   "published": "2026-10-05T12:00:00+00:00",
+   "topics": [
+    "business",
+    "bitcoin"
+   ],
+   "summary": "Ace Digital, listed on Euronext Growth Oslo, reported an unaudited third-quarter net profit of NOK 6.32 million, with equity up 19.3% to NOK 39.09 million and debt reduced to zero. The company says the value of its bitcoin treasury rose 373% without buying bitcoin, and estimates its economic exposure at about 57 BTC.",
+   "summary_i18n": {
+    "nb": "Ace Digital, som er notert på Euronext Growth Oslo, rapporterte et urevidert nettoresultat på 6,32 millioner kroner for tredje kvartal, med egenkapital opp 19,3 prosent til 39,09 millioner kroner og gjelden redusert til null. Selskapet sier verdien av bitcoinbeholdningen steg 373 prosent uten kjøp av bitcoin, og anslår den økonomiske eksponeringen til rundt 57 BTC.",
+    "nn": "Ace Digital, som er notert på Euronext Growth Oslo, rapporterte eit urevidert nettoresultat på 6,32 millionar kroner for tredje kvartal, med eigenkapital opp 19,3 prosent til 39,09 millionar kroner og gjelda redusert til null. Selskapet seier verdien av bitcoinbehaldninga steig 373 prosent utan kjøp av bitcoin, og reknar den økonomiske eksponeringa til rundt 57 BTC.",
+    "sv": "Ace Digital, noterat på Euronext Growth Oslo, redovisade ett oreviderat nettoresultat på 6,32 miljoner norska kronor för tredje kvartalet, med eget kapital upp 19,3 procent till 39,09 miljoner kronor och skulderna nedbringade till noll. Bolaget uppger att värdet på dess bitcoinreserv steg 373 procent utan köp av bitcoin och uppskattar sin ekonomiska exponering till omkring 57 BTC.",
+    "da": "Ace Digital, der er noteret på Euronext Growth Oslo, rapporterede et urevideret nettoresultat på 6,32 millioner norske kroner for tredje kvartal, med egenkapital op 19,3 procent til 39,09 millioner kroner og gælden nedbragt til nul. Selskabet oplyser, at værdien af dets bitcoinbeholdning steg 373 procent uden køb af bitcoin, og anslår sin økonomiske eksponering til omkring 57 BTC.",
+    "fi": "Euronext Growth Oslossa listattu Ace Digital raportoi kolmannelta neljännekseltä tilintarkastamattoman 6,32 miljoonan Norjan kruunun nettotuloksen; oma pääoma kasvoi 19,3 prosenttia 39,09 miljoonaan kruunuun ja velat laskivat nollaan. Yhtiön mukaan sen bitcoin-varannon arvo nousi 373 prosenttia ilman bitcoin-ostoja, ja se arvioi taloudellisen altistumisensa noin 57 bitcoiniksi.",
+    "is": "Ace Digital, sem er skráð á Euronext Growth Oslo, skilaði óendurskoðuðum hagnaði upp á 6,32 milljónir norskra króna á þriðja ársfjórðungi; eigið fé jókst um 19,3% í 39,09 milljónir króna og skuldir lækkuðu niður í núll. Félagið segir að verðmæti bitcoin-sjóðs þess hafi hækkað um 373% án kaupa á bitcoin og metur efnahagslega áhættu sína á um 57 BTC."
+   },
+   "paywall": false,
+   "status": "published",
+   "illustration": {
+    "id": "commons-bitcoin",
+    "kind": "commons",
+    "file": "assets/img/illustrations/commons-bitcoin.webp",
+    "alt": "A physical bitcoin token in a clear case.",
+    "source": "Wikimedia Commons",
+    "author": "Heuboden",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "url": "https://commons.wikimedia.org/wiki/File:Bitcoin_coin_in_plastic_packaging.jpg",
+    "modifications": "Cropped by Nordic Crypto to leave out a person at the edge of the frame.",
+    "width": 365,
+    "height": 872
+   },
+   "also_covered_by": [],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "primary_source": {
+    "name": "Ace Digital – Q3 2026 Update (MFN)",
+    "url": "https://mfn.se/all/a/ace-digital/aced-ace-digital-q3-2026-update"
+   }
+  },
+  {
+   "id": "bc7a45cb184e",
+   "url": "https://stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-009s",
+   "title": "Representantforslag om konsesjonssystem for etablering av datasentre",
+   "title_en": "SV proposes a halt on new data centres and asks for follow-up of the crypto-mining ban (proposal)",
+   "source": "stortinget",
+   "source_name": "Stortinget",
+   "source_logo": {
+    "file": "assets/img/logos/stortinget-finanskomiteen.svg",
+    "source": "Wikimedia Commons",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+    "license": "Public domain",
+    "author": "Worldlydev"
+   },
+   "country": "NO",
+   "language": "Norwegian",
+   "published": "2026-10-05T12:00:00+00:00",
+   "topics": [
+    "mining",
+    "policy"
+   ],
+   "summary": "Socialist Left Party (SV) MPs have proposed in the Storting a «panic law» that would put new data centres on hold until the industry is regulated, plus a national licensing system for data centres. They also ask the government to report back quickly on how the Storting's decision to ban crypto mining in Norway will be followed up; this is a proposal, not a decision.",
+   "summary_i18n": {
+    "nb": "Stortingsrepresentanter fra SV har foreslått en «panikklov» som setter nye datasentre på vent til bransjen er regulert, og et nasjonalt konsesjonssystem for datasentre. De ber også regjeringen raskt komme tilbake med hvordan Stortingets vedtak om forbud mot kryptoutvinning i Norge skal følges opp; dette er et forslag, ikke et vedtak.",
+    "nn": "Stortingsrepresentantar frå SV har føreslått ei «panikklov» som set nye datasenter på vent til bransjen er regulert, og eit nasjonalt konsesjonssystem for datasenter. Dei ber òg regjeringa raskt kome tilbake med korleis vedtaket i Stortinget om forbod mot kryptoutvinning i Noreg skal følgjast opp; dette er eit forslag, ikkje eit vedtak.",
+    "sv": "Stortingsledamöter från SV har föreslagit en «panikklov» som pausar nya datacenter tills branschen är reglerad, samt ett nationellt tillståndssystem för datacenter. De ber också regeringen att snabbt återkomma med hur Stortingets beslut om förbud mot kryptoutvinning i Norge ska följas upp; detta är ett förslag, inte ett beslut.",
+    "da": "Stortingsmedlemmer fra SV har foreslået en «panikklov», der sætter nye datacentre på pause, indtil branchen er reguleret, samt et nationalt tilladelsessystem for datacentre. De beder også regeringen hurtigt vende tilbage med, hvordan Stortingets beslutning om forbud mod kryptoudvinding i Norge skal følges op; det er et forslag, ikke en beslutning.",
+    "fi": "Sosialistisen vasemmistopuolueen (SV) kansanedustajat ovat ehdottaneet suurkäräjillä «paniikkilakia», joka asettaisi uudet datakeskukset odotustilaan, kunnes ala on säännelty, sekä kansallista lupajärjestelmää datakeskuksille. He pyytävät myös hallitusta kertomaan pian, miten suurkäräjien päätös kieltää kryptolouhinta Norjassa pannaan täytäntöön; kyse on ehdotuksesta, ei päätöksestä.",
+    "is": "Þingmenn Sósíalíska vinstriflokksins (SV) hafa lagt til á Stórþinginu «neyðarlög» sem setja ný gagnaver í bið þar til greinin hefur verið regluvædd, auk landsbundins leyfiskerfis fyrir gagnaver. Þeir biðja einnig ríkisstjórnina að greina fljótt frá því hvernig fylgja eigi eftir ákvörðun Stórþingsins um bann við rafmyntagreftri í Noregi; þetta er tillaga, ekki ákvörðun."
    },
    "paywall": false,
    "status": "published",

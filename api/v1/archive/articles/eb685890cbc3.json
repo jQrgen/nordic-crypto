@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "eb685890cbc3",
@@ -11,14 +11,19 @@
   "canonical_url": "https://kaupr.io/nyheter/h100-styrelederen-vil-ha-flere-oppkjop-i-bitcoinbransjen",
   "title": "H100-styrelederen vil ha flere oppkjøp i bitcoinbransjen",
   "titles": {
-   "en": "H100 chair wants more acquisitions in the bitcoin industry"
+   "en": "H100 chair wants more acquisitions in the bitcoin industry",
+   "nn": "H100-styreleiaren vil ha fleire oppkjøp i bitcoinbransjen",
+   "sv": "H100:s styrelseordförande vill se fler förvärv i bitcoinbranschen",
+   "da": "H100-formanden vil have flere opkøb i bitcoinbranchen",
+   "fi": "H100:n hallituksen puheenjohtaja haluaa lisää yrityskauppoja bitcoin-alalla",
+   "is": "Stjórnarformaður H100 vill fleiri yfirtökur í bitcoin-geiranum"
   },
   "source": "kaupr",
   "source_name": "Kaupr",
   "country": "SE",
   "published_at": "2026-09-13T12:00:00+00:00",
   "first_published_on_site": "2026-10-03T17:59:40+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

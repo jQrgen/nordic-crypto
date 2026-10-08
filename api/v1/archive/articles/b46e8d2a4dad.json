@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "b46e8d2a4dad",
@@ -11,14 +11,19 @@
   "canonical_url": "https://kaupr.io/nyheter/to-tilsyn-vil-ikke-si-om-kryptodistribusjon-krever-egen-tillatelse",
   "title": "To tilsyn vil ikke si om kryptodistribusjon krever egen tillatelse",
   "titles": {
-   "en": "Two regulators won't say whether crypto distribution needs its own licence"
+   "en": "Two regulators won't say whether crypto distribution needs its own licence",
+   "nn": "To tilsyn vil ikkje seie om kryptodistribusjon krev eige løyve",
+   "sv": "Två tillsynsmyndigheter vill inte säga om kryptodistribution kräver ett eget tillstånd",
+   "da": "To tilsyn vil ikke sige, om kryptodistribution kræver egen tilladelse",
+   "fi": "Kaksi valvojaa ei sano, vaatiiko kryptojen jakelu oman luvan",
+   "is": "Tvö eftirlitsstjórnvöld vilja ekki segja hvort dreifing rafmynta krefjist sérstaks leyfis"
   },
   "source": "kaupr",
   "source_name": "Kaupr",
   "country": "FI",
   "published_at": "2026-09-17T12:00:00+00:00",
   "first_published_on_site": "2026-10-03T17:59:40+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

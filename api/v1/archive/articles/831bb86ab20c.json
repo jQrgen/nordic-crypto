@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "831bb86ab20c",
@@ -11,14 +11,19 @@
   "canonical_url": "https://kaupr.io/nyheter/nbx-mer-enn-doblet-tapet-i-halvaret-da-mica-lisensen-kom",
   "title": "NBX mer enn doblet tapet i halvåret da MiCA-lisensen kom",
   "titles": {
-   "en": "NBX more than doubled its half-year loss as the MiCA licence arrived"
+   "en": "NBX more than doubled its half-year loss as the MiCA licence arrived",
+   "nn": "NBX meir enn dobla tapet i halvåret då MiCA-løyvet kom",
+   "sv": "NBX mer än fördubblade förlusten det halvår MiCA-tillståndet kom",
+   "da": "NBX mere end fordoblede tabet i det halvår, hvor MiCA-licensen kom",
+   "fi": "NBX yli kaksinkertaisti tappionsa sillä puolivuotiskaudella, jona MiCA-lupa tuli",
+   "is": "NBX meira en tvöfaldaði tapið á hálfsárinu þegar MiCA-leyfið kom"
   },
   "source": "kaupr",
   "source_name": "Kaupr",
   "country": "NO",
   "published_at": "2026-09-18T12:00:00+00:00",
   "first_published_on_site": "2026-10-03T17:59:40+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

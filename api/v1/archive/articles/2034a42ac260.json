@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "2034a42ac260",
@@ -11,14 +11,19 @@
   "canonical_url": "https://kaupr.io/nyheter/norges-bank-utforsker-tokenisering-med-tolv-aktorer",
   "title": "Norges Bank utforsker tokenisering med tolv aktører",
   "titles": {
-   "en": "Norges Bank explores tokenisation with twelve players"
+   "en": "Norges Bank explores tokenisation with twelve players",
+   "nn": "Norges Bank utforskar tokenisering med tolv aktørar",
+   "sv": "Norges Bank utforskar tokenisering med tolv aktörer",
+   "da": "Norges Bank udforsker tokenisering med tolv aktører",
+   "fi": "Norges Bank selvittää tokenisaatiota kahdentoista toimijan kanssa",
+   "is": "Norges Bank kannar tókavæðingu með tólf aðilum"
   },
   "source": "kaupr",
   "source_name": "Kaupr",
   "country": "NO",
   "published_at": "2026-09-08T12:00:00+00:00",
   "first_published_on_site": "2026-10-03T18:28:21+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

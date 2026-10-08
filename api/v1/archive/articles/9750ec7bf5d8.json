@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "9750ec7bf5d8",
@@ -11,14 +11,19 @@
   "canonical_url": "https://kaupr.io/nyheter/finske-kvarn-leier-ut-mica-tillatelsen-sin-til-nordiske-partnere",
   "title": "Finske Kvarn leier ut MiCA-tillatelsen sin til nordiske partnere",
   "titles": {
-   "en": "Finnish Kvarn rents out its MiCA licence to Nordic partners"
+   "en": "Finnish Kvarn rents out its MiCA licence to Nordic partners",
+   "nn": "Finske Kvarn leiger ut MiCA-løyvet sitt til nordiske partnarar",
+   "sv": "Finska Kvarn hyr ut sitt MiCA-tillstånd till nordiska partner",
+   "da": "Finske Kvarn lejer sin MiCA-tilladelse ud til nordiske partnere",
+   "fi": "Suomalainen Kvarn vuokraa MiCA-lupansa pohjoismaisille kumppaneille",
+   "is": "Finnska Kvarn leigir MiCA-leyfi sitt til norrænna samstarfsaðila"
   },
   "source": "kaupr",
   "source_name": "Kaupr",
   "country": "SE",
   "published_at": "2026-09-14T12:00:00+00:00",
   "first_published_on_site": "2026-10-03T17:59:40+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

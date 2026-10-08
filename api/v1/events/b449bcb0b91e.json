@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "b449bcb0b91e",
@@ -20,6 +20,21 @@
   "sponsored": null,
   "note": null,
   "note_i18n": {},
+  "description": {
+   "text": "Bitcoin is a digital currency that unlike traditional currencies does not rely on a centralized authority. Instead Bitcoin relies on a network of volunteers that collectively implement a replicated ledger and verify transactions. In this paper we analyze how Bitcoin uses a multi-hop broadcast to propagate transactions and blocks through the network to update the ledger replicas. We then use the gathered information to verify the conjecture that the propagation delay in the network is the primary cause for blockchain forks.",
+   "lang": "en",
+   "source_url": "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html",
+   "source_name": "Department of Computer Science, University of Helsinki",
+   "retrieved": "2026-10-07T23:50:00+00:00",
+   "i18n": {
+    "nn": "Bitcoin er ein digital valuta som, ulikt vanlege valutaer, ikkje kviler på ein sentral instans. I staden kviler han på eit nettverk av frivillige som saman fører ein delt hovudbok og kontrollerer transaksjonar. Føredraget går gjennom korleis bitcoin bruker ein fleirhoppskringkasting for å spreie transaksjonar og blokker, og om forseinkinga i nettet er hovudårsaka til forgreiningar i blokkjeda.",
+    "nb": "Bitcoin er en digital valuta som, ulikt vanlige valutaer, ikke hviler på en sentral instans. I stedet hviler den på et nettverk av frivillige som sammen fører en delt hovedbok og kontrollerer transaksjoner. Foredraget går gjennom hvordan bitcoin bruker en flerhopp-kringkasting for å spre transaksjoner og blokker, og om forsinkelsen i nettet er hovedårsaken til forgreninger i blokkjeden.",
+    "sv": "Bitcoin är en digital valuta som, till skillnad från vanliga valutor, inte vilar på en central instans. I stället vilar den på ett nätverk av frivilliga som tillsammans för en delad huvudbok och kontrollerar transaktioner. Föredraget går igenom hur bitcoin använder en flerhoppsutsändning för att sprida transaktioner och block, och om fördröjningen i nätet är huvudorsaken till förgreningar i blockkedjan.",
+    "da": "Bitcoin er en digital valuta, som i modsætning til almindelige valutaer ikke hviler på en central instans. I stedet hviler den på et netværk af frivillige, som sammen fører en delt hovedbog og kontrollerer transaktioner. Foredraget gennemgår, hvordan bitcoin bruger en flerhop-udsendelse til at sprede transaktioner og blokke, og om forsinkelsen i nettet er hovedårsagen til forgreninger i blokkæden.",
+    "fi": "Bitcoin on digitaalinen valuutta, joka toisin kuin tavanomaiset valuutat ei nojaa keskitettyyn tahoon. Se nojaa vapaaehtoisten verkkoon, joka yhdessä ylläpitää jaettua pääkirjaa ja tarkistaa siirrot. Esitelmä käy läpi, miten bitcoin levittää siirrot ja lohkot usean hypyn lähetyksellä, ja onko verkon viive lohkoketjun haarautumien pääsyy.",
+    "is": "Bitcoin er stafrænn gjaldmiðill sem, ólíkt venjulegum gjaldmiðlum, hvílir ekki á miðlægum aðila. Í staðinn hvílir hann á neti sjálfboðaliða sem saman halda sameiginlega höfuðbók og staðfesta færslur. Fyrirlesturinn fer yfir hvernig bitcoin notar fjölhoppsútsendingu til að dreifa færslum og blokkum, og hvort töf í netinu sé aðalástæða kvíslana í bálkakeðjunni."
+   }
+  },
   "past": true,
   "ongoing": false,
   "html_url": "https://nordiccrypto.no/calendar/b449bcb0b91e/",

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "8c0dda24b0ef",
@@ -11,14 +11,19 @@
   "canonical_url": "https://fi.se/sv/publicerat/nyheter/2026/har-ar-riskerna-for-finansiering-av-spridning-av-massforstorelsevapen-storst",
   "title": "Här är riskerna för finansiering av spridning av massförstörelsevapen störst",
   "titles": {
-   "en": "Here is where the risk of financing proliferation of weapons of mass destruction is highest"
+   "en": "Here is where the risk of financing proliferation of weapons of mass destruction is highest",
+   "nn": "Her er risikoen for finansiering av spreiing av masseøydeleggingsvåpen størst",
+   "nb": "Her er risikoen for finansiering av spredning av masseødeleggelsesvåpen størst",
+   "da": "Her er risikoen for finansiering af spredning af masseødelæggelsesvåben størst",
+   "fi": "Tässä riski rahoittaa joukkotuhoaseiden leviämistä on suurin",
+   "is": "Hér er áhættan af því að fjármagna útbreiðslu gereyðingarvopna mest"
   },
   "source": "fi-se",
   "source_name": "Finansinspektionen (SE FSA)",
   "country": "SE",
   "published_at": "2026-10-01T06:00:11+00:00",
   "first_published_on_site": "2026-10-03T17:59:40+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

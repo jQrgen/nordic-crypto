@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "b3fdbc8f5eec",
@@ -11,14 +11,19 @@
   "canonical_url": "https://dagensps.se/bors-finans/fintech/kryptovalutor/krypto-jatten-rundar-reglerna-i-europa-riskerar-att-kastas-ut",
   "title": "Krypto-jätten rundar reglerna i Europa: Riskerar att kastas ut",
   "titles": {
-   "en": "Crypto giant skirts the rules in Europe and risks being thrown out"
+   "en": "Crypto giant skirts the rules in Europe and risks being thrown out",
+   "nn": "Kryptokjempa går rundt reglane i Europa: Risiko for å bli kasta ut",
+   "nb": "Kryptokjempen går rundt reglene i Europa: Risikerer å bli kastet ut",
+   "da": "Kryptogiganten omgår reglerne i Europa: Risikerer at blive smidt ud",
+   "fi": "Kryptojätti kiertää Euroopan sääntöjä ja vaarana on ulosheitto",
+   "is": "Rafmyntarisinn sniðgengur reglurnar í Evrópu og á hættu á að verða rekinn út"
   },
   "source": "dagensps.se",
   "source_name": "Dagens PS",
   "country": "SE",
   "published_at": "2026-10-01T08:30:56+00:00",
   "first_published_on_site": "2026-10-03T17:59:40+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

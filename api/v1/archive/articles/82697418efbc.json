@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "82697418efbc",
@@ -11,14 +11,19 @@
   "canonical_url": "https://kaupr.io/nyheter/kvarn-avviser-at-goobit-avtalen-er-agentforhold-eller-outsourcing",
   "title": "Kvarn avviser at Goobit-avtalen er agentforhold eller outsourcing",
   "titles": {
-   "en": "Kvarn denies the Goobit deal is an agency or outsourcing arrangement"
+   "en": "Kvarn denies the Goobit deal is an agency or outsourcing arrangement",
+   "nn": "Kvarn avviser at Goobit-avtalen er eit agentforhold eller outsourcing",
+   "sv": "Kvarn tillbakavisar att Goobit-avtalet är ett agentförhållande eller outsourcing",
+   "da": "Kvarn afviser, at Goobit-aftalen er et agentforhold eller outsourcing",
+   "fi": "Kvarn kiistää, että Goobit-sopimus olisi agentuuri tai ulkoistusta",
+   "is": "Kvarn hafnar því að Goobit-samningurinn sé umboðssamband eða útvistun"
   },
   "source": "kaupr",
   "source_name": "Kaupr",
   "country": "SE",
   "published_at": "2026-09-15T12:00:00+00:00",
   "first_published_on_site": "2026-10-03T17:59:40+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

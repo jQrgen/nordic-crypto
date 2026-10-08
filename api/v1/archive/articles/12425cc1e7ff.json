@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "12425cc1e7ff",
@@ -11,14 +11,19 @@
   "canonical_url": "https://kaupr.io/nyheter/coinmotion-og-k33-inngar-nordisk-kryptosamarbeid-om-institusjonell-handel",
   "title": "Coinmotion og K33 inngår nordisk kryptosamarbeid om institusjonell handel",
   "titles": {
-   "en": "Coinmotion and K33 strike Nordic crypto partnership on institutional trading"
+   "en": "Coinmotion and K33 strike Nordic crypto partnership on institutional trading",
+   "nn": "Coinmotion og K33 inngår eit nordisk kryptosamarbeid om institusjonell handel",
+   "sv": "Coinmotion och K33 ingår nordiskt kryptosamarbete om institutionell handel",
+   "da": "Coinmotion og K33 indgår et nordisk kryptosamarbejde om institutionel handel",
+   "fi": "Coinmotion ja K33 aloittavat pohjoismaisen kryptoyhteistyön institutionaalisessa kaupassa",
+   "is": "Coinmotion og K33 gera norrænt rafmyntasamstarf um stofnanaviðskipti"
   },
   "source": "kaupr",
   "source_name": "Kaupr",
   "country": "SE",
   "published_at": "2026-09-24T12:00:00+00:00",
   "first_published_on_site": "2026-10-03T17:59:40+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

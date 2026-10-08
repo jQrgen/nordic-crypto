@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "5f757489d23c",
@@ -11,14 +11,19 @@
   "canonical_url": "https://kaupr.io/nyheter/dnb-tester-tokeniserte-innskudd-i-kroner-med-europeiske-banker",
   "title": "DNB tester tokeniserte innskudd i kroner med europeiske banker",
   "titles": {
-   "en": "DNB tests tokenised krone deposits with European banks"
+   "en": "DNB tests tokenised krone deposits with European banks",
+   "nn": "DNB testar tokeniserte innskot i kroner med europeiske bankar",
+   "sv": "DNB testar tokeniserade insättningar i kronor med europeiska banker",
+   "da": "DNB tester tokeniserede indskud i kroner med europæiske banker",
+   "fi": "DNB testaa tokenisoituja kruunutalletuksia eurooppalaisten pankkien kanssa",
+   "is": "DNB prófar tokeniserðar innstæður í krónum með evrópskum bönkum"
   },
   "source": "kaupr",
   "source_name": "Kaupr",
   "country": "NO",
   "published_at": "2026-09-16T12:00:00+00:00",
   "first_published_on_site": "2026-10-03T17:59:40+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

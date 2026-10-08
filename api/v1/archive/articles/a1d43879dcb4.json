@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "a1d43879dcb4",
@@ -11,14 +11,18 @@
   "canonical_url": "https://kaupr.io/nyheter/bitcoin-utvinning-og-norsk-kraft-pa-seminar-i-oslo",
   "title": "Bitcoin-utvinning og norsk kraft på seminar i Oslo",
   "titles": {
-   "en": "Bitcoin mining and Norwegian power at Oslo seminar"
+   "en": "Bitcoin mining and Norwegian power at Oslo seminar",
+   "sv": "Bitcoinbrytning och norsk el på seminarium i Oslo",
+   "da": "Bitcoin-udvinding og norsk strøm på seminar i Oslo",
+   "fi": "Bitcoinin louhinta ja norjalainen sähkö Oslon seminaarissa",
+   "is": "Bitcoin-nám og norsk orka á ráðstefnu í Osló"
   },
   "source": "kaupr",
   "source_name": "Kaupr",
   "country": "NO",
   "published_at": "2026-09-14T12:00:00+00:00",
   "first_published_on_site": "2026-10-03T17:59:40+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

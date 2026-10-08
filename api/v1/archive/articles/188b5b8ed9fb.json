@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "188b5b8ed9fb",
@@ -11,14 +11,19 @@
   "canonical_url": "https://berlingske.dk/oekonomi/100-aar-gammel-lov-koster-danske-kryptoinvestorer-millioner-nu-vil-minister-problemet-til-livs",
   "title": "100 år gammel lov koster danske kryptoinvestorer millioner. Nu vil minister problemet til livs",
   "titles": {
-   "en": "100-year-old law costs Danish crypto investors millions; minister wants to fix it"
+   "en": "100-year-old law costs Danish crypto investors millions; minister wants to fix it",
+   "nn": "100 år gammal lov kostar danske kryptoinvestorar millionar. No vil ministeren få bukt med problemet",
+   "nb": "100 år gammel lov koster danske kryptoinvestorer millioner. Nå vil ministeren få bukt med problemet",
+   "sv": "100 år gammal lag kostar danska kryptoinvesterare miljoner. Nu vill ministern få bukt med problemet",
+   "fi": "100 vuotta vanha laki maksaa tanskalaisille kryptosijoittajille miljoonia. Nyt ministeri haluaa kitkeä ongelman",
+   "is": "100 ára gömul lög kosta danska rafmyntafjárfesta milljónir. Nú vill ráðherrann ráða bót á vandanum"
   },
   "source": "berlingske.dk",
   "source_name": "Berlingske",
   "country": "DK",
   "published_at": "2026-09-21T16:39:08+00:00",
   "first_published_on_site": "2026-10-03T18:28:21+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

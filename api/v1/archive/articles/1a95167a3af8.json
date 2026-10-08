@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "1a95167a3af8",
@@ -11,14 +11,19 @@
   "canonical_url": "https://aftenposten.no/norge/i/vlQARB/tiltalt-for-dopsalg-mot-kryptovaluta-paa-det-moerke-nettet",
   "title": "Tiltalt for dopsalg mot kryptovaluta på det mørke nettet",
   "titles": {
-   "en": "Charged with selling drugs for cryptocurrency on the dark web"
+   "en": "Charged with selling drugs for cryptocurrency on the dark web",
+   "nn": "Tiltala for narkosalg mot kryptovaluta på det mørke nettet",
+   "sv": "Åtalad för narkotikaförsäljning mot kryptovaluta på det mörka nätet",
+   "da": "Tiltalt for narkosalg mod kryptovaluta på det mørke net",
+   "fi": "Syyte huumekaupasta kryptovaluuttaa vastaan pimeässä verkossa",
+   "is": "Ákærður fyrir fíkniefnasölu gegn rafmynt á myrka vefnum"
   },
   "source": "aftenposten",
   "source_name": "Aftenposten",
   "country": "NO",
   "published_at": "2026-10-02T11:07:26+00:00",
   "first_published_on_site": "2026-10-03T18:28:21+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

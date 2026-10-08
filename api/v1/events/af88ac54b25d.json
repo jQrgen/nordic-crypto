@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "af88ac54b25d",
@@ -20,6 +20,21 @@
   "sponsored": null,
   "note": null,
   "note_i18n": {},
+  "description": {
+   "text": "The Nordic Bitcoin Conference, 25–26 September 2026 at Kaapelitehdas in Helsinki. Featuring developments in Bitcoin payments, finances, and mining. A Bitcoin conference dedicated to the Nordic region, bringing local and international perspectives together.",
+   "lang": "en",
+   "source_url": "https://btchel.com/",
+   "source_name": "BTCHEL",
+   "retrieved": "2026-10-07T23:50:00+00:00",
+   "i18n": {
+    "nn": "Den nordiske bitcoin-konferansen, 25.–26. september 2026 på Kaapelitehdas i Helsinki. Han tek opp bitcoin-betalingar, finans og utvinning, og samlar lokale og internasjonale perspektiv.",
+    "nb": "Den nordiske bitcoin-konferansen, 25.–26. september 2026 på Kaapelitehdas i Helsinki. Den tar opp bitcoin-betalinger, finans og utvinning, og samler lokale og internasjonale perspektiver.",
+    "sv": "Den nordiska bitcoin-konferensen, 25–26 september 2026 på Kaapelitehdas i Helsingfors. Den tar upp bitcoin-betalningar, finans och utvinning och samlar lokala och internationella perspektiv.",
+    "da": "Den nordiske bitcoin-konference, 25.–26. september 2026 på Kaapelitehdas i Helsinki. Den tager bitcoin-betalinger, finans og minedrift op og samler lokale og internationale perspektiver.",
+    "fi": "Pohjoismainen bitcoin-konferenssi 25.–26. syyskuuta 2026 Kaapelitehtaalla Helsingissä. Se käsittelee bitcoin-maksuja, rahoitusta ja louhintaa ja tuo yhteen paikallisia ja kansainvälisiä näkökulmia.",
+    "is": "Norræna bitcoin-ráðstefnan, 25.–26. september 2026 í Kaapelitehdas í Helsinki. Hún fjallar um bitcoin-greiðslur, fjármál og námugröft og sameinar staðbundin og alþjóðleg sjónarhorn."
+   }
+  },
   "past": true,
   "ongoing": false,
   "html_url": "https://nordiccrypto.no/calendar/af88ac54b25d/",

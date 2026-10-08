@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "1abbecf31dff",
@@ -11,14 +11,19 @@
   "canonical_url": "https://e24.no/bors/nyheter/a/305563",
   "title": "Verdiendringer i bitcoin tynger NBX",
   "titles": {
-   "en": "Bitcoin value swings weigh on NBX"
+   "en": "Bitcoin value swings weigh on NBX",
+   "nn": "Verdiendringar i bitcoin tyngjer NBX",
+   "sv": "Värdeförändringar i bitcoin tynger NBX",
+   "da": "Værdiændringer i bitcoin tynger NBX",
+   "fi": "Bitcoinin arvonmuutokset painavat NBX:ää",
+   "is": "Verðbreytingar á bitcoin þyngja NBX"
   },
   "source": "e24",
   "source_name": "E24",
   "country": "NO",
   "published_at": "2026-09-18T18:36:49+00:00",
   "first_published_on_site": "2026-10-03T18:28:21+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

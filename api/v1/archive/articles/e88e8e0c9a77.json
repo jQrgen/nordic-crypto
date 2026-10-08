@@ -1,0 +1,47 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-08T07:16:55+00:00",
+ "preview": false,
+ "item": {
+  "id": "e88e8e0c9a77",
+  "api_url": "https://nordiccrypto.no/api/v1/archive/articles/e88e8e0c9a77.json",
+  "site": "nordic-crypto",
+  "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/",
+  "canonical_url": "https://stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s",
+  "title": "Rødt foreslår midlertidig stans for nye datasentre",
+  "titles": {
+   "en": "Red Party proposes a temporary halt for new data centres"
+  },
+  "source": "stortinget",
+  "source_name": "Stortinget",
+  "country": "NO",
+  "published_at": "2026-10-05T12:00:00+00:00",
+  "first_published_on_site": "2026-10-08T08:02:20+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
+  "languages": [
+   "en",
+   "nn",
+   "nb",
+   "sv",
+   "da",
+   "fi",
+   "is"
+  ],
+  "summaries": {
+   "en": "The Red Party (Rødt) has proposed in the Storting a temporary halt for new data centres, along with a licensing regime and other measures. Its reasoning says crypto-mining data centres get power ahead of key local industries and that the crypto-mining ban the Storting has asked for three times in two years is still not in place, though none of the proposals singles out crypto.",
+   "nb": "Rødt har foreslått på Stortinget en midlertidig stans for nye datasentre, sammen med en konsesjonsordning og andre tiltak. Begrunnelsen sier at datasentre som utvinner kryptovaluta får strømtilgang foran hjørnesteinsbedrifter, og at kryptoforbudet Stortinget har bedt om tre ganger på to år fortsatt ikke er på plass, men ingen av forslagene gjelder krypto særskilt.",
+   "nn": "Raudt har føreslått på Stortinget ein mellombels stans for nye datasenter, saman med ei konsesjonsordning og andre tiltak. Grunngjevinga seier at datasenter som utvinn kryptovaluta får straumtilgang framfor hjørnesteinsbedrifter, og at kryptoforbodet Stortinget har bede om tre gonger på to år framleis ikkje er på plass, men ingen av forslaga gjeld krypto særskilt.",
+   "sv": "Rødt har i Stortinget föreslagit ett tillfälligt stopp för nya datacenter, tillsammans med ett tillståndssystem och andra åtgärder. Motiveringen säger att datacenter som utvinner kryptovaluta får elanslutning före viktiga lokala industrier och att kryptoförbudet som Stortinget har begärt tre gånger på två år fortfarande inte är på plats, men inget av förslagen gäller specifikt krypto.",
+   "da": "Rødt har i Stortinget foreslået et midlertidigt stop for nye datacentre sammen med en tilladelsesordning og andre tiltag. Begrundelsen siger, at datacentre, der udvinder kryptovaluta, får strømadgang før vigtige lokale virksomheder, og at det kryptoforbud, som Stortinget har bedt om tre gange på to år, stadig ikke er på plads, men ingen af forslagene handler specifikt om krypto.",
+   "fi": "Norjan Punainen puolue (Rødt) on ehdottanut suurkäräjillä uusien datakeskusten väliaikaista pysäyttämistä sekä lupajärjestelmää ja muita toimia. Perustelujen mukaan kryptovaluuttaa louhivat datakeskukset saavat sähköliittymän ennen tärkeitä paikallisia yrityksiä, eikä suurkäräjien kolmesti kahdessa vuodessa pyytämää kryptolouhinnan kieltoa ole yhä otettu käyttöön, mutta mikään ehdotuksista ei koske erityisesti kryptoa.",
+   "is": "Rauði flokkurinn (Rødt) hefur lagt til á Stórþinginu tímabundna stöðvun nýrra gagnavera, ásamt leyfiskerfi og öðrum aðgerðum. Í rökstuðningnum segir að gagnaver sem grafa eftir rafmyntum fái rafmagnstengingu á undan mikilvægum fyrirtækjum í heimabyggð og að bann við rafmyntagreftri, sem Stórþingið hefur þrisvar beðið um á tveimur árum, sé enn ekki komið á, en engin tillagnanna snýr sérstaklega að rafmyntum."
+  },
+  "topics": [
+   "mining",
+   "policy"
+  ],
+  "removed": false,
+  "removed_at": null
+ }
+}

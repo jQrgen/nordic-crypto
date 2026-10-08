@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "4d918e6a3378",
@@ -11,14 +11,19 @@
   "canonical_url": "https://kaupr.io/nyheter/firi-tar-opp-kampen-om-1-1-millioner-svenske-kryptoeiere",
   "title": "Firi tar opp kampen om 1,1 millioner svenske kryptoeiere",
   "titles": {
-   "en": "Firi takes on the fight for 1.1 million Swedish crypto owners"
+   "en": "Firi takes on the fight for 1.1 million Swedish crypto owners",
+   "nn": "Firi tek opp kampen om 1,1 millionar svenske kryptoeigarar",
+   "sv": "Firi tar upp kampen om 1,1 miljoner svenska kryptoägare",
+   "da": "Firi tager kampen op om 1,1 millioner svenske krypto-ejere",
+   "fi": "Firi haastaa 1,1 miljoonaa ruotsalaista kryptonomistajaa",
+   "is": "Firi tekur upp baráttuna um 1,1 milljón sænskra rafmyntaeigenda"
   },
   "source": "kaupr",
   "source_name": "Kaupr",
   "country": "SE",
   "published_at": "2026-09-15T12:00:00+00:00",
   "first_published_on_site": "2026-10-03T17:59:40+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

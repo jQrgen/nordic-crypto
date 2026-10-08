@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "c81be998e21c",
@@ -11,14 +11,19 @@
   "canonical_url": "https://yle.fi/a/74-20248505",
   "title": "Yhteisöllisyys ja teknologia kiehtovat kryptovaluuttoihin sijoittaneita – kryptotapahtumassa iloittiin bitcoinin uudesta nousurallista",
   "titles": {
-   "en": "Community and technology draw crypto investors: bitcoin's new rally celebrated at crypto event"
+   "en": "Community and technology draw crypto investors: bitcoin's new rally celebrated at crypto event",
+   "nn": "Fellesskap og teknologi dreg dei som har investert i kryptovaluta – på eit kryptoarrangement gledde dei seg over den nye oppgangen til bitcoin",
+   "nb": "Fellesskap og teknologi trekker dem som har investert i kryptovaluta – på et kryptoarrangement gledet de seg over bitcoins nye opptur",
+   "sv": "Gemenskap och teknik lockar dem som investerat i kryptovaluta – på ett kryptoevenemang firades bitcoins nya uppgång",
+   "da": "Fællesskab og teknologi trækker dem, der har investeret i kryptovaluta – ved et kryptoarrangement blev bitcoins nye optur fejret",
+   "is": "Samfélag og tækni heilla þá sem hafa fjárfest í rafmyntum – á rafmyntaviðburði var fagnað nýrri hækkun bitcoins"
   },
   "source": "yle",
   "source_name": "Yle Uutiset (latest)",
   "country": "FI",
   "published_at": "2026-09-27T15:20:53+00:00",
   "first_published_on_site": "2026-10-03T17:59:40+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

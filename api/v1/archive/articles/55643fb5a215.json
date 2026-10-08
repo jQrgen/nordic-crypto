@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "55643fb5a215",
@@ -11,14 +11,19 @@
   "canonical_url": "https://stortinget.no/no/Saker-og-publikasjoner/Sporsmal/Skriftlige-sporsmal-og-svar/Skriftlig-sporsmal?qnid=127181",
   "title": "Regjeringen utreder midlertidig forbud mot nye kryptodatasentre (skriftlig spørsmål 15:3707)",
   "titles": {
-   "en": "Government studying a temporary ban on new crypto data centres (written question 15:3707)"
+   "en": "Government studying a temporary ban on new crypto data centres (written question 15:3707)",
+   "nn": "Regjeringa utgreier mellombels forbod mot nye kryptodatasenter (skriftleg spørsmål 15:3707)",
+   "sv": "Regeringen utreder ett tillfälligt förbud mot nya kryptodatacenter (skriftlig fråga 15:3707)",
+   "da": "Regeringen undersøger et midlertidigt forbud mod nye kryptodatacentre (skriftligt spørgsmål 15:3707)",
+   "fi": "Hallitus selvittää väliaikaista kieltoa uusille kryptodatakeskuksille (kirjallinen kysymys 15:3707)",
+   "is": "Ríkisstjórnin kannar tímabundið bann við nýjum rafmyntagagnaverum (skrifleg fyrirspurn 15:3707)"
   },
   "source": "stortinget",
   "source_name": "Stortinget",
   "country": "NO",
   "published_at": "2026-09-18T12:00:00+00:00",
   "first_published_on_site": "2026-10-03T18:28:21+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

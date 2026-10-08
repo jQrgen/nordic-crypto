@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "dbcac6be2b75",
@@ -11,14 +11,19 @@
   "canonical_url": "https://nettavisen.no/krypto/etterforskning/hordaland-tingrett/fant-hemmelig-passord-laste-opp-krypto-lommeboken/s/80-95-105422",
   "title": "Fant hemmelig passord: Låste opp krypto-lommeboken",
   "titles": {
-   "en": "Found secret password: unlocked the crypto wallet"
+   "en": "Found secret password: unlocked the crypto wallet",
+   "nn": "Fann hemmeleg passord: Låste opp kryptolommeboka",
+   "sv": "Hittade hemligt lösenord: Låste upp kryptoplånboken",
+   "da": "Fandt hemmelig adgangskode: Låste kryptopungen op",
+   "fi": "Löysi salaisen salasanan ja avasi kryptolompakon",
+   "is": "Fann leynilegt lykilorð og opnaði rafmyntaveskið"
   },
   "source": "nettavisen",
   "source_name": "Nettavisen",
   "country": "NO",
   "published_at": "2026-09-26T00:16:16+00:00",
   "first_published_on_site": "2026-10-03T18:28:21+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

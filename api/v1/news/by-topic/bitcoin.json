@@ -1,11 +1,157 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "topic": "bitcoin",
- "count": 2,
+ "count": 3,
  "items": [
+  {
+   "id": "47156e99927b",
+   "url": "https://kaupr.io/nyheter/ace-digital-tjente-6-3-millioner-kroner-i-tredje-kvartal",
+   "html_url": "https://nordiccrypto.no/stories/47156e99927b/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/47156e99927b.json",
+   "title": "Ace Digital tjente 6,3 millioner kroner i tredje kvartal",
+   "title_en": "Ace Digital reports NOK 6.3 million Q3 net profit",
+   "title_i18n": {},
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
+   },
+   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+   "country": "NO",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-10-05T12:00:00+00:00",
+   "topics": [
+    "business",
+    "bitcoin"
+   ],
+   "summary": "Ace Digital, listed on Euronext Growth Oslo, reported an unaudited third-quarter net profit of NOK 6.32 million, with equity up 19.3% to NOK 39.09 million and debt reduced to zero. The company says the value of its bitcoin treasury rose 373% without buying bitcoin, and estimates its economic exposure at about 57 BTC.",
+   "summary_i18n": {
+    "nb": "Ace Digital, som er notert på Euronext Growth Oslo, rapporterte et urevidert nettoresultat på 6,32 millioner kroner for tredje kvartal, med egenkapital opp 19,3 prosent til 39,09 millioner kroner og gjelden redusert til null. Selskapet sier verdien av bitcoinbeholdningen steg 373 prosent uten kjøp av bitcoin, og anslår den økonomiske eksponeringen til rundt 57 BTC.",
+    "nn": "Ace Digital, som er notert på Euronext Growth Oslo, rapporterte eit urevidert nettoresultat på 6,32 millionar kroner for tredje kvartal, med eigenkapital opp 19,3 prosent til 39,09 millionar kroner og gjelda redusert til null. Selskapet seier verdien av bitcoinbehaldninga steig 373 prosent utan kjøp av bitcoin, og reknar den økonomiske eksponeringa til rundt 57 BTC.",
+    "sv": "Ace Digital, noterat på Euronext Growth Oslo, redovisade ett oreviderat nettoresultat på 6,32 miljoner norska kronor för tredje kvartalet, med eget kapital upp 19,3 procent till 39,09 miljoner kronor och skulderna nedbringade till noll. Bolaget uppger att värdet på dess bitcoinreserv steg 373 procent utan köp av bitcoin och uppskattar sin ekonomiska exponering till omkring 57 BTC.",
+    "da": "Ace Digital, der er noteret på Euronext Growth Oslo, rapporterede et urevideret nettoresultat på 6,32 millioner norske kroner for tredje kvartal, med egenkapital op 19,3 procent til 39,09 millioner kroner og gælden nedbragt til nul. Selskabet oplyser, at værdien af dets bitcoinbeholdning steg 373 procent uden køb af bitcoin, og anslår sin økonomiske eksponering til omkring 57 BTC.",
+    "fi": "Euronext Growth Oslossa listattu Ace Digital raportoi kolmannelta neljännekseltä tilintarkastamattoman 6,32 miljoonan Norjan kruunun nettotuloksen; oma pääoma kasvoi 19,3 prosenttia 39,09 miljoonaan kruunuun ja velat laskivat nollaan. Yhtiön mukaan sen bitcoin-varannon arvo nousi 373 prosenttia ilman bitcoin-ostoja, ja se arvioi taloudellisen altistumisensa noin 57 bitcoiniksi.",
+    "is": "Ace Digital, sem er skráð á Euronext Growth Oslo, skilaði óendurskoðuðum hagnaði upp á 6,32 milljónir norskra króna á þriðja ársfjórðungi; eigið fé jókst um 19,3% í 39,09 milljónir króna og skuldir lækkuðu niður í núll. Félagið segir að verðmæti bitcoin-sjóðs þess hafi hækkað um 373% án kaupa á bitcoin og metur efnahagslega áhættu sína á um 57 BTC."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "commons-bitcoin",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-bitcoin.webp",
+    "width": 365,
+    "height": 872,
+    "alt": "A physical bitcoin token in a clear case.",
+    "source": "Wikimedia Commons",
+    "author": "Heuboden",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "url": "https://commons.wikimedia.org/wiki/File:Bitcoin_coin_in_plastic_packaging.jpg",
+    "credit": "Photo: Heuboden. Licence: CC BY-SA 4.0. Source: Wikimedia Commons. Cropped.",
+    "modifications": "Cropped by Nordic Crypto to leave out a person at the edge of the frame.",
+    "terms": null
+   },
+   "primary_source": {
+    "outlet": "kaupr",
+    "outlet_name": "Kaupr",
+    "url": "https://kaupr.io/nyheter/ace-digital-tjente-6-3-millioner-kroner-i-tredje-kvartal",
+    "title": "Ace Digital tjente 6,3 millioner kroner i tredje kvartal",
+    "published": "2026-10-05T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
+     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
+    },
+    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+   },
+   "primary_source_document": {
+    "name": "Ace Digital – Q3 2026 Update (MFN)",
+    "url": "https://mfn.se/all/a/ace-digital/aced-ace-digital-q3-2026-update"
+   },
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "kaupr",
+     "outlet_name": "Kaupr",
+     "url": "https://kaupr.io/nyheter/ace-digital-tjente-6-3-millioner-kroner-i-tredje-kvartal",
+     "title": "Ace Digital tjente 6,3 millioner kroner i tredje kvartal",
+     "published": "2026-10-05T12:00:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
+      "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
+     },
+     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
+  },
   {
    "id": "c81be998e21c",
    "url": "https://yle.fi/a/74-20248505",
@@ -92,6 +238,7 @@
      "raster_url": "https://nordiccrypto.no/assets/img/logos/yle.png"
     }
    },
+   "primary_source_document": null,
    "also_covered_by": [],
    "sources": [
     {
@@ -239,6 +386,7 @@
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    },
+   "primary_source_document": null,
    "also_covered_by": [],
    "sources": [
     {

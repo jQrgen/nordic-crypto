@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "31ee174aa583",
@@ -64,6 +64,10 @@
    "paywall": false,
    "primary": true,
    "logo": null
+  },
+  "primary_source_document": {
+   "name": "fi.se",
+   "url": "https://www.fi.se/sv/publicerat/nyheter/2026/fi-varnar-for-30-nya-falska-aktorer/"
   },
   "also_covered_by": [],
   "sources": [

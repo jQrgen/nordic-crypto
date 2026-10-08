@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "e0cc8b0df8e7",
@@ -11,14 +11,19 @@
   "canonical_url": "https://kaupr.io/nyheter/goobit-lanserer-sparing-i-bitcoin-og-gull-pa-finsk-lisens",
   "title": "Goobit lanserer sparing i bitcoin og gull på finsk lisens",
   "titles": {
-   "en": "Goobit launches bitcoin and gold savings on a Finnish licence"
+   "en": "Goobit launches bitcoin and gold savings on a Finnish licence",
+   "nn": "Goobit lanserer sparing i bitcoin og gull på finsk løyve",
+   "sv": "Goobit lanserar sparande i bitcoin och guld på finsk licens",
+   "da": "Goobit lancerer opsparing i bitcoin og guld på finsk licens",
+   "fi": "Goobit tuo bitcoin- ja kultasäästämisen suomalaisella luvalla",
+   "is": "Goobit býður sparnað í bitcoin og gulli á finnsku leyfi"
   },
   "source": "kaupr",
   "source_name": "Kaupr",
   "country": "SE",
   "published_at": "2026-09-14T12:00:00+00:00",
   "first_published_on_site": "2026-10-03T17:59:40+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

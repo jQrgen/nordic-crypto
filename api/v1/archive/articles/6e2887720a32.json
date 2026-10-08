@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "6e2887720a32",
@@ -11,14 +11,19 @@
   "canonical_url": "https://shifter.no/nyheter/firi-lanserer-i-sverige-etter-permitteringer-og-milliontap/475990",
   "title": "Firi lanserer i Sverige – etter permitteringer og milliontap",
   "titles": {
-   "en": "Firi launches in Sweden after layoffs and losses"
+   "en": "Firi launches in Sweden after layoffs and losses",
+   "nn": "Firi lanserer i Sverige – etter permitteringar og milliontap",
+   "sv": "Firi lanserar i Sverige – efter varsel och miljonförluster",
+   "da": "Firi lancerer i Sverige – efter fyringer og milliontab",
+   "fi": "Firi avaa Ruotsissa irtisanomisten ja miljoonatapioiden jälkeen",
+   "is": "Firi opnar í Svíþjóð eftir uppsagnir og milljónatap"
   },
   "source": "shifter",
   "source_name": "Shifter",
   "country": "NO",
   "published_at": "2026-09-15T08:49:33+00:00",
   "first_published_on_site": "2026-10-03T18:28:21+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

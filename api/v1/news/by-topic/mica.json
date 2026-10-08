@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "topic": "mica",
  "count": 14,
@@ -92,6 +92,7 @@
      "raster_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
     }
    },
+   "primary_source_document": null,
    "also_covered_by": [],
    "sources": [
     {
@@ -220,6 +221,7 @@
     "primary": true,
     "logo": null
    },
+   "primary_source_document": null,
    "also_covered_by": [],
    "sources": [
     {
@@ -358,6 +360,7 @@
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    },
+   "primary_source_document": null,
    "also_covered_by": [],
    "sources": [
     {
@@ -506,6 +509,7 @@
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    },
+   "primary_source_document": null,
    "also_covered_by": [],
    "sources": [
     {
@@ -654,6 +658,7 @@
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    },
+   "primary_source_document": null,
    "also_covered_by": [],
    "sources": [
     {
@@ -802,6 +807,7 @@
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    },
+   "primary_source_document": null,
    "also_covered_by": [],
    "sources": [
     {
@@ -950,6 +956,7 @@
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    },
+   "primary_source_document": null,
    "also_covered_by": [],
    "sources": [
     {
@@ -1097,6 +1104,7 @@
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    },
+   "primary_source_document": null,
    "also_covered_by": [],
    "sources": [
     {
@@ -1244,6 +1252,7 @@
      "raster_url": "https://nordiccrypto.no/assets/img/logos/shifter.png"
     }
    },
+   "primary_source_document": null,
    "also_covered_by": [],
    "sources": [
     {
@@ -1391,6 +1400,7 @@
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    },
+   "primary_source_document": null,
    "also_covered_by": [],
    "sources": [
     {
@@ -1539,6 +1549,7 @@
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    },
+   "primary_source_document": null,
    "also_covered_by": [],
    "sources": [
     {
@@ -1687,6 +1698,7 @@
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    },
+   "primary_source_document": null,
    "also_covered_by": [],
    "sources": [
     {
@@ -1835,6 +1847,7 @@
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    },
+   "primary_source_document": null,
    "also_covered_by": [],
    "sources": [
     {
@@ -1983,6 +1996,7 @@
      "raster_url": "https://nordiccrypto.no/assets/img/logos/fi-fiva.webp"
     }
    },
+   "primary_source_document": null,
    "also_covered_by": [],
    "sources": [
     {

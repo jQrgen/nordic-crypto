@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "8ae149a20f5f",
@@ -11,14 +11,18 @@
   "canonical_url": "https://finansavisen.no/finans/2026/09/28/8383782/pangstart-for-nytt-kryptofond",
   "title": "Pangstart for nytt kryptofond",
   "titles": {
-   "en": "Flying start for new crypto fund"
+   "en": "Flying start for new crypto fund",
+   "sv": "Flygande start för ny kryptofond",
+   "da": "Flyvende start for ny kryptofond",
+   "fi": "Vauhdikas alku uudelle kryptorahastolle",
+   "is": "Hraðbyrjun fyrir nýjan rafmyntasjóð"
   },
   "source": "finansavisen",
   "source_name": "Finansavisen",
   "country": "NO",
   "published_at": "2026-09-28T15:01:08+00:00",
   "first_published_on_site": "2026-10-03T17:59:40+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

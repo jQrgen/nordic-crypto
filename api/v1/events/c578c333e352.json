@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "c578c333e352",
@@ -20,6 +20,21 @@
   "sponsored": null,
   "note": null,
   "note_i18n": {},
+  "description": {
+   "text": "A technical workshop on CBDC, the Internet of Things and machine-to-machine payments was held at the University of Oslo on 10 January 2023. Lecturers from the Blockchain Lab covered blockchain technology, including IT security, environmental protection and processing capacity, and machine-to-machine communication and payments.",
+   "lang": "en",
+   "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+   "source_name": "Norges Bank",
+   "retrieved": "2026-10-07T23:50:00+00:00",
+   "i18n": {
+    "nn": "Ein teknisk verkstad om CBDC, tingenes internett og maskin-til-maskin-betalingar blei halden ved Universitetet i Oslo 10. januar 2023. Førelesarar frå Blockchain Lab tok opp blokkjedeteknologi, mellom anna IT-tryggleik, miljøvern og yteevne, og maskin-til-maskin-kommunikasjon og betalingar.",
+    "nb": "En teknisk workshop om CBDC, tingenes internett og maskin-til-maskin-betalinger ble holdt ved Universitetet i Oslo 10. januar 2023. Forelesere fra Blockchain Lab tok opp blokkjedeteknologi, blant annet IT-sikkerhet, miljøvern og ytelse, og maskin-til-maskin-kommunikasjon og betalinger.",
+    "sv": "En teknisk workshop om CBDC, sakernas internet och maskin-till-maskin-betalningar hölls vid Universitetet i Oslo den 10 januari 2023. Föreläsare från Blockchain Lab tog upp blockkedjeteknik, bland annat IT-säkerhet, miljöskydd och prestanda, och maskin-till-maskin-kommunikation och betalningar.",
+    "da": "En teknisk workshop om CBDC, tingenes internet og maskine-til-maskine-betalinger blev holdt på Universitetet i Oslo den 10. januar 2023. Forelæsere fra Blockchain Lab tog blokkædeteknologi op, herunder it-sikkerhed, miljøbeskyttelse og ydeevne, samt maskine-til-maskine-kommunikation og betalinger.",
+    "fi": "Tekninen työpaja CBDC:stä, esineiden internetistä ja koneiden välisistä maksuista pidettiin Oslon yliopistossa 10. tammikuuta 2023. Blockchain Labin luennoijat käsittelivät lohkoketjutekniikkaa, muun muassa tietoturvaa, ympäristönsuojelua ja suorituskykyä, sekä koneiden välistä viestintää ja maksuja.",
+    "is": "Tæknivinnustofa um CBDC, internet hlutanna og greiðslur milli véla var haldin við Háskólann í Osló 10. janúar 2023. Fyrirlesarar frá Blockchain Lab fjölluðu um bálkakeðjutækni, meðal annars upplýsingaöryggi, umhverfisvernd og afköst, og samskipti og greiðslur milli véla."
+   }
+  },
   "past": true,
   "ongoing": false,
   "html_url": "https://nordiccrypto.no/calendar/c578c333e352/",

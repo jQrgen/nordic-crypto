@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "4fec239ddb97",
@@ -11,14 +11,19 @@
   "canonical_url": "https://kaupr.io/nyheter/hilbert-finansierer-utlan-med-innskudd-pa-blokkjeden",
   "title": "Hilbert finansierer utlån med innskudd på blokkjeden",
   "titles": {
-   "en": "Hilbert funds lending with on-chain deposits"
+   "en": "Hilbert funds lending with on-chain deposits",
+   "nn": "Hilbert finansierer utlån med innskot på blokkjeda",
+   "sv": "Hilbert finansierar utlåning med insättningar på blockkedjan",
+   "da": "Hilbert finansierer udlån med indskud på blockchainen",
+   "fi": "Hilbert rahoittaa luotonantoa talletuksilla lohkoketjussa",
+   "is": "Hilbert fjármagnar útlán með innstæðum á bálkakeðjunni"
   },
   "source": "kaupr",
   "source_name": "Kaupr",
   "country": "SE",
   "published_at": "2026-09-15T12:00:00+00:00",
   "first_published_on_site": "2026-10-03T17:59:40+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

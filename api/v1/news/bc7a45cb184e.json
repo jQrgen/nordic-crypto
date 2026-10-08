@@ -1,0 +1,147 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-08T07:16:55+00:00",
+ "preview": false,
+ "item": {
+  "id": "bc7a45cb184e",
+  "url": "https://stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-009s",
+  "html_url": "https://nordiccrypto.no/stories/bc7a45cb184e/",
+  "api_url": "https://nordiccrypto.no/api/v1/news/bc7a45cb184e.json",
+  "title": "Representantforslag om konsesjonssystem for etablering av datasentre",
+  "title_en": "SV proposes a halt on new data centres and asks for follow-up of the crypto-mining ban (proposal)",
+  "title_i18n": {},
+  "source": "stortinget",
+  "source_name": "Stortinget",
+  "source_logo": {
+   "kind": "logo",
+   "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
+   "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+   "author": "Worldlydev",
+   "license": "Public domain",
+   "license_url": null,
+   "credit": "Wikimedia Commons",
+   "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
+  },
+  "source_note": null,
+  "country": "NO",
+  "language": "Norwegian",
+  "language_code": "no",
+  "published": "2026-10-05T12:00:00+00:00",
+  "topics": [
+   "mining",
+   "policy"
+  ],
+  "summary": "Socialist Left Party (SV) MPs have proposed in the Storting a «panic law» that would put new data centres on hold until the industry is regulated, plus a national licensing system for data centres. They also ask the government to report back quickly on how the Storting's decision to ban crypto mining in Norway will be followed up; this is a proposal, not a decision.",
+  "summary_i18n": {
+   "nb": "Stortingsrepresentanter fra SV har foreslått en «panikklov» som setter nye datasentre på vent til bransjen er regulert, og et nasjonalt konsesjonssystem for datasentre. De ber også regjeringen raskt komme tilbake med hvordan Stortingets vedtak om forbud mot kryptoutvinning i Norge skal følges opp; dette er et forslag, ikke et vedtak.",
+   "nn": "Stortingsrepresentantar frå SV har føreslått ei «panikklov» som set nye datasenter på vent til bransjen er regulert, og eit nasjonalt konsesjonssystem for datasenter. Dei ber òg regjeringa raskt kome tilbake med korleis vedtaket i Stortinget om forbod mot kryptoutvinning i Noreg skal følgjast opp; dette er eit forslag, ikkje eit vedtak.",
+   "sv": "Stortingsledamöter från SV har föreslagit en «panikklov» som pausar nya datacenter tills branschen är reglerad, samt ett nationellt tillståndssystem för datacenter. De ber också regeringen att snabbt återkomma med hur Stortingets beslut om förbud mot kryptoutvinning i Norge ska följas upp; detta är ett förslag, inte ett beslut.",
+   "da": "Stortingsmedlemmer fra SV har foreslået en «panikklov», der sætter nye datacentre på pause, indtil branchen er reguleret, samt et nationalt tilladelsessystem for datacentre. De beder også regeringen hurtigt vende tilbage med, hvordan Stortingets beslutning om forbud mod kryptoudvinding i Norge skal følges op; det er et forslag, ikke en beslutning.",
+   "fi": "Sosialistisen vasemmistopuolueen (SV) kansanedustajat ovat ehdottaneet suurkäräjillä «paniikkilakia», joka asettaisi uudet datakeskukset odotustilaan, kunnes ala on säännelty, sekä kansallista lupajärjestelmää datakeskuksille. He pyytävät myös hallitusta kertomaan pian, miten suurkäräjien päätös kieltää kryptolouhinta Norjassa pannaan täytäntöön; kyse on ehdotuksesta, ei päätöksestä.",
+   "is": "Þingmenn Sósíalíska vinstriflokksins (SV) hafa lagt til á Stórþinginu «neyðarlög» sem setja ný gagnaver í bið þar til greinin hefur verið regluvædd, auk landsbundins leyfiskerfis fyrir gagnaver. Þeir biðja einnig ríkisstjórnina að greina fljótt frá því hvernig fylgja eigi eftir ákvörðun Stórþingsins um bann við rafmyntagreftri í Noregi; þetta er tillaga, ekki ákvörðun."
+  },
+  "paywall": false,
+  "links": [],
+  "own_story": false,
+  "illustration": {
+   "id": "commons-mining",
+   "kind": "commons",
+   "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-mining.webp",
+   "width": 960,
+   "height": 720,
+   "alt": "Rows of cryptocurrency mining machines indoors.",
+   "source": "Wikimedia Commons",
+   "author": "Jasper Reichardt",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "url": "https://commons.wikimedia.org/wiki/File:Mining-Rig.jpg",
+   "credit": "Photo: Jasper Reichardt. Licence: CC BY-SA 4.0. Source: Wikimedia Commons.",
+   "modifications": null,
+   "terms": null
+  },
+  "primary_source": {
+   "outlet": "stortinget",
+   "outlet_name": "Stortinget",
+   "url": "https://stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-009s",
+   "title": "Representantforslag om konsesjonssystem for etablering av datasentre",
+   "published": "2026-10-05T12:00:00+00:00",
+   "lang": "Norwegian",
+   "language_code": "no",
+   "country": "NO",
+   "source_type": "official",
+   "paywall": false,
+   "primary": true,
+   "logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+    "author": "Worldlydev",
+    "license": "Public domain",
+    "license_url": null,
+    "credit": "Wikimedia Commons",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
+   }
+  },
+  "primary_source_document": null,
+  "also_covered_by": [],
+  "sources": [
+   {
+    "outlet": "stortinget",
+    "outlet_name": "Stortinget",
+    "url": "https://stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-009s",
+    "title": "Representantforslag om konsesjonssystem for etablering av datasentre",
+    "published": "2026-10-05T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "official",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
+     "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+     "author": "Worldlydev",
+     "license": "Public domain",
+     "license_url": null,
+     "credit": "Wikimedia Commons",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
+    }
+   }
+  ],
+  "coverage": {
+   "count": 1,
+   "by_country": [
+    {
+     "country": "NO",
+     "count": 1,
+     "share": 1.0
+    }
+   ],
+   "by_source_type": [
+    {
+     "type": "national",
+     "count": 0,
+     "share": 0.0
+    },
+    {
+     "type": "regional",
+     "count": 0,
+     "share": 0.0
+    },
+    {
+     "type": "official",
+     "count": 1,
+     "share": 1.0
+    },
+    {
+     "type": "international",
+     "count": 0,
+     "share": 0.0
+    }
+   ]
+  },
+  "source_logo_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
+ }
+}

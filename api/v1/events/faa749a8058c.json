@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "faa749a8058c",
@@ -20,6 +20,21 @@
   "sponsored": null,
   "note": null,
   "note_i18n": {},
+  "description": {
+   "text": "On August 15–16, 2025, the Bitcoin community will gather in Helsinki for BTCHEL, the very first large-scale Bitcoin conference ever held in Finland.",
+   "lang": "en",
+   "source_url": "https://bt.cx/en/news/2025/07/24/03-BTCHEL-2025-The-Biggest-Bitcoin-Celebration-in-the-Nordics-Is-Coming/",
+   "source_name": "BTCX",
+   "retrieved": "2026-10-07T23:50:00+00:00",
+   "i18n": {
+    "nn": "15.–16. august 2025 samlast bitcoin-miljøet i Helsinki til BTCHEL, den første store bitcoin-konferansen som er halden i Finland.",
+    "nb": "15.–16. august 2025 samles bitcoin-miljøet i Helsinki til BTCHEL, den første store bitcoin-konferansen som er holdt i Finland.",
+    "sv": "Den 15–16 augusti 2025 samlas bitcoin-miljön i Helsingfors till BTCHEL, den första stora bitcoin-konferensen som hålls i Finland.",
+    "da": "Den 15.–16. august 2025 samles bitcoin-miljøet i Helsinki til BTCHEL, den første store bitcoin-konference, der er holdt i Finland.",
+    "fi": "15.–16. elokuuta 2025 bitcoin-yhteisö kokoontuu Helsinkiin BTCHELiin, ensimmäiseen Suomessa pidettyyn suureen bitcoin-konferenssiin.",
+    "is": "15.–16. ágúst 2025 safnast bitcoin-samfélagið saman í Helsinki á BTCHEL, fyrstu stóru bitcoin-ráðstefnunni sem haldin er í Finnlandi."
+   }
+  },
   "past": true,
   "ongoing": false,
   "html_url": "https://nordiccrypto.no/calendar/faa749a8058c/",

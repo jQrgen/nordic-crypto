@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "e6727b4858b5",
@@ -11,14 +11,19 @@
   "canonical_url": "https://realtid.se/bors-finans/makro/sa-kan-sverige-anvandas-for-att-finansiera-karnvapen",
   "title": "Så kan Sverige användas för att finansiera kärnvapen",
   "titles": {
-   "en": "How Sweden can be used to finance nuclear weapons"
+   "en": "How Sweden can be used to finance nuclear weapons",
+   "nn": "Slik kan Sverige brukast til å finansiere kjernevåpen",
+   "nb": "Slik kan Sverige brukes til å finansiere kjernevåpen",
+   "da": "Sådan kan Sverige bruges til at finansiere kernevåben",
+   "fi": "Näin Ruotsia voidaan käyttää ydinaseiden rahoittamiseen",
+   "is": "Svona má nota Svíþjóð til að fjármagna kjarnavopn"
   },
   "source": "realtid",
   "source_name": "Realtid",
   "country": "SE",
   "published_at": "2026-10-03T05:00:00+00:00",
   "first_published_on_site": "2026-10-03T17:59:40+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

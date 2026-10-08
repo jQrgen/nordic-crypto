@@ -1409,6 +1409,19 @@
      "primary_source": {
       "$ref": "#/components/schemas/NewsOutlet"
      },
+     "primary_source_document": {
+      "type": "object",
+      "nullable": true,
+      "description": "Editor-recorded original document, such as a regulator press release. name and url. Not the lead coverage outlet.",
+      "properties": {
+       "name": {
+        "type": "string"
+       },
+       "url": {
+        "type": "string"
+       }
+      }
+     },
      "also_covered_by": {
       "type": "array",
       "items": {
@@ -1653,6 +1666,19 @@
         "primary_source": {
          "$ref": "#/components/schemas/NewsOutlet"
         },
+        "primary_source_document": {
+         "type": "object",
+         "nullable": true,
+         "description": "Editor-recorded original document, such as a regulator press release. name and url. Not the lead coverage outlet.",
+         "properties": {
+          "name": {
+           "type": "string"
+          },
+          "url": {
+           "type": "string"
+          }
+         }
+        },
         "also_covered_by": {
          "type": "array",
          "items": {
@@ -1770,6 +1796,38 @@
        "type": "string"
       },
       "description": "Keys are site language codes: nn, nb, sv, da, fi, is. English lives in the sibling field."
+     },
+     "description": {
+      "type": "object",
+      "nullable": true,
+      "description": "The organiser's description. text is the original wording, lang is its language code, source_url is the page it was taken from. i18n holds nn, nb, sv, da, fi and is, and en when the original is not English. A missing translation is omitted. Null when no description was sourced. Kaupr is not included.",
+      "properties": {
+       "text": {
+        "type": "string"
+       },
+       "lang": {
+        "type": "string",
+        "nullable": true
+       },
+       "source_url": {
+        "type": "string"
+       },
+       "source_name": {
+        "type": "string",
+        "nullable": true
+       },
+       "retrieved": {
+        "type": "string",
+        "nullable": true
+       },
+       "i18n": {
+        "type": "object",
+        "additionalProperties": {
+         "type": "string"
+        },
+        "description": "Keys are site language codes: nn, nb, sv, da, fi, is. English lives in the sibling field."
+       }
+      }
      },
      "past": {
       "type": "boolean"
@@ -1929,6 +1987,38 @@
           "type": "string"
          },
          "description": "Keys are site language codes: nn, nb, sv, da, fi, is. English lives in the sibling field."
+        },
+        "description": {
+         "type": "object",
+         "nullable": true,
+         "description": "The organiser's description. text is the original wording, lang is its language code, source_url is the page it was taken from. i18n holds nn, nb, sv, da, fi and is, and en when the original is not English. A missing translation is omitted. Null when no description was sourced. Kaupr is not included.",
+         "properties": {
+          "text": {
+           "type": "string"
+          },
+          "lang": {
+           "type": "string",
+           "nullable": true
+          },
+          "source_url": {
+           "type": "string"
+          },
+          "source_name": {
+           "type": "string",
+           "nullable": true
+          },
+          "retrieved": {
+           "type": "string",
+           "nullable": true
+          },
+          "i18n": {
+           "type": "object",
+           "additionalProperties": {
+            "type": "string"
+           },
+           "description": "Keys are site language codes: nn, nb, sv, da, fi, is. English lives in the sibling field."
+          }
+         }
         },
         "past": {
          "type": "boolean"

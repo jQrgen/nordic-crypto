@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "country": "SE",
  "count": 4,
@@ -23,6 +23,21 @@
    "sponsored": null,
    "note": null,
    "note_i18n": {},
+   "description": {
+    "text": "We want to provide friendly and open events where we discuss bitcoin and its current and potential role in the global economy. If you're new to the idea, this is the place to go for educated discussions from both professionals and experienced amateurs in the space. And if you are said professional or experienced amateur, this is your opportunity to go in depth in the topic with like minded peers. Note! This is a Bitcoin Only-event. We are not interested in NFT's, altcoins or general blockchain discussions.",
+    "lang": "en",
+    "source_url": "https://www.meetup.com/swedish-bitcoin-meetups/events/316047111/",
+    "source_name": "Swedish Bitcoin Meetups (Meetup.com)",
+    "retrieved": "2026-10-07T23:50:00+00:00",
+    "i18n": {
+     "nn": "Me vil ha vennlege og opne treff der me diskuterer bitcoin og rolla han har og kan få i den globale økonomien. Er du ny, er dette staden for opplyste samtalar mellom fagfolk og erfarne amatørar. Er du ein av dei, kan du gå i djupna med likesinna. Merk: dette er eit arrangement berre for bitcoin. Me er ikkje interesserte i NFT-ar, altcoins eller generelle blockchain-diskusjonar.",
+     "nb": "Vi vil ha vennlige og åpne treff der vi diskuterer bitcoin og rollen den har og kan få i den globale økonomien. Er du ny, er dette stedet for opplyste samtaler mellom fagfolk og erfarne amatører. Er du en av dem, kan du gå i dybden med likesinnede. Merk: dette er et arrangement bare for bitcoin. Vi er ikke interessert i NFT-er, altcoins eller generelle blockchain-diskusjoner.",
+     "sv": "Vi vill ha vänliga och öppna träffar där vi diskuterar bitcoin och dess nuvarande och möjliga roll i den globala ekonomin. Om du är ny är det här platsen för initierade samtal mellan yrkespersoner och erfarna amatörer. Är du en av dem kan du gå på djupet med likasinnade. Observera: detta är ett evenemang bara för bitcoin. Vi är inte intresserade av NFT:er, altcoins eller allmänna diskussioner om blockkedjor.",
+     "da": "Vi vil have venlige og åbne møder, hvor vi diskuterer bitcoin og dens nuværende og mulige rolle i den globale økonomi. Er du ny, er det her stedet for oplyste samtaler mellem fagfolk og erfarne amatører. Er du en af dem, kan du gå i dybden med ligesindede. Bemærk: dette er et arrangement kun om bitcoin. Vi er ikke interesserede i NFT'er, altcoins eller generelle blockchain-diskussioner.",
+     "fi": "Haluamme ystävällisiä ja avoimia tapaamisia, joissa keskustellaan bitcoinista ja sen nykyisestä ja mahdollisesta roolista maailmantaloudessa. Jos aihe on sinulle uusi, täällä ammattilaiset ja kokeneet harrastajat keskustelevat siitä. Jos olet itse sellainen, voit syventyä aiheeseen samanhenkisten kanssa. Huom: tämä on vain bitcoin-tapahtuma. NFT:t, altcoinit ja yleiset lohkoketjukeskustelut eivät ole aiheena.",
+     "is": "Við viljum vingjarnlega og opna fundi þar sem rætt er um bitcoin og hlutverk þess í hagkerfi heimsins. Ef þú ert nýr í efninu er þetta staðurinn fyrir upplýstar umræður fagaðila og vanra áhugamanna. Ef þú ert slíkur geturðu farið djúpt í efnið með líkum. Athugið: þetta er aðeins bitcoin-viðburður. Við höfum ekki áhuga á NFT, altcoins eða almennum umræðum um bálkakeðju."
+    }
+   },
    "past": false,
    "ongoing": false,
    "html_url": "https://nordiccrypto.no/calendar/ccc2eea6b213/",
@@ -73,6 +88,21 @@
    "sponsored": null,
    "note": null,
    "note_i18n": {},
+   "description": {
+    "text": "A casual meetup for Bitcoiners and anyone curious about Bitcoin. Come hang out, meet new people, exchange ideas and talk about everything from Bitcoin and Lightning to sovereignty, technology, or whatever else comes up. No presentations or formal agenda, just an open and relaxed space to connect. Whether you've been into Bitcoin for years or are just starting to explore it, you're welcome. Bitcoin only. No crypto.",
+    "lang": "en",
+    "source_url": "https://www.meetup.com/swedish-bitcoin-meetups/events/316799619/",
+    "source_name": "Swedish Bitcoin Meetups (Meetup.com)",
+    "retrieved": "2026-10-07T23:50:00+00:00",
+    "i18n": {
+     "nn": "Eit uformelt treff for dei som er opptekne av bitcoin, og for dei som er nysgjerrige. Kom og møt folk, byt idear og snakk om alt frå bitcoin og Lightning til sjølvråderett, teknologi eller det som kjem opp. Ingen presentasjonar og ingen fast agenda, berre eit ope og avslappa rom. Du er velkommen anten du har halde på med bitcoin i årevis eller nettopp har byrja. Berre bitcoin. Ikkje annan krypto.",
+     "nb": "Et uformelt treff for dem som er opptatt av bitcoin, og for dem som er nysgjerrige. Kom og møt folk, bytt ideer og snakk om alt fra bitcoin og Lightning til selvstendighet, teknologi eller det som dukker opp. Ingen presentasjoner og ingen fast agenda, bare et åpent og avslappet rom. Du er velkommen enten du har holdt på med bitcoin i årevis eller nettopp har begynt. Bare bitcoin. Ikke annen krypto.",
+     "sv": "En avslappad träff för den som håller på med bitcoin och för alla som vill lära sig mer om det. Kom och träffa folk, byt idéer och prata om allt från bitcoin och Lightning till självständighet, teknik eller vad som nu kommer upp. Inga presentationer och ingen fast agenda, bara ett öppet och avspänt rum. Du är välkommen vare sig du har hållit på med bitcoin i flera år eller just har börjat. Bara bitcoin. Ingen annan krypto.",
+     "da": "Et uformelt møde for dem, der går op i bitcoin, og for dem, der er nysgerrige. Kom og mød folk, byt idéer og tal om alt fra bitcoin og Lightning til selvbestemmelse, teknologi eller det, der dukker op. Ingen præsentationer og ingen fast dagsorden, bare et åbent og afslappet rum. Du er velkommen, uanset om du har beskæftiget dig med bitcoin i årevis eller lige er begyndt. Kun bitcoin. Ikke anden krypto.",
+     "fi": "Rento tapaaminen bitcoinin parissa oleville ja aiheesta kiinnostuneille. Tule tapaamaan ihmisiä, vaihtamaan ajatuksia ja puhumaan bitcoinista, Lightningista, itsemääräämisestä, tekniikasta tai siitä, mitä mieleen tulee. Ei esityksiä eikä kiinteää ohjelmaa, vain avoin ja rento tila. Olet tervetullut, olit sitten ollut bitcoinin parissa vuosia tai vasta aloittamassa. Vain bitcoin. Ei muuta kryptoa.",
+     "is": "Óformlegur fundur fyrir þá sem fást við bitcoin og þá sem eru forvitnir. Komdu og hittu fólk, skiptu á hugmyndum og ræddu allt frá bitcoin og Lightning til sjálfsforræðis, tækni eða þess sem kemur upp. Engar kynningar og engin föst dagskrá, bara opið og afslappað rými. Þú ert velkominn hvort sem þú hefur fengist við bitcoin í mörg ár eða ert rétt að byrja. Aðeins bitcoin. Ekki annað krypto."
+    }
+   },
    "past": false,
    "ongoing": false,
    "html_url": "https://nordiccrypto.no/calendar/c4a53ca9bd26/",
@@ -123,6 +153,21 @@
    "sponsored": null,
    "note": null,
    "note_i18n": {},
+   "description": {
+    "text": "We want to provide friendly and open events where we discuss bitcoin and its current and potential role in the global economy. If you're new to the idea, this is the place to go for educated discussions from both professionals and experienced amateurs in the space. And if you are said professional or experienced amateur, this is your opportunity to go in depth in the topic with like minded peers. Note! This is a Bitcoin Only-event. We are not interested in NFT's, altcoins or general blockchain discussions.",
+    "lang": "en",
+    "source_url": "https://www.meetup.com/swedish-bitcoin-meetups/events/312669067/",
+    "source_name": "Swedish Bitcoin Meetups (Meetup.com)",
+    "retrieved": "2026-10-07T23:50:00+00:00",
+    "i18n": {
+     "nn": "Me vil ha vennlege og opne treff der me diskuterer bitcoin og rolla han har og kan få i den globale økonomien. Er du ny, er dette staden for opplyste samtalar mellom fagfolk og erfarne amatørar. Er du ein av dei, kan du gå i djupna med likesinna. Merk: dette er eit arrangement berre for bitcoin. Me er ikkje interesserte i NFT-ar, altcoins eller generelle blockchain-diskusjonar.",
+     "nb": "Vi vil ha vennlige og åpne treff der vi diskuterer bitcoin og rollen den har og kan få i den globale økonomien. Er du ny, er dette stedet for opplyste samtaler mellom fagfolk og erfarne amatører. Er du en av dem, kan du gå i dybden med likesinnede. Merk: dette er et arrangement bare for bitcoin. Vi er ikke interessert i NFT-er, altcoins eller generelle blockchain-diskusjoner.",
+     "sv": "Vi vill ha vänliga och öppna träffar där vi diskuterar bitcoin och dess nuvarande och möjliga roll i den globala ekonomin. Om du är ny är det här platsen för initierade samtal mellan yrkespersoner och erfarna amatörer. Är du en av dem kan du gå på djupet med likasinnade. Observera: detta är ett evenemang bara för bitcoin. Vi är inte intresserade av NFT:er, altcoins eller allmänna diskussioner om blockkedjor.",
+     "da": "Vi vil have venlige og åbne møder, hvor vi diskuterer bitcoin og dens nuværende og mulige rolle i den globale økonomi. Er du ny, er det her stedet for oplyste samtaler mellem fagfolk og erfarne amatører. Er du en af dem, kan du gå i dybden med ligesindede. Bemærk: dette er et arrangement kun om bitcoin. Vi er ikke interesserede i NFT'er, altcoins eller generelle blockchain-diskussioner.",
+     "fi": "Haluamme ystävällisiä ja avoimia tapaamisia, joissa keskustellaan bitcoinista ja sen nykyisestä ja mahdollisesta roolista maailmantaloudessa. Jos aihe on sinulle uusi, täällä ammattilaiset ja kokeneet harrastajat keskustelevat siitä. Jos olet itse sellainen, voit syventyä aiheeseen samanhenkisten kanssa. Huom: tämä on vain bitcoin-tapahtuma. NFT:t, altcoinit ja yleiset lohkoketjukeskustelut eivät ole aiheena.",
+     "is": "Við viljum vingjarnlega og opna fundi þar sem rætt er um bitcoin og hlutverk þess í hagkerfi heimsins. Ef þú ert nýr í efninu er þetta staðurinn fyrir upplýstar umræður fagaðila og vanra áhugamanna. Ef þú ert slíkur geturðu farið djúpt í efnið með líkum. Athugið: þetta er aðeins bitcoin-viðburður. Við höfum ekki áhuga á NFT, altcoins eða almennum umræðum um bálkakeðju."
+    }
+   },
    "past": false,
    "ongoing": false,
    "html_url": "https://nordiccrypto.no/calendar/a6cadcf35c22/",
@@ -173,6 +218,21 @@
    "sponsored": null,
    "note": null,
    "note_i18n": {},
+   "description": {
+    "text": "We want to provide friendly and open events where we discuss bitcoin and its current and potential role in the global economy. If you're new to the idea, this is the place to go for educated discussions from both professionals and experienced amateurs in the space. And if you are said professional or experienced amateur, this is your opportunity to go in depth in the topic with like minded peers. Note! This is a Bitcoin Only-event. We are not interested in NFT's, altcoins or general blockchain discussions.",
+    "lang": "en",
+    "source_url": "https://www.meetup.com/swedish-bitcoin-meetups/events/312669070/",
+    "source_name": "Swedish Bitcoin Meetups (Meetup.com)",
+    "retrieved": "2026-10-07T23:50:00+00:00",
+    "i18n": {
+     "nn": "Me vil ha vennlege og opne treff der me diskuterer bitcoin og rolla han har og kan få i den globale økonomien. Er du ny, er dette staden for opplyste samtalar mellom fagfolk og erfarne amatørar. Er du ein av dei, kan du gå i djupna med likesinna. Merk: dette er eit arrangement berre for bitcoin. Me er ikkje interesserte i NFT-ar, altcoins eller generelle blockchain-diskusjonar.",
+     "nb": "Vi vil ha vennlige og åpne treff der vi diskuterer bitcoin og rollen den har og kan få i den globale økonomien. Er du ny, er dette stedet for opplyste samtaler mellom fagfolk og erfarne amatører. Er du en av dem, kan du gå i dybden med likesinnede. Merk: dette er et arrangement bare for bitcoin. Vi er ikke interessert i NFT-er, altcoins eller generelle blockchain-diskusjoner.",
+     "sv": "Vi vill ha vänliga och öppna träffar där vi diskuterar bitcoin och dess nuvarande och möjliga roll i den globala ekonomin. Om du är ny är det här platsen för initierade samtal mellan yrkespersoner och erfarna amatörer. Är du en av dem kan du gå på djupet med likasinnade. Observera: detta är ett evenemang bara för bitcoin. Vi är inte intresserade av NFT:er, altcoins eller allmänna diskussioner om blockkedjor.",
+     "da": "Vi vil have venlige og åbne møder, hvor vi diskuterer bitcoin og dens nuværende og mulige rolle i den globale økonomi. Er du ny, er det her stedet for oplyste samtaler mellem fagfolk og erfarne amatører. Er du en af dem, kan du gå i dybden med ligesindede. Bemærk: dette er et arrangement kun om bitcoin. Vi er ikke interesserede i NFT'er, altcoins eller generelle blockchain-diskussioner.",
+     "fi": "Haluamme ystävällisiä ja avoimia tapaamisia, joissa keskustellaan bitcoinista ja sen nykyisestä ja mahdollisesta roolista maailmantaloudessa. Jos aihe on sinulle uusi, täällä ammattilaiset ja kokeneet harrastajat keskustelevat siitä. Jos olet itse sellainen, voit syventyä aiheeseen samanhenkisten kanssa. Huom: tämä on vain bitcoin-tapahtuma. NFT:t, altcoinit ja yleiset lohkoketjukeskustelut eivät ole aiheena.",
+     "is": "Við viljum vingjarnlega og opna fundi þar sem rætt er um bitcoin og hlutverk þess í hagkerfi heimsins. Ef þú ert nýr í efninu er þetta staðurinn fyrir upplýstar umræður fagaðila og vanra áhugamanna. Ef þú ert slíkur geturðu farið djúpt í efnið með líkum. Athugið: þetta er aðeins bitcoin-viðburður. Við höfum ekki áhuga á NFT, altcoins eða almennum umræðum um bálkakeðju."
+    }
+   },
    "past": false,
    "ongoing": false,
    "html_url": "https://nordiccrypto.no/calendar/e884ba1f0333/",

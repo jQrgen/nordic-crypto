@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "4cd0147fef4e",
@@ -20,6 +20,21 @@
   "sponsored": null,
   "note": null,
   "note_i18n": {},
+  "description": {
+   "text": "A day for Bitcoin mining and Nordic energy professionals, exploring grid stability, heat reuse and surplus power. Co-organized by BTCHEL and EBEA.",
+   "lang": "en",
+   "source_url": "https://info.btchel.com/index.html",
+   "source_name": "BTCHEL",
+   "retrieved": "2026-10-07T23:50:00+00:00",
+   "i18n": {
+    "nn": "Ein dag for bitcoin-utvinning og nordiske energifagfolk, om stabilitet i nettet, gjenbruk av varme og overskotskraft. I samarbeid mellom BTCHEL og EBEA.",
+    "nb": "En dag for bitcoin-utvinning og nordiske energifagfolk, om stabilitet i nettet, gjenbruk av varme og overskuddskraft. I samarbeid mellom BTCHEL og EBEA.",
+    "sv": "En dag för bitcoinutvinning och nordiska energifack, om stabilitet i nätet, återbruk av värme och överskottskraft. I samarbete mellan BTCHEL och EBEA.",
+    "da": "En dag for bitcoin-minedrift og nordiske energifagfolk, om stabilitet i nettet, genbrug af varme og overskudskraft. I samarbejde mellem BTCHEL og EBEA.",
+    "fi": "Päivä bitcoin-louhinnalle ja pohjoismaisille energia-ammattilaisille, aiheina verkon vakaus, lämmön uusiokäyttö ja ylijäämäsähkö. BTCHELin ja EBEA:n yhdessä järjestämä.",
+    "is": "Dagur fyrir bitcoin-námugröft og norræna orkusérfræðinga, um stöðugleika nets, endurnýtingu varma og umframorku. Í samstarfi BTCHEL og EBEA."
+   }
+  },
   "past": true,
   "ongoing": false,
   "html_url": "https://nordiccrypto.no/calendar/4cd0147fef4e/",

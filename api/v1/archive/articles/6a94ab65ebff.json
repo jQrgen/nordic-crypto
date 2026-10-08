@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "6a94ab65ebff",
@@ -11,14 +11,19 @@
   "canonical_url": "https://kaupr.io/nyheter/nytt-nederlag-for-valuno-i-kampen-om-mica-lisens",
   "title": "Nytt nederlag for Valuno i kampen om MiCA-lisens",
   "titles": {
-   "en": "New defeat for Valuno in the fight for a MiCA licence"
+   "en": "New defeat for Valuno in the fight for a MiCA licence",
+   "nn": "Nytt nederlag for Valuno i kampen om MiCA-løyve",
+   "sv": "Nytt nederlag för Valuno i kampen om MiCA-tillstånd",
+   "da": "Nyt nederlag for Valuno i kampen om MiCA-licens",
+   "fi": "Uusi tappio Valunolle MiCA-luvan taistelussa",
+   "is": "Nýtt ósigur fyrir Valuno í baráttunni um MiCA-leyfi"
   },
   "source": "kaupr",
   "source_name": "Kaupr",
   "country": "SE",
   "published_at": "2026-09-07T12:00:00+00:00",
   "first_published_on_site": "2026-10-03T17:59:40+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

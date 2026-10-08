@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "a2a605592458",
@@ -11,14 +11,18 @@
   "canonical_url": "https://kaupr.io/nyheter/blockchain-pa-tech-scenen-og-pa-dagsorden-i-stockholm",
   "title": "Blockchain på tech-scenen og på dagsorden i Stockholm",
   "titles": {
-   "en": "Blockchain on the tech scene and on the agenda in Stockholm"
+   "en": "Blockchain on the tech scene and on the agenda in Stockholm",
+   "sv": "Blockchain på techscenen och på dagordningen i Stockholm",
+   "da": "Blockchain på techscenen og på dagsordenen i Stockholm",
+   "fi": "Lohkoketju tekniikkanäyttämöllä ja esityslistalla Tukholmassa",
+   "is": "Bálkakeðja á tæknisviðinu og á dagskrá í Stokkhólmi"
   },
   "source": "kaupr",
   "source_name": "Kaupr",
   "country": "SE",
   "published_at": "2026-09-10T12:00:00+00:00",
   "first_published_on_site": "2026-10-03T17:59:40+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "e1e3eef6ecff",
@@ -11,14 +11,19 @@
   "canonical_url": "https://inderes.se/en/releases/nbx-nbx-registered-as-moneygram-agent",
   "title": "NBX registrert som MoneyGram-agent (børsmelding, engelsk)",
   "titles": {
-   "en": "NBX registered as a MoneyGram agent (stock exchange release)"
+   "en": "NBX registered as a MoneyGram agent (stock exchange release)",
+   "nn": "NBX er registrert som MoneyGram-agent (børsmelding, engelsk)",
+   "sv": "NBX registrerat som MoneyGram-ombud (börsmeddelande, engelska)",
+   "da": "NBX registreret som MoneyGram-agent (børsmeddelelse, engelsk)",
+   "fi": "NBX rekisteröity MoneyGram-agentiksi (pörssitiedote, englanniksi)",
+   "is": "NBX skráð sem umboðsaðili MoneyGram (kauphallartilkynning, á ensku)"
   },
   "source": "nbx-ir",
   "source_name": "NBX (børsmelding)",
   "country": "NO",
   "published_at": "2026-09-17T06:00:00+00:00",
   "first_published_on_site": "2026-10-03T18:28:21+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

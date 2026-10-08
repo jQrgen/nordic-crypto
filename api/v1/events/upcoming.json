@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "count": 11,
  "events": [
@@ -22,6 +22,21 @@
    "sponsored": null,
    "note": null,
    "note_i18n": {},
+   "description": {
+    "text": "We want to provide friendly and open events where we discuss bitcoin and its current and potential role in the global economy. If you're new to the idea, this is the place to go for educated discussions from both professionals and experienced amateurs in the space. And if you are said professional or experienced amateur, this is your opportunity to go in depth in the topic with like minded peers. Note! This is a Bitcoin Only-event. We are not interested in NFT's, altcoins or general blockchain discussions.",
+    "lang": "en",
+    "source_url": "https://www.meetup.com/swedish-bitcoin-meetups/events/316047111/",
+    "source_name": "Swedish Bitcoin Meetups (Meetup.com)",
+    "retrieved": "2026-10-07T23:50:00+00:00",
+    "i18n": {
+     "nn": "Me vil ha vennlege og opne treff der me diskuterer bitcoin og rolla han har og kan få i den globale økonomien. Er du ny, er dette staden for opplyste samtalar mellom fagfolk og erfarne amatørar. Er du ein av dei, kan du gå i djupna med likesinna. Merk: dette er eit arrangement berre for bitcoin. Me er ikkje interesserte i NFT-ar, altcoins eller generelle blockchain-diskusjonar.",
+     "nb": "Vi vil ha vennlige og åpne treff der vi diskuterer bitcoin og rollen den har og kan få i den globale økonomien. Er du ny, er dette stedet for opplyste samtaler mellom fagfolk og erfarne amatører. Er du en av dem, kan du gå i dybden med likesinnede. Merk: dette er et arrangement bare for bitcoin. Vi er ikke interessert i NFT-er, altcoins eller generelle blockchain-diskusjoner.",
+     "sv": "Vi vill ha vänliga och öppna träffar där vi diskuterar bitcoin och dess nuvarande och möjliga roll i den globala ekonomin. Om du är ny är det här platsen för initierade samtal mellan yrkespersoner och erfarna amatörer. Är du en av dem kan du gå på djupet med likasinnade. Observera: detta är ett evenemang bara för bitcoin. Vi är inte intresserade av NFT:er, altcoins eller allmänna diskussioner om blockkedjor.",
+     "da": "Vi vil have venlige og åbne møder, hvor vi diskuterer bitcoin og dens nuværende og mulige rolle i den globale økonomi. Er du ny, er det her stedet for oplyste samtaler mellem fagfolk og erfarne amatører. Er du en af dem, kan du gå i dybden med ligesindede. Bemærk: dette er et arrangement kun om bitcoin. Vi er ikke interesserede i NFT'er, altcoins eller generelle blockchain-diskussioner.",
+     "fi": "Haluamme ystävällisiä ja avoimia tapaamisia, joissa keskustellaan bitcoinista ja sen nykyisestä ja mahdollisesta roolista maailmantaloudessa. Jos aihe on sinulle uusi, täällä ammattilaiset ja kokeneet harrastajat keskustelevat siitä. Jos olet itse sellainen, voit syventyä aiheeseen samanhenkisten kanssa. Huom: tämä on vain bitcoin-tapahtuma. NFT:t, altcoinit ja yleiset lohkoketjukeskustelut eivät ole aiheena.",
+     "is": "Við viljum vingjarnlega og opna fundi þar sem rætt er um bitcoin og hlutverk þess í hagkerfi heimsins. Ef þú ert nýr í efninu er þetta staðurinn fyrir upplýstar umræður fagaðila og vanra áhugamanna. Ef þú ert slíkur geturðu farið djúpt í efnið með líkum. Athugið: þetta er aðeins bitcoin-viðburður. Við höfum ekki áhuga á NFT, altcoins eða almennum umræðum um bálkakeðju."
+    }
+   },
    "past": false,
    "ongoing": false,
    "html_url": "https://nordiccrypto.no/calendar/ccc2eea6b213/",
@@ -79,6 +94,21 @@
     "fi": "Maksullinen (239 Norjan kruunua muille kuin jäsenille).",
     "is": "Aðgangseyrir (239 norskar krónur fyrir utanfélagsmenn)."
    },
+   "description": {
+    "text": "I kjølvannet av bitcoin har vi fått en rekke apper som endrer samtiden vår og utvider finanssektoren. Stikkord er fremtidsmarkeder som «Polymarket», kryptobanken «Aave», nyvinninger innen forsikring, stablecoins og nye former for statlige penger. I samarbeid med Bitcoinpolitisk Institutt Norge presenterer Polyteknisk Forening appene som bitcoin har ført med seg, i tillegg til bitcoin selv.",
+    "lang": "nb",
+    "source_url": "https://www.polyteknisk.no/program/crypto-killer-apps",
+    "source_name": "Polyteknisk Forening (program)",
+    "retrieved": "2026-10-07T23:50:00+00:00",
+    "i18n": {
+     "en": "In the wake of bitcoin a number of apps have appeared that change how things work and extend the financial sector. Examples are prediction markets such as Polymarket, the crypto bank Aave, new insurance, stablecoins and new forms of state money. Together with Bitcoinpolitisk Institutt Norge, Polyteknisk Forening presents the apps that bitcoin has led to, as well as bitcoin itself.",
+     "nn": "I kjølvatnet av bitcoin har me fått ei rekkje appar som endrar samtida vår og utvidar finanssektoren. Stikkord er framtidsmarknader som Polymarket, kryptobanken Aave, nyskaping innan forsikring, stablecoins og nye former for statlege pengar. I samarbeid med Bitcoinpolitisk Institutt Norge presenterer Polyteknisk Forening appane som bitcoin har ført med seg, i tillegg til bitcoin sjølv.",
+     "sv": "I bitcoins kölvatten har det kommit en rad appar som förändrar samtiden och utvidgar finanssektorn. Exempel är framtidsmarknader som Polymarket, kryptobanken Aave, nyheter inom försäkring, stablecoins och nya former av statliga pengar. Tillsammans med Bitcoinpolitisk Institutt Norge presenterar Polyteknisk Forening apparna som bitcoin har fört med sig, utöver bitcoin själv.",
+     "da": "I kølvandet på bitcoin er der kommet en række apps, som ændrer samtiden og udvider finanssektoren. Stikord er fremtidsmarkeder som Polymarket, kryptobanken Aave, nyt inden for forsikring, stablecoins og nye former for statspenge. Sammen med Bitcoinpolitisk Institutt Norge præsenterer Polyteknisk Forening de apps, som bitcoin har ført med sig, ud over bitcoin selv.",
+     "fi": "Bitcoinin vanavedessä on tullut joukko sovelluksia, jotka muuttavat nykyhetkeä ja laajentavat rahoitusalaa. Esimerkkejä ovat ennustemarkkinat kuten Polymarket, kryptopankki Aave, vakuutusten uutuudet, stablecoinit ja uudet valtiollisen rahan muodot. Yhdessä Bitcoinpolitisk Institutt Norgen kanssa Polyteknisk Forening esittelee sovellukset, joita bitcoin on tuonut mukanaan, bitcoinin itsensä lisäksi.",
+     "is": "Í kjölfar bitcoin hafa komið fram fjölmörg öpp sem breyta samtímanum og víkka fjármálageirann. Dæmi eru framtíðarmarkaðir eins og Polymarket, kryptobankinn Aave, nýjungar í tryggingum, stablecoins og ný form ríkisfjár. Í samstarfi við Bitcoinpolitisk Institutt Norge kynnir Polyteknisk Forening öppin sem bitcoin hefur leitt af sér, auk bitcoin sjálfs."
+    }
+   },
    "past": false,
    "ongoing": false,
    "html_url": "https://nordiccrypto.no/calendar/89ced460e4ca/",
@@ -129,6 +159,21 @@
    "sponsored": null,
    "note": null,
    "note_i18n": {},
+   "description": {
+    "text": "A casual meetup for Bitcoiners and anyone curious about Bitcoin. Come hang out, meet new people, exchange ideas and talk about everything from Bitcoin and Lightning to sovereignty, technology, or whatever else comes up. No presentations or formal agenda, just an open and relaxed space to connect. Whether you've been into Bitcoin for years or are just starting to explore it, you're welcome. Bitcoin only. No crypto.",
+    "lang": "en",
+    "source_url": "https://www.meetup.com/swedish-bitcoin-meetups/events/316799619/",
+    "source_name": "Swedish Bitcoin Meetups (Meetup.com)",
+    "retrieved": "2026-10-07T23:50:00+00:00",
+    "i18n": {
+     "nn": "Eit uformelt treff for dei som er opptekne av bitcoin, og for dei som er nysgjerrige. Kom og møt folk, byt idear og snakk om alt frå bitcoin og Lightning til sjølvråderett, teknologi eller det som kjem opp. Ingen presentasjonar og ingen fast agenda, berre eit ope og avslappa rom. Du er velkommen anten du har halde på med bitcoin i årevis eller nettopp har byrja. Berre bitcoin. Ikkje annan krypto.",
+     "nb": "Et uformelt treff for dem som er opptatt av bitcoin, og for dem som er nysgjerrige. Kom og møt folk, bytt ideer og snakk om alt fra bitcoin og Lightning til selvstendighet, teknologi eller det som dukker opp. Ingen presentasjoner og ingen fast agenda, bare et åpent og avslappet rom. Du er velkommen enten du har holdt på med bitcoin i årevis eller nettopp har begynt. Bare bitcoin. Ikke annen krypto.",
+     "sv": "En avslappad träff för den som håller på med bitcoin och för alla som vill lära sig mer om det. Kom och träffa folk, byt idéer och prata om allt från bitcoin och Lightning till självständighet, teknik eller vad som nu kommer upp. Inga presentationer och ingen fast agenda, bara ett öppet och avspänt rum. Du är välkommen vare sig du har hållit på med bitcoin i flera år eller just har börjat. Bara bitcoin. Ingen annan krypto.",
+     "da": "Et uformelt møde for dem, der går op i bitcoin, og for dem, der er nysgerrige. Kom og mød folk, byt idéer og tal om alt fra bitcoin og Lightning til selvbestemmelse, teknologi eller det, der dukker op. Ingen præsentationer og ingen fast dagsorden, bare et åbent og afslappet rum. Du er velkommen, uanset om du har beskæftiget dig med bitcoin i årevis eller lige er begyndt. Kun bitcoin. Ikke anden krypto.",
+     "fi": "Rento tapaaminen bitcoinin parissa oleville ja aiheesta kiinnostuneille. Tule tapaamaan ihmisiä, vaihtamaan ajatuksia ja puhumaan bitcoinista, Lightningista, itsemääräämisestä, tekniikasta tai siitä, mitä mieleen tulee. Ei esityksiä eikä kiinteää ohjelmaa, vain avoin ja rento tila. Olet tervetullut, olit sitten ollut bitcoinin parissa vuosia tai vasta aloittamassa. Vain bitcoin. Ei muuta kryptoa.",
+     "is": "Óformlegur fundur fyrir þá sem fást við bitcoin og þá sem eru forvitnir. Komdu og hittu fólk, skiptu á hugmyndum og ræddu allt frá bitcoin og Lightning til sjálfsforræðis, tækni eða þess sem kemur upp. Engar kynningar og engin föst dagskrá, bara opið og afslappað rými. Þú ert velkominn hvort sem þú hefur fengist við bitcoin í mörg ár eða ert rétt að byrja. Aðeins bitcoin. Ekki annað krypto."
+    }
+   },
    "past": false,
    "ongoing": false,
    "html_url": "https://nordiccrypto.no/calendar/c4a53ca9bd26/",
@@ -186,6 +231,21 @@
     "fi": "Tiedoksi: puhuja Jørgen S. Notland on Nordic Crypton julkaisija.",
     "is": "Til upplýsingar: fyrirlesarinn, Jørgen S. Notland, er útgefandi Nordic Crypto."
    },
+   "description": {
+    "text": "Nexa blockchain: Scaling Bitcoin Tech-demo m/overraskelse og pizza! At this event jQrgen, member of Bitcoin Unlimited that works with the Nexa blockchain project will present what is unique about the Nexa blockchain. The Bitcoin Unlimited team has a long history of working with core Bitcoin and Bitcoin Cash software. The Nexa blockchain is the latest project. Nexa is a work in progress software-fork of Bitcoin/Bitcoin Cash with its own genesis block.",
+    "lang": "en",
+    "source_url": "https://www.meetup.com/oslo-blockchain-meetup/events/316768752/",
+    "source_name": "Oslo Blockchain Meetup (Meetup.com)",
+    "retrieved": "2026-10-07T23:50:00+00:00",
+    "i18n": {
+     "nn": "Nexa-blockchain: skalering av bitcoin. Tekniske demonstrasjon med overrasking og pizza. På dette treffet legg jQrgen, medlem av Bitcoin Unlimited som arbeider med Nexa, fram kva som er særskilt med Nexa-blockchain. Bitcoin Unlimited har lenge arbeidd med programvare for Bitcoin og Bitcoin Cash. Nexa er det siste prosjektet. Nexa er ein programvareforgrening av Bitcoin/Bitcoin Cash under arbeid, med sin eigen genesis-blokk.",
+     "nb": "Nexa-blockchain: skalering av bitcoin. Teknisk demo med overraskelse og pizza. På dette treffet presenterer jQrgen, medlem av Bitcoin Unlimited som arbeider med Nexa, hva som er særegent med Nexa-blockchain. Bitcoin Unlimited har lenge arbeidet med programvare for Bitcoin og Bitcoin Cash. Nexa er det siste prosjektet. Nexa er en programvareforgrening av Bitcoin/Bitcoin Cash under arbeid, med sin egen genesis-blokk.",
+     "sv": "Nexa-blockkedjan: skalning av bitcoin. Teknikdemo med en överraskning och pizza. På den här träffen presenterar jQrgen, medlem i Bitcoin Unlimited som arbetar med Nexa, vad som är särskilt med Nexa-blockkedjan. Bitcoin Unlimited har länge arbetat med programvara för Bitcoin och Bitcoin Cash. Nexa är det senaste projektet. Nexa är en programvaruförgrening av Bitcoin/Bitcoin Cash under arbete, med ett eget genesis-block.",
+     "da": "Nexa-blockchain: skalering af bitcoin. Teknisk demo med en overraskelse og pizza. På dette møde præsenterer jQrgen, medlem af Bitcoin Unlimited som arbejder med Nexa, hvad der er særligt ved Nexa-blockchain. Bitcoin Unlimited har længe arbejdet med software til Bitcoin og Bitcoin Cash. Nexa er det seneste projekt. Nexa er en softwareforgrening af Bitcoin/Bitcoin Cash under arbejde, med sin egen genesis-blok.",
+     "fi": "Nexa-lohkoketju: bitcoinin skaalaus. Tekninen demo, yllätys ja pizza. Tässä tapaamisessa jQrgen, Bitcoin Unlimitedin jäsen joka työskentelee Nexan parissa, esittelee mikä Nexa-lohkoketjussa on erityistä. Bitcoin Unlimited on pitkään tehnyt Bitcoin- ja Bitcoin Cash -ohjelmistoa. Nexa on uusin hanke. Nexa on keskeneräinen ohjelmistohaarukka Bitcoinista ja Bitcoin Cashista, omalla genesis-lohkollaan.",
+     "is": "Nexa-bálkakeðja: skala bitcoin. Tæknisýning með óvæntu og pítsu. Á þessum fundi kynnir jQrgen, meðlimur í Bitcoin Unlimited sem vinnur að Nexa, hvað er sérstakt við Nexa-bálkakeðjuna. Bitcoin Unlimited hefur lengi unnið að hugbúnaði fyrir Bitcoin og Bitcoin Cash. Nexa er nýjasta verkefnið. Nexa er hugbúnaðargrein af Bitcoin/Bitcoin Cash í vinnslu, með eigin genesis-blokk."
+    }
+   },
    "past": false,
    "ongoing": false,
    "html_url": "https://nordiccrypto.no/calendar/a1ea7afabcb0/",
@@ -236,6 +296,21 @@
    "sponsored": null,
    "note": null,
    "note_i18n": {},
+   "description": {
+    "text": "We want to provide friendly and open events where we discuss bitcoin and its current and potential role in the global economy. If you're new to the idea, this is the place to go for educated discussions from both professionals and experienced amateurs in the space. And if you are said professional or experienced amateur, this is your opportunity to go in depth in the topic with like minded peers. Note! This is a Bitcoin Only-event. We are not interested in NFT's, altcoins or general blockchain discussions.",
+    "lang": "en",
+    "source_url": "https://www.meetup.com/swedish-bitcoin-meetups/events/312669067/",
+    "source_name": "Swedish Bitcoin Meetups (Meetup.com)",
+    "retrieved": "2026-10-07T23:50:00+00:00",
+    "i18n": {
+     "nn": "Me vil ha vennlege og opne treff der me diskuterer bitcoin og rolla han har og kan få i den globale økonomien. Er du ny, er dette staden for opplyste samtalar mellom fagfolk og erfarne amatørar. Er du ein av dei, kan du gå i djupna med likesinna. Merk: dette er eit arrangement berre for bitcoin. Me er ikkje interesserte i NFT-ar, altcoins eller generelle blockchain-diskusjonar.",
+     "nb": "Vi vil ha vennlige og åpne treff der vi diskuterer bitcoin og rollen den har og kan få i den globale økonomien. Er du ny, er dette stedet for opplyste samtaler mellom fagfolk og erfarne amatører. Er du en av dem, kan du gå i dybden med likesinnede. Merk: dette er et arrangement bare for bitcoin. Vi er ikke interessert i NFT-er, altcoins eller generelle blockchain-diskusjoner.",
+     "sv": "Vi vill ha vänliga och öppna träffar där vi diskuterar bitcoin och dess nuvarande och möjliga roll i den globala ekonomin. Om du är ny är det här platsen för initierade samtal mellan yrkespersoner och erfarna amatörer. Är du en av dem kan du gå på djupet med likasinnade. Observera: detta är ett evenemang bara för bitcoin. Vi är inte intresserade av NFT:er, altcoins eller allmänna diskussioner om blockkedjor.",
+     "da": "Vi vil have venlige og åbne møder, hvor vi diskuterer bitcoin og dens nuværende og mulige rolle i den globale økonomi. Er du ny, er det her stedet for oplyste samtaler mellem fagfolk og erfarne amatører. Er du en af dem, kan du gå i dybden med ligesindede. Bemærk: dette er et arrangement kun om bitcoin. Vi er ikke interesserede i NFT'er, altcoins eller generelle blockchain-diskussioner.",
+     "fi": "Haluamme ystävällisiä ja avoimia tapaamisia, joissa keskustellaan bitcoinista ja sen nykyisestä ja mahdollisesta roolista maailmantaloudessa. Jos aihe on sinulle uusi, täällä ammattilaiset ja kokeneet harrastajat keskustelevat siitä. Jos olet itse sellainen, voit syventyä aiheeseen samanhenkisten kanssa. Huom: tämä on vain bitcoin-tapahtuma. NFT:t, altcoinit ja yleiset lohkoketjukeskustelut eivät ole aiheena.",
+     "is": "Við viljum vingjarnlega og opna fundi þar sem rætt er um bitcoin og hlutverk þess í hagkerfi heimsins. Ef þú ert nýr í efninu er þetta staðurinn fyrir upplýstar umræður fagaðila og vanra áhugamanna. Ef þú ert slíkur geturðu farið djúpt í efnið með líkum. Athugið: þetta er aðeins bitcoin-viðburður. Við höfum ekki áhuga á NFT, altcoins eða almennum umræðum um bálkakeðju."
+    }
+   },
    "past": false,
    "ongoing": false,
    "html_url": "https://nordiccrypto.no/calendar/a6cadcf35c22/",
@@ -286,6 +361,21 @@
    "sponsored": null,
    "note": null,
    "note_i18n": {},
+   "description": {
+    "text": "Bitcoin meetup - meet the local bitcoiners, network, present your projects and ideas or just hang out! Topics include everything that remotely touches Bitcoin.",
+    "lang": "en",
+    "source_url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/events/qjzrxgyjcpbjb/",
+    "source_name": "Helsinki Bitcoin Hobbyists (Meetup.com)",
+    "retrieved": "2026-10-07T23:50:00+00:00",
+    "i18n": {
+     "nn": "Bitcoin-treff. Møt dei lokale, knyt kontakt, legg fram prosjekta og ideane dine, eller berre ver der. Emna er alt som rører bitcoin.",
+     "nb": "Bitcoin-treff. Møt de lokale, knytt kontakt, legg frem prosjektene og ideene dine, eller bare vær der. Temaene er alt som rører bitcoin.",
+     "sv": "Bitcointräff. Träffa de lokala, knyt kontakter, presentera dina projekt och idéer, eller bara var där. Ämnena är allt som rör bitcoin.",
+     "da": "Bitcoin-møde. Mød de lokale, netværk, præsentér dine projekter og idéer, eller bare vær der. Emnerne er alt, der rører bitcoin.",
+     "fi": "Bitcoin-tapaaminen. Tapaa paikalliset, verkostoidu, esittele hankkeitasi ja ideoitasi tai tule vain olemaan. Aiheet ovat kaikki, mikä etäisesti koskee bitcoinia.",
+     "is": "Bitcoin-fundur. Hittu við heimafólk, tengstu, kynntu verkefni og hugmyndir eða komdu bara. Efnin eru allt sem snertir bitcoin."
+    }
+   },
    "past": false,
    "ongoing": false,
    "html_url": "https://nordiccrypto.no/calendar/ce0c87469bd8/",
@@ -336,6 +426,21 @@
    "sponsored": "Reese Legal",
    "note": null,
    "note_i18n": {},
+   "description": {
+    "text": "Krypto-skatt: Reese Legal kommer til Oslo Blockchain Meetup! Skattereglene for gevinst og tap ved salg av kryptovaluta, DEFI-transaksjoner, lån, gaver og formue i kryptovaluta. Hvordan beregne gevinst, tap og formue riktig, også med mange transaksjoner, og tips til verktøy for beregning og dokumentasjon. Hvordan kryptovaluta skal føres i skattemeldingen. Hva man risikerer hvis det blir feil eller man ikke rapporterer, de vanligste feilene, og eksempler fra Skatteetatens praksis.",
+    "lang": "nb",
+    "source_url": "https://www.meetup.com/oslo-blockchain-meetup/events/316768461/",
+    "source_name": "Oslo Blockchain Meetup (Meetup.com)",
+    "retrieved": "2026-10-07T23:50:00+00:00",
+    "i18n": {
+     "en": "Crypto tax: Reese Legal is coming to Oslo Blockchain Meetup. The tax rules for gains and losses on selling cryptocurrency, DeFi transactions, loans, gifts and wealth held in cryptocurrency. How to calculate gains, losses and wealth correctly, including with many transactions, and tools for the calculation and the records. How cryptocurrency is entered in the tax return. What is at stake if it is wrong or not reported, the most common mistakes, and examples from Skatteetaten's practice.",
+     "nn": "Kryptoskatt: Reese Legal kjem til Oslo Blockchain Meetup. Skattereglane for gevinst og tap ved sal av kryptovaluta, DeFi-transaksjonar, lån, gåver og formue i kryptovaluta. Korleis rekne ut gevinst, tap og formue rett, også med mange transaksjonar, og tips til verktøy for utrekning og dokumentasjon. Korleis kryptovaluta skal førast i skattemeldinga. Kva ein risikerer om det blir feil eller ein ikkje rapporterer, dei vanlegaste feila, og døme frå praksisen til Skatteetaten.",
+     "sv": "Kryptoskatt: Reese Legal kommer till Oslo Blockchain Meetup. Skattereglerna för vinst och förlust vid försäljning av kryptovaluta, DeFi-transaktioner, lån, gåvor och förmögenhet i kryptovaluta. Hur vinst, förlust och förmögenhet räknas rätt, också med många transaktioner, och verktyg för beräkning och dokumentation. Hur kryptovaluta förs in i deklarationen. Vad som står på spel om det blir fel eller inte rapporteras, de vanligaste felen, och exempel från Skatteetatens praxis.",
+     "da": "Kryptoskat: Reese Legal kommer til Oslo Blockchain Meetup. Skattereglerne for gevinst og tab ved salg af kryptovaluta, DeFi-transaktioner, lån, gaver og formue i kryptovaluta. Hvordan gevinst, tab og formue beregnes rigtigt, også med mange transaktioner, og værktøjer til beregning og dokumentation. Hvordan kryptovaluta føres i skattemeldingen. Hvad man risikerer, hvis det bliver forkert eller ikke indberettes, de mest almindelige fejl, og eksempler fra Skatteetatens praksis.",
+     "fi": "Kryptovero: Reese Legal tulee Oslo Blockchain Meetupuun. Verosäännöt kryptovaluutan myynnin voitoista ja tappioista, DeFi-siirroista, lainoista, lahjoista ja kryptovarallisuudesta. Miten voitot, tappiot ja varallisuus lasketaan oikein, myös monilla siirroilla, ja työkalut laskentaan ja dokumentointiin. Miten kryptovaluutta merkitään veroilmoitukseen. Mitä vaarana on, jos tiedot ovat väärin tai niitä ei ilmoiteta, tavallisimmat virheet ja esimerkkejä Skatteetatenin käytännöstä.",
+     "is": "Kryptoskattur: Reese Legal kemur á Oslo Blockchain Meetup. Skattareglurnar um hagnað og tap af sölu rafmynta, DeFi-færslur, lán, gjafir og eignir í rafmynt. Hvernig hagnaður, tap og eignir eru reiknuð rétt, líka með mörgum færslum, og verkfæri til útreiknings og skjala. Hvernig rafmynt er færð á skattframtal. Hvað er í húfi ef það verður rangt eða ekki tilkynnt, algengustu mistökin og dæmi úr framkvæmd Skatteetaten."
+    }
+   },
    "past": false,
    "ongoing": false,
    "html_url": "https://nordiccrypto.no/calendar/7adc8e1ede97/",
@@ -386,6 +491,21 @@
    "sponsored": null,
    "note": null,
    "note_i18n": {},
+   "description": {
+    "text": "We want to provide friendly and open events where we discuss bitcoin and its current and potential role in the global economy. If you're new to the idea, this is the place to go for educated discussions from both professionals and experienced amateurs in the space. And if you are said professional or experienced amateur, this is your opportunity to go in depth in the topic with like minded peers. Note! This is a Bitcoin Only-event. We are not interested in NFT's, altcoins or general blockchain discussions.",
+    "lang": "en",
+    "source_url": "https://www.meetup.com/swedish-bitcoin-meetups/events/312669070/",
+    "source_name": "Swedish Bitcoin Meetups (Meetup.com)",
+    "retrieved": "2026-10-07T23:50:00+00:00",
+    "i18n": {
+     "nn": "Me vil ha vennlege og opne treff der me diskuterer bitcoin og rolla han har og kan få i den globale økonomien. Er du ny, er dette staden for opplyste samtalar mellom fagfolk og erfarne amatørar. Er du ein av dei, kan du gå i djupna med likesinna. Merk: dette er eit arrangement berre for bitcoin. Me er ikkje interesserte i NFT-ar, altcoins eller generelle blockchain-diskusjonar.",
+     "nb": "Vi vil ha vennlige og åpne treff der vi diskuterer bitcoin og rollen den har og kan få i den globale økonomien. Er du ny, er dette stedet for opplyste samtaler mellom fagfolk og erfarne amatører. Er du en av dem, kan du gå i dybden med likesinnede. Merk: dette er et arrangement bare for bitcoin. Vi er ikke interessert i NFT-er, altcoins eller generelle blockchain-diskusjoner.",
+     "sv": "Vi vill ha vänliga och öppna träffar där vi diskuterar bitcoin och dess nuvarande och möjliga roll i den globala ekonomin. Om du är ny är det här platsen för initierade samtal mellan yrkespersoner och erfarna amatörer. Är du en av dem kan du gå på djupet med likasinnade. Observera: detta är ett evenemang bara för bitcoin. Vi är inte intresserade av NFT:er, altcoins eller allmänna diskussioner om blockkedjor.",
+     "da": "Vi vil have venlige og åbne møder, hvor vi diskuterer bitcoin og dens nuværende og mulige rolle i den globale økonomi. Er du ny, er det her stedet for oplyste samtaler mellem fagfolk og erfarne amatører. Er du en af dem, kan du gå i dybden med ligesindede. Bemærk: dette er et arrangement kun om bitcoin. Vi er ikke interesserede i NFT'er, altcoins eller generelle blockchain-diskussioner.",
+     "fi": "Haluamme ystävällisiä ja avoimia tapaamisia, joissa keskustellaan bitcoinista ja sen nykyisestä ja mahdollisesta roolista maailmantaloudessa. Jos aihe on sinulle uusi, täällä ammattilaiset ja kokeneet harrastajat keskustelevat siitä. Jos olet itse sellainen, voit syventyä aiheeseen samanhenkisten kanssa. Huom: tämä on vain bitcoin-tapahtuma. NFT:t, altcoinit ja yleiset lohkoketjukeskustelut eivät ole aiheena.",
+     "is": "Við viljum vingjarnlega og opna fundi þar sem rætt er um bitcoin og hlutverk þess í hagkerfi heimsins. Ef þú ert nýr í efninu er þetta staðurinn fyrir upplýstar umræður fagaðila og vanra áhugamanna. Ef þú ert slíkur geturðu farið djúpt í efnið með líkum. Athugið: þetta er aðeins bitcoin-viðburður. Við höfum ekki áhuga á NFT, altcoins eða almennum umræðum um bálkakeðju."
+    }
+   },
    "past": false,
    "ongoing": false,
    "html_url": "https://nordiccrypto.no/calendar/e884ba1f0333/",
@@ -436,6 +556,21 @@
    "sponsored": null,
    "note": null,
    "note_i18n": {},
+   "description": {
+    "text": "Bitcoin meetup - meet the local bitcoiners, network, present your projects and ideas or just hang out! Topics include everything that remotely touches Bitcoin.",
+    "lang": "en",
+    "source_url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/events/qjzrxgyjcqbgb/",
+    "source_name": "Helsinki Bitcoin Hobbyists (Meetup.com)",
+    "retrieved": "2026-10-07T23:50:00+00:00",
+    "i18n": {
+     "nn": "Bitcoin-treff. Møt dei lokale, knyt kontakt, legg fram prosjekta og ideane dine, eller berre ver der. Emna er alt som rører bitcoin.",
+     "nb": "Bitcoin-treff. Møt de lokale, knytt kontakt, legg frem prosjektene og ideene dine, eller bare vær der. Temaene er alt som rører bitcoin.",
+     "sv": "Bitcointräff. Träffa de lokala, knyt kontakter, presentera dina projekt och idéer, eller bara var där. Ämnena är allt som rör bitcoin.",
+     "da": "Bitcoin-møde. Mød de lokale, netværk, præsentér dine projekter og idéer, eller bare vær der. Emnerne er alt, der rører bitcoin.",
+     "fi": "Bitcoin-tapaaminen. Tapaa paikalliset, verkostoidu, esittele hankkeitasi ja ideoitasi tai tule vain olemaan. Aiheet ovat kaikki, mikä etäisesti koskee bitcoinia.",
+     "is": "Bitcoin-fundur. Hittu við heimafólk, tengstu, kynntu verkefni og hugmyndir eða komdu bara. Efnin eru allt sem snertir bitcoin."
+    }
+   },
    "past": false,
    "ongoing": false,
    "html_url": "https://nordiccrypto.no/calendar/19b92e24ee50/",
@@ -493,6 +628,21 @@
     "fi": "Osuu uudenvuodenpäivälle: tarkista järjestäjän sivu ennen lähtöä.",
     "is": "Ber upp á nýársdag: athugaðu síðu skipuleggjandans áður en þú ferð."
    },
+   "description": {
+    "text": "Bitcoin meetup - meet the local bitcoiners, network, present your projects and ideas or just hang out! Topics include everything that remotely touches Bitcoin.",
+    "lang": "en",
+    "source_url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/events/qjzrxgykccbcb/",
+    "source_name": "Helsinki Bitcoin Hobbyists (Meetup.com)",
+    "retrieved": "2026-10-07T23:50:00+00:00",
+    "i18n": {
+     "nn": "Bitcoin-treff. Møt dei lokale, knyt kontakt, legg fram prosjekta og ideane dine, eller berre ver der. Emna er alt som rører bitcoin.",
+     "nb": "Bitcoin-treff. Møt de lokale, knytt kontakt, legg frem prosjektene og ideene dine, eller bare vær der. Temaene er alt som rører bitcoin.",
+     "sv": "Bitcointräff. Träffa de lokala, knyt kontakter, presentera dina projekt och idéer, eller bara var där. Ämnena är allt som rör bitcoin.",
+     "da": "Bitcoin-møde. Mød de lokale, netværk, præsentér dine projekter og idéer, eller bare vær der. Emnerne er alt, der rører bitcoin.",
+     "fi": "Bitcoin-tapaaminen. Tapaa paikalliset, verkostoidu, esittele hankkeitasi ja ideoitasi tai tule vain olemaan. Aiheet ovat kaikki, mikä etäisesti koskee bitcoinia.",
+     "is": "Bitcoin-fundur. Hittu við heimafólk, tengstu, kynntu verkefni og hugmyndir eða komdu bara. Efnin eru allt sem snertir bitcoin."
+    }
+   },
    "past": false,
    "ongoing": false,
    "html_url": "https://nordiccrypto.no/calendar/3c7c538ff512/",
@@ -543,6 +693,21 @@
    "sponsored": null,
    "note": null,
    "note_i18n": {},
+   "description": {
+    "text": "Bitcoin meetup - meet the local bitcoiners, network, present your projects and ideas or just hang out! Topics include everything that remotely touches Bitcoin.",
+    "lang": "en",
+    "source_url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/events/qjzrxgykcdbhb/",
+    "source_name": "Helsinki Bitcoin Hobbyists (Meetup.com)",
+    "retrieved": "2026-10-07T23:50:00+00:00",
+    "i18n": {
+     "nn": "Bitcoin-treff. Møt dei lokale, knyt kontakt, legg fram prosjekta og ideane dine, eller berre ver der. Emna er alt som rører bitcoin.",
+     "nb": "Bitcoin-treff. Møt de lokale, knytt kontakt, legg frem prosjektene og ideene dine, eller bare vær der. Temaene er alt som rører bitcoin.",
+     "sv": "Bitcointräff. Träffa de lokala, knyt kontakter, presentera dina projekt och idéer, eller bara var där. Ämnena är allt som rör bitcoin.",
+     "da": "Bitcoin-møde. Mød de lokale, netværk, præsentér dine projekter og idéer, eller bare vær der. Emnerne er alt, der rører bitcoin.",
+     "fi": "Bitcoin-tapaaminen. Tapaa paikalliset, verkostoidu, esittele hankkeitasi ja ideoitasi tai tule vain olemaan. Aiheet ovat kaikki, mikä etäisesti koskee bitcoinia.",
+     "is": "Bitcoin-fundur. Hittu við heimafólk, tengstu, kynntu verkefni og hugmyndir eða komdu bara. Efnin eru allt sem snertir bitcoin."
+    }
+   },
    "past": false,
    "ongoing": false,
    "html_url": "https://nordiccrypto.no/calendar/105f743dcf3d/",

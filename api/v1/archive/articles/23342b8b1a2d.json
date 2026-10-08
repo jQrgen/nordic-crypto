@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "23342b8b1a2d",
@@ -11,14 +11,18 @@
   "canonical_url": "https://kaupr.io/nyheter/dansk-skatteminister-moter-kryptobransjen-pa-christiansborg",
   "title": "Dansk skatteminister møter kryptobransjen på Christiansborg",
   "titles": {
-   "en": "Danish tax minister meets the crypto industry at Christiansborg"
+   "en": "Danish tax minister meets the crypto industry at Christiansborg",
+   "sv": "Dansk skatteminister möter kryptobranschen på Christiansborg",
+   "da": "Dansk skatteminister møder kryptobranchen på Christiansborg",
+   "fi": "Tanskan veroministeri tapaa kryptoalan Christiansborgissa",
+   "is": "Danskur skattamálaráðherra hittir rafmyntageirann á Christiansborg"
   },
   "source": "kaupr",
   "source_name": "Kaupr",
   "country": "DK",
   "published_at": "2026-09-13T12:00:00+00:00",
   "first_published_on_site": "2026-10-03T18:28:21+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

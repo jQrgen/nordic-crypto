@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "2d38c9c89e0e",
@@ -11,14 +11,19 @@
   "canonical_url": "https://sydsvenskan.se/lund/uppgifter-tonaringar-silvertejpade-man-i-jakt-pa-kryptovaluta",
   "title": "Uppgifter: Tonåringar silvertejpade man i jakt på kryptovaluta",
   "titles": {
-   "en": "Reports: teenagers duct-taped a man in hunt for cryptocurrency"
+   "en": "Reports: teenagers duct-taped a man in hunt for cryptocurrency",
+   "nn": "Opplysningar: Tenåringar sølvteipa mann i jakt på kryptovaluta",
+   "nb": "Opplysninger: Tenåringer sølvteipet mann i jakt på kryptovaluta",
+   "da": "Oplysninger: Teenagere tapede en mand med sølvtape i jagten på kryptovaluta",
+   "fi": "Tietojen mukaan teinit teippasivat miehen ilmastointiteipillä kryptovaluutan takia",
+   "is": "Upplýsingar: Unglingar bundu mann með límbandi í leit að rafmynt"
   },
   "source": "sydsvenskan.se",
   "source_name": "Sydsvenskan",
   "country": "SE",
   "published_at": "2026-10-02T12:00:00+00:00",
   "first_published_on_site": "2026-10-03T17:59:40+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

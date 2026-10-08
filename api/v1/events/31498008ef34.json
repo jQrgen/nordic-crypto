@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "31498008ef34",
@@ -20,6 +20,21 @@
   "sponsored": null,
   "note": null,
   "note_i18n": {},
+  "description": {
+   "text": "This event is your opportunity to understand the Bitcoin community, get a better understanding of what Bitcoin actually is, how to buy Bitcoins, how to use Bitcoins, and how this new payment tool is now being developed into a more open economy. Jon Matonis, executive director of the Bitcoin Foundation, is the keynote speaker and will also take part in the panel discussions.",
+   "lang": "en",
+   "source_url": "https://bt.cx/en/news/2013/10/30/btcx-discount-on-pan-nordic-bitcoin-conference-2013/",
+   "source_name": "BTCX",
+   "retrieved": "2026-10-07T23:50:00+00:00",
+   "i18n": {
+    "nn": "Konferansen handlar om å forstå bitcoin-miljøet, kva bitcoin er, korleis ein kjøper og bruker bitcoin, og korleis betalingsmiddelet blei utvikla til ein meir open økonomi. Jon Matonis, dagleg leiar i Bitcoin Foundation, er hovudtalar og tek også del i paneldebattane.",
+    "nb": "Konferansen handler om å forstå bitcoin-miljøet, hva bitcoin er, hvordan man kjøper og bruker bitcoin, og hvordan betalingsmiddelet ble utviklet til en mer åpen økonomi. Jon Matonis, daglig leder i Bitcoin Foundation, er hovedtaler og tar også del i paneldebattene.",
+    "sv": "Konferensen handlar om att förstå bitcoin-miljön, vad bitcoin är, hur man köper och använder bitcoin, och hur betalningsmedlet utvecklades till en mer öppen ekonomi. Jon Matonis, verkställande direktör för Bitcoin Foundation, är huvudtalare och deltar också i panelerna.",
+    "da": "Konferencen handler om at forstå bitcoin-miljøet, hvad bitcoin er, hvordan man køber og bruger bitcoin, og hvordan betalingsmidlet blev udviklet til en mere åben økonomi. Jon Matonis, direktør for Bitcoin Foundation, er hovedtaler og deltager også i panelerne.",
+    "fi": "Konferenssi käsittelee bitcoin-yhteisöä, mitä bitcoin on, miten sitä ostetaan ja käytetään, ja miten maksuvälinettä kehitettiin avoimemmaksi taloudeksi. Bitcoin Foundationin toiminnanjohtaja Jon Matonis on pääpuhuja ja mukana myös paneeleissa.",
+    "is": "Ráðstefnan fjallar um að skilja bitcoin-samfélagið, hvað bitcoin er, hvernig það er keypt og notað, og hvernig greiðslumiðillinn var þróaður í opnara hagkerfi. Jon Matonis, framkvæmdastjóri Bitcoin Foundation, er aðalfyrirlesari og tekur einnig þátt í pallborðum."
+   }
+  },
   "past": true,
   "ongoing": false,
   "html_url": "https://nordiccrypto.no/calendar/31498008ef34/",

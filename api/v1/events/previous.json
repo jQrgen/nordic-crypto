@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "count": 18,
  "events": [
@@ -22,6 +22,21 @@
    "sponsored": null,
    "note": null,
    "note_i18n": {},
+   "description": {
+    "text": "The Nordic Bitcoin Conference, 25–26 September 2026 at Kaapelitehdas in Helsinki. Featuring developments in Bitcoin payments, finances, and mining. A Bitcoin conference dedicated to the Nordic region, bringing local and international perspectives together.",
+    "lang": "en",
+    "source_url": "https://btchel.com/",
+    "source_name": "BTCHEL",
+    "retrieved": "2026-10-07T23:50:00+00:00",
+    "i18n": {
+     "nn": "Den nordiske bitcoin-konferansen, 25.–26. september 2026 på Kaapelitehdas i Helsinki. Han tek opp bitcoin-betalingar, finans og utvinning, og samlar lokale og internasjonale perspektiv.",
+     "nb": "Den nordiske bitcoin-konferansen, 25.–26. september 2026 på Kaapelitehdas i Helsinki. Den tar opp bitcoin-betalinger, finans og utvinning, og samler lokale og internasjonale perspektiver.",
+     "sv": "Den nordiska bitcoin-konferensen, 25–26 september 2026 på Kaapelitehdas i Helsingfors. Den tar upp bitcoin-betalningar, finans och utvinning och samlar lokala och internationella perspektiv.",
+     "da": "Den nordiske bitcoin-konference, 25.–26. september 2026 på Kaapelitehdas i Helsinki. Den tager bitcoin-betalinger, finans og minedrift op og samler lokale og internationale perspektiver.",
+     "fi": "Pohjoismainen bitcoin-konferenssi 25.–26. syyskuuta 2026 Kaapelitehtaalla Helsingissä. Se käsittelee bitcoin-maksuja, rahoitusta ja louhintaa ja tuo yhteen paikallisia ja kansainvälisiä näkökulmia.",
+     "is": "Norræna bitcoin-ráðstefnan, 25.–26. september 2026 í Kaapelitehdas í Helsinki. Hún fjallar um bitcoin-greiðslur, fjármál og námugröft og sameinar staðbundin og alþjóðleg sjónarhorn."
+    }
+   },
    "past": true,
    "ongoing": false,
    "html_url": "https://nordiccrypto.no/calendar/af88ac54b25d/",
@@ -127,6 +142,21 @@
    "sponsored": null,
    "note": null,
    "note_i18n": {},
+   "description": {
+    "text": "A hands-on, one-day workshop on mining economics, profitability models, infrastructure, power markets and financing. Organized by AmityAge with OurPool.",
+    "lang": "en",
+    "source_url": "https://info.btchel.com/index.html",
+    "source_name": "BTCHEL",
+    "retrieved": "2026-10-07T23:50:00+00:00",
+    "i18n": {
+     "nn": "Ein praktisk ein-dags verkstad om økonomien i utvinning, lønsemdsmodellar, infrastruktur, kraftmarknader og finansiering. Arrangert av AmityAge saman med OurPool.",
+     "nb": "En praktisk éndags workshop om økonomien i utvinning, lønnsomhetsmodeller, infrastruktur, kraftmarkeder og finansiering. Arrangert av AmityAge sammen med OurPool.",
+     "sv": "En praktisk endagsworkshop om ekonomin i utvinning, lönsamhetsmodeller, infrastruktur, elmarknader och finansiering. Arrangerad av AmityAge tillsammans med OurPool.",
+     "da": "En praktisk éndagsworkshop om økonomien i minedrift, lønsomhedsmodeller, infrastruktur, elmarkeder og finansiering. Arrangeret af AmityAge sammen med OurPool.",
+     "fi": "Käytännönläheinen yhden päivän työpaja louhinnan taloudesta, kannattavuusmalleista, infrastruktuurista, sähkömarkkinoista ja rahoituksesta. Järjestäjinä AmityAge ja OurPool.",
+     "is": "Verkleg eins dags vinnustofa um hagfræði námugraftar, arðsemislíkön, innviði, raforkumarkaði og fjármögnun. Skipulögð af AmityAge með OurPool."
+    }
+   },
    "past": true,
    "ongoing": false,
    "html_url": "https://nordiccrypto.no/calendar/2019e48c3cb9/",
@@ -226,6 +256,21 @@
    "sponsored": null,
    "note": null,
    "note_i18n": {},
+   "description": {
+    "text": "A day for Bitcoin mining and Nordic energy professionals, exploring grid stability, heat reuse and surplus power. Co-organized by BTCHEL and EBEA.",
+    "lang": "en",
+    "source_url": "https://info.btchel.com/index.html",
+    "source_name": "BTCHEL",
+    "retrieved": "2026-10-07T23:50:00+00:00",
+    "i18n": {
+     "nn": "Ein dag for bitcoin-utvinning og nordiske energifagfolk, om stabilitet i nettet, gjenbruk av varme og overskotskraft. I samarbeid mellom BTCHEL og EBEA.",
+     "nb": "En dag for bitcoin-utvinning og nordiske energifagfolk, om stabilitet i nettet, gjenbruk av varme og overskuddskraft. I samarbeid mellom BTCHEL og EBEA.",
+     "sv": "En dag för bitcoinutvinning och nordiska energifack, om stabilitet i nätet, återbruk av värme och överskottskraft. I samarbete mellan BTCHEL och EBEA.",
+     "da": "En dag for bitcoin-minedrift og nordiske energifagfolk, om stabilitet i nettet, genbrug af varme og overskudskraft. I samarbejde mellem BTCHEL og EBEA.",
+     "fi": "Päivä bitcoin-louhinnalle ja pohjoismaisille energia-ammattilaisille, aiheina verkon vakaus, lämmön uusiokäyttö ja ylijäämäsähkö. BTCHELin ja EBEA:n yhdessä järjestämä.",
+     "is": "Dagur fyrir bitcoin-námugröft og norræna orkusérfræðinga, um stöðugleika nets, endurnýtingu varma og umframorku. Í samstarfi BTCHEL og EBEA."
+    }
+   },
    "past": true,
    "ongoing": false,
    "html_url": "https://nordiccrypto.no/calendar/4cd0147fef4e/",
@@ -325,6 +370,21 @@
    "sponsored": null,
    "note": null,
    "note_i18n": {},
+   "description": {
+    "text": "On August 15–16, 2025, the Bitcoin community will gather in Helsinki for BTCHEL, the very first large-scale Bitcoin conference ever held in Finland.",
+    "lang": "en",
+    "source_url": "https://bt.cx/en/news/2025/07/24/03-BTCHEL-2025-The-Biggest-Bitcoin-Celebration-in-the-Nordics-Is-Coming/",
+    "source_name": "BTCX",
+    "retrieved": "2026-10-07T23:50:00+00:00",
+    "i18n": {
+     "nn": "15.–16. august 2025 samlast bitcoin-miljøet i Helsinki til BTCHEL, den første store bitcoin-konferansen som er halden i Finland.",
+     "nb": "15.–16. august 2025 samles bitcoin-miljøet i Helsinki til BTCHEL, den første store bitcoin-konferansen som er holdt i Finland.",
+     "sv": "Den 15–16 augusti 2025 samlas bitcoin-miljön i Helsingfors till BTCHEL, den första stora bitcoin-konferensen som hålls i Finland.",
+     "da": "Den 15.–16. august 2025 samles bitcoin-miljøet i Helsinki til BTCHEL, den første store bitcoin-konference, der er holdt i Finland.",
+     "fi": "15.–16. elokuuta 2025 bitcoin-yhteisö kokoontuu Helsinkiin BTCHELiin, ensimmäiseen Suomessa pidettyyn suureen bitcoin-konferenssiin.",
+     "is": "15.–16. ágúst 2025 safnast bitcoin-samfélagið saman í Helsinki á BTCHEL, fyrstu stóru bitcoin-ráðstefnunni sem haldin er í Finnlandi."
+    }
+   },
    "past": true,
    "ongoing": false,
    "html_url": "https://nordiccrypto.no/calendar/faa749a8058c/",
@@ -419,6 +479,21 @@
    "sponsored": null,
    "note": null,
    "note_i18n": {},
+   "description": {
+    "text": "The hackathon was for members of Fintech Norway and Virke and was held in person in Oslo on 15–17 March 2023. It was the most compact hackathon in this phase of Norges Bank's CBDC work and engaged private market participants with the prototype.",
+    "lang": "en",
+    "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+    "source_name": "Norges Bank",
+    "retrieved": "2026-10-07T23:50:00+00:00",
+    "i18n": {
+     "nn": "Hackathonen var for medlemmer av Fintech Norway og Virke og blei halden fysisk i Oslo 15.–17. mars 2023. Han var den mest komprimerte hackathonen i denne fasen av CBDC-arbeidet til Noregs Bank og fekk private marknadsaktørar i gang med prototypen.",
+     "nb": "Hackathonen var for medlemmer av Fintech Norway og Virke og ble holdt fysisk i Oslo 15.–17. mars 2023. Den var den mest komprimerte hackathonen i denne fasen av CBDC-arbeidet til Norges Bank og fikk private markedsaktører i gang med prototypen.",
+     "sv": "Hackathonet var för medlemmar i Fintech Norway och Virke och hölls på plats i Oslo den 15–17 mars 2023. Det var det mest komprimerade hackathonet i den här fasen av Norges Banks CBDC-arbete och fick privata marknadsaktörer att arbeta med prototypen.",
+     "da": "Hackathonet var for medlemmer af Fintech Norway og Virke og blev holdt fysisk i Oslo den 15.–17. marts 2023. Det var det mest komprimerede hackathon i denne fase af Norges Banks CBDC-arbejde og fik private markedsaktører i gang med prototypen.",
+     "fi": "Hackathon oli Fintech Norwayn ja Virken jäsenille, ja se pidettiin paikan päällä Oslossa 15.–17. maaliskuuta 2023. Se oli tiivein hackathon tässä vaiheessa Norges Bankin CBDC-työtä ja sai yksityisiä markkinatoimijoita kokeilemaan prototyyppiä.",
+     "is": "Hackathonið var fyrir félaga í Fintech Norway og Virke og var haldið á staðnum í Osló 15.–17. mars 2023. Það var þéttasta hackathonið á þessu stigi CBDC-vinnu Norges Bank og fékk einkaaðila á markaði til að vinna með frumgerðina."
+    }
+   },
    "past": true,
    "ongoing": false,
    "html_url": "https://nordiccrypto.no/calendar/c4dd9c6f0526/",
@@ -513,6 +588,21 @@
    "sponsored": null,
    "note": null,
    "note_i18n": {},
+   "description": {
+    "text": "11 groups presented suggestions on the advantages of CBDCs at an event in Norges Bank's auditorium on 19 January 2023. The groups came from the hackathon started with Digdir.",
+    "lang": "en",
+    "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+    "source_name": "Norges Bank",
+    "retrieved": "2026-10-07T23:50:00+00:00",
+    "i18n": {
+     "nn": "11 grupper la fram forslag om fordelane med CBDC på eit arrangement i auditoriet til Noregs Bank 19. januar 2023. Gruppene kom frå hackathonen som starta saman med Digdir.",
+     "nb": "11 grupper la frem forslag om fordelene med CBDC på et arrangement i auditoriet til Norges Bank 19. januar 2023. Gruppene kom fra hackathonen som startet sammen med Digdir.",
+     "sv": "11 grupper presenterade förslag om fördelarna med CBDC vid ett evenemang i Norges Banks auditorium den 19 januari 2023. Grupperna kom från hackathonet som startade tillsammans med Digdir.",
+     "da": "11 grupper fremlagde forslag om fordelene ved CBDC ved et arrangement i Norges Banks auditorium den 19. januar 2023. Grupperne kom fra det hackathon, der startede sammen med Digdir.",
+     "fi": "11 ryhmää esitti ehdotuksia CBDC:n eduista Norges Bankin auditoriossa 19. tammikuuta 2023. Ryhmät tulivat Digdirin kanssa alkaneesta hackathonista.",
+     "is": "11 hópar lögðu fram tillögur um kosti CBDC á viðburði í sal Norges Bank 19. janúar 2023. Hóparnir komu úr hackathoninu sem hófst með Digdir."
+    }
+   },
    "past": true,
    "ongoing": false,
    "html_url": "https://nordiccrypto.no/calendar/211a89133561/",
@@ -607,6 +697,21 @@
    "sponsored": null,
    "note": null,
    "note_i18n": {},
+   "description": {
+    "text": "A technical workshop on CBDC, the Internet of Things and machine-to-machine payments was held at the University of Oslo on 10 January 2023. Lecturers from the Blockchain Lab covered blockchain technology, including IT security, environmental protection and processing capacity, and machine-to-machine communication and payments.",
+    "lang": "en",
+    "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+    "source_name": "Norges Bank",
+    "retrieved": "2026-10-07T23:50:00+00:00",
+    "i18n": {
+     "nn": "Ein teknisk verkstad om CBDC, tingenes internett og maskin-til-maskin-betalingar blei halden ved Universitetet i Oslo 10. januar 2023. Førelesarar frå Blockchain Lab tok opp blokkjedeteknologi, mellom anna IT-tryggleik, miljøvern og yteevne, og maskin-til-maskin-kommunikasjon og betalingar.",
+     "nb": "En teknisk workshop om CBDC, tingenes internett og maskin-til-maskin-betalinger ble holdt ved Universitetet i Oslo 10. januar 2023. Forelesere fra Blockchain Lab tok opp blokkjedeteknologi, blant annet IT-sikkerhet, miljøvern og ytelse, og maskin-til-maskin-kommunikasjon og betalinger.",
+     "sv": "En teknisk workshop om CBDC, sakernas internet och maskin-till-maskin-betalningar hölls vid Universitetet i Oslo den 10 januari 2023. Föreläsare från Blockchain Lab tog upp blockkedjeteknik, bland annat IT-säkerhet, miljöskydd och prestanda, och maskin-till-maskin-kommunikation och betalningar.",
+     "da": "En teknisk workshop om CBDC, tingenes internet og maskine-til-maskine-betalinger blev holdt på Universitetet i Oslo den 10. januar 2023. Forelæsere fra Blockchain Lab tog blokkædeteknologi op, herunder it-sikkerhed, miljøbeskyttelse og ydeevne, samt maskine-til-maskine-kommunikation og betalinger.",
+     "fi": "Tekninen työpaja CBDC:stä, esineiden internetistä ja koneiden välisistä maksuista pidettiin Oslon yliopistossa 10. tammikuuta 2023. Blockchain Labin luennoijat käsittelivät lohkoketjutekniikkaa, muun muassa tietoturvaa, ympäristönsuojelua ja suorituskykyä, sekä koneiden välistä viestintää ja maksuja.",
+     "is": "Tæknivinnustofa um CBDC, internet hlutanna og greiðslur milli véla var haldin við Háskólann í Osló 10. janúar 2023. Fyrirlesarar frá Blockchain Lab fjölluðu um bálkakeðjutækni, meðal annars upplýsingaöryggi, umhverfisvernd og afköst, og samskipti og greiðslur milli véla."
+    }
+   },
    "past": true,
    "ongoing": false,
    "html_url": "https://nordiccrypto.no/calendar/c578c333e352/",
@@ -706,6 +811,21 @@
    "sponsored": null,
    "note": null,
    "note_i18n": {},
+   "description": {
+    "text": "Norges Bank and Digdir arranged a brainstorming session on 22 November 2022. The theme was which existing problems a CBDC can solve, and which new opportunities a CBDC can provide to society. The same day started a technical hackathon, with groups programming solutions in Norges Bank's prototype.",
+    "lang": "en",
+    "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+    "source_name": "Norges Bank",
+    "retrieved": "2026-10-07T23:50:00+00:00",
+    "i18n": {
+     "nn": "Noregs Bank og Digdir heldt ein idéverkstad 22. november 2022. Temaet var kva eksisterande problem ein CBDC kan løyse, og kva nye moglegheiter ein CBDC kan gi samfunnet. Same dag starta ein teknisk hackathon, der grupper programmerte løysingar i prototypen til Noregs Bank.",
+     "nb": "Norges Bank og Digdir holdt en idéverksted 22. november 2022. Temaet var hvilke eksisterende problemer en CBDC kan løse, og hvilke nye muligheter en CBDC kan gi samfunnet. Samme dag startet en teknisk hackathon, der grupper programmerte løsninger i prototypen til Norges Bank.",
+     "sv": "Norges Bank och Digdir höll en idéverkstad den 22 november 2022. Temat var vilka befintliga problem en CBDC kan lösa, och vilka nya möjligheter en CBDC kan ge samhället. Samma dag startade ett tekniskt hackathon, där grupper programmerade lösningar i Norges Banks prototyp.",
+     "da": "Norges Bank og Digdir holdt en idéworkshop den 22. november 2022. Temaet var, hvilke eksisterende problemer en CBDC kan løse, og hvilke nye muligheder en CBDC kan give samfundet. Samme dag startede et teknisk hackathon, hvor grupper programmerede løsninger i Norges Banks prototype.",
+     "fi": "Norges Bank ja Digdir järjestivät ideatyöpajan 22. marraskuuta 2022. Aiheena oli, mitä olemassa olevia ongelmia CBDC voi ratkaista ja mitä uusia mahdollisuuksia se voi antaa yhteiskunnalle. Samana päivänä alkoi tekninen hackathon, jossa ryhmät ohjelmoivat ratkaisuja Norges Bankin prototyyppiin.",
+     "is": "Norges Bank og Digdir héldu hugmyndavinnustofu 22. nóvember 2022. Þemað var hvaða fyrirliggjandi vandamál CBDC getur leyst og hvaða ný tækifæri CBDC getur gefið samfélaginu. Sama dag hófst tæknilegt hackathon þar sem hópar forrituðu lausnir í frumgerð Norges Bank."
+    }
+   },
    "past": true,
    "ongoing": false,
    "html_url": "https://nordiccrypto.no/calendar/456d06c0b3c1/",
@@ -800,6 +920,21 @@
    "sponsored": null,
    "note": null,
    "note_i18n": {},
+   "description": {
+    "text": "The first CBDC conference was held in Bergen in October 2022, with Simula and the University of Bergen. The conference was research-oriented, with participants from academia, the FinTech community and central banks. Topics included Norges Bank's CBDC work, DeFi and legal issues, AML and CBDC, data protection, quantum technology and OpenCBDC. The conference was the kick-off for a hackathon on transferring CBDC tokens through bridges between openCBDC and EVM-compatible networks.",
+    "lang": "en",
+    "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+    "source_name": "Norges Bank",
+    "retrieved": "2026-10-07T23:50:00+00:00",
+    "i18n": {
+     "nn": "Den første CBDC-konferansen blei halden i Bergen i oktober 2022, saman med Simula og Universitetet i Bergen. Konferansen var forskingsretta, med deltakarar frå akademia, fintech-miljøet og sentralbankar. Emne var CBDC-arbeidet i Noregs Bank, DeFi og juridiske spørsmål, AML og CBDC, personvern, kvanteteknologi og OpenCBDC. Konferansen var starten på ein hackathon om å flytte CBDC-token gjennom bruer mellom openCBDC og EVM-kompatible nett.",
+     "nb": "Den første CBDC-konferansen ble holdt i Bergen i oktober 2022, sammen med Simula og Universitetet i Bergen. Konferansen var forskningsrettet, med deltakere fra akademia, fintech-miljøet og sentralbanker. Temaer var CBDC-arbeidet i Norges Bank, DeFi og juridiske spørsmål, AML og CBDC, personvern, kvanteteknologi og OpenCBDC. Konferansen var starten på en hackathon om å flytte CBDC-token gjennom broer mellom openCBDC og EVM-kompatible nett.",
+     "sv": "Den första CBDC-konferensen hölls i Bergen i oktober 2022, tillsammans med Simula och Universitetet i Bergen. Konferensen var forskningsinriktad, med deltagare från akademin, fintech-miljön och centralbanker. Ämnen var Norges Banks CBDC-arbete, DeFi och juridiska frågor, AML och CBDC, dataskydd, kvantteknik och OpenCBDC. Konferensen var starten på ett hackathon om att flytta CBDC-token genom broar mellan openCBDC och EVM-kompatibla nät.",
+     "da": "Den første CBDC-konference blev holdt i Bergen i oktober 2022, sammen med Simula og Universitetet i Bergen. Konferencen var forskningsrettet, med deltagere fra akademia, fintech-miljøet og centralbanker. Emner var Norges Banks CBDC-arbejde, DeFi og juridiske spørgsmål, AML og CBDC, databeskyttelse, kvanteteknologi og OpenCBDC. Konferencen var starten på et hackathon om at flytte CBDC-token gennem broer mellem openCBDC og EVM-kompatible net.",
+     "fi": "Ensimmäinen CBDC-konferenssi pidettiin Bergenissä lokakuussa 2022 yhdessä Simulan ja Bergenin yliopiston kanssa. Konferenssi oli tutkimuspainotteinen, ja mukana oli tutkijoita, fintech-toimijoita ja keskuspankkeja. Aiheina olivat Norges Bankin CBDC-työ, DeFi ja oikeudelliset kysymykset, AML ja CBDC, tietosuoja, kvanttitekniikka ja OpenCBDC. Konferenssi käynnisti hackathonin CBDC-tokenien siirtämisestä siltojen kautta openCBDC:n ja EVM-yhteensopivien verkkojen välillä.",
+     "is": "Fyrsta CBDC-ráðstefnan var haldin í Bergen í október 2022, með Simula og Háskólanum í Bergen. Ráðstefnan var rannsóknarmiðuð, með þátttakendum úr háskóla, fintech-umhverfi og seðlabönkum. Efni voru CBDC-vinna Norges Bank, DeFi og lögfræðileg álitamál, AML og CBDC, persónuvernd, skammtatækni og OpenCBDC. Ráðstefnan var upphaf hackathon um að flytja CBDC-tóka yfir brýr milli openCBDC og EVM-samhæfðra neta."
+    }
+   },
    "past": true,
    "ongoing": false,
    "html_url": "https://nordiccrypto.no/calendar/2d2d72207fd4/",
@@ -894,6 +1029,7 @@
    "sponsored": null,
    "note": null,
    "note_i18n": {},
+   "description": null,
    "past": true,
    "ongoing": false,
    "html_url": "https://nordiccrypto.no/calendar/419358586d18/",
@@ -994,6 +1130,21 @@
    "sponsored": null,
    "note": null,
    "note_i18n": {},
+   "description": {
+    "text": "Fundur verður haldinn í félaginu miðvikudaginn 18. apríl í stofu V-158 í VR-II við Hjarðarhaga. Að venju hefst fundurinn með kaffidrykkju kl. 16:45, en kl. 17:00 heldur Gunnar Stefánsson prófessor við HÍ fyrirlestur sem hann nefnir Rafmynt: Bitcoin og broskallar. Í erindi sínu mun Gunnar fjalla um rafmyntir og taka dæmi um notkun Bitcoin og Broskalla. Farið verður yfir virkni myntanna gagnvart notanda, um uppbyggingu bunkakeðjunnar (blockchain) og hvernig fjármagnsfærslur fara fram.",
+    "lang": "is",
+    "source_url": "https://stae.is/ísf/event/51617",
+    "source_name": "Íslenska stærðfræðafélagið",
+    "retrieved": "2026-10-07T23:50:00+00:00",
+    "i18n": {
+     "en": "The society meets on Wednesday 18 April in room V-158 in VR-II at Hjarðarhagi. As usual the meeting starts with coffee at 16:45, and at 17:00 Gunnar Stefánsson, professor at the University of Iceland, gives a lecture he calls Rafmynt: Bitcoin og broskallar. He talks about cryptocurrencies and gives examples of the use of Bitcoin and Broskallar. The lecture covers how the currencies work for a user, how the blockchain is built, and how transfers are made.",
+     "nn": "Félaget møtest onsdag 18. april i rom V-158 i VR-II ved Hjarðarhagi. Som vanleg startar møtet med kaffi klokka 16.45, og klokka 17.00 held Gunnar Stefánsson, professor ved Háskóli Íslands, eit føredrag han kallar Rafmynt: Bitcoin og broskallar. Han talar om kryptovaluta og gir døme på bruk av Bitcoin og Broskallar. Føredraget går gjennom korleis valutaene verkar for ein brukar, korleis blokkjeda er bygd, og korleis overføringar går føre seg.",
+     "nb": "Foreningen møtes onsdag 18. april i rom V-158 i VR-II ved Hjarðarhagi. Som vanlig starter møtet med kaffe klokken 16.45, og klokken 17.00 holder Gunnar Stefánsson, professor ved Háskóli Íslands, et foredrag han kaller Rafmynt: Bitcoin og broskallar. Han snakker om kryptovaluta og gir eksempler på bruk av Bitcoin og Broskallar. Foredraget går gjennom hvordan valutaene virker for en bruker, hvordan blokkjeden er bygget, og hvordan overføringer skjer.",
+     "sv": "Föreningen möts onsdagen den 18 april i sal V-158 i VR-II vid Hjarðarhagi. Som vanligt börjar mötet med kaffe klockan 16.45, och klockan 17.00 håller Gunnar Stefánsson, professor vid Háskóli Íslands, ett föredrag han kallar Rafmynt: Bitcoin og broskallar. Han talar om kryptovaluta och ger exempel på användning av Bitcoin och Broskallar. Föredraget går igenom hur valutorna fungerar för en användare, hur blockkedjan är uppbyggd och hur överföringar går till.",
+     "da": "Foreningen mødes onsdag den 18. april i lokale V-158 i VR-II ved Hjarðarhagi. Som sædvanlig begynder mødet med kaffe klokken 16.45, og klokken 17.00 holder Gunnar Stefánsson, professor ved Háskóli Íslands, et foredrag, han kalder Rafmynt: Bitcoin og broskallar. Han taler om kryptovaluta og giver eksempler på brug af Bitcoin og Broskallar. Foredraget gennemgår, hvordan valutaerne virker for en bruger, hvordan blokkæden er bygget, og hvordan overførsler foregår.",
+     "fi": "Seura kokoontuu keskiviikkona 18. huhtikuuta salissa V-158 VR-II:ssa osoitteessa Hjarðarhagi. Tavan mukaan kokous alkaa kahvilla kello 16.45, ja kello 17.00 Islannin yliopiston professori Gunnar Stefánsson pitää esitelmän nimeltä Rafmynt: Bitcoin og broskallar. Hän puhuu kryptovaluutoista ja antaa esimerkkejä Bitcoinin ja Broskallarin käytöstä. Esitelmä käy läpi, miten valuutat toimivat käyttäjälle, miten lohkoketju rakentuu ja miten siirrot tehdään."
+    }
+   },
    "past": true,
    "ongoing": false,
    "html_url": "https://nordiccrypto.no/calendar/fbacdd896bf4/",
@@ -1083,6 +1234,21 @@
    "sponsored": null,
    "note": null,
    "note_i18n": {},
+   "description": {
+    "text": "Do we need digital cash – an e-krona as the Riksbank calls it? The Riksbank wants to investigate whether an e-krona could be the solution to provide the general public with continued access to central bank money even when Sweden has stopped using cash.",
+    "lang": "en",
+    "source_url": "https://www.riksbank.se/globalassets/media/tal/engelska/ingves/2017/tal_ingves_171208_eng.pdf",
+    "source_name": "Sveriges Riksbank",
+    "retrieved": "2026-10-07T23:50:00+00:00",
+    "i18n": {
+     "nn": "Treng me digitale kontantar, ein e-krona som Riksbanken kallar det? Riksbanken vil undersøkje om ein e-krona kan gi ålmenta vidare tilgang til sentralbankpengar også om Sverige sluttar å bruke kontantar.",
+     "nb": "Trenger vi digitale kontanter, en e-krona som Riksbanken kaller det? Riksbanken vil undersøke om en e-krona kan gi allmennheten fortsatt tilgang til sentralbankpenger også om Sverige slutter å bruke kontanter.",
+     "sv": "Behöver vi digitala kontanter, en e-krona som Riksbanken kallar det? Riksbanken vill undersöka om en e-krona kan ge allmänheten fortsatt tillgång till centralbankspengar även om Sverige slutar använda kontanter.",
+     "da": "Har vi brug for digitale kontanter, en e-krone som Riksbanken kalder det? Riksbanken vil undersøge, om en e-krone kan give befolkningen fortsat adgang til centralbankpenge, også hvis Sverige holder op med at bruge kontanter.",
+     "fi": "Tarvitsemmeko digitaalista käteistä, e-kruunua niin kuin Riksbank sitä kutsuu? Riksbank haluaa selvittää, voisiko e-kruunu antaa yleisölle edelleen keskuspankkirahaa, vaikka Ruotsi lakkaisi käyttämästä käteistä.",
+     "is": "Þurfum við stafrænt reiðufé, e-krónu eins og Riksbank kallar það? Riksbank vill kanna hvort e-króna geti veitt almenningi áfram aðgang að peningum seðlabanka þótt Svíþjóð hætti að nota reiðufé."
+    }
+   },
    "past": true,
    "ongoing": false,
    "html_url": "https://nordiccrypto.no/calendar/50f03a7f9898/",
@@ -1182,6 +1348,7 @@
    "sponsored": null,
    "note": null,
    "note_i18n": {},
+   "description": null,
    "past": true,
    "ongoing": false,
    "html_url": "https://nordiccrypto.no/calendar/30569783bb01/",
@@ -1279,6 +1446,7 @@
    "sponsored": null,
    "note": null,
    "note_i18n": {},
+   "description": null,
    "past": true,
    "ongoing": false,
    "html_url": "https://nordiccrypto.no/calendar/afc88c305513/",
@@ -1376,6 +1544,7 @@
    "sponsored": null,
    "note": null,
    "note_i18n": {},
+   "description": null,
    "past": true,
    "ongoing": false,
    "html_url": "https://nordiccrypto.no/calendar/c9903961cd24/",
@@ -1473,6 +1642,7 @@
    "sponsored": null,
    "note": null,
    "note_i18n": {},
+   "description": null,
    "past": true,
    "ongoing": false,
    "html_url": "https://nordiccrypto.no/calendar/92041cfcb99c/",
@@ -1593,6 +1763,21 @@
    "sponsored": null,
    "note": null,
    "note_i18n": {},
+   "description": {
+    "text": "Bitcoin is a digital currency that unlike traditional currencies does not rely on a centralized authority. Instead Bitcoin relies on a network of volunteers that collectively implement a replicated ledger and verify transactions. In this paper we analyze how Bitcoin uses a multi-hop broadcast to propagate transactions and blocks through the network to update the ledger replicas. We then use the gathered information to verify the conjecture that the propagation delay in the network is the primary cause for blockchain forks.",
+    "lang": "en",
+    "source_url": "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html",
+    "source_name": "Department of Computer Science, University of Helsinki",
+    "retrieved": "2026-10-07T23:50:00+00:00",
+    "i18n": {
+     "nn": "Bitcoin er ein digital valuta som, ulikt vanlege valutaer, ikkje kviler på ein sentral instans. I staden kviler han på eit nettverk av frivillige som saman fører ein delt hovudbok og kontrollerer transaksjonar. Føredraget går gjennom korleis bitcoin bruker ein fleirhoppskringkasting for å spreie transaksjonar og blokker, og om forseinkinga i nettet er hovudårsaka til forgreiningar i blokkjeda.",
+     "nb": "Bitcoin er en digital valuta som, ulikt vanlige valutaer, ikke hviler på en sentral instans. I stedet hviler den på et nettverk av frivillige som sammen fører en delt hovedbok og kontrollerer transaksjoner. Foredraget går gjennom hvordan bitcoin bruker en flerhopp-kringkasting for å spre transaksjoner og blokker, og om forsinkelsen i nettet er hovedårsaken til forgreninger i blokkjeden.",
+     "sv": "Bitcoin är en digital valuta som, till skillnad från vanliga valutor, inte vilar på en central instans. I stället vilar den på ett nätverk av frivilliga som tillsammans för en delad huvudbok och kontrollerar transaktioner. Föredraget går igenom hur bitcoin använder en flerhoppsutsändning för att sprida transaktioner och block, och om fördröjningen i nätet är huvudorsaken till förgreningar i blockkedjan.",
+     "da": "Bitcoin er en digital valuta, som i modsætning til almindelige valutaer ikke hviler på en central instans. I stedet hviler den på et netværk af frivillige, som sammen fører en delt hovedbog og kontrollerer transaktioner. Foredraget gennemgår, hvordan bitcoin bruger en flerhop-udsendelse til at sprede transaktioner og blokke, og om forsinkelsen i nettet er hovedårsagen til forgreninger i blokkæden.",
+     "fi": "Bitcoin on digitaalinen valuutta, joka toisin kuin tavanomaiset valuutat ei nojaa keskitettyyn tahoon. Se nojaa vapaaehtoisten verkkoon, joka yhdessä ylläpitää jaettua pääkirjaa ja tarkistaa siirrot. Esitelmä käy läpi, miten bitcoin levittää siirrot ja lohkot usean hypyn lähetyksellä, ja onko verkon viive lohkoketjun haarautumien pääsyy.",
+     "is": "Bitcoin er stafrænn gjaldmiðill sem, ólíkt venjulegum gjaldmiðlum, hvílir ekki á miðlægum aðila. Í staðinn hvílir hann á neti sjálfboðaliða sem saman halda sameiginlega höfuðbók og staðfesta færslur. Fyrirlesturinn fer yfir hvernig bitcoin notar fjölhoppsútsendingu til að dreifa færslum og blokkum, og hvort töf í netinu sé aðalástæða kvíslana í bálkakeðjunni."
+    }
+   },
    "past": true,
    "ongoing": false,
    "html_url": "https://nordiccrypto.no/calendar/b449bcb0b91e/",
@@ -1692,6 +1877,21 @@
    "sponsored": null,
    "note": null,
    "note_i18n": {},
+   "description": {
+    "text": "This event is your opportunity to understand the Bitcoin community, get a better understanding of what Bitcoin actually is, how to buy Bitcoins, how to use Bitcoins, and how this new payment tool is now being developed into a more open economy. Jon Matonis, executive director of the Bitcoin Foundation, is the keynote speaker and will also take part in the panel discussions.",
+    "lang": "en",
+    "source_url": "https://bt.cx/en/news/2013/10/30/btcx-discount-on-pan-nordic-bitcoin-conference-2013/",
+    "source_name": "BTCX",
+    "retrieved": "2026-10-07T23:50:00+00:00",
+    "i18n": {
+     "nn": "Konferansen handlar om å forstå bitcoin-miljøet, kva bitcoin er, korleis ein kjøper og bruker bitcoin, og korleis betalingsmiddelet blei utvikla til ein meir open økonomi. Jon Matonis, dagleg leiar i Bitcoin Foundation, er hovudtalar og tek også del i paneldebattane.",
+     "nb": "Konferansen handler om å forstå bitcoin-miljøet, hva bitcoin er, hvordan man kjøper og bruker bitcoin, og hvordan betalingsmiddelet ble utviklet til en mer åpen økonomi. Jon Matonis, daglig leder i Bitcoin Foundation, er hovedtaler og tar også del i paneldebattene.",
+     "sv": "Konferensen handlar om att förstå bitcoin-miljön, vad bitcoin är, hur man köper och använder bitcoin, och hur betalningsmedlet utvecklades till en mer öppen ekonomi. Jon Matonis, verkställande direktör för Bitcoin Foundation, är huvudtalare och deltar också i panelerna.",
+     "da": "Konferencen handler om at forstå bitcoin-miljøet, hvad bitcoin er, hvordan man køber og bruger bitcoin, og hvordan betalingsmidlet blev udviklet til en mere åben økonomi. Jon Matonis, direktør for Bitcoin Foundation, er hovedtaler og deltager også i panelerne.",
+     "fi": "Konferenssi käsittelee bitcoin-yhteisöä, mitä bitcoin on, miten sitä ostetaan ja käytetään, ja miten maksuvälinettä kehitettiin avoimemmaksi taloudeksi. Bitcoin Foundationin toiminnanjohtaja Jon Matonis on pääpuhuja ja mukana myös paneeleissa.",
+     "is": "Ráðstefnan fjallar um að skilja bitcoin-samfélagið, hvað bitcoin er, hvernig það er keypt og notað, og hvernig greiðslumiðillinn var þróaður í opnara hagkerfi. Jon Matonis, framkvæmdastjóri Bitcoin Foundation, er aðalfyrirlesari og tekur einnig þátt í pallborðum."
+    }
+   },
    "past": true,
    "ongoing": false,
    "html_url": "https://nordiccrypto.no/calendar/31498008ef34/",

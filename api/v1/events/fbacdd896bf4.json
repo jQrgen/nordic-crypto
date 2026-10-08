@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "fbacdd896bf4",
@@ -20,6 +20,21 @@
   "sponsored": null,
   "note": null,
   "note_i18n": {},
+  "description": {
+   "text": "Fundur verður haldinn í félaginu miðvikudaginn 18. apríl í stofu V-158 í VR-II við Hjarðarhaga. Að venju hefst fundurinn með kaffidrykkju kl. 16:45, en kl. 17:00 heldur Gunnar Stefánsson prófessor við HÍ fyrirlestur sem hann nefnir Rafmynt: Bitcoin og broskallar. Í erindi sínu mun Gunnar fjalla um rafmyntir og taka dæmi um notkun Bitcoin og Broskalla. Farið verður yfir virkni myntanna gagnvart notanda, um uppbyggingu bunkakeðjunnar (blockchain) og hvernig fjármagnsfærslur fara fram.",
+   "lang": "is",
+   "source_url": "https://stae.is/ísf/event/51617",
+   "source_name": "Íslenska stærðfræðafélagið",
+   "retrieved": "2026-10-07T23:50:00+00:00",
+   "i18n": {
+    "en": "The society meets on Wednesday 18 April in room V-158 in VR-II at Hjarðarhagi. As usual the meeting starts with coffee at 16:45, and at 17:00 Gunnar Stefánsson, professor at the University of Iceland, gives a lecture he calls Rafmynt: Bitcoin og broskallar. He talks about cryptocurrencies and gives examples of the use of Bitcoin and Broskallar. The lecture covers how the currencies work for a user, how the blockchain is built, and how transfers are made.",
+    "nn": "Félaget møtest onsdag 18. april i rom V-158 i VR-II ved Hjarðarhagi. Som vanleg startar møtet med kaffi klokka 16.45, og klokka 17.00 held Gunnar Stefánsson, professor ved Háskóli Íslands, eit føredrag han kallar Rafmynt: Bitcoin og broskallar. Han talar om kryptovaluta og gir døme på bruk av Bitcoin og Broskallar. Føredraget går gjennom korleis valutaene verkar for ein brukar, korleis blokkjeda er bygd, og korleis overføringar går føre seg.",
+    "nb": "Foreningen møtes onsdag 18. april i rom V-158 i VR-II ved Hjarðarhagi. Som vanlig starter møtet med kaffe klokken 16.45, og klokken 17.00 holder Gunnar Stefánsson, professor ved Háskóli Íslands, et foredrag han kaller Rafmynt: Bitcoin og broskallar. Han snakker om kryptovaluta og gir eksempler på bruk av Bitcoin og Broskallar. Foredraget går gjennom hvordan valutaene virker for en bruker, hvordan blokkjeden er bygget, og hvordan overføringer skjer.",
+    "sv": "Föreningen möts onsdagen den 18 april i sal V-158 i VR-II vid Hjarðarhagi. Som vanligt börjar mötet med kaffe klockan 16.45, och klockan 17.00 håller Gunnar Stefánsson, professor vid Háskóli Íslands, ett föredrag han kallar Rafmynt: Bitcoin og broskallar. Han talar om kryptovaluta och ger exempel på användning av Bitcoin och Broskallar. Föredraget går igenom hur valutorna fungerar för en användare, hur blockkedjan är uppbyggd och hur överföringar går till.",
+    "da": "Foreningen mødes onsdag den 18. april i lokale V-158 i VR-II ved Hjarðarhagi. Som sædvanlig begynder mødet med kaffe klokken 16.45, og klokken 17.00 holder Gunnar Stefánsson, professor ved Háskóli Íslands, et foredrag, han kalder Rafmynt: Bitcoin og broskallar. Han taler om kryptovaluta og giver eksempler på brug af Bitcoin og Broskallar. Foredraget gennemgår, hvordan valutaerne virker for en bruger, hvordan blokkæden er bygget, og hvordan overførsler foregår.",
+    "fi": "Seura kokoontuu keskiviikkona 18. huhtikuuta salissa V-158 VR-II:ssa osoitteessa Hjarðarhagi. Tavan mukaan kokous alkaa kahvilla kello 16.45, ja kello 17.00 Islannin yliopiston professori Gunnar Stefánsson pitää esitelmän nimeltä Rafmynt: Bitcoin og broskallar. Hän puhuu kryptovaluutoista ja antaa esimerkkejä Bitcoinin ja Broskallarin käytöstä. Esitelmä käy läpi, miten valuutat toimivat käyttäjälle, miten lohkoketju rakentuu ja miten siirrot tehdään."
+   }
+  },
   "past": true,
   "ongoing": false,
   "html_url": "https://nordiccrypto.no/calendar/fbacdd896bf4/",

@@ -1,11 +1,124 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "topic": "mining",
- "count": 4,
+ "count": 6,
  "items": [
+  {
+   "id": "9755cf9957e9",
+   "url": "https://sagat.no/innrommer-litt-kryptoutvinning/19.59848",
+   "html_url": "https://nordiccrypto.no/stories/9755cf9957e9/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/9755cf9957e9.json",
+   "title": "Innrømmer «litt» kryptoutvinning",
+   "title_en": "Data-centre firm admits to “a little” crypto mining",
+   "title_i18n": {},
+   "source": "sagat",
+   "source_name": "Ságat",
+   "source_logo": null,
+   "source_note": null,
+   "country": "NO",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-10-07T10:14:12+00:00",
+   "topics": [
+    "mining"
+   ],
+   "summary": "Data-centre company Arctic Core says in writing that its business uses crypto mining to generate income during a test phase, but argues this does not change the basic character of the warehouse building it has been granted a permit for, the local paper Ságat reports.",
+   "summary_i18n": {
+    "nb": "Datasenterselskapet Arctic Core skriver at virksomheten bruker kryptoutvinning for å skaffe inntekter i en testfase, men mener at dette ikke endrer den grunnleggende karakteren til lagerbygget selskapet har fått tillatelse til, melder lokalavisen Ságat.",
+    "nn": "Datasenterselskapet Arctic Core skriv at verksemda brukar kryptoutvinning for å skaffe inntekter i ein testfase, men meiner at dette ikkje endrar den grunnleggjande karakteren til lagerbygget selskapet har fått løyve til, melder lokalavisa Ságat.",
+    "sv": "Datacenterföretaget Arctic Core skriver att verksamheten använder kryptoutvinning för att skapa intäkter under en testfas, men menar att det inte ändrar den grundläggande karaktären hos lagerbyggnaden som företaget har fått tillstånd för, rapporterar lokaltidningen Ságat.",
+    "da": "Datacentervirksomheden Arctic Core skriver, at virksomheden bruger kryptoudvinding til at skabe indtægter i en testfase, men mener, at det ikke ændrer den grundlæggende karakter af den lagerbygning, virksomheden har fået tilladelse til, oplyser lokalavisen Ságat.",
+    "fi": "Datakeskusyhtiö Arctic Core kirjoittaa käyttävänsä testivaiheessa kryptolouhintaa tulojen hankkimiseen, mutta sen mukaan tämä ei muuta sen varastorakennuksen perusluonnetta, jolle yhtiö on saanut luvan, kertoo paikallislehti Ságat.",
+    "is": "Gagnaversfyrirtækið Arctic Core segir skriflega að starfsemin noti rafmyntagröft til að afla tekna á prófunartímabili, en telur að það breyti ekki grundvallareðli vöruhússins sem fyrirtækið hefur fengið leyfi fyrir, að sögn héraðsblaðsins Ságat."
+   },
+   "paywall": true,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "commons-mining",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-mining.webp",
+    "width": 960,
+    "height": 720,
+    "alt": "Rows of cryptocurrency mining machines indoors.",
+    "source": "Wikimedia Commons",
+    "author": "Jasper Reichardt",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "url": "https://commons.wikimedia.org/wiki/File:Mining-Rig.jpg",
+    "credit": "Photo: Jasper Reichardt. Licence: CC BY-SA 4.0. Source: Wikimedia Commons.",
+    "modifications": null,
+    "terms": null
+   },
+   "primary_source": {
+    "outlet": "sagat",
+    "outlet_name": "Ságat",
+    "url": "https://sagat.no/innrommer-litt-kryptoutvinning/19.59848",
+    "title": "Innrømmer «litt» kryptoutvinning",
+    "published": "2026-10-07T10:14:12+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": true,
+    "primary": true,
+    "logo": null
+   },
+   "primary_source_document": null,
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "sagat",
+     "outlet_name": "Ságat",
+     "url": "https://sagat.no/innrommer-litt-kryptoutvinning/19.59848",
+     "title": "Innrømmer «litt» kryptoutvinning",
+     "published": "2026-10-07T10:14:12+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "national",
+     "paywall": true,
+     "primary": true,
+     "logo": null
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": null
+  },
   {
    "id": "e88e8e0c9a77",
    "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/",
@@ -86,6 +199,7 @@
      "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
     }
    },
+   "primary_source_document": null,
    "also_covered_by": [],
    "sources": [
     {
@@ -93,6 +207,147 @@
      "outlet_name": "Stortinget",
      "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/",
      "title": "Rødt foreslår midlertidig stans for nye datasentre",
+     "published": "2026-10-05T12:00:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "official",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+      "author": "Worldlydev",
+      "license": "Public domain",
+      "license_url": null,
+      "credit": "Wikimedia Commons",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
+     }
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
+  },
+  {
+   "id": "bc7a45cb184e",
+   "url": "https://stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-009s",
+   "html_url": "https://nordiccrypto.no/stories/bc7a45cb184e/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/bc7a45cb184e.json",
+   "title": "Representantforslag om konsesjonssystem for etablering av datasentre",
+   "title_en": "SV proposes a halt on new data centres and asks for follow-up of the crypto-mining ban (proposal)",
+   "title_i18n": {},
+   "source": "stortinget",
+   "source_name": "Stortinget",
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+    "author": "Worldlydev",
+    "license": "Public domain",
+    "license_url": null,
+    "credit": "Wikimedia Commons",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
+   },
+   "source_note": null,
+   "country": "NO",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-10-05T12:00:00+00:00",
+   "topics": [
+    "mining",
+    "policy"
+   ],
+   "summary": "Socialist Left Party (SV) MPs have proposed in the Storting a «panic law» that would put new data centres on hold until the industry is regulated, plus a national licensing system for data centres. They also ask the government to report back quickly on how the Storting's decision to ban crypto mining in Norway will be followed up; this is a proposal, not a decision.",
+   "summary_i18n": {
+    "nb": "Stortingsrepresentanter fra SV har foreslått en «panikklov» som setter nye datasentre på vent til bransjen er regulert, og et nasjonalt konsesjonssystem for datasentre. De ber også regjeringen raskt komme tilbake med hvordan Stortingets vedtak om forbud mot kryptoutvinning i Norge skal følges opp; dette er et forslag, ikke et vedtak.",
+    "nn": "Stortingsrepresentantar frå SV har føreslått ei «panikklov» som set nye datasenter på vent til bransjen er regulert, og eit nasjonalt konsesjonssystem for datasenter. Dei ber òg regjeringa raskt kome tilbake med korleis vedtaket i Stortinget om forbod mot kryptoutvinning i Noreg skal følgjast opp; dette er eit forslag, ikkje eit vedtak.",
+    "sv": "Stortingsledamöter från SV har föreslagit en «panikklov» som pausar nya datacenter tills branschen är reglerad, samt ett nationellt tillståndssystem för datacenter. De ber också regeringen att snabbt återkomma med hur Stortingets beslut om förbud mot kryptoutvinning i Norge ska följas upp; detta är ett förslag, inte ett beslut.",
+    "da": "Stortingsmedlemmer fra SV har foreslået en «panikklov», der sætter nye datacentre på pause, indtil branchen er reguleret, samt et nationalt tilladelsessystem for datacentre. De beder også regeringen hurtigt vende tilbage med, hvordan Stortingets beslutning om forbud mod kryptoudvinding i Norge skal følges op; det er et forslag, ikke en beslutning.",
+    "fi": "Sosialistisen vasemmistopuolueen (SV) kansanedustajat ovat ehdottaneet suurkäräjillä «paniikkilakia», joka asettaisi uudet datakeskukset odotustilaan, kunnes ala on säännelty, sekä kansallista lupajärjestelmää datakeskuksille. He pyytävät myös hallitusta kertomaan pian, miten suurkäräjien päätös kieltää kryptolouhinta Norjassa pannaan täytäntöön; kyse on ehdotuksesta, ei päätöksestä.",
+    "is": "Þingmenn Sósíalíska vinstriflokksins (SV) hafa lagt til á Stórþinginu «neyðarlög» sem setja ný gagnaver í bið þar til greinin hefur verið regluvædd, auk landsbundins leyfiskerfis fyrir gagnaver. Þeir biðja einnig ríkisstjórnina að greina fljótt frá því hvernig fylgja eigi eftir ákvörðun Stórþingsins um bann við rafmyntagreftri í Noregi; þetta er tillaga, ekki ákvörðun."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "commons-mining",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-mining.webp",
+    "width": 960,
+    "height": 720,
+    "alt": "Rows of cryptocurrency mining machines indoors.",
+    "source": "Wikimedia Commons",
+    "author": "Jasper Reichardt",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "url": "https://commons.wikimedia.org/wiki/File:Mining-Rig.jpg",
+    "credit": "Photo: Jasper Reichardt. Licence: CC BY-SA 4.0. Source: Wikimedia Commons.",
+    "modifications": null,
+    "terms": null
+   },
+   "primary_source": {
+    "outlet": "stortinget",
+    "outlet_name": "Stortinget",
+    "url": "https://stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-009s",
+    "title": "Representantforslag om konsesjonssystem for etablering av datasentre",
+    "published": "2026-10-05T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "official",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
+     "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+     "author": "Worldlydev",
+     "license": "Public domain",
+     "license_url": null,
+     "credit": "Wikimedia Commons",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
+    }
+   },
+   "primary_source_document": null,
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "stortinget",
+     "outlet_name": "Stortinget",
+     "url": "https://stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-009s",
+     "title": "Representantforslag om konsesjonssystem for etablering av datasentre",
      "published": "2026-10-05T12:00:00+00:00",
      "lang": "Norwegian",
      "language_code": "no",
@@ -232,6 +487,7 @@
      "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
     }
    },
+   "primary_source_document": null,
    "also_covered_by": [],
    "sources": [
     {
@@ -378,6 +634,7 @@
      "raster_url": "https://nordiccrypto.no/assets/img/logos/bpi.png"
     }
    },
+   "primary_source_document": null,
    "also_covered_by": [],
    "sources": [
     {
@@ -524,6 +781,7 @@
     },
     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
    },
+   "primary_source_document": null,
    "also_covered_by": [],
    "sources": [
     {

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "456d06c0b3c1",
@@ -20,6 +20,21 @@
   "sponsored": null,
   "note": null,
   "note_i18n": {},
+  "description": {
+   "text": "Norges Bank and Digdir arranged a brainstorming session on 22 November 2022. The theme was which existing problems a CBDC can solve, and which new opportunities a CBDC can provide to society. The same day started a technical hackathon, with groups programming solutions in Norges Bank's prototype.",
+   "lang": "en",
+   "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+   "source_name": "Norges Bank",
+   "retrieved": "2026-10-07T23:50:00+00:00",
+   "i18n": {
+    "nn": "Noregs Bank og Digdir heldt ein idéverkstad 22. november 2022. Temaet var kva eksisterande problem ein CBDC kan løyse, og kva nye moglegheiter ein CBDC kan gi samfunnet. Same dag starta ein teknisk hackathon, der grupper programmerte løysingar i prototypen til Noregs Bank.",
+    "nb": "Norges Bank og Digdir holdt en idéverksted 22. november 2022. Temaet var hvilke eksisterende problemer en CBDC kan løse, og hvilke nye muligheter en CBDC kan gi samfunnet. Samme dag startet en teknisk hackathon, der grupper programmerte løsninger i prototypen til Norges Bank.",
+    "sv": "Norges Bank och Digdir höll en idéverkstad den 22 november 2022. Temat var vilka befintliga problem en CBDC kan lösa, och vilka nya möjligheter en CBDC kan ge samhället. Samma dag startade ett tekniskt hackathon, där grupper programmerade lösningar i Norges Banks prototyp.",
+    "da": "Norges Bank og Digdir holdt en idéworkshop den 22. november 2022. Temaet var, hvilke eksisterende problemer en CBDC kan løse, og hvilke nye muligheder en CBDC kan give samfundet. Samme dag startede et teknisk hackathon, hvor grupper programmerede løsninger i Norges Banks prototype.",
+    "fi": "Norges Bank ja Digdir järjestivät ideatyöpajan 22. marraskuuta 2022. Aiheena oli, mitä olemassa olevia ongelmia CBDC voi ratkaista ja mitä uusia mahdollisuuksia se voi antaa yhteiskunnalle. Samana päivänä alkoi tekninen hackathon, jossa ryhmät ohjelmoivat ratkaisuja Norges Bankin prototyyppiin.",
+    "is": "Norges Bank og Digdir héldu hugmyndavinnustofu 22. nóvember 2022. Þemað var hvaða fyrirliggjandi vandamál CBDC getur leyst og hvaða ný tækifæri CBDC getur gefið samfélaginu. Sama dag hófst tæknilegt hackathon þar sem hópar forrituðu lausnir í frumgerð Norges Bank."
+   }
+  },
   "past": true,
   "ongoing": false,
   "html_url": "https://nordiccrypto.no/calendar/456d06c0b3c1/",

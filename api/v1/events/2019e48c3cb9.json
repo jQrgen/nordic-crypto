@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "2019e48c3cb9",
@@ -20,6 +20,21 @@
   "sponsored": null,
   "note": null,
   "note_i18n": {},
+  "description": {
+   "text": "A hands-on, one-day workshop on mining economics, profitability models, infrastructure, power markets and financing. Organized by AmityAge with OurPool.",
+   "lang": "en",
+   "source_url": "https://info.btchel.com/index.html",
+   "source_name": "BTCHEL",
+   "retrieved": "2026-10-07T23:50:00+00:00",
+   "i18n": {
+    "nn": "Ein praktisk ein-dags verkstad om økonomien i utvinning, lønsemdsmodellar, infrastruktur, kraftmarknader og finansiering. Arrangert av AmityAge saman med OurPool.",
+    "nb": "En praktisk éndags workshop om økonomien i utvinning, lønnsomhetsmodeller, infrastruktur, kraftmarkeder og finansiering. Arrangert av AmityAge sammen med OurPool.",
+    "sv": "En praktisk endagsworkshop om ekonomin i utvinning, lönsamhetsmodeller, infrastruktur, elmarknader och finansiering. Arrangerad av AmityAge tillsammans med OurPool.",
+    "da": "En praktisk éndagsworkshop om økonomien i minedrift, lønsomhedsmodeller, infrastruktur, elmarkeder og finansiering. Arrangeret af AmityAge sammen med OurPool.",
+    "fi": "Käytännönläheinen yhden päivän työpaja louhinnan taloudesta, kannattavuusmalleista, infrastruktuurista, sähkömarkkinoista ja rahoituksesta. Järjestäjinä AmityAge ja OurPool.",
+    "is": "Verkleg eins dags vinnustofa um hagfræði námugraftar, arðsemislíkön, innviði, raforkumarkaði og fjármögnun. Skipulögð af AmityAge með OurPool."
+   }
+  },
   "past": true,
   "ongoing": false,
   "html_url": "https://nordiccrypto.no/calendar/2019e48c3cb9/",

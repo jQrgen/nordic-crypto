@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "c4dd9c6f0526",
@@ -20,6 +20,21 @@
   "sponsored": null,
   "note": null,
   "note_i18n": {},
+  "description": {
+   "text": "The hackathon was for members of Fintech Norway and Virke and was held in person in Oslo on 15–17 March 2023. It was the most compact hackathon in this phase of Norges Bank's CBDC work and engaged private market participants with the prototype.",
+   "lang": "en",
+   "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+   "source_name": "Norges Bank",
+   "retrieved": "2026-10-07T23:50:00+00:00",
+   "i18n": {
+    "nn": "Hackathonen var for medlemmer av Fintech Norway og Virke og blei halden fysisk i Oslo 15.–17. mars 2023. Han var den mest komprimerte hackathonen i denne fasen av CBDC-arbeidet til Noregs Bank og fekk private marknadsaktørar i gang med prototypen.",
+    "nb": "Hackathonen var for medlemmer av Fintech Norway og Virke og ble holdt fysisk i Oslo 15.–17. mars 2023. Den var den mest komprimerte hackathonen i denne fasen av CBDC-arbeidet til Norges Bank og fikk private markedsaktører i gang med prototypen.",
+    "sv": "Hackathonet var för medlemmar i Fintech Norway och Virke och hölls på plats i Oslo den 15–17 mars 2023. Det var det mest komprimerade hackathonet i den här fasen av Norges Banks CBDC-arbete och fick privata marknadsaktörer att arbeta med prototypen.",
+    "da": "Hackathonet var for medlemmer af Fintech Norway og Virke og blev holdt fysisk i Oslo den 15.–17. marts 2023. Det var det mest komprimerede hackathon i denne fase af Norges Banks CBDC-arbejde og fik private markedsaktører i gang med prototypen.",
+    "fi": "Hackathon oli Fintech Norwayn ja Virken jäsenille, ja se pidettiin paikan päällä Oslossa 15.–17. maaliskuuta 2023. Se oli tiivein hackathon tässä vaiheessa Norges Bankin CBDC-työtä ja sai yksityisiä markkinatoimijoita kokeilemaan prototyyppiä.",
+    "is": "Hackathonið var fyrir félaga í Fintech Norway og Virke og var haldið á staðnum í Osló 15.–17. mars 2023. Það var þéttasta hackathonið á þessu stigi CBDC-vinnu Norges Bank og fékk einkaaðila á markaði til að vinna með frumgerðina."
+   }
+  },
   "past": true,
   "ongoing": false,
   "html_url": "https://nordiccrypto.no/calendar/c4dd9c6f0526/",

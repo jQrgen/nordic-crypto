@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "89ced460e4ca",
@@ -26,6 +26,21 @@
    "da": "Betalt adgang (239 norske kroner for ikke-medlemmer).",
    "fi": "Maksullinen (239 Norjan kruunua muille kuin jäsenille).",
    "is": "Aðgangseyrir (239 norskar krónur fyrir utanfélagsmenn)."
+  },
+  "description": {
+   "text": "I kjølvannet av bitcoin har vi fått en rekke apper som endrer samtiden vår og utvider finanssektoren. Stikkord er fremtidsmarkeder som «Polymarket», kryptobanken «Aave», nyvinninger innen forsikring, stablecoins og nye former for statlige penger. I samarbeid med Bitcoinpolitisk Institutt Norge presenterer Polyteknisk Forening appene som bitcoin har ført med seg, i tillegg til bitcoin selv.",
+   "lang": "nb",
+   "source_url": "https://www.polyteknisk.no/program/crypto-killer-apps",
+   "source_name": "Polyteknisk Forening (program)",
+   "retrieved": "2026-10-07T23:50:00+00:00",
+   "i18n": {
+    "en": "In the wake of bitcoin a number of apps have appeared that change how things work and extend the financial sector. Examples are prediction markets such as Polymarket, the crypto bank Aave, new insurance, stablecoins and new forms of state money. Together with Bitcoinpolitisk Institutt Norge, Polyteknisk Forening presents the apps that bitcoin has led to, as well as bitcoin itself.",
+    "nn": "I kjølvatnet av bitcoin har me fått ei rekkje appar som endrar samtida vår og utvidar finanssektoren. Stikkord er framtidsmarknader som Polymarket, kryptobanken Aave, nyskaping innan forsikring, stablecoins og nye former for statlege pengar. I samarbeid med Bitcoinpolitisk Institutt Norge presenterer Polyteknisk Forening appane som bitcoin har ført med seg, i tillegg til bitcoin sjølv.",
+    "sv": "I bitcoins kölvatten har det kommit en rad appar som förändrar samtiden och utvidgar finanssektorn. Exempel är framtidsmarknader som Polymarket, kryptobanken Aave, nyheter inom försäkring, stablecoins och nya former av statliga pengar. Tillsammans med Bitcoinpolitisk Institutt Norge presenterar Polyteknisk Forening apparna som bitcoin har fört med sig, utöver bitcoin själv.",
+    "da": "I kølvandet på bitcoin er der kommet en række apps, som ændrer samtiden og udvider finanssektoren. Stikord er fremtidsmarkeder som Polymarket, kryptobanken Aave, nyt inden for forsikring, stablecoins og nye former for statspenge. Sammen med Bitcoinpolitisk Institutt Norge præsenterer Polyteknisk Forening de apps, som bitcoin har ført med sig, ud over bitcoin selv.",
+    "fi": "Bitcoinin vanavedessä on tullut joukko sovelluksia, jotka muuttavat nykyhetkeä ja laajentavat rahoitusalaa. Esimerkkejä ovat ennustemarkkinat kuten Polymarket, kryptopankki Aave, vakuutusten uutuudet, stablecoinit ja uudet valtiollisen rahan muodot. Yhdessä Bitcoinpolitisk Institutt Norgen kanssa Polyteknisk Forening esittelee sovellukset, joita bitcoin on tuonut mukanaan, bitcoinin itsensä lisäksi.",
+    "is": "Í kjölfar bitcoin hafa komið fram fjölmörg öpp sem breyta samtímanum og víkka fjármálageirann. Dæmi eru framtíðarmarkaðir eins og Polymarket, kryptobankinn Aave, nýjungar í tryggingum, stablecoins og ný form ríkisfjár. Í samstarfi við Bitcoinpolitisk Institutt Norge kynnir Polyteknisk Forening öppin sem bitcoin hefur leitt af sér, auk bitcoin sjálfs."
+   }
   },
   "past": false,
   "ongoing": false,

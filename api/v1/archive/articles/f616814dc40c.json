@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "f616814dc40c",
@@ -11,14 +11,19 @@
   "canonical_url": "https://kaupr.io/nyheter/greenmerc-kutter-4-8-millioner-i-aret---northcrypto-gar-med-overskudd",
   "title": "GreenMerc kutter 4,8 millioner i året – Northcrypto går med overskudd",
   "titles": {
-   "en": "GreenMerc cuts SEK 4.8 million a year as Northcrypto turns a profit"
+   "en": "GreenMerc cuts SEK 4.8 million a year as Northcrypto turns a profit",
+   "nn": "GreenMerc kuttar 4,8 millionar i året – Northcrypto går med overskot",
+   "sv": "GreenMerc skär ner 4,8 miljoner om året – Northcrypto går med vinst",
+   "da": "GreenMerc skærer 4,8 millioner om året – Northcrypto giver overskud",
+   "fi": "GreenMerc leikkaa 4,8 miljoonaa vuodessa – Northcrypto tekee voittoa",
+   "is": "GreenMerc skerðir 4,8 milljónir á ári – Northcrypto skilar hagnaði"
   },
   "source": "kaupr",
   "source_name": "Kaupr",
   "country": "SE",
   "published_at": "2026-09-30T12:00:00+00:00",
   "first_published_on_site": "2026-10-03T17:59:40+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

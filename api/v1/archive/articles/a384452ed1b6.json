@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "a384452ed1b6",
@@ -11,14 +11,19 @@
   "canonical_url": "https://kaupr.io/nyheter/greenmerc-trekker-mica-klage-og-bruker-northcryptos-lisens-i-sverige",
   "title": "GreenMerc trekker MiCA-klage og bruker Northcryptos lisens i Sverige",
   "titles": {
-   "en": "GreenMerc drops MiCA appeal and uses Northcrypto's licence in Sweden"
+   "en": "GreenMerc drops MiCA appeal and uses Northcrypto's licence in Sweden",
+   "nn": "GreenMerc trekkjer MiCA-klage og bruker Northcrypto sitt løyve i Sverige",
+   "sv": "GreenMerc drar tillbaka MiCA-överklagandet och använder Northcryptos tillstånd i Sverige",
+   "da": "GreenMerc trækker MiCA-klagen tilbage og bruger Northcryptos licens i Sverige",
+   "fi": "GreenMerc peruu MiCA-valituksensa ja käyttää Northcrypton lupaa Ruotsissa",
+   "is": "GreenMerc dreg MiCA-kæru til baka og notar leyfi Northcrypto í Svíþjóð"
   },
   "source": "kaupr",
   "source_name": "Kaupr",
   "country": "SE",
   "published_at": "2026-09-17T12:00:00+00:00",
   "first_published_on_site": "2026-10-03T17:59:40+02:00",
-  "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+  "last_seen_on_site": "2026-10-08T08:02:20+02:00",
   "languages": [
    "en",
    "nn",

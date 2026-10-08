@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T06:00:27+00:00",
+ "generated_at": "2026-10-08T07:16:55+00:00",
  "preview": false,
  "item": {
   "id": "211a89133561",
@@ -20,6 +20,21 @@
   "sponsored": null,
   "note": null,
   "note_i18n": {},
+  "description": {
+   "text": "11 groups presented suggestions on the advantages of CBDCs at an event in Norges Bank's auditorium on 19 January 2023. The groups came from the hackathon started with Digdir.",
+   "lang": "en",
+   "source_url": "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+   "source_name": "Norges Bank",
+   "retrieved": "2026-10-07T23:50:00+00:00",
+   "i18n": {
+    "nn": "11 grupper la fram forslag om fordelane med CBDC på eit arrangement i auditoriet til Noregs Bank 19. januar 2023. Gruppene kom frå hackathonen som starta saman med Digdir.",
+    "nb": "11 grupper la frem forslag om fordelene med CBDC på et arrangement i auditoriet til Norges Bank 19. januar 2023. Gruppene kom fra hackathonen som startet sammen med Digdir.",
+    "sv": "11 grupper presenterade förslag om fördelarna med CBDC vid ett evenemang i Norges Banks auditorium den 19 januari 2023. Grupperna kom från hackathonet som startade tillsammans med Digdir.",
+    "da": "11 grupper fremlagde forslag om fordelene ved CBDC ved et arrangement i Norges Banks auditorium den 19. januar 2023. Grupperne kom fra det hackathon, der startede sammen med Digdir.",
+    "fi": "11 ryhmää esitti ehdotuksia CBDC:n eduista Norges Bankin auditoriossa 19. tammikuuta 2023. Ryhmät tulivat Digdirin kanssa alkaneesta hackathonista.",
+    "is": "11 hópar lögðu fram tillögur um kosti CBDC á viðburði í sal Norges Bank 19. janúar 2023. Hóparnir komu úr hackathoninu sem hófst með Digdir."
+   }
+  },
   "past": true,
   "ongoing": false,
   "html_url": "https://nordiccrypto.no/calendar/211a89133561/",
