@@ -27,6 +27,10 @@ preview_urls = false
 [vars]
 NEXA_HOT_ADDRESS = "nexatest:nqtsq5g5xjg5cqg2kx5wgg4wag9hfjach7zaqxxekdrpgx5v"
 BCH_HOT_ADDRESS = "bchtest:zpahmsq06pyhkzfygww3kyrrpc00vl8mrctf3t6yfv"
+# Public Nexa testnet parent group, created by POST /api/admin/setup-tokens?chain=nexa
+# (tx 827574fd7a94a4ab3d7db05bd4ab0d782d0cf445154cd8e96c43c578cc784760). Not a secret.
+# BCH_CATEGORY is added here after the chipnet genesis.
+NEXA_PARENT_GROUP = "nexatest:trgmrcwuzqvxh6epkknac2cqap3zc995pmjyxnkyhnwuj0vmzuqqqrk4s7et7"
 
 [observability]
 enabled = false
