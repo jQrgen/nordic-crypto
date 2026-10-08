@@ -1918,17 +1918,17 @@ def build_sources(ctx):
         if lg and lg.get("file"):
             copy_repo_file(lg["file"])
             mark = f'<img class="src-logo" src="{up1()}{E(lg["file"])}" alt="" height="18" loading="lazy" decoding="async">'
-        by_c.setdefault(c, []).append((s.get("coverage") or "", f'<tr data-c="{E(c)}" data-cov="{E(s.get("coverage") or "")}"><td><a href="{E(s["url"])}" rel="noopener" target="_blank">{mark}{E(s["name"])}</a>'
+        by_c.setdefault(c, []).append((s.get("coverage") or "", f'<tr><td><a href="{E(s["url"])}" rel="noopener" target="_blank">{mark}{E(s["name"])}</a>'
                     f'<span class="sm">{meta}</span>' + (f'<span class="sn"{lang_attr("en")}>{E(note)}</span>' if note else "")
                     + f'</td><td>{source_method(s, st)}</td><td class="s {cls}">{E(lab)}</td></tr>'))
         n_ok[c] = n_ok.get(c, 0) + (cls == "ok")
     head = f'<thead><tr><th scope="col">{E(t("th_source"))}</th><th scope="col">{E(t("th_method"))}</th><th scope="col">{E(t("th_status"))}</th></tr></thead>'
     groups = []
     for c, rows in by_c.items():
-        bodies = "".join(f'<tbody><tr class="sub"><th colspan="3" scope="rowgroup">{E(t("cov_" + v) if i18n.has("en", "cov_" + v) else v)} <span class="n">{sum(r[0] == v for r in rows)}</span></th></tr>'
+        bodies = "".join(f'<tbody data-cov="{E(v)}"><tr class="sub"><th colspan="3" scope="rowgroup">{E(t("cov_" + v) if i18n.has("en", "cov_" + v) else v)} <span class="n">{sum(r[0] == v for r in rows)}</span></th></tr>'
                          + "".join(r[1] for r in rows if r[0] == v) + '</tbody>' for v in list(SRC_REACH) + sorted({r[0] for r in rows} - set(SRC_REACH)) if any(r[0] == v for r in rows))
         summ = f'{E(n_sources_label(len(rows)))} · {E(t("src_n_mon", n=n_ok[c]))}'
-        groups.append(f'<details class="srcg" id="src-{E(c)}"><summary><h2>{_deco_mark(c)}{E(cname(c))}</h2><span class="n" data-t="{summ}">{summ}</span></summary>'
+        groups.append(f'<details class="srcg" id="src-{E(c)}" data-c="{E(c)}"><summary><h2>{_deco_mark(c)}{E(cname(c))}</h2><span class="n" data-t="{summ}">{summ}</span></summary>'
                       f'<table class="list" style="text-align:left">{head}{bodies}</table></details>')
     erows = []
     for s in cfg.get("event_sources", []):
@@ -1968,19 +1968,19 @@ def build_sources(ctx):
 </div>"""
     script = """<script>(function(){
 var q=document.getElementById('srcq'),list=document.getElementById('srclist'),n=document.getElementById('srccount'),N=%s,N1=%s,
-rows=[].slice.call(list.querySelectorAll('tr[data-c]')),txt=rows.map(function(r){return r.textContent.toLowerCase()}),
+rows=[].slice.call(list.querySelectorAll('tbody tr:not(.sub)')),txt=rows.map(function(r){return (r.closest('details').querySelector('h2').textContent+' '+r.textContent).toLowerCase()}),cov=rows.map(function(r){return r.parentNode.dataset.cov}),
 groups=[].slice.call(list.querySelectorAll('details')),bodies=[].slice.call(list.querySelectorAll('tbody')),saved=null;
 function on(sel){return [].slice.call(document.querySelectorAll(sel)).filter(function(b){return b.getAttribute('aria-pressed')==='true'}).map(function(b){return b.dataset.c||b.dataset.cov});}
 function apply(){
   var vs=on('.src-v'),term=(q.value||'').trim().toLowerCase(),k=0,active=!!(vs.length||term);
   rows.forEach(function(tr,i){
-    var ok=(!vs.length||vs.indexOf(tr.dataset.cov)>=0)&&(!term||txt[i].indexOf(term)>=0);
+    var ok=(!vs.length||vs.indexOf(cov[i])>=0)&&(!term||txt[i].indexOf(term)>=0);
     tr.hidden=!ok; if(ok) k++;
   });
-  bodies.forEach(function(b){var m=b.querySelectorAll('tr[data-c]:not([hidden])').length,c=b.querySelector('.sub .n');b.hidden=!m;if(c)c.textContent=m});
+  bodies.forEach(function(b){var m=b.querySelectorAll('tr:not(.sub):not([hidden])').length,c=b.querySelector('.sub .n');b.hidden=!m;if(c)c.textContent=m});
   if(active&&!saved) saved=groups.map(function(d){return d.open});
   groups.forEach(function(d,i){
-    var m=d.querySelectorAll('tr[data-c]:not([hidden])').length,s=d.querySelector('summary .n');
+    var m=d.querySelectorAll('tbody tr:not(.sub):not([hidden])').length,s=d.querySelector('summary .n');
     d.hidden=!m;
     if(active){d.open=m>0; s.textContent=lab(m)} else {if(saved) d.open=saved[i]; s.textContent=s.dataset.t}
   });
