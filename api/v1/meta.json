@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T19:37:45+00:00",
+ "generated_at": "2026-10-08T20:00:38+00:00",
  "preview": false,
  "sign_off": "The Nordic Crypto team",
  "description": "Bitcoin, blockchain and crypto news, events, a who's who, regulation and academia for Norway, Sweden, Denmark, Finland and Iceland.",
@@ -377,6 +377,11 @@
    "path": "/academia/",
    "url": "https://nordiccrypto.no/academia/",
    "title": "Courses, student groups, publications and research"
+  },
+  {
+   "path": "/books/",
+   "url": "https://nordiccrypto.no/books/",
+   "title": "Published books on bitcoin, crypto and blockchain by Nordic authors or about the Nordics"
   },
   {
    "path": "/sources/",

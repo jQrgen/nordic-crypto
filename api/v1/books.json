@@ -1,0 +1,552 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-08T20:00:38+00:00",
+ "preview": false,
+ "updated": "2026-10-08",
+ "count": 25,
+ "books": [
+  {
+   "id": "bitcoin-reportasjane",
+   "title": "Bitcoin-reportasjane",
+   "subtitle": "frå Japan, Sulitjelma, Tyskland, Hongkong, El Salvador, Georgia, Gibraltar, Svalbard, England og Orknøyane",
+   "original_title": null,
+   "authors": [
+    "Morten Søberg"
+   ],
+   "author_role": null,
+   "year": 2025,
+   "publisher": "Fonna forlag",
+   "language": "nn",
+   "country": "NO",
+   "isbn": "9788251304191",
+   "about": "Reportage on bitcoin from ten places, among them Sulitjelma, Svalbard and El Salvador.",
+   "source": "https://www.nb.no/items/URN:NBN:no-nb_pliktmonografi_000061818",
+   "source_name": "Nasjonalbiblioteket",
+   "more_sources": [],
+   "language_name": "Norwegian Nynorsk",
+   "html_url": "https://nordiccrypto.no/books/#bitcoin-reportasjane"
+  },
+  {
+   "id": "kryptoeiendeler-i-formueretten",
+   "title": "Kryptoeiendeler i formueretten",
+   "subtitle": "kryptovaluta, «smarte kontrakter» og andre eiendeler på blokkjeden",
+   "original_title": null,
+   "authors": [
+    "Jannik Woxholth"
+   ],
+   "author_role": null,
+   "year": 2024,
+   "publisher": "Gyldendal",
+   "language": "nb",
+   "country": "NO",
+   "isbn": "9788205599598",
+   "about": "Legal textbook on crypto-assets, smart contracts and other blockchain assets under Norwegian property law.",
+   "source": "https://www.nb.no/items/URN:NBN:no-nb_pliktmonografi_000031197",
+   "source_name": "Nasjonalbiblioteket",
+   "more_sources": [],
+   "language_name": "Norwegian Bokmål",
+   "html_url": "https://nordiccrypto.no/books/#kryptoeiendeler-i-formueretten"
+  },
+  {
+   "id": "bitcoin-er-harde-penger",
+   "title": "Bitcoin er harde penger",
+   "subtitle": null,
+   "original_title": null,
+   "authors": [
+    "Martin Schanche-Olsen"
+   ],
+   "author_role": null,
+   "year": 2022,
+   "publisher": "Konsensus Network",
+   "language": "nb",
+   "country": "NO",
+   "isbn": "9789916697573",
+   "about": "Norwegian-language argument for bitcoin as hard money.",
+   "source": "https://www.nb.no/items/URN:NBN:no-nb_pliktmonografi_000013520",
+   "source_name": "Nasjonalbiblioteket",
+   "more_sources": [],
+   "language_name": "Norwegian Bokmål",
+   "html_url": "https://nordiccrypto.no/books/#bitcoin-er-harde-penger"
+  },
+  {
+   "id": "svalbard-pengar",
+   "title": "Svalbard! Pengar!",
+   "subtitle": null,
+   "original_title": null,
+   "authors": [
+    "Morten Søberg"
+   ],
+   "author_role": null,
+   "year": 2022,
+   "publisher": "Spartacus",
+   "language": "nn",
+   "country": "NO",
+   "isbn": "9788243014817",
+   "about": "Essay on the money that mining companies issued on Svalbard, compared with mined, proof-of-work money such as bitcoin and ether.",
+   "source": "https://www.nb.no/items/URN:NBN:no-nb_digibok_2022102848045",
+   "source_name": "Nasjonalbiblioteket",
+   "more_sources": [
+    "https://www.ark.no/produkt/svalbard-pengar-9788243015197"
+   ],
+   "language_name": "Norwegian Nynorsk",
+   "html_url": "https://nordiccrypto.no/books/#svalbard-pengar"
+  },
+  {
+   "id": "bitcoin-blokkjedeteknologi-og-nye-smarte-penger",
+   "title": "Bitcoin, blokkjedeteknologi og nye smarte penger",
+   "subtitle": null,
+   "original_title": null,
+   "authors": [
+    "Lasse Meholm"
+   ],
+   "author_role": null,
+   "year": 2021,
+   "publisher": "Hegnar Media",
+   "language": "nb",
+   "country": "NO",
+   "isbn": "9788271463939",
+   "about": "Introduction to bitcoin, blockchain technology and newer forms of digital money.",
+   "source": "https://www.nb.no/search?q=9788271463939",
+   "source_name": "Nasjonalbiblioteket",
+   "more_sources": [],
+   "language_name": "Norwegian Bokmål",
+   "html_url": "https://nordiccrypto.no/books/#bitcoin-blokkjedeteknologi-og-nye-smarte-penger"
+  },
+  {
+   "id": "kryptovaluta-bitcoin-icoer-og-blockchain",
+   "title": "Kryptovaluta, bitcoin, ICOer og blockchain",
+   "subtitle": null,
+   "original_title": null,
+   "authors": [
+    "Lasse Meholm"
+   ],
+   "author_role": null,
+   "year": 2018,
+   "publisher": "Hegnar Media",
+   "language": "nb",
+   "country": "NO",
+   "isbn": "9788271463519",
+   "about": "Introduction to cryptocurrencies, bitcoin, ICOs and blockchain.",
+   "source": "https://www.nb.no/items/URN:NBN:no-nb_digibok_2020042248210",
+   "source_name": "Nasjonalbiblioteket",
+   "more_sources": [],
+   "language_name": "Norwegian Bokmål",
+   "html_url": "https://nordiccrypto.no/books/#kryptovaluta-bitcoin-icoer-og-blockchain"
+  },
+  {
+   "id": "digital-kryptovaluta-og-merverdiavgift",
+   "title": "Digital kryptovaluta og merverdiavgift",
+   "subtitle": null,
+   "original_title": null,
+   "authors": [
+    "Morten Hassel Mørch"
+   ],
+   "author_role": null,
+   "year": 2015,
+   "publisher": "Senter for rettsinformatikk, Universitetet i Oslo",
+   "language": "nb",
+   "country": "NO",
+   "isbn": "9788272261596",
+   "about": "Legal study of how VAT applies to digital cryptocurrency.",
+   "source": "https://www.nb.no/search?q=9788272261596",
+   "source_name": "Nasjonalbiblioteket",
+   "more_sources": [],
+   "language_name": "Norwegian Bokmål",
+   "html_url": "https://nordiccrypto.no/books/#digital-kryptovaluta-og-merverdiavgift"
+  },
+  {
+   "id": "diamanttjuven",
+   "title": "Diamanttjuven",
+   "subtitle": "barnens första möte med blockkedja",
+   "original_title": null,
+   "authors": [
+    "Julia Larsson"
+   ],
+   "author_role": null,
+   "year": 2024,
+   "publisher": "Lava",
+   "language": "sv",
+   "country": "SE",
+   "isbn": "9789189884809",
+   "about": "Illustrated children's story that introduces the blockchain idea.",
+   "source": "https://libris.kb.se/bib/h1p7bgd3f3r8b8jt",
+   "source_name": "Libris",
+   "more_sources": [],
+   "language_name": "Swedish",
+   "html_url": "https://nordiccrypto.no/books/#diamanttjuven"
+  },
+  {
+   "id": "samhallsvetenskaplig-introduktion-bitcoin",
+   "title": "En samhällsvetenskaplig introduktion till bitcoin och kryptovalutor",
+   "subtitle": null,
+   "original_title": null,
+   "authors": [
+    "Oskar Broberg",
+    "Viktor Elliot"
+   ],
+   "author_role": "editors",
+   "year": 2023,
+   "publisher": "Studentlitteratur",
+   "language": "sv",
+   "country": "SE",
+   "isbn": "9789144172439",
+   "about": "Edited social-science textbook on bitcoin and cryptocurrencies.",
+   "source": "https://libris.kb.se/bib/4l1jhhnr2gc481tt",
+   "source_name": "Libris",
+   "more_sources": [],
+   "language_name": "Swedish",
+   "html_url": "https://nordiccrypto.no/books/#samhallsvetenskaplig-introduktion-bitcoin"
+  },
+  {
+   "id": "bitcoinhandboken",
+   "title": "Bitcoinhandboken",
+   "subtitle": null,
+   "original_title": null,
+   "authors": [
+    "Björn Tisjö"
+   ],
+   "author_role": null,
+   "year": 2022,
+   "publisher": "Swehodl",
+   "language": "sv",
+   "country": "SE",
+   "isbn": "9789152752760",
+   "about": "Swedish handbook on bitcoin.",
+   "source": "https://libris.kb.se/bib/4l9lvm152p6vfmqc",
+   "source_name": "Libris",
+   "more_sources": [],
+   "language_name": "Swedish",
+   "html_url": "https://nordiccrypto.no/books/#bitcoinhandboken"
+  },
+  {
+   "id": "sovereignty-through-mathematics",
+   "title": "Bitcoin: Sovereignty Through Mathematics",
+   "subtitle": null,
+   "original_title": null,
+   "authors": [
+    "Knut Svanholm"
+   ],
+   "author_role": null,
+   "year": 2019,
+   "publisher": "Independently published",
+   "language": "en",
+   "country": "SE",
+   "isbn": "9781090109910",
+   "about": "Essays on bitcoin by a Swedish author. A Finnish translation was published by Konsensus Network in 2019.",
+   "source": "https://libris.kb.se/bib/ht1tl2vhf0vrwgnp",
+   "source_name": "Libris",
+   "more_sources": [
+    "https://www.finna.fi/Record/3amk.284126"
+   ],
+   "language_name": "English",
+   "html_url": "https://nordiccrypto.no/books/#sovereignty-through-mathematics"
+  },
+  {
+   "id": "bitcoin-och-blockkedjan",
+   "title": "Bitcoin och blockkedjan",
+   "subtitle": "en begriplig överblick",
+   "original_title": null,
+   "authors": [
+    "Christoffer De Geer"
+   ],
+   "author_role": null,
+   "year": 2018,
+   "publisher": "Ekerlids förlag",
+   "language": "sv",
+   "country": "SE",
+   "isbn": "9789188193773",
+   "about": "Plain-language overview of bitcoin and the blockchain.",
+   "source": "https://libris.kb.se/bib/21980241",
+   "source_name": "Libris",
+   "more_sources": [],
+   "language_name": "Swedish",
+   "html_url": "https://nordiccrypto.no/books/#bitcoin-och-blockkedjan"
+  },
+  {
+   "id": "blockkedjan",
+   "title": "Blockkedjan",
+   "subtitle": "så fungerar den, så använder du den",
+   "original_title": null,
+   "authors": [
+    "Christoffer De Geer"
+   ],
+   "author_role": null,
+   "year": 2018,
+   "publisher": "Ekerlids förlag",
+   "language": "sv",
+   "country": "SE",
+   "isbn": "9789188193872",
+   "about": "How blockchain technology works and how it can be used.",
+   "source": "https://libris.kb.se/bib/22649800",
+   "source_name": "Libris",
+   "more_sources": [],
+   "language_name": "Swedish",
+   "html_url": "https://nordiccrypto.no/books/#blockkedjan"
+  },
+  {
+   "id": "blockkedjor-bitcoin-och-kryptovalutor",
+   "title": "Blockkedjor, bitcoin & kryptovalutor",
+   "subtitle": "vår tids ekonomiska revolution?",
+   "original_title": null,
+   "authors": [
+    "Oskar Norgren-Hansson"
+   ],
+   "author_role": null,
+   "year": 2018,
+   "publisher": "Lava förlag",
+   "language": "sv",
+   "country": "SE",
+   "isbn": "9789188799630",
+   "about": "Swedish introduction to blockchains, bitcoin and cryptocurrencies.",
+   "source": "https://libris.kb.se/bib/pzvswnqpmbl9j7jn",
+   "source_name": "Libris",
+   "more_sources": [],
+   "language_name": "Swedish",
+   "html_url": "https://nordiccrypto.no/books/#blockkedjor-bitcoin-och-kryptovalutor"
+  },
+  {
+   "id": "sa-kan-du-bli-rik-pa-bitcoin",
+   "title": "Så kan du bli rik på bitcoin",
+   "subtitle": "den kompletta snabbguiden till att investera i kryptovalutor",
+   "original_title": null,
+   "authors": [
+    "Totte Löfström",
+    "Christian Ploog"
+   ],
+   "author_role": null,
+   "year": 2018,
+   "publisher": "Roos & Tegnér",
+   "language": "sv",
+   "country": "SE",
+   "isbn": "9789188743220",
+   "about": "Quick guide to investing in cryptocurrencies.",
+   "source": "https://libris.kb.se/bib/22584101",
+   "source_name": "Libris",
+   "more_sources": [],
+   "language_name": "Swedish",
+   "html_url": "https://nordiccrypto.no/books/#sa-kan-du-bli-rik-pa-bitcoin"
+  },
+  {
+   "id": "kryptovalutor-elgebrant",
+   "title": "Kryptovalutor",
+   "subtitle": "särskild rättsverkan vid innehav av bitcoins och andra liknande betalningsmedel",
+   "original_title": null,
+   "authors": [
+    "Emil Elgebrant"
+   ],
+   "author_role": null,
+   "year": 2016,
+   "publisher": "Wolters Kluwer",
+   "language": "sv",
+   "country": "SE",
+   "isbn": "9789139019138",
+   "about": "Swedish tax-law study of holding bitcoin and similar means of payment.",
+   "source": "https://libris.kb.se/bib/19132152",
+   "source_name": "Libris",
+   "more_sources": [],
+   "language_name": "Swedish",
+   "html_url": "https://nordiccrypto.no/books/#kryptovalutor-elgebrant"
+  },
+  {
+   "id": "blockchain-business",
+   "title": "Blockchain business",
+   "subtitle": "ægte, sporbart og uerstatteligt",
+   "original_title": null,
+   "authors": [
+    "Jan Damsgaard"
+   ],
+   "author_role": null,
+   "year": 2021,
+   "publisher": "Djøf Forlag",
+   "language": "da",
+   "country": "DK",
+   "isbn": "9788757452983",
+   "about": "Blockchain, cryptocurrencies and NFTs for businesses, with Danish company cases.",
+   "source": "https://research.cbs.dk/en/publications/blockchain-business-%C3%A6gte-sporbart-og-uerstatteligt/",
+   "source_name": "CBS Research Portal",
+   "more_sources": [],
+   "language_name": "Danish",
+   "html_url": "https://nordiccrypto.no/books/#blockchain-business"
+  },
+  {
+   "id": "bitcoin-fremtidens-penge",
+   "title": "Bitcoin – fremtidens penge?",
+   "subtitle": null,
+   "original_title": null,
+   "authors": [
+    "Peter Hertz",
+    "Alexander Sonne Wulff"
+   ],
+   "author_role": null,
+   "year": 2018,
+   "publisher": "Gyldendal",
+   "language": "da",
+   "country": "DK",
+   "isbn": "9788702265514",
+   "about": "Introduction to digital currencies: why they arose, how they work and the obstacles they face.",
+   "source": "https://www.gyldendal.dk/produkter/bitcoin-9788702265514",
+   "source_name": "Gyldendal",
+   "more_sources": [],
+   "language_name": "Danish",
+   "html_url": "https://nordiccrypto.no/books/#bitcoin-fremtidens-penge"
+  },
+  {
+   "id": "bitcoin-frie-penge",
+   "title": "Bitcoin – frie penge",
+   "subtitle": null,
+   "original_title": null,
+   "authors": [
+    "Bo Elkjær",
+    "Birgitte Dyrekilde"
+   ],
+   "author_role": null,
+   "year": 2018,
+   "publisher": "Forlaget Kontrovers",
+   "language": "da",
+   "country": "DK",
+   "isbn": "9788793751002",
+   "about": "Journalistic history of bitcoin and the people around it, with Danish voices.",
+   "source": "https://bibliotek.dk/materiale/bitcoin_bo-elkjaer/work-of:870970-basis:55147930",
+   "source_name": "bibliotek.dk",
+   "more_sources": [
+    "https://www.information.dk/indland/anmeldelse/2018/12/kuloert-persongalleri-centrum-ny-bog-bitcoin"
+   ],
+   "language_name": "Danish",
+   "html_url": "https://nordiccrypto.no/books/#bitcoin-frie-penge"
+  },
+  {
+   "id": "bitcoins-allerup",
+   "title": "Bitcoins",
+   "subtitle": null,
+   "original_title": null,
+   "authors": [
+    "Jesper Allerup"
+   ],
+   "author_role": null,
+   "year": 2018,
+   "publisher": "Alinea",
+   "language": "da",
+   "country": "DK",
+   "isbn": null,
+   "about": "Easy-read non-fiction about bitcoin for readers from about 13 (the Sort Fagklub series).",
+   "source": "https://bibliotek.dk/materiale/bitcoins_jesper-allerup/work-of:870970-basis:55143404",
+   "source_name": "bibliotek.dk",
+   "more_sources": [],
+   "language_name": "Danish",
+   "html_url": "https://nordiccrypto.no/books/#bitcoins-allerup"
+  },
+  {
+   "id": "taistelu-digirahasta",
+   "title": "Taistelu digirahasta",
+   "subtitle": "rahan, teknologian ja politiikan valtakolmio",
+   "original_title": null,
+   "authors": [
+    "Aatos Hallipelto"
+   ],
+   "author_role": null,
+   "year": 2025,
+   "publisher": "Art House",
+   "language": "fi",
+   "country": "FI",
+   "isbn": "9789524140485",
+   "about": "Central bank digital currencies, crypto and payment systems as tools of geopolitics.",
+   "source": "https://www.finna.fi/Record/3amk.318249",
+   "source_name": "Finna",
+   "more_sources": [],
+   "language_name": "Finnish",
+   "html_url": "https://nordiccrypto.no/books/#taistelu-digirahasta"
+  },
+  {
+   "id": "lohkoketjujuridiikan-perusteet",
+   "title": "Lohkoketjujuridiikan perusteet",
+   "subtitle": null,
+   "original_title": null,
+   "authors": [
+    "Janne Kaisto",
+    "Juhana Riekkinen",
+    "Eelis Paukku"
+   ],
+   "author_role": null,
+   "year": 2023,
+   "publisher": "Lapin yliopisto",
+   "language": "fi",
+   "country": "FI",
+   "isbn": "9789523373532",
+   "about": "Textbook on the law of blockchains and crypto-assets.",
+   "source": "https://www.finna.fi/Record/polamk.28774",
+   "source_name": "Finna",
+   "more_sources": [],
+   "language_name": "Finnish",
+   "html_url": "https://nordiccrypto.no/books/#lohkoketjujuridiikan-perusteet"
+  },
+  {
+   "id": "bitcoin-rahan-vallankumous",
+   "title": "Bitcoin",
+   "subtitle": "rahan vallankumous",
+   "original_title": null,
+   "authors": [
+    "Toni Heiskanen",
+    "Janne Piiroinen",
+    "Jenni Selosmaa"
+   ],
+   "author_role": null,
+   "year": 2022,
+   "publisher": "Bonfire Books",
+   "language": "fi",
+   "country": "FI",
+   "isbn": "9789526506203",
+   "about": "Finnish book on bitcoin, money and its effects on society.",
+   "source": "https://www.finna.fi/Record/kuopio.1610799",
+   "source_name": "Finna",
+   "more_sources": [],
+   "language_name": "Finnish",
+   "html_url": "https://nordiccrypto.no/books/#bitcoin-rahan-vallankumous"
+  },
+  {
+   "id": "onecoin-suuri-bittirahahuijaus",
+   "title": "OneCoin",
+   "subtitle": "suuri bittirahahuijaus",
+   "original_title": null,
+   "authors": [
+    "Petteri Järvinen"
+   ],
+   "author_role": null,
+   "year": 2020,
+   "publisher": "Docendo",
+   "language": "fi",
+   "country": "FI",
+   "isbn": "9789522917447",
+   "about": "Account of the OneCoin fraud, which posed as a cryptocurrency.",
+   "source": "https://www.finna.fi/Record/3amk.282308",
+   "source_name": "Finna",
+   "more_sources": [],
+   "language_name": "Finnish",
+   "html_url": "https://nordiccrypto.no/books/#onecoin-suuri-bittirahahuijaus"
+  },
+  {
+   "id": "lohkoketju-tiekartta-paattajille",
+   "title": "Lohkoketju",
+   "subtitle": "tiekartta päättäjille",
+   "original_title": null,
+   "authors": [
+    "Patrik Elias Johansson",
+    "Mikko Eerola",
+    "Antti Innanen",
+    "Juha Viitala"
+   ],
+   "author_role": null,
+   "year": 2019,
+   "publisher": "Alma Talent",
+   "language": "fi",
+   "country": "FI",
+   "isbn": "9789521436161",
+   "about": "Blockchain roadmap for decision-makers in business and the public sector.",
+   "source": "https://www.finna.fi/Record/3amk.271546",
+   "source_name": "Finna",
+   "more_sources": [],
+   "language_name": "Finnish",
+   "html_url": "https://nordiccrypto.no/books/#lohkoketju-tiekartta-paattajille"
+  }
+ ]
+}
