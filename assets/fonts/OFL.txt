@@ -1,2 +1,4 @@
-Cormorant Garamond and Schibsted Grotesk are used under the SIL Open Font License.
+Cormorant Garamond, Schibsted Grotesk and IBM Plex Mono are used under the SIL Open Font License.
 See https://openfontlicense.org/ and the upstream Google Fonts repositories.
+IBM Plex Mono: Copyright 2017 IBM Corp. https://github.com/IBM/plex
+The .woff2 files are the Latin and Latin Extended subsets published by Fontsource (@fontsource/ibm-plex-mono, @fontsource/schibsted-grotesk 5.3.0).

@@ -1,0 +1,20 @@
+/* Design tokens, from the crest sheet: an argent page, sable text, gules for accents, or for highlights.
+   --mk-* are the market chart's series colours, in fixed order; both sets pass the colour-vision checks on their own page colour.
+   The other modules use these names only. Dark follows the reader's system setting; data-theme="light" or "dark" on <html> overrides it. */
+:root{
+  --bg:#F6F4EE;--surface:#FFFFFF;--fg:#15120F;--muted:#5D5850;--line:#DAD5CB;--line-strong:#B9B2A6;--soft:#ECE8DF;
+  --accent:#A31F2B;--on-accent:#FFFFFF;--gold:#E9B93A;--focus:#A31F2B;--brand-w:#A31F2B;
+  --warm:#9A4A0B;--warm-bg:#FBF1DC;--pub:#2C5A85;--priv:#2E6A4C;--up:#2E6A4C;--down:#A31F2B;
+  --f-display:"Cormorant Garamond",Garamond,Georgia,"Times New Roman",serif;
+  --f-ui:"Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --r:4px;--r-sm:3px;--shadow:0 10px 30px rgb(21 18 15 / .10);
+  --mk-1:#2E6DB4;--mk-2:#D9A01C;--mk-3:#A31F2B;--mk-4:#7A5AB8;--mk-5:#1E9A8A;--mk-6:#D2692A;--mk-7:#C04C86;--mk-8:#3D8A3A;--mk-other:#A8A195;
+  --nc-or:#F4C430;--nc-gules:#A0202A;--nc-sable:#141210;--nc-argent:#F7F6F2;--nc-cendree:#A7B0BA;
+  --ink:var(--fg);--paper:var(--bg);--band:var(--fg);--band-ink:var(--bg);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme=light]){--bg:#13110E;--surface:#1D1A16;--fg:#EFEBE3;--muted:#A69F94;--line:#353029;--line-strong:#4D463C;--soft:#262219;--accent:#E06A72;--on-accent:#13110E;--gold:#E9B93A;--focus:#E9B93A;--brand-w:#F4C430;--warm:#E3A55A;--warm-bg:#2B2216;--pub:#8DB4DC;--priv:#86C3A1;--up:#86C3A1;--down:#F08A8F;--shadow:0 10px 30px rgb(0 0 0 / .45);--mk-1:#4F8AD6;--mk-2:#B5841C;--mk-3:#CC3D55;--mk-4:#937BDB;--mk-5:#2FA894;--mk-6:#CF6F2E;--mk-7:#C2649F;--mk-8:#5FA352;--mk-other:#6E665D;color-scheme:dark}
+}
+:root[data-theme=dark]{--bg:#13110E;--surface:#1D1A16;--fg:#EFEBE3;--muted:#A69F94;--line:#353029;--line-strong:#4D463C;--soft:#262219;--accent:#E06A72;--on-accent:#13110E;--gold:#E9B93A;--focus:#E9B93A;--brand-w:#F4C430;--warm:#E3A55A;--warm-bg:#2B2216;--pub:#8DB4DC;--priv:#86C3A1;--up:#86C3A1;--down:#F08A8F;--shadow:0 10px 30px rgb(0 0 0 / .45);--mk-1:#4F8AD6;--mk-2:#B5841C;--mk-3:#CC3D55;--mk-4:#937BDB;--mk-5:#2FA894;--mk-6:#CF6F2E;--mk-7:#C2649F;--mk-8:#5FA352;--mk-other:#6E665D;color-scheme:dark}

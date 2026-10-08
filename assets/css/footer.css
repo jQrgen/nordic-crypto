@@ -1,0 +1,9 @@
+/* Footer: newsletter line, community buttons, notifications, the site note. A sable rule like the header's. */
+footer{margin-top:64px;border-top:3px solid var(--fg);background:var(--soft);padding:28px 0 44px;font-size:14px;line-height:1.6;color:var(--muted)}
+footer,footer .wrap,.nlfoot,.nlhome{text-align:start}
+footer b{color:var(--fg)}
+footer h2{font-size:20px;margin:18px 0 6px}
+.nlfoot{margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--line);text-align:start}.nlfoot .nlform{display:block;max-width:40rem}
+nav.community{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:center;gap:8px 10px;margin:10px 0 14px;text-align:start;width:fit-content;max-width:100%}
+.xfollow,.tgfollow{display:inline-block;padding:6px 13px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);color:var(--fg)!important;text-decoration:none;font-weight:500;text-align:start}.xfollow:hover,.xfollow:focus-visible,.tgfollow:hover,.tgfollow:focus-visible{border-color:var(--fg)}
+.nlhome{margin:36px 0 8px;padding-top:16px;border-top:1px solid var(--line);text-align:start}

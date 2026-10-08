@@ -189,8 +189,8 @@ var NCMarkets = (function () {
   }
 
   var SHARE_NUM = 3, SHARE_DEN = 100;
-  var SHARE_COLORS = ["#0f5ea8", "#111111", "#b45309", "#047857", "#7c3aed", "#be123c", "#0e7490", "#a16207"];
-  var SHARE_OTHER = "#9ca3af";
+  var SHARE_COLORS = ["var(--mk-1)", "var(--mk-2)", "var(--mk-3)", "var(--mk-4)", "var(--mk-5)", "var(--mk-6)", "var(--mk-7)", "var(--mk-8)"]; // assets/css/tokens.css
+  var SHARE_OTHER = "var(--mk-other)";
 
   function decInt(text, scale) {
     var item = parseDec(text);
@@ -651,7 +651,7 @@ var NCMarkets = (function () {
       var rings = "";
       var drawn = slices.filter(function (sl) { return sl.tenths; });
       if (drawn.length === 1 && drawn[0].tenths >= 1000) {
-        rings = '<circle cx="21" cy="21" r="15.9155" fill="none" stroke="' + drawn[0].color + '" stroke-width="6"><title>' + esc(sliceLabel(drawn[0])) + " " + esc(sharePct(drawn[0])) + "%</title></circle>";
+        rings = '<circle cx="21" cy="21" r="15.9155" fill="none" style="stroke:' + drawn[0].color + '" stroke-width="6"><title>' + esc(sliceLabel(drawn[0])) + " " + esc(sharePct(drawn[0])) + "%</title></circle>";
       } else {
         var offset = 250;
         slices.forEach(function (sl) {
@@ -660,7 +660,7 @@ var NCMarkets = (function () {
           var pct = tenthsStr(sl.tenths);
           var gapS = tenthsStr(gap);
           var off = tenthsStr(offset);
-          rings += '<circle cx="21" cy="21" r="15.9155" fill="none" stroke="' + sl.color + '" stroke-width="6" stroke-dasharray="' + pct + " " + gapS + '" stroke-dashoffset="' + off + '"><title>' + esc(sliceLabel(sl)) + " " + esc(sharePct(sl)) + "%</title></circle>";
+          rings += '<circle cx="21" cy="21" r="15.9155" fill="none" style="stroke:' + sl.color + '" stroke-width="6" stroke-dasharray="' + pct + " " + gapS + '" stroke-dashoffset="' + off + '"><title>' + esc(sliceLabel(sl)) + " " + esc(sharePct(sl)) + "%</title></circle>";
           offset -= sl.tenths;
         });
       }
@@ -668,8 +668,8 @@ var NCMarkets = (function () {
         '<title id="' + titleId + '">' + esc(title) + "</title>" +
         '<desc id="' + descId + '">' + esc(desc) + "</desc>" +
         rings +
-        '<text x="21" y="20.4" text-anchor="middle" font-family="system-ui,sans-serif" font-size="3.4" font-weight="700" fill="#111">' + esc(quote) + "</text>" +
-        '<text x="21" y="23.8" text-anchor="middle" font-family="system-ui,sans-serif" font-size="2.1" fill="#4B5563">24h</text></svg>';
+        '<text x="21" y="20.4" text-anchor="middle" font-family="system-ui,sans-serif" font-size="3.4" font-weight="700" fill="currentColor">' + esc(quote) + "</text>" +
+        '<text x="21" y="23.8" text-anchor="middle" font-family="system-ui,sans-serif" font-size="2.1" fill="currentColor">24h</text></svg>';
     }
     function shareHtml(groups) {
       var head = '<h2>' + esc(S.share_h || "") + "</h2><p class=\"meta\">" + esc(S.share_note || "") + "</p>";

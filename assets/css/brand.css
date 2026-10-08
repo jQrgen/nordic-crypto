@@ -1,0 +1,10 @@
+/* Logo and media kit page: samples keep the fixed brand tinctures in both themes. */
+.motto-sample{font-family:var(--f-ui);font-weight:500;letter-spacing:.22em;font-size:15px;margin:8px 0 16px}
+.hdr-sample{margin:12px 0 18px;padding:14px 16px 8px;background:var(--nc-argent);border-bottom:3px solid var(--nc-sable);border-radius:var(--r) var(--r) 0 0;max-width:36rem;text-align:start}
+.hdr-sample .brand{color:var(--nc-sable)}.hdr-sample .brand .w{color:var(--nc-gules)}
+.hdr-sample.dark{background:#0b0d10}.hdr-sample.dark .brand{color:#F5F5F4}.hdr-sample.dark .brand .w{color:var(--nc-or)}
+.hdr-sample figcaption{margin:8px 0 4px;text-align:start;color:var(--nc-sable)}.hdr-sample.dark figcaption{color:#F5F5F4}
+.lockup{display:block;height:auto;max-width:100%;width:640px;margin:8px 0 16px}
+.swatches{list-style:none;padding:0;margin:8px 0 18px;text-align:start}.swatches li{display:flex;align-items:center;justify-content:flex-start;gap:10px;margin:6px 0}
+.swatches i{width:36px;height:36px;flex:none;border:1px solid var(--line-strong);border-radius:2px;display:block}
+.filelist{padding-left:1.2em;text-align:start}.filelist li{margin:3px 0}

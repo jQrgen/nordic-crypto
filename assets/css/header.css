@@ -1,0 +1,63 @@
+/* Header: preview banner, brand row with the header buttons, main nav, language switcher. Everything starts at the inline start. */
+.preview{background:var(--warm-bg);border-bottom:2px solid var(--warm);color:var(--fg);font-size:14px}.preview .wrap{padding-top:6px;padding-bottom:6px}
+header.top{background:var(--bg);border-bottom:3px solid var(--fg)}
+header.top,header.top .wrap{text-align:start}
+header.top .wrap{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:flex-start;gap:10px 24px;padding-top:16px;padding-bottom:0}
+.brand{font-family:var(--f-display);font-weight:600;font-size:30px;letter-spacing:0;text-decoration:none;display:inline-flex;align-items:center;gap:10px;color:var(--fg);line-height:1;text-align:start}.brand .w{color:var(--brand-w)}
+.brandmark{width:32px;height:32px;flex:none;display:block}
+.brandrow{display:flex;align-items:center;justify-content:flex-start;gap:10px 18px;flex-wrap:wrap;text-align:start}
+.hdrbtns{display:flex;align-items:center;justify-content:flex-start;gap:8px;flex-wrap:wrap;min-width:0;text-align:start}
+.hdrsub{display:inline-block;padding:5px 13px;border:1px solid var(--accent);border-radius:var(--r-sm);background:var(--accent);color:var(--on-accent)!important;text-decoration:none;font-weight:500;font-size:14px;line-height:1.35;white-space:nowrap;text-align:start}
+.hdrsub:hover,.hdrsub:focus-visible{background:color-mix(in srgb,var(--accent) 82%,var(--fg));border-color:color-mix(in srgb,var(--accent) 82%,var(--fg))}
+.hdrx,.hdrtg{display:inline-block;padding:5px 11px;border:1px solid var(--line-strong);border-radius:var(--r-sm);color:var(--fg)!important;background:var(--surface);text-decoration:none;font-weight:500;font-size:13.5px;line-height:1.35;white-space:nowrap;text-align:start}
+.hdrx:hover,.hdrx:focus-visible,.hdrtg:hover,.hdrtg:focus-visible{border-color:var(--fg)}.hdrx .xs{display:none}
+nav.main{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:baseline;gap:2px 20px;font-size:15px;text-align:start;flex-basis:100%}
+nav.main a{text-decoration:none;color:var(--muted);font-weight:500;padding:6px 0 10px;border-bottom:2px solid transparent}
+nav.main a:hover{color:var(--fg)}
+nav.main a[aria-current]{color:var(--fg);border-color:var(--accent);font-weight:700}
+nav.main a.nav-quiet{font-size:14px}
+.langsw{position:relative;margin-left:auto;font-size:14px;display:flex;gap:12px;align-items:baseline}
+.langsw details{position:relative}.langsw summary{cursor:pointer;list-style:none;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);padding:3px 10px}
+.langsw summary:hover{border-color:var(--fg)}
+.langsw summary::-webkit-details-marker{display:none}
+.langsw ul{position:absolute;right:0;z-index:20;margin:6px 0 0;padding:6px 0;list-style:none;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);min-width:12.5rem;max-height:70vh;overflow:auto}
+html[dir=rtl] .langsw ul{right:auto;left:0}
+.langsw li a{display:block;padding:5px 14px;text-decoration:none;text-align:left}.langsw li a:hover,.langsw li a:focus{background:var(--soft)}
+.langsw li a[aria-current]{font-weight:700;color:var(--accent)}.langsw .quick{font-size:13.5px;color:var(--muted)}
+.navtoggle{display:none}
+.langpick,.langglobe{display:none}
+/* Wide screens: the brand row and the language switcher share the first line, the nav runs along the rule. */
+@media(min-width:961px){header.top .wrap{display:grid;grid-template-columns:auto 1fr;align-items:center}nav.main{grid-column:1/-1;grid-row:2}.langsw{grid-column:2;grid-row:1;justify-self:end}}
+/* Phones: iOS Safari paints an empty bordered box for an absolutely positioned list inside <details>.
+   A native <select> is the control there. The list below is only the no-JS fallback, in normal flow. */
+@media(max-width:960px),(hover:none) and (pointer:coarse){
+ .langsw{margin-left:0;width:auto;max-width:100%;justify-content:flex-start;align-items:center;flex-wrap:wrap;text-align:left}
+ .langsw ul{position:static;right:auto;left:auto;width:100%;min-width:0;max-height:60vh;overflow:auto;box-shadow:none}
+ .langsw li a{padding:10px 12px}
+}
+@media(max-width:960px){
+ header.top .wrap{padding-bottom:12px}
+ .js .brandrow{width:100%}
+ .js header.top .wrap{align-items:flex-start;justify-content:flex-start}
+ .js header.top .wrap{gap:8px 10px}
+ .js .navtoggle{display:inline-flex;align-items:center;justify-content:center;order:2;flex:none;width:44px;height:44px;padding:0;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);color:inherit;cursor:pointer}
+ .js .navtoggle[aria-expanded=true]{border-color:var(--fg)}
+ .js .navtoggle .navbars{display:inline-flex;flex-direction:column;justify-content:center;gap:4px;width:18px}
+ .js .navtoggle .navbars span{display:block;height:2px;background:currentColor;border-radius:1px}
+ .js .navtoggle:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+ .js nav.main{display:none;order:4;flex:1 0 100%;flex-direction:column;align-items:stretch;gap:0;margin:0;text-align:left}
+ .js nav.main.is-open{display:flex}
+ .js nav.main a{display:block;width:100%;text-align:left;padding:12px 2px;margin:0;border-bottom:1px solid var(--line);font-size:16px}
+ .js nav.main a[aria-current]{border-bottom-color:var(--line);box-shadow:inset 3px 0 0 var(--accent);padding-left:12px}
+ .js .langsw{order:3;flex:1 1 auto;min-width:0;flex-wrap:nowrap}
+}
+@media(max-width:960px),(hover:none) and (pointer:coarse){
+ .js .langsw details{display:none}
+ .js .langglobe{display:inline;font-size:16px;line-height:1}
+ .js .langpick{display:inline-flex;align-items:center;justify-content:flex-start;min-width:0;max-width:100%;text-align:left}
+ .js .langpick select{font-size:16px;line-height:1.3;min-height:44px;width:10.5rem;max-width:100%;text-align:left;text-align-last:left;padding:8px 28px 8px 10px}
+ .js .langpick select:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+ .js .langsw .quick{font-size:16px;padding:10px 0;text-align:left}
+}
+@media(max-width:640px){.langsw{margin-left:0}.brandrow{width:100%;justify-content:flex-start;flex-wrap:wrap;align-items:center}.brandrow .brand{white-space:nowrap;flex:none;text-align:start}.hdrsub{font-size:13px;padding:5px 10px;white-space:normal;text-align:start;min-width:0}.hdrbtns{flex:1 1 100%;flex-wrap:wrap;justify-content:flex-start}.hdrx,.hdrtg{flex:none;text-align:start}}
+@media(max-width:480px){.hdrx,.hdrtg{padding:4px 9px}}

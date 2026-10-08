@@ -1,0 +1,9 @@
+/* Talks: filters, one article per recording, a player that loads on click. */
+.talks,.talks h1,.talks h2,.talks p,.talks article,.talks label,.talks select,.talks .filters{text-align:start}
+.talks article{padding:18px 0;border-bottom:1px solid var(--line);max-width:74ch}
+.talks h2{font-size:23px;margin:0 0 4px}
+.talks .talk-play{display:inline-block;margin:10px 0;padding:7px 14px;font:inherit;font-weight:500;text-align:start;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);color:var(--fg);cursor:pointer}
+.talks .talk-play:hover,.talks .talk-play:focus-visible{border-color:var(--fg)}
+.talks iframe{display:block;width:100%;max-width:720px;aspect-ratio:16/9;height:auto;border:0;border-radius:var(--r);background:#111;margin:8px 0}
+.talks .filters{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:center;gap:10px 16px}
+.talks .filters select{font:inherit;text-align:start;max-width:100%}

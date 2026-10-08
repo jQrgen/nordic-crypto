@@ -1,0 +1,6 @@
+/* API docs page (/api/). Inlined by tools/api_feed.py. */
+.api-docs{max-width:80ch}
+.api-docs pre{overflow:auto;padding:12px 14px;background:var(--soft);border:1px solid var(--line);border-radius:var(--r);font-size:13px;line-height:1.55}
+.api-docs code{font-size:.9em}
+.api-docs td:first-child{white-space:nowrap}
+.api-docs, .api-docs p, .api-docs li, .api-docs td, .api-docs th{text-align:left}
