@@ -247,7 +247,9 @@ def nl_meta(iss, with_video=True, text_lang=None):
     if text_lang and text_lang != LANG and i18n.has("en", "lang_English"): parts.append(E(t("lang_English") if text_lang == "en" else text_lang))
     return " · ".join(parts)
 def nl_body_bridge(iss, text_lang):
-    """When the issue HTML is not in the page language, explain the issue in the page language."""
+    """Explainer above an issue in another language («This issue is in English. In short: …»). Switched off on
+    8 Oct 2026: the site shows no such explainer texts. Kept so it can be turned back on."""
+    return ""
     if not text_lang or text_lang == LANG:
         return ""
     phrase = t("lang_English") if text_lang == "en" and i18n.has("en", "lang_English") else text_lang
@@ -1579,9 +1581,9 @@ def front_card(i, blurbs, asset, lead=False):
     else:
         txt, tl = card_text(i, LANG, blurbs)
         if foreign and tl == LANG and (txt or "").strip():
+            # No «This story is in Swedish. In short:» line (removed 8 Oct 2026); the original-title line names the language.
             lang = ""
-            summ = (f'<p class="bridge">{E(t("bridge", where=t("lang_" + lname)))}</p>'
-                    f'<p class="sum"{lang_attr(tl)}>{E(txt)}</p>')
+            summ = f'<p class="sum"{lang_attr(tl)}>{E(txt)}</p>'
         else:
             lang = f' · {E(t("lang_" + lname))}' if foreign else ""
             summ = f'<p class="sum"{lang_attr(tl)}>{E(txt)}</p>'
