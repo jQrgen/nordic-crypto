@@ -1,14 +1,15 @@
 {
  "_how_to": "One logo per id. News articles use the source id on the story (the same id as sources.json). If that source has outlet, the outlet id is used. _source_alias maps a source id onto another key when the who's-who id differs (same file, not a copy). file is relative to the repo root; source_url is where the image was fetched. review: pending until the editor has checked the logo belongs to that outlet; the public build shows review 'ok' only (a missing review counts as ok) and --preview also shows pending. rejected, a missing file, or no entry: the source name is text only. Never invent a logo and never edit one (colour, crop); raster images are only scaled to about 64px. Refetch: python3 tools/fetch_logos.py --force <id>.",
  "_source_alias": {
-  "_how": "source id → logo key. Applied after outlet. fi-se, riksbank, suomenpankki and finanssivalvonta are the news ids of orgs whose logos were filed under the who's-who ids. stortinget uses the Storting coat of arms already checked for the finance committee. nbx-ir is NBX company announcements, so it uses the checked NBX logo. digi-krypto is Digi.no's crypto feed.",
+  "_how": "source id → logo key. Applied after outlet. fi-se, riksbank, suomenpankki and finanssivalvonta are the news ids of orgs whose logos were filed under the who's-who ids. stortinget uses the Storting coat of arms already checked for the finance committee. nbx-ir is NBX company announcements, so it uses the checked NBX logo. digi-krypto is Digi.no's crypto feed. aamuposti uses the Aamuposti icon filed under nurmijarven-uutiset.",
   "fi-se": "se-fi",
   "riksbank": "se-riksbank",
   "suomenpankki": "fi-suomen-pankki",
   "finanssivalvonta": "fi-fiva",
   "stortinget": "stortinget-finanskomiteen",
   "nbx-ir": "nbx",
-  "digi-krypto": "digi"
+  "digi-krypto": "digi",
+  "aamuposti": "nurmijarven-uutiset"
  },
  "stortinget-finanskomiteen": {
   "source": "Wikimedia Commons",

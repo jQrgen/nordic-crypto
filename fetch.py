@@ -15,8 +15,10 @@ og:image, RSS media:content, media:thumbnail and image enclosures are ignored.
 See tools/press_images.py and docs/image-policy.md.
 
 The published time is the article's own time: article:published_time, then JSON-LD datePublished,
-then <time datetime>, and only then the feed's published date. Updated, modified and fetch times are
-not used. Naive times are read in the publisher's zone (Europe/Oslo and Europe/Stockholm, and the
+then <time datetime>, then the outlet's own feed, and only then another feed date. Updated, modified
+and fetch times are not used. Bing News RSS stamps Pacific wall time and labels it GMT; that clock
+is corrected and marked unverified, and a page time or the outlet feed wins when one can be read.
+Naive times are read in the publisher's zone (Europe/Oslo and Europe/Stockholm, and the
 other Nordic zones) including daylight saving time, and stored as UTC. See tools/published_time.py.
 """
 import argparse, datetime as dt, hashlib, json, os, re, sys, threading, time, urllib.parse, urllib.robotparser
@@ -107,22 +109,70 @@ def get(url, conditional=True):
             with _io:
                 http_cache[url] = {"etag": r.headers.get("ETag"), "lm": r.headers.get("Last-Modified")}
         return r
+PAGE_REDIRECTS = 6
+_CONSENT = (("cookieconsent_status", "dismiss"), ("CookieConsent", "true"), ("consent", "accepted"))
+def follow_redirects(start, fetch, limit=PAGE_REDIRECTS):
+    """Follow a short redirect chain. ``fetch(url)`` returns ``(status, location, body)``.
+
+    A repeated URL is a loop and stops the walk. Returns ``(body, error)``.
+    """
+    url, seen, last = start, [], ""
+    for _ in range(max(1, limit)):
+        status, location, body = fetch(url)
+        if body and ("<html" in body[:4000].lower() or status == 200):
+            last = body
+        if status == 200 and body:
+            return body, None
+        if status in (301, 302, 303, 307, 308) and location:
+            nxt = urllib.parse.urljoin(url, location)
+            if nxt in seen or nxt == url:
+                return last, "redirect loop"
+            seen.append(url)
+            url = nxt
+            continue
+        if status and status >= 400:
+            return last, f"HTTP {status}"
+        return last or body, None
+    return last, "too many redirects"
+def _page_fetch(sess, url):
+    r = sess.get(url, timeout=25, allow_redirects=False)
+    return r.status_code, r.headers.get("Location") or "", r.text or ""
+def _html_session(host, consent):
+    sess = requests.Session()
+    sess.headers["User-Agent"] = UA
+    sess.headers["Accept"] = "text/html,application/xhtml+xml;q=0.9,*/*;q=0.8"
+    bare = (host or "").lower().removeprefix("www.").split(":")[0]
+    if consent and bare:
+        for name, value in _CONSENT:
+            sess.cookies.set(name, value, domain=bare, path="/")
+    return sess
 def read_html(url):
-    """Public HTML for metadata. A redirect loop falls back to a browser read; a robots block does not."""
+    """Public HTML for metadata. A redirect loop falls back to a browser read; a robots block does not.
+
+    Article pages are followed at most PAGE_REDIRECTS times, with the cookie jar kept across hops.
+    Finansavisen and similar sites loop until a consent cookie is stored, so a loop is retried once
+    with that cookie before giving up.
+    """
     if not robots_ok(url):
         raise RuntimeError("robots.txt disallows")
-    try:
-        r = get(url, conditional=False)
-    except requests.TooManyRedirects:
-        host = urllib.parse.urlparse(url).netloc
-        with _host_lock(host):
-            _pace(host)
+    host = urllib.parse.urlparse(url).netloc
+    with _host_lock(host):
+        _pace(host)
+        sess = _html_session(host, consent=False)
+        body, err = follow_redirects(url, lambda u: _page_fetch(sess, u))
+        if err and not body:
+            sess = _html_session(host, consent=True)
+            body, err = follow_redirects(url, lambda u: _page_fetch(sess, u))
+        if body and not err:
+            return body
+        if body and err == "redirect loop":
+            return body
         html = pubtime.browser_html(url, UA)
-        if not html:
-            raise
-        return html
-    r.raise_for_status()
-    return r.text
+        if html:
+            return html
+        if body:
+            return body
+        raise requests.TooManyRedirects(err or "too many redirects")
 
 # ---------- keywords (NO, SE, DK, FI, IS, EN) ----------
 KW = [
@@ -144,9 +194,7 @@ KW = [
     (r"\bdark\s?nets?\b", re.I), (r"\bdark\s?webs?\b", re.I),
     (r"\bmørkenettet\b", re.I), (r"\bdet mørke nett\w*", re.I), (r"\bmörka nätet\b", re.I),
     (r"\bpimeä verkko\b", re.I), (r"\bmyrkur vefur\b", re.I),
-    (r"\bhvitvask\w*", re.I), (r"\bpenningtvätt\w*", re.I), (r"\bpenningtvatt\w*", re.I),
-    (r"\bhvidvask\w*", re.I), (r"\brahanpesu\w*", re.I),
-    (r"\bpeningaþvætt\w*", re.I), (r"\bpeningathvaett\w*", re.I),
+    (r"\bCASPs?\b", re.I),
     # Nordic crypto companies
     (r"\bBare Bitcoin\b", re.I), (r"\bFiri\b", 0), (r"\bNBX\b", 0), (r"\bK33\b", 0), (r"\bNexa\b", 0),
     (r"\bSafello\b", 0), (r"\bVirtune\b", 0), (r"\bValuno\b", 0), (r"\bGreenMerc\b", re.I), (r"\bTrijo\b", 0),
@@ -154,7 +202,14 @@ KW = [
     # merged from Kryptonytt (2026-10-04) so Norwegian coverage is not lost
     (r"\bBitmynt\b", re.I), (r"\bH100\b", 0),
 ]
+# Money-laundering words alone are ordinary crime news. They count only together with a crypto term.
+AML_KW = [
+    (r"\bhvitvask\w*", re.I), (r"\bpenningtvätt\w*", re.I), (r"\bpenningtvatt\w*", re.I),
+    (r"\bhvidvask\w*", re.I), (r"\brahanpesu\w*", re.I),
+    (r"\bpeningaþvætt\w*", re.I), (r"\bpeningathvaett\w*", re.I),
+]
 KW = [(re.compile(r, f), r) for r, f in KW]
+AML_KW = [(re.compile(r, f), r) for r, f in AML_KW]
 TOPICS = {
     "bitcoin": r"\bbitcoin|\bBTC\b|\bsatoshi|\butvinning|\bmining\b|\bminer|\blouhinta|\bgröftur",
     "blockchain": r"\bblokkjede|\bblockchain|\bblockkedj|\blohkoketju|\bbálkakeðj|\bNFT|\btoken|\bweb3|\bethereum|\bsolana|\bNexa\b|\bsmart ?contract",
@@ -168,23 +223,192 @@ GAMBLING = re.compile(r"\bcasino\w*|\bkasino\w*|\bkasinot?\b|\bspilleside\w*|\bs
 # Gambling regulators: such stories are kept (real news), never dropped.
 GAMBLING_REGULATOR = re.compile(r"lotteritilsyn|spelinspektion|spillemyndighed|poliisihallitus|arpajais|happdrætt|sýslumað|\bMGA\b|gaming authority|gambling authority", re.I)
 def is_gambling(text, url=""): return bool(GAMBLING.search(text) or re.search(r"casino|kasino|betting", url, re.I))
+def _extra_is_crypto(phrase):
+    """A source match_extra unlocks an AML hit only when that extra is itself a crypto term."""
+    blob = phrase or ""
+    if any(c.search(blob) for c, _ in AML_KW) and not any(c.search(blob) for c, _ in KW):
+        return False
+    return bool(any(c.search(blob) for c, _ in KW) or re.search(
+        r"krypto|crypto|bitcoin|blockchain|blokkj|blockkedj|blokkæ|lohkoket|rafmynt|mica|casp|stablecoin|cbdc|web3|ethereum|solana",
+        blob, re.I))
 def matches(text, extra=()):
-    return sorted({r for c, r in KW if c.search(text)} | {e for e in extra if e.lower() in text.lower()})
+    """Crypto terms, plus money-laundering words only when a crypto term is present too."""
+    crypto = {r for c, r in KW if c.search(text)}
+    extra_hits = {e for e in extra if e.lower() in (text or "").lower() and _extra_is_crypto(e)}
+    aml = {r for c, r in AML_KW if c.search(text)} if (crypto or extra_hits) else set()
+    plain_extra = {e for e in extra if e.lower() in (text or "").lower() and not any(c.search(e) for c, _ in AML_KW)}
+    return sorted(crypto | aml | plain_extra)
 def topics_of(text):
     return [k for k, c in TOPICS.items() if c.search(text)] or ["crypto"]
 
 def clean(html):
     return re.sub(r"\s+", " ", BeautifulSoup(html or "", "lxml").get_text(" ")).strip()
+
+# Press-ethics footers and consent banners are not the lead.
+_BOILER = re.compile(
+    r"vær varsom|vaer varsom|være varsom|pressens faglige utvalg|\bpfu\b|god presseskikk|"
+    r"cookie|informasjonskapsler|eväste|kakor|personvern|samtykke|cookiebot|"
+    r"denne nettsiden bruker|vi bruker cookies|we use cookies",
+    re.I,
+)
+def is_boilerplate(text):
+    text = (text or "").strip()
+    if not text:
+        return True
+    return bool(_BOILER.search(text)) and len(_BOILER.sub("", text).strip()) < 40
+def strip_boilerplate(text):
+    """Drop a Vær Varsom / PFU / cookie footer. Keep the lead that came before it."""
+    raw = text or ""
+    soup = BeautifulSoup(raw, "lxml")
+    paras = [clean(p.get_text(" ")) for p in soup.find_all("p")]
+    if not paras:
+        paras = [clean(raw)]
+    kept = []
+    for part in paras:
+        cut = _BOILER.search(part)
+        if cut and cut.start() > 40:
+            part = part[:cut.start()].strip(" .–-")
+        elif is_boilerplate(part) or (cut and cut.start() <= 40):
+            continue
+        if part and not is_boilerplate(part):
+            kept.append(part)
+    return " ".join(kept)[:600].strip()
+def teaser_from_html(html):
+    """og:description, then the article lead. Never the ethics footer or a cookie banner."""
+    if not html:
+        return ""
+    soup = BeautifulSoup(html, "lxml")
+    def meta(**attrs):
+        tag = soup.find("meta", attrs=attrs)
+        return (tag.get("content") if tag else "") or ""
+    for raw in (meta(property="og:description"), meta(name="description")):
+        text = strip_boilerplate(raw)
+        if text and not is_boilerplate(text):
+            return text[:600]
+    for sel in (".ingress", ".article-ingress", ".article__lead", ".lead", "p.standfirst", "[itemprop=description]"):
+        tag = soup.select_one(sel)
+        if not tag:
+            continue
+        text = strip_boilerplate(tag.get_text(" "))
+        if text and not is_boilerplate(text):
+            return text[:600]
+    root = soup.find("article") or soup.find("main")
+    if root:
+        for p in root.find_all("p"):
+            text = strip_boilerplate(p.get_text(" "))
+            if len(text) < 40 or is_boilerplate(text):
+                continue
+            return text[:600]
+    return ""
+def choose_teaser(feed_teaser, page_html=None):
+    """Prefer the page lead. A feed teaser is kept only after the footer is removed."""
+    if page_html:
+        lead = teaser_from_html(page_html)
+        if lead:
+            return lead
+    return strip_boilerplate(feed_teaser)
+
+_TRACK_KEYS = ("utm_", "fbclid", "gclid", "ocid", "cmpid", "srsltid")
+def unwrap_news_url(url):
+    """Article URL behind a Bing or Google News redirect. Other URLs pass through."""
+    current = (url or "").strip()
+    seen = set()
+    for _ in range(4):
+        if not current or current in seen:
+            break
+        seen.add(current)
+        parsed = urllib.parse.urlparse(current)
+        host = (parsed.netloc or "").lower()
+        if not any(part in host for part in ("bing.com", "news.google.", "google.com")):
+            break
+        qs = urllib.parse.parse_qs(parsed.query)
+        nxt = ""
+        for key in ("url", "u", "r", "q"):
+            values = qs.get(key) or qs.get(key.upper()) or []
+            if values and str(values[0]).startswith("http"):
+                nxt = values[0]
+                break
+        if not nxt:
+            break
+        current = nxt
+    return current
 def canon(url):
-    p = urllib.parse.urlparse(url.strip())
-    q = [(k, v) for k, v in urllib.parse.parse_qsl(p.query) if not k.lower().startswith(("utm_", "fbclid", "gclid", "ref"))]
-    return urllib.parse.urlunparse((p.scheme.lower() or "https", p.netloc.lower().removeprefix("www."), p.path.rstrip("/") or "/", "", urllib.parse.urlencode(q), ""))
+    url = unwrap_news_url(url)
+    p = urllib.parse.urlparse((url or "").strip())
+    q = [(k, v) for k, v in urllib.parse.parse_qsl(p.query)
+         if not k.lower().startswith(_TRACK_KEYS) and k.lower() not in ("ref", "ref_src")]
+    scheme = (p.scheme or "https").lower()
+    if scheme not in ("http", "https"):
+        scheme = "https"
+    return urllib.parse.urlunparse((scheme, p.netloc.lower().removeprefix("www."), p.path.rstrip("/") or "/", "", urllib.parse.urlencode(q), ""))
+def story_key(url):
+    """Key shared with coverage.index_urls. Scheme and a www prefix do not make a second story."""
+    return coverage.canon(unwrap_news_url(url))
+def is_duplicate(url, items):
+    """True when this URL is already the primary or an extra outlet on a stored story."""
+    key = story_key(url)
+    if key and key in coverage.index_urls(items):
+        return True
+    want = iid(url)
+    return any(i.get("id") == want for i in items or [])
 def norm_title(t): return re.sub(r"[^\w]+", " ", t.lower()).strip()
 def iid(url): return hashlib.sha1(canon(url).encode()).hexdigest()[:12]
 def when(e, country=None, url=None):
     """Feed published time only. Updated/modified is not a publish time."""
     inst = pubtime.from_feed_entry(e, pubtime.zone_for(country=country, url=url))
     return inst.dt if inst else None
+def pick_published(page, outlet, feed, bing=False):
+    """Page clock, else the outlet's own feed, else the feed time.
+
+    A Bing stamp is unverified unless the page or the outlet feed supplied the clock.
+    Returns ``(utc datetime or None, unverified)``.
+    """
+    page_clock = page and not page.date_only
+    outlet_clock = outlet and not outlet.date_only
+    if page_clock:
+        return page.dt, False
+    if outlet_clock and not (page and page.date_only):
+        return outlet.dt, False
+    if page and page.date_only and (outlet_clock or (feed and not bing)):
+        chosen = pubtime.choose_published(page, outlet or feed)
+        return chosen, False
+    if page and page.date_only and bing and feed:
+        zone = page.zone or dt.timezone.utc
+        if feed.dt.astimezone(zone).date() != page.civil_date:
+            return page.dt, False
+        return feed.dt, True
+    if outlet_clock:
+        return outlet.dt, False
+    if page:
+        return page.dt, False
+    if feed:
+        return feed.dt, bool(bing)
+    return None, False
+_feed_times = {}
+def outlet_feed_time(url, outlet_id):
+    """Publish time from the outlet's own RSS, if that feed lists this URL. Not a sitemap lastmod."""
+    src = SRC.get(outlet_id) or {}
+    if src.get("type") not in ("rss", "rss-all"):
+        return None
+    feed = src.get("feed") or ""
+    if not str(feed).startswith("http") or "{q}" in feed:
+        return None
+    if outlet_id not in _feed_times:
+        found = {}
+        try:
+            if robots_ok(feed):
+                r = get(feed)
+                if r.status_code == 200:
+                    zone = pubtime.zone_for(country=src.get("country"), url=url)
+                    for entry in feedparser.parse(r.content).entries:
+                        link = unwrap_news_url(entry.get("link") or "")
+                        inst = pubtime.from_feed_entry(entry, zone)
+                        if link and inst:
+                            found[coverage.canon(link)] = inst
+        except Exception:
+            found = {}
+        _feed_times[outlet_id] = found
+    return _feed_times[outlet_id].get(coverage.canon(unwrap_news_url(url)))
 
 # ---------- source map (domain -> outlet, country) ----------
 SRC = {s["id"]: s for s in CFG["sources"]}
@@ -197,11 +421,47 @@ TLD2C = {".no": "NO", ".se": "SE", ".dk": "DK", ".fi": "FI", ".is": "IS", ".fo":
 def country_of_url(url, fallback=None):
     d = urllib.parse.urlparse(url).netloc.lower()
     return next((c for t, c in TLD2C.items() if d.endswith(t)), fallback)
-def outlet_for(url, fallback_name):
-    d = urllib.parse.urlparse(url).netloc.lower().removeprefix("www.")
-    for dom, out in DOMAIN2OUT.items():
-        if d == dom or d.endswith("." + dom): return out, SRC[out]["name"] if out in SRC else fallback_name
-    return d, fallback_name or d
+def outlet_for(url, fallback_name=None):
+    """Source id and name for an article URL.
+
+    A section path (Aamuposti's /aihe/Nurmijärvi) does not claim the whole host.
+    The longest matching path on an enabled source wins. The site root is the fallback on that host.
+    """
+    parsed = urllib.parse.urlparse(unwrap_news_url(url or ""))
+    host = (parsed.netloc or "").lower().removeprefix("www.")
+    path = parsed.path or "/"
+    best, best_score = None, -1
+    for s in CFG["sources"]:
+        if s.get("type") == "bing" or not s.get("enabled") or not s.get("url"):
+            continue
+        sp = urllib.parse.urlparse(s["url"])
+        shost = (sp.netloc or "").lower().removeprefix("www.")
+        if not shost or not (host == shost or host.endswith("." + shost)):
+            continue
+        spath = sp.path or "/"
+        if spath not in ("", "/"):
+            base = spath.rstrip("/")
+            if path != base and not path.startswith(base + "/"):
+                continue
+            score = len(base)
+        else:
+            score = 0
+        if score > best_score:
+            best, best_score = s, score
+    if not best:
+        return host, fallback_name or host
+    out = best.get("outlet") or best["id"]
+    src = SRC.get(out) or best
+    name = (src.get("name") or fallback_name or out).split(" (")[0]
+    return out, name
+def named_outlet(url, source, fallback_name=None):
+    """Outlet id and display name for an article. The feed's own source is used when the URL maps nowhere."""
+    fallback = fallback_name or (source.get("name") or "").split(" (")[0]
+    out, oname = outlet_for(url, fallback)
+    if out not in SRC:
+        out = source.get("outlet", source["id"])
+        oname = (SRC.get(out, source).get("name") or fallback).split(" (")[0]
+    return out, oname
 LANG = {"NO": "Norwegian", "SE": "Swedish", "DK": "Danish", "FI": "Finnish", "IS": "Icelandic", "FO": "Faroese", "GL": "Greenlandic", "AX": "Swedish"}
 
 # ---------- candidate entities for the queue (never auto-published) ----------
@@ -231,7 +491,7 @@ def page_meta(url):
     html = read_html(url); soup = BeautifulSoup(html, "lxml")
     m = lambda **k: (soup.find("meta", attrs=k) or {}).get("content")
     title = m(property="og:title") or (soup.title.string if soup.title else "") or ""
-    desc = m(property="og:description") or m(name="description") or ""
+    desc = teaser_from_html(html)
     note_og_image(m(property="og:image"))
     zone = pubtime.zone_for(url=url)
     inst = pubtime.published_from_soup(soup, zone)
@@ -280,14 +540,22 @@ def main():
     status = load(P("state", "source_status.json"), {})
     new = []
 
-    def add(url, title, teaser, published, src, outlet, outlet_name, country, extra=(), all_rel=False, lang=None):
+    def add(url, title, teaser, published, src, outlet, outlet_name, country, extra=(), all_rel=False, lang=None, unverified=False):
         if isinstance(published, dt.datetime):
             published = dt.datetime.fromisoformat(pubtime.utc_iso(published))
         with _io:
-            _add(url, title, teaser, published, src, outlet, outlet_name, country, extra, all_rel, lang)
-    def _add(url, title, teaser, published, src, outlet, outlet_name, country, extra=(), all_rel=False, lang=None):
-        pu = urllib.parse.urlparse(url)
-        url = urllib.parse.urlunparse(pu._replace(query=urllib.parse.urlencode([(k, v) for k, v in urllib.parse.parse_qsl(pu.query) if not k.lower().startswith(("utm_", "fbclid", "gclid"))])))
+            _add(url, title, teaser, published, src, outlet, outlet_name, country, extra, all_rel, lang, unverified)
+    def _add(url, title, teaser, published, src, outlet, outlet_name, country, extra=(), all_rel=False, lang=None, unverified=False):
+        url = canon(url)
+        cu = story_key(url)
+        ex = by_url.get(cu)
+        if ex is None:
+            want = iid(url)
+            ex = next((i for i in news["items"] if i.get("id") == want), None)
+        if ex is not None:
+            if src not in ex.setdefault("seen_via", []): ex["seen_via"].append(src)
+            by_url[cu] = ex
+            return
         text = f"{title}. {teaser}"
         hits = matches(text, extra)
         if not hits and not all_rel: return
@@ -297,11 +565,6 @@ def main():
                     fh.write(json.dumps({"dropped_at": NOW.isoformat(timespec="seconds"), "url": url, "title": title, "source": src, "country": country}, ensure_ascii=False) + "\n")
                 return
         if not title or not published or published < cutoff: return
-        cu = canon(url)
-        if cu in by_url:
-            ex = by_url[cu]
-            if src not in ex.setdefault("seen_via", []): ex["seen_via"].append(src)
-            return
         cand = {"url": url, "title": title, "published": published.isoformat(), "text": f"{title}. {teaser}"}
         match, why = coverage.find_match(cand, news["items"], teasers)
         if match:
@@ -320,6 +583,7 @@ def main():
               "published": published.isoformat(), "fetched": NOW.isoformat(timespec="seconds"),
               "topics": topics_of(text), "matched": hits, "paywall": bool(SRC.get(outlet, {}).get("paywall", False)),
               "status": "pending", "summary": None}
+        if unverified: it["published_unverified"] = True
         strip_press_images(it)
         news["items"].append(it); by_url[cu] = it; by_title[norm_title(title)] = it
         teasers[it["id"]] = teaser[:600]; new.append(it)
@@ -337,28 +601,47 @@ def main():
         add(a.add, title, desc, date, "manual", out, oname, c, all_rel=True)
         log(("ADDED: " if len(new) > before else "ALREADY THERE / OUTSIDE PERIOD (--days): ") + f"{title} ({date.date()}, {oname}, {c})")
         a.only = "__none__"
-    def resolve_published(url, title, teaser, entry, country, extra, all_rel):
-        """Page publish time for a feed entry, else the feed's published date. Never updated/fetch time."""
+    def resolve_published(url, title, teaser, entry, country, extra, all_rel, bing=False, outlet_id=None):
+        """Page publish time, else the outlet's own feed, else the feed date.
+
+        Bing's pubDate is Pacific time mislabelled GMT. It is used only when the page
+        and the outlet feed are missing, and then marked unverified. Returns
+        ``(datetime or None, unverified, html or None)``.
+        """
         zone = pubtime.zone_for(country=country, url=url)
-        feed = pubtime.from_feed_entry(entry, zone)
+        feed = pubtime.bing_instant(entry) if bing else pubtime.from_feed_entry(entry, zone)
         feed_dt = feed.dt if feed else None
+        html = None
         text = f"{title}. {teaser}"
+        def finish(page, outlet_inst):
+            chosen, unverified = pick_published(page, outlet_inst, feed, bing=bing)
+            if page and feed_dt and chosen and abs((chosen - feed_dt).total_seconds()) >= 1:
+                log(f"DATE {pubtime.utc_iso(feed_dt)} -> {pubtime.utc_iso(chosen)} ({page.source}) {url[:90]}")
+            elif bing and unverified and chosen:
+                log(f"DATE unverified {pubtime.utc_iso(chosen)} (Bing Pacific, page unread) {url[:90]}")
+            return chosen, unverified, html
         if not url or (not matches(text, extra) and not all_rel):
-            return feed_dt
+            return finish(None, None)
         if is_gambling(text, url) and not GAMBLING_REGULATOR.search(text):
-            return feed_dt
+            return finish(None, None)
         if feed_dt and feed_dt < cutoff - dt.timedelta(days=2):
-            return feed_dt
+            return finish(None, None)
         page = None
         try:
             if robots_ok(url):
-                page = pubtime.published_from_html(read_html(url), zone)
+                html = read_html(url)
+                page = pubtime.published_from_html(html, zone)
         except Exception as ex:
-            log("DATE", type(ex).__name__, url[:100])
-        chosen = pubtime.choose_published(page, feed)
-        if page and feed_dt and chosen and abs((chosen - feed_dt).total_seconds()) >= 1:
-            log(f"DATE {pubtime.utc_iso(feed_dt)} -> {pubtime.utc_iso(chosen)} ({page.source}) {url[:90]}")
-        return chosen
+            log("DATE", type(ex).__name__, str(ex)[:80], url[:100])
+        outlet_inst = None
+        if bing and not (page and not page.date_only):
+            mapped = outlet_id if outlet_id in SRC else None
+            if not mapped:
+                guessed, _name = outlet_for(url)
+                mapped = guessed if guessed in SRC else None
+            if mapped and mapped != (entry or {}).get("_skip_outlet"):
+                outlet_inst = outlet_feed_time(url, mapped)
+        return finish(page, outlet_inst)
 
     seen_html = load(P("state", "html_seen.json"), {})
     def ingest(s):
@@ -377,29 +660,36 @@ def main():
             def http_get(url):
                 r = get(url)
                 return r.status_code, (r.text if r.status_code == 200 else "")
-            entries, used, err = listing.collect(s.get("url") or s.get("feed") or "", http_get, robots_ok, limit=max(8, s.get("max_new_per_run", 8) * 3))
+            entries, used, err = listing.collect(
+                s.get("url") or s.get("feed") or "", http_get, robots_ok,
+                limit=max(8, s.get("max_new_per_run", 8) * 3),
+                zone=pubtime.zone_for(country=s.get("country"), url=s.get("url")),
+            )
             if used:
                 method = used
             cap = s.get("max_new_per_run", 8)
             fetched = 0
-            out = s.get("outlet", s["id"])
-            oname = SRC.get(out, s)["name"].split(" (")[0]
             for e in entries:
                 pub = e.get("published")
                 if pub and pub < cutoff:
                     continue
-                title, summary = e.get("title") or "", e.get("summary") or ""
+                title = e.get("title") or ""
+                raw_summary = e.get("summary") or ""
+                summary = strip_boilerplate(raw_summary)
                 if title and not matches(f"{title}. {summary}") and not s.get("all_relevant"):
                     continue
-                if (not title or not pub) and fetched < cap:
+                # A Vær Varsom / cookie footer is not the lead. Read the page for og:description.
+                want_lead = bool(raw_summary) and (is_boilerplate(raw_summary) or not summary)
+                if (not title or not pub or want_lead) and fetched < cap:
                     fetched += 1
                     t, d, date = page_meta(e["url"])
                     title = title or t
-                    summary = summary or d
+                    summary = d or summary
                     pub = pub or date
                 if not title:
                     continue
                 n_items += 1
+                out, oname = named_outlet(e["url"], s)
                 add(e["url"], title, summary, pub, s["id"], out, oname, s["country"], s.get("match_extra", ()), all_rel=s.get("all_relevant", False), lang=s.get("language"))
             n_ok = 1 if entries else 0
         except Exception as ex:
@@ -433,8 +723,8 @@ def main():
                     t, d, date = page_meta(u)
                     with _io:
                         seen_html[u] = {"title": t, "date": date.isoformat() if date else None}
-                    out = s.get("outlet", s["id"])
-                    add(u, t, d, date, s["id"], out, SRC.get(out, s)["name"].split(" (")[0], s["country"], s.get("match_extra", ()), all_rel=s.get("all_relevant", False), lang=s.get("language"))
+                    out, oname = named_outlet(u, s)
+                    add(u, t, d, date, s["id"], out, oname, s["country"], s.get("match_extra", ()), all_rel=s.get("all_relevant", False), lang=s.get("language"))
             except Exception as ex: err = f"{type(ex).__name__}: {ex}"[:200]; log("ERR", s["id"], err)
             with _io:
                 status[s["id"]] = {"checked": NOW.isoformat(timespec="seconds"), "ok": n_ok > 0, "requests": 1 + n_meta, "ok_requests": n_ok, "entries": len(links), "error": err, "method": "html"}
@@ -451,20 +741,24 @@ def main():
                 f = feedparser.parse(r.content); n_ok += 1; n_items += len(f.entries)
                 for e in f.entries:
                     entry_carries_article_image(e)  # media:content / enclosure: counted, URL not stored
-                    link = e.get("link") or ""
+                    link = unwrap_news_url(e.get("link") or "")
                     title = clean(e.get("title"))
                     teaser = clean(e.get("summary") or e.get("description") or "")
-                    if s["type"] == "bing":
-                        qs = urllib.parse.parse_qs(urllib.parse.urlparse(link).query)
-                        link = (qs.get("url") or [link])[0]
-                        if not urllib.parse.urlparse(link).netloc.endswith(s["allowed_tld"]): continue
+                    bing = s["type"] == "bing"
+                    if bing:
+                        host = urllib.parse.urlparse(link).netloc.lower()
+                        if not host.endswith(s["allowed_tld"]): continue
                         out, oname = outlet_for(link, (e.get("news_source") or "").strip())
+                        if out not in SRC:
+                            out = host.removeprefix("www.")
                         extra, all_rel, lang = (), False, None
                     else:
-                        out = s.get("outlet", s["id"]); oname = SRC.get(out, s)["name"]
+                        out, oname = named_outlet(link, s)
                         extra, all_rel, lang = s.get("match_extra", ()), s["type"] == "rss-all", s.get("language")
-                    published = resolve_published(link, title, teaser, e, s["country"], extra, all_rel)
-                    add(link, title, teaser, published, s["id"], out, oname, s["country"], extra, all_rel, lang)
+                    published, unverified, html = resolve_published(
+                        link, title, teaser, e, s["country"], extra, all_rel, bing=bing, outlet_id=out if out in SRC else None)
+                    teaser = choose_teaser(teaser, html)
+                    add(link, title, teaser, published, s["id"], out, oname, s["country"], extra, all_rel, lang, unverified=unverified)
             except Exception as ex:
                 err = f"{type(ex).__name__}: {ex}"[:200]; log("ERR", s["id"], u, err)
         with _io:

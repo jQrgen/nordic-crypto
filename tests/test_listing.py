@@ -35,7 +35,25 @@ def main():
     picked = listing.choose(entries)
     check(len(picked) == 1 and "/innsikt/nyheter/" in picked[0]["url"], "sitemap keeps the blog post")
     check(all("/logg-inn" not in e["url"] for e in picked), "login url dropped")
-    check(picked[0]["published"].date().isoformat() == "2026-08-27", "lastmod date")
+    check(picked[0]["published"].date().isoformat() == "2026-08-27", "date from the article path")
+
+    _, bare = listing.parse_sitemap(
+        """<urlset><url><loc>https://example.no/nyheter/bitcoin-sak</loc><lastmod>2026-08-27T10:00:00+02:00</lastmod></url></urlset>""",
+        "https://example.no/sitemap.xml")
+    check(bare and bare[0]["published"] is None, "lastmod is not a publish time")
+    modified = listing.parse_jsonld(
+        """<html><script type="application/ld+json">
+{"@type":"NewsArticle","headline":"Bitcoin i Norge","url":"https://example.no/nyheter/bitcoin-sak","dateModified":"2026-10-06T01:00:00+02:00"}
+</script></html>""", "https://example.no/")
+    check(modified and modified[0]["published"] is None, "dateModified is not published")
+    oslo = listing.parse_wp_posts(
+        '[{"title":{"rendered":"Bitcoin"},"link":"https://example.no/frettir/bitcoin","date":"2026-07-01T15:06:00","excerpt":{"rendered":"<p>Kort</p>"}}]',
+        "https://example.no/", "Europe/Oslo")
+    check(oslo and oslo[0]["published"].isoformat() == "2026-07-01T13:06:00+00:00", "zone-less wp date is Oslo summer time")
+    no_mod = listing.parse_wp_posts(
+        '[{"title":{"rendered":"Bitcoin"},"link":"https://example.no/frettir/bitcoin","modified":"2026-07-01T15:06:00","excerpt":{"rendered":"<p>Kort</p>"}}]',
+        "https://example.no/", "Europe/Oslo")
+    check(no_mod and no_mod[0]["published"] is None, "wp modified is not published")
 
     ld = listing.parse_jsonld(JSONLD, "https://example.no/")
     check(ld and ld[0]["title"] == "Bitcoin i Norge" and ld[0]["summary"].startswith("Kort"), "json-ld article")

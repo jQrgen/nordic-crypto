@@ -376,6 +376,7 @@ class Feed:
             "own_story": own,
             "illustration": illustrations.api_record(illustrations.assign(item), self.abs),
             "primary_source": outlets[0] if outlets else None,
+            "primary_source_document": coverage_mod.editor_primary_source(item.get("primary_source")),
             "also_covered_by": outlets[1:],
             "sources": outlets,
             "coverage": coverage_mod.breakdown(rows),
@@ -1254,7 +1255,9 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
         "(or its outlet, or a _source_alias). Null means show the source name as text. "
         "illustration is the licensed picture assigned to the story, with source, author, license and url. "
         "The site does not render it. It is never a photograph copied or hotlinked from another newspaper. "
-        "primary_source is that outlet. also_covered_by lists every other outlet on the same event "
+        "primary_source is that outlet. primary_source_document is an editor-recorded original document "
+        "(name and url), such as a regulator press release, and is separate from that outlet. "
+        "also_covered_by lists every other outlet on the same event "
         "(outlet, outlet_name, url, title, published, lang, country, source_type, paywall, logo). "
         "sources is the primary plus those outlets. coverage.count is how many outlets, "
         "coverage.by_country and coverage.by_source_type (national, regional, official, international) "
@@ -1684,6 +1687,15 @@ def schemas():
             },
             "source_logo_url": {"type": "string", "nullable": True, "description": logo_url_desc + " Same as source_logo.raster_url."},
             "primary_source": {"$ref": "#/components/schemas/NewsOutlet"},
+            "primary_source_document": {
+                "type": "object",
+                "nullable": True,
+                "description": "Editor-recorded original document, such as a regulator press release. name and url. Not the lead coverage outlet.",
+                "properties": {
+                    "name": {"type": "string"},
+                    "url": {"type": "string"},
+                },
+            },
             "also_covered_by": {"type": "array", "items": {"$ref": "#/components/schemas/NewsOutlet"}, "description": "Other outlets on the same event. Empty when only the primary covered it."},
             "sources": {"type": "array", "items": {"$ref": "#/components/schemas/NewsOutlet"}, "description": "Primary first, then also_covered_by."},
             "coverage": {"$ref": "#/components/schemas/NewsCoverage"},
@@ -2118,7 +2130,9 @@ def llms_txt(feed, index):
         "```",
         "",
         "A single news item is api/v1/news/{id}.json (the id is on each item). "
-        "primary_source is the outlet we lead with. also_covered_by is every other outlet on the same event. "
+        "primary_source is the outlet we lead with. primary_source_document is an editor-recorded original document "
+        "(name and url), such as a regulator press release, and is not that outlet. "
+        "also_covered_by is every other outlet on the same event. "
         "sources lists them with the primary first. coverage.by_country and coverage.by_source_type "
         "(national, regional, official, international) are the counts and shares, and empty types are included as zero. "
         "html_url is our coverage page. url is the primary outlet. ",

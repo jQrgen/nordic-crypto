@@ -9,6 +9,8 @@ No article body. Callers enforce robots.txt, the site delay and a small cap.
 import json, re, urllib.parse
 from datetime import datetime, timezone
 
+import published_time as pubtime
+
 ARTICLE = re.compile(
     r"/(20\d{2})([-/]\d{1,2}){1,2}\b|"
     r"/(nyheter|nyhet|news|artikel|artikkel|artikkeli|frett\w*|blogg|blog|blogs|"
@@ -75,17 +77,22 @@ def url_date(url):
         return None
 
 
-def _parse_iso(value):
+def _zone(zone, url):
+    """Publisher zone. An explicit zone wins, else the outlet host, else None (UTC only for offsets)."""
+    if zone:
+        return zone
+    return pubtime.zone_for(url=url)
+
+
+def _parse_iso(value, zone=None, url=None):
+    """Clock time in the publisher's zone when the stamp has no offset.
+
+    A calendar day stays noon UTC. Modified stamps are not passed in here.
+    """
     if not value or not isinstance(value, str):
         return None
-    value = value.strip().replace("Z", "+00:00")
-    try:
-        d = datetime.fromisoformat(value)
-    except ValueError:
-        return None
-    if d.tzinfo is None:
-        d = d.replace(tzinfo=timezone.utc)
-    return d
+    inst = pubtime.parse_instant(value.strip(), _zone(zone, url))
+    return inst.dt if inst else None
 
 
 def _article_like(url):
@@ -95,7 +102,7 @@ def _article_like(url):
     return bool(ARTICLE.search(path))
 
 
-def parse_sitemap(text, base):
+def parse_sitemap(text, base, zone=None):
     """Return (child_sitemap_urls, entries). Entries have url and maybe title, summary, published."""
     if not text or "<html" in text[:400].lower():
         return [], []
@@ -111,12 +118,13 @@ def parse_sitemap(text, base):
         if not url.startswith("http"):
             continue
         title = re.search(r"<news:title>\s*(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?\s*</news:title>", block, re.I | re.S)
-        when = re.search(r"<news:publication_date>\s*([^<]+)", block, re.I) or re.search(r"<lastmod>\s*([^<]+)", block, re.I)
+        # lastmod is when the file changed, not when the article was published.
+        when = re.search(r"<news:publication_date>\s*([^<]+)", block, re.I)
         entries.append({
             "url": url,
             "title": re.sub(r"\s+", " ", title.group(1)).strip() if title else "",
             "summary": "",
-            "published": _parse_iso(when.group(1)) if when else url_date(url),
+            "published": _parse_iso(when.group(1), zone, url) if when else url_date(url),
         })
     if not entries and not children:
         # a urlset that the block regex missed (self-closing or odd spacing)
@@ -134,15 +142,15 @@ def _types(node):
     return {str(t).lower()} if t else set()
 
 
-def _walk_jsonld(node, base, out):
+def _walk_jsonld(node, base, out, zone=None):
     if isinstance(node, list):
         for x in node:
-            _walk_jsonld(x, base, out)
+            _walk_jsonld(x, base, out, zone)
         return
     if not isinstance(node, dict):
         return
     if "@graph" in node:
-        _walk_jsonld(node["@graph"], base, out)
+        _walk_jsonld(node["@graph"], base, out, zone)
     types = _types(node)
     if types & {"newsarticle", "blogposting", "article", "report"}:
         url = node.get("url") or node.get("mainEntityOfPage") or ""
@@ -158,30 +166,31 @@ def _walk_jsonld(node, base, out):
                 "url": url,
                 "title": re.sub(r"\s+", " ", str(title)).strip(),
                 "summary": re.sub(r"<[^>]+>", " ", str(summary)).strip()[:500],
-                "published": _parse_iso(node.get("datePublished") or node.get("dateModified")) or url_date(url),
+                "published": _parse_iso(node.get("datePublished"), zone, url) or url_date(url),
             })
     for v in node.values():
         if isinstance(v, (dict, list)):
-            _walk_jsonld(v, base, out)
+            _walk_jsonld(v, base, out, zone)
 
 
-def parse_jsonld(html, base):
+def parse_jsonld(html, base, zone=None):
     out = []
+    zone = _zone(zone, base)
     for raw in re.findall(r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>(.*?)</script>', html or "", re.I | re.S):
         try:
             data = json.loads(raw.strip())
         except json.JSONDecodeError:
             continue
-        _walk_jsonld(data, base, out)
+        _walk_jsonld(data, base, out, zone)
     return out
 
 
-def _from_obj(node, base, out, depth=0):
+def _from_obj(node, base, out, depth=0, zone=None):
     if depth > 8:
         return
     if isinstance(node, list):
         for x in node[:80]:
-            _from_obj(x, base, out, depth + 1)
+            _from_obj(x, base, out, depth + 1, zone)
         return
     if not isinstance(node, dict):
         return
@@ -197,7 +206,10 @@ def _from_obj(node, base, out, depth=0):
             url = _abs(base, url)
         elif node.get("slug"):
             url = ""
-    published = _parse_iso(node.get("date") or node.get("datePublished") or node.get("publishedAt") or node.get("published") or "") or url_date(url)
+    published = _parse_iso(
+        node.get("date") or node.get("datePublished") or node.get("publishedAt") or node.get("published") or "",
+        zone, url,
+    ) or url_date(url)
     summary = node.get("excerpt") or node.get("description") or node.get("summary") or ""
     if isinstance(summary, dict):
         summary = summary.get("rendered") or summary.get("text") or ""
@@ -210,10 +222,10 @@ def _from_obj(node, base, out, depth=0):
         })
     for v in node.values():
         if isinstance(v, (dict, list)):
-            _from_obj(v, base, out, depth + 1)
+            _from_obj(v, base, out, depth + 1, zone)
 
 
-def parse_next_data(html, base):
+def parse_next_data(html, base, zone=None):
     m = re.search(r'<script[^>]+id=["\']__NEXT_DATA__["\'][^>]*>(.*?)</script>', html or "", re.I | re.S)
     if not m:
         return []
@@ -222,11 +234,11 @@ def parse_next_data(html, base):
     except json.JSONDecodeError:
         return []
     out = []
-    _from_obj(data, base, out)
+    _from_obj(data, base, out, zone=_zone(zone, base))
     return out
 
 
-def parse_wp_posts(text, base):
+def parse_wp_posts(text, base, zone=None):
     try:
         data = json.loads(text)
     except json.JSONDecodeError:
@@ -245,7 +257,7 @@ def parse_wp_posts(text, base):
                 "url": _abs(base, url),
                 "title": re.sub(r"<[^>]+>", " ", str(title)).strip(),
                 "summary": re.sub(r"<[^>]+>", " ", str(excerpt or "")).strip()[:500],
-                "published": _parse_iso(node.get("date")) or url_date(url),
+                "published": _parse_iso(node.get("date"), zone, url) or url_date(url),
             })
     return out
 
@@ -291,7 +303,7 @@ def _rank_child(url):
     return 1
 
 
-def collect(page_url, get, robots_ok, limit=30):
+def collect(page_url, get, robots_ok, limit=30, zone=None):
     """Return (entries, method, error). method is sitemap, html, or "".
 
     get(url) -> (status_code, text). robots_ok(url) -> bool.
@@ -300,6 +312,7 @@ def collect(page_url, get, robots_ok, limit=30):
     origin = origin_of(page_url)
     if not origin:
         return [], "", "no homepage"
+    zone = zone or pubtime.zone_for(url=page_url)
     errors = []
 
     def fetch(url):
@@ -316,13 +329,13 @@ def collect(page_url, get, robots_ok, limit=30):
     status, text = fetch(sitemap)
     children, entries = ([], [])
     if status == 200 and text:
-        children, entries = parse_sitemap(text, sitemap)
+        children, entries = parse_sitemap(text, sitemap, zone)
     if not entries and children:
         ordered = sorted(children, key=_rank_child)[:2]
         for child in ordered:
             st, body = fetch(child)
             if st == 200 and body:
-                _, more = parse_sitemap(body, child)
+                _, more = parse_sitemap(body, child, zone)
                 entries.extend(more)
     picked = choose(entries, limit)
     if picked:
@@ -340,8 +353,8 @@ def collect(page_url, get, robots_ok, limit=30):
                 seen_pages.add(url)
                 st, body = fetch(url)
                 if st == 200 and body:
-                    extra.extend(parse_jsonld(body, url))
-                    extra.extend(parse_next_data(body, url))
+                    extra.extend(parse_jsonld(body, url, zone))
+                    extra.extend(parse_next_data(body, url, zone))
                     extra.extend(parse_links(body, url))
                 if all(e.get("title") or any(x["url"].split("#")[0] == e["url"] and x.get("title") for x in extra) for e in picked):
                     break
@@ -364,7 +377,7 @@ def collect(page_url, get, robots_ok, limit=30):
         url = origin.rstrip("/") + path
         st, body = fetch(url)
         if st == 200 and body and body.lstrip().startswith(("[", "{")):
-            picked = choose(parse_wp_posts(body, origin), limit)
+            picked = choose(parse_wp_posts(body, origin, zone), limit)
             if picked:
                 return picked, "html", None
 
@@ -379,8 +392,8 @@ def collect(page_url, get, robots_ok, limit=30):
         st, body = fetch(url)
         if st != 200 or not body:
             continue
-        html_entries.extend(parse_jsonld(body, url))
-        html_entries.extend(parse_next_data(body, url))
+        html_entries.extend(parse_jsonld(body, url, zone))
+        html_entries.extend(parse_next_data(body, url, zone))
         html_entries.extend(parse_links(body, url))
         if len(choose(html_entries, limit)) >= 5:
             break

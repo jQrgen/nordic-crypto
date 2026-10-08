@@ -4,6 +4,7 @@ Chrome strings fall back to English in i18n.t() until a translation is added to 
 This file does not translate article bodies or summaries. Nordic news sources are unchanged.
 """
 S = {
+"primary_source": "Fuente principal",
 "ios_tv": 'Compatible especialmente con Apple TV.',
 "prev_extra": "Los eventos públicos anteriores en los países nórdicos aparecen aquí cuando una fuente indica la fecha, el lugar y el organizador.",
 "ev_type": "Tipo",
