@@ -1,0 +1,43 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-08T00:14:44+00:00",
+ "preview": false,
+ "item": {
+  "id": "spk-jonas-foyn-therkelsen",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-jonas-foyn-therkelsen.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#spk-jonas-foyn-therkelsen",
+  "name": "Jonas Foyn Therkelsen",
+  "type": "person",
+  "sector": "private",
+  "country": null,
+  "description": null,
+  "role": null,
+  "org": null,
+  "group": null,
+  "profile_url": null,
+  "provenance": "Talks archive",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.youtube.com/watch?v=40L56Dh3SsY&hl=en",
+    "title": "Blockchain fra A-Å - Jonas Foyn Therkelsen, Co-founder, Blockchangers",
+    "source_name": "NTNU Accel",
+    "date": "2026-10-07"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": [],
+  "talk_ids": [
+   "yt-40L56Dh3SsY"
+  ],
+  "talks": [
+   {
+    "id": "yt-40L56Dh3SsY",
+    "title": "Blockchain fra A-Å - Jonas Foyn Therkelsen, Co-founder, Blockchangers",
+    "video_url": "https://www.youtube.com/watch?v=40L56Dh3SsY"
+   }
+  ]
+ }
+}

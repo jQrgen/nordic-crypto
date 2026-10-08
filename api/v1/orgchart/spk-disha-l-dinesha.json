@@ -1,0 +1,53 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-08T00:14:44+00:00",
+ "preview": false,
+ "item": {
+  "id": "spk-disha-l-dinesha",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-disha-l-dinesha.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#spk-disha-l-dinesha",
+  "name": "Disha L. Dinesha",
+  "type": "person",
+  "sector": "private",
+  "country": null,
+  "description": null,
+  "role": null,
+  "org": null,
+  "group": null,
+  "profile_url": null,
+  "provenance": "Talks archive",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.youtube.com/watch?v=CV0WndNSP5Q&hl=en",
+    "title": "Disha L. Dinesha: Blockchain Enabled Smart Microgrids",
+    "source_name": "DTU: Lectures on Power & Energy Systems",
+    "date": "2026-10-07"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": [],
+  "talk_ids": [
+   "yt-CV0WndNSP5Q"
+  ],
+  "talks": [
+   {
+    "id": "yt-CV0WndNSP5Q",
+    "title": "Disha L. Dinesha: Blockchain Enabled Smart Microgrids",
+    "video_url": "https://www.youtube.com/watch?v=CV0WndNSP5Q"
+   }
+  ],
+  "affiliations": [
+   {
+    "talk_id": "yt-CV0WndNSP5Q",
+    "organisation": "Indian Institute of Science, Bengaluru",
+    "source_url": "https://www.youtube.com/watch?v=CV0WndNSP5Q&hl=en",
+    "source_name": "DTU: Lectures on Power & Energy Systems",
+    "retrieved_at": "2026-10-07T23:30:36+00:00",
+    "role": "PhD Student"
+   }
+  ]
+ }
+}

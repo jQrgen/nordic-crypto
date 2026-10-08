@@ -1,0 +1,43 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-08T00:14:44+00:00",
+ "preview": false,
+ "item": {
+  "id": "spk-alejandro-machado",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-alejandro-machado.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#spk-alejandro-machado",
+  "name": "Alejandro Machado",
+  "type": "person",
+  "sector": "private",
+  "country": null,
+  "description": null,
+  "role": null,
+  "org": null,
+  "group": null,
+  "profile_url": null,
+  "provenance": "Talks archive",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.youtube.com/watch?v=f4ePT_GRGUk&hl=en",
+    "title": "The Rise of Stablecoins in Emerging Markets and Authoritarian Regimes | 2022 Oslo Freedom Forum",
+    "source_name": "Oslo Freedom Forum",
+    "date": "2026-10-07"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": [],
+  "talk_ids": [
+   "yt-f4ePT_GRGUk"
+  ],
+  "talks": [
+   {
+    "id": "yt-f4ePT_GRGUk",
+    "title": "The Rise of Stablecoins in Emerging Markets and Authoritarian Regimes | 2022 Oslo Freedom Forum",
+    "video_url": "https://www.youtube.com/watch?v=f4ePT_GRGUk"
+   }
+  ]
+ }
+}

@@ -573,10 +573,10 @@
   "/api/v1/orgchart.json": {
    "get": {
     "operationId": "api_v1_orgchart",
-    "summary": "Published who's who: organisations, people, relations, regulation notes and caveats.",
+    "summary": "Published who's who: organisations, people, relations, regulation notes and caveats. A person named on a talk has talk_ids, event_ids and talks. affiliations lists the organisation the talk page stated for that talk, with the talk date when the page gave one, the source URL and the retrieval time. An affiliation the page did not state is omitted.",
     "responses": {
      "200": {
-      "description": "Published who's who: organisations, people, relations, regulation notes and caveats.",
+      "description": "Published who's who: organisations, people, relations, regulation notes and caveats. A person named on a talk has talk_ids, event_ids and talks. affiliations lists the organisation the talk page stated for that talk, with the talk date when the page gave one, the source URL and the retrieval time. An affiliation the page did not state is omitted.",
       "content": {
        "application/json": {
         "schema": {
@@ -1347,7 +1347,7 @@
      "illustration": {
       "type": "object",
       "nullable": true,
-      "description": "Picture for the card and the story page. source, author, license and url are the credit. file_url is our copy. Never a newspaper photograph.",
+      "description": "Licensed picture assigned to this story. The site does not render it. source, author, license and url are the credit. file_url is our copy. Never a newspaper photograph.",
       "properties": {
        "id": {
         "type": "string"
@@ -1591,7 +1591,7 @@
         "illustration": {
          "type": "object",
          "nullable": true,
-         "description": "Picture for the card and the story page. source, author, license and url are the credit. file_url is our copy. Never a newspaper photograph.",
+         "description": "Licensed picture assigned to this story. The site does not render it. source, author, license and url are the credit. file_url is our copy. Never a newspaper photograph.",
          "properties": {
           "id": {
            "type": "string"
@@ -1829,6 +1829,13 @@
       "nullable": true,
       "description": "Link to talk videos when a source gives one."
      },
+     "talk_ids": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      },
+      "description": "Ids of talks in /api/v1/talks.json recorded at this event. Omitted when none are linked."
+     },
      "credits": {
       "type": "object",
       "nullable": true,
@@ -1981,6 +1988,13 @@
          "nullable": true,
          "description": "Link to talk videos when a source gives one."
         },
+        "talk_ids": {
+         "type": "array",
+         "items": {
+          "type": "string"
+         },
+         "description": "Ids of talks in /api/v1/talks.json recorded at this event. Omitted when none are linked."
+        },
         "credits": {
          "type": "object",
          "nullable": true,
@@ -2041,7 +2055,17 @@
      "calendar_event_id": {
       "type": "string",
       "nullable": true,
-      "description": "Id of the matching event in /api/v1/events.json, when one exists."
+      "description": "Same value as event_id. The event page is /calendar/<id>/ and the document is /api/v1/events/<id>.json. Previous events are also listed in /api/v1/events/previous.json."
+     },
+     "event_id": {
+      "type": "string",
+      "nullable": true,
+      "description": "Id of the event this talk belongs to. Null when the talk could not be dated or placed."
+     },
+     "unlink_reason": {
+      "type": "string",
+      "nullable": true,
+      "description": "Why the talk is not linked to an event. Null when event_id is set."
      },
      "city": {
       "type": "string",
@@ -2095,6 +2119,13 @@
      "embed": {
       "type": "boolean",
       "description": "True when the platform's oEmbed response includes an official player."
+     },
+     "speaker_ids": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      },
+      "description": "Who's who ids for speakers, in the same order as speakers. Empty when the page named nobody."
      },
      "html_url": {
       "type": "string"
@@ -2173,7 +2204,17 @@
         "calendar_event_id": {
          "type": "string",
          "nullable": true,
-         "description": "Id of the matching event in /api/v1/events.json, when one exists."
+         "description": "Same value as event_id. The event page is /calendar/<id>/ and the document is /api/v1/events/<id>.json. Previous events are also listed in /api/v1/events/previous.json."
+        },
+        "event_id": {
+         "type": "string",
+         "nullable": true,
+         "description": "Id of the event this talk belongs to. Null when the talk could not be dated or placed."
+        },
+        "unlink_reason": {
+         "type": "string",
+         "nullable": true,
+         "description": "Why the talk is not linked to an event. Null when event_id is set."
         },
         "city": {
          "type": "string",
@@ -2227,6 +2268,13 @@
         "embed": {
          "type": "boolean",
          "description": "True when the platform's oEmbed response includes an official player."
+        },
+        "speaker_ids": {
+         "type": "array",
+         "items": {
+          "type": "string"
+         },
+         "description": "Who's who ids for speakers, in the same order as speakers. Empty when the page named nobody."
         },
         "html_url": {
          "type": "string"
@@ -2733,6 +2781,46 @@
     },
     "description": "AcademiaItem"
    },
+   "OrgEntity": {
+    "type": "object",
+    "required": [
+     "id",
+     "name"
+    ],
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "name": {
+      "type": "string"
+     },
+     "type": {
+      "type": "string"
+     },
+     "talk_ids": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      },
+      "description": "Talks in /api/v1/talks.json that name this person. Omitted when none are linked."
+     },
+     "event_ids": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      },
+      "description": "Events those talks belong to. Omitted when none are linked."
+     },
+     "talks": {
+      "type": "array",
+      "description": "id, title, video_url, and event_id and date when the talk has them."
+     },
+     "affiliations": {
+      "type": "array",
+      "description": "One organisation per talk, only when the talk page stated it. Each item has organisation, talk_id, source_url, source_name and retrieved_at. role and date are present when the page stated them. An affiliation without a source is omitted."
+     }
+    }
+   },
    "OrgChart": {
     "type": "object",
     "properties": {
@@ -2749,7 +2837,10 @@
       "type": "boolean"
      },
      "entities": {
-      "type": "array"
+      "type": "array",
+      "items": {
+       "$ref": "#/components/schemas/OrgEntity"
+      }
      },
      "relations": {
       "type": "array"

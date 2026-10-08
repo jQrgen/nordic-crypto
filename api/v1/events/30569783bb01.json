@@ -1,0 +1,103 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-08T00:14:44+00:00",
+ "preview": false,
+ "item": {
+  "id": "30569783bb01",
+  "title": "Oslo Blockchain Day",
+  "title_original": null,
+  "start": "2017-04-25T00:00:00+02:00",
+  "end": "2017-04-25T23:59:00+02:00",
+  "place": null,
+  "city": "Oslo",
+  "country": "NO",
+  "online": false,
+  "organiser": "Blockchangers",
+  "url": "https://www.meetup.com/blockchangers/events/230837354/",
+  "source": "backfill",
+  "paid": null,
+  "sponsored": null,
+  "note": null,
+  "note_i18n": {},
+  "past": true,
+  "ongoing": false,
+  "html_url": "https://nordiccrypto.no/calendar/30569783bb01/",
+  "html_urls": {
+   "en": "https://nordiccrypto.no/calendar/30569783bb01/",
+   "nn": "https://nordiccrypto.no/nn/calendar/30569783bb01/",
+   "nb": "https://nordiccrypto.no/nb/calendar/30569783bb01/",
+   "sv": "https://nordiccrypto.no/sv/calendar/30569783bb01/",
+   "da": "https://nordiccrypto.no/da/calendar/30569783bb01/",
+   "fi": "https://nordiccrypto.no/fi/calendar/30569783bb01/",
+   "is": "https://nordiccrypto.no/is/calendar/30569783bb01/",
+   "zh": "https://nordiccrypto.no/zh/calendar/30569783bb01/",
+   "hi": "https://nordiccrypto.no/hi/calendar/30569783bb01/",
+   "es": "https://nordiccrypto.no/es/calendar/30569783bb01/",
+   "fr": "https://nordiccrypto.no/fr/calendar/30569783bb01/",
+   "ar": "https://nordiccrypto.no/ar/calendar/30569783bb01/",
+   "bn": "https://nordiccrypto.no/bn/calendar/30569783bb01/",
+   "pt": "https://nordiccrypto.no/pt/calendar/30569783bb01/",
+   "ru": "https://nordiccrypto.no/ru/calendar/30569783bb01/",
+   "ur": "https://nordiccrypto.no/ur/calendar/30569783bb01/",
+   "id": "https://nordiccrypto.no/id/calendar/30569783bb01/",
+   "de": "https://nordiccrypto.no/de/calendar/30569783bb01/",
+   "ja": "https://nordiccrypto.no/ja/calendar/30569783bb01/",
+   "sw": "https://nordiccrypto.no/sw/calendar/30569783bb01/",
+   "mr": "https://nordiccrypto.no/mr/calendar/30569783bb01/"
+  },
+  "api_url": "https://nordiccrypto.no/api/v1/events/30569783bb01.json",
+  "backfill": true,
+  "event_type": "conference",
+  "credits": {
+   "title": {
+    "source_name": "aantonop",
+    "source_url": "https://www.youtube.com/watch?v=eo-0BgrKxiI&hl=en",
+    "retrieved_at": "2026-10-07T20:57:16+00:00"
+   },
+   "start": {
+    "source_name": "aantonop",
+    "source_url": "https://www.youtube.com/watch?v=eo-0BgrKxiI&hl=en",
+    "retrieved_at": "2026-10-07T20:57:16+00:00"
+   },
+   "end": {
+    "source_name": "aantonop",
+    "source_url": "https://www.youtube.com/watch?v=eo-0BgrKxiI&hl=en",
+    "retrieved_at": "2026-10-07T20:57:16+00:00"
+   },
+   "city": {
+    "source_name": "aantonop",
+    "source_url": "https://www.youtube.com/watch?v=eo-0BgrKxiI&hl=en",
+    "retrieved_at": "2026-10-07T20:57:16+00:00"
+   },
+   "country": {
+    "source_name": "aantonop",
+    "source_url": "https://www.youtube.com/watch?v=eo-0BgrKxiI&hl=en",
+    "retrieved_at": "2026-10-07T20:57:16+00:00"
+   },
+   "organiser": {
+    "source_name": "aantonop",
+    "source_url": "https://www.youtube.com/watch?v=eo-0BgrKxiI&hl=en",
+    "retrieved_at": "2026-10-07T20:57:16+00:00"
+   },
+   "url": {
+    "source_name": "aantonop",
+    "source_url": "https://www.youtube.com/watch?v=eo-0BgrKxiI&hl=en",
+    "retrieved_at": "2026-10-07T20:57:16+00:00"
+   },
+   "event_type": {
+    "source_name": "aantonop",
+    "source_url": "https://www.youtube.com/watch?v=eo-0BgrKxiI&hl=en",
+    "retrieved_at": "2026-10-07T20:57:16+00:00"
+   }
+  },
+  "place_source": {
+   "name": "backfill",
+   "url": "https://www.youtube.com/watch?v=eo-0BgrKxiI&hl=en",
+   "retrieved": "2026-10-07T20:57:16+00:00"
+  },
+  "talk_ids": [
+   "yt-eo-0BgrKxiI"
+  ]
+ }
+}

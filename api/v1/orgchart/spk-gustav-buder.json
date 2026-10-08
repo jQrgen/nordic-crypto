@@ -1,0 +1,52 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-08T00:14:44+00:00",
+ "preview": false,
+ "item": {
+  "id": "spk-gustav-buder",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-gustav-buder.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#spk-gustav-buder",
+  "name": "Gustav Buder",
+  "type": "person",
+  "sector": "private",
+  "country": null,
+  "description": null,
+  "role": null,
+  "org": null,
+  "group": null,
+  "profile_url": null,
+  "provenance": "Talks archive",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.youtube.com/watch?v=ffmB3P1dqw0&hl=en",
+    "title": "Nordic Blockchain Conference 2026 - Day 2 - Stage 2 (Part 1)",
+    "source_name": "Nordic Blockchain Association",
+    "date": "2026-10-07"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": [],
+  "talk_ids": [
+   "yt-ffmB3P1dqw0"
+  ],
+  "talks": [
+   {
+    "id": "yt-ffmB3P1dqw0",
+    "title": "Nordic Blockchain Conference 2026 - Day 2 - Stage 2 (Part 1)",
+    "video_url": "https://www.youtube.com/watch?v=ffmB3P1dqw0"
+   }
+  ],
+  "affiliations": [
+   {
+    "talk_id": "yt-ffmB3P1dqw0",
+    "organisation": "Bybit",
+    "source_url": "https://www.youtube.com/watch?v=ffmB3P1dqw0&hl=en",
+    "source_name": "Nordic Blockchain Association",
+    "retrieved_at": "2026-10-07T23:30:36+00:00"
+   }
+  ]
+ }
+}

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T23:13:04+00:00",
+ "generated_at": "2026-10-08T00:14:44+00:00",
  "preview": false,
  "item": {
   "id": "yt-kmizKAmfsWU",
@@ -17,6 +17,14 @@
   "event_name": "Slush Music 2016",
   "event_url": "http://music.slush.org/",
   "calendar_event_id": null,
+  "event_id": null,
+  "unlink_reason": "the video page did not state the day",
+  "speaker_ids": [
+   "spk-ken-umezaki",
+   "spk-marko-ahtisaari",
+   "spk-turo-pekari",
+   "spk-bruno-guez"
+  ],
   "city": "Helsinki",
   "country": "FI",
   "date": null,

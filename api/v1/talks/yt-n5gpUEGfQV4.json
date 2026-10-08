@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T23:13:04+00:00",
+ "generated_at": "2026-10-08T00:14:44+00:00",
  "preview": false,
  "item": {
   "id": "yt-n5gpUEGfQV4",
@@ -17,6 +17,14 @@
   "event_name": "Oslo Freedom Forum 2026",
   "event_url": "https://oslofreedomforum.com/",
   "calendar_event_id": null,
+  "event_id": null,
+  "unlink_reason": "the video page did not state the day",
+  "speaker_ids": [
+   "spk-abubakar-nur-khalil",
+   "spk-anaise-kanimba",
+   "spk-obi-nwosu",
+   "spk-sabina-waithira-gitau"
+  ],
   "city": "Oslo",
   "country": "NO",
   "date": null,

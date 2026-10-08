@@ -1,0 +1,126 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-08T00:14:44+00:00",
+ "preview": false,
+ "item": {
+  "id": "92041cfcb99c",
+  "title": "Oslo Blockchain Day",
+  "title_original": null,
+  "start": "2016-04-19T00:00:00+02:00",
+  "end": "2016-04-19T23:59:00+02:00",
+  "place": null,
+  "city": "Oslo",
+  "country": "NO",
+  "online": false,
+  "organiser": "Blockchangers",
+  "url": "https://www.youtube.com/watch?v=0iXX02OYI5s",
+  "source": "backfill",
+  "paid": null,
+  "sponsored": null,
+  "note": null,
+  "note_i18n": {},
+  "past": true,
+  "ongoing": false,
+  "html_url": "https://nordiccrypto.no/calendar/92041cfcb99c/",
+  "html_urls": {
+   "en": "https://nordiccrypto.no/calendar/92041cfcb99c/",
+   "nn": "https://nordiccrypto.no/nn/calendar/92041cfcb99c/",
+   "nb": "https://nordiccrypto.no/nb/calendar/92041cfcb99c/",
+   "sv": "https://nordiccrypto.no/sv/calendar/92041cfcb99c/",
+   "da": "https://nordiccrypto.no/da/calendar/92041cfcb99c/",
+   "fi": "https://nordiccrypto.no/fi/calendar/92041cfcb99c/",
+   "is": "https://nordiccrypto.no/is/calendar/92041cfcb99c/",
+   "zh": "https://nordiccrypto.no/zh/calendar/92041cfcb99c/",
+   "hi": "https://nordiccrypto.no/hi/calendar/92041cfcb99c/",
+   "es": "https://nordiccrypto.no/es/calendar/92041cfcb99c/",
+   "fr": "https://nordiccrypto.no/fr/calendar/92041cfcb99c/",
+   "ar": "https://nordiccrypto.no/ar/calendar/92041cfcb99c/",
+   "bn": "https://nordiccrypto.no/bn/calendar/92041cfcb99c/",
+   "pt": "https://nordiccrypto.no/pt/calendar/92041cfcb99c/",
+   "ru": "https://nordiccrypto.no/ru/calendar/92041cfcb99c/",
+   "ur": "https://nordiccrypto.no/ur/calendar/92041cfcb99c/",
+   "id": "https://nordiccrypto.no/id/calendar/92041cfcb99c/",
+   "de": "https://nordiccrypto.no/de/calendar/92041cfcb99c/",
+   "ja": "https://nordiccrypto.no/ja/calendar/92041cfcb99c/",
+   "sw": "https://nordiccrypto.no/sw/calendar/92041cfcb99c/",
+   "mr": "https://nordiccrypto.no/mr/calendar/92041cfcb99c/"
+  },
+  "api_url": "https://nordiccrypto.no/api/v1/events/92041cfcb99c.json",
+  "backfill": true,
+  "event_type": "conference",
+  "credits": {
+   "title": {
+    "source_name": "Blockchangers",
+    "source_url": "https://www.youtube.com/watch?v=0iXX02OYI5s&hl=en",
+    "retrieved_at": "2026-10-07T20:57:16+00:00"
+   },
+   "start": {
+    "source_name": "Blockchangers",
+    "source_url": "https://www.youtube.com/watch?v=0iXX02OYI5s&hl=en",
+    "retrieved_at": "2026-10-07T20:57:16+00:00"
+   },
+   "end": {
+    "source_name": "Blockchangers",
+    "source_url": "https://www.youtube.com/watch?v=0iXX02OYI5s&hl=en",
+    "retrieved_at": "2026-10-07T20:57:16+00:00"
+   },
+   "city": {
+    "source_name": "Blockchangers",
+    "source_url": "https://www.youtube.com/watch?v=0iXX02OYI5s&hl=en",
+    "retrieved_at": "2026-10-07T20:57:16+00:00"
+   },
+   "country": {
+    "source_name": "Blockchangers",
+    "source_url": "https://www.youtube.com/watch?v=0iXX02OYI5s&hl=en",
+    "retrieved_at": "2026-10-07T20:57:16+00:00"
+   },
+   "organiser": {
+    "source_name": "Blockchangers",
+    "source_url": "https://www.youtube.com/watch?v=0iXX02OYI5s&hl=en",
+    "retrieved_at": "2026-10-07T20:57:16+00:00"
+   },
+   "url": {
+    "source_name": "Blockchangers",
+    "source_url": "https://www.youtube.com/watch?v=0iXX02OYI5s&hl=en",
+    "retrieved_at": "2026-10-07T20:57:16+00:00"
+   },
+   "event_type": {
+    "source_name": "Blockchangers",
+    "source_url": "https://www.youtube.com/watch?v=0iXX02OYI5s&hl=en",
+    "retrieved_at": "2026-10-07T20:57:16+00:00"
+   }
+  },
+  "place_source": {
+   "name": "backfill",
+   "url": "https://www.youtube.com/watch?v=0iXX02OYI5s&hl=en",
+   "retrieved": "2026-10-07T20:57:16+00:00"
+  },
+  "talk_ids": [
+   "yt-0iXX02OYI5s",
+   "yt-3YQ3KPcwY80",
+   "yt-40-zccLg7rw",
+   "yt-5Nt0v-_PA04",
+   "yt-5jGIiwLS4yc",
+   "yt-5qOqPd5KcxQ",
+   "yt-6sN36dNYwq8",
+   "yt-H0ksQfF52bc",
+   "yt-MvNDt8cYBnU",
+   "yt-Os_XNjqLw8A",
+   "yt-V5t-uKsNYJI",
+   "yt-ZOMpmc-lrNA",
+   "yt-ZipWu7rqxeo",
+   "yt-_OWFROsjBVI",
+   "yt-brHf3DTIsig",
+   "yt-bwXhIPL_bHA",
+   "yt-i87UEsneU9c",
+   "yt-jxRBL4iY0bM",
+   "yt-k0mr4Q0U_oM",
+   "yt-lRKRitXY76A",
+   "yt-oOCdi5c-xvc",
+   "yt-oWjsqKmIPLo",
+   "yt-rf9C6qr7ew0",
+   "yt-wogzCQdqoUA"
+  ]
+ }
+}

@@ -1,0 +1,48 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-08T00:14:44+00:00",
+ "preview": false,
+ "item": {
+  "id": "spk-jesse-grushack",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-jesse-grushack.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#spk-jesse-grushack",
+  "name": "Jesse Grushack",
+  "type": "person",
+  "sector": "private",
+  "country": null,
+  "description": null,
+  "role": null,
+  "org": null,
+  "group": null,
+  "profile_url": null,
+  "provenance": "Talks archive",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.youtube.com/watch?v=6sN36dNYwq8&hl=en",
+    "title": "Ujo Music: Creating new value in creative industries. Oslo Blockchain Day",
+    "source_name": "Blockchangers",
+    "date": "2026-10-07"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": [],
+  "talk_ids": [
+   "yt-6sN36dNYwq8"
+  ],
+  "event_ids": [
+   "92041cfcb99c"
+  ],
+  "talks": [
+   {
+    "id": "yt-6sN36dNYwq8",
+    "title": "Ujo Music: Creating new value in creative industries. Oslo Blockchain Day",
+    "video_url": "https://www.youtube.com/watch?v=6sN36dNYwq8",
+    "event_id": "92041cfcb99c",
+    "date": "2016-04-19"
+   }
+  ]
+ }
+}

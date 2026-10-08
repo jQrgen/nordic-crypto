@@ -1,0 +1,53 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-08T00:14:44+00:00",
+ "preview": false,
+ "item": {
+  "id": "spk-nic-cary",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-nic-cary.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#spk-nic-cary",
+  "name": "Nic Cary",
+  "type": "person",
+  "sector": "private",
+  "country": null,
+  "description": null,
+  "role": null,
+  "org": null,
+  "group": null,
+  "profile_url": null,
+  "provenance": "Talks archive",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.youtube.com/watch?v=EBs5zp-I3sk&hl=en",
+    "title": "Blockchain The Holy Grail of Fintech | Nicolas Cary | Slush 2016",
+    "source_name": "Slush",
+    "date": "2026-10-07"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": [],
+  "talk_ids": [
+   "yt-EBs5zp-I3sk"
+  ],
+  "talks": [
+   {
+    "id": "yt-EBs5zp-I3sk",
+    "title": "Blockchain The Holy Grail of Fintech | Nicolas Cary | Slush 2016",
+    "video_url": "https://www.youtube.com/watch?v=EBs5zp-I3sk"
+   }
+  ],
+  "affiliations": [
+   {
+    "talk_id": "yt-EBs5zp-I3sk",
+    "organisation": "Blockchain",
+    "source_url": "https://www.youtube.com/watch?v=EBs5zp-I3sk&hl=en",
+    "source_name": "Slush",
+    "retrieved_at": "2026-10-07T23:30:36+00:00",
+    "role": "Co-Founder"
+   }
+  ]
+ }
+}

@@ -1,0 +1,53 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-08T00:14:44+00:00",
+ "preview": false,
+ "item": {
+  "id": "spk-marko-ahtisaari",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-marko-ahtisaari.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#spk-marko-ahtisaari",
+  "name": "Marko Ahtisaari",
+  "type": "person",
+  "sector": "private",
+  "country": null,
+  "description": null,
+  "role": null,
+  "org": null,
+  "group": null,
+  "profile_url": null,
+  "provenance": "Talks archive",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.youtube.com/watch?v=kmizKAmfsWU&hl=en",
+    "title": "Blockchain, Music and Next Steps | Slush Music 2016",
+    "source_name": "Slush",
+    "date": "2026-10-07"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": [],
+  "talk_ids": [
+   "yt-kmizKAmfsWU"
+  ],
+  "talks": [
+   {
+    "id": "yt-kmizKAmfsWU",
+    "title": "Blockchain, Music and Next Steps | Slush Music 2016",
+    "video_url": "https://www.youtube.com/watch?v=kmizKAmfsWU"
+   }
+  ],
+  "affiliations": [
+   {
+    "talk_id": "yt-kmizKAmfsWU",
+    "organisation": "Sync Project",
+    "source_url": "https://www.youtube.com/watch?v=kmizKAmfsWU&hl=en",
+    "source_name": "Slush",
+    "retrieved_at": "2026-10-07T23:30:36+00:00",
+    "role": "Founder"
+   }
+  ]
+ }
+}

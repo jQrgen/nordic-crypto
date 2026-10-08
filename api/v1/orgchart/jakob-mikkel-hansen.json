@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T23:13:04+00:00",
+ "generated_at": "2026-10-08T00:14:44+00:00",
  "preview": false,
  "item": {
   "id": "jakob-mikkel-hansen",
@@ -36,10 +36,73 @@
     "title": "Kaupr",
     "source_name": "Kaupr",
     "date": "03.10.2026"
+   },
+   {
+    "url": "https://www.youtube.com/watch?v=rfLLR9vhoYI&hl=en",
+    "title": "Nordic Blockchain Conference 2026 - Day 2 - Stage 2 (Closing Sessions)",
+    "source_name": "Nordic Blockchain Association",
+    "date": "2026-10-07"
+   },
+   {
+    "url": "https://www.youtube.com/watch?v=FXf5cpY0oY4&hl=en",
+    "title": "Nordic Blockchain Conference 2026 - Day 1 - Stage 2 (Closing Sessions)",
+    "source_name": "Nordic Blockchain Association",
+    "date": "2026-10-07"
+   },
+   {
+    "url": "https://www.youtube.com/watch?v=-4I2b_hFG0A&hl=en",
+    "title": "Nordic Blockchain Conference 2026 - Day 1 - Stage 1 (Part 1)",
+    "source_name": "Nordic Blockchain Association",
+    "date": "2026-10-07"
    }
   ],
   "logo": null,
   "image": null,
-  "profiles": []
+  "profiles": [],
+  "talk_ids": [
+   "yt--4I2b_hFG0A",
+   "yt-FXf5cpY0oY4",
+   "yt-rfLLR9vhoYI"
+  ],
+  "talks": [
+   {
+    "id": "yt-rfLLR9vhoYI",
+    "title": "Nordic Blockchain Conference 2026 - Day 2 - Stage 2 (Closing Sessions)",
+    "video_url": "https://www.youtube.com/watch?v=rfLLR9vhoYI"
+   },
+   {
+    "id": "yt-FXf5cpY0oY4",
+    "title": "Nordic Blockchain Conference 2026 - Day 1 - Stage 2 (Closing Sessions)",
+    "video_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4"
+   },
+   {
+    "id": "yt--4I2b_hFG0A",
+    "title": "Nordic Blockchain Conference 2026 - Day 1 - Stage 1 (Part 1)",
+    "video_url": "https://www.youtube.com/watch?v=-4I2b_hFG0A"
+   }
+  ],
+  "affiliations": [
+   {
+    "talk_id": "yt--4I2b_hFG0A",
+    "organisation": "Nordic Blockchain Association",
+    "source_url": "https://www.youtube.com/watch?v=-4I2b_hFG0A&hl=en",
+    "source_name": "Nordic Blockchain Association",
+    "retrieved_at": "2026-10-07T23:30:36+00:00"
+   },
+   {
+    "talk_id": "yt-FXf5cpY0oY4",
+    "organisation": "Nordic Blockchain Conference",
+    "source_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4&hl=en",
+    "source_name": "Nordic Blockchain Association",
+    "retrieved_at": "2026-10-07T23:30:36+00:00"
+   },
+   {
+    "talk_id": "yt-rfLLR9vhoYI",
+    "organisation": "Nordic Blockchain Association",
+    "source_url": "https://www.youtube.com/watch?v=rfLLR9vhoYI&hl=en",
+    "source_name": "Nordic Blockchain Association",
+    "retrieved_at": "2026-10-07T23:30:36+00:00"
+   }
+  ]
  }
 }

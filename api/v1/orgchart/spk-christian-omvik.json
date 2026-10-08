@@ -1,0 +1,52 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-08T00:14:44+00:00",
+ "preview": false,
+ "item": {
+  "id": "spk-christian-omvik",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-christian-omvik.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#spk-christian-omvik",
+  "name": "Christian Omvik",
+  "type": "person",
+  "sector": "private",
+  "country": null,
+  "description": null,
+  "role": null,
+  "org": null,
+  "group": null,
+  "profile_url": null,
+  "provenance": "Talks archive",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.youtube.com/watch?v=-4I2b_hFG0A&hl=en",
+    "title": "Nordic Blockchain Conference 2026 - Day 1 - Stage 1 (Part 1)",
+    "source_name": "Nordic Blockchain Association",
+    "date": "2026-10-07"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": [],
+  "talk_ids": [
+   "yt--4I2b_hFG0A"
+  ],
+  "talks": [
+   {
+    "id": "yt--4I2b_hFG0A",
+    "title": "Nordic Blockchain Conference 2026 - Day 1 - Stage 1 (Part 1)",
+    "video_url": "https://www.youtube.com/watch?v=-4I2b_hFG0A"
+   }
+  ],
+  "affiliations": [
+   {
+    "talk_id": "yt--4I2b_hFG0A",
+    "organisation": "NBX",
+    "source_url": "https://www.youtube.com/watch?v=-4I2b_hFG0A&hl=en",
+    "source_name": "Nordic Blockchain Association",
+    "retrieved_at": "2026-10-07T23:30:36+00:00"
+   }
+  ]
+ }
+}

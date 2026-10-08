@@ -1,0 +1,53 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-08T00:14:44+00:00",
+ "preview": false,
+ "item": {
+  "id": "spk-elizabeth-stark",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-elizabeth-stark.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#spk-elizabeth-stark",
+  "name": "Elizabeth Stark",
+  "type": "person",
+  "sector": "private",
+  "country": null,
+  "description": null,
+  "role": null,
+  "org": null,
+  "group": null,
+  "profile_url": null,
+  "provenance": "Talks archive",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.youtube.com/watch?v=aYlA0ADZbQc&hl=en",
+    "title": "Elizabeth Stark & Ben Perrin | How Bitcoin and AI Expand Freedom Worldwide | Fireside Chat",
+    "source_name": "Oslo Freedom Forum",
+    "date": "2026-10-07"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": [],
+  "talk_ids": [
+   "yt-aYlA0ADZbQc"
+  ],
+  "talks": [
+   {
+    "id": "yt-aYlA0ADZbQc",
+    "title": "Elizabeth Stark & Ben Perrin | How Bitcoin and AI Expand Freedom Worldwide | Fireside Chat",
+    "video_url": "https://www.youtube.com/watch?v=aYlA0ADZbQc"
+   }
+  ],
+  "affiliations": [
+   {
+    "talk_id": "yt-aYlA0ADZbQc",
+    "organisation": "Lightning Labs",
+    "source_url": "https://www.youtube.com/watch?v=aYlA0ADZbQc&hl=en",
+    "source_name": "Oslo Freedom Forum",
+    "retrieved_at": "2026-10-07T23:30:36+00:00",
+    "role": "CEO"
+   }
+  ]
+ }
+}

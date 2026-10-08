@@ -65,9 +65,20 @@ ol.news h3{font-size:18px;line-height:1.3;margin:0 0 4px}ol.news h3 a{text-decor
 @media(max-width:640px){.evhero h3{font-size:22px}}
 .ill{margin:0 0 10px;text-align:start}
 .ill img{display:block;width:100%;max-width:720px;height:auto;background:var(--soft)}
-ol.news .ill{flex:0 0 220px;width:220px;margin:0}
-ol.news .ill img{width:220px;height:124px;object-fit:cover;object-position:left center}
-@media(max-width:640px){ol.news li{flex-direction:column}ol.news .ill{flex:none;width:100%;max-width:480px}ol.news .ill img{width:100%;height:auto;max-height:240px}}
+.leadstory,.latest,.storygrid,.storycard,.leadstory h2,.latest h2,.storycard h3,.leadstory .sum,.storycard .sum,.leadstory .meta,.storycard .meta,.leadstory .orig,.storycard .orig{text-align:start}
+.leadstory{margin:4px 0 2px;padding:0 0 12px;border-bottom:3px solid var(--ink)}
+.leadstory h2{font-size:36px;line-height:1.12;margin:0 0 4px;text-align:start}
+.leadstory h2 a,.storycard h3 a{text-decoration:none}
+.leadstory h2 a:hover,.storycard h3 a:hover{text-decoration:underline}
+.leadstory .sum{font-size:18px;line-height:1.45;margin:8px 0 0;max-width:68ch}
+.latest h2{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin:18px 0 2px;text-align:start}
+.storygrid{display:grid;grid-template-columns:1fr;column-gap:32px;align-items:start;text-align:start}
+.storycard{padding:10px 0 12px;border-bottom:1px solid var(--line);min-width:0;text-align:start}
+.storycard h3{font-size:18px;line-height:1.25;margin:0 0 2px;text-align:start}
+.storycard .sum{font-size:14.5px;line-height:1.4;margin:4px 0 0}
+@media(min-width:760px){.storygrid{grid-template-columns:1fr 1fr}}
+@media(min-width:1080px){.storygrid{grid-template-columns:1fr 1fr 1fr}}
+@media(max-width:640px){.leadstory h2{font-size:28px}}
 .orig{font-size:13.5px;color:var(--muted);margin:0 0 3px;line-height:1.35;font-weight:400;text-align:start}
 .meta{font-size:13.5px;color:var(--muted)}.meta b{color:var(--ink);font-weight:600}
 .src{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;vertical-align:middle;text-align:start}
@@ -137,7 +148,7 @@ footer{margin-top:40px;border-top:1px solid var(--line);padding:18px 0 30px;font
 table.list{width:100%;border-collapse:collapse;font-size:14.5px}table.list th,table.list td{border-bottom:1px solid var(--line);padding:6px 6px;text-align:left;vertical-align:top}
 table.list th{font-size:13px;color:var(--muted)}
 .ok{color:#047857;font-weight:600}.bad{color:#b91c1c;font-weight:600}
-.prose{max-width:72ch}
+.prose{max-width:72ch;text-align:start}
 .tag.act{border-color:#047857;color:#047857;font-weight:600}.tag.inact{border-color:#9ca3af;color:#6b7280}
 .reg{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px;margin:10px 0}
 .reg article{border:1px solid var(--line);padding:10px 12px;background:#fff}.reg h3{display:flex;gap:8px;align-items:center;margin:0 0 6px;font-size:17px}
@@ -301,6 +312,44 @@ nav.main a.nav-quiet{font-size:14px}
 .talks .filters{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:center;gap:8px 16px}
 .talks .filters select{font:inherit;text-align:start;max-width:100%}
 
+/* shoutbox */
+.home-with-chat{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;text-align:start}
+.home-with-chat .home-main{min-width:0;text-align:start}
+.shoutbox,.shout-panel,.shout-list,.shout-form,.shout-rules,.shout-privacy,.shout-user,.shout-shared,.shout-item,.shout-meta,.shout-msg{text-align:start}
+.shoutbox{border:1px solid var(--line);background:var(--soft);padding:10px 12px;margin:0 0 16px}
+.shout-panel h2{font-size:18px;margin:0 0 6px;text-align:start}
+.shout-user,.shout-shared,.shout-rules,.shout-privacy,.shout-more{font-size:13.5px;margin:0 0 8px;text-align:start}
+.shout-rules a{font-weight:600}
+.shout-list{list-style:none;margin:0 0 8px;padding:0;max-height:280px;overflow:auto;text-align:start}
+.shoutbox-full .shout-list{max-height:70vh}
+.shout-item{border-bottom:1px solid var(--line);padding:6px 0;text-align:start}
+.shout-meta{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:4px 8px;font-size:13px;color:var(--muted)}
+.shout-nick{font-weight:700;color:var(--ink)}
+.shout-lang{font-size:12px;border:1px solid var(--line);padding:0 4px;background:#fff}
+.shout-msg{margin:2px 0 4px;white-space:pre-wrap;overflow-wrap:anywhere;text-align:start}
+.shout-form label{display:block;margin:8px 0 0;text-align:start}
+.shout-form input,.shout-form textarea{display:block;width:100%;max-width:100%;box-sizing:border-box;font:inherit;text-align:start;padding:6px}
+.shout-form textarea{min-height:4.5em;resize:vertical}
+.shout-form button,.shout-report,.shout-older,.shout-toggle{font:inherit;font-weight:600;text-align:start;cursor:pointer;border:1px solid var(--ink);background:#fff;padding:6px 10px}
+.shout-form button{margin-top:8px}
+.shout-report{font-size:12px;font-weight:500;padding:2px 6px;color:var(--muted)}
+.shout-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.shout-status{min-height:1.2em;font-size:14px;text-align:start}
+.shout-toggle{display:none;width:100%;justify-content:flex-start}
+@media(min-width:960px){
+ .home-with-chat{display:grid;grid-template-columns:minmax(0,1fr) 300px;column-gap:28px;align-items:start;justify-content:start}
+ .shoutbox{position:sticky;top:12px;margin:0}
+ .shout-toggle{display:none}
+ .shout-panel{display:block}
+}
+@media(max-width:959px){
+ .home-with-chat .shoutbox{order:-1}
+ .shoutbox:not(.shoutbox-full) .shout-toggle{display:flex}
+ .shoutbox:not(.shoutbox-full) .shout-panel{display:none}
+ .shoutbox:not(.shoutbox-full).is-open .shout-panel{display:block}
+}
+/* /shoutbox */
+
 .social{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;text-align:start;gap:4px 12px;margin:6px 0 0;font-size:13.5px;width:fit-content;max-width:100%}
 .social-label{color:var(--muted,#4B5563)}
 .social a{color:var(--ink,#000);text-decoration:underline;text-underline-offset:2px}
@@ -326,12 +375,15 @@ nav.main a.nav-quiet{font-size:14px}
 
 <h2>Hur vi tillämpar den</h2>
 <p>Vi länkar till originalet och skriver en kort sammanfattning som är vår egen. Vi kopierar inte artikeltext och vi kringgår inte betalväggar. Rubriken på ett artikelkort är på sidans språk, och originalrubriken står under när språken skiljer sig. Citat står kvar som källan skrev dem.</p>
-<p>Vi kopierar, lagrar eller hämtar inte fotografier från andra tidningar. En nyhetsbild är skyddad (i Norge enligt åndsverkloven § 23), och en länk till artikeln är inte en licens att använda bilden. Logotyper visas bara för att visa vilket medium artikeln kommer från. Bilderna på korten och på våra artikelsidor är våra egna illustrationer, eller bilder under CC0, CC BY eller CC BY-SA, inklusive Wikimedia Commons, eller en officiell bild som en myndighet har släppt för fri användning. Krediteringen under bilden anger källa, upphovsperson, licens och en länk.</p>
+<p>Vi kopierar, lagrar eller hämtar inte fotografier från andra tidningar. En nyhetsbild är skyddad (i Norge enligt åndsverkloven § 23), och en länk till artikeln är inte en licens att använda bilden. Logotyper visas bara för att visa vilket medium artikeln kommer från. Korten och artikelsidorna visar ingen bild.</p>
 <p>En nyhetssammanfattning och en kommentar hålls isär. En krönika är märkt som en krönika.</p>
 <p>Vi namnger våra källor. Vem är vem och sidan om forskning och utbildning säger bara det som källorna säger. Är vi osäkra utelämnar vi det. Personer finns bara med i offentliga yrkesroller.</p>
 <p>Vi publicerar inte privata uppgifter, hälsouppgifter eller privata ekonomiska uppgifter.</p>
 <p>Hittar vi ett fel rättar vi det så snart vi kan och säger vad som ändrats. Se <a href="../about/#corrections">rättelser och borttagning</a>. Vill du att en post eller ett foto tas bort, tar vi bort det.</p>
 <p>Inget på Nordic Crypto är investeringsrådgivning.</p>
+
+<h2>Läsarchatt</h2>
+<p>Ropet är ett gemensamt rum. Meddelandena där är skrivna av läsare. De är inte redaktionellt innehåll, och Nordic Crypto översätter dem inte. Inga trakasserier, ingen doxxning, ingen reklam för finansiell rådgivning och inga bedrägerier eller värvningslänkar. Moderatorer kan ta bort inlägg.</p>
 
 <h2>Klagomål</h2>
 <p>Adressen för klagomål är TBA.</p>

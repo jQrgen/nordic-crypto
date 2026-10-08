@@ -1,0 +1,43 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-08T00:14:44+00:00",
+ "preview": false,
+ "item": {
+  "id": "spk-matthew-bryce",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-matthew-bryce.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#spk-matthew-bryce",
+  "name": "Matthew Bryce",
+  "type": "person",
+  "sector": "private",
+  "country": null,
+  "description": null,
+  "role": null,
+  "org": null,
+  "group": null,
+  "profile_url": null,
+  "provenance": "Talks archive",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.youtube.com/watch?v=lzS9pb-0Wak&hl=en",
+    "title": "Digital Assets in Norway with Norges Bank, EY, BitGate, Arcane Crypto, NBX and Matthew Bryce",
+    "source_name": "BitSpace",
+    "date": "2026-10-07"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": [],
+  "talk_ids": [
+   "yt-lzS9pb-0Wak"
+  ],
+  "talks": [
+   {
+    "id": "yt-lzS9pb-0Wak",
+    "title": "Digital Assets in Norway with Norges Bank, EY, BitGate, Arcane Crypto, NBX and Matthew Bryce",
+    "video_url": "https://www.youtube.com/watch?v=lzS9pb-0Wak"
+   }
+  ]
+ }
+}

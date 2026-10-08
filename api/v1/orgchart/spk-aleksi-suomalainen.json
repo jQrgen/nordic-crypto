@@ -1,0 +1,48 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-08T00:14:44+00:00",
+ "preview": false,
+ "item": {
+  "id": "spk-aleksi-suomalainen",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-aleksi-suomalainen.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#spk-aleksi-suomalainen",
+  "name": "Aleksi Suomalainen",
+  "type": "person",
+  "sector": "private",
+  "country": null,
+  "description": null,
+  "role": null,
+  "org": null,
+  "group": null,
+  "profile_url": null,
+  "provenance": "Talks archive",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.youtube.com/watch?v=zi2JsPOm5HE&hl=en",
+    "title": "'Ethereum Light Client for Mobile and IoT Devices' by Aleksi Suomalainen",
+    "source_name": "Ethereum Helsinki",
+    "date": "2026-10-07"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": [],
+  "talk_ids": [
+   "yt-zi2JsPOm5HE"
+  ],
+  "event_ids": [
+   "c9903961cd24"
+  ],
+  "talks": [
+   {
+    "id": "yt-zi2JsPOm5HE",
+    "title": "'Ethereum Light Client for Mobile and IoT Devices' by Aleksi Suomalainen",
+    "video_url": "https://www.youtube.com/watch?v=zi2JsPOm5HE",
+    "event_id": "c9903961cd24",
+    "date": "2016-05-11"
+   }
+  ]
+ }
+}

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T23:13:04+00:00",
+ "generated_at": "2026-10-08T00:14:44+00:00",
  "preview": false,
  "item": {
   "id": "yt-NVPhJ0aCKOw",
@@ -12,6 +12,9 @@
   "event_name": "Oslo Freedom Forum 2025",
   "event_url": "https://oslofreedomforum.com/event/oslo-freedom-forum-2025/freedomtech/",
   "calendar_event_id": null,
+  "event_id": null,
+  "unlink_reason": "the video page did not state the day",
+  "speaker_ids": [],
   "city": "Oslo",
   "country": "NO",
   "date": null,

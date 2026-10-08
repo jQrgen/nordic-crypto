@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T23:13:04+00:00",
+ "generated_at": "2026-10-08T00:14:44+00:00",
  "preview": false,
  "item": {
   "id": "yt-ibI_S_RcxZQ",
@@ -11,7 +11,10 @@
   "speakers": [],
   "event_name": "Trondheim Blockchain Meetup",
   "event_url": "https://www.meetup.com/Trondheim-Blockchain-Meetup/",
-  "calendar_event_id": null,
+  "calendar_event_id": "afc88c305513",
+  "event_id": "afc88c305513",
+  "unlink_reason": null,
+  "speaker_ids": [],
   "city": "Trondheim",
   "country": "NO",
   "date": "2017-02-09",

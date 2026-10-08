@@ -1,0 +1,43 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-08T00:14:44+00:00",
+ "preview": false,
+ "item": {
+  "id": "spk-anaise-kanimba",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-anaise-kanimba.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#spk-anaise-kanimba",
+  "name": "Anaïse Kanimba",
+  "type": "person",
+  "sector": "private",
+  "country": null,
+  "description": null,
+  "role": null,
+  "org": null,
+  "group": null,
+  "profile_url": null,
+  "provenance": "Talks archive",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.youtube.com/watch?v=n5gpUEGfQV4&hl=en",
+    "title": "Deep Dive : Bitcoin Adoption in Practice | Oslo Freedom Forum 2026",
+    "source_name": "Oslo Freedom Forum",
+    "date": "2026-10-07"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": [],
+  "talk_ids": [
+   "yt-n5gpUEGfQV4"
+  ],
+  "talks": [
+   {
+    "id": "yt-n5gpUEGfQV4",
+    "title": "Deep Dive : Bitcoin Adoption in Practice | Oslo Freedom Forum 2026",
+    "video_url": "https://www.youtube.com/watch?v=n5gpUEGfQV4"
+   }
+  ]
+ }
+}

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T23:13:04+00:00",
+ "generated_at": "2026-10-08T00:14:44+00:00",
  "preview": false,
  "country": "SE",
  "count": 4,
@@ -19,6 +19,13 @@
    "event_name": "Swedish House of Finance seminar",
    "event_url": "https://www.houseoffinance.se/",
    "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "speaker_ids": [
+    "spk-stefan-ingves",
+    "spk-gary-gorton",
+    "spk-pehr-wissen"
+   ],
    "city": null,
    "country": "SE",
    "date": null,
@@ -43,6 +50,9 @@
    "event_name": "Swedish House of Finance seminar",
    "event_url": "https://www.houseoffinance.se/",
    "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "speaker_ids": [],
    "city": null,
    "country": "SE",
    "date": null,
@@ -69,6 +79,11 @@
    "event_name": "Chalmers Entrepreneurship Society",
    "event_url": null,
    "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "speaker_ids": [
+    "spk-vedran-maslic"
+   ],
    "city": null,
    "country": "SE",
    "date": null,
@@ -95,6 +110,11 @@
    "event_name": "Internetdagarna 2017",
    "event_url": "https://internetdagarna.se/program/bitcoin/",
    "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "speaker_ids": [
+    "spk-andreas-antonopoulos"
+   ],
    "city": "Stockholm",
    "country": "SE",
    "date": null,

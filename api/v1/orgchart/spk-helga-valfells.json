@@ -1,0 +1,43 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-08T00:14:44+00:00",
+ "preview": false,
+ "item": {
+  "id": "spk-helga-valfells",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-helga-valfells.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#spk-helga-valfells",
+  "name": "Helga Valfells",
+  "type": "person",
+  "sector": "private",
+  "country": null,
+  "description": null,
+  "role": null,
+  "org": null,
+  "group": null,
+  "profile_url": null,
+  "provenance": "Talks archive",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.youtube.com/watch?v=kmkqz30MYYI&hl=en",
+    "title": "Sýn fjárfestis á bálkakeðjur - Bálkakeðjur á miðvikudögum",
+    "source_name": "Icelandic Blockchain Foundation",
+    "date": "2026-10-07"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": [],
+  "talk_ids": [
+   "yt-kmkqz30MYYI"
+  ],
+  "talks": [
+   {
+    "id": "yt-kmkqz30MYYI",
+    "title": "Sýn fjárfestis á bálkakeðjur - Bálkakeðjur á miðvikudögum",
+    "video_url": "https://www.youtube.com/watch?v=kmkqz30MYYI"
+   }
+  ]
+ }
+}

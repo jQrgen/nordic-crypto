@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T23:13:04+00:00",
+ "generated_at": "2026-10-08T00:14:44+00:00",
  "preview": false,
  "item": {
   "id": "yt-zi2JsPOm5HE",
@@ -13,7 +13,12 @@
   ],
   "event_name": "Ethereum Helsinki Meetup",
   "event_url": "http://www.meetup.com/Helsinki-Ethereum-Meetup",
-  "calendar_event_id": null,
+  "calendar_event_id": "c9903961cd24",
+  "event_id": "c9903961cd24",
+  "unlink_reason": null,
+  "speaker_ids": [
+   "spk-aleksi-suomalainen"
+  ],
   "city": "Helsinki",
   "country": "FI",
   "date": "2016-05-11",

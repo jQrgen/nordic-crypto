@@ -1,0 +1,43 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-08T00:14:44+00:00",
+ "preview": false,
+ "item": {
+  "id": "spk-morten-soberg",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-morten-soberg.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#spk-morten-soberg",
+  "name": "Morten Søberg",
+  "type": "person",
+  "sector": "private",
+  "country": null,
+  "description": null,
+  "role": null,
+  "org": null,
+  "group": null,
+  "profile_url": null,
+  "provenance": "Talks archive",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.youtube.com/watch?v=gn50NxhPk-0&hl=en",
+    "title": "Hvorfor og når får vi digitale sentralbankpenger og kryptovaluta?",
+    "source_name": "Polyteknisk Forening",
+    "date": "2026-10-07"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": [],
+  "talk_ids": [
+   "yt-gn50NxhPk-0"
+  ],
+  "talks": [
+   {
+    "id": "yt-gn50NxhPk-0",
+    "title": "Hvorfor og når får vi digitale sentralbankpenger og kryptovaluta?",
+    "video_url": "https://www.youtube.com/watch?v=gn50NxhPk-0"
+   }
+  ]
+ }
+}

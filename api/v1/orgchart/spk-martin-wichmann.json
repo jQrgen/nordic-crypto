@@ -1,0 +1,64 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-08T00:14:44+00:00",
+ "preview": false,
+ "item": {
+  "id": "spk-martin-wichmann",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-martin-wichmann.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#spk-martin-wichmann",
+  "name": "Martin Wichmann",
+  "type": "person",
+  "sector": "private",
+  "country": null,
+  "description": null,
+  "role": null,
+  "org": null,
+  "group": null,
+  "profile_url": null,
+  "provenance": "Talks archive",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.youtube.com/watch?v=rfLLR9vhoYI&hl=en",
+    "title": "Nordic Blockchain Conference 2026 - Day 2 - Stage 2 (Closing Sessions)",
+    "source_name": "Nordic Blockchain Association",
+    "date": "2026-10-07"
+   },
+   {
+    "url": "https://www.youtube.com/watch?v=Rsj3CJvLgsw&hl=en",
+    "title": "Martin Wichman talk in Ton Helsinki Meetup#3",
+    "source_name": "TON Helsinki",
+    "date": "2026-10-07"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": [],
+  "talk_ids": [
+   "yt-Rsj3CJvLgsw",
+   "yt-rfLLR9vhoYI"
+  ],
+  "talks": [
+   {
+    "id": "yt-rfLLR9vhoYI",
+    "title": "Nordic Blockchain Conference 2026 - Day 2 - Stage 2 (Closing Sessions)",
+    "video_url": "https://www.youtube.com/watch?v=rfLLR9vhoYI"
+   },
+   {
+    "id": "yt-Rsj3CJvLgsw",
+    "title": "Martin Wichman talk in Ton Helsinki Meetup#3",
+    "video_url": "https://www.youtube.com/watch?v=Rsj3CJvLgsw"
+   }
+  ],
+  "affiliations": [
+   {
+    "talk_id": "yt-rfLLR9vhoYI",
+    "organisation": "Kvarn X",
+    "source_url": "https://www.youtube.com/watch?v=rfLLR9vhoYI&hl=en",
+    "source_name": "Nordic Blockchain Association",
+    "retrieved_at": "2026-10-07T23:30:36+00:00"
+   }
+  ]
+ }
+}

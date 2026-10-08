@@ -1,0 +1,103 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-08T00:14:44+00:00",
+ "preview": false,
+ "item": {
+  "id": "c9903961cd24",
+  "title": "Ethereum Helsinki Meetup",
+  "title_original": null,
+  "start": "2016-05-11T00:00:00+03:00",
+  "end": "2016-05-11T23:59:00+03:00",
+  "place": null,
+  "city": "Helsinki",
+  "country": "FI",
+  "online": false,
+  "organiser": "Helsinki Ethereum Meetup",
+  "url": "http://www.meetup.com/Helsinki-Ethereum-Meetup",
+  "source": "backfill",
+  "paid": null,
+  "sponsored": null,
+  "note": null,
+  "note_i18n": {},
+  "past": true,
+  "ongoing": false,
+  "html_url": "https://nordiccrypto.no/calendar/c9903961cd24/",
+  "html_urls": {
+   "en": "https://nordiccrypto.no/calendar/c9903961cd24/",
+   "nn": "https://nordiccrypto.no/nn/calendar/c9903961cd24/",
+   "nb": "https://nordiccrypto.no/nb/calendar/c9903961cd24/",
+   "sv": "https://nordiccrypto.no/sv/calendar/c9903961cd24/",
+   "da": "https://nordiccrypto.no/da/calendar/c9903961cd24/",
+   "fi": "https://nordiccrypto.no/fi/calendar/c9903961cd24/",
+   "is": "https://nordiccrypto.no/is/calendar/c9903961cd24/",
+   "zh": "https://nordiccrypto.no/zh/calendar/c9903961cd24/",
+   "hi": "https://nordiccrypto.no/hi/calendar/c9903961cd24/",
+   "es": "https://nordiccrypto.no/es/calendar/c9903961cd24/",
+   "fr": "https://nordiccrypto.no/fr/calendar/c9903961cd24/",
+   "ar": "https://nordiccrypto.no/ar/calendar/c9903961cd24/",
+   "bn": "https://nordiccrypto.no/bn/calendar/c9903961cd24/",
+   "pt": "https://nordiccrypto.no/pt/calendar/c9903961cd24/",
+   "ru": "https://nordiccrypto.no/ru/calendar/c9903961cd24/",
+   "ur": "https://nordiccrypto.no/ur/calendar/c9903961cd24/",
+   "id": "https://nordiccrypto.no/id/calendar/c9903961cd24/",
+   "de": "https://nordiccrypto.no/de/calendar/c9903961cd24/",
+   "ja": "https://nordiccrypto.no/ja/calendar/c9903961cd24/",
+   "sw": "https://nordiccrypto.no/sw/calendar/c9903961cd24/",
+   "mr": "https://nordiccrypto.no/mr/calendar/c9903961cd24/"
+  },
+  "api_url": "https://nordiccrypto.no/api/v1/events/c9903961cd24.json",
+  "backfill": true,
+  "event_type": "meetup",
+  "credits": {
+   "title": {
+    "source_name": "Ethereum Helsinki",
+    "source_url": "https://www.youtube.com/watch?v=zi2JsPOm5HE&hl=en",
+    "retrieved_at": "2026-10-07T20:57:16+00:00"
+   },
+   "start": {
+    "source_name": "Ethereum Helsinki",
+    "source_url": "https://www.youtube.com/watch?v=zi2JsPOm5HE&hl=en",
+    "retrieved_at": "2026-10-07T20:57:16+00:00"
+   },
+   "end": {
+    "source_name": "Ethereum Helsinki",
+    "source_url": "https://www.youtube.com/watch?v=zi2JsPOm5HE&hl=en",
+    "retrieved_at": "2026-10-07T20:57:16+00:00"
+   },
+   "city": {
+    "source_name": "Ethereum Helsinki",
+    "source_url": "https://www.youtube.com/watch?v=zi2JsPOm5HE&hl=en",
+    "retrieved_at": "2026-10-07T20:57:16+00:00"
+   },
+   "country": {
+    "source_name": "Ethereum Helsinki",
+    "source_url": "https://www.youtube.com/watch?v=zi2JsPOm5HE&hl=en",
+    "retrieved_at": "2026-10-07T20:57:16+00:00"
+   },
+   "organiser": {
+    "source_name": "Ethereum Helsinki",
+    "source_url": "https://www.youtube.com/watch?v=zi2JsPOm5HE&hl=en",
+    "retrieved_at": "2026-10-07T20:57:16+00:00"
+   },
+   "url": {
+    "source_name": "Ethereum Helsinki",
+    "source_url": "https://www.youtube.com/watch?v=zi2JsPOm5HE&hl=en",
+    "retrieved_at": "2026-10-07T20:57:16+00:00"
+   },
+   "event_type": {
+    "source_name": "Ethereum Helsinki",
+    "source_url": "https://www.youtube.com/watch?v=zi2JsPOm5HE&hl=en",
+    "retrieved_at": "2026-10-07T20:57:16+00:00"
+   }
+  },
+  "place_source": {
+   "name": "backfill",
+   "url": "https://www.youtube.com/watch?v=zi2JsPOm5HE&hl=en",
+   "retrieved": "2026-10-07T20:57:16+00:00"
+  },
+  "talk_ids": [
+   "yt-zi2JsPOm5HE"
+  ]
+ }
+}

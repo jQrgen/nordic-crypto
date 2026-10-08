@@ -1,0 +1,43 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-08T00:14:44+00:00",
+ "preview": false,
+ "item": {
+  "id": "spk-stefan-ingves",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-stefan-ingves.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#spk-stefan-ingves",
+  "name": "Stefan Ingves",
+  "type": "person",
+  "sector": "private",
+  "country": null,
+  "description": null,
+  "role": null,
+  "org": null,
+  "group": null,
+  "profile_url": null,
+  "provenance": "Talks archive",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.youtube.com/watch?v=8UUXKBprVE4&hl=en",
+    "title": "The Future of Money with Yale's Professor Gary Gorton and Sveriges Riksbank's Governor Stefan Ingves",
+    "source_name": "Swedish House of Finance",
+    "date": "2026-10-07"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": [],
+  "talk_ids": [
+   "yt-8UUXKBprVE4"
+  ],
+  "talks": [
+   {
+    "id": "yt-8UUXKBprVE4",
+    "title": "The Future of Money with Yale's Professor Gary Gorton and Sveriges Riksbank's Governor Stefan Ingves",
+    "video_url": "https://www.youtube.com/watch?v=8UUXKBprVE4"
+   }
+  ]
+ }
+}

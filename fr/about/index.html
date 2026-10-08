@@ -65,9 +65,20 @@ ol.news h3{font-size:18px;line-height:1.3;margin:0 0 4px}ol.news h3 a{text-decor
 @media(max-width:640px){.evhero h3{font-size:22px}}
 .ill{margin:0 0 10px;text-align:start}
 .ill img{display:block;width:100%;max-width:720px;height:auto;background:var(--soft)}
-ol.news .ill{flex:0 0 220px;width:220px;margin:0}
-ol.news .ill img{width:220px;height:124px;object-fit:cover;object-position:left center}
-@media(max-width:640px){ol.news li{flex-direction:column}ol.news .ill{flex:none;width:100%;max-width:480px}ol.news .ill img{width:100%;height:auto;max-height:240px}}
+.leadstory,.latest,.storygrid,.storycard,.leadstory h2,.latest h2,.storycard h3,.leadstory .sum,.storycard .sum,.leadstory .meta,.storycard .meta,.leadstory .orig,.storycard .orig{text-align:start}
+.leadstory{margin:4px 0 2px;padding:0 0 12px;border-bottom:3px solid var(--ink)}
+.leadstory h2{font-size:36px;line-height:1.12;margin:0 0 4px;text-align:start}
+.leadstory h2 a,.storycard h3 a{text-decoration:none}
+.leadstory h2 a:hover,.storycard h3 a:hover{text-decoration:underline}
+.leadstory .sum{font-size:18px;line-height:1.45;margin:8px 0 0;max-width:68ch}
+.latest h2{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin:18px 0 2px;text-align:start}
+.storygrid{display:grid;grid-template-columns:1fr;column-gap:32px;align-items:start;text-align:start}
+.storycard{padding:10px 0 12px;border-bottom:1px solid var(--line);min-width:0;text-align:start}
+.storycard h3{font-size:18px;line-height:1.25;margin:0 0 2px;text-align:start}
+.storycard .sum{font-size:14.5px;line-height:1.4;margin:4px 0 0}
+@media(min-width:760px){.storygrid{grid-template-columns:1fr 1fr}}
+@media(min-width:1080px){.storygrid{grid-template-columns:1fr 1fr 1fr}}
+@media(max-width:640px){.leadstory h2{font-size:28px}}
 .orig{font-size:13.5px;color:var(--muted);margin:0 0 3px;line-height:1.35;font-weight:400;text-align:start}
 .meta{font-size:13.5px;color:var(--muted)}.meta b{color:var(--ink);font-weight:600}
 .src{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;vertical-align:middle;text-align:start}
@@ -137,7 +148,7 @@ footer{margin-top:40px;border-top:1px solid var(--line);padding:18px 0 30px;font
 table.list{width:100%;border-collapse:collapse;font-size:14.5px}table.list th,table.list td{border-bottom:1px solid var(--line);padding:6px 6px;text-align:left;vertical-align:top}
 table.list th{font-size:13px;color:var(--muted)}
 .ok{color:#047857;font-weight:600}.bad{color:#b91c1c;font-weight:600}
-.prose{max-width:72ch}
+.prose{max-width:72ch;text-align:start}
 .tag.act{border-color:#047857;color:#047857;font-weight:600}.tag.inact{border-color:#9ca3af;color:#6b7280}
 .reg{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px;margin:10px 0}
 .reg article{border:1px solid var(--line);padding:10px 12px;background:#fff}.reg h3{display:flex;gap:8px;align-items:center;margin:0 0 6px;font-size:17px}
@@ -301,6 +312,44 @@ nav.main a.nav-quiet{font-size:14px}
 .talks .filters{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:center;gap:8px 16px}
 .talks .filters select{font:inherit;text-align:start;max-width:100%}
 
+/* shoutbox */
+.home-with-chat{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;text-align:start}
+.home-with-chat .home-main{min-width:0;text-align:start}
+.shoutbox,.shout-panel,.shout-list,.shout-form,.shout-rules,.shout-privacy,.shout-user,.shout-shared,.shout-item,.shout-meta,.shout-msg{text-align:start}
+.shoutbox{border:1px solid var(--line);background:var(--soft);padding:10px 12px;margin:0 0 16px}
+.shout-panel h2{font-size:18px;margin:0 0 6px;text-align:start}
+.shout-user,.shout-shared,.shout-rules,.shout-privacy,.shout-more{font-size:13.5px;margin:0 0 8px;text-align:start}
+.shout-rules a{font-weight:600}
+.shout-list{list-style:none;margin:0 0 8px;padding:0;max-height:280px;overflow:auto;text-align:start}
+.shoutbox-full .shout-list{max-height:70vh}
+.shout-item{border-bottom:1px solid var(--line);padding:6px 0;text-align:start}
+.shout-meta{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:4px 8px;font-size:13px;color:var(--muted)}
+.shout-nick{font-weight:700;color:var(--ink)}
+.shout-lang{font-size:12px;border:1px solid var(--line);padding:0 4px;background:#fff}
+.shout-msg{margin:2px 0 4px;white-space:pre-wrap;overflow-wrap:anywhere;text-align:start}
+.shout-form label{display:block;margin:8px 0 0;text-align:start}
+.shout-form input,.shout-form textarea{display:block;width:100%;max-width:100%;box-sizing:border-box;font:inherit;text-align:start;padding:6px}
+.shout-form textarea{min-height:4.5em;resize:vertical}
+.shout-form button,.shout-report,.shout-older,.shout-toggle{font:inherit;font-weight:600;text-align:start;cursor:pointer;border:1px solid var(--ink);background:#fff;padding:6px 10px}
+.shout-form button{margin-top:8px}
+.shout-report{font-size:12px;font-weight:500;padding:2px 6px;color:var(--muted)}
+.shout-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.shout-status{min-height:1.2em;font-size:14px;text-align:start}
+.shout-toggle{display:none;width:100%;justify-content:flex-start}
+@media(min-width:960px){
+ .home-with-chat{display:grid;grid-template-columns:minmax(0,1fr) 300px;column-gap:28px;align-items:start;justify-content:start}
+ .shoutbox{position:sticky;top:12px;margin:0}
+ .shout-toggle{display:none}
+ .shout-panel{display:block}
+}
+@media(max-width:959px){
+ .home-with-chat .shoutbox{order:-1}
+ .shoutbox:not(.shoutbox-full) .shout-toggle{display:flex}
+ .shoutbox:not(.shoutbox-full) .shout-panel{display:none}
+ .shoutbox:not(.shoutbox-full).is-open .shout-panel{display:block}
+}
+/* /shoutbox */
+
 .social{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;text-align:start;gap:4px 12px;margin:6px 0 0;font-size:13.5px;width:fit-content;max-width:100%}
 .social-label{color:var(--muted,#4B5563)}
 .social a{color:var(--ink,#000);text-decoration:underline;text-underline-offset:2px}
@@ -335,7 +384,7 @@ nav.main a.nav-quiet{font-size:14px}
 <p>We link to the original story and write our own summary in two to four sentences, first in English and then in the other site languages. The headline on a story card is in the language of the page. The source headline is shown underneath when it was written in another language. Quotes stay as the source wrote them. We do not copy article text and we do not get around paywalls. The translations of the site and of our summaries are made with the help of artificial intelligence and checked by the human editors (jQrgen and the Nordic Crypto editor); tell us if something reads wrong.</p>
 <p>The who's who and the academia page only say what the sources say. Every entry and every link between entries points to its source. If we are unsure, we leave it out. People are only included in public professional roles (for example chief executive, director general or central bank governor), as described by their organisation or in the press. We never publish private information, health information or private financial information.</p>
 <p>Photos of people are only shown when they are freely licensed (Wikimedia Commons, CC BY, CC BY-SA or CC0) or are official press photos offered for press use, always with credit. Otherwise we show initials. Organisation logos come from the organisation’s own website, press kit or Wikimedia Commons, are shown unaltered and only to identify the organisation, and do not mean that anyone endorses us. On a news story the outlet logo sits beside the source name when we have one from that same set. If we do not, only the name is shown. Links to people’s public profiles (website, X, LinkedIn, GitHub, Nostr, Mastodon) are only shown when the person has made them public themselves, and every link has a source.</p>
-<p>Story cards and story pages do not use photographs from other newspapers. The picture is ours, or it is freely licensed, and the credit sits under it. See <a href="../ethics/">Editorial ethics</a>.</p>
+<p>Story cards and story pages do not show a picture. A small outlet logo sits next to the source name. We do not copy photographs from other newspapers. See <a href="../ethics/">Editorial ethics</a>.</p>
 <p>Kaupr (kaupr.io) is one of the news sources we follow. See the <a href="../sources/#kaupr">sources page</a>.</p>
 <p>Company entries in the who’s who and the industry map that were found through <a href="https://www.kaupr.io/pages" rel="noopener">Kaupr’s Onchain Pages</a> are checked against the company’s own website or a business register, and Kaupr is credited as a source.</p>
 <p>How Nordic Crypto follows Vær Varsom-plakaten is set out on <a href="../ethics/">Editorial ethics</a>.</p>
@@ -346,6 +395,7 @@ nav.main a.nav-quiet{font-size:14px}
 <p><b>One cookie.</b> If you choose a language in the language menu, we store that choice in a cookie called <code>nc_lang</code> (valid for one year, only for this site). It contains only the language code and always wins over the automatic choice. Links straight to a language version are never redirected. Delete the cookie in your browser to undo the choice.</p>
 <p><b>Browser notifications.</b> They stay off until you turn them on, with the button at the bottom of every page. The browser then creates a push subscription, and we send that subscription to our own Cloudflare Worker. We store only the subscription: the address the browser’s push service gave us, the two keys needed to encrypt a message to that browser, the language of the page, and the countries you picked. We do not store your name, your email address, your IP address, or what you read. The notification itself has no tracker. The same button turns notifications off and deletes the subscription. One publish sends one message, even when several stories go out together. Cloudflare Web Analytics still counts visits in aggregate, without cookies, and we do not sell that data. A later iOS app can read the same list of new stories as JSON. Apple’s push service (APNs) is not used.</p>
 
+<p><b>Shoutbox.</b> The chat is one shared room for every language. Messages are written by readers and are not editorial content from Nordic Crypto. The site does not translate them. While the chat is switched off, the front page and the chat page do not load it. When it is on, our own Cloudflare Worker stores the nickname, the message and a hash of the IP address. That hash changes every UTC day and is used only to limit abuse and to let a moderator hide or remove posts. The raw IP address is not stored. The nickname is kept in this browser’s local storage only. The chat does not set a cookie. Cloudflare Web Analytics still counts visits in aggregate, without cookies, and we do not sell that data.</p>
 <p><b>Tips and columnist applications.</b> The <a href="../tip/">tip form</a> and the <a href="../columnist/">columnist application</a> open a public issue on GitHub. Nothing from those forms is stored on this website. Do not include health information, private financial information, or anything else you would not want public.</p>
 
 <h2>Not investment advice</h2>

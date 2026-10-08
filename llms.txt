@@ -83,7 +83,7 @@ curl -fsS https://nordiccrypto.no/api/v1/talks.json
 - [/api/v1/academia/publications.json](https://nordiccrypto.no/api/v1/academia/publications.json): Academia section: publications.
 - [/api/v1/academia/research.json](https://nordiccrypto.no/api/v1/academia/research.json): Academia section: research.
 - [/api/v1/academia/{id}.json](https://nordiccrypto.no/api/v1/academia/{id}.json): One academia row. The id is in academia.json.
-- [/api/v1/orgchart.json](https://nordiccrypto.no/api/v1/orgchart.json): Published who's who: organisations, people, relations, regulation notes and caveats.
+- [/api/v1/orgchart.json](https://nordiccrypto.no/api/v1/orgchart.json): Published who's who: organisations, people, relations, regulation notes and caveats. A person named on a talk has talk_ids, event_ids and talks. affiliations lists the organisation the talk page stated for that talk, with the talk date when the page gave one, the source URL and the retrieval time. An affiliation the page did not state is omitted.
 - [/api/v1/orgchart/relations.json](https://nordiccrypto.no/api/v1/orgchart/relations.json): Relations between published who's who entries.
 - [/api/v1/orgchart/regulation.json](https://nordiccrypto.no/api/v1/orgchart/regulation.json): Short regulation status for each Nordic country, as on the who's who page.
 - [/api/v1/orgchart/relations/{id}.json](https://nordiccrypto.no/api/v1/orgchart/relations/{id}.json): One relation from the who's who.

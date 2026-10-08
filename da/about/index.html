@@ -65,9 +65,20 @@ ol.news h3{font-size:18px;line-height:1.3;margin:0 0 4px}ol.news h3 a{text-decor
 @media(max-width:640px){.evhero h3{font-size:22px}}
 .ill{margin:0 0 10px;text-align:start}
 .ill img{display:block;width:100%;max-width:720px;height:auto;background:var(--soft)}
-ol.news .ill{flex:0 0 220px;width:220px;margin:0}
-ol.news .ill img{width:220px;height:124px;object-fit:cover;object-position:left center}
-@media(max-width:640px){ol.news li{flex-direction:column}ol.news .ill{flex:none;width:100%;max-width:480px}ol.news .ill img{width:100%;height:auto;max-height:240px}}
+.leadstory,.latest,.storygrid,.storycard,.leadstory h2,.latest h2,.storycard h3,.leadstory .sum,.storycard .sum,.leadstory .meta,.storycard .meta,.leadstory .orig,.storycard .orig{text-align:start}
+.leadstory{margin:4px 0 2px;padding:0 0 12px;border-bottom:3px solid var(--ink)}
+.leadstory h2{font-size:36px;line-height:1.12;margin:0 0 4px;text-align:start}
+.leadstory h2 a,.storycard h3 a{text-decoration:none}
+.leadstory h2 a:hover,.storycard h3 a:hover{text-decoration:underline}
+.leadstory .sum{font-size:18px;line-height:1.45;margin:8px 0 0;max-width:68ch}
+.latest h2{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin:18px 0 2px;text-align:start}
+.storygrid{display:grid;grid-template-columns:1fr;column-gap:32px;align-items:start;text-align:start}
+.storycard{padding:10px 0 12px;border-bottom:1px solid var(--line);min-width:0;text-align:start}
+.storycard h3{font-size:18px;line-height:1.25;margin:0 0 2px;text-align:start}
+.storycard .sum{font-size:14.5px;line-height:1.4;margin:4px 0 0}
+@media(min-width:760px){.storygrid{grid-template-columns:1fr 1fr}}
+@media(min-width:1080px){.storygrid{grid-template-columns:1fr 1fr 1fr}}
+@media(max-width:640px){.leadstory h2{font-size:28px}}
 .orig{font-size:13.5px;color:var(--muted);margin:0 0 3px;line-height:1.35;font-weight:400;text-align:start}
 .meta{font-size:13.5px;color:var(--muted)}.meta b{color:var(--ink);font-weight:600}
 .src{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;vertical-align:middle;text-align:start}
@@ -137,7 +148,7 @@ footer{margin-top:40px;border-top:1px solid var(--line);padding:18px 0 30px;font
 table.list{width:100%;border-collapse:collapse;font-size:14.5px}table.list th,table.list td{border-bottom:1px solid var(--line);padding:6px 6px;text-align:left;vertical-align:top}
 table.list th{font-size:13px;color:var(--muted)}
 .ok{color:#047857;font-weight:600}.bad{color:#b91c1c;font-weight:600}
-.prose{max-width:72ch}
+.prose{max-width:72ch;text-align:start}
 .tag.act{border-color:#047857;color:#047857;font-weight:600}.tag.inact{border-color:#9ca3af;color:#6b7280}
 .reg{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px;margin:10px 0}
 .reg article{border:1px solid var(--line);padding:10px 12px;background:#fff}.reg h3{display:flex;gap:8px;align-items:center;margin:0 0 6px;font-size:17px}
@@ -301,6 +312,44 @@ nav.main a.nav-quiet{font-size:14px}
 .talks .filters{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:center;gap:8px 16px}
 .talks .filters select{font:inherit;text-align:start;max-width:100%}
 
+/* shoutbox */
+.home-with-chat{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;text-align:start}
+.home-with-chat .home-main{min-width:0;text-align:start}
+.shoutbox,.shout-panel,.shout-list,.shout-form,.shout-rules,.shout-privacy,.shout-user,.shout-shared,.shout-item,.shout-meta,.shout-msg{text-align:start}
+.shoutbox{border:1px solid var(--line);background:var(--soft);padding:10px 12px;margin:0 0 16px}
+.shout-panel h2{font-size:18px;margin:0 0 6px;text-align:start}
+.shout-user,.shout-shared,.shout-rules,.shout-privacy,.shout-more{font-size:13.5px;margin:0 0 8px;text-align:start}
+.shout-rules a{font-weight:600}
+.shout-list{list-style:none;margin:0 0 8px;padding:0;max-height:280px;overflow:auto;text-align:start}
+.shoutbox-full .shout-list{max-height:70vh}
+.shout-item{border-bottom:1px solid var(--line);padding:6px 0;text-align:start}
+.shout-meta{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:4px 8px;font-size:13px;color:var(--muted)}
+.shout-nick{font-weight:700;color:var(--ink)}
+.shout-lang{font-size:12px;border:1px solid var(--line);padding:0 4px;background:#fff}
+.shout-msg{margin:2px 0 4px;white-space:pre-wrap;overflow-wrap:anywhere;text-align:start}
+.shout-form label{display:block;margin:8px 0 0;text-align:start}
+.shout-form input,.shout-form textarea{display:block;width:100%;max-width:100%;box-sizing:border-box;font:inherit;text-align:start;padding:6px}
+.shout-form textarea{min-height:4.5em;resize:vertical}
+.shout-form button,.shout-report,.shout-older,.shout-toggle{font:inherit;font-weight:600;text-align:start;cursor:pointer;border:1px solid var(--ink);background:#fff;padding:6px 10px}
+.shout-form button{margin-top:8px}
+.shout-report{font-size:12px;font-weight:500;padding:2px 6px;color:var(--muted)}
+.shout-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.shout-status{min-height:1.2em;font-size:14px;text-align:start}
+.shout-toggle{display:none;width:100%;justify-content:flex-start}
+@media(min-width:960px){
+ .home-with-chat{display:grid;grid-template-columns:minmax(0,1fr) 300px;column-gap:28px;align-items:start;justify-content:start}
+ .shoutbox{position:sticky;top:12px;margin:0}
+ .shout-toggle{display:none}
+ .shout-panel{display:block}
+}
+@media(max-width:959px){
+ .home-with-chat .shoutbox{order:-1}
+ .shoutbox:not(.shoutbox-full) .shout-toggle{display:flex}
+ .shoutbox:not(.shoutbox-full) .shout-panel{display:none}
+ .shoutbox:not(.shoutbox-full).is-open .shout-panel{display:block}
+}
+/* /shoutbox */
+
 .social{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;text-align:start;gap:4px 12px;margin:6px 0 0;font-size:13.5px;width:fit-content;max-width:100%}
 .social-label{color:var(--muted,#4B5563)}
 .social a{color:var(--ink,#000);text-decoration:underline;text-underline-offset:2px}
@@ -335,7 +384,7 @@ nav.main a.nav-quiet{font-size:14px}
 <p>Vi linker til den oprindelige historie og skriver vores eget resumé på to til fire sætninger, først på engelsk og derefter på sitets øvrige sprog. Overskriften på et artikelkort er på sidens sprog. Den oprindelige overskrift står under, når kilden skrev den på et andet sprog. Citater står, som kilden skrev dem. Vi kopierer ikke artikeltekst, og vi går ikke uden om betalingsmure. Oversættelserne af sitet og af vores resuméer er lavet med hjælp fra kunstig intelligens og kontrolleret af de menneskelige redaktører (jQrgen og Nordic Crypto-redaktøren); sig til, hvis noget lyder forkert.</p>
 <p>Hvem er hvem og siden om forskning og uddannelse siger kun det, kilderne siger. Hvert opslag og hver forbindelse mellem opslag henviser til sin kilde. Er vi i tvivl, udelader vi det. Personer er kun med i offentlige erhvervsroller (for eksempel administrerende direktør, direktør for en myndighed eller nationalbankdirektør), som organisationen eller pressen beskriver dem. Vi offentliggør aldrig private oplysninger, helbredsoplysninger eller private økonomiske oplysninger.</p>
 <p>Billeder af personer vises kun, når de er frit licenserede (Wikimedia Commons, CC BY, CC BY-SA eller CC0) eller er officielle pressefotos, der tilbydes til pressebrug, altid med kreditering. Ellers viser vi initialer. Organisationers logoer hentes fra organisationens egen hjemmeside, presseside eller Wikimedia Commons, vises uændret og kun for at identificere organisationen og betyder ikke, at nogen støtter os. Ved en nyhed står mediets logo ved siden af kildens navn, når vi har en fra samme sæt. Ellers vises kun navnet. Links til personers offentlige profiler (hjemmeside, X, LinkedIn, GitHub, Nostr, Mastodon) vises kun, når personen selv har gjort dem offentlige, og hvert link har en kilde.</p>
-<p>Kortene og artikelsiderne bruger ikke fotografier fra andre aviser. Billedet er vores, eller det er frit licenseret, og krediteringen står under det. Se <a href="../ethics/">Redaktionel etik</a>.</p>
+<p>Kortene og artikelsiderne viser ikke et billede. Et lille logo for mediet står ved siden af kildens navn. Vi kopierer ikke fotografier fra andre aviser. Se <a href="../ethics/">Redaktionel etik</a>.</p>
 <p>Kaupr (kaupr.io) er en af de nyhedskilder, vi følger. Se <a href="../sources/#kaupr">kildesiden</a>.</p>
 <p>Virksomheder i Hvem er hvem og på branchekortet, som vi fandt via <a href="https://www.kaupr.io/pages" rel="noopener">Kauprs Onchain Pages</a>, er tjekket mod virksomhedens eget websted eller et virksomhedsregister, og Kaupr er angivet som kilde.</p>
 <p>Hvordan Nordic Crypto følger Vær Varsom-plakaten står på <a href="../ethics/">Redaktionel etik</a>.</p>
@@ -346,6 +395,7 @@ nav.main a.nav-quiet{font-size:14px}
 <p><b>Én cookie.</b> Vælger du sprog i sprogmenuen, gemmer vi valget i en cookie ved navn <code>nc_lang</code> (gyldig i et år, kun for dette site). Den indeholder kun sprogkoden og går altid forud for det automatiske valg. Links direkte til en sprogversion bliver aldrig omdirigeret. Slet cookien i browseren for at fortryde valget.</p>
 <p><b>Notifikationer i browseren.</b> De er slået fra, indtil du slår dem til med knappen nederst på hver side. Browseren opretter så et push-abonnement, og vi sender det abonnement til vores egen Cloudflare Worker. Vi gemmer kun abonnementet: adressen browserens push-tjeneste gav os, de to nøgler der skal til for at kryptere en besked til den browser, sproget på siden og de lande, du valgte. Vi gemmer ikke dit navn, din e-mailadresse, din IP-adresse eller hvad du læser. Selve notifikationen har ingen sporing. Den samme knap slår notifikationer fra og sletter abonnementet. Én udgivelse sender én besked, også når flere artikler kommer sammen. Cloudflare Web Analytics tæller stadig besøg samlet, uden cookies, og vi sælger ikke de data. En senere iOS-app kan læse den samme liste over nye artikler som JSON. Apples push-tjeneste (APNs) bruges ikke.</p>
 
+<p><b>Råb.</b> Chatten er ét fælles rum for alle sprog. Beskederne er skrevet af læsere og er ikke redaktionelt indhold fra Nordic Crypto. Webstedet oversætter dem ikke. Mens chatten er slået fra, indlæser forsiden og chatsiden den ikke. Når den er slået til, gemmer vores egen Cloudflare Worker kaldenavnet, beskeden og en hash af IP-adressen. Den hash skifter hver UTC-dag og bruges kun til at begrænse misbrug, og til at en moderator kan skjule eller fjerne indlæg. Selve IP-adressen gemmes ikke. Kaldenavnet ligger kun i lokal lagring i denne browser. Chatten sætter ikke en cookie. Cloudflare Web Analytics tæller stadig besøg samlet, uden cookies, og vi sælger ikke de data.</p>
 <p><b>Tips og klummeansøgninger.</b> <a href="../tip/">Tipsformularen</a> og <a href="../columnist/">klummeansøgningen</a> åbner en offentlig sag på GitHub. Intet fra de formularer gemmes på dette websted. Tag ikke sundhedsoplysninger, private økonomiske oplysninger eller andet, du ikke vil have offentligt, med.</p>
 
 <h2>Ikke investeringsrådgivning</h2>

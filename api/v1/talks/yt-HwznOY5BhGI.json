@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T23:13:04+00:00",
+ "generated_at": "2026-10-08T00:14:44+00:00",
  "preview": false,
  "item": {
   "id": "yt-HwznOY5BhGI",
@@ -20,6 +20,17 @@
   "event_name": "Oslo Kulturnatt 2022",
   "event_url": null,
   "calendar_event_id": null,
+  "event_id": null,
+  "unlink_reason": "the video page did not state the day",
+  "speaker_ids": [
+   "spk-sophia-adampour",
+   "magnus-jones",
+   "spk-christian-houge",
+   "spk-vincent-langaard",
+   "spk-emil-erlingson",
+   "spk-cornelia-svedman",
+   "spk-elise-anthonisen"
+  ],
   "city": "Oslo",
   "country": "NO",
   "date": null,

@@ -1,0 +1,40 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-08T00:14:44+00:00",
+ "preview": false,
+ "item": {
+  "id": "shoutbox",
+  "date": "2026-10-07",
+  "title": "Shared shoutbox, switched off",
+  "description": "A reader chat can sit on the front page and at /chat/ in every language. It is one room: messages are not translated, and the pages do not load it until chat/config.json is switched on. The worker would store a nickname, the message and a daily-rotated IP hash. No chat cookie.",
+  "i18n": {
+   "nb": {
+    "title": "Felles rop, slått av",
+    "description": "En leserchat kan ligge på forsiden og på /chat/ på alle språk. Det er ett rom: meldingene oversettes ikke, og sidene laster den ikke før chat/config.json er slått på. Tjenesten vil lagre et kallenavn, meldingen og en IP-hash som byttes hvert døgn. Ingen chat-informasjonskapsel."
+   },
+   "nn": {
+    "title": "Felles rop, slått av",
+    "description": "Ein lesarchat kan liggje på framsida og på /chat/ på alle språk. Det er eitt rom: meldingane blir ikkje omsette, og sidene lastar han ikkje før chat/config.json er slått på. Tenesta vil lagre eit kallenamn, meldinga og ein IP-hash som blir bytt kvart døgn. Ingen chat-informasjonskapsel."
+   },
+   "sv": {
+    "title": "Gemensamt rop, avstängt",
+    "description": "En läsarchatt kan ligga på startsidan och på /chat/ på alla språk. Det är ett rum: meddelandena översätts inte, och sidorna laddar den inte förrän chat/config.json slås på. Tjänsten skulle spara ett smeknamn, meddelandet och en IP-hash som byts varje dygn. Ingen chattkaka."
+   },
+   "da": {
+    "title": "Fælles råb, slået fra",
+    "description": "En læserchat kan ligge på forsiden og på /chat/ på alle sprog. Det er ét rum: beskederne oversættes ikke, og siderne indlæser den ikke, før chat/config.json slås til. Tjenesten vil gemme et kaldenavn, beskeden og en IP-hash, der skiftes hvert døgn. Ingen chat-cookie."
+   },
+   "fi": {
+    "title": "Yhteinen huutolaatikko, pois päältä",
+    "description": "Lukijoiden chat voi olla etusivulla ja osoitteessa /chat/ kaikilla kielillä. Se on yksi huone: viestejä ei käännetä, eivätkä sivut lataa sitä ennen kuin chat/config.json kytketään päälle. Palvelu tallentaisi nimimerkin, viestin ja päivittäin vaihtuvan IP-tiivisteen. Ei chat-evästettä."
+   },
+   "is": {
+    "title": "Sameiginlegt kallborð, óvirkt",
+    "description": "Lesendaspjall getur verið á forsíðunni og á /chat/ á öllum tungumálum. Það er eitt herbergi: skilaboðin eru ekki þýdd og síðurnar hlaða því ekki fyrr en kveikt er á chat/config.json. Þjónustan myndi vista gælunafn, skilaboðin og IP-tæti sem skiptist á hverjum degi. Engin spjallvafrakaka."
+   }
+  },
+  "html_url": "https://nordiccrypto.no/changelog/#shoutbox",
+  "api_url": "https://nordiccrypto.no/api/v1/changelog/shoutbox.json"
+ }
+}

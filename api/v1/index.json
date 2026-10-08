@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T23:13:04+00:00",
+ "generated_at": "2026-10-08T00:14:44+00:00",
  "preview": false,
  "title": "Nordic Crypto data API",
  "sign_off": "The Nordic Crypto team",
@@ -44,7 +44,7 @@
   "events_upcoming": 11,
   "events_ongoing": 0,
   "events_past": 1,
-  "events_previous": 15,
+  "events_previous": 19,
   "talks": 74,
   "sources": 1032,
   "academia": {
@@ -53,12 +53,12 @@
    "publications": 0,
    "research": 3
   },
-  "org_entities": 173,
+  "org_entities": 378,
   "org_relations": 15,
   "profiles": 20,
   "images": 64,
   "illustrations": 16,
-  "changelog": 32,
+  "changelog": 34,
   "archive_articles": 43,
   "markets": 72,
   "markets_aggregated": 53,
@@ -265,8 +265,8 @@
    "url_custom_domain": "https://nordiccrypto.no/api/v1/academia/{id}.json",
    "summary": "One academia row. The id is in academia.json.",
    "schema": "AcademiaItem",
-   "example_url": "https://nordiccrypto.no/api/v1/academia/NO-BAN435.json",
-   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/academia/NO-BAN435.json"
+   "example_url": "https://nordiccrypto.no/api/v1/academia/research-www.mn.uio.no-ifi-english-research-networks-blockchainlab.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/academia/research-www.mn.uio.no-ifi-english-research-networks-blockchainlab.json"
   },
   {
    "id": "api-v1-orgchart",
@@ -274,7 +274,7 @@
    "path": "/api/v1/orgchart.json",
    "url": "https://nordiccrypto.no/api/v1/orgchart.json",
    "url_custom_domain": "https://nordiccrypto.no/api/v1/orgchart.json",
-   "summary": "Published who's who: organisations, people, relations, regulation notes and caveats.",
+   "summary": "Published who's who: organisations, people, relations, regulation notes and caveats. A person named on a talk has talk_ids, event_ids and talks. affiliations lists the organisation the talk page stated for that talk, with the talk date when the page gave one, the source URL and the retrieval time. An affiliation the page did not state is omitted.",
    "schema": "OrgChart",
    "example_url": "https://nordiccrypto.no/api/v1/orgchart/stortinget-finanskomiteen.json",
    "example_url_custom_domain": "https://nordiccrypto.no/api/v1/orgchart/stortinget-finanskomiteen.json",
@@ -347,8 +347,8 @@
    "url_custom_domain": "https://nordiccrypto.no/api/v1/changelog.json",
    "summary": "Site changelog (product changes, not the news), newest first.",
    "schema": "ChangelogList",
-   "example_url": "https://nordiccrypto.no/api/v1/changelog/crest-media-kit.json",
-   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/changelog/crest-media-kit.json",
+   "example_url": "https://nordiccrypto.no/api/v1/changelog/shoutbox.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/changelog/shoutbox.json",
    "item_path": "/api/v1/changelog/{id}.json",
    "item_url_template": "https://nordiccrypto.no/api/v1/changelog/{id}.json"
   },

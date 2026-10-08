@@ -1,0 +1,48 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-08T00:14:44+00:00",
+ "preview": false,
+ "item": {
+  "id": "spk-jack-du-rose",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-jack-du-rose.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#spk-jack-du-rose",
+  "name": "Jack du Rose",
+  "type": "person",
+  "sector": "private",
+  "country": null,
+  "description": null,
+  "role": null,
+  "org": null,
+  "group": null,
+  "profile_url": null,
+  "provenance": "Talks archive",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.youtube.com/watch?v=i87UEsneU9c&hl=en",
+    "title": "Building Decentralized Autonomous Organizations. Oslo Blockchain Day",
+    "source_name": "Blockchangers",
+    "date": "2026-10-07"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": [],
+  "talk_ids": [
+   "yt-i87UEsneU9c"
+  ],
+  "event_ids": [
+   "92041cfcb99c"
+  ],
+  "talks": [
+   {
+    "id": "yt-i87UEsneU9c",
+    "title": "Building Decentralized Autonomous Organizations. Oslo Blockchain Day",
+    "video_url": "https://www.youtube.com/watch?v=i87UEsneU9c",
+    "event_id": "92041cfcb99c",
+    "date": "2016-04-19"
+   }
+  ]
+ }
+}

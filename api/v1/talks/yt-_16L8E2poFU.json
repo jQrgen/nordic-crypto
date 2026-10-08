@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T23:13:04+00:00",
+ "generated_at": "2026-10-08T00:14:44+00:00",
  "preview": false,
  "item": {
   "id": "yt-_16L8E2poFU",
@@ -12,6 +12,9 @@
   "event_name": "Tieteiden yö, Rahamuseo",
   "event_url": null,
   "calendar_event_id": null,
+  "event_id": null,
+  "unlink_reason": "the video page did not state the city",
+  "speaker_ids": [],
   "city": null,
   "country": "FI",
   "date": "2020-01-16",

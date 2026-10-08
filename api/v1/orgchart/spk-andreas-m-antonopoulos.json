@@ -1,0 +1,48 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-08T00:14:44+00:00",
+ "preview": false,
+ "item": {
+  "id": "spk-andreas-m-antonopoulos",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-andreas-m-antonopoulos.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#spk-andreas-m-antonopoulos",
+  "name": "Andreas M. Antonopoulos",
+  "type": "person",
+  "sector": "private",
+  "country": null,
+  "description": null,
+  "role": null,
+  "org": null,
+  "group": null,
+  "profile_url": null,
+  "provenance": "Talks archive",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.youtube.com/watch?v=eo-0BgrKxiI&hl=en",
+    "title": "Open Blockchains for Cashless Developed Economies",
+    "source_name": "aantonop",
+    "date": "2026-10-07"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": [],
+  "talk_ids": [
+   "yt-eo-0BgrKxiI"
+  ],
+  "event_ids": [
+   "30569783bb01"
+  ],
+  "talks": [
+   {
+    "id": "yt-eo-0BgrKxiI",
+    "title": "Open Blockchains for Cashless Developed Economies",
+    "video_url": "https://www.youtube.com/watch?v=eo-0BgrKxiI",
+    "event_id": "30569783bb01",
+    "date": "2017-04-25"
+   }
+  ]
+ }
+}

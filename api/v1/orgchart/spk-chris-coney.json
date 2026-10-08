@@ -1,0 +1,43 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-08T00:14:44+00:00",
+ "preview": false,
+ "item": {
+  "id": "spk-chris-coney",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-chris-coney.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#spk-chris-coney",
+  "name": "Chris Coney",
+  "type": "person",
+  "sector": "private",
+  "country": null,
+  "description": null,
+  "role": null,
+  "org": null,
+  "group": null,
+  "profile_url": null,
+  "provenance": "Talks archive",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.youtube.com/watch?v=PTD7MxsDeY8&hl=en",
+    "title": "Decentralized Exchange - As Fast As Possible - Chris Coney At Cryptofinance 2017 Oslo, Norway",
+    "source_name": "The Cryptoverse",
+    "date": "2026-10-07"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": [],
+  "talk_ids": [
+   "yt-PTD7MxsDeY8"
+  ],
+  "talks": [
+   {
+    "id": "yt-PTD7MxsDeY8",
+    "title": "Decentralized Exchange - As Fast As Possible - Chris Coney At Cryptofinance 2017 Oslo, Norway",
+    "video_url": "https://www.youtube.com/watch?v=PTD7MxsDeY8"
+   }
+  ]
+ }
+}

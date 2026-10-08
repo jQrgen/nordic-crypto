@@ -1,0 +1,48 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-08T00:14:44+00:00",
+ "preview": false,
+ "item": {
+  "id": "spk-heikki-palm-henriksen",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-heikki-palm-henriksen.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#spk-heikki-palm-henriksen",
+  "name": "Heikki Palm Henriksen",
+  "type": "person",
+  "sector": "private",
+  "country": null,
+  "description": null,
+  "role": null,
+  "org": null,
+  "group": null,
+  "profile_url": null,
+  "provenance": "Talks archive",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.youtube.com/watch?v=Os_XNjqLw8A&hl=en",
+    "title": "Trust and digital identity in the Ethereum blockchain. Oslo Blockchain Day",
+    "source_name": "Blockchangers",
+    "date": "2026-10-07"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": [],
+  "talk_ids": [
+   "yt-Os_XNjqLw8A"
+  ],
+  "event_ids": [
+   "92041cfcb99c"
+  ],
+  "talks": [
+   {
+    "id": "yt-Os_XNjqLw8A",
+    "title": "Trust and digital identity in the Ethereum blockchain. Oslo Blockchain Day",
+    "video_url": "https://www.youtube.com/watch?v=Os_XNjqLw8A",
+    "event_id": "92041cfcb99c",
+    "date": "2016-04-19"
+   }
+  ]
+ }
+}

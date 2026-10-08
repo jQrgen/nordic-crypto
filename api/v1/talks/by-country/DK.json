@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T23:13:04+00:00",
+ "generated_at": "2026-10-08T00:14:44+00:00",
  "preview": false,
  "country": "DK",
  "count": 4,
@@ -17,6 +17,11 @@
    "event_name": "DTU PES Summer School 2026",
    "event_url": "https://energy-markets-school.dk/",
    "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "speaker_ids": [
+    "spk-disha-l-dinesha"
+   ],
    "city": "Copenhagen",
    "country": "DK",
    "date": null,
@@ -43,6 +48,11 @@
    "event_name": "Bitcoin Copenhagen 2026",
    "event_url": "https://bitcoincopenhagen.dk/",
    "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "speaker_ids": [
+    "spk-lars-christensen"
+   ],
    "city": "Copenhagen",
    "country": "DK",
    "date": null,
@@ -69,6 +79,11 @@
    "event_name": "Bitcoin Copenhagen 2026",
    "event_url": "https://bitcoincopenhagen.dk/",
    "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "speaker_ids": [
+    "spk-joe-bryan"
+   ],
    "city": "Copenhagen",
    "country": "DK",
    "date": null,
@@ -95,6 +110,11 @@
    "event_name": "Copenhagen Fintech Festival",
    "event_url": null,
    "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "speaker_ids": [
+    "spk-zikry-kholil"
+   ],
    "city": "Copenhagen",
    "country": "DK",
    "date": null,

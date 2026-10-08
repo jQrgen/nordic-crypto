@@ -1,0 +1,72 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-08T00:14:44+00:00",
+ "preview": false,
+ "item": {
+  "id": "spk-vinay-gupta",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-vinay-gupta.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#spk-vinay-gupta",
+  "name": "Vinay Gupta",
+  "type": "person",
+  "sector": "private",
+  "country": null,
+  "description": null,
+  "role": null,
+  "org": null,
+  "group": null,
+  "profile_url": null,
+  "provenance": "Talks archive",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.youtube.com/watch?v=L1xCEyn2a8s&hl=en",
+    "title": "Vinay Gupta - Oslo Blockchain Day - Merging the Physical and the Digital using blockchains",
+    "source_name": "Vinay Gupta",
+    "date": "2026-10-07"
+   },
+   {
+    "url": "https://www.youtube.com/watch?v=Z7FA53GIE34&hl=en",
+    "title": "Technical Obstacles to Widespread Crypto Adoption",
+    "source_name": "Slush",
+    "date": "2026-10-07"
+   },
+   {
+    "url": "https://www.youtube.com/watch?v=5Nt0v-_PA04&hl=en",
+    "title": "Blockchain in the Scandinavian social contract. Oslo Blockchain Day",
+    "source_name": "Blockchangers",
+    "date": "2026-10-07"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": [],
+  "talk_ids": [
+   "yt-5Nt0v-_PA04",
+   "yt-L1xCEyn2a8s",
+   "yt-Z7FA53GIE34"
+  ],
+  "event_ids": [
+   "92041cfcb99c"
+  ],
+  "talks": [
+   {
+    "id": "yt-5Nt0v-_PA04",
+    "title": "Blockchain in the Scandinavian social contract. Oslo Blockchain Day",
+    "video_url": "https://www.youtube.com/watch?v=5Nt0v-_PA04",
+    "event_id": "92041cfcb99c",
+    "date": "2016-04-19"
+   },
+   {
+    "id": "yt-Z7FA53GIE34",
+    "title": "Technical Obstacles to Widespread Crypto Adoption",
+    "video_url": "https://www.youtube.com/watch?v=Z7FA53GIE34"
+   },
+   {
+    "id": "yt-L1xCEyn2a8s",
+    "title": "Vinay Gupta - Oslo Blockchain Day - Merging the Physical and the Digital using blockchains",
+    "video_url": "https://www.youtube.com/watch?v=L1xCEyn2a8s"
+   }
+  ]
+ }
+}

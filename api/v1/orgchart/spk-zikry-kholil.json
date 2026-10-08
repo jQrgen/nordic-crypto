@@ -1,0 +1,43 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-08T00:14:44+00:00",
+ "preview": false,
+ "item": {
+  "id": "spk-zikry-kholil",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-zikry-kholil.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#spk-zikry-kholil",
+  "name": "Zikry Kholil",
+  "type": "person",
+  "sector": "private",
+  "country": null,
+  "description": null,
+  "role": null,
+  "org": null,
+  "group": null,
+  "profile_url": null,
+  "provenance": "Talks archive",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.youtube.com/watch?v=McCMg7UVCIk&hl=en",
+    "title": "Zikry Kholil Speaks About Blockchain as Sustainable Technologies at Copenhagen Fintech Festival",
+    "source_name": "Incitement",
+    "date": "2026-10-07"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": [],
+  "talk_ids": [
+   "yt-McCMg7UVCIk"
+  ],
+  "talks": [
+   {
+    "id": "yt-McCMg7UVCIk",
+    "title": "Zikry Kholil Speaks About Blockchain as Sustainable Technologies at Copenhagen Fintech Festival",
+    "video_url": "https://www.youtube.com/watch?v=McCMg7UVCIk"
+   }
+  ]
+ }
+}

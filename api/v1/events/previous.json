@@ -1,9 +1,9 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T23:13:04+00:00",
+ "generated_at": "2026-10-08T00:14:44+00:00",
  "preview": false,
- "count": 15,
+ "count": 19,
  "events": [
   {
    "id": "af88ac54b25d",
@@ -1213,6 +1213,417 @@
     "url": "https://www.riksbank.se/globalassets/media/tal/engelska/ingves/2017/tal_ingves_171208_eng.pdf",
     "retrieved": "2026-10-07T21:00:00+00:00"
    }
+  },
+  {
+   "id": "30569783bb01",
+   "title": "Oslo Blockchain Day",
+   "title_original": null,
+   "start": "2017-04-25T00:00:00+02:00",
+   "end": "2017-04-25T23:59:00+02:00",
+   "place": null,
+   "city": "Oslo",
+   "country": "NO",
+   "online": false,
+   "organiser": "Blockchangers",
+   "url": "https://www.meetup.com/blockchangers/events/230837354/",
+   "source": "backfill",
+   "paid": null,
+   "sponsored": null,
+   "note": null,
+   "note_i18n": {},
+   "past": true,
+   "ongoing": false,
+   "html_url": "https://nordiccrypto.no/calendar/30569783bb01/",
+   "html_urls": {
+    "en": "https://nordiccrypto.no/calendar/30569783bb01/",
+    "nn": "https://nordiccrypto.no/nn/calendar/30569783bb01/",
+    "nb": "https://nordiccrypto.no/nb/calendar/30569783bb01/",
+    "sv": "https://nordiccrypto.no/sv/calendar/30569783bb01/",
+    "da": "https://nordiccrypto.no/da/calendar/30569783bb01/",
+    "fi": "https://nordiccrypto.no/fi/calendar/30569783bb01/",
+    "is": "https://nordiccrypto.no/is/calendar/30569783bb01/",
+    "zh": "https://nordiccrypto.no/zh/calendar/30569783bb01/",
+    "hi": "https://nordiccrypto.no/hi/calendar/30569783bb01/",
+    "es": "https://nordiccrypto.no/es/calendar/30569783bb01/",
+    "fr": "https://nordiccrypto.no/fr/calendar/30569783bb01/",
+    "ar": "https://nordiccrypto.no/ar/calendar/30569783bb01/",
+    "bn": "https://nordiccrypto.no/bn/calendar/30569783bb01/",
+    "pt": "https://nordiccrypto.no/pt/calendar/30569783bb01/",
+    "ru": "https://nordiccrypto.no/ru/calendar/30569783bb01/",
+    "ur": "https://nordiccrypto.no/ur/calendar/30569783bb01/",
+    "id": "https://nordiccrypto.no/id/calendar/30569783bb01/",
+    "de": "https://nordiccrypto.no/de/calendar/30569783bb01/",
+    "ja": "https://nordiccrypto.no/ja/calendar/30569783bb01/",
+    "sw": "https://nordiccrypto.no/sw/calendar/30569783bb01/",
+    "mr": "https://nordiccrypto.no/mr/calendar/30569783bb01/"
+   },
+   "api_url": "https://nordiccrypto.no/api/v1/events/30569783bb01.json",
+   "backfill": true,
+   "event_type": "conference",
+   "credits": {
+    "title": {
+     "source_name": "aantonop",
+     "source_url": "https://www.youtube.com/watch?v=eo-0BgrKxiI&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "start": {
+     "source_name": "aantonop",
+     "source_url": "https://www.youtube.com/watch?v=eo-0BgrKxiI&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "end": {
+     "source_name": "aantonop",
+     "source_url": "https://www.youtube.com/watch?v=eo-0BgrKxiI&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "city": {
+     "source_name": "aantonop",
+     "source_url": "https://www.youtube.com/watch?v=eo-0BgrKxiI&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "country": {
+     "source_name": "aantonop",
+     "source_url": "https://www.youtube.com/watch?v=eo-0BgrKxiI&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "organiser": {
+     "source_name": "aantonop",
+     "source_url": "https://www.youtube.com/watch?v=eo-0BgrKxiI&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "url": {
+     "source_name": "aantonop",
+     "source_url": "https://www.youtube.com/watch?v=eo-0BgrKxiI&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "event_type": {
+     "source_name": "aantonop",
+     "source_url": "https://www.youtube.com/watch?v=eo-0BgrKxiI&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    }
+   },
+   "place_source": {
+    "name": "backfill",
+    "url": "https://www.youtube.com/watch?v=eo-0BgrKxiI&hl=en",
+    "retrieved": "2026-10-07T20:57:16+00:00"
+   },
+   "talk_ids": [
+    "yt-eo-0BgrKxiI"
+   ]
+  },
+  {
+   "id": "afc88c305513",
+   "title": "Trondheim Blockchain Meetup",
+   "title_original": null,
+   "start": "2017-02-09T00:00:00+01:00",
+   "end": "2017-02-09T23:59:00+01:00",
+   "place": null,
+   "city": "Trondheim",
+   "country": "NO",
+   "online": false,
+   "organiser": "Trondheim Blockchain Meetup",
+   "url": "https://www.meetup.com/Trondheim-Blockchain-Meetup/",
+   "source": "backfill",
+   "paid": null,
+   "sponsored": null,
+   "note": null,
+   "note_i18n": {},
+   "past": true,
+   "ongoing": false,
+   "html_url": "https://nordiccrypto.no/calendar/afc88c305513/",
+   "html_urls": {
+    "en": "https://nordiccrypto.no/calendar/afc88c305513/",
+    "nn": "https://nordiccrypto.no/nn/calendar/afc88c305513/",
+    "nb": "https://nordiccrypto.no/nb/calendar/afc88c305513/",
+    "sv": "https://nordiccrypto.no/sv/calendar/afc88c305513/",
+    "da": "https://nordiccrypto.no/da/calendar/afc88c305513/",
+    "fi": "https://nordiccrypto.no/fi/calendar/afc88c305513/",
+    "is": "https://nordiccrypto.no/is/calendar/afc88c305513/",
+    "zh": "https://nordiccrypto.no/zh/calendar/afc88c305513/",
+    "hi": "https://nordiccrypto.no/hi/calendar/afc88c305513/",
+    "es": "https://nordiccrypto.no/es/calendar/afc88c305513/",
+    "fr": "https://nordiccrypto.no/fr/calendar/afc88c305513/",
+    "ar": "https://nordiccrypto.no/ar/calendar/afc88c305513/",
+    "bn": "https://nordiccrypto.no/bn/calendar/afc88c305513/",
+    "pt": "https://nordiccrypto.no/pt/calendar/afc88c305513/",
+    "ru": "https://nordiccrypto.no/ru/calendar/afc88c305513/",
+    "ur": "https://nordiccrypto.no/ur/calendar/afc88c305513/",
+    "id": "https://nordiccrypto.no/id/calendar/afc88c305513/",
+    "de": "https://nordiccrypto.no/de/calendar/afc88c305513/",
+    "ja": "https://nordiccrypto.no/ja/calendar/afc88c305513/",
+    "sw": "https://nordiccrypto.no/sw/calendar/afc88c305513/",
+    "mr": "https://nordiccrypto.no/mr/calendar/afc88c305513/"
+   },
+   "api_url": "https://nordiccrypto.no/api/v1/events/afc88c305513.json",
+   "backfill": true,
+   "event_type": "meetup",
+   "credits": {
+    "title": {
+     "source_name": "Jørgen Svennevik Notland",
+     "source_url": "https://www.youtube.com/watch?v=ibI_S_RcxZQ&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "start": {
+     "source_name": "Jørgen Svennevik Notland",
+     "source_url": "https://www.youtube.com/watch?v=ibI_S_RcxZQ&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "end": {
+     "source_name": "Jørgen Svennevik Notland",
+     "source_url": "https://www.youtube.com/watch?v=ibI_S_RcxZQ&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "city": {
+     "source_name": "Jørgen Svennevik Notland",
+     "source_url": "https://www.youtube.com/watch?v=ibI_S_RcxZQ&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "country": {
+     "source_name": "Jørgen Svennevik Notland",
+     "source_url": "https://www.youtube.com/watch?v=ibI_S_RcxZQ&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "organiser": {
+     "source_name": "Jørgen Svennevik Notland",
+     "source_url": "https://www.youtube.com/watch?v=ibI_S_RcxZQ&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "url": {
+     "source_name": "Jørgen Svennevik Notland",
+     "source_url": "https://www.youtube.com/watch?v=ibI_S_RcxZQ&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "event_type": {
+     "source_name": "Jørgen Svennevik Notland",
+     "source_url": "https://www.youtube.com/watch?v=ibI_S_RcxZQ&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    }
+   },
+   "place_source": {
+    "name": "backfill",
+    "url": "https://www.youtube.com/watch?v=ibI_S_RcxZQ&hl=en",
+    "retrieved": "2026-10-07T20:57:16+00:00"
+   },
+   "talk_ids": [
+    "yt-ibI_S_RcxZQ"
+   ]
+  },
+  {
+   "id": "c9903961cd24",
+   "title": "Ethereum Helsinki Meetup",
+   "title_original": null,
+   "start": "2016-05-11T00:00:00+03:00",
+   "end": "2016-05-11T23:59:00+03:00",
+   "place": null,
+   "city": "Helsinki",
+   "country": "FI",
+   "online": false,
+   "organiser": "Helsinki Ethereum Meetup",
+   "url": "http://www.meetup.com/Helsinki-Ethereum-Meetup",
+   "source": "backfill",
+   "paid": null,
+   "sponsored": null,
+   "note": null,
+   "note_i18n": {},
+   "past": true,
+   "ongoing": false,
+   "html_url": "https://nordiccrypto.no/calendar/c9903961cd24/",
+   "html_urls": {
+    "en": "https://nordiccrypto.no/calendar/c9903961cd24/",
+    "nn": "https://nordiccrypto.no/nn/calendar/c9903961cd24/",
+    "nb": "https://nordiccrypto.no/nb/calendar/c9903961cd24/",
+    "sv": "https://nordiccrypto.no/sv/calendar/c9903961cd24/",
+    "da": "https://nordiccrypto.no/da/calendar/c9903961cd24/",
+    "fi": "https://nordiccrypto.no/fi/calendar/c9903961cd24/",
+    "is": "https://nordiccrypto.no/is/calendar/c9903961cd24/",
+    "zh": "https://nordiccrypto.no/zh/calendar/c9903961cd24/",
+    "hi": "https://nordiccrypto.no/hi/calendar/c9903961cd24/",
+    "es": "https://nordiccrypto.no/es/calendar/c9903961cd24/",
+    "fr": "https://nordiccrypto.no/fr/calendar/c9903961cd24/",
+    "ar": "https://nordiccrypto.no/ar/calendar/c9903961cd24/",
+    "bn": "https://nordiccrypto.no/bn/calendar/c9903961cd24/",
+    "pt": "https://nordiccrypto.no/pt/calendar/c9903961cd24/",
+    "ru": "https://nordiccrypto.no/ru/calendar/c9903961cd24/",
+    "ur": "https://nordiccrypto.no/ur/calendar/c9903961cd24/",
+    "id": "https://nordiccrypto.no/id/calendar/c9903961cd24/",
+    "de": "https://nordiccrypto.no/de/calendar/c9903961cd24/",
+    "ja": "https://nordiccrypto.no/ja/calendar/c9903961cd24/",
+    "sw": "https://nordiccrypto.no/sw/calendar/c9903961cd24/",
+    "mr": "https://nordiccrypto.no/mr/calendar/c9903961cd24/"
+   },
+   "api_url": "https://nordiccrypto.no/api/v1/events/c9903961cd24.json",
+   "backfill": true,
+   "event_type": "meetup",
+   "credits": {
+    "title": {
+     "source_name": "Ethereum Helsinki",
+     "source_url": "https://www.youtube.com/watch?v=zi2JsPOm5HE&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "start": {
+     "source_name": "Ethereum Helsinki",
+     "source_url": "https://www.youtube.com/watch?v=zi2JsPOm5HE&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "end": {
+     "source_name": "Ethereum Helsinki",
+     "source_url": "https://www.youtube.com/watch?v=zi2JsPOm5HE&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "city": {
+     "source_name": "Ethereum Helsinki",
+     "source_url": "https://www.youtube.com/watch?v=zi2JsPOm5HE&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "country": {
+     "source_name": "Ethereum Helsinki",
+     "source_url": "https://www.youtube.com/watch?v=zi2JsPOm5HE&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "organiser": {
+     "source_name": "Ethereum Helsinki",
+     "source_url": "https://www.youtube.com/watch?v=zi2JsPOm5HE&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "url": {
+     "source_name": "Ethereum Helsinki",
+     "source_url": "https://www.youtube.com/watch?v=zi2JsPOm5HE&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "event_type": {
+     "source_name": "Ethereum Helsinki",
+     "source_url": "https://www.youtube.com/watch?v=zi2JsPOm5HE&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    }
+   },
+   "place_source": {
+    "name": "backfill",
+    "url": "https://www.youtube.com/watch?v=zi2JsPOm5HE&hl=en",
+    "retrieved": "2026-10-07T20:57:16+00:00"
+   },
+   "talk_ids": [
+    "yt-zi2JsPOm5HE"
+   ]
+  },
+  {
+   "id": "92041cfcb99c",
+   "title": "Oslo Blockchain Day",
+   "title_original": null,
+   "start": "2016-04-19T00:00:00+02:00",
+   "end": "2016-04-19T23:59:00+02:00",
+   "place": null,
+   "city": "Oslo",
+   "country": "NO",
+   "online": false,
+   "organiser": "Blockchangers",
+   "url": "https://www.youtube.com/watch?v=0iXX02OYI5s",
+   "source": "backfill",
+   "paid": null,
+   "sponsored": null,
+   "note": null,
+   "note_i18n": {},
+   "past": true,
+   "ongoing": false,
+   "html_url": "https://nordiccrypto.no/calendar/92041cfcb99c/",
+   "html_urls": {
+    "en": "https://nordiccrypto.no/calendar/92041cfcb99c/",
+    "nn": "https://nordiccrypto.no/nn/calendar/92041cfcb99c/",
+    "nb": "https://nordiccrypto.no/nb/calendar/92041cfcb99c/",
+    "sv": "https://nordiccrypto.no/sv/calendar/92041cfcb99c/",
+    "da": "https://nordiccrypto.no/da/calendar/92041cfcb99c/",
+    "fi": "https://nordiccrypto.no/fi/calendar/92041cfcb99c/",
+    "is": "https://nordiccrypto.no/is/calendar/92041cfcb99c/",
+    "zh": "https://nordiccrypto.no/zh/calendar/92041cfcb99c/",
+    "hi": "https://nordiccrypto.no/hi/calendar/92041cfcb99c/",
+    "es": "https://nordiccrypto.no/es/calendar/92041cfcb99c/",
+    "fr": "https://nordiccrypto.no/fr/calendar/92041cfcb99c/",
+    "ar": "https://nordiccrypto.no/ar/calendar/92041cfcb99c/",
+    "bn": "https://nordiccrypto.no/bn/calendar/92041cfcb99c/",
+    "pt": "https://nordiccrypto.no/pt/calendar/92041cfcb99c/",
+    "ru": "https://nordiccrypto.no/ru/calendar/92041cfcb99c/",
+    "ur": "https://nordiccrypto.no/ur/calendar/92041cfcb99c/",
+    "id": "https://nordiccrypto.no/id/calendar/92041cfcb99c/",
+    "de": "https://nordiccrypto.no/de/calendar/92041cfcb99c/",
+    "ja": "https://nordiccrypto.no/ja/calendar/92041cfcb99c/",
+    "sw": "https://nordiccrypto.no/sw/calendar/92041cfcb99c/",
+    "mr": "https://nordiccrypto.no/mr/calendar/92041cfcb99c/"
+   },
+   "api_url": "https://nordiccrypto.no/api/v1/events/92041cfcb99c.json",
+   "backfill": true,
+   "event_type": "conference",
+   "credits": {
+    "title": {
+     "source_name": "Blockchangers",
+     "source_url": "https://www.youtube.com/watch?v=0iXX02OYI5s&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "start": {
+     "source_name": "Blockchangers",
+     "source_url": "https://www.youtube.com/watch?v=0iXX02OYI5s&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "end": {
+     "source_name": "Blockchangers",
+     "source_url": "https://www.youtube.com/watch?v=0iXX02OYI5s&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "city": {
+     "source_name": "Blockchangers",
+     "source_url": "https://www.youtube.com/watch?v=0iXX02OYI5s&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "country": {
+     "source_name": "Blockchangers",
+     "source_url": "https://www.youtube.com/watch?v=0iXX02OYI5s&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "organiser": {
+     "source_name": "Blockchangers",
+     "source_url": "https://www.youtube.com/watch?v=0iXX02OYI5s&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "url": {
+     "source_name": "Blockchangers",
+     "source_url": "https://www.youtube.com/watch?v=0iXX02OYI5s&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "event_type": {
+     "source_name": "Blockchangers",
+     "source_url": "https://www.youtube.com/watch?v=0iXX02OYI5s&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    }
+   },
+   "place_source": {
+    "name": "backfill",
+    "url": "https://www.youtube.com/watch?v=0iXX02OYI5s&hl=en",
+    "retrieved": "2026-10-07T20:57:16+00:00"
+   },
+   "talk_ids": [
+    "yt-0iXX02OYI5s",
+    "yt-3YQ3KPcwY80",
+    "yt-40-zccLg7rw",
+    "yt-5Nt0v-_PA04",
+    "yt-5jGIiwLS4yc",
+    "yt-5qOqPd5KcxQ",
+    "yt-6sN36dNYwq8",
+    "yt-H0ksQfF52bc",
+    "yt-MvNDt8cYBnU",
+    "yt-Os_XNjqLw8A",
+    "yt-V5t-uKsNYJI",
+    "yt-ZOMpmc-lrNA",
+    "yt-ZipWu7rqxeo",
+    "yt-_OWFROsjBVI",
+    "yt-brHf3DTIsig",
+    "yt-bwXhIPL_bHA",
+    "yt-i87UEsneU9c",
+    "yt-jxRBL4iY0bM",
+    "yt-k0mr4Q0U_oM",
+    "yt-lRKRitXY76A",
+    "yt-oOCdi5c-xvc",
+    "yt-oWjsqKmIPLo",
+    "yt-rf9C6qr7ew0",
+    "yt-wogzCQdqoUA"
+   ]
   },
   {
    "id": "b449bcb0b91e",

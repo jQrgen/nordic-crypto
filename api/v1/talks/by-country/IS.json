@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-07T23:13:04+00:00",
+ "generated_at": "2026-10-08T00:14:44+00:00",
  "preview": false,
  "country": "IS",
  "count": 5,
@@ -17,6 +17,11 @@
    "event_name": "Bálkakeðjur á miðvikudögum",
    "event_url": null,
    "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "speaker_ids": [
+    "spk-helga-valfells"
+   ],
    "city": null,
    "country": "IS",
    "date": null,
@@ -43,6 +48,11 @@
    "event_name": "Bálkakeðjur á miðvikudögum",
    "event_url": null,
    "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "speaker_ids": [
+    "spk-gunnar-stefansson"
+   ],
    "city": null,
    "country": "IS",
    "date": null,
@@ -69,6 +79,11 @@
    "event_name": "Bálkakeðjur á miðvikudögum",
    "event_url": null,
    "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "speaker_ids": [
+    "spk-gisli-kristjansson"
+   ],
    "city": null,
    "country": "IS",
    "date": null,
@@ -95,6 +110,11 @@
    "event_name": "Bálkakeðjur á miðvikudögum",
    "event_url": null,
    "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "speaker_ids": [
+    "spk-kristjan-ingi-mikaelsson"
+   ],
    "city": null,
    "country": "IS",
    "date": null,
@@ -121,6 +141,11 @@
    "event_name": "Icelandic Blockchain Foundation conference weekend",
    "event_url": null,
    "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "speaker_ids": [
+    "spk-anita-kristjansdottir"
+   ],
    "city": null,
    "country": "IS",
    "date": null,
