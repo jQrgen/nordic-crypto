@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T07:16:55+00:00",
+ "generated_at": "2026-10-08T12:50:39+00:00",
  "preview": false,
  "title": "Nordic Crypto data API",
  "sign_off": "The Nordic Crypto team",
@@ -46,7 +46,7 @@
   "events_past": 0,
   "events_previous": 18,
   "talks": 74,
-  "sources": 1034,
+  "sources": 1036,
   "academia": {
    "courses": 7,
    "groups": 3,

@@ -9,181 +9,114 @@
 <link rel="icon" href="../../favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="../../assets/brand/apple-touch-icon.png">
 <link rel="icon" href="../../assets/logo-concepts/responsive/small-64-light.png" sizes="64x64" type="image/png">
-<meta name="theme-color" content="#141210">
+<meta name="theme-color" content="#F6F4EE" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#13110E" media="(prefers-color-scheme: dark)">
 <meta property="og:image" content="https://nordiccrypto.no/assets/brand/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Nordic Crypto">
 <link rel="stylesheet" href="../../assets/brand/nordic-crypto.css">
-<style>
-:root{--nc-or:#F4C430;--nc-gules:#A0202A;--nc-sable:#141210;--nc-argent:#F7F6F2;--nc-cendree:#A7B0BA;--ink:#141210;--muted:#4B5563;--line:var(--nc-cendree);--paper:var(--nc-argent);--accent:#0f5ea8;--warm:#b45309;--soft:#f5f7fa;--pub:#1d4ed8;--priv:#047857}
-*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
-body{margin:0;font:16px/1.55 "Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--nc-sable);background:var(--paper)}
-a{color:inherit}a:hover{text-decoration-thickness:2px}
-.wrap{max-width:1140px;margin:0 auto;padding:0 16px}
-header.top{border-bottom:3px solid var(--ink)}
+<style>/* Design tokens, from the crest sheet: an argent page, sable text, gules for accents, or for highlights.
+   --mk-* are the market chart's series colours, in fixed order; both sets pass the colour-vision checks on their own page colour.
+   The other modules use these names only. Dark follows the reader's system setting; data-theme="light" or "dark" on <html> overrides it. */
+:root{
+  --bg:#F6F4EE;--surface:#FFFFFF;--fg:#15120F;--muted:#5D5850;--line:#DAD5CB;--line-strong:#B9B2A6;--soft:#ECE8DF;
+  --accent:#A31F2B;--on-accent:#FFFFFF;--gold:#E9B93A;--focus:#A31F2B;--brand-w:#A31F2B;
+  --warm:#9A4A0B;--warm-bg:#FBF1DC;--pub:#2C5A85;--priv:#2E6A4C;--up:#2E6A4C;--down:#A31F2B;
+  --f-display:"Cormorant Garamond",Garamond,Georgia,"Times New Roman",serif;
+  --f-ui:"Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --r:4px;--r-sm:3px;--shadow:0 10px 30px rgb(21 18 15 / .10);
+  --mk-1:#2E6DB4;--mk-2:#D9A01C;--mk-3:#A31F2B;--mk-4:#7A5AB8;--mk-5:#1E9A8A;--mk-6:#D2692A;--mk-7:#C04C86;--mk-8:#3D8A3A;--mk-other:#A8A195;
+  --nc-or:#F4C430;--nc-gules:#A0202A;--nc-sable:#141210;--nc-argent:#F7F6F2;--nc-cendree:#A7B0BA;
+  --ink:var(--fg);--paper:var(--bg);--band:var(--fg);--band-ink:var(--bg);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme=light]){--bg:#13110E;--surface:#1D1A16;--fg:#EFEBE3;--muted:#A69F94;--line:#353029;--line-strong:#4D463C;--soft:#262219;--accent:#E06A72;--on-accent:#13110E;--gold:#E9B93A;--focus:#E9B93A;--brand-w:#F4C430;--warm:#E3A55A;--warm-bg:#2B2216;--pub:#8DB4DC;--priv:#86C3A1;--up:#86C3A1;--down:#F08A8F;--shadow:0 10px 30px rgb(0 0 0 / .45);--mk-1:#4F8AD6;--mk-2:#B5841C;--mk-3:#CC3D55;--mk-4:#937BDB;--mk-5:#2FA894;--mk-6:#CF6F2E;--mk-7:#C2649F;--mk-8:#5FA352;--mk-other:#6E665D;color-scheme:dark}
+}
+:root[data-theme=dark]{--bg:#13110E;--surface:#1D1A16;--fg:#EFEBE3;--muted:#A69F94;--line:#353029;--line-strong:#4D463C;--soft:#262219;--accent:#E06A72;--on-accent:#13110E;--gold:#E9B93A;--focus:#E9B93A;--brand-w:#F4C430;--warm:#E3A55A;--warm-bg:#2B2216;--pub:#8DB4DC;--priv:#86C3A1;--up:#86C3A1;--down:#F08A8F;--shadow:0 10px 30px rgb(0 0 0 / .45);--mk-1:#4F8AD6;--mk-2:#B5841C;--mk-3:#CC3D55;--mk-4:#937BDB;--mk-5:#2FA894;--mk-6:#CF6F2E;--mk-7:#C2649F;--mk-8:#5FA352;--mk-other:#6E665D;color-scheme:dark}
+/* Base: page, type, links, focus, form controls, small helpers. */
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;font:16px/1.6 var(--f-ui);color:var(--fg);background:var(--bg);-webkit-font-smoothing:antialiased}
+::selection{background:color-mix(in srgb,var(--gold) 45%,transparent)}
+a{color:inherit;text-decoration-color:color-mix(in srgb,var(--accent) 55%,transparent);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{text-decoration-color:var(--accent);text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 clamp(16px,4vw,32px)}
+h1,h2,h3{font-family:var(--f-display);font-weight:600;letter-spacing:-.005em;text-wrap:balance}
+h1{font-size:clamp(30px,4vw,42px);line-height:1.08;margin:32px 0 10px}
+h2{font-size:clamp(22px,2.4vw,27px);line-height:1.15;margin:36px 0 10px}
+h3{line-height:1.25}
+h4{font-weight:600}
+p{text-wrap:pretty}
+b,strong{font-weight:700}
+hr{border:0;border-top:1px solid var(--line);margin:28px 0}
+code,pre,kbd{font-family:var(--f-mono);font-size:.9em}
+img{max-width:100%}
+.lead{font-size:17px;line-height:1.6;color:var(--muted);margin:6px 0 18px;max-width:68ch}
+.meta{font-size:14px;color:var(--muted)}.meta b{color:var(--fg);font-weight:500}
+.eyebrow{font:500 12px/1.2 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.prose{max-width:70ch;text-align:start;line-height:1.65}
+.prose h2{margin-top:32px}.prose li{margin:4px 0}
+select,input[type=search],input[type=email],input[type=text],input[type=url],textarea{font:inherit;font-size:15px;color:var(--fg);background:var(--surface);border:1px solid var(--line-strong);border-radius:var(--r-sm);padding:7px 10px;max-width:100%}
+select:hover,input[type=search]:hover,input[type=email]:hover,input[type=text]:hover,input[type=url]:hover,textarea:hover{border-color:var(--muted)}
+input::placeholder,textarea::placeholder{color:var(--muted);opacity:.8}
+button{font:inherit;color:inherit}
+input[type=checkbox],input[type=radio]{accent-color:var(--accent)}
+.vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+html.nc-pick body{visibility:hidden}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+/* Header: preview banner, brand row with the header buttons, main nav, language switcher. Everything starts at the inline start. */
+.preview{background:var(--warm-bg);border-bottom:2px solid var(--warm);color:var(--fg);font-size:14px}.preview .wrap{padding-top:6px;padding-bottom:6px}
+header.top{background:var(--bg);border-bottom:3px solid var(--fg)}
 header.top,header.top .wrap{text-align:start}
-header.top .wrap{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:flex-start;gap:6px 22px;padding-top:14px;padding-bottom:10px}
-.brand{font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif;font-weight:600;font-size:28px;letter-spacing:0;text-decoration:none;display:inline-flex;align-items:center;gap:8px;color:var(--nc-sable);line-height:1;text-align:start}.brand .w{color:var(--nc-gules)}
+header.top .wrap{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:flex-start;gap:10px 24px;padding-top:16px;padding-bottom:0}
+.brand{font-family:var(--f-display);font-weight:600;font-size:30px;letter-spacing:0;text-decoration:none;display:inline-flex;align-items:center;gap:10px;color:var(--fg);line-height:1;text-align:start}.brand .w{color:var(--brand-w)}
 .brandmark{width:32px;height:32px;flex:none;display:block}
-nav.main{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:baseline;gap:4px 16px;font-size:15px;text-align:start}
-nav.main a{text-decoration:none;padding:2px 0;border-bottom:2px solid transparent}nav.main a[aria-current]{border-color:var(--accent);font-weight:600}
-.preview{background:#fef3c7;border-bottom:2px solid var(--warm);font-size:14px}.preview .wrap{padding-top:6px;padding-bottom:6px}
-h1,h2,h3{font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif;font-weight:600}
-h1{font-size:28px;line-height:1.2;margin:22px 0 4px}h2{font-size:20px;margin:28px 0 8px}
-.lead{color:var(--muted);margin:4px 0 10px;max-width:72ch}
-.filters{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin:14px 0;padding:10px 12px;background:var(--soft);border:1px solid var(--line)}
-.filters label,.filters .lbl{font-size:14px;color:var(--muted)}
-select,input[type=search]{font:inherit;font-size:15px;padding:5px 8px;border:1px solid var(--ink);background:#fff;border-radius:0;max-width:100%}
-.chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{font:inherit;font-size:13.5px;padding:3px 10px;border:1px solid var(--ink);background:#fff;cursor:pointer;display:inline-flex;align-items:center;gap:5px}
-.chip[aria-pressed=true]{background:var(--ink);color:#fff}
-.flag{vertical-align:-2px;flex:none;border-radius:1px}
-.cc{display:inline-block;font-size:11px;font-weight:700;padding:0 4px;border:1px solid var(--line);color:var(--muted);vertical-align:1px}
-ol.news{list-style:none;margin:0;padding:0;text-align:left}
-ol.news li{display:flex;flex-direction:row;align-items:flex-start;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);text-align:start}
-ol.news .storybody{min-width:0;flex:1;text-align:start}
-ol.news h3{font-size:18px;line-height:1.3;margin:0 0 4px}ol.news h3 a{text-decoration:none}ol.news h3 a:hover{text-decoration:underline}
-.evhero,.evsoon,.evfull,.evcard,.evmeta,.evsrc,.evplace{text-align:left}
-.evhero{border-left:4px solid var(--accent);background:var(--soft);padding:12px 14px;margin:14px 0}
-.evhero h2,.evsoon h2{text-align:left}
-.evhero h3{font-size:26px;line-height:1.25;margin:0 0 6px;text-align:left}
-.evsoon{margin:8px 0 18px}
-.evsoon h3,.evfull h3{font-size:18px;line-height:1.3;margin:0 0 4px;text-align:left}
-.evhero h3 a,.evsoon h3 a,.evfull h3 a{text-decoration:none}
-.evhero h3 a:hover,.evsoon h3 a:hover,.evfull h3 a:hover{text-decoration:underline}
-.evcard{padding:10px 0;border-bottom:1px solid var(--line)}
-.evhero .evcard{border-bottom:0;padding:8px 0}
-.evhero .evcard+.evcard{border-top:1px solid var(--line)}
-.evsoon .evmeta{display:none}
-.evhero .evmeta,.evfull .evmeta{display:block}
-.evsrc{font-size:13.5px;color:var(--muted);margin:2px 0 0}
-.evpage,.evpage h1,.evpage h2,.evpage p,.evpage li{text-align:left}
-.evpage .evdesc{display:block;text-align:left;max-width:75ch;margin:8px 0 14px;line-height:1.45}
-.evofficial{display:inline-block;margin:10px 0 14px;padding:8px 14px;background:var(--accent);color:#fff;text-decoration:none;text-align:left}
-.evofficial:hover{text-decoration:underline;color:#fff}
-.evpage .evmeta{display:block;margin:4px 0}
-@media(max-width:640px){.evhero h3{font-size:22px}}
-.ill{margin:0 0 10px;text-align:start}
-.ill img{display:block;width:100%;max-width:720px;height:auto;background:var(--soft)}
-.leadstory,.latest,.storygrid,.storycard,.leadstory h2,.latest h2,.storycard h3,.leadstory .sum,.storycard .sum,.leadstory .meta,.storycard .meta,.leadstory .orig,.storycard .orig{text-align:start}
-.leadstory{margin:4px 0 2px;padding:0 0 12px;border-bottom:3px solid var(--ink)}
-.leadstory h2{font-size:36px;line-height:1.12;margin:0 0 4px;text-align:start}
-.leadstory h2 a,.storycard h3 a{text-decoration:none}
-.leadstory h2 a:hover,.storycard h3 a:hover{text-decoration:underline}
-.leadstory .sum{font-size:18px;line-height:1.45;margin:8px 0 0;max-width:68ch}
-.latest h2{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin:18px 0 2px;text-align:start}
-.storygrid{display:grid;grid-template-columns:1fr;column-gap:32px;align-items:start;text-align:start}
-.storycard{padding:10px 0 12px;border-bottom:1px solid var(--line);min-width:0;text-align:start}
-.storycard h3{font-size:18px;line-height:1.25;margin:0 0 2px;text-align:start}
-.storycard .sum{font-size:14.5px;line-height:1.4;margin:4px 0 0}
-@media(min-width:760px){.storygrid{grid-template-columns:1fr 1fr}}
-@media(min-width:1080px){.storygrid{grid-template-columns:1fr 1fr 1fr}}
-@media(max-width:640px){.leadstory h2{font-size:28px}}
-.orig{font-size:13.5px;color:var(--muted);margin:0 0 3px;line-height:1.35;font-weight:400;text-align:start}
-.meta{font-size:13.5px;color:var(--muted)}.meta b{color:var(--ink);font-weight:600}
-.src{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;vertical-align:middle;text-align:start}
-.src-logo-link{display:inline-flex;flex:none;align-items:center;line-height:0}
-.src-logo{height:18px;width:auto;max-width:96px;object-fit:contain;flex:none;background:#fff;padding:1px}
-.covrow,.readat-row,.also,.covbars,.covsort,.covlist,.covgroup,.cov-by-country,.cov-by-time{text-align:start}
-.covrow{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:6px 8px;margin:6px 0 0}
-.cov-logo{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;text-decoration:none}
-.cov-more{font-size:13px;color:var(--ink);border:1px solid var(--line);padding:1px 6px;background:#fff;text-decoration:none}
-.cov-more:hover,.cov-more:focus-visible{border-color:var(--ink)}
-.readat{display:inline-block;padding:8px 14px;background:var(--ink);color:#fff;text-decoration:none;font-weight:700}
-.readat:hover,.readat:focus-visible{background:#000}
-.also{margin:8px 0}
-.covbars{margin:0 0 14px}
-.covbar{display:grid;grid-template-columns:minmax(7rem,12rem) minmax(4rem,16rem) 2rem;justify-content:start;align-items:center;gap:8px;margin:3px 0;font-size:14px;max-width:100%}
-@media(max-width:640px){.covbar{grid-template-columns:minmax(6rem,9rem) minmax(3rem,1fr) 2rem}}
-.covbar .track{display:block;height:8px;background:var(--line)}
-.covbar .fill{display:block;height:8px;background:var(--accent)}
-.covbar .covn{font-variant-numeric:tabular-nums}
-.covsort{margin:8px 0}
-.covgroup{margin:0 0 12px}
-.covgroup h3{display:flex;justify-content:flex-start;gap:8px;align-items:baseline;font-size:16px;margin:0 0 4px}
-.covlist{list-style:none;padding:0;margin:0}
-.covlist li{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:flex-start;gap:6px 12px;border-bottom:1px solid var(--line);padding:8px 0}
-.covlist .cov-title{flex:1 1 16rem;min-width:12rem}
-.cov-open{font-weight:600}
-.tag{display:inline-block;font-size:12px;padding:0 6px;border:1px solid var(--line);margin-left:4px;color:var(--muted)}
-.tag.pend{border-color:var(--warm);color:var(--warm);font-weight:600}.tag.paid{border-color:var(--warm);color:var(--warm)}
-.sum{margin:6px 0 0;max-width:75ch;line-height:1.45;text-align:left}.sum.pend{color:var(--warm);font-style:italic}
-.pw{font-size:12px;color:var(--warm)}
-.calgrid{display:none}@media(min-width:760px){.calgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(460px,1fr));gap:20px;margin:16px 0}}
-table.cal{border-collapse:collapse;width:100%;table-layout:fixed;font-size:13px}table.cal caption{text-align:left;font-weight:600;padding:4px 0}
-table.cal th{font-weight:500;color:var(--muted);padding:2px}table.cal td{border:1px solid var(--line);vertical-align:top;height:64px;padding:2px 4px;overflow:hidden}
-table.cal td.out{opacity:.35}table.cal td.today .d{background:var(--accent);color:#fff;padding:0 4px}table.cal td.has{background:color-mix(in srgb,var(--accent) 7%,transparent)}
-table.cal td a{display:flex;gap:3px;align-items:flex-start;font-size:11.5px;line-height:1.2;margin-top:3px;text-decoration:none}table.cal td a span{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:break-word;hyphens:auto}table.cal td a:hover{text-decoration:underline}
-table.cal td a .flag{width:13px;height:10px;margin-top:1px}ol.past{opacity:.7}
-.empty{padding:20px;color:var(--muted)}
-footer{margin-top:40px;border-top:1px solid var(--line);padding:18px 0 30px;font-size:13.5px;color:var(--muted)}
-.notice{border-left:4px solid var(--accent);background:var(--soft);padding:8px 12px;font-size:14px;margin:12px 0}
-.notice.warn{border-color:var(--warm);background:#fffbeb}
-/* org chart */
-.seg{display:inline-flex;border:1px solid var(--ink)}.seg button{font:inherit;font-size:14px;padding:5px 12px;border:0;background:#fff;cursor:pointer}
-.seg button[aria-pressed=true]{background:var(--ink);color:#fff}
-.cols{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:12px}
-.cols.only-private,.cols.only-public{grid-template-columns:1fr}
-.cols.only-private .col-public,.cols.only-public .col-private{display:none}
-@media (max-width:760px){.cols{grid-template-columns:1fr}}
-.col>h2{margin:0 0 8px;padding:6px 10px;color:#fff;font-size:17px}
-.col-private>h2{background:var(--priv)}.col-public>h2{background:var(--pub)}
-.cgrp{margin:0 0 6px}.cgrp>h3{display:flex;align-items:center;gap:8px;font-size:16px;margin:16px 0 4px;padding-bottom:3px;border-bottom:2px solid var(--line)}
-.grp{margin:0 0 10px}.grp h4{font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:8px 0 6px}
-.card{border:1px solid var(--line);background:#fff;padding:8px 10px;margin:0 0 8px;cursor:pointer;text-align:left;width:100%;font:inherit;display:block}
-.card:hover,.card:focus-visible{border-color:var(--ink);outline:none}
-.card.hl{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}.card.dim{opacity:.35}
-.card .nm{font-weight:700}.card .ds{font-size:13.5px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.people{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-.person{display:flex;align-items:center;gap:6px;font-size:13px;border:1px solid var(--line);padding:3px 8px 3px 3px;background:var(--soft);cursor:pointer;font-family:inherit;max-width:100%}
-.person.hl{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
-.av{width:34px;height:34px;border-radius:50%;object-fit:cover;flex:none;display:inline-flex;align-items:center;justify-content:center;background:#e5e7eb;color:#374151;font-weight:700;font-size:13px}
-.av.big{width:96px;height:96px;font-size:28px}
-.xl{font-size:11.5px;padding:0 5px;margin-left:4px;border:1px solid}.xl.pub{color:var(--pub)}.xl.priv{color:var(--priv)}
-#detail{position:sticky;bottom:0;background:#fff;border:2px solid var(--ink);padding:12px 14px;margin-top:14px;max-height:60vh;overflow:auto}
-#detail[hidden]{display:none}#detail h3{margin:0 0 4px;font-size:19px}#detail .close{float:right;font:inherit;border:1px solid var(--ink);background:#fff;cursor:pointer}
-#detail ul{padding-left:18px;margin:6px 0}#detail .row{display:flex;gap:14px;align-items:flex-start}
-.credit{font-size:12px;color:var(--muted);text-align:start;margin:4px 0 0}
-.tablewrap{overflow-x:auto}
-table.list{width:100%;border-collapse:collapse;font-size:14.5px}table.list th,table.list td{border-bottom:1px solid var(--line);padding:6px 6px;text-align:left;vertical-align:top}
-table.list th{font-size:13px;color:var(--muted)}
-.ok{color:#047857;font-weight:600}.bad{color:#b91c1c;font-weight:600}
-.prose{max-width:72ch;text-align:start}
-.primary-src{font-size:13.5px;margin:6px 0 0;text-align:start}
-.tag.act{border-color:#047857;color:#047857;font-weight:600}.tag.inact{border-color:#9ca3af;color:#6b7280}
-.reg{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px;margin:10px 0}
-.reg article{border:1px solid var(--line);padding:10px 12px;background:#fff}.reg h3{display:flex;gap:8px;align-items:center;margin:0 0 6px;font-size:17px}
-.reg dl{margin:0;font-size:14px}.reg dt{font-weight:600;margin-top:6px}.reg dd{margin:0}
-
-.langsw{position:relative;margin-left:auto;font-size:14px;display:flex;gap:10px;align-items:baseline}
-.langsw details{position:relative}.langsw summary{cursor:pointer;list-style:none;border:1px solid var(--ink);padding:2px 8px}
+.brandrow{display:flex;align-items:center;justify-content:flex-start;gap:10px 18px;flex-wrap:wrap;text-align:start}
+.hdrbtns{display:flex;align-items:center;justify-content:flex-start;gap:8px;flex-wrap:wrap;min-width:0;text-align:start}
+.hdrsub{display:inline-block;padding:5px 13px;border:1px solid var(--accent);border-radius:var(--r-sm);background:var(--accent);color:var(--on-accent)!important;text-decoration:none;font-weight:500;font-size:14px;line-height:1.35;white-space:nowrap;text-align:start}
+.hdrsub:hover,.hdrsub:focus-visible{background:color-mix(in srgb,var(--accent) 82%,var(--fg));border-color:color-mix(in srgb,var(--accent) 82%,var(--fg))}
+.hdrx,.hdrtg{display:inline-block;padding:5px 11px;border:1px solid var(--line-strong);border-radius:var(--r-sm);color:var(--fg)!important;background:var(--surface);text-decoration:none;font-weight:500;font-size:13.5px;line-height:1.35;white-space:nowrap;text-align:start}
+.hdrx:hover,.hdrx:focus-visible,.hdrtg:hover,.hdrtg:focus-visible{border-color:var(--fg)}.hdrx .xs{display:none}
+nav.main{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:baseline;gap:2px 20px;font-size:15px;text-align:start;flex-basis:100%}
+nav.main a{text-decoration:none;color:var(--muted);font-weight:500;padding:6px 0 10px;border-bottom:2px solid transparent}
+nav.main a:hover{color:var(--fg)}
+nav.main a[aria-current]{color:var(--fg);border-color:var(--accent);font-weight:700}
+nav.main a.nav-quiet{font-size:14px}
+.langsw{position:relative;margin-left:auto;font-size:14px;display:flex;gap:12px;align-items:baseline}
+.langsw details{position:relative}.langsw summary{cursor:pointer;list-style:none;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);padding:3px 10px}
+.langsw summary:hover{border-color:var(--fg)}
 .langsw summary::-webkit-details-marker{display:none}
-.langsw ul{position:absolute;right:0;z-index:20;margin:4px 0 0;padding:4px 0;list-style:none;background:#fff;border:1px solid var(--ink);min-width:12.5rem;max-height:70vh;overflow:auto}
+.langsw ul{position:absolute;right:0;z-index:20;margin:6px 0 0;padding:6px 0;list-style:none;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);min-width:12.5rem;max-height:70vh;overflow:auto}
 html[dir=rtl] .langsw ul{right:auto;left:0}
-.langsw li a{display:block;padding:4px 12px;text-decoration:none;text-align:left}.langsw li a:hover,.langsw li a:focus{background:var(--soft)}
-.langsw li a[aria-current]{font-weight:700}.langsw .quick{font-size:13.5px}
+.langsw li a{display:block;padding:5px 14px;text-decoration:none;text-align:left}.langsw li a:hover,.langsw li a:focus{background:var(--soft)}
+.langsw li a[aria-current]{font-weight:700;color:var(--accent)}.langsw .quick{font-size:13.5px;color:var(--muted)}
 .navtoggle{display:none}
 .langpick,.langglobe{display:none}
-.vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+/* Wide screens: the brand row and the language switcher share the first line, the nav runs along the rule. */
+@media(min-width:961px){header.top .wrap{display:grid;grid-template-columns:auto 1fr;align-items:center}nav.main{grid-column:1/-1;grid-row:2}.langsw{grid-column:2;grid-row:1;justify-self:end}}
 /* Phones: iOS Safari paints an empty bordered box for an absolutely positioned list inside <details>.
    A native <select> is the control there. The list below is only the no-JS fallback, in normal flow. */
 @media(max-width:960px),(hover:none) and (pointer:coarse){
  .langsw{margin-left:0;width:auto;max-width:100%;justify-content:flex-start;align-items:center;flex-wrap:wrap;text-align:left}
- .langsw ul{position:static;right:auto;left:auto;width:100%;min-width:0;max-height:60vh;overflow:auto}
+ .langsw ul{position:static;right:auto;left:auto;width:100%;min-width:0;max-height:60vh;overflow:auto;box-shadow:none}
  .langsw li a{padding:10px 12px}
 }
 @media(max-width:960px){
+ header.top .wrap{padding-bottom:12px}
  .js .brandrow{width:100%}
  .js header.top .wrap{align-items:flex-start;justify-content:flex-start}
  .js header.top .wrap{gap:8px 10px}
- .js .navtoggle{display:inline-flex;align-items:center;justify-content:center;order:2;flex:none;width:44px;height:44px;padding:0;border:1px solid var(--ink);background:#fff;color:inherit;cursor:pointer;border-radius:0}
+ .js .navtoggle{display:inline-flex;align-items:center;justify-content:center;order:2;flex:none;width:44px;height:44px;padding:0;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);color:inherit;cursor:pointer}
+ .js .navtoggle[aria-expanded=true]{border-color:var(--fg)}
  .js .navtoggle .navbars{display:inline-flex;flex-direction:column;justify-content:center;gap:4px;width:18px}
- .js .navtoggle .navbars span{display:block;height:2px;background:currentColor}
- .js .navtoggle:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+ .js .navtoggle .navbars span{display:block;height:2px;background:currentColor;border-radius:1px}
+ .js .navtoggle:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
  .js nav.main{display:none;order:4;flex:1 0 100%;flex-direction:column;align-items:stretch;gap:0;margin:0;text-align:left}
  .js nav.main.is-open{display:flex}
- .js nav.main a{display:block;width:100%;text-align:left;padding:11px 2px;border-bottom:1px solid var(--line)}
+ .js nav.main a{display:block;width:100%;text-align:left;padding:12px 2px;margin:0;border-bottom:1px solid var(--line);font-size:16px}
+ .js nav.main a[aria-current]{border-bottom-color:var(--line);box-shadow:inset 3px 0 0 var(--accent);padding-left:12px}
  .js .langsw{order:3;flex:1 1 auto;min-width:0;flex-wrap:nowrap}
 }
 @media(max-width:960px),(hover:none) and (pointer:coarse){
@@ -191,73 +124,205 @@ html[dir=rtl] .langsw ul{right:auto;left:0}
  .js .langglobe{display:inline;font-size:16px;line-height:1}
  .js .langpick{display:inline-flex;align-items:center;justify-content:flex-start;min-width:0;max-width:100%;text-align:left}
  .js .langpick select{font-size:16px;line-height:1.3;min-height:44px;width:10.5rem;max-width:100%;text-align:left;text-align-last:left;padding:8px 28px 8px 10px}
- .js .langpick select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+ .js .langpick select:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
  .js .langsw .quick{font-size:16px;padding:10px 0;text-align:left}
 }
-@media(max-width:640px){.langsw{margin-left:0}}
-html.nc-pick body{visibility:hidden}
-.logo{width:28px;height:28px;object-fit:contain;flex:none;background:#fff}
+@media(max-width:640px){.langsw{margin-left:0}.brandrow{width:100%;justify-content:flex-start;flex-wrap:wrap;align-items:center}.brandrow .brand{white-space:nowrap;flex:none;text-align:start}.hdrsub{font-size:13px;padding:5px 10px;white-space:normal;text-align:start;min-width:0}.hdrbtns{flex:1 1 100%;flex-wrap:wrap;justify-content:flex-start}.hdrx,.hdrtg{flex:none;text-align:start}}
+@media(max-width:480px){.hdrx,.hdrtg{padding:4px 9px}}
+/* Footer: newsletter line, community buttons, notifications, the site note. A sable rule like the header's. */
+footer{margin-top:64px;border-top:3px solid var(--fg);background:var(--soft);padding:28px 0 44px;font-size:14px;line-height:1.6;color:var(--muted)}
+footer,footer .wrap,.nlfoot,.nlhome{text-align:start}
+footer b{color:var(--fg)}
+footer h2{font-size:20px;margin:18px 0 6px}
+.nlfoot{margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--line);text-align:start}.nlfoot .nlform{display:block;max-width:40rem}
+nav.community{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:center;gap:8px 10px;margin:10px 0 14px;text-align:start;width:fit-content;max-width:100%}
+.xfollow,.tgfollow{display:inline-block;padding:6px 13px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);color:var(--fg)!important;text-decoration:none;font-weight:500;text-align:start}.xfollow:hover,.xfollow:focus-visible,.tgfollow:hover,.tgfollow:focus-visible{border-color:var(--fg)}
+.nlhome{margin:36px 0 8px;padding-top:16px;border-top:1px solid var(--line);text-align:start}
+/* Shared components: filters and chips, segmented buttons, badges and tags, notices, buttons, tables. */
+.filters{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin:16px 0;padding:12px 14px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+.filters label,.filters .lbl{font-size:14px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:inherit;font-size:13.5px;line-height:1.3;padding:4px 12px;border:1px solid var(--line-strong);border-radius:999px;background:var(--surface);color:var(--fg);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.chip:hover{border-color:var(--fg)}
+.chip[aria-pressed=true]{background:var(--fg);border-color:var(--fg);color:var(--bg)}
+.seg{display:inline-flex;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);overflow:hidden}
+.seg button{font:inherit;font-size:14px;padding:6px 14px;border:0;background:transparent;color:var(--fg);cursor:pointer}
+.seg button+button{border-inline-start:1px solid var(--line)}
+.seg button:hover{background:var(--soft)}
+.seg button[aria-pressed=true]{background:var(--fg);color:var(--bg)}
+.flag{vertical-align:-2px;flex:none;border-radius:1px}
+.cc{display:inline-block;font:500 11px/1 var(--f-mono);letter-spacing:.06em;padding:3px 5px;border-radius:2px;background:var(--fg);color:var(--bg);vertical-align:1px}
+.tag{display:inline-block;font-size:12px;line-height:1.5;padding:0 7px;border:1px solid var(--line);border-radius:2px;background:var(--surface);margin-inline-start:4px;color:var(--muted)}
+.tag.pend{border-color:var(--warm);color:var(--warm);font-weight:700}.tag.paid{border-color:var(--warm);color:var(--warm)}
+.tag.act{border-color:var(--up);color:var(--up);font-weight:700}.tag.inact{border-color:var(--line);color:var(--muted)}
+.xl{font-size:11.5px;padding:0 5px;margin-left:4px;border:1px solid;border-radius:2px}.xl.pub{color:var(--pub)}.xl.priv{color:var(--priv)}
+.pw{font-size:12px;color:var(--warm)}
+.notice{border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:0 var(--r) var(--r) 0;background:var(--surface);padding:10px 14px;font-size:14px;margin:14px 0}
+.notice.warn{border-left-color:var(--warm);background:var(--warm-bg)}
+.notice summary{cursor:pointer;font-weight:500}
+.empty{padding:20px;color:var(--muted)}
+.credit{font-size:12px;color:var(--muted);text-align:start;margin:4px 0 0}
+.ok{color:var(--up);font-weight:700}.bad{color:var(--down);font-weight:700}
+.readat,.tipform button{display:inline-block;padding:9px 16px;border:1px solid var(--fg);border-radius:var(--r-sm);background:var(--fg);color:var(--bg);text-decoration:none;font-weight:500;cursor:pointer}
+.readat:hover,.readat:focus-visible,.tipform button:hover,.tipform button:focus-visible{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.appbar{margin:12px 0 14px;text-align:left}.ios-tv{text-align:left;margin:2px 0 10px}
+a.applink{display:inline-block;padding:7px 14px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);font-weight:500;font-size:15px;line-height:1.35;text-decoration:none;text-align:left}
+a.applink:hover,a.applink:focus-visible{border-color:var(--fg)}
+.tablewrap{overflow-x:auto}
+table.list{width:100%;border-collapse:collapse;font-size:14.5px}table.list th,table.list td{border-bottom:1px solid var(--line);padding:8px 8px;text-align:left;vertical-align:top}
+table.list thead th{font:500 11.5px/1.3 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}table.list tbody th{font-weight:500}
+table.list tbody tr:hover{background:color-mix(in srgb,var(--soft) 60%,transparent)}
+main .share a,main .share button{border-color:var(--line-strong);border-radius:var(--r-sm);background:var(--surface)}
+/* News: the lead story, the latest grid, story lists, outlet marks, coverage and illustrations. Start-aligned in every language. */
+.leadstory,.latest,.storygrid,.storycard,.leadstory h2,.latest h2,.storycard h3,.leadstory .sum,.storycard .sum,.leadstory .meta,.storycard .meta,.leadstory .orig,.storycard .orig{text-align:start}
+.leadstory{margin:12px 0 4px;padding:0 0 22px;border-bottom:3px solid var(--fg)}
+.leadstory h2{font-size:36px;line-height:1.08;margin:0 0 8px;text-align:start}
+.leadstory h2 a,.storycard h3 a{text-decoration:none}
+.leadstory h2 a:hover,.storycard h3 a:hover{text-decoration:underline;text-decoration-thickness:1px}
+.leadstory .sum{font-size:18px;line-height:1.55;margin:10px 0 0;max-width:66ch}
+.latest h2{font:500 12px/1.2 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:26px 0 4px;text-align:start}
+.storygrid{display:grid;grid-template-columns:1fr;column-gap:40px;align-items:stretch;text-align:start}
+.storycard{padding:16px 0 18px;border-bottom:1px solid var(--line);min-width:0;text-align:start}
+.storycard h3{font-size:22px;line-height:1.18;margin:0 0 4px;text-align:start}
+.storycard .sum{font-size:15px;line-height:1.55;margin:6px 0 0}
+@media(min-width:760px){.storygrid{grid-template-columns:1fr 1fr}}
+@media(min-width:1080px){.storygrid{grid-template-columns:1fr 1fr 1fr}}
+@media(min-width:1080px){.leadstory h2{font-size:46px}}
+@media(max-width:640px){.leadstory h2{font-size:28px}}
+.orig{font-size:13.5px;color:var(--muted);margin:0 0 4px;line-height:1.4;font-weight:400;text-align:start}
+.sum{margin:6px 0 0;max-width:72ch;line-height:1.55;text-align:left}.sum.pend{color:var(--warm);font-style:italic}
+.bridge{margin:6px 0 0;font-weight:500;text-align:left}
+ol.news{list-style:none;margin:0;padding:0;text-align:left}
+ol.news li{display:flex;flex-direction:row;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);text-align:start}
+ol.news .storybody{min-width:0;flex:1;text-align:start}
+ol.news h3{font-size:21px;line-height:1.2;margin:0 0 4px}ol.news h3 a{text-decoration:none}ol.news h3 a:hover{text-decoration:underline;text-decoration-thickness:1px}
+.ill{margin:0 0 10px;text-align:start}
+.ill img{display:block;width:100%;max-width:720px;height:auto;background:var(--soft);border-radius:var(--r)}
+.primary-src{font-size:13.5px;margin:6px 0 0;text-align:start}
+.src{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;vertical-align:middle;text-align:start}
+.src-logo-link{display:inline-flex;flex:none;align-items:center;line-height:0}
+.src-logo{height:18px;width:auto;max-width:96px;object-fit:contain;flex:none;background:#fff;padding:1px 2px;border-radius:2px}
+/* outlets that covered a story */
+.covrow,.readat-row,.also,.covbars,.covsort,.covlist,.covgroup,.cov-by-country,.cov-by-time{text-align:start}
+.covrow{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:6px 8px;margin:8px 0 0}
+.cov-logo{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;text-decoration:none}
+.cov-more{font-size:12.5px;color:var(--fg);border:1px solid var(--line);border-radius:999px;padding:1px 9px;background:var(--surface);text-decoration:none}
+.cov-more:hover,.cov-more:focus-visible{border-color:var(--fg)}
+.also{margin:10px 0}
+.covbars{margin:0 0 16px}
+.covbar{display:grid;grid-template-columns:minmax(7rem,12rem) minmax(4rem,16rem) 2rem;justify-content:start;align-items:center;gap:10px;margin:4px 0;font-size:14px;max-width:100%}
+@media(max-width:640px){.covbar{grid-template-columns:minmax(6rem,9rem) minmax(3rem,1fr) 2rem}}
+.covbar .track{display:block;height:6px;background:var(--soft);border-radius:3px;overflow:hidden}
+.covbar .fill{display:block;height:6px;background:var(--accent);border-radius:3px}
+.covbar .covn{font-variant-numeric:tabular-nums;color:var(--muted)}
+.covsort{margin:10px 0}
+.covgroup{margin:0 0 14px}
+.covgroup h3{display:flex;justify-content:flex-start;gap:8px;align-items:baseline;font-size:19px;margin:0 0 4px}
+.covlist{list-style:none;padding:0;margin:0}
+.covlist li{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:flex-start;gap:6px 12px;border-bottom:1px solid var(--line);padding:10px 0}
+.covlist .cov-title{flex:1 1 16rem;min-width:12rem}
+.cov-open{font-weight:500}
+/* Events: happening now, next events on the front page, event pages and the month calendar. */
+.evhero,.evsoon,.evfull,.evcard,.evmeta,.evsrc,.evplace{text-align:left}
+.evhero{border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:0 var(--r) var(--r) 0;background:var(--surface);padding:12px 18px;margin:18px 0}
+.evhero h2,.evsoon h2{text-align:left;font:500 12px/1.2 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 4px}
+.evhero h2{color:var(--accent);margin-top:4px}
+.evsoon h2{margin-top:30px}
+.evhero h3{font-size:28px;line-height:1.15;margin:0 0 6px;text-align:left}
+.evsoon{margin:8px 0 22px}
+.evsoon h3,.evfull h3{font-size:21px;line-height:1.2;margin:0 0 4px;text-align:left}
+.evhero h3 a,.evsoon h3 a,.evfull h3 a{text-decoration:none}
+.evhero h3 a:hover,.evsoon h3 a:hover,.evfull h3 a:hover{text-decoration:underline;text-decoration-thickness:1px}
+.evcard{padding:12px 0 14px;border-bottom:1px solid var(--line)}
+.evcard .meta{margin:4px 0 0}
+.evhero .evcard{border-bottom:0;padding:10px 0}
+.evhero .evcard+.evcard{border-top:1px solid var(--line)}
+.evsoon .evmeta{display:none}
+.evhero .evmeta,.evfull .evmeta{display:block}
+@media(min-width:760px){#evsoon-list{display:grid;grid-template-columns:1fr 1fr;column-gap:40px;align-items:stretch}}
+@media(min-width:1080px){#evsoon-list{grid-template-columns:1fr 1fr 1fr}}
+.evsrc{font-size:13.5px;color:var(--muted);margin:2px 0 0}
+.evpage,.evpage h1,.evpage h2,.evpage p,.evpage li{text-align:left}
+.evpage .evdesc{display:block;text-align:left;max-width:70ch;margin:10px 0 16px;line-height:1.6}
+.evofficial{display:inline-block;margin:10px 0 16px;padding:9px 16px;border:1px solid var(--fg);border-radius:var(--r-sm);background:var(--fg);color:var(--bg);text-decoration:none;font-weight:500;text-align:left}
+.evofficial:hover,.evofficial:focus-visible{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.evpage .evmeta{display:block;margin:4px 0}
+@media(max-width:640px){.evhero h3{font-size:23px}}
+/* month calendar */
+.calgrid{display:none}@media(min-width:760px){.calgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(460px,1fr));gap:24px;margin:18px 0}}
+table.cal{border-collapse:collapse;width:100%;table-layout:fixed;font-size:13px;background:var(--surface)}table.cal caption{text-align:left;font:600 22px/1.2 var(--f-display);padding:4px 0 8px}
+table.cal th{font:500 11px/1.2 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:6px 2px;background:var(--bg)}table.cal td{border:1px solid var(--line);vertical-align:top;height:68px;padding:3px 5px;overflow:hidden}
+table.cal td .d{font-variant-numeric:tabular-nums;color:var(--muted)}
+table.cal td.out{opacity:.35}table.cal td.today .d{background:var(--accent);color:var(--on-accent);padding:0 5px;border-radius:2px}table.cal td.has{background:color-mix(in srgb,var(--accent) 6%,var(--surface))}
+table.cal td a{display:flex;gap:3px;align-items:flex-start;font-size:11.5px;line-height:1.25;margin-top:3px;text-decoration:none}table.cal td a span{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:break-word;hyphens:auto}table.cal td a:hover{text-decoration:underline}
+table.cal td a .flag{width:13px;height:10px;margin-top:1px}ol.past{opacity:.75}
+/* Who's who: regulation by country, the two-column org chart, people, the detail panel and the industry map. */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:14px}
+.cols.only-private,.cols.only-public{grid-template-columns:1fr}
+.cols.only-private .col-public,.cols.only-public .col-private{display:none}
+@media (max-width:760px){.cols{grid-template-columns:1fr}}
+.col>h2{margin:0 0 8px;padding:0 0 8px;color:var(--fg);font-size:26px;border-bottom:3px solid}
+.col-private>h2{border-color:var(--priv)}.col-public>h2{border-color:var(--pub)}
+.cgrp{margin:0 0 6px}.cgrp>h3{display:flex;align-items:center;gap:8px;font-size:21px;margin:20px 0 6px;padding-bottom:4px;border-bottom:1px solid var(--line)}
+.grp{margin:0 0 12px}.grp h4{font:500 11.5px/1.3 var(--f-mono);text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin:12px 0 8px}
+.card{border:1px solid var(--line);border-radius:var(--r);background:var(--surface);color:inherit;padding:10px 12px;margin:0 0 8px;cursor:pointer;text-align:left;width:100%;font:inherit;display:block}
+.card:hover,.card:focus-visible{border-color:var(--muted)}
+.card:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.card.hl{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}.card.dim{opacity:.35}
+.card .nm{font-weight:700;line-height:1.35}.card .nm>.logo,.card .nm>.av{vertical-align:middle;margin-inline-end:8px}.card .ds{font-size:13.5px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.people{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.person{display:flex;align-items:center;gap:8px;font-size:13px;line-height:1.35;color:inherit;border:1px solid var(--line);border-radius:var(--r);padding:3px 10px 3px 3px;background:var(--soft);cursor:pointer;font-family:inherit;max-width:100%;text-align:start}
+.person:hover{border-color:var(--muted)}
+.person.hl{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.av{width:34px;height:34px;border-radius:50%;object-fit:cover;flex:none;display:inline-flex;align-items:center;justify-content:center;background:var(--line);color:var(--muted);font-weight:700;font-size:12.5px}
+.av.big{width:96px;height:96px;font-size:28px}
+.av.org{border-radius:var(--r);width:28px;height:28px;font-size:11px}
+.logo{width:28px;height:28px;object-fit:contain;flex:none;background:#fff;border-radius:2px}
 .logo.big{width:64px;height:64px}
-.card .nm{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.av.org{border-radius:4px;width:28px;height:28px;font-size:11px}
-.imap-cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin:12px 0}
-.imap-cat{border:1px solid var(--line);padding:8px 10px 10px;background:#fff}
-.imap-cat>h3{font-size:15px;margin:0 0 8px;padding-bottom:4px;border-bottom:2px solid var(--accent);display:flex;justify-content:space-between;gap:8px}
+#detail{position:sticky;bottom:0;background:var(--surface);border:1px solid var(--line-strong);border-top:3px solid var(--fg);border-radius:var(--r) var(--r) 0 0;box-shadow:var(--shadow);padding:14px 18px;margin-top:16px;max-height:60vh;overflow:auto}
+#detail[hidden]{display:none}#detail h3{margin:0 0 4px;font-size:24px}#detail .close{float:right;font:inherit;font-size:14px;padding:3px 10px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);color:var(--fg);cursor:pointer}
+#detail .close:hover{border-color:var(--fg)}
+#detail ul{padding-left:18px;margin:6px 0}#detail .row{display:flex;gap:14px;align-items:flex-start}
+/* regulation by country */
+.reg{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px;margin:12px 0}
+.reg article{border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;background:var(--surface)}.reg h3{display:flex;gap:8px;align-items:center;margin:0 0 8px;font-size:22px}
+.reg dl{margin:0;font-size:14px;line-height:1.55}.reg dt{font-weight:700;margin-top:8px}.reg dd{margin:0}
+/* industry map */
+.imap-cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin:14px 0}
+.imap-cat{border:1px solid var(--line);border-radius:var(--r);padding:10px 12px 12px;background:var(--surface)}
+.imap-cat>h3{font-size:19px;margin:0 0 10px;padding-bottom:5px;border-bottom:2px solid var(--priv);display:flex;justify-content:space-between;gap:8px}
 .imap-cat.pub>h3{border-color:var(--pub)}
 .tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:6px}
-.tile{display:flex;flex-direction:column;align-items:center;gap:4px;padding:6px 4px;border:1px solid var(--line);text-decoration:none;font-size:11.5px;line-height:1.2;text-align:center;min-height:86px;background:#fff;overflow-wrap:anywhere}
-.tile:hover,.tile:focus-visible{border-color:var(--ink);outline:none}
+.tile{display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 4px;border:1px solid var(--line);border-radius:var(--r-sm);text-decoration:none;font-size:11.5px;line-height:1.25;text-align:center;min-height:86px;background:var(--bg);overflow-wrap:anywhere}
+.tile:hover,.tile:focus-visible{border-color:var(--fg);outline:none}
 .tile .logo,.tile .av{width:40px;height:40px}.tile .fl{display:flex;gap:3px;align-items:center;color:var(--muted);font-size:10.5px}
 .imap[data-view=country] .imap-bycat,.imap[data-view=cat] .imap-bycountry{display:none}
 .rules-c .seg{margin:8px 0}
-.nlform{margin:12px 0;text-align:start}.nlform input[type=email]{padding:6px;width:100%;max-width:320px}.nlform button{padding:7px 14px;font-size:15px}.nlform .hp{position:absolute;left:-9999px}
-.nlconsent{display:block;margin:8px 0;max-width:40rem;text-align:start;font-size:15px}
-.nlmsg{display:block;margin-top:6px}.nlmsg.ok{color:#14532d}.nlmsg.warn{color:#9a3412}.nlfoot{margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--line);text-align:start}.nlfoot .nlform{display:block;max-width:40rem}.nlc label:not(.nlconsent){position:absolute;left:-9999px}
-.nlhome{margin:28px 0 8px;padding-top:12px;border-top:1px solid var(--line);text-align:start}
-.brandrow{display:flex;align-items:center;justify-content:flex-start;gap:10px 14px;flex-wrap:wrap;text-align:start}
-.hdrsub{display:inline-block;padding:5px 12px;border-radius:6px;background:#0f5ea8;color:#fff!important;text-decoration:none;font-weight:600;font-size:14px;line-height:1.3;white-space:nowrap;text-align:start}.hdrsub:hover,.hdrsub:focus{background:#0b4a85}
-.hdrbtns{display:flex;align-items:center;justify-content:flex-start;gap:6px;flex-wrap:wrap;min-width:0;text-align:start}
-.hdrx,.hdrtg{display:inline-block;padding:4px 10px;border:1px solid var(--ink);border-radius:6px;color:var(--ink)!important;background:#fff;text-decoration:none;font-weight:600;font-size:13px;line-height:1.3;white-space:nowrap;text-align:start}.hdrx:hover,.hdrx:focus,.hdrtg:hover,.hdrtg:focus{background:#f1f1f1}.hdrx .xs{display:none}
-.xfollow,.tgfollow{display:inline-block;padding:5px 12px;border:1px solid var(--ink);border-radius:6px;color:var(--ink)!important;text-decoration:none;font-weight:600;text-align:start}.xfollow:hover,.xfollow:focus,.tgfollow:hover,.tgfollow:focus{background:#f1f1f1}
-nav.community{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:center;gap:8px 10px;margin:8px 0 12px;text-align:start;width:fit-content;max-width:100%}
-footer,footer .wrap,.nlfoot,.nlhome{text-align:start}
-@media(max-width:640px){.brandrow{width:100%;justify-content:flex-start;flex-wrap:wrap;align-items:center}.brandrow .brand{white-space:nowrap;flex:none;text-align:start}.hdrsub{font-size:13px;padding:5px 10px;white-space:normal;text-align:start;min-width:0}.hdrbtns{flex:1 1 100%;flex-wrap:wrap;justify-content:flex-start}.hdrx,.hdrtg{flex:none;text-align:start}}
-@media(max-width:480px){.hdrx,.hdrtg{padding:4px 9px}}
-.nlissues{list-style:none;margin:8px 0 18px;padding:0}.nlissues li{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line)}
-.nlissues .th{flex:none;width:200px;max-width:40%}.nlissues img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--line)}
-.nlissues h3{font-size:18px;line-height:1.3;margin:0 0 4px}.nlissues h3 a{text-decoration:none}.nlissues h3 a:hover{text-decoration:underline}.nlissues .sum{margin-top:4px}
-.issue h1{overflow-wrap:break-word}
-.nlvideo{margin:16px 0 20px;max-width:960px}.nlvideo video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000}.nlvideo figcaption{margin-top:6px}
-.issuetext{overflow-wrap:break-word}.issuetext h2{font-size:19px}.issuetext ul{padding-left:20px}.issuetext li{margin:4px 0}.issuetext hr{border:0;border-top:1px solid var(--line);margin:22px 0}
-.bridge{margin:6px 0 0;font-weight:600;text-align:left}
-@media(max-width:520px){.nlissues li{flex-direction:column;gap:8px}.nlissues .th{width:100%;max-width:100%}h1{font-size:24px}}
-
-.appbar{margin:10px 0 14px;text-align:left}.ios-tv{text-align:left;margin:2px 0 10px}
-a.applink{display:inline-block;padding:8px 14px;border:2px solid var(--ink);font-weight:700;font-size:18px;line-height:1.3;text-decoration:none;text-align:left}
-a.applink:hover,a.applink:focus-visible{background:var(--soft)}
-.markets h1{font-size:32px}
+/* Markets: tiles at a glance, the volume share chart and the table of pairs. Start-aligned; no centred overview. */
+.markets h1{font-size:clamp(32px,4vw,44px)}
 .markets .lead,.markets p,.markets h2,.markets h3,.mkdash,.mktile,.mkboard{text-align:left}
 .mkcredit{margin:0 0 8px;text-align:left}
-.mktiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(10.5rem,1fr));gap:10px;justify-content:flex-start;align-items:stretch;margin:0 0 8px;text-align:left}
-.mktile{border:1px solid var(--line);background:#fff;padding:10px 12px;text-align:left;min-width:0}
-.mktile .k{display:flex;align-items:center;justify-content:flex-start;gap:8px;margin:0;font-weight:600;text-align:left}
+.mktiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(10.5rem,1fr));gap:12px;justify-content:flex-start;align-items:stretch;margin:0 0 10px;text-align:left}
+.mktile{border:1px solid var(--line);border-radius:var(--r);background:var(--surface);padding:12px 14px;text-align:left;min-width:0}
+.mktile .k{display:flex;align-items:center;justify-content:flex-start;gap:8px;margin:0;font-weight:500;text-align:left}
 .mktile .k img{width:22px;height:22px;flex:none;display:block}
-.mktile .sym{font-weight:500;color:var(--muted)}
-.mktile .px{font-size:22px;font-weight:700;line-height:1.15;margin:4px 0;font-variant-numeric:tabular-nums;text-align:left;overflow-wrap:anywhere}
-.mktile .unit{font-size:14px;font-weight:600;color:var(--muted)}
-.mktile .chg{margin:0;font-weight:600;font-variant-numeric:tabular-nums;text-align:left}
-.chg.up{color:var(--priv)}.chg.dn{color:#b91c1c}.chg.flat{color:var(--muted);font-weight:500}
+.mktile .sym{font:500 12px var(--f-mono);letter-spacing:.04em;color:var(--muted)}
+.mktile .px{font-size:21px;font-weight:700;line-height:1.15;margin:6px 0 4px;font-variant-numeric:lining-nums proportional-nums;text-align:left;overflow-wrap:anywhere}
+.mktile .unit{font:500 12px var(--f-mono);color:var(--muted)}
+.mktile .chg{margin:0;font-size:14px;font-weight:500;text-align:left}
+.chg.up{color:var(--up)}.chg.dn{color:var(--down)}.chg.flat{color:var(--muted);font-weight:400}
 .mkstats{list-style:none;margin:6px 0 0;padding:0;text-align:left}
-.mkstats li{text-align:left;font-variant-numeric:tabular-nums;margin:2px 0}
-.mkstats b{font-size:22px;font-weight:700;margin-right:6px}
-.mkboard h2{margin-top:8px;text-align:left}
+.mkstats li{text-align:left;margin:2px 0;color:var(--muted)}
+.mkstats b{font-size:22px;font-weight:700;margin-right:6px;color:var(--fg)}
+.mkboard h2{margin-top:10px;text-align:left}
 .mkwrap{overflow-x:auto;text-align:left;max-width:100%}
 table.mkpairs{width:100%;border-collapse:collapse;font-size:14.5px;text-align:left}
-table.mkpairs caption{text-align:left;font-weight:600;padding:4px 0}
-table.mkpairs th,table.mkpairs td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
-table.mkpairs th{font-size:13px;color:var(--muted);font-weight:600}
-table.mkpairs button.sort{font:inherit;font-size:13px;font-weight:600;color:var(--muted);background:none;border:0;padding:0;cursor:pointer;text-align:left}
-table.mkpairs button.sort[aria-pressed=true]{color:var(--ink);border-bottom:2px solid var(--accent)}
+table.mkpairs caption{text-align:left;font-weight:500;padding:4px 0}
+table.mkpairs th,table.mkpairs td{border-bottom:1px solid var(--line);padding:8px 8px;text-align:left;vertical-align:top}
+table.mkpairs thead th{font:500 11.5px/1.3 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+table.mkpairs tbody tr:hover{background:color-mix(in srgb,var(--soft) 60%,transparent)}
+table.mkpairs button.sort{font:inherit;letter-spacing:inherit;text-transform:inherit;color:var(--muted);background:none;border:0;padding:0 0 2px;cursor:pointer;text-align:left}
+table.mkpairs button.sort[aria-pressed=true]{color:var(--fg);border-bottom:2px solid var(--accent)}
 table.mkpairs .coin{display:flex;align-items:center;justify-content:flex-start;gap:8px;text-align:left}
 table.mkpairs .coin img{width:22px;height:22px;flex:none;display:block}
 table.mkpairs .pxs{font-weight:700;font-variant-numeric:tabular-nums;display:block;text-align:left}
@@ -266,80 +331,86 @@ table.mkpairs .sub{display:block;text-align:left}
  .mktiles{grid-template-columns:1fr 1fr}
  table.mkpairs thead{display:none}
  table.mkpairs,table.mkpairs tbody,table.mkpairs tr,table.mkpairs td{display:block;width:auto}
- table.mkpairs tr{border:1px solid var(--line);margin:0 0 10px;padding:8px 10px}
+ table.mkpairs tr{border:1px solid var(--line);border-radius:var(--r);background:var(--surface);margin:0 0 10px;padding:8px 12px}
+ table.mkpairs tbody tr:hover{background:var(--surface)}
  table.mkpairs td{border:0;padding:3px 0;text-align:left}
- table.mkpairs td::before{content:attr(data-label);display:block;font-size:12px;color:var(--muted);font-weight:600;text-align:left}
+ table.mkpairs td::before{content:attr(data-label);display:block;font:500 11px/1.3 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:left}
 }
 @media(max-width:420px){.mktiles{grid-template-columns:1fr}}
-@media(min-width:1100px){.markets h1{font-size:40px}.mktile .px{font-size:26px}}
-.mkvol{margin:8px 0 22px;text-align:left}
+@media(min-width:1100px){.mktile .px{font-size:24px}}
+.mkvol{margin:10px 0 24px;text-align:left}
 .mkvol h2,.mkvol p,.mkvol figcaption{text-align:left}
-.mkvol-row{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:flex-start;gap:6px 28px;text-align:left}
+.mkvol-row{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:flex-start;gap:8px 32px;text-align:left}
 .mkvol svg{width:220px;max-width:100%;height:auto;flex:none;display:block}
+.mkvol svg text{fill:var(--fg)}.mkvol svg text+text{fill:var(--muted)}
 .mklegend{list-style:none;margin:0;padding:0;text-align:left;flex:1 1 18rem;max-width:40rem}
 .mklegend li{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:8px;padding:4px 0;text-align:left}
-.mklegend .sw{width:14px;height:14px;flex:none;display:inline-block;border:1px solid rgba(17,17,17,.18)}
+.mklegend .sw{width:12px;height:12px;flex:none;display:inline-block;border-radius:2px}
 .mklegend img{width:22px;height:22px;flex:none;display:block}
 .mklegend .nm{text-align:left}
-.mklegend .pct{font-weight:700;font-variant-numeric:tabular-nums}
-.mklegend .meta{flex:1 0 100%;padding-left:22px;text-align:left}
+.mklegend .pct{font-weight:700}
+.mklegend .meta{flex:1 0 100%;padding-left:20px;text-align:left}
 .mkvol table.mkshare{width:auto;max-width:100%;margin:8px 0 0;text-align:left}
-.mkvol caption{text-align:left;font-weight:600;padding:6px 0}
+.mkvol caption{text-align:left;font-weight:500;padding:6px 0}
 /* end markets */
-.motto-sample{font-family:"Schibsted Grotesk",sans-serif;font-weight:500;letter-spacing:.22em;font-size:15px;margin:8px 0 16px}
-.hdr-sample{margin:12px 0 18px;padding:14px 16px 8px;background:var(--nc-argent);border-bottom:3px solid var(--nc-sable);max-width:36rem;text-align:start}
-.hdr-sample.dark{background:#0b0d10}.hdr-sample.dark .brand{color:#F5F5F4}.hdr-sample.dark .brand .w{color:var(--nc-or)}
-.hdr-sample figcaption{margin:8px 0 4px;text-align:start}
-.lockup{display:block;height:auto;max-width:100%;width:640px;margin:8px 0 16px}
-.swatches{list-style:none;padding:0;margin:8px 0 18px;text-align:start}.swatches li{display:flex;align-items:center;justify-content:flex-start;gap:10px;margin:6px 0}
-.swatches i{width:36px;height:36px;flex:none;border:1px solid var(--nc-sable);display:block}
-.filelist{padding-left:1.2em;text-align:start}.filelist li{margin:3px 0}
-
-.pushopt{text-align:start;margin:0 0 16px;padding:0 0 14px;border-bottom:1px solid var(--line);max-width:72ch}
-.pushopt h2{font-size:16px;margin:0 0 6px;text-align:start}
+/* Newsletter: signup form, the issue list, the video and the issue text. */
+.nlform{margin:14px 0;text-align:start}.nlform input[type=email]{padding:8px 10px;width:100%;max-width:320px}.nlform .hp{position:absolute;left:-9999px}
+.nlform button{padding:8px 16px;font-size:15px;font-weight:500;border:1px solid var(--accent);border-radius:var(--r-sm);background:var(--accent);color:var(--on-accent);cursor:pointer}
+.nlform button:hover,.nlform button:focus-visible{background:color-mix(in srgb,var(--accent) 82%,var(--fg));border-color:color-mix(in srgb,var(--accent) 82%,var(--fg))}
+.nlconsent{display:block;margin:10px 0;max-width:40rem;text-align:start;font-size:15px}
+.nlmsg{display:block;margin-top:6px}.nlmsg.ok{color:var(--up)}.nlmsg.warn{color:var(--warm)}.nlc label:not(.nlconsent){position:absolute;left:-9999px}
+.nlissues{list-style:none;margin:10px 0 20px;padding:0}.nlissues li{display:flex;gap:18px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--line)}
+.nlissues .th{flex:none;width:200px;max-width:40%}.nlissues img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--line);border-radius:var(--r)}
+.nlissues h3{font-size:22px;line-height:1.2;margin:0 0 4px}.nlissues h3 a{text-decoration:none}.nlissues h3 a:hover{text-decoration:underline;text-decoration-thickness:1px}.nlissues .sum{margin-top:4px}
+.issue h1{overflow-wrap:break-word}
+.nlvideo{margin:18px 0 22px;max-width:960px}.nlvideo video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000;border-radius:var(--r)}.nlvideo figcaption{margin-top:6px}
+.issuetext{overflow-wrap:break-word;max-width:70ch;line-height:1.65}.issuetext h2{font-size:24px}.issuetext ul{padding-left:20px}.issuetext li{margin:4px 0}.issuetext hr{border:0;border-top:1px solid var(--line);margin:24px 0}
+@media(max-width:520px){.nlissues li{flex-direction:column;gap:8px}.nlissues .th{width:100%;max-width:100%}h1{font-size:28px}}
+/* Talks: filters, one article per recording, a player that loads on click. */
+.talks,.talks h1,.talks h2,.talks p,.talks article,.talks label,.talks select,.talks .filters{text-align:start}
+.talks article{padding:18px 0;border-bottom:1px solid var(--line);max-width:74ch}
+.talks h2{font-size:23px;margin:0 0 4px}
+.talks .talk-play{display:inline-block;margin:10px 0;padding:7px 14px;font:inherit;font-weight:500;text-align:start;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);color:var(--fg);cursor:pointer}
+.talks .talk-play:hover,.talks .talk-play:focus-visible{border-color:var(--fg)}
+.talks iframe{display:block;width:100%;max-width:720px;aspect-ratio:16/9;height:auto;border:0;border-radius:var(--r);background:#111;margin:8px 0}
+.talks .filters{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:center;gap:10px 16px}
+.talks .filters select{font:inherit;text-align:start;max-width:100%}
+/* Browser notifications panel in the footer. */
+.pushopt{text-align:start;margin:0 0 18px;padding:0 0 16px;border-bottom:1px solid var(--line);max-width:72ch}
+.pushopt h2{font-size:20px;margin:0 0 6px;text-align:start}
 .pushopt p,.pushopt label{text-align:start}
 .pushopt .push-topics{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:6px 16px;margin:8px 0}
 .pushopt .push-c{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;font-size:14.5px;text-align:start}
-.pushopt button.push-btn{font:inherit;font-weight:600;padding:7px 12px;border:1px solid var(--ink);background:#fff;cursor:pointer;text-align:start}
-.pushopt button.push-btn:hover,.pushopt button.push-btn:focus-visible{background:var(--soft)}
+.pushopt button.push-btn{font:inherit;font-weight:500;padding:7px 14px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);color:var(--fg);cursor:pointer;text-align:start}
+.pushopt button.push-btn:hover,.pushopt button.push-btn:focus-visible{border-color:var(--fg)}
 .pushopt .push-status{min-height:1.3em;margin:8px 0;text-align:start}
-
-nav.main a.nav-quiet{font-size:14px}
-.talks,.talks h1,.talks h2,.talks p,.talks article,.talks label,.talks select,.talks .filters{text-align:start}
-.talks article{padding:16px 0;border-bottom:1px solid var(--line);max-width:74ch}
-.talks h2{font-size:20px;margin:0 0 4px}
-.talks .talk-play{display:inline-block;margin:8px 0;padding:8px 14px;font:inherit;font-weight:600;text-align:start;border:1px solid var(--ink);background:#fff;cursor:pointer}
-.talks .talk-play:hover,.talks .talk-play:focus-visible{background:var(--soft)}
-.talks iframe{display:block;width:100%;max-width:720px;aspect-ratio:16/9;height:auto;border:0;background:#111;margin:8px 0}
-.talks .filters{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:center;gap:8px 16px}
-.talks .filters select{font:inherit;text-align:start;max-width:100%}
-
 /* shoutbox */
 .home-with-chat{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;text-align:start}
 .home-with-chat .home-main{min-width:0;text-align:start}
 .shoutbox,.shout-panel,.shout-list,.shout-form,.shout-rules,.shout-privacy,.shout-user,.shout-shared,.shout-item,.shout-meta,.shout-msg{text-align:start}
-.shoutbox{border:1px solid var(--line);background:var(--soft);padding:10px 12px;margin:0 0 16px}
-.shout-panel h2{font-size:18px;margin:0 0 6px;text-align:start}
-.shout-user,.shout-shared,.shout-rules,.shout-privacy,.shout-more{font-size:13.5px;margin:0 0 8px;text-align:start}
-.shout-rules a{font-weight:600}
+.shoutbox{border:1px solid var(--line);border-radius:var(--r);background:var(--surface);padding:12px 14px;margin:0 0 18px}
+.shout-panel h2{font-size:21px;margin:0 0 6px;text-align:start}
+.shout-user,.shout-shared,.shout-rules,.shout-privacy,.shout-more{font-size:13.5px;margin:0 0 8px;text-align:start;color:var(--muted)}
+.shout-rules a{font-weight:500;color:var(--fg)}
 .shout-list{list-style:none;margin:0 0 8px;padding:0;max-height:280px;overflow:auto;text-align:start}
 .shoutbox-full .shout-list{max-height:70vh}
-.shout-item{border-bottom:1px solid var(--line);padding:6px 0;text-align:start}
+.shout-item{border-bottom:1px solid var(--line);padding:8px 0;text-align:start}
 .shout-meta{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:4px 8px;font-size:13px;color:var(--muted)}
-.shout-nick{font-weight:700;color:var(--ink)}
-.shout-lang{font-size:12px;border:1px solid var(--line);padding:0 4px;background:#fff}
+.shout-nick{font-weight:700;color:var(--fg)}
+.shout-lang{font:500 11px/1.4 var(--f-mono);border:1px solid var(--line);border-radius:2px;padding:0 4px;background:var(--bg)}
 .shout-msg{margin:2px 0 4px;white-space:pre-wrap;overflow-wrap:anywhere;text-align:start}
 .shout-form label{display:block;margin:8px 0 0;text-align:start}
-.shout-form input,.shout-form textarea{display:block;width:100%;max-width:100%;box-sizing:border-box;font:inherit;text-align:start;padding:6px}
+.shout-form input,.shout-form textarea{display:block;width:100%;max-width:100%;box-sizing:border-box;font:inherit;text-align:start;padding:7px 10px}
 .shout-form textarea{min-height:4.5em;resize:vertical}
-.shout-form button,.shout-report,.shout-older,.shout-toggle{font:inherit;font-weight:600;text-align:start;cursor:pointer;border:1px solid var(--ink);background:#fff;padding:6px 10px}
-.shout-form button{margin-top:8px}
-.shout-report{font-size:12px;font-weight:500;padding:2px 6px;color:var(--muted)}
+.shout-form button,.shout-report,.shout-older,.shout-toggle{font:inherit;font-weight:500;text-align:start;cursor:pointer;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);color:var(--fg);padding:6px 12px}
+.shout-form button:hover,.shout-older:hover,.shout-toggle:hover{border-color:var(--fg)}
+.shout-form button{margin-top:8px;background:var(--fg);border-color:var(--fg);color:var(--bg)}
+.shout-report{font-size:12px;font-weight:400;padding:2px 6px;color:var(--muted)}
 .shout-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .shout-status{min-height:1.2em;font-size:14px;text-align:start}
 .shout-toggle{display:none;width:100%;justify-content:flex-start}
 @media(min-width:960px){
- .home-with-chat{display:grid;grid-template-columns:minmax(0,1fr) 300px;column-gap:28px;align-items:start;justify-content:start}
+ .home-with-chat{display:grid;grid-template-columns:minmax(0,1fr) 300px;column-gap:32px;align-items:start;justify-content:start}
  .shoutbox{position:sticky;top:12px;margin:0}
  .shout-toggle{display:none}
  .shout-panel{display:block}
@@ -351,6 +422,16 @@ nav.main a.nav-quiet{font-size:14px}
  .shoutbox:not(.shoutbox-full).is-open .shout-panel{display:block}
 }
 /* /shoutbox */
+/* Logo and media kit page: samples keep the fixed brand tinctures in both themes. */
+.motto-sample{font-family:var(--f-ui);font-weight:500;letter-spacing:.22em;font-size:15px;margin:8px 0 16px}
+.hdr-sample{margin:12px 0 18px;padding:14px 16px 8px;background:var(--nc-argent);border-bottom:3px solid var(--nc-sable);border-radius:var(--r) var(--r) 0 0;max-width:36rem;text-align:start}
+.hdr-sample .brand{color:var(--nc-sable)}.hdr-sample .brand .w{color:var(--nc-gules)}
+.hdr-sample.dark{background:#0b0d10}.hdr-sample.dark .brand{color:#F5F5F4}.hdr-sample.dark .brand .w{color:var(--nc-or)}
+.hdr-sample figcaption{margin:8px 0 4px;text-align:start;color:var(--nc-sable)}.hdr-sample.dark figcaption{color:#F5F5F4}
+.lockup{display:block;height:auto;max-width:100%;width:640px;margin:8px 0 16px}
+.swatches{list-style:none;padding:0;margin:8px 0 18px;text-align:start}.swatches li{display:flex;align-items:center;justify-content:flex-start;gap:10px;margin:6px 0}
+.swatches i{width:36px;height:36px;flex:none;border:1px solid var(--line-strong);border-radius:2px;display:block}
+.filelist{padding-left:1.2em;text-align:start}.filelist li{margin:3px 0}
 
 .social{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;text-align:start;gap:4px 12px;margin:6px 0 0;font-size:13.5px;width:fit-content;max-width:100%}
 .social-label{color:var(--muted,#4B5563)}
@@ -367,27 +448,27 @@ nav.main a.nav-quiet{font-size:14px}
 </style></head>
 <body><header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="../../sw/"><img class="brandmark" src="../../assets/brand/icon.svg" width="32" height="32" alt="Nordic Crypto"><span aria-hidden="true">Nordic <span class="w">Crypto</span></span></a><span class="hdrbtns"><a class="hdrsub" href="../../sw/newsletter/#signup">Subscribe</a><a class="hdrtg" href="https://t.me/nordiccryptochat" rel="noopener" title="Nordic Crypto on Telegram (t.me/nordiccryptochat), the brand chat">Join on Telegram</a><a class="hdrx" href="https://x.com/xcryptonordic" rel="noopener" title="Nordic Crypto on X (@xcryptonordic), the site&#x27;s own account"><span class="xf">Follow on X</span><span class="xs" aria-hidden="true">X</span></a></span></div><button type="button" class="navtoggle" aria-expanded="false" aria-controls="sitenav" aria-label="Main menu"><span class="navbars" aria-hidden="true"><span></span><span></span><span></span></span></button><nav id="sitenav" class="main" aria-label="Main menu"><a href="../../sw/">News</a><a href="../../sw/newsletter/">Newsletter</a><a href="../../sw/calendar/">Calendar</a><a class="nav-quiet" href="../../sw/talks/">Hotuba</a><a href="../../sw/org-chart/" aria-current=page>Who&#x27;s who</a><a href="../../sw/academia/">Academia</a><a href="../../sw/markets/">Markets</a><a href="../../sw/sources/">Sources</a><a href="../../sw/about/">About</a><a href="../../sw/tip/">Send a tip</a><a href="../../api/">API</a></nav><div class="langsw"><span class="langglobe" aria-hidden="true">🌐</span><label class="langpick"><span class="vh">Choose language</span><select class="langsel"><option value="../../rules/" hreflang="en" lang="en" data-lang="en">English</option><option value="../../nn/rules/" hreflang="nn" lang="nn" data-lang="nn">Nynorsk</option><option value="../../nb/rules/" hreflang="nb" lang="nb" data-lang="nb">Bokmål</option><option value="../../sv/rules/" hreflang="sv" lang="sv" data-lang="sv">Svenska</option><option value="../../da/rules/" hreflang="da" lang="da" data-lang="da">Dansk</option><option value="../../fi/rules/" hreflang="fi" lang="fi" data-lang="fi">Suomi</option><option value="../../is/rules/" hreflang="is" lang="is" data-lang="is">Íslenska</option><option value="../../zh/rules/" hreflang="zh" lang="zh" data-lang="zh">中文</option><option value="../../hi/rules/" hreflang="hi" lang="hi" data-lang="hi">हिन्दी</option><option value="../../es/rules/" hreflang="es" lang="es" data-lang="es">Español</option><option value="../../fr/rules/" hreflang="fr" lang="fr" data-lang="fr">Français</option><option value="../../ar/rules/" hreflang="ar" lang="ar" dir="rtl" data-lang="ar">العربية</option><option value="../../bn/rules/" hreflang="bn" lang="bn" data-lang="bn">বাংলা</option><option value="../../pt/rules/" hreflang="pt" lang="pt" data-lang="pt">Português</option><option value="../../ru/rules/" hreflang="ru" lang="ru" data-lang="ru">Русский</option><option value="../../ur/rules/" hreflang="ur" lang="ur" dir="rtl" data-lang="ur">اردو</option><option value="../../id/rules/" hreflang="id" lang="id" data-lang="id">Bahasa Indonesia</option><option value="../../de/rules/" hreflang="de" lang="de" data-lang="de">Deutsch</option><option value="../../ja/rules/" hreflang="ja" lang="ja" data-lang="ja">日本語</option><option value="../../sw/rules/" hreflang="sw" lang="sw" data-lang="sw" selected>✓ Kiswahili</option><option value="../../mr/rules/" hreflang="mr" lang="mr" data-lang="mr">मराठी</option></select></label><details><summary aria-label="Choose language">🌐 Kiswahili</summary><ul role="list" aria-label="Language"><li><a href="../../rules/" hreflang="en" lang="en" data-lang="en">English</a></li><li><a href="../../nn/rules/" hreflang="nn" lang="nn" data-lang="nn">Nynorsk</a></li><li><a href="../../nb/rules/" hreflang="nb" lang="nb" data-lang="nb">Bokmål</a></li><li><a href="../../sv/rules/" hreflang="sv" lang="sv" data-lang="sv">Svenska</a></li><li><a href="../../da/rules/" hreflang="da" lang="da" data-lang="da">Dansk</a></li><li><a href="../../fi/rules/" hreflang="fi" lang="fi" data-lang="fi">Suomi</a></li><li><a href="../../is/rules/" hreflang="is" lang="is" data-lang="is">Íslenska</a></li><li><a href="../../zh/rules/" hreflang="zh" lang="zh" data-lang="zh">中文</a></li><li><a href="../../hi/rules/" hreflang="hi" lang="hi" data-lang="hi">हिन्दी</a></li><li><a href="../../es/rules/" hreflang="es" lang="es" data-lang="es">Español</a></li><li><a href="../../fr/rules/" hreflang="fr" lang="fr" data-lang="fr">Français</a></li><li><a href="../../ar/rules/" hreflang="ar" lang="ar" dir="rtl" data-lang="ar">العربية</a></li><li><a href="../../bn/rules/" hreflang="bn" lang="bn" data-lang="bn">বাংলা</a></li><li><a href="../../pt/rules/" hreflang="pt" lang="pt" data-lang="pt">Português</a></li><li><a href="../../ru/rules/" hreflang="ru" lang="ru" data-lang="ru">Русский</a></li><li><a href="../../ur/rules/" hreflang="ur" lang="ur" dir="rtl" data-lang="ur">اردو</a></li><li><a href="../../id/rules/" hreflang="id" lang="id" data-lang="id">Bahasa Indonesia</a></li><li><a href="../../de/rules/" hreflang="de" lang="de" data-lang="de">Deutsch</a></li><li><a href="../../ja/rules/" hreflang="ja" lang="ja" data-lang="ja">日本語</a></li><li><a href="../../sw/rules/" hreflang="sw" lang="sw" data-lang="sw" aria-current=true>Kiswahili</a></li><li><a href="../../mr/rules/" hreflang="mr" lang="mr" data-lang="mr">मराठी</a></li></ul></details></div></div></header>
 <main class="wrap">
-<style>
+<style>/* How the rules are made: the flowchart and the five steps. Inlined by tools/rules_page.py. */
 .rules-flow{max-width:760px}
-.rflow{display:block;width:100%;max-width:520px;height:auto;margin:6px 0 14px}
-.rflow rect{fill:#fff;stroke:var(--ink,#111);stroke-width:1.5}
-.rflow text{font:600 13px/1 system-ui,sans-serif;fill:var(--ink,#111)}
-.rflow .ar{stroke:var(--accent,#c00);stroke-width:2.5;fill:none;stroke-dasharray:6 6;animation:rdash 1.2s linear infinite}
-.rflow .ah{fill:var(--accent,#c00)}
+.rflow{display:block;width:100%;max-width:520px;height:auto;margin:8px 0 16px}
+.rflow rect{fill:var(--surface);stroke:var(--fg);stroke-width:1.5}
+.rflow text{font:600 13px/1 var(--f-ui);fill:var(--fg)}
+.rflow .ar{stroke:var(--accent);stroke-width:2.5;fill:none;stroke-dasharray:6 6;animation:rdash 1.2s linear infinite}
+.rflow .ah{fill:var(--accent)}
 .rflow .eea rect{stroke-dasharray:4 3}
 @keyframes rdash{to{stroke-dashoffset:-24}}
 @media (prefers-reduced-motion:reduce){.rflow .ar{animation:none;stroke-dasharray:none}.rstep{animation:none!important}}
 ol.rsteps{list-style:none;padding:0;margin:0;counter-reset:rs}
-.rstep{position:relative;border:1px solid var(--line,#ddd);border-left:4px solid var(--accent,#c00);padding:10px 12px;margin:0 0 22px;background:#fff;animation:rin .5s ease-out both}
-.rstep:not(:last-child)::after{content:"";position:absolute;left:24px;bottom:-22px;height:22px;border-left:2px dashed var(--accent,#c00)}
-.rstep h2{font-size:17px;margin:0 0 6px}.rstep h2::before{counter-increment:rs;content:counter(rs) ". ";color:var(--accent,#c00)}
+.rstep{position:relative;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:0 var(--r) var(--r) 0;padding:12px 16px;margin:0 0 24px;background:var(--surface);animation:rin .5s ease-out both}
+.rstep:not(:last-child)::after{content:"";position:absolute;left:24px;bottom:-24px;height:24px;border-left:2px dashed var(--accent)}
+.rstep h2{font-size:22px;margin:0 0 6px}.rstep h2::before{counter-increment:rs;content:counter(rs) ". ";color:var(--accent)}
 @keyframes rin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-.rnodes{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px;margin-top:8px}
-.rnode{border:1px solid var(--line,#ddd);padding:7px 9px;font-size:13.5px;line-height:1.35}
-.rnode b{display:block}.rnode .k{font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted,#666)}
-.rnode .ln{font-size:12px;margin-top:3px}
+.rnodes{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px;margin-top:10px}
+.rnode{border:1px solid var(--line);border-radius:var(--r-sm);background:var(--bg);padding:8px 10px;font-size:13.5px;line-height:1.4}
+.rnode b{display:block}.rnode .k{font:500 11px/1.3 var(--f-mono);text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.rnode .ln{font-size:12px;margin-top:4px}
 .rnode[data-route=eea]{border-style:dashed}
-.rules-c .seg button[aria-pressed=true]{background:var(--ink,#111);color:#fff}
+.rules-c .seg button[aria-pressed=true]{background:var(--fg);color:var(--bg)}
 .rules-hidden{display:none!important}
 </style><div class="rules-flow"><h1>How the rules are made</h1><p class="lead">A simplified map of how crypto rules travel from Brussels to the five Nordic countries, and who supervises and enforces them. Every box links to its legal source and, where we have one, to the entry in our org chart. Choose a country to follow its route.</p><p><a href="../org-chart/">← Who&#x27;s who</a> · <a href="../org-chart/#industry-map">Industry map</a> · <a href="../regulation-videos/">Country explainer videos</a></p><div class="rules-c"><div class="seg" id="rcountry" role="group" aria-label="Country"><button type="button" data-c="all" aria-pressed="true">All</button><button type="button" data-c="NO" aria-pressed="false"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Norway"><title>Norway</title><rect width="22" height="16" fill="#BA0C2F"/><rect x="6" width="4" height="16" fill="#fff"/><rect y="6" width="22" height="4" fill="#fff"/><rect x="7" width="2" height="16" fill="#00205B"/><rect y="7" width="22" height="2" fill="#00205B"/></svg> Norway</button><button type="button" data-c="SE" aria-pressed="false"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Sweden"><title>Sweden</title><rect width="22" height="16" fill="#006AA7"/><rect x="6" width="4" height="16" fill="#FECC00"/><rect y="6" width="22" height="4" fill="#FECC00"/></svg> Sweden</button><button type="button" data-c="DK" aria-pressed="false"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Denmark"><title>Denmark</title><rect width="22" height="16" fill="#C8102E"/><rect x="6" width="4" height="16" fill="#fff"/><rect y="6" width="22" height="4" fill="#fff"/></svg> Denmark</button><button type="button" data-c="FI" aria-pressed="false"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Finland"><title>Finland</title><rect width="22" height="16" fill="#fff" stroke="#9ca3af" stroke-width=".6"/><rect x="6" width="4" height="16" fill="#002F6C"/><rect y="6" width="22" height="4" fill="#002F6C"/></svg> Finland</button><button type="button" data-c="IS" aria-pressed="false"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Iceland"><title>Iceland</title><rect width="22" height="16" fill="#02529C"/><rect x="6" width="4" height="16" fill="#fff"/><rect y="6" width="22" height="4" fill="#fff"/><rect x="7" width="2" height="16" fill="#DC1E35"/><rect y="7" width="22" height="2" fill="#DC1E35"/></svg> Iceland</button></div></div><figure><figcaption class="meta">Diagram (the full text version follows below)</figcaption><svg class="rflow" viewBox="0 0 520 320" aria-hidden="true" focusable="false"><g transform="translate(10,10)"><rect width="500" height="40" rx="6"/><text x="16" y="25">1. EU level</text></g><g transform="translate(10,72)"><rect width="500" height="40" rx="6"/><text x="16" y="25">2. Into national law</text></g><g transform="translate(10,134)"><rect width="500" height="40" rx="6"/><text x="16" y="25">3. Parliament and ministry</text></g><g transform="translate(10,196)"><rect width="500" height="40" rx="6"/><text x="16" y="25">4. Supervisor</text></g><g transform="translate(10,258)"><rect width="500" height="40" rx="6"/><text x="16" y="25">5. Enforcement</text></g><path class="ar" d="M60 50 V70"/><path class="ah" d="M54 66 L60 72 L66 66Z"/><path class="ar" d="M60 112 V132"/><path class="ah" d="M54 128 L60 134 L66 128Z"/><path class="ar" d="M60 174 V194"/><path class="ah" d="M54 190 L60 196 L66 190Z"/><path class="ar" d="M60 236 V256"/><path class="ah" d="M54 252 L60 258 L66 252Z"/><g class="eea" transform="translate(300,76)"><rect width="200" height="32" rx="6"/><text x="12" y="21">NO · IS: EEA route</text></g></svg></figure><ol class="rsteps"><li class="rstep" style="animation-delay:0.00s"><h2>EU level</h2><p>The European Commission proposes a regulation; the European Parliament and the Council adopt it under the ordinary legislative procedure. ESMA and EBA then fill in details and supervise parts of it.</p><div class="rnodes"><div class="rnode"><span class="k">proposes</span><b>European Commission</b><div class="ln"><a href="https://eur-lex.europa.eu/eli/reg/2023/1114/oj/eng" rel="noopener" target="_blank" title="Regulation (EU) 2023/1114 (MiCA), Art. 149 and closing formula">EUR-Lex</a></div></div><div class="rnode"><span class="k">adopts</span><b>European Parliament</b><div class="ln"><a href="https://eur-lex.europa.eu/eli/reg/2023/1114/oj/eng" rel="noopener" target="_blank" title="Regulation (EU) 2023/1114 (MiCA), Art. 149 and closing formula">EUR-Lex</a></div></div><div class="rnode"><span class="k">adopts</span><b>Council of the EU</b><div class="ln"><a href="https://eur-lex.europa.eu/eli/reg/2023/1114/oj/eng" rel="noopener" target="_blank" title="Regulation (EU) 2023/1114 (MiCA), Art. 149 and closing formula">EUR-Lex</a></div></div><div class="rnode"><span class="k">Regulation (EU) 2023/1114</span><b>MiCA</b><div>Markets in crypto-assets: licences for crypto-asset service providers, rules for issuers and stablecoins.</div><div class="ln">applies from 30 December 2024 · <a href="https://eur-lex.europa.eu/eli/reg/2023/1114/oj/eng" rel="noopener" target="_blank" title="Regulation (EU) 2023/1114 (MiCA), Art. 149 and closing formula">EUR-Lex</a></div></div><div class="rnode"><span class="k">Regulation (EU) 2023/1113</span><b>Transfer of Funds Regulation</b><div>&#x27;Travel rule&#x27;: information about sender and recipient must follow crypto transfers.</div><div class="ln">applies from 30 December 2024 · <a href="https://eur-lex.europa.eu/eli/reg/2023/1113/oj/eng" rel="noopener" target="_blank" title="Regulation (EU) 2023/1113 (transfer of funds and certain crypto-assets), Art. 40">EUR-Lex</a></div></div><div class="rnode"><span class="k">Regulation (EU) 2024/1624</span><b>AMLR</b><div>EU anti-money-laundering rulebook, including crypto-asset service providers.</div><div class="ln">applies from 10 July 2027 · <a href="https://eur-lex.europa.eu/eli/reg/2024/1624/oj/eng" rel="noopener" target="_blank" title="Regulation (EU) 2024/1624 (AMLR), Art. 90">EUR-Lex</a></div></div><div class="rnode"><span class="k">Regulation (EU) 2022/2554</span><b>DORA</b><div>Digital operational resilience (ICT risk) for financial firms, including crypto-asset service providers.</div><div class="ln">applies from 17 January 2025 · <a href="https://eur-lex.europa.eu/eli/reg/2022/2554/oj/eng" rel="noopener" target="_blank" title="Regulation (EU) 2022/2554 (DORA), Art. 64">EUR-Lex</a></div></div><div class="rnode"><span class="k">EU</span><b>ESMA</b><div>Keeps the MiCA register and drafts technical standards.</div><div class="ln"><a href="https://eur-lex.europa.eu/eli/reg/2023/1114/oj/eng" rel="noopener" target="_blank" title="Regulation (EU) 2023/1114 (MiCA), Art. 149 and closing formula">EUR-Lex</a> · <a href="https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica" rel="noopener" target="_blank" title="Markets in Crypto-Assets Regulation (MiCA) – interim MiCA register">ESMA</a> · <a href="../org-chart/#esma">org chart</a></div></div><div class="rnode"><span class="k">EU</span><b>EBA</b><div>Supervises issuers of significant stablecoins (asset-referenced and e-money tokens).</div><div class="ln"><a href="https://eur-lex.europa.eu/eli/reg/2023/1114/oj/eng" rel="noopener" target="_blank" title="Regulation (EU) 2023/1114 (MiCA), Art. 149 and closing formula">EUR-Lex</a> · <a href="../org-chart/#eba">org chart</a></div></div></div></li><li class="rstep" style="animation-delay:0.12s"><h2>Into national law</h2><p data-route-text="eu">Sweden, Denmark and Finland are EU members: EU regulations are binding and directly applicable there. A national act adds what the regulation leaves to each country, such as which authority is in charge. <span class="meta">(<a href="https://eur-lex.europa.eu/eli/reg/2023/1114/oj/eng" rel="noopener" target="_blank" title="Regulation (EU) 2023/1114 (MiCA), Art. 149 and closing formula">EUR-Lex</a>)</span></p><p data-route-text="eea">The EEA Joint Committee decided on 20 February 2025 (Decision No 41/2025) to incorporate MiCA into the EEA Agreement; Norway and Iceland then gave it effect in national law. <span class="meta">(<a href="https://www.althingi.is/altext/stjt/2025.101.html" rel="noopener" target="_blank" title="Lög nr. 101/2025 um markaði fyrir sýndareignir (Art. 1, 3 and 16)">Alþingi</a>)</span></p><div class="rnodes"><div class="rnode" data-rc="NO" data-route="eea"><span class="k">National act</span><b>Lov om kryptoeiendeler (LOV-2025-05-27-20)</b><div class="ln"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Norway"><title>Norway</title><rect width="22" height="16" fill="#BA0C2F"/><rect x="6" width="4" height="16" fill="#fff"/><rect y="6" width="22" height="4" fill="#fff"/><rect x="7" width="2" height="16" fill="#00205B"/><rect y="7" width="22" height="2" fill="#00205B"/></svg> Norway · EEA route · <a href="https://lovdata.no/dokument/NL/lov/2025-05-27-20" rel="noopener" target="_blank" title="Lov om kryptoeiendeler (kryptoeiendelsloven), LOV-2025-05-27-20, § 2">Lovdata</a></div></div><div class="rnode" data-rc="SE" data-route="eu"><span class="k">National act</span><b>Lag (2024:1159)</b><div class="ln"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Sweden"><title>Sweden</title><rect width="22" height="16" fill="#006AA7"/><rect x="6" width="4" height="16" fill="#FECC00"/><rect y="6" width="22" height="4" fill="#FECC00"/></svg> Sweden · EU member · <a href="https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-20241159-med-kompletterande-bestammelser_sfs-2024-1159/" rel="noopener" target="_blank" title="Lag (2024:1159) med kompletterande bestämmelser till EU:s förordning om marknader för kryptotillgångar, 1 kap. 2 §">Sveriges riksdag</a></div></div><div class="rnode" data-rc="DK" data-route="eu"><span class="k">National act</span><b>Lov om finansiel virksomhed § 332 c</b><div class="ln"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Denmark"><title>Denmark</title><rect width="22" height="16" fill="#C8102E"/><rect x="6" width="4" height="16" fill="#fff"/><rect y="6" width="22" height="4" fill="#fff"/></svg> Denmark · EU member · <a href="https://www.retsinformation.dk/eli/lta/2024/1013" rel="noopener" target="_blank" title="Bekendtgørelse af lov om finansiel virksomhed, § 332 c (authorisation by Finanstilsynet under MiCA Art. 63)">Retsinformation</a></div></div><div class="rnode" data-rc="FI" data-route="eu"><span class="k">National act</span><b>Laki 402/2024</b><div class="ln"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Finland"><title>Finland</title><rect width="22" height="16" fill="#fff" stroke="#9ca3af" stroke-width=".6"/><rect x="6" width="4" height="16" fill="#002F6C"/><rect y="6" width="22" height="4" fill="#002F6C"/></svg> Finland · EU member · <a href="https://www.finlex.fi/fi/lainsaadanto/2024/402" rel="noopener" target="_blank" title="Laki kryptovarapalvelun tarjoajista ja kryptovaramarkkinoista 402/2024, 2 § (Finanssivalvonta supervises)">Finlex</a></div></div><div class="rnode" data-rc="IS" data-route="eea"><span class="k">National act</span><b>Lög nr. 101/2025</b><div class="ln"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Iceland"><title>Iceland</title><rect width="22" height="16" fill="#02529C"/><rect x="6" width="4" height="16" fill="#fff"/><rect y="6" width="22" height="4" fill="#fff"/><rect x="7" width="2" height="16" fill="#DC1E35"/><rect y="7" width="22" height="2" fill="#DC1E35"/></svg> Iceland · EEA route · <a href="https://www.althingi.is/altext/stjt/2025.101.html" rel="noopener" target="_blank" title="Lög nr. 101/2025 um markaði fyrir sýndareignir (Art. 1, 3 and 16)">Alþingi</a></div></div></div></li><li class="rstep" style="animation-delay:0.24s"><h2>Parliament and ministry</h2><p><span class="tag">General description</span> As a rule, the ministry responsible for financial markets prepares the bill and the national parliament adopts it.</p><div class="rnodes"><div class="rnode" data-rc="NO"><span class="k">Parliament</span><b>Stortinget</b><div class="ln"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Norway"><title>Norway</title><rect width="22" height="16" fill="#BA0C2F"/><rect x="6" width="4" height="16" fill="#fff"/><rect y="6" width="22" height="4" fill="#fff"/><rect x="7" width="2" height="16" fill="#00205B"/><rect y="7" width="22" height="2" fill="#00205B"/></svg> Norway · <a href="https://lovdata.no/dokument/NL/lov/2025-05-27-20" rel="noopener" target="_blank" title="Lov om kryptoeiendeler (kryptoeiendelsloven), LOV-2025-05-27-20, § 2">Lovdata</a> · <a href="../org-chart/#stortinget-finanskomiteen">org chart</a></div></div><div class="rnode" data-rc="NO"><span class="k">Ministry</span><b>Finansdepartementet</b><div class="ln"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Norway"><title>Norway</title><rect width="22" height="16" fill="#BA0C2F"/><rect x="6" width="4" height="16" fill="#fff"/><rect y="6" width="22" height="4" fill="#fff"/><rect x="7" width="2" height="16" fill="#00205B"/><rect y="7" width="22" height="2" fill="#00205B"/></svg> Norway · <a href="../org-chart/#finansdepartementet">org chart</a></div></div><div class="rnode" data-rc="SE"><span class="k">Parliament</span><b>Riksdagen</b><div class="ln"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Sweden"><title>Sweden</title><rect width="22" height="16" fill="#006AA7"/><rect x="6" width="4" height="16" fill="#FECC00"/><rect y="6" width="22" height="4" fill="#FECC00"/></svg> Sweden · <a href="https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-20241159-med-kompletterande-bestammelser_sfs-2024-1159/" rel="noopener" target="_blank" title="Lag (2024:1159) med kompletterande bestämmelser till EU:s förordning om marknader för kryptotillgångar, 1 kap. 2 §">Sveriges riksdag</a></div></div><div class="rnode" data-rc="SE"><span class="k">Ministry</span><b>Finansdepartementet</b><div class="ln"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Sweden"><title>Sweden</title><rect width="22" height="16" fill="#006AA7"/><rect x="6" width="4" height="16" fill="#FECC00"/><rect y="6" width="22" height="4" fill="#FECC00"/></svg> Sweden · <a href="../org-chart/#se-finansdepartementet">org chart</a></div></div><div class="rnode" data-rc="DK"><span class="k">Parliament</span><b>Folketinget</b><div class="ln"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Denmark"><title>Denmark</title><rect width="22" height="16" fill="#C8102E"/><rect x="6" width="4" height="16" fill="#fff"/><rect y="6" width="22" height="4" fill="#fff"/></svg> Denmark · <a href="https://www.retsinformation.dk/eli/lta/2024/1013" rel="noopener" target="_blank" title="Bekendtgørelse af lov om finansiel virksomhed, § 332 c (authorisation by Finanstilsynet under MiCA Art. 63)">Retsinformation</a></div></div><div class="rnode" data-rc="DK"><span class="k">Ministry</span><b>Erhvervsministeriet</b><div class="ln"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Denmark"><title>Denmark</title><rect width="22" height="16" fill="#C8102E"/><rect x="6" width="4" height="16" fill="#fff"/><rect y="6" width="22" height="4" fill="#fff"/></svg> Denmark · <a href="../org-chart/#dk-erhvervsministeriet">org chart</a></div></div><div class="rnode" data-rc="FI"><span class="k">Parliament</span><b>Eduskunta</b><div class="ln"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Finland"><title>Finland</title><rect width="22" height="16" fill="#fff" stroke="#9ca3af" stroke-width=".6"/><rect x="6" width="4" height="16" fill="#002F6C"/><rect y="6" width="22" height="4" fill="#002F6C"/></svg> Finland · <a href="https://www.finlex.fi/fi/lainsaadanto/2024/402" rel="noopener" target="_blank" title="Laki kryptovarapalvelun tarjoajista ja kryptovaramarkkinoista 402/2024, 2 § (Finanssivalvonta supervises)">Finlex</a></div></div><div class="rnode" data-rc="FI"><span class="k">Ministry</span><b>Valtiovarainministeriö</b><div class="ln"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Finland"><title>Finland</title><rect width="22" height="16" fill="#fff" stroke="#9ca3af" stroke-width=".6"/><rect x="6" width="4" height="16" fill="#002F6C"/><rect y="6" width="22" height="4" fill="#002F6C"/></svg> Finland · <a href="../org-chart/#fi-vm">org chart</a></div></div><div class="rnode" data-rc="IS"><span class="k">Parliament</span><b>Alþingi</b><div class="ln"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Iceland"><title>Iceland</title><rect width="22" height="16" fill="#02529C"/><rect x="6" width="4" height="16" fill="#fff"/><rect y="6" width="22" height="4" fill="#fff"/><rect x="7" width="2" height="16" fill="#DC1E35"/><rect y="7" width="22" height="2" fill="#DC1E35"/></svg> Iceland · <a href="https://www.althingi.is/altext/stjt/2025.101.html" rel="noopener" target="_blank" title="Lög nr. 101/2025 um markaði fyrir sýndareignir (Art. 1, 3 and 16)">Alþingi</a></div></div><div class="rnode" data-rc="IS"><span class="k">Ministry</span><b>Fjármála- og efnahagsráðuneytið</b><div class="ln"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Iceland"><title>Iceland</title><rect width="22" height="16" fill="#02529C"/><rect x="6" width="4" height="16" fill="#fff"/><rect y="6" width="22" height="4" fill="#fff"/><rect x="7" width="2" height="16" fill="#DC1E35"/><rect y="7" width="22" height="2" fill="#DC1E35"/></svg> Iceland · <a href="../org-chart/#is-fjr">org chart</a></div></div></div></li><li class="rstep" style="animation-delay:0.36s"><h2>Supervisor</h2><p>The national competent authority authorises crypto-asset service providers and supervises them.</p><p data-rc="FI"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Finland"><title>Finland</title><rect width="22" height="16" fill="#fff" stroke="#9ca3af" stroke-width=".6"/><rect x="6" width="4" height="16" fill="#002F6C"/><rect y="6" width="22" height="4" fill="#002F6C"/></svg> Act 402/2024 supplements MiCA; under its section 2, Finanssivalvonta supervises compliance. <span class="meta">(<a href="https://www.finlex.fi/fi/lainsaadanto/2024/402" rel="noopener" target="_blank" title="Laki kryptovarapalvelun tarjoajista ja kryptovaramarkkinoista 402/2024, 2 § (Finanssivalvonta supervises)">Finlex</a>)</span></p><div class="rnodes"><div class="rnode" data-rc="NO"><span class="k">Supervisor</span><b>Finanstilsynet</b><div class="ln"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Norway"><title>Norway</title><rect width="22" height="16" fill="#BA0C2F"/><rect x="6" width="4" height="16" fill="#fff"/><rect y="6" width="22" height="4" fill="#fff"/><rect x="7" width="2" height="16" fill="#00205B"/><rect y="7" width="22" height="2" fill="#00205B"/></svg> Norway · <a href="https://lovdata.no/dokument/NL/lov/2025-05-27-20" rel="noopener" target="_blank" title="Lov om kryptoeiendeler (kryptoeiendelsloven), LOV-2025-05-27-20, § 2">Lovdata</a> · <a href="../org-chart/#finanstilsynet">org chart</a></div></div><div class="rnode" data-rc="SE"><span class="k">Supervisor</span><b>Finansinspektionen</b><div class="ln"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Sweden"><title>Sweden</title><rect width="22" height="16" fill="#006AA7"/><rect x="6" width="4" height="16" fill="#FECC00"/><rect y="6" width="22" height="4" fill="#FECC00"/></svg> Sweden · <a href="https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-20241159-med-kompletterande-bestammelser_sfs-2024-1159/" rel="noopener" target="_blank" title="Lag (2024:1159) med kompletterande bestämmelser till EU:s förordning om marknader för kryptotillgångar, 1 kap. 2 §">Sveriges riksdag</a> · <a href="../org-chart/#se-fi">org chart</a></div></div><div class="rnode" data-rc="DK"><span class="k">Supervisor</span><b>Finanstilsynet</b><div class="ln"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Denmark"><title>Denmark</title><rect width="22" height="16" fill="#C8102E"/><rect x="6" width="4" height="16" fill="#fff"/><rect y="6" width="22" height="4" fill="#fff"/></svg> Denmark · <a href="https://www.retsinformation.dk/eli/lta/2024/1013" rel="noopener" target="_blank" title="Bekendtgørelse af lov om finansiel virksomhed, § 332 c (authorisation by Finanstilsynet under MiCA Art. 63)">Retsinformation</a> · <a href="https://www.finanstilsynet.dk/finansielle-temaer/fintech/finanstilsynets-praksis-paa-markedet-for-kryptoaktiver" rel="noopener" target="_blank" title="Information om Finanstilsynets praksis på markedet for kryptoaktiver (cites § 332 c of lov om finansiel virksomhed)">Finanstilsynet (DK)</a> · <a href="../org-chart/#dk-finanstilsynet">org chart</a></div></div><div class="rnode" data-rc="FI"><span class="k">Supervisor</span><b>Finanssivalvonta</b><div class="ln"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Finland"><title>Finland</title><rect width="22" height="16" fill="#fff" stroke="#9ca3af" stroke-width=".6"/><rect x="6" width="4" height="16" fill="#002F6C"/><rect y="6" width="22" height="4" fill="#002F6C"/></svg> Finland · <a href="https://www.finlex.fi/fi/lainsaadanto/2024/402" rel="noopener" target="_blank" title="Laki kryptovarapalvelun tarjoajista ja kryptovaramarkkinoista 402/2024, 2 § (Finanssivalvonta supervises)">Finlex</a> · <a href="https://www.finanssivalvonta.fi/en/publications-and-press-releases/news-releases/2026/crypto-asset-service-providers-in-finland-must-be-authorised-in-the-eu/" rel="noopener" target="_blank" title="Crypto-asset service providers in Finland must be authorised in the EU">Finanssivalvonta</a> · <a href="../org-chart/#fi-fiva">org chart</a></div></div><div class="rnode" data-rc="IS"><span class="k">Supervisor</span><b>Seðlabanki Íslands – Fjármálaeftirlit</b><div class="ln"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Iceland"><title>Iceland</title><rect width="22" height="16" fill="#02529C"/><rect x="6" width="4" height="16" fill="#fff"/><rect y="6" width="22" height="4" fill="#fff"/><rect x="7" width="2" height="16" fill="#DC1E35"/><rect y="7" width="22" height="2" fill="#DC1E35"/></svg> Iceland · <a href="https://www.althingi.is/altext/stjt/2025.101.html" rel="noopener" target="_blank" title="Lög nr. 101/2025 um markaði fyrir sýndareignir (Art. 1, 3 and 16)">Alþingi</a> · <a href="../org-chart/#is-fme">org chart</a></div></div></div></li><li class="rstep" style="animation-delay:0.48s"><h2>Enforcement</h2><p>Suspicious transactions are reported to the financial intelligence unit (FIU), which is part of the police or prosecution service. In each country the national tax authority is responsible for taxation, including of crypto-assets.</p><p data-rc="DK"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Denmark"><title>Denmark</title><rect width="22" height="16" fill="#C8102E"/><rect x="6" width="4" height="16" fill="#fff"/><rect y="6" width="22" height="4" fill="#fff"/></svg> Suspicious transactions are reported to Hvidvasksekretariatet, the Danish FIU within NSK. There is no separate crypto tax act; Skattestyrelsen applies the general tax rules to crypto-assets. <span class="meta">(<a href="https://hvidvask.dk/" rel="noopener" target="_blank" title="Hvidvasksekretariatet – National enhed for Særlig Kriminalitet (NSK)">Hvidvasksekretariatet</a>, <a href="https://skat.dk/borger/aktier-og-andre-vaerdipapirer/skat-paa-krypto-kend-reglerne-saa-du-undgaar-et-skattesmaek" rel="noopener" target="_blank" title="Skat på krypto: Kend reglerne, så du undgår et skattesmæk">Skattestyrelsen (skat.dk)</a>, <a href="https://info.skat.dk/data.aspx?oid=2395613" rel="noopener" target="_blank" title="Den juridiske vejledning C.C.2.1.3.3.5.2 Realisationsbeskattede kryptoaktiver (general rules, statsskatteloven § 5)">Skattestyrelsen (info.skat.dk)</a>)</span></p><p data-rc="FI"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Finland"><title>Finland</title><rect width="22" height="16" fill="#fff" stroke="#9ca3af" stroke-width=".6"/><rect x="6" width="4" height="16" fill="#002F6C"/><rect y="6" width="22" height="4" fill="#002F6C"/></svg> Suspicious transactions are reported to the Financial Intelligence Unit (Rahanpesun selvittelykeskus) within the National Bureau of Investigation (Acts 444/2017 and 445/2017). <span class="meta">(<a href="https://www.finlex.fi/fi/lainsaadanto/2017/444" rel="noopener" target="_blank" title="Laki rahanpesun ja terrorismin rahoittamisen estämisestä 444/2017 (reporting obligation, ch. 4 § 1)">Finlex</a>, <a href="https://www.finlex.fi/fi/lainsaadanto/2017/445" rel="noopener" target="_blank" title="Laki rahanpesun selvittelykeskuksesta 445/2017, 2 § (the FIU within the National Bureau of Investigation)">Finlex</a>)</span></p><div class="rnodes"><div class="rnode" data-rc="NO"><span class="k">FIU / police</span><b>Økokrim</b><div class="ln"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Norway"><title>Norway</title><rect width="22" height="16" fill="#BA0C2F"/><rect x="6" width="4" height="16" fill="#fff"/><rect y="6" width="22" height="4" fill="#fff"/><rect x="7" width="2" height="16" fill="#00205B"/><rect y="7" width="22" height="2" fill="#00205B"/></svg> Norway · <a href="https://lovdata.no/dokument/NL/lov/2018-06-01-23" rel="noopener" target="_blank" title="Lov om tiltak mot hvitvasking og terrorfinansiering (hvitvaskingsloven), § 26 Rapporteringsplikt (reports to Økokrim)">Lovdata</a> · <a href="../org-chart/#okokrim">org chart</a></div></div><div class="rnode" data-rc="NO"><span class="k">Tax authority</span><b>Skatteetaten</b><div class="ln"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Norway"><title>Norway</title><rect width="22" height="16" fill="#BA0C2F"/><rect x="6" width="4" height="16" fill="#fff"/><rect y="6" width="22" height="4" fill="#fff"/><rect x="7" width="2" height="16" fill="#00205B"/><rect y="7" width="22" height="2" fill="#00205B"/></svg> Norway · <a href="https://www.skatteetaten.no/person/skatt/hjelp-til-riktig-skatt/aksjer-og-verdipapirer/om/virtuell-valuta/" rel="noopener" target="_blank" title="Virtuelle eiendeler (kryptovaluta med mer)">Skatteetaten</a> · <a href="../org-chart/#skatteetaten">org chart</a></div></div><div class="rnode" data-rc="SE"><span class="k">FIU / police</span><b>Finanspolisen (Polismyndigheten)</b><div class="ln"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Sweden"><title>Sweden</title><rect width="22" height="16" fill="#006AA7"/><rect x="6" width="4" height="16" fill="#FECC00"/><rect y="6" width="22" height="4" fill="#FECC00"/></svg> Sweden · <a href="https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-2017630-om-atgarder-mot-penningtvatt-och_sfs-2017-630/" rel="noopener" target="_blank" title="Lag (2017:630) om åtgärder mot penningtvätt och finansiering av terrorism (reports to Polismyndigheten)">Sveriges riksdag</a> · <a href="../org-chart/#se-finanspolisen">org chart</a></div></div><div class="rnode" data-rc="SE"><span class="k">Tax authority</span><b>Skatteverket</b><div class="ln"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Sweden"><title>Sweden</title><rect width="22" height="16" fill="#006AA7"/><rect x="6" width="4" height="16" fill="#FECC00"/><rect y="6" width="22" height="4" fill="#FECC00"/></svg> Sweden · <a href="https://www.skatteverket.se/privat/skatter/vardepapper/andratillgangar/kryptovalutor" rel="noopener" target="_blank" title="Kryptovalutor">Skatteverket</a> · <a href="../org-chart/#se-skatteverket">org chart</a></div></div><div class="rnode" data-rc="DK"><span class="k">FIU / police</span><b>Hvidvasksekretariatet</b><div class="ln"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Denmark"><title>Denmark</title><rect width="22" height="16" fill="#C8102E"/><rect x="6" width="4" height="16" fill="#fff"/><rect y="6" width="22" height="4" fill="#fff"/></svg> Denmark · <a href="https://hvidvask.dk/" rel="noopener" target="_blank" title="Hvidvasksekretariatet – National enhed for Særlig Kriminalitet (NSK)">Hvidvasksekretariatet</a> · <a href="../org-chart/#dk-hvidvasksekretariatet">org chart</a></div></div><div class="rnode" data-rc="DK"><span class="k">Tax authority</span><b>Skattestyrelsen</b><div class="ln"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Denmark"><title>Denmark</title><rect width="22" height="16" fill="#C8102E"/><rect x="6" width="4" height="16" fill="#fff"/><rect y="6" width="22" height="4" fill="#fff"/></svg> Denmark · <a href="https://skat.dk/borger/aktier-og-andre-vaerdipapirer/skat-paa-krypto-kend-reglerne-saa-du-undgaar-et-skattesmaek" rel="noopener" target="_blank" title="Skat på krypto: Kend reglerne, så du undgår et skattesmæk">Skattestyrelsen (skat.dk)</a> · <a href="https://info.skat.dk/data.aspx?oid=2395613" rel="noopener" target="_blank" title="Den juridiske vejledning C.C.2.1.3.3.5.2 Realisationsbeskattede kryptoaktiver (general rules, statsskatteloven § 5)">Skattestyrelsen (info.skat.dk)</a> · <a href="../org-chart/#dk-skattestyrelsen">org chart</a></div></div><div class="rnode" data-rc="FI"><span class="k">FIU / police</span><b>Rahanpesun selvittelykeskus (KRP)</b><div class="ln"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Finland"><title>Finland</title><rect width="22" height="16" fill="#fff" stroke="#9ca3af" stroke-width=".6"/><rect x="6" width="4" height="16" fill="#002F6C"/><rect y="6" width="22" height="4" fill="#002F6C"/></svg> Finland · <a href="https://www.finlex.fi/fi/lainsaadanto/2017/444" rel="noopener" target="_blank" title="Laki rahanpesun ja terrorismin rahoittamisen estämisestä 444/2017 (reporting obligation, ch. 4 § 1)">Finlex</a> · <a href="https://www.finlex.fi/fi/lainsaadanto/2017/445" rel="noopener" target="_blank" title="Laki rahanpesun selvittelykeskuksesta 445/2017, 2 § (the FIU within the National Bureau of Investigation)">Finlex</a> · <a href="../org-chart/#fi-fiu">org chart</a></div></div><div class="rnode" data-rc="FI"><span class="k">Tax authority</span><b>Verohallinto</b><div class="ln"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Finland"><title>Finland</title><rect width="22" height="16" fill="#fff" stroke="#9ca3af" stroke-width=".6"/><rect x="6" width="4" height="16" fill="#002F6C"/><rect y="6" width="22" height="4" fill="#002F6C"/></svg> Finland · <a href="https://www.vero.fi/henkiloasiakkaat/omaisuus/sijoitukset/virtuaalivaluutat/" rel="noopener" target="_blank" title="Kryptovarat">Verohallinto (vero.fi)</a> · <a href="../org-chart/#fi-vero">org chart</a></div></div><div class="rnode" data-rc="IS"><span class="k">FIU / police</span><b>Skrifstofa fjármálagreininga lögreglu</b><div class="ln"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Iceland"><title>Iceland</title><rect width="22" height="16" fill="#02529C"/><rect x="6" width="4" height="16" fill="#fff"/><rect y="6" width="22" height="4" fill="#fff"/><rect x="7" width="2" height="16" fill="#DC1E35"/><rect y="7" width="22" height="2" fill="#DC1E35"/></svg> Iceland · <a href="https://www.althingi.is/lagas/nuna/2018140.html" rel="noopener" target="_blank" title="Lög nr. 140/2018 um aðgerðir gegn peningaþvætti og fjármögnun hryðjuverka, Art. 20">Alþingi</a> · <a href="../org-chart/#is-sfl">org chart</a></div></div><div class="rnode" data-rc="IS"><span class="k">Tax authority</span><b>Skatturinn</b><div class="ln"><svg class="flag" viewBox="0 0 22 16" width="22" height="16" role="img" aria-label="Iceland"><title>Iceland</title><rect width="22" height="16" fill="#02529C"/><rect x="6" width="4" height="16" fill="#fff"/><rect y="6" width="22" height="4" fill="#fff"/><rect x="7" width="2" height="16" fill="#DC1E35"/><rect y="7" width="22" height="2" fill="#DC1E35"/></svg> Iceland · <a href="https://www.skatturinn.is/einstaklingar/skattskylda/rafmynt/" rel="noopener" target="_blank" title="Rafmynt (no special provisions; general tax rules apply)">Skatturinn</a> · <a href="../org-chart/#is-skatturinn">org chart</a></div></div></div></li></ol><p class="meta">Simplified overview, not legal advice. Dates are when the EU regulation applies in the EU; national dates can differ (in the EEA they follow incorporation). Checked 4 October 2026.</p></div>
 <nav class="social social-source" aria-label="Source code"><span class="social-label">Source code:</span><a class="social-repo" href="https://github.com/jQrgen/nordic-crypto" rel="noopener noreferrer" target="_blank">github.com/jQrgen/nordic-crypto</a></nav>
