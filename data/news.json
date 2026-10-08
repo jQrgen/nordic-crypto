@@ -212,6 +212,70 @@
    "reject_reason": "No crypto: invoice-fraud money-laundering case"
   },
   {
+   "title": "Teknologirådet hardt ut mot norsk datasenterpolitikk: – Ingen har vurdert samfunnsnytten",
+   "title_en": null,
+   "source": "adressa",
+   "source_name": "Adresseavisen (NTB)",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-10-07T12:00:00+00:00",
+   "topics": [
+    "regulation"
+   ],
+   "matched": [],
+   "paywall": true,
+   "suggested_by": "Kryptonytt",
+   "origin": "suggested by Kryptonytt",
+   "suggested_status": "approved on Kryptonytt",
+   "suggested_at": "2026-10-08T03:08:18+00:00",
+   "id": "c3c7d269dc30",
+   "url": "https://www.adressa.no/nyheter/innenriks/i/ElywEo/teknologiraadet-hardt-ut-mot-norsk-datasenterpolitikk-ingen-har-vurdert-samfunnsnytten",
+   "status": "rejected",
+   "summary": null,
+   "fetched": "2026-10-08T03:08:18+00:00",
+   "reject_reason": "Crypto mining is one word in a list; covered as background by the Stortinget data-centre proposal"
+  },
+  {
+   "id": "9755cf9957e9",
+   "url": "https://sagat.no/innrommer-litt-kryptoutvinning/19.59848",
+   "title": "Innrømmer «litt» kryptoutvinning",
+   "title_en": "Data-centre firm admits to “a little” crypto mining",
+   "source": "sagat",
+   "source_name": "Ságat",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "manual",
+   "seen_via": [
+    "manual"
+   ],
+   "published": "2026-10-07T10:14:12+00:00",
+   "fetched": "2026-10-08T06:56:46+00:00",
+   "topics": [
+    "mining"
+   ],
+   "matched": [
+    "\\bkrypto(?!graf)\\w*"
+   ],
+   "paywall": true,
+   "status": "published",
+   "summary": "Data-centre company Arctic Core says in writing that its business uses crypto mining to generate income during a test phase, but argues this does not change the basic character of the warehouse building it has been granted a permit for, the local paper Ságat reports.",
+   "approved_by": "Nordic Crypto redaktør",
+   "approved_at": "2026-10-08T09:10:00+02:00",
+   "summary_i18n": {
+    "nb": "Datasenterselskapet Arctic Core skriver at virksomheten bruker kryptoutvinning for å skaffe inntekter i en testfase, men mener at dette ikke endrer den grunnleggende karakteren til lagerbygget selskapet har fått tillatelse til, melder lokalavisen Ságat.",
+    "nn": "Datasenterselskapet Arctic Core skriv at verksemda brukar kryptoutvinning for å skaffe inntekter i ein testfase, men meiner at dette ikkje endrar den grunnleggjande karakteren til lagerbygget selskapet har fått løyve til, melder lokalavisa Ságat.",
+    "sv": "Datacenterföretaget Arctic Core skriver att verksamheten använder kryptoutvinning för att skapa intäkter under en testfas, men menar att det inte ändrar den grundläggande karaktären hos lagerbyggnaden som företaget har fått tillstånd för, rapporterar lokaltidningen Ságat.",
+    "da": "Datacentervirksomheden Arctic Core skriver, at virksomheden bruger kryptoudvinding til at skabe indtægter i en testfase, men mener, at det ikke ændrer den grundlæggende karakter af den lagerbygning, virksomheden har fået tilladelse til, oplyser lokalavisen Ságat.",
+    "fi": "Datakeskusyhtiö Arctic Core kirjoittaa käyttävänsä testivaiheessa kryptolouhintaa tulojen hankkimiseen, mutta sen mukaan tämä ei muuta sen varastorakennuksen perusluonnetta, jolle yhtiö on saanut luvan, kertoo paikallislehti Ságat.",
+    "is": "Gagnaversfyrirtækið Arctic Core segir skriflega að starfsemin noti rafmyntagröft til að afla tekna á prófunartímabili, en telur að það breyti ekki grundvallareðli vöruhússins sem fyrirtækið hefur fengið leyfi fyrir, að sögn héraðsblaðsins Ságat."
+   },
+   "summary_i18n_review": "approved"
+  },
+  {
    "id": "1781a55e349c",
    "url": "https://www.avestatidning.com/avesta/kvinna-doms-efter-bluff-med-akgrasklippare/",
    "title": "Kvinna döms efter bluff med åkgräsklippare",
@@ -354,7 +418,11 @@
     "fi": "Ruotsin Finansinspektionen varoittaa 30 uudesta toimijasta, jotka näyttävät luotettavilta mutta joilla ei ole toimilupaa; useat houkuttelevat kuluttajia osake-, krypto- ja valuuttakaupalla, ja osa on klooniyrityksiä, jotka käyttävät oikeiden rahoitusyhtiöiden tietoja. FI on näin varoittanut vuonna 2026 jo 227 toimijasta, joita epäillään sijoituspetoksista, ja kehottaa tarkistamaan yritysrekisterin ennen rahan siirtämistä.",
     "is": "Sænska fjármálaeftirlitið Finansinspektionen varar við 30 nýjum aðilum sem virðast traustir en hafa ekki starfsleyfi; nokkrir lokka neytendur með viðskiptum með hlutabréf, rafmyntir og gjaldeyri, og sumir eru klónfyrirtæki sem nota upplýsingar frá raunverulegum fjármálafyrirtækjum. FI hefur þar með varað við 227 aðilum sem grunaðir eru um fjárfestingarsvik það sem af er 2026 og hvetur fólk til að kanna fyrirtækjaskrána áður en það millifærir peninga."
    },
-   "summary_i18n_review": "approved"
+   "summary_i18n_review": "approved",
+   "primary_source": {
+    "name": "fi.se",
+    "url": "https://www.fi.se/sv/publicerat/nyheter/2026/fi-varnar-for-30-nya-falska-aktorer/"
+   }
   },
   {
    "id": "77a23f8d6d31",
@@ -454,6 +522,121 @@
     "da": "Kunderne på den norske kryptobørs Firi købte krypto for 16,1 millioner norske kroner mere, end de solgte i september, med en omsætning på 313,5 millioner kroner, trods en urolig måned. Bitcoin var mest købt, mens mange flyttede penge fra XRP til bitcoin og solana; Firis topchef Thuc Hoang ser stigende amerikanske renter som den største risiko.",
     "fi": "Norjalaisen kryptopörssin Firin asiakkaat ostivat syyskuussa kryptovaluuttoja 16,1 miljoonalla Norjan kruunulla enemmän kuin myivät, kun kaupankäynnin arvo oli 313,5 miljoonaa kruunua, levottomasta kuukaudesta huolimatta. Bitcoin oli ostetuin, ja moni siirsi rahojaan XRP:stä bitcoiniin ja solanaan; Firin toimitusjohtaja Thuc Hoang pitää nousevia Yhdysvaltain korkoja suurimpana riskinä.",
     "is": "Viðskiptavinir norsku rafmyntakauphallarinnar Firi keyptu rafmyntir fyrir 16,1 milljón norskra króna meira en þeir seldu í september, en heildarviðskipti námu 313,5 milljónum króna, þrátt fyrir óróa á markaði. Bitcoin var mest keypt og margir færðu fé úr XRP yfir í bitcoin og solana; Thuc Hoang, forstjóri Firi, telur hækkandi vexti í Bandaríkjunum vera mestu áhættuna."
+   },
+   "summary_i18n_review": "approved"
+  },
+  {
+   "title": "Rødt foreslår midlertidig stans for nye datasentre",
+   "title_en": "Red Party proposes a temporary halt for new data centres",
+   "source": "stortinget",
+   "source_name": "Stortinget",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-10-05T12:00:00+00:00",
+   "topics": [
+    "mining",
+    "policy"
+   ],
+   "matched": [],
+   "paywall": false,
+   "suggested_by": "Kryptonytt",
+   "origin": "suggested by Kryptonytt",
+   "suggested_status": "approved on Kryptonytt",
+   "suggested_at": "2026-10-08T03:08:18+00:00",
+   "id": "e88e8e0c9a77",
+   "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/",
+   "status": "published",
+   "summary": "The Red Party (Rødt) has proposed in the Storting a temporary halt for new data centres, along with a licensing regime and other measures. Its reasoning says crypto-mining data centres get power ahead of key local industries and that the crypto-mining ban the Storting has asked for three times in two years is still not in place, though none of the proposals singles out crypto.",
+   "fetched": "2026-10-08T03:08:18+00:00",
+   "approved_by": "Nordic Crypto redaktør",
+   "approved_at": "2026-10-08T06:05:00+02:00",
+   "summary_i18n": {
+    "nb": "Rødt har foreslått på Stortinget en midlertidig stans for nye datasentre, sammen med en konsesjonsordning og andre tiltak. Begrunnelsen sier at datasentre som utvinner kryptovaluta får strømtilgang foran hjørnesteinsbedrifter, og at kryptoforbudet Stortinget har bedt om tre ganger på to år fortsatt ikke er på plass, men ingen av forslagene gjelder krypto særskilt.",
+    "nn": "Raudt har føreslått på Stortinget ein mellombels stans for nye datasenter, saman med ei konsesjonsordning og andre tiltak. Grunngjevinga seier at datasenter som utvinn kryptovaluta får straumtilgang framfor hjørnesteinsbedrifter, og at kryptoforbodet Stortinget har bede om tre gonger på to år framleis ikkje er på plass, men ingen av forslaga gjeld krypto særskilt.",
+    "sv": "Rødt har i Stortinget föreslagit ett tillfälligt stopp för nya datacenter, tillsammans med ett tillståndssystem och andra åtgärder. Motiveringen säger att datacenter som utvinner kryptovaluta får elanslutning före viktiga lokala industrier och att kryptoförbudet som Stortinget har begärt tre gånger på två år fortfarande inte är på plats, men inget av förslagen gäller specifikt krypto.",
+    "da": "Rødt har i Stortinget foreslået et midlertidigt stop for nye datacentre sammen med en tilladelsesordning og andre tiltag. Begrundelsen siger, at datacentre, der udvinder kryptovaluta, får strømadgang før vigtige lokale virksomheder, og at det kryptoforbud, som Stortinget har bedt om tre gange på to år, stadig ikke er på plads, men ingen af forslagene handler specifikt om krypto.",
+    "fi": "Norjan Punainen puolue (Rødt) on ehdottanut suurkäräjillä uusien datakeskusten väliaikaista pysäyttämistä sekä lupajärjestelmää ja muita toimia. Perustelujen mukaan kryptovaluuttaa louhivat datakeskukset saavat sähköliittymän ennen tärkeitä paikallisia yrityksiä, eikä suurkäräjien kolmesti kahdessa vuodessa pyytämää kryptolouhinnan kieltoa ole yhä otettu käyttöön, mutta mikään ehdotuksista ei koske erityisesti kryptoa.",
+    "is": "Rauði flokkurinn (Rødt) hefur lagt til á Stórþinginu tímabundna stöðvun nýrra gagnavera, ásamt leyfiskerfi og öðrum aðgerðum. Í rökstuðningnum segir að gagnaver sem grafa eftir rafmyntum fái rafmagnstengingu á undan mikilvægum fyrirtækjum í heimabyggð og að bann við rafmyntagreftri, sem Stórþingið hefur þrisvar beðið um á tveimur árum, sé enn ekki komið á, en engin tillagnanna snýr sérstaklega að rafmyntum."
+   },
+   "summary_i18n_review": "approved"
+  },
+  {
+   "id": "47156e99927b",
+   "url": "https://kaupr.io/nyheter/ace-digital-tjente-6-3-millioner-kroner-i-tredje-kvartal",
+   "title": "Ace Digital tjente 6,3 millioner kroner i tredje kvartal",
+   "title_en": "Ace Digital reports NOK 6.3 million Q3 net profit",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "manual",
+   "seen_via": [
+    "manual"
+   ],
+   "published": "2026-10-05T12:00:00+00:00",
+   "fetched": "2026-10-08T06:56:57+00:00",
+   "topics": [
+    "business",
+    "bitcoin"
+   ],
+   "matched": [
+    "\\bbitcoin\\w*"
+   ],
+   "paywall": false,
+   "status": "published",
+   "summary": "Ace Digital, listed on Euronext Growth Oslo, reported an unaudited third-quarter net profit of NOK 6.32 million, with equity up 19.3% to NOK 39.09 million and debt reduced to zero. The company says the value of its bitcoin treasury rose 373% without buying bitcoin, and estimates its economic exposure at about 57 BTC.",
+   "primary_source": {
+    "name": "Ace Digital – Q3 2026 Update (MFN)",
+    "url": "https://mfn.se/all/a/ace-digital/aced-ace-digital-q3-2026-update"
+   },
+   "approved_by": "Nordic Crypto redaktør",
+   "approved_at": "2026-10-08T09:10:00+02:00",
+   "summary_i18n": {
+    "nb": "Ace Digital, som er notert på Euronext Growth Oslo, rapporterte et urevidert nettoresultat på 6,32 millioner kroner for tredje kvartal, med egenkapital opp 19,3 prosent til 39,09 millioner kroner og gjelden redusert til null. Selskapet sier verdien av bitcoinbeholdningen steg 373 prosent uten kjøp av bitcoin, og anslår den økonomiske eksponeringen til rundt 57 BTC.",
+    "nn": "Ace Digital, som er notert på Euronext Growth Oslo, rapporterte eit urevidert nettoresultat på 6,32 millionar kroner for tredje kvartal, med eigenkapital opp 19,3 prosent til 39,09 millionar kroner og gjelda redusert til null. Selskapet seier verdien av bitcoinbehaldninga steig 373 prosent utan kjøp av bitcoin, og reknar den økonomiske eksponeringa til rundt 57 BTC.",
+    "sv": "Ace Digital, noterat på Euronext Growth Oslo, redovisade ett oreviderat nettoresultat på 6,32 miljoner norska kronor för tredje kvartalet, med eget kapital upp 19,3 procent till 39,09 miljoner kronor och skulderna nedbringade till noll. Bolaget uppger att värdet på dess bitcoinreserv steg 373 procent utan köp av bitcoin och uppskattar sin ekonomiska exponering till omkring 57 BTC.",
+    "da": "Ace Digital, der er noteret på Euronext Growth Oslo, rapporterede et urevideret nettoresultat på 6,32 millioner norske kroner for tredje kvartal, med egenkapital op 19,3 procent til 39,09 millioner kroner og gælden nedbragt til nul. Selskabet oplyser, at værdien af dets bitcoinbeholdning steg 373 procent uden køb af bitcoin, og anslår sin økonomiske eksponering til omkring 57 BTC.",
+    "fi": "Euronext Growth Oslossa listattu Ace Digital raportoi kolmannelta neljännekseltä tilintarkastamattoman 6,32 miljoonan Norjan kruunun nettotuloksen; oma pääoma kasvoi 19,3 prosenttia 39,09 miljoonaan kruunuun ja velat laskivat nollaan. Yhtiön mukaan sen bitcoin-varannon arvo nousi 373 prosenttia ilman bitcoin-ostoja, ja se arvioi taloudellisen altistumisensa noin 57 bitcoiniksi.",
+    "is": "Ace Digital, sem er skráð á Euronext Growth Oslo, skilaði óendurskoðuðum hagnaði upp á 6,32 milljónir norskra króna á þriðja ársfjórðungi; eigið fé jókst um 19,3% í 39,09 milljónir króna og skuldir lækkuðu niður í núll. Félagið segir að verðmæti bitcoin-sjóðs þess hafi hækkað um 373% án kaupa á bitcoin og metur efnahagslega áhættu sína á um 57 BTC."
+   },
+   "summary_i18n_review": "approved"
+  },
+  {
+   "id": "bc7a45cb184e",
+   "url": "https://stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-009s",
+   "title": "Representantforslag om konsesjonssystem for etablering av datasentre",
+   "title_en": "SV proposes a halt on new data centres and asks for follow-up of the crypto-mining ban (proposal)",
+   "source": "stortinget",
+   "source_name": "Stortinget",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "manual",
+   "seen_via": [
+    "manual"
+   ],
+   "published": "2026-10-05T12:00:00+00:00",
+   "fetched": "2026-10-08T06:57:05+00:00",
+   "topics": [
+    "mining",
+    "policy"
+   ],
+   "matched": [],
+   "paywall": false,
+   "status": "published",
+   "summary": "Socialist Left Party (SV) MPs have proposed in the Storting a «panic law» that would put new data centres on hold until the industry is regulated, plus a national licensing system for data centres. They also ask the government to report back quickly on how the Storting's decision to ban crypto mining in Norway will be followed up; this is a proposal, not a decision.",
+   "approved_by": "Nordic Crypto redaktør",
+   "approved_at": "2026-10-08T09:10:00+02:00",
+   "summary_i18n": {
+    "nb": "Stortingsrepresentanter fra SV har foreslått en «panikklov» som setter nye datasentre på vent til bransjen er regulert, og et nasjonalt konsesjonssystem for datasentre. De ber også regjeringen raskt komme tilbake med hvordan Stortingets vedtak om forbud mot kryptoutvinning i Norge skal følges opp; dette er et forslag, ikke et vedtak.",
+    "nn": "Stortingsrepresentantar frå SV har føreslått ei «panikklov» som set nye datasenter på vent til bransjen er regulert, og eit nasjonalt konsesjonssystem for datasenter. Dei ber òg regjeringa raskt kome tilbake med korleis vedtaket i Stortinget om forbod mot kryptoutvinning i Noreg skal følgjast opp; dette er eit forslag, ikkje eit vedtak.",
+    "sv": "Stortingsledamöter från SV har föreslagit en «panikklov» som pausar nya datacenter tills branschen är reglerad, samt ett nationellt tillståndssystem för datacenter. De ber också regeringen att snabbt återkomma med hur Stortingets beslut om förbud mot kryptoutvinning i Norge ska följas upp; detta är ett förslag, inte ett beslut.",
+    "da": "Stortingsmedlemmer fra SV har foreslået en «panikklov», der sætter nye datacentre på pause, indtil branchen er reguleret, samt et nationalt tilladelsessystem for datacentre. De beder også regeringen hurtigt vende tilbage med, hvordan Stortingets beslutning om forbud mod kryptoudvinding i Norge skal følges op; det er et forslag, ikke en beslutning.",
+    "fi": "Sosialistisen vasemmistopuolueen (SV) kansanedustajat ovat ehdottaneet suurkäräjillä «paniikkilakia», joka asettaisi uudet datakeskukset odotustilaan, kunnes ala on säännelty, sekä kansallista lupajärjestelmää datakeskuksille. He pyytävät myös hallitusta kertomaan pian, miten suurkäräjien päätös kieltää kryptolouhinta Norjassa pannaan täytäntöön; kyse on ehdotuksesta, ei päätöksestä.",
+    "is": "Þingmenn Sósíalíska vinstriflokksins (SV) hafa lagt til á Stórþinginu «neyðarlög» sem setja ný gagnaver í bið þar til greinin hefur verið regluvædd, auk landsbundins leyfiskerfis fyrir gagnaver. Þeir biðja einnig ríkisstjórnina að greina fljótt frá því hvernig fylgja eigi eftir ákvörðun Stórþingsins um bann við rafmyntagreftri í Noregi; þetta er tillaga, ekki ákvörðun."
    },
    "summary_i18n_review": "approved"
   },
@@ -3421,74 +3604,7 @@
     "is": "Finnska fjármálaeftirlitið minnir á að þjónustuveitendur sýndareigna sem þjóna Finnlandi verða að hafa leyfi innan ESB (MiCA)."
    },
    "summary_i18n_review": "approved"
-  },
-  {
-   "title": "Teknologirådet hardt ut mot norsk datasenterpolitikk: – Ingen har vurdert samfunnsnytten",
-   "title_en": null,
-   "source": "adressa",
-   "source_name": "Adresseavisen (NTB)",
-   "country": "NO",
-   "language": "Norwegian",
-   "via": "kryptonytt",
-   "seen_via": [
-    "kryptonytt"
-   ],
-   "published": "2026-10-07T12:00:00+00:00",
-   "topics": [
-    "regulation"
-   ],
-   "matched": [],
-   "paywall": true,
-   "suggested_by": "Kryptonytt",
-   "origin": "suggested by Kryptonytt",
-   "suggested_status": "approved on Kryptonytt",
-   "suggested_at": "2026-10-08T03:08:18+00:00",
-   "id": "c3c7d269dc30",
-   "url": "https://www.adressa.no/nyheter/innenriks/i/ElywEo/teknologiraadet-hardt-ut-mot-norsk-datasenterpolitikk-ingen-har-vurdert-samfunnsnytten",
-   "status": "rejected",
-   "summary": null,
-   "fetched": "2026-10-08T03:08:18+00:00",
-   "reject_reason": "Crypto mining is one word in a list; covered as background by the Stortinget data-centre proposal"
-  },
-  {
-   "title": "Rødt foreslår midlertidig stans for nye datasentre",
-   "title_en": "Red Party proposes a temporary halt for new data centres",
-   "source": "stortinget",
-   "source_name": "Stortinget",
-   "country": "NO",
-   "language": "Norwegian",
-   "via": "kryptonytt",
-   "seen_via": [
-    "kryptonytt"
-   ],
-   "published": "2026-10-05T12:00:00+00:00",
-   "topics": [
-    "mining",
-    "policy"
-   ],
-   "matched": [],
-   "paywall": false,
-   "suggested_by": "Kryptonytt",
-   "origin": "suggested by Kryptonytt",
-   "suggested_status": "approved on Kryptonytt",
-   "suggested_at": "2026-10-08T03:08:18+00:00",
-   "id": "e88e8e0c9a77",
-   "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/",
-   "status": "published",
-   "summary": "The Red Party (Rødt) has proposed in the Storting a temporary halt for new data centres, along with a licensing regime and other measures. Its reasoning says crypto-mining data centres get power ahead of key local industries and that the crypto-mining ban the Storting has asked for three times in two years is still not in place, though none of the proposals singles out crypto.",
-   "fetched": "2026-10-08T03:08:18+00:00",
-   "approved_by": "Nordic Crypto redaktør",
-   "approved_at": "2026-10-08T06:05:00+02:00",
-   "summary_i18n": {
-    "nb": "Rødt har foreslått på Stortinget en midlertidig stans for nye datasentre, sammen med en konsesjonsordning og andre tiltak. Begrunnelsen sier at datasentre som utvinner kryptovaluta får strømtilgang foran hjørnesteinsbedrifter, og at kryptoforbudet Stortinget har bedt om tre ganger på to år fortsatt ikke er på plass, men ingen av forslagene gjelder krypto særskilt.",
-    "nn": "Raudt har føreslått på Stortinget ein mellombels stans for nye datasenter, saman med ei konsesjonsordning og andre tiltak. Grunngjevinga seier at datasenter som utvinn kryptovaluta får straumtilgang framfor hjørnesteinsbedrifter, og at kryptoforbodet Stortinget har bede om tre gonger på to år framleis ikkje er på plass, men ingen av forslaga gjeld krypto særskilt.",
-    "sv": "Rødt har i Stortinget föreslagit ett tillfälligt stopp för nya datacenter, tillsammans med ett tillståndssystem och andra åtgärder. Motiveringen säger att datacenter som utvinner kryptovaluta får elanslutning före viktiga lokala industrier och att kryptoförbudet som Stortinget har begärt tre gånger på två år fortfarande inte är på plats, men inget av förslagen gäller specifikt krypto.",
-    "da": "Rødt har i Stortinget foreslået et midlertidigt stop for nye datacentre sammen med en tilladelsesordning og andre tiltag. Begrundelsen siger, at datacentre, der udvinder kryptovaluta, får strømadgang før vigtige lokale virksomheder, og at det kryptoforbud, som Stortinget har bedt om tre gange på to år, stadig ikke er på plads, men ingen af forslagene handler specifikt om krypto.",
-    "fi": "Norjan Punainen puolue (Rødt) on ehdottanut suurkäräjillä uusien datakeskusten väliaikaista pysäyttämistä sekä lupajärjestelmää ja muita toimia. Perustelujen mukaan kryptovaluuttaa louhivat datakeskukset saavat sähköliittymän ennen tärkeitä paikallisia yrityksiä, eikä suurkäräjien kolmesti kahdessa vuodessa pyytämää kryptolouhinnan kieltoa ole yhä otettu käyttöön, mutta mikään ehdotuksista ei koske erityisesti kryptoa.",
-    "is": "Rauði flokkurinn (Rødt) hefur lagt til á Stórþinginu tímabundna stöðvun nýrra gagnavera, ásamt leyfiskerfi og öðrum aðgerðum. Í rökstuðningnum segir að gagnaver sem grafa eftir rafmyntum fái rafmagnstengingu á undan mikilvægum fyrirtækjum í heimabyggð og að bann við rafmyntagreftri, sem Stórþingið hefur þrisvar beðið um á tveimur árum, sé enn ekki komið á, en engin tillagnanna snýr sérstaklega að rafmyntum."
-   },
-   "summary_i18n_review": "approved"
   }
  ],
- "updated": "2026-10-08T02:28:44+00:00"
+ "updated": "2026-10-08T06:57:05+00:00"
 }

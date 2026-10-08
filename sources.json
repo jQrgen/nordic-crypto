@@ -2809,6 +2809,24 @@
    "method": "rss"
   },
   {
+   "id": "sagat",
+   "name": "Ságat",
+   "country": "NO",
+   "region": "Nord",
+   "coverage": "regional",
+   "language": "Norwegian",
+   "kind": "Newspaper",
+   "url": "https://www.sagat.no/",
+   "feed": "https://www.sagat.no/rss.xml",
+   "type": "rss",
+   "paywall": true,
+   "enabled": true,
+   "status": "ok (100 items on 2026-10-08; RSS from the page's <link rel=alternate>, also atom.xml; robots.txt allows our UA, Crawl-delay 2). Sami newspaper (Ságat – Samisk avis AS, Lakselv; ansvarlig redaktør Geir Wulff), mainly Norwegian Bokmål with some Northern Sami content. Keyword-filtered like other newspapers. Added after Kryptonytt ran its Arctic Core/Kautokeino story on 2026-10-08.",
+   "verified": "2026-10-08",
+   "directory": "added by researcher 2026-10-08",
+   "method": "rss"
+  },
+  {
    "id": "firdaposten",
    "name": "Firdaposten",
    "country": "NO",
