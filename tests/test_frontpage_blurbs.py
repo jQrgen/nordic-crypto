@@ -3,7 +3,7 @@
 import json, os, sys, unittest
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
-from tools.frontpage_blurbs import LANGS, card_text, check, load, opening_sentences, sentences, substantive
+from tools.frontpage_blurbs import LANGS, card_text, check, load, opening_sentences, own_summary, sentences, substantive
 
 class FrontPageBlurbs(unittest.TestCase):
     def test_catalogue(self):
@@ -20,7 +20,8 @@ class FrontPageBlurbs(unittest.TestCase):
     def test_card_uses_blurb_when_the_summary_is_one_sentence(self):
         blurbs = load()
         news = json.load(open(os.path.join(ROOT, "data", "news.json"), encoding="utf-8"))
-        sample = next(i for i in news["items"] if i.get("status") == "published")
+        # The first published story whose English summary is still one sentence (newer stories may have longer summaries).
+        sample = next(i for i in news["items"] if i.get("status") == "published" and len(sentences(i.get("summary"))) == 1 and i["id"] in blurbs)
         self.assertEqual(len(sentences(sample["summary"])), 1)
         for lang in ("en", "nn", "nb", "sv", "da", "fi", "is"):
             text, code = card_text(sample, lang, blurbs)
@@ -41,7 +42,8 @@ class FrontPageBlurbs(unittest.TestCase):
         published = [i for i in news["items"] if i.get("status") == "published" and (i.get("summary") or "").strip()]
         self.assertGreaterEqual(len(published), 1)
         for it in published:
-            self.assertEqual(set((blurbs.get(it["id"]) or {})), set(LANGS))
+            need = {lang for lang in LANGS if not substantive(own_summary(it, lang))}
+            self.assertTrue(need <= set((blurbs.get(it["id"]) or {})), it["id"])
             for lang in list(LANGS) + ["zh", "ur"]:
                 text, _ = card_text(it, lang, blurbs)
                 self.assertTrue(substantive(text), it["id"] + " " + lang)
