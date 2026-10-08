@@ -1919,40 +1919,77 @@ def build_org(ctx):
          "<script>" + open(P("tools", "orgchart.js"), encoding="utf-8").read() + "</script>")
     if LANG == "en": print(f"industry map: {per_cat}")
 
+SRC_BOILERPLATE = (   # sentences that hundreds of rows repeat; the page says them once, under "How we read sources"
+    "No RSS. The fetcher reads sitemap.xml, then the public index page, and keeps only title, date, link and summary.",
+    "Listed so it can be monitored manually or via news search.",
+    "Not fetched separately, so a story is not filed under the wrong title.",
+    "Monitor manually or via news search.",
+    "Monitor manually.",
+)
+SRC_REACH = ("national", "regional", "local", "justice")
+def source_note(s):
+    """The researcher's note on a source, without the sentences every similar row repeats. A bare "ok" says no more than the status."""
+    n = s.get("status") or ""
+    for b in SRC_BOILERPLATE: n = n.replace(b, "")
+    n = re.sub(r"\s{2,}", " ", n).strip()
+    return "" if n.lower() == "ok" else n
+def source_status(s, st):
+    """(class, label). ok: read on every run; man: listed for manual monitoring or news search; bad: not working or not used."""
+    if s["type"] == "search": return "man", t("st_manual")
+    if s.get("enabled") and st.get("ok", True) is not False:
+        return "ok", t("st_monitored") + (t("st_items", n=st.get("entries")) if st.get("entries") is not None else "")
+    if s.get("search_fallback"): return "bad", t("st_fallback")
+    return "bad", t("st_broken") if s.get("enabled") else t("st_unused")
+def source_method(s, st):
+    """How the source is read, linked to the feed, sitemap or list page when there is one."""
+    meth = (st or {}).get("method") or s.get("method") or {"rss": "rss", "rss-all": "rss", "html": "html", "sitemap": "sitemap", "bing": "search"}.get(s.get("type"), "manual")
+    if meth not in ("rss", "html", "sitemap", "search", "manual"): meth = "manual"
+    label = t("method_" + meth)
+    feed = s.get("feed")
+    if feed and "{q}" not in str(feed):
+        if meth in ("rss", "sitemap", "html"): return f'<a href="{E(feed)}" rel="noopener">{E(label)}</a>'
+        return f'{E(label)} · <a href="{E(feed)}" rel="noopener">{E(t("list_page"))}</a>'
+    return E(label)
+def _deco_mark(c):
+    """Flag or code beside text that already names the country, hidden from screen readers."""
+    return _deco_flag(c) or (f'<span class="cc" aria-hidden="true">{E(c)}</span>' if c else "")
 def build_sources(ctx):
+    """ /sources/ : one collapsed group per country (count and how many are monitored in the summary), a table per group with
+    the source, how it is read and its status. The groups are the country filter; search and the reach chips open the groups that match. The note keeps only what is
+    particular to the row; the sentences hundreds of rows repeated are said once at the top."""
     cfg, status = ctx["cfg"], ctx["status"]
-    rows = []
     order = {c: i for i, c in enumerate(SOURCE_PLACES)}
-    listed = sorted(cfg["sources"], key=lambda s: (order.get(s.get("country"), 50), (s.get("coverage") or "z"), (s.get("name") or "").lower()))
+    listed = sorted(cfg["sources"], key=lambda s: (order.get(s.get("country"), 50), SRC_REACH.index(s["coverage"]) if s.get("coverage") in SRC_REACH else 9, (s.get("name") or "").lower()))
+    lang_names = {}
+    by_c, n_ok = {}, {}
     for s in listed:
         c = s.get("country") or ""
-        st = status.get(s["id"], {})
-        if s["type"] == "search" and not s.get("enabled"): cls, lab = "ok", t("st_manual")
-        elif s["type"] == "search": cls, lab = "ok", t("st_manual")
-        elif s.get("enabled") and st.get("ok", True) is not False: cls, lab = "ok", t("st_monitored") + (t("st_items", n=st.get("entries")) if st.get("entries") is not None else "")
-        elif s.get("search_fallback"): cls, lab = "bad", t("st_fallback")
-        else: cls, lab = "bad", t("st_broken") if s.get("enabled") else t("st_unused")
-        meth = (st or {}).get("method") or s.get("method") or {"rss": "rss", "rss-all": "rss", "html": "html", "sitemap": "sitemap", "bing": "search"}.get(s.get("type"), "manual")
-        if meth not in ("rss", "html", "sitemap", "search", "manual"):
-            meth = "manual"
-        meth_l = t("method_" + meth) if i18n.has("en", "method_" + meth) else meth
-        feed_label = {"rss": t("method_rss"), "sitemap": t("method_sitemap"), "html": t("method_html")}.get(meth, t("list_page"))
-        feed = f'<a href="{E(s["feed"])}" rel="noopener">{E(feed_label)}</a>' if s.get("feed") and "{q}" not in str(s["feed"]) else (E(t("search_w")) if s.get("feed") else "–")
+        st = status.get(s["id"], {}) or {}
+        cls, lab = source_status(s, st)
         kind = t("kind_" + s["kind"]) if i18n.has("en", "kind_" + s["kind"]) else s["kind"]
-        cov = s.get("coverage") or ""
-        cov_l = t("cov_" + cov) if cov and i18n.has("en", "cov_" + cov) else cov
-        place = s.get("region") or ""
+        place = html.unescape(s.get("region") or "").strip()
+        if place in (cname(c), t("c_" + c) if c else "", {"NO": "Norway", "SE": "Sweden", "DK": "Denmark", "FI": "Finland", "IS": "Iceland", "FO": "Faroe Islands", "GL": "Greenland", "AX": "Åland"}.get(c)): place = ""
         lang = s.get("language") or ""
-        lang_code = {"Norwegian": "nb", "Norwegian Nynorsk": "nn", "Swedish": "sv", "Danish": "da", "Finnish": "fi", "Icelandic": "is", "Faroese": "fo", "Greenlandic": "kl", "English": "en", "Northern Sámi": "se", "German": "de"}.get(lang, "")
-        lang_attr = f' lang="{lang_code}"' if lang_code else ""
+        if lang not in lang_names: lang_names[lang] = t("lname_" + lang) if i18n.has("en", "lname_" + lang) else lang
+        meta = " · ".join(E(x) for x in (place, lang_names[lang], kind, t("paywall_w") if s.get("paywall") else "") if x)
+        note = source_note(s)
         lg = _source_logos().for_source(s["id"], preview=PREVIEW)
         mark = ""
         if lg and lg.get("file"):
             copy_repo_file(lg["file"])
-            mark = f'<img class="src-logo" src="{up1()}{E(lg["file"])}" alt="" height="18" loading="lazy"> '
-        rows.append(f'<tr data-c="{E(c)}" data-cov="{E(cov)}"><td>{flag(c)}</td><td><a href="{E(s["url"])}" rel="noopener" target="_blank">{mark}{E(s["name"])}</a>{" <span class=pw>" + E(t("paywall_w")) + "</span>" if s.get("paywall") else ""}</td>'
-                    f'<td>{E(cov_l)}</td><td>{E(place)}</td><td{lang_attr}>{E(lang)}</td><td>{E(kind)}</td><td>{E(meth_l)}</td><td>{feed}</td>'
-                    f'<td class="{cls}">{E(lab)}</td><td lang="en">{E(s.get("status", ""))}</td></tr>')
+            mark = f'<img class="src-logo" src="{up1()}{E(lg["file"])}" alt="" height="18" loading="lazy" decoding="async">'
+        by_c.setdefault(c, []).append((s.get("coverage") or "", f'<tr><td><a href="{E(s["url"])}" rel="noopener" target="_blank">{mark}{E(s["name"])}</a>'
+                    f'<span class="sm">{meta}</span>' + (f'<span class="sn"{lang_attr("en")}>{E(note)}</span>' if note else "")
+                    + f'</td><td>{source_method(s, st)}</td><td class="s {cls}">{E(lab)}</td></tr>'))
+        n_ok[c] = n_ok.get(c, 0) + (cls == "ok")
+    head = f'<thead><tr><th scope="col">{E(t("th_source"))}</th><th scope="col">{E(t("th_method"))}</th><th scope="col">{E(t("th_status"))}</th></tr></thead>'
+    groups = []
+    for c, rows in by_c.items():
+        bodies = "".join(f'<tbody data-cov="{E(v)}"><tr class="sub"><th colspan="3" scope="rowgroup">{E(t("cov_" + v) if i18n.has("en", "cov_" + v) else v)} <span class="n">{sum(r[0] == v for r in rows)}</span></th></tr>'
+                         + "".join(r[1] for r in rows if r[0] == v) + '</tbody>' for v in list(SRC_REACH) + sorted({r[0] for r in rows} - set(SRC_REACH)) if any(r[0] == v for r in rows))
+        summ = f'{E(n_sources_label(len(rows)))} · {E(t("src_n_mon", n=n_ok[c]))}'
+        groups.append(f'<details class="srcg" id="src-{E(c)}" data-c="{E(c)}"><summary><h2>{_deco_mark(c)}{E(cname(c))}</h2><span class="n" data-t="{summ}">{summ}</span></summary>'
+                      f'<table class="list" style="text-align:left">{head}{bodies}</table></details>')
     erows = []
     for s in cfg.get("event_sources", []):
         if event_block.blocked_source(s): continue
@@ -1962,44 +1999,61 @@ def build_sources(ctx):
         else:
             cls, lab = ("ok", t("st_monitored")) if s.get("enabled", True) and st.get("ok", True) else ("bad", t("st_broken") if s.get("enabled", True) else t("st_unused"))
         note = s.get("method") or s.get("status") or ""
-        erows.append(f'<tr><td>{flag(s.get("country"))}</td><td><a href="{E(s["url"])}" rel="noopener" target="_blank">{E(s["name"])}</a></td><td class="{cls}">{E(lab)}</td><td lang="en" style="text-align:left">{E(note)}</td></tr>')
+        erows.append(f'<tr><td>{flag(s.get("country"))} <a href="{E(s["url"])}" rel="noopener" target="_blank">{E(s["name"])}</a>'
+                     + (f'<span class="sn"{lang_attr("en")}>{E(note)}</span>' if note else "") + f'</td><td class="s {cls}">{E(lab)}</td></tr>')
     bing = [s for s in cfg["sources"] if s["type"] == "bing"]
     qs = "".join(f'<li>{flag(s["country"])} {E(", ".join(s.get("queries", [])))} – {E(t("src_only_tld", tld=s["allowed_tld"]))}</li>' for s in bing)
-    present = [c for c in SOURCE_PLACES if any(s.get("country") == c for s in cfg["sources"])]
-    covs = [c for c in ("national", "regional", "local", "justice") if any(s.get("coverage") == c for s in cfg["sources"])]
-    cchips = "".join(f'<button type="button" class="chip src-c" data-c="{c}" aria-pressed="false">{flag(c)} {E(cname(c))}</button>' for c in present)
-    vchips = "".join(f'<button type="button" class="chip src-v" data-cov="{c}" aria-pressed="false">{E(t("cov_" + c))}</button>' for c in covs)
-    body = f"""<h1>{E(t("src_h1"))}</h1>
-<p class="lead">{E(t("src_lead", d=cfg.get("min_delay_seconds", 2)))}</p>
-<div class="filters" style="justify-content:flex-start;text-align:left">
-<label for="srcq">{E(t("src_filter"))}</label>
-<input id="srcq" type="search" placeholder="{E(t("src_search_ph"))}" style="text-align:left">
-<div class="chips">{cchips}</div>
-<div class="chips">{vchips}</div>
+    covs = [v for v in SRC_REACH if any(s.get("coverage") == v for s in cfg["sources"])]
+    vchips = "".join(f'<button type="button" class="chip src-v" data-cov="{v}" aria-pressed="false">{E(t("cov_" + v))} <span class="n">{sum(s.get("coverage") == v for s in cfg["sources"])}</span></button>' for v in covs)
+    lead = t("src_lead", d=cfg.get("min_delay_seconds", 2))
+    first = first_sentence(lead)
+    rest = lead[len(first):].strip()
+    total = len(listed)
+    body = f"""{site_css.style("filterbar")}{site_css.style("sources")}<div class="srcpage">
+<h1>{E(t("src_h1"))}</h1>
+<p class="lead">{E(first)}</p>
+<details class="srchow"><summary>{E(t("src_how"))}</summary><p>{E(rest)}</p><p>{E(t("src_samefeed"))}</p><p><a href="#events">{E(t("src_ev_h"))}</a> · <a href="#terms">{E(t("src_terms_h"))}</a> · <a href="#keywords">{E(t("src_kw_h"))}</a></p></details>
+<div class="filters lfilters" style="justify-content:flex-start;text-align:left">
+<div class="lf lf-q"><label class="vh" for="srcq">{E(t("src_search_ph"))}</label><input id="srcq" type="search" placeholder="{E(t("src_search_ph"))}" autocomplete="off"><p class="meta lcount" id="srccount" aria-live="polite">{E(n_sources_label(total))}</p></div>
+<div class="lf"><span class="lbl" id="lf-v">{E(t("th_coverage"))}</span><div class="chips" role="group" aria-labelledby="lf-v">{vchips}</div></div>
 </div>
-<p class="meta" id="srccount" style="text-align:left"></p>
-<div class="tablewrap"><table class="list" style="text-align:left"><thead><tr><th></th><th>{E(t("th_source"))}</th><th>{E(t("th_coverage"))}</th><th>{E(t("th_region"))}</th><th>{E(t("th_language"))}</th><th>{E(t("th_type"))}</th><th>{E(t("th_method"))}</th><th>{E(t("th_feed"))}</th><th>{E(t("th_status"))}</th><th>{E(t("th_note"))}</th></tr></thead><tbody id="srclist">{''.join(rows)}</tbody></table></div>
+<div id="srclist">{''.join(groups)}</div>
 <p class="notice" id="kaupr">{t("kaupr")}</p>
-<h2>{E(t("src_terms_h"))}</h2><ul class="prose">{qs}</ul><p class="prose">{E(t("src_search_note"))}</p>
-<h2>{E(t("src_kw_h"))}</h2><p class="prose">{E(t("src_kw"))}</p>
 <h2 id="events">{E(t("src_ev_h"))}</h2>
-<div class="tablewrap"><table class="list"><thead><tr><th></th><th>{E(t("th_event_source"))}</th><th>{E(t("th_status"))}</th><th>{E(t("th_note"))}</th></tr></thead><tbody>{''.join(erows)}</tbody></table></div>
-<p class="meta" style="text-align:left">{E(t("src_ev_note"))}</p>
-<p class="meta">{t("src_missing")}</p>"""
+<table class="list srcev"><thead><tr><th scope="col">{E(t("th_event_source"))}</th><th scope="col">{E(t("th_status"))}</th></tr></thead><tbody>{''.join(erows)}</tbody></table>
+<p class="meta">{E(t("src_ev_note"))}</p>
+<h2 id="terms">{E(t("src_terms_h"))}</h2><ul class="prose">{qs}</ul><p class="prose">{E(t("src_search_note"))}</p>
+<h2 id="keywords">{E(t("src_kw_h"))}</h2><p class="prose">{E(t("src_kw"))}</p>
+<p class="meta">{t("src_missing")}</p>
+</div>"""
     script = """<script>(function(){
-var q=document.getElementById('srcq'), rows=[].slice.call(document.querySelectorAll('#srclist tr')), n=document.getElementById('srccount');
+var q=document.getElementById('srcq'),list=document.getElementById('srclist'),n=document.getElementById('srccount'),N=%s,N1=%s,
+rows=[].slice.call(list.querySelectorAll('tbody tr:not(.sub)')),txt=rows.map(function(r){return (r.closest('details').querySelector('h2').textContent+' '+r.textContent).toLowerCase()}),cov=rows.map(function(r){return r.parentNode.dataset.cov}),
+groups=[].slice.call(list.querySelectorAll('details')),bodies=[].slice.call(list.querySelectorAll('tbody')),saved=null;
 function on(sel){return [].slice.call(document.querySelectorAll(sel)).filter(function(b){return b.getAttribute('aria-pressed')==='true'}).map(function(b){return b.dataset.c||b.dataset.cov});}
 function apply(){
-  var cs=on('.src-c'), vs=on('.src-v'), term=(q.value||'').toLowerCase(), k=0;
-  rows.forEach(function(tr){
-    var ok=(!cs.length||cs.indexOf(tr.dataset.c)>=0)&&(!vs.length||vs.indexOf(tr.dataset.cov)>=0)&&(!term||tr.textContent.toLowerCase().indexOf(term)>=0);
+  var vs=on('.src-v'),term=(q.value||'').trim().toLowerCase(),k=0,active=!!(vs.length||term);
+  rows.forEach(function(tr,i){
+    var ok=(!vs.length||vs.indexOf(cov[i])>=0)&&(!term||txt[i].indexOf(term)>=0);
     tr.hidden=!ok; if(ok) k++;
   });
-  if(n) n.textContent=k;
+  bodies.forEach(function(b){var m=b.querySelectorAll('tr:not(.sub):not([hidden])').length,c=b.querySelector('.sub .n');b.hidden=!m;if(c)c.textContent=m});
+  if(active&&!saved) saved=groups.map(function(d){return d.open});
+  groups.forEach(function(d,i){
+    var m=d.querySelectorAll('tbody tr:not(.sub):not([hidden])').length,s=d.querySelector('summary .n');
+    d.hidden=!m;
+    if(active){d.open=m>0; s.textContent=lab(m)} else {if(saved) d.open=saved[i]; s.textContent=s.dataset.t}
+  });
+  if(!active) saved=null;
+  n.textContent=lab(k);
 }
-document.querySelectorAll('.src-c,.src-v').forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed', b.getAttribute('aria-pressed')==='true'?'false':'true'); apply();});});
-q.addEventListener('input', apply); apply();
-})();</script>"""
+function lab(m){return m===1?N1:N.replace('{n}',m)}
+document.querySelectorAll('.src-v').forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed', b.getAttribute('aria-pressed')==='true'?'false':'true'); apply();});});
+q.addEventListener('input', apply);
+function hash(){var d=location.hash&&document.getElementById(location.hash.slice(1));if(d&&d.tagName==='DETAILS')d.open=true}
+window.addEventListener('hashchange',hash);hash();
+if(q.value) apply();
+})();</script>""" % (json.dumps(t("n_sources", n="{n}")), json.dumps(t("n_sources_1")))
     page("sources", t("src_title"), "sources", body, t("src_desc"), script)
 
 def md_inline(s):
@@ -2238,13 +2292,15 @@ def previous_page_rows(events, now):
     cal = [e for e in event_select.partition(events, now)["previous"] if e.get("status") == "published"]
     return event_backfill.merge_previous(cal, now)
 def build_previous(events, now):
-    """Own page. The calendar page is left as it is, apart from a link here."""
+    """Own page: finished events and the backfill, newest first, one heading per year and a compact row each (date badge, title,
+    weekday, time and place). The full facts and their sources are on each event's page."""
     rows = previous_page_rows(events, now)
-    body = f"""<h1>{E(t("prev_h"))}</h1>
+    body = f"""{site_css.style("calendar")}<div class="calpage prevpage">
+<h1>{E(t("prev_h"))}</h1>
 <p class="lead">{E(t("prev_lead"))}</p>
-<p>{E(t("prev_extra"))}</p>
-<p class="meta"><a href="../calendar/">{E(t("prev_back"))}</a></p>
-<div class="evfull">{''.join(event_card(e, href_prefix="../../") for e in rows) or f'<p class="empty">{E(t("prev_empty"))}</p>'}</div>"""
+<p class="meta">{E(t("prev_extra"))} <a href="../../calendar/">{E(t("prev_back"))}</a></p>
+<div class="prevlist">{cal_months(rows, full=False, cls="prev", href_prefix="../../calendar/", head="h2", hl="h3", by_year=True) or f'<p class="empty">{E(t("prev_empty"))}</p>'}</div>
+</div>"""
     page("events/previous", t("prev_title"), "calendar", body, t("prev_desc"))
 def build_external_stories(ctx):
     """Coverage pages are written by build_coverage_pages, without the assigned picture."""
@@ -2310,7 +2366,9 @@ def listed_events(events, now):
             seen.add(e["id"])
     return rows
 def build_one_event(e):
-    """Full event page. Fields without a stored value are left out."""
+    """Full event page: the title, then one block with when, where, who and what (each with its source; one source line when
+    they all share it) and the official page as the main button, then the description, the editor's note, topics and talks.
+    Fields without a stored value are left out."""
     heading = event_title(e)
     note, nl = L18(e, "note")
     when = event_when(e)
@@ -2322,60 +2380,62 @@ def build_one_event(e):
         desc = " ".join(note.split())[:180]
     else:
         desc = ". ".join(x for x in (heading, when, place) if x)
-    bits = [f'<p class="meta"><a href="../">{E(t("ev_cal_link"))}</a> · <a href="../../events/previous/">{E(t("prev_link"))}</a></p>',
+    bits = [f'<p class="meta evback"><a href="../">{E(t("ev_cal_link"))}</a> · <a href="../../events/previous/">{E(t("prev_link"))}</a></p>',
             f'<h1>{E(heading)}</h1>']
     if e.get("title_orig") and LANG == "en" and e.get("title_orig") != e.get("title"):
         bits.append(f'<p class="orig">{E(t("orig_title_ev"))}{E(e["title_orig"])}</p>')
-    if e.get("url"):
-        bits.append(f'<p><a class="evofficial" href="{E(e["url"])}" rel="noopener">{E(t("ev_official"))}</a></p>')
+    tags = []
+    if e.get("paid"): tags.append(f'<span class="tag paid">{E(t("paid"))}</span>')
+    elif e.get("paid") is False: tags.append(f'<span class="tag">{E(t("free"))}</span>')
+    if e.get("sponsored"):
+        tags.append(f'<span class="tag paid">{E(t("sponsored_by", x=e["sponsored"]) if isinstance(e["sponsored"], str) else t("sponsored"))}</span>')
+    if tags: bits.append(f'<p class="evtags">{" ".join(tags)}</p>')
+    facts = []   # (label, value html, source line)
     tz = event_page.offset_label(e.get("start"))
-    bits.append(f'<p class="meta"><time datetime="{E(e.get("start") or "")}"><b>{E(when)}</b></time></p>')
-    if tz:
-        bits.append(f'<p class="evmeta"><b>{E(t("ev_tz"))}:</b> {E(tz)}</p>')
+    facts.append((t("ev_when"), f'<time datetime="{E(e.get("start") or "")}"><b>{E(when)}</b></time>' + (f'<span class="evtz">{E(t("ev_tz"))}: {E(tz)}</span>' if tz else ""), ""))
+    murl = event_page.map_url(e)
+    maplink = f' · <a href="{E(murl)}" rel="noopener">{E(t("ev_map"))}</a>' if murl else ""
+    fact = event_select.location_fact(e)
+    if fact:
+        if fact["text"] and fact["online"]: loc = fact["text"] + " · " + t("online")
+        elif fact["text"]: loc = fact["text"]
+        else: loc = t("online")
+        c = e.get("country")
+        if c in COUNTRY_CODES:
+            name = cname(c)
+            if name and name not in loc: loc = loc + ", " + name
+        facts.append((t("ev_location"), E(loc) + maplink, _source_line(fact["credit"])))
+    elif e.get("online"):
+        facts.append((t("ev_location"), E(t("online")) + maplink, ""))
+    elif murl:
+        facts.append((t("ev_location"), maplink[3:], ""))
+    if e.get("organiser"):
+        facts.append((t("organiser"), E(e["organiser"]), _source_line(event_backfill.display_credit(e, "organiser"))))
+    kind = e.get("event_type")
+    if kind:
+        facts.append((t("ev_type"), E(t("ev_type_" + kind)), _source_line(event_backfill.display_credit(e, "event_type"))))
+    if e.get("language"):
+        facts.append((t("ev_language"), E(t("ev_lang_" + e["language"])), _source_line(event_backfill.display_credit(e, "language"))))
+    att = event_select.attendees_fact(e)
+    if att:
+        facts.append((t("ev_attendees"), str(att["count"]), _source_line(att["credit"])))
+    speakers = event_backfill.speakers_fact(e)
+    if speakers:
+        facts.append((t("ev_speakers"), str(speakers["count"]), _source_line(speakers["credit"])))
+    lines = [x[2] for x in facts if x[2]]
+    shared = lines[0] if len(lines) > 1 and all(x == lines[0] for x in lines) else ""   # one source line when every fact has the same one
+    tail = shared
+    if not fact and e.get("source") and e.get("source") != "backfill":
+        line = _source_line(event_select.place_credit(e))
+        if line and line != tail: tail += line
+    rows = "".join(f'<dt>{E(label)}</dt><dd>{value}{"" if shared else line}</dd>' for label, value, line in facts)
+    official = f'<p class="evact"><a class="evofficial" href="{E(e["url"])}" rel="noopener">{E(t("ev_official"))}</a></p>' if e.get("url") else ""
+    bits.append(f'<div class="evwhen"><dl class="evfacts">{rows}</dl>{tail}{official}</div>')
     if about:
         bits.append(f'<h2>{E(t("ev_about"))}</h2><p class="evdesc"{lang_attr(about_lang)}>{E(about)}</p>')
         if about_orig:
             src_lang = (e.get("description") or {}).get("lang") or about_lang
             bits.append(f'<p class="orig evdesc"{lang_attr(src_lang)}><b>{E(t("ev_orig_below"))}:</b> {E(about_orig)}</p>')
-    fact = event_select.location_fact(e)
-    if fact:
-        if fact["text"] and fact["online"]:
-            loc = fact["text"] + " · " + t("online")
-        elif fact["text"]:
-            loc = fact["text"]
-        else:
-            loc = t("online")
-        c = e.get("country")
-        if c in COUNTRY_CODES:
-            name = cname(c)
-            if name and name not in loc:
-                loc = loc + ", " + name
-        bits.append(f'<p class="evmeta"><b>{E(t("ev_location"))}:</b> {E(loc)}</p>' + _source_line(fact["credit"]))
-    elif e.get("online"):
-        bits.append(f'<p class="evmeta"><b>{E(t("ev_location"))}:</b> {E(t("online"))}</p>')
-    murl = event_page.map_url(e)
-    if murl:
-        bits.append(f'<p class="evmeta"><a href="{E(murl)}" rel="noopener">{E(t("ev_map"))}</a></p>')
-    if e.get("organiser"):
-        bits.append(f'<p class="evmeta"><b>{E(t("organiser"))}:</b> {E(e["organiser"])}</p>' + _source_line(event_backfill.display_credit(e, "organiser")))
-    kind = e.get("event_type")
-    if kind:
-        bits.append(f'<p class="evmeta"><b>{E(t("ev_type"))}:</b> {E(t("ev_type_" + kind))}</p>' + _source_line(event_backfill.display_credit(e, "event_type")))
-    if e.get("language"):
-        bits.append(f'<p class="evmeta"><b>{E(t("ev_language"))}:</b> {E(t("ev_lang_" + e["language"]))}</p>' + _source_line(event_backfill.display_credit(e, "language")))
-    if e.get("paid"):
-        bits.append(f'<p class="evmeta"><span class="tag paid">{E(t("paid"))}</span></p>')
-    elif e.get("paid") is False:
-        bits.append(f'<p class="evmeta"><span class="tag">{E(t("free"))}</span></p>')
-    if e.get("sponsored"):
-        label = t("sponsored_by", x=e["sponsored"]) if isinstance(e["sponsored"], str) else t("sponsored")
-        bits.append(f'<p class="evmeta"><span class="tag paid">{E(label)}</span></p>')
-    att = event_select.attendees_fact(e)
-    if att:
-        bits.append(f'<p class="evmeta"><b>{E(t("ev_attendees"))}:</b> {att["count"]}</p>' + _source_line(att["credit"]))
-    speakers = event_backfill.speakers_fact(e)
-    if speakers:
-        bits.append(f'<p class="evmeta"><b>{E(t("ev_speakers"))}:</b> {speakers["count"]}</p>' + _source_line(speakers["credit"]))
     if note:
         bits.append(f'<h2>{E(t("note"))}</h2><p class="sum"{lang_attr(nl)}>{E(note)}</p>')
         original = e.get("note")
@@ -2407,13 +2467,8 @@ def build_one_event(e):
             else:
                 who = ""
             items.append(f'<li><a href="{E(talk["url"])}" rel="noopener">{E(talk["title"])}</a>{who}' + _source_line(talk.get("credit")) + "</li>")
-        bits.append(f'<h2>{E(t("ev_talks"))}</h2><ul class="evpage">{"".join(items)}</ul>')
-    if not fact and e.get("source") and e.get("source") != "backfill":
-        credit = event_select.place_credit(e)
-        line = _source_line(credit)
-        if line:
-            bits.append(line)
-    body = f'<article class="evpage">{"".join(bits)}</article>'
+        bits.append(f'<h2>{E(t("ev_talks"))}</h2><ul class="evtalks">{"".join(items)}</ul>')
+    body = site_css.style("evpage") + f'<article class="evpage">{"".join(bits)}</article>'
     data = event_page.jsonld(e, BASE + lp() + event_page.slug(e) + "/", about or note or None)
     page(event_page.slug(e), heading, "calendar", body, desc, head_extra=f'<script type="application/ld+json">{json.dumps(data, ensure_ascii=False).replace("<", "\\u003c")}</script>')
 def build_event_pages(events, now):
@@ -2595,59 +2650,93 @@ apply(0)})();</script>""" % json.dumps(t("talks_n", n="{n}"))
     page("talks", t("talks_title"), "talks", body, t("talks_desc"), js)
     if LANG == "en":
         print(f"talks: {len(rows)}")
+def cal_row(e, full=True, href_prefix="", hl="h4"):
+    """One event in the calendar or the previous-events list: a date badge, the title, then country, weekday, time, place and
+    labels. full adds the original title, the organiser and where it is listed, and the editor's note."""
+    a = dt.datetime.fromisoformat(e["start"])
+    ttl = event_title(e)
+    out = [f'<li id="e-{E(e.get("id") or "")}" data-c="{E(e.get("country") or "")}"><span class="evdate"><b>{a.day}</b> <span>{E(i18n.badge_month(LANG, a))}</span></span><div class="evb">'
+           f'<{hl}><a href="{E(href_prefix + e["id"] + "/" if e.get("id") else e.get("url") or "")}">{E(ttl)}</a></{hl}>']
+    if full and e.get("title_orig") and LANG == "en" and e["title_orig"] != e.get("title"):
+        out.append(f'<p class="orig">{E(t("orig_title_ev"))}{E(e["title_orig"])}</p>')
+    place = event_place_short(e) or ((event_select.location_fact(e) or {}).get("text") or "")   # backfill rows keep the place in the credited location
+    tags = cal_tags(e) if full else ""
+    out.append(f'<p class="meta">{flag(e.get("country"))} <time datetime="{E(e["start"])}">{E(event_when_short(e))}</time>{" · " + E(place) if place else ""}{" " + tags if tags else ""}</p>')
+    if full:
+        org = [f'{E(t("organiser"))}: {E(e["organiser"])}'] if e.get("organiser") else []
+        if e.get("url") and e.get("source"): org.append(f'{E(t("listed_at"))}: <a href="{E(e["url"])}" rel="noopener" target="_blank">{E(e["source"])}</a>')
+        if org: out.append(f'<p class="meta evorg">{" · ".join(org)}</p>')
+        note, nl = L18(e, "note")
+        if note: out.append(f'<p class="sum"{lang_attr(nl)}><b>{E(t("note"))}:</b> {E(note)}</p>')
+    return "".join(out) + "</div></li>"
+def cal_tags(e):
+    b = []
+    if e.get("status") == "owner": b.append(f'<span class="tag pend">{E(t("owner"))}</span>')
+    elif e.get("status") not in (None, "published"): b.append(f'<span class="tag pend">{E(t("pending"))}</span>')
+    if e.get("paid"): b.append(f'<span class="tag paid">{E(t("paid"))}</span>')
+    elif e.get("paid") is False: b.append(f'<span class="tag">{E(t("free"))}</span>')
+    if e.get("sponsored"): b.append('<span class="tag paid">' + (E(t("sponsored_by", x=e["sponsored"])) if isinstance(e["sponsored"], str) else E(t("sponsored"))) + '</span>')
+    if e.get("online"): b.append(f'<span class="tag">{E(t("online"))}</span>')
+    return " ".join(b)
+def cal_months(rows, full=True, cls="", href_prefix="", head="h3", hl="h4", by_year=False):
+    """Events under one heading per month (the year is in the heading, the day and month in each badge). by_year: one heading per year."""
+    out, cur = [], None
+    for e in rows:
+        a = dt.datetime.fromisoformat(e["start"])
+        key = a.year if by_year else (a.year, a.month)
+        if key != cur:
+            if cur: out.append("</ol></div>")
+            cur = key
+            out.append(f'<div class="evmg"><{head} class="evm">{a.year if by_year else E(i18n.month_caption(LANG, a.year, a.month))}</{head}><ol class="evl{" " + cls if cls else ""}">')
+        out.append(cal_row(e, full, href_prefix, hl))
+    if cur: out.append("</ol></div>")
+    return "".join(out)
+CAL_JS = """<script>(function(){var NU=%s,cc=[].slice.call(document.querySelectorAll('.cchip')),n=[].slice.call(document.querySelectorAll('#evlist li[data-c], .calgrid a[data-c], ol.past li[data-c]')),cnt=document.getElementById('ecount'),mg=[].slice.call(document.querySelectorAll('.evmg'));
+function apply(push){var c=cc.filter(function(x){return x.getAttribute('aria-pressed')==='true'}).map(function(x){return x.dataset.c}),k=0;n.forEach(function(el){var ok=!c.length||c.indexOf(el.dataset.c)>=0;el.hidden=!ok;if(ok&&el.closest('#evlist'))k++});
+mg.forEach(function(g){g.hidden=!g.querySelector('li[data-c]:not([hidden])')});cnt.textContent=NU.replace('{n}',k);if(push)history.replaceState(null,'',c.length?'#country='+c.join(','):location.pathname)}
+var h=new URLSearchParams(location.hash.slice(1));(h.get('country')||'').split(',').forEach(function(x){cc.forEach(function(b){if(b.dataset.c===x)b.setAttribute('aria-pressed','true')})});
+cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');apply(1)})});apply(0);
+function reveal(){var id=location.hash.slice(1),el=id&&id.indexOf('=')<0&&document.getElementById(id),d=el&&(el.tagName==='DETAILS'?el:el.closest('details'));if(d&&!d.open){d.open=true;el.scrollIntoView()}}
+window.addEventListener('hashchange',reveal);reveal()})();</script>"""
 def build_calendar(ctx):
+    """ /calendar/ : the upcoming events first (date badges, one heading per month), then the month grids on wide screens,
+    then the finished events behind a summary. Country chips with counts filter all three."""
     evs, now = ctx["events"]
     up = [e for e in evs if not e["past"]]; past = [e for e in evs if e["past"] and e.get("status") == "published"][::-1]  # all finished, newest first
-    def when(e):
-        # Same line as the front page. The calendar lists themselves are unchanged.
-        return event_when(e)
-    def badges(e):
-        b = []
-        if e.get("status") == "owner": b.append(f'<span class="tag pend">{E(t("owner"))}</span>')
-        elif e.get("status") != "published": b.append(f'<span class="tag pend">{E(t("pending"))}</span>')
-        if e.get("paid"): b.append(f'<span class="tag paid">{E(t("paid"))}</span>')
-        elif e.get("paid") is False: b.append(f'<span class="tag">{E(t("free"))}</span>')
-        if e.get("sponsored"): b.append('<span class="tag paid">' + (E(t("sponsored_by", x=e["sponsored"])) if isinstance(e["sponsored"], str) else E(t("sponsored"))) + '</span>')
-        if e.get("online"): b.append(f'<span class="tag">{E(t("online"))}</span>')
-        return " ".join(b)
-    def li(e):
-        # event titles: English pages keep the editor's English title (+ original); other languages show the organiser's original title
-        ttl = e["title"] if LANG == "en" or not e.get("title_orig") else e["title_orig"]
-        note, nl = L18(e, "note")
-        return (f'<li id="e-{E(e["id"])}" data-c="{E(e.get("country"))}"><h3><a href="{E(e["id"])}/">{E(ttl)}</a></h3>'
-                f'<div class="meta">{flag(e.get("country"))} <time datetime="{E(e["start"])}"><b>{E(when(e))}</b></time> · {E(e.get("place") or t("online"))}{(", " + E(e["city"])) if e.get("city") and e["city"] not in (e.get("place") or "") else ""} {badges(e)}</div>'
-                + (f'<p class="orig">{E(t("orig_title_ev"))}{E(e["title_orig"])}</p>' if e.get("title_orig") and LANG == "en" else "") + f'<div class="meta">{E(t("organiser"))}: {E(e["organiser"])} · {E(t("listed_at"))}: <a href="{E(e["url"])}" rel="noopener" target="_blank">{E(e["source"])}</a></div>'
-                + (f'<p class="sum"{lang_attr(nl)}><b>{E(t("note"))}:</b> {E(note)}</p>' if note else "") + '</li>')
     loc = lambda e: dt.datetime.fromisoformat(e["start"])
     months = sorted({(now.year, now.month)} | {(loc(e).year, loc(e).month) for e in up})[:6]
+    today = now.astimezone(OSLO).date()
     grids = []
     for y, m in months:
         cells = []
         for wk in calendar.Calendar(0).monthdatescalendar(y, m):
             row = []
             for d in wk:
+                if d.month != m:
+                    row.append('<td class="out"></td>'); continue
                 de = [e for e in up if loc(e).date() == d]
-                cls = " ".join(c for c in ["out" if d.month != m else "", "today" if d == now.astimezone(OSLO).date() else "", "has" if de else ""] if c)
-                row.append(f'<td class="{cls}"><span class="d">{d.day}</span>' + "".join(f'<a href="{E(e["id"])}/" data-c="{E(e.get("country"))}" title="{E(cname(e.get("country")))}: {E(e["title"] if LANG == "en" else e.get("title_orig") or e["title"])}">{flag(e.get("country"))}<span>{E(e["title"] if LANG == "en" else e.get("title_orig") or e["title"])}</span></a>' for e in de) + '</td>')
+                links = "".join(f'<a href="{E(e["id"])}/" data-c="{E(e.get("country"))}" title="{E(cname(e.get("country")))}: {E(event_title(e))}" aria-label="{E(cname(e.get("country")))}: {E(event_title(e))}">{_deco_mark(e.get("country"))}</a>' for e in de)
+                row.append(f'<td{" class=today" if d == today else ""}>{d.day}{links}</td>')
             cells.append("<tr>" + "".join(row) + "</tr>")
         grids.append(f'<table class="cal"><caption>{E(i18n.month_caption(LANG, y, m))}</caption><thead><tr>{"".join(f"<th>{E(d)}</th>" for d in i18n.wd_head(LANG))}</tr></thead><tbody>{"".join(cells)}</tbody></table>')
     per_c = {c: sum(e.get("country") == c for e in up) for c in COUNTRY_CODES}
+    chips = "".join(f'<button type="button" class="chip cchip" data-c="{c}" aria-pressed="false">{_deco_flag(c)}{E(cname(c))} <span class="n">{per_c[c]}</span></button>' for c in COUNTRY_CODES if per_c[c] or any(e.get("country") == c for e in past))
     npend = sum(e.get("status") == "pending" for e in up); nown = sum(e.get("status") == "owner" for e in up)
-    body = f"""<h1>{E(t("cal_h1"))}</h1>
-<p class="lead">{E(t("cal_lead"))}</p>
-<p class="meta"><a href="../events/previous/">{E(t("prev_link"))}</a></p>
+    lead = t("cal_lead"); first = first_sentence(lead); rest = lead[len(first):].strip()
+    body = f"""{site_css.style("filterbar")}{site_css.style("calendar")}<div class="calpage">
+<h1>{E(t("cal_h1"))}</h1>
+<p class="lead">{E(first)}</p>
 {f'<p class="notice warn">{t("cal_preview", p=npend, n=len(up), o=nown)}</p>' if PREVIEW and (npend or nown) else ''}
-<div class="filters" role="group" aria-label="{E(t("countries_aria"))}"><span class="lbl">{E(t("country"))}</span><div class="chips">{country_chips()}</div><span id="ecount" class="meta" aria-live="polite"></span></div>
-<p class="meta">{" · ".join(f"{flag(c)} {E(n)}: {per_c[c]}" for c, n in COUNTRIES.items())}</p>
-<div class="calgrid">{''.join(grids)}</div>
-<h2>{E(t("upcoming_h"))}</h2><ol class="news" id="evlist">{''.join(li(e) for e in up) or f'<li class="empty">{E(t("no_upcoming"))}</li>'}</ol>
-<h2 id="past">{E(t("past_h"))}</h2><p class="meta">{E(t("past_note"))}</p><p class="meta">{t("past_talks", href="../talks/")}</p><ol class="news past">{''.join(li(e) for e in past) or f'<li class="empty">{E(t("no_past"))}</li>'}</ol>
-<p class="meta">{t("cal_how")}</p>"""
-    js = """<script>(function(){var NU=%s,cc=[].slice.call(document.querySelectorAll('.cchip')),n=[].slice.call(document.querySelectorAll('#evlist li[data-c], .calgrid a[data-c], ol.past li[data-c]')),cnt=document.getElementById('ecount');
-function apply(){var c=cc.filter(function(x){return x.getAttribute('aria-pressed')==='true'}).map(function(x){return x.dataset.c}),k=0;n.forEach(function(el){var ok=!c.length||c.indexOf(el.dataset.c)>=0;el.hidden=!ok;if(ok&&el.parentNode.id==='evlist')k++});cnt.textContent=NU.replace('{n}',k);history.replaceState(null,'',c.length?'#country='+c.join(','):location.pathname)}
-var h=new URLSearchParams(location.hash.slice(1));(h.get('country')||'').split(',').forEach(function(x){cc.forEach(function(b){if(b.dataset.c===x)b.setAttribute('aria-pressed','true')})});
-cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');apply()})});apply()})();</script>""" % json.dumps(t("n_upcoming", n="{n}"))
-    page("calendar", t("cal_title"), "calendar", body, t("cal_desc"), js)
+<div class="filters lfilters" role="group" aria-label="{E(t("countries_aria"))}"><div class="lf"><span class="lbl" id="cf-c">{E(t("country"))}</span><div class="chips" role="group" aria-labelledby="cf-c">{chips}</div></div><p id="ecount" class="meta lcount" aria-live="polite">{E(t("n_upcoming", n=len(up)))}</p></div>
+<section aria-labelledby="up-h"><h2 class="seclbl" id="up-h">{E(t("upcoming_h"))}</h2>
+<div id="evlist">{cal_months(up) or f'<p class="empty">{E(t("no_upcoming"))}</p>'}</div></section>
+<section class="calmonths" aria-labelledby="mo-h"><h2 class="seclbl" id="mo-h">{E(t("cal_months_h"))}</h2><div class="calgrid">{''.join(grids)}</div></section>
+<section aria-labelledby="past"><h2 class="seclbl" id="past">{E(t("past_h"))}</h2><p class="meta">{E(t("past_note"))} {t("past_talks", href="../talks/")}</p>
+{f'<details class="pastev"><summary>{E(t("past_show_1") if len(past) == 1 else t("past_show", n=len(past)))}</summary>{cal_months(past, full=False, cls="past")}</details>' if past else f'<p class="empty">{E(t("no_past"))}</p>'}
+<p class="meta"><a href="../events/previous/">{E(t("past_all"))}</a></p></section>
+<div class="calhow"><p class="meta">{E(rest)}</p><p class="meta">{t("cal_how")}</p></div>
+</div>"""
+    page("calendar", t("cal_title"), "calendar", body, t("cal_desc"), CAL_JS % json.dumps(t("n_upcoming", n="{n}")))
     if LANG == "en": print(f"calendar: {len(up)} upcoming {per_c}, {len(past)} past")
 
 def build_academia():
@@ -2669,20 +2758,20 @@ def build_academia():
     def st(r): return (f'<span class="tag pend">{E(t("owner"))}</span>' if PREVIEW else "")
     def dom(u): return re.sub(r"^https?://(www[0-9]?\.)?", "", u).split("/")[0]
     def foot(r):
-        return f'<div class="meta">{E(t("ac_source"))}: <a href="{E(r["source"])}" rel="noopener" target="_blank">{E(dom(r["source"]))}</a> · {E(t("ac_checked", d=r["checked"]))} {st(r)}</div>'
+        return f'<p class="acsrc">{E(t("ac_source"))}: <a href="{E(r["source"])}" rel="noopener" target="_blank">{E(dom(r["source"]))}</a> · {E(t("ac_checked", d=r["checked"]))} {st(r)}</p>'
     tr = load(P("data", "academia_i18n.json"), {}) or {}   # optional translations of research 'about' / group 'activity' texts, keyed by url
     def about(r, k="about"):
         x = (tr.get(r["url"]) or {}).get(LANG) if LANG != "en" else None
         return f'<p class="sum">{E(x)}</p>' if x else f'<p class="sum"{en}>{E(" ".join(v for v in (r.get("about"), r.get("activity")) if v) if k == "group" else r["about"])}</p>'
     def row(c, inner): return f'<li data-c="{E(c)}">{inner}</li>'
-    def bycountry(rows, fn):
+    def bycountry(rows, fn, sec):
         if not rows: return f'<p class="empty">{E(t("ac_empty"))}</p>'
-        return '<ol class="news">' + "".join(row(r["country"], fn(r)) for c in COUNTRY_CODES for r in rows if r["country"] == c) + '</ol>'
+        return f'<ol class="aclist" data-s="{sec}">' + "".join(row(r["country"], fn(r)) for c in COUNTRY_CODES for r in rows if r["country"] == c) + '</ol>'
     courses = bycountry(secs["courses"], lambda r: f'<h3><a href="{E(r["url"])}" rel="noopener" target="_blank">{E(r["code"])} {E(r["name"])}</a></h3>'
-        f'<div class="meta">{flag(r["country"])} <b>{E(r["institution"])}</b> · <span{en}>{E(r["level"])}</span>' + (f' · <b{en}>{E(r["term"])}</b>' if r.get("term") else "") + f'</div><p class="sum"{en}>{E(r["about"])}</p>{foot(r)}')
+        f'<p class="meta">{flag(r["country"])} <b>{E(r["institution"])}</b> · <span{en}>{E(r["level"])}</span>' + (f' · <b{en}>{E(r["term"])}</b>' if r.get("term") else "") + f'</p><p class="sum"{en}>{E(r["about"])}</p>{foot(r)}', "courses")
     groups = bycountry(secs["groups"], lambda r: f'<h3><a href="{E(r["url"])}" rel="noopener" target="_blank">{E(r["name"])}</a> '
         f'<span class="tag {"act" if r["active"] else "inact"}">{E(t("active") if r["active"] else t("inactive"))}</span></h3>'
-        f'<div class="meta">{flag(r["country"])} <b>{E(r["institution"])}</b></div>{about(r, "group")}{foot(r)}')
+        f'<p class="meta">{flag(r["country"])} <b>{E(r["institution"])}</b></p>{about(r, "group")}{foot(r)}', "groups")
     def au(a):
         a = a or []
         return (", ".join(a[:4]) + (t("et_al") if len(a) > 4 else "")) if a else ""
@@ -2709,26 +2798,32 @@ def build_academia():
         return " · ".join(parts)
     pubs = bycountry(sorted(secs["publications"], key=lambda r: (-(r.get("year") or 0), r.get("title") or "")),
         lambda r: f'<h3><a href="{E(r["url"])}" rel="noopener" target="_blank">{E(r["title"])}</a></h3>'
-        f'<div class="meta">{pub_meta(r)}</div>'
-        f'<div class="meta">{pub_ids(r)}</div>{foot(r)}')
+        f'<p class="meta">{pub_meta(r)}</p>'
+        f'<p class="meta acids">{pub_ids(r)}</p>{foot(r)}', "publications")
     research = bycountry(secs["research"], lambda r: f'<h3><a href="{E(r["url"])}" rel="noopener" target="_blank">{E(r["name"])}</a></h3>'
-        f'<div class="meta">{flag(r["country"])} <b>{E(r["institution"])}</b></div>{about(r)}{foot(r)}')
+        f'<p class="meta">{flag(r["country"])} <b>{E(r["institution"])}</b></p>{about(r)}{foot(r)}', "research")
     allrows = sum(len(v) for v in secs.values())
     per_c = {c: sum(r["country"] == c for v in secs.values() for r in v) for c in COUNTRY_CODES}
     dn = t("data_en_note")
-    body = f"""<h1>{E(t("ac_h1"))}</h1>
+    chips = "".join(f'<button type="button" class="chip cchip" data-c="{c}" aria-pressed="false">{_deco_flag(c)}{E(cname(c))} <span class="n">{per_c[c]}</span></button>' for c in COUNTRY_CODES if per_c[c])
+    jump = "".join(f'<a href="#{k}">{E(t(lab))} <span class="n" data-s="{k}">{len(secs[k])}</span></a>' for k, lab in (("courses", "ac_courses"), ("groups", "ac_groups"), ("publications", "ac_pubs"), ("research", "ac_research")))
+    body = f"""{site_css.style("filterbar")}{site_css.style("academia")}<div class="acpage">
+<h1>{E(t("ac_h1"))}</h1>
 <p class="lead">{E(t("ac_lead"))}</p>
 {f'<p class="notice warn">{t("ac_preview", n=allrows)}</p>' if PREVIEW else ''}
 {f'<p class="meta">{E(dn)}</p>' if dn else ''}
-<div class="filters" role="group" aria-label="{E(t("countries_aria"))}"><span class="lbl">{E(t("country"))}</span><div class="chips">{country_chips()}</div><span id="acount" class="meta" aria-live="polite"></span></div>
-<p class="meta">{" · ".join(f"{flag(c)} {E(n)}: {per_c[c]}" for c, n in COUNTRIES.items())} · <a href="#courses">{E(t("ac_courses"))}</a> · <a href="#groups">{E(t("ac_groups"))}</a> · <a href="#publications">{E(t("ac_pubs"))}</a> · <a href="#research">{E(t("ac_research"))}</a></p>
-<h2 id="courses">{E(t("ac_courses_h"))}</h2><p class="meta">{E(t("ac_courses_m"))}</p>{courses}
-<h2 id="groups">{E(t("ac_groups_h"))}</h2><p class="meta">{E(t("ac_groups_m"))}</p>{groups}
-<h2 id="publications">{E(t("ac_pubs_h"))}</h2><p class="meta">{E(t("ac_pubs_m"))}</p>{pubs}
-<h2 id="research">{E(t("ac_research_h"))}</h2>{research}
-<p class="notice">{t("ac_notice")}</p>"""
-    js = """<script>(function(){var NR=%s,cc=[].slice.call(document.querySelectorAll('.cchip')),n=[].slice.call(document.querySelectorAll('ol.news li[data-c]')),cnt=document.getElementById('acount');
-function apply(){var c=cc.filter(function(x){return x.getAttribute('aria-pressed')==='true'}).map(function(x){return x.dataset.c}),k=0;n.forEach(function(el){var ok=!c.length||c.indexOf(el.dataset.c)>=0;el.hidden=!ok;if(ok)k++});cnt.textContent=NR.replace('{n}',k);history.replaceState(null,'',c.length?'#country='+c.join(','):location.pathname+location.hash.replace(/#country=.*/,''))}
+<div class="filters lfilters" role="group" aria-label="{E(t("countries_aria"))}"><div class="lf"><span class="lbl" id="lf-c">{E(t("country"))}</span><div class="chips" role="group" aria-labelledby="lf-c">{chips}</div></div><p id="acount" class="meta lcount" aria-live="polite">{E(t("n_rows", n=allrows))}</p></div>
+<nav class="acjump" aria-label="{E(t("toc_h"))}">{jump}</nav>
+<section aria-labelledby="courses"><h2 id="courses">{E(t("ac_courses_h"))}</h2><p class="meta acnote">{E(t("ac_courses_m"))}</p>{courses}</section>
+<section aria-labelledby="groups"><h2 id="groups">{E(t("ac_groups_h"))}</h2><p class="meta acnote">{E(t("ac_groups_m"))}</p>{groups}</section>
+<section aria-labelledby="publications"><h2 id="publications">{E(t("ac_pubs_h"))}</h2><p class="meta acnote">{E(t("ac_pubs_m"))}</p>{pubs}</section>
+<section aria-labelledby="research"><h2 id="research">{E(t("ac_research_h"))}</h2>{research}</section>
+<p class="notice">{t("ac_notice")}</p>
+</div>"""
+    js = """<script>(function(){var NR=%s,cc=[].slice.call(document.querySelectorAll('.cchip')),n=[].slice.call(document.querySelectorAll('.aclist li[data-c]')),cnt=document.getElementById('acount'),js=[].slice.call(document.querySelectorAll('.acjump .n'));
+function apply(){var c=cc.filter(function(x){return x.getAttribute('aria-pressed')==='true'}).map(function(x){return x.dataset.c}),k=0;n.forEach(function(el){var ok=!c.length||c.indexOf(el.dataset.c)>=0;el.hidden=!ok;if(ok)k++});cnt.textContent=NR.replace('{n}',k);
+js.forEach(function(s){var l=document.querySelector('.aclist[data-s="'+s.dataset.s+'"]');if(l)s.textContent=l.querySelectorAll('li[data-c]:not([hidden])').length});
+history.replaceState(null,'',c.length?'#country='+c.join(','):location.pathname+location.hash.replace(/#country=.*/,''))}
 var h=new URLSearchParams(location.hash.slice(1));(h.get('country')||'').split(',').forEach(function(x){cc.forEach(function(b){if(b.dataset.c===x)b.setAttribute('aria-pressed','true')})});
 cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');apply()})});apply()})();</script>""" % json.dumps(t("n_rows", n="{n}"))
     page("academia", t("ac_title"), "academia", body, t("ac_desc"), js)

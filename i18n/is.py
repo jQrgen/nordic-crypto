@@ -408,3 +408,15 @@ S.update({
 "js_n_match1": "1 niðurstaða",
 "js_no_match": "Ekkert passar við leitina.",
 })
+
+# Sources, academia, calendar and event pages: lighter lists
+S.update({
+"src_how": "Hvernig við lesum heimildirnar",
+"src_samefeed": "„Same feed as …“ merkir að tveir miðlar deila einu streymi. Það er lesið einu sinni svo að frétt lendi ekki undir röngum miðli.",
+"src_n_mon": "{n} í vöktun",
+"cal_months_h": "Mánuð fyrir mánuð",
+"past_show": "Sýna {n} liðna viðburði",
+"past_all": "Allir fyrri viðburðir",
+"ev_when": "Dagsetning og tími",
+"past_show_1": "Sýna 1 liðinn viðburð",
+})

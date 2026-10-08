@@ -408,3 +408,15 @@ S.update({
 "js_n_match1": "1 träff",
 "js_no_match": "Inget matchar sökningen.",
 })
+
+# Sources, academia, calendar and event pages: lighter lists
+S.update({
+"src_how": "Så läser vi källorna",
+"src_samefeed": "”Same feed as …” betyder att två titlar delar ett flöde. Det läses en gång, så att en artikel inte hamnar under fel titel.",
+"src_n_mon": "{n} bevakas",
+"cal_months_h": "Månad för månad",
+"past_show": "Visa {n} tidigare evenemang",
+"past_all": "Alla tidigare evenemang",
+"ev_when": "Datum och tid",
+"past_show_1": "Visa 1 tidigare evenemang",
+})

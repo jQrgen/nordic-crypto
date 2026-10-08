@@ -1,6 +1,6 @@
-/* Events: happening now and next events (the front-page rail), event pages, previous events and the month calendar.
+/* Events: happening now and next events (the front-page rail). The calendar, previous events and event pages have their own modules.
    In the rail each event is a row: a date badge, the title, then country, weekday, time and city. */
-.evhero,.evsoon,.evfull,.evcard,.evmeta,.evsrc,.evplace{text-align:left}
+.evhero,.evsoon,.evcard,.evmeta,.evsrc,.evplace{text-align:left}
 .evhero{position:relative;border:1px solid var(--line);border-inline-start:4px solid var(--gold);border-radius:var(--r-sm);background:var(--surface);padding:12px 14px;margin:0 0 22px}
 .evhero h2,.evsoon h2{text-align:left;margin:0 0 4px}
 .evhero h2{color:var(--gold-ink);margin-top:2px}
@@ -8,16 +8,16 @@
 .evsoon h2{margin:0 0 6px}
 .evhero h3{font-size:24px;line-height:1.15;margin:0 0 6px;text-align:left}
 .evsoon{margin:8px 0 22px}
-.evsoon h3,.evfull h3{font-size:22px;line-height:1.18;margin:0 0 6px;text-align:left}
-.evhero h3 a,.evsoon h3 a,.evfull h3 a{text-decoration:none}
-.evhero h3 a:hover,.evsoon h3 a:hover,.evfull h3 a:hover{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px}
+.evsoon h3{font-size:22px;line-height:1.18;margin:0 0 6px;text-align:left}
+.evhero h3 a,.evsoon h3 a{text-decoration:none}
+.evhero h3 a:hover,.evsoon h3 a:hover{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px}
 .evcard{padding:14px 0 16px;border-bottom:1px solid var(--line)}
 .evcard .meta{margin:4px 0 0}
 .evcard time b{font-weight:600;color:var(--fg)}
 .evhero .evcard{border-bottom:0;padding:10px 0}
 .evhero .evcard+.evcard{border-top:1px solid var(--line)}
 .evsoon .evmeta{display:none}
-.evhero .evmeta,.evfull .evmeta{display:block}
+.evhero .evmeta{display:block}
 /* rail rows */
 .evrow{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;align-items:start;padding:12px 0;border-bottom:1px solid var(--line)}
 .evhero .evrow{padding:8px 0;border-bottom:0}
@@ -28,18 +28,4 @@
 .evrow .meta{font-size:13px;line-height:1.45;margin:0}
 .evsoon>.meta{margin:10px 0 0;font-size:14px}
 .evsrc{font-size:13.5px;color:var(--muted);margin:2px 0 0}
-.evpage,.evpage h1,.evpage h2,.evpage p,.evpage li{text-align:left}
-.evpage .evdesc{display:block;text-align:left;max-width:70ch;margin:12px 0 18px;line-height:1.65}
-.evofficial{display:inline-block;margin:12px 0 18px;padding:10px 18px;border:1px solid var(--btn);border-radius:var(--r-sm);background:var(--btn);color:var(--btn-ink);text-decoration:none;font-weight:600;text-align:left;transition:background .15s,transform .15s}
-.evofficial:hover,.evofficial:focus-visible{background:var(--btn-hover);border-color:var(--btn-hover);transform:translateY(-1px)}
-.evpage .evmeta{display:block;margin:4px 0}
 @media(max-width:640px){.evhero h3{font-size:24px}}
-/* month calendar */
-.calgrid{display:none}@media(min-width:760px){.calgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(460px,1fr));gap:28px;margin:22px 0}}
-table.cal{border-collapse:separate;border-spacing:0;width:100%;table-layout:fixed;font-size:13px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}table.cal caption{text-align:left;font:700 24px/1.2 var(--f-display);padding:4px 0 10px}
-table.cal th{font:500 11px/1.2 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--band-muted);padding:8px 2px;background:var(--band)}table.cal td{border-top:1px solid var(--line);border-inline-start:1px solid var(--line);vertical-align:top;height:72px;padding:4px 6px;overflow:hidden}
-table.cal td:first-child{border-inline-start:0}
-table.cal td .d{font-variant-numeric:tabular-nums;color:var(--muted);font-size:12px}
-table.cal td.out{opacity:.35}table.cal td.today .d{background:var(--gold);color:var(--on-gold);font-weight:700;padding:1px 6px;border-radius:var(--r-xs)}table.cal td.has{background:color-mix(in srgb,var(--foam) 22%,var(--surface))}
-table.cal td a{display:flex;gap:4px;align-items:flex-start;font-size:11.5px;line-height:1.25;margin-top:4px;text-decoration:none}table.cal td a span{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:break-word;hyphens:auto}table.cal td a:hover{text-decoration:underline}
-table.cal td a .flag{width:13px;height:10px;margin-top:1px}ol.past{opacity:.75}

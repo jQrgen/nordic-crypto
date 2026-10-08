@@ -427,3 +427,15 @@ S.update({
 "js_n_match1": "1 match",
 "js_no_match": "Nothing matches your search.",
 })
+
+# Sources, academia, calendar and event pages: lighter lists
+S.update({
+"src_how": "How we read sources",
+"src_samefeed": "“Same feed as …” means two titles share one feed. It is read once, so a story is not filed under the wrong title.",
+"src_n_mon": "{n} monitored",
+"cal_months_h": "Month by month",
+"past_show": "Show {n} past events",
+"past_all": "All previous events",
+"ev_when": "Date and time",
+"past_show_1": "Show 1 past event",
+})

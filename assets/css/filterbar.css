@@ -1,0 +1,15 @@
+/* The filter bar of the list pages (sources, academia, calendar; inlined only there): search, chips with counts, the result count. */
+.lfilters{display:flex;flex-wrap:wrap;align-items:center;gap:10px 28px;margin:18px 0 6px;padding:12px 14px;box-shadow:none;text-align:start}
+.lf{display:flex;align-items:center;gap:8px 10px;min-width:0}
+.lf-q{gap:8px 16px}
+.lf-q input{width:22rem;max-width:100%;min-height:40px}
+.lfilters .chip{min-height:34px}
+.lfilters .n{font:500 11px var(--f-mono);opacity:.8}
+.lcount{margin:0;font-weight:600;color:var(--fg);unicode-bidi:plaintext}
+@media(max-width:640px){
+ .lfilters{display:grid;gap:8px;padding:10px 12px}
+ .lf{flex-wrap:wrap;gap:4px 10px}.lf .lbl{flex:1 0 100%}
+ .lfilters .chip{min-height:40px}
+ .lf-q{display:grid}
+ .lf-q input{width:100%;min-height:44px;font-size:16px}
+}
