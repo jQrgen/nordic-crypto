@@ -3,6 +3,8 @@ import test from "node:test";
 import { readFileSync } from "node:fs";
 import { Address, AddressType, GroupToken, Networks, PrivateKey } from "libnexa-ts";
 import { fetchBalanceSats, hotAddress, observeChain } from "../src/balance.js";
+import { refillFromTx } from "../src/history.js";
+import { nexaVerboseToSatoshis } from "../src/utxos.js";
 import { displayAmount, policyAmount } from "../src/history.js";
 import { performMint } from "../src/mint.js";
 import { signNexaChallenge } from "../src/nexa/message.js";
@@ -146,6 +148,22 @@ test("a missing balance stays unknown until electrum answers", async () => {
   assert.equal(result.broadcast, true, result.reason);
   assert.equal(db.observed.nexa, 5000000 - (100000 + result.fee));
   assert.equal(JSON.stringify(result).includes(hot.toWIF()), false);
+});
+
+test("a Nexa history value in whole NEXA is stored as satoshis", () => {
+  const address = "nexatest:nqtsq5g5xjg5cqg2kx5wgg4wag9hfjach7zaqxxekdrpgx5v";
+  const tx = nexaVerboseToSatoshis({
+    txid: "ab".repeat(32),
+    time: 1791417115,
+    vin: [{ scriptPubKey: { addresses: ["nexatest:nqtsq5g5rgxqrnnpdufavwh509l0auhdpv79u2x4ca5xvwmu"] } }],
+    vout: [
+      { value: 100, scriptPubKey: { addresses: [address] } },
+      { value: 2209.48, scriptPubKey: { addresses: ["nexatest:nqtsq5g5dnds02e88d8smqepv4djtuqd05mxhtq8y2v9lda5"] } },
+    ],
+  });
+  const row = refillFromTx(tx, address);
+  assert.equal(row.amount, 10000);
+  assert.equal(nexaVerboseToSatoshis({ vout: [{ value: 1.001 }] }), null);
 });
 
 test("an electrum miss does not invent a balance", async () => {

@@ -60,7 +60,9 @@ Broadcast and balance reads use outbound WebSocket:
 - `wss://testnet-electrum.nexa.org:30004` (Rostrum)
 - `wss://chipnet.imaginary.cash:50004` and `wss://chipnet.bch.ninja:50004` (Fulcrum)
 
-`compatibility_date` is `2026-09-01`, which includes custom-port subrequests (the default since 2024-09-02) and the Workers WebSocket client on those ports. Port 25 is blocked; 30004 and 50004 are not. Checked from this environment on 2026-10-07: each socket answered `server.version`.
+`compatibility_date` is `2026-09-01`, which includes custom-port subrequests (the default since 2024-09-02) and the Workers WebSocket client on those ports. Port 25 is blocked; 30004 and 50004 are not. Checked from this environment on 2026-10-07, including from `wrangler dev`: each socket answered, and `POST /api/treasury/observe` stored the public balances.
+
+Rostrum's `blockchain.address.get_balance` is satoshis. Its verbose transaction `value` is NEXA (two decimal places). The refill sync converts that to satoshis before writing the ledger. A Bitcoin Cash verbose `value` in whole coins is a float and is skipped.
 
 ## What is not deployed
 

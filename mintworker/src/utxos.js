@@ -122,6 +122,39 @@ async function bchUtxos(env, secret, request) {
   };
 }
 
+// Rostrum's verbose transaction reports `value` in NEXA, with up to two
+// decimal places. get_balance on the same server reports satoshis. A whole
+// number of NEXA (100) would otherwise be stored as 100 sats.
+const NEXA_SATS = 100;
+
+function nexaOutputSats(value) {
+  if (typeof value === "string" && /^-?\d+(\.\d{1,2})?$/.test(value)) {
+    const neg = value.startsWith("-");
+    const body = neg ? value.slice(1) : value;
+    const [whole, frac = ""] = body.split(".");
+    const sats = Number(whole) * NEXA_SATS + Number((frac + "00").slice(0, 2));
+    if (!Number.isSafeInteger(sats)) return null;
+    return neg ? -sats : sats;
+  }
+  if (typeof value !== "number" || !Number.isFinite(value)) return null;
+  const sats = Math.round(value * NEXA_SATS);
+  if (!Number.isSafeInteger(sats) || Math.abs(value * NEXA_SATS - sats) > 1e-6) return null;
+  return sats;
+}
+
+export function nexaVerboseToSatoshis(tx) {
+  if (!tx || typeof tx !== "object") return null;
+  const outputs = tx.vout || tx.outputs;
+  if (!Array.isArray(outputs)) return null;
+  const vout = [];
+  for (const output of outputs) {
+    const sats = nexaOutputSats(output && output.value);
+    if (sats == null) return null;
+    vout.push({ ...output, value: sats });
+  }
+  return { ...tx, vout };
+}
+
 export async function syncChainRefills(db, chain, address, request = electrumRequest) {
   if (!db || !address) return;
   const urls = chain === "nexa" ? [NEXA_ELECTRUM] : BCH_ELECTRUM;
@@ -133,7 +166,8 @@ export async function syncChainRefills(db, chain, address, request = electrumReq
       if (!txid) continue;
       const got = await request(url, "blockchain.transaction.get", [txid, true]);
       if (!got || !got.ok) continue;
-      const row = refillFromTx(got.result, address);
+      const tx = chain === "nexa" ? nexaVerboseToSatoshis(got.result) : got.result;
+      const row = refillFromTx(tx, address);
       if (!row) continue;
       await recordLedger(db, { txid: row.txid, chain, kind: "refill", amount: row.amount, at: row.at, event_id: null });
     }
