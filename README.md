@@ -10,7 +10,7 @@ Public URL: https://nordiccrypto.no/ (`site_url.json`; all in-site links are rel
 **Domains:** the old address https://cryptonordic.no/ (and www) answers with a 301 to the same path on https://nordiccrypto.no/ (Cloudflare page rules on the cryptonordic.no zone). nordiccrypto.se, .fi, .dk and .is (apex and www) serve the site under their own address, with the front page in the country's language (Swedish, Finnish, Danish, Icelandic), through the Cloudflare Worker in [`workers/country-domains/`](workers/country-domains/). Canonical URLs stay on nordiccrypto.no. nordiccrypto.eu forwards to https://nordiccrypto.no/ (Domeneshop HTTP forwarding). nordiccrypto.no DNS is at Domeneshop (GitHub Pages A/AAAA, www CNAME jqrgen.github.io).
 
 ## Site languages
-Site interface and page presentation. News outlets stay as listed in `sources.json`. UI strings live in `i18n/<code>.py`. A missing key falls back to English, which is how the languages beyond the Nordic set are shipped until a real translation is written. Article bodies are not machine-translated for those languages. English is the site root. Every other code is `/<code>/`.
+Site interface and page presentation. News outlets stay as listed in `sources.json`. UI strings live in `i18n/<code>.py`. A missing key falls back to English. Since 8 Oct 2026 every UI string is translated for all 21 languages (AI-assisted for the languages beyond the Nordic set); new keys fall back to English until they are translated. Article bodies are not machine-translated for those languages. English is the site root. Every other code is `/<code>/`.
 
 | Code | Native name | English name | Direction |
 |---|---|---|---|
