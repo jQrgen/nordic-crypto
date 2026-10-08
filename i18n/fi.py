@@ -366,3 +366,17 @@ S.update({
 "chat_time_d": "{n} pv sitten",
 "chat_noscript": "Chat tarvitsee JavaScriptin.",
 })
+# books page (/books/)
+S.update({
+"nav_books": "Kirjat",
+"books_title": "Kirjat – pohjoismaisia kirjoja bitcoinista ja kryptoista",
+"books_desc": "Julkaistuja kirjoja bitcoinista, kryptoista ja lohkoketjuista pohjoismaisilta kirjoittajilta tai Pohjoismaista: kirjoittajat, vuosi, kustantaja ja kieli.",
+"books_h1": "Kirjoja bitcoinista ja kryptoista Pohjoismaista",
+"books_lead": "Julkaistuja kirjoja bitcoinista, kryptoista ja lohkoketjuista. Kirjoittajat ovat pohjoismaisia, tai kirja käsittelee Pohjoismaita. Jokainen nimeke linkittää kirjastoluetteloon tai kustantajan sivulle, josta tarkistimme kirjoittajat, vuoden ja kustantajan.",
+"books_note": "Nimekkeet ovat alkuperäiskielellä. Lyhyet kuvaukset ovat omiamme, englanniksi. Ei kansikuvia.",
+"books_n": "{n} kirjaa",
+"books_eds": "(toim.)",
+"books_source": "Tarkistettu",
+"books_empty": "Kirjoja ei ole vielä listattu.",
+"books_notice": "Puuttuuko kirja, tai onko jokin väärin? Kerro meille <a href=\"../about/#corrections\">korjaukset</a>-osion kautta. Listaamme vain julkaistuja kirjoja, emme käsikirjoituksia, ja linkitämme jokaisen luetteloon tai kustantajalle."
+})

@@ -85,3 +85,17 @@ S.update({
 "chat_time_d": "vor {n} T.",
 "chat_noscript": "Der Chat braucht JavaScript.",
 })
+# books page (/books/)
+S.update({
+"nav_books": "Bücher",
+"books_title": "Bücher – nordische Bücher über Bitcoin und Krypto",
+"books_desc": "Veröffentlichte Bücher über Bitcoin, Krypto und Blockchain von nordischen Autorinnen und Autoren oder über die nordischen Länder, mit Autoren, Jahr, Verlag und Sprache.",
+"books_h1": "Bücher über Bitcoin und Krypto aus dem Norden",
+"books_lead": "Veröffentlichte Bücher über Bitcoin, Krypto und Blockchain, geschrieben von nordischen Autoren oder über die nordischen Länder. Jeder Titel verlinkt auf den Bibliothekskatalog oder die Verlagsseite, auf der wir Autoren, Jahr und Verlag geprüft haben.",
+"books_note": "Die Titel stehen in der Originalsprache. Die kurzen Beschreibungen sind von uns, auf Englisch. Keine Coverbilder.",
+"books_n": "{n} Bücher",
+"books_eds": "(Hrsg.)",
+"books_source": "Geprüft in",
+"books_empty": "Noch keine Bücher gelistet.",
+"books_notice": "Fehlt ein Buch, oder ist etwas falsch? Sag es uns über <a href=\"../about/#corrections\">Korrekturen</a>. Wir listen nur veröffentlichte Bücher, keine Manuskripte, und verlinken jedes auf einen Katalog oder den Verlag."
+})

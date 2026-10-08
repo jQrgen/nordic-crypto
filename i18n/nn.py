@@ -366,3 +366,17 @@ S.update({
 "chat_time_d": "{n} d sidan",
 "chat_noscript": "Chatten treng JavaScript.",
 })
+# books page (/books/)
+S.update({
+"nav_books": "Bøker",
+"books_title": "Bøker – nordiske bøker om bitcoin og krypto",
+"books_desc": "Utgjevne bøker om bitcoin, krypto og blokkjede av nordiske forfattarar eller om Norden, med forfattarar, år, forlag og språk.",
+"books_h1": "Bøker om bitcoin og krypto frå Norden",
+"books_lead": "Utgjevne bøker om bitcoin, krypto og blokkjede, skrivne av nordiske forfattarar eller om dei nordiske landa. Kvar tittel lenkjer til bibliotekkatalogen eller forlagssida der vi sjekka forfattarar, år og forlag.",
+"books_note": "Titlane står på originalspråket. Dei korte omtalane er våre, på engelsk. Ingen omslagsbilete.",
+"books_n": "{n} bøker",
+"books_eds": "(red.)",
+"books_source": "Sjekka i",
+"books_empty": "Ingen bøker er førte opp enno.",
+"books_notice": "Manglar det ei bok, eller er noko feil? Sei frå via <a href=\"../about/#corrections\">rettingar</a>. Vi fører berre opp utgjevne bøker, ikkje manus, og lenkjer kvar av dei til ein katalog eller forlaget."
+})

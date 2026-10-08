@@ -80,7 +80,7 @@ CSS = site_css.bundle()   # assets/css/*.css, in site_css.SITE order; inlined in
 # api is the human-readable docs at /api/ (English only). The href is the site root, not /<lang>/api/.
 # Same list on every page and in the phone menu: News, Newsletter, Calendar, Talks, then the rest.
 # Chat is inserted by nav_items() only while enabled.
-NAV = [("", "nav_news"), ("newsletter", "nav_newsletter"), ("calendar", "nav_calendar"), ("talks", "nav_talks"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("markets", "nav_markets"), ("sources", "nav_sources"), ("about", "nav_about"), ("tip", "nav_tip"), ("api", "nav_api")]
+NAV = [("", "nav_news"), ("newsletter", "nav_newsletter"), ("calendar", "nav_calendar"), ("talks", "nav_talks"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("books", "nav_books"), ("markets", "nav_markets"), ("sources", "nav_sources"), ("about", "nav_about"), ("tip", "nav_tip"), ("api", "nav_api")]
 COOKIE_PATH = site_url.PATH   # "/" on the public domain; a path prefix if BASE ever has one
 def geo_endpoint():
     """Country lookup: GET <tipworker>/api/geo (Cloudflare request.cf.country). Only when the Worker is deployed,
@@ -1647,6 +1647,7 @@ def build_lang(ctx):
     build_event_pages(*(_ev if isinstance(_ev, tuple) else (_ev or [], site_now())))
     build_talks()
     build_academia()
+    build_books()
     build_changelog()
     build_tip()
     build_columnist()
@@ -2490,6 +2491,54 @@ var h=new URLSearchParams(location.hash.slice(1));(h.get('country')||'').split('
 cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');apply()})});apply()})();</script>""" % json.dumps(t("n_rows", n="{n}"))
     page("academia", t("ac_title"), "academia", body, t("ac_desc"), js)
     if LANG == "en": print(f"academia: {allrows} editor-approved rows shown {per_c}")
+
+def _book_lang_label(code):
+    """Language of a book. Norwegian shows the written standard too: Norwegian (Nynorsk) / Norwegian (Bokmål)."""
+    if code in ("nn", "nb"):
+        return f'{_talk_lang_label(code)} ({i18n.NATIVE[code]})'
+    return _talk_lang_label(code)
+
+def build_books():
+    """ /books/ : published books on bitcoin, crypto and blockchain by Nordic authors or about the Nordics (data/books.json, tools/books.py).
+    Compact list, left-aligned, no cover images. The title links to the catalogue or publisher page where the row was checked."""
+    sys.path.insert(0, P("tools"))
+    import books as books_mod
+    rows = books_mod.rows()
+    if LANG == "en":
+        for msg in books_mod.problems():
+            print("books: " + msg)
+    en = lang_attr("en")
+    def dom(u): return re.sub(r"^https?://(www[0-9]?\.)?", "", u).split("/")[0]
+    def item(r):
+        tl = r["language"] if r["language"] in i18n.ALL_LANGS else None
+        la = f' lang="{tl}"' if tl and tl != LANG else ""
+        sub = f'<span class="booksub"{la}>: {E(r["subtitle"])}</span>' if r.get("subtitle") else ""
+        who = ", ".join(E(a) for a in r["authors"]) + (f' {E(t("books_eds"))}' if r.get("author_role") == "editors" else "")
+        bits = [flag(r["country"]), f'<b>{who}</b>', E(str(r["year"])), E(r["publisher"]), E(_book_lang_label(r["language"]))]
+        if r.get("isbn"):
+            bits.append(f'ISBN {E(r["isbn"])}')
+        more = "".join(f' · <a href="{E(u)}" rel="noopener" target="_blank">{E(dom(u))}</a>' for u in r["more_sources"])
+        return (f'<li id="{E(r["id"])}" data-c="{E(r["country"])}"><div class="storybody"><h3><a href="{E(r["source"])}" rel="noopener" target="_blank"{la}>{E(r["title"])}</a>{sub}</h3>'
+                f'<div class="meta">{" · ".join(bits)}</div>'
+                f'<p class="sum"{en}>{E(r["about"])}</p>'
+                f'<div class="meta">{E(t("books_source"))}: <a href="{E(r["source"])}" rel="noopener" target="_blank">{E(r["source_name"])}</a>{more}</div></div></li>')
+    present = [c for c in books_mod.COUNTRY_ORDER if any(r["country"] == c for r in rows)]
+    per_c = {c: sum(r["country"] == c for r in rows) for c in present}
+    chips = "".join(f'<button type="button" class="chip cchip" data-c="{c}" aria-pressed="false">{flag(c)}{E(cname(c))}</button>' for c in present)
+    listing = ('<ol class="news books" id="book-list">' + "".join(item(r) for r in rows) + '</ol>') if rows else f'<p class="empty">{E(t("books_empty"))}</p>'
+    body = f"""<h1>{E(t("books_h1"))}</h1>
+<p class="lead">{E(t("books_lead"))}</p>
+<p class="meta">{E(t("books_note"))}</p>
+<div class="filters" role="group" aria-label="{E(t("countries_aria"))}"><span class="lbl">{E(t("country"))}</span><div class="chips">{chips}</div><span id="bcount" class="meta" aria-live="polite"></span></div>
+<p class="meta">{" · ".join(f"{flag(c)} {E(cname(c))}: {per_c[c]}" for c in present)}</p>
+{listing}
+<p class="notice">{t("books_notice")}</p>"""
+    js = """<script>(function(){var NR=%s,cc=[].slice.call(document.querySelectorAll('.cchip')),n=[].slice.call(document.querySelectorAll('#book-list li[data-c]')),cnt=document.getElementById('bcount');
+function apply(){var c=cc.filter(function(x){return x.getAttribute('aria-pressed')==='true'}).map(function(x){return x.dataset.c}),k=0;n.forEach(function(el){var ok=!c.length||c.indexOf(el.dataset.c)>=0;el.hidden=!ok;if(ok)k++});cnt.textContent=NR.replace('{n}',k);if(c.length)history.replaceState(null,'','#country='+c.join(','));else if(location.hash.indexOf('#country=')===0)history.replaceState(null,'',location.pathname)}
+var h=new URLSearchParams(location.hash.slice(1));(h.get('country')||'').split(',').forEach(function(x){cc.forEach(function(b){if(b.dataset.c===x)b.setAttribute('aria-pressed','true')})});
+cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');apply()})});apply()})();</script>""" % json.dumps(t("books_n", n="{n}"))
+    page("books", t("books_title"), "books", body, t("books_desc"), js)
+    if LANG == "en": print(f"books: {len(rows)} {per_c}")
 
 TIP_FORM = "https://github.com/jQrgen/nordic-crypto/issues/new?template=tip.yml"
 COL_FORM = "https://github.com/jQrgen/nordic-crypto/issues/new?template=columnist.yml"
