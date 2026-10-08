@@ -85,3 +85,17 @@ S.update({
 "chat_time_d": "siku {n} zilizopita",
 "chat_noscript": "Gumzo linahitaji JavaScript.",
 })
+# books page (/books/)
+S.update({
+"nav_books": "Vitabu",
+"books_title": "Vitabu – vitabu vya Nordiki kuhusu bitcoin na kripto",
+"books_desc": "Vitabu vilivyochapishwa kuhusu bitcoin, kripto na blockchain vya waandishi wa Nordiki au kuhusu nchi za Nordiki, pamoja na waandishi, mwaka, mchapishaji na lugha.",
+"books_h1": "Vitabu kuhusu bitcoin na kripto kutoka Nordiki",
+"books_lead": "Vitabu vilivyochapishwa kuhusu bitcoin, kripto na blockchain, vilivyoandikwa na waandishi wa Nordiki au kuhusu nchi za Nordiki. Kila kichwa kinaunganishwa na katalogi ya maktaba au ukurasa wa mchapishaji tulipothibitisha waandishi, mwaka na mchapishaji.",
+"books_note": "Vichwa viko katika lugha asilia. Maelezo mafupi ni yetu, kwa Kiingereza. Hakuna picha za majalada.",
+"books_n": "Vitabu {n}",
+"books_eds": "(wahariri)",
+"books_source": "Imethibitishwa katika",
+"books_empty": "Bado hakuna vitabu.",
+"books_notice": "Kuna kitabu kinachokosekana au kosa? Tuambie kupitia <a href=\"../about/#corrections\">masahihisho</a>. Tunaorodhesha vitabu vilivyochapishwa tu, si miswada, na kila kimoja kinaunganishwa na katalogi au mchapishaji."
+})

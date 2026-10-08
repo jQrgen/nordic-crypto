@@ -85,3 +85,17 @@ S.update({
 "chat_time_d": "{n} h lalu",
 "chat_noscript": "Obrolan membutuhkan JavaScript.",
 })
+# books page (/books/)
+S.update({
+"nav_books": "Buku",
+"books_title": "Buku – buku Nordik tentang bitcoin dan kripto",
+"books_desc": "Buku terbitan tentang bitcoin, kripto, dan blockchain karya penulis Nordik atau tentang negara-negara Nordik, dengan penulis, tahun, penerbit, dan bahasa.",
+"books_h1": "Buku tentang bitcoin dan kripto dari negara Nordik",
+"books_lead": "Buku terbitan tentang bitcoin, kripto, dan blockchain, ditulis oleh penulis Nordik atau tentang negara-negara Nordik. Setiap judul tertaut ke katalog perpustakaan atau halaman penerbit tempat kami memeriksa penulis, tahun, dan penerbit.",
+"books_note": "Judul ditulis dalam bahasa aslinya. Deskripsi satu baris adalah tulisan kami, dalam bahasa Inggris. Tanpa gambar sampul.",
+"books_n": "{n} buku",
+"books_eds": "(ed.)",
+"books_source": "Diperiksa di",
+"books_empty": "Belum ada buku.",
+"books_notice": "Ada buku yang terlewat atau ada kesalahan? Beri tahu kami melalui <a href=\"../about/#corrections\">koreksi</a>. Kami hanya mencantumkan buku terbitan, bukan naskah, dan menautkan masing-masing ke katalog atau penerbit."
+})

@@ -85,3 +85,17 @@ S.update({
 "chat_time_d": "{n} 天前",
 "chat_noscript": "聊天需要 JavaScript。",
 })
+# books page (/books/)
+S.update({
+"nav_books": "书籍",
+"books_title": "书籍 – 北欧比特币与加密货币图书",
+"books_desc": "北欧作者撰写或以北欧国家为主题的比特币、加密货币和区块链出版图书，附作者、年份、出版社和语言。",
+"books_h1": "来自北欧的比特币与加密货币图书",
+"books_lead": "由北欧作者撰写或以北欧国家为主题的比特币、加密货币和区块链出版图书。每个书名都链接到我们核对作者、年份和出版社的图书馆目录或出版社页面。",
+"books_note": "书名保留原文。一句话简介由我们用英文撰写。不使用封面图片。",
+"books_n": "{n} 本书",
+"books_eds": "（编）",
+"books_source": "核对来源",
+"books_empty": "暂无图书。",
+"books_notice": "缺少某本书或有错误？请通过<a href=\"../about/#corrections\">更正</a>告诉我们。我们只收录已出版的图书，不收录手稿，并为每本书链接到目录或出版社。"
+})

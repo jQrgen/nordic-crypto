@@ -366,3 +366,17 @@ S.update({
 "chat_time_d": "fyrir {n} d.",
 "chat_noscript": "Spjallið þarfnast JavaScript.",
 })
+# books page (/books/)
+S.update({
+"nav_books": "Bækur",
+"books_title": "Bækur – norrænar bækur um bitcoin og rafmyntir",
+"books_desc": "Útgefnar bækur um bitcoin, rafmyntir og bálkakeðjur eftir norræna höfunda eða um Norðurlöndin, með höfundum, ártali, útgefanda og tungumáli.",
+"books_h1": "Bækur um bitcoin og rafmyntir frá Norðurlöndunum",
+"books_lead": "Útgefnar bækur um bitcoin, rafmyntir og bálkakeðjur, skrifaðar af norrænum höfundum eða um Norðurlöndin. Hver titill vísar á bókasafnsskrána eða síðu útgefandans þar sem við athuguðum höfunda, ártal og útgefanda.",
+"books_note": "Titlar eru á frummálinu. Stuttu lýsingarnar eru okkar, á ensku. Engar kápumyndir.",
+"books_n": "{n} bækur",
+"books_eds": "(ritstj.)",
+"books_source": "Athugað í",
+"books_empty": "Engar bækur skráðar enn.",
+"books_notice": "Vantar bók, eða er eitthvað rangt? Láttu okkur vita í gegnum <a href=\"../about/#corrections\">leiðréttingar</a>. Við skráum aðeins útgefnar bækur, ekki handrit, og vísum á skrá eða útgefanda fyrir hverja."
+})
