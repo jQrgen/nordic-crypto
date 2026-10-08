@@ -406,4 +406,5 @@ S.update({
 "past_show": "Näytä {n} mennyttä tapahtumaa",
 "past_all": "Kaikki aiemmat tapahtumat",
 "ev_when": "Aika",
+"past_show_1": "Näytä 1 mennyt tapahtuma",
 })

@@ -425,4 +425,5 @@ S.update({
 "past_show": "Show {n} past events",
 "past_all": "All previous events",
 "ev_when": "Date and time",
+"past_show_1": "Show 1 past event",
 })

@@ -406,4 +406,5 @@ S.update({
 "past_show": "Visa {n} tidigare evenemang",
 "past_all": "Alla tidigare evenemang",
 "ev_when": "Datum och tid",
+"past_show_1": "Visa 1 tidigare evenemang",
 })

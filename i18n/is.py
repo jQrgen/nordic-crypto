@@ -406,4 +406,5 @@ S.update({
 "past_show": "Sýna {n} liðna viðburði",
 "past_all": "Allir fyrri viðburðir",
 "ev_when": "Dagsetning og tími",
+"past_show_1": "Sýna 1 liðinn viðburð",
 })

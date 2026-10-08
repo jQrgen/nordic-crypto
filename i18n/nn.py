@@ -406,4 +406,5 @@ S.update({
 "past_show": "Vis {n} tidlegare arrangement",
 "past_all": "Alle tidlegare arrangement",
 "ev_when": "Dato og tid",
+"past_show_1": "Vis 1 tidlegare arrangement",
 })
