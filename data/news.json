@@ -1,6 +1,425 @@
 {
  "items": [
   {
+   "id": "4715a80bdccb",
+   "url": "https://www.nt.se/nyheter/norrkoping/artikel/tre-man-atalas-for-forsok-till-utpressning-i-aby/r5pqgg3j",
+   "title": "Påstådd skuld bakom hotfulla utpressningsförsöket i Åby",
+   "title_en": null,
+   "source": "norrkopings-tidningar",
+   "source_name": "Norrköpings Tidningar",
+   "country": "SE",
+   "language": "Swedish",
+   "via": "norrkopings-tidningar",
+   "seen_via": [
+    "norrkopings-tidningar"
+   ],
+   "published": "2026-10-08T01:00:00+00:00",
+   "fetched": "2026-10-08T02:28:44+00:00",
+   "topics": [
+    "crypto"
+   ],
+   "matched": [
+    "\\bkrypto(?!graf)\\w*",
+    "\\bkryptovaluta\\w*"
+   ],
+   "paywall": true,
+   "status": "rejected",
+   "summary": null,
+   "reject_reason": "Local extortion case; crypto payments only incidental"
+  },
+  {
+   "id": "0ef96f92819d",
+   "url": "https://www.nwt.se/karlstad/karlstadbo-lurade-kvinna-pa-playstation-5-doms/",
+   "title": "Karlstadbo lurade kvinna på Playstation 5 – döms",
+   "title_en": null,
+   "source": "nya-wermlands-tidningen",
+   "source_name": "Nya Wermlands-Tidningen",
+   "country": "SE",
+   "language": "Swedish",
+   "via": "nya-wermlands-tidningen",
+   "seen_via": [
+    "nya-wermlands-tidningen"
+   ],
+   "published": "2026-10-07T18:50:58+00:00",
+   "fetched": "2026-10-08T02:28:44+00:00",
+   "topics": [
+    "regulation"
+   ],
+   "matched": [
+    "\\bpenningtvätt\\w*"
+   ],
+   "paywall": true,
+   "status": "rejected",
+   "summary": null,
+   "reject_reason": "No crypto: local fraud case"
+  },
+  {
+   "id": "aae72b699c66",
+   "url": "https://www.dn.se/varlden/broder-misstanks-ha-drivit-sajt-med-stulna-nakenbilder/",
+   "title": "Bröder misstänks ha drivit sajt med stulna nakenbilder",
+   "title_en": null,
+   "source": "dagens-nyheter",
+   "source_name": "Dagens Nyheter",
+   "country": "SE",
+   "language": "Swedish",
+   "via": "dagens-nyheter",
+   "seen_via": [
+    "dagens-nyheter"
+   ],
+   "published": "2026-10-07T17:09:32+00:00",
+   "fetched": "2026-10-08T02:28:44+00:00",
+   "topics": [
+    "crypto",
+    "regulation"
+   ],
+   "matched": [
+    "\\bkrypto(?!graf)\\w*",
+    "\\bkryptovaluta\\w*"
+   ],
+   "paywall": true,
+   "status": "rejected",
+   "summary": null,
+   "reject_reason": "French case; crypto seizure only incidental, no Nordic crypto angle"
+  },
+  {
+   "id": "bf300e055539",
+   "url": "https://www.tv2kosmopol.dk/koebenhavn/40-arig-tilstar-hvidvask-og-store-maengder-hash-ce5eb",
+   "title": "40-årig tilstår hvidvask og store mængder hash",
+   "title_en": null,
+   "source": "tv2-lorry",
+   "source_name": "TV2 Lorry",
+   "country": "DK",
+   "language": "Danish",
+   "via": "tv2-lorry",
+   "seen_via": [
+    "tv2-lorry"
+   ],
+   "published": "2026-10-07T15:25:00+00:00",
+   "fetched": "2026-10-08T02:28:44+00:00",
+   "topics": [
+    "regulation"
+   ],
+   "matched": [
+    "\\bhvidvask\\w*"
+   ],
+   "paywall": false,
+   "status": "rejected",
+   "summary": null,
+   "reject_reason": "No crypto: cash laundering and hash; 'krypteret' refers to encrypted messaging"
+  },
+  {
+   "id": "b600a1862a31",
+   "url": "https://www.dr.dk/nyheder/seneste/10-anholdt-i-sag-om-hvidvask",
+   "title": "10 anholdt i sag om hvidvask",
+   "title_en": null,
+   "source": "dr-penge",
+   "source_name": "DR (Penge)",
+   "country": "DK",
+   "language": "Danish",
+   "via": "dr-seneste",
+   "seen_via": [
+    "dr-seneste"
+   ],
+   "published": "2026-10-07T13:55:10+00:00",
+   "fetched": "2026-10-08T02:28:44+00:00",
+   "topics": [
+    "regulation"
+   ],
+   "matched": [
+    "\\bhvidvask\\w*"
+   ],
+   "paywall": false,
+   "status": "rejected",
+   "summary": null,
+   "reject_reason": "No crypto: invoice-fraud money-laundering case"
+  },
+  {
+   "id": "12d7cb2b8adc",
+   "url": "https://www.tv2east.dk/naestved/10-personer-anholdt-for-hvidvask-efter-stor-politiaktion-cbe82",
+   "title": "10 personer anholdt for hvidvask efter stor politiaktion",
+   "title_en": null,
+   "source": "tv2-ost",
+   "source_name": "TV2 Øst",
+   "country": "DK",
+   "language": "Danish",
+   "via": "tv2-ost",
+   "seen_via": [
+    "tv2-ost"
+   ],
+   "published": "2026-10-07T12:17:00+00:00",
+   "fetched": "2026-10-08T02:28:44+00:00",
+   "topics": [
+    "regulation"
+   ],
+   "matched": [
+    "\\bhvidvask\\w*"
+   ],
+   "paywall": false,
+   "status": "rejected",
+   "summary": null,
+   "reject_reason": "No crypto: invoice-fraud money-laundering case (duplicate)"
+  },
+  {
+   "id": "9c1e27e87410",
+   "url": "https://politi.dk/national-enhed-for-saerlig-kriminalitet/nyhedsliste/40-aarig-tilstaar-hvidvask-og-store-maengder-hash/2026/10/07",
+   "title": "40-&#229;rig tilst&#229;r hvidvask og store m&#230;ngder hash",
+   "title_en": null,
+   "source": "politi",
+   "source_name": "Politi",
+   "country": "DK",
+   "language": "Danish",
+   "via": "politi",
+   "seen_via": [
+    "politi"
+   ],
+   "published": "2026-10-07T12:00:00+00:00",
+   "fetched": "2026-10-08T02:28:44+00:00",
+   "topics": [
+    "regulation"
+   ],
+   "matched": [
+    "\\bhvidvask\\w*"
+   ],
+   "paywall": false,
+   "status": "rejected",
+   "summary": null,
+   "reject_reason": "No crypto: cash laundering and hash; 'krypteret' refers to encrypted messaging"
+  },
+  {
+   "id": "8f0b35c0c34d",
+   "url": "https://politi.dk/sydsjaellands-og-lolland-falsters-politi/nyhedsliste/10-anholdt-i-stor-aktion-om-hvidvask-for-millionbeloeb/2026/10/07",
+   "title": "10 anholdt i stor aktion om hvidvask for millionbel&#248;b",
+   "title_en": null,
+   "source": "politi",
+   "source_name": "Politi",
+   "country": "DK",
+   "language": "Danish",
+   "via": "politi",
+   "seen_via": [
+    "politi"
+   ],
+   "published": "2026-10-07T12:00:00+00:00",
+   "fetched": "2026-10-08T02:28:44+00:00",
+   "topics": [
+    "regulation"
+   ],
+   "matched": [
+    "\\bhvidvask\\w*"
+   ],
+   "paywall": false,
+   "status": "rejected",
+   "summary": null,
+   "reject_reason": "No crypto: invoice-fraud money-laundering case"
+  },
+  {
+   "id": "1781a55e349c",
+   "url": "https://www.avestatidning.com/avesta/kvinna-doms-efter-bluff-med-akgrasklippare/",
+   "title": "Kvinna döms efter bluff med åkgräsklippare",
+   "title_en": null,
+   "source": "100-avesta",
+   "source_name": "100% avesta",
+   "country": "SE",
+   "language": "Swedish",
+   "via": "100-avesta",
+   "seen_via": [
+    "100-avesta"
+   ],
+   "published": "2026-10-06T16:00:00+00:00",
+   "fetched": "2026-10-08T02:28:44+00:00",
+   "topics": [
+    "regulation"
+   ],
+   "matched": [
+    "\\bpenningtvätt\\w*"
+   ],
+   "paywall": true,
+   "status": "rejected",
+   "summary": null,
+   "reject_reason": "No crypto: local fraud case"
+  },
+  {
+   "id": "632ec75297d8",
+   "url": "https://www.investornytt.no/krypto/k33-mener-bitcoinselgerne-er-utslitt/546866",
+   "title": "Bitcoinselgerne er utslitt",
+   "title_en": null,
+   "source": "investornytt",
+   "source_name": "Investornytt",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "investornytt",
+   "seen_via": [
+    "investornytt"
+   ],
+   "published": "2026-10-06T15:43:42+00:00",
+   "fetched": "2026-10-08T02:28:44+00:00",
+   "topics": [
+    "bitcoin",
+    "companies"
+   ],
+   "matched": [
+    "\\bK33\\b",
+    "\\bbitcoin\\w*"
+   ],
+   "paywall": false,
+   "status": "rejected",
+   "summary": null,
+   "reject_reason": "Price commentary relaying one broker's weekly report; no company news (source-checked by researcher 2026-10-08)"
+  },
+  {
+   "id": "793da00cf15d",
+   "url": "https://omni.se/fi-varnar-for-nya-bluffmakare-som-inom-krypto-och-aktier/a/yl46wx",
+   "title": "FI varnar för nya bluffmakare inom krypto och aktier",
+   "title_en": null,
+   "source": "omni.se",
+   "source_name": "Omni",
+   "country": "SE",
+   "language": "Swedish",
+   "via": "bing-se",
+   "seen_via": [
+    "bing-se"
+   ],
+   "published": "2026-10-06T10:15:42+00:00",
+   "fetched": "2026-10-08T02:28:44+00:00",
+   "topics": [
+    "crypto",
+    "regulation"
+   ],
+   "matched": [
+    "\\bkrypto(?!graf)\\w*"
+   ],
+   "paywall": false,
+   "status": "rejected",
+   "summary": null,
+   "reject_reason": "Duplicate of the FI warning-list story; also overstates FI by saying all 30 offer crypto"
+  },
+  {
+   "id": "e969782917cc",
+   "url": "https://www.svd.se/a/oK6JW7/fi-varnar-for-fler-bluffaktorer",
+   "title": "FI varnar för fler bluffaktörer",
+   "title_en": null,
+   "source": "svd",
+   "source_name": "Svenska Dagbladet",
+   "country": "SE",
+   "language": "Swedish",
+   "via": "bing-se",
+   "seen_via": [
+    "bing-se"
+   ],
+   "published": "2026-10-06T08:33:31+00:00",
+   "fetched": "2026-10-08T02:28:44+00:00",
+   "topics": [
+    "crypto",
+    "regulation"
+   ],
+   "matched": [
+    "\\bkrypto(?!graf)\\w*"
+   ],
+   "paywall": true,
+   "status": "rejected",
+   "summary": null,
+   "reject_reason": "Duplicate of the FI warning-list story (same TT text, paywalled)"
+  },
+  {
+   "id": "31ee174aa583",
+   "url": "https://nyheter24.se/nyheter/inrikes/1519244-fi-varnar-for-fler-bluffaktorer",
+   "title": "30 nya namn på varningslistan – akta dig för företagen",
+   "title_en": "Swedish regulator warns against 30 more fake investment firms",
+   "source": "nyheter24.se",
+   "source_name": "Nyheter24",
+   "country": "SE",
+   "language": "Swedish",
+   "via": "bing-se",
+   "seen_via": [
+    "bing-se"
+   ],
+   "published": "2026-10-06T08:33:27+00:00",
+   "fetched": "2026-10-08T02:28:44+00:00",
+   "topics": [
+    "crime",
+    "consumer protection"
+   ],
+   "matched": [
+    "\\bkrypto(?!graf)\\w*"
+   ],
+   "paywall": false,
+   "status": "published",
+   "summary": "Sweden's Finansinspektionen has warned against 30 more firms that look legitimate but lack a licence; several lure consumers with trading in shares, crypto and currencies, and some are clone firms using details of real financial companies. FI has now warned against 227 suspected investment-fraud operators so far in 2026 and urges people to check its company register before sending money.",
+   "approved_by": "Nordic Crypto redaktør",
+   "approved_at": "2026-10-08T04:40:00+02:00",
+   "summary_i18n": {
+    "nb": "Finansinspektionen i Sverige advarer mot 30 nye aktører som ser seriøse ut, men mangler tillatelse; flere lokker med handel i aksjer, krypto og valuta, og noen er klonselskaper som bruker opplysninger fra ekte finansselskaper. FI har dermed advart mot 227 aktører som mistenkes for investeringsbedrageri hittil i 2026, og ber folk sjekke selskapsregisteret før de overfører penger.",
+    "nn": "Finansinspektionen i Sverige åtvarar mot 30 nye aktørar som ser seriøse ut, men manglar løyve; fleire lokkar med handel i aksjar, krypto og valuta, og nokre er klonselskap som brukar opplysningar frå ekte finansselskap. FI har dermed åtvara mot 227 aktørar som er mistenkte for investeringssvindel så langt i 2026, og ber folk sjekke selskapsregisteret før dei overfører pengar.",
+    "sv": "Finansinspektionen varnar för 30 nya aktörer som ser seriösa ut men saknar tillstånd; flera lockar med handel i aktier, krypto och valutor, och några är klonföretag som använder uppgifter från riktiga finansbolag. FI har därmed varnat för 227 aktörer som misstänks för investeringsbedrägerier hittills under 2026 och uppmanar alla att kontrollera företagsregistret innan de för över pengar.",
+    "da": "Det svenske Finansinspektionen advarer mod 30 nye aktører, der ser seriøse ud, men mangler tilladelse; flere lokker med handel i aktier, krypto og valuta, og nogle er klonselskaber, der bruger oplysninger fra rigtige finansielle virksomheder. FI har dermed advaret mod 227 aktører, der mistænkes for investeringssvindel, indtil videre i 2026 og opfordrer folk til at tjekke virksomhedsregistret, før de overfører penge.",
+    "fi": "Ruotsin Finansinspektionen varoittaa 30 uudesta toimijasta, jotka näyttävät luotettavilta mutta joilla ei ole toimilupaa; useat houkuttelevat kuluttajia osake-, krypto- ja valuuttakaupalla, ja osa on klooniyrityksiä, jotka käyttävät oikeiden rahoitusyhtiöiden tietoja. FI on näin varoittanut vuonna 2026 jo 227 toimijasta, joita epäillään sijoituspetoksista, ja kehottaa tarkistamaan yritysrekisterin ennen rahan siirtämistä.",
+    "is": "Sænska fjármálaeftirlitið Finansinspektionen varar við 30 nýjum aðilum sem virðast traustir en hafa ekki starfsleyfi; nokkrir lokka neytendur með viðskiptum með hlutabréf, rafmyntir og gjaldeyri, og sumir eru klónfyrirtæki sem nota upplýsingar frá raunverulegum fjármálafyrirtækjum. FI hefur þar með varað við 227 aðilum sem grunaðir eru um fjárfestingarsvik það sem af er 2026 og hvetur fólk til að kanna fyrirtækjaskrána áður en það millifærir peninga."
+   },
+   "summary_i18n_review": "approved"
+  },
+  {
+   "id": "77a23f8d6d31",
+   "url": "https://www.aamuposti.fi/paikalliset/9849327",
+   "title": "Poikkeuksellisen laajan rikollisverkoston epäillään levittäneen satoja kiloja huumausaineita – lukuisia kiinniottoja Hyvinkäällä",
+   "title_en": null,
+   "source": "nurmijarven-uutiset",
+   "source_name": "Nurmijärven Uutiset",
+   "country": "FI",
+   "language": "Finnish",
+   "via": "nurmijarven-uutiset",
+   "seen_via": [
+    "nurmijarven-uutiset"
+   ],
+   "published": "2026-10-06T06:33:51+00:00",
+   "fetched": "2026-10-08T02:28:44+00:00",
+   "topics": [
+    "regulation"
+   ],
+   "matched": [
+    "\\brahanpesu\\w*"
+   ],
+   "paywall": false,
+   "status": "rejected",
+   "summary": null,
+   "reject_reason": "No crypto: drug-network case"
+  },
+  {
+   "id": "02e9e79168d3",
+   "url": "https://www.fi.se/sv/publicerat/nyheter/2026/amla-foreslar-tre-tekniska-standarder-enligt-penningtvattsforordningen/",
+   "title": "Amla föreslår tre tekniska standarder enligt penningtvättsförordningen",
+   "title_en": "EU's AML authority sends three standards to the Commission, with crypto rules",
+   "source": "fi-se",
+   "source_name": "Finansinspektionen (SE FSA)",
+   "country": "SE",
+   "language": "Swedish",
+   "via": "fi-se",
+   "seen_via": [
+    "fi-se"
+   ],
+   "published": "2026-10-05T13:53:01+00:00",
+   "fetched": "2026-10-08T02:28:44+00:00",
+   "topics": [
+    "aml",
+    "regulation"
+   ],
+   "matched": [
+    "\\bpenningtvätt\\w*"
+   ],
+   "paywall": false,
+   "status": "published",
+   "summary": "The EU anti-money-laundering authority AMLA has sent three final draft technical standards under the new AML regulation to the European Commission, Sweden's Finansinspektionen reports; they still need the Commission's adoption. Under AMLA's report, crypto-asset service providers must consider whether a customer has made three or more transactions in 12 months when deciding if there is a business relationship, use a one-month window for linked transactions, and keep the €1,000 threshold for occasional transactions.",
+   "approved_by": "Nordic Crypto redaktør",
+   "approved_at": "2026-10-08T06:05:00+02:00",
+   "summary_i18n": {
+    "nb": "EUs hvitvaskingsmyndighet AMLA har sendt tre endelige utkast til tekniske standarder under den nye hvitvaskingsforordningen til EU-kommisjonen, melder svenske Finansinspektionen; Kommisjonen må fortsatt vedta dem. Ifølge AMLAs rapport må kryptotjenestetilbydere vurdere om en kunde har gjort tre eller flere transaksjoner på 12 måneder når de avgjør om det foreligger et kundeforhold, bruke et vindu på én måned for sammenknyttede transaksjoner og beholde terskelen på 1 000 euro for enkeltstående transaksjoner.",
+    "nn": "EUs kvitvaskingsstyresmakt AMLA har sendt tre endelege utkast til tekniske standardar under den nye kvitvaskingsforordninga til EU-kommisjonen, melder svenske Finansinspektionen; Kommisjonen må framleis vedta dei. Ifølgje rapporten til AMLA må kryptotenestetilbydarar vurdere om ein kunde har gjort tre eller fleire transaksjonar på 12 månader når dei avgjer om det ligg føre eit kundeforhold, bruke eit vindauge på éin månad for samankopla transaksjonar og halde på terskelen på 1 000 euro for enkeltståande transaksjonar.",
+    "sv": "EU:s penningtvättsmyndighet AMLA har skickat tre slutliga utkast till tekniska standarder enligt den nya penningtvättsförordningen till EU-kommissionen, rapporterar Finansinspektionen; kommissionen måste fortfarande anta dem. Enligt AMLA:s rapport ska kryptotjänsteleverantörer beakta om en kund har gjort tre eller fler transaktioner på 12 månader när de bedömer om det finns en affärsförbindelse, använda ett fönster på en månad för sammanlänkade transaktioner och behålla tröskeln på 1 000 euro för enstaka transaktioner.",
+    "da": "EU's hvidvaskmyndighed AMLA har sendt tre endelige udkast til tekniske standarder under den nye hvidvaskforordning til EU-Kommissionen, oplyser det svenske Finansinspektionen; Kommissionen skal stadig vedtage dem. Ifølge AMLA's rapport skal udbydere af kryptoaktivtjenester overveje, om en kunde har foretaget tre eller flere transaktioner på 12 måneder, når de vurderer, om der er en forretningsforbindelse, bruge et vindue på én måned for forbundne transaktioner og fastholde tærsklen på 1.000 euro for lejlighedsvise transaktioner.",
+    "fi": "EU:n rahanpesun vastainen viranomainen AMLA on lähettänyt Euroopan komissiolle kolme lopullista teknisten standardien luonnosta uuden rahanpesuasetuksen nojalla, kertoo Ruotsin Finansinspektionen; komission on vielä hyväksyttävä ne. AMLA:n raportin mukaan kryptopalvelujen tarjoajien on otettava huomioon, onko asiakas tehnyt kolme tai useampia liiketoimia 12 kuukauden aikana, kun ne arvioivat asiakassuhteen olemassaoloa, käytettävä yhden kuukauden jaksoa toisiinsa liittyville liiketoimille ja pidettävä satunnaisten liiketoimien 1 000 euron raja.",
+    "is": "Peningaþvættiseftirlit ESB, AMLA, hefur sent framkvæmdastjórn ESB þrjú endanleg drög að tæknilegum stöðlum samkvæmt nýju peningaþvættisreglugerðinni, segir sænska fjármálaeftirlitið Finansinspektionen; framkvæmdastjórnin á enn eftir að samþykkja þau. Samkvæmt skýrslu AMLA skulu þjónustuveitendur rafmynta líta til þess hvort viðskiptavinur hafi átt þrjú eða fleiri viðskipti á 12 mánuðum þegar metið er hvort viðskiptasamband sé til staðar, nota eins mánaðar tímabil fyrir tengd viðskipti og halda 1.000 evra viðmiðinu fyrir stök viðskipti."
+   },
+   "summary_i18n_review": "approved"
+  },
+  {
    "id": "fb9e8ca4fb40",
    "url": "https://www.finansavisen.no/valuta/2026/10/05/8385368/smasparere-hamstret-krypto-under-renteuro",
    "title": "Småsparere hamstret krypto under renteuro",
@@ -37,6 +456,32 @@
     "is": "Viðskiptavinir norsku rafmyntakauphallarinnar Firi keyptu rafmyntir fyrir 16,1 milljón norskra króna meira en þeir seldu í september, en heildarviðskipti námu 313,5 milljónum króna, þrátt fyrir óróa á markaði. Bitcoin var mest keypt og margir færðu fé úr XRP yfir í bitcoin og solana; Thuc Hoang, forstjóri Firi, telur hækkandi vexti í Bandaríkjunum vera mestu áhættuna."
    },
    "summary_i18n_review": "approved"
+  },
+  {
+   "id": "4974f1494217",
+   "url": "https://www.oa.no/hvitvaskingssaken-er-i-gang/s/80-35-34273",
+   "title": "Her startet hvitvaskingssaken",
+   "title_en": null,
+   "source": "oa",
+   "source_name": "Oppland Arbeiderblad",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "bing-no-kn",
+   "seen_via": [
+    "bing-no-kn"
+   ],
+   "published": "2026-10-05T07:06:07+00:00",
+   "fetched": "2026-10-08T02:28:44+00:00",
+   "topics": [
+    "regulation"
+   ],
+   "matched": [
+    "\\bhvitvask\\w*"
+   ],
+   "paywall": true,
+   "status": "rejected",
+   "summary": null,
+   "reject_reason": "Crypto only in a photo caption of a paywalled article; angle cannot be confirmed"
   },
   {
    "title": "Nye datasenter-støt mot Alvdal: Sveitsere snuser på den gamle «bitcoin-tomta»",
@@ -162,6 +607,68 @@
    "summary_i18n_review": "approved"
   },
   {
+   "id": "79c56eb85704",
+   "url": "https://www.dagensps.se/bors-finans/fintech/kryptovalutor/kryptoranare-hotade-doda-gravid-hustru-trenden-sprider-sig/",
+   "title": "Kryptorånare hotade döda gravid hustru – trenden sprider sig",
+   "title_en": null,
+   "source": "dagensps.se",
+   "source_name": "Dagens PS",
+   "country": "SE",
+   "language": "Swedish",
+   "via": "bing-se",
+   "seen_via": [
+    "bing-se"
+   ],
+   "published": "2026-10-02T13:41:24+00:00",
+   "fetched": "2026-10-03T15:11:52+00:00",
+   "topics": [
+    "crypto"
+   ],
+   "matched": [
+    "\\bkrypto(?!graf)\\w*"
+   ],
+   "paywall": false,
+   "status": "rejected",
+   "summary": null,
+   "reject_reason": "Crime story from the UK, no Nordic angle"
+  },
+  {
+   "id": "2d38c9c89e0e",
+   "url": "https://www.sydsvenskan.se/lund/uppgifter-tonaringar-silvertejpade-man-i-jakt-pa-kryptovaluta/",
+   "title": "Uppgifter: Tonåringar silvertejpade man i jakt på kryptovaluta",
+   "title_en": "Reports: teenagers duct-taped a man in hunt for cryptocurrency",
+   "source": "sydsvenskan.se",
+   "source_name": "Sydsvenskan",
+   "country": "SE",
+   "language": "Swedish",
+   "via": "bing-se",
+   "seen_via": [
+    "bing-se"
+   ],
+   "published": "2026-10-02T12:00:00+00:00",
+   "fetched": "2026-10-03T15:11:52+00:00",
+   "topics": [
+    "crime"
+   ],
+   "matched": [
+    "\\bkrypto(?!graf)\\w*"
+   ],
+   "paywall": false,
+   "status": "published",
+   "summary": "Three teenagers have been arrested in Lund on suspicion of kidnapping after allegedly tying up a local man with duct tape to rob him of crypto.",
+   "approved_by": "Nordic Crypto redaktør",
+   "approved_at": "2026-10-03T17:45:04+02:00",
+   "summary_i18n": {
+    "nn": "Tre tenåringar er pågripne i Lund, mistenkte for kidnapping etter at dei skal ha teipa fast ein lokal mann for å rane han for krypto.",
+    "nb": "Tre tenåringer er pågrepet i Lund, mistenkt for kidnapping etter angivelig å ha teipet fast en lokal mann for å rane ham for krypto.",
+    "sv": "Tre tonåringar har gripits i Lund misstänkta för människorov efter att de ska ha tejpat fast en man från orten för att råna honom på krypto.",
+    "da": "Tre teenagere er anholdt i Lund, mistænkt for kidnapning, efter at de angiveligt bandt en lokal mand med gaffatape for at røve krypto fra ham.",
+    "fi": "Lundissa on pidätetty kolme teiniä epäiltynä ihmisryöstöstä: heidän epäillään sitoneen paikallisen miehen ilmastointiteipillä ryöstääkseen häneltä kryptoja.",
+    "is": "Þrír unglingar hafa verið handteknir í Lundi, grunaðir um mannrán eftir að hafa að sögn bundið mann á staðnum með límbandi til að ræna af honum rafmyntum."
+   },
+   "summary_i18n_review": "approved"
+  },
+  {
    "title": "Tiltalt for dopsalg mot kryptovaluta på det mørke nettet",
    "title_en": "Charged with selling drugs for cryptocurrency on the dark web",
    "source": "aftenposten",
@@ -241,98 +748,6 @@
    "reject_reason": "Undated ranked list of gambling sites: advertising, not news"
   },
   {
-   "id": "2d38c9c89e0e",
-   "url": "https://www.sydsvenskan.se/lund/uppgifter-tonaringar-silvertejpade-man-i-jakt-pa-kryptovaluta/",
-   "title": "Uppgifter: Tonåringar silvertejpade man i jakt på kryptovaluta",
-   "title_en": "Reports: teenagers duct-taped a man in hunt for cryptocurrency",
-   "source": "sydsvenskan.se",
-   "source_name": "Sydsvenskan",
-   "country": "SE",
-   "language": "Swedish",
-   "via": "bing-se",
-   "seen_via": [
-    "bing-se"
-   ],
-   "published": "2026-10-02T12:00:00+00:00",
-   "fetched": "2026-10-03T15:11:52+00:00",
-   "topics": [
-    "crime"
-   ],
-   "matched": [
-    "\\bkrypto(?!graf)\\w*"
-   ],
-   "paywall": false,
-   "status": "published",
-   "summary": "Three teenagers have been arrested in Lund on suspicion of kidnapping after allegedly tying up a local man with duct tape to rob him of crypto.",
-   "approved_by": "Nordic Crypto redaktør",
-   "approved_at": "2026-10-03T17:45:04+02:00",
-   "summary_i18n": {
-    "nn": "Tre tenåringar er pågripne i Lund, mistenkte for kidnapping etter at dei skal ha teipa fast ein lokal mann for å rane han for krypto.",
-    "nb": "Tre tenåringer er pågrepet i Lund, mistenkt for kidnapping etter angivelig å ha teipet fast en lokal mann for å rane ham for krypto.",
-    "sv": "Tre tonåringar har gripits i Lund misstänkta för människorov efter att de ska ha tejpat fast en man från orten för att råna honom på krypto.",
-    "da": "Tre teenagere er anholdt i Lund, mistænkt for kidnapning, efter at de angiveligt bandt en lokal mand med gaffatape for at røve krypto fra ham.",
-    "fi": "Lundissa on pidätetty kolme teiniä epäiltynä ihmisryöstöstä: heidän epäillään sitoneen paikallisen miehen ilmastointiteipillä ryöstääkseen häneltä kryptoja.",
-    "is": "Þrír unglingar hafa verið handteknir í Lundi, grunaðir um mannrán eftir að hafa að sögn bundið mann á staðnum með límbandi til að ræna af honum rafmyntum."
-   },
-   "summary_i18n_review": "approved"
-  },
-  {
-   "id": "79c56eb85704",
-   "url": "https://www.dagensps.se/bors-finans/fintech/kryptovalutor/kryptoranare-hotade-doda-gravid-hustru-trenden-sprider-sig/",
-   "title": "Kryptorånare hotade döda gravid hustru – trenden sprider sig",
-   "title_en": null,
-   "source": "dagensps.se",
-   "source_name": "Dagens PS",
-   "country": "SE",
-   "language": "Swedish",
-   "via": "bing-se",
-   "seen_via": [
-    "bing-se"
-   ],
-   "published": "2026-10-02T13:41:24+00:00",
-   "fetched": "2026-10-03T15:11:52+00:00",
-   "topics": [
-    "crypto"
-   ],
-   "matched": [
-    "\\bkrypto(?!graf)\\w*"
-   ],
-   "paywall": false,
-   "status": "rejected",
-   "summary": null,
-   "reject_reason": "Crime story from the UK, no Nordic angle"
-  },
-  {
-   "title": "EU-tilsyn stiller spørsmål ved Binances virksomhet uten lisens (engelsk)",
-   "title_en": null,
-   "source": "euronews.com",
-   "source_name": "Euronews",
-   "country": "NO",
-   "language": "Norwegian",
-   "via": "kryptonytt",
-   "seen_via": [
-    "kryptonytt"
-   ],
-   "published": "2026-10-01T12:03:21+00:00",
-   "topics": [
-    "companies",
-    "crypto",
-    "regulation"
-   ],
-   "matched": [],
-   "paywall": false,
-   "suggested_by": "Kryptonytt",
-   "suggested_status": "approved on Kryptonytt",
-   "suggested_at": "2026-10-03T16:17:59+00:00",
-   "id": "ffc8a438f9ba",
-   "url": "https://www.euronews.com/2026/10/01/eu-watchdogs-question-binance-over-unlicensed-european-operations",
-   "status": "rejected",
-   "summary": null,
-   "fetched": "2026-10-03T16:17:59+00:00",
-   "origin": "suggested by Kryptonytt",
-   "reject_reason": "Already covered (Binance/ESMA) by approved stories"
-  },
-  {
    "id": "7b2030aea964",
    "url": "https://www.realtid.se/bors-finans/kryptojatten-i-ny-kontrovers-erbjod-tjanster-i-europa-utan-licens/",
    "title": "Kryptojätten i ny kontrovers – erbjöd tjänster i Europa utan licens",
@@ -366,6 +781,73 @@
     "da": "Binance efterforskes for angiveligt at have tilbudt tjenester i Europa uden den tilladelse, som EU's nye kryptoregler kræver.",
     "fi": "Binancea tutkitaan, koska sen epäillään tarjonneen palveluja Euroopassa ilman EU:n uusien kryptosääntöjen edellyttämää toimilupaa.",
     "is": "Binance er til rannsóknar vegna gruns um að hafa boðið þjónustu í Evrópu án leyfisins sem nýjar rafmyntareglur ESB krefjast."
+   },
+   "summary_i18n_review": "approved"
+  },
+  {
+   "title": "EU-tilsyn stiller spørsmål ved Binances virksomhet uten lisens (engelsk)",
+   "title_en": null,
+   "source": "euronews.com",
+   "source_name": "Euronews",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-10-01T12:03:21+00:00",
+   "topics": [
+    "companies",
+    "crypto",
+    "regulation"
+   ],
+   "matched": [],
+   "paywall": false,
+   "suggested_by": "Kryptonytt",
+   "suggested_status": "approved on Kryptonytt",
+   "suggested_at": "2026-10-03T16:17:59+00:00",
+   "id": "ffc8a438f9ba",
+   "url": "https://www.euronews.com/2026/10/01/eu-watchdogs-question-binance-over-unlicensed-european-operations",
+   "status": "rejected",
+   "summary": null,
+   "fetched": "2026-10-03T16:17:59+00:00",
+   "origin": "suggested by Kryptonytt",
+   "reject_reason": "Already covered (Binance/ESMA) by approved stories"
+  },
+  {
+   "id": "b3fdbc8f5eec",
+   "url": "https://www.dagensps.se/bors-finans/fintech/kryptovalutor/krypto-jatten-rundar-reglerna-i-europa-riskerar-att-kastas-ut/",
+   "title": "Krypto-jätten rundar reglerna i Europa: Riskerar att kastas ut",
+   "title_en": "Crypto giant skirts the rules in Europe and risks being thrown out",
+   "source": "dagensps.se",
+   "source_name": "Dagens PS",
+   "country": "SE",
+   "language": "Swedish",
+   "via": "bing-se",
+   "seen_via": [
+    "bing-se"
+   ],
+   "published": "2026-10-01T08:30:56+00:00",
+   "fetched": "2026-10-03T15:11:52+00:00",
+   "topics": [
+    "regulation",
+    "mica"
+   ],
+   "matched": [
+    "\\bkrypto(?!graf)\\w*"
+   ],
+   "paywall": false,
+   "status": "published",
+   "summary": "Binance said it would leave Europe, but customers are still trading, and EU financial authorities now want to know how.",
+   "approved_by": "Nordic Crypto redaktør",
+   "approved_at": "2026-10-03T17:45:04+02:00",
+   "summary_i18n": {
+    "nn": "Binance sa at selskapet skulle forlate Europa, men kundane handlar framleis, og finansstyresmaktene i EU vil no vite korleis.",
+    "nb": "Binance sa at selskapet skulle forlate Europa, men kundene handler fortsatt, og EUs finansmyndigheter vil nå vite hvordan.",
+    "sv": "Binance sa att bolaget skulle lämna Europa, men kunderna handlar fortfarande, och EU:s finansmyndigheter vill nu veta hur.",
+    "da": "Binance sagde, at selskabet ville forlade Europa, men kunderne handler stadig, og EU's finansmyndigheder vil nu vide hvordan.",
+    "fi": "Binance sanoi lähtevänsä Euroopasta, mutta asiakkaat käyvät yhä kauppaa, ja EU:n rahoitusviranomaiset haluavat nyt tietää, miten.",
+    "is": "Binance sagðist ætla að yfirgefa Evrópu, en viðskiptavinir eiga enn viðskipti og fjármálayfirvöld ESB vilja nú vita hvernig."
    },
    "summary_i18n_review": "approved"
   },
@@ -409,41 +891,33 @@
    "summary_i18n_review": "approved"
   },
   {
-   "id": "b3fdbc8f5eec",
-   "url": "https://www.dagensps.se/bors-finans/fintech/kryptovalutor/krypto-jatten-rundar-reglerna-i-europa-riskerar-att-kastas-ut/",
-   "title": "Krypto-jätten rundar reglerna i Europa: Riskerar att kastas ut",
-   "title_en": "Crypto giant skirts the rules in Europe and risks being thrown out",
-   "source": "dagensps.se",
-   "source_name": "Dagens PS",
-   "country": "SE",
-   "language": "Swedish",
-   "via": "bing-se",
+   "title": "Dubai-pengene: Tidligere kryptoselskap bak overførslene til Dyar Al-Ashtari",
+   "title_en": null,
+   "source": "dn",
+   "source_name": "Dagens Næringsliv",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
    "seen_via": [
-    "bing-se"
+    "kryptonytt"
    ],
-   "published": "2026-10-01T08:30:56+00:00",
-   "fetched": "2026-10-03T15:11:52+00:00",
+   "published": "2026-09-30T17:52:24+00:00",
    "topics": [
-    "regulation",
-    "mica"
+    "companies",
+    "crypto"
    ],
-   "matched": [
-    "\\bkrypto(?!graf)\\w*"
-   ],
-   "paywall": false,
-   "status": "published",
-   "summary": "Binance said it would leave Europe, but customers are still trading, and EU financial authorities now want to know how.",
-   "approved_by": "Nordic Crypto redaktør",
-   "approved_at": "2026-10-03T17:45:04+02:00",
-   "summary_i18n": {
-    "nn": "Binance sa at selskapet skulle forlate Europa, men kundane handlar framleis, og finansstyresmaktene i EU vil no vite korleis.",
-    "nb": "Binance sa at selskapet skulle forlate Europa, men kundene handler fortsatt, og EUs finansmyndigheter vil nå vite hvordan.",
-    "sv": "Binance sa att bolaget skulle lämna Europa, men kunderna handlar fortfarande, och EU:s finansmyndigheter vill nu veta hur.",
-    "da": "Binance sagde, at selskabet ville forlade Europa, men kunderne handler stadig, og EU's finansmyndigheder vil nu vide hvordan.",
-    "fi": "Binance sanoi lähtevänsä Euroopasta, mutta asiakkaat käyvät yhä kauppaa, ja EU:n rahoitusviranomaiset haluavat nyt tietää, miten.",
-    "is": "Binance sagðist ætla að yfirgefa Evrópu, en viðskiptavinir eiga enn viðskipti og fjármálayfirvöld ESB vilja nú vita hvernig."
-   },
-   "summary_i18n_review": "approved"
+   "matched": [],
+   "paywall": true,
+   "suggested_by": "Kryptonytt",
+   "suggested_status": "candidate on Kryptonytt",
+   "suggested_at": "2026-10-03T16:17:59+00:00",
+   "id": "de9daa98a40a",
+   "url": "https://www.dn.no/teknologi/dubai-pengene-tidligere-kryptoselskap-bak-overforslene-til-dyar-al-ashtari/2-1-2049843",
+   "status": "rejected",
+   "summary": null,
+   "fetched": "2026-10-03T16:17:59+00:00",
+   "origin": "suggested by Kryptonytt",
+   "reject_reason": "Crypto angle too thin (former crypto company); story is about a person's finances"
   },
   {
    "id": "21abedbe34fd",
@@ -540,35 +1014,6 @@
    "summary_i18n_review": "approved"
   },
   {
-   "title": "Dubai-pengene: Tidligere kryptoselskap bak overførslene til Dyar Al-Ashtari",
-   "title_en": null,
-   "source": "dn",
-   "source_name": "Dagens Næringsliv",
-   "country": "NO",
-   "language": "Norwegian",
-   "via": "kryptonytt",
-   "seen_via": [
-    "kryptonytt"
-   ],
-   "published": "2026-09-30T17:52:24+00:00",
-   "topics": [
-    "companies",
-    "crypto"
-   ],
-   "matched": [],
-   "paywall": true,
-   "suggested_by": "Kryptonytt",
-   "suggested_status": "candidate on Kryptonytt",
-   "suggested_at": "2026-10-03T16:17:59+00:00",
-   "id": "de9daa98a40a",
-   "url": "https://www.dn.no/teknologi/dubai-pengene-tidligere-kryptoselskap-bak-overforslene-til-dyar-al-ashtari/2-1-2049843",
-   "status": "rejected",
-   "summary": null,
-   "fetched": "2026-10-03T16:17:59+00:00",
-   "origin": "suggested by Kryptonytt",
-   "reject_reason": "Crypto angle too thin (former crypto company); story is about a person's finances"
-  },
-  {
    "title": "K33: Bitcoin kan få ny opptur etter stor derivatopprydding",
    "title_en": null,
    "source": "investornytt",
@@ -628,35 +1073,6 @@
    "reject_reason": "Podcast episode on economics, not news"
   },
   {
-   "id": "5ed4b28bb113",
-   "url": "https://www.kaupr.io/nyheter/slik-kan-investorer-fa-eksponering-mot-tokenisering",
-   "title": "Slik kan investorer få eksponering mot tokenisering",
-   "title_en": null,
-   "source": "kaupr",
-   "source_name": "Kaupr",
-   "country": "SE",
-   "language": "Norwegian",
-   "via": "kaupr-se",
-   "seen_via": [
-    "kaupr-se"
-   ],
-   "published": "2026-09-28T12:00:00+00:00",
-   "fetched": "2026-10-03T15:11:52+00:00",
-   "topics": [
-    "blockchain",
-    "regulation",
-    "companies"
-   ],
-   "matched": [
-    "\\bVirtune\\b",
-    "\\btokeni[sz]\\w*"
-   ],
-   "paywall": false,
-   "status": "rejected",
-   "summary": null,
-   "reject_reason": "Explainer / partner content"
-  },
-  {
    "id": "8ae149a20f5f",
    "url": "https://www.finansavisen.no/finans/2026/09/28/8383782/pangstart-for-nytt-kryptofond",
    "title": "Pangstart for nytt kryptofond",
@@ -691,6 +1107,35 @@
     "is": "Nýr rafmyntasjóður Joakims Hannisdahl, byggður á líkani sem kom vel út í sögulegum prófunum, hefur hækkað um 39 prósent frá því hann hóf göngu sína í ágúst."
    },
    "summary_i18n_review": "approved"
+  },
+  {
+   "id": "5ed4b28bb113",
+   "url": "https://www.kaupr.io/nyheter/slik-kan-investorer-fa-eksponering-mot-tokenisering",
+   "title": "Slik kan investorer få eksponering mot tokenisering",
+   "title_en": null,
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "country": "SE",
+   "language": "Norwegian",
+   "via": "kaupr-se",
+   "seen_via": [
+    "kaupr-se"
+   ],
+   "published": "2026-09-28T12:00:00+00:00",
+   "fetched": "2026-10-03T15:11:52+00:00",
+   "topics": [
+    "blockchain",
+    "regulation",
+    "companies"
+   ],
+   "matched": [
+    "\\bVirtune\\b",
+    "\\btokeni[sz]\\w*"
+   ],
+   "paywall": false,
+   "status": "rejected",
+   "summary": null,
+   "reject_reason": "Explainer / partner content"
   },
   {
    "id": "3369eb6bae8e",
@@ -882,32 +1327,6 @@
    "reject_reason": "International hack with no Nordic angle"
   },
   {
-   "id": "f20661889066",
-   "url": "https://www.euroinvestor.dk/nyheder/udsigt-til-kursstigninger-her-er-fredagens-finansielle-overblik-8",
-   "title": "Udsigt til kursstigninger: Her er fredagens finansielle overblik",
-   "title_en": null,
-   "source": "euroinvestor.dk",
-   "source_name": "Euroinvestor",
-   "country": "DK",
-   "language": "Danish",
-   "via": "bing-dk",
-   "seen_via": [
-    "bing-dk"
-   ],
-   "published": "2026-09-25T04:42:24+00:00",
-   "fetched": "2026-10-03T16:10:30+00:00",
-   "topics": [
-    "crypto"
-   ],
-   "matched": [
-    "\\bkrypto(?!graf)\\w*"
-   ],
-   "paywall": false,
-   "status": "rejected",
-   "summary": null,
-   "reject_reason": "General market overview"
-  },
-  {
    "id": "fb2089408d34",
    "url": "https://metromode.se/ekonomi/vad-ar-krypto-blockkedjan-planboken-och-varfor-vardet-kan-forsvinna/",
    "title": "Vad är krypto? Blockkedjan, plånboken och varför värdet kan försvinna",
@@ -1080,6 +1499,32 @@
    "reject_reason": "General explainer"
   },
   {
+   "id": "f20661889066",
+   "url": "https://www.euroinvestor.dk/nyheder/udsigt-til-kursstigninger-her-er-fredagens-finansielle-overblik-8",
+   "title": "Udsigt til kursstigninger: Her er fredagens finansielle overblik",
+   "title_en": null,
+   "source": "euroinvestor.dk",
+   "source_name": "Euroinvestor",
+   "country": "DK",
+   "language": "Danish",
+   "via": "bing-dk",
+   "seen_via": [
+    "bing-dk"
+   ],
+   "published": "2026-09-25T04:42:24+00:00",
+   "fetched": "2026-10-03T16:10:30+00:00",
+   "topics": [
+    "crypto"
+   ],
+   "matched": [
+    "\\bkrypto(?!graf)\\w*"
+   ],
+   "paywall": false,
+   "status": "rejected",
+   "summary": null,
+   "reject_reason": "General market overview"
+  },
+  {
    "id": "fe8609f021c5",
    "url": "https://www.avisen.dk/tommer-din-konto-for-krypto-cyperkriminelle-bruger_843806.aspx",
    "title": "Tommer din konto for krypto: Cyperkriminelle bruger falsk AI-robot",
@@ -1223,6 +1668,36 @@
    "summary_i18n_review": "approved"
   },
   {
+   "title": "Et nettverk av proffe svindlere",
+   "title_en": null,
+   "source": "finansavisen",
+   "source_name": "Finansavisen",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-09-23T12:24:50+00:00",
+   "topics": [
+    "companies",
+    "crypto",
+    "regulation"
+   ],
+   "matched": [],
+   "paywall": true,
+   "suggested_by": "Kryptonytt",
+   "suggested_status": "candidate on Kryptonytt",
+   "suggested_at": "2026-10-03T16:17:59+00:00",
+   "id": "379b6008263b",
+   "url": "https://www.finansavisen.no/jus/2026/09/23/8380047/et-nettverk-av-proffe-svindlere",
+   "status": "rejected",
+   "summary": null,
+   "fetched": "2026-10-03T16:17:59+00:00",
+   "origin": "suggested by Kryptonytt",
+   "reject_reason": "No accessible teaser to summarise and crypto angle unclear"
+  },
+  {
    "id": "7996dadb43e7",
    "url": "https://www.kaupr.io/nyheter/nbx-inngar-avtale-med-tieto-om-betalingskort-for-stablecoins",
    "title": "NBX inngår avtale med Tieto om betalingskort for stablecoins",
@@ -1261,36 +1736,6 @@
    "summary_i18n_review": "approved"
   },
   {
-   "title": "Et nettverk av proffe svindlere",
-   "title_en": null,
-   "source": "finansavisen",
-   "source_name": "Finansavisen",
-   "country": "NO",
-   "language": "Norwegian",
-   "via": "kryptonytt",
-   "seen_via": [
-    "kryptonytt"
-   ],
-   "published": "2026-09-23T12:24:50+00:00",
-   "topics": [
-    "companies",
-    "crypto",
-    "regulation"
-   ],
-   "matched": [],
-   "paywall": true,
-   "suggested_by": "Kryptonytt",
-   "suggested_status": "candidate on Kryptonytt",
-   "suggested_at": "2026-10-03T16:17:59+00:00",
-   "id": "379b6008263b",
-   "url": "https://www.finansavisen.no/jus/2026/09/23/8380047/et-nettverk-av-proffe-svindlere",
-   "status": "rejected",
-   "summary": null,
-   "fetched": "2026-10-03T16:17:59+00:00",
-   "origin": "suggested by Kryptonytt",
-   "reject_reason": "No accessible teaser to summarise and crypto angle unclear"
-  },
-  {
    "id": "09452520f3e0",
    "url": "https://www.industrinyheter.se/20260923/45926/cyberkriminella-bakom-ny-vag-av-kryptostolder",
    "title": "Cyberkriminella bakom ny våg av kryptostölder",
@@ -1317,32 +1762,6 @@
    "reject_reason": "International security report with no Nordic angle"
   },
   {
-   "id": "b13e21b6af5b",
-   "url": "https://www.kauppalehti.fi/kumppanisisallot/coinmotion/painuiko-bitcoin-sijoitus-pakkaselle-nama-vinkit-auttavat-uuden-suunnitelman-laatimisessa/",
-   "title": "Painuiko bitcoin-sijoitus pakkaselle? Nämä vinkit auttavat uuden suunnitelman laatimisessa",
-   "title_en": null,
-   "source": "kauppalehti",
-   "source_name": "Kauppalehti",
-   "country": "FI",
-   "language": "Finnish",
-   "via": "bing-fi",
-   "seen_via": [
-    "bing-fi"
-   ],
-   "published": "2026-09-22T04:00:00+00:00",
-   "fetched": "2026-10-03T15:11:52+00:00",
-   "topics": [
-    "bitcoin"
-   ],
-   "matched": [
-    "\\bbitcoin\\w*"
-   ],
-   "paywall": true,
-   "status": "rejected",
-   "summary": null,
-   "reject_reason": "Paid partner content (Coinmotion)"
-  },
-  {
    "id": "1652bf99ba29",
    "url": "https://www.is.fi/taloussanomat/art-2000012292342.html",
    "title": "Bitcoinin kurssi kovassa nousussa",
@@ -1367,99 +1786,6 @@
    "status": "rejected",
    "summary": null,
    "reject_reason": "Price report with no Nordic angle"
-  },
-  {
-   "id": "a0c89b973576",
-   "url": "https://www.kaupr.io/nyheter/danske-bank-ingen-bank-kan-bygge-euro-stablecoin-alene",
-   "title": "Danske Bank: Ingen bank kan bygge euro-stablecoin alene",
-   "title_en": "Danske Bank: no bank can build a euro stablecoin alone",
-   "source": "kaupr",
-   "source_name": "Kaupr",
-   "country": "DK",
-   "language": "Norwegian",
-   "via": "kaupr-dk",
-   "seen_via": [
-    "kaupr-dk"
-   ],
-   "published": "2026-09-22T12:00:00+00:00",
-   "fetched": "2026-10-03T16:10:30+00:00",
-   "topics": [
-    "stablecoins",
-    "banking"
-   ],
-   "matched": [
-    "\\bstablecoin\\w*"
-   ],
-   "paywall": false,
-   "status": "published",
-   "summary": "Danske Bank says no single bank can build a euro stablecoin on its own and that European banks should build a dollar alternative together through Qivalis.",
-   "approved_by": "Nordic Crypto redaktør",
-   "approved_at": "2026-10-03T18:26:24+02:00",
-   "summary_i18n": {
-    "nn": "Danske Bank seier at ingen enkeltbank kan byggje ein euro-stablecoin åleine, og at europeiske bankar bør byggje eit alternativ til dollaren saman gjennom Qivalis.",
-    "nb": "Danske Bank sier at ingen enkeltbank kan bygge en euro-stablecoin alene, og at europeiske banker bør bygge et alternativ til dollaren sammen gjennom Qivalis.",
-    "sv": "Danske Bank säger att ingen enskild bank kan bygga en euro-stablecoin på egen hand och att europeiska banker bör bygga ett alternativ till dollarn tillsammans genom Qivalis.",
-    "da": "Danske Bank siger, at ingen enkelt bank kan bygge en euro-stablecoin alene, og at europæiske banker sammen bør bygge et alternativ til dollaren gennem Qivalis.",
-    "fi": "Danske Bankin mukaan yksikään pankki ei pysty rakentamaan euromääräistä vakaakolikkoa yksin, ja eurooppalaisten pankkien pitäisi rakentaa dollarille vaihtoehto yhdessä Qivaliksen kautta.",
-    "is": "Danske Bank segir að enginn einn banki geti byggt upp stöðugleikamynt í evrum á eigin spýtur og að evrópskir bankar ættu saman að byggja upp valkost við dollarann í gegnum Qivalis."
-   },
-   "summary_i18n_review": "approved"
-  },
-  {
-   "title": "Her er årsaken til at skjermkortene koster så mye",
-   "title_en": null,
-   "source": "itavisen",
-   "source_name": "ITavisen",
-   "country": "NO",
-   "language": "Norwegian",
-   "via": "kryptonytt",
-   "seen_via": [
-    "kryptonytt"
-   ],
-   "published": "2026-09-22T11:17:00+00:00",
-   "topics": [
-    "crypto"
-   ],
-   "matched": [],
-   "paywall": false,
-   "suggested_by": "Kryptonytt",
-   "suggested_status": "candidate on Kryptonytt",
-   "suggested_at": "2026-10-03T16:17:59+00:00",
-   "id": "e52b6226f15d",
-   "url": "https://itavisen.no/2026/09/22/rtx-5090-kina-ai-servere-pris/",
-   "status": "rejected",
-   "summary": null,
-   "fetched": "2026-10-03T16:17:59+00:00",
-   "origin": "suggested by Kryptonytt",
-   "reject_reason": "Off-topic (graphics card prices)"
-  },
-  {
-   "id": "1c7df17a6b1c",
-   "url": "https://www.version2.dk/artikel/centralbank-aktiverer-nyt-system-til-digital-euro-med-blockchain",
-   "title": "Centralbank aktiverer nyt system til digital euro med blockchain",
-   "title_en": null,
-   "source": "version2",
-   "source_name": "Version2",
-   "country": "DK",
-   "language": "Danish",
-   "via": "version2",
-   "seen_via": [
-    "version2",
-    "bing-dk"
-   ],
-   "published": "2026-09-22T08:36:01+00:00",
-   "fetched": "2026-10-03T16:10:30+00:00",
-   "topics": [
-    "blockchain",
-    "regulation"
-   ],
-   "matched": [
-    "\\bblockchain\\w*"
-   ],
-   "paywall": true,
-   "status": "rejected",
-   "summary": null,
-   "reject_reason": "ECB story with no Danish or Nordic angle"
   },
   {
    "id": "6753e8903e88",
@@ -1554,6 +1880,71 @@
    "reject_reason": "Same story as the Berlingske 100-year-old-law piece"
   },
   {
+   "id": "a0c89b973576",
+   "url": "https://www.kaupr.io/nyheter/danske-bank-ingen-bank-kan-bygge-euro-stablecoin-alene",
+   "title": "Danske Bank: Ingen bank kan bygge euro-stablecoin alene",
+   "title_en": "Danske Bank: no bank can build a euro stablecoin alone",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "country": "DK",
+   "language": "Norwegian",
+   "via": "kaupr-dk",
+   "seen_via": [
+    "kaupr-dk"
+   ],
+   "published": "2026-09-22T12:00:00+00:00",
+   "fetched": "2026-10-03T16:10:30+00:00",
+   "topics": [
+    "stablecoins",
+    "banking"
+   ],
+   "matched": [
+    "\\bstablecoin\\w*"
+   ],
+   "paywall": false,
+   "status": "published",
+   "summary": "Danske Bank says no single bank can build a euro stablecoin on its own and that European banks should build a dollar alternative together through Qivalis.",
+   "approved_by": "Nordic Crypto redaktør",
+   "approved_at": "2026-10-03T18:26:24+02:00",
+   "summary_i18n": {
+    "nn": "Danske Bank seier at ingen enkeltbank kan byggje ein euro-stablecoin åleine, og at europeiske bankar bør byggje eit alternativ til dollaren saman gjennom Qivalis.",
+    "nb": "Danske Bank sier at ingen enkeltbank kan bygge en euro-stablecoin alene, og at europeiske banker bør bygge et alternativ til dollaren sammen gjennom Qivalis.",
+    "sv": "Danske Bank säger att ingen enskild bank kan bygga en euro-stablecoin på egen hand och att europeiska banker bör bygga ett alternativ till dollarn tillsammans genom Qivalis.",
+    "da": "Danske Bank siger, at ingen enkelt bank kan bygge en euro-stablecoin alene, og at europæiske banker sammen bør bygge et alternativ til dollaren gennem Qivalis.",
+    "fi": "Danske Bankin mukaan yksikään pankki ei pysty rakentamaan euromääräistä vakaakolikkoa yksin, ja eurooppalaisten pankkien pitäisi rakentaa dollarille vaihtoehto yhdessä Qivaliksen kautta.",
+    "is": "Danske Bank segir að enginn einn banki geti byggt upp stöðugleikamynt í evrum á eigin spýtur og að evrópskir bankar ættu saman að byggja upp valkost við dollarann í gegnum Qivalis."
+   },
+   "summary_i18n_review": "approved"
+  },
+  {
+   "title": "Her er årsaken til at skjermkortene koster så mye",
+   "title_en": null,
+   "source": "itavisen",
+   "source_name": "ITavisen",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-09-22T11:17:00+00:00",
+   "topics": [
+    "crypto"
+   ],
+   "matched": [],
+   "paywall": false,
+   "suggested_by": "Kryptonytt",
+   "suggested_status": "candidate on Kryptonytt",
+   "suggested_at": "2026-10-03T16:17:59+00:00",
+   "id": "e52b6226f15d",
+   "url": "https://itavisen.no/2026/09/22/rtx-5090-kina-ai-servere-pris/",
+   "status": "rejected",
+   "summary": null,
+   "fetched": "2026-10-03T16:17:59+00:00",
+   "origin": "suggested by Kryptonytt",
+   "reject_reason": "Off-topic (graphics card prices)"
+  },
+  {
    "id": "30093293e03f",
    "url": "https://ekstrabladet.dk/penge/danskere-svindlet-for-89-millioner-kroner-paa-seks-maaneder/11297364",
    "title": "Danskere svindlet for 89 millioner kroner på seks måneder",
@@ -1591,6 +1982,60 @@
    "summary_i18n_review": "approved"
   },
   {
+   "id": "1c7df17a6b1c",
+   "url": "https://www.version2.dk/artikel/centralbank-aktiverer-nyt-system-til-digital-euro-med-blockchain",
+   "title": "Centralbank aktiverer nyt system til digital euro med blockchain",
+   "title_en": null,
+   "source": "version2",
+   "source_name": "Version2",
+   "country": "DK",
+   "language": "Danish",
+   "via": "version2",
+   "seen_via": [
+    "version2",
+    "bing-dk"
+   ],
+   "published": "2026-09-22T08:36:01+00:00",
+   "fetched": "2026-10-03T16:10:30+00:00",
+   "topics": [
+    "blockchain",
+    "regulation"
+   ],
+   "matched": [
+    "\\bblockchain\\w*"
+   ],
+   "paywall": true,
+   "status": "rejected",
+   "summary": null,
+   "reject_reason": "ECB story with no Danish or Nordic angle"
+  },
+  {
+   "id": "b13e21b6af5b",
+   "url": "https://www.kauppalehti.fi/kumppanisisallot/coinmotion/painuiko-bitcoin-sijoitus-pakkaselle-nama-vinkit-auttavat-uuden-suunnitelman-laatimisessa/",
+   "title": "Painuiko bitcoin-sijoitus pakkaselle? Nämä vinkit auttavat uuden suunnitelman laatimisessa",
+   "title_en": null,
+   "source": "kauppalehti",
+   "source_name": "Kauppalehti",
+   "country": "FI",
+   "language": "Finnish",
+   "via": "bing-fi",
+   "seen_via": [
+    "bing-fi"
+   ],
+   "published": "2026-09-22T04:00:00+00:00",
+   "fetched": "2026-10-03T15:11:52+00:00",
+   "topics": [
+    "bitcoin"
+   ],
+   "matched": [
+    "\\bbitcoin\\w*"
+   ],
+   "paywall": true,
+   "status": "rejected",
+   "summary": null,
+   "reject_reason": "Paid partner content (Coinmotion)"
+  },
+  {
    "id": "a3e141afc7ed",
    "url": "https://itavisen.no/2026/09/22/apple-pay-krypto-stablecoin-betalinger/",
    "title": "iPhone kan få Bitcoin-støtte",
@@ -1617,63 +2062,6 @@
    "status": "rejected",
    "summary": null,
    "reject_reason": "International tech rumour with no Nordic angle"
-  },
-  {
-   "title": "Stablecoin i Norge (2026) – Hva er USDT og USDC?",
-   "title_en": null,
-   "source": "itavisen",
-   "source_name": "ITavisen",
-   "country": "NO",
-   "language": "Norwegian",
-   "via": "kryptonytt",
-   "seen_via": [
-    "kryptonytt"
-   ],
-   "published": "2026-09-21T12:38:00+00:00",
-   "topics": [
-    "crypto",
-    "regulation"
-   ],
-   "matched": [],
-   "paywall": false,
-   "suggested_by": "Kryptonytt",
-   "suggested_status": "candidate on Kryptonytt",
-   "suggested_at": "2026-10-03T16:17:59+00:00",
-   "id": "490de13730e5",
-   "url": "https://itavisen.no/stablecoin/",
-   "status": "rejected",
-   "summary": null,
-   "fetched": "2026-10-03T16:17:59+00:00",
-   "origin": "suggested by Kryptonytt",
-   "reject_reason": "General explainer"
-  },
-  {
-   "id": "5356eccfa1cd",
-   "url": "https://www.kauppalehti.fi/uutiset/a/e4feca8b-7fc6-4228-ada1-2e886cb3a91e",
-   "title": "Kryptomarkkinoilla tapahtui jotain, joka sai sijoittajat perumaan vetojaan satojen miljoonien edestä",
-   "title_en": null,
-   "source": "kauppalehti",
-   "source_name": "Kauppalehti",
-   "country": "FI",
-   "language": "Finnish",
-   "via": "bing-fi",
-   "seen_via": [
-    "bing-fi"
-   ],
-   "published": "2026-09-21T16:15:00+00:00",
-   "fetched": "2026-10-03T15:11:52+00:00",
-   "topics": [
-    "bitcoin",
-    "crypto"
-   ],
-   "matched": [
-    "\\bbitcoin\\w*",
-    "\\bkrypto(?!graf)\\w*"
-   ],
-   "paywall": true,
-   "status": "rejected",
-   "summary": null,
-   "reject_reason": "Price report with no Nordic angle"
   },
   {
    "id": "188b5b8ed9fb",
@@ -1711,6 +2099,63 @@
     "is": "Svar frá danska ráðherranum Jakob Engel-Schmidt sýndi hversu margir Danir greiða skatt af rafmyntafjárfestingum sem þeir hafa tapað á, sem hann kallaði „í raun alveg galið“; nú vill hann laga aldargamla regluna sem liggur að baki."
    },
    "summary_i18n_review": "approved"
+  },
+  {
+   "id": "5356eccfa1cd",
+   "url": "https://www.kauppalehti.fi/uutiset/a/e4feca8b-7fc6-4228-ada1-2e886cb3a91e",
+   "title": "Kryptomarkkinoilla tapahtui jotain, joka sai sijoittajat perumaan vetojaan satojen miljoonien edestä",
+   "title_en": null,
+   "source": "kauppalehti",
+   "source_name": "Kauppalehti",
+   "country": "FI",
+   "language": "Finnish",
+   "via": "bing-fi",
+   "seen_via": [
+    "bing-fi"
+   ],
+   "published": "2026-09-21T16:15:00+00:00",
+   "fetched": "2026-10-03T15:11:52+00:00",
+   "topics": [
+    "bitcoin",
+    "crypto"
+   ],
+   "matched": [
+    "\\bbitcoin\\w*",
+    "\\bkrypto(?!graf)\\w*"
+   ],
+   "paywall": true,
+   "status": "rejected",
+   "summary": null,
+   "reject_reason": "Price report with no Nordic angle"
+  },
+  {
+   "title": "Stablecoin i Norge (2026) – Hva er USDT og USDC?",
+   "title_en": null,
+   "source": "itavisen",
+   "source_name": "ITavisen",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-09-21T12:38:00+00:00",
+   "topics": [
+    "crypto",
+    "regulation"
+   ],
+   "matched": [],
+   "paywall": false,
+   "suggested_by": "Kryptonytt",
+   "suggested_status": "candidate on Kryptonytt",
+   "suggested_at": "2026-10-03T16:17:59+00:00",
+   "id": "490de13730e5",
+   "url": "https://itavisen.no/stablecoin/",
+   "status": "rejected",
+   "summary": null,
+   "fetched": "2026-10-03T16:17:59+00:00",
+   "origin": "suggested by Kryptonytt",
+   "reject_reason": "General explainer"
   },
   {
    "id": "348c5c8369d3",
@@ -1769,32 +2214,6 @@
    "reject_reason": "Link is a tag page, not the article"
   },
   {
-   "id": "014762c21014",
-   "url": "https://www.digi.no/kryptovaluta/bitcoin-sikkerheten-trues-snart-av-kvantedatamaskiner-viser-studie/5706122",
-   "title": "Bitcoin-sikkerheten trues snart av kvantedatamaskiner, viser studie",
-   "title_en": null,
-   "source": "digi-krypto",
-   "source_name": "Digi.no (crypto tag)",
-   "country": "NO",
-   "language": "Norwegian",
-   "via": "digi-krypto",
-   "seen_via": [
-    "digi-krypto"
-   ],
-   "published": "2026-09-20T14:24:55+00:00",
-   "fetched": "2026-10-03T15:11:52+00:00",
-   "topics": [
-    "bitcoin"
-   ],
-   "matched": [
-    "\\bbitcoin\\w*"
-   ],
-   "paywall": true,
-   "status": "rejected",
-   "summary": null,
-   "reject_reason": "International study with no Nordic angle"
-  },
-  {
    "id": "5682c6aa22dd",
    "url": "https://www.finansavisen.no/valuta/2026/09/20/8380762/kollaps-for-kryptoborsen-firi",
    "title": "Kollaps for kryptobørs",
@@ -1830,6 +2249,32 @@
     "is": "Norska rafmyntakauphöllin Firi aflaði 135 milljóna norskra króna árið 2024 en tapaði 44 milljónum norskra króna á fyrri helmingi þessa árs."
    },
    "summary_i18n_review": "approved"
+  },
+  {
+   "id": "014762c21014",
+   "url": "https://www.digi.no/kryptovaluta/bitcoin-sikkerheten-trues-snart-av-kvantedatamaskiner-viser-studie/5706122",
+   "title": "Bitcoin-sikkerheten trues snart av kvantedatamaskiner, viser studie",
+   "title_en": null,
+   "source": "digi-krypto",
+   "source_name": "Digi.no (crypto tag)",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "digi-krypto",
+   "seen_via": [
+    "digi-krypto"
+   ],
+   "published": "2026-09-20T14:24:55+00:00",
+   "fetched": "2026-10-03T15:11:52+00:00",
+   "topics": [
+    "bitcoin"
+   ],
+   "matched": [
+    "\\bbitcoin\\w*"
+   ],
+   "paywall": true,
+   "status": "rejected",
+   "summary": null,
+   "reject_reason": "International study with no Nordic angle"
   },
   {
    "id": "f2ad120d7189",
@@ -1896,83 +2341,6 @@
    "fetched": "2026-10-03T16:17:59+00:00",
    "origin": "suggested by Kryptonytt",
    "reject_reason": "US stock market report, no Nordic angle"
-  },
-  {
-   "id": "831bb86ab20c",
-   "url": "https://www.kaupr.io/nyheter/nbx-mer-enn-doblet-tapet-i-halvaret-da-mica-lisensen-kom",
-   "title": "NBX mer enn doblet tapet i halvåret da MiCA-lisensen kom",
-   "title_en": "NBX more than doubled its half-year loss as the MiCA licence arrived",
-   "source": "kaupr",
-   "source_name": "Kaupr",
-   "country": "NO",
-   "language": "Norwegian",
-   "via": "kaupr-no",
-   "seen_via": [
-    "kaupr-no"
-   ],
-   "published": "2026-09-18T12:00:00+00:00",
-   "fetched": "2026-10-03T15:11:52+00:00",
-   "topics": [
-    "business",
-    "mica"
-   ],
-   "matched": [
-    "\\bMiCAR?\\b",
-    "\\bNBX\\b"
-   ],
-   "paywall": false,
-   "status": "published",
-   "summary": "NBX won its MiCA licence in the first half of 2026, but revenue fell 45 percent and its after-tax loss grew to NOK 16.6 million.",
-   "approved_by": "Nordic Crypto redaktør",
-   "approved_at": "2026-10-03T17:45:04+02:00",
-   "summary_i18n": {
-    "nn": "NBX fekk MiCA-løyve i første halvår 2026, men inntektene fall 45 prosent, og tapet etter skatt auka til 16,6 millionar kroner.",
-    "nb": "NBX fikk MiCA-tillatelse i første halvår 2026, men inntektene falt 45 prosent og tapet etter skatt økte til 16,6 millioner kroner.",
-    "sv": "NBX fick sitt MiCA-tillstånd under första halvåret 2026, men intäkterna föll 45 procent och förlusten efter skatt ökade till 16,6 miljoner norska kronor.",
-    "da": "NBX fik sin MiCA-tilladelse i første halvår 2026, men omsætningen faldt 45 procent, og underskuddet efter skat voksede til 16,6 millioner norske kroner.",
-    "fi": "NBX sai MiCA-toimiluvan vuoden 2026 ensimmäisellä puoliskolla, mutta liikevaihto laski 45 prosenttia ja verojen jälkeinen tappio kasvoi 16,6 miljoonaan Norjan kruunuun.",
-    "is": "NBX fékk MiCA-leyfi á fyrri helmingi ársins 2026, en tekjur drógust saman um 45 prósent og tap eftir skatta jókst í 16,6 milljónir norskra króna."
-   },
-   "summary_i18n_review": "approved"
-  },
-  {
-   "title": "Regjeringen utreder midlertidig forbud mot nye kryptodatasentre (skriftlig spørsmål 15:3707)",
-   "title_en": "Government studying a temporary ban on new crypto data centres (written question 15:3707)",
-   "source": "stortinget",
-   "source_name": "Stortinget",
-   "country": "NO",
-   "language": "Norwegian",
-   "via": "kryptonytt",
-   "seen_via": [
-    "kryptonytt"
-   ],
-   "published": "2026-09-18T12:00:00+00:00",
-   "topics": [
-    "mining",
-    "policy"
-   ],
-   "matched": [],
-   "paywall": false,
-   "suggested_by": "Kryptonytt",
-   "suggested_status": "approved on Kryptonytt",
-   "suggested_at": "2026-10-03T16:17:59+00:00",
-   "id": "55643fb5a215",
-   "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Sporsmal/Skriftlige-sporsmal-og-svar/Skriftlig-sporsmal/?qnid=127181",
-   "status": "published",
-   "summary": "A written question in the Storting asks when the government will present its planned state planning provision to limit crypto mining, and why it has concluded the EEA Agreement rules out a general mining ban.",
-   "fetched": "2026-10-03T16:17:59+00:00",
-   "origin": "suggested by Kryptonytt",
-   "approved_by": "Nordic Crypto redaktør",
-   "approved_at": "2026-10-03T18:26:24+02:00",
-   "summary_i18n": {
-    "nn": "Eit skriftleg spørsmål på Stortinget spør når regjeringa legg fram den varsla statlege planføresegna for å avgrense kryptoutvinning, og kvifor ho har konkludert med at EØS-avtalen utelukkar eit generelt forbod.",
-    "nb": "Et skriftlig spørsmål på Stortinget spør når regjeringen legger fram den varslede statlige planbestemmelsen for å begrense kryptoutvinning, og hvorfor den har konkludert med at EØS-avtalen utelukker et generelt forbud.",
-    "sv": "En skriftlig fråga i Stortinget undrar när regeringen lägger fram den planerade statliga planbestämmelsen för att begränsa kryptoutvinning, och varför den har kommit fram till att EES-avtalet utesluter ett generellt förbud.",
-    "da": "Et skriftligt spørgsmål i Stortinget spørger, hvornår regeringen fremlægger den planlagte statslige planbestemmelse, der skal begrænse kryptomining, og hvorfor den er nået frem til, at EØS-aftalen udelukker et generelt forbud.",
-    "fi": "Norjan suurkäräjillä (Stortinget) esitetyssä kirjallisessa kysymyksessä tiedustellaan, milloin hallitus antaa suunnitellun valtakunnallisen kaavamääräyksen kryptolouhinnan rajoittamiseksi ja miksi se on päätellyt ETA-sopimuksen estävän yleisen louhintakiellon.",
-    "is": "Í skriflegri fyrirspurn á norska Stórþinginu er spurt hvenær ríkisstjórnin leggi fram fyrirhugað skipulagsákvæði ríkisins til að takmarka námugröft rafmynta og hvers vegna hún hafi komist að þeirri niðurstöðu að EES-samningurinn útiloki almennt bann."
-   },
-   "summary_i18n_review": "approved"
   },
   {
    "title": "Verdiendringer i bitcoin tynger NBX",
@@ -2069,6 +2437,83 @@
    "reject_reason": "Off-topic (book about bonds)"
   },
   {
+   "id": "831bb86ab20c",
+   "url": "https://www.kaupr.io/nyheter/nbx-mer-enn-doblet-tapet-i-halvaret-da-mica-lisensen-kom",
+   "title": "NBX mer enn doblet tapet i halvåret da MiCA-lisensen kom",
+   "title_en": "NBX more than doubled its half-year loss as the MiCA licence arrived",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kaupr-no",
+   "seen_via": [
+    "kaupr-no"
+   ],
+   "published": "2026-09-18T12:00:00+00:00",
+   "fetched": "2026-10-03T15:11:52+00:00",
+   "topics": [
+    "business",
+    "mica"
+   ],
+   "matched": [
+    "\\bMiCAR?\\b",
+    "\\bNBX\\b"
+   ],
+   "paywall": false,
+   "status": "published",
+   "summary": "NBX won its MiCA licence in the first half of 2026, but revenue fell 45 percent and its after-tax loss grew to NOK 16.6 million.",
+   "approved_by": "Nordic Crypto redaktør",
+   "approved_at": "2026-10-03T17:45:04+02:00",
+   "summary_i18n": {
+    "nn": "NBX fekk MiCA-løyve i første halvår 2026, men inntektene fall 45 prosent, og tapet etter skatt auka til 16,6 millionar kroner.",
+    "nb": "NBX fikk MiCA-tillatelse i første halvår 2026, men inntektene falt 45 prosent og tapet etter skatt økte til 16,6 millioner kroner.",
+    "sv": "NBX fick sitt MiCA-tillstånd under första halvåret 2026, men intäkterna föll 45 procent och förlusten efter skatt ökade till 16,6 miljoner norska kronor.",
+    "da": "NBX fik sin MiCA-tilladelse i første halvår 2026, men omsætningen faldt 45 procent, og underskuddet efter skat voksede til 16,6 millioner norske kroner.",
+    "fi": "NBX sai MiCA-toimiluvan vuoden 2026 ensimmäisellä puoliskolla, mutta liikevaihto laski 45 prosenttia ja verojen jälkeinen tappio kasvoi 16,6 miljoonaan Norjan kruunuun.",
+    "is": "NBX fékk MiCA-leyfi á fyrri helmingi ársins 2026, en tekjur drógust saman um 45 prósent og tap eftir skatta jókst í 16,6 milljónir norskra króna."
+   },
+   "summary_i18n_review": "approved"
+  },
+  {
+   "title": "Regjeringen utreder midlertidig forbud mot nye kryptodatasentre (skriftlig spørsmål 15:3707)",
+   "title_en": "Government studying a temporary ban on new crypto data centres (written question 15:3707)",
+   "source": "stortinget",
+   "source_name": "Stortinget",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-09-18T12:00:00+00:00",
+   "topics": [
+    "mining",
+    "policy"
+   ],
+   "matched": [],
+   "paywall": false,
+   "suggested_by": "Kryptonytt",
+   "suggested_status": "approved on Kryptonytt",
+   "suggested_at": "2026-10-03T16:17:59+00:00",
+   "id": "55643fb5a215",
+   "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Sporsmal/Skriftlige-sporsmal-og-svar/Skriftlig-sporsmal/?qnid=127181",
+   "status": "published",
+   "summary": "A written question in the Storting asks when the government will present its planned state planning provision to limit crypto mining, and why it has concluded the EEA Agreement rules out a general mining ban.",
+   "fetched": "2026-10-03T16:17:59+00:00",
+   "origin": "suggested by Kryptonytt",
+   "approved_by": "Nordic Crypto redaktør",
+   "approved_at": "2026-10-03T18:26:24+02:00",
+   "summary_i18n": {
+    "nn": "Eit skriftleg spørsmål på Stortinget spør når regjeringa legg fram den varsla statlege planføresegna for å avgrense kryptoutvinning, og kvifor ho har konkludert med at EØS-avtalen utelukkar eit generelt forbod.",
+    "nb": "Et skriftlig spørsmål på Stortinget spør når regjeringen legger fram den varslede statlige planbestemmelsen for å begrense kryptoutvinning, og hvorfor den har konkludert med at EØS-avtalen utelukker et generelt forbud.",
+    "sv": "En skriftlig fråga i Stortinget undrar när regeringen lägger fram den planerade statliga planbestämmelsen för att begränsa kryptoutvinning, och varför den har kommit fram till att EES-avtalet utesluter ett generellt förbud.",
+    "da": "Et skriftligt spørgsmål i Stortinget spørger, hvornår regeringen fremlægger den planlagte statslige planbestemmelse, der skal begrænse kryptomining, og hvorfor den er nået frem til, at EØS-aftalen udelukker et generelt forbud.",
+    "fi": "Norjan suurkäräjillä (Stortinget) esitetyssä kirjallisessa kysymyksessä tiedustellaan, milloin hallitus antaa suunnitellun valtakunnallisen kaavamääräyksen kryptolouhinnan rajoittamiseksi ja miksi se on päätellyt ETA-sopimuksen estävän yleisen louhintakiellon.",
+    "is": "Í skriflegri fyrirspurn á norska Stórþinginu er spurt hvenær ríkisstjórnin leggi fram fyrirhugað skipulagsákvæði ríkisins til að takmarka námugröft rafmynta og hvers vegna hún hafi komist að þeirri niðurstöðu að EES-samningurinn útiloki almennt bann."
+   },
+   "summary_i18n_review": "approved"
+  },
+  {
    "id": "c1431df81160",
    "url": "https://podcasters.spotify.com/pod/show/bitcoinsnakk9/episodes/Norway-Wants-to-Ban-Bitcoin-Mining--The-Miners-Already-Left--Rachel-Geyer--EBEA-e3p0bb8",
    "title": "Norway Wants to Ban Bitcoin Mining. The Miners Already Left | Rachel Geyer, EBEA",
@@ -2104,6 +2549,35 @@
     "is": "Í erindi hjá Bitcoinpolitisk Institutt í Ósló heldur Rachel Geyer hjá European Bitcoin Energy Association því fram að fyrirhugað bann Noregs við námugreftri beinist að vanda sem landið glímir ekki við."
    },
    "summary_i18n_review": "approved"
+  },
+  {
+   "title": "USA letter på reglene for aksjehandel",
+   "title_en": null,
+   "source": "finansavisen",
+   "source_name": "Finansavisen",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-09-17T15:59:19+00:00",
+   "topics": [
+    "blockchain",
+    "regulation"
+   ],
+   "matched": [],
+   "paywall": true,
+   "suggested_by": "Kryptonytt",
+   "suggested_status": "candidate on Kryptonytt",
+   "suggested_at": "2026-10-03T16:17:59+00:00",
+   "id": "8168421e6cf9",
+   "url": "https://www.finansavisen.no/finans/2026/09/17/8381339/usa-letter-pa-reglene-for-aksjehandel",
+   "status": "rejected",
+   "summary": null,
+   "fetched": "2026-10-03T16:17:59+00:00",
+   "origin": "suggested by Kryptonytt",
+   "reject_reason": "Off-topic (US stock rules)"
   },
   {
    "id": "a384452ed1b6",
@@ -2222,35 +2696,6 @@
    "summary_i18n_review": "approved"
   },
   {
-   "title": "USA letter på reglene for aksjehandel",
-   "title_en": null,
-   "source": "finansavisen",
-   "source_name": "Finansavisen",
-   "country": "NO",
-   "language": "Norwegian",
-   "via": "kryptonytt",
-   "seen_via": [
-    "kryptonytt"
-   ],
-   "published": "2026-09-17T15:59:19+00:00",
-   "topics": [
-    "blockchain",
-    "regulation"
-   ],
-   "matched": [],
-   "paywall": true,
-   "suggested_by": "Kryptonytt",
-   "suggested_status": "candidate on Kryptonytt",
-   "suggested_at": "2026-10-03T16:17:59+00:00",
-   "id": "8168421e6cf9",
-   "url": "https://www.finansavisen.no/finans/2026/09/17/8381339/usa-letter-pa-reglene-for-aksjehandel",
-   "status": "rejected",
-   "summary": null,
-   "fetched": "2026-10-03T16:17:59+00:00",
-   "origin": "suggested by Kryptonytt",
-   "reject_reason": "Off-topic (US stock rules)"
-  },
-  {
    "title": "#74 GREGARD MIKKELBORG - Kommende generasjoner kan bare drømme om å ha råd til egen bolig.",
    "title_en": null,
    "source": "enogtyvetanker",
@@ -2315,6 +2760,34 @@
     "is": "DNB hefur gengið til liðs við CBMT, þar sem evrópskir bankar prófa táknvæddar bankainnstæður, og bætir norsku krónunni við prófunarumhverfið."
    },
    "summary_i18n_review": "approved"
+  },
+  {
+   "title": "Advarer om bitcoin-kollaps før rentemøte",
+   "title_en": null,
+   "source": "e24",
+   "source_name": "E24",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-09-15T13:33:43+00:00",
+   "topics": [
+    "bitcoin"
+   ],
+   "matched": [],
+   "paywall": true,
+   "suggested_by": "Kryptonytt",
+   "suggested_status": "candidate on Kryptonytt",
+   "suggested_at": "2026-10-03T16:17:59+00:00",
+   "id": "65f7f2df1a50",
+   "url": "https://e24.no/boers-og-finans/i/8pMoKQ/advarer-om-bitcoin-kollaps-foer-rentemoete",
+   "status": "rejected",
+   "summary": null,
+   "fetched": "2026-10-03T16:17:59+00:00",
+   "origin": "suggested by Kryptonytt",
+   "reject_reason": "Price commentary with no Nordic angle"
   },
   {
    "id": "4d918e6a3378",
@@ -2465,34 +2938,6 @@
     "is": "Rafmyntakauphöllin Firi tapaði 43,6 milljónum norskra króna á fyrri helmingi ársins 2026 vegna minni viðskipta og mikils MiCA-kostnaðar og hefur fækkað starfsfólki á sama tíma og hún hefur starfsemi í Svíþjóð."
    },
    "summary_i18n_review": "approved"
-  },
-  {
-   "title": "Advarer om bitcoin-kollaps før rentemøte",
-   "title_en": null,
-   "source": "e24",
-   "source_name": "E24",
-   "country": "NO",
-   "language": "Norwegian",
-   "via": "kryptonytt",
-   "seen_via": [
-    "kryptonytt"
-   ],
-   "published": "2026-09-15T13:33:43+00:00",
-   "topics": [
-    "bitcoin"
-   ],
-   "matched": [],
-   "paywall": true,
-   "suggested_by": "Kryptonytt",
-   "suggested_status": "candidate on Kryptonytt",
-   "suggested_at": "2026-10-03T16:17:59+00:00",
-   "id": "65f7f2df1a50",
-   "url": "https://e24.no/boers-og-finans/i/8pMoKQ/advarer-om-bitcoin-kollaps-foer-rentemoete",
-   "status": "rejected",
-   "summary": null,
-   "fetched": "2026-10-03T16:17:59+00:00",
-   "origin": "suggested by Kryptonytt",
-   "reject_reason": "Price commentary with no Nordic angle"
   },
   {
    "id": "93d838ccb96b",
@@ -2976,7 +3421,74 @@
     "is": "Finnska fjármálaeftirlitið minnir á að þjónustuveitendur sýndareigna sem þjóna Finnlandi verða að hafa leyfi innan ESB (MiCA)."
    },
    "summary_i18n_review": "approved"
+  },
+  {
+   "title": "Teknologirådet hardt ut mot norsk datasenterpolitikk: – Ingen har vurdert samfunnsnytten",
+   "title_en": null,
+   "source": "adressa",
+   "source_name": "Adresseavisen (NTB)",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-10-07T12:00:00+00:00",
+   "topics": [
+    "regulation"
+   ],
+   "matched": [],
+   "paywall": true,
+   "suggested_by": "Kryptonytt",
+   "origin": "suggested by Kryptonytt",
+   "suggested_status": "approved on Kryptonytt",
+   "suggested_at": "2026-10-08T03:08:18+00:00",
+   "id": "c3c7d269dc30",
+   "url": "https://www.adressa.no/nyheter/innenriks/i/ElywEo/teknologiraadet-hardt-ut-mot-norsk-datasenterpolitikk-ingen-har-vurdert-samfunnsnytten",
+   "status": "rejected",
+   "summary": null,
+   "fetched": "2026-10-08T03:08:18+00:00",
+   "reject_reason": "Crypto mining is one word in a list; covered as background by the Stortinget data-centre proposal"
+  },
+  {
+   "title": "Rødt foreslår midlertidig stans for nye datasentre",
+   "title_en": "Red Party proposes a temporary halt for new data centres",
+   "source": "stortinget",
+   "source_name": "Stortinget",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kryptonytt",
+   "seen_via": [
+    "kryptonytt"
+   ],
+   "published": "2026-10-05T12:00:00+00:00",
+   "topics": [
+    "mining",
+    "policy"
+   ],
+   "matched": [],
+   "paywall": false,
+   "suggested_by": "Kryptonytt",
+   "origin": "suggested by Kryptonytt",
+   "suggested_status": "approved on Kryptonytt",
+   "suggested_at": "2026-10-08T03:08:18+00:00",
+   "id": "e88e8e0c9a77",
+   "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/",
+   "status": "published",
+   "summary": "The Red Party (Rødt) has proposed in the Storting a temporary halt for new data centres, along with a licensing regime and other measures. Its reasoning says crypto-mining data centres get power ahead of key local industries and that the crypto-mining ban the Storting has asked for three times in two years is still not in place, though none of the proposals singles out crypto.",
+   "fetched": "2026-10-08T03:08:18+00:00",
+   "approved_by": "Nordic Crypto redaktør",
+   "approved_at": "2026-10-08T06:05:00+02:00",
+   "summary_i18n": {
+    "nb": "Rødt har foreslått på Stortinget en midlertidig stans for nye datasentre, sammen med en konsesjonsordning og andre tiltak. Begrunnelsen sier at datasentre som utvinner kryptovaluta får strømtilgang foran hjørnesteinsbedrifter, og at kryptoforbudet Stortinget har bedt om tre ganger på to år fortsatt ikke er på plass, men ingen av forslagene gjelder krypto særskilt.",
+    "nn": "Raudt har føreslått på Stortinget ein mellombels stans for nye datasenter, saman med ei konsesjonsordning og andre tiltak. Grunngjevinga seier at datasenter som utvinn kryptovaluta får straumtilgang framfor hjørnesteinsbedrifter, og at kryptoforbodet Stortinget har bede om tre gonger på to år framleis ikkje er på plass, men ingen av forslaga gjeld krypto særskilt.",
+    "sv": "Rødt har i Stortinget föreslagit ett tillfälligt stopp för nya datacenter, tillsammans med ett tillståndssystem och andra åtgärder. Motiveringen säger att datacenter som utvinner kryptovaluta får elanslutning före viktiga lokala industrier och att kryptoförbudet som Stortinget har begärt tre gånger på två år fortfarande inte är på plats, men inget av förslagen gäller specifikt krypto.",
+    "da": "Rødt har i Stortinget foreslået et midlertidigt stop for nye datacentre sammen med en tilladelsesordning og andre tiltag. Begrundelsen siger, at datacentre, der udvinder kryptovaluta, får strømadgang før vigtige lokale virksomheder, og at det kryptoforbud, som Stortinget har bedt om tre gange på to år, stadig ikke er på plads, men ingen af forslagene handler specifikt om krypto.",
+    "fi": "Norjan Punainen puolue (Rødt) on ehdottanut suurkäräjillä uusien datakeskusten väliaikaista pysäyttämistä sekä lupajärjestelmää ja muita toimia. Perustelujen mukaan kryptovaluuttaa louhivat datakeskukset saavat sähköliittymän ennen tärkeitä paikallisia yrityksiä, eikä suurkäräjien kolmesti kahdessa vuodessa pyytämää kryptolouhinnan kieltoa ole yhä otettu käyttöön, mutta mikään ehdotuksista ei koske erityisesti kryptoa.",
+    "is": "Rauði flokkurinn (Rødt) hefur lagt til á Stórþinginu tímabundna stöðvun nýrra gagnavera, ásamt leyfiskerfi og öðrum aðgerðum. Í rökstuðningnum segir að gagnaver sem grafa eftir rafmyntum fái rafmagnstengingu á undan mikilvægum fyrirtækjum í heimabyggð og að bann við rafmyntagreftri, sem Stórþingið hefur þrisvar beðið um á tveimur árum, sé enn ekki komið á, en engin tillagnanna snýr sérstaklega að rafmyntum."
+   },
+   "summary_i18n_review": "approved"
   }
  ],
- "updated": "2026-10-07T01:48:50+00:00"
+ "updated": "2026-10-08T02:28:44+00:00"
 }

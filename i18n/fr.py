@@ -4,6 +4,7 @@ Chrome strings fall back to English in i18n.t() until a translation is added to 
 This file does not translate article bodies or summaries. Nordic news sources are unchanged.
 """
 S = {
+"primary_source": "Source principale",
 "ios_tv": 'Prend en charge Apple TV en particulier.',
 "prev_extra": "Les événements publics plus anciens dans les pays nordiques figurent ici lorsqu’une source indique la date, le lieu et l’organisateur.",
 "ev_type": "Type",
@@ -45,3 +46,42 @@ S = {
 }
 
 S.update({'nav_talks': 'Exposés', 'talks_title': 'Exposés – conférences publiques sur la crypto dans les pays nordiques', 'talks_desc': 'Exposés publics sur le bitcoin, les cryptomonnaies et la blockchain tenus dans les pays nordiques, avec la vidéo et les faits indiqués par la chaîne.', 'talks_h1': 'Exposés', 'talks_lead': 'Enregistrements d’exposés publics sur le bitcoin, les cryptomonnaies et la blockchain tenus en Norvège, en Suède, au Danemark, en Finlande, en Islande, aux îles Féroé, au Groenland et aux îles Åland depuis le livre blanc du bitcoin. Les plus récents d’abord. Le lecteur ne se charge qu’après un clic sur lecture, et seulement si la plateforme autorise l’intégration.', 'talks_n': '{n} exposés', 'talks_none': 'Aucun exposé ne correspond à ces filtres.', 'talks_year': 'Année', 'talks_year_all': 'Toutes les années', 'talks_language': 'Langue', 'talks_lang_unknown': 'Langue non indiquée', 'talks_play': 'Lecture', 'talks_watch': 'Voir sur la plateforme', 'talks_speakers': 'Intervenants', 'talks_event': 'Événement', 'talks_channel': 'Chaîne', 'talks_published': 'Vidéo publiée', 'talks_duration': 'Durée', 'talks_held': 'Tenu', 'talks_source': 'Source', 'talks_calendar': 'Entrée du calendrier', 'talks_embed_note': 'Le lecteur se charge depuis la plateforme seulement après un clic sur lecture.', 'talks_not_embed': 'Cette plateforme n’a pas proposé de lecteur intégrable. Le lien mène à la vidéo.', 'past_talks': 'Les enregistrements d’exposés publics sont dans les <a href="{href}">archives des exposés</a>.', 'c_FO': 'Îles Féroé', 'c_GL': 'Groenland', 'c_AX': 'Åland'})
+
+# Shared shoutbox. One room; these strings are the UI only.
+S.update({
+"nav_chat": "Chat",
+"chat_title": "Chat",
+"chat_desc": "Un seul cri public sur Nordic Crypto. Messages de lecteurs, pas un contenu éditorial.",
+"chat_h1": "Chat",
+"chat_lead": "Une seule salle pour toutes les langues de Nordic Crypto. Les messages restent tels qu’ils ont été écrits.",
+"chat_shared": "Tout le monde voit les mêmes messages. Cette page ne les traduit pas.",
+"chat_user": "Ces messages sont écrits par des lecteurs. Ce n’est pas le contenu éditorial de Nordic Crypto.",
+"chat_rules": "<a href=\"{ethics}\">Règles</a> : pas de harcèlement, pas de doxxing, pas de promotion de conseils financiers, et pas d’arnaques ni de liens de parrainage. Les modérateurs peuvent retirer des messages.",
+"chat_nick": "Pseudo",
+"chat_message": "Message",
+"chat_send": "Envoyer",
+"chat_report": "Signaler",
+"chat_reported": "Signalé. Les modérateurs peuvent l’examiner.",
+"chat_ph_nick": "Nom",
+"chat_ph_msg": "Écrire un message",
+"chat_privacy": "Le cri public enregistre le pseudo, le message et une empreinte de l’adresse IP qui change chaque jour, uniquement pour limiter les abus. L’adresse IP elle-même n’est pas enregistrée. Le pseudo reste seulement dans le stockage local de ce navigateur, pas dans un cookie. Cloudflare Web Analytics compte les visites de façon agrégée, sans cookies, et nous ne vendons pas ces données.",
+"chat_full": "Ouvrir le chat complet",
+"chat_toggle_show": "Afficher le chat",
+"chat_toggle_hide": "Masquer le chat",
+"chat_empty": "Pas encore de messages.",
+"chat_sending": "Envoi…",
+"chat_sent": "Envoyé.",
+"chat_fail": "Envoi impossible. Réessayez.",
+"chat_rate": "Trop de messages en peu de temps. Patientez.",
+"chat_spam": "Ce message a été bloqué.",
+"chat_turnstile": "Terminez la vérification, puis renvoyez.",
+"chat_nick_err": "Le pseudo doit faire 2 à 24 caractères.",
+"chat_msg_err": "Le message doit faire 1 à 280 caractères.",
+"chat_banned": "Vous ne pouvez pas écrire pour le moment.",
+"chat_older": "Messages plus anciens",
+"chat_time_now": "à l’instant",
+"chat_time_m": "il y a {n} min",
+"chat_time_h": "il y a {n} h",
+"chat_time_d": "il y a {n} j",
+"chat_noscript": "Le chat a besoin de JavaScript.",
+})

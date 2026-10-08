@@ -65,12 +65,13 @@ def main():
     with tempfile.TemporaryDirectory() as tmp:
         path = os.path.join(tmp, "talks.json")
         json.dump({"talks": [
-            {"event_id": "ccc2eea6b213", "title": "Opening", "video_url": "https://example.test/v", "source_name": "Archive", "source_url": "https://example.test/src", "retrieved_at": "2026-10-07T21:00:00+00:00"},
+            {"event_id": "ccc2eea6b213", "title": "Opening", "video_url": "https://example.test/v", "speakers": ["Ada Lovelace"], "source_name": "Archive", "source_url": "https://example.test/src", "retrieved_at": "2026-10-07T21:00:00+00:00"},
             {"event_id": "other", "title": "Nope", "video_url": "https://example.test/no"},
             {"event_id": "ccc2eea6b213", "title": "No video"},
         ]}, open(path, "w", encoding="utf-8"))
         talks = event_page.related_talks("ccc2eea6b213", path)
         check(len(talks) == 1 and talks[0]["url"] == "https://example.test/v" and talks[0]["retrieved"], "talk video matched by event id")
+        check(talks[0].get("speakers") == ["Ada Lovelace"], "talk speakers are returned")
     build.LANG = "en"
     check("calendar/ccc2eea6b213/" == build.event_link(ev), "front-page link")
     check(build.event_link(ev, "../../") == "../../calendar/ccc2eea6b213/", "previous-page link")
@@ -134,6 +135,24 @@ def main():
         build.build_one_event(bare)
         sv_html = open(os.path.join(site, "sv", "calendar", ev["id"], "index.html"), encoding="utf-8").read()
         check("A meetup about bitcoin in Gothenburg." in sv_html and "Originaltext" not in sv_html, "missing translation shows the original only")
+        talk_path = os.path.join(site, "fixture-talks.json")
+        json.dump({"talks": [{
+            "event_id": ev["id"], "title": "Opening", "video_url": "https://example.test/v",
+            "speakers": ["Ada Lovelace"], "speaker_ids": ["spk-ada-lovelace"], "source_name": "Archive",
+            "source_url": "https://example.test/src", "retrieved_at": "2026-10-07T21:00:00+00:00",
+        }]}, open(talk_path, "w", encoding="utf-8"))
+        old_talks = build.event_page.TALKS_PATH
+        build.event_page.TALKS_PATH = talk_path
+        try:
+            build.LANG = "en"
+            build.build_one_event(ev)
+        finally:
+            build.event_page.TALKS_PATH = old_talks
+        listed = open(os.path.join(site, "calendar", ev["id"], "index.html"), encoding="utf-8").read()
+        check("Opening" in listed and "Ada Lovelace" in listed and "Speakers" in listed, "event page lists the talk, speaker and video")
+        check('href="https://example.test/v"' in listed, "event page links the video")
+        check('href="../../org-chart/#spk-ada-lovelace"' in listed, "event page links the speaker")
+        check("text-align:center" not in listed.split(".evpage,.evpage h1")[1].split("}")[0], "talk list stays left aligned")
     if fails:
         print(f"{len(fails)} failed")
         return 1

@@ -1097,6 +1097,297 @@
     "source_name": "BTCHEL",
     "retrieved": "2026-10-07T23:50:00+00:00"
    }
+  },
+  {
+   "title": "Ethereum Helsinki Meetup",
+   "start": "2016-05-11T00:00:00+03:00",
+   "end": "2016-05-11T23:59:00+03:00",
+   "place": null,
+   "city": "Helsinki",
+   "country": "FI",
+   "online": false,
+   "organiser": "Helsinki Ethereum Meetup",
+   "url": "http://www.meetup.com/Helsinki-Ethereum-Meetup",
+   "source": "backfill",
+   "source_url": "https://www.youtube.com/watch?v=zi2JsPOm5HE&hl=en",
+   "found": "2026-10-07T20:57:16+00:00",
+   "event_type": "meetup",
+   "language": null,
+   "status": "published",
+   "backfill": true,
+   "attendees": null,
+   "speakers_count": null,
+   "videos_url": null,
+   "talk_ids": [
+    "yt-zi2JsPOm5HE"
+   ],
+   "credits": {
+    "title": {
+     "source_name": "Ethereum Helsinki",
+     "source_url": "https://www.youtube.com/watch?v=zi2JsPOm5HE&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "start": {
+     "source_name": "Ethereum Helsinki",
+     "source_url": "https://www.youtube.com/watch?v=zi2JsPOm5HE&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "end": {
+     "source_name": "Ethereum Helsinki",
+     "source_url": "https://www.youtube.com/watch?v=zi2JsPOm5HE&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "city": {
+     "source_name": "Ethereum Helsinki",
+     "source_url": "https://www.youtube.com/watch?v=zi2JsPOm5HE&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "country": {
+     "source_name": "Ethereum Helsinki",
+     "source_url": "https://www.youtube.com/watch?v=zi2JsPOm5HE&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "organiser": {
+     "source_name": "Ethereum Helsinki",
+     "source_url": "https://www.youtube.com/watch?v=zi2JsPOm5HE&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "url": {
+     "source_name": "Ethereum Helsinki",
+     "source_url": "https://www.youtube.com/watch?v=zi2JsPOm5HE&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "event_type": {
+     "source_name": "Ethereum Helsinki",
+     "source_url": "https://www.youtube.com/watch?v=zi2JsPOm5HE&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    }
+   },
+   "id": "c9903961cd24"
+  },
+  {
+   "title": "Oslo Blockchain Day",
+   "start": "2016-04-19T00:00:00+02:00",
+   "end": "2016-04-19T23:59:00+02:00",
+   "place": null,
+   "city": "Oslo",
+   "country": "NO",
+   "online": false,
+   "organiser": "Blockchangers",
+   "url": "https://www.youtube.com/watch?v=0iXX02OYI5s",
+   "source": "backfill",
+   "source_url": "https://www.youtube.com/watch?v=0iXX02OYI5s&hl=en",
+   "found": "2026-10-07T20:57:16+00:00",
+   "event_type": "conference",
+   "language": null,
+   "status": "published",
+   "backfill": true,
+   "attendees": null,
+   "speakers_count": null,
+   "videos_url": null,
+   "talk_ids": [
+    "yt-0iXX02OYI5s",
+    "yt-3YQ3KPcwY80",
+    "yt-40-zccLg7rw",
+    "yt-5Nt0v-_PA04",
+    "yt-5jGIiwLS4yc",
+    "yt-5qOqPd5KcxQ",
+    "yt-6sN36dNYwq8",
+    "yt-H0ksQfF52bc",
+    "yt-MvNDt8cYBnU",
+    "yt-Os_XNjqLw8A",
+    "yt-V5t-uKsNYJI",
+    "yt-ZOMpmc-lrNA",
+    "yt-ZipWu7rqxeo",
+    "yt-_OWFROsjBVI",
+    "yt-brHf3DTIsig",
+    "yt-bwXhIPL_bHA",
+    "yt-i87UEsneU9c",
+    "yt-jxRBL4iY0bM",
+    "yt-k0mr4Q0U_oM",
+    "yt-lRKRitXY76A",
+    "yt-oOCdi5c-xvc",
+    "yt-oWjsqKmIPLo",
+    "yt-rf9C6qr7ew0",
+    "yt-wogzCQdqoUA"
+   ],
+   "credits": {
+    "title": {
+     "source_name": "Blockchangers",
+     "source_url": "https://www.youtube.com/watch?v=0iXX02OYI5s&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "start": {
+     "source_name": "Blockchangers",
+     "source_url": "https://www.youtube.com/watch?v=0iXX02OYI5s&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "end": {
+     "source_name": "Blockchangers",
+     "source_url": "https://www.youtube.com/watch?v=0iXX02OYI5s&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "city": {
+     "source_name": "Blockchangers",
+     "source_url": "https://www.youtube.com/watch?v=0iXX02OYI5s&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "country": {
+     "source_name": "Blockchangers",
+     "source_url": "https://www.youtube.com/watch?v=0iXX02OYI5s&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "organiser": {
+     "source_name": "Blockchangers",
+     "source_url": "https://www.youtube.com/watch?v=0iXX02OYI5s&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "url": {
+     "source_name": "Blockchangers",
+     "source_url": "https://www.youtube.com/watch?v=0iXX02OYI5s&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "event_type": {
+     "source_name": "Blockchangers",
+     "source_url": "https://www.youtube.com/watch?v=0iXX02OYI5s&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    }
+   },
+   "id": "92041cfcb99c"
+  },
+  {
+   "title": "Oslo Blockchain Day",
+   "start": "2017-04-25T00:00:00+02:00",
+   "end": "2017-04-25T23:59:00+02:00",
+   "place": null,
+   "city": "Oslo",
+   "country": "NO",
+   "online": false,
+   "organiser": "Blockchangers",
+   "url": "https://www.meetup.com/blockchangers/events/230837354/",
+   "source": "backfill",
+   "source_url": "https://www.youtube.com/watch?v=eo-0BgrKxiI&hl=en",
+   "found": "2026-10-07T20:57:16+00:00",
+   "event_type": "conference",
+   "language": null,
+   "status": "published",
+   "backfill": true,
+   "attendees": null,
+   "speakers_count": null,
+   "videos_url": null,
+   "talk_ids": [
+    "yt-eo-0BgrKxiI"
+   ],
+   "credits": {
+    "title": {
+     "source_name": "aantonop",
+     "source_url": "https://www.youtube.com/watch?v=eo-0BgrKxiI&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "start": {
+     "source_name": "aantonop",
+     "source_url": "https://www.youtube.com/watch?v=eo-0BgrKxiI&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "end": {
+     "source_name": "aantonop",
+     "source_url": "https://www.youtube.com/watch?v=eo-0BgrKxiI&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "city": {
+     "source_name": "aantonop",
+     "source_url": "https://www.youtube.com/watch?v=eo-0BgrKxiI&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "country": {
+     "source_name": "aantonop",
+     "source_url": "https://www.youtube.com/watch?v=eo-0BgrKxiI&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "organiser": {
+     "source_name": "aantonop",
+     "source_url": "https://www.youtube.com/watch?v=eo-0BgrKxiI&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "url": {
+     "source_name": "aantonop",
+     "source_url": "https://www.youtube.com/watch?v=eo-0BgrKxiI&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "event_type": {
+     "source_name": "aantonop",
+     "source_url": "https://www.youtube.com/watch?v=eo-0BgrKxiI&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    }
+   },
+   "id": "30569783bb01"
+  },
+  {
+   "title": "Trondheim Blockchain Meetup",
+   "start": "2017-02-09T00:00:00+01:00",
+   "end": "2017-02-09T23:59:00+01:00",
+   "place": null,
+   "city": "Trondheim",
+   "country": "NO",
+   "online": false,
+   "organiser": "Trondheim Blockchain Meetup",
+   "url": "https://www.meetup.com/Trondheim-Blockchain-Meetup/",
+   "source": "backfill",
+   "source_url": "https://www.youtube.com/watch?v=ibI_S_RcxZQ&hl=en",
+   "found": "2026-10-07T20:57:16+00:00",
+   "event_type": "meetup",
+   "language": null,
+   "status": "published",
+   "backfill": true,
+   "attendees": null,
+   "speakers_count": null,
+   "videos_url": null,
+   "talk_ids": [
+    "yt-ibI_S_RcxZQ"
+   ],
+   "credits": {
+    "title": {
+     "source_name": "Jørgen Svennevik Notland",
+     "source_url": "https://www.youtube.com/watch?v=ibI_S_RcxZQ&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "start": {
+     "source_name": "Jørgen Svennevik Notland",
+     "source_url": "https://www.youtube.com/watch?v=ibI_S_RcxZQ&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "end": {
+     "source_name": "Jørgen Svennevik Notland",
+     "source_url": "https://www.youtube.com/watch?v=ibI_S_RcxZQ&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "city": {
+     "source_name": "Jørgen Svennevik Notland",
+     "source_url": "https://www.youtube.com/watch?v=ibI_S_RcxZQ&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "country": {
+     "source_name": "Jørgen Svennevik Notland",
+     "source_url": "https://www.youtube.com/watch?v=ibI_S_RcxZQ&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "organiser": {
+     "source_name": "Jørgen Svennevik Notland",
+     "source_url": "https://www.youtube.com/watch?v=ibI_S_RcxZQ&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "url": {
+     "source_name": "Jørgen Svennevik Notland",
+     "source_url": "https://www.youtube.com/watch?v=ibI_S_RcxZQ&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    },
+    "event_type": {
+     "source_name": "Jørgen Svennevik Notland",
+     "source_url": "https://www.youtube.com/watch?v=ibI_S_RcxZQ&hl=en",
+     "retrieved_at": "2026-10-07T20:57:16+00:00"
+    }
+   },
+   "id": "afc88c305513"
   }
  ]
 }

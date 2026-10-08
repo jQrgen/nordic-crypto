@@ -35,5 +35,5 @@ domain while the reader browses. The pages come from https://nordiccrypto.no/ (G
 Deploy: `npx wrangler deploy` in this directory (`CLOUDFLARE_API_TOKEN` with Workers Scripts Edit and Workers Routes Edit).
 You can also upload `worker.js` as an ES module with the Workers API.
 
-If the tip/newsletter Worker (`tipworker/`) goes live, its CORS `ORIGINS` only list the nordiccrypto.no origin. Forms
-used on a country domain would then need those origins added, or they keep posting with Origin nordiccrypto.no.
+The tip worker’s CORS list includes https://nordiccrypto.no, www, these four country domains (apex and www) and
+https://jqrgen.github.io, so a form on nordiccrypto.se posts with that origin.

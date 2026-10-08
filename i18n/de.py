@@ -4,6 +4,7 @@ Chrome strings fall back to English in i18n.t() until a translation is added to 
 This file does not translate article bodies or summaries. Nordic news sources are unchanged.
 """
 S = {
+"primary_source": "Primärquelle",
 "ios_tv": 'Unterstützt besonders Apple TV.',
 "prev_extra": "Frühere öffentliche Veranstaltungen in den nordischen Ländern stehen hier, wenn eine Quelle Datum, Ort und Veranstalter nennt.",
 "ev_type": "Art",
@@ -45,3 +46,42 @@ S = {
 }
 
 S.update({'nav_talks': 'Vorträge', 'talks_title': 'Vorträge – öffentliche Krypto-Vorträge im Norden', 'talks_desc': 'Öffentliche Vorträge über Bitcoin, Kryptowährungen und Blockchain in den nordischen Ländern, mit dem Video und den Angaben der hochladenden Stelle.', 'talks_h1': 'Vorträge', 'talks_lead': 'Aufzeichnungen öffentlicher Vorträge über Bitcoin, Kryptowährungen und Blockchain in Norwegen, Schweden, Dänemark, Finnland, Island, auf den Färöern, in Grönland und auf Åland seit dem Bitcoin-Whitepaper. Neueste zuerst. Ein Player lädt erst nach dem Klick auf Wiedergabe, und nur wenn die Plattform das Einbetten erlaubt.', 'talks_n': '{n} Vorträge', 'talks_none': 'Keine Vorträge passen zu diesen Filtern.', 'talks_year': 'Jahr', 'talks_year_all': 'Alle Jahre', 'talks_language': 'Sprache', 'talks_lang_unknown': 'Sprache nicht angegeben', 'talks_play': 'Wiedergeben', 'talks_watch': 'Auf der Plattform ansehen', 'talks_speakers': 'Vortragende', 'talks_event': 'Veranstaltung', 'talks_channel': 'Kanal', 'talks_published': 'Video veröffentlicht', 'talks_duration': 'Länge', 'talks_held': 'Gehalten', 'talks_source': 'Quelle', 'talks_calendar': 'Kalendereintrag', 'talks_embed_note': 'Der Player lädt von der Plattform erst, wenn Sie auf Wiedergabe klicken.', 'talks_not_embed': 'Diese Plattform bot keinen einbettbaren Player. Der Link führt zum Video.', 'past_talks': 'Aufzeichnungen öffentlicher Vorträge stehen im <a href="{href}">Vortragsarchiv</a>.', 'c_FO': 'Färöer', 'c_GL': 'Grönland', 'c_AX': 'Åland'})
+
+# Shared shoutbox. One room; these strings are the UI only.
+S.update({
+"nav_chat": "Chat",
+"chat_title": "Chat",
+"chat_desc": "Ein gemeinsamer Zuruf auf Nordic Crypto. Lesernachrichten, kein redaktioneller Inhalt.",
+"chat_h1": "Chat",
+"chat_lead": "Ein Raum für jede Sprache auf Nordic Crypto. Nachrichten bleiben, wie sie geschrieben wurden.",
+"chat_shared": "Alle sehen dieselben Nachrichten. Diese Seite übersetzt sie nicht.",
+"chat_user": "Diese Nachrichten schreiben Leserinnen und Leser. Sie sind kein redaktioneller Inhalt von Nordic Crypto.",
+"chat_rules": "<a href=\"{ethics}\">Hausregeln</a>: keine Belästigung, kein Doxxing, kein Anpreisen von Finanzberatung und keine Betrügereien oder Empfehlungslinks. Moderatoren können Beiträge entfernen.",
+"chat_nick": "Spitzname",
+"chat_message": "Nachricht",
+"chat_send": "Senden",
+"chat_report": "Melden",
+"chat_reported": "Gemeldet. Moderatoren können es prüfen.",
+"chat_ph_nick": "Name",
+"chat_ph_msg": "Nachricht schreiben",
+"chat_privacy": "Der Zuruf speichert den Spitznamen, die Nachricht und einen Hash der IP-Adresse, der täglich wechselt, nur um Missbrauch zu begrenzen. Die IP-Adresse selbst wird nicht gespeichert. Der Spitzname bleibt nur im lokalen Speicher dieses Browsers, nicht in einem Cookie. Cloudflare Web Analytics zählt Besuche zusammengefasst, ohne Cookies, und wir verkaufen diese Daten nicht.",
+"chat_full": "Den ganzen Chat öffnen",
+"chat_toggle_show": "Chat zeigen",
+"chat_toggle_hide": "Chat verbergen",
+"chat_empty": "Noch keine Nachrichten.",
+"chat_sending": "Wird gesendet …",
+"chat_sent": "Gesendet.",
+"chat_fail": "Senden fehlgeschlagen. Versuch es noch einmal.",
+"chat_rate": "Zu viele Nachrichten in kurzer Zeit. Bitte warte.",
+"chat_spam": "Diese Nachricht wurde blockiert.",
+"chat_turnstile": "Schließ die Prüfung ab und sende erneut.",
+"chat_nick_err": "Der Spitzname muss 2–24 Zeichen haben.",
+"chat_msg_err": "Die Nachricht muss 1–280 Zeichen haben.",
+"chat_banned": "Du kannst gerade nicht schreiben.",
+"chat_older": "Ältere Nachrichten",
+"chat_time_now": "gerade eben",
+"chat_time_m": "vor {n} Min.",
+"chat_time_h": "vor {n} Std.",
+"chat_time_d": "vor {n} T.",
+"chat_noscript": "Der Chat braucht JavaScript.",
+})

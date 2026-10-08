@@ -55,15 +55,25 @@ def main():
         if e["id"] in ids: print(f"orgchart: duplicate id {e['id']}", file=sys.stderr); continue
         out.append(dict(e, origin="Nordic Crypto research")); ids.add(e["id"])
     out = [e for e in out if e.get("sources")]
+    sys.path.insert(0, P("tools"))
+    import talk_speakers
+    out = talk_speakers.merge_into(out)
     for e in out:
-        e["status"] = "rejected" if e["id"] in rej else ("published" if (e["id"] in ok_ids or (country_ok(e) and e.get("review") != "pending")) else "pending")
+        if e["id"] in rej:
+            e["status"] = "rejected"
+        elif e.get("from_talks"):
+            e["status"] = "published"
+        elif e["id"] in ok_ids or (country_ok(e) and e.get("review") != "pending"):
+            e["status"] = "published"
+        else:
+            e["status"] = "pending"
     logos = {k: v for k, v in (load(P("assets", "img", "logos", "logos.json"), {}) or {}).items() if not k.startswith("_")}
     photos = {k: v for k, v in (load(P("assets", "img", "people", "photos.json"), {}) or {}).items() if not k.startswith("_")}
     profs = {k: v for k, v in (load(P("data", "profiles.json"), {}) or {}).items() if not k.startswith("_")}
     for e in out:
         lg, ph = logos.get(e["id"]), photos.get(e["id"])
         if lg and lg.get("file") and lg.get("review") != "rejected" and e["type"] != "person": e["logo"] = lg
-        if ph and ph.get("file") and ph.get("review") != "rejected" and e["type"] == "person": e["image"] = ph
+        if ph and ph.get("file") and ph.get("review") != "rejected" and e["type"] == "person" and not e.get("from_talks"): e["image"] = ph
         if profs.get(e["id"]): e["profiles"] = [q for q in profs[e["id"]] if q.get("url") and q.get("source_url") and q.get("status") != "rejected"]
     rels = []
     for r in raw.get("relations", []) + nordic.get("relations", []):

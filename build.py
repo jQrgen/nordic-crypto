@@ -124,9 +124,20 @@ ol.news h3{font-size:18px;line-height:1.3;margin:0 0 4px}ol.news h3 a{text-decor
 @media(max-width:640px){.evhero h3{font-size:22px}}
 .ill{margin:0 0 10px;text-align:start}
 .ill img{display:block;width:100%;max-width:720px;height:auto;background:var(--soft)}
-ol.news .ill{flex:0 0 220px;width:220px;margin:0}
-ol.news .ill img{width:220px;height:124px;object-fit:cover;object-position:left center}
-@media(max-width:640px){ol.news li{flex-direction:column}ol.news .ill{flex:none;width:100%;max-width:480px}ol.news .ill img{width:100%;height:auto;max-height:240px}}
+.leadstory,.latest,.storygrid,.storycard,.leadstory h2,.latest h2,.storycard h3,.leadstory .sum,.storycard .sum,.leadstory .meta,.storycard .meta,.leadstory .orig,.storycard .orig{text-align:start}
+.leadstory{margin:4px 0 2px;padding:0 0 12px;border-bottom:3px solid var(--ink)}
+.leadstory h2{font-size:36px;line-height:1.12;margin:0 0 4px;text-align:start}
+.leadstory h2 a,.storycard h3 a{text-decoration:none}
+.leadstory h2 a:hover,.storycard h3 a:hover{text-decoration:underline}
+.leadstory .sum{font-size:18px;line-height:1.45;margin:8px 0 0;max-width:68ch}
+.latest h2{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin:18px 0 2px;text-align:start}
+.storygrid{display:grid;grid-template-columns:1fr;column-gap:32px;align-items:start;text-align:start}
+.storycard{padding:10px 0 12px;border-bottom:1px solid var(--line);min-width:0;text-align:start}
+.storycard h3{font-size:18px;line-height:1.25;margin:0 0 2px;text-align:start}
+.storycard .sum{font-size:14.5px;line-height:1.4;margin:4px 0 0}
+@media(min-width:760px){.storygrid{grid-template-columns:1fr 1fr}}
+@media(min-width:1080px){.storygrid{grid-template-columns:1fr 1fr 1fr}}
+@media(max-width:640px){.leadstory h2{font-size:28px}}
 .orig{font-size:13.5px;color:var(--muted);margin:0 0 3px;line-height:1.35;font-weight:400;text-align:start}
 .meta{font-size:13.5px;color:var(--muted)}.meta b{color:var(--ink);font-weight:600}
 .src{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;vertical-align:middle;text-align:start}
@@ -196,7 +207,8 @@ footer{margin-top:40px;border-top:1px solid var(--line);padding:18px 0 30px;font
 table.list{width:100%;border-collapse:collapse;font-size:14.5px}table.list th,table.list td{border-bottom:1px solid var(--line);padding:6px 6px;text-align:left;vertical-align:top}
 table.list th{font-size:13px;color:var(--muted)}
 .ok{color:#047857;font-weight:600}.bad{color:#b91c1c;font-weight:600}
-.prose{max-width:72ch}
+.prose{max-width:72ch;text-align:start}
+.primary-src{font-size:13.5px;margin:6px 0 0;text-align:start}
 .tag.act{border-color:#047857;color:#047857;font-weight:600}.tag.inact{border-color:#9ca3af;color:#6b7280}
 .reg{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px;margin:10px 0}
 .reg article{border:1px solid var(--line);padding:10px 12px;background:#fff}.reg h3{display:flex;gap:8px;align-items:center;margin:0 0 6px;font-size:17px}
@@ -364,9 +376,50 @@ nav.main a.nav-quiet{font-size:14px}
 .talks .filters{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:center;gap:8px 16px}
 .talks .filters select{font:inherit;text-align:start;max-width:100%}
 """
+CSS += """
+/* shoutbox */
+.home-with-chat{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;text-align:start}
+.home-with-chat .home-main{min-width:0;text-align:start}
+.shoutbox,.shout-panel,.shout-list,.shout-form,.shout-rules,.shout-privacy,.shout-user,.shout-shared,.shout-item,.shout-meta,.shout-msg{text-align:start}
+.shoutbox{border:1px solid var(--line);background:var(--soft);padding:10px 12px;margin:0 0 16px}
+.shout-panel h2{font-size:18px;margin:0 0 6px;text-align:start}
+.shout-user,.shout-shared,.shout-rules,.shout-privacy,.shout-more{font-size:13.5px;margin:0 0 8px;text-align:start}
+.shout-rules a{font-weight:600}
+.shout-list{list-style:none;margin:0 0 8px;padding:0;max-height:280px;overflow:auto;text-align:start}
+.shoutbox-full .shout-list{max-height:70vh}
+.shout-item{border-bottom:1px solid var(--line);padding:6px 0;text-align:start}
+.shout-meta{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:4px 8px;font-size:13px;color:var(--muted)}
+.shout-nick{font-weight:700;color:var(--ink)}
+.shout-lang{font-size:12px;border:1px solid var(--line);padding:0 4px;background:#fff}
+.shout-msg{margin:2px 0 4px;white-space:pre-wrap;overflow-wrap:anywhere;text-align:start}
+.shout-form label{display:block;margin:8px 0 0;text-align:start}
+.shout-form input,.shout-form textarea{display:block;width:100%;max-width:100%;box-sizing:border-box;font:inherit;text-align:start;padding:6px}
+.shout-form textarea{min-height:4.5em;resize:vertical}
+.shout-form button,.shout-report,.shout-older,.shout-toggle{font:inherit;font-weight:600;text-align:start;cursor:pointer;border:1px solid var(--ink);background:#fff;padding:6px 10px}
+.shout-form button{margin-top:8px}
+.shout-report{font-size:12px;font-weight:500;padding:2px 6px;color:var(--muted)}
+.shout-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.shout-status{min-height:1.2em;font-size:14px;text-align:start}
+.shout-toggle{display:none;width:100%;justify-content:flex-start}
+@media(min-width:960px){
+ .home-with-chat{display:grid;grid-template-columns:minmax(0,1fr) 300px;column-gap:28px;align-items:start;justify-content:start}
+ .shoutbox{position:sticky;top:12px;margin:0}
+ .shout-toggle{display:none}
+ .shout-panel{display:block}
+}
+@media(max-width:959px){
+ .home-with-chat .shoutbox{order:-1}
+ .shoutbox:not(.shoutbox-full) .shout-toggle{display:flex}
+ .shoutbox:not(.shoutbox-full) .shout-panel{display:none}
+ .shoutbox:not(.shoutbox-full).is-open .shout-panel{display:block}
+}
+/* /shoutbox */
+"""
+
 # api is the human-readable docs at /api/ (English only). The href is the site root, not /<lang>/api/.
-# Talks stay in the footer. This list is News, Newsletter, Calendar, then the rest.
-NAV = [("", "nav_news"), ("newsletter", "nav_newsletter"), ("calendar", "nav_calendar"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("markets", "nav_markets"), ("sources", "nav_sources"), ("about", "nav_about"), ("tip", "nav_tip"), ("api", "nav_api")]
+# Same list on every page and in the phone menu: News, Newsletter, Calendar, Talks, then the rest.
+# Chat is inserted by nav_items() only while enabled.
+NAV = [("", "nav_news"), ("newsletter", "nav_newsletter"), ("calendar", "nav_calendar"), ("talks", "nav_talks"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("markets", "nav_markets"), ("sources", "nav_sources"), ("about", "nav_about"), ("tip", "nav_tip"), ("api", "nav_api")]
 COOKIE_PATH = site_url.PATH   # "/" on the public domain; a path prefix if BASE ever has one
 def geo_endpoint():
     """Country lookup: GET <tipworker>/api/geo (Cloudflare request.cf.country). Only when the Worker is deployed,
@@ -377,6 +430,24 @@ def geo_endpoint():
     return ep if ep and ".workers.dev" in ep else None
 # ---- Newsletter signup (newsletter/config.json; OFF until the Worker is deployed and jQrgen approves) ----
 NL_CFG = load(P("newsletter", "config.json"), {}) or {}
+CHAT_CFG = load(P("chat", "config.json"), {}) or {}
+def chat_endpoint():
+    """Worker origin for the shared shoutbox, or None when the flag is off.
+    On only when chat/config.json enabled is true (or env NC_CHAT=1 for a test build) and an endpoint is set."""
+    if not (CHAT_CFG.get("enabled") is True or os.environ.get("NC_CHAT") == "1"): return None
+    e = os.environ.get("CHAT_ENDPOINT")
+    if e is None: e = CHAT_CFG.get("endpoint")
+    return (e or "").strip().rstrip("/") or None
+def chat_turnstile_key():
+    k = os.environ.get("CHAT_TURNSTILE_SITE_KEY")
+    if k is None: k = CHAT_CFG.get("turnstile_site_key")
+    return (k or "").strip() or None
+def nav_items():
+    items = list(NAV)
+    if chat_endpoint():
+        at = next((i for i, x in enumerate(items) if x[0] == "about"), len(items))
+        items.insert(at, ("chat", "nav_chat"))
+    return items
 def newsletter_endpoint():
     """Worker base URL for POST /api/subscribe, or None = no signup form anywhere on the site.
     On only when newsletter/config.json enabled is true (or env NC_NEWSLETTER=1 for test builds) AND an endpoint is known:
@@ -609,9 +680,10 @@ def langsel_script():
     if LANGSEL_JS is None: LANGSEL_JS = open(P("tools", "langselect.js"), encoding="utf-8").read()
     return LANGSEL_JS
 def _nav_html(rel, root, current):
-    """Main nav, same list on every page and in the phone menu. API docs are /api/ at the site root."""
+    """Main nav, same list on every page and in the phone menu. API docs are /api/ at the site root.
+    Chat is included only while chat_endpoint() is set."""
     parts = []
-    for n, k in NAV:
+    for n, k in nav_items():
         quiet = ' class="nav-quiet"' if n == "talks" else ""
         href = root + "api/" if n == "api" else rel + (n + "/" if n else "")
         cur = " aria-current=page" if n == current else ""
@@ -688,6 +760,71 @@ def write_push_assets():
     with open(os.path.join(SITE, "manifest.json"), "w", encoding="utf-8") as f:
         json.dump(manifest, f, ensure_ascii=False, indent=1)
         f.write("\n")
+_SHOUT_JS = None
+def shoutbox_html(ethics_href, full=False):
+    """Compact widget or the full-page room. Empty when the flag is off, so nothing broken is rendered."""
+    ep = chat_endpoint()
+    if not ep: return ""
+    key = chat_turnstile_key()
+    turn = ""
+    if key:
+        turn = (f'<div class="shout-turnstile" data-sitekey="{E(key)}"></div>'
+                f'<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>')
+    toggle = "" if full else (f'<button type="button" class="shout-toggle" aria-expanded="false" aria-controls="shout-panel">{E(t("chat_toggle_show"))}</button>')
+    full_link = "" if full else f'<p class="shout-more"><a href="chat/">{E(t("chat_full"))}</a></p>'
+    older = f'<button type="button" class="shout-older" hidden>{E(t("chat_older"))}</button>' if full else ""
+    heading = "" if full else f'<h2>{E(t("chat_h1"))}</h2>'
+    cls = "shoutbox shoutbox-full" if full else "shoutbox"
+    return (f'<aside class="{cls}" data-endpoint="{E(ep)}" data-lang="{E(LANG)}">'
+            f'{toggle}<div class="shout-panel" id="shout-panel">{heading}'
+            f'<p class="shout-user">{E(t("chat_user"))}</p>'
+            f'<p class="shout-shared">{E(t("chat_shared"))}</p>'
+            f'<p class="shout-rules">{t("chat_rules", ethics=E(ethics_href))}</p>'
+            f'<p class="shout-empty">{E(t("chat_empty"))}</p>'
+            f'<ol class="shout-list"></ol>{older}'
+            f'<form class="shout-form" action="#chat" autocomplete="off">'
+            f'<label>{E(t("chat_nick"))}<input name="nickname" required minlength="2" maxlength="24" autocomplete="off" placeholder="{E(t("chat_ph_nick"))}"></label>'
+            f'<label>{E(t("chat_message"))}<textarea name="message" required maxlength="280" placeholder="{E(t("chat_ph_msg"))}"></textarea></label>'
+            f'<span class="shout-hp" aria-hidden="true"><label>website</label><input name="website" tabindex="-1" autocomplete="off"></span>'
+            f'{turn}<button type="submit">{E(t("chat_send"))}</button>'
+            f'<p class="shout-status" role="status" aria-live="polite"></p></form>'
+            f'{full_link}<p class="shout-privacy">{E(t("chat_privacy"))}</p>'
+            f'<noscript><p>{E(t("chat_noscript"))}</p></noscript></div></aside>')
+def home_with_chat(body):
+    chat = shoutbox_html("ethics/", full=False)
+    if not chat: return body
+    return f'<div class="home-with-chat"><div class="home-main">{body}</div>{chat}</div>'
+def shout_script():
+    """Polling client. Omitted entirely while the shoutbox is off."""
+    global _SHOUT_JS
+    if not chat_endpoint(): return ""
+    if _SHOUT_JS is None:
+        _SHOUT_JS = open(P("assets", "chat", "client.js"), encoding="utf-8").read()
+    strings = {
+        "sending": t("chat_sending"), "sent": t("chat_sent"), "fail": t("chat_fail"),
+        "rate": t("chat_rate"), "spam": t("chat_spam"), "turnstile": t("chat_turnstile"),
+        "nick_err": t("chat_nick_err"), "msg_err": t("chat_msg_err"), "banned": t("chat_banned"),
+        "report": t("chat_report"), "reported": t("chat_reported"),
+        "toggle_show": t("chat_toggle_show"), "toggle_hide": t("chat_toggle_hide"),
+        "empty": t("chat_empty"), "time_now": t("chat_time_now"), "time_m": t("chat_time_m"),
+        "time_h": t("chat_time_h"), "time_d": t("chat_time_d"),
+    }
+    cfg = {
+        "endpoint": chat_endpoint(),
+        "lang": LANG,
+        "turnstileSiteKey": chat_turnstile_key() or "",
+        "pollMs": 15000,
+        "strings": strings,
+        "langNames": {code: i18n.NAME[code] for code in i18n.ALL_LANGS},
+    }
+    payload = json.dumps(cfg, ensure_ascii=False).replace("<", "\\u003c")
+    return "<script>window.NC_SHOUT=" + payload + ";</script><script>\n" + _SHOUT_JS + "\n</script>"
+def build_chat():
+    """Full /chat/ page for this language. Same endpoint as every other language. Not built while the flag is off."""
+    if not chat_endpoint(): return
+    body = (f'<h1>{E(t("chat_h1"))}</h1><p class="lead">{E(t("chat_lead"))}</p>'
+            + shoutbox_html("../ethics/", full=True))
+    page("chat", t("chat_title"), "chat", body, t("chat_desc"))
 def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra=""):
     """Writes site/<lang>/<slug>/index.html for the current LANG (English at the root)."""
     depth = (slug.count("/") + 1 if slug else 0) + (0 if LANG == "en" else 1)
@@ -757,7 +894,7 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
 {s['top']}
 </main>
 <footer><div class="wrap">{nlfoot}{community_links()}{push_panel(root)}{t("footer", site=SITE_NAME, rel=rel, root=root, ios_tv=t("ios_tv"))}</div></footer>
-{s['script']}{setck}{extra_script}{newsletter_script()}{push_script()}{analytics_snippet()}
+{s['script']}{setck}{extra_script}{newsletter_script()}{push_script()}{shout_script()}{analytics_snippet()}
 </body></html>"""
     d = os.path.join(SITE, lp(), slug); os.makedirs(d, exist_ok=True)
     open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(doc)
@@ -1009,6 +1146,7 @@ def build():
             extras.append(ex)
         pub["also_covered_by"] = extras
         pub["coverage"] = cov.breakdown(rows)
+        pub.update(public_extra(i))
         pub_items.append(pub)
     for i in pub_items:
         if i.get("status") not in ("published", "owner"): i["summary"] = None; i.pop("summary_i18n", None); i["status"] = "pending"
@@ -1737,56 +1875,82 @@ def write_rss(items):
     d = SITE if LANG == "en" else os.path.join(SITE, LANG)
     os.makedirs(d, exist_ok=True)
     open(os.path.join(d, "rss.xml"), "w", encoding="utf-8").write(xml)
+def public_extra(item):
+    """Fields added to the public news JSON for one story. The lead outlet is not copied here."""
+    extra = {}
+    doc = _coverage().editor_primary_source((item or {}).get("primary_source"))
+    if doc:
+        extra["primary_source"] = doc
+    if (item or {}).get("published_unverified"):
+        extra["published_unverified"] = True
+    return extra
+def cited_source(item):
+    """Link to an editor-recorded original document, such as a regulator press release.
+
+    This is not the lead outlet. The line is start-aligned.
+    """
+    doc = _coverage().editor_primary_source((item or {}).get("primary_source"))
+    if not doc:
+        return ""
+    return (f'<p class="primary-src">{E(t("primary_source"))}: '
+            f'<a href="{E(doc["url"])}" rel="noopener" target="_blank">{E(doc["name"])}</a></p>')
+def front_card(i, blurbs, asset, lead=False):
+    """One front-page story. No picture. Headline, original title, summary, source, date. Left-aligned."""
+    pend = i.get("status") not in ("published", "owner")
+    own = i.get("status") == "owner"
+    rows = story_outlets(i)
+    multi = len(rows) > 1 and not i.get("own_story")
+    ext = not (i.get("own_story") or multi)
+    tags = "".join(f'<span class="tag">{E(topic_label(x))}</span>' for x in (i.get("topics") or []))
+    pw = f' · <span class="pw">{E(t("paywall"))}</span>' if i.get("paywall") else ""
+    head, head_l, hl, orig = story_heads(i)
+    href = story_path(i)
+    lname = i.get("language") or ""
+    foreign = source_is_foreign(i, head_l)
+    if pend:
+        summ = f'<p class="sum pend">{E(t("sum_pending"))}</p>'
+        lang = f' · {E(t("lang_" + lname))}' if foreign else ""
+    else:
+        txt, tl = card_text(i, LANG, blurbs)
+        if foreign and tl == LANG and (txt or "").strip():
+            lang = ""
+            summ = (f'<p class="bridge">{E(t("bridge", where=t("lang_" + lname)))}</p>'
+                    f'<p class="sum"{lang_attr(tl)}>{E(txt)}</p>')
+        else:
+            lang = f' · {E(t("lang_" + lname))}' if foreign else ""
+            summ = f'<p class="sum"{lang_attr(tl)}>{E(txt)}</p>'
+    ext_attr = "" if not ext else ' rel="noopener" target="_blank"'
+    title_tag = "h2" if lead else "h3"
+    klass = "leadstory" if lead else "storycard"
+    badges = ""
+    if pend: badges += f' <span class="tag pend">{E(t("pending"))}</span>'
+    if own: badges += f' <span class="tag pend">{E(t("owner"))}</span>'
+    if i.get("own_story"): badges += f' <span class="tag">{E(t("our_story"))}</span>'
+    links = "".join(
+        f'<div class="meta">↳ <a href="{E(l["url"])}" rel="noopener" target="_blank">{E(l["label"])}</a></div>'
+        for l in (i.get("links") or []) if l.get("url"))
+    return (
+        f'<article class="{klass}">'
+        f'<{title_tag}><a href="{E(href)}"{ext_attr}{hl}>{E(head)}</a></{title_tag}>{orig}'
+        f'{summ}'
+        f'<p class="meta">{flag(i.get("country"))} {E(cname(i.get("country")))} · {source_mark(i, asset)} · '
+        f'<time datetime="{E(i.get("published") or "")}">{endate(i["published"])}</time>{lang}{pw} {tags}{badges}</p>'
+        + coverage_row(rows, asset, f"stories/{i['id']}/")
+        + links
+        + cited_source(i)
+        + "</article>")
 def build_lang(ctx):
     items, pending = ctx["items"], ctx["pending"]
     # ---- News ----
     asset = "" if LANG == "en" else "../"
-    src_pairs = {}
-    for i in items:
-        if i.get("source") and i.get("source_name"): src_pairs[i["source"]] = i["source_name"]
-        for r in i.get("also_covered_by") or []:
-            if isinstance(r, dict) and r.get("outlet"): src_pairs.setdefault(r["outlet"], r.get("outlet_name") or r["outlet"])
-    srcs = sorted(src_pairs.items(), key=lambda x: (x[1] or "").lower())
-    lis = []
-    for i in items:
-        pend = i.get("status") not in ("published", "owner"); own = i.get("status") == "owner"
-        rows = story_outlets(i)
-        multi = len(rows) > 1 and not i.get("own_story")
-        if i.get("own_story"): href, ext = i["url"], False
-        elif multi: href, ext = f"stories/{i['id']}/", False
-        else: href, ext = i["url"], True
-        src_ids = " ".join(dict.fromkeys(x for x in [i.get("source")] + [r.get("outlet") for r in rows] if x))
-        tags = "".join(f'<span class="tag">{E(topic_label(x))}</span>' for x in i["topics"])
-        pw = f' · <span class="pw">{E(t("paywall"))}</span>' if i.get("paywall") else ""
-        head, head_l, hl, orig = story_heads(i)
-        href = story_path(i)
-        fig = story_figure(i, "", href)
-        lname = i.get("language") or ""
-        foreign = source_is_foreign(i, head_l)
-        if pend:
-            summ = f'<p class="sum pend">{E(t("sum_pending"))}</p>'
-            lang = f' · {E(t("lang_" + lname))}' if foreign else ""
-        else:
-            txt, tl = card_text(i, LANG, ctx["blurbs"])
-            # Source language differs from the page: a sentence in the page language, then the summary. Not only «på engelsk».
-            if foreign and tl == LANG and (txt or "").strip():
-                lang = ""
-                summ = (f'<p class="bridge">{E(t("bridge", where=t("lang_" + lname)))}</p>'
-                        f'<p class="sum"{lang_attr(tl)}>{E(txt)}</p>')
-            else:
-                lang = f' · {E(t("lang_" + lname))}' if foreign else ""
-                summ = f'<p class="sum"{lang_attr(tl)}>{E(txt)}</p>'
-        lis.append(f'<li data-src="{E(i["source"])}" data-sources="{E(src_ids)}" data-c="{E(i.get("country"))}" data-topics="{E(" ".join(i["topics"]))}">'
-                   f'{fig}<div class="storybody">'
-                   f'<h3><a href="{E(href)}"{"" if not ext else " rel=noopener target=_blank"}{hl}>{E(head)}</a></h3>{orig}'
-                   f'<div class="meta">{flag(i.get("country"))} {E(cname(i.get("country")))} · {source_mark(i, asset)} · <time datetime="{E(i["published"])}">{endate(i["published"])}</time>{lang}{pw} {tags}'
-                   + (f' <span class="tag pend">{E(t("pending"))}</span>' if pend else "") + (f' <span class="tag pend">{E(t("owner"))}</span>' if own else "")
-                   + (f' <span class="tag">{E(t("our_story"))}</span>' if i.get("own_story") else "") + f'</div>{summ}'
-                   + coverage_row(rows, asset, f"stories/{i['id']}/")
-                   + "".join(f'<div class="meta">↳ <a href="{E(l["url"])}" rel="noopener" target="_blank">{E(l["label"])}</a></div>' for l in i.get("links", []) or [])
-                   + '</div></li>')
-    opts = "".join(f'<option value="{E(k)}">{E(n)}</option>' for k, n in srcs)
-    tchips = "".join(f'<button type="button" class="chip tchip" data-t="{k}" aria-pressed="false">{E(topic_label(k))}</button>' for k in TOPICS)
+    cards = [front_card(i, ctx["blurbs"], asset, lead=(n == 0)) for n, i in enumerate(items)]
+    if not cards:
+        paper = f'<p class="empty">{E(t("no_stories"))}</p>'
+    else:
+        rest = "".join(cards[1:])
+        latest = (f'<section class="latest" aria-labelledby="latest-h"><h2 id="latest-h">{E(t("latest_h"))}</h2>'
+                  f'<div class="storygrid">{rest}</div></section>') if rest else ""
+        paper = cards[0] + latest
     news = ctx["news"]; upd = endate(news["updated"]) if news.get("updated") else ""
     root = "../" if LANG != "en" else ""
     home_signup = newsletter_offer("")
@@ -1798,24 +1962,11 @@ def build_lang(ctx):
 <p class="meta ios-tv">{E(t("ios_tv"))}</p>
 <p class="lead">{E(t("home_lead", upd=upd, n=len(items), pend=t("home_pend", n=len(pending)) if pending else ""))}</p>
 {front_events_block(*(ctx["events"] if isinstance(ctx.get("events"), tuple) else (ctx.get("events") or [], site_now())))}
-<div class="filters" role="group" aria-label="{E(t("filters"))}"><span class="lbl">{E(t("country"))}</span><div class="chips">{country_chips()}</div>
-<label for="fsrc">{E(t("source"))}</label><select id="fsrc"><option value="">{E(t("all_sources"))}</option>{opts}</select>
-<span class="lbl">{E(t("topic"))}</span><div class="chips">{tchips}</div><span id="count" class="meta" aria-live="polite"></span></div>
-<ol class="news" id="news">{''.join(lis) or f'<li class="empty">{E(t("no_stories"))}</li>'}</ol>
+{paper}
 <section class="nlhome" aria-labelledby="nlhome-h"><h2 id="nlhome-h">{E(t("nl_title"))}</h2>{home_signup}{community_links()}</section>
 <p class="notice">{E(t("home_notice"))}</p>"""
-    js = """<script>
-(function(){var NS=%s,sel=document.getElementById('fsrc'),tc=[].slice.call(document.querySelectorAll('.tchip')),cc=[].slice.call(document.querySelectorAll('.cchip')),lis=[].slice.call(document.querySelectorAll('#news li[data-src]')),cnt=document.getElementById('count');
-function on(a,k){return a.filter(function(c){return c.getAttribute('aria-pressed')==='true'}).map(function(c){return c.dataset[k]})}
-function apply(push){var s=sel.value,t=on(tc,'t'),c=on(cc,'c'),n=0;
-lis.forEach(function(li){var ids=(li.dataset.sources||li.dataset.src||'').split(' ');var ok=(!s||ids.indexOf(s)>=0)&&(!c.length||c.indexOf(li.dataset.c)>=0)&&(!t.length||t.some(function(x){return (' '+li.dataset.topics+' ').indexOf(' '+x+' ')>=0}));li.hidden=!ok;if(ok)n++});
-cnt.textContent=NS.replace('{n}',n);if(push){var p=new URLSearchParams();if(c.length)p.set('country',c.join(','));if(s)p.set('source',s);if(t.length)p.set('topic',t.join(','));history.replaceState(null,'',p.toString()?'#'+p:location.pathname)}}
-var p=new URLSearchParams(location.hash.slice(1));if(p.get('source'))sel.value=p.get('source');
-(p.get('topic')||'').split(',').forEach(function(x){tc.forEach(function(c){if(c.dataset.t===x)c.setAttribute('aria-pressed','true')})});
-(p.get('country')||'').split(',').forEach(function(x){cc.forEach(function(c){if(c.dataset.c===x)c.setAttribute('aria-pressed','true')})});
-sel.addEventListener('change',function(){apply(1)});tc.concat(cc).forEach(function(c){c.addEventListener('click',function(){c.setAttribute('aria-pressed',c.getAttribute('aria-pressed')==='true'?'false':'true');apply(1)})});apply(0)})();
-</script>""" % json.dumps(i18n.strings(LANG).get("n_stories") or i18n.strings("en")["n_stories"])
-    page("", t("home_title"), "", body, t("home_desc"), js + front_events_script())
+    body = home_with_chat(body)
+    page("", t("home_title"), "", body, t("home_desc"), front_events_script())
     build_coverage_pages(items, ctx["blurbs"])
     build_stories(write=True)
     build_external_stories(ctx)
@@ -1838,6 +1989,7 @@ sel.addEventListener('change',function(){apply(1)});tc.concat(cc).forEach(functi
     page("about", t("about_title"), "about", about, t("about_desc"))
     build_media()
     build_ethics()
+    build_chat()
 
 # ---- Industry map: categories from the org chart data (group + description keywords; overrides in industry_map.json) ----
 MAP_CATS = ["exchanges", "wallets", "infra", "payments", "finance", "consulting", "media", "academia", "other", "intl", "public"]
@@ -2027,18 +2179,14 @@ def build_coverage_pages(items, blurbs):
             txt, tl = card_text(i, LANG, blurbs)
             summ = f'<p class="sum"{lang_attr(tl)}>{E(txt)}</p>'
         pw = f' · <span class="pw">{E(t("paywall"))}</span>' if i.get("paywall") else ""
-        fig = story_figure(i, "stories/" + i["id"])
-        rec = i.get("illustration") or {}
-        og = f'<meta property="og:image" content="{E(BASE + rec["file"])}">' if rec.get("file") else ""
-        picture = fig + (f'<p class="notice">{E(t("ill_not_press"))}</p>' if rec else "")
         body = (f'<p class="meta"><a href="{back}">{E(t("back_news"))}</a></p>'
-                + picture
                 + f'<article class="prose"><h1{hl}>{E(head)}</h1>{orig}'
-                f'<p class="meta">{flag(i.get("country"))} {E(cname(i.get("country")))} · {source_mark(i, root)} · <time datetime="{E(i["published"])}">{endate(i["published"])}</time>{pw}'
+                + summ
+                + f'<p class="meta">{flag(i.get("country"))} {E(cname(i.get("country")))} · {source_mark(i, root)} · <time datetime="{E(i["published"])}">{endate(i["published"])}</time>{pw}'
                 + (f' <span class="tag pend">{E(t("pending"))}</span>' if pend else "") + '</p>'
-                + summ + coverage_block(rows, root) + '</article>'
+                + coverage_block(rows, root) + cited_source(i) + '</article>'
                 + f'<p class="notice">{E(t("home_notice"))}</p>')
-        page("stories/" + i["id"], head, "", body, (i.get("summary") or head or "")[:200], COV_SORT_JS, head_extra=og)
+        page("stories/" + i["id"], head, "", body, (i.get("summary") or head or "")[:200], COV_SORT_JS)
 def build_stories(write=True):
     """Own stories written by the editor (markdown, English). Public build: only slugs in approved.json stories.approve.
     Preview: also stories.ready_for_owner, tagged as awaiting jQrgen's final approval. The 'Editor notes' part is internal and never rendered.
@@ -2069,23 +2217,16 @@ def build_stories(write=True):
             cur.append(l)
         if cur: paras.append(" ".join(cur))
         pub = dt.datetime.fromtimestamp(os.path.getmtime(path), OSLO).replace(microsecond=0).isoformat()
-        story = {"id": "story-" + slug, "url": f"stories/{slug}/", "title": title, "source": "nordic-crypto", "source_name": "Nordic Crypto",
-                 "country": country, "language": "English", "published": pub, "topics": ["regulation"], "status": status, "own_story": True}
-        ill = _illustrations().assign(story)
         if write:
             note = t("story_only_en")
-            fig = _illustrations().figure_html(ill, asset_prefix("stories/" + slug), ill_labels())
-            og = f'<meta property="og:image" content="{E(BASE + ill["file"])}">' if ill else ""
             body = (f'<p class="meta"><a href="../../">{E(t("back_news"))}</a></p>' + (f'<p class="notice">{E(note)}</p>' if note and art_l == "en" and LANG != "en" else "")
-                    + fig
-                    + f'<p class="notice">{E(t("ill_not_press"))}</p>'
                     + f'<article class="prose"{lang_attr(art_l)}><h1>{E(title)}</h1>'
                     f'<p class="meta">{flag(country)} {E(cname(country))} · {source_mark({"source": "nordic-crypto", "source_name": "Nordic Crypto"}, up1() + "../")} · {endate(pub)}'
                     + (f' <span class="tag pend">{E(t("owner"))}</span>' if status == "owner" else "") + '</p>'
                     + "".join(f"<p>{md_inline(x)}</p>" for x in paras)
                     + f'<h2>{E(t("sources_h"))}</h2><ul>' + "".join(f"<li>{md_inline(s)}</li>" for s in srcs) + '</ul></article>'
                     + f'<p class="notice">{t("story_notice", rel="../../")}</p>')
-            page("stories/" + slug, title, "stories", body, paras[0][:200] if paras else title, head_extra=og)
+            page("stories/" + slug, title, "stories", body, paras[0][:200] if paras else title)
         editor_sum = ((st.get("summaries") or {}).get(slug) or "").strip()
         opening = opening_sentences(" ".join(paras)) if paras else ""
         first = editor_sum if substantive(editor_sum) else (opening or editor_sum or (first_sentence(paras[0]) if paras else ""))
@@ -2215,34 +2356,8 @@ def build_previous(events, now):
 <div class="evfull">{''.join(event_card(e, href_prefix="../../") for e in rows) or f'<p class="empty">{E(t("prev_empty"))}</p>'}</div>"""
     page("events/previous", t("prev_title"), "calendar", body, t("prev_desc"))
 def build_external_stories(ctx):
-    """Pictures and the source link are written by build_coverage_pages, which also keeps the outlet list."""
+    """Coverage pages are written by build_coverage_pages, without the assigned picture."""
     return
-    """One page per external story: our picture, our summary, a link to the source. No article text."""
-    asset = asset_prefix("stories/x")
-    for i in ctx["items"]:
-        if i.get("own_story") or not i.get("id"):
-            continue
-        slug = "stories/" + i["id"]
-        head, head_l, orig = news_head(i)
-        hl = "" if head_l == LANG else f' lang="{head_l}"'
-        fig = story_figure(i, slug)
-        rec = i.get("illustration") or {}
-        og = f'<meta property="og:image" content="{E(BASE + rec["file"])}">' if rec.get("file") else ""
-        if i.get("status") not in ("published", "owner"):
-            summ = f'<p class="sum pend">{E(t("sum_pending"))}</p>'
-        else:
-            txt, tl = card_text(i, LANG, ctx.get("blurbs"))
-            summ = f'<p class="sum"{lang_attr(tl)}>{E(txt)}</p>' if txt else ""
-        pw = f' <span class="pw">{E(t("paywall"))}</span>' if i.get("paywall") else ""
-        body = (f'<p class="meta"><a href="../../">{E(t("back_news"))}</a></p>'
-                + fig
-                + f'<p class="notice">{E(t("ill_not_press"))}</p>'
-                + f'<article class="story"><h1{hl}>{E(head)}</h1>{orig}'
-                + f'<p class="meta">{flag(i.get("country"))} {E(cname(i.get("country")))} · {source_mark(i, asset)} · <time datetime="{E(i["published"])}">{endate(i["published"])}</time>{pw}</p>'
-                + summ
-                + f'<p><a href="{E(i["url"])}" rel="noopener">{E(t("read_at", source=i.get("source_name") or ""))}</a></p>'
-                + "</article>")
-        page(slug, head, "", body, (i.get("summary") or head or "")[:200], head_extra=og)
 def events_for_site():
     ev = load(P("data", "events.json"), {"events": []})
     ap_path = P("queue", "approved.json"); approvals_present = os.path.exists(ap_path)
@@ -2386,11 +2501,21 @@ def build_one_event(e):
         if any(talk["url"] == x["url"] for x in talks):
             continue
         credit = event_select.credit_block(talk.get("source_name") or t("ev_source"), talk.get("source_url") or talk["url"], talk.get("retrieved"))
-        talks.append({"title": talk.get("title") or t("ev_videos"), "url": talk["url"], "credit": credit})
+        talks.append({"title": talk.get("title") or t("ev_videos"), "url": talk["url"], "credit": credit, "speakers": talk.get("speakers") or [], "speaker_ids": talk.get("speaker_ids") or []})
     if talks:
         items = []
         for talk in talks:
-            items.append(f'<li><a href="{E(talk["url"])}" rel="noopener">{E(talk["title"])}</a>' + _source_line(talk.get("credit")) + "</li>")
+            names = [s for s in (talk.get("speakers") or []) if s]
+            ids = talk.get("speaker_ids") or []
+            if names:
+                linked = []
+                for i, name in enumerate(names):
+                    sid = ids[i] if i < len(ids) and ids[i] else ""
+                    linked.append(f'<a href="../../org-chart/#{E(sid)}">{E(name)}</a>' if sid else E(name))
+                who = f' <span class="meta">{E(t("ev_speakers"))}: {", ".join(linked)}</span>'
+            else:
+                who = ""
+            items.append(f'<li><a href="{E(talk["url"])}" rel="noopener">{E(talk["title"])}</a>{who}' + _source_line(talk.get("credit")) + "</li>")
         bits.append(f'<h2>{E(t("ev_talks"))}</h2><ul class="evpage">{"".join(items)}</ul>')
     if not fact and e.get("source") and e.get("source") != "backfill":
         credit = event_select.place_credit(e)
@@ -2495,7 +2620,12 @@ def build_talks():
             place = ", ".join(p for p in (r.get("city"), cname(r.get("country")) if r.get("country") else "") if p)
             bits.append(f'{flag(r.get("country"))} {E(place)}' if r.get("country") else E(place))
         if speakers:
-            bits.append(f'{E(t("talks_speakers"))}: {E(", ".join(speakers))}')
+            ids = r.get("speaker_ids") or []
+            linked = []
+            for i, name in enumerate(speakers):
+                sid = ids[i] if i < len(ids) and ids[i] else ""
+                linked.append(f'<a href="../org-chart/#{E(sid)}">{E(name)}</a>' if sid else E(name))
+            bits.append(f'{E(t("talks_speakers"))}: {", ".join(linked)}')
         if duration:
             bits.append(f'{E(t("talks_duration"))}: {E(duration)}')
         if r.get("language"):
@@ -2509,13 +2639,15 @@ def build_talks():
             media = (f'<p><a href="{E(r.get("video_url"))}" rel="noopener" target="_blank">{E(t("talks_watch"))}</a></p>'
                      f'<p class="meta">{E(t("talks_not_embed"))}</p>')
         extra = []
-        if r.get("event_name"):
-            if r.get("event_url"):
-                extra.append(f'{E(t("talks_event"))}: <a href="{E(r["event_url"])}" rel="noopener" target="_blank">{E(r["event_name"])}</a>')
-            else:
-                extra.append(f'{E(t("talks_event"))}: {E(r["event_name"])}')
-        if r.get("calendar_event_id"):
-            extra.append(f'<a href="../calendar/#e-{E(r["calendar_event_id"])}">{E(t("talks_calendar"))}</a>')
+        eid = r.get("event_id") or r.get("calendar_event_id")
+        if r.get("event_name") and eid:
+            extra.append(f'{E(t("talks_event"))}: <a href="../calendar/{E(eid)}/">{E(r["event_name"])}</a>')
+        elif r.get("event_name") and r.get("event_url"):
+            extra.append(f'{E(t("talks_event"))}: <a href="{E(r["event_url"])}" rel="noopener" target="_blank">{E(r["event_name"])}</a>')
+        elif r.get("event_name"):
+            extra.append(f'{E(t("talks_event"))}: {E(r["event_name"])}')
+        elif eid:
+            extra.append(f'<a href="../calendar/{E(eid)}/">{E(t("talks_calendar"))}</a>')
         if r.get("channel"):
             extra.append(f'{E(t("talks_channel"))}: {E(r["channel"])}')
         if published:

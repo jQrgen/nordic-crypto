@@ -32,6 +32,9 @@ def main():
     check(site_url.brand("publisher of " + REVERSED + ".") == "publisher of Nordic Crypto.", "english prose")
     check(site_url.brand("on " + REVERSED_FI + " julkaisija.") == "on Nordic Crypton julkaisija.", "finnish genitive")
     check(site_url.brand(CAMEL + "/0.1") == "NordicCrypto/0.1", "camel-case token")
+    check(site_url.brand(REVERSED + " redaktør") == "Nordic Crypto redaktør", "editor byline")
+    approvals = open(os.path.join(ROOT, "tools", "apply_approvals.py"), encoding="utf-8").read()
+    check('or "Nordic Crypto redaktør"' in approvals, "default byline is Nordic Crypto redaktør")
     for keep in (
         "https://cryptonordic.no/about/",
         "@xcryptonordic",

@@ -52,6 +52,7 @@ import json,sys;p="../tipserver/config.json";c=json.load(open(p));c["public_endp
 json.dump(c,open(p,"w"),ensure_ascii=False,indent=1);open(p,"a").write("\n")
 PY
 echo "tipserver/config.json: public_endpoint = $url (then tipworker/publish_tip_page.sh --yes, with jQrgen's approval, puts ONLY /tip/ live)"
+echo "shoutbox: 0004_shouts.sql is applied with the other migrations. This script does not set TURNSTILE_SECRET or SHOUT_ADMIN_TOKEN. See tipworker/README.md."
 # 6) newsletter unsubscribe-link secret (HMAC key; created once, never printed or committed). Mail stays OFF:
 #    MAIL_PROVIDER / MAIL_SEND_ENABLED are NOT set here. newsletter/send_issue.py needs the same UNSUB_SECRET
 #    (see newsletter/email-list.md). If this step creates it, you cannot read the value back: set it again and keep a private copy.

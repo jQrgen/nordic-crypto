@@ -35,6 +35,70 @@
    }
   },
   {
+   "id": "shoutbox",
+   "date": "2026-10-07",
+   "title": "Shared shoutbox, switched off",
+   "description": "A reader chat can sit on the front page and at /chat/ in every language. It is one room: messages are not translated, and the pages do not load it until chat/config.json is switched on. The worker would store a nickname, the message and a daily-rotated IP hash. No chat cookie.",
+   "i18n": {
+    "nb": {
+     "title": "Felles rop, slått av",
+     "description": "En leserchat kan ligge på forsiden og på /chat/ på alle språk. Det er ett rom: meldingene oversettes ikke, og sidene laster den ikke før chat/config.json er slått på. Tjenesten vil lagre et kallenavn, meldingen og en IP-hash som byttes hvert døgn. Ingen chat-informasjonskapsel."
+    },
+    "nn": {
+     "title": "Felles rop, slått av",
+     "description": "Ein lesarchat kan liggje på framsida og på /chat/ på alle språk. Det er eitt rom: meldingane blir ikkje omsette, og sidene lastar han ikkje før chat/config.json er slått på. Tenesta vil lagre eit kallenamn, meldinga og ein IP-hash som blir bytt kvart døgn. Ingen chat-informasjonskapsel."
+    },
+    "sv": {
+     "title": "Gemensamt rop, avstängt",
+     "description": "En läsarchatt kan ligga på startsidan och på /chat/ på alla språk. Det är ett rum: meddelandena översätts inte, och sidorna laddar den inte förrän chat/config.json slås på. Tjänsten skulle spara ett smeknamn, meddelandet och en IP-hash som byts varje dygn. Ingen chattkaka."
+    },
+    "da": {
+     "title": "Fælles råb, slået fra",
+     "description": "En læserchat kan ligge på forsiden og på /chat/ på alle sprog. Det er ét rum: beskederne oversættes ikke, og siderne indlæser den ikke, før chat/config.json slås til. Tjenesten vil gemme et kaldenavn, beskeden og en IP-hash, der skiftes hvert døgn. Ingen chat-cookie."
+    },
+    "fi": {
+     "title": "Yhteinen huutolaatikko, pois päältä",
+     "description": "Lukijoiden chat voi olla etusivulla ja osoitteessa /chat/ kaikilla kielillä. Se on yksi huone: viestejä ei käännetä, eivätkä sivut lataa sitä ennen kuin chat/config.json kytketään päälle. Palvelu tallentaisi nimimerkin, viestin ja päivittäin vaihtuvan IP-tiivisteen. Ei chat-evästettä."
+    },
+    "is": {
+     "title": "Sameiginlegt kallborð, óvirkt",
+     "description": "Lesendaspjall getur verið á forsíðunni og á /chat/ á öllum tungumálum. Það er eitt herbergi: skilaboðin eru ekki þýdd og síðurnar hlaða því ekki fyrr en kveikt er á chat/config.json. Þjónustan myndi vista gælunafn, skilaboðin og IP-tæti sem skiptist á hverjum degi. Engin spjallvafrakaka."
+    }
+   }
+  },
+  {
+   "id": "compact-front-page",
+   "date": "2026-10-07",
+   "title": "Compact front page",
+   "description": "The front page no longer shows the large story pictures or the country, source and topic filters. The newest story is the lead, with a larger headline and the summary. The rest sit in a compact grid under Latest: the headline in the language of the page, the source headline underneath when it differs, the summary, the outlet logo and name, and the date. Story pages drop the same picture. The picture stays in the data API, with its credit. The events block is unchanged.",
+   "i18n": {
+    "nn": {
+     "title": "Kompakt framsida",
+     "description": "Framsida viser ikkje lenger dei store sakbileta eller filtera for land, kjelde og emne. Den nyaste saka er hovudsaka, med større overskrift og samandraget. Resten står i eit kompakt rutenett under Siste: overskrifta på sidemålet, kjeldeoverskrifta under når ho er annleis, samandraget, logoen og namnet til mediet, og datoen. Sakssidene droppar det same biletet. Biletet ligg framleis i data-API-et, med kreditering. Arrangementblokka er uendra."
+    },
+    "nb": {
+     "title": "Kompakt forside",
+     "description": "Forsiden viser ikke lenger de store sakbildene eller filtrene for land, kilde og emne. Den nyeste saken er hovedsaken, med større overskrift og sammendraget. Resten står i et kompakt rutenett under Siste: overskriften på sidemålet, kildeoverskriften under når den er annerledes, sammendraget, logoen og navnet til mediet, og datoen. Sakssidene dropper det samme bildet. Bildet ligger fortsatt i data-API-et, med kreditering. Arrangementblokken er uendret."
+    },
+    "sv": {
+     "title": "Kompakt startsida",
+     "description": "Startsidan visar inte längre de stora artikelbilderna eller filtren för land, källa och ämne. Den nyaste artikeln är huvudartikeln, med större rubrik och sammanfattningen. Resten står i ett kompakt rutnät under Senaste: rubriken på sidans språk, källrubriken under när den skiljer sig, sammanfattningen, mediets logotyp och namn, och datumet. Artikelsidorna tappar samma bild. Bilden finns kvar i data-API:et, med kredit. Evenemangsblocket är oförändrat."
+    },
+    "da": {
+     "title": "Kompakt forside",
+     "description": "Forsiden viser ikke længere de store artikelbilleder eller filtrene for land, kilde og emne. Den nyeste artikel er hovedartiklen, med større overskrift og resuméet. Resten står i et kompakt gitter under Seneste: overskriften på sidens sprog, kildeoverskriften nedenunder når den er en anden, resuméet, mediets logo og navn, og datoen. Artikelsiderne dropper det samme billede. Billedet bliver i data-API'et, med kreditering. Arrangementblokken er uændret."
+    },
+    "fi": {
+     "title": "Tiivis etusivu",
+     "description": "Etusivu ei enää näytä suuria juttukuvia eikä maa-, lähde- ja aihehakuehtoja. Uusin juttu on pääjuttu, isommalla otsikolla ja tiivistelmällä. Muut ovat tiiviissä ruudukossa kohdassa Uusimmat: otsikko sivun kielellä, lähteen otsikko sen alla kun se eroaa, tiivistelmä, median logo ja nimi, sekä päivämäärä. Juttusivuilta jää sama kuva pois. Kuva pysyy data-API:ssa lähdetietoineen. Tapahtumalohko on ennallaan."
+    },
+    "is": {
+     "title": "Þétt forsíða",
+     "description": "Forsíðan sýnir ekki lengur stóru fréttamyndirnar eða síur fyrir land, heimild og efni. Nýjasta fréttin er aðalfréttin, með stærri fyrirsögn og samantekt. Hinar standa í þéttu neti undir Nýjast: fyrirsögnin á tungumáli síðunnar, fyrirsögn heimildarinnar undir þegar hún er önnur, samantektin, merki og nafn miðilsins, og dagsetningin. Fréttasíðurnar sleppa sömu mynd. Myndin er áfram í gagnaskilinu, með heimild. Viðburðablokkin er óbreytt."
+    }
+   }
+  },
+  {
    "id": "crest-media-kit",
    "date": "2026-10-07",
    "title": "Crest and media kit",
