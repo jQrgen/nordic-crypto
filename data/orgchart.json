@@ -43,7 +43,8 @@
     "wikidata": "Q109016",
     "fetched": "2026-10-03",
     "review": "ok",
-    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    "reviewed": "2026-10-04 (Nordic Crypto editor)",
+    "raster": "assets/img/logos/stortinget-finanskomiteen.png"
    }
   },
   {
@@ -731,7 +732,8 @@
     "wikidata": "Q970769",
     "fetched": "2026-10-03",
     "review": "ok",
-    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    "reviewed": "2026-10-04 (Nordic Crypto editor)",
+    "raster": "assets/img/logos/norges-bank.png"
    }
   },
   {
@@ -828,7 +830,6 @@
    "org": "norges-bank",
    "role": "Deputy Governor (central banking operations)",
    "profile_url": "https://www.regjeringen.no/no/dep/fin/org/styrer-rad-og-utvalg-oppnevnt-av-finansdepartementet2/norges-banks-hovedstyre/id2577140/",
-   "status": "published",
    "talk_ids": [
     "yt-gn50NxhPk-0"
    ],
@@ -838,7 +839,8 @@
      "title": "Hvorfor og når får vi digitale sentralbankpenger og kryptovaluta?",
      "video_url": "https://www.youtube.com/watch?v=gn50NxhPk-0"
     }
-   ]
+   ],
+   "status": "published"
   },
   {
    "id": "oystein-borsum",
@@ -1070,7 +1072,8 @@
     "wikidata": "Q308084",
     "fetched": "2026-10-03",
     "review": "ok",
-    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    "reviewed": "2026-10-04 (Nordic Crypto editor)",
+    "raster": "assets/img/logos/okokrim.png"
    }
   },
   {
@@ -1718,7 +1721,8 @@
     "kind": "img",
     "fetched": "2026-10-03",
     "review": "ok",
-    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    "reviewed": "2026-10-04 (Nordic Crypto editor)",
+    "raster": "assets/img/logos/nbx.png"
    }
   },
   {
@@ -1754,7 +1758,6 @@
    "org": "nbx",
    "role": "CEO",
    "profile_url": "https://nbx.com/en/investor",
-   "status": "published",
    "talk_ids": [
     "yt-RTcqp3MqRtU"
    ],
@@ -1773,7 +1776,8 @@
      "source_name": "Nordic Blockchain Association",
      "retrieved_at": "2026-10-07T23:30:36+00:00"
     }
-   ]
+   ],
+   "status": "published"
   },
   {
    "id": "k33",
@@ -1839,7 +1843,6 @@
    "org": "k33",
    "role": "CEO, K33",
    "profile_url": "https://storage.mfn.se/262d2b97-3b03-48c6-a4d8-4844e976ec9f/k33-receives-mica-authorization.pdf",
-   "status": "published",
    "talk_ids": [
     "yt-JaxgfxpmUmk",
     "yt-hINk3yZvDdY"
@@ -1864,7 +1867,8 @@
      "source_name": "Nordic Blockchain Association",
      "retrieved_at": "2026-10-07T23:30:36+00:00"
     }
-   ]
+   ],
+   "status": "published"
   },
   {
    "id": "bare-bitcoin",
@@ -2187,7 +2191,6 @@
    "org": "dnb",
    "role": "Head of Emerging Business",
    "profile_url": "https://www.bankshift.no/nyheter/dnb-om-token-okonomien-vi-er-ikke-drevet-av-frykt-for-a-miste-kunder-men-av-a-vaere-relevante/437638",
-   "status": "published",
    "talk_ids": [
     "yt--4I2b_hFG0A",
     "yt-hINk3yZvDdY"
@@ -2219,7 +2222,8 @@
      "source_name": "Nordic Blockchain Association",
      "retrieved_at": "2026-10-07T23:30:36+00:00"
     }
-   ]
+   ],
+   "status": "published"
   },
   {
    "id": "norges-bank-tokenisering",
@@ -2536,7 +2540,8 @@
     "kind": "img",
     "fetched": "2026-10-03",
     "review": "ok",
-    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    "reviewed": "2026-10-04 (Nordic Crypto editor)",
+    "raster": "assets/img/logos/bpi.png"
    }
   },
   {
@@ -2678,7 +2683,6 @@
    "org": "nordic-blockchain-association",
    "role": "CEO and board member",
    "profile_url": "https://nordicblockchain.com/about-us",
-   "status": "published",
    "talk_ids": [
     "yt--4I2b_hFG0A",
     "yt-FXf5cpY0oY4",
@@ -2723,7 +2727,8 @@
      "source_name": "Nordic Blockchain Association",
      "retrieved_at": "2026-10-07T23:30:36+00:00"
     }
-   ]
+   ],
+   "status": "published"
   },
   {
    "id": "lennart-kirk",
@@ -2811,7 +2816,6 @@
    "org": "nordic-blockchain-association",
    "role": "Board member for Norway",
    "profile_url": "https://nordicblockchain.com/about-us",
-   "status": "published",
    "talk_ids": [
     "yt--4I2b_hFG0A",
     "yt-HwznOY5BhGI",
@@ -2849,7 +2853,8 @@
      "source_name": "Nordic Blockchain Association",
      "retrieved_at": "2026-10-07T23:30:36+00:00"
     }
-   ]
+   ],
+   "status": "published"
   },
   {
    "id": "fintech-norway",
@@ -2933,7 +2938,8 @@
     "kind": "img",
     "fetched": "2026-10-03",
     "review": "ok",
-    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    "reviewed": "2026-10-04 (Nordic Crypto editor)",
+    "raster": "assets/img/logos/shifter.png"
    }
   },
   {
@@ -3044,7 +3050,8 @@
     "wikidata": "Q5449671",
     "fetched": "2026-10-03",
     "review": "ok",
-    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+    "reviewed": "2026-10-04 (Nordic Crypto editor)",
+    "raster": "assets/img/logos/se-fi.png"
    }
   },
   {
@@ -3472,7 +3479,6 @@
    "org": "virtune",
    "role": "CEO",
    "origin": "Nordic Crypto research",
-   "status": "published",
    "talk_ids": [
     "yt-sDb2GJTIpPo"
    ],
@@ -3491,7 +3497,8 @@
      "source_name": "Nordic Blockchain Association",
      "retrieved_at": "2026-10-07T23:30:36+00:00"
     }
-   ]
+   ],
+   "status": "published"
   },
   {
    "id": "svenska-bitcoinforeningen",
