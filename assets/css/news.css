@@ -37,23 +37,8 @@ ol.news h3{font-size:23px;line-height:1.16;margin:0 0 4px}ol.news h3 a{text-deco
 .src{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;vertical-align:middle;text-align:start}
 .src-logo-link{display:inline-flex;flex:none;align-items:center;line-height:0}
 .src-logo{height:18px;width:auto;max-width:96px;object-fit:contain;flex:none;background:#fff;padding:1px 3px;border-radius:3px}
-/* outlets that covered a story */
-.covrow,.readat-row,.also,.covbars,.covsort,.covlist,.covgroup,.cov-by-country,.cov-by-time{text-align:start}
-.covrow{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:6px 8px;margin:10px 0 0}
+/* outlets that covered a story: the compact logo row on story cards (the story page rules are in story.css) */
+.covrow{text-align:start;display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:6px 8px;margin:10px 0 0}
 .cov-logo{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;text-decoration:none}
 .cov-more{font-size:12.5px;color:var(--fg);border:1px solid var(--line-strong);border-radius:999px;padding:1px 10px;background:var(--surface);text-decoration:none}
 .cov-more:hover,.cov-more:focus-visible{border-color:var(--gold)}
-.also{margin:10px 0}
-.covbars{margin:0 0 16px}
-.covbar{display:grid;grid-template-columns:minmax(7rem,12rem) minmax(4rem,16rem) 2rem;justify-content:start;align-items:center;gap:10px;margin:6px 0;font-size:14px;max-width:100%}
-@media(max-width:640px){.covbar{grid-template-columns:minmax(6rem,9rem) minmax(3rem,1fr) 2rem}}
-.covbar .track{display:block;height:8px;background:var(--soft);border-radius:4px;overflow:hidden}
-.covbar .fill{display:block;height:8px;background:var(--accent);border-radius:4px}
-.covbar .covn{font-variant-numeric:tabular-nums;color:var(--muted)}
-.covsort{margin:10px 0}
-.covgroup{margin:0 0 18px}
-.covgroup h3{display:flex;justify-content:flex-start;gap:8px;align-items:baseline;font-size:21px;margin:0 0 4px}
-.covlist{list-style:none;padding:0;margin:0}
-.covlist li{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:flex-start;gap:6px 12px;border-bottom:1px solid var(--line);padding:11px 0}
-.covlist .cov-title{flex:1 1 16rem;min-width:12rem}
-.cov-open{font-weight:500}

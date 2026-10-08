@@ -1,6 +1,10 @@
-/* API docs page (/api/). Inlined by tools/api_feed.py. */
-.api-docs{max-width:80ch}
-.api-docs pre{overflow:auto;padding:14px 16px;background:var(--band-deep);color:var(--band-ink);border:1px solid var(--line);border-inline-start:4px solid var(--gold);border-radius:var(--r-sm);font-size:13px;line-height:1.6}
+/* API docs page (/api/). Inlined by tools/api_feed.py. The page uses the text-page layout (textpage.css): the jump list beside
+   the text on wide screens. Code blocks scroll sideways inside themselves, so a phone never scrolls the page sideways. */
+.api-docs pre{max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;white-space:pre;padding:14px 16px;background:var(--band-deep);color:var(--band-ink);border:1px solid var(--line);border-inline-start:4px solid var(--gold);border-radius:var(--r-sm);font-size:13px;line-height:1.6}
 .api-docs code{font-size:.9em}
-.api-docs td:first-child{white-space:nowrap}
-.api-docs, .api-docs p, .api-docs li, .api-docs td, .api-docs th{text-align:left}
+.api-docs pre code{overflow-wrap:normal}
+.api-docs .tablewrap{margin:12px 0}
+.api-docs table.list{font-size:14px}
+.api-docs td:first-child{min-width:12rem}
+.api-docs td:first-child code{overflow-wrap:anywhere}
+.api-docs,.api-docs p,.api-docs li,.api-docs td,.api-docs th{text-align:start}

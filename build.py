@@ -649,6 +649,11 @@ def L18(obj, key, i18n_key=None):
     v = ((obj.get(i18n_key or key + "_i18n") or {}).get(LANG)) if LANG != "en" else None
     return (v, LANG) if v else (obj.get(key), "en")
 def lang_attr(l): return "" if l == LANG else f' lang="{l}"'
+def bidi_attr(l):
+    """lang_attr, plus dir="ltr" on a right-to-left page, for text in another (left-to-right) language: story headlines,
+    summaries and outlet headlines on the Arabic and Urdu pages keep their punctuation and alignment."""
+    if not l or l == LANG: return ""
+    return f' lang="{l}"' + (' dir="ltr"' if i18n.rtl(LANG) and not i18n.rtl(l) else "")
 def _source_logos():
     sys.path.insert(0, P("tools"))
     import source_logos
@@ -724,63 +729,73 @@ def _bar(label_html, count, share):
             f'<span class="track" role="presentation"><span class="fill" style="width:{pct}%"></span></span>'
             f'<span class="covn">{count}</span></div>')
 def coverage_bars(rows):
+    """Coverage by country and by source type, side by side. Rows with no outlet are left out (the JSON keeps them)."""
     br = _coverage().breakdown(rows)
     countries = []
     for r in br["by_country"]:
+        if not r.get("count"): continue
         c = r.get("country") or ""
         if c in COUNTRY_CODES or c in EXTRA_C_CODES: lab = f"{flag(c)} {E(cname(c))}"
         else: lab = E(c or t("cov_unknown"))
         countries.append(_bar(lab, r["count"], r["share"]))
-    types = "".join(_bar(E(t("cov_" + r["type"])), r["count"], r["share"]) for r in br["by_source_type"])
-    return (f'<h2>{E(t("cov_breakdown"))}</h2><h3>{E(t("cov_by_country"))}</h3><div class="covbars">{"".join(countries)}</div>'
-            f'<h3>{E(t("cov_by_type"))}</h3><div class="covbars">{types}</div>')
+    types = "".join(_bar(E(t("cov_" + r["type"])), r["count"], r["share"]) for r in br["by_source_type"] if r.get("count"))
+    return (f'<div class="covstats"><div><h3>{E(t("cov_by_country"))}</h3><div class="covbars">{"".join(countries)}</div></div>'
+            f'<div><h3>{E(t("cov_by_type"))}</h3><div class="covbars">{types}</div></div></div>')
 def _outlet_li(s, root):
+    """One outlet: logo and name, the primary tag, country and time on the first line; that outlet's own headline (the link) below."""
     lg = s.get("logo") or {}
-    img = f'<img class="src-logo" src="{root}{E(lg["file"])}" alt="" height="18">' if lg.get("file") else ""
-    primary = f' <span class="tag">{E(t("cov_primary"))}</span>' if s.get("primary") else ""
+    img = f'<img class="src-logo" src="{root}{E(lg["file"])}" alt="" height="18" loading="lazy" decoding="async">' if lg.get("file") else ""
+    primary = f'<span class="tag">{E(t("cov_primary"))}</span>' if s.get("primary") else ""
     pw = f' · <span class="pw">{E(t("paywall"))}</span>' if s.get("paywall") else ""
     c = s.get("country") or ""
-    where = (flag(c) + " " + E(c)) if c else ""
+    where = (flag(c) + " " + E(c) + " · ") if c else ""
     lang = i18n.SRC_LANG.get(s.get("lang") or "", "")
-    lang_attr_s = f' lang="{E(lang)}"' if lang else ""
+    lang_attr_s = bidi_attr(lang) if lang else ""
+    title = s.get("title") or t("read_at", name=s.get("outlet_name") or "")
     return (f'<li data-country="{E(c)}" data-time="{E(s.get("published") or "")}">'
-            f'<a class="cov-logo" href="{E(s.get("url"))}" rel="noopener" target="_blank">{img}<b>{E(s.get("outlet_name") or "")}</b></a>'
-            f'{primary}<span class="cov-where">{where}</span>'
-            f'<span class="cov-title"{lang_attr_s}>{E(s.get("title") or "")}</span>'
-            f'<time datetime="{E(s.get("published") or "")}">{E(_cov_when(s.get("published")))}</time>{pw} '
-            f'<a class="cov-open" href="{E(s.get("url"))}" rel="noopener" target="_blank">{E(t("cov_open"))}</a></li>')
+            f'<p class="cov-src"><span class="src">{img}<b>{E(s.get("outlet_name") or "")}</b></span>{primary}'
+            f'<span class="meta">{where}<time datetime="{E(s.get("published") or "")}">{E(_cov_when(s.get("published")))}</time>{pw}</span></p>'
+            f'<a class="cov-title" href="{E(s.get("url"))}" rel="noopener" target="_blank"{lang_attr_s}>{E(title)}</a></li>')
+def read_at_row(primary, paywall=False):
+    """The story's one primary action: read it at the outlet. The paywall note sits beside the button."""
+    pw = f'<span class="pw">{E(t("paywall"))}</span>' if paywall else ""
+    return (f'<p class="readat-row"><a class="readat" href="{E(primary.get("url"))}" rel="noopener" target="_blank">'
+            f'{E(t("read_at", name=primary.get("outlet_name") or ""))}</a>{pw}</p>')
 def coverage_block(rows, root):
-    """Full outlet list, grouped by country, with a by-time list the buttons reveal. Left-aligned."""
+    """Every outlet that covered the story, once. One outlet: nothing (the Read at button already names it).
+    Several countries: grouped by country, with a toggle that lists them by time (COV_SORT_JS builds that list from these rows).
+    Three outlets or more: the coverage bars below the list. Start-aligned."""
+    if len(rows) < 2: return ""
     order = ["NO", "SE", "DK", "FI", "IS", "NORDIC", "EU"]
     groups = {}
     for s in rows: groups.setdefault(s.get("country") or "", []).append(s)
-    blocks = []
-    for c in sorted(groups, key=lambda c: (order.index(c) if c in order else 50, c)):
-        if c in COUNTRY_CODES or c in EXTRA_C_CODES: head = f"{flag(c)} {E(cname(c))}"
-        else: head = E(c or t("cov_unknown"))
-        prim = [s for s in groups[c] if s.get("primary")]
-        rest = sorted([s for s in groups[c] if not s.get("primary")], key=lambda s: s.get("published") or "", reverse=True)
-        blocks.append(f'<section class="covgroup"><h3>{head} <span class="meta">{len(groups[c])}</span></h3>'
-                      f'<ul class="covlist">{"".join(_outlet_li(s, root) for s in prim + rest)}</ul></section>')
-    flat = "".join(_outlet_li(s, root) for s in sorted(rows, key=lambda s: s.get("published") or "", reverse=True))
-    extras = [s for s in rows if not s.get("primary")]
-    also = ""
-    if extras:
-        links = ", ".join(f'<a href="{E(s["url"])}" rel="noopener" target="_blank">{E(s.get("outlet_name") or "")}</a>' for s in extras)
-        also = f'<p class="also">{E(t("also_covered"))}: {links}</p>'
-    primary = rows[0]
-    read = (f'<p class="readat-row"><a class="readat" href="{E(primary.get("url"))}" rel="noopener" target="_blank">'
-            f'{E(t("read_at", name=primary.get("outlet_name") or ""))}</a></p>')
-    return (read + also + coverage_bars(rows)
-            + f'<h2>{E(t("cov_h"))}</h2>'
-            + f'<div class="seg covsort" role="group" aria-label="{E(t("cov_sort"))}">'
-            + f'<button type="button" data-covsort="country" aria-pressed="true">{E(t("cov_sort_country"))}</button>'
-            + f'<button type="button" data-covsort="time" aria-pressed="false">{E(t("cov_sort_time"))}</button></div>'
-            + f'<div class="cov-by-country">{"".join(blocks)}</div><div class="cov-by-time" hidden><ul class="covlist">{flat}</ul></div>')
+    def ordered(ss):
+        prim = [s for s in ss if s.get("primary")]
+        return prim + sorted([s for s in ss if not s.get("primary")], key=lambda s: s.get("published") or "", reverse=True)
+    if len(groups) == 1:
+        lists = f'<ul class="covlist">{"".join(_outlet_li(s, root) for s in ordered(rows))}</ul>'
+        sort = ""
+    else:
+        blocks = []
+        for c in sorted(groups, key=lambda c: (order.index(c) if c in order else 50, c)):
+            if c in COUNTRY_CODES or c in EXTRA_C_CODES: head = f"{flag(c)} {E(cname(c))}"
+            else: head = E(c or t("cov_unknown"))
+            blocks.append(f'<section class="covgroup"><h3>{head} <span class="meta">{len(groups[c])}</span></h3>'
+                          f'<ul class="covlist">{"".join(_outlet_li(s, root) for s in ordered(groups[c]))}</ul></section>')
+        lists = "".join(blocks)
+        sort = (f'<div class="seg covsort" role="group" aria-label="{E(t("cov_sort"))}" hidden>'
+                f'<button type="button" data-covsort="country" aria-pressed="true">{E(t("cov_sort_country"))}</button>'
+                f'<button type="button" data-covsort="time" aria-pressed="false">{E(t("cov_sort_time"))}</button></div>')
+    bars = coverage_bars(rows) if len(rows) >= 3 else ""
+    return (f'<section class="coverage" id="coverage" aria-labelledby="cov-h"><h2 id="cov-h">{E(t("cov_h"))} <span class="count">{len(rows)}</span></h2>'
+            + sort + f'<div class="cov-by-country">{lists}</div><div class="cov-by-time" hidden></div>' + bars + '</section>')
+# The by-time list is built from the grouped rows on the first click, so every outlet is in the HTML once.
 COV_SORT_JS = """<script>
-(function(){var box=document.querySelector('.covsort');if(!box)return;var c=document.querySelector('.cov-by-country'),tm=document.querySelector('.cov-by-time');
+(function(){var box=document.querySelector('.covsort');if(!box)return;var c=document.querySelector('.cov-by-country'),tm=document.querySelector('.cov-by-time');box.hidden=false;
 box.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('button');if(!b)return;var mode=b.getAttribute('data-covsort');
 [].forEach.call(box.querySelectorAll('button'),function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+if(mode==='time'&&c&&tm&&!tm.firstChild){var ul=document.createElement('ul');ul.className='covlist';
+[].slice.call(c.querySelectorAll('li')).sort(function(x,y){return (y.getAttribute('data-time')||'').localeCompare(x.getAttribute('data-time')||'')}).forEach(function(li){ul.appendChild(li.cloneNode(true))});tm.appendChild(ul)}
 if(c)c.hidden=mode!=='country';if(tm)tm.hidden=mode!=='time';});})();
 </script>"""
 def source_mark(i, root=""):
@@ -965,7 +980,7 @@ def emit_api(ctx):
     global LANG
     was = LANG
     LANG = "en"
-    page("api", "Data API", "api", api_feed.docs_fragment(info), api_feed.DOCS_DESC, langs=["en"], head_extra=api_feed.head_links(BASE))
+    page("api", "Data API", "api", text_page(api_feed.docs_fragment(info), cls="api-docs", toc_label="On this page"), api_feed.DOCS_DESC, langs=["en"], head_extra=api_feed.head_links(BASE))
     LANG = was
     return info
 
@@ -977,24 +992,46 @@ def lang_template(stem):
             return open(path, encoding="utf-8").read()
     return open(P("templates", f"{stem}.html"), encoding="utf-8").read()
 
+_H2_ID = re.compile(r'<h2 id="([^"]+)"[^>]*>(.*?)</h2>', re.S)
+def page_toc(html_body, label=None):
+    """'On this page': a jump list of the body's <h2 id=…> headings. Empty when there are fewer than four."""
+    heads = [(i, re.sub(r"<[^>]+>", "", h).strip()) for i, h in _H2_ID.findall(html_body)]
+    if len(heads) < 4: return ""
+    return (f'<nav class="toc" aria-labelledby="toc-h"><h2 id="toc-h">{E(label or t("toc_h"))}</h2><ol>'
+            + "".join(f'<li><a href="#{E(i)}">{h}</a></li>' for i, h in heads) + '</ol></nav>')
+def template_attrs(stem):
+    """lang and dir for a text page whose language has no translated template, so the English fallback reads left to right."""
+    if LANG == "en" or os.path.exists(P("templates", f"{stem}.{LANG}.html")): return ""
+    return ' lang="en" dir="ltr"'
+def text_page(html_body, toc=True, cls="", toc_label=None, attrs=""):
+    """Text page layout: the title and lead, the jump list (beside the text on wide screens, under the lead on phones),
+    then the text in a reading column. The body starts at the first <div class="prose"> (or the first <h2>)."""
+    cut = html_body.find('<div class="prose">')
+    if cut < 0: cut = html_body.find("<h2")
+    if cut < 0: cut = len(html_body)
+    head, rest = html_body[:cut], html_body[cut:]
+    nav = page_toc(rest, toc_label) if toc else ""
+    return (site_css.style("textpage") + f'<div class="textpage{" has-toc" if nav else ""}{" " + cls if cls else ""}"{attrs}><div class="tp-head">{head}</div>'
+            f'{nav}<div class="tp-body">{rest}</div></div>')
+
 MEDIA_FILES = (
-    ("assets/brand/crest.svg", "Crest, SVG"),
-    ("assets/brand/crest-mono.svg", "One colour, SVG"),
-    ("assets/media/nordic-crypto-crest.png", "Crest, PNG, long side 4096 px"),
+    ("assets/brand/crest.svg", "Crest"),
+    ("assets/brand/crest-mono.svg", "One colour"),
+    ("assets/media/nordic-crypto-crest.png", "Crest, long side 4096 px"),
     ("assets/logo-concepts/responsive/large-light.png", "Crest on white"),
     ("assets/logo-concepts/responsive/large-dark.png", "Crest on #0b0d10"),
-    ("assets/logo-concepts/responsive/one-colour.png", "One colour, PNG"),
-    ("assets/brand/wordmark.svg", "Lockup, light, SVG"),
-    ("assets/brand/wordmark-dark.svg", "Lockup, dark, SVG"),
-    ("assets/media/wordmark-light.png", "Lockup, light, PNG"),
-    ("assets/media/wordmark-dark.png", "Lockup, dark, PNG"),
+    ("assets/logo-concepts/responsive/one-colour.png", "One colour"),
+    ("assets/brand/wordmark.svg", "Lockup, light"),
+    ("assets/brand/wordmark-dark.svg", "Lockup, dark"),
+    ("assets/media/wordmark-light.png", "Lockup, light"),
+    ("assets/media/wordmark-dark.png", "Lockup, dark"),
     ("assets/media/og-image.png", "Social image, 1200×630"),
-    ("assets/logo-concepts/responsive/medium.svg", "Medium crest, SVG"),
+    ("assets/logo-concepts/responsive/medium.svg", "Medium crest"),
     ("assets/logo-concepts/responsive/medium-512-light.png", "Medium, 512 px, light"),
     ("assets/logo-concepts/responsive/medium-512-dark.png", "Medium, 512 px, dark"),
     ("assets/logo-concepts/responsive/medium-128-light.png", "Medium, 128 px, light"),
     ("assets/logo-concepts/responsive/medium-128-dark.png", "Medium, 128 px, dark"),
-    ("assets/brand/icon.svg", "Small favicon, simplified charge, SVG"),
+    ("assets/brand/icon.svg", "Small favicon, simplified charge"),
     ("favicon.ico", "Favicon, 16 and 32"),
     ("assets/brand/icon-16.png", "Small, 16 px"),
     ("assets/brand/icon-32.png", "Small, 32 px"),
@@ -1007,41 +1044,47 @@ MEDIA_FILES = (
     ("assets/logo-concepts/responsive/preview-sheet.png", "Preview sheet"),
 )
 def build_media():
-    """Public logo kit. Nordic languages have their own strings; every other language uses English."""
+    """Public logo kit. Nordic languages have their own strings; every other language uses English.
+    Samples side by side, the tinctures as a grid, the files as a two-column list with the format."""
     root = up1()
     files = "".join(
-        f'<li><a href="{root}{E(path)}">{E(label)}</a></li>' for path, label in MEDIA_FILES)
-    body = f"""<h1>{E(t("media_h1"))}</h1>
+        f'<li><a href="{root}{E(path)}">{E(label)}</a> <span class="fmt">{E(path.rsplit(".", 1)[-1].upper())}</span></li>' for path, label in MEDIA_FILES)
+    brand = (f'<div class="brandrow"><span class="brand"><img class="brandmark" src="{root}assets/brand/icon.svg" width="32" height="32" alt="">'
+             f'<span aria-hidden="true">Nordic <span class="w">Crypto</span></span></span></div>')
+    sw = (("or", "gold", "--nc-or", "#F4C430"), ("gules", "red", "--nc-gules", "#A0202A"), ("sable", "text, raven", "--nc-sable", "#141210"),
+          ("argent", "page, motto scroll", "--nc-argent", "#F7F6F2"), ("cendrée", "lines", "--nc-cendree", "#A7B0BA"))
+    swatches = "".join(f'<li><i style="background:var({v})"></i><span><b>{n}</b> · {u}<br><code>{v}</code> {h}</span></li>' for n, u, v, h in sw)
+    body = site_css.style("brand") + f"""<h1>{E(t("media_h1"))}</h1>
 <p class="lead">{E(t("media_lead"))}</p>
-<figure class="hdr-sample">
-<div class="brandrow"><span class="brand"><img class="brandmark" src="{root}assets/brand/icon.svg" width="32" height="32" alt=""><span aria-hidden="true">Nordic <span class="w">Crypto</span></span></span></div>
-<p class="motto-sample">NORDIC CRYPTO</p>
-<figcaption>{E(t("media_hdr_cap"))}</figcaption>
-</figure>
-<figure class="hdr-sample dark">
-<div class="brandrow"><span class="brand"><img class="brandmark" src="{root}assets/brand/icon.svg" width="32" height="32" alt=""><span aria-hidden="true">Nordic <span class="w">Crypto</span></span></span></div>
-<figcaption>{E(t("media_hdr_dark_cap"))}</figcaption>
-</figure>
-<img class="lockup" src="{root}assets/media/wordmark-light.png" alt="Nordic Crypto" width="640">
-<img class="lockup" src="{root}assets/media/wordmark-dark.png" alt="" width="640">
-<h2>{E(t("media_colours_h"))}</h2>
-<ul class="swatches">
-<li><i style="background:var(--nc-or)"></i><span><b>or</b> · gold · <code>--nc-or</code> #F4C430</span></li>
-<li><i style="background:var(--nc-gules)"></i><span><b>gules</b> · red · <code>--nc-gules</code> #A0202A</span></li>
-<li><i style="background:var(--nc-sable)"></i><span><b>sable</b> · text, raven · <code>--nc-sable</code> #141210</span></li>
-<li><i style="background:var(--nc-argent)"></i><span><b>argent</b> · page, motto scroll · <code>--nc-argent</code> #F7F6F2</span></li>
-<li><i style="background:var(--nc-cendree)"></i><span><b>cendrée</b> · lines · <code>--nc-cendree</code> #A7B0BA</span></li>
-</ul>
-<p>{E(t("media_colours_note"))}</p>
-<h2>{E(t("media_use_h"))}</h2>
-<p class="prose">{E(t("media_use"))}</p>
-<h2>{E(t("media_files_h"))}</h2>
+<div class="mk-samples">
+<figure class="hdr-sample">{brand}<p class="motto-sample">NORDIC CRYPTO</p><figcaption>{E(t("media_hdr_cap"))}</figcaption></figure>
+<figure class="hdr-sample dark">{brand}<figcaption>{E(t("media_hdr_dark_cap"))}</figcaption></figure>
+</div>
+<div class="mk-lockups">
+<img class="lockup" src="{root}assets/media/wordmark-light.png" alt="Nordic Crypto" width="603" height="280" loading="lazy" decoding="async">
+<img class="lockup" src="{root}assets/media/wordmark-dark.png" alt="" width="603" height="280" loading="lazy" decoding="async">
+</div>
+<h2 id="tinctures">{E(t("media_colours_h"))}</h2>
+<ul class="swatches">{swatches}</ul>
+<p class="mk-note">{E(t("media_colours_note"))}</p>
+<h2 id="use">{E(t("media_use_h"))}</h2>
+<p class="mk-note">{E(t("media_use"))}</p>
+<h2 id="files">{E(t("media_files_h"))}</h2>
 <ul class="filelist">{files}</ul>"""
     page("media", t("media_title"), "media", body, t("media_desc"))
 
+def build_about():
+    """About page: the template for this language (English when there is none), with an 'On this page' list."""
+    attrs = template_attrs("about")
+    ios_tv = E(t("ios_tv"))
+    if attrs and i18n.has(LANG, "ios_tv"):   # a translated line inside the English fallback keeps its own language
+        ios_tv = f'<span lang="{i18n.HTML_LANG[LANG]}" dir="{"rtl" if i18n.rtl(LANG) else "ltr"}">{ios_tv}</span>'
+    about = lang_template("about").replace("{{UP}}", up1()).replace("{{COMMUNITY}}", community_section()).replace("{{IOS_TV}}", ios_tv)
+    page("about", t("about_title"), "about", text_page(about, attrs=attrs), t("about_desc"))
+
 def build_ethics():
     """Press ethics: Nordic Crypto follows Vær Varsom-plakaten. Own wording, not a copy of the code."""
-    body = lang_template("ethics")
+    body = text_page(lang_template("ethics"), attrs=template_attrs("ethics"))
     page("ethics", t("ethics_title"), "ethics", body, t("ethics_desc"))
 
 def sitemap():
@@ -1713,7 +1756,7 @@ def build_lang(ctx):
     body = home_with_chat(body)
     page("", t("home_title"), "", body, t("home_desc"), front_events_script() + MORE_STORIES_JS, hero=hero)
     build_coverage_pages(items, ctx["blurbs"])
-    build_stories(write=True)
+    build_stories(write=True, latest=items)
     build_external_stories(ctx)
     build_markets(ctx)
     build_org(ctx)
@@ -1730,8 +1773,7 @@ def build_lang(ctx):
     build_newsletter()
     build_rules(ctx)
     build_regulation_videos(ctx)
-    about = lang_template("about").replace("{{UP}}", up1()).replace("{{COMMUNITY}}", community_section()).replace("{{IOS_TV}}", E(t("ios_tv")))
-    page("about", t("about_title"), "about", about, t("about_desc"))
+    build_about()
     build_media()
     build_ethics()
     build_chat()
@@ -1908,8 +1950,27 @@ def first_sentence(s):
     for m in re.finditer(r"[.!?](?=\s+[A-ZÁÉÍÓÚÞÆÖØÅÄ])", s):
         if not re.search(r"\b(No|Nos|Act|Art|Reg|e\.g|i\.e|Mr|Ms|Dr|ehf|hf)\.$", s[:m.end()]): return s[:m.end()]
     return s
+MORE_NEWS_N = 5
+def more_news(items, current, back):
+    """A few of the latest stories under a story, so the page does not end in a dead end. back: path to this language's home."""
+    rows = []
+    for i in items:
+        if len(rows) >= MORE_NEWS_N: break
+        if i.get("id") == current or i.get("status") not in ("published", "owner"): continue
+        head, head_l, _hl, _orig = story_heads(i)
+        rows.append(f'<li><a href="{E(back + story_path(i))}"{bidi_attr(head_l)}>{E(head)}</a>'
+                    f'<span class="meta">{flag(i.get("country"))} {E(i.get("source_name") or "")} · '
+                    f'<time datetime="{E(i.get("published") or "")}">{endate(i["published"])}</time></span></li>')
+    if not rows: return ""
+    return (f'<aside class="morenews" aria-labelledby="more-h"><h2 id="more-h">{E(t("more_news_h"))}</h2>'
+            f'<ol>{"".join(rows)}</ol><p><a class="allnews" href="{back}">{E(t("all_news"))}</a></p></aside>')
+def story_page(article, aside, notice=""):
+    """Story layout: the article in a reading column, then the latest stories (beside it on wide screens)."""
+    note = f'<p class="storynote">{notice}</p>' if notice else ""
+    return site_css.style("story") + f'<div class="storypage"><div class="story-col">{article}{note}</div>{aside}</div>'
 def build_coverage_pages(items, blurbs):
-    """One page per external story: the primary 'Read at' link, every other outlet, and the coverage bars."""
+    """One page per external story: headline, our summary and the 'Read at' button first, then every other outlet
+    (with the coverage bars when there are three or more), then the latest stories."""
     root = up1() + "../"
     back = "../../"
     for i in items:
@@ -1919,20 +1980,18 @@ def build_coverage_pages(items, blurbs):
         head, head_l, hl, orig = story_heads(i)
         pend = i.get("status") not in ("published", "owner")
         if pend:
-            summ = f'<p class="sum pend">{E(t("sum_pending"))}</p>'
+            summ = f'<p class="sum lede pend">{E(t("sum_pending"))}</p>'
         else:
             txt, tl = card_text(i, LANG, blurbs)
-            summ = f'<p class="sum"{lang_attr(tl)}>{E(txt)}</p>'
-        pw = f' · <span class="pw">{E(t("paywall"))}</span>' if i.get("paywall") else ""
-        body = (f'<p class="meta"><a href="{back}">{E(t("back_news"))}</a></p>'
-                + f'<article class="prose"><h1{hl}>{E(head)}</h1>{orig}'
-                + summ
-                + f'<p class="meta">{flag(i.get("country"))} {E(cname(i.get("country")))} · {source_mark(i, root)} · <time datetime="{E(i["published"])}">{endate(i["published"])}</time>{pw}'
-                + (f' <span class="tag pend">{E(t("pending"))}</span>' if pend else "") + '</p>'
-                + coverage_block(rows, root) + cited_source(i) + '</article>'
-                + f'<p class="notice">{E(t("home_notice"))}</p>')
-        page("stories/" + i["id"], head, "", body, (i.get("summary") or head or "")[:200], COV_SORT_JS)
-def build_stories(write=True):
+            summ = f'<p class="sum lede"{bidi_attr(tl)}>{E(txt)}</p>'
+        article = (f'<article class="prose story"><p class="backlink"><a href="{back}">{E(t("back_news"))}</a></p><h1{bidi_attr(head_l)}>{E(head)}</h1>{orig}'
+                   + f'<p class="meta byline">{flag(i.get("country"))} {E(cname(i.get("country")))} · {source_mark(i, root)} · <time datetime="{E(i["published"])}">{endate(i["published"])}</time>'
+                   + (f' <span class="tag pend">{E(t("pending"))}</span>' if pend else "") + '</p>'
+                   + summ + read_at_row(rows[0], i.get("paywall")) + cited_source(i)
+                   + coverage_block(rows, root) + '</article>')
+        body = story_page(article, more_news(items, i.get("id"), back), E(t("home_notice")))
+        page("stories/" + i["id"], head, "", body, (i.get("summary") or head or "")[:200], COV_SORT_JS if len({r.get("country") or "" for r in rows}) > 1 else "")
+def build_stories(write=True, latest=None):
     """Own stories written by the editor (markdown, English). Public build: only slugs in approved.json stories.approve.
     Preview: also stories.ready_for_owner, tagged as awaiting jQrgen's final approval. The 'Editor notes' part is internal and never rendered.
     Per-language summaries for the news list: stories.summaries_i18n {slug: {lang: text}}. The article itself is English only
@@ -1964,13 +2023,17 @@ def build_stories(write=True):
         pub = dt.datetime.fromtimestamp(os.path.getmtime(path), OSLO).replace(microsecond=0).isoformat()
         if write:
             note = t("story_only_en")
-            body = (f'<p class="meta"><a href="../../">{E(t("back_news"))}</a></p>' + (f'<p class="notice">{E(note)}</p>' if note and art_l == "en" and LANG != "en" else "")
-                    + f'<article class="prose"{lang_attr(art_l)}><h1>{E(title)}</h1>'
-                    f'<p class="meta">{flag(country)} {E(cname(country))} · {source_mark({"source": "nordic-crypto", "source_name": "Nordic Crypto"}, up1() + "../")} · {endate(pub)}'
-                    + (f' <span class="tag pend">{E(t("owner"))}</span>' if status == "owner" else "") + '</p>'
-                    + "".join(f"<p>{md_inline(x)}</p>" for x in paras)
-                    + f'<h2>{E(t("sources_h"))}</h2><ul>' + "".join(f"<li>{md_inline(s)}</li>" for s in srcs) + '</ul></article>'
-                    + f'<p class="notice">{t("story_notice", rel="../../")}</p>')
+            back = "../../"
+            bd = bidi_attr(art_l)
+            article = (f'<article class="prose story own"><p class="backlink"><a href="{back}">{E(t("back_news"))}</a></p>'
+                       + (f'<p class="notice">{E(note)}</p>' if note and art_l == "en" and LANG != "en" else "")
+                       + f'<h1{bd}>{E(title)}</h1>'
+                       f'<p class="meta byline">{flag(country)} {E(cname(country))} · {source_mark({"source": "nordic-crypto", "source_name": "Nordic Crypto"}, up1() + "../")} · <time datetime="{E(pub)}">{endate(pub)}</time>'
+                       + (f' <span class="tag pend">{E(t("owner"))}</span>' if status == "owner" else "") + '</p>'
+                       + f'<div class="story-body"{bd}>' + "".join(f'<p{" class=\"lede\"" if n == 0 else ""}>{md_inline(x)}</p>' for n, x in enumerate(paras)) + '</div>'
+                       + (f'<h2>{E(t("sources_h"))}</h2><ul class="story-sources"{bd}>' + "".join(f"<li>{md_inline(s)}</li>" for s in srcs) + '</ul>' if srcs else "")
+                       + '</article>')
+            body = story_page(article, more_news(latest or [], "story-" + slug, back), t("story_notice", rel=back))
             page("stories/" + slug, title, "stories", body, paras[0][:200] if paras else title)
         editor_sum = ((st.get("summaries") or {}).get(slug) or "").strip()
         opening = opening_sentences(" ".join(paras)) if paras else ""
@@ -2636,6 +2699,13 @@ def write_tip_endpoint_file():
 
 TIP_ERRORS = {"Please enter the article URL.": "tip_js_e_url", "The URL must be a full http:// or https:// link.": "tip_js_e_badurl",
               "Too many tips from you in a short time. Please try again later.": "tip_js_e_rate", "The tip is too long (max 4 KB).": "tip_js_e_long"}
+def form_field(fid, label, note, control, help_text=""):
+    """One form field: the label with (required)/(optional), the help text under it (tied to the control), then the control."""
+    desc = f' aria-describedby="{fid}-h"' if help_text else ""
+    hint = f'<span class="hint" id="{fid}-h">{E(help_text)}</span>' if help_text else ""
+    note_html = f' <span class="opt">{E(note)}</span>' if note else ""
+    return (f'<div class="field"><label for="{fid}">{E(label)}{note_html}</label>{hint}'
+            + control.replace(f'id="{fid}"', f'id="{fid}"{desc}', 1) + '</div>')
 def build_tip_server(ep):
     """'Send a tip' page that posts to our own tip intake: the Cloudflare Worker in tipworker/ (public_endpoint, set by
     tipworker/deploy.sh) or the box server tipserver/server.py. Inline JS only, no third-party scripts.
@@ -2647,17 +2717,17 @@ def build_tip_server(ep):
 <div class="prose">
 <p>{t("tip_srv_p")}</p>
 <p class="notice">{t("tip_srv_priv")}</p>
-</div>
 <div id="tipmsg" role="status" aria-live="polite"></div>
 <noscript><p class="notice warn">{t("tip_noscript", gh=TIP_FORM)}</p></noscript>
-<form id="tipform" class="tipform"><fieldset id="tipfs" disabled style="border:0;padding:0;margin:0">
-<p><label for="t-url"><b>{E(t("tip_url"))}</b> {E(t("tip_required"))}</label><br><input id="t-url" name="url" type="url" required maxlength="2000" placeholder="https://" style="width:100%;max-width:560px;padding:6px"></p>
-<p><label for="t-country"><b>{E(t("tip_country"))}</b></label><br><select id="t-country" name="country" style="padding:6px">{opts}</select></p>
-<p><label for="t-note"><b>{E(t("tip_note"))}</b> {E(t("tip_note_opt"))}</label><br><textarea id="t-note" name="note" rows="3" maxlength="1000" style="width:100%;max-width:560px;padding:6px"></textarea></p>
-<p><label for="t-name"><b>{E(t("tip_name"))}</b> {E(t("tip_name_opt"))}</label><br><input id="t-name" name="name" maxlength="100" autocomplete="off" style="width:100%;max-width:320px;padding:6px"></p>
-<p style="position:absolute;left:-9999px" aria-hidden="true"><label for="t-website">{E(t("tip_honeypot"))}</label><input id="t-website" name="website" tabindex="-1" autocomplete="off"></p>
-<p><button type="submit" style="padding:8px 14px;font-size:15px">{E(t("tip_send"))}</button></p>
-</fieldset></form>"""
+<form id="tipform" class="tipform form"><fieldset id="tipfs" class="plain" disabled>
+{form_field("t-url", t("tip_url"), t("tip_required"), '<input id="t-url" name="url" type="url" required maxlength="2000" placeholder="https://">')}
+{form_field("t-country", t("tip_country"), "", f'<select id="t-country" name="country">{opts}</select>')}
+{form_field("t-note", t("tip_note"), t("tip_note_opt"), '<textarea id="t-note" name="note" rows="4" maxlength="1000"></textarea>')}
+{form_field("t-name", t("tip_name"), t("tip_name_opt"), '<input id="t-name" name="name" maxlength="100" autocomplete="off">')}
+<p class="vh" aria-hidden="true"><label for="t-website">{E(t("tip_honeypot"))}</label><input id="t-website" name="website" tabindex="-1" autocomplete="off"></p>
+<div class="form-actions"><button type="submit">{E(t("tip_send"))}</button></div>
+</fieldset></form>
+</div>"""
     msgs = {"off": t("tip_js_off", gh=TIP_FORM), "thanks": t("tip_js_thanks"), "fail": t("tip_js_fail"), "err": {k: t(v) for k, v in TIP_ERRORS.items()}}
     js = """<script>(function(){var FIXED=%s,EPF=%s,M=%s,f=document.getElementById('tipform'),fs=document.getElementById('tipfs'),m=document.getElementById('tipmsg'),b=f.querySelector('button');
 function say(t,cls,html){m.className='notice'+(cls?' '+cls:'');if(html)m.innerHTML=t;else m.textContent=t}
@@ -2675,7 +2745,7 @@ f.addEventListener('submit',function(ev){ev.preventDefault();if(!f.reportValidit
   if(x.s>=200&&x.s<300&&x.j.ok){f.reset();say(M.thanks)}
   else if(x.s>=500)off(); else {var er=x.j&&x.j.error;say((er&&M.err[er])||er||M.fail,'warn')}})
  .catch(function(){b.disabled=false;off()})})})();</script>""" % (json.dumps(ep), json.dumps(up1() + "tip-endpoint.json"), json.dumps(msgs, ensure_ascii=False))
-    page("tip", t("tip_title"), "tip", body, t("tip_desc"), js)
+    page("tip", t("tip_title"), "tip", text_page(body, toc=False, cls="formpage"), t("tip_desc"), js)
 
 def build_tip():
     """'Send a tip' page. Static: a plain HTML form (GET, no JavaScript, no tracking) that opens the prefilled GitHub issue form
@@ -2693,17 +2763,16 @@ def build_tip():
 <div class="prose">
 <p>{t("tip_gh_p")}</p>
 <p class="notice warn">{t("tip_gh_priv")}</p>
-</div>
-<form class="tipform" method="get" action="https://github.com/jQrgen/nordic-crypto/issues/new">
+<form class="tipform form" method="get" action="https://github.com/jQrgen/nordic-crypto/issues/new">
 <input type="hidden" name="template" value="tip.yml">
-<p><label for="t-url"><b>{E(t("tip_url"))}</b> {E(t("tip_required"))}</label><br><input id="t-url" name="url" type="url" required placeholder="https://" style="width:100%;max-width:560px;padding:6px"></p>
-<p><label for="t-country"><b>{E(t("tip_country"))}</b></label><br><select id="t-country" name="country" style="padding:6px">{opts}</select></p>
-<p><label for="t-note"><b>{E(t("tip_note"))}</b> {E(t("tip_note_opt_gh"))}</label><br><textarea id="t-note" name="note" rows="3" style="width:100%;max-width:560px;padding:6px"></textarea></p>
-<p><button type="submit" style="padding:8px 14px;font-size:15px">{E(t("tip_gh_btn"))}</button></p>
-<p class="meta">{E(t("tip_gh_meta"))}</p>
+{form_field("t-url", t("tip_url"), t("tip_required"), '<input id="t-url" name="url" type="url" required placeholder="https://">')}
+{form_field("t-country", t("tip_country"), "", f'<select id="t-country" name="country">{opts}</select>')}
+{form_field("t-note", t("tip_note"), t("tip_note_opt_gh"), '<textarea id="t-note" name="note" rows="4"></textarea>')}
+<div class="form-actions"><button type="submit">{E(t("tip_gh_btn"))}</button><p class="meta">{E(t("tip_gh_meta"))}</p></div>
 </form>
-<p class="prose">{t("tip_gh_direct", gh=TIP_FORM)}</p>"""
-    page("tip", t("tip_title"), "tip", body, t("tip_desc"))
+<p class="meta">{t("tip_gh_direct", gh=TIP_FORM)}</p>
+</div>"""
+    page("tip", t("tip_title"), "tip", text_page(body, toc=False, cls="formpage"), t("tip_desc"))
 
 def build_columnist():
     """'Apply as a columnist' page. Same privacy pattern as the static tip page: a plain HTML form (GET, no JavaScript,
@@ -2714,20 +2783,19 @@ def build_columnist():
 <div class="prose">
 <p>{t("col_p")}</p>
 <p class="notice warn">{t("col_priv")}</p>
-</div>
-<form class="tipform" method="get" action="https://github.com/jQrgen/nordic-crypto/issues/new">
+<form class="tipform form" method="get" action="https://github.com/jQrgen/nordic-crypto/issues/new">
 <input type="hidden" name="template" value="columnist.yml">
-<p><label for="c-name"><b>{E(t("col_name"))}</b> {E(t("col_name_opt"))}</label><br><input id="c-name" name="name" maxlength="80" autocomplete="name" style="width:100%;max-width:560px;padding:6px"></p>
-<p><label for="c-contact"><b>{E(t("col_contact"))}</b> {E(t("tip_required"))}</label><br><input id="c-contact" name="contact" required maxlength="120" autocomplete="email" style="width:100%;max-width:560px;padding:6px"><br><span class="meta">{E(t("col_contact_help"))}</span></p>
-<p><label for="c-langs"><b>{E(t("col_langs"))}</b> {E(t("tip_required"))}</label><br><input id="c-langs" name="languages" required maxlength="120" style="width:100%;max-width:560px;padding:6px"><br><span class="meta">{E(t("col_langs_help"))}</span></p>
-<p><label for="c-pitch"><b>{E(t("col_pitch"))}</b> {E(t("tip_required"))}</label><br><textarea id="c-pitch" name="pitch" required rows="5" maxlength="1500" style="width:100%;max-width:560px;padding:6px"></textarea><br><span class="meta">{E(t("col_pitch_help"))}</span></p>
-<p><label for="c-sample"><b>{E(t("col_sample"))}</b> {E(t("col_sample_opt"))}</label><br><input id="c-sample" name="sample" type="url" maxlength="300" placeholder="https://" style="width:100%;max-width:560px;padding:6px"></p>
-<p><label for="c-why"><b>{E(t("col_why"))}</b> {E(t("tip_required"))}</label><br><textarea id="c-why" name="why" required rows="4" maxlength="800" style="width:100%;max-width:560px;padding:6px"></textarea><br><span class="meta">{E(t("col_why_help"))}</span></p>
-<p><button type="submit" style="padding:8px 14px;font-size:15px">{E(t("col_btn"))}</button></p>
-<p class="meta">{E(t("col_meta"))}</p>
+{form_field("c-name", t("col_name"), t("col_name_opt"), '<input id="c-name" name="name" maxlength="80" autocomplete="name">')}
+{form_field("c-contact", t("col_contact"), t("tip_required"), '<input id="c-contact" name="contact" required maxlength="120" autocomplete="email">', t("col_contact_help"))}
+{form_field("c-langs", t("col_langs"), t("tip_required"), '<input id="c-langs" name="languages" required maxlength="120">', t("col_langs_help"))}
+{form_field("c-pitch", t("col_pitch"), t("tip_required"), '<textarea id="c-pitch" name="pitch" required rows="5" maxlength="1500"></textarea>', t("col_pitch_help"))}
+{form_field("c-sample", t("col_sample"), t("col_sample_opt"), '<input id="c-sample" name="sample" type="url" maxlength="300" placeholder="https://" autocomplete="url">')}
+{form_field("c-why", t("col_why"), t("tip_required"), '<textarea id="c-why" name="why" required rows="4" maxlength="800"></textarea>', t("col_why_help"))}
+<div class="form-actions"><button type="submit">{E(t("col_btn"))}</button><p class="meta">{E(t("col_meta"))}</p></div>
 </form>
-<p class="prose">{t("col_direct", gh=COL_FORM)}</p>"""
-    page("columnist", t("col_title"), "columnist", body, t("col_desc"))
+<p class="meta">{t("col_direct", gh=COL_FORM)}</p>
+</div>"""
+    page("columnist", t("col_title"), "columnist", text_page(body, toc=False, cls="formpage"), t("col_desc"))
 
 def build_changelog():
     """Changelog page from changelog.json (site changes only, newest first). Entries dated "launch" use launch_date,
@@ -2744,17 +2812,24 @@ def build_changelog():
     if LANG == "en":
         json.dump({"launch_date": launch, "entries": [{k: e.get(k) for k in ("id", "date", "title", "description", "i18n")} for e in rows]},
                   open(os.path.join(SITE, "data", "changelog.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    def when(d):
-        if not d: return f'<span class="tag pend">{E(t("cl_prev_tag"))}</span>'
-        x = dt.date.fromisoformat(d); return f'<time datetime="{d}"><b>{E(i18n.long_date(LANG, x))}</b></time>'
     def tr(e):
         x = (e.get("i18n") or {}).get(LANG) if LANG != "en" else None
         return (x["title"], x["description"], LANG) if x else (e["title"], e["description"], "en")
-    lis = "".join(f'<li id="{E(e["id"])}"{lang_attr(l)}><h3>{E(ti)}</h3><div class="meta">{when(e["date"])}</div><p class="sum">{E(de)}</p></li>' for e in rows for ti, de, l in [tr(e)])
-    body = f"""<h1>{E(t("cl_title"))}</h1>
+    # One row per day: the date at the start, that day's changes beside it (under it on phones). Newest first.
+    days = []
+    for e in rows:
+        if days and days[-1][0] == e["date"]: days[-1][1].append(e)
+        else: days.append((e["date"], [e]))
+    def day_head(d):
+        if not d: return f'<h2 class="cl-date"><span class="tag pend">{E(t("cl_prev_tag"))}</span></h2>'
+        x = dt.date.fromisoformat(d); return f'<h2 class="cl-date"><time datetime="{d}">{E(i18n.long_date(LANG, x))}</time></h2>'
+    secs = "".join(f'<section class="cl-day">{day_head(d)}<ul>'
+                   + "".join(f'<li id="{E(e["id"])}"{lang_attr(l)}><h3>{E(ti)}</h3><p>{E(de)}</p></li>' for e in es for ti, de, l in [tr(e)])
+                   + '</ul></section>' for d, es in days)
+    body = site_css.style("textpage") + f"""<h1>{E(t("cl_title"))}</h1>
 <p class="lead">{E(t("cl_lead"))}</p>
 {'' if launch else f'<p class="notice warn">{t("cl_preview")}</p>'}
-<ol class="news">{lis or f'<li class="empty">{E(t("cl_none"))}</li>'}</ol>
+<div class="cl">{secs or f'<p class="empty">{E(t("cl_none"))}</p>'}</div>
 <p class="meta">{E(t("cl_data"))}: <a href="{up1()}data/changelog.json">changelog.json</a>.</p>"""
     page("changelog", t("cl_title"), "changelog", body, t("cl_desc"))
     if LANG == "en": print(f"changelog: {len(rows)} entries, launch date {launch or 'not set (preview)'}")

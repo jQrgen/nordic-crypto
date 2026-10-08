@@ -389,3 +389,10 @@ S.update({
 "nl_next_h": "Få neste utgave",
 "nl_rss": "RSS-strøm",
 })
+
+# Story and text pages: jump list, more news under a story
+S.update({
+"toc_h": "På denne siden",
+"more_news_h": "Flere nyheter",
+"all_news": "Alle nyheter",
+})

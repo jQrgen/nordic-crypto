@@ -389,3 +389,10 @@ S.update({
 "nl_next_h": "Fáðu næsta tölublað",
 "nl_rss": "RSS-straumur",
 })
+
+# Story and text pages: jump list, more news under a story
+S.update({
+"toc_h": "Á þessari síðu",
+"more_news_h": "Fleiri fréttir",
+"all_news": "Allar fréttir",
+})
