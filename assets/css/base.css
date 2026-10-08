@@ -31,6 +31,9 @@ button{font:inherit;color:inherit}
 input[type=checkbox],input[type=radio]{accent-color:var(--btn)}
 .vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 html.nc-pick body{visibility:hidden}
+/* Text in a left-to-right language inside a right-to-left page (English summaries on /ar/ and /ur/) reads left to right,
+   so punctuation lands at the end of the sentence; it stays on the page's start edge (the right) like the rest of the page. */
+html[dir=rtl] [lang]:not([lang|=ar]):not([lang|=ur]){direction:ltr;unicode-bidi:isolate;text-align:right}
 [hidden]{display:none!important}
 .sprite{position:absolute;width:0;height:0;overflow:hidden}
 .ico{display:block;flex:none}
