@@ -378,3 +378,14 @@ S.update({
 "screen_short": "Skjáhamur fyrir skrifstofuna",
 "rail_more": "Meira frá Nordic Crypto",
 })
+
+# Media pages: markets, talks and newsletter layout
+S.update({
+"mk_tiles_note": "Breyting í %: eins og hver kauphöll birti hana, tímabilið er ekki nefnt. Magn 24 klst.: aðeins kauphallir sem hafa birt 24 klst. tölu; gjaldmiðlar eru ekki lagðir saman.",
+"mk_chg_short": "{name} {n} %",
+"mk_share_table": "Sýna tölurnar sem töflu",
+"mk_onpage": "Á þessari síðu",
+"mk_about_h": "Um tölurnar",
+"nl_next_h": "Fáðu næsta tölublað",
+"nl_rss": "RSS-straumur",
+})

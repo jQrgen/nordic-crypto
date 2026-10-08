@@ -1,13 +1,22 @@
-/* Newsletter: signup form, the issue list, the video and the issue text. */
+/* Newsletter: signup form (also in the footer and the front-page rail), the follow block, the issue rows, the video and the issue text. */
 .nlform{margin:14px 0;text-align:start}.nlform input[type=email]{padding:8px 10px;width:100%;max-width:320px}.nlform .hp{position:absolute;left:-9999px}
 .nlform button{padding:9px 18px;font-size:15px;font-weight:600;border:1px solid var(--btn);border-radius:var(--r-sm);background:var(--btn);color:var(--btn-ink);cursor:pointer;transition:background .15s,transform .15s}
 .nlform button:hover,.nlform button:focus-visible{background:var(--btn-hover);border-color:var(--btn-hover);transform:translateY(-1px)}
 .nlconsent{display:block;margin:10px 0;max-width:40rem;text-align:start;font-size:15px}
 .nlmsg{display:block;margin-top:6px}.nlmsg.ok{color:var(--up)}.nlmsg.warn{color:var(--warm)}.nlc label:not(.nlconsent){position:absolute;left:-9999px}
-.nlissues{list-style:none;margin:10px 0 20px;padding:0}.nlissues li{display:flex;gap:22px;align-items:flex-start;padding:20px 0;border-bottom:1px solid var(--line)}
-.nlissues .th{flex:none;width:200px;max-width:40%}.nlissues img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
-.nlissues h3{font-size:25px;line-height:1.2;margin:0 0 4px}.nlissues h3 a{text-decoration:none}.nlissues h3 a:hover{text-decoration:underline;text-decoration-thickness:1px}.nlissues .sum{margin-top:4px}
-.issue h1{overflow-wrap:break-word}
+.nlbox{margin:4px 0 8px;padding:18px 20px;max-width:46rem;background:var(--surface);border:1px solid var(--line);border-inline-start:3px solid var(--gold);border-radius:var(--r-sm)}
+.nlbox h2{margin:0 0 6px;font-size:24px}.nlbox .nlsoon{margin:0;color:var(--muted);font-size:15px}
+.nlways{display:flex;flex-wrap:wrap;gap:8px 10px;margin:14px 0 0}
+.nlways a{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:6px 14px;border:1px solid var(--line-strong);border-radius:var(--r-sm);color:var(--fg);font-weight:500;text-decoration:none}
+.nlways a:hover{border-color:var(--fg)}.nlways .ico{color:var(--gold-ink)}
+.nlissues{list-style:none;margin:8px 0 18px;padding:0;max-width:60rem;border-top:1px solid var(--line)}
+.nlissues li{display:flex;gap:18px;padding:16px 0;border-bottom:1px solid var(--line);contain-intrinsic-size:auto 120px}
+.nlissues .th{flex:none;width:160px}
+.nlissues img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:var(--r-sm)}
+.nlissues h3{font-size:22px;line-height:1.22;margin:0 0 4px}.nlissues h3 a{text-decoration:none}.nlissues h3 a:hover{text-decoration:underline}
+.nlissues .meta{margin:0}.nlissues .sum{margin:6px 0 0;font-size:15.5px;line-height:1.5}
+.nlissues time,.issue .meta time{unicode-bidi:plaintext}
+.issue h1{overflow-wrap:break-word}.issue .nlbox{margin:36px 0 14px}
 .nlvideo{margin:18px 0 22px;max-width:960px}.nlvideo video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000;border-radius:var(--r)}.nlvideo figcaption{margin-top:6px}
 .issuetext{overflow-wrap:break-word;max-width:70ch;line-height:1.65}.issuetext h2{font-size:24px}.issuetext ul{padding-left:20px}.issuetext li{margin:4px 0}.issuetext hr{border:0;border-top:1px solid var(--line);margin:24px 0}
-@media(max-width:520px){.nlissues li{flex-direction:column;gap:8px}.nlissues .th{width:100%;max-width:100%}h1{font-size:28px}}
+@media(max-width:520px){.nlissues li{gap:12px}.nlissues .th{width:112px}.nlissues h3{font-size:19px}.nlbox{padding:14px}h1{font-size:28px}}
