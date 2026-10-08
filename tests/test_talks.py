@@ -169,7 +169,8 @@ def main():
             check('href="../talks/"' in html, f"{lang} calendar talks link", fails)
             check(i18n.t(lang, "past_talks", href="../talks/") in html, f"{lang} calendar sentence", fails)
 
-    css = open(os.path.join(ROOT, "build.py"), encoding="utf-8").read()
+    import site_css
+    css = site_css.bundle()
     check(".talks,.talks h1" in css and "text-align:start" in css, "talks css is left aligned", fails)
     if fails:
         print(f"\n{len(fails)} failed")

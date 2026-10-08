@@ -1,0 +1,55 @@
+/* Markets: tiles at a glance, the volume share chart and the table of pairs. Start-aligned; no centred overview. */
+.markets h1{font-size:clamp(32px,4vw,44px)}
+.markets .lead,.markets p,.markets h2,.markets h3,.mkdash,.mktile,.mkboard{text-align:left}
+.mkcredit{margin:0 0 8px;text-align:left}
+.mktiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(10.5rem,1fr));gap:12px;justify-content:flex-start;align-items:stretch;margin:0 0 10px;text-align:left}
+.mktile{border:1px solid var(--line);border-radius:var(--r);background:var(--surface);padding:12px 14px;text-align:left;min-width:0}
+.mktile .k{display:flex;align-items:center;justify-content:flex-start;gap:8px;margin:0;font-weight:500;text-align:left}
+.mktile .k img{width:22px;height:22px;flex:none;display:block}
+.mktile .sym{font:500 12px var(--f-mono);letter-spacing:.04em;color:var(--muted)}
+.mktile .px{font-size:21px;font-weight:700;line-height:1.15;margin:6px 0 4px;font-variant-numeric:lining-nums proportional-nums;text-align:left;overflow-wrap:anywhere}
+.mktile .unit{font:500 12px var(--f-mono);color:var(--muted)}
+.mktile .chg{margin:0;font-size:14px;font-weight:500;text-align:left}
+.chg.up{color:var(--up)}.chg.dn{color:var(--down)}.chg.flat{color:var(--muted);font-weight:400}
+.mkstats{list-style:none;margin:6px 0 0;padding:0;text-align:left}
+.mkstats li{text-align:left;margin:2px 0;color:var(--muted)}
+.mkstats b{font-size:22px;font-weight:700;margin-right:6px;color:var(--fg)}
+.mkboard h2{margin-top:10px;text-align:left}
+.mkwrap{overflow-x:auto;text-align:left;max-width:100%}
+table.mkpairs{width:100%;border-collapse:collapse;font-size:14.5px;text-align:left}
+table.mkpairs caption{text-align:left;font-weight:500;padding:4px 0}
+table.mkpairs th,table.mkpairs td{border-bottom:1px solid var(--line);padding:8px 8px;text-align:left;vertical-align:top}
+table.mkpairs thead th{font:500 11.5px/1.3 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+table.mkpairs tbody tr:hover{background:color-mix(in srgb,var(--soft) 60%,transparent)}
+table.mkpairs button.sort{font:inherit;letter-spacing:inherit;text-transform:inherit;color:var(--muted);background:none;border:0;padding:0 0 2px;cursor:pointer;text-align:left}
+table.mkpairs button.sort[aria-pressed=true]{color:var(--fg);border-bottom:2px solid var(--accent)}
+table.mkpairs .coin{display:flex;align-items:center;justify-content:flex-start;gap:8px;text-align:left}
+table.mkpairs .coin img{width:22px;height:22px;flex:none;display:block}
+table.mkpairs .pxs{font-weight:700;font-variant-numeric:tabular-nums;display:block;text-align:left}
+table.mkpairs .sub{display:block;text-align:left}
+@media(max-width:720px){
+ .mktiles{grid-template-columns:1fr 1fr}
+ table.mkpairs thead{display:none}
+ table.mkpairs,table.mkpairs tbody,table.mkpairs tr,table.mkpairs td{display:block;width:auto}
+ table.mkpairs tr{border:1px solid var(--line);border-radius:var(--r);background:var(--surface);margin:0 0 10px;padding:8px 12px}
+ table.mkpairs tbody tr:hover{background:var(--surface)}
+ table.mkpairs td{border:0;padding:3px 0;text-align:left}
+ table.mkpairs td::before{content:attr(data-label);display:block;font:500 11px/1.3 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:left}
+}
+@media(max-width:420px){.mktiles{grid-template-columns:1fr}}
+@media(min-width:1100px){.mktile .px{font-size:24px}}
+.mkvol{margin:10px 0 24px;text-align:left}
+.mkvol h2,.mkvol p,.mkvol figcaption{text-align:left}
+.mkvol-row{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:flex-start;gap:8px 32px;text-align:left}
+.mkvol svg{width:220px;max-width:100%;height:auto;flex:none;display:block}
+.mkvol svg text{fill:var(--fg)}.mkvol svg text+text{fill:var(--muted)}
+.mklegend{list-style:none;margin:0;padding:0;text-align:left;flex:1 1 18rem;max-width:40rem}
+.mklegend li{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:8px;padding:4px 0;text-align:left}
+.mklegend .sw{width:12px;height:12px;flex:none;display:inline-block;border-radius:2px}
+.mklegend img{width:22px;height:22px;flex:none;display:block}
+.mklegend .nm{text-align:left}
+.mklegend .pct{font-weight:700}
+.mklegend .meta{flex:1 0 100%;padding-left:20px;text-align:left}
+.mkvol table.mkshare{width:auto;max-width:100%;margin:8px 0 0;text-align:left}
+.mkvol caption{text-align:left;font-weight:500;padding:6px 0}
+/* end markets */

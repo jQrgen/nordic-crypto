@@ -14,7 +14,11 @@ Layout: left-aligned, newsreel kicker (navy, mark on the left). No centered slot
 Brand: Nordic Crypto. Sign-off: The Nordic Crypto team. No Kaupr sponsor line.
 The opener does not say the films were made with artificial intelligence.
 """
-import datetime, json, os, shutil
+import datetime, json, os, sys, shutil
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if ROOT not in sys.path:
+    sys.path.insert(0, ROOT)
+import site_css  # noqa: E402
 
 STR = {
 "en": dict(
@@ -208,26 +212,7 @@ STR = {
 ),
 }
 
-CSS = """<style>
-.rv{max-width:760px;text-align:left}
-.rv-jump{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:8px;margin:12px 0}
-.rv-jump a{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--ink,#111);padding:3px 10px;text-decoration:none;background:#fff;text-align:left}
-.rv-slot{border:1px solid var(--line,#d1d5db);border-left:4px solid var(--accent,#0f5ea8);margin:0 0 22px;background:#fff;text-align:left}
-.rv-kicker{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:8px 14px;background:#06142b;color:#fff;padding:8px 12px;font-weight:700}
-.rv-kicker .chip{font-weight:600;font-size:12px;letter-spacing:.04em;border:1px solid #9fb4cc;padding:0 6px}
-.rv-body{padding:12px 14px 14px;text-align:left}
-.rv-body h2{margin:0 0 8px;text-align:left}
-.rv-media{margin:0 0 12px;text-align:left}
-.rv-media img,.rv-media video{display:block;width:min(100%,480px);max-width:100%;height:auto;background:#06142b;border:1px solid #06142b}
-.rv-soon{border-left:4px solid var(--warm,#b45309);background:#fffbeb;padding:8px 12px;margin:0 0 12px;text-align:left}
-.rv-facts{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;margin:8px 0 12px}
-.rv-fact{border:1px solid var(--line,#ddd);padding:7px 9px;text-align:left}
-.rv-fact .k{display:block;font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted,#4B5563)}
-.rv-call{border-left:4px solid var(--accent,#0f5ea8);background:var(--soft,#f5f7fa);padding:8px 12px;margin:0 0 12px;text-align:left}
-.rv-notes{border-left:4px solid #06142b;padding:4px 0 4px 12px;margin:8px 0 12px;text-align:left}
-.rv-notes p{margin:0 0 8px;max-width:68ch}
-.rv h1,.rv .lead,.rv .notice,.rv .meta{text-align:left}
-</style>"""
+CSS = site_css.style("regulation-videos")   # assets/css/regulation-videos.css
 
 def _root():
     return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

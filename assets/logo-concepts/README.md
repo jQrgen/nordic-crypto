@@ -20,11 +20,11 @@ Or, a rosette of eight petals gules, the centre a ring. Crest: a raven displayed
 | `--nc-argent` | argent | page, motto scroll | `#F7F6F2` |
 | `--nc-cendree` | cendrée | lines and the date rule | `#A7B0BA` |
 
-On a dark ground (`#0b0d10`), “Nordic” is `#F5F5F4` and “Crypto” is or `#F4C430`. Gold on white is a field colour, not small text. The raven keeps a gold edge so it still shows on the dark ground. Buttons on the website stay `#0f5ea8`.
+On a dark ground (`#0b0d10`), “Nordic” is `#F5F5F4` and “Crypto” is or `#F4C430`. Gold on white is a field colour, not small text. The raven keeps a gold edge so it still shows on the dark ground. The website's interface colours (buttons, links, focus rings) come from `assets/css/tokens.css`: sable for primary buttons, gules for accents, or for highlights.
 
-Headlines and the wordmark use Cormorant Garamond. Body text and the spaced-capitals motto line use Schibsted Grotesk. Both are self-hosted (SIL Open Font License, `assets/fonts/`). The scroll lettering is outlined paths, not live SVG text.
+Headlines and the wordmark use Cormorant Garamond. Body text and the spaced-capitals motto line use Schibsted Grotesk. Small labels on the website use IBM Plex Mono. All three are self-hosted (SIL Open Font License, `assets/fonts/`). The scroll lettering is outlined paths, not live SVG text.
 
-The stylesheet is `assets/brand/nordic-crypto.css`.
+The brand stylesheet (tincture tokens and fonts) is `assets/brand/nordic-crypto.css`. The website's own CSS is in `assets/css/` (see the main README, Look and stylesheet).
 
 ## Files
 

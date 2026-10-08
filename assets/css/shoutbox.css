@@ -1,0 +1,38 @@
+/* shoutbox */
+.home-with-chat{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;text-align:start}
+.home-with-chat .home-main{min-width:0;text-align:start}
+.shoutbox,.shout-panel,.shout-list,.shout-form,.shout-rules,.shout-privacy,.shout-user,.shout-shared,.shout-item,.shout-meta,.shout-msg{text-align:start}
+.shoutbox{border:1px solid var(--line);border-radius:var(--r);background:var(--surface);padding:12px 14px;margin:0 0 18px}
+.shout-panel h2{font-size:21px;margin:0 0 6px;text-align:start}
+.shout-user,.shout-shared,.shout-rules,.shout-privacy,.shout-more{font-size:13.5px;margin:0 0 8px;text-align:start;color:var(--muted)}
+.shout-rules a{font-weight:500;color:var(--fg)}
+.shout-list{list-style:none;margin:0 0 8px;padding:0;max-height:280px;overflow:auto;text-align:start}
+.shoutbox-full .shout-list{max-height:70vh}
+.shout-item{border-bottom:1px solid var(--line);padding:8px 0;text-align:start}
+.shout-meta{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:4px 8px;font-size:13px;color:var(--muted)}
+.shout-nick{font-weight:700;color:var(--fg)}
+.shout-lang{font:500 11px/1.4 var(--f-mono);border:1px solid var(--line);border-radius:2px;padding:0 4px;background:var(--bg)}
+.shout-msg{margin:2px 0 4px;white-space:pre-wrap;overflow-wrap:anywhere;text-align:start}
+.shout-form label{display:block;margin:8px 0 0;text-align:start}
+.shout-form input,.shout-form textarea{display:block;width:100%;max-width:100%;box-sizing:border-box;font:inherit;text-align:start;padding:7px 10px}
+.shout-form textarea{min-height:4.5em;resize:vertical}
+.shout-form button,.shout-report,.shout-older,.shout-toggle{font:inherit;font-weight:500;text-align:start;cursor:pointer;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);color:var(--fg);padding:6px 12px}
+.shout-form button:hover,.shout-older:hover,.shout-toggle:hover{border-color:var(--fg)}
+.shout-form button{margin-top:8px;background:var(--fg);border-color:var(--fg);color:var(--bg)}
+.shout-report{font-size:12px;font-weight:400;padding:2px 6px;color:var(--muted)}
+.shout-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.shout-status{min-height:1.2em;font-size:14px;text-align:start}
+.shout-toggle{display:none;width:100%;justify-content:flex-start}
+@media(min-width:960px){
+ .home-with-chat{display:grid;grid-template-columns:minmax(0,1fr) 300px;column-gap:32px;align-items:start;justify-content:start}
+ .shoutbox{position:sticky;top:12px;margin:0}
+ .shout-toggle{display:none}
+ .shout-panel{display:block}
+}
+@media(max-width:959px){
+ .home-with-chat .shoutbox{order:-1}
+ .shoutbox:not(.shoutbox-full) .shout-toggle{display:flex}
+ .shoutbox:not(.shoutbox-full) .shout-panel{display:none}
+ .shoutbox:not(.shoutbox-full).is-open .shout-panel{display:block}
+}
+/* /shoutbox */

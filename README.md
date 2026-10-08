@@ -319,6 +319,11 @@ This change does not deploy the worker and does not set secrets. The steps (migr
 
 Hide, delete, restore, ban and unban: `POST /api/shouts/admin` with `Authorization: Bearer <SHOUT_ADMIN_TOKEN>`. A ban matches today’s hash only, because yesterday’s salt is deleted.
 
+## Look and stylesheet
+The look follows the crest sheet: an argent page, sable text, gules for accents and or for highlights. Headings are Cormorant Garamond, text is Schibsted Grotesk, and small labels (dates, section labels, table headers, country codes) are IBM Plex Mono. Light and dark follow the reader's system setting. `data-theme="light"` or `"dark"` on `<html>` overrides it; there is no switch on the page yet. Everything stays start-aligned.
+
+The CSS is one file per part of the site in `assets/css/`: `tokens.css` first (colours for both themes, fonts, radii, the market chart's series colours `--mk-1` to `--mk-8`), then `base`, `header`, `footer`, `components`, `news`, `events`, `orgchart`, `markets`, `newsletter`, `talks`, `push`, `shoutbox` and `brand`. `site_css.py` holds that order. `build.py` inlines the bundle into every page as before (`build.CSS`). The rules page, the regulation videos and the API docs add their own module (`rules.css`, `regulation-videos.css`, `api-docs.css`). Colours come from the custom properties in `tokens.css`, so a colour changes in one place for both themes. The only fixed colours are the white plate behind outlet and organisation logos, black behind video, and the brand samples on the media kit page. Fonts are self-hosted in `assets/fonts/` (SIL Open Font License); the `@font-face` rules are in `assets/brand/nordic-crypto.css`. The office screen mode (`templates/screen.html`) keeps its own styles.
+
 ## Privacy
 No health or private financial data about anyone, no org numbers, LEIs, addresses of private persons, emails or tokens. `state/private_terms.json` (never printed, never committed) feeds the privacy gate, which blocks the build if it finds them. The gate also blocks organisation numbers in visible text, including source titles (NO 9-digit, SE NNNNNN-NNNN, DK CVR, «org.nr …»); register links are fine, the number itself must not be written out.
 

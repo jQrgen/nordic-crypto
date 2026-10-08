@@ -6,7 +6,11 @@ the org chart, industry map and about page never break) and only the preview bui
 Claims and their sources: research/rules-claims-2026-10-03.md (public-claim-check workflow).
 No third-party scripts; the flowchart is inline SVG + CSS, animation off under prefers-reduced-motion; the ordered list
 below the diagram is the full text version (the SVG is aria-hidden)."""
-import datetime, json, os
+import datetime, json, os, sys
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if ROOT not in sys.path:
+    sys.path.insert(0, ROOT)
+import site_css  # noqa: E402
 
 STR = {
 "en": dict(title="How the rules are made", desc="How EU crypto rules (MiCA, AMLR, DORA) become law in Norway, Sweden, Denmark, Finland and Iceland, and who supervises and enforces them – with a source for every step.",
@@ -122,29 +126,7 @@ STR = {
   pending="Bíður yfirferðar ritstjóra – efnið getur breyst.", placeholder="Verið er að undirbúa þessa síðu og hún bíður yfirferðar ritstjóra. Sjá á meðan yfirlit um regluverk í hver er hvað.",
   back="← Hver er hvað", see_map="Yfirlitskort", videos="Myndbönd um reglurnar", general="Almenn lýsing", r12_dk="Grunsamleg viðskipti eru tilkynnt til Hvidvasksekretariatet, peningaþvættisskrifstofu Danmerkur (FIU) innan NSK. Engin sérstök skattalög gilda um rafmyntir; Skattestyrelsen beitir almennum skattareglum á sýndareignir.", r13_fi="Lög 402/2024 eru viðbót við MiCA; samkvæmt 2. gr. laganna hefur Finanssivalvonta eftirlit með því að reglunum sé fylgt.", r14_fi="Grunsamleg viðskipti eru tilkynnt til peningaþvættisskrifstofunnar (Rahanpesun selvittelykeskus) innan finnsku rannsóknarlögreglunnar (lög 444/2017 og 445/2017)."),
 }
-CSS = """<style>
-.rules-flow{max-width:760px}
-.rflow{display:block;width:100%;max-width:520px;height:auto;margin:6px 0 14px}
-.rflow rect{fill:#fff;stroke:var(--ink,#111);stroke-width:1.5}
-.rflow text{font:600 13px/1 system-ui,sans-serif;fill:var(--ink,#111)}
-.rflow .ar{stroke:var(--accent,#c00);stroke-width:2.5;fill:none;stroke-dasharray:6 6;animation:rdash 1.2s linear infinite}
-.rflow .ah{fill:var(--accent,#c00)}
-.rflow .eea rect{stroke-dasharray:4 3}
-@keyframes rdash{to{stroke-dashoffset:-24}}
-@media (prefers-reduced-motion:reduce){.rflow .ar{animation:none;stroke-dasharray:none}.rstep{animation:none!important}}
-ol.rsteps{list-style:none;padding:0;margin:0;counter-reset:rs}
-.rstep{position:relative;border:1px solid var(--line,#ddd);border-left:4px solid var(--accent,#c00);padding:10px 12px;margin:0 0 22px;background:#fff;animation:rin .5s ease-out both}
-.rstep:not(:last-child)::after{content:"";position:absolute;left:24px;bottom:-22px;height:22px;border-left:2px dashed var(--accent,#c00)}
-.rstep h2{font-size:17px;margin:0 0 6px}.rstep h2::before{counter-increment:rs;content:counter(rs) ". ";color:var(--accent,#c00)}
-@keyframes rin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-.rnodes{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px;margin-top:8px}
-.rnode{border:1px solid var(--line,#ddd);padding:7px 9px;font-size:13.5px;line-height:1.35}
-.rnode b{display:block}.rnode .k{font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted,#666)}
-.rnode .ln{font-size:12px;margin-top:3px}
-.rnode[data-route=eea]{border-style:dashed}
-.rules-c .seg button[aria-pressed=true]{background:var(--ink,#111);color:#fff}
-.rules-hidden{display:none!important}
-</style>"""
+CSS = site_css.style("rules")   # assets/css/rules.css
 JS = """<script>(function(){var b=document.querySelectorAll('#rcountry button');function f(c){b.forEach(function(x){x.setAttribute('aria-pressed',x.dataset.c===c?'true':'false')});
 document.querySelectorAll('[data-rc]').forEach(function(n){var cs=n.dataset.rc.split(' ');n.classList.toggle('rules-hidden',c!=='all'&&cs.indexOf(c)<0)});
 document.querySelectorAll('[data-route-text]').forEach(function(n){var r=n.dataset.routeText;n.classList.toggle('rules-hidden',c!=='all'&&((r==='eea')!==(c==='NO'||c==='IS')))});}

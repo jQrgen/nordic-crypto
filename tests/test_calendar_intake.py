@@ -391,8 +391,9 @@ class CalendarIntakeTests(unittest.TestCase):
         self.assertFalse(any(s.get("type") == "eventbrite-venue" for s in ev))
 
     def test_sources_page_is_left_aligned(self):
-        text = open(os.path.join(ROOT, "build.py"), encoding="utf-8").read()
-        self.assertIn("table.list th,table.list td{border-bottom:1px solid var(--line);padding:6px 6px;text-align:left", text)
+        import site_css
+        text = open(os.path.join(ROOT, "build.py"), encoding="utf-8").read() + site_css.bundle()
+        self.assertIn("table.list th,table.list td{border-bottom:1px solid var(--line);padding:8px 8px;text-align:left", text)
         self.assertIn('t("st_used")', text)
         self.assertIn('style="text-align:left"', text)
         en = open(os.path.join(ROOT, "i18n", "en.py"), encoding="utf-8").read()

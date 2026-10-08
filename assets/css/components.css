@@ -1,0 +1,35 @@
+/* Shared components: filters and chips, segmented buttons, badges and tags, notices, buttons, tables. */
+.filters{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin:16px 0;padding:12px 14px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+.filters label,.filters .lbl{font-size:14px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:inherit;font-size:13.5px;line-height:1.3;padding:4px 12px;border:1px solid var(--line-strong);border-radius:999px;background:var(--surface);color:var(--fg);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.chip:hover{border-color:var(--fg)}
+.chip[aria-pressed=true]{background:var(--fg);border-color:var(--fg);color:var(--bg)}
+.seg{display:inline-flex;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);overflow:hidden}
+.seg button{font:inherit;font-size:14px;padding:6px 14px;border:0;background:transparent;color:var(--fg);cursor:pointer}
+.seg button+button{border-inline-start:1px solid var(--line)}
+.seg button:hover{background:var(--soft)}
+.seg button[aria-pressed=true]{background:var(--fg);color:var(--bg)}
+.flag{vertical-align:-2px;flex:none;border-radius:1px}
+.cc{display:inline-block;font:500 11px/1 var(--f-mono);letter-spacing:.06em;padding:3px 5px;border-radius:2px;background:var(--fg);color:var(--bg);vertical-align:1px}
+.tag{display:inline-block;font-size:12px;line-height:1.5;padding:0 7px;border:1px solid var(--line);border-radius:2px;background:var(--surface);margin-inline-start:4px;color:var(--muted)}
+.tag.pend{border-color:var(--warm);color:var(--warm);font-weight:700}.tag.paid{border-color:var(--warm);color:var(--warm)}
+.tag.act{border-color:var(--up);color:var(--up);font-weight:700}.tag.inact{border-color:var(--line);color:var(--muted)}
+.xl{font-size:11.5px;padding:0 5px;margin-left:4px;border:1px solid;border-radius:2px}.xl.pub{color:var(--pub)}.xl.priv{color:var(--priv)}
+.pw{font-size:12px;color:var(--warm)}
+.notice{border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:0 var(--r) var(--r) 0;background:var(--surface);padding:10px 14px;font-size:14px;margin:14px 0}
+.notice.warn{border-left-color:var(--warm);background:var(--warm-bg)}
+.notice summary{cursor:pointer;font-weight:500}
+.empty{padding:20px;color:var(--muted)}
+.credit{font-size:12px;color:var(--muted);text-align:start;margin:4px 0 0}
+.ok{color:var(--up);font-weight:700}.bad{color:var(--down);font-weight:700}
+.readat,.tipform button{display:inline-block;padding:9px 16px;border:1px solid var(--fg);border-radius:var(--r-sm);background:var(--fg);color:var(--bg);text-decoration:none;font-weight:500;cursor:pointer}
+.readat:hover,.readat:focus-visible,.tipform button:hover,.tipform button:focus-visible{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.appbar{margin:12px 0 14px;text-align:left}.ios-tv{text-align:left;margin:2px 0 10px}
+a.applink{display:inline-block;padding:7px 14px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);font-weight:500;font-size:15px;line-height:1.35;text-decoration:none;text-align:left}
+a.applink:hover,a.applink:focus-visible{border-color:var(--fg)}
+.tablewrap{overflow-x:auto}
+table.list{width:100%;border-collapse:collapse;font-size:14.5px}table.list th,table.list td{border-bottom:1px solid var(--line);padding:8px 8px;text-align:left;vertical-align:top}
+table.list thead th{font:500 11.5px/1.3 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}table.list tbody th{font-weight:500}
+table.list tbody tr:hover{background:color-mix(in srgb,var(--soft) 60%,transparent)}
+main .share a,main .share button{border-color:var(--line-strong);border-radius:var(--r-sm);background:var(--surface)}

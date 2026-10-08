@@ -33,6 +33,7 @@ import headlines as headlines_mod  # noqa: E402
 import i18n  # noqa: E402
 import illustrations  # noqa: E402
 import press_images  # noqa: E402
+import site_css  # noqa: E402
 import site_url  # noqa: E402
 import source_logos  # noqa: E402
 import event_block  # noqa: E402
@@ -2235,12 +2236,7 @@ def docs_fragment(index):
             one = ep["example_url"]
     one_line = f"\ncurl -fsS {one}" if one else ""
     counts = index.get("counts") or {}
-    return f"""<style>
-.api-docs pre{{overflow:auto;padding:10px 12px;background:#f6f7f8;border:1px solid #e5e7eb;font-size:13px}}
-.api-docs code{{font-size:.92em}}
-.api-docs td:first-child{{white-space:nowrap}}
-.api-docs, .api-docs p, .api-docs li, .api-docs td, .api-docs th{{text-align:left}}
-</style>
+    return f"""{site_css.style("api-docs")}
 <div class="api-docs">
 <h1>Nordic Crypto data API</h1>
 <p class="lead">A public JSON feed of the site, for apps and for other tools. No account and no API key. It is regenerated whenever the site is built.</p>

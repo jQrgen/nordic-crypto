@@ -1,0 +1,49 @@
+/* News: the lead story, the latest grid, story lists, outlet marks, coverage and illustrations. Start-aligned in every language. */
+.leadstory,.latest,.storygrid,.storycard,.leadstory h2,.latest h2,.storycard h3,.leadstory .sum,.storycard .sum,.leadstory .meta,.storycard .meta,.leadstory .orig,.storycard .orig{text-align:start}
+.leadstory{margin:12px 0 4px;padding:0 0 22px;border-bottom:3px solid var(--fg)}
+.leadstory h2{font-size:36px;line-height:1.08;margin:0 0 8px;text-align:start}
+.leadstory h2 a,.storycard h3 a{text-decoration:none}
+.leadstory h2 a:hover,.storycard h3 a:hover{text-decoration:underline;text-decoration-thickness:1px}
+.leadstory .sum{font-size:18px;line-height:1.55;margin:10px 0 0;max-width:66ch}
+.latest h2{font:500 12px/1.2 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:26px 0 4px;text-align:start}
+.storygrid{display:grid;grid-template-columns:1fr;column-gap:40px;align-items:stretch;text-align:start}
+.storycard{padding:16px 0 18px;border-bottom:1px solid var(--line);min-width:0;text-align:start}
+.storycard h3{font-size:22px;line-height:1.18;margin:0 0 4px;text-align:start}
+.storycard .sum{font-size:15px;line-height:1.55;margin:6px 0 0}
+@media(min-width:760px){.storygrid{grid-template-columns:1fr 1fr}}
+@media(min-width:1080px){.storygrid{grid-template-columns:1fr 1fr 1fr}}
+@media(min-width:1080px){.leadstory h2{font-size:46px}}
+@media(max-width:640px){.leadstory h2{font-size:28px}}
+.orig{font-size:13.5px;color:var(--muted);margin:0 0 4px;line-height:1.4;font-weight:400;text-align:start}
+.sum{margin:6px 0 0;max-width:72ch;line-height:1.55;text-align:left}.sum.pend{color:var(--warm);font-style:italic}
+.bridge{margin:6px 0 0;font-weight:500;text-align:left}
+ol.news{list-style:none;margin:0;padding:0;text-align:left}
+ol.news li{display:flex;flex-direction:row;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);text-align:start}
+ol.news .storybody{min-width:0;flex:1;text-align:start}
+ol.news h3{font-size:21px;line-height:1.2;margin:0 0 4px}ol.news h3 a{text-decoration:none}ol.news h3 a:hover{text-decoration:underline;text-decoration-thickness:1px}
+.ill{margin:0 0 10px;text-align:start}
+.ill img{display:block;width:100%;max-width:720px;height:auto;background:var(--soft);border-radius:var(--r)}
+.primary-src{font-size:13.5px;margin:6px 0 0;text-align:start}
+.src{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;vertical-align:middle;text-align:start}
+.src-logo-link{display:inline-flex;flex:none;align-items:center;line-height:0}
+.src-logo{height:18px;width:auto;max-width:96px;object-fit:contain;flex:none;background:#fff;padding:1px 2px;border-radius:2px}
+/* outlets that covered a story */
+.covrow,.readat-row,.also,.covbars,.covsort,.covlist,.covgroup,.cov-by-country,.cov-by-time{text-align:start}
+.covrow{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:6px 8px;margin:8px 0 0}
+.cov-logo{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;text-decoration:none}
+.cov-more{font-size:12.5px;color:var(--fg);border:1px solid var(--line);border-radius:999px;padding:1px 9px;background:var(--surface);text-decoration:none}
+.cov-more:hover,.cov-more:focus-visible{border-color:var(--fg)}
+.also{margin:10px 0}
+.covbars{margin:0 0 16px}
+.covbar{display:grid;grid-template-columns:minmax(7rem,12rem) minmax(4rem,16rem) 2rem;justify-content:start;align-items:center;gap:10px;margin:4px 0;font-size:14px;max-width:100%}
+@media(max-width:640px){.covbar{grid-template-columns:minmax(6rem,9rem) minmax(3rem,1fr) 2rem}}
+.covbar .track{display:block;height:6px;background:var(--soft);border-radius:3px;overflow:hidden}
+.covbar .fill{display:block;height:6px;background:var(--accent);border-radius:3px}
+.covbar .covn{font-variant-numeric:tabular-nums;color:var(--muted)}
+.covsort{margin:10px 0}
+.covgroup{margin:0 0 14px}
+.covgroup h3{display:flex;justify-content:flex-start;gap:8px;align-items:baseline;font-size:19px;margin:0 0 4px}
+.covlist{list-style:none;padding:0;margin:0}
+.covlist li{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:flex-start;gap:6px 12px;border-bottom:1px solid var(--line);padding:10px 0}
+.covlist .cov-title{flex:1 1 16rem;min-width:12rem}
+.cov-open{font-weight:500}
