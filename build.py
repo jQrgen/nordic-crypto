@@ -2671,9 +2671,16 @@ def build_stats(ctx):
                 f'<th scope="col">{E(t(col))}</th><th scope="col">{E(t("vst_visits"))}</th><th scope="col">{E(t("vst_views"))}</th>'
                 f'</tr></thead><tbody>{body}</tbody></table></section>')
     ltr = lambda x: f'<bdi dir="ltr">{E(x)}</bdi>'   # ISO labels stay readable on Arabic and Urdu pages
+    # Data policy (GDPR) next to the numbers. While no beacon token is set, it says the script is not on yet.
+    issues = '<a href="https://github.com/jQrgen/nordic-crypto/issues" rel="noopener">github.com/jQrgen/nordic-crypto/issues</a>'
+    policy = (f'<section id="data-policy" class="stpolicy"><h2>{E(t("vdp_h"))}</h2>'
+              + ("" if analytics_token() else f'<p class="notice">{E(t("vdp_off"))}</p>')
+              + "".join(f"<p>{t(k)}</p>" for k in ("vdp_who", "vdp_collect", "vdp_publish", "vdp_not", "vdp_basis", "vdp_keep", "vdp_proc"))
+              + f'<p>{t("vdp_rights", issues=issues)}</p></section>')
     week_label = lambda r: f'{ltr(r["week"])}<span class="stfrom">{ltr(r["start"])}</span>'
     body = f"""<h1>{E(t("vst_title"))}</h1>
 <p class="lead">{E(t("vst_lead"))}</p>
+<p class="meta"><a href="#data-policy">{E(t("vdp_h"))}</a></p>
 <div class="stats" id="st" data-json="{root}api/v1/stats.json" data-gen="{E(gen)}" data-partial="{E(t("vst_partial"))}" data-upd="{E(t("vst_updated", when="{when}"))}">
 <p class="notice" id="st-pending"{" hidden" if has else ""}>{E(t("vst_pending"))}</p>
 <p class="meta" id="st-upd"{"" if has else " hidden"}>{t("vst_updated", when=f'<bdi dir="ltr">{E(when)}</bdi>') if has else ""}</p>
@@ -2683,7 +2690,8 @@ def build_stats(ctx):
 <p class="meta">{E(t("vst_visits_note"))}</p>
 <p class="meta">{E(t("vst_tz"))}</p>
 <p class="meta">{E(t("vst_data"))} <a href="{root}api/v1/stats.json">stats.json</a></p>
-</div>{site_css.style("stats")}"""
+</div>
+{policy}{site_css.style("stats")}"""
     script = r"""<script>(function(){var el=document.getElementById('st');if(!el||!window.fetch)return;
 var lang=document.documentElement.lang||'en',nf;try{nf=new Intl.NumberFormat(lang)}catch(e){nf={format:String}}
 function fmt(){[].forEach.call(el.querySelectorAll('.stn'),function(n){var v=n.getAttribute('data-n')||n.textContent;n.setAttribute('data-n',v);n.textContent=nf.format(+v)})}

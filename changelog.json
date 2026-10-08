@@ -7,31 +7,31 @@
    "date": null,
    "review": "pending",
    "title": "Visitor stats",
-   "description": "A new Stats page shows visits and page views per day, week and month. The numbers come from Cloudflare Web Analytics, which counts visits in aggregate and uses no cookies. The same numbers are in the data API as stats.json.",
+   "description": "A new Stats page shows visits and page views per day, week and month. The numbers come from Cloudflare Web Analytics, which counts visits in aggregate and uses no cookies. The same numbers are in the data API as stats.json. A data policy on the same page explains what is collected and published, the legal basis under the GDPR and how long the data is kept.",
    "i18n": {
     "nn": {
      "title": "Besøksstatistikk",
-     "description": "Ei ny statistikkside viser besøk og sidevisingar per dag, veke og månad. Tala kjem frå Cloudflare Web Analytics, som tel besøk samla og ikkje brukar informasjonskapslar. Dei same tala ligg i data-API-et som stats.json."
+     "description": "Ei ny statistikkside viser besøk og sidevisingar per dag, veke og månad. Tala kjem frå Cloudflare Web Analytics, som tel besøk samla og ikkje brukar informasjonskapslar. Dei same tala ligg i data-API-et som stats.json. Ei personvernerklæring på same sida forklarer kva som vert samla inn og publisert, det rettslege grunnlaget etter personvernforordninga og kor lenge dataa vert lagra."
     },
     "nb": {
      "title": "Besøksstatistikk",
-     "description": "En ny statistikkside viser besøk og sidevisninger per dag, uke og måned. Tallene kommer fra Cloudflare Web Analytics, som teller besøk samlet og ikke bruker informasjonskapsler. De samme tallene ligger i data-API-et som stats.json."
+     "description": "En ny statistikkside viser besøk og sidevisninger per dag, uke og måned. Tallene kommer fra Cloudflare Web Analytics, som teller besøk samlet og ikke bruker informasjonskapsler. De samme tallene ligger i data-API-et som stats.json. En personvernerklæring på samme side forklarer hva som samles inn og publiseres, det rettslige grunnlaget etter personvernforordningen og hvor lenge dataene lagres."
     },
     "sv": {
      "title": "Besöksstatistik",
-     "description": "En ny statistiksida visar besök och sidvisningar per dag, vecka och månad. Siffrorna kommer från Cloudflare Web Analytics, som räknar besök samlat och inte använder cookies. Samma siffror finns i data-API:t som stats.json."
+     "description": "En ny statistiksida visar besök och sidvisningar per dag, vecka och månad. Siffrorna kommer från Cloudflare Web Analytics, som räknar besök samlat och inte använder cookies. Samma siffror finns i data-API:t som stats.json. En datapolicy på samma sida förklarar vad som samlas in och publiceras, den rättsliga grunden enligt dataskyddsförordningen och hur länge uppgifterna sparas."
     },
     "da": {
      "title": "Besøgsstatistik",
-     "description": "En ny statistikside viser besøg og sidevisninger pr. dag, uge og måned. Tallene kommer fra Cloudflare Web Analytics, som tæller besøg samlet og ikke bruger cookies. De samme tal findes i data-API'et som stats.json."
+     "description": "En ny statistikside viser besøg og sidevisninger pr. dag, uge og måned. Tallene kommer fra Cloudflare Web Analytics, som tæller besøg samlet og ikke bruger cookies. De samme tal findes i data-API'et som stats.json. En datapolitik på samme side forklarer, hvad der indsamles og offentliggøres, retsgrundlaget efter databeskyttelsesforordningen, og hvor længe data gemmes."
     },
     "fi": {
      "title": "Kävijätilastot",
-     "description": "Uusi tilastosivu näyttää käynnit ja sivunlataukset päivittäin, viikoittain ja kuukausittain. Luvut tulevat Cloudflare Web Analyticsista, joka laskee käynnit yhteenlaskettuina eikä käytä evästeitä. Samat luvut ovat data-API:ssa tiedostona stats.json."
+     "description": "Uusi tilastosivu näyttää käynnit ja sivunlataukset päivittäin, viikoittain ja kuukausittain. Luvut tulevat Cloudflare Web Analyticsista, joka laskee käynnit yhteenlaskettuina eikä käytä evästeitä. Samat luvut ovat data-API:ssa tiedostona stats.json. Samalla sivulla oleva tietosuojakäytäntö kertoo, mitä kerätään ja julkaistaan, mikä on oikeusperuste tietosuoja-asetuksen mukaan ja kuinka kauan tietoja säilytetään."
     },
     "is": {
      "title": "Heimsóknartölfræði",
-     "description": "Ný tölfræðisíða sýnir heimsóknir og síðuflettingar á dag, viku og mánuð. Tölurnar koma úr Cloudflare Web Analytics, sem telur heimsóknir í heild og notar ekki vafrakökur. Sömu tölur eru í gagna-API-inu sem stats.json."
+     "description": "Ný tölfræðisíða sýnir heimsóknir og síðuflettingar á dag, viku og mánuð. Tölurnar koma úr Cloudflare Web Analytics, sem telur heimsóknir í heild og notar ekki vafrakökur. Sömu tölur eru í gagna-API-inu sem stats.json. Gagnastefna á sömu síðu útskýrir hverju er safnað og hvað er birt, lagagrundvöllinn samkvæmt persónuverndarreglugerðinni og hversu lengi gögnin eru geymd."
     }
    }
   },
