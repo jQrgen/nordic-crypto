@@ -4,8 +4,8 @@ Data: rules.json (sources + nodes, English proper names). Page text: STR below (
 Editor review: while rules.json "review" is "pending", the public build writes a short placeholder page (so links from
 the org chart, industry map and about page never break) and only the preview build (--preview) shows the full page.
 Claims and their sources: research/rules-claims-2026-10-03.md (public-claim-check workflow).
-No third-party scripts; the flowchart is inline SVG + CSS, animation off under prefers-reduced-motion; the ordered list
-below the diagram is the full text version (the SVG is aria-hidden)."""
+Layout: links, a country filter (chips), the five steps as a numbered flow that is also the jump list, then each step
+with its institutions in hairline rows. Start-aligned, one column, no animation, no third-party scripts."""
 import datetime, json, os, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if ROOT not in sys.path:
@@ -179,19 +179,16 @@ def build(m, ctx):
     n5 = "".join(node(S[x["kind"]], x["name"], f'<div class="ln">{flagname(c)}{(" · " + s(x["src"])) if x.get("src") else ""}{(" · " + s(x["src2"])) if x.get("src2") else ""}{chart(x["org"])}</div>', rc=c) for c in order for x in C[c]["enforce"])
     steps = [(S["s1"], f'<p>{E(S["s1p"])}</p>', n1, ""), (S["s2"], p2, n2, ""), (S["s3"], f'<p><span class="tag">{E(S["general"])}</span> {E(S["s3p"])}</p>', n3, ""),
              (S["s4"], f'<p>{E(S["s4p"])}</p>' + notes("note4"), n4, ""), (S["s5"], f'<p>{E(S["s5p"])}</p>' + notes("note5"), n5, "")]
-    lis = "".join(f'<li class="rstep" style="animation-delay:{i * 0.12:.2f}s"><h2>{E(h)}</h2>{p}<div class="rnodes">{n}</div></li>' for i, (h, p, n, _) in enumerate(steps))
-    # decorative SVG summary (aria-hidden); the list is the text version
-    lab = [S["s1"], S["s2"], S["s3"], S["s4"], S["s5"]]
-    boxes = "".join(f'<g transform="translate(10,{10 + i * 62})"><rect width="500" height="40" rx="6"/><text x="16" y="25">{i + 1}. {E(t_)}</text></g>' for i, t_ in enumerate(lab))
-    arrows = "".join(f'<path class="ar" d="M60 {50 + i * 62} V{70 + i * 62}"/><path class="ah" d="M54 {66 + i * 62} L60 {72 + i * 62} L66 {66 + i * 62}Z"/>' for i in range(4))
-    eea = f'<g class="eea" transform="translate(300,{10 + 62 + 4})"><rect width="200" height="32" rx="6"/><text x="12" y="21">NO · IS: {E(S["eea"])}</text></g>'
-    svg = f'<svg class="rflow" viewBox="0 0 520 {10 + 5 * 62}" aria-hidden="true" focusable="false">{boxes}{arrows}{eea}</svg>'
-    seg = (f'<div class="rules-c"><div class="seg" id="rcountry" role="group" aria-label="{E(S["country"])}"><button type="button" data-c="all" aria-pressed="true">{E(S["all"])}</button>'
-           + "".join(f'<button type="button" data-c="{c}" aria-pressed="false">{m.flag(c)} {E(m.cname(c))}</button>' for c in order) + '</div></div>')
-    pend = f'<p class="notice"><b>{E(S["pending"])}</b></p>' if R.get("review") == "pending" else ""
-    body = (CSS + f'<div class="rules-flow"><h1>{E(title)}</h1>{pend}<p class="lead">{E(S["lead"])}</p>'
-            f'<p><a href="../org-chart/">{E(S["back"])}</a> · <a href="../org-chart/#industry-map">{E(S["see_map"])}</a> · <a href="../regulation-videos/">{E(S["videos"])}</a></p>{seg}'
-            f'<figure><figcaption class="meta">{E(S["diagram"])}</figcaption>{svg}</figure><ol class="rsteps">{lis}</ol>'
-            f'<p class="meta">{E(S["caveat"].format(d=checked))}</p></div>')
+    lis = "".join(f'<li class="rstep" id="step-{i + 1}"><h2>{E(h)}</h2>{p}<div class="rnodes">{n}</div></li>' for i, (h, p, n, _) in enumerate(steps))
+    flow = (f'<nav class="rjump" aria-label="{E(m.t("toc_h"))}"><ol>'
+            + "".join(f'<li><a href="#step-{i + 1}">{E(h)}</a></li>' for i, (h, _p, _n, _x) in enumerate(steps)) + '</ol></nav>')
+    seg = (f'<div class="rules-c"><span class="lbl" aria-hidden="true">{E(S["country"])}</span><div class="chips" id="rcountry" role="group" aria-label="{E(S["country"])}">'
+           f'<button type="button" class="chip" data-c="all" aria-pressed="true">{E(S["all"])}</button>'
+           + "".join(f'<button type="button" class="chip" data-c="{c}" aria-pressed="false">{m.flag(c)}{E(m.cname(c))}</button>' for c in order) + '</div></div>')
+    pend = f'<p class="notice">{E(S["pending"])}</p>' if R.get("review") == "pending" else ""
+    links = (f'<p class="rlinks"><a href="../org-chart/">{E(S["back"])}</a><a href="../org-chart/#industry-map">{E(S["see_map"])}</a>'
+             f'<a href="../regulation-videos/">{E(S["videos"])}</a></p>')
+    body = (CSS + f'<div class="rules-flow"><h1>{E(title)}</h1>{pend}<p class="lead">{E(S["lead"])}</p>{links}{seg}{flow}'
+            f'<ol class="rsteps">{lis}</ol><p class="meta rcaveat">{E(S["caveat"].format(d=checked))}</p></div>')
     m.page("rules", title, "org-chart", body, S["desc"], extra_script=JS)
     if L == "en": print(f"rules: page built ({'preview, ' if m.PREVIEW else ''}review={R.get('review')}), {len(srcs)} sources")

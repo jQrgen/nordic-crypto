@@ -396,3 +396,15 @@ S.update({
 "more_news_h": "Flere nyheter",
 "all_news": "Alle nyheter",
 })
+
+# Who's who: country rows with counts, search matches, the full list on demand
+S.update({
+"org_list_show": "Vis alle {n} oppføringene",
+"js_n_orgs": "{n} organisasjoner",
+"js_n_org1": "1 organisasjon",
+"js_n_people": "{n} personer",
+"js_n_person1": "1 person",
+"js_n_match": "{n} treff",
+"js_n_match1": "1 treff",
+"js_no_match": "Ingenting passer med søket.",
+})

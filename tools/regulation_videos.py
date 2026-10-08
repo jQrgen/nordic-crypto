@@ -10,7 +10,8 @@ the spoken lines of regulation-videos/scripts/, which were written from that fil
 org-chart regulation notes. This module does not add legal claims of its own.
 
 Iceland is EEA, not EU. Seðlabanki Íslands houses Fjármálaeftirlit — the page says so.
-Layout: left-aligned, newsreel kicker (navy, mark on the left). No centered slot.
+Layout: one start-aligned column; each slot is a hairline section with a quiet label line (flag, country, route, length),
+the poster or video, the institutions in hairline rows, and the narrator notes folded in a <details>. No centered slot.
 Brand: Nordic Crypto. Sign-off: The Nordic Crypto team. No Kaupr sponsor line.
 The opener does not say the films were made with artificial intelligence.
 """
@@ -331,7 +332,7 @@ def build(m, ctx):
         return m.i18n.long_date(L, datetime.date.fromisoformat(iso))
 
     jump = (f'<nav class="rv-jump" aria-label="{E(S["jump"])}">'
-            + "".join(f'<a href="#{c}">{m.flag(c)} {E(m.cname(c))}</a>' for c in order)
+            + "".join(f'<a href="#{c}">{m.flag(c)}{E(m.cname(c))}</a>' for c in order)
             + "</nav>")
     blocks = []
     for c in order:
@@ -341,10 +342,9 @@ def build(m, ctx):
         h = S["slot_title"].format(country=name)
         route = S["eea"] if row.get("route") == "eea" else S["eu"]
         minutes = S["minutes"].format(m=max(1, int(round((v.get("duration_target_s") or 0) / 60)))) if v.get("duration_target_s") else ""
-        kicker = (f'<div class="rv-kicker">{m.flag(c)} <span>{E(name)}</span>'
-                  f'<span class="chip">{E(route)}</span>'
-                  + (f'<span class="meta">{E(minutes)}</span>' if minutes else "")
-                  + "</div>")
+        kicker = (f'<p class="rv-kicker">{m.flag(c)}<span>{E(name)}</span><span>{E(route)}</span>'
+                  + (f'<span>{E(minutes)}</span>' if minutes else "")
+                  + "</p>")
         vid = media_path(v.get("file"))
         poster_name = os.path.basename(v["poster"]) if v.get("poster") and poster_path(v.get("poster")) else ""
         if vid:
@@ -362,12 +362,15 @@ def build(m, ctx):
                    if poster_name else "")
             media = (f'<figure class="rv-media">{img}<figcaption class="rv-soon"><b>{E(S["coming"])}</b> {E(S["coming_p"])}</figcaption></figure>'
                      if img else f'<p class="rv-soon"><b>{E(S["coming"])}</b> {E(S["coming_p"])}</p>')
-        facts = [(S["route"], route, "")]
+        facts = []   # the route is in the label line above
         law_bits = " · ".join(x for x in (link_src(row.get("law_src")),) if x)
         facts.append((S["law"], row.get("law") or "", f'<div class="meta">{law_bits}</div>' if law_bits else ""))
-        facts.append((S["parliament"], row.get("parliament") or "", chart(row.get("parliament_org"))))
+        def chart_line(org):
+            x = chart(org).lstrip(" ·")
+            return f'<div class="meta">{x}</div>' if x else ""
+        facts.append((S["parliament"], row.get("parliament") or "", chart_line(row.get("parliament_org"))))
         ministry = row.get("ministry") or {}
-        facts.append((S["ministry"], ministry.get("name") or "", chart(ministry.get("org"))))
+        facts.append((S["ministry"], ministry.get("name") or "", chart_line(ministry.get("org"))))
         sup = row.get("supervisor") or {}
         sup_links = " · ".join(x for x in (link_src(sup.get("src")), link_src(sup.get("src2")), chart(sup.get("org")).lstrip(" ·")) if x)
         facts.append((S["supervisor"], sup.get("name") or "", f'<div class="meta">{sup_links}</div>' if sup_links else ""))
@@ -381,10 +384,10 @@ def build(m, ctx):
         call = f'<p class="rv-call">{E(S["is_note"])}</p>' if c == "IS" else ""
         script = os.path.join(_root(), "regulation-videos", v.get("script") or "")
         lines = narrator_lines(script)
-        notes_lang = "" if L == "en" else ' lang="en"'
+        notes_lang = m.bidi_attr("en")   # English notes: lang="en" on other pages, and dir="ltr" on right-to-left ones
         en_note = "" if L == "en" else f'<p class="meta">{E(S["notes_en"])}</p>'
-        notes = (f'<h3>{E(S["narrator"])}</h3>{en_note}<div class="rv-notes"{notes_lang}>'
-                 + "".join(f"<p>{E(line)}</p>" for line in lines) + "</div>") if lines else ""
+        notes = (f'<details class="rv-nbox"><summary>{E(S["narrator"])}</summary>{en_note}<div class="rv-notes"{notes_lang}>'
+                 + "".join(f"<p>{E(line)}</p>" for line in lines) + "</div></details>") if lines else ""
         seen_url = {srcs[k]["url"] for k in _source_keys(row) if k in srcs}
         extra_src = []
         for s in (reg_by.get(c) or {}).get("sources") or []:
@@ -395,8 +398,8 @@ def build(m, ctx):
         src_html = " · ".join([link_src(k) for k in _source_keys(row)] + extra_src)
         src_block = f'<p class="meta"><b>{E(S["sources"])}.</b> {src_html}</p>' if src_html else ""
         blocks.append(
-            f'<article class="rv-slot" id="{E(c)}">{kicker}<div class="rv-body"><h2>{E(h)}</h2>{media}'
-            f'<div class="rv-facts">{fact_html}</div>{call}{notes}{src_block}</div></article>')
+            f'<article class="rv-slot" id="{E(c)}" aria-labelledby="rv-{E(c)}-h">{kicker}<h2 id="rv-{E(c)}-h">{E(h)}</h2>{media}'
+            f'<div class="rv-facts">{fact_html}</div>{call}{notes}{src_block}</article>')
     checked = d(R["checked"]) if R.get("checked") else ""
     checked_p = f'<p class="meta">{E(S["checked"].format(d=checked))}</p>' if checked else ""
     n_ready = sum(1 for c in order if media_path(by_cc[c].get("file")))
@@ -408,9 +411,9 @@ def build(m, ctx):
         soon_html = ""
     body = (CSS + f'<div class="rv"><h1>{E(title)}</h1><p class="lead">{E(S["lead"])}</p>'
             f'{soon_html}'
-            f'<p>{E(S["not_advice"])} <b>{E(S["signoff"])}</b>.</p>'
-            f'<p><a href="../rules/">{E(S["back"])}</a></p>{jump}{"".join(blocks)}{checked_p}'
-            f'<p><b>{E(S["signoff"])}</b></p></div>')
+            f'<p class="rv-advice">{E(S["not_advice"])} <b>{E(S["signoff"])}</b>.</p>'
+            f'<p class="rv-back"><a href="../rules/">{E(S["back"])}</a></p>{jump}{"".join(blocks)}<div class="rv-end">{checked_p}'
+            f'<p><b>{E(S["signoff"])}</b></p></div></div>')
     m.page("regulation-videos", title, "org-chart", body, S["desc"])
     if L == "en":
         ready = sum(1 for c in order if media_path(by_cc[c].get("file")))

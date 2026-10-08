@@ -396,3 +396,15 @@ S.update({
 "more_news_h": "Lisää uutisia",
 "all_news": "Kaikki uutiset",
 })
+
+# Who's who: country rows with counts, search matches, the full list on demand
+S.update({
+"org_list_show": "Näytä kaikki {n} merkintää",
+"js_n_orgs": "{n} organisaatiota",
+"js_n_org1": "1 organisaatio",
+"js_n_people": "{n} henkilöä",
+"js_n_person1": "1 henkilö",
+"js_n_match": "{n} osumaa",
+"js_n_match1": "1 osuma",
+"js_no_match": "Haulla ei löytynyt mitään.",
+})
