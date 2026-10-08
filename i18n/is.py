@@ -396,3 +396,10 @@ S.update({
 "more_news_h": "Fleiri fréttir",
 "all_news": "Allar fréttir",
 })
+
+# Sources, academia, calendar and event pages: lighter lists
+S.update({
+"src_how": "Hvernig við lesum heimildirnar",
+"src_samefeed": "„Same feed as …“ merkir að tveir miðlar deila einu streymi. Það er lesið einu sinni svo að frétt lendi ekki undir röngum miðli.",
+"src_n_mon": "{n} í vöktun",
+})

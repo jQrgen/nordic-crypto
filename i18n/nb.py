@@ -396,3 +396,10 @@ S.update({
 "more_news_h": "Flere nyheter",
 "all_news": "Alle nyheter",
 })
+
+# Sources, academia, calendar and event pages: lighter lists
+S.update({
+"src_how": "Slik leser vi kildene",
+"src_samefeed": "«Same feed as …» betyr at to titler deler én feed. Den leses én gang, så en sak ikke føres under feil tittel.",
+"src_n_mon": "{n} følges",
+})

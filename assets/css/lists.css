@@ -1,0 +1,65 @@
+/* Sources and Academia (inlined only on those pages). One filter bar with counts on the chips; sources in one collapsed group
+   per country, a lean three-column table inside (source with a meta line and the note, method, status with a dot);
+   academia as compact rows under a short jump list. Start-aligned in every language. */
+.srcpage,.acpage,.lfilters,.srcpage .list,.srcpage .list th,.srcpage .list td,.aclist,.acjump{text-align:start}
+.lfilters{display:flex;flex-wrap:wrap;align-items:center;gap:10px 28px;margin:18px 0 6px;padding:12px 14px;box-shadow:none}
+.srcpage .lfilters,#srclist,.srcev{max-width:64rem}
+.lf{display:flex;align-items:center;gap:8px 10px;min-width:0}
+.lf-q{gap:8px 16px}
+.lf-q input{width:22rem;max-width:100%;min-height:40px}
+.lfilters .chip{min-height:34px}
+.lfilters .n,.acjump .n,.srcpage .list .sub .n{font:500 11px var(--f-mono);opacity:.8}
+.lcount{margin:0;font-weight:600;color:var(--fg);unicode-bidi:plaintext}
+/* how we read sources */
+.srchow{margin:0 0 4px;max-width:70ch;font-size:15px;line-height:1.6;color:var(--muted)}
+.srchow summary,.srcg>summary{cursor:pointer;list-style:none}
+.srchow summary::-webkit-details-marker,.srcg>summary::-webkit-details-marker{display:none}
+.srchow summary{display:inline-flex;align-items:center;gap:8px;min-height:40px;font-weight:600;color:var(--fg)}
+.srchow summary::before,.srcg>summary::before{content:"";width:7px;height:7px;flex:none;border-inline-end:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(-45deg);transition:transform .15s}
+:root[dir=rtl] .srchow summary::before,:root[dir=rtl] .srcg>summary::before{transform:rotate(45deg)}
+.srchow[open] summary::before,.srcg[open]>summary::before{transform:rotate(45deg)}
+:root[dir=rtl] .srchow[open] summary::before,:root[dir=rtl] .srcg[open]>summary::before{transform:rotate(-45deg)}
+.srchow p{margin:6px 0 10px}
+/* one group per country */
+#srclist{margin:14px 0 26px;border-top:1px solid var(--line-strong)}
+.srcg{border-bottom:1px solid var(--line)}
+.srcg>summary{display:flex;align-items:center;flex-wrap:wrap;gap:4px 14px;min-height:52px;padding:10px 0}
+.srcg>summary:hover h2{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px}
+.srcg h2{display:inline-flex;align-items:center;gap:10px;margin:0;font-size:22px;line-height:1.2}
+.srcg h2 .flag{width:22px;height:16px}
+.srcg>summary .n{font-size:14px;color:var(--muted);unicode-bidi:plaintext}
+.srcg[open]>summary{border-bottom:1px solid var(--line-strong)}
+/* the table inside a group */
+.srcpage table.list{table-layout:fixed;margin:0 0 18px;font-size:14.5px}
+.srcpage .list thead th:nth-child(2){width:6.5rem}
+.srcpage .list thead th:nth-child(3){width:11rem}
+.srcpage .srcev thead th:nth-child(2){width:11rem}
+.srcpage .list td{padding:9px 8px;line-height:1.4;overflow-wrap:anywhere}
+.srcpage .list td:first-child>a{font-weight:600;text-decoration:none}
+.srcpage .list td:first-child>a:hover{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px}
+.srcpage .list .src-logo{margin-inline-end:7px;vertical-align:-3px}
+.srcpage .list .sm,.srcpage .list .sn{display:block;margin-top:2px;font-size:13px;line-height:1.4;color:var(--muted)}
+.srcpage .list .sn{font-size:12.5px;color:color-mix(in srgb,var(--muted) 85%,transparent)}
+.srcpage .list tr.sub th{padding:16px 8px 6px;font:500 11.5px/1.3 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line-strong);background:transparent}
+.srcpage .list tbody tr.sub:hover{background:transparent}
+.srcpage .list td.s{font-size:13.5px;font-weight:600}
+.srcpage .list td.s::before{content:"";display:inline-block;width:8px;height:8px;margin-inline-end:7px;border-radius:50%;background:currentColor;vertical-align:1px}
+.srcpage .list td.s.man{color:var(--muted)}
+.srcpage .list td.s.man::before{background:transparent;box-shadow:inset 0 0 0 1.5px currentColor}
+.srcev{margin-bottom:8px}
+.srcev .flag{vertical-align:-3px;margin-inline-end:4px}
+.srcpage #kaupr{max-width:70ch}
+@media(max-width:640px){
+ .lfilters{display:grid;gap:8px;padding:10px 12px}
+ .lf{flex-wrap:wrap;gap:4px 10px}.lf .lbl{flex:1 0 100%}
+ .lfilters .chip{min-height:40px}
+ .lf-q{display:grid}
+ .lf-q input{width:100%;min-height:44px;font-size:16px}
+ .srcg h2{font-size:20px}
+ .srcpage table.list{font-size:14px}
+ .srcpage .list thead th:nth-child(2){width:4.6rem}
+ .srcpage .list thead th:nth-child(3),.srcpage .srcev thead th:nth-child(2){width:6.6rem}
+ .srcpage .list td{padding:8px 4px}
+ .srcpage .list td.s{font-size:12.5px}
+ .srcpage .list td.s::before{margin-inline-end:5px}
+}

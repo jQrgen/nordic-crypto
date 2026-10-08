@@ -415,3 +415,10 @@ S.update({
 "more_news_h": "More news",
 "all_news": "All news",
 })
+
+# Sources, academia, calendar and event pages: lighter lists
+S.update({
+"src_how": "How we read sources",
+"src_samefeed": "“Same feed as …” means two titles share one feed. It is read once, so a story is not filed under the wrong title.",
+"src_n_mon": "{n} monitored",
+})

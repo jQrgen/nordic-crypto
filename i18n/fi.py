@@ -396,3 +396,10 @@ S.update({
 "more_news_h": "Lisää uutisia",
 "all_news": "Kaikki uutiset",
 })
+
+# Sources, academia, calendar and event pages: lighter lists
+S.update({
+"src_how": "Näin luemme lähteitä",
+"src_samefeed": "”Same feed as …” tarkoittaa, että kahdella lehdellä on yhteinen syöte. Se luetaan kerran, jotta juttu ei päädy väärän lehden alle.",
+"src_n_mon": "{n} seurannassa",
+})
