@@ -1,75 +1,10 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T18:39:13+00:00",
+ "generated_at": "2026-10-08T19:37:45+00:00",
  "preview": false,
- "count": 11,
+ "count": 10,
  "events": [
-  {
-   "id": "ccc2eea6b213",
-   "title": "Göteborg Bitcoin Meetup #49",
-   "title_original": null,
-   "start": "2026-10-08T18:00:00+02:00",
-   "end": "2026-10-08T21:00:00+02:00",
-   "place": "Ölrepubliken, Kronhusgatan 2B, Göteborg",
-   "city": "Göteborg",
-   "country": "SE",
-   "online": false,
-   "organiser": "Swedish Bitcoin Meetups",
-   "url": "https://www.meetup.com/swedish-bitcoin-meetups/events/316047111/",
-   "source": "Swedish Bitcoin Meetups (Meetup.com)",
-   "paid": null,
-   "sponsored": null,
-   "note": null,
-   "note_i18n": {},
-   "description": {
-    "text": "We want to provide friendly and open events where we discuss bitcoin and its current and potential role in the global economy. If you're new to the idea, this is the place to go for educated discussions from both professionals and experienced amateurs in the space. And if you are said professional or experienced amateur, this is your opportunity to go in depth in the topic with like minded peers. Note! This is a Bitcoin Only-event. We are not interested in NFT's, altcoins or general blockchain discussions.",
-    "lang": "en",
-    "source_url": "https://www.meetup.com/swedish-bitcoin-meetups/events/316047111/",
-    "source_name": "Swedish Bitcoin Meetups (Meetup.com)",
-    "retrieved": "2026-10-07T23:50:00+00:00",
-    "i18n": {
-     "nn": "Me vil ha vennlege og opne treff der me diskuterer bitcoin og rolla han har og kan få i den globale økonomien. Er du ny, er dette staden for opplyste samtalar mellom fagfolk og erfarne amatørar. Er du ein av dei, kan du gå i djupna med likesinna. Merk: dette er eit arrangement berre for bitcoin. Me er ikkje interesserte i NFT-ar, altcoins eller generelle blockchain-diskusjonar.",
-     "nb": "Vi vil ha vennlige og åpne treff der vi diskuterer bitcoin og rollen den har og kan få i den globale økonomien. Er du ny, er dette stedet for opplyste samtaler mellom fagfolk og erfarne amatører. Er du en av dem, kan du gå i dybden med likesinnede. Merk: dette er et arrangement bare for bitcoin. Vi er ikke interessert i NFT-er, altcoins eller generelle blockchain-diskusjoner.",
-     "sv": "Vi vill ha vänliga och öppna träffar där vi diskuterar bitcoin och dess nuvarande och möjliga roll i den globala ekonomin. Om du är ny är det här platsen för initierade samtal mellan yrkespersoner och erfarna amatörer. Är du en av dem kan du gå på djupet med likasinnade. Observera: detta är ett evenemang bara för bitcoin. Vi är inte intresserade av NFT:er, altcoins eller allmänna diskussioner om blockkedjor.",
-     "da": "Vi vil have venlige og åbne møder, hvor vi diskuterer bitcoin og dens nuværende og mulige rolle i den globale økonomi. Er du ny, er det her stedet for oplyste samtaler mellem fagfolk og erfarne amatører. Er du en af dem, kan du gå i dybden med ligesindede. Bemærk: dette er et arrangement kun om bitcoin. Vi er ikke interesserede i NFT'er, altcoins eller generelle blockchain-diskussioner.",
-     "fi": "Haluamme ystävällisiä ja avoimia tapaamisia, joissa keskustellaan bitcoinista ja sen nykyisestä ja mahdollisesta roolista maailmantaloudessa. Jos aihe on sinulle uusi, täällä ammattilaiset ja kokeneet harrastajat keskustelevat siitä. Jos olet itse sellainen, voit syventyä aiheeseen samanhenkisten kanssa. Huom: tämä on vain bitcoin-tapahtuma. NFT:t, altcoinit ja yleiset lohkoketjukeskustelut eivät ole aiheena.",
-     "is": "Við viljum vingjarnlega og opna fundi þar sem rætt er um bitcoin og hlutverk þess í hagkerfi heimsins. Ef þú ert nýr í efninu er þetta staðurinn fyrir upplýstar umræður fagaðila og vanra áhugamanna. Ef þú ert slíkur geturðu farið djúpt í efnið með líkum. Athugið: þetta er aðeins bitcoin-viðburður. Við höfum ekki áhuga á NFT, altcoins eða almennum umræðum um bálkakeðju."
-    }
-   },
-   "past": false,
-   "ongoing": true,
-   "html_url": "https://nordiccrypto.no/calendar/ccc2eea6b213/",
-   "html_urls": {
-    "en": "https://nordiccrypto.no/calendar/ccc2eea6b213/",
-    "nn": "https://nordiccrypto.no/nn/calendar/ccc2eea6b213/",
-    "nb": "https://nordiccrypto.no/nb/calendar/ccc2eea6b213/",
-    "sv": "https://nordiccrypto.no/sv/calendar/ccc2eea6b213/",
-    "da": "https://nordiccrypto.no/da/calendar/ccc2eea6b213/",
-    "fi": "https://nordiccrypto.no/fi/calendar/ccc2eea6b213/",
-    "is": "https://nordiccrypto.no/is/calendar/ccc2eea6b213/",
-    "zh": "https://nordiccrypto.no/zh/calendar/ccc2eea6b213/",
-    "hi": "https://nordiccrypto.no/hi/calendar/ccc2eea6b213/",
-    "es": "https://nordiccrypto.no/es/calendar/ccc2eea6b213/",
-    "fr": "https://nordiccrypto.no/fr/calendar/ccc2eea6b213/",
-    "ar": "https://nordiccrypto.no/ar/calendar/ccc2eea6b213/",
-    "bn": "https://nordiccrypto.no/bn/calendar/ccc2eea6b213/",
-    "pt": "https://nordiccrypto.no/pt/calendar/ccc2eea6b213/",
-    "ru": "https://nordiccrypto.no/ru/calendar/ccc2eea6b213/",
-    "ur": "https://nordiccrypto.no/ur/calendar/ccc2eea6b213/",
-    "id": "https://nordiccrypto.no/id/calendar/ccc2eea6b213/",
-    "de": "https://nordiccrypto.no/de/calendar/ccc2eea6b213/",
-    "ja": "https://nordiccrypto.no/ja/calendar/ccc2eea6b213/",
-    "sw": "https://nordiccrypto.no/sw/calendar/ccc2eea6b213/",
-    "mr": "https://nordiccrypto.no/mr/calendar/ccc2eea6b213/"
-   },
-   "api_url": "https://nordiccrypto.no/api/v1/events/ccc2eea6b213.json",
-   "place_source": {
-    "name": "Swedish Bitcoin Meetups (Meetup.com)",
-    "url": "https://www.meetup.com/swedish-bitcoin-meetups/",
-    "retrieved": "2026-10-03T15:23:20+00:00"
-   }
-  },
   {
    "id": "89ced460e4ca",
    "title": "Crypto killer apps",
@@ -742,71 +677,5 @@
    }
   }
  ],
- "ongoing": [
-  {
-   "id": "ccc2eea6b213",
-   "title": "Göteborg Bitcoin Meetup #49",
-   "title_original": null,
-   "start": "2026-10-08T18:00:00+02:00",
-   "end": "2026-10-08T21:00:00+02:00",
-   "place": "Ölrepubliken, Kronhusgatan 2B, Göteborg",
-   "city": "Göteborg",
-   "country": "SE",
-   "online": false,
-   "organiser": "Swedish Bitcoin Meetups",
-   "url": "https://www.meetup.com/swedish-bitcoin-meetups/events/316047111/",
-   "source": "Swedish Bitcoin Meetups (Meetup.com)",
-   "paid": null,
-   "sponsored": null,
-   "note": null,
-   "note_i18n": {},
-   "description": {
-    "text": "We want to provide friendly and open events where we discuss bitcoin and its current and potential role in the global economy. If you're new to the idea, this is the place to go for educated discussions from both professionals and experienced amateurs in the space. And if you are said professional or experienced amateur, this is your opportunity to go in depth in the topic with like minded peers. Note! This is a Bitcoin Only-event. We are not interested in NFT's, altcoins or general blockchain discussions.",
-    "lang": "en",
-    "source_url": "https://www.meetup.com/swedish-bitcoin-meetups/events/316047111/",
-    "source_name": "Swedish Bitcoin Meetups (Meetup.com)",
-    "retrieved": "2026-10-07T23:50:00+00:00",
-    "i18n": {
-     "nn": "Me vil ha vennlege og opne treff der me diskuterer bitcoin og rolla han har og kan få i den globale økonomien. Er du ny, er dette staden for opplyste samtalar mellom fagfolk og erfarne amatørar. Er du ein av dei, kan du gå i djupna med likesinna. Merk: dette er eit arrangement berre for bitcoin. Me er ikkje interesserte i NFT-ar, altcoins eller generelle blockchain-diskusjonar.",
-     "nb": "Vi vil ha vennlige og åpne treff der vi diskuterer bitcoin og rollen den har og kan få i den globale økonomien. Er du ny, er dette stedet for opplyste samtaler mellom fagfolk og erfarne amatører. Er du en av dem, kan du gå i dybden med likesinnede. Merk: dette er et arrangement bare for bitcoin. Vi er ikke interessert i NFT-er, altcoins eller generelle blockchain-diskusjoner.",
-     "sv": "Vi vill ha vänliga och öppna träffar där vi diskuterar bitcoin och dess nuvarande och möjliga roll i den globala ekonomin. Om du är ny är det här platsen för initierade samtal mellan yrkespersoner och erfarna amatörer. Är du en av dem kan du gå på djupet med likasinnade. Observera: detta är ett evenemang bara för bitcoin. Vi är inte intresserade av NFT:er, altcoins eller allmänna diskussioner om blockkedjor.",
-     "da": "Vi vil have venlige og åbne møder, hvor vi diskuterer bitcoin og dens nuværende og mulige rolle i den globale økonomi. Er du ny, er det her stedet for oplyste samtaler mellem fagfolk og erfarne amatører. Er du en af dem, kan du gå i dybden med ligesindede. Bemærk: dette er et arrangement kun om bitcoin. Vi er ikke interesserede i NFT'er, altcoins eller generelle blockchain-diskussioner.",
-     "fi": "Haluamme ystävällisiä ja avoimia tapaamisia, joissa keskustellaan bitcoinista ja sen nykyisestä ja mahdollisesta roolista maailmantaloudessa. Jos aihe on sinulle uusi, täällä ammattilaiset ja kokeneet harrastajat keskustelevat siitä. Jos olet itse sellainen, voit syventyä aiheeseen samanhenkisten kanssa. Huom: tämä on vain bitcoin-tapahtuma. NFT:t, altcoinit ja yleiset lohkoketjukeskustelut eivät ole aiheena.",
-     "is": "Við viljum vingjarnlega og opna fundi þar sem rætt er um bitcoin og hlutverk þess í hagkerfi heimsins. Ef þú ert nýr í efninu er þetta staðurinn fyrir upplýstar umræður fagaðila og vanra áhugamanna. Ef þú ert slíkur geturðu farið djúpt í efnið með líkum. Athugið: þetta er aðeins bitcoin-viðburður. Við höfum ekki áhuga á NFT, altcoins eða almennum umræðum um bálkakeðju."
-    }
-   },
-   "past": false,
-   "ongoing": true,
-   "html_url": "https://nordiccrypto.no/calendar/ccc2eea6b213/",
-   "html_urls": {
-    "en": "https://nordiccrypto.no/calendar/ccc2eea6b213/",
-    "nn": "https://nordiccrypto.no/nn/calendar/ccc2eea6b213/",
-    "nb": "https://nordiccrypto.no/nb/calendar/ccc2eea6b213/",
-    "sv": "https://nordiccrypto.no/sv/calendar/ccc2eea6b213/",
-    "da": "https://nordiccrypto.no/da/calendar/ccc2eea6b213/",
-    "fi": "https://nordiccrypto.no/fi/calendar/ccc2eea6b213/",
-    "is": "https://nordiccrypto.no/is/calendar/ccc2eea6b213/",
-    "zh": "https://nordiccrypto.no/zh/calendar/ccc2eea6b213/",
-    "hi": "https://nordiccrypto.no/hi/calendar/ccc2eea6b213/",
-    "es": "https://nordiccrypto.no/es/calendar/ccc2eea6b213/",
-    "fr": "https://nordiccrypto.no/fr/calendar/ccc2eea6b213/",
-    "ar": "https://nordiccrypto.no/ar/calendar/ccc2eea6b213/",
-    "bn": "https://nordiccrypto.no/bn/calendar/ccc2eea6b213/",
-    "pt": "https://nordiccrypto.no/pt/calendar/ccc2eea6b213/",
-    "ru": "https://nordiccrypto.no/ru/calendar/ccc2eea6b213/",
-    "ur": "https://nordiccrypto.no/ur/calendar/ccc2eea6b213/",
-    "id": "https://nordiccrypto.no/id/calendar/ccc2eea6b213/",
-    "de": "https://nordiccrypto.no/de/calendar/ccc2eea6b213/",
-    "ja": "https://nordiccrypto.no/ja/calendar/ccc2eea6b213/",
-    "sw": "https://nordiccrypto.no/sw/calendar/ccc2eea6b213/",
-    "mr": "https://nordiccrypto.no/mr/calendar/ccc2eea6b213/"
-   },
-   "api_url": "https://nordiccrypto.no/api/v1/events/ccc2eea6b213.json",
-   "place_source": {
-    "name": "Swedish Bitcoin Meetups (Meetup.com)",
-    "url": "https://www.meetup.com/swedish-bitcoin-meetups/",
-    "retrieved": "2026-10-03T15:23:20+00:00"
-   }
-  }
- ]
+ "ongoing": []
 }

@@ -9,7 +9,7 @@
 <link rel="icon" href="../favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="../assets/brand/mark-180.png">
 <link rel="icon" href="../assets/brand/mark-64.png" sizes="64x64" type="image/png">
-<meta name="theme-color" content="#1E3A45" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#15303A" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#05070D">
 <meta property="og:image" content="https://nordiccrypto.no/assets/brand/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -522,8 +522,73 @@ table.mkpairs .sub{display:block;text-align:left}
 .share a:hover,.share button:hover{background:var(--band,#000);color:var(--band-ink,#fff)}
 .share a:focus-visible,.share button:focus-visible{outline:2px solid var(--ink,#000);outline-offset:2px}
 .share-status{font-size:13px;color:var(--muted,#4B5563)}
+/* Shared by every theme: the decoration layer sits behind the page; content stays on top and readable.
+   Scroll reveal only runs with JS (html.js) and always ends visible. Reduced motion: everything holds still. */
+.th-deco{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.th-deco svg,.th-deco canvas{position:absolute;display:block}
+body.themed>main,body.themed>footer,body.themed>.preview{position:relative;z-index:1}
+body.themed>header.top{z-index:6}
+body.themed>.hero{z-index:1}
+.js body.themed .th-r{opacity:0;transform:translateY(18px) scale(.985);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.2,1)}
+.js body.themed .th-r.th-in{opacity:1;transform:none}
+body.themed .th-wiggle:hover{animation:th-wiggle .5s ease}
+@keyframes th-wiggle{25%{transform:rotate(-1.5deg)}75%{transform:rotate(1.5deg)}}
+@media (max-width:760px){.th-deco .th-desk{display:none}}
+@media (prefers-reduced-motion:reduce){
+  body.themed *,body.themed *::before,body.themed *::after{animation-duration:.001ms!important;animation-iteration-count:1!important;animation-delay:0s!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .js body.themed .th-r{opacity:1;transform:none}
+}
+@media print{.th-deco{display:none!important}.js body.themed .th-r{opacity:1!important;transform:none!important}}
+/* Data API: a crashed space station hackerspace. Drifting starfield, our own tilted station with turning rings,
+   blinking beacons and an orbiting satellite, sunk into a planet horizon; HUD corners, LED strip and mission clock. */
+html{background:#05070D}
+body.th-cbase{--bg:#05070D;--surface:rgb(14 22 40 / .86);--fg:#DCE8FF;--muted:#8EA3C8;--line:#24324F;--line-strong:#3D5584;--soft:rgb(22 34 60 / .8);--panel:rgb(18 28 50 / .85);--foam:#24324F;
+  --accent:#FF7A1A;--on-accent:#05070D;--gold:#FF7A1A;--gold-ink:#FFA458;--on-gold:#05070D;--focus:#2FD4FF;--brand-w:#FF7A1A;
+  --band:#0A0F1C;--band-deep:#060912;--band-ink:#DCE8FF;--band-muted:#8EA3C8;--band-line:rgb(47 212 255 / .2);--band-rule:#FF7A1A;
+  --warm:#FFA458;--warm-bg:#2A1A0C;--btn:#FF7A1A;--btn-hover:#FF9645;--btn-ink:#05070D;--pub:#2FD4FF;--priv:#7CF29C;--up:#7CF29C;--down:#FF6A7A;
+  --f-display:var(--f-mono);--shadow:0 0 0 1px #24324F,0 14px 30px -16px rgb(0 0 0 / .9);--shadow-lg:0 0 0 1px #FF7A1A,0 0 30px -8px rgb(255 122 26 / .5);--lattice:none;color-scheme:dark;
+  background:radial-gradient(80% 60% at 80% 10%,rgb(47 80 160 / .25),transparent 70%),radial-gradient(60% 50% at 10% 90%,rgb(255 122 26 / .10),transparent 70%),#05070D;background-attachment:fixed}
+.th-cbase h1,.th-cbase h2,.th-cbase h3{text-transform:uppercase;letter-spacing:.08em}
+.th-cbase main h1{color:#fff;text-shadow:0 0 18px rgb(47 212 255 / .55)}
+.th-cbase main h1::before{width:180px;height:3px;background:linear-gradient(90deg,#FF7A1A,#2FD4FF);box-shadow:0 0 14px #FF7A1A;animation:cb-scan 2.4s ease-in-out infinite alternate}
+@keyframes cb-scan{to{width:280px}}
+.th-cbase h2::before{content:"// ";color:#FF7A1A}
+.th-cbase pre,.th-cbase code{background:rgb(4 8 18 / .9)!important;color:#9DF0FF;border-color:#24324F}
+.th-cbase pre{position:relative;border:1px solid #24324F;border-radius:4px;padding:16px 18px;box-shadow:inset 0 0 30px rgb(47 212 255 / .06)}
+.th-cbase pre::before,.th-cbase pre::after{content:"";position:absolute;width:14px;height:14px;border:2px solid #FF7A1A}
+.th-cbase pre::before{top:-2px;left:-2px;border-right:0;border-bottom:0}.th-cbase pre::after{bottom:-2px;right:-2px;border-left:0;border-top:0}
+.th-cbase table,.th-cbase .card{background:rgb(10 16 30 / .88)!important;border-color:#24324F!important}
+.th-cbase th{color:#FF7A1A;text-transform:uppercase;letter-spacing:.06em}
+.th-cbase a{text-decoration-color:rgb(255 122 26 / .55)}.th-cbase a:hover{color:#FFA458}
+.th-cbase header.top{background:rgb(6 9 18 / .9);backdrop-filter:blur(4px)}
+/* decoration */
+.th-cbase .cb-stars{inset:0}
+.th-cbase .cb-planet{position:absolute;left:-10%;right:-10%;bottom:-62vh;height:80vh;border-radius:50%;background:radial-gradient(circle at 50% 0%,#2A3A66,#0B1226 55%);box-shadow:0 -6px 40px rgb(47 212 255 / .35),inset 0 10px 30px rgb(47 212 255 / .25)}
+.th-cbase .cb-station{right:-30px;bottom:6vh;opacity:.9;filter:drop-shadow(0 0 20px rgb(47 212 255 / .25));animation:cb-drift 16s ease-in-out infinite}
+@keyframes cb-drift{50%{transform:translate(-16px,-12px) rotate(-2deg)}}
+.th-cbase .cb-tilt{transform:rotate(-24deg)}
+.th-cbase .cb-ring1{animation:cb-spin 22s linear infinite}
+.th-cbase .cb-ring2{animation:cb-spin 40s linear infinite reverse}
+@keyframes cb-spin{to{transform:rotate(360deg)}}
+.th-cbase .cb-ring1 ellipse{animation:cb-dash 3s linear infinite}
+@keyframes cb-dash{to{stroke-dashoffset:-56}}
+.th-cbase .cb-win circle{fill:#FFD27A;animation:cb-win 4s ease-in-out infinite}
+.th-cbase .cb-win circle:nth-child(2){animation-delay:-1s}.th-cbase .cb-win circle:nth-child(3){animation-delay:-2.2s}.th-cbase .cb-win circle:nth-child(4){animation-delay:-3s}
+@keyframes cb-win{50%{fill:#7A5A2A}}
+.th-cbase .cb-led{fill:#FF3B3B;animation:cb-beacon 1.2s steps(1) infinite}
+.th-cbase .cb-led2{fill:#2FD4FF;animation-delay:-.6s}
+@keyframes cb-beacon{50%{opacity:.15}}
+.th-cbase .cb-sat{animation:cb-spin 12s linear infinite}
+.th-cbase .cb-hud{position:absolute;left:16px;bottom:14px;display:flex;align-items:center;gap:14px;font:12px var(--f-mono);color:#8EA3C8;letter-spacing:.1em}
+.th-cbase .cb-leds{display:flex;gap:4px}
+.th-cbase .cb-leds i{width:7px;height:7px;border-radius:50%;background:#7CF29C;box-shadow:0 0 6px #7CF29C;animation:cb-beacon 1.6s steps(1) infinite;animation-delay:var(--d)}
+.th-cbase .cb-leds i:nth-child(3n){background:#FF7A1A;box-shadow:0 0 6px #FF7A1A}.th-cbase .cb-leds i:nth-child(5n){background:#2FD4FF;box-shadow:0 0 6px #2FD4FF}
+.th-cbase .cb-corner{position:absolute;width:34px;height:34px;border:2px solid rgb(255 122 26 / .7)}
+.th-cbase .cb-tl{top:84px;left:10px;border-right:0;border-bottom:0}.th-cbase .cb-tr{top:84px;right:10px;border-left:0;border-bottom:0}
+.th-cbase .cb-bl{bottom:40px;left:10px;border-right:0;border-top:0}.th-cbase .cb-br{bottom:40px;right:10px;border-left:0;border-top:0}
+@media (max-width:760px){.th-cbase .cb-station{width:240px;height:240px;right:-60px;opacity:.5}.th-cbase .cb-corner{display:none}}
 </style></head>
-<body><header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="../"><img class="brandmark" src="../assets/brand/shield-band.svg" width="34" height="40" alt="Nordic Crypto"><span aria-hidden="true">Nordic <span class="w">Crypto</span></span></a><span class="hdrbtns"><a class="hdrsub" href="../newsletter/#signup">Subscribe</a><a class="hdrtg" href="https://t.me/nordiccryptochat" rel="noopener" title="Nordic Crypto on Telegram (t.me/nordiccryptochat), the brand chat">Join on Telegram</a><a class="hdrx" href="https://x.com/xcryptonordic" rel="noopener" title="Nordic Crypto on X (@xcryptonordic), the site&#x27;s own account"><span class="xf">Follow on X</span><span class="xs" aria-hidden="true">X</span></a></span></div><button type="button" class="navtoggle" aria-expanded="false" aria-controls="sitenav" aria-label="Main menu"><span class="navbars" aria-hidden="true"><span></span><span></span><span></span></span></button><nav id="sitenav" class="main" aria-label="Main menu"><a href="../">News</a><a href="../newsletter/">Newsletter</a><a href="../calendar/">Calendar</a><a class="nav-quiet" href="../talks/">Talks</a><a href="../org-chart/">Who&#x27;s who</a><a href="../academia/">Academia</a><a href="../markets/">Markets</a><a href="../sources/">Sources</a><a href="../about/">About</a><a href="../tip/">Send a tip</a><a href="../api/" aria-current=page>API</a></nav><div class="langsw"><span class="langglobe" aria-hidden="true">🌐</span><label class="langpick"><span class="vh">Choose language</span><select class="langsel"><option value="../api/" hreflang="en" lang="en" data-lang="en" selected>✓ English</option></select></label><details><summary aria-label="Choose language">🌐 English</summary><ul role="list" aria-label="Language"><li><a href="../api/" hreflang="en" lang="en" data-lang="en" aria-current=true>English</a></li></ul></details></div></div></header>
+<body class="themed th-cbase"><div class="th-deco" aria-hidden="true"><canvas class="cb-stars"></canvas><div class="cb-planet"></div><svg class="cb-station" viewBox="-160 -160 320 320" width="420" height="420"><g class="cb-tilt"><g class="cb-ring cb-ring1"><ellipse rx="140" ry="44" fill="none" stroke="#FF7A1A" stroke-width="3" stroke-dasharray="18 10"/></g><g class="cb-ring cb-ring2"><ellipse rx="112" ry="112" fill="none" stroke="#2FD4FF" stroke-width="2" stroke-dasharray="4 8" opacity=".7"/></g><circle r="62" fill="url(#cbg)" stroke="#9FB6E0" stroke-width="2.5"/><path d="M-62 0 A62 20 0 0 0 62 0" fill="none" stroke="#9FB6E0" stroke-width="2"/><path d="M-50 -34 A62 18 0 0 0 50 -34" fill="none" stroke="#9FB6E0" stroke-width="1.5" opacity=".6"/><path d="M-50 34 A62 18 0 0 0 50 34" fill="none" stroke="#9FB6E0" stroke-width="1.5" opacity=".6"/><g class="cb-win"><circle cx="-24" cy="-14" r="5"/><circle cx="0" cy="-16" r="5"/><circle cx="24" cy="-14" r="5"/><circle cx="-14" cy="14" r="4"/><circle cx="14" cy="14" r="4"/></g><path d="M0 -62 V-118" stroke="#9FB6E0" stroke-width="3"/><circle class="cb-led" cy="-122" r="6"/><path d="M44 -44 L84 -92" stroke="#9FB6E0" stroke-width="2.5"/><rect x="74" y="-112" width="34" height="18" fill="#203458" stroke="#2FD4FF" transform="rotate(-50 91 -103)"/><path d="M-44 44 L-92 70" stroke="#9FB6E0" stroke-width="2.5"/><circle class="cb-led cb-led2" cx="-96" cy="72" r="5"/><g class="cb-sat"><circle cx="0" cy="-150" r="5" fill="#FFD9B0"/></g></g><defs><radialGradient id="cbg" cx=".35" cy=".3"><stop offset="0" stop-color="#3B5A8F"/><stop offset="1" stop-color="#0D1730"/></radialGradient></defs></svg><div class="cb-hud"><span class="cb-leds"><i style="--d:0.00s"></i><i style="--d:0.37s"></i><i style="--d:0.74s"></i><i style="--d:1.11s"></i><i style="--d:1.48s"></i><i style="--d:1.85s"></i><i style="--d:0.22s"></i><i style="--d:0.59s"></i><i style="--d:0.96s"></i><i style="--d:1.33s"></i><i style="--d:1.70s"></i><i style="--d:0.07s"></i><i style="--d:0.44s"></i><i style="--d:0.81s"></i></span><span class="cb-clock"></span></div><div class="cb-corner cb-tl"></div><div class="cb-corner cb-tr"></div><div class="cb-corner cb-bl"></div><div class="cb-corner cb-br"></div></div><header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="../"><img class="brandmark" src="../assets/brand/shield-band.svg" width="34" height="40" alt="Nordic Crypto"><span aria-hidden="true">Nordic <span class="w">Crypto</span></span></a><span class="hdrbtns"><a class="hdrsub" href="../newsletter/#signup">Subscribe</a><a class="hdrtg" href="https://t.me/nordiccryptochat" rel="noopener" title="Nordic Crypto on Telegram (t.me/nordiccryptochat), the brand chat">Join on Telegram</a><a class="hdrx" href="https://x.com/xcryptonordic" rel="noopener" title="Nordic Crypto on X (@xcryptonordic), the site&#x27;s own account"><span class="xf">Follow on X</span><span class="xs" aria-hidden="true">X</span></a></span></div><button type="button" class="navtoggle" aria-expanded="false" aria-controls="sitenav" aria-label="Main menu"><span class="navbars" aria-hidden="true"><span></span><span></span><span></span></span></button><nav id="sitenav" class="main" aria-label="Main menu"><a href="../">News</a><a href="../newsletter/">Newsletter</a><a href="../calendar/">Calendar</a><a class="nav-quiet" href="../talks/">Talks</a><a href="../org-chart/">Who&#x27;s who</a><a href="../academia/">Academia</a><a href="../markets/">Markets</a><a href="../sources/">Sources</a><a href="../about/">About</a><a href="../tip/">Send a tip</a><a href="../api/" aria-current=page>API</a></nav><div class="langsw"><span class="langglobe" aria-hidden="true">🌐</span><label class="langpick"><span class="vh">Choose language</span><select class="langsel"><option value="../api/" hreflang="en" lang="en" data-lang="en" selected>✓ English</option></select></label><details><summary aria-label="Choose language">🌐 English</summary><ul role="list" aria-label="Language"><li><a href="../api/" hreflang="en" lang="en" data-lang="en" aria-current=true>English</a></li></ul></details></div></div></header>
 <main class="wrap">
 <style>/* API docs page (/api/). Inlined by tools/api_feed.py. */
 .api-docs{max-width:80ch}
@@ -535,7 +600,7 @@ table.mkpairs .sub{display:block;text-align:left}
 <div class="api-docs">
 <h1>Nordic Crypto data API</h1>
 <p class="lead">A public JSON feed of the site, for apps and for other tools. No account and no API key. It is regenerated whenever the site is built.</p>
-<p>Version 1. 49 news items, 1 newsletter issues, 12 events and 74 talks in this build. Generated 2026-10-08T18:39:13+00:00.</p>
+<p>Version 1. 49 news items, 1 newsletter issues, 12 events and 74 talks in this build. Generated 2026-10-08T19:37:45+00:00.</p>
 <h2>Start here</h2>
 <ul>
 <li><a href="https://nordiccrypto.no/api/v1/index.json">Discovery</a> — every endpoint and example URL.</li>
@@ -629,5 +694,46 @@ document.addEventListener("click", function (e) {
   var fallback = function () { var i = document.createElement("input"); i.value = url; document.body.appendChild(i); i.select(); try { document.execCommand("copy"); done(); } catch (x) { window.prompt("", url); } i.remove(); };
   if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(url).then(done, fallback); else fallback();
 });
-</script><script>(function(){function setLang(c){if(!c)return;document.cookie='nc_lang='+c+';path=/;max-age=31536000;SameSite=Lax'+(location.protocol==='https:'?';Secure':'');try{localStorage.setItem('nc_lang',c)}catch(err){}}document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[data-lang]');if(a)setLang(a.getAttribute('data-lang'))});document.addEventListener('change',function(e){var s=e.target;if(!s||!s.matches||!s.matches('select.langsel'))return;var o=s.options[s.selectedIndex];if(!o)return;setLang(o.getAttribute('data-lang'));if(o.value)location.href=o.value});var b=document.querySelector('.navtoggle'),n=document.getElementById('sitenav');if(b&&n){b.addEventListener('click',function(){var open=n.classList.toggle('is-open');b.setAttribute('aria-expanded',open?'true':'false')});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&n.classList.contains('is-open')){n.classList.remove('is-open');b.setAttribute('aria-expanded','false');b.focus()}})}})();</script>
+</script><script>(function(){function setLang(c){if(!c)return;document.cookie='nc_lang='+c+';path=/;max-age=31536000;SameSite=Lax'+(location.protocol==='https:'?';Secure':'');try{localStorage.setItem('nc_lang',c)}catch(err){}}document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[data-lang]');if(a)setLang(a.getAttribute('data-lang'))});document.addEventListener('change',function(e){var s=e.target;if(!s||!s.matches||!s.matches('select.langsel'))return;var o=s.options[s.selectedIndex];if(!o)return;setLang(o.getAttribute('data-lang'));if(o.value)location.href=o.value});var b=document.querySelector('.navtoggle'),n=document.getElementById('sitenav');if(b&&n){b.addEventListener('click',function(){var open=n.classList.toggle('is-open');b.setAttribute('aria-expanded',open?'true':'false')});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&n.classList.contains('is-open')){n.classList.remove('is-open');b.setAttribute('aria-expanded','false');b.focus()}})}})();</script><script>/* Theme helpers shared by every theme: scroll reveal, a reduced-motion flag and a typewriter. */
+window.NCT=(function(){
+  var still=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function $(s,r){return (r||document).querySelector(s)}
+  function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
+  function type(el,text,ms,done){
+    if(!el)return;if(still){el.textContent=text;done&&done();return}
+    var i=0;el.textContent="";(function step(){el.textContent=text.slice(0,++i);if(i<text.length)setTimeout(step,ms||28);else done&&done()})()
+  }
+  function canvas(c,draw,fps){
+    if(!c||still)return;var ctx=c.getContext("2d"),dpr=Math.min(window.devicePixelRatio||1,2),last=0,step=1000/(fps||30),st={};
+    function size(){c.width=innerWidth*dpr;c.height=innerHeight*dpr;c.style.width=innerWidth+"px";c.style.height=innerHeight+"px";ctx.setTransform(dpr,0,0,dpr,0,0);st.w=innerWidth;st.h=innerHeight;st.resized=true}
+    size();addEventListener("resize",size);
+    (function loop(t){requestAnimationFrame(loop);if(document.hidden||t-last<step)return;last=t;draw(ctx,st,t);st.resized=false})(0)
+  }
+  // reveal: cards and sections slide in as they come into view
+  var sel="main h1,main h2,main .lead,main .card,main .mktile,main .evcard,main article,main section,main li.story,main .story,main table,main .talk,main .person,main pre";
+  var els=$$(sel).filter(function(e){return !e.closest(".th-r")&&e.offsetHeight<1600});
+  els.forEach(function(e,i){e.classList.add("th-r");e.style.transitionDelay=Math.min(i%8,7)*45+"ms"});
+  if(!still&&"IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add("th-in");io.unobserve(x.target)}})},{rootMargin:"0px 0px -6% 0px"});
+    els.forEach(function(e){io.observe(e)});
+  }else els.forEach(function(e){e.classList.add("th-in")});
+  return {still:still,$:$,$$:$$,type:type,canvas:canvas};
+})();
+(function(T){
+  var stars=[];
+  T.canvas(T.$(".cb-stars"),function(c,s){
+    if(s.resized||!stars.length){stars=[];for(var i=0;i<Math.round(s.w*s.h/2600);i++)stars.push({x:Math.random()*s.w,y:Math.random()*s.h,z:Math.random()*.9+.1})}
+    c.clearRect(0,0,s.w,s.h);
+    for(var i=0;i<stars.length;i++){var p=stars[i];p.x-=p.z*.6;if(p.x<0){p.x=s.w;p.y=Math.random()*s.h}
+      var tw=.5+.5*Math.sin((p.x+p.y)*.05+performance.now()*.002*p.z);c.fillStyle="rgba(220,232,255,"+(p.z*.9*tw+.1)+")";c.fillRect(p.x,p.y,p.z*2,p.z*2)}
+    if(Math.random()<.004)stars.push({x:s.w,y:Math.random()*s.h*.5,z:6,shoot:1});
+    stars=stars.filter(function(p){if(p.shoot){p.y+=2;c.strokeStyle="rgba(255,164,88,.8)";c.beginPath();c.moveTo(p.x,p.y);c.lineTo(p.x+40,p.y-14);c.stroke();return p.x>0}return true});
+  },40);
+  // static starfield for reduced motion
+  if(T.still){var cv=T.$(".cb-stars");if(cv){var x=cv.getContext("2d");cv.width=innerWidth;cv.height=innerHeight;for(var i=0;i<300;i++){x.fillStyle="rgba(220,232,255,"+Math.random()+")";x.fillRect(Math.random()*innerWidth,Math.random()*innerHeight,1.5,1.5)}}}
+  var clk=T.$(".cb-clock"),t0=Date.now();
+  function tick(){var s=Math.floor((Date.now()-t0)/1000),d=new Date();clk.textContent="T+"+String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0")+"  UTC "+d.toISOString().slice(11,19)}
+  if(clk){tick();if(!T.still)setInterval(tick,1000)}
+})(window.NCT);
+</script>
 </body></html>

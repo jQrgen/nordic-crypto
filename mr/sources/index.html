@@ -9,7 +9,7 @@
 <link rel="icon" href="../../favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="../../assets/brand/mark-180.png">
 <link rel="icon" href="../../assets/brand/mark-64.png" sizes="64x64" type="image/png">
-<meta name="theme-color" content="#1E3A45" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#15303A" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#000000">
 <meta property="og:image" content="https://nordiccrypto.no/assets/brand/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -522,8 +522,63 @@ table.mkpairs .sub{display:block;text-align:left}
 .share a:hover,.share button:hover{background:var(--band,#000);color:var(--band-ink,#fff)}
 .share a:focus-visible,.share button:focus-visible{outline:2px solid var(--ink,#000);outline-offset:2px}
 .share-status{font-size:13px;color:var(--muted,#4B5563)}
+/* Shared by every theme: the decoration layer sits behind the page; content stays on top and readable.
+   Scroll reveal only runs with JS (html.js) and always ends visible. Reduced motion: everything holds still. */
+.th-deco{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.th-deco svg,.th-deco canvas{position:absolute;display:block}
+body.themed>main,body.themed>footer,body.themed>.preview{position:relative;z-index:1}
+body.themed>header.top{z-index:6}
+body.themed>.hero{z-index:1}
+.js body.themed .th-r{opacity:0;transform:translateY(18px) scale(.985);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.2,1)}
+.js body.themed .th-r.th-in{opacity:1;transform:none}
+body.themed .th-wiggle:hover{animation:th-wiggle .5s ease}
+@keyframes th-wiggle{25%{transform:rotate(-1.5deg)}75%{transform:rotate(1.5deg)}}
+@media (max-width:760px){.th-deco .th-desk{display:none}}
+@media (prefers-reduced-motion:reduce){
+  body.themed *,body.themed *::before,body.themed *::after{animation-duration:.001ms!important;animation-iteration-count:1!important;animation-delay:0s!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .js body.themed .th-r{opacity:1;transform:none}
+}
+@media print{.th-deco{display:none!important}.js body.themed .th-r{opacity:1!important;transform:none!important}}
+/* Sources: Nordic tekst-TV. Black screen, the eight teletext colours, a page header with a live clock and a
+   cycling sub-page, blinking mosaic blocks, coloured fastext keys and a CRT scan line. */
+html{background:#000}
+body.th-teletext{--bg:#000;--surface:#000;--fg:#FFFFFF;--muted:#00FFFF;--line:#0000FF;--line-strong:#00FFFF;--soft:#000080;--panel:#000080;--foam:#0000FF;
+  --accent:#FFFF00;--on-accent:#000;--gold:#FFFF00;--gold-ink:#FFFF00;--on-gold:#000;--focus:#FF00FF;--brand-w:#FFFF00;
+  --band:#0000FF;--band-deep:#000080;--band-ink:#FFFFFF;--band-muted:#FFFF00;--band-line:rgb(255 255 255 / .3);--band-rule:#FFFF00;
+  --btn:#FFFF00;--btn-hover:#00FFFF;--btn-ink:#000;--up:#00FF00;--down:#FF0000;--pub:#00FFFF;--priv:#00FF00;--warm:#FFFF00;--warm-bg:#000080;
+  --f-display:var(--f-mono);--f-ui:var(--f-mono);--r:0;--r-sm:0;--r-xs:0;--shadow:none;--shadow-lg:0 0 0 2px #FFFF00;--lattice:none;color-scheme:dark;background:#000;padding-top:34px}
+.th-teletext h1,.th-teletext h2,.th-teletext h3{text-transform:uppercase;letter-spacing:.06em}
+.th-teletext main h1{display:inline-block;background:#0000FF;color:#FFFF00;padding:4px 14px;font-size:clamp(28px,4vw,44px);transform-origin:top;animation:tt-tall 1s steps(4) both}
+@keyframes tt-tall{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+.th-teletext main h1::before{display:none}
+.th-teletext h2{color:#00FF00}.th-teletext h3{color:#00FFFF}
+.th-teletext a{color:#FFFF00;text-decoration-color:#FFFF00}.th-teletext a:hover{background:#FFFF00;color:#000}
+.th-teletext .card,.th-teletext article,.th-teletext table,.th-teletext li{border-color:#0000FF!important;background:transparent}
+.th-teletext table tr:nth-child(4n+1) td{color:#00FFFF}.th-teletext table tr:nth-child(4n+2) td{color:#FFFFFF}.th-teletext table tr:nth-child(4n+3) td{color:#00FF00}.th-teletext table tr:nth-child(4n) td{color:#FF00FF}
+.th-teletext th{background:#FF0000;color:#FFF}
+.th-teletext img{image-rendering:pixelated;filter:contrast(1.4) saturate(1.6)}
+.th-teletext header.top{border-bottom:4px solid #FFFF00}
+.th-teletext footer{background:#0000FF}
+/* decoration */
+.th-teletext .tt-head{position:absolute;top:0;left:0;right:0;height:30px;display:flex;align-items:center;gap:22px;padding:0 14px;background:#000;font:700 16px var(--f-mono);letter-spacing:.12em;color:#fff;z-index:2}
+.th-teletext .tt-pg{color:#00FF00}.th-teletext .tt-name{color:#FFFF00;background:#0000FF;padding:0 10px;animation:tt-blink 2s steps(1) infinite}
+.th-teletext .tt-sub{color:#00FFFF}.th-teletext .tt-clock{margin-left:auto;color:#FFFF00}
+@keyframes tt-blink{50%{color:#00FFFF}}
+.th-teletext .tt-bars{position:absolute;left:0;right:0;bottom:44px;display:flex;height:16px}
+.th-teletext .tt-bars i{flex:1;background:var(--c);animation:tt-flash 2.4s steps(1) infinite;animation-delay:var(--d)}
+@keyframes tt-flash{50%{opacity:0}}
+.th-teletext .tt-mosaic{position:absolute;right:20px;bottom:76px;width:144px;height:96px;background:
+  linear-gradient(#FF0000 0 0) 0 0/24px 24px no-repeat,linear-gradient(#FFFF00 0 0) 24px 24px/24px 24px no-repeat,linear-gradient(#00FF00 0 0) 48px 48px/24px 24px no-repeat,
+  linear-gradient(#00FFFF 0 0) 72px 24px/24px 24px no-repeat,linear-gradient(#FF00FF 0 0) 96px 0/24px 24px no-repeat,linear-gradient(#0000FF 0 0) 120px 48px/24px 48px no-repeat,linear-gradient(#FFF 0 0) 24px 72px/72px 24px no-repeat;
+  animation:tt-mos 3s steps(1) infinite;opacity:.8}
+@keyframes tt-mos{33%{filter:hue-rotate(120deg)}66%{filter:hue-rotate(240deg)}}
+.th-teletext .tt-scan{position:absolute;left:0;right:0;height:3px;background:rgb(255 255 255 / .12);animation:tt-scan 4s linear infinite}
+@keyframes tt-scan{from{top:0}to{top:100%}}
+.th-teletext .tt-keys{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;gap:42px;font-size:22px}
+.th-teletext .tt-keys b{color:var(--c);animation:tt-flash 3s steps(1) infinite}.th-teletext .tt-keys b:nth-child(2){animation-delay:-.7s}.th-teletext .tt-keys b:nth-child(3){animation-delay:-1.5s}.th-teletext .tt-keys b:nth-child(4){animation-delay:-2.2s}
+@media (max-width:760px){.th-teletext .tt-mosaic{display:none}.th-teletext .tt-head{gap:10px;font-size:12px}}
 </style></head>
-<body><header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="../../mr/"><img class="brandmark" src="../../assets/brand/shield-band.svg" width="34" height="40" alt="Nordic Crypto"><span aria-hidden="true">Nordic <span class="w">Crypto</span></span></a><span class="hdrbtns"><a class="hdrsub" href="../../mr/newsletter/#signup">Subscribe</a><a class="hdrtg" href="https://t.me/nordiccryptochat" rel="noopener" title="Nordic Crypto on Telegram (t.me/nordiccryptochat), the brand chat">Join on Telegram</a><a class="hdrx" href="https://x.com/xcryptonordic" rel="noopener" title="Nordic Crypto on X (@xcryptonordic), the site&#x27;s own account"><span class="xf">Follow on X</span><span class="xs" aria-hidden="true">X</span></a></span></div><button type="button" class="navtoggle" aria-expanded="false" aria-controls="sitenav" aria-label="Main menu"><span class="navbars" aria-hidden="true"><span></span><span></span><span></span></span></button><nav id="sitenav" class="main" aria-label="Main menu"><a href="../../mr/">News</a><a href="../../mr/newsletter/">Newsletter</a><a href="../../mr/calendar/">Calendar</a><a class="nav-quiet" href="../../mr/talks/">व्याख्याने</a><a href="../../mr/org-chart/">Who&#x27;s who</a><a href="../../mr/academia/">Academia</a><a href="../../mr/markets/">Markets</a><a href="../../mr/sources/" aria-current=page>Sources</a><a href="../../mr/about/">About</a><a href="../../mr/tip/">Send a tip</a><a href="../../api/">API</a></nav><div class="langsw"><span class="langglobe" aria-hidden="true">🌐</span><label class="langpick"><span class="vh">Choose language</span><select class="langsel"><option value="../../sources/" hreflang="en" lang="en" data-lang="en">English</option><option value="../../nn/sources/" hreflang="nn" lang="nn" data-lang="nn">Nynorsk</option><option value="../../nb/sources/" hreflang="nb" lang="nb" data-lang="nb">Bokmål</option><option value="../../sv/sources/" hreflang="sv" lang="sv" data-lang="sv">Svenska</option><option value="../../da/sources/" hreflang="da" lang="da" data-lang="da">Dansk</option><option value="../../fi/sources/" hreflang="fi" lang="fi" data-lang="fi">Suomi</option><option value="../../is/sources/" hreflang="is" lang="is" data-lang="is">Íslenska</option><option value="../../zh/sources/" hreflang="zh" lang="zh" data-lang="zh">中文</option><option value="../../hi/sources/" hreflang="hi" lang="hi" data-lang="hi">हिन्दी</option><option value="../../es/sources/" hreflang="es" lang="es" data-lang="es">Español</option><option value="../../fr/sources/" hreflang="fr" lang="fr" data-lang="fr">Français</option><option value="../../ar/sources/" hreflang="ar" lang="ar" dir="rtl" data-lang="ar">العربية</option><option value="../../bn/sources/" hreflang="bn" lang="bn" data-lang="bn">বাংলা</option><option value="../../pt/sources/" hreflang="pt" lang="pt" data-lang="pt">Português</option><option value="../../ru/sources/" hreflang="ru" lang="ru" data-lang="ru">Русский</option><option value="../../ur/sources/" hreflang="ur" lang="ur" dir="rtl" data-lang="ur">اردو</option><option value="../../id/sources/" hreflang="id" lang="id" data-lang="id">Bahasa Indonesia</option><option value="../../de/sources/" hreflang="de" lang="de" data-lang="de">Deutsch</option><option value="../../ja/sources/" hreflang="ja" lang="ja" data-lang="ja">日本語</option><option value="../../sw/sources/" hreflang="sw" lang="sw" data-lang="sw">Kiswahili</option><option value="../../mr/sources/" hreflang="mr" lang="mr" data-lang="mr" selected>✓ मराठी</option></select></label><details><summary aria-label="Choose language">🌐 मराठी</summary><ul role="list" aria-label="Language"><li><a href="../../sources/" hreflang="en" lang="en" data-lang="en">English</a></li><li><a href="../../nn/sources/" hreflang="nn" lang="nn" data-lang="nn">Nynorsk</a></li><li><a href="../../nb/sources/" hreflang="nb" lang="nb" data-lang="nb">Bokmål</a></li><li><a href="../../sv/sources/" hreflang="sv" lang="sv" data-lang="sv">Svenska</a></li><li><a href="../../da/sources/" hreflang="da" lang="da" data-lang="da">Dansk</a></li><li><a href="../../fi/sources/" hreflang="fi" lang="fi" data-lang="fi">Suomi</a></li><li><a href="../../is/sources/" hreflang="is" lang="is" data-lang="is">Íslenska</a></li><li><a href="../../zh/sources/" hreflang="zh" lang="zh" data-lang="zh">中文</a></li><li><a href="../../hi/sources/" hreflang="hi" lang="hi" data-lang="hi">हिन्दी</a></li><li><a href="../../es/sources/" hreflang="es" lang="es" data-lang="es">Español</a></li><li><a href="../../fr/sources/" hreflang="fr" lang="fr" data-lang="fr">Français</a></li><li><a href="../../ar/sources/" hreflang="ar" lang="ar" dir="rtl" data-lang="ar">العربية</a></li><li><a href="../../bn/sources/" hreflang="bn" lang="bn" data-lang="bn">বাংলা</a></li><li><a href="../../pt/sources/" hreflang="pt" lang="pt" data-lang="pt">Português</a></li><li><a href="../../ru/sources/" hreflang="ru" lang="ru" data-lang="ru">Русский</a></li><li><a href="../../ur/sources/" hreflang="ur" lang="ur" dir="rtl" data-lang="ur">اردو</a></li><li><a href="../../id/sources/" hreflang="id" lang="id" data-lang="id">Bahasa Indonesia</a></li><li><a href="../../de/sources/" hreflang="de" lang="de" data-lang="de">Deutsch</a></li><li><a href="../../ja/sources/" hreflang="ja" lang="ja" data-lang="ja">日本語</a></li><li><a href="../../sw/sources/" hreflang="sw" lang="sw" data-lang="sw">Kiswahili</a></li><li><a href="../../mr/sources/" hreflang="mr" lang="mr" data-lang="mr" aria-current=true>मराठी</a></li></ul></details></div></div></header>
+<body class="themed th-teletext"><div class="th-deco" aria-hidden="true"><div class="tt-head"><span class="tt-pg">P100</span><span class="tt-name">NORDIC CRYPTO</span><span class="tt-sub">1/4</span><span class="tt-clock">00:00:00</span></div><div class="tt-bars"><i style="--c:#FF0000;--d:0.00s"></i><i style="--c:#00FF00;--d:0.25s"></i><i style="--c:#FFFF00;--d:0.50s"></i><i style="--c:#0000FF;--d:0.75s"></i><i style="--c:#FF00FF;--d:1.00s"></i><i style="--c:#00FFFF;--d:1.25s"></i><i style="--c:#FFFFFF;--d:1.50s"></i><i style="--c:#FF0000;--d:1.75s"></i><i style="--c:#00FF00;--d:2.00s"></i><i style="--c:#FFFF00;--d:2.25s"></i><i style="--c:#0000FF;--d:2.50s"></i><i style="--c:#FF00FF;--d:2.75s"></i><i style="--c:#00FFFF;--d:3.00s"></i><i style="--c:#FFFFFF;--d:3.25s"></i></div><div class="tt-mosaic"></div><div class="tt-scan"></div><div class="tt-keys"><b style="--c:#FF0000">◼</b><b style="--c:#00FF00">◼</b><b style="--c:#FFFF00">◼</b><b style="--c:#00FFFF">◼</b></div></div><header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="../../mr/"><img class="brandmark" src="../../assets/brand/shield-band.svg" width="34" height="40" alt="Nordic Crypto"><span aria-hidden="true">Nordic <span class="w">Crypto</span></span></a><span class="hdrbtns"><a class="hdrsub" href="../../mr/newsletter/#signup">Subscribe</a><a class="hdrtg" href="https://t.me/nordiccryptochat" rel="noopener" title="Nordic Crypto on Telegram (t.me/nordiccryptochat), the brand chat">Join on Telegram</a><a class="hdrx" href="https://x.com/xcryptonordic" rel="noopener" title="Nordic Crypto on X (@xcryptonordic), the site&#x27;s own account"><span class="xf">Follow on X</span><span class="xs" aria-hidden="true">X</span></a></span></div><button type="button" class="navtoggle" aria-expanded="false" aria-controls="sitenav" aria-label="Main menu"><span class="navbars" aria-hidden="true"><span></span><span></span><span></span></span></button><nav id="sitenav" class="main" aria-label="Main menu"><a href="../../mr/">News</a><a href="../../mr/newsletter/">Newsletter</a><a href="../../mr/calendar/">Calendar</a><a class="nav-quiet" href="../../mr/talks/">व्याख्याने</a><a href="../../mr/org-chart/">Who&#x27;s who</a><a href="../../mr/academia/">Academia</a><a href="../../mr/markets/">Markets</a><a href="../../mr/sources/" aria-current=page>Sources</a><a href="../../mr/about/">About</a><a href="../../mr/tip/">Send a tip</a><a href="../../api/">API</a></nav><div class="langsw"><span class="langglobe" aria-hidden="true">🌐</span><label class="langpick"><span class="vh">Choose language</span><select class="langsel"><option value="../../sources/" hreflang="en" lang="en" data-lang="en">English</option><option value="../../nn/sources/" hreflang="nn" lang="nn" data-lang="nn">Nynorsk</option><option value="../../nb/sources/" hreflang="nb" lang="nb" data-lang="nb">Bokmål</option><option value="../../sv/sources/" hreflang="sv" lang="sv" data-lang="sv">Svenska</option><option value="../../da/sources/" hreflang="da" lang="da" data-lang="da">Dansk</option><option value="../../fi/sources/" hreflang="fi" lang="fi" data-lang="fi">Suomi</option><option value="../../is/sources/" hreflang="is" lang="is" data-lang="is">Íslenska</option><option value="../../zh/sources/" hreflang="zh" lang="zh" data-lang="zh">中文</option><option value="../../hi/sources/" hreflang="hi" lang="hi" data-lang="hi">हिन्दी</option><option value="../../es/sources/" hreflang="es" lang="es" data-lang="es">Español</option><option value="../../fr/sources/" hreflang="fr" lang="fr" data-lang="fr">Français</option><option value="../../ar/sources/" hreflang="ar" lang="ar" dir="rtl" data-lang="ar">العربية</option><option value="../../bn/sources/" hreflang="bn" lang="bn" data-lang="bn">বাংলা</option><option value="../../pt/sources/" hreflang="pt" lang="pt" data-lang="pt">Português</option><option value="../../ru/sources/" hreflang="ru" lang="ru" data-lang="ru">Русский</option><option value="../../ur/sources/" hreflang="ur" lang="ur" dir="rtl" data-lang="ur">اردو</option><option value="../../id/sources/" hreflang="id" lang="id" data-lang="id">Bahasa Indonesia</option><option value="../../de/sources/" hreflang="de" lang="de" data-lang="de">Deutsch</option><option value="../../ja/sources/" hreflang="ja" lang="ja" data-lang="ja">日本語</option><option value="../../sw/sources/" hreflang="sw" lang="sw" data-lang="sw">Kiswahili</option><option value="../../mr/sources/" hreflang="mr" lang="mr" data-lang="mr" selected>✓ मराठी</option></select></label><details><summary aria-label="Choose language">🌐 मराठी</summary><ul role="list" aria-label="Language"><li><a href="../../sources/" hreflang="en" lang="en" data-lang="en">English</a></li><li><a href="../../nn/sources/" hreflang="nn" lang="nn" data-lang="nn">Nynorsk</a></li><li><a href="../../nb/sources/" hreflang="nb" lang="nb" data-lang="nb">Bokmål</a></li><li><a href="../../sv/sources/" hreflang="sv" lang="sv" data-lang="sv">Svenska</a></li><li><a href="../../da/sources/" hreflang="da" lang="da" data-lang="da">Dansk</a></li><li><a href="../../fi/sources/" hreflang="fi" lang="fi" data-lang="fi">Suomi</a></li><li><a href="../../is/sources/" hreflang="is" lang="is" data-lang="is">Íslenska</a></li><li><a href="../../zh/sources/" hreflang="zh" lang="zh" data-lang="zh">中文</a></li><li><a href="../../hi/sources/" hreflang="hi" lang="hi" data-lang="hi">हिन्दी</a></li><li><a href="../../es/sources/" hreflang="es" lang="es" data-lang="es">Español</a></li><li><a href="../../fr/sources/" hreflang="fr" lang="fr" data-lang="fr">Français</a></li><li><a href="../../ar/sources/" hreflang="ar" lang="ar" dir="rtl" data-lang="ar">العربية</a></li><li><a href="../../bn/sources/" hreflang="bn" lang="bn" data-lang="bn">বাংলা</a></li><li><a href="../../pt/sources/" hreflang="pt" lang="pt" data-lang="pt">Português</a></li><li><a href="../../ru/sources/" hreflang="ru" lang="ru" data-lang="ru">Русский</a></li><li><a href="../../ur/sources/" hreflang="ur" lang="ur" dir="rtl" data-lang="ur">اردو</a></li><li><a href="../../id/sources/" hreflang="id" lang="id" data-lang="id">Bahasa Indonesia</a></li><li><a href="../../de/sources/" hreflang="de" lang="de" data-lang="de">Deutsch</a></li><li><a href="../../ja/sources/" hreflang="ja" lang="ja" data-lang="ja">日本語</a></li><li><a href="../../sw/sources/" hreflang="sw" lang="sw" data-lang="sw">Kiswahili</a></li><li><a href="../../mr/sources/" hreflang="mr" lang="mr" data-lang="mr" aria-current=true>मराठी</a></li></ul></details></div></div></header>
 <main class="wrap">
 <h1>Sources we follow</h1>
 <p class="lead">National, regional and local newspapers, plus broadcasters, regulators, central banks, crypto media and justice-system press pages, in Norway, Sweden, Denmark, Finland, Iceland, the Faroe Islands, Greenland and Åland. We read an RSS or Atom feed when one works. Local papers and justice pages are keyword-filtered, so a story enters the review queue only when the title or teaser is about crypto, bitcoin, blockchain or a related financial crime. A source with no working feed stays on this list for manual monitoring or news search. We respect robots.txt, identify ourselves with our own user agent, wait at least 2 seconds between requests to the same site, and never fetch article text behind a paywall. One dead feed does not stop the run. If a site blocks us, we leave it. Where we have the outlet&#x27;s own logo, it is shown beside the name only to identify the source, and it links to the outlet. If a source has no RSS, we read its sitemap or public index page instead: title, date, link and summary only.</p>
@@ -567,5 +622,37 @@ function apply(){
 }
 document.querySelectorAll('.src-c,.src-v').forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed', b.getAttribute('aria-pressed')==='true'?'false':'true'); apply();});});
 q.addEventListener('input', apply); apply();
-})();</script>
+})();</script><script>/* Theme helpers shared by every theme: scroll reveal, a reduced-motion flag and a typewriter. */
+window.NCT=(function(){
+  var still=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function $(s,r){return (r||document).querySelector(s)}
+  function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
+  function type(el,text,ms,done){
+    if(!el)return;if(still){el.textContent=text;done&&done();return}
+    var i=0;el.textContent="";(function step(){el.textContent=text.slice(0,++i);if(i<text.length)setTimeout(step,ms||28);else done&&done()})()
+  }
+  function canvas(c,draw,fps){
+    if(!c||still)return;var ctx=c.getContext("2d"),dpr=Math.min(window.devicePixelRatio||1,2),last=0,step=1000/(fps||30),st={};
+    function size(){c.width=innerWidth*dpr;c.height=innerHeight*dpr;c.style.width=innerWidth+"px";c.style.height=innerHeight+"px";ctx.setTransform(dpr,0,0,dpr,0,0);st.w=innerWidth;st.h=innerHeight;st.resized=true}
+    size();addEventListener("resize",size);
+    (function loop(t){requestAnimationFrame(loop);if(document.hidden||t-last<step)return;last=t;draw(ctx,st,t);st.resized=false})(0)
+  }
+  // reveal: cards and sections slide in as they come into view
+  var sel="main h1,main h2,main .lead,main .card,main .mktile,main .evcard,main article,main section,main li.story,main .story,main table,main .talk,main .person,main pre";
+  var els=$$(sel).filter(function(e){return !e.closest(".th-r")&&e.offsetHeight<1600});
+  els.forEach(function(e,i){e.classList.add("th-r");e.style.transitionDelay=Math.min(i%8,7)*45+"ms"});
+  if(!still&&"IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add("th-in");io.unobserve(x.target)}})},{rootMargin:"0px 0px -6% 0px"});
+    els.forEach(function(e){io.observe(e)});
+  }else els.forEach(function(e){e.classList.add("th-in")});
+  return {still:still,$:$,$$:$$,type:type,canvas:canvas};
+})();
+(function(T){
+  var clk=T.$(".tt-clock"),sub=T.$(".tt-sub"),pg=T.$(".tt-pg"),n=1,p=100;
+  function tick(){var d=new Date();clk.textContent=d.toTimeString().slice(0,8)}
+  if(clk){tick();if(!T.still){setInterval(tick,1000);setInterval(function(){n=n%4+1;sub.textContent=n+"/4"},6000)}}
+  // the page counter searches up to P101 like an old TV
+  if(pg&&!T.still){var iv=setInterval(function(){p++;pg.textContent="P"+p;if(p>=101)clearInterval(iv)},700);pg.textContent="P100"}
+})(window.NCT);
+</script>
 </body></html>

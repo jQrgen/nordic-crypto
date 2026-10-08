@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-08T18:39:13+00:00",
+ "generated_at": "2026-10-08T19:37:45+00:00",
  "preview": false,
  "country": "SE",
  "count": 5,
@@ -102,8 +102,8 @@
      "is": "Við viljum vingjarnlega og opna fundi þar sem rætt er um bitcoin og hlutverk þess í hagkerfi heimsins. Ef þú ert nýr í efninu er þetta staðurinn fyrir upplýstar umræður fagaðila og vanra áhugamanna. Ef þú ert slíkur geturðu farið djúpt í efnið með líkum. Athugið: þetta er aðeins bitcoin-viðburður. Við höfum ekki áhuga á NFT, altcoins eða almennum umræðum um bálkakeðju."
     }
    },
-   "past": false,
-   "ongoing": true,
+   "past": true,
+   "ongoing": false,
    "html_url": "https://nordiccrypto.no/calendar/ccc2eea6b213/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/ccc2eea6b213/",
