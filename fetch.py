@@ -101,14 +101,24 @@ def get(url, conditional=True):
         h = {"User-Agent": UA, "Accept": "application/rss+xml, application/xml, text/xml, text/html, */*"}
         with _io:
             c = dict(http_cache.get(url, {}))
-        if conditional:
+        if conditional and c.get("parsed"):
             if c.get("etag"): h["If-None-Match"] = c["etag"]
             if c.get("lm"): h["If-Modified-Since"] = c["lm"]
         r = requests.get(url, headers=h, timeout=25)
-        if r.status_code == 200 and conditional:
-            with _io:
-                http_cache[url] = {"etag": r.headers.get("ETag"), "lm": r.headers.get("Last-Modified")}
         return r
+def remember_response(url, response):
+    """Store validators only after the body has been parsed.
+
+    A 200 that is cached before parsing, then crashes (for example a missing
+    lxml parser), makes the next fetch send If-Modified-Since. The server
+    answers 304 with an empty body, and an empty body is not an empty page.
+    Entries written before this rule have no ``parsed`` flag and are ignored.
+    """
+    if response is None or getattr(response, "status_code", None) != 200:
+        return
+    headers = getattr(response, "headers", None) or {}
+    with _io:
+        http_cache[url] = {"etag": headers.get("ETag"), "lm": headers.get("Last-Modified"), "parsed": True}
 PAGE_REDIRECTS = 6
 _CONSENT = (("cookieconsent_status", "dismiss"), ("CookieConsent", "true"), ("consent", "accepted"))
 def follow_redirects(start, fetch, limit=PAGE_REDIRECTS):
@@ -199,6 +209,7 @@ KW = [
     (r"\bBare Bitcoin\b", re.I), (r"\bFiri\b", 0), (r"\bNBX\b", 0), (r"\bK33\b", 0), (r"\bNexa\b", 0),
     (r"\bSafello\b", 0), (r"\bVirtune\b", 0), (r"\bValuno\b", 0), (r"\bGreenMerc\b", re.I), (r"\bTrijo\b", 0),
     (r"\bCoinmotion\b", 0), (r"\bNorthcrypto\b", re.I), (r"\bKvarn X\b", 0), (r"\bMyntkaup\b", 0), (r"\bMonerium\b", 0),
+    (r"\bAce Digital\b", re.I), (r"\bbitcoin[ -]treasury\b", re.I),
     # merged from Kryptonytt (2026-10-04) so Norwegian coverage is not lost
     (r"\bBitmynt\b", re.I), (r"\bH100\b", 0),
 ]
@@ -215,7 +226,7 @@ TOPICS = {
     "blockchain": r"\bblokkjede|\bblockchain|\bblockkedj|\blohkoketju|\bbálkakeðj|\bNFT|\btoken|\bweb3|\bethereum|\bsolana|\bNexa\b|\bsmart ?contract",
     "crypto": r"\bkrypto(?!graf)|\bcrypto|\bstablecoin|\brafmynt|\bsýndar|\bcoin\b",
     "regulation": r"tilsyn|inspektionen|valvonta|\bMiCA|regul|regelverk|\bskatt|\bvero\b|\bverotus|forbud|förbud|\blov(?:en|forslag)?\b|\blag(?:en|förslag)?\b|\blaki\b|\blög\b|økokrim|hvitvask|hvidvask|penningtvätt|rahanpesu|peningaþvætt|dark\s?net|sanksjon|norges bank|riksbank|suomen pankki|seðlabank|central ?bank|sentralbank|\bsvindel|\bbedrägeri|\bhuijaus|\bCBDC|\bpoliti|\bpolis|\bpoliisi|\blögregl",
-    "companies": r"\bFiri\b|bare bitcoin|\bK33\b|\bNBX\b|Safello|Virtune|Valuno|Coinmotion|Northcrypto|Kvarn|Myntkaup|Monerium|selskap|bolag|yhtiö|fyrirtæki|\bbørs\b|\bbörs|pörssi|oppkjøp|förvärv|emisjon|nyemission|investor|gründer|grundare|\bASA\b|\bAB\b|\bOyj?\b|\behf\b|omsetning|omsättning|liikevaihto",
+    "companies": r"\bFiri\b|bare bitcoin|\bK33\b|\bNBX\b|Safello|Virtune|Valuno|Coinmotion|Northcrypto|Kvarn|Myntkaup|Monerium|Ace Digital|bitcoin[ -]treasury|selskap|bolag|yhtiö|fyrirtæki|\bbørs\b|\bbörs|pörssi|oppkjøp|förvärv|emisjon|nyemission|investor|gründer|grundare|\bASA\b|\bAB\b|\bOyj?\b|\behf\b|omsetning|omsättning|liikevaihto",
 }
 TOPICS = {k: re.compile(v, re.I) for k, v in TOPICS.items()}
 # Gambling/affiliate list pages are advertising, not news (editor ruling 2026-10-04).
@@ -398,9 +409,13 @@ def outlet_feed_time(url, outlet_id):
         try:
             if robots_ok(feed):
                 r = get(feed)
+                if r.status_code == 304:
+                    r = get(feed, conditional=False)
                 if r.status_code == 200:
                     zone = pubtime.zone_for(country=src.get("country"), url=url)
-                    for entry in feedparser.parse(r.content).entries:
+                    parsed = feedparser.parse(r.content)
+                    remember_response(feed, r)
+                    for entry in parsed.entries:
                         link = unwrap_news_url(entry.get("link") or "")
                         inst = pubtime.from_feed_entry(entry, zone)
                         if link and inst:
@@ -520,6 +535,174 @@ def page_meta(url):
     if date: date = dt.datetime.fromisoformat(pubtime.utc_iso(date))
     return clean(title), clean(desc), date
 
+def html_story_links(html, base, pattern):
+    """Story links in the order the page lists them. Duplicates are dropped once."""
+    soup = BeautifulSoup(html or "", "lxml")
+    rx = re.compile(pattern or "")
+    out, seen = [], set()
+    for tag in soup.find_all("a", href=True):
+        href = tag.get("href") or ""
+        if not rx.search(href):
+            continue
+        url = urllib.parse.urljoin(base, href).split("#")[0]
+        if not url.startswith("http") or url in seen:
+            continue
+        seen.add(url)
+        out.append(url)
+    return out
+def fresh_html_links(links, seen, limit):
+    """Drop links already opened, then keep at most ``limit`` in that same order.
+
+    The cap used to run on an alphabetical sort before the seen-filter, so a
+    new story past the first 30 names was never opened.
+    """
+    fresh = []
+    seen = set(seen or ())
+    for url in links or []:
+        if url in seen:
+            continue
+        fresh.append(url)
+        if limit is not None and len(fresh) >= limit:
+            break
+    return fresh
+def read_html_links(url, pattern, saved):
+    """Return ``(links, error)``.
+
+    A 304 keeps the last parsed link list. A 304 with no saved list is fetched
+    again without validators, so an empty 304 body is not stored as zero links.
+    Validators are stored only after the HTML parses.
+    """
+    r = get(url)
+    if r.status_code == 304 and not saved:
+        r = get(url, conditional=False)
+    if r.status_code == 304:
+        return list(saved or []), None
+    if r.status_code != 200:
+        return [], f"HTTP {r.status_code}"
+    links = html_story_links(r.text or "", url, pattern)
+    remember_response(url, r)
+    return links, None
+_DOK8_DATA = re.compile(r"\bdatasentr\w*|\bdata-?cent(?:er|re)s?\b", re.I)
+_DOK8_MINING = re.compile(r"\bmining\b|\bcrypto-?mining\b|\bkrypto-?utvinning\w*|\butvinning av krypto\w*", re.I)
+_NO_MONTHS = {n: i for i, n in enumerate(
+    ["januar", "februar", "mars", "april", "mai", "juni", "juli", "august", "september", "oktober", "november", "desember"], 1)}
+def storting_sessions(now, days):
+    """Storting session ids that can overlap the look-back window.
+
+    A session is ``YYYY-(YYYY+1)`` and opens in October. The previous session
+    is included when the window starts before 1 October.
+    """
+    now = now if getattr(now, "tzinfo", None) else now.replace(tzinfo=dt.timezone.utc)
+    year = now.year if now.month >= 10 else now.year - 1
+    sessions = [f"{year}-{year + 1}"]
+    cutoff = now - dt.timedelta(days=max(0, int(days)))
+    if cutoff < dt.datetime(year, 10, 1, tzinfo=dt.timezone.utc):
+        prev = year - 1
+        sessions.append(f"{prev}-{prev + 1}")
+    return sessions
+def dok8_list_url(feed, session):
+    """Open-data list for one session. ``sesjonid`` in the stored feed is replaced."""
+    base = feed or "https://data.stortinget.no/eksport/publikasjoner?publikasjontype=dok8&format=json"
+    parsed = urllib.parse.urlparse(base)
+    query = [(k, v) for k, v in urllib.parse.parse_qsl(parsed.query, keep_blank_values=True) if k.lower() != "sesjonid"]
+    if not any(k.lower() == "publikasjontype" for k, _ in query):
+        query.append(("publikasjontype", "dok8"))
+    if not any(k.lower() == "format" for k, _ in query):
+        query.append(("format", "json"))
+    query.append(("sesjonid", session))
+    return urllib.parse.urlunparse(parsed._replace(query=urllib.parse.urlencode(query)))
+def dok8_url(session, pid):
+    return f"https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/{session}/{pid}/"
+def parse_dotnet_date(value):
+    """ASP.NET ``/Date(ms)/``. The year-1 sentinel (``dato`` on the list) is not a date."""
+    m = re.search(r"/Date\((-?\d+)", str(value or ""))
+    if not m:
+        return None
+    ms = int(m.group(1))
+    if ms < 0:
+        return None
+    when = dt.datetime.fromtimestamp(ms / 1000, dt.timezone.utc)
+    if when.year < 1990:
+        return None
+    return when
+def parse_no_date(text):
+    """``5. oktober 2026`` as noon UTC. There is no clock time on the document."""
+    m = re.search(r"\b(\d{1,2})\.?\s+([A-Za-zæøåÆØÅ]+)\s+(20\d\d)\b", text or "")
+    if not m:
+        return None
+    mon = _NO_MONTHS.get(m.group(2).lower().replace("é", "e"))
+    if not mon:
+        return None
+    try:
+        return dt.datetime(int(m.group(3)), mon, int(m.group(1)), 12, tzinfo=dt.timezone.utc)
+    except ValueError:
+        return None
+def _xml_text(block):
+    text = re.sub(r"<[^>]+>", " ", block or "")
+    return re.sub(r"\s+", " ", text).strip()
+def dok8_title(ingress):
+    """Short title. The list only says ``Dokument 8:9 S``."""
+    text = re.sub(r"\s+", " ", ingress or "").strip()
+    m = re.search(r".*\bom\s+(.+)$", text, re.I)
+    if m and text.lower().startswith("representantforslag"):
+        return "Representantforslag om " + m.group(1).strip(" .")
+    return text[:180]
+def dok8_hits(text):
+    """Crypto terms, plus data centres and mining. Used only for dok8 proposals.
+
+    ``miner`` as a substring matches ``mineralske`` and is not used.
+    Data-centre wording is not a global news keyword.
+    """
+    blob = text or ""
+    hits = matches(blob)
+    if _DOK8_DATA.search(blob) and "datasenter" not in hits:
+        hits.append("datasenter")
+    if _DOK8_MINING.search(blob) and "mining" not in hits:
+        hits.append("mining")
+    return hits
+def parse_dok8_list(payload):
+    data = json.loads(payload) if isinstance(payload, str) else (payload or {})
+    rows = []
+    for item in data.get("publikasjoner_liste") or []:
+        if not isinstance(item, dict) or not item.get("id"):
+            continue
+        rows.append({
+            "id": item.get("id"),
+            "available": parse_dotnet_date(item.get("tilgjengelig_dato")),
+            "listed_date": parse_dotnet_date(item.get("dato")),
+        })
+    return rows
+def dok8_due(rows, cutoff, slack_days=21, limit=40):
+    """Proposals that might fall inside the look-back window.
+
+    ``tilgjengelig_dato`` is when the file appeared in the export, not the
+    printed date, so the window is widened. A missing availability date is kept.
+    """
+    floor = cutoff - dt.timedelta(days=slack_days)
+    kept = []
+    for row in rows or []:
+        avail = row.get("available")
+        if avail is not None and avail < floor:
+            continue
+        kept.append(row)
+    kept.sort(key=lambda row: row.get("available") or dt.datetime.max.replace(tzinfo=dt.timezone.utc), reverse=True)
+    return kept[:limit]
+def parse_dok8_publication(xml):
+    """Title, teaser, date and match terms. The publication body is not returned."""
+    raw = xml or ""
+    date_m = re.search(r"<Dato>(.*?)</Dato>", raw, re.S)
+    ing_m = re.search(r"<Ingress>(.*?)</Ingress>", raw, re.S)
+    ingress = _xml_text(ing_m.group(1) if ing_m else "")
+    body = _xml_text(raw)
+    hits = dok8_hits(body)
+    return {
+        "title": dok8_title(ingress),
+        "teaser": ingress[:500],
+        "published": parse_no_date(_xml_text(date_m.group(1) if date_m else "")),
+        "hits": hits,
+        "topics": topics_of(body) if hits else [],
+        "relevant": bool(hits),
+    }
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--days", type=int, default=7)
     ap.add_argument("--only", help="comma-separated source ids")
@@ -540,12 +723,12 @@ def main():
     status = load(P("state", "source_status.json"), {})
     new = []
 
-    def add(url, title, teaser, published, src, outlet, outlet_name, country, extra=(), all_rel=False, lang=None, unverified=False):
+    def add(url, title, teaser, published, src, outlet, outlet_name, country, extra=(), all_rel=False, lang=None, unverified=False, extra_hits=(), topics=None):
         if isinstance(published, dt.datetime):
             published = dt.datetime.fromisoformat(pubtime.utc_iso(published))
         with _io:
-            _add(url, title, teaser, published, src, outlet, outlet_name, country, extra, all_rel, lang, unverified)
-    def _add(url, title, teaser, published, src, outlet, outlet_name, country, extra=(), all_rel=False, lang=None, unverified=False):
+            _add(url, title, teaser, published, src, outlet, outlet_name, country, extra, all_rel, lang, unverified, extra_hits, topics)
+    def _add(url, title, teaser, published, src, outlet, outlet_name, country, extra=(), all_rel=False, lang=None, unverified=False, extra_hits=(), topics=None):
         url = canon(url)
         cu = story_key(url)
         ex = by_url.get(cu)
@@ -558,6 +741,9 @@ def main():
             return
         text = f"{title}. {teaser}"
         hits = matches(text, extra)
+        for hit in extra_hits or ():
+            if hit not in hits:
+                hits.append(hit)
         if not hits and not all_rel: return
         if is_gambling(text, url):
             if not GAMBLING_REGULATOR.search(text):
@@ -581,7 +767,7 @@ def main():
         it = {"id": iid(url), "url": url, "title": title, "title_en": None, "source": outlet, "source_name": outlet_name,
               "country": country, "language": lang or LANG.get(country), "via": src, "seen_via": [src],
               "published": published.isoformat(), "fetched": NOW.isoformat(timespec="seconds"),
-              "topics": topics_of(text), "matched": hits, "paywall": bool(SRC.get(outlet, {}).get("paywall", False)),
+              "topics": list(topics) if topics is not None else topics_of(text), "matched": sorted(set(hits)), "paywall": bool(SRC.get(outlet, {}).get("paywall", False)),
               "status": "pending", "summary": None}
         if unverified: it["published_unverified"] = True
         strip_press_images(it)
@@ -644,6 +830,7 @@ def main():
         return finish(page, outlet_inst)
 
     seen_html = load(P("state", "html_seen.json"), {})
+    html_lists = load(P("state", "html_lists.json"), {})
     def ingest(s):
         """One source. Any failure is stored on that source and does not stop the others."""
         err = guarded_call(lambda: _ingest(s))
@@ -657,14 +844,23 @@ def main():
         err = None
         method = s.get("method") or "sitemap"
         try:
+            remembered = []
             def http_get(url):
                 r = get(url)
-                return r.status_code, (r.text if r.status_code == 200 else "")
+                if r.status_code == 304:
+                    r = get(url, conditional=False)
+                if r.status_code == 200:
+                    remembered.append((url, r))
+                    return 200, r.text or ""
+                return r.status_code, ""
             entries, used, err = listing.collect(
                 s.get("url") or s.get("feed") or "", http_get, robots_ok,
                 limit=max(8, s.get("max_new_per_run", 8) * 3),
                 zone=pubtime.zone_for(country=s.get("country"), url=s.get("url")),
             )
+            if entries:
+                for got_url, got in remembered:
+                    remember_response(got_url, got)
             if used:
                 method = used
             cap = s.get("max_new_per_run", 8)
@@ -700,7 +896,71 @@ def main():
                                "ok_requests": n_ok, "entries": n_items, "error": err, "method": method}
         log(f"{s['id']:<22} {method} entries={n_items} err={err}")
 
+    def _ingest_dok8(s):
+        """Storting representative proposals. The list has no publication date.
+
+        ``dato`` is a year-1 sentinel. The printed date and the wording used
+        for matching come from each publication. The body is not stored.
+        """
+        n_ok = n_items = 0
+        err = None
+        try:
+            for session in storting_sessions(NOW, a.days):
+                list_url = dok8_list_url(s.get("feed"), session)
+                if not robots_ok(list_url):
+                    err = "robots.txt disallows"
+                    continue
+                with _io:
+                    saved = list(html_lists.get(list_url) or [])
+                r = get(list_url)
+                if r.status_code == 304 and not saved:
+                    r = get(list_url, conditional=False)
+                if r.status_code == 304:
+                    n_ok += 1
+                    n_items += len(saved)
+                    continue
+                if r.status_code != 200:
+                    err = f"HTTP {r.status_code}"
+                    continue
+                due = dok8_due(parse_dok8_list(r.text), cutoff)
+                relevant = []
+                for row in due:
+                    pid = row.get("id") or ""
+                    page = dok8_url(session, pid)
+                    with _io:
+                        known = story_key(page) in by_url
+                    if known:
+                        relevant.append(page)
+                        continue
+                    pub_url = "https://data.stortinget.no/eksport/publikasjon?publikasjonid=" + urllib.parse.quote(pid) + "&format=xml"
+                    if not robots_ok(pub_url):
+                        continue
+                    pr = get(pub_url, conditional=False)
+                    if pr.status_code != 200 or not pr.text:
+                        continue
+                    doc = parse_dok8_publication(pr.text)
+                    if not doc["relevant"] or not doc["published"] or doc["published"] < cutoff:
+                        continue
+                    relevant.append(page)
+                    add(page, doc["title"], doc["teaser"], doc["published"], s["id"], s["id"], s.get("name") or "Stortinget",
+                        s.get("country") or "NO", lang=s.get("language"), extra_hits=doc["hits"], topics=doc["topics"])
+                remember_response(list_url, r)
+                with _io:
+                    html_lists[list_url] = relevant
+                n_ok += 1
+                n_items += len(relevant)
+        except Exception as ex:
+            err = f"{type(ex).__name__}: {ex}"[:200]
+            log("ERR", s["id"], err)
+        with _io:
+            status[s["id"]] = {"checked": NOW.isoformat(timespec="seconds"), "ok": n_ok > 0, "requests": n_ok,
+                               "ok_requests": n_ok, "entries": n_items, "error": err, "method": "html"}
+        log(f"{s['id']:<22} dok8 entries={n_items} err={err}")
+
     def _ingest(s):
+        if s.get("type") == "dok8":
+            _ingest_dok8(s)
+            return
         if s.get("type") == "sitemap" or (s.get("method") == "sitemap" and not s.get("link_pattern")):
             _ingest_listing(s)
             return
@@ -710,15 +970,26 @@ def main():
         if s["type"] == "html":
             n_ok = 0; n_meta = 0; err = None; links = []
             try:
-                if robots_ok(s["feed"]):
-                    r = get(s["feed"]); r.raise_for_status(); n_ok = 1
-                    soup = BeautifulSoup(r.text, "lxml")
-                    links = sorted({urllib.parse.urljoin(s["feed"], x["href"]) for x in soup.find_all("a", href=True) if re.search(s["link_pattern"], x["href"])})
-                else: err = "robots.txt disallows"
-                for u in links[: s.get("max_new_per_run", 40)]:
+                if not robots_ok(s["feed"]):
+                    err = "robots.txt disallows"
+                else:
                     with _io:
-                        already = u in seen_html
-                    if already: continue  # seen before (Kaupr lists can overlap; the first country page wins)
+                        saved = list(html_lists.get(s["feed"]) or [])
+                    links, err = read_html_links(s["feed"], s.get("link_pattern") or "", saved)
+                    if not links and not err and saved:
+                        links = saved
+                    if links or not err:
+                        n_ok = 1
+                    if links:
+                        with _io:
+                            html_lists[s["feed"]] = list(links)
+                cap = s.get("max_new_per_run", 40)
+                with _io:
+                    seen = set(seen_html)
+                for u in fresh_html_links(links, seen, cap):
+                    with _io:
+                        if u in seen_html:
+                            continue  # another Kaupr section already opened it
                     n_meta += 1
                     t, d, date = page_meta(u)
                     with _io:
@@ -738,7 +1009,9 @@ def main():
                 r = get(u)
                 if r.status_code == 304: n_ok += 1; continue
                 if r.status_code != 200: err = f"HTTP {r.status_code}"; continue
-                f = feedparser.parse(r.content); n_ok += 1; n_items += len(f.entries)
+                f = feedparser.parse(r.content)
+                remember_response(u, r)
+                n_ok += 1; n_items += len(f.entries)
                 for e in f.entries:
                     entry_carries_article_image(e)  # media:content / enclosure: counted, URL not stored
                     link = unwrap_news_url(e.get("link") or "")
@@ -810,7 +1083,7 @@ def main():
         log(f"article images ignored: {ignored_count()} seen in feeds or pages, {n_stripped} fields removed from news rows (URLs not stored)")
     news["items"].sort(key=lambda i: i["published"], reverse=True); news["updated"] = NOW.isoformat(timespec="seconds")
     save(P("data", "news.json"), news); save(P("state", "teasers.json"), teasers); save(P("queue", "review.json"), queue)
-    save(P("state", "source_status.json"), status); save(P("state", "http_cache.json"), http_cache); save(P("state", "html_seen.json"), seen_html)
+    save(P("state", "source_status.json"), status); save(P("state", "http_cache.json"), http_cache); save(P("state", "html_seen.json"), seen_html); save(P("state", "html_lists.json"), html_lists)
     by_c = {}
     for i in new: by_c[i["country"]] = by_c.get(i["country"], 0) + 1
     log(f"DONE: {len(new)} new stories {by_c}, {len(news['items'])} total, "
