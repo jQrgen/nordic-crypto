@@ -19,7 +19,7 @@ BY_NAV = {
     "api": "cbase",                               # crashed space station hackerspace
     "newsletter": "broadsheet",                   # hot-off-the-press newspaper
     "talks": "vhs",                               # synthwave VHS tape
-    "academia": "chalk",                          # lecture-hall chalkboard
+    "academia": "athens",                         # classical Athens: marble, meander, columns, owl
     "about": "saga",                              # northern lights and a longship
     "tip": "noir",                                # rainy detective office
     "sources": "teletext",                        # Nordic tekst-TV
@@ -27,7 +27,7 @@ BY_NAV = {
 
 # Browser UI colour per theme (meta theme-color); default stays the North Sea band.
 THEME_COLOR = {"matrix": "#000000", "pixel": "#E83838", "pirate": "#1D2F4A", "cbase": "#05070D", "broadsheet": "#1A1712",
-               "vhs": "#12071F", "chalk": "#1E3127", "saga": "#0B1320", "noir": "#0E0E0F", "teletext": "#000000"}
+               "vhs": "#12071F", "athens": "#2A1B12", "saga": "#0B1320", "noir": "#0E0E0F", "teletext": "#000000"}
 
 
 def _read(fn):
@@ -186,23 +186,62 @@ def _deco_vhs():
             '<rect x="20" y="46" width="80" height="12" fill="#FF3EA5" opacity=".7"/></svg>')
 
 
-def _deco_chalk():
-    s = 'fill="none" stroke="#F1F1E8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"'
-    y = 'fill="none" stroke="#F7E27A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"'
-    return ('<div class="ck-smudge"></div>'
-            # Merkle tree doodle
-            f'<svg class="ck-doodle ck-d1" viewBox="0 0 220 160" width="220" height="160"><path class="ck-draw" {s} d="M110 20 L60 70 M110 20 L160 70 M60 70 L35 120 M60 70 L85 120 M160 70 L135 120 M160 70 L185 120"/>'
-            f'<circle class="ck-draw" {y} cx="110" cy="20" r="12"/><circle class="ck-draw" {s} cx="60" cy="70" r="10"/><circle class="ck-draw" {s} cx="160" cy="70" r="10"/>'
-            f'<rect class="ck-draw" {s} x="25" y="120" width="20" height="20"/><rect class="ck-draw" {s} x="75" y="120" width="20" height="20"/><rect class="ck-draw" {s} x="125" y="120" width="20" height="20"/><rect class="ck-draw" {s} x="175" y="120" width="20" height="20"/></svg>'
-            # sine / price curve with axes
-            f'<svg class="ck-doodle ck-d2" viewBox="0 0 240 140" width="240" height="140"><path class="ck-draw" {s} d="M20 10 V120 H230"/><path class="ck-draw" {y} d="M22 100 C 50 20, 80 130, 110 70 S 170 10, 200 50 S 220 30, 228 24"/></svg>'
-            # hash formula
-            f'<svg class="ck-doodle ck-d3" viewBox="0 0 260 80" width="260" height="80"><text class="ck-text" x="8" y="50" font-size="34">H(x) = y</text><path class="ck-draw" {y} d="M8 64 Q130 74 250 60"/></svg>'
-            # sigma
-            f'<svg class="ck-doodle ck-d4" viewBox="0 0 160 100" width="160" height="100"><text class="ck-text" x="6" y="64" font-size="44">Σ tx</text></svg>'
-            f'<svg class="ck-doodle ck-d5" viewBox="0 0 140 140" width="140" height="140"><circle class="ck-draw" {s} cx="70" cy="70" r="52"/><path class="ck-draw" {y} d="M70 18 V122 M18 70 H122 M33 33 L107 107"/></svg>'
-            '<div class="ck-ledge"><span class="ck-eraser"></span><span class="ck-stick"></span><span class="ck-stick ck-stick2"></span></div>'
-            '<canvas class="ck-dust"></canvas>')
+_MEANDER = ('<svg class="at-meander {cls}" width="100%" height="20"><defs><pattern id="mq-{cls}" width="40" height="20" patternUnits="userSpaceOnUse">'
+            '<path d="M0 18H38V2H6V14H30V6H14V10" fill="none" stroke="#1E1410" stroke-width="2.4" stroke-linecap="square"/></pattern></defs>'
+            '<rect x="-40" width="120%" height="20" fill="url(#mq-{cls})"/></svg>')
+
+
+def _column(cls):
+    """A fluted Doric column with capital and base, own drawing."""
+    flutes = "".join(f'<path d="M{18 + i * 8} 46 V372" stroke="#C9BFA9" stroke-width="2"/>' for i in range(6))
+    return (f'<svg class="at-col {cls}" viewBox="0 0 90 420" width="90" height="420">'
+            '<rect x="2" y="8" width="86" height="16" fill="#EFE9DC" stroke="#B8AD95" stroke-width="2"/>'
+            '<path d="M8 24 H82 L72 44 H18 Z" fill="#E7E0CF" stroke="#B8AD95" stroke-width="2"/>'
+            '<path d="M16 44 H74 L70 374 H20 Z" fill="#F3EEE3" stroke="#B8AD95" stroke-width="2"/>' + flutes +
+            '<rect x="10" y="374" width="70" height="14" fill="#E7E0CF" stroke="#B8AD95" stroke-width="2"/>'
+            '<rect x="2" y="388" width="86" height="18" fill="#EFE9DC" stroke="#B8AD95" stroke-width="2"/></svg>')
+
+
+_OWL = ('<svg class="at-owl" viewBox="0 0 120 150" width="120" height="150">'
+        '<path d="M20 60 Q20 20 60 18 Q100 20 100 60 L100 112 Q100 140 60 142 Q20 140 20 112 Z" fill="#1E1410"/>'
+        '<path d="M28 34 L22 14 L44 26 Z M92 34 L98 14 L76 26 Z" fill="#1E1410"/>'
+        '<g class="at-eyes"><circle cx="44" cy="58" r="15" fill="#C8642A"/><circle cx="76" cy="58" r="15" fill="#C8642A"/>'
+        '<circle cx="44" cy="58" r="6" fill="#1E1410"/><circle cx="76" cy="58" r="6" fill="#1E1410"/>'
+        '<rect class="at-lid" x="27" y="42" width="66" height="0" fill="#1E1410"/></g>'
+        '<path d="M60 70 L54 82 L60 92 L66 82 Z" fill="#C8642A"/>'
+        '<path d="M38 100 Q60 92 82 100 M36 112 Q60 104 84 112 M38 124 Q60 116 82 124" fill="none" stroke="#C8642A" stroke-width="3"/>'
+        '<path d="M10 146 H110" stroke="#1E1410" stroke-width="6" stroke-linecap="round"/>'
+        '<path d="M40 142 v6 M52 142 v6 M68 142 v6 M80 142 v6" stroke="#C8642A" stroke-width="3"/></svg>')
+
+
+def _laurel(cls):
+    leaves = "".join(f'<ellipse cx="{30 + i * 2}" cy="{140 - i * 16}" rx="9" ry="4" transform="rotate({-50 + i * 4} {30 + i * 2} {140 - i * 16})" fill="#6E7F3E"/>'
+                     f'<ellipse cx="{48 - i * 0}" cy="{134 - i * 16}" rx="9" ry="4" transform="rotate({40 - i * 4} {48} {134 - i * 16})" fill="#869A4C"/>' for i in range(8))
+    return (f'<svg class="at-laurel {cls}" viewBox="0 0 80 160" width="80" height="160"><path d="M38 156 Q34 80 44 8" fill="none" stroke="#5B6A33" stroke-width="3"/>{leaves}</svg>')
+
+
+_TEMPLE = ('<svg class="at-temple" viewBox="0 0 520 220" width="520" height="220">'
+           '<path class="at-draw" d="M20 70 L260 10 L500 70 Z" fill="none" stroke="#1E1410" stroke-width="3"/>'
+           '<path class="at-draw" d="M14 70 H506 V86 H14 Z M30 86 V186 M78 86 V186 M126 86 V186 M174 86 V186 M222 86 V186 M298 86 V186 M346 86 V186 M394 86 V186 M442 86 V186 M490 86 V186 M8 186 H512 V198 H8 Z M0 198 H520 V212 H0 Z" fill="none" stroke="#1E1410" stroke-width="3"/>'
+           '<path class="at-draw" d="M150 52 Q260 30 370 52" fill="none" stroke="#C8642A" stroke-width="3"/></svg>')
+
+
+_AMPHORA = ('<svg class="at-amphora" viewBox="0 0 120 200" width="120" height="200">'
+            '<path d="M44 10 H76 V30 Q76 40 86 46 Q110 64 106 110 Q102 160 74 186 H46 Q18 160 14 110 Q10 64 34 46 Q44 40 44 30 Z" fill="#C8642A" stroke="#1E1410" stroke-width="3"/>'
+            '<path d="M44 30 Q20 36 22 64 M76 30 Q100 36 98 64" fill="none" stroke="#1E1410" stroke-width="6"/>'
+            '<rect x="16" y="86" width="88" height="44" fill="#1E1410"/>'
+            '<path d="M34 128 L44 96 L52 128 M60 128 Q64 100 72 96 Q80 100 84 128" fill="none" stroke="#C8642A" stroke-width="3"/>'
+            '<path d="M20 140 H100 M24 150 H96" stroke="#1E1410" stroke-width="3"/>'
+            '<path d="M40 186 H80 V196 H40 Z" fill="#1E1410"/></svg>')
+
+
+def _deco_athens():
+    leaves = "".join(f'<i style="left:{(i * 23) % 100}%;--d:{-(i * 2.3) % 18:.1f}s;--s:{12 + (i * 5) % 9}s"></i>' for i in range(12))
+    return ('<div class="at-marble"></div>'
+            + _MEANDER.format(cls="at-top") + _MEANDER.format(cls="at-bottom")
+            + _column("at-colL th-desk") + _column("at-colR th-desk")
+            + _TEMPLE + _OWL + _laurel("at-laurelL") + _laurel("at-laurelR") + _AMPHORA
+            + f'<div class="at-leaves">{leaves}</div>')
 
 
 _LONGSHIP = ('<svg class="sg-ship" viewBox="0 0 220 120" width="220" height="120">'
@@ -255,7 +294,7 @@ def _deco_aurora():
 
 
 DECO = {"matrix": _deco_matrix, "pixel": _deco_pixel, "pirate": _deco_pirate, "cbase": _deco_cbase, "broadsheet": _deco_broadsheet,
-        "vhs": _deco_vhs, "chalk": _deco_chalk, "saga": _deco_saga, "noir": _deco_noir, "teletext": _deco_teletext, "aurora": _deco_aurora}
+        "vhs": _deco_vhs, "athens": _deco_athens, "saga": _deco_saga, "noir": _deco_noir, "teletext": _deco_teletext, "aurora": _deco_aurora}
 
 
 def for_nav(nav):
