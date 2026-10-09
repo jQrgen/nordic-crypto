@@ -3,7 +3,7 @@
  "info": {
   "title": "Nordic Crypto data API",
   "version": "1",
-  "description": "Public read-only JSON for Nordic Crypto (https://nordiccrypto.no/). No authentication. News, newsletters, events, sources, academia, books, the who's who, profiles, images, the rules map, the changelog, the article archive, public talk videos and Nordic exchange prices (market data, not investment advice). Kaupr is a news source only, never a sponsor. The sign-off is The Nordic Crypto team. GitHub Pages sends Access-Control-Allow-Origin: * so browsers can fetch these files. English text is the default; published translations are inside each object under *_i18n. Site languages: /api/v1/languages.json. IP-country language guess: /api/v1/geo-language.json (the nc_lang cookie wins). Discovery: https://nordiccrypto.no/api/v1/index.json. Human docs: https://nordiccrypto.no/api/.",
+  "description": "Public read-only JSON for Nordic Crypto (https://nordiccrypto.no/). No authentication. News, newsletters, events, sources, academia, books, developers, the who's who, profiles, images, the rules map, the changelog, the article archive, public talk videos and Nordic exchange prices (market data, not investment advice). Kaupr is a news source only, never a sponsor. The sign-off is The Nordic Crypto team. GitHub Pages sends Access-Control-Allow-Origin: * so browsers can fetch these files. English text is the default; published translations are inside each object under *_i18n. Site languages: /api/v1/languages.json. IP-country language guess: /api/v1/geo-language.json (the nc_lang cookie wins). Discovery: https://nordiccrypto.no/api/v1/index.json. Human docs: https://nordiccrypto.no/api/.",
   "license": {
    "name": "MIT",
    "url": "https://github.com/jQrgen/nordic-crypto/blob/main/LICENSE"
@@ -581,6 +581,24 @@
        "application/json": {
         "schema": {
          "$ref": "#/components/schemas/BookList"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "/api/v1/developers.json": {
+   "get": {
+    "operationId": "api_v1_developers",
+    "summary": "Open-source developers: technical people in Nordic crypto with public crypto-related code (an own non-fork crypto repo, or merged commits or pull requests in a public crypto project). name is as shown on the code profile. profiles are the GitHub/GitLab/Codeberg/sourcehut profile links. notable has up to three items: kind \"repo\" (own repo: name, url, stars, language, description, last_push) or kind \"contrib\" (project, host, url, commits, merged_prs). Stars and counts are from the date in checked. nordic_source is where the Nordic link is shown. whoswho_id links the who's who entry. Only rows the editor approved; a preview build also has pending rows (status \"pending\").",
+    "responses": {
+     "200": {
+      "description": "Open-source developers: technical people in Nordic crypto with public crypto-related code (an own non-fork crypto repo, or merged commits or pull requests in a public crypto project). name is as shown on the code profile. profiles are the GitHub/GitLab/Codeberg/sourcehut profile links. notable has up to three items: kind \"repo\" (own repo: name, url, stars, language, description, last_push) or kind \"contrib\" (project, host, url, commits, merged_prs). Stars and counts are from the date in checked. nordic_source is where the Nordic link is shown. whoswho_id links the who's who entry. Only rows the editor approved; a preview build also has pending rows (status \"pending\").",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/DeveloperList"
         }
        }
       }
@@ -3022,6 +3040,186 @@
      }
     },
     "description": "BookList"
+   },
+   "Developer": {
+    "type": "object",
+    "required": [
+     "id",
+     "name",
+     "country",
+     "profiles",
+     "notable",
+     "nordic_source",
+     "checked",
+     "status"
+    ],
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "name": {
+      "type": "string",
+      "description": "Name as shown on the public code profile."
+     },
+     "role": {
+      "type": "string",
+      "nullable": true
+     },
+     "org": {
+      "type": "string",
+      "nullable": true
+     },
+     "org_id": {
+      "type": "string",
+      "nullable": true,
+      "description": "Who's who id of the organisation, when it has one."
+     },
+     "whoswho_id": {
+      "type": "string",
+      "nullable": true,
+      "description": "Who's who id of the person, when listed there."
+     },
+     "whoswho_url": {
+      "type": "string",
+      "nullable": true
+     },
+     "country": {
+      "type": "string",
+      "description": "NO, SE, DK, FI, IS, FO, GL or AX."
+     },
+     "profiles": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "kind": {
+         "type": "string"
+        },
+        "url": {
+         "type": "string"
+        },
+        "login": {
+         "type": "string"
+        }
+       }
+      }
+     },
+     "notable": {
+      "type": "array",
+      "maxItems": 3,
+      "items": {
+       "type": "object",
+       "properties": {
+        "kind": {
+         "type": "string",
+         "enum": [
+          "repo",
+          "contrib"
+         ]
+        },
+        "name": {
+         "type": "string"
+        },
+        "project": {
+         "type": "string"
+        },
+        "host": {
+         "type": "string"
+        },
+        "url": {
+         "type": "string"
+        },
+        "stars": {
+         "type": "integer"
+        },
+        "language": {
+         "type": "string",
+         "nullable": true
+        },
+        "description": {
+         "type": "string",
+         "nullable": true
+        },
+        "last_push": {
+         "type": "string"
+        },
+        "commits": {
+         "type": "integer",
+         "nullable": true
+        },
+        "merged_prs": {
+         "type": "integer",
+         "nullable": true
+        }
+       }
+      }
+     },
+     "nordic_source": {
+      "type": "object",
+      "properties": {
+       "url": {
+        "type": "string"
+       },
+       "note": {
+        "type": "string"
+       }
+      }
+     },
+     "checked": {
+      "type": "string",
+      "description": "YYYY-MM-DD the profile, repos and counts were checked."
+     },
+     "status": {
+      "type": "string",
+      "enum": [
+       "published",
+       "pending"
+      ]
+     },
+     "review": {
+      "type": "string",
+      "nullable": true,
+      "description": "editor, or ready_for_owner (jQrgen decides)."
+     },
+     "note": {
+      "type": "string",
+      "nullable": true
+     },
+     "html_url": {
+      "type": "string"
+     }
+    }
+   },
+   "DeveloperList": {
+    "type": "object",
+    "properties": {
+     "api_version": {
+      "type": "string"
+     },
+     "name": {
+      "type": "string"
+     },
+     "generated_at": {
+      "type": "string"
+     },
+     "preview": {
+      "type": "boolean"
+     },
+     "updated": {
+      "type": "string",
+      "nullable": true
+     },
+     "count": {
+      "type": "integer"
+     },
+     "people": {
+      "type": "array",
+      "items": {
+       "$ref": "#/components/schemas/Developer"
+      }
+     }
+    },
+    "description": "DeveloperList"
    },
    "OrgEntity": {
     "type": "object",
