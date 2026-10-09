@@ -13,9 +13,9 @@ header.top .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:
 .hdrbtns{display:flex;align-items:center;justify-content:flex-start;gap:8px;flex-wrap:wrap;min-width:0;text-align:start}
 .hdrsub{display:inline-block;padding:7px 15px;border:1px solid var(--gold);border-radius:var(--r-sm);background:var(--gold);color:var(--on-gold)!important;text-decoration:none;font-weight:700;font-size:14px;line-height:1.3;white-space:nowrap;text-align:start}
 .hdrsub:hover,.hdrsub:focus-visible{background:var(--btn-hover);border-color:var(--btn-hover)}
-.hdrx,.hdrtg,.themetoggle{display:inline-flex;align-items:center;gap:8px;height:36px;min-width:36px;padding:0 9px;border:1px solid var(--line-strong);border-radius:var(--r-sm);color:var(--fg)!important;background:transparent;text-decoration:none;font:inherit;font-weight:500;font-size:14px;line-height:1;white-space:nowrap;cursor:pointer;text-align:start}
-.hdrx:hover,.hdrx:focus-visible,.hdrtg:hover,.hdrtg:focus-visible,.themetoggle:hover,.themetoggle:focus-visible{border-color:var(--band-muted);background:var(--soft)}
-.hdrx .lbl,.hdrtg .lbl{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+.hdrx,.hdrtg,.hdrgh,.themetoggle{display:inline-flex;align-items:center;gap:8px;height:36px;min-width:36px;padding:0 9px;border:1px solid var(--line-strong);border-radius:var(--r-sm);color:var(--fg)!important;background:transparent;text-decoration:none;font:inherit;font-weight:500;font-size:14px;line-height:1;white-space:nowrap;cursor:pointer;text-align:start}
+.hdrx:hover,.hdrx:focus-visible,.hdrgh:hover,.hdrgh:focus-visible,.hdrtg:hover,.hdrtg:focus-visible,.themetoggle:hover,.themetoggle:focus-visible{border-color:var(--band-muted);background:var(--soft)}
+.hdrx .lbl,.hdrtg .lbl,.hdrgh .lbl{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
 .themetoggle{display:none}.js .themetoggle{display:inline-flex}
 .themetoggle .i-sun,[data-theme=dark] .themetoggle .i-moon{display:none}[data-theme=dark] .themetoggle .i-sun{display:block}
 nav.main{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:baseline;gap:0 26px;font-size:15px;text-align:start;flex-basis:100%;margin-top:2px}
@@ -67,8 +67,8 @@ header.top select option{color:var(--nc-tar);background:var(--nc-sail)}
  html.js[dir=rtl] nav.main a[aria-current]{box-shadow:inset -3px 0 0 var(--gold);padding-left:2px;padding-right:14px}
  .js header.top.nav-open .hdrbtns{display:flex;order:6;flex:1 0 100%;padding-top:6px}
  .js header.top.nav-open .langsw{display:flex;order:7;flex:1 0 100%;padding-bottom:6px}
- .js .hdrx .lbl,.js .hdrtg .lbl{position:static;width:auto;height:auto;margin:0;overflow:visible;clip:auto}
- .js .hdrsub,.js .hdrx,.js .hdrtg{height:44px;display:inline-flex;align-items:center}
+ .js .hdrx .lbl,.js .hdrtg .lbl,.js .hdrgh .lbl{position:static;width:auto;height:auto;margin:0;overflow:visible;clip:auto}
+ .js .hdrsub,.js .hdrx,.js .hdrtg,.js .hdrgh{height:44px;display:inline-flex;align-items:center}
 }
 @media(max-width:960px),(hover:none) and (pointer:coarse){
  .js .langsw details{display:none}
