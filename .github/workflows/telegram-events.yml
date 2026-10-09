@@ -1,0 +1,63 @@
+# Post each new upcoming event on nordiccrypto.no to the Nordic Crypto Telegram chat, once.
+# Reads the live /api/v1/events.json, so events published by CI and by ./publish.sh on the box are both seen.
+# The list of posted event ids is kept in the Actions cache. A missing cache only re-seeds it (nothing is posted).
+# Setup: repo secret TELEGRAM_BOT_TOKEN (the existing bot, which must be allowed to post in the chat) and repo
+# variable TELEGRAM_CHAT_ID (@nordiccryptochat or the numeric -100… id). Without both, the run is a dry run.
+name: Telegram new events
+
+on:
+  workflow_run:
+    workflows: ["Deploy site"]
+    types: [completed]
+  schedule:
+    - cron: "17,47 * * * *"   # also catches publishes from the box
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Only print what would be posted"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  actions: write   # save the ledger in the Actions cache
+
+concurrency:
+  group: telegram-events
+  cancel-in-progress: false
+
+jobs:
+  post:
+    if: github.repository == 'jQrgen/nordic-crypto' && (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          sparse-checkout: tools/telegram_events.py
+          sparse-checkout-cone-mode: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Restore the ledger
+        uses: actions/cache/restore@v4
+        with:
+          path: .telegram/ledger.json
+          key: telegram-events-ledger-${{ github.run_id }}
+          restore-keys: telegram-events-ledger-
+
+      - name: Post new events
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ vars.TELEGRAM_CHAT_ID }}
+        run: python3 tools/telegram_events.py --ledger .telegram/ledger.json ${{ inputs.dry_run && '--dry-run' || '' }}
+
+      - name: Save the ledger
+        if: always() && hashFiles('.telegram/ledger.json') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: .telegram/ledger.json
+          key: telegram-events-ledger-${{ github.run_id }}
