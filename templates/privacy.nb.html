@@ -1,0 +1,96 @@
+<h1>Personvernerklæring</h1>
+<p class="lead">Hva Nordic Crypto lagrer om deg, hvilke eksterne tjenester som ser forespørslene dine, hvorfor og hvor lenge. Kort sagt: ingen reklame, ingen sporingskapsler, ingen eksterne skrifttyper, og ingenting blir solgt. Hver del nedenfor sier om den er slått på i dag.</p>
+<div class="prose">
+
+<h2 id="who">Hvem som er ansvarlig</h2>
+<p>Nordic Crypto (nordiccrypto.no og landadressene nordiccrypto.se, .fi, .dk og .is) drives av Jørgen S. Notland (jQrgen), Oslo, som er behandlingsansvarlig etter personvernforordningen (GDPR). Spørsmål om dine opplysninger: opprett en sak på <a href="https://github.com/jQrgen/nordic-crypto/issues" rel="noopener">github.com/jQrgen/nordic-crypto/issues</a>. Sakene er offentlige, så ikke skriv personopplysninger der; be om å bli kontaktet, så svarer vi privat. Du kan også klage til <a href="https://www.datatilsynet.no/" rel="noopener">Datatilsynet</a> eller til tilsynsmyndigheten der du bor.</p>
+<p>Denne siden gjelder nettstedet. Sist oppdatert 9. oktober 2026. Endringer står i <a href="{{UP}}changelog/">endringsloggen</a> og i den offentlige kildekoden.</p>
+
+<h2 id="overview">Oversikt</h2>
+<ul>
+<li><b>Drift</b> (GitHub Pages; Cloudflare for landadressene): på.</li>
+<li><b>Innstillinger i nettleseren</b> (språk, lys eller mørk): på, bare når du bruker dem.</li>
+<li><b>Markedspriser fra Firi og Coinmotion</b> på markedssiden: på.</li>
+<li><b>Foredragsvideoer</b> (YouTube, Vimeo), først når du trykker på avspilling: på.</li>
+<li><b>Besøksstatistikk</b> (Cloudflare Web Analytics): {{ST_ANALYTICS}}</li>
+<li><b>Språkvalg ut fra land</b>: {{ST_GEO}}</li>
+<li><b>Nyhetsbrev på e-post</b>: {{ST_NEWSLETTER}}</li>
+<li><b>Varsler i nettleseren</b>: {{ST_PUSH}}</li>
+<li><b>Private tips</b>: {{ST_TIPS}}</li>
+<li><b>Prateboks</b>: {{ST_CHAT}}</li>
+</ul>
+<p>Brukes ikke i det hele tatt: reklame, sporing for reklame eller sosiale medier, Google Analytics, innbygde Telegram- eller X-moduler, eksterne skrifttyper (skriftene våre ligger på dette nettstedet), skriptbiblioteker fra et CDN og bilder lenket direkte fra aviser. Lenkene til Telegram, X, GitHub og TestFlight er vanlige lenker; de tjenestene ser deg bare hvis du følger lenken, og da gjelder deres egne personvernvilkår.</p>
+
+<h2 id="hosting">Drift og serverlogger</h2>
+<p><b>Hva.</b> Sidene er statiske filer på GitHub Pages. Når nettleseren din henter en side, får GitHub forespørselen med IP-adressen din og opplysninger om nettleseren. GitHub opplyser at de logger IP-adressen til besøkende på GitHub Pages-nettsteder av sikkerhetshensyn. Vi kan ikke se disse loggene.</p>
+<p><b>Landadresser og gammel adresse.</b> nordiccrypto.se, .fi, .dk og .is går via Cloudflare, der en liten Cloudflare Worker viser de samme sidene under den adressen. Workeren lagrer og logger ingenting (logging er slått av). cryptonordic.no sendes videre av Cloudflare til nordiccrypto.no. nordiccrypto.eu videresendes av Domeneshop AS (Norge).</p>
+<p><b>Formål og rettslig grunnlag.</b> Å levere nettstedet og holde det sikkert: berettiget interesse (GDPR art. 6 nr. 1 bokstav f).</p>
+<p><b>Hvor lenge.</b> Bestemmes av GitHub og Cloudflare etter deres egne vilkår. Vi har ingen egne serverlogger.</p>
+<p><b>Hvem og hvor.</b> GitHub, Inc. (USA) og Cloudflare, Inc. (USA). Begge er med i EU–US Data Privacy Framework og bruker standard personvernbestemmelser (SCC), så opplysninger kan behandles utenfor EØS på det grunnlaget.</p>
+
+<h2 id="storage">Informasjonskapsler og lagring i nettleseren</h2>
+<p>Nettstedet setter ingen informasjonskapsel med mindre du selv velger språk. Alt nedenfor blir liggende i nettleseren din og sendes ikke til oss. Du kan slette det i nettleserinnstillingene når som helst.</p>
+<ul>
+<li><code>nc_lang</code> (informasjonskapsel, ett år, bare dette nettstedet) og <code>nc_lang</code> (lokal lagring): språket du valgte i språkmenyen. Settes bare når du velger.</li>
+<li><code>nc_auto</code> (øktlagring, til fanen lukkes): hindrer at forsiden bytter språk mer enn én gang.</li>
+<li><code>nc-theme</code> (lokal lagring): lys eller mørk, settes bare når du trykker på bryteren. Kontorskjermvisningen bruker samme nøkkel.</li>
+<li><code>nc_push_countries</code> (lokal lagring): landene du valgte for varsler, når den tjenesten er på.</li>
+<li><code>nc_shout_nick</code> (lokal lagring): kallenavnet ditt i prateboksen, når den er på.</li>
+</ul>
+<p>Dette trengs for en funksjon du selv har bedt om, så det krever ikke samtykkebanner. Ingenting av det brukes til å spore deg.</p>
+
+<h2 id="language">Språkvalg ut fra land</h2>
+<p>Status: {{ST_GEO}}</p>
+<p><b>Hva.</b> Bare på den engelske forsiden, bare ved første besøk og bare når du ikke har valgt språk: nettleseren spør vår Cloudflare Worker hvilket land tilkoblingen kommer fra. Cloudflare vet det allerede ut fra IP-adressen, og Workeren svarer med en landkode på to bokstaver (for eksempel «NO»). Ingenting lagres eller logges. Når dette er av, eller Workeren ikke svarer innen 1,5 sekunder, bruker nettstedet språkinnstillingen i nettleseren, som aldri forlater nettleseren.</p>
+<p><b>Formål og rettslig grunnlag.</b> Å vise nettstedet på et språk du sannsynligvis leser: berettiget interesse (art. 6 nr. 1 bokstav f).</p>
+<p><b>Hvem og hvor.</b> Cloudflare, Inc. som databehandler (se <a href="#hosting">Drift</a> om overføring). Ingen annen geo-IP-tjeneste brukes.</p>
+
+<h2 id="stats">Besøksstatistikk</h2>
+<p>Status: {{ST_ANALYTICS}}</p>
+<p>Når den er på, henter hver side et lite skript fra Cloudflare Web Analytics (static.cloudflareinsights.com). Det setter ingen informasjonskapsler. Cloudflare gjør sidevisningene om til samlede tall, og vi publiserer bare totaler per dag, uke og måned. Detaljene (hva som samles inn, rettslig grunnlag art. 6 nr. 1 bokstav f, omtrent seks måneder hos Cloudflare, Cloudflare, Inc. som databehandler) står i <a href="{{UP}}stats/#data-policy">personvernerklæringen på statistikksiden</a>.</p>
+
+<h2 id="markets">Markedspriser</h2>
+<p><b>Hva.</b> Mens <a href="{{UP}}markets/">markedssiden</a> er åpen, spør nettleseren de offentlige pris-API-ene til Firi (api.firi.com) og Coinmotion (api.coinmotion.com) om nye priser omtrent hvert femte minutt. Børsene får IP-adressen din og opplysninger om nettleseren med forespørselen. Ingen informasjonskapsler sendes, og ingen henvisning forteller dem hvilken side du kom fra. Andre priser kommer fra filer på dette nettstedet.</p>
+<p><b>Formål og rettslig grunnlag.</b> Å vise oppdaterte priser: berettiget interesse (art. 6 nr. 1 bokstav f).</p>
+<p><b>Hvem, hvor og hvor lenge.</b> Firi AS (Norge) og Coinmotion Oy (Finland), innenfor EØS, etter deres egne personvernvilkår. Vi får ingenting om deg fra dem.</p>
+
+<h2 id="video">Foredragsvideoer</h2>
+<p><b>Hva.</b> <a href="{{UP}}talks/">Foredragssiden</a> henter ingen videospiller før du trykker på avspilling. Da hentes spilleren fra youtube-nocookie.com (Google) eller player.vimeo.com (Vimeo). Fra da av får videotjenesten IP-adressen din og opplysninger om nettleseren, og kan lagre data i nettleseren etter sine egne vilkår. Ellers åpner lenken videoen på plattformen.</p>
+<p><b>Rettslig grunnlag.</b> Du starter den selv (art. 6 nr. 1 bokstav a og f).</p>
+<p><b>Hvem og hvor.</b> Google LLC og Vimeo, Inc., USA (utenfor EØS), etter deres egne personvernvilkår.</p>
+
+<h2 id="newsletter">Nyhetsbrev på e-post</h2>
+<p>Status: {{ST_NEWSLETTER}}</p>
+<p><b>Hva.</b> Påmeldingsskjemaet sender e-postadressen din til vår egen Cloudflare Worker. Vi lagrer adressen, språket, statusen (venter, bekreftet eller avmeldt), en hash av bekreftelseslenken og tidspunktene. Vi lagrer ikke IP-adressen eller opplysninger om nettleseren, og listen ligger ikke på GitHub.</p>
+<p><b>Formål og rettslig grunnlag.</b> Å sende deg nyhetsbrevet du har bedt om: samtykke (art. 6 nr. 1 bokstav a), gitt med avkrysningsboksen og bekreftet på e-post.</p>
+<p><b>Hvor lenge.</b> En adresse som ikke bekreftes innen 7 dager, slettes. En bekreftet adresse beholdes til du melder deg av med lenken i hver e-post. Etter det beholder vi bare adressen merket som avmeldt, så den aldri får e-post igjen. Listen brukes bare til dette nyhetsbrevet og selges aldri.</p>
+<p><b>Hvem og hvor.</b> Cloudflare, Inc. lagrer listen (Cloudflare D1). E-posten leveres av én e-posttjeneste, Resend eller Mailgun. Vi skriver her hvilken før påmeldingen åpner. Begge er amerikanske selskaper, så overføring utenfor EØS skjer etter deres databehandlervilkår.</p>
+
+<h2 id="push">Varsler i nettleseren</h2>
+<p>Status: {{ST_PUSH}}</p>
+<p><b>Hva.</b> Bare hvis du trykker på knappen og tillater varsler. Da lagrer vår Cloudflare Worker push-abonnementet nettleseren gir den (en adresse hos push-tjenesten til nettleserprodusenten og to krypteringsnøkler), sidespråket og landene du valgte. Ikke navn, ikke e-postadresse og ikke IP-adresse. Meldingene går gjennom push-tjenesten til nettleserprodusenten (for eksempel Google, Mozilla, Apple eller Microsoft).</p>
+<p><b>Rettslig grunnlag.</b> Samtykke (art. 6 nr. 1 bokstav a).</p>
+<p><b>Hvor lenge.</b> Til du slår av varslene med den samme knappen, eller til push-tjenesten sier at abonnementet ikke finnes lenger. Begge deler sletter det.</p>
+<p><b>Hvem og hvor.</b> Cloudflare, Inc. (Workers KV) og push-tjenesten til nettleseren din, som kan være utenfor EØS.</p>
+
+<h2 id="tips">Private tips</h2>
+<p>Status: {{ST_TIPS}}</p>
+<p>Vi tar ikke imot tips i offentlige GitHub-saker. <a href="{{UP}}tip/">Tipssiden</a> åpner først når den private innboksen nedenfor er klar.</p>
+<p><b>Hva.</b> Tipset, eventuelle lenker, en valgfri måte å kontakte deg på, sidespråket og tidspunktet, lagret i en privat database på vår Cloudflare Worker. IP-adressen din lagres ikke. For å hindre misbruk har Workeren en hash av IP-adressen sammen med en tilfeldig verdi som byttes hver dag, i ti minutter. Før innsending sjekker Cloudflare Turnstile at du er et menneske; det kjører bare på den siden. Redaktørene kan sende et tips videre til sin egen private innboks i redaksjonen.</p>
+<p><b>Formål og rettslig grunnlag.</b> Å ta imot og sjekke nyhetstips: berettiget interesse (art. 6 nr. 1 bokstav f), som del av journalistisk virksomhet (personopplysningsloven § 3).</p>
+<p><b>Hvor lenge.</b> Til redaktørene har behandlet tipset og sletter det. Tips og kontaktopplysninger publiseres aldri.</p>
+<p><b>Hvem og hvor.</b> Cloudflare, Inc. (Workers, D1, Turnstile); se <a href="#hosting">Drift</a> om overføring.</p>
+
+<h2 id="chat">Prateboks</h2>
+<p>Status: {{ST_CHAT}}</p>
+<p><b>Hva.</b> Hvis du skriver, lagrer vi kallenavnet, meldingen, sidespråket og tidspunktet, og viser dem for alle. For grenser, rapporter og utestengning lagrer vi en hash av IP-adressen sammen med en tilfeldig verdi som byttes hver dag; selve IP-adressen lagres ikke, og dagens verdi slettes dagen etter. Cloudflare Turnstile sjekker at du er et menneske. Kallenavnet lagres også i nettleseren din.</p>
+<p><b>Rettslig grunnlag.</b> Berettiget interesse i å drive en leserprat uten misbruk (art. 6 nr. 1 bokstav f).</p>
+<p><b>Hvor lenge.</b> Meldinger blir stående til en moderator fjerner dem. Du kan be oss fjerne dine.</p>
+<p><b>Hvem og hvor.</b> Cloudflare, Inc.; se <a href="#hosting">Drift</a>.</p>
+
+<h2 id="github">GitHub-saker og bidrag</h2>
+<p>Hvis du oppretter en sak eller bidrar på GitHub, behandler GitHub kontoopplysningene dine etter sine egne vilkår, og det du skriver der er offentlig. Vi bruker saker til spørsmål om nettstedet, ikke til tips.</p>
+
+<h2 id="rights">Dine rettigheter</h2>
+<p>Du kan be om innsyn i, retting av eller sletting av opplysninger om deg, protestere mot behandling som bygger på berettiget interesse, og trekke tilbake samtykke når som helst (melde deg av, slå av varsler). For det meste av nettstedet har vi ingenting som identifiserer deg, så det er som regel ingenting å slå opp. Kontakt oss som beskrevet under <a href="#who">Hvem som er ansvarlig</a>.</p>
+</div>

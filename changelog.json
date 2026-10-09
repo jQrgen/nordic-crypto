@@ -3,6 +3,39 @@
  "launch_date": "2026-10-03",
  "entries": [
   {
+   "id": "privacy-policy",
+   "date": null,
+   "review": "pending",
+   "title": "Privacy and data policy",
+   "description": "A new privacy page, linked from the footer on every page, covers everything the site does with data: hosting on GitHub Pages and Cloudflare, the settings stored in your browser, market prices fetched from Firi and Coinmotion, video players that load only when you press play, and the newsletter, notifications, private tips and shoutbox once they are switched on. For each it says what is processed, why, the legal basis, how long it is kept and by whom.",
+   "i18n": {
+    "nn": {
+     "title": "Personvernerklæring",
+     "description": "Ei ny personvernside, lenkja frå botnen av kvar side, dekkjer alt nettstaden gjer med opplysningar: drift på GitHub Pages og Cloudflare, innstillingane som vert lagra i nettlesaren, marknadsprisar frå Firi og Coinmotion, videospelarar som fyrst vert henta når du trykkjer på avspeling, og nyheitsbrevet, varsla, dei private tipsa og prateboksen når dei vert slått på. For kvar del står det kva som vert behandla, kvifor, det rettslege grunnlaget, kor lenge og av kven."
+    },
+    "nb": {
+     "title": "Personvernerklæring",
+     "description": "En ny personvernside, lenket fra bunnen av hver side, dekker alt nettstedet gjør med opplysninger: drift på GitHub Pages og Cloudflare, innstillingene som lagres i nettleseren, markedspriser fra Firi og Coinmotion, videospillere som først hentes når du trykker på avspilling, og nyhetsbrevet, varslene, de private tipsene og prateboksen når de slås på. For hver del står det hva som behandles, hvorfor, det rettslige grunnlaget, hvor lenge og av hvem."
+    },
+    "sv": {
+     "title": "Integritetspolicy",
+     "description": "En ny integritetssida, länkad från sidfoten på varje sida, täcker allt webbplatsen gör med uppgifter: drift på GitHub Pages och Cloudflare, inställningarna som sparas i webbläsaren, marknadspriser från Firi och Coinmotion, videospelare som laddas först när du trycker på uppspelning, och nyhetsbrevet, aviseringarna, de privata tipsen och chattlådan när de slås på. För varje del står vad som behandlas, varför, den rättsliga grunden, hur länge och av vem."
+    },
+    "da": {
+     "title": "Privatlivspolitik",
+     "description": "En ny side om privatliv, linket fra bunden af hver side, dækker alt, hvad sitet gør med oplysninger: drift på GitHub Pages og Cloudflare, de indstillinger, der gemmes i browseren, markedspriser fra Firi og Coinmotion, videoafspillere, der først hentes, når du trykker afspil, og nyhedsbrevet, notifikationerne, de private tips og chatboksen, når de slås til. For hver del står der, hvad der behandles, hvorfor, retsgrundlaget, hvor længe og af hvem."
+    },
+    "fi": {
+     "title": "Tietosuojakäytäntö",
+     "description": "Uusi tietosuojasivu, johon on linkki jokaisen sivun alareunassa, kattaa kaiken, mitä sivusto tekee tiedoilla: ylläpidon GitHub Pagesissa ja Cloudflaressa, selaimeen tallennettavat asetukset, Firin ja Coinmotionin markkinahinnat, videosoittimet, jotka ladataan vasta kun painat toistoa, sekä uutiskirjeen, ilmoitukset, yksityiset vinkit ja chat-laatikon, kun ne otetaan käyttöön. Jokaisesta kerrotaan, mitä käsitellään, miksi, oikeusperuste, kuinka kauan ja kuka käsittelee."
+    },
+    "is": {
+     "title": "Persónuverndarstefna",
+     "description": "Ný persónuverndarsíða, með tengli neðst á hverri síðu, nær yfir allt sem vefurinn gerir við gögn: hýsingu á GitHub Pages og Cloudflare, stillingar sem vistast í vafranum, markaðsverð frá Firi og Coinmotion, myndspilara sem hlaðast fyrst þegar þú ýtir á spilun, og fréttabréfið, tilkynningar, einkaábendingar og spjallboxið þegar kveikt er á þeim. Fyrir hvern hluta kemur fram hvað er unnið með, hvers vegna, lagagrundvöllur, hve lengi og af hverjum."
+    }
+   }
+  },
+  {
    "id": "visitor-stats",
    "date": null,
    "review": "pending",
