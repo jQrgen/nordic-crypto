@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-09T21:37:45+00:00",
+ "generated_at": "2026-10-09T22:56:58+00:00",
  "preview": false,
  "count": 20,
  "events": [
@@ -62,7 +62,8 @@
     "ja": "https://nordiccrypto.no/ja/calendar/ccc2eea6b213/",
     "sw": "https://nordiccrypto.no/sw/calendar/ccc2eea6b213/",
     "mr": "https://nordiccrypto.no/mr/calendar/ccc2eea6b213/",
-    "fa": "https://nordiccrypto.no/fa/calendar/ccc2eea6b213/"
+    "fa": "https://nordiccrypto.no/fa/calendar/ccc2eea6b213/",
+    "uk": "https://nordiccrypto.no/uk/calendar/ccc2eea6b213/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/events/ccc2eea6b213.json",
    "place_source": {
@@ -128,7 +129,8 @@
     "ja": "https://nordiccrypto.no/ja/calendar/af88ac54b25d/",
     "sw": "https://nordiccrypto.no/sw/calendar/af88ac54b25d/",
     "mr": "https://nordiccrypto.no/mr/calendar/af88ac54b25d/",
-    "fa": "https://nordiccrypto.no/fa/calendar/af88ac54b25d/"
+    "fa": "https://nordiccrypto.no/fa/calendar/af88ac54b25d/",
+    "uk": "https://nordiccrypto.no/uk/calendar/af88ac54b25d/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/events/af88ac54b25d.json",
    "backfill": true,
@@ -249,7 +251,8 @@
     "ja": "https://nordiccrypto.no/ja/calendar/2019e48c3cb9/",
     "sw": "https://nordiccrypto.no/sw/calendar/2019e48c3cb9/",
     "mr": "https://nordiccrypto.no/mr/calendar/2019e48c3cb9/",
-    "fa": "https://nordiccrypto.no/fa/calendar/2019e48c3cb9/"
+    "fa": "https://nordiccrypto.no/fa/calendar/2019e48c3cb9/",
+    "uk": "https://nordiccrypto.no/uk/calendar/2019e48c3cb9/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/events/2019e48c3cb9.json",
    "backfill": true,
@@ -364,7 +367,8 @@
     "ja": "https://nordiccrypto.no/ja/calendar/4cd0147fef4e/",
     "sw": "https://nordiccrypto.no/sw/calendar/4cd0147fef4e/",
     "mr": "https://nordiccrypto.no/mr/calendar/4cd0147fef4e/",
-    "fa": "https://nordiccrypto.no/fa/calendar/4cd0147fef4e/"
+    "fa": "https://nordiccrypto.no/fa/calendar/4cd0147fef4e/",
+    "uk": "https://nordiccrypto.no/uk/calendar/4cd0147fef4e/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/events/4cd0147fef4e.json",
    "backfill": true,
@@ -479,7 +483,8 @@
     "ja": "https://nordiccrypto.no/ja/calendar/71149f675741/",
     "sw": "https://nordiccrypto.no/sw/calendar/71149f675741/",
     "mr": "https://nordiccrypto.no/mr/calendar/71149f675741/",
-    "fa": "https://nordiccrypto.no/fa/calendar/71149f675741/"
+    "fa": "https://nordiccrypto.no/fa/calendar/71149f675741/",
+    "uk": "https://nordiccrypto.no/uk/calendar/71149f675741/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/events/71149f675741.json",
    "place_source": {
@@ -544,7 +549,8 @@
     "ja": "https://nordiccrypto.no/ja/calendar/faa749a8058c/",
     "sw": "https://nordiccrypto.no/sw/calendar/faa749a8058c/",
     "mr": "https://nordiccrypto.no/mr/calendar/faa749a8058c/",
-    "fa": "https://nordiccrypto.no/fa/calendar/faa749a8058c/"
+    "fa": "https://nordiccrypto.no/fa/calendar/faa749a8058c/",
+    "uk": "https://nordiccrypto.no/uk/calendar/faa749a8058c/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/events/faa749a8058c.json",
    "backfill": true,
@@ -654,7 +660,8 @@
     "ja": "https://nordiccrypto.no/ja/calendar/c4dd9c6f0526/",
     "sw": "https://nordiccrypto.no/sw/calendar/c4dd9c6f0526/",
     "mr": "https://nordiccrypto.no/mr/calendar/c4dd9c6f0526/",
-    "fa": "https://nordiccrypto.no/fa/calendar/c4dd9c6f0526/"
+    "fa": "https://nordiccrypto.no/fa/calendar/c4dd9c6f0526/",
+    "uk": "https://nordiccrypto.no/uk/calendar/c4dd9c6f0526/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/events/c4dd9c6f0526.json",
    "backfill": true,
@@ -764,7 +771,8 @@
     "ja": "https://nordiccrypto.no/ja/calendar/211a89133561/",
     "sw": "https://nordiccrypto.no/sw/calendar/211a89133561/",
     "mr": "https://nordiccrypto.no/mr/calendar/211a89133561/",
-    "fa": "https://nordiccrypto.no/fa/calendar/211a89133561/"
+    "fa": "https://nordiccrypto.no/fa/calendar/211a89133561/",
+    "uk": "https://nordiccrypto.no/uk/calendar/211a89133561/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/events/211a89133561.json",
    "backfill": true,
@@ -874,7 +882,8 @@
     "ja": "https://nordiccrypto.no/ja/calendar/c578c333e352/",
     "sw": "https://nordiccrypto.no/sw/calendar/c578c333e352/",
     "mr": "https://nordiccrypto.no/mr/calendar/c578c333e352/",
-    "fa": "https://nordiccrypto.no/fa/calendar/c578c333e352/"
+    "fa": "https://nordiccrypto.no/fa/calendar/c578c333e352/",
+    "uk": "https://nordiccrypto.no/uk/calendar/c578c333e352/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/events/c578c333e352.json",
    "backfill": true,
@@ -989,7 +998,8 @@
     "ja": "https://nordiccrypto.no/ja/calendar/456d06c0b3c1/",
     "sw": "https://nordiccrypto.no/sw/calendar/456d06c0b3c1/",
     "mr": "https://nordiccrypto.no/mr/calendar/456d06c0b3c1/",
-    "fa": "https://nordiccrypto.no/fa/calendar/456d06c0b3c1/"
+    "fa": "https://nordiccrypto.no/fa/calendar/456d06c0b3c1/",
+    "uk": "https://nordiccrypto.no/uk/calendar/456d06c0b3c1/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/events/456d06c0b3c1.json",
    "backfill": true,
@@ -1099,7 +1109,8 @@
     "ja": "https://nordiccrypto.no/ja/calendar/2d2d72207fd4/",
     "sw": "https://nordiccrypto.no/sw/calendar/2d2d72207fd4/",
     "mr": "https://nordiccrypto.no/mr/calendar/2d2d72207fd4/",
-    "fa": "https://nordiccrypto.no/fa/calendar/2d2d72207fd4/"
+    "fa": "https://nordiccrypto.no/fa/calendar/2d2d72207fd4/",
+    "uk": "https://nordiccrypto.no/uk/calendar/2d2d72207fd4/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/events/2d2d72207fd4.json",
    "backfill": true,
@@ -1195,7 +1206,8 @@
     "ja": "https://nordiccrypto.no/ja/calendar/419358586d18/",
     "sw": "https://nordiccrypto.no/sw/calendar/419358586d18/",
     "mr": "https://nordiccrypto.no/mr/calendar/419358586d18/",
-    "fa": "https://nordiccrypto.no/fa/calendar/419358586d18/"
+    "fa": "https://nordiccrypto.no/fa/calendar/419358586d18/",
+    "uk": "https://nordiccrypto.no/uk/calendar/419358586d18/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/events/419358586d18.json",
    "backfill": true,
@@ -1311,7 +1323,8 @@
     "ja": "https://nordiccrypto.no/ja/calendar/fbacdd896bf4/",
     "sw": "https://nordiccrypto.no/sw/calendar/fbacdd896bf4/",
     "mr": "https://nordiccrypto.no/mr/calendar/fbacdd896bf4/",
-    "fa": "https://nordiccrypto.no/fa/calendar/fbacdd896bf4/"
+    "fa": "https://nordiccrypto.no/fa/calendar/fbacdd896bf4/",
+    "uk": "https://nordiccrypto.no/uk/calendar/fbacdd896bf4/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/events/fbacdd896bf4.json",
    "backfill": true,
@@ -1416,7 +1429,8 @@
     "ja": "https://nordiccrypto.no/ja/calendar/50f03a7f9898/",
     "sw": "https://nordiccrypto.no/sw/calendar/50f03a7f9898/",
     "mr": "https://nordiccrypto.no/mr/calendar/50f03a7f9898/",
-    "fa": "https://nordiccrypto.no/fa/calendar/50f03a7f9898/"
+    "fa": "https://nordiccrypto.no/fa/calendar/50f03a7f9898/",
+    "uk": "https://nordiccrypto.no/uk/calendar/50f03a7f9898/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/events/50f03a7f9898.json",
    "backfill": true,
@@ -1517,7 +1531,8 @@
     "ja": "https://nordiccrypto.no/ja/calendar/30569783bb01/",
     "sw": "https://nordiccrypto.no/sw/calendar/30569783bb01/",
     "mr": "https://nordiccrypto.no/mr/calendar/30569783bb01/",
-    "fa": "https://nordiccrypto.no/fa/calendar/30569783bb01/"
+    "fa": "https://nordiccrypto.no/fa/calendar/30569783bb01/",
+    "uk": "https://nordiccrypto.no/uk/calendar/30569783bb01/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/events/30569783bb01.json",
    "backfill": true,
@@ -1616,7 +1631,8 @@
     "ja": "https://nordiccrypto.no/ja/calendar/afc88c305513/",
     "sw": "https://nordiccrypto.no/sw/calendar/afc88c305513/",
     "mr": "https://nordiccrypto.no/mr/calendar/afc88c305513/",
-    "fa": "https://nordiccrypto.no/fa/calendar/afc88c305513/"
+    "fa": "https://nordiccrypto.no/fa/calendar/afc88c305513/",
+    "uk": "https://nordiccrypto.no/uk/calendar/afc88c305513/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/events/afc88c305513.json",
    "backfill": true,
@@ -1715,7 +1731,8 @@
     "ja": "https://nordiccrypto.no/ja/calendar/c9903961cd24/",
     "sw": "https://nordiccrypto.no/sw/calendar/c9903961cd24/",
     "mr": "https://nordiccrypto.no/mr/calendar/c9903961cd24/",
-    "fa": "https://nordiccrypto.no/fa/calendar/c9903961cd24/"
+    "fa": "https://nordiccrypto.no/fa/calendar/c9903961cd24/",
+    "uk": "https://nordiccrypto.no/uk/calendar/c9903961cd24/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/events/c9903961cd24.json",
    "backfill": true,
@@ -1814,7 +1831,8 @@
     "ja": "https://nordiccrypto.no/ja/calendar/92041cfcb99c/",
     "sw": "https://nordiccrypto.no/sw/calendar/92041cfcb99c/",
     "mr": "https://nordiccrypto.no/mr/calendar/92041cfcb99c/",
-    "fa": "https://nordiccrypto.no/fa/calendar/92041cfcb99c/"
+    "fa": "https://nordiccrypto.no/fa/calendar/92041cfcb99c/",
+    "uk": "https://nordiccrypto.no/uk/calendar/92041cfcb99c/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/events/92041cfcb99c.json",
    "backfill": true,
@@ -1950,7 +1968,8 @@
     "ja": "https://nordiccrypto.no/ja/calendar/b449bcb0b91e/",
     "sw": "https://nordiccrypto.no/sw/calendar/b449bcb0b91e/",
     "mr": "https://nordiccrypto.no/mr/calendar/b449bcb0b91e/",
-    "fa": "https://nordiccrypto.no/fa/calendar/b449bcb0b91e/"
+    "fa": "https://nordiccrypto.no/fa/calendar/b449bcb0b91e/",
+    "uk": "https://nordiccrypto.no/uk/calendar/b449bcb0b91e/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/events/b449bcb0b91e.json",
    "backfill": true,
@@ -2065,7 +2084,8 @@
     "ja": "https://nordiccrypto.no/ja/calendar/31498008ef34/",
     "sw": "https://nordiccrypto.no/sw/calendar/31498008ef34/",
     "mr": "https://nordiccrypto.no/mr/calendar/31498008ef34/",
-    "fa": "https://nordiccrypto.no/fa/calendar/31498008ef34/"
+    "fa": "https://nordiccrypto.no/fa/calendar/31498008ef34/",
+    "uk": "https://nordiccrypto.no/uk/calendar/31498008ef34/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/events/31498008ef34.json",
    "backfill": true,

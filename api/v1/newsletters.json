@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-09T21:37:45+00:00",
+ "generated_at": "2026-10-09T22:56:58+00:00",
  "preview": false,
  "sign_off": "The Nordic Crypto team",
  "count": 1,
@@ -59,7 +59,8 @@
     "ja": "https://nordiccrypto.no/ja/newsletter/001/",
     "sw": "https://nordiccrypto.no/sw/newsletter/001/",
     "mr": "https://nordiccrypto.no/mr/newsletter/001/",
-    "fa": "https://nordiccrypto.no/fa/newsletter/001/"
+    "fa": "https://nordiccrypto.no/fa/newsletter/001/",
+    "uk": "https://nordiccrypto.no/uk/newsletter/001/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/newsletters/001.json",
    "video": {
