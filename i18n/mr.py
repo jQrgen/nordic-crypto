@@ -685,4 +685,5 @@ S.update({
 "filters_clear": "फिल्टर काढा",
 "n_row1": "1 ओळ",
 "foot_source": "सोर्स कोड",
+"brand_since": "2026 पासून",
 })

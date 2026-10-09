@@ -685,4 +685,5 @@ S.update({
 "filters_clear": "Futa vichujio",
 "n_row1": "Safu 1",
 "foot_source": "Msimbo chanzo",
+"brand_since": "tangu 2026",
 })

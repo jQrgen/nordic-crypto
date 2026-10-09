@@ -655,7 +655,7 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Nordic Crypto">
 <style>{CSS}{s['css']}{th.get('css', '')}</style></head>
-<body{' class="' + th['body_class'] + '"' if th else ''}><a class="skip" href="#main">{E(t("skip"))}</a>{th.get('deco', '')}{banner}<header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="{rel}"><img class="brandmark" src="{root}assets/brand/shield-band.svg" width="34" height="40" alt="Nordic Crypto"><span aria-hidden="true">Nordic <span class="w">Crypto</span></span></a></div><div class="hdrtools"><span class="hdrbtns">{header_buttons(rel)}</span>{theme_btn}{switcher}{nav_btn}</div><nav id="sitenav" class="main" aria-label="{E(t("main_menu"))}">{nav_html}</nav></div></header>{hero}
+<body{' class="' + th['body_class'] + '"' if th else ''}><a class="skip" href="#main">{E(t("skip"))}</a>{th.get('deco', '')}{banner}<header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="{rel}"><img class="brandmark" src="{root}assets/brand/shield-band.svg" width="34" height="40" alt="Nordic Crypto"><span aria-hidden="true">Nordic <span class="w">Crypto</span></span></a><span class="since"><span class="since-dot" aria-hidden="true"></span>{E(t("brand_since"))}</span></div><div class="hdrtools"><span class="hdrbtns">{header_buttons(rel)}</span>{theme_btn}{switcher}{nav_btn}</div><nav id="sitenav" class="main" aria-label="{E(t("main_menu"))}">{nav_html}</nav></div></header>{hero}
 <main class="wrap" id="main" tabindex="-1">
 {body}
 {s['top'] if share_here else ""}

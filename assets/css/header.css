@@ -8,6 +8,13 @@ header.top,header.top .wrap{text-align:start}
 header.top .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:10px 20px;padding-top:12px;padding-bottom:0}
 .brand{font-family:var(--f-display);font-weight:700;font-size:29px;letter-spacing:-.005em;text-decoration:none;display:inline-flex;align-items:center;gap:11px;color:var(--fg);line-height:1;text-align:start}.brand .w{color:var(--brand-w)}
 .brandmark{width:31px;height:36px;flex:none;display:block}
+.since{display:inline-flex;align-items:center;gap:7px;padding:5px 11px 5px 9px;border:1px solid color-mix(in srgb,var(--brand-w) 45%,transparent);border-radius:999px;font-family:var(--f-ui);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;line-height:1;white-space:nowrap;color:var(--fg);background:linear-gradient(110deg,transparent 30%,color-mix(in srgb,var(--brand-w) 28%,transparent) 50%,transparent 70%) 0 0/250% 100% no-repeat;animation:since-in .7s cubic-bezier(.2,.8,.2,1) .15s both,since-shine 6s ease-in-out 1.2s infinite}
+.since-dot{width:7px;height:7px;border-radius:50%;background:var(--brand-w);box-shadow:0 0 0 0 color-mix(in srgb,var(--brand-w) 60%,transparent);animation:since-pulse 2.4s ease-out 1s infinite}
+@keyframes since-in{from{opacity:0;transform:translateX(-8px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes since-shine{0%,70%{background-position:150% 0}100%{background-position:-50% 0}}
+@keyframes since-pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--brand-w) 60%,transparent)}70%,100%{box-shadow:0 0 0 7px transparent}}
+@media (prefers-reduced-motion:reduce){.since,.since-dot{animation:none}}
+@media (max-width:560px){.since{display:none}}
 .brandrow{display:flex;align-items:center;justify-content:flex-start;gap:10px 22px;flex-wrap:wrap;text-align:start}
 .hdrtools{display:flex;align-items:center;justify-content:flex-start;gap:8px;margin-inline-start:auto;text-align:start}
 .hdrbtns{display:flex;align-items:center;justify-content:flex-start;gap:8px;flex-wrap:wrap;min-width:0;text-align:start}

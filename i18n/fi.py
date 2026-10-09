@@ -467,6 +467,7 @@ S.update({
 "filters_clear": "Tyhjennä suodattimet",
 "n_row1": "1 rivi",
 "foot_source": "Lähdekoodi",
+"brand_since": "vuodesta 2026",
 })
 
 # books page (/books/)

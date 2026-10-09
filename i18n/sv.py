@@ -467,6 +467,7 @@ S.update({
 "filters_clear": "Rensa filtren",
 "n_row1": "1 rad",
 "foot_source": "Källkod",
+"brand_since": "sedan 2026",
 })
 
 # books page (/books/)

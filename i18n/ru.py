@@ -685,4 +685,5 @@ S.update({
 "filters_clear": "Сбросить фильтры",
 "n_row1": "1 строка",
 "foot_source": "Исходный код",
+"brand_since": "с 2026 года",
 })

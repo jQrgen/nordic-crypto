@@ -685,4 +685,5 @@ S.update({
 "filters_clear": "مسح عوامل التصفية",
 "n_row1": "صف واحد",
 "foot_source": "الشيفرة المصدرية",
+"brand_since": "منذ 2026",
 })

@@ -685,4 +685,5 @@ S.update({
 "filters_clear": "فلٹرز صاف کریں",
 "n_row1": "1 قطار",
 "foot_source": "سورس کوڈ",
+"brand_since": "2026 سے",
 })
