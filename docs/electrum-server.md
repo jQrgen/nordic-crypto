@@ -21,10 +21,10 @@ nginx on the server terminates TLS with a Let's Encrypt certificate for both hos
 |---|---|
 | Provider | Hetzner Cloud, Falkenstein (`fsn1`) |
 | Server | `electrum-1`, CX43 (8 vCPU, 16 GB RAM, 80 GB disk), Ubuntu 24.04 |
-| Data volume | `electrum-data`, 300 GB, mounted at `/mnt/HC_Volume_107087011` |
+| Data volume | `electrum-data`, 500 GB (enlarged from 300 GB on 9 October 2026, when BCH had filled 88% of it), mounted at `/mnt/HC_Volume_107087011` |
 | Firewall | `electrum-ssh-only` (name kept): inbound SSH 22, ICMP, HTTP 80 (certificate renewal), 443, 20002, 20004, 50002, 50004 |
 | Addresses | `91.99.122.75`, `2a01:4f8:c01e:36d9::1` |
-| Cost | About €33.15 a month (€15.99 server, €17.16 volume), billed hourly |
+| Cost | About €44.59 a month (€15.99 server, €28.60 volume), billed hourly |
 
 It started as a CX33 (8 GB RAM). On 9 October 2026 it ran out of memory with BCHN at `dbcache=3000` and both Rostrum instances indexing: no free RAM, disk thrashing and SSH timing out. It was moved to a CX43 the same day, with BCHN at `dbcache=4000` and a 4 GB swap file (`/swapfile`, `vm.swappiness=10`). The disk was not enlarged, so the server can still go back to a CX33. Check memory use after the first sync (`free -m`, `ps -eo rss,comm --sort=-rss | head`) before downgrading, and lower `dbcache` to 1000 if you do.
 
