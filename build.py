@@ -3002,7 +3002,7 @@ def build_developers():
     def item(r):
         tag = ""
         if r["status"] != "published":
-            tag = f' <span class="tag pend">{E(t("owner") if r.get("review") == "ready_for_owner" else t("pending"))}</span>'
+            tag = f' <span class="tag pend">{E(t("pending"))}</span>'   # rows for jQrgen (review "ready_for_owner") wait for him, not the editor
         who = [E(r["role"])] if r.get("role") else []
         if r.get("org"):
             who.append(f'<a href="../org-chart/#{E(r["org_id"])}">{E(r["org"])}</a>' if r.get("org_id") else E(r["org"]))
@@ -3040,7 +3040,7 @@ function apply(){var c=cc.filter(function(x){return x.getAttribute('aria-pressed
 if(c.length)history.replaceState(null,'','#country='+c.join(','));else if(location.hash.indexOf('#country=')===0)history.replaceState(null,'',location.pathname)}
 var h=new URLSearchParams(location.hash.slice(1));(h.get('country')||'').split(',').forEach(function(x){cc.forEach(function(b){if(b.dataset.c===x)b.setAttribute('aria-pressed','true')})});
 cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');apply()})});apply()})();</script>""" % (json.dumps(t("dev_n", n="{n}")), json.dumps(t("dev_n1")))
-    page("developers", t("dev_title"), "org-chart", body, t("dev_desc"), js)
+    page("developers", t("dev_title"), "developers", body, t("dev_desc"), js)
     if LANG == "en": print(f"developers: {len(rows)} shown ({n_pend} pending) {per_c}")
 
 COL_FORM = "https://github.com/jQrgen/nordic-crypto/issues/new?template=columnist.yml"
