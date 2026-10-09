@@ -1,10 +1,18 @@
-/* Logo and media kit page: samples keep the fixed brand tinctures in both themes. */
-.motto-sample{font-family:var(--f-ui);font-weight:500;letter-spacing:.22em;font-size:15px;margin:8px 0 16px}
-.hdr-sample{margin:12px 0 18px;padding:14px 16px 8px;background:var(--nc-argent);border-bottom:3px solid var(--nc-sable);border-radius:var(--r) var(--r) 0 0;max-width:36rem;text-align:start}
+/* Logo and media kit page: samples keep the fixed brand tinctures in both themes. Samples and lockups sit side by side on
+   wide screens; the tinctures are a grid; the files are a two-column list with the format. */
+.mk-samples,.mk-lockups{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:16px;max-width:62rem;margin:8px 0 16px;text-align:start}
+.motto-sample{font-family:var(--f-ui);font-weight:500;letter-spacing:.22em;font-size:15px;margin:8px 0 12px;color:var(--nc-sable)}
+.hdr-sample{margin:0;padding:14px 16px 10px;background:var(--nc-argent);border-bottom:3px solid var(--nc-sable);border-radius:var(--r) var(--r) 0 0;text-align:start}
 .hdr-sample .brand{color:var(--nc-sable)}.hdr-sample .brand .w{color:var(--nc-gules)}
 .hdr-sample.dark{background:#0b0d10}.hdr-sample.dark .brand{color:#F5F5F4}.hdr-sample.dark .brand .w{color:var(--nc-or)}
-.hdr-sample figcaption{margin:8px 0 4px;text-align:start;color:var(--nc-sable)}.hdr-sample.dark figcaption{color:#F5F5F4}
-.lockup{display:block;height:auto;max-width:100%;width:640px;margin:8px 0 16px}
-.swatches{list-style:none;padding:0;margin:8px 0 18px;text-align:start}.swatches li{display:flex;align-items:center;justify-content:flex-start;gap:10px;margin:6px 0}
-.swatches i{width:36px;height:36px;flex:none;border:1px solid var(--line-strong);border-radius:2px;display:block}
-.filelist{padding-left:1.2em;text-align:start}.filelist li{margin:3px 0}
+.hdr-sample figcaption{margin:8px 0 4px;font-size:14px;line-height:1.5;text-align:start;color:var(--nc-sable)}.hdr-sample.dark figcaption{color:#F5F5F4}
+.lockup{display:block;width:100%;height:auto;margin:0;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--nc-argent)}
+.mk-lockups .lockup+.lockup{background:#0b0d10}
+.mk-note{max-width:68ch}
+.swatches{list-style:none;padding:0;margin:8px 0 14px;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,15rem),1fr));gap:12px 24px;max-width:62rem;text-align:start}
+.swatches li{display:flex;align-items:center;justify-content:flex-start;gap:12px;font-size:14.5px;line-height:1.45}
+.swatches i{width:40px;height:40px;flex:none;border:1px solid var(--line-strong);border-radius:var(--r-xs);display:block}
+.filelist{list-style:none;padding:0;margin:8px 0 0;columns:2 20rem;column-gap:40px;max-width:62rem;text-align:start}
+.filelist li{position:relative;break-inside:avoid;display:flex;align-items:center;justify-content:flex-start;gap:8px;min-height:40px;border-bottom:1px solid var(--line);font-size:15px}
+.filelist .fmt{font:500 11px/1 var(--f-mono);letter-spacing:.06em;color:var(--muted);padding:3px 5px;border:1px solid var(--line);border-radius:var(--r-xs)}
+.filelist a::after{content:"";position:absolute;inset:0}

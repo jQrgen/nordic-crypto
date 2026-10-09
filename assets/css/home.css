@@ -1,0 +1,22 @@
+/* Front page layout. One column on phones, in reading order: lead story, latest stories, newsletter and tools.
+   From 1024px the newsletter/tools sit in a rail beside the news, starting level with the lead. No events (calendar only). */
+.home{display:grid;grid-template-columns:minmax(0,1fr);margin:28px 0 0;text-align:start}
+.home-more{margin:36px 0 0}
+@media(min-width:1024px){
+ .home{grid-template-columns:minmax(0,1fr) 300px;grid-template-rows:auto 1fr;column-gap:52px;align-items:start}
+ .home-lead{grid-column:1;grid-row:1}
+ .latest.home-river{grid-column:1;grid-row:2}
+ .home-more{grid-column:2;grid-row:1/3;margin:0}
+}
+.railbox{margin:0 0 30px}
+.railbox h2{margin:0 0 12px}
+.railbox p{font-size:14.5px;margin:0 0 10px}
+.home-more .notice{font-size:13.5px}
+.home-more nav.community{margin:12px 0 0}
+.raillinks{list-style:none;margin:0;padding:0}
+.raillinks li{padding:9px 0;border-bottom:1px solid var(--line);font-size:15px}
+.raillinks li:last-child{border-bottom:0}
+.raillinks a{font-weight:500;text-decoration:none}
+.raillinks a:hover{text-decoration:underline;text-decoration-color:var(--gold)}
+.raillinks .meta{display:block;font-size:12.5px;margin-top:2px}
+.home-note{margin:40px 0 0;font-size:13.5px;max-width:90ch}

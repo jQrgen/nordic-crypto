@@ -7,10 +7,16 @@ import build
 
 class FrontLayout(unittest.TestCase):
     def test_css_is_a_left_aligned_grid(self):
+        # The latest stories are one column of rows at every width (headlines line up and read top to bottom);
+        # the newsletter and tools sit in a rail beside them from 1024px (home.css).
         css = build.CSS
         self.assertIn(".storygrid{display:grid;grid-template-columns:1fr;", css)
-        self.assertIn("@media(min-width:1080px){.storygrid{grid-template-columns:1fr 1fr 1fr}}", css)
+        self.assertNotIn(".storygrid{grid-template-columns:1fr 1fr", css)
         self.assertIn(".leadstory h2{font-size:36px;", css)
+        self.assertIn(".home{display:grid;grid-template-columns:minmax(0,1fr);", css)
+        home = css.split("/* Front page layout.")[1].split(".home-note{")[0]
+        for centred in ("text-align:center", "justify-content:center", "margin:0 auto"):
+            self.assertNotIn(centred, home)
         block = css.split(".leadstory,.latest,.storygrid")[1].split(".orig{")[0]
         self.assertNotIn("text-align:center", block)
         self.assertNotIn("justify-content:center", block)

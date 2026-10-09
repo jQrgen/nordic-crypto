@@ -5,7 +5,7 @@ S = {
 "nav_about": "About", "nav_tip": "Send a tip", "nav_api": "API", "main_menu": "Main menu", "lang_label": "Language", "lang_choose": "Choose language",
 "site_desc_suffix": "Nordic crypto news",
 "preview_banner": "<b>Local preview – not published.</b> Everything marked “Pending editor review” has not been checked by the editor yet; summaries are not written yet. Only approved items go into the public build.",
-"footer": "{site} covers Norway, Sweden, Denmark, Finland and Iceland. Run by Jørgen S. Notland (jQrgen), Oslo, Made with the help of artificial intelligence, with human editors (jQrgen and the Nordic Crypto editor). Not investment advice. Cloudflare Web Analytics counts visits in aggregate, without cookies, and we do not sell that data. One cookie, only if you choose a language. <a href=\"{rel}about/\">About, privacy, corrections and removal</a> · <a href=\"{rel}tip/\">Send a tip</a> · <a href=\"{rel}columnist/\">Apply as a columnist</a> · <a href=\"{rel}media/\">Logo and media kit</a> · <a href=\"{rel}changelog/\">Changelog</a> · <a href=\"{rel}ethics/\">Editorial ethics</a> · <a href=\"https://testflight.apple.com/join/nQ2fpjZn\" rel=\"noopener\">iOS app (TestFlight)</a> {ios_tv} · <a href=\"{rel}talks/\">Talks</a> · <a href=\"{rel}markets/\">Markets</a> · <a href=\"{root}api/\">Data API</a>.",
+"footer": "{site} covers Norway, Sweden, Denmark, Finland and Iceland. Run by Jørgen S. Notland (jQrgen), Oslo, Made with the help of artificial intelligence, with human editors (jQrgen and the Nordic Crypto editor). Not investment advice. Cloudflare Web Analytics counts visits in aggregate, without cookies, and we do not sell that data. One cookie, only if you choose a language. <a href=\"{rel}about/\">About, privacy, corrections and removal</a>.",
 "moved": "This page has moved to",
 # dates
 "time_local": "{city}, local time", "at_time": "{t}",
@@ -86,7 +86,7 @@ S = {
 "src_kw_h": "Keywords",
 "src_kw": "A story is picked up when its title or teaser mentions, for example: bitcoin, crypto, blockchain, stablecoin, MiCA, CASP, CBDC, darknet (all languages); krypto, kryptovaluta, blokkjede (Norwegian); kryptoaktiver, blokkæde (Danish); kryptotillgångar, blockkedja, e-krona (Swedish); kryptovaluutta, lohkoketju, virtuaalivaluutta (Finnish); rafmynt, sýndareignir, bálkakeðja (Icelandic); or Nordic crypto firms such as Firi, NBX, K33, Safello, Coinmotion, Northcrypto, Myntkaup, Monerium and Coinify. Money-laundering words such as hvitvasking, penningtvätt, hvidvask, rahanpesu and peningaþvætti count only when the same title or teaser also has a crypto term. Local and justice items use the same filter. The editor reviews every hit before it is published.",
 "src_ev_h": "Where we find events",
-"src_ev_note": "Luma is read from each calendar's public Subscribe iCal feed. City pages such as luma.com/oslo, category pages such as luma.com/crypto, and Luma's discover API are not used: the terms of use only allow publicly supported interfaces, and the official API needs Luma Plus and only covers calendars you administer. An individual Luma event page is read as schema.org JSON-LD. Eventbrite uses the v3 organizers and venues API when EVENTBRITE_TOKEN is set on the server. The token is not published. Without it, the event page's JSON-LD is used. The public search API is not used. The same title, date and venue is listed once. One broken feed does not stop the run. Finished events stay under Past events. Kaupr is a news source only and is never a sponsor of an event.",
+"src_ev_note": "Luma is read from each calendar's public Subscribe iCal feed. City pages such as luma.com/oslo, category pages such as luma.com/crypto, and Luma's discover API are not used: the terms of use only allow publicly supported interfaces, and the official API needs Luma Plus and only covers calendars you administer. An individual Luma event page is read as schema.org JSON-LD. Eventbrite uses the v3 organizers and venues API when EVENTBRITE_TOKEN is set on the server. The token is not published. Without it, the event page's JSON-LD is used. The public search API is not used. The same title, date and venue is listed once. One broken feed does not stop the run. Finished events stay under Past events.",
 "src_missing": "Missing a source? Suggest it as an issue on <a href=\"https://github.com/jQrgen/nordic-crypto/issues\" rel=\"noopener\">GitHub</a>.",
 # calendar
 "cal_title": "Calendar – crypto, bitcoin and blockchain events in the Nordics",
@@ -147,19 +147,20 @@ S = {
 "about_title": "About Nordic Crypto", "about_desc": "About Nordic Crypto: who runs it, how it works, privacy, corrections and removal.",
 "ethics_title": "Editorial ethics", "ethics_desc": "Nordic Crypto follows Vær Varsom-plakaten. A named editor approves everything.",
 "media_title": "Logo and media kit",
-"media_desc": "Nordic Crypto crest, wordmark, favicon, one-colour mark and colour tokens.",
+"media_desc": "Nordic Crypto logo: the key shield, the lockup with the name, a one-colour version, icons and colours.",
 "media_h1": "Logo and media kit",
-"media_lead": "The crest continues the Trondheim Open Blockchain Meetup seal: an or heater, a gules eight-petal rosette and a sable raven. Two lions are supporters. The scroll reads NORDIC CRYPTO. The primary lockup places the crest beside the wordmark, aligned to the left.",
-"media_hdr_cap": "Header sample, light. Cormorant Garamond for the name, Schibsted Grotesk for this line and the spaced motto. Crypto is gules.",
-"media_hdr_dark_cap": "Header sample on #0b0d10. Crypto is or, so the word stays readable.",
+"media_lead": "The Nordic Crypto mark is the shield from the front page: split down the middle in North Sea and gold, with a key in the opposite colours. The lockup puts the shield beside the name, aligned to the left.",
+"media_hdr_cap": "Lockup for light grounds. Cormorant Garamond Bold; “Crypto” in dark gold so it stays readable.",
+"media_hdr_dark_cap": "Lockup on the North Sea band, as in the site header. The shield gets a Sailcloth outline.",
 "media_use_h": "How to use it",
-"media_use": "Original artwork in the Nordic municipal heraldry style: flat charges, few tinctures, no gradients. It is not a national or royal arms. Do not draw a crowned gold lion with an axe on red. The one-colour file is for print, stickers and merch. Buttons on the website stay blue.",
+"media_use": "Keep the key upright and the colours as they are. On dark grounds use the band version; for print, stickers and merch use the one-colour file. Leave clear space of at least half the shield's width around the mark. Below 32 px use the favicon tile. Do not stretch, rotate, outline or add effects.",
 "media_files_h": "Files",
-"media_colours_h": "Tinctures",
-"media_colours_note": "Cendrée is for lines. Small text stays sable, because cendrée on argent is too faint to read.",
+"media_colours_h": "Colours",
+"media_colours_note": "Gold on a light ground is for the shield, not for small text: use dark gold #8A5A0C for text.",
 # tip
 "tip_title": "Send a tip", "tip_desc": "Tip Nordic Crypto about an article on crypto, bitcoin or blockchain in the Nordics.",
 "tip_lead": "Seen a story about crypto, bitcoin or blockchain in Norway, Sweden, Denmark, Finland or Iceland that we have missed? Send us the link.",
+"tip_private_soon": "We are working on a way to send tips privately. Until it is ready, this page does not take tips.",
 "tip_srv_p": "Tips go straight to Nordic Crypto's own tip inbox. Our editor reviews new tips regularly and checks each one against <a href=\"../about/\">our rules</a>: the story must be about crypto, bitcoin or blockchain in the Nordics, and we link to the original source with a short summary in our own words. <b>A tip does not guarantee publication</b>, and we don't reply to individual tips.",
 "tip_srv_priv": "<b>Privacy:</b> tips are not public. We store the link, country, note, optional name and the time – <b>not</b> your IP address (for spam protection, only a scrambled code derived from it is kept for 10 minutes, then deleted). Your name is never published. The tip inbox runs on Cloudflare. Please don't include personal or sensitive information about anyone in the note.",
 "tip_noscript": "The tip form needs JavaScript. Without it, you can send a <a href=\"{gh}\" rel=\"noopener\">tip as a public GitHub issue</a> instead.",
@@ -242,6 +243,7 @@ S.update({
 "ios_link": "Get the iOS app (TestFlight)",
 "ios_note": "Public TestFlight invite. There is no App Store listing.",
 "ios_tv": "Especially supports Apple TV.",
+"contributors": "Contributors",
 "mk_title": "Nordic market overview",
 "mk_desc": "Overview of coins quoted on Nordic exchanges: aggregated prices, 24-hour volume where an exchange published it, and each exchange's own price. Not investment advice.",
 "mk_h1": "Nordic market overview",
@@ -385,6 +387,72 @@ S.update({
 "chat_time_d": "{n} d ago",
 "chat_noscript": "The chat needs JavaScript.",
 })
+
+# Layout renovation: theme switch, more stories, footer columns, front-page rail
+S.update({
+"theme_dark": "Dark mode",
+"more_stories": "Show {n} more stories",
+"foot_sections": "Sections",
+"foot_site": "About the site",
+"foot_follow": "Follow",
+"foot_api": "Data API",
+"screen_short": "Office screen mode",
+"rail_more": "More from Nordic Crypto",
+})
+
+# Media pages: markets, talks and newsletter layout
+S.update({
+"mk_tiles_note": "Change in %: as published by each exchange, window not named. 24h volume: only exchanges that published a 24-hour figure; currencies are not added together.",
+"mk_chg_short": "{name} {n}%",
+"mk_share_table": "Show the figures as a table",
+"mk_onpage": "On this page",
+"mk_about_h": "About these figures",
+"nl_next_h": "Get the next issue",
+"nl_rss": "RSS feed",
+})
+
+# Story and text pages: jump list, more news under a story
+S.update({
+"toc_h": "On this page",
+"more_news_h": "More news",
+"all_news": "All news",
+})
+
+# Who's who: country rows with counts, search matches, the full list on demand
+S.update({
+"org_list_show": "Show all {n} entries",
+"js_n_orgs": "{n} organisations",
+"js_n_org1": "1 organisation",
+"js_n_people": "{n} people",
+"js_n_person1": "1 person",
+"js_n_match": "{n} matches",
+"js_n_match1": "1 match",
+"js_no_match": "Nothing matches your search.",
+})
+
+# Sources, academia, calendar and event pages: lighter lists
+S.update({
+"src_how": "How we read sources",
+"src_samefeed": "“Same feed as …” means two titles share one feed. It is read once, so a story is not filed under the wrong title.",
+"src_n_mon": "{n} monitored",
+"cal_months_h": "Month by month",
+"past_show": "Show {n} past events",
+"past_all": "All previous events",
+"ev_when": "Date and time",
+"past_show_1": "Show 1 past event",
+})
+
+# Review fixes: skip link, short front-page intro, empty filter states
+S.update({
+"skip": "Skip to content",
+"home_sub": "Stories from Nordic newspapers, broadcasters, regulators and central banks, each with a short summary made with the help of artificial intelligence and approved by our editors.",
+"home_updated": "Updated {upd} · {n} stories{pend}",
+"filters_none": "Nothing matches these filters.",
+"filters_clear": "Clear filters",
+"n_row1": "1 row",
+"foot_source": "Source code",
+})
+
 # books page (/books/)
 S.update({
 "nav_books": "Books",

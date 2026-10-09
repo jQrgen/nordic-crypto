@@ -2,7 +2,7 @@
 
 English is the default (site root); every other code lives under /<code>/.
 Strings: i18n/<code>.py -> S = {key: text}. Missing keys fall back to English (and build.py warns).
-The languages added beyond the Nordic set ship as English stubs until a real translation is written.
+The languages beyond the Nordic set have their UI strings translated (AI-assisted, 8 Oct 2026); a key added later falls back to English until it is translated.
 Do not machine-translate article bodies into those files.
 
 Editor workflow: our own text (story summaries, event notes, changelog entries) gets per-language variants in
@@ -104,6 +104,11 @@ WD = {"en": "Mon Tue Wed Thu Fri Sat Sun".split(),
 # Nordic languages have their own date forms. Other site languages use the English forms until translated.
 def _dl(lang): return lang if lang in MON else "en"
 def wd_head(lang): return [w.rstrip(".") for w in WD[_dl(lang)]]
+# Month under the day number in a date badge. Finnish dates are numeric elsewhere; the badge uses the usual short month names.
+MON_FI_BADGE = "tammi helmi maalis huhti touko kesä heinä elo syys loka marras joulu".split()
+def badge_month(lang, d):
+    lang = _dl(lang)
+    return MON_FI_BADGE[d.month-1] if lang == "fi" else MON[lang][d.month-1].rstrip(".")
 def short_date(lang, d):
     lang = _dl(lang)
     if lang == "en": return f"{d.day} {MON['en'][d.month-1]} {d.year}"

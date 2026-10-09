@@ -4,7 +4,7 @@ S = {
 "nav_about": "Om oss", "nav_tip": "Tipsa oss", "nav_api": "API", "main_menu": "Huvudmeny", "lang_label": "Språk", "lang_choose": "Välj språk",
 "site_desc_suffix": "kryptonyheter från Norden",
 "preview_banner": "<b>Lokal förhandsvisning – inte publicerad.</b> Allt som är märkt ”Väntar på redaktören” har inte granskats av redaktören än, och sammanfattningarna är inte skrivna. Bara godkänt innehåll kommer med i den publika versionen.",
-"footer": "{site} bevakar Norge, Sverige, Danmark, Finland och Island. Drivs av Jørgen S. Notland (jQrgen), Oslo, Gjort med hjälp av artificiell intelligens, med mänskliga redaktörer (jQrgen och Nordic Crypto-redaktören). Inte investeringsrådgivning. Cloudflare Web Analytics räknar besök samlat, utan kakor, och vi säljer inte de uppgifterna. En kaka, bara om du väljer språk. <a href=\"{rel}about/\">Om oss, integritet, rättelser och borttagning</a> · <a href=\"{rel}tip/\">Tipsa oss</a> · <a href=\"{rel}columnist/\">Ansök som krönikör</a> · <a href=\"{rel}media/\">Logotyp och mediapaket</a> · <a href=\"{rel}changelog/\">Ändringslogg</a> · <a href=\"{rel}ethics/\">Redaktionell etik</a> · <a href=\"https://testflight.apple.com/join/nQ2fpjZn\" rel=\"noopener\">iOS-app (TestFlight)</a> {ios_tv} · <a href=\"{rel}talks/\">Föredrag</a> · <a href=\"{rel}markets/\">Marknader</a> · <a href=\"{root}api/\">Data-API</a>.",
+"footer": "{site} bevakar Norge, Sverige, Danmark, Finland och Island. Drivs av Jørgen S. Notland (jQrgen), Oslo, Gjort med hjälp av artificiell intelligens, med mänskliga redaktörer (jQrgen och Nordic Crypto-redaktören). Inte investeringsrådgivning. Cloudflare Web Analytics räknar besök samlat, utan kakor, och vi säljer inte de uppgifterna. En kaka, bara om du väljer språk. <a href=\"{rel}about/\">Om oss, integritet, rättelser och borttagning</a>.",
 "moved": "Sidan har flyttats till",
 "time_local": "{city}, lokal tid", "at_time": "{t}",
 "pending": "Väntar på redaktören", "owner": "Godkänd av redaktören · väntar på jQrgens slutliga godkännande", "our_story": "Vår artikel",
@@ -75,7 +75,7 @@ S = {
 "src_kw_h": "Nyckelord",
 "src_kw": "En artikel plockas upp när rubriken eller ingressen nämner till exempel bitcoin, krypto, blockchain, stablecoin, MiCA, CASP, CBDC (alla språk); krypto, kryptovaluta, blokkjede (norska); kryptoaktiver, blokkæde (danska); kryptotillgångar, blockkedja, e-krona (svenska); kryptovaluutta, lohkoketju, virtuaalivaluutta (finska); rafmynt, sýndareignir, bálkakeðja (isländska); eller nordiska kryptoföretag som Firi, NBX, K33, Safello, Coinmotion, Northcrypto, Myntkaup, Monerium och Coinify. Ord som hvitvasking, penningtvätt, hvidvask, rahanpesu och peningaþvætti räknas bara när samma rubrik eller ingress också har ett kryptoord. Darknet räknas för sig. Lokal- och rättskällor använder samma filter. Redaktören granskar varje träff innan den publiceras.",
 "src_ev_h": "Var vi hittar evenemang",
-"src_ev_note": "Luma läses från varje kalenders offentliga iCal-flöde (Subscribe). Stadssidor som luma.com/oslo, kategorisidor som luma.com/crypto och Lumas discover-API används inte: villkoren tillåter bara offentligt stödda gränssnitt, och det officiella API:t kräver Luma Plus och täcker bara kalendrar du själv driver. En enskild Luma-sida för ett evenemang läses som schema.org JSON-LD. Eventbrite använder v3-API:t för arrangörer och platser när EVENTBRITE_TOKEN är satt på servern. Token publiceras inte. Utan den används JSON-LD på evenemangssidan. Det offentliga sök-API:t används inte. Samma titel, datum och plats listas en gång. Ett trasigt flöde stoppar inte körningen. Avslutade evenemang ligger kvar under Tidigare evenemang. Kaupr är bara en nyhetskälla och är aldrig sponsor för ett evenemang.",
+"src_ev_note": "Luma läses från varje kalenders offentliga iCal-flöde (Subscribe). Stadssidor som luma.com/oslo, kategorisidor som luma.com/crypto och Lumas discover-API används inte: villkoren tillåter bara offentligt stödda gränssnitt, och det officiella API:t kräver Luma Plus och täcker bara kalendrar du själv driver. En enskild Luma-sida för ett evenemang läses som schema.org JSON-LD. Eventbrite använder v3-API:t för arrangörer och platser när EVENTBRITE_TOKEN är satt på servern. Token publiceras inte. Utan den används JSON-LD på evenemangssidan. Det offentliga sök-API:t används inte. Samma titel, datum och plats listas en gång. Ett trasigt flöde stoppar inte körningen. Avslutade evenemang ligger kvar under Tidigare evenemang.",
 "src_missing": "Saknas en källa? Föreslå den i ett ärende på <a href=\"https://github.com/jQrgen/nordic-crypto/issues\" rel=\"noopener\">GitHub</a>.",
 "cal_title": "Kalender – evenemang om krypto, bitcoin och blockkedjor i Norden",
 "cal_desc": "Kommande evenemang om krypto, bitcoin och blockkedjor i Norge, Sverige, Danmark, Finland och Island, med datum, plats och arrangör.",
@@ -132,18 +132,19 @@ S = {
 "about_title": "Om Nordic Crypto", "about_desc": "Om Nordic Crypto: vem som driver sajten, hur vi arbetar, integritet, rättelser och borttagning.",
 "ethics_title": "Redaktionell etik", "ethics_desc": "Nordic Crypto följer Vær Varsom-plakaten. En namngiven redaktör godkänner allt.",
 "media_title": "Logotyp och mediapaket",
-"media_desc": "Vapen, ordmärke, favicon, enfärgat märke och färgtokens för Nordic Crypto.",
+"media_desc": "Nordic Cryptos logotyp: nyckelskölden, logotypen med namnet, en enfärgad version, ikoner och färger.",
 "media_h1": "Logotyp och mediapaket",
-"media_lead": "Vapnet fortsätter sigillet från Trondheim Open Blockchain Meetup: en sköld i or, en åttauddig ros i gules och en korp i sable. Två lejon är sköldhållare. Bandet läser NORDIC CRYPTO. Huvudlåset ställer vapnet bredvid ordmärket, vänsterställt.",
-"media_hdr_cap": "Exempel på sidhuvud, ljust. Cormorant Garamond för namnet, Schibsted Grotesk för den här raden och för det spärrade mottot. Crypto är gules.",
-"media_hdr_dark_cap": "Exempel på sidhuvud mot #0b0d10. Crypto är or, så ordet går att läsa.",
+"media_lead": "Nordic Cryptos märke är skölden från startsidan: delad på mitten i Nordsjöblått och guld, med en nyckel i motsatta färger. Logotypen med namn har skölden till vänster om namnet.",
+"media_hdr_cap": "Logotyp för ljus bakgrund. Cormorant Garamond Bold; ”Crypto” i mörkt guld så att det går att läsa.",
+"media_hdr_dark_cap": "Logotyp på det blå bandet, som i sidhuvudet. Skölden har ljus kant.",
 "media_use_h": "Så ska det användas",
-"media_use": "Originalarbete i nordisk kommunvapenstil: plana figurer, få tinkturer, inga gradienter. Det är inte ett riks- eller kungavapen. Rita inte ett krönt guldlejon med yxa på rött. Enfärgad fil är till tryck, klistermärken och profilprodukter. Knapparna på webbplatsen är fortfarande blå.",
+"media_use": "Håll nyckeln upprätt och färgerna som de är. På mörk bakgrund använder du bandversionen; för tryck, klistermärken och profilprodukter använder du den enfärgade filen. Lämna fri yta runt märket på minst halva sköldens bredd. Under 32 px använder du favicon-rutan. Sträck, rotera eller lägg inte till kanter eller effekter.",
 "media_files_h": "Filer",
-"media_colours_h": "Tinkturer",
-"media_colours_note": "Cendrée är till linjer. Liten text är sable, eftersom cendrée på argent är för blek att läsa.",
+"media_colours_h": "Färger",
+"media_colours_note": "Guld på ljus bakgrund är för skölden, inte för liten text: använd mörkt guld #8A5A0C för text.",
 "tip_title": "Tipsa oss", "tip_desc": "Tipsa Nordic Crypto om en artikel om krypto, bitcoin eller blockkedjor i Norden.",
 "tip_lead": "Har du sett en artikel om krypto, bitcoin eller blockkedjor i Norge, Sverige, Danmark, Finland eller Island som vi har missat? Skicka länken till oss.",
+"tip_private_soon": "Vi arbetar på ett sätt att skicka tips privat. Tills det är klart tar den här sidan inte emot tips.",
 "tip_srv_p": "Tipsen går direkt till Nordic Cryptos egen tipslåda. Vår redaktör går regelbundet igenom nya tips och prövar vart och ett mot <a href=\"../about/\">våra regler</a>: artikeln ska handla om krypto, bitcoin eller blockkedjor i Norden, och vi länkar till originalkällan med en kort sammanfattning med egna ord. <b>Ett tips är ingen garanti för publicering</b>, och vi svarar inte på enskilda tips.",
 "tip_srv_priv": "<b>Integritet:</b> tipsen är inte offentliga. Vi sparar länken, landet, anteckningen, ett eventuellt namn och tidpunkten – <b>inte</b> din IP-adress (som spamskydd sparas bara en envägskod (hash) som räknas fram ur den, i 10 minuter, innan den raderas). Ditt namn publiceras aldrig. Tipslådan körs hos Cloudflare. Skriv inga personliga eller känsliga uppgifter om någon i anteckningen.",
 "tip_noscript": "Tipsformuläret kräver JavaScript. Utan det kan du i stället skicka <a href=\"{gh}\" rel=\"noopener\">tipset som ett offentligt ärende på GitHub</a>.",
@@ -223,6 +224,7 @@ S.update({
 "ios_link": "Hämta iOS-appen (TestFlight)",
 "ios_note": "Offentlig TestFlight-inbjudan. Det finns ingen App Store-sida.",
 "ios_tv": "Stöder särskilt Apple TV.",
+"contributors": "Bidragsgivare",
 "mk_title": "Översikt över den nordiska marknaden",
 "mk_desc": "Översikt över mynt som noteras på nordiska börser: samlade priser, 24-timmarsvolym där en börs har publicerat den, och varje börs eget pris. Inte investeringsrådgivning.",
 "mk_h1": "Översikt över den nordiska marknaden",
@@ -366,6 +368,72 @@ S.update({
 "chat_time_d": "{n} d sedan",
 "chat_noscript": "Chatten behöver JavaScript.",
 })
+
+# Layout renovation: theme switch, more stories, footer columns, front-page rail
+S.update({
+"theme_dark": "Mörkt läge",
+"more_stories": "Visa {n} artiklar till",
+"foot_sections": "Avdelningar",
+"foot_site": "Om sajten",
+"foot_follow": "Följ oss",
+"foot_api": "Data-API",
+"screen_short": "Skärmläge för kontoret",
+"rail_more": "Mer från Nordic Crypto",
+})
+
+# Media pages: markets, talks and newsletter layout
+S.update({
+"mk_tiles_note": "Förändring i %: som varje börs publicerade den, perioden är inte angiven. Volym 24 h: bara börser som har publicerat en 24-timmarssiffra; valutorna läggs inte ihop.",
+"mk_chg_short": "{name} {n} %",
+"mk_share_table": "Visa siffrorna som tabell",
+"mk_onpage": "På den här sidan",
+"mk_about_h": "Om siffrorna",
+"nl_next_h": "Få nästa utgåva",
+"nl_rss": "RSS-flöde",
+})
+
+# Story and text pages: jump list, more news under a story
+S.update({
+"toc_h": "På den här sidan",
+"more_news_h": "Fler nyheter",
+"all_news": "Alla nyheter",
+})
+
+# Who's who: country rows with counts, search matches, the full list on demand
+S.update({
+"org_list_show": "Visa alla {n} poster",
+"js_n_orgs": "{n} organisationer",
+"js_n_org1": "1 organisation",
+"js_n_people": "{n} personer",
+"js_n_person1": "1 person",
+"js_n_match": "{n} träffar",
+"js_n_match1": "1 träff",
+"js_no_match": "Inget matchar sökningen.",
+})
+
+# Sources, academia, calendar and event pages: lighter lists
+S.update({
+"src_how": "Så läser vi källorna",
+"src_samefeed": "”Same feed as …” betyder att två titlar delar ett flöde. Det läses en gång, så att en artikel inte hamnar under fel titel.",
+"src_n_mon": "{n} bevakas",
+"cal_months_h": "Månad för månad",
+"past_show": "Visa {n} tidigare evenemang",
+"past_all": "Alla tidigare evenemang",
+"ev_when": "Datum och tid",
+"past_show_1": "Visa 1 tidigare evenemang",
+})
+
+# Review fixes: skip link, short front-page intro, empty filter states
+S.update({
+"skip": "Hoppa till innehållet",
+"home_sub": "Artiklar från nordiska tidningar, public service, tillsynsmyndigheter och centralbanker, var och en med en kort sammanfattning gjord med hjälp av artificiell intelligens och godkänd av våra redaktörer.",
+"home_updated": "Uppdaterad {upd} · {n} artiklar{pend}",
+"filters_none": "Inget matchar de här filtren.",
+"filters_clear": "Rensa filtren",
+"n_row1": "1 rad",
+"foot_source": "Källkod",
+})
+
 # books page (/books/)
 S.update({
 "nav_books": "Böcker",

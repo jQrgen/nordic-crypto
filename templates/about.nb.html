@@ -1,11 +1,11 @@
 <h1>Om Nordic Crypto</h1>
-<div class="prose">
 <p class="lead">Nordic Crypto samler nyheter om bitcoin, blokkjede og krypto fra Norge, Sverige, Danmark, Finland og Island på ett sted, på engelsk, norsk (nynorsk og bokmål), svensk, dansk, finsk og islandsk. Her finner du også en arrangementskalender, en oversikt over hvem som er hvem i bransjen og blant myndighetene, og en oversikt over kurs og forskning ved nordiske universiteter.</p>
+<div class="prose">
 
-<h2>Hvem står bak</h2>
+<h2 id="who">Hvem står bak</h2>
 <p>Nettstedet drives av Jørgen S. Notland (<a href="https://github.com/jQrgen" rel="noopener">jQrgen</a>), utvikler i Oslo. Han jobber med Nexa-blokkjeden i Bitcoin Unlimited, så saker om Nexa bør leses med det i bakhodet. Arbeidet gjøres med hjelp av kunstig intelligens. Nordic Crypto er et søsterprosjekt av <a href="https://jqrgen.github.io/kryptonytt/" rel="noopener">Kryptonytt Norge</a>, som dekker Norge på norsk.</p>
 
-<h2>Redaksjonen</h2>
+<h2 id="team">Redaksjonen</h2>
 <ul>
 <li><b>Redaktører:</b> jQrgen og Nordic Crypto-redaktøren. Begge er menneskelige redaktører. De bestemmer hvilke saker som publiseres, skriver sammendragene av hva hver sak sier og godkjenner oppføringer i kalenderen, i hvem er hvem og på siden om forskning og utdanning. Arbeidet gjøres med hjelp av kunstig intelligens.</li>
 <li><b>Ansvarlig person:</b> Jørgen S. Notland (jQrgen) svarer for innholdet.</li>
@@ -13,7 +13,7 @@
 </ul>
 <p>Ingenting publiseres automatisk. Hver sak, hvert arrangement og hver oppføring går gjennom redaktøren først.</p>
 
-<h2>Slik jobber vi</h2>
+<h2 id="how">Slik jobber vi</h2>
 <p>Vi lenker til originalsaken og skriver et eget sammendrag på to til fire setninger, først på engelsk og så på de andre språkene på nettstedet. Tittelen på et sakkort er på sidens språk. Originaltittelen står under når kilden skrev den på et annet språk. Sitater blir stående slik kilden skrev dem. Vi kopierer ikke artikkeltekst, og vi går ikke rundt betalingsmurer. Oversettelsene av nettstedet og sammendragene våre er laget med hjelp av kunstig intelligens og kontrollert av de menneskelige redaktørene (jQrgen og Nordic Crypto-redaktøren); si fra hvis noe leses feil.</p>
 <p>Hvem er hvem og siden om forskning og utdanning sier bare det kildene sier. Hver oppføring og hver kobling mellom oppføringer viser til kilden sin. Er vi usikre, lar vi det være. Personer er bare med i offentlige yrkesroller (for eksempel administrerende direktør, direktør for et tilsyn eller sentralbanksjef), slik organisasjonen eller pressen beskriver dem. Vi publiserer aldri private opplysninger, helseopplysninger eller private økonomiske opplysninger.</p>
 <p>Bilder av personer vises bare når de er fritt lisensiert (Wikimedia Commons, CC BY, CC BY-SA eller CC0) eller er offisielle pressebilder som tilbys til pressebruk, alltid med kreditering. Ellers viser vi initialer. Logoer til organisasjoner hentes fra organisasjonens egen nettside, pressesider eller Wikimedia Commons, vises uendret og bare for å identifisere organisasjonen, og betyr ikke at noen støtter oss. På en nyhetssak står logoen til mediet ved siden av kildenavnet når vi har en fra samme sett. Hvis vi ikke har det, vises bare navnet. Lenker til personers offentlige profiler (nettside, X, LinkedIn, GitHub, Nostr, Mastodon) vises bare når personen selv har gjort dem offentlige, og hver lenke har en kilde.</p>
@@ -26,12 +26,13 @@
 <p><b>Nyhetsbrev.</b> Påmeldingsskjemaet på dette nettstedet sender e-postadressen din til vår egen Cloudflare Worker. Vi lagrer adressen, språket du valgte og tidspunktet i en privat database (Cloudflare D1). Vi lagrer ikke IP-adressen din, og listen ligger ikke på GitHub. Du bekrefter på e-post før vi sender nyhetsbrevet. Adresser som ikke bekreftes, slettes etter 7 dager. Hver utgave har en lenke for å melde seg av. Listen brukes bare til nyhetsbrevet fra Nordic Crypto. Før skjemaet er slått på, ber ikke dette nettstedet om en e-postadresse. Nyhetsbrevsiden sier at påmeldingen åpner snart, og lenker til RSS, Telegram og X i stedet.</p>
 <p><b>Språkvalg.</b> Når du åpner den engelske forsiden for første gang, velger nettstedet språk for deg. Det spør vår egen lille Cloudflare Worker hvilket land tilkoblingen din kommer fra; Workeren svarer bare med en landkode på to bokstaver (for eksempel «NO») og lagrer og logger ingenting. Norge gir nynorsk (med bokmål ett klikk unna), Sverige svensk, Danmark dansk, Finland finsk (med svensk ett klikk unna), Island islandsk og resten av verden engelsk. Er oppslaget ikke tilgjengelig, brukes språkinnstillingene i nettleseren din i stedet. Et kortvarig flagg i nettleserens øktlagring (<code>nc_auto</code>) sørger for at dette bare skjer én gang per besøk; det forsvinner når du lukker fanen.</p>
 <p><b>Én informasjonskapsel.</b> Velger du språk i språkmenyen, lagrer vi valget i en informasjonskapsel som heter <code>nc_lang</code> (gyldig i ett år, bare for dette nettstedet). Den inneholder bare språkkoden og går alltid foran det automatiske valget. Lenker rett til en språkversjon blir aldri videresendt. Slett informasjonskapselen i nettleseren for å angre valget.</p>
+<p><b>Lys eller mørk.</b> Siden er lys med mindre du bytter til mørk med knappen i toppfeltet. Valget lagres i lokal lagring i denne nettleseren (<code>nc-theme</code>), bare for dette nettstedet, og sendes aldri til oss. Skjermvisningen for kontoret bruker samme innstilling.</p>
 <p><b>Varsler i nettleseren.</b> De er av til du slår dem på, med knappen nederst på hver side. Nettleseren lager da et push-abonnement, og vi sender det abonnementet til vår egen Cloudflare Worker. Vi lagrer bare abonnementet: adressen push-tjenesten til nettleseren ga oss, de to nøklene som trengs for å kryptere en melding til den nettleseren, språket på siden og landene du valgte. Vi lagrer ikke navnet ditt, e-postadressen din, IP-adressen din eller hva du leser. Selve varselet har ingen sporing. Samme knapp slår av varsler og sletter abonnementet. Én publisering sender én melding, også når flere saker kommer sammen. Cloudflare Web Analytics teller fortsatt besøk samlet, uten informasjonskapsler, og vi selger ikke de dataene. En senere iOS-app kan lese den samme listen over nye saker som JSON. Push-tjenesten til Apple (APNs) brukes ikke.</p>
 
 <p><b>Rop.</b> Chatten er ett felles rom for alle språk. Meldingene er skrevet av lesere og er ikke redaksjonelt innhold fra Nordic Crypto. Nettstedet oversetter dem ikke. Mens chatten er slått av, laster ikke forsiden og chatsiden den. Når den er på, lagrer vår egen Cloudflare Worker kallenavnet, meldingen og en hash av IP-adressen. Den hashen skifter hver UTC-dag og brukes bare til å begrense misbruk og til at en moderator kan skjule eller fjerne innlegg. Selve IP-adressen lagres ikke. Kallenavnet blir bare liggende i lokal lagring i denne nettleseren. Chatten setter ikke en informasjonskapsel. Cloudflare Web Analytics teller fortsatt besøk samlet, uten informasjonskapsler, og vi selger ikke de dataene.</p>
 <p><b>Tips og spaltistsøknader.</b> <a href="../tip/">Tipsskjemaet</a> og <a href="../columnist/">spaltistsøknaden</a> åpner en offentlig sak på GitHub. Ingenting fra disse skjemaene lagres på dette nettstedet. Ikke ta med helseopplysninger, private økonomiske opplysninger eller noe annet du ikke vil ha offentlig.</p>
 
-<h2>Ikke investeringsråd</h2>
+<h2 id="advice">Ikke investeringsråd</h2>
 <p>Nordic Crypto er en nyhetsoversikt. Ingenting her er investeringsråd, en anbefaling om å kjøpe eller selge, eller en vurdering av et selskap eller en kryptoeiendel. Kryptoeiendeler kan svinge kraftig i verdi, og du kan tape alt du investerer. Sjekk om en tilbyder har tillatelse fra det nasjonale tilsynet eller står i ESMAs MiCA-register før du bruker den.</p>
 
 <h2 id="corrections">Rettelser og fjerning</h2>
@@ -43,7 +44,7 @@
 <p>Nordic Crypto ser etter folk som vil skrive spalter om krypto, bitcoin og blokkjede i Norden. <a href="../columnist/">Søk som spaltist</a>. Redaktøren leser hver søknad. En søknad er ingen garanti for publisering, og en spalte er ikke investeringsråd.</p>
 <p>Skjemaet åpner en offentlig sak på GitHub, på samme måte som et tips. Vi lagrer ikke søknaden på dette nettstedet. Del bare et navn og en kontaktmåte du er villig til å ha offentlig, og ingen helseopplysninger eller private økonomiske opplysninger.</p>
 
-<h2>Slik blir reglene til</h2>
+<h2 id="rules">Slik blir reglene til</h2>
 <p>Siden <a href="../rules/">Slik blir reglene til</a> viser hvordan EUs kryptoregler (MiCA, hvitvaskingsreglene og DORA) blir nasjonal lov, og hvem som fører tilsyn og håndhever dem i hvert nordisk land, med kilde for hvert steg.</p>
 <p>Korte videoforklaringer for hvert land ligger på <a href="../regulation-videos/">Slik blir kryptoreglene avgjort</a>. Inntil filmene er ferdig laget, viser hver plass tittelen, fortellernotatene og kildene. Avslutningen er The Nordic Crypto team.</p>
 
@@ -53,8 +54,8 @@
 <p class="meta ios-tv">{{IOS_TV}}</p>
 
 {{COMMUNITY}}
-<h2>Logo</h2>
+<h2 id="logo">Logo</h2>
 <p>Våpenet er originalt arbeid i nordisk kommunevåpen-stil: et skjold i gull (or), en rød (gules) åttebladet rose, en svart (sable) ravn, og to løver som skjoldholdere. Det er ikke et nasjonalvåpen eller et kongevåpen. På nettstedet står våpenet ved siden av navnet, venstrejustert. Filer og fargetokens ligger på siden <a href="../media/">logo og mediepakke</a>.</p>
-<h2>Kildekode og data</h2>
+<h2 id="code">Kildekode og data</h2>
 <p>De publiserte dataene er åpne: <a href="{{UP}}data/news.json">nyheter (JSON)</a>, <a href="{{UP}}data/events.json">arrangementer (JSON)</a>, <a href="{{UP}}data/orgchart.json">hvem er hvem (JSON)</a> og <a href="{{UP}}data/academia.json">forskning og utdanning (JSON)</a>. Et versjonert grensesnitt for apper og andre verktøy, med nyheter, nyhetsbrev og resten av de offentlige dataene, er dokumentert på <a href="{{UP}}api/">data-API-et</a>. Koden er MIT-lisensiert.</p>
 </div>
