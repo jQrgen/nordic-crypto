@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-09T11:31:15+00:00",
+ "generated_at": "2026-10-09T12:26:28+00:00",
  "preview": false,
  "title": "Nordic Crypto data API",
  "sign_off": "The Nordic Crypto team",
@@ -67,7 +67,8 @@
    "firi": 11,
    "nbx": 41,
    "coinmotion": 20
-  }
+  },
+  "stats_days": 0
  },
  "endpoints": [
   {
@@ -266,8 +267,8 @@
    "url_custom_domain": "https://nordiccrypto.no/api/v1/academia/{id}.json",
    "summary": "One academia row. The id is in academia.json.",
    "schema": "AcademiaItem",
-   "example_url": "https://nordiccrypto.no/api/v1/academia/SE-DD2585.json",
-   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/academia/SE-DD2585.json"
+   "example_url": "https://nordiccrypto.no/api/v1/academia/FI-LT00DF90.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/academia/FI-LT00DF90.json"
   },
   {
    "id": "api-v1-books",
@@ -385,6 +386,17 @@
    "item_url_template": "https://nordiccrypto.no/api/v1/archive/articles/{id}.json"
   },
   {
+   "id": "stats",
+   "method": "GET",
+   "path": "/api/v1/stats.json",
+   "url": "https://nordiccrypto.no/api/v1/stats.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/stats.json",
+   "summary": "Aggregate visitor counts from Cloudflare Web Analytics (no cookies): visits and page views per UTC day, ISO week and calendar month. updated_at is null and the lists are empty until the Web Analytics site and the refresh token are configured.",
+   "schema": "VisitorStats",
+   "example_url": "https://nordiccrypto.no/api/v1/stats.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/stats.json"
+  },
+  {
    "id": "markets",
    "method": "GET",
    "path": "/api/v1/markets.json",
@@ -472,6 +484,10 @@
   {
    "description": "Prices for one asset, on every included exchange",
    "url": "https://nordiccrypto.no/api/v1/markets/by-asset/BTC.json"
+  },
+  {
+   "description": "Visitor stats (aggregate visits and page views)",
+   "url": "https://nordiccrypto.no/api/v1/stats.json"
   },
   {
    "description": "All published news",

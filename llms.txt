@@ -23,6 +23,14 @@ Absolute URLs in this file use that origin, at the domain root.
 - [Geo language](https://nordiccrypto.no/api/v1/geo-language.json): country to default language. An IP guess; the nc_lang cookie wins.
 - Browser notifications: opt-in Web Push. The Worker `GET /api/push/feed.json` repeats each publish as one batch (title, summary, URL). APNs is not implemented. Subscriptions are not in this API.
 
+## Visitor stats
+
+Aggregate visits and page views from Cloudflare Web Analytics (no cookies, no personal data): /api/v1/stats.json. Days are UTC. Weeks are ISO weeks. Empty until the Web Analytics site tag and the Account Analytics token are set. A scheduled job rewrites the file on gh-pages about once a day.
+
+```
+curl -fsS https://nordiccrypto.no/api/v1/stats.json
+```
+
 ## Market prices
 
 Prices from Nordic exchanges with a public ticker (Firi and Norwegian Block Exchange in Norway, Coinmotion in Finland). Market data, not investment advice. Each ticker has symbol, base, quote, last, bid and ask when the exchange publishes them, plus exchange id, name and country, fetched_at and source_url. volume_base is the base asset with no named window (Firi). volume_base_24h and volume_quote_24h are the last 24 hours (NBX), in the base asset and in the quote currency. A missing volume is null, not zero. Quotes are NOK, SEK, DKK or EUR. A failed exchange is an error with a timestamp and no price. The file is fetched again when the site is built, and a GitHub Actions job rewrites it on gh-pages about hourly. Durable URL: https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json
@@ -94,6 +102,7 @@ curl -fsS https://nordiccrypto.no/api/v1/talks.json
 - [/api/v1/changelog.json](https://nordiccrypto.no/api/v1/changelog.json): Site changelog (product changes, not the news), newest first.
 - [/api/v1/rules.json](https://nordiccrypto.no/api/v1/rules.json): How EU crypto rules become law in the five countries. Simplified, not legal advice. Omitted while the page is still a placeholder.
 - [/api/v1/archive/articles.json](https://nordiccrypto.no/api/v1/archive/articles.json): Append-only archive of stories that have been on the public site. removed is  true when a story later left the site; the row stays.
+- [/api/v1/stats.json](https://nordiccrypto.no/api/v1/stats.json): Aggregate visitor counts from Cloudflare Web Analytics (no cookies): visits and page views per UTC day, ISO week and calendar month. updated_at is null and the lists are empty until the Web Analytics site and the refresh token are configured.
 - [/api/v1/markets.json](https://nordiccrypto.no/api/v1/markets.json): Nordic exchange prices. Market data, not investment advice. Each ticker names the exchange, fetched_at, the source URL and volume when the exchange published it. NOK, SEK, DKK and EUR only. aggregated is one row per pair.
 - [/api/v1/markets/aggregated.json](https://nordiccrypto.no/api/v1/markets/aggregated.json): One price per base-quote pair. BTC-NOK is separate from BTC-EUR. last is the mean of published last prices. mid is the mean of bid/ask midpoints and is not blended into last. Volume is summed only within the same field and the same pair. logo_url is a CC0 icon when cryptocurrency-icons includes the asset, otherwise null.
 - [/api/v1/markets/{exchange}.json](https://nordiccrypto.no/api/v1/markets/{exchange}.json): Prices from one included exchange: firi (Norway), nbx (Norway) or coinmotion (Finland).

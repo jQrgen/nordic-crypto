@@ -890,6 +890,24 @@
     ]
    }
   },
+  "/api/v1/stats.json": {
+   "get": {
+    "operationId": "stats",
+    "summary": "Aggregate visitor counts from Cloudflare Web Analytics (no cookies): visits and page views per UTC day, ISO week and calendar month. updated_at is null and the lists are empty until the Web Analytics site and the refresh token are configured.",
+    "responses": {
+     "200": {
+      "description": "Aggregate visitor counts from Cloudflare Web Analytics (no cookies): visits and page views per UTC day, ISO week and calendar month. updated_at is null and the lists are empty until the Web Analytics site and the refresh token are configured.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/VisitorStats"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
   "/api/v1/markets.json": {
    "get": {
     "operationId": "markets",
@@ -3827,6 +3845,71 @@
      }
     },
     "description": "MarketCatalogue"
+   },
+   "VisitorStats": {
+    "type": "object",
+    "properties": {
+     "api_version": {
+      "type": "string"
+     },
+     "name": {
+      "type": "string"
+     },
+     "generated_at": {
+      "type": "string"
+     },
+     "preview": {
+      "type": "boolean"
+     },
+     "source": {
+      "type": "string"
+     },
+     "status": {
+      "type": "string",
+      "description": "ok when daily rows exist, otherwise pending."
+     },
+     "timezone": {
+      "type": "string"
+     },
+     "note": {
+      "type": "string"
+     },
+     "schema": {
+      "type": "integer"
+     },
+     "first_date": {
+      "type": "string",
+      "nullable": true
+     },
+     "last_date": {
+      "type": "string",
+      "nullable": true
+     },
+     "updated_at": {
+      "type": "string",
+      "nullable": true,
+      "description": "When the stats file was last fetched from Cloudflare."
+     },
+     "daily": {
+      "type": "array",
+      "items": {
+       "type": "object"
+      }
+     },
+     "weekly": {
+      "type": "array",
+      "items": {
+       "type": "object"
+      }
+     },
+     "monthly": {
+      "type": "array",
+      "items": {
+       "type": "object"
+      }
+     }
+    },
+    "description": "VisitorStats"
    },
    "MarketExchange": {
     "type": "object",
