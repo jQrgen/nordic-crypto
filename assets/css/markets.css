@@ -63,7 +63,7 @@ table.mkpairs button.sort[aria-pressed=true]{color:var(--fg);border-bottom:2px s
 .mkabout .notice{margin-top:0}.mkabout p{font-size:15px}.mkabout .meta{font-size:14px}
 .mkskip{padding-inline-start:20px;font-size:14.5px}
 .mkapp .applink{margin-inline-end:10px;padding:7px 14px;font-size:14px}
-/* Grouped numbers ("772 221.65") keep their digit order in Arabic and Urdu */
+/* Grouped numbers ("772 221.65") keep their digit order in Arabic, Urdu and Persian */
 .mktile .px,.mkstats b,.mkpairs .pxs,.mkpairs .pxs+.sub,.mkpairs .chg,.mklegend .pct,.mkshare td{direction:ltr;unicode-bidi:isolate}
 [dir=rtl] .mktile .px,[dir=rtl] .mkshare td{text-align:right}
 [dir=rtl] .mkpairs .pxs+.sub,[dir=rtl] .mkpairs .chg{margin:0 6px 0 0}

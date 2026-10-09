@@ -18,10 +18,10 @@ The IP country → language guess lives in tools/langselect.js (BY_COUNTRY) and 
 import importlib, os
 # Nordic first (en at the root, then nn nb sv da fi is), then the other site languages in
 # approximate number of speakers: Mandarin, Hindi, Spanish, French, Arabic, Bengali, Portuguese,
-# Russian, Urdu, Indonesian, German, Japanese, Swahili, Marathi. English is already first.
+# Russian, Urdu, Indonesian, German, Japanese, Swahili, Marathi, Persian. English is already first.
 ALL_LANGS = [
     "en", "nn", "nb", "sv", "da", "fi", "is",
-    "zh", "hi", "es", "fr", "ar", "bn", "pt", "ru", "ur", "id", "de", "ja", "sw", "mr",
+    "zh", "hi", "es", "fr", "ar", "bn", "pt", "ru", "ur", "id", "de", "ja", "sw", "mr", "fa",
 ]
 LANGS = [l for l in (os.environ.get("NC_LANGS") or ",".join(ALL_LANGS)).split(",") if l in ALL_LANGS]  # NC_LANGS: test builds only
 # Switcher label: the name readers see, in that language.
@@ -29,14 +29,14 @@ NATIVE = {
     "en": "English", "nn": "Nynorsk", "nb": "Bokmål", "sv": "Svenska", "da": "Dansk", "fi": "Suomi", "is": "Íslenska",
     "zh": "中文", "hi": "हिन्दी", "es": "Español", "fr": "Français", "ar": "العربية", "bn": "বাংলা",
     "pt": "Português", "ru": "Русский", "ur": "اردو", "id": "Bahasa Indonesia", "de": "Deutsch",
-    "ja": "日本語", "sw": "Kiswahili", "mr": "मराठी",
+    "ja": "日本語", "sw": "Kiswahili", "mr": "मराठी", "fa": "فارسی",
 }
 ENGLISH = {
     "en": "English", "nn": "Norwegian Nynorsk", "nb": "Norwegian Bokmål", "sv": "Swedish", "da": "Danish",
     "fi": "Finnish", "is": "Icelandic",
     "zh": "Chinese (Mandarin)", "hi": "Hindi", "es": "Spanish", "fr": "French", "ar": "Arabic", "bn": "Bengali",
     "pt": "Portuguese", "ru": "Russian", "ur": "Urdu", "id": "Indonesian", "de": "German", "ja": "Japanese",
-    "sw": "Swahili", "mr": "Marathi",
+    "sw": "Swahili", "mr": "Marathi", "fa": "Persian",
 }
 NAME = NATIVE
 HTML_LANG = {code: code for code in ALL_LANGS}
@@ -44,10 +44,10 @@ OG_LOCALE = {
     "en": "en_GB", "nn": "nn_NO", "nb": "nb_NO", "sv": "sv_SE", "da": "da_DK", "fi": "fi_FI", "is": "is_IS",
     "zh": "zh_CN", "hi": "hi_IN", "es": "es_ES", "fr": "fr_FR", "ar": "ar_SA", "bn": "bn_BD",
     "pt": "pt_BR", "ru": "ru_RU", "ur": "ur_PK", "id": "id_ID", "de": "de_DE", "ja": "ja_JP",
-    "sw": "sw_KE", "mr": "mr_IN",
+    "sw": "sw_KE", "mr": "mr_IN", "fa": "fa_IR",
 }
-# Right-to-left UI. Arabic and Urdu in this set; add a code here when another RTL language is added.
-RTL = {code: code in ("ar", "ur") for code in ALL_LANGS}
+# Right-to-left UI. Arabic, Urdu and Persian in this set; add a code here when another RTL language is added.
+RTL = {code: code in ("ar", "ur", "fa") for code in ALL_LANGS}
 def rtl(lang): return bool(RTL.get(lang))
 # quick second choice shown next to the switcher (Norway: nynorsk <-> bokmål; Finland: Swedish)
 QUICK = {"nn": "nb", "nb": "nn", "fi": "sv"}
@@ -58,7 +58,7 @@ SAME_LANG = {
     "nn": "Norwegian", "nb": "Norwegian", "sv": "Swedish", "da": "Danish", "fi": "Finnish", "is": "Icelandic", "en": "English",
     "zh": "Chinese", "hi": "Hindi", "es": "Spanish", "fr": "French", "ar": "Arabic", "bn": "Bengali",
     "pt": "Portuguese", "ru": "Russian", "ur": "Urdu", "id": "Indonesian", "de": "German", "ja": "Japanese",
-    "sw": "Swahili", "mr": "Marathi",
+    "sw": "Swahili", "mr": "Marathi", "fa": "Persian",
 }
 _missing = [f"{table}.{code}" for table, data in (
     ("NATIVE", NATIVE), ("ENGLISH", ENGLISH), ("HTML_LANG", HTML_LANG), ("OG_LOCALE", OG_LOCALE),
