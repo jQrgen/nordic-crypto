@@ -34,15 +34,15 @@ Everything runs as the system user `electrum`. Each part is a systemd service.
 | Service | Software | Config | Data |
 |---|---|---|---|
 | `bchn` | Bitcoin Cash Node 29.2.0, `/opt/bchn` | `bchn/bitcoin.conf` | `bchn/` |
-| `rostrum-bch` | Rostrum 14.0.1 built with `--features bch`, `/usr/local/bin/rostrum-bch` | flags in the unit file | `rostrum-bch/` |
+| `rostrum-bch` | Rostrum 14.0.1 built with `--features bch`, `/usr/local/bin/rostrum-bch` | flags in the unit file, RPC login in `/etc/rostrum-bch.env` | `rostrum-bch/` |
 | `nexad` | Nexa 2.2.0.0, `/opt/nexa` | `nexa/nexa.conf` | `nexa/` |
 | `cloudflared` | Cloudflare Tunnel `electrum-1` (`4f897872-1d89-4e30-8a5c-a3c902ddc9d0`) | `/etc/cloudflared/config.yml` | |
 
 Paths in the Config and Data columns are under the data volume.
 
-`nexad` starts its own bundled Rostrum (`-electrum=1`), listening only on localhost: TCP `20001`, WebSocket `20003`. BCHN has no built-in Electrum server, so Rostrum for BCH runs as its own service against BCHN's RPC on `127.0.0.1:8332`.
+`nexad` starts its own bundled Rostrum (`-electrum=1`), listening only on localhost: TCP `20001`, WebSocket `20003`. BCHN has no built-in Electrum server, so Rostrum for BCH runs as its own service against BCHN's RPC on `127.0.0.1:8332`, listening only on localhost: TCP `50001`, WebSocket `50003`. It opens those ports once BCHN has caught up with the chain.
 
-The BCHN RPC password is generated on the server and kept only in `bitcoin.conf` (mode 600). The tunnel credentials are in `/etc/cloudflared/` (mode 600). Neither is in this repo.
+The BCHN RPC password is generated on the server and kept only in `bitcoin.conf` and `/etc/rostrum-bch.env` (both mode 600). The tunnel credentials are in `/etc/cloudflared/` (mode 600). Neither is in this repo.
 
 ## Checking it
 
@@ -57,6 +57,10 @@ journalctl -u rostrum-bch -f
 ```
 
 The server's address is in the Hetzner console. The Hetzner API token is kept in the operator's macOS Keychain as `hetzner-api-token`.
+
+## Public status
+
+The `/api` page lists both endpoints and checks them live from the reader's browser: `tools/electrum_status.js` sends `server.version` and `blockchain.headers.subscribe` over WebSocket and shows up or down, the block height, the response time and the Rostrum version. A failed row means that browser could not reach the server within 8 seconds.
 
 ## Who uses it
 
