@@ -178,8 +178,8 @@ def header_subscribe_button(rel):
     ("Subscribe"), otherwise the RSS, Telegram and X links ("Follow"), so the label says what the reader will find."""
     return f'<a class="hdrsub" href="{rel}newsletter/#signup">{E(t("nl_btn") if newsletter_form(True) else t("foot_follow"))}</a>'
 def header_buttons(rel):
-    """Subscribe, then Join on Telegram, then Follow on X. Left-aligned, in that order."""
-    return header_subscribe_button(rel) + header_telegram_button() + header_x_button()
+    """Subscribe, then Join on Telegram, then Follow on X, then the source code on GitHub. Left-aligned, in that order."""
+    return header_subscribe_button(rel) + header_telegram_button() + header_x_button() + header_github_button()
 # Nordic Crypto brand accounts (not jQrgen's personal profiles). Plain links only: no widgets, scripts or embeds.
 SITE_X = "https://x.com/xcryptonordic"
 SITE_TELEGRAM = "https://t.me/nordiccryptochat"
@@ -194,6 +194,15 @@ def header_telegram_button():
 def header_x_button():
     """'Follow on X' beside the Telegram button, built the same way."""
     return f'<a class="hdrx" href="{SITE_X}" rel="noopener" title="{E(t("x_title"))}">{ICON_X}<span class="lbl">{E(t("x_btn"))}</span></a>'
+SITE_REPO = "https://github.com/jQrgen/nordic-crypto"
+ICON_GH = ('<svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" '
+           'd="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 '
+           '1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 '
+           '0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 '
+           '2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>')
+def header_github_button():
+    """The site's source code on GitHub, beside the X button and built the same way. The label is the footer's "Source code" string."""
+    return f'<a class="hdrgh" href="{SITE_REPO}" rel="noopener" title="{E(t("foot_source"))}">{ICON_GH}<span class="lbl">{E(t("foot_source"))}</span></a>'
 def x_link():
     """'Follow Nordic Crypto on X' link. The brand account @xcryptonordic."""
     return f'<a class="xfollow" href="{SITE_X}" rel="noopener noreferrer" title="{E(t("x_title"))}">{E(t("x_follow"))}</a>'
