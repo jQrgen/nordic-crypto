@@ -393,9 +393,10 @@ class CalendarIntakeTests(unittest.TestCase):
     def test_sources_page_is_left_aligned(self):
         import site_css
         text = open(os.path.join(ROOT, "build.py"), encoding="utf-8").read() + site_css.bundle()
-        self.assertIn("table.list th,table.list td{border-bottom:1px solid var(--line);padding:8px 8px;text-align:left", text)
+        # start = left in left-to-right languages, right on the Arabic and Urdu pages
+        self.assertIn("table.list th,table.list td{border-bottom:1px solid var(--line);padding:8px 8px;text-align:start", text)
         self.assertIn('t("st_used")', text)
-        self.assertIn('style="text-align:left"', text)
+        self.assertIn('style="text-align:start"', text)
         en = open(os.path.join(ROOT, "i18n", "en.py"), encoding="utf-8").read()
         self.assertIn('"st_used"', en)
         self.assertIn("publicly supported interfaces", en)

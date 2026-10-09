@@ -36,7 +36,7 @@ def main():
         build.LANG = lang
         link = build.contributors_link()
         check(link == f'<a href="{URL}" rel="noopener">{build.E(label or "")}</a>', f"{lang} link markup", fails)
-        footer = i18n.t(lang, "footer", site="Nordic Crypto", rel="", root="", ios_tv=i18n.t(lang, "ios_tv"), contributors=link)
+        footer = build.site_footer("", "")   # the link is in the footer's "About the site" column, after Data API
         check(footer.count(URL) == 1, f"{lang} footer has the link once", fails)
         check(footer.index("api/") < footer.index(URL), f"{lang} link sits after Data API", fails)
         check(REVERSED not in footer, f"{lang} brand", fails)

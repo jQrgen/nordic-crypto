@@ -4,7 +4,7 @@ S = {
 "nav_about": "Um okkur", "nav_tip": "Senda ábendingu", "nav_api": "API", "main_menu": "Aðalvalmynd", "lang_label": "Tungumál", "lang_choose": "Veldu tungumál",
 "site_desc_suffix": "rafmyntafréttir frá Norðurlöndunum",
 "preview_banner": "<b>Staðbundin forskoðun – ekki birt.</b> Ritstjóri hefur ekki enn farið yfir neitt sem merkt er „Bíður yfirferðar ritstjóra“ og samantektir hafa ekki enn verið skrifaðar. Aðeins samþykkt efni fer í opinberu útgáfuna.",
-"footer": "{site} fylgist með Noregi, Svíþjóð, Danmörku, Finnlandi og Íslandi. Síðunni er haldið úti af Jørgen S. Notland (jQrgen), Ósló, Unnið með aðstoð gervigreindar, með mannlegum ritstjórum (jQrgen og ritstjóra Nordic Crypto). Ekki fjárfestingarráðgjöf. Cloudflare Web Analytics telur heimsóknir saman, án vafrakaka, og við seljum ekki þau gögn. Ein vafrakaka, aðeins ef þú velur tungumál. <a href=\"{rel}about/\">Um okkur, persónuvernd, leiðréttingar og fjarlægingar</a> · <a href=\"{rel}tip/\">Senda ábendingu</a> · <a href=\"{rel}columnist/\">Sækja um að skrifa pistil</a> · <a href=\"{rel}media/\">Merki og efnispakki</a> · <a href=\"{rel}changelog/\">Breytingaskrá</a> · <a href=\"{rel}ethics/\">Siðareglur ritstjórnar</a> · <a href=\"https://testflight.apple.com/join/nQ2fpjZn\" rel=\"noopener\">iOS-app (TestFlight)</a> {ios_tv} · <a href=\"{rel}talks/\">Erindi</a> · <a href=\"{rel}markets/\">Markaðir</a> · <a href=\"{root}api/\">Gagna-API</a> · {contributors}.",
+"footer": "{site} fylgist með Noregi, Svíþjóð, Danmörku, Finnlandi og Íslandi. Síðunni er haldið úti af Jørgen S. Notland (jQrgen), Ósló, Unnið með aðstoð gervigreindar, með mannlegum ritstjórum (jQrgen og ritstjóra Nordic Crypto). Ekki fjárfestingarráðgjöf. Cloudflare Web Analytics telur heimsóknir saman, án vafrakaka, og við seljum ekki þau gögn. Ein vafrakaka, aðeins ef þú velur tungumál. <a href=\"{rel}about/\">Um okkur, persónuvernd, leiðréttingar og fjarlægingar</a>.",
 "moved": "Síðan hefur verið flutt á",
 "time_local": "{city}, staðartími", "at_time": "kl. {t}",
 "pending": "Bíður yfirferðar ritstjóra", "owner": "Samþykkt af ritstjóra · bíður lokasamþykkis jQrgen", "our_story": "Okkar frétt",
@@ -368,6 +368,72 @@ S.update({
 "chat_time_d": "fyrir {n} d.",
 "chat_noscript": "Spjallið þarfnast JavaScript.",
 })
+
+# Layout renovation: theme switch, more stories, footer columns, front-page rail
+S.update({
+"theme_dark": "Dökk stilling",
+"more_stories": "Sýna {n} fréttir í viðbót",
+"foot_sections": "Efnisflokkar",
+"foot_site": "Um vefinn",
+"foot_follow": "Fylgstu með",
+"foot_api": "Gagna-API",
+"screen_short": "Skjáhamur fyrir skrifstofuna",
+"rail_more": "Meira frá Nordic Crypto",
+})
+
+# Media pages: markets, talks and newsletter layout
+S.update({
+"mk_tiles_note": "Breyting í %: eins og hver kauphöll birti hana, tímabilið er ekki nefnt. Magn 24 klst.: aðeins kauphallir sem hafa birt 24 klst. tölu; gjaldmiðlar eru ekki lagðir saman.",
+"mk_chg_short": "{name} {n} %",
+"mk_share_table": "Sýna tölurnar sem töflu",
+"mk_onpage": "Á þessari síðu",
+"mk_about_h": "Um tölurnar",
+"nl_next_h": "Fáðu næsta tölublað",
+"nl_rss": "RSS-straumur",
+})
+
+# Story and text pages: jump list, more news under a story
+S.update({
+"toc_h": "Á þessari síðu",
+"more_news_h": "Fleiri fréttir",
+"all_news": "Allar fréttir",
+})
+
+# Who's who: country rows with counts, search matches, the full list on demand
+S.update({
+"org_list_show": "Sýna allar {n} færslur",
+"js_n_orgs": "{n} stofnanir",
+"js_n_org1": "1 stofnun",
+"js_n_people": "{n} einstaklingar",
+"js_n_person1": "1 einstaklingur",
+"js_n_match": "{n} niðurstöður",
+"js_n_match1": "1 niðurstaða",
+"js_no_match": "Ekkert passar við leitina.",
+})
+
+# Sources, academia, calendar and event pages: lighter lists
+S.update({
+"src_how": "Hvernig við lesum heimildirnar",
+"src_samefeed": "„Same feed as …“ merkir að tveir miðlar deila einu streymi. Það er lesið einu sinni svo að frétt lendi ekki undir röngum miðli.",
+"src_n_mon": "{n} í vöktun",
+"cal_months_h": "Mánuð fyrir mánuð",
+"past_show": "Sýna {n} liðna viðburði",
+"past_all": "Allir fyrri viðburðir",
+"ev_when": "Dagsetning og tími",
+"past_show_1": "Sýna 1 liðinn viðburð",
+})
+
+# Review fixes: skip link, short front-page intro, empty filter states
+S.update({
+"skip": "Fara beint í efnið",
+"home_sub": "Fréttir frá norrænum dagblöðum, ljósvakamiðlum, eftirlitsstofnunum og seðlabönkum, hver með stuttri samantekt sem er unnin með aðstoð gervigreindar og samþykkt af ritstjórum okkar.",
+"home_updated": "Uppfært {upd} · {n} fréttir{pend}",
+"filters_none": "Ekkert passar við þessar síur.",
+"filters_clear": "Hreinsa síur",
+"n_row1": "1 lína",
+"foot_source": "Frumkóði",
+})
+
 # books page (/books/)
 S.update({
 "nav_books": "Bækur",

@@ -1,58 +1,71 @@
-/* Markets: tiles at a glance, the volume share chart and the table of pairs. Start-aligned; no centred overview. */
+/* Markets: status line, tiles, the pairs board, the volume share chart, notes about the data. Start-aligned; tools/markets.js redraws the same markup. */
 .markets h1{font-size:clamp(32px,4vw,44px)}
-.markets .lead,.markets p,.markets h2,.markets h3,.mkdash,.mktile,.mkboard{text-align:left}
-.mkcredit{margin:0 0 8px;text-align:left}
-.mktiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(11rem,1fr));gap:14px;justify-content:flex-start;align-items:stretch;margin:0 0 10px;text-align:left}
-.mktile{position:relative;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);box-shadow:var(--shadow);padding:14px 16px 13px;text-align:left;min-width:0;overflow:hidden;transition:transform .2s,box-shadow .2s}
-.mktile::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--line)}
-.mktile:has(.chg.up)::before{background:var(--up)}.mktile:has(.chg.dn)::before{background:var(--down)}
-.mktile:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
-.mktile .k{display:flex;align-items:center;justify-content:flex-start;gap:8px;margin:0;font-weight:500;text-align:left}
-.mktile .k img{width:22px;height:22px;flex:none;display:block}
-.mktile .sym{font:500 12px var(--f-mono);letter-spacing:.04em;color:var(--muted)}
-.mktile .px{font-family:var(--f-display);font-size:28px;font-weight:700;line-height:1.05;margin:8px 0 4px;letter-spacing:-.01em;font-variant-numeric:lining-nums proportional-nums;text-align:left;overflow-wrap:anywhere}
-.mktile .unit{font:500 12px var(--f-mono);color:var(--muted)}
-.mktile .chg{margin:0;font-size:14px;font-weight:500;text-align:left}
-.chg.up{color:var(--up)}.chg.dn{color:var(--down)}.chg.flat{color:var(--muted);font-weight:400}
-.mkstats{list-style:none;margin:6px 0 0;padding:0;text-align:left}
-.mkstats li{text-align:left;margin:2px 0;color:var(--muted)}
-.mkstats b{font-family:var(--f-display);font-size:28px;font-weight:700;margin-inline-end:6px;color:var(--fg);font-variant-numeric:lining-nums}
-.mkboard h2{margin-top:10px;text-align:left}
-.mkwrap{overflow-x:auto;text-align:left;max-width:100%}
-table.mkpairs{width:100%;border-collapse:collapse;font-size:14.5px;text-align:left}
-table.mkpairs caption{text-align:left;font-weight:500;padding:4px 0}
-table.mkpairs th,table.mkpairs td{border-bottom:1px solid var(--line);padding:8px 8px;text-align:left;vertical-align:top}
-table.mkpairs thead th{font:500 11.5px/1.3 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--line-strong)}
-table.mkpairs tbody tr:hover{background:color-mix(in srgb,var(--soft) 60%,transparent)}
-table.mkpairs button.sort{font:inherit;letter-spacing:inherit;text-transform:inherit;color:var(--muted);background:none;border:0;padding:0 0 2px;cursor:pointer;text-align:left}
+.markets .lead{margin:6px 0 12px}
+.mkstatus,.mknote{margin:0;max-width:none}
+.mkcredit:not(:empty)+#mk-status:not(:empty)::before{content:"· "}
+.mksub{display:flex;flex-wrap:wrap;gap:0 20px;font-size:14px}.mksub a{padding:9px 0;color:var(--fg)}
+.markets h2{display:flex;align-items:center;gap:12px;font:500 12px/1.2 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:30px 0 12px}
+.markets h2::after{content:"";flex:1;height:1px;background:var(--line)}
+.markets summary{cursor:pointer;padding:8px 0;font-weight:500;width:max-content;max-width:100%}
+.mktiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(10.5rem,1fr));gap:10px}
+.mktile{border:1px solid var(--line);border-radius:var(--r-sm);background:var(--surface);padding:11px 14px 12px;min-width:0}
+.mktile p{margin:0}.mktile .meta{font-size:12.5px}.mktile .chg{font-size:13.5px}
+.mktile .k{display:flex;align-items:center;gap:7px;font-size:14px;font-weight:500}
+.mktile img,.mkpairs .coin img{width:20px;height:20px;flex:none}
+.markets .sym,.mktile .unit{font:500 11.5px var(--f-mono);color:var(--muted)}
+.mktile .px{font:700 25px/1.1 var(--f-display);font-variant-numeric:lining-nums;margin:6px 0 2px;overflow-wrap:anywhere}.mktile .unit{display:block}
+.chg.up{color:var(--up)}.chg.dn{color:var(--down)}.chg.flat{color:var(--muted)}
+.mknote{margin-top:10px;font-size:13px}.mkstats b{color:var(--fg);font-weight:600}
+.mkfilters{display:grid;grid-template-columns:1.5fr .7fr 1.2fr auto;gap:8px 14px;align-items:end;margin:0 0 4px;padding:12px 14px;box-shadow:none}
+.mkfilters .fld{display:grid;gap:3px;min-width:0}
+.mkfilters input,.mkfilters select{width:100%;min-height:40px}
+#mk-shown{margin:0;padding-bottom:10px;white-space:nowrap;unicode-bidi:plaintext}
+.mkwrap{overflow-x:auto}
+table.mkpairs{font-size:14px}
+table.mkpairs th,table.mkpairs td{padding:7px 8px;text-align:start}
+table.mkpairs th{white-space:nowrap}
+table.mkpairs th.live::after{content:"";display:inline-block;width:7px;height:7px;margin-inline-start:6px;border-radius:50%;background:var(--up)}
+table.mkpairs button.sort{font:inherit;letter-spacing:inherit;text-transform:inherit;color:var(--muted);background:none;border:0;padding:4px 0;cursor:pointer}
 table.mkpairs button.sort[aria-pressed=true]{color:var(--fg);border-bottom:2px solid var(--gold)}
-table.mkpairs .coin{display:flex;align-items:center;justify-content:flex-start;gap:8px;text-align:left}
-table.mkpairs .coin img{width:22px;height:22px;flex:none;display:block}
-table.mkpairs .pxs{font-weight:700;font-variant-numeric:tabular-nums;display:block;text-align:left}
-table.mkpairs .sub{display:block;text-align:left}
+.mkpairs .coin{display:flex;align-items:center;gap:8px}
+.mkpairs .pxs{font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.mkpairs .sub,.mkpairs .chg{margin-inline-start:6px;font-size:12.5px}
+.mkpairs .pxs+.sub{display:inline-block;white-space:nowrap}.mkpairs .sub+.sub{display:block;margin:0}
 @media(max-width:720px){
- .mktiles{grid-template-columns:1fr 1fr}
+ .mkfilters{grid-template-columns:1fr 1fr;padding:10px 12px}
+ .mkfilters .q,#mk-shown{grid-column:1/-1;padding:0}
+ .mkfilters input,.mkfilters select{min-height:44px;font-size:16px}
  table.mkpairs thead{display:none}
- table.mkpairs,table.mkpairs tbody,table.mkpairs tr,table.mkpairs td{display:block;width:auto}
- table.mkpairs tr{border:1px solid var(--line);border-radius:var(--r);background:var(--surface);box-shadow:var(--shadow);margin:0 0 12px;padding:10px 14px}
- table.mkpairs tbody tr:hover{background:var(--surface)}
- table.mkpairs td{border:0;padding:3px 0;text-align:left}
- table.mkpairs td::before{content:attr(data-label);display:block;font:500 11px/1.3 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:left}
+ table.mkpairs,.mkpairs tbody{display:block}
+ .mkpairs tr{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;padding:12px 0;border-bottom:1px solid var(--line)}
+ table.mkpairs td{border:0;padding:0;min-width:0}
+ .mkpairs td:has(>.none){display:none}
+ .mkpairs td:first-child{font-weight:600}
+ .mkpairs td:nth-child(2){font:500 13px/1.6 var(--f-mono);color:var(--muted)}
+ .mkpairs td::before{content:attr(data-label);display:block;font:500 10.5px/1.4 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+ .mkpairs td:nth-child(-n+2)::before{content:none}
 }
-@media(max-width:420px){.mktiles{grid-template-columns:1fr}}
-@media(min-width:1100px){.mktile .px{font-size:31px}}
-.mkvol{margin:10px 0 24px;text-align:left}
-.mkvol h2,.mkvol p,.mkvol figcaption{text-align:left}
-.mkvol-row{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:flex-start;gap:8px 32px;text-align:left}
-.mkvol svg{width:220px;max-width:100%;height:auto;flex:none;display:block}
+@media(max-width:420px){.mktiles{grid-template-columns:1fr 1fr}.mktile .px{font-size:22px}}
+.mkvol>.meta,.mkabout{max-width:80ch}
+.mkvol-figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,30rem),1fr));gap:20px 40px;margin-top:14px}
+.mkvol-fig{margin:0;min-width:0}
+.mkvol-row{display:flex;flex-wrap:wrap;gap:8px 28px}
+.mkvol svg{width:150px;flex:none}
 .mkvol svg text{fill:var(--fg)}.mkvol svg text+text{fill:var(--muted)}
-.mklegend{list-style:none;margin:0;padding:0;text-align:left;flex:1 1 18rem;max-width:40rem}
-.mklegend li{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:8px;padding:4px 0;text-align:left}
-.mklegend .sw{width:12px;height:12px;flex:none;display:inline-block;border-radius:var(--r-xs)}
-.mklegend img{width:22px;height:22px;flex:none;display:block}
-.mklegend .nm{text-align:left}
+.mklegend{list-style:none;margin:0;padding:0;flex:1 1 14rem;font-size:14px}
+.mklegend li{display:flex;flex-wrap:wrap;align-items:center;gap:7px;padding:3px 0}
+.mklegend .sw{width:11px;height:11px;border-radius:var(--r-xs)}
+.mklegend img{width:18px;height:18px}
 .mklegend .pct{font-weight:700}
-.mklegend .meta{flex:1 0 100%;padding-left:20px;text-align:left}
-.mkvol table.mkshare{width:auto;max-width:100%;margin:8px 0 0;text-align:left}
-.mkvol caption{text-align:left;font-weight:500;padding:6px 0}
+.mklegend .meta{order:1;flex:1 0 100%;padding-inline-start:18px;font-size:12.5px}
+.mkvol figcaption{margin-top:8px;font-size:13px}
+.mkvol caption{text-align:start;padding:6px 0}
+.mkabout .notice{margin-top:0}.mkabout p{font-size:15px}.mkabout .meta{font-size:14px}
+.mkskip{padding-inline-start:20px;font-size:14.5px}
+.mkapp .applink{margin-inline-end:10px;padding:7px 14px;font-size:14px}
+/* Grouped numbers ("772 221.65") keep their digit order in Arabic and Urdu */
+.mktile .px,.mkstats b,.mkpairs .pxs,.mkpairs .pxs+.sub,.mkpairs .chg,.mklegend .pct,.mkshare td{direction:ltr;unicode-bidi:isolate}
+[dir=rtl] .mktile .px,[dir=rtl] .mkshare td{text-align:right}
+[dir=rtl] .mkpairs .pxs+.sub,[dir=rtl] .mkpairs .chg{margin:0 6px 0 0}
+.mkpairs .sub+.sub{unicode-bidi:plaintext}
 /* end markets */

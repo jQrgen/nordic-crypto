@@ -5,7 +5,7 @@ S = {
 "nav_about": "About", "nav_tip": "Send a tip", "nav_api": "API", "main_menu": "Main menu", "lang_label": "Language", "lang_choose": "Choose language",
 "site_desc_suffix": "Nordic crypto news",
 "preview_banner": "<b>Local preview – not published.</b> Everything marked “Pending editor review” has not been checked by the editor yet; summaries are not written yet. Only approved items go into the public build.",
-"footer": "{site} covers Norway, Sweden, Denmark, Finland and Iceland. Run by Jørgen S. Notland (jQrgen), Oslo, Made with the help of artificial intelligence, with human editors (jQrgen and the Nordic Crypto editor). Not investment advice. Cloudflare Web Analytics counts visits in aggregate, without cookies, and we do not sell that data. One cookie, only if you choose a language. <a href=\"{rel}about/\">About, privacy, corrections and removal</a> · <a href=\"{rel}tip/\">Send a tip</a> · <a href=\"{rel}columnist/\">Apply as a columnist</a> · <a href=\"{rel}media/\">Logo and media kit</a> · <a href=\"{rel}changelog/\">Changelog</a> · <a href=\"{rel}ethics/\">Editorial ethics</a> · <a href=\"https://testflight.apple.com/join/nQ2fpjZn\" rel=\"noopener\">iOS app (TestFlight)</a> {ios_tv} · <a href=\"{rel}talks/\">Talks</a> · <a href=\"{rel}markets/\">Markets</a> · <a href=\"{root}api/\">Data API</a> · {contributors}.",
+"footer": "{site} covers Norway, Sweden, Denmark, Finland and Iceland. Run by Jørgen S. Notland (jQrgen), Oslo, Made with the help of artificial intelligence, with human editors (jQrgen and the Nordic Crypto editor). Not investment advice. Cloudflare Web Analytics counts visits in aggregate, without cookies, and we do not sell that data. One cookie, only if you choose a language. <a href=\"{rel}about/\">About, privacy, corrections and removal</a>.",
 "moved": "This page has moved to",
 # dates
 "time_local": "{city}, local time", "at_time": "{t}",
@@ -387,6 +387,72 @@ S.update({
 "chat_time_d": "{n} d ago",
 "chat_noscript": "The chat needs JavaScript.",
 })
+
+# Layout renovation: theme switch, more stories, footer columns, front-page rail
+S.update({
+"theme_dark": "Dark mode",
+"more_stories": "Show {n} more stories",
+"foot_sections": "Sections",
+"foot_site": "About the site",
+"foot_follow": "Follow",
+"foot_api": "Data API",
+"screen_short": "Office screen mode",
+"rail_more": "More from Nordic Crypto",
+})
+
+# Media pages: markets, talks and newsletter layout
+S.update({
+"mk_tiles_note": "Change in %: as published by each exchange, window not named. 24h volume: only exchanges that published a 24-hour figure; currencies are not added together.",
+"mk_chg_short": "{name} {n}%",
+"mk_share_table": "Show the figures as a table",
+"mk_onpage": "On this page",
+"mk_about_h": "About these figures",
+"nl_next_h": "Get the next issue",
+"nl_rss": "RSS feed",
+})
+
+# Story and text pages: jump list, more news under a story
+S.update({
+"toc_h": "On this page",
+"more_news_h": "More news",
+"all_news": "All news",
+})
+
+# Who's who: country rows with counts, search matches, the full list on demand
+S.update({
+"org_list_show": "Show all {n} entries",
+"js_n_orgs": "{n} organisations",
+"js_n_org1": "1 organisation",
+"js_n_people": "{n} people",
+"js_n_person1": "1 person",
+"js_n_match": "{n} matches",
+"js_n_match1": "1 match",
+"js_no_match": "Nothing matches your search.",
+})
+
+# Sources, academia, calendar and event pages: lighter lists
+S.update({
+"src_how": "How we read sources",
+"src_samefeed": "“Same feed as …” means two titles share one feed. It is read once, so a story is not filed under the wrong title.",
+"src_n_mon": "{n} monitored",
+"cal_months_h": "Month by month",
+"past_show": "Show {n} past events",
+"past_all": "All previous events",
+"ev_when": "Date and time",
+"past_show_1": "Show 1 past event",
+})
+
+# Review fixes: skip link, short front-page intro, empty filter states
+S.update({
+"skip": "Skip to content",
+"home_sub": "Stories from Nordic newspapers, broadcasters, regulators and central banks, each with a short summary made with the help of artificial intelligence and approved by our editors.",
+"home_updated": "Updated {upd} · {n} stories{pend}",
+"filters_none": "Nothing matches these filters.",
+"filters_clear": "Clear filters",
+"n_row1": "1 row",
+"foot_source": "Source code",
+})
+
 # books page (/books/)
 S.update({
 "nav_books": "Books",

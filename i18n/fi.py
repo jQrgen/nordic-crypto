@@ -4,7 +4,7 @@ S = {
 "nav_about": "Tietoa meistä", "nav_tip": "Lähetä vinkki", "nav_api": "API", "main_menu": "Päävalikko", "lang_label": "Kieli", "lang_choose": "Valitse kieli",
 "site_desc_suffix": "kryptouutisia Pohjoismaista",
 "preview_banner": "<b>Paikallinen esikatselu – ei julkaistu.</b> Toimittaja ei ole vielä tarkistanut mitään, mikä on merkitty ”Odottaa toimittajan tarkistusta”, eikä tiivistelmiä ole vielä kirjoitettu. Julkiseen versioon tulee vain hyväksytty sisältö.",
-"footer": "{site} seuraa Norjaa, Ruotsia, Tanskaa, Suomea ja Islantia. Sivustoa ylläpitää Jørgen S. Notland (jQrgen), Oslo, Tehty tekoälyn avulla, ihmistoimittajina jQrgen ja Nordic Crypton toimittaja. Ei sijoitusneuvontaa. Cloudflare Web Analytics laskee käynnit kootusti, ilman evästeitä, emmekä myy näitä tietoja. Yksi eväste, vain jos valitset kielen. <a href=\"{rel}about/\">Tietoa meistä, tietosuoja, korjaukset ja poistot</a> · <a href=\"{rel}tip/\">Lähetä vinkki</a> · <a href=\"{rel}columnist/\">Hae kolumnistiksi</a> · <a href=\"{rel}media/\">Logo ja mediapaketti</a> · <a href=\"{rel}changelog/\">Muutosloki</a> · <a href=\"{rel}ethics/\">Toimituksen etiikka</a> · <a href=\"https://testflight.apple.com/join/nQ2fpjZn\" rel=\"noopener\">iOS-sovellus (TestFlight)</a> {ios_tv} · <a href=\"{rel}talks/\">Esitelmät</a> · <a href=\"{rel}markets/\">Markkinat</a> · <a href=\"{root}api/\">Data-API</a> · {contributors}.",
+"footer": "{site} seuraa Norjaa, Ruotsia, Tanskaa, Suomea ja Islantia. Sivustoa ylläpitää Jørgen S. Notland (jQrgen), Oslo, Tehty tekoälyn avulla, ihmistoimittajina jQrgen ja Nordic Crypton toimittaja. Ei sijoitusneuvontaa. Cloudflare Web Analytics laskee käynnit kootusti, ilman evästeitä, emmekä myy näitä tietoja. Yksi eväste, vain jos valitset kielen. <a href=\"{rel}about/\">Tietoa meistä, tietosuoja, korjaukset ja poistot</a>.",
 "moved": "Sivu on siirretty osoitteeseen",
 "time_local": "{city}, paikallista aikaa", "at_time": "{t}",
 "pending": "Odottaa toimittajan tarkistusta", "owner": "Toimittajan hyväksymä · odottaa jQrgenin lopullista hyväksyntää", "our_story": "Oma juttumme",
@@ -368,6 +368,72 @@ S.update({
 "chat_time_d": "{n} pv sitten",
 "chat_noscript": "Chat tarvitsee JavaScriptin.",
 })
+
+# Layout renovation: theme switch, more stories, footer columns, front-page rail
+S.update({
+"theme_dark": "Tumma tila",
+"more_stories": "Näytä {n} uutista lisää",
+"foot_sections": "Osiot",
+"foot_site": "Tietoa sivustosta",
+"foot_follow": "Seuraa",
+"foot_api": "Data-API",
+"screen_short": "Toimiston näyttötila",
+"rail_more": "Lisää Nordic Cryptolta",
+})
+
+# Media pages: markets, talks and newsletter layout
+S.update({
+"mk_tiles_note": "Muutos %: kuten kukin pörssi sen julkaisi, ajanjaksoa ei ole nimetty. 24 tunnin volyymi: vain pörssit, jotka ovat julkaisseet 24 tunnin luvun; valuuttoja ei lasketa yhteen.",
+"mk_chg_short": "{name} {n} %",
+"mk_share_table": "Näytä luvut taulukkona",
+"mk_onpage": "Tällä sivulla",
+"mk_about_h": "Tietoa luvuista",
+"nl_next_h": "Saat seuraavan numeron",
+"nl_rss": "RSS-syöte",
+})
+
+# Story and text pages: jump list, more news under a story
+S.update({
+"toc_h": "Tällä sivulla",
+"more_news_h": "Lisää uutisia",
+"all_news": "Kaikki uutiset",
+})
+
+# Who's who: country rows with counts, search matches, the full list on demand
+S.update({
+"org_list_show": "Näytä kaikki {n} merkintää",
+"js_n_orgs": "{n} organisaatiota",
+"js_n_org1": "1 organisaatio",
+"js_n_people": "{n} henkilöä",
+"js_n_person1": "1 henkilö",
+"js_n_match": "{n} osumaa",
+"js_n_match1": "1 osuma",
+"js_no_match": "Haulla ei löytynyt mitään.",
+})
+
+# Sources, academia, calendar and event pages: lighter lists
+S.update({
+"src_how": "Näin luemme lähteitä",
+"src_samefeed": "”Same feed as …” tarkoittaa, että kahdella lehdellä on yhteinen syöte. Se luetaan kerran, jotta juttu ei päädy väärän lehden alle.",
+"src_n_mon": "{n} seurannassa",
+"cal_months_h": "Kuukausittain",
+"past_show": "Näytä {n} mennyttä tapahtumaa",
+"past_all": "Kaikki aiemmat tapahtumat",
+"ev_when": "Aika",
+"past_show_1": "Näytä 1 mennyt tapahtuma",
+})
+
+# Review fixes: skip link, short front-page intro, empty filter states
+S.update({
+"skip": "Siirry sisältöön",
+"home_sub": "Juttuja pohjoismaisista sanomalehdistä, yleisradioyhtiöistä, valvojilta ja keskuspankeilta, jokaisessa lyhyt tiivistelmä, joka on tehty tekoälyn avulla ja jonka toimittajamme ovat hyväksyneet.",
+"home_updated": "Päivitetty {upd} · {n} juttua{pend}",
+"filters_none": "Mikään ei vastaa näitä suodattimia.",
+"filters_clear": "Tyhjennä suodattimet",
+"n_row1": "1 rivi",
+"foot_source": "Lähdekoodi",
+})
+
 # books page (/books/)
 S.update({
 "nav_books": "Kirjat",

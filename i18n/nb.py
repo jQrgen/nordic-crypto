@@ -4,7 +4,7 @@ S = {
 "nav_about": "Om oss", "nav_tip": "Send tips", "nav_api": "API", "main_menu": "Hovedmeny", "lang_label": "Språk", "lang_choose": "Velg språk",
 "site_desc_suffix": "kryptonyheter fra Norden",
 "preview_banner": "<b>Lokal forhåndsvisning – ikke publisert.</b> Alt som er merket «Venter på redaktøren» er ikke kontrollert av redaktøren ennå, og sammendragene er ikke skrevet. Bare godkjent innhold kommer med i den offentlige versjonen.",
-"footer": "{site} dekker Norge, Sverige, Danmark, Finland og Island. Drevet av Jørgen S. Notland (jQrgen), Oslo, Laget med hjelp av kunstig intelligens, med menneskelige redaktører (jQrgen og Nordic Crypto-redaktøren). Ikke investeringsråd. Cloudflare Web Analytics teller besøk samlet, uten informasjonskapsler, og vi selger ikke de dataene. Én informasjonskapsel, bare hvis du velger språk. <a href=\"{rel}about/\">Om oss, personvern, rettelser og fjerning</a> · <a href=\"{rel}tip/\">Send tips</a> · <a href=\"{rel}columnist/\">Søk som spaltist</a> · <a href=\"{rel}media/\">Logo og mediepakke</a> · <a href=\"{rel}changelog/\">Endringslogg</a> · <a href=\"{rel}ethics/\">Redaksjonsetikk</a> · <a href=\"https://testflight.apple.com/join/nQ2fpjZn\" rel=\"noopener\">iOS-app (TestFlight)</a> {ios_tv} · <a href=\"{rel}talks/\">Foredrag</a> · <a href=\"{rel}markets/\">Markeder</a> · <a href=\"{root}api/\">Data-API</a> · {contributors}.",
+"footer": "{site} dekker Norge, Sverige, Danmark, Finland og Island. Drevet av Jørgen S. Notland (jQrgen), Oslo, Laget med hjelp av kunstig intelligens, med menneskelige redaktører (jQrgen og Nordic Crypto-redaktøren). Ikke investeringsråd. Cloudflare Web Analytics teller besøk samlet, uten informasjonskapsler, og vi selger ikke de dataene. Én informasjonskapsel, bare hvis du velger språk. <a href=\"{rel}about/\">Om oss, personvern, rettelser og fjerning</a>.",
 "moved": "Denne siden er flyttet til",
 "time_local": "{city}, lokal tid", "at_time": "{t}",
 "pending": "Venter på redaktøren", "owner": "Godkjent av redaktøren · venter på jQrgens endelige godkjenning", "our_story": "Vår sak",
@@ -368,6 +368,72 @@ S.update({
 "chat_time_d": "{n} d siden",
 "chat_noscript": "Chatten trenger JavaScript.",
 })
+
+# Layout renovation: theme switch, more stories, footer columns, front-page rail
+S.update({
+"theme_dark": "Mørk modus",
+"more_stories": "Vis {n} saker til",
+"foot_sections": "Seksjoner",
+"foot_site": "Om siden",
+"foot_follow": "Følg oss",
+"foot_api": "Data-API",
+"screen_short": "Skjermvisning for kontoret",
+"rail_more": "Mer fra Nordic Crypto",
+})
+
+# Media pages: markets, talks and newsletter layout
+S.update({
+"mk_tiles_note": "Endring i %: slik hver børs publiserte den, perioden er ikke oppgitt. Volum 24 t: bare børser som har publisert et 24-timers tall; valutaene er ikke lagt sammen.",
+"mk_chg_short": "{name} {n} %",
+"mk_share_table": "Vis tallene som tabell",
+"mk_onpage": "På denne siden",
+"mk_about_h": "Om tallene",
+"nl_next_h": "Få neste utgave",
+"nl_rss": "RSS-strøm",
+})
+
+# Story and text pages: jump list, more news under a story
+S.update({
+"toc_h": "På denne siden",
+"more_news_h": "Flere nyheter",
+"all_news": "Alle nyheter",
+})
+
+# Who's who: country rows with counts, search matches, the full list on demand
+S.update({
+"org_list_show": "Vis alle {n} oppføringene",
+"js_n_orgs": "{n} organisasjoner",
+"js_n_org1": "1 organisasjon",
+"js_n_people": "{n} personer",
+"js_n_person1": "1 person",
+"js_n_match": "{n} treff",
+"js_n_match1": "1 treff",
+"js_no_match": "Ingenting passer med søket.",
+})
+
+# Sources, academia, calendar and event pages: lighter lists
+S.update({
+"src_how": "Slik leser vi kildene",
+"src_samefeed": "«Same feed as …» betyr at to titler deler én feed. Den leses én gang, så en sak ikke føres under feil tittel.",
+"src_n_mon": "{n} følges",
+"cal_months_h": "Måned for måned",
+"past_show": "Vis {n} tidligere arrangementer",
+"past_all": "Alle tidligere arrangementer",
+"ev_when": "Dato og tid",
+"past_show_1": "Vis 1 tidligere arrangement",
+})
+
+# Review fixes: skip link, short front-page intro, empty filter states
+S.update({
+"skip": "Gå til innholdet",
+"home_sub": "Saker fra nordiske aviser, kringkastere, tilsyn og sentralbanker, hver med et kort sammendrag laget med hjelp av kunstig intelligens og godkjent av redaktørene våre.",
+"home_updated": "Oppdatert {upd} · {n} saker{pend}",
+"filters_none": "Ingenting passer med disse filtrene.",
+"filters_clear": "Fjern filtrene",
+"n_row1": "1 rad",
+"foot_source": "Kildekode",
+})
+
 # books page (/books/)
 S.update({
 "nav_books": "Bøker",
