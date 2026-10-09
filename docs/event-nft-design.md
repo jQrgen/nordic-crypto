@@ -261,7 +261,7 @@ With the flag on, in every site language, left aligned:
 - `/treasury/` shows both placeholder addresses, both QR codes, the sample balance, the hot-wallet target, the event and day caps, the mint count and the cost. It says the hot wallet is intentionally small. It also shows the refill and mint table and a balance chart for each chain. `/faucet/` redirects there. The nav and the footer link to it.
 - `/api/v1/treasury.json` is the document above, with `prototype: true`, `history` and `balance_series`. `/api/v1/treasury/history.json` repeats the history and the series.
 
-Copy is in `i18n/event_nft_strings.py` for all 21 languages. The brand name stays Nordic Crypto.
+Copy is in `i18n/event_nft_strings.py` for all 23 site languages. The brand name stays Nordic Crypto.
 
 ## Privacy and security
 

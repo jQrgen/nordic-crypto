@@ -3,7 +3,7 @@ const test = require("node:test"), assert = require("node:assert"), fs = require
 const { execFileSync } = require("child_process");
 const root = path.join(__dirname, "..");
 const langs = JSON.parse(execFileSync("python3", ["-c", "import json,i18n; print(json.dumps(i18n.ALL_LANGS))"], { cwd: root, encoding: "utf8" }));
-const NEED = ["en", "nn", "nb", "sv", "da", "fi", "is", "zh", "hi", "es", "fr", "ar", "bn", "pt", "ru", "ur", "id", "de", "ja", "sw", "mr", "fa"];
+const NEED = ["en", "nn", "nb", "sv", "da", "fi", "is", "zh", "hi", "es", "fr", "ar", "bn", "pt", "ru", "ur", "id", "de", "ja", "sw", "mr", "fa", "uk"];
 const src = fs.readFileSync(path.join(root, "tools", "langselect.js"), "utf8")
   .replace("__LANGS__", JSON.stringify(langs)).replace("__GEO__", JSON.stringify("https://geo.example/api/geo"));
 const m = new Module("langselect"); m._compile(src, "langselect.js"); const L = m.exports;
@@ -33,7 +33,7 @@ test("country map, Nordic kept and new languages added", () => {
     CN: "zh", TW: "zh", SG: "zh", IN: "hi", ES: "es", MX: "es", AR: "es", FR: "fr",
     SA: "ar", EG: "ar", AE: "ar", BD: "bn", BR: "pt", PT: "pt", RU: "ru", PK: "ur",
     ID: "id", DE: "de", AT: "de", CH: "de", JP: "ja", KE: "sw", TZ: "sw", MR: "ar",
-    IR: "fa", AF: "fa",
+    IR: "fa", AF: "fa", UA: "uk",
   };
   for (const [c, l] of Object.entries(exp)) assert.strictEqual(L.decide({ cookie: "", country: c }).lang, l, c);
   for (const [c, l] of Object.entries(L.BY_COUNTRY)) assert.ok(langs.includes(l), c + " -> " + l);
