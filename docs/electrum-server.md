@@ -8,8 +8,8 @@ It was set up on 9 October 2026, after voter.cash could not load the block heigh
 
 | Chain | URL | Behind it |
 |---|---|---|
-| Nexa | `wss://nexa.electrum.nordiccrypto.no` | Rostrum on `127.0.0.1:20003` (WebSocket) |
-| Bitcoin Cash | `wss://bch.electrum.nordiccrypto.no` | Rostrum on `127.0.0.1:50003` (WebSocket) |
+| Nexa | `wss://electrum-nexa.nordiccrypto.no` | Rostrum on `127.0.0.1:20003` (WebSocket) |
+| Bitcoin Cash | `wss://electrum-bch.nordiccrypto.no` | Rostrum on `127.0.0.1:50003` (WebSocket) |
 
 Both use the Electrum protocol over WebSocket on port 443. TLS is handled by Cloudflare.
 
@@ -24,6 +24,10 @@ The hostnames go live when `nordiccrypto.no` is active on Cloudflare. On 9 Octob
 | Data volume | `electrum-data`, 300 GB, mounted at `/mnt/HC_Volume_107087011` |
 | Firewall | `electrum-ssh-only`: inbound SSH (22) and ICMP only |
 | Cost | About €25.65 a month (€8.49 server, €17.16 volume), billed hourly |
+
+Memory is tight with both nodes and both Rostrum instances syncing at once. On 9 October 2026 the server ran out of memory with BCHN at `dbcache=3000`: no free RAM, disk thrashing and SSH timing out. BCHN now uses `dbcache=1000`, and there is a 4 GB swap file (`/swapfile`, `vm.swappiness=10`). Raise `dbcache` only after the first sync, and keep an eye on `free -m`.
+
+The hostnames are one level below `nordiccrypto.no` (`electrum-bch`, not `bch.electrum`) because Cloudflare's free certificate only covers `*.nordiccrypto.no`.
 
 No Electrum port is open to the internet. The only way in is the Cloudflare Tunnel, which `cloudflared` opens from the server.
 
