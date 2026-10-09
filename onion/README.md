@@ -37,7 +37,7 @@ docker compose exec tor cat /var/lib/tor/tip/hostname
 
 That prints a line like `abcdefghijklmnopqrstuvwxyz234567abcdefghijklmnopqrst.onion`. Put `http://` plus that name in `.env` as `ONION_HOST` (no path), then `docker compose up -d`. The form then sends `page` as that onion URL. Restarting Tor does not change the address as long as the volume is kept.
 
-Then set the same address in `tipserver/config.json` (`"onion": "http://….onion"`) and rebuild the website so `/tip/` shows the link and the `Onion-Location` meta tag. Also set the HTTP `Onion-Location` header in Cloudflare, as described in `workers/tips/README.md`. Do not publish a placeholder address.
+Then set the same address in `tipserver/config.json` (`"onion": "http://….onion"`) and rebuild the website so `/tip/` shows the link and the `Onion-Location` meta tag. Also set the HTTP `Onion-Location` header in Cloudflare (see "Onion-Location header" below). Do not publish a placeholder address.
 
 systemd, if you want the compose project to come up on boot: copy `systemd/nordic-crypto-onion.service` to `/etc/systemd/system/`, then `systemctl enable --now nordic-crypto-onion.service`. The unit's `WorkingDirectory` must be the compose directory.
 
@@ -74,4 +74,13 @@ This onion page is not SecureDrop. It is a small form that lands in the same pri
 
 ## Onion-Location
 
-Tor Browser looks for an `Onion-Location` HTTP header, and also for `<meta http-equiv="onion-location">`. The meta tag is emitted on the built `/tip/` page when the address is in `tipserver/config.json`. The header has to be set on `nordiccrypto.no` itself (Cloudflare Snippet or Transform Rule). The steps are in `workers/tips/README.md`. Leave both off until `docker compose exec tor cat /var/lib/tor/tip/hostname` has been run and the address is the one you intend to publish.
+Tor Browser looks for an `Onion-Location` HTTP header, and also for `<meta http-equiv="onion-location">`. The meta tag is emitted on the built `/tip/` page when the address is in `tipserver/config.json`. The header has to be set on `nordiccrypto.no` itself (Cloudflare Snippet or Transform Rule). The steps are below. Leave both off until `docker compose exec tor cat /var/lib/tor/tip/hostname` has been run and the address is the one you intend to publish.
+
+## Onion-Location header
+
+GitHub Pages cannot set the header, so it is set in front of the site. In Cloudflare, a Snippet or Transform Rule on `nordiccrypto.no`:
+
+- If the path is `/tip` or `/tip/`, set `Onion-Location` to `http://<address>.onion/en/`.
+- If the path matches `/<lang>/tip`, set `Onion-Location` to `http://<address>.onion/<lang>/`.
+
+Do not send the header while the address is still unpublished. `/tip/` says the address is not published yet until `onion` is set.
