@@ -1,0 +1,17 @@
+{
+  "name": "nordic-crypto-mintworker",
+  "private": true,
+  "type": "module",
+  "description": "Testnet event-NFT mint signer. Caps, Worker-secret keys, no mainnet broadcast.",
+  "scripts": {
+    "test": "node --test tests/policy.test.mjs tests/sign.test.mjs tests/balance.test.mjs tests/setup.test.mjs tests/admin.test.mjs"
+  },
+  "dependencies": {
+    "@noble/curves": "^1.9.1",
+    "@noble/hashes": "^2.4.0",
+    "libnexa-ts": "^3.0.4"
+  },
+  "devDependencies": {
+    "@bitauth/libauth": "^3.0.0"
+  }
+}

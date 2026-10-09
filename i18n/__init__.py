@@ -67,7 +67,13 @@ if _missing:
     raise RuntimeError("i18n registry incomplete: " + ", ".join(_missing))
 _S = {}
 def strings(lang):
-    if lang not in _S: _S[lang] = importlib.import_module(f"i18n.{lang}").S
+    if lang not in _S:
+        base = dict(importlib.import_module(f"i18n.{lang}").S)
+        extra = importlib.import_module("i18n.event_nft_strings").S.get(lang)   # event NFT prototype strings, all languages
+        if not extra:
+            raise RuntimeError("event NFT strings missing for " + lang)
+        base.update(extra)
+        _S[lang] = base
     return _S[lang]
 MISSING = set()
 def t(lang, key, **kw):

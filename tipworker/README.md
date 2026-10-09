@@ -37,6 +37,19 @@ Files: `src/worker.js`, `migrations/0001_tips.sql`, `migrations/0002_articles.sq
   mailer + token in the response; never set in production), `python3 tests/test_export.py`, and the real-browser form test
   `tests/browser_newsletter.py` (see its docstring). `npm test` runs all of them except the browser test.
 
+## Private tip inbox (the /tip/ form) – `src/private_tips.js`, `migrations/0005_private_tips.sql`
+- `POST /api/private-tip` – JSON or form: `tip` (required, ≤ 8000 characters), `attachments` (http/https links, newline or
+  comma separated or an array, ≤ 10), `contact` (optional, ≤ 500, never published), `language`, `page` (a `/tip/` path or a
+  site tip-page URL), `website` (honeypot), `cf-turnstile-response`. Body ≤ 32 KB. JSON answers with short error codes
+  (`empty_tip`, `tip_long`, `bad_attachment`, `turnstile`, `rate`, `offline`, …). Stored in table `private_tips`, status `new`.
+  Separate from `tips`: `pull.py` never reads it and nothing from it is published.
+- `GET /api/private-tips?status=new|read|handled|all&limit=50` and `POST /api/private-tips/<id>` `{status, editor_notes}` –
+  newsroom only, `Authorization: Bearer $PRIVATE_TIPS_READ_TOKEN`, no CORS headers.
+- Secrets (never in git): `TURNSTILE_SECRET` (shared with the shoutbox; without it the route answers 503 and stores nothing),
+  `PRIVATE_TIPS_READ_TOKEN`, optional `TIP_WEBHOOK_URL` (https only) + `TIP_WEBHOOK_BEARER` (each stored tip is POSTed as
+  `{"event":"tip.created","tip":{…}}`, 5 s timeout, failure does not lose the tip).
+- The site opens the form only when `public_endpoint` (tipserver/config.json, set by deploy.sh) and a Turnstile site key are set.
+
 ## Shoutbox (one shared room) – `src/shouts.js`, `migrations/0004_shouts.sql`
 
 One room for every language and every reader. `lang` on a post is only a tag for the page it was sent from. `GET /api/shouts` ignores `lang`, `room` and `channel` and returns the same visible rows to everyone. Messages are not translated.
