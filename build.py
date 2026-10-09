@@ -23,6 +23,7 @@ BASE = site_url.BASE
 SITE = os.environ.get("NC_SITE_DIR") or P("site")   # NC_SITE_DIR: scratch build dir (tipworker/publish_tip_page.sh)
 PREVIEW = "--preview" in sys.argv
 SITE_NAME = "Nordic Crypto"
+ICON_V = "2"   # bump when the favicon changes: browsers (Safari above all) keep an old favicon until its URL changes
 CUSTOM_DOMAIN = site_url.HOST   # GitHub Pages CNAME; publish.sh will not push gh-pages without it
 def write_cname():
     """site/CNAME, so a publish keeps the custom domain (a missing file clears it on GitHub Pages)."""
@@ -635,10 +636,10 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
 <meta name="description" content="{E(desc)}"><link rel="canonical" href="{url}"><link rel="manifest" href="{root}manifest.json">{alt}<link rel="alternate" type="application/rss+xml" title="{E(SITE_NAME)}" href="{E(rel)}rss.xml">{head_extra}{'<meta name="robots" content="noindex">' if PREVIEW else ''}
 <meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:url" content="{url}"><meta property="og:type" content="website"><meta property="og:locale" content="{i18n.OG_LOCALE[LANG]}">{''.join(f'<meta property="og:locale:alternate" content="{i18n.OG_LOCALE[l]}">' for l in langs if l != LANG)}
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<link rel="icon" href="{root}favicon.svg" type="image/svg+xml">
-<link rel="icon" href="{root}favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="{root}assets/brand/mark-180.png">
-<link rel="icon" href="{root}assets/brand/mark-64.png" sizes="64x64" type="image/png">
+<link rel="icon" href="{root}favicon.svg?v={ICON_V}" type="image/svg+xml">
+<link rel="icon" href="{root}favicon.ico?v={ICON_V}" sizes="any">
+<link rel="apple-touch-icon" href="{root}assets/brand/mark-180.png?v={ICON_V}">
+<link rel="icon" href="{root}assets/brand/mark-64.png?v={ICON_V}" sizes="64x64" type="image/png">
 {th_color}
 <meta property="og:image" content="{BASE}assets/brand/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -689,7 +690,7 @@ def copy_repo_file(rel):
     dst = os.path.join(SITE, rel); os.makedirs(os.path.dirname(dst) or SITE, exist_ok=True); shutil.copy(srcp, dst)
 def copy_brand():
     """Crest, favicons, fonts and the token stylesheet. Paths stay relative to the site root."""
-    for rel in ("favicon.svg", "favicon.ico", "manifest.webmanifest"):
+    for rel in ("favicon.svg", "favicon.ico", "apple-touch-icon.png", "manifest.webmanifest"):
         copy_repo_file(rel)
     for folder in ("assets/brand", "assets/fonts", "assets/media", "assets/logo-concepts/responsive"):
         src = P(folder)

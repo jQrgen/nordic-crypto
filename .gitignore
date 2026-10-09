@@ -9,6 +9,7 @@ __pycache__/
 *.pyc
 shots/
 /*.png
+!/apple-touch-icon.png
 .env
 *.token
 tools/probe.py
