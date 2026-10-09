@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="sv"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<script>document.documentElement.classList.add("js")</script>
+<script>(function(d){d.classList.add("js");try{if(localStorage.getItem("nc-theme")==="dark")d.setAttribute("data-theme","dark")}catch(e){}})(document.documentElement)</script>
 <title>Ändringslogg – Nordic Crypto</title>
 <meta name="description" content="Ändringar på Nordic Crypto: nya sidor, avsnitt och funktioner, senaste först."><link rel="canonical" href="https://nordiccrypto.no/sv/changelog/"><link rel="manifest" href="../../manifest.json"><link rel="alternate" hreflang="en" href="https://nordiccrypto.no/changelog/"><link rel="alternate" hreflang="nn" href="https://nordiccrypto.no/nn/changelog/"><link rel="alternate" hreflang="nb" href="https://nordiccrypto.no/nb/changelog/"><link rel="alternate" hreflang="sv" href="https://nordiccrypto.no/sv/changelog/"><link rel="alternate" hreflang="da" href="https://nordiccrypto.no/da/changelog/"><link rel="alternate" hreflang="fi" href="https://nordiccrypto.no/fi/changelog/"><link rel="alternate" hreflang="is" href="https://nordiccrypto.no/is/changelog/"><link rel="alternate" hreflang="zh" href="https://nordiccrypto.no/zh/changelog/"><link rel="alternate" hreflang="hi" href="https://nordiccrypto.no/hi/changelog/"><link rel="alternate" hreflang="es" href="https://nordiccrypto.no/es/changelog/"><link rel="alternate" hreflang="fr" href="https://nordiccrypto.no/fr/changelog/"><link rel="alternate" hreflang="ar" href="https://nordiccrypto.no/ar/changelog/"><link rel="alternate" hreflang="bn" href="https://nordiccrypto.no/bn/changelog/"><link rel="alternate" hreflang="pt" href="https://nordiccrypto.no/pt/changelog/"><link rel="alternate" hreflang="ru" href="https://nordiccrypto.no/ru/changelog/"><link rel="alternate" hreflang="ur" href="https://nordiccrypto.no/ur/changelog/"><link rel="alternate" hreflang="id" href="https://nordiccrypto.no/id/changelog/"><link rel="alternate" hreflang="de" href="https://nordiccrypto.no/de/changelog/"><link rel="alternate" hreflang="ja" href="https://nordiccrypto.no/ja/changelog/"><link rel="alternate" hreflang="sw" href="https://nordiccrypto.no/sw/changelog/"><link rel="alternate" hreflang="mr" href="https://nordiccrypto.no/mr/changelog/"><link rel="alternate" hreflang="x-default" href="https://nordiccrypto.no/changelog/"><link rel="alternate" type="application/rss+xml" title="Nordic Crypto" href="../../sv/rss.xml">
 <meta property="og:title" content="Ändringslogg"><meta property="og:description" content="Ändringar på Nordic Crypto: nya sidor, avsnitt och funktioner, senaste först."><meta property="og:url" content="https://nordiccrypto.no/sv/changelog/"><meta property="og:type" content="website"><meta property="og:locale" content="sv_SE"><meta property="og:locale:alternate" content="en_GB"><meta property="og:locale:alternate" content="nn_NO"><meta property="og:locale:alternate" content="nb_NO"><meta property="og:locale:alternate" content="da_DK"><meta property="og:locale:alternate" content="fi_FI"><meta property="og:locale:alternate" content="is_IS"><meta property="og:locale:alternate" content="zh_CN"><meta property="og:locale:alternate" content="hi_IN"><meta property="og:locale:alternate" content="es_ES"><meta property="og:locale:alternate" content="fr_FR"><meta property="og:locale:alternate" content="ar_SA"><meta property="og:locale:alternate" content="bn_BD"><meta property="og:locale:alternate" content="pt_BR"><meta property="og:locale:alternate" content="ru_RU"><meta property="og:locale:alternate" content="ur_PK"><meta property="og:locale:alternate" content="id_ID"><meta property="og:locale:alternate" content="de_DE"><meta property="og:locale:alternate" content="ja_JP"><meta property="og:locale:alternate" content="sw_KE"><meta property="og:locale:alternate" content="mr_IN">
@@ -9,19 +9,29 @@
 <link rel="icon" href="../../favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="../../assets/brand/mark-180.png">
 <link rel="icon" href="../../assets/brand/mark-64.png" sizes="64x64" type="image/png">
-<meta name="theme-color" content="#1E3A45" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#15303A" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#1E3A45">
 <meta property="og:image" content="https://nordiccrypto.no/assets/brand/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Nordic Crypto">
-<link rel="stylesheet" href="../../assets/brand/nordic-crypto.css">
-<style>/* Design tokens: the Våpen design (option E of the logo sheet) in the Langskip colours (option A).
+<style>/* Fonts, self-hosted (SIL Open Font License, assets/fonts/OFL.txt). Inlined with the rest, so no stylesheet blocks the first paint.
+   / becomes the site path at build time: the CSS is inlined into pages at every depth.
+   Schibsted Grotesk is one variable file (400–900). Latin and Latin Extended subsets; other scripts use the system font. */
+@font-face{font-family:"Schibsted Grotesk";src:url("/assets/fonts/SchibstedGrotesk-VF-latin.woff2") format("woff2");font-weight:400 900;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Schibsted Grotesk";src:url("/assets/fonts/SchibstedGrotesk-VF-latin-ext.woff2") format("woff2");font-weight:400 900;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Cormorant Garamond";src:url("/assets/fonts/CormorantGaramond-Bold-latin.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Cormorant Garamond";src:url("/assets/fonts/CormorantGaramond-Bold-latin-ext.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"IBM Plex Mono";src:url("/assets/fonts/IBMPlexMono-Medium-latin.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"IBM Plex Mono";src:url("/assets/fonts/IBMPlexMono-Medium-latin-ext.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+/* Design tokens: the Våpen design (option E of the logo sheet) in the Langskip colours (option A).
    Sailcloth page, Pine Tar text, North Sea for the header band and dark sections, Shield Gold for tags and highlights,
    Sea Foam for lines and quiet panels. --band* is the North Sea band (header, hero, lead story, footer); text on it uses --band-ink.
    --mk-* are the market chart's series colours, in fixed order; both sets pass the colour-vision checks on their own page colour.
-   The other modules use these names only. Dark follows the reader's system setting; data-theme="light" or "dark" on <html> overrides it. */
+   --field-line is the border of text fields and selects (3:1 against the page, WCAG 1.4.11).
+   The other modules use these names only. Light is the default. Dark applies only when the reader picks it with the header switch,
+   which sets data-theme="dark" on <html> (stored as nc-theme in localStorage, read by an inline script in <head>, so there is no flash). */
 :root{
-  --bg:#F0F1EC;--surface:#FFFFFF;--fg:#1D1C1A;--muted:#55605F;--line:#D5DEDC;--line-strong:#A9BEBE;--soft:#E4EAE7;--foam:#BFD3D3;--panel:#DFE7E3;
+  --bg:#F0F1EC;--surface:#FFFFFF;--fg:#1D1C1A;--muted:#55605F;--line:#D5DEDC;--line-strong:#A9BEBE;--field-line:#7A8C8C;--soft:#E4EAE7;--foam:#BFD3D3;--panel:#DFE7E3;
   --accent:#1E3A45;--on-accent:#F0F1EC;--gold:#D9A034;--gold-ink:#8A5A0C;--on-gold:#1D1C1A;--focus:#1E3A45;--brand-w:#D9A034;
   --band:#1E3A45;--band-deep:#152C35;--band-ink:#F0F1EC;--band-muted:#BFD3D3;--band-line:rgb(191 211 211 / .24);--band-rule:#BFD3D3;
   --btn:#1E3A45;--btn-hover:#152C35;--btn-ink:#F0F1EC;
@@ -39,13 +49,10 @@
   --ink:var(--fg);--paper:var(--surface);
   color-scheme:light;
 }
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme=light]){--bg:#0D181D;--surface:#13232A;--fg:#ECEEE8;--muted:#9FB3B2;--line:#22373F;--line-strong:#37525C;--soft:#182C34;--panel:#152A32;--accent:#BFD3D3;--on-accent:#0D181D;--gold:#E0A93E;--gold-ink:#E6B455;--on-gold:#1D1C1A;--focus:#E0A93E;--brand-w:#E0A93E;--band:#15303A;--band-deep:#10252D;--band-ink:#F0F1EC;--band-muted:#A9C2C2;--band-line:rgb(191 211 211 / .16);--band-rule:#2E4D58;--btn:#E0A93E;--btn-hover:#EBBB5A;--btn-ink:#1D1C1A;--warm:#E3A55A;--warm-bg:#2B2216;--pub:#8DB4DC;--priv:#86C3A1;--up:#86C3A1;--down:#F08A8F;--shadow:0 1px 2px rgb(0 0 0 / .3),0 12px 30px -14px rgb(0 0 0 / .6);--shadow-lg:0 2px 6px rgb(0 0 0 / .3),0 24px 48px -18px rgb(0 0 0 / .7);--mk-1:#4F8AD6;--mk-2:#B5841C;--mk-3:#CC3D55;--mk-4:#937BDB;--mk-5:#2FA894;--mk-6:#CF6F2E;--mk-7:#C2649F;--mk-8:#5FA352;--mk-other:#6E665D;color-scheme:dark}
-}
-:root[data-theme=dark]{--bg:#0D181D;--surface:#13232A;--fg:#ECEEE8;--muted:#9FB3B2;--line:#22373F;--line-strong:#37525C;--soft:#182C34;--panel:#152A32;--accent:#BFD3D3;--on-accent:#0D181D;--gold:#E0A93E;--gold-ink:#E6B455;--on-gold:#1D1C1A;--focus:#E0A93E;--brand-w:#E0A93E;--band:#15303A;--band-deep:#10252D;--band-ink:#F0F1EC;--band-muted:#A9C2C2;--band-line:rgb(191 211 211 / .16);--band-rule:#2E4D58;--btn:#E0A93E;--btn-hover:#EBBB5A;--btn-ink:#1D1C1A;--warm:#E3A55A;--warm-bg:#2B2216;--pub:#8DB4DC;--priv:#86C3A1;--up:#86C3A1;--down:#F08A8F;--shadow:0 1px 2px rgb(0 0 0 / .3),0 12px 30px -14px rgb(0 0 0 / .6);--shadow-lg:0 2px 6px rgb(0 0 0 / .3),0 24px 48px -18px rgb(0 0 0 / .7);--mk-1:#4F8AD6;--mk-2:#B5841C;--mk-3:#CC3D55;--mk-4:#937BDB;--mk-5:#2FA894;--mk-6:#CF6F2E;--mk-7:#C2649F;--mk-8:#5FA352;--mk-other:#6E665D;color-scheme:dark}
+:root[data-theme=dark]{--bg:#0D181D;--surface:#13232A;--fg:#ECEEE8;--muted:#9FB3B2;--line:#22373F;--line-strong:#37525C;--field-line:#6A8590;--soft:#182C34;--panel:#152A32;--accent:#BFD3D3;--on-accent:#0D181D;--gold:#E0A93E;--gold-ink:#E6B455;--on-gold:#1D1C1A;--focus:#E0A93E;--brand-w:#E0A93E;--band:#15303A;--band-deep:#10252D;--band-ink:#F0F1EC;--band-muted:#A9C2C2;--band-line:rgb(191 211 211 / .16);--band-rule:#2E4D58;--btn:#E0A93E;--btn-hover:#EBBB5A;--btn-ink:#1D1C1A;--warm:#E3A55A;--warm-bg:#2B2216;--pub:#8DB4DC;--priv:#86C3A1;--up:#86C3A1;--down:#F08A8F;--shadow:0 1px 2px rgb(0 0 0 / .3),0 12px 30px -14px rgb(0 0 0 / .6);--shadow-lg:0 2px 6px rgb(0 0 0 / .3),0 24px 48px -18px rgb(0 0 0 / .7);--mk-1:#4F8AD6;--mk-2:#B5841C;--mk-3:#CC3D55;--mk-4:#937BDB;--mk-5:#2FA894;--mk-6:#CF6F2E;--mk-7:#C2649F;--mk-8:#5FA352;--mk-other:#6E665D;color-scheme:dark}
 /* On the North Sea band (header, hero, lead story, footer) the same names re-point to light-on-dark values in both themes. */
-header.top,.hero,.leadstory,footer{--fg:var(--band-ink);--muted:var(--band-muted);--line:var(--band-line);--line-strong:rgb(191 211 211 / .4);--surface:rgb(240 241 236 / .06);--soft:rgb(240 241 236 / .08);--accent:var(--gold);--on-accent:var(--on-gold);--focus:var(--gold);--gold-ink:var(--gold);--btn:var(--gold);--btn-hover:#E8B655;--btn-ink:var(--on-gold);color:var(--fg)}
-/* Base: page, type, links, focus, form controls, small helpers. A short gold bar (the heraldic chief) sits over each page title. */
+header.top,.hero,.leadstory,footer{--fg:var(--band-ink);--muted:var(--band-muted);--line:var(--band-line);--line-strong:rgb(191 211 211 / .4);--field-line:rgb(191 211 211 / .6);--surface:rgb(240 241 236 / .06);--soft:rgb(240 241 236 / .08);--accent:var(--gold);--on-accent:var(--on-gold);--focus:var(--gold);--gold-ink:var(--gold);--btn:var(--gold);--btn-hover:#E8B655;--btn-ink:var(--on-gold);color:var(--fg)}
+/* Base: page, type, links, focus, form controls, small helpers. */
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{margin:0;font:16px/1.6 var(--f-ui);color:var(--fg);background:var(--bg);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 ::selection{background:color-mix(in srgb,var(--gold) 42%,transparent)}
@@ -55,9 +62,9 @@ a:hover{text-decoration-color:var(--accent);text-decoration-thickness:2px}
 .wrap{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,36px)}
 main.wrap{padding-bottom:8px}
 h1,h2,h3{font-family:var(--f-display);font-weight:700;letter-spacing:-.01em;text-wrap:balance}
-h1{font-size:clamp(34px,4.4vw,50px);line-height:1.04;margin:44px 0 12px}
-main h1::before{content:"";display:block;width:44px;height:4px;margin:0 0 18px;background:var(--gold);border-radius:2px}
+h1{font-size:clamp(32px,4vw,46px);line-height:1.06;margin:36px 0 10px}
 h2{font-size:clamp(24px,2.5vw,30px);line-height:1.12;margin:40px 0 12px}
+@media(max-width:520px){h1{font-size:28px}}
 h3{line-height:1.2}
 h4{font-weight:600}
 p{text-wrap:pretty}
@@ -70,7 +77,7 @@ img{max-width:100%}
 .eyebrow{font:500 12px/1.2 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .prose{max-width:70ch;text-align:start;line-height:1.7}
 .prose h2{margin-top:36px}.prose li{margin:4px 0}
-select,input[type=search],input[type=email],input[type=text],input[type=url],textarea{font:inherit;font-size:15px;color:var(--fg);background:var(--surface);border:1px solid var(--line-strong);border-radius:var(--r-sm);padding:8px 11px;max-width:100%;transition:border-color .15s,box-shadow .15s}
+select,input[type=search],input[type=email],input[type=text],input[type=url],textarea{font:inherit;font-size:15px;color:var(--fg);background:var(--surface);border:1px solid var(--field-line);border-radius:var(--r-sm);padding:8px 11px;max-width:100%;transition:border-color .15s,box-shadow .15s}
 select:hover,input[type=search]:hover,input[type=email]:hover,input[type=text]:hover,input[type=url]:hover,textarea:hover{border-color:var(--muted)}
 input:focus-visible,textarea:focus-visible,select:focus-visible{outline:0;border-color:var(--focus);box-shadow:0 0 0 3px color-mix(in srgb,var(--focus) 28%,transparent)}
 input::placeholder,textarea::placeholder{color:var(--muted);opacity:.8}
@@ -78,59 +85,77 @@ button{font:inherit;color:inherit}
 input[type=checkbox],input[type=radio]{accent-color:var(--btn)}
 .vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 html.nc-pick body{visibility:hidden}
-@keyframes nc-rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.skip{position:absolute;inset-inline-start:12px;top:-80px;z-index:60;padding:10px 16px;border-radius:var(--r-sm);background:var(--gold);color:var(--on-gold);font-weight:700;text-decoration:none}
+.skip:focus{top:12px}
+main:focus{outline:0}
+/* Text in a left-to-right language inside a right-to-left page (English summaries on /ar/ and /ur/) reads left to right,
+   so punctuation lands at the end of the sentence; it stays on the page's start edge (the right) like the rest of the page. */
+html[dir=rtl] [lang]:not([lang|=ar]):not([lang|=ur]){direction:ltr;unicode-bidi:isolate;text-align:right}
+/* Many strings on the Arabic and Urdu pages are still English (no translation yet). Each block takes its direction from its own
+   first letter, so an English sentence keeps its full stop at the end and an Arabic one reads right to left; all stay on the right. */
+html[dir=rtl] :is(p,li,dd,dt,figcaption,summary,label,h1,h2,h3,td,th){unicode-bidi:plaintext;text-align:right!important}
+/* Letter spacing breaks the joined letters of Arabic and Urdu, so text in those languages has none. */
+:lang(ar),:lang(ur){letter-spacing:normal!important}
+[hidden]{display:none!important}
+.sprite{position:absolute;width:0;height:0;overflow:hidden}
+.ico{display:block;flex:none}
+/* Long lists: the browser skips layout and paint for rows that are off screen. */
+.storygrid>.storycard,ol.news>li,.talks article,.covlist li,.imap-cat,.nlissues li{content-visibility:auto;contain-intrinsic-size:auto 240px}
+@media(max-width:640px){.storygrid>.storycard,.talks article{contain-intrinsic-size:auto 360px}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
-/* Header: preview banner, then the North Sea band: brand row with the header buttons, main nav, language switcher.
-   A Sea Foam rule closes the band (on the front page it closes the hero instead). Everything starts at the inline start. */
+/* Header: preview banner, then the North Sea band. Wide screens: the brand and the tools (Subscribe, Telegram and X as icons,
+   the light/dark switch, the language) on one row, the six sections on the row below. Phones: brand, light/dark and the menu button;
+   the menu holds every section, the pages about the site, Subscribe, Telegram, X and the language. Everything starts at the inline start. */
 .preview{background:var(--warm-bg);border-bottom:2px solid var(--warm);color:var(--fg);font-size:14px}.preview .wrap{padding-top:6px;padding-bottom:6px}
 header.top{background:var(--band);border-bottom:4px solid var(--band-rule);position:relative;z-index:5}
 header.top:has(+.hero){border-bottom:1px solid var(--band-line)}
 header.top,header.top .wrap{text-align:start}
-header.top .wrap{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:flex-start;gap:10px 24px;padding-top:18px;padding-bottom:0}
-.brand{font-family:var(--f-display);font-weight:700;font-size:31px;letter-spacing:-.005em;text-decoration:none;display:inline-flex;align-items:center;gap:12px;color:var(--fg);line-height:1;text-align:start}.brand .w{color:var(--brand-w)}
-.brandmark{width:34px;height:40px;flex:none;display:block}
-header.top .brand:hover .brandmark{transform:rotate(-4deg)}
-.brandmark{transition:transform .25s cubic-bezier(.2,.7,.2,1)}
+header.top .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:10px 20px;padding-top:12px;padding-bottom:0}
+.brand{font-family:var(--f-display);font-weight:700;font-size:29px;letter-spacing:-.005em;text-decoration:none;display:inline-flex;align-items:center;gap:11px;color:var(--fg);line-height:1;text-align:start}.brand .w{color:var(--brand-w)}
+.brandmark{width:31px;height:36px;flex:none;display:block}
 .brandrow{display:flex;align-items:center;justify-content:flex-start;gap:10px 22px;flex-wrap:wrap;text-align:start}
+.hdrtools{display:flex;align-items:center;justify-content:flex-start;gap:8px;margin-inline-start:auto;text-align:start}
 .hdrbtns{display:flex;align-items:center;justify-content:flex-start;gap:8px;flex-wrap:wrap;min-width:0;text-align:start}
-.hdrsub{display:inline-block;padding:6px 15px;border:1px solid var(--gold);border-radius:var(--r-sm);background:var(--gold);color:var(--on-gold)!important;text-decoration:none;font-weight:700;font-size:14px;line-height:1.35;white-space:nowrap;text-align:start;transition:background .15s,border-color .15s,transform .15s}
-.hdrsub:hover,.hdrsub:focus-visible{background:var(--btn-hover);border-color:var(--btn-hover);transform:translateY(-1px)}
-.hdrx,.hdrtg{display:inline-block;padding:6px 12px;border:1px solid var(--line-strong);border-radius:var(--r-sm);color:var(--fg)!important;background:transparent;text-decoration:none;font-weight:500;font-size:13.5px;line-height:1.35;white-space:nowrap;text-align:start;transition:background .15s,border-color .15s}
-.hdrx:hover,.hdrx:focus-visible,.hdrtg:hover,.hdrtg:focus-visible{border-color:var(--band-muted);background:var(--soft)}.hdrx .xs{display:none}
-nav.main{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:baseline;gap:2px 22px;font-size:15px;text-align:start;flex-basis:100%;margin-top:6px}
-nav.main a{text-decoration:none;color:var(--muted);font-weight:500;padding:8px 0 12px;border-bottom:3px solid transparent;transition:color .15s,border-color .15s}
+.hdrsub{display:inline-block;padding:7px 15px;border:1px solid var(--gold);border-radius:var(--r-sm);background:var(--gold);color:var(--on-gold)!important;text-decoration:none;font-weight:700;font-size:14px;line-height:1.3;white-space:nowrap;text-align:start}
+.hdrsub:hover,.hdrsub:focus-visible{background:var(--btn-hover);border-color:var(--btn-hover)}
+.hdrx,.hdrtg,.themetoggle{display:inline-flex;align-items:center;gap:8px;height:36px;min-width:36px;padding:0 9px;border:1px solid var(--line-strong);border-radius:var(--r-sm);color:var(--fg)!important;background:transparent;text-decoration:none;font:inherit;font-weight:500;font-size:14px;line-height:1;white-space:nowrap;cursor:pointer;text-align:start}
+.hdrx:hover,.hdrx:focus-visible,.hdrtg:hover,.hdrtg:focus-visible,.themetoggle:hover,.themetoggle:focus-visible{border-color:var(--band-muted);background:var(--soft)}
+.hdrx .lbl,.hdrtg .lbl{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+.themetoggle{display:none}.js .themetoggle{display:inline-flex}
+.themetoggle .i-sun,[data-theme=dark] .themetoggle .i-moon{display:none}[data-theme=dark] .themetoggle .i-sun{display:block}
+nav.main{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:baseline;gap:0 26px;font-size:15px;text-align:start;flex-basis:100%;margin-top:2px}
+nav.main a{text-decoration:none;color:var(--muted);font-weight:500;padding:9px 0 11px;border-bottom:3px solid transparent}
 nav.main a:hover{color:var(--fg);border-bottom-color:var(--band-line)}
 nav.main a[aria-current]{color:var(--fg);border-color:var(--gold);font-weight:700}
-nav.main a.nav-quiet{font-size:14px}
-.langsw{position:relative;margin-left:auto;font-size:14px;display:flex;gap:12px;align-items:baseline}
+.langsw{position:relative;font-size:14px;display:flex;gap:10px;align-items:center}
 .langsw a.quick{color:var(--muted)}.langsw a.quick:hover{color:var(--fg)}
-.langsw details{position:relative}.langsw summary{cursor:pointer;list-style:none;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:transparent;padding:4px 11px;transition:background .15s,border-color .15s}
+.langsw details{position:relative}.langsw summary{display:flex;align-items:center;gap:6px;height:36px;cursor:pointer;list-style:none;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:transparent;padding:0 11px}
 .langsw summary:hover,.langsw details[open] summary{border-color:var(--band-muted);background:var(--soft)}
 .langsw summary::-webkit-details-marker{display:none}
 .langsw ul{position:absolute;right:0;z-index:20;margin:8px 0 0;padding:6px;list-style:none;background:var(--band-deep);border:1px solid var(--band-line);border-radius:var(--r);box-shadow:var(--shadow-lg);min-width:13rem;max-height:70vh;overflow:auto}
 html[dir=rtl] .langsw ul{right:auto;left:0}
-.langsw li a{display:block;padding:6px 12px;border-radius:var(--r-sm);text-decoration:none;text-align:left}.langsw li a:hover,.langsw li a:focus{background:var(--soft)}
+.langsw li a{display:block;padding:6px 12px;border-radius:var(--r-sm);text-decoration:none;text-align:start}.langsw li a:hover,.langsw li a:focus{background:var(--soft)}
 .langsw li a[aria-current]{font-weight:700;color:var(--gold)}.langsw .quick{font-size:13.5px;color:var(--muted)}
 header.top select{color-scheme:dark;background:transparent}
 header.top select option{color:var(--nc-tar);background:var(--nc-sail)}
 .navtoggle{display:none}
 .langpick,.langglobe{display:none}
-/* Wide screens: the brand row and the language switcher share the first line, the nav runs along the bottom of the band. */
-@media(min-width:961px){header.top .wrap{display:grid;grid-template-columns:auto 1fr;align-items:center}nav.main{grid-column:1/-1;grid-row:2}.langsw{grid-column:2;grid-row:1;justify-self:end}}
+/* Wide screens: the sections only. The pages about the site are in the footer. */
+@media(min-width:961px){nav.main a.nav-more{display:none}}
 /* Phones: iOS Safari paints an empty bordered box for an absolutely positioned list inside <details>.
    A native <select> is the control there. The list below is only the no-JS fallback, in normal flow. */
 @media(max-width:960px),(hover:none) and (pointer:coarse){
- .langsw{margin-left:0;width:auto;max-width:100%;justify-content:flex-start;align-items:center;flex-wrap:wrap;text-align:left}
+ .langsw{width:auto;max-width:100%;justify-content:flex-start;align-items:center;flex-wrap:wrap;text-align:start}
  .langsw ul{position:static;right:auto;left:auto;width:100%;min-width:0;max-height:60vh;overflow:auto;box-shadow:none}
  .langsw li a{padding:10px 12px}
 }
 @media(max-width:960px){
- header.top .wrap{padding-top:14px;padding-bottom:14px}
- .brand{font-size:28px}.brandmark{width:31px;height:36px}
- .js .brandrow{width:100%}
- .js header.top .wrap{align-items:flex-start;justify-content:flex-start}
- .js header.top .wrap{gap:10px}
- .js .navtoggle{display:inline-flex;align-items:center;justify-content:flex-start;padding:0 13px;order:2;flex:none;width:46px;height:44px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:transparent;color:inherit;cursor:pointer}
+ header.top .wrap{padding-top:10px;padding-bottom:10px;gap:10px}
+ .brand{font-size:25px;gap:9px}.brandmark{width:27px;height:32px}
+ .js .brandrow{flex:1 1 auto}
+ .js .hdrtools{display:contents}
+ .js .themetoggle{order:2;height:44px;min-width:44px;justify-content:flex-start;padding:0 12px}
+ .js .navtoggle{display:inline-flex;align-items:center;justify-content:flex-start;padding:0 13px;order:3;flex:none;width:46px;height:44px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:transparent;color:inherit;cursor:pointer}
  .js .navtoggle[aria-expanded=true]{border-color:var(--gold);background:var(--soft)}
  .js .navtoggle .navbars{display:inline-flex;flex-direction:column;justify-content:flex-start;gap:4px;width:18px}
  .js .navtoggle .navbars span{display:block;height:2px;background:currentColor;border-radius:1px;transition:transform .2s,opacity .2s}
@@ -138,56 +163,56 @@ header.top select option{color:var(--nc-tar);background:var(--nc-sail)}
  .js .navtoggle[aria-expanded=true] .navbars span:nth-child(2){opacity:0}
  .js .navtoggle[aria-expanded=true] .navbars span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
  .js .navtoggle:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
- .js nav.main{display:none;order:4;flex:1 0 100%;flex-direction:column;align-items:stretch;gap:0;margin:2px 0 0;text-align:left;border-top:1px solid var(--band-line)}
- .js nav.main.is-open{display:flex}
- .js nav.main a{display:block;width:100%;text-align:left;padding:13px 2px;margin:0;border-bottom:1px solid var(--band-line);font-size:17px}
- .js nav.main a:last-child{border-bottom:0}
- .js nav.main a[aria-current]{border-bottom-color:var(--band-line);box-shadow:inset 3px 0 0 var(--gold);padding-left:14px}
- html[dir=rtl] .js nav.main a[aria-current]{box-shadow:inset -3px 0 0 var(--gold);padding-left:2px;padding-right:14px}
- .js .langsw{order:3;flex:1 1 auto;min-width:0;flex-wrap:nowrap}
+ .js nav.main,.js .hdrbtns,.js .langsw{display:none}
+ .js nav.main{order:5;flex:1 0 100%;flex-direction:column;align-items:stretch;gap:0;margin:4px 0 0;text-align:start;border-top:1px solid var(--band-line)}
+ .js header.top.nav-open nav.main{display:flex}
+ .js nav.main a{display:block;width:100%;text-align:start;padding:12px 2px;margin:0;border-bottom:1px solid var(--band-line);font-size:17px}
+ .js nav.main a.nav-more{font-size:15px;padding:10px 2px;color:var(--muted)}
+ .js nav.main a[aria-current]{border-bottom-color:var(--band-line);box-shadow:inset 3px 0 0 var(--gold);padding-left:14px;color:var(--fg)}
+ html.js[dir=rtl] nav.main a[aria-current]{box-shadow:inset -3px 0 0 var(--gold);padding-left:2px;padding-right:14px}
+ .js header.top.nav-open .hdrbtns{display:flex;order:6;flex:1 0 100%;padding-top:6px}
+ .js header.top.nav-open .langsw{display:flex;order:7;flex:1 0 100%;padding-bottom:6px}
+ .js .hdrx .lbl,.js .hdrtg .lbl{position:static;width:auto;height:auto;margin:0;overflow:visible;clip:auto}
+ .js .hdrsub,.js .hdrx,.js .hdrtg{height:44px;display:inline-flex;align-items:center}
 }
 @media(max-width:960px),(hover:none) and (pointer:coarse){
  .js .langsw details{display:none}
- .js .langglobe{display:inline;font-size:16px;line-height:1}
- .js .langpick{display:inline-flex;align-items:center;justify-content:flex-start;min-width:0;max-width:100%;text-align:left}
- .js .langpick select{font-size:16px;line-height:1.3;min-height:44px;width:10.5rem;max-width:100%;text-align:left;text-align-last:left;padding:8px 28px 8px 10px;border-color:var(--line-strong)}
+ .js .langglobe{display:inline-flex;align-items:center;line-height:1}
+ .js .langpick{display:inline-flex;align-items:center;justify-content:flex-start;min-width:0;max-width:100%;text-align:start}
+ .js .langpick select{font-size:16px;line-height:1.3;min-height:44px;width:12rem;max-width:100%;text-align:start;text-align-last:start;padding:8px 28px 8px 10px;border-color:var(--field-line)}
  .js .langpick select:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
- .js .langsw .quick{font-size:16px;padding:10px 0;text-align:left}
+ .js .langsw .quick{font-size:16px;padding:10px 0;text-align:start}
 }
-@media(max-width:640px){.langsw{margin-left:0}.brandrow{width:100%;justify-content:flex-start;flex-wrap:wrap;align-items:center}.brandrow .brand{white-space:nowrap;flex:none;text-align:start}.hdrsub{font-size:13px;padding:5px 11px;white-space:normal;text-align:start;min-width:0}.hdrbtns{flex:1 1 100%;flex-wrap:wrap;justify-content:flex-start}.hdrx,.hdrtg{flex:none;text-align:start}}
-@media(max-width:480px){.hdrx,.hdrtg{padding:5px 9px}}
-/* Front page hero: the band continues under the nav, with the heraldic lattice and a large counterchanged key at the inline end. */
-.hero{position:relative;overflow:hidden;isolation:isolate;background:var(--lattice),radial-gradient(90% 120% at 85% 0%,color-mix(in srgb,var(--band) 70%,#2C5363) 0%,var(--band) 45%,var(--band-deep) 100%);border-bottom:4px solid var(--band-rule);text-align:start}
-.hero::after{content:"";position:absolute;z-index:-1;top:50%;inset-inline-end:max(clamp(16px,4vw,36px),calc(50% - 560px));width:min(330px,36vw);aspect-ratio:52/60;translate:0 -50%;opacity:.09;pointer-events:none;
- background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='6 2.5 52 60'%3E%3Cpath fill='none' stroke='%23F0F1EC' stroke-width='1.2' stroke-linejoin='round' d='M8,4H56V30C56,46 46,56 32,61C18,56 8,46 8,30Z'/%3E%3Cpath fill='%23D9A034' d='M32,4H56V30C56,46 46,56 32,61Z' opacity='.55'/%3E%3Cpath fill='%23F0F1EC' d='M32 8.5A8.5 8.5 0 0 0 32 25.5L32 20.8A3.8 3.8 0 0 1 32 13.2ZM28.6 24H32V49H28.6Z'/%3E%3Cpath fill='%231E3A45' d='M32 8.5A8.5 8.5 0 0 1 32 25.5L32 20.8A3.8 3.8 0 0 0 32 13.2ZM32 24H35.4V49H32ZM35.4 36.5H45V41H40.5V44.5H45V49H35.4Z'/%3E%3C/svg%3E") no-repeat center/contain}
-.hero .wrap{padding-top:clamp(36px,6vw,72px);padding-bottom:clamp(36px,5.5vw,64px)}
-.hero-kicker{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:6px 10px;margin:0 0 20px;font:500 12px/1 var(--f-mono);letter-spacing:.16em;color:var(--gold);animation:nc-rise .6s cubic-bezier(.2,.7,.2,1) both}
-.hero-kicker::before{content:"";width:44px;height:4px;border-radius:2px;background:var(--gold);margin-inline-end:6px}
-.hero h1{margin:0;max-width:17ch;font-size:clamp(40px,6vw,74px);line-height:.98;letter-spacing:-.02em;color:var(--fg);animation:nc-rise .7s .05s cubic-bezier(.2,.7,.2,1) both}
-.hero h1::before{content:none}
-.hero .lead{color:var(--muted);font-size:clamp(16px,1.5vw,18.5px);max-width:60ch;margin:22px 0 0;animation:nc-rise .7s .12s cubic-bezier(.2,.7,.2,1) both}
-.hero-acts{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:12px 20px;margin:28px 0 0;animation:nc-rise .7s .18s cubic-bezier(.2,.7,.2,1) both}
-.hero-acts .appbar{margin:0}
-.hero-acts .meta{margin:0}
-.hero a.applink{background:var(--gold);border-color:var(--gold);color:var(--on-gold);font-weight:700}
-.hero a.applink:hover,.hero a.applink:focus-visible{background:var(--btn-hover);border-color:var(--btn-hover)}
-.hero .meta a{color:var(--fg)}
-.hero-note{margin:14px 0 0;font-size:13.5px;color:var(--muted);animation:nc-rise .7s .22s cubic-bezier(.2,.7,.2,1) both}
-@media(max-width:720px){.hero::after{width:62vw;inset-inline-end:-22vw;top:auto;bottom:-14vw;translate:none;opacity:.09}}
-/* Footer: newsletter line, community buttons, notifications, the site note. A North Sea band like the header, opened by the same Sea Foam rule. */
-footer{margin-top:72px;border-top:4px solid var(--band-rule);background:var(--lattice),linear-gradient(180deg,var(--band) 0%,var(--band-deep) 100%);padding:40px 0 56px;font-size:14px;line-height:1.65;color:var(--muted)}
+/* Front page: a short title band under the header, then the news. */
+.hero{position:relative;overflow:hidden;isolation:isolate;background:var(--lattice),var(--band);border-bottom:4px solid var(--band-rule);text-align:start}
+.hero .wrap{padding-top:clamp(22px,3vw,34px);padding-bottom:clamp(22px,3vw,30px)}
+.hero h1{margin:0;max-width:26ch;font-size:clamp(28px,3.4vw,42px);line-height:1.06;letter-spacing:-.015em;color:var(--fg)}
+.hero .lead{color:var(--muted);font-size:15px;line-height:1.6;max-width:78ch;margin:10px 0 0}
+@media(max-width:640px){.hero .lead{font-size:14px}}
+.hero-meta{margin:10px 0 0;font:500 12px/1.4 var(--f-mono);letter-spacing:.06em;color:var(--muted)}
+/* Footer: the North Sea band, opened by the Sea Foam rule. Brand, then three link columns (sections, pages about the site,
+   where to follow), the newsletter form while signup is open, notifications while the service is on, and the colophon. */
+footer{margin-top:64px;border-top:4px solid var(--band-rule);background:var(--lattice),var(--band);padding:40px 0 36px;font-size:14.5px;line-height:1.6;color:var(--muted)}
 footer,footer .wrap,.nlfoot,.nlhome{text-align:start}
 footer b{color:var(--fg)}
 footer a{color:var(--fg);text-decoration-color:color-mix(in srgb,var(--gold) 55%,transparent)}
 footer a:hover{text-decoration-color:var(--gold)}
-footer h2{font-size:24px;margin:20px 0 8px;color:var(--fg)}
-.footbrand{font-size:28px;margin:0 0 22px;color:var(--fg)}.footbrand .brandmark{width:30px;height:35px}
-.nlfoot{margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid var(--line);text-align:start}.nlfoot .nlform{display:block;max-width:40rem}
-nav.community{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:center;gap:8px 10px;margin:12px 0 16px;text-align:start;width:fit-content;max-width:100%}
-.xfollow,.tgfollow{display:inline-block;padding:7px 14px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);color:var(--fg)!important;text-decoration:none;font-weight:500;text-align:start;transition:border-color .15s,background .15s,transform .15s}.xfollow:hover,.xfollow:focus-visible,.tgfollow:hover,.tgfollow:focus-visible{border-color:var(--gold);transform:translateY(-1px)}
-.nlhome{position:relative;margin:48px 0 8px;padding:clamp(22px,3.4vw,36px) clamp(20px,3.4vw,40px);background:var(--panel);border:1px solid var(--line);border-radius:calc(var(--r) + 4px);text-align:start}
-.nlhome h2{margin:0 0 8px;font-size:clamp(26px,3vw,34px)}
-.nlhome::before{content:"";display:block;width:44px;height:4px;margin:0 0 18px;background:var(--gold);border-radius:2px}
+footer h2{font-size:22px;margin:0 0 8px;color:var(--fg)}
+.foot-grid{display:grid;grid-template-columns:minmax(0,1.3fr) repeat(3,minmax(0,1fr));gap:28px 40px}
+.footbrand{font-size:26px;color:var(--fg)}.footbrand .brandmark{width:28px;height:33px}
+.foot-brand p{margin:12px 0 0;max-width:28ch;color:var(--muted)}
+.foot-col h2{font:500 11.5px/1.2 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:6px 0 12px}
+.foot-col ul{list-style:none;margin:0;padding:0}
+.foot-col li{margin:0 0 7px}
+.foot-col a{text-decoration:none}
+.foot-col a:hover{text-decoration:underline}
+.nlfoot{margin:28px 0 0;padding-top:20px;border-top:1px solid var(--line);text-align:start}.nlfoot .nlform{display:block;max-width:40rem}
+footer .pushopt{margin:28px 0 0;padding:20px 0 0;border-top:1px solid var(--line);border-bottom:0}
+.colophon{margin:32px 0 0;padding-top:18px;border-top:1px solid var(--line);font-size:13px;max-width:110ch}
+@media(max-width:860px){.foot-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.foot-brand{grid-column:1/-1}}
+nav.community{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:center;gap:8px 10px;margin:10px 0 14px;text-align:start;width:fit-content;max-width:100%}
+.xfollow,.tgfollow{display:inline-block;padding:7px 14px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);color:var(--fg)!important;text-decoration:none;font-weight:500;text-align:start}.xfollow:hover,.xfollow:focus-visible,.tgfollow:hover,.tgfollow:focus-visible{border-color:var(--fg)}
+@media(max-width:860px){.foot-col li{margin:0}.foot-col a{display:inline-block;padding:9px 0}}
 /* Shared components: filters and chips, segmented buttons, badges and tags, notices, buttons, tables.
    Country codes are gold tags (the Langskip coins); topic tags are quiet Sea Foam panels; primary buttons are North Sea (gold in dark mode and on the band). */
 .filters{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin:18px 0;padding:14px 16px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
@@ -216,242 +241,143 @@ nav.community{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items
 .ok{color:var(--up);font-weight:700}.bad{color:var(--down);font-weight:700}
 .readat,.tipform button{display:inline-block;padding:10px 18px;border:1px solid var(--btn);border-radius:var(--r-sm);background:var(--btn);color:var(--btn-ink);text-decoration:none;font-weight:600;cursor:pointer;transition:background .15s,border-color .15s,transform .15s}
 .readat:hover,.readat:focus-visible,.tipform button:hover,.tipform button:focus-visible{background:var(--btn-hover);border-color:var(--btn-hover);color:var(--btn-ink);transform:translateY(-1px)}
-.appbar{margin:14px 0 14px;text-align:left}.ios-tv{text-align:left;margin:2px 0 10px}
-a.applink{display:inline-block;padding:9px 16px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);font-weight:600;font-size:15px;line-height:1.35;text-decoration:none;text-align:left;transition:border-color .15s,background .15s,transform .15s}
+.appbar{margin:14px 0 14px;text-align:start}.ios-tv{text-align:start;margin:2px 0 10px}
+a.applink{display:inline-block;padding:9px 16px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);font-weight:600;font-size:15px;line-height:1.35;text-decoration:none;text-align:start;transition:border-color .15s,background .15s,transform .15s}
 a.applink:hover,a.applink:focus-visible{border-color:var(--fg);transform:translateY(-1px)}
 .tablewrap{overflow-x:auto}
-table.list{width:100%;border-collapse:collapse;font-size:14.5px}table.list th,table.list td{border-bottom:1px solid var(--line);padding:8px 8px;text-align:left;vertical-align:top}
+table.list{width:100%;border-collapse:collapse;font-size:14.5px}table.list th,table.list td{border-bottom:1px solid var(--line);padding:8px 8px;text-align:start;vertical-align:top}
 table.list thead th{font:500 11.5px/1.3 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--line-strong)}table.list tbody th{font-weight:600}
 table.list tbody tr{transition:background .12s}table.list tbody tr:hover{background:color-mix(in srgb,var(--soft) 70%,transparent)}
 main .share a,main .share button{border-color:var(--line-strong);border-radius:var(--r-sm);background:var(--surface);transition:background .15s,color .15s,border-color .15s}
-/* News: the lead story, the latest grid, story lists, outlet marks, coverage and illustrations. Start-aligned in every language.
-   The lead story is a North Sea feature card (the band tokens apply inside it); the latest stories are white cards that rise in on load. */
+.linkbtn{font:inherit;color:inherit;background:none;border:0;padding:6px 0;text-decoration:underline;text-decoration-color:color-mix(in srgb,var(--accent) 45%,transparent);text-underline-offset:3px;cursor:pointer}
+.linkbtn:hover{text-decoration-color:var(--accent);text-decoration-thickness:2px}
+.fnone{padding:16px 0}
+main .share a,main .share button{min-height:40px;display:inline-flex;align-items:center}
+/* News: the lead story, the latest stories, story lists, outlet marks, coverage and illustrations. Start-aligned in every language.
+   The lead story is a feature card on the North Sea band (the band tokens apply inside it). The latest stories are one column of
+   rows divided by hairlines, so headlines line up and read top to bottom. */
 .leadstory,.latest,.storygrid,.storycard,.leadstory h2,.latest h2,.storycard h3,.leadstory .sum,.storycard .sum,.leadstory .meta,.storycard .meta,.leadstory .orig,.storycard .orig{text-align:start}
-.leadstory{position:relative;overflow:hidden;isolation:isolate;margin:36px 0 8px;padding:clamp(24px,4vw,48px) clamp(22px,4vw,52px) clamp(24px,3.4vw,40px);border-radius:calc(var(--r) + 4px);background:var(--lattice),linear-gradient(160deg,var(--band) 0%,var(--band-deep) 100%);box-shadow:var(--shadow-lg);animation:nc-rise .7s .1s cubic-bezier(.2,.7,.2,1) both}
-.leadstory::before{content:"";display:block;width:44px;height:4px;margin:0 0 20px;border-radius:2px;background:var(--gold)}
-.leadstory::after{content:"";position:absolute;z-index:-1;inset:0 0 0 auto;width:42%;background:radial-gradient(70% 80% at 100% 0%,rgb(217 160 52 / .13),transparent 70%);pointer-events:none}
-html[dir=rtl] .leadstory::after{inset:0 auto 0 0;background:radial-gradient(70% 80% at 0% 0%,rgb(217 160 52 / .13),transparent 70%)}
-.leadstory h2{font-size:36px;line-height:1.04;margin:0 0 10px;text-align:start;max-width:22ch;letter-spacing:-.015em}
+.leadstory{position:relative;margin:0;padding:clamp(22px,3.4vw,40px) clamp(20px,3.4vw,44px) clamp(20px,3vw,32px);border-radius:var(--r);background:var(--lattice),var(--band)}
+.leadstory h2{font-size:36px;line-height:1.05;margin:0 0 10px;text-align:start;max-width:24ch;letter-spacing:-.015em}
 .leadstory h2 a,.storycard h3 a{text-decoration:none}
 .leadstory h2 a:hover{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:6px}
 .storycard h3 a:hover{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:4px}
-.leadstory .sum{font-size:18.5px;line-height:1.6;margin:14px 0 0;max-width:64ch;color:color-mix(in srgb,var(--fg) 88%,transparent)}
-.leadstory .meta{margin:18px 0 0;padding-top:16px;border-top:1px solid var(--line)}
-.latest h2,.evsoon h2,.evhero h2{display:flex;align-items:center;gap:14px;font:500 12px/1.2 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.latest h2::after,.evsoon h2::after{content:"";flex:1;height:1px;background:var(--line)}
-.latest h2{margin:44px 0 18px;text-align:start}
-.storygrid{display:grid;grid-template-columns:1fr;gap:20px;align-items:stretch;text-align:start}
-.storycard{position:relative;display:flex;flex-direction:column;padding:22px 24px 20px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);min-width:0;text-align:start;transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s,border-color .25s;animation:nc-rise .6s cubic-bezier(.2,.7,.2,1) both}
-.storycard::before{content:"";position:absolute;top:-1px;inset-inline-start:24px;width:40px;height:3px;border-radius:0 0 3px 3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s cubic-bezier(.2,.7,.2,1)}
-html[dir=rtl] .storycard::before{transform-origin:right}
-.storycard:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:var(--line-strong)}
-.storycard:hover::before,.storycard:focus-within::before{transform:none}
-.storycard:nth-child(2){animation-delay:.05s}.storycard:nth-child(3){animation-delay:.1s}.storycard:nth-child(4){animation-delay:.15s}.storycard:nth-child(5){animation-delay:.2s}.storycard:nth-child(6){animation-delay:.25s}.storycard:nth-child(n+7){animation-delay:.3s}
-.storycard h3{font-size:24px;line-height:1.13;margin:0 0 6px;text-align:start}
-.storycard .sum{font-size:15px;line-height:1.6;margin:8px 0 0}
-.storycard>.meta{margin:auto 0 0;padding-top:16px}
-@media(min-width:760px){.storygrid{grid-template-columns:1fr 1fr}}
-@media(min-width:1080px){.storygrid{grid-template-columns:1fr 1fr 1fr}}
-@media(min-width:1080px){.leadstory h2{font-size:54px}}
-@media(max-width:640px){.leadstory h2{font-size:30px}.leadstory{margin-top:28px}}
+.leadstory .sum{font-size:17.5px;line-height:1.6;margin:12px 0 0;max-width:66ch;color:color-mix(in srgb,var(--fg) 90%,transparent)}
+.leadstory .meta{margin:16px 0 0;padding-top:14px;border-top:1px solid var(--line)}
+.latest h2,.evsoon h2,.evhero h2,.railbox h2{display:flex;align-items:center;gap:12px;font:500 12px/1.2 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.latest h2::after,.evsoon h2::after,.railbox h2::after{content:"";flex:1;height:1px;background:var(--line)}
+.latest h2{margin:36px 0 2px;text-align:start}
+.storygrid{display:grid;grid-template-columns:1fr;align-items:start;text-align:start}
+.storycard{position:relative;padding:20px 0 22px;border-bottom:1px solid var(--line);min-width:0;text-align:start}
+.storycard:last-child{border-bottom:0}
+.storycard h3{font-size:25px;line-height:1.14;margin:0 0 4px;text-align:start;max-width:34ch}
+.storycard .sum{font-size:15.5px;line-height:1.6;margin:8px 0 0;max-width:68ch;color:color-mix(in srgb,var(--fg) 88%,transparent)}
+.storycard>.meta{margin:10px 0 0}
+.js .storycard.later{display:none}
+.morebtn{display:inline-flex;align-items:center;gap:8px;margin:18px 0 0;padding:10px 18px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);color:var(--fg);font:inherit;font-weight:600;cursor:pointer;text-align:start}
+.morebtn:hover,.morebtn:focus-visible{border-color:var(--fg)}
+.morebtn::after{content:"↓";font-weight:400}
+@media(min-width:1080px){.leadstory h2{font-size:46px}}
+@media(max-width:640px){.leadstory h2{font-size:29px}.storycard h3{font-size:22px}}
 .orig{font-size:13.5px;color:var(--muted);margin:0 0 4px;line-height:1.4;font-weight:400;text-align:start}
-.sum{margin:6px 0 0;max-width:72ch;line-height:1.55;text-align:left}.sum.pend{color:var(--warm);font-style:italic}
-.bridge{margin:6px 0 0;font-weight:500;text-align:left}
-ol.news{list-style:none;margin:0;padding:0;text-align:left}
-ol.news li{display:flex;flex-direction:row;align-items:flex-start;gap:16px;padding:20px 0;border-bottom:1px solid var(--line);text-align:start}
+.sum{margin:6px 0 0;max-width:72ch;line-height:1.55;text-align:start}.sum.pend{color:var(--warm);font-style:italic}
+.bridge{margin:6px 0 0;font-weight:500;text-align:start}
+ol.news{list-style:none;margin:0;padding:0;text-align:start}
+ol.news li{display:flex;flex-direction:row;align-items:flex-start;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);text-align:start}
 ol.news .storybody{min-width:0;flex:1;text-align:start}
 ol.news h3{font-size:23px;line-height:1.16;margin:0 0 4px}ol.news h3 a{text-decoration:none}ol.news h3 a:hover{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px}
 .ill{margin:0 0 14px;text-align:start}
 .ill img{display:block;width:100%;max-width:760px;height:auto;background:var(--soft);border-radius:var(--r)}
 .primary-src{font-size:13.5px;margin:6px 0 0;text-align:start}
 .src{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;vertical-align:middle;text-align:start}
-.src-logo-link{display:inline-flex;flex:none;align-items:center;line-height:0}
+.src-logo-link{display:inline-flex;flex:none;align-items:center;gap:6px;color:inherit;text-decoration:none}.src-logo-link:hover b{text-decoration:underline;text-decoration-color:var(--gold)}
 .src-logo{height:18px;width:auto;max-width:96px;object-fit:contain;flex:none;background:#fff;padding:1px 3px;border-radius:3px}
-/* outlets that covered a story */
-.covrow,.readat-row,.also,.covbars,.covsort,.covlist,.covgroup,.cov-by-country,.cov-by-time{text-align:start}
-.covrow{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:6px 8px;margin:10px 0 0}
+/* outlets that covered a story: the compact logo row on story cards (the story page rules are in story.css) */
+.covrow{text-align:start;display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:6px 8px;margin:10px 0 0}
 .cov-logo{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;text-decoration:none}
-.cov-more{font-size:12.5px;color:var(--fg);border:1px solid var(--line-strong);border-radius:999px;padding:1px 10px;background:var(--surface);text-decoration:none;transition:border-color .15s}
+.cov-more{font-size:12.5px;color:var(--fg);border:1px solid var(--line-strong);border-radius:999px;padding:1px 10px;background:var(--surface);text-decoration:none}
 .cov-more:hover,.cov-more:focus-visible{border-color:var(--gold)}
-.also{margin:10px 0}
-.covbars{margin:0 0 16px}
-.covbar{display:grid;grid-template-columns:minmax(7rem,12rem) minmax(4rem,16rem) 2rem;justify-content:start;align-items:center;gap:10px;margin:6px 0;font-size:14px;max-width:100%}
-@media(max-width:640px){.covbar{grid-template-columns:minmax(6rem,9rem) minmax(3rem,1fr) 2rem}}
-.covbar .track{display:block;height:8px;background:var(--soft);border-radius:4px;overflow:hidden}
-.covbar .fill{display:block;height:8px;background:var(--accent);border-radius:4px}
-.covbar .covn{font-variant-numeric:tabular-nums;color:var(--muted)}
-.covsort{margin:10px 0}
-.covgroup{margin:0 0 18px}
-.covgroup h3{display:flex;justify-content:flex-start;gap:8px;align-items:baseline;font-size:21px;margin:0 0 4px}
-.covlist{list-style:none;padding:0;margin:0}
-.covlist li{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:flex-start;gap:6px 12px;border-bottom:1px solid var(--line);padding:11px 0}
-.covlist .cov-title{flex:1 1 16rem;min-width:12rem}
-.cov-open{font-weight:500}
-/* Events: happening now, next events on the front page, event pages and the month calendar.
-   Front-page events are ticket cards with a gold edge at the inline start; stories are the white cards below them. */
-.evhero,.evsoon,.evfull,.evcard,.evmeta,.evsrc,.evplace{text-align:left}
-.evhero{position:relative;border:1px solid var(--line);border-inline-start:4px solid var(--gold);border-radius:var(--r);background:var(--surface);box-shadow:var(--shadow);padding:16px 22px;margin:32px 0 0}
-.evhero h2,.evsoon h2{text-align:left;margin:0 0 4px}
+/* Events: happening now and next events (the front-page rail). The calendar, previous events and event pages have their own modules.
+   In the rail each event is a row: a date badge, the title, then country, weekday, time and city. */
+.evhero,.evsoon,.evcard,.evmeta,.evsrc,.evplace{text-align:start}
+.evhero{position:relative;border:1px solid var(--line);border-inline-start:4px solid var(--gold);border-radius:var(--r-sm);background:var(--surface);padding:12px 14px;margin:0 0 22px}
+.evhero h2,.evsoon h2{text-align:start;margin:0 0 4px}
 .evhero h2{color:var(--gold-ink);margin-top:2px}
-.evhero h2::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgb(217 160 52 / .6);animation:nc-pulse 2s infinite}
-@keyframes nc-pulse{70%{box-shadow:0 0 0 8px rgb(217 160 52 / 0)}100%{box-shadow:0 0 0 0 rgb(217 160 52 / 0)}}
-.evsoon h2{margin:40px 0 18px}
-.evhero h3{font-size:30px;line-height:1.12;margin:0 0 6px;text-align:left}
+.evhero h2::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.evsoon h2{margin:0 0 6px}
+.evhero h3{font-size:24px;line-height:1.15;margin:0 0 6px;text-align:start}
 .evsoon{margin:8px 0 22px}
-.evsoon h3,.evfull h3{font-size:22px;line-height:1.18;margin:0 0 6px;text-align:left}
-.evhero h3 a,.evsoon h3 a,.evfull h3 a{text-decoration:none}
-.evhero h3 a:hover,.evsoon h3 a:hover,.evfull h3 a:hover{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px}
+.evsoon h3{font-size:22px;line-height:1.18;margin:0 0 6px;text-align:start}
+.evhero h3 a,.evsoon h3 a{text-decoration:none}
+.evhero h3 a:hover,.evsoon h3 a:hover{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px}
 .evcard{padding:14px 0 16px;border-bottom:1px solid var(--line)}
 .evcard .meta{margin:4px 0 0}
 .evcard time b{font-weight:600;color:var(--fg)}
 .evhero .evcard{border-bottom:0;padding:10px 0}
 .evhero .evcard+.evcard{border-top:1px solid var(--line)}
-#evsoon-list .evcard{position:relative;border:1px solid var(--line);border-inline-start:3px solid var(--gold);border-radius:var(--r-sm) var(--r) var(--r) var(--r-sm);background:var(--surface);padding:16px 20px 16px 18px;margin:0 0 14px;transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s}
-html[dir=rtl] #evsoon-list .evcard{border-radius:var(--r) var(--r-sm) var(--r-sm) var(--r)}
-#evsoon-list .evcard:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
 .evsoon .evmeta{display:none}
-.evhero .evmeta,.evfull .evmeta{display:block}
-@media(min-width:760px){#evsoon-list{display:grid;grid-template-columns:1fr 1fr;column-gap:18px;align-items:stretch}}
-@media(min-width:1080px){#evsoon-list{grid-template-columns:1fr 1fr 1fr}}
-.evsoon>.meta{margin:4px 0 0}
+.evhero .evmeta{display:block}
+/* rail rows */
+.evrow{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;align-items:start;padding:12px 0;border-bottom:1px solid var(--line)}
+.evhero .evrow{padding:8px 0;border-bottom:0}
+.evdate{display:flex;flex-direction:column;align-items:center;padding:5px 0 6px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);line-height:1;text-align:start}
+.evdate b{font:700 20px/1 var(--f-display);font-variant-numeric:lining-nums;color:var(--fg)}
+.evdate span{font:500 10.5px/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--gold-ink);margin-top:3px}
+.evrow h3{font-size:18px;line-height:1.2;margin:0 0 3px}
+.evrow .meta{font-size:13px;line-height:1.45;margin:0}
+.evsoon>.meta{margin:10px 0 0;font-size:14px}
 .evsrc{font-size:13.5px;color:var(--muted);margin:2px 0 0}
-.evpage,.evpage h1,.evpage h2,.evpage p,.evpage li{text-align:left}
-.evpage .evdesc{display:block;text-align:left;max-width:70ch;margin:12px 0 18px;line-height:1.65}
-.evofficial{display:inline-block;margin:12px 0 18px;padding:10px 18px;border:1px solid var(--btn);border-radius:var(--r-sm);background:var(--btn);color:var(--btn-ink);text-decoration:none;font-weight:600;text-align:left;transition:background .15s,transform .15s}
-.evofficial:hover,.evofficial:focus-visible{background:var(--btn-hover);border-color:var(--btn-hover);transform:translateY(-1px)}
-.evpage .evmeta{display:block;margin:4px 0}
 @media(max-width:640px){.evhero h3{font-size:24px}}
-/* month calendar */
-.calgrid{display:none}@media(min-width:760px){.calgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(460px,1fr));gap:28px;margin:22px 0}}
-table.cal{border-collapse:separate;border-spacing:0;width:100%;table-layout:fixed;font-size:13px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}table.cal caption{text-align:left;font:700 24px/1.2 var(--f-display);padding:4px 0 10px}
-table.cal th{font:500 11px/1.2 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--band-muted);padding:8px 2px;background:var(--band)}table.cal td{border-top:1px solid var(--line);border-inline-start:1px solid var(--line);vertical-align:top;height:72px;padding:4px 6px;overflow:hidden}
-table.cal td:first-child{border-inline-start:0}
-table.cal td .d{font-variant-numeric:tabular-nums;color:var(--muted);font-size:12px}
-table.cal td.out{opacity:.35}table.cal td.today .d{background:var(--gold);color:var(--on-gold);font-weight:700;padding:1px 6px;border-radius:var(--r-xs)}table.cal td.has{background:color-mix(in srgb,var(--foam) 22%,var(--surface))}
-table.cal td a{display:flex;gap:4px;align-items:flex-start;font-size:11.5px;line-height:1.25;margin-top:4px;text-decoration:none}table.cal td a span{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:break-word;hyphens:auto}table.cal td a:hover{text-decoration:underline}
-table.cal td a .flag{width:13px;height:10px;margin-top:1px}ol.past{opacity:.75}
-/* Who's who: regulation by country, the two-column org chart, people, the detail panel and the industry map. */
-.cols{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:14px}
-.cols.only-private,.cols.only-public{grid-template-columns:1fr}
-.cols.only-private .col-public,.cols.only-public .col-private{display:none}
-@media (max-width:760px){.cols{grid-template-columns:1fr}}
-.col>h2{margin:0 0 10px;padding:0 0 10px;color:var(--fg);font-size:30px;border-bottom:4px solid}
-.col-private>h2{border-color:var(--priv)}.col-public>h2{border-color:var(--pub)}
-.cgrp{margin:0 0 6px}.cgrp>h3{display:flex;align-items:center;gap:8px;font-size:21px;margin:20px 0 6px;padding-bottom:4px;border-bottom:1px solid var(--line)}
-.grp{margin:0 0 12px}.grp h4{font:500 11.5px/1.3 var(--f-mono);text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin:12px 0 8px}
-.card{border:1px solid var(--line);border-radius:var(--r-sm);background:var(--surface);color:inherit;padding:11px 14px;margin:0 0 8px;transition:border-color .15s,box-shadow .15s,transform .15s;cursor:pointer;text-align:left;width:100%;font:inherit;display:block}
-.card:hover,.card:focus-visible{border-color:var(--line-strong);box-shadow:var(--shadow);transform:translateY(-1px)}
-.card:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
-.card.hl{border-color:var(--gold);box-shadow:0 0 0 2px var(--gold)}.card.dim{opacity:.35}
-.card .nm{font-weight:700;line-height:1.35}.card .nm>.logo,.card .nm>.av{vertical-align:middle;margin-inline-end:8px}.card .ds{font-size:13.5px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.people{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
-.person{display:flex;align-items:center;gap:8px;font-size:13px;line-height:1.35;color:inherit;border:1px solid var(--line);border-radius:999px;padding:3px 10px 3px 3px;background:var(--soft);cursor:pointer;font-family:inherit;max-width:100%;text-align:start}
-.person:hover{border-color:var(--muted)}
-.person.hl{border-color:var(--gold);box-shadow:0 0 0 2px var(--gold)}
-.av{width:34px;height:34px;border-radius:50%;object-fit:cover;flex:none;display:inline-flex;align-items:center;justify-content:center;background:var(--foam);color:var(--nc-sea);font-weight:700;font-size:12.5px}
-.av.big{width:96px;height:96px;font-size:28px}
-.av.org{border-radius:var(--r);width:28px;height:28px;font-size:11px}
-.logo{width:28px;height:28px;object-fit:contain;flex:none;background:#fff;border-radius:var(--r-xs)}
-.logo.big{width:64px;height:64px}
-#detail{position:sticky;bottom:0;background:var(--surface);border:1px solid var(--line-strong);border-top:4px solid var(--gold);border-radius:var(--r) var(--r) 0 0;box-shadow:var(--shadow-lg);padding:14px 18px;margin-top:16px;max-height:60vh;overflow:auto}
-#detail[hidden]{display:none}#detail h3{margin:0 0 4px;font-size:24px}#detail .close{float:right;font:inherit;font-size:14px;padding:3px 10px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);color:var(--fg);cursor:pointer}
-#detail .close:hover{border-color:var(--gold)}
-#detail ul{padding-left:18px;margin:6px 0}#detail .row{display:flex;gap:14px;align-items:flex-start}
-/* regulation by country */
-.reg{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px;margin:12px 0}
-.reg article{border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:var(--r);padding:16px 18px;background:var(--surface);box-shadow:var(--shadow)}.reg h3{display:flex;gap:8px;align-items:center;margin:0 0 8px;font-size:22px}
-.reg dl{margin:0;font-size:14px;line-height:1.55}.reg dt{font-weight:700;margin-top:8px}.reg dd{margin:0}
-/* industry map */
-.imap-cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin:14px 0}
-.imap-cat{border:1px solid var(--line);border-radius:var(--r);padding:14px 14px 14px;background:var(--surface);box-shadow:var(--shadow)}
-.imap-cat>h3{font-size:19px;margin:0 0 10px;padding-bottom:5px;border-bottom:2px solid var(--priv);display:flex;justify-content:space-between;gap:8px}
-.imap-cat.pub>h3{border-color:var(--pub)}
-.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:6px}
-.tile{display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 4px;border:1px solid var(--line);border-radius:var(--r-sm);transition:border-color .15s,transform .15s;text-decoration:none;font-size:11.5px;line-height:1.25;text-align:center;min-height:86px;background:var(--bg);overflow-wrap:anywhere}
-.tile:hover,.tile:focus-visible{border-color:var(--gold);outline:none;transform:translateY(-1px)}
-.tile .logo,.tile .av{width:40px;height:40px}.tile .fl{display:flex;gap:3px;align-items:center;color:var(--muted);font-size:10.5px}
-.imap[data-view=country] .imap-bycat,.imap[data-view=cat] .imap-bycountry{display:none}
-.rules-c .seg{margin:8px 0}
-/* Markets: tiles at a glance, the volume share chart and the table of pairs. Start-aligned; no centred overview. */
-.markets h1{font-size:clamp(32px,4vw,44px)}
-.markets .lead,.markets p,.markets h2,.markets h3,.mkdash,.mktile,.mkboard{text-align:left}
-.mkcredit{margin:0 0 8px;text-align:left}
-.mktiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(11rem,1fr));gap:14px;justify-content:flex-start;align-items:stretch;margin:0 0 10px;text-align:left}
-.mktile{position:relative;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);box-shadow:var(--shadow);padding:14px 16px 13px;text-align:left;min-width:0;overflow:hidden;transition:transform .2s,box-shadow .2s}
-.mktile::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--line)}
-.mktile:has(.chg.up)::before{background:var(--up)}.mktile:has(.chg.dn)::before{background:var(--down)}
-.mktile:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
-.mktile .k{display:flex;align-items:center;justify-content:flex-start;gap:8px;margin:0;font-weight:500;text-align:left}
-.mktile .k img{width:22px;height:22px;flex:none;display:block}
-.mktile .sym{font:500 12px var(--f-mono);letter-spacing:.04em;color:var(--muted)}
-.mktile .px{font-family:var(--f-display);font-size:28px;font-weight:700;line-height:1.05;margin:8px 0 4px;letter-spacing:-.01em;font-variant-numeric:lining-nums proportional-nums;text-align:left;overflow-wrap:anywhere}
-.mktile .unit{font:500 12px var(--f-mono);color:var(--muted)}
-.mktile .chg{margin:0;font-size:14px;font-weight:500;text-align:left}
-.chg.up{color:var(--up)}.chg.dn{color:var(--down)}.chg.flat{color:var(--muted);font-weight:400}
-.mkstats{list-style:none;margin:6px 0 0;padding:0;text-align:left}
-.mkstats li{text-align:left;margin:2px 0;color:var(--muted)}
-.mkstats b{font-family:var(--f-display);font-size:28px;font-weight:700;margin-inline-end:6px;color:var(--fg);font-variant-numeric:lining-nums}
-.mkboard h2{margin-top:10px;text-align:left}
-.mkwrap{overflow-x:auto;text-align:left;max-width:100%}
-table.mkpairs{width:100%;border-collapse:collapse;font-size:14.5px;text-align:left}
-table.mkpairs caption{text-align:left;font-weight:500;padding:4px 0}
-table.mkpairs th,table.mkpairs td{border-bottom:1px solid var(--line);padding:8px 8px;text-align:left;vertical-align:top}
-table.mkpairs thead th{font:500 11.5px/1.3 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--line-strong)}
-table.mkpairs tbody tr:hover{background:color-mix(in srgb,var(--soft) 60%,transparent)}
-table.mkpairs button.sort{font:inherit;letter-spacing:inherit;text-transform:inherit;color:var(--muted);background:none;border:0;padding:0 0 2px;cursor:pointer;text-align:left}
-table.mkpairs button.sort[aria-pressed=true]{color:var(--fg);border-bottom:2px solid var(--gold)}
-table.mkpairs .coin{display:flex;align-items:center;justify-content:flex-start;gap:8px;text-align:left}
-table.mkpairs .coin img{width:22px;height:22px;flex:none;display:block}
-table.mkpairs .pxs{font-weight:700;font-variant-numeric:tabular-nums;display:block;text-align:left}
-table.mkpairs .sub{display:block;text-align:left}
-@media(max-width:720px){
- .mktiles{grid-template-columns:1fr 1fr}
- table.mkpairs thead{display:none}
- table.mkpairs,table.mkpairs tbody,table.mkpairs tr,table.mkpairs td{display:block;width:auto}
- table.mkpairs tr{border:1px solid var(--line);border-radius:var(--r);background:var(--surface);box-shadow:var(--shadow);margin:0 0 12px;padding:10px 14px}
- table.mkpairs tbody tr:hover{background:var(--surface)}
- table.mkpairs td{border:0;padding:3px 0;text-align:left}
- table.mkpairs td::before{content:attr(data-label);display:block;font:500 11px/1.3 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:left}
+@media(max-width:860px){.evsoon>.meta a{display:inline-block;padding:10px 0}}
+/* Front page layout. One column on phones, in reading order: lead story, next events, latest stories, newsletter and tools.
+   From 1024px the events and the newsletter/tools sit in a rail beside the news. The rows are auto, auto, 1fr: the lead and the
+   events start together, the latest stories start right under the lead, and the newsletter box follows the events. */
+.home{display:grid;grid-template-columns:minmax(0,1fr);margin:28px 0 0;text-align:start}
+.home-events{margin:30px 0 0}
+.home-more{margin:36px 0 0}
+@media(min-width:1024px){
+ .home{grid-template-columns:minmax(0,1fr) 300px;grid-template-rows:auto auto 1fr;column-gap:52px;align-items:start}
+ .home-lead{grid-column:1;grid-row:1}
+ .home-events{grid-column:2;grid-row:1/3;margin:0}
+ .latest.home-river{grid-column:1;grid-row:2/4}
+ .home-more{grid-column:2;grid-row:3;margin:30px 0 0}
 }
-@media(max-width:420px){.mktiles{grid-template-columns:1fr}}
-@media(min-width:1100px){.mktile .px{font-size:31px}}
-.mkvol{margin:10px 0 24px;text-align:left}
-.mkvol h2,.mkvol p,.mkvol figcaption{text-align:left}
-.mkvol-row{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:flex-start;gap:8px 32px;text-align:left}
-.mkvol svg{width:220px;max-width:100%;height:auto;flex:none;display:block}
-.mkvol svg text{fill:var(--fg)}.mkvol svg text+text{fill:var(--muted)}
-.mklegend{list-style:none;margin:0;padding:0;text-align:left;flex:1 1 18rem;max-width:40rem}
-.mklegend li{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:8px;padding:4px 0;text-align:left}
-.mklegend .sw{width:12px;height:12px;flex:none;display:inline-block;border-radius:var(--r-xs)}
-.mklegend img{width:22px;height:22px;flex:none;display:block}
-.mklegend .nm{text-align:left}
-.mklegend .pct{font-weight:700}
-.mklegend .meta{flex:1 0 100%;padding-left:20px;text-align:left}
-.mkvol table.mkshare{width:auto;max-width:100%;margin:8px 0 0;text-align:left}
-.mkvol caption{text-align:left;font-weight:500;padding:6px 0}
-/* end markets */
-/* Newsletter: signup form, the issue list, the video and the issue text. */
+.railbox{margin:0 0 30px}
+.railbox h2{margin:0 0 12px}
+.railbox p{font-size:14.5px;margin:0 0 10px}
+.home-more .notice{font-size:13.5px}
+.home-more nav.community{margin:12px 0 0}
+.raillinks{list-style:none;margin:0;padding:0}
+.raillinks li{padding:9px 0;border-bottom:1px solid var(--line);font-size:15px}
+.raillinks li:last-child{border-bottom:0}
+.raillinks a{font-weight:500;text-decoration:none}
+.raillinks a:hover{text-decoration:underline;text-decoration-color:var(--gold)}
+.raillinks .meta{display:block;font-size:12.5px;margin-top:2px}
+.home-note{margin:40px 0 0;font-size:13.5px;max-width:90ch}
+/* Phones: three events before the stories, the rest are one tap away in the calendar. */
+@media(max-width:1023px){#evsoon-list .evcard:nth-child(n+4){display:none}}
+/* Newsletter: signup form (also in the footer and the front-page rail), the follow block, the issue rows, the video and the issue text. */
 .nlform{margin:14px 0;text-align:start}.nlform input[type=email]{padding:8px 10px;width:100%;max-width:320px}.nlform .hp{position:absolute;left:-9999px}
 .nlform button{padding:9px 18px;font-size:15px;font-weight:600;border:1px solid var(--btn);border-radius:var(--r-sm);background:var(--btn);color:var(--btn-ink);cursor:pointer;transition:background .15s,transform .15s}
 .nlform button:hover,.nlform button:focus-visible{background:var(--btn-hover);border-color:var(--btn-hover);transform:translateY(-1px)}
 .nlconsent{display:block;margin:10px 0;max-width:40rem;text-align:start;font-size:15px}
 .nlmsg{display:block;margin-top:6px}.nlmsg.ok{color:var(--up)}.nlmsg.warn{color:var(--warm)}.nlc label:not(.nlconsent){position:absolute;left:-9999px}
-.nlissues{list-style:none;margin:10px 0 20px;padding:0}.nlissues li{display:flex;gap:22px;align-items:flex-start;padding:20px 0;border-bottom:1px solid var(--line)}
-.nlissues .th{flex:none;width:200px;max-width:40%}.nlissues img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
-.nlissues h3{font-size:25px;line-height:1.2;margin:0 0 4px}.nlissues h3 a{text-decoration:none}.nlissues h3 a:hover{text-decoration:underline;text-decoration-thickness:1px}.nlissues .sum{margin-top:4px}
-.issue h1{overflow-wrap:break-word}
+.nlbox{margin:4px 0 8px;padding:18px 20px;max-width:46rem;background:var(--surface);border:1px solid var(--line);border-inline-start:3px solid var(--gold);border-radius:var(--r-sm)}
+.nlbox h2{margin:0 0 6px;font-size:24px}.nlbox .nlsoon{margin:0;color:var(--muted);font-size:15px}
+.nlways{display:flex;flex-wrap:wrap;gap:8px 10px;margin:14px 0 0}
+.nlways a{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:6px 14px;border:1px solid var(--line-strong);border-radius:var(--r-sm);color:var(--fg);font-weight:500;text-decoration:none}
+.nlways a:hover{border-color:var(--fg)}.nlways .ico{color:var(--gold-ink)}
+.nlissues{list-style:none;margin:8px 0 18px;padding:0;max-width:60rem;border-top:1px solid var(--line)}
+.nlissues li{display:flex;gap:18px;padding:16px 0;border-bottom:1px solid var(--line);contain-intrinsic-size:auto 120px}
+.nlissues .th{flex:none;width:160px}
+.nlissues img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:var(--r-sm)}
+.nlissues h3{font-size:22px;line-height:1.22;margin:0 0 4px}.nlissues h3 a{text-decoration:none}.nlissues h3 a:hover{text-decoration:underline}
+.nlissues .meta{margin:0}.nlissues .sum{margin:6px 0 0;font-size:15.5px;line-height:1.5}
+.nlissues time,.issue .meta time{unicode-bidi:plaintext}
+.issue h1{overflow-wrap:break-word}.issue .nlbox{margin:36px 0 14px}
 .nlvideo{margin:18px 0 22px;max-width:960px}.nlvideo video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000;border-radius:var(--r)}.nlvideo figcaption{margin-top:6px}
 .issuetext{overflow-wrap:break-word;max-width:70ch;line-height:1.65}.issuetext h2{font-size:24px}.issuetext ul{padding-left:20px}.issuetext li{margin:4px 0}.issuetext hr{border:0;border-top:1px solid var(--line);margin:24px 0}
-@media(max-width:520px){.nlissues li{flex-direction:column;gap:8px}.nlissues .th{width:100%;max-width:100%}h1{font-size:28px}}
-/* Talks: filters, one article per recording, a player that loads on click. */
-.talks,.talks h1,.talks h2,.talks p,.talks article,.talks label,.talks select,.talks .filters{text-align:start}
-.talks article{padding:22px 0;border-bottom:1px solid var(--line);max-width:76ch}
-.talks h2{font-size:26px;margin:0 0 4px}
-.talks .talk-play{display:inline-block;margin:10px 0;padding:8px 16px;font:inherit;font-weight:600;text-align:start;border:1px solid var(--btn);border-radius:var(--r-sm);background:var(--btn);color:var(--btn-ink);cursor:pointer;transition:background .15s,transform .15s}
-.talks .talk-play:hover,.talks .talk-play:focus-visible{background:var(--btn-hover);border-color:var(--btn-hover);transform:translateY(-1px)}
-.talks iframe{display:block;width:100%;max-width:760px;aspect-ratio:16/9;height:auto;border:0;border-radius:var(--r);background:#111;margin:8px 0;box-shadow:var(--shadow-lg)}
-.talks .filters{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:center;gap:10px 16px}
-.talks .filters select{font:inherit;text-align:start;max-width:100%}
+@media(max-width:520px){.nlissues li{gap:12px}.nlissues .th{width:112px}.nlissues h3{font-size:19px}.nlbox{padding:14px}}
 /* Browser notifications panel in the footer. */
 .pushopt{text-align:start;margin:0 0 18px;padding:0 0 16px;border-bottom:1px solid var(--line);max-width:72ch}
 .pushopt h2{font-size:24px;margin:0 0 6px;text-align:start}
@@ -499,16 +425,6 @@ table.mkpairs .sub{display:block;text-align:left}
  .shoutbox:not(.shoutbox-full).is-open .shout-panel{display:block}
 }
 /* /shoutbox */
-/* Logo and media kit page: samples keep the fixed brand tinctures in both themes. */
-.motto-sample{font-family:var(--f-ui);font-weight:500;letter-spacing:.22em;font-size:15px;margin:8px 0 16px}
-.hdr-sample{margin:12px 0 18px;padding:14px 16px 8px;background:var(--nc-argent);border-bottom:3px solid var(--nc-sable);border-radius:var(--r) var(--r) 0 0;max-width:36rem;text-align:start}
-.hdr-sample .brand{color:var(--nc-sable)}.hdr-sample .brand .w{color:var(--nc-gules)}
-.hdr-sample.dark{background:#0b0d10}.hdr-sample.dark .brand{color:#F5F5F4}.hdr-sample.dark .brand .w{color:var(--nc-or)}
-.hdr-sample figcaption{margin:8px 0 4px;text-align:start;color:var(--nc-sable)}.hdr-sample.dark figcaption{color:#F5F5F4}
-.lockup{display:block;height:auto;max-width:100%;width:640px;margin:8px 0 16px}
-.swatches{list-style:none;padding:0;margin:8px 0 18px;text-align:start}.swatches li{display:flex;align-items:center;justify-content:flex-start;gap:10px;margin:6px 0}
-.swatches i{width:36px;height:36px;flex:none;border:1px solid var(--line-strong);border-radius:2px;display:block}
-.filelist{padding-left:1.2em;text-align:start}.filelist li{margin:3px 0}
 
 .social{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;text-align:start;gap:4px 12px;margin:6px 0 0;font-size:13.5px;width:fit-content;max-width:100%}
 .social-label{color:var(--muted,#4B5563)}
@@ -523,24 +439,65 @@ table.mkpairs .sub{display:block;text-align:left}
 .share a:focus-visible,.share button:focus-visible{outline:2px solid var(--ink,#000);outline-offset:2px}
 .share-status{font-size:13px;color:var(--muted,#4B5563)}
 </style></head>
-<body><header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="../../sv/"><img class="brandmark" src="../../assets/brand/shield-band.svg" width="34" height="40" alt="Nordic Crypto"><span aria-hidden="true">Nordic <span class="w">Crypto</span></span></a><span class="hdrbtns"><a class="hdrsub" href="../../sv/newsletter/#signup">Prenumerera</a><a class="hdrtg" href="https://t.me/nordiccryptochat" rel="noopener" title="Nordic Crypto på Telegram (t.me/nordiccryptochat), varumärkets chatt">Gå med på Telegram</a><a class="hdrx" href="https://x.com/xcryptonordic" rel="noopener" title="Nordic Crypto på X (@xcryptonordic), webbplatsens eget konto"><span class="xf">Följ på X</span><span class="xs" aria-hidden="true">X</span></a></span></div><button type="button" class="navtoggle" aria-expanded="false" aria-controls="sitenav" aria-label="Huvudmeny"><span class="navbars" aria-hidden="true"><span></span><span></span><span></span></span></button><nav id="sitenav" class="main" aria-label="Huvudmeny"><a href="../../sv/">Nyheter</a><a href="../../sv/newsletter/">Nyhetsbrev</a><a href="../../sv/calendar/">Kalender</a><a class="nav-quiet" href="../../sv/talks/">Föredrag</a><a href="../../sv/org-chart/">Vem är vem</a><a href="../../sv/academia/">Akademi</a><a href="../../sv/books/">Böcker</a><a href="../../sv/markets/">Marknader</a><a href="../../sv/sources/">Källor</a><a href="../../sv/about/">Om oss</a><a href="../../sv/tip/">Tipsa oss</a><a href="../../api/">API</a></nav><div class="langsw"><span class="langglobe" aria-hidden="true">🌐</span><label class="langpick"><span class="vh">Välj språk</span><select class="langsel"><option value="../../changelog/" hreflang="en" lang="en" data-lang="en">English</option><option value="../../nn/changelog/" hreflang="nn" lang="nn" data-lang="nn">Nynorsk</option><option value="../../nb/changelog/" hreflang="nb" lang="nb" data-lang="nb">Bokmål</option><option value="../../sv/changelog/" hreflang="sv" lang="sv" data-lang="sv" selected>✓ Svenska</option><option value="../../da/changelog/" hreflang="da" lang="da" data-lang="da">Dansk</option><option value="../../fi/changelog/" hreflang="fi" lang="fi" data-lang="fi">Suomi</option><option value="../../is/changelog/" hreflang="is" lang="is" data-lang="is">Íslenska</option><option value="../../zh/changelog/" hreflang="zh" lang="zh" data-lang="zh">中文</option><option value="../../hi/changelog/" hreflang="hi" lang="hi" data-lang="hi">हिन्दी</option><option value="../../es/changelog/" hreflang="es" lang="es" data-lang="es">Español</option><option value="../../fr/changelog/" hreflang="fr" lang="fr" data-lang="fr">Français</option><option value="../../ar/changelog/" hreflang="ar" lang="ar" dir="rtl" data-lang="ar">العربية</option><option value="../../bn/changelog/" hreflang="bn" lang="bn" data-lang="bn">বাংলা</option><option value="../../pt/changelog/" hreflang="pt" lang="pt" data-lang="pt">Português</option><option value="../../ru/changelog/" hreflang="ru" lang="ru" data-lang="ru">Русский</option><option value="../../ur/changelog/" hreflang="ur" lang="ur" dir="rtl" data-lang="ur">اردو</option><option value="../../id/changelog/" hreflang="id" lang="id" data-lang="id">Bahasa Indonesia</option><option value="../../de/changelog/" hreflang="de" lang="de" data-lang="de">Deutsch</option><option value="../../ja/changelog/" hreflang="ja" lang="ja" data-lang="ja">日本語</option><option value="../../sw/changelog/" hreflang="sw" lang="sw" data-lang="sw">Kiswahili</option><option value="../../mr/changelog/" hreflang="mr" lang="mr" data-lang="mr">मराठी</option></select></label><details><summary aria-label="Välj språk">🌐 Svenska</summary><ul role="list" aria-label="Språk"><li><a href="../../changelog/" hreflang="en" lang="en" data-lang="en">English</a></li><li><a href="../../nn/changelog/" hreflang="nn" lang="nn" data-lang="nn">Nynorsk</a></li><li><a href="../../nb/changelog/" hreflang="nb" lang="nb" data-lang="nb">Bokmål</a></li><li><a href="../../sv/changelog/" hreflang="sv" lang="sv" data-lang="sv" aria-current=true>Svenska</a></li><li><a href="../../da/changelog/" hreflang="da" lang="da" data-lang="da">Dansk</a></li><li><a href="../../fi/changelog/" hreflang="fi" lang="fi" data-lang="fi">Suomi</a></li><li><a href="../../is/changelog/" hreflang="is" lang="is" data-lang="is">Íslenska</a></li><li><a href="../../zh/changelog/" hreflang="zh" lang="zh" data-lang="zh">中文</a></li><li><a href="../../hi/changelog/" hreflang="hi" lang="hi" data-lang="hi">हिन्दी</a></li><li><a href="../../es/changelog/" hreflang="es" lang="es" data-lang="es">Español</a></li><li><a href="../../fr/changelog/" hreflang="fr" lang="fr" data-lang="fr">Français</a></li><li><a href="../../ar/changelog/" hreflang="ar" lang="ar" dir="rtl" data-lang="ar">العربية</a></li><li><a href="../../bn/changelog/" hreflang="bn" lang="bn" data-lang="bn">বাংলা</a></li><li><a href="../../pt/changelog/" hreflang="pt" lang="pt" data-lang="pt">Português</a></li><li><a href="../../ru/changelog/" hreflang="ru" lang="ru" data-lang="ru">Русский</a></li><li><a href="../../ur/changelog/" hreflang="ur" lang="ur" dir="rtl" data-lang="ur">اردو</a></li><li><a href="../../id/changelog/" hreflang="id" lang="id" data-lang="id">Bahasa Indonesia</a></li><li><a href="../../de/changelog/" hreflang="de" lang="de" data-lang="de">Deutsch</a></li><li><a href="../../ja/changelog/" hreflang="ja" lang="ja" data-lang="ja">日本語</a></li><li><a href="../../sw/changelog/" hreflang="sw" lang="sw" data-lang="sw">Kiswahili</a></li><li><a href="../../mr/changelog/" hreflang="mr" lang="mr" data-lang="mr">मराठी</a></li></ul></details></div></div></header>
-<main class="wrap">
-<h1>Ändringslogg</h1>
+<body><a class="skip" href="#main">Hoppa till innehållet</a><header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="../../sv/"><img class="brandmark" src="../../assets/brand/shield-band.svg" width="34" height="40" alt="Nordic Crypto"><span aria-hidden="true">Nordic <span class="w">Crypto</span></span></a></div><div class="hdrtools"><span class="hdrbtns"><a class="hdrsub" href="../../sv/newsletter/#signup">Följ oss</a><a class="hdrtg" href="https://t.me/nordiccryptochat" rel="noopener" title="Nordic Crypto på Telegram (t.me/nordiccryptochat), varumärkets chatt"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M21.9 4.3 18.7 19.4c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13 1.4 11.5c-1-.3-1.1-1 .2-1.5L20.5 2.8c.9-.3 1.7.2 1.4 1.5z"/></svg><span class="lbl">Gå med på Telegram</span></a><a class="hdrx" href="https://x.com/xcryptonordic" rel="noopener" title="Nordic Crypto på X (@xcryptonordic), webbplatsens eget konto"><svg class="ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M18.2 2.3h3.4l-7.4 8.4 8.7 11.5h-6.8l-5.3-7-6.1 7H1.3l7.9-9L.8 2.3h7l4.8 6.4zm-1.2 17.9h1.9L6.9 4.2H4.9z"/></svg><span class="lbl">Följ på X</span></a></span><button type="button" class="themetoggle" aria-pressed="false" title="Mörkt läge"><span class="vh">Mörkt läge</span><svg class="ico i-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.7 14.6A8.6 8.6 0 0 1 9.4 3.3a.6.6 0 0 0-.8-.7A9.8 9.8 0 1 0 21.4 15.4a.6.6 0 0 0-.7-.8z"/></svg><svg class="ico i-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg></button><div class="langsw"><span class="langglobe" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg></span><label class="langpick"><span class="vh">Välj språk</span><select class="langsel"><option value="../../changelog/" hreflang="en" lang="en" data-lang="en">English</option><option value="../../nn/changelog/" hreflang="nn" lang="nn" data-lang="nn">Nynorsk</option><option value="../../nb/changelog/" hreflang="nb" lang="nb" data-lang="nb">Bokmål</option><option value="../../sv/changelog/" hreflang="sv" lang="sv" data-lang="sv" selected>✓ Svenska</option><option value="../../da/changelog/" hreflang="da" lang="da" data-lang="da">Dansk</option><option value="../../fi/changelog/" hreflang="fi" lang="fi" data-lang="fi">Suomi</option><option value="../../is/changelog/" hreflang="is" lang="is" data-lang="is">Íslenska</option><option value="../../zh/changelog/" hreflang="zh" lang="zh" data-lang="zh">中文</option><option value="../../hi/changelog/" hreflang="hi" lang="hi" data-lang="hi">हिन्दी</option><option value="../../es/changelog/" hreflang="es" lang="es" data-lang="es">Español</option><option value="../../fr/changelog/" hreflang="fr" lang="fr" data-lang="fr">Français</option><option value="../../ar/changelog/" hreflang="ar" lang="ar" dir="rtl" data-lang="ar">العربية</option><option value="../../bn/changelog/" hreflang="bn" lang="bn" data-lang="bn">বাংলা</option><option value="../../pt/changelog/" hreflang="pt" lang="pt" data-lang="pt">Português</option><option value="../../ru/changelog/" hreflang="ru" lang="ru" data-lang="ru">Русский</option><option value="../../ur/changelog/" hreflang="ur" lang="ur" dir="rtl" data-lang="ur">اردو</option><option value="../../id/changelog/" hreflang="id" lang="id" data-lang="id">Bahasa Indonesia</option><option value="../../de/changelog/" hreflang="de" lang="de" data-lang="de">Deutsch</option><option value="../../ja/changelog/" hreflang="ja" lang="ja" data-lang="ja">日本語</option><option value="../../sw/changelog/" hreflang="sw" lang="sw" data-lang="sw">Kiswahili</option><option value="../../mr/changelog/" hreflang="mr" lang="mr" data-lang="mr">मराठी</option></select></label><details><summary><svg class="ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg><span class="vh">Välj språk: </span>Svenska</summary><ul role="list" aria-label="Språk"><li><a href="../../changelog/" hreflang="en" lang="en" data-lang="en">English</a></li><li><a href="../../nn/changelog/" hreflang="nn" lang="nn" data-lang="nn">Nynorsk</a></li><li><a href="../../nb/changelog/" hreflang="nb" lang="nb" data-lang="nb">Bokmål</a></li><li><a href="../../sv/changelog/" hreflang="sv" lang="sv" data-lang="sv" aria-current=true>Svenska</a></li><li><a href="../../da/changelog/" hreflang="da" lang="da" data-lang="da">Dansk</a></li><li><a href="../../fi/changelog/" hreflang="fi" lang="fi" data-lang="fi">Suomi</a></li><li><a href="../../is/changelog/" hreflang="is" lang="is" data-lang="is">Íslenska</a></li><li><a href="../../zh/changelog/" hreflang="zh" lang="zh" data-lang="zh">中文</a></li><li><a href="../../hi/changelog/" hreflang="hi" lang="hi" data-lang="hi">हिन्दी</a></li><li><a href="../../es/changelog/" hreflang="es" lang="es" data-lang="es">Español</a></li><li><a href="../../fr/changelog/" hreflang="fr" lang="fr" data-lang="fr">Français</a></li><li><a href="../../ar/changelog/" hreflang="ar" lang="ar" dir="rtl" data-lang="ar">العربية</a></li><li><a href="../../bn/changelog/" hreflang="bn" lang="bn" data-lang="bn">বাংলা</a></li><li><a href="../../pt/changelog/" hreflang="pt" lang="pt" data-lang="pt">Português</a></li><li><a href="../../ru/changelog/" hreflang="ru" lang="ru" data-lang="ru">Русский</a></li><li><a href="../../ur/changelog/" hreflang="ur" lang="ur" dir="rtl" data-lang="ur">اردو</a></li><li><a href="../../id/changelog/" hreflang="id" lang="id" data-lang="id">Bahasa Indonesia</a></li><li><a href="../../de/changelog/" hreflang="de" lang="de" data-lang="de">Deutsch</a></li><li><a href="../../ja/changelog/" hreflang="ja" lang="ja" data-lang="ja">日本語</a></li><li><a href="../../sw/changelog/" hreflang="sw" lang="sw" data-lang="sw">Kiswahili</a></li><li><a href="../../mr/changelog/" hreflang="mr" lang="mr" data-lang="mr">मराठी</a></li></ul></details></div><button type="button" class="navtoggle" aria-expanded="false" aria-controls="sitenav" aria-label="Huvudmeny"><span class="navbars" aria-hidden="true"><span></span><span></span><span></span></span></button></div><nav id="sitenav" class="main" aria-label="Huvudmeny"><a href="../../sv/">Nyheter</a><a href="../../sv/calendar/">Kalender</a><a href="../../sv/markets/">Marknader</a><a href="../../sv/org-chart/">Vem är vem</a><a href="../../sv/academia/">Akademi</a><a href="../../sv/books/">Böcker</a><a href="../../sv/talks/">Föredrag</a><a class="nav-more" href="../../sv/newsletter/">Nyhetsbrev</a><a class="nav-more" href="../../sv/sources/">Källor</a><a class="nav-more" href="../../sv/about/">Om oss</a><a class="nav-more" href="../../sv/tip/">Tipsa oss</a><a class="nav-more" href="../../api/">API</a></nav></div></header>
+<main class="wrap" id="main" tabindex="-1">
+<style>/* Text pages: about, ethics, tip, columnist, changelog and the API docs. A reading column of about 68 characters; long pages
+   put an "On this page" list beside the text on wide screens (under the lead on phones). Inlined only on those pages. */
+/* text pages */
+.textpage{display:grid;grid-template-columns:minmax(0,1fr);align-items:start;text-align:start}
+.tp-head,.tp-body{min-width:0;max-width:68ch}
+.tp-head .lead{max-width:62ch;margin-bottom:10px}
+.textpage .prose{max-width:68ch}
+.textpage .prose code{overflow-wrap:anywhere}
+.tp-body h2[id]{scroll-margin-top:16px}
+.textpage.has-toc .prose>h2{padding-top:16px;border-top:1px solid var(--line);margin-top:28px}
+.textpage.has-toc .prose>h2:first-child{margin-top:12px}
+.toc{margin:4px 0 0;padding:12px 0 4px;border-top:1px solid var(--line);text-align:start}
+.toc h2{margin:0 0 4px;font:500 12px/1.2 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.toc ol{list-style:none;margin:0;padding:0;columns:2 9rem;column-gap:20px}
+.toc li{break-inside:avoid}
+.toc a{display:flex;align-items:center;min-height:40px;font-size:14.5px;line-height:1.3;text-decoration:none}
+.toc a:hover{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px}
+@media(min-width:1040px){
+  .textpage.has-toc{grid-template-columns:minmax(0,68ch) 220px;column-gap:clamp(48px,7vw,104px)}
+  .textpage.has-toc .tp-head{grid-column:1;grid-row:1}
+  .textpage.has-toc .tp-body{grid-column:1;grid-row:2}
+  .textpage.has-toc .toc{grid-column:2;grid-row:1/span 2;position:sticky;top:20px;margin:44px 0 0;padding:0;border:0}
+  .toc ol{columns:auto}
+  .toc a{min-height:0;padding:6px 0;padding-inline-start:14px;border-inline-start:2px solid var(--line);font-size:14px;color:var(--muted)}
+  .toc a:hover,.toc a:focus-visible{color:var(--fg);border-inline-start-color:var(--gold);text-decoration:none}
+}
+/* forms (tip, columnist): label, help text, control; one primary button */
+.form{max-width:36rem;margin:28px 0 12px}
+.form .plain{border:0;padding:0;margin:0;min-width:0}
+.field{display:flex;flex-direction:column;align-items:stretch;gap:6px;margin:0 0 20px;line-height:1.45}
+.field label{font-weight:600;font-size:15.5px}
+.field .opt{font-weight:400;font-size:14px;color:var(--muted)}
+.field .hint{margin-top:-2px;font-size:14px;color:var(--muted)}
+.field input,.field select,.field textarea{width:100%;min-height:44px;font:inherit;font-size:15.5px;color:var(--fg);background:var(--surface);border:1px solid var(--field-line);border-radius:var(--r-sm);padding:9px 12px}
+.field textarea{min-height:0;resize:vertical}
+.form-actions{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:10px 18px;margin:6px 0 0}
+.form-actions .meta{flex:1 1 15rem;margin:0;line-height:1.45}
+.tipform button{min-height:44px;padding:10px 22px;font-size:15.5px}
+.tipform button:disabled{opacity:.6;cursor:default;transform:none}
+/* changelog: one row per day */
+.cl{max-width:62rem;margin:8px 0 20px}
+.cl-day{display:grid;grid-template-columns:minmax(0,1fr);gap:6px;padding:18px 0 2px;border-top:1px solid var(--line-strong);content-visibility:auto;contain-intrinsic-size:auto 360px}
+.cl-date{margin:0;font:600 12.5px/1.6 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--fg)}
+.cl-date .tag{margin:0;font-family:var(--f-ui);letter-spacing:0;text-transform:none}
+.cl ul{list-style:none;margin:0;padding:0;max-width:68ch}
+.cl li{padding:0 0 14px}
+.cl li+li{padding-top:14px;border-top:1px solid var(--line)}
+.cl h3{margin:0 0 3px;font-size:20px;line-height:1.2}
+.cl li p{margin:0;font-size:15px;line-height:1.55;color:color-mix(in srgb,var(--fg) 88%,transparent)}
+@media(min-width:760px){.cl-day{grid-template-columns:10.5rem minmax(0,1fr);gap:28px}.cl-date{position:sticky;top:16px;align-self:start}}
+</style><h1>Ändringslogg</h1>
 <p class="lead">Ändringar på själva webbplatsen Nordic Crypto – nya sidor, avsnitt och funktioner – senaste först. Dagliga nyheter listas inte här.</p>
 
-<ol class="news"><li id="event-descriptions"><h3>Beskrivningar av evenemang</h3><div class="meta"><time datetime="2026-10-07"><b>7 oktober 2026</b></time></div><p class="sum">Varje evenemangssida visar arrangörens beskrivning under datumet, när en källsida har en. Texten är på sidans språk, och originalet står under när de skiljer sig. Ett evenemang utan källtext har ingen beskrivning.</p></li><li id="shoutbox"><h3>Gemensamt rop, avstängt</h3><div class="meta"><time datetime="2026-10-07"><b>7 oktober 2026</b></time></div><p class="sum">En läsarchatt kan ligga på startsidan och på /chat/ på alla språk. Det är ett rum: meddelandena översätts inte, och sidorna laddar den inte förrän chat/config.json slås på. Tjänsten skulle spara ett smeknamn, meddelandet och en IP-hash som byts varje dygn. Ingen chattkaka.</p></li><li id="compact-front-page"><h3>Kompakt startsida</h3><div class="meta"><time datetime="2026-10-07"><b>7 oktober 2026</b></time></div><p class="sum">Startsidan visar inte längre de stora artikelbilderna eller filtren för land, källa och ämne. Den nyaste artikeln är huvudartikeln, med större rubrik och sammanfattningen. Resten står i ett kompakt rutnät under Senaste: rubriken på sidans språk, källrubriken under när den skiljer sig, sammanfattningen, mediets logotyp och namn, och datumet. Artikelsidorna tappar samma bild. Bilden finns kvar i data-API:et, med kredit. Evenemangsblocket är oförändrat.</p></li><li id="crest-media-kit"><h3>Vapen och mediapaket</h3><div class="meta"><time datetime="2026-10-07"><b>7 oktober 2026</b></time></div><p class="sum">Sidhuvudet använder vapnet för Nordic Crypto: en guldsköld, en mörkröd ros, en svart korp och två lejon. Namnet står till höger om märket, vänsterställt. Favicon, appikon, en enfärgad version och en delningsbild på 1200×630 finns i logotyp- och mediapaketet på /media/. Färgerna är token --nc-or, --nc-gules, --nc-sable, --nc-argent och --nc-cendree. Rubriker använder Cormorant Garamond. Brödtext använder Schibsted Grotesk.</p></li><li id="header-subscribe-telegram"><h3>Prenumerera och Telegram i sidhuvudet</h3><div class="meta"><time datetime="2026-10-07"><b>7 oktober 2026</b></time></div><p class="sum">Knappen i sidhuvudet heter Prenumerera och öppnar nyhetsbrevssidan på den här webbplatsen. Gå med på Telegram står bredvid Följ på X. E-postanmälan öppnar när e-posttjänsten är på. Tills dess säger sidan det och länkar till RSS, Telegram och X. Den tar inte emot en adress.</p></li><li id="talks-archive"><h3>Föredragsarkiv</h3><div class="meta"><time datetime="2026-10-07"><b>7 oktober 2026</b></time></div><p class="sum">En föredragssida listar inspelningar av offentliga föredrag om bitcoin, kryptovaluta och blockkedja som hållits i de nordiska länderna, nyast först, med filter för land, år och språk. Spelaren laddas bara efter ett klick, och bara när plattformen tillåter inbäddning. Samma föredrag finns i /api/v1/talks.json. Första omgången är ett kontrollerat urval, inte ett komplett arkiv.</p></li><li id="translated-headlines"><h3>Rubriker på sidans språk</h3><div class="meta"><time datetime="2026-10-06"><b>6 oktober 2026</b></time></div><p class="sum">Ett artikelkort har nu rubriken på språket du läser, först. När källan skrev rubriken på ett annat språk står den rubriken under, i mindre stil. Är källspråket samma som sidans språk finns fortfarande bara en rubrik. Den korta sammanfattningen under «I korthet» är som förut. Samma par står på startsidan och på artikelsidan, på varje språk.</p></li><li id="newsletter-own-list"><h3>Anmälan till nyhetsbrevet på den här webbplatsen</h3><div class="meta"><time datetime="2026-10-06"><b>6 oktober 2026</b></time></div><p class="sum">Anmälan till nyhetsbrevet är ett formulär på den här webbplatsen. Vi sparar e-postadressen i en privat databas och skickar varje utgåva själva. Cloudflare Web Analytics räknar fortfarande besök samlat, utan kakor, och vi säljer inte de uppgifterna. Varje utgåva har en länk för att avsluta prenumerationen.</p></li><li id="nordic-press-justice-sources"><h3>Nordiska tidningar, press från rättsväsendet och logotyper</h3><div class="meta"><time datetime="2026-10-06"><b>6 oktober 2026</b></time></div><p class="sum">Källistan omfattar nu nationella, regionala och lokala tidningar i Norge, Sverige, Danmark, Finland, Island, Färöarna, Grönland och Åland, plus pressmeddelanden från polis, åklagare, domstolar, tull, skatt och finansunderrättelse där de publicerar nyheter. Ett verifierat RSS- eller Atom-flöde läses när ett fungerar. En källa utan RSS läses från webbplatskarta eller en publik indexsida (titel, datum, länk och sammanfattning), även Bare Bitcoins blogg. En källa som fortfarande inte kan läsas står kvar för manuell bevakning. Lokaltidningar och rättskällor filtreras på nyckelord, och ett dött flöde stoppar inte körningen. Där vi har utgivarens egen logotyp visas den bredvid namnet bara för att identifiera källan, och den länkar till utgivaren. Kaupr är bara en nyhetskälla.</p></li><li id="luma-eventbrite-intake"><h3>Luma och Eventbrite i kalendern</h3><div class="meta"><time datetime="2026-10-06"><b>6 oktober 2026</b></time></div><p class="sum">Luma och Eventbrite är evenemangskällor. Luma är varje kalenders offentliga iCal-flöde (Subscribe), plus schema.org JSON-LD på en enskild evenemangssida. Stadssidor, kategorisidor och Lumas discover-API används inte: villkoren tillåter bara offentligt stödda gränssnitt, och det officiella API:t kräver Luma Plus och täcker bara kalendrar du själv driver. Eventbrite använder v3-API:t för arrangörer och platser när EVENTBRITE_TOKEN är satt på servern. Token sparas inte i git. Utan den används JSON-LD på evenemangssidan. Det offentliga sök-API:t, som togs bort 2020, används inte. Ett evenemang tas med bara när rubrik, beskrivning eller plats träffar bitcoin-, krypto- eller blockkedjefiltret, även på nordiska språk. Samma titel, datum och plats listas en gång. Land och stad märks från platsen. Ett trasigt flöde stoppar inte körningen. Avslutade evenemang ligger kvar i arkivet. Kaupr är bara en nyhetskälla och är aldrig sponsor för ett evenemang.</p></li><li id="story-illustrations"><h3>Licensierade bilder på artiklar, inga tidningsfoton</h3><div class="meta"><time datetime="2026-10-06"><b>6 oktober 2026</b></time></div><p class="sum">Kort och artikelsidor visar nu en bild, med kredit under: källa, upphovsperson, licens och en länk. Bilderna är våra egna illustrationer, filer från Wikimedia Commons under CC0, CC BY eller CC BY-SA, eller en officiell bild som en myndighet har släppt för fri användning (Riksbankshuset, och Norges Banks fasad enligt bankens villkor). Vi kopierar, lagrar eller hämtar inte fotografier från andra tidningar. En genomgång av webbplatsen, bygget och /api/v1/ hittade inga sådana bilder lagrade. Importen släpper nu og:image, RSS media:content och bildbilagor i stället för att spara dem. Medielogotyper är kvar, bara för att namnge källan.</p></li><li id="browser-notifications"><h3>Aviseringar i webbläsaren när nya artiklar publiceras</h3><div class="meta"><time datetime="2026-10-06"><b>6 oktober 2026</b></time></div><p class="sum">En knapp längst ner på varje sida slår på aviseringar i webbläsaren. En publicering skickar ett meddelande, även när flera artiklar kommer tillsammans. Du kan begränsa det till ett eller flera av Norge, Sverige, Danmark, Finland och Island, och meddelandet använder sidans språk. Vi sparar bara push-prenumerationen, det språket och de länderna. Samma knapp stänger av aviseringar och raderar prenumerationen. Cloudflare Web Analytics räknar fortfarande besök samlat, utan kakor, och de uppgifterna säljs inte. Ett JSON-flöde med samma grupper finns för en senare iOS-app. Apples push-tjänst (APNs) används inte. Tills tjänsten är påslagen säger sidan det och visar inte knappen.</p></li><li id="domain-nordiccrypto-no"><h3>Ny adress: nordiccrypto.no</h3><div class="meta"><time datetime="2026-10-06"><b>6 oktober 2026</b></time></div><p class="sum">Webbplatsen har flyttat till https://nordiccrypto.no/. Gamla länkar till cryptonordic.no fungerar fortfarande och leder till samma sida på den nya adressen. nordiccrypto.dk, .se, .fi, .is och .eu leder också hit.</p></li><li id="mobile-language"><h3>Språkval på telefonen</h3><div class="meta"><time datetime="2026-10-06"><b>6 oktober 2026</b></time></div><p class="sum">På en smal skärm är språkvalet telefonens egen meny. Den visar varje språk på webbplatsen med sitt eget namn, och språket du läser är markerat. Den öppnar inte längre en tom ruta över artikeln. Avsnittslänkarna ligger bakom en menyknapp, så sidhuvudet stannar på två rader. Bredare skärmar har samma språklista som förut.</p></li><li id="community-links"><h3>Nordic Crypto på Telegram och X</h3><div class="meta"><time datetime="2026-10-06"><b>6 oktober 2026</b></time></div><p class="sum">Sidfoten, Om oss och nyhetsbrevet länkar till Nordic Cryptos varumärkeskonton: Telegram på https://t.me/nordiccryptochat och X på https://x.com/xcryptonordic. Samma länkar finns i /api/v1/meta.json under social, för iOS-appen. Länktexten finns på engelska, nynorska, bokmål, svenska, danska, finska och isländska. Övriga språk på webbplatsen använder den engelska texten. Länken till källkoden är kvar.</p></li><li id="story-coverage"><h3>Flera medier på samma artikel</h3><div class="meta"><time datetime="2026-10-06"><b>6 oktober 2026</b></time></div><p class="sum">En artikel kan nu lista varje medium som bevakade samma händelse. Startsidan visar en kort rad med logotyper och ett antal källor. Artikelsidan har Läs hos den primära källan, Även bevakad av med länk till varje annat medium, en lista med logotyp, land, rubrik och tid, och staplar för bevakning per land och per källtyp (nationella, regionala och lokala, rättsväsen och myndigheter, internationella). Det publika nyhets-API:t har primary_source, also_covered_by, sources och coverage. En artikel om samma händelse läggs på artikeln som redan finns, i stället för att publiceras en gång till. Redaktören kan sätta duplicate_of på raden i granskningskön.</p></li><li id="frontpage-blurbs"><h3>Längre sammanfattningar på startsidan</h3><div class="meta"><time datetime="2026-10-05"><b>5 oktober 2026</b></time></div><p class="sum">Varje artikel på startsidan har nu en sammanfattning av vad artikeln säger, två till fyra meningar, på engelska, nynorska, bokmål, svenska, danska, finska och isländska. Övriga språk på webbplatsen visar den engelska sammanfattningen. En mening som ingress är inte längre den enda texten på kortet. Orden är våra, från rubriken och den publika ingressen. Vi kopierar inte artikeltext och kringgår inte betalväggar.</p></li><li id="regulation-videos"><h3>Videoförklaringar av reglerna</h3><div class="meta"><time datetime="2026-10-05"><b>5 oktober 2026</b></time></div><p class="sum">Fem platser för Norge, Sverige, Danmark, Finland och Island finns på /regulation-videos/, länkade från Så blir reglerna till och Om oss. Varje plats spelar upp en HTML5-video när en MP4 finns. Tills dess visas titel, berättarnoteringar och källor. Filmerna är inte gjorda än. Island ingår i EES, inte i EU, och Seðlabanki Íslands rymmer Fjármálaeftirlit. Signaturen är The Nordic Crypto team.</p></li><li id="outlet-logos"><h3>Logotyper från källan på nyheter</h3><div class="meta"><time datetime="2026-10-05"><b>5 oktober 2026</b></time></div><p class="sum">Nyhetslistor, skärmen och våra egna artikelsidor visar tidningens eller källans logotyp bredvid namnet när en kontrollerad logotyp finns. Namnet står ensamt när det inte finns någon logotyp. Kaupr är bara en nyhetskälla. Kartan från käll-id till bild ligger i assets/img/logos/logos.json.</p></li><li id="aggregated-market-prices"><h3>Samlat pris per par</h3><div class="meta"><time datetime="2026-10-05"><b>5 oktober 2026</b></time></div><p class="sum">Marknads-API:et har nu ett samlat pris per bas- och noteringspar på /api/v1/markets/aggregated.json, också på /api/v1/markets.json och /api/v1/markets/by-asset/{symbol}.json. BTC-NOK blandas inte med BTC-EUR. Siffran är medelvärdet av publicerade senaste priser, eller medelvärdet av köp och sälj när inget senaste pris finns. Lägst, högst, antal börser och de priser som ingår finns med. Volym visas och summeras bara när en börs har publicerat den, och en 24-timmarsvolym läggs inte till en volym utan angiven period. Det finns inget volymvägt pris. Myntikoner från cryptocurrency-icons (CC0 1.0) serveras under /api/v1/markets/logos/ när setet har tillgången. Marknadssidan visar sammandraget och volymen.</p></li><li id="ios-testflight"><h3>iOS-app på TestFlight</h3><div class="meta"><time datetime="2026-10-05"><b>5 oktober 2026</b></time></div><p class="sum">En offentlig TestFlight-inbjudan till iOS-appen för Nordic Crypto är länkad från sidfoten, startsidan, marknadssidan och Om oss. Det finns ingen App Store-sida.</p></li><li id="nordic-exchange-prices"><h3>Priser på nordiska börser</h3><div class="meta"><time datetime="2026-10-05"><b>5 oktober 2026</b></time></div><p class="sum">Marknadspriser från Firi, Norwegian Block Exchange och Coinmotion finns på /markets/ och i /api/v1/markets.json. Noteringarna är i NOK, SEK, DKK och EUR. Siffrorna är marknadsdata, inte investeringsrådgivning. Safello, Goobit, Trijo, Northcrypto, Kvarn X och danska eller isländska ställen utan öppen kurs listas som utelämnade. JSON hämtas vid bygget och uppdateras på gh-pages ungefär varje timme.</p></li><li id="press-ethics"><h3>Redaktionell etik</h3><div class="meta"><time datetime="2026-10-05"><b>5 oktober 2026</b></time></div><p class="sum">Redaktionell etik säger att Nordic Crypto följer Vær Varsom-plakaten. En namngiven redaktör godkänner allt. Adressen för klagomål på sidan är TBA. Sidan ligger på /ethics/, med länk från Om oss och sidfoten, på sajtens alla språk.</p></li><li id="public-data-api"><h3>Offentligt data-API</h3><div class="meta"><time datetime="2026-10-05"><b>5 oktober 2026</b></time></div><p class="sum">Nyheter, nyhetsbrev, kalendern, källor, akademin, vem är vem, profiler och regelkartan publiceras som JSON under /api/v1/. Inget konto. Guiden finns på /api/, med OpenAPI och llms.txt för andra verktyg.</p></li><li id="issue-1-newsreel-3"><h3>Utgåva #1 newsreel inspelad på nytt</h3><div class="meta"><time datetime="2026-10-05"><b>5 oktober 2026</b></time></div><p class="sum">Talat i nyhetsbrevets utgåva #1 är inspelat på nytt (utgåva newsletter-001-newsreel-3), så det stämmer med textningen. Inledningen säger inte att programmet är gjort med artificiell intelligens. Kaupr nämns bara som källan till nyheten om GreenMerc. Avslutningen är Nordic Crypto-teamet.</p></li><li id="issue-1-newsreel-2"><h3>Utgåva #1 newsreel live</h3><div class="meta"><time datetime="2026-10-05"><b>5 oktober 2026</b></time></div><p class="sum">Ersatte den live-sända videon för nyhetsbrevets utgåva #1 med den korrigerade newsreel-filen (utgåva newsletter-001-newsreel-2). Kaupr nämns bara när en nyhet kommer från Kaupr. Inledningen säger inte längre att utgåvan är gjord med artificiell intelligens.</p></li><li id="nordic-crypto-name-eu-newsletter-columnist"><h3>Nordic Crypto på kartan, i nyhetsbrevet och för krönikörer</h3><div class="meta"><time datetime="2026-10-05"><b>5 oktober 2026</b></time></div><p class="sum">Det offentliga namnet är Nordic Crypto. EBA, ESMA och EBA:s ordförande visas som EU på branschkartan. Nyhetsbrevets utgåva #1 kan läsas på engelska, norska (nynorska och bokmål), svenska, danska, finska och isländska. När en artikel är på ett annat språk förklarar kortet den på sidans språk. Ansök som krönikör från sidfoten, Om oss och nyhetsbrevet. Cloudflare Web Analytics räknar besök samlat, utan kakor, och de uppgifterna säljs inte. Sammanfattningarna görs med hjälp av artificiell intelligens, med mänskliga redaktörer (jQrgen och Nordic Crypto-redaktören).</p></li><li id="newsletter-tab-issue-1"><h3>Fliken Nyhetsbrev och det första numret, med video</h3><div class="meta"><time datetime="2026-10-05"><b>5 oktober 2026</b></time></div><p class="sum">Huvudmenyn har fått en ny flik, Nyhetsbrev. Där finns alla utgåvor, nyaste först, tillsammans med anmälan hos Substack. Utgåva #1 (Binance granskas och Sveriges varning om krypto och sanktioner) kan läsas i sin helhet på webbplatsen, med en kort video som spelas upp härifrån, med engelska undertexter och utan spelare från tredje part. Utgåvan är på engelska.</p></li><li id="rename-crypto-nordic"><h3>Namnet är Nordic Crypto</h3><div class="meta"><time datetime="2026-10-05"><b>5 oktober 2026</b></time></div><p class="sum">Webbplatsen heter Nordic Crypto. Anmälan till nyhetsbrevet länkar till https://cryptonordic.substack.com/subscribe. Domänen cryptonordic.no och X-kontot @xcryptonordic är som förut.</p></li><li id="reader-tips"><h3>Skicka ett tips</h3><div class="meta"><time datetime="2026-10-03"><b>3 oktober 2026</b></time></div><p class="sum">Läsare kan nu tipsa Nordic Crypto om artiklar via den nya sidan Skicka ett tips, som öppnar ett formulär på GitHub. Tipsen är offentliga på GitHub, så ta inte med personliga eller känsliga uppgifter. Vår redaktör bedömer varje tips enligt våra regler; ett tips är ingen garanti för publicering.</p></li><li id="past-events"><h3>Arkiv över tidigare evenemang</h3><div class="meta"><time datetime="2026-10-03"><b>3 oktober 2026</b></time></div><p class="sum">Evenemang som är över tas inte längre bort från kalendern. När ett evenemang har avslutats (Oslotid) flyttas det automatiskt till den nya delen Tidigare evenemang längst ned i kalendern, nyaste först. Kontorsskärmen visar bara kommande evenemang.</p></li><li id="denmark-added"><h3>Danmark tillagt</h3><div class="meta"><time datetime="2026-10-03"><b>3 oktober 2026</b></time></div><p class="sum">Nordic Crypto bevakar nu Norge, Sverige, Danmark, Finland och Island. Danmark har ett eget landfilter på nyhets-, kalender-, vem är vem- och forskningssidorna, och vi följer nu danska tidningar, public service-bolag, teknikmedier, Danmarks Nationalbank, Kauprs Danmarkssida och en nyhetssökning på danska webbplatser. Danska nyheter, evenemang och poster visas när redaktören har granskat dem.</p></li><li id="remove-faroe-islands"><h3>Bevakningen begränsad till fyra länder</h3><div class="meta"><time datetime="2026-10-03"><b>3 oktober 2026</b></time></div><p class="sum">Nordic Crypto bevakar nu Norge, Sverige, Finland och Island. Färöarna har tagits bort från nyhetskällorna, landfiltren, kalendern, vem är vem, delen Reglering per land, forskningssidan och kontorsskärmen.</p></li><li id="academia"><h3>Sida om forskning och utbildning</h3><div class="meta"><time datetime="2026-10-03"><b>3 oktober 2026</b></time></div><p class="sum">Ny sida om forskning och utbildning: kurser och program om blockkedjor och krypto, studentföreningar, publikationer och forskargrupper vid universitet i Norge, Sverige, Finland, Island och på Färöarna. Varje rad visar källa, datumet då vi kontrollerade den och status; bara rader som redaktören har godkänt visas.</p></li><li id="initial-build"><h3>Nordic Crypto lanseras</h3><div class="meta"><time datetime="2026-10-03"><b>3 oktober 2026</b></time></div><p class="sum">Första versionen av webbplatsen på engelska: nyheter från Norge, Sverige, Finland, Island och Färöarna med egna korta sammanfattningar; en evenemangskalender med månadsvy, mobillista och landfilter; en översikt över vem som är vem i branschen och bland myndigheterna, uppdelad på privat och offentlig sektor, med landfilter; delen Reglering per land; listan över källorna vi följer; en Om-sida med rättelser och borttagning; och ett helskärmsläge för kontorsskärmar i stående och liggande format.</p></li></ol>
+<div class="cl"><section class="cl-day"><h2 class="cl-date"><time datetime="2026-10-07">7 oktober 2026</time></h2><ul><li id="event-descriptions"><h3>Beskrivningar av evenemang</h3><p>Varje evenemangssida visar arrangörens beskrivning under datumet, när en källsida har en. Texten är på sidans språk, och originalet står under när de skiljer sig. Ett evenemang utan källtext har ingen beskrivning.</p></li><li id="shoutbox"><h3>Gemensamt rop, avstängt</h3><p>En läsarchatt kan ligga på startsidan och på /chat/ på alla språk. Det är ett rum: meddelandena översätts inte, och sidorna laddar den inte förrän chat/config.json slås på. Tjänsten skulle spara ett smeknamn, meddelandet och en IP-hash som byts varje dygn. Ingen chattkaka.</p></li><li id="compact-front-page"><h3>Kompakt startsida</h3><p>Startsidan visar inte längre de stora artikelbilderna eller filtren för land, källa och ämne. Den nyaste artikeln är huvudartikeln, med större rubrik och sammanfattningen. Resten står i ett kompakt rutnät under Senaste: rubriken på sidans språk, källrubriken under när den skiljer sig, sammanfattningen, mediets logotyp och namn, och datumet. Artikelsidorna tappar samma bild. Bilden finns kvar i data-API:et, med kredit. Evenemangsblocket är oförändrat.</p></li><li id="crest-media-kit"><h3>Vapen och mediapaket</h3><p>Sidhuvudet använder vapnet för Nordic Crypto: en guldsköld, en mörkröd ros, en svart korp och två lejon. Namnet står till höger om märket, vänsterställt. Favicon, appikon, en enfärgad version och en delningsbild på 1200×630 finns i logotyp- och mediapaketet på /media/. Färgerna är token --nc-or, --nc-gules, --nc-sable, --nc-argent och --nc-cendree. Rubriker använder Cormorant Garamond. Brödtext använder Schibsted Grotesk.</p></li><li id="header-subscribe-telegram"><h3>Prenumerera och Telegram i sidhuvudet</h3><p>Knappen i sidhuvudet heter Prenumerera och öppnar nyhetsbrevssidan på den här webbplatsen. Gå med på Telegram står bredvid Följ på X. E-postanmälan öppnar när e-posttjänsten är på. Tills dess säger sidan det och länkar till RSS, Telegram och X. Den tar inte emot en adress.</p></li><li id="talks-archive"><h3>Föredragsarkiv</h3><p>En föredragssida listar inspelningar av offentliga föredrag om bitcoin, kryptovaluta och blockkedja som hållits i de nordiska länderna, nyast först, med filter för land, år och språk. Spelaren laddas bara efter ett klick, och bara när plattformen tillåter inbäddning. Samma föredrag finns i /api/v1/talks.json. Första omgången är ett kontrollerat urval, inte ett komplett arkiv.</p></li></ul></section><section class="cl-day"><h2 class="cl-date"><time datetime="2026-10-06">6 oktober 2026</time></h2><ul><li id="translated-headlines"><h3>Rubriker på sidans språk</h3><p>Ett artikelkort har nu rubriken på språket du läser, först. När källan skrev rubriken på ett annat språk står den rubriken under, i mindre stil. Är källspråket samma som sidans språk finns fortfarande bara en rubrik. Den korta sammanfattningen under «I korthet» är som förut. Samma par står på startsidan och på artikelsidan, på varje språk.</p></li><li id="newsletter-own-list"><h3>Anmälan till nyhetsbrevet på den här webbplatsen</h3><p>Anmälan till nyhetsbrevet är ett formulär på den här webbplatsen. Vi sparar e-postadressen i en privat databas och skickar varje utgåva själva. Cloudflare Web Analytics räknar fortfarande besök samlat, utan kakor, och vi säljer inte de uppgifterna. Varje utgåva har en länk för att avsluta prenumerationen.</p></li><li id="nordic-press-justice-sources"><h3>Nordiska tidningar, press från rättsväsendet och logotyper</h3><p>Källistan omfattar nu nationella, regionala och lokala tidningar i Norge, Sverige, Danmark, Finland, Island, Färöarna, Grönland och Åland, plus pressmeddelanden från polis, åklagare, domstolar, tull, skatt och finansunderrättelse där de publicerar nyheter. Ett verifierat RSS- eller Atom-flöde läses när ett fungerar. En källa utan RSS läses från webbplatskarta eller en publik indexsida (titel, datum, länk och sammanfattning), även Bare Bitcoins blogg. En källa som fortfarande inte kan läsas står kvar för manuell bevakning. Lokaltidningar och rättskällor filtreras på nyckelord, och ett dött flöde stoppar inte körningen. Där vi har utgivarens egen logotyp visas den bredvid namnet bara för att identifiera källan, och den länkar till utgivaren. Kaupr är bara en nyhetskälla.</p></li><li id="luma-eventbrite-intake"><h3>Luma och Eventbrite i kalendern</h3><p>Luma och Eventbrite är evenemangskällor. Luma är varje kalenders offentliga iCal-flöde (Subscribe), plus schema.org JSON-LD på en enskild evenemangssida. Stadssidor, kategorisidor och Lumas discover-API används inte: villkoren tillåter bara offentligt stödda gränssnitt, och det officiella API:t kräver Luma Plus och täcker bara kalendrar du själv driver. Eventbrite använder v3-API:t för arrangörer och platser när EVENTBRITE_TOKEN är satt på servern. Token sparas inte i git. Utan den används JSON-LD på evenemangssidan. Det offentliga sök-API:t, som togs bort 2020, används inte. Ett evenemang tas med bara när rubrik, beskrivning eller plats träffar bitcoin-, krypto- eller blockkedjefiltret, även på nordiska språk. Samma titel, datum och plats listas en gång. Land och stad märks från platsen. Ett trasigt flöde stoppar inte körningen. Avslutade evenemang ligger kvar i arkivet. Kaupr är bara en nyhetskälla och är aldrig sponsor för ett evenemang.</p></li><li id="story-illustrations"><h3>Licensierade bilder på artiklar, inga tidningsfoton</h3><p>Kort och artikelsidor visar nu en bild, med kredit under: källa, upphovsperson, licens och en länk. Bilderna är våra egna illustrationer, filer från Wikimedia Commons under CC0, CC BY eller CC BY-SA, eller en officiell bild som en myndighet har släppt för fri användning (Riksbankshuset, och Norges Banks fasad enligt bankens villkor). Vi kopierar, lagrar eller hämtar inte fotografier från andra tidningar. En genomgång av webbplatsen, bygget och /api/v1/ hittade inga sådana bilder lagrade. Importen släpper nu og:image, RSS media:content och bildbilagor i stället för att spara dem. Medielogotyper är kvar, bara för att namnge källan.</p></li><li id="browser-notifications"><h3>Aviseringar i webbläsaren när nya artiklar publiceras</h3><p>En knapp längst ner på varje sida slår på aviseringar i webbläsaren. En publicering skickar ett meddelande, även när flera artiklar kommer tillsammans. Du kan begränsa det till ett eller flera av Norge, Sverige, Danmark, Finland och Island, och meddelandet använder sidans språk. Vi sparar bara push-prenumerationen, det språket och de länderna. Samma knapp stänger av aviseringar och raderar prenumerationen. Cloudflare Web Analytics räknar fortfarande besök samlat, utan kakor, och de uppgifterna säljs inte. Ett JSON-flöde med samma grupper finns för en senare iOS-app. Apples push-tjänst (APNs) används inte. Tills tjänsten är påslagen säger sidan det och visar inte knappen.</p></li><li id="domain-nordiccrypto-no"><h3>Ny adress: nordiccrypto.no</h3><p>Webbplatsen har flyttat till https://nordiccrypto.no/. Gamla länkar till cryptonordic.no fungerar fortfarande och leder till samma sida på den nya adressen. nordiccrypto.dk, .se, .fi, .is och .eu leder också hit.</p></li><li id="mobile-language"><h3>Språkval på telefonen</h3><p>På en smal skärm är språkvalet telefonens egen meny. Den visar varje språk på webbplatsen med sitt eget namn, och språket du läser är markerat. Den öppnar inte längre en tom ruta över artikeln. Avsnittslänkarna ligger bakom en menyknapp, så sidhuvudet stannar på två rader. Bredare skärmar har samma språklista som förut.</p></li><li id="community-links"><h3>Nordic Crypto på Telegram och X</h3><p>Sidfoten, Om oss och nyhetsbrevet länkar till Nordic Cryptos varumärkeskonton: Telegram på https://t.me/nordiccryptochat och X på https://x.com/xcryptonordic. Samma länkar finns i /api/v1/meta.json under social, för iOS-appen. Länktexten finns på engelska, nynorska, bokmål, svenska, danska, finska och isländska. Övriga språk på webbplatsen använder den engelska texten. Länken till källkoden är kvar.</p></li><li id="story-coverage"><h3>Flera medier på samma artikel</h3><p>En artikel kan nu lista varje medium som bevakade samma händelse. Startsidan visar en kort rad med logotyper och ett antal källor. Artikelsidan har Läs hos den primära källan, Även bevakad av med länk till varje annat medium, en lista med logotyp, land, rubrik och tid, och staplar för bevakning per land och per källtyp (nationella, regionala och lokala, rättsväsen och myndigheter, internationella). Det publika nyhets-API:t har primary_source, also_covered_by, sources och coverage. En artikel om samma händelse läggs på artikeln som redan finns, i stället för att publiceras en gång till. Redaktören kan sätta duplicate_of på raden i granskningskön.</p></li></ul></section><section class="cl-day"><h2 class="cl-date"><time datetime="2026-10-05">5 oktober 2026</time></h2><ul><li id="frontpage-blurbs"><h3>Längre sammanfattningar på startsidan</h3><p>Varje artikel på startsidan har nu en sammanfattning av vad artikeln säger, två till fyra meningar, på engelska, nynorska, bokmål, svenska, danska, finska och isländska. Övriga språk på webbplatsen visar den engelska sammanfattningen. En mening som ingress är inte längre den enda texten på kortet. Orden är våra, från rubriken och den publika ingressen. Vi kopierar inte artikeltext och kringgår inte betalväggar.</p></li><li id="regulation-videos"><h3>Videoförklaringar av reglerna</h3><p>Fem platser för Norge, Sverige, Danmark, Finland och Island finns på /regulation-videos/, länkade från Så blir reglerna till och Om oss. Varje plats spelar upp en HTML5-video när en MP4 finns. Tills dess visas titel, berättarnoteringar och källor. Filmerna är inte gjorda än. Island ingår i EES, inte i EU, och Seðlabanki Íslands rymmer Fjármálaeftirlit. Signaturen är The Nordic Crypto team.</p></li><li id="outlet-logos"><h3>Logotyper från källan på nyheter</h3><p>Nyhetslistor, skärmen och våra egna artikelsidor visar tidningens eller källans logotyp bredvid namnet när en kontrollerad logotyp finns. Namnet står ensamt när det inte finns någon logotyp. Kaupr är bara en nyhetskälla. Kartan från käll-id till bild ligger i assets/img/logos/logos.json.</p></li><li id="aggregated-market-prices"><h3>Samlat pris per par</h3><p>Marknads-API:et har nu ett samlat pris per bas- och noteringspar på /api/v1/markets/aggregated.json, också på /api/v1/markets.json och /api/v1/markets/by-asset/{symbol}.json. BTC-NOK blandas inte med BTC-EUR. Siffran är medelvärdet av publicerade senaste priser, eller medelvärdet av köp och sälj när inget senaste pris finns. Lägst, högst, antal börser och de priser som ingår finns med. Volym visas och summeras bara när en börs har publicerat den, och en 24-timmarsvolym läggs inte till en volym utan angiven period. Det finns inget volymvägt pris. Myntikoner från cryptocurrency-icons (CC0 1.0) serveras under /api/v1/markets/logos/ när setet har tillgången. Marknadssidan visar sammandraget och volymen.</p></li><li id="ios-testflight"><h3>iOS-app på TestFlight</h3><p>En offentlig TestFlight-inbjudan till iOS-appen för Nordic Crypto är länkad från sidfoten, startsidan, marknadssidan och Om oss. Det finns ingen App Store-sida.</p></li><li id="nordic-exchange-prices"><h3>Priser på nordiska börser</h3><p>Marknadspriser från Firi, Norwegian Block Exchange och Coinmotion finns på /markets/ och i /api/v1/markets.json. Noteringarna är i NOK, SEK, DKK och EUR. Siffrorna är marknadsdata, inte investeringsrådgivning. Safello, Goobit, Trijo, Northcrypto, Kvarn X och danska eller isländska ställen utan öppen kurs listas som utelämnade. JSON hämtas vid bygget och uppdateras på gh-pages ungefär varje timme.</p></li><li id="press-ethics"><h3>Redaktionell etik</h3><p>Redaktionell etik säger att Nordic Crypto följer Vær Varsom-plakaten. En namngiven redaktör godkänner allt. Adressen för klagomål på sidan är TBA. Sidan ligger på /ethics/, med länk från Om oss och sidfoten, på sajtens alla språk.</p></li><li id="public-data-api"><h3>Offentligt data-API</h3><p>Nyheter, nyhetsbrev, kalendern, källor, akademin, vem är vem, profiler och regelkartan publiceras som JSON under /api/v1/. Inget konto. Guiden finns på /api/, med OpenAPI och llms.txt för andra verktyg.</p></li><li id="issue-1-newsreel-3"><h3>Utgåva #1 newsreel inspelad på nytt</h3><p>Talat i nyhetsbrevets utgåva #1 är inspelat på nytt (utgåva newsletter-001-newsreel-3), så det stämmer med textningen. Inledningen säger inte att programmet är gjort med artificiell intelligens. Kaupr nämns bara som källan till nyheten om GreenMerc. Avslutningen är Nordic Crypto-teamet.</p></li><li id="issue-1-newsreel-2"><h3>Utgåva #1 newsreel live</h3><p>Ersatte den live-sända videon för nyhetsbrevets utgåva #1 med den korrigerade newsreel-filen (utgåva newsletter-001-newsreel-2). Kaupr nämns bara när en nyhet kommer från Kaupr. Inledningen säger inte längre att utgåvan är gjord med artificiell intelligens.</p></li><li id="nordic-crypto-name-eu-newsletter-columnist"><h3>Nordic Crypto på kartan, i nyhetsbrevet och för krönikörer</h3><p>Det offentliga namnet är Nordic Crypto. EBA, ESMA och EBA:s ordförande visas som EU på branschkartan. Nyhetsbrevets utgåva #1 kan läsas på engelska, norska (nynorska och bokmål), svenska, danska, finska och isländska. När en artikel är på ett annat språk förklarar kortet den på sidans språk. Ansök som krönikör från sidfoten, Om oss och nyhetsbrevet. Cloudflare Web Analytics räknar besök samlat, utan kakor, och de uppgifterna säljs inte. Sammanfattningarna görs med hjälp av artificiell intelligens, med mänskliga redaktörer (jQrgen och Nordic Crypto-redaktören).</p></li><li id="newsletter-tab-issue-1"><h3>Fliken Nyhetsbrev och det första numret, med video</h3><p>Huvudmenyn har fått en ny flik, Nyhetsbrev. Där finns alla utgåvor, nyaste först, tillsammans med anmälan hos Substack. Utgåva #1 (Binance granskas och Sveriges varning om krypto och sanktioner) kan läsas i sin helhet på webbplatsen, med en kort video som spelas upp härifrån, med engelska undertexter och utan spelare från tredje part. Utgåvan är på engelska.</p></li><li id="rename-crypto-nordic"><h3>Namnet är Nordic Crypto</h3><p>Webbplatsen heter Nordic Crypto. Anmälan till nyhetsbrevet länkar till https://cryptonordic.substack.com/subscribe. Domänen cryptonordic.no och X-kontot @xcryptonordic är som förut.</p></li></ul></section><section class="cl-day"><h2 class="cl-date"><time datetime="2026-10-03">3 oktober 2026</time></h2><ul><li id="reader-tips"><h3>Skicka ett tips</h3><p>Läsare kan nu tipsa Nordic Crypto om artiklar via den nya sidan Skicka ett tips, som öppnar ett formulär på GitHub. Tipsen är offentliga på GitHub, så ta inte med personliga eller känsliga uppgifter. Vår redaktör bedömer varje tips enligt våra regler; ett tips är ingen garanti för publicering.</p></li><li id="past-events"><h3>Arkiv över tidigare evenemang</h3><p>Evenemang som är över tas inte längre bort från kalendern. När ett evenemang har avslutats (Oslotid) flyttas det automatiskt till den nya delen Tidigare evenemang längst ned i kalendern, nyaste först. Kontorsskärmen visar bara kommande evenemang.</p></li><li id="denmark-added"><h3>Danmark tillagt</h3><p>Nordic Crypto bevakar nu Norge, Sverige, Danmark, Finland och Island. Danmark har ett eget landfilter på nyhets-, kalender-, vem är vem- och forskningssidorna, och vi följer nu danska tidningar, public service-bolag, teknikmedier, Danmarks Nationalbank, Kauprs Danmarkssida och en nyhetssökning på danska webbplatser. Danska nyheter, evenemang och poster visas när redaktören har granskat dem.</p></li><li id="remove-faroe-islands"><h3>Bevakningen begränsad till fyra länder</h3><p>Nordic Crypto bevakar nu Norge, Sverige, Finland och Island. Färöarna har tagits bort från nyhetskällorna, landfiltren, kalendern, vem är vem, delen Reglering per land, forskningssidan och kontorsskärmen.</p></li><li id="academia"><h3>Sida om forskning och utbildning</h3><p>Ny sida om forskning och utbildning: kurser och program om blockkedjor och krypto, studentföreningar, publikationer och forskargrupper vid universitet i Norge, Sverige, Finland, Island och på Färöarna. Varje rad visar källa, datumet då vi kontrollerade den och status; bara rader som redaktören har godkänt visas.</p></li><li id="initial-build"><h3>Nordic Crypto lanseras</h3><p>Första versionen av webbplatsen på engelska: nyheter från Norge, Sverige, Finland, Island och Färöarna med egna korta sammanfattningar; en evenemangskalender med månadsvy, mobillista och landfilter; en översikt över vem som är vem i branschen och bland myndigheterna, uppdelad på privat och offentlig sektor, med landfilter; delen Reglering per land; listan över källorna vi följer; en Om-sida med rättelser och borttagning; och ett helskärmsläge för kontorsskärmar i stående och liggande format.</p></li></ul></section></div>
 <p class="meta">Data: <a href="../../data/changelog.json">changelog.json</a>.</p>
-<nav class="social social-source" aria-label="Källkod"><span class="social-label">Källkod:</span><a class="social-repo" href="https://github.com/jQrgen/nordic-crypto" rel="noopener noreferrer" target="_blank">github.com/jQrgen/nordic-crypto</a></nav>
-  <nav class="share" aria-label="Share this article"><span class="share-label">Share:</span><a class="share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fnordiccrypto.no%2Fsv%2Fchangelog%2F" target="_blank" rel="noopener noreferrer">LinkedIn</a><a class="share-x" href="https://x.com/intent/post?text=%C3%84ndringslogg%20%E2%80%93%20Nordic%20Crypto&amp;url=https%3A%2F%2Fnordiccrypto.no%2Fsv%2Fchangelog%2F" target="_blank" rel="noopener noreferrer">X</a><a class="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnordiccrypto.no%2Fsv%2Fchangelog%2F" target="_blank" rel="noopener noreferrer">Facebook</a><a class="share-email" href="mailto:?subject=%C3%84ndringslogg%20%E2%80%93%20Nordic%20Crypto&amp;body=You%20might%20find%20this%20interesting%3A%0Ahttps%3A%2F%2Fnordiccrypto.no%2Fsv%2Fchangelog%2F">Email</a><button type="button" class="share-copy" data-url="https://nordiccrypto.no/sv/changelog/" data-done="Link copied">Copy link</button><span class="share-status" role="status" aria-live="polite"></span></nav>
+
 </main>
-<footer><div class="wrap"><a class="brand footbrand" href="../../sv/"><img class="brandmark" src="../../assets/brand/shield-band.svg" width="34" height="40" alt=""><span>Nordic <span class="w">Crypto</span></span></a><div class="nlfoot"><b>Nyhetsbrev: en kort sammanfattning varje vecka via mejl.</b> <span class="nlsoon">E-postanmälan öppnar snart. Tills dess kan du följa Nordic Crypto via <a href="../../sv/rss.xml">RSS</a>, på <a href="https://t.me/nordiccryptochat">Telegram</a> eller på <a href="https://x.com/xcryptonordic">X</a>.</span> <a href="../../sv/newsletter/#signup">Mer om nyhetsbrevet</a></div><nav class="community" aria-label="Nordic Crypto i sociala medier"><a class="tgfollow" href="https://t.me/nordiccryptochat" rel="noopener noreferrer" title="Nordic Crypto på Telegram (t.me/nordiccryptochat), varumärkets chatt">Nordic Crypto på Telegram</a><a class="xfollow" href="https://x.com/xcryptonordic" rel="noopener noreferrer" title="Nordic Crypto på X (@xcryptonordic), webbplatsens eget konto">Följ Nordic Crypto på X</a></nav><section class="pushopt" id="notifications"><h2>Aviseringar</h2><p>Aviseringstjänsten är inte påslagen än.</p></section>Nordic Crypto bevakar Norge, Sverige, Danmark, Finland och Island. Drivs av Jørgen S. Notland (jQrgen), Oslo, Gjort med hjälp av artificiell intelligens, med mänskliga redaktörer (jQrgen och Nordic Crypto-redaktören). Inte investeringsrådgivning. Cloudflare Web Analytics räknar besök samlat, utan kakor, och vi säljer inte de uppgifterna. En kaka, bara om du väljer språk. <a href="../../sv/about/">Om oss, integritet, rättelser och borttagning</a> · <a href="../../sv/tip/">Tipsa oss</a> · <a href="../../sv/columnist/">Ansök som krönikör</a> · <a href="../../sv/media/">Logotyp och mediapaket</a> · <a href="../../sv/changelog/">Ändringslogg</a> · <a href="../../sv/ethics/">Redaktionell etik</a> · <a href="https://testflight.apple.com/join/nQ2fpjZn" rel="noopener">iOS-app (TestFlight)</a> Stöder särskilt Apple TV. · <a href="../../sv/talks/">Föredrag</a> · <a href="../../sv/markets/">Marknader</a> · <a href="../../api/">Data-API</a> · <a href="https://github.com/jQrgen/nordic-crypto/graphs/contributors" rel="noopener">Bidragsgivare</a>.</div></footer>
-<script>
-document.addEventListener("click", function (e) {
-  var b = e.target.closest && e.target.closest(".share-copy"); if (!b) return;
-  var url = b.getAttribute("data-url"), st = b.parentNode.querySelector(".share-status");
-  var done = function () { if (st) { st.textContent = b.getAttribute("data-done"); setTimeout(function () { st.textContent = ""; }, 2500); } };
-  var fallback = function () { var i = document.createElement("input"); i.value = url; document.body.appendChild(i); i.select(); try { document.execCommand("copy"); done(); } catch (x) { window.prompt("", url); } i.remove(); };
-  if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(url).then(done, fallback); else fallback();
-});
-</script><script>(function(){function setLang(c){if(!c)return;document.cookie='nc_lang='+c+';path=/;max-age=31536000;SameSite=Lax'+(location.protocol==='https:'?';Secure':'');try{localStorage.setItem('nc_lang',c)}catch(err){}}document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[data-lang]');if(a)setLang(a.getAttribute('data-lang'))});document.addEventListener('change',function(e){var s=e.target;if(!s||!s.matches||!s.matches('select.langsel'))return;var o=s.options[s.selectedIndex];if(!o)return;setLang(o.getAttribute('data-lang'));if(o.value)location.href=o.value});var b=document.querySelector('.navtoggle'),n=document.getElementById('sitenav');if(b&&n){b.addEventListener('click',function(){var open=n.classList.toggle('is-open');b.setAttribute('aria-expanded',open?'true':'false')});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&n.classList.contains('is-open')){n.classList.remove('is-open');b.setAttribute('aria-expanded','false');b.focus()}})}})();</script>
+<footer><div class="wrap"><div class="foot-grid"><div class="foot-brand"><a class="brand footbrand" href="../../sv/"><img class="brandmark" src="../../assets/brand/shield-band.svg" width="34" height="40" alt=""><span>Nordic <span class="w">Crypto</span></span></a><p>Nyheter om bitcoin, blockkedjor och krypto från Norden</p></div><nav class="foot-col" aria-labelledby="ft-sec"><h2 id="ft-sec">Avdelningar</h2><ul><li><a href="../../sv/">Nyheter</a></li><li><a href="../../sv/calendar/">Kalender</a></li><li><a href="../../sv/markets/">Marknader</a></li><li><a href="../../sv/org-chart/">Vem är vem</a></li><li><a href="../../sv/academia/">Akademi</a></li><li><a href="../../sv/books/">Böcker</a></li><li><a href="../../sv/talks/">Föredrag</a></li></ul></nav><nav class="foot-col" aria-labelledby="ft-site"><h2 id="ft-site">Om sajten</h2><ul><li><a href="../../sv/about/">Om oss</a></li><li><a href="../../sv/sources/">Källor</a></li><li><a href="../../sv/ethics/">Redaktionell etik</a></li><li><a href="../../sv/changelog/">Ändringslogg</a></li><li><a href="../../sv/media/">Logotyp och mediapaket</a></li><li><a href="../../sv/columnist/">Ansök som krönikör</a></li><li><a href="../../sv/tip/">Tipsa oss</a></li><li><a href="../../api/">Data-API</a></li><li><a href="https://github.com/jQrgen/nordic-crypto" rel="noopener">Källkod</a></li><li><a href="https://github.com/jQrgen/nordic-crypto/graphs/contributors" rel="noopener">Bidragsgivare</a></li></ul></nav><div class="foot-col"><h2>Följ oss</h2><ul><li><a href="../../sv/newsletter/">Nyhetsbrev</a></li><li><a href="https://t.me/nordiccryptochat" rel="noopener">Telegram</a></li><li><a href="https://x.com/xcryptonordic" rel="noopener">X</a></li><li><a href="../../sv/rss.xml">RSS</a></li><li><a href="https://testflight.apple.com/join/nQ2fpjZn" rel="noopener">Hämta iOS-appen (TestFlight)</a> <span class="meta">Stöder särskilt Apple TV.</span></li><li><a href="../../screen/">Skärmläge för kontoret</a></li></ul></div></div><p class="colophon">Nordic Crypto bevakar Norge, Sverige, Danmark, Finland och Island. Drivs av Jørgen S. Notland (jQrgen), Oslo, Gjort med hjälp av artificiell intelligens, med mänskliga redaktörer (jQrgen och Nordic Crypto-redaktören). Inte investeringsrådgivning. Cloudflare Web Analytics räknar besök samlat, utan kakor, och vi säljer inte de uppgifterna. En kaka, bara om du väljer språk. <a href="../../sv/about/">Om oss, integritet, rättelser och borttagning</a>.</p></div></footer>
+<script>(function(){function setLang(c){if(!c)return;document.cookie='nc_lang='+c+';path=/;max-age=31536000;SameSite=Lax'+(location.protocol==='https:'?';Secure':'');try{localStorage.setItem('nc_lang',c)}catch(err){}}document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[data-lang]');if(a)setLang(a.getAttribute('data-lang'))});document.addEventListener('change',function(e){var s=e.target;if(!s||!s.matches||!s.matches('select.langsel'))return;var o=s.options[s.selectedIndex];if(!o)return;setLang(o.getAttribute('data-lang'));if(o.value)location.href=o.value});var h=document.querySelector('header.top'),b=document.querySelector('.navtoggle'),n=document.getElementById('sitenav');if(b&&n){b.addEventListener('click',function(){var open=n.classList.toggle('is-open');h.classList.toggle('nav-open',open);b.setAttribute('aria-expanded',open?'true':'false')});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&n.classList.contains('is-open')){n.classList.remove('is-open');h.classList.remove('nav-open');b.setAttribute('aria-expanded','false');b.focus()}})}var d=document.documentElement,tb=document.querySelector('.themetoggle');if(tb){var sync=function(){tb.setAttribute('aria-pressed',d.getAttribute('data-theme')==='dark'?'true':'false')};sync();tb.addEventListener('click',function(){var dark=d.getAttribute('data-theme')!=='dark';if(dark)d.setAttribute('data-theme','dark');else d.removeAttribute('data-theme');try{localStorage.setItem('nc-theme',dark?'dark':'light')}catch(err){}sync()})}})();</script>
 </body></html>
