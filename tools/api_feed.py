@@ -2355,6 +2355,18 @@ def docs_fragment(index):
 <p class="lead">A public JSON feed of the site, for apps and for other tools. No account and no API key. It is regenerated whenever the site is built.</p>
 <p class="meta">Version 1. {html.escape(str(counts.get('news', 0)))} news items, {html.escape(str(counts.get('newsletters', 0)))} newsletter issues, {html.escape(str(counts.get('events', 0)))} events and {html.escape(str(counts.get('talks', 0)))} talks in this build. Generated {html.escape(index.get('generated_at') or '')}.</p>
 <div class="prose">
+<h2 id="electrum">Electrum servers (BCH and Nexa)</h2>
+<p>Nordic Crypto runs <a href="https://nexa.gitlab.io/rostrum/" rel="noopener">Rostrum</a> Electrum servers for Bitcoin Cash and Nexa. Wallets and apps can read balances, transactions, UTXOs, tokens and the chain tip from them, and broadcast transactions. No account and no API key.</p>
+<div class="tablewrap"><table class="list" id="electrum-status" aria-live="polite"><thead><tr><th>Server</th><th>Status</th><th>Block height</th><th class="wide">Response</th><th class="wide">Version</th></tr></thead><tbody>
+<tr data-url="wss://electrum-bch.nordiccrypto.no:50004"><td>Bitcoin Cash<br><code class="url">wss://electrum-bch.nordiccrypto.no:50004</code></td><td data-f="state">–</td><td data-f="height">–</td><td data-f="ms" class="wide">–</td><td data-f="version" class="wide">–</td></tr>
+<tr data-url="wss://electrum-nexa.nordiccrypto.no:20004"><td>Nexa<br><code class="url">wss://electrum-nexa.nordiccrypto.no:20004</code></td><td data-f="state">–</td><td data-f="height">–</td><td data-f="ms" class="wide">–</td><td data-f="version" class="wide">–</td></tr>
+</tbody></table></div>
+<p class="meta">Your browser asks each server for its version and chain tip when this page opens. Response is the time for the tip request. <button type="button" id="electrum-recheck" hidden>Check again</button></p>
+<script>{_electrum_status_js()}</script>
+<p>They speak the Electrum protocol (JSON-RPC) on the standard ports: WebSocket with TLS (<code>wss</code>) on 20004 for Nexa and 50004 for Bitcoin Cash, and TLS over TCP on 20002 for Nexa and 50002 for Bitcoin Cash. Unencrypted ports are not offered. In a client library, give the host, the port and the scheme (<code>wss</code> or <code>tcp_tls</code>). The methods are listed in the <a href="https://nexa.gitlab.io/rostrum/protocol/methods" rel="noopener">Rostrum protocol documentation</a>.</p>
+<pre>websocat wss://electrum-bch.nordiccrypto.no:50004
+{{"id":1,"method":"blockchain.headers.subscribe","params":[]}}</pre>
+<p>The servers run their own full nodes (Bitcoin Cash Node and Nexa), so their answers do not depend on a third party. A client that does no SPV checks still trusts us for what the chain contains. There is no uptime guarantee. Keep a second server in your list and move on when one does not answer within a few seconds.</p>
 <h2 id="start">Start here</h2>
 <ul>
 <li><a href="{html.escape(b)}api/v1/index.json">Discovery</a> — every endpoint and example URL.</li>
@@ -2395,18 +2407,6 @@ curl -fsS {html.escape(b)}api/v1/markets/aggregated.json</pre>
 <p><a href="{html.escape(b)}api/v1/meta.json"><code>/api/v1/meta.json</code></a> includes <code>social</code> for the iOS app. <code>social.telegram</code> is the Nordic Crypto chat at <a href="{SITE_TELEGRAM_URL}">{html.escape(SITE_TELEGRAM_URL)}</a>. <code>social.x</code> is the brand account at <a href="{SITE_X_URL}">{html.escape(SITE_X_URL)}</a> (<code>@xcryptonordic</code>), also listed as <code>urls.x</code>. <code>urls.telegram</code> repeats the chat URL. <code>urls.rss</code> is the English story feed at <a href="{html.escape(b)}rss.xml"><code>/rss.xml</code></a>. Each language home has its own <code>rss.xml</code>. <code>urls.newsletter</code> is the signup page on this site. <code>label</code> is the short name (<code>Telegram</code>, <code>X</code>). <code>name</code> is the English link text. <code>name_i18n</code> has <code>nn</code>, <code>nb</code>, <code>sv</code>, <code>da</code>, <code>fi</code> and <code>is</code>. Other site languages use <code>name</code>.</p>
 <h2 id="notifications">Browser notifications</h2>
 <p>When <code>workers/push/public.json</code> has a Worker URL, a button at the bottom of each page is Web Push. Until then the page says the service is not switched on and does not call a Worker. Subscriptions live on a Cloudflare Worker, not in this static feed. After a publish, <code>GET /api/push/feed.json</code> on that Worker lists the same batches (title, short summary, URL, country, and translations when we have them). One publish is one batch. The document says <code>"apns": "not implemented"</code>: Apple Push Notification service is out of scope. An iOS app can poll the feed. The Worker URL is set when <code>workers/push/</code> is deployed; it is not a path on this site. Subscriptions are not in the feed. This API's <a href="{html.escape(b)}api/v1/news.json"><code>/api/v1/news.json</code></a> remains the full published list.</p>
-<h2 id="electrum">Electrum servers (BCH and Nexa)</h2>
-<p>Nordic Crypto runs <a href="https://nexa.gitlab.io/rostrum/" rel="noopener">Rostrum</a> Electrum servers for Bitcoin Cash and Nexa. Wallets and apps can read balances, transactions, UTXOs, tokens and the chain tip from them, and broadcast transactions. No account and no API key.</p>
-<div class="tablewrap"><table class="list" id="electrum-status" aria-live="polite"><thead><tr><th>Chain</th><th>URL</th><th>Status</th><th>Block height</th><th>Response</th><th>Server</th></tr></thead><tbody>
-<tr data-url="wss://electrum-bch.nordiccrypto.no:50004"><td>Bitcoin Cash</td><td><code>wss://electrum-bch.nordiccrypto.no:50004</code></td><td data-f="state">–</td><td data-f="height">–</td><td data-f="ms">–</td><td data-f="version">–</td></tr>
-<tr data-url="wss://electrum-nexa.nordiccrypto.no:20004"><td>Nexa</td><td><code>wss://electrum-nexa.nordiccrypto.no:20004</code></td><td data-f="state">–</td><td data-f="height">–</td><td data-f="ms">–</td><td data-f="version">–</td></tr>
-</tbody></table></div>
-<p class="meta">Your browser asks each server for its version and chain tip when this page opens. Response is the time for the tip request. <button type="button" id="electrum-recheck" hidden>Check again</button></p>
-<script>{_electrum_status_js()}</script>
-<p>They speak the Electrum protocol (JSON-RPC) on the standard ports: WebSocket with TLS (<code>wss</code>) on 20004 for Nexa and 50004 for Bitcoin Cash, and TLS over TCP on 20002 for Nexa and 50002 for Bitcoin Cash. Unencrypted ports are not offered. In a client library, give the host, the port and the scheme (<code>wss</code> or <code>tcp_tls</code>). The methods are listed in the <a href="https://nexa.gitlab.io/rostrum/protocol/methods" rel="noopener">Rostrum protocol documentation</a>.</p>
-<pre>websocat wss://electrum-bch.nordiccrypto.no:50004
-{{"id":1,"method":"blockchain.headers.subscribe","params":[]}}</pre>
-<p>The servers run their own full nodes (Bitcoin Cash Node and Nexa), so their answers do not depend on a third party. A client that does no SPV checks still trusts us for what the chain contains. There is no uptime guarantee. Keep a second server in your list and move on when one does not answer within a few seconds.</p>
 <h2 id="endpoints">Endpoints</h2>
 <p>Every endpoint is a plain GET of a static JSON file.</p>
 <div class="tablewrap"><table class="list"><thead><tr><th>Path</th><th>Returns</th></tr></thead><tbody>
