@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-09T18:18:15+00:00",
+ "generated_at": "2026-10-09T19:23:34+00:00",
  "preview": false,
  "note": "by_country is a default guess from the visitor's IP country. It is not a stored profile. The nc_lang cookie, set when the reader uses the language switcher, always wins. The same choice is also kept in localStorage under nc_lang; if the cookie is missing, that stored choice is the override. The country comes from the tipworker GET /api/geo, which returns Cloudflare's request.cf.country (XX and T1 count as unknown). Nothing about the lookup is stored or logged, and no third-party geo-IP service is used. If the Worker is unreachable, the browser's navigator.languages is used, then English. A country that is not listed defaults to en. Norwegian browser tags (no, nb, nn) default to nynorsk; bokmål stays one click away. India defaults to Hindi; Marathi (mr) has no country row. Mauritania (MR) defaults to Arabic (ar). The language code mr is Marathi, not Mauritania.",
  "cookie": "nc_lang",
