@@ -4,7 +4,7 @@
 
 export const LANGS = [
   "en", "nn", "nb", "sv", "da", "fi", "is",
-  "zh", "hi", "es", "fr", "ar", "bn", "pt", "ru", "ur", "id", "de", "ja", "sw", "mr", "fa",
+  "zh", "hi", "es", "fr", "ar", "bn", "pt", "ru", "ur", "id", "de", "ja", "sw", "mr", "fa", "uk",
 ];
 
 export const COUNTRIES = ["NO", "SE", "DK", "FI", "IS"];
@@ -32,6 +32,7 @@ export const COPY = {
   sw: { one: "Habari mpya", many: "Habari mpya {n}", more: "na {n} zaidi" },
   mr: { one: "नवीन बातमी", many: "{n} नवीन बातम्या", more: "आणि आणखी {n}" },
   fa: { one: "خبر تازه", many: "{n} خبر تازه", more: "و {n} خبر دیگر" },
+  uk: { one: "Новий матеріал", many: "Нових матеріалів: {n}", more: "і ще {n}" },
 };
 
 export function copyFor(lang) {
