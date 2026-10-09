@@ -373,7 +373,7 @@ def main():
         build.LANG = "en"
         if "/ethics/" not in {p.get("path") for p in meta.get("site_pages") or []}:
             fails.append("ethics page missing from site meta")
-        need = {"en", "nn", "nb", "sv", "da", "fi", "is", "zh", "hi", "es", "fr", "ar", "bn", "pt", "ru", "ur", "id", "de", "ja", "sw", "mr", "fa"}
+        need = {"en", "nn", "nb", "sv", "da", "fi", "is", "zh", "hi", "es", "fr", "ar", "bn", "pt", "ru", "ur", "id", "de", "ja", "sw", "mr", "fa", "uk"}
         langs_doc = json.load(open(os.path.join(tmp, "api/v1/languages.json"), encoding="utf-8"))
         got = {row.get("code") for row in langs_doc.get("languages") or []}
         if got != need:
@@ -405,7 +405,7 @@ def main():
                   "CN": "zh", "TW": "zh", "SG": "zh", "IN": "hi", "ES": "es", "MX": "es", "AR": "es", "FR": "fr",
                   "SA": "ar", "EG": "ar", "AE": "ar", "BD": "bn", "BR": "pt", "PT": "pt", "RU": "ru", "PK": "ur",
                   "ID": "id", "DE": "de", "AT": "de", "CH": "de", "JP": "ja", "KE": "sw", "TZ": "sw", "MR": "ar",
-                  "IR": "fa", "AF": "fa"}
+                  "IR": "fa", "AF": "fa", "UA": "uk"}
         for c, l in expect.items():
             if by.get(c) != l:
                 fails.append(f"geo {c} -> {by.get(c)} want {l}")
