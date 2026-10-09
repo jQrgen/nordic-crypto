@@ -1,0 +1,122 @@
+/* Who's who (org-chart/): jump list, filter bar, the chart as one collapsible row per country with the private and public
+   sector side by side inside, the detail panel, regulation by country in aligned columns, the industry map and the full list.
+   Inlined only on that page by build.py (build_org). Start-aligned; logical properties, so right-to-left pages mirror. */
+.whos{text-align:start}
+.whos>.lead{max-width:66ch;margin-bottom:12px}
+.orgsub{display:flex;flex-wrap:wrap;gap:0 22px;font-size:14.5px}
+.orgsub a{display:inline-flex;align-items:center;min-height:40px;color:var(--fg)}
+.osec{margin:0}
+.osec>h2{display:flex;align-items:center;gap:12px;font:500 12px/1.2 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:34px 0 12px;scroll-margin-top:12px}
+.osec>h2::after{content:"";flex:1;height:1px;background:var(--line)}
+.olead{max-width:66ch;margin:0 0 12px;color:var(--muted)}
+/* filters: countries (with counts), sector, search */
+.ofilters{gap:10px 26px;margin:0 0 6px;padding:12px 14px;box-shadow:none}
+.of{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;min-width:0}
+.of-q{flex:1 1 15rem}
+.of-q input{flex:1 1 10rem;min-width:0;min-height:40px;font:inherit;font-size:15px;color:var(--fg);background:var(--bg);border:1px solid var(--field-line);border-radius:var(--r-sm);padding:7px 11px}
+.ofilters .chip{min-height:36px}
+.ofilters .seg button{min-height:36px}
+.cchip .n{font:500 11px var(--f-mono);opacity:.75}
+#ostat{margin:8px 0 0;min-height:1.2em;font-weight:600;color:var(--fg);unicode-bidi:plaintext}
+#ostat:empty{margin:0;min-height:0}
+/* the chart: one row per country; a row's body is built only while it is open */
+#chart{margin-top:10px;border-top:1px solid var(--line-strong)}
+.cgrp{border-bottom:1px solid var(--line)}
+.cgrp>h3{margin:0;font:inherit}
+.gh{display:flex;align-items:center;gap:12px;width:100%;min-height:56px;padding:10px 2px;border:0;background:none;color:var(--fg);font:inherit;text-align:start;cursor:pointer}
+.gh::before{content:"";flex:none;width:7px;height:7px;margin-inline-end:4px;border:solid var(--muted);border-width:0 2px 2px 0;transform:rotate(-45deg);transition:transform .15s}
+[dir=rtl] .gh::before{transform:rotate(135deg)}
+.gh[aria-expanded=true]::before{transform:rotate(45deg)}
+.gh .flag{width:24px;height:auto}
+.gh .gt{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 14px;min-width:0}
+.gh .gn{font:700 23px/1.15 var(--f-display)}
+.gh .gc{font:500 12px/1.4 var(--f-mono);letter-spacing:.04em;color:var(--muted);unicode-bidi:plaintext}
+.gh:hover .gn{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:4px}
+.gh:focus-visible{outline:2px solid var(--focus);outline-offset:-2px}
+.gb{padding:0 0 22px}
+.cols{display:grid;grid-template-columns:minmax(0,1fr);gap:4px 44px}
+@media (min-width:860px){.cols.two{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.col>h4{margin:12px 0 0;padding:0 0 7px;font:500 12px/1.2 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--fg);border-bottom:2px solid var(--priv)}
+.col-public>h4{border-bottom-color:var(--pub)}
+.col h5{margin:18px 0 2px;font:600 13.5px/1.3 var(--f-ui);color:var(--muted)}
+.cards{list-style:none;margin:0;padding:0}
+.card{position:relative;padding:10px 8px 11px;border-bottom:1px solid var(--line);border-inline-start:3px solid transparent;cursor:pointer}
+.card:hover{background:color-mix(in srgb,var(--soft) 70%,transparent)}
+.card.hl{border-inline-start-color:var(--gold);background:color-mix(in srgb,var(--gold) 9%,transparent)}
+.card .nm{display:inline-flex;align-items:center;gap:9px;min-height:28px;padding:0;border:0;background:none;color:var(--fg);font:600 15.5px/1.3 var(--f-ui);text-align:start;cursor:pointer}
+.card .nm::after{content:"";position:absolute;inset:0}
+.card:hover .nm span{text-decoration:underline;text-decoration-color:var(--gold)}
+.card .xl,.card .tag,.card .people{position:relative}
+.card .nm:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
+.card .ds{margin:3px 0 0;font-size:13.5px;line-height:1.45;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card .xl,.card .tag{vertical-align:2px}
+.people{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.col>.people{margin-top:10px}
+.person{display:inline-flex;align-items:center;gap:8px;min-height:40px;max-width:100%;padding:3px 12px 3px 4px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--fg);font:inherit;font-size:13px;line-height:1.25;text-align:start;cursor:pointer}
+.person:hover{border-color:var(--line-strong)}
+.person:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.person.hl{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
+.person .pt{min-width:0;color:var(--muted)}.person b{display:block;color:var(--fg);font-weight:600}
+.av{width:30px;height:30px;border-radius:50%;object-fit:cover;flex:none;display:inline-flex;align-items:center;justify-content:center;background:var(--foam);color:var(--nc-sea);font-weight:700;font-size:11.5px}
+.av.big{width:96px;height:96px;font-size:28px}
+.av.org{border-radius:var(--r-xs);width:24px;height:24px;font-size:10px}
+.logo{width:24px;height:24px;object-fit:contain;flex:none;background:var(--nc-argent);border-radius:var(--r-xs)}
+.logo.big{width:64px;height:64px}
+/* detail panel: sticks to the bottom of the screen while the chart is in view */
+#detail{position:sticky;bottom:0;z-index:5;margin-top:16px;padding:14px 18px 16px;max-height:min(62vh,560px);overflow:auto;background:var(--surface);border:1px solid var(--line-strong);border-radius:var(--r) var(--r) 0 0;box-shadow:var(--shadow-lg);font-size:15px}
+#detail[hidden]{display:none}
+#detail h3{margin:0 0 4px;font-size:25px}
+#detail h4{margin:14px 0 2px;font:500 11.5px/1.3 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+#detail p{margin:8px 0;max-width:72ch}
+#detail ul{margin:4px 0;padding-inline-start:18px}#detail li{margin:3px 0}
+#detail .row{display:flex;gap:16px;align-items:flex-start}
+#detail .close{float:inline-end;min-width:40px;min-height:40px;margin-block:-6px 4px;margin-inline:8px -8px;font:inherit;font-size:20px;line-height:1;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--surface);color:var(--fg);cursor:pointer}
+#detail .close:hover{border-color:var(--fg)}
+@media (max-width:560px){#detail .row{flex-direction:column;gap:8px}#detail{padding:12px 14px}#detail .av.big{width:64px;height:64px;font-size:20px}}
+/* regulation by country: one column per country, the same rows side by side (subgrid), so the fields line up */
+.reg{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:0 30px;margin:0}
+.reg article{display:grid;align-content:start;min-width:0;padding-bottom:22px}
+.reg article[hidden]{display:none}
+.reg h3{display:flex;align-items:center;gap:9px;margin:0;padding:6px 0 9px;font-size:23px;border-bottom:2px solid var(--line-strong)}
+.reg dl{display:grid;margin:0;font-size:14.5px;line-height:1.5}
+@supports (grid-template-rows:subgrid){.reg article,.reg dl{grid-template-rows:subgrid}.reg article{grid-row:span 6}.reg dl{grid-row:span 4}}
+.reg dl>div{padding:10px 0 11px;border-bottom:1px solid var(--line)}
+.reg dt{margin:0 0 3px;font:500 11.5px/1.3 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.reg dd{margin:0}
+.reg .meta{margin:9px 0 0;font-size:13px}
+.regmore{margin:0 0 6px}.regmore a{display:inline-flex;align-items:center;min-height:40px;font-weight:600}
+.caveats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14px}
+.caveats summary{display:flex;align-items:center;min-height:44px;cursor:pointer;font-weight:600}
+.caveats summary::before,.olistbox>summary::before{content:"";flex:none;width:7px;height:7px;margin-inline:2px 12px;border:solid var(--muted);border-width:0 2px 2px 0;transform:rotate(-45deg);transition:transform .15s}
+[dir=rtl] .caveats summary::before,[dir=rtl] .olistbox>summary::before{transform:rotate(135deg)}
+.caveats[open] summary::before,.olistbox[open]>summary::before{transform:rotate(45deg)}
+.caveats ul{margin:0 0 14px;padding-inline-start:18px;max-width:80ch;color:var(--muted)}.caveats li{margin:4px 0}
+/* industry map: categories in balanced columns, organisations as small logo tiles */
+.imap-cats{margin:14px 0 0}
+.imap-cat{padding:0 0 20px}
+.imap-cat[hidden]{display:none}
+.imap-cat>h3{display:flex;align-items:center;gap:8px;margin:0 0 8px;padding:0 0 6px;border-bottom:1px solid var(--line-strong);font:600 15px/1.3 var(--f-ui)}
+.imap-cat .n{font:500 12px var(--f-mono);color:var(--muted)}
+.tiles{display:flex;flex-wrap:wrap;gap:6px}
+.tile{display:inline-flex;align-items:center;gap:7px;min-height:40px;max-width:100%;padding:4px 10px 4px 5px;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--surface);color:var(--fg);font-size:13.5px;line-height:1.2;text-decoration:none;overflow-wrap:anywhere}
+.tile[hidden]{display:none}
+.tile:hover,.tile:focus-visible{border-color:var(--gold)}
+.tile .flag{width:16px;height:auto}
+.imap-bycountry .tile .flag{display:none}
+.imap[data-view=country] .imap-bycat,.imap[data-view=cat] .imap-bycountry{display:none}
+/* full list: built when opened */
+.olistbox>summary{display:inline-flex;align-items:center;min-height:42px;padding:8px 16px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);font-weight:600;cursor:pointer}
+.olistbox>summary:hover{border-color:var(--fg)}
+.olistbox[open]>summary{margin-bottom:10px}
+#olist{font-size:14px}#olist td:first-child{min-width:10rem}
+.onotes{margin:36px 0 0;padding-top:14px;border-top:1px solid var(--line)}
+.onotes .meta{max-width:80ch;margin:0 0 10px;font-size:13px}
+@media (max-width:640px){
+ .ofilters{display:grid;gap:10px;padding:10px 12px}
+ .ofilters .chip,.ofilters .seg button{min-height:40px}
+ .of-q input{font-size:16px;min-height:44px}
+ .gh .gn{font-size:21px}
+ .tiles{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+ .tile{gap:6px;padding:4px 6px 4px 4px;font-size:12.5px}
+ .tile .logo,.tile .av{width:22px;height:22px}
+}

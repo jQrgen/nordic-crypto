@@ -1,0 +1,33 @@
+/* Talks: filters in one bar with the count, one compact row per recording, a player that loads on click. */
+.talks,.talks h1,.talks .filters{text-align:start}
+.tfilters{display:flex;flex-wrap:wrap;align-items:center;gap:10px 24px;margin:0 0 4px;padding:12px 14px;box-shadow:none}
+.tf{display:flex;align-items:center;gap:8px;min-width:0}
+.tfilters .chip{min-height:34px}
+.talks .flag{width:18px;height:13px;flex:none;border-radius:2px}
+.tfilters .n{font:500 11px var(--f-mono);opacity:.8}
+.tfilters select{min-height:36px}
+#talk-count{margin:0;font-weight:600;color:var(--fg);unicode-bidi:plaintext}
+#talk-list article{padding:16px 0 15px;border-bottom:1px solid var(--line);max-width:88ch;contain-intrinsic-size:auto 200px}
+#talk-list article[hidden]{display:none}
+.talks h2{font-size:22px;line-height:1.22;margin:0 0 4px}
+.talks h2 a{color:var(--fg);text-decoration:none}.talks h2 a:hover{text-decoration:underline}
+.tmeta{margin:0 0 6px}.tmeta .flag{vertical-align:-2px;margin-inline-end:5px}
+.talks time{unicode-bidi:plaintext}
+.talks .sum{margin:0 0 6px;font-size:15.5px;line-height:1.5}
+.tspk{margin:0 0 4px;font-size:14px;color:var(--muted)}.tspk a{color:var(--fg)}.tspk p{margin:2px 0}
+.tspk summary{cursor:pointer;padding:10px 0;width:max-content;max-width:100%}
+.tact{display:flex;align-items:center;gap:6px 14px;margin-top:10px}
+.tact:has(iframe){flex-wrap:wrap}
+.tact .meta{font-size:13px;line-height:1.4}
+.talk-play,.talk-out{flex:none;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:6px 15px 6px 13px;font:600 14.5px/1.2 var(--f-ui);text-decoration:none;border:1px solid var(--line-strong);border-radius:999px;background:var(--surface);color:var(--fg);cursor:pointer}
+.talk-play::before{content:"";width:10px;height:12px;background:var(--gold-ink);clip-path:polygon(0 0,100% 50%,0 100%)}
+.talk-play .dur{font:500 12.5px var(--f-mono);color:var(--muted);padding-inline-start:8px;border-inline-start:1px solid var(--line-strong)}
+.talk-play:hover,.talk-out:hover{border-color:var(--fg)}
+.talks iframe{flex:1 0 100%;max-width:760px;aspect-ratio:16/9;border:0;border-radius:var(--r-sm);background:var(--band-deep)}
+@media(max-width:640px){
+ .tfilters{display:grid;gap:8px;padding:10px 12px}
+ .tf{flex-wrap:wrap;gap:4px 10px}.tf-c .lbl{flex:1 0 100%}
+ .tfilters .chip{min-height:40px}
+ .tfilters select{min-height:44px;font-size:16px}
+ .talks h2{font-size:19.5px}.talks .sum{font-size:15px}
+}

@@ -64,7 +64,9 @@ class Queue:
         country = code(country) or F.country_of_url(url, F.SRC.get(out, {}).get("country"))
         it = {"id": F.iid(url), "url": url, "title": title or fallback_title or oname, "title_en": None,
               "source": out, "source_name": oname, "country": country, "language": F.LANG.get(country),
-              "via": "reader-tip", "seen_via": ["reader-tip"], "published": (date or created).isoformat(),
+              "via": "reader-tip", "seen_via": ["reader-tip"],
+              # The tip's created time is only a stand-in when the page has no publish time.
+              "published": (date or created).isoformat(),
               "fetched": NOW.isoformat(timespec="seconds"), "topics": F.topics_of(f"{title}. {desc}"), "matched": F.matches(f"{title}. {desc}"),
               "paywall": bool(F.SRC.get(out, {}).get("paywall", False)), "status": "pending", "summary": None, "origin": origin}
         match, why = coverage.find_match(

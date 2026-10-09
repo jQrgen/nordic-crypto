@@ -1,87 +1,98 @@
 #!/usr/bin/env python3
-"""The /tip/ page stays closed until the private inbox is switched on. No network."""
-import os
-import shutil
-import sys
-import tempfile
-
+"""/tip/: a private tip to tipworker's inbox, never a public GitHub issue. Closed (no form) until the Worker endpoint and a
+Turnstile site key are both set. No network."""
+import os, shutil, sys, tempfile, unittest
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
-os.environ["NC_SITE_DIR"] = tempfile.mkdtemp(prefix="nc-tip-")
-os.environ.pop("TIP_INTAKE", None)
-os.environ.pop("TIP_INTAKE_ENDPOINT", None)
-os.environ.pop("TIP_TURNSTILE_SITEKEY", None)
-os.environ.pop("TIP_ONION", None)
 import build
 
-fails = []
+ENV = ("TIP_ENDPOINT", "TIP_TURNSTILE_SITE_KEY", "CHAT_TURNSTILE_SITE_KEY", "TIP_PAGE_SERVER", "TIP_ONION")
 
+class TipPage(unittest.TestCase):
+    def setUp(self):
+        self.saved = {k: os.environ.get(k) for k in ENV}
+        for k in ENV: os.environ.pop(k, None)
+        os.environ["TIP_ENDPOINT"] = ""          # ignore whatever tipserver/config.json holds
+        os.environ["TIP_TURNSTILE_SITE_KEY"] = ""
+        os.environ["TIP_ONION"] = ""
+        self.tmp = tempfile.mkdtemp(prefix="nc-tip-"); self.old_site = build.SITE; build.SITE = self.tmp
 
-def check(ok, msg):
-    print(("ok  " if ok else "FAIL") + " " + msg)
-    if not ok:
-        fails.append(msg)
+    def tearDown(self):
+        build.SITE = self.old_site; shutil.rmtree(self.tmp, ignore_errors=True)
+        for k, v in self.saved.items():
+            if v is None: os.environ.pop(k, None)
+            else: os.environ[k] = v
 
+    def page(self, lang):
+        build.LANG = lang
+        build.build_tip()
+        with open(os.path.join(self.tmp, "" if lang == "en" else lang, "tip", "index.html"), encoding="utf-8") as fh:
+            return fh.read()
 
-def page(lang):
-    build.LANG = lang
-    build.build_tip()
-    path = os.path.join(build.SITE, "" if lang == "en" else lang, "tip", "index.html")
-    return open(path, encoding="utf-8").read()
+    def assertNoGithub(self, html):
+        self.assertNotIn("issues/new", html); self.assertNotIn("template=tip.yml", html)
 
+    def test_closed_by_default(self):
+        self.assertEqual(build.tip_intake(), (None, None))
+        for lang in ("en", "nb", "da", "de"):
+            html = self.page(lang)
+            self.assertNotIn('id="tipform"', html); self.assertNoGithub(html)
+            self.assertIn(build.i18n.t(lang, "tip_private_soon"), html)
 
-def main():
-    enabled, ep, key, onion = build.tip_intake_config()
-    check(enabled is False, "intake flag defaults off")
-    check(ep == "https://tips.nordiccrypto.no", "endpoint is tips.nordiccrypto.no")
-    check(key == "", "turnstile site key is empty until configured")
-    check(onion == "", "no onion address until one exists")
+    def test_endpoint_without_key_stays_closed(self):
+        os.environ["TIP_ENDPOINT"] = "https://tips.nordiccrypto.no"
+        self.assertEqual(build.tip_intake(), (None, None))
+        self.assertNotIn('id="tipform"', self.page("en"))
 
-    html = page("en")
-    check("Opening soon" in html, "english opening-soon notice")
-    check("Nordic Crypto" in html and "Nordic <span>Crypto</span>" in html, "brand is Nordic Crypto")
-    check("<form" not in html, "closed page has no form")
-    check("issues/new" not in html and "template=tip.yml" not in html, "closed page does not open a GitHub issue")
-    check("tips.nordiccrypto.no" not in html, "closed page does not post to the worker")
-    check("text-align:left" in html, "tip copy is left-aligned")
-    check("artificial intelligence" in html and "is not a human" in html, "editor is not called a human")
-    check("not published yet" in html and "onion-location" not in html, "tor is named without an address")
+    def test_quick_tunnel_never_opens_the_private_form(self):
+        os.environ["TIP_PAGE_SERVER"] = "1"; os.environ["TIP_TURNSTILE_SITE_KEY"] = "1x00000000000000000000AA"
+        self.assertNotIn('id="tipform"', self.page("en"))
 
-    da = page("da")
-    check("Åbner snart" in da and "kunstig intelligens" in da, "danish opening notice")
-    check("<form" not in da and "issues/new" not in da, "danish page has no form and no GitHub issue")
+    def test_open_with_endpoint_and_key(self):
+        os.environ["TIP_ENDPOINT"] = "https://tips.nordiccrypto.no"
+        os.environ["TIP_TURNSTILE_SITE_KEY"] = "1x00000000000000000000AA"
+        self.assertEqual(build.tip_intake(), ("https://tips.nordiccrypto.no", "1x00000000000000000000AA"))
+        html = self.page("en")
+        self.assertIn('<form id="tipform"', html); self.assertNoGithub(html)
+        self.assertIn('"https://tips.nordiccrypto.no"', html); self.assertIn("/api/private-tip", html)
+        self.assertIn('class="cf-turnstile" data-sitekey="1x00000000000000000000AA"', html)
+        self.assertIn("challenges.cloudflare.com/turnstile", html)
+        for name in ('name="tip"', 'name="attachments"', 'name="contact"', 'name="website"'): self.assertIn(name, html)
+        self.assertIn("artificial intelligence is not a human", html)
+        nb = self.page("nb")
+        self.assertIn("kunstig intelligens", nb); self.assertNoGithub(nb)
 
-    nb = page("nb")
-    check("kunstig intelligens" in nb and " AI " not in nb and " KI " not in nb, "bokmål says kunstig intelligens")
+    def test_bad_endpoint_or_key_is_refused(self):
+        os.environ["TIP_ENDPOINT"] = "http://tips.nordiccrypto.no"
+        os.environ["TIP_TURNSTILE_SITE_KEY"] = "1x00000000000000000000AA"
+        self.assertEqual(build.tip_intake(), (None, None))
+        os.environ["TIP_ENDPOINT"] = "https://tips.nordiccrypto.no"; os.environ["TIP_TURNSTILE_SITE_KEY"] = "bad key\"><script>"
+        self.assertEqual(build.tip_intake(), (None, None))
 
-    os.environ["TIP_INTAKE"] = "1"
-    os.environ["TIP_TURNSTILE_SITEKEY"] = "1x00000000000000000000AA"
-    on, ep_on, key_on, _onion = build.tip_intake_config()
-    check(on is True and key_on.startswith("1x") and ep_on == "https://tips.nordiccrypto.no", "flag can be forced on")
-    opened = page("en")
-    check('<form id="tipform"' in opened, "open page has the tip form")
-    check('action="https://tips.nordiccrypto.no/api/tip"' in opened, "form posts to the Nordic Crypto tip host")
-    check("issues/new" not in opened and "template=tip.yml" not in opened, "open page does not open a GitHub issue")
-    check("cf-turnstile" in opened, "open page includes Turnstile")
-    check("Opening soon" not in opened, "open page does not say opening soon")
+    def test_tor_named_without_an_address(self):
+        html = self.page("en")
+        self.assertIn(build.i18n.t("en", "tip_onion_pending"), html); self.assertNotIn("onion-location", html)
+        self.assertIsNone(build.tip_onion())
 
-    os.environ["TIP_ONION"] = "http://" + ("a" * 56) + ".onion"
-    with_onion = page("en")
-    check('http-equiv="onion-location"' in with_onion, "onion-location meta when an address exists")
-    check("http://" + ("a" * 56) + ".onion/en/" in with_onion, "tip page links the onion address")
-    check("issues/new" not in with_onion, "onion link does not open a GitHub issue")
+    def test_onion_link_and_meta_when_address_exists(self):
+        addr = "http://" + "a" * 56 + ".onion"
+        os.environ["TIP_ONION"] = addr
+        for lang in ("en", "sv"):
+            html = self.page(lang)
+            self.assertIn(f'<meta http-equiv="onion-location" content="{addr}/{lang}/">', html)
+            self.assertIn(f'href="{addr}/{lang}/"', html); self.assertNoGithub(html)
+        os.environ["TIP_ENDPOINT"] = "https://tips.nordiccrypto.no"; os.environ["TIP_TURNSTILE_SITE_KEY"] = "1x00000000000000000000AA"
+        self.assertIn("onion-location", self.page("en"))
 
-    os.environ["TIP_INTAKE"] = "0"
-    os.environ.pop("TIP_ONION", None)
-    closed_again = page("da")
-    check("<form" not in closed_again and "Åbner snart" in closed_again, "TIP_INTAKE=0 closes the form again")
+    def test_bad_onion_address_is_ignored(self):
+        for bad in ("http://short.onion", "https://" + "a" * 56 + ".onion", "http://" + "A" * 56 + ".onion", 'http://x"><script>'):
+            os.environ["TIP_ONION"] = bad
+            self.assertIsNone(build.tip_onion(), bad)
 
-    shutil.rmtree(build.SITE, ignore_errors=True)
-    if fails:
-        print(f"\n{len(fails)} failed")
-        sys.exit(1)
-    print("tip page checks passed")
-
+    def test_retired_github_template(self):
+        with open(os.path.join(ROOT, ".github", "ISSUE_TEMPLATE", "tip.yml"), encoding="utf-8") as fh:
+            tpl = fh.read()
+        self.assertIn("retired", tpl); self.assertNotIn("id: url", tpl)
 
 if __name__ == "__main__":
-    main()
+    unittest.main()

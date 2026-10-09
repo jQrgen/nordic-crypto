@@ -5,7 +5,7 @@ services:
     build: ./app
     restart: unless-stopped
     environment:
-      WORKER_URL: ${WORKER_URL:-https://tips.nordiccrypto.no}
+      WORKER_URL: ${WORKER_URL:?set WORKER_URL in .env}
       ONION_INGEST_TOKEN: ${ONION_INGEST_TOKEN:-}
       ONION_HOST: ${ONION_HOST:-}
       QUEUE_DIR: /var/lib/nordic-tips

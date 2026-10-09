@@ -9,6 +9,14 @@ preview_urls = false
 [observability]
 enabled = false
 
+# Shoutbox secrets are not in this file and are not set by deploy.sh.
+#   wrangler secret put TURNSTILE_SECRET
+#   wrangler secret put SHOUT_ADMIN_TOKEN
+# Private tip inbox (TURNSTILE_SECRET above is shared):
+#   wrangler secret put PRIVATE_TIPS_READ_TOKEN     (newsroom read API, give it out of band)
+#   wrangler secret put TIP_WEBHOOK_URL / TIP_WEBHOOK_BEARER   (optional, https only)
+#   wrangler secret put ONION_INGEST_TOKEN          (Tor forwarder in onion/; must differ from the read token)
+
 [[d1_databases]]
 binding = "DB"
 database_name = "nordic-crypto-tips"

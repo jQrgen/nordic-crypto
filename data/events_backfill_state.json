@@ -1,0 +1,176 @@
+{
+ "_note": "Run log for the previous-events backfill. A later run appends to runs, keeps included events, and can stop once the countries and years stop yielding new credited events. This file does not publish events by itself.",
+ "since": "2008-10-31",
+ "countries": ["NO", "SE", "DK", "FI", "IS", "FO", "GL", "AX"],
+ "coverage": "first pass, not exhaustive",
+ "date_only": "Rows whose source states a date and no clock time are stored as 00:00–23:59 in the event's offset so the site shows the day. That clock is not a claimed start or end time.",
+ "counts_rule": "attendees and speakers_count stay empty unless the source states an exact integer. Capacity and wording such as approximately, estimated, over or limited to are not counts.",
+ "runs": [
+  {
+   "retrieved_at": "2026-10-07T21:00:00+00:00",
+   "included": 14,
+   "by_country": {"NO": 5, "SE": 1, "DK": 1, "FI": 5, "IS": 2, "FO": 0, "GL": 0, "AX": 0},
+   "by_year": {"2013": 1, "2014": 1, "2017": 1, "2018": 2, "2022": 2, "2023": 3, "2025": 1, "2026": 3},
+   "by_country_year": {
+    "NO": {"2022": 2, "2023": 3},
+    "SE": {"2017": 1},
+    "DK": {"2013": 1},
+    "FI": {"2014": 1, "2025": 1, "2026": 3},
+    "IS": {"2018": 2},
+    "FO": {},
+    "GL": {},
+    "AX": {}
+   },
+   "years_with_events": [2013, 2014, 2017, 2018, 2022, 2023, 2025, 2026],
+   "note": "Quality-first pass. Faroe Islands, Greenland and Åland were in the search and produced no event with a date, a place or city, an organiser and a credible source. Years with no row were not proven empty.",
+   "queries": [
+    "https://bt.cx/en/news/2013/10/30/btcx-discount-on-pan-nordic-bitcoin-conference-2013/",
+    "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html",
+    "https://www.riksbank.se/globalassets/media/tal/engelska/ingves/2017/tal_ingves_171208_eng.pdf",
+    "https://stae.is/ísf/event/51617",
+    "https://medium.com/rafmyntar%C3%A1%C3%B0/fyrirlestur-%C3%AD-hr-27-n%C3%B3vember-99b06030f92f",
+    "https://www.norges-bank.no/contentassets/4683fa635a5641fd914be0762c618831/norges-bank-papers-3---phase-4---experimental-testing.pdf",
+    "https://www.riksbank.se/en-gb/payments--cash/e-krona/dialogue-forum-on-the-e-krona/",
+    "https://bt.cx/en/news/2025/07/24/03-BTCHEL-2025-The-Biggest-Bitcoin-Celebration-in-the-Nordics-Is-Coming/",
+    "https://btchel.com/press-kit/",
+    "https://info.btchel.com/index.html",
+    "https://btchel.com/",
+    "Faroe Islands public bitcoin or crypto conference, meetup or seminar since 2008",
+    "Greenland public bitcoin or crypto conference, meetup or seminar since 2008",
+    "Åland public bitcoin or crypto conference, meetup or seminar since 2008"
+   ],
+   "sources_used": [
+    "BTCX (bt.cx)",
+    "Department of Computer Science, University of Helsinki",
+    "Sveriges Riksbank",
+    "Íslenska stærðfræðafélagið",
+    "Rafmyntaráð Íslands (Medium)",
+    "Norges Bank Papers 3/2023",
+    "BTCHEL (btchel.com, press kit and info.btchel.com)"
+   ],
+   "rejected": [
+    {"host": "internationalconferencealerts.com", "reason": "Predatory conference listing. Not a source."},
+    {"host": "waset.org", "reason": "Predatory conference listing. Not a source."},
+    {"host": "conferenceindex.org", "reason": "Predatory conference listing. Not a source."},
+    {"host": "conferencenext.com", "reason": "Predatory conference listing. Greenland search hits on this host were not opened and not included."},
+    {"host": "conferencealert.com", "reason": "Predatory conference listing. Greenland search hits on this host were not opened and not included."}
+   ],
+   "skipped": [
+    {"name": "Riksbank dialogue forum on the e-krona, meeting 10 (30 Nov 2023)", "reason": "The Riksbank page describes a forum for market participants. It does not say the meeting was a public seminar or give a public venue."},
+    {"name": "Norges Bank speech at the Norwegian payments conference, 10 Nov 2022", "reason": "The speech mentions CBDC. The conference is a payments event, not a crypto, bitcoin or blockchain event on the page that was read."},
+    {"name": "BTCHEL 2026 social side events", "reason": "Parties, dinners and a walk on the BTCHEL info page. Left out of this pass."},
+    {"name": "Programme URL on simula-uib.com cited by Norges Bank", "reason": "Not used as the official link. The Norges Bank PDF is the source for the Bergen conference."},
+    {"name": "Approximate and capacity figures", "reason": "approximately 50, estimated 100, over 1,000 and limited to 30 were not stored."}
+   ]
+  },
+  {
+   "kind": "talk-links",
+   "retrieved_at": "2026-10-07T22:40:00+00:00",
+   "included": 18,
+   "by_country": {
+    "NO": 8,
+    "SE": 1,
+    "DK": 1,
+    "FI": 6,
+    "IS": 2,
+    "FO": 0,
+    "GL": 0,
+    "AX": 0
+   },
+   "by_year": {
+    "2013": 1,
+    "2014": 1,
+    "2017": 3,
+    "2018": 2,
+    "2022": 2,
+    "2023": 3,
+    "2025": 1,
+    "2026": 3,
+    "2016": 2
+   },
+   "by_country_year": {
+    "NO": {
+     "2022": 2,
+     "2023": 3,
+     "2016": 1,
+     "2017": 2
+    },
+    "SE": {
+     "2017": 1
+    },
+    "DK": {
+     "2013": 1
+    },
+    "FI": {
+     "2014": 1,
+     "2025": 1,
+     "2026": 3,
+     "2016": 1
+    },
+    "IS": {
+     "2018": 2
+    },
+    "FO": {},
+    "GL": {},
+    "AX": {}
+   },
+   "years_with_events": [
+    2013,
+    2014,
+    2016,
+    2017,
+    2018,
+    2022,
+    2023,
+    2025,
+    2026
+   ],
+   "note": "Talks are matched to an existing calendar or backfill event first (series, date span, city, country and organiser). When none matches, a previous event is created from facts the video page stated: name, day, city, country, venue, organiser and official URL. A talk with no day or no place stays unlinked with unlink_reason. Predatory conference listings are not sources.",
+   "talks": {
+    "linked_existing": 0,
+    "created_events": 4,
+    "talks_on_new": 27,
+    "unlinked": 47,
+    "unlinked_reasons": {
+     "the video page did not state the day": 45,
+     "the video page did not state the city": 1,
+     "the video page did not name the event": 1
+    }
+   },
+   "queries": [
+    "https://www.youtube.com/watch?v=0iXX02OYI5s&hl=en",
+    "https://www.youtube.com/watch?v=eo-0BgrKxiI&hl=en",
+    "https://www.youtube.com/watch?v=ibI_S_RcxZQ&hl=en",
+    "https://www.youtube.com/watch?v=zi2JsPOm5HE&hl=en"
+   ],
+   "sources_used": [
+    "Blockchangers",
+    "Ethereum Helsinki",
+    "Jørgen Svennevik Notland",
+    "aantonop"
+   ],
+   "rejected": [
+    {
+     "host": "internationalconferencealerts.com",
+     "reason": "Predatory conference listing. Not a source."
+    },
+    {
+     "host": "waset.org",
+     "reason": "Predatory conference listing. Not a source."
+    },
+    {
+     "host": "conferenceindex.org",
+     "reason": "Predatory conference listing. Not a source."
+    },
+    {
+     "host": "conferencenext.com",
+     "reason": "Predatory conference listing. Greenland search hits on this host were not opened and not included."
+    },
+    {
+     "host": "conferencealert.com",
+     "reason": "Predatory conference listing. Greenland search hits on this host were not opened and not included."
+    }
+   ]
+  }
+ ]
+}

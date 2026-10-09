@@ -3,7 +3,7 @@
 
 Versioned files live under api/v1/. No server, no auth. Only data the public site
 already shows: approved news and own stories, published newsletter issues, the
-events calendar (upcoming and past), sources, academia, the who's who, profiles,
+events calendar (upcoming and past), sources, academia, books, the who's who, profiles,
 licensed images, the rules map, the changelog and the article archive.
 
 Not published: editor queue, pending drafts (except a preview build), rejected
@@ -29,10 +29,18 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 sys.path.insert(0, os.path.join(ROOT, "tools"))
+import headlines as headlines_mod  # noqa: E402
 import i18n  # noqa: E402
+import illustrations  # noqa: E402
+import press_images  # noqa: E402
+import site_css  # noqa: E402
 import site_url  # noqa: E402
 import source_logos  # noqa: E402
 import event_block  # noqa: E402
+import event_backfill  # noqa: E402
+import event_description  # noqa: E402
+import event_select  # noqa: E402
+import books as books_mod  # noqa: E402
 
 API = "1"
 SITE_NAME = "Nordic Crypto"
@@ -131,7 +139,7 @@ DOCS_DESC = (
 BANNED_KEYS = {
     "token", "secret", "password", "private_key", "api_key",
     "approved_by", "approved_at", "reject_reason", "editor_note",
-    "summary_i18n_review", "summary_i18n_source", "matched", "fetched", "seen_via", "via",
+    "summary_i18n_review", "summary_i18n_source", "title_i18n_source", "matched", "fetched", "seen_via", "via",
     "suggested_by", "suggested_status", "suggested_at", "merged_from", "site_terms",
     "removal_reason", "reviewed",
 }
@@ -248,12 +256,13 @@ def yaml_dump(obj, indent=0):
 
 
 class Feed:
-    def __init__(self, site, preview, base):
+    def __init__(self, site, preview, base, now=None):
         self.site = site
         self.preview = bool(preview)
         self.base = base if base.endswith("/") else base + "/"
         self.custom = self.base
         self.generated = dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat()
+        self.now = event_select.clock(now)
         self.endpoints = []
         self.examples = {}
 
@@ -300,11 +309,6 @@ class Feed:
         item = dict(raw)
         url = item.get("url") or ""
         own = bool(item.get("own_story"))
-        if own and url and not url.startswith("http"):
-            html_url = self.abs(url)
-            url = html_url
-        else:
-            html_url = self.abs(url) if own else None
         status = item.get("status") or "published"
         # Pending rows are listed in a preview build without the unpublished summary, matching the site.
         public = status in ("published", "owner")
@@ -312,10 +316,18 @@ class Feed:
         i18n_sum = item.get("summary_i18n") if public else None
         nid = item.get("id") or hashlib.sha256((url or item.get("title") or "").encode()).hexdigest()[:12]
         nid = safe_id(nid) or hashlib.sha256((url or "").encode()).hexdigest()[:12]
+        press_images.strip_press_images(item)
         if not own:
             html_url = self.abs(f"stories/{nid}/")
-        elif url:
+        elif url and not str(url).startswith("http"):
+            html_url = self.abs(url)
+            url = html_url
             item["url"] = url
+        elif url:
+            html_url = self.abs(url)
+            item["url"] = url
+        else:
+            html_url = None
         source = item.get("source")
         source_name = item.get("source_name")
         note = None
@@ -350,6 +362,7 @@ class Feed:
             "api_url": self.abs(f"api/v1/news/{nid}.json"),
             "title": item.get("title"),
             "title_en": item.get("title_en"),
+            "title_i18n": headlines_mod.public_title_i18n(item) if public else {},
             "source": source,
             "source_name": source_name,
             "source_logo": self.logo(source_logos.for_source(source, preview=self.preview)),
@@ -364,7 +377,9 @@ class Feed:
             "paywall": bool(item.get("paywall")),
             "links": [{"label": l.get("label"), "url": l.get("url")} for l in (item.get("links") or []) if l.get("url")],
             "own_story": own,
+            "illustration": illustrations.api_record(illustrations.assign(item), self.abs),
             "primary_source": outlets[0] if outlets else None,
+            "primary_source_document": coverage_mod.editor_primary_source(item.get("primary_source")),
             "also_covered_by": outlets[1:],
             "sources": outlets,
             "coverage": coverage_mod.breakdown(rows),
@@ -396,10 +411,42 @@ class Feed:
             "sponsored": sponsor_public(raw.get("sponsored")),
             "note": raw.get("note"),
             "note_i18n": {k: v for k, v in (raw.get("note_i18n") or {}).items() if k in LANGS and v} if raw.get("note") else {},
+            "description": event_description.public(raw),
             "past": bool(raw.get("past")),
-            "html_url": self.abs(f"calendar/#e-{eid}"),
+            "ongoing": event_select.classify(raw, self.now) == "ongoing",
+            "html_url": self.abs(f"calendar/{eid}/"),
+            "html_urls": {lang: self.abs(("" if lang == "en" else lang + "/") + f"calendar/{eid}/") for lang in i18n.ALL_LANGS},
             "api_url": self.abs(f"api/v1/events/{eid}.json"),
         }
+        if raw.get("backfill"):
+            out["backfill"] = True
+            out["source"] = "backfill"
+            if raw.get("event_type"):
+                out["event_type"] = raw.get("event_type")
+            if raw.get("language"):
+                out["language"] = raw.get("language")
+            speakers = event_backfill.speakers_fact(raw)
+            if speakers:
+                out["speakers_count"] = speakers["count"]
+            videos = event_backfill.videos_fact(raw)
+            if videos:
+                out["videos_url"] = videos["url"]
+            if raw.get("credits"):
+                out["credits"] = raw.get("credits")
+        fact = event_select.location_fact(raw)
+        if fact:
+            out["place_source"] = fact["credit"]
+        att = event_select.attendees_fact(raw)
+        if att:
+            out["attendees"] = {
+                "count": att["count"],
+                "source_name": att["credit"]["name"],
+                "source_url": att["credit"]["url"],
+                "retrieved": att["credit"].get("retrieved"),
+            }
+        ids = [str(item) for item in (raw.get("talk_ids") or []) if item]
+        if ids:
+            out["talk_ids"] = ids
         if self.preview:
             out["status"] = raw.get("status")
         return out
@@ -471,7 +518,7 @@ class Feed:
         sources = []
         for s in raw.get("sources") or []:
             sources.append({"url": s.get("url"), "title": s.get("title"), "source_name": s.get("source_name"), "date": s.get("date")})
-        return {
+        out = {
             "id": eid,
             "api_url": self.abs(f"api/v1/orgchart/{eid}.json"),
             "html_url": self.abs(f"org-chart/#{eid}"),
@@ -491,6 +538,49 @@ class Feed:
             "image": self.media(raw.get("image"), "photo"),
             "profiles": profiles,
         }
+        ids = [str(item) for item in (raw.get("talk_ids") or []) if item]
+        if ids:
+            out["talk_ids"] = ids
+        events = [str(item) for item in (raw.get("event_ids") or []) if item]
+        if events:
+            out["event_ids"] = events
+        talks = []
+        for item in raw.get("talks") or []:
+            if not isinstance(item, dict) or not item.get("id"):
+                continue
+            brief = {"id": str(item.get("id")), "title": item.get("title") or ""}
+            if item.get("video_url"):
+                brief["video_url"] = item.get("video_url")
+            if item.get("event_id"):
+                brief["event_id"] = item.get("event_id")
+            if item.get("date"):
+                brief["date"] = item.get("date")
+            talks.append(brief)
+        if talks:
+            out["talks"] = talks
+        affiliations = []
+        for item in raw.get("affiliations") or []:
+            if not isinstance(item, dict):
+                continue
+            if not (item.get("organisation") and item.get("source_url") and item.get("retrieved_at")):
+                continue
+            aff = {
+                "talk_id": item.get("talk_id"),
+                "organisation": item.get("organisation"),
+                "source_url": item.get("source_url"),
+                "source_name": item.get("source_name"),
+                "retrieved_at": item.get("retrieved_at"),
+            }
+            if item.get("role"):
+                aff["role"] = item.get("role")
+            if item.get("date"):
+                aff["date"] = item.get("date")
+            if item.get("event_id"):
+                aff["event_id"] = item.get("event_id")
+            affiliations.append(aff)
+        if affiliations:
+            out["affiliations"] = affiliations
+        return out
 
     def relation(self, raw):
         rid = safe_id(raw.get("id")) or safe_id(f"{raw.get('from')}-{raw.get('to')}-{raw.get('type')}")
@@ -548,7 +638,7 @@ def public_org(preview):
 
 TALK_FIELDS = (
     "id", "video_url", "platform", "title", "speakers", "event_name", "event_url",
-    "calendar_event_id", "city", "country", "date", "published", "duration", "language",
+    "calendar_event_id", "event_id", "unlink_reason", "speaker_ids", "city", "country", "date", "published", "duration", "language",
     "channel", "description", "source_url", "retrieved_at", "added_at", "embed",
 )
 
@@ -562,7 +652,7 @@ def public_talks():
         row = {}
         for key in TALK_FIELDS:
             value = item.get(key)
-            if key == "speakers":
+            if key in ("speakers", "speaker_ids"):
                 row[key] = [s for s in value if isinstance(s, str) and s] if isinstance(value, list) else []
             elif key == "embed":
                 row[key] = bool(value)
@@ -578,6 +668,7 @@ def public_talks():
 
 def public_events(preview, now=None):
     """Read-only mirror of build.events_for_site (does not rewrite the archive)."""
+    import events as eventslib
     ev = load(os.path.join(ROOT, "data", "events.json"), {"events": []}) or {"events": []}
     ap_path = os.path.join(ROOT, "queue", "approved.json")
     approvals_present = os.path.exists(ap_path)
@@ -603,6 +694,7 @@ def public_events(preview, now=None):
             e["sponsored"] = True
         if e["id"] in ap.get("sponsor", {}):
             e["sponsored"] = ap["sponsor"][e["id"]]
+        e["sponsored"] = eventslib.clear_kaupr_sponsor(e.get("sponsored"))
         if e["id"] in ap.get("paid", {}):
             e["paid"] = ap["paid"][e["id"]]
         if e.get("status") == "published":
@@ -720,6 +812,11 @@ def _sources(cfg):
             "status": s.get("status") or "",
             "verified": s.get("verified"),
             "language": s.get("language"),
+            "coverage": s.get("coverage"),
+            "region": s.get("region"),
+            "method": s.get("method") or ("rss" if s.get("type") in ("rss", "rss-all") else "html" if s.get("type") == "html" else "sitemap" if s.get("type") == "sitemap" else "search" if s.get("type") == "bing" else "manual"),
+            "icon_url": s.get("logo") if isinstance(s.get("logo"), str) and str(s.get("logo")).startswith("https://") else None,
+            "logo_source": s.get("logo_source") if isinstance(s.get("logo_source"), str) and str(s.get("logo_source")).startswith("https://") else None,
         }
         feed = s.get("feed")
         if feed and "{q}" not in feed and s.get("type") != "bing":
@@ -752,6 +849,11 @@ def _sources(cfg):
             "enabled": bool(s.get("enabled", True)),
             "trusted": bool(s.get("trusted")),
             "status": s.get("status") or "",
+            "method": s.get("method") or "",
+            "intake": s.get("type"),
+            "ics": s.get("ics"),
+            "organizer_id": s.get("organizer_id"),
+            "venue_id": s.get("venue_id"),
         })
     return outlets, search, events
 
@@ -925,14 +1027,17 @@ def _meta(feed):
     pages = [
         ("", "News"),
         ("calendar/", "Events calendar, upcoming and past"),
+        ("events/previous/", "Previous events, newest first. Finished events are kept."),
         ("talks/", "Public talks on bitcoin, cryptocurrencies and blockchain in the Nordics, with video"),
         ("org-chart/", "Who's who: industry, regulators and the regulation overview"),
         ("rules/", "How EU crypto rules become law in the five countries"),
         ("regulation-videos/", "Country explainer videos: how crypto rules are decided in each Nordic country"),
         ("academia/", "Courses, student groups, publications and research"),
+        ("books/", "Published books on bitcoin, crypto and blockchain by Nordic authors or about the Nordics"),
         ("sources/", "News and event sources"),
         ("newsletter/", "Newsletter issues"),
         ("about/", "About, privacy, corrections and removal"),
+        ("media/", "Logo and media kit"),
         ("ethics/", "Editorial ethics (Vær Varsom-plakaten)"),
         ("changelog/", "Site changelog"),
         ("tip/", "Send a tip (not part of this data API)"),
@@ -951,14 +1056,18 @@ def _meta(feed):
             "distribution": "TestFlight",
             "label": "iOS app (TestFlight)",
             "url": "https://testflight.apple.com/join/nQ2fpjZn",
-            "note": "Public TestFlight invite. This feed does not list an App Store page.",
+            "note": "Public TestFlight invite. This feed does not list an App Store page. The Nordic Crypto TestFlight version especially supports Apple TV.",
+            "apple_tv": i18n.t("en", "ios_tv"),
+            "apple_tv_i18n": {lang: i18n.t(lang, "ios_tv") for lang in i18n.ALL_LANGS},
         },
         languages=language_rows(feed),
         language_note=(
             "Site languages, with native_name, english_name and rtl, are listed in languages and in /api/v1/languages.json. "
             "Our own text is written in English first. summary_i18n, title_i18n, subtitle_i18n, note_i18n and about_i18n "
             "carry published translations, today nn, nb, sv, da, fi and is. Other site languages fall back to the English field "
-            "until a translation is published. External headlines stay in the source language (see language and language_code). "
+            "until a translation is published. On a news item, title is the source headline, title_en is our English headline "
+            "and title_i18n is our headline in nn, nb, sv, da, fi and is. The site shows the page-language headline first "
+            "and the source headline underneath when they differ. Outlet headlines inside sources stay in that outlet's language. "
             "There is no query string for language: each JSON document already carries every published translation. "
             "The language switcher's country default is a guess; see /api/v1/geo-language.json. The nc_lang cookie wins."
         ),
@@ -971,9 +1080,17 @@ def _meta(feed):
             "openapi": feed.abs("api/v1/openapi.json"),
             "llms_txt": feed.abs("llms.txt"),
             "github": "https://github.com/jQrgen/nordic-crypto",
-            "substack": "https://cryptonordic.substack.com",
+            "newsletter": feed.abs("newsletter/"),
+            "rss": feed.abs("rss.xml"),
             "telegram": SITE_TELEGRAM_URL,
             "x": SITE_X_URL,
+            "logo": feed.abs("assets/brand/crest.svg"),
+            "logo_png": feed.abs("assets/media/nordic-crypto-crest.png"),
+            "wordmark": feed.abs("assets/brand/wordmark.svg"),
+            "icon": feed.abs("assets/brand/icon.svg"),
+            "og_image": feed.abs("assets/brand/og-image.png"),
+            "media": feed.abs("media/"),
+            "stylesheet": feed.abs("assets/brand/nordic-crypto.css"),
         },
         social=brand_social(),
         url_note=(
@@ -1065,8 +1182,8 @@ def _markets(feed, markets):
     return doc
 
 
-def write(site, *, preview, base, items, events, entities, relations, org_updated, regulation, caveats, sources_cfg, news_updated, markets=None):
-    feed = Feed(site, preview, base)
+def write(site, *, preview, base, items, events, entities, relations, org_updated, regulation, caveats, sources_cfg, news_updated, markets=None, now=None):
+    feed = Feed(site, preview, base, now=now)
     os.makedirs(site, exist_ok=True)
 
     news = [feed.news_item(i) for i in items]
@@ -1084,9 +1201,16 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
         uniq.append(n)
     news = uniq
 
-    evs = [e for e in (feed.event_item(e) for e in events) if e]
+    raw_events = list(events or [])
+    evs = [e for e in (feed.event_item(e) for e in raw_events) if e]
     upcoming = [e for e in evs if not e["past"]]
     past = [e for e in evs if e["past"]][::-1]
+    ongoing = [e for e in evs if e.get("ongoing")]
+    # Backfill is previous-archive only. It is not part of the calendar lists above.
+    raw_past = [e for e in raw_events if e.get("past")]
+    previous = [e for e in (feed.event_item(e) for e in event_backfill.merge_previous(raw_past, feed.now)) if e]
+    known = {e["id"] for e in evs}
+    backfill = [e for e in previous if e.get("backfill") and e["id"] not in known]
 
     ents = [e for e in (feed.entity(e) for e in entities) if e]
     rels = [feed.relation(r) for r in relations]
@@ -1129,9 +1253,16 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
         "summary is English. summary_i18n holds nn, nb, sv, da, fi and is when that translation is published. "
         "Other site languages use the English summary until a translation exists. "
         "title is the source headline. title_en is our English headline when we wrote one. "
+        "title_i18n holds nn, nb, sv, da, fi and is when that headline is not already the source headline. "
+        "The site shows the page-language headline first and the source headline under it when they differ. "
+        "Other site languages use title_en. "
         "source_logo is the outlet image when assets/img/logos/logos.json has a checked file for the source id "
         "(or its outlet, or a _source_alias). Null means show the source name as text. "
-        "primary_source is that outlet. also_covered_by lists every other outlet on the same event "
+        "illustration is the licensed picture assigned to the story, with source, author, license and url. "
+        "The site does not render it. It is never a photograph copied or hotlinked from another newspaper. "
+        "primary_source is that outlet. primary_source_document is an editor-recorded original document "
+        "(name and url), such as a regulator press release, and is separate from that outlet. "
+        "also_covered_by lists every other outlet on the same event "
         "(outlet, outlet_name, url, title, published, lang, country, source_type, paywall, logo). "
         "sources is the primary plus those outlets. coverage.count is how many outlets, "
         "coverage.by_country and coverage.by_source_type (national, regional, official, international) "
@@ -1187,9 +1318,12 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
     def ev_doc(rel, summary, rows, example=None):
         collection(rel, summary, "EventList", feed.env(count=len(rows), events=rows), example=example, item_template="api/v1/events/{id}.json" if rel == "api/v1/events.json" else None)
     ev_doc("api/v1/events.json", "Public events, soonest start first, including past events.", evs, example=f"api/v1/events/{evs[0]['id']}.json" if evs else None)
-    collection("api/v1/events/upcoming.json", "Events that have not ended, soonest first. Judged in the event's own offset.", "EventList", feed.env(count=len(upcoming), events=upcoming))
+    collection("api/v1/events/upcoming.json", "Events that have not ended, soonest first. Judged in the event's own offset.", "EventList", feed.env(count=len(upcoming), events=upcoming, ongoing=ongoing))
     collection("api/v1/events/past.json", "Finished public events, newest first. Finished events stay in the archive.", "EventList", feed.env(count=len(past), events=past))
+    collection("api/v1/events/previous.json", "Previous events, newest finish first. Finished calendar events plus backfilled public events (source backfill). Backfill is not on the calendar or in upcoming or past.", "EventList", feed.env(count=len(previous), events=previous))
     for e in evs:
+        feed.write_json(f"api/v1/events/{e['id']}.json", feed.env(item=e))
+    for e in backfill:
         feed.write_json(f"api/v1/events/{e['id']}.json", feed.env(item=e))
     for c in COUNTRIES:
         rows = [e for e in evs if e.get("country") == c]
@@ -1221,7 +1355,7 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
         example="api/v1/talks/by-country/NO.json",
     )
 
-    collection("api/v1/sources.json", "News outlets, the public search terms, and event sources. Kaupr is marked as a news source only. logo is the outlet image for that source id when one is on file.", "SourceCatalogue",
+    collection("api/v1/sources.json", "News outlets, justice-system press pages, the public search terms, and event sources. coverage is national, regional, local or justice. region is the place. feed is null when no working RSS, sitemap or index page was verified. method is rss, html, sitemap, search or manual. Event sources name the intake method. Luma calendars use a public iCal subscribe URL. Eventbrite organizers and venues use the v3 API when the server has EVENTBRITE_TOKEN; the token is not in this feed. Without it, event pages are schema.org JSON-LD. icon_url is a public icon from the outlet when one was easy to find. logo_source is the URL the stored logo was fetched from. logo is the checked outlet image for that source id when one is on file, used only to identify the source. Kaupr is marked as a news source only and is never an event sponsor.", "SourceCatalogue",
                feed.env(
                    user_agent=site_url.expand((sources_cfg or {}).get("user_agent") or ""),
                    min_delay_seconds=(sources_cfg or {}).get("min_delay_seconds"),
@@ -1246,7 +1380,18 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
     feed.add_endpoint("academia-item", "api/v1/academia/{id}.json", "One academia row. The id is in academia.json.", "AcademiaItem",
                       example=f"api/v1/academia/{next(iter(ac_ids))}.json" if ac_ids else None)
 
-    collection("api/v1/orgchart.json", "Published who's who: organisations, people, relations, regulation notes and caveats.", "OrgChart",
+    book_rows = []
+    for row in books_mod.rows():
+        row = dict(row, language_name=i18n.ENGLISH.get(row["language"], row["language"]), html_url=feed.abs("books/#" + row["id"]))
+        book_rows.append(row)
+    collection("api/v1/books.json",
+               "Published books on bitcoin, crypto and blockchain by Nordic authors or about the Nordic countries. "
+               "title is the original title. authors are as printed; author_role is \"editors\" for an edited volume. "
+               "language is a code (nn, nb, sv, da, fi, en). source is the library catalogue or publisher page where the row was checked. "
+               "about is our one-line description in English. No cover images.",
+               "BookList", feed.env(updated=books_mod.updated(), count=len(book_rows), books=book_rows))
+
+    collection("api/v1/orgchart.json", "Published who's who: organisations, people, relations, regulation notes and caveats. A person named on a talk has talk_ids, event_ids and talks. affiliations lists the organisation the talk page stated for that talk, with the talk date when the page gave one, the source URL and the retrieval time. An affiliation the page did not state is omitted.", "OrgChart",
                feed.env(updated=org_updated, count=len(ents), entities=ents, relations=rels, regulation=regulation, caveats=caveats),
                example=f"api/v1/orgchart/{ents[0]['id']}.json" if ents else None,
                item_template="api/v1/orgchart/{id}.json")
@@ -1265,8 +1410,15 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
     for p in profiles:
         feed.write_json(f"api/v1/profiles/{p['entity_id']}.json", feed.env(item=p))
 
-    collection("api/v1/images.json", "Logos and photos used on the public who's who, with licence and credit.", "ImageList",
+    collection("api/v1/images.json", "Logos and photos used on the public who's who, with licence and credit. These are not newspaper photographs.", "ImageList",
                feed.env(count=len(images), images=images))
+    story_pictures = illustrations.catalogue(feed.abs)
+    collection("api/v1/illustrations.json",
+               "Pictures used on story cards and story pages. Each record has source, author, license and url. "
+               "No photograph from another newspaper is included. Outlet logos are in images.json and on each news item as source_logo.",
+               "IllustrationList",
+               feed.env(count=len(story_pictures), images=story_pictures,
+                        policy="Nordic Crypto does not copy, store, proxy or hotlink news photographs. See docs/image-policy.md."))
 
     collection("api/v1/changelog.json", "Site changelog (product changes, not the news), newest first.", "ChangelogList",
                feed.env(launch_date=launch, count=len(changes), entries=changes),
@@ -1334,14 +1486,18 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
             "newsletters": len(letters),
             "events": len(evs),
             "events_upcoming": len(upcoming),
+            "events_ongoing": len(ongoing),
             "events_past": len(past),
+            "events_previous": len(previous),
             "talks": len(talks),
             "sources": len(outlets),
             "academia": ac_counts,
+            "books": len(book_rows),
             "org_entities": len(ents),
             "org_relations": len(rels),
             "profiles": len(profiles),
             "images": len(images),
+            "illustrations": len(story_pictures),
             "changelog": len(changes),
             "archive_articles": len(articles),
             "markets": market_doc.get("count") or 0,
@@ -1441,7 +1597,7 @@ def openapi(feed, index):
             "version": API,
             "description": (
                 f"Public read-only JSON for Nordic Crypto ({feed.base}). "
-                "No authentication. News, newsletters, events, sources, academia, the who's who, profiles, images, "
+                "No authentication. News, newsletters, events, sources, academia, books, the who's who, profiles, images, "
                 "the rules map, the changelog, the article archive, public talk videos and Nordic exchange prices (market data, not investment advice). "
                 "Kaupr is a news source only, never a sponsor. The sign-off is The Nordic Crypto team. "
                 "GitHub Pages sends Access-Control-Allow-Origin: * so browsers can fetch these files. "
@@ -1506,10 +1662,11 @@ def schemas():
         "properties": {
             "id": {"type": "string"},
             "url": {"type": "string", "description": "Story the reader follows. Absolute."},
-            "html_url": {"type": "string", "nullable": True, "description": "Our story page. For our own articles this is the article. For other outlets this is the coverage page; url is the primary outlet."},
+            "html_url": {"type": "string", "nullable": True, "description": "Our story page: summary, licensed picture and the outlets. For our own articles this is the article. For other outlets this is the coverage page; url is the primary outlet."},
             "api_url": {"type": "string"},
-            "title": {"type": "string"},
-            "title_en": {"type": "string", "nullable": True},
+            "title": {"type": "string", "description": "Source headline."},
+            "title_en": {"type": "string", "nullable": True, "description": "Our English headline, when the source headline is not English."},
+            "title_i18n": {"type": "object", "additionalProperties": {"type": "string"}, "description": "Our headline in nn, nb, sv, da, fi and is, when that language is not already the source headline. English is title_en."},
             "source": {"type": "string", "description": "Source id from sources.json."},
             "source_name": {"type": "string"},
             "source_logo": source_logo,
@@ -1524,8 +1681,38 @@ def schemas():
             "paywall": {"type": "boolean"},
             "links": {"type": "array", "items": {"type": "object"}},
             "own_story": {"type": "boolean"},
+            "illustration": {
+                "type": "object",
+                "nullable": True,
+                "description": "Licensed picture assigned to this story. The site does not render it. source, author, license and url are the credit. file_url is our copy. Never a newspaper photograph.",
+                "properties": {
+                    "id": {"type": "string"},
+                    "kind": {"type": "string", "enum": ["original", "commons", "official-press"]},
+                    "file_url": {"type": "string"},
+                    "width": {"type": "integer"},
+                    "height": {"type": "integer"},
+                    "alt": {"type": "string"},
+                    "source": {"type": "string"},
+                    "author": {"type": "string"},
+                    "license": {"type": "string"},
+                    "license_url": {"type": "string", "nullable": True},
+                    "url": {"type": "string"},
+                    "credit": {"type": "string"},
+                    "modifications": {"type": "string", "nullable": True},
+                    "terms": {"type": "string", "nullable": True},
+                },
+            },
             "source_logo_url": {"type": "string", "nullable": True, "description": logo_url_desc + " Same as source_logo.raster_url."},
             "primary_source": {"$ref": "#/components/schemas/NewsOutlet"},
+            "primary_source_document": {
+                "type": "object",
+                "nullable": True,
+                "description": "Editor-recorded original document, such as a regulator press release. name and url. Not the lead coverage outlet.",
+                "properties": {
+                    "name": {"type": "string"},
+                    "url": {"type": "string"},
+                },
+            },
             "also_covered_by": {"type": "array", "items": {"$ref": "#/components/schemas/NewsOutlet"}, "description": "Other outlets on the same event. Empty when only the primary covered it."},
             "sources": {"type": "array", "items": {"$ref": "#/components/schemas/NewsOutlet"}, "description": "Primary first, then also_covered_by."},
             "coverage": {"$ref": "#/components/schemas/NewsCoverage"},
@@ -1579,9 +1766,33 @@ def schemas():
             "sponsored": {"nullable": True, "description": "false, true, or the sponsor's name. Never Kaupr."},
             "note": {"type": "string", "nullable": True},
             "note_i18n": i18n_obj,
+            "description": {
+                "type": "object",
+                "nullable": True,
+                "description": "The organiser's description. text is the original wording, lang is its language code, source_url is the page it was taken from. i18n holds nn, nb, sv, da, fi and is, and en when the original is not English. A missing translation is omitted. Null when no description was sourced. Kaupr is not included.",
+                "properties": {
+                    "text": {"type": "string"},
+                    "lang": {"type": "string", "nullable": True},
+                    "source_url": {"type": "string"},
+                    "source_name": {"type": "string", "nullable": True},
+                    "retrieved": {"type": "string", "nullable": True},
+                    "i18n": i18n_obj,
+                },
+            },
             "past": {"type": "boolean"},
-            "html_url": {"type": "string"},
+            "ongoing": {"type": "boolean", "description": "True while start <= now <= end. Additive. Events with no end are never ongoing."},
+            "place_source": {"type": "object", "nullable": True, "description": "Credit for the venue or online flag: name, url, retrieved. Omitted when the place cannot be credited."},
+            "attendees": {"type": "object", "nullable": True, "description": "Registered participant count with source_name, source_url and retrieved. Omitted when the source did not state a count. Capacity is not a count."},
+            "html_url": {"type": "string", "description": "This event's page on the site, /calendar/<id>/."},
+            "html_urls": {"type": "object", "description": "The same page in every site language. English is at the root. Other codes are /<code>/calendar/<id>/."},
             "api_url": {"type": "string"},
+            "backfill": {"type": "boolean", "description": "True when the row comes from the previous-events backfill. Absent on calendar events. Those rows are only in previous.json."},
+            "event_type": {"type": "string", "nullable": True, "enum": ["conference", "meetup", "hackathon", "seminar"], "description": "Set on backfilled events when a source supports the type."},
+            "language": {"type": "string", "nullable": True, "description": "Language code when a source states it. Omitted when unknown."},
+            "speakers_count": {"type": "integer", "nullable": True, "description": "Exact speaker count when a source states one. Omitted otherwise. A session count is not a speaker count."},
+            "videos_url": {"type": "string", "nullable": True, "description": "Link to talk videos when a source gives one."},
+            "talk_ids": {"type": "array", "items": {"type": "string"}, "description": "Ids of talks in /api/v1/talks.json recorded at this event. Omitted when none are linked."},
+            "credits": {"type": "object", "nullable": True, "description": "Per-field source_name, source_url and retrieved_at on backfilled events."},
         },
     }
     talk_item = {
@@ -1596,7 +1807,9 @@ def schemas():
             "speakers": {"type": "array", "items": {"type": "string"}, "description": "Names the platform page states. Empty when none are stated."},
             "event_name": {"type": "string", "nullable": True},
             "event_url": {"type": "string", "nullable": True},
-            "calendar_event_id": {"type": "string", "nullable": True, "description": "Id of the matching event in /api/v1/events.json, when one exists."},
+            "calendar_event_id": {"type": "string", "nullable": True, "description": "Same value as event_id. The event page is /calendar/<id>/ and the document is /api/v1/events/<id>.json. Previous events are also listed in /api/v1/events/previous.json."},
+            "event_id": {"type": "string", "nullable": True, "description": "Id of the event this talk belongs to. Null when the talk could not be dated or placed."},
+            "unlink_reason": {"type": "string", "nullable": True, "description": "Why the talk is not linked to an event. Null when event_id is set."},
             "city": {"type": "string", "nullable": True},
             "country": {"type": "string", "nullable": True, "description": "NO, SE, DK, FI, IS, FO, GL or AX."},
             "date": {"type": "string", "nullable": True, "description": "Calendar date of the talk, YYYY-MM-DD, when the source states it."},
@@ -1609,6 +1822,7 @@ def schemas():
             "retrieved_at": {"type": "string", "description": "ISO 8601 timestamp."},
             "added_at": {"type": "string", "description": "ISO 8601 timestamp."},
             "embed": {"type": "boolean", "description": "True when the platform's oEmbed response includes an official player."},
+            "speaker_ids": {"type": "array", "items": {"type": "string"}, "description": "Who's who ids for speakers, in the same order as speakers. Empty when the page named nobody."},
             "html_url": {"type": "string"},
             "api_url": {"type": "string"},
         },
@@ -1659,12 +1873,50 @@ def schemas():
         "Academia": wrap("Academia", {"courses": {"type": "array"}, "groups": {"type": "array"}, "publications": {"type": "array"}, "research": {"type": "array"}}),
         "AcademiaSection": wrap("AcademiaSection", {"section": {"type": "string"}, "items": {"type": "array"}}),
         "AcademiaItem": wrap("AcademiaItem", {"item": {"type": "object"}}),
-        "OrgChart": wrap("OrgChart", {"entities": {"type": "array"}, "relations": {"type": "array"}, "regulation": {"type": "array"}}),
+        "Book": {
+            "type": "object",
+            "required": ["id", "title", "authors", "year", "publisher", "language", "country", "source"],
+            "properties": {
+                "id": {"type": "string"},
+                "title": {"type": "string", "description": "Title in the original language, as printed."},
+                "subtitle": {"type": "string", "nullable": True},
+                "original_title": {"type": "string", "nullable": True, "description": "Title of the original work when this edition is a translation. Null for an original work."},
+                "authors": {"type": "array", "items": {"type": "string"}, "description": "Names as printed."},
+                "author_role": {"type": "string", "nullable": True, "description": "\"editors\" for an edited volume, otherwise null (authors)."},
+                "year": {"type": "integer"},
+                "publisher": {"type": "string"},
+                "language": {"type": "string", "description": "nn, nb, sv, da, fi, is or en."},
+                "language_name": {"type": "string"},
+                "country": {"type": "string", "description": "NO, SE, DK, FI, IS, FO, GL or AX: the author's country, or the country the book is about."},
+                "isbn": {"type": "string", "nullable": True, "description": "ISBN-13 of the edition we checked, when the catalogue gave one."},
+                "about": {"type": "string", "description": "Our one-line description, in English."},
+                "source": {"type": "string", "description": "Catalogue or publisher page where title, authors, year and publisher were checked."},
+                "source_name": {"type": "string"},
+                "more_sources": {"type": "array", "items": {"type": "string"}},
+                "html_url": {"type": "string"},
+            },
+        },
+        "BookList": wrap("BookList", {"updated": {"type": "string", "nullable": True}, "count": {"type": "integer"}, "books": {"type": "array", "items": {"$ref": "#/components/schemas/Book"}}}),
+        "OrgEntity": {
+            "type": "object",
+            "required": ["id", "name"],
+            "properties": {
+                "id": {"type": "string"},
+                "name": {"type": "string"},
+                "type": {"type": "string"},
+                "talk_ids": {"type": "array", "items": {"type": "string"}, "description": "Talks in /api/v1/talks.json that name this person. Omitted when none are linked."},
+                "event_ids": {"type": "array", "items": {"type": "string"}, "description": "Events those talks belong to. Omitted when none are linked."},
+                "talks": {"type": "array", "description": "id, title, video_url, and event_id and date when the talk has them."},
+                "affiliations": {"type": "array", "description": "One organisation per talk, only when the talk page stated it. Each item has organisation, talk_id, source_url, source_name and retrieved_at. role and date are present when the page stated them. An affiliation without a source is omitted."},
+            },
+        },
+        "OrgChart": wrap("OrgChart", {"entities": {"type": "array", "items": {"$ref": "#/components/schemas/OrgEntity"}}, "relations": {"type": "array"}, "regulation": {"type": "array"}}),
         "Relation": {"type": "object"},
         "RelationList": wrap("RelationList", {"relations": {"type": "array"}}),
         "RegulationList": wrap("RegulationList", {"regulation": {"type": "array"}}),
         "ProfileList": wrap("ProfileList", {"profiles": {"type": "array"}}),
         "ImageList": wrap("ImageList", {"images": {"type": "array"}}),
+        "IllustrationList": wrap("IllustrationList", {"images": {"type": "array"}, "policy": {"type": "string"}}),
         "ChangelogList": wrap("ChangelogList", {"entries": {"type": "array"}}),
         "Rules": wrap("Rules", {"available": {"type": "boolean"}, "checked": {"type": "string"}}),
         "ArticleArchive": wrap("ArticleArchive", {"articles": {"type": "array"}}),
@@ -1672,7 +1924,19 @@ def schemas():
             "languages": {"type": "array"},
             "countries": {"type": "array"},
             "cors": {"type": "object"},
-            "ios": {"type": "object", "description": "Public TestFlight invite. Not an App Store listing."},
+            "ios": {
+                "type": "object",
+                "description": "Public TestFlight invite for the Nordic Crypto iOS app. Not an App Store listing. apple_tv is English. apple_tv_i18n has every site language, including en.",
+                "properties": {
+                    "name": {"type": "string", "example": "Nordic Crypto"},
+                    "distribution": {"type": "string"},
+                    "label": {"type": "string"},
+                    "url": {"type": "string"},
+                    "note": {"type": "string"},
+                    "apple_tv": {"type": "string"},
+                    "apple_tv_i18n": {"type": "object"},
+                },
+            },
             "social": {
                 "type": "object",
                 "description": "Nordic Crypto brand accounts. telegram is https://t.me/nordiccryptochat. x is https://x.com/xcryptonordic. label and name are English. name_i18n has nn, nb, sv, da, fi and is. Other languages use name.",
@@ -1693,7 +1957,7 @@ def schemas():
                     }},
                 },
             },
-            "urls": {"type": "object", "description": "github, substack, telegram and x, plus the API bases."},
+            "urls": {"type": "object", "description": "github, newsletter, rss, telegram and x, plus the API bases. newsletter is the signup page on this site. rss is the English story feed."},
         }),
         "LanguageList": wrap("LanguageList", {
             "count": {"type": "integer"},
@@ -1843,13 +2107,14 @@ def llms_txt(feed, index):
     lines = [
         f"# {SITE_NAME}",
         "",
-        "> Public JSON feed of Nordic crypto news, newsletters, events, talks, sources, academia and the who's who. No account. No API key.",
+        "> Public JSON feed of Nordic crypto news, newsletters, events, talks, sources, academia, books and the who's who. No account. No API key.",
         "",
         f"{SITE_NAME} covers Norway, Sweden, Denmark, Finland and Iceland. "
         "The sign-off is The Nordic Crypto team. Kaupr (kaupr.io) is a news source only and is never a sponsor. "
         "Summaries are ours, in English, with translations in summary_i18n (nn, nb, sv, da, fi, is) when published. "
         "Other site languages fall back to English until a translation is published. "
-        "External headlines stay in the original language.",
+        "title on a news item is the source headline. title_en and title_i18n are our headlines. "
+        "The pages show the page-language headline first and the source headline underneath when they differ.",
         "",
         "GitHub Pages sends Access-Control-Allow-Origin: * on every JSON file, so a browser can fetch them from any site. "
         "Use the file name (index.json). A directory URL does not serve the JSON.",
@@ -1866,8 +2131,10 @@ def llms_txt(feed, index):
         f"- [API catalog]({feed.abs('.well-known/api-catalog')}): RFC 9727 linkset. A .json copy is at {feed.abs('.well-known/api-catalog.json')}.",
         f"- [Site meta]({feed.abs('api/v1/meta.json')}): languages, countries, page list, CORS, and brand social accounts.",
         f"- Telegram: {SITE_TELEGRAM_URL} (`social.telegram`). X: {SITE_X_URL} (`social.x`, also `urls.x`). `name` is English. `name_i18n` has nn, nb, sv, da, fi and is. Other languages use `name`.",
+        "- iOS app: public TestFlight invite in `ios`. `apple_tv` is English. `apple_tv_i18n` has every site language. The Nordic Crypto TestFlight version especially supports Apple TV. No App Store listing.",
         f"- [Languages]({feed.abs('api/v1/languages.json')}): site UI languages (code, native name, English name, rtl, home).",
         f"- [Geo language]({feed.abs('api/v1/geo-language.json')}): country to default language. An IP guess; the nc_lang cookie wins.",
+        "- Browser notifications: opt-in Web Push. The Worker `GET /api/push/feed.json` repeats each publish as one batch (title, summary, URL). APNs is not implemented. Subscriptions are not in this API.",
         "",
         "## Market prices",
         "",
@@ -1894,6 +2161,17 @@ def llms_txt(feed, index):
         "curl -fsS https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json",
         "```",
         "",
+        "## Events",
+        "",
+        "Luma calendars use the public iCal subscribe URL (the Subscribe link). "
+        "City pages, category pages and the Luma discover API are not used: the terms only allow publicly supported interfaces, "
+        "and the official API needs Luma Plus and only covers calendars you administer. "
+        "An individual Luma event page is schema.org JSON-LD. "
+        "Eventbrite organizers and venues use the v3 API when EVENTBRITE_TOKEN is set on the server. "
+        "The token is not in this feed. Without it, the event page JSON-LD is used. "
+        "The same title, date and venue is listed once. Finished events are kept. "
+        "Kaupr is a news source only and is never an event sponsor.",
+        "",
         "## Fetch news and newsletters",
         "",
         "```",
@@ -1906,7 +2184,9 @@ def llms_txt(feed, index):
         "```",
         "",
         "A single news item is api/v1/news/{id}.json (the id is on each item). "
-        "primary_source is the outlet we lead with. also_covered_by is every other outlet on the same event. "
+        "primary_source is the outlet we lead with. primary_source_document is an editor-recorded original document "
+        "(name and url), such as a regulator press release, and is not that outlet. "
+        "also_covered_by is every other outlet on the same event. "
         "sources lists them with the primary first. coverage.by_country and coverage.by_source_type "
         "(national, regional, official, international) are the counts and shares, and empty types are included as zero. "
         "html_url is our coverage page. url is the primary outlet. ",
@@ -1982,7 +2262,7 @@ def docs_fragment(index):
     b = index["bases"]["github_pages"]
     def row(ep):
         return (
-            f"<tr><td>GET</td><td><a href=\"{html.escape(ep['url'])}\"><code>{html.escape(ep['path'])}</code></a></td>"
+            f"<tr><td><a href=\"{html.escape(ep['url'])}\"><code>{html.escape(ep['path'])}</code></a></td>"
             f"<td>{html.escape(ep['summary'])}</td></tr>"
         )
     rows = "\n".join(row(ep) for ep in index["endpoints"])
@@ -1994,52 +2274,54 @@ def docs_fragment(index):
             one = ep["example_url"]
     one_line = f"\ncurl -fsS {one}" if one else ""
     counts = index.get("counts") or {}
-    return f"""<style>
-.api-docs pre{{overflow:auto;padding:10px 12px;background:#f6f7f8;border:1px solid #e5e7eb;font-size:13px}}
-.api-docs code{{font-size:.92em}}
-.api-docs td:first-child{{white-space:nowrap}}
-</style>
-<div class="api-docs">
+    return f"""{site_css.style("api-docs")}
 <h1>Nordic Crypto data API</h1>
 <p class="lead">A public JSON feed of the site, for apps and for other tools. No account and no API key. It is regenerated whenever the site is built.</p>
-<p>Version 1. {html.escape(str(counts.get('news', 0)))} news items, {html.escape(str(counts.get('newsletters', 0)))} newsletter issues, {html.escape(str(counts.get('events', 0)))} events and {html.escape(str(counts.get('talks', 0)))} talks in this build. Generated {html.escape(index.get('generated_at') or '')}.</p>
-<h2>Start here</h2>
+<p class="meta">Version 1. {html.escape(str(counts.get('news', 0)))} news items, {html.escape(str(counts.get('newsletters', 0)))} newsletter issues, {html.escape(str(counts.get('events', 0)))} events and {html.escape(str(counts.get('talks', 0)))} talks in this build. Generated {html.escape(index.get('generated_at') or '')}.</p>
+<div class="prose">
+<h2 id="start">Start here</h2>
 <ul>
 <li><a href="{html.escape(b)}api/v1/index.json">Discovery</a> — every endpoint and example URL.</li>
 <li><a href="{html.escape(b)}api/v1/openapi.json">OpenAPI</a> (also <a href="{html.escape(b)}api/v1/openapi.yaml">YAML</a>).</li>
 <li><a href="{html.escape(b)}llms.txt">llms.txt</a> — plain-language instructions.</li>
 <li><a href="{html.escape(b)}.well-known/api-catalog">API catalog</a> (RFC 9727 linkset; <a href="{html.escape(b)}.well-known/api-catalog.json">.json copy</a>).</li>
 </ul>
-<h2>Fetch news and a newsletter</h2>
+<h2 id="fetch">Fetch news and a newsletter</h2>
 <pre>curl -fsS {news}
 curl -fsS {letters}{html.escape(one_line)}</pre>
 <p>Absolute URLs use the public site, at the domain root: <code>{html.escape(b)}api/v1/news.json</code>.</p>
-<h2>Market prices</h2>
+<h2 id="markets">Market prices</h2>
 <p>Nordic exchange prices are market data, not investment advice. <a href="{html.escape(b)}api/v1/markets.json"><code>/api/v1/markets.json</code></a> lists each pair with symbol, base, quote, last, bid and ask when the exchange publishes them, the exchange id, name and country, <code>fetched_at</code>, the source URL, and volume when the exchange published it. <code>volume_base</code> is the base asset with no named window (Firi). <code>volume_base_24h</code> and <code>volume_quote_24h</code> are the last 24 hours (NBX). A missing volume is null, not zero. Quotes are NOK, SEK, DKK and EUR. One exchange is <a href="{html.escape(b)}api/v1/markets/firi.json"><code>/api/v1/markets/{{exchange}}.json</code></a> (<code>firi</code>, <code>nbx</code>, <code>coinmotion</code>). One asset is <a href="{html.escape(b)}api/v1/markets/by-asset/BTC.json"><code>/api/v1/markets/by-asset/{{symbol}}.json</code></a>. Venues without a public ticker are listed under <code>skipped</code> and are not given a made-up price.</p>
 <p><a href="{html.escape(b)}api/v1/markets/aggregated.json"><code>/api/v1/markets/aggregated.json</code></a> is one row per pair. BTC-NOK is not averaged with BTC-EUR. <code>last</code> is the arithmetic mean of published last prices. <code>mid</code> is the mean of (bid+ask)/2 and is not mixed into <code>last</code>. <code>price</code> equals <code>last</code> when any last exists, otherwise <code>mid</code>. <code>min</code> and <code>max</code> use that same series. There is no VWAP. Volume is summed only inside the same field and the same pair. <code>logo_url</code> is an SVG from <a href="https://github.com/spothq/cryptocurrency-icons" rel="noopener">cryptocurrency-icons</a> (CC0 1.0) when that set includes the asset, served at <code>/api/v1/markets/logos/{{symbol}}.svg</code>, and null otherwise. The per-asset file repeats <code>aggregated</code> and the logo.</p>
 <p>The build fetches the exchanges. <code>.github/workflows/markets-refresh.yml</code> rewrites the JSON on gh-pages about once an hour, including the aggregated file and the icons. The markets page reloads this file, and refreshes Firi and Coinmotion in the browser because those APIs send <code>Access-Control-Allow-Origin: *</code>. NBX does not, so those rows follow the file. The same document on the gh-pages branch: <a href="https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json">raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json</a>.</p>
 <pre>curl -fsS {html.escape(b)}api/v1/markets.json
 curl -fsS {html.escape(b)}api/v1/markets/aggregated.json</pre>
-<h2>Talks</h2>
-<p>Public talks on bitcoin, cryptocurrencies and blockchain held in Norway, Sweden, Denmark, Finland, Iceland, the Faroe Islands, Greenland and Åland are at <a href="{html.escape(b)}api/v1/talks.json"><code>/api/v1/talks.json</code></a>, newest first. One talk is <code>/api/v1/talks/{{id}}.json</code>. One country is <a href="{html.escape(b)}api/v1/talks/by-country/NO.json"><code>/api/v1/talks/by-country/{{country}}.json</code></a> (<code>NO</code>, <code>SE</code>, <code>DK</code>, <code>FI</code>, <code>IS</code>, <code>FO</code>, <code>GL</code>, <code>AX</code>). <code>description</code> is ours. <code>title</code>, dates, duration, channel and speakers come from the platform at <code>source_url</code>. A field the platform did not state is null. <code>embed</code> is true only when that platform's oEmbed response includes a player. The HTML page loads the player after a click: YouTube via youtube-nocookie.com, Vimeo via player.vimeo.com. <code>calendar_event_id</code> is the id in <code>/api/v1/events.json</code> when the talk is that calendar event.</p>
-<h2>Several outlets, one story</h2>
+<h2 id="talks">Talks</h2>
+<p>Public talks on bitcoin, cryptocurrencies and blockchain held in Norway, Sweden, Denmark, Finland, Iceland, the Faroe Islands, Greenland and Åland are at <a href="{html.escape(b)}api/v1/talks.json"><code>/api/v1/talks.json</code></a>, newest first. One talk is <code>/api/v1/talks/{{id}}.json</code>. One country is <a href="{html.escape(b)}api/v1/talks/by-country/NO.json"><code>/api/v1/talks/by-country/{{country}}.json</code></a> (<code>NO</code>, <code>SE</code>, <code>DK</code>, <code>FI</code>, <code>IS</code>, <code>FO</code>, <code>GL</code>, <code>AX</code>). <code>description</code> is ours. <code>title</code>, dates, duration, channel and speakers come from the platform at <code>source_url</code>. A field the platform did not state is null. <code>embed</code> is true only when that platform's oEmbed response includes a player. The HTML page loads the player after a click: YouTube via youtube-nocookie.com, Vimeo via player.vimeo.com. <code>event_id</code> and <code>calendar_event_id</code> are the same event id when the talk is linked. That event is <code>/api/v1/events/{{id}}.json</code> (and <code>/api/v1/events/previous.json</code> when it is a past event) and the page is <code>/calendar/{{id}}/</code>. <code>talk_ids</code> on the event lists those talks. <code>unlink_reason</code> is set when the video page did not state a day or a place, and <code>event_id</code> is then null. <code>speaker_ids</code> are who's who ids in the same order as <code>speakers</code>. The person, at <code>/api/v1/orgchart/{{id}}.json</code>, lists those talks and any affiliation the talk page stated.</p>
+<h2 id="outlets">Several outlets, one story</h2>
 <p>A story keeps one primary outlet. Other outlets that covered the same event are in <code>also_covered_by</code>. <code>sources</code> lists the primary first, then the others. Each outlet has <code>outlet</code>, <code>outlet_name</code>, <code>url</code>, <code>title</code> (that outlet's headline), <code>published</code>, <code>lang</code>, <code>country</code>, <code>source_type</code> and <code>logo</code>. <code>source_type</code> is <code>national</code>, <code>regional</code> (regional and local), <code>official</code> (justice and official: police, prosecutors, courts, regulators) or <code>international</code>. <code>coverage.count</code> is the number of outlets. <code>coverage.by_country</code> and <code>coverage.by_source_type</code> are the counts and shares for the bars. Every source type is present, including a count of zero. <code>html_url</code> is our page for that story. <code>url</code> is the primary outlet. Kaupr stays a news source only.</p>
-<h2>Languages</h2>
-<p>English is the default field (<code>summary</code>, <code>title</code>, <code>text</code>). Translations that we have published sit in <code>summary_i18n</code>, <code>title_i18n</code>, <code>subtitle_i18n</code>, <code>note_i18n</code>, <code>text_i18n</code> and <code>about_i18n</code>, keyed by <code>nn</code>, <code>nb</code>, <code>sv</code>, <code>da</code>, <code>fi</code> and <code>is</code>. Other site languages use the English field until a translation is published. Headlines from other outlets stay in the original language. Dates are ISO 8601.</p>
+<h2 id="events">Events</h2>
+<p>Upcoming and past events are in <a href="{html.escape(b)}api/v1/events.json"><code>/api/v1/events.json</code></a>. Luma calendars are taken from the public Subscribe iCal URL on each event source (<code>ics</code>). Luma city pages, category pages and the discover API are not used. An individual Luma event page is schema.org JSON-LD. Eventbrite organizers and venues are read with the v3 API when the server has <code>EVENTBRITE_TOKEN</code>. That token is not in this feed and is not committed. Without it, the event page JSON-LD is used. The same title, date and venue is one event. Finished events stay in the feed. <code>description.text</code> is the organiser's own wording, <code>description.lang</code> is the language of that text, and <code>description.source_url</code> is the page it came from. <code>description.i18n</code> holds a translation where we have one. The field is null when the source had no description. Predatory conference listings are not a source. Kaupr is never a sponsor.</p>
+<h2 id="languages">Languages</h2>
+<p>English is the default field (<code>summary</code>, <code>title</code>, <code>text</code>). Translations that we have published sit in <code>summary_i18n</code>, <code>title_i18n</code>, <code>subtitle_i18n</code>, <code>note_i18n</code>, <code>text_i18n</code> and <code>about_i18n</code>, keyed by <code>nn</code>, <code>nb</code>, <code>sv</code>, <code>da</code>, <code>fi</code> and <code>is</code>. Other site languages use the English field until a translation is published. On a news item, <code>title</code> stays the source headline, <code>title_en</code> is our English headline and <code>title_i18n</code> is our headline in the Nordic site languages. The pages show the page-language headline first and the source headline underneath when they differ. Each outlet's own headline, inside <code>sources</code>, stays in that outlet's language. Dates are ISO 8601.</p>
 <p><a href="{html.escape(b)}api/v1/languages.json"><code>/api/v1/languages.json</code></a> lists every site language with <code>code</code>, <code>native_name</code>, <code>english_name</code>, <code>rtl</code>, <code>html_lang</code> and <code>home</code>. <a href="{html.escape(b)}api/v1/geo-language.json"><code>/api/v1/geo-language.json</code></a> is the country-to-language guess used on a first visit. The IP country comes from the tipworker <code>GET /api/geo</code> (Cloudflare <code>request.cf.country</code>). Nothing is stored. The <code>nc_lang</code> cookie, set by the language switcher, always wins.</p>
-<h2>Source logos</h2>
+<h2 id="logos">Source logos</h2>
 <p>Each outlet in <a href="{html.escape(b)}api/v1/sources.json"><code>/api/v1/sources.json</code></a> has <code>logo_url</code> (absolute PNG or WebP URL, never SVG, or <code>null</code>) and <code>logo</code> (<code>kind</code>, <code>file_url</code> (the original, SVG or WebP), <code>raster_url</code> (same as <code>logo_url</code>), <code>source_url</code>, <code>author</code>, <code>license</code>, <code>license_url</code>, <code>credit</code>, or <code>null</code>). Each news item has <code>source_logo_url</code>, so an app can show the outlet's logo next to the headline. Logos come from Wikimedia Commons (with the licence) or the publisher's own site. They are the publishers' trademarks, shown only to identify the source of a headline. A logo stays <code>null</code> until the editor has checked it.</p>
-<h2>CORS</h2>
+<h2 id="cors">CORS</h2>
 <p>GitHub Pages sends <code>Access-Control-Allow-Origin: *</code> on these files, so a page on another site can <code>fetch()</code> them. GitHub Pages does not apply a custom headers file. Use the <code>.json</code> file name; opening a directory does not return the JSON.</p>
-<h2>Editorial</h2>
+<h2 id="editorial">Editorial</h2>
 <p>The sign-off is The Nordic Crypto team. Kaupr (kaupr.io) is a news source only and is never a sponsor. Nothing here is investment advice.</p>
-<h2>Brand accounts</h2>
-<p><a href="{html.escape(b)}api/v1/meta.json"><code>/api/v1/meta.json</code></a> includes <code>social</code> for the iOS app. <code>social.telegram</code> is the Nordic Crypto chat at <a href="{SITE_TELEGRAM_URL}">{html.escape(SITE_TELEGRAM_URL)}</a>. <code>social.x</code> is the brand account at <a href="{SITE_X_URL}">{html.escape(SITE_X_URL)}</a> (<code>@xcryptonordic</code>), also listed as <code>urls.x</code>. <code>urls.telegram</code> repeats the chat URL. <code>label</code> is the short name (<code>Telegram</code>, <code>X</code>). <code>name</code> is the English link text. <code>name_i18n</code> has <code>nn</code>, <code>nb</code>, <code>sv</code>, <code>da</code>, <code>fi</code> and <code>is</code>. Other site languages use <code>name</code>.</p>
-<h2>Endpoints</h2>
-<div class="tablewrap"><table class="list"><thead><tr><th>Method</th><th>Path</th><th>Returns</th></tr></thead><tbody>
+<h2 id="brand">Brand accounts</h2>
+<p><code>ios</code> in <a href="{html.escape(b)}api/v1/meta.json"><code>/api/v1/meta.json</code></a> is the public TestFlight invite for the Nordic Crypto iOS app. There is no App Store listing. <code>apple_tv</code> says the TestFlight version especially supports Apple TV. <code>apple_tv_i18n</code> has that short sentence in every site language. The brand name stays Nordic Crypto.</p>
+<p><a href="{html.escape(b)}api/v1/meta.json"><code>/api/v1/meta.json</code></a> includes <code>social</code> for the iOS app. <code>social.telegram</code> is the Nordic Crypto chat at <a href="{SITE_TELEGRAM_URL}">{html.escape(SITE_TELEGRAM_URL)}</a>. <code>social.x</code> is the brand account at <a href="{SITE_X_URL}">{html.escape(SITE_X_URL)}</a> (<code>@xcryptonordic</code>), also listed as <code>urls.x</code>. <code>urls.telegram</code> repeats the chat URL. <code>urls.rss</code> is the English story feed at <a href="{html.escape(b)}rss.xml"><code>/rss.xml</code></a>. Each language home has its own <code>rss.xml</code>. <code>urls.newsletter</code> is the signup page on this site. <code>label</code> is the short name (<code>Telegram</code>, <code>X</code>). <code>name</code> is the English link text. <code>name_i18n</code> has <code>nn</code>, <code>nb</code>, <code>sv</code>, <code>da</code>, <code>fi</code> and <code>is</code>. Other site languages use <code>name</code>.</p>
+<h2 id="notifications">Browser notifications</h2>
+<p>When <code>workers/push/public.json</code> has a Worker URL, a button at the bottom of each page is Web Push. Until then the page says the service is not switched on and does not call a Worker. Subscriptions live on a Cloudflare Worker, not in this static feed. After a publish, <code>GET /api/push/feed.json</code> on that Worker lists the same batches (title, short summary, URL, country, and translations when we have them). One publish is one batch. The document says <code>"apns": "not implemented"</code>: Apple Push Notification service is out of scope. An iOS app can poll the feed. The Worker URL is set when <code>workers/push/</code> is deployed; it is not a path on this site. Subscriptions are not in the feed. This API's <a href="{html.escape(b)}api/v1/news.json"><code>/api/v1/news.json</code></a> remains the full published list.</p>
+<h2 id="endpoints">Endpoints</h2>
+<p>Every endpoint is a plain GET of a static JSON file.</p>
+<div class="tablewrap"><table class="list"><thead><tr><th>Path</th><th>Returns</th></tr></thead><tbody>
 {rows}
 </tbody></table></div>
-<h2>Not included</h2>
+<h2 id="not-included">Not included</h2>
 <p>Drafts, the editor queue, rejected stories, reader tips, newsletter subscriber addresses, the analytics token, and private personal data are not in this feed. An unknown id is a normal site 404, not a JSON error.</p>
 <p class="meta">Field names in version 1 stay. New fields may appear. A breaking change would use a new path.</p>
 </div>"""
@@ -2054,7 +2336,7 @@ def standalone_docs(fragment, base):
 <link rel="canonical" href="{b}api/">
 {head_links(b)}
 </head><body>
-{fragment}
+<div class="api-docs">{fragment}</div>
 </body></html>
 """
 

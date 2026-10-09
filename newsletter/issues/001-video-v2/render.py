@@ -43,9 +43,34 @@ def spaced(d, xy, txt, f, fill, sp=2):
     for ch in txt: d.text((x, y), ch, font=f, fill=fill); x += tw(d, ch, f) + sp if ch != ' ' else tw(d, 'n', f) * .6 + sp
     return x
 def spaced_w(txt, f, sp=2): return sum((tw(DUMMY, c, f) + sp) if c != ' ' else tw(DUMMY, 'n', f) * .6 + sp for c in txt)
-def mark(d, x, y, s):  # brand mark: blue square with Nordic cross
-    d.rectangle((x, y, x + s, y + s), fill=BLUE); d.rectangle((x + s * .25, y, x + s * .44, y + s), fill=WHITE)
-    d.rectangle((x, y + s * .405, x + s, y + s * .595), fill=WHITE)
+# Simplified crest: gold heater, red cross-rosette, black wing bar. Same charge as the favicon.
+_MARK = (
+    " KKKKKYYYYKKKKK ",
+    "KKKKKKKKKKKKKKKK",
+    " KKKYYYYYYKKKKK ",
+    "  KKYYYYYYYYKK  ",
+    " BYYYYYYYYYYYYB ",
+    "BYYYYYRRRRYYYYYB",
+    "YYYYYYRRRRYYYYYY",
+    "YYRRRRRRRRRRRRYY",
+    "YYRRRRRYYRRRRRYY",
+    "YYRRRRRRRRRRRRYY",
+    "YYYYYYRRRRYYYYYY",
+    "BYYYYYRRRRYYYYYB",
+    " BYYYYRRRRYYYYB ",
+    "  BYYYYYYYYYYB  ",
+    "   BYYYYYYYYB   ",
+    "    BYYYYYYB    ",
+)
+_MARK_FILL = {"K": (20, 18, 16), "Y": (244, 196, 48), "R": (160, 32, 42), "B": (26, 18, 6)}
+def mark(d, x, y, s):
+    cell = s / 16.0
+    for row, line in enumerate(_MARK):
+        for col, ch in enumerate(line):
+            fill = _MARK_FILL.get(ch)
+            if not fill:
+                continue
+            d.rectangle((x + col * cell, y + row * cell, x + (col + 1) * cell - 0.2, y + (row + 1) * cell - 0.2), fill=fill)
 def grad(w, h, top, bot):
     g = Image.linear_gradient('L').resize((w, h)); return Image.composite(Image.new('RGB', (w, h), bot), Image.new('RGB', (w, h), top), g)
 def star(d, cx, cy, r, fill):

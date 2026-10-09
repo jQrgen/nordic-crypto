@@ -188,6 +188,144 @@ var NCMarkets = (function () {
     });
   }
 
+  var SHARE_NUM = 3, SHARE_DEN = 100;
+  var SHARE_COLORS = ["var(--mk-1)", "var(--mk-2)", "var(--mk-3)", "var(--mk-4)", "var(--mk-5)", "var(--mk-6)", "var(--mk-7)", "var(--mk-8)"]; // assets/css/tokens.css
+  var SHARE_OTHER = "var(--mk-other)";
+
+  function decInt(text, scale) {
+    var item = parseDec(text);
+    if (!item || typeof BigInt !== "function") return null;
+    var frac = item.frac;
+    while (frac.length < scale) frac += "0";
+    var n = BigInt(item.whole + frac);
+    return item.neg ? -n : n;
+  }
+  function isPositive(text) {
+    var item = parseDec(text);
+    if (!item || item.neg) return false;
+    return item.whole.replace(/0/g, "") !== "" || item.frac.replace(/0/g, "") !== "";
+  }
+  function belowShare(part, total, num, den) {
+    if (!isPositive(part) || !isPositive(total)) return true;
+    var scale = Math.max(parseDec(part).frac.length, parseDec(total).frac.length);
+    var p = decInt(part, scale), t = decInt(total, scale);
+    return p * BigInt(den) < t * BigInt(num);
+  }
+  function tenthsDivision(part, total) {
+    if (!isPositive(part) || !isPositive(total)) return [0, 0n, 1n];
+    var scale = Math.max(parseDec(part).frac.length, parseDec(total).frac.length);
+    var p = decInt(part, scale), t = decInt(total, scale);
+    var num = p * 1000n;
+    return [Number(num / t), num % t, t];
+  }
+  function volumeShares(tickers, names, logoMap) {
+    names = names || {};
+    logoMap = logoMap || {};
+    if (typeof BigInt !== "function") return [];
+    var byQuote = {};
+    (tickers || []).forEach(function (row) {
+      if (!row || !row.base || !row.quote || !isPositive(row.volume_quote_24h)) return;
+      var g = byQuote[row.quote] || (byQuote[row.quote] = {});
+      (g[row.base] || (g[row.base] = [])).push(row);
+    });
+    function quoteRank(q) { var i = FIAT.indexOf(q); return (i < 0 ? 99 : i) + q; }
+    var quotes = Object.keys(byQuote).sort(function (a, b) { return quoteRank(a) < quoteRank(b) ? -1 : quoteRank(a) > quoteRank(b) ? 1 : 0; });
+    return quotes.map(function (quote) {
+      var coins = [];
+      Object.keys(byQuote[quote]).forEach(function (base) {
+        var rows = dedupe(byQuote[quote][base]).filter(function (row) { return isPositive(row.volume_quote_24h); });
+        var total = rows.length ? sumDecimal(rows.map(function (row) { return row.volume_quote_24h; })) : null;
+        if (!isPositive(total)) return;
+        var sources = [], seen = {};
+        rows.forEach(function (row) {
+          var ex = row.exchange || {};
+          var key = (ex.id || "") + "\n" + (row.source_url || "");
+          if (seen[key]) return;
+          seen[key] = true;
+          sources.push({id: ex.id || "", name: ex.name || ex.id || "", url: row.source_url || ""});
+        });
+        sources.sort(function (a, b) { return exKey(a.id) < exKey(b.id) ? -1 : exKey(a.id) > exKey(b.id) ? 1 : (a.url < b.url ? -1 : a.url > b.url ? 1 : 0); });
+        var fetched = [];
+        rows.forEach(function (row) { if (row.fetched_at) fetched.push(row.fetched_at); });
+        coins.push({
+          base: base,
+          name: names[base] || base,
+          volume: total,
+          logo_path: (logoMap[base] && logoMap[base].logo_path) || null,
+          fetched: fetched,
+          sources: sources
+        });
+      });
+      if (!coins.length) return null;
+      var grand = sumDecimal(coins.map(function (c) { return c.volume; }));
+      if (!isPositive(grand)) return null;
+      coins.sort(function (a, b) {
+        var cmp = 0;
+        var sa = parseDec(a.volume), sb = parseDec(b.volume);
+        var scale = Math.max(sa.frac.length, sb.frac.length);
+        var ia = decInt(a.volume, scale), ib = decInt(b.volume, scale);
+        if (ia !== ib) cmp = ia > ib ? -1 : 1;
+        else cmp = a.base < b.base ? -1 : a.base > b.base ? 1 : 0;
+        return cmp;
+      });
+      var large = [], small = [];
+      coins.forEach(function (c) { (belowShare(c.volume, grand, SHARE_NUM, SHARE_DEN) ? small : large).push(c); });
+      if (!large.length) { large = coins; small = []; }
+      var slices = large.map(function (c) {
+        return {base: c.base, name: c.name, volume: c.volume, logo_path: c.logo_path, other: false, members: [c.base]};
+      });
+      if (small.length) {
+        small.sort(function (a, b) {
+          var sa = parseDec(a.volume), sb = parseDec(b.volume);
+          var scale = Math.max(sa.frac.length, sb.frac.length);
+          var ia = decInt(a.volume, scale), ib = decInt(b.volume, scale);
+          if (ia !== ib) return ia > ib ? -1 : 1;
+          return a.base < b.base ? -1 : a.base > b.base ? 1 : 0;
+        });
+        slices.push({
+          base: null, name: null,
+          volume: sumDecimal(small.map(function (c) { return c.volume; })),
+          logo_path: null, other: true,
+          members: small.map(function (c) { return c.base; })
+        });
+      }
+      var parts = slices.map(function (sl) { return tenthsDivision(sl.volume, grand); });
+      var allocated = 0;
+      parts.forEach(function (p) { allocated += p[0]; });
+      var remain = 1000 - allocated;
+      var order = parts.map(function (_p, i) { return i; });
+      order.sort(function (i, j) {
+        var left = parts[i][1] * parts[j][2], right = parts[j][1] * parts[i][2];
+        if (left !== right) return left > right ? -1 : 1;
+        return i - j;
+      });
+      var tenths = parts.map(function (p) { return p[0]; });
+      for (var n = 0; n < remain && n < order.length; n++) tenths[order[n]] += 1;
+      slices.forEach(function (sl, i) {
+        sl.tenths = tenths[i];
+        sl.pct = String(Math.floor(tenths[i] / 10)) + "." + String(tenths[i] % 10);
+      });
+      var fetched = [];
+      var sources = [], seenSrc = {};
+      coins.forEach(function (c) {
+        c.fetched.forEach(function (f) { fetched.push(f); });
+        c.sources.forEach(function (src) {
+          var key = src.id + "\n" + src.url;
+          if (seenSrc[key]) return;
+          seenSrc[key] = true;
+          sources.push(src);
+        });
+      });
+      fetched.sort();
+      sources.sort(function (a, b) { return exKey(a.id) < exKey(b.id) ? -1 : exKey(a.id) > exKey(b.id) ? 1 : (a.url < b.url ? -1 : a.url > b.url ? 1 : 0); });
+      return {
+        quote: quote, window: "24h", field: "volume_quote_24h", total: grand,
+        updated_at: fetched.length ? fetched[fetched.length - 1] : null,
+        sources: sources, threshold_pct: SHARE_NUM, slices: slices
+      };
+    }).filter(Boolean);
+  }
+
   function boot() {
     var root = document.getElementById("mk");
     if (!root) return;
@@ -238,83 +376,354 @@ var NCMarkets = (function () {
       Object.keys(map).forEach(function (k) { s = s.split("{" + k + "}").join(map[k]); });
       return s;
     }
-    function volumeHtml(vol, base, quote, summed) {
-      if (!vol) return "";
+    var KEYS = ["BTC", "ETH", "SOL", "XRP"];
+    var EXSHORT = {firi: "Firi", nbx: "NBX", coinmotion: "Coinmotion"};
+    function exShort(ex) {
+      ex = ex || {};
+      return EXSHORT[ex.id] || ex.name || ex.id || "";
+    }
+    function chgKind(text) {
+      if (text == null || text === "") return "";
+      var s = String(text);
+      var body = s.charAt(0) === "-" ? s.slice(1) : s;
+      if (body.replace(/\./g, "").replace(/0/g, "") === "") return "flat";
+      return s.charAt(0) === "-" ? "dn" : "up";
+    }
+    function chgShown(text) {
+      var shown = fmt(String(text));
+      return chgKind(text) === "up" ? "+" + shown : shown;
+    }
+    function hasNum(v) { return v != null && v !== ""; }
+    function volCell(vol, base, quote) {
+      vol = vol || {};
       var bits = [];
-      function line(key, unit, day) {
-        if (vol[key] == null || vol[key] === "") return;
-        var tmpl = summed ? (day ? S.vol_sum_24h : S.vol_sum_plain) : (day ? S.vol_24h : S.vol_plain);
-        if (!tmpl) return;
-        bits.push(esc(fill(tmpl, {n: fmt(vol[key]), unit: unit, count: String(vol[key + "_exchanges"] || 0)})));
+      if (hasNum(vol.volume_quote_24h)) bits.push(["main", fmt(vol.volume_quote_24h) + " " + quote, "24h"]);
+      else if (hasNum(vol.volume_base_24h)) bits.push(["main", fmt(vol.volume_base_24h) + " " + base, "24h"]);
+      if (hasNum(vol.volume_base)) bits.push([bits.length ? "sub" : "main", fmt(vol.volume_base) + " " + base, "window"]);
+      else if (hasNum(vol.volume_quote) && !hasNum(vol.volume_quote_24h)) bits.push([bits.length ? "sub" : "main", fmt(vol.volume_quote) + " " + quote, "window"]);
+      if (!bits.length) return '<span class="meta none">—</span>';
+      return bits.map(function (b) {
+        var label = b[2] === "24h" ? "24h" : (S.vol_window || "");
+        if (b[0] === "main") return '<span class="pxs">' + esc(b[1]) + '</span><span class="meta sub">' + esc(label) + "</span>";
+        return '<span class="meta sub">' + esc(b[1]) + " · " + esc(label) + "</span>";
+      }).join("");
+    }
+    function exCell(row) {
+      if (!row) return '<span class="meta none">—</span>';
+      var bits = [];
+      if (hasNum(row.last)) bits.push('<span class="pxs">' + esc(fmt(row.last)) + "</span>");
+      else {
+        var ba = [];
+        if (hasNum(row.bid)) ba.push(esc(S.bid || "Bid") + " " + esc(fmt(row.bid)));
+        if (hasNum(row.ask)) ba.push(esc(S.ask || "Ask") + " " + esc(fmt(row.ask)));
+        if (!ba.length) bits.push('<span class="meta">' + esc(S.no_last || "") + "</span>");
+        else {
+          bits.push('<span class="pxs">' + ba[0] + "</span>");
+          if (ba.length > 1) bits.push('<span class="meta sub">' + ba[1] + "</span>");
+        }
       }
-      line("volume_base_24h", base, true);
-      line("volume_quote_24h", quote, true);
-      line("volume_base", base, false);
-      line("volume_quote", quote, false);
-      if (!bits.length) return "";
-      return '<p class="meta vol">' + bits.join(" · ") + "</p>";
+      if (hasNum(row.change_pct)) {
+        bits.push('<span class="chg ' + chgKind(row.change_pct) + '" title="' + esc(S.chg_tip || "") + '">' + esc(chgShown(row.change_pct)) + "%</span>");
+      }
+      return bits.join("");
     }
-    function aggHtml(pair) {
-      if (!pair) return "";
-      var q = pair.quote;
-      var price = pair.price
-        ? '<p class="px">' + esc(fmt(pair.price)) + ' <span class="unit">' + esc(q) + "</span></p>"
-        : '<p class="px">' + esc(S.agg_none || "") + "</p>";
-      var how = S.agg_none || "";
-      if (pair.method === "mean_last") how = fill(S.agg_last, {n: String(pair.last_count || 0)});
-      else if (pair.method === "mean_bid_ask_mid") how = fill(S.agg_mid, {n: String(pair.mid_count || 0)});
-      var span = (pair.min != null && pair.max != null) ? (" " + fill(S.agg_minmax, {min: fmt(pair.min), max: fmt(pair.max), q: q})) : "";
-      var bits = [how + span, fill(S.agg_exchanges, {n: String(pair.exchange_count || 0)})];
-      if (pair.updated_at) bits.push(fill(S.agg_updated, {when: when(pair.updated_at)}));
-      return '<div class="mkagg"><p class="meta"><b>' + esc(S.agg || "") + "</b> · " + esc(pair.base) + "/" + esc(q) + "</p>" +
-        price + '<p class="meta">' + esc(bits.filter(Boolean).join(" ")) + "</p>" +
-        volumeHtml(pair.volume, pair.base, q, true) + "</div>";
+    function indexTickers(tickers) {
+      var out = {};
+      (tickers || []).forEach(function (row) {
+        if (!row || !row.base || !row.quote) return;
+        var id = row.exchange && row.exchange.id;
+        if (!id) return;
+        var key = row.base + "|" + row.quote;
+        var slot = out[key] || (out[key] = {});
+        var prev = slot[id];
+        if (!prev || (row.fetched_at || "") >= (prev.fetched_at || "")) slot[id] = row;
+      });
+      return out;
     }
-    function card(row) {
-      var ex = row.exchange || {};
-      var last = row.last;
-      var price = last
-        ? '<p class="px">' + esc(fmt(last)) + ' <span class="unit">' + esc(row.quote) + "</span></p>"
-        : '<p class="px">' + esc(S.no_last || "No last trade published") + "</p>";
-      var fresh = live[ex.id] ? ' <span class="tag act">' + esc(S.live || "") + "</span>" : "";
-      return '<article class="mkcard" data-base="' + esc(row.base) + '" data-ex="' + esc(ex.id) + '">' +
-        '<p class="meta"><b>' + esc(ex.name || "") + "</b> · " + esc(ex.country || "") + " · " + esc(row.base) + "/" + esc(row.quote) + fresh + "</p>" +
-        price +
-        '<p class="ba"><span>' + esc(S.bid || "Bid") + " " + esc(fmt(row.bid)) + "</span> <span>" + esc(S.ask || "Ask") + " " + esc(fmt(row.ask)) + "</span></p>" +
-        volumeHtml(row, row.base, row.quote, false) +
-        '<p class="meta">' + esc(S.fetched || "Fetched") + ' <time datetime="' + esc(row.fetched_at || "") + '">' + esc(when(row.fetched_at)) + "</time>" +
-        (row.source_url ? ' · <a href="' + esc(row.source_url) + '" rel="noopener">' + esc(S.source || "Source") + "</a>" : "") +
-        "</p></article>";
+    function exIds(tickers) {
+      var ids = [];
+      (tickers || []).forEach(function (r) {
+        var id = r && r.exchange && r.exchange.id;
+        if (id && ids.indexOf(id) < 0) ids.push(id);
+      });
+      ids.sort(function (a, b) { return exKey(a) < exKey(b) ? -1 : exKey(a) > exKey(b) ? 1 : 0; });
+      return ids;
+    }
+    function assetRank(b) { var i = ASSET.indexOf(b); return i < 0 ? 99 : i; }
+    function quoteRank(q) { var i = FIAT.indexOf(q); return i < 0 ? 99 : i; }
+    function cmpDec(a, b) {
+      var scaled = scaledInts([String(a), String(b)]);
+      if (!scaled) return 0;
+      if (scaled.ints[0] < scaled.ints[1]) return -1;
+      if (scaled.ints[0] > scaled.ints[1]) return 1;
+      return 0;
+    }
+    function cmpDecDir(a, b, dir) {
+      var am = !hasNum(a), bm = !hasNum(b);
+      if (am && bm) return 0;
+      if (am) return 1;
+      if (bm) return -1;
+      return cmpDec(a, b) * dir;
+    }
+    function exPx(indexed, pair, id) {
+      var row = (indexed[pair.base + "|" + pair.quote] || {})[id];
+      if (!row) return null;
+      if (hasNum(row.last)) return row.last;
+      if (hasNum(row.bid) && hasNum(row.ask)) return meanDecimal([row.bid, row.ask]);
+      if (hasNum(row.bid)) return row.bid;
+      if (hasNum(row.ask)) return row.ask;
+      return null;
+    }
+    function cmpPair(a, b, mode, indexed) {
+      if (mode === "coin") {
+        var c = assetRank(a.base) - assetRank(b.base);
+        if (c) return c;
+        if (a.base !== b.base) return a.base < b.base ? -1 : 1;
+        return quoteRank(a.quote) - quoteRank(b.quote);
+      }
+      if (mode === "quote") {
+        var q = quoteRank(a.quote) - quoteRank(b.quote);
+        if (q) return q;
+        if (a.quote !== b.quote) return a.quote < b.quote ? -1 : 1;
+        return assetRank(a.base) - assetRank(b.base);
+      }
+      var g = quoteRank(a.quote) - quoteRank(b.quote);
+      if (g) return g;
+      var av, bv, dir = 1;
+      if (mode === "price" || mode === "price-desc") {
+        av = a.price; bv = b.price; dir = mode === "price-desc" ? -1 : 1;
+      } else if (mode === "vol") {
+        av = a.volume && a.volume.volume_quote_24h;
+        bv = b.volume && b.volume.volume_quote_24h;
+        dir = -1;
+      } else if (mode.indexOf("ex:") === 0) {
+        var id = mode.slice(3);
+        av = exPx(indexed, a, id);
+        bv = exPx(indexed, b, id);
+        dir = -1;
+      }
+      var d = cmpDecDir(av, bv, dir);
+      if (d) return d;
+      return assetRank(a.base) - assetRank(b.base);
+    }
+    function sortTh(key, label, title, isLive) {
+      var mode = (document.getElementById("mk-sort") || {}).value || "coin";
+      var on = mode === key || (key === "price" && mode === "price-desc");
+      var extra = title ? ' title="' + esc(title) + (isLive ? " · " + esc(S.live || "") : "") + '"' : "";
+      return '<th scope="col"' + (isLive ? ' class="live"' : "") + extra + '><button type="button" class="sort" data-sort="' + esc(key) + '" aria-pressed="' + (on ? "true" : "false") + '">' + esc(label) + "</button></th>";
+    }
+    function tableHtml(pairs, indexed, ids, names) {
+      if (!pairs.length) return '<p class="empty">' + esc(S.no_match || S.empty || "") + "</p>";
+      var heads = [sortTh("coin", S.col_coin || ""), sortTh("quote", S.col_quote || ""), sortTh("price", S.col_price || ""), sortTh("vol", S.col_vol || "")];
+      ids.forEach(function (id) {
+        var short = EXSHORT[id] || names[id] || id;
+        heads.push(sortTh("ex:" + id, short, names[id] || short, !!live[id]));
+      });
+      var body = pairs.map(function (p) {
+        var name = NAMES[p.base] || p.base;
+        var img = p.logo_path ? '<img src="' + esc(siteRoot() + p.logo_path) + '" width="22" height="22" alt="" loading="lazy">' : "";
+        var price = p.price
+          ? '<span class="pxs">' + esc(fmt(p.price)) + "</span>"
+          : '<span class="meta">' + esc(S.agg_none || "") + "</span>";
+        var slot = indexed[p.base + "|" + p.quote] || {};
+        var tds = [
+          '<td data-label="' + esc(S.col_coin || "") + '"><div class="coin">' + img + "<span>" + esc(name) + ' <span class="sym">' + esc(p.base) + "</span></span></div></td>",
+          '<td data-label="' + esc(S.col_quote || "") + '">' + esc(p.quote) + "</td>",
+          '<td data-label="' + esc(S.col_price || "") + '">' + price + "</td>",
+          '<td data-label="' + esc(S.col_vol || "") + '">' + volCell(p.volume, p.base, p.quote) + "</td>"
+        ];
+        ids.forEach(function (id) {
+          var short = EXSHORT[id] || names[id] || id;
+          tds.push('<td data-label="' + esc(short) + '">' + exCell(slot[id]) + "</td>");
+        });
+        return "<tr>" + tds.join("") + "</tr>";
+      }).join("");
+      return '<div class="mkwrap"><table class="list mkpairs"><caption class="vh">' + esc(S.table_h || "") + "</caption><thead><tr>" + heads.join("") + "</tr></thead><tbody>" + body + "</tbody></table></div>";
+    }
+    function renderCredit() {
+      var el = document.getElementById("mk-credit");
+      if (!el || !state) return;
+      var times = [];
+      (state.tickers || []).forEach(function (r) { if (r.fetched_at) times.push(r.fetched_at); });
+      times.sort();
+      var parts = [];
+      if (times.length) parts.push(esc(fill(S.updated || "", {when: when(times[times.length - 1])})));
+      var links = (state.exchanges || []).filter(function (e) { return e.status === "ok"; }).map(function (e) {
+        var name = e.name || e.id || "";
+        return e.website ? '<a href="' + esc(e.website) + '" rel="noopener">' + esc(name) + "</a>" : esc(name);
+      });
+      if (links.length) parts.push(esc(S.sources || "") + ": " + links.join(", "));
+      el.innerHTML = parts.join(" ");
+    }
+    function renderSummary() {
+      var host = document.getElementById("mk-summary");
+      if (!host || !state) return;
+      var pairs = aggregatePairs(state.tickers || [], logos);
+      var by = {};
+      pairs.forEach(function (p) { by[p.base + "|" + p.quote] = p; });
+      var indexed = indexTickers(state.tickers || []);
+      var tiles = [];
+      KEYS.forEach(function (base) {
+        var pair = null;
+        for (var i = 0; i < FIAT.length; i++) {
+          var cand = by[base + "|" + FIAT[i]];
+          if (cand && cand.price) { pair = cand; break; }
+        }
+        if (!pair) return;
+        var name = NAMES[base] || base;
+        var full = name !== base ? name + " (" + base + ")" : base;
+        var img = pair.logo_path ? '<img src="' + esc(siteRoot() + pair.logo_path) + '" width="22" height="22" alt="' + esc(fill(S.logo_alt || "", {name: full})) + '">' : "";
+        var how = S.agg_none || "";
+        if (pair.method === "mean_last") how = fill(S.mean_last || "", {n: String(pair.last_count || 0)});
+        else if (pair.method === "mean_bid_ask_mid") how = fill(S.mean_mid || "", {n: String(pair.mid_count || 0)});
+        var slot = indexed[base + "|" + pair.quote] || {};
+        var chg = "";
+        exIds(Object.keys(slot).map(function (id) { return slot[id]; })).forEach(function (id) {
+          var row = slot[id];
+          if (!row || !hasNum(row.change_pct)) return;
+          chg += '<p class="chg ' + chgKind(row.change_pct) + '" title="' + esc(S.chg_tip || "") + '">' + esc(fill(S.chg_short || "{name} {n}%", {name: exShort(row.exchange), n: chgShown(row.change_pct)})) + "</p>";
+        });
+        tiles.push('<article class="mktile"><p class="k">' + img + esc(name) + ' <span class="sym">' + esc(base) + "</span></p>" +
+          '<p class="px">' + esc(fmt(pair.price)) + ' <span class="unit">' + esc(pair.quote) + "</span></p>" +
+          chg + '<p class="meta">' + esc(how) + "</p></article>");
+      });
+      volumeShares(state.tickers || [], NAMES, logos).forEach(function (g) {
+        tiles.push('<article class="mktile vol"><p class="k">' + esc(S.vol_tile || "") + "</p>" +
+          '<p class="px">' + esc(fmt(g.total)) + ' <span class="unit">' + esc(g.quote) + "</span></p></article>");
+      });
+      var ok = (state.exchanges || []).filter(function (e) { return e.status === "ok"; }).length;
+      var bases = {};
+      (state.tickers || []).forEach(function (r) { if (r.base) bases[r.base] = 1; });
+      var note = '<p class="meta mknote"><span class="mkstats">' + esc(S.tracked || "") + ": <b>" + ok + "</b> " + esc(S.n_ex || "") +
+        " · <b>" + pairs.length + "</b> " + esc(S.n_pairs || "") + " · <b>" + Object.keys(bases).length + "</b> " + esc(S.n_coins || "") + ".</span> " +
+        esc(S.tiles_note || "") + "</p>";
+      var inner = (state.tickers || []).length ? '<div class="mktiles">' + tiles.join("") + "</div>" + note : '<p class="empty">' + esc(S.empty || "") + "</p>";
+      host.innerHTML = '<h2 id="mk-glance" class="mklbl">' + esc(S.glance || "") + "</h2>" + inner;
+    }
+    function renderTable() {
+      var host = document.getElementById("mk-tables");
+      if (!host || !state) return;
+      var indexed = indexTickers(state.tickers || []);
+      var pairs = aggregatePairs(state.tickers || [], logos);
+      var q = ((document.getElementById("mk-q") || {}).value || "").trim().toLowerCase();
+      var quote = (document.getElementById("mk-quote") || {}).value || "";
+      pairs = pairs.filter(function (p) {
+        if (quote && p.quote !== quote) return false;
+        if (!q) return true;
+        var name = (NAMES[p.base] || p.base).toLowerCase();
+        var blob = (p.base + " " + name + " " + p.quote).toLowerCase();
+        var slot = indexed[p.base + "|" + p.quote] || {};
+        Object.keys(slot).forEach(function (id) {
+          var ex = slot[id].exchange || {};
+          blob += " " + (ex.name || "").toLowerCase() + " " + exShort(ex).toLowerCase() + " " + id;
+        });
+        return blob.indexOf(q) >= 0;
+      });
+      var mode = (document.getElementById("mk-sort") || {}).value || "coin";
+      pairs.sort(function (a, b) { return cmpPair(a, b, mode, indexed); });
+      var names = {};
+      (state.tickers || []).forEach(function (r) {
+        var ex = r.exchange || {};
+        if (ex.id && !names[ex.id]) names[ex.id] = ex.name || ex.id;
+      });
+      host.innerHTML = tableHtml(pairs, indexed, exIds(state.tickers || []), names);
+      var shown = document.getElementById("mk-shown");
+      if (shown) shown.textContent = fill(S.row_count || "{n}", {n: String(pairs.length)});
+    }
+    function sliceLabel(sl) {
+      if (sl.other) return S.share_other || "Other";
+      var name = sl.name || sl.base;
+      return name && name !== sl.base ? name + " (" + sl.base + ")" : (sl.base || "");
+    }
+    function tenthsStr(n) {
+      var sign = n < 0 ? "-" : "";
+      n = Math.abs(n);
+      return sign + Math.floor(n / 10) + "." + (n % 10);
+    }
+    function sharePct(sl) { return sl.tenths ? sl.pct : "<0.1"; }
+    function donutSvg(slices, quote, title) {
+      var titleId = "mkvol-t-" + quote;
+      var descId = "mkvol-d-" + quote;
+      var desc = slices.map(function (sl) { return sliceLabel(sl) + " " + sharePct(sl) + "%"; }).join(", ");
+      var rings = "";
+      var drawn = slices.filter(function (sl) { return sl.tenths; });
+      if (drawn.length === 1 && drawn[0].tenths >= 1000) {
+        rings = '<circle cx="21" cy="21" r="15.9155" fill="none" style="stroke:' + drawn[0].color + '" stroke-width="6"><title>' + esc(sliceLabel(drawn[0])) + " " + esc(sharePct(drawn[0])) + "%</title></circle>";
+      } else {
+        var offset = 250;
+        slices.forEach(function (sl) {
+          if (!sl.tenths) return;
+          var gap = 1000 - sl.tenths;
+          var pct = tenthsStr(sl.tenths);
+          var gapS = tenthsStr(gap);
+          var off = tenthsStr(offset);
+          rings += '<circle cx="21" cy="21" r="15.9155" fill="none" style="stroke:' + sl.color + '" stroke-width="6" stroke-dasharray="' + pct + " " + gapS + '" stroke-dashoffset="' + off + '"><title>' + esc(sliceLabel(sl)) + " " + esc(sharePct(sl)) + "%</title></circle>";
+          offset -= sl.tenths;
+        });
+      }
+      return '<svg viewBox="0 0 42 42" role="img" aria-labelledby="' + titleId + " " + descId + '">' +
+        '<title id="' + titleId + '">' + esc(title) + "</title>" +
+        '<desc id="' + descId + '">' + esc(desc) + "</desc>" +
+        rings +
+        '<text x="21" y="20.4" text-anchor="middle" font-family="system-ui,sans-serif" font-size="3.4" font-weight="700" fill="currentColor">' + esc(quote) + "</text>" +
+        '<text x="21" y="23.8" text-anchor="middle" font-family="system-ui,sans-serif" font-size="2.1" fill="currentColor">24h</text></svg>';
+    }
+    function shareHtml(groups) {
+      var head = '<h2 id="mk-share-h">' + esc(S.share_h || "") + "</h2><p class=\"meta\">" + esc(S.share_note || "") + "</p>";
+      if (!groups.length) return '<section class="mkvol">' + head + '<p class="meta">' + esc(S.share_empty || "") + "</p></section>";
+      var figures = groups.map(function (g) {
+        var q = g.quote;
+        var colorI = 0;
+        var slices = g.slices.map(function (sl) {
+          var color = sl.other ? SHARE_OTHER : SHARE_COLORS[colorI % SHARE_COLORS.length];
+          if (!sl.other) colorI += 1;
+          var copy = {};
+          Object.keys(sl).forEach(function (k) { copy[k] = sl[k]; });
+          copy.color = color;
+          return copy;
+        });
+        var title = fill(S.share_caption || "", {q: q});
+        var legend = slices.map(function (sl) {
+          var label = sliceLabel(sl);
+          var img = sl.logo_path ? '<img src="' + esc(siteRoot() + sl.logo_path) + '" width="22" height="22" alt="' + esc(fill(S.logo_alt || "", {name: label})) + '" loading="lazy">' : "";
+          var extra = sl.other && sl.members && sl.members.length ? '<span class="meta">' + esc(fill(S.share_includes || "", {names: sl.members.join(", ")})) + "</span>" : "";
+          return '<li><span class="sw" style="background:' + sl.color + '"></span>' + img + '<span class="nm">' + esc(label) + "</span>" + extra + '<span class="pct">' + esc(sharePct(sl)) + "%</span></li>";
+        }).join("");
+        var rows = slices.map(function (sl) {
+          return "<tr><th scope=\"row\">" + esc(sliceLabel(sl)) + "</th><td>" + esc(fmt(sl.volume)) + " " + esc(q) + "</td><td>" + esc(sharePct(sl)) + "%</td></tr>";
+        }).join("");
+        var src = (g.sources || []).map(function (s) {
+          var name = s.name || s.id || "";
+          return s.url ? '<a href="' + esc(s.url) + '" rel="noopener">' + esc(name) + "</a>" : esc(name);
+        }).filter(Boolean).join(", ");
+        var meta = esc(fill(S.share_window || "", {q: q}));
+        if (g.updated_at) meta += " " + esc(fill(S.share_updated || "", {when: when(g.updated_at)}));
+        if (src) meta += " " + esc(S.share_source || "") + ": " + src + ".";
+        meta += " " + esc(S.share_group || "");
+        return '<figure class="mkvol-fig"><div class="mkvol-row">' + donutSvg(slices, q, title) + '<ul class="mklegend">' + legend + "</ul></div>" +
+          '<figcaption class="meta">' + meta + "</figcaption>" +
+          '<details class="mkshare-d"' + (openTables[q] ? " open" : "") + "><summary>" + esc(S.share_table || "") + "</summary>" +
+          '<table class="list mkshare"><caption>' + esc(title) + "</caption><thead><tr><th scope=\"col\">" + esc(S.share_coin || "") + "</th><th scope=\"col\">" + esc(fill(S.share_vol || "", {q: q})) + "</th><th scope=\"col\">" + esc(S.share_pct || "") + "</th></tr></thead><tbody>" + rows + "</tbody></table></details></figure>";
+      }).join("");
+      return '<section class="mkvol">' + head + '<div class="mkvol-figs">' + figures + "</div></section>";
+    }
+    var openTables = {};
+    function renderShare() {
+      var host = document.getElementById("mk-share");
+      if (!host || !state) return;
+      openTables = {};
+      [].forEach.call(host.querySelectorAll("figure.mkvol-fig"), function (fig) {
+        var d = fig.querySelector("details.mkshare-d"), t = fig.querySelector("svg text");
+        if (d && d.open && t) openTables[t.textContent] = true;
+      });
+      host.innerHTML = shareHtml(volumeShares(state.tickers || [], NAMES, logos));
     }
     function render() {
-      if (!state || !box) return;
-      var pick = (document.getElementById("mk-asset") || {}).value || "";
-      var rows = (state.tickers || []).filter(function (r) { return !pick || r.base === pick; });
-      var groups = {};
-      rows.forEach(function (r) {
-        var g = groups[r.base] || (groups[r.base] = {});
-        (g[r.quote] || (g[r.quote] = [])).push(r);
-      });
-      var agg = {};
-      aggregatePairs(rows, logos).forEach(function (p) { agg[p.base + "|" + p.quote] = p; });
-      var bases = Object.keys(groups).sort(function (a, b) { return assetKey(a) < assetKey(b) ? -1 : 1; });
-      if (!bases.length) {
-        box.innerHTML = '<p class="empty">' + esc(S.empty || "") + "</p>";
-      } else {
-        box.innerHTML = bases.map(function (base) {
-          var quotes = Object.keys(groups[base]).sort(function (a, b) { return quoteKey(a) < quoteKey(b) ? -1 : 1; });
-          var title = (NAMES[base] ? NAMES[base] + " (" + base + ")" : base);
-          var img = "";
-          if (logos[base] && logos[base].logo_path) {
-            img = '<img src="' + esc(siteRoot() + logos[base].logo_path) + '" width="28" height="28" alt="' + esc(fill(S.logo_alt, {name: title})) + '">';
-          }
-          var body = quotes.map(function (q) {
-            var cards = groups[base][q].map(card).join("");
-            return aggHtml(agg[base + "|" + q]) + '<h3 class="mkq">' + esc(fill(S.in_quote, {q: q})) + '</h3><div class="mkcards">' + cards + "</div>";
-          }).join("");
-          return '<section class="mkasset"><h2>' + img + esc(title) + "</h2>" + body + "</section>";
-        }).join("");
-      }
+      if (!state) return;
+      renderShare();
+      renderCredit();
+      renderSummary();
+      renderTable();
       var errs = (state.exchanges || []).filter(function (e) { return e.status && e.status !== "ok"; });
       var errBox = document.getElementById("mk-errors");
       if (errBox) {
@@ -323,18 +732,6 @@ var NCMarkets = (function () {
         }).join("");
       }
       if (status) status.textContent = Object.keys(live).length ? (S.browser || "") : (S.file || "");
-    }
-    function fillSelect() {
-      var sel = document.getElementById("mk-asset");
-      if (!sel || !state) return;
-      var cur = sel.value;
-      var bases = [];
-      (state.tickers || []).forEach(function (r) { if (bases.indexOf(r.base) < 0) bases.push(r.base); });
-      bases.sort(function (a, b) { return assetKey(a) < assetKey(b) ? -1 : 1; });
-      sel.innerHTML = '<option value="">' + esc(S.all || "All") + "</option>" + bases.map(function (b) {
-        return '<option value="' + esc(b) + '">' + esc(NAMES[b] ? NAMES[b] + " (" + b + ")" : b) + "</option>";
-      }).join("");
-      if (cur) sel.value = cur;
     }
     function rememberLogos(doc) {
       (doc.aggregated || []).forEach(function (p) {
@@ -372,7 +769,6 @@ var NCMarkets = (function () {
       live[id] = true;
       var ex = (state.exchanges || []).filter(function (e) { return e.id === id; })[0];
       if (ex) { ex.status = "ok"; ex.error = null; ex.ticker_count = rows.length; ex.fetched_at = rows[0] ? rows[0].fetched_at : ex.fetched_at; }
-      fillSelect();
       render();
     }
     function getJSON(url) {
@@ -418,12 +814,26 @@ var NCMarkets = (function () {
         state = doc;
         live = {};
         rememberLogos(doc);
-        fillSelect();
         render();
       });
     }
-    var sel = document.getElementById("mk-asset");
-    if (sel) sel.addEventListener("change", render);
+    var board = document.getElementById("mk-board");
+    if (board) board.addEventListener("click", function (ev) {
+      var btn = ev.target.closest ? ev.target.closest("button.sort") : null;
+      if (!btn) return;
+      var key = btn.getAttribute("data-sort") || "coin";
+      var sel = document.getElementById("mk-sort");
+      var cur = sel ? sel.value : "coin";
+      var next = key === "price" ? (cur === "price" ? "price-desc" : "price") : key;
+      if (sel) sel.value = next;
+      renderTable();
+    });
+    var qf = document.getElementById("mk-q");
+    if (qf) qf.addEventListener("input", renderTable);
+    var qsel = document.getElementById("mk-quote");
+    if (qsel) qsel.addEventListener("change", renderTable);
+    var ssel = document.getElementById("mk-sort");
+    if (ssel) ssel.addEventListener("change", renderTable);
     refreshFile().catch(function () { if (status) status.textContent = S.file || ""; }).then(function () {
       refreshFiri().catch(function () {});
       refreshCoinmotion().catch(function () {});
@@ -436,6 +846,6 @@ var NCMarkets = (function () {
   }
 
   if (typeof document !== "undefined") boot();
-  return {meanDecimal: meanDecimal, sumDecimal: sumDecimal, aggregatePairs: aggregatePairs};
+  return {meanDecimal: meanDecimal, sumDecimal: sumDecimal, aggregatePairs: aggregatePairs, volumeShares: volumeShares};
 })();
 if (typeof module !== "undefined" && module.exports) module.exports = NCMarkets;

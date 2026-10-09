@@ -3,7 +3,7 @@
 «kunstig intelligens» in full. Fails (exit 1) on any hit; prints file/key and the offending snippet.
 Checks everything WE write in Norwegian: i18n/nn.py, i18n/nb.py, templates/*.nn.html / *.nb.html, the nn/nb summaries
 and event notes in queue/approved.json, nn/nb entries in changelog.json and the nn/nb strings of the rules page.
-External headlines and quotes are not checked (they stay in the original language).
+The source headline is not checked. Our translated headlines (title_i18n) are.
 Usage: python3 tools/text_gate.py"""
 import glob, importlib.util, json, os, re, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); P = lambda *a: os.path.join(ROOT, *a)
@@ -52,6 +52,20 @@ except FileNotFoundError:
 for sid, langs in (blurbs.get("items") or {}).items():
     for L in ("nn", "nb"):
         chk(f"frontpage_blurbs.json {sid}.{L}", (langs or {}).get(L))
+try:
+    titles = json.load(open(P("data", "title_i18n.json"), encoding="utf-8"))
+except FileNotFoundError:
+    titles = {}
+for sid, langs in (titles.get("items") or {}).items():
+    for L in ("nn", "nb"):
+        chk(f"title_i18n.json {sid}.{L}", (langs or {}).get(L))
+try:
+    news = json.load(open(P("data", "news.json"), encoding="utf-8"))
+except FileNotFoundError:
+    news = {}
+for it in news.get("items") or []:
+    for L in ("nn", "nb"):
+        chk(f"news.json {it.get('id')}.title_i18n.{L}", (it.get("title_i18n") or {}).get(L))
 for name in ("rules_page.py", "regulation_videos.py"):
     rp = P("tools", name)
     if os.path.exists(rp):

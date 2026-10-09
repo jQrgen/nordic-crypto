@@ -1,0 +1,43 @@
+/* Calendar: green code rain on black, a booting terminal, scanlines and glitching headings. */
+html{background:#000}
+body.th-matrix{--bg:#000;--surface:rgb(0 18 4 / .82);--fg:#C8FFC8;--muted:#6FE36F;--line:#0F4D1A;--line-strong:#22A33A;--soft:rgb(0 40 10 / .7);--panel:rgb(0 30 8 / .8);--foam:#0F4D1A;
+  --accent:#39FF14;--on-accent:#000;--gold:#39FF14;--gold-ink:#7CFF5B;--on-gold:#000;--focus:#B6FF9E;--brand-w:#39FF14;
+  --band:#000;--band-deep:#000;--band-ink:#C8FFC8;--band-muted:#6FE36F;--band-line:rgb(57 255 20 / .25);--band-rule:#39FF14;
+  --btn:#39FF14;--btn-hover:#7CFF5B;--btn-ink:#000;--up:#39FF14;--down:#FF5C5C;--warm:#B6FF9E;--warm-bg:#021a06;--pub:#5BE0FF;--priv:#39FF14;
+  --f-display:var(--f-mono);--f-ui:var(--f-mono);--shadow:0 0 0 1px rgb(57 255 20 / .25),0 0 22px -6px rgb(57 255 20 / .55);--shadow-lg:0 0 0 1px rgb(57 255 20 / .5),0 0 34px -4px rgb(57 255 20 / .7);
+  --lattice:none;color-scheme:dark;background:transparent;text-shadow:0 0 6px rgb(57 255 20 / .35)}
+.th-matrix .mx-rain{inset:0;opacity:.42}
+.th-matrix .mx-scan{position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgb(0 0 0 / .28) 0 1px,transparent 1px 3px);animation:mx-roll 8s linear infinite}
+.th-matrix .mx-scan::after{content:"";position:absolute;left:0;right:0;height:120px;background:linear-gradient(transparent,rgb(57 255 20 / .07),transparent);animation:mx-sweep 6s linear infinite}
+@keyframes mx-roll{to{background-position:0 300px}}
+@keyframes mx-sweep{from{top:-120px}to{top:100%}}
+.th-matrix .mx-term{position:absolute;right:18px;bottom:18px;width:min(360px,44vw);background:rgb(0 10 2 / .88);border:1px solid #22A33A;border-radius:6px;box-shadow:0 0 24px rgb(57 255 20 / .35);animation:mx-float 7s ease-in-out infinite}
+.th-matrix .mx-bar{display:flex;gap:6px;padding:7px 9px;border-bottom:1px solid #0F4D1A}.th-matrix .mx-bar i{width:9px;height:9px;border-radius:50%;background:#22A33A;opacity:.8}
+.th-matrix .mx-log{margin:0;padding:10px 12px;height:150px;overflow:hidden;font:12px/1.45 var(--f-mono);color:#7CFF5B;white-space:pre-wrap}
+.th-matrix .mx-log::after{content:"█";animation:mx-blink 1s steps(1) infinite}
+@keyframes mx-float{50%{transform:translateY(-8px)}}
+@keyframes mx-blink{50%{opacity:0}}
+@media (max-width:760px){.th-matrix .mx-term{display:none}}
+.th-matrix h1,.th-matrix h2,.th-matrix h3{letter-spacing:.02em;text-transform:uppercase}
+.th-matrix main h1{position:relative}
+.th-matrix main h1::before{background:#39FF14;box-shadow:0 0 12px #39FF14;width:100%;height:2px;animation:mx-load 1.6s cubic-bezier(.3,.7,.2,1) both}
+@keyframes mx-load{from{transform:scaleX(0);transform-origin:left}to{transform:scaleX(1);transform-origin:left}}
+.th-matrix main h1::after{content:"_";animation:mx-blink 1s steps(1) infinite;margin-inline-start:4px}
+.th-matrix .mx-glitch{position:relative;display:inline-block}
+.th-matrix .mx-glitch::before,.th-matrix .mx-glitch::after{content:attr(data-text);position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.th-matrix .mx-glitch::before{color:#5BE0FF;transform:translate(-2px,0);clip-path:inset(0 0 60% 0);animation:mx-g1 3.2s infinite steps(2)}
+.th-matrix .mx-glitch::after{color:#FF5C9E;transform:translate(2px,0);clip-path:inset(55% 0 0 0);animation:mx-g2 2.7s infinite steps(2)}
+@keyframes mx-g1{0%,88%,100%{opacity:0}90%,96%{opacity:.9;transform:translate(-3px,-1px)}}
+@keyframes mx-g2{0%,82%,100%{opacity:0}84%,90%{opacity:.9;transform:translate(3px,1px)}}
+.th-matrix a{text-decoration-color:rgb(57 255 20 / .5)}
+.th-matrix a:hover{color:#fff;text-shadow:0 0 10px #39FF14}
+.th-matrix .evcard,.th-matrix #evsoon-list .evcard,.th-matrix .evhero,.th-matrix table,.th-matrix .card{background:rgb(0 14 3 / .85)!important;border-color:#1B7A2C!important;border-radius:2px!important}
+.th-matrix #evsoon-list .evcard:hover,.th-matrix .evcard:hover{box-shadow:var(--shadow-lg);transform:translateX(4px)}
+.th-matrix .evcard,.th-matrix td{animation:mx-in .5s steps(6) both}
+@keyframes mx-in{from{opacity:0;filter:blur(2px)}to{opacity:1;filter:none}}
+.th-matrix td,.th-matrix th{border-color:#0F4D1A!important}
+.th-matrix th{color:#39FF14}
+.th-matrix input,.th-matrix select,.th-matrix button{font-family:var(--f-mono)}
+.th-matrix header.top{background:rgb(0 0 0 / .86);backdrop-filter:blur(3px);border-bottom-color:#39FF14;box-shadow:0 0 18px rgb(57 255 20 / .4)}
+.th-matrix footer{background:rgb(0 0 0 / .9)}
+.th-matrix .brandmark{filter:hue-rotate(60deg) saturate(2) brightness(1.1)}

@@ -18,7 +18,14 @@
    "trusted_source": true,
    "found": "2026-10-03T15:23:20+00:00",
    "status": "pending",
-   "note": null
+   "note": null,
+   "description": {
+    "text": "We want to provide friendly and open events where we discuss bitcoin and its current and potential role in the global economy. If you're new to the idea, this is the place to go for educated discussions from both professionals and experienced amateurs in the space. And if you are said professional or experienced amateur, this is your opportunity to go in depth in the topic with like minded peers. Note! This is a Bitcoin Only-event. We are not interested in NFT's, altcoins or general blockchain discussions.",
+    "lang": "en",
+    "source_url": "https://www.meetup.com/swedish-bitcoin-meetups/events/316047111/",
+    "source_name": "Swedish Bitcoin Meetups (Meetup.com)",
+    "retrieved": "2026-10-07T23:50:00+00:00"
+   }
   },
   {
    "id": "2eaf3b36bda9",
@@ -38,7 +45,14 @@
    "trusted_source": true,
    "found": "2026-10-03T16:24:11+00:00",
    "status": "pending",
-   "note": "added manually by the researcher – editor must approve"
+   "note": "added manually by the researcher – editor must approve",
+   "description": {
+    "text": "Decentral protocols and infrastructures are core to the current strive for European sovereignty and infrastructural resilience. Ongoing innovations target domains like finance, digital identity and credentials, data ecosystems, business transactions and social media. This workshop aims to bring together relevant research across subdisciplines of computer science and neighboring disciplines in order to identify common challenges, and discuss technical, conceptual and methodological approaches to address them.",
+    "lang": "en",
+    "source_url": "https://itu.dk/om-itu/events/events/2026/cross-disciplinary-workshop-decentral-protocols-and-digital-infrastructures",
+    "source_name": "itu.dk",
+    "retrieved": "2026-10-07T23:50:00+00:00"
+   }
   },
   {
    "id": "89ced460e4ca",
@@ -58,7 +72,14 @@
    "trusted_source": false,
    "found": "2026-10-03T15:23:20+00:00",
    "status": "pending",
-   "note": null
+   "note": null,
+   "description": {
+    "text": "I kjølvannet av bitcoin har vi fått en rekke apper som endrer samtiden vår og utvider finanssektoren. Stikkord er fremtidsmarkeder som «Polymarket», kryptobanken «Aave», nyvinninger innen forsikring, stablecoins og nye former for statlige penger. I samarbeid med Bitcoinpolitisk Institutt Norge presenterer Polyteknisk Forening appene som bitcoin har ført med seg, i tillegg til bitcoin selv.",
+    "lang": "nb",
+    "source_url": "https://www.polyteknisk.no/program/crypto-killer-apps",
+    "source_name": "Polyteknisk Forening (program)",
+    "retrieved": "2026-10-07T23:50:00+00:00"
+   }
   },
   {
    "id": "c4a53ca9bd26",
@@ -78,7 +99,14 @@
    "trusted_source": true,
    "found": "2026-10-03T15:23:20+00:00",
    "status": "pending",
-   "note": null
+   "note": null,
+   "description": {
+    "text": "A casual meetup for Bitcoiners and anyone curious about Bitcoin. Come hang out, meet new people, exchange ideas and talk about everything from Bitcoin and Lightning to sovereignty, technology, or whatever else comes up. No presentations or formal agenda, just an open and relaxed space to connect. Whether you've been into Bitcoin for years or are just starting to explore it, you're welcome. Bitcoin only. No crypto.",
+    "lang": "en",
+    "source_url": "https://www.meetup.com/swedish-bitcoin-meetups/events/316799619/",
+    "source_name": "Swedish Bitcoin Meetups (Meetup.com)",
+    "retrieved": "2026-10-07T23:50:00+00:00"
+   }
   },
   {
    "id": "a1ea7afabcb0",
@@ -98,7 +126,14 @@
    "trusted_source": true,
    "found": "2026-10-03T15:23:20+00:00",
    "status": "pending",
-   "note": null
+   "note": null,
+   "description": {
+    "text": "Nexa blockchain: Scaling Bitcoin Tech-demo m/overraskelse og pizza! At this event jQrgen, member of Bitcoin Unlimited that works with the Nexa blockchain project will present what is unique about the Nexa blockchain. The Bitcoin Unlimited team has a long history of working with core Bitcoin and Bitcoin Cash software. The Nexa blockchain is the latest project. Nexa is a work in progress software-fork of Bitcoin/Bitcoin Cash with its own genesis block.",
+    "lang": "en",
+    "source_url": "https://www.meetup.com/oslo-blockchain-meetup/events/316768752/",
+    "source_name": "Oslo Blockchain Meetup (Meetup.com)",
+    "retrieved": "2026-10-07T23:50:00+00:00"
+   }
   },
   {
    "id": "a6cadcf35c22",
@@ -118,7 +153,14 @@
    "trusted_source": true,
    "found": "2026-10-03T15:23:20+00:00",
    "status": "pending",
-   "note": null
+   "note": null,
+   "description": {
+    "text": "We want to provide friendly and open events where we discuss bitcoin and its current and potential role in the global economy. If you're new to the idea, this is the place to go for educated discussions from both professionals and experienced amateurs in the space. And if you are said professional or experienced amateur, this is your opportunity to go in depth in the topic with like minded peers. Note! This is a Bitcoin Only-event. We are not interested in NFT's, altcoins or general blockchain discussions.",
+    "lang": "en",
+    "source_url": "https://www.meetup.com/swedish-bitcoin-meetups/events/312669067/",
+    "source_name": "Swedish Bitcoin Meetups (Meetup.com)",
+    "retrieved": "2026-10-07T23:50:00+00:00"
+   }
   },
   {
    "id": "ce0c87469bd8",
@@ -138,7 +180,14 @@
    "trusted_source": true,
    "found": "2026-10-03T15:23:20+00:00",
    "status": "pending",
-   "note": null
+   "note": null,
+   "description": {
+    "text": "Bitcoin meetup - meet the local bitcoiners, network, present your projects and ideas or just hang out! Topics include everything that remotely touches Bitcoin.",
+    "lang": "en",
+    "source_url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/events/qjzrxgyjcpbjb/",
+    "source_name": "Helsinki Bitcoin Hobbyists (Meetup.com)",
+    "retrieved": "2026-10-07T23:50:00+00:00"
+   }
   },
   {
    "id": "7adc8e1ede97",
@@ -158,7 +207,14 @@
    "trusted_source": true,
    "found": "2026-10-03T15:23:20+00:00",
    "status": "pending",
-   "note": null
+   "note": null,
+   "description": {
+    "text": "Krypto-skatt: Reese Legal kommer til Oslo Blockchain Meetup! Skattereglene for gevinst og tap ved salg av kryptovaluta, DEFI-transaksjoner, lån, gaver og formue i kryptovaluta. Hvordan beregne gevinst, tap og formue riktig, også med mange transaksjoner, og tips til verktøy for beregning og dokumentasjon. Hvordan kryptovaluta skal føres i skattemeldingen. Hva man risikerer hvis det blir feil eller man ikke rapporterer, de vanligste feilene, og eksempler fra Skatteetatens praksis.",
+    "lang": "nb",
+    "source_url": "https://www.meetup.com/oslo-blockchain-meetup/events/316768461/",
+    "source_name": "Oslo Blockchain Meetup (Meetup.com)",
+    "retrieved": "2026-10-07T23:50:00+00:00"
+   }
   },
   {
    "id": "e884ba1f0333",
@@ -178,7 +234,14 @@
    "trusted_source": true,
    "found": "2026-10-03T15:23:20+00:00",
    "status": "pending",
-   "note": null
+   "note": null,
+   "description": {
+    "text": "We want to provide friendly and open events where we discuss bitcoin and its current and potential role in the global economy. If you're new to the idea, this is the place to go for educated discussions from both professionals and experienced amateurs in the space. And if you are said professional or experienced amateur, this is your opportunity to go in depth in the topic with like minded peers. Note! This is a Bitcoin Only-event. We are not interested in NFT's, altcoins or general blockchain discussions.",
+    "lang": "en",
+    "source_url": "https://www.meetup.com/swedish-bitcoin-meetups/events/312669070/",
+    "source_name": "Swedish Bitcoin Meetups (Meetup.com)",
+    "retrieved": "2026-10-07T23:50:00+00:00"
+   }
   },
   {
    "id": "19b92e24ee50",
@@ -198,7 +261,14 @@
    "trusted_source": true,
    "found": "2026-10-03T15:23:20+00:00",
    "status": "pending",
-   "note": null
+   "note": null,
+   "description": {
+    "text": "Bitcoin meetup - meet the local bitcoiners, network, present your projects and ideas or just hang out! Topics include everything that remotely touches Bitcoin.",
+    "lang": "en",
+    "source_url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/events/qjzrxgyjcqbgb/",
+    "source_name": "Helsinki Bitcoin Hobbyists (Meetup.com)",
+    "retrieved": "2026-10-07T23:50:00+00:00"
+   }
   },
   {
    "id": "3c7c538ff512",
@@ -218,7 +288,14 @@
    "trusted_source": true,
    "found": "2026-10-03T15:23:20+00:00",
    "status": "pending",
-   "note": null
+   "note": null,
+   "description": {
+    "text": "Bitcoin meetup - meet the local bitcoiners, network, present your projects and ideas or just hang out! Topics include everything that remotely touches Bitcoin.",
+    "lang": "en",
+    "source_url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/events/qjzrxgykccbcb/",
+    "source_name": "Helsinki Bitcoin Hobbyists (Meetup.com)",
+    "retrieved": "2026-10-07T23:50:00+00:00"
+   }
   },
   {
    "id": "105f743dcf3d",
@@ -238,8 +315,15 @@
    "trusted_source": true,
    "found": "2026-10-03T15:23:20+00:00",
    "status": "pending",
-   "note": null
+   "note": null,
+   "description": {
+    "text": "Bitcoin meetup - meet the local bitcoiners, network, present your projects and ideas or just hang out! Topics include everything that remotely touches Bitcoin.",
+    "lang": "en",
+    "source_url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/events/qjzrxgykcdbhb/",
+    "source_name": "Helsinki Bitcoin Hobbyists (Meetup.com)",
+    "retrieved": "2026-10-07T23:50:00+00:00"
+   }
   }
  ],
- "updated": "2026-10-06T17:42:27+00:00"
+ "updated": "2026-10-08T03:07:11+00:00"
 }

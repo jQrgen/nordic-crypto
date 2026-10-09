@@ -68,7 +68,7 @@ status, thanks = post()
 assert status == 200, status
 assert "private indbakke" in thanks or "kunstig intelligens" in thanks
 assert len(got) == 1
-assert got[0]["path"] == "/api/tip"
+assert got[0]["path"] == "/api/private-tip"
 assert got[0]["auth"] == "Bearer onion-token-0123456789abcdef"
 assert got[0]["body"]["tip"].startswith("Et tip")
 assert "203.0.113" not in json.dumps(got[0]["body"])

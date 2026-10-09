@@ -32,6 +32,9 @@ def main():
     check(site_url.brand("publisher of " + REVERSED + ".") == "publisher of Nordic Crypto.", "english prose")
     check(site_url.brand("on " + REVERSED_FI + " julkaisija.") == "on Nordic Crypton julkaisija.", "finnish genitive")
     check(site_url.brand(CAMEL + "/0.1") == "NordicCrypto/0.1", "camel-case token")
+    check(site_url.brand(REVERSED + " redaktør") == "Nordic Crypto redaktør", "editor byline")
+    approvals = open(os.path.join(ROOT, "tools", "apply_approvals.py"), encoding="utf-8").read()
+    check('or "Nordic Crypto redaktør"' in approvals, "default byline is Nordic Crypto redaktør")
     for keep in (
         "https://cryptonordic.no/about/",
         "@xcryptonordic",
@@ -49,10 +52,19 @@ def main():
     check(event["note_i18n"]["en"] == "Nordic Crypto", "already correct translation")
 
     hits = []
+    # Only files git would commit: gitignored local state (logs/, queue/) is not the repo.
+    import subprocess
+    try:
+        ignored = set(subprocess.run(["git", "-C", ROOT, "ls-files", "--others", "--ignored", "--exclude-standard", "-z"],
+                                     capture_output=True, text=True, check=True).stdout.split("\0"))
+    except (OSError, subprocess.CalledProcessError):
+        ignored = set()
     for dirpath, dirnames, filenames in os.walk(ROOT):
         dirnames[:] = [d for d in dirnames if d not in SKIP_DIRS and not d.startswith(".")]
         for name in filenames:
             path = os.path.join(dirpath, name)
+            if os.path.relpath(path, ROOT) in ignored:
+                continue
             try:
                 text = open(path, encoding="utf-8").read()
             except (UnicodeDecodeError, OSError):

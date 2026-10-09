@@ -67,7 +67,7 @@ def _post_worker(row):
     if not WORKER_URL or not ONION_TOKEN or not _worker_allowed(WORKER_URL):
         return "down"
     req = urllib.request.Request(
-        WORKER_URL + "/api/tip",
+        WORKER_URL + "/api/private-tip",
         data=json.dumps(row).encode("utf-8"),
         headers={
             "Content-Type": "application/json",

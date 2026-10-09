@@ -75,6 +75,28 @@ def canonical_id(source_id, by_id=None, alias=None):
     return None
 
 
+
+def homepage(source_id, by_id=None):
+    """Outlet homepage for a source id. The logo links here."""
+    if not source_id or source_id in OWN:
+        return None
+    by_id = sources_by_id() if by_id is None else by_id
+    own = by_id.get(source_id) or {}
+    if own.get("url"):
+        return own["url"]
+    # Read the alias map once: canonical_id() would otherwise re-parse logos.json for every source below.
+    alias = aliases()
+    key = canonical_id(source_id, by_id, alias)
+    hit = (by_id.get(key) or {}).get("url") if key else None
+    if hit:
+        return hit
+    # Some logo keys (kaupr) are a parent outlet with no row of their own.
+    for s in by_id.values():
+        if s.get("url") and (s.get("outlet") == source_id or canonical_id(s.get("id"), by_id, alias) == source_id):
+            return s["url"]
+    return None
+
+
 def _usable(rec, preview):
     if not rec or not rec.get("file") or rec.get("review") == "rejected":
         return None
@@ -151,13 +173,24 @@ def for_source(source_id, preview=False):
     return None
 
 
+
+def usable_homepage(url):
+    """A real outlet homepage. The Medietilsynet database is not one paper's site."""
+    if not url or not str(url).startswith("http"):
+        return False
+    if "mediedatabasen" in url or "id.bonniernews.se" in url:
+        return False
+    return True
+
+
 def outlets_to_fetch(man=None, force=False, only=None):
     """News outlets that still need a logo file.
 
-    Included: enabled outlets that are not Bing search, plus any source id already
-    attached to a published or pending story (so a disabled feed that still has
-    articles is fetched too). One job per canonical logo key. Rejected entries are
-    left alone unless ``force`` is set. Aliases that already point at a file are skipped.
+    Every registry source with a homepage is included, including disabled feeds,
+    so a local paper with no RSS still gets its own mark. Bing search rows are
+    not outlets. One job per canonical logo key. Rejected entries, and outlets
+    whose terms forbid logo use, are left alone unless ``force`` is set.
+    Aliases that already point at a file are skipped.
     """
     if man is None:
         raw = _load(MANIFEST, {}) or {}
@@ -165,7 +198,6 @@ def outlets_to_fetch(man=None, force=False, only=None):
     by = sources_by_id()
     alias = aliases()
     news = _load(NEWS, {"items": []}) or {"items": []}
-    shown = {i.get("source") for i in news.get("items") or [] if i.get("status") in ("published", "pending") and i.get("source")}
     only = set(only or [])
     def need(key, name, url, sid):
         if not key or key in seen:
@@ -178,16 +210,16 @@ def outlets_to_fetch(man=None, force=False, only=None):
             return
         if rec.get("file") and os.path.exists(os.path.join(ROOT, rec["file"])) and not force:
             return
-        if url and name:
+        if url and name and usable_homepage(url):
             jobs.append({"id": key, "name": name, "url": url})
 
     jobs, seen = [], set()
     for s in sources():
         if s.get("type") == "bing":
             continue
-        sid = s["id"]
-        if not (s.get("enabled") or sid in shown):
+        if s.get("logo_skipped"):
             continue
+        sid = s["id"]
         key = canonical_id(sid, by, alias)
         host = by.get(key) or s
         need(key, host.get("name") or s.get("name"), host.get("url") or s.get("url"), sid)

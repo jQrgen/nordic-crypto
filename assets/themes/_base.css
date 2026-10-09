@@ -1,0 +1,17 @@
+/* Shared by every theme: the decoration layer sits behind the page; content stays on top and readable.
+   Scroll reveal only runs with JS (html.js) and always ends visible. Reduced motion: everything holds still. */
+.th-deco{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.th-deco svg,.th-deco canvas{position:absolute;display:block}
+body.themed>main,body.themed>footer,body.themed>.preview{position:relative;z-index:1}
+body.themed>header.top{z-index:6}
+body.themed>.hero{z-index:1}
+.js body.themed .th-r{opacity:0;transform:translateY(18px) scale(.985);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.2,1)}
+.js body.themed .th-r.th-in{opacity:1;transform:none}
+body.themed .th-wiggle:hover{animation:th-wiggle .5s ease}
+@keyframes th-wiggle{25%{transform:rotate(-1.5deg)}75%{transform:rotate(1.5deg)}}
+@media (max-width:760px){.th-deco .th-desk{display:none}}
+@media (prefers-reduced-motion:reduce){
+  body.themed *,body.themed *::before,body.themed *::after{animation-duration:.001ms!important;animation-iteration-count:1!important;animation-delay:0s!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .js body.themed .th-r{opacity:1;transform:none}
+}
+@media print{.th-deco{display:none!important}.js body.themed .th-r{opacity:1!important;transform:none!important}}

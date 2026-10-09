@@ -2,16 +2,16 @@
 
 A small Tor v3 hidden service for the same private tip inbox as `https://nordiccrypto.no/tip/`. The page is static HTML. It does not use JavaScript, external fonts, analytics, or Cloudflare Turnstile, so it works in Tor Browser with the security level set to Safest.
 
-The app forwards each tip to the Worker `POST /api/tip` with `Authorization: Bearer <ONION_INGEST_TOKEN>`. If the Worker does not answer, the tip is appended to a file on this server (`queue.jsonl`, mode 0600) and retried. Invalid tips are not kept. Nothing about the request is written to logs.
+The app forwards each tip to the tipworker `POST /api/private-tip` with `Authorization: Bearer <ONION_INGEST_TOKEN>`. If the Worker does not answer, the tip is appended to a file on this server (`queue.jsonl`, mode 0600) and retried. Invalid tips are not kept. Nothing about the request is written to logs.
 
 GitHub Pages and Cloudflare cannot host an onion service. This runs on a VPS you control. **Do not start it from this repository's build, and do not commit `.env`.**
 
-The clearnet `/tip/` page mentions Tor. Until `workers/tips/public.json` has an `onion` value, the page says the address is not published yet. It does not invent an address.
+The clearnet `/tip/` page mentions Tor. Until `tipserver/config.json` has an `onion` value, the page says the address is not published yet. It does not invent an address.
 
 ## What you need
 
-- `WORKER_URL` — `https://tips.nordiccrypto.no` after the Worker in `workers/tips/` is deployed.
-- `ONION_INGEST_TOKEN` — the same secret as the Worker's `ONION_INGEST_TOKEN`, and not the same as `READ_TOKEN`.
+- `WORKER_URL` — the tipworker origin (`public_endpoint` in `tipserver/config.json`, written by `tipworker/deploy.sh`).
+- `ONION_INGEST_TOKEN` — the same secret as the Worker's `ONION_INGEST_TOKEN`, and not the same as `PRIVATE_TIPS_READ_TOKEN`.
 - A machine with a public IP is not required for the onion itself. Tor makes the outbound connection. You still need a host that can run Tor and reach the Worker over HTTPS.
 
 ## Cheap VPS
@@ -37,7 +37,7 @@ docker compose exec tor cat /var/lib/tor/tip/hostname
 
 That prints a line like `abcdefghijklmnopqrstuvwxyz234567abcdefghijklmnopqrst.onion`. Put `http://` plus that name in `.env` as `ONION_HOST` (no path), then `docker compose up -d`. The form then sends `page` as that onion URL. Restarting Tor does not change the address as long as the volume is kept.
 
-Then set the same address in `workers/tips/public.json` (`"onion": "http://….onion"`) and rebuild the website so `/tip/` shows the link and the `Onion-Location` meta tag. Also set the HTTP `Onion-Location` header in Cloudflare, as described in `workers/tips/README.md`. Do not publish a placeholder address.
+Then set the same address in `tipserver/config.json` (`"onion": "http://….onion"`) and rebuild the website so `/tip/` shows the link and the `Onion-Location` meta tag. Also set the HTTP `Onion-Location` header in Cloudflare, as described in `workers/tips/README.md`. Do not publish a placeholder address.
 
 systemd, if you want the compose project to come up on boot: copy `systemd/nordic-crypto-onion.service` to `/etc/systemd/system/`, then `systemctl enable --now nordic-crypto-onion.service`. The unit's `WorkingDirectory` must be the compose directory.
 
@@ -74,4 +74,4 @@ This onion page is not SecureDrop. It is a small form that lands in the same pri
 
 ## Onion-Location
 
-Tor Browser looks for an `Onion-Location` HTTP header, and also for `<meta http-equiv="onion-location">`. The meta tag is emitted on the built `/tip/` page when the address is in `workers/tips/public.json`. The header has to be set on `nordiccrypto.no` itself (Cloudflare Snippet or Transform Rule). The steps are in `workers/tips/README.md`. Leave both off until `docker compose exec tor cat /var/lib/tor/tip/hostname` has been run and the address is the one you intend to publish.
+Tor Browser looks for an `Onion-Location` HTTP header, and also for `<meta http-equiv="onion-location">`. The meta tag is emitted on the built `/tip/` page when the address is in `tipserver/config.json`. The header has to be set on `nordiccrypto.no` itself (Cloudflare Snippet or Transform Rule). The steps are in `workers/tips/README.md`. Leave both off until `docker compose exec tor cat /var/lib/tor/tip/hostname` has been run and the address is the one you intend to publish.

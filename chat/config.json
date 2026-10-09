@@ -1,0 +1,6 @@
+{
+ "_note": "Shared shoutbox (one room for every language). OFF until the tipworker shout routes are deployed and jQrgen sets enabled to true. endpoint: the Worker origin (https://nordic-crypto-tips.nordiccrypto.workers.dev), or null. turnstile_site_key: the public Turnstile site key, or null. The secret and the admin token are Worker secrets, never this file. Test builds: NC_CHAT=1 CHAT_ENDPOINT=http://127.0.0.1:8791. While enabled is false the build omits the widget and the /chat/ pages.",
+ "enabled": false,
+ "endpoint": null,
+ "turnstile_site_key": null
+}

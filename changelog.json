@@ -4,7 +4,8 @@
  "entries": [
   {
    "id": "onion-tip-page",
-   "date": "2026-10-07",
+   "date": null,
+   "review": "pending",
    "title": "Tor onion tip page",
    "description": "A self-contained Tor onion tip page for Nordic Crypto is in the repository, for a small VPS. It has no JavaScript and no external resources, and it forwards tips into the same private inbox as the website. The /tip/ page says a Tor address is being prepared and does not publish an address until one exists. Nothing in this change is deployed.",
    "i18n": {
@@ -36,33 +37,260 @@
   },
   {
    "id": "private-tip-intake",
-   "date": "2026-10-07",
+   "date": null,
+   "review": "pending",
    "title": "Private tip inbox",
-   "description": "The tip page in every language no longer opens a public GitHub issue. It is wired to a private Cloudflare intake (a Worker and a D1 database) for Nordic Crypto at tips.nordiccrypto.no. The intake is switched off until that Worker is deployed, so the page says the inbox is opening soon and shows no form. When it is open, the editorial team reads tips, including an editor that is artificial intelligence, and that editor is not a human. Nothing in this change is deployed.",
+   "description": "The tip page in every language no longer opens a public GitHub issue. It is wired to a private Cloudflare intake (a Worker and a D1 database) for Nordic Crypto. The intake is switched off until that Worker is deployed, so the page says the inbox is opening soon and shows no form. When it is open, the editorial team reads tips, including an editor that is artificial intelligence, and that editor is not a human. Nothing in this change is deployed.",
    "i18n": {
     "nn": {
      "title": "Privat tipsinnboks",
-     "description": "Tipssida på alle språk opnar ikkje lenger ei offentleg sak på GitHub. Ho er kopla til eit privat Cloudflare-mottak (ein Worker og ein D1-database) for Nordic Crypto på tips.nordiccrypto.no. Mottaket er slått av til den Workeren er teken i bruk, så sida seier at innboksen opnar snart og viser ikkje noko skjema. Når han er open, les redaksjonen tips, medrekna ein redaktør som er kunstig intelligens, og den redaktøren er ikkje eit menneske. Ingenting i denne endringa er teke i bruk."
+     "description": "Tipssida på alle språk opnar ikkje lenger ei offentleg sak på GitHub. Ho er kopla til eit privat Cloudflare-mottak (ein Worker og ein D1-database) for Nordic Crypto. Mottaket er slått av til den Workeren er teken i bruk, så sida seier at innboksen opnar snart og viser ikkje noko skjema. Når han er open, les redaksjonen tips, medrekna ein redaktør som er kunstig intelligens, og den redaktøren er ikkje eit menneske. Ingenting i denne endringa er teke i bruk."
     },
     "nb": {
      "title": "Privat tipsinnboks",
-     "description": "Tipssiden på alle språk åpner ikke lenger en offentlig sak på GitHub. Den er koblet til et privat Cloudflare-mottak (en Worker og en D1-database) for Nordic Crypto på tips.nordiccrypto.no. Mottaket er slått av til den Workeren er tatt i bruk, så siden sier at innboksen åpner snart og viser ikke noe skjema. Når den er åpen, leser redaksjonen tips, inkludert en redaktør som er kunstig intelligens, og den redaktøren er ikke et menneske. Ingenting i denne endringen er tatt i bruk."
+     "description": "Tipssiden på alle språk åpner ikke lenger en offentlig sak på GitHub. Den er koblet til et privat Cloudflare-mottak (en Worker og en D1-database) for Nordic Crypto. Mottaket er slått av til den Workeren er tatt i bruk, så siden sier at innboksen åpner snart og viser ikke noe skjema. Når den er åpen, leser redaksjonen tips, inkludert en redaktør som er kunstig intelligens, og den redaktøren er ikke et menneske. Ingenting i denne endringen er tatt i bruk."
     },
     "sv": {
      "title": "Privat tipsinkorg",
-     "description": "Tipssidan på alla språk öppnar inte längre ett offentligt ärende på GitHub. Den är kopplad till ett privat Cloudflare-mottagande (en Worker och en D1-databas) för Nordic Crypto på tips.nordiccrypto.no. Mottagandet är avstängt tills den Workern är i drift, så sidan säger att inkorgen öppnar snart och visar inget formulär. När den är öppen läser redaktionen tips, inklusive en redaktör som är artificiell intelligens, och den redaktören är inte en människa. Ingenting i den här ändringen är driftsatt."
+     "description": "Tipssidan på alla språk öppnar inte längre ett offentligt ärende på GitHub. Den är kopplad till ett privat Cloudflare-mottagande (en Worker och en D1-databas) för Nordic Crypto. Mottagandet är avstängt tills den Workern är i drift, så sidan säger att inkorgen öppnar snart och visar inget formulär. När den är öppen läser redaktionen tips, inklusive en redaktör som är artificiell intelligens, och den redaktören är inte en människa. Ingenting i den här ändringen är driftsatt."
     },
     "da": {
      "title": "Privat tipindbakke",
-     "description": "Tipsiden på alle sprog åbner ikke længere en offentlig sag på GitHub. Den er koblet til et privat Cloudflare-indtag (en Worker og en D1-database) for Nordic Crypto på tips.nordiccrypto.no. Indtaget er slået fra, indtil den Worker er sat i drift, så siden siger, at indbakken åbner snart, og viser ingen formular. Når den er åben, læser redaktionen tip, herunder en redaktør, der er kunstig intelligens, og den redaktør er ikke et menneske. Intet i denne ændring er sat i drift."
+     "description": "Tipsiden på alle sprog åbner ikke længere en offentlig sag på GitHub. Den er koblet til et privat Cloudflare-indtag (en Worker og en D1-database) for Nordic Crypto. Indtaget er slået fra, indtil den Worker er sat i drift, så siden siger, at indbakken åbner snart, og viser ingen formular. Når den er åben, læser redaktionen tip, herunder en redaktør, der er kunstig intelligens, og den redaktør er ikke et menneske. Intet i denne ændring er sat i drift."
     },
     "fi": {
      "title": "Yksityinen vinkkilaatikko",
-     "description": "Vinkkisivu kaikilla kielillä ei enää avaa julkista tikettiä GitHubissa. Se on kytketty Nordic Crypton yksityiseen Cloudflare-vastaanottoon (Worker ja D1-tietokanta) osoitteessa tips.nordiccrypto.no. Vastaanotto on pois päältä, kunnes Worker on otettu käyttöön, joten sivu kertoo laatikon avautuvan pian eikä näytä lomaketta. Kun se on auki, toimitus lukee vinkit, mukaan lukien toimittaja, joka on tekoäly, eikä tämä toimittaja ole ihminen. Mitään tästä muutoksesta ei ole otettu käyttöön."
+     "description": "Vinkkisivu kaikilla kielillä ei enää avaa julkista tikettiä GitHubissa. Se on kytketty Nordic Crypton yksityiseen Cloudflare-vastaanottoon (Worker ja D1-tietokanta). Vastaanotto on pois päältä, kunnes Worker on otettu käyttöön, joten sivu kertoo laatikon avautuvan pian eikä näytä lomaketta. Kun se on auki, toimitus lukee vinkit, mukaan lukien toimittaja, joka on tekoäly, eikä tämä toimittaja ole ihminen. Mitään tästä muutoksesta ei ole otettu käyttöön."
     },
     "is": {
      "title": "Einkainnhólf fyrir ábendingar",
-     "description": "Ábendingasíðan á öllum tungumálum opnar ekki lengur opinbert mál á GitHub. Hún er tengd einkamóttöku Nordic Crypto á Cloudflare (Worker og D1-gagnagrunnur) á tips.nordiccrypto.no. Móttakan er slökkt þar til Workerinn er tekinn í notkun, svo síðan segir að innhólfið opni bráðum og sýnir ekkert eyðublað. Þegar það er opið les ritstjórnin ábendingar, þar á meðal ritstjóri sem er gervigreind, og þessi ritstjóri er ekki manneskja. Ekkert í þessari breytingu er sett í rekstur."
+     "description": "Ábendingasíðan á öllum tungumálum opnar ekki lengur opinbert mál á GitHub. Hún er tengd einkamóttöku Nordic Crypto á Cloudflare (Worker og D1-gagnagrunnur). Móttakan er slökkt þar til Workerinn er tekinn í notkun, svo síðan segir að innhólfið opni bráðum og sýnir ekkert eyðublað. Þegar það er opið les ritstjórnin ábendingar, þar á meðal ritstjóri sem er gervigreind, og þessi ritstjóri er ekki manneskja. Ekkert í þessari breytingu er sett í rekstur."
+    }
+   }
+  },
+  {
+   "id": "calmer-layout",
+   "date": null,
+   "review": "pending",
+   "title": "A calmer, faster site",
+   "description": "The front page opens with the news: the top story with the next events beside it, then the latest stories in one column (20 at first, the rest one click away). The header has seven sections; the pages about the site are in the footer. The site is light by default, and a button in the header switches to dark and remembers the choice in this browser. Who's who, sources, the calendar, markets, talks, the newsletter and the story pages lead with what you come for, and the long pages are a fraction of their old size.",
+   "i18n": {
+    "nn": {
+     "title": "Roligare og raskare",
+     "description": "Framsida opnar med nyheitene: hovudsaka med dei neste arrangementa ved sida av, så dei siste sakene i éin kolonne (20 først, resten eitt klikk unna). Toppfeltet har sju seksjonar; sidene om nettstaden ligg i botnfeltet. Sida er lys som standard, og ein knapp i toppfeltet byter til mørk og hugsar valet i denne nettlesaren. Kven er kven, kjelder, kalenderen, marknader, foredrag, nyheitsbrevet og sakssidene byrjar med det du kjem for, og dei lange sidene er ein brøkdel av den gamle storleiken."
+    },
+    "nb": {
+     "title": "Roligere og raskere",
+     "description": "Forsiden åpner med nyhetene: hovedsaken med de neste arrangementene ved siden av, så de siste sakene i én kolonne (20 først, resten ett klikk unna). Toppfeltet har sju seksjoner; sidene om nettstedet ligger i bunnfeltet. Siden er lys som standard, og en knapp i toppfeltet bytter til mørk og husker valget i denne nettleseren. Hvem er hvem, kilder, kalenderen, markeder, foredrag, nyhetsbrevet og sakssidene begynner med det du kommer for, og de lange sidene er en brøkdel av den gamle størrelsen."
+    },
+    "sv": {
+     "title": "Lugnare och snabbare",
+     "description": "Startsidan börjar med nyheterna: huvudnyheten med de kommande evenemangen bredvid, sedan de senaste artiklarna i en kolumn (20 först, resten ett klick bort). Sidhuvudet har sju avdelningar; sidorna om sajten finns i sidfoten. Sajten är ljus som standard, och en knapp i sidhuvudet byter till mörkt läge och kommer ihåg valet i den här webbläsaren. Vem är vem, källor, kalendern, marknader, föredrag, nyhetsbrevet och artikelsidorna börjar med det du kommer för, och de långa sidorna är en bråkdel av sin gamla storlek."
+    },
+    "da": {
+     "title": "Roligere og hurtigere",
+     "description": "Forsiden åbner med nyhederne: tophistorien med de næste arrangementer ved siden af, derefter de seneste historier i én kolonne (20 først, resten ét klik væk). Sidehovedet har syv sektioner; siderne om sitet ligger i sidefoden. Siden er lys som standard, og en knap i sidehovedet skifter til mørk og husker valget i denne browser. Hvem er hvem, kilder, kalenderen, markeder, foredrag, nyhedsbrevet og historiesiderne begynder med det, du kommer for, og de lange sider er en brøkdel af deres gamle størrelse."
+    },
+    "fi": {
+     "title": "Rauhallisempi ja nopeampi",
+     "description": "Etusivu alkaa uutisilla: pääuutinen ja sen vieressä tulevat tapahtumat, sitten uusimmat uutiset yhdessä sarakkeessa (ensin 20, loput yhden napsautuksen päässä). Yläpalkissa on seitsemän osiota; sivustoa koskevat sivut ovat alatunnisteessa. Sivusto on oletuksena vaalea, ja yläpalkin painike vaihtaa tummaan tilaan ja muistaa valinnan tässä selaimessa. Kuka kukin on, lähteet, kalenteri, markkinat, esitelmät, uutiskirje ja uutissivut alkavat siitä, mitä tulit hakemaan, ja pitkät sivut ovat murto-osa entisestä koostaan."
+    },
+    "is": {
+     "title": "Rólegri og hraðari",
+     "description": "Forsíðan byrjar á fréttunum: aðalfréttin með næstu viðburðum við hliðina, síðan nýjustu fréttirnar í einum dálki (20 fyrst, restin einum smelli frá). Í hausnum eru sjö efnisflokkar; síðurnar um vefinn eru í fætinum. Vefurinn er ljós sjálfgefið og hnappur í hausnum skiptir yfir í dökka stillingu og man valið í þessum vafra. Hver er hvað, heimildir, viðburðir, markaðir, erindi, fréttabréfið og fréttasíðurnar byrja á því sem þú komst til að sjá og löngu síðurnar eru brot af fyrri stærð."
+    }
+   }
+  },
+  {
+   "id": "crest-look",
+   "date": null,
+   "review": "pending",
+   "title": "A new look",
+   "description": "The site has a new look: a North Sea blue header, a light grey page with white story cards, and gold for highlights. The front page opens on the same blue, and the lead story sits on it too. Headlines are set in Cormorant Garamond. The site follows your device's dark mode. The new mark in the header is a shield split in blue and gold, with a key whose colours swap across the split.",
+   "i18n": {
+    "nn": {
+     "title": "Ny utsjånad",
+     "description": "Sida har fått ein ny utsjånad: eit nordsjøblått toppfelt, ei lys grå side med kvite kort for sakene og gull til markeringar. Framsida opnar i same blåfarge, og hovudsaka står òg på han. Titlane er sette i Cormorant Garamond. Sida følgjer mørk modus på eininga di. Det nye merket i toppfeltet er eit skjold delt i blått og gull, med ein nøkkel som byter farge over delinga."
+    },
+    "nb": {
+     "title": "Nytt utseende",
+     "description": "Siden har fått et nytt utseende: et nordsjøblått toppfelt, en lys grå side med hvite kort for sakene og gull til markeringer. Forsiden åpner i samme blåfarge, og hovedsaken står også på den. Titlene er satt i Cormorant Garamond. Siden følger mørk modus på enheten din. Det nye merket i toppfeltet er et skjold delt i blått og gull, med en nøkkel som bytter farge over delingen."
+    },
+    "sv": {
+     "title": "Nytt utseende",
+     "description": "Sajten har fått ett nytt utseende: ett nordsjöblått sidhuvud, en ljusgrå sida med vita kort för artiklarna och guld för markeringar. Startsidan öppnar i samma blå färg, och huvudnyheten ligger också på den. Rubrikerna är satta i Cormorant Garamond. Sajten följer mörkt läge på din enhet. Den nya symbolen i sidhuvudet är en sköld delad i blått och guld, med en nyckel vars färger byter plats över delningen."
+    },
+    "da": {
+     "title": "Nyt udseende",
+     "description": "Siden har fået et nyt udseende: et nordsøblåt sidehoved, en lysegrå side med hvide kort til historierne og guld til fremhævninger. Forsiden åbner i samme blå farve, og tophistorien ligger også på den. Overskrifterne er sat i Cormorant Garamond. Siden følger mørk tilstand på din enhed. Det nye mærke i sidehovedet er et skjold delt i blåt og guld med en nøgle, hvis farver bytter plads over delingen."
+    },
+    "fi": {
+     "title": "Uusi ilme",
+     "description": "Sivusto on saanut uuden ilmeen: Pohjanmeren sininen yläpalkki, vaaleanharmaa sivu, valkoiset uutiskortit ja kultaa korostuksiin. Etusivu alkaa samalla sinisellä, ja pääuutinen on myös sen päällä. Otsikot ovat Cormorant Garamond -kirjaimin. Sivusto noudattaa laitteesi tummaa tilaa. Yläpalkin uusi tunnus on sinisiin ja kultaisiin puolikkaisiin jaettu kilpi, jossa avaimen värit vaihtuvat jakoviivan kohdalla."
+    },
+    "is": {
+     "title": "Nýtt útlit",
+     "description": "Vefurinn hefur fengið nýtt útlit: norðursjávarbláan haus, ljósgráa síðu með hvítum fréttaspjöldum og gull til áherslu. Forsíðan opnast í sama bláa litnum og aðalfréttin er líka á honum. Fyrirsagnir eru settar í Cormorant Garamond. Vefurinn fylgir dökkri stillingu tækisins. Nýja merkið í hausnum er skjöldur, skiptur í blátt og gull, með lykli sem skiptir um lit yfir skiptinguna."
+    }
+   }
+  },
+  {
+   "id": "event-descriptions",
+   "date": "2026-10-07",
+   "title": "Event descriptions",
+   "description": "Each event page shows the organiser's description under the date, when a source page stated one. The text is in the language of the site, and the original is shown underneath when they differ. An event with no sourced description has no description section.",
+   "i18n": {
+    "nn": {
+     "title": "Skildring av arrangement",
+     "description": "Kvar arrangementsside viser skildringa frå arrangøren under datoen, når kjeldesida har ei. Teksten er på språket til sida, og originalen står under når dei er ulike. Eit arrangement utan kjeldetekst har inga skildring."
+    },
+    "nb": {
+     "title": "Beskrivelse av arrangementer",
+     "description": "Hver arrangementsside viser arrangørens beskrivelse under datoen, når en kildeside har en. Teksten er på sidens språk, og originalen står under når de er ulike. Et arrangement uten kildetekst har ingen beskrivelse."
+    },
+    "sv": {
+     "title": "Beskrivningar av evenemang",
+     "description": "Varje evenemangssida visar arrangörens beskrivning under datumet, när en källsida har en. Texten är på sidans språk, och originalet står under när de skiljer sig. Ett evenemang utan källtext har ingen beskrivning."
+    },
+    "da": {
+     "title": "Beskrivelser af arrangementer",
+     "description": "Hver arrangementsside viser arrangørens beskrivelse under datoen, når en kildeside har en. Teksten er på sidens sprog, og originalen står under, når de er forskellige. Et arrangement uden kildetekst har ingen beskrivelse."
+    },
+    "fi": {
+     "title": "Tapahtumakuvaukset",
+     "description": "Jokainen tapahtumasivu näyttää järjestäjän kuvauksen päivämäärän alla, kun lähdesivulla on sellainen. Teksti on sivun kielellä, ja alkuperäinen teksti on alla, kun ne eroavat. Tapahtumalla ilman lähdetekstiä ei ole kuvausta."
+    },
+    "is": {
+     "title": "Lýsingar viðburða",
+     "description": "Hver viðburðarsíða sýnir lýsingu skipuleggjanda undir dagsetningunni, þegar heimildarsíða hefur slíka. Textinn er á tungumáli síðunnar, og frumtextinn er fyrir neðan þegar þeir eru ólíkir. Viðburður án heimildartexta hefur enga lýsingu."
+    }
+   }
+  },
+  {
+   "id": "shoutbox",
+   "date": "2026-10-07",
+   "title": "Shared shoutbox, switched off",
+   "description": "A reader chat can sit on the front page and at /chat/ in every language. It is one room: messages are not translated, and the pages do not load it until chat/config.json is switched on. The worker would store a nickname, the message and a daily-rotated IP hash. No chat cookie.",
+   "i18n": {
+    "nb": {
+     "title": "Felles rop, slått av",
+     "description": "En leserchat kan ligge på forsiden og på /chat/ på alle språk. Det er ett rom: meldingene oversettes ikke, og sidene laster den ikke før chat/config.json er slått på. Tjenesten vil lagre et kallenavn, meldingen og en IP-hash som byttes hvert døgn. Ingen chat-informasjonskapsel."
+    },
+    "nn": {
+     "title": "Felles rop, slått av",
+     "description": "Ein lesarchat kan liggje på framsida og på /chat/ på alle språk. Det er eitt rom: meldingane blir ikkje omsette, og sidene lastar han ikkje før chat/config.json er slått på. Tenesta vil lagre eit kallenamn, meldinga og ein IP-hash som blir bytt kvart døgn. Ingen chat-informasjonskapsel."
+    },
+    "sv": {
+     "title": "Gemensamt rop, avstängt",
+     "description": "En läsarchatt kan ligga på startsidan och på /chat/ på alla språk. Det är ett rum: meddelandena översätts inte, och sidorna laddar den inte förrän chat/config.json slås på. Tjänsten skulle spara ett smeknamn, meddelandet och en IP-hash som byts varje dygn. Ingen chattkaka."
+    },
+    "da": {
+     "title": "Fælles råb, slået fra",
+     "description": "En læserchat kan ligge på forsiden og på /chat/ på alle sprog. Det er ét rum: beskederne oversættes ikke, og siderne indlæser den ikke, før chat/config.json slås til. Tjenesten vil gemme et kaldenavn, beskeden og en IP-hash, der skiftes hvert døgn. Ingen chat-cookie."
+    },
+    "fi": {
+     "title": "Yhteinen huutolaatikko, pois päältä",
+     "description": "Lukijoiden chat voi olla etusivulla ja osoitteessa /chat/ kaikilla kielillä. Se on yksi huone: viestejä ei käännetä, eivätkä sivut lataa sitä ennen kuin chat/config.json kytketään päälle. Palvelu tallentaisi nimimerkin, viestin ja päivittäin vaihtuvan IP-tiivisteen. Ei chat-evästettä."
+    },
+    "is": {
+     "title": "Sameiginlegt kallborð, óvirkt",
+     "description": "Lesendaspjall getur verið á forsíðunni og á /chat/ á öllum tungumálum. Það er eitt herbergi: skilaboðin eru ekki þýdd og síðurnar hlaða því ekki fyrr en kveikt er á chat/config.json. Þjónustan myndi vista gælunafn, skilaboðin og IP-tæti sem skiptist á hverjum degi. Engin spjallvafrakaka."
+    }
+   }
+  },
+  {
+   "id": "compact-front-page",
+   "date": "2026-10-07",
+   "title": "Compact front page",
+   "description": "The front page no longer shows the large story pictures or the country, source and topic filters. The newest story is the lead, with a larger headline and the summary. The rest sit in a compact grid under Latest: the headline in the language of the page, the source headline underneath when it differs, the summary, the outlet logo and name, and the date. Story pages drop the same picture. The picture stays in the data API, with its credit. The events block is unchanged.",
+   "i18n": {
+    "nn": {
+     "title": "Kompakt framsida",
+     "description": "Framsida viser ikkje lenger dei store sakbileta eller filtera for land, kjelde og emne. Den nyaste saka er hovudsaka, med større overskrift og samandraget. Resten står i eit kompakt rutenett under Siste: overskrifta på sidemålet, kjeldeoverskrifta under når ho er annleis, samandraget, logoen og namnet til mediet, og datoen. Sakssidene droppar det same biletet. Biletet ligg framleis i data-API-et, med kreditering. Arrangementblokka er uendra."
+    },
+    "nb": {
+     "title": "Kompakt forside",
+     "description": "Forsiden viser ikke lenger de store sakbildene eller filtrene for land, kilde og emne. Den nyeste saken er hovedsaken, med større overskrift og sammendraget. Resten står i et kompakt rutenett under Siste: overskriften på sidemålet, kildeoverskriften under når den er annerledes, sammendraget, logoen og navnet til mediet, og datoen. Sakssidene dropper det samme bildet. Bildet ligger fortsatt i data-API-et, med kreditering. Arrangementblokken er uendret."
+    },
+    "sv": {
+     "title": "Kompakt startsida",
+     "description": "Startsidan visar inte längre de stora artikelbilderna eller filtren för land, källa och ämne. Den nyaste artikeln är huvudartikeln, med större rubrik och sammanfattningen. Resten står i ett kompakt rutnät under Senaste: rubriken på sidans språk, källrubriken under när den skiljer sig, sammanfattningen, mediets logotyp och namn, och datumet. Artikelsidorna tappar samma bild. Bilden finns kvar i data-API:et, med kredit. Evenemangsblocket är oförändrat."
+    },
+    "da": {
+     "title": "Kompakt forside",
+     "description": "Forsiden viser ikke længere de store artikelbilleder eller filtrene for land, kilde og emne. Den nyeste artikel er hovedartiklen, med større overskrift og resuméet. Resten står i et kompakt gitter under Seneste: overskriften på sidens sprog, kildeoverskriften nedenunder når den er en anden, resuméet, mediets logo og navn, og datoen. Artikelsiderne dropper det samme billede. Billedet bliver i data-API'et, med kreditering. Arrangementblokken er uændret."
+    },
+    "fi": {
+     "title": "Tiivis etusivu",
+     "description": "Etusivu ei enää näytä suuria juttukuvia eikä maa-, lähde- ja aihehakuehtoja. Uusin juttu on pääjuttu, isommalla otsikolla ja tiivistelmällä. Muut ovat tiiviissä ruudukossa kohdassa Uusimmat: otsikko sivun kielellä, lähteen otsikko sen alla kun se eroaa, tiivistelmä, median logo ja nimi, sekä päivämäärä. Juttusivuilta jää sama kuva pois. Kuva pysyy data-API:ssa lähdetietoineen. Tapahtumalohko on ennallaan."
+    },
+    "is": {
+     "title": "Þétt forsíða",
+     "description": "Forsíðan sýnir ekki lengur stóru fréttamyndirnar eða síur fyrir land, heimild og efni. Nýjasta fréttin er aðalfréttin, með stærri fyrirsögn og samantekt. Hinar standa í þéttu neti undir Nýjast: fyrirsögnin á tungumáli síðunnar, fyrirsögn heimildarinnar undir þegar hún er önnur, samantektin, merki og nafn miðilsins, og dagsetningin. Fréttasíðurnar sleppa sömu mynd. Myndin er áfram í gagnaskilinu, með heimild. Viðburðablokkin er óbreytt."
+    }
+   }
+  },
+  {
+   "id": "crest-media-kit",
+   "date": "2026-10-07",
+   "title": "Crest and media kit",
+   "description": "The header uses the Nordic Crypto crest: a gold shield, a dark-red rosette, a black raven and two lions. The name sits to the right of the mark, left-aligned. Favicons, an app icon, a one-colour version and a 1200×630 social image are on the logo and media kit at /media/. Colours are the tokens --nc-or, --nc-gules, --nc-sable, --nc-argent and --nc-cendree. Headlines use Cormorant Garamond. Body text uses Schibsted Grotesk.",
+   "i18n": {
+    "nn": {
+     "title": "Våpen og mediepakke",
+     "description": "Toppfeltet bruker våpenet til Nordic Crypto: eit gullskjold, ein mørkeraud rose, ein svart ravn og to løver. Namnet står til høgre for merket, venstrejustert. Favicon, app-ikon, ein einfarga versjon og eit delingsbilete på 1200×630 ligg i logo- og mediepakka på /media/. Fargane er tokenane --nc-or, --nc-gules, --nc-sable, --nc-argent og --nc-cendree. Overskrifter bruker Cormorant Garamond. Brødtekst bruker Schibsted Grotesk."
+    },
+    "nb": {
+     "title": "Våpen og mediepakke",
+     "description": "Toppfeltet bruker våpenet til Nordic Crypto: et gullskjold, en mørkerød rose, en svart ravn og to løver. Navnet står til høyre for merket, venstrejustert. Favicon, app-ikon, en enfarget versjon og et delingsbilde på 1200×630 ligger i logo- og mediepakken på /media/. Fargene er tokenene --nc-or, --nc-gules, --nc-sable, --nc-argent og --nc-cendree. Overskrifter bruker Cormorant Garamond. Brødtekst bruker Schibsted Grotesk."
+    },
+    "sv": {
+     "title": "Vapen och mediapaket",
+     "description": "Sidhuvudet använder vapnet för Nordic Crypto: en guldsköld, en mörkröd ros, en svart korp och två lejon. Namnet står till höger om märket, vänsterställt. Favicon, appikon, en enfärgad version och en delningsbild på 1200×630 finns i logotyp- och mediapaketet på /media/. Färgerna är token --nc-or, --nc-gules, --nc-sable, --nc-argent och --nc-cendree. Rubriker använder Cormorant Garamond. Brödtext använder Schibsted Grotesk."
+    },
+    "da": {
+     "title": "Våben og mediepakke",
+     "description": "Topfeltet bruger våbnet for Nordic Crypto: et guldskjold, en mørkerød rose, en sort ravn og to løver. Navnet står til højre for mærket, venstrestillet. Favicon, app-ikon, en ensfarvet version og et dele-billede på 1200×630 ligger i logo- og mediepakken på /media/. Farverne er tokens --nc-or, --nc-gules, --nc-sable, --nc-argent og --nc-cendree. Overskrifter bruger Cormorant Garamond. Brødtekst bruger Schibsted Grotesk."
+    },
+    "fi": {
+     "title": "Vaakuna ja mediapaketti",
+     "description": "Ylätunniste käyttää Nordic Crypton vaakunaa: kultakilpi, tummanpunainen ruusu, musta korppi ja kaksi leijonaa. Nimi on merkin oikealla puolella, vasemmalle tasattuna. Favicon, sovelluskuvake, yksivärinen versio ja 1200×630-jakokuva ovat logo- ja mediapaketissa osoitteessa /media/. Värit ovat tokenit --nc-or, --nc-gules, --nc-sable, --nc-argent ja --nc-cendree. Otsikot käyttävät Cormorant Garamondia. Leipäteksti käyttää Schibsted Groteskia."
+    },
+    "is": {
+     "title": "Skjaldarmerki og efnispakki",
+     "description": "Hausinn notar skjaldarmerki Nordic Crypto: gullskjöldur, dökkrauð rós, svartur hrafn og tvö ljón. Nafnið stendur hægra megin við merkið, vinstrijafnað. Favicon, app-tákn, einlit útgáfa og deilingarmynd 1200×630 eru í merki- og efnispakkanum á /media/. Litirnir eru tokenin --nc-or, --nc-gules, --nc-sable, --nc-argent og --nc-cendree. Fyrirsagnir nota Cormorant Garamond. Meginmál notar Schibsted Grotesk."
+    }
+   }
+  },
+  {
+   "id": "header-subscribe-telegram",
+   "date": "2026-10-07",
+   "title": "Subscribe and Telegram in the header",
+   "description": "The header button says Subscribe and opens the newsletter page on this site. Join on Telegram sits next to Follow on X. Email signup opens when the mail worker is on. Until then the page says so and links to RSS, Telegram and X. It does not take an address.",
+   "i18n": {
+    "nb": {
+     "title": "Abonner og Telegram i toppen",
+     "description": "Knappen i toppen heter Abonner og åpner nyhetsbrevsiden på dette nettstedet. Bli med på Telegram står ved siden av Følg på X. E-postpåmelding åpner når e-posttjenesten er på. Inntil da sier siden det, og lenker til RSS, Telegram og X. Den ber ikke om en adresse."
+    },
+    "nn": {
+     "title": "Abonner og Telegram i toppen",
+     "description": "Knappen i toppen heiter Abonner og opnar nyheitsbrevsida på denne nettstaden. Bli med på Telegram står ved sida av Følg på X. E-postpåmelding opnar når e-posttenesta er på. Fram til då seier sida det, og lenkjer til RSS, Telegram og X. Ho ber ikkje om ei adresse."
+    },
+    "sv": {
+     "title": "Prenumerera och Telegram i sidhuvudet",
+     "description": "Knappen i sidhuvudet heter Prenumerera och öppnar nyhetsbrevssidan på den här webbplatsen. Gå med på Telegram står bredvid Följ på X. E-postanmälan öppnar när e-posttjänsten är på. Tills dess säger sidan det och länkar till RSS, Telegram och X. Den tar inte emot en adress."
+    },
+    "da": {
+     "title": "Abonnér og Telegram i toppen",
+     "description": "Knappen i toppen hedder Abonnér og åbner nyhedsbrevssiden på dette websted. Deltag på Telegram står ved siden af Følg på X. Tilmelding via e-mail åbner, når e-mailtjenesten er slået til. Indtil da siger siden det og linker til RSS, Telegram og X. Den beder ikke om en adresse."
+    },
+    "fi": {
+     "title": "Tilaa ja Telegram ylätunnisteessa",
+     "description": "Ylätunnisteen painike sanoo Tilaa ja avaa uutiskirjesivun tällä sivustolla. Liity Telegramiin on Seuraa X:ssä -painikkeen vieressä. Sähköpostitilaus avautuu, kun sähköpostipalvelu on käytössä. Siihen asti sivu kertoo sen ja linkittää RSS-syötteeseen, Telegramiin ja X:ään. Se ei pyydä osoitetta."
+    },
+    "is": {
+     "title": "Áskrift og Telegram í hausnum",
+     "description": "Hnappurinn í hausnum segir Gerast áskrifandi og opnar fréttabréfssíðuna á þessum vef. Taktu þátt á Telegram stendur við hliðina á Fylgdu á X. Skráning með tölvupósti opnar þegar póstþjónustan er í gangi. Þar til þá segir síðan frá því og vísar á RSS, Telegram og X. Hún tekur ekki við netfangi."
     }
    }
   },
@@ -95,6 +323,198 @@
     "is": {
      "title": "Erindasafn",
      "description": "Erindasíða listar upptökur af opinberum erindum um bitcoin, rafmyntir og bálkakeðju á Norðurlöndum, nýjustu fyrst, með síum fyrir land, ár og tungumál. Spilarinn hleðst aðeins eftir smell, og aðeins þegar vettvangurinn leyfir ívefjun. Sömu erindi eru í /api/v1/talks.json. Fyrsti hópurinn er yfirfarinn úrtak, ekki fullkomið safn."
+    }
+   }
+  },
+  {
+   "id": "translated-headlines",
+   "date": "2026-10-06",
+   "title": "Headlines in the language of the page",
+   "description": "A story card now leads with the headline in the language you are reading. When the source wrote the headline in another language, that headline is shown underneath, in smaller type. If the source language is the page language, there is still only one headline. The short summary under «In short» is unchanged. The same pair is on the front page and on the story page, in every site language.",
+   "i18n": {
+    "nn": {
+     "title": "Titlar på språket til sida",
+     "description": "Eit sakkort har no tittelen på språket du les, først. Når kjelda skreiv tittelen på eit anna språk, står den tittelen under, i mindre skrift. Er kjeldespråket det same som sidesspråket, er det framleis berre éin tittel. Det korte samandraget under «Kort forklart» er som før. Det same paret står på framsida og på sakssida, på kvart språk."
+    },
+    "nb": {
+     "title": "Titler på sidens språk",
+     "description": "Et sakkort har nå tittelen på språket du leser, først. Når kilden skrev tittelen på et annet språk, står den tittelen under, i mindre skrift. Er kildespråket det samme som sidens språk, er det fortsatt bare én tittel. Det korte sammendraget under «Kort forklart» er som før. Det samme paret står på forsiden og på sakssiden, på hvert språk."
+    },
+    "sv": {
+     "title": "Rubriker på sidans språk",
+     "description": "Ett artikelkort har nu rubriken på språket du läser, först. När källan skrev rubriken på ett annat språk står den rubriken under, i mindre stil. Är källspråket samma som sidans språk finns fortfarande bara en rubrik. Den korta sammanfattningen under «I korthet» är som förut. Samma par står på startsidan och på artikelsidan, på varje språk."
+    },
+    "da": {
+     "title": "Overskrifter på sidens sprog",
+     "description": "Et artikelkort har nu overskriften på det sprog, du læser, først. Når kilden skrev overskriften på et andet sprog, står den overskrift under, i mindre skrift. Er kildesproget det samme som sidens sprog, er der stadig kun én overskrift. Det korte resumé under «Kort fortalt» er som før. Det samme par står på forsiden og på artikelsiden, på hvert sprog."
+    },
+    "fi": {
+     "title": "Otsikot sivun kielellä",
+     "description": "Juttukortin ensimmäinen otsikko on nyt kielellä, jota luet. Kun lähde kirjoitti otsikon toisella kielellä, se otsikko näkyy alla pienemmällä. Jos lähteen kieli on sivun kieli, otsikkoja on yhä vain yksi. Lyhyt tiivistelmä «Lyhyesti»-rivin alla on ennallaan. Sama pari on etusivulla ja juttusivulla, jokaisella kielellä."
+    },
+    "is": {
+     "title": "Fyrirsagnir á tungumáli síðunnar",
+     "description": "Fréttaspjald sýnir nú fyrst fyrirsögnina á tungumálinu sem þú lest. Þegar heimildin skrifaði fyrirsögnina á öðru tungumáli stendur sú fyrirsögn undir, í minna letri. Ef tungumál heimildarinnar er tungumál síðunnar er áfram aðeins ein fyrirsögn. Stutta samantektin undir «Í stuttu máli» er óbreytt. Sama par er á forsíðu og á fréttasíðu, á hverju tungumáli."
+    }
+   }
+  },
+  {
+   "id": "newsletter-own-list",
+   "date": "2026-10-06",
+   "title": "Newsletter signup on this site",
+   "description": "The newsletter signup is a form on this site. We store the email address in a private database and send each issue ourselves. Cloudflare Web Analytics still counts visits in aggregate, without cookies, and we do not sell that data. Every issue has an unsubscribe link.",
+   "i18n": {
+    "nb": {
+     "title": "Påmelding til nyhetsbrevet på dette nettstedet",
+     "description": "Påmeldingen til nyhetsbrevet er et skjema på dette nettstedet. Vi lagrer e-postadressen i en privat database og sender hver utgave selv. Cloudflare Web Analytics teller fortsatt besøk samlet, uten informasjonskapsler, og vi selger ikke de dataene. Hver utgave har en lenke for å melde seg av."
+    },
+    "nn": {
+     "title": "Påmelding til nyheitsbrevet på denne nettstaden",
+     "description": "Påmeldinga til nyheitsbrevet er eit skjema på denne nettstaden. Vi lagrar e-postadressa i ein privat database og sender kvar utgåve sjølve. Cloudflare Web Analytics tel framleis besøk samla, utan informasjonskapslar, og vi sel ikkje dei dataa. Kvar utgåve har ei lenkje for å melde seg av."
+    },
+    "sv": {
+     "title": "Anmälan till nyhetsbrevet på den här webbplatsen",
+     "description": "Anmälan till nyhetsbrevet är ett formulär på den här webbplatsen. Vi sparar e-postadressen i en privat databas och skickar varje utgåva själva. Cloudflare Web Analytics räknar fortfarande besök samlat, utan kakor, och vi säljer inte de uppgifterna. Varje utgåva har en länk för att avsluta prenumerationen."
+    },
+    "da": {
+     "title": "Tilmelding til nyhedsbrevet på dette websted",
+     "description": "Tilmeldingen til nyhedsbrevet er en formular på dette websted. Vi gemmer e-mailadressen i en privat database og sender hver udgave selv. Cloudflare Web Analytics tæller stadig besøg samlet, uden cookies, og vi sælger ikke de data. Hver udgave har et link til afmelding."
+    },
+    "fi": {
+     "title": "Uutiskirjeen tilaus tällä sivustolla",
+     "description": "Uutiskirjeen tilaus on lomake tällä sivustolla. Tallennamme sähköpostiosoitteen yksityiseen tietokantaan ja lähetämme jokaisen numeron itse. Cloudflare Web Analytics laskee yhä käynnit kootusti, ilman evästeitä, emmekä myy näitä tietoja. Jokaisessa numerossa on linkki tilauksen perumiseen."
+    },
+    "is": {
+     "title": "Skráning á fréttabréfið á þessum vef",
+     "description": "Skráning á fréttabréfið er eyðublað á þessum vef. Við geymum netfangið í einkagagnagrunni og sendum hvert tölublað sjálf. Cloudflare Web Analytics telur enn heimsóknir saman, án vafrakaka, og við seljum ekki þau gögn. Í hverju tölublaði er tengill til að segja upp áskrift."
+    }
+   }
+  },
+  {
+   "id": "nordic-press-justice-sources",
+   "date": "2026-10-06",
+   "title": "Nordic newspapers, justice press pages, and outlet logos",
+   "description": "The source list now covers national, regional and local newspapers in Norway, Sweden, Denmark, Finland, Iceland, the Faroe Islands, Greenland and Åland, plus police, prosecution, court, customs, tax and financial-intelligence press pages where they publish news. A verified RSS or Atom feed is read when one works. A source with no RSS is read from its sitemap or public index page (title, date, link and summary only), including the Bare Bitcoin blog. A source that still has nothing to read stays on the list for manual monitoring. Local papers and justice pages are keyword-filtered, and one dead feed does not stop a run. Where we have the outlet's own logo, it is shown beside the name only to identify the source, and it links to the outlet. Kaupr remains a news source only.",
+   "i18n": {
+    "nn": {
+     "title": "Nordiske aviser, justispressemeldingar og logoar",
+     "description": "Kjeldelista dekkjer no nasjonale, regionale og lokale aviser i Noreg, Sverige, Danmark, Finland, Island, Færøyane, Grønland og Åland, pluss pressemeldingar frå politi, påtalemakt, domstolar, toll, skatt og finansiell etterretning der dei publiserer nytt. Ein verifisert RSS- eller Atom-straum blir lesen når han fungerer. Ei kjelde utan RSS blir lesen frå nettstadkart eller ei open indeks-side (tittel, dato, lenkje og samandrag), også bloggen til Bare Bitcoin. Ei kjelde som framleis ikkje kan lesast, blir ståande for manuell oppfølging. Lokalaviser og justiskjelder blir filtrerte på nøkkelord, og ein daud straum stoppar ikkje køyringa. Der vi har kjelda sin eigen logo, står han ved namnet berre for å identifisere kjelda, og han lenkjer til kjelda. Kaupr er berre eit nyhendemedium."
+    },
+    "nb": {
+     "title": "Nordiske aviser, justispressemeldinger og logoer",
+     "description": "Kildelisten dekker nå nasjonale, regionale og lokale aviser i Norge, Sverige, Danmark, Finland, Island, Færøyene, Grønland og Åland, pluss pressemeldinger fra politi, påtalemyndighet, domstoler, toll, skatt og finansiell etterretning der de publiserer nytt. En verifisert RSS- eller Atom-strøm leses når den fungerer. En kilde uten RSS leses fra nettstedskart eller en offentlig indeksside (tittel, dato, lenke og sammendrag), også bloggen til Bare Bitcoin. En kilde som fortsatt ikke kan leses, blir stående for manuell oppfølging. Lokalaviser og justiskilder filtreres på nøkkelord, og en død strøm stopper ikke kjøringen. Der vi har kildens egen logo, vises den ved navnet bare for å identifisere kilden, og den lenker til kilden. Kaupr er bare et nyhetsmedium."
+    },
+    "sv": {
+     "title": "Nordiska tidningar, press från rättsväsendet och logotyper",
+     "description": "Källistan omfattar nu nationella, regionala och lokala tidningar i Norge, Sverige, Danmark, Finland, Island, Färöarna, Grönland och Åland, plus pressmeddelanden från polis, åklagare, domstolar, tull, skatt och finansunderrättelse där de publicerar nyheter. Ett verifierat RSS- eller Atom-flöde läses när ett fungerar. En källa utan RSS läses från webbplatskarta eller en publik indexsida (titel, datum, länk och sammanfattning), även Bare Bitcoins blogg. En källa som fortfarande inte kan läsas står kvar för manuell bevakning. Lokaltidningar och rättskällor filtreras på nyckelord, och ett dött flöde stoppar inte körningen. Där vi har utgivarens egen logotyp visas den bredvid namnet bara för att identifiera källan, och den länkar till utgivaren. Kaupr är bara en nyhetskälla."
+    },
+    "da": {
+     "title": "Nordiske aviser, pressemeddelelser fra retssystemet og logoer",
+     "description": "Kildelisten dækker nu nationale, regionale og lokale aviser i Norge, Sverige, Danmark, Finland, Island, Færøerne, Grønland og Åland, plus pressemeddelelser fra politi, anklagemyndighed, domstole, told, skat og finansiel efterretning, hvor de udgiver nyheder. Et verificeret RSS- eller Atom-feed læses, når et virker. En kilde uden RSS læses fra sitemap eller en offentlig indeksside (titel, dato, link og resumé), også Bare Bitcoins blog. En kilde der stadig ikke kan læses, bliver stående til manuel overvågning. Lokalaviser og retskilder filtreres på nøgleord, og et dødt feed stopper ikke kørslen. Hvor vi har mediets eget logo, vises det ved navnet kun for at identificere kilden, og det linker til mediet. Kaupr er kun et nyhedsmedie."
+    },
+    "fi": {
+     "title": "Pohjoismaiset lehdet, oikeuslaitoksen tiedotteet ja logot",
+     "description": "Lähdeluettelo kattaa nyt valtakunnalliset, alueelliset ja paikalliset sanomalehdet Norjassa, Ruotsissa, Tanskassa, Suomessa, Islannissa, Färsaarilla, Grönlannissa ja Ahvenanmaalla, sekä poliisin, syyttäjän, tuomioistuinten, tullin, verohallinnon ja rahanpesun selvittelykeskuksen tiedotteet siellä, missä niitä julkaistaan. Vahvistettu RSS- tai Atom-syöte luetaan, kun sellainen toimii. Lähde ilman RSS-syötettä luetaan sivukartasta tai julkiselta hakemistosivulta (otsikko, päivä, linkki ja tiivistelmä), myös Bare Bitcoinin blogi. Lähde, jota ei edelleenkään voi lukea, jää listalle käsin seurattavaksi. Paikallislehdet ja oikeuslähteet suodatetaan avainsanoilla, eikä yksi kuollut syöte keskeytä ajoa. Kun meillä on julkaisun oma logo, se näytetään nimen vieressä vain lähteen tunnistamiseksi, ja se vie julkaisun sivulle. Kaupr on vain uutislähde."
+    },
+    "is": {
+     "title": "Norræn dagblöð, fréttatilkynningar réttarvörslunnar og merki",
+     "description": "Heimildalisti nær nú yfir landsdekkandi, svæðisbundin og staðbundin dagblöð í Noregi, Svíþjóð, Danmörku, Finnlandi, á Íslandi, í Færeyjum, á Grænlandi og á Álandseyjum, auk fréttatilkynninga lögreglu, ákæruvalds, dómstóla, tolls, skatts og fjármálagreiningar þar sem þær eru birtar. Staðfestur RSS- eða Atom-straumur er lesinn þegar hann virkar. Heimild án RSS er lesin úr veftré eða af opinni yfirlitssíðu (titill, dagsetning, tengill og samantekt), einnig bloggið hjá Bare Bitcoin. Heimild sem enn er ekki hægt að lesa stendur á listanum til handvirks eftirlits. Staðblöð og réttarheimildir eru síaðar á lykilorðum og einn dauður straumur stöðvar ekki keyrsluna. Þar sem við höfum eigið merki miðilsins er það sýnt við nafnið eingöngu til að auðkenna heimildina, og það tengir á miðilinn. Kaupr er aðeins fréttamiðill."
+    }
+   }
+  },
+  {
+   "id": "luma-eventbrite-intake",
+   "date": "2026-10-06",
+   "title": "Luma and Eventbrite on the calendar",
+   "description": "Luma and Eventbrite are event sources. Luma is each calendar's public Subscribe iCal feed, plus schema.org JSON-LD on an individual event page. City pages, category pages and Luma's discover API are not used: the terms of use only allow publicly supported interfaces, and the official API needs Luma Plus and only covers calendars you administer. Eventbrite uses the v3 organizers and venues API when EVENTBRITE_TOKEN is set on the server. The token is not committed. Without it, the event page's JSON-LD is used. The public search API, removed in 2020, is not used. Events are kept only when the title, description or place matches bitcoin, crypto or blockchain keywords, including Nordic-language forms. The same title, date and venue is listed once. Country and city are tagged from the venue. One broken feed does not stop the run. Finished events stay in the past archive. Kaupr is a news source only and is never a sponsor of an event.",
+   "i18n": {
+    "nn": {
+     "title": "Luma og Eventbrite på kalenderen",
+     "description": "Luma og Eventbrite er kjelder til arrangement. Luma er den offentlege iCal-straumen til kvar kalender (Subscribe), og schema.org JSON-LD på ei einskild arrangementsside. Bysider, kategorisider og oppdagings-API-et til Luma blir ikkje brukt: vilkåra tillet berre offentleg støtta grensesnitt, og det offisielle API-et krev Luma Plus og dekkjer berre kalendrar du sjølv driv. Eventbrite bruker v3-API-et for arrangørar og lokale når EVENTBRITE_TOKEN er sett på tenaren. Tokenet blir ikkje lagra i git. Utan det blir JSON-LD på arrangementsida brukt. Det offentlege søkje-API-et, som blei fjerna i 2020, blir ikkje brukt. Eit arrangement blir med berre når tittel, skildring eller stad treffer bitcoin-, krypto- eller blokkjedefilteret, også på nordiske språk. Same tittel, dato og stad blir lista éin gong. Land og by blir merkte frå staden. Éin straum som er nede, stoppar ikkje køyringa. Avslutta arrangement blir ståande i arkivet. Kaupr er berre ei nyheitskjelde og er aldrei sponsor for eit arrangement."
+    },
+    "nb": {
+     "title": "Luma og Eventbrite på kalenderen",
+     "description": "Luma og Eventbrite er kilder til arrangementer. Luma er den offentlige iCal-strømmen til hver kalender (Subscribe), og schema.org JSON-LD på en enkelt arrangementsside. Bysider, kategorisider og Lumas oppdagelses-API brukes ikke: vilkårene tillater bare offentlig støttede grensesnitt, og det offisielle API-et krever Luma Plus og dekker bare kalendere du selv driver. Eventbrite bruker v3-API-et for arrangører og lokaler når EVENTBRITE_TOKEN er satt på tjeneren. Tokenet lagres ikke i git. Uten det brukes JSON-LD på arrangementssiden. Det offentlige søke-API-et, som ble fjernet i 2020, brukes ikke. Et arrangement tas med bare når tittel, beskrivelse eller sted treffer bitcoin-, krypto- eller blokkjedefilteret, også på nordiske språk. Samme tittel, dato og sted listes én gang. Land og by merkes fra stedet. Én strøm som er nede, stopper ikke kjøringen. Avsluttede arrangementer blir stående i arkivet. Kaupr er bare en nyhetskilde og er aldri sponsor for et arrangement."
+    },
+    "sv": {
+     "title": "Luma och Eventbrite i kalendern",
+     "description": "Luma och Eventbrite är evenemangskällor. Luma är varje kalenders offentliga iCal-flöde (Subscribe), plus schema.org JSON-LD på en enskild evenemangssida. Stadssidor, kategorisidor och Lumas discover-API används inte: villkoren tillåter bara offentligt stödda gränssnitt, och det officiella API:t kräver Luma Plus och täcker bara kalendrar du själv driver. Eventbrite använder v3-API:t för arrangörer och platser när EVENTBRITE_TOKEN är satt på servern. Token sparas inte i git. Utan den används JSON-LD på evenemangssidan. Det offentliga sök-API:t, som togs bort 2020, används inte. Ett evenemang tas med bara när rubrik, beskrivning eller plats träffar bitcoin-, krypto- eller blockkedjefiltret, även på nordiska språk. Samma titel, datum och plats listas en gång. Land och stad märks från platsen. Ett trasigt flöde stoppar inte körningen. Avslutade evenemang ligger kvar i arkivet. Kaupr är bara en nyhetskälla och är aldrig sponsor för ett evenemang."
+    },
+    "da": {
+     "title": "Luma og Eventbrite i kalenderen",
+     "description": "Luma og Eventbrite er kilder til arrangementer. Luma er hver kalenders offentlige iCal-feed (Subscribe) og schema.org JSON-LD på en enkelt arrangementside. Bysider, kategorisider og Lumas discover-API bruges ikke: vilkårene tillader kun offentligt understøttede grænseflader, og det officielle API kræver Luma Plus og dækker kun kalendere, du selv driver. Eventbrite bruger v3-API'et for arrangører og steder, når EVENTBRITE_TOKEN er sat på serveren. Tokenet gemmes ikke i git. Uden det bruges JSON-LD på arrangementsiden. Det offentlige søge-API, som blev fjernet i 2020, bruges ikke. Et arrangement tages kun med, når titel, beskrivelse eller sted rammer bitcoin-, krypto- eller blockchain-filteret, også på nordiske sprog. Samme titel, dato og sted listes én gang. Land og by mærkes fra stedet. Ét dødt feed stopper ikke kørslen. Afsluttede arrangementer bliver i arkivet. Kaupr er kun en nyhedskilde og er aldrig sponsor for et arrangement."
+    },
+    "fi": {
+     "title": "Luma ja Eventbrite kalenterissa",
+     "description": "Luma ja Eventbrite ovat tapahtumalähteitä. Luma on kunkin kalenterin julkinen iCal-syöte (Subscribe) ja schema.org JSON-LD yksittäisellä tapahtumasivulla. Kaupunkisivuja, luokkasivuja ja Luman discover-rajapintaa ei käytetä: käyttöehdot sallivat vain julkisesti tuetut rajapinnat, ja virallinen rajapinta vaatii Luma Plus -tilauksen ja kattaa vain kalenterit, joita itse hallinnoit. Eventbrite käyttää v3-rajapintaa järjestäjille ja tapahtumapaikoille, kun EVENTBRITE_TOKEN on asetettu palvelimella. Tunnusta ei tallenneta gitiin. Ilman sitä käytetään tapahtumasivun JSON-LD:tä. Julkista hakurajapintaa, joka poistettiin vuonna 2020, ei käytetä. Tapahtuma otetaan mukaan vain, kun otsikko, kuvaus tai paikka osuu bitcoin-, krypto- tai lohkoketjusuodattimeen, myös pohjoismaisilla kielillä. Sama otsikko, päivä ja paikka listataan kerran. Maa ja kaupunki merkitään paikasta. Yksi rikki oleva syöte ei keskeytä ajoa. Päättyneet tapahtumat jäävät arkistoon. Kaupr on vain uutislähde eikä koskaan tapahtuman sponsori."
+    },
+    "is": {
+     "title": "Luma og Eventbrite á dagatalinu",
+     "description": "Luma og Eventbrite eru heimildir um viðburði. Luma er opinbert iCal-streymi hvers dagatals (Subscribe) og schema.org JSON-LD á einstakri viðburðasíðu. Borgarsíður, flokkasíður og discover-API Luma eru ekki notuð: skilmálarnir leyfa aðeins opinberlega studd viðmót, og opinbera API-ið krefst Luma Plus og nær aðeins yfir dagatöl sem þú rekur. Eventbrite notar v3-API fyrir skipuleggjendur og staði þegar EVENTBRITE_TOKEN er sett á netþjóninum. Táknið er ekki vistað í git. Án þess er JSON-LD á viðburðasíðunni notað. Opna leitar-API-ið, sem var fjarlægt 2020, er ekki notað. Viðburður er tekinn með aðeins þegar titill, lýsing eða staður fellur að bitcoin-, krypto- eða bálkakeðjusíu, einnig á norrænum málum. Sami titill, dagsetning og staður er skráður einu sinni. Land og borg eru merkt út frá staðnum. Einn dauður straumur stöðvar ekki keyrsluna. Liðnir viðburðir standa áfram í skjalasafninu. Kaupr er aðeins fréttamiðill og er aldrei styrktaraðili viðburðar."
+    }
+   }
+  },
+  {
+   "id": "story-illustrations",
+   "date": "2026-10-06",
+   "title": "Licensed pictures on stories, no newspaper photos",
+   "description": "Story cards and story pages now show a picture, with the credit under it: source, author, licence and a link. The pictures are our own illustrations, Wikimedia Commons files under CC0, CC BY or CC BY-SA, or an official picture a public body released for free use (the Riksbank building, and the Norges Bank facade under that bank’s terms). We do not copy, store or hotlink photographs from other newspapers. An audit of the site, the build and /api/v1/ found no such pictures stored. The import now drops og:image, RSS media:content and image enclosures instead of saving them. Outlet logos stay, only to name the source.",
+   "i18n": {
+    "nn": {
+     "title": "Lisensierte bilete på saker, ingen avisbilete",
+     "description": "Kort og sakssider viser no eit bilete, med kreditering under: kjelde, opphavsperson, lisens og ei lenkje. Bileta er våre eigne illustrasjonar, filer frå Wikimedia Commons under CC0, CC BY eller CC BY-SA, eller eit offisielt bilete ein offentleg verksemd har gitt fri bruk av (Riksbank-bygningen, og fasaden til Noregs Bank på vilkåra deira). Vi kopierer, lagrar eller hentar ikkje fotografi frå andre aviser. Ein gjennomgang av nettstaden, bygginga og /api/v1/ fann ingen slike bilete lagra. Importen droppar no og:image, RSS media:content og bildevellegg i staden for å lagre dei. Logoar frå media blir ståande, berre for å nemne kjelda."
+    },
+    "nb": {
+     "title": "Lisensierte bilder på saker, ingen avisbilder",
+     "description": "Kort og sakssider viser nå et bilde, med kreditering under: kilde, opphavsperson, lisens og en lenke. Bildene er våre egne illustrasjoner, filer fra Wikimedia Commons under CC0, CC BY eller CC BY-SA, eller et offisielt bilde en offentlig virksomhet har gitt fri bruk av (Riksbank-bygningen, og fasaden til Norges Bank på vilkårene deres). Vi kopierer, lagrer eller henter ikke fotografier fra andre aviser. En gjennomgang av nettstedet, byggingen og /api/v1/ fant ingen slike bilder lagret. Importen dropper nå og:image, RSS media:content og bildevedlegg i stedet for å lagre dem. Logoer fra mediene blir stående, bare for å nevne kilden."
+    },
+    "sv": {
+     "title": "Licensierade bilder på artiklar, inga tidningsfoton",
+     "description": "Kort och artikelsidor visar nu en bild, med kredit under: källa, upphovsperson, licens och en länk. Bilderna är våra egna illustrationer, filer från Wikimedia Commons under CC0, CC BY eller CC BY-SA, eller en officiell bild som en myndighet har släppt för fri användning (Riksbankshuset, och Norges Banks fasad enligt bankens villkor). Vi kopierar, lagrar eller hämtar inte fotografier från andra tidningar. En genomgång av webbplatsen, bygget och /api/v1/ hittade inga sådana bilder lagrade. Importen släpper nu og:image, RSS media:content och bildbilagor i stället för att spara dem. Medielogotyper är kvar, bara för att namnge källan."
+    },
+    "da": {
+     "title": "Licenserede billeder på artikler, ingen avisbilleder",
+     "description": "Kort og artikelsider viser nu et billede, med kreditering under: kilde, ophavsperson, licens og et link. Billederne er vores egne illustrationer, filer fra Wikimedia Commons under CC0, CC BY eller CC BY-SA, eller et officielt billede en myndighed har givet fri brug af (Riksbankens bygning, og Norges Banks facade på bankens vilkår). Vi kopierer, gemmer eller henter ikke fotografier fra andre aviser. En gennemgang af sitet, bygningen og /api/v1/ fandt ingen sådanne billeder gemt. Importen dropper nu og:image, RSS media:content og billedvedhæftninger i stedet for at gemme dem. Medielogoer bliver, kun for at nævne kilden."
+    },
+    "fi": {
+     "title": "Lisensoidut kuvat jutuissa, ei lehtien valokuvia",
+     "description": "Kortit ja juttusivut näyttävät nyt kuvan, ja krediitti on sen alla: lähde, tekijä, lisenssi ja linkki. Kuvat ovat omia kuvituksiamme, Wikimedia Commonsin CC0-, CC BY- tai CC BY-SA-tiedostoja, tai virallinen kuva, jonka viranomainen on antanut vapaaseen käyttöön (Riksbankin rakennus ja Norges Bankin julkisivu pankin ehdoilla). Emme kopioi, tallenna emmekä lataa valokuvia muista lehdistä. Sivuston, koosteen ja /api/v1/-rajapinnan läpikäynti ei löytänyt tällaisia tallennettuja kuvia. Tuonti hylkää nyt og:image-tiedot, RSS:n media:content-kentät ja kuvien liitteet sen sijaan että tallentaisi ne. Medioiden logot jäävät, vain lähteen nimeämiseksi."
+    },
+    "is": {
+     "title": "Leyfismyndir á fréttum, engar blaðaljósmyndir",
+     "description": "Spjöld og fréttasíður sýna nú mynd, með heimild undir: heimild, höfund, leyfi og tengil. Myndirnar eru okkar eigin teikningar, skrár af Wikimedia Commons með CC0, CC BY eða CC BY-SA, eða opinber mynd sem stofnun hefur gefið til frjálsrar notkunar (bygging Riksbank, og framhlið Norges Bank samkvæmt skilmálum bankans). Við afritum, geymum eða sækjum ekki ljósmyndir frá öðrum blöðum. Yfirferð á síðunni, byggingunni og /api/v1/ fann engar slíkar myndir vistaðar. Innflutningurinn hendir nú og:image, RSS media:content og myndaviðhengjum í stað þess að vista þau. Merki miðla standa, aðeins til að nefna heimildina."
+    }
+   }
+  },
+  {
+   "id": "browser-notifications",
+   "date": "2026-10-06",
+   "title": "Browser notifications when new stories are published",
+   "description": "A button at the bottom of every page turns on browser notifications. One publish sends one message, even when several stories go out together. You can limit it to one or more of Norway, Sweden, Denmark, Finland and Iceland, and the message uses the language of the page. We store only the push subscription, that language and those countries. The same button turns notifications off and deletes the subscription. Cloudflare Web Analytics still counts visits in aggregate, without cookies, and that data is not sold. A JSON feed of the same batches is there for a later iOS app. Apple push (APNs) is not used. Until that service is switched on, the page says so and does not offer the button.",
+   "i18n": {
+    "nn": {
+     "title": "Varslingar i nettlesaren når nye saker blir publiserte",
+     "description": "Ein knapp nedst på kvar side slår på varslingar i nettlesaren. Éin publisering sender éi melding, òg når fleire saker kjem saman. Du kan avgrense til eitt eller fleire av Noreg, Sverige, Danmark, Finland og Island, og meldinga bruker språket på sida. Vi lagrar berre push-abonnementet, det språket og dei landa. Same knapp slår av varslingar og slettar abonnementet. Cloudflare Web Analytics tel framleis besøk samla, utan informasjonskapslar, og dei dataa blir ikkje selde. Eit JSON-grensesnitt med dei same gruppene ligg klart for ein seinare iOS-app. Push-tenesta til Apple (APNs) blir ikkje brukt. Før tenesta er slått på, seier sida det og viser ikkje knappen."
+    },
+    "nb": {
+     "title": "Varsler i nettleseren når nye saker blir publisert",
+     "description": "En knapp nederst på hver side slår på varsler i nettleseren. Én publisering sender én melding, også når flere saker kommer sammen. Du kan avgrense til ett eller flere av Norge, Sverige, Danmark, Finland og Island, og meldingen bruker språket på siden. Vi lagrer bare push-abonnementet, det språket og de landene. Samme knapp slår av varsler og sletter abonnementet. Cloudflare Web Analytics teller fortsatt besøk samlet, uten informasjonskapsler, og de dataene blir ikke solgt. Et JSON-grensesnitt med de samme gruppene ligger klart for en senere iOS-app. Push-tjenesten til Apple (APNs) brukes ikke. Før tjenesten er slått på, sier siden det og viser ikke knappen."
+    },
+    "sv": {
+     "title": "Aviseringar i webbläsaren när nya artiklar publiceras",
+     "description": "En knapp längst ner på varje sida slår på aviseringar i webbläsaren. En publicering skickar ett meddelande, även när flera artiklar kommer tillsammans. Du kan begränsa det till ett eller flera av Norge, Sverige, Danmark, Finland och Island, och meddelandet använder sidans språk. Vi sparar bara push-prenumerationen, det språket och de länderna. Samma knapp stänger av aviseringar och raderar prenumerationen. Cloudflare Web Analytics räknar fortfarande besök samlat, utan kakor, och de uppgifterna säljs inte. Ett JSON-flöde med samma grupper finns för en senare iOS-app. Apples push-tjänst (APNs) används inte. Tills tjänsten är påslagen säger sidan det och visar inte knappen."
+    },
+    "da": {
+     "title": "Browsernotifikationer når nye artikler udgives",
+     "description": "En knap nederst på hver side slår notifikationer til i browseren. Én udgivelse sender én besked, også når flere artikler kommer sammen. Du kan begrænse den til et eller flere af Norge, Sverige, Danmark, Finland og Island, og beskeden bruger sidens sprog. Vi gemmer kun push-abonnementet, det sprog og de lande. Den samme knap slår notifikationer fra og sletter abonnementet. Cloudflare Web Analytics tæller stadig besøg samlet, uden cookies, og de data sælges ikke. Et JSON-feed med de samme grupper ligger klar til en senere iOS-app. Apples push-tjeneste (APNs) bruges ikke. Indtil tjenesten er slået til, siger siden det og viser ikke knappen."
+    },
+    "fi": {
+     "title": "Selainilmoitukset, kun uusia juttuja julkaistaan",
+     "description": "Painike jokaisen sivun alareunassa ottaa selainilmoitukset käyttöön. Yksi julkaisu lähettää yhden viestin, myös kun useita juttuja ilmestyy yhdessä. Voit rajata sen yhteen tai useampaan maahan: Norja, Ruotsi, Tanska, Suomi ja Islanti. Viesti käyttää sivun kieltä. Tallennamme vain push-tilauksen, tuon kielen ja ne maat. Sama painike poistaa ilmoitukset käytöstä ja poistaa tilauksen. Cloudflare Web Analytics laskee yhä käynnit kootusti, ilman evästeitä, eikä niitä tietoja myydä. Sama lista on JSONina myöhempää iOS-sovellusta varten. Applen oma push-palvelu (APNs) ei ole käytössä. Kunnes palvelu on kytketty päälle, sivu kertoo sen eikä näytä painiketta."
+    },
+    "is": {
+     "title": "Vafratilkynningar þegar nýjar fréttir eru birtar",
+     "description": "Hnappur neðst á hverri síðu kveikir á tilkynningum í vafranum. Ein birting sendir ein skilaboð, líka þegar nokkrar fréttir koma saman. Þú getur takmarkað þær við eitt eða fleiri af Noregi, Svíþjóð, Danmörku, Finnlandi og Íslandi, og skilaboðin nota tungumál síðunnar. Við vistum aðeins push-áskriftina, það tungumál og þau lönd. Sami hnappur slekkur á tilkynningum og eyðir áskriftinni. Cloudflare Web Analytics telur enn heimsóknir saman, án vafrakaka, og þau gögn eru ekki seld. JSON-listi yfir sömu hópa er til fyrir síðara iOS-app. Push-þjónusta Apple (APNs) er ekki notuð. Þar til þjónustan er kveikt segir síðan það og sýnir ekki hnappinn."
     }
    }
   },
