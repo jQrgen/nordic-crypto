@@ -15,7 +15,9 @@ window.NCT=(function(){
   }
   // reveal: cards and sections slide in as they come into view
   var sel="main h1,main h2,main .lead,main .card,main .mktile,main .evcard,main article,main section,main li.story,main .story,main table,main .talk,main .person,main pre";
-  var els=$$(sel).filter(function(e){return !e.closest(".th-r")&&e.offsetHeight<1600});
+  // only what starts below the first screen slides in; what the reader sees on arrival is shown at once (no late first paint)
+  var fold=window.innerHeight;
+  var els=$$(sel).filter(function(e){return !e.closest(".th-r")&&e.offsetHeight<1600&&e.getBoundingClientRect().top>fold});
   els.forEach(function(e,i){e.classList.add("th-r");e.style.transitionDelay=Math.min(i%8,7)*45+"ms"});
   if(!still&&"IntersectionObserver" in window){
     var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add("th-in");io.unobserve(x.target)}})},{rootMargin:"0px 0px -6% 0px"});

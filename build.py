@@ -637,8 +637,6 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
 <link rel="apple-touch-icon" href="{root}assets/brand/mark-180.png">
 <link rel="icon" href="{root}assets/brand/mark-64.png" sizes="64x64" type="image/png">
 {th_color}
-<link rel="preload" href="{root}assets/fonts/SchibstedGrotesk-VF-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="{root}assets/fonts/CormorantGaramond-Bold-latin.woff2" as="font" type="font/woff2" crossorigin>
 <meta property="og:image" content="{BASE}assets/brand/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
