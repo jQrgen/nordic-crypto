@@ -1043,6 +1043,14 @@ def template_attrs(stem):
     """lang and dir for a text page whose language has no translated template, so the English fallback reads left to right."""
     if LANG == "en" or os.path.exists(P("templates", f"{stem}.{LANG}.html")): return ""
     return ' lang="en" dir="ltr"'
+def heading_links(body):
+    """Give each h2/h3 with an id a small "#" link to itself, so a section can be linked to (e.g. /api/#electrum)."""
+    def link(m):
+        tag, hid, attrs, inner = m.groups()
+        if 'class="hlink"' in inner: return m.group(0)
+        return f'<{tag} id="{hid}"{attrs}>{inner}<a class="hlink" href="#{hid}" aria-label="Link to this section">#</a></{tag}>'
+    return re.sub(r'<(h[23]) id="([^"]+)"([^>]*)>(.*?)</\1>', link, body, flags=re.S)
+
 def text_page(html_body, toc=True, cls="", toc_label=None, attrs=""):
     """Text page layout: the title and lead, the jump list (beside the text on wide screens, under the lead on phones),
     then the text in a reading column. The body starts at the first <div class="prose"> (or the first <h2>)."""
@@ -1051,6 +1059,7 @@ def text_page(html_body, toc=True, cls="", toc_label=None, attrs=""):
     if cut < 0: cut = len(html_body)
     head, rest = html_body[:cut], html_body[cut:]
     nav = page_toc(rest, toc_label) if toc else ""
+    rest = heading_links(rest)
     return (site_css.style("textpage") + f'<div class="textpage{" has-toc" if nav else ""}{" " + cls if cls else ""}"{attrs}><div class="tp-head">{head}</div>'
             f'{nav}<div class="tp-body">{rest}</div></div>')
 
