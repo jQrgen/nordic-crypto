@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-09T19:41:28+00:00",
+ "generated_at": "2026-10-09T21:28:58+00:00",
  "preview": false,
  "sign_off": "The Nordic Crypto team",
  "description": "Bitcoin, blockchain and crypto news, events, a who's who, regulation and academia for Norway, Sweden, Denmark, Finland and Iceland.",
@@ -418,6 +418,11 @@
    "path": "/ethics/",
    "url": "https://nordiccrypto.no/ethics/",
    "title": "Editorial ethics (Vær Varsom-plakaten)"
+  },
+  {
+   "path": "/privacy/",
+   "url": "https://nordiccrypto.no/privacy/",
+   "title": "Privacy and data policy: every service the site uses, legal basis, retention and processors"
   },
   {
    "path": "/changelog/",
