@@ -1039,6 +1039,7 @@ def _meta(feed):
         ("about/", "About, privacy, corrections and removal"),
         ("media/", "Logo and media kit"),
         ("ethics/", "Editorial ethics (Vær Varsom-plakaten)"),
+        ("privacy/", "Privacy and data policy: every service the site uses, legal basis, retention and processors"),
         ("changelog/", "Site changelog"),
         ("tip/", "Send a tip (not part of this data API)"),
         ("columnist/", "Apply as a columnist (not part of this data API)"),

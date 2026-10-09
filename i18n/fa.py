@@ -4,6 +4,12 @@ Chrome strings fall back to English in i18n.t() until a translation is added to 
 This file does not translate article bodies or summaries. Nordic news sources are unchanged.
 """
 S = {
+"pp_title": "سیاست حریم خصوصی و داده‌ها",
+"pp_desc": "Nordic Crypto چه چیزی از بازدیدکنندگان ذخیره می‌کند، کدام سرویس‌های بیرونی درخواست‌های شما را می‌بینند، چرا و تا چه مدت.",
+"pp_on": "فعال",
+"pp_off": "هنوز فعال نیست",
+"pp_note": "این صفحه به انگلیسی و نروژی نوشته شده است. به‌طور خلاصه: بدون تبلیغات، بدون کوکی ردیابی، و هیچ چیزی فروخته نمی‌شود. هر بخش زیر می‌گوید که آیا فعال است یا نه.",
+"pp_whole": "سیاست حریم خصوصی و داده‌ها برای کل سایت",
 "primary_source": "منبع اصلی",
 "ios_tv": 'به‌ویژه از Apple TV پشتیبانی می‌کند.',
 "contributors": 'همکاران',

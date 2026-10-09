@@ -565,7 +565,7 @@ def site_footer(rel, root, slug=""):
                 + (f' <span class="meta">{E(note)}</span>' if note else "") + '</li>')
     sections = "".join(li(root + "api/" if n == "api" else rel + (n + "/" if n else ""), t(k)) for n, k in nav_items()[:NAV_MAIN])
     site = (li(rel + "about/", t("nav_about")) + li(rel + "sources/", t("nav_sources")) + li(rel + "ethics/", t("ethics_title"))
-            + li(rel + "changelog/", t("cl_title")) + li(rel + "stats/", t("vst_title")) + li(rel + "media/", t("media_title")) + li(rel + "columnist/", t("col_title"))
+            + li(rel + "changelog/", t("cl_title")) + li(rel + "stats/", t("vst_title")) + li(rel + "privacy/", t("pp_title")) + li(rel + "media/", t("media_title")) + li(rel + "columnist/", t("col_title"))
             + li(rel + "tip/", t("nav_tip")) + li(root + "api/", t("foot_api")) + li("https://github.com/jQrgen/nordic-crypto", t("foot_source"), True)
             + li(REPO_CONTRIBUTORS, t("contributors"), True)
             + (li(rel + "treasury/", t("nav_treasury")) if event_nft.enabled() else ""))
@@ -1129,6 +1129,21 @@ def build_about():
         ios_tv = f'<span lang="{i18n.HTML_LANG[LANG]}" dir="{"rtl" if i18n.rtl(LANG) else "ltr"}">{ios_tv}</span>'
     about = lang_template("about").replace("{{UP}}", up1()).replace("{{COMMUNITY}}", community_section()).replace("{{IOS_TV}}", ios_tv)
     page("about", t("about_title"), "about", text_page(about, attrs=attrs), t("about_desc"))
+
+def build_privacy():
+    """Privacy and data policy for the whole site (privacy/). Each optional service shows whether it is switched on in this
+    build, from the same switches that add it to the pages, so the page cannot claim a service is live when it is not."""
+    attrs = template_attrs("privacy")
+    tl = f' lang="{i18n.HTML_LANG[LANG]}" dir="{"rtl" if i18n.rtl(LANG) else "ltr"}"' if attrs else ""   # inside the English fallback
+    on = lambda v: f'<span class="tag"{tl}>{E(t("pp_on" if v else "pp_off"))}</span>'
+    body = lang_template("privacy").replace("{{UP}}", "../")   # links stay in the page language
+    for key, val in (("ANALYTICS", analytics_token()), ("GEO", geo_endpoint()), ("NEWSLETTER", newsletter_endpoint()),
+                     ("PUSH", push_endpoint()), ("TIPS", tip_intake()[0]), ("CHAT", chat_endpoint())):
+        body = body.replace("{{ST_" + key + "}}", on(val))
+    if attrs and i18n.has(LANG, "pp_note"):   # English fallback: a short note in the page language first
+        note = (f'<p class="notice" lang="{i18n.HTML_LANG[LANG]}" dir="{"rtl" if i18n.rtl(LANG) else "ltr"}">{E(t("pp_note"))}</p>')
+        body = body.replace('<div class="prose">', note + '<div class="prose">', 1)
+    page("privacy", t("pp_title"), "privacy", text_page(body, attrs=attrs), t("pp_desc"))
 
 def build_ethics():
     """Press ethics: Nordic Crypto follows Vær Varsom-plakaten. Own wording, not a copy of the code."""
@@ -1828,6 +1843,7 @@ def build_lang(ctx):
     build_about()
     build_media()
     build_ethics()
+    build_privacy()
     build_chat()
 
 # ---- Industry map: categories from the org chart data (group + description keywords; overrides in industry_map.json) ----
@@ -3138,11 +3154,12 @@ def build_stats(ctx):
     policy = (f'<section id="data-policy" class="stpolicy"><h2>{E(t("vdp_h"))}</h2>'
               + ("" if analytics_token() else f'<p class="notice">{E(t("vdp_off"))}</p>')
               + "".join(f"<p>{t(k)}</p>" for k in ("vdp_who", "vdp_collect", "vdp_publish", "vdp_not", "vdp_basis", "vdp_keep", "vdp_proc"))
-              + f'<p>{t("vdp_rights", issues=issues)}</p></section>')
+              + f'<p>{t("vdp_rights", issues=issues)}</p>'
+              + f'<p><a href="../privacy/">{E(t("pp_whole"))}</a></p></section>')
     week_label = lambda r: f'{ltr(r["week"])}<span class="stfrom">{ltr(r["start"])}</span>'
     body = f"""<h1>{E(t("vst_title"))}</h1>
 <p class="lead">{E(t("vst_lead"))}</p>
-<p class="meta"><a href="#data-policy">{E(t("vdp_h"))}</a></p>
+<p class="meta"><a href="#data-policy">{E(t("vdp_h"))}</a> · <a href="../privacy/">{E(t("pp_whole"))}</a></p>
 <div class="stats" id="st" data-json="{root}api/v1/stats.json" data-gen="{E(gen)}" data-partial="{E(t("vst_partial"))}" data-upd="{E(t("vst_updated", when="{when}"))}">
 <p class="notice" id="st-pending"{" hidden" if has else ""}>{E(t("vst_pending"))}</p>
 <p class="meta" id="st-upd"{"" if has else " hidden"}>{t("vst_updated", when=f'<bdi dir="ltr">{E(when)}</bdi>') if has else ""}</p>
