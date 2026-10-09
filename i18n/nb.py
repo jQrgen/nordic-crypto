@@ -467,6 +467,7 @@ S.update({
 "filters_clear": "Fjern filtrene",
 "n_row1": "1 rad",
 "foot_source": "Kildekode",
+"brand_since": "siden 2026",
 })
 
 # books page (/books/)

@@ -685,4 +685,5 @@ S.update({
 "filters_clear": "ফিল্টার মুছুন",
 "n_row1": "১টি সারি",
 "foot_source": "সোর্স কোড",
+"brand_since": "২০২৬ থেকে",
 })

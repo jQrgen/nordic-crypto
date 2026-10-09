@@ -685,4 +685,5 @@ S.update({
 "filters_clear": "Hapus filter",
 "n_row1": "1 baris",
 "foot_source": "Kode sumber",
+"brand_since": "sejak 2026",
 })

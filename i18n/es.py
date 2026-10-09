@@ -685,4 +685,5 @@ S.update({
 "filters_clear": "Borrar filtros",
 "n_row1": "1 fila",
 "foot_source": "Código fuente",
+"brand_since": "desde 2026",
 })

@@ -685,4 +685,5 @@ S.update({
 "filters_clear": "Filter zurücksetzen",
 "n_row1": "1 Zeile",
 "foot_source": "Quellcode",
+"brand_since": "seit 2026",
 })

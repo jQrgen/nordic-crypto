@@ -685,4 +685,5 @@ S.update({
 "filters_clear": "清除筛选",
 "n_row1": "1 行",
 "foot_source": "源代码",
+"brand_since": "始于 2026 年",
 })

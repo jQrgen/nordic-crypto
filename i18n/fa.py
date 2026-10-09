@@ -657,4 +657,5 @@ S.update({
 "filters_clear": "پاک کردن فیلترها",
 "n_row1": "1 ردیف",
 "foot_source": "کد منبع",
+"brand_since": "از ۲۰۲۶",
 })

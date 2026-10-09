@@ -486,6 +486,7 @@ S.update({
 "filters_clear": "Clear filters",
 "n_row1": "1 row",
 "foot_source": "Source code",
+"brand_since": "since 2026",
 })
 
 # books page (/books/)

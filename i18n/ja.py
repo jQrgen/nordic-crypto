@@ -685,4 +685,5 @@ S.update({
 "filters_clear": "条件をクリア",
 "n_row1": "1行",
 "foot_source": "ソースコード",
+"brand_since": "2026年から",
 })

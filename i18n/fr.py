@@ -685,4 +685,5 @@ S.update({
 "filters_clear": "Effacer les filtres",
 "n_row1": "1 ligne",
 "foot_source": "Code source",
+"brand_since": "depuis 2026",
 })

@@ -467,6 +467,7 @@ S.update({
 "filters_clear": "Hreinsa síur",
 "n_row1": "1 lína",
 "foot_source": "Frumkóði",
+"brand_since": "frá 2026",
 })
 
 # books page (/books/)

@@ -685,4 +685,5 @@ S.update({
 "filters_clear": "फ़िल्टर हटाएँ",
 "n_row1": "1 पंक्ति",
 "foot_source": "सोर्स कोड",
+"brand_since": "2026 से",
 })
