@@ -20,12 +20,12 @@ The hostnames go live when `nordiccrypto.no` is active on Cloudflare. On 9 Octob
 | | |
 |---|---|
 | Provider | Hetzner Cloud, Falkenstein (`fsn1`) |
-| Server | `electrum-1`, CX33 (4 vCPU, 8 GB RAM, 80 GB disk), Ubuntu 24.04 |
+| Server | `electrum-1`, CX43 (8 vCPU, 16 GB RAM, 80 GB disk), Ubuntu 24.04 |
 | Data volume | `electrum-data`, 300 GB, mounted at `/mnt/HC_Volume_107087011` |
 | Firewall | `electrum-ssh-only`: inbound SSH (22) and ICMP only |
-| Cost | About €25.65 a month (€8.49 server, €17.16 volume), billed hourly |
+| Cost | About €33.15 a month (€15.99 server, €17.16 volume), billed hourly |
 
-Memory is tight with both nodes and both Rostrum instances syncing at once. On 9 October 2026 the server ran out of memory with BCHN at `dbcache=3000`: no free RAM, disk thrashing and SSH timing out. BCHN now uses `dbcache=1000`, and there is a 4 GB swap file (`/swapfile`, `vm.swappiness=10`). Raise `dbcache` only after the first sync, and keep an eye on `free -m`.
+It started as a CX33 (8 GB RAM). On 9 October 2026 it ran out of memory with BCHN at `dbcache=3000` and both Rostrum instances indexing: no free RAM, disk thrashing and SSH timing out. It was moved to a CX43 the same day, with BCHN at `dbcache=4000` and a 4 GB swap file (`/swapfile`, `vm.swappiness=10`). The disk was not enlarged, so the server can still go back to a CX33. Check memory use after the first sync (`free -m`, `ps -eo rss,comm --sort=-rss | head`) before downgrading, and lower `dbcache` to 1000 if you do.
 
 The hostnames are one level below `nordiccrypto.no` (`electrum-bch`, not `bch.electrum`) because Cloudflare's free certificate only covers `*.nordiccrypto.no`.
 
