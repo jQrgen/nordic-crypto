@@ -10,8 +10,10 @@ Writes:
   assets/brand/shield-band.svg    the shield for the North Sea band (header, footer)
   favicon.svg                     the shield on a rounded North Sea tile
   assets/brand/mark-{16,32,64,192,512}.png, mark-180.png (Apple touch icon, square), favicon.ico (16 and 32)
+  apple-touch-icon.png (site root, which Safari and iOS fetch without a link) and the crest-era names that old links,
+  bookmarks and the newsletter still use: assets/brand/icon.svg, icon-{16,32,192,512}.png, apple-touch-icon.png, favicon.ico
 Needs rsvg-convert. Usage: python3 tools/make_mark.py"""
-import os, struct, subprocess, tempfile
+import os, shutil, struct, subprocess, tempfile
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SEA, GOLD, SAIL = "#1E3A45", "#D9A034", "#F0F1EC"
@@ -80,7 +82,12 @@ def main():
     render(tile(rounded=False, scale=0.78), 180, os.path.join(ROOT, "assets", "brand", "mark-180.png"))
     pngs = [(s, open(os.path.join(ROOT, "assets", "brand", f"mark-{s}.png"), "rb").read()) for s in (16, 32)]
     with open(os.path.join(ROOT, "favicon.ico"), "wb") as fh: fh.write(ico(pngs))
-    print("mark: shield.svg, shield-band.svg, favicon.svg, favicon.ico, mark-*.png")
+    brand = os.path.join(ROOT, "assets", "brand")
+    for old, new in [("assets/brand/icon.svg", "favicon.svg"), ("assets/brand/favicon.ico", "favicon.ico"),
+                     ("assets/brand/apple-touch-icon.png", "assets/brand/mark-180.png"), ("apple-touch-icon.png", "assets/brand/mark-180.png")] + \
+                    [(f"assets/brand/icon-{s}.png", f"assets/brand/mark-{s}.png") for s in (16, 32, 192, 512)]:
+        shutil.copyfile(os.path.join(ROOT, new), os.path.join(ROOT, old))
+    print("mark: shield.svg, shield-band.svg, favicon.svg, favicon.ico, mark-*.png, apple-touch-icon.png, crest-era icon names")
 
 
 if __name__ == "__main__":
