@@ -16,8 +16,11 @@
 // /api/unsubscribe – see src/newsletter.js (D1 table subscribers, migrations/0003_subscribers.sql) and src/mailer.js.
 // Shoutbox (one shared room, every language): GET/POST /api/shouts, POST /api/shouts/report,
 // GET/POST /api/shouts/admin – see src/shouts.js (migrations/0004_shouts.sql).
+// Private tip inbox (the /tip/ form, free text, Turnstile): POST /api/private-tip, newsroom GET /api/private-tips and
+// POST /api/private-tips/:id (bearer) – see src/private_tips.js (migrations/0005_private_tips.sql).
 import { subscribe, confirm, unsubscribe } from "./newsletter.js";
 import { shouts } from "./shouts.js";
+import { postPrivateTip, listPrivateTips, markPrivateTip } from "./private_tips.js";
 import siteUrl from "../../site_url.json" with { type: "json" };
 
 const SITE_BASE = siteUrl.base.endsWith("/") ? siteUrl.base : siteUrl.base + "/";
@@ -150,7 +153,7 @@ export default {
     const path = new URL(req.url).pathname;
     if (req.method === "OPTIONS") {
       const o = req.headers.get("Origin");
-      const preflight = ["/api/tip", "/api/subscribe", "/api/shouts", "/api/shouts/report"];
+      const preflight = ["/api/tip", "/api/private-tip", "/api/subscribe", "/api/shouts", "/api/shouts/report"];
       if (!preflight.includes(path) || (o !== null && !ORIGINS.has(o))) return send(req, 403, { ok: false });
       const methods = path === "/api/shouts" ? "GET, POST, OPTIONS" : "POST, OPTIONS";
       return new Response(null, { status: 204, headers: headers(req, {
@@ -159,6 +162,7 @@ export default {
     if (req.method === "GET" || req.method === "HEAD") {
       if (path === "/api/shouts" || path === "/api/shouts/admin") return shouts(req, env, H);
       if (path === "/api/geo") return send(req, 200, { country: geo(req, env) });
+      if (path === "/api/private-tips" && req.method === "GET") return listPrivateTips(req, env);
       if ((path === "/api/confirm" || path === "/api/unsubscribe") && req.method === "HEAD") return new Response(null, { status: 200, headers: headers(req) });  // HEAD never acts
       if (path === "/api/confirm") return confirm(req, env, H);
       if (path === "/api/unsubscribe") return unsubscribe(req, env, H);
@@ -171,6 +175,9 @@ export default {
     if (req.method === "POST") {
       if (path === "/api/shouts" || path === "/api/shouts/report" || path === "/api/shouts/admin") return shouts(req, env, H);
       if (path === "/api/subscribe") return subscribe(req, env, H);
+      if (path === "/api/private-tip") return postPrivateTip(req, env, H);
+      const pm = path.match(/^\/api\/private-tips\/(\d{1,12})$/);
+      if (pm) return markPrivateTip(req, env, H, Number(pm[1]));
       if (path === "/api/unsubscribe") return unsubscribe(req, env, H);
       if (path !== "/api/tip") return send(req, 404, { ok: false, error: "Not found." });
       return tip(req, env);

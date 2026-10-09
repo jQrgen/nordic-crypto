@@ -5,7 +5,7 @@
   "description": "Nordic Crypto reader tips + newsletter signup on Cloudflare Workers + D1",
   "scripts": {
     "dev": "wrangler dev --local",
-    "test": "node --test tests/shouts.test.mjs tests/newsletter.test.mjs && python3 tests/test_export.py && bash test_local.sh && bash test_subscribe.sh && bash test_parity.sh"
+    "test": "node --test tests/shouts.test.mjs tests/newsletter.test.mjs tests/private_tips.test.mjs && python3 tests/test_export.py && bash test_local.sh && bash test_subscribe.sh && bash test_parity.sh"
   },
   "devDependencies": {
     "wrangler": "4.147.0"
