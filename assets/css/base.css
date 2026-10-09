@@ -40,6 +40,8 @@ html[dir=rtl] [lang]:not([lang|=ar]):not([lang|=ur]){direction:ltr;unicode-bidi:
 /* Many strings on the Arabic and Urdu pages are still English (no translation yet). Each block takes its direction from its own
    first letter, so an English sentence keeps its full stop at the end and an Arabic one reads right to left; all stay on the right. */
 html[dir=rtl] :is(p,li,dd,dt,figcaption,summary,label,h1,h2,h3,td,th){unicode-bidi:plaintext;text-align:right!important}
+/* Letter spacing breaks the joined letters of Arabic and Urdu, so text in those languages has none. */
+:lang(ar),:lang(ur){letter-spacing:normal!important}
 [hidden]{display:none!important}
 .sprite{position:absolute;width:0;height:0;overflow:hidden}
 .ico{display:block;flex:none}
