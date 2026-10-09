@@ -21,6 +21,8 @@ def serve(route):
 def run(b, origin, path, sel):
     pg = b.new_page(); pg.route(origin + f"/{REPO}/**", serve)
     pg.goto(f"{origin}/{REPO}/{path}"); f = pg.locator(sel).first
+    box = f.locator('input[name="consent"]')
+    if box.count(): box.check()
     f.locator("input[type=email]").fill(f"browser{random.randint(1, 10**9)}@example.org"); f.locator("button").click()
     pg.wait_for_function("s=>{var e=document.querySelector(s);return e&&!e.querySelector('button').disabled&&e.querySelector('.nlmsg').textContent.length>0}", arg=sel, timeout=20000)
     msg = f.locator(".nlmsg").inner_text(); pg.close(); return msg

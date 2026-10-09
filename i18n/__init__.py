@@ -2,12 +2,15 @@
 
 English is the default (site root); every other code lives under /<code>/.
 Strings: i18n/<code>.py -> S = {key: text}. Missing keys fall back to English (and build.py warns).
-The languages added beyond the Nordic set ship as English stubs until a real translation is written.
+The languages beyond the Nordic set have their UI strings translated (AI-assisted, 8 Oct 2026); a key added later falls back to English until it is translated.
 Do not machine-translate article bodies into those files.
 
 Editor workflow: our own text (story summaries, event notes, changelog entries) gets per-language variants in
-queue/approved.json (items[].summary_i18n, events.notes_i18n) and changelog.json (entries[].i18n). External headlines,
-event titles, quotes and data from sources stay as in the source.
+queue/approved.json (items[].summary_i18n, events.notes_i18n) and changelog.json (entries[].i18n). Story headlines
+are translated the same way (items[].title_i18n, or data/title_i18n.json): the card shows that headline in the page
+language, and the source headline underneath when the languages differ. Event descriptions use the same
+rule (data/event_description_i18n.json): the page shows that text in the page language, and the original
+underneath when they differ. A missing translation leaves the original only. Quotes and other source text stay as written.
 
 The IP country → language guess lives in tools/langselect.js (BY_COUNTRY) and is published as
 /api/v1/geo-language.json. It is a default only. The nc_lang cookie from the language switcher wins.
@@ -66,7 +69,7 @@ _S = {}
 def strings(lang):
     if lang not in _S:
         base = dict(importlib.import_module(f"i18n.{lang}").S)
-        extra = importlib.import_module("i18n.event_nft_strings").S.get(lang)
+        extra = importlib.import_module("i18n.event_nft_strings").S.get(lang)   # event NFT prototype strings, all languages
         if not extra:
             raise RuntimeError("event NFT strings missing for " + lang)
         base.update(extra)
@@ -107,6 +110,11 @@ WD = {"en": "Mon Tue Wed Thu Fri Sat Sun".split(),
 # Nordic languages have their own date forms. Other site languages use the English forms until translated.
 def _dl(lang): return lang if lang in MON else "en"
 def wd_head(lang): return [w.rstrip(".") for w in WD[_dl(lang)]]
+# Month under the day number in a date badge. Finnish dates are numeric elsewhere; the badge uses the usual short month names.
+MON_FI_BADGE = "tammi helmi maalis huhti touko kesä heinä elo syys loka marras joulu".split()
+def badge_month(lang, d):
+    lang = _dl(lang)
+    return MON_FI_BADGE[d.month-1] if lang == "fi" else MON[lang][d.month-1].rstrip(".")
 def short_date(lang, d):
     lang = _dl(lang)
     if lang == "en": return f"{d.day} {MON['en'][d.month-1]} {d.year}"

@@ -2,6 +2,8 @@
 """Several outlets for one event.
 
 A story keeps its existing primary fields (source, source_name, url, title, published, language, country).
+``published`` on the primary and on each extra outlet is that article's own publish time
+(page meta, else the feed's published date) — not an updated time or the time we fetched it.
 Other outlets that covered the same event sit in also_covered_by:
 
   {outlet, outlet_name, url, title, published, lang, country, source_type}
@@ -122,7 +124,10 @@ def _clean_record(rec):
 
 def record_from_parts(outlet, outlet_name, url, title, published, lang=None, country=None, source_type=None, paywall=None):
     src = load_sources().get(outlet) or {}
-    published = published.isoformat() if isinstance(published, dt.datetime) else published
+    if isinstance(published, dt.datetime):
+        if published.tzinfo is None:
+            published = published.replace(tzinfo=dt.timezone.utc)
+        published = published.astimezone(dt.timezone.utc).replace(microsecond=0).isoformat(timespec="seconds")
     rec = {
         "outlet": outlet,
         "outlet_name": outlet_name or src.get("name") or outlet,
@@ -342,6 +347,28 @@ def fold_into(items, source_item, target_ref):
     source_item["merged_into"] = target.get("id")
     source_item["summary"] = None
     return target
+
+
+def editor_primary_source(raw):
+    """Editor-recorded original document, such as a regulator press release.
+
+    Returns ``{name, url}`` or None. A coverage outlet row (no document URL) is not a citation.
+    """
+    if not raw:
+        return None
+    if isinstance(raw, str):
+        url, name = raw.strip(), ""
+    elif isinstance(raw, dict):
+        url = str(raw.get("url") or raw.get("href") or "").strip()
+        name = str(raw.get("name") or raw.get("title") or raw.get("label") or raw.get("source_name") or raw.get("outlet_name") or "").strip()
+    else:
+        return None
+    if not url.startswith(("http://", "https://")):
+        return None
+    if not name:
+        host = urllib.parse.urlparse(url).netloc.lower().removeprefix("www.")
+        name = host or url
+    return {"name": name, "url": url}
 
 
 def index_urls(items):

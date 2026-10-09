@@ -30,26 +30,13 @@ COUNTRY = {
 CHAINS = ("nexa", "bch")
 KINDS = ("pre", "ongoing")
 
-CSS = """
-.nftmint{margin:8px 0 2px;padding-top:8px;border-top:1px solid var(--line);text-align:start}
-.nftmint p,.nftmint h4,.nftmint dl,.nftmint dd{text-align:start}
-.nftmint summary{cursor:pointer;display:inline-block;padding:8px 14px;background:var(--ink);color:#fff;font-weight:700;list-style:none}
-.nftmint summary::-webkit-details-marker{display:none}
-a.nftbtn{display:inline-block;padding:8px 14px;background:var(--ink);color:#fff;text-decoration:none;font-weight:700}
-.nftdlg{margin:8px 0 4px;padding:10px 12px;border:1px solid var(--line);background:var(--soft);max-width:36rem;text-align:start}
-.nftdlg img.art{width:180px;height:180px;display:block;background:#fff;border:1px solid var(--line)}
-.nftdlg img.qr{width:112px;height:112px;display:block;background:#fff;border:1px solid var(--line);margin-top:8px}
-.nftmint dt{font-weight:700;margin-top:6px}.nftmint dd{margin:0}
-.trewrap{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start;justify-content:flex-start}
-.trecol{flex:1 1 280px;max-width:440px;text-align:start}
-.trecol img{width:168px;height:168px;display:block;background:#fff;border:1px solid var(--line)}
-.placeholder{border:1px solid var(--warm);background:#fffbeb;padding:8px 10px;text-align:start}
-.trehist{width:100%;max-width:44rem;border-collapse:collapse;text-align:start;margin:8px 0 18px}
-.trehist th,.trehist td{text-align:start;padding:4px 12px 4px 0;border-bottom:1px solid var(--line);vertical-align:top}
-.trecharts{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start;justify-content:flex-start}
-.trechart{margin:4px 0 16px;max-width:440px;text-align:start}
-.trechart svg{width:100%;height:auto;display:block}
-"""
+CSS_MODULE = "nft"   # assets/css/nft.css, inlined by the treasury page and by an event page that shows a mint panel
+
+
+def style():
+    import site_css
+    return site_css.style(CSS_MODULE)
+
 
 
 def enabled():
@@ -346,7 +333,7 @@ def media_urls(base, event_id, kind, chain):
     return {
         "front": root + stem + "-front.png",
         "back": root + stem + "-back.png",
-        "page": base.rstrip("/") + "/events/" + event_id + "/",
+        "page": base.rstrip("/") + "/calendar/" + event_id + "/",
         "qr": root + stem + "-qr.png",
     }
 
@@ -513,7 +500,7 @@ def mint_blocks(event, phase, root, rel, t, E, link_page=True):
         inner = "\n".join(_one_chain(event, kind, chain, doc[chain], root, rel, t, E) for chain in CHAINS)
         blocks.append(f'<div class="nftmint" data-nft="{kind}"{hidden}>\n{inner}\n</div>')
     if link_page:
-        blocks.append(f'<p class="meta"><a href="{E(rel)}events/{E(event.get("id") or "")}/">{E(t("nft_page"))}</a></p>')
+        blocks.append(f'<p class="meta"><a href="{E(rel)}calendar/{E(event.get("id") or "")}/">{E(t("nft_page"))}</a></p>')
     return "\n".join(blocks)
 
 
@@ -619,20 +606,13 @@ def treasury_body(doc, root, t, E):
 <p class="meta">{E(t("tre_api"))}: <a href="{E(root)}api/v1/treasury.json">/api/v1/treasury.json</a> · <a href="{E(root)}api/v1/treasury/history.json">/api/v1/treasury/history.json</a></p>'''
 
 
-def event_body(event, phase, root, rel, t, E, when, place):
-    wrap = (
-        f'<div id="nft-event" data-nft-start="{E(event.get("start") or "")}" data-nft-end="{E(event.get("end") or "")}">'
+def event_panel(event, phase, root, rel, t, E):
+    """Mint panel for the event page (calendar/<id>/). The clock script picks the pre-event or the ongoing pair."""
+    return (
+        f'<section class="nftpanel" id="nft-event" data-nft-start="{E(event.get("start") or "")}" data-nft-end="{E(event.get("end") or "")}">'
         + mint_blocks(event, phase, root, rel, t, E, link_page=False)
-        + "</div>"
+        + f'<p class="meta"><a href="{E(rel)}treasury/">{E(t("nav_treasury"))}</a></p></section>'
     )
-    return f'''<h1>{E(event.get("title") or "")}</h1>
-<p class="lead">{E(t("nft_event_lead"))}</p>
-<p class="meta">{E(when)}</p>
-<p>{E(place)}</p>
-<p class="meta">{E(t("organiser"))}: {E(event.get("organiser") or "")}</p>
-<p class="meta"><a href="{E(event.get("url") or "")}" rel="noopener">{E(event.get("source") or "")}</a></p>
-{wrap}
-<p class="meta"><a href="{E(rel)}calendar/">{E(t("nav_calendar"))}</a> · <a href="{E(rel)}treasury/">{E(t("nav_treasury"))}</a></p>'''
 
 
 def faucet_redirect(site, lang):

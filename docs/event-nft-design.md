@@ -42,7 +42,7 @@ This is a real row in `data/events.json` (`89ced460e4ca`). The source record doe
   "keywords": "event, Oslo, Norway, 2026, I was there",
   "info": "<p>Crypto killer apps. I was there. 2026-10-14T17:30:00+02:00 – 2026-10-14T18:30:00+02:00. Rosenkrantz' gate 7, 0159 Oslo (inngang fra Kristian IVs gate), Oslo, Norway. Organiser: Polyteknisk Forening. Event page: https://www.polyteknisk.no/program/crypto-killer-apps. Data source: Polyteknisk Forening (program) (https://www.polyteknisk.no/program/crypto-killer-apps), retrieved 2026-10-03T15:23:20+00:00. Registered participants: not stated in the source record.</p>",
   "license": "CC BY 4.0",
-  "appuri": "https://nordiccrypto.no/events/89ced460e4ca/",
+  "appuri": "https://nordiccrypto.no/calendar/89ced460e4ca/",
   "data": {
     "event_id": "89ced460e4ca",
     "kind": "ongoing",
@@ -109,7 +109,7 @@ The minter pays nothing. The treasury signs and broadcasts. The wallet's job is 
 
 Nexa:
 
-1. The button is shown on the ongoing hero while the event is running, and the pre-event button is shown on the upcoming card and the event page before the start. After the end, neither button is offered. The server checks the same window. The page clock is not the authority.
+1. The mint button is shown on the event page (`/calendar/<id>/`) while the event is running, and the pre-event button is shown there before the start. After the end, neither button is offered. The server checks the same window. The page clock is not the authority.
 2. Wally answers a NexaID login (`nexid://` challenge, wallet returns an address and a signature). That proves control of the address. It is not written onto the NFT.
 3. The worker refuses the mint if `SHA-256(chain | identity | event id)` is already stored. The kind is not part of the hash.
 4. The worker builds one transaction: treasury inputs pay the network fee; a new NFT output of this card's subgroup goes to the NexaID address; about 1000 NEXA goes to that same address; the mint authority and the change stay with the treasury.
@@ -254,8 +254,8 @@ Off by default. It turns on when `NC_EVENT_NFT=1` or when `queue/approved.json` 
 
 With the flag on, in every site language, left aligned:
 
-- The ongoing hero has "Mint event NFT in Wally" and "Mint event NFT on Bitcoin Cash".
-- An upcoming card, the calendar row, and `/events/<id>/` have the pre-event pair, "I'm going".
+- While the event runs, the event page has "Mint event NFT in Wally" and "Mint event NFT on Bitcoin Cash".
+- The event page, `/calendar/<id>/`, has the pre-event pair, "I'm going".
 - Opening a button shows the generated image, the fields Wally or a CashTokens wallet would show, the fee-float sentence, the one-per-identity sentence, and a QR code of a link on this site. The static page does not broadcast. The mint worker broadcasts on testnet when the flag is on.
 - If that chain is `empty`, the button is the funding link instead.
 - `/treasury/` shows both placeholder addresses, both QR codes, the sample balance, the hot-wallet target, the event and day caps, the mint count and the cost. It says the hot wallet is intentionally small. It also shows the refill and mint table and a balance chart for each chain. `/faucet/` redirects there. The nav and the footer link to it.
@@ -277,5 +277,5 @@ Custody is decided: a small hot key in the Worker secret store, refilled by hand
 2. Keep one mint per NexaID per event (what the code does), or allow the pre-event card and the ongoing card as two mints.
 3. Identical cards for every minter (this design), or public edition numbers that do not name the holder.
 4. Is CC BY 4.0 the licence for the generated card?
-5. The prototype adds `/events/<id>/` while the flag is on. Should that page stay when minting goes live?
+5. The mint panel sits on the existing event page (`/calendar/<id>/`), not on the front page or the calendar list. Is that the right place when minting goes live?
 6. The apps need a small change to read `needs_funding`. The app source is not in this repo.

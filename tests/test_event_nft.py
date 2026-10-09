@@ -73,7 +73,7 @@ def main():
     page = event_nft.treasury_body(doc, "./", lambda k, **kw: i18n.t("en", k, **kw), lambda s: str(s))
     if "<table" not in page or "<svg" not in page or 'class="trehist"' not in page:
         fail("treasury page needs the history table and the chart")
-    if "do-not-publish" in page or "text-align:start" not in event_nft.CSS:
+    if "do-not-publish" in page or "text-align:start" not in event_nft.style():
         fail("history layout or a sender on the page")
 
     ev = next(e for e in json.load(open("data/events.json", encoding="utf-8"))["events"] if e["id"] == "89ced460e4ca")

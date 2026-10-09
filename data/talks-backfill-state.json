@@ -1,0 +1,830 @@
+{
+ "_note": "Search coverage for the public talks archive. A later pass should expand sampled areas, then mark an area exhausted only when new finds dry up. A first YouTube results page is sampled, not exhausted, unless that query returned nothing relevant.",
+ "event_linking": "After talks are written here, python3 tools/event_backfill.py looks up an existing calendar or backfill event on series, date span, city, country and organiser, then creates a previous event when the video page states the day, the place, the type and the organiser. A talk that cannot be dated or placed stays unlinked with unlink_reason.",
+ "runs": [
+  {
+   "date": "2026-10-07",
+   "candidates_checked": 1132,
+   "watch_pages_opened": 183,
+   "new_talks": 74,
+   "areas_exhausted": [
+    "query: Copenhagen Bitcoin meetup (0 results)",
+    "query: Stortinget kryptovaluta høring (1 result, not a hearing recording)",
+    "query: Arne Ryde crypto fintech (1 result, not a talk recording)"
+   ],
+   "areas_sampled": [
+    "YouTube first results page for 72 crypto-and-place queries across NO, SE, DK, FI, IS, FO, GL, AX",
+    "Oslo Blockchain Day / Blockchangers uploads",
+    "Oslo Freedom Forum bitcoin and freedom-tech cuts",
+    "Slush 2016 and 2018 crypto sessions (Slush Tokyo excluded)",
+    "Nordic Blockchain Conference official 2026 stage recordings and one 2024 talk",
+    "Bitcoin Copenhagen 2026",
+    "University and central-bank queries: NTNU, UiO, KTH, Chalmers, Aalto, DTU, University of Iceland, Riksbank, Norges Bank, Suomen Pankki, Swedish House of Finance, Polyteknisk Forening"
+   ],
+   "notes": "1131 unique videos from the first page of 72 YouTube searches were screened by title and channel. 160 of those had the watch page opened in the capped pass, and 22 further ids were opened in a targeted pass. One video (Andreas M. Antonopoulos at Oslo Blockchain Day 2017) was opened from its URL directly, so candidates_checked is 1132 and watch_pages_opened is 183. 74 talks were kept. YouTube's watch-page player asked for a sign-in and omitted lengthSeconds; duration is the lengthText on YouTube's own search result for that video id, except yt-eo-0BgrKxiI, which was not in a search result and has a null duration. embed is the YouTube oEmbed iframe flag. Spoken language was not labelled on the pages we kept, so language is null. Talks are linked by tools/event_backfill.py after they are stored: an existing event is tried first, and a previous event is created only from facts the video page stated. The October 2026 Oslo Nexa meetup has no recording yet. Baltic Honeybadger (Riga) was skipped. Predatory conference mills were filtered. FO, GL and AX were searched; the first-page hits were not public crypto talks held there, so those countries stay sampled with zero talks, not exhausted."
+  }
+ ],
+ "coverage": {
+  "years": {
+   "2008": {
+    "status": "not_searched",
+    "note": "No year-by-year sweep. Hits before 2016 only if a later query happened to return them."
+   },
+   "2009": {
+    "status": "not_searched",
+    "note": "No year-by-year sweep. Hits before 2016 only if a later query happened to return them."
+   },
+   "2010": {
+    "status": "not_searched",
+    "note": "No year-by-year sweep. Hits before 2016 only if a later query happened to return them."
+   },
+   "2011": {
+    "status": "not_searched",
+    "note": "No year-by-year sweep. Hits before 2016 only if a later query happened to return them."
+   },
+   "2012": {
+    "status": "not_searched",
+    "note": "No year-by-year sweep. Hits before 2016 only if a later query happened to return them."
+   },
+   "2013": {
+    "status": "not_searched",
+    "note": "No year-by-year sweep. Hits before 2016 only if a later query happened to return them."
+   },
+   "2014": {
+    "status": "not_searched",
+    "note": "No year-by-year sweep. Hits before 2016 only if a later query happened to return them."
+   },
+   "2015": {
+    "status": "not_searched",
+    "note": "No year-by-year sweep. Hits before 2016 only if a later query happened to return them."
+   },
+   "2016": {
+    "status": "sampled",
+    "note": "Covered only where an event or institution query returned a video from this year."
+   },
+   "2017": {
+    "status": "sampled",
+    "note": "Covered only where an event or institution query returned a video from this year."
+   },
+   "2018": {
+    "status": "sampled",
+    "note": "Covered only where an event or institution query returned a video from this year."
+   },
+   "2019": {
+    "status": "sampled",
+    "note": "Covered only where an event or institution query returned a video from this year."
+   },
+   "2020": {
+    "status": "sampled",
+    "note": "Covered only where an event or institution query returned a video from this year."
+   },
+   "2021": {
+    "status": "sampled",
+    "note": "Covered only where an event or institution query returned a video from this year."
+   },
+   "2022": {
+    "status": "sampled",
+    "note": "Covered only where an event or institution query returned a video from this year."
+   },
+   "2023": {
+    "status": "sampled",
+    "note": "Covered only where an event or institution query returned a video from this year."
+   },
+   "2024": {
+    "status": "sampled",
+    "note": "Covered only where an event or institution query returned a video from this year."
+   },
+   "2025": {
+    "status": "sampled",
+    "note": "Covered only where an event or institution query returned a video from this year."
+   },
+   "2026": {
+    "status": "sampled",
+    "note": "Covered only where an event or institution query returned a video from this year."
+   }
+  },
+  "countries": {
+   "NO": {
+    "status": "sampled",
+    "talks": 42
+   },
+   "SE": {
+    "status": "sampled",
+    "talks": 4
+   },
+   "DK": {
+    "status": "sampled",
+    "talks": 4
+   },
+   "FI": {
+    "status": "sampled",
+    "talks": 9
+   },
+   "IS": {
+    "status": "sampled",
+    "talks": 5
+   },
+   "FO": {
+    "status": "sampled",
+    "talks": 0,
+    "note": "First pages of Faroe queries were travel and other non-talk videos."
+   },
+   "GL": {
+    "status": "sampled",
+    "talks": 0,
+    "note": "First pages were market commentary and travel, not a public crypto talk held in Greenland."
+   },
+   "AX": {
+    "status": "sampled",
+    "talks": 0,
+    "note": "First pages did not show a public crypto talk held in Åland."
+   },
+   "unset_country": {
+    "talks": 10,
+    "note": "Nordic Blockchain Conference uploads that name the conference and not a city. They stay in the list and match no country filter."
+   }
+  },
+  "queries": [
+   {
+    "country_tag": "NO",
+    "query": "Oslo Blockchain Day",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 18,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "NO",
+    "query": "Oslo Bitcoin Meetup",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 3,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "NO",
+    "query": "Oslo Blockchain Meetup",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 4,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "NO",
+    "query": "Bitcoin Norge foredrag",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 4,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "NO",
+    "query": "Norges Bank digitale sentralbankpenger",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 2,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "NO",
+    "query": "Norges Bank CBDC speech",
+    "results_on_first_page": 17,
+    "status": "sampled",
+    "included_from_this_query": 1,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "NO",
+    "query": "Finanstilsynet kryptovaluta",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 0,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "NO",
+    "query": "NTNU blockchain lecture",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 3,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "NO",
+    "query": "NTNU bitcoin",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 1,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "NO",
+    "query": "Universitetet i Oslo blockchain",
+    "results_on_first_page": 19,
+    "status": "sampled",
+    "included_from_this_query": 0,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "NO",
+    "query": "UiO bitcoin lecture",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 0,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "NO",
+    "query": "Oslo Freedom Forum bitcoin",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 7,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "NO",
+    "query": "Oslo Freedom Forum financial freedom",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 4,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "NO",
+    "query": "Oslo Freedom Forum freedom tech",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 1,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "NO",
+    "query": "Polyteknisk Forening krypto",
+    "results_on_first_page": 12,
+    "status": "sampled",
+    "included_from_this_query": 2,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "NO",
+    "query": "Blockchangers Oslo blockchain",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 19,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "NO",
+    "query": "Arcane Crypto presentation",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 0,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "NO",
+    "query": "Torbjørn Bull Jenssen bitcoin",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 0,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "NO",
+    "query": "Bergen bitcoin meetup",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 0,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "NO",
+    "query": "Trondheim bitcoin blockchain",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 1,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "NO",
+    "query": "Stortinget kryptovaluta høring",
+    "results_on_first_page": 1,
+    "status": "exhausted",
+    "included_from_this_query": 0,
+    "note": "The query returned no further relevant hit on the only results it produced."
+   },
+   {
+    "country_tag": "SE",
+    "query": "Riksbank e-krona seminar",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 2,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "SE",
+    "query": "Riksbanken e-krona",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 1,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "SE",
+    "query": "Stefan Ingves e-krona",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 1,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "SE",
+    "query": "Cecilia Skingsley e-krona",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 0,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "SE",
+    "query": "Stockholm Bitcoin Meetup",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 1,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "SE",
+    "query": "Göteborg Bitcoin meetup",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 0,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "SE",
+    "query": "Swedish Bitcoin Meetup talk",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 1,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "SE",
+    "query": "KTH blockchain lecture",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 0,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "SE",
+    "query": "Chalmers blockchain lecture",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 1,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "SE",
+    "query": "Handelshögskolan e-krona",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 0,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "SE",
+    "query": "Finansinspektionen krypto",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 0,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "SE",
+    "query": "Safello presentation Stockholm",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 0,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "SE",
+    "query": "Stockholm blockchain conference",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 0,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "SE",
+    "query": "Arne Ryde crypto fintech",
+    "results_on_first_page": 1,
+    "status": "exhausted",
+    "included_from_this_query": 0,
+    "note": "The query returned no further relevant hit on the only results it produced."
+   },
+   {
+    "country_tag": "SE",
+    "query": "Riksdagen kryptotillgångar",
+    "results_on_first_page": 5,
+    "status": "sampled",
+    "included_from_this_query": 0,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "SE",
+    "query": "Bitcoin Sweden conference",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 0,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "DK",
+    "query": "Copenhagen Bitcoin meetup",
+    "results_on_first_page": 0,
+    "status": "exhausted",
+    "included_from_this_query": 0,
+    "note": "The query returned no further relevant hit on the only results it produced."
+   },
+   {
+    "country_tag": "DK",
+    "query": "København bitcoin foredrag",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 2,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "DK",
+    "query": "Nordic Blockchain Conference",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 10,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "DK",
+    "query": "DTU blockchain lecture",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 1,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "DK",
+    "query": "IT University Copenhagen blockchain",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 1,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "DK",
+    "query": "Copenhagen Fintech blockchain",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 0,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "DK",
+    "query": "Aarhus University blockchain",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 0,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "DK",
+    "query": "Danmarks Nationalbank kryptovaluta",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 0,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "DK",
+    "query": "CBS Copenhagen blockchain",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 0,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "DK",
+    "query": "Folketinget kryptovaluta",
+    "results_on_first_page": 18,
+    "status": "sampled",
+    "included_from_this_query": 0,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "FI",
+    "query": "Slush bitcoin",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 1,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "FI",
+    "query": "Slush blockchain",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 3,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "FI",
+    "query": "Aalto University blockchain lecture",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 0,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "FI",
+    "query": "Helsinki Bitcoin meetup",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 3,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "FI",
+    "query": "Suomen Pankki virtuaalivaluutta",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 1,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "FI",
+    "query": "Finanssivalvonta krypto",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 0,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "FI",
+    "query": "Northcrypto Helsinki",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 1,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "IS",
+    "query": "Reykjavik bitcoin talk",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 0,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "IS",
+    "query": "University of Iceland blockchain",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 4,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "IS",
+    "query": "Háskóli Íslands blockchain",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 5,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "IS",
+    "query": "Seðlabanki rafmynt",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 0,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "IS",
+    "query": "Monerium Reykjavik",
+    "results_on_first_page": 12,
+    "status": "sampled",
+    "included_from_this_query": 2,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "FO",
+    "query": "Faroe Islands bitcoin",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 0,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "FO",
+    "query": "Færøyene bitcoin blockchain",
+    "results_on_first_page": 12,
+    "status": "sampled",
+    "included_from_this_query": 0,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "GL",
+    "query": "Greenland bitcoin",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 0,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "GL",
+    "query": "Grønland bitcoin",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 0,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "AX",
+    "query": "Åland bitcoin",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 0,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "AX",
+    "query": "Aland blockchain",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 0,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "NORDIC",
+    "query": "Nordic Blockchain Association conference",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 9,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "NORDIC",
+    "query": "Bitcoin Unlimited Stockholm",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 0,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "NORDIC",
+    "query": "Bitcoin Unlimited Oslo",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 2,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "NORDIC",
+    "query": "Nexa blockchain Oslo talk",
+    "results_on_first_page": 13,
+    "status": "sampled",
+    "included_from_this_query": 0,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "NORDIC",
+    "query": "Nordic Fintech Week blockchain",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 1,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "NORDIC",
+    "query": "Helsinki Blockchain Summit",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 2,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   },
+   {
+    "country_tag": "NORDIC",
+    "query": "Copenhagen Blockchain Symposium",
+    "results_on_first_page": 20,
+    "status": "sampled",
+    "included_from_this_query": 1,
+    "note": "First YouTube results page only (videos filter). Not marked exhausted while a further page could still exist."
+   }
+  ],
+  "channels_sampled": [
+   "Blockchangers",
+   "Oslo Freedom Forum",
+   "Slush",
+   "Swedish House of Finance",
+   "Nordic Blockchain Association",
+   "Icelandic Blockchain Foundation",
+   "aantonop",
+   "Ethereum Helsinki",
+   "Bitcoin Copenhagen",
+   "Polyteknisk Forening",
+   "NTNU Accel",
+   "Suomen Pankki",
+   "Bitjoin Studios",
+   "BitSpace",
+   "IOTA Norway",
+   "Concordium",
+   "DAAvern",
+   "Thinklair",
+   "TON Helsinki",
+   "The Cryptoverse",
+   "Rethinking Economics Norge",
+   "DTU: Lectures on Power & Energy Systems",
+   "Bitcoin Magazine"
+  ],
+  "universities": [
+   {
+    "name": "NTNU",
+    "status": "sampled",
+    "note": "NTNU Accel introductions and an IOTA presentation in Trondheim. No course-lecture series."
+   },
+   {
+    "name": "University of Oslo",
+    "status": "sampled",
+    "note": "UiO queries returned a first page. No lecture with a stated UiO venue was included."
+   },
+   {
+    "name": "KTH",
+    "status": "sampled",
+    "note": "A KTH-affiliated title had an empty description and no stated venue. Real World Crypto talks by KTH speakers were outside the Nordics and were skipped."
+   },
+   {
+    "name": "Chalmers",
+    "status": "sampled",
+    "note": "Included an introduction given for the Chalmers Entrepreneurship Society. The city was not stated."
+   },
+   {
+    "name": "Aalto",
+    "status": "sampled",
+    "note": "The first page of the Aalto lecture query was not a crypto lecture."
+   },
+   {
+    "name": "DTU",
+    "status": "sampled",
+    "note": "Included one DTU PES summer-school presentation in Copenhagen."
+   },
+   {
+    "name": "University of Iceland",
+    "status": "sampled",
+    "note": "Included four lectures from Bálkakeðjur á miðvikudögum and one April-weekend talk. One further series title had an empty watch page and was left out."
+   },
+   {
+    "name": "IT University of Copenhagen, Aarhus, CBS",
+    "status": "sampled",
+    "note": "Queries ran. No lecture with a stated Nordic venue was included."
+   }
+  ],
+  "events": [
+   {
+    "name": "Oslo Blockchain Day",
+    "status": "sampled",
+    "note": "2016 Blockchangers uploads that state Oslo Science Park on 19 April 2016, plus the 25 April 2017 Antonopoulos talk and one later Vinay Gupta upload that names the event but not the day."
+   },
+   {
+    "name": "Oslo Freedom Forum",
+    "status": "sampled",
+    "note": "Official-channel bitcoin and freedom-tech talks from 2022, 2024, 2025 and 2026, plus the 2025 Freedom Tech livestream. The whole-forum day streams were not treated as a single crypto talk."
+   },
+   {
+    "name": "Slush",
+    "status": "sampled",
+    "note": "2016 and 2018 Helsinki sessions about blockchain. Slush Tokyo was skipped."
+   },
+   {
+    "name": "Nordic Blockchain Conference",
+    "status": "sampled",
+    "note": "2026 official stage recordings do not name a city, so country is null. One 2024 Concordium talk. A 2018 Copenhagen tour vlog was skipped and its city was not copied onto other years."
+   },
+   {
+    "name": "Bitcoin Copenhagen",
+    "status": "sampled",
+    "note": "Two 2026 talks. The meetup query returned nothing."
+   },
+   {
+    "name": "Bitcoin Unlimited / Nexa in the Nordics",
+    "status": "sampled",
+    "note": "Oslo and Stockholm queries returned a first page and no verified talk. The site's Nexa meetup is 28 October 2026 and has no recording."
+   },
+   {
+    "name": "Baltic Honeybadger",
+    "status": "out_of_scope",
+    "note": "Riga, Latvia. Not a Nordic country."
+   }
+  ]
+ }
+}

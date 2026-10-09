@@ -3,7 +3,7 @@
 import json, os, sys, unittest
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
-from tools.frontpage_blurbs import LANGS, card_text, check, load, opening_sentences, sentences, substantive
+from tools.frontpage_blurbs import LANGS, card_text, check, load, opening_sentences, own_summary, sentences, substantive
 
 class FrontPageBlurbs(unittest.TestCase):
     def test_catalogue(self):
@@ -20,7 +20,8 @@ class FrontPageBlurbs(unittest.TestCase):
     def test_card_uses_blurb_when_the_summary_is_one_sentence(self):
         blurbs = load()
         news = json.load(open(os.path.join(ROOT, "data", "news.json"), encoding="utf-8"))
-        sample = next(i for i in news["items"] if i.get("status") == "published")
+        # The first published story whose English summary is still one sentence (newer stories may have longer summaries).
+        sample = next(i for i in news["items"] if i.get("status") == "published" and len(sentences(i.get("summary"))) == 1 and i["id"] in blurbs)
         self.assertEqual(len(sentences(sample["summary"])), 1)
         for lang in ("en", "nn", "nb", "sv", "da", "fi", "is"):
             text, code = card_text(sample, lang, blurbs)
@@ -41,7 +42,8 @@ class FrontPageBlurbs(unittest.TestCase):
         published = [i for i in news["items"] if i.get("status") == "published" and (i.get("summary") or "").strip()]
         self.assertGreaterEqual(len(published), 1)
         for it in published:
-            self.assertEqual(set((blurbs.get(it["id"]) or {})), set(LANGS))
+            need = {lang for lang in LANGS if not substantive(own_summary(it, lang))}
+            self.assertTrue(need <= set((blurbs.get(it["id"]) or {})), it["id"])
             for lang in list(LANGS) + ["zh", "ur"]:
                 text, _ = card_text(it, lang, blurbs)
                 self.assertTrue(substantive(text), it["id"] + " " + lang)
@@ -52,10 +54,11 @@ class FrontPageBlurbs(unittest.TestCase):
         self.assertFalse(text.endswith("Epsilon is the rest of the piece."))
 
     def test_layout_stays_left(self):
-        css = open(os.path.join(ROOT, "build.py"), encoding="utf-8").read()
-        self.assertIn("ol.news{list-style:none;margin:0;padding:0;text-align:left}", css)
-        self.assertIn(".sum{margin:6px 0 0;max-width:75ch;line-height:1.45;text-align:left}", css)
-        self.assertIn(".bridge{margin:6px 0 0;font-weight:600;text-align:left}", css)
+        import site_css
+        css = site_css.bundle()
+        self.assertIn("ol.news{list-style:none;margin:0;padding:0;text-align:start}", css)
+        self.assertIn(".sum{margin:6px 0 0;max-width:72ch;line-height:1.55;text-align:start}", css)
+        self.assertIn(".bridge{margin:6px 0 0;font-weight:500;text-align:start}", css)
 
     def test_blurbs_do_not_call_kaupr_a_sponsor(self):
         raw = open(os.path.join(ROOT, "data", "frontpage_blurbs.json"), encoding="utf-8").read().lower()

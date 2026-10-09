@@ -1,0 +1,35 @@
+/* Newsletter: hot off the press. Newsprint and halftone, the title spins in like a front page, an EXTRA stamp
+   thumps down, loose sheets drift past and a little rotary press keeps turning. */
+html{background:#F2EAD8}
+body.th-broadsheet{--bg:#F2EAD8;--surface:#FBF6EA;--fg:#1A1712;--muted:#5A5246;--line:#1A1712;--line-strong:#1A1712;--soft:#EAE0CA;--panel:#EAE0CA;--foam:#D9CCB0;
+  --accent:#8A1C1C;--on-accent:#FBF6EA;--gold:#8A1C1C;--gold-ink:#8A1C1C;--on-gold:#FBF6EA;--focus:#8A1C1C;--brand-w:#E9C46A;
+  --band:#1A1712;--band-deep:#0F0D0A;--band-ink:#F2EAD8;--band-muted:#CFC4AE;--band-line:rgb(242 234 216 / .2);--band-rule:#8A1C1C;
+  --btn:#1A1712;--btn-hover:#8A1C1C;--btn-ink:#FBF6EA;
+  --f-ui:Georgia,"Times New Roman",serif;--r:0;--r-sm:0;--shadow:3px 3px 0 rgb(26 23 18 / .85);--shadow-lg:5px 5px 0 #1A1712;--lattice:none;color-scheme:light;
+  background:#F2EAD8}
+.th-broadsheet main h1{font-size:clamp(44px,7vw,86px);text-transform:uppercase;letter-spacing:-.01em;text-align:center;border-top:6px double #1A1712;border-bottom:6px double #1A1712;padding:14px 0 10px;animation:bs-spin 1.3s cubic-bezier(.2,.9,.25,1.1) both}
+.th-broadsheet main h1::before{display:none}
+@keyframes bs-spin{from{transform:rotate(-720deg) scale(.05);opacity:0}70%{opacity:1}to{transform:none}}
+.th-broadsheet main .lead{column-count:2;column-gap:32px;column-rule:1px solid #1A1712;text-align:justify;hyphens:auto}
+.th-broadsheet main .lead::first-letter{float:left;font:700 58px/.8 var(--f-display);padding:4px 8px 0 0;color:#8A1C1C}
+@media (max-width:760px){.th-broadsheet main .lead{column-count:1}}
+.th-broadsheet h2{text-transform:uppercase;border-bottom:2px solid #1A1712;padding-bottom:4px}
+.th-broadsheet .card,.th-broadsheet article,.th-broadsheet form,.th-broadsheet .nlissue{border:1px solid #1A1712!important;background:#FBF6EA!important;box-shadow:var(--shadow)!important}
+.th-broadsheet input,.th-broadsheet button{border-radius:0!important}
+.th-broadsheet a{text-decoration-color:#8A1C1C}
+/* decoration */
+.th-broadsheet .bs-halftone{position:absolute;inset:0;background:radial-gradient(circle,rgb(26 23 18 / .08) 1.2px,transparent 1.6px) 0 0/9px 9px;mask:linear-gradient(115deg,#000,transparent 45%,transparent 60%,#000)}
+.th-broadsheet .bs-sheet{top:-100px;animation:bs-fall linear infinite;opacity:.4;filter:drop-shadow(2px 3px 2px rgb(0 0 0 / .2))}
+.th-broadsheet .bs-sheet1{left:3%;animation-duration:19s}.th-broadsheet .bs-sheet2{left:88%;animation-duration:24s;animation-delay:-8s}
+.th-broadsheet .bs-sheet3{left:95%;animation-duration:29s;animation-delay:-17s}.th-broadsheet .bs-sheet4{left:1%;animation-duration:33s;animation-delay:-22s}.th-broadsheet .bs-sheet5{left:80%;animation-duration:27s;animation-delay:-4s}
+@keyframes bs-fall{0%{transform:translate(0,0) rotate(0)}25%{transform:translate(40px,30vh) rotate(90deg)}50%{transform:translate(-30px,60vh) rotate(170deg)}75%{transform:translate(30px,90vh) rotate(260deg)}100%{transform:translate(0,120vh) rotate(360deg)}}
+.th-broadsheet .bs-press{right:12px;bottom:10px;opacity:.9}
+.th-broadsheet .bs-roll{animation:cb-roll 1.4s linear infinite;transform-box:fill-box;transform-origin:center}
+@keyframes cb-roll{to{transform:rotate(360deg)}}
+.th-broadsheet .bs-paper{animation:bs-feed 1.4s linear infinite}
+@keyframes bs-feed{0%{x:-60px;opacity:0}20%{opacity:1}100%{x:140px;opacity:0}}
+.th-broadsheet .bs-stamp{position:absolute;top:110px;right:6%;font:700 28px var(--f-mono);color:#8A1C1C;border:4px solid #8A1C1C;padding:6px 14px;transform:rotate(-14deg);opacity:0;animation:bs-stamp .45s 1.4s cubic-bezier(.3,1.6,.5,1) forwards;mix-blend-mode:multiply}
+@keyframes bs-stamp{from{opacity:0;transform:rotate(-14deg) scale(3)}to{opacity:.8;transform:rotate(-14deg) scale(1)}}
+@media (max-width:760px){.th-broadsheet .bs-press,.th-broadsheet .bs-stamp{display:none}}
+/* No drop cap where splitting off the first letter breaks the script (Arabic and Urdu joining, Indic conjuncts). */
+html[dir=rtl] .th-broadsheet main .lead::first-letter,html:lang(hi) .th-broadsheet main .lead::first-letter,html:lang(bn) .th-broadsheet main .lead::first-letter,html:lang(mr) .th-broadsheet main .lead::first-letter{float:none;font:inherit;padding:0;color:inherit}

@@ -34,6 +34,7 @@ def main():
     build.PREVIEW = False
     html = build.source_mark({"source": "kaupr", "source_name": "Kaupr", "source_logo": kaup})
     check('class="src-logo"' in html and "kaupr.webp" in html and "<b>Kaupr</b>" in html, "mark with logo")
+    check('class="src-logo-link"' in html and "kaupr.io" in html, "logo links to the outlet")
     check("text-align:center" not in html and "justify-content:center" not in html, "logo row is not centered")
     plain = build.source_mark({"source": "missing-paper", "source_name": "Missing Paper"})
     check("src-logo" not in plain and "<b>Missing Paper</b>" in plain, "text fallback")
@@ -47,7 +48,7 @@ def main():
 
     ids = {j["id"] for j in source_logos.outlets_to_fetch()}
     check("kaupr" not in ids and "se-fi" not in ids, "checked logos are not refetched")
-    check("bing" not in " ".join(ids), "bing search is not an outlet")
+    check(not any(i.startswith("bing-") for i in ids), "bing search is not an outlet")
     check(source_logos.canonical_id("sydsvenskan.se") == "sydsvenskan.se", "one-off source id")
     if source_logos.for_source("sydsvenskan.se", preview=True) is None:
         check("sydsvenskan.se" in ids, "one-off outlet queued for fetch")
