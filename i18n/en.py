@@ -507,5 +507,23 @@ S.update({
 "books_eds": "(eds.)",
 "books_source": "Checked in",
 "books_empty": "No books listed yet.",
-"books_notice": "Missing a book, or is something wrong? Tell us via <a href=\"../about/#corrections\">corrections</a>. We list published books only, not manuscripts, and link each one to a catalogue or the publisher."
+"books_notice": "Missing a book, or is something wrong? Tell us via <a href=\"../about/#corrections\">corrections</a>. We list published books only, not manuscripts, and link each one to a catalogue or the publisher.",
+# open-source developers page (/developers/)
+"dev_nav": "Developers",
+"dev_title": "Open-source developers – Nordic crypto",
+"dev_desc": "Developers, protocol engineers and researchers in Nordic crypto who publish crypto-related code in the open, with their GitHub and GitLab profiles and the repos and projects that show the work.",
+"dev_h1": "Open-source developers",
+"dev_lead": "Developers, protocol engineers and researchers in Nordic crypto who publish crypto-related code in the open. Each entry links to the person's code profile and to the repos or projects that show the work.",
+"dev_rule": "Who is listed: a technical person with a Nordic link and public crypto-related code, meaning at least one public, non-fork crypto repo of their own, or merged commits or pull requests in a public crypto project (Bitcoin, Nexa, Ethereum and other chains, wallets, Lightning, nodes, smart contracts, cryptography used in crypto). Other open-source work does not count on its own. Stars and counts are from the date checked.",
+"dev_preview": "Preview: {n} people are waiting for editor review (marked). The public site shows only approved people.",
+"dev_empty": "No developers are approved for the public list yet. The editor checks every entry before it appears.",
+"dev_n": "{n} people",
+"dev_n1": "1 person",
+"dev_whoswho": "In Who's who",
+"dev_stars": "{n} stars",
+"dev_prs": "{n} merged pull requests",
+"dev_commits": "{n} commits",
+"dev_nordic": "Nordic link",
+"dev_org_link": "Open-source developers",
+"dev_notice": "Missing someone, or is something wrong? Tell us via <a href=\"../about/#corrections\">corrections</a>. We list public professional information only: the name shown on the profile, role, organisation, country, profile links and public code. No emails or private details. Want to be removed? The same page explains how."
 })

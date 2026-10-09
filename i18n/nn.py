@@ -488,5 +488,23 @@ S.update({
 "books_eds": "(red.)",
 "books_source": "Sjekka i",
 "books_empty": "Ingen bøker er førte opp enno.",
-"books_notice": "Manglar det ei bok, eller er noko feil? Sei frå via <a href=\"../about/#corrections\">rettingar</a>. Vi fører berre opp utgjevne bøker, ikkje manus, og lenkjer kvar av dei til ein katalog eller forlaget."
+"books_notice": "Manglar det ei bok, eller er noko feil? Sei frå via <a href=\"../about/#corrections\">rettingar</a>. Vi fører berre opp utgjevne bøker, ikkje manus, og lenkjer kvar av dei til ein katalog eller forlaget.",
+# open-source developers page (/developers/)
+"dev_nav": "Utviklarar",
+"dev_title": "Utviklarar med open kjeldekode – krypto i Norden",
+"dev_desc": "Utviklarar, protokollingeniørar og forskarar i nordisk krypto som publiserer kryptorelatert kode ope, med GitHub- og GitLab-profilar og repoa og prosjekta som viser arbeidet.",
+"dev_h1": "Utviklarar med open kjeldekode",
+"dev_lead": "Utviklarar, protokollingeniørar og forskarar i nordisk krypto som publiserer kryptorelatert kode ope. Kvar oppføring lenkjer til kodeprofilen til personen og til repoa eller prosjekta som viser arbeidet.",
+"dev_rule": "Kven som er med: ein teknisk person med tilknyting til Norden og offentleg kryptorelatert kode, det vil seie minst eitt offentleg kryptorepo som er personen sitt eige og ikkje ein fork, eller innfletta commits eller pull requests i eit offentleg kryptoprosjekt (Bitcoin, Nexa, Ethereum og andre kjeder, lommebøker, Lightning, nodar, smartkontraktar, kryptografi brukt i krypto). Anna open kjeldekode tel ikkje åleine. Stjerner og tal er frå datoen det vart sjekka.",
+"dev_preview": "Førehandsvising: {n} personar ventar på gjennomgang frå redaktøren (merka). Den offentlege nettstaden viser berre godkjende personar.",
+"dev_empty": "Ingen utviklarar er godkjende for den offentlege lista enno. Redaktøren sjekkar kvar oppføring før ho blir vist.",
+"dev_n": "{n} personar",
+"dev_n1": "1 person",
+"dev_whoswho": "I Kven er kven",
+"dev_stars": "{n} stjerner",
+"dev_prs": "{n} innfletta pull requests",
+"dev_commits": "{n} commits",
+"dev_nordic": "Nordisk tilknyting",
+"dev_org_link": "Utviklarar med open kjeldekode",
+"dev_notice": "Manglar det nokon, eller er noko feil? Sei frå via <a href=\"../about/#corrections\">rettingar</a>. Vi viser berre offentleg, profesjonell informasjon: namnet på profilen, rolle, organisasjon, land, profillenkjer og offentleg kode. Ingen e-postadresser eller private opplysningar. Vil du bli fjerna? Same side forklarer korleis."
 })

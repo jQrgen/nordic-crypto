@@ -664,4 +664,7 @@ S.update({
 "n_row1": "1 ردیف",
 "foot_source": "کد منبع",
 "brand_since": "از ۲۰۲۶",
+# open-source developers page (/developers/): footer and Who's who link; the page itself falls back to English
+"dev_nav": "توسعه‌دهندگان",
+"dev_org_link": "توسعه‌دهندگان متن‌باز",
 })

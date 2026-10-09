@@ -692,4 +692,7 @@ S.update({
 "n_row1": "صف واحد",
 "foot_source": "الشيفرة المصدرية",
 "brand_since": "منذ 2026",
+# open-source developers page (/developers/): footer and Who's who link; the page itself falls back to English
+"dev_nav": "المطورون",
+"dev_org_link": "مطورو البرمجيات مفتوحة المصدر",
 })

@@ -692,4 +692,7 @@ S.update({
 "n_row1": "Safu 1",
 "foot_source": "Msimbo chanzo",
 "brand_since": "tangu 2026",
+# open-source developers page (/developers/): footer and Who's who link; the page itself falls back to English
+"dev_nav": "Wasanidi",
+"dev_org_link": "Wasanidi wa programu huria",
 })

@@ -692,4 +692,7 @@ S.update({
 "n_row1": "১টি সারি",
 "foot_source": "সোর্স কোড",
 "brand_since": "২০২৬ থেকে",
+# open-source developers page (/developers/): footer and Who's who link; the page itself falls back to English
+"dev_nav": "ডেভেলপার",
+"dev_org_link": "ওপেন-সোর্স ডেভেলপার",
 })

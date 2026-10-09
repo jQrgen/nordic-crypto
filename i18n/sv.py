@@ -488,5 +488,8 @@ S.update({
 "books_eds": "(red.)",
 "books_source": "Kontrollerad i",
 "books_empty": "Inga böcker listade än.",
-"books_notice": "Saknas en bok, eller är något fel? Hör av dig via <a href=\"../about/#corrections\">rättelser</a>. Vi listar bara utgivna böcker, inte manus, och länkar varje bok till en katalog eller förlaget."
+"books_notice": "Saknas en bok, eller är något fel? Hör av dig via <a href=\"../about/#corrections\">rättelser</a>. Vi listar bara utgivna böcker, inte manus, och länkar varje bok till en katalog eller förlaget.",
+# open-source developers page (/developers/): footer and Who's who link; the page itself falls back to English
+"dev_nav": "Utvecklare",
+"dev_org_link": "Utvecklare med öppen källkod"
 })

@@ -488,5 +488,8 @@ S.update({
 "books_eds": "(red.)",
 "books_source": "Tjekket i",
 "books_empty": "Ingen bøger opført endnu.",
-"books_notice": "Mangler der en bog, eller er noget forkert? Sig til via <a href=\"../about/#corrections\">rettelser</a>. Vi opfører kun udgivne bøger, ikke manuskripter, og linker hver bog til et katalog eller forlaget."
+"books_notice": "Mangler der en bog, eller er noget forkert? Sig til via <a href=\"../about/#corrections\">rettelser</a>. Vi opfører kun udgivne bøger, ikke manuskripter, og linker hver bog til et katalog eller forlaget.",
+# open-source developers page (/developers/): footer and Who's who link; the page itself falls back to English
+"dev_nav": "Udviklere",
+"dev_org_link": "Udviklere med open source"
 })
