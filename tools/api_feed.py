@@ -90,7 +90,7 @@ def _languages(feed):
     return feed.env(
         note=(
             "Site UI languages (chrome and presentation). English is the default; its home URL is the site root. "
-            "native_name is the language-switcher label. rtl is true for Arabic and Urdu. "
+            "native_name is the language-switcher label. rtl is true for Arabic, Urdu and Persian. "
             "Published article translations today are English plus summary_i18n for nn, nb, sv, da, fi and is. "
             "Other site languages fall back to the English field until a translation is published. "
             "These codes are not news-source languages, and this list does not add outlets."

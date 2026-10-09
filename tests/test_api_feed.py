@@ -373,7 +373,7 @@ def main():
         build.LANG = "en"
         if "/ethics/" not in {p.get("path") for p in meta.get("site_pages") or []}:
             fails.append("ethics page missing from site meta")
-        need = {"en", "nn", "nb", "sv", "da", "fi", "is", "zh", "hi", "es", "fr", "ar", "bn", "pt", "ru", "ur", "id", "de", "ja", "sw", "mr"}
+        need = {"en", "nn", "nb", "sv", "da", "fi", "is", "zh", "hi", "es", "fr", "ar", "bn", "pt", "ru", "ur", "id", "de", "ja", "sw", "mr", "fa"}
         langs_doc = json.load(open(os.path.join(tmp, "api/v1/languages.json"), encoding="utf-8"))
         got = {row.get("code") for row in langs_doc.get("languages") or []}
         if got != need:
@@ -382,7 +382,7 @@ def main():
             for key in ("code", "native_name", "english_name", "rtl", "html_lang", "home"):
                 if key not in row:
                     fails.append("languages.json missing " + key + " on " + str(row.get("code")))
-            if row.get("code") in ("ar", "ur") and row.get("rtl") is not True:
+            if row.get("code") in ("ar", "ur", "fa") and row.get("rtl") is not True:
                 fails.append("rtl missing for " + row["code"])
             if row.get("code") == "en" and row.get("rtl"):
                 fails.append("english marked rtl")
@@ -404,7 +404,8 @@ def main():
         expect = {"NO": "nn", "SE": "sv", "DK": "da", "FI": "fi", "IS": "is", "AX": "sv", "FO": "da", "GL": "da",
                   "CN": "zh", "TW": "zh", "SG": "zh", "IN": "hi", "ES": "es", "MX": "es", "AR": "es", "FR": "fr",
                   "SA": "ar", "EG": "ar", "AE": "ar", "BD": "bn", "BR": "pt", "PT": "pt", "RU": "ru", "PK": "ur",
-                  "ID": "id", "DE": "de", "AT": "de", "CH": "de", "JP": "ja", "KE": "sw", "TZ": "sw", "MR": "ar"}
+                  "ID": "id", "DE": "de", "AT": "de", "CH": "de", "JP": "ja", "KE": "sw", "TZ": "sw", "MR": "ar",
+                  "IR": "fa", "AF": "fa"}
         for c, l in expect.items():
             if by.get(c) != l:
                 fails.append(f"geo {c} -> {by.get(c)} want {l}")

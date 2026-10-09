@@ -24,7 +24,7 @@ const COUNTRY = {
 };
 // Site languages (i18n.LANGS). English is the origin root; "en" is only a path on the country domains.
 const LANGS = ["en", "nn", "nb", "sv", "da", "fi", "is", "zh", "hi", "es", "fr", "ar", "bn", "pt", "ru", "ur",
-  "id", "de", "ja", "sw", "mr"];
+  "id", "de", "ja", "sw", "mr", "fa"];
 
 // Origin path -> path on the country domain.
 export function toCountryPath(path, lang) {

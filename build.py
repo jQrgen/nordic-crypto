@@ -676,7 +676,7 @@ def L18(obj, key, i18n_key=None):
 def lang_attr(l): return "" if l == LANG else f' lang="{l}"'
 def bidi_attr(l):
     """lang_attr, plus dir="ltr" on a right-to-left page, for text in another (left-to-right) language: story headlines,
-    summaries and outlet headlines on the Arabic and Urdu pages keep their punctuation and alignment."""
+    summaries and outlet headlines on the Arabic, Urdu and Persian pages keep their punctuation and alignment."""
     if not l or l == LANG: return ""
     return f' lang="{l}"' + (' dir="ltr"' if i18n.rtl(LANG) and not i18n.rtl(l) else "")
 def _source_logos():
