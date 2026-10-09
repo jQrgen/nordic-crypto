@@ -2722,7 +2722,7 @@ cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('ari
 function reveal(){var id=location.hash.slice(1),el=id&&id.indexOf('=')<0&&document.getElementById(id),d=el&&(el.tagName==='DETAILS'?el:el.closest('details'));if(d&&!d.open){d.open=true;el.scrollIntoView()}}
 window.addEventListener('hashchange',reveal);reveal()})();</script>"""
 def build_calendar(ctx):
-    """ /calendar/ : the upcoming events first (date badges, one heading per month), then the month grids on wide screens,
+    """ /calendar/ : the month grids first (wide screens only), then the upcoming events (date badges, one heading per month),
     then the finished events behind a summary. Country chips with counts filter all three."""
     evs, now = ctx["events"]
     up = [e for e in evs if not e["past"]]; past = [e for e in evs if e["past"] and e.get("status") == "published"][::-1]  # all finished, newest first
@@ -2751,9 +2751,9 @@ def build_calendar(ctx):
 <p class="lead">{E(first)}</p>
 {f'<p class="notice warn">{t("cal_preview", p=npend, n=len(up), o=nown)}</p>' if PREVIEW and (npend or nown) else ''}
 <div class="filters lfilters" role="group" aria-label="{E(t("countries_aria"))}"><div class="lf"><span class="lbl" id="cf-c">{E(t("country"))}</span><div class="chips" role="group" aria-labelledby="cf-c">{chips}</div></div><p id="ecount" class="meta lcount" aria-live="polite">{E(t("n_upcoming", n=len(up)))}</p></div>
+<section class="calmonths" aria-labelledby="mo-h"><h2 class="seclbl" id="mo-h">{E(t("cal_months_h"))}</h2><div class="calgrid">{''.join(grids)}</div></section>
 <section aria-labelledby="up-h"><h2 class="seclbl" id="up-h">{E(t("upcoming_h"))}</h2>
 <div id="evlist">{cal_months(up) or f'<p class="empty">{E(t("no_upcoming"))}</p>'}</div></section>
-<section class="calmonths" aria-labelledby="mo-h"><h2 class="seclbl" id="mo-h">{E(t("cal_months_h"))}</h2><div class="calgrid">{''.join(grids)}</div></section>
 <section aria-labelledby="past"><h2 class="seclbl" id="past">{E(t("past_h"))}</h2><p class="meta">{E(t("past_note"))} {t("past_talks", href="../talks/")}</p>
 {f'<details class="pastev"><summary>{E(t("past_show_1") if len(past) == 1 else t("past_show", n=len(past)))}</summary>{cal_months(past, full=False, cls="past")}</details>' if past else f'<p class="empty">{E(t("no_past"))}</p>'}
 <p class="meta"><a href="../events/previous/">{E(t("past_all"))}</a></p></section>
