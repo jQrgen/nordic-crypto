@@ -498,6 +498,10 @@ ol.news h3{font-size:23px;line-height:1.16;margin:0 0 4px}ol.news h3 a{text-deco
 .cl h3{margin:0 0 3px;font-size:20px;line-height:1.2}
 .cl li p{margin:0;font-size:15px;line-height:1.55;color:color-mix(in srgb,var(--fg) 88%,transparent)}
 @media(min-width:760px){.cl-day{grid-template-columns:10.5rem minmax(0,1fr);gap:28px}.cl-date{position:sticky;top:16px;align-self:start}}
+/* "#" link after each section heading (build.heading_links): shown on hover or focus, faintly always on touch screens. */
+.tp-body .hlink{margin-inline-start:.35em;text-decoration:none;color:inherit;opacity:0;font-weight:400}
+.tp-body h2:hover .hlink,.tp-body h3:hover .hlink,.tp-body .hlink:focus-visible{opacity:.55}
+@media (hover:none){.tp-body .hlink{opacity:.35}}
 </style><div class="textpage"><div class="tp-head"><h1>Toimituksen etiikka</h1>
 <p class="lead">Nordic Crypto noudattaa Vær Varsom-plakaten -ohjeistoa.</p>
 </div><div class="tp-body"><div class="prose">

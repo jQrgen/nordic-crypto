@@ -553,14 +553,18 @@ body.th-saga{--bg:#0B1320;--surface:rgb(18 30 46 / .82);--fg:#EEE8D8;--muted:#AE
 .cl h3{margin:0 0 3px;font-size:20px;line-height:1.2}
 .cl li p{margin:0;font-size:15px;line-height:1.55;color:color-mix(in srgb,var(--fg) 88%,transparent)}
 @media(min-width:760px){.cl-day{grid-template-columns:10.5rem minmax(0,1fr);gap:28px}.cl-date{position:sticky;top:16px;align-self:start}}
+/* "#" link after each section heading (build.heading_links): shown on hover or focus, faintly always on touch screens. */
+.tp-body .hlink{margin-inline-start:.35em;text-decoration:none;color:inherit;opacity:0;font-weight:400}
+.tp-body h2:hover .hlink,.tp-body h3:hover .hlink,.tp-body .hlink:focus-visible{opacity:.55}
+@media (hover:none){.tp-body .hlink{opacity:.35}}
 </style><div class="textpage has-toc"><div class="tp-head"><h1>Om Nordic Crypto</h1>
 <p class="lead">Nordic Crypto samlar nyheter om bitcoin, blockkedjor och krypto från Norge, Sverige, Danmark, Finland och Island på ett ställe, på engelska, norska (nynorska och bokmål), svenska, danska, finska och isländska. Här finns också en evenemangskalender, en översikt över vem som är vem i branschen och bland myndigheterna, och en översikt över kurser och forskning vid nordiska universitet.</p>
 </div><nav class="toc" aria-labelledby="toc-h"><h2 id="toc-h">På den här sidan</h2><ol><li><a href="#who">Vem står bakom</a></li><li><a href="#team">Redaktionen</a></li><li><a href="#how">Så arbetar vi</a></li><li><a href="#privacy">Integritet</a></li><li><a href="#advice">Inte investeringsrådgivning</a></li><li><a href="#corrections">Rättelser och borttagning</a></li><li><a href="#columnist">Skriv som krönikör</a></li><li><a href="#rules">Så blir reglerna till</a></li><li><a href="#ios">iOS-app</a></li><li><a href="#community">Gemenskap</a></li><li><a href="#logo">Logotyp</a></li><li><a href="#code">Källkod och data</a></li></ol></nav><div class="tp-body"><div class="prose">
 
-<h2 id="who">Vem står bakom</h2>
+<h2 id="who">Vem står bakom<a class="hlink" href="#who" aria-label="Link to this section">#</a></h2>
 <p>Webbplatsen drivs av Jørgen S. Notland (<a href="https://github.com/jQrgen" rel="noopener">jQrgen</a>), utvecklare i Oslo. Han arbetar med blockkedjan Nexa på Bitcoin Unlimited, så nyheter om Nexa bör läsas med det i åtanke. Arbetet görs med hjälp av artificiell intelligens. Nordic Crypto är ett systerprojekt till <a href="https://jqrgen.github.io/kryptonytt/" rel="noopener">Kryptonytt Norge</a>, som bevakar Norge på norska.</p>
 
-<h2 id="team">Redaktionen</h2>
+<h2 id="team">Redaktionen<a class="hlink" href="#team" aria-label="Link to this section">#</a></h2>
 <ul>
 <li><b>Redaktörer:</b> jQrgen och Nordic Crypto-redaktören. Båda är mänskliga redaktörer. De bestämmer vilka nyheter som publiceras, skriver sammanfattningarna av vad varje artikel säger och godkänner poster i kalendern, i vem är vem och på sidan om forskning och utbildning. Arbetet görs med hjälp av artificiell intelligens.</li>
 <li><b>Ansvarig person:</b> Jørgen S. Notland (jQrgen) svarar för innehållet.</li>
@@ -568,7 +572,7 @@ body.th-saga{--bg:#0B1320;--surface:rgb(18 30 46 / .82);--fg:#EEE8D8;--muted:#AE
 </ul>
 <p>Ingenting publiceras automatiskt. Varje nyhet, evenemang och post går först igenom redaktören.</p>
 
-<h2 id="how">Så arbetar vi</h2>
+<h2 id="how">Så arbetar vi<a class="hlink" href="#how" aria-label="Link to this section">#</a></h2>
 <p>Vi länkar till originalartikeln och skriver en egen sammanfattning på två till fyra meningar, först på engelska och sedan på webbplatsens övriga språk. Rubriken på ett artikelkort är på sidans språk. Originalrubriken står under när källan skrev den på ett annat språk. Citat står kvar som källan skrev dem. Vi kopierar inte artikeltext och vi kringgår inte betalväggar. Översättningarna av webbplatsen och våra sammanfattningar görs med hjälp av artificiell intelligens och granskas av de mänskliga redaktörerna (jQrgen och Nordic Crypto-redaktören); säg till om något låter fel.</p>
 <p>Vem är vem och sidan om forskning och utbildning säger bara det som källorna säger. Varje post och varje koppling mellan poster hänvisar till sin källa. Är vi osäkra utelämnar vi det. Personer finns bara med i offentliga yrkesroller (till exempel vd, generaldirektör eller riksbankschef), så som organisationen eller pressen beskriver dem. Vi publicerar aldrig privata uppgifter, hälsouppgifter eller privata ekonomiska uppgifter.</p>
 <p>Bilder på personer visas bara när de är fritt licensierade (Wikimedia Commons, CC BY, CC BY-SA eller CC0) eller är officiella pressbilder som erbjuds för pressbruk, alltid med fotografen angiven. Annars visar vi initialer. Organisationers logotyper hämtas från organisationens egen webbplats, pressida eller Wikimedia Commons, visas oförändrade och bara för att identifiera organisationen, och innebär inte att någon stöder oss. Vid en nyhet står mediets logotyp bredvid källans namn när vi har en från samma uppsättning. Annars visas bara namnet. Länkar till personers offentliga profiler (webbplats, X, LinkedIn, GitHub, Nostr, Mastodon) visas bara när personen själv har gjort dem offentliga, och varje länk har en källa.</p>
@@ -576,7 +580,7 @@ body.th-saga{--bg:#0B1320;--surface:rgb(18 30 46 / .82);--fg:#EEE8D8;--muted:#AE
 <p>Kaupr (kaupr.io) är en av nyhetskällorna vi följer. Se <a href="../sources/#kaupr">källsidan</a>.</p>
 <p>Företag i Vem är vem och på branschkartan som vi hittade via <a href="https://www.kaupr.io/pages" rel="noopener">Kauprs Onchain Pages</a> har kontrollerats mot företagets egen webbplats eller ett företagsregister, och Kaupr anges som källa.</p>
 <p>Hur Nordic Crypto följer Vær Varsom-plakaten står på <a href="../ethics/">Redaktionell etik</a>.</p>
-<h2 id="privacy">Integritet</h2>
+<h2 id="privacy">Integritet<a class="hlink" href="#privacy" aria-label="Link to this section">#</a></h2>
 <p>Cloudflare Web Analytics räknar besök och publik samlat. Det använder inte kakor, det identifierar dig inte, och vi säljer inte de uppgifterna. Ett analysskript laddas från Cloudflare. Delningsknapparna är vanliga länkar. Vi använder ingen annonsspårning.</p>
 <p><b>Besöksstatistik.</b> Vi publicerar sammanställda besökssiffror från Cloudflare Web Analytics på <a href="../stats/">statistiksidan</a>. <a href="../stats/#data-policy">Datapolicyn</a> där förklarar vad som samlas in och publiceras, den rättsliga grunden, hur länge det sparas och vem som behandlar det.</p>
 <p><b>Nyhetsbrev.</b> Anmälningsformuläret på den här webbplatsen skickar din e-postadress till vår egen Cloudflare Worker. Vi sparar adressen, språket du valde och tidpunkten i en privat databas (Cloudflare D1). Vi sparar inte din IP-adress, och listan ligger inte på GitHub. Du bekräftar via mejl innan vi skickar nyhetsbrevet. Adresser som inte bekräftas raderas efter 7 dagar. Varje utgåva har en länk för att avsluta prenumerationen. Listan används bara för Nordic Cryptos nyhetsbrev. Innan formuläret är påslaget ber den här webbplatsen inte om en e-postadress. Nyhetsbrevssidan säger att anmälan öppnar snart och länkar till RSS, Telegram och X i stället.</p>
@@ -589,31 +593,31 @@ body.th-saga{--bg:#0B1320;--surface:rgb(18 30 46 / .82);--fg:#EEE8D8;--muted:#AE
 <p><b>Tips.</b> <a href="../tip/">Tipssidan</a> öppnar inte ett offentligt ärende på GitHub. Den privata inkorgen hos Nordic Crypto är inte öppen ännu, så sidan tar inte emot ett tips och sparar inget. När inkorgen är öppen går ett tips till en privat databas. Redaktionen läser det. Redaktionen omfattar mänskliga redaktörer och en redaktör som är artificiell intelligens. Den artificiella intelligensen är inte en människa. Vi följer Vær Varsom-plakaten om källskydd.</p>
 <p><b>Krönikörsansökningar.</b> <a href="../columnist/">Krönikörsansökan</a> öppnar fortfarande ett offentligt ärende på GitHub. Inget från det formuläret sparas på den här webbplatsen. Ta inte med hälsoinformation, privata ekonomiska uppgifter eller något annat du inte vill ha offentligt.</p>
 
-<h2 id="advice">Inte investeringsrådgivning</h2>
+<h2 id="advice">Inte investeringsrådgivning<a class="hlink" href="#advice" aria-label="Link to this section">#</a></h2>
 <p>Nordic Crypto är en nyhetsöversikt. Ingenting här är investeringsrådgivning, en rekommendation att köpa eller sälja, eller en bedömning av något bolag eller någon kryptotillgång. Kryptotillgångar kan svänga kraftigt i värde och du kan förlora allt du investerar. Kontrollera om en leverantör har tillstånd från den nationella tillsynsmyndigheten eller finns i Esmas MiCA-register innan du använder den.</p>
 
-<h2 id="corrections">Rättelser och borttagning</h2>
+<h2 id="corrections">Rättelser och borttagning<a class="hlink" href="#corrections" aria-label="Link to this section">#</a></h2>
 <p>Om du hittar ett fel, till exempel fel roll, fel koppling mellan poster, fel datum eller en sammanfattning som inte stämmer med artikeln, rättar vi det så snabbt vi kan. Rättelser i innehållet noteras på posten.</p>
 <p>Om du finns i vem är vem och vill att din post eller bild tas bort eller ändras, tar vi bort den, även när rollen är offentlig. Om du är källa eller rättighetshavare och inte vill att vi länkar till eller sammanfattar dina artiklar, tar vi bort dem.</p>
 <p>Anmäl det genom att skapa ett ärende på <a href="https://github.com/jQrgen/nordic-crypto/issues" rel="noopener">github.com/jQrgen/nordic-crypto/issues</a>. Skriv inga personuppgifter i ett offentligt GitHub-ärende; be hellre att bli kontaktad.</p>
 
-<h2 id="columnist">Skriv som krönikör</h2>
+<h2 id="columnist">Skriv som krönikör<a class="hlink" href="#columnist" aria-label="Link to this section">#</a></h2>
 <p>Nordic Crypto söker personer som vill skriva krönikor om krypto, bitcoin och blockkedjor i Norden. <a href="../columnist/">Ansök som krönikör</a>. Redaktören läser varje ansökan. En ansökan är ingen garanti för publicering, och en krönika är inte investeringsrådgivning.</p>
 <p>Krönikörsformuläret öppnar ett offentligt GitHub-ärende. Ett tips gör inte det. Vi sparar inte krönikörsansökan på den här webbplatsen. Dela bara ett namn och ett kontaktsätt som du kan ha offentligt, och ingen hälsoinformation eller privata ekonomiska uppgifter.</p>
 
-<h2 id="rules">Så blir reglerna till</h2>
+<h2 id="rules">Så blir reglerna till<a class="hlink" href="#rules" aria-label="Link to this section">#</a></h2>
 <p>Sidan <a href="../rules/">Så blir reglerna till</a> visar hur EU:s kryptoregler (MiCA, penningtvättsreglerna och DORA) blir nationell lag och vem som utövar tillsyn och upprätthåller dem i varje nordiskt land, med källa för varje steg.</p>
 <p>Korta videoförklaringar för varje land finns på <a href="../regulation-videos/">Så avgörs kryptoreglerna</a>. Tills filmerna är klara visar varje plats titeln, berättarnoteringarna och källorna. Signaturen är The Nordic Crypto team.</p>
 
-<h2 id="ios">iOS-app</h2>
+<h2 id="ios">iOS-app<a class="hlink" href="#ios" aria-label="Link to this section">#</a></h2>
 <p class="appbar"><a class="applink" href="https://testflight.apple.com/join/nQ2fpjZn" rel="noopener">Hämta iOS-appen (TestFlight)</a></p>
 <p>Det här är en offentlig TestFlight-inbjudan. Det finns ingen App Store-sida.</p>
 <p class="meta ios-tv">Stöder särskilt Apple TV.</p>
 
-<h2 id="community">Gemenskap</h2><p>Nordic Cryptos chatt finns på Telegram, och varumärkeskontot finns på X.</p><nav class="community" aria-label="Nordic Crypto i sociala medier"><a class="tgfollow" href="https://t.me/nordiccryptochat" rel="noopener noreferrer" title="Nordic Crypto på Telegram (t.me/nordiccryptochat), varumärkets chatt">Nordic Crypto på Telegram</a><a class="xfollow" href="https://x.com/xcryptonordic" rel="noopener noreferrer" title="Nordic Crypto på X (@xcryptonordic), webbplatsens eget konto">Följ Nordic Crypto på X</a></nav>
-<h2 id="logo">Logotyp</h2>
+<h2 id="community">Gemenskap<a class="hlink" href="#community" aria-label="Link to this section">#</a></h2><p>Nordic Cryptos chatt finns på Telegram, och varumärkeskontot finns på X.</p><nav class="community" aria-label="Nordic Crypto i sociala medier"><a class="tgfollow" href="https://t.me/nordiccryptochat" rel="noopener noreferrer" title="Nordic Crypto på Telegram (t.me/nordiccryptochat), varumärkets chatt">Nordic Crypto på Telegram</a><a class="xfollow" href="https://x.com/xcryptonordic" rel="noopener noreferrer" title="Nordic Crypto på X (@xcryptonordic), webbplatsens eget konto">Följ Nordic Crypto på X</a></nav>
+<h2 id="logo">Logotyp<a class="hlink" href="#logo" aria-label="Link to this section">#</a></h2>
 <p>Vapnet är originalarbete i nordisk kommunvapenstil: en sköld i guld (or), en röd (gules) åttauddig ros, en svart (sable) korp och två lejon som sköldhållare. Det är inte ett riks- eller kungavapen. På webbplatsen står vapnet bredvid namnet, vänsterställt. Filer och färgtokens finns på sidan <a href="../media/">logotyp och mediapaket</a>.</p>
-<h2 id="code">Källkod och data</h2>
+<h2 id="code">Källkod och data<a class="hlink" href="#code" aria-label="Link to this section">#</a></h2>
 <p>De publicerade uppgifterna är öppna: <a href="../../data/news.json">nyheter (JSON)</a>, <a href="../../data/events.json">evenemang (JSON)</a>, <a href="../../data/orgchart.json">vem är vem (JSON)</a> och <a href="../../data/academia.json">forskning och utbildning (JSON)</a>. Ett versionshanterat gränssnitt för appar och andra verktyg, med nyheter, nyhetsbrev och resten av de offentliga uppgifterna, finns dokumenterat på <a href="../../api/">data-API:t</a>. Koden är MIT-licensierad.</p>
 </div>
 </div></div>

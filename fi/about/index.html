@@ -553,14 +553,18 @@ body.th-saga{--bg:#0B1320;--surface:rgb(18 30 46 / .82);--fg:#EEE8D8;--muted:#AE
 .cl h3{margin:0 0 3px;font-size:20px;line-height:1.2}
 .cl li p{margin:0;font-size:15px;line-height:1.55;color:color-mix(in srgb,var(--fg) 88%,transparent)}
 @media(min-width:760px){.cl-day{grid-template-columns:10.5rem minmax(0,1fr);gap:28px}.cl-date{position:sticky;top:16px;align-self:start}}
+/* "#" link after each section heading (build.heading_links): shown on hover or focus, faintly always on touch screens. */
+.tp-body .hlink{margin-inline-start:.35em;text-decoration:none;color:inherit;opacity:0;font-weight:400}
+.tp-body h2:hover .hlink,.tp-body h3:hover .hlink,.tp-body .hlink:focus-visible{opacity:.55}
+@media (hover:none){.tp-body .hlink{opacity:.35}}
 </style><div class="textpage has-toc"><div class="tp-head"><h1>Tietoa Nordic Cryptosta</h1>
 <p class="lead">Nordic Crypto kokoaa bitcoin-, lohkoketju- ja kryptouutiset Norjasta, Ruotsista, Tanskasta, Suomesta ja Islannista yhteen paikkaan englanniksi, norjaksi (nynorsk ja bokmål), ruotsiksi, tanskaksi, suomeksi ja islanniksi. Sivustolla on myös tapahtumakalenteri, hakemisto alan toimijoista ja viranomaisista sekä katsaus pohjoismaisten yliopistojen kursseihin ja tutkimukseen.</p>
 </div><nav class="toc" aria-labelledby="toc-h"><h2 id="toc-h">Tällä sivulla</h2><ol><li><a href="#who">Kuka sivustoa ylläpitää</a></li><li><a href="#team">Toimitus</a></li><li><a href="#how">Näin työskentelemme</a></li><li><a href="#privacy">Tietosuoja</a></li><li><a href="#advice">Ei sijoitusneuvontaa</a></li><li><a href="#corrections">Korjaukset ja poistot</a></li><li><a href="#columnist">Kirjoita kolumnistiksi</a></li><li><a href="#rules">Näin säännöt syntyvät</a></li><li><a href="#ios">iOS-sovellus</a></li><li><a href="#community">Yhteisö</a></li><li><a href="#logo">Logo</a></li><li><a href="#code">Lähdekoodi ja data</a></li></ol></nav><div class="tp-body"><div class="prose">
 
-<h2 id="who">Kuka sivustoa ylläpitää</h2>
+<h2 id="who">Kuka sivustoa ylläpitää<a class="hlink" href="#who" aria-label="Link to this section">#</a></h2>
 <p>Sivustoa ylläpitää Jørgen S. Notland (<a href="https://github.com/jQrgen" rel="noopener">jQrgen</a>), oslolainen ohjelmistokehittäjä. Hän työskentelee Nexa-lohkoketjun parissa Bitcoin Unlimitedissä, joten Nexaa koskevat jutut kannattaa lukea tämä mielessä pitäen. Työssä käytetään apuna tekoälyä. Nordic Crypto on <a href="https://jqrgen.github.io/kryptonytt/" rel="noopener">Kryptonytt Norgen</a> sisarhanke; Kryptonytt seuraa Norjaa norjaksi.</p>
 
-<h2 id="team">Toimitus</h2>
+<h2 id="team">Toimitus<a class="hlink" href="#team" aria-label="Link to this section">#</a></h2>
 <ul>
 <li><b>Toimittajat:</b> jQrgen ja Nordic Crypton toimittaja. Molemmat ovat ihmistoimittajia. He päättävät, mitkä jutut julkaistaan, kirjoittavat tiivistelmät siitä, mitä kukin juttu sanoo, ja hyväksyvät merkinnät kalenteriin, toimijahakemistoon ja tutkimus- ja opetussivulle. Työ tehdään tekoälyn avulla.</li>
 <li><b>Vastuuhenkilö:</b> Jørgen S. Notland (jQrgen) vastaa sisällöstä.</li>
@@ -568,7 +572,7 @@ body.th-saga{--bg:#0B1320;--surface:rgb(18 30 46 / .82);--fg:#EEE8D8;--muted:#AE
 </ul>
 <p>Mitään ei julkaista automaattisesti. Jokainen juttu, tapahtuma ja merkintä kulkee ensin toimittajan kautta.</p>
 
-<h2 id="how">Näin työskentelemme</h2>
+<h2 id="how">Näin työskentelemme<a class="hlink" href="#how" aria-label="Link to this section">#</a></h2>
 <p>Linkitämme alkuperäiseen juttuun ja kirjoitamme oman tiivistelmän kahdella, kolmella tai neljällä virkkeellä, ensin englanniksi ja sitten sivuston muilla kielillä. Juttukortin otsikko on sivun kielellä. Alkuperäinen otsikko on sen alla, kun lähde kirjoitti sen toisella kielellä. Lainaukset jäävät sellaisiksi kuin lähde ne kirjoitti. Emme kopioi artikkelien tekstiä emmekä kierrä maksumuureja. Sivuston ja tiivistelmiemme käännökset on tehty tekoälyn avulla, ja ihmistoimittajat (jQrgen ja Nordic Crypton toimittaja) ovat tarkistaneet ne; kerro meille, jos jokin kuulostaa väärältä.</p>
 <p>Toimijahakemisto ja tutkimus- ja opetussivu kertovat vain sen, mitä lähteet sanovat. Jokainen merkintä ja jokainen merkintöjen välinen yhteys viittaa lähteeseensä. Jos olemme epävarmoja, jätämme asian pois. Henkilöt ovat mukana vain julkisissa ammatillisissa tehtävissä (esimerkiksi toimitusjohtaja, viraston pääjohtaja tai keskuspankin pääjohtaja) siten kuin organisaatio tai media ne kuvaa. Emme koskaan julkaise yksityisiä tietoja, terveystietoja tai yksityisiä taloudellisia tietoja.</p>
 <p>Henkilöiden kuvia näytetään vain, jos ne ovat vapaasti lisensoituja (Wikimedia Commons, CC BY, CC BY-SA tai CC0) tai virallisia lehdistökuvia, jotka on tarjottu lehdistön käyttöön, ja kuvaaja mainitaan aina. Muuten näytämme nimikirjaimet. Organisaatioiden logot on haettu organisaation omalta verkkosivustolta, lehdistösivulta tai Wikimedia Commonsista; ne näytetään muuttamattomina ja vain organisaation tunnistamiseksi, eivätkä ne tarkoita, että kukaan tukisi meitä. Uutisen yhteydessä median logo on lähteen nimen vieressä, jos meillä on sellainen samasta joukosta. Muuten näkyy vain nimi. Linkit henkilöiden julkisiin profiileihin (kotisivu, X, LinkedIn, GitHub, Nostr, Mastodon) näytetään vain, jos henkilö on itse julkaissut ne, ja jokaisella linkillä on lähde.</p>
@@ -576,7 +580,7 @@ body.th-saga{--bg:#0B1320;--surface:rgb(18 30 46 / .82);--fg:#EEE8D8;--muted:#AE
 <p>Kaupr (kaupr.io) on yksi seuraamistamme uutislähteistä. Katso <a href="../sources/#kaupr">lähdesivu</a>.</p>
 <p>Kuka kukin on -osion ja toimialakartan yritykset, jotka löysimme <a href="https://www.kaupr.io/pages" rel="noopener">Kauprin Onchain Pages</a> -palvelun kautta, on tarkistettu yrityksen omalta verkkosivulta tai kaupparekisteristä, ja Kaupr mainitaan lähteenä.</p>
 <p>Miten Nordic Crypto noudattaa Vær Varsom-plakaten -ohjeistoa, kerrotaan sivulla <a href="../ethics/">Toimituksen etiikka</a>.</p>
-<h2 id="privacy">Tietosuoja</h2>
+<h2 id="privacy">Tietosuoja<a class="hlink" href="#privacy" aria-label="Link to this section">#</a></h2>
 <p>Cloudflare Web Analytics laskee käynnit ja yleisön kootusti. Se ei käytä evästeitä, se ei tunnista sinua, emmekä myy näitä tietoja. Yksi analytiikkaskripti ladataan Cloudflarelta. Jakopainikkeet ovat tavallisia linkkejä. Emme käytä mainosseurantaa.</p>
 <p><b>Kävijätilastot.</b> Julkaisemme Cloudflare Web Analyticsin yhteenlasketut käyntimäärät <a href="../stats/">tilastosivulla</a>. Sivun <a href="../stats/#data-policy">tietosuojakäytäntö</a> kertoo, mitä kerätään ja julkaistaan, millä oikeusperusteella, kuinka kauan tietoja säilytetään ja kuka niitä käsittelee.</p>
 <p><b>Uutiskirje.</b> Tämän sivuston tilauslomake lähettää sähköpostiosoitteesi omaan Cloudflare Workeriimme. Tallennamme osoitteen, valitsemasi kielen ja ajankohdan yksityiseen tietokantaan (Cloudflare D1). Emme tallenna IP-osoitettasi, eikä lista ole GitHubissa. Vahvistat tilauksen sähköpostilla ennen kuin lähetämme uutiskirjeen. Vahvistamattomat osoitteet poistetaan 7 päivän kuluttua. Jokaisessa numerossa on linkki tilauksen perumiseen. Listaa käytetään vain Nordic Crypton uutiskirjeeseen. Ennen kuin lomake on käytössä, tämä sivusto ei pyydä sähköpostiosoitetta. Uutiskirjesivu kertoo, että tilaus avautuu pian, ja linkittää RSS-syötteeseen, Telegramiin ja X:ään.</p>
@@ -589,31 +593,31 @@ body.th-saga{--bg:#0B1320;--surface:rgb(18 30 46 / .82);--fg:#EEE8D8;--muted:#AE
 <p><b>Vinkit.</b> <a href="../tip/">Vinkkisivu</a> ei avaa julkista tikettiä GitHubissa. Nordic Crypton yksityinen laatikko ei ole vielä auki, joten sivu ei vastaanota vinkkiä eikä tallenna mitään. Kun laatikko on auki, vinkki menee yksityiseen tietokantaan. Toimitus lukee sen. Toimitukseen kuuluu ihmistoimittajia ja toimittaja, joka on tekoäly. Tekoäly ei ole ihminen. Noudatamme Vær Varsom-plakaten -ohjeistoa lähdesuojasta.</p>
 <p><b>Kolumnistihakemukset.</b> <a href="../columnist/">Kolumnistihakemus</a> avaa yhä julkisen tiketin GitHubissa. Tästä lomakkeesta ei tallenneta mitään tälle sivustolle. Älä lisää terveystietoja, yksityisiä taloustietoja tai muuta, mitä et halua julkiseksi.</p>
 
-<h2 id="advice">Ei sijoitusneuvontaa</h2>
+<h2 id="advice">Ei sijoitusneuvontaa<a class="hlink" href="#advice" aria-label="Link to this section">#</a></h2>
 <p>Nordic Crypto on uutiskatsaus. Mikään täällä ei ole sijoitusneuvontaa, suositus ostaa tai myydä tai arvio mistään yrityksestä tai kryptovarasta. Kryptovarojen arvo voi vaihdella voimakkaasti, ja voit menettää kaiken sijoittamasi. Tarkista ennen palvelun käyttöä, onko palveluntarjoajalla kansallisen valvojan toimilupa tai onko se Esman MiCA-rekisterissä.</p>
 
-<h2 id="corrections">Korjaukset ja poistot</h2>
+<h2 id="corrections">Korjaukset ja poistot<a class="hlink" href="#corrections" aria-label="Link to this section">#</a></h2>
 <p>Jos löydät virheen, esimerkiksi väärän tehtävän, väärän yhteyden merkintöjen välillä, väärän päivämäärän tai tiivistelmän, joka ei vastaa juttua, korjaamme sen niin pian kuin voimme. Sisällön korjaukset merkitään merkintään.</p>
 <p>Jos olet toimijahakemistossa ja haluat merkintäsi tai kuvasi poistettavan tai muutettavan, poistamme sen, vaikka tehtävä olisi julkinen. Jos olet lähde tai oikeudenhaltija etkä halua meidän linkittävän juttuihisi tai tiivistävän niitä, poistamme ne.</p>
 <p>Ilmoita asiasta avaamalla tiketti osoitteessa <a href="https://github.com/jQrgen/nordic-crypto/issues" rel="noopener">github.com/jQrgen/nordic-crypto/issues</a>. Älä kirjoita henkilötietoja julkiseen GitHub-tikettiin; pyydä mieluummin yhteydenottoa.</p>
 
-<h2 id="columnist">Kirjoita kolumnistiksi</h2>
+<h2 id="columnist">Kirjoita kolumnistiksi<a class="hlink" href="#columnist" aria-label="Link to this section">#</a></h2>
 <p>Nordic Crypto etsii ihmisiä, jotka haluavat kirjoittaa kolumneja kryptosta, bitcoinista ja lohkoketjuista Pohjoismaissa. <a href="../columnist/">Hae kolumnistiksi</a>. Toimittaja lukee jokaisen hakemuksen. Hakemus ei takaa julkaisua, eikä kolumni ole sijoitusneuvontaa.</p>
 <p>Kolumnistilomake avaa julkisen GitHub-tiketin. Vinkki ei tee niin. Emme tallenna kolumnistihakemusta tälle sivustolle. Jaa vain nimi ja yhteystapa, jonka haluat julkiseksi, äläkä terveystietoja tai yksityisiä taloustietoja.</p>
 
-<h2 id="rules">Näin säännöt syntyvät</h2>
+<h2 id="rules">Näin säännöt syntyvät<a class="hlink" href="#rules" aria-label="Link to this section">#</a></h2>
 <p>Sivu <a href="../rules/">Näin säännöt syntyvät</a> näyttää, miten EU:n kryptosäännöistä (MiCA, rahanpesusäännöt ja DORA) tulee kansallista lainsäädäntöä ja kuka niitä valvoo ja panee täytäntöön kussakin Pohjoismaassa, ja jokaiselle vaiheelle on lähde.</p>
 <p>Lyhyet maakohtaiset selitysvideot ovat sivulla <a href="../regulation-videos/">Näin kryptosäännöistä päätetään</a>. Ennen kuin videot on tehty, jokainen paikka näyttää otsikon, kertojan muistiinpanot ja lähteet. Allekirjoitus on The Nordic Crypto team.</p>
 
-<h2 id="ios">iOS-sovellus</h2>
+<h2 id="ios">iOS-sovellus<a class="hlink" href="#ios" aria-label="Link to this section">#</a></h2>
 <p class="appbar"><a class="applink" href="https://testflight.apple.com/join/nQ2fpjZn" rel="noopener">Hae iOS-sovellus (TestFlight)</a></p>
 <p>Tämä on julkinen TestFlight-kutsu. App Store -sivua ei ole.</p>
 <p class="meta ios-tv">Tukee erityisesti Apple TV:tä.</p>
 
-<h2 id="community">Yhteisö</h2><p>Nordic Crypton keskustelu on Telegramissa, ja bränditili on X:ssä.</p><nav class="community" aria-label="Nordic Crypto sosiaalisessa mediassa"><a class="tgfollow" href="https://t.me/nordiccryptochat" rel="noopener noreferrer" title="Nordic Crypto Telegramissa (t.me/nordiccryptochat), brändin keskustelu">Nordic Crypto Telegramissa</a><a class="xfollow" href="https://x.com/xcryptonordic" rel="noopener noreferrer" title="Nordic Crypto X:ssä (@xcryptonordic), sivuston oma tili">Seuraa Nordic Cryptoa X:ssä</a></nav>
-<h2 id="logo">Logo</h2>
+<h2 id="community">Yhteisö<a class="hlink" href="#community" aria-label="Link to this section">#</a></h2><p>Nordic Crypton keskustelu on Telegramissa, ja bränditili on X:ssä.</p><nav class="community" aria-label="Nordic Crypto sosiaalisessa mediassa"><a class="tgfollow" href="https://t.me/nordiccryptochat" rel="noopener noreferrer" title="Nordic Crypto Telegramissa (t.me/nordiccryptochat), brändin keskustelu">Nordic Crypto Telegramissa</a><a class="xfollow" href="https://x.com/xcryptonordic" rel="noopener noreferrer" title="Nordic Crypto X:ssä (@xcryptonordic), sivuston oma tili">Seuraa Nordic Cryptoa X:ssä</a></nav>
+<h2 id="logo">Logo<a class="hlink" href="#logo" aria-label="Link to this section">#</a></h2>
 <p>Vaakuna on alkuperäistä työtä pohjoismaisessa kuntavaakunan tyylissä: kultainen (or) kilpi, punainen (gules) kahdeksanterälehtinen ruusu, musta (sable) korppi ja kaksi leijonaa kilvenkannattajina. Se ei ole valtion- tai kuninkaanvaakuna. Sivustolla vaakuna on nimen vieressä, vasemmalle tasattuna. Tiedostot ja väritokenit ovat sivulla <a href="../media/">logo ja mediapaketti</a>.</p>
-<h2 id="code">Lähdekoodi ja data</h2>
+<h2 id="code">Lähdekoodi ja data<a class="hlink" href="#code" aria-label="Link to this section">#</a></h2>
 <p>Julkaistu data on avointa: <a href="../../data/news.json">uutiset (JSON)</a>, <a href="../../data/events.json">tapahtumat (JSON)</a>, <a href="../../data/orgchart.json">toimijahakemisto (JSON)</a> ja <a href="../../data/academia.json">tutkimus ja opetus (JSON)</a>. Versioitu rajapinta sovelluksille ja muille työkaluille, jossa ovat uutiset, uutiskirjeet ja muu julkinen data, on dokumentoitu sivulla <a href="../../api/">data-API</a>. Koodi on MIT-lisensoitu.</p>
 </div>
 </div></div>
