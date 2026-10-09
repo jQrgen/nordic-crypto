@@ -10,7 +10,8 @@
   function cell(row, name, text, cls) {
     var td = row.querySelector('[data-f="' + name + '"]');
     td.textContent = text;
-    td.className = cls || "";
+    td.classList.remove("ok", "bad");
+    if (cls) td.classList.add(cls);
   }
 
   function check(row) {
