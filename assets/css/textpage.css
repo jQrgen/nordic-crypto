@@ -1,0 +1,50 @@
+/* Text pages: about, ethics, tip, columnist, changelog and the API docs. A reading column of about 68 characters; long pages
+   put an "On this page" list beside the text on wide screens (under the lead on phones). Inlined only on those pages. */
+/* text pages */
+.textpage{display:grid;grid-template-columns:minmax(0,1fr);align-items:start;text-align:start}
+.tp-head,.tp-body{min-width:0;max-width:68ch}
+.tp-head .lead{max-width:62ch;margin-bottom:10px}
+.textpage .prose{max-width:68ch}
+.textpage .prose code{overflow-wrap:anywhere}
+.tp-body h2[id]{scroll-margin-top:16px}
+.textpage.has-toc .prose>h2{padding-top:16px;border-top:1px solid var(--line);margin-top:28px}
+.textpage.has-toc .prose>h2:first-child{margin-top:12px}
+.toc{margin:4px 0 0;padding:12px 0 4px;border-top:1px solid var(--line);text-align:start}
+.toc h2{margin:0 0 4px;font:500 12px/1.2 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.toc ol{list-style:none;margin:0;padding:0;columns:2 9rem;column-gap:20px}
+.toc li{break-inside:avoid}
+.toc a{display:flex;align-items:center;min-height:40px;font-size:14.5px;line-height:1.3;text-decoration:none}
+.toc a:hover{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px}
+@media(min-width:1040px){
+  .textpage.has-toc{grid-template-columns:minmax(0,68ch) 220px;column-gap:clamp(48px,7vw,104px)}
+  .textpage.has-toc .tp-head{grid-column:1;grid-row:1}
+  .textpage.has-toc .tp-body{grid-column:1;grid-row:2}
+  .textpage.has-toc .toc{grid-column:2;grid-row:1/span 2;position:sticky;top:20px;margin:44px 0 0;padding:0;border:0}
+  .toc ol{columns:auto}
+  .toc a{min-height:0;padding:6px 0;padding-inline-start:14px;border-inline-start:2px solid var(--line);font-size:14px;color:var(--muted)}
+  .toc a:hover,.toc a:focus-visible{color:var(--fg);border-inline-start-color:var(--gold);text-decoration:none}
+}
+/* forms (tip, columnist): label, help text, control; one primary button */
+.form{max-width:36rem;margin:28px 0 12px}
+.form .plain{border:0;padding:0;margin:0;min-width:0}
+.field{display:flex;flex-direction:column;align-items:stretch;gap:6px;margin:0 0 20px;line-height:1.45}
+.field label{font-weight:600;font-size:15.5px}
+.field .opt{font-weight:400;font-size:14px;color:var(--muted)}
+.field .hint{margin-top:-2px;font-size:14px;color:var(--muted)}
+.field input,.field select,.field textarea{width:100%;min-height:44px;font:inherit;font-size:15.5px;color:var(--fg);background:var(--surface);border:1px solid var(--field-line);border-radius:var(--r-sm);padding:9px 12px}
+.field textarea{min-height:0;resize:vertical}
+.form-actions{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:10px 18px;margin:6px 0 0}
+.form-actions .meta{flex:1 1 15rem;margin:0;line-height:1.45}
+.tipform button{min-height:44px;padding:10px 22px;font-size:15.5px}
+.tipform button:disabled{opacity:.6;cursor:default;transform:none}
+/* changelog: one row per day */
+.cl{max-width:62rem;margin:8px 0 20px}
+.cl-day{display:grid;grid-template-columns:minmax(0,1fr);gap:6px;padding:18px 0 2px;border-top:1px solid var(--line-strong);content-visibility:auto;contain-intrinsic-size:auto 360px}
+.cl-date{margin:0;font:600 12.5px/1.6 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--fg)}
+.cl-date .tag{margin:0;font-family:var(--f-ui);letter-spacing:0;text-transform:none}
+.cl ul{list-style:none;margin:0;padding:0;max-width:68ch}
+.cl li{padding:0 0 14px}
+.cl li+li{padding-top:14px;border-top:1px solid var(--line)}
+.cl h3{margin:0 0 3px;font-size:20px;line-height:1.2}
+.cl li p{margin:0;font-size:15px;line-height:1.55;color:color-mix(in srgb,var(--fg) 88%,transparent)}
+@media(min-width:760px){.cl-day{grid-template-columns:10.5rem minmax(0,1fr);gap:28px}.cl-date{position:sticky;top:16px;align-self:start}}

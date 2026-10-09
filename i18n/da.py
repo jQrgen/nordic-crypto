@@ -33,7 +33,7 @@ S = {
 "main_menu": "Hovedmenu", "lang_label": "Sprog", "lang_choose": "Vælg sprog",
 "site_desc_suffix": "kryptonyheder fra Norden",
 "preview_banner": "<b>Lokal forhåndsvisning – ikke offentliggjort.</b> Alt, der er markeret »Afventer redaktøren«, er ikke kontrolleret af redaktøren endnu, og resuméerne er ikke skrevet. Kun godkendt indhold kommer med i den offentlige version.",
-"footer": "{site} dækker Norge, Sverige, Danmark, Finland og Island. Drives af Jørgen S. Notland (jQrgen), Oslo, Lavet med hjælp fra kunstig intelligens, med menneskelige redaktører (jQrgen og Nordic Crypto-redaktøren). Ikke investeringsrådgivning. Cloudflare Web Analytics tæller besøg samlet, uden cookies, og vi sælger ikke de data. <a href=\"{rel}stats/#data-policy\">Databeskyttelse for besøgsstatistikken</a>. Én cookie, kun hvis du vælger sprog. <a href=\"{rel}about/\">Om os, privatliv, rettelser og fjernelse</a> · <a href=\"{rel}tip/\">Send et tip</a> · <a href=\"{rel}columnist/\">Søg som klummeskribent</a> · <a href=\"{rel}media/\">Logo og mediepakke</a> · <a href=\"{rel}changelog/\">Ændringslog</a> · <a href=\"{rel}ethics/\">Redaktionel etik</a> · <a href=\"https://testflight.apple.com/join/nQ2fpjZn\" rel=\"noopener\">iOS-app (TestFlight)</a> {ios_tv} · <a href=\"{rel}talks/\">Foredrag</a> · <a href=\"{rel}markets/\">Markeder</a> · <a href=\"{rel}stats/\">Statistik</a> · <a href=\"{root}api/\">Data-API</a>.",
+"footer": "{site} dækker Norge, Sverige, Danmark, Finland og Island. Drives af Jørgen S. Notland (jQrgen), Oslo, Lavet med hjælp fra kunstig intelligens, med menneskelige redaktører (jQrgen og Nordic Crypto-redaktøren). Ikke investeringsrådgivning. Cloudflare Web Analytics tæller besøg samlet, uden cookies, og vi sælger ikke de data. <a href=\"{rel}stats/#data-policy\">Databeskyttelse for besøgsstatistikken</a>. Én cookie, kun hvis du vælger sprog. <a href=\"{rel}about/\">Om os, privatliv, rettelser og fjernelse</a>.",
 "moved": "Siden er flyttet til",
 "time_local": "{city}, lokal tid", "at_time": "{t}",
 "pending": "Afventer redaktøren", "owner": "Godkendt af redaktøren · afventer jQrgens endelige godkendelse", "our_story": "Vores artikel",
@@ -104,7 +104,7 @@ S = {
 "src_kw_h": "Nøgleord",
 "src_kw": "En artikel bliver samlet op, når overskriften eller manchetten nævner for eksempel bitcoin, krypto, blockchain, stablecoin, MiCA, CASP, CBDC (alle sprog); krypto, kryptovaluta, blokkjede (norsk); kryptoaktiver, blokkæde (dansk); kryptotillgångar, blockkedja, e-krona (svensk); kryptovaluutta, lohkoketju, virtuaalivaluutta (finsk); rafmynt, sýndareignir, bálkakeðja (islandsk); eller nordiske kryptovirksomheder som Firi, NBX, K33, Safello, Coinmotion, Northcrypto, Myntkaup, Monerium og Coinify. Ord som hvitvasking, penningtvätt, hvidvask, rahanpesu og peningaþvætti tæller kun, når samme overskrift eller manchet også har et kryptoord. Darknet tæller for sig. Lokal- og retskilder bruger samme filter. Redaktøren gennemgår hvert hit, før det offentliggøres.",
 "src_ev_h": "Hvor vi finder begivenheder",
-"src_ev_note": "Luma læses fra hver kalenders offentlige iCal-feed (Subscribe). Bysider som luma.com/oslo, kategorisider som luma.com/crypto og Lumas discover-API bruges ikke: vilkårene tillader kun offentligt understøttede grænseflader, og det officielle API kræver Luma Plus og dækker kun kalendere, du selv driver. En enkelt Luma-side for et arrangement læses som schema.org JSON-LD. Eventbrite bruger v3-API'et for arrangører og steder, når EVENTBRITE_TOKEN er sat på serveren. Tokenet offentliggøres ikke. Uden det bruges JSON-LD på arrangementsiden. Det offentlige søge-API bruges ikke. Samme titel, dato og sted listes én gang. Ét dødt feed stopper ikke kørslen. Afsluttede arrangementer bliver under Tidligere arrangementer. Kaupr er kun en nyhedskilde og er aldrig sponsor for et arrangement.",
+"src_ev_note": "Luma læses fra hver kalenders offentlige iCal-feed (Subscribe). Bysider som luma.com/oslo, kategorisider som luma.com/crypto og Lumas discover-API bruges ikke: vilkårene tillader kun offentligt understøttede grænseflader, og det officielle API kræver Luma Plus og dækker kun kalendere, du selv driver. En enkelt Luma-side for et arrangement læses som schema.org JSON-LD. Eventbrite bruger v3-API'et for arrangører og steder, når EVENTBRITE_TOKEN er sat på serveren. Tokenet offentliggøres ikke. Uden det bruges JSON-LD på arrangementsiden. Det offentlige søge-API bruges ikke. Samme titel, dato og sted listes én gang. Ét dødt feed stopper ikke kørslen. Afsluttede arrangementer bliver under Tidligere arrangementer.",
 "src_missing": "Mangler der en kilde? Foreslå den i en sag på <a href=\"https://github.com/jQrgen/nordic-crypto/issues\" rel=\"noopener\">GitHub</a>.",
 "cal_title": "Kalender – begivenheder om krypto, bitcoin og blockchain i Norden",
 "cal_desc": "Kommende begivenheder om krypto, bitcoin og blockchain i Norge, Sverige, Danmark, Finland og Island, med dato, sted og arrangør.",
@@ -161,18 +161,19 @@ S = {
 "about_title": "Om Nordic Crypto", "about_desc": "Om Nordic Crypto: hvem der driver det, hvordan vi arbejder, privatliv, rettelser og fjernelse.",
 "ethics_title": "Redaktionel etik", "ethics_desc": "Nordic Crypto følger Vær Varsom-plakaten. En navngiven redaktør godkender alt.",
 "media_title": "Logo og mediepakke",
-"media_desc": "Våben, ordmærke, favicon, ensfarvet mærke og farvetokens for Nordic Crypto.",
+"media_desc": "Nordic Cryptos logo: nøgleskjoldet, logoet med navnet, en ensfarvet version, ikoner og farver.",
 "media_h1": "Logo og mediepakke",
-"media_lead": "Våbnet fortsætter seglet fra Trondheim Open Blockchain Meetup: et skjold i or, en ottebladet rose i gules og en ravn i sable. To løver er skjoldholdere. Båndet læser NORDIC CRYPTO. Hovedlåsen sætter våbnet ved siden af ordmærket, venstrestillet.",
-"media_hdr_cap": "Eksempel på topfelt, lyst. Cormorant Garamond til navnet, Schibsted Grotesk til denne linje og til mottoet med spatiering. Crypto er gules.",
-"media_hdr_dark_cap": "Eksempel på topfelt på #0b0d10. Crypto er or, så ordet kan læses.",
+"media_lead": "Nordic Cryptos mærke er skjoldet fra forsiden: delt på midten i Nordsø-blå og guld, med en nøgle i de modsatte farver. Logoet med navn har skjoldet til venstre for navnet.",
+"media_hdr_cap": "Logo til lys baggrund. Cormorant Garamond Bold; »Crypto« i mørkt guld, så det kan læses.",
+"media_hdr_dark_cap": "Logo på det blå bånd, som i sitets topfelt. Skjoldet har lys kant.",
 "media_use_h": "Sådan skal det bruges",
-"media_use": "Originalt arbejde i nordisk kommunevåben-stil: flade figurer, få tinkturer, ingen gradienter. Det er ikke et nationalvåben eller et kongevåben. Tegn ikke en kronet guldløve med økse på rødt. Ensfarvet fil er til tryk, klistermærker og merchandise. Knapperne på sitet er stadig blå.",
+"media_use": "Hold nøglen opret og farverne, som de er. På mørk baggrund bruger du båndversionen; til tryk, klistermærker og merchandise bruger du den ensfarvede fil. Hold fri plads omkring mærket på mindst halvdelen af skjoldets bredde. Under 32 px bruger du favicon-feltet. Undgå at strække, rotere eller tilføje kanter og effekter.",
 "media_files_h": "Filer",
-"media_colours_h": "Tinkturer",
-"media_colours_note": "Cendrée er til linjer. Lille tekst er sable, fordi cendrée på argent er for bleg til at læse.",
+"media_colours_h": "Farver",
+"media_colours_note": "Guld på lys baggrund er til skjoldet, ikke til lille tekst: brug mørkt guld #8A5A0C til tekst.",
 "tip_title": "Send et tip", "tip_desc": "Tip Nordic Crypto om en artikel om krypto, bitcoin eller blockchain i Norden.",
 "tip_lead": "Har du set en artikel om krypto, bitcoin eller blockchain i Norge, Sverige, Danmark, Finland eller Island, som vi har overset? Send os linket.",
+"tip_private_soon": "Vi arbejder på en måde at sende tips privat. Indtil den er klar, tager denne side ikke imod tips.",
 "tip_srv_p": "Tips går direkte til Nordic Cryptos egen tipskasse. Vores redaktør gennemgår løbende nye tips og vurderer hvert enkelt ud fra <a href=\"../about/\">vores regler</a>: artiklen skal handle om krypto, bitcoin eller blockchain i Norden, og vi linker til den oprindelige kilde med et kort resumé med egne ord. <b>Et tip er ingen garanti for offentliggørelse</b>, og vi svarer ikke på enkelte tips.",
 "tip_srv_priv": "<b>Privatliv:</b> tips er ikke offentlige. Vi gemmer linket, landet, bemærkningen, et eventuelt navn og tidspunktet – <b>ikke</b> din IP-adresse (som spambeskyttelse gemmes kun en envejskode (hash) beregnet ud fra den i 10 minutter, før den slettes). Dit navn offentliggøres aldrig. Tipskassen kører hos Cloudflare. Skriv ikke personlige eller følsomme oplysninger om nogen i bemærkningen.",
 "tip_noscript": "Tipformularen kræver JavaScript. Uden det kan du i stedet sende <a href=\"{gh}\" rel=\"noopener\">tippet som en offentlig sag på GitHub</a>.",
@@ -252,6 +253,7 @@ S.update({
 "ios_link": "Hent iOS-appen (TestFlight)",
 "ios_note": "Offentlig TestFlight-invitation. Der er ingen App Store-side.",
 "ios_tv": "Understøtter især Apple TV.",
+"contributors": "Bidragydere",
 "mk_title": "Overblik over det nordiske marked",
 "mk_desc": "Overblik over mønter, der noteres på nordiske børser: samlede priser, 24-timers volumen hvor en børs har offentliggjort den, og hver børs' egen pris. Ikke investeringsrådgivning.",
 "mk_h1": "Overblik over det nordiske marked",
@@ -394,4 +396,84 @@ S.update({
 "chat_time_h": "{n} t siden",
 "chat_time_d": "{n} d siden",
 "chat_noscript": "Chatten kræver JavaScript.",
+})
+
+# Layout renovation: theme switch, more stories, footer columns, front-page rail
+S.update({
+"theme_dark": "Mørk tilstand",
+"more_stories": "Vis {n} historier mere",
+"foot_sections": "Sektioner",
+"foot_site": "Om siden",
+"foot_follow": "Følg os",
+"foot_api": "Data-API",
+"screen_short": "Skærmvisning til kontoret",
+"rail_more": "Mere fra Nordic Crypto",
+})
+
+# Media pages: markets, talks and newsletter layout
+S.update({
+"mk_tiles_note": "Ændring i %: som hver børs offentliggjorde den, perioden er ikke angivet. Volumen 24 t: kun børser, der har offentliggjort et 24-timers tal; valutaerne lægges ikke sammen.",
+"mk_chg_short": "{name} {n} %",
+"mk_share_table": "Vis tallene som tabel",
+"mk_onpage": "På denne side",
+"mk_about_h": "Om tallene",
+"nl_next_h": "Få næste udgave",
+"nl_rss": "RSS-feed",
+})
+
+# Story and text pages: jump list, more news under a story
+S.update({
+"toc_h": "På denne side",
+"more_news_h": "Flere nyheder",
+"all_news": "Alle nyheder",
+})
+
+# Who's who: country rows with counts, search matches, the full list on demand
+S.update({
+"org_list_show": "Vis alle {n} poster",
+"js_n_orgs": "{n} organisationer",
+"js_n_org1": "1 organisation",
+"js_n_people": "{n} personer",
+"js_n_person1": "1 person",
+"js_n_match": "{n} resultater",
+"js_n_match1": "1 resultat",
+"js_no_match": "Intet matcher søgningen.",
+})
+
+# Sources, academia, calendar and event pages: lighter lists
+S.update({
+"src_how": "Sådan læser vi kilderne",
+"src_samefeed": "»Same feed as …« betyder, at to titler deler ét feed. Det læses én gang, så en historie ikke havner under den forkerte titel.",
+"src_n_mon": "{n} følges",
+"cal_months_h": "Måned for måned",
+"past_show": "Vis {n} tidligere begivenheder",
+"past_all": "Alle tidligere begivenheder",
+"ev_when": "Dato og tid",
+"past_show_1": "Vis 1 tidligere begivenhed",
+})
+
+# Review fixes: skip link, short front-page intro, empty filter states
+S.update({
+"skip": "Gå til indholdet",
+"home_sub": "Artikler fra nordiske aviser, radio og tv, tilsynsmyndigheder og centralbanker, hver med et kort resumé lavet med hjælp fra kunstig intelligens og godkendt af vores redaktører.",
+"home_updated": "Opdateret {upd} · {n} artikler{pend}",
+"filters_none": "Intet passer til disse filtre.",
+"filters_clear": "Ryd filtrene",
+"n_row1": "1 række",
+"foot_source": "Kildekode",
+})
+
+# books page (/books/)
+S.update({
+"nav_books": "Bøger",
+"books_title": "Bøger – nordiske bøger om bitcoin og krypto",
+"books_desc": "Udgivne bøger om bitcoin, krypto og blockchain af nordiske forfattere eller om Norden, med forfattere, år, forlag og sprog.",
+"books_h1": "Bøger om bitcoin og krypto fra Norden",
+"books_lead": "Udgivne bøger om bitcoin, krypto og blockchain, skrevet af nordiske forfattere eller om de nordiske lande. Hver titel linker til bibliotekskataloget eller forlagssiden, hvor vi tjekkede forfattere, år og forlag.",
+"books_note": "Titlerne står på originalsproget. De korte beskrivelser er vores, på engelsk. Ingen omslagsbilleder.",
+"books_n": "{n} bøger",
+"books_eds": "(red.)",
+"books_source": "Tjekket i",
+"books_empty": "Ingen bøger opført endnu.",
+"books_notice": "Mangler der en bog, eller er noget forkert? Sig til via <a href=\"../about/#corrections\">rettelser</a>. Vi opfører kun udgivne bøger, ikke manuskripter, og linker hver bog til et katalog eller forlaget."
 })

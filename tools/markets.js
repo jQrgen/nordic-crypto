@@ -401,7 +401,7 @@ var NCMarkets = (function () {
       else if (hasNum(vol.volume_base_24h)) bits.push(["main", fmt(vol.volume_base_24h) + " " + base, "24h"]);
       if (hasNum(vol.volume_base)) bits.push([bits.length ? "sub" : "main", fmt(vol.volume_base) + " " + base, "window"]);
       else if (hasNum(vol.volume_quote) && !hasNum(vol.volume_quote_24h)) bits.push([bits.length ? "sub" : "main", fmt(vol.volume_quote) + " " + quote, "window"]);
-      if (!bits.length) return '<span class="meta">—</span>';
+      if (!bits.length) return '<span class="meta none">—</span>';
       return bits.map(function (b) {
         var label = b[2] === "24h" ? "24h" : (S.vol_window || "");
         if (b[0] === "main") return '<span class="pxs">' + esc(b[1]) + '</span><span class="meta sub">' + esc(label) + "</span>";
@@ -409,7 +409,7 @@ var NCMarkets = (function () {
       }).join("");
     }
     function exCell(row) {
-      if (!row) return '<span class="meta">—</span>';
+      if (!row) return '<span class="meta none">—</span>';
       var bits = [];
       if (hasNum(row.last)) bits.push('<span class="pxs">' + esc(fmt(row.last)) + "</span>");
       else {
@@ -425,7 +425,6 @@ var NCMarkets = (function () {
       if (hasNum(row.change_pct)) {
         bits.push('<span class="chg ' + chgKind(row.change_pct) + '" title="' + esc(S.chg_tip || "") + '">' + esc(chgShown(row.change_pct)) + "%</span>");
       }
-      if (row.exchange && live[row.exchange.id]) bits.push(' <span class="tag act">' + esc(S.live || "") + "</span>");
       return bits.join("");
     }
     function indexTickers(tickers) {
@@ -507,24 +506,24 @@ var NCMarkets = (function () {
       if (d) return d;
       return assetRank(a.base) - assetRank(b.base);
     }
-    function sortTh(key, label, title) {
+    function sortTh(key, label, title, isLive) {
       var mode = (document.getElementById("mk-sort") || {}).value || "coin";
       var on = mode === key || (key === "price" && mode === "price-desc");
-      var extra = title ? ' title="' + esc(title) + '"' : "";
-      return '<th scope="col"' + extra + '><button type="button" class="sort" data-sort="' + esc(key) + '" aria-pressed="' + (on ? "true" : "false") + '">' + esc(label) + "</button></th>";
+      var extra = title ? ' title="' + esc(title) + (isLive ? " · " + esc(S.live || "") : "") + '"' : "";
+      return '<th scope="col"' + (isLive ? ' class="live"' : "") + extra + '><button type="button" class="sort" data-sort="' + esc(key) + '" aria-pressed="' + (on ? "true" : "false") + '">' + esc(label) + "</button></th>";
     }
     function tableHtml(pairs, indexed, ids, names) {
       if (!pairs.length) return '<p class="empty">' + esc(S.no_match || S.empty || "") + "</p>";
       var heads = [sortTh("coin", S.col_coin || ""), sortTh("quote", S.col_quote || ""), sortTh("price", S.col_price || ""), sortTh("vol", S.col_vol || "")];
       ids.forEach(function (id) {
         var short = EXSHORT[id] || names[id] || id;
-        heads.push(sortTh("ex:" + id, short, names[id] || short));
+        heads.push(sortTh("ex:" + id, short, names[id] || short, !!live[id]));
       });
       var body = pairs.map(function (p) {
         var name = NAMES[p.base] || p.base;
-        var img = p.logo_path ? '<img src="' + esc(siteRoot() + p.logo_path) + '" width="22" height="22" alt="">' : "";
+        var img = p.logo_path ? '<img src="' + esc(siteRoot() + p.logo_path) + '" width="22" height="22" alt="" loading="lazy">' : "";
         var price = p.price
-          ? '<span class="pxs">' + esc(fmt(p.price)) + '</span><span class="meta sub">' + esc(p.quote) + "</span>"
+          ? '<span class="pxs">' + esc(fmt(p.price)) + "</span>"
           : '<span class="meta">' + esc(S.agg_none || "") + "</span>";
         var slot = indexed[p.base + "|" + p.quote] || {};
         var tds = [
@@ -539,7 +538,7 @@ var NCMarkets = (function () {
         });
         return "<tr>" + tds.join("") + "</tr>";
       }).join("");
-      return '<div class="mkwrap"><table class="list mkpairs"><caption>' + esc(S.table_h || "") + "</caption><thead><tr>" + heads.join("") + "</tr></thead><tbody>" + body + "</tbody></table></div>";
+      return '<div class="mkwrap"><table class="list mkpairs"><caption class="vh">' + esc(S.table_h || "") + "</caption><thead><tr>" + heads.join("") + "</tr></thead><tbody>" + body + "</tbody></table></div>";
     }
     function renderCredit() {
       var el = document.getElementById("mk-credit");
@@ -582,26 +581,24 @@ var NCMarkets = (function () {
         exIds(Object.keys(slot).map(function (id) { return slot[id]; })).forEach(function (id) {
           var row = slot[id];
           if (!row || !hasNum(row.change_pct)) return;
-          chg += '<p class="chg ' + chgKind(row.change_pct) + '">' + esc(fill(S.chg || "", {name: exShort(row.exchange), n: chgShown(row.change_pct)})) + "</p>";
+          chg += '<p class="chg ' + chgKind(row.change_pct) + '" title="' + esc(S.chg_tip || "") + '">' + esc(fill(S.chg_short || "{name} {n}%", {name: exShort(row.exchange), n: chgShown(row.change_pct)})) + "</p>";
         });
         tiles.push('<article class="mktile"><p class="k">' + img + esc(name) + ' <span class="sym">' + esc(base) + "</span></p>" +
           '<p class="px">' + esc(fmt(pair.price)) + ' <span class="unit">' + esc(pair.quote) + "</span></p>" +
           chg + '<p class="meta">' + esc(how) + "</p></article>");
       });
       volumeShares(state.tickers || [], NAMES, logos).forEach(function (g) {
-        tiles.push('<article class="mktile"><p class="k">' + esc(S.vol_tile || "") + "</p>" +
-          '<p class="px">' + esc(fmt(g.total)) + ' <span class="unit">' + esc(g.quote) + "</span></p>" +
-          '<p class="meta">' + esc(S.vol_tile_note || "") + "</p></article>");
+        tiles.push('<article class="mktile vol"><p class="k">' + esc(S.vol_tile || "") + "</p>" +
+          '<p class="px">' + esc(fmt(g.total)) + ' <span class="unit">' + esc(g.quote) + "</span></p></article>");
       });
       var ok = (state.exchanges || []).filter(function (e) { return e.status === "ok"; }).length;
       var bases = {};
       (state.tickers || []).forEach(function (r) { if (r.base) bases[r.base] = 1; });
-      tiles.push('<article class="mktile"><p class="k">' + esc(S.tracked || "") + '</p><ul class="mkstats">' +
-        "<li><b>" + ok + "</b> " + esc(S.n_ex || "") + "</li>" +
-        "<li><b>" + pairs.length + "</b> " + esc(S.n_pairs || "") + "</li>" +
-        "<li><b>" + Object.keys(bases).length + "</b> " + esc(S.n_coins || "") + "</li></ul></article>");
-      var inner = (state.tickers || []).length ? '<div class="mktiles">' + tiles.join("") + "</div>" : '<p class="empty">' + esc(S.empty || "") + "</p>";
-      host.innerHTML = '<h2 id="mk-glance">' + esc(S.glance || "") + "</h2>" + inner;
+      var note = '<p class="meta mknote"><span class="mkstats">' + esc(S.tracked || "") + ": <b>" + ok + "</b> " + esc(S.n_ex || "") +
+        " · <b>" + pairs.length + "</b> " + esc(S.n_pairs || "") + " · <b>" + Object.keys(bases).length + "</b> " + esc(S.n_coins || "") + ".</span> " +
+        esc(S.tiles_note || "") + "</p>";
+      var inner = (state.tickers || []).length ? '<div class="mktiles">' + tiles.join("") + "</div>" + note : '<p class="empty">' + esc(S.empty || "") + "</p>";
+      host.innerHTML = '<h2 id="mk-glance" class="mklbl">' + esc(S.glance || "") + "</h2>" + inner;
     }
     function renderTable() {
       var host = document.getElementById("mk-tables");
@@ -672,7 +669,7 @@ var NCMarkets = (function () {
         '<text x="21" y="23.8" text-anchor="middle" font-family="system-ui,sans-serif" font-size="2.1" fill="currentColor">24h</text></svg>';
     }
     function shareHtml(groups) {
-      var head = '<h2>' + esc(S.share_h || "") + "</h2><p class=\"meta\">" + esc(S.share_note || "") + "</p>";
+      var head = '<h2 id="mk-share-h">' + esc(S.share_h || "") + "</h2><p class=\"meta\">" + esc(S.share_note || "") + "</p>";
       if (!groups.length) return '<section class="mkvol">' + head + '<p class="meta">' + esc(S.share_empty || "") + "</p></section>";
       var figures = groups.map(function (g) {
         var q = g.quote;
@@ -688,7 +685,7 @@ var NCMarkets = (function () {
         var title = fill(S.share_caption || "", {q: q});
         var legend = slices.map(function (sl) {
           var label = sliceLabel(sl);
-          var img = sl.logo_path ? '<img src="' + esc(siteRoot() + sl.logo_path) + '" width="22" height="22" alt="' + esc(fill(S.logo_alt || "", {name: label})) + '">' : "";
+          var img = sl.logo_path ? '<img src="' + esc(siteRoot() + sl.logo_path) + '" width="22" height="22" alt="' + esc(fill(S.logo_alt || "", {name: label})) + '" loading="lazy">' : "";
           var extra = sl.other && sl.members && sl.members.length ? '<span class="meta">' + esc(fill(S.share_includes || "", {names: sl.members.join(", ")})) + "</span>" : "";
           return '<li><span class="sw" style="background:' + sl.color + '"></span>' + img + '<span class="nm">' + esc(label) + "</span>" + extra + '<span class="pct">' + esc(sharePct(sl)) + "%</span></li>";
         }).join("");
@@ -701,17 +698,24 @@ var NCMarkets = (function () {
         }).filter(Boolean).join(", ");
         var meta = esc(fill(S.share_window || "", {q: q}));
         if (g.updated_at) meta += " " + esc(fill(S.share_updated || "", {when: when(g.updated_at)}));
-        if (src) meta += " " + esc(S.share_source || "") + ": " + src;
+        if (src) meta += " " + esc(S.share_source || "") + ": " + src + ".";
         meta += " " + esc(S.share_group || "");
         return '<figure class="mkvol-fig"><div class="mkvol-row">' + donutSvg(slices, q, title) + '<ul class="mklegend">' + legend + "</ul></div>" +
-          '<p class="meta">' + meta + "</p>" +
-          '<table class="list mkshare"><caption>' + esc(title) + "</caption><thead><tr><th scope=\"col\">" + esc(S.share_coin || "") + "</th><th scope=\"col\">" + esc(fill(S.share_vol || "", {q: q})) + "</th><th scope=\"col\">" + esc(S.share_pct || "") + "</th></tr></thead><tbody>" + rows + "</tbody></table></figure>";
+          '<figcaption class="meta">' + meta + "</figcaption>" +
+          '<details class="mkshare-d"' + (openTables[q] ? " open" : "") + "><summary>" + esc(S.share_table || "") + "</summary>" +
+          '<table class="list mkshare"><caption>' + esc(title) + "</caption><thead><tr><th scope=\"col\">" + esc(S.share_coin || "") + "</th><th scope=\"col\">" + esc(fill(S.share_vol || "", {q: q})) + "</th><th scope=\"col\">" + esc(S.share_pct || "") + "</th></tr></thead><tbody>" + rows + "</tbody></table></details></figure>";
       }).join("");
-      return '<section class="mkvol">' + head + figures + "</section>";
+      return '<section class="mkvol">' + head + '<div class="mkvol-figs">' + figures + "</div></section>";
     }
+    var openTables = {};
     function renderShare() {
       var host = document.getElementById("mk-share");
       if (!host || !state) return;
+      openTables = {};
+      [].forEach.call(host.querySelectorAll("figure.mkvol-fig"), function (fig) {
+        var d = fig.querySelector("details.mkshare-d"), t = fig.querySelector("svg text");
+        if (d && d.open && t) openTables[t.textContent] = true;
+      });
       host.innerHTML = shareHtml(volumeShares(state.tickers || [], NAMES, logos));
     }
     function render() {

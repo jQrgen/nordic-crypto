@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Front-page event window. Same inputs and the same now always give the same lists.
 The upcoming list changes when an event starts, not when it ends. No network."""
+import html
 import os
 import sys
 
@@ -112,12 +113,15 @@ def apple_tv():
     screen = open(os.path.join(ROOT, "templates", "screen.html"), encoding="utf-8").read()
     check("EV_LIMIT=__EV_LIMIT__" in screen and "s>now" in screen and "slice(0,4)" not in screen,
           "office screen uses the start-based window")
+    import build
     for lang in i18n.ALL_LANGS:
         sentence = i18n.t(lang, "ios_tv")
-        footer = i18n.t(lang, "footer", site="Nordic Crypto", rel="", root="", ios_tv=sentence)
+        build.LANG = lang
+        footer = build.site_footer("", "")   # the Follow column links the app and carries the Apple TV note
         check("Apple TV" in sentence and REVERSED not in sentence, "sentence " + lang)
-        check("https://testflight.apple.com/join/nQ2fpjZn" in footer and sentence in footer, "footer " + lang)
+        check("https://testflight.apple.com/join/nQ2fpjZn" in footer and html.escape(sentence, quote=False) in footer, "footer " + lang)
         check(REVERSED not in footer, "brand " + lang)
+    build.LANG = "en"
     check(i18n.t("nn", "ios_tv") == "Støtter særleg Apple TV.", "nynorsk wording")
     check(i18n.t("en", "ios_tv") == "Especially supports Apple TV.", "english wording")
 

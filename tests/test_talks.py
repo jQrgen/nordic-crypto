@@ -80,11 +80,12 @@ def main():
         table = i18n.strings(lang)
         for key in KEYS:
             check(bool(table.get(key)), f"{lang} has {key}", fails)
-        check("talks/" in i18n.t(lang, "footer"), f"{lang} footer link", fails)
         check("{href}" not in i18n.t(lang, "past_talks", href="../talks/"), f"{lang} past_talks formats", fails)
         # Brand stays Nordic Crypto. The reversed name is built so this file does not contain it.
         reversed_name = "Crypto" + " Nordic"
         check(reversed_name not in table["talks_lead"] and reversed_name not in table["nav_talks"], f"{lang} brand order", fails)
+    # Talks is one of the header sections, and the footer's Sections column lists the same six.
+    check("talks" in [n for n, _k in build.NAV[:build.NAV_MAIN]], "talks in the header and the footer sections", fails)
 
     public = api_feed.public_talks()
     check(len(public) == len(rows), "api row count", fails)
@@ -170,7 +171,7 @@ def main():
             check(i18n.t(lang, "past_talks", href="../talks/") in html, f"{lang} calendar sentence", fails)
 
     import site_css
-    css = site_css.bundle()
+    css = site_css.read("talks")   # inlined on the talks page only
     check(".talks,.talks h1" in css and "text-align:start" in css, "talks css is left aligned", fails)
     if fails:
         print(f"\n{len(fails)} failed")

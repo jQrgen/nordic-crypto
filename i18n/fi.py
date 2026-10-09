@@ -33,7 +33,7 @@ S = {
 "main_menu": "Päävalikko", "lang_label": "Kieli", "lang_choose": "Valitse kieli",
 "site_desc_suffix": "kryptouutisia Pohjoismaista",
 "preview_banner": "<b>Paikallinen esikatselu – ei julkaistu.</b> Toimittaja ei ole vielä tarkistanut mitään, mikä on merkitty ”Odottaa toimittajan tarkistusta”, eikä tiivistelmiä ole vielä kirjoitettu. Julkiseen versioon tulee vain hyväksytty sisältö.",
-"footer": "{site} seuraa Norjaa, Ruotsia, Tanskaa, Suomea ja Islantia. Sivustoa ylläpitää Jørgen S. Notland (jQrgen), Oslo, Tehty tekoälyn avulla, ihmistoimittajina jQrgen ja Nordic Crypton toimittaja. Ei sijoitusneuvontaa. Cloudflare Web Analytics laskee käynnit kootusti, ilman evästeitä, emmekä myy näitä tietoja. <a href=\"{rel}stats/#data-policy\">Kävijätilastojen tietosuoja</a>. Yksi eväste, vain jos valitset kielen. <a href=\"{rel}about/\">Tietoa meistä, tietosuoja, korjaukset ja poistot</a> · <a href=\"{rel}tip/\">Lähetä vinkki</a> · <a href=\"{rel}columnist/\">Hae kolumnistiksi</a> · <a href=\"{rel}media/\">Logo ja mediapaketti</a> · <a href=\"{rel}changelog/\">Muutosloki</a> · <a href=\"{rel}ethics/\">Toimituksen etiikka</a> · <a href=\"https://testflight.apple.com/join/nQ2fpjZn\" rel=\"noopener\">iOS-sovellus (TestFlight)</a> {ios_tv} · <a href=\"{rel}talks/\">Esitelmät</a> · <a href=\"{rel}markets/\">Markkinat</a> · <a href=\"{rel}stats/\">Tilastot</a> · <a href=\"{root}api/\">Data-API</a>.",
+"footer": "{site} seuraa Norjaa, Ruotsia, Tanskaa, Suomea ja Islantia. Sivustoa ylläpitää Jørgen S. Notland (jQrgen), Oslo, Tehty tekoälyn avulla, ihmistoimittajina jQrgen ja Nordic Crypton toimittaja. Ei sijoitusneuvontaa. Cloudflare Web Analytics laskee käynnit kootusti, ilman evästeitä, emmekä myy näitä tietoja. <a href=\"{rel}stats/#data-policy\">Kävijätilastojen tietosuoja</a>. Yksi eväste, vain jos valitset kielen. <a href=\"{rel}about/\">Tietoa meistä, tietosuoja, korjaukset ja poistot</a>.",
 "moved": "Sivu on siirretty osoitteeseen",
 "time_local": "{city}, paikallista aikaa", "at_time": "{t}",
 "pending": "Odottaa toimittajan tarkistusta", "owner": "Toimittajan hyväksymä · odottaa jQrgenin lopullista hyväksyntää", "our_story": "Oma juttumme",
@@ -104,7 +104,7 @@ S = {
 "src_kw_h": "Avainsanat",
 "src_kw": "Juttu poimitaan, kun sen otsikossa tai ingressissä mainitaan esimerkiksi bitcoin, krypto, blockchain, stablecoin, MiCA, CASP, CBDC (kaikki kielet); krypto, kryptovaluta, blokkjede (norja); kryptoaktiver, blokkæde (tanska); kryptotillgångar, blockkedja, e-krona (ruotsi); kryptovaluutta, lohkoketju, virtuaalivaluutta (suomi); rafmynt, sýndareignir, bálkakeðja (islanti); tai pohjoismaisia kryptoyrityksiä, kuten Firi, NBX, K33, Safello, Coinmotion, Northcrypto, Myntkaup, Monerium ja Coinify. Sanat hvitvasking, penningtvätt, hvidvask, rahanpesu ja peningaþvætti lasketaan vain, kun samassa otsikossa tai ingressissä on myös kryptotermi. Darknet lasketaan erikseen. Paikallis- ja oikeuslähteet käyttävät samaa suodatinta. Toimittaja käy jokaisen osuman läpi ennen julkaisua.",
 "src_ev_h": "Mistä löydämme tapahtumat",
-"src_ev_note": "Luma luetaan kunkin kalenterin julkisesta iCal-syötteestä (Subscribe). Kaupunkisivuja kuten luma.com/oslo, luokkasivuja kuten luma.com/crypto ja Luman discover-rajapintaa ei käytetä: käyttöehdot sallivat vain julkisesti tuetut rajapinnat, ja virallinen rajapinta vaatii Luma Plus -tilauksen ja kattaa vain kalenterit, joita itse hallinnoit. Yksittäinen Luma-tapahtumasivu luetaan schema.org JSON-LD -muodossa. Eventbrite käyttää v3-rajapintaa järjestäjille ja tapahtumapaikoille, kun EVENTBRITE_TOKEN on asetettu palvelimella. Tunnusta ei julkaista. Ilman sitä käytetään tapahtumasivun JSON-LD:tä. Julkista hakurajapintaa ei käytetä. Sama otsikko, päivä ja paikka listataan kerran. Yksi rikki oleva syöte ei keskeytä ajoa. Päättyneet tapahtumat jäävät kohtaan Menneet tapahtumat. Kaupr on vain uutislähde eikä koskaan tapahtuman sponsori.",
+"src_ev_note": "Luma luetaan kunkin kalenterin julkisesta iCal-syötteestä (Subscribe). Kaupunkisivuja kuten luma.com/oslo, luokkasivuja kuten luma.com/crypto ja Luman discover-rajapintaa ei käytetä: käyttöehdot sallivat vain julkisesti tuetut rajapinnat, ja virallinen rajapinta vaatii Luma Plus -tilauksen ja kattaa vain kalenterit, joita itse hallinnoit. Yksittäinen Luma-tapahtumasivu luetaan schema.org JSON-LD -muodossa. Eventbrite käyttää v3-rajapintaa järjestäjille ja tapahtumapaikoille, kun EVENTBRITE_TOKEN on asetettu palvelimella. Tunnusta ei julkaista. Ilman sitä käytetään tapahtumasivun JSON-LD:tä. Julkista hakurajapintaa ei käytetä. Sama otsikko, päivä ja paikka listataan kerran. Yksi rikki oleva syöte ei keskeytä ajoa. Päättyneet tapahtumat jäävät kohtaan Menneet tapahtumat.",
 "src_missing": "Puuttuuko lähde? Ehdota sitä <a href=\"https://github.com/jQrgen/nordic-crypto/issues\" rel=\"noopener\">GitHubissa</a>.",
 "cal_title": "Kalenteri – krypto-, bitcoin- ja lohkoketjutapahtumat Pohjoismaissa",
 "cal_desc": "Tulevat krypto-, bitcoin- ja lohkoketjutapahtumat Norjassa, Ruotsissa, Tanskassa, Suomessa ja Islannissa päivämäärineen, paikkoineen ja järjestäjineen.",
@@ -161,18 +161,19 @@ S = {
 "about_title": "Tietoa Nordic Cryptosta", "about_desc": "Tietoa Nordic Cryptosta: kuka sivustoa ylläpitää, miten työskentelemme, tietosuoja, korjaukset ja poistot.",
 "ethics_title": "Toimituksen etiikka", "ethics_desc": "Nordic Crypto noudattaa Vær Varsom-plakaten -ohjeistoa. Nimetty toimittaja hyväksyy kaiken.",
 "media_title": "Logo ja mediapaketti",
-"media_desc": "Nordic Crypton vaakuna, sanamerkki, favicon, yksivärinen merkki ja väritokenit.",
+"media_desc": "Nordic Crypton logo: avainkilpi, logo nimen kanssa, yksivärinen versio, kuvakkeet ja värit.",
 "media_h1": "Logo ja mediapaketti",
-"media_lead": "Vaakuna jatkaa Trondheim Open Blockchain Meetup -sinettiä: or-kilpi, gules-kahdeksanterälehtinen ruusu ja sable-korppi. Kaksi leijonaa on kilvenkannattajina. Nauha lukee NORDIC CRYPTO. Pääasettelu asettaa vaakunan sanamerkin viereen, vasemmalle tasattuna.",
-"media_hdr_cap": "Ylätunnisteen näyte, vaalea. Cormorant Garamond nimessä, Schibsted Grotesk tässä rivissä ja harvennetussa mottossa. Crypto on gules.",
-"media_hdr_dark_cap": "Ylätunnisteen näyte pohjalla #0b0d10. Crypto on or, jotta sana erottuu.",
+"media_lead": "Nordic Crypton merkki on etusivun kilpi: keskeltä jaettu Pohjanmeren siniseen ja kultaan, ja avain vastakkaisin värein. Nimellisessä logossa kilpi on nimen vasemmalla puolella.",
+"media_hdr_cap": "Logo vaalealle pohjalle. Cormorant Garamond Bold; ”Crypto” tummalla kullalla, jotta se on luettava.",
+"media_hdr_dark_cap": "Logo sinisellä nauhalla, kuten sivuston ylätunnisteessa. Kilvessä on vaalea reuna.",
 "media_use_h": "Näin sitä käytetään",
-"media_use": "Alkuperäistä työtä pohjoismaisessa kuntavaakunan tyylissä: tasaiset kuviot, vähän tinktuureja, ei liukuvärejä. Se ei ole valtion- tai kuninkaanvaakuna. Älä piirrä kruunattua kultaleijonaa kirveen kanssa punaiselle. Yksivärinen tiedosto on painoon, tarroihin ja oheistuotteisiin. Sivuston painikkeet pysyvät sinisinä.",
+"media_use": "Pidä avain pystyssä ja värit ennallaan. Tummalla pohjalla käytä nauhaversiota; painotuotteisiin, tarroihin ja oheistuotteisiin käytä yksiväristä tiedostoa. Jätä merkin ympärille tyhjää tilaa vähintään puolet kilven leveydestä. Alle 32 px:n koossa käytä favicon-ruutua. Älä venytä, kierrä tai lisää reunoja tai tehosteita.",
 "media_files_h": "Tiedostot",
-"media_colours_h": "Tinktuurit",
-"media_colours_note": "Cendrée on viivoille. Pieni teksti on sable, koska cendrée argent-pohjalla on liian haalea luettavaksi.",
+"media_colours_h": "Värit",
+"media_colours_note": "Kulta vaalealla pohjalla on kilpeä varten, ei pientä tekstiä: käytä tekstissä tummaa kultaa #8A5A0C.",
 "tip_title": "Lähetä vinkki", "tip_desc": "Vinkkaa Nordic Cryptolle jutusta, joka käsittelee kryptoja, bitcoinia tai lohkoketjuja Pohjoismaissa.",
 "tip_lead": "Näitkö jutun kryptoista, bitcoinista tai lohkoketjuista Norjassa, Ruotsissa, Tanskassa, Suomessa tai Islannissa, joka meiltä on jäänyt huomaamatta? Lähetä meille linkki.",
+"tip_private_soon": "Työstämme tapaa lähettää vinkkejä yksityisesti. Kunnes se on valmis, tämä sivu ei ota vastaan vinkkejä.",
 "tip_srv_p": "Vinkit menevät suoraan Nordic Crypton omaan vinkkilaatikkoon. Toimittajamme käy uudet vinkit läpi säännöllisesti ja arvioi jokaisen <a href=\"../about/\">sääntöjemme</a> mukaan: jutun on käsiteltävä kryptoja, bitcoinia tai lohkoketjuja Pohjoismaissa, ja linkitämme alkuperäiseen lähteeseen lyhyen, omin sanoin kirjoitetun tiivistelmän kera. <b>Vinkki ei takaa julkaisua</b>, emmekä vastaa yksittäisiin vinkkeihin.",
 "tip_srv_priv": "<b>Tietosuoja:</b> vinkit eivät ole julkisia. Tallennamme linkin, maan, huomautuksen, mahdollisen nimen ja ajankohdan – <b>emme</b> IP-osoitettasi (roskapostin torjumiseksi siitä laskettu yksisuuntainen tunniste eli tiiviste säilytetään 10 minuuttia, minkä jälkeen se poistetaan). Nimeäsi ei koskaan julkaista. Vinkkilaatikko toimii Cloudflaren palvelussa. Älä kirjoita huomautukseen kenestäkään henkilökohtaisia tai arkaluonteisia tietoja.",
 "tip_noscript": "Vinkkilomake vaatii JavaScriptin. Ilman sitä voit lähettää <a href=\"{gh}\" rel=\"noopener\">vinkin julkisena issuena GitHubiin</a>.",
@@ -252,6 +253,7 @@ S.update({
 "ios_link": "Hae iOS-sovellus (TestFlight)",
 "ios_note": "Julkinen TestFlight-kutsu. App Store -sivua ei ole.",
 "ios_tv": "Tukee erityisesti Apple TV:tä.",
+"contributors": "Avustajat",
 "mk_title": "Katsaus pohjoismaiseen markkinaan",
 "mk_desc": "Katsaus kolikoihin, joita noteerataan pohjoismaisissa pörsseissä: yhdistetyt hinnat, 24 tunnin volyymi silloin kun pörssi on sen julkaissut, ja kunkin pörssin oma hinta. Ei sijoitusneuvontaa.",
 "mk_h1": "Katsaus pohjoismaiseen markkinaan",
@@ -394,4 +396,84 @@ S.update({
 "chat_time_h": "{n} t sitten",
 "chat_time_d": "{n} pv sitten",
 "chat_noscript": "Chat tarvitsee JavaScriptin.",
+})
+
+# Layout renovation: theme switch, more stories, footer columns, front-page rail
+S.update({
+"theme_dark": "Tumma tila",
+"more_stories": "Näytä {n} uutista lisää",
+"foot_sections": "Osiot",
+"foot_site": "Tietoa sivustosta",
+"foot_follow": "Seuraa",
+"foot_api": "Data-API",
+"screen_short": "Toimiston näyttötila",
+"rail_more": "Lisää Nordic Cryptolta",
+})
+
+# Media pages: markets, talks and newsletter layout
+S.update({
+"mk_tiles_note": "Muutos %: kuten kukin pörssi sen julkaisi, ajanjaksoa ei ole nimetty. 24 tunnin volyymi: vain pörssit, jotka ovat julkaisseet 24 tunnin luvun; valuuttoja ei lasketa yhteen.",
+"mk_chg_short": "{name} {n} %",
+"mk_share_table": "Näytä luvut taulukkona",
+"mk_onpage": "Tällä sivulla",
+"mk_about_h": "Tietoa luvuista",
+"nl_next_h": "Saat seuraavan numeron",
+"nl_rss": "RSS-syöte",
+})
+
+# Story and text pages: jump list, more news under a story
+S.update({
+"toc_h": "Tällä sivulla",
+"more_news_h": "Lisää uutisia",
+"all_news": "Kaikki uutiset",
+})
+
+# Who's who: country rows with counts, search matches, the full list on demand
+S.update({
+"org_list_show": "Näytä kaikki {n} merkintää",
+"js_n_orgs": "{n} organisaatiota",
+"js_n_org1": "1 organisaatio",
+"js_n_people": "{n} henkilöä",
+"js_n_person1": "1 henkilö",
+"js_n_match": "{n} osumaa",
+"js_n_match1": "1 osuma",
+"js_no_match": "Haulla ei löytynyt mitään.",
+})
+
+# Sources, academia, calendar and event pages: lighter lists
+S.update({
+"src_how": "Näin luemme lähteitä",
+"src_samefeed": "”Same feed as …” tarkoittaa, että kahdella lehdellä on yhteinen syöte. Se luetaan kerran, jotta juttu ei päädy väärän lehden alle.",
+"src_n_mon": "{n} seurannassa",
+"cal_months_h": "Kuukausittain",
+"past_show": "Näytä {n} mennyttä tapahtumaa",
+"past_all": "Kaikki aiemmat tapahtumat",
+"ev_when": "Aika",
+"past_show_1": "Näytä 1 mennyt tapahtuma",
+})
+
+# Review fixes: skip link, short front-page intro, empty filter states
+S.update({
+"skip": "Siirry sisältöön",
+"home_sub": "Juttuja pohjoismaisista sanomalehdistä, yleisradioyhtiöistä, valvojilta ja keskuspankeilta, jokaisessa lyhyt tiivistelmä, joka on tehty tekoälyn avulla ja jonka toimittajamme ovat hyväksyneet.",
+"home_updated": "Päivitetty {upd} · {n} juttua{pend}",
+"filters_none": "Mikään ei vastaa näitä suodattimia.",
+"filters_clear": "Tyhjennä suodattimet",
+"n_row1": "1 rivi",
+"foot_source": "Lähdekoodi",
+})
+
+# books page (/books/)
+S.update({
+"nav_books": "Kirjat",
+"books_title": "Kirjat – pohjoismaisia kirjoja bitcoinista ja kryptoista",
+"books_desc": "Julkaistuja kirjoja bitcoinista, kryptoista ja lohkoketjuista pohjoismaisilta kirjoittajilta tai Pohjoismaista: kirjoittajat, vuosi, kustantaja ja kieli.",
+"books_h1": "Kirjoja bitcoinista ja kryptoista Pohjoismaista",
+"books_lead": "Julkaistuja kirjoja bitcoinista, kryptoista ja lohkoketjuista. Kirjoittajat ovat pohjoismaisia, tai kirja käsittelee Pohjoismaita. Jokainen nimeke linkittää kirjastoluetteloon tai kustantajan sivulle, josta tarkistimme kirjoittajat, vuoden ja kustantajan.",
+"books_note": "Nimekkeet ovat alkuperäiskielellä. Lyhyet kuvaukset ovat omiamme, englanniksi. Ei kansikuvia.",
+"books_n": "{n} kirjaa",
+"books_eds": "(toim.)",
+"books_source": "Tarkistettu",
+"books_empty": "Kirjoja ei ole vielä listattu.",
+"books_notice": "Puuttuuko kirja, tai onko jokin väärin? Kerro meille <a href=\"../about/#corrections\">korjaukset</a>-osion kautta. Listaamme vain julkaistuja kirjoja, emme käsikirjoituksia, ja linkitämme jokaisen luetteloon tai kustantajalle."
 })

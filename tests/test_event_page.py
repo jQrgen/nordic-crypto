@@ -94,7 +94,8 @@ def main():
         check("Official event page" in html and "https://www.meetup.com/swedish-bitcoin-meetups/events/316047111/" in html, "official link")
         check("UTC+02:00" in html and "Map" in html and "openstreetmap.org" in html, "timezone and map")
         check("Registered participants" not in html, "page omits an unsourced count")
-        check(".evpage,.evpage h1,.evpage h2,.evpage p,.evpage li{text-align:left}" in html, "event page is left-aligned")
+        # start, not left: the page mirrors in Arabic and Urdu
+        check(".evpage,.evpage h1,.evpage h2,.evpage p,.evpage li{text-align:start}" in html, "event page is start-aligned")
         check("evofficial" in html and "margin:0 auto" not in html.split("evofficial{")[1].split("}")[0], "official link is not centred")
         build.LANG = "nn"
         build.build_one_event(ev)
@@ -118,7 +119,8 @@ def main():
         check("Vi møtes for å snakke om bitcoin og lynnettet." in en_html, "original under the translation")
         about = en_html.split("About this event", 1)[1][:500]
         check("text-align:center" not in about and 'class="evdesc"' in en_html, "description is left aligned")
-        check(en_html.index("About this event") < en_html.index("Location") or "Location" not in en_html, "description sits under the date")
+        # when, where and who come first, in one block with the official link; the description follows that block
+        check(en_html.index("Date and time") < en_html.index("Location") < en_html.index("Official event page") < en_html.index("About this event"), "description sits under the when/where block")
         build.LANG = "nb"
         build.build_one_event(described)
         nb_html = open(os.path.join(site, "nb", "calendar", ev["id"], "index.html"), encoding="utf-8").read()

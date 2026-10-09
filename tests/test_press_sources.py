@@ -66,8 +66,8 @@ def main():
         build.SITE = tmp
         build.build_sources({"cfg": cfg, "status": {}})
         html = open(os.path.join(tmp, "sources", "index.html"), encoding="utf-8").read()
-    check('style="justify-content:flex-start;text-align:left"' in html, "filters are left aligned")
-    check('table class="list" style="text-align:left"' in html, "table is left aligned")
+    check('style="justify-content:flex-start;text-align:start"' in html, "filters start at the inline start (left; right on RTL pages)")
+    check('table class="list" style="text-align:start"' in html, "table starts at the inline start")
     check("Reach" in html and "Justice" in html, "coverage columns")
     check(">Method<" in html and ">Sitemap<" in html and ">RSS<" in html, "method column")
     check("barebitcoin.no/sitemap.xml" in html, "bare bitcoin sitemap link")

@@ -234,27 +234,32 @@ def main():
         fails.append("summed exchanges " + str(summed and [(s["base"], s["volume"], s["pct"]) for s in summed[0]["slices"]]))
 
     import build as sitebuild
-    if [n for n, _k in sitebuild.NAV] != ["", "newsletter", "calendar", "talks", "org-chart", "academia", "markets", "sources", "about", "tip", "api"]:
+    # Seven sections in the header; newsletter (the Subscribe/Follow button), sources, about, tip and API are in the footer and the phone menu.
+    if [n for n, _k in sitebuild.NAV] != ["", "calendar", "markets", "org-chart", "academia", "books", "talks", "newsletter", "sources", "about", "tip", "api"]:
         fails.append("nav order")
+    if sitebuild.NAV_MAIN != 7:
+        fails.append("seven header sections")
     sv = sitebuild._nav_html("../sv/", "../../", "markets")
     if 'href="../../api/"' not in sv or "sv/api/" in sv:
         fails.append("api href left the site root")
     if 'href="../sv/markets/" aria-current=page' not in sv:
         fails.append("markets active state")
     labels = re.findall(r">([^<]+)</a>", sv)
-    if labels != ["News", "Newsletter", "Calendar", "Talks", "Who&#x27;s who", "Academia", "Markets", "Sources", "About", "Send a tip", "API"]:
+    if labels != ["News", "Calendar", "Markets", "Who&#x27;s who", "Academia", "Books", "Talks", "Newsletter", "Sources", "About", "Send a tip", "API"]:
         fails.append("nav labels " + str(labels))
+    if sv.count('class="nav-more"') != 5 or 'class="nav-more" href="../sv/newsletter/"' not in sv or 'class="nav-more" href="../sv/markets/"' in sv:
+        fails.append("only the pages about the site are nav-more")
     api_nav = sitebuild._nav_html("../", "../", "api")
     if 'href="../api/" aria-current=page>API' not in api_nav:
         fails.append("api active state")
     translated = {
-        "sv": ["Nyheter", "Nyhetsbrev", "Kalender", "Föredrag", "Vem är vem", "Akademi", "Marknader", "Källor", "Om oss", "Tipsa oss", "API"],
-        "nn": ["Nyheiter", "Nyheitsbrev", "Kalender", "Foredrag", "Kven er kven", "Akademia", "Marknader", "Kjelder", "Om oss", "Send tips", "API"],
-        "nb": ["Nyheter", "Nyhetsbrev", "Kalender", "Foredrag", "Hvem er hvem", "Akademia", "Markeder", "Kilder", "Om oss", "Send tips", "API"],
-        "da": ["Nyheder", "Nyhedsbrev", "Kalender", "Foredrag", "Hvem er hvem", "Akademia", "Markeder", "Kilder", "Om os", "Send et tip", "API"],
-        "fi": ["Uutiset", "Uutiskirje", "Kalenteri", "Esitelmät", "Kuka kukin on", "Tutkimus ja opetus", "Markkinat", "Lähteet", "Tietoa meistä", "Lähetä vinkki", "API"],
-        "is": ["Fréttir", "Fréttabréf", "Viðburðir", "Erindi", "Hver er hvað", "Rannsóknir og kennsla", "Markaðir", "Heimildir", "Um okkur", "Senda ábendingu", "API"],
-        "ar": ["News", "Newsletter", "Calendar", "محاضرات", "Who&#x27;s who", "Academia", "Markets", "Sources", "About", "Send a tip", "API"],
+        "sv": ["Nyheter", "Kalender", "Marknader", "Vem är vem", "Akademi", "Böcker", "Föredrag", "Nyhetsbrev", "Källor", "Om oss", "Tipsa oss", "API"],
+        "nn": ["Nyheiter", "Kalender", "Marknader", "Kven er kven", "Akademia", "Bøker", "Foredrag", "Nyheitsbrev", "Kjelder", "Om oss", "Send tips", "API"],
+        "nb": ["Nyheter", "Kalender", "Markeder", "Hvem er hvem", "Akademia", "Bøker", "Foredrag", "Nyhetsbrev", "Kilder", "Om oss", "Send tips", "API"],
+        "da": ["Nyheder", "Kalender", "Markeder", "Hvem er hvem", "Akademia", "Bøger", "Foredrag", "Nyhedsbrev", "Kilder", "Om os", "Send et tip", "API"],
+        "fi": ["Uutiset", "Kalenteri", "Markkinat", "Kuka kukin on", "Tutkimus ja opetus", "Kirjat", "Esitelmät", "Uutiskirje", "Lähteet", "Tietoa meistä", "Lähetä vinkki", "API"],
+        "is": ["Fréttir", "Viðburðir", "Markaðir", "Hver er hvað", "Rannsóknir og kennsla", "Bækur", "Erindi", "Fréttabréf", "Heimildir", "Um okkur", "Senda ábendingu", "API"],
+        "ar": ["الأخبار", "التقويم", "الأسواق", "من هو من", "الأوساط الأكاديمية", "كتب", "محاضرات", "النشرة البريدية", "المصادر", "عن الموقع", "أرسل معلومة", "API"],
     }
     for code, expect in translated.items():
         sitebuild.LANG = code
@@ -266,7 +271,8 @@ def main():
     sitebuild.LANG = "en"
     if "justify-content:flex-start" not in sitebuild.CSS.split("nav.main{")[1].split("}")[0]:
         fails.append("nav not left aligned")
-    dash = sitebuild.CSS.split(".markets h1{")[1].split("/* end markets */")[0]
+    import site_css   # markets.css is inlined on the markets page only
+    dash = site_css.read("markets").split(".markets h1{")[1].split("/* end markets */")[0]
     if "text-align:center" in dash:
         fails.append("markets overview centered")
     firi_ex = {"id": "firi", "name": "Firi", "country": "NO"}
