@@ -23,6 +23,12 @@ for L in ("nn", "nb"):
     if isinstance(row, dict):
         for k, v in row.items():
             if isinstance(v, str): chk(f"onion/app/copy.json {L}.{k}", v)
+nft_strings = P("i18n", "event_nft_strings.py")
+if os.path.exists(nft_strings):
+    nft_S = mod(nft_strings).S
+    for L in ("nn", "nb"):
+        for k, v in (nft_S.get(L) or {}).items():
+            chk(f"i18n/event_nft_strings.py {L}.{k}", v)
 for L in ("nn", "nb"):
     p = P("i18n", f"{L}.py")
     if os.path.exists(p):

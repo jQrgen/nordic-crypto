@@ -16,7 +16,7 @@ import site_css
 import site_url
 import event_block
 from tools.frontpage_blurbs import card_text, load as load_blurbs, opening_sentences, substantive
-from tools import event_backfill, event_description, event_page, event_select
+from tools import event_backfill, event_description, event_nft, event_page, event_select
 from tools.headlines import card_headline, public_title_i18n
 ROOT = os.path.dirname(os.path.abspath(__file__)); P = lambda *a: os.path.join(ROOT, *a)
 BASE = site_url.BASE
@@ -125,6 +125,8 @@ def nav_items():
     if chat_endpoint():
         at = next((i for i, x in enumerate(items) if x[0] == "about"), len(items))
         items.insert(at, ("chat", "nav_chat"))
+    if event_nft.enabled():   # event NFT prototype: off in the public build
+        items.append(("treasury", "nav_treasury"))
     return items
 def newsletter_endpoint():
     """Worker base URL for POST /api/subscribe, or None = no signup form anywhere on the site.
@@ -555,7 +557,8 @@ def site_footer(rel, root, slug=""):
     site = (li(rel + "about/", t("nav_about")) + li(rel + "sources/", t("nav_sources")) + li(rel + "ethics/", t("ethics_title"))
             + li(rel + "changelog/", t("cl_title")) + li(rel + "media/", t("media_title")) + li(rel + "columnist/", t("col_title"))
             + li(rel + "tip/", t("nav_tip")) + li(root + "api/", t("foot_api")) + li("https://github.com/jQrgen/nordic-crypto", t("foot_source"), True)
-            + li(REPO_CONTRIBUTORS, t("contributors"), True))
+            + li(REPO_CONTRIBUTORS, t("contributors"), True)
+            + (li(rel + "treasury/", t("nav_treasury")) if event_nft.enabled() else ""))
     follow = (li(rel + "newsletter/", t("nav_newsletter")) + li(SITE_TELEGRAM, t("tg_label"), True) + li(SITE_X, "X", True) + li(rel + "rss.xml", "RSS")
               + li("https://testflight.apple.com/join/nQ2fpjZn", t("ios_link"), True, t("ios_tv")) + li(root + "screen/", t("screen_short")))
     nlfoot = (f'<div class="nlfoot"><b>{E(t("nl_foot"))}</b> {newsletter_offer(rel, compact=True)}</div>'
@@ -941,6 +944,8 @@ def build():
     ctx.update(ents=ents, rels=rels, pub_org=pub_org)
     ctx["events"] = events_for_site()
     _evs, _ev_now = ctx["events"]
+    if event_nft.enabled():
+        event_nft.prepare(SITE, BASE, _evs, _ev_now)
     _prev = previous_page_rows(_evs, _ev_now)
     def _pub_ev(e):
         row = dict(e)
@@ -1787,6 +1792,7 @@ def build_lang(ctx):
     _ev = ctx.get("events")
     build_previous(*(_ev if isinstance(_ev, tuple) else (_ev or [], site_now())))
     build_event_pages(*(_ev if isinstance(_ev, tuple) else (_ev or [], site_now())))
+    build_event_nft()
     build_talks()
     build_academia()
     build_books()
@@ -2489,9 +2495,30 @@ def build_one_event(e):
                 who = ""
             items.append(f'<li><a href="{E(talk["url"])}" rel="noopener">{E(talk["title"])}</a>{who}' + _source_line(talk.get("credit")) + "</li>")
         bits.append(f'<h2>{E(t("ev_talks"))}</h2><ul class="evtalks">{"".join(items)}</ul>')
+    mint, mint_js = event_nft_panel(e)
+    if mint: bits.append(mint)
     body = site_css.style("evpage") + f'<article class="evpage">{"".join(bits)}</article>'
     data = event_page.jsonld(e, BASE + lp() + event_page.slug(e) + "/", about or note or None)
-    page(event_page.slug(e), heading, "calendar", body, desc, head_extra=f'<script type="application/ld+json">{json.dumps(data, ensure_ascii=False).replace("<", "\\u003c")}</script>')
+    page(event_page.slug(e), heading, "calendar", body, desc, mint_js, head_extra=f'<script type="application/ld+json">{json.dumps(data, ensure_ascii=False).replace("<", "\\u003c")}</script>')
+def event_nft_panel(e):
+    """Event NFT prototype: the mint panel and its clock script for an upcoming or ongoing event. Empty while the flag is off."""
+    if not event_nft.enabled() or not e.get("id"):
+        return "", ""
+    kind = event_select.classify(e, site_now())
+    if kind not in ("upcoming", "ongoing"):
+        return "", ""
+    depth = event_page.slug(e).count("/") + 1 + (0 if LANG == "en" else 1)
+    root = "../" * depth
+    panel = event_nft.style() + event_nft.event_panel(e, kind, root, root + lp(), t, E)
+    return panel, event_nft.clock_script(os.environ.get("NC_NOW") or None)
+def build_event_nft():
+    """Event NFT prototype: /treasury/ and the /faucet/ redirect. Not built while the flag is off."""
+    if not event_nft.enabled():
+        return
+    doc = event_nft.treasury_document(BASE + "treasury/")
+    root = "../" * (1 + (0 if LANG == "en" else 1))
+    page("treasury", t("tre_title"), "treasury", event_nft.style() + event_nft.treasury_body(doc, root, t, E), t("tre_lead"))
+    event_nft.faucet_redirect(SITE, LANG)
 def build_event_pages(events, now):
     rows = listed_events(events, now)
     for e in rows:
