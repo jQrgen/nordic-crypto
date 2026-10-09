@@ -1,0 +1,35 @@
+/* Regulation videos: one slot per country, in one start-aligned column. Inlined by tools/regulation_videos.py.
+   Each slot: a quiet label line, the title, the poster or video, the institutions in hairline rows, folded narrator notes. */
+.rv{max-width:760px;text-align:start}
+.rv .lead{max-width:66ch}
+.rv>.notice{margin:12px 0}
+.rv-advice{margin:0 0 4px}
+.rv-back{margin:0}.rv-back a{display:inline-flex;align-items:center;min-height:40px}
+.rv-jump{display:flex;flex-wrap:wrap;gap:0 22px;margin:4px 0 8px;padding:6px 0;border-block:1px solid var(--line);font-size:14.5px}
+.rv-jump a{display:inline-flex;align-items:center;gap:7px;min-height:40px;color:var(--fg)}
+.rv-slot{padding:24px 0 28px;border-top:1px solid var(--line-strong);scroll-margin-top:12px}
+.rv-jump+.rv-slot{border-top:0}
+.rv-kicker{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;margin:0 0 6px;font:500 12px/1.4 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.rv-kicker span+span::before{content:"·";margin-inline-end:10px}
+.rv-slot h2{margin:0 0 14px;font-size:clamp(24px,2.6vw,30px)}
+.rv-media{margin:0 0 14px}
+.rv-media img,.rv-media video{display:block;width:min(100%,480px);max-width:100%;height:auto;background:var(--band-deep);border-radius:var(--r-sm)}
+.rv-media figcaption{margin-top:8px}
+.rv-soon{max-width:480px;margin:8px 0 0;font-size:14px;color:var(--muted)}
+.rv-soon b{color:var(--warm)}
+.rv-facts{display:grid;grid-template-columns:repeat(auto-fill,minmax(14rem,1fr));gap:0 26px;margin:6px 0 10px}
+.rv-fact{min-width:0;padding:9px 0 11px;border-top:1px solid var(--line);font-size:14px;line-height:1.45}
+.rv-fact b{display:block;font-size:15px}
+.rv-fact .k{display:block;font:500 11px/1.3 var(--f-mono);text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.rv-fact .meta{font-size:12.5px}
+.rv-call{margin:6px 0 12px;padding:2px 0 2px 12px;padding-inline:12px 0;border-inline-start:3px solid var(--line-strong);max-width:68ch}
+.rv-nbox{border-block:1px solid var(--line);margin:10px 0 12px}
+.rv-nbox summary{display:flex;align-items:center;min-height:44px;cursor:pointer;font-weight:600}
+.rv-nbox[open] summary{margin-bottom:4px}
+.rv-notes{padding:0 0 8px;max-width:68ch}
+.rv-notes p{margin:0 0 10px}
+.rv-slot>.meta{font-size:13px}
+.rv-end{padding-top:14px;border-top:1px solid var(--line)}
+.rv-nbox summary::before{content:"";flex:none;width:7px;height:7px;margin-inline:2px 12px;border:solid var(--muted);border-width:0 2px 2px 0;transform:rotate(-45deg);transition:transform .15s}
+[dir=rtl] .rv-nbox summary::before{transform:rotate(135deg)}
+.rv-nbox[open] summary::before{transform:rotate(45deg)}

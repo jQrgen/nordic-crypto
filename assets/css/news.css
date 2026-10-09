@@ -1,0 +1,44 @@
+/* News: the lead story, the latest stories, story lists, outlet marks, coverage and illustrations. Start-aligned in every language.
+   The lead story is a feature card on the North Sea band (the band tokens apply inside it). The latest stories are one column of
+   rows divided by hairlines, so headlines line up and read top to bottom. */
+.leadstory,.latest,.storygrid,.storycard,.leadstory h2,.latest h2,.storycard h3,.leadstory .sum,.storycard .sum,.leadstory .meta,.storycard .meta,.leadstory .orig,.storycard .orig{text-align:start}
+.leadstory{position:relative;margin:0;padding:clamp(22px,3.4vw,40px) clamp(20px,3.4vw,44px) clamp(20px,3vw,32px);border-radius:var(--r);background:var(--lattice),var(--band)}
+.leadstory h2{font-size:36px;line-height:1.05;margin:0 0 10px;text-align:start;max-width:24ch;letter-spacing:-.015em}
+.leadstory h2 a,.storycard h3 a{text-decoration:none}
+.leadstory h2 a:hover{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:6px}
+.storycard h3 a:hover{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:4px}
+.leadstory .sum{font-size:17.5px;line-height:1.6;margin:12px 0 0;max-width:66ch;color:color-mix(in srgb,var(--fg) 90%,transparent)}
+.leadstory .meta{margin:16px 0 0;padding-top:14px;border-top:1px solid var(--line)}
+.latest h2,.evsoon h2,.evhero h2,.railbox h2{display:flex;align-items:center;gap:12px;font:500 12px/1.2 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.latest h2::after,.evsoon h2::after,.railbox h2::after{content:"";flex:1;height:1px;background:var(--line)}
+.latest h2{margin:36px 0 2px;text-align:start}
+.storygrid{display:grid;grid-template-columns:1fr;align-items:start;text-align:start}
+.storycard{position:relative;padding:20px 0 22px;border-bottom:1px solid var(--line);min-width:0;text-align:start}
+.storycard:last-child{border-bottom:0}
+.storycard h3{font-size:25px;line-height:1.14;margin:0 0 4px;text-align:start;max-width:34ch}
+.storycard .sum{font-size:15.5px;line-height:1.6;margin:8px 0 0;max-width:68ch;color:color-mix(in srgb,var(--fg) 88%,transparent)}
+.storycard>.meta{margin:10px 0 0}
+.js .storycard.later{display:none}
+.morebtn{display:inline-flex;align-items:center;gap:8px;margin:18px 0 0;padding:10px 18px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);color:var(--fg);font:inherit;font-weight:600;cursor:pointer;text-align:start}
+.morebtn:hover,.morebtn:focus-visible{border-color:var(--fg)}
+.morebtn::after{content:"↓";font-weight:400}
+@media(min-width:1080px){.leadstory h2{font-size:46px}}
+@media(max-width:640px){.leadstory h2{font-size:29px}.storycard h3{font-size:22px}}
+.orig{font-size:13.5px;color:var(--muted);margin:0 0 4px;line-height:1.4;font-weight:400;text-align:start}
+.sum{margin:6px 0 0;max-width:72ch;line-height:1.55;text-align:start}.sum.pend{color:var(--warm);font-style:italic}
+.bridge{margin:6px 0 0;font-weight:500;text-align:start}
+ol.news{list-style:none;margin:0;padding:0;text-align:start}
+ol.news li{display:flex;flex-direction:row;align-items:flex-start;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);text-align:start}
+ol.news .storybody{min-width:0;flex:1;text-align:start}
+ol.news h3{font-size:23px;line-height:1.16;margin:0 0 4px}ol.news h3 a{text-decoration:none}ol.news h3 a:hover{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px}
+.ill{margin:0 0 14px;text-align:start}
+.ill img{display:block;width:100%;max-width:760px;height:auto;background:var(--soft);border-radius:var(--r)}
+.primary-src{font-size:13.5px;margin:6px 0 0;text-align:start}
+.src{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;vertical-align:middle;text-align:start}
+.src-logo-link{display:inline-flex;flex:none;align-items:center;gap:6px;color:inherit;text-decoration:none}.src-logo-link:hover b{text-decoration:underline;text-decoration-color:var(--gold)}
+.src-logo{height:18px;width:auto;max-width:96px;object-fit:contain;flex:none;background:#fff;padding:1px 3px;border-radius:3px}
+/* outlets that covered a story: the compact logo row on story cards (the story page rules are in story.css) */
+.covrow{text-align:start;display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:6px 8px;margin:10px 0 0}
+.cov-logo{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;text-decoration:none}
+.cov-more{font-size:12.5px;color:var(--fg);border:1px solid var(--line-strong);border-radius:999px;padding:1px 10px;background:var(--surface);text-decoration:none}
+.cov-more:hover,.cov-more:focus-visible{border-color:var(--gold)}

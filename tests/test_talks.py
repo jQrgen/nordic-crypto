@@ -80,11 +80,12 @@ def main():
         table = i18n.strings(lang)
         for key in KEYS:
             check(bool(table.get(key)), f"{lang} has {key}", fails)
-        check("talks/" in i18n.t(lang, "footer"), f"{lang} footer link", fails)
         check("{href}" not in i18n.t(lang, "past_talks", href="../talks/"), f"{lang} past_talks formats", fails)
         # Brand stays Nordic Crypto. The reversed name is built so this file does not contain it.
         reversed_name = "Crypto" + " Nordic"
         check(reversed_name not in table["talks_lead"] and reversed_name not in table["nav_talks"], f"{lang} brand order", fails)
+    # Talks is one of the header sections, and the footer's Sections column lists the same six.
+    check("talks" in [n for n, _k in build.NAV[:build.NAV_MAIN]], "talks in the header and the footer sections", fails)
 
     public = api_feed.public_talks()
     check(len(public) == len(rows), "api row count", fails)
@@ -104,6 +105,17 @@ def main():
         )
         body = json.load(open(os.path.join(tmp, "api/v1/talks.json"), encoding="utf-8"))
         check(body["count"] == len(rows), "talks.json count", fails)
+        linked = [item for item in body["talks"] if item.get("event_id")]
+        check(linked, "api lists a linked talk", fails)
+        check(all(item["calendar_event_id"] == item["event_id"] and not item.get("unlink_reason") for item in linked), "api event ids agree", fails)
+        unlinked = [item for item in body["talks"] if not item.get("event_id")]
+        check(unlinked and all(item.get("unlink_reason") for item in unlinked), "api keeps unlink reasons", fails)
+        previous = json.load(open(os.path.join(tmp, "api/v1/events/previous.json"), encoding="utf-8"))
+        sample = linked[0]
+        host = next(event for event in previous["events"] if event["id"] == sample["event_id"])
+        check(sample["id"] in host.get("talk_ids", []), "previous.json lists the talk", fails)
+        one_event = json.load(open(os.path.join(tmp, "api/v1/events", sample["event_id"] + ".json"), encoding="utf-8"))
+        check(sample["id"] in (one_event.get("item") or {}).get("talk_ids", []), "event document lists the talk", fails)
         check(body["talks"][0]["api_url"].endswith("/talks/" + body["talks"][0]["id"] + ".json"), "per-id url", fails)
         one = json.load(open(os.path.join(tmp, "api/v1/talks", body["talks"][0]["id"] + ".json"), encoding="utf-8"))
         check(one["item"]["id"] == body["talks"][0]["id"], "per-id file", fails)
@@ -113,6 +125,8 @@ def main():
         check(fo["count"] == 0, "FO empty file still exists", fails)
         spec = json.load(open(os.path.join(tmp, "api/v1/openapi.json"), encoding="utf-8"))
         check("Talk" in spec["components"]["schemas"], "openapi Talk", fails)
+        spec_talk = spec["components"]["schemas"]["Talk"]["properties"]
+        check("event_id" in spec_talk and "unlink_reason" in spec_talk and "talk_ids" in spec["components"]["schemas"]["Event"]["properties"], "openapi link fields", fails)
         check("/api/v1/talks.json" in spec["paths"], "openapi path", fails)
         country_param = None
         for param in spec["paths"]["/api/v1/talks/by-country/{country}.json"]["get"]["parameters"]:
@@ -144,6 +158,8 @@ def main():
             check(i18n.t(lang, "nav_talks") in html, f"{lang} nav label", fails)
             check('href="../talks/"' in html or 'href="talks/"' in html or "/talks/" in html, f"{lang} talks href", fails)
             check("Nordic Crypto" in html, f"{lang} brand", fails)
+            check('href="../calendar/' in html and "#e-" not in html, f"{lang} talk links to the event page", fails)
+            check('href="../org-chart/#' in html, f"{lang} talk links to the speaker", fails)
         # Calendar previous-events link, English and Norwegian.
         now = dt.datetime(2026, 10, 7, tzinfo=dt.timezone.utc)
         for lang in ("en", "nn"):
@@ -154,7 +170,8 @@ def main():
             check('href="../talks/"' in html, f"{lang} calendar talks link", fails)
             check(i18n.t(lang, "past_talks", href="../talks/") in html, f"{lang} calendar sentence", fails)
 
-    css = open(os.path.join(ROOT, "build.py"), encoding="utf-8").read()
+    import site_css
+    css = site_css.read("talks")   # inlined on the talks page only
     check(".talks,.talks h1" in css and "text-align:start" in css, "talks css is left aligned", fails)
     if fails:
         print(f"\n{len(fails)} failed")

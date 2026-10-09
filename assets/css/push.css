@@ -1,0 +1,9 @@
+/* Browser notifications panel in the footer. */
+.pushopt{text-align:start;margin:0 0 18px;padding:0 0 16px;border-bottom:1px solid var(--line);max-width:72ch}
+.pushopt h2{font-size:24px;margin:0 0 6px;text-align:start}
+.pushopt p,.pushopt label{text-align:start}
+.pushopt .push-topics{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:6px 16px;margin:8px 0}
+.pushopt .push-c{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;font-size:14.5px;text-align:start}
+.pushopt button.push-btn{font:inherit;font-weight:600;padding:8px 15px;border:1px solid var(--btn);border-radius:var(--r-sm);background:var(--btn);color:var(--btn-ink);cursor:pointer;text-align:start;transition:background .15s}
+.pushopt button.push-btn:hover,.pushopt button.push-btn:focus-visible{background:var(--btn-hover);border-color:var(--btn-hover)}
+.pushopt .push-status{min-height:1.3em;margin:8px 0;text-align:start}

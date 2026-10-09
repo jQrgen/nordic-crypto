@@ -3,6 +3,13 @@
 # If every exchange fails, tools/markets.py --keep-if-empty leaves the previous files.
 name: Refresh market prices
 
+# Same group as deploy.yml. A queued refresh must not cancel a site publish.
+# queue: max keeps pending runs; the default would cancel the older pending one.
+concurrency:
+  group: gh-pages-deploy
+  cancel-in-progress: false
+  queue: max
+
 on:
   schedule:
     - cron: "17 * * * *"

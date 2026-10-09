@@ -688,6 +688,179 @@ def _dedupe_exchange(rows):
     return rows
 
 
+def _dec_parts(text):
+    return _parse_decimal(text)
+
+
+def _dec_int(text, scale):
+    item = _dec_parts(text)
+    if item is None:
+        return None
+    neg, whole, frac = item
+    n = int(whole + frac.ljust(scale, "0"))
+    return -n if neg else n
+
+
+def _is_positive_decimal(text):
+    item = _dec_parts(text)
+    if item is None or item[0]:
+        return False
+    _neg, whole, frac = item
+    return bool(whole.strip("0")) or bool(frac.strip("0"))
+
+
+def _below_share(part, total, num, den):
+    """True when part/total is strictly under num/den. Non-positive part counts as under."""
+    if not _is_positive_decimal(part) or not _is_positive_decimal(total):
+        return True
+    scale = max(len(_dec_parts(part)[2]), len(_dec_parts(total)[2]))
+    p, t = _dec_int(part, scale), _dec_int(total, scale)
+    return p * den < t * num
+
+
+def _tenths_division(part, total):
+    """floor(part/total*1000), remainder, divisor. (0, 0, 1) when total is not positive."""
+    if not _is_positive_decimal(part) or not _is_positive_decimal(total):
+        return 0, 0, 1
+    scale = max(len(_dec_parts(part)[2]), len(_dec_parts(total)[2]))
+    p, t = _dec_int(part, scale), _dec_int(total, scale)
+    q, r = divmod(p * 1000, t)
+    return q, r, t
+
+
+def volume_shares(tickers, names=None, threshold=(3, 100)):
+    """Share of 24-hour quote volume per coin. One group per quote currency.
+
+    Uses volume_quote_24h only, summed across exchanges inside that currency.
+    NOK is never added to SEK, DKK or EUR. Firi's unlabeled base-asset volume
+    is not included, and a missing volume is not treated as zero. A published
+    zero is left out of the share. Coins strictly under `threshold` (default
+    3/100) are grouped as Other when at least one coin is at or above it.
+    Displayed percentages are tenths and sum to 100.0 (largest remainder).
+    """
+    names = ASSET_NAMES if names is None else names
+    num, den = threshold
+    by_quote = {}
+    for row in tickers or []:
+        base, quote = row.get("base"), row.get("quote")
+        vol = row.get("volume_quote_24h")
+        if not base or not quote or not _is_positive_decimal(vol):
+            continue
+        by_quote.setdefault(quote, {}).setdefault(base, []).append(row)
+    groups = []
+    for quote in sorted(by_quote, key=_quote_key):
+        coins = []
+        for base, rows in by_quote[quote].items():
+            rows = _dedupe_exchange(rows)
+            vols = [row.get("volume_quote_24h") for row in rows if _is_positive_decimal(row.get("volume_quote_24h"))]
+            total = sum_decimal(vols) if vols else None
+            if not _is_positive_decimal(total):
+                continue
+            fetched = [row.get("fetched_at") for row in rows if row.get("fetched_at")]
+            sources = []
+            seen = set()
+            for row in rows:
+                if not _is_positive_decimal(row.get("volume_quote_24h")):
+                    continue
+                ex = row.get("exchange") or {}
+                key = (ex.get("id") or "", row.get("source_url") or "")
+                if key in seen:
+                    continue
+                seen.add(key)
+                sources.append({"id": ex.get("id") or "", "name": ex.get("name") or ex.get("id") or "", "url": row.get("source_url") or ""})
+            sources.sort(key=lambda src: (
+                EXCHANGE_ORDER.index(src["id"]) if src["id"] in EXCHANGE_ORDER else len(EXCHANGE_ORDER),
+                src["id"],
+                src["url"],
+            ))
+            coins.append({
+                "base": base,
+                "name": names.get(base) or base,
+                "volume": total,
+                "logo_path": logo_for(base).get("logo_path"),
+                "fetched": fetched,
+                "sources": sources,
+            })
+        if not coins:
+            continue
+        grand = sum_decimal([c["volume"] for c in coins])
+        if not _is_positive_decimal(grand):
+            continue
+        scale = max(len(_dec_parts(c["volume"])[2]) for c in coins)
+        coins.sort(key=lambda c: (-_dec_int(c["volume"], scale), c["base"]))
+        large = [c for c in coins if not _below_share(c["volume"], grand, num, den)]
+        small = [c for c in coins if _below_share(c["volume"], grand, num, den)]
+        if not large:
+            large, small = coins, []
+        slices = []
+        for coin in large:
+            slices.append({
+                "base": coin["base"],
+                "name": coin["name"],
+                "volume": coin["volume"],
+                "logo_path": coin["logo_path"],
+                "other": False,
+                "members": [coin["base"]],
+            })
+        if small:
+            small_scale = max(len(_dec_parts(c["volume"])[2]) for c in small)
+            small.sort(key=lambda c: (-_dec_int(c["volume"], small_scale), c["base"]))
+            slices.append({
+                "base": None,
+                "name": None,
+                "volume": sum_decimal([c["volume"] for c in small]),
+                "logo_path": None,
+                "other": True,
+                "members": [c["base"] for c in small],
+            })
+        parts = [_tenths_division(sl["volume"], grand) for sl in slices]
+        remain = 1000 - sum(p[0] for p in parts)
+        order = list(range(len(parts)))
+
+        def _rem_key(i, j):
+            ri, di = parts[i][1], parts[i][2]
+            rj, dj = parts[j][1], parts[j][2]
+            left, right = ri * dj, rj * di
+            if left != right:
+                return -1 if left > right else 1
+            return i - j
+
+        from functools import cmp_to_key
+        order.sort(key=cmp_to_key(_rem_key))
+        tenths = [p[0] for p in parts]
+        for n in range(max(0, remain)):
+            tenths[order[n]] += 1
+        for sl, tenth in zip(slices, tenths):
+            sl["tenths"] = tenth
+            sl["pct"] = f"{tenth // 10}.{tenth % 10}"
+        fetched = [item for coin in coins for item in coin["fetched"]]
+        sources = []
+        seen = set()
+        for coin in coins:
+            for src in coin["sources"]:
+                key = (src["id"], src["url"])
+                if key in seen:
+                    continue
+                seen.add(key)
+                sources.append(src)
+        sources.sort(key=lambda src: (
+            EXCHANGE_ORDER.index(src["id"]) if src["id"] in EXCHANGE_ORDER else len(EXCHANGE_ORDER),
+            src["id"],
+            src["url"],
+        ))
+        groups.append({
+            "quote": quote,
+            "window": "24h",
+            "field": "volume_quote_24h",
+            "total": grand,
+            "updated_at": max(fetched) if fetched else None,
+            "sources": sources,
+            "threshold_pct": num,
+            "slices": slices,
+        })
+    return groups
+
+
 def aggregate_pairs(tickers, pages_base=PAGES_BASE, custom_base=CUSTOM_BASE):
     """One aggregate per base-quote pair. Quote currencies are not mixed."""
     groups = {}

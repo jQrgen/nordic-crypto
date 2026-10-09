@@ -4,6 +4,7 @@
 """
 import json
 import os
+import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -162,6 +163,149 @@ def main():
     # a total failure must not invent a last price
     if any(t.get("last") for t in markets.empty_failure("x")["tickers"]):
         fails.append("empty failure invented a price")
+
+    def row(ex, base, quote, vol, fetched=FETCHED, url="https://api.nbx.com/tickers", **extra):
+        item = {
+            "base": base, "quote": quote, "volume_quote_24h": vol,
+            "exchange": ex, "fetched_at": fetched, "source_url": url,
+        }
+        item.update(extra)
+        return item
+
+    nbx = markets.EXCHANGE_META["nbx"]
+    firi_ex = markets.EXCHANGE_META["firi"]
+    other = {"id": "other", "name": "Other", "country": "SE"}
+    shares = markets.volume_shares([
+        row(nbx, "BTC", "NOK", "50"),
+        row(nbx, "ETH", "NOK", "30"),
+        row(nbx, "XRP", "NOK", "15"),
+        row(nbx, "SOL", "NOK", "2"),
+        row(nbx, "ADA", "NOK", "2"),
+        row(nbx, "DOGE", "NOK", "1"),
+        row(firi_ex, "BTC", "NOK", None, url="https://api.firi.com/v2/markets/BTCNOK", volume_base="999"),
+        row(nbx, "ETH", "EUR", "50", url="https://api.nbx.com/tickers"),
+        row(nbx, "BTC", "NOK", "999", fetched="2026-10-05T20:00:00+00:00"),
+    ])
+    by_q = {g["quote"]: g for g in shares}
+    if list(by_q) != ["NOK", "EUR"]:
+        fails.append("share quotes mixed or ordered wrong: " + ",".join(by_q))
+    nok = by_q.get("NOK")
+    if not nok or [s["base"] for s in nok["slices"]] != ["BTC", "ETH", "XRP", None]:
+        fails.append("nok slices " + str(nok and [s["base"] for s in nok["slices"]]))
+    else:
+        check(nok["slices"][0]["volume"], "50", "deduped older nbx volume")
+        check(nok["slices"][0]["pct"], "50.0", "btc share")
+        check(nok["slices"][-1]["volume"], "5", "other sum")
+        check(nok["slices"][-1]["members"], ["ADA", "SOL", "DOGE"], "other members")
+        check(nok["slices"][-1]["pct"], "5.0", "other share")
+        if nok["slices"][0]["logo_path"] != "api/v1/markets/logos/btc.svg":
+            fails.append("share logo")
+        if sum(s["tenths"] for s in nok["slices"]) != 1000:
+            fails.append("nok tenths")
+        if nok["field"] != "volume_quote_24h" or nok["window"] != "24h" or nok["total"] != "100":
+            fails.append("nok unit " + str((nok["field"], nok["window"], nok["total"])))
+        if any(s["id"] == "firi" for s in nok["sources"]):
+            fails.append("firi base volume counted as quote volume")
+    eur = by_q.get("EUR")
+    if not eur or eur["total"] != "50" or eur["slices"][0]["pct"] != "100.0":
+        fails.append("eur chart")
+    thirds = markets.volume_shares([
+        row(nbx, "AAA", "SEK", "1"), row(nbx, "BBB", "SEK", "1"), row(nbx, "CCC", "SEK", "1"),
+    ])
+    if len(thirds) != 1 or [s["pct"] for s in thirds[0]["slices"]] != ["33.4", "33.3", "33.3"]:
+        fails.append("largest remainder " + str(thirds and [s["pct"] for s in thirds[0]["slices"]]))
+    if sum(s["tenths"] for s in thirds[0]["slices"]) != 1000:
+        fails.append("thirds tenths")
+    even = markets.volume_shares([
+        row(other, "A", "DKK", "10"), row(other, "B", "DKK", "10"),
+        row(other, "C", "DKK", "10"), row(other, "D", "DKK", "10"),
+    ], threshold=(50, 100))
+    if len(even) != 1 or any(s["other"] for s in even[0]["slices"]) or len(even[0]["slices"]) != 4:
+        fails.append("all-small should stay named")
+    zero = markets.volume_shares([row(nbx, "BTC", "NOK", "0"), row(firi_ex, "ETH", "NOK", None, volume_base="3")])
+    if zero:
+        fails.append("zero and unlabeled volume invented a chart")
+    summed = markets.volume_shares([
+        row(nbx, "BTC", "NOK", "40.00"),
+        row(other, "BTC", "NOK", "60.00", url="https://example.invalid/ticker"),
+        row(nbx, "ETH", "NOK", "10"),
+    ])
+    if not summed or summed[0]["slices"][0]["volume"] != "100.00" or [s["pct"] for s in summed[0]["slices"]] != ["90.9", "9.1"]:
+        fails.append("summed exchanges " + str(summed and [(s["base"], s["volume"], s["pct"]) for s in summed[0]["slices"]]))
+
+    import build as sitebuild
+    # Seven sections in the header; newsletter (the Subscribe/Follow button), sources, about, tip and API are in the footer and the phone menu.
+    if [n for n, _k in sitebuild.NAV] != ["", "calendar", "markets", "org-chart", "academia", "books", "talks", "newsletter", "sources", "about", "tip", "api"]:
+        fails.append("nav order")
+    if sitebuild.NAV_MAIN != 7:
+        fails.append("seven header sections")
+    sv = sitebuild._nav_html("../sv/", "../../", "markets")
+    if 'href="../../api/"' not in sv or "sv/api/" in sv:
+        fails.append("api href left the site root")
+    if 'href="../sv/markets/" aria-current=page' not in sv:
+        fails.append("markets active state")
+    labels = re.findall(r">([^<]+)</a>", sv)
+    if labels != ["News", "Calendar", "Markets", "Who&#x27;s who", "Academia", "Books", "Talks", "Newsletter", "Sources", "About", "Send a tip", "API"]:
+        fails.append("nav labels " + str(labels))
+    if sv.count('class="nav-more"') != 5 or 'class="nav-more" href="../sv/newsletter/"' not in sv or 'class="nav-more" href="../sv/markets/"' in sv:
+        fails.append("only the pages about the site are nav-more")
+    api_nav = sitebuild._nav_html("../", "../", "api")
+    if 'href="../api/" aria-current=page>API' not in api_nav:
+        fails.append("api active state")
+    translated = {
+        "sv": ["Nyheter", "Kalender", "Marknader", "Vem är vem", "Akademi", "Böcker", "Föredrag", "Nyhetsbrev", "Källor", "Om oss", "Tipsa oss", "API"],
+        "nn": ["Nyheiter", "Kalender", "Marknader", "Kven er kven", "Akademia", "Bøker", "Foredrag", "Nyheitsbrev", "Kjelder", "Om oss", "Send tips", "API"],
+        "nb": ["Nyheter", "Kalender", "Markeder", "Hvem er hvem", "Akademia", "Bøker", "Foredrag", "Nyhetsbrev", "Kilder", "Om oss", "Send tips", "API"],
+        "da": ["Nyheder", "Kalender", "Markeder", "Hvem er hvem", "Akademia", "Bøger", "Foredrag", "Nyhedsbrev", "Kilder", "Om os", "Send et tip", "API"],
+        "fi": ["Uutiset", "Kalenteri", "Markkinat", "Kuka kukin on", "Tutkimus ja opetus", "Kirjat", "Esitelmät", "Uutiskirje", "Lähteet", "Tietoa meistä", "Lähetä vinkki", "API"],
+        "is": ["Fréttir", "Viðburðir", "Markaðir", "Hver er hvað", "Rannsóknir og kennsla", "Bækur", "Erindi", "Fréttabréf", "Heimildir", "Um okkur", "Senda ábendingu", "API"],
+        "ar": ["الأخبار", "التقويم", "الأسواق", "من هو من", "الأوساط الأكاديمية", "كتب", "محاضرات", "النشرة البريدية", "المصادر", "عن الموقع", "أرسل معلومة", "API"],
+    }
+    for code, expect in translated.items():
+        sitebuild.LANG = code
+        got = re.findall(r">([^<]+)</a>", sitebuild._nav_html("../" + code + "/", "../../", "newsletter"))
+        if got != expect:
+            fails.append(code + " nav " + str(got))
+        if 'href="../' + code + '/newsletter/" aria-current=page' not in sitebuild._nav_html("../" + code + "/", "../../", "newsletter"):
+            fails.append(code + " newsletter active")
+    sitebuild.LANG = "en"
+    if "justify-content:flex-start" not in sitebuild.CSS.split("nav.main{")[1].split("}")[0]:
+        fails.append("nav not left aligned")
+    import site_css   # markets.css is inlined on the markets page only
+    dash = site_css.read("markets").split(".markets h1{")[1].split("/* end markets */")[0]
+    if "text-align:center" in dash:
+        fails.append("markets overview centered")
+    firi_ex = {"id": "firi", "name": "Firi", "country": "NO"}
+    nbx_ex = {"id": "nbx", "name": "Norwegian Block Exchange", "country": "NO"}
+    overview_rows = [
+        markets.ticker(firi_ex, "BTCNOK", "BTC", "NOK", "2026-10-07T21:50:37+00:00", "https://api.firi.com/v2/markets/BTCNOK", last="100", bid="99", ask="101", volume_base="2", change_pct="-1.5"),
+        markets.ticker(nbx_ex, "BTC-NOK", "BTC", "NOK", "2026-10-07T21:50:38+00:00", "https://api.nbx.com/tickers", last="110", bid="109", ask="111", volume_quote_24h="1000"),
+        markets.ticker(nbx_ex, "ETH-EUR", "ETH", "EUR", "2026-10-07T21:50:38+00:00", "https://api.nbx.com/tickers", last="10", volume_quote_24h="50"),
+    ]
+    overview_ex = [
+        {"id": "firi", "name": "Firi", "status": "ok", "website": "https://firi.com/", "fetched_at": "2026-10-07T21:50:37+00:00"},
+        {"id": "nbx", "name": "Norwegian Block Exchange", "status": "ok", "website": "https://nbx.com/", "fetched_at": "2026-10-07T21:50:38+00:00"},
+    ]
+    sitebuild.LANG = "en"
+    pairs = markets.aggregate_pairs(overview_rows)
+    summary = sitebuild._mk_summary_html(overview_rows, overview_ex, pairs, "../")
+    board = sitebuild._mk_board_html(overview_rows, pairs, "../")
+    if "mktile" not in summary or "Bitcoin" not in summary or "NOK" not in summary:
+        fails.append("overview tiles missing")
+    if "Firi -1.5%" not in summary and "Firi -1.50%" not in summary:
+        fails.append("change not labelled as the publishing exchange: " + summary)
+    if "1 000" not in summary or "50" not in summary:
+        fails.append("per-currency volume tiles missing")
+    if "1 050" in summary or "1050" in summary:
+        fails.append("volume summed across currencies")
+    if "window not named" not in summary:
+        fails.append("change window invented as 24h")
+    if 'id="mk-q"' not in board or "mkpairs" not in board or "105" not in board:
+        fails.append("pair table missing aggregate")
+    if "2 BTC" not in board or "24h" not in board:
+        fails.append("volume column mixed fields")
+    if "TestFlight" in summary or "TestFlight" in board:
+        fails.append("app note belongs on the page, not inside the tiles")
 
     try:
         live = markets.fetch()

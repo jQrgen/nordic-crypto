@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" role="img" aria-labelledby="title">
+  <title id="title">Nordic Crypto</title>
+  <defs>
+    <clipPath id="nc-herald-shield">
+      <path d="M2 5 H14 V10 L8 14 L2 10 Z"/>
+    </clipPath>
+  </defs>
+  <g fill="#1A1206">
+    <rect x="2" y="1" width="3" height="2"/>
+    <rect x="6" y="0" width="4" height="3"/>
+    <rect x="11" y="1" width="3" height="2"/>
+    <rect x="1" y="2" width="14" height="3"/>
+  </g>
+  <g fill="#F4C430">
+    <rect x="3" y="1" width="1" height="1"/>
+    <rect x="7" y="0" width="2" height="2"/>
+    <rect x="12" y="1" width="1" height="1"/>
+    <rect x="2" y="2" width="12" height="2"/>
+  </g>
+  <path fill="#1A1206" d="M1 4 H15 V10 L8 15 L1 10 Z"/>
+  <path fill="#F4C430" d="M2 5 H14 V10 L8 14 L2 10 Z"/>
+  <path fill="#0C447C" d="M3 6 H13 V10 L8 13 L3 10 Z"/>
+  <g clip-path="url(#nc-herald-shield)">
+    <rect x="5" y="5" width="3" height="9" fill="#F4C430"/>
+    <rect x="2" y="7" width="12" height="3" fill="#F4C430"/>
+  </g>
+  <rect x="5" y="7" width="3" height="3" fill="#C8102E"/>
+  <rect x="2" y="4" width="12" height="1" fill="#F4C430"/>
+</svg>

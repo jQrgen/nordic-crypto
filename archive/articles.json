@@ -1,7 +1,7 @@
 {
  "schema": 2,
  "site": "nordic-crypto",
- "exported_at": "2026-10-07T07:39:44+02:00",
+ "exported_at": "2026-10-08T08:02:20+02:00",
  "articles": [
   {
    "site": "nordic-crypto",
@@ -13,7 +13,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-24T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -33,7 +33,12 @@
     "is": "Sænska Safello prófar lausn sem gerir fyrirtækjum án eigin rafmyntastarfsemi kleift að bjóða kaup á rafmyntum undir MiCA-leyfi Safello."
    },
    "titles": {
-    "en": "Safello opens up so other companies can offer crypto purchases"
+    "en": "Safello opens up so other companies can offer crypto purchases",
+    "nn": "Safello opnar for at andre selskap kan tilby kryptokjøp",
+    "sv": "Safello öppnar för att andra bolag kan erbjuda kryptoköp",
+    "da": "Safello åbner for, at andre selskaber kan tilbyde kryptokøb",
+    "fi": "Safello antaa muiden yhtiöiden tarjota kryptokauppaa",
+    "is": "Safello opnar á að önnur fyrirtæki geti boðið kaup á rafmyntum"
    },
    "topics": [
     "business",
@@ -42,7 +47,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "SE"
   },
   {
@@ -55,7 +60,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-10T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -75,7 +80,12 @@
     "is": "Goobit færir BTCX úr viðskiptum fyrir eigin reikning yfir í miðlun og vísar til MiCA, sem lækkar skráðar tekjur en ekki vergan hagnað."
    },
    "titles": {
-    "en": "BTCX becomes a broker, and Goobit's reported revenue falls"
+    "en": "BTCX becomes a broker, and Goobit's reported revenue falls",
+    "nn": "BTCX blir meklar, og dei rapporterte inntektene til Goobit fell",
+    "sv": "BTCX blir mäklare, och Goobits rapporterade intäkter faller",
+    "da": "BTCX bliver mægler, og Goobits rapporterede indtægter falder",
+    "fi": "BTCX:stä tulee välittäjä, ja Goobitin raportoidut tuotot laskevat",
+    "is": "BTCX verður miðlari og tilkynntar tekjur Goobit lækka"
    },
    "topics": [
     "mica",
@@ -84,7 +94,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "SE"
   },
   {
@@ -97,7 +107,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-24T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -117,7 +127,12 @@
     "is": "Finnska Coinmotion hefur valið norska K33 til að annast stór viðskipti, samstarf tveggja norrænna fyrirtækja með MiCA-leyfi."
    },
    "titles": {
-    "en": "Coinmotion and K33 strike Nordic crypto partnership on institutional trading"
+    "en": "Coinmotion and K33 strike Nordic crypto partnership on institutional trading",
+    "nn": "Coinmotion og K33 inngår eit nordisk kryptosamarbeid om institusjonell handel",
+    "sv": "Coinmotion och K33 ingår nordiskt kryptosamarbete om institutionell handel",
+    "da": "Coinmotion og K33 indgår et nordisk kryptosamarbejde om institutionel handel",
+    "fi": "Coinmotion ja K33 aloittavat pohjoismaisen kryptoyhteistyön institutionaalisessa kaupassa",
+    "is": "Coinmotion og K33 gera norrænt rafmyntasamstarf um stofnanaviðskipti"
    },
    "topics": [
     "business",
@@ -126,7 +141,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "SE"
   },
   {
@@ -137,9 +152,9 @@
    "title": "Uppgifter: Tonåringar silvertejpade man i jakt på kryptovaluta",
    "source": "sydsvenskan.se",
    "source_name": "Sydsvenskan",
-   "published_at": "2026-10-02T07:01:00+00:00",
+   "published_at": "2026-10-02T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -159,7 +174,12 @@
     "is": "Þrír unglingar hafa verið handteknir í Lundi, grunaðir um mannrán eftir að hafa að sögn bundið mann á staðnum með límbandi til að ræna af honum rafmyntum."
    },
    "titles": {
-    "en": "Reports: teenagers duct-taped a man in hunt for cryptocurrency"
+    "en": "Reports: teenagers duct-taped a man in hunt for cryptocurrency",
+    "nn": "Opplysningar: Tenåringar sølvteipa mann i jakt på kryptovaluta",
+    "nb": "Opplysninger: Tenåringer sølvteipet mann i jakt på kryptovaluta",
+    "da": "Oplysninger: Teenagere tapede en mand med sølvtape i jagten på kryptovaluta",
+    "fi": "Tietojen mukaan teinit teippasivat miehen ilmastointiteipillä kryptovaluutan takia",
+    "is": "Upplýsingar: Unglingar bundu mann með límbandi í leit að rafmynt"
    },
    "topics": [
     "crime"
@@ -167,7 +187,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "SE"
   },
   {
@@ -180,7 +200,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-15T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -200,7 +220,12 @@
     "is": "Firi hefur starfsemi í Svíþjóð í vikunni, á markaði þar sem um 1,1 milljón manna á þegar rafmyntir."
    },
    "titles": {
-    "en": "Firi takes on the fight for 1.1 million Swedish crypto owners"
+    "en": "Firi takes on the fight for 1.1 million Swedish crypto owners",
+    "nn": "Firi tek opp kampen om 1,1 millionar svenske kryptoeigarar",
+    "sv": "Firi tar upp kampen om 1,1 miljoner svenska kryptoägare",
+    "da": "Firi tager kampen op om 1,1 millioner svenske krypto-ejere",
+    "fi": "Firi haastaa 1,1 miljoonaa ruotsalaista kryptonomistajaa",
+    "is": "Firi tekur upp baráttuna um 1,1 milljón sænskra rafmyntaeigenda"
    },
    "topics": [
     "business"
@@ -208,7 +233,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "SE"
   },
   {
@@ -221,7 +246,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-15T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -241,7 +266,12 @@
     "is": "Hilbert Finance tekur við innlánum í stöðugleikamyntum á bálkakeðjunni og lánar þær út í samstarfi við Ember Protocol."
    },
    "titles": {
-    "en": "Hilbert funds lending with on-chain deposits"
+    "en": "Hilbert funds lending with on-chain deposits",
+    "nn": "Hilbert finansierer utlån med innskot på blokkjeda",
+    "sv": "Hilbert finansierar utlåning med insättningar på blockkedjan",
+    "da": "Hilbert finansierer udlån med indskud på blockchainen",
+    "fi": "Hilbert rahoittaa luotonantoa talletuksilla lohkoketjussa",
+    "is": "Hilbert fjármagnar útlán með innstæðum á bálkakeðjunni"
    },
    "topics": [
     "defi",
@@ -250,7 +280,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "SE"
   },
   {
@@ -261,9 +291,9 @@
    "title": "Kollaps for kryptobørs",
    "source": "finansavisen",
    "source_name": "Finansavisen",
-   "published_at": "2026-09-20T07:41:00+00:00",
+   "published_at": "2026-09-20T14:40:45+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -283,7 +313,10 @@
     "is": "Norska rafmyntakauphöllin Firi aflaði 135 milljóna norskra króna árið 2024 en tapaði 44 milljónum norskra króna á fyrri helmingi þessa árs."
    },
    "titles": {
-    "en": "Collapse for crypto exchange Firi"
+    "en": "Collapse for crypto exchange Firi",
+    "sv": "Kollaps för kryptobörs",
+    "fi": "Kryptopörssi romahti",
+    "is": "Hrun hjá rafmyntakauphöll"
    },
    "topics": [
     "business"
@@ -291,7 +324,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "NO"
   },
   {
@@ -304,7 +337,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-16T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -324,7 +357,12 @@
     "is": "DNB hefur gengið til liðs við CBMT, þar sem evrópskir bankar prófa táknvæddar bankainnstæður, og bætir norsku krónunni við prófunarumhverfið."
    },
    "titles": {
-    "en": "DNB tests tokenised krone deposits with European banks"
+    "en": "DNB tests tokenised krone deposits with European banks",
+    "nn": "DNB testar tokeniserte innskot i kroner med europeiske bankar",
+    "sv": "DNB testar tokeniserade insättningar i kronor med europeiska banker",
+    "da": "DNB tester tokeniserede indskud i kroner med europæiske banker",
+    "fi": "DNB testaa tokenisoituja kruunutalletuksia eurooppalaisten pankkien kanssa",
+    "is": "DNB prófar tokeniserðar innstæður í krónum með evrópskum bönkum"
    },
    "topics": [
     "tokenisation",
@@ -333,7 +371,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "NO"
   },
   {
@@ -346,7 +384,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-07T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -366,7 +404,12 @@
     "is": "QB Europe, félag í eigu Valuno, hefur tapað kæru sinni vegna MiCA-synjunar í Svíþjóð en heldur starfseminni áfram í gegnum samstarfsaðila með leyfi."
    },
    "titles": {
-    "en": "New defeat for Valuno in the fight for a MiCA licence"
+    "en": "New defeat for Valuno in the fight for a MiCA licence",
+    "nn": "Nytt nederlag for Valuno i kampen om MiCA-løyve",
+    "sv": "Nytt nederlag för Valuno i kampen om MiCA-tillstånd",
+    "da": "Nyt nederlag for Valuno i kampen om MiCA-licens",
+    "fi": "Uusi tappio Valunolle MiCA-luvan taistelussa",
+    "is": "Nýtt ósigur fyrir Valuno í baráttunni um MiCA-leyfi"
    },
    "topics": [
     "mica",
@@ -375,7 +418,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "SE"
   },
   {
@@ -388,7 +431,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-23T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -408,7 +451,11 @@
     "is": "NBX hefur samið við Tieto Banktech um greiðslukort sem gerir viðskiptavinum kleift að nota stöðugleikamyntir í daglegum innkaupum."
    },
    "titles": {
-    "en": "NBX signs deal with Tieto for stablecoin payment card"
+    "en": "NBX signs deal with Tieto for stablecoin payment card",
+    "sv": "NBX ingår avtal med Tieto om betalkort för stablecoins",
+    "da": "NBX indgår aftale med Tieto om betalingskort til stablecoins",
+    "fi": "NBX sopii Tieton kanssa stablecoin-maksukortista",
+    "is": "NBX gerir samning við Tieto um greiðslukort fyrir stablecoins"
    },
    "topics": [
     "stablecoins",
@@ -417,7 +464,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "NO"
   },
   {
@@ -428,9 +475,9 @@
    "title": "Kryptojätten i ny kontrovers – erbjöd tjänster i Europa utan licens",
    "source": "realtid",
    "source_name": "Realtid",
-   "published_at": "2026-10-01T11:04:00+00:00",
+   "published_at": "2026-10-01T18:04:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -450,7 +497,12 @@
     "is": "Binance er til rannsóknar vegna gruns um að hafa boðið þjónustu í Evrópu án leyfisins sem nýjar rafmyntareglur ESB krefjast."
    },
    "titles": {
-    "en": "Crypto giant in new controversy: offered services in Europe without a licence"
+    "en": "Crypto giant in new controversy: offered services in Europe without a licence",
+    "nn": "Kryptokjempa i ny kontrovers – tilbaud tenester i Europa utan løyve",
+    "nb": "Kryptokjempen i ny kontrovers – tilbød tjenester i Europa uten lisens",
+    "da": "Kryptogiganten i ny kontrovers – tilbød tjenester i Europa uden licens",
+    "fi": "Kryptojätti uudessa kiistassa – tarjosi palveluja Euroopassa ilman lupaa",
+    "is": "Rafmyntarisinn í nýju deilumáli – bauð þjónustu í Evrópu án leyfis"
    },
    "topics": [
     "regulation",
@@ -459,7 +511,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "SE"
   },
   {
@@ -472,7 +524,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-15T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -492,7 +544,12 @@
     "is": "Kvarn Capital telur að samstarf þess við sænska Goobit falli utan banns MiCA við umboðsmönnum og reglna um útvistun."
    },
    "titles": {
-    "en": "Kvarn denies the Goobit deal is an agency or outsourcing arrangement"
+    "en": "Kvarn denies the Goobit deal is an agency or outsourcing arrangement",
+    "nn": "Kvarn avviser at Goobit-avtalen er eit agentforhold eller outsourcing",
+    "sv": "Kvarn tillbakavisar att Goobit-avtalet är ett agentförhållande eller outsourcing",
+    "da": "Kvarn afviser, at Goobit-aftalen er et agentforhold eller outsourcing",
+    "fi": "Kvarn kiistää, että Goobit-sopimus olisi agentuuri tai ulkoistusta",
+    "is": "Kvarn hafnar því að Goobit-samningurinn sé umboðssamband eða útvistun"
    },
    "topics": [
     "mica"
@@ -500,7 +557,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "SE"
   },
   {
@@ -513,7 +570,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-18T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -533,7 +590,12 @@
     "is": "NBX fékk MiCA-leyfi á fyrri helmingi ársins 2026, en tekjur drógust saman um 45 prósent og tap eftir skatta jókst í 16,6 milljónir norskra króna."
    },
    "titles": {
-    "en": "NBX more than doubled its half-year loss as the MiCA licence arrived"
+    "en": "NBX more than doubled its half-year loss as the MiCA licence arrived",
+    "nn": "NBX meir enn dobla tapet i halvåret då MiCA-løyvet kom",
+    "sv": "NBX mer än fördubblade förlusten det halvår MiCA-tillståndet kom",
+    "da": "NBX mere end fordoblede tabet i det halvår, hvor MiCA-licensen kom",
+    "fi": "NBX yli kaksinkertaisti tappionsa sillä puolivuotiskaudella, jona MiCA-lupa tuli",
+    "is": "NBX meira en tvöfaldaði tapið á hálfsárinu þegar MiCA-leyfið kom"
    },
    "topics": [
     "business",
@@ -542,7 +604,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "NO"
   },
   {
@@ -553,9 +615,9 @@
    "title": "Pangstart for nytt kryptofond",
    "source": "finansavisen",
    "source_name": "Finansavisen",
-   "published_at": "2026-09-28T08:01:00+00:00",
+   "published_at": "2026-09-28T15:01:08+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -575,7 +637,11 @@
     "is": "Nýr rafmyntasjóður Joakims Hannisdahl, byggður á líkani sem kom vel út í sögulegum prófunum, hefur hækkað um 39 prósent frá því hann hóf göngu sína í ágúst."
    },
    "titles": {
-    "en": "Flying start for new crypto fund"
+    "en": "Flying start for new crypto fund",
+    "sv": "Flygande start för ny kryptofond",
+    "da": "Flyvende start for ny kryptofond",
+    "fi": "Vauhdikas alku uudelle kryptorahastolle",
+    "is": "Hraðbyrjun fyrir nýjan rafmyntasjóð"
    },
    "topics": [
     "funds"
@@ -583,7 +649,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "NO"
   },
   {
@@ -596,7 +662,7 @@
    "source_name": "Finansinspektionen (SE FSA)",
    "published_at": "2026-10-01T06:00:11+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -616,7 +682,12 @@
     "is": "Í nýju áhættumati Finansinspektionen kemur fram að fjármögnun gereyðingarvopna fari líklegast fram með ólöglegri fjármálastarfsemi og sýndareignum."
    },
    "titles": {
-    "en": "Here is where the risk of financing proliferation of weapons of mass destruction is highest"
+    "en": "Here is where the risk of financing proliferation of weapons of mass destruction is highest",
+    "nn": "Her er risikoen for finansiering av spreiing av masseøydeleggingsvåpen størst",
+    "nb": "Her er risikoen for finansiering av spredning av masseødeleggelsesvåpen størst",
+    "da": "Her er risikoen for finansiering af spredning af masseødelæggelsesvåben størst",
+    "fi": "Tässä riski rahoittaa joukkotuhoaseiden leviämistä on suurin",
+    "is": "Hér er áhættan af því að fjármagna útbreiðslu gereyðingarvopna mest"
    },
    "topics": [
     "regulation",
@@ -625,7 +696,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "SE"
   },
   {
@@ -638,7 +709,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-14T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -658,7 +729,12 @@
     "is": "Finnska Kvarn Capital leyfir norrænum fyrirtækjum að selja rafmyntaþjónustu undir MiCA-leyfi sínu og er Goobit fyrsti nafngreindi viðskiptavinurinn."
    },
    "titles": {
-    "en": "Finnish Kvarn rents out its MiCA licence to Nordic partners"
+    "en": "Finnish Kvarn rents out its MiCA licence to Nordic partners",
+    "nn": "Finske Kvarn leiger ut MiCA-løyvet sitt til nordiske partnarar",
+    "sv": "Finska Kvarn hyr ut sitt MiCA-tillstånd till nordiska partner",
+    "da": "Finske Kvarn lejer sin MiCA-tilladelse ud til nordiske partnere",
+    "fi": "Suomalainen Kvarn vuokraa MiCA-lupansa pohjoismaisille kumppaneille",
+    "is": "Finnska Kvarn leigir MiCA-leyfi sitt til norrænna samstarfsaðila"
    },
    "topics": [
     "mica",
@@ -667,7 +743,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "SE"
   },
   {
@@ -680,7 +756,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-14T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -700,7 +776,11 @@
     "is": "Bitcoinpolitisk Institutt safnar saman fræðimönnum, fulltrúum greinarinnar og stjórnmálamönnum í Ósló á ókeypis málþing um námugröft bitcoin og norska raforku."
    },
    "titles": {
-    "en": "Bitcoin mining and Norwegian power at Oslo seminar"
+    "en": "Bitcoin mining and Norwegian power at Oslo seminar",
+    "sv": "Bitcoinbrytning och norsk el på seminarium i Oslo",
+    "da": "Bitcoin-udvinding og norsk strøm på seminar i Oslo",
+    "fi": "Bitcoinin louhinta ja norjalainen sähkö Oslon seminaarissa",
+    "is": "Bitcoin-nám og norsk orka á ráðstefnu í Osló"
    },
    "topics": [
     "mining",
@@ -709,7 +789,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "NO"
   },
   {
@@ -722,7 +802,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-10T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -742,7 +822,11 @@
     "is": "Táknvæðing hjá Blockchain Sweden og úrslit Blockathon-forritunarkeppninnar settu bálkakeðjur á dagskrá í Stokkhólmi í vikunni."
    },
    "titles": {
-    "en": "Blockchain on the tech scene and on the agenda in Stockholm"
+    "en": "Blockchain on the tech scene and on the agenda in Stockholm",
+    "sv": "Blockchain på techscenen och på dagordningen i Stockholm",
+    "da": "Blockchain på techscenen og på dagsordenen i Stockholm",
+    "fi": "Lohkoketju tekniikkanäyttämöllä ja esityslistalla Tukholmassa",
+    "is": "Bálkakeðja á tæknisviðinu og á dagskrá í Stokkhólmi"
    },
    "topics": [
     "events",
@@ -751,7 +835,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "SE"
   },
   {
@@ -764,7 +848,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-17T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -784,7 +868,12 @@
     "is": "GreenMerc hefur fallið frá MiCA-kæru sinni fyrir Ijort Invest og mun þjónusta sænska viðskiptavini Trijo undir leyfi finnska Northcrypto."
    },
    "titles": {
-    "en": "GreenMerc drops MiCA appeal and uses Northcrypto's licence in Sweden"
+    "en": "GreenMerc drops MiCA appeal and uses Northcrypto's licence in Sweden",
+    "nn": "GreenMerc trekkjer MiCA-klage og bruker Northcrypto sitt løyve i Sverige",
+    "sv": "GreenMerc drar tillbaka MiCA-överklagandet och använder Northcryptos tillstånd i Sverige",
+    "da": "GreenMerc trækker MiCA-klagen tilbage og bruger Northcryptos licens i Sverige",
+    "fi": "GreenMerc peruu MiCA-valituksensa ja käyttää Northcrypton lupaa Ruotsissa",
+    "is": "GreenMerc dreg MiCA-kæru til baka og notar leyfi Northcrypto í Svíþjóð"
    },
    "topics": [
     "mica",
@@ -793,7 +882,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "SE"
   },
   {
@@ -804,9 +893,9 @@
    "title": "Krypto-jätten rundar reglerna i Europa: Riskerar att kastas ut",
    "source": "dagensps.se",
    "source_name": "Dagens PS",
-   "published_at": "2026-10-01T01:31:00+00:00",
+   "published_at": "2026-10-01T08:30:56+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -826,7 +915,12 @@
     "is": "Binance sagðist ætla að yfirgefa Evrópu, en viðskiptavinir eiga enn viðskipti og fjármálayfirvöld ESB vilja nú vita hvernig."
    },
    "titles": {
-    "en": "Crypto giant skirts the rules in Europe and risks being thrown out"
+    "en": "Crypto giant skirts the rules in Europe and risks being thrown out",
+    "nn": "Kryptokjempa går rundt reglane i Europa: Risiko for å bli kasta ut",
+    "nb": "Kryptokjempen går rundt reglene i Europa: Risikerer å bli kastet ut",
+    "da": "Kryptogiganten omgår reglerne i Europa: Risikerer at blive smidt ud",
+    "fi": "Kryptojätti kiertää Euroopan sääntöjä ja vaarana on ulosheitto",
+    "is": "Rafmyntarisinn sniðgengur reglurnar í Evrópu og á hættu á að verða rekinn út"
    },
    "topics": [
     "regulation",
@@ -835,7 +929,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "SE"
   },
   {
@@ -848,7 +942,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-17T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -868,7 +962,12 @@
     "is": "Hvorki ESMA né sænska Finansinspektionen vilja segja hvort dreifing rafmyntaþjónustu undir eigin vörumerki krefjist sérstaks MiCA-leyfis."
    },
    "titles": {
-    "en": "Two regulators won't say whether crypto distribution needs its own licence"
+    "en": "Two regulators won't say whether crypto distribution needs its own licence",
+    "nn": "To tilsyn vil ikkje seie om kryptodistribusjon krev eige løyve",
+    "sv": "Två tillsynsmyndigheter vill inte säga om kryptodistribution kräver ett eget tillstånd",
+    "da": "To tilsyn vil ikke sige, om kryptodistribution kræver egen tilladelse",
+    "fi": "Kaksi valvojaa ei sano, vaatiiko kryptojen jakelu oman luvan",
+    "is": "Tvö eftirlitsstjórnvöld vilja ekki segja hvort dreifing rafmynta krefjist sérstaks leyfis"
    },
    "topics": [
     "mica",
@@ -877,7 +976,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "FI"
   },
   {
@@ -890,7 +989,7 @@
    "source_name": "Bitcoinpolitisk institutt",
    "published_at": "2026-09-17T18:30:43+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -910,7 +1009,12 @@
     "is": "Í erindi hjá Bitcoinpolitisk Institutt í Ósló heldur Rachel Geyer hjá European Bitcoin Energy Association því fram að fyrirhugað bann Noregs við námugreftri beinist að vanda sem landið glímir ekki við."
    },
    "titles": {
-    "en": "Norway wants to ban bitcoin mining. The miners already left"
+    "en": "Norway wants to ban bitcoin mining. The miners already left",
+    "nn": "Noreg vil forby utvinning av bitcoin. Gruvearbeidarane har alt reist | Rachel Geyer, EBEA",
+    "sv": "Norge vill förbjuda bitcoinbrytning. Gruvarbetarna har redan lämnat | Rachel Geyer, EBEA",
+    "da": "Norge vil forby udvinding af bitcoin. Minearbejderne er allerede rejst | Rachel Geyer, EBEA",
+    "fi": "Norja haluaa kieltää bitcoinin louhinnan. Louhijat ovat jo lähteneet | Rachel Geyer, EBEA",
+    "is": "Noregur vill banna bitcoin-nám. Námumennirnir eru þegar farnir | Rachel Geyer, EBEA"
    },
    "topics": [
     "mining",
@@ -919,7 +1023,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "NO"
   },
   {
@@ -930,9 +1034,9 @@
    "title": "Yhteisöllisyys ja teknologia kiehtovat kryptovaluuttoihin sijoittaneita – kryptotapahtumassa iloittiin bitcoinin uudesta nousurallista",
    "source": "yle",
    "source_name": "Yle Uutiset (latest)",
-   "published_at": "2026-09-27T08:20:00+00:00",
+   "published_at": "2026-09-27T15:20:53+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -952,7 +1056,12 @@
     "is": "Á finnskum rafmyntaviðburði sögðu fjárfestar að samfélagið og tæknin dragi þá að rafmyntum, á meðan bitcoin hækkaði á ný."
    },
    "titles": {
-    "en": "Community and technology draw crypto investors: bitcoin's new rally celebrated at crypto event"
+    "en": "Community and technology draw crypto investors: bitcoin's new rally celebrated at crypto event",
+    "nn": "Fellesskap og teknologi dreg dei som har investert i kryptovaluta – på eit kryptoarrangement gledde dei seg over den nye oppgangen til bitcoin",
+    "nb": "Fellesskap og teknologi trekker dem som har investert i kryptovaluta – på et kryptoarrangement gledet de seg over bitcoins nye opptur",
+    "sv": "Gemenskap och teknik lockar dem som investerat i kryptovaluta – på ett kryptoevenemang firades bitcoins nya uppgång",
+    "da": "Fællesskab og teknologi trækker dem, der har investeret i kryptovaluta – ved et kryptoarrangement blev bitcoins nye optur fejret",
+    "is": "Samfélag og tækni heilla þá sem hafa fjárfest í rafmyntum – á rafmyntaviðburði var fagnað nýrri hækkun bitcoins"
    },
    "topics": [
     "community",
@@ -961,7 +1070,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "FI"
   },
   {
@@ -974,7 +1083,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-14T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -994,7 +1103,12 @@
     "is": "Eftir synjun sænska Finansinspektionen setur Goobit á markað Futureproof, sparnaðarvettvang fyrir bitcoin og gull, undir MiCA-leyfi finnska Kvarn Capital."
    },
    "titles": {
-    "en": "Goobit launches bitcoin and gold savings on a Finnish licence"
+    "en": "Goobit launches bitcoin and gold savings on a Finnish licence",
+    "nn": "Goobit lanserer sparing i bitcoin og gull på finsk løyve",
+    "sv": "Goobit lanserar sparande i bitcoin och guld på finsk licens",
+    "da": "Goobit lancerer opsparing i bitcoin og guld på finsk licens",
+    "fi": "Goobit tuo bitcoin- ja kultasäästämisen suomalaisella luvalla",
+    "is": "Goobit býður sparnað í bitcoin og gulli á finnsku leyfi"
    },
    "topics": [
     "mica",
@@ -1003,7 +1117,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "SE"
   },
   {
@@ -1014,9 +1128,9 @@
    "title": "Så kan Sverige användas för att finansiera kärnvapen",
    "source": "realtid",
    "source_name": "Realtid",
-   "published_at": "2026-10-02T17:00:00+00:00",
+   "published_at": "2026-10-03T05:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -1036,7 +1150,12 @@
     "is": "Fjármálaeftirlit Svíþjóðar telur að sýndareignir og ólögleg fjármálanet feli í sér mestu hættuna á að Íran og Norður-Kórea komist fram hjá refsiaðgerðum í gegnum Svíþjóð."
    },
    "titles": {
-    "en": "How Sweden can be used to finance nuclear weapons"
+    "en": "How Sweden can be used to finance nuclear weapons",
+    "nn": "Slik kan Sverige brukast til å finansiere kjernevåpen",
+    "nb": "Slik kan Sverige brukes til å finansiere kjernevåpen",
+    "da": "Sådan kan Sverige bruges til at finansiere kernevåben",
+    "fi": "Näin Ruotsia voidaan käyttää ydinaseiden rahoittamiseen",
+    "is": "Svona má nota Svíþjóð til að fjármagna kjarnavopn"
    },
    "topics": [
     "regulation",
@@ -1045,7 +1164,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "SE"
   },
   {
@@ -1058,7 +1177,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-13T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -1078,7 +1197,12 @@
     "is": "Sander Andersen hjá H100 Group segir að bitcoin-fyrirtæki sem eru minna en milljarðs dollara virði þurfi að kaupa hvert annað, því að standa í stað sé mesta áhættan."
    },
    "titles": {
-    "en": "H100 chair wants more acquisitions in the bitcoin industry"
+    "en": "H100 chair wants more acquisitions in the bitcoin industry",
+    "nn": "H100-styreleiaren vil ha fleire oppkjøp i bitcoinbransjen",
+    "sv": "H100:s styrelseordförande vill se fler förvärv i bitcoinbranschen",
+    "da": "H100-formanden vil have flere opkøb i bitcoinbranchen",
+    "fi": "H100:n hallituksen puheenjohtaja haluaa lisää yrityskauppoja bitcoin-alalla",
+    "is": "Stjórnarformaður H100 vill fleiri yfirtökur í bitcoin-geiranum"
    },
    "topics": [
     "business",
@@ -1087,7 +1211,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "SE"
   },
   {
@@ -1100,7 +1224,7 @@
    "source_name": "Finansavisen",
    "published_at": "2026-09-20T06:18:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -1120,7 +1244,11 @@
     "is": "Johanna Belitz, yfirmaður Valour á Norðurlöndum, telur að stöðugleikamyntir geti gert greiðslur milli landa mun hraðari og ódýrari."
    },
    "titles": {
-    "en": "Making the case for stablecoins"
+    "en": "Making the case for stablecoins",
+    "nn": "Slår eit slag for stablecoins",
+    "sv": "Slår ett slag för stablecoins",
+    "fi": "Puolustaa stablecoineja",
+    "is": "Berst fyrir stablecoins"
    },
    "topics": [
     "stablecoins"
@@ -1128,7 +1256,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "NO"
   },
   {
@@ -1141,7 +1269,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-30T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -1161,7 +1289,12 @@
     "is": "GreenMerc sker niður kostnað um 4,8 milljónir sænskra króna á ári á meðan Northcrypto skilar hagnaði, og fénu er beint í bankaþjónustuna Trijo One."
    },
    "titles": {
-    "en": "GreenMerc cuts SEK 4.8 million a year as Northcrypto turns a profit"
+    "en": "GreenMerc cuts SEK 4.8 million a year as Northcrypto turns a profit",
+    "nn": "GreenMerc kuttar 4,8 millionar i året – Northcrypto går med overskot",
+    "sv": "GreenMerc skär ner 4,8 miljoner om året – Northcrypto går med vinst",
+    "da": "GreenMerc skærer 4,8 millioner om året – Northcrypto giver overskud",
+    "fi": "GreenMerc leikkaa 4,8 miljoonaa vuodessa – Northcrypto tekee voittoa",
+    "is": "GreenMerc skerðir 4,8 milljónir á ári – Northcrypto skilar hagnaði"
    },
    "topics": [
     "business"
@@ -1169,7 +1302,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "SE"
   },
   {
@@ -1182,7 +1315,7 @@
    "source_name": "Finanssivalvonta",
    "published_at": "2026-06-30T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -1201,7 +1334,14 @@
     "fi": "Finanssivalvonta muistuttaa, että Suomessa palveluja tarjoavilla kryptovarapalvelujen tarjoajilla on oltava EU:n (MiCA) toimilupa.",
     "is": "Finnska fjármálaeftirlitið minnir á að þjónustuveitendur sýndareigna sem þjóna Finnlandi verða að hafa leyfi innan ESB (MiCA)."
    },
-   "titles": {},
+   "titles": {
+    "nn": "Tilbydarar av kryptoeigedelstenester i Finland må ha løyve i EU",
+    "nb": "Tilbydere av kryptoeiendeltjenester i Finland må ha tillatelse i EU",
+    "sv": "Leverantörer av kryptotillgångstjänster i Finland måste ha tillstånd i EU",
+    "da": "Udbydere af kryptoaktivtjenester i Finland skal have tilladelse i EU",
+    "fi": "Kryptovarapalvelujen tarjoajilla Suomessa on oltava toimilupa EU:ssa",
+    "is": "Þjónustuveitendur sýndareigna í Finnlandi verða að hafa leyfi í ESB"
+   },
    "topics": [
     "mica",
     "regulation"
@@ -1209,7 +1349,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "FI"
   },
   {
@@ -1220,9 +1360,9 @@
    "title": "100 år gammel lov koster danske kryptoinvestorer millioner. Nu vil minister problemet til livs",
    "source": "berlingske.dk",
    "source_name": "Berlingske",
-   "published_at": "2026-09-21T09:39:00+00:00",
+   "published_at": "2026-09-21T16:39:08+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -1242,7 +1382,12 @@
     "is": "Svar frá danska ráðherranum Jakob Engel-Schmidt sýndi hversu margir Danir greiða skatt af rafmyntafjárfestingum sem þeir hafa tapað á, sem hann kallaði „í raun alveg galið“; nú vill hann laga aldargamla regluna sem liggur að baki."
    },
    "titles": {
-    "en": "100-year-old law costs Danish crypto investors millions; minister wants to fix it"
+    "en": "100-year-old law costs Danish crypto investors millions; minister wants to fix it",
+    "nn": "100 år gammal lov kostar danske kryptoinvestorar millionar. No vil ministeren få bukt med problemet",
+    "nb": "100 år gammel lov koster danske kryptoinvestorer millioner. Nå vil ministeren få bukt med problemet",
+    "sv": "100 år gammal lag kostar danska kryptoinvesterare miljoner. Nu vill ministern få bukt med problemet",
+    "fi": "100 vuotta vanha laki maksaa tanskalaisille kryptosijoittajille miljoonia. Nyt ministeri haluaa kitkeä ongelman",
+    "is": "100 ára gömul lög kosta danska rafmyntafjárfesta milljónir. Nú vill ráðherrann ráða bót á vandanum"
    },
    "topics": [
     "tax",
@@ -1251,7 +1396,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "DK"
   },
   {
@@ -1264,7 +1409,7 @@
    "source_name": "Aftenposten",
    "published_at": "2026-10-02T11:07:26+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -1284,7 +1429,12 @@
     "is": "Þrír Norðmenn og einn Svíi hafa verið ákærðir í umfangsmiklu fíkniefnamáli með tengsl við útlönd, þar sem fíkniefni voru seld fyrir rafmyntir á myrkravefnum, að sögn ríkissaksóknaraembættisins í Suður-Noregi."
    },
    "titles": {
-    "en": "Charged with selling drugs for cryptocurrency on the dark web"
+    "en": "Charged with selling drugs for cryptocurrency on the dark web",
+    "nn": "Tiltala for narkosalg mot kryptovaluta på det mørke nettet",
+    "sv": "Åtalad för narkotikaförsäljning mot kryptovaluta på det mörka nätet",
+    "da": "Tiltalt for narkosalg mod kryptovaluta på det mørke net",
+    "fi": "Syyte huumekaupasta kryptovaluuttaa vastaan pimeässä verkossa",
+    "is": "Ákærður fyrir fíkniefnasölu gegn rafmynt á myrka vefnum"
    },
    "topics": [
     "crime"
@@ -1292,7 +1442,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "NO"
   },
   {
@@ -1303,9 +1453,9 @@
    "title": "Verdiendringer i bitcoin tynger NBX",
    "source": "e24",
    "source_name": "E24",
-   "published_at": "2026-09-18T11:36:00+00:00",
+   "published_at": "2026-09-18T18:36:49+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -1325,7 +1475,12 @@
     "is": "NBX tapaði 21,33 milljónum norskra króna fyrir skatta á fyrri helmingi ársins 2026, samanborið við 9,85 milljónir ári fyrr, og breytingar á verðmæti bitcoin drógu niðurstöðuna niður."
    },
    "titles": {
-    "en": "Bitcoin value swings weigh on NBX"
+    "en": "Bitcoin value swings weigh on NBX",
+    "nn": "Verdiendringar i bitcoin tyngjer NBX",
+    "sv": "Värdeförändringar i bitcoin tynger NBX",
+    "da": "Værdiændringer i bitcoin tynger NBX",
+    "fi": "Bitcoinin arvonmuutokset painavat NBX:ää",
+    "is": "Verðbreytingar á bitcoin þyngja NBX"
    },
    "topics": [
     "business"
@@ -1333,7 +1488,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "NO"
   },
   {
@@ -1346,7 +1501,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-08T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -1366,7 +1521,12 @@
     "is": "Norges Bank hefur nafngreint tólf fjármálastofnanir í kortlagningu sinni á táknvæðingu, en Noregur er eina norræna landið sem á enga banka í evru-stöðugleikamyntahópnum Qivalis."
    },
    "titles": {
-    "en": "Norges Bank explores tokenisation with twelve players"
+    "en": "Norges Bank explores tokenisation with twelve players",
+    "nn": "Norges Bank utforskar tokenisering med tolv aktørar",
+    "sv": "Norges Bank utforskar tokenisering med tolv aktörer",
+    "da": "Norges Bank udforsker tokenisering med tolv aktører",
+    "fi": "Norges Bank selvittää tokenisaatiota kahdentoista toimijan kanssa",
+    "is": "Norges Bank kannar tókavæðingu með tólf aðilum"
    },
    "topics": [
     "tokenisation",
@@ -1375,7 +1535,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "NO"
   },
   {
@@ -1388,7 +1548,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-13T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -1408,7 +1568,11 @@
     "is": "Skattamálaráðherra Danmerkur fundaði með fulltrúum rafmyntageirans í Kristjánsborg 17. september til að ræða skattlagningu rafmynta."
    },
    "titles": {
-    "en": "Danish tax minister meets the crypto industry at Christiansborg"
+    "en": "Danish tax minister meets the crypto industry at Christiansborg",
+    "sv": "Dansk skatteminister möter kryptobranschen på Christiansborg",
+    "da": "Dansk skatteminister møder kryptobranchen på Christiansborg",
+    "fi": "Tanskan veroministeri tapaa kryptoalan Christiansborgissa",
+    "is": "Danskur skattamálaráðherra hittir rafmyntageirann á Christiansborg"
    },
    "topics": [
     "tax",
@@ -1418,7 +1582,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "DK"
   },
   {
@@ -1429,9 +1593,9 @@
    "title": "Danskere svindlet for 89 millioner kroner på seks måneder",
    "source": "ekstrabladet.dk",
    "source_name": "Ekstra Bladet",
-   "published_at": "2026-09-22T02:58:00+00:00",
+   "published_at": "2026-09-22T09:58:59+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -1451,7 +1615,12 @@
     "is": "Danir töpuðu 89 milljónum danskra króna á fjárfestingasvikum á fyrri helmingi ársins 2026 í 1.145 skráðum málum, og rafmyntir komu við sögu í 70,6 prósentum þeirra."
    },
    "titles": {
-    "en": "Danes defrauded of DKK 89 million in six months"
+    "en": "Danes defrauded of DKK 89 million in six months",
+    "nn": "Danskar svindla for 89 millionar kroner på seks månader",
+    "nb": "Dansker svindlet for 89 millioner kroner på seks måneder",
+    "sv": "Danskar svindlade på 89 miljoner kronor på sex månader",
+    "fi": "Tanskalaisilta huijattiin 89 miljoonaa kruunua kuudessa kuukaudessa",
+    "is": "Danir sviknir um 89 milljónir króna á sex mánuðum"
    },
    "topics": [
     "crime",
@@ -1460,7 +1629,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "DK"
   },
   {
@@ -1473,7 +1642,7 @@
    "source_name": "Stortinget",
    "published_at": "2026-09-18T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -1493,7 +1662,12 @@
     "is": "Í skriflegri fyrirspurn á norska Stórþinginu er spurt hvenær ríkisstjórnin leggi fram fyrirhugað skipulagsákvæði ríkisins til að takmarka námugröft rafmynta og hvers vegna hún hafi komist að þeirri niðurstöðu að EES-samningurinn útiloki almennt bann."
    },
    "titles": {
-    "en": "Government studying a temporary ban on new crypto data centres (written question 15:3707)"
+    "en": "Government studying a temporary ban on new crypto data centres (written question 15:3707)",
+    "nn": "Regjeringa utgreier mellombels forbod mot nye kryptodatasenter (skriftleg spørsmål 15:3707)",
+    "sv": "Regeringen utreder ett tillfälligt förbud mot nya kryptodatacenter (skriftlig fråga 15:3707)",
+    "da": "Regeringen undersøger et midlertidigt forbud mod nye kryptodatacentre (skriftligt spørgsmål 15:3707)",
+    "fi": "Hallitus selvittää väliaikaista kieltoa uusille kryptodatakeskuksille (kirjallinen kysymys 15:3707)",
+    "is": "Ríkisstjórnin kannar tímabundið bann við nýjum rafmyntagagnaverum (skrifleg fyrirspurn 15:3707)"
    },
    "topics": [
     "mining",
@@ -1502,7 +1676,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "NO"
   },
   {
@@ -1513,9 +1687,9 @@
    "title": "Minister i nyt skatteopgør: Vil gøre op med »junglen af urimelige og uforståelige regler«",
    "source": "berlingske.dk",
    "source_name": "Berlingske",
-   "published_at": "2026-09-22T06:04:00+00:00",
+   "published_at": "2026-09-22T13:04:30+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -1535,7 +1709,12 @@
     "is": "Yfirferð á nærri 1.000 dönskum skattamálum vegna rafmynta leiddi í ljós villur í 23, þar á meðal einstakling sem hafði greitt meira en milljón danskra króna of mikið, og skattamálaráðherrann Jakob Engel-Schmidt lofar einfaldari reglum."
    },
    "titles": {
-    "en": "Minister in new tax showdown: wants to clear the 'jungle of unreasonable and incomprehensible rules'"
+    "en": "Minister in new tax showdown: wants to clear the 'jungle of unreasonable and incomprehensible rules'",
+    "nn": "Minister i nytt skatteoppgjer: Vil gjere opp med «jungelen av urimelege og uforståelege reglar»",
+    "nb": "Minister i nytt skatteoppgjør: Vil gjøre opp med «jungelen av urimelige og uforståelige regler»",
+    "sv": "Minister i ny skatteuppgörelse: Vill göra upp med ”djungeln av orimliga och obegripliga regler”",
+    "fi": "Ministeri uudessa verokiistassa: aikoo tehdä selvää kohtuuttomien ja käsittämättömien sääntöjen viidakosta",
+    "is": "Ráðherra í nýju skattauppgjöri: Vill taka á „frumskógi ósanngjarnra og óskiljanlegra reglna“"
    },
    "topics": [
     "tax",
@@ -1544,7 +1723,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "DK"
   },
   {
@@ -1555,9 +1734,9 @@
    "title": "Firi lanserer i Sverige – etter permitteringer og milliontap",
    "source": "shifter",
    "source_name": "Shifter",
-   "published_at": "2026-09-15T12:00:00+00:00",
+   "published_at": "2026-09-15T08:49:33+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -1577,7 +1756,12 @@
     "is": "Rafmyntakauphöllin Firi tapaði 43,6 milljónum norskra króna á fyrri helmingi ársins 2026 vegna minni viðskipta og mikils MiCA-kostnaðar og hefur fækkað starfsfólki á sama tíma og hún hefur starfsemi í Svíþjóð."
    },
    "titles": {
-    "en": "Firi launches in Sweden after layoffs and losses"
+    "en": "Firi launches in Sweden after layoffs and losses",
+    "nn": "Firi lanserer i Sverige – etter permitteringar og milliontap",
+    "sv": "Firi lanserar i Sverige – efter varsel och miljonförluster",
+    "da": "Firi lancerer i Sverige – efter fyringer og milliontab",
+    "fi": "Firi avaa Ruotsissa irtisanomisten ja miljoonatapioiden jälkeen",
+    "is": "Firi opnar í Svíþjóð eftir uppsagnir og milljónatap"
    },
    "topics": [
     "business",
@@ -1586,7 +1770,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "NO"
   },
   {
@@ -1599,7 +1783,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-22T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -1619,7 +1803,12 @@
     "is": "Danske Bank segir að enginn einn banki geti byggt upp stöðugleikamynt í evrum á eigin spýtur og að evrópskir bankar ættu saman að byggja upp valkost við dollarann í gegnum Qivalis."
    },
    "titles": {
-    "en": "Danske Bank: no bank can build a euro stablecoin alone"
+    "en": "Danske Bank: no bank can build a euro stablecoin alone",
+    "nn": "Danske Bank: Ingen bank kan byggje euro-stablecoin åleine",
+    "sv": "Danske Bank: Ingen bank kan bygga en eurostablecoin ensam",
+    "da": "Danske Bank: Ingen bank kan bygge en euro-stablecoin alene",
+    "fi": "Danske Bank: Yksikään pankki ei voi rakentaa eurostablecoinia yksin",
+    "is": "Danske Bank: Enginn banki getur byggt evru-stablecoin einn"
    },
    "topics": [
     "stablecoins",
@@ -1628,7 +1817,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "DK"
   },
   {
@@ -1639,9 +1828,9 @@
    "title": "Skal ha stjålet fra egen bedrift – brukte pengene på krypto",
    "source": "oa",
    "source_name": "Oppland Arbeiderblad",
-   "published_at": "2026-09-23T16:08:00+00:00",
+   "published_at": "2026-09-23T14:16:55+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -1661,7 +1850,12 @@
     "is": "Norskur karlmaður hefur verið ákærður fyrir stórfelldan fjárdrátt úr eigin fyrirtæki og er sagður hafa eytt fénu í rafmyntir."
    },
    "titles": {
-    "en": "Allegedly stole from his own company and spent the money on crypto"
+    "en": "Allegedly stole from his own company and spent the money on crypto",
+    "nn": "Skal ha stole frå eiga bedrift – brukte pengane på krypto",
+    "sv": "Ska ha stulit från det egna företaget och använde pengarna på krypto",
+    "da": "Skal have stjålet fra egen virksomhed og brugte pengene på krypto",
+    "fi": "Varasti väitetysti omalta firmalta ja käytti rahat kryptoihin",
+    "is": "Á að hafa stolið frá eigin fyrirtæki og notaði peningana í rafmynt"
    },
    "topics": [
     "crime"
@@ -1669,7 +1863,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "NO"
   },
   {
@@ -1680,9 +1874,9 @@
    "title": "Fant hemmelig passord: Låste opp krypto-lommeboken",
    "source": "nettavisen",
    "source_name": "Nettavisen",
-   "published_at": "2026-09-25T19:16:00+00:00",
+   "published_at": "2026-09-26T00:16:16+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -1702,7 +1896,12 @@
     "is": "Lögreglan hefur opnað rafmyntaveski NHH-nema sem ákærður er í fíkniefnamáli og fundið eignir að verðmæti nokkur hundruð þúsund króna."
    },
    "titles": {
-    "en": "Found secret password: unlocked the crypto wallet"
+    "en": "Found secret password: unlocked the crypto wallet",
+    "nn": "Fann hemmeleg passord: Låste opp kryptolommeboka",
+    "sv": "Hittade hemligt lösenord: Låste upp kryptoplånboken",
+    "da": "Fandt hemmelig adgangskode: Låste kryptopungen op",
+    "fi": "Löysi salaisen salasanan ja avasi kryptolompakon",
+    "is": "Fann leynilegt lykilorð og opnaði rafmyntaveskið"
    },
    "topics": [
     "crime"
@@ -1710,7 +1909,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "NO"
   },
   {
@@ -1721,9 +1920,9 @@
    "title": "NBX registrert som MoneyGram-agent (børsmelding, engelsk)",
    "source": "nbx-ir",
    "source_name": "NBX (børsmelding)",
-   "published_at": "2026-09-17T12:00:00+00:00",
+   "published_at": "2026-09-17T06:00:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -1743,7 +1942,12 @@
     "is": "Norwegian Block Exchange (NBX), sem skráð er á Euronext Growth Oslo, hefur verið skráð sem umboðsaðili MoneyGram International."
    },
    "titles": {
-    "en": "NBX registered as a MoneyGram agent (stock exchange release)"
+    "en": "NBX registered as a MoneyGram agent (stock exchange release)",
+    "nn": "NBX er registrert som MoneyGram-agent (børsmelding, engelsk)",
+    "sv": "NBX registrerat som MoneyGram-ombud (börsmeddelande, engelska)",
+    "da": "NBX registreret som MoneyGram-agent (børsmeddelelse, engelsk)",
+    "fi": "NBX rekisteröity MoneyGram-agentiksi (pörssitiedote, englanniksi)",
+    "is": "NBX skráð sem umboðsaðili MoneyGram (kauphallartilkynning, á ensku)"
    },
    "topics": [
     "business",
@@ -1752,7 +1956,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "NO"
   },
   {
@@ -1763,9 +1967,9 @@
    "title": "Småsparere hamstret krypto under renteuro",
    "source": "finansavisen",
    "source_name": "Finansavisen",
-   "published_at": "2026-10-05T06:06:00+00:00",
+   "published_at": "2026-10-05T13:06:17+00:00",
    "first_published_on_site": "2026-10-06T07:35:14+02:00",
-   "last_seen_on_site": "2026-10-07T07:39:44+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
    "languages": [
     "en",
     "nn",
@@ -1785,7 +1989,12 @@
     "is": "Viðskiptavinir norsku rafmyntakauphallarinnar Firi keyptu rafmyntir fyrir 16,1 milljón norskra króna meira en þeir seldu í september, en heildarviðskipti námu 313,5 milljónum króna, þrátt fyrir óróa á markaði. Bitcoin var mest keypt og margir færðu fé úr XRP yfir í bitcoin og solana; Thuc Hoang, forstjóri Firi, telur hækkandi vexti í Bandaríkjunum vera mestu áhættuna."
    },
    "titles": {
-    "en": "Norwegian retail investors kept buying crypto during rate turmoil"
+    "en": "Norwegian retail investors kept buying crypto during rate turmoil",
+    "nn": "Småspararar hamstra krypto under renteuro",
+    "sv": "Småsparare hamstrade krypto under ränteoro",
+    "da": "Småsparere hamstrede krypto under renteuro",
+    "fi": "Piensijoittajat hamstrasivat kryptoa korkoheilunnassa",
+    "is": "Smásparifólk hamstraði rafmynt í vaxtaóróa"
    },
    "topics": [
     "business"
@@ -1793,7 +2002,133 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-07T07:39:44+02:00",
+   "updated_at": "2026-10-08T08:02:20+02:00",
+   "country": "NO"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "02e9e79168d3",
+   "url": "https://www.fi.se/sv/publicerat/nyheter/2026/amla-foreslar-tre-tekniska-standarder-enligt-penningtvattsforordningen/",
+   "canonical_url": "https://fi.se/sv/publicerat/nyheter/2026/amla-foreslar-tre-tekniska-standarder-enligt-penningtvattsforordningen",
+   "title": "Amla föreslår tre tekniska standarder enligt penningtvättsförordningen",
+   "source": "fi-se",
+   "source_name": "Finansinspektionen (SE FSA)",
+   "published_at": "2026-10-05T13:53:01+00:00",
+   "first_published_on_site": "2026-10-08T08:02:20+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
+   "languages": [
+    "en",
+    "nn",
+    "nb",
+    "sv",
+    "da",
+    "fi",
+    "is"
+   ],
+   "summaries": {
+    "en": "The EU anti-money-laundering authority AMLA has sent three final draft technical standards under the new AML regulation to the European Commission, Sweden's Finansinspektionen reports; they still need the Commission's adoption. Under AMLA's report, crypto-asset service providers must consider whether a customer has made three or more transactions in 12 months when deciding if there is a business relationship, use a one-month window for linked transactions, and keep the €1,000 threshold for occasional transactions.",
+    "nb": "EUs hvitvaskingsmyndighet AMLA har sendt tre endelige utkast til tekniske standarder under den nye hvitvaskingsforordningen til EU-kommisjonen, melder svenske Finansinspektionen; Kommisjonen må fortsatt vedta dem. Ifølge AMLAs rapport må kryptotjenestetilbydere vurdere om en kunde har gjort tre eller flere transaksjoner på 12 måneder når de avgjør om det foreligger et kundeforhold, bruke et vindu på én måned for sammenknyttede transaksjoner og beholde terskelen på 1 000 euro for enkeltstående transaksjoner.",
+    "nn": "EUs kvitvaskingsstyresmakt AMLA har sendt tre endelege utkast til tekniske standardar under den nye kvitvaskingsforordninga til EU-kommisjonen, melder svenske Finansinspektionen; Kommisjonen må framleis vedta dei. Ifølgje rapporten til AMLA må kryptotenestetilbydarar vurdere om ein kunde har gjort tre eller fleire transaksjonar på 12 månader når dei avgjer om det ligg føre eit kundeforhold, bruke eit vindauge på éin månad for samankopla transaksjonar og halde på terskelen på 1 000 euro for enkeltståande transaksjonar.",
+    "sv": "EU:s penningtvättsmyndighet AMLA har skickat tre slutliga utkast till tekniska standarder enligt den nya penningtvättsförordningen till EU-kommissionen, rapporterar Finansinspektionen; kommissionen måste fortfarande anta dem. Enligt AMLA:s rapport ska kryptotjänsteleverantörer beakta om en kund har gjort tre eller fler transaktioner på 12 månader när de bedömer om det finns en affärsförbindelse, använda ett fönster på en månad för sammanlänkade transaktioner och behålla tröskeln på 1 000 euro för enstaka transaktioner.",
+    "da": "EU's hvidvaskmyndighed AMLA har sendt tre endelige udkast til tekniske standarder under den nye hvidvaskforordning til EU-Kommissionen, oplyser det svenske Finansinspektionen; Kommissionen skal stadig vedtage dem. Ifølge AMLA's rapport skal udbydere af kryptoaktivtjenester overveje, om en kunde har foretaget tre eller flere transaktioner på 12 måneder, når de vurderer, om der er en forretningsforbindelse, bruge et vindue på én måned for forbundne transaktioner og fastholde tærsklen på 1.000 euro for lejlighedsvise transaktioner.",
+    "fi": "EU:n rahanpesun vastainen viranomainen AMLA on lähettänyt Euroopan komissiolle kolme lopullista teknisten standardien luonnosta uuden rahanpesuasetuksen nojalla, kertoo Ruotsin Finansinspektionen; komission on vielä hyväksyttävä ne. AMLA:n raportin mukaan kryptopalvelujen tarjoajien on otettava huomioon, onko asiakas tehnyt kolme tai useampia liiketoimia 12 kuukauden aikana, kun ne arvioivat asiakassuhteen olemassaoloa, käytettävä yhden kuukauden jaksoa toisiinsa liittyville liiketoimille ja pidettävä satunnaisten liiketoimien 1 000 euron raja.",
+    "is": "Peningaþvættiseftirlit ESB, AMLA, hefur sent framkvæmdastjórn ESB þrjú endanleg drög að tæknilegum stöðlum samkvæmt nýju peningaþvættisreglugerðinni, segir sænska fjármálaeftirlitið Finansinspektionen; framkvæmdastjórnin á enn eftir að samþykkja þau. Samkvæmt skýrslu AMLA skulu þjónustuveitendur rafmynta líta til þess hvort viðskiptavinur hafi átt þrjú eða fleiri viðskipti á 12 mánuðum þegar metið er hvort viðskiptasamband sé til staðar, nota eins mánaðar tímabil fyrir tengd viðskipti og halda 1.000 evra viðmiðinu fyrir stök viðskipti."
+   },
+   "titles": {
+    "en": "EU's AML authority sends three standards to the Commission, with crypto rules"
+   },
+   "topics": [
+    "aml",
+    "regulation"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-08T08:02:20+02:00",
+   "country": "SE"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "31ee174aa583",
+   "url": "https://nyheter24.se/nyheter/inrikes/1519244-fi-varnar-for-fler-bluffaktorer",
+   "canonical_url": "https://nyheter24.se/nyheter/inrikes/1519244-fi-varnar-for-fler-bluffaktorer",
+   "title": "30 nya namn på varningslistan – akta dig för företagen",
+   "source": "nyheter24.se",
+   "source_name": "Nyheter24",
+   "published_at": "2026-10-06T08:33:27+00:00",
+   "first_published_on_site": "2026-10-08T08:02:20+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
+   "languages": [
+    "en",
+    "nn",
+    "nb",
+    "sv",
+    "da",
+    "fi",
+    "is"
+   ],
+   "summaries": {
+    "en": "Sweden's Finansinspektionen has warned against 30 more firms that look legitimate but lack a licence; several lure consumers with trading in shares, crypto and currencies, and some are clone firms using details of real financial companies. FI has now warned against 227 suspected investment-fraud operators so far in 2026 and urges people to check its company register before sending money.",
+    "nb": "Finansinspektionen i Sverige advarer mot 30 nye aktører som ser seriøse ut, men mangler tillatelse; flere lokker med handel i aksjer, krypto og valuta, og noen er klonselskaper som bruker opplysninger fra ekte finansselskaper. FI har dermed advart mot 227 aktører som mistenkes for investeringsbedrageri hittil i 2026, og ber folk sjekke selskapsregisteret før de overfører penger.",
+    "nn": "Finansinspektionen i Sverige åtvarar mot 30 nye aktørar som ser seriøse ut, men manglar løyve; fleire lokkar med handel i aksjar, krypto og valuta, og nokre er klonselskap som brukar opplysningar frå ekte finansselskap. FI har dermed åtvara mot 227 aktørar som er mistenkte for investeringssvindel så langt i 2026, og ber folk sjekke selskapsregisteret før dei overfører pengar.",
+    "sv": "Finansinspektionen varnar för 30 nya aktörer som ser seriösa ut men saknar tillstånd; flera lockar med handel i aktier, krypto och valutor, och några är klonföretag som använder uppgifter från riktiga finansbolag. FI har därmed varnat för 227 aktörer som misstänks för investeringsbedrägerier hittills under 2026 och uppmanar alla att kontrollera företagsregistret innan de för över pengar.",
+    "da": "Det svenske Finansinspektionen advarer mod 30 nye aktører, der ser seriøse ud, men mangler tilladelse; flere lokker med handel i aktier, krypto og valuta, og nogle er klonselskaber, der bruger oplysninger fra rigtige finansielle virksomheder. FI har dermed advaret mod 227 aktører, der mistænkes for investeringssvindel, indtil videre i 2026 og opfordrer folk til at tjekke virksomhedsregistret, før de overfører penge.",
+    "fi": "Ruotsin Finansinspektionen varoittaa 30 uudesta toimijasta, jotka näyttävät luotettavilta mutta joilla ei ole toimilupaa; useat houkuttelevat kuluttajia osake-, krypto- ja valuuttakaupalla, ja osa on klooniyrityksiä, jotka käyttävät oikeiden rahoitusyhtiöiden tietoja. FI on näin varoittanut vuonna 2026 jo 227 toimijasta, joita epäillään sijoituspetoksista, ja kehottaa tarkistamaan yritysrekisterin ennen rahan siirtämistä.",
+    "is": "Sænska fjármálaeftirlitið Finansinspektionen varar við 30 nýjum aðilum sem virðast traustir en hafa ekki starfsleyfi; nokkrir lokka neytendur með viðskiptum með hlutabréf, rafmyntir og gjaldeyri, og sumir eru klónfyrirtæki sem nota upplýsingar frá raunverulegum fjármálafyrirtækjum. FI hefur þar með varað við 227 aðilum sem grunaðir eru um fjárfestingarsvik það sem af er 2026 og hvetur fólk til að kanna fyrirtækjaskrána áður en það millifærir peninga."
+   },
+   "titles": {
+    "en": "Swedish regulator warns against 30 more fake investment firms"
+   },
+   "topics": [
+    "crime",
+    "consumer protection"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-08T08:02:20+02:00",
+   "country": "SE"
+  },
+  {
+   "site": "nordic-crypto",
+   "id": "e88e8e0c9a77",
+   "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/",
+   "canonical_url": "https://stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s",
+   "title": "Rødt foreslår midlertidig stans for nye datasentre",
+   "source": "stortinget",
+   "source_name": "Stortinget",
+   "published_at": "2026-10-05T12:00:00+00:00",
+   "first_published_on_site": "2026-10-08T08:02:20+02:00",
+   "last_seen_on_site": "2026-10-08T08:02:20+02:00",
+   "languages": [
+    "en",
+    "nn",
+    "nb",
+    "sv",
+    "da",
+    "fi",
+    "is"
+   ],
+   "summaries": {
+    "en": "The Red Party (Rødt) has proposed in the Storting a temporary halt for new data centres, along with a licensing regime and other measures. Its reasoning says crypto-mining data centres get power ahead of key local industries and that the crypto-mining ban the Storting has asked for three times in two years is still not in place, though none of the proposals singles out crypto.",
+    "nb": "Rødt har foreslått på Stortinget en midlertidig stans for nye datasentre, sammen med en konsesjonsordning og andre tiltak. Begrunnelsen sier at datasentre som utvinner kryptovaluta får strømtilgang foran hjørnesteinsbedrifter, og at kryptoforbudet Stortinget har bedt om tre ganger på to år fortsatt ikke er på plass, men ingen av forslagene gjelder krypto særskilt.",
+    "nn": "Raudt har føreslått på Stortinget ein mellombels stans for nye datasenter, saman med ei konsesjonsordning og andre tiltak. Grunngjevinga seier at datasenter som utvinn kryptovaluta får straumtilgang framfor hjørnesteinsbedrifter, og at kryptoforbodet Stortinget har bede om tre gonger på to år framleis ikkje er på plass, men ingen av forslaga gjeld krypto særskilt.",
+    "sv": "Rødt har i Stortinget föreslagit ett tillfälligt stopp för nya datacenter, tillsammans med ett tillståndssystem och andra åtgärder. Motiveringen säger att datacenter som utvinner kryptovaluta får elanslutning före viktiga lokala industrier och att kryptoförbudet som Stortinget har begärt tre gånger på två år fortfarande inte är på plats, men inget av förslagen gäller specifikt krypto.",
+    "da": "Rødt har i Stortinget foreslået et midlertidigt stop for nye datacentre sammen med en tilladelsesordning og andre tiltag. Begrundelsen siger, at datacentre, der udvinder kryptovaluta, får strømadgang før vigtige lokale virksomheder, og at det kryptoforbud, som Stortinget har bedt om tre gange på to år, stadig ikke er på plads, men ingen af forslagene handler specifikt om krypto.",
+    "fi": "Norjan Punainen puolue (Rødt) on ehdottanut suurkäräjillä uusien datakeskusten väliaikaista pysäyttämistä sekä lupajärjestelmää ja muita toimia. Perustelujen mukaan kryptovaluuttaa louhivat datakeskukset saavat sähköliittymän ennen tärkeitä paikallisia yrityksiä, eikä suurkäräjien kolmesti kahdessa vuodessa pyytämää kryptolouhinnan kieltoa ole yhä otettu käyttöön, mutta mikään ehdotuksista ei koske erityisesti kryptoa.",
+    "is": "Rauði flokkurinn (Rødt) hefur lagt til á Stórþinginu tímabundna stöðvun nýrra gagnavera, ásamt leyfiskerfi og öðrum aðgerðum. Í rökstuðningnum segir að gagnaver sem grafa eftir rafmyntum fái rafmagnstengingu á undan mikilvægum fyrirtækjum í heimabyggð og að bann við rafmyntagreftri, sem Stórþingið hefur þrisvar beðið um á tveimur árum, sé enn ekki komið á, en engin tillagnanna snýr sérstaklega að rafmyntum."
+   },
+   "titles": {
+    "en": "Red Party proposes a temporary halt for new data centres"
+   },
+   "topics": [
+    "mining",
+    "policy"
+   ],
+   "removed": 0,
+   "removed_at": null,
+   "removal_reason": null,
+   "updated_at": "2026-10-08T08:02:20+02:00",
    "country": "NO"
   }
  ],
@@ -2475,6 +2810,30 @@
    "site": "nordic-crypto",
    "id": "fb9e8ca4fb40",
    "at": "2026-10-06T07:35:14+02:00",
+   "event": "published",
+   "detail": null
+  },
+  {
+   "seq": 86,
+   "site": "nordic-crypto",
+   "id": "31ee174aa583",
+   "at": "2026-10-08T08:02:20+02:00",
+   "event": "published",
+   "detail": null
+  },
+  {
+   "seq": 87,
+   "site": "nordic-crypto",
+   "id": "02e9e79168d3",
+   "at": "2026-10-08T08:02:20+02:00",
+   "event": "published",
+   "detail": null
+  },
+  {
+   "seq": 88,
+   "site": "nordic-crypto",
+   "id": "e88e8e0c9a77",
+   "at": "2026-10-08T08:02:20+02:00",
    "event": "published",
    "detail": null
   }

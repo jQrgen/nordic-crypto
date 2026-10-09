@@ -1,9 +1,0 @@
-{
-  "name": "nordic-crypto-tip-intake",
-  "private": true,
-  "type": "module",
-  "description": "Private tip intake for Nordic Crypto. Cloudflare Worker + D1. Not the public GitHub issue form.",
-  "scripts": {
-    "test": "node --test test/worker.test.mjs"
-  }
-}

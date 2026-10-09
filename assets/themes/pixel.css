@@ -1,0 +1,54 @@
+/* Markets: an 8-bit monster-battle handheld. Chunky pixel borders, HP bars on each coin, our own pixel creatures
+   bouncing on battle platforms, a dialogue box that types out the page title, and a screen flash on load. */
+html{background:#F8F8E8}
+body.th-pixel{--bg:#F8F8E8;--surface:#FFFFFF;--fg:#181818;--muted:#4A4A4A;--line:#181818;--line-strong:#181818;--soft:#E8F0D8;--panel:#E8F0D8;--foam:#C8E0A0;
+  --accent:#E83838;--on-accent:#fff;--gold:#F8C030;--gold-ink:#9A6A00;--on-gold:#181818;--focus:#3858E8;--brand-w:#F8C030;
+  --band:#E83838;--band-deep:#B82020;--band-ink:#FFFFFF;--band-muted:#FFE0E0;--band-line:rgb(255 255 255 / .35);--band-rule:#181818;
+  --btn:#3858E8;--btn-hover:#2038B8;--btn-ink:#fff;--up:#1F8A2E;--down:#C42020;
+  --f-display:var(--f-mono);--f-ui:var(--f-mono);--r:0px;--r-sm:0px;--r-xs:0px;
+  --shadow:4px 4px 0 #181818;--shadow-lg:6px 6px 0 #181818;--lattice:none;color-scheme:light;
+  background:linear-gradient(#F8F8E8 0 82%,#D8F0B0 82% 100%) fixed;image-rendering:pixelated}
+.th-pixel h1,.th-pixel h2,.th-pixel h3{text-transform:uppercase;letter-spacing:.04em;font-weight:700}
+.th-pixel main h1{text-shadow:3px 3px 0 #F8C030,6px 6px 0 #181818;animation:px-drop .6s steps(6) both}
+.th-pixel main h1::before{height:8px;width:96px;background:repeating-linear-gradient(90deg,#E83838 0 8px,#181818 8px 16px);border-radius:0}
+@keyframes px-drop{from{transform:translateY(-40px);opacity:0}to{transform:none;opacity:1}}
+.th-pixel .mktile,.th-pixel .card,.th-pixel table,.th-pixel .mkboard,.th-pixel .mkdash{border:4px solid #181818!important;border-radius:0!important;box-shadow:inset -4px -4px 0 #D0D0C0,6px 6px 0 #181818!important;background:#fff}
+.th-pixel .mktile{padding-bottom:30px}
+.th-pixel .mktile::before{height:6px}
+.th-pixel .mktile:hover{transform:translate(-3px,-3px);box-shadow:inset -4px -4px 0 #D0D0C0,9px 9px 0 #181818!important;animation:px-hop .35s steps(3)}
+@keyframes px-hop{50%{transform:translate(-3px,-9px)}}
+.th-pixel .mktile .k img{animation:px-idle 1.2s steps(2) infinite;image-rendering:pixelated}
+@keyframes px-idle{50%{transform:translateY(-3px)}}
+.th-pixel .mktile .px{font-family:var(--f-mono);font-size:24px}
+.th-pixel .px-hp{position:absolute;left:14px;right:14px;bottom:10px;display:flex;align-items:center;gap:6px;font:700 10px var(--f-mono)}
+.th-pixel .px-hp b{background:#181818;color:#F8C030;padding:1px 4px}
+.th-pixel .px-hp span{flex:1;height:9px;border:2px solid #181818;background:#505050;position:relative}
+.th-pixel .px-hp i{position:absolute;inset:0 auto 0 0;width:0;background:#48D048;transition:width 1.4s steps(14)}
+.th-pixel .px-hp i.mid{background:#F8C030}.th-pixel .px-hp i.low{background:#E83838;animation:px-blink .5s steps(1) infinite}
+@keyframes px-blink{50%{opacity:.3}}
+.th-pixel th{background:#3858E8;color:#fff}
+.th-pixel tr:nth-child(even) td{background:#F0F8E0}
+.th-pixel tbody tr:hover td{background:#FFF0A0}
+.th-pixel header.top{border-bottom:6px solid #181818;box-shadow:0 6px 0 #B82020}
+.th-pixel footer{background:#181818}
+/* decoration */
+.th-pixel .px-flash{position:absolute;inset:0;background:#fff;animation:px-flash 1s steps(4) forwards;z-index:3}
+@keyframes px-flash{0%,40%{opacity:1}20%,60%{opacity:0}50%{opacity:1}100%{opacity:0;visibility:hidden}}
+.th-pixel .px-arena{position:absolute;right:16px;bottom:118px;width:330px;height:220px}
+.th-pixel .px-plat{position:absolute;height:26px;border-radius:50%;background:#A8D878;border:4px solid #181818;box-shadow:inset 0 -8px 0 #78B048}
+.th-pixel .px-plat1{right:0;bottom:120px;width:160px}.th-pixel .px-plat2{left:0;bottom:0;width:190px}
+.th-pixel .px-mon{animation:px-bob 1s steps(2) infinite}
+.th-pixel .px-coin{right:44px;bottom:138px;animation-duration:.9s}
+.th-pixel .px-roo{left:24px;bottom:18px;transform:scaleX(-1);animation-name:px-bobflip}
+.th-pixel .px-bat{right:150px;bottom:90px;animation:px-fly 3.2s ease-in-out infinite}
+@keyframes px-bob{50%{transform:translateY(-6px)}}
+@keyframes px-bobflip{0%,100%{transform:scaleX(-1)}50%{transform:scaleX(-1) translateY(-6px)}}
+@keyframes px-fly{0%,100%{transform:translate(0,0)}25%{transform:translate(-30px,-22px)}50%{transform:translate(10px,-40px)}75%{transform:translate(30px,-14px)}}
+.th-pixel .px-box{position:absolute;right:16px;bottom:16px;width:330px;min-height:86px;background:#fff;border:4px solid #181818;box-shadow:inset 0 0 0 4px #fff,inset 0 0 0 8px #3858E8;padding:16px 20px;font:700 13px/1.5 var(--f-mono);color:#181818;text-transform:uppercase}
+.th-pixel .px-next{position:absolute;right:14px;bottom:8px;color:#E83838;animation:px-blink .7s steps(1) infinite}
+.th-pixel .px-clouds i{position:absolute;width:64px;height:16px;background:#E4ECF4;box-shadow:16px -12px 0 #E4ECF4,32px -12px 0 #E4ECF4,24px -20px 0 #E4ECF4,0 4px 0 #C8D4E0,48px 0 0 #E4ECF4;animation:px-cloud linear infinite}
+.th-pixel .px-clouds i:nth-child(1){top:16%;animation-duration:60s}.th-pixel .px-clouds i:nth-child(2){top:34%;animation-duration:85s;animation-delay:-30s}.th-pixel .px-clouds i:nth-child(3){top:9%;animation-duration:110s;animation-delay:-70s}
+@keyframes px-cloud{from{left:-140px}to{left:110%}}
+.th-pixel .px-clouds{opacity:.9}
+@media (max-width:1100px){.th-pixel .px-arena,.th-pixel .px-box{transform:scale(.7);transform-origin:bottom right}.th-pixel .px-box{bottom:10px}}
+@media (max-width:760px){.th-pixel .px-arena{display:none}.th-pixel .px-box{display:none}}

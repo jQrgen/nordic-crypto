@@ -1,0 +1,17 @@
+/* Front page and stories: the serious one. The Våpen look stays as it is; the hero band gets a slow aurora,
+   the shield breathes, gold rules draw in and story cards rise into place as you scroll. */
+body.th-aurora .hero::before{content:"";position:absolute;inset:-40% -10%;z-index:-1;pointer-events:none;
+  background:radial-gradient(40% 50% at 20% 30%,rgb(126 227 184 / .42),transparent 70%),radial-gradient(35% 45% at 70% 20%,rgb(217 160 52 / .32),transparent 70%),radial-gradient(45% 40% at 50% 80%,rgb(90 160 220 / .34),transparent 70%);
+  filter:blur(30px);animation:au-drift 18s ease-in-out infinite alternate}
+@keyframes au-drift{0%{transform:translate(-4%,0) rotate(0)}50%{transform:translate(5%,-4%) rotate(4deg)}100%{transform:translate(-2%,3%) rotate(-3deg)}}
+body.th-aurora .brandmark{animation:au-breathe 5s ease-in-out infinite}
+@keyframes au-breathe{50%{transform:scale(1.06);filter:drop-shadow(0 0 8px rgb(217 160 52 / .6))}}
+body.th-aurora main h1::before,body.th-aurora .hero h1::before{animation:au-rule 1.2s .2s cubic-bezier(.2,.8,.2,1) both;transform-origin:left}
+@keyframes au-rule{from{transform:scaleX(0)}}
+body.th-aurora .au-glow i{position:absolute;width:40vw;height:40vw;border-radius:50%;filter:blur(80px);opacity:.10;animation:au-float 30s ease-in-out infinite alternate}
+body.th-aurora .au-glow i:nth-child(1){left:-10vw;top:40vh;background:#D9A034}
+body.th-aurora .au-glow i:nth-child(2){right:-12vw;top:70vh;background:#1E9A8A;animation-delay:-12s}
+@keyframes au-float{to{transform:translate(8vw,-20vh) scale(1.2)}}
+body.th-aurora .leadstory{position:relative;overflow:hidden}
+body.th-aurora .leadstory::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgb(240 241 236 / .08) 50%,transparent 60%) -100% 0/200% 100% no-repeat;animation:au-sheen 7s 1.5s ease-in-out infinite;pointer-events:none}
+@keyframes au-sheen{0%{background-position:-100% 0}35%,100%{background-position:200% 0}}

@@ -1,6 +1,0 @@
-{
-  "_how_to": "Public values only. No secrets. enabled stays false until the Worker is deployed and turnstile_sitekey is set, then the site is rebuilt. While enabled is false, /tip/ shows an opening-soon notice and no form. endpoint is the Worker URL the form posts to. turnstile_sitekey is the public Turnstile site key.",
-  "enabled": false,
-  "endpoint": "https://tips.nordiccrypto.no",
-  "turnstile_sitekey": ""
-}
