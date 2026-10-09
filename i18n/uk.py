@@ -68,7 +68,7 @@ S = {
 "sum_pending": "Очікує перевірки редактора – короткий виклад англійською ще не написано. Читайте матеріал у джерелі.",
 "sum_fallback": "",
 "lang_Norwegian": "норвезькою", "lang_Swedish": "шведською", "lang_Danish": "данською", "lang_Finnish": "фінською", "lang_Icelandic": "ісландською", "lang_English": "англійською",
-"lname_Norwegian": "Норвезька", "lname_Swedish": "Шведська", "lname_Danish": "Данська", "lname_Finnish": "Фінська", "lname_Icelandic": "Ісландська", "lname_English": "Англійська",
+"lname_Norwegian": "норвезька", "lname_Swedish": "шведська", "lname_Danish": "данська", "lname_Finnish": "фінська", "lname_Icelandic": "ісландська", "lname_English": "англійська",
 "topic_bitcoin": "Біткоїн", "topic_blockchain": "Блокчейн", "topic_crypto": "Криптовалюти", "topic_regulation": "Регулювання", "topic_companies": "Компанії",
 "topic_mica": "MiCA", "topic_aml": "ПВК/ФТ", "topic_defi": "DeFi", "topic_nft": "NFT", "topic_cbdc": "CBDC",
 # countries / cities
