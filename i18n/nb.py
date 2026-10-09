@@ -488,5 +488,23 @@ S.update({
 "books_eds": "(red.)",
 "books_source": "Sjekket i",
 "books_empty": "Ingen bøker er ført opp ennå.",
-"books_notice": "Mangler det en bok, eller er noe feil? Si fra via <a href=\"../about/#corrections\">rettelser</a>. Vi fører bare opp utgitte bøker, ikke manus, og lenker hver av dem til en katalog eller forlaget."
+"books_notice": "Mangler det en bok, eller er noe feil? Si fra via <a href=\"../about/#corrections\">rettelser</a>. Vi fører bare opp utgitte bøker, ikke manus, og lenker hver av dem til en katalog eller forlaget.",
+# open-source developers page (/developers/)
+"dev_nav": "Utviklere",
+"dev_title": "Utviklere med åpen kildekode – krypto i Norden",
+"dev_desc": "Utviklere, protokollingeniører og forskere i nordisk krypto som publiserer kryptorelatert kode åpent, med GitHub- og GitLab-profiler og repoene og prosjektene som viser arbeidet.",
+"dev_h1": "Utviklere med åpen kildekode",
+"dev_lead": "Utviklere, protokollingeniører og forskere i nordisk krypto som publiserer kryptorelatert kode åpent. Hver oppføring lenker til personens kodeprofil og til repoene eller prosjektene som viser arbeidet.",
+"dev_rule": "Hvem som er med: en teknisk person med tilknytning til Norden og offentlig kryptorelatert kode, det vil si minst ett offentlig kryptorepo som er personens eget og ikke en fork, eller innflettede commits eller pull requests i et offentlig kryptoprosjekt (Bitcoin, Nexa, Ethereum og andre kjeder, lommebøker, Lightning, noder, smartkontrakter, kryptografi brukt i krypto). Annen åpen kildekode teller ikke alene. Stjerner og tall er fra datoen det ble sjekket.",
+"dev_preview": "Forhåndsvisning: {n} personer venter på redaktørens gjennomgang (merket). Det offentlige nettstedet viser bare godkjente personer.",
+"dev_empty": "Ingen utviklere er godkjent for den offentlige listen ennå. Redaktøren sjekker hver oppføring før den vises.",
+"dev_n": "{n} personer",
+"dev_n1": "1 person",
+"dev_whoswho": "I Hvem er hvem",
+"dev_stars": "{n} stjerner",
+"dev_prs": "{n} innflettede pull requests",
+"dev_commits": "{n} commits",
+"dev_nordic": "Nordisk tilknytning",
+"dev_org_link": "Utviklere med åpen kildekode",
+"dev_notice": "Mangler det noen, eller er noe feil? Si fra via <a href=\"../about/#corrections\">rettelser</a>. Vi viser bare offentlig, profesjonell informasjon: navnet på profilen, rolle, organisasjon, land, profillenker og offentlig kode. Ingen e-postadresser eller private opplysninger. Vil du fjernes? Samme side forklarer hvordan."
 })

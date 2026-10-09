@@ -1,0 +1,2969 @@
+{
+ "updated": "2026-10-09",
+ "_how_to": "Open-source developers page (/developers/), tools/developers.py. One row per person with public crypto-related code: at least one public, non-fork crypto repo of their own, or merged commits/pull requests in a public crypto project (Bitcoin, Nexa, Ethereum and other chains, wallets, Lightning, nodes, explorers, smart contracts, cryptographic protocols used in crypto). Unrelated open source does not count. notable: up to 3 items, kind 'contrib' (project, commits from the GitHub contributors API or GitLab, merged_prs from GitHub search) or kind 'repo' (own non-fork repo, stars, language at the check date). nordic_source: where the Nordic link is shown (the public GitHub location field unless noted). Only public professional information: no emails, no addresses, no private details. status 'pending' until the editor sets 'published' (review 'ready_for_owner': jQrgen decides). The public build shows only 'published' rows; --preview shows pending rows, marked. tools/check_dev_profiles.py re-checks the profiles against the public GitHub and GitLab APIs.",
+ "people": [
+  {
+   "id": "torkel-rogstad",
+   "name": "Torkel Rogstad",
+   "role": "Co-founder; developer",
+   "org": "Bare Bitcoin",
+   "org_id": "bare-bitcoin",
+   "whoswho_id": "torkel-rogstad",
+   "country": "NO",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/torkelrogstad",
+     "login": "torkelrogstad"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "lightningnetwork/lnd",
+     "host": "github",
+     "url": "https://github.com/lightningnetwork/lnd/pulls?q=is%3Apr+is%3Amerged+author%3Atorkelrogstad",
+     "commits": 11,
+     "merged_prs": 4
+    },
+    {
+     "kind": "repo",
+     "name": "torkelrogstad/lnd-fun",
+     "url": "https://github.com/torkelrogstad/lnd-fun",
+     "stars": 6,
+     "language": "JavaScript",
+     "description": "LND dashboard",
+     "last_push": "2018-09-10"
+    },
+    {
+     "kind": "contrib",
+     "project": "bitcoin/bitcoin",
+     "host": "github",
+     "url": "https://github.com/bitcoin/bitcoin/pulls?q=is%3Apr+is%3Amerged+author%3Atorkelrogstad",
+     "commits": 6,
+     "merged_prs": 5
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/torkelrogstad",
+    "note": "Location on the public GitHub profile: Oslo"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "jorgen-s-notland",
+   "name": "Jørgen S. Notland",
+   "role": "Developer",
+   "org": "Bitcoin Unlimited / Nexa",
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "NO",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/jQrgen",
+     "login": "jQrgen"
+    },
+    {
+     "kind": "gitlab",
+     "url": "https://gitlab.com/jQrgen",
+     "login": "jQrgen"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "nexa/libnexakotlin",
+     "host": "gitlab",
+     "url": "https://gitlab.com/nexa/libnexakotlin",
+     "commits": 81,
+     "merged_prs": null
+    },
+    {
+     "kind": "repo",
+     "name": "jQrgen/NexaWallet",
+     "url": "https://github.com/jQrgen/NexaWallet",
+     "stars": 4,
+     "language": "Kotlin",
+     "description": null,
+     "last_push": "2023-01-19"
+    },
+    {
+     "kind": "contrib",
+     "project": "nexa/nexa",
+     "host": "gitlab",
+     "url": "https://gitlab.com/nexa/nexa",
+     "commits": 9,
+     "merged_prs": null
+    }
+   ],
+   "nordic_source": {
+    "url": "https://jqrgen.github.io/presentations/",
+    "note": "Oslo; runs Nordic Crypto (see About)"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "ready_for_owner",
+   "note": "Runs Nordic Crypto: owner decision (ready_for_owner), not the editor's."
+  },
+  {
+   "id": "dagur-valberg-johannsson",
+   "name": "Dagur Valberg Johannsson",
+   "role": "Developer",
+   "org": "Valberg Consulting",
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "NO",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/dagurval",
+     "login": "dagurval"
+    },
+    {
+     "kind": "gitlab",
+     "url": "https://gitlab.com/dagurval",
+     "login": "dagurval"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "nexa/rostrum",
+     "host": "gitlab",
+     "url": "https://gitlab.com/nexa/rostrum",
+     "commits": 676,
+     "merged_prs": null
+    },
+    {
+     "kind": "repo",
+     "name": "dagurval/doublespend.cash",
+     "url": "https://github.com/dagurval/doublespend.cash",
+     "stars": 17,
+     "language": "Python",
+     "description": "Website for tracking double spends on the Bitcoin Cash network",
+     "last_push": "2020-10-02"
+    },
+    {
+     "kind": "contrib",
+     "project": "bitcoin-cash-node/bitcoin-cash-node",
+     "host": "github",
+     "url": "https://github.com/bitcoin-cash-node/bitcoin-cash-node/commits?author=dagurval",
+     "commits": 377,
+     "merged_prs": 0
+    }
+   ],
+   "nordic_source": {
+    "url": "https://no.linkedin.com/in/dagur",
+    "note": "Public LinkedIn profile: Trondheim, Norway"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor",
+   "note": "Most active on GitLab (gitlab.com/dagurval)."
+  },
+  {
+   "id": "havard-anda-winninge",
+   "name": "Håvard Anda Winninge",
+   "role": "Developer",
+   "org": "Enode",
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "NO",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/estensen",
+     "login": "estensen"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "paradigmxyz/reth",
+     "host": "github",
+     "url": "https://github.com/paradigmxyz/reth/pulls?q=is%3Apr+is%3Amerged+author%3Aestensen",
+     "commits": 28,
+     "merged_prs": 28
+    },
+    {
+     "kind": "repo",
+     "name": "estensen/lrs",
+     "url": "https://github.com/estensen/lrs",
+     "stars": 6,
+     "language": "Go",
+     "description": "Linkable Ring Signatures",
+     "last_push": "2021-11-17"
+    },
+    {
+     "kind": "contrib",
+     "project": "ethereum/go-ethereum",
+     "host": "github",
+     "url": "https://github.com/ethereum/go-ethereum/pulls?q=is%3Apr+is%3Amerged+author%3Aestensen",
+     "commits": 14,
+     "merged_prs": 14
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/estensen",
+    "note": "Location on the public GitHub profile: Oslo"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "andreas-schjonhaug",
+   "name": "Andreas Schjønhaug",
+   "role": "Developer",
+   "org": "Schjønhaug AS",
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "NO",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/schjonhaug",
+     "login": "schjonhaug"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "btcpayserver/btcpayserver",
+     "host": "github",
+     "url": "https://github.com/btcpayserver/btcpayserver/pulls?q=is%3Apr+is%3Amerged+author%3Aschjonhaug",
+     "commits": 4,
+     "merged_prs": 2
+    },
+    {
+     "kind": "repo",
+     "name": "schjonhaug/canary",
+     "url": "https://github.com/schjonhaug/canary",
+     "stars": 16,
+     "language": "Rust",
+     "description": "Bitcoin monitoring tool with transaction alerts and intelligent balance notifications. Set custom balance thresholds, monitor wallet drains, track all transactions - all with watch-only security.",
+     "last_push": "2026-10-09"
+    },
+    {
+     "kind": "contrib",
+     "project": "lightningnetwork/lnd",
+     "host": "github",
+     "url": "https://github.com/lightningnetwork/lnd/pulls?q=is%3Apr+is%3Amerged+author%3Aschjonhaug",
+     "commits": 3,
+     "merged_prs": 3
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/schjonhaug",
+    "note": "Location on the public GitHub profile: Oslo, Norway"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "brage",
+   "name": "Brage",
+   "role": "Developer",
+   "org": "smlXL",
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "NO",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/2xic",
+     "login": "2xic"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "repo",
+     "name": "2xic/evm-bytecode-transpiler-to-venom-ir",
+     "url": "https://github.com/2xic/evm-bytecode-transpiler-to-venom-ir",
+     "stars": 14,
+     "language": "Python",
+     "description": "WIP transpiler: EVM bytecode -> 🐍 IR -> EVM bytecode",
+     "last_push": "2025-04-27"
+    },
+    {
+     "kind": "repo",
+     "name": "2xic/tinyeth",
+     "url": "https://github.com/2xic/tinyeth",
+     "stars": 12,
+     "language": "TypeScript",
+     "description": "Gives you a taste of the Ethereum protocol. ",
+     "last_push": "2023-03-12"
+    },
+    {
+     "kind": "repo",
+     "name": "2xic/Bitcoin-lib-small",
+     "url": "https://github.com/2xic/Bitcoin-lib-small",
+     "stars": 0,
+     "language": "Go",
+     "description": "Gives you a taste of the Bitcoin protocol. ",
+     "last_push": "2019-08-10"
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/2xic",
+    "note": "Location on the public GitHub profile: Norway"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor",
+   "note": "GitHub shows a first name only."
+  },
+  {
+   "id": "gjermund-garaba",
+   "name": "Gjermund Garaba",
+   "role": "Developer",
+   "org": "Cosmos Labs",
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "NO",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/gjermundgaraba",
+     "login": "gjermundgaraba"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "cosmos/cosmos-sdk",
+     "host": "github",
+     "url": "https://github.com/cosmos/cosmos-sdk/pulls?q=is%3Apr+is%3Amerged+author%3Agjermundgaraba",
+     "commits": 4,
+     "merged_prs": 6
+    },
+    {
+     "kind": "repo",
+     "name": "gjermundgaraba/solo-machine-go",
+     "url": "https://github.com/gjermundgaraba/solo-machine-go",
+     "stars": 2,
+     "language": "Go",
+     "description": "A simple IBC solo machine written in Go.",
+     "last_push": "2024-04-29"
+    },
+    {
+     "kind": "repo",
+     "name": "gjermundgaraba/nft-cli",
+     "url": "https://github.com/gjermundgaraba/nft-cli",
+     "stars": 2,
+     "language": "Go",
+     "description": null,
+     "last_push": "2023-06-18"
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/gjermundgaraba",
+    "note": "Location on the public GitHub profile: Norway"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "erik-grinaker",
+   "name": "Erik Grinaker",
+   "role": "Developer",
+   "org": null,
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "NO",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/erikgrinaker",
+     "login": "erikgrinaker"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "tendermint/tendermint",
+     "host": "github",
+     "url": "https://github.com/tendermint/tendermint/pulls?q=is%3Apr+is%3Amerged+author%3Aerikgrinaker",
+     "commits": null,
+     "merged_prs": 219
+    },
+    {
+     "kind": "contrib",
+     "project": "cosmos/cosmos-sdk",
+     "host": "github",
+     "url": "https://github.com/cosmos/cosmos-sdk/pulls?q=is%3Apr+is%3Amerged+author%3Aerikgrinaker",
+     "commits": 7,
+     "merged_prs": 8
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/erikgrinaker",
+    "note": "Location on the public GitHub profile: Oslo, Norway"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "jakob-lind",
+   "name": "Jakob Lind",
+   "role": "Developer",
+   "org": "Hatfactory",
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "NO",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/jakoblind",
+     "login": "jakoblind"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "monero-project/monero",
+     "host": "github",
+     "url": "https://github.com/monero-project/monero/pulls?q=is%3Apr+is%3Amerged+author%3Ajakoblind",
+     "commits": 9,
+     "merged_prs": 2
+    },
+    {
+     "kind": "repo",
+     "name": "jakoblind/bitcoinrpc",
+     "url": "https://github.com/jakoblind/bitcoinrpc",
+     "stars": 9,
+     "language": "Scala",
+     "description": "Scala library for doing JSON RPC commands to the official Bitcoin-QT application",
+     "last_push": "2014-01-29"
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/jakoblind",
+    "note": "Location on the public GitHub profile: Oslo, Norway"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "haakon",
+   "name": "Haakon",
+   "role": "Developer",
+   "org": null,
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "NO",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/haakonn",
+     "login": "haakonn"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "sparrowwallet/sparrow",
+     "host": "github",
+     "url": "https://github.com/sparrowwallet/sparrow/pulls?q=is%3Apr+is%3Amerged+author%3Ahaakonn",
+     "commits": 5,
+     "merged_prs": 3
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/haakonn",
+    "note": "Location on the public GitHub profile: Norway"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor",
+   "note": "GitHub shows a first name only."
+  },
+  {
+   "id": "hampus-sjoberg",
+   "name": "Hampus Sjöberg",
+   "role": "Developer, Blixt Wallet",
+   "org": null,
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "SE",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/hsjoberg",
+     "login": "hsjoberg"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "hsjoberg/blixt-wallet",
+     "host": "github",
+     "url": "https://github.com/hsjoberg/blixt-wallet/commits?author=hsjoberg",
+     "commits": 1238,
+     "merged_prs": null
+    },
+    {
+     "kind": "repo",
+     "name": "hsjoberg/fork-explorer",
+     "url": "https://github.com/hsjoberg/fork-explorer",
+     "stars": 125,
+     "language": "TypeScript",
+     "description": "Check how a BIP9-like softfork signalling goes",
+     "last_push": "2026-08-10"
+    },
+    {
+     "kind": "contrib",
+     "project": "lightningnetwork/lnd",
+     "host": "github",
+     "url": "https://github.com/lightningnetwork/lnd/pulls?q=is%3Apr+is%3Amerged+author%3Ahsjoberg",
+     "commits": 17,
+     "merged_prs": 11
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/hsjoberg",
+    "note": "Location on the public GitHub profile: Stockholm, Sweden"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "martin-holst-swende",
+   "name": "Martin Holst Swende",
+   "role": "Developer, go-ethereum; security lead",
+   "org": "Ethereum Foundation",
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "SE",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/holiman",
+     "login": "holiman"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "ethereum/go-ethereum",
+     "host": "github",
+     "url": "https://github.com/ethereum/go-ethereum/pulls?q=is%3Apr+is%3Amerged+author%3Aholiman",
+     "commits": 826,
+     "merged_prs": 791
+    },
+    {
+     "kind": "repo",
+     "name": "holiman/goevmlab",
+     "url": "https://github.com/holiman/goevmlab",
+     "stars": 314,
+     "language": "Go",
+     "description": "Evm laboratory",
+     "last_push": "2026-10-04"
+    },
+    {
+     "kind": "contrib",
+     "project": "ethereum/EIPs",
+     "host": "github",
+     "url": "https://github.com/ethereum/EIPs/pulls?q=is%3Apr+is%3Amerged+author%3Aholiman",
+     "commits": 50,
+     "merged_prs": 32
+    }
+   ],
+   "nordic_source": {
+    "url": "https://coindesk.com/markets/2016/09/20/nasdaq-veteran-joins-ethereum-foundation-as-security-lead",
+    "note": "CoinDesk (2016): Swedish security specialist joins the Ethereum Foundation"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "kalle-rosenbaum",
+   "name": "Kalle Rosenbaum",
+   "role": "Developer and author",
+   "org": null,
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "SE",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/kallerosenbaum",
+     "login": "kallerosenbaum"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "bitcoin/bips",
+     "host": "github",
+     "url": "https://github.com/bitcoin/bips/pulls?q=is%3Apr+is%3Amerged+author%3Akallerosenbaum",
+     "commits": 27,
+     "merged_prs": 10
+    },
+    {
+     "kind": "repo",
+     "name": "kallerosenbaum/grokkingbitcoin",
+     "url": "https://github.com/kallerosenbaum/grokkingbitcoin",
+     "stars": 308,
+     "language": "HTML",
+     "description": "Source repository for Grokking Bitcoin",
+     "last_push": "2024-07-04"
+    },
+    {
+     "kind": "repo",
+     "name": "kallerosenbaum/bitcoin-iblt",
+     "url": "https://github.com/kallerosenbaum/bitcoin-iblt",
+     "stars": 12,
+     "language": "Java",
+     "description": "A project for experimenting with ibltj and bitcoinj",
+     "last_push": "2022-04-27"
+    }
+   ],
+   "nordic_source": {
+    "url": "https://www.en.sus.se/news/bitcoin-as-censor-resistant-currency-with-kalle-rosenbaum",
+    "note": "Stockholm University student union: Swedish bitcoin expert"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "marcofalke",
+   "name": "MarcoFalke",
+   "role": "Bitcoin Core contributor",
+   "org": null,
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "SE",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/maflcko",
+     "login": "maflcko"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "bitcoin/bitcoin",
+     "host": "github",
+     "url": "https://github.com/bitcoin/bitcoin/pulls?q=is%3Apr+is%3Amerged+author%3Amaflcko",
+     "commits": 9,
+     "merged_prs": 2325
+    },
+    {
+     "kind": "repo",
+     "name": "maflcko/DrahtBot",
+     "url": "https://github.com/maflcko/DrahtBot",
+     "stars": 26,
+     "language": "Rust",
+     "description": "Experimental bot scripts to help to maintain Bitcoin Core (or other large open source projects).",
+     "last_push": "2026-10-05"
+    },
+    {
+     "kind": "repo",
+     "name": "maflcko/b-c-cov",
+     "url": "https://github.com/maflcko/b-c-cov",
+     "stars": 20,
+     "language": null,
+     "description": "Bitcoin Core coverage report",
+     "last_push": "2026-10-09"
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/maflcko",
+    "note": "Location on the public GitHub profile: Malmö, Sweden"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor",
+   "note": "GitHub shows no display name; MarcoFalke is the handle used in Bitcoin Core."
+  },
+  {
+   "id": "thomas-arts",
+   "name": "Thomas Arts",
+   "role": "Developer",
+   "org": "Quviq",
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "SE",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/ThomasArts",
+     "login": "ThomasArts"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "aeternity/aeternity",
+     "host": "github",
+     "url": "https://github.com/aeternity/aeternity/pulls?q=is%3Apr+is%3Amerged+author%3AThomasArts",
+     "commits": 402,
+     "merged_prs": 172
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/ThomasArts",
+    "note": "Location on the public GitHub profile: Gothenburg"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "ulf-wiger",
+   "name": "Ulf Wiger",
+   "role": "Developer",
+   "org": "Wiger Pilotti Unlimited",
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "SE",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/uwiger",
+     "login": "uwiger"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "aeternity/aeternity",
+     "host": "github",
+     "url": "https://github.com/aeternity/aeternity/pulls?q=is%3Apr+is%3Amerged+author%3Auwiger",
+     "commits": 315,
+     "merged_prs": 252
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/uwiger",
+    "note": "Location on the public GitHub profile: Sweden"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "tobias-lindahl",
+   "name": "Tobias Lindahl",
+   "role": "Developer",
+   "org": "Happi Hacking",
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "SE",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/gorillainduction",
+     "login": "gorillainduction"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "aeternity/aeternity",
+     "host": "github",
+     "url": "https://github.com/aeternity/aeternity/pulls?q=is%3Apr+is%3Amerged+author%3Agorillainduction",
+     "commits": 240,
+     "merged_prs": 154
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/gorillainduction",
+    "note": "Location on the public GitHub profile: Stockholm, Sweden"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "erik-stenman",
+   "name": "Erik Stenman",
+   "role": "Developer",
+   "org": "Happi Hacking",
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "SE",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/happi",
+     "login": "happi"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "aeternity/aeternity",
+     "host": "github",
+     "url": "https://github.com/aeternity/aeternity/pulls?q=is%3Apr+is%3Amerged+author%3Ahappi",
+     "commits": 68,
+     "merged_prs": 63
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/happi",
+    "note": "Location on the public GitHub profile: Stockholm, Sweden"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "richard-carlsson",
+   "name": "Richard Carlsson",
+   "role": "Developer",
+   "org": null,
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "SE",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/richcarl",
+     "login": "richcarl"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "aeternity/aeternity",
+     "host": "github",
+     "url": "https://github.com/aeternity/aeternity/pulls?q=is%3Apr+is%3Amerged+author%3Arichcarl",
+     "commits": 31,
+     "merged_prs": 21
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/richcarl",
+    "note": "Location on the public GitHub profile: Sweden"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "mans-af-klercker",
+   "name": "Måns af Klercker",
+   "role": "Developer",
+   "org": null,
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "SE",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/klercker",
+     "login": "klercker"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "aeternity/aeternity",
+     "host": "github",
+     "url": "https://github.com/aeternity/aeternity/pulls?q=is%3Apr+is%3Amerged+author%3Aklercker",
+     "commits": 20,
+     "merged_prs": 19
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/klercker",
+    "note": "Location on the public GitHub profile: Stockholm, Sweden"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "robert-virding",
+   "name": "Robert Virding",
+   "role": "Developer",
+   "org": "Erlang Solutions",
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "SE",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/rvirding",
+     "login": "rvirding"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "aeternity/aeternity",
+     "host": "github",
+     "url": "https://github.com/aeternity/aeternity/pulls?q=is%3Apr+is%3Amerged+author%3Arvirding",
+     "commits": 18,
+     "merged_prs": 19
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/rvirding",
+    "note": "Location on the public GitHub profile: Stockholm, Sweden"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "jia-wang",
+   "name": "Jia Wang",
+   "role": "Developer",
+   "org": null,
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "SE",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/myotp",
+     "login": "myotp"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "aeternity/aeternity",
+     "host": "github",
+     "url": "https://github.com/aeternity/aeternity/pulls?q=is%3Apr+is%3Amerged+author%3Amyotp",
+     "commits": 6,
+     "merged_prs": 2
+    },
+    {
+     "kind": "repo",
+     "name": "myotp/waellet",
+     "url": "https://github.com/myotp/waellet",
+     "stars": 3,
+     "language": "Elixir",
+     "description": "A simple aeternity wallet without any dependencies",
+     "last_push": "2023-11-14"
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/myotp",
+    "note": "Location on the public GitHub profile: Stockholm"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "colin-axner",
+   "name": "colin axnér",
+   "role": "Developer",
+   "org": null,
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "SE",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/colin-axner",
+     "login": "colin-axner"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "cosmos/ibc-go",
+     "host": "github",
+     "url": "https://github.com/cosmos/ibc-go/pulls?q=is%3Apr+is%3Amerged+author%3Acolin-axner",
+     "commits": null,
+     "merged_prs": 411
+    },
+    {
+     "kind": "contrib",
+     "project": "cosmos/cosmos-sdk",
+     "host": "github",
+     "url": "https://github.com/cosmos/cosmos-sdk/pulls?q=is%3Apr+is%3Amerged+author%3Acolin-axner",
+     "commits": 186,
+     "merged_prs": 193
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/colin-axner",
+    "note": "Location on the public GitHub profile: stockholm"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "maximilian-algehed",
+   "name": "Maximilian Algehed",
+   "role": "Developer",
+   "org": "Quviq",
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "SE",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/MaximilianAlgehed",
+     "login": "MaximilianAlgehed"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "input-output-hk/cardano-ledger",
+     "host": "github",
+     "url": "https://github.com/input-output-hk/cardano-ledger/commits?author=MaximilianAlgehed",
+     "commits": 133,
+     "merged_prs": null
+    },
+    {
+     "kind": "contrib",
+     "project": "IntersectMBO/plutus",
+     "host": "github",
+     "url": "https://github.com/IntersectMBO/plutus/pulls?q=is%3Apr+is%3Amerged+author%3AMaximilianAlgehed",
+     "commits": 20,
+     "merged_prs": 10
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/MaximilianAlgehed",
+    "note": "Location on the public GitHub profile: Gothenburg"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "agustin-mista",
+   "name": "Agustín Mista",
+   "role": "Developer",
+   "org": "Tweag",
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "SE",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/agustinmista",
+     "login": "agustinmista"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "input-output-hk/cardano-ledger",
+     "host": "github",
+     "url": "https://github.com/input-output-hk/cardano-ledger/commits?author=agustinmista",
+     "commits": 15,
+     "merged_prs": null
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/agustinmista",
+    "note": "Location on the public GitHub profile: Gothenburg, Sweden"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "niklas-adolfsson",
+   "name": "Niklas Adolfsson",
+   "role": "Developer",
+   "org": null,
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "SE",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/niklasad1",
+     "login": "niklasad1"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "paritytech/jsonrpsee",
+     "host": "github",
+     "url": "https://github.com/paritytech/jsonrpsee/pulls?q=is%3Apr+is%3Amerged+author%3Aniklasad1",
+     "commits": null,
+     "merged_prs": 430
+    },
+    {
+     "kind": "contrib",
+     "project": "paritytech/polkadot-sdk",
+     "host": "github",
+     "url": "https://github.com/paritytech/polkadot-sdk/pulls?q=is%3Apr+is%3Amerged+author%3Aniklasad1",
+     "commits": 86,
+     "merged_prs": 26
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/niklasad1",
+    "note": "Location on the public GitHub profile: Borås, Sweden"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "jon-haggblad",
+   "name": "Jon Häggblad",
+   "role": "Developer",
+   "org": null,
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "SE",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/octol",
+     "login": "octol"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "paritytech/polkadot-sdk",
+     "host": "github",
+     "url": "https://github.com/paritytech/polkadot-sdk/commits?author=octol",
+     "commits": 23,
+     "merged_prs": 0
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/octol",
+    "note": "Location on the public GitHub profile: Stockholm"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "david",
+   "name": "David",
+   "role": "Developer",
+   "org": null,
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "SE",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/dvdplm",
+     "login": "dvdplm"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "paritytech/polkadot-sdk",
+     "host": "github",
+     "url": "https://github.com/paritytech/polkadot-sdk/commits?author=dvdplm",
+     "commits": 21,
+     "merged_prs": 0
+    },
+    {
+     "kind": "repo",
+     "name": "dvdplm/crypto-bigint-asm",
+     "url": "https://github.com/dvdplm/crypto-bigint-asm",
+     "stars": 0,
+     "language": "Rust",
+     "description": "Assembly routines for use with crypto-bigint",
+     "last_push": "2025-11-24"
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/dvdplm",
+    "note": "Location on the public GitHub profile: Stockholm, Sweden"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor",
+   "note": "GitHub shows a first name only."
+  },
+  {
+   "id": "monica-jin",
+   "name": "Monica Jin",
+   "role": "Developer",
+   "org": "Parity Technologies",
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "SE",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/mokita-j",
+     "login": "mokita-j"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "paritytech/polkadot-sdk",
+     "host": "github",
+     "url": "https://github.com/paritytech/polkadot-sdk/pulls?q=is%3Apr+is%3Amerged+author%3Amokita-j",
+     "commits": 8,
+     "merged_prs": 10
+    },
+    {
+     "kind": "repo",
+     "name": "mokita-j/eth-tracestat",
+     "url": "https://github.com/mokita-j/eth-tracestat",
+     "stars": 0,
+     "language": "Python",
+     "description": "Analyze Ethereum storage slot and account access patterns",
+     "last_push": "2026-04-21"
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/mokita-j",
+    "note": "Location on the public GitHub profile: Stockholm, Sweden"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "alexander-cyon",
+   "name": "Alexander Cyon",
+   "role": "Developer",
+   "org": "Cyon Consulting",
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "SE",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/Sajjon",
+     "login": "Sajjon"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "paritytech/polkadot-sdk",
+     "host": "github",
+     "url": "https://github.com/paritytech/polkadot-sdk/pulls?q=is%3Apr+is%3Amerged+author%3ASajjon",
+     "commits": 13,
+     "merged_prs": 13
+    },
+    {
+     "kind": "repo",
+     "name": "Sajjon/EllipticCurveKit",
+     "url": "https://github.com/Sajjon/EllipticCurveKit",
+     "stars": 43,
+     "language": "Swift",
+     "description": "Elliptic Curve Cryptography in Pure Swift",
+     "last_push": "2025-03-17"
+    },
+    {
+     "kind": "repo",
+     "name": "Sajjon/Zhip",
+     "url": "https://github.com/Sajjon/Zhip",
+     "stars": 34,
+     "language": "Swift",
+     "description": "iOS Wallet for Zilliqa",
+     "last_push": "2026-05-25"
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/Sajjon",
+    "note": "Location on the public GitHub profile: Stockholm, Sweden"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "jonas-lundqvist",
+   "name": "Jonas Lundqvist",
+   "role": "Developer",
+   "org": null,
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "SE",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/jonas-lundqvist",
+     "login": "jonas-lundqvist"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "Electron-Cash/Electron-Cash",
+     "host": "github",
+     "url": "https://github.com/Electron-Cash/Electron-Cash/pulls?q=is%3Apr+is%3Amerged+author%3Ajonas-lundqvist",
+     "commits": 89,
+     "merged_prs": 81
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/jonas-lundqvist",
+    "note": "Location on the public GitHub profile: Sweden"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "martin-zachrison",
+   "name": "Martin Zachrison",
+   "role": "Developer",
+   "org": "Strawpay",
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "SE",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/cyberzac",
+     "login": "cyberzac"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "bitcoinj/bitcoinj",
+     "host": "github",
+     "url": "https://github.com/bitcoinj/bitcoinj/pulls?q=is%3Apr+is%3Amerged+author%3Acyberzac",
+     "commits": 9,
+     "merged_prs": 3
+    },
+    {
+     "kind": "repo",
+     "name": "cyberzac/bitcex",
+     "url": "https://github.com/cyberzac/bitcex",
+     "stars": 10,
+     "language": "Scala",
+     "description": "A bitcoin exchange",
+     "last_push": "2012-02-11"
+    },
+    {
+     "kind": "repo",
+     "name": "cyberzac/svenska-bitcoin",
+     "url": "https://github.com/cyberzac/svenska-bitcoin",
+     "stars": 5,
+     "language": "CSS",
+     "description": "Svenska Bitcoin",
+     "last_push": "2013-10-07"
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/cyberzac",
+    "note": "Location on the public GitHub profile: Stockholm"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "martin-erlandsson",
+   "name": "Martin Erlandsson",
+   "role": "Developer",
+   "org": "Megabit R&D",
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "SE",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/merland",
+     "login": "merland"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "bitcoin/bitcoin",
+     "host": "github",
+     "url": "https://github.com/bitcoin/bitcoin/pulls?q=is%3Apr+is%3Amerged+author%3Amerland",
+     "commits": 10,
+     "merged_prs": 9
+    },
+    {
+     "kind": "repo",
+     "name": "merland/seedpicker",
+     "url": "https://github.com/merland/seedpicker",
+     "stars": 50,
+     "language": "JavaScript",
+     "description": "Create your own BIP39 seed phrase, securely and transparently.",
+     "last_push": "2024-02-21"
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/merland",
+    "note": "Location on the public GitHub profile: Sweden"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "han-lin-yap",
+   "name": "Han Lin Yap",
+   "role": "Developer",
+   "org": null,
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "SE",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/codler",
+     "login": "codler"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "bitcoin/bitcoin",
+     "host": "github",
+     "url": "https://github.com/bitcoin/bitcoin/pulls?q=is%3Apr+is%3Amerged+author%3Acodler",
+     "commits": 10,
+     "merged_prs": 9
+    },
+    {
+     "kind": "repo",
+     "name": "codler/Bitcoin-phpMiner",
+     "url": "https://github.com/codler/Bitcoin-phpMiner",
+     "stars": 121,
+     "language": "PHP",
+     "description": "phpMiner for bitcoin",
+     "last_push": "2013-08-04"
+    },
+    {
+     "kind": "repo",
+     "name": "codler/Bitcoin-Wallet-RPC",
+     "url": "https://github.com/codler/Bitcoin-Wallet-RPC",
+     "stars": 1,
+     "language": "C#",
+     "description": "Bitcoin-Wallet-RPC on Windows",
+     "last_push": "2011-06-16"
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/codler",
+    "note": "Location on the public GitHub profile: Sweden"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "christopher-jamthagen",
+   "name": "Christopher Jämthagen",
+   "role": "Developer",
+   "org": null,
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "SE",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/cjamthagen",
+     "login": "cjamthagen"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "lightningnetwork/lnd",
+     "host": "github",
+     "url": "https://github.com/lightningnetwork/lnd/pulls?q=is%3Apr+is%3Amerged+author%3Acjamthagen",
+     "commits": 28,
+     "merged_prs": 9
+    },
+    {
+     "kind": "contrib",
+     "project": "lightning/bolts",
+     "host": "github",
+     "url": "https://github.com/lightning/bolts/pulls?q=is%3Apr+is%3Amerged+author%3Acjamthagen",
+     "commits": 9,
+     "merged_prs": 8
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/cjamthagen",
+    "note": "Location on the public GitHub profile: Sweden"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "david-hedqvist",
+   "name": "David Hedqvist",
+   "role": "Developer",
+   "org": null,
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "SE",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/davh",
+     "login": "davh"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "BlueWallet/BlueWallet",
+     "host": "github",
+     "url": "https://github.com/BlueWallet/BlueWallet/pulls?q=is%3Apr+is%3Amerged+author%3Adavh",
+     "commits": 9,
+     "merged_prs": 4
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/davh",
+    "note": "Location on the public GitHub profile: Sweden"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "jonathan-ljungek",
+   "name": "Jonathan Ljungek",
+   "role": "Developer",
+   "org": "chaptertwo.com",
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "SE",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/jonathangus",
+     "login": "jonathangus"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "repo",
+     "name": "jonathangus/eth-lisbon-2023",
+     "url": "https://github.com/jonathangus/eth-lisbon-2023",
+     "stars": 6,
+     "language": "TypeScript",
+     "description": null,
+     "last_push": "2023-05-13"
+    },
+    {
+     "kind": "repo",
+     "name": "jonathangus/swosh.cash",
+     "url": "https://github.com/jonathangus/swosh.cash",
+     "stars": 3,
+     "language": "TypeScript",
+     "description": "ETH Denver 2023 project – transfer assets with ease",
+     "last_push": "2023-03-24"
+    },
+    {
+     "kind": "repo",
+     "name": "jonathangus/web3-fullstack-starter",
+     "url": "https://github.com/jonathangus/web3-fullstack-starter",
+     "stars": 2,
+     "language": "TypeScript",
+     "description": null,
+     "last_push": "2023-02-16"
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/jonathangus",
+    "note": "Location on the public GitHub profile: Stockholm"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "jason-wong",
+   "name": "Jason Wong",
+   "role": "Developer",
+   "org": null,
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "SE",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/Jasonhcwong",
+     "login": "Jasonhcwong"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "repo",
+     "name": "Jasonhcwong/lnswaps",
+     "url": "https://github.com/Jasonhcwong/lnswaps",
+     "stars": 12,
+     "language": "JavaScript",
+     "description": "lnswaps: onchain(BTC, LTC and ETH) to offchain(Lightning) atomic swap",
+     "last_push": "2018-12-22"
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/Jasonhcwong",
+    "note": "Location on the public GitHub profile: Sweden"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "ales-bizjak",
+   "name": "Aleš Bizjak",
+   "role": "Developer",
+   "org": "Concordium",
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "DK",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/abizjak",
+     "login": "abizjak"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "Concordium/concordium-base",
+     "host": "github",
+     "url": "https://github.com/Concordium/concordium-base/pulls?q=is%3Apr+is%3Amerged+author%3Aabizjak",
+     "commits": 2701,
+     "merged_prs": 204
+    },
+    {
+     "kind": "contrib",
+     "project": "Concordium/concordium-node",
+     "host": "github",
+     "url": "https://github.com/Concordium/concordium-node/pulls?q=is%3Apr+is%3Amerged+author%3Aabizjak",
+     "commits": 2277,
+     "merged_prs": 221
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/abizjak",
+    "note": "Location on the public GitHub profile: Aarhus, Denmark"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "emil-holm-gjorup",
+   "name": "Emil Holm Gjørup",
+   "role": "Developer",
+   "org": "Concordium",
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "DK",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/limemloh",
+     "login": "limemloh"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "Concordium/concordium-base",
+     "host": "github",
+     "url": "https://github.com/Concordium/concordium-base/pulls?q=is%3Apr+is%3Amerged+author%3Alimemloh",
+     "commits": 509,
+     "merged_prs": 42
+    },
+    {
+     "kind": "contrib",
+     "project": "Concordium/concordium-node",
+     "host": "github",
+     "url": "https://github.com/Concordium/concordium-node/pulls?q=is%3Apr+is%3Amerged+author%3Alimemloh",
+     "commits": 437,
+     "merged_prs": 95
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/limemloh",
+    "note": "Location on the public GitHub profile: Thisted, Denmark"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "soren-bruus-zeppelin",
+   "name": "Søren Bruus Zeppelin",
+   "role": "Developer",
+   "org": "Concordium",
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "DK",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/soerenbf",
+     "login": "soerenbf"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "Concordium/concordium-base",
+     "host": "github",
+     "url": "https://github.com/Concordium/concordium-base/pulls?q=is%3Apr+is%3Amerged+author%3Asoerenbf",
+     "commits": 187,
+     "merged_prs": 68
+    },
+    {
+     "kind": "repo",
+     "name": "soerenbf/ccd-wallet-cli",
+     "url": "https://github.com/soerenbf/ccd-wallet-cli",
+     "stars": 1,
+     "language": "Rust",
+     "description": "A CLI wallet for Concordium",
+     "last_push": "2026-09-07"
+    },
+    {
+     "kind": "contrib",
+     "project": "Concordium/concordium-node",
+     "host": "github",
+     "url": "https://github.com/Concordium/concordium-node/pulls?q=is%3Apr+is%3Amerged+author%3Asoerenbf",
+     "commits": 127,
+     "merged_prs": 59
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/soerenbf",
+    "note": "Location on the public GitHub profile: Denmark"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "kasper-dissing-bargsteen",
+   "name": "Kasper Dissing Bargsteen",
+   "role": "Developer",
+   "org": null,
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "DK",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/Bargsteen",
+     "login": "Bargsteen"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "Concordium/concordium-base",
+     "host": "github",
+     "url": "https://github.com/Concordium/concordium-base/pulls?q=is%3Apr+is%3Amerged+author%3ABargsteen",
+     "commits": 189,
+     "merged_prs": 15
+    },
+    {
+     "kind": "repo",
+     "name": "Bargsteen/icecream-smart-contract",
+     "url": "https://github.com/Bargsteen/icecream-smart-contract",
+     "stars": 0,
+     "language": "Rust",
+     "description": "A simple demo smart contract for buying icecream–but only if the sun is shining!",
+     "last_push": "2022-02-07"
+    },
+    {
+     "kind": "contrib",
+     "project": "Concordium/concordium-node",
+     "host": "github",
+     "url": "https://github.com/Concordium/concordium-node/pulls?q=is%3Apr+is%3Amerged+author%3ABargsteen",
+     "commits": 105,
+     "merged_prs": 19
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/Bargsteen",
+    "note": "Location on the public GitHub profile: Ebeltoft, Denmark"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "marianna-rapoport",
+   "name": "Marianna Rapoport",
+   "role": "Developer",
+   "org": null,
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "DK",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/amaurremi",
+     "login": "amaurremi"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "Concordium/concordium-node",
+     "host": "github",
+     "url": "https://github.com/Concordium/concordium-node/commits?author=amaurremi",
+     "commits": 163,
+     "merged_prs": 0
+    },
+    {
+     "kind": "repo",
+     "name": "amaurremi/concordium-smart-contracts",
+     "url": "https://github.com/amaurremi/concordium-smart-contracts",
+     "stars": 0,
+     "language": "Rust",
+     "description": "Smart contract examples for Concordium blockchain",
+     "last_push": "2021-01-21"
+    },
+    {
+     "kind": "contrib",
+     "project": "Concordium/concordium-base",
+     "host": "github",
+     "url": "https://github.com/Concordium/concordium-base/commits?author=amaurremi",
+     "commits": 62,
+     "merged_prs": 0
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/amaurremi",
+    "note": "Location on the public GitHub profile: Aarhus, Denmark"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "michael-bisgaard-olesen",
+   "name": "Michael Bisgaard Olesen",
+   "role": "Developer",
+   "org": null,
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "DK",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/bisgardo",
+     "login": "bisgardo"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "Concordium/concordium-node",
+     "host": "github",
+     "url": "https://github.com/Concordium/concordium-node/pulls?q=is%3Apr+is%3Amerged+author%3Abisgardo",
+     "commits": 120,
+     "merged_prs": 28
+    },
+    {
+     "kind": "repo",
+     "name": "bisgardo/concordium-docker",
+     "url": "https://github.com/bisgardo/concordium-docker",
+     "stars": 5,
+     "language": "Dockerfile",
+     "description": "A collection of scripts and configuration files to build and deploy a containerized node for the Concordium blockchain.",
+     "last_push": "2025-05-28"
+    },
+    {
+     "kind": "contrib",
+     "project": "Concordium/concordium-base",
+     "host": "github",
+     "url": "https://github.com/Concordium/concordium-base/pulls?q=is%3Apr+is%3Amerged+author%3Abisgardo",
+     "commits": 49,
+     "merged_prs": 7
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/bisgardo",
+    "note": "Location on the public GitHub profile: Aarhus, Denmark"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "danil-annenkov",
+   "name": "Danil Annenkov",
+   "role": "Researcher and developer",
+   "org": "Concordium",
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "DK",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/annenkov",
+     "login": "annenkov"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "Concordium/concordium-base",
+     "host": "github",
+     "url": "https://github.com/Concordium/concordium-base/pulls?q=is%3Apr+is%3Amerged+author%3Aannenkov",
+     "commits": 114,
+     "merged_prs": 3
+    },
+    {
+     "kind": "repo",
+     "name": "annenkov/concordium-marlowe",
+     "url": "https://github.com/annenkov/concordium-marlowe",
+     "stars": 3,
+     "language": "Rust",
+     "description": "Marlowe interpreter and contract manager",
+     "last_push": "2023-11-10"
+    },
+    {
+     "kind": "repo",
+     "name": "annenkov/LBS",
+     "url": "https://github.com/annenkov/LBS",
+     "stars": 3,
+     "language": "LigoLANG",
+     "description": "Supplementary materials for the Language-based Security Lecture on Smart Contracts",
+     "last_push": "2022-04-22"
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/annenkov",
+    "note": "Location on the public GitHub profile: Aarhus"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "andreas-lynge",
+   "name": "Andreas Lynge",
+   "role": "Developer",
+   "org": null,
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "DK",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/andreaslyn",
+     "login": "andreaslyn"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "Concordium/concordium-node",
+     "host": "github",
+     "url": "https://github.com/Concordium/concordium-node/commits?author=andreaslyn",
+     "commits": 57,
+     "merged_prs": 0
+    },
+    {
+     "kind": "contrib",
+     "project": "Concordium/concordium-base",
+     "host": "github",
+     "url": "https://github.com/Concordium/concordium-base/pulls?q=is%3Apr+is%3Amerged+author%3Aandreaslyn",
+     "commits": 44,
+     "merged_prs": 2
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/andreaslyn",
+    "note": "Location on the public GitHub profile: Denmark"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "rasmus-kirk",
+   "name": "Rasmus Kirk",
+   "role": "Developer",
+   "org": "Concordium",
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "DK",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/rasmus-kirk",
+     "login": "rasmus-kirk"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "Concordium/concordium-base",
+     "host": "github",
+     "url": "https://github.com/Concordium/concordium-base/pulls?q=is%3Apr+is%3Amerged+author%3Arasmus-kirk",
+     "commits": 84,
+     "merged_prs": 12
+    },
+    {
+     "kind": "repo",
+     "name": "rasmus-kirk/halo-accumulation",
+     "url": "https://github.com/rasmus-kirk/halo-accumulation",
+     "stars": 2,
+     "language": "Rust",
+     "description": "A rust implementation of the Halo2 accumulation scheme from the paper \"Proof-Carrying Data from Accumulation Schemes\"",
+     "last_push": "2025-02-04"
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/rasmus-kirk",
+    "note": "Location on the public GitHub profile: Aarhus, Denmark"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "hamidreza-khoshakhlagh",
+   "name": "Hamidreza Khoshakhlagh",
+   "role": "Researcher",
+   "org": "Partisia",
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "DK",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/hamiidreza",
+     "login": "hamiidreza"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "Concordium/concordium-base",
+     "host": "github",
+     "url": "https://github.com/Concordium/concordium-base/pulls?q=is%3Apr+is%3Amerged+author%3Ahamiidreza",
+     "commits": 25,
+     "merged_prs": 1
+    },
+    {
+     "kind": "repo",
+     "name": "hamiidreza/toy-confidential-ledger",
+     "url": "https://github.com/hamiidreza/toy-confidential-ledger",
+     "stars": 1,
+     "language": "Rust",
+     "description": null,
+     "last_push": "2026-05-02"
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/hamiidreza",
+    "note": "Location on the public GitHub profile: Aarhus, Denmark"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "caro-lunemann",
+   "name": "Caro Lunemann",
+   "role": "Developer",
+   "org": "Concordium",
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "DK",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/concordium-cl",
+     "login": "concordium-cl"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "Concordium/concordium-base",
+     "host": "github",
+     "url": "https://github.com/Concordium/concordium-base/pulls?q=is%3Apr+is%3Amerged+author%3Aconcordium-cl",
+     "commits": 11,
+     "merged_prs": 3
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/concordium-cl",
+    "note": "Location on the public GitHub profile: Aarhus"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "frederik-bolding",
+   "name": "Frederik Bolding",
+   "role": "Developer",
+   "org": "MetaMask",
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "DK",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/FrederikBolding",
+     "login": "FrederikBolding"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "MetaMask/snaps",
+     "host": "github",
+     "url": "https://github.com/MetaMask/snaps/pulls?q=is%3Apr+is%3Amerged+author%3AFrederikBolding",
+     "commits": null,
+     "merged_prs": 775
+    },
+    {
+     "kind": "repo",
+     "name": "FrederikBolding/chainlist",
+     "url": "https://github.com/FrederikBolding/chainlist",
+     "stars": 717,
+     "language": "TypeScript",
+     "description": "A list of EVM-based chains that also allows you to add chains to your favorite Web3 wallet. An alternative to chainlist.org",
+     "last_push": "2026-10-09"
+    },
+    {
+     "kind": "contrib",
+     "project": "MetaMask/metamask-extension",
+     "host": "github",
+     "url": "https://github.com/MetaMask/metamask-extension/pulls?q=is%3Apr+is%3Amerged+author%3AFrederikBolding",
+     "commits": 474,
+     "merged_prs": 426
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/FrederikBolding",
+    "note": "Location on the public GitHub profile: Denmark"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "rune-k-svendsen",
+   "name": "Rune K. Svendsen",
+   "role": "Developer",
+   "org": null,
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "DK",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/runeksvendsen",
+     "login": "runeksvendsen"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "bitcoin/bitcoin",
+     "host": "github",
+     "url": "https://github.com/bitcoin/bitcoin/pulls?q=is%3Apr+is%3Amerged+author%3Aruneksvendsen",
+     "commits": 7,
+     "merged_prs": 7
+    },
+    {
+     "kind": "repo",
+     "name": "runeksvendsen/restful-payment-channel-server",
+     "url": "https://github.com/runeksvendsen/restful-payment-channel-server",
+     "stars": 29,
+     "language": "Haskell",
+     "description": "⚡ RESTful Bitcoin payment channel server",
+     "last_push": "2017-12-21"
+    },
+    {
+     "kind": "repo",
+     "name": "runeksvendsen/blockchain-restful-address-index",
+     "url": "https://github.com/runeksvendsen/blockchain-restful-address-index",
+     "stars": 19,
+     "language": "Haskell",
+     "description": "🛋 RESTful Bitcoin Core address index-wrapper",
+     "last_push": "2017-06-20"
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/runeksvendsen",
+    "note": "Location on the public GitHub profile: Copenhagen"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "nicolai-soborg",
+   "name": "Nicolai Søborg",
+   "role": "Developer",
+   "org": null,
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "DK",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/NicolaiSoeborg",
+     "login": "NicolaiSoeborg"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "ethereum/solidity",
+     "host": "github",
+     "url": "https://github.com/ethereum/solidity/commits?author=NicolaiSoeborg",
+     "commits": 38,
+     "merged_prs": null
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/NicolaiSoeborg",
+    "note": "Location on the public GitHub profile: Denmark"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "jacob-stenum-czepluch",
+   "name": "Jacob Stenum Czepluch",
+   "role": "Developer",
+   "org": "Phylax Systems",
+   "org_id": null,
+   "whoswho_id": "spk-jacob-stenum-czepluch",
+   "country": "DK",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/czepluch",
+     "login": "czepluch"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "ethereum/solidity",
+     "host": "github",
+     "url": "https://github.com/ethereum/solidity/commits?author=czepluch",
+     "commits": 5,
+     "merged_prs": null
+    },
+    {
+     "kind": "repo",
+     "name": "czepluch/pysecp256k1",
+     "url": "https://github.com/czepluch/pysecp256k1",
+     "stars": 1,
+     "language": "Python",
+     "description": "cffi wrapper for secp256k1",
+     "last_push": "2017-07-03"
+    },
+    {
+     "kind": "repo",
+     "name": "czepluch/swap-swap-swap",
+     "url": "https://github.com/czepluch/swap-swap-swap",
+     "stars": 1,
+     "language": "Python",
+     "description": "Interest Rate Swaps Smart Contract",
+     "last_push": "2017-01-05"
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/czepluch",
+    "note": "Location on the public GitHub profile: Copenhagen, Denmark"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor",
+   "note": "GitHub display name is \"jstcz\"; the who's who lists him as a speaker for Solidity."
+  },
+  {
+   "id": "soren-bredlund-caspersen",
+   "name": "Søren Bredlund Caspersen",
+   "role": "Developer",
+   "org": null,
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "DK",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/soeren-b-c",
+     "login": "soeren-b-c"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "bitcoinunlimited/BCHUnlimited",
+     "host": "gitlab",
+     "url": "https://gitlab.com/bitcoinunlimited/BCHUnlimited",
+     "commits": 68,
+     "merged_prs": null
+    },
+    {
+     "kind": "contrib",
+     "project": "bitcoin-cash-node/bitcoin-cash-node",
+     "host": "github",
+     "url": "https://github.com/bitcoin-cash-node/bitcoin-cash-node/commits?author=soeren-b-c",
+     "commits": 31,
+     "merged_prs": 0
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/soeren-b-c",
+    "note": "Location on the public GitHub profile: Denmark"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "florian-engel",
+   "name": "Florian Engel",
+   "role": "Developer",
+   "org": null,
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "DK",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/floriansengel",
+     "login": "floriansengel"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "bitcoin-cash-node/bitcoin-cash-node",
+     "host": "github",
+     "url": "https://github.com/bitcoin-cash-node/bitcoin-cash-node/commits?author=floriansengel",
+     "commits": 12,
+     "merged_prs": 0
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/floriansengel",
+    "note": "Location on the public GitHub profile: København"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "rizky-ikwan",
+   "name": "Rizky Ikwan",
+   "role": "Developer",
+   "org": null,
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "DK",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/rizkyikiw42",
+     "login": "rizkyikiw42"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "ethereum/go-ethereum",
+     "host": "github",
+     "url": "https://github.com/ethereum/go-ethereum/pulls?q=is%3Apr+is%3Amerged+author%3Arizkyikiw42",
+     "commits": 11,
+     "merged_prs": 11
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/rizkyikiw42",
+    "note": "Location on the public GitHub profile: Denmark"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "jack-hamer",
+   "name": "Jack Hamer",
+   "role": "Developer",
+   "org": "Matter Labs",
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "DK",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/JackHamer09",
+     "login": "JackHamer09"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "matter-labs/zksync-era",
+     "host": "github",
+     "url": "https://github.com/matter-labs/zksync-era/pulls?q=is%3Apr+is%3Amerged+author%3AJackHamer09",
+     "commits": 2,
+     "merged_prs": 4
+    },
+    {
+     "kind": "repo",
+     "name": "JackHamer09/zksync-plus",
+     "url": "https://github.com/JackHamer09/zksync-plus",
+     "stars": 33,
+     "language": "Vue",
+     "description": "zkSync Plus - all in one wallet for zkSync (Era + Lite)",
+     "last_push": "2023-08-03"
+    },
+    {
+     "kind": "repo",
+     "name": "JackHamer09/web3-avatar",
+     "url": "https://github.com/JackHamer09/web3-avatar",
+     "stars": 18,
+     "language": "TypeScript",
+     "description": "Web3 Avatar - lightweight JS, Vue, React, Svelte component to generate Ethereum addresses avatars",
+     "last_push": "2025-11-06"
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/JackHamer09",
+    "note": "Location on the public GitHub profile: Denmark"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "lorenzo-setale",
+   "name": "Lorenzo Setale",
+   "role": "Developer",
+   "org": null,
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "DK",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/koalalorenzo",
+     "login": "koalalorenzo"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "repo",
+     "name": "koalalorenzo/wallets",
+     "url": "https://github.com/koalalorenzo/wallets",
+     "stars": 59,
+     "language": "Go",
+     "description": "💰Multi-crypto wallets/keys generator for cold storage with built-in encryption.",
+     "last_push": "2018-10-03"
+    },
+    {
+     "kind": "repo",
+     "name": "koalalorenzo/terraforming-bitcoin",
+     "url": "https://github.com/koalalorenzo/terraforming-bitcoin",
+     "stars": 8,
+     "language": "HCL",
+     "description": "Quick and easy setup to build Bitcoin nodes with Terraform on Multiple Locations ",
+     "last_push": "2017-04-25"
+    },
+    {
+     "kind": "repo",
+     "name": "koalalorenzo/fun-blockchain",
+     "url": "https://github.com/koalalorenzo/fun-blockchain",
+     "stars": 2,
+     "language": "Go",
+     "description": "Writing a blockchain node from scratch, just for fun.",
+     "last_push": "2016-08-06"
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/koalalorenzo",
+    "note": "Location on the public GitHub profile: Copenhagen, Denmark"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "alex-pyattaev",
+   "name": "Alex Pyattaev",
+   "role": "Developer",
+   "org": "Anza",
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "FI",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/alexpyattaev",
+     "login": "alexpyattaev"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "anza-xyz/agave",
+     "host": "github",
+     "url": "https://github.com/anza-xyz/agave/pulls?q=is%3Apr+is%3Amerged+author%3Aalexpyattaev",
+     "commits": 308,
+     "merged_prs": 309
+    },
+    {
+     "kind": "repo",
+     "name": "alexpyattaev/doublezero_monitor",
+     "url": "https://github.com/alexpyattaev/doublezero_monitor",
+     "stars": 4,
+     "language": "Python",
+     "description": "Monitor for the solana DoubleZero network",
+     "last_push": "2025-10-17"
+    },
+    {
+     "kind": "repo",
+     "name": "alexpyattaev/solana-snapshot-fetcher",
+     "url": "https://github.com/alexpyattaev/solana-snapshot-fetcher",
+     "stars": 0,
+     "language": "Rust",
+     "description": "Fetches snapshots for solana, fast and efficient.",
+     "last_push": "2026-05-26"
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/alexpyattaev",
+    "note": "Location on the public GitHub profile: Finland"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "edvard-fagerholm",
+   "name": "Edvard Fagerholm",
+   "role": "Developer",
+   "org": null,
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "FI",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/efagerho",
+     "login": "efagerho"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "anza-xyz/agave",
+     "host": "github",
+     "url": "https://github.com/anza-xyz/agave/pulls?q=is%3Apr+is%3Amerged+author%3Aefagerho",
+     "commits": 45,
+     "merged_prs": 46
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/efagerho",
+    "note": "Location on the public GitHub profile: Helsinki"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "fabrizio-ferrai",
+   "name": "Fabrizio Ferrai",
+   "role": "Developer",
+   "org": null,
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "FI",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/f-f",
+     "login": "f-f"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "input-output-hk/cardano-ledger",
+     "host": "github",
+     "url": "https://github.com/input-output-hk/cardano-ledger/commits?author=f-f",
+     "commits": 72,
+     "merged_prs": null
+    },
+    {
+     "kind": "contrib",
+     "project": "IntersectMBO/cardano-node",
+     "host": "github",
+     "url": "https://github.com/IntersectMBO/cardano-node/pulls?q=is%3Apr+is%3Amerged+author%3Af-f",
+     "commits": 5,
+     "merged_prs": 4
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/f-f",
+    "note": "Location on the public GitHub profile: Helsinki, Finland"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "janne-pulkkinen",
+   "name": "Janne Pulkkinen",
+   "role": "Developer",
+   "org": null,
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "FI",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/Matoking",
+     "login": "Matoking"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "bitcoin/bitcoin",
+     "host": "github",
+     "url": "https://github.com/bitcoin/bitcoin/pulls?q=is%3Apr+is%3Amerged+author%3AMatoking",
+     "commits": 6,
+     "merged_prs": 1
+    },
+    {
+     "kind": "repo",
+     "name": "Matoking/nanolib",
+     "url": "https://github.com/Matoking/nanolib",
+     "stars": 67,
+     "language": "C",
+     "description": "Python library for working with the NANO cryptocurrency protocol",
+     "last_push": "2021-08-11"
+    },
+    {
+     "kind": "repo",
+     "name": "Matoking/ScryptMiner-GUI",
+     "url": "https://github.com/Matoking/ScryptMiner-GUI",
+     "stars": 29,
+     "language": "C++",
+     "description": "A GUI for the scrypt-based cpuminer",
+     "last_push": "2019-06-28"
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/Matoking",
+    "note": "Location on the public GitHub profile: Espoo, Finland"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "joel-lehtonen",
+   "name": "Joel Lehtonen",
+   "role": "Developer",
+   "org": "Prasos",
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "FI",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/zouppen",
+     "login": "zouppen"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "spesmilo/electrum",
+     "host": "github",
+     "url": "https://github.com/spesmilo/electrum/pulls?q=is%3Apr+is%3Amerged+author%3Azouppen",
+     "commits": 8,
+     "merged_prs": 2
+    },
+    {
+     "kind": "repo",
+     "name": "zouppen/lnd_stats",
+     "url": "https://github.com/zouppen/lnd_stats",
+     "stars": 0,
+     "language": "Haskell",
+     "description": "LND stats",
+     "last_push": "2022-11-12"
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/zouppen",
+    "note": "Location on the public GitHub profile: Espoo, Finland"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "jussi-virtanen",
+   "name": "Jussi Virtanen",
+   "role": "Developer",
+   "org": null,
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "FI",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/jvirtanen",
+     "login": "jvirtanen"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "hyperledger/besu",
+     "host": "github",
+     "url": "https://github.com/hyperledger/besu/commits?author=jvirtanen",
+     "commits": 7,
+     "merged_prs": null
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/jvirtanen",
+    "note": "Location on the public GitHub profile: Finland"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "ville-sundell",
+   "name": "Ville Sundell",
+   "role": "Smart contract developer",
+   "org": null,
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "FI",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/villesundell",
+     "login": "villesundell"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "repo",
+     "name": "villesundell/move-patterns",
+     "url": "https://github.com/villesundell/move-patterns",
+     "stars": 14,
+     "language": null,
+     "description": "Book \"Move Patterns: Design Patterns for Resource Based Programming\"",
+     "last_push": "2024-05-29"
+    },
+    {
+     "kind": "repo",
+     "name": "villesundell/eosio-rust",
+     "url": "https://github.com/villesundell/eosio-rust",
+     "stars": 11,
+     "language": "Rust",
+     "description": "Rust smart contract for EOSIO based blockchains",
+     "last_push": "2018-10-25"
+    },
+    {
+     "kind": "repo",
+     "name": "villesundell/coinia-contract",
+     "url": "https://github.com/villesundell/coinia-contract",
+     "stars": 0,
+     "language": "Solidity",
+     "description": "The token smart contract for Coinia Vy (2016)",
+     "last_push": "2025-04-27"
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/villesundell",
+    "note": "Location on the public GitHub profile: Finland"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "giacomo-tazzari",
+   "name": "Giacomo Tazzari",
+   "role": "Developer",
+   "org": null,
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "FI",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/giact",
+     "login": "giact"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "ethereum/solidity",
+     "host": "github",
+     "url": "https://github.com/ethereum/solidity/commits?author=giact",
+     "commits": 6,
+     "merged_prs": null
+    },
+    {
+     "kind": "repo",
+     "name": "giact/ethereum-blocktime-simulator",
+     "url": "https://github.com/giact/ethereum-blocktime-simulator",
+     "stars": 8,
+     "language": "Python",
+     "description": "A Python script to simulate mining, difficulty adjustment and block discovery time on the Ethereum network.",
+     "last_push": "2016-06-24"
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/giact",
+    "note": "Location on the public GitHub profile: Helsinki, Finland / Milan, Italy"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "fridrik-asmundsson",
+   "name": "Friðrik Ásmundsson",
+   "role": "Developer",
+   "org": "Berachain",
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "IS",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/fridrik01",
+     "login": "fridrik01"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "filecoin-project/lotus",
+     "host": "github",
+     "url": "https://github.com/filecoin-project/lotus/pulls?q=is%3Apr+is%3Amerged+author%3Afridrik01",
+     "commits": 109,
+     "merged_prs": 33
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/fridrik01",
+    "note": "Location on the public GitHub profile: Iceland"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "anton-vilhelm-asgeirsson",
+   "name": "Anton Vilhelm Ásgeirsson",
+   "role": "Developer",
+   "org": null,
+   "org_id": null,
+   "whoswho_id": null,
+   "country": "IS",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/antonva",
+     "login": "antonva"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "contrib",
+     "project": "paritytech/polkadot-sdk",
+     "host": "github",
+     "url": "https://github.com/paritytech/polkadot-sdk/pulls?q=is%3Apr+is%3Amerged+author%3Aantonva",
+     "commits": 5,
+     "merged_prs": 6
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/antonva",
+    "note": "Location on the public GitHub profile: Reykjavik"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor"
+  },
+  {
+   "id": "gisli-kristjansson",
+   "name": "Gísli Kristjánsson",
+   "role": "Developer",
+   "org": "Monerium",
+   "org_id": "monerium",
+   "whoswho_id": "spk-gisli-kristjansson",
+   "country": "IS",
+   "profiles": [
+    {
+     "kind": "github",
+     "url": "https://github.com/gislik",
+     "login": "gislik"
+    }
+   ],
+   "notable": [
+    {
+     "kind": "repo",
+     "name": "gislik/exchange",
+     "url": "https://github.com/gislik/exchange",
+     "stars": 0,
+     "language": "Haskell",
+     "description": "Toy crypto exchange",
+     "last_push": "2022-04-30"
+    },
+    {
+     "kind": "repo",
+     "name": "gislik/nostrust",
+     "url": "https://github.com/gislik/nostrust",
+     "stars": 0,
+     "language": "Rust",
+     "description": "Experimental repo to play around in the nostr ecosystem",
+     "last_push": "2023-03-08"
+    }
+   ],
+   "nordic_source": {
+    "url": "https://github.com/gislik",
+    "note": "Location on the public GitHub profile: Reykjavik, Iceland"
+   },
+   "checked": "2026-10-09",
+   "status": "pending",
+   "review": "editor",
+   "note": "Own crypto code is small (a toy exchange in Haskell); check before approving."
+  }
+ ]
+}

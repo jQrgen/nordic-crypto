@@ -3,6 +3,23 @@
  "launch_date": "2026-10-03",
  "entries": [
   {
+   "id": "open-source-developers",
+   "date": null,
+   "review": "pending",
+   "title": "Open-source developers",
+   "description": "A new page lists developers, protocol engineers and researchers in Nordic crypto who publish crypto-related code in the open, grouped by country, with their GitHub and GitLab profiles and up to three repos or projects each. It is linked from Who's who and the footer, and the same list is in the data API as developers.json.",
+   "i18n": {
+    "nn": {
+     "title": "Utviklarar med open kjeldekode",
+     "description": "Ei ny side viser utviklarar, protokollingeniørar og forskarar i nordisk krypto som publiserer kryptorelatert kode ope, ordna etter land, med GitHub- og GitLab-profilane deira og opptil tre repo eller prosjekt kvar. Sida er lenkja frå Kven er kven og botnen av sida, og den same lista ligg i data-API-et som developers.json."
+    },
+    "nb": {
+     "title": "Utviklere med åpen kildekode",
+     "description": "En ny side viser utviklere, protokollingeniører og forskere i nordisk krypto som publiserer kryptorelatert kode åpent, ordnet etter land, med GitHub- og GitLab-profilene deres og opptil tre repoer eller prosjekter hver. Siden er lenket fra Hvem er hvem og bunnen av siden, og den samme listen ligger i data-API-et som developers.json."
+    }
+   }
+  },
+  {
    "id": "privacy-policy",
    "date": null,
    "review": "pending",

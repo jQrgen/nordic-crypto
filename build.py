@@ -564,6 +564,7 @@ def site_footer(rel, root, slug=""):
         return (f'<li><a href="{E(href)}"{" rel=\"noopener\"" if ext else ""}>{E(label)}</a>'
                 + (f' <span class="meta">{E(note)}</span>' if note else "") + '</li>')
     sections = "".join(li(root + "api/" if n == "api" else rel + (n + "/" if n else ""), t(k)) for n, k in nav_items()[:NAV_MAIN])
+    sections += li(rel + "developers/", t("dev_nav"))   # under Who's who; not a header tab
     site = (li(rel + "about/", t("nav_about")) + li(rel + "sources/", t("nav_sources")) + li(rel + "ethics/", t("ethics_title"))
             + li(rel + "changelog/", t("cl_title")) + li(rel + "stats/", t("vst_title")) + li(rel + "privacy/", t("pp_title")) + li(rel + "media/", t("media_title")) + li(rel + "columnist/", t("col_title"))
             + li(rel + "tip/", t("nav_tip")) + li(root + "api/", t("foot_api")) + li("https://github.com/jQrgen/nordic-crypto", t("foot_source"), True)
@@ -1833,6 +1834,7 @@ def build_lang(ctx):
     build_talks()
     build_academia()
     build_books()
+    build_developers()
     build_changelog()
     build_stats(ctx)
     build_tip()
@@ -1961,7 +1963,7 @@ def build_org(ctx):
 <p class="lead">{E(t("org_lead"))}</p>
 {f'<p class="notice warn">{t("org_preview", p=cnt_pend, n=len(ents))}</p>' if PREVIEW and cnt_pend else ''}
 {f'<p class="meta">{E(dn)}</p>' if dn else ''}
-<nav class="orgsub" aria-label="{E(t("toc_h"))}">{subnav}</nav>
+<nav class="orgsub" aria-label="{E(t("toc_h"))}">{subnav}<a class="orgdev" href="../developers/">{E(t("dev_org_link"))} →</a></nav>
 <section class="osec ochart" aria-labelledby="org"><h2 id="org">{E(t("org_chart_h"))}</h2>
 <div class="filters ofilters"><div class="of" role="group" aria-label="{E(t("countries_aria"))}"><span class="lbl">{E(t("country"))}</span><div class="chips">{chips}</div></div>
 <div class="of"><span class="lbl" aria-hidden="true">{E(t("sector_aria"))}</span><div class="seg" id="secseg" role="group" aria-label="{E(t("sector_aria"))}"><button type="button" data-v="both" aria-pressed="true">{E(t("both"))}</button><button type="button" data-v="private" aria-pressed="false">{E(t("private_sector"))}</button><button type="button" data-v="public" aria-pressed="false">{E(t("public_sector"))}</button></div></div>
@@ -2967,6 +2969,79 @@ var h=new URLSearchParams(location.hash.slice(1));(h.get('country')||'').split('
 cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');apply()})});apply()})();</script>""" % json.dumps(t("books_n", n="{n}"))
     page("books", t("books_title"), "books", body, t("books_desc"), js)
     if LANG == "en": print(f"books: {len(rows)} {per_c}")
+
+def _dev_num(n):
+    return f"{n:,}".replace(",", " ") if LANG != "en" else f"{n:,}"
+
+def build_developers():
+    """ /developers/ : technical people in Nordic crypto with public crypto-related code (data/developers.json, tools/developers.py).
+    Public build: only rows the editor set to "published". Preview: pending rows too, marked (same model as the who's who people).
+    Rows are grouped by country with the country chips of the list pages. Repo and project names stay as on the code host."""
+    sys.path.insert(0, P("tools"))
+    import developers as dev_mod
+    rows = dev_mod.rows(preview=PREVIEW)
+    if LANG == "en":
+        for msg in dev_mod.problems():
+            print("developers: " + msg)
+        json.dump({"updated": dev_mod.updated(), "preview": PREVIEW, "people": rows}, open(os.path.join(SITE, "data", "developers.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    en = lang_attr("en")
+    def dom(u): return re.sub(r"^https?://(www[0-9]?\.)?", "", u).split("/")[0]
+    host = {"github": "GitHub", "gitlab": "GitLab", "codeberg": "Codeberg", "sourcehut": "sourcehut"}
+    def work(n):
+        if n["kind"] == "repo":
+            bits = [E(t("dev_stars", n=_dev_num(n.get("stars") or 0)))] + ([E(n["language"])] if n.get("language") else [])
+            about = f' <span class="devabout"{en}>{E(n["description"])}</span>' if n.get("description") else ""
+            return (f'<li><a href="{E(n["url"])}" rel="noopener nofollow" target="_blank" dir="ltr">{E(n["name"])}</a> '
+                    f'<span class="meta">{" · ".join(bits)}</span>{about}</li>')
+        bits = []
+        if n.get("merged_prs"): bits.append(E(t("dev_prs", n=_dev_num(n["merged_prs"]))))
+        if n.get("commits"): bits.append(E(t("dev_commits", n=_dev_num(n["commits"]))))
+        where = "gitlab.com/" if n.get("host") == "gitlab" else ""
+        return (f'<li><a href="{E(n["url"])}" rel="noopener nofollow" target="_blank" dir="ltr">{E(where + n["project"])}</a> '
+                f'<span class="meta">{" · ".join(bits)}</span></li>')
+    def item(r):
+        tag = ""
+        if r["status"] != "published":
+            tag = f' <span class="tag pend">{E(t("pending"))}</span>'   # rows for jQrgen (review "ready_for_owner") wait for him, not the editor
+        who = [E(r["role"])] if r.get("role") else []
+        if r.get("org"):
+            who.append(f'<a href="../org-chart/#{E(r["org_id"])}">{E(r["org"])}</a>' if r.get("org_id") else E(r["org"]))
+        links = " · ".join(f'<a href="{E(p["url"])}" rel="noopener nofollow" target="_blank">{E(host.get(p["kind"], p["kind"]))}<span class="devlogin" dir="ltr">/{E(p.get("login") or "")}</span></a>'
+                           for p in r["profiles"])
+        if r.get("whoswho_id"):
+            links += f' · <a href="../org-chart/#{E(r["whoswho_id"])}">{E(t("dev_whoswho"))}</a>'
+        src = r["nordic_source"]
+        return (f'<li id="{E(r["id"])}" data-c="{E(r["country"])}"><h3>{E(r["name"])}{tag}</h3>'
+                f'<p class="meta">{flag(r["country"], deco=True)}{E(cname(r["country"]))}{" · " + " · ".join(who) if who else ""}</p>'
+                f'<p class="devlinks">{links}</p>'
+                f'<ul class="devwork">{"".join(work(n) for n in r["notable"])}</ul>'
+                f'<p class="acsrc">{E(t("dev_nordic"))}: <a href="{E(src["url"])}" rel="noopener nofollow" target="_blank">{E(dom(src["url"]))}</a> '
+                f'<span{en}>({E(src["note"])})</span> · {E(t("ac_checked", d=r["checked"]))}</p></li>')
+    present = [c for c in dev_mod.COUNTRY_ORDER if any(r["country"] == c for r in rows)]
+    per_c = {c: sum(r["country"] == c for r in rows) for c in present}
+    def n_people(n): return t("dev_n1") if n == 1 else t("dev_n", n=n)
+    chips = "".join(f'<button type="button" class="chip cchip" data-c="{c}" aria-pressed="false">{_deco_flag(c)}{E(cname(c))} <span class="n">{per_c[c]}</span></button>' for c in present)
+    groups = "".join(f'<section class="devgrp" data-c="{c}" aria-labelledby="dev-{c.lower()}"><h2 id="dev-{c.lower()}">{flag(c, deco=True)}{E(cname(c))} <span class="n">{per_c[c]}</span></h2>'
+                     f'<ol class="devlist">{"".join(item(r) for r in rows if r["country"] == c)}</ol></section>' for c in present)
+    n_pend = sum(r["status"] != "published" for r in rows)
+    filters = (f'<div class="filters lfilters" role="group" aria-label="{E(t("countries_aria"))}"><div class="lf"><span class="lbl" id="lf-c">{E(t("country"))}</span>'
+               f'<div class="chips" role="group" aria-labelledby="lf-c">{chips}</div></div><p id="dcount" class="meta lcount" aria-live="polite">{E(n_people(len(rows)))}</p></div>') if rows else ""
+    body = f"""{site_css.style("filterbar")}{site_css.style("developers")}<div class="devpage">
+<h1>{E(t("dev_h1"))}</h1>
+<p class="lead">{E(t("dev_lead"))}</p>
+{f'<p class="notice warn">{E(t("dev_preview", n=n_pend))}</p>' if PREVIEW and n_pend else ''}
+<p class="meta devrule">{E(t("dev_rule"))}</p>
+{filters}
+{groups if rows else f'<p class="empty">{E(t("dev_empty"))}</p>'}
+<p class="notice">{t("dev_notice")}</p>
+</div>"""
+    js = """<script>(function(){var NR=%s,NR1=%s,cc=[].slice.call(document.querySelectorAll('.cchip')),n=[].slice.call(document.querySelectorAll('.devlist li[data-c]')),g=[].slice.call(document.querySelectorAll('.devgrp')),cnt=document.getElementById('dcount');if(!cnt)return;
+function apply(){var c=cc.filter(function(x){return x.getAttribute('aria-pressed')==='true'}).map(function(x){return x.dataset.c}),k=0;n.forEach(function(el){var ok=!c.length||c.indexOf(el.dataset.c)>=0;el.hidden=!ok;if(ok)k++});g.forEach(function(s){s.hidden=!!c.length&&c.indexOf(s.dataset.c)<0});cnt.textContent=k===1?NR1:NR.replace('{n}',k);
+if(c.length)history.replaceState(null,'','#country='+c.join(','));else if(location.hash.indexOf('#country=')===0)history.replaceState(null,'',location.pathname)}
+var h=new URLSearchParams(location.hash.slice(1));(h.get('country')||'').split(',').forEach(function(x){cc.forEach(function(b){if(b.dataset.c===x)b.setAttribute('aria-pressed','true')})});
+cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');apply()})});apply()})();</script>""" % (json.dumps(t("dev_n", n="{n}")), json.dumps(t("dev_n1")))
+    page("developers", t("dev_title"), "developers", body, t("dev_desc"), js)
+    if LANG == "en": print(f"developers: {len(rows)} shown ({n_pend} pending) {per_c}")
 
 COL_FORM = "https://github.com/jQrgen/nordic-crypto/issues/new?template=columnist.yml"
 def tip_endpoint():

@@ -692,4 +692,7 @@ S.update({
 "n_row1": "1 行",
 "foot_source": "源代码",
 "brand_since": "始于 2026 年",
+# open-source developers page (/developers/): footer and Who's who link; the page itself falls back to English
+"dev_nav": "开发者",
+"dev_org_link": "开源开发者",
 })

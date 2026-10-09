@@ -488,5 +488,8 @@ S.update({
 "books_eds": "(ritstj.)",
 "books_source": "Athugað í",
 "books_empty": "Engar bækur skráðar enn.",
-"books_notice": "Vantar bók, eða er eitthvað rangt? Láttu okkur vita í gegnum <a href=\"../about/#corrections\">leiðréttingar</a>. Við skráum aðeins útgefnar bækur, ekki handrit, og vísum á skrá eða útgefanda fyrir hverja."
+"books_notice": "Vantar bók, eða er eitthvað rangt? Láttu okkur vita í gegnum <a href=\"../about/#corrections\">leiðréttingar</a>. Við skráum aðeins útgefnar bækur, ekki handrit, og vísum á skrá eða útgefanda fyrir hverja.",
+# open-source developers page (/developers/): footer and Who's who link; the page itself falls back to English
+"dev_nav": "Forritarar",
+"dev_org_link": "Forritarar með opinn hugbúnað"
 })

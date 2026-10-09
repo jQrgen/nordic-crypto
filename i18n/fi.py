@@ -488,5 +488,8 @@ S.update({
 "books_eds": "(toim.)",
 "books_source": "Tarkistettu",
 "books_empty": "Kirjoja ei ole vielä listattu.",
-"books_notice": "Puuttuuko kirja, tai onko jokin väärin? Kerro meille <a href=\"../about/#corrections\">korjaukset</a>-osion kautta. Listaamme vain julkaistuja kirjoja, emme käsikirjoituksia, ja linkitämme jokaisen luetteloon tai kustantajalle."
+"books_notice": "Puuttuuko kirja, tai onko jokin väärin? Kerro meille <a href=\"../about/#corrections\">korjaukset</a>-osion kautta. Listaamme vain julkaistuja kirjoja, emme käsikirjoituksia, ja linkitämme jokaisen luetteloon tai kustantajalle.",
+# open-source developers page (/developers/): footer and Who's who link; the page itself falls back to English
+"dev_nav": "Kehittäjät",
+"dev_org_link": "Avoimen lähdekoodin kehittäjät"
 })

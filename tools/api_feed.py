@@ -41,6 +41,7 @@ import event_backfill  # noqa: E402
 import event_description  # noqa: E402
 import event_select  # noqa: E402
 import books as books_mod  # noqa: E402
+import developers as dev_mod  # noqa: E402
 
 API = "1"
 SITE_NAME = "Nordic Crypto"
@@ -1034,6 +1035,7 @@ def _meta(feed):
         ("regulation-videos/", "Country explainer videos: how crypto rules are decided in each Nordic country"),
         ("academia/", "Courses, student groups, publications and research"),
         ("books/", "Published books on bitcoin, crypto and blockchain by Nordic authors or about the Nordics"),
+        ("developers/", "Open-source developers: technical people in Nordic crypto with public crypto-related code"),
         ("sources/", "News and event sources"),
         ("newsletter/", "Newsletter issues"),
         ("about/", "About, privacy, corrections and removal"),
@@ -1411,6 +1413,20 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
                "about is our one-line description in English. No cover images.",
                "BookList", feed.env(updated=books_mod.updated(), count=len(book_rows), books=book_rows))
 
+    dev_rows = []
+    for row in dev_mod.rows(preview=preview):
+        row = dict(row, html_url=feed.abs("developers/#" + row["id"]),
+                   whoswho_url=feed.abs("org-chart/#" + row["whoswho_id"]) if row.get("whoswho_id") else None)
+        dev_rows.append(row)
+    collection("api/v1/developers.json",
+               "Open-source developers: technical people in Nordic crypto with public crypto-related code (an own non-fork crypto repo, "
+               "or merged commits or pull requests in a public crypto project). name is as shown on the code profile. profiles are the "
+               "GitHub/GitLab/Codeberg/sourcehut profile links. notable has up to three items: kind \"repo\" (own repo: name, url, stars, "
+               "language, description, last_push) or kind \"contrib\" (project, host, url, commits, merged_prs). Stars and counts are from "
+               "the date in checked. nordic_source is where the Nordic link is shown. whoswho_id links the who's who entry. Only rows the "
+               "editor approved; a preview build also has pending rows (status \"pending\").",
+               "DeveloperList", feed.env(updated=dev_mod.updated(), count=len(dev_rows), people=dev_rows))
+
     collection("api/v1/orgchart.json", "Published who's who: organisations, people, relations, regulation notes and caveats. A person named on a talk has talk_ids, event_ids and talks. affiliations lists the organisation the talk page stated for that talk, with the talk date when the page gave one, the source URL and the retrieval time. An affiliation the page did not state is omitted.", "OrgChart",
                feed.env(updated=org_updated, count=len(ents), entities=ents, relations=rels, regulation=regulation, caveats=caveats),
                example=f"api/v1/orgchart/{ents[0]['id']}.json" if ents else None,
@@ -1533,6 +1549,7 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
             "sources": len(outlets),
             "academia": ac_counts,
             "books": len(book_rows),
+            "developers": len(dev_rows),
             "org_entities": len(ents),
             "org_relations": len(rels),
             "profiles": len(profiles),
@@ -1639,7 +1656,7 @@ def openapi(feed, index):
             "version": API,
             "description": (
                 f"Public read-only JSON for Nordic Crypto ({feed.base}). "
-                "No authentication. News, newsletters, events, sources, academia, books, the who's who, profiles, images, "
+                "No authentication. News, newsletters, events, sources, academia, books, developers, the who's who, profiles, images, "
                 "the rules map, the changelog, the article archive, public talk videos and Nordic exchange prices (market data, not investment advice). "
                 "Kaupr is a news source only, never a sponsor. The sign-off is The Nordic Crypto team. "
                 "GitHub Pages sends Access-Control-Allow-Origin: * so browsers can fetch these files. "
@@ -1939,6 +1956,32 @@ def schemas():
             },
         },
         "BookList": wrap("BookList", {"updated": {"type": "string", "nullable": True}, "count": {"type": "integer"}, "books": {"type": "array", "items": {"$ref": "#/components/schemas/Book"}}}),
+        "Developer": {
+            "type": "object",
+            "required": ["id", "name", "country", "profiles", "notable", "nordic_source", "checked", "status"],
+            "properties": {
+                "id": {"type": "string"},
+                "name": {"type": "string", "description": "Name as shown on the public code profile."},
+                "role": {"type": "string", "nullable": True},
+                "org": {"type": "string", "nullable": True},
+                "org_id": {"type": "string", "nullable": True, "description": "Who's who id of the organisation, when it has one."},
+                "whoswho_id": {"type": "string", "nullable": True, "description": "Who's who id of the person, when listed there."},
+                "whoswho_url": {"type": "string", "nullable": True},
+                "country": {"type": "string", "description": "NO, SE, DK, FI, IS, FO, GL or AX."},
+                "profiles": {"type": "array", "items": {"type": "object", "properties": {"kind": {"type": "string"}, "url": {"type": "string"}, "login": {"type": "string"}}}},
+                "notable": {"type": "array", "maxItems": 3, "items": {"type": "object", "properties": {
+                    "kind": {"type": "string", "enum": ["repo", "contrib"]}, "name": {"type": "string"}, "project": {"type": "string"}, "host": {"type": "string"},
+                    "url": {"type": "string"}, "stars": {"type": "integer"}, "language": {"type": "string", "nullable": True}, "description": {"type": "string", "nullable": True},
+                    "last_push": {"type": "string"}, "commits": {"type": "integer", "nullable": True}, "merged_prs": {"type": "integer", "nullable": True}}}},
+                "nordic_source": {"type": "object", "properties": {"url": {"type": "string"}, "note": {"type": "string"}}},
+                "checked": {"type": "string", "description": "YYYY-MM-DD the profile, repos and counts were checked."},
+                "status": {"type": "string", "enum": ["published", "pending"]},
+                "review": {"type": "string", "nullable": True, "description": "editor, or ready_for_owner (jQrgen decides)."},
+                "note": {"type": "string", "nullable": True},
+                "html_url": {"type": "string"},
+            },
+        },
+        "DeveloperList": wrap("DeveloperList", {"updated": {"type": "string", "nullable": True}, "count": {"type": "integer"}, "people": {"type": "array", "items": {"$ref": "#/components/schemas/Developer"}}}),
         "OrgEntity": {
             "type": "object",
             "required": ["id", "name"],

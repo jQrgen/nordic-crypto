@@ -1,0 +1,31 @@
+/* Open-source developers (/developers/; inlined only there, after filterbar.css): one row per person, grouped by country.
+   Name, country, role and organisation, then the code profiles, then up to three repos or projects, then the Nordic-link source.
+   Start-aligned in every language; repo and project names are left-to-right. */
+.devpage,.devlist,.devwork{text-align:start}
+.devpage .lfilters{margin-bottom:10px}
+.devrule{max-width:76ch;line-height:1.5}
+.devgrp h2{scroll-margin-top:16px;margin:30px 0 2px;display:flex;align-items:center;gap:8px}
+.devgrp h2 .n{font:500 12px var(--f-mono);opacity:.8}
+.devlist{list-style:none;margin:0;padding:0}
+.devlist>li{padding:14px 0 13px;border-bottom:1px solid var(--line);scroll-margin-top:16px}
+.devlist>li:last-child{border-bottom:0}
+.devlist h3{font-size:21px;line-height:1.22;margin:0 0 3px}
+.devlist h3 .tag{vertical-align:3px;font-family:var(--f-ui);letter-spacing:0}
+.devlist .meta{margin:0;line-height:1.5}
+.devlist .flag{vertical-align:-2px;margin-inline-end:5px}
+.devlinks{margin:4px 0 0;font-size:15px}
+.devlogin{color:var(--muted)}
+.devwork{list-style:none;margin:6px 0 0;padding:0;font-size:15px;line-height:1.5}
+.devwork li{margin:2px 0;overflow-wrap:anywhere}
+.devwork li::before{content:"";display:inline-block;width:6px;height:6px;margin-inline-end:8px;vertical-align:2px;background:var(--gold)}
+.devwork .meta{display:inline}
+.devabout{display:block;padding-inline-start:14px;color:var(--muted);font-size:14px}
+.devpage .acsrc{margin:6px 0 0;font-size:13px;color:var(--muted)}
+.devpage .empty{padding:8px 0;margin:0}
+.devpage>.notice{max-width:76ch;margin-top:28px}
+@media(min-width:960px){
+ .devlist>li{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:36px}
+ .devlist>li>*{grid-column:1}
+ .devlist>li>.devwork{grid-column:2;grid-row:1/span 4;margin:2px 0 0}
+}
+@media(max-width:640px){.devlist h3{font-size:19.5px}.devwork,.devlinks{font-size:14.5px}}
