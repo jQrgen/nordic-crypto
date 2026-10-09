@@ -14,6 +14,15 @@ def chk(where, text):
         hits.append(f"{where}: …{text[max(0, m.start() - 30):m.end() + 30]}…")
 def mod(path):
     spec = importlib.util.spec_from_file_location(os.path.basename(path), path); m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m); return m
+try:
+    onion_copy = json.load(open(P("onion", "app", "copy.json"), encoding="utf-8"))
+except FileNotFoundError:
+    onion_copy = {}
+for L in ("nn", "nb"):
+    row = onion_copy.get(L) or {}
+    if isinstance(row, dict):
+        for k, v in row.items():
+            if isinstance(v, str): chk(f"onion/app/copy.json {L}.{k}", v)
 nft_strings = P("i18n", "event_nft_strings.py")
 if os.path.exists(nft_strings):
     nft_S = mod(nft_strings).S

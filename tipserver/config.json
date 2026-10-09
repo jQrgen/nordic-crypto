@@ -1,8 +1,9 @@
 {
- "_how_to": "public_endpoint: fixed public https base URL (e.g. a named Cloudflare tunnel), without /api/tip; takes precedence. quick_tunnel: true = run.sh keeps a Cloudflare quick tunnel watchdog running (tunnel.sh; random *.trycloudflare.com URL in tunnel-url.txt, cleared when down). tip_page_uses_server: only decides what tip-endpoint.json holds; it does not change /tip/. /tip/ opens the private inbox form (tipworker POST /api/private-tip) only when public_endpoint and turnstile_site_key (public Turnstile site key; else chat/config.json's key) are both set, and never falls back to a GitHub issue. auto_publish_endpoint: true = tunnel.sh/run.sh push tip-endpoint.json to gh-pages whenever the URL changes; false = only site/tip-endpoint.json is updated locally. Set tip_page_uses_server and auto_publish_endpoint to true ONLY after jQrgen approves the tip page.",
+ "_how_to": "public_endpoint: fixed public https base URL (e.g. a named Cloudflare tunnel), without /api/tip; takes precedence. quick_tunnel: true = run.sh keeps a Cloudflare quick tunnel watchdog running (tunnel.sh; random *.trycloudflare.com URL in tunnel-url.txt, cleared when down). tip_page_uses_server: only decides what tip-endpoint.json holds; it does not change /tip/. /tip/ opens the private inbox form (tipworker POST /api/private-tip) only when public_endpoint and turnstile_site_key (public Turnstile site key; else chat/config.json's key) are both set, and never falls back to a GitHub issue. auto_publish_endpoint: true = tunnel.sh/run.sh push tip-endpoint.json to gh-pages whenever the URL changes; false = only site/tip-endpoint.json is updated locally. Set tip_page_uses_server and auto_publish_endpoint to true ONLY after jQrgen approves the tip page. onion: the Tor tip page (onion/) as http://<56 chars>.onion once the VPS has generated it, else null; /tip/ then links it and adds <meta http-equiv=\"onion-location\">.",
  "public_endpoint": null,
  "quick_tunnel": true,
  "tip_page_uses_server": false,
  "auto_publish_endpoint": false,
- "turnstile_site_key": null
+ "turnstile_site_key": null,
+ "onion": null
 }

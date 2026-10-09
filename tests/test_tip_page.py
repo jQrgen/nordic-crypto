@@ -6,7 +6,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 import build
 
-ENV = ("TIP_ENDPOINT", "TIP_TURNSTILE_SITE_KEY", "CHAT_TURNSTILE_SITE_KEY", "TIP_PAGE_SERVER")
+ENV = ("TIP_ENDPOINT", "TIP_TURNSTILE_SITE_KEY", "CHAT_TURNSTILE_SITE_KEY", "TIP_PAGE_SERVER", "TIP_ONION")
 
 class TipPage(unittest.TestCase):
     def setUp(self):
@@ -14,6 +14,7 @@ class TipPage(unittest.TestCase):
         for k in ENV: os.environ.pop(k, None)
         os.environ["TIP_ENDPOINT"] = ""          # ignore whatever tipserver/config.json holds
         os.environ["TIP_TURNSTILE_SITE_KEY"] = ""
+        os.environ["TIP_ONION"] = ""
         self.tmp = tempfile.mkdtemp(prefix="nc-tip-"); self.old_site = build.SITE; build.SITE = self.tmp
 
     def tearDown(self):
@@ -67,6 +68,26 @@ class TipPage(unittest.TestCase):
         self.assertEqual(build.tip_intake(), (None, None))
         os.environ["TIP_ENDPOINT"] = "https://tips.nordiccrypto.no"; os.environ["TIP_TURNSTILE_SITE_KEY"] = "bad key\"><script>"
         self.assertEqual(build.tip_intake(), (None, None))
+
+    def test_tor_named_without_an_address(self):
+        html = self.page("en")
+        self.assertIn(build.i18n.t("en", "tip_onion_pending"), html); self.assertNotIn("onion-location", html)
+        self.assertIsNone(build.tip_onion())
+
+    def test_onion_link_and_meta_when_address_exists(self):
+        addr = "http://" + "a" * 56 + ".onion"
+        os.environ["TIP_ONION"] = addr
+        for lang in ("en", "sv"):
+            html = self.page(lang)
+            self.assertIn(f'<meta http-equiv="onion-location" content="{addr}/{lang}/">', html)
+            self.assertIn(f'href="{addr}/{lang}/"', html); self.assertNoGithub(html)
+        os.environ["TIP_ENDPOINT"] = "https://tips.nordiccrypto.no"; os.environ["TIP_TURNSTILE_SITE_KEY"] = "1x00000000000000000000AA"
+        self.assertIn("onion-location", self.page("en"))
+
+    def test_bad_onion_address_is_ignored(self):
+        for bad in ("http://short.onion", "https://" + "a" * 56 + ".onion", "http://" + "A" * 56 + ".onion", 'http://x"><script>'):
+            os.environ["TIP_ONION"] = bad
+            self.assertIsNone(build.tip_onion(), bad)
 
     def test_retired_github_template(self):
         with open(os.path.join(ROOT, ".github", "ISSUE_TEMPLATE", "tip.yml"), encoding="utf-8") as fh:

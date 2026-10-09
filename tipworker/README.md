@@ -49,6 +49,8 @@ Files: `src/worker.js`, `migrations/0001_tips.sql`, `migrations/0002_articles.sq
   `PRIVATE_TIPS_READ_TOKEN`, optional `TIP_WEBHOOK_URL` (https only) + `TIP_WEBHOOK_BEARER` (each stored tip is POSTed as
   `{"event":"tip.created","tip":{…}}`, 5 s timeout, failure does not lose the tip).
 - The site opens the form only when `public_endpoint` (tipserver/config.json, set by deploy.sh) and a Turnstile site key are set.
+- Tor forwarder (`onion/`): `Authorization: Bearer $ONION_INGEST_TOKEN` skips Turnstile, rate key `onion` (60 per 10 min),
+  and may send an onion page (`http://<56>.onion/<lang>/`). Refused when it equals `PRIVATE_TIPS_READ_TOKEN`.
 
 ## Shoutbox (one shared room) – `src/shouts.js`, `migrations/0004_shouts.sql`
 

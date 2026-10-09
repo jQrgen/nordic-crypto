@@ -31,3 +31,7 @@ newsletter/out/
 # local screenshot build of the tip page (tip server mode), never published
 site-tip-preview/
 tipserver/tunnel.state
+
+# Tor onion tip page (onion/): secrets and the local queue, never committed
+onion/.env
+onion/data/

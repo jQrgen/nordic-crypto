@@ -1,0 +1,10 @@
+# Onion tip service only. No SOCKS proxy for the host. No tip data in logs.
+DataDirectory /var/lib/tor
+SocksPort 0
+Log notice file /dev/null
+SafeLogging 1
+# Vanguards-lite is on by default in Tor 0.4.7 and later. Full vanguards is optional;
+# see onion/README.md before opening a control port.
+
+HiddenServiceDir /var/lib/tor/tip
+HiddenServicePort 80 tip:8080

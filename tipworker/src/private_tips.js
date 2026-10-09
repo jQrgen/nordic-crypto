@@ -6,12 +6,16 @@
 //   POST /api/private-tips/:id   {status, editor_notes} (same bearer)
 // Turnstile: TURNSTILE_SECRET (shared with the shoutbox). Without it the route answers 503 and stores nothing.
 // Optional webhook after a stored tip: TIP_WEBHOOK_URL (https only) with TIP_WEBHOOK_BEARER.
+// Tor onion forwarder (onion/): Authorization: Bearer ONION_INGEST_TOKEN skips Turnstile (Tor Browser at Safest has no
+// JavaScript), uses the rate-limit key "onion" (60 per 10 minutes) instead of the VPS address, and may send the onion page
+// (http://<56>.onion/<lang>/ or /<lang>/). Refused when ONION_INGEST_TOKEN equals PRIVATE_TIPS_READ_TOKEN.
 // Privacy: never logs. The IP is only used for the shared salted, daily-rotating rate-limit hash (worker.js rateOk).
 // Tests: TIP_TEST=1 accepts the Turnstile token "test-pass" and nothing else (never set in wrangler.toml).
 
-export const PLIMITS = { maxBody: 32768, maxTip: 8000, maxContact: 500, maxNotes: 4000, maxLinks: 10, maxUrl: 2000 };
+export const PLIMITS = { onionRate: 60, maxBody: 32768, maxTip: 8000, maxContact: 500, maxNotes: 4000, maxLinks: 10, maxUrl: 2000 };
 const STATUSES = ["new", "read", "handled"];
 const PAGE_PATH = /^\/(?:[a-z]{2,8}\/)?tip\/?$/;
+const ONION_PATH = /^\/(?:[a-z]{2,8}\/)?$/;
 const enc = new TextEncoder();
 const chars = (s) => [...s].length;
 const ctrl = (s) => s.replace(/[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]/g, "");
@@ -30,20 +34,23 @@ export function goodUrl(s) {
 }
 
 // The page a tip came from: a /tip/ path, or the https URL of a tip page on one of the site origins.
-export function pageOk(page, origins) {
+export function pageOk(page, origins, onion = false) {
   if (typeof page !== "string") return false;
   const p = page.trim();
   if (!p || p.length > 500) return false;
   if (PAGE_PATH.test(p)) return true;
+  if (onion && ONION_PATH.test(p.endsWith("/") ? p : p + "/")) return true;
   let u;
   try { u = new URL(p); } catch { return false; }
+  if (onion && u.protocol === "http:" && /^[a-z2-7]{56}\.onion$/.test(u.hostname) && !u.username && !u.password && !u.search && !u.hash)
+    return ONION_PATH.test(u.pathname.endsWith("/") ? u.pathname : u.pathname + "/");
   if (u.protocol !== "https:" || u.username || u.password || u.search || u.hash) return false;
   if (!origins.has(u.origin)) return false;
   const path = u.hostname === "jqrgen.github.io" ? u.pathname.replace(/^\/nordic-crypto/, "") : u.pathname;
   return PAGE_PATH.test(path);
 }
 
-export function validatePrivateTip(f, origins) {
+export function validatePrivateTip(f, origins, onion = false) {
   if (!f || typeof f !== "object" || Array.isArray(f)) return [null, "bad_body"];
   const raw = (k) => (own(f, k) ? f[k] : "");
   const tipIn = raw("tip"), contactIn = raw("contact"), langIn = raw("language"), pageIn = raw("page"), attIn = raw("attachments");
@@ -56,7 +63,7 @@ export function validatePrivateTip(f, origins) {
   const language = langIn.trim().toLowerCase() || "en";
   if (!/^[a-z]{2,8}$/.test(language)) return [null, "bad_language"];
   const page = pageIn.trim();
-  if (!pageOk(page, origins)) return [null, "bad_page"];
+  if (!pageOk(page, origins, onion)) return [null, "bad_page"];
   let parts;
   if (attIn === "" || attIn == null) parts = [];
   else if (Array.isArray(attIn)) parts = attIn;
@@ -98,6 +105,13 @@ async function turnstile(env, token) {
   } catch {
     return "offline";
   }
+}
+
+function onionAuthed(req, env) {
+  const want = env.ONION_INGEST_TOKEN || "";
+  if (!want || (env.PRIVATE_TIPS_READ_TOKEN && safeEqual(want, env.PRIVATE_TIPS_READ_TOKEN))) return false;
+  const m = (req.headers.get("Authorization") || "").match(/^Bearer\s+(\S+)\s*$/i);
+  return !!m && safeEqual(m[1], want);
 }
 
 function rowOut(r) {
@@ -153,15 +167,16 @@ export async function postPrivateTip(req, env, H) {
   const parsed = await readFields(req, H);
   if (parsed.error) return H.send(req, parsed.error === "too_long" ? 413 : parsed.error === "bad_type" ? 415 : 400, { ok: false, error: parsed.error });
   const f = parsed.fields;
-  const ip = (req.headers.get("CF-Connecting-IP") || "unknown").trim().slice(0, 64);
-  try { if (!(await H.rateOk(env.DB, ip))) return H.send(req, 429, { ok: false, error: "rate" }); }
+  const onion = onionAuthed(req, env);
+  const ip = onion ? "onion" : (req.headers.get("CF-Connecting-IP") || "unknown").trim().slice(0, 64);
+  try { if (!(await (onion ? H.rateOk(env.DB, ip, PLIMITS.onionRate) : H.rateOk(env.DB, ip)))) return H.send(req, 429, { ok: false, error: "rate" }); }
   catch { return H.send(req, 503, { ok: false, error: "offline" }); }
   const hp = f.website;  // honeypot filled in: pretend success, store nothing
   if (hp && (typeof hp !== "string" || hp.trim())) return H.send(req, 200, { ok: true });
-  const [tip, err] = validatePrivateTip(f, H.ORIGINS);
+  const [tip, err] = validatePrivateTip(f, H.ORIGINS, onion);
   if (err) return H.send(req, 400, { ok: false, error: err });
   const token = typeof f["cf-turnstile-response"] === "string" ? f["cf-turnstile-response"] : (typeof f.turnstile === "string" ? f.turnstile : "");
-  const gate = await turnstile(env, token);
+  const gate = onion ? "ok" : await turnstile(env, token);
   if (gate === "unconfigured" || gate === "offline") return H.send(req, 503, { ok: false, error: "offline" });
   if (gate !== "ok") return H.send(req, 400, { ok: false, error: "turnstile" });
   let row;

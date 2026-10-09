@@ -127,3 +127,20 @@ test("webhook gets the stored tip", async () => {
   assert.equal(seen[0].init.headers.Authorization, "Bearer hb");
   assert.equal(JSON.parse(seen[0].init.body).tip.language, "nb");
 });
+
+test("onion forwarder: bearer skips Turnstile, shared rate key, onion page", async () => {
+  const db = fresh();
+  const e = env(db, { TIP_TEST: "0", ONION_INGEST_TOKEN: "onion-secret-1" });
+  const onionPage = "http://" + "a".repeat(56) + ".onion/sv/";
+  const body = good({ "cf-turnstile-response": "", page: onionPage });
+  const ok = await call(db, "/api/private-tip", { method: "POST", body, origin: null, token: "onion-secret-1", e });
+  assert.equal(ok.status, 201);
+  assert.equal(db.prepare("SELECT page FROM private_tips").get().page, onionPage);
+  const wrong = await call(db, "/api/private-tip", { method: "POST", body, origin: null, token: "nope", e });
+  assert.equal(wrong.status, 400, "without the bearer the onion page is not a valid page");
+  const same = env(db, { TIP_TEST: "0", ONION_INGEST_TOKEN: READ });
+  assert.equal((await call(db, "/api/private-tip", { method: "POST", body, origin: null, token: READ, e: same })).status, 400,
+    "ingest token equal to the read token is refused");
+  assert.ok(pageOk("/da/", ORIGINS, true)); assert.ok(!pageOk("/da/", ORIGINS));
+  assert.ok(!pageOk("https://" + "a".repeat(56) + ".onion/", ORIGINS, true));
+});

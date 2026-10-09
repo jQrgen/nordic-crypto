@@ -62,7 +62,7 @@ export function validate(f) {
 
 const hex = (buf) => [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, "0")).join("");
 
-async function rateOk(db, ip) {
+async function rateOk(db, ip, n = RATE_N) {   // n: per-key limit (the onion forwarder uses one shared key)
   const now = Math.floor(Date.now() / 1000), day = new Date().toISOString().slice(0, 10);
   const fresh = hex(crypto.getRandomValues(new Uint8Array(32)));
   await db.batch([
@@ -74,7 +74,7 @@ async function rateOk(db, ip) {
   const h = hex(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(row.salt + "|" + ip)));
   const c = await db.prepare("SELECT (SELECT COUNT(*) FROM rate_hits WHERE h = ?1 AND ts > ?2) AS mine, (SELECT COUNT(*) FROM rate_hits WHERE ts > ?2) AS total")
     .bind(h, now - RATE_WINDOW).first();
-  if (c.mine >= RATE_N || c.total >= RATE_GLOBAL_N) return false;
+  if (c.mine >= n || c.total >= RATE_GLOBAL_N) return false;
   await db.prepare("INSERT INTO rate_hits (h, ts) VALUES (?, ?)").bind(h, now).run();
   return true;
 }

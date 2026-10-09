@@ -179,6 +179,13 @@ S = {
 "tip_empty": "Please write the tip.",
 "tip_bad_link": "Each attachment must be a full http or https link.",
 "tip_need_js": "The spam check on this page loads a script from Cloudflare and needs JavaScript. Without JavaScript the tip is refused. Nothing is sent to GitHub.",
+"tip_onion_h": "Tor",
+"tip_onion_pending": "A tip page on a Tor onion address is being prepared, so you can send a tip without JavaScript and without the public website. The address is not published yet. When it exists, it will be shown here.",
+"tip_onion_ready": "You can send the same tip through our onion service, without JavaScript and without the Cloudflare check.",
+"tip_onion_link": "Open the onion tip page",
+"tip_onion_page": "This is the Tor tip page for Nordic Crypto. It does not use JavaScript, external fonts, or analytics. The tip goes to the same private inbox as the website form. Nothing is sent to GitHub.",
+"tip_onion_queued": "The private inbox could not be reached just now. Your tip is stored only on this onion server and will be forwarded when the inbox answers. It is not public.",
+"tip_lang": "Language",
 "tip_required": "(required)",
 "tip_honeypot": "Leave this field empty", "tip_send": "Send tip",
 # rules page link (full rules strings: see "rules_*")

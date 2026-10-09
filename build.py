@@ -2974,22 +2974,42 @@ def tip_intake():
     if not (ep and re.fullmatch(r"https://[A-Za-z0-9.-]+(?::\d{2,5})?", ep) and key): return None, None
     return ep, key
 
+def tip_onion():
+    """The Tor tip page (onion/), as http://<56 base32 chars>.onion, or None until the VPS has generated an address.
+    env TIP_ONION, else tipserver/config.json onion. Never invented."""
+    o = os.environ.get("TIP_ONION")
+    if o is None: o = (load(P("tipserver", "config.json"), {}) or {}).get("onion")
+    o = (o or "").strip().rstrip("/")
+    return o if re.fullmatch(r"http://[a-z2-7]{56}\.onion", o) else None
+
+def tip_onion_block():
+    """(notice html, head html) about the onion tip page: a link plus <meta http-equiv="onion-location"> when the address
+    exists, otherwise a note that it is being prepared."""
+    o = tip_onion()
+    if not o: return f'<p class="notice"><b>{E(t("tip_onion_h"))}.</b> {E(t("tip_onion_pending"))}</p>', ""
+    href = o + "/" + LANG + "/"
+    return (f'<p class="notice"><b>{E(t("tip_onion_h"))}.</b> {E(t("tip_onion_ready"))} <a href="{E(href)}">{E(t("tip_onion_link"))}</a> '
+            f'(<span class="meta">{E(href)}</span>).</p>', f'<meta http-equiv="onion-location" content="{E(href)}">')
+
 def build_tip():
     """'Send a tip' page: a private tip to Nordic Crypto's own inbox (tipworker/, D1). Never a public GitHub issue.
     While the inbox is closed (no deployed endpoint or no Turnstile site key) the page says private tips are coming and has
     no form. The form needs JavaScript (Turnstile); nothing is posted anywhere else."""
     if LANG == "en": write_tip_endpoint_file()
     ep, key = tip_intake()
+    onion_html, onion_head = tip_onion_block()
     if not ep:
         body = f"""<h1>{E(t("tip_title"))}</h1>
-<p class="notice">{t("tip_private_soon")}</p>"""
-        page("tip", t("tip_title"), "tip", text_page(body, toc=False), t("tip_desc"))
+<p class="notice">{t("tip_private_soon")}</p>
+{onion_html}"""
+        page("tip", t("tip_title"), "tip", text_page(body, toc=False), t("tip_desc"), head_extra=onion_head)
         return
     body = f"""<h1>{E(t("tip_title"))}</h1>
 <p class="lead">{E(t("tip_lead"))}</p>
 <div class="prose">
 <p>{E(t("tip_intro"))} <a href="../about/">{E(t("about_title"))}</a> · <a href="../ethics/">{E(t("ethics_title"))}</a></p>
 <p class="notice"><b>{E(t("tip_privacy_h"))}.</b> {E(t("tip_privacy"))}</p>
+{onion_html}
 <div id="tipmsg" role="status" aria-live="polite"></div>
 <noscript><p class="notice warn">{E(t("tip_need_js"))}</p></noscript>
 <form id="tipform" class="tipform form"><fieldset id="tipfs" class="plain" disabled>
@@ -3020,7 +3040,7 @@ f.addEventListener('submit',function(ev){ev.preventDefault();if(!f.reportValidit
   if(x.s>=200&&x.s<300&&x.j.ok){f.reset();say(M.thanks)}
   else if(x.s>=500)say(M.off,'warn'); else say((x.j&&M.err[x.j.error])||M.fail,'warn')})
  .catch(function(){t.done();b.disabled=false;say(M.off,'warn')})})})();</script>""" % (json.dumps(ep), json.dumps(LANG), json.dumps(msgs, ensure_ascii=False))
-    page("tip", t("tip_title"), "tip", text_page(body, toc=False, cls="formpage"), t("tip_desc"), js)
+    page("tip", t("tip_title"), "tip", text_page(body, toc=False, cls="formpage"), t("tip_desc"), js, head_extra=onion_head)
 
 def build_columnist():
     """'Apply as a columnist' page. Same privacy pattern as the static tip page: a plain HTML form (GET, no JavaScript,
