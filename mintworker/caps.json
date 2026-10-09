@@ -1,0 +1,26 @@
+{
+  "_note": "Hard caps for the mint hot wallets. The Worker enforces these. The treasury page reads the same file. Change the numbers here, not in the page. The hot wallets are meant to stay at or under hot_balance_target.",
+  "nexa": {
+    "unit": "NEXA",
+    "hot_balance_target": 50000,
+    "reserve": 2040,
+    "low_below": 10200,
+    "network": 20,
+    "airdrop": 1000,
+    "per_event": 20,
+    "per_day": 15,
+    "per_identity": "one_per_event"
+  },
+  "bch": {
+    "unit": "sats",
+    "hot_balance_target": 200000,
+    "reserve": 23000,
+    "low_below": 57500,
+    "network": 1500,
+    "airdrop": 10000,
+    "per_event": 8,
+    "per_day": 6,
+    "per_identity": "one_per_address_per_event",
+    "turnstile": true
+  }
+}

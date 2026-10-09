@@ -1,0 +1,20 @@
+/* Event NFT prototype (off unless NC_EVENT_NFT=1): mint panel on an event page and the treasury page. Page-only module. */
+.nftpanel{margin:18px 0}
+.nftmint{margin:8px 0 2px;padding-top:8px;border-top:1px solid var(--line);text-align:start}
+.nftmint p,.nftmint h4,.nftmint dl,.nftmint dd{text-align:start}
+.nftmint summary{cursor:pointer;display:inline-block;padding:8px 14px;background:var(--btn);color:var(--btn-ink);font-weight:700;list-style:none}
+.nftmint summary::-webkit-details-marker{display:none}
+a.nftbtn{display:inline-block;padding:8px 14px;background:var(--btn);color:var(--btn-ink);text-decoration:none;font-weight:700}
+.nftdlg{margin:8px 0 4px;padding:10px 12px;border:1px solid var(--line);background:var(--soft);max-width:36rem;text-align:start}
+.nftdlg img.art{width:180px;height:180px;display:block;background:#fff;border:1px solid var(--line)}
+.nftdlg img.qr{width:112px;height:112px;display:block;background:#fff;border:1px solid var(--line);margin-top:8px}
+.nftmint dt{font-weight:700;margin-top:6px}.nftmint dd{margin:0}
+.trewrap{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start;justify-content:flex-start}
+.trecol{flex:1 1 280px;max-width:440px;text-align:start}
+.trecol img{width:168px;height:168px;display:block;background:#fff;border:1px solid var(--line)}
+.placeholder{border:1px solid var(--warm);background:var(--warm-bg);padding:8px 10px;text-align:start}
+.trehist{width:100%;max-width:44rem;border-collapse:collapse;text-align:start;margin:8px 0 18px}
+.trehist th,.trehist td{text-align:start;padding:4px 12px 4px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.trecharts{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start;justify-content:flex-start}
+.trechart{margin:4px 0 16px;max-width:440px;text-align:start}
+.trechart svg{width:100%;height:auto;display:block}

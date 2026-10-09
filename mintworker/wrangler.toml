@@ -1,0 +1,45 @@
+# Event-NFT mint policy. Not the tip Worker. Deploy is manual and is not part of publish.sh.
+# Secrets (never put the values in this file):
+#   wrangler secret put NEXA_HOT_KEY
+#   wrangler secret put BCH_HOT_KEY
+#   wrangler secret put ADMIN_TOKEN
+# Optional: wrangler secret put TURNSTILE_SECRET
+# Those secrets survive a restart and a redeploy. A new isolate loads the same values.
+# Delete ADMIN_TOKEN after the one-off token setup: wrangler secret delete ADMIN_TOKEN
+#
+# After setup, commit the printed public ids here so a rebuilt D1 is not required.
+# Until then the Worker reads token_setup. The mint still prefers these vars.
+# NEXA_PARENT_GROUP = "nexatest:..."
+# BCH_CATEGORY = "<64 hex chars>"
+name = "nordic-crypto-mint"
+main = "src/worker.js"
+compatibility_date = "2026-09-01"
+# libnexa-ts (the Nexa signer) uses Buffer. The BCH signer does not.
+compatibility_flags = ["nodejs_compat"]
+workers_dev = true
+preview_urls = false
+
+# Public testnet hot-wallet (refill) addresses. Not secrets.
+# Nexa testnet and Bitcoin Cash chipnet (token-aware cashaddr; the plain form is
+# bchtest:qpahmsq06pyhkzfygww3kyrrpc00vl8mrcvrz45zkl, same key).
+# NC_EVENT_NFT and MINT_NETWORK are passed with --var at deploy time, so a plain
+# `wrangler deploy` from this file leaves signing off.
+[vars]
+NEXA_HOT_ADDRESS = "nexatest:nqtsq5g5xjg5cqg2kx5wgg4wag9hfjach7zaqxxekdrpgx5v"
+BCH_HOT_ADDRESS = "bchtest:zpahmsq06pyhkzfygww3kyrrpc00vl8mrctf3t6yfv"
+# Public Nexa testnet parent group, created by POST /api/admin/setup-tokens?chain=nexa
+# (tx 827574fd7a94a4ab3d7db05bd4ab0d782d0cf445154cd8e96c43c578cc784760). Not a secret.
+# BCH_CATEGORY is added here after the chipnet genesis.
+NEXA_PARENT_GROUP = "nexatest:trgmrcwuzqvxh6epkknac2cqap3zc995pmjyxnkyhnwuj0vmzuqqqrk4s7et7"
+
+[observability]
+enabled = false
+
+[triggers]
+crons = ["17 * * * *"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "nordic-crypto-mint"
+database_id = "4adc0fb4-1bec-4ee4-94ab-bf4c6a6d16f9"
+migrations_dir = "migrations"
