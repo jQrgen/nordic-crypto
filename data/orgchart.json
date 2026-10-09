@@ -1934,7 +1934,18 @@
    "org": "bare-bitcoin",
    "role": "Co-founder",
    "profile_url": "https://barebitcoin.no/innsikt/nyheter/2026-06-26-bare-bitcoin-har-mica",
-   "status": "published"
+   "status": "published",
+   "profiles": [
+    {
+     "kind": "github",
+     "label": "GitHub",
+     "url": "https://github.com/torkelrogstad",
+     "source_url": "https://github.com/torkelrogstad",
+     "status": "pending",
+     "note": "GitHub profile names Bare Bitcoin as the company and Oslo as the location",
+     "added": "2026-10-09 (open-source developers research)"
+    }
+   ]
   },
   {
    "id": "tyr-markets",
@@ -9142,7 +9153,18 @@
    "from_talks": true,
    "origin": "Talks archive",
    "caveat": false,
-   "status": "published"
+   "status": "published",
+   "profiles": [
+    {
+     "kind": "github",
+     "label": "GitHub",
+     "url": "https://github.com/czepluch",
+     "source_url": "https://github.com/czepluch",
+     "status": "pending",
+     "note": "Login matches the surname; Solidity commits match the who's who affiliation (Solidity). Check before approving.",
+     "added": "2026-10-09 (open-source developers research)"
+    }
+   ]
   },
   {
    "id": "spk-halvor-bakke-veiby",
@@ -12622,7 +12644,18 @@
    "from_talks": true,
    "origin": "Talks archive",
    "caveat": false,
-   "status": "published"
+   "status": "published",
+   "profiles": [
+    {
+     "kind": "github",
+     "label": "GitHub",
+     "url": "https://github.com/gislik",
+     "source_url": "https://github.com/gislik",
+     "status": "pending",
+     "note": "GitHub profile names Monerium as the company and Reykjavik as the location; the who's who talk is about Monerium",
+     "added": "2026-10-09 (open-source developers research)"
+    }
+   ]
   },
   {
    "id": "spk-kristjan-ingi-mikaelsson",
