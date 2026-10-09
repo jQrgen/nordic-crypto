@@ -3,18 +3,69 @@
  "launch_date": "2026-10-03",
  "entries": [
   {
+   "id": "visitor-stats",
+   "date": null,
+   "review": "pending",
+   "title": "Visitor stats",
+   "description": "A new Stats page shows visits and page views per day, week and month. The numbers come from Cloudflare Web Analytics, which counts visits in aggregate and uses no cookies. The same numbers are in the data API as stats.json. A data policy on the same page explains what is collected and published, the legal basis under the GDPR and how long the data is kept.",
+   "i18n": {
+    "nn": {
+     "title": "Besøksstatistikk",
+     "description": "Ei ny statistikkside viser besøk og sidevisingar per dag, veke og månad. Tala kjem frå Cloudflare Web Analytics, som tel besøk samla og ikkje brukar informasjonskapslar. Dei same tala ligg i data-API-et som stats.json. Ei personvernerklæring på same sida forklarer kva som vert samla inn og publisert, det rettslege grunnlaget etter personvernforordninga og kor lenge dataa vert lagra."
+    },
+    "nb": {
+     "title": "Besøksstatistikk",
+     "description": "En ny statistikkside viser besøk og sidevisninger per dag, uke og måned. Tallene kommer fra Cloudflare Web Analytics, som teller besøk samlet og ikke bruker informasjonskapsler. De samme tallene ligger i data-API-et som stats.json. En personvernerklæring på samme side forklarer hva som samles inn og publiseres, det rettslige grunnlaget etter personvernforordningen og hvor lenge dataene lagres."
+    },
+    "sv": {
+     "title": "Besöksstatistik",
+     "description": "En ny statistiksida visar besök och sidvisningar per dag, vecka och månad. Siffrorna kommer från Cloudflare Web Analytics, som räknar besök samlat och inte använder cookies. Samma siffror finns i data-API:t som stats.json. En datapolicy på samma sida förklarar vad som samlas in och publiceras, den rättsliga grunden enligt dataskyddsförordningen och hur länge uppgifterna sparas."
+    },
+    "da": {
+     "title": "Besøgsstatistik",
+     "description": "En ny statistikside viser besøg og sidevisninger pr. dag, uge og måned. Tallene kommer fra Cloudflare Web Analytics, som tæller besøg samlet og ikke bruger cookies. De samme tal findes i data-API'et som stats.json. En datapolitik på samme side forklarer, hvad der indsamles og offentliggøres, retsgrundlaget efter databeskyttelsesforordningen, og hvor længe data gemmes."
+    },
+    "fi": {
+     "title": "Kävijätilastot",
+     "description": "Uusi tilastosivu näyttää käynnit ja sivunlataukset päivittäin, viikoittain ja kuukausittain. Luvut tulevat Cloudflare Web Analyticsista, joka laskee käynnit yhteenlaskettuina eikä käytä evästeitä. Samat luvut ovat data-API:ssa tiedostona stats.json. Samalla sivulla oleva tietosuojakäytäntö kertoo, mitä kerätään ja julkaistaan, mikä on oikeusperuste tietosuoja-asetuksen mukaan ja kuinka kauan tietoja säilytetään."
+    },
+    "is": {
+     "title": "Heimsóknartölfræði",
+     "description": "Ný tölfræðisíða sýnir heimsóknir og síðuflettingar á dag, viku og mánuð. Tölurnar koma úr Cloudflare Web Analytics, sem telur heimsóknir í heild og notar ekki vafrakökur. Sömu tölur eru í gagna-API-inu sem stats.json. Gagnastefna á sömu síðu útskýrir hverju er safnað og hvað er birt, lagagrundvöllinn samkvæmt persónuverndarreglugerðinni og hversu lengi gögnin eru geymd."
+    }
+   }
+  },
+  {
    "id": "event-nft-prototype",
    "date": null,
    "review": "pending",
    "title": "Event NFT prototype, not live",
    "description": "A prototype, switched off in the public build, for a generated event NFT on Nexa and Bitcoin Cash. Upcoming and ongoing event pages can mint a card. The minting treasury has its own page, with a public refill and mint history and a balance chart. The hot key is a Worker secret so a redeploy keeps it, and the hot wallets stay small. The mint worker signs testnet transactions when the flag is on.",
    "i18n": {
-    "nn": {"title": "Prototype for arrangements-NFT, ikkje i bruk", "description": "Ein prototype, slått av i den offentlege versjonen, for eit generert arrangements-NFT på Nexa og Bitcoin Cash. Sidene for komande og pågåande arrangement kan prege eit kort. Pregekassa har eiga side, med ein offentleg historikk over påfyll og preging og ein graf over saldoen. Den varme nøkkelen er ein Worker-løyndom, så han blir verande ved ny utrulling, og dei varme lommebøkene blir haldne små. Pregetenesta signerer transaksjonar på testnett når flagget er på."},
-    "nb": {"title": "Prototype for arrangements-NFT, ikke i bruk", "description": "En prototype, slått av i den offentlige versjonen, for et generert arrangements-NFT på Nexa og Bitcoin Cash. Sidene for kommende og pågående arrangementer kan prege et kort. Pregekassen har egen side, med en offentlig historikk over påfyll og preging og en graf over saldoen. Den varme nøkkelen er en Worker-hemmelighet, så den blir værende ved ny utrulling, og de varme lommebøkene holdes små. Pregetjenesten signerer transaksjoner på testnett når flagget er på."},
-    "sv": {"title": "Prototyp för evenemangs-NFT, inte i drift", "description": "En prototyp, avstängd i den publika versionen, för en genererad evenemangs-NFT på Nexa och Bitcoin Cash. Sidorna för kommande och pågående evenemang kan prägla ett kort. Präglingskassan har en egen sida, med en offentlig historik över påfyllningar och präglingar och ett diagram över saldot. Den varma nyckeln är en Worker-hemlighet så att den finns kvar vid ny driftsättning, och de varma plånböckerna hålls små. Präglingstjänsten signerar transaktioner på testnät när flaggan är på."},
-    "da": {"title": "Prototype for event-NFT, ikke i brug", "description": "En prototype, slået fra i den offentlige version, for en genereret event-NFT på Nexa og Bitcoin Cash. Siderne for kommende og igangværende arrangementer kan præge et kort. Prægekassen har sin egen side med en offentlig historik over påfyldninger og prægninger og en graf over saldoen. Den varme nøgle er en Worker-hemmelighed, så den bevares ved ny udrulning, og de varme tegnebøger holdes små. Prægetjenesten signerer transaktioner på testnet, når flaget er slået til."},
-    "fi": {"title": "Tapahtuma-NFT:n prototyyppi, ei käytössä", "description": "Julkisessa versiossa pois päältä oleva prototyyppi generoidulle tapahtuma-NFT:lle Nexassa ja Bitcoin Cashissä. Tulevien ja käynnissä olevien tapahtumien sivuilla voi lyödä kortin. Lyöntikassalla on oma sivu, jossa on julkinen täyttö- ja lyöntihistoria sekä saldokaavio. Kuuma avain on Workerin salaisuus, joten se säilyy uudelleenjulkaisussa, ja kuumat lompakot pidetään pieninä. Lyöntipalvelu allekirjoittaa testiverkon transaktioita, kun lippu on päällä."},
-    "is": {"title": "Frumgerð viðburða-NFT, ekki í notkun", "description": "Frumgerð, slökkt á í opinberu útgáfunni, fyrir myndað viðburða-NFT á Nexa og Bitcoin Cash. Síður væntanlegra og yfirstandandi viðburða geta slegið kort. Sláttusjóðurinn hefur eigin síðu með opinberri sögu áfyllinga og sláttu og línuriti yfir stöðuna. Heiti lykillinn er Worker-leyndarmál svo hann helst við nýja uppsetningu, og heitu veskin eru höfð lítil. Sláttuþjónustan undirritar færslur á prófunarneti þegar flaggið er á."}
+    "nn": {
+     "title": "Prototype for arrangements-NFT, ikkje i bruk",
+     "description": "Ein prototype, slått av i den offentlege versjonen, for eit generert arrangements-NFT på Nexa og Bitcoin Cash. Sidene for komande og pågåande arrangement kan prege eit kort. Pregekassa har eiga side, med ein offentleg historikk over påfyll og preging og ein graf over saldoen. Den varme nøkkelen er ein Worker-løyndom, så han blir verande ved ny utrulling, og dei varme lommebøkene blir haldne små. Pregetenesta signerer transaksjonar på testnett når flagget er på."
+    },
+    "nb": {
+     "title": "Prototype for arrangements-NFT, ikke i bruk",
+     "description": "En prototype, slått av i den offentlige versjonen, for et generert arrangements-NFT på Nexa og Bitcoin Cash. Sidene for kommende og pågående arrangementer kan prege et kort. Pregekassen har egen side, med en offentlig historikk over påfyll og preging og en graf over saldoen. Den varme nøkkelen er en Worker-hemmelighet, så den blir værende ved ny utrulling, og de varme lommebøkene holdes små. Pregetjenesten signerer transaksjoner på testnett når flagget er på."
+    },
+    "sv": {
+     "title": "Prototyp för evenemangs-NFT, inte i drift",
+     "description": "En prototyp, avstängd i den publika versionen, för en genererad evenemangs-NFT på Nexa och Bitcoin Cash. Sidorna för kommande och pågående evenemang kan prägla ett kort. Präglingskassan har en egen sida, med en offentlig historik över påfyllningar och präglingar och ett diagram över saldot. Den varma nyckeln är en Worker-hemlighet så att den finns kvar vid ny driftsättning, och de varma plånböckerna hålls små. Präglingstjänsten signerar transaktioner på testnät när flaggan är på."
+    },
+    "da": {
+     "title": "Prototype for event-NFT, ikke i brug",
+     "description": "En prototype, slået fra i den offentlige version, for en genereret event-NFT på Nexa og Bitcoin Cash. Siderne for kommende og igangværende arrangementer kan præge et kort. Prægekassen har sin egen side med en offentlig historik over påfyldninger og prægninger og en graf over saldoen. Den varme nøgle er en Worker-hemmelighed, så den bevares ved ny udrulning, og de varme tegnebøger holdes små. Prægetjenesten signerer transaktioner på testnet, når flaget er slået til."
+    },
+    "fi": {
+     "title": "Tapahtuma-NFT:n prototyyppi, ei käytössä",
+     "description": "Julkisessa versiossa pois päältä oleva prototyyppi generoidulle tapahtuma-NFT:lle Nexassa ja Bitcoin Cashissä. Tulevien ja käynnissä olevien tapahtumien sivuilla voi lyödä kortin. Lyöntikassalla on oma sivu, jossa on julkinen täyttö- ja lyöntihistoria sekä saldokaavio. Kuuma avain on Workerin salaisuus, joten se säilyy uudelleenjulkaisussa, ja kuumat lompakot pidetään pieninä. Lyöntipalvelu allekirjoittaa testiverkon transaktioita, kun lippu on päällä."
+    },
+    "is": {
+     "title": "Frumgerð viðburða-NFT, ekki í notkun",
+     "description": "Frumgerð, slökkt á í opinberu útgáfunni, fyrir myndað viðburða-NFT á Nexa og Bitcoin Cash. Síður væntanlegra og yfirstandandi viðburða geta slegið kort. Sláttusjóðurinn hefur eigin síðu með opinberri sögu áfyllinga og sláttu og línuriti yfir stöðuna. Heiti lykillinn er Worker-leyndarmál svo hann helst við nýja uppsetningu, og heitu veskin eru höfð lítil. Sláttuþjónustan undirritar færslur á prófunarneti þegar flaggið er á."
+    }
    }
   },
   {

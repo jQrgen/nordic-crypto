@@ -1,0 +1,12 @@
+/* Visitor stats (stats/). Plain tables with CSS bars, start-aligned like every other page. */
+.stats,.stats h2,.stats p,.stats table,.stats th,.stats td{text-align:start}
+.stats section{margin:0 0 28px}
+table.sttab{width:100%;max-width:42rem;margin:0}
+table.sttab th,table.sttab td{font-variant-numeric:tabular-nums;white-space:nowrap}
+table.sttab .stv{display:flex;align-items:center;justify-content:flex-start;gap:10px}
+table.sttab .stbar{display:inline-block;flex:none;width:9rem;max-width:28vw;height:8px;background:var(--soft);border-radius:4px;overflow:hidden}
+table.sttab .stfill{display:block;height:8px;min-width:1px;background:var(--accent);border-radius:4px}
+table.sttab .stfill.z{min-width:0}
+table.sttab .stfrom{color:var(--muted);font-weight:400;margin-inline-start:6px}
+table.sttab .tag{margin-inline-start:6px}
+.stpolicy,.stpolicy h2,.stpolicy p{text-align:start}.stpolicy{max-width:46rem;margin:32px 0 0}.stpolicy p{margin:0 0 12px}

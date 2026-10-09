@@ -556,7 +556,7 @@ def site_footer(rel, root, slug=""):
                 + (f' <span class="meta">{E(note)}</span>' if note else "") + '</li>')
     sections = "".join(li(root + "api/" if n == "api" else rel + (n + "/" if n else ""), t(k)) for n, k in nav_items()[:NAV_MAIN])
     site = (li(rel + "about/", t("nav_about")) + li(rel + "sources/", t("nav_sources")) + li(rel + "ethics/", t("ethics_title"))
-            + li(rel + "changelog/", t("cl_title")) + li(rel + "media/", t("media_title")) + li(rel + "columnist/", t("col_title"))
+            + li(rel + "changelog/", t("cl_title")) + li(rel + "stats/", t("vst_title")) + li(rel + "media/", t("media_title")) + li(rel + "columnist/", t("col_title"))
             + li(rel + "tip/", t("nav_tip")) + li(root + "api/", t("foot_api")) + li("https://github.com/jQrgen/nordic-crypto", t("foot_source"), True)
             + li(REPO_CONTRIBUTORS, t("contributors"), True)
             + (li(rel + "treasury/", t("nav_treasury")) if event_nft.enabled() else ""))
@@ -960,6 +960,8 @@ def build():
     except Exception as ex:
         print("markets: fetch failed:", ex)
         ctx["markets"] = markets_mod.empty_failure(str(ex).split("\n")[0][:300])
+    import fetch_stats
+    ctx["stats"] = fetch_stats.current(BASE)   # aggregate visitor counts for stats/ and api/v1/stats.json
     for LANG in i18n.LANGS:
         build_lang(ctx)
     LANG = "en"
@@ -1004,6 +1006,7 @@ def emit_api(ctx):
         sources_cfg=ctx.get("cfg") or {},
         news_updated=(ctx.get("news") or {}).get("updated"),
         markets=ctx.get("markets"),
+        stats=ctx.get("stats"),
     )
     global LANG
     was = LANG
@@ -1798,6 +1801,7 @@ def build_lang(ctx):
     build_academia()
     build_books()
     build_changelog()
+    build_stats(ctx)
     build_tip()
     build_columnist()
     build_newsletter()
@@ -3082,6 +3086,74 @@ def build_changelog():
 <p class="meta">{E(t("cl_data"))}: <a href="{up1()}data/changelog.json">changelog.json</a>.</p>"""
     page("changelog", t("cl_title"), "changelog", body, t("cl_desc"))
     if LANG == "en": print(f"changelog: {len(rows)} entries, launch date {launch or 'not set (preview)'}")
+
+def build_stats(ctx):
+    """Visitor stats (stats/): visits and page views per day, ISO week and month from Cloudflare Web Analytics.
+    Data: ctx["stats"] from tools/fetch_stats.py (data/stats.json or the copy on gh-pages, whichever is newer).
+    Aggregate counts only. Until there is data the page says the stats are being set up. The inline script reloads
+    api/v1/stats.json, so the scheduled refresh on gh-pages shows up without a new build."""
+    doc = ctx.get("stats") or {}
+    root = up1()
+    has = bool(doc.get("daily"))
+    gen = doc.get("generated_at") or ""
+    when = gen.replace("T", " ").replace("Z", "")[:16] + " UTC" if gen else ""
+    part = f' <span class="tag">{E(t("vst_partial"))}</span>'
+    def rows(items, label):
+        top = max([r["visits"] for r in items] + [1])
+        out = []
+        for r in items:
+            w = round(100 * r["visits"] / top)
+            out.append(f'<tr><th scope="row">{label(r)}{part if r.get("partial") else ""}</th>'
+                       f'<td><span class="stv"><span class="stbar" aria-hidden="true"><span class="stfill{" z" if not w else ""}" style="width:{w}%"></span></span>'
+                       f'<span class="stn">{int(r["visits"])}</span></span></td><td class="stn">{int(r["pageviews"])}</td></tr>')
+        return "".join(out)
+    daily = list(reversed((doc.get("daily") or [])[-30:]))
+    weekly = list(reversed((doc.get("weekly") or [])[-26:]))
+    monthly = list(reversed(doc.get("monthly") or []))
+    def table(sid, head, col, body):
+        return (f'<section id="{sid}"{"" if has else " hidden"}><h2>{E(t(head))}</h2><table class="list sttab"><thead><tr>'
+                f'<th scope="col">{E(t(col))}</th><th scope="col">{E(t("vst_visits"))}</th><th scope="col">{E(t("vst_views"))}</th>'
+                f'</tr></thead><tbody>{body}</tbody></table></section>')
+    ltr = lambda x: f'<bdi dir="ltr">{E(x)}</bdi>'   # ISO labels stay readable on Arabic and Urdu pages
+    # Data policy (GDPR) next to the numbers. While no beacon token is set, it says the script is not on yet.
+    issues = '<a href="https://github.com/jQrgen/nordic-crypto/issues" rel="noopener">github.com/jQrgen/nordic-crypto/issues</a>'
+    policy = (f'<section id="data-policy" class="stpolicy"><h2>{E(t("vdp_h"))}</h2>'
+              + ("" if analytics_token() else f'<p class="notice">{E(t("vdp_off"))}</p>')
+              + "".join(f"<p>{t(k)}</p>" for k in ("vdp_who", "vdp_collect", "vdp_publish", "vdp_not", "vdp_basis", "vdp_keep", "vdp_proc"))
+              + f'<p>{t("vdp_rights", issues=issues)}</p></section>')
+    week_label = lambda r: f'{ltr(r["week"])}<span class="stfrom">{ltr(r["start"])}</span>'
+    body = f"""<h1>{E(t("vst_title"))}</h1>
+<p class="lead">{E(t("vst_lead"))}</p>
+<p class="meta"><a href="#data-policy">{E(t("vdp_h"))}</a></p>
+<div class="stats" id="st" data-json="{root}api/v1/stats.json" data-gen="{E(gen)}" data-partial="{E(t("vst_partial"))}" data-upd="{E(t("vst_updated", when="{when}"))}">
+<p class="notice" id="st-pending"{" hidden" if has else ""}>{E(t("vst_pending"))}</p>
+<p class="meta" id="st-upd"{"" if has else " hidden"}>{t("vst_updated", when=f'<bdi dir="ltr">{E(when)}</bdi>') if has else ""}</p>
+{table("st-daily", "vst_daily_h", "vst_day", rows(daily, lambda r: ltr(r["date"])))}
+{table("st-weekly", "vst_weekly_h", "vst_week", rows(weekly, week_label))}
+{table("st-monthly", "vst_monthly_h", "vst_month", rows(monthly, lambda r: ltr(r["month"])))}
+<p class="meta">{E(t("vst_visits_note"))}</p>
+<p class="meta">{E(t("vst_tz"))}</p>
+<p class="meta">{E(t("vst_data"))} <a href="{root}api/v1/stats.json">stats.json</a></p>
+</div>
+{policy}{site_css.style("stats")}"""
+    script = r"""<script>(function(){var el=document.getElementById('st');if(!el||!window.fetch)return;
+var lang=document.documentElement.lang||'en',nf;try{nf=new Intl.NumberFormat(lang)}catch(e){nf={format:String}}
+function fmt(){[].forEach.call(el.querySelectorAll('.stn'),function(n){var v=n.getAttribute('data-n')||n.textContent;n.setAttribute('data-n',v);n.textContent=nf.format(+v)})}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function ltr(s){return '<bdi dir="ltr">'+esc(s)+'</bdi>'}
+function fill(id,items,label){var s=document.getElementById(id);if(!s)return;var top=1;items.forEach(function(r){if(r.visits>top)top=r.visits});
+s.querySelector('tbody').innerHTML=items.map(function(r){var w=Math.round(100*r.visits/top);return '<tr><th scope="row">'+label(r)+(r.partial?' <span class="tag">'+esc(el.getAttribute('data-partial'))+'</span>':'')+'</th><td><span class="stv"><span class="stbar" aria-hidden="true"><span class="stfill'+(w?'':' z')+'" style="width:'+w+'%"></span></span><span class="stn">'+(+r.visits)+'</span></span></td><td class="stn">'+(+r.pageviews)+'</td></tr>'}).join('');s.hidden=false}
+fmt();fetch(el.getAttribute('data-json'),{cache:'no-store',credentials:'omit'}).then(function(r){return r.ok?r.json():null}).then(function(j){
+if(!j||!j.daily||!j.daily.length||!j.generated_at||j.generated_at<=(el.getAttribute('data-gen')||''))return;
+fill('st-daily',j.daily.slice(-30).reverse(),function(r){return ltr(r.date)});
+fill('st-weekly',(j.weekly||[]).slice(-26).reverse(),function(r){return ltr(r.week)+'<span class="stfrom">'+ltr(r.start)+'</span>'});
+fill('st-monthly',(j.monthly||[]).slice().reverse(),function(r){return ltr(r.month)});
+var u=document.getElementById('st-upd');u.textContent=el.getAttribute('data-upd').replace('{when}',j.generated_at.replace('T',' ').replace('Z','').slice(0,16)+' UTC');u.hidden=false;
+document.getElementById('st-pending').hidden=true;el.setAttribute('data-gen',j.generated_at);fmt()}).catch(function(){})})();</script>"""
+    page("stats", t("vst_title"), "stats", body, t("vst_desc"), extra_script=script)
+    if LANG == "en":
+        print(f"stats: {len(doc.get('daily') or [])} days, {len(doc.get('monthly') or [])} months"
+              + (f", updated {when}" if has else ", no data yet (page says the stats are being set up)"))
 
 def build_rules(ctx):
     """'How the rules are made' (rules/): see tools/rules_page.py (data: rules.json, editor-reviewed)."""
