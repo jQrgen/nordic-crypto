@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T12:38:28+00:00",
+ "generated_at": "2026-10-10T19:26:50+00:00",
  "preview": false,
  "item": {
   "id": "188b5b8ed9fb",
@@ -40,12 +40,12 @@
   ],
   "summary": "An answer from Danish minister Jakob Engel-Schmidt showed how many Danes pay tax on crypto investments they lost money on, which he called 'actually pretty wild'; he now wants to fix the century-old rule behind it.",
   "summary_i18n": {
-   "nn": "Eit svar frå den danske ministeren Jakob Engel-Schmidt viste kor mange danskar som betaler skatt av kryptoinvesteringar dei har tapt pengar på, noko han kalla «faktisk ganske vilt»; no vil han endre den hundre år gamle regelen bak.",
-   "nb": "Et svar fra den danske ministeren Jakob Engel-Schmidt viste hvor mange dansker som betaler skatt av kryptoinvesteringer de har tapt penger på, noe han kalte «faktisk ganske vilt»; nå vil han endre den hundre år gamle regelen bak.",
-   "sv": "Ett svar från den danske ministern Jakob Engel-Schmidt visade hur många danskar som betalar skatt på kryptoinvesteringar de förlorat pengar på, vilket han kallade ”faktiskt ganska vilt”; nu vill han ändra den hundra år gamla regeln bakom.",
    "da": "Et svar fra minister Jakob Engel-Schmidt viste, hvor mange danskere der betaler skat af kryptoinvesteringer, de har tabt penge på, hvilket han kaldte »faktisk ret vildt«; nu vil han ændre den århundredgamle regel bag.",
    "fi": "Tanskalaisen ministerin Jakob Engel-Schmidtin vastaus osoitti, kuinka moni tanskalainen maksaa veroa kryptosijoituksista, joilla on hävinnyt rahaa – hänen mukaansa ”oikeastaan aika villiä” – ja nyt hän haluaa korjata asian taustalla olevan vuosisadan vanhan säännön.",
-   "is": "Svar frá danska ráðherranum Jakob Engel-Schmidt sýndi hversu margir Danir greiða skatt af rafmyntafjárfestingum sem þeir hafa tapað á, sem hann kallaði „í raun alveg galið“; nú vill hann laga aldargamla regluna sem liggur að baki."
+   "is": "Svar frá danska ráðherranum Jakob Engel-Schmidt sýndi hversu margir Danir greiða skatt af rafmyntafjárfestingum sem þeir hafa tapað á, sem hann kallaði „í raun alveg galið“; nú vill hann laga aldargamla regluna sem liggur að baki.",
+   "nb": "Et svar fra den danske ministeren Jakob Engel-Schmidt viste hvor mange dansker som betaler skatt av kryptoinvesteringer de har tapt penger på, noe han kalte «faktisk ganske vilt»; nå vil han endre den hundre år gamle regelen bak.",
+   "nn": "Eit svar frå den danske ministeren Jakob Engel-Schmidt viste kor mange danskar som betaler skatt av kryptoinvesteringar dei har tapt pengar på, noko han kalla «faktisk ganske vilt»; no vil han endre den hundre år gamle regelen bak.",
+   "sv": "Ett svar från den danske ministern Jakob Engel-Schmidt visade hur många danskar som betalar skatt på kryptoinvesteringar de förlorat pengar på, vilket han kallade ”faktiskt ganska vilt”; nu vill han ändra den hundra år gamla regeln bakom."
   },
   "paywall": false,
   "links": [],

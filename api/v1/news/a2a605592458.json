@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T12:38:28+00:00",
+ "generated_at": "2026-10-10T19:26:50+00:00",
  "preview": false,
  "item": {
   "id": "a2a605592458",
@@ -39,12 +39,12 @@
   ],
   "summary": "Tokenisation at Blockchain Sweden and the final of the Blockathon hackathon put blockchain on the agenda in Stockholm this week.",
   "summary_i18n": {
-   "nn": "Tokenisering hos Blockchain Sweden og finalen i hackathonet Blockathon sette blokkjede på dagsordenen i Stockholm denne veka.",
-   "nb": "Tokenisering hos Blockchain Sweden og finalen i hackathonet Blockathon satte blokkjede på dagsordenen i Stockholm denne uken.",
-   "sv": "Tokenisering hos Blockchain Sweden och finalen i hackathonet Blockathon satte blockkedjor på dagordningen i Stockholm den här veckan.",
    "da": "Tokenisering hos Blockchain Sweden og finalen i hackathonen Blockathon satte blockchain på dagsordenen i Stockholm i denne uge.",
    "fi": "Tokenisointi Blockchain Swedenin tilaisuudessa ja Blockathon-hackathonin finaali nostivat lohkoketjut esiin Tukholmassa tällä viikolla.",
-   "is": "Táknvæðing hjá Blockchain Sweden og úrslit Blockathon-forritunarkeppninnar settu bálkakeðjur á dagskrá í Stokkhólmi í vikunni."
+   "is": "Táknvæðing hjá Blockchain Sweden og úrslit Blockathon-forritunarkeppninnar settu bálkakeðjur á dagskrá í Stokkhólmi í vikunni.",
+   "nb": "Tokenisering hos Blockchain Sweden og finalen i hackathonet Blockathon satte blokkjede på dagsordenen i Stockholm denne uken.",
+   "nn": "Tokenisering hos Blockchain Sweden og finalen i hackathonet Blockathon sette blokkjede på dagsordenen i Stockholm denne veka.",
+   "sv": "Tokenisering hos Blockchain Sweden och finalen i hackathonet Blockathon satte blockkedjor på dagordningen i Stockholm den här veckan."
   },
   "paywall": false,
   "links": [],

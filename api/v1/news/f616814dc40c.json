@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T12:38:28+00:00",
+ "generated_at": "2026-10-10T19:26:50+00:00",
  "preview": false,
  "item": {
   "id": "f616814dc40c",
@@ -39,12 +39,12 @@
   ],
   "summary": "GreenMerc is cutting costs by SEK 4.8 million a year while Northcrypto turns a profit, with spending redirected to the banking offer Trijo One.",
   "summary_i18n": {
-   "nn": "GreenMerc kuttar kostnader med 4,8 millionar svenske kroner i året medan Northcrypto går med overskot, og pengane blir flytta til banktilbodet Trijo One.",
-   "nb": "GreenMerc kutter kostnader med 4,8 millioner svenske kroner i året mens Northcrypto går med overskudd, og pengene flyttes til banktilbudet Trijo One.",
-   "sv": "GreenMerc skär ned kostnaderna med 4,8 miljoner kronor om året medan Northcrypto går med vinst, och pengarna styrs om till banktjänsten Trijo One.",
    "da": "GreenMerc skærer 4,8 millioner svenske kroner om året i omkostninger, mens Northcrypto giver overskud, og pengene flyttes til bankproduktet Trijo One.",
    "fi": "GreenMerc leikkaa kulujaan 4,8 miljoonaa Ruotsin kruunua vuodessa samalla kun Northcrypto tekee voittoa, ja rahat ohjataan pankkipalvelu Trijo Oneen.",
-   "is": "GreenMerc sker niður kostnað um 4,8 milljónir sænskra króna á ári á meðan Northcrypto skilar hagnaði, og fénu er beint í bankaþjónustuna Trijo One."
+   "is": "GreenMerc sker niður kostnað um 4,8 milljónir sænskra króna á ári á meðan Northcrypto skilar hagnaði, og fénu er beint í bankaþjónustuna Trijo One.",
+   "nb": "GreenMerc kutter kostnader med 4,8 millioner svenske kroner i året mens Northcrypto går med overskudd, og pengene flyttes til banktilbudet Trijo One.",
+   "nn": "GreenMerc kuttar kostnader med 4,8 millionar svenske kroner i året medan Northcrypto går med overskot, og pengane blir flytta til banktilbodet Trijo One.",
+   "sv": "GreenMerc skär ned kostnaderna med 4,8 miljoner kronor om året medan Northcrypto går med vinst, och pengarna styrs om till banktjänsten Trijo One."
   },
   "paywall": false,
   "links": [],

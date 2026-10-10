@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T12:38:28+00:00",
+ "generated_at": "2026-10-10T19:26:50+00:00",
  "preview": false,
  "item": {
   "id": "12425cc1e7ff",
@@ -40,12 +40,12 @@
   ],
   "summary": "Finnish broker Coinmotion has picked Norway's K33 to execute large trades, a partnership between two MiCA-licensed Nordic firms.",
   "summary_i18n": {
-   "nn": "Finske Coinmotion har valt norske K33 til å gjennomføre store handlar, eit samarbeid mellom to nordiske selskap med MiCA-løyve.",
-   "nb": "Finske Coinmotion har valgt norske K33 til å gjennomføre store handler, et samarbeid mellom to nordiske selskaper med MiCA-tillatelse.",
-   "sv": "Finländska Coinmotion har valt norska K33 för att genomföra stora affärer, ett samarbete mellan två nordiska bolag med MiCA-tillstånd.",
    "da": "Finske Coinmotion har valgt norske K33 til at gennemføre store handler, et samarbejde mellem to nordiske selskaber med MiCA-tilladelse.",
    "fi": "Suomalainen Coinmotion on valinnut norjalaisen K33:n toteuttamaan suuria kauppoja; kyseessä on kahden MiCA-toimiluvan saaneen pohjoismaisen yrityksen yhteistyö.",
-   "is": "Finnska Coinmotion hefur valið norska K33 til að annast stór viðskipti, samstarf tveggja norrænna fyrirtækja með MiCA-leyfi."
+   "is": "Finnska Coinmotion hefur valið norska K33 til að annast stór viðskipti, samstarf tveggja norrænna fyrirtækja með MiCA-leyfi.",
+   "nb": "Finske Coinmotion har valgt norske K33 til å gjennomføre store handler, et samarbeid mellom to nordiske selskaper med MiCA-tillatelse.",
+   "nn": "Finske Coinmotion har valt norske K33 til å gjennomføre store handlar, eit samarbeid mellom to nordiske selskap med MiCA-løyve.",
+   "sv": "Finländska Coinmotion har valt norska K33 för att genomföra stora affärer, ett samarbete mellan två nordiska bolag med MiCA-tillstånd."
   },
   "paywall": false,
   "links": [],

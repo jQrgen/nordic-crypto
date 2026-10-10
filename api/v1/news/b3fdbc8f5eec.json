@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T12:38:28+00:00",
+ "generated_at": "2026-10-10T19:26:50+00:00",
  "preview": false,
  "item": {
   "id": "b3fdbc8f5eec",
@@ -31,12 +31,12 @@
   ],
   "summary": "Binance said it would leave Europe, but customers are still trading, and EU financial authorities now want to know how.",
   "summary_i18n": {
-   "nn": "Binance sa at selskapet skulle forlate Europa, men kundane handlar framleis, og finansstyresmaktene i EU vil no vite korleis.",
-   "nb": "Binance sa at selskapet skulle forlate Europa, men kundene handler fortsatt, og EUs finansmyndigheter vil nå vite hvordan.",
-   "sv": "Binance sa att bolaget skulle lämna Europa, men kunderna handlar fortfarande, och EU:s finansmyndigheter vill nu veta hur.",
    "da": "Binance sagde, at selskabet ville forlade Europa, men kunderne handler stadig, og EU's finansmyndigheder vil nu vide hvordan.",
    "fi": "Binance sanoi lähtevänsä Euroopasta, mutta asiakkaat käyvät yhä kauppaa, ja EU:n rahoitusviranomaiset haluavat nyt tietää, miten.",
-   "is": "Binance sagðist ætla að yfirgefa Evrópu, en viðskiptavinir eiga enn viðskipti og fjármálayfirvöld ESB vilja nú vita hvernig."
+   "is": "Binance sagðist ætla að yfirgefa Evrópu, en viðskiptavinir eiga enn viðskipti og fjármálayfirvöld ESB vilja nú vita hvernig.",
+   "nb": "Binance sa at selskapet skulle forlate Europa, men kundene handler fortsatt, og EUs finansmyndigheter vil nå vite hvordan.",
+   "nn": "Binance sa at selskapet skulle forlate Europa, men kundane handlar framleis, og finansstyresmaktene i EU vil no vite korleis.",
+   "sv": "Binance sa att bolaget skulle lämna Europa, men kunderna handlar fortfarande, och EU:s finansmyndigheter vill nu veta hur."
   },
   "paywall": false,
   "links": [],

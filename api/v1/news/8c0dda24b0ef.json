@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T12:38:28+00:00",
+ "generated_at": "2026-10-10T19:26:50+00:00",
  "preview": false,
  "item": {
   "id": "8c0dda24b0ef",
@@ -40,12 +40,12 @@
   ],
   "summary": "Finansinspektionen's new risk assessment finds that financing of weapons of mass destruction is most likely through illegal financial activity and crypto-assets.",
   "summary_i18n": {
-   "nn": "Den nye risikovurderinga til Finansinspektionen finn at finansiering av masseøydeleggingsvåpen mest truleg skjer gjennom ulovleg finansiell verksemd og kryptoeigedelar.",
-   "nb": "Finansinspektionens nye risikovurdering finner at finansiering av masseødeleggelsesvåpen mest sannsynlig skjer gjennom ulovlig finansiell virksomhet og kryptoeiendeler.",
-   "sv": "Finansinspektionens nya riskbedömning visar att finansiering av massförstörelsevapen troligast sker via olaglig finansiell verksamhet och kryptotillgångar.",
    "da": "Finansinspektionens nye risikovurdering finder, at finansiering af masseødelæggelsesvåben mest sandsynligt sker via ulovlig finansiel aktivitet og kryptoaktiver.",
    "fi": "Finansinspektionenin uuden riskiarvion mukaan joukkotuhoaseiden rahoitus tapahtuu todennäköisimmin laittoman rahoitustoiminnan ja kryptovarojen kautta.",
-   "is": "Í nýju áhættumati Finansinspektionen kemur fram að fjármögnun gereyðingarvopna fari líklegast fram með ólöglegri fjármálastarfsemi og sýndareignum."
+   "is": "Í nýju áhættumati Finansinspektionen kemur fram að fjármögnun gereyðingarvopna fari líklegast fram með ólöglegri fjármálastarfsemi og sýndareignum.",
+   "nb": "Finansinspektionens nye risikovurdering finner at finansiering av masseødeleggelsesvåpen mest sannsynlig skjer gjennom ulovlig finansiell virksomhet og kryptoeiendeler.",
+   "nn": "Den nye risikovurderinga til Finansinspektionen finn at finansiering av masseøydeleggingsvåpen mest truleg skjer gjennom ulovleg finansiell verksemd og kryptoeigedelar.",
+   "sv": "Finansinspektionens nya riskbedömning visar att finansiering av massförstörelsevapen troligast sker via olaglig finansiell verksamhet och kryptotillgångar."
   },
   "paywall": false,
   "links": [],

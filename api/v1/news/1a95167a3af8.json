@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T12:38:28+00:00",
+ "generated_at": "2026-10-10T19:26:50+00:00",
  "preview": false,
  "item": {
   "id": "1a95167a3af8",
@@ -39,12 +39,12 @@
   ],
   "summary": "Three Norwegians and a Swede have been charged in a large drug case with links abroad, involving drug sales for cryptocurrency on the dark web, according to the Southern Norway public prosecutor.",
   "summary_i18n": {
-   "nn": "Tre nordmenn og ein svenske er tiltalte i ei stor narkotikasak med forgreiningar til utlandet, med sal av narkotika for kryptovaluta på det mørke nettet, ifølgje Sør-Norge statsadvokatembete.",
-   "nb": "Tre nordmenn og en svenske er tiltalt i en stor narkotikasak med forgreninger til utlandet, med salg av narkotika for kryptovaluta på det mørke nettet, ifølge Sør-Norge statsadvokatembeter.",
-   "sv": "Tre norrmän och en svensk har åtalats i ett stort narkotikamål med kopplingar utomlands, där narkotika sålts mot kryptovaluta på darknet, enligt åklagarmyndigheten i södra Norge.",
    "da": "Tre nordmænd og en svensker er tiltalt i en stor narkosag med forbindelser til udlandet, hvor narko blev solgt for kryptovaluta på det mørke net, oplyser anklagemyndigheden i Sydnorge.",
    "fi": "Kolmea norjalaista ja yhtä ruotsalaista syytetään laajassa huumejutussa, jolla on yhteyksiä ulkomaille ja jossa huumeita myytiin kryptovaluutalla pimeässä verkossa, kertoo Etelä-Norjan syyttäjäviranomainen.",
-   "is": "Þrír Norðmenn og einn Svíi hafa verið ákærðir í umfangsmiklu fíkniefnamáli með tengsl við útlönd, þar sem fíkniefni voru seld fyrir rafmyntir á myrkravefnum, að sögn ríkissaksóknaraembættisins í Suður-Noregi."
+   "is": "Þrír Norðmenn og einn Svíi hafa verið ákærðir í umfangsmiklu fíkniefnamáli með tengsl við útlönd, þar sem fíkniefni voru seld fyrir rafmyntir á myrkravefnum, að sögn ríkissaksóknaraembættisins í Suður-Noregi.",
+   "nb": "Tre nordmenn og en svenske er tiltalt i en stor narkotikasak med forgreninger til utlandet, med salg av narkotika for kryptovaluta på det mørke nettet, ifølge Sør-Norge statsadvokatembeter.",
+   "nn": "Tre nordmenn og ein svenske er tiltalte i ei stor narkotikasak med forgreiningar til utlandet, med sal av narkotika for kryptovaluta på det mørke nettet, ifølgje Sør-Norge statsadvokatembete.",
+   "sv": "Tre norrmän och en svensk har åtalats i ett stort narkotikamål med kopplingar utomlands, där narkotika sålts mot kryptovaluta på darknet, enligt åklagarmyndigheten i södra Norge."
   },
   "paywall": true,
   "links": [],

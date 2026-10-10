@@ -1,152 +1,11 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T12:38:28+00:00",
+ "generated_at": "2026-10-10T19:26:50+00:00",
  "preview": false,
  "topic": "policy",
  "count": 7,
  "items": [
-  {
-   "id": "e88e8e0c9a77",
-   "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/",
-   "html_url": "https://nordiccrypto.no/stories/e88e8e0c9a77/",
-   "api_url": "https://nordiccrypto.no/api/v1/news/e88e8e0c9a77.json",
-   "title": "Rødt foreslår midlertidig stans for nye datasentre",
-   "title_en": "Red Party proposes a temporary halt for new data centres",
-   "title_i18n": {},
-   "source": "stortinget",
-   "source_name": "Stortinget",
-   "source_logo": {
-    "kind": "logo",
-    "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
-    "author": "Worldlydev",
-    "license": "Public domain",
-    "license_url": null,
-    "credit": "Wikimedia Commons",
-    "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
-   },
-   "source_note": null,
-   "country": "NO",
-   "language": "Norwegian",
-   "language_code": "no",
-   "published": "2026-10-05T12:00:00+00:00",
-   "topics": [
-    "mining",
-    "policy"
-   ],
-   "summary": "The Red Party (Rødt) has proposed in the Storting a temporary halt for new data centres, along with a licensing regime and other measures. Its reasoning says crypto-mining data centres get power ahead of key local industries and that the crypto-mining ban the Storting has asked for three times in two years is still not in place, though none of the proposals singles out crypto.",
-   "summary_i18n": {
-    "nb": "Rødt har foreslått på Stortinget en midlertidig stans for nye datasentre, sammen med en konsesjonsordning og andre tiltak. Begrunnelsen sier at datasentre som utvinner kryptovaluta får strømtilgang foran hjørnesteinsbedrifter, og at kryptoforbudet Stortinget har bedt om tre ganger på to år fortsatt ikke er på plass, men ingen av forslagene gjelder krypto særskilt.",
-    "nn": "Raudt har føreslått på Stortinget ein mellombels stans for nye datasenter, saman med ei konsesjonsordning og andre tiltak. Grunngjevinga seier at datasenter som utvinn kryptovaluta får straumtilgang framfor hjørnesteinsbedrifter, og at kryptoforbodet Stortinget har bede om tre gonger på to år framleis ikkje er på plass, men ingen av forslaga gjeld krypto særskilt.",
-    "sv": "Rødt har i Stortinget föreslagit ett tillfälligt stopp för nya datacenter, tillsammans med ett tillståndssystem och andra åtgärder. Motiveringen säger att datacenter som utvinner kryptovaluta får elanslutning före viktiga lokala industrier och att kryptoförbudet som Stortinget har begärt tre gånger på två år fortfarande inte är på plats, men inget av förslagen gäller specifikt krypto.",
-    "da": "Rødt har i Stortinget foreslået et midlertidigt stop for nye datacentre sammen med en tilladelsesordning og andre tiltag. Begrundelsen siger, at datacentre, der udvinder kryptovaluta, får strømadgang før vigtige lokale virksomheder, og at det kryptoforbud, som Stortinget har bedt om tre gange på to år, stadig ikke er på plads, men ingen af forslagene handler specifikt om krypto.",
-    "fi": "Norjan Punainen puolue (Rødt) on ehdottanut suurkäräjillä uusien datakeskusten väliaikaista pysäyttämistä sekä lupajärjestelmää ja muita toimia. Perustelujen mukaan kryptovaluuttaa louhivat datakeskukset saavat sähköliittymän ennen tärkeitä paikallisia yrityksiä, eikä suurkäräjien kolmesti kahdessa vuodessa pyytämää kryptolouhinnan kieltoa ole yhä otettu käyttöön, mutta mikään ehdotuksista ei koske erityisesti kryptoa.",
-    "is": "Rauði flokkurinn (Rødt) hefur lagt til á Stórþinginu tímabundna stöðvun nýrra gagnavera, ásamt leyfiskerfi og öðrum aðgerðum. Í rökstuðningnum segir að gagnaver sem grafa eftir rafmyntum fái rafmagnstengingu á undan mikilvægum fyrirtækjum í heimabyggð og að bann við rafmyntagreftri, sem Stórþingið hefur þrisvar beðið um á tveimur árum, sé enn ekki komið á, en engin tillagnanna snýr sérstaklega að rafmyntum."
-   },
-   "paywall": false,
-   "links": [],
-   "own_story": false,
-   "illustration": {
-    "id": "commons-mining",
-    "kind": "commons",
-    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-mining.webp",
-    "width": 960,
-    "height": 720,
-    "alt": "Rows of cryptocurrency mining machines indoors.",
-    "source": "Wikimedia Commons",
-    "author": "Jasper Reichardt",
-    "license": "CC BY-SA 4.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
-    "url": "https://commons.wikimedia.org/wiki/File:Mining-Rig.jpg",
-    "credit": "Photo: Jasper Reichardt. Licence: CC BY-SA 4.0. Source: Wikimedia Commons.",
-    "modifications": null,
-    "terms": null
-   },
-   "primary_source": {
-    "outlet": "stortinget",
-    "outlet_name": "Stortinget",
-    "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/",
-    "title": "Rødt foreslår midlertidig stans for nye datasentre",
-    "published": "2026-10-05T12:00:00+00:00",
-    "lang": "Norwegian",
-    "language_code": "no",
-    "country": "NO",
-    "source_type": "official",
-    "paywall": false,
-    "primary": true,
-    "logo": {
-     "kind": "logo",
-     "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
-     "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
-     "author": "Worldlydev",
-     "license": "Public domain",
-     "license_url": null,
-     "credit": "Wikimedia Commons",
-     "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
-    }
-   },
-   "primary_source_document": null,
-   "also_covered_by": [],
-   "sources": [
-    {
-     "outlet": "stortinget",
-     "outlet_name": "Stortinget",
-     "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/",
-     "title": "Rødt foreslår midlertidig stans for nye datasentre",
-     "published": "2026-10-05T12:00:00+00:00",
-     "lang": "Norwegian",
-     "language_code": "no",
-     "country": "NO",
-     "source_type": "official",
-     "paywall": false,
-     "primary": true,
-     "logo": {
-      "kind": "logo",
-      "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
-      "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
-      "author": "Worldlydev",
-      "license": "Public domain",
-      "license_url": null,
-      "credit": "Wikimedia Commons",
-      "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
-     }
-    }
-   ],
-   "coverage": {
-    "count": 1,
-    "by_country": [
-     {
-      "country": "NO",
-      "count": 1,
-      "share": 1.0
-     }
-    ],
-    "by_source_type": [
-     {
-      "type": "national",
-      "count": 0,
-      "share": 0.0
-     },
-     {
-      "type": "regional",
-      "count": 0,
-      "share": 0.0
-     },
-     {
-      "type": "official",
-      "count": 1,
-      "share": 1.0
-     },
-     {
-      "type": "international",
-      "count": 0,
-      "share": 0.0
-     }
-    ]
-   },
-   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
-  },
   {
    "id": "bc7a45cb184e",
    "url": "https://stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-009s",
@@ -178,12 +37,12 @@
    ],
    "summary": "Socialist Left Party (SV) MPs have proposed in the Storting a «panic law» that would put new data centres on hold until the industry is regulated, plus a national licensing system for data centres. They also ask the government to report back quickly on how the Storting's decision to ban crypto mining in Norway will be followed up; this is a proposal, not a decision.",
    "summary_i18n": {
-    "nb": "Stortingsrepresentanter fra SV har foreslått en «panikklov» som setter nye datasentre på vent til bransjen er regulert, og et nasjonalt konsesjonssystem for datasentre. De ber også regjeringen raskt komme tilbake med hvordan Stortingets vedtak om forbud mot kryptoutvinning i Norge skal følges opp; dette er et forslag, ikke et vedtak.",
-    "nn": "Stortingsrepresentantar frå SV har føreslått ei «panikklov» som set nye datasenter på vent til bransjen er regulert, og eit nasjonalt konsesjonssystem for datasenter. Dei ber òg regjeringa raskt kome tilbake med korleis vedtaket i Stortinget om forbod mot kryptoutvinning i Noreg skal følgjast opp; dette er eit forslag, ikkje eit vedtak.",
-    "sv": "Stortingsledamöter från SV har föreslagit en «panikklov» som pausar nya datacenter tills branschen är reglerad, samt ett nationellt tillståndssystem för datacenter. De ber också regeringen att snabbt återkomma med hur Stortingets beslut om förbud mot kryptoutvinning i Norge ska följas upp; detta är ett förslag, inte ett beslut.",
     "da": "Stortingsmedlemmer fra SV har foreslået en «panikklov», der sætter nye datacentre på pause, indtil branchen er reguleret, samt et nationalt tilladelsessystem for datacentre. De beder også regeringen hurtigt vende tilbage med, hvordan Stortingets beslutning om forbud mod kryptoudvinding i Norge skal følges op; det er et forslag, ikke en beslutning.",
     "fi": "Sosialistisen vasemmistopuolueen (SV) kansanedustajat ovat ehdottaneet suurkäräjillä «paniikkilakia», joka asettaisi uudet datakeskukset odotustilaan, kunnes ala on säännelty, sekä kansallista lupajärjestelmää datakeskuksille. He pyytävät myös hallitusta kertomaan pian, miten suurkäräjien päätös kieltää kryptolouhinta Norjassa pannaan täytäntöön; kyse on ehdotuksesta, ei päätöksestä.",
-    "is": "Þingmenn Sósíalíska vinstriflokksins (SV) hafa lagt til á Stórþinginu «neyðarlög» sem setja ný gagnaver í bið þar til greinin hefur verið regluvædd, auk landsbundins leyfiskerfis fyrir gagnaver. Þeir biðja einnig ríkisstjórnina að greina fljótt frá því hvernig fylgja eigi eftir ákvörðun Stórþingsins um bann við rafmyntagreftri í Noregi; þetta er tillaga, ekki ákvörðun."
+    "is": "Þingmenn Sósíalíska vinstriflokksins (SV) hafa lagt til á Stórþinginu «neyðarlög» sem setja ný gagnaver í bið þar til greinin hefur verið regluvædd, auk landsbundins leyfiskerfis fyrir gagnaver. Þeir biðja einnig ríkisstjórnina að greina fljótt frá því hvernig fylgja eigi eftir ákvörðun Stórþingsins um bann við rafmyntagreftri í Noregi; þetta er tillaga, ekki ákvörðun.",
+    "nb": "Stortingsrepresentanter fra SV har foreslått en «panikklov» som setter nye datasentre på vent til bransjen er regulert, og et nasjonalt konsesjonssystem for datasentre. De ber også regjeringen raskt komme tilbake med hvordan Stortingets vedtak om forbud mot kryptoutvinning i Norge skal følges opp; dette er et forslag, ikke et vedtak.",
+    "nn": "Stortingsrepresentantar frå SV har føreslått ei «panikklov» som set nye datasenter på vent til bransjen er regulert, og eit nasjonalt konsesjonssystem for datasenter. Dei ber òg regjeringa raskt kome tilbake med korleis vedtaket i Stortinget om forbod mot kryptoutvinning i Noreg skal følgjast opp; dette er eit forslag, ikkje eit vedtak.",
+    "sv": "Stortingsledamöter från SV har föreslagit en «panikklov» som pausar nya datacenter tills branschen är reglerad, samt ett nationellt tillståndssystem för datacenter. De ber också regeringen att snabbt återkomma med hur Stortingets beslut om förbud mot kryptoutvinning i Norge ska följas upp; detta är ett förslag, inte ett beslut."
    },
    "paywall": false,
    "links": [],
@@ -289,6 +148,147 @@
    "source_logo_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
   },
   {
+   "id": "e88e8e0c9a77",
+   "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/",
+   "html_url": "https://nordiccrypto.no/stories/e88e8e0c9a77/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/e88e8e0c9a77.json",
+   "title": "Rødt foreslår midlertidig stans for nye datasentre",
+   "title_en": "Red Party proposes a temporary halt for new data centres",
+   "title_i18n": {},
+   "source": "stortinget",
+   "source_name": "Stortinget",
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+    "author": "Worldlydev",
+    "license": "Public domain",
+    "license_url": null,
+    "credit": "Wikimedia Commons",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
+   },
+   "source_note": null,
+   "country": "NO",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-10-05T12:00:00+00:00",
+   "topics": [
+    "mining",
+    "policy"
+   ],
+   "summary": "The Red Party (Rødt) has proposed in the Storting a temporary halt for new data centres, along with a licensing regime and other measures. Its reasoning says crypto-mining data centres get power ahead of key local industries and that the crypto-mining ban the Storting has asked for three times in two years is still not in place, though none of the proposals singles out crypto.",
+   "summary_i18n": {
+    "da": "Rødt har i Stortinget foreslået et midlertidigt stop for nye datacentre sammen med en tilladelsesordning og andre tiltag. Begrundelsen siger, at datacentre, der udvinder kryptovaluta, får strømadgang før vigtige lokale virksomheder, og at det kryptoforbud, som Stortinget har bedt om tre gange på to år, stadig ikke er på plads, men ingen af forslagene handler specifikt om krypto.",
+    "fi": "Norjan Punainen puolue (Rødt) on ehdottanut suurkäräjillä uusien datakeskusten väliaikaista pysäyttämistä sekä lupajärjestelmää ja muita toimia. Perustelujen mukaan kryptovaluuttaa louhivat datakeskukset saavat sähköliittymän ennen tärkeitä paikallisia yrityksiä, eikä suurkäräjien kolmesti kahdessa vuodessa pyytämää kryptolouhinnan kieltoa ole yhä otettu käyttöön, mutta mikään ehdotuksista ei koske erityisesti kryptoa.",
+    "is": "Rauði flokkurinn (Rødt) hefur lagt til á Stórþinginu tímabundna stöðvun nýrra gagnavera, ásamt leyfiskerfi og öðrum aðgerðum. Í rökstuðningnum segir að gagnaver sem grafa eftir rafmyntum fái rafmagnstengingu á undan mikilvægum fyrirtækjum í heimabyggð og að bann við rafmyntagreftri, sem Stórþingið hefur þrisvar beðið um á tveimur árum, sé enn ekki komið á, en engin tillagnanna snýr sérstaklega að rafmyntum.",
+    "nb": "Rødt har foreslått på Stortinget en midlertidig stans for nye datasentre, sammen med en konsesjonsordning og andre tiltak. Begrunnelsen sier at datasentre som utvinner kryptovaluta får strømtilgang foran hjørnesteinsbedrifter, og at kryptoforbudet Stortinget har bedt om tre ganger på to år fortsatt ikke er på plass, men ingen av forslagene gjelder krypto særskilt.",
+    "nn": "Raudt har føreslått på Stortinget ein mellombels stans for nye datasenter, saman med ei konsesjonsordning og andre tiltak. Grunngjevinga seier at datasenter som utvinn kryptovaluta får straumtilgang framfor hjørnesteinsbedrifter, og at kryptoforbodet Stortinget har bede om tre gonger på to år framleis ikkje er på plass, men ingen av forslaga gjeld krypto særskilt.",
+    "sv": "Rødt har i Stortinget föreslagit ett tillfälligt stopp för nya datacenter, tillsammans med ett tillståndssystem och andra åtgärder. Motiveringen säger att datacenter som utvinner kryptovaluta får elanslutning före viktiga lokala industrier och att kryptoförbudet som Stortinget har begärt tre gånger på två år fortfarande inte är på plats, men inget av förslagen gäller specifikt krypto."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "commons-mining",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-mining.webp",
+    "width": 960,
+    "height": 720,
+    "alt": "Rows of cryptocurrency mining machines indoors.",
+    "source": "Wikimedia Commons",
+    "author": "Jasper Reichardt",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "url": "https://commons.wikimedia.org/wiki/File:Mining-Rig.jpg",
+    "credit": "Photo: Jasper Reichardt. Licence: CC BY-SA 4.0. Source: Wikimedia Commons.",
+    "modifications": null,
+    "terms": null
+   },
+   "primary_source": {
+    "outlet": "stortinget",
+    "outlet_name": "Stortinget",
+    "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/",
+    "title": "Rødt foreslår midlertidig stans for nye datasentre",
+    "published": "2026-10-05T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "official",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
+     "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+     "author": "Worldlydev",
+     "license": "Public domain",
+     "license_url": null,
+     "credit": "Wikimedia Commons",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
+    }
+   },
+   "primary_source_document": null,
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "stortinget",
+     "outlet_name": "Stortinget",
+     "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/",
+     "title": "Rødt foreslår midlertidig stans for nye datasentre",
+     "published": "2026-10-05T12:00:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "official",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+      "author": "Worldlydev",
+      "license": "Public domain",
+      "license_url": null,
+      "credit": "Wikimedia Commons",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
+     }
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
+  },
+  {
    "id": "6753e8903e88",
    "url": "https://www.berlingske.dk/aktier/minister-i-nyt-skatteopgoer-vil-goere-op-med-junglen-af-urimelige-og-uforstaaelige-regler",
    "html_url": "https://nordiccrypto.no/stories/6753e8903e88/",
@@ -325,12 +325,12 @@
    ],
    "summary": "A review of almost 1,000 Danish crypto tax cases found errors in 23, including one person who overpaid more than DKK 1 million, prompting tax minister Jakob Engel-Schmidt to promise simpler rules.",
    "summary_i18n": {
-    "nn": "Ein gjennomgang av nesten 1000 danske skattesaker om krypto fann feil i 23, mellom anna ein person som betalte over 1 million danske kroner for mykje, og skatteminister Jakob Engel-Schmidt lovar enklare reglar.",
-    "nb": "En gjennomgang av nesten 1000 danske skattesaker om krypto fant feil i 23, blant annet en person som betalte over 1 million danske kroner for mye, og skatteminister Jakob Engel-Schmidt lover enklere regler.",
-    "sv": "En granskning av nästan 1 000 danska skatteärenden om krypto hittade fel i 23, bland annat en person som betalat över 1 miljon danska kronor för mycket, och skatteministern Jakob Engel-Schmidt lovar enklare regler.",
     "da": "En gennemgang af næsten 1.000 danske skattesager om krypto fandt fejl i 23, herunder en person, der havde betalt over 1 million kroner for meget, og skatteminister Jakob Engel-Schmidt lover enklere regler.",
     "fi": "Lähes tuhannen tanskalaisen kryptoveroasian tarkastelussa löytyi virheitä 23:sta, muun muassa henkilö, joka oli maksanut yli miljoona Tanskan kruunua liikaa, ja veroministeri Jakob Engel-Schmidt lupaa yksinkertaisempia sääntöjä.",
-    "is": "Yfirferð á nærri 1.000 dönskum skattamálum vegna rafmynta leiddi í ljós villur í 23, þar á meðal einstakling sem hafði greitt meira en milljón danskra króna of mikið, og skattamálaráðherrann Jakob Engel-Schmidt lofar einfaldari reglum."
+    "is": "Yfirferð á nærri 1.000 dönskum skattamálum vegna rafmynta leiddi í ljós villur í 23, þar á meðal einstakling sem hafði greitt meira en milljón danskra króna of mikið, og skattamálaráðherrann Jakob Engel-Schmidt lofar einfaldari reglum.",
+    "nb": "En gjennomgang av nesten 1000 danske skattesaker om krypto fant feil i 23, blant annet en person som betalte over 1 million danske kroner for mye, og skatteminister Jakob Engel-Schmidt lover enklere regler.",
+    "nn": "Ein gjennomgang av nesten 1000 danske skattesaker om krypto fann feil i 23, mellom anna ein person som betalte over 1 million danske kroner for mykje, og skatteminister Jakob Engel-Schmidt lovar enklare reglar.",
+    "sv": "En granskning av nästan 1 000 danska skatteärenden om krypto hittade fel i 23, bland annat en person som betalat över 1 miljon danska kronor för mycket, och skatteministern Jakob Engel-Schmidt lovar enklare regler."
    },
    "paywall": false,
    "links": [],
@@ -472,12 +472,12 @@
    ],
    "summary": "An answer from Danish minister Jakob Engel-Schmidt showed how many Danes pay tax on crypto investments they lost money on, which he called 'actually pretty wild'; he now wants to fix the century-old rule behind it.",
    "summary_i18n": {
-    "nn": "Eit svar frå den danske ministeren Jakob Engel-Schmidt viste kor mange danskar som betaler skatt av kryptoinvesteringar dei har tapt pengar på, noko han kalla «faktisk ganske vilt»; no vil han endre den hundre år gamle regelen bak.",
-    "nb": "Et svar fra den danske ministeren Jakob Engel-Schmidt viste hvor mange dansker som betaler skatt av kryptoinvesteringer de har tapt penger på, noe han kalte «faktisk ganske vilt»; nå vil han endre den hundre år gamle regelen bak.",
-    "sv": "Ett svar från den danske ministern Jakob Engel-Schmidt visade hur många danskar som betalar skatt på kryptoinvesteringar de förlorat pengar på, vilket han kallade ”faktiskt ganska vilt”; nu vill han ändra den hundra år gamla regeln bakom.",
     "da": "Et svar fra minister Jakob Engel-Schmidt viste, hvor mange danskere der betaler skat af kryptoinvesteringer, de har tabt penge på, hvilket han kaldte »faktisk ret vildt«; nu vil han ændre den århundredgamle regel bag.",
     "fi": "Tanskalaisen ministerin Jakob Engel-Schmidtin vastaus osoitti, kuinka moni tanskalainen maksaa veroa kryptosijoituksista, joilla on hävinnyt rahaa – hänen mukaansa ”oikeastaan aika villiä” – ja nyt hän haluaa korjata asian taustalla olevan vuosisadan vanhan säännön.",
-    "is": "Svar frá danska ráðherranum Jakob Engel-Schmidt sýndi hversu margir Danir greiða skatt af rafmyntafjárfestingum sem þeir hafa tapað á, sem hann kallaði „í raun alveg galið“; nú vill hann laga aldargamla regluna sem liggur að baki."
+    "is": "Svar frá danska ráðherranum Jakob Engel-Schmidt sýndi hversu margir Danir greiða skatt af rafmyntafjárfestingum sem þeir hafa tapað á, sem hann kallaði „í raun alveg galið“; nú vill hann laga aldargamla regluna sem liggur að baki.",
+    "nb": "Et svar fra den danske ministeren Jakob Engel-Schmidt viste hvor mange dansker som betaler skatt av kryptoinvesteringer de har tapt penger på, noe han kalte «faktisk ganske vilt»; nå vil han endre den hundre år gamle regelen bak.",
+    "nn": "Eit svar frå den danske ministeren Jakob Engel-Schmidt viste kor mange danskar som betaler skatt av kryptoinvesteringar dei har tapt pengar på, noko han kalla «faktisk ganske vilt»; no vil han endre den hundre år gamle regelen bak.",
+    "sv": "Ett svar från den danske ministern Jakob Engel-Schmidt visade hur många danskar som betalar skatt på kryptoinvesteringar de förlorat pengar på, vilket han kallade ”faktiskt ganska vilt”; nu vill han ändra den hundra år gamla regeln bakom."
    },
    "paywall": false,
    "links": [],
@@ -619,12 +619,12 @@
    ],
    "summary": "A written question in the Storting asks when the government will present its planned state planning provision to limit crypto mining, and why it has concluded the EEA Agreement rules out a general mining ban.",
    "summary_i18n": {
-    "nn": "Eit skriftleg spørsmål på Stortinget spør når regjeringa legg fram den varsla statlege planføresegna for å avgrense kryptoutvinning, og kvifor ho har konkludert med at EØS-avtalen utelukkar eit generelt forbod.",
-    "nb": "Et skriftlig spørsmål på Stortinget spør når regjeringen legger fram den varslede statlige planbestemmelsen for å begrense kryptoutvinning, og hvorfor den har konkludert med at EØS-avtalen utelukker et generelt forbud.",
-    "sv": "En skriftlig fråga i Stortinget undrar när regeringen lägger fram den planerade statliga planbestämmelsen för att begränsa kryptoutvinning, och varför den har kommit fram till att EES-avtalet utesluter ett generellt förbud.",
     "da": "Et skriftligt spørgsmål i Stortinget spørger, hvornår regeringen fremlægger den planlagte statslige planbestemmelse, der skal begrænse kryptomining, og hvorfor den er nået frem til, at EØS-aftalen udelukker et generelt forbud.",
     "fi": "Norjan suurkäräjillä (Stortinget) esitetyssä kirjallisessa kysymyksessä tiedustellaan, milloin hallitus antaa suunnitellun valtakunnallisen kaavamääräyksen kryptolouhinnan rajoittamiseksi ja miksi se on päätellyt ETA-sopimuksen estävän yleisen louhintakiellon.",
-    "is": "Í skriflegri fyrirspurn á norska Stórþinginu er spurt hvenær ríkisstjórnin leggi fram fyrirhugað skipulagsákvæði ríkisins til að takmarka námugröft rafmynta og hvers vegna hún hafi komist að þeirri niðurstöðu að EES-samningurinn útiloki almennt bann."
+    "is": "Í skriflegri fyrirspurn á norska Stórþinginu er spurt hvenær ríkisstjórnin leggi fram fyrirhugað skipulagsákvæði ríkisins til að takmarka námugröft rafmynta og hvers vegna hún hafi komist að þeirri niðurstöðu að EES-samningurinn útiloki almennt bann.",
+    "nb": "Et skriftlig spørsmål på Stortinget spør når regjeringen legger fram den varslede statlige planbestemmelsen for å begrense kryptoutvinning, og hvorfor den har konkludert med at EØS-avtalen utelukker et generelt forbud.",
+    "nn": "Eit skriftleg spørsmål på Stortinget spør når regjeringa legg fram den varsla statlege planføresegna for å avgrense kryptoutvinning, og kvifor ho har konkludert med at EØS-avtalen utelukkar eit generelt forbod.",
+    "sv": "En skriftlig fråga i Stortinget undrar när regeringen lägger fram den planerade statliga planbestämmelsen för att begränsa kryptoutvinning, och varför den har kommit fram till att EES-avtalet utesluter ett generellt förbud."
    },
    "paywall": false,
    "links": [],
@@ -766,12 +766,12 @@
    ],
    "summary": "In a talk for Bitcoinpolitisk Institutt in Oslo, Rachel Geyer of the European Bitcoin Energy Association argues Norway's proposed mining ban targets a problem the country doesn't have.",
    "summary_i18n": {
-    "nn": "I eit føredrag for Bitcoinpolitisk Institutt i Oslo hevdar Rachel Geyer frå European Bitcoin Energy Association at det føreslegne norske forbodet mot utvinning rettar seg mot eit problem landet ikkje har.",
-    "nb": "I et foredrag for Bitcoinpolitisk Institutt i Oslo hevder Rachel Geyer fra European Bitcoin Energy Association at Norges foreslåtte forbud mot utvinning retter seg mot et problem landet ikke har.",
-    "sv": "I ett föredrag för Bitcoinpolitisk Institutt i Oslo hävdar Rachel Geyer från European Bitcoin Energy Association att Norges föreslagna förbud mot kryptoutvinning riktar sig mot ett problem som landet inte har.",
     "da": "I et oplæg for Bitcoinpolitisk Institutt i Oslo argumenterer Rachel Geyer fra European Bitcoin Energy Association for, at Norges foreslåede forbud mod mining retter sig mod et problem, landet ikke har.",
     "fi": "Bitcoinpolitisk Instituttin tilaisuudessa Oslossa European Bitcoin Energy Associationin Rachel Geyer väittää, että Norjan ehdottama louhintakielto kohdistuu ongelmaan, jota maalla ei ole.",
-    "is": "Í erindi hjá Bitcoinpolitisk Institutt í Ósló heldur Rachel Geyer hjá European Bitcoin Energy Association því fram að fyrirhugað bann Noregs við námugreftri beinist að vanda sem landið glímir ekki við."
+    "is": "Í erindi hjá Bitcoinpolitisk Institutt í Ósló heldur Rachel Geyer hjá European Bitcoin Energy Association því fram að fyrirhugað bann Noregs við námugreftri beinist að vanda sem landið glímir ekki við.",
+    "nb": "I et foredrag for Bitcoinpolitisk Institutt i Oslo hevder Rachel Geyer fra European Bitcoin Energy Association at Norges foreslåtte forbud mot utvinning retter seg mot et problem landet ikke har.",
+    "nn": "I eit føredrag for Bitcoinpolitisk Institutt i Oslo hevdar Rachel Geyer frå European Bitcoin Energy Association at det føreslegne norske forbodet mot utvinning rettar seg mot eit problem landet ikkje har.",
+    "sv": "I ett föredrag för Bitcoinpolitisk Institutt i Oslo hävdar Rachel Geyer från European Bitcoin Energy Association att Norges föreslagna förbud mot kryptoutvinning riktar sig mot ett problem som landet inte har."
    },
    "paywall": false,
    "links": [],
@@ -913,12 +913,12 @@
    ],
    "summary": "Denmark's tax minister met the crypto industry at Christiansborg on 17 September to discuss crypto taxation.",
    "summary_i18n": {
-    "nn": "Skatteministeren i Danmark møtte kryptobransjen på Christiansborg 17. september for å diskutere skattlegging av krypto.",
-    "nb": "Danmarks skatteminister møtte kryptobransjen på Christiansborg 17. september for å diskutere beskatning av krypto.",
-    "sv": "Danmarks skatteminister träffade kryptobranschen på Christiansborg den 17 september för att diskutera beskattning av krypto.",
     "da": "Skatteministeren mødte kryptobranchen på Christiansborg den 17. september for at drøfte beskatning af krypto.",
     "fi": "Tanskan veroministeri tapasi kryptoalan edustajia Christiansborgissa 17. syyskuuta keskustellakseen kryptojen verotuksesta.",
-    "is": "Skattamálaráðherra Danmerkur fundaði með fulltrúum rafmyntageirans í Kristjánsborg 17. september til að ræða skattlagningu rafmynta."
+    "is": "Skattamálaráðherra Danmerkur fundaði með fulltrúum rafmyntageirans í Kristjánsborg 17. september til að ræða skattlagningu rafmynta.",
+    "nb": "Danmarks skatteminister møtte kryptobransjen på Christiansborg 17. september for å diskutere beskatning av krypto.",
+    "nn": "Skatteministeren i Danmark møtte kryptobransjen på Christiansborg 17. september for å diskutere skattlegging av krypto.",
+    "sv": "Danmarks skatteminister träffade kryptobranschen på Christiansborg den 17 september för att diskutera beskattning av krypto."
    },
    "paywall": false,
    "links": [],

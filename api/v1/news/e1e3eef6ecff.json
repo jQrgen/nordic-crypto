@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T12:38:28+00:00",
+ "generated_at": "2026-10-10T19:26:50+00:00",
  "preview": false,
  "item": {
   "id": "e1e3eef6ecff",
@@ -40,12 +40,12 @@
   ],
   "summary": "Norwegian Block Exchange (NBX), listed on Euronext Growth Oslo, has been registered as an agent for MoneyGram International.",
   "summary_i18n": {
-   "nn": "Norwegian Block Exchange (NBX), notert på Euronext Growth Oslo, er registrert som agent for MoneyGram International.",
-   "nb": "Norwegian Block Exchange (NBX), notert på Euronext Growth Oslo, er registrert som agent for MoneyGram International.",
-   "sv": "Norwegian Block Exchange (NBX), noterat på Euronext Growth Oslo, har registrerats som ombud för MoneyGram International.",
    "da": "Norwegian Block Exchange (NBX), der er noteret på Euronext Growth Oslo, er registreret som agent for MoneyGram International.",
    "fi": "Euronext Growth Oslossa listattu Norwegian Block Exchange (NBX) on rekisteröity MoneyGram Internationalin asiamieheksi.",
-   "is": "Norwegian Block Exchange (NBX), sem skráð er á Euronext Growth Oslo, hefur verið skráð sem umboðsaðili MoneyGram International."
+   "is": "Norwegian Block Exchange (NBX), sem skráð er á Euronext Growth Oslo, hefur verið skráð sem umboðsaðili MoneyGram International.",
+   "nb": "Norwegian Block Exchange (NBX), notert på Euronext Growth Oslo, er registrert som agent for MoneyGram International.",
+   "nn": "Norwegian Block Exchange (NBX), notert på Euronext Growth Oslo, er registrert som agent for MoneyGram International.",
+   "sv": "Norwegian Block Exchange (NBX), noterat på Euronext Growth Oslo, har registrerats som ombud för MoneyGram International."
   },
   "paywall": false,
   "links": [],

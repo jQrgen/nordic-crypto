@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T12:38:28+00:00",
+ "generated_at": "2026-10-10T19:26:50+00:00",
  "preview": false,
  "item": {
   "id": "8ae149a20f5f",
@@ -29,12 +29,12 @@
   ],
   "summary": "Joakim Hannisdahl's new crypto fund, built on a model that did well in backtesting, is up 39 percent since it launched in August.",
   "summary_i18n": {
-   "nn": "Det nye kryptofondet til Joakim Hannisdahl, bygd på ein modell som gjorde det godt i historiske testar, har stige 39 prosent sidan oppstarten i august.",
-   "nb": "Joakim Hannisdahls nye kryptofond, bygd på en modell som gjorde det godt i historiske tester, har steget 39 prosent siden oppstarten i august.",
-   "sv": "Joakim Hannisdahls nya kryptofond, byggd på en modell som klarade sig bra i historiska tester, har stigit 39 procent sedan starten i augusti.",
    "da": "Joakim Hannisdahls nye kryptofond, bygget på en model, der klarede sig godt i historiske test, er steget 39 procent siden starten i august.",
    "fi": "Joakim Hannisdahlin uusi kryptorahasto, joka perustuu historiallisissa testeissä hyvin menestyneeseen malliin, on noussut 39 prosenttia elokuun aloituksesta.",
-   "is": "Nýr rafmyntasjóður Joakims Hannisdahl, byggður á líkani sem kom vel út í sögulegum prófunum, hefur hækkað um 39 prósent frá því hann hóf göngu sína í ágúst."
+   "is": "Nýr rafmyntasjóður Joakims Hannisdahl, byggður á líkani sem kom vel út í sögulegum prófunum, hefur hækkað um 39 prósent frá því hann hóf göngu sína í ágúst.",
+   "nb": "Joakim Hannisdahls nye kryptofond, bygd på en modell som gjorde det godt i historiske tester, har steget 39 prosent siden oppstarten i august.",
+   "nn": "Det nye kryptofondet til Joakim Hannisdahl, bygd på ein modell som gjorde det godt i historiske testar, har stige 39 prosent sidan oppstarten i august.",
+   "sv": "Joakim Hannisdahls nya kryptofond, byggd på en modell som klarade sig bra i historiska tester, har stigit 39 procent sedan starten i augusti."
   },
   "paywall": true,
   "links": [],

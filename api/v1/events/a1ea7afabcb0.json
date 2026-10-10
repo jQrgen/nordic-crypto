@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T12:38:28+00:00",
+ "generated_at": "2026-10-10T19:26:50+00:00",
  "preview": false,
  "item": {
   "id": "a1ea7afabcb0",
@@ -20,12 +20,12 @@
   "sponsored": null,
   "note": "Disclosure: the speaker, Jørgen S. Notland, is the publisher of Nordic Crypto.",
   "note_i18n": {
-   "nn": "Til opplysing: foredragshaldaren, Jørgen S. Notland, er utgjevar av Nordic Crypto.",
-   "nb": "Til opplysning: foredragsholderen, Jørgen S. Notland, er utgiver av Nordic Crypto.",
-   "sv": "Upplysning: talaren, Jørgen S. Notland, är utgivare av Nordic Crypto.",
    "da": "Oplysning: foredragsholderen, Jørgen S. Notland, er udgiver af Nordic Crypto.",
    "fi": "Tiedoksi: puhuja Jørgen S. Notland on Nordic Crypton julkaisija.",
-   "is": "Til upplýsingar: fyrirlesarinn, Jørgen S. Notland, er útgefandi Nordic Crypto."
+   "is": "Til upplýsingar: fyrirlesarinn, Jørgen S. Notland, er útgefandi Nordic Crypto.",
+   "nb": "Til opplysning: foredragsholderen, Jørgen S. Notland, er utgiver av Nordic Crypto.",
+   "nn": "Til opplysing: foredragshaldaren, Jørgen S. Notland, er utgjevar av Nordic Crypto.",
+   "sv": "Upplysning: talaren, Jørgen S. Notland, är utgivare av Nordic Crypto."
   },
   "description": {
    "text": "Nexa blockchain: Scaling Bitcoin Tech-demo m/overraskelse og pizza! At this event jQrgen, member of Bitcoin Unlimited that works with the Nexa blockchain project will present what is unique about the Nexa blockchain. The Bitcoin Unlimited team has a long history of working with core Bitcoin and Bitcoin Cash software. The Nexa blockchain is the latest project. Nexa is a work in progress software-fork of Bitcoin/Bitcoin Cash with its own genesis block.",

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T12:38:28+00:00",
+ "generated_at": "2026-10-10T19:26:50+00:00",
  "preview": false,
  "item": {
   "id": "e6727b4858b5",
@@ -40,12 +40,12 @@
   ],
   "summary": "Sweden's financial watchdog says crypto-assets and illegal financial networks pose the biggest risk of Iran and North Korea dodging sanctions via Sweden.",
   "summary_i18n": {
-   "nn": "Det svenske finanstilsynet meiner kryptoeigedelar og ulovlege finansielle nettverk er den største risikoen for at Iran og Nord-Korea omgår sanksjonar via Sverige.",
-   "nb": "Sveriges finanstilsyn mener kryptoeiendeler og ulovlige finansielle nettverk utgjør den største risikoen for at Iran og Nord-Korea omgår sanksjoner via Sverige.",
-   "sv": "Finansinspektionen anser att kryptotillgångar och olagliga finansiella nätverk utgör den största risken för att Iran och Nordkorea kringgår sanktioner via Sverige.",
    "da": "Det svenske finanstilsyn mener, at kryptoaktiver og ulovlige finansielle netværk udgør den største risiko for, at Iran og Nordkorea omgår sanktioner via Sverige.",
    "fi": "Ruotsin finanssivalvoja katsoo, että kryptovarat ja laittomat rahoitusverkostot ovat suurin riski sille, että Iran ja Pohjois-Korea kiertävät pakotteita Ruotsin kautta.",
-   "is": "Fjármálaeftirlit Svíþjóðar telur að sýndareignir og ólögleg fjármálanet feli í sér mestu hættuna á að Íran og Norður-Kórea komist fram hjá refsiaðgerðum í gegnum Svíþjóð."
+   "is": "Fjármálaeftirlit Svíþjóðar telur að sýndareignir og ólögleg fjármálanet feli í sér mestu hættuna á að Íran og Norður-Kórea komist fram hjá refsiaðgerðum í gegnum Svíþjóð.",
+   "nb": "Sveriges finanstilsyn mener kryptoeiendeler og ulovlige finansielle nettverk utgjør den største risikoen for at Iran og Nord-Korea omgår sanksjoner via Sverige.",
+   "nn": "Det svenske finanstilsynet meiner kryptoeigedelar og ulovlege finansielle nettverk er den største risikoen for at Iran og Nord-Korea omgår sanksjonar via Sverige.",
+   "sv": "Finansinspektionen anser att kryptotillgångar och olagliga finansiella nätverk utgör den största risken för att Iran och Nordkorea kringgår sanktioner via Sverige."
   },
   "paywall": false,
   "links": [],

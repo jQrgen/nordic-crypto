@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T12:38:28+00:00",
+ "generated_at": "2026-10-10T19:26:50+00:00",
  "preview": false,
  "item": {
   "id": "3c7c538ff512",
@@ -20,12 +20,12 @@
   "sponsored": null,
   "note": "Falls on New Year's Day: check the organiser's page before you go.",
   "note_i18n": {
-   "nn": "Fell på første nyttårsdag: sjekk sida til arrangøren før du dreg.",
-   "nb": "Faller på første nyttårsdag: sjekk arrangørens side før du drar.",
-   "sv": "Infaller på nyårsdagen: kontrollera arrangörens sida innan du går.",
    "da": "Falder på nytårsdag: tjek arrangørens side, før du tager afsted.",
    "fi": "Osuu uudenvuodenpäivälle: tarkista järjestäjän sivu ennen lähtöä.",
-   "is": "Ber upp á nýársdag: athugaðu síðu skipuleggjandans áður en þú ferð."
+   "is": "Ber upp á nýársdag: athugaðu síðu skipuleggjandans áður en þú ferð.",
+   "nb": "Faller på første nyttårsdag: sjekk arrangørens side før du drar.",
+   "nn": "Fell på første nyttårsdag: sjekk sida til arrangøren før du dreg.",
+   "sv": "Infaller på nyårsdagen: kontrollera arrangörens sida innan du går."
   },
   "description": {
    "text": "Bitcoin meetup - meet the local bitcoiners, network, present your projects and ideas or just hang out! Topics include everything that remotely touches Bitcoin.",

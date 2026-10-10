@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T12:38:28+00:00",
+ "generated_at": "2026-10-10T19:26:50+00:00",
  "preview": false,
  "item": {
   "id": "89ced460e4ca",
@@ -20,12 +20,12 @@
   "sponsored": null,
   "note": "Paid entry (NOK 239 for non-members).",
   "note_i18n": {
-   "nn": "Betalt inngang (239 kroner for ikkje-medlemer).",
-   "nb": "Betalt inngang (239 kroner for ikke-medlemmer).",
-   "sv": "Avgift (239 norska kronor för icke-medlemmar).",
    "da": "Betalt adgang (239 norske kroner for ikke-medlemmer).",
    "fi": "Maksullinen (239 Norjan kruunua muille kuin jäsenille).",
-   "is": "Aðgangseyrir (239 norskar krónur fyrir utanfélagsmenn)."
+   "is": "Aðgangseyrir (239 norskar krónur fyrir utanfélagsmenn).",
+   "nb": "Betalt inngang (239 kroner for ikke-medlemmer).",
+   "nn": "Betalt inngang (239 kroner for ikkje-medlemer).",
+   "sv": "Avgift (239 norska kronor för icke-medlemmar)."
   },
   "description": {
    "text": "I kjølvannet av bitcoin har vi fått en rekke apper som endrer samtiden vår og utvider finanssektoren. Stikkord er fremtidsmarkeder som «Polymarket», kryptobanken «Aave», nyvinninger innen forsikring, stablecoins og nye former for statlige penger. I samarbeid med Bitcoinpolitisk Institutt Norge presenterer Polyteknisk Forening appene som bitcoin har ført med seg, i tillegg til bitcoin selv.",

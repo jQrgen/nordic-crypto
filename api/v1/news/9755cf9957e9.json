@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T12:38:28+00:00",
+ "generated_at": "2026-10-10T19:26:50+00:00",
  "preview": false,
  "item": {
   "id": "9755cf9957e9",
@@ -24,12 +24,12 @@
   ],
   "summary": "Data-centre company Arctic Core says in writing that its business uses crypto mining to generate income during a test phase, but argues this does not change the basic character of the warehouse building it has been granted a permit for, the local paper Ságat reports.",
   "summary_i18n": {
-   "nb": "Datasenterselskapet Arctic Core skriver at virksomheten bruker kryptoutvinning for å skaffe inntekter i en testfase, men mener at dette ikke endrer den grunnleggende karakteren til lagerbygget selskapet har fått tillatelse til, melder lokalavisen Ságat.",
-   "nn": "Datasenterselskapet Arctic Core skriv at verksemda brukar kryptoutvinning for å skaffe inntekter i ein testfase, men meiner at dette ikkje endrar den grunnleggjande karakteren til lagerbygget selskapet har fått løyve til, melder lokalavisa Ságat.",
-   "sv": "Datacenterföretaget Arctic Core skriver att verksamheten använder kryptoutvinning för att skapa intäkter under en testfas, men menar att det inte ändrar den grundläggande karaktären hos lagerbyggnaden som företaget har fått tillstånd för, rapporterar lokaltidningen Ságat.",
    "da": "Datacentervirksomheden Arctic Core skriver, at virksomheden bruger kryptoudvinding til at skabe indtægter i en testfase, men mener, at det ikke ændrer den grundlæggende karakter af den lagerbygning, virksomheden har fået tilladelse til, oplyser lokalavisen Ságat.",
    "fi": "Datakeskusyhtiö Arctic Core kirjoittaa käyttävänsä testivaiheessa kryptolouhintaa tulojen hankkimiseen, mutta sen mukaan tämä ei muuta sen varastorakennuksen perusluonnetta, jolle yhtiö on saanut luvan, kertoo paikallislehti Ságat.",
-   "is": "Gagnaversfyrirtækið Arctic Core segir skriflega að starfsemin noti rafmyntagröft til að afla tekna á prófunartímabili, en telur að það breyti ekki grundvallareðli vöruhússins sem fyrirtækið hefur fengið leyfi fyrir, að sögn héraðsblaðsins Ságat."
+   "is": "Gagnaversfyrirtækið Arctic Core segir skriflega að starfsemin noti rafmyntagröft til að afla tekna á prófunartímabili, en telur að það breyti ekki grundvallareðli vöruhússins sem fyrirtækið hefur fengið leyfi fyrir, að sögn héraðsblaðsins Ságat.",
+   "nb": "Datasenterselskapet Arctic Core skriver at virksomheten bruker kryptoutvinning for å skaffe inntekter i en testfase, men mener at dette ikke endrer den grunnleggende karakteren til lagerbygget selskapet har fått tillatelse til, melder lokalavisen Ságat.",
+   "nn": "Datasenterselskapet Arctic Core skriv at verksemda brukar kryptoutvinning for å skaffe inntekter i ein testfase, men meiner at dette ikkje endrar den grunnleggjande karakteren til lagerbygget selskapet har fått løyve til, melder lokalavisa Ságat.",
+   "sv": "Datacenterföretaget Arctic Core skriver att verksamheten använder kryptoutvinning för att skapa intäkter under en testfas, men menar att det inte ändrar den grundläggande karaktären hos lagerbyggnaden som företaget har fått tillstånd för, rapporterar lokaltidningen Ságat."
   },
   "paywall": true,
   "links": [],

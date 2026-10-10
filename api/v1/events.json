@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T12:38:28+00:00",
+ "generated_at": "2026-10-10T19:26:50+00:00",
  "preview": false,
  "count": 12,
  "events": [
@@ -155,12 +155,12 @@
    "sponsored": null,
    "note": "Paid entry (NOK 239 for non-members).",
    "note_i18n": {
-    "nn": "Betalt inngang (239 kroner for ikkje-medlemer).",
-    "nb": "Betalt inngang (239 kroner for ikke-medlemmer).",
-    "sv": "Avgift (239 norska kronor för icke-medlemmar).",
     "da": "Betalt adgang (239 norske kroner for ikke-medlemmer).",
     "fi": "Maksullinen (239 Norjan kruunua muille kuin jäsenille).",
-    "is": "Aðgangseyrir (239 norskar krónur fyrir utanfélagsmenn)."
+    "is": "Aðgangseyrir (239 norskar krónur fyrir utanfélagsmenn).",
+    "nb": "Betalt inngang (239 kroner for ikke-medlemmer).",
+    "nn": "Betalt inngang (239 kroner for ikkje-medlemer).",
+    "sv": "Avgift (239 norska kronor för icke-medlemmar)."
    },
    "description": {
     "text": "I kjølvannet av bitcoin har vi fått en rekke apper som endrer samtiden vår og utvider finanssektoren. Stikkord er fremtidsmarkeder som «Polymarket», kryptobanken «Aave», nyvinninger innen forsikring, stablecoins og nye former for statlige penger. I samarbeid med Bitcoinpolitisk Institutt Norge presenterer Polyteknisk Forening appene som bitcoin har ført med seg, i tillegg til bitcoin selv.",
@@ -296,12 +296,12 @@
    "sponsored": null,
    "note": "Disclosure: the speaker, Jørgen S. Notland, is the publisher of Nordic Crypto.",
    "note_i18n": {
-    "nn": "Til opplysing: foredragshaldaren, Jørgen S. Notland, er utgjevar av Nordic Crypto.",
-    "nb": "Til opplysning: foredragsholderen, Jørgen S. Notland, er utgiver av Nordic Crypto.",
-    "sv": "Upplysning: talaren, Jørgen S. Notland, är utgivare av Nordic Crypto.",
     "da": "Oplysning: foredragsholderen, Jørgen S. Notland, er udgiver af Nordic Crypto.",
     "fi": "Tiedoksi: puhuja Jørgen S. Notland on Nordic Crypton julkaisija.",
-    "is": "Til upplýsingar: fyrirlesarinn, Jørgen S. Notland, er útgefandi Nordic Crypto."
+    "is": "Til upplýsingar: fyrirlesarinn, Jørgen S. Notland, er útgefandi Nordic Crypto.",
+    "nb": "Til opplysning: foredragsholderen, Jørgen S. Notland, er utgiver av Nordic Crypto.",
+    "nn": "Til opplysing: foredragshaldaren, Jørgen S. Notland, er utgjevar av Nordic Crypto.",
+    "sv": "Upplysning: talaren, Jørgen S. Notland, är utgivare av Nordic Crypto."
    },
    "description": {
     "text": "Nexa blockchain: Scaling Bitcoin Tech-demo m/overraskelse og pizza! At this event jQrgen, member of Bitcoin Unlimited that works with the Nexa blockchain project will present what is unique about the Nexa blockchain. The Bitcoin Unlimited team has a long history of working with core Bitcoin and Bitcoin Cash software. The Nexa blockchain is the latest project. Nexa is a work in progress software-fork of Bitcoin/Bitcoin Cash with its own genesis block.",
@@ -490,7 +490,7 @@
   {
    "id": "7adc8e1ede97",
    "title": "Crypto tax with Reese Legal",
-   "title_original": "Krypto-skatt v/ Reese Legal",
+   "title_original": "Crypto tax with Reese Legal",
    "start": "2026-11-25T17:00:00+01:00",
    "end": "2026-11-25T19:00:00+01:00",
    "place": "Universitetsgata 2, Oslo",
@@ -705,12 +705,12 @@
    "sponsored": null,
    "note": "Falls on New Year's Day: check the organiser's page before you go.",
    "note_i18n": {
-    "nn": "Fell på første nyttårsdag: sjekk sida til arrangøren før du dreg.",
-    "nb": "Faller på første nyttårsdag: sjekk arrangørens side før du drar.",
-    "sv": "Infaller på nyårsdagen: kontrollera arrangörens sida innan du går.",
     "da": "Falder på nytårsdag: tjek arrangørens side, før du tager afsted.",
     "fi": "Osuu uudenvuodenpäivälle: tarkista järjestäjän sivu ennen lähtöä.",
-    "is": "Ber upp á nýársdag: athugaðu síðu skipuleggjandans áður en þú ferð."
+    "is": "Ber upp á nýársdag: athugaðu síðu skipuleggjandans áður en þú ferð.",
+    "nb": "Faller på første nyttårsdag: sjekk arrangørens side før du drar.",
+    "nn": "Fell på første nyttårsdag: sjekk sida til arrangøren før du dreg.",
+    "sv": "Infaller på nyårsdagen: kontrollera arrangörens sida innan du går."
    },
    "description": {
     "text": "Bitcoin meetup - meet the local bitcoiners, network, present your projects and ideas or just hang out! Topics include everything that remotely touches Bitcoin.",

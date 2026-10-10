@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T12:38:28+00:00",
+ "generated_at": "2026-10-10T19:26:50+00:00",
  "preview": false,
  "item": {
   "id": "b0202ea8241d",
@@ -39,12 +39,12 @@
   ],
   "summary": "A Norwegian man has been charged with gross embezzlement from his own company and is said to have spent the money on crypto.",
   "summary_i18n": {
-   "nn": "Ein norsk mann er tiltalt for grovt underslag frå sitt eige selskap og skal ha brukt pengane på krypto.",
-   "nb": "En norsk mann er tiltalt for grovt underslag fra sitt eget selskap og skal ha brukt pengene på krypto.",
-   "sv": "En norsk man har åtalats för grov förskingring från sitt eget bolag och ska ha lagt pengarna på krypto.",
    "da": "En norsk mand er tiltalt for groft underslæb fra sit eget selskab og skal have brugt pengene på krypto.",
    "fi": "Norjalaista miestä syytetään törkeästä kavalluksesta omasta yrityksestään, ja hänen kerrotaan käyttäneen rahat kryptoihin.",
-   "is": "Norskur karlmaður hefur verið ákærður fyrir stórfelldan fjárdrátt úr eigin fyrirtæki og er sagður hafa eytt fénu í rafmyntir."
+   "is": "Norskur karlmaður hefur verið ákærður fyrir stórfelldan fjárdrátt úr eigin fyrirtæki og er sagður hafa eytt fénu í rafmyntir.",
+   "nb": "En norsk mann er tiltalt for grovt underslag fra sitt eget selskap og skal ha brukt pengene på krypto.",
+   "nn": "Ein norsk mann er tiltalt for grovt underslag frå sitt eige selskap og skal ha brukt pengane på krypto.",
+   "sv": "En norsk man har åtalats för grov förskingring från sitt eget bolag och ska ha lagt pengarna på krypto."
   },
   "paywall": true,
   "links": [],

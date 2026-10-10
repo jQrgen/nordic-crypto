@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T12:38:28+00:00",
+ "generated_at": "2026-10-10T19:26:50+00:00",
  "preview": false,
  "topic": "stablecoins",
  "count": 3,
@@ -42,12 +42,12 @@
    ],
    "summary": "NBX has signed with Tieto Banktech for a payment card that lets customers spend stablecoins in everyday purchases.",
    "summary_i18n": {
-    "nn": "NBX har inngått avtale med Tieto Banktech om eit betalingskort som lèt kundane bruke stablecoins i kvardagskjøp.",
-    "nb": "NBX har inngått avtale med Tieto Banktech om et betalingskort som lar kundene bruke stablecoins i hverdagskjøp.",
-    "sv": "NBX har tecknat avtal med Tieto Banktech om ett betalkort som låter kunderna använda stablecoins i vardagliga köp.",
     "da": "NBX har indgået aftale med Tieto Banktech om et betalingskort, der lader kunderne bruge stablecoins til daglige indkøb.",
     "fi": "NBX on sopinut Tieto Banktechin kanssa maksukortista, jolla asiakkaat voivat käyttää vakaakolikoita arjen ostoksissa.",
-    "is": "NBX hefur samið við Tieto Banktech um greiðslukort sem gerir viðskiptavinum kleift að nota stöðugleikamyntir í daglegum innkaupum."
+    "is": "NBX hefur samið við Tieto Banktech um greiðslukort sem gerir viðskiptavinum kleift að nota stöðugleikamyntir í daglegum innkaupum.",
+    "nb": "NBX har inngått avtale med Tieto Banktech om et betalingskort som lar kundene bruke stablecoins i hverdagskjøp.",
+    "nn": "NBX har inngått avtale med Tieto Banktech om eit betalingskort som lèt kundane bruke stablecoins i kvardagskjøp.",
+    "sv": "NBX har tecknat avtal med Tieto Banktech om ett betalkort som låter kunderna använda stablecoins i vardagliga köp."
    },
    "paywall": false,
    "links": [],
@@ -191,12 +191,12 @@
    ],
    "summary": "Danske Bank says no single bank can build a euro stablecoin on its own and that European banks should build a dollar alternative together through Qivalis.",
    "summary_i18n": {
-    "nn": "Danske Bank seier at ingen enkeltbank kan byggje ein euro-stablecoin åleine, og at europeiske bankar bør byggje eit alternativ til dollaren saman gjennom Qivalis.",
-    "nb": "Danske Bank sier at ingen enkeltbank kan bygge en euro-stablecoin alene, og at europeiske banker bør bygge et alternativ til dollaren sammen gjennom Qivalis.",
-    "sv": "Danske Bank säger att ingen enskild bank kan bygga en euro-stablecoin på egen hand och att europeiska banker bör bygga ett alternativ till dollarn tillsammans genom Qivalis.",
     "da": "Danske Bank siger, at ingen enkelt bank kan bygge en euro-stablecoin alene, og at europæiske banker sammen bør bygge et alternativ til dollaren gennem Qivalis.",
     "fi": "Danske Bankin mukaan yksikään pankki ei pysty rakentamaan euromääräistä vakaakolikkoa yksin, ja eurooppalaisten pankkien pitäisi rakentaa dollarille vaihtoehto yhdessä Qivaliksen kautta.",
-    "is": "Danske Bank segir að enginn einn banki geti byggt upp stöðugleikamynt í evrum á eigin spýtur og að evrópskir bankar ættu saman að byggja upp valkost við dollarann í gegnum Qivalis."
+    "is": "Danske Bank segir að enginn einn banki geti byggt upp stöðugleikamynt í evrum á eigin spýtur og að evrópskir bankar ættu saman að byggja upp valkost við dollarann í gegnum Qivalis.",
+    "nb": "Danske Bank sier at ingen enkeltbank kan bygge en euro-stablecoin alene, og at europeiske banker bør bygge et alternativ til dollaren sammen gjennom Qivalis.",
+    "nn": "Danske Bank seier at ingen enkeltbank kan byggje ein euro-stablecoin åleine, og at europeiske bankar bør byggje eit alternativ til dollaren saman gjennom Qivalis.",
+    "sv": "Danske Bank säger att ingen enskild bank kan bygga en euro-stablecoin på egen hand och att europeiska banker bör bygga ett alternativ till dollarn tillsammans genom Qivalis."
    },
    "paywall": false,
    "links": [],
@@ -329,12 +329,12 @@
    ],
    "summary": "Valour's Nordic head Johanna Belitz argues stablecoins can make cross-border payments much faster and cheaper.",
    "summary_i18n": {
-    "nn": "Den nordiske sjefen i Valour, Johanna Belitz, meiner stablecoins kan gjere betalingar over landegrensene mykje raskare og billegare.",
-    "nb": "Valours nordiske sjef Johanna Belitz mener stablecoins kan gjøre betalinger over landegrensene mye raskere og billigere.",
-    "sv": "Valours nordiska chef Johanna Belitz menar att stablecoins kan göra betalningar över gränserna mycket snabbare och billigare.",
     "da": "Valours nordiske chef, Johanna Belitz, mener, at stablecoins kan gøre betalinger på tværs af grænser meget hurtigere og billigere.",
     "fi": "Valourin Pohjoismaiden johtaja Johanna Belitz katsoo, että vakaakolikot voivat tehdä rajat ylittävistä maksuista paljon nopeampia ja halvempia.",
-    "is": "Johanna Belitz, yfirmaður Valour á Norðurlöndum, telur að stöðugleikamyntir geti gert greiðslur milli landa mun hraðari og ódýrari."
+    "is": "Johanna Belitz, yfirmaður Valour á Norðurlöndum, telur að stöðugleikamyntir geti gert greiðslur milli landa mun hraðari og ódýrari.",
+    "nb": "Valours nordiske sjef Johanna Belitz mener stablecoins kan gjøre betalinger over landegrensene mye raskere og billigere.",
+    "nn": "Den nordiske sjefen i Valour, Johanna Belitz, meiner stablecoins kan gjere betalingar over landegrensene mykje raskare og billegare.",
+    "sv": "Valours nordiska chef Johanna Belitz menar att stablecoins kan göra betalningar över gränserna mycket snabbare och billigare."
    },
    "paywall": true,
    "links": [],

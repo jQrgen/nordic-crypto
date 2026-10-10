@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T12:38:28+00:00",
+ "generated_at": "2026-10-10T19:26:50+00:00",
  "preview": false,
  "item": {
   "id": "f2ad120d7189",
@@ -29,12 +29,12 @@
   ],
   "summary": "Valour's Nordic head Johanna Belitz argues stablecoins can make cross-border payments much faster and cheaper.",
   "summary_i18n": {
-   "nn": "Den nordiske sjefen i Valour, Johanna Belitz, meiner stablecoins kan gjere betalingar over landegrensene mykje raskare og billegare.",
-   "nb": "Valours nordiske sjef Johanna Belitz mener stablecoins kan gjøre betalinger over landegrensene mye raskere og billigere.",
-   "sv": "Valours nordiska chef Johanna Belitz menar att stablecoins kan göra betalningar över gränserna mycket snabbare och billigare.",
    "da": "Valours nordiske chef, Johanna Belitz, mener, at stablecoins kan gøre betalinger på tværs af grænser meget hurtigere og billigere.",
    "fi": "Valourin Pohjoismaiden johtaja Johanna Belitz katsoo, että vakaakolikot voivat tehdä rajat ylittävistä maksuista paljon nopeampia ja halvempia.",
-   "is": "Johanna Belitz, yfirmaður Valour á Norðurlöndum, telur að stöðugleikamyntir geti gert greiðslur milli landa mun hraðari og ódýrari."
+   "is": "Johanna Belitz, yfirmaður Valour á Norðurlöndum, telur að stöðugleikamyntir geti gert greiðslur milli landa mun hraðari og ódýrari.",
+   "nb": "Valours nordiske sjef Johanna Belitz mener stablecoins kan gjøre betalinger over landegrensene mye raskere og billigere.",
+   "nn": "Den nordiske sjefen i Valour, Johanna Belitz, meiner stablecoins kan gjere betalingar over landegrensene mykje raskare og billegare.",
+   "sv": "Valours nordiska chef Johanna Belitz menar att stablecoins kan göra betalningar över gränserna mycket snabbare och billigare."
   },
   "paywall": true,
   "links": [],

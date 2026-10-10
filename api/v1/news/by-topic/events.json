@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T12:38:28+00:00",
+ "generated_at": "2026-10-10T19:26:50+00:00",
  "preview": false,
  "topic": "events",
  "count": 3,
@@ -42,12 +42,12 @@
    ],
    "summary": "Bitcoinpolitisk Institutt is gathering researchers, industry and politicians in Oslo for a free seminar on bitcoin mining and Norwegian power.",
    "summary_i18n": {
-    "nn": "Bitcoinpolitisk Institutt samlar forskarar, bransje og politikarar i Oslo til eit gratis seminar om bitcoinutvinning og norsk kraft.",
-    "nb": "Bitcoinpolitisk Institutt samler forskere, bransje og politikere i Oslo til et gratis seminar om bitcoinutvinning og norsk kraft.",
-    "sv": "Bitcoinpolitisk Institutt samlar forskare, bransch och politiker i Oslo till ett kostnadsfritt seminarium om bitcoinutvinning och norsk elkraft.",
     "da": "Bitcoinpolitisk Institutt samler forskere, branche og politikere i Oslo til et gratis seminar om bitcoin-mining og norsk strøm.",
     "fi": "Bitcoinpolitisk Institutt kokoaa tutkijoita, alan toimijoita ja poliitikkoja Osloon maksuttomaan seminaariin bitcoinin louhinnasta ja Norjan sähköstä.",
-    "is": "Bitcoinpolitisk Institutt safnar saman fræðimönnum, fulltrúum greinarinnar og stjórnmálamönnum í Ósló á ókeypis málþing um námugröft bitcoin og norska raforku."
+    "is": "Bitcoinpolitisk Institutt safnar saman fræðimönnum, fulltrúum greinarinnar og stjórnmálamönnum í Ósló á ókeypis málþing um námugröft bitcoin og norska raforku.",
+    "nb": "Bitcoinpolitisk Institutt samler forskere, bransje og politikere i Oslo til et gratis seminar om bitcoinutvinning og norsk kraft.",
+    "nn": "Bitcoinpolitisk Institutt samlar forskarar, bransje og politikarar i Oslo til eit gratis seminar om bitcoinutvinning og norsk kraft.",
+    "sv": "Bitcoinpolitisk Institutt samlar forskare, bransch och politiker i Oslo till ett kostnadsfritt seminarium om bitcoinutvinning och norsk elkraft."
    },
    "paywall": false,
    "links": [],
@@ -191,12 +191,12 @@
    ],
    "summary": "Denmark's tax minister met the crypto industry at Christiansborg on 17 September to discuss crypto taxation.",
    "summary_i18n": {
-    "nn": "Skatteministeren i Danmark møtte kryptobransjen på Christiansborg 17. september for å diskutere skattlegging av krypto.",
-    "nb": "Danmarks skatteminister møtte kryptobransjen på Christiansborg 17. september for å diskutere beskatning av krypto.",
-    "sv": "Danmarks skatteminister träffade kryptobranschen på Christiansborg den 17 september för att diskutera beskattning av krypto.",
     "da": "Skatteministeren mødte kryptobranchen på Christiansborg den 17. september for at drøfte beskatning af krypto.",
     "fi": "Tanskan veroministeri tapasi kryptoalan edustajia Christiansborgissa 17. syyskuuta keskustellakseen kryptojen verotuksesta.",
-    "is": "Skattamálaráðherra Danmerkur fundaði með fulltrúum rafmyntageirans í Kristjánsborg 17. september til að ræða skattlagningu rafmynta."
+    "is": "Skattamálaráðherra Danmerkur fundaði með fulltrúum rafmyntageirans í Kristjánsborg 17. september til að ræða skattlagningu rafmynta.",
+    "nb": "Danmarks skatteminister møtte kryptobransjen på Christiansborg 17. september for å diskutere beskatning av krypto.",
+    "nn": "Skatteministeren i Danmark møtte kryptobransjen på Christiansborg 17. september for å diskutere skattlegging av krypto.",
+    "sv": "Danmarks skatteminister träffade kryptobranschen på Christiansborg den 17 september för att diskutera beskattning av krypto."
    },
    "paywall": false,
    "links": [],
@@ -339,12 +339,12 @@
    ],
    "summary": "Tokenisation at Blockchain Sweden and the final of the Blockathon hackathon put blockchain on the agenda in Stockholm this week.",
    "summary_i18n": {
-    "nn": "Tokenisering hos Blockchain Sweden og finalen i hackathonet Blockathon sette blokkjede på dagsordenen i Stockholm denne veka.",
-    "nb": "Tokenisering hos Blockchain Sweden og finalen i hackathonet Blockathon satte blokkjede på dagsordenen i Stockholm denne uken.",
-    "sv": "Tokenisering hos Blockchain Sweden och finalen i hackathonet Blockathon satte blockkedjor på dagordningen i Stockholm den här veckan.",
     "da": "Tokenisering hos Blockchain Sweden og finalen i hackathonen Blockathon satte blockchain på dagsordenen i Stockholm i denne uge.",
     "fi": "Tokenisointi Blockchain Swedenin tilaisuudessa ja Blockathon-hackathonin finaali nostivat lohkoketjut esiin Tukholmassa tällä viikolla.",
-    "is": "Táknvæðing hjá Blockchain Sweden og úrslit Blockathon-forritunarkeppninnar settu bálkakeðjur á dagskrá í Stokkhólmi í vikunni."
+    "is": "Táknvæðing hjá Blockchain Sweden og úrslit Blockathon-forritunarkeppninnar settu bálkakeðjur á dagskrá í Stokkhólmi í vikunni.",
+    "nb": "Tokenisering hos Blockchain Sweden og finalen i hackathonet Blockathon satte blokkjede på dagsordenen i Stockholm denne uken.",
+    "nn": "Tokenisering hos Blockchain Sweden og finalen i hackathonet Blockathon sette blokkjede på dagsordenen i Stockholm denne veka.",
+    "sv": "Tokenisering hos Blockchain Sweden och finalen i hackathonet Blockathon satte blockkedjor på dagordningen i Stockholm den här veckan."
    },
    "paywall": false,
    "links": [],

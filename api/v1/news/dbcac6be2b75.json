@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T12:38:28+00:00",
+ "generated_at": "2026-10-10T19:26:50+00:00",
  "preview": false,
  "item": {
   "id": "dbcac6be2b75",
@@ -39,12 +39,12 @@
   ],
   "summary": "Police have unlocked the crypto wallet of an NHH student charged in a drug case, uncovering assets worth several hundred thousand kroner.",
   "summary_i18n": {
-   "nn": "Politiet har låst opp kryptolommeboka til ein NHH-student som er tiltalt i ei narkotikasak, og funne verdiar for fleire hundre tusen kroner.",
-   "nb": "Politiet har låst opp kryptolommeboken til en NHH-student som er tiltalt i en narkotikasak, og funnet verdier for flere hundre tusen kroner.",
-   "sv": "Polisen har låst upp kryptoplånboken hos en NHH-student som åtalats i ett narkotikamål och hittat tillgångar värda flera hundra tusen kronor.",
    "da": "Politiet har låst kryptotegnebogen op hos en NHH-studerende, der er tiltalt i en narkosag, og fundet værdier for flere hundrede tusind kroner.",
    "fi": "Poliisi on avannut huumejutussa syytetyn NHH-opiskelijan kryptolompakon ja löytänyt varoja useiden satojen tuhansien kruunujen arvosta.",
-   "is": "Lögreglan hefur opnað rafmyntaveski NHH-nema sem ákærður er í fíkniefnamáli og fundið eignir að verðmæti nokkur hundruð þúsund króna."
+   "is": "Lögreglan hefur opnað rafmyntaveski NHH-nema sem ákærður er í fíkniefnamáli og fundið eignir að verðmæti nokkur hundruð þúsund króna.",
+   "nb": "Politiet har låst opp kryptolommeboken til en NHH-student som er tiltalt i en narkotikasak, og funnet verdier for flere hundre tusen kroner.",
+   "nn": "Politiet har låst opp kryptolommeboka til ein NHH-student som er tiltalt i ei narkotikasak, og funne verdiar for fleire hundre tusen kroner.",
+   "sv": "Polisen har låst upp kryptoplånboken hos en NHH-student som åtalats i ett narkotikamål och hittat tillgångar värda flera hundra tusen kronor."
   },
   "paywall": true,
   "links": [],

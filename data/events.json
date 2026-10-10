@@ -22,12 +22,12 @@
    "sponsored": null,
    "note": "Paid entry (NOK 239 for non-members).",
    "note_i18n": {
-    "nn": "Betalt inngang (239 kroner for ikkje-medlemer).",
-    "nb": "Betalt inngang (239 kroner for ikke-medlemmer).",
-    "sv": "Avgift (239 norska kronor för icke-medlemmar).",
     "da": "Betalt adgang (239 norske kroner for ikke-medlemmer).",
     "fi": "Maksullinen (239 Norjan kruunua muille kuin jäsenille).",
-    "is": "Aðgangseyrir (239 norskar krónur fyrir utanfélagsmenn)."
+    "is": "Aðgangseyrir (239 norskar krónur fyrir utanfélagsmenn).",
+    "nb": "Betalt inngang (239 kroner for ikke-medlemmer).",
+    "nn": "Betalt inngang (239 kroner for ikkje-medlemer).",
+    "sv": "Avgift (239 norska kronor för icke-medlemmar)."
    },
    "description": {
     "text": "I kjølvannet av bitcoin har vi fått en rekke apper som endrer samtiden vår og utvider finanssektoren. Stikkord er fremtidsmarkeder som «Polymarket», kryptobanken «Aave», nyvinninger innen forsikring, stablecoins og nye former for statlige penger. I samarbeid med Bitcoinpolitisk Institutt Norge presenterer Polyteknisk Forening appene som bitcoin har ført med seg, i tillegg til bitcoin selv.",
@@ -44,8 +44,8 @@
      "is": "Í kjölfar bitcoin hafa komið fram fjölmörg öpp sem breyta samtímanum og víkka fjármálageirann. Dæmi eru framtíðarmarkaðir eins og Polymarket, kryptobankinn Aave, nýjungar í tryggingum, stablecoins og ný form ríkisfjár. Í samstarfi við Bitcoinpolitisk Institutt Norge kynnir Polyteknisk Forening öppin sem bitcoin hefur leitt af sér, auk bitcoin sjálfs."
     }
    },
-   "status": "published",
-   "past": false
+   "past": false,
+   "status": "published"
   },
   {
    "id": "c4a53ca9bd26",
@@ -83,8 +83,8 @@
      "is": "Óformlegur fundur fyrir þá sem fást við bitcoin og þá sem eru forvitnir. Komdu og hittu fólk, skiptu á hugmyndum og ræddu allt frá bitcoin og Lightning til sjálfsforræðis, tækni eða þess sem kemur upp. Engar kynningar og engin föst dagskrá, bara opið og afslappað rými. Þú ert velkominn hvort sem þú hefur fengist við bitcoin í mörg ár eða ert rétt að byrja. Aðeins bitcoin. Ekki annað krypto."
     }
    },
-   "status": "published",
-   "past": false
+   "past": false,
+   "status": "published"
   },
   {
    "id": "a1ea7afabcb0",
@@ -107,12 +107,12 @@
    "sponsored": null,
    "note": "Disclosure: the speaker, Jørgen S. Notland, is the publisher of Nordic Crypto.",
    "note_i18n": {
-    "nn": "Til opplysing: foredragshaldaren, Jørgen S. Notland, er utgjevar av Nordic Crypto.",
-    "nb": "Til opplysning: foredragsholderen, Jørgen S. Notland, er utgiver av Nordic Crypto.",
-    "sv": "Upplysning: talaren, Jørgen S. Notland, är utgivare av Nordic Crypto.",
     "da": "Oplysning: foredragsholderen, Jørgen S. Notland, er udgiver af Nordic Crypto.",
     "fi": "Tiedoksi: puhuja Jørgen S. Notland on Nordic Crypton julkaisija.",
-    "is": "Til upplýsingar: fyrirlesarinn, Jørgen S. Notland, er útgefandi Nordic Crypto."
+    "is": "Til upplýsingar: fyrirlesarinn, Jørgen S. Notland, er útgefandi Nordic Crypto.",
+    "nb": "Til opplysning: foredragsholderen, Jørgen S. Notland, er utgiver av Nordic Crypto.",
+    "nn": "Til opplysing: foredragshaldaren, Jørgen S. Notland, er utgjevar av Nordic Crypto.",
+    "sv": "Upplysning: talaren, Jørgen S. Notland, är utgivare av Nordic Crypto."
    },
    "description": {
     "text": "Nexa blockchain: Scaling Bitcoin Tech-demo m/overraskelse og pizza! At this event jQrgen, member of Bitcoin Unlimited that works with the Nexa blockchain project will present what is unique about the Nexa blockchain. The Bitcoin Unlimited team has a long history of working with core Bitcoin and Bitcoin Cash software. The Nexa blockchain is the latest project. Nexa is a work in progress software-fork of Bitcoin/Bitcoin Cash with its own genesis block.",
@@ -129,8 +129,8 @@
      "is": "Nexa-bálkakeðja: skala bitcoin. Tæknisýning með óvæntu og pítsu. Á þessum fundi kynnir jQrgen, meðlimur í Bitcoin Unlimited sem vinnur að Nexa, hvað er sérstakt við Nexa-bálkakeðjuna. Bitcoin Unlimited hefur lengi unnið að hugbúnaði fyrir Bitcoin og Bitcoin Cash. Nexa er nýjasta verkefnið. Nexa er hugbúnaðargrein af Bitcoin/Bitcoin Cash í vinnslu, með eigin genesis-blokk."
     }
    },
-   "status": "published",
-   "past": false
+   "past": false,
+   "status": "published"
   },
   {
    "id": "a6cadcf35c22",
@@ -168,8 +168,8 @@
      "is": "Við viljum vingjarnlega og opna fundi þar sem rætt er um bitcoin og hlutverk þess í hagkerfi heimsins. Ef þú ert nýr í efninu er þetta staðurinn fyrir upplýstar umræður fagaðila og vanra áhugamanna. Ef þú ert slíkur geturðu farið djúpt í efnið með líkum. Athugið: þetta er aðeins bitcoin-viðburður. Við höfum ekki áhuga á NFT, altcoins eða almennum umræðum um bálkakeðju."
     }
    },
-   "status": "published",
-   "past": false
+   "past": false,
+   "status": "published"
   },
   {
    "id": "ce0c87469bd8",
@@ -207,13 +207,13 @@
      "is": "Bitcoin-fundur. Hittu við heimafólk, tengstu, kynntu verkefni og hugmyndir eða komdu bara. Efnin eru allt sem snertir bitcoin."
     }
    },
-   "status": "published",
-   "past": false
+   "past": false,
+   "status": "published"
   },
   {
    "id": "7adc8e1ede97",
    "title": "Crypto tax with Reese Legal",
-   "title_orig": "Krypto-skatt v/ Reese Legal",
+   "title_orig": "Crypto tax with Reese Legal",
    "start": "2026-11-25T17:00:00+01:00",
    "end": "2026-11-25T19:00:00+01:00",
    "place": "Universitetsgata 2, Oslo",
@@ -246,8 +246,8 @@
      "is": "Kryptoskattur: Reese Legal kemur á Oslo Blockchain Meetup. Skattareglurnar um hagnað og tap af sölu rafmynta, DeFi-færslur, lán, gjafir og eignir í rafmynt. Hvernig hagnaður, tap og eignir eru reiknuð rétt, líka með mörgum færslum, og verkfæri til útreiknings og skjala. Hvernig rafmynt er færð á skattframtal. Hvað er í húfi ef það verður rangt eða ekki tilkynnt, algengustu mistökin og dæmi úr framkvæmd Skatteetaten."
     }
    },
-   "status": "published",
-   "past": false
+   "past": false,
+   "status": "published"
   },
   {
    "id": "e884ba1f0333",
@@ -285,8 +285,8 @@
      "is": "Við viljum vingjarnlega og opna fundi þar sem rætt er um bitcoin og hlutverk þess í hagkerfi heimsins. Ef þú ert nýr í efninu er þetta staðurinn fyrir upplýstar umræður fagaðila og vanra áhugamanna. Ef þú ert slíkur geturðu farið djúpt í efnið með líkum. Athugið: þetta er aðeins bitcoin-viðburður. Við höfum ekki áhuga á NFT, altcoins eða almennum umræðum um bálkakeðju."
     }
    },
-   "status": "published",
-   "past": false
+   "past": false,
+   "status": "published"
   },
   {
    "id": "19b92e24ee50",
@@ -324,8 +324,8 @@
      "is": "Bitcoin-fundur. Hittu við heimafólk, tengstu, kynntu verkefni og hugmyndir eða komdu bara. Efnin eru allt sem snertir bitcoin."
     }
    },
-   "status": "published",
-   "past": false
+   "past": false,
+   "status": "published"
   },
   {
    "id": "3c7c538ff512",
@@ -348,12 +348,12 @@
    "sponsored": null,
    "note": "Falls on New Year's Day: check the organiser's page before you go.",
    "note_i18n": {
-    "nn": "Fell på første nyttårsdag: sjekk sida til arrangøren før du dreg.",
-    "nb": "Faller på første nyttårsdag: sjekk arrangørens side før du drar.",
-    "sv": "Infaller på nyårsdagen: kontrollera arrangörens sida innan du går.",
     "da": "Falder på nytårsdag: tjek arrangørens side, før du tager afsted.",
     "fi": "Osuu uudenvuodenpäivälle: tarkista järjestäjän sivu ennen lähtöä.",
-    "is": "Ber upp á nýársdag: athugaðu síðu skipuleggjandans áður en þú ferð."
+    "is": "Ber upp á nýársdag: athugaðu síðu skipuleggjandans áður en þú ferð.",
+    "nb": "Faller på første nyttårsdag: sjekk arrangørens side før du drar.",
+    "nn": "Fell på første nyttårsdag: sjekk sida til arrangøren før du dreg.",
+    "sv": "Infaller på nyårsdagen: kontrollera arrangörens sida innan du går."
    },
    "description": {
     "text": "Bitcoin meetup - meet the local bitcoiners, network, present your projects and ideas or just hang out! Topics include everything that remotely touches Bitcoin.",
@@ -370,8 +370,8 @@
      "is": "Bitcoin-fundur. Hittu við heimafólk, tengstu, kynntu verkefni og hugmyndir eða komdu bara. Efnin eru allt sem snertir bitcoin."
     }
    },
-   "status": "published",
-   "past": false
+   "past": false,
+   "status": "published"
   },
   {
    "id": "105f743dcf3d",
@@ -409,8 +409,8 @@
      "is": "Bitcoin-fundur. Hittu við heimafólk, tengstu, kynntu verkefni og hugmyndir eða komdu bara. Efnin eru allt sem snertir bitcoin."
     }
    },
-   "status": "published",
-   "past": false
+   "past": false,
+   "status": "published"
   }
  ],
  "previous": [
@@ -450,8 +450,8 @@
      "is": "Við viljum vingjarnlega og opna fundi þar sem rætt er um bitcoin og hlutverk þess í hagkerfi heimsins. Ef þú ert nýr í efninu er þetta staðurinn fyrir upplýstar umræður fagaðila og vanra áhugamanna. Ef þú ert slíkur geturðu farið djúpt í efnið með líkum. Athugið: þetta er aðeins bitcoin-viðburður. Við höfum ekki áhuga á NFT, altcoins eða almennum umræðum um bálkakeðju."
     }
    },
-   "status": "published",
-   "past": true
+   "past": true,
+   "status": "published"
   },
   {
    "title": "BTCHEL 2026",
@@ -741,11 +741,14 @@
    "organiser": "Knut Wicksell Centre for Financial Studies, Lund University School of Economics and Management",
    "url": "https://www.lusem.lu.se/calendar/arne-ryde-conference-crypto-fintech-and-payments",
    "source": "Lund University School of Economics and Management (lusem.lu.se)",
+   "source_url": null,
+   "found": null,
+   "attendees": null,
+   "place_source": null,
    "paid": null,
    "sponsored": null,
    "note": null,
    "note_i18n": null,
-   "status": "published",
    "description": {
     "text": "Keynote lectures: Christine Parlour, UC Berkeley Haas, and Tobias Berg, Goethe University.",
     "lang": "en",
@@ -761,7 +764,8 @@
      "is": "Aðalfyrirlestrar: Christine Parlour, UC Berkeley Haas, og Tobias Berg, Goethe-háskóli."
     }
    },
-   "past": true
+   "past": true,
+   "status": "published"
   },
   {
    "title": "BTCHEL 2025",

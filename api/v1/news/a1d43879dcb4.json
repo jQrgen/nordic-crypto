@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T12:38:28+00:00",
+ "generated_at": "2026-10-10T19:26:50+00:00",
  "preview": false,
  "item": {
   "id": "a1d43879dcb4",
@@ -39,12 +39,12 @@
   ],
   "summary": "Bitcoinpolitisk Institutt is gathering researchers, industry and politicians in Oslo for a free seminar on bitcoin mining and Norwegian power.",
   "summary_i18n": {
-   "nn": "Bitcoinpolitisk Institutt samlar forskarar, bransje og politikarar i Oslo til eit gratis seminar om bitcoinutvinning og norsk kraft.",
-   "nb": "Bitcoinpolitisk Institutt samler forskere, bransje og politikere i Oslo til et gratis seminar om bitcoinutvinning og norsk kraft.",
-   "sv": "Bitcoinpolitisk Institutt samlar forskare, bransch och politiker i Oslo till ett kostnadsfritt seminarium om bitcoinutvinning och norsk elkraft.",
    "da": "Bitcoinpolitisk Institutt samler forskere, branche og politikere i Oslo til et gratis seminar om bitcoin-mining og norsk strøm.",
    "fi": "Bitcoinpolitisk Institutt kokoaa tutkijoita, alan toimijoita ja poliitikkoja Osloon maksuttomaan seminaariin bitcoinin louhinnasta ja Norjan sähköstä.",
-   "is": "Bitcoinpolitisk Institutt safnar saman fræðimönnum, fulltrúum greinarinnar og stjórnmálamönnum í Ósló á ókeypis málþing um námugröft bitcoin og norska raforku."
+   "is": "Bitcoinpolitisk Institutt safnar saman fræðimönnum, fulltrúum greinarinnar og stjórnmálamönnum í Ósló á ókeypis málþing um námugröft bitcoin og norska raforku.",
+   "nb": "Bitcoinpolitisk Institutt samler forskere, bransje og politikere i Oslo til et gratis seminar om bitcoinutvinning og norsk kraft.",
+   "nn": "Bitcoinpolitisk Institutt samlar forskarar, bransje og politikarar i Oslo til eit gratis seminar om bitcoinutvinning og norsk kraft.",
+   "sv": "Bitcoinpolitisk Institutt samlar forskare, bransch och politiker i Oslo till ett kostnadsfritt seminarium om bitcoinutvinning och norsk elkraft."
   },
   "paywall": false,
   "links": [],

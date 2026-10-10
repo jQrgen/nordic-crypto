@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T12:38:28+00:00",
+ "generated_at": "2026-10-10T19:26:50+00:00",
  "preview": false,
  "item": {
   "id": "b46e8d2a4dad",
@@ -40,12 +40,12 @@
   ],
   "summary": "Neither ESMA nor Sweden's Finansinspektionen will say whether distributing crypto services under your own brand needs its own MiCA licence.",
   "summary_i18n": {
-   "nn": "Verken ESMA eller svenske Finansinspektionen vil seie om distribusjon av kryptotenester under eige merkenamn krev eige MiCA-løyve.",
-   "nb": "Verken ESMA eller svenske Finansinspektionen vil si om distribusjon av kryptotjenester under eget merkenavn krever egen MiCA-tillatelse.",
-   "sv": "Varken Esma eller Finansinspektionen vill säga om distribution av kryptotjänster under eget varumärke kräver ett eget MiCA-tillstånd.",
    "da": "Hverken ESMA eller det svenske Finansinspektionen vil sige, om distribution af kryptotjenester under eget brand kræver en selvstændig MiCA-tilladelse.",
    "fi": "ESMA ja Ruotsin Finansinspektionen eivät kerro, tarvitaanko kryptopalvelujen jakeluun oman brändin alla oma MiCA-toimilupa.",
-   "is": "Hvorki ESMA né sænska Finansinspektionen vilja segja hvort dreifing rafmyntaþjónustu undir eigin vörumerki krefjist sérstaks MiCA-leyfis."
+   "is": "Hvorki ESMA né sænska Finansinspektionen vilja segja hvort dreifing rafmyntaþjónustu undir eigin vörumerki krefjist sérstaks MiCA-leyfis.",
+   "nb": "Verken ESMA eller svenske Finansinspektionen vil si om distribusjon av kryptotjenester under eget merkenavn krever egen MiCA-tillatelse.",
+   "nn": "Verken ESMA eller svenske Finansinspektionen vil seie om distribusjon av kryptotenester under eige merkenamn krev eige MiCA-løyve.",
+   "sv": "Varken Esma eller Finansinspektionen vill säga om distribution av kryptotjänster under eget varumärke kräver ett eget MiCA-tillstånd."
   },
   "paywall": false,
   "links": [],

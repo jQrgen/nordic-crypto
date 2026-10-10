@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T12:38:28+00:00",
+ "generated_at": "2026-10-10T19:26:50+00:00",
  "preview": false,
  "topic": "crime",
  "count": 6,
@@ -28,12 +28,12 @@
    ],
    "summary": "Sweden's Finansinspektionen has warned against 30 more firms that look legitimate but lack a licence; several lure consumers with trading in shares, crypto and currencies, and some are clone firms using details of real financial companies. FI has now warned against 227 suspected investment-fraud operators so far in 2026 and urges people to check its company register before sending money.",
    "summary_i18n": {
-    "nb": "Finansinspektionen i Sverige advarer mot 30 nye aktører som ser seriøse ut, men mangler tillatelse; flere lokker med handel i aksjer, krypto og valuta, og noen er klonselskaper som bruker opplysninger fra ekte finansselskaper. FI har dermed advart mot 227 aktører som mistenkes for investeringsbedrageri hittil i 2026, og ber folk sjekke selskapsregisteret før de overfører penger.",
-    "nn": "Finansinspektionen i Sverige åtvarar mot 30 nye aktørar som ser seriøse ut, men manglar løyve; fleire lokkar med handel i aksjar, krypto og valuta, og nokre er klonselskap som brukar opplysningar frå ekte finansselskap. FI har dermed åtvara mot 227 aktørar som er mistenkte for investeringssvindel så langt i 2026, og ber folk sjekke selskapsregisteret før dei overfører pengar.",
-    "sv": "Finansinspektionen varnar för 30 nya aktörer som ser seriösa ut men saknar tillstånd; flera lockar med handel i aktier, krypto och valutor, och några är klonföretag som använder uppgifter från riktiga finansbolag. FI har därmed varnat för 227 aktörer som misstänks för investeringsbedrägerier hittills under 2026 och uppmanar alla att kontrollera företagsregistret innan de för över pengar.",
     "da": "Det svenske Finansinspektionen advarer mod 30 nye aktører, der ser seriøse ud, men mangler tilladelse; flere lokker med handel i aktier, krypto og valuta, og nogle er klonselskaber, der bruger oplysninger fra rigtige finansielle virksomheder. FI har dermed advaret mod 227 aktører, der mistænkes for investeringssvindel, indtil videre i 2026 og opfordrer folk til at tjekke virksomhedsregistret, før de overfører penge.",
     "fi": "Ruotsin Finansinspektionen varoittaa 30 uudesta toimijasta, jotka näyttävät luotettavilta mutta joilla ei ole toimilupaa; useat houkuttelevat kuluttajia osake-, krypto- ja valuuttakaupalla, ja osa on klooniyrityksiä, jotka käyttävät oikeiden rahoitusyhtiöiden tietoja. FI on näin varoittanut vuonna 2026 jo 227 toimijasta, joita epäillään sijoituspetoksista, ja kehottaa tarkistamaan yritysrekisterin ennen rahan siirtämistä.",
-    "is": "Sænska fjármálaeftirlitið Finansinspektionen varar við 30 nýjum aðilum sem virðast traustir en hafa ekki starfsleyfi; nokkrir lokka neytendur með viðskiptum með hlutabréf, rafmyntir og gjaldeyri, og sumir eru klónfyrirtæki sem nota upplýsingar frá raunverulegum fjármálafyrirtækjum. FI hefur þar með varað við 227 aðilum sem grunaðir eru um fjárfestingarsvik það sem af er 2026 og hvetur fólk til að kanna fyrirtækjaskrána áður en það millifærir peninga."
+    "is": "Sænska fjármálaeftirlitið Finansinspektionen varar við 30 nýjum aðilum sem virðast traustir en hafa ekki starfsleyfi; nokkrir lokka neytendur með viðskiptum með hlutabréf, rafmyntir og gjaldeyri, og sumir eru klónfyrirtæki sem nota upplýsingar frá raunverulegum fjármálafyrirtækjum. FI hefur þar með varað við 227 aðilum sem grunaðir eru um fjárfestingarsvik það sem af er 2026 og hvetur fólk til að kanna fyrirtækjaskrána áður en það millifærir peninga.",
+    "nb": "Finansinspektionen i Sverige advarer mot 30 nye aktører som ser seriøse ut, men mangler tillatelse; flere lokker med handel i aksjer, krypto og valuta, og noen er klonselskaper som bruker opplysninger fra ekte finansselskaper. FI har dermed advart mot 227 aktører som mistenkes for investeringsbedrageri hittil i 2026, og ber folk sjekke selskapsregisteret før de overfører penger.",
+    "nn": "Finansinspektionen i Sverige åtvarar mot 30 nye aktørar som ser seriøse ut, men manglar løyve; fleire lokkar med handel i aksjar, krypto og valuta, og nokre er klonselskap som brukar opplysningar frå ekte finansselskap. FI har dermed åtvara mot 227 aktørar som er mistenkte for investeringssvindel så langt i 2026, og ber folk sjekke selskapsregisteret før dei overfører pengar.",
+    "sv": "Finansinspektionen varnar för 30 nya aktörer som ser seriösa ut men saknar tillstånd; flera lockar med handel i aktier, krypto och valutor, och några är klonföretag som använder uppgifter från riktiga finansbolag. FI har därmed varnat för 227 aktörer som misstänks för investeringsbedrägerier hittills under 2026 och uppmanar alla att kontrollera företagsregistret innan de för över pengar."
    },
    "paywall": false,
    "links": [],
@@ -159,12 +159,12 @@
    ],
    "summary": "Three teenagers have been arrested in Lund on suspicion of kidnapping after allegedly tying up a local man with duct tape to rob him of crypto.",
    "summary_i18n": {
-    "nn": "Tre tenåringar er pågripne i Lund, mistenkte for kidnapping etter at dei skal ha teipa fast ein lokal mann for å rane han for krypto.",
-    "nb": "Tre tenåringer er pågrepet i Lund, mistenkt for kidnapping etter angivelig å ha teipet fast en lokal mann for å rane ham for krypto.",
-    "sv": "Tre tonåringar har gripits i Lund misstänkta för människorov efter att de ska ha tejpat fast en man från orten för att råna honom på krypto.",
     "da": "Tre teenagere er anholdt i Lund, mistænkt for kidnapning, efter at de angiveligt bandt en lokal mand med gaffatape for at røve krypto fra ham.",
     "fi": "Lundissa on pidätetty kolme teiniä epäiltynä ihmisryöstöstä: heidän epäillään sitoneen paikallisen miehen ilmastointiteipillä ryöstääkseen häneltä kryptoja.",
-    "is": "Þrír unglingar hafa verið handteknir í Lundi, grunaðir um mannrán eftir að hafa að sögn bundið mann á staðnum með límbandi til að ræna af honum rafmyntum."
+    "is": "Þrír unglingar hafa verið handteknir í Lundi, grunaðir um mannrán eftir að hafa að sögn bundið mann á staðnum með límbandi til að ræna af honum rafmyntum.",
+    "nb": "Tre tenåringer er pågrepet i Lund, mistenkt for kidnapping etter angivelig å ha teipet fast en lokal mann for å rane ham for krypto.",
+    "nn": "Tre tenåringar er pågripne i Lund, mistenkte for kidnapping etter at dei skal ha teipa fast ein lokal mann for å rane han for krypto.",
+    "sv": "Tre tonåringar har gripits i Lund misstänkta för människorov efter att de ska ha tejpat fast en man från orten för att råna honom på krypto."
    },
    "paywall": false,
    "links": [],
@@ -305,12 +305,12 @@
    ],
    "summary": "Three Norwegians and a Swede have been charged in a large drug case with links abroad, involving drug sales for cryptocurrency on the dark web, according to the Southern Norway public prosecutor.",
    "summary_i18n": {
-    "nn": "Tre nordmenn og ein svenske er tiltalte i ei stor narkotikasak med forgreiningar til utlandet, med sal av narkotika for kryptovaluta på det mørke nettet, ifølgje Sør-Norge statsadvokatembete.",
-    "nb": "Tre nordmenn og en svenske er tiltalt i en stor narkotikasak med forgreninger til utlandet, med salg av narkotika for kryptovaluta på det mørke nettet, ifølge Sør-Norge statsadvokatembeter.",
-    "sv": "Tre norrmän och en svensk har åtalats i ett stort narkotikamål med kopplingar utomlands, där narkotika sålts mot kryptovaluta på darknet, enligt åklagarmyndigheten i södra Norge.",
     "da": "Tre nordmænd og en svensker er tiltalt i en stor narkosag med forbindelser til udlandet, hvor narko blev solgt for kryptovaluta på det mørke net, oplyser anklagemyndigheden i Sydnorge.",
     "fi": "Kolmea norjalaista ja yhtä ruotsalaista syytetään laajassa huumejutussa, jolla on yhteyksiä ulkomaille ja jossa huumeita myytiin kryptovaluutalla pimeässä verkossa, kertoo Etelä-Norjan syyttäjäviranomainen.",
-    "is": "Þrír Norðmenn og einn Svíi hafa verið ákærðir í umfangsmiklu fíkniefnamáli með tengsl við útlönd, þar sem fíkniefni voru seld fyrir rafmyntir á myrkravefnum, að sögn ríkissaksóknaraembættisins í Suður-Noregi."
+    "is": "Þrír Norðmenn og einn Svíi hafa verið ákærðir í umfangsmiklu fíkniefnamáli með tengsl við útlönd, þar sem fíkniefni voru seld fyrir rafmyntir á myrkravefnum, að sögn ríkissaksóknaraembættisins í Suður-Noregi.",
+    "nb": "Tre nordmenn og en svenske er tiltalt i en stor narkotikasak med forgreninger til utlandet, med salg av narkotika for kryptovaluta på det mørke nettet, ifølge Sør-Norge statsadvokatembeter.",
+    "nn": "Tre nordmenn og ein svenske er tiltalte i ei stor narkotikasak med forgreiningar til utlandet, med sal av narkotika for kryptovaluta på det mørke nettet, ifølgje Sør-Norge statsadvokatembete.",
+    "sv": "Tre norrmän och en svensk har åtalats i ett stort narkotikamål med kopplingar utomlands, där narkotika sålts mot kryptovaluta på darknet, enligt åklagarmyndigheten i södra Norge."
    },
    "paywall": true,
    "links": [],
@@ -498,12 +498,12 @@
    ],
    "summary": "Police have unlocked the crypto wallet of an NHH student charged in a drug case, uncovering assets worth several hundred thousand kroner.",
    "summary_i18n": {
-    "nn": "Politiet har låst opp kryptolommeboka til ein NHH-student som er tiltalt i ei narkotikasak, og funne verdiar for fleire hundre tusen kroner.",
-    "nb": "Politiet har låst opp kryptolommeboken til en NHH-student som er tiltalt i en narkotikasak, og funnet verdier for flere hundre tusen kroner.",
-    "sv": "Polisen har låst upp kryptoplånboken hos en NHH-student som åtalats i ett narkotikamål och hittat tillgångar värda flera hundra tusen kronor.",
     "da": "Politiet har låst kryptotegnebogen op hos en NHH-studerende, der er tiltalt i en narkosag, og fundet værdier for flere hundrede tusind kroner.",
     "fi": "Poliisi on avannut huumejutussa syytetyn NHH-opiskelijan kryptolompakon ja löytänyt varoja useiden satojen tuhansien kruunujen arvosta.",
-    "is": "Lögreglan hefur opnað rafmyntaveski NHH-nema sem ákærður er í fíkniefnamáli og fundið eignir að verðmæti nokkur hundruð þúsund króna."
+    "is": "Lögreglan hefur opnað rafmyntaveski NHH-nema sem ákærður er í fíkniefnamáli og fundið eignir að verðmæti nokkur hundruð þúsund króna.",
+    "nb": "Politiet har låst opp kryptolommeboken til en NHH-student som er tiltalt i en narkotikasak, og funnet verdier for flere hundre tusen kroner.",
+    "nn": "Politiet har låst opp kryptolommeboka til ein NHH-student som er tiltalt i ei narkotikasak, og funne verdiar for fleire hundre tusen kroner.",
+    "sv": "Polisen har låst upp kryptoplånboken hos en NHH-student som åtalats i ett narkotikamål och hittat tillgångar värda flera hundra tusen kronor."
    },
    "paywall": true,
    "links": [],
@@ -644,12 +644,12 @@
    ],
    "summary": "A Norwegian man has been charged with gross embezzlement from his own company and is said to have spent the money on crypto.",
    "summary_i18n": {
-    "nn": "Ein norsk mann er tiltalt for grovt underslag frå sitt eige selskap og skal ha brukt pengane på krypto.",
-    "nb": "En norsk mann er tiltalt for grovt underslag fra sitt eget selskap og skal ha brukt pengene på krypto.",
-    "sv": "En norsk man har åtalats för grov förskingring från sitt eget bolag och ska ha lagt pengarna på krypto.",
     "da": "En norsk mand er tiltalt for groft underslæb fra sit eget selskab og skal have brugt pengene på krypto.",
     "fi": "Norjalaista miestä syytetään törkeästä kavalluksesta omasta yrityksestään, ja hänen kerrotaan käyttäneen rahat kryptoihin.",
-    "is": "Norskur karlmaður hefur verið ákærður fyrir stórfelldan fjárdrátt úr eigin fyrirtæki og er sagður hafa eytt fénu í rafmyntir."
+    "is": "Norskur karlmaður hefur verið ákærður fyrir stórfelldan fjárdrátt úr eigin fyrirtæki og er sagður hafa eytt fénu í rafmyntir.",
+    "nb": "En norsk mann er tiltalt for grovt underslag fra sitt eget selskap og skal ha brukt pengene på krypto.",
+    "nn": "Ein norsk mann er tiltalt for grovt underslag frå sitt eige selskap og skal ha brukt pengane på krypto.",
+    "sv": "En norsk man har åtalats för grov förskingring från sitt eget bolag och ska ha lagt pengarna på krypto."
    },
    "paywall": true,
    "links": [],
@@ -791,12 +791,12 @@
    ],
    "summary": "Danes lost DKK 89 million to investment fraud in the first half of 2026, across 1,145 registered cases, and crypto played a part in 70.6 percent of them.",
    "summary_i18n": {
-    "nn": "Danskar tapte 89 millionar danske kroner på investeringssvindel i første halvår 2026, fordelt på 1145 registrerte saker, og krypto var involvert i 70,6 prosent av dei.",
-    "nb": "Dansker tapte 89 millioner danske kroner på investeringsbedrageri i første halvår 2026, fordelt på 1145 registrerte saker, og krypto var involvert i 70,6 prosent av dem.",
-    "sv": "Danskarna förlorade 89 miljoner danska kronor på investeringsbedrägerier under första halvåret 2026, fördelat på 1 145 anmälda fall, och krypto förekom i 70,6 procent av dem.",
     "da": "Danskerne tabte 89 millioner kroner på investeringssvindel i første halvår 2026 fordelt på 1.145 registrerede sager, og krypto indgik i 70,6 procent af dem.",
     "fi": "Tanskalaiset menettivät sijoituspetoksissa 89 miljoonaa Tanskan kruunua vuoden 2026 ensimmäisellä puoliskolla 1 145 kirjatussa tapauksessa, ja kryptot liittyivät 70,6 prosenttiin niistä.",
-    "is": "Danir töpuðu 89 milljónum danskra króna á fjárfestingasvikum á fyrri helmingi ársins 2026 í 1.145 skráðum málum, og rafmyntir komu við sögu í 70,6 prósentum þeirra."
+    "is": "Danir töpuðu 89 milljónum danskra króna á fjárfestingasvikum á fyrri helmingi ársins 2026 í 1.145 skráðum málum, og rafmyntir komu við sögu í 70,6 prósentum þeirra.",
+    "nb": "Dansker tapte 89 millioner danske kroner på investeringsbedrageri i første halvår 2026, fordelt på 1145 registrerte saker, og krypto var involvert i 70,6 prosent av dem.",
+    "nn": "Danskar tapte 89 millionar danske kroner på investeringssvindel i første halvår 2026, fordelt på 1145 registrerte saker, og krypto var involvert i 70,6 prosent av dei.",
+    "sv": "Danskarna förlorade 89 miljoner danska kronor på investeringsbedrägerier under första halvåret 2026, fördelat på 1 145 anmälda fall, och krypto förekom i 70,6 procent av dem."
    },
    "paywall": false,
    "links": [],

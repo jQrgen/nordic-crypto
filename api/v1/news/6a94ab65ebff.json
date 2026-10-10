@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T12:38:28+00:00",
+ "generated_at": "2026-10-10T19:26:50+00:00",
  "preview": false,
  "item": {
   "id": "6a94ab65ebff",
@@ -40,12 +40,12 @@
   ],
   "summary": "Valuno company QB Europe has lost its appeal against the MiCA refusal in Sweden, but keeps operating through licensed partners.",
   "summary_i18n": {
-   "nn": "Valuno-selskapet QB Europe har tapt klaga på MiCA-avslaget i Sverige, men held fram gjennom partnarar med løyve.",
-   "nb": "Valuno-selskapet QB Europe har tapt klagen på MiCA-avslaget i Sverige, men driver videre gjennom partnere med tillatelse.",
-   "sv": "Valuno-bolaget QB Europe har förlorat sitt överklagande av MiCA-avslaget i Sverige men fortsätter verksamheten genom partner med tillstånd.",
    "da": "Valuno-selskabet QB Europe har tabt sin klage over MiCA-afslaget i Sverige, men fortsætter driften gennem partnere med tilladelse.",
    "fi": "Valunoon kuuluva QB Europe on hävinnyt valituksensa MiCA-hylkäyksestä Ruotsissa, mutta jatkaa toimintaa toimiluvallisten kumppanien kautta.",
-   "is": "QB Europe, félag í eigu Valuno, hefur tapað kæru sinni vegna MiCA-synjunar í Svíþjóð en heldur starfseminni áfram í gegnum samstarfsaðila með leyfi."
+   "is": "QB Europe, félag í eigu Valuno, hefur tapað kæru sinni vegna MiCA-synjunar í Svíþjóð en heldur starfseminni áfram í gegnum samstarfsaðila með leyfi.",
+   "nb": "Valuno-selskapet QB Europe har tapt klagen på MiCA-avslaget i Sverige, men driver videre gjennom partnere med tillatelse.",
+   "nn": "Valuno-selskapet QB Europe har tapt klaga på MiCA-avslaget i Sverige, men held fram gjennom partnarar med løyve.",
+   "sv": "Valuno-bolaget QB Europe har förlorat sitt överklagande av MiCA-avslaget i Sverige men fortsätter verksamheten genom partner med tillstånd."
   },
   "paywall": false,
   "links": [],

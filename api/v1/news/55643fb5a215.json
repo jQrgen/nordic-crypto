@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T12:38:28+00:00",
+ "generated_at": "2026-10-10T19:26:50+00:00",
  "preview": false,
  "item": {
   "id": "55643fb5a215",
@@ -40,12 +40,12 @@
   ],
   "summary": "A written question in the Storting asks when the government will present its planned state planning provision to limit crypto mining, and why it has concluded the EEA Agreement rules out a general mining ban.",
   "summary_i18n": {
-   "nn": "Eit skriftleg spørsmål på Stortinget spør når regjeringa legg fram den varsla statlege planføresegna for å avgrense kryptoutvinning, og kvifor ho har konkludert med at EØS-avtalen utelukkar eit generelt forbod.",
-   "nb": "Et skriftlig spørsmål på Stortinget spør når regjeringen legger fram den varslede statlige planbestemmelsen for å begrense kryptoutvinning, og hvorfor den har konkludert med at EØS-avtalen utelukker et generelt forbud.",
-   "sv": "En skriftlig fråga i Stortinget undrar när regeringen lägger fram den planerade statliga planbestämmelsen för att begränsa kryptoutvinning, och varför den har kommit fram till att EES-avtalet utesluter ett generellt förbud.",
    "da": "Et skriftligt spørgsmål i Stortinget spørger, hvornår regeringen fremlægger den planlagte statslige planbestemmelse, der skal begrænse kryptomining, og hvorfor den er nået frem til, at EØS-aftalen udelukker et generelt forbud.",
    "fi": "Norjan suurkäräjillä (Stortinget) esitetyssä kirjallisessa kysymyksessä tiedustellaan, milloin hallitus antaa suunnitellun valtakunnallisen kaavamääräyksen kryptolouhinnan rajoittamiseksi ja miksi se on päätellyt ETA-sopimuksen estävän yleisen louhintakiellon.",
-   "is": "Í skriflegri fyrirspurn á norska Stórþinginu er spurt hvenær ríkisstjórnin leggi fram fyrirhugað skipulagsákvæði ríkisins til að takmarka námugröft rafmynta og hvers vegna hún hafi komist að þeirri niðurstöðu að EES-samningurinn útiloki almennt bann."
+   "is": "Í skriflegri fyrirspurn á norska Stórþinginu er spurt hvenær ríkisstjórnin leggi fram fyrirhugað skipulagsákvæði ríkisins til að takmarka námugröft rafmynta og hvers vegna hún hafi komist að þeirri niðurstöðu að EES-samningurinn útiloki almennt bann.",
+   "nb": "Et skriftlig spørsmål på Stortinget spør når regjeringen legger fram den varslede statlige planbestemmelsen for å begrense kryptoutvinning, og hvorfor den har konkludert med at EØS-avtalen utelukker et generelt forbud.",
+   "nn": "Eit skriftleg spørsmål på Stortinget spør når regjeringa legg fram den varsla statlege planføresegna for å avgrense kryptoutvinning, og kvifor ho har konkludert med at EØS-avtalen utelukkar eit generelt forbod.",
+   "sv": "En skriftlig fråga i Stortinget undrar när regeringen lägger fram den planerade statliga planbestämmelsen för att begränsa kryptoutvinning, och varför den har kommit fram till att EES-avtalet utesluter ett generellt förbud."
   },
   "paywall": false,
   "links": [],

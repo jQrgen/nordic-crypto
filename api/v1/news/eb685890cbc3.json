@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T12:38:28+00:00",
+ "generated_at": "2026-10-10T19:26:50+00:00",
  "preview": false,
  "item": {
   "id": "eb685890cbc3",
@@ -40,12 +40,12 @@
   ],
   "summary": "Sander Andersen of H100 Group says bitcoin companies worth under a billion dollars need to buy each other, because standing still is the biggest risk.",
   "summary_i18n": {
-   "nn": "Sander Andersen i H100 Group seier at bitcoinselskap verde under ein milliard dollar må kjøpe kvarandre, fordi det å stå still er den største risikoen.",
-   "nb": "Sander Andersen i H100 Group sier at bitcoinselskaper verdt under en milliard dollar må kjøpe hverandre, fordi det å stå stille er den største risikoen.",
-   "sv": "Sander Andersen på H100 Group säger att bitcoinbolag värda under en miljard dollar måste köpa varandra, eftersom den största risken är att stå still.",
    "da": "Sander Andersen fra H100 Group siger, at bitcoinselskaber til under en milliard dollar må købe hinanden, fordi den største risiko er at stå stille.",
    "fi": "H100 Groupin Sander Andersen sanoo, että alle miljardin dollarin arvoisten bitcoinyhtiöiden on ostettava toisiaan, koska paikallaan pysyminen on suurin riski.",
-   "is": "Sander Andersen hjá H100 Group segir að bitcoin-fyrirtæki sem eru minna en milljarðs dollara virði þurfi að kaupa hvert annað, því að standa í stað sé mesta áhættan."
+   "is": "Sander Andersen hjá H100 Group segir að bitcoin-fyrirtæki sem eru minna en milljarðs dollara virði þurfi að kaupa hvert annað, því að standa í stað sé mesta áhættan.",
+   "nb": "Sander Andersen i H100 Group sier at bitcoinselskaper verdt under en milliard dollar må kjøpe hverandre, fordi det å stå stille er den største risikoen.",
+   "nn": "Sander Andersen i H100 Group seier at bitcoinselskap verde under ein milliard dollar må kjøpe kvarandre, fordi det å stå still er den største risikoen.",
+   "sv": "Sander Andersen på H100 Group säger att bitcoinbolag värda under en miljard dollar måste köpa varandra, eftersom den största risken är att stå still."
   },
   "paywall": false,
   "links": [],

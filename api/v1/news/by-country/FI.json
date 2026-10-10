@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T12:38:28+00:00",
+ "generated_at": "2026-10-10T19:26:50+00:00",
  "preview": false,
  "country": "FI",
  "count": 3,
@@ -43,12 +43,12 @@
    ],
    "summary": "At a Finnish crypto event, investors described community and technology as what draws them to crypto, as bitcoin rallied again.",
    "summary_i18n": {
-    "nn": "På eit finsk kryptoarrangement fortalde investorar at fellesskapet og teknologien er det som dreg dei mot krypto, medan bitcoin steig igjen.",
-    "nb": "På et finsk kryptoarrangement fortalte investorer at fellesskapet og teknologien er det som trekker dem mot krypto, mens bitcoin steg igjen.",
-    "sv": "På ett finländskt kryptoevenemang berättade investerare att gemenskapen och tekniken lockar dem till krypto, samtidigt som bitcoin steg igen.",
     "da": "Ved et finsk kryptoarrangement fortalte investorer, at fællesskabet og teknologien er det, der trækker dem mod krypto, mens bitcoin steg igen.",
     "fi": "Suomalaisessa kryptotapahtumassa sijoittajat kertoivat yhteisön ja teknologian vetävän heitä kryptojen pariin, kun bitcoin nousi taas.",
-    "is": "Á finnskum rafmyntaviðburði sögðu fjárfestar að samfélagið og tæknin dragi þá að rafmyntum, á meðan bitcoin hækkaði á ný."
+    "is": "Á finnskum rafmyntaviðburði sögðu fjárfestar að samfélagið og tæknin dragi þá að rafmyntum, á meðan bitcoin hækkaði á ný.",
+    "nb": "På et finsk kryptoarrangement fortalte investorer at fellesskapet og teknologien er det som trekker dem mot krypto, mens bitcoin steg igjen.",
+    "nn": "På eit finsk kryptoarrangement fortalde investorar at fellesskapet og teknologien er det som dreg dei mot krypto, medan bitcoin steig igjen.",
+    "sv": "På ett finländskt kryptoevenemang berättade investerare att gemenskapen och tekniken lockar dem till krypto, samtidigt som bitcoin steg igen."
    },
    "paywall": false,
    "links": [],
@@ -190,12 +190,12 @@
    ],
    "summary": "Neither ESMA nor Sweden's Finansinspektionen will say whether distributing crypto services under your own brand needs its own MiCA licence.",
    "summary_i18n": {
-    "nn": "Verken ESMA eller svenske Finansinspektionen vil seie om distribusjon av kryptotenester under eige merkenamn krev eige MiCA-løyve.",
-    "nb": "Verken ESMA eller svenske Finansinspektionen vil si om distribusjon av kryptotjenester under eget merkenavn krever egen MiCA-tillatelse.",
-    "sv": "Varken Esma eller Finansinspektionen vill säga om distribution av kryptotjänster under eget varumärke kräver ett eget MiCA-tillstånd.",
     "da": "Hverken ESMA eller det svenske Finansinspektionen vil sige, om distribution af kryptotjenester under eget brand kræver en selvstændig MiCA-tilladelse.",
     "fi": "ESMA ja Ruotsin Finansinspektionen eivät kerro, tarvitaanko kryptopalvelujen jakeluun oman brändin alla oma MiCA-toimilupa.",
-    "is": "Hvorki ESMA né sænska Finansinspektionen vilja segja hvort dreifing rafmyntaþjónustu undir eigin vörumerki krefjist sérstaks MiCA-leyfis."
+    "is": "Hvorki ESMA né sænska Finansinspektionen vilja segja hvort dreifing rafmyntaþjónustu undir eigin vörumerki krefjist sérstaks MiCA-leyfis.",
+    "nb": "Verken ESMA eller svenske Finansinspektionen vil si om distribusjon av kryptotjenester under eget merkenavn krever egen MiCA-tillatelse.",
+    "nn": "Verken ESMA eller svenske Finansinspektionen vil seie om distribusjon av kryptotenester under eige merkenamn krev eige MiCA-løyve.",
+    "sv": "Varken Esma eller Finansinspektionen vill säga om distribution av kryptotjänster under eget varumärke kräver ett eget MiCA-tillstånd."
    },
    "paywall": false,
    "links": [],
@@ -340,12 +340,12 @@
    ],
    "summary": "Finland's FIN-FSA reminds firms that crypto-asset service providers serving Finland must hold an EU (MiCA) authorisation.",
    "summary_i18n": {
-    "nn": "Finske Finanssivalvonta minner om at tilbydarar av kryptoeigedelstenester som tener Finland, må ha EU-løyve (MiCA).",
-    "nb": "Finske Finanssivalvonta minner om at tilbydere av kryptoeiendelstjenester som betjener Finland, må ha EU-tillatelse (MiCA).",
-    "sv": "Finska Finanssivalvonta påminner om att leverantörer av kryptotillgångstjänster som betjänar Finland måste ha ett EU-tillstånd (MiCA).",
     "da": "Det finske finanstilsyn, Finanssivalvonta, minder om, at udbydere af kryptoaktivtjenester, der betjener Finland, skal have en EU-tilladelse (MiCA).",
     "fi": "Finanssivalvonta muistuttaa, että Suomessa palveluja tarjoavilla kryptovarapalvelujen tarjoajilla on oltava EU:n (MiCA) toimilupa.",
-    "is": "Finnska fjármálaeftirlitið minnir á að þjónustuveitendur sýndareigna sem þjóna Finnlandi verða að hafa leyfi innan ESB (MiCA)."
+    "is": "Finnska fjármálaeftirlitið minnir á að þjónustuveitendur sýndareigna sem þjóna Finnlandi verða að hafa leyfi innan ESB (MiCA).",
+    "nb": "Finske Finanssivalvonta minner om at tilbydere av kryptoeiendelstjenester som betjener Finland, må ha EU-tillatelse (MiCA).",
+    "nn": "Finske Finanssivalvonta minner om at tilbydarar av kryptoeigedelstenester som tener Finland, må ha EU-løyve (MiCA).",
+    "sv": "Finska Finanssivalvonta påminner om att leverantörer av kryptotillgångstjänster som betjänar Finland måste ha ett EU-tillstånd (MiCA)."
    },
    "paywall": false,
    "links": [],

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T12:38:28+00:00",
+ "generated_at": "2026-10-10T19:26:50+00:00",
  "preview": false,
  "item": {
   "id": "7996dadb43e7",
@@ -39,12 +39,12 @@
   ],
   "summary": "NBX has signed with Tieto Banktech for a payment card that lets customers spend stablecoins in everyday purchases.",
   "summary_i18n": {
-   "nn": "NBX har inngått avtale med Tieto Banktech om eit betalingskort som lèt kundane bruke stablecoins i kvardagskjøp.",
-   "nb": "NBX har inngått avtale med Tieto Banktech om et betalingskort som lar kundene bruke stablecoins i hverdagskjøp.",
-   "sv": "NBX har tecknat avtal med Tieto Banktech om ett betalkort som låter kunderna använda stablecoins i vardagliga köp.",
    "da": "NBX har indgået aftale med Tieto Banktech om et betalingskort, der lader kunderne bruge stablecoins til daglige indkøb.",
    "fi": "NBX on sopinut Tieto Banktechin kanssa maksukortista, jolla asiakkaat voivat käyttää vakaakolikoita arjen ostoksissa.",
-   "is": "NBX hefur samið við Tieto Banktech um greiðslukort sem gerir viðskiptavinum kleift að nota stöðugleikamyntir í daglegum innkaupum."
+   "is": "NBX hefur samið við Tieto Banktech um greiðslukort sem gerir viðskiptavinum kleift að nota stöðugleikamyntir í daglegum innkaupum.",
+   "nb": "NBX har inngått avtale med Tieto Banktech om et betalingskort som lar kundene bruke stablecoins i hverdagskjøp.",
+   "nn": "NBX har inngått avtale med Tieto Banktech om eit betalingskort som lèt kundane bruke stablecoins i kvardagskjøp.",
+   "sv": "NBX har tecknat avtal med Tieto Banktech om ett betalkort som låter kunderna använda stablecoins i vardagliga köp."
   },
   "paywall": false,
   "links": [],

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T12:38:28+00:00",
+ "generated_at": "2026-10-10T19:26:50+00:00",
  "preview": false,
  "country": "NO",
  "count": 21,
@@ -27,12 +27,12 @@
    ],
    "summary": "Data-centre company Arctic Core says in writing that its business uses crypto mining to generate income during a test phase, but argues this does not change the basic character of the warehouse building it has been granted a permit for, the local paper Ságat reports.",
    "summary_i18n": {
-    "nb": "Datasenterselskapet Arctic Core skriver at virksomheten bruker kryptoutvinning for å skaffe inntekter i en testfase, men mener at dette ikke endrer den grunnleggende karakteren til lagerbygget selskapet har fått tillatelse til, melder lokalavisen Ságat.",
-    "nn": "Datasenterselskapet Arctic Core skriv at verksemda brukar kryptoutvinning for å skaffe inntekter i ein testfase, men meiner at dette ikkje endrar den grunnleggjande karakteren til lagerbygget selskapet har fått løyve til, melder lokalavisa Ságat.",
-    "sv": "Datacenterföretaget Arctic Core skriver att verksamheten använder kryptoutvinning för att skapa intäkter under en testfas, men menar att det inte ändrar den grundläggande karaktären hos lagerbyggnaden som företaget har fått tillstånd för, rapporterar lokaltidningen Ságat.",
     "da": "Datacentervirksomheden Arctic Core skriver, at virksomheden bruger kryptoudvinding til at skabe indtægter i en testfase, men mener, at det ikke ændrer den grundlæggende karakter af den lagerbygning, virksomheden har fået tilladelse til, oplyser lokalavisen Ságat.",
     "fi": "Datakeskusyhtiö Arctic Core kirjoittaa käyttävänsä testivaiheessa kryptolouhintaa tulojen hankkimiseen, mutta sen mukaan tämä ei muuta sen varastorakennuksen perusluonnetta, jolle yhtiö on saanut luvan, kertoo paikallislehti Ságat.",
-    "is": "Gagnaversfyrirtækið Arctic Core segir skriflega að starfsemin noti rafmyntagröft til að afla tekna á prófunartímabili, en telur að það breyti ekki grundvallareðli vöruhússins sem fyrirtækið hefur fengið leyfi fyrir, að sögn héraðsblaðsins Ságat."
+    "is": "Gagnaversfyrirtækið Arctic Core segir skriflega að starfsemin noti rafmyntagröft til að afla tekna á prófunartímabili, en telur að það breyti ekki grundvallareðli vöruhússins sem fyrirtækið hefur fengið leyfi fyrir, að sögn héraðsblaðsins Ságat.",
+    "nb": "Datasenterselskapet Arctic Core skriver at virksomheten bruker kryptoutvinning for å skaffe inntekter i en testfase, men mener at dette ikke endrer den grunnleggende karakteren til lagerbygget selskapet har fått tillatelse til, melder lokalavisen Ságat.",
+    "nn": "Datasenterselskapet Arctic Core skriv at verksemda brukar kryptoutvinning for å skaffe inntekter i ein testfase, men meiner at dette ikkje endrar den grunnleggjande karakteren til lagerbygget selskapet har fått løyve til, melder lokalavisa Ságat.",
+    "sv": "Datacenterföretaget Arctic Core skriver att verksamheten använder kryptoutvinning för att skapa intäkter under en testfas, men menar att det inte ändrar den grundläggande karaktären hos lagerbyggnaden som företaget har fått tillstånd för, rapporterar lokaltidningen Ságat."
    },
    "paywall": true,
    "links": [],
@@ -146,12 +146,12 @@
    ],
    "summary": "Customers of Norwegian exchange Firi bought 16.1 million kroner more crypto than they sold in September, on trading of 313.5 million kroner, despite a turbulent month. Bitcoin was the top buy while many moved money out of XRP into bitcoin and solana; CEO Thuc Hoang sees rising US interest rates as the main risk.",
    "summary_i18n": {
-    "nn": "Kundane på den norske kryptobørsen Firi kjøpte krypto for 16,1 millionar kroner meir enn dei selde i september, med ei omsetning på 313,5 millionar kroner, trass i ein uroleg månad. Bitcoin var mest kjøpt, medan mange flytta pengar frå XRP til bitcoin og solana; Firi-sjef Thuc Hoang ser stigande amerikanske renter som den største risikoen.",
-    "nb": "Kundene på den norske kryptobørsen Firi kjøpte krypto for 16,1 millioner kroner mer enn de solgte i september, med en omsetning på 313,5 millioner kroner, til tross for en urolig måned. Bitcoin var mest kjøpt, mens mange flyttet penger fra XRP til bitcoin og solana; Firi-sjef Thuc Hoang ser stigende amerikanske renter som den største risikoen.",
-    "sv": "Kunderna på den norska kryptobörsen Firi köpte krypto för 16,1 miljoner norska kronor mer än de sålde i september, med en omsättning på 313,5 miljoner kronor, trots en orolig månad. Bitcoin köptes mest, medan många flyttade pengar från XRP till bitcoin och solana; Firis vd Thuc Hoang ser stigande amerikanska räntor som den största risken.",
     "da": "Kunderne på den norske kryptobørs Firi købte krypto for 16,1 millioner norske kroner mere, end de solgte i september, med en omsætning på 313,5 millioner kroner, trods en urolig måned. Bitcoin var mest købt, mens mange flyttede penge fra XRP til bitcoin og solana; Firis topchef Thuc Hoang ser stigende amerikanske renter som den største risiko.",
     "fi": "Norjalaisen kryptopörssin Firin asiakkaat ostivat syyskuussa kryptovaluuttoja 16,1 miljoonalla Norjan kruunulla enemmän kuin myivät, kun kaupankäynnin arvo oli 313,5 miljoonaa kruunua, levottomasta kuukaudesta huolimatta. Bitcoin oli ostetuin, ja moni siirsi rahojaan XRP:stä bitcoiniin ja solanaan; Firin toimitusjohtaja Thuc Hoang pitää nousevia Yhdysvaltain korkoja suurimpana riskinä.",
-    "is": "Viðskiptavinir norsku rafmyntakauphallarinnar Firi keyptu rafmyntir fyrir 16,1 milljón norskra króna meira en þeir seldu í september, en heildarviðskipti námu 313,5 milljónum króna, þrátt fyrir óróa á markaði. Bitcoin var mest keypt og margir færðu fé úr XRP yfir í bitcoin og solana; Thuc Hoang, forstjóri Firi, telur hækkandi vexti í Bandaríkjunum vera mestu áhættuna."
+    "is": "Viðskiptavinir norsku rafmyntakauphallarinnar Firi keyptu rafmyntir fyrir 16,1 milljón norskra króna meira en þeir seldu í september, en heildarviðskipti námu 313,5 milljónum króna, þrátt fyrir óróa á markaði. Bitcoin var mest keypt og margir færðu fé úr XRP yfir í bitcoin og solana; Thuc Hoang, forstjóri Firi, telur hækkandi vexti í Bandaríkjunum vera mestu áhættuna.",
+    "nb": "Kundene på den norske kryptobørsen Firi kjøpte krypto for 16,1 millioner kroner mer enn de solgte i september, med en omsetning på 313,5 millioner kroner, til tross for en urolig måned. Bitcoin var mest kjøpt, mens mange flyttet penger fra XRP til bitcoin og solana; Firi-sjef Thuc Hoang ser stigende amerikanske renter som den største risikoen.",
+    "nn": "Kundane på den norske kryptobørsen Firi kjøpte krypto for 16,1 millionar kroner meir enn dei selde i september, med ei omsetning på 313,5 millionar kroner, trass i ein uroleg månad. Bitcoin var mest kjøpt, medan mange flytta pengar frå XRP til bitcoin og solana; Firi-sjef Thuc Hoang ser stigande amerikanske renter som den største risikoen.",
+    "sv": "Kunderna på den norska kryptobörsen Firi köpte krypto för 16,1 miljoner norska kronor mer än de sålde i september, med en omsättning på 313,5 miljoner kronor, trots en orolig månad. Bitcoin köptes mest, medan många flyttade pengar från XRP till bitcoin och solana; Firis vd Thuc Hoang ser stigande amerikanska räntor som den största risken."
    },
    "paywall": true,
    "links": [],
@@ -239,147 +239,6 @@
    "source_logo_url": null
   },
   {
-   "id": "e88e8e0c9a77",
-   "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/",
-   "html_url": "https://nordiccrypto.no/stories/e88e8e0c9a77/",
-   "api_url": "https://nordiccrypto.no/api/v1/news/e88e8e0c9a77.json",
-   "title": "Rødt foreslår midlertidig stans for nye datasentre",
-   "title_en": "Red Party proposes a temporary halt for new data centres",
-   "title_i18n": {},
-   "source": "stortinget",
-   "source_name": "Stortinget",
-   "source_logo": {
-    "kind": "logo",
-    "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
-    "author": "Worldlydev",
-    "license": "Public domain",
-    "license_url": null,
-    "credit": "Wikimedia Commons",
-    "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
-   },
-   "source_note": null,
-   "country": "NO",
-   "language": "Norwegian",
-   "language_code": "no",
-   "published": "2026-10-05T12:00:00+00:00",
-   "topics": [
-    "mining",
-    "policy"
-   ],
-   "summary": "The Red Party (Rødt) has proposed in the Storting a temporary halt for new data centres, along with a licensing regime and other measures. Its reasoning says crypto-mining data centres get power ahead of key local industries and that the crypto-mining ban the Storting has asked for three times in two years is still not in place, though none of the proposals singles out crypto.",
-   "summary_i18n": {
-    "nb": "Rødt har foreslått på Stortinget en midlertidig stans for nye datasentre, sammen med en konsesjonsordning og andre tiltak. Begrunnelsen sier at datasentre som utvinner kryptovaluta får strømtilgang foran hjørnesteinsbedrifter, og at kryptoforbudet Stortinget har bedt om tre ganger på to år fortsatt ikke er på plass, men ingen av forslagene gjelder krypto særskilt.",
-    "nn": "Raudt har føreslått på Stortinget ein mellombels stans for nye datasenter, saman med ei konsesjonsordning og andre tiltak. Grunngjevinga seier at datasenter som utvinn kryptovaluta får straumtilgang framfor hjørnesteinsbedrifter, og at kryptoforbodet Stortinget har bede om tre gonger på to år framleis ikkje er på plass, men ingen av forslaga gjeld krypto særskilt.",
-    "sv": "Rødt har i Stortinget föreslagit ett tillfälligt stopp för nya datacenter, tillsammans med ett tillståndssystem och andra åtgärder. Motiveringen säger att datacenter som utvinner kryptovaluta får elanslutning före viktiga lokala industrier och att kryptoförbudet som Stortinget har begärt tre gånger på två år fortfarande inte är på plats, men inget av förslagen gäller specifikt krypto.",
-    "da": "Rødt har i Stortinget foreslået et midlertidigt stop for nye datacentre sammen med en tilladelsesordning og andre tiltag. Begrundelsen siger, at datacentre, der udvinder kryptovaluta, får strømadgang før vigtige lokale virksomheder, og at det kryptoforbud, som Stortinget har bedt om tre gange på to år, stadig ikke er på plads, men ingen af forslagene handler specifikt om krypto.",
-    "fi": "Norjan Punainen puolue (Rødt) on ehdottanut suurkäräjillä uusien datakeskusten väliaikaista pysäyttämistä sekä lupajärjestelmää ja muita toimia. Perustelujen mukaan kryptovaluuttaa louhivat datakeskukset saavat sähköliittymän ennen tärkeitä paikallisia yrityksiä, eikä suurkäräjien kolmesti kahdessa vuodessa pyytämää kryptolouhinnan kieltoa ole yhä otettu käyttöön, mutta mikään ehdotuksista ei koske erityisesti kryptoa.",
-    "is": "Rauði flokkurinn (Rødt) hefur lagt til á Stórþinginu tímabundna stöðvun nýrra gagnavera, ásamt leyfiskerfi og öðrum aðgerðum. Í rökstuðningnum segir að gagnaver sem grafa eftir rafmyntum fái rafmagnstengingu á undan mikilvægum fyrirtækjum í heimabyggð og að bann við rafmyntagreftri, sem Stórþingið hefur þrisvar beðið um á tveimur árum, sé enn ekki komið á, en engin tillagnanna snýr sérstaklega að rafmyntum."
-   },
-   "paywall": false,
-   "links": [],
-   "own_story": false,
-   "illustration": {
-    "id": "commons-mining",
-    "kind": "commons",
-    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-mining.webp",
-    "width": 960,
-    "height": 720,
-    "alt": "Rows of cryptocurrency mining machines indoors.",
-    "source": "Wikimedia Commons",
-    "author": "Jasper Reichardt",
-    "license": "CC BY-SA 4.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
-    "url": "https://commons.wikimedia.org/wiki/File:Mining-Rig.jpg",
-    "credit": "Photo: Jasper Reichardt. Licence: CC BY-SA 4.0. Source: Wikimedia Commons.",
-    "modifications": null,
-    "terms": null
-   },
-   "primary_source": {
-    "outlet": "stortinget",
-    "outlet_name": "Stortinget",
-    "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/",
-    "title": "Rødt foreslår midlertidig stans for nye datasentre",
-    "published": "2026-10-05T12:00:00+00:00",
-    "lang": "Norwegian",
-    "language_code": "no",
-    "country": "NO",
-    "source_type": "official",
-    "paywall": false,
-    "primary": true,
-    "logo": {
-     "kind": "logo",
-     "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
-     "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
-     "author": "Worldlydev",
-     "license": "Public domain",
-     "license_url": null,
-     "credit": "Wikimedia Commons",
-     "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
-    }
-   },
-   "primary_source_document": null,
-   "also_covered_by": [],
-   "sources": [
-    {
-     "outlet": "stortinget",
-     "outlet_name": "Stortinget",
-     "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/",
-     "title": "Rødt foreslår midlertidig stans for nye datasentre",
-     "published": "2026-10-05T12:00:00+00:00",
-     "lang": "Norwegian",
-     "language_code": "no",
-     "country": "NO",
-     "source_type": "official",
-     "paywall": false,
-     "primary": true,
-     "logo": {
-      "kind": "logo",
-      "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
-      "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
-      "author": "Worldlydev",
-      "license": "Public domain",
-      "license_url": null,
-      "credit": "Wikimedia Commons",
-      "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
-     }
-    }
-   ],
-   "coverage": {
-    "count": 1,
-    "by_country": [
-     {
-      "country": "NO",
-      "count": 1,
-      "share": 1.0
-     }
-    ],
-    "by_source_type": [
-     {
-      "type": "national",
-      "count": 0,
-      "share": 0.0
-     },
-     {
-      "type": "regional",
-      "count": 0,
-      "share": 0.0
-     },
-     {
-      "type": "official",
-      "count": 1,
-      "share": 1.0
-     },
-     {
-      "type": "international",
-      "count": 0,
-      "share": 0.0
-     }
-    ]
-   },
-   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
-  },
-  {
    "id": "47156e99927b",
    "url": "https://kaupr.io/nyheter/ace-digital-tjente-6-3-millioner-kroner-i-tredje-kvartal",
    "html_url": "https://nordiccrypto.no/stories/47156e99927b/",
@@ -410,12 +269,12 @@
    ],
    "summary": "Ace Digital, listed on Euronext Growth Oslo, reported an unaudited third-quarter net profit of NOK 6.32 million, with equity up 19.3% to NOK 39.09 million and debt reduced to zero. The company says the value of its bitcoin treasury rose 373% without buying bitcoin, and estimates its economic exposure at about 57 BTC.",
    "summary_i18n": {
-    "nb": "Ace Digital, som er notert på Euronext Growth Oslo, rapporterte et urevidert nettoresultat på 6,32 millioner kroner for tredje kvartal, med egenkapital opp 19,3 prosent til 39,09 millioner kroner og gjelden redusert til null. Selskapet sier verdien av bitcoinbeholdningen steg 373 prosent uten kjøp av bitcoin, og anslår den økonomiske eksponeringen til rundt 57 BTC.",
-    "nn": "Ace Digital, som er notert på Euronext Growth Oslo, rapporterte eit urevidert nettoresultat på 6,32 millionar kroner for tredje kvartal, med eigenkapital opp 19,3 prosent til 39,09 millionar kroner og gjelda redusert til null. Selskapet seier verdien av bitcoinbehaldninga steig 373 prosent utan kjøp av bitcoin, og reknar den økonomiske eksponeringa til rundt 57 BTC.",
-    "sv": "Ace Digital, noterat på Euronext Growth Oslo, redovisade ett oreviderat nettoresultat på 6,32 miljoner norska kronor för tredje kvartalet, med eget kapital upp 19,3 procent till 39,09 miljoner kronor och skulderna nedbringade till noll. Bolaget uppger att värdet på dess bitcoinreserv steg 373 procent utan köp av bitcoin och uppskattar sin ekonomiska exponering till omkring 57 BTC.",
     "da": "Ace Digital, der er noteret på Euronext Growth Oslo, rapporterede et urevideret nettoresultat på 6,32 millioner norske kroner for tredje kvartal, med egenkapital op 19,3 procent til 39,09 millioner kroner og gælden nedbragt til nul. Selskabet oplyser, at værdien af dets bitcoinbeholdning steg 373 procent uden køb af bitcoin, og anslår sin økonomiske eksponering til omkring 57 BTC.",
     "fi": "Euronext Growth Oslossa listattu Ace Digital raportoi kolmannelta neljännekseltä tilintarkastamattoman 6,32 miljoonan Norjan kruunun nettotuloksen; oma pääoma kasvoi 19,3 prosenttia 39,09 miljoonaan kruunuun ja velat laskivat nollaan. Yhtiön mukaan sen bitcoin-varannon arvo nousi 373 prosenttia ilman bitcoin-ostoja, ja se arvioi taloudellisen altistumisensa noin 57 bitcoiniksi.",
-    "is": "Ace Digital, sem er skráð á Euronext Growth Oslo, skilaði óendurskoðuðum hagnaði upp á 6,32 milljónir norskra króna á þriðja ársfjórðungi; eigið fé jókst um 19,3% í 39,09 milljónir króna og skuldir lækkuðu niður í núll. Félagið segir að verðmæti bitcoin-sjóðs þess hafi hækkað um 373% án kaupa á bitcoin og metur efnahagslega áhættu sína á um 57 BTC."
+    "is": "Ace Digital, sem er skráð á Euronext Growth Oslo, skilaði óendurskoðuðum hagnaði upp á 6,32 milljónir norskra króna á þriðja ársfjórðungi; eigið fé jókst um 19,3% í 39,09 milljónir króna og skuldir lækkuðu niður í núll. Félagið segir að verðmæti bitcoin-sjóðs þess hafi hækkað um 373% án kaupa á bitcoin og metur efnahagslega áhættu sína á um 57 BTC.",
+    "nb": "Ace Digital, som er notert på Euronext Growth Oslo, rapporterte et urevidert nettoresultat på 6,32 millioner kroner for tredje kvartal, med egenkapital opp 19,3 prosent til 39,09 millioner kroner og gjelden redusert til null. Selskapet sier verdien av bitcoinbeholdningen steg 373 prosent uten kjøp av bitcoin, og anslår den økonomiske eksponeringen til rundt 57 BTC.",
+    "nn": "Ace Digital, som er notert på Euronext Growth Oslo, rapporterte eit urevidert nettoresultat på 6,32 millionar kroner for tredje kvartal, med eigenkapital opp 19,3 prosent til 39,09 millionar kroner og gjelda redusert til null. Selskapet seier verdien av bitcoinbehaldninga steig 373 prosent utan kjøp av bitcoin, og reknar den økonomiske eksponeringa til rundt 57 BTC.",
+    "sv": "Ace Digital, noterat på Euronext Growth Oslo, redovisade ett oreviderat nettoresultat på 6,32 miljoner norska kronor för tredje kvartalet, med eget kapital upp 19,3 procent till 39,09 miljoner kronor och skulderna nedbringade till noll. Bolaget uppger att värdet på dess bitcoinreserv steg 373 procent utan köp av bitcoin och uppskattar sin ekonomiska exponering till omkring 57 BTC."
    },
    "paywall": false,
    "links": [],
@@ -556,12 +415,12 @@
    ],
    "summary": "Socialist Left Party (SV) MPs have proposed in the Storting a «panic law» that would put new data centres on hold until the industry is regulated, plus a national licensing system for data centres. They also ask the government to report back quickly on how the Storting's decision to ban crypto mining in Norway will be followed up; this is a proposal, not a decision.",
    "summary_i18n": {
-    "nb": "Stortingsrepresentanter fra SV har foreslått en «panikklov» som setter nye datasentre på vent til bransjen er regulert, og et nasjonalt konsesjonssystem for datasentre. De ber også regjeringen raskt komme tilbake med hvordan Stortingets vedtak om forbud mot kryptoutvinning i Norge skal følges opp; dette er et forslag, ikke et vedtak.",
-    "nn": "Stortingsrepresentantar frå SV har føreslått ei «panikklov» som set nye datasenter på vent til bransjen er regulert, og eit nasjonalt konsesjonssystem for datasenter. Dei ber òg regjeringa raskt kome tilbake med korleis vedtaket i Stortinget om forbod mot kryptoutvinning i Noreg skal følgjast opp; dette er eit forslag, ikkje eit vedtak.",
-    "sv": "Stortingsledamöter från SV har föreslagit en «panikklov» som pausar nya datacenter tills branschen är reglerad, samt ett nationellt tillståndssystem för datacenter. De ber också regeringen att snabbt återkomma med hur Stortingets beslut om förbud mot kryptoutvinning i Norge ska följas upp; detta är ett förslag, inte ett beslut.",
     "da": "Stortingsmedlemmer fra SV har foreslået en «panikklov», der sætter nye datacentre på pause, indtil branchen er reguleret, samt et nationalt tilladelsessystem for datacentre. De beder også regeringen hurtigt vende tilbage med, hvordan Stortingets beslutning om forbud mod kryptoudvinding i Norge skal følges op; det er et forslag, ikke en beslutning.",
     "fi": "Sosialistisen vasemmistopuolueen (SV) kansanedustajat ovat ehdottaneet suurkäräjillä «paniikkilakia», joka asettaisi uudet datakeskukset odotustilaan, kunnes ala on säännelty, sekä kansallista lupajärjestelmää datakeskuksille. He pyytävät myös hallitusta kertomaan pian, miten suurkäräjien päätös kieltää kryptolouhinta Norjassa pannaan täytäntöön; kyse on ehdotuksesta, ei päätöksestä.",
-    "is": "Þingmenn Sósíalíska vinstriflokksins (SV) hafa lagt til á Stórþinginu «neyðarlög» sem setja ný gagnaver í bið þar til greinin hefur verið regluvædd, auk landsbundins leyfiskerfis fyrir gagnaver. Þeir biðja einnig ríkisstjórnina að greina fljótt frá því hvernig fylgja eigi eftir ákvörðun Stórþingsins um bann við rafmyntagreftri í Noregi; þetta er tillaga, ekki ákvörðun."
+    "is": "Þingmenn Sósíalíska vinstriflokksins (SV) hafa lagt til á Stórþinginu «neyðarlög» sem setja ný gagnaver í bið þar til greinin hefur verið regluvædd, auk landsbundins leyfiskerfis fyrir gagnaver. Þeir biðja einnig ríkisstjórnina að greina fljótt frá því hvernig fylgja eigi eftir ákvörðun Stórþingsins um bann við rafmyntagreftri í Noregi; þetta er tillaga, ekki ákvörðun.",
+    "nb": "Stortingsrepresentanter fra SV har foreslått en «panikklov» som setter nye datasentre på vent til bransjen er regulert, og et nasjonalt konsesjonssystem for datasentre. De ber også regjeringen raskt komme tilbake med hvordan Stortingets vedtak om forbud mot kryptoutvinning i Norge skal følges opp; dette er et forslag, ikke et vedtak.",
+    "nn": "Stortingsrepresentantar frå SV har føreslått ei «panikklov» som set nye datasenter på vent til bransjen er regulert, og eit nasjonalt konsesjonssystem for datasenter. Dei ber òg regjeringa raskt kome tilbake med korleis vedtaket i Stortinget om forbod mot kryptoutvinning i Noreg skal følgjast opp; dette er eit forslag, ikkje eit vedtak.",
+    "sv": "Stortingsledamöter från SV har föreslagit en «panikklov» som pausar nya datacenter tills branschen är reglerad, samt ett nationellt tillståndssystem för datacenter. De ber också regeringen att snabbt återkomma med hur Stortingets beslut om förbud mot kryptoutvinning i Norge ska följas upp; detta är ett förslag, inte ett beslut."
    },
    "paywall": false,
    "links": [],
@@ -667,6 +526,147 @@
    "source_logo_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
   },
   {
+   "id": "e88e8e0c9a77",
+   "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/",
+   "html_url": "https://nordiccrypto.no/stories/e88e8e0c9a77/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/e88e8e0c9a77.json",
+   "title": "Rødt foreslår midlertidig stans for nye datasentre",
+   "title_en": "Red Party proposes a temporary halt for new data centres",
+   "title_i18n": {},
+   "source": "stortinget",
+   "source_name": "Stortinget",
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+    "author": "Worldlydev",
+    "license": "Public domain",
+    "license_url": null,
+    "credit": "Wikimedia Commons",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
+   },
+   "source_note": null,
+   "country": "NO",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-10-05T12:00:00+00:00",
+   "topics": [
+    "mining",
+    "policy"
+   ],
+   "summary": "The Red Party (Rødt) has proposed in the Storting a temporary halt for new data centres, along with a licensing regime and other measures. Its reasoning says crypto-mining data centres get power ahead of key local industries and that the crypto-mining ban the Storting has asked for three times in two years is still not in place, though none of the proposals singles out crypto.",
+   "summary_i18n": {
+    "da": "Rødt har i Stortinget foreslået et midlertidigt stop for nye datacentre sammen med en tilladelsesordning og andre tiltag. Begrundelsen siger, at datacentre, der udvinder kryptovaluta, får strømadgang før vigtige lokale virksomheder, og at det kryptoforbud, som Stortinget har bedt om tre gange på to år, stadig ikke er på plads, men ingen af forslagene handler specifikt om krypto.",
+    "fi": "Norjan Punainen puolue (Rødt) on ehdottanut suurkäräjillä uusien datakeskusten väliaikaista pysäyttämistä sekä lupajärjestelmää ja muita toimia. Perustelujen mukaan kryptovaluuttaa louhivat datakeskukset saavat sähköliittymän ennen tärkeitä paikallisia yrityksiä, eikä suurkäräjien kolmesti kahdessa vuodessa pyytämää kryptolouhinnan kieltoa ole yhä otettu käyttöön, mutta mikään ehdotuksista ei koske erityisesti kryptoa.",
+    "is": "Rauði flokkurinn (Rødt) hefur lagt til á Stórþinginu tímabundna stöðvun nýrra gagnavera, ásamt leyfiskerfi og öðrum aðgerðum. Í rökstuðningnum segir að gagnaver sem grafa eftir rafmyntum fái rafmagnstengingu á undan mikilvægum fyrirtækjum í heimabyggð og að bann við rafmyntagreftri, sem Stórþingið hefur þrisvar beðið um á tveimur árum, sé enn ekki komið á, en engin tillagnanna snýr sérstaklega að rafmyntum.",
+    "nb": "Rødt har foreslått på Stortinget en midlertidig stans for nye datasentre, sammen med en konsesjonsordning og andre tiltak. Begrunnelsen sier at datasentre som utvinner kryptovaluta får strømtilgang foran hjørnesteinsbedrifter, og at kryptoforbudet Stortinget har bedt om tre ganger på to år fortsatt ikke er på plass, men ingen av forslagene gjelder krypto særskilt.",
+    "nn": "Raudt har føreslått på Stortinget ein mellombels stans for nye datasenter, saman med ei konsesjonsordning og andre tiltak. Grunngjevinga seier at datasenter som utvinn kryptovaluta får straumtilgang framfor hjørnesteinsbedrifter, og at kryptoforbodet Stortinget har bede om tre gonger på to år framleis ikkje er på plass, men ingen av forslaga gjeld krypto særskilt.",
+    "sv": "Rødt har i Stortinget föreslagit ett tillfälligt stopp för nya datacenter, tillsammans med ett tillståndssystem och andra åtgärder. Motiveringen säger att datacenter som utvinner kryptovaluta får elanslutning före viktiga lokala industrier och att kryptoförbudet som Stortinget har begärt tre gånger på två år fortfarande inte är på plats, men inget av förslagen gäller specifikt krypto."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "commons-mining",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-mining.webp",
+    "width": 960,
+    "height": 720,
+    "alt": "Rows of cryptocurrency mining machines indoors.",
+    "source": "Wikimedia Commons",
+    "author": "Jasper Reichardt",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "url": "https://commons.wikimedia.org/wiki/File:Mining-Rig.jpg",
+    "credit": "Photo: Jasper Reichardt. Licence: CC BY-SA 4.0. Source: Wikimedia Commons.",
+    "modifications": null,
+    "terms": null
+   },
+   "primary_source": {
+    "outlet": "stortinget",
+    "outlet_name": "Stortinget",
+    "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/",
+    "title": "Rødt foreslår midlertidig stans for nye datasentre",
+    "published": "2026-10-05T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "official",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
+     "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+     "author": "Worldlydev",
+     "license": "Public domain",
+     "license_url": null,
+     "credit": "Wikimedia Commons",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
+    }
+   },
+   "primary_source_document": null,
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "stortinget",
+     "outlet_name": "Stortinget",
+     "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/",
+     "title": "Rødt foreslår midlertidig stans for nye datasentre",
+     "published": "2026-10-05T12:00:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "official",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+      "author": "Worldlydev",
+      "license": "Public domain",
+      "license_url": null,
+      "credit": "Wikimedia Commons",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
+     }
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
+  },
+  {
    "id": "1a95167a3af8",
    "url": "https://www.aftenposten.no/norge/i/vlQARB/tiltalt-for-dopsalg-mot-kryptovaluta-paa-det-moerke-nettet",
    "html_url": "https://nordiccrypto.no/stories/1a95167a3af8/",
@@ -702,12 +702,12 @@
    ],
    "summary": "Three Norwegians and a Swede have been charged in a large drug case with links abroad, involving drug sales for cryptocurrency on the dark web, according to the Southern Norway public prosecutor.",
    "summary_i18n": {
-    "nn": "Tre nordmenn og ein svenske er tiltalte i ei stor narkotikasak med forgreiningar til utlandet, med sal av narkotika for kryptovaluta på det mørke nettet, ifølgje Sør-Norge statsadvokatembete.",
-    "nb": "Tre nordmenn og en svenske er tiltalt i en stor narkotikasak med forgreninger til utlandet, med salg av narkotika for kryptovaluta på det mørke nettet, ifølge Sør-Norge statsadvokatembeter.",
-    "sv": "Tre norrmän och en svensk har åtalats i ett stort narkotikamål med kopplingar utomlands, där narkotika sålts mot kryptovaluta på darknet, enligt åklagarmyndigheten i södra Norge.",
     "da": "Tre nordmænd og en svensker er tiltalt i en stor narkosag med forbindelser til udlandet, hvor narko blev solgt for kryptovaluta på det mørke net, oplyser anklagemyndigheden i Sydnorge.",
     "fi": "Kolmea norjalaista ja yhtä ruotsalaista syytetään laajassa huumejutussa, jolla on yhteyksiä ulkomaille ja jossa huumeita myytiin kryptovaluutalla pimeässä verkossa, kertoo Etelä-Norjan syyttäjäviranomainen.",
-    "is": "Þrír Norðmenn og einn Svíi hafa verið ákærðir í umfangsmiklu fíkniefnamáli með tengsl við útlönd, þar sem fíkniefni voru seld fyrir rafmyntir á myrkravefnum, að sögn ríkissaksóknaraembættisins í Suður-Noregi."
+    "is": "Þrír Norðmenn og einn Svíi hafa verið ákærðir í umfangsmiklu fíkniefnamáli með tengsl við útlönd, þar sem fíkniefni voru seld fyrir rafmyntir á myrkravefnum, að sögn ríkissaksóknaraembættisins í Suður-Noregi.",
+    "nb": "Tre nordmenn og en svenske er tiltalt i en stor narkotikasak med forgreninger til utlandet, med salg av narkotika for kryptovaluta på det mørke nettet, ifølge Sør-Norge statsadvokatembeter.",
+    "nn": "Tre nordmenn og ein svenske er tiltalte i ei stor narkotikasak med forgreiningar til utlandet, med sal av narkotika for kryptovaluta på det mørke nettet, ifølgje Sør-Norge statsadvokatembete.",
+    "sv": "Tre norrmän och en svensk har åtalats i ett stort narkotikamål med kopplingar utomlands, där narkotika sålts mot kryptovaluta på darknet, enligt åklagarmyndigheten i södra Norge."
    },
    "paywall": true,
    "links": [],
@@ -885,12 +885,12 @@
    ],
    "summary": "Joakim Hannisdahl's new crypto fund, built on a model that did well in backtesting, is up 39 percent since it launched in August.",
    "summary_i18n": {
-    "nn": "Det nye kryptofondet til Joakim Hannisdahl, bygd på ein modell som gjorde det godt i historiske testar, har stige 39 prosent sidan oppstarten i august.",
-    "nb": "Joakim Hannisdahls nye kryptofond, bygd på en modell som gjorde det godt i historiske tester, har steget 39 prosent siden oppstarten i august.",
-    "sv": "Joakim Hannisdahls nya kryptofond, byggd på en modell som klarade sig bra i historiska tester, har stigit 39 procent sedan starten i augusti.",
     "da": "Joakim Hannisdahls nye kryptofond, bygget på en model, der klarede sig godt i historiske test, er steget 39 procent siden starten i august.",
     "fi": "Joakim Hannisdahlin uusi kryptorahasto, joka perustuu historiallisissa testeissä hyvin menestyneeseen malliin, on noussut 39 prosenttia elokuun aloituksesta.",
-    "is": "Nýr rafmyntasjóður Joakims Hannisdahl, byggður á líkani sem kom vel út í sögulegum prófunum, hefur hækkað um 39 prósent frá því hann hóf göngu sína í ágúst."
+    "is": "Nýr rafmyntasjóður Joakims Hannisdahl, byggður á líkani sem kom vel út í sögulegum prófunum, hefur hækkað um 39 prósent frá því hann hóf göngu sína í ágúst.",
+    "nb": "Joakim Hannisdahls nye kryptofond, bygd på en modell som gjorde det godt i historiske tester, har steget 39 prosent siden oppstarten i august.",
+    "nn": "Det nye kryptofondet til Joakim Hannisdahl, bygd på ein modell som gjorde det godt i historiske testar, har stige 39 prosent sidan oppstarten i august.",
+    "sv": "Joakim Hannisdahls nya kryptofond, byggd på en modell som klarade sig bra i historiska tester, har stigit 39 procent sedan starten i augusti."
    },
    "paywall": true,
    "links": [],
@@ -1013,12 +1013,12 @@
    ],
    "summary": "Police have unlocked the crypto wallet of an NHH student charged in a drug case, uncovering assets worth several hundred thousand kroner.",
    "summary_i18n": {
-    "nn": "Politiet har låst opp kryptolommeboka til ein NHH-student som er tiltalt i ei narkotikasak, og funne verdiar for fleire hundre tusen kroner.",
-    "nb": "Politiet har låst opp kryptolommeboken til en NHH-student som er tiltalt i en narkotikasak, og funnet verdier for flere hundre tusen kroner.",
-    "sv": "Polisen har låst upp kryptoplånboken hos en NHH-student som åtalats i ett narkotikamål och hittat tillgångar värda flera hundra tusen kronor.",
     "da": "Politiet har låst kryptotegnebogen op hos en NHH-studerende, der er tiltalt i en narkosag, og fundet værdier for flere hundrede tusind kroner.",
     "fi": "Poliisi on avannut huumejutussa syytetyn NHH-opiskelijan kryptolompakon ja löytänyt varoja useiden satojen tuhansien kruunujen arvosta.",
-    "is": "Lögreglan hefur opnað rafmyntaveski NHH-nema sem ákærður er í fíkniefnamáli og fundið eignir að verðmæti nokkur hundruð þúsund króna."
+    "is": "Lögreglan hefur opnað rafmyntaveski NHH-nema sem ákærður er í fíkniefnamáli og fundið eignir að verðmæti nokkur hundruð þúsund króna.",
+    "nb": "Politiet har låst opp kryptolommeboken til en NHH-student som er tiltalt i en narkotikasak, og funnet verdier for flere hundre tusen kroner.",
+    "nn": "Politiet har låst opp kryptolommeboka til ein NHH-student som er tiltalt i ei narkotikasak, og funne verdiar for fleire hundre tusen kroner.",
+    "sv": "Polisen har låst upp kryptoplånboken hos en NHH-student som åtalats i ett narkotikamål och hittat tillgångar värda flera hundra tusen kronor."
    },
    "paywall": true,
    "links": [],
@@ -1159,12 +1159,12 @@
    ],
    "summary": "A Norwegian man has been charged with gross embezzlement from his own company and is said to have spent the money on crypto.",
    "summary_i18n": {
-    "nn": "Ein norsk mann er tiltalt for grovt underslag frå sitt eige selskap og skal ha brukt pengane på krypto.",
-    "nb": "En norsk mann er tiltalt for grovt underslag fra sitt eget selskap og skal ha brukt pengene på krypto.",
-    "sv": "En norsk man har åtalats för grov förskingring från sitt eget bolag och ska ha lagt pengarna på krypto.",
     "da": "En norsk mand er tiltalt for groft underslæb fra sit eget selskab og skal have brugt pengene på krypto.",
     "fi": "Norjalaista miestä syytetään törkeästä kavalluksesta omasta yrityksestään, ja hänen kerrotaan käyttäneen rahat kryptoihin.",
-    "is": "Norskur karlmaður hefur verið ákærður fyrir stórfelldan fjárdrátt úr eigin fyrirtæki og er sagður hafa eytt fénu í rafmyntir."
+    "is": "Norskur karlmaður hefur verið ákærður fyrir stórfelldan fjárdrátt úr eigin fyrirtæki og er sagður hafa eytt fénu í rafmyntir.",
+    "nb": "En norsk mann er tiltalt for grovt underslag fra sitt eget selskap og skal ha brukt pengene på krypto.",
+    "nn": "Ein norsk mann er tiltalt for grovt underslag frå sitt eige selskap og skal ha brukt pengane på krypto.",
+    "sv": "En norsk man har åtalats för grov förskingring från sitt eget bolag och ska ha lagt pengarna på krypto."
    },
    "paywall": true,
    "links": [],
@@ -1305,12 +1305,12 @@
    ],
    "summary": "NBX has signed with Tieto Banktech for a payment card that lets customers spend stablecoins in everyday purchases.",
    "summary_i18n": {
-    "nn": "NBX har inngått avtale med Tieto Banktech om eit betalingskort som lèt kundane bruke stablecoins i kvardagskjøp.",
-    "nb": "NBX har inngått avtale med Tieto Banktech om et betalingskort som lar kundene bruke stablecoins i hverdagskjøp.",
-    "sv": "NBX har tecknat avtal med Tieto Banktech om ett betalkort som låter kunderna använda stablecoins i vardagliga köp.",
     "da": "NBX har indgået aftale med Tieto Banktech om et betalingskort, der lader kunderne bruge stablecoins til daglige indkøb.",
     "fi": "NBX on sopinut Tieto Banktechin kanssa maksukortista, jolla asiakkaat voivat käyttää vakaakolikoita arjen ostoksissa.",
-    "is": "NBX hefur samið við Tieto Banktech um greiðslukort sem gerir viðskiptavinum kleift að nota stöðugleikamyntir í daglegum innkaupum."
+    "is": "NBX hefur samið við Tieto Banktech um greiðslukort sem gerir viðskiptavinum kleift að nota stöðugleikamyntir í daglegum innkaupum.",
+    "nb": "NBX har inngått avtale med Tieto Banktech om et betalingskort som lar kundene bruke stablecoins i hverdagskjøp.",
+    "nn": "NBX har inngått avtale med Tieto Banktech om eit betalingskort som lèt kundane bruke stablecoins i kvardagskjøp.",
+    "sv": "NBX har tecknat avtal med Tieto Banktech om ett betalkort som låter kunderna använda stablecoins i vardagliga köp."
    },
    "paywall": false,
    "links": [],
@@ -1442,12 +1442,12 @@
    ],
    "summary": "Norwegian exchange Firi earned NOK 135 million in 2024 but posted a NOK 44 million loss in the first half of this year.",
    "summary_i18n": {
-    "nn": "Den norske kryptobørsen Firi tente 135 millionar kroner i 2024, men fekk eit tap på 44 millionar kroner i første halvår i år.",
-    "nb": "Den norske kryptobørsen Firi tjente 135 millioner kroner i 2024, men fikk et tap på 44 millioner kroner i første halvår i år.",
-    "sv": "Den norska kryptobörsen Firi tjänade 135 miljoner norska kronor 2024 men gick med en förlust på 44 miljoner norska kronor under årets första halvår.",
     "da": "Den norske kryptobørs Firi tjente 135 millioner norske kroner i 2024, men havde et underskud på 44 millioner norske kroner i årets første halvår.",
     "fi": "Norjalainen kryptopörssi Firi ansaitsi 135 miljoonaa Norjan kruunua vuonna 2024, mutta teki 44 miljoonan Norjan kruunun tappion tämän vuoden ensimmäisellä puoliskolla.",
-    "is": "Norska rafmyntakauphöllin Firi aflaði 135 milljóna norskra króna árið 2024 en tapaði 44 milljónum norskra króna á fyrri helmingi þessa árs."
+    "is": "Norska rafmyntakauphöllin Firi aflaði 135 milljóna norskra króna árið 2024 en tapaði 44 milljónum norskra króna á fyrri helmingi þessa árs.",
+    "nb": "Den norske kryptobørsen Firi tjente 135 millioner kroner i 2024, men fikk et tap på 44 millioner kroner i første halvår i år.",
+    "nn": "Den norske kryptobørsen Firi tente 135 millionar kroner i 2024, men fekk eit tap på 44 millionar kroner i første halvår i år.",
+    "sv": "Den norska kryptobörsen Firi tjänade 135 miljoner norska kronor 2024 men gick med en förlust på 44 miljoner norska kronor under årets första halvår."
    },
    "paywall": true,
    "links": [],
@@ -1560,12 +1560,12 @@
    ],
    "summary": "Valour's Nordic head Johanna Belitz argues stablecoins can make cross-border payments much faster and cheaper.",
    "summary_i18n": {
-    "nn": "Den nordiske sjefen i Valour, Johanna Belitz, meiner stablecoins kan gjere betalingar over landegrensene mykje raskare og billegare.",
-    "nb": "Valours nordiske sjef Johanna Belitz mener stablecoins kan gjøre betalinger over landegrensene mye raskere og billigere.",
-    "sv": "Valours nordiska chef Johanna Belitz menar att stablecoins kan göra betalningar över gränserna mycket snabbare och billigare.",
     "da": "Valours nordiske chef, Johanna Belitz, mener, at stablecoins kan gøre betalinger på tværs af grænser meget hurtigere og billigere.",
     "fi": "Valourin Pohjoismaiden johtaja Johanna Belitz katsoo, että vakaakolikot voivat tehdä rajat ylittävistä maksuista paljon nopeampia ja halvempia.",
-    "is": "Johanna Belitz, yfirmaður Valour á Norðurlöndum, telur að stöðugleikamyntir geti gert greiðslur milli landa mun hraðari og ódýrari."
+    "is": "Johanna Belitz, yfirmaður Valour á Norðurlöndum, telur að stöðugleikamyntir geti gert greiðslur milli landa mun hraðari og ódýrari.",
+    "nb": "Valours nordiske sjef Johanna Belitz mener stablecoins kan gjøre betalinger over landegrensene mye raskere og billigere.",
+    "nn": "Den nordiske sjefen i Valour, Johanna Belitz, meiner stablecoins kan gjere betalingar over landegrensene mykje raskare og billegare.",
+    "sv": "Valours nordiska chef Johanna Belitz menar att stablecoins kan göra betalningar över gränserna mycket snabbare och billigare."
    },
    "paywall": true,
    "links": [],
@@ -1688,12 +1688,12 @@
    ],
    "summary": "NBX made a pre-tax loss of NOK 21.33 million in the first half of 2026, up from NOK 9.85 million a year earlier, with changes in the value of bitcoin weighing on the result.",
    "summary_i18n": {
-    "nn": "NBX fekk eit underskot før skatt på 21,33 millionar kroner i første halvår 2026, mot 9,85 millionar året før, og endringar i bitcoinverdien trekte resultatet ned.",
-    "nb": "NBX fikk et underskudd før skatt på 21,33 millioner kroner i første halvår 2026, mot 9,85 millioner året før, og endringer i bitcoinverdien trakk resultatet ned.",
-    "sv": "NBX gjorde en förlust före skatt på 21,33 miljoner norska kronor under första halvåret 2026, mot 9,85 miljoner ett år tidigare, och förändringar i bitcoins värde tyngde resultatet.",
     "da": "NBX havde et underskud før skat på 21,33 millioner norske kroner i første halvår 2026 mod 9,85 millioner året før, og ændringer i bitcoins værdi trak resultatet ned.",
     "fi": "NBX:n tappio ennen veroja oli 21,33 miljoonaa Norjan kruunua vuoden 2026 ensimmäisellä puoliskolla, kun vuotta aiemmin se oli 9,85 miljoonaa, ja bitcoinin arvon muutokset painoivat tulosta.",
-    "is": "NBX tapaði 21,33 milljónum norskra króna fyrir skatta á fyrri helmingi ársins 2026, samanborið við 9,85 milljónir ári fyrr, og breytingar á verðmæti bitcoin drógu niðurstöðuna niður."
+    "is": "NBX tapaði 21,33 milljónum norskra króna fyrir skatta á fyrri helmingi ársins 2026, samanborið við 9,85 milljónir ári fyrr, og breytingar á verðmæti bitcoin drógu niðurstöðuna niður.",
+    "nb": "NBX fikk et underskudd før skatt på 21,33 millioner kroner i første halvår 2026, mot 9,85 millioner året før, og endringer i bitcoinverdien trakk resultatet ned.",
+    "nn": "NBX fekk eit underskot før skatt på 21,33 millionar kroner i første halvår 2026, mot 9,85 millionar året før, og endringar i bitcoinverdien trekte resultatet ned.",
+    "sv": "NBX gjorde en förlust före skatt på 21,33 miljoner norska kronor under första halvåret 2026, mot 9,85 miljoner ett år tidigare, och förändringar i bitcoins värde tyngde resultatet."
    },
    "paywall": true,
    "links": [],
@@ -1799,6 +1799,153 @@
    "source_logo_url": "https://nordiccrypto.no/assets/img/logos/e24.webp"
   },
   {
+   "id": "55643fb5a215",
+   "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Sporsmal/Skriftlige-sporsmal-og-svar/Skriftlig-sporsmal/?qnid=127181",
+   "html_url": "https://nordiccrypto.no/stories/55643fb5a215/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/55643fb5a215.json",
+   "title": "Regjeringen utreder midlertidig forbud mot nye kryptodatasentre (skriftlig spørsmål 15:3707)",
+   "title_en": "Government studying a temporary ban on new crypto data centres (written question 15:3707)",
+   "title_i18n": {
+    "nn": "Regjeringa utgreier mellombels forbod mot nye kryptodatasenter (skriftleg spørsmål 15:3707)",
+    "sv": "Regeringen utreder ett tillfälligt förbud mot nya kryptodatacenter (skriftlig fråga 15:3707)",
+    "da": "Regeringen undersøger et midlertidigt forbud mod nye kryptodatacentre (skriftligt spørgsmål 15:3707)",
+    "fi": "Hallitus selvittää väliaikaista kieltoa uusille kryptodatakeskuksille (kirjallinen kysymys 15:3707)",
+    "is": "Ríkisstjórnin kannar tímabundið bann við nýjum rafmyntagagnaverum (skrifleg fyrirspurn 15:3707)"
+   },
+   "source": "stortinget",
+   "source_name": "Stortinget",
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+    "author": "Worldlydev",
+    "license": "Public domain",
+    "license_url": null,
+    "credit": "Wikimedia Commons",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
+   },
+   "source_note": null,
+   "country": "NO",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-09-18T12:00:00+00:00",
+   "topics": [
+    "mining",
+    "policy"
+   ],
+   "summary": "A written question in the Storting asks when the government will present its planned state planning provision to limit crypto mining, and why it has concluded the EEA Agreement rules out a general mining ban.",
+   "summary_i18n": {
+    "da": "Et skriftligt spørgsmål i Stortinget spørger, hvornår regeringen fremlægger den planlagte statslige planbestemmelse, der skal begrænse kryptomining, og hvorfor den er nået frem til, at EØS-aftalen udelukker et generelt forbud.",
+    "fi": "Norjan suurkäräjillä (Stortinget) esitetyssä kirjallisessa kysymyksessä tiedustellaan, milloin hallitus antaa suunnitellun valtakunnallisen kaavamääräyksen kryptolouhinnan rajoittamiseksi ja miksi se on päätellyt ETA-sopimuksen estävän yleisen louhintakiellon.",
+    "is": "Í skriflegri fyrirspurn á norska Stórþinginu er spurt hvenær ríkisstjórnin leggi fram fyrirhugað skipulagsákvæði ríkisins til að takmarka námugröft rafmynta og hvers vegna hún hafi komist að þeirri niðurstöðu að EES-samningurinn útiloki almennt bann.",
+    "nb": "Et skriftlig spørsmål på Stortinget spør når regjeringen legger fram den varslede statlige planbestemmelsen for å begrense kryptoutvinning, og hvorfor den har konkludert med at EØS-avtalen utelukker et generelt forbud.",
+    "nn": "Eit skriftleg spørsmål på Stortinget spør når regjeringa legg fram den varsla statlege planføresegna for å avgrense kryptoutvinning, og kvifor ho har konkludert med at EØS-avtalen utelukkar eit generelt forbod.",
+    "sv": "En skriftlig fråga i Stortinget undrar när regeringen lägger fram den planerade statliga planbestämmelsen för att begränsa kryptoutvinning, och varför den har kommit fram till att EES-avtalet utesluter ett generellt förbud."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "commons-mining",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-mining.webp",
+    "width": 960,
+    "height": 720,
+    "alt": "Rows of cryptocurrency mining machines indoors.",
+    "source": "Wikimedia Commons",
+    "author": "Jasper Reichardt",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "url": "https://commons.wikimedia.org/wiki/File:Mining-Rig.jpg",
+    "credit": "Photo: Jasper Reichardt. Licence: CC BY-SA 4.0. Source: Wikimedia Commons.",
+    "modifications": null,
+    "terms": null
+   },
+   "primary_source": {
+    "outlet": "stortinget",
+    "outlet_name": "Stortinget",
+    "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Sporsmal/Skriftlige-sporsmal-og-svar/Skriftlig-sporsmal/?qnid=127181",
+    "title": "Regjeringen utreder midlertidig forbud mot nye kryptodatasentre (skriftlig spørsmål 15:3707)",
+    "published": "2026-09-18T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "official",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
+     "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+     "author": "Worldlydev",
+     "license": "Public domain",
+     "license_url": null,
+     "credit": "Wikimedia Commons",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
+    }
+   },
+   "primary_source_document": null,
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "stortinget",
+     "outlet_name": "Stortinget",
+     "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Sporsmal/Skriftlige-sporsmal-og-svar/Skriftlig-sporsmal/?qnid=127181",
+     "title": "Regjeringen utreder midlertidig forbud mot nye kryptodatasentre (skriftlig spørsmål 15:3707)",
+     "published": "2026-09-18T12:00:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "official",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+      "author": "Worldlydev",
+      "license": "Public domain",
+      "license_url": null,
+      "credit": "Wikimedia Commons",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
+     }
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
+  },
+  {
    "id": "831bb86ab20c",
    "url": "https://www.kaupr.io/nyheter/nbx-mer-enn-doblet-tapet-i-halvaret-da-mica-lisensen-kom",
    "html_url": "https://nordiccrypto.no/stories/831bb86ab20c/",
@@ -1835,12 +1982,12 @@
    ],
    "summary": "NBX won its MiCA licence in the first half of 2026, but revenue fell 45 percent and its after-tax loss grew to NOK 16.6 million.",
    "summary_i18n": {
-    "nn": "NBX fekk MiCA-løyve i første halvår 2026, men inntektene fall 45 prosent, og tapet etter skatt auka til 16,6 millionar kroner.",
-    "nb": "NBX fikk MiCA-tillatelse i første halvår 2026, men inntektene falt 45 prosent og tapet etter skatt økte til 16,6 millioner kroner.",
-    "sv": "NBX fick sitt MiCA-tillstånd under första halvåret 2026, men intäkterna föll 45 procent och förlusten efter skatt ökade till 16,6 miljoner norska kronor.",
     "da": "NBX fik sin MiCA-tilladelse i første halvår 2026, men omsætningen faldt 45 procent, og underskuddet efter skat voksede til 16,6 millioner norske kroner.",
     "fi": "NBX sai MiCA-toimiluvan vuoden 2026 ensimmäisellä puoliskolla, mutta liikevaihto laski 45 prosenttia ja verojen jälkeinen tappio kasvoi 16,6 miljoonaan Norjan kruunuun.",
-    "is": "NBX fékk MiCA-leyfi á fyrri helmingi ársins 2026, en tekjur drógust saman um 45 prósent og tap eftir skatta jókst í 16,6 milljónir norskra króna."
+    "is": "NBX fékk MiCA-leyfi á fyrri helmingi ársins 2026, en tekjur drógust saman um 45 prósent og tap eftir skatta jókst í 16,6 milljónir norskra króna.",
+    "nb": "NBX fikk MiCA-tillatelse i første halvår 2026, men inntektene falt 45 prosent og tapet etter skatt økte til 16,6 millioner kroner.",
+    "nn": "NBX fekk MiCA-løyve i første halvår 2026, men inntektene fall 45 prosent, og tapet etter skatt auka til 16,6 millionar kroner.",
+    "sv": "NBX fick sitt MiCA-tillstånd under första halvåret 2026, men intäkterna föll 45 procent och förlusten efter skatt ökade till 16,6 miljoner norska kronor."
    },
    "paywall": false,
    "links": [],
@@ -1948,153 +2095,6 @@
    "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
   },
   {
-   "id": "55643fb5a215",
-   "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Sporsmal/Skriftlige-sporsmal-og-svar/Skriftlig-sporsmal/?qnid=127181",
-   "html_url": "https://nordiccrypto.no/stories/55643fb5a215/",
-   "api_url": "https://nordiccrypto.no/api/v1/news/55643fb5a215.json",
-   "title": "Regjeringen utreder midlertidig forbud mot nye kryptodatasentre (skriftlig spørsmål 15:3707)",
-   "title_en": "Government studying a temporary ban on new crypto data centres (written question 15:3707)",
-   "title_i18n": {
-    "nn": "Regjeringa utgreier mellombels forbod mot nye kryptodatasenter (skriftleg spørsmål 15:3707)",
-    "sv": "Regeringen utreder ett tillfälligt förbud mot nya kryptodatacenter (skriftlig fråga 15:3707)",
-    "da": "Regeringen undersøger et midlertidigt forbud mod nye kryptodatacentre (skriftligt spørgsmål 15:3707)",
-    "fi": "Hallitus selvittää väliaikaista kieltoa uusille kryptodatakeskuksille (kirjallinen kysymys 15:3707)",
-    "is": "Ríkisstjórnin kannar tímabundið bann við nýjum rafmyntagagnaverum (skrifleg fyrirspurn 15:3707)"
-   },
-   "source": "stortinget",
-   "source_name": "Stortinget",
-   "source_logo": {
-    "kind": "logo",
-    "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
-    "author": "Worldlydev",
-    "license": "Public domain",
-    "license_url": null,
-    "credit": "Wikimedia Commons",
-    "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
-   },
-   "source_note": null,
-   "country": "NO",
-   "language": "Norwegian",
-   "language_code": "no",
-   "published": "2026-09-18T12:00:00+00:00",
-   "topics": [
-    "mining",
-    "policy"
-   ],
-   "summary": "A written question in the Storting asks when the government will present its planned state planning provision to limit crypto mining, and why it has concluded the EEA Agreement rules out a general mining ban.",
-   "summary_i18n": {
-    "nn": "Eit skriftleg spørsmål på Stortinget spør når regjeringa legg fram den varsla statlege planføresegna for å avgrense kryptoutvinning, og kvifor ho har konkludert med at EØS-avtalen utelukkar eit generelt forbod.",
-    "nb": "Et skriftlig spørsmål på Stortinget spør når regjeringen legger fram den varslede statlige planbestemmelsen for å begrense kryptoutvinning, og hvorfor den har konkludert med at EØS-avtalen utelukker et generelt forbud.",
-    "sv": "En skriftlig fråga i Stortinget undrar när regeringen lägger fram den planerade statliga planbestämmelsen för att begränsa kryptoutvinning, och varför den har kommit fram till att EES-avtalet utesluter ett generellt förbud.",
-    "da": "Et skriftligt spørgsmål i Stortinget spørger, hvornår regeringen fremlægger den planlagte statslige planbestemmelse, der skal begrænse kryptomining, og hvorfor den er nået frem til, at EØS-aftalen udelukker et generelt forbud.",
-    "fi": "Norjan suurkäräjillä (Stortinget) esitetyssä kirjallisessa kysymyksessä tiedustellaan, milloin hallitus antaa suunnitellun valtakunnallisen kaavamääräyksen kryptolouhinnan rajoittamiseksi ja miksi se on päätellyt ETA-sopimuksen estävän yleisen louhintakiellon.",
-    "is": "Í skriflegri fyrirspurn á norska Stórþinginu er spurt hvenær ríkisstjórnin leggi fram fyrirhugað skipulagsákvæði ríkisins til að takmarka námugröft rafmynta og hvers vegna hún hafi komist að þeirri niðurstöðu að EES-samningurinn útiloki almennt bann."
-   },
-   "paywall": false,
-   "links": [],
-   "own_story": false,
-   "illustration": {
-    "id": "commons-mining",
-    "kind": "commons",
-    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-mining.webp",
-    "width": 960,
-    "height": 720,
-    "alt": "Rows of cryptocurrency mining machines indoors.",
-    "source": "Wikimedia Commons",
-    "author": "Jasper Reichardt",
-    "license": "CC BY-SA 4.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
-    "url": "https://commons.wikimedia.org/wiki/File:Mining-Rig.jpg",
-    "credit": "Photo: Jasper Reichardt. Licence: CC BY-SA 4.0. Source: Wikimedia Commons.",
-    "modifications": null,
-    "terms": null
-   },
-   "primary_source": {
-    "outlet": "stortinget",
-    "outlet_name": "Stortinget",
-    "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Sporsmal/Skriftlige-sporsmal-og-svar/Skriftlig-sporsmal/?qnid=127181",
-    "title": "Regjeringen utreder midlertidig forbud mot nye kryptodatasentre (skriftlig spørsmål 15:3707)",
-    "published": "2026-09-18T12:00:00+00:00",
-    "lang": "Norwegian",
-    "language_code": "no",
-    "country": "NO",
-    "source_type": "official",
-    "paywall": false,
-    "primary": true,
-    "logo": {
-     "kind": "logo",
-     "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
-     "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
-     "author": "Worldlydev",
-     "license": "Public domain",
-     "license_url": null,
-     "credit": "Wikimedia Commons",
-     "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
-    }
-   },
-   "primary_source_document": null,
-   "also_covered_by": [],
-   "sources": [
-    {
-     "outlet": "stortinget",
-     "outlet_name": "Stortinget",
-     "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Sporsmal/Skriftlige-sporsmal-og-svar/Skriftlig-sporsmal/?qnid=127181",
-     "title": "Regjeringen utreder midlertidig forbud mot nye kryptodatasentre (skriftlig spørsmål 15:3707)",
-     "published": "2026-09-18T12:00:00+00:00",
-     "lang": "Norwegian",
-     "language_code": "no",
-     "country": "NO",
-     "source_type": "official",
-     "paywall": false,
-     "primary": true,
-     "logo": {
-      "kind": "logo",
-      "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
-      "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
-      "author": "Worldlydev",
-      "license": "Public domain",
-      "license_url": null,
-      "credit": "Wikimedia Commons",
-      "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
-     }
-    }
-   ],
-   "coverage": {
-    "count": 1,
-    "by_country": [
-     {
-      "country": "NO",
-      "count": 1,
-      "share": 1.0
-     }
-    ],
-    "by_source_type": [
-     {
-      "type": "national",
-      "count": 0,
-      "share": 0.0
-     },
-     {
-      "type": "regional",
-      "count": 0,
-      "share": 0.0
-     },
-     {
-      "type": "official",
-      "count": 1,
-      "share": 1.0
-     },
-     {
-      "type": "international",
-      "count": 0,
-      "share": 0.0
-     }
-    ]
-   },
-   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
-  },
-  {
    "id": "c1431df81160",
    "url": "https://podcasters.spotify.com/pod/show/bitcoinsnakk9/episodes/Norway-Wants-to-Ban-Bitcoin-Mining--The-Miners-Already-Left--Rachel-Geyer--EBEA-e3p0bb8",
    "html_url": "https://nordiccrypto.no/stories/c1431df81160/",
@@ -2131,12 +2131,12 @@
    ],
    "summary": "In a talk for Bitcoinpolitisk Institutt in Oslo, Rachel Geyer of the European Bitcoin Energy Association argues Norway's proposed mining ban targets a problem the country doesn't have.",
    "summary_i18n": {
-    "nn": "I eit føredrag for Bitcoinpolitisk Institutt i Oslo hevdar Rachel Geyer frå European Bitcoin Energy Association at det føreslegne norske forbodet mot utvinning rettar seg mot eit problem landet ikkje har.",
-    "nb": "I et foredrag for Bitcoinpolitisk Institutt i Oslo hevder Rachel Geyer fra European Bitcoin Energy Association at Norges foreslåtte forbud mot utvinning retter seg mot et problem landet ikke har.",
-    "sv": "I ett föredrag för Bitcoinpolitisk Institutt i Oslo hävdar Rachel Geyer från European Bitcoin Energy Association att Norges föreslagna förbud mot kryptoutvinning riktar sig mot ett problem som landet inte har.",
     "da": "I et oplæg for Bitcoinpolitisk Institutt i Oslo argumenterer Rachel Geyer fra European Bitcoin Energy Association for, at Norges foreslåede forbud mod mining retter sig mod et problem, landet ikke har.",
     "fi": "Bitcoinpolitisk Instituttin tilaisuudessa Oslossa European Bitcoin Energy Associationin Rachel Geyer väittää, että Norjan ehdottama louhintakielto kohdistuu ongelmaan, jota maalla ei ole.",
-    "is": "Í erindi hjá Bitcoinpolitisk Institutt í Ósló heldur Rachel Geyer hjá European Bitcoin Energy Association því fram að fyrirhugað bann Noregs við námugreftri beinist að vanda sem landið glímir ekki við."
+    "is": "Í erindi hjá Bitcoinpolitisk Institutt í Ósló heldur Rachel Geyer hjá European Bitcoin Energy Association því fram að fyrirhugað bann Noregs við námugreftri beinist að vanda sem landið glímir ekki við.",
+    "nb": "I et foredrag for Bitcoinpolitisk Institutt i Oslo hevder Rachel Geyer fra European Bitcoin Energy Association at Norges foreslåtte forbud mot utvinning retter seg mot et problem landet ikke har.",
+    "nn": "I eit føredrag for Bitcoinpolitisk Institutt i Oslo hevdar Rachel Geyer frå European Bitcoin Energy Association at det føreslegne norske forbodet mot utvinning rettar seg mot eit problem landet ikkje har.",
+    "sv": "I ett föredrag för Bitcoinpolitisk Institutt i Oslo hävdar Rachel Geyer från European Bitcoin Energy Association att Norges föreslagna förbud mot kryptoutvinning riktar sig mot ett problem som landet inte har."
    },
    "paywall": false,
    "links": [],
@@ -2278,12 +2278,12 @@
    ],
    "summary": "Norwegian Block Exchange (NBX), listed on Euronext Growth Oslo, has been registered as an agent for MoneyGram International.",
    "summary_i18n": {
-    "nn": "Norwegian Block Exchange (NBX), notert på Euronext Growth Oslo, er registrert som agent for MoneyGram International.",
-    "nb": "Norwegian Block Exchange (NBX), notert på Euronext Growth Oslo, er registrert som agent for MoneyGram International.",
-    "sv": "Norwegian Block Exchange (NBX), noterat på Euronext Growth Oslo, har registrerats som ombud för MoneyGram International.",
     "da": "Norwegian Block Exchange (NBX), der er noteret på Euronext Growth Oslo, er registreret som agent for MoneyGram International.",
     "fi": "Euronext Growth Oslossa listattu Norwegian Block Exchange (NBX) on rekisteröity MoneyGram Internationalin asiamieheksi.",
-    "is": "Norwegian Block Exchange (NBX), sem skráð er á Euronext Growth Oslo, hefur verið skráð sem umboðsaðili MoneyGram International."
+    "is": "Norwegian Block Exchange (NBX), sem skráð er á Euronext Growth Oslo, hefur verið skráð sem umboðsaðili MoneyGram International.",
+    "nb": "Norwegian Block Exchange (NBX), notert på Euronext Growth Oslo, er registrert som agent for MoneyGram International.",
+    "nn": "Norwegian Block Exchange (NBX), notert på Euronext Growth Oslo, er registrert som agent for MoneyGram International.",
+    "sv": "Norwegian Block Exchange (NBX), noterat på Euronext Growth Oslo, har registrerats som ombud för MoneyGram International."
    },
    "paywall": false,
    "links": [],
@@ -2425,12 +2425,12 @@
    ],
    "summary": "DNB has joined CBMT, where European banks test tokenised bank deposits, adding the Norwegian krone to the test environment.",
    "summary_i18n": {
-    "nn": "DNB har slutta seg til CBMT, der europeiske bankar testar tokeniserte bankinnskot, og norske kroner blir lagde til testmiljøet.",
-    "nb": "DNB har sluttet seg til CBMT, der europeiske banker tester tokeniserte bankinnskudd, og norske kroner legges til testmiljøet.",
-    "sv": "DNB har anslutit sig till CBMT, där europeiska banker testar tokeniserad bankinlåning, och lägger till norska kronor i testmiljön.",
     "da": "DNB er gået med i CBMT, hvor europæiske banker tester tokeniserede bankindskud, og tilføjer norske kroner til testmiljøet.",
     "fi": "DNB on liittynyt CBMT:hen, jossa eurooppalaiset pankit testaavat tokenisoituja pankkitalletuksia, ja tuo testiympäristöön Norjan kruunun.",
-    "is": "DNB hefur gengið til liðs við CBMT, þar sem evrópskir bankar prófa táknvæddar bankainnstæður, og bætir norsku krónunni við prófunarumhverfið."
+    "is": "DNB hefur gengið til liðs við CBMT, þar sem evrópskir bankar prófa táknvæddar bankainnstæður, og bætir norsku krónunni við prófunarumhverfið.",
+    "nb": "DNB har sluttet seg til CBMT, der europeiske banker tester tokeniserte bankinnskudd, og norske kroner legges til testmiljøet.",
+    "nn": "DNB har slutta seg til CBMT, der europeiske bankar testar tokeniserte bankinnskot, og norske kroner blir lagde til testmiljøet.",
+    "sv": "DNB har anslutit sig till CBMT, där europeiska banker testar tokeniserad bankinlåning, och lägger till norska kronor i testmiljön."
    },
    "paywall": false,
    "links": [],
@@ -2574,12 +2574,12 @@
    ],
    "summary": "Crypto exchange Firi lost NOK 43.6 million in the first half of 2026 after weaker trading and high MiCA costs, and has made layoffs while launching in Sweden.",
    "summary_i18n": {
-    "nn": "Kryptobørsen Firi tapte 43,6 millionar kroner i første halvår 2026 etter svakare handel og høge MiCA-kostnader, og har nedbemanna samstundes som selskapet blir lansert i Sverige.",
-    "nb": "Kryptobørsen Firi tapte 43,6 millioner kroner i første halvår 2026 etter svakere handel og høye MiCA-kostnader, og har nedbemannet samtidig som selskapet lanseres i Sverige.",
-    "sv": "Kryptobörsen Firi förlorade 43,6 miljoner norska kronor under första halvåret 2026 efter svagare handel och höga MiCA-kostnader, och har sagt upp personal samtidigt som bolaget lanseras i Sverige.",
     "da": "Kryptobørsen Firi tabte 43,6 millioner norske kroner i første halvår 2026 efter svagere handel og høje MiCA-omkostninger og har afskediget medarbejdere, samtidig med at selskabet lanceres i Sverige.",
     "fi": "Kryptopörssi Firi teki 43,6 miljoonan Norjan kruunun tappion vuoden 2026 ensimmäisellä puoliskolla heikomman kaupankäynnin ja korkeiden MiCA-kulujen vuoksi, ja se on vähentänyt henkilöstöä samalla kun se aloittaa Ruotsissa.",
-    "is": "Rafmyntakauphöllin Firi tapaði 43,6 milljónum norskra króna á fyrri helmingi ársins 2026 vegna minni viðskipta og mikils MiCA-kostnaðar og hefur fækkað starfsfólki á sama tíma og hún hefur starfsemi í Svíþjóð."
+    "is": "Rafmyntakauphöllin Firi tapaði 43,6 milljónum norskra króna á fyrri helmingi ársins 2026 vegna minni viðskipta og mikils MiCA-kostnaðar og hefur fækkað starfsfólki á sama tíma og hún hefur starfsemi í Svíþjóð.",
+    "nb": "Kryptobørsen Firi tapte 43,6 millioner kroner i første halvår 2026 etter svakere handel og høye MiCA-kostnader, og har nedbemannet samtidig som selskapet lanseres i Sverige.",
+    "nn": "Kryptobørsen Firi tapte 43,6 millionar kroner i første halvår 2026 etter svakare handel og høge MiCA-kostnader, og har nedbemanna samstundes som selskapet blir lansert i Sverige.",
+    "sv": "Kryptobörsen Firi förlorade 43,6 miljoner norska kronor under första halvåret 2026 efter svagare handel och höga MiCA-kostnader, och har sagt upp personal samtidigt som bolaget lanseras i Sverige."
    },
    "paywall": true,
    "links": [],
@@ -2720,12 +2720,12 @@
    ],
    "summary": "Bitcoinpolitisk Institutt is gathering researchers, industry and politicians in Oslo for a free seminar on bitcoin mining and Norwegian power.",
    "summary_i18n": {
-    "nn": "Bitcoinpolitisk Institutt samlar forskarar, bransje og politikarar i Oslo til eit gratis seminar om bitcoinutvinning og norsk kraft.",
-    "nb": "Bitcoinpolitisk Institutt samler forskere, bransje og politikere i Oslo til et gratis seminar om bitcoinutvinning og norsk kraft.",
-    "sv": "Bitcoinpolitisk Institutt samlar forskare, bransch och politiker i Oslo till ett kostnadsfritt seminarium om bitcoinutvinning och norsk elkraft.",
     "da": "Bitcoinpolitisk Institutt samler forskere, branche og politikere i Oslo til et gratis seminar om bitcoin-mining og norsk strøm.",
     "fi": "Bitcoinpolitisk Institutt kokoaa tutkijoita, alan toimijoita ja poliitikkoja Osloon maksuttomaan seminaariin bitcoinin louhinnasta ja Norjan sähköstä.",
-    "is": "Bitcoinpolitisk Institutt safnar saman fræðimönnum, fulltrúum greinarinnar og stjórnmálamönnum í Ósló á ókeypis málþing um námugröft bitcoin og norska raforku."
+    "is": "Bitcoinpolitisk Institutt safnar saman fræðimönnum, fulltrúum greinarinnar og stjórnmálamönnum í Ósló á ókeypis málþing um námugröft bitcoin og norska raforku.",
+    "nb": "Bitcoinpolitisk Institutt samler forskere, bransje og politikere i Oslo til et gratis seminar om bitcoinutvinning og norsk kraft.",
+    "nn": "Bitcoinpolitisk Institutt samlar forskarar, bransje og politikarar i Oslo til eit gratis seminar om bitcoinutvinning og norsk kraft.",
+    "sv": "Bitcoinpolitisk Institutt samlar forskare, bransch och politiker i Oslo till ett kostnadsfritt seminarium om bitcoinutvinning och norsk elkraft."
    },
    "paywall": false,
    "links": [],
@@ -2869,12 +2869,12 @@
    ],
    "summary": "Norges Bank has named twelve financial institutions in its mapping of tokenisation, while Norway is the only Nordic country without banks in the euro-stablecoin group Qivalis.",
    "summary_i18n": {
-    "nn": "Norges Bank har namngitt tolv finansinstitusjonar i kartlegginga si av tokenisering, medan Noreg er det einaste nordiske landet utan bankar i euro-stablecoin-gruppa Qivalis.",
-    "nb": "Norges Bank har navngitt tolv finansinstitusjoner i sin kartlegging av tokenisering, mens Norge er det eneste nordiske landet uten banker i euro-stablecoin-gruppen Qivalis.",
-    "sv": "Norges Bank har namngett tolv finansinstitut i sin kartläggning av tokenisering, medan Norge är det enda nordiska landet utan banker i euro-stablecoin-gruppen Qivalis.",
     "da": "Norges Bank har navngivet tolv finansielle institutioner i sin kortlægning af tokenisering, mens Norge er det eneste nordiske land uden banker i euro-stablecoin-gruppen Qivalis.",
     "fi": "Norges Bank on nimennyt tokenisointia koskevassa kartoituksessaan kaksitoista rahoituslaitosta, ja Norja on ainoa Pohjoismaa, jonka pankkeja ei ole mukana euromääräisten vakaakolikoiden Qivalis-ryhmässä.",
-    "is": "Norges Bank hefur nafngreint tólf fjármálastofnanir í kortlagningu sinni á táknvæðingu, en Noregur er eina norræna landið sem á enga banka í evru-stöðugleikamyntahópnum Qivalis."
+    "is": "Norges Bank hefur nafngreint tólf fjármálastofnanir í kortlagningu sinni á táknvæðingu, en Noregur er eina norræna landið sem á enga banka í evru-stöðugleikamyntahópnum Qivalis.",
+    "nb": "Norges Bank har navngitt tolv finansinstitusjoner i sin kartlegging av tokenisering, mens Norge er det eneste nordiske landet uten banker i euro-stablecoin-gruppen Qivalis.",
+    "nn": "Norges Bank har namngitt tolv finansinstitusjonar i kartlegginga si av tokenisering, medan Noreg er det einaste nordiske landet utan bankar i euro-stablecoin-gruppa Qivalis.",
+    "sv": "Norges Bank har namngett tolv finansinstitut i sin kartläggning av tokenisering, medan Norge är det enda nordiska landet utan banker i euro-stablecoin-gruppen Qivalis."
    },
    "paywall": false,
    "links": [],

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T12:38:28+00:00",
+ "generated_at": "2026-10-10T19:26:50+00:00",
  "preview": false,
  "item": {
   "id": "08a682f7d85d",
@@ -40,12 +40,12 @@
   ],
   "summary": "Goobit is switching BTCX from proprietary trading to brokerage, citing MiCA, which cuts reported revenue but not gross profit.",
   "summary_i18n": {
-   "nn": "Goobit legg om BTCX frå eigenhandel til mekling med tilvising til MiCA, noko som reduserer rapporterte inntekter, men ikkje bruttoforteneste.",
-   "nb": "Goobit legger om BTCX fra egenhandel til megling med henvisning til MiCA, noe som reduserer rapporterte inntekter, men ikke bruttofortjenesten.",
-   "sv": "Goobit ställer om BTCX från egenhandel till förmedling med hänvisning till MiCA, vilket minskar de redovisade intäkterna men inte bruttovinsten.",
    "da": "Goobit lægger BTCX om fra egenhandel til formidling med henvisning til MiCA, hvilket reducerer den rapporterede omsætning, men ikke bruttofortjenesten.",
    "fi": "Goobit siirtää BTCX:n omaan lukuun käytävästä kaupasta välitykseen MiCA:an vedoten, mikä pienentää raportoitua liikevaihtoa mutta ei bruttokatetta.",
-   "is": "Goobit færir BTCX úr viðskiptum fyrir eigin reikning yfir í miðlun og vísar til MiCA, sem lækkar skráðar tekjur en ekki vergan hagnað."
+   "is": "Goobit færir BTCX úr viðskiptum fyrir eigin reikning yfir í miðlun og vísar til MiCA, sem lækkar skráðar tekjur en ekki vergan hagnað.",
+   "nb": "Goobit legger om BTCX fra egenhandel til megling med henvisning til MiCA, noe som reduserer rapporterte inntekter, men ikke bruttofortjenesten.",
+   "nn": "Goobit legg om BTCX frå eigenhandel til mekling med tilvising til MiCA, noko som reduserer rapporterte inntekter, men ikkje bruttoforteneste.",
+   "sv": "Goobit ställer om BTCX från egenhandel till förmedling med hänvisning till MiCA, vilket minskar de redovisade intäkterna men inte bruttovinsten."
   },
   "paywall": false,
   "links": [],
