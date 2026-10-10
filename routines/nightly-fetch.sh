@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # Nightly fetch for Nordic Crypto (routine). Fetches new stories/events into the editor queue and builds a LOCAL preview.
 # Publishes nothing. Log: logs/nightly-YYYYMMDD.txt, and the same lines on stdout so a runner never sees a silent hang.
+# NIGHTLY_CI=1 is the Actions run: fetch and the health check only. No tip server, no preview build, no publish.
+# The workflow writes the editor queue onto the fetch-queue branch. It does not push main or gh-pages.
 # Exit code != 0 if the fetch fails, if 80% or more of the sources error, if the preview build fails,
 # if this run exceeds NIGHTLY_TIMEOUT_SECS (default 3 h), or if another run still holds a fresh lock.
 # Editor workflow after this run: English summary first, then summary_i18n (nn, nb, sv, da, fi, is) + summary_i18n_source in
@@ -107,6 +109,21 @@ rc=0
 if [[ -n "${NIGHTLY_HOOK:-}" ]]; then
   say "-- hook"
   run_out bash -c "$NIGHTLY_HOOK" || rc=$?
+  if [[ "$rc" -ne 0 ]]; then say "nightly fetch failed"; fi
+  exit "$rc"
+fi
+
+# Actions: the workflow owns the cache, the privacy terms, and the queue commit.
+# The box path below still builds a local preview and keeps the tip server up.
+if [[ "${NIGHTLY_CI:-}" == 1 ]]; then
+  say "-- fetch (python3 fetch.py --days ${NIGHTLY_DAYS:-3})"
+  run_out python3 fetch.py --days "${NIGHTLY_DAYS:-3}" || rc=1
+  say "-- fetch health"
+  health="$(python3 tools/fetch_health.py 2>&1)" || rc=1
+  printf '%s\n' "$health" >>"$log"
+  printf '%s\n' "$health"
+  say "-- queue"
+  run_out python3 -c "import json;q=json.load(open('queue/review.json'));print('awaiting editor:',len(q.get('items_needing_summary',[])),'stories,',len(q.get('events_pending',[])),'events')" || true
   if [[ "$rc" -ne 0 ]]; then say "nightly fetch failed"; fi
   exit "$rc"
 fi

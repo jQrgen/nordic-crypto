@@ -1,0 +1,155 @@
+# Fetch stories and events once a day and leave them for the editor on the fetch-queue branch.
+# Pending rows stay off main and off gh-pages. Merging to main is still the approval, and that
+# is what deploy.yml publishes.
+# Do not enable xtrace: NC_PRIVATE_TERMS_JSON must not be printed.
+# Do not upload state/, queue/, or site/ as an artifact.
+name: Nightly fetch
+
+on:
+  schedule:
+    # 01:41 UTC. That is 03:41 in Oslo while Norway is on CEST (UTC+2).
+    # In winter (CET, UTC+1) the same schedule is 02:41 in Oslo.
+    - cron: "41 1 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+
+# One fetch at a time. queue: max keeps a waiting run (the default would drop it).
+# cancel-in-progress stays false; queue: max cannot be combined with true.
+# Deploy and the price refresh share gh-pages-deploy because they both push that
+# branch. This job does not join that group: it never pushes main or gh-pages, and
+# a four-hour member of gh-pages-deploy would hold up a publish and the hourly prices.
+concurrency:
+  group: nightly-fetch
+  cancel-in-progress: false
+  queue: max
+
+jobs:
+  switched-off:
+    name: Fetch is switched off
+    if: github.repository == 'jQrgen/nordic-crypto' && vars.NC_CI_FETCH != 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Record the switch
+        run: |
+          {
+            echo "### Nightly fetch"
+            echo
+            echo "\`NC_CI_FETCH\` is not \`true\`. No feeds were read. \`fetch-queue\`, \`main\` and \`gh-pages\` were not changed."
+            echo
+            echo "Turn the job on with \`gh variable set NC_CI_FETCH --body true\`."
+            echo "The term list is the existing secret \`NC_PRIVATE_TERMS_JSON\` (the same one the deploy workflow uses)."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  fetch:
+    name: Fetch into the editor queue
+    if: github.repository == 'jQrgen/nordic-crypto' && vars.NC_CI_FETCH == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          # Full history so fetch-queue can merge main without a force-push.
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Install Python dependencies
+        run: python3 -m pip install -r requirements.txt
+
+      - name: Restore the previous editor queue
+        run: tools/ci_push_fetch_queue.sh restore
+
+      - name: Restore the HTTP cache
+        uses: actions/cache/restore@v4
+        with:
+          path: state/http_cache.json
+          key: nightly-http-${{ github.run_id }}
+          restore-keys: nightly-http-
+
+      - name: Write privacy terms
+        env:
+          NC_PRIVATE_TERMS_JSON: ${{ secrets.NC_PRIVATE_TERMS_JSON }}
+        run: python3 tools/ci_write_terms.py
+
+      - name: Fold pending rows into the working data
+        run: python3 tools/ci_fetch_queue.py prepare
+
+      - name: Run the nightly fetch
+        id: fetch
+        env:
+          NIGHTLY_CI: "1"
+          NIGHTLY_DAYS: "3"
+          # Stop just inside the 4 hour job limit so the log records the timeout.
+          NIGHTLY_TIMEOUT_SECS: "13800"
+          NIGHTLY_STALE_SECS: "13800"
+        run: routines/nightly-fetch.sh
+
+      - name: Pack the editor queue
+        if: success()
+        run: python3 tools/ci_fetch_queue.py pack
+
+      - name: Privacy gate on the queue
+        if: success()
+        run: |
+          set -euo pipefail
+          dest=$(mktemp -d)
+          trap 'rm -rf "$dest"' EXIT
+          python3 tools/ci_fetch_queue.py stage "$dest"
+          python3 tools/privacy_gate.py "$dest"
+
+      - name: Delete privacy terms
+        if: always()
+        run: |
+          set -euo pipefail
+          rm -f state/private_terms.json state/private_terms.json.tmp
+          if [ -e state/private_terms.json ]; then
+            echo "::error::could not delete state/private_terms.json"
+            exit 1
+          fi
+
+      - name: Push the queue branch
+        id: push
+        if: success()
+        run: tools/ci_push_fetch_queue.sh push
+
+      - name: Open or update the queue pull request
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: tools/ci_fetch_pr.sh
+
+      - name: Job summary
+        if: always()
+        run: |
+          {
+            if [ -f queue/fetch_report.json ]; then
+              python3 tools/ci_fetch_queue.py summary
+            else
+              python3 tools/ci_fetch_queue.py summary --missing
+            fi
+            echo
+            if [ "${{ steps.push.outcome }}" = "success" ]; then
+              echo "Pushed \`fetch-queue\`. The pull request into \`main\` stays open for the editor. It is not merged."
+            else
+              echo "\`fetch-queue\` was not updated."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Save the HTTP cache
+        if: always() && steps.fetch.outcome == 'success' && hashFiles('state/http_cache.json') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: state/http_cache.json
+          key: nightly-http-${{ github.run_id }}
