@@ -7,8 +7,9 @@
 //                     (request.cf.country), or null. Used once by the site's language picker. Nothing is stored or logged,
 //                     Cache-Control: no-store, CORS only for the public site origin and https://jqrgen.github.io. For local tests only, the header
 //                     X-Test-Country is honoured when the variable GEO_TEST is "1" (never set in wrangler.toml / production).
-// Privacy: never logs anything (no console.* calls, observability off in wrangler.toml); the IP is never stored – only a
-// SHA-256 of (daily random salt + IP) is kept for the 10-minute rate-limit window (see migrations/0001_tips.sql).
+// Privacy: never logs anything (no console.* calls, observability off in wrangler.toml); the IP is never stored – only
+// '<scope>:' + SHA-256(daily random salt | scope | IP) is kept for the 10-minute rate-limit window (see rateOk and
+// migrations/0001_tips.sql). The scopes tip, private and subscribe each have their own per-IP and global cap.
 // No user agent or other metadata is stored. Body capped at 4 KB.
 // CORS: the public site origin (site_url.json), www, the country domains (apex and www) and
 // https://jqrgen.github.io. A browser POST from any other Origin is refused (403).
@@ -31,8 +32,9 @@ const ORIGINS = new Set([SITE_ORIGIN, "https://www.nordiccrypto.no", ...COUNTRY_
 const THANKS = SITE_BASE + "tip/";
 const MAX_BODY = 4096, MAX_NOTE = 1000, MAX_NAME = 100, MAX_URL = 2000;
 const COUNTRIES = new Set(["NO", "SE", "DK", "FI", "IS", "UNSURE"]);
-const RATE_N = 5, RATE_WINDOW = 600;   // max 5 tips per IP per 10 minutes
-const RATE_GLOBAL_N = 200;             // and max 200 tips per 10 minutes in total (spam flood guard)
+const RATE_N = 5, RATE_WINDOW = 600;   // max 5 tips per IP per 10 minutes, per scope
+const RATE_GLOBAL_N = 200;             // and max 200 per 10 minutes in total, per scope (spam flood guard)
+const RATE_SCOPES = new Set(["tip", "private", "subscribe"]);  // separate buckets: a flood of one endpoint can't lock the others
 
 const clen = (s) => [...s].length;     // code points, like Python len()
 const ctrl = (s) => s.replace(/[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]/g, "");
@@ -62,7 +64,11 @@ export function validate(f) {
 
 const hex = (buf) => [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, "0")).join("");
 
-async function rateOk(db, ip) {
+// h = scope + ":" + SHA-256(salt | scope | ip). The scope is hashed in too, so one IP's rows in two scopes carry different
+// digests and can't be linked (e.g. a private tip to a newsletter signup). The global count is a range on the prefix,
+// which the rate_hits_h index serves; old unprefixed rows match no scope and expire with the window.
+async function rateOk(db, ip, scope) {
+  if (!RATE_SCOPES.has(scope)) throw new Error("rate scope");
   const now = Math.floor(Date.now() / 1000), day = new Date().toISOString().slice(0, 10);
   const fresh = hex(crypto.getRandomValues(new Uint8Array(32)));
   await db.batch([
@@ -71,9 +77,9 @@ async function rateOk(db, ip) {
     db.prepare("INSERT OR IGNORE INTO rate_salt (day, salt) VALUES (?, ?)").bind(day, fresh),
   ]);
   const row = await db.prepare("SELECT salt FROM rate_salt WHERE day = ?").bind(day).first();
-  const h = hex(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(row.salt + "|" + ip)));
-  const c = await db.prepare("SELECT (SELECT COUNT(*) FROM rate_hits WHERE h = ?1 AND ts > ?2) AS mine, (SELECT COUNT(*) FROM rate_hits WHERE ts > ?2) AS total")
-    .bind(h, now - RATE_WINDOW).first();
+  const h = scope + ":" + hex(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(row.salt + "|" + scope + "|" + ip)));
+  const c = await db.prepare("SELECT (SELECT COUNT(*) FROM rate_hits WHERE h = ?1 AND ts > ?2) AS mine, (SELECT COUNT(*) FROM rate_hits WHERE h >= ?3 AND h < ?4 AND ts > ?2) AS total")
+    .bind(h, now - RATE_WINDOW, scope + ":", scope + ";").first();
   if (c.mine >= RATE_N || c.total >= RATE_GLOBAL_N) return false;
   await db.prepare("INSERT INTO rate_hits (h, ts) VALUES (?, ?)").bind(h, now).run();
   return true;
@@ -116,7 +122,7 @@ async function tip(req, env) {
   const raw = await readCapped(req);
   if (raw === null) return fail(413, "The tip is too long (max 4 KB).");
   const ip = (req.headers.get("CF-Connecting-IP") || "unknown").trim().slice(0, 64);
-  try { if (!(await rateOk(env.DB, ip))) return fail(429, "Too many tips from you in a short time. Please try again later."); }
+  try { if (!(await rateOk(env.DB, ip, "tip"))) return fail(429, "Too many tips from you in a short time. Please try again later."); }
   catch { return fail(503, "The tip service is temporarily offline, try again later."); }
   let f;
   try {

@@ -78,7 +78,7 @@ export async function subscribe(req, env, h) {
   const [s, err] = validateSignup(f);
   if (err) return out(400, { error: err });
   const ip = (req.headers.get("CF-Connecting-IP") || "unknown").trim().slice(0, 64);
-  try { if (!(await h.rateOk(env.DB, "subscribe|" + ip))) return out(429, { error: "rate" }); }
+  try { if (!(await h.rateOk(env.DB, ip, "subscribe"))) return out(429, { error: "rate" }); }
   catch { return out(503, { error: "offline" }); }
   const t = now(), extra = { pending: true };
   try {
