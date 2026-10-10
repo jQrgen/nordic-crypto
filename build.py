@@ -705,10 +705,12 @@ def _source_logos():
     sys.path.insert(0, P("tools"))
     import source_logos
     return source_logos
+_COPIED = set()   # (SITE, rel) already copied this build: logos are asked for again in every language pass
 def copy_repo_file(rel):
     srcp = P(rel)
-    if not rel or not os.path.exists(srcp): return
+    if (SITE, rel) in _COPIED or not rel or not os.path.exists(srcp): return
     dst = os.path.join(SITE, rel); os.makedirs(os.path.dirname(dst) or SITE, exist_ok=True); shutil.copy(srcp, dst)
+    _COPIED.add((SITE, rel))
 def copy_brand():
     """Crest, favicons, fonts and the token stylesheet. Paths stay relative to the site root."""
     for rel in ("favicon.svg", "favicon.ico", "apple-touch-icon.png", "manifest.webmanifest"):
@@ -910,6 +912,7 @@ def build():
     cfg = load(P("sources.json")); status = load(P("state", "source_status.json"), {})
     if os.path.exists(SITE): shutil.rmtree(SITE)
     os.makedirs(os.path.join(SITE, "data"))
+    _COPIED.clear()
     open(os.path.join(SITE, ".nojekyll"), "w").close()
     write_cname()
     copy_brand()
