@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T05:37:50+00:00",
+ "generated_at": "2026-10-10T10:48:06+00:00",
  "preview": false,
  "country": "NO",
  "count": 3,
@@ -70,7 +70,8 @@
     "ja": "https://nordiccrypto.no/ja/calendar/89ced460e4ca/",
     "sw": "https://nordiccrypto.no/sw/calendar/89ced460e4ca/",
     "mr": "https://nordiccrypto.no/mr/calendar/89ced460e4ca/",
-    "fa": "https://nordiccrypto.no/fa/calendar/89ced460e4ca/"
+    "fa": "https://nordiccrypto.no/fa/calendar/89ced460e4ca/",
+    "uk": "https://nordiccrypto.no/uk/calendar/89ced460e4ca/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/events/89ced460e4ca.json",
    "place_source": {
@@ -143,7 +144,8 @@
     "ja": "https://nordiccrypto.no/ja/calendar/a1ea7afabcb0/",
     "sw": "https://nordiccrypto.no/sw/calendar/a1ea7afabcb0/",
     "mr": "https://nordiccrypto.no/mr/calendar/a1ea7afabcb0/",
-    "fa": "https://nordiccrypto.no/fa/calendar/a1ea7afabcb0/"
+    "fa": "https://nordiccrypto.no/fa/calendar/a1ea7afabcb0/",
+    "uk": "https://nordiccrypto.no/uk/calendar/a1ea7afabcb0/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/events/a1ea7afabcb0.json",
    "place_source": {
@@ -209,7 +211,8 @@
     "ja": "https://nordiccrypto.no/ja/calendar/7adc8e1ede97/",
     "sw": "https://nordiccrypto.no/sw/calendar/7adc8e1ede97/",
     "mr": "https://nordiccrypto.no/mr/calendar/7adc8e1ede97/",
-    "fa": "https://nordiccrypto.no/fa/calendar/7adc8e1ede97/"
+    "fa": "https://nordiccrypto.no/fa/calendar/7adc8e1ede97/",
+    "uk": "https://nordiccrypto.no/uk/calendar/7adc8e1ede97/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/events/7adc8e1ede97.json",
    "place_source": {

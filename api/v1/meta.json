@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T05:37:50+00:00",
+ "generated_at": "2026-10-10T10:48:06+00:00",
  "preview": false,
  "sign_off": "The Nordic Crypto team",
  "description": "Bitcoin, blockchain and crypto news, events, a who's who, regulation and academia for Norway, Sweden, Denmark, Finland and Iceland.",
@@ -36,7 +36,8 @@
    "ja": "特に Apple TV に対応。",
    "sw": "Inaunga mkono Apple TV hasa.",
    "mr": "विशेषतः Apple TV ला समर्थन करते.",
-   "fa": "به‌ویژه از Apple TV پشتیبانی می‌کند."
+   "fa": "به‌ویژه از Apple TV پشتیبانی می‌کند.",
+   "uk": "Особливо підтримує Apple TV."
   }
  },
  "languages": [
@@ -259,6 +260,16 @@
    "html_lang": "fa",
    "og_locale": "fa_IR",
    "home": "https://nordiccrypto.no/fa/"
+  },
+  {
+   "code": "uk",
+   "name": "Українська",
+   "native_name": "Українська",
+   "english_name": "Ukrainian",
+   "rtl": false,
+   "html_lang": "uk",
+   "og_locale": "uk_UA",
+   "home": "https://nordiccrypto.no/uk/"
   }
  ],
  "language_note": "Site languages, with native_name, english_name and rtl, are listed in languages and in /api/v1/languages.json. Our own text is written in English first. summary_i18n, title_i18n, subtitle_i18n, note_i18n and about_i18n carry published translations, today nn, nb, sv, da, fi and is. Other site languages fall back to the English field until a translation is published. On a news item, title is the source headline, title_en is our English headline and title_i18n is our headline in nn, nb, sv, da, fi and is. The site shows the page-language headline first and the source headline underneath when they differ. Outlet headlines inside sources stay in that outlet's language. There is no query string for language: each JSON document already carries every published translation. The language switcher's country default is a guess; see /api/v1/geo-language.json. The nc_lang cookie wins.",
@@ -395,6 +406,11 @@
    "title": "Published books on bitcoin, crypto and blockchain by Nordic authors or about the Nordics"
   },
   {
+   "path": "/developers/",
+   "url": "https://nordiccrypto.no/developers/",
+   "title": "Open-source developers: technical people in Nordic crypto with public crypto-related code"
+  },
+  {
    "path": "/sources/",
    "url": "https://nordiccrypto.no/sources/",
    "title": "News and event sources"
@@ -418,6 +434,11 @@
    "path": "/ethics/",
    "url": "https://nordiccrypto.no/ethics/",
    "title": "Editorial ethics (Vær Varsom-plakaten)"
+  },
+  {
+   "path": "/privacy/",
+   "url": "https://nordiccrypto.no/privacy/",
+   "title": "Privacy and data policy: every service the site uses, legal basis, retention and processors"
   },
   {
    "path": "/changelog/",

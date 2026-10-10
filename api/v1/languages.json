@@ -1,10 +1,10 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T05:37:50+00:00",
+ "generated_at": "2026-10-10T10:48:06+00:00",
  "preview": false,
  "note": "Site UI languages (chrome and presentation). English is the default; its home URL is the site root. native_name is the language-switcher label. rtl is true for Arabic, Urdu and Persian. Published article translations today are English plus summary_i18n for nn, nb, sv, da, fi and is. Other site languages fall back to the English field until a translation is published. These codes are not news-source languages, and this list does not add outlets.",
- "count": 22,
+ "count": 23,
  "languages": [
   {
    "code": "en",
@@ -225,6 +225,16 @@
    "html_lang": "fa",
    "og_locale": "fa_IR",
    "home": "https://nordiccrypto.no/fa/"
+  },
+  {
+   "code": "uk",
+   "name": "Українська",
+   "native_name": "Українська",
+   "english_name": "Ukrainian",
+   "rtl": false,
+   "html_lang": "uk",
+   "og_locale": "uk_UA",
+   "home": "https://nordiccrypto.no/uk/"
   }
  ]
 }
