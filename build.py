@@ -8,7 +8,7 @@ Share buttons are plain links. No advertising trackers and no external fonts. Cl
 (aggregate visits, no cookies) is injected only when analytics.json or CF_WEB_ANALYTICS_TOKEN has a real token.
 Languages (i18n/ALL_LANGS): English at the root, then one directory per code. Nordic nn, nb, sv, da, fi, is plus the wider UI set. Missing strings fall back to English.
 Every page is built once per language; data/ (JSON), assets/ and screen/ (English) exist only at the root."""
-import json, os, re, shutil, subprocess, html, sys, calendar, datetime as dt
+import atexit, json, os, re, shutil, subprocess, html, sys, calendar, datetime as dt
 import events as eventslib
 from zoneinfo import ZoneInfo
 import i18n
@@ -33,9 +33,44 @@ def load(p, d=None):
     try: return json.load(open(p, encoding="utf-8"))
     except FileNotFoundError: return d
 E = lambda s: html.escape(str(s if s is not None else ""), quote=True)
+_SNIP = None        # the long-lived `node tools/snippets.js --lines` process; False once node cannot be started
+_SNIP_FAILED = 0    # pages built without the share bar
+def _snip_fail(ex):
+    """Warns on the first failure only (main warned on none); the page gets the empty snippets, as before."""
+    global _SNIP_FAILED
+    _SNIP_FAILED += 1
+    if _SNIP_FAILED == 1: print(f"snippets: WARNING, node failed ({ex!r}); pages are built without the share bar")
+    return {"top": "", "bar": "", "css": "", "script": ""}
+def _snip_drop():
+    """Kills and reaps a broken process (no zombie); the next page starts a new one."""
+    global _SNIP
+    if _SNIP:
+        for f in (_SNIP.kill, _SNIP.wait, _SNIP.stdin.close, _SNIP.stdout.close):
+            try: f()
+            except Exception: pass
+        _SNIP = None
+@atexit.register
+def _snip_close():
+    if _SNIP:
+        try: _SNIP.stdin.close(); _SNIP.wait(10)
+        except Exception: _SNIP.kill()
+    if _SNIP_FAILED > 1: print(f"snippets: WARNING, {_SNIP_FAILED} pages were built without the share bar")
 def snippets(url, title):
-    try: return json.loads(subprocess.check_output(["node", P("tools", "snippets.js"), url, title, LANG]))
-    except Exception: return {"top": "", "bar": "", "css": "", "script": ""}
+    """share.js snippets for one page, from one node process for the whole build (one process per page cost ~75 s).
+    A bad page answers {error} and only that page loses the bar; a dead process is dropped and the next page starts a new one."""
+    global _SNIP
+    if _SNIP is False: return _snip_fail(None)
+    try:
+        if _SNIP is None:
+            try: _SNIP = subprocess.Popen(["node", P("tools", "snippets.js"), "--lines"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True, encoding="utf-8")
+            except OSError: _SNIP = False; raise   # no node on PATH: it will not appear during the build
+        _SNIP.stdin.write(json.dumps([url, title, LANG]) + "\n"); _SNIP.stdin.flush()
+        s = json.loads(_SNIP.stdout.readline())
+        if "top" not in s: return _snip_fail(s.get("error"))
+        return s
+    except Exception as ex:
+        _snip_drop()
+        return _snip_fail(ex)
 OSLO = ZoneInfo("Europe/Oslo")
 def site_now():
     """Europe/Oslo clock. NC_NOW (ISO) freezes it for tests and screenshots; production leaves it unset."""
