@@ -3122,7 +3122,7 @@ def write_tip_endpoint_file():
     sys.path.insert(0, P("tipserver")); import endpoint as _ep
     ep, kind = (tip_endpoint(), "fixed") if tip_endpoint() else (_ep.current() if tip_page_uses_server() else ("", None))
     old = load(P(".publish", "tip-endpoint.json"), {}) or {}
-    upd = old.get("updated") if old.get("endpoint") == ep else dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
+    upd = old.get("updated") if old.get("endpoint") == ep else site_now().astimezone(dt.timezone.utc).isoformat(timespec="seconds")
     json.dump({"endpoint": ep or None, "kind": kind, "updated": upd}, open(os.path.join(SITE, "tip-endpoint.json"), "w"), indent=1)
     open(os.path.join(SITE, "tip-endpoint.json"), "a").write("\n")
 
