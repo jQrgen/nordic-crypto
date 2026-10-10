@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-10T21:11:14+00:00",
+ "generated_at": "2026-10-10T21:56:53+00:00",
  "preview": false,
  "title": "Nordic Crypto data API",
  "sign_off": "The Nordic Crypto team",
@@ -268,8 +268,8 @@
    "url_custom_domain": "https://nordiccrypto.no/api/v1/academia/{id}.json",
    "summary": "One academia row. The id is in academia.json.",
    "schema": "AcademiaItem",
-   "example_url": "https://nordiccrypto.no/api/v1/academia/NO-BAN435.json",
-   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/academia/NO-BAN435.json"
+   "example_url": "https://nordiccrypto.no/api/v1/academia/NO-TTM4195.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/academia/NO-TTM4195.json"
   },
   {
    "id": "api-v1-books",
