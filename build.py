@@ -228,6 +228,17 @@ def nl_issues():
     d = load(os.path.join(NL_PUB, "issues.json"), {}) or {}
     return sorted(d.get("issues", []), key=lambda i: (i.get("date") or "", i.get("number") or 0), reverse=True)
 NL_VIDEO_OK = {}
+def download_url(url, dest, timeout=120):
+    """Download url to dest. A stall longer than timeout seconds raises. urlretrieve has no timeout."""
+    import urllib.request
+    req = urllib.request.Request(url, headers={"User-Agent": "nordic-crypto-build"})
+    os.makedirs(os.path.dirname(dest) or ".", exist_ok=True)
+    with urllib.request.urlopen(req, timeout=timeout) as resp, open(dest, "wb") as out:
+        while True:
+            chunk = resp.read(1 << 20)
+            if not chunk:
+                break
+            out.write(chunk)
 def nl_video_file(iss):
     """Local path of the issue video (newsletter/published/<id>/video.mp4, not in git). When missing, downloads the
     public release copy (video.url) and checks sha256. None when unavailable (the page then shows only the download link)."""
@@ -246,9 +257,8 @@ def nl_video_file(iss):
     if good(f): ok = f
     elif v.get("url"):
         try:
-            import urllib.request
             print(f"newsletter: downloading the video for issue {iid} from {v['url']}")
-            tmp = f + ".part"; urllib.request.urlretrieve(v["url"], tmp)
+            tmp = f + ".part"; download_url(v["url"], tmp, timeout=120)
             if good(tmp): os.replace(tmp, f); ok = f
             else: os.remove(tmp); print(f"newsletter: WARNING, downloaded video for {iid} failed the size/sha256 check")
         except Exception as ex: print(f"newsletter: WARNING, no video for issue {iid}: {ex}")
@@ -886,8 +896,8 @@ def story_figure(i, slug, href=None):
 
 def build():
     global LANG
-    subprocess.run([sys.executable, P("tools", "apply_approvals.py")], check=True)
-    subprocess.run([sys.executable, P("tools", "import_orgchart.py")], check=True)
+    subprocess.run([sys.executable, P("tools", "apply_approvals.py")], check=True, timeout=180)
+    subprocess.run([sys.executable, P("tools", "import_orgchart.py")], check=True, timeout=180)
     news = load(P("data", "news.json"), {"items": []}); org = load(P("data", "orgchart.json"), {"entities": [], "relations": []})
     cfg = load(P("sources.json")); status = load(P("state", "source_status.json"), {})
     if os.path.exists(SITE): shutil.rmtree(SITE)
@@ -2837,7 +2847,7 @@ def build_academia():
     if LANG == "en":
         research = "/workspace/nordic-crypto-research/academia.md"
         if os.path.exists(research):
-            subprocess.run([sys.executable, P("tools", "import_academia.py")], check=True)
+            subprocess.run([sys.executable, P("tools", "import_academia.py")], check=True, timeout=180)
         else:
             print("academia: research list is missing; leaving data/academia.json unchanged")
     ac = load(P("data", "academia.json"), {}) or {}

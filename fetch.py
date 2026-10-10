@@ -21,9 +21,18 @@ is corrected and marked unverified, and a page time or the outlet feed wins when
 Naive times are read in the publisher's zone (Europe/Oslo and Europe/Stockholm, and the
 other Nordic zones) including daylight saving time, and stored as UTC. See tools/published_time.py.
 """
-import argparse, datetime as dt, hashlib, json, os, re, sys, threading, time, urllib.parse, urllib.robotparser
+import argparse, datetime as dt, hashlib, json, os, re, socket, sys, threading, time, urllib.parse, urllib.robotparser
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import requests, feedparser
+# A request with no timeout waits forever. Every requests call in this process gets one,
+# including a Session that forgot to pass timeout=. urllib calls honour the socket default.
+socket.setdefaulttimeout(30)
+_REAL_REQUEST = requests.sessions.Session.request
+def _request_with_timeout(self, method, url, **kwargs):
+    if kwargs.get("timeout") is None:
+        kwargs["timeout"] = 25
+    return _REAL_REQUEST(self, method, url, **kwargs)
+requests.sessions.Session.request = _request_with_timeout
 from bs4 import BeautifulSoup
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "tools"))
@@ -68,7 +77,11 @@ def guarded_call(fn):
 # Hundreds of feeds run in a small pool. One host is never hit faster than min_delay_seconds.
 # A dead feed is recorded and skipped; it does not stop the run.
 _robots, _last = {}, {}
-_io = threading.Lock()
+# RLock, not Lock. add() holds this while it updates the queue, and log() takes it too.
+# A plain Lock deadlocks that worker — and then every other worker waiting to log —
+# the first time a new article is the same story as one we already have. The nightly
+# run then sits until it is killed, and the runner's log stays empty.
+_io = threading.RLock()
 _host_locks, _host_guard = {}, threading.Lock()
 def _host_lock(host):
     with _host_guard:
@@ -727,7 +740,9 @@ def main():
         if isinstance(published, dt.datetime):
             published = dt.datetime.fromisoformat(pubtime.utc_iso(published))
         with _io:
-            _add(url, title, teaser, published, src, outlet, outlet_name, country, extra, all_rel, lang, unverified, extra_hits, topics)
+            attached = _add(url, title, teaser, published, src, outlet, outlet_name, country, extra, all_rel, lang, unverified, extra_hits, topics)
+        if attached:
+            log(attached)
     def _add(url, title, teaser, published, src, outlet, outlet_name, country, extra=(), all_rel=False, lang=None, unverified=False, extra_hits=(), topics=None):
         url = canon(url)
         cu = story_key(url)
@@ -756,14 +771,17 @@ def main():
         if match:
             rec = coverage.record_from_parts(outlet, outlet_name, url, title, published, lang or LANG.get(country), country,
                                              paywall=bool(SRC.get(outlet, {}).get("paywall", False)))
+            attached = None
             if coverage.attach(match, rec):
                 note = {"url": url, "title": title, "outlet": outlet, "outlet_name": outlet_name,
                         "attached_to": match.get("id"), "reason": why, "at": NOW.isoformat(timespec="seconds")}
                 got = queue.setdefault("coverage_attached", [])
                 got[:] = [n for n in got if coverage.canon(n.get("url")) != cu] + [note]
-                log(f"ATTACHED {outlet_name} to {match.get('id')} ({why}): {title[:80]}")
+                # Logged by add() after this lock is released. Calling log() here took
+                # the same lock again and deadlocked the fetch.
+                attached = f"ATTACHED {outlet_name} to {match.get('id')} ({why}): {title[:80]}"
             by_url[cu] = match
-            return
+            return attached
         it = {"id": iid(url), "url": url, "title": title, "title_en": None, "source": outlet, "source_name": outlet_name,
               "country": country, "language": lang or LANG.get(country), "via": src, "seen_via": [src],
               "published": published.isoformat(), "fetched": NOW.isoformat(timespec="seconds"),
@@ -833,6 +851,7 @@ def main():
     html_lists = load(P("state", "html_lists.json"), {})
     def ingest(s):
         """One source. Any failure is stored on that source and does not stop the others."""
+        log("start", s.get("id"))
         err = guarded_call(lambda: _ingest(s))
         if err:
             log("ERR", s.get("id"), err)
