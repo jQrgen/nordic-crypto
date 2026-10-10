@@ -99,6 +99,22 @@ set -euo pipefail
 cd "$(dirname "$0")"
 exec 9>/tmp/nordic-crypto-publish.lock; flock -w 300 9   # shared with tipserver/publish_endpoint.sh
 DRY=${1:-}
+require_current_main() {
+  # Publish only main at or ahead of origin/main. A stale tree would delete newer pages from gh-pages.
+  local branch
+  git fetch -q origin main || { echo "refusing: could not fetch origin/main" >&2; exit 1; }
+  branch=$(git symbolic-ref --short -q HEAD || true)
+  if [ "$branch" != main ] || ! git merge-base --is-ancestor origin/main HEAD; then
+    echo "refusing: publish only from main at or ahead of origin/main (on ${branch:-detached HEAD} at $(git rev-parse --short HEAD); origin/main is $(git rev-parse --short origin/main)). Pull/rebase onto origin/main first: git pull --ff-only origin main" >&2
+    exit 1
+  fi
+}
+if [ "$DRY" = "--yes" ]; then
+  require_current_main
+  # source of this publish, taken before the changelog stamp and the build rewrite tracked files
+  SRC="main@$(git rev-parse --short HEAD)"
+  [ -z "$(git status --porcelain)" ] || SRC="$SRC+dirty"
+fi
 REPO=https://github.com/jQrgen/nordic-crypto.git
 URL=$(site_base)
 CUSTOM="$URL"
@@ -131,11 +147,13 @@ git -C .publish pull -q --ff-only origin gh-pages 2>/dev/null || true
 OLD_NEWS=$(mktemp)
 trap 'rm -f "$OLD_NEWS"' EXIT
 if [ -f .publish/data/news.json ]; then cp .publish/data/news.json "$OLD_NEWS"; else printf '%s\n' '{"items":[]}' > "$OLD_NEWS"; fi
+# main may have moved during the build; do not overwrite a newer CI publish
+require_current_main
 stage_gh_pages .publish site publish-keep.txt
 git -C .publish add -A
 GH_PUSHED=0
 if git -C .publish diff --cached --quiet; then echo "gh-pages: no changes"; else
-  git -C .publish commit -q -m "Publish $(date '+%Y-%m-%d %H:%M %Z')" && git -C .publish push -q origin gh-pages && echo "gh-pages: pushed" && GH_PUSHED=1; fi
+  git -C .publish commit -q -m "Publish $(date '+%Y-%m-%d %H:%M %Z') from $SRC" && git -C .publish push -q origin gh-pages && echo "gh-pages: pushed" && GH_PUSHED=1; fi
 # Keep the custom domain set. Deleting CNAME from the branch clears this; the PUT puts it back.
 # POST remains the fallback for a repo that does not have Pages yet.
 gh api -X PUT repos/jQrgen/nordic-crypto/pages -f "cname=$(site_host)" -f 'source[branch]=gh-pages' -f 'source[path]=/' >/dev/null 2>&1 \

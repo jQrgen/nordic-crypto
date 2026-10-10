@@ -10,10 +10,13 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 log="logs/publish-$(date +%Y%m%d).txt"; mkdir -p logs
+# set -e does not apply on the left of ||, so each step is chained; a failure prints the log tail.
+# The pull is refused on any branch but main, so it never fast-forwards a feature branch.
 {
   echo "== morning publish $(date '+%Y-%m-%d %H:%M %Z')"
-  ./publish.sh --yes
-} >"$log" 2>&1
+  if [ "$(git symbolic-ref --short -q HEAD || true)" != main ]; then echo "refusing: box is not on main"; false
+  else git pull --ff-only origin main && ./publish.sh --yes; fi
+} >"$log" 2>&1 || { tail -20 "$log"; exit 1; }
 tail -4 "$log"
 grep -q "HTTP 200" "$log" || { echo "live check failed – see $log"; exit 1; }
 .venv/bin/python tools/article_archive.py record >>"$log" 2>&1 && tail -1 "$log"
