@@ -2,7 +2,7 @@
 """Checks the public JSON API: approved news and newsletters only, stable URLs, no private fields.
   python3 tests/test_api_feed.py
 Does not run the full site build (that needs the editor queue and the research workspace)."""
-import json, os, re, sys, tempfile
+import json, os, re, subprocess, sys, tempfile
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 sys.path.insert(0, os.path.join(ROOT, "tools"))
@@ -156,6 +156,36 @@ def source_logos(fails):
             api_feed.source_logos.MANIFEST = saved
 
 
+def deterministic(fails, info):
+    """Two builds of one commit diff clean: NC_NOW freezes generated_at, and the academia example is the
+    first row in section order (it used to be next(iter(set)), which changed with the hash seed)."""
+    saved = os.environ.get("NC_NOW")
+    os.environ["NC_NOW"] = "2026-10-10T12:00:00+02:00"
+    try:
+        stamps = {api_feed.Feed(None, False, build.BASE).generated for _ in range(2)}
+    finally:
+        if saved is None:
+            os.environ.pop("NC_NOW", None)
+        else:
+            os.environ["NC_NOW"] = saved
+    if stamps != {"2026-10-10T10:00:00+00:00"}:
+        fails.append("generated_at not frozen by NC_NOW: " + ",".join(sorted(stamps)))
+    probe = ("import sys; sys.path.insert(0, 'tools'); import api_feed\n"
+             "_, _, sections = api_feed._academia_rows(False)\n"
+             "print(next((api_feed._row_id(k, r, i + 1, set()) for k, rows in sections.items() for i, r in enumerate(rows)), ''))")
+    firsts = set()
+    for seed in ("1", "3", "4"):  # seeds 1 and 2 happen to agree on main; 3 and 4 do not
+        out = subprocess.run([sys.executable, "-c", probe], cwd=ROOT, capture_output=True, text=True,
+                             env=dict(os.environ, PYTHONHASHSEED=seed))
+        firsts.add(out.stdout.strip() if out.returncode == 0 else "error: " + out.stderr.strip()[-200:])
+    if len(firsts) != 1 or not next(iter(firsts)) or next(iter(firsts)).startswith("error"):
+        fails.append("academia section order varies with PYTHONHASHSEED: " + " | ".join(sorted(firsts)))
+    else:
+        ex = [e.get("example_url") for e in info["endpoints"] if e["id"] == "academia-item"]
+        if ex != [build.BASE + f"api/v1/academia/{next(iter(firsts))}.json"]:
+            fails.append(f"academia example is not the first row in section order: {ex} want {next(iter(firsts))}")
+
+
 def main():
     fails = []
     source_logos(fails)
@@ -171,6 +201,7 @@ def main():
             news_updated=ctx["news"].get("updated"),
             markets=ctx["markets"],
         )
+        deterministic(fails, info)
         build.SITE = tmp
         build.PREVIEW = False
         build.emit_api(ctx)

@@ -262,8 +262,11 @@ class Feed:
         self.preview = bool(preview)
         self.base = base if base.endswith("/") else base + "/"
         self.custom = self.base
-        self.generated = dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat()
-        self.now = event_select.clock(now)
+        # NC_NOW (the frozen build clock) also freezes generated_at, so two builds of one commit diff clean.
+        frozen = os.environ.get("NC_NOW") or None
+        self.now = event_select.clock(now if now is not None else frozen)
+        stamp = self.now if frozen else dt.datetime.now(dt.timezone.utc)
+        self.generated = stamp.astimezone(dt.timezone.utc).replace(microsecond=0).isoformat()
         self.endpoints = []
         self.examples = {}
 
@@ -1399,8 +1402,9 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
     for rows in sections.values():
         for row in rows:
             feed.write_json(f"api/v1/academia/{row['id']}.json", feed.env(item=row))
+    first_ac = next((row["id"] for rows in sections.values() for row in rows), None)  # section order, not set order
     feed.add_endpoint("academia-item", "api/v1/academia/{id}.json", "One academia row. The id is in academia.json.", "AcademiaItem",
-                      example=f"api/v1/academia/{next(iter(ac_ids))}.json" if ac_ids else None)
+                      example=f"api/v1/academia/{first_ac}.json" if first_ac else None)
 
     book_rows = []
     for row in books_mod.rows():
