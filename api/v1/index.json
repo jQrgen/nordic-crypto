@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-09T22:56:58+00:00",
+ "generated_at": "2026-10-10T05:37:50+00:00",
  "preview": false,
  "title": "Nordic Crypto data API",
  "sign_off": "The Nordic Crypto team",
@@ -40,11 +40,11 @@
    "EU": 0
   },
   "newsletters": 1,
-  "events": 12,
+  "events": 11,
   "events_upcoming": 10,
   "events_ongoing": 0,
-  "events_past": 2,
-  "events_previous": 20,
+  "events_past": 1,
+  "events_previous": 19,
   "talks": 74,
   "sources": 1036,
   "academia": {
@@ -54,7 +54,6 @@
    "research": 3
   },
   "books": 25,
-  "developers": 0,
   "org_entities": 378,
   "org_relations": 15,
   "profiles": 20,
@@ -139,8 +138,8 @@
    "url_custom_domain": "https://nordiccrypto.no/api/v1/events.json",
    "summary": "Public events, soonest start first, including past events.",
    "schema": "EventList",
-   "example_url": "https://nordiccrypto.no/api/v1/events/71149f675741.json",
-   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/events/71149f675741.json",
+   "example_url": "https://nordiccrypto.no/api/v1/events/ccc2eea6b213.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/events/ccc2eea6b213.json",
    "item_path": "/api/v1/events/{id}.json",
    "item_url_template": "https://nordiccrypto.no/api/v1/events/{id}.json"
   },
@@ -268,8 +267,8 @@
    "url_custom_domain": "https://nordiccrypto.no/api/v1/academia/{id}.json",
    "summary": "One academia row. The id is in academia.json.",
    "schema": "AcademiaItem",
-   "example_url": "https://nordiccrypto.no/api/v1/academia/SE-DD2585.json",
-   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/academia/SE-DD2585.json"
+   "example_url": "https://nordiccrypto.no/api/v1/academia/NO-IN5420.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/academia/NO-IN5420.json"
   },
   {
    "id": "api-v1-books",
@@ -279,15 +278,6 @@
    "url_custom_domain": "https://nordiccrypto.no/api/v1/books.json",
    "summary": "Published books on bitcoin, crypto and blockchain by Nordic authors or about the Nordic countries. title is the original title. authors are as printed; author_role is \"editors\" for an edited volume. language is a code (nn, nb, sv, da, fi, en). source is the library catalogue or publisher page where the row was checked. about is our one-line description in English. No cover images.",
    "schema": "BookList"
-  },
-  {
-   "id": "api-v1-developers",
-   "method": "GET",
-   "path": "/api/v1/developers.json",
-   "url": "https://nordiccrypto.no/api/v1/developers.json",
-   "url_custom_domain": "https://nordiccrypto.no/api/v1/developers.json",
-   "summary": "Open-source developers: technical people in Nordic crypto with public crypto-related code (an own non-fork crypto repo, or merged commits or pull requests in a public crypto project). name is as shown on the code profile. profiles are the GitHub/GitLab/Codeberg/sourcehut profile links. notable has up to three items: kind \"repo\" (own repo: name, url, stars, language, description, last_push) or kind \"contrib\" (project, host, url, commits, merged_prs). Stars and counts are from the date in checked. nordic_source is where the Nordic link is shown. whoswho_id links the who's who entry. Only rows the editor approved; a preview build also has pending rows (status \"pending\").",
-   "schema": "DeveloperList"
   },
   {
    "id": "api-v1-orgchart",

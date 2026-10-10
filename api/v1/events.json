@@ -1,76 +1,10 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-09T22:56:58+00:00",
+ "generated_at": "2026-10-10T05:37:50+00:00",
  "preview": false,
- "count": 12,
+ "count": 11,
  "events": [
-  {
-   "id": "71149f675741",
-   "title": "Arne Ryde Conference on Crypto, Fintech and Payments",
-   "title_original": null,
-   "start": "2026-08-25T08:30:00+02:00",
-   "end": "2026-08-26T12:30:00+02:00",
-   "place": "Grand Hotel, Bantorget 1, Lund",
-   "city": "Lund",
-   "country": "SE",
-   "online": false,
-   "organiser": "Knut Wicksell Centre for Financial Studies, Lund University School of Economics and Management",
-   "url": "https://www.lusem.lu.se/calendar/arne-ryde-conference-crypto-fintech-and-payments",
-   "source": "Lund University School of Economics and Management (lusem.lu.se)",
-   "paid": null,
-   "sponsored": null,
-   "note": null,
-   "note_i18n": {},
-   "description": {
-    "text": "Keynote lectures: Christine Parlour, UC Berkeley Haas, and Tobias Berg, Goethe University.",
-    "lang": "en",
-    "source_url": "https://www.lusem.lu.se/calendar/arne-ryde-conference-crypto-fintech-and-payments",
-    "source_name": "Lund University School of Economics and Management (lusem.lu.se)",
-    "retrieved": "2026-10-07T23:50:00+00:00",
-    "i18n": {
-     "nn": "Hovudføredrag: Christine Parlour, UC Berkeley Haas, og Tobias Berg, Goethe-universitetet.",
-     "nb": "Hovedforedrag: Christine Parlour, UC Berkeley Haas, og Tobias Berg, Goethe-universitetet.",
-     "sv": "Huvudföredrag: Christine Parlour, UC Berkeley Haas, och Tobias Berg, Goethe-universitetet.",
-     "da": "Hovedforedrag: Christine Parlour, UC Berkeley Haas, og Tobias Berg, Goethe-universitetet.",
-     "fi": "Pääesitelmät: Christine Parlour, UC Berkeley Haas, ja Tobias Berg, Goethen yliopisto.",
-     "is": "Aðalfyrirlestrar: Christine Parlour, UC Berkeley Haas, og Tobias Berg, Goethe-háskóli."
-    }
-   },
-   "past": true,
-   "ongoing": false,
-   "html_url": "https://nordiccrypto.no/calendar/71149f675741/",
-   "html_urls": {
-    "en": "https://nordiccrypto.no/calendar/71149f675741/",
-    "nn": "https://nordiccrypto.no/nn/calendar/71149f675741/",
-    "nb": "https://nordiccrypto.no/nb/calendar/71149f675741/",
-    "sv": "https://nordiccrypto.no/sv/calendar/71149f675741/",
-    "da": "https://nordiccrypto.no/da/calendar/71149f675741/",
-    "fi": "https://nordiccrypto.no/fi/calendar/71149f675741/",
-    "is": "https://nordiccrypto.no/is/calendar/71149f675741/",
-    "zh": "https://nordiccrypto.no/zh/calendar/71149f675741/",
-    "hi": "https://nordiccrypto.no/hi/calendar/71149f675741/",
-    "es": "https://nordiccrypto.no/es/calendar/71149f675741/",
-    "fr": "https://nordiccrypto.no/fr/calendar/71149f675741/",
-    "ar": "https://nordiccrypto.no/ar/calendar/71149f675741/",
-    "bn": "https://nordiccrypto.no/bn/calendar/71149f675741/",
-    "pt": "https://nordiccrypto.no/pt/calendar/71149f675741/",
-    "ru": "https://nordiccrypto.no/ru/calendar/71149f675741/",
-    "ur": "https://nordiccrypto.no/ur/calendar/71149f675741/",
-    "id": "https://nordiccrypto.no/id/calendar/71149f675741/",
-    "de": "https://nordiccrypto.no/de/calendar/71149f675741/",
-    "ja": "https://nordiccrypto.no/ja/calendar/71149f675741/",
-    "sw": "https://nordiccrypto.no/sw/calendar/71149f675741/",
-    "mr": "https://nordiccrypto.no/mr/calendar/71149f675741/",
-    "fa": "https://nordiccrypto.no/fa/calendar/71149f675741/",
-    "uk": "https://nordiccrypto.no/uk/calendar/71149f675741/"
-   },
-   "api_url": "https://nordiccrypto.no/api/v1/events/71149f675741.json",
-   "place_source": {
-    "name": "Lund University School of Economics and Management (lusem.lu.se)",
-    "url": "https://www.lusem.lu.se/calendar/arne-ryde-conference-crypto-fintech-and-payments"
-   }
-  },
   {
    "id": "ccc2eea6b213",
    "title": "Göteborg Bitcoin Meetup #49",
@@ -128,8 +62,7 @@
     "ja": "https://nordiccrypto.no/ja/calendar/ccc2eea6b213/",
     "sw": "https://nordiccrypto.no/sw/calendar/ccc2eea6b213/",
     "mr": "https://nordiccrypto.no/mr/calendar/ccc2eea6b213/",
-    "fa": "https://nordiccrypto.no/fa/calendar/ccc2eea6b213/",
-    "uk": "https://nordiccrypto.no/uk/calendar/ccc2eea6b213/"
+    "fa": "https://nordiccrypto.no/fa/calendar/ccc2eea6b213/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/events/ccc2eea6b213.json",
    "place_source": {
@@ -202,8 +135,7 @@
     "ja": "https://nordiccrypto.no/ja/calendar/89ced460e4ca/",
     "sw": "https://nordiccrypto.no/sw/calendar/89ced460e4ca/",
     "mr": "https://nordiccrypto.no/mr/calendar/89ced460e4ca/",
-    "fa": "https://nordiccrypto.no/fa/calendar/89ced460e4ca/",
-    "uk": "https://nordiccrypto.no/uk/calendar/89ced460e4ca/"
+    "fa": "https://nordiccrypto.no/fa/calendar/89ced460e4ca/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/events/89ced460e4ca.json",
    "place_source": {
@@ -269,8 +201,7 @@
     "ja": "https://nordiccrypto.no/ja/calendar/c4a53ca9bd26/",
     "sw": "https://nordiccrypto.no/sw/calendar/c4a53ca9bd26/",
     "mr": "https://nordiccrypto.no/mr/calendar/c4a53ca9bd26/",
-    "fa": "https://nordiccrypto.no/fa/calendar/c4a53ca9bd26/",
-    "uk": "https://nordiccrypto.no/uk/calendar/c4a53ca9bd26/"
+    "fa": "https://nordiccrypto.no/fa/calendar/c4a53ca9bd26/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/events/c4a53ca9bd26.json",
    "place_source": {
@@ -343,8 +274,7 @@
     "ja": "https://nordiccrypto.no/ja/calendar/a1ea7afabcb0/",
     "sw": "https://nordiccrypto.no/sw/calendar/a1ea7afabcb0/",
     "mr": "https://nordiccrypto.no/mr/calendar/a1ea7afabcb0/",
-    "fa": "https://nordiccrypto.no/fa/calendar/a1ea7afabcb0/",
-    "uk": "https://nordiccrypto.no/uk/calendar/a1ea7afabcb0/"
+    "fa": "https://nordiccrypto.no/fa/calendar/a1ea7afabcb0/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/events/a1ea7afabcb0.json",
    "place_source": {
@@ -410,8 +340,7 @@
     "ja": "https://nordiccrypto.no/ja/calendar/a6cadcf35c22/",
     "sw": "https://nordiccrypto.no/sw/calendar/a6cadcf35c22/",
     "mr": "https://nordiccrypto.no/mr/calendar/a6cadcf35c22/",
-    "fa": "https://nordiccrypto.no/fa/calendar/a6cadcf35c22/",
-    "uk": "https://nordiccrypto.no/uk/calendar/a6cadcf35c22/"
+    "fa": "https://nordiccrypto.no/fa/calendar/a6cadcf35c22/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/events/a6cadcf35c22.json",
    "place_source": {
@@ -477,8 +406,7 @@
     "ja": "https://nordiccrypto.no/ja/calendar/ce0c87469bd8/",
     "sw": "https://nordiccrypto.no/sw/calendar/ce0c87469bd8/",
     "mr": "https://nordiccrypto.no/mr/calendar/ce0c87469bd8/",
-    "fa": "https://nordiccrypto.no/fa/calendar/ce0c87469bd8/",
-    "uk": "https://nordiccrypto.no/uk/calendar/ce0c87469bd8/"
+    "fa": "https://nordiccrypto.no/fa/calendar/ce0c87469bd8/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/events/ce0c87469bd8.json",
    "place_source": {
@@ -544,8 +472,7 @@
     "ja": "https://nordiccrypto.no/ja/calendar/7adc8e1ede97/",
     "sw": "https://nordiccrypto.no/sw/calendar/7adc8e1ede97/",
     "mr": "https://nordiccrypto.no/mr/calendar/7adc8e1ede97/",
-    "fa": "https://nordiccrypto.no/fa/calendar/7adc8e1ede97/",
-    "uk": "https://nordiccrypto.no/uk/calendar/7adc8e1ede97/"
+    "fa": "https://nordiccrypto.no/fa/calendar/7adc8e1ede97/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/events/7adc8e1ede97.json",
    "place_source": {
@@ -611,8 +538,7 @@
     "ja": "https://nordiccrypto.no/ja/calendar/e884ba1f0333/",
     "sw": "https://nordiccrypto.no/sw/calendar/e884ba1f0333/",
     "mr": "https://nordiccrypto.no/mr/calendar/e884ba1f0333/",
-    "fa": "https://nordiccrypto.no/fa/calendar/e884ba1f0333/",
-    "uk": "https://nordiccrypto.no/uk/calendar/e884ba1f0333/"
+    "fa": "https://nordiccrypto.no/fa/calendar/e884ba1f0333/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/events/e884ba1f0333.json",
    "place_source": {
@@ -678,8 +604,7 @@
     "ja": "https://nordiccrypto.no/ja/calendar/19b92e24ee50/",
     "sw": "https://nordiccrypto.no/sw/calendar/19b92e24ee50/",
     "mr": "https://nordiccrypto.no/mr/calendar/19b92e24ee50/",
-    "fa": "https://nordiccrypto.no/fa/calendar/19b92e24ee50/",
-    "uk": "https://nordiccrypto.no/uk/calendar/19b92e24ee50/"
+    "fa": "https://nordiccrypto.no/fa/calendar/19b92e24ee50/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/events/19b92e24ee50.json",
    "place_source": {
@@ -752,8 +677,7 @@
     "ja": "https://nordiccrypto.no/ja/calendar/3c7c538ff512/",
     "sw": "https://nordiccrypto.no/sw/calendar/3c7c538ff512/",
     "mr": "https://nordiccrypto.no/mr/calendar/3c7c538ff512/",
-    "fa": "https://nordiccrypto.no/fa/calendar/3c7c538ff512/",
-    "uk": "https://nordiccrypto.no/uk/calendar/3c7c538ff512/"
+    "fa": "https://nordiccrypto.no/fa/calendar/3c7c538ff512/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/events/3c7c538ff512.json",
    "place_source": {
@@ -819,8 +743,7 @@
     "ja": "https://nordiccrypto.no/ja/calendar/105f743dcf3d/",
     "sw": "https://nordiccrypto.no/sw/calendar/105f743dcf3d/",
     "mr": "https://nordiccrypto.no/mr/calendar/105f743dcf3d/",
-    "fa": "https://nordiccrypto.no/fa/calendar/105f743dcf3d/",
-    "uk": "https://nordiccrypto.no/uk/calendar/105f743dcf3d/"
+    "fa": "https://nordiccrypto.no/fa/calendar/105f743dcf3d/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/events/105f743dcf3d.json",
    "place_source": {

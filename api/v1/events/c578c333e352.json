@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-09T22:56:58+00:00",
+ "generated_at": "2026-10-10T05:37:50+00:00",
  "preview": false,
  "item": {
   "id": "c578c333e352",
@@ -60,8 +60,7 @@
    "ja": "https://nordiccrypto.no/ja/calendar/c578c333e352/",
    "sw": "https://nordiccrypto.no/sw/calendar/c578c333e352/",
    "mr": "https://nordiccrypto.no/mr/calendar/c578c333e352/",
-   "fa": "https://nordiccrypto.no/fa/calendar/c578c333e352/",
-   "uk": "https://nordiccrypto.no/uk/calendar/c578c333e352/"
+   "fa": "https://nordiccrypto.no/fa/calendar/c578c333e352/"
   },
   "api_url": "https://nordiccrypto.no/api/v1/events/c578c333e352.json",
   "backfill": true,

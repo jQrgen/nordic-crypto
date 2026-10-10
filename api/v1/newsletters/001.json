@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-09T22:56:58+00:00",
+ "generated_at": "2026-10-10T05:37:50+00:00",
  "preview": false,
  "item": {
   "id": "001",
@@ -56,8 +56,7 @@
    "ja": "https://nordiccrypto.no/ja/newsletter/001/",
    "sw": "https://nordiccrypto.no/sw/newsletter/001/",
    "mr": "https://nordiccrypto.no/mr/newsletter/001/",
-   "fa": "https://nordiccrypto.no/fa/newsletter/001/",
-   "uk": "https://nordiccrypto.no/uk/newsletter/001/"
+   "fa": "https://nordiccrypto.no/fa/newsletter/001/"
   },
   "api_url": "https://nordiccrypto.no/api/v1/newsletters/001.json",
   "video": {
