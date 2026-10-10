@@ -42,6 +42,7 @@ DOC_FILES = {
     "html_lists": ("state", "html_lists.json"),
 }
 
+# What a fetch may add to a reviewed story (_coverage_merge). It only adds, never replaces.
 FETCH_FIELDS = ("seen_via", "also_covered_by", "matched", "fetched")
 DEFAULT_ACTOR = "Nordic Crypto redaktør"
 
@@ -679,17 +680,38 @@ def import_root(store, root, at=None, actor="import"):
 
 
 def _coverage_merge(existing_payload, incoming):
+    """Add what the fetch found. The checkout that ran the fetch can be older than D1,
+    so an outlet it lacks is not a removal: keep everything D1 already has."""
     changed = False
-    for key in FETCH_FIELDS:
-        if key in incoming and existing_payload.get(key) != incoming.get(key):
-            existing_payload[key] = incoming[key]
+    extras = list(existing_payload.get("also_covered_by") or [])
+    have = {canon(existing_payload.get("url"))}
+    have.update(canon(ex.get("url")) for ex in extras if isinstance(ex, dict))
+    for ex in incoming.get("also_covered_by") or []:
+        if not isinstance(ex, dict) or not ex.get("url") or canon(ex["url"]) in have:
+            continue
+        extras.append(ex)
+        have.add(canon(ex["url"]))
+        changed = True
+    if changed:
+        existing_payload["also_covered_by"] = extras
+    for key in ("seen_via", "matched"):
+        merged = list(existing_payload.get(key) or [])
+        size = len(merged)
+        for value in incoming.get(key) or []:
+            if value not in merged:
+                merged.append(value)
+        if len(merged) > size:
+            existing_payload[key] = merged
             changed = True
+    if incoming.get("fetched") and not existing_payload.get("fetched"):
+        existing_payload["fetched"] = incoming["fetched"]
+        changed = True
     return changed
 
 
 def sync_story(store, item, at, actor="fetch"):
     """Write a fetch result. New rows are pending. An approved or rejected row is not reopened.
-    Coverage fields on an approved story are updated. The summary and the review are not."""
+    Coverage fields on an approved story are only added to, never replaced. The summary and the review are not."""
     if not isinstance(item, dict) or not item.get("id") or not item.get("url"):
         raise D1Error("a story is missing id or url")
     mapped = review_from_story(item)
