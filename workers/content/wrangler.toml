@@ -1,0 +1,23 @@
+# Nordic Crypto stories and events (Cloudflare Workers + D1).
+# Deploy steps are in README.md. Do not put secrets in this file.
+# The database id below is a placeholder. setup.sh replaces it after `wrangler d1 create`.
+# Secrets (wrangler secret put, never committed):
+#   EDITOR_TOKEN            editor review API
+#   GITHUB_DISPATCH_TOKEN   optional; starts the d1-publish workflow after an approval
+name = "nordic-crypto-content"
+main = "src/worker.js"
+compatibility_date = "2026-10-01"
+workers_dev = true
+preview_urls = false
+
+[observability]
+enabled = false
+
+[vars]
+GITHUB_REPOSITORY = "jQrgen/nordic-crypto"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "nordic-crypto-content"
+database_id = "00000000-0000-0000-0000-000000000000"
+migrations_dir = "migrations"

@@ -3,6 +3,23 @@
  "launch_date": "2026-10-03",
  "entries": [
   {
+   "id": "d1-stories",
+   "date": null,
+   "review": "pending",
+   "title": "Stories and events can be stored in D1",
+   "description": "Story and event review can move to a Cloudflare D1 database. The editor approves or rejects there, with no commit per story, and the public site keeps being built as static files. The switch is off until NC_DATA_SOURCE is set to d1, so the JSON files remain the source until then.",
+   "i18n": {
+    "nn": {
+     "title": "Saker og hendingar kan lagrast i D1",
+     "description": "Vurdering av saker og hendingar kan flyttast til ein Cloudflare D1-database. Redaktøren godkjenner eller avviser der, utan ein commit per sak, og den offentlege nettstaden vert framleis bygd som statiske filer. Brytaren er av til NC_DATA_SOURCE er sett til d1, så JSON-filene er kjelda til då."
+    },
+    "nb": {
+     "title": "Saker og hendelser kan lagres i D1",
+     "description": "Vurdering av saker og hendelser kan flyttes til en Cloudflare D1-database. Redaktøren godkjenner eller avviser der, uten en commit per sak, og det offentlige nettstedet bygges fortsatt som statiske filer. Bryteren er av til NC_DATA_SOURCE er satt til d1, så JSON-filene er kilden til da."
+    }
+   }
+  },
+  {
    "id": "open-source-developers",
    "date": null,
    "review": "pending",

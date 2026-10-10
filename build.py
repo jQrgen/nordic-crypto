@@ -25,6 +25,7 @@ PREVIEW = "--preview" in sys.argv
 SITE_NAME = "Nordic Crypto"
 ICON_V = "2"   # bump when the favicon changes: browsers (Safari above all) keep an old favicon until its URL changes
 CUSTOM_DOMAIN = site_url.HOST   # GitHub Pages CNAME; publish.sh will not push gh-pages without it
+D1_EVENTS = None   # set by build() when NC_DATA_SOURCE=d1; event approvals live in D1, not approved.json
 def write_cname():
     """site/CNAME, so a publish keeps the custom domain (a missing file clears it on GitHub Pages)."""
     open(os.path.join(SITE, "CNAME"), "w", encoding="utf-8").write(CUSTOM_DOMAIN + "\n")
@@ -895,8 +896,15 @@ def story_figure(i, slug, href=None):
     return _illustrations().figure_html(rec, asset_prefix(slug), ill_labels(), href=href)
 
 def build():
-    global LANG
-    subprocess.run([sys.executable, P("tools", "apply_approvals.py")], check=True, timeout=180)
+    global LANG, D1_EVENTS
+    D1_EVENTS = None
+    if os.environ.get("NC_DATA_SOURCE", "").strip().lower() == "d1":
+        from tools.d1_store import materialize
+        # Approved rows replace the working news and events files for this build.
+        # queue/approved.json is not written: org-chart decisions stay in that file.
+        D1_EVENTS = materialize(ROOT, preview=PREVIEW)
+    else:
+        subprocess.run([sys.executable, P("tools", "apply_approvals.py")], check=True, timeout=180)
     subprocess.run([sys.executable, P("tools", "import_orgchart.py")], check=True, timeout=180)
     news = load(P("data", "news.json"), {"items": []}); org = load(P("data", "orgchart.json"), {"entities": [], "relations": []})
     cfg = load(P("sources.json")); status = load(P("state", "source_status.json"), {})
@@ -2385,8 +2393,13 @@ def build_external_stories(ctx):
     return
 def events_for_site():
     ev = load(P("data", "events.json"), {"events": []})
-    ap_path = P("queue", "approved.json"); approvals_present = os.path.exists(ap_path)
-    ap = (load(ap_path, {}) or {}).get("events", {}) or {}
+    ap_path = P("queue", "approved.json")
+    if D1_EVENTS is not None:
+        ap = D1_EVENTS
+        approvals_present = True
+    else:
+        approvals_present = os.path.exists(ap_path)
+        ap = (load(ap_path, {}) or {}).get("events", {}) or {}
     now = site_now(); out = []  # "finished" is judged in Oslo time
     for e in ev["events"]:
         e = dict(e)
