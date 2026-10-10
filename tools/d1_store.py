@@ -88,7 +88,7 @@ Cloudflare is not configured, so nothing was created.
      # fine-grained PAT, repository jQrgen/nordic-crypto, Actions: Read and write
      cd workers/content && npx wrangler secret put GITHUB_DISPATCH_TOKEN
 
-8. Optional R2 copy of the nightly backup (the git branch d1-backup is the default):
+8. Private R2 bucket for the nightly backup (the only target; no branch is pushed):
      npx wrangler r2 bucket create nordic-crypto-content-backup
      gh variable set CF_R2_BUCKET --body nordic-crypto-content-backup
 
