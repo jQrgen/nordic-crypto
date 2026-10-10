@@ -1,4 +1,6 @@
-# Working files that are never published in the repo (box only). data/ IS committed (public content, privacy-gated).
+# Working files. data/ IS committed (public content, privacy-gated).
+# state/ and queue/ stay off main. The nightly fetch workflow force-adds the editor
+# queue onto the fetch-queue branch only. Never commit state/private_terms.json.
 state/
 queue/
 logs/
