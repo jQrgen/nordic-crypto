@@ -6,7 +6,8 @@
 //   POST /api/private-tips/:id   {status, editor_notes} (same bearer)
 // Turnstile: TURNSTILE_SECRET (shared with the shoutbox). Without it the route answers 503 and stores nothing.
 // Optional webhook after a stored tip: TIP_WEBHOOK_URL (https only) with TIP_WEBHOOK_BEARER.
-// Privacy: never logs. The IP is only used for the shared salted, daily-rotating rate-limit hash (worker.js rateOk).
+// Privacy: never logs. The IP is only used for the salted, daily-rotating rate-limit hash (worker.js rateOk, scope
+// 'private'), counted only after Turnstile passed.
 // Tests: TIP_TEST=1 accepts the Turnstile token "test-pass" and nothing else (never set in wrangler.toml).
 
 export const PLIMITS = { maxBody: 32768, maxTip: 8000, maxContact: 500, maxNotes: 4000, maxLinks: 10, maxUrl: 2000 };
@@ -153,9 +154,6 @@ export async function postPrivateTip(req, env, H) {
   const parsed = await readFields(req, H);
   if (parsed.error) return H.send(req, parsed.error === "too_long" ? 413 : parsed.error === "bad_type" ? 415 : 400, { ok: false, error: parsed.error });
   const f = parsed.fields;
-  const ip = (req.headers.get("CF-Connecting-IP") || "unknown").trim().slice(0, 64);
-  try { if (!(await H.rateOk(env.DB, ip))) return H.send(req, 429, { ok: false, error: "rate" }); }
-  catch { return H.send(req, 503, { ok: false, error: "offline" }); }
   const hp = f.website;  // honeypot filled in: pretend success, store nothing
   if (hp && (typeof hp !== "string" || hp.trim())) return H.send(req, 200, { ok: true });
   const [tip, err] = validatePrivateTip(f, H.ORIGINS);
@@ -164,6 +162,10 @@ export async function postPrivateTip(req, env, H) {
   const gate = await turnstile(env, token);
   if (gate === "unconfigured" || gate === "offline") return H.send(req, 503, { ok: false, error: "offline" });
   if (gate !== "ok") return H.send(req, 400, { ok: false, error: "turnstile" });
+  // Counted only after Turnstile passed, in its own 'private' bucket: junk posts can't use up the inbox for everyone.
+  const ip = (req.headers.get("CF-Connecting-IP") || "unknown").trim().slice(0, 64);
+  try { if (!(await H.rateOk(env.DB, ip, "private"))) return H.send(req, 429, { ok: false, error: "rate" }); }
+  catch { return H.send(req, 503, { ok: false, error: "offline" }); }
   let row;
   try {
     row = await env.DB.prepare(

@@ -127,3 +127,55 @@ test("webhook gets the stored tip", async () => {
   assert.equal(seen[0].init.headers.Authorization, "Bearer hb");
   assert.equal(JSON.parse(seen[0].init.body).tip.language, "nb");
 });
+
+// Rate-limit scopes: tip, private and subscribe each have their own bucket, and private tips count only after Turnstile.
+function freshAll() {
+  const db = new DatabaseSync(":memory:");
+  for (const m of ["0001_tips.sql", "0003_subscribers.sql", "0005_private_tips.sql"]) db.exec(readFileSync(new URL("../migrations/" + m, import.meta.url), "utf8"));
+  return db;
+}
+const envAll = (db) => env(db, { SUBSCRIBE_TEST: "1" });
+const post = (db, path, body, ip) => call(db, path, { method: "POST", body, ip, e: envAll(db) });
+const signup = { email: "reader@example.org", site: "nordic-crypto", lang: "en", website: "" };
+const urlTip = { url: "https://example.no/story", country: "NO", note: "", website: "" };
+const hits = (db) => db.prepare("SELECT COUNT(*) AS n FROM rate_hits").get().n;
+
+test("failed Turnstile posts are not counted and lock nobody out", async () => {
+  const db = freshAll();
+  for (let i = 0; i < 200; i++) assert.equal((await post(db, "/api/private-tip", good({ "cf-turnstile-response": "bogus" }), `2001:db8::${i}`)).status, 400);
+  assert.equal(hits(db), 0, "no rate_hits rows for bogus Turnstile");
+  assert.equal((await post(db, "/api/private-tip", good(), "198.51.100.1")).status, 201);
+  assert.equal((await post(db, "/api/subscribe", signup, "198.51.100.2")).status, 202);
+  assert.equal((await post(db, "/api/tip", urlTip, "198.51.100.3")).status, 201);
+});
+
+test("a full private bucket does not lock tips or signups", async () => {
+  const db = freshAll();
+  for (let i = 0; i < 40; i++) for (let k = 0; k < 5; k++)
+    assert.equal((await post(db, "/api/private-tip", good(), `2001:db8::${i}`)).status, 201);
+  assert.equal((await post(db, "/api/private-tip", good(), "198.51.100.1")).status, 429, "private global cap reached");
+  assert.equal((await post(db, "/api/subscribe", signup, "198.51.100.2")).status, 202);
+  assert.equal((await post(db, "/api/tip", urlTip, "198.51.100.3")).status, 201);
+});
+
+test("a junk flood of /api/tip fills only the tip bucket", async () => {
+  const db = freshAll();
+  for (let i = 0; i < 200; i++)
+    assert.equal((await call(db, "/api/tip", { method: "POST", body: "junk", ip: `2001:db8::${i}`, e: envAll(db) })).status, 400);
+  assert.equal((await post(db, "/api/tip", urlTip, "198.51.100.1")).status, 429, "tip global cap reached");
+  assert.equal((await post(db, "/api/private-tip", good(), "198.51.100.2")).status, 201);
+  assert.equal((await post(db, "/api/subscribe", signup, "198.51.100.3")).status, 202);
+});
+
+test("per-IP limit still applies after valid submissions, per scope, with unlinkable hashes", async () => {
+  const db = freshAll();
+  for (let i = 0; i < 5; i++) assert.equal((await post(db, "/api/private-tip", good(), IP)).status, 201);
+  assert.equal((await post(db, "/api/private-tip", good(), IP)).status, 429);
+  assert.equal((await post(db, "/api/private-tip", good(), "198.51.100.9")).status, 201, "another IP is not limited");
+  assert.equal((await post(db, "/api/subscribe", signup, IP)).status, 202, "subscribe has its own per-IP count");
+  const rows = db.prepare("SELECT h FROM rate_hits").all().map((r) => r.h);
+  assert.ok(rows.every((h) => /^(private|subscribe):[0-9a-f]{64}$/.test(h)), "h is '<scope>:' + hex digest");
+  const digests = new Set(rows.map((h) => h.split(":")[1]));
+  assert.equal(digests.size, 3, "the same IP gets a different digest in each scope");
+  assert.ok(!JSON.stringify(rows).includes(IP), "raw IP never stored");
+});
