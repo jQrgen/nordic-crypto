@@ -1,0 +1,13 @@
+{
+  "name": "nordic-crypto-content",
+  "private": true,
+  "type": "module",
+  "description": "Nordic Crypto story and event review on Cloudflare Workers + D1",
+  "scripts": {
+    "test": "node --test test/worker.test.js",
+    "dev": "wrangler dev --local"
+  },
+  "devDependencies": {
+    "wrangler": "4.147.0"
+  }
+}

@@ -1,0 +1,121 @@
+# Nightly JSON backup of D1 onto the d1-backup branch.
+# Stories, events, sources and the review audit. Not teasers, not the HTML cache,
+# and not the private term list. The privacy gate runs before the commit.
+# Switched off unless NC_DATA_SOURCE is d1. Does not push main or gh-pages.
+# Optional: when CF_R2_BUCKET is set, the same files are copied to that R2 bucket.
+# This workflow does not create the bucket.
+# Do not enable xtrace: the Cloudflare token and the term list must not be printed.
+name: D1 backup
+
+on:
+  schedule:
+    # 04:41 UTC, after the 01:41 fetch, so the night's pending rows are in the backup.
+    - cron: "41 4 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: d1-backup
+  cancel-in-progress: false
+  queue: max
+
+jobs:
+  switched-off:
+    name: D1 backup is switched off
+    if: github.repository == 'jQrgen/nordic-crypto' && vars.NC_DATA_SOURCE != 'd1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Record the switch
+        run: |
+          {
+            echo "### D1 backup"
+            echo
+            echo "\`NC_DATA_SOURCE\` is not \`d1\`. No backup was written."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  backup:
+    name: Export D1 to the backup branch
+    if: github.repository == 'jQrgen/nordic-crypto' && vars.NC_DATA_SOURCE == 'd1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Fetch the backup branch
+        run: git fetch origin d1-backup || true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Write privacy terms
+        env:
+          NC_PRIVATE_TERMS_JSON: ${{ secrets.NC_PRIVATE_TERMS_JSON }}
+        run: python3 tools/ci_write_terms.py
+
+      - name: Export D1
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
+          CF_D1_DATABASE_ID: ${{ vars.CF_D1_DATABASE_ID }}
+        run: |
+          set -euo pipefail
+          dest=$(mktemp -d)
+          echo "dest=$dest" >> "$GITHUB_ENV"
+          python3 tools/d1_export.py "$dest"
+
+      - name: Privacy gate on the backup
+        run: python3 tools/privacy_gate.py "$dest"
+
+      - name: Delete privacy terms
+        if: always()
+        run: |
+          set -euo pipefail
+          rm -f state/private_terms.json state/private_terms.json.tmp
+          if [ -e state/private_terms.json ]; then
+            echo "::error::could not delete state/private_terms.json"
+            exit 1
+          fi
+
+      - name: Commit the backup branch
+        run: tools/d1_backup.sh "$dest" "$(date -u +%Y-%m-%d)"
+
+      - name: Copy the backup to R2
+        if: vars.CF_R2_BUCKET != ''
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
+          CF_R2_BUCKET: ${{ vars.CF_R2_BUCKET }}
+        run: |
+          set -euo pipefail
+          day=$(date -u +%Y-%m-%d)
+          cd workers/content
+          for name in news.json events.json sources.json audit.json manifest.json source_status.json; do
+            if [ -f "$dest/$name" ]; then
+              npx --yes wrangler r2 object put "$CF_R2_BUCKET/backup/$day/$name" --file "$dest/$name" --remote
+            fi
+          done
+
+      - name: Job summary
+        if: always()
+        run: |
+          {
+            echo "### D1 backup"
+            echo
+            echo "JSON was exported from D1 onto \`d1-backup\`. \`main\` and \`gh-pages\` were not pushed."
+            echo "Teasers, the HTML cache and the private term list are not in the backup."
+            if [ -n "${{ vars.CF_R2_BUCKET }}" ]; then
+              echo "\`CF_R2_BUCKET\` is set, so the same files were copied there when the export succeeded."
+            else
+              echo "\`CF_R2_BUCKET\` is not set. The git branch is the backup. The bucket was not created."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"

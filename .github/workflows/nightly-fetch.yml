@@ -84,7 +84,18 @@ jobs:
         run: python3 tools/ci_write_terms.py
 
       - name: Fold pending rows into the working data
+        if: vars.NC_DATA_SOURCE != 'd1'
         run: python3 tools/ci_fetch_queue.py prepare
+
+      - name: Restore rows from D1
+        if: vars.NC_DATA_SOURCE == 'd1'
+        env:
+          NC_DATA_SOURCE: d1
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
+          CF_D1_DATABASE_ID: ${{ vars.CF_D1_DATABASE_ID }}
+        run: python3 tools/d1_sync.py restore
 
       - name: Run the nightly fetch
         id: fetch
@@ -96,12 +107,31 @@ jobs:
           NIGHTLY_STALE_SECS: "13800"
         run: routines/nightly-fetch.sh
 
+      - name: Privacy gate before D1
+        if: success() && vars.NC_DATA_SOURCE == 'd1'
+        run: |
+          set -euo pipefail
+          dest=$(mktemp -d)
+          trap 'rm -rf "$dest"' EXIT
+          python3 tools/d1_sync.py stage "$dest"
+          python3 tools/privacy_gate.py "$dest"
+
+      - name: Write pending rows to D1
+        if: success() && vars.NC_DATA_SOURCE == 'd1'
+        env:
+          NC_DATA_SOURCE: d1
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
+          CF_D1_DATABASE_ID: ${{ vars.CF_D1_DATABASE_ID }}
+        run: python3 tools/d1_sync.py push
+
       - name: Pack the editor queue
-        if: success()
+        if: success() && vars.NC_DATA_SOURCE != 'd1'
         run: python3 tools/ci_fetch_queue.py pack
 
       - name: Privacy gate on the queue
-        if: success()
+        if: success() && vars.NC_DATA_SOURCE != 'd1'
         run: |
           set -euo pipefail
           dest=$(mktemp -d)
@@ -121,11 +151,11 @@ jobs:
 
       - name: Push the queue branch
         id: push
-        if: success()
+        if: success() && vars.NC_DATA_SOURCE != 'd1'
         run: tools/ci_push_fetch_queue.sh push
 
       - name: Open or update the queue pull request
-        if: success()
+        if: success() && vars.NC_DATA_SOURCE != 'd1'
         env:
           GH_TOKEN: ${{ github.token }}
         run: tools/ci_fetch_pr.sh
@@ -140,7 +170,9 @@ jobs:
               python3 tools/ci_fetch_queue.py summary --missing
             fi
             echo
-            if [ "${{ steps.push.outcome }}" = "success" ]; then
+            if [ "${{ vars.NC_DATA_SOURCE }}" = "d1" ]; then
+              echo "Pending rows were written to D1. \`fetch-queue\` was not updated. Approving a story does not need a commit."
+            elif [ "${{ steps.push.outcome }}" = "success" ]; then
               echo "Pushed \`fetch-queue\`. The pull request into \`main\` stays open for the editor. It is not merged."
             else
               echo "\`fetch-queue\` was not updated."

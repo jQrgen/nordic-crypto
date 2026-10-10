@@ -63,6 +63,20 @@ except FileNotFoundError:
 for it in news.get("items") or []:
     for L in ("nn", "nb"):
         chk(f"news.json {it.get('id')}.title_i18n.{L}", (it.get("title_i18n") or {}).get(L))
+        chk(f"news.json {it.get('id')}.summary_i18n.{L}", (it.get("summary_i18n") or {}).get(L))
+def _event_notes(path, label):
+    try:
+        rows = json.load(open(path, encoding="utf-8")).get("events") or []
+    except FileNotFoundError:
+        return
+    for ev in rows:
+        notes = ev.get("note_i18n") or {}
+        if not isinstance(notes, dict):
+            continue
+        for L in ("nn", "nb"):
+            chk(f"{label} {ev.get('id')}.note_i18n.{L}", notes.get(L))
+_event_notes(P("data", "events.json"), "events.json")
+_event_notes(P("archive", "events.json"), "archive/events.json")
 for name in ("rules_page.py", "regulation_videos.py"):
     rp = P("tools", name)
     if os.path.exists(rp):

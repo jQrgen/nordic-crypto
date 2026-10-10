@@ -139,7 +139,7 @@ The static site cannot store subscriptions. `workers/push/` is a Cloudflare Work
 ## Pipeline
 | Step | Command | What it does |
 |---|---|---|
-| Fetch | `./fetch.sh [--days N]` | Reads RSS feeds / list pages / news search per country (robots.txt respected, own UA, ≥2 s per host, several hosts at once). Local newspapers and justice pages are keyword-filtered. A source with no RSS is read from sitemap.xml or its public index page (title, date, link and summary only; robots.txt and the same per-host delay). One dead feed is logged and skipped. Adds new stories to `data/news.json` as `pending`, new events to `data/events.json` as `pending`, candidate entities to `queue/review.json`. The [nightly fetch on Actions](#nightly-fetch-on-actions) does the same run and leaves the new pending rows on `fetch-queue` until an editor approves them onto `main`. |
+| Fetch | `./fetch.sh [--days N]` | Reads RSS feeds / list pages / news search per country (robots.txt respected, own UA, ≥2 s per host, several hosts at once). Local newspapers and justice pages are keyword-filtered. A source with no RSS is read from sitemap.xml or its public index page (title, date, link and summary only; robots.txt and the same per-host delay). One dead feed is logged and skipped. Adds new stories to `data/news.json` as `pending`, new events to `data/events.json` as `pending`, candidate entities to `queue/review.json`. The [nightly fetch on Actions](#nightly-fetch-on-actions) does the same run and leaves the new pending rows on `fetch-queue` until an editor approves them onto `main`. With `NC_DATA_SOURCE=d1` the same run writes those pending rows to Cloudflare D1 instead, and approval does not need a commit ([Stories and events in D1](#stories-and-events-in-d1)). |
 | Add a story by hand | `./fetch.sh --add URL --country XX [--date YYYY-MM-DD]` | Metadata only (title/description/date), never article text. |
 | Add an event by hand | `.venv/bin/python events.py --add-event URL --country XX [--title --start --place --organiser --paid --online]` | Event lands as `pending`. |
 | Refresh events only | `.venv/bin/python events.py` or `.venv/bin/python events.py --only id,id` | Same event search as `./fetch.sh`, without the news feeds. |
@@ -180,6 +180,89 @@ What lands on `fetch-queue` is awaiting the editor, not approved and not publish
 The job summary lists the new-story count, the new-event count, how many are awaiting the editor, and the source-health line. Test: `python3 -m unittest tests.test_ci_fetch`.
 
 **Editor.** Read `fetch-queue` (or the pull request). Do not merge it, and do not commit on that branch. Branch from `main`. Copy only the rows you are approving or rejecting into `data/news.json` and `data/events.json`. Write the decision in `queue/approved.json` (gitignored) and run `python3 tools/apply_approvals.py`. For an event, add its id to `events.approve` or `events.reject` and let the build archive it. Before opening the pull request into `main`, run `python3 tools/ci_fetch_queue.py lint-promotion news BEFORE.json AFTER.json` (and `events` for the events file). It refuses a new row that is still `pending`. Commit the public files only. Merging that pull request is the approval. Deploy then publishes from `main`. The next fetch sees the URL on `main` and drops it from the queue.
+
+### Stories and events in D1
+
+`data/news.json` and `data/events.json` stay the source until the repository variable `NC_DATA_SOURCE` is `d1` (`gh variable set NC_DATA_SOURCE --body d1`). Until that line, `build.py`, the nightly fetch and the deploy workflow behave as they do above. Nothing in Cloudflare is created by a push.
+
+When the variable is `d1`:
+
+- The nightly fetch writes new stories and events to D1 with review status `pending`. It does not update `fetch-queue` and it does not need a commit per story. An event that is already in `archive/events.json` as the public calendar stays `approved`, so the first fetch does not hide it.
+- The editor approves or rejects in D1. `python3 tools/d1_review.py` runs `wrangler d1 execute` against the remote database. The Worker in `workers/content/` does the same on `POST /api/review` with `Authorization: Bearer` the `EDITOR_TOKEN` secret. Either one stores who decided and when (`reviewed_by`, `reviewed_at`). No git commit.
+- `build.py` reads the approved rows from the D1 HTTP query API (the same API `wrangler d1 execute` uses) and builds the static site. Pending rows stay off the public build. `queue/approved.json` is not rewritten, so org-chart, academia and own-story decisions in that file are left as they are. The privacy gate and the text gate still run before a publish. The private term list stays in the secret `NC_PRIVATE_TERMS_JSON`. It is not a D1 table, not a backup file, and not a Worker response.
+- `.github/workflows/d1-publish.yml` rebuilds and, when `NC_CI_DEPLOY` is `true`, publishes `gh-pages` at 07:17 and 15:17 UTC, on `workflow_dispatch`, and when the Worker sends `repository_dispatch` `d1-approved`. `main` is not committed.
+- `.github/workflows/d1-backup.yml` exports stories, events, sources and the review audit to the branch `d1-backup` at 04:41 UTC (a dated folder under `backup/`). Teasers, the HTML cache and the term list are omitted. The privacy gate runs on the export before the commit. If the variable `CF_R2_BUCKET` is set, the same files are copied there. The workflow does not create the bucket.
+
+The one-time import is `python3 tools/d1_import.py`. It reads `data/news.json`, `data/events.json`, `archive/events.json`, `sources.json`, and `queue/approved.json` when that file is present. A second run with the same files writes nothing. A newer decision already stored in D1 is kept. Run it on the box before flipping `NC_DATA_SOURCE`, so the gitignored event decisions are included. The committed archive is enough for the events that are already on the public calendar.
+
+Schema: `workers/content/migrations/0001_content.sql`. Stories, events and sources each have `review_status` (`pending`, `approved` or `rejected`), `reviewed_by`, `reviewed_at` and a `payload` column that is the original JSON object. Rows are not deleted. A merged story keeps `item_status` `merged` and stays out of the editor queue. Working notes the next fetch needs (teasers, seen HTML, source health) can sit in the `documents` table. The public export does not read the private ones.
+
+**Cost.** On the Workers Free plan, which includes D1, the limits are 5 million rows read per day, 100,000 rows written per day, and 5 GB of storage for the account. A free database is capped at 500 MB, and an account can have 10 databases. The daily limits reset at 00:00 UTC. Since 1 September 2026 a query fails until the next UTC day when a daily limit is hit; the stored rows stay. Paid adds the first 25 billion rows read per month (then $0.001 per million), the first 50 million rows written per month (then $1.00 per million) and the first 5 GB (then $0.75 per GB-month). Source: [Cloudflare D1 pricing](https://developers.cloudflare.com/d1/platform/pricing/) and [limits](https://developers.cloudflare.com/d1/platform/limits/). This database is about a hundred stories, a dozen events and the outlet list. A build reads those rows a handful of times. The nightly fetch writes the new ones. A page view on GitHub Pages does not query D1. That sits inside the free tier. The optional Worker is a separate request only when something calls it.
+
+**Secrets and variables.** No Cloudflare resource was created from this change: the API token is not in the environment here.
+
+| Name | Where | What |
+|---|---|---|
+| `CLOUDFLARE_API_TOKEN` | secret | API token with Account → D1 → Edit, and Account → Workers Scripts → Edit. Add Account → Workers R2 Storage → Edit only if you use the R2 copy. Not the analytics token. |
+| `CF_ACCOUNT_ID` | variable | Account id. The same one the stats job uses, if that is already set. |
+| `CF_D1_DATABASE_ID` | variable | Database id printed by `wrangler d1 create`. |
+| `NC_DATA_SOURCE` | variable | `d1` to switch. Anything else, including unset, keeps the JSON files. |
+| `EDITOR_TOKEN` | Worker secret | Bearer token for `POST /api/review`. A random string, not the Cloudflare token. |
+| `GITHUB_DISPATCH_TOKEN` | Worker secret, optional | Fine-grained PAT, this repository, Actions read and write. Without it, approvals wait for the schedule. |
+| `CF_R2_BUCKET` | variable, optional | Bucket name for the extra backup copy. Unset means git only. |
+| `NC_CI_FETCH` | variable | Still required for the nightly fetch, as above. |
+| `NC_CI_DEPLOY` | variable | Still required before `d1-publish` pushes `gh-pages`. |
+| `NC_PRIVATE_TERMS_JSON` | secret | Unchanged. Never written to D1. |
+
+Commands, from the repo root. `workers/content/setup.sh` prints the same list and creates the database only when the token is set and you pass `--apply`.
+
+```bash
+export CLOUDFLARE_API_TOKEN='…'
+export CLOUDFLARE_ACCOUNT_ID='…'
+export CF_ACCOUNT_ID="$CLOUDFLARE_ACCOUNT_ID"
+
+cd workers/content
+npx wrangler d1 create nordic-crypto-content
+# replace the zeros in workers/content/wrangler.toml with the database_id
+npx wrangler d1 migrations apply nordic-crypto-content --remote
+cd ../..
+export CF_D1_DATABASE_ID='…'
+
+python3 tools/d1_import.py
+
+cd workers/content
+npx wrangler secret put EDITOR_TOKEN
+npx wrangler deploy
+cd ../..
+
+gh secret set CLOUDFLARE_API_TOKEN
+gh variable set CF_ACCOUNT_ID --body "$CF_ACCOUNT_ID"
+gh variable set CF_D1_DATABASE_ID --body "$CF_D1_DATABASE_ID"
+gh variable set NC_DATA_SOURCE --body d1
+```
+
+Review, still without a commit:
+
+```bash
+python3 tools/d1_review.py pending
+python3 tools/d1_review.py approve --id STORY_ID --summary "…" --by "Nordic Crypto redaktør"
+python3 tools/d1_review.py reject --id STORY_ID --reason "…"
+python3 tools/d1_review.py approve-event --id EVENT_ID --note "…"
+python3 tools/d1_review.py reject-event --id EVENT_ID --reason "…"
+```
+
+Optional, after the Worker is deployed:
+
+```bash
+# redeploy on approve (fine-grained PAT, Actions: Read and write)
+cd workers/content && npx wrangler secret put GITHUB_DISPATCH_TOKEN
+
+# extra backup copy; the git branch is already the backup
+npx wrangler r2 bucket create nordic-crypto-content-backup
+gh variable set CF_R2_BUCKET --body nordic-crypto-content-backup
+```
+
+The Worker also serves `GET /api/v1/news.json`, `/api/v1/events.json` and `/api/v1/sources.json` from approved rows. The static files on GitHub Pages remain the ones the site and the apps use. Test: `python3 -m unittest tests.test_d1_store` and `node --test workers/content/test/worker.test.js`.
 
 ### New events in the Telegram chat
 `.github/workflows/telegram-events.yml` posts each new upcoming event to the Nordic Crypto Telegram chat once: after every successful `Deploy site` run and at :17 and :47 every hour (which also catches publishes from the box). `tools/telegram_events.py` reads the live `/api/v1/events.json`, skips events that have ended, posts the earliest first (at most 5 per run) with title, date and time, place, organiser and a link to `/calendar/<id>/`, and records each posted id in a ledger kept in the Actions cache. With no ledger (first run, or the cache expired) it records the current events and posts nothing, so the chat is never flooded with old events. Setup: repo secret `TELEGRAM_BOT_TOKEN` (the existing bot, allowed to post in the chat) and repo variable `TELEGRAM_CHAT_ID` (`@nordiccryptochat` or the numeric `-100…` id). Without both the workflow is a dry run. `workflow_dispatch` has a dry-run switch. Test: `python3 -m unittest tests.test_telegram_events`.
