@@ -432,12 +432,23 @@ def build_newsletter():
 <p class="meta nlfine">{t("nl_write", href="../columnist/")} {t("nl_kaupr")}</p>
 </div>"""
     page("newsletter", t("nl_title"), "newsletter", body, t("nl_desc"))
+_CFG_JSON = {}   # path -> ((mtime_ns, size), data); analytics/push config is asked for on every page
+def _cfg_json(p, d=None):
+    """load(p, d) for a small config file, parsed again only when the file changes. Read the result, do not change it."""
+    try: st = os.stat(p)
+    except FileNotFoundError: return d
+    stamp = (st.st_mtime_ns, st.st_size)
+    hit = _CFG_JSON.get(p)
+    if hit and hit[0] == stamp: return hit[1]
+    data = load(p, d)
+    _CFG_JSON[p] = (stamp, data)
+    return data
 _ANALYTICS_TOKEN = re.compile(r"^[A-Za-z0-9_-]{16,128}$")
 def analytics_token():
     """Public Cloudflare Web Analytics site token. Empty until analytics.json or CF_WEB_ANALYTICS_TOKEN is set."""
     raw = (os.environ.get("CF_WEB_ANALYTICS_TOKEN") or "").strip()
     if not raw:
-        raw = str((load(P("analytics.json"), {}) or {}).get("token") or "").strip()
+        raw = str((_cfg_json(P("analytics.json"), {}) or {}).get("token") or "").strip()
     if not raw or "REPLACE" in raw.upper() or raw.upper() in {"TOKEN", "XXX", "YOUR_TOKEN"}:
         return ""
     if not _ANALYTICS_TOKEN.fullmatch(raw):
@@ -472,7 +483,7 @@ def push_endpoint():
     e = os.environ.get("PUSH_ENDPOINT")
     if e is not None:
         return e.strip().rstrip("/") or None
-    cfg = load(P("workers", "push", "public.json"), {}) or {}
+    cfg = _cfg_json(P("workers", "push", "public.json"), {}) or {}
     return (cfg.get("public_endpoint") or "").strip().rstrip("/") or None
 _PUSH_JS = None
 def push_panel(root):

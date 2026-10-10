@@ -40,14 +40,24 @@ _WS = re.compile(r"\s+")
 def norm(text):
     return _WS.sub(" ", (text or "").strip()).casefold()
 
+_LOADED = {}   # path -> ((mtime_ns, size), items); a build asks once per card, so parse the file once
+
 def load(path=None):
+    """Catalogue items. The dict is shared between callers: read it, do not change it."""
     path = path or PATH
     try:
+        st = os.stat(path)
+        stamp = (st.st_mtime_ns, st.st_size)
+        hit = _LOADED.get(path)
+        if hit and hit[0] == stamp:
+            return hit[1]
         data = json.load(open(path, encoding="utf-8"))
     except FileNotFoundError:
         return {}
     items = data.get("items") or {}
-    return items if isinstance(items, dict) else {}
+    items = items if isinstance(items, dict) else {}
+    _LOADED[path] = (stamp, items)
+    return items
 
 def needed_langs(language):
     """Nordic site languages that still need a headline for this source language."""
