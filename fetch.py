@@ -132,6 +132,36 @@ def remember_response(url, response):
     headers = getattr(response, "headers", None) or {}
     with _io:
         http_cache[url] = {"etag": headers.get("ETag"), "lm": headers.get("Last-Modified"), "parsed": True}
+# One fetch per URL per run. 131 listing sources share a URL with another source (sn.dk x44),
+# and listing.collect probes the same origin paths for each of them. The first caller fetches;
+# a concurrent caller waits on the per-URL lock and gets the same result.
+_memo, _memo_locks, _memo_guard = {}, {}, threading.Lock()
+def _memo_lock(key):
+    with _memo_guard:
+        return _memo_locks.setdefault(key, threading.Lock())
+def _reset_run_memo():
+    """Forget this run's fetches. For tests."""
+    with _memo_guard:
+        _memo.clear(); _memo_locks.clear(); _feed_times.clear()
+def listing_get(url):
+    """``(status, text)`` for a sitemap or index URL, fetched once per run.
+
+    Unconditional, and no validators are stored: listing.collect only uses a 200 body, so a
+    304 could only cost a second request. A failure is kept too and raised to every caller,
+    so 44 sources on one host do not each wait out the same timeout.
+    """
+    key = ("listing", url)
+    with _memo_lock(key):
+        if key not in _memo:
+            try:
+                r = get(url, conditional=False)
+                _memo[key] = (r.status_code, (r.text or "") if r.status_code == 200 else "")
+            except Exception as ex:
+                _memo[key] = ex
+        got = _memo[key]
+    if isinstance(got, Exception):
+        raise got.with_traceback(None)
+    return got
 PAGE_REDIRECTS = 6
 _CONSENT = (("cookieconsent_status", "dismiss"), ("CookieConsent", "true"), ("consent", "accepted"))
 def follow_redirects(start, fetch, limit=PAGE_REDIRECTS):
@@ -417,25 +447,25 @@ def outlet_feed_time(url, outlet_id):
     feed = src.get("feed") or ""
     if not str(feed).startswith("http") or "{q}" in feed:
         return None
-    if outlet_id not in _feed_times:
-        found = {}
-        try:
-            if robots_ok(feed):
-                r = get(feed)
-                if r.status_code == 304:
-                    r = get(feed, conditional=False)
-                if r.status_code == 200:
-                    zone = pubtime.zone_for(country=src.get("country"), url=url)
-                    parsed = feedparser.parse(r.content)
-                    remember_response(feed, r)
-                    for entry in parsed.entries:
-                        link = unwrap_news_url(entry.get("link") or "")
-                        inst = pubtime.from_feed_entry(entry, zone)
-                        if link and inst:
-                            found[coverage.canon(link)] = inst
-        except Exception:
+    with _memo_lock(("feed", outlet_id)):
+        if outlet_id not in _feed_times:
             found = {}
-        _feed_times[outlet_id] = found
+            try:
+                if robots_ok(feed):
+                    # Unconditional, and no validators stored: they would make the outlet's own
+                    # RSS source get a 304 later in this run and skip that night's new items.
+                    r = get(feed, conditional=False)
+                    if r.status_code == 200:
+                        zone = pubtime.zone_for(country=src.get("country"), url=url)
+                        parsed = feedparser.parse(r.content)
+                        for entry in parsed.entries:
+                            link = unwrap_news_url(entry.get("link") or "")
+                            inst = pubtime.from_feed_entry(entry, zone)
+                            if link and inst:
+                                found[coverage.canon(link)] = inst
+            except Exception:
+                found = {}
+            _feed_times[outlet_id] = found
     return _feed_times[outlet_id].get(coverage.canon(unwrap_news_url(url)))
 
 # ---------- source map (domain -> outlet, country) ----------
@@ -514,6 +544,14 @@ def candidates(text):
 
 EN_MONTHS = {m: i for i, m in enumerate(["January","February","March","April","May","June","July","August","September","October","November","December"], 1)}
 def page_meta(url):
+    """``_page_meta(url)``, read once per run. Sources that share a sitemap reach the same
+    article together, so a second caller waits for the first. A failure is not kept."""
+    key = ("page", url)
+    with _memo_lock(key):
+        if key not in _memo:
+            _memo[key] = _page_meta(url)
+        return _memo[key]
+def _page_meta(url):
     """Public metadata only (title, description, publish time). Article text is not stored.
     og:image is seen and dropped. The picture URL is not returned."""
     html = read_html(url); soup = BeautifulSoup(html, "lxml")
@@ -863,23 +901,11 @@ def main():
         err = None
         method = s.get("method") or "sitemap"
         try:
-            remembered = []
-            def http_get(url):
-                r = get(url)
-                if r.status_code == 304:
-                    r = get(url, conditional=False)
-                if r.status_code == 200:
-                    remembered.append((url, r))
-                    return 200, r.text or ""
-                return r.status_code, ""
             entries, used, err = listing.collect(
-                s.get("url") or s.get("feed") or "", http_get, robots_ok,
+                s.get("url") or s.get("feed") or "", listing_get, robots_ok,
                 limit=max(8, s.get("max_new_per_run", 8) * 3),
                 zone=pubtime.zone_for(country=s.get("country"), url=s.get("url")),
             )
-            if entries:
-                for got_url, got in remembered:
-                    remember_response(got_url, got)
             if used:
                 method = used
             cap = s.get("max_new_per_run", 8)
