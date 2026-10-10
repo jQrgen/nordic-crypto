@@ -30,10 +30,17 @@ THEME_COLOR = {"matrix": "#000000", "pixel": "#E83838", "pirate": "#1D2F4A", "cb
                "vhs": "#12071F", "athens": "#2A1B12", "saga": "#0B1320", "noir": "#0E0E0F", "teletext": "#000000"}
 
 
+_READ = {}   # file name -> text; every page() asks for the same few theme files
+
+
 def _read(fn):
+    if fn in _READ: return _READ[fn]
     p = os.path.join(DIR, fn)
-    if not os.path.exists(p): return ""
-    with open(p, encoding="utf-8") as fh: return fh.read()
+    if not os.path.exists(p): text = ""
+    else:
+        with open(p, encoding="utf-8") as fh: text = fh.read()
+    _READ[fn] = text
+    return text
 
 
 # ---------- small SVG helpers ----------
