@@ -21,12 +21,7 @@ from tools import d1_store
 from tools import d1_review
 
 SETUP = os.path.join(ROOT, "workers", "content", "setup.sh")
-BACKUP = os.path.join(ROOT, "tools", "d1_backup.sh")
 SECRET = "super-secret-term-xyz"
-
-
-def _git(cwd, *args, check=True):
-    return subprocess.run(["git", *args], cwd=cwd, check=check, capture_output=True, text=True)
 
 
 class ImportTwice(unittest.TestCase):
@@ -366,41 +361,7 @@ class HttpAndCommands(unittest.TestCase):
         self.assertIn("Nothing was created", proc.stderr)
         self.assertFalse(os.path.exists(marker))
 
-    def test_backup_branch_and_workflow_switch(self):
-        tmp = tempfile.mkdtemp(prefix="nc-d1-git-")
-        self.addCleanup(shutil.rmtree, tmp, True)
-        bare = os.path.join(tmp, "bare.git")
-        work = os.path.join(tmp, "work")
-        _git(tmp, "init", "--bare", "-b", "main", bare)
-        _git(tmp, "clone", bare, work)
-        _git(work, "config", "user.name", "Test")
-        _git(work, "config", "user.email", "test@example.com")
-        with open(os.path.join(work, "README"), "w", encoding="utf-8") as fh:
-            fh.write("base\n")
-        _git(work, "add", "README")
-        _git(work, "commit", "-m", "base")
-        _git(work, "push", "origin", "HEAD:main")
-        staged = os.path.join(work, "staged")
-        os.makedirs(staged)
-        with open(os.path.join(staged, "news.json"), "w", encoding="utf-8") as fh:
-            json.dump({"items": [{"id": "a", "title": "Public"}]}, fh)
-        env = os.environ.copy()
-        env["NC_BACKUP_REPO"] = work
-        proc = subprocess.run(["bash", BACKUP, staged, "2026-10-10"], cwd=work, env=env, capture_output=True, text=True)
-        self.assertEqual(proc.returncode, 0, proc.stderr + proc.stdout)
-        shown = _git(bare, "show", "d1-backup:backup/2026-10-10/news.json")
-        self.assertIn("Public", shown.stdout)
-        names = _git(bare, "ls-tree", "-r", "--name-only", "d1-backup").stdout.splitlines()
-        self.assertTrue(all(name.startswith("backup/") for name in names))
-        self.assertNotIn("state/private_terms.json", names)
-        bad = os.path.join(work, "bad-stage")
-        os.makedirs(bad)
-        with open(os.path.join(bad, "private_terms.json"), "w", encoding="utf-8") as fh:
-            fh.write("{}\n")
-        refused = subprocess.run(["bash", BACKUP, bad, "2026-10-11"], cwd=work, env=env, capture_output=True, text=True)
-        self.assertNotEqual(refused.returncode, 0)
-        self.assertNotIn(SECRET, refused.stdout + refused.stderr)
-
+    def test_workflow_switch(self):
         nightly = open(os.path.join(ROOT, ".github", "workflows", "nightly-fetch.yml"), encoding="utf-8").read()
         publish = open(os.path.join(ROOT, ".github", "workflows", "d1-publish.yml"), encoding="utf-8").read()
         backup = open(os.path.join(ROOT, ".github", "workflows", "d1-backup.yml"), encoding="utf-8").read()
@@ -416,7 +377,14 @@ class HttpAndCommands(unittest.TestCase):
         self.assertIn("d1-approved", publish)
         self.assertIn("group: gh-pages-deploy", publish)
         self.assertNotIn("set -x", publish)
-        self.assertIn("tools/d1_backup.sh", backup)
+        # The repository is public: the backup must not land on any branch.
+        self.assertNotIn("d1_backup.sh", backup)
+        self.assertNotIn("git push", backup)
+        self.assertNotIn("HEAD:d1-backup", backup)
+        self.assertNotIn("git fetch origin d1-backup", backup)
+        self.assertNotIn("contents: write", backup)
+        self.assertIn("contents: read", backup)
+        self.assertIn("nothing stored", backup)
         self.assertIn("CF_R2_BUCKET", backup)
         self.assertNotIn("wrangler r2 bucket create", backup)
         self.assertIn("NC_DATA_SOURCE: ${{ vars.NC_DATA_SOURCE }}", deploy)

@@ -1,9 +1,9 @@
-# Nightly JSON backup of D1 onto the d1-backup branch.
+# Nightly JSON backup of D1 into the private R2 bucket CF_R2_BUCKET.
 # Stories, events, sources and the review audit. Not teasers, not the HTML cache,
-# and not the private term list. The privacy gate runs before the commit.
-# Switched off unless NC_DATA_SOURCE is d1. Does not push main or gh-pages.
-# Optional: when CF_R2_BUCKET is set, the same files are copied to that R2 bucket.
-# This workflow does not create the bucket.
+# and not the private term list. The privacy gate runs before the upload.
+# Switched off unless NC_DATA_SOURCE is d1. Pushes no branch: this repository is
+# public, and the export holds pending and rejected stories and the review audit.
+# Without CF_R2_BUCKET nothing is exported or stored. This workflow does not create the bucket.
 # Do not enable xtrace: the Cloudflare token and the term list must not be printed.
 name: D1 backup
 
@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: d1-backup
@@ -36,9 +36,24 @@ jobs:
             echo "\`NC_DATA_SOURCE\` is not \`d1\`. No backup was written."
           } >> "$GITHUB_STEP_SUMMARY"
 
+  no-target:
+    name: D1 backup has no private target
+    if: github.repository == 'jQrgen/nordic-crypto' && vars.NC_DATA_SOURCE == 'd1' && vars.CF_R2_BUCKET == ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Record the missing bucket
+        run: |
+          {
+            echo "### D1 backup"
+            echo
+            echo "No private backup target configured; nothing stored."
+            echo "\`CF_R2_BUCKET\` is not set, so D1 was not exported. The bucket was not created."
+          } >> "$GITHUB_STEP_SUMMARY"
+
   backup:
-    name: Export D1 to the backup branch
-    if: github.repository == 'jQrgen/nordic-crypto' && vars.NC_DATA_SOURCE == 'd1'
+    name: Export D1 to the private backup
+    if: github.repository == 'jQrgen/nordic-crypto' && vars.NC_DATA_SOURCE == 'd1' && vars.CF_R2_BUCKET != ''
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -47,9 +62,6 @@ jobs:
         with:
           ref: main
           fetch-depth: 1
-
-      - name: Fetch the backup branch
-        run: git fetch origin d1-backup || true
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -86,11 +98,7 @@ jobs:
             exit 1
           fi
 
-      - name: Commit the backup branch
-        run: tools/d1_backup.sh "$dest" "$(date -u +%Y-%m-%d)"
-
       - name: Copy the backup to R2
-        if: vars.CF_R2_BUCKET != ''
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
@@ -111,11 +119,6 @@ jobs:
           {
             echo "### D1 backup"
             echo
-            echo "JSON was exported from D1 onto \`d1-backup\`. \`main\` and \`gh-pages\` were not pushed."
-            echo "Teasers, the HTML cache and the private term list are not in the backup."
-            if [ -n "${{ vars.CF_R2_BUCKET }}" ]; then
-              echo "\`CF_R2_BUCKET\` is set, so the same files were copied there when the export succeeded."
-            else
-              echo "\`CF_R2_BUCKET\` is not set. The git branch is the backup. The bucket was not created."
-            fi
+            echo "JSON was exported from D1 and copied to the R2 bucket \`CF_R2_BUCKET\` when the export succeeded."
+            echo "No branch was pushed. Teasers, the HTML cache and the private term list are not in the backup."
           } >> "$GITHUB_STEP_SUMMARY"
