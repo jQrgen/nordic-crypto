@@ -8,7 +8,7 @@ hver redaksjon bestemmer selv og skriver sin egen oppsummering (Kryptonytt på n
 Dedup: kanonisk URL mot ALLE saker i målet (også avviste) og målets approved.json -> rejected.
 Kalles fra ./fetch.sh (Kryptonytt) og routines/nightly-fetch.sh (Nordic Crypto). Identisk kopi ligger i begge repoene.
 Stier kan overstyres med KRYPTONYTT_DIR / NORDIC_CRYPTO_DIR.  Bruk: python3 tools/crosssite_handoff.py [--dry-run]"""
-import datetime as dt, fcntl, importlib.util, json, os, re, sys, urllib.parse
+import datetime as dt, fcntl, importlib.util, json, os, re, signal, subprocess, sys, time, urllib.parse
 KN = os.environ.get("KRYPTONYTT_DIR", "/workspace/kryptonytt"); NC = os.environ.get("NORDIC_CRYPTO_DIR", "/workspace/nordic-crypto")
 NOW = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
 TOPIC_KN_TO_NC = {"krypto": "crypto", "blokkjede": "blockchain", "regulering": "regulation", "selskaper": "companies", "bitcoin": "bitcoin"}
@@ -110,9 +110,83 @@ def handoff(src, dst, pick, convert, queue_fields, label, dry):
     for a in added: print(f"   + {a['published'][:10]} {a['source_name']}: {a['title'][:90]}")
     return added
 
+LOCK_PATH = os.environ.get("CROSSSITE_LOCK", "/tmp/crosssite-handoff.lock")
+
+def _pid_alive(pid):
+    try:
+        os.kill(pid, 0)
+    except OSError:
+        return False
+    return True
+
+def _stop_pid(pid):
+    """Stop pid and its children. A hung handoff must not keep the next night waiting."""
+    if not isinstance(pid, int) or pid <= 1:
+        return
+    children = []
+    try:
+        raw = subprocess.run(["ps", "-o", "pid=", "--ppid", str(pid)], capture_output=True, text=True, timeout=5).stdout
+        children = [int(x) for x in raw.split() if x.isdigit()]
+    except (OSError, subprocess.TimeoutExpired):
+        children = []
+    for child in children:
+        _stop_pid(child)
+    for sig in (signal.SIGTERM, signal.SIGKILL):
+        if not _pid_alive(pid):
+            return
+        try:
+            os.kill(pid, sig)
+        except OSError:
+            return
+        for _ in range(20):
+            if not _pid_alive(pid):
+                return
+            time.sleep(0.1)
+
+def _lock_record(fh):
+    fh.seek(0)
+    parts = fh.read().split()
+    pid = int(parts[0]) if parts and parts[0].isdigit() else None
+    started = int(parts[1]) if len(parts) > 1 and parts[1].isdigit() else None
+    return pid, started
+
+def acquire_lock(path=None, stale=900, wait=30):
+    """Exclusive handoff lock. Returns the open file; keep it until the process exits.
+
+    flock dies with the process, so a leftover file from a dead run is not a lock.
+    A live holder older than ``stale`` seconds is stopped. Otherwise this waits at
+    most ``wait`` seconds and then exits. It does not block until an outer timer kills it.
+    """
+    path = path or LOCK_PATH
+    fh = open(path, "a+")
+    deadline = time.time() + max(0, wait)
+    while True:
+        try:
+            fcntl.flock(fh, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            break
+        except BlockingIOError:
+            pid, started = _lock_record(fh)
+            age = (time.time() - started) if started else None
+            alive = bool(pid) and _pid_alive(pid)
+            if alive and age is not None and age >= stale:
+                print(f"handoff: stale lock held by pid {pid} for {int(age)}s — stopping it ({path})", flush=True)
+                _stop_pid(pid)
+                time.sleep(0.2)
+                continue
+            if time.time() >= deadline:
+                if alive:
+                    raise SystemExit(f"handoff: lock held by pid {pid} ({path}). Stop that process if it is stuck. The file is not the lock; flock dies with the process.")
+                raise SystemExit(f"handoff: {path} is busy and the recorded pid is not running. Another handoff still holds it.")
+            time.sleep(0.2)
+    fh.seek(0)
+    fh.truncate()
+    fh.write(f"{os.getpid()} {int(time.time())}\n")
+    fh.flush()
+    return fh
+
 def main():
     dry = "--dry-run" in sys.argv
-    lock = open("/tmp/crosssite-handoff.lock", "w"); fcntl.flock(lock, fcntl.LOCK_EX)
+    lock = acquire_lock()  # held until this process exits; do not close
     def kn_to_nc(it):
         return {"title": it["title"], "title_en": None, "source": it.get("source"), "source_name": it.get("source_name") or it.get("source"),
                 "country": "NO", "language": "Norwegian", "via": "kryptonytt", "seen_via": ["kryptonytt"], "published": it["published"],
