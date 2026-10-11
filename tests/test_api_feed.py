@@ -186,6 +186,40 @@ def deterministic(fails, info):
             fails.append(f"academia example is not the first row in section order: {ex} want {next(iter(firsts))}")
 
 
+def latest_feed(fails, tmp, news, spec, info):
+    """api/v1/news/latest.json: the newest stories of news.json, same order and values, notifier fields only."""
+    path = os.path.join(tmp, "api/v1/news/latest.json")
+    if not os.path.exists(path):
+        fails.append("news/latest.json missing")
+        return
+    doc = json.load(open(path, encoding="utf-8"))
+    want = news["items"][:api_feed.LATEST_COUNT]
+    if [i["id"] for i in doc["items"]] != [i["id"] for i in want]:
+        fails.append("latest.json is not the newest stories of news.json in the same order")
+    if doc.get("count") != len(doc["items"]) or doc.get("limit") != api_feed.LATEST_COUNT:
+        fails.append("latest.json count/limit")
+    if doc.get("updated") != news.get("updated") or doc.get("api_version") != news.get("api_version"):
+        fails.append("latest.json envelope")
+    full = {i["id"]: i for i in news["items"]}
+    for item in doc["items"]:
+        if set(item) != set(api_feed.LATEST_FIELDS):
+            fails.append("latest.json fields " + item["id"] + ": " + ",".join(sorted(set(item) ^ set(api_feed.LATEST_FIELDS))))
+        elif any(item[k] != full[item["id"]].get(k) for k in api_feed.LATEST_FIELDS):
+            fails.append("latest.json value differs from news.json " + item["id"])
+    if os.path.getsize(path) > 64 * 1024:
+        fails.append("latest.json is larger than 64 KB")
+    if "/api/v1/news/latest.json" not in spec["paths"] or "NewsLatest" not in spec["components"]["schemas"]:
+        fails.append("openapi missing latest.json")
+    if not any(ep["path"] == "/api/v1/news/latest.json" for ep in info["endpoints"]):
+        fails.append("latest.json missing from discovery")
+    rows = [{"id": str(n), "title": "t", "extra": 1} for n in range(api_feed.LATEST_COUNT + 5)]
+    cut = api_feed.latest_news(rows)
+    if len(cut) != api_feed.LATEST_COUNT or cut[0]["id"] != "0" or "extra" in cut[0] or cut[0]["title_en"] is not None:
+        fails.append("latest_news() cut or fields")
+    if "latest" not in api_feed.NEWS_RESERVED_IDS or "topics" not in api_feed.NEWS_RESERVED_IDS:
+        fails.append("reserved news ids")
+
+
 def main():
     fails = []
     source_logos(fails)
@@ -282,6 +316,7 @@ def main():
                      "/api/v1/languages.json", "/api/v1/geo-language.json"):
             if path not in spec["paths"]:
                 fails.append("openapi missing " + path)
+        latest_feed(fails, tmp, news, spec, info)
         try:
             import yaml
             spec_y = yaml.safe_load(open(os.path.join(tmp, "api/v1/openapi.yaml"), encoding="utf-8"))
