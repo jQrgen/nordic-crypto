@@ -53,6 +53,13 @@ SITE_TELEGRAM_URL = "https://t.me/nordiccryptochat"
 NORDIC_UI = ("nn", "nb", "sv", "da", "fi", "is")
 LANGS = list(i18n.ALL_LANGS)
 COUNTRIES = ["NO", "SE", "DK", "FI", "IS", "NORDIC", "EU"]
+# /api/v1/news/latest.json: the newest stories with only the fields a notifier needs. Small and bounded,
+# so an app push server can poll it every few minutes instead of the full news.json.
+LATEST_COUNT = 25
+LATEST_FIELDS = ("id", "published", "country", "source", "source_name", "language_code", "own_story",
+                 "title", "title_en", "title_i18n", "url", "html_url", "api_url")
+# File names under api/v1/news/ that are not story ids.
+NEWS_RESERVED_IDS = {"latest", "topics"}
 
 def country_lang_map():
     """Country → default site language, the same object the switcher uses (tools/langselect.js BY_COUNTRY)."""
@@ -597,6 +604,11 @@ class Feed:
             "label": raw.get("label"),
             "sources": [{"url": s.get("url"), "title": s.get("title"), "source_name": s.get("source_name"), "date": s.get("date")} for s in (raw.get("sources") or [])],
         }
+
+
+def latest_news(news, limit=LATEST_COUNT):
+    """The first `limit` rows of the published list (already newest first), slimmed to LATEST_FIELDS."""
+    return [{k: n.get(k) for k in LATEST_FIELDS} for n in news[:limit]]
 
 
 def public_news(preview):
@@ -1304,7 +1316,18 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
         item_template="api/v1/news/{id}.json",
     )
     for n in news:
+        if n["id"] in NEWS_RESERVED_IDS:
+            print(f"api: news id {n['id']} clashes with api/v1/news/{n['id']}.json; item file skipped", file=sys.stderr)
+            continue
         feed.write_json(f"api/v1/news/{n['id']}.json", feed.env(item=n))
+    latest = latest_news(news)
+    collection(
+        "api/v1/news/latest.json",
+        f"The {LATEST_COUNT} newest published stories with id, published, country, source and headlines only. "
+        "For apps and notifiers that poll often; news.json is the full list.",
+        "NewsLatest",
+        feed.env(updated=news_updated, limit=LATEST_COUNT, count=len(latest), items=latest),
+    )
     by_c = {}
     for c in COUNTRIES:
         rows = [n for n in news if n.get("country") == c]
@@ -1924,6 +1947,18 @@ def schemas():
         "NewsCoverage": news_coverage,
         "NewsItem": news_item,
         "NewsList": wrap("NewsList", {"count": {"type": "integer"}, "items": {"type": "array", "items": news_item}, "updated": {"type": "string", "nullable": True}, "logo_note": {"type": "string"}}),
+        "NewsLatestItem": {
+            "type": "object",
+            "required": ["id", "title", "published", "api_url"],
+            "description": "A news item cut down to the fields a notifier needs. Same values as in news.json.",
+            "properties": {k: news_item["properties"][k] for k in LATEST_FIELDS},
+        },
+        "NewsLatest": wrap("NewsLatest", {
+            "updated": {"type": "string", "nullable": True},
+            "limit": {"type": "integer", "description": "Maximum number of items in this file."},
+            "count": {"type": "integer"},
+            "items": {"type": "array", "items": {"$ref": "#/components/schemas/NewsLatestItem"}, "description": "Newest first, like news.json."},
+        }),
         "TopicIndex": wrap("TopicIndex", {"topics": {"type": "array"}}),
         "Event": event_item,
         "EventList": wrap("EventList", {"count": {"type": "integer"}, "events": {"type": "array", "items": event_item}}),
@@ -2303,7 +2338,8 @@ def llms_txt(feed, index):
         "(national, regional, official, international) are the counts and shares, and empty types are included as zero. "
         "html_url is our coverage page. url is the primary outlet. ",
         "A single newsletter issue is api/v1/newsletters/{id}.json and includes plain text and HTML. "
-        "Country slices: api/v1/news/by-country/NO.json (also SE, DK, FI, IS).",
+        "Country slices: api/v1/news/by-country/NO.json (also SE, DK, FI, IS). "
+        f"To poll for new stories, use api/v1/news/latest.json: the {LATEST_COUNT} newest stories with id, published, country, source and headlines only.",
         "",
         "## Source logos",
         "",
@@ -2426,6 +2462,9 @@ def docs_fragment(index):
 <pre>curl -fsS {news}
 curl -fsS {letters}{html.escape(one_line)}</pre>
 <p>Absolute URLs use the public site, at the domain root: <code>{html.escape(b)}api/v1/news.json</code>.</p>
+<h2 id="latest">Polling for new stories</h2>
+<p><a href="{html.escape(b)}api/v1/news/latest.json"><code>/api/v1/news/latest.json</code></a> holds the {LATEST_COUNT} newest published stories with only <code>id</code>, <code>published</code>, <code>country</code>, <code>source</code>, <code>source_name</code>, <code>language_code</code>, <code>own_story</code>, the headlines (<code>title</code>, <code>title_en</code>, <code>title_i18n</code>) and the links (<code>url</code>, <code>html_url</code>, <code>api_url</code>). The values are the same as in <code>news.json</code>, in the same order (newest first). It stays small however long the archive grows, so an app or a push server can poll it every few minutes. Send <code>If-None-Match</code> with the last <code>ETag</code>; GitHub Pages answers <code>304 Not Modified</code> while the file is unchanged. Compare ids with the ones you have seen; <code>generated_at</code> changes on every build.</p>
+<pre>curl -fsS {html.escape(b)}api/v1/news/latest.json</pre>
 <h2 id="markets">Market prices</h2>
 <p>Nordic exchange prices are market data, not investment advice. <a href="{html.escape(b)}api/v1/markets.json"><code>/api/v1/markets.json</code></a> lists each pair with symbol, base, quote, last, bid and ask when the exchange publishes them, the exchange id, name and country, <code>fetched_at</code>, the source URL, and volume when the exchange published it. <code>volume_base</code> is the base asset with no named window (Firi). <code>volume_base_24h</code> and <code>volume_quote_24h</code> are the last 24 hours (NBX). A missing volume is null, not zero. Quotes are NOK, SEK, DKK and EUR. One exchange is <a href="{html.escape(b)}api/v1/markets/firi.json"><code>/api/v1/markets/{{exchange}}.json</code></a> (<code>firi</code>, <code>nbx</code>, <code>coinmotion</code>). One asset is <a href="{html.escape(b)}api/v1/markets/by-asset/BTC.json"><code>/api/v1/markets/by-asset/{{symbol}}.json</code></a>. Venues without a public ticker are listed under <code>skipped</code> and are not given a made-up price.</p>
 <p><a href="{html.escape(b)}api/v1/markets/aggregated.json"><code>/api/v1/markets/aggregated.json</code></a> is one row per pair. BTC-NOK is not averaged with BTC-EUR. <code>last</code> is the arithmetic mean of published last prices. <code>mid</code> is the mean of (bid+ask)/2 and is not mixed into <code>last</code>. <code>price</code> equals <code>last</code> when any last exists, otherwise <code>mid</code>. <code>min</code> and <code>max</code> use that same series. There is no VWAP. Volume is summed only inside the same field and the same pair. <code>logo_url</code> is an SVG from <a href="https://github.com/spothq/cryptocurrency-icons" rel="noopener">cryptocurrency-icons</a> (CC0 1.0) when that set includes the asset, served at <code>/api/v1/markets/logos/{{symbol}}.svg</code>, and null otherwise. The per-asset file repeats <code>aggregated</code> and the logo.</p>
