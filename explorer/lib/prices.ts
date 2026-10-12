@@ -2,7 +2,7 @@ import { chainOrder } from "./chains";
 import type { ChainId, Fiat } from "./types";
 
 const GECKO_URL =
-  "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin-cash,nexa&vs_currencies=usd,eur,nok,sek,dkk&include_24hr_change=true";
+  "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin-cash,nexacoin&vs_currencies=usd,eur,nok,sek,dkk&include_24hr_change=true";
 
 /**
  * CoinGecko ids. `nexacoin` is NEXA. The id `nexa` is a different listing whose
