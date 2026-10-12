@@ -67,7 +67,8 @@ const hex = (buf) => [...new Uint8Array(buf)].map((b) => b.toString(16).padStart
 // h = scope + ":" + SHA-256(salt | scope | ip). The scope is hashed in too, so one IP's rows in two scopes carry different
 // digests and can't be linked (e.g. a private tip to a newsletter signup). The global count is a range on the prefix,
 // which the rate_hits_h index serves; old unprefixed rows match no scope and expire with the window.
-async function rateOk(db, ip, scope) {
+// n: per-key limit. The onion forwarder passes a higher limit for the shared key "onion" (not the VPS address).
+async function rateOk(db, ip, scope, n = RATE_N) {
   if (!RATE_SCOPES.has(scope)) throw new Error("rate scope");
   const now = Math.floor(Date.now() / 1000), day = new Date().toISOString().slice(0, 10);
   const fresh = hex(crypto.getRandomValues(new Uint8Array(32)));
@@ -78,9 +79,10 @@ async function rateOk(db, ip, scope) {
   ]);
   const row = await db.prepare("SELECT salt FROM rate_salt WHERE day = ?").bind(day).first();
   const h = scope + ":" + hex(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(row.salt + "|" + scope + "|" + ip)));
-  const c = await db.prepare("SELECT (SELECT COUNT(*) FROM rate_hits WHERE h = ?1 AND ts > ?2) AS mine, (SELECT COUNT(*) FROM rate_hits WHERE h >= ?3 AND h < ?4 AND ts > ?2) AS total")
-    .bind(h, now - RATE_WINDOW, scope + ":", scope + ";").first();
-  if (c.mine >= RATE_N || c.total >= RATE_GLOBAL_N) return false;
+  // Anonymous placeholders: node:sqlite, which the tests use as D1, rejects numbered ?1 markers.
+  const c = await db.prepare("SELECT (SELECT COUNT(*) FROM rate_hits WHERE h = ? AND ts > ?) AS mine, (SELECT COUNT(*) FROM rate_hits WHERE h >= ? AND h < ? AND ts > ?) AS total")
+    .bind(h, now - RATE_WINDOW, scope + ":", scope + ";", now - RATE_WINDOW).first();
+  if (c.mine >= n || c.total >= RATE_GLOBAL_N) return false;
   await db.prepare("INSERT INTO rate_hits (h, ts) VALUES (?, ?)").bind(h, now).run();
   return true;
 }

@@ -1,6 +1,6 @@
 import { Frame } from "@/components/frame";
 import { Fault } from "@/components/states";
-import { defaultChain } from "@/lib/data";
+import { defaultChain } from "@/lib/chains";
 import { socialMetadata, socialTitle } from "@/lib/social";
 
 export const metadata = socialMetadata({

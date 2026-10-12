@@ -1,6 +1,6 @@
 import { Frame } from "@/components/frame";
 import { EmptyMempool } from "@/components/states";
-import { chains, defaultChain } from "@/lib/data";
+import { chains, defaultChain } from "@/lib/chains";
 import { onExplorer, socialMetadata, socialTitle } from "@/lib/social";
 
 export const metadata = socialMetadata({

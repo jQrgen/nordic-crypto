@@ -628,6 +628,7 @@ def site_footer(rel, root, slug=""):
     sections = "".join(li(rel + (n + "/" if n else ""), t(k)) for n, k in nav_items()[:NAV_MAIN])
     sections += li(rel + "developers/", t("dev_nav"))   # under Who's who; not a header tab
     site = (li(rel + "about/", t("nav_about")) + li(rel + "sources/", t("nav_sources")) + li(rel + "ethics/", t("ethics_title"))
+            + li(rel + "budget/", t("bud_nav"))
             + li(rel + "changelog/", t("cl_title")) + li(rel + "stats/", t("vst_title")) + li(rel + "privacy/", t("pp_title")) + li(rel + "media/", t("media_title")) + li(rel + "columnist/", t("col_title"))
             + li(rel + "tip/", t("nav_tip")) + li(rel + "api/", t("foot_api")) + li("https://github.com/jQrgen/nordic-crypto", t("foot_source"), True)
             + li(REPO_CONTRIBUTORS, t("contributors"), True)
@@ -1319,6 +1320,78 @@ def build_ethics():
     """Press ethics: Nordic Crypto follows Vær Varsom-plakaten. Own wording, not a copy of the code."""
     body = text_page(lang_template("ethics"), attrs=template_attrs("ethics"))
     page("ethics", t("ethics_title"), "ethics", body, t("ethics_desc"))
+
+def _budget_bits(line, bud):
+    """Item name and the smaller line under it. Amounts come from the line, not from the translation."""
+    kind = line["kind"]
+    if kind == "server":
+        return (E(t("bud_server", name=line["name"], type=line["type"], place=line["place"])),
+                E(t("bud_runs", what=line["runs"])))
+    if kind == "volume":
+        price = f'{line["unit_currency"]} {bud.group_amount(line["unit_price"])}'
+        return (E(t("bud_volume", gb=bud.group_amount(line["gb"]), price=price)), "")
+    if kind == "workers":
+        return (E(t("bud_workers")), "")
+    if kind == "domains":
+        main = E(t("bud_domains", names=line["names"], vendor=line["vendor"]))
+        year = f'{line["currency"]} {bud.group_amount(line["amount_year"])}'
+        key = {"incl": "bud_year_incl", "excl": "bud_year_excl"}.get(line.get("vat"), "bud_year")
+        return (main, E(t(key, amount=year)))
+    if kind == "pages":
+        return (E(t("bud_pages", host=line["host"])), "")
+    if kind == "dns":
+        return (E(t("bud_dns")), "")
+    raise ValueError("budget line kind " + str(kind))
+
+def build_budget():
+    """Hosting and domain costs per month (/budget/). Figures are read from data/budget.json only."""
+    from tools import budget as bud
+    doc = bud.summary()
+    when = i18n.short_date(LANG, doc["as_of"])
+    rows = []
+    for line in doc["lines"]:
+        label, detail = _budget_bits(line, bud)
+        extra = f'<span class="meta">{detail}</span>' if detail else ""
+        if line.get("free"):
+            cost = E(t("free"))
+        else:
+            cost = E(f'{line["currency"]} {bud.group_amount(line["amount"])}')
+        rows.append(f'<tr><th scope="row">{label}{extra}</th><td class="amt"><span class="num">{cost}</span></td></tr>')
+    rate_by = {r["currency"]: r for r in doc["rates"]}
+    parts, shown_total = bud.display_nok(doc["subtotals"])
+    subs = []
+    for row, nok in zip(doc["subtotals"], parts):
+        shown = f'{row["currency"]} {bud.money_text(row["amount"])}'
+        nok_text = t("bud_nok_amt", n=bud.format_number(nok, LANG))
+        if row["rate"] is None:
+            nok_cell = (f'<span class="num">{E(nok_text)}</span>'
+                        f'<span class="meta">{E(t("bud_nok_part"))}</span>')
+        else:
+            src = rate_by[row["currency"]]
+            nok_cell = (f'<span class="num">{E(t("bud_conv", amount=shown, rate=bud.group_amount(src["quote_amount"]), nok=nok_text))}</span>')
+        subs.append(f'<tr><th scope="row">{E(row["currency"])}</th><td class="amt"><span class="num">{E(shown)}</span></td><td class="amt">{nok_cell}</td></tr>')
+    rates = ", ".join(bud.rate_phrase(r, doc["quote"]) for r in doc["rates"])
+    total = t("bud_nok_amt", n=bud.format_number(shown_total, LANG))
+    body = f'''<h1>{E(t("bud_h1"))}</h1>
+<p class="lead">{E(t("bud_lead", date=when))}</p>
+<div class="prose">
+<p class="notice">{E(t("bud_note"))}</p>
+<div class="tablewrap"><table class="list budget">
+<caption>{E(t("bud_caption"))}</caption>
+<thead><tr><th scope="col">{E(t("bud_col_item"))}</th><th scope="col">{E(t("bud_col_month"))}</th></tr></thead>
+<tbody>{"".join(rows)}</tbody>
+</table></div>
+<h2 id="subtotals">{E(t("bud_sub_h"))}</h2>
+<div class="tablewrap"><table class="list budget">
+<caption>{E(t("bud_sub_caption"))}</caption>
+<thead><tr><th scope="col">{E(t("bud_col_cur"))}</th><th scope="col">{E(t("bud_col_sub"))}</th><th scope="col">{E(t("bud_col_nok"))}</th></tr></thead>
+<tbody>{"".join(subs)}</tbody>
+<tfoot><tr><th scope="row">{E(t("bud_total_h"))}</th><td></td><td class="amt"><span class="num">{E(total)}</span></td></tr></tfoot>
+</table></div>
+<p>{E(t("bud_rates", rates=rates))}</p>
+<p id="total" class="bud-total">{E(t("bud_total_line", amount=total))}</p>
+</div>'''
+    page("budget", t("bud_title"), "budget", text_page(body, cls="budget"), t("bud_desc"))
 
 def sitemap():
     urls = []
@@ -2016,6 +2089,7 @@ def build_lang(ctx):
     build_media()
     build_ethics()
     build_privacy()
+    build_budget()
     build_crowdfunding()
     build_chat()
 
@@ -3278,22 +3352,42 @@ def tip_intake():
     if not (ep and re.fullmatch(r"https://[A-Za-z0-9.-]+(?::\d{2,5})?", ep) and key): return None, None
     return ep, key
 
+def tip_onion():
+    """The Tor tip page (onion/), as http://<56 base32 chars>.onion, or None until the VPS has generated an address.
+    env TIP_ONION, else tipserver/config.json onion. Never invented."""
+    o = os.environ.get("TIP_ONION")
+    if o is None: o = (load(P("tipserver", "config.json"), {}) or {}).get("onion")
+    o = (o or "").strip().rstrip("/")
+    return o if re.fullmatch(r"http://[a-z2-7]{56}\.onion", o) else None
+
+def tip_onion_block():
+    """(notice html, head html) about the onion tip page: a link plus <meta http-equiv="onion-location"> when the address
+    exists, otherwise a note that it is being prepared."""
+    o = tip_onion()
+    if not o: return f'<p class="notice"><b>{E(t("tip_onion_h"))}.</b> {E(t("tip_onion_pending"))}</p>', ""
+    href = o + "/" + LANG + "/"
+    return (f'<p class="notice"><b>{E(t("tip_onion_h"))}.</b> {E(t("tip_onion_ready"))} <a href="{E(href)}">{E(t("tip_onion_link"))}</a> '
+            f'(<span class="meta">{E(href)}</span>).</p>', f'<meta http-equiv="onion-location" content="{E(href)}">')
+
 def build_tip():
     """'Send a tip' page: a private tip to Nordic Crypto's own inbox (tipworker/, D1). Never a public GitHub issue.
     While the inbox is closed (no deployed endpoint or no Turnstile site key) the page says private tips are coming and has
     no form. The form needs JavaScript (Turnstile); nothing is posted anywhere else."""
     if LANG == "en": write_tip_endpoint_file()
     ep, key = tip_intake()
+    onion_html, onion_head = tip_onion_block()
     if not ep:
         body = f"""<h1>{E(t("tip_title"))}</h1>
-<p class="notice">{t("tip_private_soon")}</p>"""
-        page("tip", t("tip_title"), "tip", text_page(body, toc=False), t("tip_desc"))
+<p class="notice">{t("tip_private_soon")}</p>
+{onion_html}"""
+        page("tip", t("tip_title"), "tip", text_page(body, toc=False), t("tip_desc"), head_extra=onion_head)
         return
     body = f"""<h1>{E(t("tip_title"))}</h1>
 <p class="lead">{E(t("tip_lead"))}</p>
 <div class="prose">
 <p>{E(t("tip_intro"))} <a href="../about/">{E(t("about_title"))}</a> · <a href="../ethics/">{E(t("ethics_title"))}</a></p>
 <p class="notice"><b>{E(t("tip_privacy_h"))}.</b> {E(t("tip_privacy"))}</p>
+{onion_html}
 <div id="tipmsg" role="status" aria-live="polite"></div>
 <noscript><p class="notice warn">{E(t("tip_need_js"))}</p></noscript>
 <form id="tipform" class="tipform form"><fieldset id="tipfs" class="plain" disabled>
@@ -3324,7 +3418,7 @@ f.addEventListener('submit',function(ev){ev.preventDefault();if(!f.reportValidit
   if(x.s>=200&&x.s<300&&x.j.ok){f.reset();say(M.thanks)}
   else if(x.s>=500)say(M.off,'warn'); else say((x.j&&M.err[x.j.error])||M.fail,'warn')})
  .catch(function(){t.done();b.disabled=false;say(M.off,'warn')})})})();</script>""" % (json.dumps(ep), json.dumps(LANG), json.dumps(msgs, ensure_ascii=False))
-    page("tip", t("tip_title"), "tip", text_page(body, toc=False, cls="formpage"), t("tip_desc"), js)
+    page("tip", t("tip_title"), "tip", text_page(body, toc=False, cls="formpage"), t("tip_desc"), js, head_extra=onion_head)
 
 def build_columnist():
     """'Apply as a columnist' page. Same privacy pattern as the static tip page: a plain HTML form (GET, no JavaScript,

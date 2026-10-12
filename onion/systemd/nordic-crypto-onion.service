@@ -1,0 +1,17 @@
+[Unit]
+Description=Nordic Crypto onion tip service
+After=docker.service network-online.target
+Requires=docker.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=/opt/nordic-crypto/onion
+ExecStart=/usr/bin/docker compose up -d --remove-orphans
+ExecStop=/usr/bin/docker compose stop
+# Tip text must not reach the journal. The compose file sets logging driver none.
+StandardOutput=null
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

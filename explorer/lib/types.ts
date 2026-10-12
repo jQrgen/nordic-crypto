@@ -2,91 +2,113 @@ export type ChainId = "bch" | "nexa";
 
 export type Fiat = "NOK" | "SEK" | "DKK" | "EUR" | "USD";
 
-export type ChainInfo = {
+export type ServerEndpoint = {
+  url: string;
+  /** Short name shown next to figures. */
+  label: string;
+  /** The first server to try. Later entries are fallbacks. */
+  primary: boolean;
+};
+
+export type ChainMeta = {
   id: ChainId;
   name: string;
   ticker: string;
+  /** Decimal places of one whole coin. Bitcoin Cash is 8, Nexa is 2. */
   decimals: number;
+  /** Smallest units in one whole coin. */
+  subunits: number;
+  /** How estimatefee numbers are quoted by this chain's servers. */
+  feeEstimate: "coin-per-kb" | "sat-per-kb";
   target: string;
-  height: number;
-  mempoolCount: number;
-  /** Fiat price of one whole coin. */
-  prices: Record<Fiat, number>;
-  change24h: number | null;
-  supply: number;
-  hashrate: string;
-  difficulty: string;
-  size: string;
-  utxo: string;
-  txCount: string;
-  serverName: string;
-  serverUrl: string;
+  servers: ServerEndpoint[];
   apiHref: string;
   about: string;
 };
 
 export type TokenMove = {
-  tokenId: string;
-  amount: number;
+  id: string;
+  amount: string;
+  kind: string;
 };
 
 export type TxSide = {
-  addressId?: string;
+  address?: string;
   label?: string;
-  amount: number;
+  /** Whole coins. Null when the server did not report an amount. */
+  amount: number | null;
   token?: TokenMove;
 };
 
-export type Tx = {
-  id: string;
+export type TxModel = {
   chain: ChainId;
-  hash: string;
+  txid: string;
   time: string | null;
   blockHeight: number | null;
-  fee: number;
-  size: number;
-  feeRate: string;
+  confirmations: number;
+  /** Whole coins. Null when the fee cannot be derived. */
+  fee: number | null;
+  size: number | null;
+  satPerByte: number | null;
   coinbase: boolean;
   inputs: TxSide[];
   outputs: TxSide[];
 };
 
-export type Block = {
+export type BlockModel = {
   chain: ChainId;
   height: number;
   hash: string;
   previous: string;
   merkle: string;
   time: string;
-  miner: string;
-  minerAddressId?: string;
-  txIds: string[];
-  size: number;
-  reward: number;
-  difficulty: string;
   bits: string;
+  difficulty: string;
+  size: number | null;
+  txCount: number | null;
+  confirmations: number;
+  miner: string | null;
+  minerAddress: string | null;
+  reward: number | null;
+  txIds: string[];
 };
 
-export type Address = {
-  id: string;
+export type AddressModel = {
   chain: ChainId;
   address: string;
-  label?: string;
   balance: number;
-  tokens: { tokenId: string; amount: number }[];
-  txIds: string[];
+  unconfirmed: number;
+  tokens: { id: string; amount: string }[];
+  history: { txid: string; height: number | null }[];
+  historyTotal: number;
 };
 
-export type TokenInfo = {
-  id: string;
+export type FeeRow = {
+  label: string;
+  satPerByte: number;
+  /** Cumulative virtual size of mempool transactions in this fee bucket. */
+  vsize?: number;
+};
+
+export type OverviewModel = {
+  serverLabel: string;
+  serverVersion: string;
+  fallback: boolean;
+  blocks: BlockModel[];
+  mempoolCount: number | null;
+  mempoolVsize: number;
+  fees: FeeRow[];
+};
+
+export type TokenModel = {
   chain: ChainId;
-  ticker: string;
-  name: string;
-  supply: number;
-  decimals: number;
-  kind: string;
-  about: string;
-  txIds: string[];
+  id: string;
+  name: string | null;
+  ticker: string | null;
+  decimals: number | null;
+  height: number | null;
+  txid: string | null;
+  documentUrl: string | null;
 };
 
 export type SearchHit = {

@@ -61,8 +61,7 @@ const shared = {
 
 const bchTitle = `Bitcoin Cash explorer ${DASH} Nordic Crypto`;
 const nexaTitle = `Nexa explorer ${DASH} Nordic Crypto`;
-const bchAbout =
-  "Blocks, transactions, addresses and CashTokens, read from Nordic Crypto\u2019s own Rostrum server.";
+const bchAbout = "Blocks, transactions and addresses, read in this browser from a Bitcoin Cash Electrum server.";
 
 const pages = [
   [
@@ -85,8 +84,7 @@ const pages = [
     "nexa/index.html",
     {
       "og:title": nexaTitle,
-      "og:description":
-        "Blocks, transactions, addresses and native group tokens, read from Nordic Crypto\u2019s own Rostrum server.",
+      "og:description": "Blocks, transactions and addresses, read in this browser from a Nexa Rostrum server.",
       "og:url": `${ORIGIN}/nexa/`,
     },
   ],
@@ -112,31 +110,31 @@ const pages = [
     },
   ],
   [
-    "bch/tx/fjord-send/index.html",
+    "bch/tx/index.html",
     {
       "og:title": `Transaction · Bitcoin Cash ${DASH} Nordic Crypto`,
-      "og:url": `${ORIGIN}/bch/tx/fjord-send/`,
+      "og:url": `${ORIGIN}/bch/tx/`,
     },
   ],
   [
-    "nexa/block/1168213/index.html",
+    "nexa/block/index.html",
     {
-      "og:title": `Block 1,168,213 · Nexa ${DASH} Nordic Crypto`,
-      "og:url": `${ORIGIN}/nexa/block/1168213/`,
+      "og:title": `Block · Nexa ${DASH} Nordic Crypto`,
+      "og:url": `${ORIGIN}/nexa/block/`,
     },
   ],
   [
-    "bch/address/sigrid-bch/index.html",
+    "bch/address/index.html",
     {
-      "og:title": `Sigrid · Bitcoin Cash ${DASH} Nordic Crypto`,
-      "og:url": `${ORIGIN}/bch/address/sigrid-bch/`,
+      "og:title": `Address · Bitcoin Cash ${DASH} Nordic Crypto`,
+      "og:url": `${ORIGIN}/bch/address/`,
     },
   ],
   [
-    "nexa/token/agnar/index.html",
+    "nexa/token/index.html",
     {
-      "og:title": `AGNAR · Agnar · Nexa ${DASH} Nordic Crypto`,
-      "og:url": `${ORIGIN}/nexa/token/agnar/`,
+      "og:title": `Token · Nexa ${DASH} Nordic Crypto`,
+      "og:url": `${ORIGIN}/nexa/token/`,
     },
   ],
   [

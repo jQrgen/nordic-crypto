@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { chains, defaultChain } from "./data";
+import { chains, defaultChain } from "./chains";
 
 /** Public origin of the static export. Social crawlers only accept absolute https URLs. */
 export const SITE_ORIGIN = "https://explorer.nordiccrypto.no";

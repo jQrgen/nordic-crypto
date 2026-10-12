@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { chains, defaultChain, homePath } from "@/lib/data";
+import { chains, defaultChain, homePath } from "@/lib/chains";
 import { rootSocial } from "@/lib/social";
 
 // Static export: send visitors to the Bitcoin Cash overview without a server.

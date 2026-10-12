@@ -73,6 +73,10 @@ def strings(lang):
         if not extra:
             raise RuntimeError("event NFT strings missing for " + lang)
         base.update(extra)
+        budget = importlib.import_module("i18n.budget_strings").S.get(lang)   # /budget/ page, all languages
+        if not budget:
+            raise RuntimeError("budget strings missing for " + lang)
+        base.update(budget)
         _S[lang] = base
     return _S[lang]
 MISSING = set()
