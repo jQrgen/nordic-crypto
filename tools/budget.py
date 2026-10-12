@@ -6,7 +6,7 @@ converts them with the rates in that file. It does not add labour or any other l
 import datetime as dt
 import json
 import os
-from decimal import Decimal
+from decimal import Decimal, ROUND_HALF_UP
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PATH = os.path.join(ROOT, "data", "budget.json")
@@ -123,8 +123,80 @@ def group_amount(text):
     return ("-" if neg else "") + out
 
 
+_ORE = Decimal("0.01")
+# Ordinary written numbers: (thousands separator, decimal separator, grouping).
+# "3" groups by thousands. "indian" keeps the last three digits, then groups of two.
+# Digits stay Western, the same digits as the source lines on the page.
+_NUMBER = {
+    "en": (",", ".", "3"),
+    "zh": (",", ".", "3"),
+    "ja": (",", ".", "3"),
+    "hi": (",", ".", "indian"),
+    "bn": (",", ".", "indian"),
+    "mr": (",", ".", "indian"),
+    "sw": (",", ".", "3"),
+    "ar": (",", ".", "3"),
+    "ur": (",", ".", "3"),
+    "fa": (",", ".", "3"),
+    "nn": (" ", ",", "3"),
+    "nb": (" ", ",", "3"),
+    "sv": (" ", ",", "3"),
+    "fi": (" ", ",", "3"),
+    "fr": (" ", ",", "3"),
+    "ru": (" ", ",", "3"),
+    "uk": (" ", ",", "3"),
+    "pt": (" ", ",", "3"),
+    "da": (".", ",", "3"),
+    "is": (".", ",", "3"),
+    "de": (".", ",", "3"),
+    "es": (".", ",", "3"),
+    "id": (".", ",", "3"),
+}
+
+
+def round_money(value):
+    """Half-up to two decimal places (øre). 521.703 becomes 521.70."""
+    if not isinstance(value, Decimal):
+        value = Decimal(str(value))
+    return value.quantize(_ORE, rounding=ROUND_HALF_UP)
+
+
+def display_nok(subtotals):
+    """Each quote-currency subtotal rounded for display, and the total readers see.
+
+    The displayed total is the sum of the rounded parts, so the table adds up.
+    """
+    parts = [round_money(row["nok"]) for row in subtotals]
+    return parts, sum(parts, Decimal(0))
+
+
+def format_number(value, lang):
+    """Two decimal places, grouped the way `lang` ordinarily writes a number."""
+    value = round_money(value)
+    sign = "-" if value < 0 else ""
+    text = format(abs(value), "f")
+    whole, frac = text.split(".")
+    frac = (frac + "00")[:2]
+    group, decimal, style = _NUMBER.get(lang, _NUMBER["en"])
+    if style == "indian" and len(whole) > 3:
+        head, tail = whole[:-3], whole[-3:]
+        chunks = [tail]
+        while head:
+            chunks.append(head[-2:])
+            head = head[:-2]
+        whole = group.join(reversed(chunks))
+    else:
+        chunks = []
+        body = whole
+        while body:
+            chunks.append(body[-3:])
+            body = body[:-3]
+        whole = group.join(reversed(chunks)) or "0"
+    return sign + whole + decimal + frac
+
+
 def money_text(value):
-    """A computed amount: at least two decimal places, further places kept (521.703 stays 521.703)."""
+    """A source-currency subtotal: at least two decimal places, further places kept."""
     if not isinstance(value, Decimal):
         value = Decimal(value)
     s = format(value, "f")

@@ -1357,18 +1357,20 @@ def build_budget():
             cost = E(f'{line["currency"]} {bud.group_amount(line["amount"])}')
         rows.append(f'<tr><th scope="row">{label}{extra}</th><td class="amt"><span class="num">{cost}</span></td></tr>')
     rate_by = {r["currency"]: r for r in doc["rates"]}
+    parts, shown_total = bud.display_nok(doc["subtotals"])
     subs = []
-    for row in doc["subtotals"]:
+    for row, nok in zip(doc["subtotals"], parts):
         shown = f'{row["currency"]} {bud.money_text(row["amount"])}'
+        nok_text = t("bud_nok_amt", n=bud.format_number(nok, LANG))
         if row["rate"] is None:
-            nok_cell = (f'<span class="num">{E(doc["quote"] + " " + bud.money_text(row["nok"]))}</span>'
+            nok_cell = (f'<span class="num">{E(nok_text)}</span>'
                         f'<span class="meta">{E(t("bud_nok_part"))}</span>')
         else:
             src = rate_by[row["currency"]]
-            nok_cell = (f'<span class="num">{E(t("bud_conv", amount=shown, rate=bud.group_amount(src["quote_amount"]), nok=doc["quote"] + " " + bud.money_text(row["nok"])))}</span>')
+            nok_cell = (f'<span class="num">{E(t("bud_conv", amount=shown, rate=bud.group_amount(src["quote_amount"]), nok=nok_text))}</span>')
         subs.append(f'<tr><th scope="row">{E(row["currency"])}</th><td class="amt"><span class="num">{E(shown)}</span></td><td class="amt">{nok_cell}</td></tr>')
     rates = ", ".join(bud.rate_phrase(r, doc["quote"]) for r in doc["rates"])
-    total = doc["quote"] + " " + bud.money_text(doc["total"])
+    total = t("bud_nok_amt", n=bud.format_number(shown_total, LANG))
     body = f'''<h1>{E(t("bud_h1"))}</h1>
 <p class="lead">{E(t("bud_lead", date=when))}</p>
 <div class="prose">

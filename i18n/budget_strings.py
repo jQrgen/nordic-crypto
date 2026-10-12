@@ -5,7 +5,7 @@ KEYS = (
     "bud_server", "bud_runs", "bud_volume", "bud_workers", "bud_domains",
     "bud_year", "bud_year_incl", "bud_year_excl", "bud_pages", "bud_dns",
     "bud_sub_h", "bud_sub_caption", "bud_col_cur", "bud_col_sub", "bud_col_nok",
-    "bud_total_h", "bud_rates", "bud_total_line", "bud_conv", "bud_nok_part",
+    "bud_total_h", "bud_rates", "bud_total_line", "bud_conv", "bud_nok_part", "bud_nok_amt",
 )
 
 
@@ -49,6 +49,7 @@ S["en"] = _check("en", {
     "bud_total_line": "About {amount} per month.",
     "bud_conv": "{amount} × {rate} = {nok}",
     "bud_nok_part": "Already in NOK",
+    "bud_nok_amt": "NOK {n}",
 })
 
 S["nn"] = _check("nn", {
@@ -81,6 +82,7 @@ S["nn"] = _check("nn", {
     "bud_total_line": "Om lag {amount} i månaden.",
     "bud_conv": "{amount} × {rate} = {nok}",
     "bud_nok_part": "Alt i NOK",
+    "bud_nok_amt": "{n} kr",
 })
 
 S["nb"] = _check("nb", {
@@ -113,6 +115,7 @@ S["nb"] = _check("nb", {
     "bud_total_line": "Omtrent {amount} i måneden.",
     "bud_conv": "{amount} × {rate} = {nok}",
     "bud_nok_part": "Allerede i NOK",
+    "bud_nok_amt": "{n} kr",
 })
 
 S["sv"] = _check("sv", {
@@ -145,6 +148,7 @@ S["sv"] = _check("sv", {
     "bud_total_line": "Ungefär {amount} per månad.",
     "bud_conv": "{amount} × {rate} = {nok}",
     "bud_nok_part": "Redan i NOK",
+    "bud_nok_amt": "{n} kr",
 })
 
 S["da"] = _check("da", {
@@ -177,6 +181,7 @@ S["da"] = _check("da", {
     "bud_total_line": "Omkring {amount} pr. måned.",
     "bud_conv": "{amount} × {rate} = {nok}",
     "bud_nok_part": "Allerede i NOK",
+    "bud_nok_amt": "{n} kr",
 })
 
 S["fi"] = _check("fi", {
@@ -209,6 +214,7 @@ S["fi"] = _check("fi", {
     "bud_total_line": "Noin {amount} kuukaudessa.",
     "bud_conv": "{amount} × {rate} = {nok}",
     "bud_nok_part": "Jo Norjan kruunuina",
+    "bud_nok_amt": "{n} NOK",
 })
 
 S["is"] = _check("is", {
@@ -241,6 +247,7 @@ S["is"] = _check("is", {
     "bud_total_line": "Um {amount} á mánuði.",
     "bud_conv": "{amount} × {rate} = {nok}",
     "bud_nok_part": "Þegar í NOK",
+    "bud_nok_amt": "{n} NOK",
 })
 
 S["de"] = _check("de", {
@@ -273,6 +280,7 @@ S["de"] = _check("de", {
     "bud_total_line": "Etwa {amount} pro Monat.",
     "bud_conv": "{amount} × {rate} = {nok}",
     "bud_nok_part": "Bereits in NOK",
+    "bud_nok_amt": "{n} NOK",
 })
 
 S["fr"] = _check("fr", {
@@ -305,6 +313,7 @@ S["fr"] = _check("fr", {
     "bud_total_line": "Environ {amount} par mois.",
     "bud_conv": "{amount} × {rate} = {nok}",
     "bud_nok_part": "Déjà en NOK",
+    "bud_nok_amt": "{n} NOK",
 })
 
 S["es"] = _check("es", {
@@ -337,6 +346,7 @@ S["es"] = _check("es", {
     "bud_total_line": "Unos {amount} al mes.",
     "bud_conv": "{amount} × {rate} = {nok}",
     "bud_nok_part": "Ya en NOK",
+    "bud_nok_amt": "{n} NOK",
 })
 
 S["pt"] = _check("pt", {
@@ -369,6 +379,7 @@ S["pt"] = _check("pt", {
     "bud_total_line": "Cerca de {amount} por mês.",
     "bud_conv": "{amount} × {rate} = {nok}",
     "bud_nok_part": "Já em NOK",
+    "bud_nok_amt": "{n} NOK",
 })
 
 S["zh"] = _check("zh", {
@@ -401,6 +412,7 @@ S["zh"] = _check("zh", {
     "bud_total_line": "每月约 {amount}。",
     "bud_conv": "{amount} × {rate} = {nok}",
     "bud_nok_part": "已经是挪威克朗",
+    "bud_nok_amt": "NOK {n}",
 })
 
 S["ja"] = _check("ja", {
@@ -433,6 +445,7 @@ S["ja"] = _check("ja", {
     "bud_total_line": "月あたり約 {amount}。",
     "bud_conv": "{amount} × {rate} = {nok}",
     "bud_nok_part": "すでに NOK",
+    "bud_nok_amt": "NOK {n}",
 })
 
 S["ru"] = _check("ru", {
@@ -465,6 +478,7 @@ S["ru"] = _check("ru", {
     "bud_total_line": "Около {amount} в месяц.",
     "bud_conv": "{amount} × {rate} = {nok}",
     "bud_nok_part": "Уже в NOK",
+    "bud_nok_amt": "{n} NOK",
 })
 
 S["uk"] = _check("uk", {
@@ -497,6 +511,7 @@ S["uk"] = _check("uk", {
     "bud_total_line": "Близько {amount} на місяць.",
     "bud_conv": "{amount} × {rate} = {nok}",
     "bud_nok_part": "Уже в NOK",
+    "bud_nok_amt": "{n} NOK",
 })
 
 S["ar"] = _check("ar", {
@@ -529,6 +544,7 @@ S["ar"] = _check("ar", {
     "bud_total_line": "نحو {amount} في الشهر.",
     "bud_conv": "{amount} × {rate} = {nok}",
     "bud_nok_part": "بالكرونة النرويجية أصلًا",
+    "bud_nok_amt": "NOK {n}",
 })
 
 S["ur"] = _check("ur", {
@@ -561,6 +577,7 @@ S["ur"] = _check("ur", {
     "bud_total_line": "تقریباً {amount} ہر مہینہ۔",
     "bud_conv": "{amount} × {rate} = {nok}",
     "bud_nok_part": "پہلے سے NOK میں",
+    "bud_nok_amt": "NOK {n}",
 })
 
 S["fa"] = _check("fa", {
@@ -593,6 +610,7 @@ S["fa"] = _check("fa", {
     "bud_total_line": "حدود {amount} در ماه.",
     "bud_conv": "{amount} × {rate} = {nok}",
     "bud_nok_part": "از پیش به NOK",
+    "bud_nok_amt": "NOK {n}",
 })
 
 S["hi"] = _check("hi", {
@@ -625,6 +643,7 @@ S["hi"] = _check("hi", {
     "bud_total_line": "लगभग {amount} प्रति माह.",
     "bud_conv": "{amount} × {rate} = {nok}",
     "bud_nok_part": "पहले से NOK में",
+    "bud_nok_amt": "NOK {n}",
 })
 
 S["bn"] = _check("bn", {
@@ -657,6 +676,7 @@ S["bn"] = _check("bn", {
     "bud_total_line": "মাসে প্রায় {amount}।",
     "bud_conv": "{amount} × {rate} = {nok}",
     "bud_nok_part": "আগে থেকেই NOK-এ",
+    "bud_nok_amt": "NOK {n}",
 })
 
 S["id"] = _check("id", {
@@ -689,6 +709,7 @@ S["id"] = _check("id", {
     "bud_total_line": "Sekitar {amount} per bulan.",
     "bud_conv": "{amount} × {rate} = {nok}",
     "bud_nok_part": "Sudah dalam NOK",
+    "bud_nok_amt": "NOK {n}",
 })
 
 S["sw"] = _check("sw", {
@@ -721,6 +742,7 @@ S["sw"] = _check("sw", {
     "bud_total_line": "Takriban {amount} kwa mwezi.",
     "bud_conv": "{amount} × {rate} = {nok}",
     "bud_nok_part": "Tayari katika NOK",
+    "bud_nok_amt": "NOK {n}",
 })
 
 S["mr"] = _check("mr", {
@@ -753,6 +775,7 @@ S["mr"] = _check("mr", {
     "bud_total_line": "सुमारे {amount} दर महिना.",
     "bud_conv": "{amount} × {rate} = {nok}",
     "bud_nok_part": "आधीच NOK मध्ये",
+    "bud_nok_amt": "NOK {n}",
 })
 
 _missing_langs = [code for code in (

@@ -34,8 +34,23 @@ def main():
     check(Decimal("500") * Decimal("0.0572") == Decimal("28.60"), "500 GB × 0.0572 = 28.60")
     check(Decimal("1578") / Decimal(12) == Decimal("131.50"), "1578 / 12 = 131.50")
     total = eur * Decimal("11.70") + Decimal("5") * Decimal("10.80") + Decimal("131.50")
-    check(total == Decimal("707.203"), "NOK total 707.203")
+    check(total == Decimal("707.203"), "exact NOK total 707.203")
     check(doc["total"] == total, "summary total matches the stated rates")
+    parts, shown = bud.display_nok(doc["subtotals"])
+    check(parts == [Decimal("521.70"), Decimal("54.00"), Decimal("131.50")], "display parts rounded half-up to øre")
+    check(shown == Decimal("707.20") and shown == sum(parts, Decimal(0)), "displayed total is the sum of the rounded parts")
+    check(bud.format_number(total, "en") == "707.20", "English number 707.20")
+    check(bud.format_number(total, "nn") == "707,20", "Nynorsk number 707,20")
+    check(bud.format_number(total, "nb") == "707,20", "Bokmål number 707,20")
+    check(bud.format_number(Decimal("1234.5"), "nn") == "1 234,50", "Nynorsk groups thousands with a space")
+    check(bud.format_number(Decimal("1234.5"), "da") == "1.234,50", "Danish groups thousands with a dot")
+    check(bud.format_number(Decimal("1234.5"), "de") == "1.234,50", "German groups thousands with a dot")
+    check(bud.format_number(Decimal("1234.5"), "fr") == "1 234,50", "French groups thousands with a space")
+    check(bud.format_number(Decimal("1234.5"), "en") == "1,234.50", "English groups thousands with a comma")
+    check(bud.format_number(Decimal("1234567.895"), "hi") == "12,34,567.90", "Hindi grouping, half-up")
+    check(bud.format_number(Decimal("1.225"), "en") == "1.23", "half-up at the third decimal")
+    check(bud.round_money(Decimal("521.703")) == Decimal("521.70"), "521.703 rounds to 521.70")
+    check(set(bud._NUMBER) == set(i18n.ALL_LANGS), "a number format for every site language")
     check(doc["as_of"].isoformat() == "2026-10-13", "as of 2026-10-13")
     check(doc["approximate"] is True, "rates labelled approximate")
     by_id = {line["id"]: line for line in doc["lines"]}
@@ -64,7 +79,6 @@ def main():
         "USD 5", "nordiccrypto.no/.dk/.se/.fi/.is/.eu", "Domeneshop",
         "NOK 1 578", "NOK 131.50", "nordiccrypto.no",
         "EUR 44.59", "EUR 1 = NOK 11.70", "USD 1 = NOK 10.80",
-        "NOK 521.703", "NOK 54.00", "NOK 707.203",
     )
     old = (build.SITE, build.LANG)
     with tempfile.TemporaryDirectory() as tmp:
@@ -88,6 +102,10 @@ def main():
                 main = html.split("<main", 1)[1].split("</main>", 1)[0]
                 for phrase in phrases:
                     check(phrase in main, f"{lang}: shows {phrase}")
+                for value in list(parts) + [shown]:
+                    label = i18n.budget_strings.S[lang]["bud_nok_amt"].format(n=bud.format_number(value, lang))
+                    check(label in main, f"{lang}: shows {label}")
+                check("707.203" not in main and "521.703" not in main, f"{lang}: no unrounded total")
                 for bad in REJECTED:
                     check(bad not in main, f"{lang}: no {bad}")
                 check(build.E(build.t("free")) in main, f"{lang}: free")
@@ -98,6 +116,11 @@ def main():
                     check("exclude labour" in main and "updated manually" in main, "English labour note")
                     check("approximate" in main, "English approximate")
                     check(">USD 5<" in main, "USD 5 is not rewritten as 5.00 on the line")
+                    check("About NOK 707.20 per month." in main, "English total line")
+                if lang == "nn":
+                    check("Om lag 707,20 kr i månaden." in main, "Nynorsk total line")
+                if lang == "nb":
+                    check("Omtrent 707,20 kr i måneden." in main, "Bokmål total line")
                 if lang == "ar":
                     check('dir="rtl"' in html.split("<main", 1)[0], "Arabic page is right to left")
                 for name, rx in RULES.items():
