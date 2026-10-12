@@ -3,7 +3,7 @@ import { blockFees, chains, confirmations, getAddress, getToken, getTx, nextBloc
 import { formatAge, formatBytes, formatCoin, formatGap, formatNumber, formatTokenAmount, formatWhen, shortId } from "@/lib/format";
 import type { Address, Block, ChainId, Tx, TxSide } from "@/lib/types";
 import { CopyButton } from "./copy-button";
-import { Money } from "./money";
+import { FeeRate, Money } from "./money";
 
 function Crumb({ chainId, current }: { chainId: ChainId; current: string }) {
   return (
@@ -197,7 +197,7 @@ export function TxView({ tx }: { tx: Tx }) {
             <Link href={`/${tx.chain}/block/${tx.blockHeight}`}>{formatNumber(tx.blockHeight!)}</Link>. {tx.time ? formatWhen(tx.time) : null}.
           </>
         ) : (
-          <>In the mempool. It is not in a block yet. Fee {formatCoin(tx.fee, chain)} · {tx.feeRate}.</>
+          <>In the mempool. It is not in a block yet. Fee {formatCoin(tx.fee, chain)} · <FeeRate rate={tx.feeRate} prices={chain.prices} />.</>
         )}
       </p>
       <div className="hashrow">
@@ -226,7 +226,7 @@ export function TxView({ tx }: { tx: Tx }) {
         <div>
           <dt>Fee</dt>
           <dd>
-            {formatCoin(tx.fee, chain)} · {tx.feeRate}
+            {formatCoin(tx.fee, chain)} · <FeeRate rate={tx.feeRate} prices={chain.prices} />
           </dd>
         </div>
         <div>

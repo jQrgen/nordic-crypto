@@ -1,9 +1,20 @@
 "use client";
 
 import { chains } from "@/lib/data";
-import { formatFiat, formatUnitPrice } from "@/lib/format";
-import type { ChainId } from "@/lib/types";
+import { formatFeeRateLabel, formatFiat, formatUnitPrice } from "@/lib/format";
+import type { ChainId, Fiat } from "@/lib/types";
 import { usePrefs } from "./prefs";
+
+export function FeeRate({ rate, prices }: { rate: string; prices: Record<Fiat, number> }) {
+  const { fiat } = usePrefs();
+  const { quote, note } = formatFeeRateLabel(rate, prices[fiat], fiat);
+  return (
+    <span className="feerate">
+      {quote}
+      {note ? <span className="muted"> {note}</span> : null}
+    </span>
+  );
+}
 
 export function Money({ coin, chainId }: { coin: number; chainId: ChainId }) {
   const { fiat } = usePrefs();
