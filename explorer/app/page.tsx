@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { chains, defaultChain, homePath } from "@/lib/data";
+import { chains, defaultChain, homePath } from "@/lib/chains";
 
 // Static export: send visitors to the Bitcoin Cash overview without a server.
 export default function Home() {

@@ -1,7 +1,4 @@
-import type { ChainInfo, Fiat } from "./types";
-
-/** The clock this design was drawn against, so relative times stay stable. */
-export const AS_OF = Date.parse("2026-10-12T19:08:00.000Z");
+import type { ChainMeta, Fiat } from "./types";
 
 const FIAT_LABEL: Record<Fiat, string> = {
   NOK: "NOK",
@@ -26,7 +23,7 @@ export function formatNumber(value: number, digits = 0) {
   }).format(value);
 }
 
-export function formatCoin(amount: number, chain: Pick<ChainInfo, "ticker" | "decimals">) {
+export function formatCoin(amount: number, chain: Pick<ChainMeta, "ticker" | "decimals">) {
   const min = amount !== 0 && Math.abs(amount) < 1 ? 0 : 2;
   const body = new Intl.NumberFormat("en-GB", {
     minimumFractionDigits: Math.min(min, chain.decimals),
@@ -71,15 +68,16 @@ const LOCAL_MARK: Record<Fiat, { place: "prefix" | "suffix"; mark: string }> = {
 
 /**
  * Whole coins a transaction of `bytes` costs at this fee rate.
- * `sat/byte` is satoshis. Any other unit, such as `NEX/byte`, is already whole coins.
+ * `sat/byte` counts chain subunits (`satsPerCoin` is 1e8 on Bitcoin Cash and 100 on Nexa).
+ * Any other unit, such as `NEX/byte`, is already whole coins.
  * Returns null when the text is not `number unit/byte`.
  */
-export function coinCostAtFeeRate(feeRate: string, bytes = TYPICAL_TX_BYTES): number | null {
+export function coinCostAtFeeRate(feeRate: string, bytes = TYPICAL_TX_BYTES, satsPerCoin = SATS_PER_COIN): number | null {
   const match = /^(\d+(?:\.\d+)?)\s+([A-Za-z]+)\/byte$/.exec(feeRate.trim());
   if (!match) return null;
   const perByte = Number(match[1]);
-  if (!Number.isFinite(perByte)) return null;
-  return match[2].toLowerCase() === "sat" ? (perByte * bytes) / SATS_PER_COIN : perByte * bytes;
+  if (!Number.isFinite(perByte) || satsPerCoin <= 0) return null;
+  return match[2].toLowerCase() === "sat" ? (perByte * bytes) / satsPerCoin : perByte * bytes;
 }
 
 /** Amount in the currency's usual symbol, with the site's en-GB digits. */
@@ -96,17 +94,29 @@ export function formatLocalFiat(value: number, fiat: Fiat) {
 
 /**
  * `5 sat/byte · ≈ 0.12 kr`.
- * `pricePerCoin` is the fiat price of one whole coin. Pass sample or live prices; this does not look a price up.
- * An unrecognised rate is returned unchanged.
+ * `pricePerCoin` is the fiat price of one whole coin. The caller supplies it; this does not look a price up.
+ * An unrecognised rate, or a missing price, is returned unchanged.
  */
-export function formatFeeRateQuote(feeRate: string, pricePerCoin: number, fiat: Fiat, bytes = TYPICAL_TX_BYTES): string {
-  const coin = coinCostAtFeeRate(feeRate, bytes);
+export function formatFeeRateQuote(
+  feeRate: string,
+  pricePerCoin: number,
+  fiat: Fiat,
+  bytes = TYPICAL_TX_BYTES,
+  satsPerCoin = SATS_PER_COIN,
+): string {
+  const coin = coinCostAtFeeRate(feeRate, bytes, satsPerCoin);
   if (coin == null || !Number.isFinite(pricePerCoin)) return feeRate;
   return `${feeRate} · ≈ ${formatLocalFiat(coin * pricePerCoin, fiat)}`;
 }
 
-export function formatFeeRateLabel(feeRate: string, pricePerCoin: number, fiat: Fiat, bytes = TYPICAL_TX_BYTES) {
-  const quote = formatFeeRateQuote(feeRate, pricePerCoin, fiat, bytes);
+export function formatFeeRateLabel(
+  feeRate: string,
+  pricePerCoin: number,
+  fiat: Fiat,
+  bytes = TYPICAL_TX_BYTES,
+  satsPerCoin = SATS_PER_COIN,
+) {
+  const quote = formatFeeRateQuote(feeRate, pricePerCoin, fiat, bytes, satsPerCoin);
   return { quote, note: quote === feeRate ? null : TYPICAL_TX_NOTE };
 }
 
@@ -119,9 +129,30 @@ export function formatUnitPrice(value: number, fiat: Fiat) {
   return `${body} ${FIAT_LABEL[fiat]}`;
 }
 
-export function formatAge(iso: string | null) {
+export function formatDifficulty(value: number): string {
+  if (!Number.isFinite(value) || value <= 0) return "—";
+  if (value >= 100) return formatNumber(value, 0);
+  if (value >= 1) return formatNumber(value, 2);
+  return value.toPrecision(4);
+}
+
+export function formatSatPerByte(satPerByte: number) {
+  const body = new Intl.NumberFormat("en-GB", { maximumFractionDigits: 2, useGrouping: false }).format(satPerByte);
+  return `${body} sat/byte`;
+}
+
+export function formatRawAmount(amount: string) {
+  if (!/^\d+$/.test(amount)) return amount;
+  try {
+    return BigInt(amount).toLocaleString("en-GB");
+  } catch {
+    return amount;
+  }
+}
+
+export function formatAge(iso: string | null, now = Date.now()) {
   if (!iso) return "Waiting";
-  const mins = Math.max(0, Math.round((AS_OF - Date.parse(iso)) / 60000));
+  const mins = Math.max(0, Math.round((now - Date.parse(iso)) / 60000));
   if (mins < 1) return "Under a minute ago";
   if (mins < 60) return `${mins} min ago`;
   const hours = Math.floor(mins / 60);

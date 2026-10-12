@@ -1,6 +1,5 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { chains } from "../lib/data";
 import {
   TYPICAL_TX_BYTES,
   TYPICAL_TX_NOTE,
@@ -12,6 +11,7 @@ import {
 import type { Fiat } from "../lib/types";
 
 const FIATS: Fiat[] = ["NOK", "SEK", "DKK", "EUR", "USD"];
+const QUOTES: Record<Fiat, number> = { NOK: 2600, SEK: 2700, DKK: 1800, EUR: 240, USD: 270 };
 
 test("a sat/byte rate is priced for a ~250 byte transaction from the price it is given", () => {
   assert.equal(TYPICAL_TX_BYTES, 250);
@@ -48,12 +48,17 @@ test("an unrecognised fee rate is left unchanged", () => {
   assert.equal(formatFeeRateQuote("0 sat/byte", 9600, "EUR"), "0 sat/byte · ≈ €0.00");
 });
 
-test("sample chain prices can be passed in without the formatter owning them", () => {
+test("a caller-supplied price is the only fiat input", () => {
   for (const fiat of FIATS) {
-    const quote = formatFeeRateQuote("5 sat/byte", chains.bch.prices[fiat], fiat);
+    const quote = formatFeeRateQuote("5 sat/byte", QUOTES[fiat], fiat);
     assert.match(quote, /^5 sat\/byte · ≈ /);
     const mark = fiat === "EUR" ? "€" : fiat === "USD" ? "\\$" : "kr";
     assert.match(quote, new RegExp(mark));
-    assert.equal(formatFeeRateLabel("1 sat/byte", chains.nexa.prices[fiat], fiat).note, TYPICAL_TX_NOTE);
+    assert.equal(formatFeeRateLabel("1 sat/byte", QUOTES[fiat], fiat).note, TYPICAL_TX_NOTE);
   }
+});
+
+test("Nexa sat/byte uses 100 subunits per coin", () => {
+  assert.equal(coinCostAtFeeRate("1 sat/byte", TYPICAL_TX_BYTES, 100), 2.5);
+  assert.equal(formatFeeRateQuote("1 sat/byte", 0.12, "NOK", TYPICAL_TX_BYTES, 100), "1 sat/byte · ≈ 0.30 kr");
 });

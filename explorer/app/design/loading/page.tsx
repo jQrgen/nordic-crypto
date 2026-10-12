@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Frame } from "@/components/frame";
 import { LoadingState } from "@/components/states";
-import { defaultChain } from "@/lib/data";
+import { defaultChain } from "@/lib/chains";
 
 export const metadata: Metadata = { title: "Loading" };
 

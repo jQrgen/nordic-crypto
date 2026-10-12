@@ -1,6 +1,6 @@
 import { Frame } from "@/components/frame";
 import { Missing } from "@/components/states";
-import { defaultChain } from "@/lib/data";
+import { defaultChain } from "@/lib/chains";
 
 export default function NotFound() {
   return (
