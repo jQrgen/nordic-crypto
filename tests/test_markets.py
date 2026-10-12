@@ -240,8 +240,8 @@ def main():
     if sitebuild.NAV_MAIN != 7:
         fails.append("seven header sections")
     sv = sitebuild._nav_html("../sv/", "../../", "markets")
-    if 'href="../../api/"' not in sv or "sv/api/" in sv:
-        fails.append("api href left the site root")
+    if 'href="../sv/api/"' not in sv:
+        fails.append("api href follows the page language")
     if 'href="../sv/markets/" aria-current=page' not in sv:
         fails.append("markets active state")
     labels = re.findall(r">([^<]+)</a>", sv)

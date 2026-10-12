@@ -1,6 +1,7 @@
 # API docs page (/api/), English source. Values are HTML with string.Template placeholders:
 # $b = site base URL (ends in /), $tg/$tgu = Telegram URL (escaped/raw), $x/$xu = X URL, $news $letters $talks $events = counts,
-# $gen = generated timestamp. Keep tags, <code>, URLs and field names exactly as in English when translating.
+# $gen = generated timestamp, $latest = how many stories /api/v1/news/latest.json lists.
+# Keep tags, <code>, URLs and field names exactly as in English when translating.
 S = {
 "title": "Data API",
 "toc": "On this page",
@@ -8,6 +9,17 @@ S = {
 "h1": "Nordic Crypto data API",
 "lead": "A public JSON feed of the site, for apps and for other tools. No account and no API key. It is regenerated whenever the site is built.",
 "meta": "Version 1. $news news items, $letters newsletter issues, $events events and $talks talks in this build. Generated $gen.",
+# Node URI, pubkey and on-chain address stay in docs_fragment. The IPv4 URI uses &#64; so the privacy gate does not read pubkey@host as an email address.
+"h_lightning": "Bitcoin Lightning node",
+"lightning_intro": "Nordic Crypto runs a Bitcoin Lightning node. The alias is Nordic Crypto. The implementation is LND, in Neutrino light mode. No account and no API key.",
+"th_node": "Node",
+"th_impl": "Implementation",
+"ln_status": "syncing / not yet open for channels",
+"ln_impl": "LND (Neutrino light mode)",
+"lightning_note": 'The status line is written into this static page and does not update itself. Live status: <a href="https://amboss.space/node/0225974bb701101a5d4352dcae0f76aa9c1388e482a666e892f462e0e0e4217dd9" rel="noopener">Amboss</a> and <a href="https://1ml.com/node/0225974bb701101a5d4352dcae0f76aa9c1388e482a666e892f462e0e0e4217dd9" rel="noopener">1ML</a>.',
+"lightning_uri": "Node URI. Copy a line. The first line is IPv4. The second line is the same node on IPv6, <code>[2a01:4f8:c01e:36d9::1]:9735</code>.",
+"lightning_pubkey": "Pubkey.",
+"lightning_deposit": "On-chain deposit address.",
 "h_electrum": "Electrum servers (BCH and Nexa)",
 "electrum_intro": 'Nordic Crypto runs <a href="https://nexa.gitlab.io/rostrum/" rel="noopener">Rostrum</a> Electrum servers for Bitcoin Cash and Nexa. Wallets and apps can read balances, transactions, UTXOs, tokens and the chain tip from them, and broadcast transactions. No account and no API key.',
 "th_server": "Server", "th_status": "Status", "th_height": "Block height", "th_response": "Response", "th_version": "Version",
@@ -23,6 +35,8 @@ S = {
 "start_catalog": "API catalog", "start_catalog_d": "RFC 9727 linkset;", "start_catalog_copy": ".json copy",
 "h_fetch": "Fetch news and a newsletter",
 "fetch_abs": "Absolute URLs use the public site, at the domain root: <code>${b}api/v1/news.json</code>.",
+"h_latest": "Polling for new stories",
+"latest": '<a href="${b}api/v1/news/latest.json"><code>/api/v1/news/latest.json</code></a> holds the ${latest} newest published stories with only <code>id</code>, <code>published</code>, <code>country</code>, <code>source</code>, <code>source_name</code>, <code>language_code</code>, <code>own_story</code>, the headlines (<code>title</code>, <code>title_en</code>, <code>title_i18n</code>) and the links (<code>url</code>, <code>html_url</code>, <code>api_url</code>). The values are the same as in <code>news.json</code>, in the same order (newest first). It stays small however long the archive grows, so an app or a push server can poll it every few minutes. Send <code>If-None-Match</code> with the last <code>ETag</code>; GitHub Pages answers <code>304 Not Modified</code> while the file is unchanged. Compare ids with the ones you have seen; <code>generated_at</code> changes on every build.',
 "h_markets": "Market prices",
 "markets_1": 'Nordic exchange prices are market data, not investment advice. <a href="${b}api/v1/markets.json"><code>/api/v1/markets.json</code></a> lists each pair with symbol, base, quote, last, bid and ask when the exchange publishes them, the exchange id, name and country, <code>fetched_at</code>, the source URL, and volume when the exchange published it. <code>volume_base</code> is the base asset with no named window (Firi). <code>volume_base_24h</code> and <code>volume_quote_24h</code> are the last 24 hours (NBX). A missing volume is null, not zero. Quotes are NOK, SEK, DKK and EUR. One exchange is <a href="${b}api/v1/markets/firi.json"><code>/api/v1/markets/{exchange}.json</code></a> (<code>firi</code>, <code>nbx</code>, <code>coinmotion</code>). One asset is <a href="${b}api/v1/markets/by-asset/BTC.json"><code>/api/v1/markets/by-asset/{symbol}.json</code></a>. Venues without a public ticker are listed under <code>skipped</code> and are not given a made-up price.',
 "markets_2": '<a href="${b}api/v1/markets/aggregated.json"><code>/api/v1/markets/aggregated.json</code></a> is one row per pair. BTC-NOK is not averaged with BTC-EUR. <code>last</code> is the arithmetic mean of published last prices. <code>mid</code> is the mean of (bid+ask)/2 and is not mixed into <code>last</code>. <code>price</code> equals <code>last</code> when any last exists, otherwise <code>mid</code>. <code>min</code> and <code>max</code> use that same series. There is no VWAP. Volume is summed only inside the same field and the same pair. <code>logo_url</code> is an SVG from <a href="https://github.com/spothq/cryptocurrency-icons" rel="noopener">cryptocurrency-icons</a> (CC0 1.0) when that set includes the asset, served at <code>/api/v1/markets/logos/{symbol}.svg</code>, and null otherwise. The per-asset file repeats <code>aggregated</code> and the logo.',

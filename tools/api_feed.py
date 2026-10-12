@@ -53,6 +53,13 @@ SITE_TELEGRAM_URL = "https://t.me/nordiccryptochat"
 NORDIC_UI = ("nn", "nb", "sv", "da", "fi", "is")
 LANGS = list(i18n.ALL_LANGS)
 COUNTRIES = ["NO", "SE", "DK", "FI", "IS", "NORDIC", "EU"]
+# /api/v1/news/latest.json: the newest stories with only the fields a notifier needs. Small and bounded,
+# so an app push server can poll it every few minutes instead of the full news.json.
+LATEST_COUNT = 25
+LATEST_FIELDS = ("id", "published", "country", "source", "source_name", "language_code", "own_story",
+                 "title", "title_en", "title_i18n", "url", "html_url", "api_url")
+# File names under api/v1/news/ that are not story ids.
+NEWS_RESERVED_IDS = {"latest", "topics"}
 
 def country_lang_map():
     """Country → default site language, the same object the switcher uses (tools/langselect.js BY_COUNTRY)."""
@@ -597,6 +604,11 @@ class Feed:
             "label": raw.get("label"),
             "sources": [{"url": s.get("url"), "title": s.get("title"), "source_name": s.get("source_name"), "date": s.get("date")} for s in (raw.get("sources") or [])],
         }
+
+
+def latest_news(news, limit=LATEST_COUNT):
+    """The first `limit` rows of the published list (already newest first), slimmed to LATEST_FIELDS."""
+    return [{k: n.get(k) for k in LATEST_FIELDS} for n in news[:limit]]
 
 
 def public_news(preview):
@@ -1304,7 +1316,18 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
         item_template="api/v1/news/{id}.json",
     )
     for n in news:
+        if n["id"] in NEWS_RESERVED_IDS:
+            print(f"api: news id {n['id']} clashes with api/v1/news/{n['id']}.json; item file skipped", file=sys.stderr)
+            continue
         feed.write_json(f"api/v1/news/{n['id']}.json", feed.env(item=n))
+    latest = latest_news(news)
+    collection(
+        "api/v1/news/latest.json",
+        f"The {LATEST_COUNT} newest published stories with id, published, country, source and headlines only. "
+        "For apps and notifiers that poll often; news.json is the full list.",
+        "NewsLatest",
+        feed.env(updated=news_updated, limit=LATEST_COUNT, count=len(latest), items=latest),
+    )
     by_c = {}
     for c in COUNTRIES:
         rows = [n for n in news if n.get("country") == c]
@@ -1924,6 +1947,18 @@ def schemas():
         "NewsCoverage": news_coverage,
         "NewsItem": news_item,
         "NewsList": wrap("NewsList", {"count": {"type": "integer"}, "items": {"type": "array", "items": news_item}, "updated": {"type": "string", "nullable": True}, "logo_note": {"type": "string"}}),
+        "NewsLatestItem": {
+            "type": "object",
+            "required": ["id", "title", "published", "api_url"],
+            "description": "A news item cut down to the fields a notifier needs. Same values as in news.json.",
+            "properties": {k: news_item["properties"][k] for k in LATEST_FIELDS},
+        },
+        "NewsLatest": wrap("NewsLatest", {
+            "updated": {"type": "string", "nullable": True},
+            "limit": {"type": "integer", "description": "Maximum number of items in this file."},
+            "count": {"type": "integer"},
+            "items": {"type": "array", "items": {"$ref": "#/components/schemas/NewsLatestItem"}, "description": "Newest first, like news.json."},
+        }),
         "TopicIndex": wrap("TopicIndex", {"topics": {"type": "array"}}),
         "Event": event_item,
         "EventList": wrap("EventList", {"count": {"type": "integer"}, "events": {"type": "array", "items": event_item}}),
@@ -2303,7 +2338,8 @@ def llms_txt(feed, index):
         "(national, regional, official, international) are the counts and shares, and empty types are included as zero. "
         "html_url is our coverage page. url is the primary outlet. ",
         "A single newsletter issue is api/v1/newsletters/{id}.json and includes plain text and HTML. "
-        "Country slices: api/v1/news/by-country/NO.json (also SE, DK, FI, IS).",
+        "Country slices: api/v1/news/by-country/NO.json (also SE, DK, FI, IS). "
+        f"To poll for new stories, use api/v1/news/latest.json: the {LATEST_COUNT} newest stories with id, published, country, source and headlines only.",
         "",
         "## Source logos",
         "",
@@ -2404,7 +2440,7 @@ def docs_fragment(index, lang="en"):
     vals = dict(b=eb, tg=html.escape(SITE_TELEGRAM_URL), tgu=SITE_TELEGRAM_URL, x=html.escape(SITE_X_URL), xu=SITE_X_URL,
                 news=html.escape(str(counts.get("news", 0))), letters=html.escape(str(counts.get("newsletters", 0))),
                 events=html.escape(str(counts.get("events", 0))), talks=html.escape(str(counts.get("talks", 0))),
-                gen=html.escape(index.get("generated_at") or ""))
+                gen=html.escape(index.get("generated_at") or ""), latest=str(LATEST_COUNT))
     def t(k, esc=False):
         v = Template(T[k]).safe_substitute(vals)
         return html.escape(v) if esc else v
@@ -2427,6 +2463,20 @@ def docs_fragment(index, lang="en"):
 <p class="lead">{t("lead")}</p>
 <p class="meta">{t("meta")}</p>
 <div class="prose">
+<h2 id="lightning">{t("h_lightning")}</h2>
+<p>{t("lightning_intro")}</p>
+<div class="tablewrap"><table class="list" id="lightning-status"><thead><tr><th>{t("th_node", True)}</th><th>{t("th_status", True)}</th><th class="wide">{t("th_impl", True)}</th></tr></thead><tbody>
+<tr><td>Bitcoin<br>Nordic Crypto</td><td>{t("ln_status", True)}</td><td class="wide">{t("ln_impl", True)}</td></tr>
+</tbody></table></div>
+<p class="meta">{t("lightning_note")}</p>
+<p>{t("lightning_uri")}</p>
+<!-- The @ in the IPv4 node URI is &#64; in the file. The privacy gate would otherwise read pubkey@host as an email address. The page shows @, and copying the line includes it. -->
+<pre>0225974bb701101a5d4352dcae0f76aa9c1388e482a666e892f462e0e0e4217dd9&#64;91.99.122.75:9735
+0225974bb701101a5d4352dcae0f76aa9c1388e482a666e892f462e0e0e4217dd9@[2a01:4f8:c01e:36d9::1]:9735</pre>
+<p>{t("lightning_pubkey")}</p>
+<pre>0225974bb701101a5d4352dcae0f76aa9c1388e482a666e892f462e0e0e4217dd9</pre>
+<p>{t("lightning_deposit")}</p>
+<pre>bc1p7zgqhev2zzn45mefzq59gq983379lr0rsymhl558rza9k05y7vsq9mglx7</pre>
 <h2 id="electrum">{t("h_electrum")}</h2>
 <p>{t("electrum_intro")}</p>
 <div class="tablewrap"><table class="list" id="electrum-status" aria-live="polite"{st}><thead><tr><th>{t("th_server", True)}</th><th>{t("th_status", True)}</th><th>{t("th_height", True)}</th><th class="wide">{t("th_response", True)}</th><th class="wide">{t("th_version", True)}</th></tr></thead><tbody>
@@ -2450,6 +2500,9 @@ def docs_fragment(index, lang="en"):
 <pre>curl -fsS {news}
 curl -fsS {letters}{html.escape(one_line)}</pre>
 <p>{t("fetch_abs")}</p>
+<h2 id="latest">{t("h_latest")}</h2>
+<p>{t("latest")}</p>
+<pre>curl -fsS {eb}api/v1/news/latest.json</pre>
 <h2 id="markets">{t("h_markets")}</h2>
 <p>{t("markets_1")}</p>
 <p>{t("markets_2")}</p>

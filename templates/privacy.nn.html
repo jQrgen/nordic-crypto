@@ -4,7 +4,7 @@
 
 <h2 id="who">Kven som er ansvarleg</h2>
 <p>Nordic Crypto (nordiccrypto.no og landadressene nordiccrypto.se, .fi, .dk og .is) vert driven av Jørgen S. Notland (jQrgen), Oslo, som er behandlingsansvarleg etter personvernforordninga (GDPR). Spørsmål om opplysningane dine: opprett ei sak på <a href="https://github.com/jQrgen/nordic-crypto/issues" rel="noopener">github.com/jQrgen/nordic-crypto/issues</a>. Sakene er offentlege, så ikkje skriv personopplysningar der; be om å verte kontakta, så svarer vi privat. Du kan òg klage til <a href="https://www.datatilsynet.no/" rel="noopener">Datatilsynet</a> eller til tilsynsstyresmakta der du bur.</p>
-<p>Denne sida gjeld nettstaden. Sist oppdatert 9. oktober 2026. Endringar står i <a href="{{UP}}changelog/">endringsloggen</a> og i den offentlege kjeldekoden.</p>
+<p>Denne sida gjeld nettstaden og, under <a href="#apps">Appane</a>, Nordic Crypto-appane. Sist oppdatert 11. oktober 2026. Endringar står i <a href="{{UP}}changelog/">endringsloggen</a> og i den offentlege kjeldekoden.</p>
 
 <h2 id="overview">Oversikt</h2>
 <ul>
@@ -16,6 +16,7 @@
 <li><b>Språkval ut frå land</b>: {{ST_GEO}}</li>
 <li><b>Nyheitsbrev på e-post</b>: {{ST_NEWSLETTER}}</li>
 <li><b>Varsel i nettlesaren</b>: {{ST_PUSH}}</li>
+<li><b>Varsel i appane</b>: berre når du slår dei på i appen (sjå <a href="#apps">Appane</a>).</li>
 <li><b>Private tips</b>: {{ST_TIPS}}</li>
 <li><b>Prateboks</b>: {{ST_CHAT}}</li>
 </ul>
@@ -73,6 +74,13 @@
 <p><b>Kor lenge.</b> Til du slår av varsla med den same knappen, eller til push-tenesta seier at abonnementet ikkje finst lenger. Begge delar slettar det.</p>
 <p><b>Kven og kvar.</b> Cloudflare, Inc. (Workers KV) og push-tenesta til nettlesaren din, som kan vere utanfor EØS.</p>
 
+<h2 id="apps">Appane: push-varsel</h2>
+<p>Nordic Crypto-appane for iPhone, iPad, Mac, Apple Vision Pro, Apple TV og Android har ingen konto, ingen analyse, ingen reklame og inga sporing. Dei hentar dei same offentlege nyheitsfilene som denne nettstaden. Det einaste dei lagrar utanfor eininga di, er det varsla treng, og berre etter at du har slått på varsel i appen. Apple TV har ikkje varsel.</p>
+<p><b>Kva.</b> Når du slår på varsel om nye saker, sender appen push-serveren vår, ein Cloudflare Worker vi driv sjølve, push-tokenet som Apple eller Google gav appen på den eininga, einingstypen (iPhone, iPad, Mac, Vision Pro eller Android), landa du valde og språket i appen. Serveren lagrar dette, om tokenet gjeld test- eller produksjonstenesta til Apple for push, og når appen sist melde seg. Ikkje namn, ikkje e-postadresse, ikkje IP-adresse, ikkje einingsnamn og ikkje posisjon. Tokenet let oss berre sende eit varsel til appen på den eininga; vi brukar det ikkje til noko anna og deler det ikkje med nokon.</p>
+<p><b>Føremål og rettsleg grunnlag.</b> Å sende deg eitt varsel per ny sak frå landa du valde: samtykke (art. 6 nr. 1 bokstav a), gjeve når du slår på varsel.</p>
+<p><b>Kor lenge.</b> Når du slår av varsel i appen, vert tokenet og vala dine sletta frå serveren med ein gong. Eit token som Apple eller Google melder at ikkje lenger gjeld, vert sletta, og det same vert ei eining som ikkje har meldt seg på 180 dagar. Om push-serveren ikkje svarar, ser appen sjølv etter nye saker i den offentlege nyheitsstraumen og sender ingenting om deg nokon stad.</p>
+<p><b>Kven og kvar.</b> Cloudflare, Inc. lagrar lista (Cloudflare D1); logging av førespurnader er slått av, og koden vår lagrar ikkje IP-adressa til ein førespurnad (sjå <a href="#hosting">Drift</a> om overføring). Apple (Apple Push Notification service) og Google (Firebase Cloud Messaging) leverer varsla etter sine eigne personvernvilkår. På Android gjev Firebase òg appen ein installasjons-ID som Google brukar til å levere dei; appen har ikkje Firebase Analytics. Apple Inc. og Google LLC held til i USA, utanfor EØS. Heile personvernerklæringa for appane, med dei få andre tenestene dei koplar til, står i <a href="https://github.com/jQrgen/nordic-crypto-tv/blob/main/support/appstore/privacy-policy.md" rel="noopener">kjeldekoden til appen</a>.</p>
+
 <h2 id="tips">Private tips</h2>
 <p>Status: {{ST_TIPS}}</p>
 <p>Vi tek ikkje imot tips i offentlege GitHub-saker. <a href="{{UP}}tip/">Tipssida</a> opnar fyrst når den private innboksen nedanfor er klar.</p>
@@ -90,6 +98,9 @@
 
 <h2 id="github">GitHub-saker og bidrag</h2>
 <p>Om du opprettar ei sak eller bidreg på GitHub, behandlar GitHub kontoopplysningane dine etter sine eigne vilkår, og det du skriv der er offentleg. Vi brukar saker til spørsmål om nettstaden, ikkje til tips.</p>
+
+<h2 id="crowdfunding">Folkefinansieringspiloten</h2>
+<p>Folkefinansieringspiloten: inga sporing av givarar. Framdrifta vert lesen i nettlesaren din direkte frå offentlege Electrum/Rostrum-tenarar (drivne av Nordic Crypto eller tredjepartar, som ser IP-adressa di som ein kva som helst nettstad). Ho spør berre om behaldninga på adressa til prosjektet; vi lagrar ingenting om det. Sjekkdata om prosjekteigarar (namn, land, kontakt, resultat av sanksjonssøk) vert førte manuelt, berre for oppføringa og så lenge det trengst.</p>
 
 <h2 id="rights">Rettane dine</h2>
 <p>Du kan be om innsyn i, retting av eller sletting av opplysningar om deg, protestere mot behandling som byggjer på berettiga interesse, og trekkje attende samtykke når som helst (melde deg av, slå av varsel). For det meste av nettstaden har vi ingenting som identifiserer deg, så det er som regel ingenting å slå opp. Kontakt oss som skildra under <a href="#who">Kven som er ansvarleg</a>.</p>

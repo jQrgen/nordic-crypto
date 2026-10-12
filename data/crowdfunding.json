@@ -1,0 +1,29 @@
+{
+  "_doc": "Nordic Crypto crowdfunding pilot (closed, noindex). Curated by hand. Nordic Crypto never holds keys or funds: each campaign lists the project's OWN addresses. Donations, optionally with a reward the project itself describes and sells. No escrow, pooled wallets, exchange, percentage fees, all-or-nothing contracts, tokens, investments or loans. A campaign may only be added after manual checks (identity, address control by signed message, sanctions screening). Set demo:true for examples: they show a DEMO banner, invalid addresses and no progress lookup.",
+  "pilot": {
+    "status": "closed",
+    "max_projects": 5,
+    "apply_email": null,
+    "report_email": null
+  },
+  "campaigns": [
+    {
+      "id": "demo-example",
+      "demo": true,
+      "title": "Example campaign (demo, not live)",
+      "owner": "Example project owner",
+      "owner_country": "NO",
+      "owner_is_trader": false,
+      "description": "This is a sample entry that shows how a campaign will look. It is not a real project. Do not send anything to the addresses below; they are deliberately invalid.",
+      "reward": "Optional: the project describes any reward here. The project is the seller, not Nordic Crypto.",
+      "goal": {"bch": 2.5, "nexa": 50000000, "nok_approx": null},
+      "addresses": {
+        "bch": "bitcoincash:DEMO-NOT-A-REAL-ADDRESS",
+        "nexa": "nexa:DEMO-NOT-A-REAL-ADDRESS"
+      },
+      "deadline": "2026-12-31",
+      "kyc_verified": false,
+      "links": [{"label": "Project website (example)", "url": "https://example.org/"}]
+    }
+  ]
+}
