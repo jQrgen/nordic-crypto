@@ -133,11 +133,11 @@ test("fiat is omitted when the quote is missing", () => {
   assert.equal(fiatAmount(2, 10), 20);
   const book = parseGecko({
     "bitcoin-cash": { usd: 271.14, usd_24h_change: -4.5, nok: 2597.91, nok_24h_change: null },
-    nexa: { usd: 0.0012, usd_24h_change: null },
+    nexacoin: { usd: 0.00000106, usd_24h_change: null },
   });
   assert.equal(book?.bch.quotes.NOK, 2597.91);
   assert.equal(book?.bch.change.NOK, null);
-  assert.equal(book?.nexa.quotes.USD, 0.0012);
+  assert.equal(book?.nexa.quotes.USD, 0.00000106);
   assert.equal(parseGecko({}), null);
 });
 
