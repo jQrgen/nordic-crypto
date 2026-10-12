@@ -6,6 +6,7 @@ import { useEffect, type ReactNode } from "react";
 import { chainOrder, chains, defaultChain, isChainId } from "@/lib/data";
 import type { ChainId, Fiat } from "@/lib/types";
 import { PrefsProvider, usePrefs } from "./prefs";
+import { SiteLinks } from "./site-links";
 
 const FIATS: Fiat[] = ["NOK", "SEK", "DKK", "EUR", "USD"];
 
@@ -49,6 +50,7 @@ function Shell({ chain, children }: { chain?: ChainId; children: ReactNode }) {
       </a>
       <header className="top">
         <div className="wrap">
+          <SiteLinks />
           <div className="brandrow">
             <Link className="brand" href={`/${resolved}`} aria-label="Nordic Crypto Explorer, home">
               <Shield />
@@ -70,9 +72,6 @@ function Shell({ chain, children }: { chain?: ChainId; children: ReactNode }) {
               ))}
             </nav>
             <div className="hdrtools">
-              <a className="quiet" href="https://nordiccrypto.no/">
-                News
-              </a>
               <label className="fiat">
                 <span className="vh">Fiat currency</span>
                 <select value={fiat} onChange={(event) => setFiat(event.target.value as Fiat)} aria-label="Fiat currency">

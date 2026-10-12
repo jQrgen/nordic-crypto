@@ -166,6 +166,41 @@ for (const [file, checks] of pages) {
   if (!tags.get("og:description")?.[0]) errors.push(`${file} missing og:description`);
 }
 
+const headerHrefs = [
+  "https://nordiccrypto.no/newsletter/#signup",
+  "https://t.me/nordiccryptochat",
+  "https://x.com/xcryptonordic",
+  "https://github.com/jQrgen/nordic-crypto",
+  "https://nordiccrypto.no/rss.xml",
+  "https://testflight.apple.com/join/nQ2fpjZn",
+  "https://nordiccrypto.no/",
+];
+const headerLabels = [
+  "Follow",
+  "Join on Telegram",
+  "Follow on X",
+  "Source code",
+  "RSS",
+  "Get the iOS app (TestFlight)",
+  "Especially supports Apple TV.",
+  "nordiccrypto.no",
+];
+for (const file of ["bch/index.html", "nexa/index.html", "bch/mempool/index.html", "nexa/tokens/index.html"]) {
+  const html = readFileSync(join(out, file), "utf8");
+  const bar = html.match(/<nav class="socialbar"[^>]*>[\s\S]*?<\/nav>/);
+  if (!bar) {
+    errors.push(`${file} missing social bar`);
+    continue;
+  }
+  const hrefs = [...bar[0].matchAll(/href="([^"]+)"/g)].map((m) => m[1]);
+  if (hrefs.join("\n") !== headerHrefs.join("\n")) {
+    errors.push(`${file} social links: expected ${headerHrefs.join(", ")}, got ${hrefs.join(", ")}`);
+  }
+  for (const label of headerLabels) {
+    if (!bar[0].includes(label)) errors.push(`${file} social bar missing ${JSON.stringify(label)}`);
+  }
+}
+
 const png = readFileSync(join(out, "og.png"));
 if (png.subarray(0, 8).toString("hex") !== "89504e470d0a1a0a" || png.readUInt32BE(16) !== 1200 || png.readUInt32BE(20) !== 630) {
   errors.push("out/og.png is not a 1200x630 PNG");
