@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Frame } from "@/components/frame";
-import { MempoolView } from "@/components/states";
-import { chainOrder, getChain } from "@/lib/data";
+import { MempoolScreen } from "@/components/screens";
+import { chainOrder, getChain } from "@/lib/chains";
 
 export const dynamicParams = false;
 
 export function generateStaticParams() {
   return chainOrder.map((chain) => ({ chain }));
 }
-
 
 export async function generateMetadata({ params }: { params: Promise<{ chain: string }> }): Promise<Metadata> {
   const { chain } = await params;
@@ -23,7 +22,7 @@ export default async function MempoolPage({ params }: { params: Promise<{ chain:
   if (!info) notFound();
   return (
     <Frame chain={info.id}>
-      <MempoolView chainId={info.id} />
+      <MempoolScreen chainId={info.id} />
     </Frame>
   );
 }

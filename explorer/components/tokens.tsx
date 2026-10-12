@@ -1,53 +1,45 @@
-import Link from "next/link";
-import { chains, getTx, tokensOn } from "@/lib/data";
-import { formatAge, formatNumber, formatTokenAmount, shortId } from "@/lib/format";
-import type { ChainId, TokenInfo } from "@/lib/types";
+"use client";
 
-export function TokenIndex({ chainId }: { chainId: ChainId }) {
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { chains } from "@/lib/chains";
+import { formatNumber, shortId } from "@/lib/format";
+import { blockHref, tokenHref, txHref } from "@/lib/routes";
+import type { ChainId, TokenModel } from "@/lib/types";
+
+export function TokenLookup({ chainId }: { chainId: ChainId }) {
   const chain = chains[chainId];
-  const list = tokensOn(chainId);
+  const router = useRouter();
   return (
     <>
       <p className="eyebrow">Tokens · {chain.name}</p>
       <h1>{chainId === "nexa" ? "Group tokens" : "CashTokens"}</h1>
       <p className="lead">
         {chainId === "nexa"
-          ? "Nexa carries tokens in the same transaction as the coin. A group id is the token’s identity."
-          : "Bitcoin Cash carries tokens as CashTokens. A fungible token and an NFT use the same page, with the kind written out."}
+          ? "Nexa carries tokens in the same transaction as the coin. Paste a group id to ask the server for its genesis record. There is no list of every token."
+          : "Bitcoin Cash carries tokens as CashTokens. Paste a category id to ask the server for its genesis record. There is no list of every token."}
       </p>
-      <section className="sheet">
-        <table className="ledger">
-          <caption className="vh">{chain.name} tokens</caption>
-          <thead>
-            <tr>
-              <th>Token</th>
-              <th>Kind</th>
-              <th className="r">Supply</th>
-            </tr>
-          </thead>
-          <tbody>
-            {list.map((token) => (
-              <tr key={token.id}>
-                <td data-label="Token">
-                  <Link href={`/${chainId}/token/${token.id}`}>
-                    <strong>{token.ticker}</strong>
-                    <span className="muted"> · {token.name}</span>
-                  </Link>
-                </td>
-                <td data-label="Kind">{token.kind}</td>
-                <td data-label="Supply" className="r">
-                  {formatNumber(token.supply)}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </section>
+      <form
+        className="search"
+        onSubmit={(event) => {
+          event.preventDefault();
+          const data = new FormData(event.currentTarget);
+          const id = String(data.get("id") ?? "").trim();
+          if (!id) return;
+          router.push(tokenHref(chainId, id));
+        }}
+      >
+        <label className="vh" htmlFor="token-id">
+          Token id
+        </label>
+        <input id="token-id" name="id" placeholder="Token id" autoComplete="off" />
+        <button type="submit">Look up</button>
+      </form>
     </>
   );
 }
 
-export function TokenView({ token }: { token: TokenInfo }) {
+export function TokenView({ token }: { token: TokenModel }) {
   const chain = chains[token.chain];
   return (
     <>
@@ -56,70 +48,48 @@ export function TokenView({ token }: { token: TokenInfo }) {
         <span aria-hidden="true"> · </span>
         <Link href={`/${token.chain}/tokens`}>Tokens</Link>
         <span aria-hidden="true"> · </span>
-        <span>{token.ticker}</span>
+        <span>{token.ticker ?? "Token"}</span>
       </nav>
-      <p className="eyebrow">
-        Token · {chain.name} · {token.kind}
+      <p className="eyebrow">Token · {chain.name}</p>
+      <h1>{token.ticker ?? shortId(token.id, 12, 6)}</h1>
+      <p className="lead">
+        {token.name ?? "The server returned a genesis record without a name."}
+        {token.documentUrl ? (
+          <>
+            {" "}
+            <a href={token.documentUrl}>Document</a>.
+          </>
+        ) : null}
       </p>
-      <h1>{token.ticker}</h1>
-      <p className="lead">{token.name}. {token.about}</p>
+      <div className="hashrow">
+        <code>{token.id}</code>
+      </div>
       <dl className="facts">
         <div>
-          <dt>Supply</dt>
-          <dd>{formatTokenAmount(token.supply, token.decimals, token.ticker)}</dd>
+          <dt>Name</dt>
+          <dd>{token.name ?? "Not reported"}</dd>
+        </div>
+        <div>
+          <dt>Ticker</dt>
+          <dd>{token.ticker ?? "Not reported"}</dd>
         </div>
         <div>
           <dt>Decimals</dt>
-          <dd>{formatNumber(token.decimals)}</dd>
+          <dd>{token.decimals == null ? "Not reported" : formatNumber(token.decimals)}</dd>
         </div>
         <div>
-          <dt>Kind</dt>
-          <dd>{token.kind}</dd>
-        </div>
-        <div>
-          <dt>Chain</dt>
+          <dt>Genesis</dt>
           <dd>
-            <Link href={`/${token.chain}`}>{chain.name}</Link>
+            {token.txid ? <Link href={txHref(token.chain, token.txid)}>{shortId(token.txid, 12, 6)}</Link> : "Not reported"}
+            {token.height != null ? (
+              <>
+                {" · "}
+                <Link href={blockHref(token.chain, token.height)}>{formatNumber(token.height)}</Link>
+              </>
+            ) : null}
           </dd>
         </div>
       </dl>
-      <section className="sheet" aria-labelledby="moves-h">
-        <div className="sheethead">
-          <h2 id="moves-h">Transfers in this sample</h2>
-        </div>
-        <table className="ledger">
-          <caption className="vh">Sample transfers of {token.ticker}</caption>
-          <thead>
-            <tr>
-              <th>Transaction</th>
-              <th>When</th>
-              <th className="r">Amount</th>
-            </tr>
-          </thead>
-          <tbody>
-            {token.txIds.map((id) => {
-              const tx = getTx(id);
-              if (!tx) return null;
-              const move = [...tx.outputs, ...tx.inputs].find((side) => side.token?.tokenId === token.id);
-              return (
-                <tr key={id}>
-                  <td data-label="Transaction">
-                    <Link className="mono" href={`/${token.chain}/tx/${tx.id}`}>
-                      {shortId(tx.hash, 16, 8)}
-                    </Link>
-                  </td>
-                  <td data-label="When" className="muted">
-                    {formatAge(tx.time)}
-                  </td>
-                  <td data-label="Amount" className="r">
-                    {move?.token ? formatTokenAmount(move.token.amount, token.decimals, token.ticker) : "—"}
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </section>
     </>
   );
 }

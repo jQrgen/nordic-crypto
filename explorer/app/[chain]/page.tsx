@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Frame } from "@/components/frame";
 import { Overview } from "@/components/overview";
-import { chainOrder, getChain } from "@/lib/data";
+import { chainOrder, getChain } from "@/lib/chains";
 
 export const dynamicParams = false;
 

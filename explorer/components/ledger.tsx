@@ -1,9 +1,11 @@
 import Link from "next/link";
-import { blockFees, chains, confirmations, getAddress, getToken, getTx, nextBlock, previousBlock } from "@/lib/data";
-import { formatAge, formatBytes, formatCoin, formatGap, formatNumber, formatTokenAmount, formatWhen, shortId } from "@/lib/format";
-import type { Address, Block, ChainId, Tx, TxSide } from "@/lib/types";
+import { chains } from "@/lib/chains";
+import { formatBytes, formatCoin, formatNumber, formatRawAmount, formatWhen, shortId } from "@/lib/format";
+import { addressHref, blockHref, tokenHref, txHref } from "@/lib/routes";
+import type { AddressModel, BlockModel, ChainId, TxModel, TxSide } from "@/lib/types";
+import { Age } from "./age";
 import { CopyButton } from "./copy-button";
-import { FeeRate, Money } from "./money";
+import { CoinWithFiat, FeeRate, FiatOnly } from "./money";
 
 function Crumb({ chainId, current }: { chainId: ChainId; current: string }) {
   return (
@@ -16,71 +18,63 @@ function Crumb({ chainId, current }: { chainId: ChainId; current: string }) {
 }
 
 function Party({ chainId, side }: { chainId: ChainId; side: TxSide }) {
-  if (!side.addressId) return <span>{side.label ?? "Unknown"}</span>;
-  const address = getAddress(side.addressId);
-  if (!address) return <span>{side.label ?? side.addressId}</span>;
-  return (
-    <Link href={`/${chainId}/address/${address.id}`}>
-      {address.label ?? shortId(address.address)}
-    </Link>
-  );
+  if (side.address) return <Link href={addressHref(chainId, side.address)}>{shortId(side.address, 18, 6)}</Link>;
+  return <span>{side.label ?? "Unknown"}</span>;
 }
 
 function TokenBit({ chainId, side }: { chainId: ChainId; side: TxSide }) {
   if (!side.token) return null;
-  const token = getToken(side.token.tokenId);
-  if (!token) return null;
   return (
-    <Link className="tokenline" href={`/${chainId}/token/${token.id}`}>
-      {formatTokenAmount(side.token.amount, token.decimals, token.ticker)}
+    <Link className="tokenline" href={tokenHref(chainId, side.token.id)}>
+      {formatRawAmount(side.token.amount)} {shortId(side.token.id, 8, 4)}
     </Link>
   );
 }
 
-export function BlockView({ block }: { block: Block }) {
+export function BlockView({ block }: { block: BlockModel }) {
   const chain = chains[block.chain];
-  const prev = previousBlock(block);
-  const next = nextBlock(block);
-  const fees = blockFees(block);
+  const prev = block.height > 0 ? block.height - 1 : null;
+  const next = block.confirmations > 1 ? block.height + 1 : null;
+  const listed = block.txIds.length;
+  const hidden = block.txCount != null ? Math.max(0, block.txCount - listed) : null;
   return (
     <>
       <Crumb chainId={block.chain} current={`Block ${formatNumber(block.height)}`} />
       <p className="eyebrow">Block · {chain.name}</p>
       <h1 className="num">#{formatNumber(block.height)}</h1>
       <p className="lead">
-        {formatAge(block.time)}. {formatWhen(block.time)}.
-        {prev ? ` Mined ${formatGap(block.time, prev.time)} after the block before it.` : ""}
+        <Age iso={block.time} />. {block.time ? formatWhen(block.time) : null}.
       </p>
       <div className="hashrow">
         <code>{block.hash}</code>
         <CopyButton value={block.hash} />
       </div>
       <div className="pager">
-        {prev ? <Link href={`/${block.chain}/block/${prev.height}`}>← {formatNumber(prev.height)}</Link> : <span />}
-        {next ? <Link href={`/${block.chain}/block/${next.height}`}>{formatNumber(next.height)} →</Link> : <span>Latest block</span>}
+        {prev != null ? <Link href={blockHref(block.chain, prev)}>← {formatNumber(prev)}</Link> : <span />}
+        {next != null ? <Link href={blockHref(block.chain, next)}>{formatNumber(next)} →</Link> : <span>Latest block</span>}
       </div>
       <dl className="facts">
         <div>
           <dt>Miner</dt>
-          <dd>{block.minerAddressId ? <Link href={`/${block.chain}/address/${block.minerAddressId}`}>{block.miner}</Link> : block.miner}</dd>
-        </div>
-        <div>
-          <dt>Transactions</dt>
-          <dd>{formatNumber(block.txIds.length)}</dd>
-        </div>
-        <div>
-          <dt>Size</dt>
-          <dd>{formatBytes(block.size)}</dd>
-        </div>
-        <div>
-          <dt>Reward</dt>
           <dd>
-            {formatCoin(block.reward, chain)} · <Money coin={block.reward} chainId={block.chain} />
+            {block.minerAddress ? (
+              <Link href={addressHref(block.chain, block.minerAddress)}>{block.miner ?? shortId(block.minerAddress)}</Link>
+            ) : (
+              (block.miner ?? "Not in the coinbase text")
+            )}
           </dd>
         </div>
         <div>
-          <dt>Fees</dt>
-          <dd>{formatCoin(fees, chain)}</dd>
+          <dt>Transactions</dt>
+          <dd>{block.txCount == null ? "Not reported" : formatNumber(block.txCount)}</dd>
+        </div>
+        <div>
+          <dt>Size</dt>
+          <dd>{block.size == null ? "Not reported" : formatBytes(block.size)}</dd>
+        </div>
+        <div>
+          <dt>Reward</dt>
+          <dd>{block.reward == null ? "Not reported" : <CoinWithFiat coin={block.reward} chainId={block.chain} />}</dd>
         </div>
         <div>
           <dt>Difficulty</dt>
@@ -92,12 +86,12 @@ export function BlockView({ block }: { block: Block }) {
         </div>
         <div>
           <dt>Confirmations</dt>
-          <dd>{formatNumber(chain.height - block.height + 1)}</dd>
+          <dd>{formatNumber(block.confirmations)}</dd>
         </div>
         <div>
           <dt>Previous</dt>
           <dd className="mono">
-            {prev ? <Link href={`/${block.chain}/block/${prev.height}`}>{shortId(block.previous, 14, 8)}</Link> : shortId(block.previous, 14, 8)}
+            {prev != null ? <Link href={blockHref(block.chain, prev)}>{shortId(block.previous, 14, 8)}</Link> : shortId(block.previous, 14, 8)}
           </dd>
         </div>
         <div>
@@ -107,35 +101,37 @@ export function BlockView({ block }: { block: Block }) {
       </dl>
       <section className="sheet" aria-labelledby="btx-h">
         <div className="sheethead">
-          <h2 id="btx-h">{block.txIds.length === 1 ? "1 transaction" : `${formatNumber(block.txIds.length)} transactions`}</h2>
+          <h2 id="btx-h">{block.txCount == null ? "Coinbase" : block.txCount === 1 ? "1 transaction" : `${formatNumber(block.txCount)} transactions`}</h2>
         </div>
+        {hidden != null && hidden > 0 ? (
+          <p className="muted" style={{ padding: "0 10px 8px" }}>
+            Showing {formatNumber(listed)} of {formatNumber(block.txCount!)}. Look up any other transaction by its id.
+          </p>
+        ) : null}
+        {block.txCount == null ? (
+          <p className="muted" style={{ padding: "0 10px 12px" }}>
+            This server does not list every transaction in a block. The coinbase is below. Look up any other transaction by its id.
+          </p>
+        ) : null}
         <table className="ledger">
           <caption className="vh">Transactions in block {formatNumber(block.height)}</caption>
           <thead>
             <tr>
               <th>Transaction</th>
               <th>Kind</th>
-              <th className="r">Fee</th>
             </tr>
           </thead>
           <tbody>
-            {block.txIds.map((id) => {
-              const tx = getTx(id);
-              if (!tx) return null;
-              return (
-                <tr key={id}>
-                  <td data-label="Transaction">
-                    <Link className="mono" href={`/${block.chain}/tx/${tx.id}`}>
-                      {shortId(tx.hash, 16, 8)}
-                    </Link>
-                  </td>
-                  <td data-label="Kind">{tx.coinbase ? "Coinbase" : "Payment"}</td>
-                  <td data-label="Fee" className="r">
-                    {formatCoin(tx.fee, chain)}
-                  </td>
-                </tr>
-              );
-            })}
+            {block.txIds.map((id, index) => (
+              <tr key={id}>
+                <td data-label="Transaction">
+                  <Link className="mono" href={txHref(block.chain, id)}>
+                    {shortId(id, 16, 8)}
+                  </Link>
+                </td>
+                <td data-label="Kind">{index === 0 ? "Coinbase" : "Transaction"}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </section>
@@ -144,11 +140,11 @@ export function BlockView({ block }: { block: Block }) {
 }
 
 function SideList({ chainId, title, sides, coinbase }: { chainId: ChainId; title: string; sides: TxSide[]; coinbase?: boolean }) {
-  const chain = chains[chainId];
   return (
     <div className="flowcol">
       <h2>{title}</h2>
       {coinbase ? <p className="muted">No inputs. This is the block reward.</p> : null}
+      {sides.length === 0 && !coinbase ? <p className="muted">None reported.</p> : null}
       {sides.map((side, index) => (
         <div className="side" key={`${title}-${index}`}>
           <div className="who">
@@ -156,16 +152,7 @@ function SideList({ chainId, title, sides, coinbase }: { chainId: ChainId; title
             <TokenBit chainId={chainId} side={side} />
           </div>
           <div className="amt">
-            {side.amount > 0 || !side.token ? (
-              <>
-                {formatCoin(side.amount, chain)}
-                <span className="muted" style={{ display: "block" }}>
-                  <Money coin={side.amount} chainId={chainId} />
-                </span>
-              </>
-            ) : (
-              <span className="muted">—</span>
-            )}
+            {side.amount != null ? <CoinWithFiat coin={side.amount} chainId={chainId} /> : <span className="muted">Amount not reported</span>}
           </div>
         </div>
       ))}
@@ -173,45 +160,54 @@ function SideList({ chainId, title, sides, coinbase }: { chainId: ChainId; title
   );
 }
 
-export function TxView({ tx }: { tx: Tx }) {
+export function TxView({ tx }: { tx: TxModel }) {
   const chain = chains[tx.chain];
-  const conf = confirmations(tx);
-  const primary = tx.outputs.find((o) => o.token) ?? tx.outputs[0];
-  const token = primary?.token ? getToken(primary.token.tokenId) : undefined;
-  const headline = token
-    ? formatTokenAmount(primary!.token!.amount, token.decimals, token.ticker)
-    : formatCoin(tx.outputs.reduce((sum, o) => sum + o.amount, 0), chain);
-
+  const token = [...tx.outputs, ...tx.inputs].find((side) => side.token)?.token;
+  const outputTotal = tx.outputs.reduce((sum, side) => sum + (side.amount ?? 0), 0);
   return (
     <>
       <Crumb chainId={tx.chain} current={tx.coinbase ? "Coinbase" : "Transaction"} />
       <p className="eyebrow">
         {tx.coinbase ? "Coinbase" : "Transaction"} · {chain.name} ·{" "}
-        {conf > 0 ? <span className="up">Confirmed</span> : <span className="down">Waiting</span>}
+        {tx.confirmations > 0 ? <span className="up">Confirmed</span> : <span className="down">Waiting</span>}
       </p>
-      <h1>{headline}</h1>
+      <h1>{token ? formatRawAmount(token.amount) : tx.outputs.some((side) => side.amount != null) ? formatCoin(outputTotal, chain) : shortId(tx.txid, 10, 6)}</h1>
       <p className="lead">
-        {conf > 0 ? (
+        {tx.confirmations > 0 && tx.blockHeight != null ? (
           <>
-            {conf === 1 ? "1 confirmation" : `${formatNumber(conf)} confirmations`} in{" "}
-            <Link href={`/${tx.chain}/block/${tx.blockHeight}`}>{formatNumber(tx.blockHeight!)}</Link>. {tx.time ? formatWhen(tx.time) : null}.
+            {tx.confirmations === 1 ? "1 confirmation" : `${formatNumber(tx.confirmations)} confirmations`} in{" "}
+            <Link href={blockHref(tx.chain, tx.blockHeight)}>{formatNumber(tx.blockHeight)}</Link>. {tx.time ? formatWhen(tx.time) : null}
           </>
         ) : (
-          <>In the mempool. It is not in a block yet. Fee {formatCoin(tx.fee, chain)} · <FeeRate rate={tx.feeRate} prices={chain.prices} />.</>
+          <>
+            In the mempool. It is not in a block yet.
+            {tx.fee != null ? (
+              <>
+                {" "}
+                Fee <CoinWithFiat coin={tx.fee} chainId={tx.chain} />
+                {tx.satPerByte != null ? (
+                  <>
+                    {" · "}
+                    <FeeRate satPerByte={tx.satPerByte} chainId={tx.chain} />
+                  </>
+                ) : null}
+                .
+              </>
+            ) : null}
+          </>
         )}
       </p>
       <div className="hashrow">
-        <code>{tx.hash}</code>
-        <CopyButton value={tx.hash} />
+        <code>{tx.txid}</code>
+        <CopyButton value={tx.txid} />
       </div>
       {token ? (
         <div className="callout">
           <strong>
-            <Link href={`/${tx.chain}/token/${token.id}`}>{token.name}</Link> · {token.kind}
+            <Link href={tokenHref(tx.chain, token.id)}>{token.kind}</Link>
           </strong>
           <p>
-            {formatTokenAmount(primary!.token!.amount, token.decimals, token.ticker)} moves in this transaction.
-            {tx.chain === "bch" ? " The output also carries a small Bitcoin Cash amount, which CashTokens require." : " The NEX beside it is the coin moved with the token, including change."}
+            {formatRawAmount(token.amount)} of token {shortId(token.id, 12, 6)} moves in this transaction.
           </p>
         </div>
       ) : null}
@@ -226,41 +222,53 @@ export function TxView({ tx }: { tx: Tx }) {
         <div>
           <dt>Fee</dt>
           <dd>
-            {formatCoin(tx.fee, chain)} · <FeeRate rate={tx.feeRate} prices={chain.prices} />
+            {tx.fee == null ? (
+              "Not reported"
+            ) : (
+              <>
+                <CoinWithFiat coin={tx.fee} chainId={tx.chain} />
+                {tx.satPerByte != null ? (
+                  <>
+                    {" · "}
+                    <FeeRate satPerByte={tx.satPerByte} chainId={tx.chain} />
+                  </>
+                ) : null}
+              </>
+            )}
           </dd>
         </div>
         <div>
           <dt>Size</dt>
-          <dd>{formatBytes(tx.size)}</dd>
+          <dd>{tx.size == null ? "Not reported" : formatBytes(tx.size)}</dd>
         </div>
         <div>
           <dt>Status</dt>
-          <dd>{conf > 0 ? `Confirmed, ${formatNumber(conf)}` : "Waiting in the mempool"}</dd>
+          <dd>{tx.confirmations > 0 ? `Confirmed, ${formatNumber(tx.confirmations)}` : "Waiting in the mempool"}</dd>
         </div>
         <div>
           <dt>Block</dt>
-          <dd>
-            {tx.blockHeight ? <Link href={`/${tx.chain}/block/${tx.blockHeight}`}>{formatNumber(tx.blockHeight)}</Link> : "Not mined"}
-          </dd>
+          <dd>{tx.blockHeight != null ? <Link href={blockHref(tx.chain, tx.blockHeight)}>{formatNumber(tx.blockHeight)}</Link> : "Not mined"}</dd>
         </div>
       </dl>
     </>
   );
 }
 
-export function AddressView({ address }: { address: Address }) {
+export function AddressView({ address }: { address: AddressModel }) {
   const chain = chains[address.chain];
+  const hidden = Math.max(0, address.historyTotal - address.history.length);
   return (
     <>
-      <Crumb chainId={address.chain} current={address.label ?? "Address"} />
-      <p className="eyebrow">Address · {chain.name}{address.label ? ` · ${address.label}` : ""}</p>
+      <Crumb chainId={address.chain} current="Address" />
+      <p className="eyebrow">Address · {chain.name}</p>
       <h1 className="balance">
         <span className="vh">Balance </span>
-        {formatCoin(address.balance, chain).replace(` ${chain.ticker}`, "")}
+        {formatNumber(address.balance, Math.min(chain.decimals, address.balance !== 0 && Math.abs(address.balance) < 1 ? chain.decimals : 2))}
         <span>{chain.ticker}</span>
       </h1>
       <p className="fiatline">
-        <Money coin={address.balance} chainId={address.chain} />
+        <FiatOnly coin={address.balance} chainId={address.chain} />
+        {address.unconfirmed !== 0 ? <span> · {formatNumber(address.unconfirmed, chain.decimals)} unconfirmed</span> : null}
       </p>
       <div className="hashrow">
         <code>{address.address}</code>
@@ -268,53 +276,52 @@ export function AddressView({ address }: { address: Address }) {
       </div>
       {address.tokens.length > 0 ? (
         <div className="chips">
-          {address.tokens.map((holding) => {
-            const token = getToken(holding.tokenId);
-            if (!token) return null;
-            return (
-              <Link className="chip" key={holding.tokenId} href={`/${address.chain}/token/${token.id}`}>
-                {token.name}
-                <b>{formatTokenAmount(holding.amount, token.decimals, token.ticker)}</b>
-              </Link>
-            );
-          })}
+          {address.tokens.map((holding) => (
+            <Link className="chip" key={holding.id} href={tokenHref(address.chain, holding.id)}>
+              {shortId(holding.id, 8, 4)}
+              <b>{formatRawAmount(holding.amount)}</b>
+            </Link>
+          ))}
         </div>
       ) : (
-        <p className="muted">No tokens on this address in the sample.</p>
+        <p className="muted">No token balance reported for this address.</p>
       )}
       <section className="sheet" aria-labelledby="hist-h">
         <div className="sheethead">
           <h2 id="hist-h">History</h2>
         </div>
+        {hidden > 0 ? (
+          <p className="muted" style={{ padding: "0 10px 8px" }}>
+            Showing the latest {formatNumber(address.history.length)} of {formatNumber(address.historyTotal)}.
+          </p>
+        ) : null}
         <table className="ledger">
           <caption className="vh">Transactions for this address</caption>
           <thead>
             <tr>
               <th>Transaction</th>
-              <th>When</th>
               <th>Where</th>
             </tr>
           </thead>
           <tbody>
-            {address.txIds.map((id) => {
-              const tx = getTx(id);
-              if (!tx) return null;
-              return (
-                <tr key={id}>
+            {address.history.length === 0 ? (
+              <tr>
+                <td colSpan={2}>No transactions reported.</td>
+              </tr>
+            ) : (
+              address.history.map((row) => (
+                <tr key={row.txid}>
                   <td data-label="Transaction">
-                    <Link className="mono" href={`/${address.chain}/tx/${tx.id}`}>
-                      {tx.coinbase ? "Coinbase" : shortId(tx.hash, 12, 6)}
+                    <Link className="mono" href={txHref(address.chain, row.txid)}>
+                      {shortId(row.txid, 16, 8)}
                     </Link>
                   </td>
-                  <td data-label="When" className="muted">
-                    {tx.blockHeight ? formatAge(tx.time) : "Waiting"}
-                  </td>
                   <td data-label="Where">
-                    {tx.blockHeight ? <Link href={`/${address.chain}/block/${tx.blockHeight}`}>{formatNumber(tx.blockHeight)}</Link> : "Mempool"}
+                    {row.height != null ? <Link href={blockHref(address.chain, row.height)}>{formatNumber(row.height)}</Link> : "Mempool"}
                   </td>
                 </tr>
-              );
-            })}
+              ))
+            )}
           </tbody>
         </table>
       </section>
