@@ -1,4 +1,4 @@
-/* Text pages: about, ethics, tip, columnist, changelog and the API docs. A reading column of about 68 characters; long pages
+/* Text pages: about, ethics, budget, tip, columnist, changelog and the API docs. A reading column of about 68 characters; long pages
    put an "On this page" list beside the text on wide screens (under the lead on phones). Inlined only on those pages. */
 /* text pages */
 .textpage{display:grid;grid-template-columns:minmax(0,1fr);align-items:start;text-align:start}
@@ -52,3 +52,10 @@
 .tp-body .hlink{margin-inline-start:.35em;text-decoration:none;color:inherit;opacity:0;font-weight:400}
 .tp-body h2:hover .hlink,.tp-body h3:hover .hlink,.tp-body .hlink:focus-visible{opacity:.55}
 @media (hover:none){.tp-body .hlink{opacity:.35}}
+/* /budget/: amounts stay in digit order on right-to-left pages; the total is the one large line */
+.textpage.budget table.budget caption{caption-side:top;text-align:start;font-weight:600;padding:0 0 8px}
+.textpage.budget table.budget .amt{text-align:end}
+.textpage.budget table.budget .num{direction:ltr;unicode-bidi:isolate;font-variant-numeric:tabular-nums;white-space:nowrap}
+.textpage.budget table.budget .meta{display:block;margin-top:2px;font-weight:400;white-space:normal}
+.textpage.budget table.budget tfoot th,.textpage.budget table.budget tfoot td{font-weight:700;border-top:2px solid var(--line-strong)}
+.textpage.budget .bud-total{font:700 28px/1.2 var(--f-display);margin:4px 0 16px}

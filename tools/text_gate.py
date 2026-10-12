@@ -14,12 +14,13 @@ def chk(where, text):
         hits.append(f"{where}: …{text[max(0, m.start() - 30):m.end() + 30]}…")
 def mod(path):
     spec = importlib.util.spec_from_file_location(os.path.basename(path), path); m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m); return m
-nft_strings = P("i18n", "event_nft_strings.py")
-if os.path.exists(nft_strings):
-    nft_S = mod(nft_strings).S
-    for L in ("nn", "nb"):
-        for k, v in (nft_S.get(L) or {}).items():
-            chk(f"i18n/event_nft_strings.py {L}.{k}", v)
+for extra_name in ("event_nft_strings.py", "budget_strings.py"):
+    extra_path = P("i18n", extra_name)
+    if os.path.exists(extra_path):
+        extra_S = mod(extra_path).S
+        for L in ("nn", "nb"):
+            for k, v in (extra_S.get(L) or {}).items():
+                chk(f"i18n/{extra_name} {L}.{k}", v)
 for L in ("nn", "nb"):
     p = P("i18n", f"{L}.py")
     if os.path.exists(p):
