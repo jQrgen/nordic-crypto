@@ -52,7 +52,7 @@ Luma calendars use the public iCal subscribe URL (the Subscribe link). City page
 ```
 curl -fsS https://nordiccrypto.no/api/v1/news.json
 curl -fsS https://nordiccrypto.no/api/v1/newsletters.json
-curl -fsS https://nordiccrypto.no/api/v1/newsletters/001.json
+curl -fsS https://nordiccrypto.no/api/v1/newsletters/002.json
 ```
 
 A single news item is api/v1/news/{id}.json (the id is on each item). primary_source is the outlet we lead with. primary_source_document is an editor-recorded original document (name and url), such as a regulator press release, and is not that outlet. also_covered_by is every other outlet on the same event. sources lists them with the primary first. coverage.by_country and coverage.by_source_type (national, regional, official, international) are the counts and shares, and empty types are included as zero. html_url is our coverage page. url is the primary outlet. 
