@@ -5,6 +5,7 @@ import { Frame } from "@/components/frame";
 import { BlockScreen } from "@/components/screens";
 import { LoadingState } from "@/components/states";
 import { chainOrder, getChain } from "@/lib/chains";
+import { onExplorer, rootSocial, socialMetadata, socialTitle } from "@/lib/social";
 
 export const dynamicParams = false;
 
@@ -15,7 +16,12 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ chain: string }> }): Promise<Metadata> {
   const { chain } = await params;
   const info = getChain(chain);
-  return { title: info ? `Block · ${info.name}` : "Block" };
+  if (!info) return rootSocial();
+  return socialMetadata({
+    title: socialTitle(`Block · ${info.name}`),
+    description: onExplorer(info.name, "Block"),
+    path: `/${info.id}/block/`,
+  });
 }
 
 export default async function BlockPage({ params }: { params: Promise<{ chain: string }> }) {
