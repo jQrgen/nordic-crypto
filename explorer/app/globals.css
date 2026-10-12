@@ -730,3 +730,7 @@ footer.foot h2 {
 @media (prefers-reduced-motion: reduce) {
   .skel { animation: none; background: var(--soft); }
 }
+
+/* Social links sit in the header tools row, left of the fiat picker and theme toggle. */
+.hdrtools { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+.hdrtools .socialbar { margin: 0; padding: 0; border: 0; }
