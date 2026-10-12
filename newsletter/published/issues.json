@@ -2,10 +2,27 @@
  "_how_to": "Published newsletter issues, shown on /newsletter/ (newest first) and as /newsletter/<id>/ in every language. Per issue: <id>/issue.html (English HTML) and <id>/issue.<lang>.html for nn, nb, sv, da, fi, is. title and subtitle are English; title_i18n and subtitle_i18n follow the same shape as summary_i18n. Optional <id>/thumbnail.png (video poster), <id>/subs.vtt (English subtitles) and the video: <id>/video.mp4 is NOT committed (see .gitignore); build.py copies it into site/newsletter/<id>/ once (all languages use that copy) and, when the local file is missing, downloads video.url and checks video.sha256. The video stays one shared English file. Source drafts: newsletter/issues/.",
  "issues": [
   {
+   "id": "002",
+   "number": 2,
+   "date": "2026-10-12",
+   "period": [
+    "2026-10-05",
+    "2026-10-12"
+   ],
+   "lang": "en",
+   "title": "Nordic Crypto #2: Data-centre halt proposals in the Storting and new fraud warnings in Sweden",
+   "subtitle": "The Nordic crypto news our editor approved from 5 to 12 October 2026.",
+   "stories": 7,
+   "events": 0
+  },
+  {
    "id": "001",
    "number": 1,
    "date": "2026-10-05",
-   "period": ["2026-09-27", "2026-10-02"],
+   "period": [
+    "2026-09-27",
+    "2026-10-02"
+   ],
    "lang": "en",
    "title": "Nordic Crypto #1: Binance under scrutiny and Sweden's crypto sanctions warning",
    "subtitle": "Our first issue, with a new name. The Nordic crypto news that mattered from 27 September to 2 October 2026, and the meetups coming up.",
