@@ -4,7 +4,7 @@
 
 <h2 id="who">Hvem som er ansvarlig</h2>
 <p>Nordic Crypto (nordiccrypto.no og landadressene nordiccrypto.se, .fi, .dk og .is) drives av Jørgen S. Notland (jQrgen), Oslo, som er behandlingsansvarlig etter personvernforordningen (GDPR). Spørsmål om dine opplysninger: opprett en sak på <a href="https://github.com/jQrgen/nordic-crypto/issues" rel="noopener">github.com/jQrgen/nordic-crypto/issues</a>. Sakene er offentlige, så ikke skriv personopplysninger der; be om å bli kontaktet, så svarer vi privat. Du kan også klage til <a href="https://www.datatilsynet.no/" rel="noopener">Datatilsynet</a> eller til tilsynsmyndigheten der du bor.</p>
-<p>Denne siden gjelder nettstedet. Sist oppdatert 9. oktober 2026. Endringer står i <a href="{{UP}}changelog/">endringsloggen</a> og i den offentlige kildekoden.</p>
+<p>Denne siden gjelder nettstedet og, under <a href="#apps">Appene</a>, Nordic Crypto-appene. Sist oppdatert 11. oktober 2026. Endringer står i <a href="{{UP}}changelog/">endringsloggen</a> og i den offentlige kildekoden.</p>
 
 <h2 id="overview">Oversikt</h2>
 <ul>
@@ -16,6 +16,7 @@
 <li><b>Språkvalg ut fra land</b>: {{ST_GEO}}</li>
 <li><b>Nyhetsbrev på e-post</b>: {{ST_NEWSLETTER}}</li>
 <li><b>Varsler i nettleseren</b>: {{ST_PUSH}}</li>
+<li><b>Varsler i appene</b>: bare når du slår dem på i appen (se <a href="#apps">Appene</a>).</li>
 <li><b>Private tips</b>: {{ST_TIPS}}</li>
 <li><b>Prateboks</b>: {{ST_CHAT}}</li>
 </ul>
@@ -72,6 +73,13 @@
 <p><b>Rettslig grunnlag.</b> Samtykke (art. 6 nr. 1 bokstav a).</p>
 <p><b>Hvor lenge.</b> Til du slår av varslene med den samme knappen, eller til push-tjenesten sier at abonnementet ikke finnes lenger. Begge deler sletter det.</p>
 <p><b>Hvem og hvor.</b> Cloudflare, Inc. (Workers KV) og push-tjenesten til nettleseren din, som kan være utenfor EØS.</p>
+
+<h2 id="apps">Appene: push-varsler</h2>
+<p>Nordic Crypto-appene for iPhone, iPad, Mac, Apple Vision Pro, Apple TV og Android har ingen konto, ingen analyse, ingen reklame og ingen sporing. De henter de samme offentlige nyhetsfilene som dette nettstedet. Det eneste de lagrer utenfor enheten din, er det varslene trenger, og bare etter at du har slått på varsler i appen. Apple TV har ikke varsler.</p>
+<p><b>Hva.</b> Når du slår på varsler om nye saker, sender appen vår push-server, en Cloudflare Worker vi driver selv, push-tokenet som Apple eller Google ga appen på den enheten, enhetstypen (iPhone, iPad, Mac, Vision Pro eller Android), landene du valgte og språket i appen. Serveren lagrer dette, om tokenet gjelder Apples test- eller produksjonstjeneste for push, og når appen sist meldte seg. Ikke navn, ikke e-postadresse, ikke IP-adresse, ikke enhetsnavn og ikke posisjon. Tokenet lar oss bare sende et varsel til appen på den enheten; vi bruker det ikke til noe annet og deler det ikke med noen.</p>
+<p><b>Formål og rettslig grunnlag.</b> Å sende deg ett varsel per ny sak fra landene du valgte: samtykke (art. 6 nr. 1 bokstav a), gitt når du slår på varsler.</p>
+<p><b>Hvor lenge.</b> Når du slår av varsler i appen, slettes tokenet og valgene dine fra serveren med en gang. Et token som Apple eller Google melder at ikke lenger gjelder, slettes, og det samme gjør en enhet som ikke har meldt seg på 180 dager. Hvis push-serveren ikke svarer, ser appen selv etter nye saker i den offentlige nyhetsstrømmen og sender ingenting om deg noe sted.</p>
+<p><b>Hvem og hvor.</b> Cloudflare, Inc. lagrer listen (Cloudflare D1); logging av forespørsler er slått av, og koden vår lagrer ikke IP-adressen til en forespørsel (se <a href="#hosting">Drift</a> om overføring). Apple (Apple Push Notification service) og Google (Firebase Cloud Messaging) leverer varslene etter sine egne personvernvilkår. På Android gir Firebase også appen en installasjons-ID som Google bruker til å levere dem; appen har ikke Firebase Analytics. Apple Inc. og Google LLC holder til i USA, utenfor EØS. Hele personvernerklæringen for appene, med de få andre tjenestene de kobler til, står i <a href="https://github.com/jQrgen/nordic-crypto-tv/blob/main/support/appstore/privacy-policy.md" rel="noopener">kildekoden til appen</a>.</p>
 
 <h2 id="tips">Private tips</h2>
 <p>Status: {{ST_TIPS}}</p>
