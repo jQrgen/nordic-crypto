@@ -1,7 +1,7 @@
 {
  "schema": 2,
  "site": "nordic-crypto",
- "exported_at": "2026-10-11T07:43:10+02:00",
+ "exported_at": "2026-10-12T07:31:17+02:00",
  "articles": [
   {
    "site": "nordic-crypto",
@@ -13,7 +13,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-24T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -47,7 +47,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "SE"
   },
   {
@@ -60,7 +60,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-10T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -94,7 +94,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "SE"
   },
   {
@@ -107,7 +107,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-24T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -141,7 +141,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "SE"
   },
   {
@@ -154,7 +154,7 @@
    "source_name": "Sydsvenskan",
    "published_at": "2026-10-02T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -187,7 +187,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "SE"
   },
   {
@@ -200,7 +200,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-15T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -233,7 +233,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "SE"
   },
   {
@@ -246,7 +246,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-15T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -280,7 +280,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "SE"
   },
   {
@@ -293,7 +293,7 @@
    "source_name": "Finansavisen",
    "published_at": "2026-09-20T14:40:45+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -324,7 +324,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "NO"
   },
   {
@@ -337,7 +337,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-16T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -371,7 +371,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "NO"
   },
   {
@@ -384,7 +384,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-07T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -418,7 +418,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "SE"
   },
   {
@@ -431,7 +431,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-23T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -464,7 +464,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "NO"
   },
   {
@@ -477,7 +477,7 @@
    "source_name": "Realtid",
    "published_at": "2026-10-01T18:04:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -511,7 +511,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "SE"
   },
   {
@@ -524,7 +524,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-15T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -557,7 +557,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "SE"
   },
   {
@@ -570,7 +570,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-18T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -604,7 +604,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "NO"
   },
   {
@@ -617,7 +617,7 @@
    "source_name": "Finansavisen",
    "published_at": "2026-09-28T15:01:08+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -649,7 +649,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "NO"
   },
   {
@@ -662,7 +662,7 @@
    "source_name": "Finansinspektionen (SE FSA)",
    "published_at": "2026-10-01T06:00:11+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -696,7 +696,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "SE"
   },
   {
@@ -709,7 +709,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-14T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -743,7 +743,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "SE"
   },
   {
@@ -756,7 +756,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-14T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -789,7 +789,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "NO"
   },
   {
@@ -802,7 +802,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-10T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -835,7 +835,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "SE"
   },
   {
@@ -848,7 +848,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-17T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -882,7 +882,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "SE"
   },
   {
@@ -895,7 +895,7 @@
    "source_name": "Dagens PS",
    "published_at": "2026-10-01T08:30:56+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -929,7 +929,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "SE"
   },
   {
@@ -942,7 +942,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-17T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -976,7 +976,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "FI"
   },
   {
@@ -989,7 +989,7 @@
    "source_name": "Bitcoinpolitisk institutt",
    "published_at": "2026-09-17T18:30:43+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -1023,7 +1023,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "NO"
   },
   {
@@ -1036,7 +1036,7 @@
    "source_name": "Yle Uutiset (latest)",
    "published_at": "2026-09-27T15:20:53+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -1070,7 +1070,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "FI"
   },
   {
@@ -1083,7 +1083,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-14T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -1117,7 +1117,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "SE"
   },
   {
@@ -1130,7 +1130,7 @@
    "source_name": "Realtid",
    "published_at": "2026-10-03T05:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -1164,7 +1164,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "SE"
   },
   {
@@ -1177,7 +1177,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-13T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -1211,7 +1211,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "SE"
   },
   {
@@ -1224,7 +1224,7 @@
    "source_name": "Finansavisen",
    "published_at": "2026-09-20T06:18:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -1256,7 +1256,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "NO"
   },
   {
@@ -1269,7 +1269,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-30T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -1302,7 +1302,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "SE"
   },
   {
@@ -1315,7 +1315,7 @@
    "source_name": "Finanssivalvonta",
    "published_at": "2026-06-30T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T17:59:40+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -1349,7 +1349,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "FI"
   },
   {
@@ -1362,7 +1362,7 @@
    "source_name": "Berlingske",
    "published_at": "2026-09-21T16:39:08+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -1396,7 +1396,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "DK"
   },
   {
@@ -1409,7 +1409,7 @@
    "source_name": "Aftenposten",
    "published_at": "2026-10-02T11:07:26+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -1442,7 +1442,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "NO"
   },
   {
@@ -1455,7 +1455,7 @@
    "source_name": "E24",
    "published_at": "2026-09-18T18:36:49+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -1488,7 +1488,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "NO"
   },
   {
@@ -1501,7 +1501,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-08T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -1535,7 +1535,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "NO"
   },
   {
@@ -1548,7 +1548,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-13T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -1582,7 +1582,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "DK"
   },
   {
@@ -1595,7 +1595,7 @@
    "source_name": "Ekstra Bladet",
    "published_at": "2026-09-22T09:58:59+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -1629,7 +1629,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "DK"
   },
   {
@@ -1642,7 +1642,7 @@
    "source_name": "Stortinget",
    "published_at": "2026-09-18T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -1676,7 +1676,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "NO"
   },
   {
@@ -1689,7 +1689,7 @@
    "source_name": "Berlingske",
    "published_at": "2026-09-22T13:04:30+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -1723,7 +1723,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "DK"
   },
   {
@@ -1736,7 +1736,7 @@
    "source_name": "Shifter",
    "published_at": "2026-09-15T08:49:33+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -1770,7 +1770,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "NO"
   },
   {
@@ -1783,7 +1783,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-09-22T12:00:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -1817,7 +1817,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "DK"
   },
   {
@@ -1830,7 +1830,7 @@
    "source_name": "Oppland Arbeiderblad",
    "published_at": "2026-09-23T14:16:55+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -1863,7 +1863,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "NO"
   },
   {
@@ -1876,7 +1876,7 @@
    "source_name": "Nettavisen",
    "published_at": "2026-09-26T00:16:16+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -1909,7 +1909,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "NO"
   },
   {
@@ -1922,7 +1922,7 @@
    "source_name": "NBX (børsmelding)",
    "published_at": "2026-09-17T06:00:00+00:00",
    "first_published_on_site": "2026-10-03T18:28:21+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -1956,7 +1956,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "NO"
   },
   {
@@ -1969,7 +1969,7 @@
    "source_name": "Finansavisen",
    "published_at": "2026-10-05T13:06:17+00:00",
    "first_published_on_site": "2026-10-06T07:35:14+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -2002,7 +2002,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "NO"
   },
   {
@@ -2015,7 +2015,7 @@
    "source_name": "Finansinspektionen (SE FSA)",
    "published_at": "2026-10-05T13:53:01+00:00",
    "first_published_on_site": "2026-10-08T08:02:20+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -2044,7 +2044,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "SE"
   },
   {
@@ -2057,7 +2057,7 @@
    "source_name": "Nyheter24",
    "published_at": "2026-10-06T08:33:27+00:00",
    "first_published_on_site": "2026-10-08T08:02:20+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -2086,7 +2086,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "SE"
   },
   {
@@ -2099,7 +2099,7 @@
    "source_name": "Stortinget",
    "published_at": "2026-10-05T12:00:00+00:00",
    "first_published_on_site": "2026-10-08T08:02:20+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -2128,7 +2128,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "NO"
   },
   {
@@ -2141,7 +2141,7 @@
    "source_name": "Kaupr",
    "published_at": "2026-10-05T12:00:00+00:00",
    "first_published_on_site": "2026-10-10T07:40:03+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -2170,7 +2170,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "NO"
   },
   {
@@ -2183,7 +2183,7 @@
    "source_name": "Ságat",
    "published_at": "2026-10-07T10:14:12+00:00",
    "first_published_on_site": "2026-10-10T07:40:03+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -2211,7 +2211,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "NO"
   },
   {
@@ -2224,7 +2224,7 @@
    "source_name": "Stortinget",
    "published_at": "2026-10-05T12:00:00+00:00",
    "first_published_on_site": "2026-10-10T07:40:03+02:00",
-   "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+   "last_seen_on_site": "2026-10-12T07:31:17+02:00",
    "languages": [
     "en",
     "nn",
@@ -2253,7 +2253,7 @@
    "removed": 0,
    "removed_at": null,
    "removal_reason": null,
-   "updated_at": "2026-10-11T07:43:10+02:00",
+   "updated_at": "2026-10-12T07:31:17+02:00",
    "country": "NO"
   }
  ],
