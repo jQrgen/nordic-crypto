@@ -3,8 +3,8 @@
  * Header (build.header_buttons): Follow, Telegram, X, source code.
  * Signup is off (newsletter/config.json), so the gold button says Follow and
  * opens /newsletter/#signup, the same as header_subscribe_button.
- * Footer follow column, after those: RSS, then the TestFlight invite with the
- * Apple TV note. Labels and titles are the English strings in i18n/en.py.
+ * Footer follow column, after those: RSS, then the TestFlight invite.
+ * Labels and titles are the English strings in i18n/en.py.
  */
 export type SiteIcon = "telegram" | "x" | "github" | "rss";
 
@@ -61,7 +61,6 @@ export const siteLinks: readonly SiteLink[] = [
     id: "ios",
     href: "https://testflight.apple.com/join/nQ2fpjZn",
     label: "Get the iOS app (TestFlight)",
-    note: "Especially supports Apple TV.",
     variant: "text",
   },
 ];

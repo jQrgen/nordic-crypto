@@ -11,7 +11,7 @@ test("header links follow the front page, then the way back", () => {
       ["Follow on X", "https://x.com/nordiccryptobot", ""],
       ["Source code", "https://github.com/jQrgen/nordic-crypto", ""],
       ["RSS", "https://nordiccrypto.no/rss.xml", ""],
-      ["Get the iOS app (TestFlight)", "https://testflight.apple.com/join/nQ2fpjZn", "Especially supports Apple TV."],
+      ["Get the iOS app (TestFlight)", "https://testflight.apple.com/join/nQ2fpjZn", ""],
     ],
   );
   assert.equal(siteLinks.find((link) => link.id === "x")?.title, "Nordic Crypto on X (@nordiccryptobot), the site's own account");
