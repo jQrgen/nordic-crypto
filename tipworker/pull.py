@@ -15,7 +15,7 @@ def d1(sql):
     node22 = os.path.expanduser("~/.local/node22/bin")
     if os.path.isdir(node22): env["PATH"] = node22 + os.pathsep + env.get("PATH", "")
     cmd = ["npx", "--no-install", "wrangler", "d1", "execute", DB, "--local" if LOCAL else "--remote", "--json", "--command", sql]
-    p = subprocess.run(cmd, cwd=HERE, env=env, capture_output=True, text=True, timeout=180)
+    p = subprocess.run(cmd, cwd=HERE, env=env, stdin=subprocess.DEVNULL, capture_output=True, text=True, timeout=180)
     if p.returncode != 0:  # print only wrangler's error line(s), never row data
         raise SystemExit("tip worker pull: wrangler d1 execute failed: " + " ".join(l.strip() for l in (p.stdout + p.stderr).splitlines() if "ERROR" in l or "rror" in l)[:300])
     out = json.loads(p.stdout); out = out if isinstance(out, list) else [out]

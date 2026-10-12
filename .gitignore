@@ -1,4 +1,6 @@
-# Working files that are never published in the repo (box only). data/ IS committed (public content, privacy-gated).
+# Working files. data/ IS committed (public content, privacy-gated).
+# state/ and queue/ stay off main. The nightly fetch workflow force-adds the editor
+# queue onto the fetch-queue branch only. Never commit state/private_terms.json.
 state/
 queue/
 logs/
@@ -9,6 +11,7 @@ __pycache__/
 *.pyc
 shots/
 /*.png
+!/apple-touch-icon.png
 .env
 *.token
 tools/probe.py
@@ -21,9 +24,18 @@ tipserver/tunnel-url.txt
 archive/articles.db
 archive/articles.db-*
 
-# push Worker secrets and local wrangler state (never commit)
-workers/push/.dev.vars
-workers/push/.wrangler/
+# Worker secrets, local wrangler/Miniflare state and npm installs, in every
+# directory (never commit; publish.sh runs `git add -A`). .mf/ also catches a
+# Miniflare cache outside node_modules/.
+node_modules/
+.wrangler/
+.mf/
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
+.env.*
+!.env.example
+.DS_Store
 
 # generated newsletter digests (regenerate with newsletter/digest.py)
 newsletter/out/

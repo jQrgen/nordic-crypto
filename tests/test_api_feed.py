@@ -2,7 +2,7 @@
 """Checks the public JSON API: approved news and newsletters only, stable URLs, no private fields.
   python3 tests/test_api_feed.py
 Does not run the full site build (that needs the editor queue and the research workspace)."""
-import json, os, re, sys, tempfile
+import json, os, re, subprocess, sys, tempfile
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 sys.path.insert(0, os.path.join(ROOT, "tools"))
@@ -156,6 +156,70 @@ def source_logos(fails):
             api_feed.source_logos.MANIFEST = saved
 
 
+def deterministic(fails, info):
+    """Two builds of one commit diff clean: NC_NOW freezes generated_at, and the academia example is the
+    first row in section order (it used to be next(iter(set)), which changed with the hash seed)."""
+    saved = os.environ.get("NC_NOW")
+    os.environ["NC_NOW"] = "2026-10-10T12:00:00+02:00"
+    try:
+        stamps = {api_feed.Feed(None, False, build.BASE).generated for _ in range(2)}
+    finally:
+        if saved is None:
+            os.environ.pop("NC_NOW", None)
+        else:
+            os.environ["NC_NOW"] = saved
+    if stamps != {"2026-10-10T10:00:00+00:00"}:
+        fails.append("generated_at not frozen by NC_NOW: " + ",".join(sorted(stamps)))
+    probe = ("import sys; sys.path.insert(0, 'tools'); import api_feed\n"
+             "_, _, sections = api_feed._academia_rows(False)\n"
+             "print(next((api_feed._row_id(k, r, i + 1, set()) for k, rows in sections.items() for i, r in enumerate(rows)), ''))")
+    firsts = set()
+    for seed in ("1", "3", "4"):  # seeds 1 and 2 happen to agree on main; 3 and 4 do not
+        out = subprocess.run([sys.executable, "-c", probe], cwd=ROOT, capture_output=True, text=True,
+                             env=dict(os.environ, PYTHONHASHSEED=seed))
+        firsts.add(out.stdout.strip() if out.returncode == 0 else "error: " + out.stderr.strip()[-200:])
+    if len(firsts) != 1 or not next(iter(firsts)) or next(iter(firsts)).startswith("error"):
+        fails.append("academia section order varies with PYTHONHASHSEED: " + " | ".join(sorted(firsts)))
+    else:
+        ex = [e.get("example_url") for e in info["endpoints"] if e["id"] == "academia-item"]
+        if ex != [build.BASE + f"api/v1/academia/{next(iter(firsts))}.json"]:
+            fails.append(f"academia example is not the first row in section order: {ex} want {next(iter(firsts))}")
+
+
+def latest_feed(fails, tmp, news, spec, info):
+    """api/v1/news/latest.json: the newest stories of news.json, same order and values, notifier fields only."""
+    path = os.path.join(tmp, "api/v1/news/latest.json")
+    if not os.path.exists(path):
+        fails.append("news/latest.json missing")
+        return
+    doc = json.load(open(path, encoding="utf-8"))
+    want = news["items"][:api_feed.LATEST_COUNT]
+    if [i["id"] for i in doc["items"]] != [i["id"] for i in want]:
+        fails.append("latest.json is not the newest stories of news.json in the same order")
+    if doc.get("count") != len(doc["items"]) or doc.get("limit") != api_feed.LATEST_COUNT:
+        fails.append("latest.json count/limit")
+    if doc.get("updated") != news.get("updated") or doc.get("api_version") != news.get("api_version"):
+        fails.append("latest.json envelope")
+    full = {i["id"]: i for i in news["items"]}
+    for item in doc["items"]:
+        if set(item) != set(api_feed.LATEST_FIELDS):
+            fails.append("latest.json fields " + item["id"] + ": " + ",".join(sorted(set(item) ^ set(api_feed.LATEST_FIELDS))))
+        elif any(item[k] != full[item["id"]].get(k) for k in api_feed.LATEST_FIELDS):
+            fails.append("latest.json value differs from news.json " + item["id"])
+    if os.path.getsize(path) > 64 * 1024:
+        fails.append("latest.json is larger than 64 KB")
+    if "/api/v1/news/latest.json" not in spec["paths"] or "NewsLatest" not in spec["components"]["schemas"]:
+        fails.append("openapi missing latest.json")
+    if not any(ep["path"] == "/api/v1/news/latest.json" for ep in info["endpoints"]):
+        fails.append("latest.json missing from discovery")
+    rows = [{"id": str(n), "title": "t", "extra": 1} for n in range(api_feed.LATEST_COUNT + 5)]
+    cut = api_feed.latest_news(rows)
+    if len(cut) != api_feed.LATEST_COUNT or cut[0]["id"] != "0" or "extra" in cut[0] or cut[0]["title_en"] is not None:
+        fails.append("latest_news() cut or fields")
+    if "latest" not in api_feed.NEWS_RESERVED_IDS or "topics" not in api_feed.NEWS_RESERVED_IDS:
+        fails.append("reserved news ids")
+
+
 def main():
     fails = []
     source_logos(fails)
@@ -171,6 +235,7 @@ def main():
             news_updated=ctx["news"].get("updated"),
             markets=ctx["markets"],
         )
+        deterministic(fails, info)
         build.SITE = tmp
         build.PREVIEW = False
         build.emit_api(ctx)
@@ -251,6 +316,7 @@ def main():
                      "/api/v1/languages.json", "/api/v1/geo-language.json"):
             if path not in spec["paths"]:
                 fails.append("openapi missing " + path)
+        latest_feed(fails, tmp, news, spec, info)
         try:
             import yaml
             spec_y = yaml.safe_load(open(os.path.join(tmp, "api/v1/openapi.yaml"), encoding="utf-8"))
@@ -373,7 +439,7 @@ def main():
         build.LANG = "en"
         if "/ethics/" not in {p.get("path") for p in meta.get("site_pages") or []}:
             fails.append("ethics page missing from site meta")
-        need = {"en", "nn", "nb", "sv", "da", "fi", "is", "zh", "hi", "es", "fr", "ar", "bn", "pt", "ru", "ur", "id", "de", "ja", "sw", "mr"}
+        need = {"en", "nn", "nb", "sv", "da", "fi", "is", "zh", "hi", "es", "fr", "ar", "bn", "pt", "ru", "ur", "id", "de", "ja", "sw", "mr", "fa", "uk"}
         langs_doc = json.load(open(os.path.join(tmp, "api/v1/languages.json"), encoding="utf-8"))
         got = {row.get("code") for row in langs_doc.get("languages") or []}
         if got != need:
@@ -382,7 +448,7 @@ def main():
             for key in ("code", "native_name", "english_name", "rtl", "html_lang", "home"):
                 if key not in row:
                     fails.append("languages.json missing " + key + " on " + str(row.get("code")))
-            if row.get("code") in ("ar", "ur") and row.get("rtl") is not True:
+            if row.get("code") in ("ar", "ur", "fa") and row.get("rtl") is not True:
                 fails.append("rtl missing for " + row["code"])
             if row.get("code") == "en" and row.get("rtl"):
                 fails.append("english marked rtl")
@@ -404,7 +470,8 @@ def main():
         expect = {"NO": "nn", "SE": "sv", "DK": "da", "FI": "fi", "IS": "is", "AX": "sv", "FO": "da", "GL": "da",
                   "CN": "zh", "TW": "zh", "SG": "zh", "IN": "hi", "ES": "es", "MX": "es", "AR": "es", "FR": "fr",
                   "SA": "ar", "EG": "ar", "AE": "ar", "BD": "bn", "BR": "pt", "PT": "pt", "RU": "ru", "PK": "ur",
-                  "ID": "id", "DE": "de", "AT": "de", "CH": "de", "JP": "ja", "KE": "sw", "TZ": "sw", "MR": "ar"}
+                  "ID": "id", "DE": "de", "AT": "de", "CH": "de", "JP": "ja", "KE": "sw", "TZ": "sw", "MR": "ar",
+                  "IR": "fa", "AF": "fa", "UA": "uk"}
         for c, l in expect.items():
             if by.get(c) != l:
                 fails.append(f"geo {c} -> {by.get(c)} want {l}")

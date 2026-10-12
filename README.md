@@ -1,5 +1,7 @@
 # Nordic Crypto
 
+[![deploy](https://img.shields.io/github/actions/workflow/status/jQrgen/nordic-crypto/deploy.yml?branch=main&label=deploy&logo=githubactions&logoColor=white)](https://github.com/jQrgen/nordic-crypto/actions/workflows/deploy.yml) [![pages](https://img.shields.io/github/deployments/jQrgen/nordic-crypto/github-pages?label=gh-pages&logo=github)](https://github.com/jQrgen/nordic-crypto/deployments) [![license](https://img.shields.io/github/license/jQrgen/nordic-crypto)](https://github.com/jQrgen/nordic-crypto/blob/main/LICENSE) [![last commit](https://img.shields.io/github/last-commit/jQrgen/nordic-crypto?logo=github)](https://github.com/jQrgen/nordic-crypto/commits/main) [![commit activity](https://img.shields.io/github/commit-activity/m/jQrgen/nordic-crypto)](https://github.com/jQrgen/nordic-crypto/pulse) [![open issues](https://img.shields.io/github/issues/jQrgen/nordic-crypto)](https://github.com/jQrgen/nordic-crypto/issues) [![open pull requests](https://img.shields.io/github/issues-pr/jQrgen/nordic-crypto)](https://github.com/jQrgen/nordic-crypto/pulls) [![top language](https://img.shields.io/github/languages/top/jQrgen/nordic-crypto?logo=python&logoColor=white)](https://github.com/jQrgen/nordic-crypto) [![repo size](https://img.shields.io/github/repo-size/jQrgen/nordic-crypto)](https://github.com/jQrgen/nordic-crypto) [![website](https://img.shields.io/website?url=https%3A%2F%2Fnordiccrypto.no&label=nordiccrypto.no)](https://nordiccrypto.no) [![Electrum Nexa](https://img.shields.io/badge/Electrum%20Nexa-electrum--nexa.nordiccrypto.no-ff9900)](https://github.com/jQrgen/nordic-crypto/blob/main/docs/electrum-server.md) [![Electrum BCH](https://img.shields.io/badge/Electrum%20BCH-electrum--bch.nordiccrypto.no-0ac18e?logo=bitcoincash&logoColor=white)](https://github.com/jQrgen/nordic-crypto/blob/main/docs/electrum-server.md)
+
 Bitcoin, blockchain and crypto news, events, a who's who (industry + regulators), regulation by country and academia for
 **Norway, Sweden, Denmark, Finland and Iceland**. Static site. Cloudflare Web Analytics counts aggregate visits (no cookies, data not sold) when a token is set in `analytics.json`. No advertising trackers.
 Languages: English at `/`, and one directory per other site language. The list, native names and the IP-country guess are under [Site languages](#site-languages). A story card shows the headline in the language of the page. When the source headline is in another language, that headline is shown underneath, smaller. Our own summaries and those headlines are written first in English, then for the Nordic site languages (AI-assisted, editor-approved). Quotes stay as the source wrote them.
@@ -35,20 +37,22 @@ Site interface and page presentation. News outlets stay as listed in `sources.js
 | ja | 日本語 | Japanese | ltr |
 | sw | Kiswahili | Swahili | ltr |
 | mr | मराठी | Marathi | ltr |
+| fa | فارسی | Persian | rtl |
+| uk | Українська | Ukrainian | ltr |
 
 `zh` is one site language for Mandarin (simplified and traditional readers share `/zh/`). `pt` covers Portugal and Brazil. `nn` stays the Norwegian default; bokmål is the quick link beside the switcher.
 
 **How a first visit picks a language** (`tools/langselect.js`, only on the English home page). A direct link to `/sv/`, `/de/` or any other page is never redirected.
 
 1. `nc_lang` cookie, set only when the reader picks a language in the switcher (one year, this site only). The same choice is copied to `localStorage` under `nc_lang`. The cookie wins when both are set. If the cookie is missing, the stored value is the same override.
-2. Our tipworker `GET /api/geo`, which returns Cloudflare's `request.cf.country` (two letters, or null). Nothing is stored or logged, and no third-party geo-IP service is used. The Worker URL is injected at build time when `tipserver/config.json` has a `workers.dev` `public_endpoint`, or when `GEO_ENDPOINT` is set. The country is a default guess: Norway → nynorsk, Sweden → Swedish, Denmark → Danish, Finland → Finnish, Iceland → Icelandic, Åland → Swedish, Faroe and Greenland → Danish, and the major countries for the languages above (China, Taiwan and Singapore → Chinese, India → Hindi, Spain, Mexico and Argentina → Spanish, France → French, Saudi Arabia, Egypt and the UAE → Arabic, Bangladesh → Bengali, Brazil and Portugal → Portuguese, Russia → Russian, Pakistan → Urdu, Indonesia → Indonesian, Germany, Austria and Switzerland → German, Japan → Japanese, Kenya and Tanzania → Swahili). A country with no row, including the United States and the United Kingdom, stays English. India is Hindi; Marathi has no country row. Mauritania (`MR`) is Arabic; the language code `mr` is Marathi.
+2. Our tipworker `GET /api/geo`, which returns Cloudflare's `request.cf.country` (two letters, or null). Nothing is stored or logged, and no third-party geo-IP service is used. The Worker URL is injected at build time when `tipserver/config.json` has a `workers.dev` `public_endpoint`, or when `GEO_ENDPOINT` is set. The country is a default guess: Norway → nynorsk, Sweden → Swedish, Denmark → Danish, Finland → Finnish, Iceland → Icelandic, Åland → Swedish, Faroe and Greenland → Danish, and the major countries for the languages above (China, Taiwan and Singapore → Chinese, India → Hindi, Spain, Mexico and Argentina → Spanish, France → French, Saudi Arabia, Egypt and the UAE → Arabic, Bangladesh → Bengali, Brazil and Portugal → Portuguese, Russia → Russian, Pakistan → Urdu, Indonesia → Indonesian, Germany, Austria and Switzerland → German, Japan → Japanese, Kenya and Tanzania → Swahili, Iran and Afghanistan → Persian, Ukraine → Ukrainian). A country with no row, including the United States and the United Kingdom, stays English. India is Hindi; Marathi has no country row. Mauritania (`MR`) is Arabic; the language code `mr` is Marathi.
 3. If the Worker is not deployed or does not answer within 1.5 seconds: `navigator.languages`. Norwegian tags (`no`, `nb`, `nn`) still default to nynorsk.
 4. English.
 
 After one automatic choice, `sessionStorage` `nc_auto` stops a second redirect in that tab. The full country map is in `tools/langselect.js` (`BY_COUNTRY`) and in `/api/v1/geo-language.json`.
 
 ## Data API
-Public JSON for apps and other tools, written into `site/` by `./build.sh` (`tools/api_feed.py`). No account. News, newsletters, events, talks, sources, academia, the who's who, profiles, the rules map, the changelog and the article archive.
+Public JSON for apps and other tools, written into `site/` by `./build.sh` (`tools/api_feed.py`). No account. News, newsletters, events, talks, sources, academia, books, open-source developers, the who's who, profiles, the rules map, the changelog and the article archive.
 
 - Human docs: https://nordiccrypto.no/api/
 - Discovery: `/api/v1/index.json`
@@ -57,7 +61,7 @@ Public JSON for apps and other tools, written into `site/` by `./build.sh` (`too
 - Geo language: `/api/v1/geo-language.json` (country → default language). The note there says the `nc_lang` cookie wins and the IP country is a guess from tipworker `/api/geo` (Cloudflare `request.cf.country`).
 - `llms.txt` at the site root, and `/.well-known/api-catalog`
 
-News: `/api/v1/news.json` and `/api/v1/news/{id}.json`. Newsletters: `/api/v1/newsletters.json` and `/api/v1/newsletters/001.json`. GitHub Pages sends `Access-Control-Allow-Origin: *` on the files. `python3 tools/api_feed.py` writes the same JSON from the committed public data without building the rest of the HTML. That command also fetches live exchange prices (see below).
+News: `/api/v1/news.json` and `/api/v1/news/{id}.json`. For polling, `/api/v1/news/latest.json` holds the 25 newest stories (`LATEST_COUNT` in `tools/api_feed.py`) with only the fields a notifier needs: id, published, country, source, headlines (`title`, `title_en`, `title_i18n`) and links, about 25 KB instead of the full list. The Nordic Crypto app's push server polls it with `If-None-Match`. Newsletters: `/api/v1/newsletters.json` and `/api/v1/newsletters/001.json`. GitHub Pages sends `Access-Control-Allow-Origin: *` on the files. `python3 tools/api_feed.py` writes the same JSON from the committed public data without building the rest of the HTML. That command also fetches live exchange prices (see below).
 
 ### Talks
 Public recordings of talks on bitcoin, cryptocurrencies and blockchain held in Norway, Sweden, Denmark, Finland, Iceland, the Faroe Islands, Greenland and Åland, from the Bitcoin white paper (31 October 2008) onward. The page is `/talks/`, linked from the nav, the footer and the calendar's previous-events section. The data file is `data/talks.json`. The API is `/api/v1/talks.json`, `/api/v1/talks/{id}.json` and `/api/v1/talks/by-country/{country}.json` (`NO`, `SE`, `DK`, `FI`, `IS`, `FO`, `GL`, `AX`).
@@ -104,6 +108,16 @@ Refresh: `./build.sh` and `./publish.sh` fetch the exchanges while building `sit
 
 `python3 tools/markets.py` prints a short summary. `python3 tools/markets.py --write DIR` writes the JSON tree. `--keep-if-empty` is what the hourly job uses.
 
+### Visitor stats
+
+`/stats/` (every site language) shows visits and page views per day (last 30 days), per ISO week (last 26 weeks) and per calendar month, with a "last updated" time. `/api/v1/stats.json` is the same data. The numbers come from Cloudflare Web Analytics: aggregate counts per UTC day only, no IP addresses, user agents, paths, referrers or countries. Until there is data, the page says the stats are being set up.
+
+`tools/fetch_stats.py` reads `rumPageloadEventsAdaptiveGroups` from the Cloudflare GraphQL Analytics API (sum of `visits` and `count` of page views, grouped by `date`, filtered by the site tag). It goes back as far as Cloudflare keeps data (about six months) and merges the result into the rows already saved, so months stay on the page after Cloudflare has expired the days. Configuration: `CF_ANALYTICS_TOKEN` (API token with Account → Account Analytics → Read only), `CF_ACCOUNT_ID` and `CF_WA_SITE_TAG` (the Web Analytics site tag, not the public beacon token). Without all three it prints "not configured" and writes nothing. `--check` prints totals only.
+
+Refresh: `.github/workflows/stats-refresh.yml` runs once a day and rewrites `api/v1/stats.json` on `gh-pages` (secret `CF_ANALYTICS_TOKEN`, repository variables `CF_ACCOUNT_ID` and `CF_WA_SITE_TAG`; it skips when they are missing). It uses the `gh-pages-deploy` concurrency group like the other two jobs. The page reloads that file in the browser, so new numbers show without a new build. A build uses the newer of `data/stats.json` and the published file, so a deploy does not roll the numbers back. `NC_STATS_LIVE=0` keeps the build offline.
+
+The beacon itself is `analytics.json` (or `CF_WEB_ANALYTICS_TOKEN`): the public site token of a Web Analytics site for `nordiccrypto.no`. Without it the site loads no analytics script and the stats stay empty.
+
 ### iOS app
 Public TestFlight invite, linked from the footer, the homepage, `/markets/` and About: https://testflight.apple.com/join/nQ2fpjZn. There is no App Store listing. The Nordic Crypto TestFlight version especially supports Apple TV.
 
@@ -125,7 +139,7 @@ The static site cannot store subscriptions. `workers/push/` is a Cloudflare Work
 ## Pipeline
 | Step | Command | What it does |
 |---|---|---|
-| Fetch | `./fetch.sh [--days N]` | Reads RSS feeds / list pages / news search per country (robots.txt respected, own UA, ≥2 s per host, several hosts at once). Local newspapers and justice pages are keyword-filtered. A source with no RSS is read from sitemap.xml or its public index page (title, date, link and summary only; robots.txt and the same per-host delay). One dead feed is logged and skipped. Adds new stories to `data/news.json` as `pending`, new events to `data/events.json` as `pending`, candidate entities to `queue/review.json`. |
+| Fetch | `./fetch.sh [--days N]` | Reads RSS feeds / list pages / news search per country (robots.txt respected, own UA, ≥2 s per host, several hosts at once). Local newspapers and justice pages are keyword-filtered. A source with no RSS is read from sitemap.xml or its public index page (title, date, link and summary only; robots.txt and the same per-host delay). One dead feed is logged and skipped. Adds new stories to `data/news.json` as `pending`, new events to `data/events.json` as `pending`, candidate entities to `queue/review.json`. The [nightly fetch on Actions](#nightly-fetch-on-actions) does the same run and leaves the new pending rows on `fetch-queue` until an editor approves them onto `main`. With `NC_DATA_SOURCE=d1` the same run writes those pending rows to Cloudflare D1 instead, and approval does not need a commit ([Stories and events in D1](#stories-and-events-in-d1)). |
 | Add a story by hand | `./fetch.sh --add URL --country XX [--date YYYY-MM-DD]` | Metadata only (title/description/date), never article text. |
 | Add an event by hand | `.venv/bin/python events.py --add-event URL --country XX [--title --start --place --organiser --paid --online]` | Event lands as `pending`. |
 | Refresh events only | `.venv/bin/python events.py` or `.venv/bin/python events.py --only id,id` | Same event search as `./fetch.sh`, without the news feeds. |
@@ -147,6 +161,111 @@ gh-pages is updated only when the repository variable `NC_CI_DEPLOY` is `true` (
 Pushes made with `GITHUB_TOKEN` do not start a new workflow run. The job also skips a push whose actor is `github-actions[bot]`, and a head commit whose message contains `[skip ci]` or `[ci skip]`. CI does not commit back to `main`. The build can rewrite tracked files such as `archive/events.json`; the job prints `git status --short` and a diff stat and leaves them uncommitted. The box, which has the approvals, remains the place that updates `data/` and `archive/events.json`.
 
 CI does not have `queue/approved.json`, `state/source_status.json`, or `/workspace/nordic-crypto-research/academia.md`. For the published site to match a box publish, those decisions have to already be in the committed public files: `data/news.json`, `data/orgchart.json`, `data/academia.json`, `data/frontpage_blurbs.json`, `data/title_i18n.json`, and approved events in `archive/events.json`. Without `approved.json`, own stories (`stories.approve`) are left out, rows in `data/events.json` are not promoted, and the news file, the org chart and the academia file are left as committed. Without `source_status.json`, every enabled source counts as ok on the sources page. A later step, not this workflow, can commit a public snapshot the box writes — source id and ok/not-ok only, for example `data/source_status.json`, with no error text and none of the rest of `state/` or `queue/`. CI does not call `tools/push_notify.py`. Browser notifications for new stories are still sent only by `./publish.sh --yes` on the box, and that command remains the manual fallback when Actions is off or `NC_CI_DEPLOY` is not `true`.
+
+### Nightly fetch on Actions
+
+`.github/workflows/nightly-fetch.yml` runs the daily fetch at 01:41 UTC (03:41 in Oslo while Norway is on summer time) and from `workflow_dispatch`. The repository variable `NC_CI_FETCH` must be `true` (`gh variable set NC_CI_FETCH --body true`). Until then the schedule writes a summary and does not read any feed. The term list is the secret `NC_PRIVATE_TERMS_JSON` already used by the deploy workflow. The job writes it for the privacy gate, deletes it before the push, and never commits `state/private_terms.json` or prints it. If that file is ever committed on `fetch-queue`, the job refuses to push. `state/http_cache.json` is kept in the Actions cache (`actions/cache`), not in git.
+
+The job checks out `main`, runs `routines/nightly-fetch.sh` with `NIGHTLY_CI=1` (`python3 fetch.py --days 3` and the source-health check), and pushes the editor queue to the branch `fetch-queue`. It opens or updates a pull request into `main` and does not merge that request. The job timeout is 4 hours. One run at a time: concurrency group `nightly-fetch`, `cancel-in-progress: false`, `queue: max`. It does not use `gh-pages-deploy`. A four-hour fetch must not block a site publish or the hourly price refresh, and this job never pushes `main` or `gh-pages`.
+
+What lands on `fetch-queue` is awaiting the editor, not approved and not published:
+
+- `queue/review.json` — `items_needing_summary` and `events_pending`
+- `queue/pending/news.json` and `queue/pending/events.json` — `pending` rows that are not already in `data/news.json` or `data/events.json` on `main`
+- `queue/fetch_report.json` — new stories, new events, how many are waiting, and source health
+- `state/teasers.json`, `state/html_seen.json`, `state/html_lists.json`, `state/source_status.json` — so the next run can continue
+
+`data/news.json` and `data/events.json` on that branch stay equal to `main`. The public build does not read `queue/pending/`. The box script, without `NIGHTLY_CI`, still builds a local preview and still looks after the tip server. Actions does not.
+
+The job summary lists the new-story count, the new-event count, how many are awaiting the editor, and the source-health line. Test: `python3 -m unittest tests.test_ci_fetch`.
+
+**Editor.** Read `fetch-queue` (or the pull request). Do not merge it, and do not commit on that branch. Branch from `main`. Copy only the rows you are approving or rejecting into `data/news.json` and `data/events.json`. Write the decision in `queue/approved.json` (gitignored) and run `python3 tools/apply_approvals.py`. For an event, add its id to `events.approve` or `events.reject` and let the build archive it. Before opening the pull request into `main`, run `python3 tools/ci_fetch_queue.py lint-promotion news BEFORE.json AFTER.json` (and `events` for the events file). It refuses a new row that is still `pending`. Commit the public files only. Merging that pull request is the approval. Deploy then publishes from `main`. The next fetch sees the URL on `main` and drops it from the queue.
+
+### Stories and events in D1
+
+`data/news.json` and `data/events.json` stay the source until the repository variable `NC_DATA_SOURCE` is `d1` (`gh variable set NC_DATA_SOURCE --body d1`). Until that line, `build.py`, the nightly fetch and the deploy workflow behave as they do above. Nothing in Cloudflare is created by a push.
+
+When the variable is `d1`:
+
+- The nightly fetch writes new stories and events to D1 with review status `pending`. It does not update `fetch-queue` and it does not need a commit per story. An event that is already in `archive/events.json` as the public calendar stays `approved`, so the first fetch does not hide it.
+- The editor approves or rejects in D1. `python3 tools/d1_review.py` runs `wrangler d1 execute` against the remote database. The Worker in `workers/content/` does the same on `POST /api/review` with `Authorization: Bearer` the `EDITOR_TOKEN` secret. Either one stores who decided and when (`reviewed_by`, `reviewed_at`). No git commit.
+- `build.py` reads the approved rows from the D1 HTTP query API (the same API `wrangler d1 execute` uses) and builds the static site. Pending rows stay off the public build. `queue/approved.json` is not rewritten, so org-chart, academia and own-story decisions in that file are left as they are. The privacy gate and the text gate still run before a publish. The private term list stays in the secret `NC_PRIVATE_TERMS_JSON`. It is not a D1 table, not a backup file, and not a Worker response.
+- `.github/workflows/d1-publish.yml` rebuilds and, when `NC_CI_DEPLOY` is `true`, publishes `gh-pages` at 07:17 and 15:17 UTC, on `workflow_dispatch`, and when the Worker sends `repository_dispatch` `d1-approved`. `main` is not committed.
+- `.github/workflows/d1-backup.yml` exports stories, events, sources and the review audit at 04:41 UTC and copies them to the private R2 bucket named by the variable `CF_R2_BUCKET` (a dated folder under `backup/`). Teasers, the HTML cache and the term list are omitted. The privacy gate runs on the export before the upload. No branch is pushed: this repository is public and the export includes pending and rejected stories. Without `CF_R2_BUCKET` the job stores nothing. The workflow does not create the bucket.
+
+The one-time import is `python3 tools/d1_import.py`. It reads `data/news.json`, `data/events.json`, `archive/events.json`, `sources.json`, and `queue/approved.json` when that file is present. A second run with the same files writes nothing. A newer decision already stored in D1 is kept. Run it on the box before flipping `NC_DATA_SOURCE`, so the gitignored event decisions are included. The committed archive is enough for the events that are already on the public calendar.
+
+Schema: `workers/content/migrations/0001_content.sql`. Stories, events and sources each have `review_status` (`pending`, `approved` or `rejected`), `reviewed_by`, `reviewed_at` and a `payload` column that is the original JSON object. Rows are not deleted. A merged story keeps `item_status` `merged` and stays out of the editor queue. Working notes the next fetch needs (teasers, seen HTML, source health) can sit in the `documents` table. The public export does not read the private ones.
+
+**Cost.** On the Workers Free plan, which includes D1, the limits are 5 million rows read per day, 100,000 rows written per day, and 5 GB of storage for the account. A free database is capped at 500 MB, and an account can have 10 databases. The daily limits reset at 00:00 UTC. Since 1 September 2026 a query fails until the next UTC day when a daily limit is hit; the stored rows stay. Paid adds the first 25 billion rows read per month (then $0.001 per million), the first 50 million rows written per month (then $1.00 per million) and the first 5 GB (then $0.75 per GB-month). Source: [Cloudflare D1 pricing](https://developers.cloudflare.com/d1/platform/pricing/) and [limits](https://developers.cloudflare.com/d1/platform/limits/). This database is about a hundred stories, a dozen events and the outlet list. A build reads those rows a handful of times. The nightly fetch writes the new ones. A page view on GitHub Pages does not query D1. That sits inside the free tier. The optional Worker is a separate request only when something calls it.
+
+**Secrets and variables.** No Cloudflare resource was created from this change: the API token is not in the environment here.
+
+| Name | Where | What |
+|---|---|---|
+| `CLOUDFLARE_API_TOKEN` | secret | API token with Account → D1 → Edit, and Account → Workers Scripts → Edit. Add Account → Workers R2 Storage → Edit only if you use the R2 copy. Not the analytics token. |
+| `CF_ACCOUNT_ID` | variable | Account id. The same one the stats job uses, if that is already set. |
+| `CF_D1_DATABASE_ID` | variable | Database id printed by `wrangler d1 create`. |
+| `NC_DATA_SOURCE` | variable | `d1` to switch. Anything else, including unset, keeps the JSON files. |
+| `EDITOR_TOKEN` | Worker secret | Bearer token for `POST /api/review`. A random string, not the Cloudflare token. |
+| `GITHUB_DISPATCH_TOKEN` | Worker secret, optional | Fine-grained PAT, this repository, Actions read and write. Without it, approvals wait for the schedule. |
+| `CF_R2_BUCKET` | variable, optional | Bucket name for the extra backup copy. Unset means git only. |
+| `NC_CI_FETCH` | variable | Still required for the nightly fetch, as above. |
+| `NC_CI_DEPLOY` | variable | Still required before `d1-publish` pushes `gh-pages`. |
+| `NC_PRIVATE_TERMS_JSON` | secret | Unchanged. Never written to D1. |
+
+Commands, from the repo root. `workers/content/setup.sh` prints the same list and creates the database only when the token is set and you pass `--apply`.
+
+```bash
+export CLOUDFLARE_API_TOKEN='…'
+export CLOUDFLARE_ACCOUNT_ID='…'
+export CF_ACCOUNT_ID="$CLOUDFLARE_ACCOUNT_ID"
+
+cd workers/content
+npx wrangler d1 create nordic-crypto-content
+# replace the zeros in workers/content/wrangler.toml with the database_id
+npx wrangler d1 migrations apply nordic-crypto-content --remote
+cd ../..
+export CF_D1_DATABASE_ID='…'
+
+python3 tools/d1_import.py
+
+cd workers/content
+npx wrangler secret put EDITOR_TOKEN
+npx wrangler deploy
+cd ../..
+
+gh secret set CLOUDFLARE_API_TOKEN
+gh variable set CF_ACCOUNT_ID --body "$CF_ACCOUNT_ID"
+gh variable set CF_D1_DATABASE_ID --body "$CF_D1_DATABASE_ID"
+gh variable set NC_DATA_SOURCE --body d1
+```
+
+Review, still without a commit:
+
+```bash
+python3 tools/d1_review.py pending
+python3 tools/d1_review.py approve --id STORY_ID --summary "…" --by "Nordic Crypto redaktør"
+python3 tools/d1_review.py reject --id STORY_ID --reason "…"
+python3 tools/d1_review.py approve-event --id EVENT_ID --note "…"
+python3 tools/d1_review.py reject-event --id EVENT_ID --reason "…"
+```
+
+Optional, after the Worker is deployed:
+
+```bash
+# redeploy on approve (fine-grained PAT, Actions: Read and write)
+cd workers/content && npx wrangler secret put GITHUB_DISPATCH_TOKEN
+
+# extra backup copy; the git branch is already the backup
+npx wrangler r2 bucket create nordic-crypto-content-backup
+gh variable set CF_R2_BUCKET --body nordic-crypto-content-backup
+```
+
+The Worker also serves `GET /api/v1/news.json`, `/api/v1/events.json` and `/api/v1/sources.json` from approved rows. The static files on GitHub Pages remain the ones the site and the apps use. Test: `python3 -m unittest tests.test_d1_store` and `node --test workers/content/test/worker.test.js`.
+
+### New events in the Telegram chat
+`.github/workflows/telegram-events.yml` posts each new upcoming event to the Nordic Crypto Telegram chat once: after every successful `Deploy site` run and at :17 and :47 every hour (which also catches publishes from the box). `tools/telegram_events.py` reads the live `/api/v1/events.json`, skips events that have ended, posts the earliest first (at most 5 per run) with title, date and time, place, organiser and a link to `/calendar/<id>/`, and records each posted id in a ledger kept in the Actions cache. With no ledger (first run, or the cache expired) it records the current events and posts nothing, so the chat is never flooded with old events. Setup: repo secret `TELEGRAM_BOT_TOKEN` (the existing bot, allowed to post in the chat) and repo variable `TELEGRAM_CHAT_ID` (`@nordiccryptochat` or the numeric `-100…` id). Without both the workflow is a dry run. `workflow_dispatch` has a dry-run switch. Test: `python3 -m unittest tests.test_telegram_events`.
 
 ### Event listings
 The front page and the office screen show the next six events that have not started, in start order. That list changes when an event starts: the event leaves the list and stays in the “happening now” card until it ends. Finished events stay in the data and on `/events/previous/` (newest first). The calendar list is the same events as before, with a link to the previous-events page.
@@ -267,13 +386,14 @@ Newspaper photographs are not copied, stored, proxied or hotlinked. Åndsverklov
 - `org`: `approve`, `approve_countries`, `reject`. Rows, people, logos, photos and profile links added by research carry `"review": "pending"` and are NOT covered by `approve_countries`: list their ids in `org.approve` (logos/photos: set `review` to `ok` in `assets/img/logos/logos.json` / `assets/img/people/photos.json`; news-source logos (`source:<id>` keys): set `review` to `ok` there too, nothing else, and they appear as `logo_url` / `source_logo_url` in the public API; profile links: `status: published` in `data/profiles.json`). The preview build shows all pending items, marked.
 - `rules.json`: the rules page (`/rules/`) stays a placeholder until its `review` is set to `approved`.
 - Changelog entries with `"review": "pending"` are only shown in the preview.
+- Open-source developers (`data/developers.json`, `/developers/`): technical people in Nordic crypto with public crypto-related code (an own non-fork crypto repo, or merged commits or pull requests in a public crypto project; other open source does not count on its own). Every row added by research is `"status": "pending"`; the editor sets `published` after checking the profile, the Nordic-link source and the listed repos. Rows with `"review": "ready_for_owner"` (jQrgen's own) wait for jQrgen. The public build shows only published rows, the preview shows pending ones marked. GitHub links shown on Who's who for the same people are profile links in `data/profiles.json` (`kind: github`, `status: pending` until published). `tools/check_dev_profiles.py` re-checks the profiles and repos against the public GitHub and GitLab APIs (no token needed for a few rows; `GITHUB_TOKEN` for a full run; `--write` updates stars and the check date).
 - Academia: status column (`APPROVED` / pending / unverified / OUT) in `/workspace/nordic-crypto-research/academia.md`; only APPROVED rows reach the page.
 - `changelog.json`: site changes only (not news), newest first.
 
 ## Bots
 **Researcher (6031f46c)**: run `./fetch.sh --days 2` (daily), check `state/source_status.json` for failing sources, add missed stories/events with `--add` / `--add-event`, research org-chart candidates in `queue/review.json` and academia rows in `/workspace/nordic-crypto-research/academia.md` (every row: source, check date, status). Never invent; never circumvent blocks (vb.is returns 403 and stays disabled).
 
-**Editor (0b7181d5)**: review `queue/review.json`; for each story write a 2–4 sentence English summary of what the story says, in your own words (plus `title_en` for Nordic-language headlines, and `title_i18n` for nn, nb, sv, da, fi, is, omitting the source language) into `queue/approved.json`, or reject. A one-sentence intro is not enough for the front page. Stories already published with a one-sentence summary keep a longer blurb in `data/frontpage_blurbs.json` (en, nn, nb, sv, da, fi, is) until the summary itself is two or more sentences; other site languages show the English blurb. Approve/reject events (date, place, organiser must be on the organiser's page; label paid/sponsored; reject online webinars without a Nordic link). Approve org rows only when every row and link has a source. Then `./build.sh --preview` and look at it. Things involving jQrgen himself (e.g. events where he speaks, own stories) go to `ready_for_owner`, never straight to `approve`. After the English summary: write `summary_i18n` for nn, nb, sv, da, fi, is (own words, same facts, no new claims) and set `summary_i18n_source` to the English text; check new org rows, people, logos (does the image belong to the org?), photos (licence, right person) and profile links before approving them; check the rules page against `research/rules-claims-*.md`.
+**Editor (0b7181d5)**: review `queue/review.json` on the box, or the same file on the [`fetch-queue` branch](#nightly-fetch-on-actions) when the nightly fetch runs in Actions. For each story write a 2–4 sentence English summary of what the story says, in your own words (plus `title_en` for Nordic-language headlines, and `title_i18n` for nn, nb, sv, da, fi, is, omitting the source language) into `queue/approved.json`, or reject. Approved rows reach `main` on their own pull request. The fetch pull request is not the approval, and it is not merged. A one-sentence intro is not enough for the front page. Stories already published with a one-sentence summary keep a longer blurb in `data/frontpage_blurbs.json` (en, nn, nb, sv, da, fi, is) until the summary itself is two or more sentences; other site languages show the English blurb. Approve/reject events (date, place, organiser must be on the organiser's page; label paid/sponsored; reject online webinars without a Nordic link). Approve org rows only when every row and link has a source. Then `./build.sh --preview` and look at it. Things involving jQrgen himself (e.g. events where he speaks, own stories) go to `ready_for_owner`, never straight to `approve`. After the English summary: write `summary_i18n` for nn, nb, sv, da, fi, is (own words, same facts, no new claims) and set `summary_i18n_source` to the English text; check new org rows, people, logos (does the image belong to the org?), photos (licence, right person) and profile links before approving them; check the rules page against `research/rules-claims-*.md`.
 
 ## Denmark (added 3 Oct 2026)
 Denmark (DK) is in the country set, the fetch config and the event detection. No Danish content goes live without the editor's approval: Danish stories and events land as `pending`. Org-chart rows: the editor reviewed the 14 Danish rows and added DK to `org.approve_countries` on 3 Oct 2026, so Danish org rows are now approved per country like NO/SE/FI/IS (new Danish rows must still have a source for every row and link before they are added to `data/orgchart_nordic.json`). Researcher: Danish stories, events, org chart (Finanstilsynet, Danmarks Nationalbank, Erhvervsministeriet, Skatteministeriet/Skattestyrelsen, the FIU (Hvidvasksekretariatet), MiCA CASPs authorised in Denmark per the ESMA register) and academia rows.
@@ -327,6 +447,9 @@ A switched-off prototype for a generated event card on Nexa and Bitcoin Cash. Th
 
 The mint Worker is `mintworker/` (`nordic-crypto-mint`, D1 `nordic-crypto-mint`, testnet only): it signs Nexa and chipnet transactions with pure-JS signers when `NC_EVENT_NFT=1` and `MINT_NETWORK=testnet`, refuses mainnet, rate-limits `/api/mint`, records the treasury history hourly, and has an admin-token route `POST /api/admin/setup-tokens?chain=nexa|bch` that creates the Nexa group or the CashTokens category once. The hot keys stay in the Worker secrets `NEXA_HOT_KEY` and `BCH_HOT_KEY`. Tests: `cd mintworker && npm test`. Operator steps are in [mintworker/README.md](mintworker/README.md). This repo does not deploy it.
 
+## Electrum server (added 9 Oct 2026)
+Our own Electrum server for Bitcoin Cash and Nexa, so wallets and apps do not depend on public servers. It runs on a Hetzner Cloud server (`electrum-1`): Bitcoin Cash Node and Nexa, each with Rostrum on top. It is reachable on the standard Electrum ports: Nexa at `wss://electrum-nexa.nordiccrypto.no:20004` (TLS `:20002`) and BCH at `wss://electrum-bch.nordiccrypto.no:50004` (TLS `:50002`). This repo does not deploy it. Setup, services and upgrade steps are in [docs/electrum-server.md](docs/electrum-server.md).
+
 ## Shoutbox
 One shared reader chat for every language. The front page can show a compact box (a sidebar on a wide screen, a collapsible block on a phone) and each language has `/chat/` (or `/sv/chat/` and so on). Every one of those pages reads and writes the same message list. Only the buttons and the house rules are translated. A small language tag can show which page a message was sent from. The messages themselves are not translated.
 
@@ -354,7 +477,7 @@ The look is the Våpen design from the logo sheet (option E) in the Langskip col
 
 Light is the default. The button in the header switches to dark; the choice is stored in this browser's localStorage as `nc-theme` (the office screen mode uses the same key) and read by an inline script in `<head>`, so there is no flash. Dark mode does not follow the system setting.
 
-Layout: the header has seven sections (News, Calendar, Markets, Who's who, Academia, Books, Talks), the newsletter button (Subscribe while signup is open, Follow until then), Telegram and X, the light/dark switch and the language; on phones the brand, the switch and a menu button. Newsletter, Sources, About, Send a tip and the API are in the footer columns and the phone menu (`NAV`, `NAV_MAIN` in `build.py`). The front page is a short title band, the lead story with the next events beside it, then the latest stories in one column (20 shown, the rest behind one button), then the newsletter and tools. Long pages start with what readers come for, have a short "On this page" list, and collapse secondary detail.
+Layout: the header has seven sections (News, Calendar, Markets, Who's who, Academia, Books, Talks), the newsletter button (Subscribe while signup is open, Follow until then), Telegram and X, the light/dark switch and the language; on phones the brand, the switch and a menu button. Open-source developers (`/developers/`) is linked from Who's who and the footer, not the header. Newsletter, Sources, About, Send a tip and the API are in the footer columns and the phone menu (`NAV`, `NAV_MAIN` in `build.py`). The front page is a short title band, the lead story with the next events beside it, then the latest stories in one column (20 shown, the rest behind one button), then the newsletter and tools. Long pages start with what readers come for, have a short "On this page" list, and collapse secondary detail.
 
 The CSS is one file per part of the site in `assets/css/`. `site_css.SITE` lists the modules inlined into every page (`build.CSS`): `fonts` (the `@font-face` rules; font URLs are root-relative, `__ROOT__` is replaced at build time), `tokens` (colours for both themes, radii, the market chart's series colours `--mk-1` to `--mk-8`), `base`, `header`, `footer`, `components`, `news`, `events`, `home`, `newsletter`, `push` and `shoutbox`. Every other module is inlined only by its page with `site_css.style(name)`: `orgchart`, `markets`, `talks`, `sources`, `academia`, `filterbar`, `calendar`, `evpage`, `story`, `textpage`, `brand`, `rules`, `regulation-videos` and `api-docs`. Colours come from the custom properties in `tokens.css`; inside the band (`header.top`, `.hero`, `.leadstory`, `footer`) the same names point to light-on-dark values. Primary buttons use `--btn` (North Sea; gold in dark mode and on the band). Flags are one shared `<symbol>` per page (`flag()` emits `<use>`, `page()` adds the symbols it finds); `flag(c, deco=True)` hides a flag from screen readers where the country is named beside it. Fonts are self-hosted in `assets/fonts/` (SIL Open Font License): Schibsted Grotesk is one variable woff2 (400–900), and two fonts are preloaded. `assets/brand/nordic-crypto.css` is the brand stylesheet for others; site pages do not load it. The office screen mode (`templates/screen.html`) keeps its own styles.
 
@@ -366,5 +489,9 @@ No health or private financial data about anyone, no org numbers, LEIs, addresse
 **Language rule (text gate).** Our own Norwegian text (nn, nb) never says «AI» or «KI»; write «kunstig intelligens» in full. `tools/text_gate.py` checks the nn/nb interface strings, templates, summaries, event notes, changelog and rules-page strings, and runs in `build.sh` and `publish.sh`. External headlines are left as published.
 
 **Browser notifications.** Off until the reader turns them on. The Worker stores only the push subscription, the page language and the countries they picked. Unsubscribe is the same button. Cloudflare Web Analytics still counts visits in aggregate, without cookies, and that data is not sold. See [Browser notifications](#browser-notifications).
+
+**Privacy and data policy (`/privacy/`, every language).** One page for everything the site does with data: GitHub Pages and Cloudflare hosting (country domains, cryptonordic.no redirect), the browser storage keys (`nc_lang` cookie and local storage, `nc_auto`, `nc-theme`, `nc_push_countries`, `nc_shout_nick`), the IP-country language guess via tipworker `/api/geo`, Cloudflare Web Analytics (details stay at `/stats/#data-policy`), the markets page calling Firi and Coinmotion from the browser, click-to-load YouTube (nocookie) and Vimeo players, the newsletter (D1 + Resend or Mailgun), Web Push, push notifications in the Nordic Crypto apps (`#apps`: what the app push server in jQrgen/nordic-crypto-tv stores, delivery through Apple and Google, deletion; both app stores link this page as the app privacy policy), private tips, the shoutbox, Turnstile and GitHub issues. Each part gives what, purpose, legal basis, retention, processor and transfers outside the EEA. Optional services show “On” or “Not switched on yet” from the same switches the build uses (`analytics_token()`, `geo_endpoint()`, `newsletter_endpoint()`, `push_endpoint()`, `tip_intake()`, `chat_endpoint()`). Text: `templates/privacy.html` (English), `privacy.nb.html`, `privacy.nn.html`; other languages show the English text with a short note in their language (`pp_note`). Strings `pp_*` in `i18n/`. Linked from the footer, the stats page and About. When a new third-party script, embed, storage key or data store is added, update this page in the same change; `tests/test_privacy_page.py` fails when the build injects a script or iframe host the page does not name.
+
+**Visitor stats (GDPR).** `/stats/#data-policy` is the data policy for the published Cloudflare Web Analytics numbers: who is responsible (jQrgen), what the beacon collects, that only daily, weekly and monthly totals are published, the legal basis (GDPR Art. 6(1)(f), legitimate interest), retention (Cloudflare about six months; the site keeps only daily totals), Cloudflare, Inc. as processor, and questions through GitHub issues or a complaint to Datatilsynet. While `analytics.json` has no token, the section says the script is not switched on yet. The footer and About link to it. Strings: `vdp_*` in `i18n/`.
 
 **Shoutbox.** Off until `chat/config.json` is enabled. When it is on, the worker stores the nickname, the message and a daily-rotated IP hash. It does not store the raw IP and it does not set a cookie. The nickname stays in local storage. Cloudflare Web Analytics is unchanged: aggregate visits, no cookies, data not sold. The About page says the same.

@@ -5,6 +5,7 @@
 .whos>.lead{max-width:66ch;margin-bottom:12px}
 .orgsub{display:flex;flex-wrap:wrap;gap:0 22px;font-size:14.5px}
 .orgsub a{display:inline-flex;align-items:center;min-height:40px;color:var(--fg)}
+.orgsub .orgdev{margin-inline-start:auto;font-weight:600}
 .osec{margin:0}
 .osec>h2{display:flex;align-items:center;gap:12px;font:500 12px/1.2 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:34px 0 12px;scroll-margin-top:12px}
 .osec>h2::after{content:"";flex:1;height:1px;background:var(--line)}

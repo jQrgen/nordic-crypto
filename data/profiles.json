@@ -1,5 +1,5 @@
 {
- "_how_to": "Public profile links per entity id: [{kind, label, url, source_url, status}]. Each link needs a source_url that shows it belongs to the person/org (here: their Wikidata item). status 'pending' until the editor sets 'published'. Rendered with rel=\"noopener nofollow\". Only links whose Wikidata item is confirmed to be the same person (name + role/description) are kept.",
+ "_how_to": "Public profile links per entity id: [{kind, label, url, source_url, status}]. Each link needs a source_url that shows it belongs to the person/org (here: their Wikidata item). status 'pending' until the editor sets 'published'. Rendered with rel=\"noopener nofollow\". Only links whose Wikidata item is confirmed to be the same person (name + role/description) are kept. GitHub links (kind 'github') come from the open-source developers research (data/developers.json); source_url is the profile itself and the note says why it is the same person.",
  "erik-thedeen": [
   {
    "kind": "wikipedia",
@@ -406,6 +406,39 @@
    "source_url": "https://www.wikidata.org/wiki/Q76692910",
    "status": "published",
    "reviewed": "2026-10-04 (Nordic Crypto editor)"
+  }
+ ],
+ "torkel-rogstad": [
+  {
+   "kind": "github",
+   "label": "GitHub",
+   "url": "https://github.com/torkelrogstad",
+   "source_url": "https://github.com/torkelrogstad",
+   "status": "pending",
+   "note": "GitHub profile names Bare Bitcoin as the company and Oslo as the location",
+   "added": "2026-10-09 (open-source developers research)"
+  }
+ ],
+ "spk-jacob-stenum-czepluch": [
+  {
+   "kind": "github",
+   "label": "GitHub",
+   "url": "https://github.com/czepluch",
+   "source_url": "https://github.com/czepluch",
+   "status": "pending",
+   "note": "Login matches the surname; Solidity commits match the who's who affiliation (Solidity). Check before approving.",
+   "added": "2026-10-09 (open-source developers research)"
+  }
+ ],
+ "spk-gisli-kristjansson": [
+  {
+   "kind": "github",
+   "label": "GitHub",
+   "url": "https://github.com/gislik",
+   "source_url": "https://github.com/gislik",
+   "status": "pending",
+   "note": "GitHub profile names Monerium as the company and Reykjavik as the location; the who's who talk is about Monerium",
+   "added": "2026-10-09 (open-source developers research)"
   }
  ]
 }

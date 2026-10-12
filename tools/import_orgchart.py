@@ -24,7 +24,7 @@ def main():
     if not os.path.exists(P("queue", "approved.json")):
         print("orgchart: queue/approved.json is missing; leaving data/orgchart.json unchanged")
         return
-    subprocess.run([sys.executable, P("tools", "import_industrikart_no.py")], check=True)
+    subprocess.run([sys.executable, P("tools", "import_industrikart_no.py")], check=True, timeout=120)
     raw = load(P("data", "orgchart_no_raw.json"), {"entities": [], "relations": []}); en = load(P("data", "no_en.json"))
     nordic = load(P("data", "orgchart_nordic.json")); ap = (load(P("queue", "approved.json"), {}) or {}).get("org", {})
     ok_ids, ok_c, rej = set(ap.get("approve", [])), set(ap.get("approve_countries", [])), set(ap.get("reject", []))

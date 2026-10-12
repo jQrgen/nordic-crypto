@@ -41,6 +41,7 @@ import event_backfill  # noqa: E402
 import event_description  # noqa: E402
 import event_select  # noqa: E402
 import books as books_mod  # noqa: E402
+import developers as dev_mod  # noqa: E402
 
 API = "1"
 SITE_NAME = "Nordic Crypto"
@@ -52,6 +53,13 @@ SITE_TELEGRAM_URL = "https://t.me/nordiccryptochat"
 NORDIC_UI = ("nn", "nb", "sv", "da", "fi", "is")
 LANGS = list(i18n.ALL_LANGS)
 COUNTRIES = ["NO", "SE", "DK", "FI", "IS", "NORDIC", "EU"]
+# /api/v1/news/latest.json: the newest stories with only the fields a notifier needs. Small and bounded,
+# so an app push server can poll it every few minutes instead of the full news.json.
+LATEST_COUNT = 25
+LATEST_FIELDS = ("id", "published", "country", "source", "source_name", "language_code", "own_story",
+                 "title", "title_en", "title_i18n", "url", "html_url", "api_url")
+# File names under api/v1/news/ that are not story ids.
+NEWS_RESERVED_IDS = {"latest", "topics"}
 
 def country_lang_map():
     """Country → default site language, the same object the switcher uses (tools/langselect.js BY_COUNTRY)."""
@@ -90,7 +98,7 @@ def _languages(feed):
     return feed.env(
         note=(
             "Site UI languages (chrome and presentation). English is the default; its home URL is the site root. "
-            "native_name is the language-switcher label. rtl is true for Arabic and Urdu. "
+            "native_name is the language-switcher label. rtl is true for Arabic, Urdu and Persian. "
             "Published article translations today are English plus summary_i18n for nn, nb, sv, da, fi and is. "
             "Other site languages fall back to the English field until a translation is published. "
             "These codes are not news-source languages, and this list does not add outlets."
@@ -261,8 +269,11 @@ class Feed:
         self.preview = bool(preview)
         self.base = base if base.endswith("/") else base + "/"
         self.custom = self.base
-        self.generated = dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat()
-        self.now = event_select.clock(now)
+        # NC_NOW (the frozen build clock) also freezes generated_at, so two builds of one commit diff clean.
+        frozen = os.environ.get("NC_NOW") or None
+        self.now = event_select.clock(now if now is not None else frozen)
+        stamp = self.now if frozen else dt.datetime.now(dt.timezone.utc)
+        self.generated = stamp.astimezone(dt.timezone.utc).replace(microsecond=0).isoformat()
         self.endpoints = []
         self.examples = {}
 
@@ -593,6 +604,11 @@ class Feed:
             "label": raw.get("label"),
             "sources": [{"url": s.get("url"), "title": s.get("title"), "source_name": s.get("source_name"), "date": s.get("date")} for s in (raw.get("sources") or [])],
         }
+
+
+def latest_news(news, limit=LATEST_COUNT):
+    """The first `limit` rows of the published list (already newest first), slimmed to LATEST_FIELDS."""
+    return [{k: n.get(k) for k in LATEST_FIELDS} for n in news[:limit]]
 
 
 def public_news(preview):
@@ -1034,11 +1050,13 @@ def _meta(feed):
         ("regulation-videos/", "Country explainer videos: how crypto rules are decided in each Nordic country"),
         ("academia/", "Courses, student groups, publications and research"),
         ("books/", "Published books on bitcoin, crypto and blockchain by Nordic authors or about the Nordics"),
+        ("developers/", "Open-source developers: technical people in Nordic crypto with public crypto-related code"),
         ("sources/", "News and event sources"),
         ("newsletter/", "Newsletter issues"),
         ("about/", "About, privacy, corrections and removal"),
         ("media/", "Logo and media kit"),
         ("ethics/", "Editorial ethics (Vær Varsom-plakaten)"),
+        ("privacy/", "Privacy and data policy: every service the site uses, legal basis, retention and processors"),
         ("changelog/", "Site changelog"),
         ("tip/", "Send a tip (not part of this data API)"),
         ("columnist/", "Apply as a columnist (not part of this data API)"),
@@ -1128,6 +1146,25 @@ def cors_doc():
     }
 
 
+def _stats(feed, stats):
+    """Write /api/v1/stats.json. Aggregate visits and page views from Cloudflare Web Analytics only.
+    Same shape as the file tools/fetch_stats.py writes on gh-pages. generated_at is when the numbers were fetched."""
+    import fetch_stats
+    doc = stats if isinstance(stats, dict) else fetch_stats.current(feed.base)
+    body = fetch_stats.empty(doc.get("status") or "pending")
+    body.update({k: v for k, v in doc.items() if k in body})
+    body["preview"] = feed.preview
+    body["generated_at"] = body.get("generated_at") or feed.generated
+    feed.write_json("api/v1/stats.json", body)
+    feed.add_endpoint(
+        "stats",
+        "api/v1/stats.json",
+        "Aggregate visitor counts from Cloudflare Web Analytics (no cookies): visits and page views per UTC day, ISO week and calendar month. updated_at is null and the lists are empty until the Web Analytics site and the refresh token are configured.",
+        "VisitorStats",
+        example="api/v1/stats.json",
+    )
+    return body
+
 def _markets(feed, markets):
     """Write /api/v1/markets*.json. markets is the body from tools/markets.py, or None to fetch live."""
     sys.path.insert(0, os.path.join(ROOT, "tools"))
@@ -1182,7 +1219,7 @@ def _markets(feed, markets):
     return doc
 
 
-def write(site, *, preview, base, items, events, entities, relations, org_updated, regulation, caveats, sources_cfg, news_updated, markets=None, now=None):
+def write(site, *, preview, base, items, events, entities, relations, org_updated, regulation, caveats, sources_cfg, news_updated, markets=None, stats=None, now=None):
     feed = Feed(site, preview, base, now=now)
     os.makedirs(site, exist_ok=True)
 
@@ -1279,7 +1316,18 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
         item_template="api/v1/news/{id}.json",
     )
     for n in news:
+        if n["id"] in NEWS_RESERVED_IDS:
+            print(f"api: news id {n['id']} clashes with api/v1/news/{n['id']}.json; item file skipped", file=sys.stderr)
+            continue
         feed.write_json(f"api/v1/news/{n['id']}.json", feed.env(item=n))
+    latest = latest_news(news)
+    collection(
+        "api/v1/news/latest.json",
+        f"The {LATEST_COUNT} newest published stories with id, published, country, source and headlines only. "
+        "For apps and notifiers that poll often; news.json is the full list.",
+        "NewsLatest",
+        feed.env(updated=news_updated, limit=LATEST_COUNT, count=len(latest), items=latest),
+    )
     by_c = {}
     for c in COUNTRIES:
         rows = [n for n in news if n.get("country") == c]
@@ -1377,8 +1425,9 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
     for rows in sections.values():
         for row in rows:
             feed.write_json(f"api/v1/academia/{row['id']}.json", feed.env(item=row))
+    first_ac = next((row["id"] for rows in sections.values() for row in rows), None)  # section order, not set order
     feed.add_endpoint("academia-item", "api/v1/academia/{id}.json", "One academia row. The id is in academia.json.", "AcademiaItem",
-                      example=f"api/v1/academia/{next(iter(ac_ids))}.json" if ac_ids else None)
+                      example=f"api/v1/academia/{first_ac}.json" if first_ac else None)
 
     book_rows = []
     for row in books_mod.rows():
@@ -1390,6 +1439,20 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
                "language is a code (nn, nb, sv, da, fi, en). source is the library catalogue or publisher page where the row was checked. "
                "about is our one-line description in English. No cover images.",
                "BookList", feed.env(updated=books_mod.updated(), count=len(book_rows), books=book_rows))
+
+    dev_rows = []
+    for row in dev_mod.rows(preview=preview):
+        row = dict(row, html_url=feed.abs("developers/#" + row["id"]),
+                   whoswho_url=feed.abs("org-chart/#" + row["whoswho_id"]) if row.get("whoswho_id") else None)
+        dev_rows.append(row)
+    collection("api/v1/developers.json",
+               "Open-source developers: technical people in Nordic crypto with public crypto-related code (an own non-fork crypto repo, "
+               "or merged commits or pull requests in a public crypto project). name is as shown on the code profile. profiles are the "
+               "GitHub/GitLab/Codeberg/sourcehut profile links. notable has up to three items: kind \"repo\" (own repo: name, url, stars, "
+               "language, description, last_push) or kind \"contrib\" (project, host, url, commits, merged_prs). Stars and counts are from "
+               "the date in checked. nordic_source is where the Nordic link is shown. whoswho_id links the who's who entry. Only rows the "
+               "editor approved; a preview build also has pending rows (status \"pending\").",
+               "DeveloperList", feed.env(updated=dev_mod.updated(), count=len(dev_rows), people=dev_rows))
 
     collection("api/v1/orgchart.json", "Published who's who: organisations, people, relations, regulation notes and caveats. A person named on a talk has talk_ids, event_ids and talks. affiliations lists the organisation the talk page stated for that talk, with the talk date when the page gave one, the source URL and the retrieval time. An affiliation the page did not state is omitted.", "OrgChart",
                feed.env(updated=org_updated, count=len(ents), entities=ents, relations=rels, regulation=regulation, caveats=caveats),
@@ -1438,6 +1501,7 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
     for a in articles:
         feed.write_json(f"api/v1/archive/articles/{a['id']}.json", feed.env(item=a))
 
+    stats_doc = _stats(feed, stats)
     market_doc = _markets(feed, markets)
     market_counts = {}
     for ex in market_doc.get("exchanges") or []:
@@ -1512,6 +1576,7 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
             "sources": len(outlets),
             "academia": ac_counts,
             "books": len(book_rows),
+            "developers": len(dev_rows),
             "org_entities": len(ents),
             "org_relations": len(rels),
             "profiles": len(profiles),
@@ -1522,6 +1587,7 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
             "markets": market_doc.get("count") or 0,
             "markets_aggregated": market_doc.get("aggregated_count") or 0,
             "markets_by_exchange": market_counts,
+            "stats_days": len(stats_doc.get("daily") or []),
         },
         endpoints=list(feed.endpoints),
         start_here=[
@@ -1529,6 +1595,7 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
             {"description": "Aggregated price per pair, one quote currency at a time", "url": feed.abs("api/v1/markets/aggregated.json")},
             {"description": "Prices from one exchange", "url": feed.abs("api/v1/markets/firi.json")},
             *([{"description": "Prices for one asset, on every included exchange", "url": feed.abs(f"api/v1/markets/by-asset/{example_asset}.json")}] if example_asset else []),
+            {"description": "Visitor stats (aggregate visits and page views)", "url": feed.abs("api/v1/stats.json")},
             {"description": "All published news", "url": feed.abs("api/v1/news.json")},
             {"description": "One news item", "url": news[0]["api_url"] if news else None},
             {"description": "Newsletter issues", "url": feed.abs("api/v1/newsletters.json")},
@@ -1616,7 +1683,7 @@ def openapi(feed, index):
             "version": API,
             "description": (
                 f"Public read-only JSON for Nordic Crypto ({feed.base}). "
-                "No authentication. News, newsletters, events, sources, academia, books, the who's who, profiles, images, "
+                "No authentication. News, newsletters, events, sources, academia, books, developers, the who's who, profiles, images, "
                 "the rules map, the changelog, the article archive, public talk videos and Nordic exchange prices (market data, not investment advice). "
                 "Kaupr is a news source only, never a sponsor. The sign-off is The Nordic Crypto team. "
                 "GitHub Pages sends Access-Control-Allow-Origin: * so browsers can fetch these files. "
@@ -1880,6 +1947,18 @@ def schemas():
         "NewsCoverage": news_coverage,
         "NewsItem": news_item,
         "NewsList": wrap("NewsList", {"count": {"type": "integer"}, "items": {"type": "array", "items": news_item}, "updated": {"type": "string", "nullable": True}, "logo_note": {"type": "string"}}),
+        "NewsLatestItem": {
+            "type": "object",
+            "required": ["id", "title", "published", "api_url"],
+            "description": "A news item cut down to the fields a notifier needs. Same values as in news.json.",
+            "properties": {k: news_item["properties"][k] for k in LATEST_FIELDS},
+        },
+        "NewsLatest": wrap("NewsLatest", {
+            "updated": {"type": "string", "nullable": True},
+            "limit": {"type": "integer", "description": "Maximum number of items in this file."},
+            "count": {"type": "integer"},
+            "items": {"type": "array", "items": {"$ref": "#/components/schemas/NewsLatestItem"}, "description": "Newest first, like news.json."},
+        }),
         "TopicIndex": wrap("TopicIndex", {"topics": {"type": "array"}}),
         "Event": event_item,
         "EventList": wrap("EventList", {"count": {"type": "integer"}, "events": {"type": "array", "items": event_item}}),
@@ -1916,6 +1995,32 @@ def schemas():
             },
         },
         "BookList": wrap("BookList", {"updated": {"type": "string", "nullable": True}, "count": {"type": "integer"}, "books": {"type": "array", "items": {"$ref": "#/components/schemas/Book"}}}),
+        "Developer": {
+            "type": "object",
+            "required": ["id", "name", "country", "profiles", "notable", "nordic_source", "checked", "status"],
+            "properties": {
+                "id": {"type": "string"},
+                "name": {"type": "string", "description": "Name as shown on the public code profile."},
+                "role": {"type": "string", "nullable": True},
+                "org": {"type": "string", "nullable": True},
+                "org_id": {"type": "string", "nullable": True, "description": "Who's who id of the organisation, when it has one."},
+                "whoswho_id": {"type": "string", "nullable": True, "description": "Who's who id of the person, when listed there."},
+                "whoswho_url": {"type": "string", "nullable": True},
+                "country": {"type": "string", "description": "NO, SE, DK, FI, IS, FO, GL or AX."},
+                "profiles": {"type": "array", "items": {"type": "object", "properties": {"kind": {"type": "string"}, "url": {"type": "string"}, "login": {"type": "string"}}}},
+                "notable": {"type": "array", "maxItems": 3, "items": {"type": "object", "properties": {
+                    "kind": {"type": "string", "enum": ["repo", "contrib"]}, "name": {"type": "string"}, "project": {"type": "string"}, "host": {"type": "string"},
+                    "url": {"type": "string"}, "stars": {"type": "integer"}, "language": {"type": "string", "nullable": True}, "description": {"type": "string", "nullable": True},
+                    "last_push": {"type": "string"}, "commits": {"type": "integer", "nullable": True}, "merged_prs": {"type": "integer", "nullable": True}}}},
+                "nordic_source": {"type": "object", "properties": {"url": {"type": "string"}, "note": {"type": "string"}}},
+                "checked": {"type": "string", "description": "YYYY-MM-DD the profile, repos and counts were checked."},
+                "status": {"type": "string", "enum": ["published", "pending"]},
+                "review": {"type": "string", "nullable": True, "description": "editor, or ready_for_owner (jQrgen decides)."},
+                "note": {"type": "string", "nullable": True},
+                "html_url": {"type": "string"},
+            },
+        },
+        "DeveloperList": wrap("DeveloperList", {"updated": {"type": "string", "nullable": True}, "count": {"type": "integer"}, "people": {"type": "array", "items": {"$ref": "#/components/schemas/Developer"}}}),
         "OrgEntity": {
             "type": "object",
             "required": ["id", "name"],
@@ -2093,7 +2198,20 @@ def schemas():
             "urls": {"type": "object"},
             "refresh": {"type": "object"},
         }),
-        "MarketExchange": wrap("MarketExchange", {"exchange": {"type": "object"}, "count": {"type": "integer"}, "tickers": {"type": "array", "items": {"$ref": "#/components/schemas/MarketTicker"}}}),
+                "VisitorStats": wrap("VisitorStats", {
+            "source": {"type": "string"},
+            "status": {"type": "string", "description": "ok when daily rows exist, otherwise pending."},
+            "timezone": {"type": "string"},
+            "note": {"type": "string"},
+            "schema": {"type": "integer"},
+            "first_date": {"type": "string", "nullable": True},
+            "last_date": {"type": "string", "nullable": True},
+            "updated_at": {"type": "string", "nullable": True, "description": "When the stats file was last fetched from Cloudflare."},
+            "daily": {"type": "array", "items": {"type": "object"}},
+            "weekly": {"type": "array", "items": {"type": "object"}},
+            "monthly": {"type": "array", "items": {"type": "object"}},
+        }),
+"MarketExchange": wrap("MarketExchange", {"exchange": {"type": "object"}, "count": {"type": "integer"}, "tickers": {"type": "array", "items": {"$ref": "#/components/schemas/MarketTicker"}}}),
         "MarketAsset": wrap("MarketAsset", {
             "symbol": {"type": "string"},
             "name": {"type": "string", "nullable": True},
@@ -2155,6 +2273,16 @@ def llms_txt(feed, index):
         f"- [Geo language]({feed.abs('api/v1/geo-language.json')}): country to default language. An IP guess; the nc_lang cookie wins.",
         "- Browser notifications: opt-in Web Push. The Worker `GET /api/push/feed.json` repeats each publish as one batch (title, summary, URL). APNs is not implemented. Subscriptions are not in this API.",
         "",
+        "## Visitor stats",
+        "",
+        "Aggregate visits and page views from Cloudflare Web Analytics (no cookies, no personal data): /api/v1/stats.json. "
+        "Days are UTC. Weeks are ISO weeks. Empty until the Web Analytics site tag and the Account Analytics token are set. "
+        "A scheduled job rewrites the file on gh-pages about once a day.",
+        "",
+        "```",
+        f"curl -fsS {feed.abs('api/v1/stats.json')}",
+        "```",
+        "",
         "## Market prices",
         "",
         "Prices from Nordic exchanges with a public ticker (Firi and Norwegian Block Exchange in Norway, Coinmotion in Finland). "
@@ -2210,7 +2338,8 @@ def llms_txt(feed, index):
         "(national, regional, official, international) are the counts and shares, and empty types are included as zero. "
         "html_url is our coverage page. url is the primary outlet. ",
         "A single newsletter issue is api/v1/newsletters/{id}.json and includes plain text and HTML. "
-        "Country slices: api/v1/news/by-country/NO.json (also SE, DK, FI, IS).",
+        "Country slices: api/v1/news/by-country/NO.json (also SE, DK, FI, IS). "
+        f"To poll for new stories, use api/v1/news/latest.json: the {LATEST_COUNT} newest stories with id, published, country, source and headlines only.",
         "",
         "## Source logos",
         "",
@@ -2277,6 +2406,18 @@ def head_links(base):
     )
 
 
+_ELECTRUM_STATUS_JS = None
+
+
+def _electrum_status_js():
+    """The live Rostrum check on the API page, inlined like the other page scripts."""
+    global _ELECTRUM_STATUS_JS
+    if _ELECTRUM_STATUS_JS is None:
+        path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "electrum_status.js")
+        _ELECTRUM_STATUS_JS = open(path, encoding="utf-8").read()
+    return _ELECTRUM_STATUS_JS
+
+
 def docs_fragment(index):
     b = index["bases"]["github_pages"]
     def row(ep):
@@ -2298,6 +2439,32 @@ def docs_fragment(index):
 <p class="lead">A public JSON feed of the site, for apps and for other tools. No account and no API key. It is regenerated whenever the site is built.</p>
 <p class="meta">Version 1. {html.escape(str(counts.get('news', 0)))} news items, {html.escape(str(counts.get('newsletters', 0)))} newsletter issues, {html.escape(str(counts.get('events', 0)))} events and {html.escape(str(counts.get('talks', 0)))} talks in this build. Generated {html.escape(index.get('generated_at') or '')}.</p>
 <div class="prose">
+<h2 id="lightning">Bitcoin Lightning node</h2>
+<p>Nordic Crypto runs a Bitcoin Lightning node. The alias is Nordic Crypto. The implementation is LND, in Neutrino light mode. No account and no API key.</p>
+<div class="tablewrap"><table class="list" id="lightning-status"><thead><tr><th>Node</th><th>Status</th><th class="wide">Implementation</th></tr></thead><tbody>
+<tr><td>Bitcoin<br>Nordic Crypto</td><td>syncing / not yet open for channels</td><td class="wide">LND (Neutrino light mode)</td></tr>
+</tbody></table></div>
+<p class="meta">The status line is written into this static page and does not update itself. Live status: <a href="https://amboss.space/node/0225974bb701101a5d4352dcae0f76aa9c1388e482a666e892f462e0e0e4217dd9" rel="noopener">Amboss</a> and <a href="https://1ml.com/node/0225974bb701101a5d4352dcae0f76aa9c1388e482a666e892f462e0e0e4217dd9" rel="noopener">1ML</a>.</p>
+<p>Node URI. Copy a line. The first line is IPv4. The second line is the same node on IPv6, <code>[2a01:4f8:c01e:36d9::1]:9735</code>.</p>
+<!-- The @ in the IPv4 node URI is &#64; in the file. The privacy gate would otherwise read pubkey@host as an email address. The page shows @, and copying the line includes it. -->
+<pre>0225974bb701101a5d4352dcae0f76aa9c1388e482a666e892f462e0e0e4217dd9&#64;91.99.122.75:9735
+0225974bb701101a5d4352dcae0f76aa9c1388e482a666e892f462e0e0e4217dd9@[2a01:4f8:c01e:36d9::1]:9735</pre>
+<p>Pubkey.</p>
+<pre>0225974bb701101a5d4352dcae0f76aa9c1388e482a666e892f462e0e0e4217dd9</pre>
+<p>On-chain deposit address.</p>
+<pre>bc1p7zgqhev2zzn45mefzq59gq983379lr0rsymhl558rza9k05y7vsq9mglx7</pre>
+<h2 id="electrum">Electrum servers (BCH and Nexa)</h2>
+<p>Nordic Crypto runs <a href="https://nexa.gitlab.io/rostrum/" rel="noopener">Rostrum</a> Electrum servers for Bitcoin Cash and Nexa. Wallets and apps can read balances, transactions, UTXOs, tokens and the chain tip from them, and broadcast transactions. No account and no API key.</p>
+<div class="tablewrap"><table class="list" id="electrum-status" aria-live="polite"><thead><tr><th>Server</th><th>Status</th><th>Block height</th><th class="wide">Response</th><th class="wide">Version</th></tr></thead><tbody>
+<tr data-url="wss://electrum-bch.nordiccrypto.no:50004"><td>Bitcoin Cash<br><code class="url">wss://electrum-bch.nordiccrypto.no:50004</code></td><td data-f="state">–</td><td data-f="height">–</td><td data-f="ms" class="wide">–</td><td data-f="version" class="wide">–</td></tr>
+<tr data-url="wss://electrum-nexa.nordiccrypto.no:20004"><td>Nexa<br><code class="url">wss://electrum-nexa.nordiccrypto.no:20004</code></td><td data-f="state">–</td><td data-f="height">–</td><td data-f="ms" class="wide">–</td><td data-f="version" class="wide">–</td></tr>
+</tbody></table></div>
+<p class="meta">Your browser asks each server for its version and chain tip when this page opens. Response is the time for the tip request. <button type="button" id="electrum-recheck" hidden>Check again</button></p>
+<script>{_electrum_status_js()}</script>
+<p>They speak the Electrum protocol (JSON-RPC) on the standard ports: WebSocket with TLS (<code>wss</code>) on 20004 for Nexa and 50004 for Bitcoin Cash, and TLS over TCP on 20002 for Nexa and 50002 for Bitcoin Cash. Unencrypted ports are not offered. In a client library, give the host, the port and the scheme (<code>wss</code> or <code>tcp_tls</code>). The methods are listed in the <a href="https://nexa.gitlab.io/rostrum/protocol/methods" rel="noopener">Rostrum protocol documentation</a>.</p>
+<pre>websocat wss://electrum-bch.nordiccrypto.no:50004
+{{"id":1,"method":"blockchain.headers.subscribe","params":[]}}</pre>
+<p>The servers run their own full nodes (Bitcoin Cash Node and Nexa), so their answers do not depend on a third party. A client that does no SPV checks still trusts us for what the chain contains. There is no uptime guarantee. Keep a second server in your list and move on when one does not answer within a few seconds.</p>
 <h2 id="start">Start here</h2>
 <ul>
 <li><a href="{html.escape(b)}api/v1/index.json">Discovery</a> — every endpoint and example URL.</li>
@@ -2309,12 +2476,18 @@ def docs_fragment(index):
 <pre>curl -fsS {news}
 curl -fsS {letters}{html.escape(one_line)}</pre>
 <p>Absolute URLs use the public site, at the domain root: <code>{html.escape(b)}api/v1/news.json</code>.</p>
+<h2 id="latest">Polling for new stories</h2>
+<p><a href="{html.escape(b)}api/v1/news/latest.json"><code>/api/v1/news/latest.json</code></a> holds the {LATEST_COUNT} newest published stories with only <code>id</code>, <code>published</code>, <code>country</code>, <code>source</code>, <code>source_name</code>, <code>language_code</code>, <code>own_story</code>, the headlines (<code>title</code>, <code>title_en</code>, <code>title_i18n</code>) and the links (<code>url</code>, <code>html_url</code>, <code>api_url</code>). The values are the same as in <code>news.json</code>, in the same order (newest first). It stays small however long the archive grows, so an app or a push server can poll it every few minutes. Send <code>If-None-Match</code> with the last <code>ETag</code>; GitHub Pages answers <code>304 Not Modified</code> while the file is unchanged. Compare ids with the ones you have seen; <code>generated_at</code> changes on every build.</p>
+<pre>curl -fsS {html.escape(b)}api/v1/news/latest.json</pre>
 <h2 id="markets">Market prices</h2>
 <p>Nordic exchange prices are market data, not investment advice. <a href="{html.escape(b)}api/v1/markets.json"><code>/api/v1/markets.json</code></a> lists each pair with symbol, base, quote, last, bid and ask when the exchange publishes them, the exchange id, name and country, <code>fetched_at</code>, the source URL, and volume when the exchange published it. <code>volume_base</code> is the base asset with no named window (Firi). <code>volume_base_24h</code> and <code>volume_quote_24h</code> are the last 24 hours (NBX). A missing volume is null, not zero. Quotes are NOK, SEK, DKK and EUR. One exchange is <a href="{html.escape(b)}api/v1/markets/firi.json"><code>/api/v1/markets/{{exchange}}.json</code></a> (<code>firi</code>, <code>nbx</code>, <code>coinmotion</code>). One asset is <a href="{html.escape(b)}api/v1/markets/by-asset/BTC.json"><code>/api/v1/markets/by-asset/{{symbol}}.json</code></a>. Venues without a public ticker are listed under <code>skipped</code> and are not given a made-up price.</p>
 <p><a href="{html.escape(b)}api/v1/markets/aggregated.json"><code>/api/v1/markets/aggregated.json</code></a> is one row per pair. BTC-NOK is not averaged with BTC-EUR. <code>last</code> is the arithmetic mean of published last prices. <code>mid</code> is the mean of (bid+ask)/2 and is not mixed into <code>last</code>. <code>price</code> equals <code>last</code> when any last exists, otherwise <code>mid</code>. <code>min</code> and <code>max</code> use that same series. There is no VWAP. Volume is summed only inside the same field and the same pair. <code>logo_url</code> is an SVG from <a href="https://github.com/spothq/cryptocurrency-icons" rel="noopener">cryptocurrency-icons</a> (CC0 1.0) when that set includes the asset, served at <code>/api/v1/markets/logos/{{symbol}}.svg</code>, and null otherwise. The per-asset file repeats <code>aggregated</code> and the logo.</p>
 <p>The build fetches the exchanges. <code>.github/workflows/markets-refresh.yml</code> rewrites the JSON on gh-pages about once an hour, including the aggregated file and the icons. The markets page reloads this file, and refreshes Firi and Coinmotion in the browser because those APIs send <code>Access-Control-Allow-Origin: *</code>. NBX does not, so those rows follow the file. The same document on the gh-pages branch: <a href="https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json">raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json</a>.</p>
 <pre>curl -fsS {html.escape(b)}api/v1/markets.json
 curl -fsS {html.escape(b)}api/v1/markets/aggregated.json</pre>
+<h2 id="stats">Visitor stats</h2>
+<p>Aggregate visits and page views from Cloudflare Web Analytics (no cookies). <a href="{html.escape(b)}api/v1/stats.json"><code>/api/v1/stats.json</code></a> lists <code>daily</code>, <code>weekly</code> (ISO) and <code>monthly</code> rows with <code>visits</code> and <code>pageviews</code> only. Days are UTC. The file is empty until the Web Analytics site and the refresh token are configured. <code>.github/workflows/stats-refresh.yml</code> rewrites it on gh-pages about once a day.</p>
+<pre>curl -fsS {html.escape(b)}api/v1/stats.json</pre>
 <h2 id="talks">Talks</h2>
 <p>Public talks on bitcoin, cryptocurrencies and blockchain held in Norway, Sweden, Denmark, Finland, Iceland, the Faroe Islands, Greenland and Åland are at <a href="{html.escape(b)}api/v1/talks.json"><code>/api/v1/talks.json</code></a>, newest first. One talk is <code>/api/v1/talks/{{id}}.json</code>. One country is <a href="{html.escape(b)}api/v1/talks/by-country/NO.json"><code>/api/v1/talks/by-country/{{country}}.json</code></a> (<code>NO</code>, <code>SE</code>, <code>DK</code>, <code>FI</code>, <code>IS</code>, <code>FO</code>, <code>GL</code>, <code>AX</code>). <code>description</code> is ours. <code>title</code>, dates, duration, channel and speakers come from the platform at <code>source_url</code>. A field the platform did not state is null. <code>embed</code> is true only when that platform's oEmbed response includes a player. The HTML page loads the player after a click: YouTube via youtube-nocookie.com, Vimeo via player.vimeo.com. <code>event_id</code> and <code>calendar_event_id</code> are the same event id when the talk is linked. That event is <code>/api/v1/events/{{id}}.json</code> (and <code>/api/v1/events/previous.json</code> when it is a past event) and the page is <code>/calendar/{{id}}/</code>. <code>talk_ids</code> on the event lists those talks. <code>unlink_reason</code> is set when the video page did not state a day or a place, and <code>event_id</code> is then null. <code>speaker_ids</code> are who's who ids in the same order as <code>speakers</code>. The person, at <code>/api/v1/orgchart/{{id}}.json</code>, lists those talks and any affiliation the talk page stated.</p>
 <h2 id="outlets">Several outlets, one story</h2>

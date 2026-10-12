@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Fødselsnummer must match real IDs and ignore decimal prices. python3 tests/test_privacy_gate.py"""
-import os, sys, unittest
+import contextlib, io, os, sys, tempfile, unittest
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
+from tools import privacy_gate
 from tools.privacy_gate import RULES
 
 FNR = RULES["fødselsnummer"]
@@ -44,6 +45,41 @@ class PrivacyGateNumbers(unittest.TestCase):
             self.assertIsNone(PHONE.search(text), text)
         for text in ("22345678", "+47 22 33 44 55", "22 33 44 55", "223 45 678", "tlf. 22345678"):
             self.assertIsNotNone(PHONE.search(text), text)
+
+
+class PrivacyGateMain(unittest.TestCase):
+    """main() reports every hit at every file:line, also when the same line repeats (clean lines are memoised)."""
+
+    def run_gate(self, priv, site):
+        old_priv, old_rules = privacy_gate.PRIV, dict(RULES)
+        buf = io.StringIO()
+        try:
+            privacy_gate.PRIV = priv
+            with self.assertRaises(SystemExit) as cm, contextlib.redirect_stderr(buf):
+                privacy_gate.main(["privacy_gate.py", site])
+        finally:
+            privacy_gate.PRIV = old_priv; RULES.clear(); RULES.update(old_rules)
+        return cm.exception.code, buf.getvalue()
+
+    def test_repeated_hit_lines_are_all_reported(self):
+        with tempfile.TemporaryDirectory() as d:
+            priv = os.path.join(d, "terms.json"); site = os.path.join(d, "site"); os.mkdir(site)
+            with open(priv, "w", encoding="utf-8") as f: f.write("{}")
+            for name in ("a.html", "b.html"):
+                with open(os.path.join(site, name), "w", encoding="utf-8") as f:
+                    f.write("<p>ren</p>\n<p>tlf 22 33 44 55</p>\n<p>ren</p>\n")
+            code, err = self.run_gate(priv, site)
+        self.assertEqual(code, 1)
+        for name in ("a.html", "b.html"):
+            self.assertIn(f"{name}:2  regel «telefonnummer»", err)
+        self.assertEqual(err.count("regel «"), 2)
+        self.assertIn("FEIL, 2 treff i 2 filer", err)
+
+    def test_missing_terms_file_fails_closed(self):
+        with tempfile.TemporaryDirectory() as d:
+            code, err = self.run_gate(os.path.join(d, "missing.json"), d)
+        self.assertEqual(code, 1)
+        self.assertIn("mangler state/private_terms.json", err)
 
 
 if __name__ == "__main__":

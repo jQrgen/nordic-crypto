@@ -12,14 +12,11 @@ import os
 DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", "themes")
 
 BY_NAV = {
-    "": "aurora", "stories": "aurora",            # front page and story pages: the serious one, with a moving aurora
-    "calendar": "matrix",                         # calendar, event pages, previous events: green code rain
+    "": "aurora", "stories": "aurora", "crowdfunding": "aurora",            # front page and story pages: the serious one, with a moving aurora
     "markets": "pixel",                           # 8-bit monster-battle handheld
-    "org-chart": "pirate",                        # who's who: wanted posters on a sea chart
     "api": "cbase",                               # crashed space station hackerspace
-    "newsletter": "broadsheet",                   # hot-off-the-press newspaper
     "talks": "vhs",                               # synthwave VHS tape
-    "academia": "athens",                         # classical Athens: marble, meander, columns, owl
+    "academia": "aurora",                         # academia: same look as the front page
     "about": "saga",                              # northern lights and a longship
     "tip": "noir",                                # rainy detective office
     "sources": "teletext",                        # Nordic tekst-TV
@@ -30,10 +27,17 @@ THEME_COLOR = {"matrix": "#000000", "pixel": "#E83838", "pirate": "#1D2F4A", "cb
                "vhs": "#12071F", "athens": "#2A1B12", "saga": "#0B1320", "noir": "#0E0E0F", "teletext": "#000000"}
 
 
+_READ = {}   # file name -> text; every page() asks for the same few theme files
+
+
 def _read(fn):
+    if fn in _READ: return _READ[fn]
     p = os.path.join(DIR, fn)
-    if not os.path.exists(p): return ""
-    with open(p, encoding="utf-8") as fh: return fh.read()
+    if not os.path.exists(p): text = ""
+    else:
+        with open(p, encoding="utf-8") as fh: text = fh.read()
+    _READ[fn] = text
+    return text
 
 
 # ---------- small SVG helpers ----------

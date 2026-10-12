@@ -7,9 +7,10 @@
 // Turnstile: TURNSTILE_SECRET (shared with the shoutbox). Without it the route answers 503 and stores nothing.
 // Optional webhook after a stored tip: TIP_WEBHOOK_URL (https only) with TIP_WEBHOOK_BEARER.
 // Tor onion forwarder (onion/): Authorization: Bearer ONION_INGEST_TOKEN skips Turnstile (Tor Browser at Safest has no
-// JavaScript), uses the rate-limit key "onion" (60 per 10 minutes) instead of the VPS address, and may send the onion page
-// (http://<56>.onion/<lang>/ or /<lang>/). Refused when ONION_INGEST_TOKEN equals PRIVATE_TIPS_READ_TOKEN.
-// Privacy: never logs. The IP is only used for the shared salted, daily-rotating rate-limit hash (worker.js rateOk).
+// JavaScript), uses the rate-limit key "onion" (60 per 10 minutes, private scope) instead of the VPS address, and may send
+// the onion page (http://<56>.onion/<lang>/ or /<lang>/). Refused when ONION_INGEST_TOKEN equals PRIVATE_TIPS_READ_TOKEN.
+// Privacy: never logs. The IP is only used for the salted, daily-rotating rate-limit hash (worker.js rateOk, scope
+// 'private'), counted only after Turnstile passed. The onion bearer is counted after it is accepted, under the key "onion".
 // Tests: TIP_TEST=1 accepts the Turnstile token "test-pass" and nothing else (never set in wrangler.toml).
 
 export const PLIMITS = { onionRate: 60, maxBody: 32768, maxTip: 8000, maxContact: 500, maxNotes: 4000, maxLinks: 10, maxUrl: 2000 };
@@ -168,9 +169,6 @@ export async function postPrivateTip(req, env, H) {
   if (parsed.error) return H.send(req, parsed.error === "too_long" ? 413 : parsed.error === "bad_type" ? 415 : 400, { ok: false, error: parsed.error });
   const f = parsed.fields;
   const onion = onionAuthed(req, env);
-  const ip = onion ? "onion" : (req.headers.get("CF-Connecting-IP") || "unknown").trim().slice(0, 64);
-  try { if (!(await (onion ? H.rateOk(env.DB, ip, PLIMITS.onionRate) : H.rateOk(env.DB, ip)))) return H.send(req, 429, { ok: false, error: "rate" }); }
-  catch { return H.send(req, 503, { ok: false, error: "offline" }); }
   const hp = f.website;  // honeypot filled in: pretend success, store nothing
   if (hp && (typeof hp !== "string" || hp.trim())) return H.send(req, 200, { ok: true });
   const [tip, err] = validatePrivateTip(f, H.ORIGINS, onion);
@@ -179,6 +177,16 @@ export async function postPrivateTip(req, env, H) {
   const gate = onion ? "ok" : await turnstile(env, token);
   if (gate === "unconfigured" || gate === "offline") return H.send(req, 503, { ok: false, error: "offline" });
   if (gate !== "ok") return H.send(req, 400, { ok: false, error: "turnstile" });
+  // Counted only after Turnstile passed, in its own 'private' bucket: junk posts can't use up the inbox for everyone.
+  // The onion forwarder shares one key, "onion", so the VPS address is neither the limit nor stored.
+  const ip = onion ? "onion" : (req.headers.get("CF-Connecting-IP") || "unknown").trim().slice(0, 64);
+  try {
+    const allowed = onion
+      ? await H.rateOk(env.DB, ip, "private", PLIMITS.onionRate)
+      : await H.rateOk(env.DB, ip, "private");
+    if (!allowed) return H.send(req, 429, { ok: false, error: "rate" });
+  }
+  catch { return H.send(req, 503, { ok: false, error: "offline" }); }
   let row;
   try {
     row = await env.DB.prepare(

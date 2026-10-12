@@ -114,7 +114,8 @@ def from_db(Q):
 def from_github(Q):
     try:
         out = subprocess.run(["gh", "issue", "list", "-R", REPO, "--label", "tip", "--state", "open", "--limit", "200",
-                              "--json", "number,title,body,createdAt"], check=True, capture_output=True, text=True, timeout=60).stdout
+                              "--json", "number,title,body,createdAt"], check=True, stdin=subprocess.DEVNULL,
+                             capture_output=True, text=True, timeout=60).stdout
     except Exception as ex: print(f"reader tips: GitHub fallback skipped ({type(ex).__name__})"); return 0
     issues = sorted(json.loads(out), key=lambda t: t["number"])
     for t in issues:

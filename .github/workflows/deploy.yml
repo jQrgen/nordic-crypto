@@ -2,6 +2,8 @@
 # and publish site/ to gh-pages when the repository variable NC_CI_DEPLOY is true.
 # Do not enable xtrace in this workflow: NC_PRIVATE_TERMS_JSON must not be printed.
 # Do not upload state/ or site/ as an artifact.
+# After a successful publish, the release job creates a GitHub release for the deployed commit
+# (notes only, no assets).
 name: Deploy site
 
 on:
@@ -21,6 +23,9 @@ on:
       - ".github/ISSUE_TEMPLATE/**"
       - "assets/logo-concepts/**"
       - "README.md"
+      # The explorer is deployed by deploy-explorer.yml to its own server, not to GitHub Pages.
+      - "explorer/**"
+      - ".github/workflows/deploy-explorer.yml"
   workflow_dispatch:
 
 permissions:
@@ -49,6 +54,9 @@ jobs:
               && !contains(github.event.head_commit.message || '', '[ci skip]')))
     runs-on: ubuntu-latest
     timeout-minutes: 60
+    outputs:
+      # success only when the gh-pages publish step ran and passed; skipped when NC_CI_DEPLOY is not true.
+      published: ${{ steps.publish.outcome }}
     steps:
       - name: Checkout main
         uses: actions/checkout@v4
@@ -75,6 +83,12 @@ jobs:
 
       - name: Public build
         id: build
+        env:
+          NC_DATA_SOURCE: ${{ vars.NC_DATA_SOURCE }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
+          CF_D1_DATABASE_ID: ${{ vars.CF_D1_DATABASE_ID }}
         run: |
           set -euo pipefail
           python3 build.py
@@ -138,6 +152,12 @@ jobs:
               echo "\`NC_CI_DEPLOY\` is not true. The build and both gates ran. gh-pages will not be updated."
             fi
             echo
+            if [ "$NC_DATA_SOURCE" = "d1" ]; then
+              echo "\`NC_DATA_SOURCE\` is d1. Approved stories and events were read from D1. A story still goes through the privacy gate and the text gate before gh-pages."
+            else
+              echo "\`NC_DATA_SOURCE\` is not d1. Stories and events come from the JSON files on this commit."
+            fi
+            echo
             echo "CI has no \`queue/approved.json\`, no \`state/source_status.json\`, and no \`/workspace/nordic-crypto-research/academia.md\`."
             echo "Own stories in \`stories.approve\` are omitted. Rows in \`data/events.json\` are not promoted. Every enabled source counts as ok."
             echo "\`data/news.json\`, \`data/orgchart.json\` and \`data/academia.json\` stay as they are committed on \`main\`."
@@ -145,8 +165,10 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
         env:
           NC_CI_DEPLOY: ${{ vars.NC_CI_DEPLOY }}
+          NC_DATA_SOURCE: ${{ vars.NC_DATA_SOURCE }}
 
       - name: Publish to gh-pages
+        id: publish
         if: vars.NC_CI_DEPLOY == 'true'
         run: |
           set -euo pipefail
@@ -168,3 +190,61 @@ jobs:
           # wait_url prints a warning and does not fail the job.
           source ./publish.sh
           wait_url "https://nordiccrypto.no/" 120
+
+  # One GitHub release per deployed commit on main. Runs only when the whole deploy job passed
+  # (build, privacy gate, text gate, gh-pages push). It does not check out the repository and
+  # gets no secrets, so state/private_terms.json and site/ never reach it. No assets are attached;
+  # GitHub adds its own source archives.
+  release:
+    name: GitHub release
+    needs: deploy
+    if: >-
+      needs.deploy.result == 'success'
+      && needs.deploy.outputs.published == 'success'
+      && github.ref == 'refs/heads/main'
+      && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - name: Create the release for this commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          short=${SHA:0:7}
+          # Tag: deploy-<commit time, UTC, YYYY-MM-DD-HHMM>-<short sha>. The committer time belongs to
+          # the commit, not to the run, so a re-run or a workflow_dispatch of the same commit picks
+          # the same tag. Tags sort by time.
+          committed=$(gh api "repos/${GH_REPO}/commits/${SHA}" --jq '.commit.committer.date')
+          stamp=$(date -u -d "$committed" '+%Y-%m-%d-%H%M')
+          tag="deploy-${stamp}-${short}"
+
+          if gh release view "$tag" >/dev/null 2>&1; then
+            echo "Release ${tag} already exists. Skipping."
+            exit 0
+          fi
+
+          # "<sha> <tag>" for every deploy-* tag.
+          refs=$(gh api --paginate "repos/${GH_REPO}/git/matching-refs/tags/deploy-" \
+            --jq '.[] | "\(.object.sha) \(.ref | ltrimstr("refs/tags/"))"')
+          other=$(awk -v sha="$SHA" -v tag="$tag" '$1 == sha && $2 != tag { print $2; exit }' <<<"$refs")
+          if [ -n "$other" ]; then
+            echo "Tag ${other} already marks ${SHA}. Skipping."
+            exit 0
+          fi
+          # Generated notes start at the previous deploy release, not at a newsletter release.
+          prev=$(awk -v tag="$tag" '$2 < tag { print $2 }' <<<"$refs" | sort | tail -n 1)
+
+          notes="Deployed to https://nordiccrypto.no/ from \`main\` at commit [\`${SHA}\`](${GITHUB_SERVER_URL}/${GH_REPO}/commit/${SHA}).
+
+          Workflow run: ${GITHUB_SERVER_URL}/${GH_REPO}/actions/runs/${GITHUB_RUN_ID}"
+          args=(--target "$SHA" --title "Deploy ${stamp} (${short})" --notes "$notes" --generate-notes --latest)
+          if [ -n "$prev" ]; then
+            args+=(--notes-start-tag "$prev")
+          fi
+          gh release create "$tag" "${args[@]}"
+          echo "Created release ${tag} for ${SHA}." | tee -a "$GITHUB_STEP_SUMMARY"

@@ -11,8 +11,10 @@ honeypot, limits and responses as `tipserver/server.py` (checked by `test_parity
   (`tools/langselect.js`). Nothing stored or logged, `Cache-Control: no-store`, CORS for the public site origin (`site_url.json`) and https://jqrgen.github.io. No third-party
   geo-IP service. Tests set `--var GEO_TEST:1` so the `X-Test-Country` header can fake a country; production never sets it.
 - CORS: the public site origin (`site_url.json`) and `https://jqrgen.github.io` (Kryptonytt); other browser origins get 403 and no `Access-Control-Allow-Origin`.
-- Rate limit: 5 tips / 10 min per visitor, 200 / 10 min in total. No raw IPs: `SHA-256(daily random salt | IP)` kept
-  10 minutes in `rate_hits`; the salt is replaced every UTC day and the old one deleted.
+- Rate limit: 5 / 10 min per visitor, 200 / 10 min in total, counted separately for each scope (`tip`, `private`,
+  `subscribe`), so a flood of one endpoint can't lock the others. Private tips count only after Turnstile passed. No raw
+  IPs: `rate_hits.h = '<scope>:' + SHA-256(daily random salt | scope | IP)` kept 10 minutes; the salt is replaced every
+  UTC day and the old one deleted.
 - No logging: no `console.*`, `[observability] enabled = false`.
 
 Files: `src/worker.js`, `migrations/0001_tips.sql`, `migrations/0002_articles.sql` (append-only article archive, same schema as `archive/schema.sql`; applied by `deploy.sh` with the other migrations, not applied yet), `wrangler.toml`, `deploy.sh`, `pull.py`, `test_local.sh`,

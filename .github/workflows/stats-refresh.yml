@@ -1,0 +1,71 @@
+# Rewrites api/v1/stats.json on gh-pages once a day from Cloudflare Web Analytics.
+# Aggregate visits and page views per UTC day only (tools/fetch_stats.py). Does not republish the site.
+# Needs the secret CF_ANALYTICS_TOKEN (Account > Account Analytics > Read) and the repository variables
+# CF_ACCOUNT_ID and CF_WA_SITE_TAG. Without them the job says so and exits without a commit.
+# Do not enable xtrace: the token must never be printed.
+name: Refresh visitor stats
+
+# Same group as deploy.yml and markets-refresh.yml. A queued refresh must not cancel a site publish.
+concurrency:
+  group: gh-pages-deploy
+  cancel-in-progress: false
+  queue: max
+
+on:
+  schedule:
+    - cron: "23 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    if: github.repository == 'jQrgen/nordic-crypto'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout gh-pages
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: gh-pages
+          # The gh-pages history is large. Depth 1 is the published tree only.
+          fetch-depth: 1
+
+      - name: Checkout the fetcher from main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: src
+          sparse-checkout: |
+            tools/fetch_stats.py
+            data/stats.json
+          sparse-checkout-cone-mode: false
+
+      - name: Fetch visitor stats into the published JSON
+        env:
+          CF_ANALYTICS_TOKEN: ${{ secrets.CF_ANALYTICS_TOKEN }}
+          CF_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
+          CF_WA_SITE_TAG: ${{ vars.CF_WA_SITE_TAG }}
+        run: python3 src/tools/fetch_stats.py --out src/data/stats.json --pages gh-pages
+
+      - name: Commit stats JSON
+        working-directory: gh-pages
+        run: |
+          set -euo pipefail
+          git add api/v1/stats.json 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "no stats changes to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Refresh visitor stats"
+          for attempt in 1 2 3; do
+            if git push origin HEAD:gh-pages; then exit 0; fi
+            echo "push rejected (attempt ${attempt}/3); rebasing on the latest gh-pages"
+            git pull --rebase --depth 1 origin gh-pages
+          done
+          echo "::error::gh-pages push failed after 3 attempts. Not force-pushing."
+          exit 1

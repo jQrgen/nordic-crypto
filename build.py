@@ -8,7 +8,7 @@ Share buttons are plain links. No advertising trackers and no external fonts. Cl
 (aggregate visits, no cookies) is injected only when analytics.json or CF_WEB_ANALYTICS_TOKEN has a real token.
 Languages (i18n/ALL_LANGS): English at the root, then one directory per code. Nordic nn, nb, sv, da, fi, is plus the wider UI set. Missing strings fall back to English.
 Every page is built once per language; data/ (JSON), assets/ and screen/ (English) exist only at the root."""
-import json, os, re, shutil, subprocess, html, sys, calendar, datetime as dt
+import atexit, json, os, re, shutil, subprocess, html, sys, calendar, datetime as dt
 import events as eventslib
 from zoneinfo import ZoneInfo
 import i18n
@@ -23,7 +23,9 @@ BASE = site_url.BASE
 SITE = os.environ.get("NC_SITE_DIR") or P("site")   # NC_SITE_DIR: scratch build dir (tipworker/publish_tip_page.sh)
 PREVIEW = "--preview" in sys.argv
 SITE_NAME = "Nordic Crypto"
+ICON_V = "2"   # bump when the favicon changes: browsers (Safari above all) keep an old favicon until its URL changes
 CUSTOM_DOMAIN = site_url.HOST   # GitHub Pages CNAME; publish.sh will not push gh-pages without it
+D1_EVENTS = None   # set by build() when NC_DATA_SOURCE=d1; event approvals live in D1, not approved.json
 def write_cname():
     """site/CNAME, so a publish keeps the custom domain (a missing file clears it on GitHub Pages)."""
     open(os.path.join(SITE, "CNAME"), "w", encoding="utf-8").write(CUSTOM_DOMAIN + "\n")
@@ -31,9 +33,44 @@ def load(p, d=None):
     try: return json.load(open(p, encoding="utf-8"))
     except FileNotFoundError: return d
 E = lambda s: html.escape(str(s if s is not None else ""), quote=True)
+_SNIP = None        # the long-lived `node tools/snippets.js --lines` process; False once node cannot be started
+_SNIP_FAILED = 0    # pages built without the share bar
+def _snip_fail(ex):
+    """Warns on the first failure only (main warned on none); the page gets the empty snippets, as before."""
+    global _SNIP_FAILED
+    _SNIP_FAILED += 1
+    if _SNIP_FAILED == 1: print(f"snippets: WARNING, node failed ({ex!r}); pages are built without the share bar")
+    return {"top": "", "bar": "", "css": "", "script": ""}
+def _snip_drop():
+    """Kills and reaps a broken process (no zombie); the next page starts a new one."""
+    global _SNIP
+    if _SNIP:
+        for f in (_SNIP.kill, _SNIP.wait, _SNIP.stdin.close, _SNIP.stdout.close):
+            try: f()
+            except Exception: pass
+        _SNIP = None
+@atexit.register
+def _snip_close():
+    if _SNIP:
+        try: _SNIP.stdin.close(); _SNIP.wait(10)
+        except Exception: _SNIP.kill()
+    if _SNIP_FAILED > 1: print(f"snippets: WARNING, {_SNIP_FAILED} pages were built without the share bar")
 def snippets(url, title):
-    try: return json.loads(subprocess.check_output(["node", P("tools", "snippets.js"), url, title, LANG]))
-    except Exception: return {"top": "", "bar": "", "css": "", "script": ""}
+    """share.js snippets for one page, from one node process for the whole build (one process per page cost ~75 s).
+    A bad page answers {error} and only that page loses the bar; a dead process is dropped and the next page starts a new one."""
+    global _SNIP
+    if _SNIP is False: return _snip_fail(None)
+    try:
+        if _SNIP is None:
+            try: _SNIP = subprocess.Popen(["node", P("tools", "snippets.js"), "--lines"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True, encoding="utf-8")
+            except OSError: _SNIP = False; raise   # no node on PATH: it will not appear during the build
+        _SNIP.stdin.write(json.dumps([url, title, LANG]) + "\n"); _SNIP.stdin.flush()
+        s = json.loads(_SNIP.stdout.readline())
+        if "top" not in s: return _snip_fail(s.get("error"))
+        return s
+    except Exception as ex:
+        _snip_drop()
+        return _snip_fail(ex)
 OSLO = ZoneInfo("Europe/Oslo")
 def site_now():
     """Europe/Oslo clock. NC_NOW (ISO) freezes it for tests and screenshots; production leaves it unset."""
@@ -177,8 +214,8 @@ def header_subscribe_button(rel):
     ("Subscribe"), otherwise the RSS, Telegram and X links ("Follow"), so the label says what the reader will find."""
     return f'<a class="hdrsub" href="{rel}newsletter/#signup">{E(t("nl_btn") if newsletter_form(True) else t("foot_follow"))}</a>'
 def header_buttons(rel):
-    """Subscribe, then Join on Telegram, then Follow on X. Left-aligned, in that order."""
-    return header_subscribe_button(rel) + header_telegram_button() + header_x_button()
+    """Subscribe, then Join on Telegram, then Follow on X, then the source code on GitHub. Left-aligned, in that order."""
+    return header_subscribe_button(rel) + header_telegram_button() + header_x_button() + header_github_button()
 # Nordic Crypto brand accounts (not jQrgen's personal profiles). Plain links only: no widgets, scripts or embeds.
 SITE_X = "https://x.com/xcryptonordic"
 SITE_TELEGRAM = "https://t.me/nordiccryptochat"
@@ -193,6 +230,15 @@ def header_telegram_button():
 def header_x_button():
     """'Follow on X' beside the Telegram button, built the same way."""
     return f'<a class="hdrx" href="{SITE_X}" rel="noopener" title="{E(t("x_title"))}">{ICON_X}<span class="lbl">{E(t("x_btn"))}</span></a>'
+SITE_REPO = "https://github.com/jQrgen/nordic-crypto"
+ICON_GH = ('<svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" '
+           'd="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 '
+           '1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 '
+           '0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 '
+           '2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>')
+def header_github_button():
+    """The site's source code on GitHub, beside the X button and built the same way. The label is the footer's "Source code" string."""
+    return f'<a class="hdrgh" href="{SITE_REPO}" rel="noopener" title="{E(t("foot_source"))}">{ICON_GH}<span class="lbl">{E(t("foot_source"))}</span></a>'
 def x_link():
     """'Follow Nordic Crypto on X' link. The brand account @xcryptonordic."""
     return f'<a class="xfollow" href="{SITE_X}" rel="noopener noreferrer" title="{E(t("x_title"))}">{E(t("x_follow"))}</a>'
@@ -218,6 +264,17 @@ def nl_issues():
     d = load(os.path.join(NL_PUB, "issues.json"), {}) or {}
     return sorted(d.get("issues", []), key=lambda i: (i.get("date") or "", i.get("number") or 0), reverse=True)
 NL_VIDEO_OK = {}
+def download_url(url, dest, timeout=120):
+    """Download url to dest. A stall longer than timeout seconds raises. urlretrieve has no timeout."""
+    import urllib.request
+    req = urllib.request.Request(url, headers={"User-Agent": "nordic-crypto-build"})
+    os.makedirs(os.path.dirname(dest) or ".", exist_ok=True)
+    with urllib.request.urlopen(req, timeout=timeout) as resp, open(dest, "wb") as out:
+        while True:
+            chunk = resp.read(1 << 20)
+            if not chunk:
+                break
+            out.write(chunk)
 def nl_video_file(iss):
     """Local path of the issue video (newsletter/published/<id>/video.mp4, not in git). When missing, downloads the
     public release copy (video.url) and checks sha256. None when unavailable (the page then shows only the download link)."""
@@ -236,9 +293,8 @@ def nl_video_file(iss):
     if good(f): ok = f
     elif v.get("url"):
         try:
-            import urllib.request
             print(f"newsletter: downloading the video for issue {iid} from {v['url']}")
-            tmp = f + ".part"; urllib.request.urlretrieve(v["url"], tmp)
+            tmp = f + ".part"; download_url(v["url"], tmp, timeout=120)
             if good(tmp): os.replace(tmp, f); ok = f
             else: os.remove(tmp); print(f"newsletter: WARNING, downloaded video for {iid} failed the size/sha256 check")
         except Exception as ex: print(f"newsletter: WARNING, no video for issue {iid}: {ex}")
@@ -311,6 +367,8 @@ def build_issue(iss):
         mb = f'{v.get("bytes", 0) / 1e6:.1f}'; mb = mb if LANG == "en" else mb.replace(".", ",")
         dl = f'<a href="{E(v["url"])}" rel="noopener" download>{E(t("nl_video_dl", mb=mb))}</a>' if v.get("url") else ""
         subs = f' · <a href="{a}{E(v["subs"])}" download>{E(t("nl_video_subs"))}</a>' if v.get("subs") else ""
+        yt = f'<a href="{E(v["youtube"])}" rel="noopener">YouTube</a>' if v.get("youtube") else ""
+        if yt: dl = f'{dl} · {yt}' if dl else yt
         if nl_video_file(iss):
             poster_name = nl_poster_files(iss).get("webp") or v.get("poster")   # WebP poster: about a quarter of the PNG
             poster = f' poster="{a}{E(poster_name)}"' if poster_name else ""
@@ -328,8 +386,11 @@ def build_issue(iss):
 {vid}
 <div class="prose issuetext"{hla}>
 {txt}</div>
-{nl_follow_box("../../", "nl-next-h")}
-<p class="meta"><a href="../">← {E(t("nl_all_issues"))}</a> · {t("nl_write", href="../../columnist/")}</p>
+<section class="nlhome"><p><b>{E(t("nl_get_next"))}</b></p>
+{newsletter_offer("../../")}
+{community_links()}
+<p>{t("nl_write", href="../../columnist/")}</p></section>
+<p class="meta"><a href="../">← {E(t("nl_all_issues"))}</a></p>
 </article>"""
     page(slug, title, "newsletter", body, subtitle or t("nl_desc"))
 ICON_RSS = ('<svg class="ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" '
@@ -364,24 +425,35 @@ def build_newsletter():
             if light.get("avif"):
                 img = f'<picture><source type="image/avif" srcset="{src}{E(light["avif"])}">{img}</picture>'
             th = f'<a class="th" href="{E(iss["id"])}/" tabindex="-1" aria-hidden="true">{img}</a>'
-        lis.append(f'<li>{th}<div><h3{lang_attr(tl)}><a href="{E(iss["id"])}/">{E(title)}</a></h3><p class="meta">{nl_meta(iss)}</p>'
+        lis.append(f'<li>{th}<div><h3{lang_attr(tl)}><a href="{E(iss["id"])}/">{E(title)}</a></h3><div class="meta">{nl_meta(iss)}</div>'
                    f'<p class="sum"{lang_attr(sl)}>{E(subtitle)}</p></div></li>')
-    body = f"""<div class="nlpage">
-<h1>{E(t("nl_title"))}</h1>
+    body = f"""<h1>{E(t("nl_title"))}</h1>
 <p class="lead">{E(t("nl_lead"))}</p>
-{nl_follow_box("../", "nl-follow-h", privacy=True)}
-<section class="nllist" aria-labelledby="issues"><h2 id="issues">{E(t("nl_issues_h"))}</h2>
+<section id="signup">{newsletter_offer("../", privacy=True)}</section>
+{community_links()}
+<h2 id="issues">{E(t("nl_issues_h"))}</h2>
 <p class="meta">{E(t("nl_issues_lead"))}</p>
-<ol class="nlissues">{''.join(lis) or f'<li class="empty">{E(t("nl_issues_none"))}</li>'}</ol></section>
-<p class="meta nlfine">{t("nl_write", href="../columnist/")} {t("nl_kaupr")}</p>
-</div>"""
+<ol class="nlissues">{''.join(lis) or f'<li class="empty">{E(t("nl_issues_none"))}</li>'}</ol>
+<p>{t("nl_write", href="../columnist/")}</p>
+<div class="prose"><p class="meta">{t("nl_kaupr")}</p></div>"""
     page("newsletter", t("nl_title"), "newsletter", body, t("nl_desc"))
+_CFG_JSON = {}   # path -> ((mtime_ns, size), data); analytics/push config is asked for on every page
+def _cfg_json(p, d=None):
+    """load(p, d) for a small config file, parsed again only when the file changes. Read the result, do not change it."""
+    try: st = os.stat(p)
+    except FileNotFoundError: return d
+    stamp = (st.st_mtime_ns, st.st_size)
+    hit = _CFG_JSON.get(p)
+    if hit and hit[0] == stamp: return hit[1]
+    data = load(p, d)
+    _CFG_JSON[p] = (stamp, data)
+    return data
 _ANALYTICS_TOKEN = re.compile(r"^[A-Za-z0-9_-]{16,128}$")
 def analytics_token():
     """Public Cloudflare Web Analytics site token. Empty until analytics.json or CF_WEB_ANALYTICS_TOKEN is set."""
     raw = (os.environ.get("CF_WEB_ANALYTICS_TOKEN") or "").strip()
     if not raw:
-        raw = str((load(P("analytics.json"), {}) or {}).get("token") or "").strip()
+        raw = str((_cfg_json(P("analytics.json"), {}) or {}).get("token") or "").strip()
     if not raw or "REPLACE" in raw.upper() or raw.upper() in {"TOKEN", "XXX", "YOUR_TOKEN"}:
         return ""
     if not _ANALYTICS_TOKEN.fullmatch(raw):
@@ -416,7 +488,7 @@ def push_endpoint():
     e = os.environ.get("PUSH_ENDPOINT")
     if e is not None:
         return e.strip().rstrip("/") or None
-    cfg = load(P("workers", "push", "public.json"), {}) or {}
+    cfg = _cfg_json(P("workers", "push", "public.json"), {}) or {}
     return (cfg.get("public_endpoint") or "").strip().rstrip("/") or None
 _PUSH_JS = None
 def push_panel(root):
@@ -554,8 +626,9 @@ def site_footer(rel, root, slug=""):
         return (f'<li><a href="{E(href)}"{" rel=\"noopener\"" if ext else ""}>{E(label)}</a>'
                 + (f' <span class="meta">{E(note)}</span>' if note else "") + '</li>')
     sections = "".join(li(root + "api/" if n == "api" else rel + (n + "/" if n else ""), t(k)) for n, k in nav_items()[:NAV_MAIN])
+    sections += li(rel + "developers/", t("dev_nav"))   # under Who's who; not a header tab
     site = (li(rel + "about/", t("nav_about")) + li(rel + "sources/", t("nav_sources")) + li(rel + "ethics/", t("ethics_title"))
-            + li(rel + "changelog/", t("cl_title")) + li(rel + "media/", t("media_title")) + li(rel + "columnist/", t("col_title"))
+            + li(rel + "changelog/", t("cl_title")) + li(rel + "stats/", t("vst_title")) + li(rel + "privacy/", t("pp_title")) + li(rel + "media/", t("media_title")) + li(rel + "columnist/", t("col_title"))
             + li(rel + "tip/", t("nav_tip")) + li(root + "api/", t("foot_api")) + li("https://github.com/jQrgen/nordic-crypto", t("foot_source"), True)
             + li(REPO_CONTRIBUTORS, t("contributors"), True)
             + (li(rel + "treasury/", t("nav_treasury")) if event_nft.enabled() else ""))
@@ -635,17 +708,17 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
 <meta name="description" content="{E(desc)}"><link rel="canonical" href="{url}"><link rel="manifest" href="{root}manifest.json">{alt}<link rel="alternate" type="application/rss+xml" title="{E(SITE_NAME)}" href="{E(rel)}rss.xml">{head_extra}{'<meta name="robots" content="noindex">' if PREVIEW else ''}
 <meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:url" content="{url}"><meta property="og:type" content="website"><meta property="og:locale" content="{i18n.OG_LOCALE[LANG]}">{''.join(f'<meta property="og:locale:alternate" content="{i18n.OG_LOCALE[l]}">' for l in langs if l != LANG)}
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<link rel="icon" href="{root}favicon.svg" type="image/svg+xml">
-<link rel="icon" href="{root}favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="{root}assets/brand/mark-180.png">
-<link rel="icon" href="{root}assets/brand/mark-64.png" sizes="64x64" type="image/png">
+<link rel="icon" href="{root}favicon.svg?v={ICON_V}" type="image/svg+xml">
+<link rel="icon" href="{root}favicon.ico?v={ICON_V}" sizes="any">
+<link rel="apple-touch-icon" href="{root}assets/brand/mark-180.png?v={ICON_V}">
+<link rel="icon" href="{root}assets/brand/mark-64.png?v={ICON_V}" sizes="64x64" type="image/png">
 {th_color}
 <meta property="og:image" content="{BASE}assets/brand/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Nordic Crypto">
 <style>{CSS}{s['css']}{th.get('css', '')}</style></head>
-<body{' class="' + th['body_class'] + '"' if th else ''}><a class="skip" href="#main">{E(t("skip"))}</a>{th.get('deco', '')}{banner}<header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="{rel}"><img class="brandmark" src="{root}assets/brand/shield-band.svg" width="34" height="40" alt="Nordic Crypto"><span aria-hidden="true">Nordic <span class="w">Crypto</span></span></a></div><div class="hdrtools"><span class="hdrbtns">{header_buttons(rel)}</span>{theme_btn}{switcher}{nav_btn}</div><nav id="sitenav" class="main" aria-label="{E(t("main_menu"))}">{nav_html}</nav></div></header>{hero}
+<body{' class="' + th['body_class'] + '"' if th else ''}><a class="skip" href="#main">{E(t("skip"))}</a>{th.get('deco', '')}{banner}<header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="{rel}"><img class="brandmark" src="{root}assets/brand/shield-band.svg" width="34" height="40" alt="Nordic Crypto"><span aria-hidden="true">Nordic <span class="w">Crypto</span></span></a><span class="since"><span class="since-dot" aria-hidden="true"></span>{E(t("brand_since"))}</span></div><div class="hdrtools"><span class="hdrbtns">{header_buttons(rel)}</span>{theme_btn}{switcher}{nav_btn}</div><nav id="sitenav" class="main" aria-label="{E(t("main_menu"))}">{nav_html}</nav></div></header>{hero}
 <main class="wrap" id="main" tabindex="-1">
 {body}
 {s['top'] if share_here else ""}
@@ -676,20 +749,22 @@ def L18(obj, key, i18n_key=None):
 def lang_attr(l): return "" if l == LANG else f' lang="{l}"'
 def bidi_attr(l):
     """lang_attr, plus dir="ltr" on a right-to-left page, for text in another (left-to-right) language: story headlines,
-    summaries and outlet headlines on the Arabic and Urdu pages keep their punctuation and alignment."""
+    summaries and outlet headlines on the Arabic, Urdu and Persian pages keep their punctuation and alignment."""
     if not l or l == LANG: return ""
     return f' lang="{l}"' + (' dir="ltr"' if i18n.rtl(LANG) and not i18n.rtl(l) else "")
 def _source_logos():
     sys.path.insert(0, P("tools"))
     import source_logos
     return source_logos
+_COPIED = set()   # (SITE, rel) already copied this build: logos are asked for again in every language pass
 def copy_repo_file(rel):
     srcp = P(rel)
-    if not rel or not os.path.exists(srcp): return
+    if (SITE, rel) in _COPIED or not rel or not os.path.exists(srcp): return
     dst = os.path.join(SITE, rel); os.makedirs(os.path.dirname(dst) or SITE, exist_ok=True); shutil.copy(srcp, dst)
+    _COPIED.add((SITE, rel))
 def copy_brand():
     """Crest, favicons, fonts and the token stylesheet. Paths stay relative to the site root."""
-    for rel in ("favicon.svg", "favicon.ico", "manifest.webmanifest"):
+    for rel in ("favicon.svg", "favicon.ico", "apple-touch-icon.png", "manifest.webmanifest"):
         copy_repo_file(rel)
     for folder in ("assets/brand", "assets/fonts", "assets/media", "assets/logo-concepts/responsive"):
         src = P(folder)
@@ -874,13 +949,21 @@ def story_figure(i, slug, href=None):
     return _illustrations().figure_html(rec, asset_prefix(slug), ill_labels(), href=href)
 
 def build():
-    global LANG
-    subprocess.run([sys.executable, P("tools", "apply_approvals.py")], check=True)
-    subprocess.run([sys.executable, P("tools", "import_orgchart.py")], check=True)
+    global LANG, D1_EVENTS
+    D1_EVENTS = None
+    if os.environ.get("NC_DATA_SOURCE", "").strip().lower() == "d1":
+        from tools.d1_store import materialize
+        # Approved rows replace the working news and events files for this build.
+        # queue/approved.json is not written: org-chart decisions stay in that file.
+        D1_EVENTS = materialize(ROOT, preview=PREVIEW)
+    else:
+        subprocess.run([sys.executable, P("tools", "apply_approvals.py")], check=True, timeout=180)
+    subprocess.run([sys.executable, P("tools", "import_orgchart.py")], check=True, timeout=180)
     news = load(P("data", "news.json"), {"items": []}); org = load(P("data", "orgchart.json"), {"entities": [], "relations": []})
     cfg = load(P("sources.json")); status = load(P("state", "source_status.json"), {})
     if os.path.exists(SITE): shutil.rmtree(SITE)
     os.makedirs(os.path.join(SITE, "data"))
+    _COPIED.clear()
     open(os.path.join(SITE, ".nojekyll"), "w").close()
     write_cname()
     copy_brand()
@@ -959,6 +1042,8 @@ def build():
     except Exception as ex:
         print("markets: fetch failed:", ex)
         ctx["markets"] = markets_mod.empty_failure(str(ex).split("\n")[0][:300])
+    import fetch_stats
+    ctx["stats"] = fetch_stats.current(BASE)   # aggregate visitor counts for stats/ and api/v1/stats.json
     for LANG in i18n.LANGS:
         build_lang(ctx)
     LANG = "en"
@@ -979,6 +1064,7 @@ def build():
     open(os.path.join(SITE, "robots.txt"), "w").write(robots)
     write_push_assets()
     emit_api(ctx)
+    write_crowdfunding_api()
     sitemap()
     write_cname()
     miss = sorted(i18n.MISSING)
@@ -1003,6 +1089,7 @@ def emit_api(ctx):
         sources_cfg=ctx.get("cfg") or {},
         news_updated=(ctx.get("news") or {}).get("updated"),
         markets=ctx.get("markets"),
+        stats=ctx.get("stats"),
     )
     global LANG
     was = LANG
@@ -1030,6 +1117,14 @@ def template_attrs(stem):
     """lang and dir for a text page whose language has no translated template, so the English fallback reads left to right."""
     if LANG == "en" or os.path.exists(P("templates", f"{stem}.{LANG}.html")): return ""
     return ' lang="en" dir="ltr"'
+def heading_links(body):
+    """Give each h2/h3 with an id a small "#" link to itself, so a section can be linked to (e.g. /api/#electrum)."""
+    def link(m):
+        tag, hid, attrs, inner = m.groups()
+        if 'class="hlink"' in inner: return m.group(0)
+        return f'<{tag} id="{hid}"{attrs}>{inner}<a class="hlink" href="#{hid}" aria-label="Link to this section">#</a></{tag}>'
+    return re.sub(r'<(h[23]) id="([^"]+)"([^>]*)>(.*?)</\1>', link, body, flags=re.S)
+
 def text_page(html_body, toc=True, cls="", toc_label=None, attrs=""):
     """Text page layout: the title and lead, the jump list (beside the text on wide screens, under the lead on phones),
     then the text in a reading column. The body starts at the first <div class="prose"> (or the first <h2>)."""
@@ -1038,6 +1133,7 @@ def text_page(html_body, toc=True, cls="", toc_label=None, attrs=""):
     if cut < 0: cut = len(html_body)
     head, rest = html_body[:cut], html_body[cut:]
     nav = page_toc(rest, toc_label) if toc else ""
+    rest = heading_links(rest)
     return (site_css.style("textpage") + f'<div class="textpage{" has-toc" if nav else ""}{" " + cls if cls else ""}"{attrs}><div class="tp-head">{head}</div>'
             f'{nav}<div class="tp-body">{rest}</div></div>')
 
@@ -1108,6 +1204,116 @@ def build_about():
     about = lang_template("about").replace("{{UP}}", up1()).replace("{{COMMUNITY}}", community_section()).replace("{{IOS_TV}}", ios_tv)
     page("about", t("about_title"), "about", text_page(about, attrs=attrs), t("about_desc"))
 
+def build_privacy():
+    """Privacy and data policy for the whole site (privacy/). Each optional service shows whether it is switched on in this
+    build, from the same switches that add it to the pages, so the page cannot claim a service is live when it is not."""
+    attrs = template_attrs("privacy")
+    tl = f' lang="{i18n.HTML_LANG[LANG]}" dir="{"rtl" if i18n.rtl(LANG) else "ltr"}"' if attrs else ""   # inside the English fallback
+    on = lambda v: f'<span class="tag"{tl}>{E(t("pp_on" if v else "pp_off"))}</span>'
+    body = lang_template("privacy").replace("{{UP}}", "../")   # links stay in the page language
+    for key, val in (("ANALYTICS", analytics_token()), ("GEO", geo_endpoint()), ("NEWSLETTER", newsletter_endpoint()),
+                     ("PUSH", push_endpoint()), ("TIPS", tip_intake()[0]), ("CHAT", chat_endpoint())):
+        body = body.replace("{{ST_" + key + "}}", on(val))
+    if attrs and i18n.has(LANG, "pp_note"):   # English fallback: a short note in the page language first
+        note = (f'<p class="notice" lang="{i18n.HTML_LANG[LANG]}" dir="{"rtl" if i18n.rtl(LANG) else "ltr"}">{E(t("pp_note"))}</p>')
+        body = body.replace('<div class="prose">', note + '<div class="prose">', 1)
+    page("privacy", t("pp_title"), "privacy", text_page(body, attrs=attrs), t("pp_desc"))
+
+CF_PATH = P("data", "crowdfunding.json")
+def _cf_data():
+    return load(CF_PATH, {"pilot": {}, "campaigns": []}) or {"pilot": {}, "campaigns": []}
+
+def _cf_uri(chain, addr, amount=None):
+    """BIP21-style payment URI on the project's own address (bitcoincash:addr?amount= / nexa:addr?amount=)."""
+    pre = "bitcoincash:" if chain == "bch" else "nexa:"
+    a = addr if addr.startswith(pre) else pre + addr
+    return a + (f"?amount={amount}" if amount else "")
+
+def _cf_card(c, report_href):
+    demo = bool(c.get("demo"))
+    goal = c.get("goal") or {}
+    rows = [f'<dt>{E(t("cf_owner"))}</dt><dd>{E(c.get("owner"))}{" (" + E(cname(c.get("owner_country"))) + ")" if c.get("owner_country") else ""}</dd>']
+    g = [f'{goal[k]:,} {k.upper()}'.replace(",", " ") for k in ("bch", "nexa") if goal.get(k)]
+    if goal.get("nok_approx"): g.append(f'≈ {goal["nok_approx"]:,} NOK'.replace(",", " "))
+    if g: rows.append(f'<dt>{E(t("cf_goal"))}</dt><dd>{E(" · ".join(g))}</dd>')
+    if c.get("deadline"): rows.append(f'<dt>{E(t("cf_deadline"))}</dt><dd>{E(c["deadline"])}</dd>')
+    rows.append(f'<dt>KYC</dt><dd>{E(t("cf_kyc_yes" if c.get("kyc_verified") else "cf_kyc_no"))}</dd>')
+    if c.get("reward"):
+        rows.append(f'<dt>{E(t("cf_reward"))}</dt><dd>{E(c["reward"])}<br><span class="meta">{E(t("cf_trader_yes" if c.get("owner_is_trader") else "cf_trader_no"))}</span></dd>')
+    pays, progs = [], []
+    for chain, label in (("bch", "cf_pay_bch"), ("nexa", "cf_pay_nexa")):
+        addr = (c.get("addresses") or {}).get(chain)
+        if not addr: continue
+        uri = _cf_uri(chain, addr)
+        pays.append(f'<div class="cf-pay"><h4>{E(t(label))}</h4><div class="cf-qr" data-uri="{E(uri)}" data-alt="{E(t("cf_qr_alt"))}"></div>'
+                    f'<p><code class="url">{E(uri)}</code></p>' + ("" if demo else f'<p><a class="btn" href="{E(uri)}">{E(t("cf_open_wallet"))}</a></p>') + '</div>')
+        if not demo:
+            progs.append(f'<p class="cf-prog" data-chain="{chain}" data-addr="{E(uri)}" data-goal="{E(goal.get(chain) or 0)}">'
+                         f'<progress hidden></progress> <span class="cf-amt">–</span></p>')
+    links = "".join(f'<li><a href="{E(l["url"])}" rel="noopener nofollow">{E(l.get("label") or l["url"])}</a></li>' for l in c.get("links") or [] if str(l.get("url", "")).startswith("https://"))
+    return (f'<article class="cf-card railbox{" cf-demo" if demo else ""}" id="{E(c.get("id"))}">'
+            + (f'<p class="notice"><b>{E(t("cf_demo"))}</b></p>' if demo else "")
+            + f'<h3>{E(c.get("title"))}</h3><p>{E(c.get("description"))}</p><dl class="cf-facts">{"".join(rows)}</dl>'
+            + f'<div class="cf-pays">{"".join(pays)}</div>'
+            + (f'<h4>{E(t("cf_progress"))}</h4>{"".join(progs)}<p class="meta">{E(t("cf_prog_note"))}</p>' if progs else "")
+            + (f'<h4>{E(t("cf_links"))}</h4><ul>{links}</ul>' if links else "")
+            + f'<p class="meta"><a href="{E(report_href)}">{E(t("cf_report"))}</a></p></article>')
+
+def build_crowdfunding():
+    """Closed crowdfunding pilot (crowdfunding/, noindex, not in the nav). A curated directory: each campaign shows the
+    project's OWN BCH/Nexa addresses with QR codes and payment URIs. Nordic Crypto never holds keys or funds; progress is a
+    read-only balance fetched in the reader's browser (assets/crowdfunding/campaigns.js). Labelled as a commercial service,
+    separate from the newsroom. Data: data/crowdfunding.json."""
+    d = _cf_data(); pilot = d.get("pilot") or {}
+    rel = up1() + lp()
+    if LANG == "en":
+        dst = os.path.join(SITE, "assets", "crowdfunding"); os.makedirs(dst, exist_ok=True)
+        for n in ("qrcode.js", "campaigns.js"): shutil.copy(P("assets", "crowdfunding", n), os.path.join(dst, n))
+    rep = pilot.get("report_email")
+    report_href = f"mailto:{rep}?subject=Report%20crowdfunding%20campaign" if rep else rel + "tip/"
+    camps = d.get("campaigns") or []
+    live = [c for c in camps if not c.get("demo")]
+    cards = "".join(_cf_card(c, report_href) for c in camps)
+    em = pilot.get("apply_email")
+    apply_line = t("cf_apply_email", email="__EM__").replace("__EM__", f'<a href="mailto:{E(em)}">{E(em)}</a>') if em else E(t("cf_apply_soon"))
+    terms = "".join(f"<li>{E(t('cf_terms_' + str(i)))}</li>" for i in range(1, 5))
+    body = f"""<h1>{E(t("cf_title"))}</h1>
+<p class="notice"><b>{E(t("cf_label"))}</b></p>
+<p class="lead">{E(t("cf_lead"))}</p>
+<div class="prose">
+<p class="notice">{E(t("cf_never"))}</p>
+<p>{E(t("cf_noendorse"))}</p>
+<p class="meta">{E(t("cf_pilot"))}</p>
+<h2 id="campaigns">{E(t("cf_title"))}</h2>
+{"" if live else f'<p><b>{E(t("cf_none"))}</b></p>'}
+<div class="cf-list">{cards}</div>
+<h2 id="apply">{E(t("cf_apply_h"))}</h2>
+<p>{E(t("cf_apply"))}</p><p>{apply_line}</p>
+<h2 id="rules">{E(t("cf_rules_h"))}</h2><p>{E(t("cf_rules"))}</p>
+<h2 id="terms">{E(t("cf_terms_h"))}</h2><ul>{terms}</ul>
+<h2 id="privacy">{E(t("cf_privacy_h"))}</h2><p>{E(t("cf_privacy"))} <a href="{rel}privacy/#crowdfunding">{E(t("pp_title"))}</a></p>
+<p class="meta">{E(t("cf_api"))}: <a href="{up1()}api/v1/crowdfunding.json"><code>/api/v1/crowdfunding.json</code></a></p>
+</div>"""
+    style = ('<meta name="robots" content="noindex, nofollow"><style>.cf-list{display:grid;gap:1rem}.cf-pays{display:flex;flex-wrap:wrap;gap:1rem}'
+             '.cf-pay{flex:1 1 14rem}.cf-qr{max-width:12rem;background:#fff;padding:.25rem;border-radius:.4rem}.cf-qr svg{width:100%;height:auto}'
+             '.cf-pay code{word-break:break-all}.cf-facts dt{font-weight:600}.cf-facts dd{margin:0 0 .4rem}.cf-demo{outline:2px dashed currentColor}'
+             '.cf-prog progress{width:100%}</style>')
+    js_l = json.dumps({"checking": t("cf_checking"), "unavailable": t("cf_unavailable")}, ensure_ascii=False).replace("<", "\\u003c")
+    script = (f'<script>window.NC_CF={js_l};</script><script src="{up1()}assets/crowdfunding/qrcode.js" defer></script>'
+              f'<script src="{up1()}assets/crowdfunding/campaigns.js" defer></script>')
+    page("crowdfunding", t("cf_title"), "crowdfunding", text_page(body, toc=False), t("cf_desc"), script, head_extra=style)
+
+def write_crowdfunding_api():
+    """api/v1/crowdfunding.json: the curated pilot list (no balances, no donor data). Demo entries are marked demo:true."""
+    d = _cf_data()
+    out = {"pilot": {k: (d.get("pilot") or {}).get(k) for k in ("status", "max_projects", "apply_email")},
+           "custody": "none: payments go straight to each project's own address; Nordic Crypto never holds keys or funds",
+           "campaigns": [{k: c.get(k) for k in ("id", "demo", "title", "owner", "owner_country", "owner_is_trader", "description", "reward",
+                                                "goal", "addresses", "deadline", "kyc_verified", "links")} | {
+                          "payment_uris": {ch: _cf_uri(ch, a) for ch, a in (c.get("addresses") or {}).items() if a}} for c in d.get("campaigns") or []]}
+    os.makedirs(os.path.join(SITE, "api", "v1"), exist_ok=True)
+    json.dump(out, open(os.path.join(SITE, "api", "v1", "crowdfunding.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+
 def build_ethics():
     """Press ethics: Nordic Crypto follows Vær Varsom-plakaten. Own wording, not a copy of the code."""
     body = text_page(lang_template("ethics"), attrs=template_attrs("ethics"))
@@ -1119,6 +1325,7 @@ def sitemap():
         if "index.html" in fs:
             r = os.path.relpath(dp, SITE).replace(os.sep, "/"); r = "" if r == "." else r + "/"
             if r.split("/")[0] in ("kalender", "skjerm", "organisasjonskart", "kilder", "om", "akademia"): continue
+            if "crowdfunding" in r.split("/"): continue   # closed pilot: noindex
             urls.append(BASE + r)
     for rel in ("api/v1/index.json", "api/v1/openapi.json", "api/v1/markets.json", "api/v1/markets/aggregated.json", "llms.txt"):
         if os.path.exists(os.path.join(SITE, rel)):
@@ -1796,7 +2003,9 @@ def build_lang(ctx):
     build_talks()
     build_academia()
     build_books()
+    build_developers()
     build_changelog()
+    build_stats(ctx)
     build_tip()
     build_columnist()
     build_newsletter()
@@ -1805,6 +2014,8 @@ def build_lang(ctx):
     build_about()
     build_media()
     build_ethics()
+    build_privacy()
+    build_crowdfunding()
     build_chat()
 
 # ---- Industry map: categories from the org chart data (group + description keywords; overrides in industry_map.json) ----
@@ -1922,7 +2133,7 @@ def build_org(ctx):
 <p class="lead">{E(t("org_lead"))}</p>
 {f'<p class="notice warn">{t("org_preview", p=cnt_pend, n=len(ents))}</p>' if PREVIEW and cnt_pend else ''}
 {f'<p class="meta">{E(dn)}</p>' if dn else ''}
-<nav class="orgsub" aria-label="{E(t("toc_h"))}">{subnav}</nav>
+<nav class="orgsub" aria-label="{E(t("toc_h"))}">{subnav}<a class="orgdev" href="../developers/">{E(t("dev_org_link"))} →</a></nav>
 <section class="osec ochart" aria-labelledby="org"><h2 id="org">{E(t("org_chart_h"))}</h2>
 <div class="filters ofilters"><div class="of" role="group" aria-label="{E(t("countries_aria"))}"><span class="lbl">{E(t("country"))}</span><div class="chips">{chips}</div></div>
 <div class="of"><span class="lbl" aria-hidden="true">{E(t("sector_aria"))}</span><div class="seg" id="secseg" role="group" aria-label="{E(t("sector_aria"))}"><button type="button" data-v="both" aria-pressed="true">{E(t("both"))}</button><button type="button" data-v="private" aria-pressed="false">{E(t("private_sector"))}</button><button type="button" data-v="public" aria-pressed="false">{E(t("public_sector"))}</button></div></div>
@@ -2334,8 +2545,13 @@ def build_external_stories(ctx):
     return
 def events_for_site():
     ev = load(P("data", "events.json"), {"events": []})
-    ap_path = P("queue", "approved.json"); approvals_present = os.path.exists(ap_path)
-    ap = (load(ap_path, {}) or {}).get("events", {}) or {}
+    ap_path = P("queue", "approved.json")
+    if D1_EVENTS is not None:
+        ap = D1_EVENTS
+        approvals_present = True
+    else:
+        approvals_present = os.path.exists(ap_path)
+        ap = (load(ap_path, {}) or {}).get("events", {}) or {}
     now = site_now(); out = []  # "finished" is judged in Oslo time
     for e in ev["events"]:
         e = dict(e)
@@ -2749,44 +2965,58 @@ cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('ari
 function reveal(){var id=location.hash.slice(1),el=id&&id.indexOf('=')<0&&document.getElementById(id),d=el&&(el.tagName==='DETAILS'?el:el.closest('details'));if(d&&!d.open){d.open=true;el.scrollIntoView()}}
 window.addEventListener('hashchange',reveal);reveal()})();</script>"""
 def build_calendar(ctx):
-    """ /calendar/ : the month grids first (wide screens only), then the upcoming events (date badges, one heading per month),
-    then the finished events behind a summary. Country chips with counts filter all three."""
     evs, now = ctx["events"]
     up = [e for e in evs if not e["past"]]; past = [e for e in evs if e["past"] and e.get("status") == "published"][::-1]  # all finished, newest first
+    def when(e):
+        # Same line as the front page. The calendar lists themselves are unchanged.
+        return event_when(e)
+    def badges(e):
+        b = []
+        if e.get("status") == "owner": b.append(f'<span class="tag pend">{E(t("owner"))}</span>')
+        elif e.get("status") != "published": b.append(f'<span class="tag pend">{E(t("pending"))}</span>')
+        if e.get("paid"): b.append(f'<span class="tag paid">{E(t("paid"))}</span>')
+        elif e.get("paid") is False: b.append(f'<span class="tag">{E(t("free"))}</span>')
+        if e.get("sponsored"): b.append('<span class="tag paid">' + (E(t("sponsored_by", x=e["sponsored"])) if isinstance(e["sponsored"], str) else E(t("sponsored"))) + '</span>')
+        if e.get("online"): b.append(f'<span class="tag">{E(t("online"))}</span>')
+        return " ".join(b)
+    def li(e):
+        # event titles: English pages keep the editor's English title (+ original); other languages show the organiser's original title
+        ttl = e["title"] if LANG == "en" or not e.get("title_orig") else e["title_orig"]
+        note, nl = L18(e, "note")
+        return (f'<li id="e-{E(e["id"])}" data-c="{E(e.get("country"))}"><h3><a href="{E(e["id"])}/">{E(ttl)}</a></h3>'
+                f'<div class="meta">{flag(e.get("country"))} <time datetime="{E(e["start"])}"><b>{E(when(e))}</b></time> · {E(e.get("place") or t("online"))}{(", " + E(e["city"])) if e.get("city") and e["city"] not in (e.get("place") or "") else ""} {badges(e)}</div>'
+                + (f'<p class="orig">{E(t("orig_title_ev"))}{E(e["title_orig"])}</p>' if e.get("title_orig") and LANG == "en" else "") + f'<div class="meta">{E(t("organiser"))}: {E(e["organiser"])} · {E(t("listed_at"))}: <a href="{E(e["url"])}" rel="noopener" target="_blank">{E(e["source"])}</a></div>'
+                + (f'<p class="sum"{lang_attr(nl)}><b>{E(t("note"))}:</b> {E(note)}</p>' if note else "") + '</li>')
     loc = lambda e: dt.datetime.fromisoformat(e["start"])
     months = sorted({(now.year, now.month)} | {(loc(e).year, loc(e).month) for e in up})[:6]
-    today = now.astimezone(OSLO).date()
     grids = []
     for y, m in months:
         cells = []
         for wk in calendar.Calendar(0).monthdatescalendar(y, m):
             row = []
             for d in wk:
-                if d.month != m:
-                    row.append('<td class="out"></td>'); continue
                 de = [e for e in up if loc(e).date() == d]
-                links = "".join(f'<a href="{E(e["id"])}/" data-c="{E(e.get("country"))}" title="{E(cname(e.get("country")))}: {E(event_title(e))}" aria-label="{E(cname(e.get("country")))}: {E(event_title(e))}">{_deco_mark(e.get("country"))}</a>' for e in de)
-                row.append(f'<td{" class=today" if d == today else ""}>{d.day}{links}</td>')
+                cls = " ".join(c for c in ["out" if d.month != m else "", "today" if d == now.astimezone(OSLO).date() else "", "has" if de else ""] if c)
+                row.append(f'<td class="{cls}"><span class="d">{d.day}</span>' + "".join(f'<a href="{E(e["id"])}/" data-c="{E(e.get("country"))}" title="{E(cname(e.get("country")))}: {E(e["title"] if LANG == "en" else e.get("title_orig") or e["title"])}">{flag(e.get("country"))}<span>{E(e["title"] if LANG == "en" else e.get("title_orig") or e["title"])}</span></a>' for e in de) + '</td>')
             cells.append("<tr>" + "".join(row) + "</tr>")
         grids.append(f'<table class="cal"><caption>{E(i18n.month_caption(LANG, y, m))}</caption><thead><tr>{"".join(f"<th>{E(d)}</th>" for d in i18n.wd_head(LANG))}</tr></thead><tbody>{"".join(cells)}</tbody></table>')
     per_c = {c: sum(e.get("country") == c for e in up) for c in COUNTRY_CODES}
-    chips = "".join(f'<button type="button" class="chip cchip" data-c="{c}" aria-pressed="false">{_deco_flag(c)}{E(cname(c))} <span class="n">{per_c[c]}</span></button>' for c in COUNTRY_CODES if per_c[c] or any(e.get("country") == c for e in past))
     npend = sum(e.get("status") == "pending" for e in up); nown = sum(e.get("status") == "owner" for e in up)
-    lead = t("cal_lead"); first = first_sentence(lead); rest = lead[len(first):].strip()
-    body = f"""{site_css.style("filterbar")}{site_css.style("calendar")}<div class="calpage">
-<h1>{E(t("cal_h1"))}</h1>
-<p class="lead">{E(first)}</p>
+    body = f"""{site_css.style("calendar-classic")}<h1>{E(t("cal_h1"))}</h1>
+<p class="lead">{E(t("cal_lead"))}</p>
+<p class="meta"><a href="../events/previous/">{E(t("prev_link"))}</a></p>
 {f'<p class="notice warn">{t("cal_preview", p=npend, n=len(up), o=nown)}</p>' if PREVIEW and (npend or nown) else ''}
-<div class="filters lfilters" role="group" aria-label="{E(t("countries_aria"))}"><div class="lf"><span class="lbl" id="cf-c">{E(t("country"))}</span><div class="chips" role="group" aria-labelledby="cf-c">{chips}</div></div><p id="ecount" class="meta lcount" aria-live="polite">{E(t("n_upcoming", n=len(up)))}</p></div>
-<section class="calmonths" aria-labelledby="mo-h"><h2 class="seclbl" id="mo-h">{E(t("cal_months_h"))}</h2><div class="calgrid">{''.join(grids)}</div></section>
-<section aria-labelledby="up-h"><h2 class="seclbl" id="up-h">{E(t("upcoming_h"))}</h2>
-<div id="evlist">{cal_months(up) or f'<p class="empty">{E(t("no_upcoming"))}</p>'}</div></section>
-<section aria-labelledby="past"><h2 class="seclbl" id="past">{E(t("past_h"))}</h2><p class="meta">{E(t("past_note"))} {t("past_talks", href="../talks/")}</p>
-{f'<details class="pastev"><summary>{E(t("past_show_1") if len(past) == 1 else t("past_show", n=len(past)))}</summary>{cal_months(past, full=False, cls="past")}</details>' if past else f'<p class="empty">{E(t("no_past"))}</p>'}
-<p class="meta"><a href="../events/previous/">{E(t("past_all"))}</a></p></section>
-<div class="calhow"><p class="meta">{E(rest)}</p><p class="meta">{t("cal_how")}</p></div>
-</div>"""
-    page("calendar", t("cal_title"), "calendar", body, t("cal_desc"), CAL_JS % json.dumps(t("n_upcoming", n="{n}")))
+<div class="filters" role="group" aria-label="{E(t("countries_aria"))}"><span class="lbl">{E(t("country"))}</span><div class="chips">{country_chips()}</div><span id="ecount" class="meta" aria-live="polite"></span></div>
+<p class="meta">{" · ".join(f"{flag(c)} {E(n)}: {per_c[c]}" for c, n in COUNTRIES.items())}</p>
+<div class="calgrid">{''.join(grids)}</div>
+<h2>{E(t("upcoming_h"))}</h2><ol class="news" id="evlist">{''.join(li(e) for e in up) or f'<li class="empty">{E(t("no_upcoming"))}</li>'}</ol>
+<h2 id="past">{E(t("past_h"))}</h2><p class="meta">{E(t("past_note"))}</p><p class="meta">{t("past_talks", href="../talks/")}</p><ol class="news past">{''.join(li(e) for e in past) or f'<li class="empty">{E(t("no_past"))}</li>'}</ol>
+<p class="meta">{t("cal_how")}</p>"""
+    js = """<script>(function(){var NU=%s,cc=[].slice.call(document.querySelectorAll('.cchip')),n=[].slice.call(document.querySelectorAll('#evlist li[data-c], .calgrid a[data-c], ol.past li[data-c]')),cnt=document.getElementById('ecount');
+function apply(){var c=cc.filter(function(x){return x.getAttribute('aria-pressed')==='true'}).map(function(x){return x.dataset.c}),k=0;n.forEach(function(el){var ok=!c.length||c.indexOf(el.dataset.c)>=0;el.hidden=!ok;if(ok&&el.parentNode.id==='evlist')k++});cnt.textContent=NU.replace('{n}',k);history.replaceState(null,'',c.length?'#country='+c.join(','):location.pathname)}
+var h=new URLSearchParams(location.hash.slice(1));(h.get('country')||'').split(',').forEach(function(x){cc.forEach(function(b){if(b.dataset.c===x)b.setAttribute('aria-pressed','true')})});
+cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');apply()})});apply()})();</script>""" % json.dumps(t("n_upcoming", n="{n}"))
+    page("calendar", t("cal_title"), "calendar", body, t("cal_desc"), js)
     if LANG == "en": print(f"calendar: {len(up)} upcoming {per_c}, {len(past)} past")
 
 def build_academia():
@@ -2796,7 +3026,7 @@ def build_academia():
     if LANG == "en":
         research = "/workspace/nordic-crypto-research/academia.md"
         if os.path.exists(research):
-            subprocess.run([sys.executable, P("tools", "import_academia.py")], check=True)
+            subprocess.run([sys.executable, P("tools", "import_academia.py")], check=True, timeout=180)
         else:
             print("academia: research list is missing; leaving data/academia.json unchanged")
     ac = load(P("data", "academia.json"), {}) or {}
@@ -2929,6 +3159,79 @@ cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('ari
     page("books", t("books_title"), "books", body, t("books_desc"), js)
     if LANG == "en": print(f"books: {len(rows)} {per_c}")
 
+def _dev_num(n):
+    return f"{n:,}".replace(",", " ") if LANG != "en" else f"{n:,}"
+
+def build_developers():
+    """ /developers/ : technical people in Nordic crypto with public crypto-related code (data/developers.json, tools/developers.py).
+    Public build: only rows the editor set to "published". Preview: pending rows too, marked (same model as the who's who people).
+    Rows are grouped by country with the country chips of the list pages. Repo and project names stay as on the code host."""
+    sys.path.insert(0, P("tools"))
+    import developers as dev_mod
+    rows = dev_mod.rows(preview=PREVIEW)
+    if LANG == "en":
+        for msg in dev_mod.problems():
+            print("developers: " + msg)
+        json.dump({"updated": dev_mod.updated(), "preview": PREVIEW, "people": rows}, open(os.path.join(SITE, "data", "developers.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    en = lang_attr("en")
+    def dom(u): return re.sub(r"^https?://(www[0-9]?\.)?", "", u).split("/")[0]
+    host = {"github": "GitHub", "gitlab": "GitLab", "codeberg": "Codeberg", "sourcehut": "sourcehut"}
+    def work(n):
+        if n["kind"] == "repo":
+            bits = [E(t("dev_stars", n=_dev_num(n.get("stars") or 0)))] + ([E(n["language"])] if n.get("language") else [])
+            about = f' <span class="devabout"{en}>{E(n["description"])}</span>' if n.get("description") else ""
+            return (f'<li><a href="{E(n["url"])}" rel="noopener nofollow" target="_blank" dir="ltr">{E(n["name"])}</a> '
+                    f'<span class="meta">{" · ".join(bits)}</span>{about}</li>')
+        bits = []
+        if n.get("merged_prs"): bits.append(E(t("dev_prs", n=_dev_num(n["merged_prs"]))))
+        if n.get("commits"): bits.append(E(t("dev_commits", n=_dev_num(n["commits"]))))
+        where = "gitlab.com/" if n.get("host") == "gitlab" else ""
+        return (f'<li><a href="{E(n["url"])}" rel="noopener nofollow" target="_blank" dir="ltr">{E(where + n["project"])}</a> '
+                f'<span class="meta">{" · ".join(bits)}</span></li>')
+    def item(r):
+        tag = ""
+        if r["status"] != "published":
+            tag = f' <span class="tag pend">{E(t("pending"))}</span>'   # rows for jQrgen (review "ready_for_owner") wait for him, not the editor
+        who = [E(r["role"])] if r.get("role") else []
+        if r.get("org"):
+            who.append(f'<a href="../org-chart/#{E(r["org_id"])}">{E(r["org"])}</a>' if r.get("org_id") else E(r["org"]))
+        links = " · ".join(f'<a href="{E(p["url"])}" rel="noopener nofollow" target="_blank">{E(host.get(p["kind"], p["kind"]))}<span class="devlogin" dir="ltr">/{E(p.get("login") or "")}</span></a>'
+                           for p in r["profiles"])
+        if r.get("whoswho_id"):
+            links += f' · <a href="../org-chart/#{E(r["whoswho_id"])}">{E(t("dev_whoswho"))}</a>'
+        src = r["nordic_source"]
+        return (f'<li id="{E(r["id"])}" data-c="{E(r["country"])}"><h3>{E(r["name"])}{tag}</h3>'
+                f'<p class="meta">{flag(r["country"], deco=True)}{E(cname(r["country"]))}{" · " + " · ".join(who) if who else ""}</p>'
+                f'<p class="devlinks">{links}</p>'
+                f'<ul class="devwork">{"".join(work(n) for n in r["notable"])}</ul>'
+                f'<p class="acsrc">{E(t("dev_nordic"))}: <a href="{E(src["url"])}" rel="noopener nofollow" target="_blank">{E(dom(src["url"]))}</a> '
+                f'<span{en}>({E(src["note"])})</span> · {E(t("ac_checked", d=r["checked"]))}</p></li>')
+    present = [c for c in dev_mod.COUNTRY_ORDER if any(r["country"] == c for r in rows)]
+    per_c = {c: sum(r["country"] == c for r in rows) for c in present}
+    def n_people(n): return t("dev_n1") if n == 1 else t("dev_n", n=n)
+    chips = "".join(f'<button type="button" class="chip cchip" data-c="{c}" aria-pressed="false">{_deco_flag(c)}{E(cname(c))} <span class="n">{per_c[c]}</span></button>' for c in present)
+    groups = "".join(f'<section class="devgrp" data-c="{c}" aria-labelledby="dev-{c.lower()}"><h2 id="dev-{c.lower()}">{flag(c, deco=True)}{E(cname(c))} <span class="n">{per_c[c]}</span></h2>'
+                     f'<ol class="devlist">{"".join(item(r) for r in rows if r["country"] == c)}</ol></section>' for c in present)
+    n_pend = sum(r["status"] != "published" for r in rows)
+    filters = (f'<div class="filters lfilters" role="group" aria-label="{E(t("countries_aria"))}"><div class="lf"><span class="lbl" id="lf-c">{E(t("country"))}</span>'
+               f'<div class="chips" role="group" aria-labelledby="lf-c">{chips}</div></div><p id="dcount" class="meta lcount" aria-live="polite">{E(n_people(len(rows)))}</p></div>') if rows else ""
+    body = f"""{site_css.style("filterbar")}{site_css.style("developers")}<div class="devpage">
+<h1>{E(t("dev_h1"))}</h1>
+<p class="lead">{E(t("dev_lead"))}</p>
+{f'<p class="notice warn">{E(t("dev_preview", n=n_pend))}</p>' if PREVIEW and n_pend else ''}
+<p class="meta devrule">{E(t("dev_rule"))}</p>
+{filters}
+{groups if rows else f'<p class="empty">{E(t("dev_empty"))}</p>'}
+<p class="notice">{t("dev_notice")}</p>
+</div>"""
+    js = """<script>(function(){var NR=%s,NR1=%s,cc=[].slice.call(document.querySelectorAll('.cchip')),n=[].slice.call(document.querySelectorAll('.devlist li[data-c]')),g=[].slice.call(document.querySelectorAll('.devgrp')),cnt=document.getElementById('dcount');if(!cnt)return;
+function apply(){var c=cc.filter(function(x){return x.getAttribute('aria-pressed')==='true'}).map(function(x){return x.dataset.c}),k=0;n.forEach(function(el){var ok=!c.length||c.indexOf(el.dataset.c)>=0;el.hidden=!ok;if(ok)k++});g.forEach(function(s){s.hidden=!!c.length&&c.indexOf(s.dataset.c)<0});cnt.textContent=k===1?NR1:NR.replace('{n}',k);
+if(c.length)history.replaceState(null,'','#country='+c.join(','));else if(location.hash.indexOf('#country=')===0)history.replaceState(null,'',location.pathname)}
+var h=new URLSearchParams(location.hash.slice(1));(h.get('country')||'').split(',').forEach(function(x){cc.forEach(function(b){if(b.dataset.c===x)b.setAttribute('aria-pressed','true')})});
+cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');apply()})});apply()})();</script>""" % (json.dumps(t("dev_n", n="{n}")), json.dumps(t("dev_n1")))
+    page("developers", t("dev_title"), "developers", body, t("dev_desc"), js)
+    if LANG == "en": print(f"developers: {len(rows)} shown ({n_pend} pending) {per_c}")
+
 COL_FORM = "https://github.com/jQrgen/nordic-crypto/issues/new?template=columnist.yml"
 def tip_endpoint():
     """Fixed public tip endpoint (e.g. https://tips.<domain>): env TIP_ENDPOINT or tipserver/config.json -> public_endpoint.
@@ -2947,7 +3250,7 @@ def write_tip_endpoint_file():
     sys.path.insert(0, P("tipserver")); import endpoint as _ep
     ep, kind = (tip_endpoint(), "fixed") if tip_endpoint() else (_ep.current() if tip_page_uses_server() else ("", None))
     old = load(P(".publish", "tip-endpoint.json"), {}) or {}
-    upd = old.get("updated") if old.get("endpoint") == ep else dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
+    upd = old.get("updated") if old.get("endpoint") == ep else site_now().astimezone(dt.timezone.utc).isoformat(timespec="seconds")
     json.dump({"endpoint": ep or None, "kind": kind, "updated": upd}, open(os.path.join(SITE, "tip-endpoint.json"), "w"), indent=1)
     open(os.path.join(SITE, "tip-endpoint.json"), "a").write("\n")
 
@@ -3101,6 +3404,75 @@ def build_changelog():
 <p class="meta">{E(t("cl_data"))}: <a href="{up1()}data/changelog.json">changelog.json</a>.</p>"""
     page("changelog", t("cl_title"), "changelog", body, t("cl_desc"))
     if LANG == "en": print(f"changelog: {len(rows)} entries, launch date {launch or 'not set (preview)'}")
+
+def build_stats(ctx):
+    """Visitor stats (stats/): visits and page views per day, ISO week and month from Cloudflare Web Analytics.
+    Data: ctx["stats"] from tools/fetch_stats.py (data/stats.json or the copy on gh-pages, whichever is newer).
+    Aggregate counts only. Until there is data the page says the stats are being set up. The inline script reloads
+    api/v1/stats.json, so the scheduled refresh on gh-pages shows up without a new build."""
+    doc = ctx.get("stats") or {}
+    root = up1()
+    has = bool(doc.get("daily"))
+    gen = doc.get("generated_at") or ""
+    when = gen.replace("T", " ").replace("Z", "")[:16] + " UTC" if gen else ""
+    part = f' <span class="tag">{E(t("vst_partial"))}</span>'
+    def rows(items, label):
+        top = max([r["visits"] for r in items] + [1])
+        out = []
+        for r in items:
+            w = round(100 * r["visits"] / top)
+            out.append(f'<tr><th scope="row">{label(r)}{part if r.get("partial") else ""}</th>'
+                       f'<td><span class="stv"><span class="stbar" aria-hidden="true"><span class="stfill{" z" if not w else ""}" style="width:{w}%"></span></span>'
+                       f'<span class="stn">{int(r["visits"])}</span></span></td><td class="stn">{int(r["pageviews"])}</td></tr>')
+        return "".join(out)
+    daily = list(reversed((doc.get("daily") or [])[-30:]))
+    weekly = list(reversed((doc.get("weekly") or [])[-26:]))
+    monthly = list(reversed(doc.get("monthly") or []))
+    def table(sid, head, col, body):
+        return (f'<section id="{sid}"{"" if has else " hidden"}><h2>{E(t(head))}</h2><table class="list sttab"><thead><tr>'
+                f'<th scope="col">{E(t(col))}</th><th scope="col">{E(t("vst_visits"))}</th><th scope="col">{E(t("vst_views"))}</th>'
+                f'</tr></thead><tbody>{body}</tbody></table></section>')
+    ltr = lambda x: f'<bdi dir="ltr">{E(x)}</bdi>'   # ISO labels stay readable on Arabic and Urdu pages
+    # Data policy (GDPR) next to the numbers. While no beacon token is set, it says the script is not on yet.
+    issues = '<a href="https://github.com/jQrgen/nordic-crypto/issues" rel="noopener">github.com/jQrgen/nordic-crypto/issues</a>'
+    policy = (f'<section id="data-policy" class="stpolicy"><h2>{E(t("vdp_h"))}</h2>'
+              + ("" if analytics_token() else f'<p class="notice">{E(t("vdp_off"))}</p>')
+              + "".join(f"<p>{t(k)}</p>" for k in ("vdp_who", "vdp_collect", "vdp_publish", "vdp_not", "vdp_basis", "vdp_keep", "vdp_proc"))
+              + f'<p>{t("vdp_rights", issues=issues)}</p>'
+              + f'<p><a href="../privacy/">{E(t("pp_whole"))}</a></p></section>')
+    week_label = lambda r: f'{ltr(r["week"])}<span class="stfrom">{ltr(r["start"])}</span>'
+    body = f"""<h1>{E(t("vst_title"))}</h1>
+<p class="lead">{E(t("vst_lead"))}</p>
+<p class="meta"><a href="#data-policy">{E(t("vdp_h"))}</a> · <a href="../privacy/">{E(t("pp_whole"))}</a></p>
+<div class="stats" id="st" data-json="{root}api/v1/stats.json" data-gen="{E(gen)}" data-partial="{E(t("vst_partial"))}" data-upd="{E(t("vst_updated", when="{when}"))}">
+<p class="notice" id="st-pending"{" hidden" if has else ""}>{E(t("vst_pending"))}</p>
+<p class="meta" id="st-upd"{"" if has else " hidden"}>{t("vst_updated", when=f'<bdi dir="ltr">{E(when)}</bdi>') if has else ""}</p>
+{table("st-daily", "vst_daily_h", "vst_day", rows(daily, lambda r: ltr(r["date"])))}
+{table("st-weekly", "vst_weekly_h", "vst_week", rows(weekly, week_label))}
+{table("st-monthly", "vst_monthly_h", "vst_month", rows(monthly, lambda r: ltr(r["month"])))}
+<p class="meta">{E(t("vst_visits_note"))}</p>
+<p class="meta">{E(t("vst_tz"))}</p>
+<p class="meta">{E(t("vst_data"))} <a href="{root}api/v1/stats.json">stats.json</a></p>
+</div>
+{policy}{site_css.style("stats")}"""
+    script = r"""<script>(function(){var el=document.getElementById('st');if(!el||!window.fetch)return;
+var lang=document.documentElement.lang||'en',nf;try{nf=new Intl.NumberFormat(lang)}catch(e){nf={format:String}}
+function fmt(){[].forEach.call(el.querySelectorAll('.stn'),function(n){var v=n.getAttribute('data-n')||n.textContent;n.setAttribute('data-n',v);n.textContent=nf.format(+v)})}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function ltr(s){return '<bdi dir="ltr">'+esc(s)+'</bdi>'}
+function fill(id,items,label){var s=document.getElementById(id);if(!s)return;var top=1;items.forEach(function(r){if(r.visits>top)top=r.visits});
+s.querySelector('tbody').innerHTML=items.map(function(r){var w=Math.round(100*r.visits/top);return '<tr><th scope="row">'+label(r)+(r.partial?' <span class="tag">'+esc(el.getAttribute('data-partial'))+'</span>':'')+'</th><td><span class="stv"><span class="stbar" aria-hidden="true"><span class="stfill'+(w?'':' z')+'" style="width:'+w+'%"></span></span><span class="stn">'+(+r.visits)+'</span></span></td><td class="stn">'+(+r.pageviews)+'</td></tr>'}).join('');s.hidden=false}
+fmt();fetch(el.getAttribute('data-json'),{cache:'no-store',credentials:'omit'}).then(function(r){return r.ok?r.json():null}).then(function(j){
+if(!j||!j.daily||!j.daily.length||!j.generated_at||j.generated_at<=(el.getAttribute('data-gen')||''))return;
+fill('st-daily',j.daily.slice(-30).reverse(),function(r){return ltr(r.date)});
+fill('st-weekly',(j.weekly||[]).slice(-26).reverse(),function(r){return ltr(r.week)+'<span class="stfrom">'+ltr(r.start)+'</span>'});
+fill('st-monthly',(j.monthly||[]).slice().reverse(),function(r){return ltr(r.month)});
+var u=document.getElementById('st-upd');u.textContent=el.getAttribute('data-upd').replace('{when}',j.generated_at.replace('T',' ').replace('Z','').slice(0,16)+' UTC');u.hidden=false;
+document.getElementById('st-pending').hidden=true;el.setAttribute('data-gen',j.generated_at);fmt()}).catch(function(){})})();</script>"""
+    page("stats", t("vst_title"), "stats", body, t("vst_desc"), extra_script=script)
+    if LANG == "en":
+        print(f"stats: {len(doc.get('daily') or [])} days, {len(doc.get('monthly') or [])} months"
+              + (f", updated {when}" if has else ", no data yet (page says the stats are being set up)"))
 
 def build_rules(ctx):
     """'How the rules are made' (rules/): see tools/rules_page.py (data: rules.json, editor-reviewed)."""

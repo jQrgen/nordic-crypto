@@ -36,6 +36,106 @@
    }
   },
   {
+   "id": "d1-stories",
+   "date": null,
+   "review": "pending",
+   "title": "Stories and events can be stored in D1",
+   "description": "Story and event review can move to a Cloudflare D1 database. The editor approves or rejects there, with no commit per story, and the public site keeps being built as static files. The switch is off until NC_DATA_SOURCE is set to d1, so the JSON files remain the source until then.",
+   "i18n": {
+    "nn": {
+     "title": "Saker og hendingar kan lagrast i D1",
+     "description": "Vurdering av saker og hendingar kan flyttast til ein Cloudflare D1-database. Redaktøren godkjenner eller avviser der, utan ein commit per sak, og den offentlege nettstaden vert framleis bygd som statiske filer. Brytaren er av til NC_DATA_SOURCE er sett til d1, så JSON-filene er kjelda til då."
+    },
+    "nb": {
+     "title": "Saker og hendelser kan lagres i D1",
+     "description": "Vurdering av saker og hendelser kan flyttes til en Cloudflare D1-database. Redaktøren godkjenner eller avviser der, uten en commit per sak, og det offentlige nettstedet bygges fortsatt som statiske filer. Bryteren er av til NC_DATA_SOURCE er satt til d1, så JSON-filene er kilden til da."
+    }
+   }
+  },
+  {
+   "id": "open-source-developers",
+   "date": null,
+   "review": "pending",
+   "title": "Open-source developers",
+   "description": "A new page lists developers, protocol engineers and researchers in Nordic crypto who publish crypto-related code in the open, grouped by country, with their GitHub and GitLab profiles and up to three repos or projects each. It is linked from Who's who and the footer, and the same list is in the data API as developers.json.",
+   "i18n": {
+    "nn": {
+     "title": "Utviklarar med open kjeldekode",
+     "description": "Ei ny side viser utviklarar, protokollingeniørar og forskarar i nordisk krypto som publiserer kryptorelatert kode ope, ordna etter land, med GitHub- og GitLab-profilane deira og opptil tre repo eller prosjekt kvar. Sida er lenkja frå Kven er kven og botnen av sida, og den same lista ligg i data-API-et som developers.json."
+    },
+    "nb": {
+     "title": "Utviklere med åpen kildekode",
+     "description": "En ny side viser utviklere, protokollingeniører og forskere i nordisk krypto som publiserer kryptorelatert kode åpent, ordnet etter land, med GitHub- og GitLab-profilene deres og opptil tre repoer eller prosjekter hver. Siden er lenket fra Hvem er hvem og bunnen av siden, og den samme listen ligger i data-API-et som developers.json."
+    }
+   }
+  },
+  {
+   "id": "privacy-policy",
+   "date": null,
+   "review": "pending",
+   "title": "Privacy and data policy",
+   "description": "A new privacy page, linked from the footer on every page, covers everything the site does with data: hosting on GitHub Pages and Cloudflare, the settings stored in your browser, market prices fetched from Firi and Coinmotion, video players that load only when you press play, and the newsletter, notifications, private tips and shoutbox once they are switched on. For each it says what is processed, why, the legal basis, how long it is kept and by whom. It also covers push notifications in the Nordic Crypto apps, which link this page as their privacy policy.",
+   "i18n": {
+    "nn": {
+     "title": "Personvernerklæring",
+     "description": "Ei ny personvernside, lenkja frå botnen av kvar side, dekkjer alt nettstaden gjer med opplysningar: drift på GitHub Pages og Cloudflare, innstillingane som vert lagra i nettlesaren, marknadsprisar frå Firi og Coinmotion, videospelarar som fyrst vert henta når du trykkjer på avspeling, og nyheitsbrevet, varsla, dei private tipsa og prateboksen når dei vert slått på. For kvar del står det kva som vert behandla, kvifor, det rettslege grunnlaget, kor lenge og av kven. Ho dekkjer òg push-varsel i Nordic Crypto-appane, som lenkjer til denne sida som personvernerklæringa si."
+    },
+    "nb": {
+     "title": "Personvernerklæring",
+     "description": "En ny personvernside, lenket fra bunnen av hver side, dekker alt nettstedet gjør med opplysninger: drift på GitHub Pages og Cloudflare, innstillingene som lagres i nettleseren, markedspriser fra Firi og Coinmotion, videospillere som først hentes når du trykker på avspilling, og nyhetsbrevet, varslene, de private tipsene og prateboksen når de slås på. For hver del står det hva som behandles, hvorfor, det rettslige grunnlaget, hvor lenge og av hvem. Den dekker også push-varsler i Nordic Crypto-appene, som lenker til denne siden som sin personvernerklæring."
+    },
+    "sv": {
+     "title": "Integritetspolicy",
+     "description": "En ny integritetssida, länkad från sidfoten på varje sida, täcker allt webbplatsen gör med uppgifter: drift på GitHub Pages och Cloudflare, inställningarna som sparas i webbläsaren, marknadspriser från Firi och Coinmotion, videospelare som laddas först när du trycker på uppspelning, och nyhetsbrevet, aviseringarna, de privata tipsen och chattlådan när de slås på. För varje del står vad som behandlas, varför, den rättsliga grunden, hur länge och av vem. Den täcker också push-aviseringar i Nordic Crypto-apparna, som länkar till den här sidan som sin integritetspolicy."
+    },
+    "da": {
+     "title": "Privatlivspolitik",
+     "description": "En ny side om privatliv, linket fra bunden af hver side, dækker alt, hvad sitet gør med oplysninger: drift på GitHub Pages og Cloudflare, de indstillinger, der gemmes i browseren, markedspriser fra Firi og Coinmotion, videoafspillere, der først hentes, når du trykker afspil, og nyhedsbrevet, notifikationerne, de private tips og chatboksen, når de slås til. For hver del står der, hvad der behandles, hvorfor, retsgrundlaget, hvor længe og af hvem. Den dækker også push-notifikationer i Nordic Crypto-apperne, som linker til denne side som deres privatlivspolitik."
+    },
+    "fi": {
+     "title": "Tietosuojakäytäntö",
+     "description": "Uusi tietosuojasivu, johon on linkki jokaisen sivun alareunassa, kattaa kaiken, mitä sivusto tekee tiedoilla: ylläpidon GitHub Pagesissa ja Cloudflaressa, selaimeen tallennettavat asetukset, Firin ja Coinmotionin markkinahinnat, videosoittimet, jotka ladataan vasta kun painat toistoa, sekä uutiskirjeen, ilmoitukset, yksityiset vinkit ja chat-laatikon, kun ne otetaan käyttöön. Jokaisesta kerrotaan, mitä käsitellään, miksi, oikeusperuste, kuinka kauan ja kuka käsittelee. Se kattaa myös Nordic Crypto -sovellusten push-ilmoitukset, sillä sovellukset linkittävät tähän sivuun tietosuojakäytäntönään."
+    },
+    "is": {
+     "title": "Persónuverndarstefna",
+     "description": "Ný persónuverndarsíða, með tengli neðst á hverri síðu, nær yfir allt sem vefurinn gerir við gögn: hýsingu á GitHub Pages og Cloudflare, stillingar sem vistast í vafranum, markaðsverð frá Firi og Coinmotion, myndspilara sem hlaðast fyrst þegar þú ýtir á spilun, og fréttabréfið, tilkynningar, einkaábendingar og spjallboxið þegar kveikt er á þeim. Fyrir hvern hluta kemur fram hvað er unnið með, hvers vegna, lagagrundvöllur, hve lengi og af hverjum. Hún nær líka yfir push-tilkynningar í Nordic Crypto-öppunum, sem vísa á þessa síðu sem persónuverndarstefnu sína."
+    }
+   }
+  },
+  {
+   "id": "visitor-stats",
+   "date": null,
+   "review": "pending",
+   "title": "Visitor stats",
+   "description": "A new Stats page shows visits and page views per day, week and month. The numbers come from Cloudflare Web Analytics, which counts visits in aggregate and uses no cookies. The same numbers are in the data API as stats.json. A data policy on the same page explains what is collected and published, the legal basis under the GDPR and how long the data is kept.",
+   "i18n": {
+    "nn": {
+     "title": "Besøksstatistikk",
+     "description": "Ei ny statistikkside viser besøk og sidevisingar per dag, veke og månad. Tala kjem frå Cloudflare Web Analytics, som tel besøk samla og ikkje brukar informasjonskapslar. Dei same tala ligg i data-API-et som stats.json. Ei personvernerklæring på same sida forklarer kva som vert samla inn og publisert, det rettslege grunnlaget etter personvernforordninga og kor lenge dataa vert lagra."
+    },
+    "nb": {
+     "title": "Besøksstatistikk",
+     "description": "En ny statistikkside viser besøk og sidevisninger per dag, uke og måned. Tallene kommer fra Cloudflare Web Analytics, som teller besøk samlet og ikke bruker informasjonskapsler. De samme tallene ligger i data-API-et som stats.json. En personvernerklæring på samme side forklarer hva som samles inn og publiseres, det rettslige grunnlaget etter personvernforordningen og hvor lenge dataene lagres."
+    },
+    "sv": {
+     "title": "Besöksstatistik",
+     "description": "En ny statistiksida visar besök och sidvisningar per dag, vecka och månad. Siffrorna kommer från Cloudflare Web Analytics, som räknar besök samlat och inte använder cookies. Samma siffror finns i data-API:t som stats.json. En datapolicy på samma sida förklarar vad som samlas in och publiceras, den rättsliga grunden enligt dataskyddsförordningen och hur länge uppgifterna sparas."
+    },
+    "da": {
+     "title": "Besøgsstatistik",
+     "description": "En ny statistikside viser besøg og sidevisninger pr. dag, uge og måned. Tallene kommer fra Cloudflare Web Analytics, som tæller besøg samlet og ikke bruger cookies. De samme tal findes i data-API'et som stats.json. En datapolitik på samme side forklarer, hvad der indsamles og offentliggøres, retsgrundlaget efter databeskyttelsesforordningen, og hvor længe data gemmes."
+    },
+    "fi": {
+     "title": "Kävijätilastot",
+     "description": "Uusi tilastosivu näyttää käynnit ja sivunlataukset päivittäin, viikoittain ja kuukausittain. Luvut tulevat Cloudflare Web Analyticsista, joka laskee käynnit yhteenlaskettuina eikä käytä evästeitä. Samat luvut ovat data-API:ssa tiedostona stats.json. Samalla sivulla oleva tietosuojakäytäntö kertoo, mitä kerätään ja julkaistaan, mikä on oikeusperuste tietosuoja-asetuksen mukaan ja kuinka kauan tietoja säilytetään."
+    },
+    "is": {
+     "title": "Heimsóknartölfræði",
+     "description": "Ný tölfræðisíða sýnir heimsóknir og síðuflettingar á dag, viku og mánuð. Tölurnar koma úr Cloudflare Web Analytics, sem telur heimsóknir í heild og notar ekki vafrakökur. Sömu tölur eru í gagna-API-inu sem stats.json. Gagnastefna á sömu síðu útskýrir hverju er safnað og hvað er birt, lagagrundvöllinn samkvæmt persónuverndarreglugerðinni og hversu lengi gögnin eru geymd."
+    }
+   }
+  },
+  {
    "id": "event-nft-prototype",
    "date": null,
    "review": "pending",

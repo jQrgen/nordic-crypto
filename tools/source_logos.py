@@ -26,32 +26,61 @@ OWN = {"nordic-crypto"}
 PUBLIC_KEYS = ("file", "source", "source_url", "license", "license_url", "author")
 
 
+# path -> ((st_mtime_ns, st_size), parsed JSON); name -> (raw object, derived table).
+_PARSED, _DERIVED = {}, {}
+
+
 def _load(path, default):
+    """Parsed JSON at path, re-read only when the file's mtime or size changes.
+
+    The build looks up a logo ~27 000 times; parsing sources.json and logos.json each time cost ~230 s.
+    The stat is taken before the read, so a write during the read is picked up next call.
+    Returned objects (here and in manifest/aliases/sources/sources_by_id) are shared: do not mutate them.
+    """
     try:
+        st = os.stat(path)
+        hit = _PARSED.get(path)
+        stamp = (st.st_mtime_ns, st.st_size)
+        if hit and hit[0] == stamp:
+            return hit[1]
         with open(path, encoding="utf-8") as fh:
-            return json.load(fh)
+            data = json.load(fh)
     except FileNotFoundError:
         return default
+    _PARSED[path] = (stamp, data)
+    return data
+
+
+def _derive(name, raw, build):
+    """build(raw), cached until raw is a different object. Holds raw itself so its id() cannot be reused."""
+    hit = _DERIVED.get(name)
+    if hit and hit[0] is raw:
+        return hit[1]
+    out = build(raw)
+    _DERIVED[name] = (raw, out)
+    return out
 
 
 def manifest():
     raw = _load(MANIFEST, {}) or {}
-    return {k: v for k, v in raw.items() if not str(k).startswith("_") and isinstance(v, dict)}
+    return _derive("manifest", raw, lambda raw: {k: v for k, v in raw.items() if not str(k).startswith("_") and isinstance(v, dict)})
 
 
 def aliases():
     raw = _load(MANIFEST, {}) or {}
-    block = raw.get("_source_alias") or {}
-    return {k: v for k, v in block.items() if not str(k).startswith("_") and isinstance(v, str) and v}
+    def build(raw):
+        block = raw.get("_source_alias") or {}
+        return {k: v for k, v in block.items() if not str(k).startswith("_") and isinstance(v, str) and v}
+    return _derive("aliases", raw, build)
 
 
 def sources():
     raw = _load(SOURCES, {}) or {}
-    return [s for s in (raw.get("sources") or []) if isinstance(s, dict) and s.get("id")]
+    return _derive("sources", raw, lambda raw: [s for s in (raw.get("sources") or []) if isinstance(s, dict) and s.get("id")])
 
 
 def sources_by_id():
-    return {s["id"]: s for s in sources()}
+    return _derive("sources_by_id", sources(), lambda lst: {s["id"]: s for s in lst})
 
 
 def canonical_id(source_id, by_id=None, alias=None):

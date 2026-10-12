@@ -1,0 +1,128 @@
+# Rebuild the public site from approved D1 rows and publish gh-pages.
+# Runs on a schedule, from workflow_dispatch, and from repository_dispatch
+# (event type d1-approved) after the review Worker accepts an edit.
+# Does not commit data/news.json or data/events.json. Does not merge anything.
+# Switched off unless the repository variable NC_DATA_SOURCE is d1.
+# Do not enable xtrace: CLOUDFLARE_API_TOKEN and NC_PRIVATE_TERMS_JSON must not be printed.
+name: Publish approved D1 rows
+
+on:
+  schedule:
+    # 07:17 and 15:17 UTC. Approved stories go live without a commit to main.
+    - cron: "17 7,15 * * *"
+  workflow_dispatch:
+  repository_dispatch:
+    types: [d1-approved]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gh-pages-deploy
+  cancel-in-progress: false
+  queue: max
+
+jobs:
+  switched-off:
+    name: D1 publish is switched off
+    if: github.repository == 'jQrgen/nordic-crypto' && vars.NC_DATA_SOURCE != 'd1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Record the switch
+        run: |
+          {
+            echo "### D1 publish"
+            echo
+            echo "\`NC_DATA_SOURCE\` is not \`d1\`. The site still builds from the JSON files. gh-pages was not changed."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  publish:
+    name: Build from D1 and publish
+    if: github.repository == 'jQrgen/nordic-crypto' && vars.NC_DATA_SOURCE == 'd1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Install Python dependencies
+        run: python3 -m pip install -r requirements.txt
+
+      - name: Write privacy terms
+        env:
+          NC_PRIVATE_TERMS_JSON: ${{ secrets.NC_PRIVATE_TERMS_JSON }}
+        run: python3 tools/ci_write_terms.py
+
+      - name: Public build from D1
+        env:
+          NC_DATA_SOURCE: d1
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
+          CF_D1_DATABASE_ID: ${{ vars.CF_D1_DATABASE_ID }}
+        run: |
+          set -euo pipefail
+          python3 build.py
+          if [ -e site/.preview ]; then
+            echo "::error::refusing: site/ is a preview build"
+            exit 1
+          fi
+
+      - name: Privacy gate
+        run: python3 tools/privacy_gate.py site
+
+      - name: Delete privacy terms
+        if: always()
+        run: |
+          set -euo pipefail
+          rm -f state/private_terms.json state/private_terms.json.tmp
+          if [ -e state/private_terms.json ]; then
+            echo "::error::could not delete state/private_terms.json"
+            exit 1
+          fi
+
+      - name: Text gate
+        run: python3 tools/text_gate.py
+
+      - name: Checkout gh-pages
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: gh-pages
+          fetch-depth: 1
+
+      - name: Publish to gh-pages
+        if: vars.NC_CI_DEPLOY == 'true'
+        run: |
+          set -euo pipefail
+          if [ -e state/private_terms.json ]; then
+            echo "::error::state/private_terms.json is still on disk; refusing to publish"
+            exit 1
+          fi
+          msg="Publish $(date -u '+%Y-%m-%d %H:%M UTC') from D1 [skip ci]"
+          tools/ci_gh_pages.sh gh-pages site publish-keep.txt "$msg"
+
+      - name: Job summary
+        if: always()
+        run: |
+          {
+            echo "### D1 publish"
+            echo
+            echo "Approved rows were read from D1. \`main\` was not committed."
+            if [ "${{ vars.NC_CI_DEPLOY }}" = "true" ]; then
+              echo "\`NC_CI_DEPLOY\` is true. gh-pages was updated when the gates passed."
+            else
+              echo "\`NC_CI_DEPLOY\` is not true. The build and both gates ran. gh-pages was not updated."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"

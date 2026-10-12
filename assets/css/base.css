@@ -34,14 +34,14 @@ html.nc-pick body{visibility:hidden}
 .skip{position:absolute;inset-inline-start:12px;top:-80px;z-index:60;padding:10px 16px;border-radius:var(--r-sm);background:var(--gold);color:var(--on-gold);font-weight:700;text-decoration:none}
 .skip:focus{top:12px}
 main:focus{outline:0}
-/* Text in a left-to-right language inside a right-to-left page (English summaries on /ar/ and /ur/) reads left to right,
+/* Text in a left-to-right language inside a right-to-left page (English summaries on /ar/, /ur/ and /fa/) reads left to right,
    so punctuation lands at the end of the sentence; it stays on the page's start edge (the right) like the rest of the page. */
-html[dir=rtl] [lang]:not([lang|=ar]):not([lang|=ur]){direction:ltr;unicode-bidi:isolate;text-align:right}
-/* Many strings on the Arabic and Urdu pages are still English (no translation yet). Each block takes its direction from its own
+html[dir=rtl] [lang]:not([lang|=ar]):not([lang|=ur]):not([lang|=fa]){direction:ltr;unicode-bidi:isolate;text-align:right}
+/* Many strings on the Arabic, Urdu and Persian pages are still English (no translation yet). Each block takes its direction from its own
    first letter, so an English sentence keeps its full stop at the end and an Arabic one reads right to left; all stay on the right. */
 html[dir=rtl] :is(p,li,dd,dt,figcaption,summary,label,h1,h2,h3,td,th){unicode-bidi:plaintext;text-align:right!important}
-/* Letter spacing breaks the joined letters of Arabic and Urdu, so text in those languages has none. */
-:lang(ar),:lang(ur){letter-spacing:normal!important}
+/* Letter spacing breaks the joined letters of Arabic, Urdu and Persian, so text in those languages has none. */
+:lang(ar),:lang(ur),:lang(fa){letter-spacing:normal!important}
 [hidden]{display:none!important}
 .sprite{position:absolute;width:0;height:0;overflow:hidden}
 .ico{display:block;flex:none}
