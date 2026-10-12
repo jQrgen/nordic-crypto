@@ -84,6 +84,24 @@
     ]
    }
   },
+  "/api/v1/news/latest.json": {
+   "get": {
+    "operationId": "api_v1_news_latest",
+    "summary": "The 25 newest published stories with id, published, country, source and headlines only. For apps and notifiers that poll often; news.json is the full list.",
+    "responses": {
+     "200": {
+      "description": "The 25 newest published stories with id, published, country, source and headlines only. For apps and notifiers that poll often; news.json is the full list.",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/NewsLatest"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
   "/api/v1/news/by-country/{country}.json": {
    "get": {
     "operationId": "news_by_country",
@@ -1762,6 +1780,106 @@
      }
     },
     "description": "NewsList"
+   },
+   "NewsLatestItem": {
+    "type": "object",
+    "required": [
+     "id",
+     "title",
+     "published",
+     "api_url"
+    ],
+    "description": "A news item cut down to the fields a notifier needs. Same values as in news.json.",
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "published": {
+      "type": "string",
+      "description": "ISO 8601 date-time with offset."
+     },
+     "country": {
+      "type": "string"
+     },
+     "source": {
+      "type": "string",
+      "description": "Source id from sources.json."
+     },
+     "source_name": {
+      "type": "string"
+     },
+     "language_code": {
+      "type": "string",
+      "nullable": true
+     },
+     "own_story": {
+      "type": "boolean"
+     },
+     "title": {
+      "type": "string",
+      "description": "Source headline."
+     },
+     "title_en": {
+      "type": "string",
+      "nullable": true,
+      "description": "Our English headline, when the source headline is not English."
+     },
+     "title_i18n": {
+      "type": "object",
+      "additionalProperties": {
+       "type": "string"
+      },
+      "description": "Our headline in nn, nb, sv, da, fi and is, when that language is not already the source headline. English is title_en."
+     },
+     "url": {
+      "type": "string",
+      "description": "Story the reader follows. Absolute."
+     },
+     "html_url": {
+      "type": "string",
+      "nullable": true,
+      "description": "Our story page: summary, licensed picture and the outlets. For our own articles this is the article. For other outlets this is the coverage page; url is the primary outlet."
+     },
+     "api_url": {
+      "type": "string"
+     }
+    }
+   },
+   "NewsLatest": {
+    "type": "object",
+    "properties": {
+     "api_version": {
+      "type": "string"
+     },
+     "name": {
+      "type": "string"
+     },
+     "generated_at": {
+      "type": "string"
+     },
+     "preview": {
+      "type": "boolean"
+     },
+     "updated": {
+      "type": "string",
+      "nullable": true
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of items in this file."
+     },
+     "count": {
+      "type": "integer"
+     },
+     "items": {
+      "type": "array",
+      "items": {
+       "$ref": "#/components/schemas/NewsLatestItem"
+      },
+      "description": "Newest first, like news.json."
+     }
+    },
+    "description": "NewsLatest"
    },
    "TopicIndex": {
     "type": "object",
