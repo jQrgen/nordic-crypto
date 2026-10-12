@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-12T05:31:39+00:00",
+ "generated_at": "2026-10-12T05:33:14+00:00",
  "preview": false,
  "item": {
   "id": "6753e8903e88",
@@ -23,7 +23,7 @@
   "country": "DK",
   "published_at": "2026-09-22T13:04:30+00:00",
   "first_published_on_site": "2026-10-03T18:28:21+02:00",
-  "last_seen_on_site": "2026-10-11T07:43:10+02:00",
+  "last_seen_on_site": "2026-10-12T07:31:17+02:00",
   "languages": [
    "en",
    "nn",
