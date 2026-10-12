@@ -1,0 +1,13 @@
+__pycache__/
+build/*.wav
+build/*.mp4
+build/*.log
+build/ffmpeg_*.log
+build/flash/
+build/list.txt
+thumbnail.png
+thumbnail.webp
+thumbnail-320.jpg
+thumbnail-320.avif
+*.mp4
+build/sponsor.*

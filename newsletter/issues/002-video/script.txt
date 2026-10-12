@@ -1,0 +1,41 @@
+Nordic Crypto #2 narration. Voice: en-GB-ThomasNeural (edge-tts, rate +12%). Sign-off: The Nordic Crypto team. Source: newsletter issue #2 (5–12 Oct 2026).
+
+[bumper @ 0.0s, bumper]
+(music/stinger only)
+
+[open_a @ 5.5s, title]
+Good evening, and welcome to Nordic Crypto. This is issue number two, with the Nordic crypto news from the 5th to the 12th of October, 2026.
+
+[open_b @ 15.1s, tonight]
+Tonight: proposals in the Storting to pause new data centres. Sweden's financial watchdog names thirty more suspected fraud firms. And new EU anti-money-laundering standards that touch crypto.
+
+[b_no @ 27.8s, section - NORWAY]
+(music/stinger only)
+
+[s1 @ 29.8s, story]
+The Red Party has proposed in the Storting a temporary halt for new data centres, with a licensing regime. It argues that crypto-mining data centres get power ahead of local industry. None of the proposals singles out crypto. That's from Stortinget.
+
+[s2 @ 45.1s, story]
+Socialist Left Party members have also proposed a pause on new data centres and a national licensing system, and ask the government to report on how the Storting's call for a crypto-mining ban will be followed up. This is a proposal, not a decision.
+
+[s3 @ 58.4s, story]
+In Ságat, the data-centre company Arctic Core says it uses crypto mining to earn income during a test phase, but argues this does not change the character of the building it has a permit for.
+
+[s4 @ 68.5s, story]
+Finansavisen reports that customers of the Norwegian exchange Firi bought 16.1 million kroner more crypto than they sold in September. Bitcoin was the top buy.
+
+[s5 @ 78.7s, story]
+Kaupr reports that Ace Digital, listed on Euronext Growth Oslo, made an unaudited third-quarter net profit of 6.3 million kroner, and says it now has no debt.
+
+[b_se @ 88.5s, section - SWEDEN & EU]
+(music/stinger only)
+
+[s6 @ 90.5s, story]
+Nyheter24 reports that Finansinspektionen has warned against thirty more firms operating without a licence, some offering trading in crypto. That brings this year's warnings to 227.
+
+[s7 @ 102.2s, story]
+And Finansinspektionen reports that the EU's anti-money-laundering authority, AMLA, has sent three draft technical standards to the European Commission. They include rules for crypto-asset service providers, and still need the Commission's adoption.
+
+[close @ 115.9s, end]
+That's all for issue number two. Every story, with a link to the original source, is at nordiccrypto.no. Nothing here is investment advice. From all of us: good night, from the Nordic Crypto team.
+

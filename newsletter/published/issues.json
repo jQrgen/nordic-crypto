@@ -13,7 +13,18 @@
    "title": "Nordic Crypto #2: Data-centre halt proposals in the Storting and new fraud warnings in Sweden",
    "subtitle": "The Nordic crypto news our editor approved from 5 to 12 October 2026.",
    "stories": 7,
-   "events": 0
+   "events": 0,
+   "video": {
+    "file": "video.mp4",
+    "poster": "thumbnail.png",
+    "subs": "subs.vtt",
+    "duration": 131,
+    "width": 1920,
+    "height": 1080,
+    "bytes": 36587868,
+    "sha256": "0f8966a443883e2ecb1e51a64b0fa8f35039bd2ddb76997c1143b93a9a4061f8",
+    "url": "https://github.com/jQrgen/nordic-crypto/releases/download/newsletter-002-newsreel-1/nordic-crypto-2-newsreel.mp4"
+   }
   },
   {
    "id": "001",
