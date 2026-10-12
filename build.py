@@ -130,7 +130,7 @@ def flags_js(inline=False): return json.dumps({c: flag(c, inline=inline) for c i
 import themes
 CSS = site_css.bundle().replace("__ROOT__", site_url.PATH)   # assets/css/*.css, in site_css.SITE order; inlined into every page. Font URLs are root-relative.
 
-# api is the human-readable docs at /api/ (English only). The href is the site root, not /<lang>/api/.
+# api is the human-readable docs: /api/ in English, /<lang>/api/ in the other site languages.
 # The first NAV_MAIN entries are the sections in the header. The rest (newsletter = the Subscribe button, and the pages
 # about the site) are in the footer columns, and all of them are in the phone menu. Chat is inserted by nav_items() only while enabled.
 NAV = [("", "nav_news"), ("calendar", "nav_calendar"), ("markets", "nav_markets"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("books", "nav_books"), ("talks", "nav_talks"), ("newsletter", "nav_newsletter"), ("sources", "nav_sources"), ("about", "nav_about"), ("tip", "nav_tip"), ("api", "nav_api")]
@@ -473,12 +473,12 @@ def langsel_script():
     if LANGSEL_JS is None: LANGSEL_JS = open(P("tools", "langselect.js"), encoding="utf-8").read()
     return LANGSEL_JS
 def _nav_html(rel, root, current):
-    """Main nav, same list on every page and in the phone menu. API docs are /api/ at the site root.
+    """Main nav, same list on every page and in the phone menu. API docs are per language like the other pages.
     Chat is included only while chat_endpoint() is set."""
     parts = []
     for i, (n, k) in enumerate(nav_items()):
         more = ' class="nav-more"' if i >= NAV_MAIN else ""
-        href = root + "api/" if n == "api" else rel + (n + "/" if n else "")
+        href = rel + (n + "/" if n else "")
         cur = " aria-current=page" if n == current else ""
         parts.append(f'<a{more} href="{href}"{cur}>{E(t(k))}</a>')
     return "".join(parts)
@@ -625,11 +625,12 @@ def site_footer(rel, root, slug=""):
     def li(href, label, ext=False, note=""):
         return (f'<li><a href="{E(href)}"{" rel=\"noopener\"" if ext else ""}>{E(label)}</a>'
                 + (f' <span class="meta">{E(note)}</span>' if note else "") + '</li>')
-    sections = "".join(li(root + "api/" if n == "api" else rel + (n + "/" if n else ""), t(k)) for n, k in nav_items()[:NAV_MAIN])
+    sections = "".join(li(rel + (n + "/" if n else ""), t(k)) for n, k in nav_items()[:NAV_MAIN])
     sections += li(rel + "developers/", t("dev_nav"))   # under Who's who; not a header tab
     site = (li(rel + "about/", t("nav_about")) + li(rel + "sources/", t("nav_sources")) + li(rel + "ethics/", t("ethics_title"))
+            + li(rel + "budget/", t("bud_nav"))
             + li(rel + "changelog/", t("cl_title")) + li(rel + "stats/", t("vst_title")) + li(rel + "privacy/", t("pp_title")) + li(rel + "media/", t("media_title")) + li(rel + "columnist/", t("col_title"))
-            + li(rel + "tip/", t("nav_tip")) + li(root + "api/", t("foot_api")) + li("https://github.com/jQrgen/nordic-crypto", t("foot_source"), True)
+            + li(rel + "tip/", t("nav_tip")) + li(rel + "api/", t("foot_api")) + li("https://github.com/jQrgen/nordic-crypto", t("foot_source"), True)
             + li(REPO_CONTRIBUTORS, t("contributors"), True)
             + (li(rel + "treasury/", t("nav_treasury")) if event_nft.enabled() else ""))
     follow = (li(rel + "newsletter/", t("nav_newsletter")) + li(SITE_TELEGRAM, t("tg_label"), True) + li(SITE_X, "X", True) + li(rel + "rss.xml", "RSS")
@@ -1093,8 +1094,9 @@ def emit_api(ctx):
     )
     global LANG
     was = LANG
-    LANG = "en"
-    page("api", "Data API", "api", text_page(api_feed.docs_fragment(info), cls="api-docs", toc_label="On this page"), api_feed.DOCS_DESC, langs=["en"], head_extra=api_feed.head_links(BASE))
+    for LANG in i18n.LANGS:   # /api/ in English, /<lang>/api/ for the other site languages (tools/api_docs_i18n/)
+        T = api_feed.docs_strings(LANG)
+        page("api", T["title"], "api", text_page(api_feed.docs_fragment(info, LANG), cls="api-docs", toc_label=T["toc"]), T["desc"], head_extra=api_feed.head_links(BASE))
     LANG = was
     return info
 
@@ -1318,6 +1320,78 @@ def build_ethics():
     """Press ethics: Nordic Crypto follows Vær Varsom-plakaten. Own wording, not a copy of the code."""
     body = text_page(lang_template("ethics"), attrs=template_attrs("ethics"))
     page("ethics", t("ethics_title"), "ethics", body, t("ethics_desc"))
+
+def _budget_bits(line, bud):
+    """Item name and the smaller line under it. Amounts come from the line, not from the translation."""
+    kind = line["kind"]
+    if kind == "server":
+        return (E(t("bud_server", name=line["name"], type=line["type"], place=line["place"])),
+                E(t("bud_runs", what=line["runs"])))
+    if kind == "volume":
+        price = f'{line["unit_currency"]} {bud.group_amount(line["unit_price"])}'
+        return (E(t("bud_volume", gb=bud.group_amount(line["gb"]), price=price)), "")
+    if kind == "workers":
+        return (E(t("bud_workers")), "")
+    if kind == "domains":
+        main = E(t("bud_domains", names=line["names"], vendor=line["vendor"]))
+        year = f'{line["currency"]} {bud.group_amount(line["amount_year"])}'
+        key = {"incl": "bud_year_incl", "excl": "bud_year_excl"}.get(line.get("vat"), "bud_year")
+        return (main, E(t(key, amount=year)))
+    if kind == "pages":
+        return (E(t("bud_pages", host=line["host"])), "")
+    if kind == "dns":
+        return (E(t("bud_dns")), "")
+    raise ValueError("budget line kind " + str(kind))
+
+def build_budget():
+    """Hosting and domain costs per month (/budget/). Figures are read from data/budget.json only."""
+    from tools import budget as bud
+    doc = bud.summary()
+    when = i18n.short_date(LANG, doc["as_of"])
+    rows = []
+    for line in doc["lines"]:
+        label, detail = _budget_bits(line, bud)
+        extra = f'<span class="meta">{detail}</span>' if detail else ""
+        if line.get("free"):
+            cost = E(t("free"))
+        else:
+            cost = E(f'{line["currency"]} {bud.group_amount(line["amount"])}')
+        rows.append(f'<tr><th scope="row">{label}{extra}</th><td class="amt"><span class="num">{cost}</span></td></tr>')
+    rate_by = {r["currency"]: r for r in doc["rates"]}
+    parts, shown_total = bud.display_nok(doc["subtotals"])
+    subs = []
+    for row, nok in zip(doc["subtotals"], parts):
+        shown = f'{row["currency"]} {bud.money_text(row["amount"])}'
+        nok_text = t("bud_nok_amt", n=bud.format_number(nok, LANG))
+        if row["rate"] is None:
+            nok_cell = (f'<span class="num">{E(nok_text)}</span>'
+                        f'<span class="meta">{E(t("bud_nok_part"))}</span>')
+        else:
+            src = rate_by[row["currency"]]
+            nok_cell = (f'<span class="num">{E(t("bud_conv", amount=shown, rate=bud.group_amount(src["quote_amount"]), nok=nok_text))}</span>')
+        subs.append(f'<tr><th scope="row">{E(row["currency"])}</th><td class="amt"><span class="num">{E(shown)}</span></td><td class="amt">{nok_cell}</td></tr>')
+    rates = ", ".join(bud.rate_phrase(r, doc["quote"]) for r in doc["rates"])
+    total = t("bud_nok_amt", n=bud.format_number(shown_total, LANG))
+    body = f'''<h1>{E(t("bud_h1"))}</h1>
+<p class="lead">{E(t("bud_lead", date=when))}</p>
+<div class="prose">
+<p class="notice">{E(t("bud_note"))}</p>
+<div class="tablewrap"><table class="list budget">
+<caption>{E(t("bud_caption"))}</caption>
+<thead><tr><th scope="col">{E(t("bud_col_item"))}</th><th scope="col">{E(t("bud_col_month"))}</th></tr></thead>
+<tbody>{"".join(rows)}</tbody>
+</table></div>
+<h2 id="subtotals">{E(t("bud_sub_h"))}</h2>
+<div class="tablewrap"><table class="list budget">
+<caption>{E(t("bud_sub_caption"))}</caption>
+<thead><tr><th scope="col">{E(t("bud_col_cur"))}</th><th scope="col">{E(t("bud_col_sub"))}</th><th scope="col">{E(t("bud_col_nok"))}</th></tr></thead>
+<tbody>{"".join(subs)}</tbody>
+<tfoot><tr><th scope="row">{E(t("bud_total_h"))}</th><td></td><td class="amt"><span class="num">{E(total)}</span></td></tr></tfoot>
+</table></div>
+<p>{E(t("bud_rates", rates=rates))}</p>
+<p id="total" class="bud-total">{E(t("bud_total_line", amount=total))}</p>
+</div>'''
+    page("budget", t("bud_title"), "budget", text_page(body, cls="budget"), t("bud_desc"))
 
 def sitemap():
     urls = []
@@ -2015,6 +2089,7 @@ def build_lang(ctx):
     build_media()
     build_ethics()
     build_privacy()
+    build_budget()
     build_crowdfunding()
     build_chat()
 

@@ -6,6 +6,10 @@
   var table = document.getElementById("electrum-status");
   if (!table || !("WebSocket" in window)) return;
   var button = document.getElementById("electrum-recheck");
+  // status words come from the page language (data-checking / data-up / data-down on the table)
+  var L = { checking: table.getAttribute("data-checking") || "Checking…", up: table.getAttribute("data-up") || "Up", down: table.getAttribute("data-down") || "Down",
+    timeout: table.getAttribute("data-timeout") || "No answer in {s} s", closed: table.getAttribute("data-closed") || "Closed",
+    error: table.getAttribute("data-error") || "Error", notip: table.getAttribute("data-notip") || "no tip" };
 
   function cell(row, name, text, cls) {
     var td = row.querySelector('[data-f="' + name + '"]');
@@ -21,7 +25,7 @@
     var done = false;
     var ws;
 
-    cell(row, "state", "Checking…");
+    cell(row, "state", L.checking);
     cell(row, "height", "–");
     cell(row, "version", "–");
     cell(row, "ms", "–");
@@ -30,7 +34,7 @@
       if (done) return;
       done = true;
       clearTimeout(timer);
-      if (!ok) cell(row, "state", message || "Down", "bad");
+      if (!ok) cell(row, "state", message || L.down, "bad");
       try { ws.close(); } catch (e) { /* already closed */ }
     }
 
@@ -42,15 +46,15 @@
       });
     }
 
-    var timer = setTimeout(function () { finish(false, "No answer in " + TIMEOUT_MS / 1000 + " s"); }, TIMEOUT_MS);
+    var timer = setTimeout(function () { finish(false, L.timeout.replace("{s}", TIMEOUT_MS / 1000)); }, TIMEOUT_MS);
     try {
       ws = new WebSocket(url);
     } catch (e) {
-      finish(false, "Down");
+      finish(false, L.down);
       return;
     }
-    ws.onerror = function () { finish(false, "Down"); };
-    ws.onclose = function () { finish(false, "Closed"); };
+    ws.onerror = function () { finish(false, L.down); };
+    ws.onclose = function () { finish(false, L.closed); };
     ws.onmessage = function (event) {
       var msg;
       try { msg = JSON.parse(event.data); } catch (e) { return; }
@@ -66,11 +70,11 @@
         return call("blockchain.headers.subscribe", []).then(function (tip) {
           cell(row, "ms", Math.round(performance.now() - t0) + " ms");
           cell(row, "height", tip && tip.height != null ? Number(tip.height).toLocaleString("en") : "?");
-          cell(row, "state", "Up", "ok");
+          cell(row, "state", L.up, "ok");
           finish(true);
         });
       }).catch(function (err) {
-        finish(false, "Error: " + (err && err.message ? err.message : "no tip"));
+        finish(false, L.error + ": " + (err && err.message ? err.message : L.notip));
       });
     };
   }
