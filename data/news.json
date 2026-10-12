@@ -1,6 +1,211 @@
 {
  "items": [
   {
+   "id": "d4cf38e2cea3",
+   "url": "https://dagensps.se/bors-finans/manipulation-kryptoplanbocker-tomdes-pa-860-miljoner",
+   "title": "Manipulation: Kryptoplånböcker tömdes på 860 miljoner",
+   "title_en": null,
+   "source": "dagensps.se",
+   "source_name": "Dagens PS",
+   "country": "SE",
+   "language": "Swedish",
+   "via": "bing-se",
+   "seen_via": [
+    "bing-se"
+   ],
+   "published": "2026-10-11T07:23:27+00:00",
+   "fetched": "2026-10-12T02:13:03+00:00",
+   "topics": [
+    "crypto"
+   ],
+   "matched": [
+    "\\bkrypto(?!graf)\\w*"
+   ],
+   "paywall": false,
+   "status": "pending",
+   "summary": null
+  },
+  {
+   "id": "7e2e383c5a9d",
+   "url": "https://dagensps.se/tag/kryptovaluta",
+   "title": "Kryptomiljardären köpte äktenskap för 43 miljoner – ångrar sig",
+   "title_en": null,
+   "source": "dagensps.se",
+   "source_name": "Dagens PS",
+   "country": "SE",
+   "language": "Swedish",
+   "via": "bing-se",
+   "seen_via": [
+    "bing-se"
+   ],
+   "published": "2026-10-10T00:00:00+00:00",
+   "fetched": "2026-10-12T02:13:03+00:00",
+   "topics": [
+    "crypto"
+   ],
+   "matched": [
+    "\\bkrypto(?!graf)\\w*"
+   ],
+   "paywall": false,
+   "status": "pending",
+   "summary": null,
+   "published_unverified": true
+  },
+  {
+   "id": "d7e0dcf5a724",
+   "url": "https://kaupr.io/nyheter/spillpioner-og-kapitalforvalter-satser-sammen-pa-tokenisering",
+   "title": "Spillpioner og kapitalforvalter satser sammen på tokenisering",
+   "title_en": null,
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kaupr",
+   "seen_via": [
+    "kaupr"
+   ],
+   "published": "2026-10-09T12:00:00+00:00",
+   "fetched": "2026-10-11T02:11:44+00:00",
+   "topics": [
+    "blockchain"
+   ],
+   "matched": [
+    "\\btokeni[sz]\\w*"
+   ],
+   "paywall": false,
+   "status": "pending",
+   "summary": null
+  },
+  {
+   "id": "36cc0b725b8c",
+   "url": "https://investornytt.no/nyheter/aksjer-pa-blokkjeden-kan-forsterke-borsuro/547093",
+   "title": "Aksjer på blokkjeden kan forsterke børsuro",
+   "title_en": null,
+   "source": "investornytt",
+   "source_name": "Investornytt",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "investornytt",
+   "seen_via": [
+    "investornytt"
+   ],
+   "published": "2026-10-09T09:28:58+00:00",
+   "fetched": "2026-10-11T02:11:44+00:00",
+   "topics": [
+    "blockchain"
+   ],
+   "matched": [
+    "\\bblokkjede\\w*"
+   ],
+   "paywall": false,
+   "status": "pending",
+   "summary": null
+  },
+  {
+   "id": "6e3e33451782",
+   "url": "https://finanswatch.no/nyheter/fintech/article19719469.ece",
+   "title": "IMF ser stort potensial i tokenisering",
+   "title_en": null,
+   "source": "finanswatch",
+   "source_name": "Finanswatch",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "finanswatch",
+   "seen_via": [
+    "finanswatch"
+   ],
+   "published": "2026-10-09T08:08:31+00:00",
+   "fetched": "2026-10-11T02:11:44+00:00",
+   "topics": [
+    "blockchain"
+   ],
+   "matched": [
+    "\\btokeni[sz]\\w*"
+   ],
+   "paywall": true,
+   "status": "pending",
+   "summary": null
+  },
+  {
+   "id": "e54bdee78745",
+   "url": "https://reuters.com/video/watch/idRW826407102026RP1",
+   "title": "Crypto Weekly: EU investigates Binance, Greece could tax crypto gains",
+   "title_en": null,
+   "source": "reuters.com",
+   "source_name": "Reuters",
+   "country": "NORDIC",
+   "language": null,
+   "via": "reuters-norden",
+   "seen_via": [
+    "reuters-norden"
+   ],
+   "published": "2026-10-08T10:15:00+00:00",
+   "fetched": "2026-10-11T02:11:44+00:00",
+   "topics": [
+    "crypto"
+   ],
+   "matched": [
+    "\\bcrypto\\w*"
+   ],
+   "paywall": false,
+   "status": "pending",
+   "summary": null,
+   "published_unverified": true
+  },
+  {
+   "id": "e7c158764ff9",
+   "url": "https://investornytt.no/krypto/ai-kan-tomme-lommebokene/547012",
+   "title": "AI kan tømme lommebøkene",
+   "title_en": null,
+   "source": "investornytt",
+   "source_name": "Investornytt",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "investornytt",
+   "seen_via": [
+    "investornytt"
+   ],
+   "published": "2026-10-08T10:05:34+00:00",
+   "fetched": "2026-10-11T02:11:44+00:00",
+   "topics": [
+    "blockchain",
+    "crypto"
+   ],
+   "matched": [
+    "\\bethereum\\b",
+    "\\bkrypto(?!graf)\\w*"
+   ],
+   "paywall": false,
+   "status": "pending",
+   "summary": null
+  },
+  {
+   "id": "2c80242955f2",
+   "url": "https://finansavisen.no/finans/2026/10/08/8386025/magnus-vollen-tjente-over-100-mill.-satser-90-prosent-pa-tre-aksjer",
+   "title": "Magnus (33) tjente over 100 mill.: Satser «alt» på tre aksjer",
+   "title_en": null,
+   "source": "finansavisen",
+   "source_name": "Finansavisen",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "bing-no-kn",
+   "seen_via": [
+    "bing-no-kn"
+   ],
+   "published": "2026-10-08T07:19:00+00:00",
+   "fetched": "2026-10-11T02:11:44+00:00",
+   "topics": [
+    "crypto"
+   ],
+   "matched": [
+    "\\bkrypto(?!graf)\\w*"
+   ],
+   "paywall": true,
+   "status": "pending",
+   "summary": null,
+   "published_unverified": true
+  },
+  {
    "id": "4715a80bdccb",
    "url": "https://www.nt.se/nyheter/norrkoping/artikel/tre-man-atalas-for-forsok-till-utpressning-i-aby/r5pqgg3j",
    "title": "Påstådd skuld bakom hotfulla utpressningsförsöket i Åby",
@@ -64,7 +269,8 @@
    "language": "Swedish",
    "via": "dagens-nyheter",
    "seen_via": [
-    "dagens-nyheter"
+    "dagens-nyheter",
+    "bing-se"
    ],
    "published": "2026-10-07T17:09:32+00:00",
    "fetched": "2026-10-08T02:28:44+00:00",
@@ -220,7 +426,8 @@
    "language": "Norwegian",
    "via": "kryptonytt",
    "seen_via": [
-    "kryptonytt"
+    "kryptonytt",
+    "bing-no-kn"
    ],
    "published": "2026-10-07T12:00:00+00:00",
    "topics": [
@@ -250,7 +457,8 @@
    "language": "Norwegian",
    "via": "manual",
    "seen_via": [
-    "manual"
+    "manual",
+    "sagat"
    ],
    "published": "2026-10-07T10:14:12+00:00",
    "fetched": "2026-10-08T06:56:46+00:00",
@@ -575,7 +783,8 @@
    "language": "Norwegian",
    "via": "manual",
    "seen_via": [
-    "manual"
+    "manual",
+    "kaupr-kryptoaksjer"
    ],
    "published": "2026-10-05T12:00:00+00:00",
    "fetched": "2026-10-08T06:56:57+00:00",
@@ -860,7 +1069,8 @@
    "language": "Norwegian",
    "via": "kryptonytt",
    "seen_via": [
-    "kryptonytt"
+    "kryptonytt",
+    "bing-no-kn"
    ],
    "published": "2026-10-02T11:07:26+00:00",
    "topics": [
@@ -1082,7 +1292,8 @@
    "language": "Norwegian",
    "via": "kryptonytt",
    "seen_via": [
-    "kryptonytt"
+    "kryptonytt",
+    "bing-no-kn"
    ],
    "published": "2026-09-30T17:52:24+00:00",
    "topics": [
@@ -1205,7 +1416,8 @@
    "language": "Norwegian",
    "via": "kryptonytt",
    "seen_via": [
-    "kryptonytt"
+    "kryptonytt",
+    "investornytt"
    ],
    "published": "2026-09-29T15:10:28+00:00",
    "topics": [
@@ -1234,7 +1446,8 @@
    "language": "Norwegian",
    "via": "kryptonytt",
    "seen_via": [
-    "kryptonytt"
+    "kryptonytt",
+    "enogtyvetanker"
    ],
    "published": "2026-09-28T21:46:39+00:00",
    "topics": [
@@ -1266,7 +1479,8 @@
    "language": "Norwegian",
    "via": "bing-no",
    "seen_via": [
-    "bing-no"
+    "bing-no",
+    "bing-no-kn"
    ],
    "published": "2026-09-28T15:01:08+00:00",
    "fetched": "2026-10-03T15:11:52+00:00",
@@ -1385,7 +1599,8 @@
    "language": "Norwegian",
    "via": "kryptonytt",
    "seen_via": [
-    "kryptonytt"
+    "kryptonytt",
+    "bing-no-kn"
    ],
    "published": "2026-09-27T16:53:08+00:00",
    "topics": [
@@ -2444,7 +2659,10 @@
    "language": "Norwegian",
    "via": "digi-krypto",
    "seen_via": [
-    "digi-krypto"
+    "digi-krypto",
+    "digi",
+    "digi-bitcoin",
+    "bing-no-kn"
    ],
    "published": "2026-09-20T14:24:55+00:00",
    "fetched": "2026-10-03T15:11:52+00:00",
@@ -2504,7 +2722,8 @@
    "language": "Norwegian",
    "via": "kryptonytt",
    "seen_via": [
-    "kryptonytt"
+    "kryptonytt",
+    "bing-no-kn"
    ],
    "published": "2026-09-18T20:05:38+00:00",
    "topics": [
@@ -2534,7 +2753,8 @@
    "language": "Norwegian",
    "via": "kryptonytt",
    "seen_via": [
-    "kryptonytt"
+    "kryptonytt",
+    "bing-no-kn"
    ],
    "published": "2026-09-18T18:36:49+00:00",
    "topics": [
@@ -2600,7 +2820,8 @@
    "language": "Norwegian",
    "via": "kryptonytt",
    "seen_via": [
-    "kryptonytt"
+    "kryptonytt",
+    "bing-no-kn"
    ],
    "published": "2026-09-18T12:56:15+00:00",
    "topics": [
@@ -2887,7 +3108,8 @@
    "language": "Norwegian",
    "via": "kryptonytt",
    "seen_via": [
-    "kryptonytt"
+    "kryptonytt",
+    "enogtyvetanker"
    ],
    "published": "2026-09-16T21:54:43+00:00",
    "topics": [
@@ -3500,7 +3722,8 @@
    "language": "Norwegian",
    "via": "kryptonytt",
    "seen_via": [
-    "kryptonytt"
+    "kryptonytt",
+    "kaupr-no"
    ],
    "published": "2026-09-08T12:00:00+00:00",
    "topics": [
@@ -3606,5 +3829,5 @@
    "summary_i18n_review": "approved"
   }
  ],
- "updated": "2026-10-08T06:57:05+00:00"
+ "updated": "2026-10-12T02:13:03+00:00"
 }
