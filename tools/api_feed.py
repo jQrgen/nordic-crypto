@@ -2403,6 +2403,20 @@ def docs_fragment(index):
 <p class="lead">A public JSON feed of the site, for apps and for other tools. No account and no API key. It is regenerated whenever the site is built.</p>
 <p class="meta">Version 1. {html.escape(str(counts.get('news', 0)))} news items, {html.escape(str(counts.get('newsletters', 0)))} newsletter issues, {html.escape(str(counts.get('events', 0)))} events and {html.escape(str(counts.get('talks', 0)))} talks in this build. Generated {html.escape(index.get('generated_at') or '')}.</p>
 <div class="prose">
+<h2 id="lightning">Bitcoin Lightning node</h2>
+<p>Nordic Crypto runs a Bitcoin Lightning node. The alias is Nordic Crypto. The implementation is LND, in Neutrino light mode. No account and no API key.</p>
+<div class="tablewrap"><table class="list" id="lightning-status"><thead><tr><th>Node</th><th>Status</th><th class="wide">Implementation</th></tr></thead><tbody>
+<tr><td>Bitcoin<br>Nordic Crypto</td><td>syncing / not yet open for channels</td><td class="wide">LND (Neutrino light mode)</td></tr>
+</tbody></table></div>
+<p class="meta">The status line is written into this static page and does not update itself. Live status: <a href="https://amboss.space/node/0225974bb701101a5d4352dcae0f76aa9c1388e482a666e892f462e0e0e4217dd9" rel="noopener">Amboss</a> and <a href="https://1ml.com/node/0225974bb701101a5d4352dcae0f76aa9c1388e482a666e892f462e0e0e4217dd9" rel="noopener">1ML</a>.</p>
+<p>Node URI. Copy a line. The first line is IPv4. The second line is the same node on IPv6, <code>[2a01:4f8:c01e:36d9::1]:9735</code>.</p>
+<!-- The @ in the IPv4 node URI is &#64; in the file. The privacy gate would otherwise read pubkey@host as an email address. The page shows @, and copying the line includes it. -->
+<pre>0225974bb701101a5d4352dcae0f76aa9c1388e482a666e892f462e0e0e4217dd9&#64;91.99.122.75:9735
+0225974bb701101a5d4352dcae0f76aa9c1388e482a666e892f462e0e0e4217dd9@[2a01:4f8:c01e:36d9::1]:9735</pre>
+<p>Pubkey.</p>
+<pre>0225974bb701101a5d4352dcae0f76aa9c1388e482a666e892f462e0e0e4217dd9</pre>
+<p>On-chain deposit address.</p>
+<pre>bc1p7zgqhev2zzn45mefzq59gq983379lr0rsymhl558rza9k05y7vsq9mglx7</pre>
 <h2 id="electrum">Electrum servers (BCH and Nexa)</h2>
 <p>Nordic Crypto runs <a href="https://nexa.gitlab.io/rostrum/" rel="noopener">Rostrum</a> Electrum servers for Bitcoin Cash and Nexa. Wallets and apps can read balances, transactions, UTXOs, tokens and the chain tip from them, and broadcast transactions. No account and no API key.</p>
 <div class="tablewrap"><table class="list" id="electrum-status" aria-live="polite"><thead><tr><th>Server</th><th>Status</th><th>Block height</th><th class="wide">Response</th><th class="wide">Version</th></tr></thead><tbody>
