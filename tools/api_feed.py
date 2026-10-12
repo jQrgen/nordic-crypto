@@ -2382,8 +2382,32 @@ def _electrum_status_js():
     return _ELECTRUM_STATUS_JS
 
 
-def docs_fragment(index):
+def docs_strings(lang="en"):
+    """API docs page strings for one site language (tools/api_docs_i18n/<lang>.py). Missing keys fall back to English."""
+    import importlib
+    base = dict(importlib.import_module("api_docs_i18n.en").S)
+    if lang != "en":
+        try:
+            base.update(importlib.import_module(f"api_docs_i18n.{lang}").S)
+        except ImportError:
+            pass
+    return base
+
+
+def docs_fragment(index, lang="en"):
+    """The /api/ page body in one site language. Prose is translated; paths, field names, code and URLs are not."""
+    from string import Template
     b = index["bases"]["github_pages"]
+    counts = index.get("counts") or {}
+    T = docs_strings(lang)
+    eb = html.escape(b)
+    vals = dict(b=eb, tg=html.escape(SITE_TELEGRAM_URL), tgu=SITE_TELEGRAM_URL, x=html.escape(SITE_X_URL), xu=SITE_X_URL,
+                news=html.escape(str(counts.get("news", 0))), letters=html.escape(str(counts.get("newsletters", 0))),
+                events=html.escape(str(counts.get("events", 0))), talks=html.escape(str(counts.get("talks", 0))),
+                gen=html.escape(index.get("generated_at") or ""))
+    def t(k, esc=False):
+        v = Template(T[k]).safe_substitute(vals)
+        return html.escape(v) if esc else v
     def row(ep):
         return (
             f"<tr><td><a href=\"{html.escape(ep['url'])}\"><code>{html.escape(ep['path'])}</code></a></td>"
@@ -2397,72 +2421,72 @@ def docs_fragment(index):
         if ep.get("example_url") and ep["id"] == "api-v1-newsletters":
             one = ep["example_url"]
     one_line = f"\ncurl -fsS {one}" if one else ""
-    counts = index.get("counts") or {}
+    st = f' data-checking="{t("st_checking", True)}" data-up="{t("st_up", True)}" data-down="{t("st_down", True)}" data-timeout="{t("st_timeout", True)}" data-closed="{t("st_closed", True)}" data-error="{t("st_error", True)}" data-notip="{t("st_notip", True)}"'
     return f"""{site_css.style("api-docs")}
-<h1>Nordic Crypto data API</h1>
-<p class="lead">A public JSON feed of the site, for apps and for other tools. No account and no API key. It is regenerated whenever the site is built.</p>
-<p class="meta">Version 1. {html.escape(str(counts.get('news', 0)))} news items, {html.escape(str(counts.get('newsletters', 0)))} newsletter issues, {html.escape(str(counts.get('events', 0)))} events and {html.escape(str(counts.get('talks', 0)))} talks in this build. Generated {html.escape(index.get('generated_at') or '')}.</p>
+<h1>{t("h1")}</h1>
+<p class="lead">{t("lead")}</p>
+<p class="meta">{t("meta")}</p>
 <div class="prose">
-<h2 id="electrum">Electrum servers (BCH and Nexa)</h2>
-<p>Nordic Crypto runs <a href="https://nexa.gitlab.io/rostrum/" rel="noopener">Rostrum</a> Electrum servers for Bitcoin Cash and Nexa. Wallets and apps can read balances, transactions, UTXOs, tokens and the chain tip from them, and broadcast transactions. No account and no API key.</p>
-<div class="tablewrap"><table class="list" id="electrum-status" aria-live="polite"><thead><tr><th>Server</th><th>Status</th><th>Block height</th><th class="wide">Response</th><th class="wide">Version</th></tr></thead><tbody>
+<h2 id="electrum">{t("h_electrum")}</h2>
+<p>{t("electrum_intro")}</p>
+<div class="tablewrap"><table class="list" id="electrum-status" aria-live="polite"{st}><thead><tr><th>{t("th_server", True)}</th><th>{t("th_status", True)}</th><th>{t("th_height", True)}</th><th class="wide">{t("th_response", True)}</th><th class="wide">{t("th_version", True)}</th></tr></thead><tbody>
 <tr data-url="wss://electrum-bch.nordiccrypto.no:50004"><td>Bitcoin Cash<br><code class="url">wss://electrum-bch.nordiccrypto.no:50004</code></td><td data-f="state">–</td><td data-f="height">–</td><td data-f="ms" class="wide">–</td><td data-f="version" class="wide">–</td></tr>
 <tr data-url="wss://electrum-nexa.nordiccrypto.no:20004"><td>Nexa<br><code class="url">wss://electrum-nexa.nordiccrypto.no:20004</code></td><td data-f="state">–</td><td data-f="height">–</td><td data-f="ms" class="wide">–</td><td data-f="version" class="wide">–</td></tr>
 </tbody></table></div>
-<p class="meta">Your browser asks each server for its version and chain tip when this page opens. Response is the time for the tip request. <button type="button" id="electrum-recheck" hidden>Check again</button></p>
+<p class="meta">{t("electrum_note")} <button type="button" id="electrum-recheck" hidden>{t("electrum_recheck", True)}</button></p>
 <script>{_electrum_status_js()}</script>
-<p>They speak the Electrum protocol (JSON-RPC) on the standard ports: WebSocket with TLS (<code>wss</code>) on 20004 for Nexa and 50004 for Bitcoin Cash, and TLS over TCP on 20002 for Nexa and 50002 for Bitcoin Cash. Unencrypted ports are not offered. In a client library, give the host, the port and the scheme (<code>wss</code> or <code>tcp_tls</code>). The methods are listed in the <a href="https://nexa.gitlab.io/rostrum/protocol/methods" rel="noopener">Rostrum protocol documentation</a>.</p>
+<p>{t("electrum_ports")}</p>
 <pre>websocat wss://electrum-bch.nordiccrypto.no:50004
 {{"id":1,"method":"blockchain.headers.subscribe","params":[]}}</pre>
-<p>The servers run their own full nodes (Bitcoin Cash Node and Nexa), so their answers do not depend on a third party. A client that does no SPV checks still trusts us for what the chain contains. There is no uptime guarantee. Keep a second server in your list and move on when one does not answer within a few seconds.</p>
-<h2 id="start">Start here</h2>
+<p>{t("electrum_trust")}</p>
+<h2 id="start">{t("h_start")}</h2>
 <ul>
-<li><a href="{html.escape(b)}api/v1/index.json">Discovery</a> — every endpoint and example URL.</li>
-<li><a href="{html.escape(b)}api/v1/openapi.json">OpenAPI</a> (also <a href="{html.escape(b)}api/v1/openapi.yaml">YAML</a>).</li>
-<li><a href="{html.escape(b)}llms.txt">llms.txt</a> — plain-language instructions.</li>
-<li><a href="{html.escape(b)}.well-known/api-catalog">API catalog</a> (RFC 9727 linkset; <a href="{html.escape(b)}.well-known/api-catalog.json">.json copy</a>).</li>
+<li><a href="{eb}api/v1/index.json">{t("start_discovery")}</a> — {t("start_discovery_d")}</li>
+<li><a href="{eb}api/v1/openapi.json">OpenAPI</a> ({t("start_openapi_also")} <a href="{eb}api/v1/openapi.yaml">YAML</a>).</li>
+<li><a href="{eb}llms.txt">llms.txt</a> — {t("start_llms_d")}</li>
+<li><a href="{eb}.well-known/api-catalog">{t("start_catalog")}</a> ({t("start_catalog_d")} <a href="{eb}.well-known/api-catalog.json">{t("start_catalog_copy")}</a>).</li>
 </ul>
-<h2 id="fetch">Fetch news and a newsletter</h2>
+<h2 id="fetch">{t("h_fetch")}</h2>
 <pre>curl -fsS {news}
 curl -fsS {letters}{html.escape(one_line)}</pre>
-<p>Absolute URLs use the public site, at the domain root: <code>{html.escape(b)}api/v1/news.json</code>.</p>
-<h2 id="markets">Market prices</h2>
-<p>Nordic exchange prices are market data, not investment advice. <a href="{html.escape(b)}api/v1/markets.json"><code>/api/v1/markets.json</code></a> lists each pair with symbol, base, quote, last, bid and ask when the exchange publishes them, the exchange id, name and country, <code>fetched_at</code>, the source URL, and volume when the exchange published it. <code>volume_base</code> is the base asset with no named window (Firi). <code>volume_base_24h</code> and <code>volume_quote_24h</code> are the last 24 hours (NBX). A missing volume is null, not zero. Quotes are NOK, SEK, DKK and EUR. One exchange is <a href="{html.escape(b)}api/v1/markets/firi.json"><code>/api/v1/markets/{{exchange}}.json</code></a> (<code>firi</code>, <code>nbx</code>, <code>coinmotion</code>). One asset is <a href="{html.escape(b)}api/v1/markets/by-asset/BTC.json"><code>/api/v1/markets/by-asset/{{symbol}}.json</code></a>. Venues without a public ticker are listed under <code>skipped</code> and are not given a made-up price.</p>
-<p><a href="{html.escape(b)}api/v1/markets/aggregated.json"><code>/api/v1/markets/aggregated.json</code></a> is one row per pair. BTC-NOK is not averaged with BTC-EUR. <code>last</code> is the arithmetic mean of published last prices. <code>mid</code> is the mean of (bid+ask)/2 and is not mixed into <code>last</code>. <code>price</code> equals <code>last</code> when any last exists, otherwise <code>mid</code>. <code>min</code> and <code>max</code> use that same series. There is no VWAP. Volume is summed only inside the same field and the same pair. <code>logo_url</code> is an SVG from <a href="https://github.com/spothq/cryptocurrency-icons" rel="noopener">cryptocurrency-icons</a> (CC0 1.0) when that set includes the asset, served at <code>/api/v1/markets/logos/{{symbol}}.svg</code>, and null otherwise. The per-asset file repeats <code>aggregated</code> and the logo.</p>
-<p>The build fetches the exchanges. <code>.github/workflows/markets-refresh.yml</code> rewrites the JSON on gh-pages about once an hour, including the aggregated file and the icons. The markets page reloads this file, and refreshes Firi and Coinmotion in the browser because those APIs send <code>Access-Control-Allow-Origin: *</code>. NBX does not, so those rows follow the file. The same document on the gh-pages branch: <a href="https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json">raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json</a>.</p>
-<pre>curl -fsS {html.escape(b)}api/v1/markets.json
-curl -fsS {html.escape(b)}api/v1/markets/aggregated.json</pre>
-<h2 id="stats">Visitor stats</h2>
-<p>Aggregate visits and page views from Cloudflare Web Analytics (no cookies). <a href="{html.escape(b)}api/v1/stats.json"><code>/api/v1/stats.json</code></a> lists <code>daily</code>, <code>weekly</code> (ISO) and <code>monthly</code> rows with <code>visits</code> and <code>pageviews</code> only. Days are UTC. The file is empty until the Web Analytics site and the refresh token are configured. <code>.github/workflows/stats-refresh.yml</code> rewrites it on gh-pages about once a day.</p>
-<pre>curl -fsS {html.escape(b)}api/v1/stats.json</pre>
-<h2 id="talks">Talks</h2>
-<p>Public talks on bitcoin, cryptocurrencies and blockchain held in Norway, Sweden, Denmark, Finland, Iceland, the Faroe Islands, Greenland and Åland are at <a href="{html.escape(b)}api/v1/talks.json"><code>/api/v1/talks.json</code></a>, newest first. One talk is <code>/api/v1/talks/{{id}}.json</code>. One country is <a href="{html.escape(b)}api/v1/talks/by-country/NO.json"><code>/api/v1/talks/by-country/{{country}}.json</code></a> (<code>NO</code>, <code>SE</code>, <code>DK</code>, <code>FI</code>, <code>IS</code>, <code>FO</code>, <code>GL</code>, <code>AX</code>). <code>description</code> is ours. <code>title</code>, dates, duration, channel and speakers come from the platform at <code>source_url</code>. A field the platform did not state is null. <code>embed</code> is true only when that platform's oEmbed response includes a player. The HTML page loads the player after a click: YouTube via youtube-nocookie.com, Vimeo via player.vimeo.com. <code>event_id</code> and <code>calendar_event_id</code> are the same event id when the talk is linked. That event is <code>/api/v1/events/{{id}}.json</code> (and <code>/api/v1/events/previous.json</code> when it is a past event) and the page is <code>/calendar/{{id}}/</code>. <code>talk_ids</code> on the event lists those talks. <code>unlink_reason</code> is set when the video page did not state a day or a place, and <code>event_id</code> is then null. <code>speaker_ids</code> are who's who ids in the same order as <code>speakers</code>. The person, at <code>/api/v1/orgchart/{{id}}.json</code>, lists those talks and any affiliation the talk page stated.</p>
-<h2 id="outlets">Several outlets, one story</h2>
-<p>A story keeps one primary outlet. Other outlets that covered the same event are in <code>also_covered_by</code>. <code>sources</code> lists the primary first, then the others. Each outlet has <code>outlet</code>, <code>outlet_name</code>, <code>url</code>, <code>title</code> (that outlet's headline), <code>published</code>, <code>lang</code>, <code>country</code>, <code>source_type</code> and <code>logo</code>. <code>source_type</code> is <code>national</code>, <code>regional</code> (regional and local), <code>official</code> (justice and official: police, prosecutors, courts, regulators) or <code>international</code>. <code>coverage.count</code> is the number of outlets. <code>coverage.by_country</code> and <code>coverage.by_source_type</code> are the counts and shares for the bars. Every source type is present, including a count of zero. <code>html_url</code> is our page for that story. <code>url</code> is the primary outlet. Kaupr stays a news source only.</p>
-<h2 id="events">Events</h2>
-<p>Upcoming and past events are in <a href="{html.escape(b)}api/v1/events.json"><code>/api/v1/events.json</code></a>. Luma calendars are taken from the public Subscribe iCal URL on each event source (<code>ics</code>). Luma city pages, category pages and the discover API are not used. An individual Luma event page is schema.org JSON-LD. Eventbrite organizers and venues are read with the v3 API when the server has <code>EVENTBRITE_TOKEN</code>. That token is not in this feed and is not committed. Without it, the event page JSON-LD is used. The same title, date and venue is one event. Finished events stay in the feed. <code>description.text</code> is the organiser's own wording, <code>description.lang</code> is the language of that text, and <code>description.source_url</code> is the page it came from. <code>description.i18n</code> holds a translation where we have one. The field is null when the source had no description. Predatory conference listings are not a source. Kaupr is never a sponsor.</p>
-<h2 id="languages">Languages</h2>
-<p>English is the default field (<code>summary</code>, <code>title</code>, <code>text</code>). Translations that we have published sit in <code>summary_i18n</code>, <code>title_i18n</code>, <code>subtitle_i18n</code>, <code>note_i18n</code>, <code>text_i18n</code> and <code>about_i18n</code>, keyed by <code>nn</code>, <code>nb</code>, <code>sv</code>, <code>da</code>, <code>fi</code> and <code>is</code>. Other site languages use the English field until a translation is published. On a news item, <code>title</code> stays the source headline, <code>title_en</code> is our English headline and <code>title_i18n</code> is our headline in the Nordic site languages. The pages show the page-language headline first and the source headline underneath when they differ. Each outlet's own headline, inside <code>sources</code>, stays in that outlet's language. Dates are ISO 8601.</p>
-<p><a href="{html.escape(b)}api/v1/languages.json"><code>/api/v1/languages.json</code></a> lists every site language with <code>code</code>, <code>native_name</code>, <code>english_name</code>, <code>rtl</code>, <code>html_lang</code> and <code>home</code>. <a href="{html.escape(b)}api/v1/geo-language.json"><code>/api/v1/geo-language.json</code></a> is the country-to-language guess used on a first visit. The IP country comes from the tipworker <code>GET /api/geo</code> (Cloudflare <code>request.cf.country</code>). Nothing is stored. The <code>nc_lang</code> cookie, set by the language switcher, always wins.</p>
-<h2 id="logos">Source logos</h2>
-<p>Each outlet in <a href="{html.escape(b)}api/v1/sources.json"><code>/api/v1/sources.json</code></a> has <code>logo_url</code> (absolute PNG or WebP URL, never SVG, or <code>null</code>) and <code>logo</code> (<code>kind</code>, <code>file_url</code> (the original, SVG or WebP), <code>raster_url</code> (same as <code>logo_url</code>), <code>source_url</code>, <code>author</code>, <code>license</code>, <code>license_url</code>, <code>credit</code>, or <code>null</code>). Each news item has <code>source_logo_url</code>, so an app can show the outlet's logo next to the headline. Logos come from Wikimedia Commons (with the licence) or the publisher's own site. They are the publishers' trademarks, shown only to identify the source of a headline. A logo stays <code>null</code> until the editor has checked it.</p>
-<h2 id="cors">CORS</h2>
-<p>GitHub Pages sends <code>Access-Control-Allow-Origin: *</code> on these files, so a page on another site can <code>fetch()</code> them. GitHub Pages does not apply a custom headers file. Use the <code>.json</code> file name; opening a directory does not return the JSON.</p>
-<h2 id="editorial">Editorial</h2>
-<p>The sign-off is The Nordic Crypto team. Kaupr (kaupr.io) is a news source only and is never a sponsor. Nothing here is investment advice.</p>
-<h2 id="brand">Brand accounts</h2>
-<p><code>ios</code> in <a href="{html.escape(b)}api/v1/meta.json"><code>/api/v1/meta.json</code></a> is the public TestFlight invite for the Nordic Crypto iOS app. There is no App Store listing. <code>apple_tv</code> says the TestFlight version especially supports Apple TV. <code>apple_tv_i18n</code> has that short sentence in every site language. The brand name stays Nordic Crypto.</p>
-<p><a href="{html.escape(b)}api/v1/meta.json"><code>/api/v1/meta.json</code></a> includes <code>social</code> for the iOS app. <code>social.telegram</code> is the Nordic Crypto chat at <a href="{SITE_TELEGRAM_URL}">{html.escape(SITE_TELEGRAM_URL)}</a>. <code>social.x</code> is the brand account at <a href="{SITE_X_URL}">{html.escape(SITE_X_URL)}</a> (<code>@xcryptonordic</code>), also listed as <code>urls.x</code>. <code>urls.telegram</code> repeats the chat URL. <code>urls.rss</code> is the English story feed at <a href="{html.escape(b)}rss.xml"><code>/rss.xml</code></a>. Each language home has its own <code>rss.xml</code>. <code>urls.newsletter</code> is the signup page on this site. <code>label</code> is the short name (<code>Telegram</code>, <code>X</code>). <code>name</code> is the English link text. <code>name_i18n</code> has <code>nn</code>, <code>nb</code>, <code>sv</code>, <code>da</code>, <code>fi</code> and <code>is</code>. Other site languages use <code>name</code>.</p>
-<h2 id="notifications">Browser notifications</h2>
-<p>When <code>workers/push/public.json</code> has a Worker URL, a button at the bottom of each page is Web Push. Until then the page says the service is not switched on and does not call a Worker. Subscriptions live on a Cloudflare Worker, not in this static feed. After a publish, <code>GET /api/push/feed.json</code> on that Worker lists the same batches (title, short summary, URL, country, and translations when we have them). One publish is one batch. The document says <code>"apns": "not implemented"</code>: Apple Push Notification service is out of scope. An iOS app can poll the feed. The Worker URL is set when <code>workers/push/</code> is deployed; it is not a path on this site. Subscriptions are not in the feed. This API's <a href="{html.escape(b)}api/v1/news.json"><code>/api/v1/news.json</code></a> remains the full published list.</p>
-<h2 id="endpoints">Endpoints</h2>
-<p>Every endpoint is a plain GET of a static JSON file.</p>
-<div class="tablewrap"><table class="list"><thead><tr><th>Path</th><th>Returns</th></tr></thead><tbody>
+<p>{t("fetch_abs")}</p>
+<h2 id="markets">{t("h_markets")}</h2>
+<p>{t("markets_1")}</p>
+<p>{t("markets_2")}</p>
+<p>{t("markets_3")}</p>
+<pre>curl -fsS {eb}api/v1/markets.json
+curl -fsS {eb}api/v1/markets/aggregated.json</pre>
+<h2 id="stats">{t("h_stats")}</h2>
+<p>{t("stats")}</p>
+<pre>curl -fsS {eb}api/v1/stats.json</pre>
+<h2 id="talks">{t("h_talks")}</h2>
+<p>{t("talks")}</p>
+<h2 id="outlets">{t("h_outlets")}</h2>
+<p>{t("outlets")}</p>
+<h2 id="events">{t("h_events")}</h2>
+<p>{t("events")}</p>
+<h2 id="languages">{t("h_languages")}</h2>
+<p>{t("languages_1")}</p>
+<p>{t("languages_2")}</p>
+<h2 id="logos">{t("h_logos")}</h2>
+<p>{t("logos")}</p>
+<h2 id="cors">{t("h_cors")}</h2>
+<p>{t("cors")}</p>
+<h2 id="editorial">{t("h_editorial")}</h2>
+<p>{t("editorial")}</p>
+<h2 id="brand">{t("h_brand")}</h2>
+<p>{t("brand_1")}</p>
+<p>{t("brand_2")}</p>
+<h2 id="notifications">{t("h_notifications")}</h2>
+<p>{t("notifications")}</p>
+<h2 id="endpoints">{t("h_endpoints")}</h2>
+<p>{t("endpoints")}</p>
+<div class="tablewrap"><table class="list"><thead><tr><th>{t("th_path", True)}</th><th>{t("th_returns", True)}</th></tr></thead><tbody>
 {rows}
 </tbody></table></div>
-<h2 id="not-included">Not included</h2>
-<p>Drafts, the editor queue, rejected stories, reader tips, newsletter subscriber addresses, the analytics token, and private personal data are not in this feed. An unknown id is a normal site 404, not a JSON error.</p>
-<p class="meta">Field names in version 1 stay. New fields may appear. A breaking change would use a new path.</p>
+<h2 id="not-included">{t("h_not_included")}</h2>
+<p>{t("not_included")}</p>
+<p class="meta">{t("stability")}</p>
 </div>"""
 
 
