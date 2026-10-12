@@ -128,6 +128,41 @@ test("webhook gets the stored tip", async () => {
   assert.equal(JSON.parse(seen[0].init.body).tip.language, "nb");
 });
 
+test("onion forwarder: bearer skips Turnstile, shared rate key, onion page", async () => {
+  const db = fresh();
+  const e = env(db, { TIP_TEST: "0", ONION_INGEST_TOKEN: "onion-secret-1" });
+  const onionPage = "http://" + "a".repeat(56) + ".onion/sv/";
+  const body = good({ "cf-turnstile-response": "", page: onionPage });
+  const ok = await call(db, "/api/private-tip", { method: "POST", body, origin: null, token: "onion-secret-1", ip: IP, e });
+  assert.equal(ok.status, 201);
+  assert.equal(db.prepare("SELECT page FROM private_tips").get().page, onionPage);
+  const blob = JSON.stringify(db.prepare("SELECT * FROM private_tips").all()) + JSON.stringify(db.prepare("SELECT h FROM rate_hits").all());
+  assert.ok(!blob.includes(IP), "the VPS address is not stored");
+  const hashes = db.prepare("SELECT h FROM rate_hits").all().map((r) => r.h);
+  assert.ok(hashes.every((h) => /^private:[0-9a-f]{64}$/.test(h)), "onion posts use the private scope");
+  const wrong = await call(db, "/api/private-tip", { method: "POST", body, origin: null, token: "nope", e });
+  assert.equal(wrong.status, 400, "without the bearer the onion page is not a valid page");
+  const same = env(db, { TIP_TEST: "0", ONION_INGEST_TOKEN: READ });
+  assert.equal((await call(db, "/api/private-tip", { method: "POST", body, origin: null, token: READ, e: same })).status, 400,
+    "ingest token equal to the read token is refused");
+  assert.ok(pageOk("/da/", ORIGINS, true)); assert.ok(!pageOk("/da/", ORIGINS));
+  assert.ok(!pageOk("https://" + "a".repeat(56) + ".onion/", ORIGINS, true));
+});
+
+test("onion forwarder shares one key at 60 per 10 minutes", async () => {
+  const db = fresh();
+  const e = env(db, { TIP_TEST: "0", ONION_INGEST_TOKEN: "onion-secret-1" });
+  const body = good({ "cf-turnstile-response": "", page: "/en/" });
+  for (let i = 0; i < PLIMITS.onionRate; i++) {
+    const r = await call(db, "/api/private-tip", { method: "POST", body, origin: null, token: "onion-secret-1", ip: `198.51.100.${i % 200}`, e });
+    assert.equal(r.status, 201, "post " + i);
+  }
+  assert.equal((await call(db, "/api/private-tip", { method: "POST", body, origin: null, token: "onion-secret-1", ip: "203.0.113.9", e })).status, 429);
+  const rows = db.prepare("SELECT h FROM rate_hits").all().map((r) => r.h);
+  assert.equal(new Set(rows).size, 1, "every onion post shares one rate key");
+  assert.equal(db.prepare("SELECT COUNT(*) AS n FROM rate_hits").get().n, PLIMITS.onionRate);
+});
+
 // Rate-limit scopes: tip, private and subscribe each have their own bucket, and private tips count only after Turnstile.
 function freshAll() {
   const db = new DatabaseSync(":memory:");

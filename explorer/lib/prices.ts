@@ -62,9 +62,3 @@ export function fiatAmount(coins: number, unitPrice: number | null): number | nu
   if (unitPrice == null || !Number.isFinite(unitPrice)) return null;
   return coins * unitPrice;
 }
-
-/** Fiat value of a sat/byte rate, quoted per kilobyte. */
-export function fiatPerKilobyte(satPerByte: number, subunits: number, unitPrice: number | null): number | null {
-  if (unitPrice == null || !Number.isFinite(satPerByte) || subunits <= 0) return null;
-  return (satPerByte * 1000 * unitPrice) / subunits;
-}

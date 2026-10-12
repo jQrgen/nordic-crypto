@@ -5,7 +5,7 @@ import { UnreachableError, connectChain, type Connector, type Session, type Sock
 import { parseBchHeader, parseNexaHeader } from "../lib/headers";
 import { hexToBytes } from "../lib/bytes";
 import { loadAddress, loadOverview } from "../lib/load";
-import { fiatAmount, fiatPerKilobyte, parseGecko } from "../lib/prices";
+import { fiatAmount, parseGecko } from "../lib/prices";
 import { estimateSatPerByte, mapHistogram, mapTransaction, minerFromCoinbase, printableText } from "../lib/protocol";
 
 const BCH_HEADER =
@@ -131,7 +131,6 @@ test("coinbase text is taken from the script and nowhere else", () => {
 test("fiat is omitted when the quote is missing", () => {
   assert.equal(fiatAmount(1.5, null), null);
   assert.equal(fiatAmount(2, 10), 20);
-  assert.equal(fiatPerKilobyte(2, 100_000_000, 100), 0.002);
   const book = parseGecko({
     "bitcoin-cash": { usd: 271.14, usd_24h_change: -4.5, nok: 2597.91, nok_24h_change: null },
     nexa: { usd: 0.0012, usd_24h_change: null },

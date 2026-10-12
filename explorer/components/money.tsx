@@ -2,8 +2,8 @@
 
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 import { chains } from "@/lib/chains";
-import { formatCoin, formatFiat, formatSatPerByte, formatUnitPrice } from "@/lib/format";
-import { fiatAmount, fiatPerKilobyte, loadPrices, type PriceBook } from "@/lib/prices";
+import { formatCoin, formatFeeRateLabel, formatFiat, formatSatPerByte, formatUnitPrice } from "@/lib/format";
+import { fiatAmount, loadPrices, type PriceBook } from "@/lib/prices";
 import type { ChainId, Fiat } from "@/lib/types";
 import { usePrefs } from "./prefs";
 
@@ -77,15 +77,16 @@ export function UsdPrice({ chainId }: { chainId: ChainId }) {
   return <>{formatUnitPrice(price, "USD")}</>;
 }
 
-/** Fee rate, with the live fiat value of one kilobyte at that rate when a price is known. */
+/** Sat/byte, plus the fiat cost of a ~250 byte transaction at the live coin price. */
 export function FeeRate({ satPerByte, chainId }: { satPerByte: number; chainId: ChainId }) {
   const { fiat } = usePrefs();
   const price = useUnitPrice(chainId, fiat);
-  const fiatValue = fiatPerKilobyte(satPerByte, chains[chainId].subunits, price);
+  const rate = formatSatPerByte(satPerByte);
+  const { quote, note } = formatFeeRateLabel(rate, price ?? Number.NaN, fiat, undefined, chains[chainId].subunits);
   return (
-    <>
-      {formatSatPerByte(satPerByte)}
-      {fiatValue != null ? <> · {formatFiat(fiatValue, fiat)}/kB</> : null}
-    </>
+    <span className="feerate">
+      {quote}
+      {note ? <span className="muted"> {note}</span> : null}
+    </span>
   );
 }

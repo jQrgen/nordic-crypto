@@ -179,7 +179,22 @@ export function TxView({ tx }: { tx: TxModel }) {
             <Link href={blockHref(tx.chain, tx.blockHeight)}>{formatNumber(tx.blockHeight)}</Link>. {tx.time ? formatWhen(tx.time) : null}
           </>
         ) : (
-          <>In the mempool. It is not in a block yet.</>
+          <>
+            In the mempool. It is not in a block yet.
+            {tx.fee != null ? (
+              <>
+                {" "}
+                Fee <CoinWithFiat coin={tx.fee} chainId={tx.chain} />
+                {tx.satPerByte != null ? (
+                  <>
+                    {" · "}
+                    <FeeRate satPerByte={tx.satPerByte} chainId={tx.chain} />
+                  </>
+                ) : null}
+                .
+              </>
+            ) : null}
+          </>
         )}
       </p>
       <div className="hashrow">
@@ -207,13 +222,19 @@ export function TxView({ tx }: { tx: TxModel }) {
         <div>
           <dt>Fee</dt>
           <dd>
-            {tx.fee == null ? "Not reported" : <CoinWithFiat coin={tx.fee} chainId={tx.chain} />}
-            {tx.satPerByte != null ? (
+            {tx.fee == null ? (
+              "Not reported"
+            ) : (
               <>
-                {" · "}
-                <FeeRate satPerByte={tx.satPerByte} chainId={tx.chain} />
+                <CoinWithFiat coin={tx.fee} chainId={tx.chain} />
+                {tx.satPerByte != null ? (
+                  <>
+                    {" · "}
+                    <FeeRate satPerByte={tx.satPerByte} chainId={tx.chain} />
+                  </>
+                ) : null}
               </>
-            ) : null}
+            )}
           </dd>
         </div>
         <div>

@@ -50,6 +50,76 @@ export function formatFiat(value: number, fiat: Fiat) {
   return `${body} ${FIAT_LABEL[fiat]}`;
 }
 
+/** Bytes assumed when a fee rate is turned into a transaction cost. */
+export const TYPICAL_TX_BYTES = 250;
+
+/** Stated wherever a fee-rate fiat estimate is shown. */
+export const TYPICAL_TX_NOTE = `for a ~${TYPICAL_TX_BYTES} byte transaction`;
+
+const SATS_PER_COIN = 100_000_000;
+
+const LOCAL_MARK: Record<Fiat, { place: "prefix" | "suffix"; mark: string }> = {
+  NOK: { place: "suffix", mark: "kr" },
+  SEK: { place: "suffix", mark: "kr" },
+  DKK: { place: "suffix", mark: "kr" },
+  EUR: { place: "prefix", mark: "€" },
+  USD: { place: "prefix", mark: "$" },
+};
+
+/**
+ * Whole coins a transaction of `bytes` costs at this fee rate.
+ * `sat/byte` counts chain subunits (`satsPerCoin` is 1e8 on Bitcoin Cash and 100 on Nexa).
+ * Any other unit, such as `NEX/byte`, is already whole coins.
+ * Returns null when the text is not `number unit/byte`.
+ */
+export function coinCostAtFeeRate(feeRate: string, bytes = TYPICAL_TX_BYTES, satsPerCoin = SATS_PER_COIN): number | null {
+  const match = /^(\d+(?:\.\d+)?)\s+([A-Za-z]+)\/byte$/.exec(feeRate.trim());
+  if (!match) return null;
+  const perByte = Number(match[1]);
+  if (!Number.isFinite(perByte) || satsPerCoin <= 0) return null;
+  return match[2].toLowerCase() === "sat" ? (perByte * bytes) / satsPerCoin : perByte * bytes;
+}
+
+/** Amount in the currency's usual symbol, with the site's en-GB digits. */
+export function formatLocalFiat(value: number, fiat: Fiat) {
+  const abs = Math.abs(value);
+  const digits = abs === 0 || abs >= 0.01 ? 2 : 6;
+  const body = new Intl.NumberFormat("en-GB", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: digits,
+  }).format(value);
+  const { place, mark } = LOCAL_MARK[fiat];
+  return place === "prefix" ? `${mark}${body}` : `${body} ${mark}`;
+}
+
+/**
+ * `5 sat/byte · ≈ 0.12 kr`.
+ * `pricePerCoin` is the fiat price of one whole coin. The caller supplies it; this does not look a price up.
+ * An unrecognised rate, or a missing price, is returned unchanged.
+ */
+export function formatFeeRateQuote(
+  feeRate: string,
+  pricePerCoin: number,
+  fiat: Fiat,
+  bytes = TYPICAL_TX_BYTES,
+  satsPerCoin = SATS_PER_COIN,
+): string {
+  const coin = coinCostAtFeeRate(feeRate, bytes, satsPerCoin);
+  if (coin == null || !Number.isFinite(pricePerCoin)) return feeRate;
+  return `${feeRate} · ≈ ${formatLocalFiat(coin * pricePerCoin, fiat)}`;
+}
+
+export function formatFeeRateLabel(
+  feeRate: string,
+  pricePerCoin: number,
+  fiat: Fiat,
+  bytes = TYPICAL_TX_BYTES,
+  satsPerCoin = SATS_PER_COIN,
+) {
+  const quote = formatFeeRateQuote(feeRate, pricePerCoin, fiat, bytes, satsPerCoin);
+  return { quote, note: quote === feeRate ? null : TYPICAL_TX_NOTE };
+}
+
 export function formatUnitPrice(value: number, fiat: Fiat) {
   const digits = value >= 1 ? 2 : value >= 0.01 ? 4 : 8;
   const body = new Intl.NumberFormat("en-GB", {
@@ -67,7 +137,7 @@ export function formatDifficulty(value: number): string {
 }
 
 export function formatSatPerByte(satPerByte: number) {
-  const body = new Intl.NumberFormat("en-GB", { maximumFractionDigits: 2 }).format(satPerByte);
+  const body = new Intl.NumberFormat("en-GB", { maximumFractionDigits: 2, useGrouping: false }).format(satPerByte);
   return `${body} sat/byte`;
 }
 
