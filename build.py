@@ -384,8 +384,11 @@ def build_issue(iss):
 {vid}
 <div class="prose issuetext"{hla}>
 {txt}</div>
-{nl_follow_box("../../", "nl-next-h")}
-<p class="meta"><a href="../">← {E(t("nl_all_issues"))}</a> · {t("nl_write", href="../../columnist/")}</p>
+<section class="nlhome"><p><b>{E(t("nl_get_next"))}</b></p>
+{newsletter_offer("../../")}
+{community_links()}
+<p>{t("nl_write", href="../../columnist/")}</p></section>
+<p class="meta"><a href="../">← {E(t("nl_all_issues"))}</a></p>
 </article>"""
     page(slug, title, "newsletter", body, subtitle or t("nl_desc"))
 ICON_RSS = ('<svg class="ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" '
@@ -420,17 +423,17 @@ def build_newsletter():
             if light.get("avif"):
                 img = f'<picture><source type="image/avif" srcset="{src}{E(light["avif"])}">{img}</picture>'
             th = f'<a class="th" href="{E(iss["id"])}/" tabindex="-1" aria-hidden="true">{img}</a>'
-        lis.append(f'<li>{th}<div><h3{lang_attr(tl)}><a href="{E(iss["id"])}/">{E(title)}</a></h3><p class="meta">{nl_meta(iss)}</p>'
+        lis.append(f'<li>{th}<div><h3{lang_attr(tl)}><a href="{E(iss["id"])}/">{E(title)}</a></h3><div class="meta">{nl_meta(iss)}</div>'
                    f'<p class="sum"{lang_attr(sl)}>{E(subtitle)}</p></div></li>')
-    body = f"""<div class="nlpage">
-<h1>{E(t("nl_title"))}</h1>
+    body = f"""<h1>{E(t("nl_title"))}</h1>
 <p class="lead">{E(t("nl_lead"))}</p>
-{nl_follow_box("../", "nl-follow-h", privacy=True)}
-<section class="nllist" aria-labelledby="issues"><h2 id="issues">{E(t("nl_issues_h"))}</h2>
+<section id="signup">{newsletter_offer("../", privacy=True)}</section>
+{community_links()}
+<h2 id="issues">{E(t("nl_issues_h"))}</h2>
 <p class="meta">{E(t("nl_issues_lead"))}</p>
-<ol class="nlissues">{''.join(lis) or f'<li class="empty">{E(t("nl_issues_none"))}</li>'}</ol></section>
-<p class="meta nlfine">{t("nl_write", href="../columnist/")} {t("nl_kaupr")}</p>
-</div>"""
+<ol class="nlissues">{''.join(lis) or f'<li class="empty">{E(t("nl_issues_none"))}</li>'}</ol>
+<p>{t("nl_write", href="../columnist/")}</p>
+<div class="prose"><p class="meta">{t("nl_kaupr")}</p></div>"""
     page("newsletter", t("nl_title"), "newsletter", body, t("nl_desc"))
 _CFG_JSON = {}   # path -> ((mtime_ns, size), data); analytics/push config is asked for on every page
 def _cfg_json(p, d=None):
