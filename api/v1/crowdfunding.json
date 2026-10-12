@@ -1,0 +1,41 @@
+{
+ "pilot": {
+  "status": "closed",
+  "max_projects": 5,
+  "apply_email": null
+ },
+ "custody": "none: payments go straight to each project's own address; Nordic Crypto never holds keys or funds",
+ "campaigns": [
+  {
+   "id": "demo-example",
+   "demo": true,
+   "title": "Example campaign (demo, not live)",
+   "owner": "Example project owner",
+   "owner_country": "NO",
+   "owner_is_trader": false,
+   "description": "This is a sample entry that shows how a campaign will look. It is not a real project. Do not send anything to the addresses below; they are deliberately invalid.",
+   "reward": "Optional: the project describes any reward here. The project is the seller, not Nordic Crypto.",
+   "goal": {
+    "bch": 2.5,
+    "nexa": 50000000,
+    "nok_approx": null
+   },
+   "addresses": {
+    "bch": "bitcoincash:DEMO-NOT-A-REAL-ADDRESS",
+    "nexa": "nexa:DEMO-NOT-A-REAL-ADDRESS"
+   },
+   "deadline": "2026-12-31",
+   "kyc_verified": false,
+   "links": [
+    {
+     "label": "Project website (example)",
+     "url": "https://example.org/"
+    }
+   ],
+   "payment_uris": {
+    "bch": "bitcoincash:DEMO-NOT-A-REAL-ADDRESS",
+    "nexa": "nexa:DEMO-NOT-A-REAL-ADDRESS"
+   }
+  }
+ ]
+}
