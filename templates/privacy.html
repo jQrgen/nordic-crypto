@@ -4,7 +4,7 @@
 
 <h2 id="who">Who is responsible</h2>
 <p>Nordic Crypto (nordiccrypto.no and the country addresses nordiccrypto.se, .fi, .dk and .is) is run by Jørgen S. Notland (jQrgen), Oslo, who is the controller under the GDPR. To ask about your data, open an issue at <a href="https://github.com/jQrgen/nordic-crypto/issues" rel="noopener">github.com/jQrgen/nordic-crypto/issues</a>. Issues are public, so do not write personal information there; ask to be contacted and we will reply privately. You can also complain to <a href="https://www.datatilsynet.no/" rel="noopener">Datatilsynet</a>, the Norwegian Data Protection Authority, or to the authority where you live.</p>
-<p>This page covers the website. Last updated 9 October 2026. Changes are listed in the <a href="{{UP}}changelog/">changelog</a> and in the public source code.</p>
+<p>This page covers the website and, under <a href="#apps">Apps</a>, the Nordic Crypto apps. Last updated 11 October 2026. Changes are listed in the <a href="{{UP}}changelog/">changelog</a> and in the public source code.</p>
 
 <h2 id="overview">Overview</h2>
 <ul>
@@ -16,6 +16,7 @@
 <li><b>Language guess from your country</b>: {{ST_GEO}}</li>
 <li><b>Newsletter by email</b>: {{ST_NEWSLETTER}}</li>
 <li><b>Browser notifications</b>: {{ST_PUSH}}</li>
+<li><b>Notifications in the apps</b>: only when you turn them on in the app (see <a href="#apps">Apps</a>).</li>
 <li><b>Private tips</b>: {{ST_TIPS}}</li>
 <li><b>Shoutbox</b>: {{ST_CHAT}}</li>
 </ul>
@@ -73,6 +74,13 @@
 <p><b>How long.</b> Until you turn notifications off with the same button, or until the push service tells us the subscription no longer exists. Both delete it.</p>
 <p><b>Who and where.</b> Cloudflare, Inc. (Workers KV) and your browser’s push service, which may be outside the EEA.</p>
 
+<h2 id="apps">Apps: push notifications</h2>
+<p>The Nordic Crypto apps for iPhone, iPad, Mac, Apple Vision Pro, Apple TV and Android have no account, no analytics, no advertising and no tracking. They fetch the same public news files as this site. The only thing they store outside your device is what notifications need, and only after you turn notifications on in the app. Apple TV has no notifications.</p>
+<p><b>What.</b> When you turn on notifications for new stories, the app sends our push server, a Cloudflare Worker we run ourselves, the push token that Apple or Google gave the app on that device, the kind of device (iPhone, iPad, Mac, Vision Pro or Android), the countries you chose and the app’s language. The server stores these, whether the token is for Apple’s test or live push service, and when the app last checked in. No name, no email address, no IP address, no device name and no location. The token only lets us send a notification to the app on that device; we use it for nothing else and share it with no one.</p>
+<p><b>Why and legal basis.</b> Sending you one notification per new story from the countries you chose: your consent (Art. 6(1)(a)), given when you turn notifications on.</p>
+<p><b>How long.</b> Turning notifications off in the app deletes the token and your choices from the server straight away. A token that Apple or Google reports as no longer valid is deleted, and so is a device that has not checked in for 180 days. If the push server cannot be reached, the app looks for new stories itself in the public news feed and sends nothing about you anywhere.</p>
+<p><b>Who and where.</b> Cloudflare, Inc. stores the list (Cloudflare D1); request logging is off and our code does not store the IP address of a request (see <a href="#hosting">Hosting</a> for transfers). Apple (Apple Push Notification service) and Google (Firebase Cloud Messaging) deliver the notifications under their own privacy terms. On Android, Firebase also gives the app an installation id that Google uses to deliver them; the app has no Firebase Analytics. Apple Inc. and Google LLC are in the USA, outside the EEA. The full app policy, including the few other services the apps connect to, is in the <a href="https://github.com/jQrgen/nordic-crypto-tv/blob/main/support/appstore/privacy-policy.md" rel="noopener">app’s source code</a>.</p>
+
 <h2 id="tips">Private tips</h2>
 <p>Status: {{ST_TIPS}}</p>
 <p>We do not take tips in public GitHub issues. The <a href="{{UP}}tip/">tip page</a> opens only when the private inbox below is ready.</p>
@@ -90,6 +98,9 @@
 
 <h2 id="github">GitHub issues and contributions</h2>
 <p>If you open an issue or contribute on GitHub, GitHub processes your account data under its own terms, and what you write there is public. We use issues for questions about the site, not for tips.</p>
+
+<h2 id="crowdfunding">Crowdfunding pilot</h2>
+<p>Crowdfunding pilot: no donor tracking. The progress bar is read in your browser straight from public Electrum/Rostrum servers (run by Nordic Crypto or third parties, who see your IP address like any website). It asks only for the balance of the project's address; we store nothing about it. Project owners' check data (name, country, contact, sanctions-screening result) is kept by hand, only for the listing and as long as required.</p>
 
 <h2 id="rights">Your rights</h2>
 <p>You can ask for access to, correction of or deletion of data about you, object to processing based on legitimate interest, and withdraw consent at any time (unsubscribe, turn notifications off). For most of the site we hold nothing that identifies you, so there is usually nothing to look up. Contact us as described under <a href="#who">Who is responsible</a>.</p>

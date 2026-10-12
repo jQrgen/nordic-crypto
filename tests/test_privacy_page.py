@@ -22,8 +22,8 @@ def check(ok, msg):
         fails.append(msg)
 
 
-SECTIONS = ("who", "overview", "hosting", "storage", "language", "stats", "markets", "video", "newsletter", "push", "tips",
-            "chat", "github", "rights")
+SECTIONS = ("who", "overview", "hosting", "storage", "language", "stats", "markets", "video", "newsletter", "push", "apps",
+            "tips", "chat", "github", "rights")
 # Every browser-storage key the site's own scripts use must be named on the page.
 STORAGE_KEYS = ("nc_lang", "nc_auto", "nc-theme", "nc_push_countries", "nc_shout_nick")
 # Every outside host the site's pages can load or call must be named on the page.
