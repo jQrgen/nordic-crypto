@@ -1,7 +1,4 @@
-import type { ChainInfo, Fiat } from "./types";
-
-/** The clock this design was drawn against, so relative times stay stable. */
-export const AS_OF = Date.parse("2026-10-12T19:08:00.000Z");
+import type { ChainMeta, Fiat } from "./types";
 
 const FIAT_LABEL: Record<Fiat, string> = {
   NOK: "NOK",
@@ -26,7 +23,7 @@ export function formatNumber(value: number, digits = 0) {
   }).format(value);
 }
 
-export function formatCoin(amount: number, chain: Pick<ChainInfo, "ticker" | "decimals">) {
+export function formatCoin(amount: number, chain: Pick<ChainMeta, "ticker" | "decimals">) {
   const min = amount !== 0 && Math.abs(amount) < 1 ? 0 : 2;
   const body = new Intl.NumberFormat("en-GB", {
     minimumFractionDigits: Math.min(min, chain.decimals),
@@ -62,9 +59,30 @@ export function formatUnitPrice(value: number, fiat: Fiat) {
   return `${body} ${FIAT_LABEL[fiat]}`;
 }
 
-export function formatAge(iso: string | null) {
+export function formatDifficulty(value: number): string {
+  if (!Number.isFinite(value) || value <= 0) return "—";
+  if (value >= 100) return formatNumber(value, 0);
+  if (value >= 1) return formatNumber(value, 2);
+  return value.toPrecision(4);
+}
+
+export function formatSatPerByte(satPerByte: number) {
+  const body = new Intl.NumberFormat("en-GB", { maximumFractionDigits: 2 }).format(satPerByte);
+  return `${body} sat/byte`;
+}
+
+export function formatRawAmount(amount: string) {
+  if (!/^\d+$/.test(amount)) return amount;
+  try {
+    return BigInt(amount).toLocaleString("en-GB");
+  } catch {
+    return amount;
+  }
+}
+
+export function formatAge(iso: string | null, now = Date.now()) {
   if (!iso) return "Waiting";
-  const mins = Math.max(0, Math.round((AS_OF - Date.parse(iso)) / 60000));
+  const mins = Math.max(0, Math.round((now - Date.parse(iso)) / 60000));
   if (mins < 1) return "Under a minute ago";
   if (mins < 60) return `${mins} min ago`;
   const hours = Math.floor(mins / 60);

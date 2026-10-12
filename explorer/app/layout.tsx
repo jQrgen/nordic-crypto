@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     default: "Nordic Crypto Explorer",
     template: "%s · Nordic Crypto Explorer",
   },
-  description: "Design prototype of a Bitcoin Cash and Nexa explorer for explorer.nordiccrypto.no.",
+  description: "Bitcoin Cash and Nexa explorer. Figures are read in the browser from an Electrum server.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -34,7 +34,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{var t=new URLSearchParams(location.search).get("theme");if(t==="dark"||t==="light")localStorage.setItem("nc-theme",t);if(localStorage.getItem("nc-theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}`,
+            __html: `try{var t=new URLSearchParams(location.search).get("theme");if(t==="dark"||t==="light")localStorage.setItem("nc-theme",t);if(localStorage.getItem("nc-theme")==="dark")document.documentElement.setAttribute("data-theme","dark");var m=location.pathname.match(/^\\/(bch|nexa)\\/(block|tx|address|token)\\/([^/]+)\\/?$/);if(m){var key={block:"height",tx:"txid",address:"address",token:"id"}[m[2]];location.replace("/"+m[1]+"/"+m[2]+"/?"+key+"="+encodeURIComponent(decodeURIComponent(m[3])))}}catch(e){}`,
           }}
         />
       </head>

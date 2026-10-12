@@ -7,7 +7,7 @@
     "build": "next build --turbopack",
     "start": "next start -p 43123 -H 0.0.0.0",
     "lint": "eslint",
-    "test": "node --import tsx --test tests/search.test.ts"
+    "test": "node --import tsx --test tests/*.test.ts"
   },
   "dependencies": {
     "next": "^15.5.9",

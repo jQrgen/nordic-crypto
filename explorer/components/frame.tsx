@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, type ReactNode } from "react";
-import { chainOrder, chains, defaultChain, isChainId } from "@/lib/data";
+import { chainOrder, chains, defaultChain, isChainId } from "@/lib/chains";
 import type { ChainId, Fiat } from "@/lib/types";
+import { PricesProvider } from "./money";
 import { PrefsProvider, usePrefs } from "./prefs";
 
 const FIATS: Fiat[] = ["NOK", "SEK", "DKK", "EUR", "USD"];
@@ -137,9 +138,6 @@ function Shell({ chain, children }: { chain?: ChainId; children: ReactNode }) {
       </header>
       <main id="content" className="wrap" tabIndex={-1}>
         {children}
-        <p className="note">
-          Sample figures for this design, as of 12 Oct 2026, 19:08 UTC. Not live chain data, and not investment advice.
-        </p>
       </main>
       <footer className="foot">
         <div className="wrap footgrid">
@@ -164,7 +162,7 @@ function Shell({ chain, children }: { chain?: ChainId; children: ReactNode }) {
           <div>
             <h2>Read from</h2>
             <ul>
-              <li><a href="https://nordiccrypto.no/api/">Bitcoin Cash Rostrum, port 50004</a></li>
+              <li><a href="https://nordiccrypto.no/api/">Bitcoin Cash Fulcrum, port 50004</a></li>
               <li><a href="https://nordiccrypto.no/api/">Nexa Rostrum, port 20004</a></li>
               <li><a href="https://nordiccrypto.no/">nordiccrypto.no</a></li>
               <li><a href="https://github.com/jQrgen/nordic-crypto">Source on GitHub</a></li>
@@ -189,7 +187,9 @@ function Shell({ chain, children }: { chain?: ChainId; children: ReactNode }) {
 export function Frame({ chain, children }: { chain?: ChainId; children: ReactNode }) {
   return (
     <PrefsProvider>
-      <Shell chain={chain}>{children}</Shell>
+      <PricesProvider>
+        <Shell chain={chain}>{children}</Shell>
+      </PricesProvider>
     </PrefsProvider>
   );
 }
