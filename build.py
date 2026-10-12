@@ -130,7 +130,7 @@ def flags_js(inline=False): return json.dumps({c: flag(c, inline=inline) for c i
 import themes
 CSS = site_css.bundle().replace("__ROOT__", site_url.PATH)   # assets/css/*.css, in site_css.SITE order; inlined into every page. Font URLs are root-relative.
 
-# api is the human-readable docs at /api/ (English only). The href is the site root, not /<lang>/api/.
+# api is the human-readable docs: /api/ in English, /<lang>/api/ in the other site languages.
 # The first NAV_MAIN entries are the sections in the header. The rest (newsletter = the Subscribe button, and the pages
 # about the site) are in the footer columns, and all of them are in the phone menu. Chat is inserted by nav_items() only while enabled.
 NAV = [("", "nav_news"), ("calendar", "nav_calendar"), ("markets", "nav_markets"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("books", "nav_books"), ("talks", "nav_talks"), ("newsletter", "nav_newsletter"), ("sources", "nav_sources"), ("about", "nav_about"), ("tip", "nav_tip"), ("api", "nav_api")]
@@ -473,12 +473,12 @@ def langsel_script():
     if LANGSEL_JS is None: LANGSEL_JS = open(P("tools", "langselect.js"), encoding="utf-8").read()
     return LANGSEL_JS
 def _nav_html(rel, root, current):
-    """Main nav, same list on every page and in the phone menu. API docs are /api/ at the site root.
+    """Main nav, same list on every page and in the phone menu. API docs are per language like the other pages.
     Chat is included only while chat_endpoint() is set."""
     parts = []
     for i, (n, k) in enumerate(nav_items()):
         more = ' class="nav-more"' if i >= NAV_MAIN else ""
-        href = root + "api/" if n == "api" else rel + (n + "/" if n else "")
+        href = rel + (n + "/" if n else "")
         cur = " aria-current=page" if n == current else ""
         parts.append(f'<a{more} href="{href}"{cur}>{E(t(k))}</a>')
     return "".join(parts)
@@ -625,11 +625,11 @@ def site_footer(rel, root, slug=""):
     def li(href, label, ext=False, note=""):
         return (f'<li><a href="{E(href)}"{" rel=\"noopener\"" if ext else ""}>{E(label)}</a>'
                 + (f' <span class="meta">{E(note)}</span>' if note else "") + '</li>')
-    sections = "".join(li(root + "api/" if n == "api" else rel + (n + "/" if n else ""), t(k)) for n, k in nav_items()[:NAV_MAIN])
+    sections = "".join(li(rel + (n + "/" if n else ""), t(k)) for n, k in nav_items()[:NAV_MAIN])
     sections += li(rel + "developers/", t("dev_nav"))   # under Who's who; not a header tab
     site = (li(rel + "about/", t("nav_about")) + li(rel + "sources/", t("nav_sources")) + li(rel + "ethics/", t("ethics_title"))
             + li(rel + "changelog/", t("cl_title")) + li(rel + "stats/", t("vst_title")) + li(rel + "privacy/", t("pp_title")) + li(rel + "media/", t("media_title")) + li(rel + "columnist/", t("col_title"))
-            + li(rel + "tip/", t("nav_tip")) + li(root + "api/", t("foot_api")) + li("https://github.com/jQrgen/nordic-crypto", t("foot_source"), True)
+            + li(rel + "tip/", t("nav_tip")) + li(rel + "api/", t("foot_api")) + li("https://github.com/jQrgen/nordic-crypto", t("foot_source"), True)
             + li(REPO_CONTRIBUTORS, t("contributors"), True)
             + (li(rel + "treasury/", t("nav_treasury")) if event_nft.enabled() else ""))
     follow = (li(rel + "newsletter/", t("nav_newsletter")) + li(SITE_TELEGRAM, t("tg_label"), True) + li(SITE_X, "X", True) + li(rel + "rss.xml", "RSS")
@@ -1093,8 +1093,9 @@ def emit_api(ctx):
     )
     global LANG
     was = LANG
-    LANG = "en"
-    page("api", "Data API", "api", text_page(api_feed.docs_fragment(info), cls="api-docs", toc_label="On this page"), api_feed.DOCS_DESC, langs=["en"], head_extra=api_feed.head_links(BASE))
+    for LANG in i18n.LANGS:   # /api/ in English, /<lang>/api/ for the other site languages (tools/api_docs_i18n/)
+        T = api_feed.docs_strings(LANG)
+        page("api", T["title"], "api", text_page(api_feed.docs_fragment(info, LANG), cls="api-docs", toc_label=T["toc"]), T["desc"], head_extra=api_feed.head_links(BASE))
     LANG = was
     return info
 
