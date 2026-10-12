@@ -80,15 +80,15 @@ export function coinCostAtFeeRate(feeRate: string, bytes = TYPICAL_TX_BYTES, sat
   return match[2].toLowerCase() === "sat" ? (perByte * bytes) / satsPerCoin : perByte * bytes;
 }
 
-/** Amount in the currency's usual symbol, with the site's en-GB digits. */
+/** Amount in the currency's usual symbol, with the site's en-GB digits. Below 0.01 the figure is a threshold, not a long decimal. */
 export function formatLocalFiat(value: number, fiat: Fiat) {
   const abs = Math.abs(value);
-  const digits = abs === 0 || abs >= 0.01 ? 2 : 6;
+  const { place, mark } = LOCAL_MARK[fiat];
+  if (abs > 0 && abs < 0.01) return place === "prefix" ? `< ${mark}0.01` : `< 0.01 ${mark}`;
   const body = new Intl.NumberFormat("en-GB", {
     minimumFractionDigits: 2,
-    maximumFractionDigits: digits,
+    maximumFractionDigits: 2,
   }).format(value);
-  const { place, mark } = LOCAL_MARK[fiat];
   return place === "prefix" ? `${mark}${body}` : `${body} ${mark}`;
 }
 
@@ -106,7 +106,10 @@ export function formatFeeRateQuote(
 ): string {
   const coin = coinCostAtFeeRate(feeRate, bytes, satsPerCoin);
   if (coin == null || !Number.isFinite(pricePerCoin)) return feeRate;
-  return `${feeRate} · ≈ ${formatLocalFiat(coin * pricePerCoin, fiat)}`;
+  const amount = coin * pricePerCoin;
+  const text = formatLocalFiat(amount, fiat);
+  const tiny = Math.abs(amount) > 0 && Math.abs(amount) < 0.01;
+  return tiny ? `${feeRate} · ${text}` : `${feeRate} · ≈ ${text}`;
 }
 
 export function formatFeeRateLabel(
