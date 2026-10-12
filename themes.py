@@ -16,7 +16,6 @@ BY_NAV = {
     "markets": "pixel",                           # 8-bit monster-battle handheld
     "org-chart": "pirate",                        # who's who: wanted posters on a sea chart
     "api": "cbase",                               # crashed space station hackerspace
-    "newsletter": "broadsheet",                   # hot-off-the-press newspaper
     "talks": "vhs",                               # synthwave VHS tape
     "academia": "athens",                         # classical Athens: marble, meander, columns, owl
     "about": "saga",                              # northern lights and a longship
