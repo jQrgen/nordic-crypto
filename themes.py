@@ -17,7 +17,7 @@ BY_NAV = {
     "org-chart": "pirate",                        # who's who: wanted posters on a sea chart
     "api": "cbase",                               # crashed space station hackerspace
     "talks": "vhs",                               # synthwave VHS tape
-    "academia": "athens",                         # classical Athens: marble, meander, columns, owl
+    "academia": "aurora",                         # academia: same look as the front page
     "about": "saga",                              # northern lights and a longship
     "tip": "noir",                                # rainy detective office
     "sources": "teletext",                        # Nordic tekst-TV
