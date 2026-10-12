@@ -4,7 +4,7 @@ import { chains, defaultChain } from "./data";
 /** Public origin of the static export. Social crawlers only accept absolute https URLs. */
 export const SITE_ORIGIN = "https://explorer.nordiccrypto.no";
 export const SITE_NAME = "Nordic Crypto";
-export const TWITTER_SITE = "@xcryptonordic";
+export const TWITTER_SITE = "@nordiccryptobot";
 
 /** Share image in public/, copied to the export root. */
 export const OG_IMAGE_PATH = "/og.png";

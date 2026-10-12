@@ -55,7 +55,7 @@ const shared = {
   "og:image:width": "1200",
   "og:image:height": "630",
   "twitter:card": "summary_large_image",
-  "twitter:site": "@xcryptonordic",
+  "twitter:site": "@nordiccryptobot",
   "twitter:image": IMAGE,
 };
 
@@ -169,7 +169,7 @@ for (const [file, checks] of pages) {
 const headerHrefs = [
   "https://nordiccrypto.no/newsletter/#signup",
   "https://t.me/nordiccryptochat",
-  "https://x.com/xcryptonordic",
+  "https://x.com/nordiccryptobot",
   "https://github.com/jQrgen/nordic-crypto",
   "https://nordiccrypto.no/rss.xml",
   "https://testflight.apple.com/join/nQ2fpjZn",

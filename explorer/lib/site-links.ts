@@ -35,9 +35,9 @@ export const siteLinks: readonly SiteLink[] = [
   },
   {
     id: "x",
-    href: "https://x.com/xcryptonordic",
+    href: "https://x.com/nordiccryptobot",
     label: "Follow on X",
-    title: "Nordic Crypto on X (@xcryptonordic), the site's own account",
+    title: "Nordic Crypto on X (@nordiccryptobot), the site's own account",
     icon: "x",
     variant: "icon",
   },

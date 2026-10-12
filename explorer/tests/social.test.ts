@@ -42,6 +42,7 @@ test("the share card is absolute https and names Nordic Crypto", () => {
   assert.equal(image.url, OG_IMAGE_URL);
   assert.equal(OG_IMAGE_URL, "https://explorer.nordiccrypto.no/og.png");
   assert.equal(meta.twitter?.card, "summary_large_image");
+  assert.equal(TWITTER_SITE, "@nordiccryptobot");
   assert.equal(meta.twitter && "site" in meta.twitter ? meta.twitter.site : "", TWITTER_SITE);
 });
 
