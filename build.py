@@ -367,6 +367,8 @@ def build_issue(iss):
         mb = f'{v.get("bytes", 0) / 1e6:.1f}'; mb = mb if LANG == "en" else mb.replace(".", ",")
         dl = f'<a href="{E(v["url"])}" rel="noopener" download>{E(t("nl_video_dl", mb=mb))}</a>' if v.get("url") else ""
         subs = f' · <a href="{a}{E(v["subs"])}" download>{E(t("nl_video_subs"))}</a>' if v.get("subs") else ""
+        yt = f'<a href="{E(v["youtube"])}" rel="noopener">YouTube</a>' if v.get("youtube") else ""
+        if yt: dl = f'{dl} · {yt}' if dl else yt
         if nl_video_file(iss):
             poster_name = nl_poster_files(iss).get("webp") or v.get("poster")   # WebP poster: about a quarter of the PNG
             poster = f' poster="{a}{E(poster_name)}"' if poster_name else ""
