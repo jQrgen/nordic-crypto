@@ -1,6 +1,13 @@
 import { Frame } from "@/components/frame";
 import { Missing } from "@/components/states";
 import { defaultChain } from "@/lib/data";
+import { socialMetadata, socialTitle } from "@/lib/social";
+
+export const metadata = socialMetadata({
+  title: socialTitle("Page not found"),
+  description: "That page is not on the Nordic Crypto explorer.",
+  path: "/404.html",
+});
 
 export default function NotFound() {
   return (

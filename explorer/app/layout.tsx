@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
 import { Cormorant_Garamond, IBM_Plex_Mono, Schibsted_Grotesk } from "next/font/google";
+import { rootSocial } from "@/lib/social";
 import "./globals.css";
 
 const display = Cormorant_Garamond({
@@ -20,13 +20,7 @@ const mono = IBM_Plex_Mono({
   variable: "--font-mono",
 });
 
-export const metadata: Metadata = {
-  title: {
-    default: "Nordic Crypto Explorer",
-    template: "%s · Nordic Crypto Explorer",
-  },
-  description: "Design prototype of a Bitcoin Cash and Nexa explorer for explorer.nordiccrypto.no.",
-};
+export const metadata = rootSocial();
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (

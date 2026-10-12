@@ -1,9 +1,13 @@
-import type { Metadata } from "next";
 import { Frame } from "@/components/frame";
 import { LoadingState } from "@/components/states";
 import { defaultChain } from "@/lib/data";
+import { socialMetadata, socialTitle } from "@/lib/social";
 
-export const metadata: Metadata = { title: "Loading" };
+export const metadata = socialMetadata({
+  title: socialTitle("Loading"),
+  description: "The Nordic Crypto explorer is loading.",
+  path: "/design/loading/",
+});
 
 export default function LoadingDesign() {
   return (

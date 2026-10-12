@@ -5,6 +5,7 @@ import { BlockView } from "@/components/ledger";
 import { getBlock, getChain } from "@/lib/data";
 import { formatNumber } from "@/lib/format";
 import { blocks } from "@/lib/data";
+import { onExplorer, rootSocial, socialMetadata, socialTitle } from "@/lib/social";
 
 export const dynamicParams = false;
 
@@ -21,7 +22,13 @@ export async function generateMetadata({
   const { chain, height } = await params;
   const info = getChain(chain);
   const block = info && getBlock(info.id, Number(height));
-  return { title: block && info ? `Block ${formatNumber(block.height)} · ${info.name}` : "Block" };
+  if (!info || !block) return rootSocial();
+  const label = `Block ${formatNumber(block.height)}`;
+  return socialMetadata({
+    title: socialTitle(`${label} · ${info.name}`),
+    description: onExplorer(info.name, label),
+    path: `/${info.id}/block/${height}/`,
+  });
 }
 
 export default async function BlockPage({ params }: { params: Promise<{ chain: string; height: string }> }) {

@@ -4,6 +4,7 @@ import { Frame } from "@/components/frame";
 import { TxView } from "@/components/ledger";
 import { getChain, getTx } from "@/lib/data";
 import { txs } from "@/lib/data";
+import { onExplorer, rootSocial, socialMetadata, socialTitle } from "@/lib/social";
 
 export const dynamicParams = false;
 
@@ -13,9 +14,16 @@ export function generateStaticParams() {
 
 
 export async function generateMetadata({ params }: { params: Promise<{ chain: string; txid: string }> }): Promise<Metadata> {
-  const { txid } = await params;
+  const { chain, txid } = await params;
+  const info = getChain(chain);
   const tx = getTx(txid);
-  return { title: tx ? (tx.coinbase ? "Coinbase" : "Transaction") : "Transaction" };
+  if (!info) return rootSocial();
+  const kind = tx?.coinbase ? "Coinbase" : "Transaction";
+  return socialMetadata({
+    title: socialTitle(`${kind} · ${info.name}`),
+    description: onExplorer(info.name, tx?.coinbase ? "Coinbase" : "A transaction"),
+    path: `/${info.id}/tx/${txid}/`,
+  });
 }
 
 export default async function TxPage({ params }: { params: Promise<{ chain: string; txid: string }> }) {
