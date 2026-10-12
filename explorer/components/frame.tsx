@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, type ReactNode } from "react";
-import { chains } from "@/lib/data";
+import { chainOrder, chains, defaultChain, isChainId } from "@/lib/data";
 import type { ChainId, Fiat } from "@/lib/types";
 import { PrefsProvider, usePrefs } from "./prefs";
 
@@ -24,7 +24,8 @@ function Shield() {
 function Shell({ chain, children }: { chain?: ChainId; children: ReactNode }) {
   const path = usePathname();
   const router = useRouter();
-  const resolved: ChainId = chain ?? (path.startsWith("/bch") ? "bch" : "nexa");
+  const segment = path.split("/")[1] ?? "";
+  const resolved: ChainId = chain ?? (isChainId(segment) ? segment : defaultChain);
   const { fiat, setFiat } = usePrefs();
   const section = path.includes("/mempool") ? "mempool" : path.includes("/token") ? "tokens" : "overview";
 
@@ -61,7 +62,7 @@ function Shell({ chain, children }: { chain?: ChainId; children: ReactNode }) {
               </span>
             </Link>
             <nav className="chains" aria-label="Chain">
-              {(["nexa", "bch"] as ChainId[]).map((id) => (
+              {chainOrder.map((id) => (
                 <Link key={id} href={`/${id}`} aria-current={id === resolved ? "page" : undefined}>
                   <span className={`pip ${id}`} aria-hidden="true" />
                   {chains[id].name}
@@ -146,13 +147,16 @@ function Shell({ chain, children }: { chain?: ChainId; children: ReactNode }) {
             <p className="word">
               Nordic <span>Crypto</span>
             </p>
-            <p>A Nexa and Bitcoin Cash explorer, set in the same type as the news site.</p>
+            <p>A Bitcoin Cash and Nexa explorer, set in the same type as the news site.</p>
           </div>
           <div>
             <h2>Chains</h2>
             <ul>
-              <li><Link href="/nexa">Nexa</Link></li>
-              <li><Link href="/bch">Bitcoin Cash</Link></li>
+              {chainOrder.map((id) => (
+                <li key={id}>
+                  <Link href={`/${id}`}>{chains[id].name}</Link>
+                </li>
+              ))}
               <li><Link href={`/${resolved}/mempool`}>Mempool</Link></li>
               <li><Link href={`/${resolved}/tokens`}>Tokens</Link></li>
             </ul>
@@ -160,8 +164,8 @@ function Shell({ chain, children }: { chain?: ChainId; children: ReactNode }) {
           <div>
             <h2>Read from</h2>
             <ul>
-              <li><a href="https://nordiccrypto.no/api/">Nexa Rostrum, port 20004</a></li>
               <li><a href="https://nordiccrypto.no/api/">Bitcoin Cash Rostrum, port 50004</a></li>
+              <li><a href="https://nordiccrypto.no/api/">Nexa Rostrum, port 20004</a></li>
               <li><a href="https://nordiccrypto.no/">nordiccrypto.no</a></li>
               <li><a href="https://github.com/jQrgen/nordic-crypto">Source on GitHub</a></li>
             </ul>
@@ -170,7 +174,7 @@ function Shell({ chain, children }: { chain?: ChainId; children: ReactNode }) {
             <h2>Layout states</h2>
             <ul>
               <li><Link href="/design/loading">Loading</Link></li>
-              <li><Link href="/search?q=not-a-thing&chain=nexa">Nothing found</Link></li>
+              <li><Link href={`/search?q=not-a-thing&chain=${defaultChain}`}>Nothing found</Link></li>
               <li><Link href="/design/catching-up">Catching up</Link></li>
               <li><Link href="/design/empty-mempool">Empty mempool</Link></li>
               <li><Link href="/design/fault">Could not load</Link></li>

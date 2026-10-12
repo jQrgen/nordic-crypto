@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Frame } from "@/components/frame";
 import { TokenIndex } from "@/components/tokens";
-import { getChain } from "@/lib/data";
+import { chainOrder, getChain } from "@/lib/data";
 
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return [{ chain: "nexa" }, { chain: "bch" }];
+  return chainOrder.map((chain) => ({ chain }));
 }
 
 

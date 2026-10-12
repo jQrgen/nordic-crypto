@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { chains, mempool } from "@/lib/data";
+import { chains, defaultChain, mempool } from "@/lib/data";
 import { formatCoin, formatNumber, shortId } from "@/lib/format";
 import type { ChainId, SearchHit } from "@/lib/types";
 import { Frame } from "./frame";
@@ -48,7 +48,7 @@ export function Missing({ q, chainId, page = false }: { q: string; chainId: Chai
       </p>
       <p className="tries">
         Try a height such as <Link href={`/${chainId}/block/${chain.height}`}>{formatNumber(chain.height)}</Link>, a token such as{" "}
-        <Link href="/nexa/token/agnar">AGNAR</Link>, or a name such as <Link href="/search?q=Sigrid&chain=nexa">Sigrid</Link>.
+        <Link href="/nexa/token/agnar">AGNAR</Link>, or a name such as <Link href={`/search?q=Sigrid&chain=${chainId}`}>Sigrid</Link>.
       </p>
     </>
   );
@@ -61,8 +61,8 @@ export function Fault() {
       <h1>The explorer could not draw this page.</h1>
       <p className="lead">The chain is still there. This is a fault in drawing the page, not a missing transaction. Trying again usually clears it.</p>
       <p>
-        <Link className="btn" href="/nexa">
-          Back to Nexa
+        <Link className="btn" href={`/${defaultChain}`}>
+          Back to {chains[defaultChain].name}
         </Link>
       </p>
     </>
@@ -72,7 +72,7 @@ export function Fault() {
 export function LoadingState() {
   return (
     <>
-      <p className="eyebrow">Nexa</p>
+      <p className="eyebrow">{chains[defaultChain].name}</p>
       <span className="skel" style={{ height: 52, width: "42%", margin: "8px 0 14px" }} />
       <span className="skel" style={{ height: 18, width: "70%", marginBottom: 8 }} />
       <span className="skel" style={{ height: 18, width: "54%", marginBottom: 22 }} />

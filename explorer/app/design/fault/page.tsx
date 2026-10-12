@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { Frame } from "@/components/frame";
 import { Fault } from "@/components/states";
+import { defaultChain } from "@/lib/data";
 
 export const metadata: Metadata = { title: "Could not load" };
 
 export default function FaultDesign() {
   return (
-    <Frame chain="nexa">
+    <Frame chain={defaultChain}>
       <Fault />
     </Frame>
   );
