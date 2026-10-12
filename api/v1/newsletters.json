@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-12T11:35:31+00:00",
+ "generated_at": "2026-10-12T11:51:45+00:00",
  "preview": false,
  "sign_off": "The Nordic Crypto team",
  "count": 2,
@@ -49,7 +49,19 @@
     "uk": "https://nordiccrypto.no/uk/newsletter/002/"
    },
    "api_url": "https://nordiccrypto.no/api/v1/newsletters/002.json",
-   "video": null,
+   "video": {
+    "language": "en",
+    "duration_seconds": 131,
+    "width": 1920,
+    "height": 1080,
+    "bytes": 36587868,
+    "sha256": "0f8966a443883e2ecb1e51a64b0fa8f35039bd2ddb76997c1143b93a9a4061f8",
+    "download_url": "https://github.com/jQrgen/nordic-crypto/releases/download/newsletter-002-newsreel-1/nordic-crypto-2-newsreel.mp4",
+    "file_url": "https://nordiccrypto.no/newsletter/002/video.mp4",
+    "poster_url": "https://nordiccrypto.no/newsletter/002/thumbnail.png",
+    "subtitles_url": "https://nordiccrypto.no/newsletter/002/subs.vtt",
+    "subtitles_language": "en"
+   },
    "body_languages": [
     "en"
    ]
