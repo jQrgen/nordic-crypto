@@ -1,0 +1,21 @@
+[Unit]
+Description=Nordic Crypto Nexa mining pool
+After=network-online.target nexad.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=nexa
+Group=nexa
+ExecStart=/usr/local/bin/nexapool -config /etc/nexapool/nexapool.toml
+EnvironmentFile=-/etc/nexapool/nexapool.env
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/nexapool
+
+[Install]
+WantedBy=multi-user.target

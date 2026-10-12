@@ -1,0 +1,38 @@
+# Copy to /etc/nexapool/nexapool.toml and set fee_address before starting.
+# The pool refuses to start while fee_address is empty.
+# Do not put an RPC password or a wallet passphrase in this file.
+
+[pool]
+fee_percent = 1
+fee_address = ""
+# Address in the nexad wallet that receives the coinbase. Empty uses the
+# wallet default. It is not the miner payout address.
+coinbase_address = ""
+min_payout = "1000000.00"
+maturity = 5000
+pplns_blocks = 2
+payout_interval = "1h"
+hashrate_window = "15m"
+# Left in the wallet so a transaction fee cannot drain it.
+tx_reserve = "1.00"
+public_stratum = "stratum+tcp://pool.nordiccrypto.no:3333"
+
+[stratum]
+listen = "0.0.0.0:3333"
+vardiff = true
+start_difficulty = 0.2
+min_difficulty = 0.05
+max_difficulty = 4096
+
+[api]
+listen = "127.0.0.1:8080"
+web_root = ""
+
+[node]
+url = "http://127.0.0.1:7227/"
+cookie_file = "/var/lib/nexa/.nexa/.cookie"
+# Optional file outside the repository, mode 0600, owned by the nexa user.
+# passphrase_file = "/etc/nexapool/wallet.passphrase"
+
+[db]
+path = "/var/lib/nexapool/pool.sqlite"

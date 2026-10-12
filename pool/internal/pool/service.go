@@ -1,0 +1,445 @@
+// Package pool ties the node, the ledger and the stratum server together.
+package pool
+
+import (
+	"encoding/hex"
+	"errors"
+	"fmt"
+	"log"
+	"math"
+	"math/big"
+	"strconv"
+	"strings"
+	"sync"
+	"time"
+
+	"github.com/jQrgen/nordic-crypto/pool/internal/account"
+	"github.com/jQrgen/nordic-crypto/pool/internal/nexa"
+	"github.com/jQrgen/nordic-crypto/pool/internal/store"
+	"github.com/jQrgen/nordic-crypto/pool/internal/stratum"
+)
+
+// ErrBadAddress is returned when a lookup is not a Nexa address.
+var ErrBadAddress = errors.New("pool: invalid address")
+
+// Config is the accounting and publishing configuration.
+type Config struct {
+	FeePercent      int
+	FeeAddress      string
+	CoinbaseAddress string
+	MinPayout       int64
+	Maturity        int64
+	PPLNSBlocks     float64
+	HashrateWindow  time.Duration
+	PayoutEvery     time.Duration
+	TxReserve       int64
+	PublicStratum   string
+}
+
+// Chain is the nexad surface the pool uses.
+type Chain interface {
+	GetMiningCandidate(address string) (nexa.Candidate, error)
+	SubmitSolution(id int64, nonceHex string) (int64, string, error)
+	GetMiningInfo() (nexa.MiningInfo, error)
+	GetBlock(hash string) (nexa.Block, error)
+	SendToAddress(address string, sats int64, comment string) (string, error)
+	WalletBalance() (int64, error)
+	FindComment(comment string) (string, bool, error)
+	Unlock(passphrase string, timeout int) error
+	Lock(passphrase string) error
+}
+
+// Service is the pool.
+type Service struct {
+	cfg     Config
+	db      *store.Store
+	node    Chain
+	log     *log.Logger
+	pass    string
+	stratum *stratum.Server
+
+	mu      sync.Mutex
+	jobs    map[string]*memJob
+	order   []string
+	next    uint64
+	hasTip  bool
+	tipID   int64
+	tipHash string
+	info    nexa.MiningInfo
+	online  bool
+}
+
+type memJob struct {
+	wire        stratum.Job
+	commitment  []byte
+	prev        []byte
+	network     *big.Int
+	candidateID int64
+}
+
+// New checks the fee address and the payout settings.
+func New(cfg Config, db *store.Store, node Chain, logger *log.Logger) (*Service, error) {
+	if logger == nil {
+		logger = log.Default()
+	}
+	if cfg.FeePercent < 1 || cfg.FeePercent > 100 {
+		return nil, fmt.Errorf("pool: fee percent %d", cfg.FeePercent)
+	}
+	if !nexa.ValidAddress(cfg.FeeAddress) {
+		return nil, fmt.Errorf("pool: fee address is empty or invalid")
+	}
+	cfg.FeeAddress = strings.ToLower(cfg.FeeAddress)
+	if cfg.CoinbaseAddress != "" {
+		if !nexa.ValidAddress(cfg.CoinbaseAddress) {
+			return nil, fmt.Errorf("pool: coinbase address is invalid")
+		}
+		cfg.CoinbaseAddress = strings.ToLower(cfg.CoinbaseAddress)
+	}
+	if cfg.MinPayout <= 0 {
+		return nil, fmt.Errorf("pool: minimum payout")
+	}
+	if cfg.Maturity <= 0 {
+		cfg.Maturity = 5000
+	}
+	if cfg.PPLNSBlocks <= 0 {
+		cfg.PPLNSBlocks = 2
+	}
+	if cfg.HashrateWindow <= 0 {
+		cfg.HashrateWindow = 15 * time.Minute
+	}
+	if cfg.TxReserve < 0 {
+		return nil, fmt.Errorf("pool: negative fee reserve")
+	}
+	if cfg.PublicStratum == "" {
+		cfg.PublicStratum = "stratum+tcp://pool.nordiccrypto.no:3333"
+	}
+	return &Service{
+		cfg: cfg, db: db, node: node, log: logger,
+		jobs: map[string]*memJob{},
+	}, nil
+}
+
+// SetPassphrase sets the wallet passphrase. It is never written to the log.
+func (s *Service) SetPassphrase(p string) { s.pass = strings.TrimSpace(p) }
+
+// Attach sends new work to miners.
+func (s *Service) Attach(server *stratum.Server) { s.stratum = server }
+
+// Authorize accepts a Nexa address. The password is ignored on purpose:
+// the address is the account.
+func (s *Service) Authorize(address, worker string) error {
+	address = strings.ToLower(strings.TrimSpace(address))
+	if !nexa.ValidAddress(address) {
+		return ErrBadAddress
+	}
+	if len(worker) > 64 || strings.ContainsAny(worker, " \t\r\n") {
+		return errors.New("pool: bad worker name")
+	}
+	return nil
+}
+
+// Poll fetches a mining candidate and, when it changed, notifies miners.
+func (s *Service) Poll() error {
+	cand, err := s.node.GetMiningCandidate(s.cfg.CoinbaseAddress)
+	if err != nil {
+		s.mark(false, nexa.MiningInfo{})
+		return err
+	}
+	info, err := s.node.GetMiningInfo()
+	if err != nil {
+		s.mark(false, nexa.MiningInfo{})
+		return err
+	}
+	s.mu.Lock()
+	s.info = info
+	s.online = true
+	same := s.hasTip && s.tipID == cand.ID && s.tipHash == cand.HeaderCommitment
+	s.mu.Unlock()
+	if same {
+		return nil
+	}
+	return s.publish(cand, info)
+}
+
+func (s *Service) mark(online bool, info nexa.MiningInfo) {
+	s.mu.Lock()
+	s.online = online
+	s.info = info
+	s.mu.Unlock()
+}
+
+func (s *Service) publish(cand nexa.Candidate, info nexa.MiningInfo) error {
+	commitment, err := nexa.DecodeHex(cand.HeaderCommitment)
+	if err != nil || len(commitment) != 32 {
+		return fmt.Errorf("pool: bad header commitment")
+	}
+	target, err := compactTarget(cand.NBits)
+	if err != nil {
+		return err
+	}
+	var prev []byte
+	if cand.PrevHash != "" {
+		prev, err = nexa.DecodeHex(cand.PrevHash)
+		if err != nil || len(prev) != 32 {
+			return fmt.Errorf("pool: bad previous hash")
+		}
+	}
+	s.mu.Lock()
+	s.next++
+	id := strconv.FormatUint(s.next, 16)
+	job := &memJob{
+		commitment:  commitment,
+		prev:        prev,
+		network:     target,
+		candidateID: cand.ID,
+		wire: stratum.Job{
+			ID: id, Commitment: hex.EncodeToString(commitment), NBits: strings.ToLower(cand.NBits),
+			PrevHash: hex.EncodeToString(prev), Time: uint64(time.Now().Unix()),
+			Height: info.Blocks + 1, CandidateID: cand.ID, Clean: true,
+		},
+	}
+	s.jobs[id] = job
+	s.order = append(s.order, id)
+	if len(s.order) > 32 {
+		delete(s.jobs, s.order[0])
+		s.order = s.order[1:]
+	}
+	s.hasTip = true
+	s.tipID = cand.ID
+	s.tipHash = cand.HeaderCommitment
+	wire := job.wire
+	s.mu.Unlock()
+	if s.stratum != nil {
+		s.stratum.SetJob(wire)
+	}
+	return nil
+}
+
+// CurrentJob is the work miners were last given.
+func (s *Service) CurrentJob() (stratum.Job, bool) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	if len(s.order) == 0 {
+		return stratum.Job{}, false
+	}
+	return s.jobs[s.order[len(s.order)-1]].wire, true
+}
+
+// Submit checks a share, stores it, and submits a block when the share
+// meets the network target.
+func (s *Service) Submit(sh stratum.Share) stratum.Verdict {
+	sh.Address = strings.ToLower(sh.Address)
+	s.mu.Lock()
+	job := s.jobs[sh.JobID]
+	s.mu.Unlock()
+	if job == nil {
+		return stratum.Verdict{Code: 21, Message: "Stale share"}
+	}
+	pow, err := nexa.PowHash(job.commitment, sh.Nonce, job.prev)
+	if err != nil {
+		_ = s.db.AddReject(sh.Address, time.Now())
+		return stratum.Verdict{Code: 20, Message: "Invalid proof of work"}
+	}
+	digest := nexa.HashInt(pow)
+	if !nexa.Meets(digest, nexa.ShareTarget(sh.DifficultyMicros)) {
+		_ = s.db.AddReject(sh.Address, time.Now())
+		return stratum.Verdict{Code: 23, Message: "Low difficulty"}
+	}
+	err = s.db.AddShare(store.Share{
+		Address: sh.Address, Worker: sh.Worker, JobID: sh.JobID,
+		Nonce: hex.EncodeToString(sh.Nonce), PowHash: hex.EncodeToString(pow),
+		Work: sh.DifficultyMicros,
+	})
+	if errors.Is(err, store.ErrDuplicate) {
+		return stratum.Verdict{Code: 22, Message: "Duplicate share"}
+	}
+	if err != nil {
+		s.log.Printf("share store: %v", err)
+		return stratum.Verdict{Code: 20, Message: "Unavailable"}
+	}
+	if nexa.Meets(digest, job.network) {
+		s.submitBlock(job, sh)
+	}
+	return stratum.Verdict{Accept: true}
+}
+
+func (s *Service) submitBlock(job *memJob, sh stratum.Share) {
+	height, hash, err := s.node.SubmitSolution(job.candidateID, hex.EncodeToString(sh.Nonce))
+	if err != nil {
+		s.log.Printf("block submit rejected: %v", err)
+		return
+	}
+	if hash == "" {
+		s.log.Printf("block submit returned no hash")
+		return
+	}
+	if _, err := s.db.InsertBlock(store.Block{Height: height, Hash: hash, Finder: sh.Address}); err != nil {
+		s.log.Printf("record block %s: %v", hash, err)
+		return
+	}
+	s.log.Printf("block submitted height %d hash %s finder %s", height, hash, sh.Address)
+}
+
+// MatureOnce credits blocks that have reached coinbase maturity.
+func (s *Service) MatureOnce() error {
+	info, err := s.node.GetMiningInfo()
+	if err != nil {
+		return err
+	}
+	target, err := WindowWork(s.cfg.PPLNSBlocks, info.Difficulty)
+	if err != nil {
+		return err
+	}
+	blocks, err := s.db.ImmatureBlocks()
+	if err != nil {
+		return err
+	}
+	for _, b := range blocks {
+		blk, err := s.node.GetBlock(b.Hash)
+		if err != nil {
+			if missingBlock(err) {
+				if err := s.db.OrphanBlock(b.ID); err != nil {
+					return err
+				}
+				s.log.Printf("block %s orphaned", b.Hash)
+			}
+			continue
+		}
+		if blk.Confirmations < 0 {
+			if err := s.db.OrphanBlock(b.ID); err != nil {
+				return err
+			}
+			continue
+		}
+		if err := s.db.SetConfirmations(b.ID, blk.Confirmations); err != nil {
+			return err
+		}
+		if blk.Confirmations < s.cfg.Maturity {
+			continue
+		}
+		if blk.Reward <= 0 {
+			s.log.Printf("block %s has no coinbase value yet", b.Hash)
+			continue
+		}
+		shares, err := s.db.SharesBefore(b.FoundAt)
+		if err != nil {
+			return err
+		}
+		credits, err := account.Split(blk.Reward, s.cfg.FeePercent, s.cfg.FeeAddress, account.Window(shares, target))
+		if err != nil {
+			return err
+		}
+		if err := s.db.MatureBlock(b.ID, blk.Reward, credits); err != nil {
+			return err
+		}
+		s.log.Printf("block %d matured, reward %s", blk.Height, nexa.FormatNEX(blk.Reward))
+	}
+	return nil
+}
+
+// PayOnce sends mature balances at or above the minimum. It will not reserve
+// more than the wallet can spend, and it leaves TxReserve in the wallet for
+// transaction fees.
+func (s *Service) PayOnce() (account.Result, error) {
+	if err := s.node.Unlock(s.pass, 180); err != nil {
+		return account.Result{}, err
+	}
+	defer s.node.Lock(s.pass)
+	bal, err := s.node.WalletBalance()
+	if err != nil {
+		return account.Result{}, err
+	}
+	reserved, err := s.db.Reserved()
+	if err != nil {
+		return account.Result{}, err
+	}
+	var held int64
+	for _, p := range reserved {
+		held += p.Amount
+	}
+	left := bal - held - s.cfg.TxReserve
+	if left < 0 {
+		left = 0
+	}
+	return account.RunPayouts(&spendCap{Ledger: s.db, left: left}, rpcWallet{s.node}, s.cfg.MinPayout)
+}
+
+// WindowWork is the PPLNS window in difficulty micros: blocks times the
+// network difficulty. A value that does not fit in a uint64 uses the maximum,
+// which keeps every recorded share in the window.
+func WindowWork(blocks, difficulty float64) (uint64, error) {
+	if blocks <= 0 || difficulty <= 0 || math.IsNaN(difficulty) || math.IsInf(difficulty, 0) {
+		return 0, fmt.Errorf("pool: network difficulty is not usable")
+	}
+	v := blocks * difficulty * float64(nexa.Micros)
+	if v < 1 {
+		return 1, nil
+	}
+	if v >= float64(math.MaxUint64) {
+		return math.MaxUint64, nil
+	}
+	return uint64(v), nil
+}
+
+// Hashrate converts a sum of share difficulty micros over a window into
+// hashes per second, on the same scale as getnetworkhashps.
+func Hashrate(workMicros uint64, window time.Duration) float64 {
+	if window <= 0 {
+		return 0
+	}
+	hashes := float64(workMicros) * 4294967296 / float64(nexa.Micros)
+	return hashes / window.Seconds()
+}
+
+func compactTarget(nbits string) (*big.Int, error) {
+	nbits = strings.TrimPrefix(strings.TrimPrefix(strings.ToLower(strings.TrimSpace(nbits)), "0x"), "0x")
+	if nbits == "" || len(nbits) > 8 {
+		return nil, fmt.Errorf("pool: bad nbits")
+	}
+	v, err := strconv.ParseUint(nbits, 16, 32)
+	if err != nil {
+		return nil, err
+	}
+	target := nexa.CompactToTarget(uint32(v))
+	if target == nil {
+		return nil, fmt.Errorf("pool: bad nbits")
+	}
+	return target, nil
+}
+
+func missingBlock(err error) bool {
+	s := strings.ToLower(err.Error())
+	return strings.Contains(s, "not found") || strings.Contains(s, "no such")
+}
+
+type rpcWallet struct{ n Chain }
+
+func (w rpcWallet) Send(address string, sats int64, comment string) (string, error) {
+	return w.n.SendToAddress(address, sats, comment)
+}
+
+func (w rpcWallet) FindComment(comment string) (string, bool, error) {
+	return w.n.FindComment(comment)
+}
+
+// spendCap hides balances the wallet cannot cover. Reserved and sent rows
+// still go to the underlying ledger.
+type spendCap struct {
+	account.Ledger
+	left int64
+}
+
+func (c *spendCap) Payable(min int64) ([]account.Balance, error) {
+	all, err := c.Ledger.Payable(min)
+	if err != nil {
+		return nil, err
+	}
+	var out []account.Balance
+	for _, b := range all {
+		if b.Amount <= c.left {
+			out = append(out, b)
+			c.left -= b.Amount
+		}
+	}
+	return out, nil
+}
