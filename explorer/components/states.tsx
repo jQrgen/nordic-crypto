@@ -3,6 +3,7 @@ import { chains, defaultChain, mempool } from "@/lib/data";
 import { formatCoin, formatNumber, shortId } from "@/lib/format";
 import type { ChainId, SearchHit } from "@/lib/types";
 import { Frame } from "./frame";
+import { FeeRate } from "./money";
 
 export function Results({ q, hits }: { q: string; hits: SearchHit[] }) {
   return (
@@ -143,7 +144,9 @@ export function MempoolView({ chainId, empty = false }: { chainId: ChainId; empt
                       {shortId(tx.hash, 16, 8)}
                     </Link>
                   </td>
-                  <td data-label="Fee rate">{tx.feeRate}</td>
+                  <td data-label="Fee rate">
+                    <FeeRate rate={tx.feeRate} prices={chain.prices} />
+                  </td>
                   <td data-label="Fee" className="r">
                     {formatCoin(tx.fee, chain)}
                   </td>

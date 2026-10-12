@@ -1,0 +1,62 @@
+{
+  "_note": "The only place these costs are written down. The page adds the monthly amounts and converts other currencies into the quote currency with the rates below. Do not add labour or any other cost. Update the figures by hand. A price is marked incl or excl VAT only when the bill says so.",
+  "as_of": "2026-10-13",
+  "quote": "NOK",
+  "rates_approximate": true,
+  "rates": [
+    {"currency": "EUR", "per": "1", "quote_amount": "11.70"},
+    {"currency": "USD", "per": "1", "quote_amount": "10.80"}
+  ],
+  "lines": [
+    {
+      "id": "hetzner-electrum-1",
+      "kind": "server",
+      "name": "electrum-1",
+      "type": "cx43",
+      "place": "Falkenstein",
+      "runs": "Electrum servers, Lightning node, Bitcoin/Nexa/BCH nodes, explorer",
+      "amount": "15.99",
+      "currency": "EUR",
+      "period": "month"
+    },
+    {
+      "id": "hetzner-volume",
+      "kind": "volume",
+      "gb": "500",
+      "unit_price": "0.0572",
+      "unit_currency": "EUR",
+      "amount": "28.60",
+      "currency": "EUR",
+      "period": "month"
+    },
+    {
+      "id": "cloudflare-workers",
+      "kind": "workers",
+      "amount": "5",
+      "currency": "USD",
+      "period": "month"
+    },
+    {
+      "id": "domains",
+      "kind": "domains",
+      "names": "nordiccrypto.no/.dk/.se/.fi/.is/.eu",
+      "vendor": "Domeneshop",
+      "amount_year": "1578",
+      "vat": "incl",
+      "amount": "131.50",
+      "currency": "NOK",
+      "period": "month"
+    },
+    {
+      "id": "github-pages",
+      "kind": "pages",
+      "host": "nordiccrypto.no",
+      "free": true
+    },
+    {
+      "id": "cloudflare-dns",
+      "kind": "dns",
+      "free": true
+    }
+  ]
+}
