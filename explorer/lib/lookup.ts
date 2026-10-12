@@ -1,4 +1,4 @@
-import { addresses, blocks, chains, getAddress, getToken, getTx, tokens, txs } from "./data";
+import { addresses, blocks, chainOrder, chains, getAddress, getToken, getTx, tokens, txs } from "./data";
 import { formatNumber, shortId } from "./format";
 import type { ChainId, SearchHit } from "./types";
 
@@ -20,7 +20,7 @@ export function searchAll(raw: string, preferred: ChainId): SearchHit[] {
 
   if (/^\d{1,10}$/.test(folded)) {
     const height = Number(folded);
-    const ordered = [preferred, preferred === "nexa" ? "bch" : "nexa"] as ChainId[];
+    const ordered = [preferred, ...chainOrder.filter((id) => id !== preferred)];
     for (const chain of ordered) {
       const block = blocks.find((b) => b.chain === chain && b.height === height);
       if (block) {

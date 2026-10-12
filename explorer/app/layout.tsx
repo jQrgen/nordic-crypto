@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     default: "Nordic Crypto Explorer",
     template: "%s · Nordic Crypto Explorer",
   },
-  description: "Design prototype of a Nexa and Bitcoin Cash explorer for explorer.nordiccrypto.no.",
+  description: "Design prototype of a Bitcoin Cash and Nexa explorer for explorer.nordiccrypto.no.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

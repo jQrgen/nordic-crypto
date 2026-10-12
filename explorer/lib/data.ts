@@ -19,34 +19,6 @@ function fakeHash(seed: string) {
 }
 
 export const chains: Record<ChainId, ChainInfo> = {
-  nexa: {
-    id: "nexa",
-    name: "Nexa",
-    ticker: "NEX",
-    decimals: 2,
-    target: "2 min",
-    height: 1168213,
-    mempoolCount: 1,
-    prices: {
-      USD: NEX_USD,
-      NOK: NEX_USD * NOK_PER_USD,
-      SEK: NEX_USD * SEK_PER_USD,
-      DKK: NEX_USD * DKK_PER_USD,
-      EUR: NEX_USD * EUR_PER_USD,
-    },
-    change24h: null,
-    supply: 11_091_025_000_000,
-    hashrate: "2.5 TH/s",
-    difficulty: "70,790",
-    size: "7.19 GB",
-    utxo: "6.13 million",
-    txCount: "3,994,581",
-    serverName: "electrum-nexa.nordiccrypto.no",
-    serverUrl: "wss://electrum-nexa.nordiccrypto.no:20004",
-    apiHref: "https://nordiccrypto.no/api/",
-    about:
-      "Blocks, transactions, addresses and native group tokens, read from Nordic Crypto’s own Rostrum server.",
-  },
   bch: {
     id: "bch",
     name: "Bitcoin Cash",
@@ -74,6 +46,34 @@ export const chains: Record<ChainId, ChainInfo> = {
     apiHref: "https://nordiccrypto.no/api/",
     about:
       "Blocks, transactions, addresses and CashTokens, read from Nordic Crypto’s own Rostrum server.",
+  },
+  nexa: {
+    id: "nexa",
+    name: "Nexa",
+    ticker: "NEX",
+    decimals: 2,
+    target: "2 min",
+    height: 1168213,
+    mempoolCount: 1,
+    prices: {
+      USD: NEX_USD,
+      NOK: NEX_USD * NOK_PER_USD,
+      SEK: NEX_USD * SEK_PER_USD,
+      DKK: NEX_USD * DKK_PER_USD,
+      EUR: NEX_USD * EUR_PER_USD,
+    },
+    change24h: null,
+    supply: 11_091_025_000_000,
+    hashrate: "2.5 TH/s",
+    difficulty: "70,790",
+    size: "7.19 GB",
+    utxo: "6.13 million",
+    txCount: "3,994,581",
+    serverName: "electrum-nexa.nordiccrypto.no",
+    serverUrl: "wss://electrum-nexa.nordiccrypto.no:20004",
+    apiHref: "https://nordiccrypto.no/api/",
+    about:
+      "Blocks, transactions, addresses and native group tokens, read from Nordic Crypto’s own Rostrum server.",
   },
 };
 
@@ -641,8 +641,21 @@ const blocks: Block[] = [
   }),
 ];
 
+/** Chain selector, nav, and static paths. Bitcoin Cash is the first choice. */
+export const chainOrder = ["bch", "nexa"] as const satisfies readonly ChainId[];
+
+export const defaultChain: ChainId = chainOrder[0];
+
+/** Root `/` sends visitors here. */
+export const homePath = `/${defaultChain}/`;
+
 export function isChainId(value: string): value is ChainId {
-  return value === "nexa" || value === "bch";
+  return (chainOrder as readonly string[]).includes(value);
+}
+
+/** A chain id from a query or path segment, or Bitcoin Cash when it is missing or unknown. */
+export function resolveChain(value: string | null | undefined): ChainId {
+  return value && isChainId(value) ? value : defaultChain;
 }
 
 export function getChain(id: string) {

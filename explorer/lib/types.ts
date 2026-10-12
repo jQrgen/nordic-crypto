@@ -1,4 +1,4 @@
-export type ChainId = "nexa" | "bch";
+export type ChainId = "bch" | "nexa";
 
 export type Fiat = "NOK" | "SEK" | "DKK" | "EUR" | "USD";
 
