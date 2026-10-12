@@ -48,7 +48,7 @@ SITE_NAME = "Nordic Crypto"
 SIGN_OFF = "The Nordic Crypto team"
 CUSTOM_BASE = site_url.BASE
 # Brand accounts. The same URLs are linked from the site footer, About and the newsletter.
-SITE_X_URL = "https://x.com/xcryptonordic"
+SITE_X_URL = "https://x.com/nordiccryptobot"
 SITE_TELEGRAM_URL = "https://t.me/nordiccryptochat"
 NORDIC_UI = ("nn", "nb", "sv", "da", "fi", "is")
 LANGS = list(i18n.ALL_LANGS)
@@ -1034,7 +1034,7 @@ def brand_social():
             "name": i18n.t("en", "x_follow"),
             "name_i18n": names("x_follow"),
             "url": SITE_X_URL,
-            "handle": "@xcryptonordic",
+            "handle": "@nordiccryptobot",
         },
     }
 
@@ -2064,7 +2064,7 @@ def schemas():
             },
             "social": {
                 "type": "object",
-                "description": "Nordic Crypto brand accounts. telegram is https://t.me/nordiccryptochat. x is https://x.com/xcryptonordic. label and name are English. name_i18n has nn, nb, sv, da, fi and is. Other languages use name.",
+                "description": "Nordic Crypto brand accounts. telegram is https://t.me/nordiccryptochat. x is https://x.com/nordiccryptobot. label and name are English. name_i18n has nn, nb, sv, da, fi and is. Other languages use name.",
                 "properties": {
                     "note": {"type": "string"},
                     "telegram": {"type": "object", "properties": {
@@ -2077,8 +2077,8 @@ def schemas():
                         "label": {"type": "string", "example": "X"},
                         "name": {"type": "string", "example": "Follow Nordic Crypto on X"},
                         "name_i18n": {"type": "object"},
-                        "url": {"type": "string", "example": "https://x.com/xcryptonordic"},
-                        "handle": {"type": "string", "example": "@xcryptonordic"},
+                        "url": {"type": "string", "example": "https://x.com/nordiccryptobot"},
+                        "handle": {"type": "string", "example": "@nordiccryptobot"},
                     }},
                 },
             },

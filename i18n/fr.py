@@ -530,7 +530,7 @@ S.update({
 "nl_get_next": "Recevez le prochain numéro par e-mail :",
 "x_btn": "Suivre sur X",
 "x_follow": "Suivre Nordic Crypto sur X",
-"x_title": "Nordic Crypto sur X (@xcryptonordic), le compte du site",
+"x_title": "Nordic Crypto sur X (@nordiccryptobot), le compte du site",
 "tg_btn": "Rejoindre sur Telegram",
 "tg_label": "Telegram",
 "tg_follow": "Nordic Crypto sur Telegram",

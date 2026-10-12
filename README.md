@@ -125,7 +125,7 @@ Public TestFlight invite, linked from the footer, the homepage, `/markets/` and 
 Nordic Crypto brand accounts, linked from the footer, About and the newsletter, in every site language (English until a translation is written):
 
 - Telegram: https://t.me/nordiccryptochat
-- X: https://x.com/xcryptonordic
+- X: https://x.com/nordiccryptobot
 
 The iOS app reads them from `social` on `/api/v1/meta.json` (`social.telegram`, `social.x`). `name` is English. `name_i18n` has nn, nb, sv, da, fi and is. The source-code link on each page stays.
 

@@ -39,6 +39,8 @@ def main():
         "https://cryptonordic.no/about/",
         "@xcryptonordic",
         "https://x.com/xcryptonordic",
+        "@nordiccryptobot",
+        "https://x.com/nordiccryptobot",
         "https://cryptonordic.substack.com",
         "github.com/jQrgen/nordic-crypto",
         "https://t.me/nordiccryptochat",

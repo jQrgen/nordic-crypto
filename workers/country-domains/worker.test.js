@@ -22,7 +22,7 @@ test("link mapping keeps readers on the country domain", () => {
   assert.equal(mapUrl("stories/abc/", page, "sv"), "/sv/stories/abc/");
   assert.equal(mapUrl("../assets/x.webp", page, "sv"), "/assets/x.webp");
   assert.equal(mapUrl("https://nordiccrypto.no/da/", page, "sv"), "/da/");
-  assert.equal(mapUrl("https://x.com/xcryptonordic", page, "sv"), null);
+  assert.equal(mapUrl("https://x.com/nordiccryptobot", page, "sv"), null);
   assert.equal(mapUrl("#top", page, "sv"), null);
   assert.equal(mapUrl("mailto:a@b.c", page, "sv"), null);
   assert.equal(toCountryPath("/fi/index.html", "fi"), "/");

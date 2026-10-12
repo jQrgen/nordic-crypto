@@ -257,8 +257,8 @@ S.update({
 "nl_kaupr": "Kaupr (kaupr.io) – одне з новинних джерел, за якими ми стежимо.",
 # newsletter issues (/newsletter/ list, /newsletter/<id>/)
 "nav_newsletter": "Розсилка", "nl_issues_h": "Випуски", "nl_issues_lead": "Усі випуски, від найновіших. Читайте їх тут або отримуйте електронною поштою.", "nl_issues_none": "Випусків ще немає.", "nl_issue_n": "Випуск № {n}", "nl_issue_period": "Новини з {a} по {b}", "nl_issue_count": "Матеріалів: {s}, подій: {e}", "nl_issue_video": "Відео, {m} хв", "nl_issue_en": "Цей випуск англійською.", "bridge": "Ця стаття {where}. Коротко:", "nl_bridge": "Цей випуск {where}. Коротко:", "nl_video_dl": "Завантажити відео (MP4, {mb} МБ)", "nl_video_subs": "Англійські субтитри (WebVTT)", "nl_video_fallback": "Ваш браузер не може відтворити відео тут. Завантажте його:", "nl_video_note": "Відео відтворюється з цього сайту, без плеєра YouTube. Воно має англійські субтитри.", "nl_all_issues": "Усі випуски розсилки", "nl_get_next": "Отримуйте наступний випуск електронною поштою:",
-# the site's own X account (@xcryptonordic), header/footer/newsletter
-"x_btn": "Стежити в X", "x_follow": "Стежте за Nordic Crypto в X", "x_title": "Nordic Crypto в X (@xcryptonordic), власний акаунт сайту",
+# the site's own X account (@nordiccryptobot), header/footer/newsletter
+"x_btn": "Стежити в X", "x_follow": "Стежте за Nordic Crypto в X", "x_title": "Nordic Crypto в X (@nordiccryptobot), власний акаунт сайту",
 "tg_btn": "Приєднатися в Telegram", "tg_label": "Telegram", "tg_follow": "Nordic Crypto в Telegram", "tg_title": "Nordic Crypto в Telegram (t.me/nordiccryptochat), чат бренду",
 "social_h": "Спільнота", "social_aria": "Nordic Crypto в соцмережах", "social_lead": "Чат Nordic Crypto – у Telegram, а акаунт бренду – в X.",
 "nl_write": "Хочете писати для Nordic Crypto? <a href=\"{href}\">Подайте заявку як колумніст</a>. Редактор читає кожну пропозицію. Публікацію не гарантовано, а колонка не є інвестиційною порадою.",
