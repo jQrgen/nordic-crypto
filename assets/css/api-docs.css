@@ -8,6 +8,7 @@
 .api-docs td:first-child{min-width:12rem}
 .api-docs td:first-child code{overflow-wrap:anywhere}
 .api-docs,.api-docs p,.api-docs li,.api-docs td,.api-docs th{text-align:start}
-/* Electrum servers table: the URL sits under the chain name, and on a phone only server, status and height are shown. */
+/* Electrum servers table: the URL sits under the chain name, and on a phone only server, status and height are shown.
+   The Lightning table hides the implementation column on a phone the same way. */
 .api-docs #electrum-status code.url{display:inline-block;margin-top:2px;font-size:.8em;overflow-wrap:anywhere}
-@media (max-width:640px){.api-docs #electrum-status .wide{display:none}.api-docs #electrum-status td:first-child{min-width:0}}
+@media (max-width:640px){.api-docs #electrum-status .wide,.api-docs #lightning-status .wide{display:none}.api-docs #electrum-status td:first-child,.api-docs #lightning-status td:first-child{min-width:0}}
