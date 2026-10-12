@@ -20,6 +20,19 @@
       "period": "month"
     },
     {
+      "id": "hetzner-nexa-pool-1",
+      "kind": "server",
+      "name": "nexa-pool-1",
+      "type": "cx33",
+      "place": "Falkenstein",
+      "runs": "a Nexa full node for the upcoming Nordic Crypto mining pool",
+      "amount": "8.99",
+      "currency": "EUR",
+      "period": "month",
+      "amount_server": "8.49",
+      "amount_ipv4": "0.50"
+    },
+    {
       "id": "hetzner-volume",
       "kind": "volume",
       "gb": "500",

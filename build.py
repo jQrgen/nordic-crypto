@@ -1325,8 +1325,12 @@ def _budget_bits(line, bud):
     """Item name and the smaller line under it. Amounts come from the line, not from the translation."""
     kind = line["kind"]
     if kind == "server":
-        return (E(t("bud_server", name=line["name"], type=line["type"], place=line["place"])),
-                E(t("bud_runs", what=line["runs"])))
+        detail = E(t("bud_runs", what=line["runs"]))
+        if line.get("amount_server") and line.get("amount_ipv4"):
+            host = f'{line["currency"]} {bud.group_amount(line["amount_server"])}'
+            ipv4 = f'{line["currency"]} {bud.group_amount(line["amount_ipv4"])}'
+            detail += "<br>" + E(t("bud_server_split", server=host, ipv4=ipv4))
+        return (E(t("bud_server", name=line["name"], type=line["type"], place=line["place"])), detail)
     if kind == "volume":
         price = f'{line["unit_currency"]} {bud.group_amount(line["unit_price"])}'
         return (E(t("bud_volume", gb=bud.group_amount(line["gb"]), price=price)), "")

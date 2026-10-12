@@ -101,6 +101,13 @@ def _validate(doc):
             per_month = _dec(line["amount_year"], ident + " year") / Decimal(12)
             if per_month != amount:
                 raise ValueError(f"{ident}: {line['amount_year']} / 12 is {per_month}, not {amount}")
+        if kind == "server" and ("amount_server" in line or "amount_ipv4" in line):
+            host = _dec(line.get("amount_server"), ident + " server")
+            ipv4 = _dec(line.get("amount_ipv4"), ident + " ipv4")
+            if host + ipv4 != amount:
+                raise ValueError(
+                    f"{ident}: {line.get('amount_server')} + {line.get('amount_ipv4')} is {host + ipv4}, not {amount}"
+                )
     unused = [cur for cur in rates if cur not in used]
     if unused:
         raise ValueError("budget: unused rate for " + ", ".join(unused))
