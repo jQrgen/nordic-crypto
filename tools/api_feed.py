@@ -2410,7 +2410,8 @@ def docs_fragment(index):
 </tbody></table></div>
 <p class="meta">The status line is written into this static page and does not update itself. Live status: <a href="https://amboss.space/node/0225974bb701101a5d4352dcae0f76aa9c1388e482a666e892f462e0e0e4217dd9" rel="noopener">Amboss</a> and <a href="https://1ml.com/node/0225974bb701101a5d4352dcae0f76aa9c1388e482a666e892f462e0e0e4217dd9" rel="noopener">1ML</a>.</p>
 <p>Node URI. Copy a line. The first line is IPv4. The second line is the same node on IPv6, <code>[2a01:4f8:c01e:36d9::1]:9735</code>.</p>
-<pre>0225974bb701101a5d4352dcae0f76aa9c1388e482a666e892f462e0e0e4217dd9@91.99.122.75:9735
+<!-- The @ in the IPv4 node URI is &#64; in the file. The privacy gate would otherwise read pubkey@host as an email address. The page shows @, and copying the line includes it. -->
+<pre>0225974bb701101a5d4352dcae0f76aa9c1388e482a666e892f462e0e0e4217dd9&#64;91.99.122.75:9735
 0225974bb701101a5d4352dcae0f76aa9c1388e482a666e892f462e0e0e4217dd9@[2a01:4f8:c01e:36d9::1]:9735</pre>
 <p>Pubkey.</p>
 <pre>0225974bb701101a5d4352dcae0f76aa9c1388e482a666e892f462e0e0e4217dd9</pre>
