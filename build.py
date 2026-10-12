@@ -1064,6 +1064,7 @@ def build():
     open(os.path.join(SITE, "robots.txt"), "w").write(robots)
     write_push_assets()
     emit_api(ctx)
+    write_crowdfunding_api()
     sitemap()
     write_cname()
     miss = sorted(i18n.MISSING)
@@ -1218,6 +1219,101 @@ def build_privacy():
         body = body.replace('<div class="prose">', note + '<div class="prose">', 1)
     page("privacy", t("pp_title"), "privacy", text_page(body, attrs=attrs), t("pp_desc"))
 
+CF_PATH = P("data", "crowdfunding.json")
+def _cf_data():
+    return load(CF_PATH, {"pilot": {}, "campaigns": []}) or {"pilot": {}, "campaigns": []}
+
+def _cf_uri(chain, addr, amount=None):
+    """BIP21-style payment URI on the project's own address (bitcoincash:addr?amount= / nexa:addr?amount=)."""
+    pre = "bitcoincash:" if chain == "bch" else "nexa:"
+    a = addr if addr.startswith(pre) else pre + addr
+    return a + (f"?amount={amount}" if amount else "")
+
+def _cf_card(c, report_href):
+    demo = bool(c.get("demo"))
+    goal = c.get("goal") or {}
+    rows = [f'<dt>{E(t("cf_owner"))}</dt><dd>{E(c.get("owner"))}{" (" + E(cname(c.get("owner_country"))) + ")" if c.get("owner_country") else ""}</dd>']
+    g = [f'{goal[k]:,} {k.upper()}'.replace(",", " ") for k in ("bch", "nexa") if goal.get(k)]
+    if goal.get("nok_approx"): g.append(f'≈ {goal["nok_approx"]:,} NOK'.replace(",", " "))
+    if g: rows.append(f'<dt>{E(t("cf_goal"))}</dt><dd>{E(" · ".join(g))}</dd>')
+    if c.get("deadline"): rows.append(f'<dt>{E(t("cf_deadline"))}</dt><dd>{E(c["deadline"])}</dd>')
+    rows.append(f'<dt>KYC</dt><dd>{E(t("cf_kyc_yes" if c.get("kyc_verified") else "cf_kyc_no"))}</dd>')
+    if c.get("reward"):
+        rows.append(f'<dt>{E(t("cf_reward"))}</dt><dd>{E(c["reward"])}<br><span class="meta">{E(t("cf_trader_yes" if c.get("owner_is_trader") else "cf_trader_no"))}</span></dd>')
+    pays, progs = [], []
+    for chain, label in (("bch", "cf_pay_bch"), ("nexa", "cf_pay_nexa")):
+        addr = (c.get("addresses") or {}).get(chain)
+        if not addr: continue
+        uri = _cf_uri(chain, addr)
+        pays.append(f'<div class="cf-pay"><h4>{E(t(label))}</h4><div class="cf-qr" data-uri="{E(uri)}" data-alt="{E(t("cf_qr_alt"))}"></div>'
+                    f'<p><code class="url">{E(uri)}</code></p>' + ("" if demo else f'<p><a class="btn" href="{E(uri)}">{E(t("cf_open_wallet"))}</a></p>') + '</div>')
+        if not demo:
+            progs.append(f'<p class="cf-prog" data-chain="{chain}" data-addr="{E(uri)}" data-goal="{E(goal.get(chain) or 0)}">'
+                         f'<progress hidden></progress> <span class="cf-amt">–</span></p>')
+    links = "".join(f'<li><a href="{E(l["url"])}" rel="noopener nofollow">{E(l.get("label") or l["url"])}</a></li>' for l in c.get("links") or [] if str(l.get("url", "")).startswith("https://"))
+    return (f'<article class="cf-card railbox{" cf-demo" if demo else ""}" id="{E(c.get("id"))}">'
+            + (f'<p class="notice"><b>{E(t("cf_demo"))}</b></p>' if demo else "")
+            + f'<h3>{E(c.get("title"))}</h3><p>{E(c.get("description"))}</p><dl class="cf-facts">{"".join(rows)}</dl>'
+            + f'<div class="cf-pays">{"".join(pays)}</div>'
+            + (f'<h4>{E(t("cf_progress"))}</h4>{"".join(progs)}<p class="meta">{E(t("cf_prog_note"))}</p>' if progs else "")
+            + (f'<h4>{E(t("cf_links"))}</h4><ul>{links}</ul>' if links else "")
+            + f'<p class="meta"><a href="{E(report_href)}">{E(t("cf_report"))}</a></p></article>')
+
+def build_crowdfunding():
+    """Closed crowdfunding pilot (crowdfunding/, noindex, not in the nav). A curated directory: each campaign shows the
+    project's OWN BCH/Nexa addresses with QR codes and payment URIs. Nordic Crypto never holds keys or funds; progress is a
+    read-only balance fetched in the reader's browser (assets/crowdfunding/campaigns.js). Labelled as a commercial service,
+    separate from the newsroom. Data: data/crowdfunding.json."""
+    d = _cf_data(); pilot = d.get("pilot") or {}
+    rel = up1() + lp()
+    if LANG == "en":
+        dst = os.path.join(SITE, "assets", "crowdfunding"); os.makedirs(dst, exist_ok=True)
+        for n in ("qrcode.js", "campaigns.js"): shutil.copy(P("assets", "crowdfunding", n), os.path.join(dst, n))
+    rep = pilot.get("report_email")
+    report_href = f"mailto:{rep}?subject=Report%20crowdfunding%20campaign" if rep else rel + "tip/"
+    camps = d.get("campaigns") or []
+    live = [c for c in camps if not c.get("demo")]
+    cards = "".join(_cf_card(c, report_href) for c in camps)
+    em = pilot.get("apply_email")
+    apply_line = t("cf_apply_email", email="__EM__").replace("__EM__", f'<a href="mailto:{E(em)}">{E(em)}</a>') if em else E(t("cf_apply_soon"))
+    terms = "".join(f"<li>{E(t('cf_terms_' + str(i)))}</li>" for i in range(1, 5))
+    body = f"""<h1>{E(t("cf_title"))}</h1>
+<p class="notice"><b>{E(t("cf_label"))}</b></p>
+<p class="lead">{E(t("cf_lead"))}</p>
+<div class="prose">
+<p class="notice">{E(t("cf_never"))}</p>
+<p>{E(t("cf_noendorse"))}</p>
+<p class="meta">{E(t("cf_pilot"))}</p>
+<h2 id="campaigns">{E(t("cf_title"))}</h2>
+{"" if live else f'<p><b>{E(t("cf_none"))}</b></p>'}
+<div class="cf-list">{cards}</div>
+<h2 id="apply">{E(t("cf_apply_h"))}</h2>
+<p>{E(t("cf_apply"))}</p><p>{apply_line}</p>
+<h2 id="rules">{E(t("cf_rules_h"))}</h2><p>{E(t("cf_rules"))}</p>
+<h2 id="terms">{E(t("cf_terms_h"))}</h2><ul>{terms}</ul>
+<h2 id="privacy">{E(t("cf_privacy_h"))}</h2><p>{E(t("cf_privacy"))} <a href="{rel}privacy/#crowdfunding">{E(t("pp_title"))}</a></p>
+<p class="meta">{E(t("cf_api"))}: <a href="{up1()}api/v1/crowdfunding.json"><code>/api/v1/crowdfunding.json</code></a></p>
+</div>"""
+    style = ('<meta name="robots" content="noindex, nofollow"><style>.cf-list{display:grid;gap:1rem}.cf-pays{display:flex;flex-wrap:wrap;gap:1rem}'
+             '.cf-pay{flex:1 1 14rem}.cf-qr{max-width:12rem;background:#fff;padding:.25rem;border-radius:.4rem}.cf-qr svg{width:100%;height:auto}'
+             '.cf-pay code{word-break:break-all}.cf-facts dt{font-weight:600}.cf-facts dd{margin:0 0 .4rem}.cf-demo{outline:2px dashed currentColor}'
+             '.cf-prog progress{width:100%}</style>')
+    js_l = json.dumps({"checking": t("cf_checking"), "unavailable": t("cf_unavailable")}, ensure_ascii=False).replace("<", "\\u003c")
+    script = (f'<script>window.NC_CF={js_l};</script><script src="{up1()}assets/crowdfunding/qrcode.js" defer></script>'
+              f'<script src="{up1()}assets/crowdfunding/campaigns.js" defer></script>')
+    page("crowdfunding", t("cf_title"), "crowdfunding", text_page(body, toc=False), t("cf_desc"), script, head_extra=style)
+
+def write_crowdfunding_api():
+    """api/v1/crowdfunding.json: the curated pilot list (no balances, no donor data). Demo entries are marked demo:true."""
+    d = _cf_data()
+    out = {"pilot": {k: (d.get("pilot") or {}).get(k) for k in ("status", "max_projects", "apply_email")},
+           "custody": "none: payments go straight to each project's own address; Nordic Crypto never holds keys or funds",
+           "campaigns": [{k: c.get(k) for k in ("id", "demo", "title", "owner", "owner_country", "owner_is_trader", "description", "reward",
+                                                "goal", "addresses", "deadline", "kyc_verified", "links")} | {
+                          "payment_uris": {ch: _cf_uri(ch, a) for ch, a in (c.get("addresses") or {}).items() if a}} for c in d.get("campaigns") or []]}
+    os.makedirs(os.path.join(SITE, "api", "v1"), exist_ok=True)
+    json.dump(out, open(os.path.join(SITE, "api", "v1", "crowdfunding.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+
 def build_ethics():
     """Press ethics: Nordic Crypto follows Vær Varsom-plakaten. Own wording, not a copy of the code."""
     body = text_page(lang_template("ethics"), attrs=template_attrs("ethics"))
@@ -1229,6 +1325,7 @@ def sitemap():
         if "index.html" in fs:
             r = os.path.relpath(dp, SITE).replace(os.sep, "/"); r = "" if r == "." else r + "/"
             if r.split("/")[0] in ("kalender", "skjerm", "organisasjonskart", "kilder", "om", "akademia"): continue
+            if "crowdfunding" in r.split("/"): continue   # closed pilot: noindex
             urls.append(BASE + r)
     for rel in ("api/v1/index.json", "api/v1/openapi.json", "api/v1/markets.json", "api/v1/markets/aggregated.json", "llms.txt"):
         if os.path.exists(os.path.join(SITE, rel)):
@@ -1918,6 +2015,7 @@ def build_lang(ctx):
     build_media()
     build_ethics()
     build_privacy()
+    build_crowdfunding()
     build_chat()
 
 # ---- Industry map: categories from the org chart data (group + description keywords; overrides in industry_map.json) ----

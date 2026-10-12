@@ -12,7 +12,7 @@ import os
 DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", "themes")
 
 BY_NAV = {
-    "": "aurora", "stories": "aurora",            # front page and story pages: the serious one, with a moving aurora
+    "": "aurora", "stories": "aurora", "crowdfunding": "aurora",            # front page and story pages: the serious one, with a moving aurora
     "markets": "pixel",                           # 8-bit monster-battle handheld
     "api": "cbase",                               # crashed space station hackerspace
     "talks": "vhs",                               # synthwave VHS tape
