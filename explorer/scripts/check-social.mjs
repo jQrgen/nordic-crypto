@@ -170,7 +170,6 @@ const headerHrefs = [
   "https://x.com/nordiccryptobot",
   "https://github.com/jQrgen/nordic-crypto",
   "https://nordiccrypto.no/rss.xml",
-  "https://testflight.apple.com/join/nQ2fpjZn",
   "https://nordiccrypto.no/",
 ];
 const headerLabels = [
@@ -179,8 +178,6 @@ const headerLabels = [
   "Follow on X",
   "Source code",
   "RSS",
-  "Get the iOS app (TestFlight)",
-  "Especially supports Apple TV.",
   "nordiccrypto.no",
 ];
 for (const file of ["bch/index.html", "nexa/index.html", "bch/mempool/index.html", "nexa/tokens/index.html"]) {

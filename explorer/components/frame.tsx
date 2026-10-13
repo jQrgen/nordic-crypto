@@ -51,7 +51,6 @@ function Shell({ chain, children }: { chain?: ChainId; children: ReactNode }) {
       </a>
       <header className="top">
         <div className="wrap">
-          <SiteLinks />
           <div className="brandrow">
             <Link className="brand" href={`/${resolved}`} aria-label="Nordic Crypto Explorer, home">
               <Shield />
@@ -73,6 +72,7 @@ function Shell({ chain, children }: { chain?: ChainId; children: ReactNode }) {
               ))}
             </nav>
             <div className="hdrtools">
+              <SiteLinks />
               <label className="fiat">
                 <span className="vh">Fiat currency</span>
                 <select value={fiat} onChange={(event) => setFiat(event.target.value as Fiat)} aria-label="Fiat currency">
