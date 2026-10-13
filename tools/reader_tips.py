@@ -14,7 +14,7 @@ Page metadata (title/date) is read only where robots.txt allows (fetch.page_meta
 Usage: python3 tools/reader_tips.py [--dry-run] [--no-github]"""
 import datetime as dt, importlib.util, json, os, re, sqlite3, subprocess, sys, urllib.parse
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); P = lambda *a: os.path.join(ROOT, *a)
-REPO = "jQrgen/nordic-crypto"; DB = os.environ.get("TIP_DB", P("tipserver", "tips.db"))
+REPO = "nordic-crypto-org/nordic-crypto"; DB = os.environ.get("TIP_DB", P("tipserver", "tips.db"))
 sys.path.insert(0, P("tools")); from crosssite_handoff import norm_url, strip_tracking  # noqa: E402
 import coverage  # noqa: E402
 NOW = dt.datetime.now(dt.timezone.utc)

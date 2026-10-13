@@ -121,7 +121,7 @@ S = {
 "src_kw": "Матеріал потрапляє до відбору, коли в заголовку чи анонсі згадано, наприклад: bitcoin, crypto, blockchain, stablecoin, MiCA, CASP, CBDC, darknet (усі мови); krypto, kryptovaluta, blokkjede (норвезька); kryptoaktiver, blokkæde (данська); kryptotillgångar, blockkedja, e-krona (шведська); kryptovaluutta, lohkoketju, virtuaalivaluutta (фінська); rafmynt, sýndareignir, bálkakeðja (ісландська); або криптокомпанії Північних країн, як-от Firi, NBX, K33, Safello, Coinmotion, Northcrypto, Myntkaup, Monerium і Coinify. Слова про відмивання грошей, як-от hvitvasking, penningtvätt, hvidvask, rahanpesu і peningaþvætti, зараховуються лише тоді, коли в тому самому заголовку чи анонсі є й криптотермін. Для місцевих матеріалів і матеріалів правосуддя діє той самий фільтр. Редактор перевіряє кожен збіг перед публікацією.",
 "src_ev_h": "Де ми знаходимо події",
 "src_ev_note": "Luma читаємо з публічної iCal-стрічки Subscribe кожного календаря. Сторінки міст, як-от luma.com/oslo, сторінки категорій, як-от luma.com/crypto, і discover API від Luma не використовуються: умови використання дозволяють лише публічно підтримувані інтерфейси, а офіційний API потребує Luma Plus і охоплює лише календарі, які ви адмініструєте. Окрему сторінку події Luma читаємо як schema.org JSON-LD. Для Eventbrite використовуємо API організаторів і місць проведення v3, коли на сервері задано EVENTBRITE_TOKEN. Токен не публікується. Без нього використовується JSON-LD сторінки події. Публічний пошуковий API не використовується. Подія з однаковими назвою, датою й місцем проведення вноситься один раз. Одна непрацююча стрічка не зупиняє запуск. Завершені події лишаються в розділі «Минулі події».",
-"src_missing": "Бракує джерела? Запропонуйте його як issue на <a href=\"https://github.com/jQrgen/nordic-crypto/issues\" rel=\"noopener\">GitHub</a>.",
+"src_missing": "Бракує джерела? Запропонуйте його як issue на <a href=\"https://github.com/nordic-crypto-org/nordic-crypto/issues\" rel=\"noopener\">GitHub</a>.",
 # calendar
 "cal_title": "Календар – події про криптовалюти, біткоїн і блокчейн у Північних країнах",
 "cal_desc": "Майбутні події про криптовалюти, біткоїн і блокчейн у Норвегії, Швеції, Данії, Фінляндії та Ісландії, з датою, місцем і організатором.",
@@ -156,7 +156,7 @@ S = {
 "ev_talks": "Виступи",
 "ev_cal_link": "Календар",
 "ev_orig_below": "Оригінальний текст",
-"cal_how": "Як ми знаходимо події: <a href=\"../sources/#events\">джерела подій</a>. Організовуєте щось про криптовалюти в Північних країнах? Надішліть посилання на сторінку організатора як issue на <a href=\"https://github.com/jQrgen/nordic-crypto/issues\" rel=\"noopener\">GitHub</a>.",
+"cal_how": "Як ми знаходимо події: <a href=\"../sources/#events\">джерела подій</a>. Організовуєте щось про криптовалюти в Північних країнах? Надішліть посилання на сторінку організатора як issue на <a href=\"https://github.com/nordic-crypto-org/nordic-crypto/issues\" rel=\"noopener\">GitHub</a>.",
 "paid": "Платно", "free": "Безкоштовно", "sponsored_by": "Спонсор: {x}", "sponsored": "Спонсорована", "online": "Онлайн",
 "orig_title_ev": "Оригінальна назва: ", "organiser": "Організатор", "listed_at": "Анонс на", "note": "Примітка",
 # academia

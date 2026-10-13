@@ -43,7 +43,7 @@ export const siteLinks: readonly SiteLink[] = [
   },
   {
     id: "github",
-    href: "https://github.com/jQrgen/nordic-crypto",
+    href: "https://github.com/nordic-crypto-org/nordic-crypto",
     label: "Source code",
     title: "Source code",
     icon: "github",

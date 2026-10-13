@@ -156,7 +156,7 @@ def main():
     if files["api/v1/markets.json"].get("aggregated") is None:
         fails.append("markets.json aggregate")
     raw = json.dumps(files["api/v1/markets.json"])
-    if "https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json" not in raw:
+    if "https://raw.githubusercontent.com/nordic-crypto-org/nordic-crypto/gh-pages/api/v1/markets.json" not in raw:
         fails.append("raw url")
     if "827301.99" not in raw or "safello" not in raw.lower():
         fails.append("catalogue contents")

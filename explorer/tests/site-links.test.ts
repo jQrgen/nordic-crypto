@@ -9,7 +9,7 @@ test("header links follow the front page, then the way back", () => {
       ["Follow", "https://nordiccrypto.no/newsletter/#signup", ""],
       ["Join on Telegram", "https://t.me/nordiccryptochat", ""],
       ["Follow on X", "https://x.com/nordiccryptobot", ""],
-      ["Source code", "https://github.com/jQrgen/nordic-crypto", ""],
+      ["Source code", "https://github.com/nordic-crypto-org/nordic-crypto", ""],
       ["RSS", "https://nordiccrypto.no/rss.xml", ""],
     ],
   );

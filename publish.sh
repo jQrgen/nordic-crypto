@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Builds site/, runs the privacy gate and publishes site/ to gh-pages in jQrgen/nordic-crypto.
+# Builds site/, runs the privacy gate and publishes site/ to gh-pages in nordic-crypto-org/nordic-crypto.
 # Paths the build does not produce (CNAME, kiosk/, publish-keep.txt) stay on gh-pages.
 # Code (not data/, state/, queue/, logs/) goes to main.
 # Usage:  ./publish.sh        -> public build + privacy gate only (nothing is pushed)
@@ -115,7 +115,7 @@ if [ "$DRY" = "--yes" ]; then
   SRC="main@$(git rev-parse --short HEAD)"
   [ -z "$(git status --porcelain)" ] || SRC="$SRC+dirty"
 fi
-REPO=https://github.com/jQrgen/nordic-crypto.git
+REPO=https://github.com/nordic-crypto-org/nordic-crypto.git
 URL=$(site_base)
 CUSTOM="$URL"
 # on the first approved publish, stamp the launch date into changelog.json (entries dated "launch")
@@ -134,7 +134,7 @@ if [ -z "$(git config user.name || true)" ]; then
   login=$(gh api user -q .login); uid=$(gh api user -q .id)
   git config user.name "$login"; git config user.email "${uid}+${login}@users.noreply.github.com"
 fi
-git remote get-url origin >/dev/null 2>&1 || { gh repo view jQrgen/nordic-crypto >/dev/null 2>&1 || gh repo create jQrgen/nordic-crypto --public -d "Bitcoin, blockchain and crypto news from the Nordics"; git remote add origin "$REPO"; }
+git remote get-url origin >/dev/null 2>&1 || { gh repo view nordic-crypto-org/nordic-crypto >/dev/null 2>&1 || gh repo create nordic-crypto-org/nordic-crypto --public -d "Bitcoin, blockchain and crypto news from the Nordics"; git remote add origin "$REPO"; }
 # 1) gh-pages: separate clone in .publish/. Built files are replaced; publish-keep.txt paths are not.
 if [ ! -d .publish/.git ]; then
   rm -rf .publish
@@ -156,8 +156,8 @@ if git -C .publish diff --cached --quiet; then echo "gh-pages: no changes"; else
   git -C .publish commit -q -m "Publish $(date '+%Y-%m-%d %H:%M %Z') from $SRC" && git -C .publish push -q origin gh-pages && echo "gh-pages: pushed" && GH_PUSHED=1; fi
 # Keep the custom domain set. Deleting CNAME from the branch clears this; the PUT puts it back.
 # POST remains the fallback for a repo that does not have Pages yet.
-gh api -X PUT repos/jQrgen/nordic-crypto/pages -f "cname=$(site_host)" -f 'source[branch]=gh-pages' -f 'source[path]=/' >/dev/null 2>&1 \
-  || gh api -X POST repos/jQrgen/nordic-crypto/pages -f "source[branch]=gh-pages" -f "source[path]=/" >/dev/null 2>&1 \
+gh api -X PUT repos/nordic-crypto-org/nordic-crypto/pages -f "cname=$(site_host)" -f 'source[branch]=gh-pages' -f 'source[path]=/' >/dev/null 2>&1 \
+  || gh api -X POST repos/nordic-crypto-org/nordic-crypto/pages -f "source[branch]=gh-pages" -f "source[path]=/" >/dev/null 2>&1 \
   || true
 # 2) main: code and config only (see .gitignore)
 git add -A && { git diff --cached --quiet || git commit -q -m "Update pipeline $(date '+%Y-%m-%d')"; } && git push -q -u origin main || echo "warning: push to main failed"

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Footer link to the contributors page on GitHub (https://github.com/jQrgen/nordic-crypto/graphs/contributors).
+"""Footer link to the contributors page on GitHub (https://github.com/nordic-crypto-org/nordic-crypto/graphs/contributors).
   python3 tests/test_contributors_link.py
 One link, label from i18n ("contributors") in every site language, no list of names on the site.
 Renders the Books page into a temp directory to check the real footer. Does not publish."""
@@ -14,7 +14,7 @@ sys.path.insert(0, os.path.join(ROOT, "tools"))
 import build
 import i18n
 
-URL = "https://github.com/jQrgen/nordic-crypto/graphs/contributors"
+URL = "https://github.com/nordic-crypto-org/nordic-crypto/graphs/contributors"
 REVERSED = "Crypto " + "Nordic"
 
 
@@ -52,7 +52,7 @@ def main():
                 html = open(os.path.join(tmp, build.lp(), "books", "index.html"), encoding="utf-8").read()
                 foot = html[html.index("<footer>"):html.index("</footer>")]
                 check(f'href="{URL}"' in foot, f"{lang} rendered footer links to contributors", fails)
-                check(not re.search(r"github\.com/(?!jQrgen/nordic-crypto/)[\w-]+\"", foot), f"{lang} no personal profile links", fails)
+                check(not re.search(r"github\.com/(?!nordic-crypto-org/nordic-crypto/)[\w-]+\"", foot), f"{lang} no personal profile links", fails)
                 check("{contributors}" not in foot, f"{lang} placeholder filled", fails)
         finally:
             build.SITE, build.PREVIEW, build.LANG = old

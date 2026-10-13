@@ -191,7 +191,7 @@ test("the review API refuses a missing or wrong token and does not publish tease
       item_status: "published",
     }]],
   });
-  const env = { DB: db, EDITOR_TOKEN: TOKEN, GITHUB_REPOSITORY: "jQrgen/nordic-crypto" };
+  const env = { DB: db, EDITOR_TOKEN: TOKEN, GITHUB_REPOSITORY: "nordic-crypto-org/nordic-crypto" };
   assert.equal((await handle(request("GET", "/api/review/pending"), env)).status, 401);
   assert.equal((await handle(request("GET", "/api/review/pending", { token: "nope" }), env)).status, 401);
   assert.equal((await handle(request("POST", "/api/review", { token: TOKEN, body: { kind: "story", id: "abc", action: "approve" } }), env)).status, 400);

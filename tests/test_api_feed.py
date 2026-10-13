@@ -334,7 +334,7 @@ def main():
         mk = json.load(open(os.path.join(tmp, "api/v1/markets.json"), encoding="utf-8"))
         if mk["tickers"][0]["last"] != "100.5" or mk["tickers"][0]["source_url"] != "https://api.firi.com/v2/markets/BTCNOK":
             fails.append("markets fixture")
-        if "raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json" not in json.dumps(mk["urls"]):
+        if "raw.githubusercontent.com/nordic-crypto-org/nordic-crypto/gh-pages/api/v1/markets.json" not in json.dumps(mk["urls"]):
             fails.append("markets raw url")
         if not any(ep["path"] == "/api/v1/markets.json" for ep in info["endpoints"]):
             fails.append("markets missing from discovery")
