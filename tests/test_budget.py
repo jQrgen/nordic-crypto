@@ -29,20 +29,20 @@ def check(ok, msg):
 
 def main():
     doc = bud.summary()
-    eur = Decimal("15.99") + Decimal("28.60") + Decimal("8.99")
-    check(eur == Decimal("53.58"), "EUR subtotal 53.58")
+    eur = Decimal("15.99") + Decimal("85.80") + Decimal("8.99")
+    check(eur == Decimal("110.78"), "EUR subtotal 110.78")
     check(Decimal("8.49") + Decimal("0.50") == Decimal("8.99"), "8.49 + 0.50 = 8.99")
-    check(Decimal("500") * Decimal("0.0572") == Decimal("28.60"), "500 GB × 0.0572 = 28.60")
+    check(Decimal("1500") * Decimal("0.0572") == Decimal("85.80"), "1500 GB × 0.0572 = 85.80")
     check(Decimal("1578") / Decimal(12) == Decimal("131.50"), "1578 / 12 = 131.50")
     total = eur * Decimal("11.70") + Decimal("5") * Decimal("10.80") + Decimal("131.50")
-    check(total == Decimal("812.386"), "exact NOK total 812.386")
+    check(total == Decimal("1481.626"), "exact NOK total 1481.626")
     check(doc["total"] == total, "summary total matches the stated rates")
     parts, shown = bud.display_nok(doc["subtotals"])
-    check(parts == [Decimal("626.89"), Decimal("54.00"), Decimal("131.50")], "display parts rounded half-up to øre")
-    check(shown == Decimal("812.39") and shown == sum(parts, Decimal(0)), "displayed total is the sum of the rounded parts")
-    check(bud.format_number(total, "en") == "812.39", "English number 812.39")
-    check(bud.format_number(total, "nn") == "812,39", "Nynorsk number 812,39")
-    check(bud.format_number(total, "nb") == "812,39", "Bokmål number 812,39")
+    check(parts == [Decimal("1296.13"), Decimal("54.00"), Decimal("131.50")], "display parts rounded half-up to øre")
+    check(shown == Decimal("1481.63") and shown == sum(parts, Decimal(0)), "displayed total is the sum of the rounded parts")
+    check(bud.format_number(total, "en") == "1,481.63", "English number 1,481.63")
+    check(bud.format_number(total, "nn") == "1 481,63", "Nynorsk number 1 481,63")
+    check(bud.format_number(total, "nb") == "1 481,63", "Bokmål number 1 481,63")
     check(bud.format_number(Decimal("1234.5"), "nn") == "1 234,50", "Nynorsk groups thousands with a space")
     check(bud.format_number(Decimal("1234.5"), "da") == "1.234,50", "Danish groups thousands with a dot")
     check(bud.format_number(Decimal("1234.5"), "de") == "1.234,50", "German groups thousands with a dot")
@@ -64,7 +64,7 @@ def main():
     check(pool["runs"] == "a Nexa full node for the upcoming Nordic Crypto mining pool", "nexa-pool-1 runs a Nexa full node")
     check(pool["amount_server"] == "8.49" and pool["amount_ipv4"] == "0.50", "cx33 is 8.49 plus 0.50 for the primary IPv4")
     vol = by_id["hetzner-volume"]
-    check(vol["gb"] == "500" and vol["unit_price"] == "0.0572" and vol["amount"] == "28.60", "volume 500 GB")
+    check(vol["gb"] == "1500" and vol["unit_price"] == "0.0572" and vol["amount"] == "85.80", "volume 1500 GB")
     check(by_id["cloudflare-workers"]["amount"] == "5" and by_id["cloudflare-workers"]["currency"] == "USD", "workers USD 5")
     domains = by_id["domains"]
     check(domains["amount_year"] == "1578" and domains["vat"] == "incl" and domains["amount"] == "131.50", "domains incl. VAT")
@@ -84,10 +84,10 @@ def main():
         "cx33", "nexa-pool-1",
         "a Nexa full node for the upcoming Nordic Crypto mining pool",
         "EUR 15.99", "EUR 8.99", "EUR 8.49", "EUR 0.50",
-        "500", "EUR 0.0572", "EUR 28.60",
+        "1 500", "EUR 0.0572", "EUR 85.80",
         "USD 5", "nordiccrypto.no/.dk/.se/.fi/.is/.eu", "Domeneshop",
         "NOK 1 578", "NOK 131.50", "nordiccrypto.no",
-        "EUR 53.58", "EUR 1 = NOK 11.70", "USD 1 = NOK 10.80",
+        "EUR 110.78", "EUR 1 = NOK 11.70", "USD 1 = NOK 10.80",
     )
     old = (build.SITE, build.LANG)
     with tempfile.TemporaryDirectory() as tmp:
@@ -120,7 +120,7 @@ def main():
                 for value in list(parts) + [shown]:
                     label = i18n.budget_strings.S[lang]["bud_nok_amt"].format(n=bud.format_number(value, lang))
                     check(label in main, f"{lang}: shows {label}")
-                check("812.386" not in main and "626.886" not in main, f"{lang}: no unrounded total")
+                check("1481.626" not in main and "1296.126" not in main, f"{lang}: no unrounded total")
                 for bad in REJECTED:
                     check(bad not in main, f"{lang}: no {bad}")
                 check(build.E(build.t("free")) in main, f"{lang}: free")
@@ -131,12 +131,12 @@ def main():
                     check("exclude labour" in main and "updated manually" in main, "English labour note")
                     check("approximate" in main, "English approximate")
                     check(">USD 5<" in main, "USD 5 is not rewritten as 5.00 on the line")
-                    check("About NOK 812.39 per month." in main, "English total line")
+                    check("About NOK 1,481.63 per month." in main, "English total line")
                     check("EUR 8.49 for the server plus EUR 0.50 for the primary IPv4." in main, "English price split")
                 if lang == "nn":
-                    check("Om lag 812,39 kr i månaden." in main, "Nynorsk total line")
+                    check("Om lag 1 481,63 kr i månaden." in main, "Nynorsk total line")
                 if lang == "nb":
-                    check("Omtrent 812,39 kr i måneden." in main, "Bokmål total line")
+                    check("Omtrent 1 481,63 kr i måneden." in main, "Bokmål total line")
                 if lang == "ar":
                     check('dir="rtl"' in html.split("<main", 1)[0], "Arabic page is right to left")
                 for name, rx in RULES.items():

@@ -35,10 +35,10 @@
     {
       "id": "hetzner-volume",
       "kind": "volume",
-      "gb": "500",
+      "gb": "1500",
       "unit_price": "0.0572",
       "unit_currency": "EUR",
-      "amount": "28.60",
+      "amount": "85.80",
       "currency": "EUR",
       "period": "month"
     },

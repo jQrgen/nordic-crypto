@@ -114,7 +114,7 @@ def _validate(doc):
 
 
 def group_amount(text):
-    """Thousands grouped with a space. Fractional digits stay as written (28.60 stays 28.60)."""
+    """Thousands grouped with a space. Fractional digits stay as written (85.80 stays 85.80)."""
     raw = str(text)
     neg = raw.startswith("-")
     body = raw[1:] if neg else raw
