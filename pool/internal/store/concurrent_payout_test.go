@@ -16,7 +16,7 @@ type safeWallet struct {
 	sent  map[string]string
 }
 
-func (w *safeWallet) Send(address string, sats int64, comment string) (string, error) {
+func (w *safeWallet) Send(address string, sats int64, comment string) (account.Payment, error) {
 	w.mu.Lock()
 	defer w.mu.Unlock()
 	w.sends.Add(1)
@@ -25,14 +25,17 @@ func (w *safeWallet) Send(address string, sats int64, comment string) (string, e
 	}
 	txid := "tx-" + comment
 	w.sent[comment] = txid
-	return txid, nil
+	return account.Payment{TxID: txid, TxIdem: "idem-" + comment, Confirmations: 1}, nil
 }
 
-func (w *safeWallet) FindComment(comment string) (string, bool, error) {
+func (w *safeWallet) Find(comment, id string) (account.Payment, bool, error) {
 	w.mu.Lock()
 	defer w.mu.Unlock()
 	txid, ok := w.sent[comment]
-	return txid, ok, nil
+	if !ok {
+		return account.Payment{}, false, nil
+	}
+	return account.Payment{TxID: txid, TxIdem: "idem-" + comment, Confirmations: 1}, true, nil
 }
 
 func TestConcurrentPayoutReservesTheBalanceOnce(t *testing.T) {
@@ -48,7 +51,7 @@ func TestConcurrentPayoutReservesTheBalanceOnce(t *testing.T) {
 		go func() {
 			defer wg.Done()
 			<-start
-			if _, err := account.RunPayouts(s, w, minPay); err != nil {
+			if _, err := account.RunPayouts(s, w, minPay, 1); err != nil {
 				errMu.Lock()
 				errs = append(errs, err)
 				errMu.Unlock()
@@ -68,7 +71,7 @@ func TestConcurrentPayoutReservesTheBalanceOnce(t *testing.T) {
 	if got := w.sends.Load(); got != 1 {
 		t.Fatalf("wallet sends %d, want 1 (busy errors %d)", got, len(errs))
 	}
-	res, err := account.RunPayouts(s, w, minPay)
+	res, err := account.RunPayouts(s, w, minPay, 1)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -84,33 +87,43 @@ type blindWallet struct {
 	sends int
 }
 
-func (w *blindWallet) Send(string, int64, string) (string, error) {
+func (w *blindWallet) Send(string, int64, string) (account.Payment, error) {
 	w.mu.Lock()
 	w.sends++
 	w.mu.Unlock()
-	return "", errors.New("timeout talking to nexad")
+	return account.Payment{}, errors.New("timeout talking to nexad")
 }
 
-func (w *blindWallet) FindComment(string) (string, bool, error) {
-	return "", false, nil
+func (w *blindWallet) Find(string, string) (account.Payment, bool, error) {
+	return account.Payment{}, false, nil
 }
 
-func TestBlindReconcileSendsTheReservedPayoutAgain(t *testing.T) {
+// The timeout is ambiguous, so the first pass keeps the reservation. A
+// completed search that still cannot see the comment moves the row to
+// review. It must not transmit the payout again.
+func TestBlindReconcileDoesNotSendTheReservedPayoutAgain(t *testing.T) {
 	s := openTest(t)
 	credit(t, s, addrA, minPay, "mature")
 	w := &blindWallet{}
-	first, err := account.RunPayouts(s, w, minPay)
+	first, err := account.RunPayouts(s, w, minPay, 1)
 	if err != nil {
 		t.Fatal(err)
 	}
 	if first.Deferred != 1 || w.sends != 1 {
 		t.Fatalf("first %+v sends %d", first, w.sends)
 	}
-	second, err := account.RunPayouts(s, w, minPay)
+	second, err := account.RunPayouts(s, w, minPay, 1)
 	if err != nil {
 		t.Fatal(err)
 	}
-	if w.sends != 2 || second.Deferred != 1 {
-		t.Fatalf("reconcile did not send again: %+v sends %d", second, w.sends)
+	if w.sends != 1 || second.Sent != 0 {
+		t.Fatalf("reconcile sent again: %+v sends %d", second, w.sends)
+	}
+	var status string
+	if err := s.db.QueryRow(`SELECT status FROM payouts`).Scan(&status); err != nil {
+		t.Fatal(err)
+	}
+	if status != "review" {
+		t.Fatalf("status %s, want review", status)
 	}
 }

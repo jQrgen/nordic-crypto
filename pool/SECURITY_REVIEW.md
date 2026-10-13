@@ -138,3 +138,106 @@ From `pool/`, on Go 1.22.2:
 3. Build with a current Go, and refuse HTTP redirects on the RPC client.
 4. Before 1 November 2026, put `previousBlockHash` on the job and confirm a Tailstorm-capable miner against the pool's mix.
 5. Run the pool wallet as a hot wallet with a balance cap, on an account that is not the same login as the nexad datadir, and keep 7227 on localhost.
+
+## Re-review at 1109d60b
+
+Reviewed `1109d60b192d025129ad1378a41b130490debef8` on `cursor/nexa-pool-4f40` by reading the code. The finding table in `pool/SECURITY.md` was not used as evidence. nexad is `dev` at `37fe286` (`listtransactionsfrom` and `ListTransactions` in `src/wallet/rpcwallet.cpp`, `CheckProofOfWork` in `src/pow.cpp`, `MkMiningCandidateJson` in `src/unlimited.cpp`, `IsUpgrade2Activated` in `src/validation/forks.cpp`, `NEXT_FORK_ACTIVATION_TIME` in `src/chainparams.cpp`). Nothing in this file was pushed onto the PR branch.
+
+**Verdict: not ready.**
+
+The payout state machine no longer sends a reserved row a second time, the RPC client refuses redirects, `govulncheck` is clean on Go 1.27.2, and a clean job notification drops the previous job. Four launch blockers remain: comment recovery still does not walk the wallet, the Tailstorm gate does not match nexad and will stop work on 1 November 2026, an empty `coinbase_address` never credits a block, and the new submit cap bans a miner before variable difficulty can move.
+
+### Blocker 1, double payout — the second send is closed, recovery is not
+
+Severity of what remains: **high**. `pool/internal/nexa/rpc.go:347`, `pool/internal/account/payout.go:127`.
+
+What the code does now, and the crash tests that lock it (`internal/account/crash_test.go`):
+
+| Step | What happens | Test |
+| --- | --- | --- |
+| Reserve, then the process dies before `Send` | The next pass does not send. A completed miss moves the row to `review`. The coins stay deducted. | `TestCrashAfterReserveBeforeSendDoesNotSend` |
+| `Send` returns, `NotePayment` never commits | The error propagates. The row stays `reserved` with empty ids. The next pass finds the comment and marks it sent with `TxID`, not the idem. One send. | `TestCrashAfterSendBeforeNoteDoesNotSendAgain` |
+| `NotePayment` commits, `MarkSent` does not | The txid is durable. The next pass does not send. | `TestCrashAfterNoteBeforeMarkSentDoesNotSendAgain`, `TestCrashInsideMarkSentLeavesTheNoteAndDoesNotResend` |
+| `Find` returns an error | The row stays `reserved`. No send, no review. | `TestFindErrorStaysReservedAndDoesNotSend` |
+| `Find` finishes and the comment is absent | `review`. Not sent again. Still deducted from `Payable`. | `TestFindMissMovesToReviewAndDoesNotSend` |
+| `sendtoaddress` succeeded and `gettransaction` did not | `SendHeld` stores the idem and does not send again. A later lookup by that idem marks `TxID`. | `TestSendHeldRecordsIdemAndDoesNotSendAgain` |
+| Definite wallet rejection | `failed`, coins return, the next pass sends once. | `TestDefiniteSendFailureRetriesOnce` |
+| Dropped connection, no id in the error | Stays `reserved` (the word `connection` is treated as ambiguous). A later find does not send again. | `TestAmbiguousSendWithoutIDStaysReserved` |
+| Zero confirmations | Not marked sent. `minConfs` below 1 is raised to 1 (`payout.go:81`). | `TestZeroConfirmationsAreNotMarkedSent` |
+| Already `sent` | `Reserved()` does not return it. | `TestSentRowIsNotSentAgain` |
+
+`sendtoaddress` still returns `GetIdem`. `SendToAddress` (`rpc.go:269`) resolves it with `gettransaction`, which nexad accepts for either id (`mapWallet` stores both `GetId` and `GetIdem`). `MarkSent` writes `Payment.TxID` only (`payout.go:184`). A failed lookup after a successful send returns `SendHeld` (`rpc.go:278`) so the caller must not send again. `review` is included in the payable subtraction (`store.go:511`, `store.go:546`). That part of the original critical bug is closed.
+
+The recovery scan is not. `findComment` (`rpc.go:347`) pages `listtransactionsfrom "*" 1000 from`. In nexad, `from` and `count` count `wtxOrdered` items (`rpcwallet.cpp` around the `std::advance(it, nFrom)` loop), and `ListTransactions` appends one JSON object per output. A normal send with change is two rows. The pool then does `from = from + len(txs)`. After the first page of 1000 wallet items that each emit two rows, `from` becomes 2000 and the next call skips the rest of the wallet. The newest comment — the one a crash just created — is the one that is skipped. A page that returns fewer JSON rows than wallet items is treated as the end, so one item that emits nothing stops the scan early.
+
+`TestFindCommentMissesACommentPastTheFirstWalletPage` and `TestFindCommentStopsWhenAPageHasFewerJSONRowsThanItems` show both misses against a handler that implements nexad's item cursor. `TestCrashedPaymentMissedByPagingIsReviewedNotResent` is the crash after the send and before the note: the comment is in the wallet, `LookupPayment` reports a completed miss, the row goes to `review`, and nothing is sent again. There is no admin route to release or complete a `review` row. It stays held until a later `Find` succeeds, and this `Find` will not succeed while the wallet is longer than one mis-counted page. The coins are not paid twice. They are also not paid.
+
+`TestFindCommentScansPastTheLatest200` in `rpc_test.go` does not catch this. Its fake server treats `from` as a JSON-row cursor, which is the same mistake as the client.
+
+### Blocker 2, stratum — the caps landed, and the submit limit bans miners
+
+Per-IP cap 16 (`server.go:114`, `server.go:224`), 60 second read deadline (`server.go:119`), authorize-before-suggest and no lowering (`server.go:534`), a writer goroutine with a 5 second deadline (`server.go:348`), and a non-blocking broadcast that drops a slow session (`server.go:625`) are in place. `ShareWindow` reads backwards in pages of 1024 and stops when the work target is filled (`store.go:221`). `TestShareWindowStopsAtTheTarget` covers that. `suggest_difficulty` before authorize no longer pins 0.05 (`TestSuggestDifficultyCannotLowerTheSession`). This closes the original pinning, stall, and full-table findings.
+
+What it adds: `Listen` defaults `SubmitRate` to 4 per second, burst 8, and `BanAfter` to 20 (`server.go:120`). A rate-limit miss calls `penalise` (`server.go:477`), and 20 hits ban the IP for 10 minutes (`server.go:583`). Variable difficulty will not double until 60 seconds and four accepted samples have passed (`vardiff.go:40`). `cmd/nexapool/main.go:57` does not set `SubmitRate`, `SubmitBurst`, or `BanAfter`, and the TOML file has no fields for them. At the sample start difficulty of 0.2, four accepted shares per second is about 3.4 GH/s. A faster miner is banned in a few seconds, before the difficulty can rise. That is a launch blocker for any miner above that rate.
+
+### Blocker 3, Go, redirects, govulncheck — closed
+
+`pool/go.mod` says `go 1.27.2`. `NewClient` sets `CheckRedirect` to refuse every redirect (`rpc.go:109`). `TestRPCRefusesRedirect` checks the cookie does not follow. On this machine, with `GOTOOLCHAIN=go1.27.2`:
+
+| Command | Result |
+| --- | --- |
+| `go test -race -count=1 ./...` | pass |
+| `go vet ./...` | pass |
+| `staticcheck` 2026.2.2 (0.8.2) `./...` | pass. The ignored `HasPrefix` and the dead assignment from the first review are gone. |
+| `govulncheck` v1.9.0 `./...` | pass. Go 1.27.2, vuln DB updated 2026-10-08. No vulnerabilities found. |
+
+The API server sets `ReadHeaderTimeout`, `ReadTimeout`, and `WriteTimeout` (`cmd/nexapool/main.go:96`).
+
+### Blocker 4, Tailstorm — the parent is on the wire, the gate is the wrong clock
+
+`NotifyParams` appends `previousBlockHash` when `job.Time >= 1793495471` (`server.go:197`). `publish` uses the same wall clock, refuses an all-zero parent after that instant, and `Submit` mixes that parent in (`service.go:193`, `service.go:272`). `TestNotifyParamsSwitchAtActivation` and `TestNotifySwitchesAtTailstormActivation` lock the one-second boundary: five parameters at `1793495470`, six at `1793495471`, and the pre-fork echelon vector is rejected once the parent is mixed. `TestTailstormActivationInstant` checks that `1793495471` is 2026-11-01 01:11:11 UTC.
+
+The mix matches `src/pow.cpp` for `powAlgorithm == 1` when `prevhash` is not null: one SHA-256 over the internal mining hash concatenated with the internal parent (`CSHA256Writer::GetHash` is a single SHA-256, then `sha256` of that digest), parent reversed from `GetHex`. `TestPowHashTailstormMatchesPowCpp` rebuilds that construction and compares it to `PowHash`. nexad's tree has no published final post-fork digest. `src/test/activation_tests.cpp` only checks median-time boundaries.
+
+The activation constant is not nexad's. `src/chainparams.cpp` sets `NEXT_FORK_ACTIVATION_TIME` to `4102488000` (2100-01-01 12:00:00 UTC) and copies it into every chain's `nextForkActivationTime`. `1793495471` does not appear in that tree. `IsUpgrade2Activated` is the previous block's median time past, not the pool's wall clock, and `fTailstormEnabled` (which is what makes `getminingcandidate` emit a real parent) turns on when the tip is pending, one block earlier. Against this nexad, `previousBlockHash` stays 64 zero bytes on 1 November 2026. `publish` then returns an error (`service.go:199`) and the pool stops issuing jobs. Gating on the candidate's non-zero parent, or on the node's upgrade time, is what follows the node. A wall-clock constant the node does not use will halt the pool 19 days after this review.
+
+### Hot wallet — closed, with one stuck-reconcile note
+
+The unit runs as `nexapool`, not `nexa` (`deploy/nexapool.service:10`), with `UMask=0077` and the kernel, syscall, and device sandbox flags that were missing. `PayOnce` refuses to run when `getbalance` is above `HotWalletMax` (`service.go:402`). The default cap is 5,000,000 NEX (`config.go:161`). The cookie and the passphrase file must be regular files, mode without group or world access (`secret.go:14`). `node.url` must be loopback http(s) with no userinfo (`secret.go:40`, `config.go:184`). The API bind must be loopback (`config.go:178`). A second process fails the payout flock instead of paying (`store.go:123`, `TestPayoutLock`).
+
+If the balance is already over the cap, `PayOnce` returns before `RunPayouts` (`service.go:413`). In-flight rows are not reconciled until someone sweeps the wallet back under the cap. They are not sent twice.
+
+### Original mediums
+
+| Finding | At 1109d60b |
+| --- | --- |
+| `clean: true` still paid the previous 32 jobs | Closed. `publish` always sets `Clean` and replaces the job map (`service.go:220`). `TestUnknownJobIsStaleAndCleanNotifyDropsThePreviousJob`. |
+| One `getblock` "not found" orphaned the block | Closed. Any `getblock` error is retried (`service.go:338`). Only `confirmations < 0` orphans (`service.go:345`). `TestOneMissingBlockReplyDoesNotOrphanImmatureWork`. |
+| Ledger matured at 5000, wallet spends at 5001 | Closed as a default. `Maturity <= 0` becomes 5001 (`config.go:136`). The sample sets 5001. A positive value below 5001 is still accepted. |
+| `GetBlock` summed every coinbase output | Closed only when `coinbase_address` is set. See the blocker above. `rpc.go:247` skips every output when `PoolAddress` is empty, and `main.go:39` copies that empty string through. `MatureOnce` will not credit a zero reward (`service.go:367`). `config.example.toml:8` says empty uses the wallet default. It does not. The example ships `coinbase_address = ""`. |
+| Sent payout not required to confirm | Closed for zero confirmations (`payout.go:180`). A reorg after the configured count (default 1) still leaves the row `sent`. |
+| Overlapping payouts returned `SQLITE_BUSY` immediately, no process lock | Closed. `LockPayouts` is a non-blocking flock (`store.go:123`). The DSN sets `busy_timeout` and `txlock=immediate` (`store.go:65`). `TestConcurrentPayoutReservesTheBalanceOnce` still sees one send. |
+| `node.url` and the API bind were not forced to localhost | Closed. `config.go:178`, `config.go:184`. |
+| nginx had no rate limit or security headers | Closed. `limit_req`, HSTS, `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, CSP, and `ssl_protocols` are in `deploy/nginx-pool.nordiccrypto.no.conf`. CSP still allows `'unsafe-inline'` scripts (`nginx` line 35). |
+
+### Original lows
+
+| Finding | At 1109d60b |
+| --- | --- |
+| systemd sandbox flags | Closed. The flags listed in the first review are in `deploy/nexapool.service`. This review did not boot the unit. `MemoryDenyWriteExecute` should be smoked on the host before the first start. |
+| Firewall text omitted P2P 7228 | Closed. `pool/README.md:100` says keep 7227, 7228, and 8080 closed. |
+| `rand.Read` error ignored, extranonces not checked unique | Closed. `uniqueExtraLocked` checks the error and the live set (`server.go:265`). |
+| Submitted timestamp is not compared to the job and is not in the hash | Still true (`server.go:472`). Unchanged, and still not a way to weaken a block. |
+
+### Open items
+
+1. **High.** `findComment` advances `from` by JSON rows. nexad counts wallet items. A crash between `sendtoaddress` and `NotePayment` sticks the payout in `review` once the wallet has more than one page of multi-output transactions. `pool/internal/nexa/rpc.go:347`. No operator action except a database edit. `pool/internal/account/payout.go:135`.
+2. **High.** Tailstorm flips on wall clock `1793495471`. nexad `37fe286` flips on median time past of `4102488000`, and it sends a real parent only once `fTailstormEnabled` is set. `pool/internal/nexa/fork.go:10`, `pool/internal/pool/service.go:193`.
+3. **High.** Empty `coinbase_address` counts no coinbase output, so blocks never mature. `pool/internal/nexa/rpc.go:247`, `pool/config.example.toml:8`, `pool/cmd/nexapool/main.go:39`.
+4. **High.** Submit rate 4/s, burst 8, ban after 20, none of them configurable. Variable difficulty waits 60 seconds. `pool/internal/stratum/server.go:120`, `pool/internal/stratum/server.go:477`, `pool/internal/stratum/server.go:583`, `pool/internal/stratum/vardiff.go:40`, `pool/cmd/nexapool/main.go:57`.
+5. **Low.** A payout marked sent after one confirmation is not revisited if that transaction is later dropped. `pool/internal/account/payout.go:180`. `payout_confirmations` can be raised.
+6. **Low.** `maturity` may be set below 5001. `pool/internal/config/config.go:136`.
+7. **Low.** While any immature block exists, the 14-day share prune does not run. Id prune runs only when every immature block's window is filled. The maturity pass no longer loads the whole table. `pool/internal/pool/service.go:380`.
+8. **Low.** A hot wallet over the cap skips reconciliation until it is swept. `pool/internal/pool/service.go:413`.
+9. **Low.** The submitted timestamp is still not checked against the job. `pool/internal/stratum/server.go:472`.
+10. **Low.** CSP allows inline scripts. `pool/deploy/nginx-pool.nordiccrypto.no.conf:35`.

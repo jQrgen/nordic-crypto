@@ -138,20 +138,26 @@ func TestReplayAcrossJobsWithTheSameCommitmentIsDuplicate(t *testing.T) {
 	if err := svc.publish(nexa.Candidate{ID: 2, HeaderCommitment: vectorCommit, NBits: "207fffff"}, info); err != nil {
 		t.Fatal(err)
 	}
-	first := svc.Submit(vectorShare("1", 1))
+	// A clean publish drops the previous job id. The same proof on the new
+	// job is still a duplicate of the pow hash once it is accepted there.
+	stale := svc.Submit(vectorShare("1", 1))
+	if stale.Accept || stale.Code != 21 {
+		t.Fatalf("replaced job %+v", stale)
+	}
+	first := svc.Submit(vectorShare("2", 1))
 	if !first.Accept {
-		t.Fatalf("first %+v", first)
+		t.Fatalf("current job %+v", first)
 	}
 	second := svc.Submit(vectorShare("2", 1))
 	if second.Accept || second.Code != 22 {
-		t.Fatalf("same proof on a second job: %+v", second)
+		t.Fatalf("same proof on the current job: %+v", second)
 	}
 	if len(node.submits) != 1 {
 		t.Fatalf("duplicate proof submitted twice: %#v", node.submits)
 	}
 }
 
-func TestUnknownJobIsStaleAndStoredJobsSurviveCleanNotify(t *testing.T) {
+func TestUnknownJobIsStaleAndCleanNotifyDropsThePreviousJob(t *testing.T) {
 	node := &fakeNode{info: nexa.MiningInfo{Blocks: 1, Difficulty: 1}}
 	svc := securityService(t, node)
 	info := nexa.MiningInfo{Blocks: 1, Difficulty: 1}
@@ -163,15 +169,15 @@ func TestUnknownJobIsStaleAndStoredJobsSurviveCleanNotify(t *testing.T) {
 		t.Fatalf("unknown job %+v", missing)
 	}
 
-	// A new candidate sets clean_jobs on the wire, but the previous job stays
-	// payable until it falls out of the 32-job window.
+	// A clean publish is the only kind publish() emits. The previous job id
+	// is rejected, which is what echelon requires.
 	other := vectorCommit[:len(vectorCommit)-2] + "11"
 	if err := svc.publish(nexa.Candidate{ID: 2, HeaderCommitment: other, NBits: "207fffff"}, info); err != nil {
 		t.Fatal(err)
 	}
 	prev := svc.Submit(vectorShare("1", 1))
-	if !prev.Accept {
-		t.Fatalf("previous job was not still accepted: %+v", prev)
+	if prev.Accept || prev.Code != 21 {
+		t.Fatalf("previous job survived clean notify: %+v", prev)
 	}
 }
 
@@ -196,8 +202,8 @@ func TestJobOlderThanTheWindowIsStale(t *testing.T) {
 	if evicted.Accept || evicted.Code != 21 {
 		t.Fatalf("evicted job %+v", evicted)
 	}
-	// The job published just before the window slid is still known. A garbage
-	// nonce is an invalid proof (20), not a stale job (21).
+	// The job just published is the only one kept. A garbage nonce is an
+	// invalid proof (20), not a stale job (21).
 	var kept string
 	svc.mu.Lock()
 	kept = svc.order[0]
@@ -214,7 +220,7 @@ func TestJobOlderThanTheWindowIsStale(t *testing.T) {
 	}
 }
 
-func TestOneMissingBlockReplyOrphansImmatureWork(t *testing.T) {
+func TestOneMissingBlockReplyDoesNotOrphanImmatureWork(t *testing.T) {
 	node := &fakeNode{
 		info:  nexa.MiningInfo{Blocks: 20, Difficulty: 1},
 		block: nexa.Block{Hash: "other"},
@@ -230,17 +236,15 @@ func TestOneMissingBlockReplyOrphansImmatureWork(t *testing.T) {
 	if err != nil || len(rows) != 1 {
 		t.Fatalf("%v %+v", err, rows)
 	}
-	if rows[0].Status != "orphan" {
-		t.Fatalf("status %s, want a single not-found to orphan", rows[0].Status)
+	if rows[0].Status != "immature" {
+		t.Fatalf("status %s, want the block kept for retry", rows[0].Status)
 	}
-	// A later getblock that would have succeeded cannot revive it: the row
-	// is no longer immature, so MatureOnce will not look at it again.
 	node.block = nexa.Block{Hash: "aa", Height: 4, Confirmations: 5000, Reward: 10_000}
 	if err := svc.MatureOnce(); err != nil {
 		t.Fatal(err)
 	}
 	rows, err = svc.db.RecentBlocks(5)
-	if err != nil || rows[0].Status != "orphan" {
-		t.Fatalf("revived %+v %v", rows, err)
+	if err != nil || len(rows) != 1 || rows[0].Status != "mature" {
+		t.Fatalf("retry did not mature: %+v %v", rows, err)
 	}
 }

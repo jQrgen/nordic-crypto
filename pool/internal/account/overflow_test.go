@@ -28,22 +28,24 @@ func TestSplitDoesNotPayWrappedWork(t *testing.T) {
 
 type countingWallet struct{ sends int }
 
-func (w *countingWallet) Send(string, int64, string) (string, error) {
+func (w *countingWallet) Send(string, int64, string) (Payment, error) {
 	w.sends++
-	return "tx", nil
+	return Payment{TxID: "tx", Confirmations: 1}, nil
 }
-func (w *countingWallet) FindComment(string) (string, bool, error) { return "", false, nil }
+func (w *countingWallet) Find(string, string) (Payment, bool, error) {
+	return Payment{}, false, nil
+}
 
 func TestNegativePayoutIsNotSent(t *testing.T) {
 	w := &countingWallet{}
-	res, err := RunPayouts(rejectingLedger{}, w, 1)
+	res, err := RunPayouts(rejectingLedger{}, w, 1, 1)
 	if err != nil {
 		t.Fatal(err)
 	}
 	if res.Sent != 0 || w.sends != 0 {
 		t.Fatalf("sent %+v sends %d", res, w.sends)
 	}
-	if _, err := RunPayouts(rejectingLedger{}, w, -1); err == nil {
+	if _, err := RunPayouts(rejectingLedger{}, w, -1, 1); err == nil {
 		t.Fatal("negative minimum was accepted")
 	}
 }
@@ -58,4 +60,8 @@ func (rejectingLedger) Reserve(string, int64, string) (int64, error) {
 }
 func (rejectingLedger) MarkSent(int64, string) error { return nil }
 func (rejectingLedger) MarkFailed(int64) error       { return nil }
-func (rejectingLedger) Reserved() ([]Payout, error)  { return nil, nil }
+func (rejectingLedger) MarkReview(int64) error       { return nil }
+func (rejectingLedger) NotePayment(int64, string, string, int64) error {
+	return nil
+}
+func (rejectingLedger) Reserved() ([]Payout, error) { return nil, nil }

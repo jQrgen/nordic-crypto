@@ -83,44 +83,32 @@ func TestSubmitUsesSessionDifficultyNotTheMessage(t *testing.T) {
 	}
 }
 
-func TestSuggestDifficultyPinsTheFloor(t *testing.T) {
+func TestSuggestDifficultyCannotLowerTheSession(t *testing.T) {
 	client, server := net.Pipe()
 	defer client.Close()
 	defer server.Close()
 	go func() { _, _ = io.Copy(io.Discard, client) }()
 
 	srv := &Server{StartDiff: 200_000, MinDiff: 50_000, MaxDiff: 4096 * nexa.Micros, VarDiff: true}
-	sess := newSession(srv, server)
+	sess := newSession(srv, server, "127.0.0.1", "1000000000000000")
 	sess.diff.Store(4096 * nexa.Micros)
 	sess.vardiff.micros = 4096 * nexa.Micros
-	// Not authorized. suggest_difficulty still rewrites the session target.
 	sess.suggest(request{
 		ID:     json.RawMessage("1"),
 		Method: "mining.suggest_difficulty",
 		Params: json.RawMessage(`[0.05]`),
 	})
-	if sess.diff.Load() != 50_000 || sess.vardiff.micros != 50_000 {
-		t.Fatalf("floor not applied, diff %d vardiff %d", sess.diff.Load(), sess.vardiff.micros)
+	if sess.diff.Load() != 4096*nexa.Micros {
+		t.Fatalf("unauthorized suggest changed difficulty to %d", sess.diff.Load())
 	}
-
-	// Shares arriving every second would otherwise double the difficulty.
-	// Another suggest puts it back on the floor and clears the sample gate
-	// only after the retarget interval, so a miner can pin 0.05 indefinitely
-	// by suggesting again.
-	now := time.Now()
-	sess.vardiff.retarget = now.Add(-2 * time.Minute)
-	sess.vardiff.last = now.Add(-time.Second)
-	for i := 0; i < 6; i++ {
-		now = now.Add(time.Second)
-		if _, changed := sess.vardiff.Observe(now); changed && sess.vardiff.micros > 50_000 {
-			sess.suggest(request{
-				ID:     json.RawMessage("2"),
-				Params: json.RawMessage(`[0.05]`),
-			})
-		}
-	}
-	if sess.diff.Load() != 50_000 {
-		t.Fatalf("difficulty escaped the floor: %d", sess.diff.Load())
+	sess.authorized.Store(true)
+	sess.suggest(request{
+		ID:     json.RawMessage("2"),
+		Method: "mining.suggest_difficulty",
+		Params: json.RawMessage(`[0.05]`),
+	})
+	if sess.diff.Load() != 4096*nexa.Micros || sess.vardiff.micros != 4096*nexa.Micros {
+		t.Fatalf("suggest lowered the session to %d", sess.diff.Load())
 	}
 }
 
