@@ -973,7 +973,14 @@ def build():
         from tools.d1_store import materialize
         # Approved rows replace the working news and events files for this build.
         # queue/approved.json is not written: org-chart decisions stay in that file.
-        D1_EVENTS = materialize(ROOT, preview=PREVIEW)
+        try:
+            D1_EVENTS = materialize(ROOT, preview=PREVIEW)
+        except Exception as ex:
+            # NC_D1_FALLBACK=json: build from the committed JSON snapshot when D1 cannot be read
+            # (offline, token missing). Off by default so CI never publishes stale data silently.
+            if os.environ.get("NC_D1_FALLBACK", "").strip().lower() != "json": raise
+            print(f"build: D1 unavailable ({str(ex).splitlines()[0][:200]}); building from the JSON snapshot", file=sys.stderr)
+            subprocess.run([sys.executable, P("tools", "apply_approvals.py")], check=True, timeout=180)
     else:
         subprocess.run([sys.executable, P("tools", "apply_approvals.py")], check=True, timeout=180)
     subprocess.run([sys.executable, P("tools", "import_orgchart.py")], check=True, timeout=180)
