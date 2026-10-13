@@ -530,7 +530,7 @@ S.update({
 "nl_get_next": "通过电子邮件接收下一期：",
 "x_btn": "在 X 上关注",
 "x_follow": "在 X 上关注 Nordic Crypto",
-"x_title": "X 上的 Nordic Crypto（@xcryptonordic），本站自己的账号",
+"x_title": "X 上的 Nordic Crypto（@nordiccryptobot），本站自己的账号",
 "tg_btn": "加入 Telegram",
 "tg_label": "Telegram",
 "tg_follow": "Telegram 上的 Nordic Crypto",

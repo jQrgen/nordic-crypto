@@ -530,7 +530,7 @@ S.update({
 "nl_get_next": "اگلا شمارہ ای میل سے حاصل کریں:",
 "x_btn": "X پر فالو کریں",
 "x_follow": "X پر Nordic Crypto کو فالو کریں",
-"x_title": "X پر Nordic Crypto (@xcryptonordic)، سائٹ کا اپنا اکاؤنٹ",
+"x_title": "X پر Nordic Crypto (@nordiccryptobot)، سائٹ کا اپنا اکاؤنٹ",
 "tg_btn": "Telegram پر شامل ہوں",
 "tg_label": "Telegram",
 "tg_follow": "Telegram پر Nordic Crypto",

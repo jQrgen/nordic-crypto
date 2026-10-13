@@ -60,8 +60,9 @@ def brand(text):
     """The public name is Nordic Crypto.
 
     Older copy put the two words in the other order. The Finnish genitive
-    suffix stays on Crypto. Domains and handles such as cryptonordic.no and
-    @xcryptonordic are left as they are: they have no space between the words.
+    suffix stays on Crypto. Domains and handles such as cryptonordic.no,
+    @xcryptonordic and @nordiccryptobot are left as they are: they have no
+    space between the words.
     """
     if not isinstance(text, str) or not text:
         return text
