@@ -132,16 +132,20 @@
         copy.textContent = text.copied || copy.textContent;
         setTimeout(function () { copy.textContent = text.copy || "Copy"; }, 1500);
       };
+      var fallback = function () {
+        var area = document.createElement("textarea");
+        area.value = url;
+        area.setAttribute("readonly", "");
+        document.body.appendChild(area);
+        area.select();
+        document.execCommand("copy");
+        area.remove();
+        done();
+      };
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(url).then(done).catch(function () {
-          var area = document.createElement("textarea");
-          area.value = url;
-          document.body.appendChild(area);
-          area.select();
-          document.execCommand("copy");
-          area.remove();
-          done();
-        });
+        navigator.clipboard.writeText(url).then(done).catch(fallback);
+      } else {
+        fallback();
       }
     });
   }
