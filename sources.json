@@ -2075,7 +2075,7 @@
     "site:reuters.com Riksbank"
    ],
    "coverage": "national",
-   "language": "Norwegian",
+   "language": "English",
    "method": "search"
   },
   {
@@ -18708,13 +18708,13 @@
    "feed": "https://poliisi.fi/sitemap.xml",
    "type": "sitemap",
    "paywall": false,
-   "enabled": true,
-   "status": "No working RSS/Atom feed found on 2026-10-06. Listed so it can be monitored manually or via news search. No RSS. The fetcher reads sitemap.xml, then the public index page, and keeps only title, date, link and summary.",
+   "enabled": false,
+   "status": "No working RSS/Atom feed found on 2026-10-06. Listed so it can be monitored manually or via news search. No RSS. The fetcher reads sitemap.xml, then the public index page, and keeps only title, date, link and summary. Disabled 2026-10-13: HTTP 403 to the fetcher on the homepage, no sitemap or index links. Check by hand.",
    "verified": "2026-10-06",
    "directory": "poliisi.fi",
    "logo": "https://poliisi.fi/o/yja-poliisi-theme/images/favicon.ico",
    "logo_source": "https://poliisi.fi/o/yja-poliisi-theme/images/favicons/apple-touch-icon.png?browserId=chrome&languageId=fi_FI&t=1791213104000",
-   "method": "sitemap",
+   "method": "manual",
    "max_new_per_run": 8
   },
   {
@@ -18750,13 +18750,13 @@
    "feed": "https://rahanpesu.fi/sitemap.xml",
    "type": "sitemap",
    "paywall": false,
-   "enabled": true,
-   "status": "No working RSS/Atom feed found on 2026-10-06. Listed so it can be monitored manually or via news search. No RSS. The fetcher reads sitemap.xml, then the public index page, and keeps only title, date, link and summary.",
+   "enabled": false,
+   "status": "No working RSS/Atom feed found on 2026-10-06. Listed so it can be monitored manually or via news search. No RSS. The fetcher reads sitemap.xml, then the public index page, and keeps only title, date, link and summary. Disabled 2026-10-13: HTTP 403 to the fetcher on the homepage, no sitemap or index links. Check by hand.",
    "verified": "2026-10-06",
    "directory": "Finnish FIU",
    "logo": "https://rahanpesu.fi/o/yja-site-template-theme/images/favicon.ico",
    "logo_source": "https://rahanpesu.fi/o/yja-site-template-theme/images/favicon.ico",
-   "method": "sitemap",
+   "method": "manual",
    "max_new_per_run": 8
   },
   {
@@ -18771,13 +18771,13 @@
    "feed": "https://tulli.fi/sitemap.xml",
    "type": "sitemap",
    "paywall": false,
-   "enabled": true,
-   "status": "No working RSS/Atom feed found on 2026-10-06. Listed so it can be monitored manually or via news search. No RSS. The fetcher reads sitemap.xml, then the public index page, and keeps only title, date, link and summary.",
+   "enabled": false,
+   "status": "No working RSS/Atom feed found on 2026-10-06. Listed so it can be monitored manually or via news search. No RSS. The fetcher reads sitemap.xml, then the public index page, and keeps only title, date, link and summary. Disabled 2026-10-13: HTTP 403 to the fetcher on the homepage, no sitemap or index links. Check by hand.",
    "verified": "2026-10-06",
    "directory": "Tulli",
    "logo": "https://tulli.fi/documents/162752825/203618985/favicon_32x32.ico/8765fa39-61d4-5ec1-cbd9-6aa43118e53c?t=1708698222314",
    "logo_source": "https://tulli.fi/documents/162752825/203618985/favicon_180x180.png/14003c55-63ed-0e2a-aea9-618d1d943a73?t=1708698532339",
-   "method": "sitemap",
+   "method": "manual",
    "max_new_per_run": 8
   },
   {
@@ -18913,13 +18913,13 @@
    "feed": "https://polisen.ax/sitemap.xml",
    "type": "sitemap",
    "paywall": false,
-   "enabled": true,
-   "status": "No working RSS/Atom feed found on 2026-10-06. Listed so it can be monitored manually or via news search. No RSS. The fetcher reads sitemap.xml, then the public index page, and keeps only title, date, link and summary.",
+   "enabled": false,
+   "status": "No working RSS/Atom feed found on 2026-10-06. Listed so it can be monitored manually or via news search. No RSS. The fetcher reads sitemap.xml, then the public index page, and keeps only title, date, link and summary. Disabled 2026-10-13: HTTP 403 to the fetcher on the homepage, no sitemap or index links. Check by hand.",
    "verified": "2026-10-06",
    "directory": "Åland police",
    "logo": "https://polisen.ax/o/yja-poliisi-theme/images/favicon.ico",
    "logo_source": "https://polisen.ax/o/yja-poliisi-theme/images/favicons/safari-pinned-tab.svg?browserId=other&languageId=sv_SE&t=1791212082000",
-   "method": "sitemap",
+   "method": "manual",
    "max_new_per_run": 8
   },
   {

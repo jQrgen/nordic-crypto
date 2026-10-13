@@ -542,6 +542,54 @@ def candidates(text):
             g = m.groupdict(); out.append({"kind": "person", "name": g["name"].strip(" ."), "role": g["role"], "org": g["org"].strip(" .,")})
     return out
 
+NAV_WORDS = re.compile(r"\b(?:logga (?:ut|in)|logg (?:ut|inn)|log (?:ud|ind|in|out)|mitt konto|min side|min profil|"
+                       r"kirjaudu|prenumerera|abonnér|abonner|tipsa|meny|menu|sök|søk|hae)\b", re.I)
+def looks_like_nav(title):
+    """A headline that is really the site menu (Feber via Bing: "Teknik Motor Samhälle Spel ... Logga ut")."""
+    words = (title or "").split()
+    if len(words) < 6:
+        return False
+    caps = sum(1 for w in words if w[:1].isupper()) / len(words)
+    return len(NAV_WORDS.findall(title)) >= 2 or (len(words) >= 8 and caps >= 0.75 and not re.search(r"[:,–—?]", title))
+def title_from_html(html):
+    """og:title, twitter:title or the first h1. Empty when none."""
+    if not html:
+        return ""
+    soup = BeautifulSoup(html, "lxml")
+    for attrs in ({"property": "og:title"}, {"name": "twitter:title"}):
+        tag = soup.find("meta", attrs=attrs)
+        if tag and tag.get("content") and not looks_like_nav(tag["content"]):
+            return clean(tag["content"])
+    h1 = soup.find("h1")
+    text = clean(h1.get_text(" ", strip=True)) if h1 else ""
+    return "" if looks_like_nav(text) else text
+LISTING_PATH = re.compile(r"^/(?:[^?#]*/)?(?:tag|tags|tagg|taggar|emne|emner|amne|ämne|kategori|category|categories|"
+                          r"author|forfatter|forfattare|skribent|skribenter|topic|topics|sok|search|arkiv|archive)(?:/[^/]+)?/?$", re.I)
+def is_listing_url(url):
+    """Tag, category, author or search pages. A Bing hit on dagensps.se/tag/kryptovaluta is not an article."""
+    path = urllib.parse.urlparse(unwrap_news_url(url or "")).path or "/"
+    return path in ("", "/") or bool(LISTING_PATH.match(path)) or bool(re.search(r"/page/\d+/?$", path))
+NORDIC_TERMS = re.compile(r"\b(?:nordic|nordics|norden|scandinavia\w*|norw\w*|norge|swed\w*|sverige|denmark|danish|danmark|"
+                          r"finland|finnish|iceland\w*|faroe\w*|greenland|oslo|stockholm|copenhagen|helsinki|reykjav\w*|"
+                          r"gothenburg|bergen|aarhus|malmö|malmo|equinor|norges bank|riksbank\w*|nordea|dnb|seb|swedbank|"
+                          r"klarna|k33|safello|firi)\b", re.I)
+EN_WORDS = re.compile(r"\b(?:the|and|of|to|in|is|are|was|for|with|that|this|from|where|which|has|have|will|new|old)\b", re.I)
+NORDIC_WORDS = re.compile(r"\b(?:og|och|og|i|på|av|af|er|är|ikke|inte|ikkje|det|den|som|med|til|till|för|for|ja|että|on|ei|"
+                          r"kan|har|ble|blev|blir|vil|skal|ska|eller|men|og|kun|bara|bare|já|og|ekki|að|um)\b", re.I)
+def detect_language(text, default=None):
+    """English when the title and lead read as English; else the source default.
+
+    Kaupr's English podcast write-ups were labelled Norwegian (8a30a69ba7f6).
+    """
+    words = re.findall(r"[^\W\d_]+", text or "")
+    if len(words) < 5:
+        return default
+    en = len(EN_WORDS.findall(text)); nordic = len(NORDIC_WORDS.findall(text))
+    if en >= 3 and en >= 2 * max(nordic, 1) and not re.search(r"[æøåäöð]", text, re.I):
+        return "English"
+    return default
+_DATE_ONLY = set()
+
 EN_MONTHS = {m: i for i, m in enumerate(["January","February","March","April","May","June","July","August","September","October","November","December"], 1)}
 def page_meta(url):
     """``_page_meta(url)``, read once per run. Sources that share a sitemap reach the same
@@ -562,6 +610,7 @@ def _page_meta(url):
     zone = pubtime.zone_for(url=url)
     inst = pubtime.published_from_soup(soup, zone)
     date = inst.dt if inst else None
+    date_only = bool(inst and inst.date_only)
     if not date:
         # Last resort for official pages that publish neither the three signals nor a feed.
         iso = m(name="DC.date") or m(name="dcterms.date") or m(name="date")
@@ -579,9 +628,15 @@ def _page_meta(url):
         if x:
             g = x.groups(); mon, day = (g[0], g[1]) if g[0] in EN_MONTHS else (g[1], g[0])
             date = dt.datetime(int(g[2]), EN_MONTHS[mon], int(day), 12, tzinfo=dt.timezone.utc)
+            date_only = True
         else:
             x = re.search(r"\b(\d{1,2})\.(\d{1,2})\.(20\d\d)\b", t)
-            if x: date = dt.datetime(int(x[3]), int(x[2]), int(x[1]), 12, tzinfo=dt.timezone.utc)
+            if x: date = dt.datetime(int(x[3]), int(x[2]), int(x[1]), 12, tzinfo=dt.timezone.utc); date_only = True
+    if date and date_only:
+        # No clock on the page (Kaupr). The item keeps the day only, never a made-up 12:00Z.
+        _DATE_ONLY.add(canon(url))
+    else:
+        _DATE_ONLY.discard(canon(url))
     if date and date.tzinfo is None: date = date.replace(tzinfo=dt.timezone.utc)
     if date: date = dt.datetime.fromisoformat(pubtime.utc_iso(date))
     return clean(title), clean(desc), date
@@ -804,6 +859,13 @@ def main():
                     fh.write(json.dumps({"dropped_at": NOW.isoformat(timespec="seconds"), "url": url, "title": title, "source": src, "country": country}, ensure_ascii=False) + "\n")
                 return
         if not title or not published or published < cutoff: return
+        if src != "manual" and is_listing_url(url):
+            return
+        if looks_like_nav(title):
+            return
+        if country == "NORDIC" and not NORDIC_TERMS.search(text):
+            return  # a wire story with no Nordic angle (Reuters video, e54bdee78745)
+        lang = detect_language(text, lang or LANG.get(country))
         cand = {"url": url, "title": title, "published": published.isoformat(), "text": f"{title}. {teaser}"}
         match, why = coverage.find_match(cand, news["items"], teasers)
         if match:
@@ -821,11 +883,20 @@ def main():
             by_url[cu] = match
             return attached
         it = {"id": iid(url), "url": url, "title": title, "title_en": None, "source": outlet, "source_name": outlet_name,
-              "country": country, "language": lang or LANG.get(country), "via": src, "seen_via": [src],
+              "country": country, "language": lang, "via": src, "seen_via": [src],
               "published": published.isoformat(), "fetched": NOW.isoformat(timespec="seconds"),
               "topics": list(topics) if topics is not None else topics_of(text), "matched": sorted(set(hits)), "paywall": bool(SRC.get(outlet, {}).get("paywall", False)),
               "status": "pending", "summary": None}
         if unverified: it["published_unverified"] = True
+        if url in _DATE_ONLY:
+            it["published"] = published.date().isoformat()
+            it["published_date_only"] = True
+        maybe, maybe_why = coverage.suggest_match(
+            {"url": url, "title": title, "published": published.isoformat(), "country": country,
+             "language": lang, "text": text}, news["items"], teasers)
+        if maybe:
+            it["possible_duplicate_of"] = maybe.get("id")
+            it["possible_duplicate_reason"] = maybe_why
         strip_press_images(it)
         news["items"].append(it); by_url[cu] = it; by_title[norm_title(title)] = it
         teasers[it["id"]] = teaser[:600]; new.append(it)
@@ -1069,13 +1140,16 @@ def main():
                         out, oname = outlet_for(link, (e.get("news_source") or "").strip())
                         if out not in SRC:
                             out = host.removeprefix("www.")
-                        extra, all_rel, lang = (), False, None
+                        extra, all_rel = (), False
+                        lang = s.get("language") or (SRC.get(out) or {}).get("language")
                     else:
                         out, oname = named_outlet(link, s)
                         extra, all_rel, lang = s.get("match_extra", ()), s["type"] == "rss-all", s.get("language")
                     published, unverified, html = resolve_published(
                         link, title, teaser, e, s["country"], extra, all_rel, bing=bing, outlet_id=out if out in SRC else None)
                     teaser = choose_teaser(teaser, html)
+                    if looks_like_nav(title):
+                        title = title_from_html(html) or title
                     add(link, title, teaser, published, s["id"], out, oname, s["country"], extra, all_rel, lang, unverified=unverified)
             except Exception as ex:
                 err = f"{type(ex).__name__}: {ex}"[:200]; log("ERR", s["id"], u, err)
@@ -1103,6 +1177,10 @@ def main():
                 "teaser_local_only": teasers.get(it["id"], "")}
             prev = pend.get(it["id"]) or {}
             if prev.get("duplicate_of"): row["duplicate_of"] = prev["duplicate_of"]
+            if it.get("possible_duplicate_of"):
+                row["possible_duplicate_of"] = it["possible_duplicate_of"]
+                row["possible_duplicate_reason"] = it.get("possible_duplicate_reason")
+            if it.get("published_date_only"): row["published_date_only"] = True
             queue["items_needing_summary"].append(row)
     queue["items_needing_summary"] = [q for q in queue["items_needing_summary"]
         if any(i["id"] == q["id"] and i["status"] == "pending" for i in news["items"])]

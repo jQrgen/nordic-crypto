@@ -274,7 +274,103 @@ def same_event(new, old):
     shared = entities_in(new.get("text") or new.get("title")) & entities_in(old.get("text") or old.get("title"))
     if len(shared) >= 2:
         return "same entities"
+    hours = days * 24
+    if hours <= NETWORK_HOURS and same_network(new["url"], old["url"]):
+        return "same outlet network, other language"
+    nt_text, ot_text = new.get("text") or new.get("title"), old.get("text") or old.get("title")
+    if len(names_in(nt_text) & names_in(ot_text)) >= 2 and figures_in(nt_text) & figures_in(ot_text):
+        return "same names and figures"
     return None
+
+
+# Cross-language and weak-signal duplicate checks.
+NETWORK_HOURS = 12
+SUGGEST_HOURS = 36
+NORDIC_TLDS = (".no", ".se", ".dk", ".fi", ".is", ".fo", ".gl", ".ax", ".com", ".eu")
+COMMON_NAMES = {
+    "bitcoin", "krypto", "crypto", "norge", "sverige", "danmark", "suomi", "finland", "island", "norden", "eu", "usa",
+    "europa", "europe", "oslo", "stockholm", "københavn", "helsinki", "sec", "etf", "ceo", "ai", "kryptovaluta",
+    "dollar", "kr", "mio", "mrd", "nok", "sek", "dkk", "eur", "usd", "the", "læs", "lue", "lisää", "read", "foto",
+    "video", "nyheter", "news", "dagens", "danske", "svenska", "norske", "ntb", "tt", "ritzau", "stt",
+}
+GENERIC_LONG = re.compile(r"^(?:krypto|crypto|bitcoin|blokkjed|blockchain|lohkoket)", re.I)
+
+
+def network_of(url):
+    """Brand behind a host on a Nordic country domain: gamereactor.se and gamereactor.dk are both gamereactor."""
+    host = (urllib.parse.urlparse(url or "").netloc or "").lower().removeprefix("www.")
+    for tld in NORDIC_TLDS:
+        if host.endswith(tld):
+            return host[: -len(tld)], tld
+    return host, ""
+
+
+def same_network(a, b):
+    (na, ta), (nb, tb) = network_of(a), network_of(b)
+    return bool(na) and na == nb and ta != tb and bool(ta) and bool(tb)
+
+
+def names_in(text):
+    """Proper names, acronyms and CamelCase marks. Nordic languages do not capitalise nouns,
+    so a capital inside a sentence is mostly a name, and names survive translation."""
+    out = set()
+    for sent in re.split(r"(?<=[.!?:–—])\s+|\n", text or ""):
+        words = re.findall(r"\w[\w'’-]*", sent)
+        for k, w in enumerate(words):
+            base = re.split(r"[-'’]", w)[0]
+            if not base or base.isdigit():
+                continue
+            acronym = base.isupper() and base.isalpha() and 2 <= len(base) <= 6
+            camel = re.search(r"[a-zåäöæø][A-ZÅÄÖÆØ]", base)
+            proper = k > 0 and base[0].isupper() and len(base) >= 3
+            if (acronym or camel or proper) and base.lower() not in COMMON_NAMES:
+                out.add(base.lower())
+    return out
+
+
+def acronyms_in(text):
+    return {w.lower() for w in re.findall(r"\b[A-Z]{3,5}\b", text or "") if w.lower() not in COMMON_NAMES}
+
+
+def figures_in(text):
+    return {n for n in re.findall(r"\b\d{2,}\b", text or "") if n.strip("0")}
+
+
+def long_title_words(title):
+    words = re.findall(r"[^\W\d_]{10,}", (title or "").lower())
+    return {w[:10] for w in words if not GENERIC_LONG.match(w) or len(w) >= 14}
+
+
+def possible_same(new, old):
+    """Weak signal for the editor, never an automatic attach: same institution acronym in the
+    same country within 36 hours (IMF report), or a rare long headline word in the same language."""
+    if not new.get("url") or not old.get("url") or canon(new["url"]) == canon(old["url"]):
+        return None
+    nd, od = parse_dt(new.get("published")), parse_dt(old.get("published"))
+    if not nd or not od or abs((nd - od).total_seconds()) > SUGGEST_HOURS * 3600:
+        return None
+    if new.get("country") and new.get("country") == old.get("country"):
+        if acronyms_in(new.get("text") or new.get("title")) & acronyms_in(old.get("text") or old.get("title")):
+            return "same institution, same day"
+    if new.get("language") and new.get("language") == old.get("language"):
+        if long_title_words(new.get("title")) & long_title_words(old.get("title")):
+            return "rare headline word"
+    return None
+
+
+def suggest_match(candidate, items, teasers=None):
+    """(item, reason) for a likely duplicate the editor should check, or (None, None)."""
+    teasers = teasers or {}
+    for item in items:
+        if item.get("status") in ("rejected", "merged") or item.get("id") == candidate.get("id"):
+            continue
+        old = {"url": item.get("url"), "title": item.get("title"), "published": item.get("published"),
+               "country": item.get("country"), "language": item.get("language"),
+               "text": story_text(item, teasers.get(item.get("id")) or "")}
+        reason = possible_same(candidate, old)
+        if reason:
+            return item, reason
+    return None, None
 
 
 def story_text(item, teaser=""):
