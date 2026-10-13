@@ -2649,6 +2649,7 @@ def events_for_site():
     else:
         approvals_present = os.path.exists(ap_path)
         ap = (load(ap_path, {}) or {}).get("events", {}) or {}
+    ap = eventslib.carry_over_approvals(ap, load(P("data", "event_redirects.json"), {}))  # merged duplicates keep their approval
     now = site_now(); out = []  # "finished" is judged in Oslo time
     for e in ev["events"]:
         e = dict(e)

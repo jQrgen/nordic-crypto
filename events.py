@@ -401,6 +401,32 @@ def guess_city(place):
             if place and re.search(rf"\b{x}\b", place, re.I): return x, c
     return None, None
 
+def carry_over_approvals(ap, moved):
+    """Move editor decisions from a merged-away event id to the kept id (moved: removed id -> kept id).
+    Works on the approvals dict from queue/approved.json or from D1, in place. Returns ap."""
+    if not isinstance(ap, dict) or not moved: return ap
+    moved = {a: b for a, b in moved.items() if not str(a).startswith("_")}
+    for key in ("approve", "reject", "ready_for_owner", "sponsored"):
+        ids = ap.get(key)
+        if isinstance(ids, list):
+            out = []
+            for i in ids:
+                j = moved.get(i, i)
+                if j not in out: out.append(j)
+            ap[key] = out
+    for key in ("notes", "notes_i18n", "sponsor", "paid", "title_en"):
+        m = ap.get(key)
+        if not isinstance(m, dict): continue
+        for old, new in moved.items():
+            if old not in m: continue
+            v = m.pop(old)
+            if new not in m: m[new] = v
+            elif key == "notes" and isinstance(v, str) and v and v not in m[new]: m[new] = v + " " + m[new]
+            elif key == "notes_i18n" and isinstance(v, dict) and isinstance(m[new], dict):
+                for l, t in v.items():
+                    if t and t not in (m[new].get(l) or ""): m[new][l] = (t + " " + (m[new].get(l) or "")).strip()
+    return ap
+
 def _drop_queue_ids(gone, log, base=None):
     """Remove predatory event ids from the editor queue and the approval list, when those files exist."""
     root = base or ROOT

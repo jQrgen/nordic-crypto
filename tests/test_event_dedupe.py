@@ -50,3 +50,11 @@ def test_similar_titles_rules():
     assert ev.similar_titles("Crypto killer apps", "Crypto killers apps")
     assert not ev.similar_titles("Blockchain page one", "Blockchain page two")
     assert not ev.similar_titles("Nordic Bitcoin Conference 2026", "Nordic Bitcoin Conference 2027")
+
+def test_approval_carries_over_to_kept_id():
+    ap = {"approve": ["89ced460e4ca", "x"], "notes": {"89ced460e4ca": "Paid entry.", "019f42a4506c": "Held in cooperation."},
+          "notes_i18n": {"89ced460e4ca": {"nb": "Betalt."}}, "paid": {"89ced460e4ca": True}}
+    ev.carry_over_approvals(ap, {"_note": "x", "89ced460e4ca": "019f42a4506c"})
+    assert ap["approve"] == ["019f42a4506c", "x"]
+    assert ap["notes"] == {"019f42a4506c": "Paid entry. Held in cooperation."}
+    assert ap["notes_i18n"] == {"019f42a4506c": {"nb": "Betalt."}} and ap["paid"] == {"019f42a4506c": True}
