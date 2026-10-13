@@ -5,8 +5,9 @@
 [pool]
 fee_percent = 1
 fee_address = ""
-# Address in the nexad wallet that receives the coinbase. Empty uses the
-# wallet default. It is not the miner payout address.
+# Address in the hot wallet that receives the coinbase. Required. The
+# pool will not start while this is empty, and block reward is only the
+# output that pays this address. It is not the miner payout address.
 coinbase_address = ""
 min_payout = "1000000.00"
 # nexad's wallet spends a coinbase at coinbaseMaturity+1. Mainnet that is 5001.
@@ -24,6 +25,12 @@ tx_reserve = "1.00"
 # cannot sign for.
 hot_wallet_max = "5000000.00"
 public_stratum = "stratum+tcp://pool.nordiccrypto.no:3333"
+# auto follows getminingcandidate's previousBlockHash. on requires a
+# parent. off stays on the pre-fork hash. There is no wall-clock switch.
+tailstorm = "auto"
+# Optional unix time compared with the node's median time past, not the
+# machine clock. Leave it unset to follow the candidate.
+# tailstorm_activation = 0
 
 [stratum]
 listen = "0.0.0.0:3333"
@@ -33,6 +40,15 @@ min_difficulty = 0.05
 max_difficulty = 4096
 # One address cannot take every session. Raise this for a farm behind one NAT.
 max_per_ip = 16
+# Sustained mining.submit per session per second, and how many may arrive
+# at once. 128/s is about 110 GH/s at the 0.2 start difficulty. Faster
+# miners are limited but not banned during submit_grace, while variable
+# difficulty doubles every 10 seconds.
+submit_rate = 128
+submit_burst = 256
+submit_grace = "3m"
+# Bad shares, and rate-limit misses after the grace, ban the address.
+ban_after = 20
 
 [api]
 listen = "127.0.0.1:8080"

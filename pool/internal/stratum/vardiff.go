@@ -12,6 +12,8 @@ type VarDiff struct {
 	max      uint64
 	last     time.Time
 	retarget time.Time
+	started  time.Time
+	grace    time.Duration
 	samples  []time.Duration
 }
 
@@ -22,7 +24,7 @@ func newVarDiff(start, min, max uint64, now time.Time) *VarDiff {
 	if start > max {
 		start = max
 	}
-	return &VarDiff{micros: start, min: min, max: max, last: now, retarget: now}
+	return &VarDiff{micros: start, min: min, max: max, last: now, retarget: now, started: now}
 }
 
 // Observe records a share and returns the difficulty to use from now on.
@@ -37,7 +39,14 @@ func (v *VarDiff) Observe(now time.Time) (micros uint64, changed bool) {
 	if len(v.samples) > 8 {
 		v.samples = v.samples[1:]
 	}
-	if now.Sub(v.retarget) < 60*time.Second || len(v.samples) < 4 {
+	wait := 60 * time.Second
+	if v.grace > 0 && now.Sub(v.started) < v.grace {
+		// Climb quickly while the session is still at the start
+		// difficulty. A fast miner would otherwise sit under the
+		// submit cap for a full minute between each doubling.
+		wait = 10 * time.Second
+	}
+	if now.Sub(v.retarget) < wait || len(v.samples) < 4 {
 		return v.micros, false
 	}
 	var sum time.Duration

@@ -61,7 +61,8 @@ func openSvc(t *testing.T, node pool.Chain) *pool.Service {
 	t.Cleanup(func() { db.Close() })
 	svc, err := pool.New(pool.Config{
 		FeePercent: 1, FeeAddress: "nexa:qqqqzqsrqszsvpcgpy9qkrqdpc83qygjzv5cxgkyhm",
-		MinPayout: 100_000_000, Maturity: 5001, PPLNSBlocks: 2, HotWalletMax: 1,
+		CoinbaseAddress: "nexa:qqqqzqsrqszsvpcgpy9qkrqdpc83qygjzv5cxgkyhm",
+		MinPayout:       100_000_000, Maturity: 5001, PPLNSBlocks: 2, HotWalletMax: 1,
 		HashrateWindow: time.Minute, PayoutEvery: time.Hour,
 	}, db, node, nil)
 	if err != nil {
@@ -85,8 +86,9 @@ func (downNode) WalletBalance() (int64, error) { return 0, errDown }
 func (downNode) LookupPayment(string, string) (nexa.Payment, bool, error) {
 	return nexa.Payment{}, false, errDown
 }
-func (downNode) Unlock(string, int) error { return nil }
-func (downNode) Lock(string) error        { return nil }
+func (downNode) Unlock(string, int) error   { return nil }
+func (downNode) Lock(string) error          { return nil }
+func (downNode) MedianTime() (int64, error) { return 0, errDown }
 
 type errDownT string
 

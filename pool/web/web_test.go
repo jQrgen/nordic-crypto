@@ -52,6 +52,25 @@ func TestGenerateAllLanguages(t *testing.T) {
 	if strings.Contains(page, "xcryptonordic") {
 		t.Fatal("old X account is still linked")
 	}
+	if strings.Contains(page, "unsafe-inline") || strings.Contains(page, "window.POOL_TEXT") {
+		t.Fatal("page still embeds an inline script")
+	}
+	for _, tag := range regexp.MustCompile(`(?i)<script\b[^>]*>`).FindAllString(page, -1) {
+		if !strings.Contains(tag, " src=") {
+			t.Fatalf("inline script %s", tag)
+		}
+	}
+	text, err := os.ReadFile(filepath.Join(dir, "pool-text.js"))
+	if err != nil || !strings.Contains(string(text), "window.POOL_TEXT") {
+		t.Fatalf("pool-text.js: %v", err)
+	}
+	csp, err := os.ReadFile(filepath.Join("..", "deploy", "nginx-pool.nordiccrypto.no.conf"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if strings.Contains(string(csp), "unsafe-inline") {
+		t.Fatal("content security policy allows inline scripts")
+	}
 	bad := regexp.MustCompile(`(?:^|[^0-9A-Za-z_-])(?:AI|KI)(?:[^0-9A-Za-z_-]|$)`)
 	for _, code := range []string{"nn", "nb"} {
 		raw, err := os.ReadFile(filepath.Join(dir, code, "index.html"))

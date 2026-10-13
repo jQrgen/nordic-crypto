@@ -43,6 +43,15 @@ type Ledger interface {
 	MarkReview(id int64) error
 	NotePayment(id int64, txid, txidem string, confs int64) error
 	Reserved() ([]Payout, error)
+	// Sent returns payouts already marked sent, so a later pass can
+	// notice a transaction that dropped after its first confirmation.
+	Sent() ([]Payout, error)
+	// RevertSent moves a sent row back to reserved or review.
+	RevertSent(id int64, status string) error
+	// Drop marks a reserved, review, or sent row failed. The coins
+	// return to the payable balance. Used when the wallet transaction
+	// is conflicted.
+	Drop(id int64) error
 }
 
 // Wallet sends coins and can find a send that already happened.
@@ -73,26 +82,17 @@ type Result struct {
 // rejection marks it failed and returns the coins. A timeout, a dropped
 // connection, an empty id, or fewer than minConfs confirmations leaves
 // the reservation in place. minConfs below 1 is treated as 1.
+//
+// Sent rows are rechecked. A transaction that later disappears moves
+// back to review and is not sent again. Negative confirmations mark
+// the row failed so the coins can be paid once more.
 func RunPayouts(ledger Ledger, wallet Wallet, minSats, minConfs int64) (Result, error) {
-	var result Result
 	if minSats < 0 {
-		return result, fmt.Errorf("account: negative minimum")
+		return Result{}, fmt.Errorf("account: negative minimum")
 	}
-	if minConfs < 1 {
-		minConfs = 1
-	}
-	pending, err := ledger.Reserved()
+	result, err := Reconcile(ledger, wallet, minConfs)
 	if err != nil {
 		return result, err
-	}
-	for _, p := range pending {
-		done, err := finishExisting(ledger, wallet, p, minConfs)
-		if err != nil {
-			return result, err
-		}
-		result.Sent += done.Sent
-		result.Failed += done.Failed
-		result.Deferred += done.Deferred
 	}
 	due, err := ledger.Payable(minSats)
 	if err != nil {
@@ -114,6 +114,43 @@ func RunPayouts(ledger Ledger, wallet Wallet, minSats, minConfs int64) (Result, 
 			return result, err
 		}
 		done, err := finishNew(ledger, wallet, Payout{ID: id, Address: b.Address, Amount: b.Amount, Key: key}, minConfs)
+		if err != nil {
+			return result, err
+		}
+		result.Sent += done.Sent
+		result.Failed += done.Failed
+		result.Deferred += done.Deferred
+	}
+	return result, nil
+}
+
+// Reconcile matches reserved, review, and sent rows to the wallet. It
+// does not create a new send. PayOnce calls this even when the hot
+// wallet is over its cap, so an in-flight row is not stuck until someone
+// sweeps the balance.
+func Reconcile(ledger Ledger, wallet Wallet, minConfs int64) (Result, error) {
+	var result Result
+	if minConfs < 1 {
+		minConfs = 1
+	}
+	sent, err := ledger.Sent()
+	if err != nil {
+		return result, err
+	}
+	for _, p := range sent {
+		done, err := recheckSent(ledger, wallet, p, minConfs)
+		if err != nil {
+			return result, err
+		}
+		result.Failed += done.Failed
+		result.Deferred += done.Deferred
+	}
+	pending, err := ledger.Reserved()
+	if err != nil {
+		return result, err
+	}
+	for _, p := range pending {
+		done, err := finishExisting(ledger, wallet, p, minConfs)
 		if err != nil {
 			return result, err
 		}
@@ -172,8 +209,49 @@ func finishNew(ledger Ledger, wallet Wallet, p Payout, minConfs int64) (Result, 
 	return settle(ledger, p.ID, pay, minConfs)
 }
 
+func recheckSent(ledger Ledger, wallet Wallet, p Payout, minConfs int64) (Result, error) {
+	var result Result
+	pay, found, err := wallet.Find(p.Key, firstID(p))
+	if err != nil {
+		result.Deferred++
+		return result, nil
+	}
+	if !found {
+		if markErr := ledger.RevertSent(p.ID, "review"); markErr != nil {
+			return result, markErr
+		}
+		result.Deferred++
+		return result, nil
+	}
+	if pay.Confirmations < 0 {
+		if markErr := ledger.Drop(p.ID); markErr != nil {
+			return result, markErr
+		}
+		result.Failed++
+		return result, nil
+	}
+	if pay.TxID == "" || pay.Confirmations < minConfs {
+		if markErr := ledger.RevertSent(p.ID, "reserved"); markErr != nil {
+			return result, markErr
+		}
+		if noteErr := ledger.NotePayment(p.ID, pay.TxID, pay.TxIdem, pay.Confirmations); noteErr != nil {
+			return result, noteErr
+		}
+		result.Deferred++
+		return result, nil
+	}
+	return result, nil
+}
+
 func settle(ledger Ledger, id int64, pay Payment, minConfs int64) (Result, error) {
 	var result Result
+	if pay.Confirmations < 0 {
+		if err := ledger.Drop(id); err != nil {
+			return result, err
+		}
+		result.Failed++
+		return result, nil
+	}
 	if err := ledger.NotePayment(id, pay.TxID, pay.TxIdem, pay.Confirmations); err != nil {
 		return result, err
 	}
@@ -206,6 +284,59 @@ func heldPayment(err error) (string, string, bool) {
 		return txid, idem, true
 	}
 	return "", "", false
+}
+
+// ReviewBook is the slice of the ledger an operator uses to finish a
+// review row. It is not the payout runner.
+type ReviewBook interface {
+	Payout(id int64) (Payout, error)
+	NotePayment(id int64, txid, txidem string, confs int64) error
+	MarkSent(id int64, txid string) error
+	ReleaseReview(id int64) error
+}
+
+// ResolveReview applies an operator decision to one review row.
+//
+// "complete" marks the row sent when the wallet has the payment and at
+// least minConfs confirmations. "release" marks it failed only when a
+// finished search does not find the send, which returns the coins to the
+// payable balance. Releasing a send the wallet still has would pay twice,
+// so that is refused.
+func ResolveReview(book ReviewBook, wallet Wallet, id int64, action string, minConfs int64) error {
+	if minConfs < 1 {
+		minConfs = 1
+	}
+	p, err := book.Payout(id)
+	if err != nil {
+		return err
+	}
+	if p.Status != "review" {
+		return fmt.Errorf("account: payout %d is %s, not review", id, p.Status)
+	}
+	pay, found, err := wallet.Find(p.Key, firstID(p))
+	if err != nil {
+		return err
+	}
+	switch action {
+	case "complete":
+		if !found || pay.TxID == "" {
+			return fmt.Errorf("account: wallet has no send for payout %d", id)
+		}
+		if pay.Confirmations < minConfs {
+			return fmt.Errorf("account: payout %d has %d confirmations, want %d", id, pay.Confirmations, minConfs)
+		}
+		if err := book.NotePayment(id, pay.TxID, pay.TxIdem, pay.Confirmations); err != nil {
+			return err
+		}
+		return book.MarkSent(id, pay.TxID)
+	case "release":
+		if found {
+			return fmt.Errorf("account: wallet still has payout %d (%s); refusing to release", id, pay.TxID)
+		}
+		return book.ReleaseReview(id)
+	default:
+		return fmt.Errorf("account: review action must be complete or release")
+	}
 }
 
 func ambiguous(err error) bool {

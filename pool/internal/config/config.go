@@ -28,6 +28,8 @@ type Config struct {
 	PublicStratum   string
 	PayoutConfs     int64
 	HotWalletMax    int64
+	Tailstorm       string
+	TailstormAt     int64
 
 	StratumListen string
 	VarDiff       bool
@@ -35,6 +37,10 @@ type Config struct {
 	MinDiff       uint64
 	MaxDiff       uint64
 	MaxPerIP      int
+	SubmitRate    float64
+	SubmitBurst   float64
+	BanAfter      int
+	SubmitGrace   time.Duration
 
 	APIListen string
 	WebRoot   string
@@ -62,6 +68,8 @@ type file struct {
 		PublicStratum       string  `toml:"public_stratum"`
 		PayoutConfirmations int64   `toml:"payout_confirmations"`
 		HotWalletMax        string  `toml:"hot_wallet_max"`
+		Tailstorm           string  `toml:"tailstorm"`
+		TailstormAt         int64   `toml:"tailstorm_activation"`
 	} `toml:"pool"`
 	Stratum struct {
 		Listen          string  `toml:"listen"`
@@ -70,6 +78,10 @@ type file struct {
 		MinDifficulty   float64 `toml:"min_difficulty"`
 		MaxDifficulty   float64 `toml:"max_difficulty"`
 		MaxPerIP        int     `toml:"max_per_ip"`
+		SubmitRate      float64 `toml:"submit_rate"`
+		SubmitBurst     float64 `toml:"submit_burst"`
+		BanAfter        int     `toml:"ban_after"`
+		SubmitGrace     string  `toml:"submit_grace"`
 	} `toml:"stratum"`
 	API struct {
 		Listen  string `toml:"listen"`
@@ -100,9 +112,14 @@ func Load(path string) (Config, error) {
 		PPLNSBlocks:     f.Pool.PPLNSBlocks,
 		PublicStratum:   strings.TrimSpace(f.Pool.PublicStratum),
 		PayoutConfs:     f.Pool.PayoutConfirmations,
+		Tailstorm:       strings.TrimSpace(f.Pool.Tailstorm),
+		TailstormAt:     f.Pool.TailstormAt,
 		StratumListen:   f.Stratum.Listen,
 		VarDiff:         f.Stratum.VarDiff,
 		MaxPerIP:        f.Stratum.MaxPerIP,
+		SubmitRate:      f.Stratum.SubmitRate,
+		SubmitBurst:     f.Stratum.SubmitBurst,
+		BanAfter:        f.Stratum.BanAfter,
 		APIListen:       f.API.Listen,
 		WebRoot:         f.API.WebRoot,
 		NodeURL:         f.Node.URL,
@@ -121,8 +138,13 @@ func Load(path string) (Config, error) {
 	if cfg.FeeAddress == "" || !nexa.ValidAddress(cfg.FeeAddress) {
 		return Config{}, fmt.Errorf("config: fee_address must be a Nexa address")
 	}
-	if cfg.CoinbaseAddress != "" && !nexa.ValidAddress(cfg.CoinbaseAddress) {
+	if cfg.CoinbaseAddress == "" || !nexa.ValidAddress(cfg.CoinbaseAddress) {
 		return Config{}, fmt.Errorf("config: coinbase_address must be a Nexa address")
+	}
+	switch strings.ToLower(cfg.Tailstorm) {
+	case "", "auto", "on", "off":
+	default:
+		return Config{}, fmt.Errorf("config: tailstorm must be auto, on, or off")
 	}
 	minText := f.Pool.MinPayout
 	if minText == "" {
@@ -133,8 +155,11 @@ func Load(path string) (Config, error) {
 		return Config{}, fmt.Errorf("config: min_payout")
 	}
 	cfg.MinPayout = minSats
-	if cfg.Maturity <= 0 {
+	if cfg.Maturity == 0 {
 		cfg.Maturity = 5001
+	}
+	if cfg.Maturity < 5001 {
+		return Config{}, fmt.Errorf("config: maturity must be at least 5001")
 	}
 	if cfg.PayoutConfs <= 0 {
 		cfg.PayoutConfs = 1
@@ -195,6 +220,19 @@ func Load(path string) (Config, error) {
 	cfg.MaxDiff = diffMicros(f.Stratum.MaxDifficulty, 4096)
 	if cfg.MaxPerIP <= 0 {
 		cfg.MaxPerIP = 16
+	}
+	if cfg.SubmitRate <= 0 {
+		cfg.SubmitRate = 128
+	}
+	if cfg.SubmitBurst <= 0 {
+		cfg.SubmitBurst = 256
+	}
+	if cfg.BanAfter <= 0 {
+		cfg.BanAfter = 20
+	}
+	cfg.SubmitGrace, err = parseDuration(f.Stratum.SubmitGrace, 3*time.Minute)
+	if err != nil {
+		return Config{}, err
 	}
 	if cfg.MinDiff > cfg.StartDiff || cfg.StartDiff > cfg.MaxDiff {
 		return Config{}, fmt.Errorf("config: difficulty range is out of order")

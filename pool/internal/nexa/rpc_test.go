@@ -203,6 +203,149 @@ func TestNodeURLMustBeLoopback(t *testing.T) {
 	}
 }
 
+func TestGetBlockRequiresPoolAddress(t *testing.T) {
+	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		fmtResult(w, `{"hash":"cc","height":20,"confirmations":3,"time":1700000000,"tx":[{"vout":[
+			{"value":"1.00","scriptPubKey":{"addresses":["nexa:qqqqzqsrqszsvpcgpy9qkrqdpc83qygjzv5cxgkyhm"]}}
+		]}]}`)
+	}))
+	defer srv.Close()
+	c, err := NewClient(srv.URL, "u", "p", "")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if _, err := c.GetBlock("cc"); err == nil {
+		t.Fatal("empty coinbase address counted a reward")
+	}
+}
+
+type walletItem struct {
+	rows int
+	tx   walletTx
+}
+
+// nexadList counts from and count as wallet items. Each item emits `rows`
+// JSON objects, which is what ListTransactions does per output.
+func nexadList(items []walletItem, txcount *int) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		body, _ := io.ReadAll(r.Body)
+		var req struct {
+			Method string `json:"method"`
+			Params []any  `json:"params"`
+		}
+		if err := json.Unmarshal(body, &req); err != nil {
+			http.Error(w, err.Error(), 500)
+			return
+		}
+		switch req.Method {
+		case "getwalletinfo":
+			if txcount == nil {
+				w.Header().Set("Content-Type", "application/json")
+				io.WriteString(w, `{"result":null,"error":{"code":-32601,"message":"Method not found"},"id":"nexapool"}`)
+				return
+			}
+			fmtResult(w, fmt.Sprintf(`{"txcount":%d}`, *txcount))
+			return
+		case "listtransactionsfrom":
+		default:
+			http.Error(w, "no", 500)
+			return
+		}
+		count, from := 10, 0
+		if len(req.Params) > 1 {
+			count = int(req.Params[1].(float64))
+		}
+		if len(req.Params) > 2 {
+			from = int(req.Params[2].(float64))
+		}
+		if from > len(items) {
+			fmtResult(w, `[]`)
+			return
+		}
+		end := from + count
+		if end > len(items) {
+			end = len(items)
+		}
+		var out []walletTx
+		for _, item := range items[from:end] {
+			for i := 0; i < item.rows; i++ {
+				out = append(out, item.tx)
+			}
+		}
+		if out == nil {
+			fmtResult(w, `[]`)
+			return
+		}
+		raw, err := json.Marshal(out)
+		if err != nil {
+			http.Error(w, err.Error(), 500)
+			return
+		}
+		fmtResult(w, string(raw))
+	})
+}
+
+func TestFindCommentPagesByWalletItemCount(t *testing.T) {
+	const comment = "nexapool:crashed"
+	items := make([]walletItem, 1000)
+	for i := range items {
+		items[i] = walletItem{rows: 2, tx: walletTx{
+			TxID: fmt.Sprintf("tx-%d", i), TxIdem: fmt.Sprintf("idem-%d", i), Comment: "other", Confirmations: 1,
+		}}
+	}
+	items = append(items, walletItem{rows: 2, tx: walletTx{
+		TxID: "txid-new", TxIdem: "idem-new", Comment: comment, Confirmations: 1,
+	}})
+	// No txcount. Two JSON rows per item used to skip this comment.
+	srv := httptest.NewServer(nexadList(items, nil))
+	defer srv.Close()
+	c, err := NewClient(srv.URL, "u", "p", "")
+	if err != nil {
+		t.Fatal(err)
+	}
+	pay, found, err := c.LookupPayment(comment, "")
+	if err != nil || !found || pay.TxID != "txid-new" {
+		t.Fatalf("comment past the first item page: %+v found %v err %v", pay, found, err)
+	}
+
+	// One silent item used to make a short JSON page look like the end.
+	gapped := make([]walletItem, 1000)
+	copy(gapped, items[:1000])
+	gapped[0].rows = 0
+	gapped = append(gapped, items[len(items)-1])
+	srv2 := httptest.NewServer(nexadList(gapped, nil))
+	defer srv2.Close()
+	c2, err := NewClient(srv2.URL, "u", "p", "")
+	if err != nil {
+		t.Fatal(err)
+	}
+	pay, found, err = c2.LookupPayment(comment, "")
+	if err != nil || !found || pay.TxID != "txid-new" {
+		t.Fatalf("comment after a silent item: %+v found %v err %v", pay, found, err)
+	}
+
+	// A whole page of silent items is only visible when the node reports
+	// how many wallet items exist.
+	silent := make([]walletItem, 1000)
+	for i := range silent {
+		silent[i] = walletItem{rows: 0, tx: walletTx{Comment: "quiet"}}
+	}
+	silent = append(silent, walletItem{rows: 1, tx: walletTx{
+		TxID: "txid-after", TxIdem: "idem-after", Comment: comment, Confirmations: 2,
+	}})
+	n := len(silent)
+	srv3 := httptest.NewServer(nexadList(silent, &n))
+	defer srv3.Close()
+	c3, err := NewClient(srv3.URL, "u", "p", "")
+	if err != nil {
+		t.Fatal(err)
+	}
+	pay, found, err = c3.LookupPayment(comment, "")
+	if err != nil || !found || pay.TxID != "txid-after" || pay.Confirmations != 2 {
+		t.Fatalf("comment after a silent page: %+v found %v err %v", pay, found, err)
+	}
+}
+
 func fmtResult(w http.ResponseWriter, result string) {
 	w.Header().Set("Content-Type", "application/json")
 	io.WriteString(w, `{"result":`+result+`,"error":null,"id":"nexapool"}`)

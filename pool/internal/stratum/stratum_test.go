@@ -340,15 +340,82 @@ func TestSlowClientDoesNotStallJobBroadcast(t *testing.T) {
 	}
 }
 
-func TestNotifyParamsSwitchAtActivation(t *testing.T) {
-	job := Job{ID: "4f", Commitment: strings.Repeat("ab", 32), NBits: "1b02fab2", Time: uint64(nexa.TailstormActivation - 1), Clean: true, PrevHash: strings.Repeat("cd", 32)}
+func TestNotifyParamsFollowsTheParent(t *testing.T) {
+	job := Job{ID: "4f", Commitment: strings.Repeat("ab", 32), NBits: "1b02fab2", Time: 1893456000, Clean: true, PrevHash: strings.Repeat("0", 64)}
 	pre := NotifyParams(job)
 	if len(pre) != 5 {
-		t.Fatalf("before activation %#v", pre)
+		t.Fatalf("zero parent %#v", pre)
 	}
-	job.Time = uint64(nexa.TailstormActivation)
+	job.PrevHash = strings.Repeat("cd", 32)
 	post := NotifyParams(job)
 	if len(post) != 6 || post[5] != strings.Repeat("cd", 32) {
-		t.Fatalf("at activation %#v", post)
+		t.Fatalf("real parent %#v", post)
+	}
+	// The old wall-clock instant must not add a parent by itself.
+	job.PrevHash = ""
+	job.Time = 1793495471
+	if len(NotifyParams(job)) != 5 {
+		t.Fatal("wall clock appended previousBlockHash")
+	}
+}
+
+func TestSubmitRejectsNTimeThatDoesNotMatchTheJob(t *testing.T) {
+	srv := &Server{StartDiff: 200_000, VarDiff: false, Hooks: Hooks{
+		Submit: func(Share) Verdict { return Verdict{Accept: true} },
+	}}
+	if err := srv.Listen("127.0.0.1:0"); err != nil {
+		t.Fatal(err)
+	}
+	defer srv.Close()
+	srv.SetJob(Job{ID: "4f", Commitment: strings.Repeat("ab", 32), NBits: "207fffff", Time: 0x63b1fb60, Clean: true})
+	conn, err := net.Dial("tcp", srv.Addr())
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer conn.Close()
+	rd := bufio.NewReader(conn)
+	write := func(v any) {
+		t.Helper()
+		raw, _ := json.Marshal(v)
+		conn.SetDeadline(time.Now().Add(3 * time.Second))
+		if _, err := conn.Write(append(raw, '\n')); err != nil {
+			t.Fatal(err)
+		}
+	}
+	read := func() map[string]any {
+		t.Helper()
+		conn.SetDeadline(time.Now().Add(3 * time.Second))
+		line, err := rd.ReadString('\n')
+		if err != nil {
+			t.Fatal(err)
+		}
+		var m map[string]any
+		if json.Unmarshal([]byte(line), &m) != nil {
+			t.Fatal(line)
+		}
+		return m
+	}
+	write(map[string]any{"id": 1, "method": "mining.subscribe", "params": []any{"rig"}})
+	sub := read()
+	extra := sub["result"].([]any)[1].(string)
+	write(map[string]any{"id": 2, "method": "mining.authorize", "params": []any{"nexa:qqqqzqsrqszsvpcgpy9qkrqdpc83qygjzv5cxgkyhm", "x"}})
+	if read()["result"] != true {
+		t.Fatal("authorize")
+	}
+	read() // set_difficulty
+	read() // notify
+	nonce := extra + "aa"
+	write(map[string]any{"id": 3, "method": "mining.submit", "params": []any{
+		"nexa:qqqqzqsrqszsvpcgpy9qkrqdpc83qygjzv5cxgkyhm", "4f", nonce, "0000000063b1fb61",
+	}})
+	bad := read()
+	if bad["error"] == nil || bad["error"].([]any)[1] != "bad time" {
+		t.Fatalf("mismatched ntime %#v", bad)
+	}
+	write(map[string]any{"id": 4, "method": "mining.submit", "params": []any{
+		"nexa:qqqqzqsrqszsvpcgpy9qkrqdpc83qygjzv5cxgkyhm", "4f", nonce, "63b1fb60",
+	}})
+	if acc := read(); acc["result"] != true {
+		t.Fatalf("matching ntime %#v", acc)
 	}
 }

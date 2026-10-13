@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"flag"
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -19,6 +20,13 @@ import (
 )
 
 func main() {
+	if len(os.Args) > 1 && os.Args[1] == "review" {
+		logger := log.New(os.Stderr, "nexapool: ", log.LstdFlags|log.LUTC)
+		if err := reviewCommand(logger, os.Args[2:]); err != nil {
+			logger.Fatal(err)
+		}
+		return
+	}
 	path := flag.String("config", "/etc/nexapool/nexapool.toml", "path to the TOML configuration")
 	flag.Parse()
 	logger := log.New(os.Stderr, "nexapool: ", log.LstdFlags|log.LUTC)
@@ -42,6 +50,7 @@ func main() {
 		MinPayout: cfg.MinPayout, Maturity: cfg.Maturity, PPLNSBlocks: cfg.PPLNSBlocks,
 		HashrateWindow: cfg.HashrateWindow, PayoutEvery: cfg.PayoutEvery, TxReserve: cfg.TxReserve,
 		PublicStratum: cfg.PublicStratum, PayoutConfs: cfg.PayoutConfs, HotWalletMax: cfg.HotWalletMax,
+		Tailstorm: cfg.Tailstorm, TailstormAt: cfg.TailstormAt,
 	}, db, node, logger)
 	if err != nil {
 		logger.Fatal(err)
@@ -57,7 +66,11 @@ func main() {
 	stratumSrv := &stratum.Server{
 		Hooks:     stratum.Hooks{Authorize: svc.Authorize, Submit: svc.Submit},
 		StartDiff: cfg.StartDiff, MinDiff: cfg.MinDiff, MaxDiff: cfg.MaxDiff, VarDiff: cfg.VarDiff,
-		MaxPerIP: cfg.MaxPerIP,
+		MaxPerIP:    cfg.MaxPerIP,
+		SubmitRate:  cfg.SubmitRate,
+		SubmitBurst: cfg.SubmitBurst,
+		BanAfter:    cfg.BanAfter,
+		SubmitGrace: cfg.SubmitGrace,
 	}
 	svc.Attach(stratumSrv)
 	if err := stratumSrv.Listen(cfg.StratumListen); err != nil {
@@ -107,6 +120,93 @@ func main() {
 	shut, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 	_ = httpSrv.Shutdown(shut)
+}
+
+func reviewCommand(logger *log.Logger, args []string) error {
+	fs := flag.NewFlagSet("review", flag.ContinueOnError)
+	path := fs.String("config", "/etc/nexapool/nexapool.toml", "path to the TOML configuration")
+	id := fs.Int64("id", 0, "payout id to resolve")
+	action := fs.String("resolve", "", "complete or release")
+	fs.SetOutput(os.Stderr)
+	if err := fs.Parse(args); err != nil {
+		return err
+	}
+	cfg, err := config.Load(*path)
+	if err != nil {
+		return err
+	}
+	db, err := store.Open(cfg.Database)
+	if err != nil {
+		return err
+	}
+	defer db.Close()
+	node, err := nexa.NewClient(cfg.NodeURL, cfg.RPCUser, cfg.RPCPassword, cfg.CookieFile)
+	if err != nil {
+		return err
+	}
+	node.PoolAddress = cfg.CoinbaseAddress
+	svc, err := pool.New(pool.Config{
+		FeePercent: cfg.FeePercent, FeeAddress: cfg.FeeAddress, CoinbaseAddress: cfg.CoinbaseAddress,
+		MinPayout: cfg.MinPayout, Maturity: cfg.Maturity, PPLNSBlocks: cfg.PPLNSBlocks,
+		HashrateWindow: cfg.HashrateWindow, PayoutEvery: cfg.PayoutEvery, TxReserve: cfg.TxReserve,
+		PublicStratum: cfg.PublicStratum, PayoutConfs: cfg.PayoutConfs, HotWalletMax: cfg.HotWalletMax,
+		Tailstorm: cfg.Tailstorm, TailstormAt: cfg.TailstormAt,
+	}, db, node, logger)
+	if err != nil {
+		return err
+	}
+	if cfg.PassphraseFile != "" {
+		raw, err := nexa.ReadPrivateFile(cfg.PassphraseFile)
+		if err != nil {
+			return err
+		}
+		svc.SetPassphrase(string(raw))
+	}
+	if *id == 0 {
+		rows, err := svc.Reviews()
+		if err != nil {
+			return err
+		}
+		if len(rows) == 0 {
+			fmt.Println("no review rows")
+			return nil
+		}
+		for _, p := range rows {
+			fmt.Printf("id=%d address=%s amount=%s key=%s txid=%s txidem=%s\n",
+				p.ID, p.Address, nexa.FormatNEX(p.Amount), p.Key, p.TxID, p.TxIdem)
+		}
+		return nil
+	}
+	if *action == "" {
+		rows, err := svc.Reviews()
+		if err != nil {
+			return err
+		}
+		for _, p := range rows {
+			if p.ID != *id {
+				continue
+			}
+			fmt.Printf("id=%d address=%s amount=%s key=%s txid=%s txidem=%s\n",
+				p.ID, p.Address, nexa.FormatNEX(p.Amount), p.Key, p.TxID, p.TxIdem)
+			fmt.Println("resolve with -resolve complete or -resolve release")
+			return nil
+		}
+		return fmt.Errorf("payout %d is not in review", *id)
+	}
+	unlock, err := db.LockPayouts()
+	if err != nil {
+		return err
+	}
+	defer unlock()
+	if err := svc.ResolveReview(*id, *action); err != nil {
+		return err
+	}
+	if *action == "release" {
+		fmt.Printf("payout %d released; coins returned to the payable balance\n", *id)
+		return nil
+	}
+	fmt.Printf("payout %d marked sent\n", *id)
+	return nil
 }
 
 func every(ctx context.Context, interval time.Duration, fn func()) {

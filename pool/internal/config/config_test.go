@@ -5,6 +5,7 @@ import (
 	"path/filepath"
 	"strings"
 	"testing"
+	"time"
 )
 
 func TestLoadRejectsEmptyFeeAddress(t *testing.T) {
@@ -33,6 +34,7 @@ func TestLoadDefaults(t *testing.T) {
 [pool]
 fee_percent = 1
 fee_address = "nexa:qqqqzqsrqszsvpcgpy9qkrqdpc83qygjzv5cxgkyhm"
+coinbase_address = "nexa:qqqqzqsrqszsvpcgpy9qkrqdpc83qygjzv5cxgkyhm"
 [node]
 cookie_file = "/var/lib/nexa/.nexa/.cookie"
 [db]
@@ -61,6 +63,12 @@ path = "/var/lib/nexapool/pool.sqlite"
 	if cfg.Maturity != 5001 || cfg.PayoutConfs != 1 || cfg.MaxPerIP != 16 || cfg.HotWalletMax <= 0 {
 		t.Fatalf("security defaults %+v", cfg)
 	}
+	if cfg.CoinbaseAddress == "" || cfg.SubmitRate != 128 || cfg.SubmitBurst != 256 || cfg.BanAfter != 20 || cfg.SubmitGrace != 3*time.Minute {
+		t.Fatalf("submit and coinbase defaults %+v", cfg)
+	}
+	if cfg.Tailstorm != "" && cfg.Tailstorm != "auto" {
+		t.Fatalf("tailstorm %+v", cfg.Tailstorm)
+	}
 }
 
 func TestLoadRejectsPublicBind(t *testing.T) {
@@ -70,6 +78,7 @@ func TestLoadRejectsPublicBind(t *testing.T) {
 [pool]
 fee_percent = 1
 fee_address = "nexa:qqqqzqsrqszsvpcgpy9qkrqdpc83qygjzv5cxgkyhm"
+coinbase_address = "nexa:qqqqzqsrqszsvpcgpy9qkrqdpc83qygjzv5cxgkyhm"
 [api]
 listen = "0.0.0.0:8080"
 [node]
@@ -91,5 +100,35 @@ path = "/var/lib/nexapool/pool.sqlite"
 	}
 	if _, err := Load(path); err == nil {
 		t.Fatal("public node url was accepted")
+	}
+}
+
+func TestLoadRejectsEarlyMaturityAndEmptyCoinbase(t *testing.T) {
+	dir := t.TempDir()
+	path := filepath.Join(dir, "pool.toml")
+	body := `
+[pool]
+fee_percent = 1
+fee_address = "nexa:qqqqzqsrqszsvpcgpy9qkrqdpc83qygjzv5cxgkyhm"
+coinbase_address = "nexa:qqqqzqsrqszsvpcgpy9qkrqdpc83qygjzv5cxgkyhm"
+maturity = 5000
+[node]
+cookie_file = "/var/lib/nexa/.nexa/.cookie"
+[db]
+path = "/var/lib/nexapool/pool.sqlite"
+`
+	if err := os.WriteFile(path, []byte(body), 0o600); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := Load(path); err == nil {
+		t.Fatal("maturity 5000 was accepted")
+	}
+	body = strings.ReplaceAll(body, "maturity = 5000", "maturity = 5001")
+	body = strings.ReplaceAll(body, `coinbase_address = "nexa:qqqqzqsrqszsvpcgpy9qkrqdpc83qygjzv5cxgkyhm"`, `coinbase_address = ""`)
+	if err := os.WriteFile(path, []byte(body), 0o600); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := Load(path); err == nil {
+		t.Fatal("empty coinbase address was accepted")
 	}
 }

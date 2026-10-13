@@ -286,9 +286,14 @@ func (s *Store) PruneSharesBefore(id int64) error {
 	return err
 }
 
-// PruneSharesBeforeTime deletes shares recorded before t. Used when no
-// immature block still needs the older history.
-func (s *Store) PruneSharesBeforeTime(t time.Time) error {
+// PruneSharesBeforeTime deletes shares recorded before t. keepID, when
+// positive, leaves that share and every newer id in place so a filled
+// PPLNS window is not cut short by the clock.
+func (s *Store) PruneSharesBeforeTime(t time.Time, keepID int64) error {
+	if keepID > 0 {
+		_, err := s.db.Exec(`DELETE FROM shares WHERE created_at < ? AND id < ?`, t.Unix(), keepID)
+		return err
+	}
 	_, err := s.db.Exec(`DELETE FROM shares WHERE created_at < ?`, t.Unix())
 	return err
 }
@@ -604,6 +609,102 @@ func (s *Store) MarkFailed(id int64) error {
 func (s *Store) MarkReview(id int64) error {
 	_, err := s.db.Exec(`UPDATE payouts SET status = 'review' WHERE id = ? AND status = 'reserved'`, id)
 	return err
+}
+
+// Payout loads one payout by id for the operator review command.
+func (s *Store) Payout(id int64) (account.Payout, error) {
+	var p account.Payout
+	err := s.db.QueryRow(`SELECT id, address, amount, idempotency_key, COALESCE(txid,''), COALESCE(txidem,''), confirmations, status
+		FROM payouts WHERE id = ?`, id).Scan(&p.ID, &p.Address, &p.Amount, &p.Key, &p.TxID, &p.TxIdem, &p.Confirmations, &p.Status)
+	if err != nil {
+		return account.Payout{}, err
+	}
+	return p, nil
+}
+
+// ReleaseReview implements account.ReviewBook. The row must be in review.
+// The coins return to the payable balance. The caller has to have checked
+// that the wallet does not already contain the send.
+func (s *Store) ReleaseReview(id int64) error {
+	res, err := s.db.Exec(`UPDATE payouts SET status = 'failed' WHERE id = ? AND status = 'review'`, id)
+	if err != nil {
+		return err
+	}
+	n, err := res.RowsAffected()
+	if err != nil {
+		return err
+	}
+	if n == 0 {
+		return fmt.Errorf("store: payout %d is not in review", id)
+	}
+	return nil
+}
+
+// Sent implements account.Ledger.
+func (s *Store) Sent() ([]account.Payout, error) {
+	return s.payoutsByStatus("sent")
+}
+
+// RevertSent implements account.Ledger. status is reserved or review.
+func (s *Store) RevertSent(id int64, status string) error {
+	if status != "reserved" && status != "review" {
+		return fmt.Errorf("store: cannot revert a sent payout to %s", status)
+	}
+	res, err := s.db.Exec(`UPDATE payouts SET status = ?, sent_at = NULL WHERE id = ? AND status = 'sent'`, status, id)
+	if err != nil {
+		return err
+	}
+	n, err := res.RowsAffected()
+	if err != nil {
+		return err
+	}
+	if n == 0 {
+		return fmt.Errorf("store: payout %d is not sent", id)
+	}
+	return nil
+}
+
+// Drop implements account.Ledger. A conflicted wallet transaction is not
+// left as paid.
+func (s *Store) Drop(id int64) error {
+	res, err := s.db.Exec(`UPDATE payouts SET status = 'failed', sent_at = NULL
+		WHERE id = ? AND status IN ('reserved', 'review', 'sent')`, id)
+	if err != nil {
+		return err
+	}
+	n, err := res.RowsAffected()
+	if err != nil {
+		return err
+	}
+	if n == 0 {
+		p, err := s.Payout(id)
+		if err != nil {
+			return err
+		}
+		if p.Status == "failed" {
+			return nil
+		}
+		return fmt.Errorf("store: payout %d is %s", id, p.Status)
+	}
+	return nil
+}
+
+func (s *Store) payoutsByStatus(status string) ([]account.Payout, error) {
+	rows, err := s.db.Query(`SELECT id, address, amount, idempotency_key, COALESCE(txid,''), COALESCE(txidem,''), confirmations, status
+		FROM payouts WHERE status = ? ORDER BY id`, status)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var out []account.Payout
+	for rows.Next() {
+		var p account.Payout
+		if err := rows.Scan(&p.ID, &p.Address, &p.Amount, &p.Key, &p.TxID, &p.TxIdem, &p.Confirmations, &p.Status); err != nil {
+			return nil, err
+		}
+		out = append(out, p)
+	}
+	return out, rows.Err()
 }
 
 // NotePayment records a txid or txidem on a row that is not yet sent.
