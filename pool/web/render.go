@@ -351,7 +351,6 @@ const pageTpl = `<!DOCTYPE html>
       <li><a href="https://nordiccrypto.no/">Nordic Crypto</a></li>
       <li><a href="https://nordiccrypto.no/budget/">{{.C.heroLink}}</a></li>
       <li><a href="https://t.me/nordiccryptochat" rel="noopener">Telegram</a></li>
-      <li><a href="https://x.com/xcryptonordic" rel="noopener">X @xcryptonordic</a></li>
       <li><a href="https://x.com/nordiccryptobot" rel="noopener">X @nordiccryptobot</a></li>
       <li><a href="https://github.com/jQrgen/nordic-crypto" rel="noopener">GitHub</a></li>
       <li><a href="https://nordiccrypto.no/newsletter/">{{.C.newsletter}}</a></li>

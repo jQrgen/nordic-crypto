@@ -28,7 +28,6 @@ func TestGenerateAllLanguages(t *testing.T) {
 		"stratum+tcp://pool.nordiccrypto.no:3333",
 		"https://nordiccrypto.no/budget/",
 		"https://wallywallet.org/",
-		"https://x.com/xcryptonordic",
 		"https://x.com/nordiccryptobot",
 		"https://t.me/nordiccryptochat",
 		"https://github.com/jQrgen/nordic-crypto",
@@ -49,6 +48,9 @@ func TestGenerateAllLanguages(t *testing.T) {
 	}
 	if strings.Contains(page, "TH/s") || strings.Contains(page, "mailto:") || strings.Contains(page, "1.23") {
 		t.Fatal("page contains a fabricated figure or an email address")
+	}
+	if strings.Contains(page, "xcryptonordic") {
+		t.Fatal("old X account is still linked")
 	}
 	bad := regexp.MustCompile(`(?:^|[^0-9A-Za-z_-])(?:AI|KI)(?:[^0-9A-Za-z_-]|$)`)
 	for _, code := range []string{"nn", "nb"} {
