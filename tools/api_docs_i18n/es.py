@@ -17,7 +17,7 @@ S = {
 "lightning_pubkey": "Clave pública.",
 "lightning_deposit": "Dirección de depósito en la cadena.",
 "h_electrum": "Servidores Electrum (BCH y Nexa)",
-"electrum_intro": 'Nordic Crypto opera servidores Electrum <a href="https://nexa.gitlab.io/rostrum/" rel="noopener">Rostrum</a> para Bitcoin Cash y Nexa. Monederos y apps pueden consultar en ellos saldos, transacciones, UTXO, tokens y el último bloque, y difundir transacciones. Sin cuenta y sin clave de API.',
+"electrum_intro": 'Nordic Crypto opera servidores Electrum <a href="https://nexa.gitlab.io/rostrum/" rel="noopener">Rostrum</a> para Bitcoin Cash y Nexa. Monederos y apps pueden consultar en ellos fondos, transacciones, UTXO, tokens y el último bloque, y difundir transacciones. Sin cuenta y sin clave de API.',
 "th_server": "Servidor", "th_status": "Estado", "th_height": "Altura de bloque", "th_response": "Respuesta", "th_version": "Versión",
 "st_checking": "Comprobando…", "st_up": "Activo", "st_down": "Caído",
 "st_timeout": "Sin respuesta en {s} s", "st_closed": "Cerrado", "st_error": "Error", "st_notip": "sin bloque",

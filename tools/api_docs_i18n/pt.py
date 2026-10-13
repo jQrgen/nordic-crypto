@@ -17,7 +17,7 @@ S = {
 "lightning_pubkey": "Chave pública.",
 "lightning_deposit": "Endereço de depósito on-chain.",
 "h_electrum": "Servidores Electrum (BCH e Nexa)",
-"electrum_intro": 'A Nordic Crypto mantém servidores Electrum <a href="https://nexa.gitlab.io/rostrum/" rel="noopener">Rostrum</a> para Bitcoin Cash e Nexa. Carteiras e apps podem consultar saldos, transações, UTXOs, tokens e o bloco mais recente, além de transmitir transações. Sem conta e sem chave de API.',
+"electrum_intro": 'A Nordic Crypto mantém servidores Electrum <a href="https://nexa.gitlab.io/rostrum/" rel="noopener">Rostrum</a> para Bitcoin Cash e Nexa. Carteiras e apps podem consultar fundos, transações, UTXOs, tokens e o bloco mais recente, além de transmitir transações. Sem conta e sem chave de API.',
 "th_server": "Servidor", "th_status": "Status", "th_height": "Altura do bloco", "th_response": "Resposta", "th_version": "Versão",
 "st_checking": "Verificando…", "st_up": "No ar", "st_down": "Fora do ar",
 "st_timeout": "Sem resposta em {s} s", "st_closed": "Fechado", "st_error": "Erro", "st_notip": "sem bloco",

@@ -1,10 +1,298 @@
 {
  "items": [
   {
+   "id": "73b38bf2c72a",
+   "url": "https://gamereactor.dk/gta-6-laek-trussel-cyberleek-take-two-kryptovaluta",
+   "title": "GTA 6 i fare: Hackere truer med at lække hele spillet",
+   "title_en": null,
+   "source": "gamereactor.dk",
+   "source_name": "Gamereactor Danmark",
+   "country": "DK",
+   "language": "Danish",
+   "via": "bing-dk",
+   "seen_via": [
+    "bing-dk"
+   ],
+   "published": "2026-10-12T20:24:52+00:00",
+   "fetched": "2026-10-13T01:48:13+00:00",
+   "topics": [
+    "crypto"
+   ],
+   "matched": [
+    "\\bkrypto(?!graf)\\w*",
+    "\\bkryptovaluta\\w*"
+   ],
+   "paywall": false,
+   "status": "rejected",
+   "summary": null,
+   "reject_reason": "Gamereactor GTA 6 leak: crypto is only the leakers' leverage; covering it risks promoting their scam token"
+  },
+  {
+   "id": "e66d1271d64c",
+   "url": "https://gamereactor.se/hot-om-gta-6-lacka-cyberleek-kraver-krypto-miljoner",
+   "title": "Hot om GTA 6-läcka: CyberLeek kräver miljoner i krypto",
+   "title_en": null,
+   "source": "gamereactor.se",
+   "source_name": "Gamereactor Sverige",
+   "country": "SE",
+   "language": "Swedish",
+   "via": "bing-se",
+   "seen_via": [
+    "bing-se"
+   ],
+   "published": "2026-10-12T20:24:02+00:00",
+   "fetched": "2026-10-13T01:48:13+00:00",
+   "topics": [
+    "crypto"
+   ],
+   "matched": [
+    "\\bkrypto(?!graf)\\w*",
+    "\\bkryptovaluta\\w*"
+   ],
+   "paywall": false,
+   "status": "rejected",
+   "summary": null,
+   "reject_reason": "Gamereactor GTA 6 leak: crypto is only the leakers' leverage; covering it risks promoting their scam token"
+  },
+  {
+   "id": "b37e649f2000",
+   "url": "https://gamereactor.fi/gta-6-vuotaja-uhkaa-julkaista-koko-pelin-kryptovaluutan-varjolla",
+   "title": "GTA 6 -vuotaja uhkaa julkaista koko pelin kryptovaluutan varjolla",
+   "title_en": null,
+   "source": "gamereactor.fi",
+   "source_name": "Gamereactor Suomi",
+   "country": "FI",
+   "language": "Finnish",
+   "via": "bing-fi",
+   "seen_via": [
+    "bing-fi"
+   ],
+   "published": "2026-10-12T20:24:01+00:00",
+   "fetched": "2026-10-13T01:48:13+00:00",
+   "topics": [
+    "crypto"
+   ],
+   "matched": [
+    "\\bkrypto(?!graf)\\w*",
+    "\\bkryptovaluutta\\w*"
+   ],
+   "paywall": false,
+   "status": "rejected",
+   "summary": null,
+   "reject_reason": "Gamereactor GTA 6 leak: crypto is only the leakers' leverage; covering it risks promoting their scam token"
+  },
+  {
+   "id": "601358bd24e5",
+   "url": "https://realtid.se/bors-finans/bank-fintech/frankrike-vill-beskatta-kryptomiljonarer-som-flyttar-utomlands",
+   "title": "Frankrike vill beskatta kryptomiljonärer som flyttar utomlands",
+   "title_en": "French lawmakers move to extend exit tax to crypto holdings",
+   "source": "realtid",
+   "source_name": "Realtid",
+   "country": "SE",
+   "language": "Swedish",
+   "via": "realtid",
+   "seen_via": [
+    "realtid",
+    "bing-se"
+   ],
+   "published": "2026-10-12T14:15:44+00:00",
+   "fetched": "2026-10-13T01:48:13+00:00",
+   "topics": [
+    "tax",
+    "regulation"
+   ],
+   "matched": [
+    "\\bkrypto(?!graf)\\w*"
+   ],
+   "paywall": false,
+   "status": "published",
+   "summary": "Realtid reports, citing Euronews and Journal du Coin, that the French National Assembly's finance committee voted to extend the country's exit tax to crypto assets above EUR 800,000 from 2027, and backed fines of up to EUR 10,000 for undeclared self-custody wallets worth EUR 100,000 or more. The proposals are not yet law and may still fall.",
+   "approved_by": "Nordic Crypto redaktør",
+   "approved_at": "2026-10-13T04:21:00+02:00",
+   "summary_i18n": {
+    "nn": "Realtid melder, med tilvising til Euronews og Journal du Coin, at finanskomiteen i nasjonalforsamlinga i Frankrike røysta for å utvide utflyttingsskatten til kryptoeigedelar over 800 000 euro frå 2027, og støtta bøter på opptil 10 000 euro for ikkje-deklarerte eigne lommebøker verde minst 100 000 euro. Forslaga er ikkje vedtekne og kan framleis falle.",
+    "nb": "Realtid melder, med henvisning til Euronews og Journal du Coin, at finanskomiteen i Frankrikes nasjonalforsamling stemte for å utvide utflyttingsskatten til kryptoaktiva over 800 000 euro fra 2027, og støttet bøter på opptil 10 000 euro for ikke-deklarerte egne lommebøker verdt minst 100 000 euro. Forslagene er ikke vedtatt og kan fortsatt falle.",
+    "sv": "Realtid rapporterar, med hänvisning till Euronews och Journal du Coin, att franska nationalförsamlingens finansutskott röstade för att utvidga exitskatten till kryptotillgångar över 800 000 euro från 2027, och ställde sig bakom böter på upp till 10 000 euro för odeklarerade egna plånböcker värda minst 100 000 euro. Förslagen är inte antagna och kan fortfarande falla.",
+    "da": "Realtid skriver med henvisning til Euronews og Journal du Coin, at finansudvalget i Frankrigs nationalforsamling stemte for at udvide fraflytningsskatten til kryptoaktiver over 800.000 euro fra 2027 og bakkede op om bøder på op til 10.000 euro for ikke-oplyste egne tegnebøger til en værdi af mindst 100.000 euro. Forslagene er ikke vedtaget og kan stadig falde.",
+    "fi": "Realtid kertoo Euronewsiin ja Journal du Coiniin viitaten, että Ranskan kansalliskokouksen valtiovarainvaliokunta äänesti maastamuuttoveron laajentamisesta yli 800 000 euron kryptovaroihin vuodesta 2027 alkaen ja kannatti enintään 10 000 euron sakkoja ilmoittamatta jätetyistä, vähintään 100 000 euron arvoisista omista lompakoista. Ehdotuksia ei ole hyväksytty, ja ne voivat vielä kaatua.",
+    "is": "Realtid greinir frá því, með vísan til Euronews og Journal du Coin, að fjárlaganefnd franska þjóðþingsins hafi greitt atkvæði með því að útvíkka brottflutningsskatt til rafmyntaeigna yfir 800.000 evrum frá 2027 og stutt sektir allt að 10.000 evrum fyrir ótilgreind eigin veski að verðmæti minnst 100.000 evrur. Tillögurnar eru ekki orðnar að lögum og gætu enn fallið."
+   },
+   "summary_i18n_review": "approved"
+  },
+  {
+   "id": "1c30329a2205",
+   "url": "https://borsen.dk/nyheder/politik/bred-enighed-om-ny-kryptoskat-forslaget-har-ligget-i-skuffen-i-over-et-ar",
+   "title": "Bred enighed om ny kryptoskat: Forslaget har ligget i skuffen i over et år",
+   "title_en": "Denmark's government signals new crypto tax rules after proposal sat idle for over a year",
+   "source": "borsen",
+   "source_name": "Børsen",
+   "country": "DK",
+   "language": "Danish",
+   "via": "borsen",
+   "seen_via": [
+    "borsen"
+   ],
+   "published": "2026-10-12T12:47:49+00:00",
+   "fetched": "2026-10-13T01:48:13+00:00",
+   "topics": [
+    "tax",
+    "regulation"
+   ],
+   "matched": [
+    "\\bkrypto(?!graf)\\w*"
+   ],
+   "paywall": true,
+   "status": "published",
+   "summary": "Børsen reports that a broad working group of authorities, business and the crypto industry agreed on a new crypto tax model more than a year ago, but the proposal has since been shelved. The government is now signalling new rules.",
+   "approved_by": "Nordic Crypto redaktør",
+   "approved_at": "2026-10-13T04:21:00+02:00",
+   "summary_i18n": {
+    "nn": "Børsen melder at ei brei arbeidsgruppe med styresmakter, næringsliv og kryptobransjen vart samde om ein ny modell for kryptoskatt for over eit år sidan, men at forslaget sidan har vorte liggjande. No varslar regjeringa nye reglar.",
+    "nb": "Børsen melder at en bred arbeidsgruppe med myndigheter, næringsliv og kryptobransjen ble enige om en ny modell for kryptoskatt for over et år siden, men at forslaget siden har blitt liggende. Nå varsler regjeringen nye regler.",
+    "sv": "Børsen rapporterar att en bred arbetsgrupp med myndigheter, näringsliv och kryptobranschen enades om en ny modell för kryptoskatt för över ett år sedan, men att förslaget sedan dess har legat orört. Nu aviserar regeringen nya regler.",
+    "da": "Børsen skriver, at en bred arbejdsgruppe med myndigheder, erhvervsliv og kryptobranchen for over et år siden blev enige om en ny model for kryptobeskatning, men at forslaget siden har ligget stille. Nu varsler regeringen nye regler.",
+    "fi": "Børsen kertoo, että viranomaisista, elinkeinoelämästä ja kryptoalasta koostunut laaja työryhmä sopi uudesta kryptoverotuksen mallista yli vuosi sitten, mutta ehdotus on sittemmin jäänyt pöytälaatikkoon. Nyt hallitus ennakoi uusia sääntöjä.",
+    "is": "Børsen greinir frá því að breiður starfshópur yfirvalda, atvinnulífs og rafmyntageirans hafi fyrir meira en ári komið sér saman um nýtt líkan fyrir skattlagningu rafmynta, en tillagan hafi síðan legið óhreyfð. Nú boðar ríkisstjórnin nýjar reglur."
+   },
+   "summary_i18n_review": "approved"
+  },
+  {
+   "id": "248229beedb1",
+   "url": "https://kaupr.io/nyheter/amerikansk-finanspresse-oppdager-at-tokenisering-endrer-bors-og-aksjehandel",
+   "title": "Amerikansk finanspresse oppdager at tokenisering endrer børs og aksjehandel",
+   "title_en": "Kaupr: US financial press turns its attention to tokenised stocks",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kaupr-kryptoaksjer",
+   "seen_via": [
+    "kaupr-kryptoaksjer",
+    "kaupr"
+   ],
+   "published": "2026-10-12T12:00:00+00:00",
+   "fetched": "2026-10-13T01:48:13+00:00",
+   "topics": [
+    "tokenisation"
+   ],
+   "matched": [
+    "\\btokeni[sz]\\w*"
+   ],
+   "paywall": false,
+   "status": "published",
+   "summary": "Kaupr summarises recent US financial press coverage, saying Barron's, the Wall Street Journal, CNBC and Bloomberg all wrote about stock tokenisation in early October. According to that coverage, tokenised shares could bring round-the-clock trading and faster settlement, and an ICE–OKX venture is preparing to tokenise stocks.",
+   "approved_by": "Nordic Crypto redaktør",
+   "approved_at": "2026-10-13T04:21:00+02:00",
+   "summary_i18n": {
+    "nn": "Kaupr samanfattar nyleg dekning i amerikansk finanspresse og skriv at Barron's, Wall Street Journal, CNBC og Bloomberg alle skreiv om tokenisering av aksjar tidleg i oktober. Ifølgje denne dekninga kan tokeniserte aksjar gje handel døgnet rundt og raskare oppgjer, og eit samarbeid mellom ICE og OKX førebur tokenisering av aksjar.",
+    "nb": "Kaupr oppsummerer nylig dekning i amerikansk finanspresse og skriver at Barron's, Wall Street Journal, CNBC og Bloomberg alle skrev om tokenisering av aksjer tidlig i oktober. Ifølge denne dekningen kan tokeniserte aksjer gi handel døgnet rundt og raskere oppgjør, og et samarbeid mellom ICE og OKX forbereder tokenisering av aksjer.",
+    "sv": "Kaupr sammanfattar den senaste bevakningen i amerikansk finanspress och skriver att Barron's, Wall Street Journal, CNBC och Bloomberg alla skrev om tokenisering av aktier i början av oktober. Enligt den bevakningen kan tokeniserade aktier ge handel dygnet runt och snabbare avveckling, och ett samarbete mellan ICE och OKX förbereder tokenisering av aktier.",
+    "da": "Kaupr opsummerer den seneste dækning i amerikansk finanspresse og skriver, at Barron's, Wall Street Journal, CNBC og Bloomberg alle skrev om tokenisering af aktier i begyndelsen af oktober. Ifølge den dækning kan tokeniserede aktier give handel døgnet rundt og hurtigere afvikling, og et samarbejde mellem ICE og OKX forbereder tokenisering af aktier.",
+    "fi": "Kaupr tiivistää Yhdysvaltain talousmedian tuoreen uutisoinnin ja kertoo, että Barron's, Wall Street Journal, CNBC ja Bloomberg kirjoittivat kaikki osakkeiden tokenisoinnista lokakuun alussa. Uutisoinnin mukaan tokenisoidut osakkeet voisivat mahdollistaa ympärivuorokautisen kaupankäynnin ja nopeamman selvityksen, ja ICE:n ja OKX:n yhteisyritys valmistelee osakkeiden tokenisointia.",
+    "is": "Kaupr dregur saman nýlega umfjöllun bandarískra fjármálamiðla og segir að Barron's, Wall Street Journal, CNBC og Bloomberg hafi öll fjallað um táknvæðingu hlutabréfa í byrjun október. Samkvæmt þeirri umfjöllun gætu táknvædd hlutabréf gert viðskipti allan sólarhringinn möguleg og hraðað uppgjöri, og samstarfsverkefni ICE og OKX undirbýr táknvæðingu hlutabréfa."
+   },
+   "summary_i18n_review": "approved"
+  },
+  {
+   "id": "1b09dbbba837",
+   "url": "https://sagat.no/kommunen-vart-naiv/19.59940",
+   "title": "Krypto i Kautokeino: – Kommunen vært naiv",
+   "title_en": "Kautokeino: environmental group calls municipality naive over Arctic Core crypto mining",
+   "source": "sagat",
+   "source_name": "Ságat",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "sagat",
+   "seen_via": [
+    "sagat"
+   ],
+   "published": "2026-10-12T09:38:15+00:00",
+   "fetched": "2026-10-13T01:48:13+00:00",
+   "topics": [
+    "mining",
+    "energy"
+   ],
+   "matched": [
+    "\\bkrypto(?!graf)\\w*"
+   ],
+   "paywall": true,
+   "status": "published",
+   "summary": "In a follow-up to its earlier report that data-centre firm Arctic Core admits to 'a little' crypto mining on its site in Kautokeino, Ságat reports that the local Naturvernforbundet branch wants the municipality to withdraw the building permit. The group's complaint will not be handled before November, when it may be passed to the county governor.",
+   "approved_by": "Nordic Crypto redaktør",
+   "approved_at": "2026-10-13T04:21:00+02:00",
+   "summary_i18n": {
+    "nn": "I ei oppfølging av den tidlegare saka om at dataselskapet Arctic Core vedgår «litt» kryptoutvinning på tomta si i Kautokeino, melder Ságat at det lokale laget av Naturvernforbundet vil at kommunen trekkjer byggjeløyvet. Klaga vert ikkje handsama før i november, då ho kan verte send vidare til statsforvaltaren.",
+    "nb": "I en oppfølging av den tidligere saken om at dataselskapet Arctic Core innrømmer «litt» kryptoutvinning på tomten sin i Kautokeino, melder Ságat at det lokale laget av Naturvernforbundet vil at kommunen trekker byggetillatelsen. Klagen behandles ikke før i november, da den kan bli oversendt statsforvalteren.",
+    "sv": "I en uppföljning av den tidigare artikeln om att datacenterbolaget Arctic Core medger «lite» kryptoutvinning på sin tomt i Kautokeino rapporterar Ságat att den lokala avdelningen av Naturvernforbundet vill att kommunen drar tillbaka bygglovet. Klagomålet behandlas inte före november, då det kan skickas vidare till statsförvaltaren.",
+    "da": "I en opfølgning på den tidligere historie om, at datacentervirksomheden Arctic Core indrømmer «lidt» kryptoudvinding på sin grund i Kautokeino, skriver Ságat, at den lokale afdeling af Naturvernforbundet vil have kommunen til at trække byggetilladelsen tilbage. Klagen behandles først i november, hvor den kan blive sendt videre til statsforvalteren.",
+    "fi": "Jatkona aiempaan juttuun, jossa datakeskusyhtiö Arctic Core myönsi harjoittavansa «hieman» kryptolouhintaa tontillaan Koutokeinossa, Ságat kertoo, että Naturvernforbundetin paikallisyhdistys vaatii kuntaa perumaan rakennusluvan. Valitus käsitellään aikaisintaan marraskuussa, jolloin se voidaan siirtää lääninhallitukselle (statsforvalteren).",
+    "is": "Í framhaldi af fyrri frétt um að gagnaversfyrirtækið Arctic Core viðurkenni «smá» rafmyntagröft á lóð sinni í Kautokeino greinir Ságat frá því að staðardeild Naturvernforbundet vilji að sveitarfélagið afturkalli byggingarleyfið. Kæran verður ekki tekin fyrir fyrr en í nóvember, en þá gæti hún verið send áfram til fylkisstjórans."
+   },
+   "summary_i18n_review": "approved"
+  },
+  {
+   "id": "81c4796d66fe",
+   "url": "https://feber.se/samhalle/moddade-kryptoplanbocker-tros-ha-lett-till-miljonstolder/497167",
+   "title": "Teknik Motor Samhälle Spel Popkultur Fritid Tjock Tester Dagens fråga Tipsa! Skaffa Feber+ Mitt konto Logga ut",
+   "title_en": null,
+   "source": "feber.se",
+   "source_name": "Feber",
+   "country": "SE",
+   "language": "Swedish",
+   "via": "bing-se",
+   "seen_via": [
+    "bing-se"
+   ],
+   "published": "2026-10-12T07:42:00+00:00",
+   "fetched": "2026-10-13T01:48:13+00:00",
+   "topics": [
+    "crypto"
+   ],
+   "matched": [
+    "\\bkrypto(?!graf)\\w*",
+    "\\bkryptovaluta\\w*"
+   ],
+   "paywall": false,
+   "status": "rejected",
+   "summary": null,
+   "published_unverified": true,
+   "reject_reason": "Duplicate of d4cf38e2cea3 (Ledger wallet story; Dagens PS kept); also broken row: queue title is Feber's navigation menu"
+  },
+  {
+   "id": "8a30a69ba7f6",
+   "url": "https://kaupr.io/nyheter/ten-movements-where-old-and-new-finance-collide",
+   "title": "Ten Movements Where Old and New Finance Collide",
+   "title_en": null,
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "kaupr",
+   "seen_via": [
+    "kaupr"
+   ],
+   "published": "2026-10-11T12:00:00+00:00",
+   "fetched": "2026-10-13T01:48:13+00:00",
+   "topics": [
+    "bitcoin",
+    "blockchain",
+    "crypto"
+   ],
+   "matched": [
+    "\\bbitcoin\\w*",
+    "\\bstablecoin\\w*",
+    "\\btokeni[sz]\\w*"
+   ],
+   "paywall": false,
+   "status": "rejected",
+   "summary": null,
+   "reject_reason": "Kaupr promoting its own podcast"
+  },
+  {
    "id": "d4cf38e2cea3",
    "url": "https://dagensps.se/bors-finans/manipulation-kryptoplanbocker-tomdes-pa-860-miljoner",
    "title": "Manipulation: Kryptoplånböcker tömdes på 860 miljoner",
-   "title_en": null,
+   "title_en": "Tampered Ledger hardware wallets suspected in thefts of about SEK 860 million",
    "source": "dagensps.se",
    "source_name": "Dagens PS",
    "country": "SE",
@@ -16,14 +304,26 @@
    "published": "2026-10-11T07:23:27+00:00",
    "fetched": "2026-10-12T02:13:03+00:00",
    "topics": [
-    "crypto"
+    "security",
+    "wallets"
    ],
    "matched": [
     "\\bkrypto(?!graf)\\w*"
    ],
    "paywall": false,
-   "status": "pending",
-   "summary": null
+   "status": "published",
+   "summary": "Dagens PS reports, citing The Verge, that a suspected supply-chain attack using a hidden circuit board in some Ledger hardware wallets may have let an attacker capture recovery phrases and drain accounts, with losses estimated at about USD 86 million. Ledger has confirmed an unauthorised hardware component in one affected user's device and asked the reseller involved to pause sales during an investigation.",
+   "approved_by": "Nordic Crypto redaktør",
+   "approved_at": "2026-10-13T04:21:00+02:00",
+   "summary_i18n": {
+    "nn": "Dagens PS melder, med tilvising til The Verge, at eit mistenkt angrep på leveransekjeda med eit skjult kretskort i somme Ledger-maskinvarelommebøker kan ha late ein angripar fange opp gjenopprettingsfrasar og tømme kontoar, med tap anslått til om lag 86 millionar dollar. Ledger har stadfesta ein uautorisert maskinvarekomponent i eininga til éin råka brukar og bede den aktuelle forhandlaren stanse salet medan saka vert granska.",
+    "nb": "Dagens PS melder, med henvisning til The Verge, at et mistenkt angrep på leverandørkjeden med et skjult kretskort i enkelte Ledger-maskinvarelommebøker kan ha latt en angriper fange opp gjenopprettingsfraser og tømme kontoer, med tap anslått til om lag 86 millioner dollar. Ledger har bekreftet en uautorisert maskinvarekomponent i enheten til én rammet bruker og bedt den aktuelle forhandleren stanse salget mens saken granskes.",
+    "sv": "Dagens PS rapporterar, med hänvisning till The Verge, att en misstänkt attack mot leveranskedjan med ett dolt kretskort i vissa Ledger-hårdvaruplånböcker kan ha låtit en angripare fånga upp återställningsfraser och tömma konton, med förluster som uppskattas till omkring 86 miljoner dollar. Ledger har bekräftat en obehörig hårdvarukomponent i en drabbad användares enhet och bett den berörda återförsäljaren pausa försäljningen medan en utredning pågår.",
+    "da": "Dagens PS skriver med henvisning til The Verge, at et formodet angreb på forsyningskæden med et skjult printkort i visse Ledger-hardwaretegnebøger kan have ladet en angriber opfange gendannelsessætninger og tømme konti, med tab anslået til omkring 86 millioner dollar. Ledger har bekræftet en uautoriseret hardwarekomponent i én ramt brugers enhed og bedt den pågældende forhandler om at sætte salget på pause under en undersøgelse.",
+    "fi": "Dagens PS kertoo The Vergeen viitaten, että epäilty toimitusketjuhyökkäys, jossa joihinkin Ledger-laitelompakoihin oli piilotettu piirilevy, on voinut antaa hyökkääjälle pääsyn palautuslauseisiin ja tilien tyhjentämiseen; tappioiden arvioidaan olevan noin 86 miljoonaa dollaria. Ledger on vahvistanut luvattoman laitekomponentin yhden kärsineen käyttäjän laitteessa ja pyytänyt kyseistä jälleenmyyjää keskeyttämään myynnin tutkinnan ajaksi.",
+    "is": "Dagens PS greinir frá því, með vísan til The Verge, að grunuð árás á aðfangakeðjuna með földu rafrásaborði í sumum Ledger-vélbúnaðarveskjum kunni að hafa gert árásaraðila kleift að ná endurheimtarorðum og tæma reikninga, og er tjónið metið um 86 milljónir dollara. Ledger hefur staðfest óheimilan vélbúnaðaríhlut í tæki eins notanda sem varð fyrir árásinni og beðið viðkomandi söluaðila að gera hlé á sölu meðan rannsókn stendur yfir."
+   },
+   "summary_i18n_review": "approved"
   },
   {
    "id": "7e2e383c5a9d",
@@ -47,15 +347,16 @@
     "\\bkrypto(?!graf)\\w*"
    ],
    "paywall": false,
-   "status": "pending",
+   "status": "rejected",
    "summary": null,
-   "published_unverified": true
+   "published_unverified": true,
+   "reject_reason": "Link goes to a tag page, not an article"
   },
   {
    "id": "d7e0dcf5a724",
    "url": "https://kaupr.io/nyheter/spillpioner-og-kapitalforvalter-satser-sammen-pa-tokenisering",
    "title": "Spillpioner og kapitalforvalter satser sammen på tokenisering",
-   "title_en": null,
+   "title_en": "Animoca Brands and Franklin Templeton announce tokenisation partnership around NUVA",
    "source": "kaupr",
    "source_name": "Kaupr",
    "country": "NO",
@@ -67,20 +368,31 @@
    "published": "2026-10-09T12:00:00+00:00",
    "fetched": "2026-10-11T02:11:44+00:00",
    "topics": [
-    "blockchain"
+    "tokenisation"
    ],
    "matched": [
     "\\btokeni[sz]\\w*"
    ],
    "paywall": false,
-   "status": "pending",
-   "summary": null
+   "status": "published",
+   "summary": "Kaupr reports, based on the companies' announcement at TOKEN2049 in Singapore, that games and Web3 company Animoca Brands and asset manager Franklin Templeton have entered a strategic partnership around NUVA, Animoca's marketplace for tokenised assets. According to the companies, they have also launched a four-part research series on tokenisation.",
+   "approved_by": "Nordic Crypto redaktør",
+   "approved_at": "2026-10-13T04:21:00+02:00",
+   "summary_i18n": {
+    "nn": "Kaupr melder, basert på kunngjeringa frå selskapa under TOKEN2049 i Singapore, at spel- og Web3-selskapet Animoca Brands og kapitalforvaltaren Franklin Templeton har inngått eit strategisk samarbeid kring NUVA, marknadsplassen til Animoca for tokeniserte eigedelar. Ifølgje selskapa har dei òg lansert ein forskingsserie i fire delar om tokenisering.",
+    "nb": "Kaupr melder, basert på selskapenes kunngjøring under TOKEN2049 i Singapore, at spill- og Web3-selskapet Animoca Brands og kapitalforvalteren Franklin Templeton har inngått et strategisk samarbeid rundt NUVA, Animocas markedsplass for tokeniserte eiendeler. Ifølge selskapene har de også lansert en firedelt forskningsserie om tokenisering.",
+    "sv": "Kaupr rapporterar, utifrån bolagens tillkännagivande vid TOKEN2049 i Singapore, att spel- och Web3-bolaget Animoca Brands och kapitalförvaltaren Franklin Templeton har ingått ett strategiskt samarbete kring NUVA, Animocas marknadsplats för tokeniserade tillgångar. Enligt bolagen har de också lanserat en forskningsserie i fyra delar om tokenisering.",
+    "da": "Kaupr skriver på baggrund af selskabernes meddelelse under TOKEN2049 i Singapore, at spil- og Web3-selskabet Animoca Brands og kapitalforvalteren Franklin Templeton har indgået et strategisk samarbejde om NUVA, Animocas markedsplads for tokeniserede aktiver. Ifølge selskaberne har de også lanceret en forskningsserie i fire dele om tokenisering.",
+    "fi": "Kaupr kertoo yhtiöiden Singaporen TOKEN2049-tapahtumassa antaman tiedotteen perusteella, että peli- ja Web3-yhtiö Animoca Brands ja varainhoitaja Franklin Templeton ovat solmineet strategisen yhteistyön Animocan tokenisoitujen varojen markkinapaikan NUVAn ympärille. Yhtiöiden mukaan ne ovat myös julkaisseet neliosaisen tutkimussarjan tokenisoinnista.",
+    "is": "Kaupr greinir frá því, á grundvelli tilkynningar fyrirtækjanna á TOKEN2049 í Singapúr, að leikja- og Web3-fyrirtækið Animoca Brands og eignastýringarfyrirtækið Franklin Templeton hafi gert stefnumótandi samstarf um NUVA, markaðstorg Animoca fyrir táknvæddar eignir. Að sögn fyrirtækjanna hafa þau einnig hleypt af stokkunum fjögurra hluta rannsóknaröð um táknvæðingu."
+   },
+   "summary_i18n_review": "approved"
   },
   {
    "id": "36cc0b725b8c",
    "url": "https://investornytt.no/nyheter/aksjer-pa-blokkjeden-kan-forsterke-borsuro/547093",
    "title": "Aksjer på blokkjeden kan forsterke børsuro",
-   "title_en": null,
+   "title_en": "IMF: tokenised stocks show bigger price swings and weaker liquidity",
    "source": "investornytt",
    "source_name": "Investornytt",
    "country": "NO",
@@ -92,14 +404,26 @@
    "published": "2026-10-09T09:28:58+00:00",
    "fetched": "2026-10-11T02:11:44+00:00",
    "topics": [
-    "blockchain"
+    "tokenisation",
+    "regulation"
    ],
    "matched": [
     "\\bblokkjede\\w*"
    ],
    "paywall": false,
-   "status": "pending",
-   "summary": null
+   "status": "published",
+   "summary": "Investornytt reports that an IMF financial-stability chapter on tokenisation found price swings in its sample of tokenised stock products about 50 percent larger than in traditional markets, with notably weaker liquidity. The IMF warns that automatic forced sales could amplify market stress as the market grows.",
+   "approved_by": "Nordic Crypto redaktør",
+   "approved_at": "2026-10-13T04:21:00+02:00",
+   "summary_i18n": {
+    "nn": "Investornytt melder at eit kapittel om tokenisering i IMF-rapporten om finansiell stabilitet fann om lag 50 prosent større kurssvingingar i utvalet av tokeniserte aksjeprodukt enn i tradisjonelle marknader, og klart svakare likviditet. IMF åtvarar om at automatiske tvangssal kan forsterke uro når marknaden veks.",
+    "nb": "Investornytt melder at et kapittel om tokenisering i IMF-rapporten om finansiell stabilitet fant om lag 50 prosent større kurssvingninger i utvalget av tokeniserte aksjeprodukter enn i tradisjonelle markeder, og klart svakere likviditet. IMF advarer om at automatiske tvangssalg kan forsterke uro når markedet vokser.",
+    "sv": "Investornytt rapporterar att ett kapitel om tokenisering i IMF:s rapport om finansiell stabilitet fann omkring 50 procent större kurssvängningar i urvalet av tokeniserade aktieprodukter än på traditionella marknader, och klart sämre likviditet. IMF varnar för att automatiska tvångsförsäljningar kan förstärka oro när marknaden växer.",
+    "da": "Investornytt skriver, at et kapitel om tokenisering i IMF's rapport om finansiel stabilitet fandt omkring 50 procent større kursudsving i udvalget af tokeniserede aktieprodukter end på traditionelle markeder og markant svagere likviditet. IMF advarer om, at automatiske tvangssalg kan forstærke uro, når markedet vokser.",
+    "fi": "Investornytt kertoo, että IMF:n rahoitusvakausraportin tokenisointia käsittelevä luku havaitsi tokenisoitujen osaketuotteiden otoksessa noin 50 prosenttia suuremmat kurssiheilahtelut kuin perinteisillä markkinoilla sekä selvästi heikomman likviditeetin. IMF varoittaa, että automaattiset pakkomyynnit voivat voimistaa levottomuutta markkinan kasvaessa.",
+    "is": "Investornytt greinir frá því að kafli um táknvæðingu í skýrslu AGS um fjármálastöðugleika hafi leitt í ljós um 50 prósentum meiri verðsveiflur í úrtaki táknvæddra hlutabréfaafurða en á hefðbundnum mörkuðum, og mun minna seljanleika. AGS varar við því að sjálfvirk nauðungarsala geti magnað óróa eftir því sem markaðurinn stækkar."
+   },
+   "summary_i18n_review": "approved"
   },
   {
    "id": "6e3e33451782",
@@ -123,8 +447,9 @@
     "\\btokeni[sz]\\w*"
    ],
    "paywall": true,
-   "status": "pending",
-   "summary": null
+   "status": "rejected",
+   "summary": null,
+   "reject_reason": "Duplicate of 36cc0b725b8c (same IMF GFSR ch. 3 story; Investornytt kept)"
   },
   {
    "id": "e54bdee78745",
@@ -148,15 +473,16 @@
     "\\bcrypto\\w*"
    ],
    "paywall": false,
-   "status": "pending",
+   "status": "rejected",
    "summary": null,
-   "published_unverified": true
+   "published_unverified": true,
+   "reject_reason": "Reuters video, not Nordic"
   },
   {
    "id": "e7c158764ff9",
    "url": "https://investornytt.no/krypto/ai-kan-tomme-lommebokene/547012",
    "title": "AI kan tømme lommebøkene",
-   "title_en": null,
+   "title_en": "Ethereum researcher warns AI could break wallet signatures; Buterin urges calm",
    "source": "investornytt",
    "source_name": "Investornytt",
    "country": "NO",
@@ -168,16 +494,26 @@
    "published": "2026-10-08T10:05:34+00:00",
    "fetched": "2026-10-11T02:11:44+00:00",
    "topics": [
-    "blockchain",
-    "crypto"
+    "security"
    ],
    "matched": [
     "\\bethereum\\b",
     "\\bkrypto(?!graf)\\w*"
    ],
    "paywall": false,
-   "status": "pending",
-   "summary": null
+   "status": "published",
+   "summary": "Investornytt reports that Ethereum Foundation researcher Justin Drake believes AI could help break ECDSA, the signature scheme behind Bitcoin and Ethereum wallets, in the worst case within months, and suggests moving funds to addresses whose public key has not been exposed. Vitalik Buterin calls the risk serious but warns against panic.",
+   "approved_by": "Nordic Crypto redaktør",
+   "approved_at": "2026-10-12T14:02:09+02:00",
+   "summary_i18n": {
+    "nb": "Investornytt melder at Ethereum Foundation-forsker Justin Drake mener kunstig intelligens i verste fall kan knekke ECDSA, signatursystemet bak Bitcoin- og Ethereum-lommebøker, i løpet av måneder, og råder til å flytte midler til adresser uten eksponert offentlig nøkkel. Vitalik Buterin tar risikoen på alvor, men advarer mot panikk.",
+    "nn": "Investornytt melder at Ethereum Foundation-forskaren Justin Drake meiner kunstig intelligens i verste fall kan knekke ECDSA, signatursystemet bak Bitcoin- og Ethereum-lommebøker, i løpet av månader, og rår til å flytte midlar til adresser utan eksponert offentleg nøkkel. Vitalik Buterin tek risikoen på alvor, men åtvarar mot panikk.",
+    "sv": "Investornytt rapporterar att Ethereum Foundation-forskaren Justin Drake bedömer att AI i värsta fall kan knäcka ECDSA, signatursystemet bakom Bitcoin- och Ethereum-plånböcker, inom månader, och råder att flytta medel till adresser utan exponerad publik nyckel. Vitalik Buterin tar risken på allvar men varnar för panik.",
+    "da": "Investornytt skriver, at Ethereum Foundation-forskeren Justin Drake vurderer, at AI i værste fald kan knække ECDSA, signatursystemet bag Bitcoin- og Ethereum-tegnebøger, inden for måneder, og anbefaler at flytte midler til adresser uden eksponeret offentlig nøgle. Vitalik Buterin tager risikoen alvorligt, men advarer mod panik.",
+    "fi": "Investornytt kertoo, että Ethereum Foundationin tutkija Justin Drake arvioi tekoälyn voivan pahimmassa tapauksessa murtaa ECDSA:n, Bitcoin- ja Ethereum-lompakoiden allekirjoitusjärjestelmän, kuukausien kuluessa, ja neuvoo siirtämään varat osoitteisiin, joiden julkista avainta ei ole paljastettu. Vitalik Buterin pitää riskiä vakavana mutta varoittaa paniikista.",
+    "is": "Investornytt greinir frá því að Justin Drake, rannsakandi hjá Ethereum Foundation, telji að gervigreind geti í versta falli brotið ECDSA, undirskriftakerfið að baki Bitcoin- og Ethereum-veskjum, innan nokkurra mánaða, og ráðleggur að færa fé á vistföng þar sem opinberi lykillinn hefur ekki verið birtur. Vitalik Buterin tekur áhættuna alvarlega en varar við ofsahræðslu."
+   },
+   "summary_i18n_review": "approved"
   },
   {
    "id": "2c80242955f2",
@@ -201,9 +537,10 @@
     "\\bkrypto(?!graf)\\w*"
    ],
    "paywall": true,
-   "status": "pending",
+   "status": "rejected",
    "summary": null,
-   "published_unverified": true
+   "published_unverified": true,
+   "reject_reason": "Stocks and personal finance, not crypto news"
   },
   {
    "id": "4715a80bdccb",
@@ -3829,5 +4166,5 @@
    "summary_i18n_review": "approved"
   }
  ],
- "updated": "2026-10-12T02:13:03+00:00"
+ "updated": "2026-10-13T01:48:13+00:00"
 }

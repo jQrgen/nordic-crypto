@@ -94,6 +94,41 @@
    "status": "published"
   },
   {
+   "id": "019f42a4506c",
+   "title": "Crypto killer apps: bitcoin-appene som endrer økonomien",
+   "title_orig": null,
+   "start": "2026-10-14T17:30:00+02:00",
+   "end": "2026-10-14T18:30:00+02:00",
+   "place": "Rosenkrantz' gate 7, 0159 Oslo (inngang fra Kristian IVs gate)",
+   "city": "Oslo",
+   "country": "NO",
+   "online": false,
+   "organiser": "Polyteknisk Forening",
+   "url": "https://www.polyteknisk.no/program/crypto-killer-apps",
+   "source": "Polyteknisk Forening (program)",
+   "source_url": "https://www.polyteknisk.no/program/crypto-killer-apps",
+   "found": "2026-10-12T03:50:28+00:00",
+   "attendees": null,
+   "place_source": {
+    "name": "Polyteknisk Forening (program)",
+    "url": "https://www.polyteknisk.no/program/crypto-killer-apps",
+    "retrieved": "2026-10-12T03:50:28+00:00"
+   },
+   "paid": true,
+   "sponsored": null,
+   "note": "Held in cooperation with Bitcoinpolitisk Institutt Norge.",
+   "note_i18n": {
+    "nn": "Held i samarbeid med Bitcoinpolitisk Institutt Norge.",
+    "nb": "Holdes i samarbeid med Bitcoinpolitisk Institutt Norge.",
+    "sv": "Hålls i samarbete med Bitcoinpolitisk Institutt Norge.",
+    "da": "Afholdes i samarbejde med Bitcoinpolitisk Institutt Norge.",
+    "fi": "Järjestetään yhteistyössä Bitcoinpolitisk Institutt Norgen kanssa.",
+    "is": "Haldið í samstarfi við Bitcoinpolitisk Institutt Norge."
+   },
+   "description": null,
+   "status": "published"
+  },
+  {
    "id": "c4a53ca9bd26",
    "title": "Uppsala Bitcoin Meetup",
    "title_orig": null,
@@ -120,6 +155,40 @@
     "source_url": "https://www.meetup.com/swedish-bitcoin-meetups/events/316799619/",
     "source_name": "Swedish Bitcoin Meetups (Meetup.com)",
     "retrieved": "2026-10-07T23:50:00+00:00"
+   },
+   "status": "published"
+  },
+  {
+   "id": "16b9aa68f972",
+   "title": "Bitcoin Walk i Göteborg",
+   "title_orig": null,
+   "start": "2026-10-18T13:00:00+02:00",
+   "end": "2026-10-18T16:00:00+02:00",
+   "place": "Karamellbyrån, Linnéplatsen 10, 413 10 Göteborg, Gothenburg",
+   "city": "Gothenburg",
+   "country": "SE",
+   "online": false,
+   "organiser": "Swedish Bitcoin Meetups",
+   "url": "https://www.meetup.com/swedish-bitcoin-meetups/events/316926193/",
+   "source": "Swedish Bitcoin Meetups (Meetup.com)",
+   "source_url": "https://www.meetup.com/swedish-bitcoin-meetups/",
+   "found": "2026-10-11T06:00:06+00:00",
+   "attendees": null,
+   "place_source": {
+    "name": "Swedish Bitcoin Meetups (Meetup.com)",
+    "url": "https://www.meetup.com/swedish-bitcoin-meetups/events/316926193/",
+    "retrieved": "2026-10-11T06:00:06+00:00"
+   },
+   "paid": null,
+   "sponsored": null,
+   "note": null,
+   "note_i18n": null,
+   "description": {
+    "text": "BitcoinWalk Slottskogen Bitcoin Walk i Göteborg (In English below) Anmäl gärna ditt deltagande via Satlantis. När: Söndagen den 18/10, klockan 13:00 Var: Linnéplatsen via Slottsskogen ner mot Långgatorna. Uppsamling framför Karamellbyrån på Linnéplatsen. Hit tar man sig bäst med linje 1, 2 och 6. Efter uppsamling påbörjar vi våran vandring upp genom Slottskogen för att sedan gå genom Linné ner mot Långgatorna. Vi räknar med att gå en promenad på ca 6-8km och det går helt fint att vika av längs vägen. Bitcoin är ofta en gemensam nämnare, men samtalen rör sig fritt.",
+    "lang": "sv",
+    "source_url": "https://www.meetup.com/swedish-bitcoin-meetups/events/316926193/",
+    "source_name": "Swedish Bitcoin Meetups (Meetup.com)",
+    "retrieved": "2026-10-11T06:00:06+00:00"
    },
    "status": "published"
   },

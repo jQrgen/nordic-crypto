@@ -17,7 +17,7 @@ S = {
 "lightning_pubkey": "Publik nyckel.",
 "lightning_deposit": "Insättningsadress på kedjan.",
 "h_electrum": "Electrum-servrar (BCH och Nexa)",
-"electrum_intro": 'Nordic Crypto driver <a href="https://nexa.gitlab.io/rostrum/" rel="noopener">Rostrum</a>-baserade Electrum-servrar för Bitcoin Cash och Nexa. Plånböcker och appar kan hämta saldon, transaktioner, UTXO:er, tokens och senaste block från dem, och sända ut transaktioner. Inget konto och ingen API-nyckel.',
+"electrum_intro": 'Nordic Crypto driver <a href="https://nexa.gitlab.io/rostrum/" rel="noopener">Rostrum</a>-baserade Electrum-servrar för Bitcoin Cash och Nexa. Plånböcker och appar kan hämta behållningar, transaktioner, UTXO:er, tokens och senaste block från dem, och sända ut transaktioner. Inget konto och ingen API-nyckel.',
 "th_server": "Server", "th_status": "Status", "th_height": "Blockhöjd", "th_response": "Svarstid", "th_version": "Version",
 "st_checking": "Kontrollerar …", "st_up": "Uppe", "st_down": "Nere",
 "st_timeout": "Inget svar inom {s} s", "st_closed": "Stängd", "st_error": "Fel", "st_notip": "inget block",

@@ -17,7 +17,7 @@ S = {
 "lightning_pubkey": "Julkinen avain.",
 "lightning_deposit": "Talletusosoite ketjussa.",
 "h_electrum": "Electrum-palvelimet (BCH ja Nexa)",
-"electrum_intro": 'Nordic Crypto ylläpitää <a href="https://nexa.gitlab.io/rostrum/" rel="noopener">Rostrum</a>-pohjaisia Electrum-palvelimia Bitcoin Cashille ja Nexalle. Lompakot ja sovellukset voivat hakea niistä saldot, transaktiot, UTXO:t, tokenit ja ketjun kärjen sekä lähettää transaktioita verkkoon. Ei tiliä eikä API-avainta.',
+"electrum_intro": 'Nordic Crypto ylläpitää <a href="https://nexa.gitlab.io/rostrum/" rel="noopener">Rostrum</a>-pohjaisia Electrum-palvelimia Bitcoin Cashille ja Nexalle. Lompakot ja sovellukset voivat hakea niistä osoitteiden varat, transaktiot, UTXO:t, tokenit ja ketjun kärjen sekä lähettää transaktioita verkkoon. Ei tiliä eikä API-avainta.',
 "th_server": "Palvelin", "th_status": "Tila", "th_height": "Lohkokorkeus", "th_response": "Vasteaika", "th_version": "Versio",
 "st_checking": "Tarkistetaan…", "st_up": "Toiminnassa", "st_down": "Alhaalla",
 "st_timeout": "Ei vastausta {s} sekunnissa", "st_closed": "Suljettu", "st_error": "Virhe", "st_notip": "ei ketjun kärkeä",

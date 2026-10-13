@@ -17,7 +17,7 @@ S = {
 "lightning_pubkey": "Kunci publik.",
 "lightning_deposit": "Alamat setoran on-chain.",
 "h_electrum": "Server Electrum (BCH dan Nexa)",
-"electrum_intro": 'Nordic Crypto menjalankan server Electrum <a href="https://nexa.gitlab.io/rostrum/" rel="noopener">Rostrum</a> untuk Bitcoin Cash dan Nexa. Dompet dan aplikasi dapat membaca saldo, transaksi, UTXO, token, dan blok terbaru dari server tersebut, serta menyiarkan transaksi. Tanpa akun dan tanpa kunci API.',
+"electrum_intro": 'Nordic Crypto menjalankan server Electrum <a href="https://nexa.gitlab.io/rostrum/" rel="noopener">Rostrum</a> untuk Bitcoin Cash dan Nexa. Dompet dan aplikasi dapat membaca jumlah dana, transaksi, UTXO, token, dan blok terbaru dari server tersebut, serta menyiarkan transaksi. Tanpa akun dan tanpa kunci API.',
 "th_server": "Server", "th_status": "Status", "th_height": "Tinggi blok", "th_response": "Waktu respons", "th_version": "Versi",
 "st_checking": "Memeriksa…", "st_up": "Aktif", "st_down": "Mati",
 "st_timeout": "Tidak ada jawaban dalam {s} dtk", "st_closed": "Ditutup", "st_error": "Galat", "st_notip": "tidak ada blok",
