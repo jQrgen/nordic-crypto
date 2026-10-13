@@ -428,6 +428,7 @@ S.update({
 "about_title": "Nordic Cryptoについて",
 "about_desc": "Nordic Cryptoについて: 運営者、仕組み、プライバシー、訂正・削除。",
 "ethics_title": "編集倫理",
+"contact_title": "お問い合わせ", "contact_desc": "Nordic Crypto の編集者にメールを送る。",
 "ethics_desc": "Nordic CryptoはVær Varsom-plakatenに従っています。すべての内容は、名前の明示された編集者が承認します。",
 "media_title": "ロゴ・メディアキット",
 "media_desc": "Nordic Cryptoのロゴ: 鍵の盾、名称入りのロックアップ、単色版、アイコン、色。",

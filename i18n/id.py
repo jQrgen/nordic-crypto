@@ -428,6 +428,7 @@ S.update({
 "about_title": "Tentang Nordic Crypto",
 "about_desc": "Tentang Nordic Crypto: siapa yang mengelolanya, cara kerjanya, privasi, koreksi, dan penghapusan.",
 "ethics_title": "Etika editorial",
+"contact_title": "Kontak", "contact_desc": "Kirim email ke editor Nordic Crypto.",
 "ethics_desc": "Nordic Crypto mengikuti Vær Varsom-plakaten. Seorang editor bernama menyetujui semuanya.",
 "media_title": "Logo dan kit media",
 "media_desc": "Logo Nordic Crypto: perisai kunci, lockup dengan nama, versi satu warna, ikon, dan warna.",

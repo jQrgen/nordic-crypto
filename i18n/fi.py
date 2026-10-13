@@ -166,6 +166,7 @@ S = {
 "cl_prev_tag": "Esikatselu – ei vielä julkaistu", "cl_none": "Muutoksia ei ole vielä kirjattu.", "cl_data": "Data",
 "about_title": "Tietoa Nordic Cryptosta", "about_desc": "Tietoa Nordic Cryptosta: kuka sivustoa ylläpitää, miten työskentelemme, tietosuoja, korjaukset ja poistot.",
 "ethics_title": "Toimituksen etiikka", "ethics_desc": "Nordic Crypto noudattaa Vær Varsom-plakaten -ohjeistoa. Nimetty toimittaja hyväksyy kaiken.",
+"contact_title": "Yhteystiedot", "contact_desc": "Lähetä sähköpostia Nordic Cryptón päätoimittajalle.",
 "media_title": "Logo ja mediapaketti",
 "media_desc": "Nordic Crypton logo: avainkilpi, logo nimen kanssa, yksivärinen versio, kuvakkeet ja värit.",
 "media_h1": "Logo ja mediapaketti",

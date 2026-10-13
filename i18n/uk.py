@@ -180,6 +180,7 @@ S = {
 # about
 "about_title": "Про Nordic Crypto", "about_desc": "Про Nordic Crypto: хто веде сайт, як він працює, конфіденційність, виправлення й видалення.",
 "ethics_title": "Редакційна етика", "ethics_desc": "Nordic Crypto дотримується етичного кодексу Vær Varsom-plakaten. Усе схвалює названий поіменно редактор.",
+"contact_title": "Контакти", "contact_desc": "Напишіть редакторові Nordic Crypto.",
 "media_title": "Логотип і медіанабір",
 "media_desc": "Логотип Nordic Crypto: щит із ключем, локап із назвою, одноколірна версія, іконки й кольори.",
 "media_h1": "Логотип і медіанабір",

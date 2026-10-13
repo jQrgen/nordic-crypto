@@ -166,6 +166,7 @@ S = {
 "cl_prev_tag": "Forhåndsvisning – ikke lansert ennå", "cl_none": "Ingen endringer registrert ennå.", "cl_data": "Data",
 "about_title": "Om Nordic Crypto", "about_desc": "Om Nordic Crypto: hvem som driver det, hvordan vi jobber, personvern, rettelser og fjerning.",
 "ethics_title": "Redaksjonsetikk", "ethics_desc": "Nordic Crypto følger Vær Varsom-plakaten. En navngitt redaktør godkjenner alt.",
+"contact_title": "Kontakt", "contact_desc": "Send e-post til redaktøren i Nordic Crypto.",
 "media_title": "Logo og mediepakke",
 "media_desc": "Logoen til Nordic Crypto: nøkkelskjoldet, logoen med navnet, en enfarget versjon, ikoner og farger.",
 "media_h1": "Logo og mediepakke",

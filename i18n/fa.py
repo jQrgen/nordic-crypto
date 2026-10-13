@@ -400,6 +400,7 @@ S.update({
 "about_title": "دربارهٔ Nordic Crypto",
 "about_desc": "دربارهٔ Nordic Crypto: چه کسی آن را اداره می‌کند، چگونه کار می‌کند، حریم خصوصی، اصلاحات و حذف.",
 "ethics_title": "اخلاق تحریریه",
+"contact_title": "تماس", "contact_desc": "به ویراستار Nordic Crypto ایمیل بزنید.",
 "ethics_desc": "Nordic Crypto از Vær Varsom-plakaten پیروی می‌کند. یک ویراستار مشخص همه‌چیز را تأیید می‌کند.",
 "media_title": "لوگو و بستهٔ رسانه‌ای",
 "media_desc": "لوگوی Nordic Crypto: سپر کلیددار، ترکیب سپر با نام، نسخهٔ تک‌رنگ، آیکون‌ها و رنگ‌ها.",

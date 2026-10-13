@@ -428,6 +428,7 @@ S.update({
 "about_title": "عن Nordic Crypto",
 "about_desc": "عن Nordic Crypto: من يديره، وكيف يعمل، والخصوصية، والتصحيحات والإزالة.",
 "ethics_title": "أخلاقيات التحرير",
+"contact_title": "اتصل بنا", "contact_desc": "راسل محرر Nordic Crypto بالبريد الإلكتروني.",
 "ethics_desc": "يلتزم Nordic Crypto بميثاق Vær Varsom-plakaten. ويعتمد محرر معروف بالاسم كل ما يُنشر.",
 "media_title": "الشعار والحزمة الإعلامية",
 "media_desc": "شعار Nordic Crypto: درع المفتاح، والتركيب مع الاسم، ونسخة بلون واحد، والأيقونات والألوان.",

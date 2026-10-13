@@ -428,6 +428,7 @@ S.update({
 "about_title": "О Nordic Crypto",
 "about_desc": "О Nordic Crypto: кто его ведёт, как он работает, конфиденциальность, исправления и удаление.",
 "ethics_title": "Редакционная этика",
+"contact_title": "Контакты", "contact_desc": "Напишите редактору Nordic Crypto.",
 "ethics_desc": "Nordic Crypto следует Vær Varsom-plakaten. Всё одобряет назначенный редактор.",
 "media_title": "Логотип и медиакит",
 "media_desc": "Логотип Nordic Crypto: щит с ключом, сочетание с названием, одноцветная версия, значки и цвета.",

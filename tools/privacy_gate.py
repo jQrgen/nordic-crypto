@@ -18,7 +18,7 @@ RULES = {
 # Personlige søkeord (helse, økonomi o.l.) ligger i state/private_terms.json, som holdes utenfor git.
 # Mangler fila, feiler grinda (fail closed).
 PRIV = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "state", "private_terms.json")
-ALLOW_EMAIL = re.compile(r"^$")  # ingen e-postadresser publiseres (ingen er offentlige på jqrgen.github.io)
+ALLOW_EMAIL = re.compile(r"^jqrgen@nordiccrypto\.no$", re.I)  # bare redaksjonens offentlige kontaktadresse (/contact/) slipper gjennom
 URL = re.compile(r"https?://[^\s\"'<>]+")  # URL-er (artikkel-id-er) er ikke persondata
 
 def main(argv):
@@ -37,6 +37,7 @@ def main(argv):
                     for name, rx in RULES.items():
                         for m in rx.finditer(line):
                             s = m.group(0)
+                            if name == "e-postadresse" and ALLOW_EMAIL.match(s): continue
                             hits += 1; print(f"  {p}:{i}  regel «{name}»", file=sys.stderr)
                     if hits == before: clean.add(raw)  # linjer med treff huskes aldri, så hvert treff meldes
     if hits: print(f"personverngrind: FEIL, {hits} treff i {n} filer. Publiserer ikke.", file=sys.stderr); sys.exit(1)
