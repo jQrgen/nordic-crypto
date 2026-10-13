@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-12T22:12:53+00:00",
+ "generated_at": "2026-10-13T05:37:29+00:00",
  "preview": false,
  "sign_off": "The Nordic Crypto team",
  "description": "Bitcoin, blockchain and crypto news, events, a who's who, regulation and academia for Norway, Sweden, Denmark, Finland and Iceland.",
@@ -314,7 +314,7 @@
   "newsletter": "https://nordiccrypto.no/newsletter/",
   "rss": "https://nordiccrypto.no/rss.xml",
   "telegram": "https://t.me/nordiccryptochat",
-  "x": "https://x.com/xcryptonordic",
+  "x": "https://x.com/nordiccryptobot",
   "logo": "https://nordiccrypto.no/assets/brand/crest.svg",
   "logo_png": "https://nordiccrypto.no/assets/media/nordic-crypto-crest.png",
   "wordmark": "https://nordiccrypto.no/assets/brand/wordmark.svg",
@@ -349,8 +349,8 @@
     "fi": "Seuraa Nordic Cryptoa X:ssä",
     "is": "Fylgdu Nordic Crypto á X"
    },
-   "url": "https://x.com/xcryptonordic",
-   "handle": "@xcryptonordic"
+   "url": "https://x.com/nordiccryptobot",
+   "handle": "@nordiccryptobot"
   }
  },
  "url_note": "Absolute urls in this API use the public site origin (https://nordiccrypto.no/). GitHub Pages serves that origin from the repository root. There is no /nordic-crypto/ path on this origin. GitHub Pages sends Access-Control-Allow-Origin: * on these files.",
@@ -434,6 +434,11 @@
    "path": "/ethics/",
    "url": "https://nordiccrypto.no/ethics/",
    "title": "Editorial ethics (Vær Varsom-plakaten)"
+  },
+  {
+   "path": "/budget/",
+   "url": "https://nordiccrypto.no/budget/",
+   "title": "Infrastructure budget: hosting and domain costs per month"
   },
   {
    "path": "/privacy/",

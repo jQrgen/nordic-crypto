@@ -1,76 +1,10 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-12T22:12:53+00:00",
+ "generated_at": "2026-10-13T05:37:29+00:00",
  "preview": false,
- "count": 12,
+ "count": 13,
  "events": [
-  {
-   "id": "71149f675741",
-   "title": "Arne Ryde Conference on Crypto, Fintech and Payments",
-   "title_original": null,
-   "start": "2026-08-25T08:30:00+02:00",
-   "end": "2026-08-26T12:30:00+02:00",
-   "place": "Grand Hotel, Bantorget 1, Lund",
-   "city": "Lund",
-   "country": "SE",
-   "online": false,
-   "organiser": "Knut Wicksell Centre for Financial Studies, Lund University School of Economics and Management",
-   "url": "https://www.lusem.lu.se/calendar/arne-ryde-conference-crypto-fintech-and-payments",
-   "source": "Lund University School of Economics and Management (lusem.lu.se)",
-   "paid": null,
-   "sponsored": null,
-   "note": null,
-   "note_i18n": {},
-   "description": {
-    "text": "Keynote lectures: Christine Parlour, UC Berkeley Haas, and Tobias Berg, Goethe University.",
-    "lang": "en",
-    "source_url": "https://www.lusem.lu.se/calendar/arne-ryde-conference-crypto-fintech-and-payments",
-    "source_name": "Lund University School of Economics and Management (lusem.lu.se)",
-    "retrieved": "2026-10-07T23:50:00+00:00",
-    "i18n": {
-     "nn": "Hovudføredrag: Christine Parlour, UC Berkeley Haas, og Tobias Berg, Goethe-universitetet.",
-     "nb": "Hovedforedrag: Christine Parlour, UC Berkeley Haas, og Tobias Berg, Goethe-universitetet.",
-     "sv": "Huvudföredrag: Christine Parlour, UC Berkeley Haas, och Tobias Berg, Goethe-universitetet.",
-     "da": "Hovedforedrag: Christine Parlour, UC Berkeley Haas, og Tobias Berg, Goethe-universitetet.",
-     "fi": "Pääesitelmät: Christine Parlour, UC Berkeley Haas, ja Tobias Berg, Goethen yliopisto.",
-     "is": "Aðalfyrirlestrar: Christine Parlour, UC Berkeley Haas, og Tobias Berg, Goethe-háskóli."
-    }
-   },
-   "past": true,
-   "ongoing": false,
-   "html_url": "https://nordiccrypto.no/calendar/71149f675741/",
-   "html_urls": {
-    "en": "https://nordiccrypto.no/calendar/71149f675741/",
-    "nn": "https://nordiccrypto.no/nn/calendar/71149f675741/",
-    "nb": "https://nordiccrypto.no/nb/calendar/71149f675741/",
-    "sv": "https://nordiccrypto.no/sv/calendar/71149f675741/",
-    "da": "https://nordiccrypto.no/da/calendar/71149f675741/",
-    "fi": "https://nordiccrypto.no/fi/calendar/71149f675741/",
-    "is": "https://nordiccrypto.no/is/calendar/71149f675741/",
-    "zh": "https://nordiccrypto.no/zh/calendar/71149f675741/",
-    "hi": "https://nordiccrypto.no/hi/calendar/71149f675741/",
-    "es": "https://nordiccrypto.no/es/calendar/71149f675741/",
-    "fr": "https://nordiccrypto.no/fr/calendar/71149f675741/",
-    "ar": "https://nordiccrypto.no/ar/calendar/71149f675741/",
-    "bn": "https://nordiccrypto.no/bn/calendar/71149f675741/",
-    "pt": "https://nordiccrypto.no/pt/calendar/71149f675741/",
-    "ru": "https://nordiccrypto.no/ru/calendar/71149f675741/",
-    "ur": "https://nordiccrypto.no/ur/calendar/71149f675741/",
-    "id": "https://nordiccrypto.no/id/calendar/71149f675741/",
-    "de": "https://nordiccrypto.no/de/calendar/71149f675741/",
-    "ja": "https://nordiccrypto.no/ja/calendar/71149f675741/",
-    "sw": "https://nordiccrypto.no/sw/calendar/71149f675741/",
-    "mr": "https://nordiccrypto.no/mr/calendar/71149f675741/",
-    "fa": "https://nordiccrypto.no/fa/calendar/71149f675741/",
-    "uk": "https://nordiccrypto.no/uk/calendar/71149f675741/"
-   },
-   "api_url": "https://nordiccrypto.no/api/v1/events/71149f675741.json",
-   "place_source": {
-    "name": "Lund University School of Economics and Management (lusem.lu.se)",
-    "url": "https://www.lusem.lu.se/calendar/arne-ryde-conference-crypto-fintech-and-payments"
-   }
-  },
   {
    "id": "ccc2eea6b213",
    "title": "Göteborg Bitcoin Meetup #49",
@@ -155,12 +89,12 @@
    "sponsored": null,
    "note": "Paid entry (NOK 239 for non-members).",
    "note_i18n": {
+    "nn": "Betalt inngang (239 kroner for ikkje-medlemer).",
+    "nb": "Betalt inngang (239 kroner for ikke-medlemmer).",
+    "sv": "Avgift (239 norska kronor för icke-medlemmar).",
     "da": "Betalt adgang (239 norske kroner for ikke-medlemmer).",
     "fi": "Maksullinen (239 Norjan kruunua muille kuin jäsenille).",
-    "is": "Aðgangseyrir (239 norskar krónur fyrir utanfélagsmenn).",
-    "nb": "Betalt inngang (239 kroner for ikke-medlemmer).",
-    "nn": "Betalt inngang (239 kroner for ikkje-medlemer).",
-    "sv": "Avgift (239 norska kronor för icke-medlemmar)."
+    "is": "Aðgangseyrir (239 norskar krónur fyrir utanfélagsmenn)."
    },
    "description": {
     "text": "I kjølvannet av bitcoin har vi fått en rekke apper som endrer samtiden vår og utvider finanssektoren. Stikkord er fremtidsmarkeder som «Polymarket», kryptobanken «Aave», nyvinninger innen forsikring, stablecoins og nye former for statlige penger. I samarbeid med Bitcoinpolitisk Institutt Norge presenterer Polyteknisk Forening appene som bitcoin har ført med seg, i tillegg til bitcoin selv.",
@@ -210,6 +144,66 @@
     "name": "Polyteknisk Forening (program)",
     "url": "https://www.polyteknisk.no/program/crypto-killer-apps",
     "retrieved": "2026-10-03T15:23:20+00:00"
+   }
+  },
+  {
+   "id": "019f42a4506c",
+   "title": "Crypto killer apps: bitcoin-appene som endrer økonomien",
+   "title_original": null,
+   "start": "2026-10-14T17:30:00+02:00",
+   "end": "2026-10-14T18:30:00+02:00",
+   "place": "Rosenkrantz' gate 7, 0159 Oslo (inngang fra Kristian IVs gate)",
+   "city": "Oslo",
+   "country": "NO",
+   "online": false,
+   "organiser": "Polyteknisk Forening",
+   "url": "https://www.polyteknisk.no/program/crypto-killer-apps",
+   "source": "Polyteknisk Forening (program)",
+   "paid": true,
+   "sponsored": null,
+   "note": "Held in cooperation with Bitcoinpolitisk Institutt Norge.",
+   "note_i18n": {
+    "nn": "Held i samarbeid med Bitcoinpolitisk Institutt Norge.",
+    "nb": "Holdes i samarbeid med Bitcoinpolitisk Institutt Norge.",
+    "sv": "Hålls i samarbete med Bitcoinpolitisk Institutt Norge.",
+    "da": "Afholdes i samarbejde med Bitcoinpolitisk Institutt Norge.",
+    "fi": "Järjestetään yhteistyössä Bitcoinpolitisk Institutt Norgen kanssa.",
+    "is": "Haldið í samstarfi við Bitcoinpolitisk Institutt Norge."
+   },
+   "description": null,
+   "past": false,
+   "ongoing": false,
+   "html_url": "https://nordiccrypto.no/calendar/019f42a4506c/",
+   "html_urls": {
+    "en": "https://nordiccrypto.no/calendar/019f42a4506c/",
+    "nn": "https://nordiccrypto.no/nn/calendar/019f42a4506c/",
+    "nb": "https://nordiccrypto.no/nb/calendar/019f42a4506c/",
+    "sv": "https://nordiccrypto.no/sv/calendar/019f42a4506c/",
+    "da": "https://nordiccrypto.no/da/calendar/019f42a4506c/",
+    "fi": "https://nordiccrypto.no/fi/calendar/019f42a4506c/",
+    "is": "https://nordiccrypto.no/is/calendar/019f42a4506c/",
+    "zh": "https://nordiccrypto.no/zh/calendar/019f42a4506c/",
+    "hi": "https://nordiccrypto.no/hi/calendar/019f42a4506c/",
+    "es": "https://nordiccrypto.no/es/calendar/019f42a4506c/",
+    "fr": "https://nordiccrypto.no/fr/calendar/019f42a4506c/",
+    "ar": "https://nordiccrypto.no/ar/calendar/019f42a4506c/",
+    "bn": "https://nordiccrypto.no/bn/calendar/019f42a4506c/",
+    "pt": "https://nordiccrypto.no/pt/calendar/019f42a4506c/",
+    "ru": "https://nordiccrypto.no/ru/calendar/019f42a4506c/",
+    "ur": "https://nordiccrypto.no/ur/calendar/019f42a4506c/",
+    "id": "https://nordiccrypto.no/id/calendar/019f42a4506c/",
+    "de": "https://nordiccrypto.no/de/calendar/019f42a4506c/",
+    "ja": "https://nordiccrypto.no/ja/calendar/019f42a4506c/",
+    "sw": "https://nordiccrypto.no/sw/calendar/019f42a4506c/",
+    "mr": "https://nordiccrypto.no/mr/calendar/019f42a4506c/",
+    "fa": "https://nordiccrypto.no/fa/calendar/019f42a4506c/",
+    "uk": "https://nordiccrypto.no/uk/calendar/019f42a4506c/"
+   },
+   "api_url": "https://nordiccrypto.no/api/v1/events/019f42a4506c.json",
+   "place_source": {
+    "name": "Polyteknisk Forening (program)",
+    "url": "https://www.polyteknisk.no/program/crypto-killer-apps",
+    "retrieved": "2026-10-12T03:50:28+00:00"
    }
   },
   {
@@ -280,6 +274,66 @@
    }
   },
   {
+   "id": "16b9aa68f972",
+   "title": "Bitcoin Walk i Göteborg",
+   "title_original": null,
+   "start": "2026-10-18T13:00:00+02:00",
+   "end": "2026-10-18T16:00:00+02:00",
+   "place": "Karamellbyrån, Linnéplatsen 10, 413 10 Göteborg, Gothenburg",
+   "city": "Gothenburg",
+   "country": "SE",
+   "online": false,
+   "organiser": "Swedish Bitcoin Meetups",
+   "url": "https://www.meetup.com/swedish-bitcoin-meetups/events/316926193/",
+   "source": "Swedish Bitcoin Meetups (Meetup.com)",
+   "paid": null,
+   "sponsored": null,
+   "note": null,
+   "note_i18n": {},
+   "description": {
+    "text": "BitcoinWalk Slottskogen Bitcoin Walk i Göteborg (In English below) Anmäl gärna ditt deltagande via Satlantis. När: Söndagen den 18/10, klockan 13:00 Var: Linnéplatsen via Slottsskogen ner mot Långgatorna. Uppsamling framför Karamellbyrån på Linnéplatsen. Hit tar man sig bäst med linje 1, 2 och 6. Efter uppsamling påbörjar vi våran vandring upp genom Slottskogen för att sedan gå genom Linné ner mot Långgatorna. Vi räknar med att gå en promenad på ca 6-8km och det går helt fint att vika av längs vägen. Bitcoin är ofta en gemensam nämnare, men samtalen rör sig fritt.",
+    "lang": "sv",
+    "source_url": "https://www.meetup.com/swedish-bitcoin-meetups/events/316926193/",
+    "source_name": "Swedish Bitcoin Meetups (Meetup.com)",
+    "retrieved": "2026-10-11T06:00:06+00:00",
+    "i18n": {}
+   },
+   "past": false,
+   "ongoing": false,
+   "html_url": "https://nordiccrypto.no/calendar/16b9aa68f972/",
+   "html_urls": {
+    "en": "https://nordiccrypto.no/calendar/16b9aa68f972/",
+    "nn": "https://nordiccrypto.no/nn/calendar/16b9aa68f972/",
+    "nb": "https://nordiccrypto.no/nb/calendar/16b9aa68f972/",
+    "sv": "https://nordiccrypto.no/sv/calendar/16b9aa68f972/",
+    "da": "https://nordiccrypto.no/da/calendar/16b9aa68f972/",
+    "fi": "https://nordiccrypto.no/fi/calendar/16b9aa68f972/",
+    "is": "https://nordiccrypto.no/is/calendar/16b9aa68f972/",
+    "zh": "https://nordiccrypto.no/zh/calendar/16b9aa68f972/",
+    "hi": "https://nordiccrypto.no/hi/calendar/16b9aa68f972/",
+    "es": "https://nordiccrypto.no/es/calendar/16b9aa68f972/",
+    "fr": "https://nordiccrypto.no/fr/calendar/16b9aa68f972/",
+    "ar": "https://nordiccrypto.no/ar/calendar/16b9aa68f972/",
+    "bn": "https://nordiccrypto.no/bn/calendar/16b9aa68f972/",
+    "pt": "https://nordiccrypto.no/pt/calendar/16b9aa68f972/",
+    "ru": "https://nordiccrypto.no/ru/calendar/16b9aa68f972/",
+    "ur": "https://nordiccrypto.no/ur/calendar/16b9aa68f972/",
+    "id": "https://nordiccrypto.no/id/calendar/16b9aa68f972/",
+    "de": "https://nordiccrypto.no/de/calendar/16b9aa68f972/",
+    "ja": "https://nordiccrypto.no/ja/calendar/16b9aa68f972/",
+    "sw": "https://nordiccrypto.no/sw/calendar/16b9aa68f972/",
+    "mr": "https://nordiccrypto.no/mr/calendar/16b9aa68f972/",
+    "fa": "https://nordiccrypto.no/fa/calendar/16b9aa68f972/",
+    "uk": "https://nordiccrypto.no/uk/calendar/16b9aa68f972/"
+   },
+   "api_url": "https://nordiccrypto.no/api/v1/events/16b9aa68f972.json",
+   "place_source": {
+    "name": "Swedish Bitcoin Meetups (Meetup.com)",
+    "url": "https://www.meetup.com/swedish-bitcoin-meetups/events/316926193/",
+    "retrieved": "2026-10-11T06:00:06+00:00"
+   }
+  },
+  {
    "id": "a1ea7afabcb0",
    "title": "Oslo Blockchain Meetup - Nexa",
    "title_original": null,
@@ -296,12 +350,12 @@
    "sponsored": null,
    "note": "Disclosure: the speaker, Jørgen S. Notland, is the publisher of Nordic Crypto.",
    "note_i18n": {
+    "nn": "Til opplysing: foredragshaldaren, Jørgen S. Notland, er utgjevar av Nordic Crypto.",
+    "nb": "Til opplysning: foredragsholderen, Jørgen S. Notland, er utgiver av Nordic Crypto.",
+    "sv": "Upplysning: talaren, Jørgen S. Notland, är utgivare av Nordic Crypto.",
     "da": "Oplysning: foredragsholderen, Jørgen S. Notland, er udgiver af Nordic Crypto.",
     "fi": "Tiedoksi: puhuja Jørgen S. Notland on Nordic Crypton julkaisija.",
-    "is": "Til upplýsingar: fyrirlesarinn, Jørgen S. Notland, er útgefandi Nordic Crypto.",
-    "nb": "Til opplysning: foredragsholderen, Jørgen S. Notland, er utgiver av Nordic Crypto.",
-    "nn": "Til opplysing: foredragshaldaren, Jørgen S. Notland, er utgjevar av Nordic Crypto.",
-    "sv": "Upplysning: talaren, Jørgen S. Notland, är utgivare av Nordic Crypto."
+    "is": "Til upplýsingar: fyrirlesarinn, Jørgen S. Notland, er útgefandi Nordic Crypto."
    },
    "description": {
     "text": "Nexa blockchain: Scaling Bitcoin Tech-demo m/overraskelse og pizza! At this event jQrgen, member of Bitcoin Unlimited that works with the Nexa blockchain project will present what is unique about the Nexa blockchain. The Bitcoin Unlimited team has a long history of working with core Bitcoin and Bitcoin Cash software. The Nexa blockchain is the latest project. Nexa is a work in progress software-fork of Bitcoin/Bitcoin Cash with its own genesis block.",
@@ -490,7 +544,7 @@
   {
    "id": "7adc8e1ede97",
    "title": "Crypto tax with Reese Legal",
-   "title_original": "Crypto tax with Reese Legal",
+   "title_original": "Krypto-skatt v/ Reese Legal",
    "start": "2026-11-25T17:00:00+01:00",
    "end": "2026-11-25T19:00:00+01:00",
    "place": "Universitetsgata 2, Oslo",
@@ -505,19 +559,12 @@
    "note": null,
    "note_i18n": {},
    "description": {
-    "text": "Krypto-skatt: Reese Legal kommer til Oslo Blockchain Meetup! Skattereglene for gevinst og tap ved salg av kryptovaluta, DEFI-transaksjoner, lån, gaver og formue i kryptovaluta. Hvordan beregne gevinst, tap og formue riktig, også med mange transaksjoner, og tips til verktøy for beregning og dokumentasjon. Hvordan kryptovaluta skal føres i skattemeldingen. Hva man risikerer hvis det blir feil eller man ikke rapporterer, de vanligste feilene, og eksempler fra Skatteetatens praksis.",
+    "text": "Krypto-skatt: Reese Legal kommer til Oslo Blockchain Meetup! Skattereglene for gevinst og tap ved salg av kryptovaluta, DEFI-transaksjoner, lån, gaver etc. formue i kryptovaluta Hvordan beregne gevinst, tap og formue riktig (selv med mange transaksjoner). Tips til verktøy for beregning og dokumentasjon. Hvordan kryptovaluta skal føres i skattemeldingen - praktisk veiledning. Hva man konkret risikerer hvis det blir feil eller ikke rapporterer. De vanligste feilene, og hvordan unngå dem. Eksempler fra Skatteetatens praksis. Dokumentasjon av midlenes opprinnelse.",
     "lang": "nb",
     "source_url": "https://www.meetup.com/oslo-blockchain-meetup/events/316768461/",
     "source_name": "Oslo Blockchain Meetup (Meetup.com)",
-    "retrieved": "2026-10-07T23:50:00+00:00",
-    "i18n": {
-     "en": "Crypto tax: Reese Legal is coming to Oslo Blockchain Meetup. The tax rules for gains and losses on selling cryptocurrency, DeFi transactions, loans, gifts and wealth held in cryptocurrency. How to calculate gains, losses and wealth correctly, including with many transactions, and tools for the calculation and the records. How cryptocurrency is entered in the tax return. What is at stake if it is wrong or not reported, the most common mistakes, and examples from Skatteetaten's practice.",
-     "nn": "Kryptoskatt: Reese Legal kjem til Oslo Blockchain Meetup. Skattereglane for gevinst og tap ved sal av kryptovaluta, DeFi-transaksjonar, lån, gåver og formue i kryptovaluta. Korleis rekne ut gevinst, tap og formue rett, også med mange transaksjonar, og tips til verktøy for utrekning og dokumentasjon. Korleis kryptovaluta skal førast i skattemeldinga. Kva ein risikerer om det blir feil eller ein ikkje rapporterer, dei vanlegaste feila, og døme frå praksisen til Skatteetaten.",
-     "sv": "Kryptoskatt: Reese Legal kommer till Oslo Blockchain Meetup. Skattereglerna för vinst och förlust vid försäljning av kryptovaluta, DeFi-transaktioner, lån, gåvor och förmögenhet i kryptovaluta. Hur vinst, förlust och förmögenhet räknas rätt, också med många transaktioner, och verktyg för beräkning och dokumentation. Hur kryptovaluta förs in i deklarationen. Vad som står på spel om det blir fel eller inte rapporteras, de vanligaste felen, och exempel från Skatteetatens praxis.",
-     "da": "Kryptoskat: Reese Legal kommer til Oslo Blockchain Meetup. Skattereglerne for gevinst og tab ved salg af kryptovaluta, DeFi-transaktioner, lån, gaver og formue i kryptovaluta. Hvordan gevinst, tab og formue beregnes rigtigt, også med mange transaktioner, og værktøjer til beregning og dokumentation. Hvordan kryptovaluta føres i skattemeldingen. Hvad man risikerer, hvis det bliver forkert eller ikke indberettes, de mest almindelige fejl, og eksempler fra Skatteetatens praksis.",
-     "fi": "Kryptovero: Reese Legal tulee Oslo Blockchain Meetupuun. Verosäännöt kryptovaluutan myynnin voitoista ja tappioista, DeFi-siirroista, lainoista, lahjoista ja kryptovarallisuudesta. Miten voitot, tappiot ja varallisuus lasketaan oikein, myös monilla siirroilla, ja työkalut laskentaan ja dokumentointiin. Miten kryptovaluutta merkitään veroilmoitukseen. Mitä vaarana on, jos tiedot ovat väärin tai niitä ei ilmoiteta, tavallisimmat virheet ja esimerkkejä Skatteetatenin käytännöstä.",
-     "is": "Kryptoskattur: Reese Legal kemur á Oslo Blockchain Meetup. Skattareglurnar um hagnað og tap af sölu rafmynta, DeFi-færslur, lán, gjafir og eignir í rafmynt. Hvernig hagnaður, tap og eignir eru reiknuð rétt, líka með mörgum færslum, og verkfæri til útreiknings og skjala. Hvernig rafmynt er færð á skattframtal. Hvað er í húfi ef það verður rangt eða ekki tilkynnt, algengustu mistökin og dæmi úr framkvæmd Skatteetaten."
-    }
+    "retrieved": "2026-10-11T06:00:06+00:00",
+    "i18n": {}
    },
    "past": false,
    "ongoing": false,
@@ -705,12 +752,12 @@
    "sponsored": null,
    "note": "Falls on New Year's Day: check the organiser's page before you go.",
    "note_i18n": {
+    "nn": "Fell på første nyttårsdag: sjekk sida til arrangøren før du dreg.",
+    "nb": "Faller på første nyttårsdag: sjekk arrangørens side før du drar.",
+    "sv": "Infaller på nyårsdagen: kontrollera arrangörens sida innan du går.",
     "da": "Falder på nytårsdag: tjek arrangørens side, før du tager afsted.",
     "fi": "Osuu uudenvuodenpäivälle: tarkista järjestäjän sivu ennen lähtöä.",
-    "is": "Ber upp á nýársdag: athugaðu síðu skipuleggjandans áður en þú ferð.",
-    "nb": "Faller på første nyttårsdag: sjekk arrangørens side før du drar.",
-    "nn": "Fell på første nyttårsdag: sjekk sida til arrangøren før du dreg.",
-    "sv": "Infaller på nyårsdagen: kontrollera arrangörens sida innan du går."
+    "is": "Ber upp á nýársdag: athugaðu síðu skipuleggjandans áður en þú ferð."
    },
    "description": {
     "text": "Bitcoin meetup - meet the local bitcoiners, network, present your projects and ideas or just hang out! Topics include everything that remotely touches Bitcoin.",

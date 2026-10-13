@@ -17,7 +17,7 @@ Absolute URLs in this file use that origin, at the domain root.
 - [OpenAPI YAML](https://nordiccrypto.no/api/v1/openapi.yaml): the same document.
 - [API catalog](https://nordiccrypto.no/.well-known/api-catalog): RFC 9727 linkset. A .json copy is at https://nordiccrypto.no/.well-known/api-catalog.json.
 - [Site meta](https://nordiccrypto.no/api/v1/meta.json): languages, countries, page list, CORS, and brand social accounts.
-- Telegram: https://t.me/nordiccryptochat (`social.telegram`). X: https://x.com/xcryptonordic (`social.x`, also `urls.x`). `name` is English. `name_i18n` has nn, nb, sv, da, fi and is. Other languages use `name`.
+- Telegram: https://t.me/nordiccryptochat (`social.telegram`). X: https://x.com/nordiccryptobot (`social.x`, also `urls.x`). `name` is English. `name_i18n` has nn, nb, sv, da, fi and is. Other languages use `name`.
 - iOS app: public TestFlight invite in `ios`. `apple_tv` is English. `apple_tv_i18n` has every site language. The Nordic Crypto TestFlight version especially supports Apple TV. No App Store listing.
 - [Languages](https://nordiccrypto.no/api/v1/languages.json): site UI languages (code, native name, English name, rtl, home).
 - [Geo language](https://nordiccrypto.no/api/v1/geo-language.json): country to default language. An IP guess; the nc_lang cookie wins.

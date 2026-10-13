@@ -1,11 +1,409 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-12T22:12:53+00:00",
+ "generated_at": "2026-10-13T05:37:29+00:00",
  "preview": false,
  "topic": "tokenisation",
- "count": 3,
+ "count": 6,
  "items": [
+  {
+   "id": "248229beedb1",
+   "url": "https://kaupr.io/nyheter/amerikansk-finanspresse-oppdager-at-tokenisering-endrer-bors-og-aksjehandel",
+   "html_url": "https://nordiccrypto.no/stories/248229beedb1/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/248229beedb1.json",
+   "title": "Amerikansk finanspresse oppdager at tokenisering endrer børs og aksjehandel",
+   "title_en": "Kaupr: US financial press turns its attention to tokenised stocks",
+   "title_i18n": {},
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
+   },
+   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+   "country": "NO",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-10-12T12:00:00+00:00",
+   "topics": [
+    "tokenisation"
+   ],
+   "summary": "Kaupr summarises recent US financial press coverage, saying Barron's, the Wall Street Journal, CNBC and Bloomberg all wrote about stock tokenisation in early October. According to that coverage, tokenised shares could bring round-the-clock trading and faster settlement, and an ICE–OKX venture is preparing to tokenise stocks.",
+   "summary_i18n": {
+    "nn": "Kaupr samanfattar nyleg dekning i amerikansk finanspresse og skriv at Barron's, Wall Street Journal, CNBC og Bloomberg alle skreiv om tokenisering av aksjar tidleg i oktober. Ifølgje denne dekninga kan tokeniserte aksjar gje handel døgnet rundt og raskare oppgjer, og eit samarbeid mellom ICE og OKX førebur tokenisering av aksjar.",
+    "nb": "Kaupr oppsummerer nylig dekning i amerikansk finanspresse og skriver at Barron's, Wall Street Journal, CNBC og Bloomberg alle skrev om tokenisering av aksjer tidlig i oktober. Ifølge denne dekningen kan tokeniserte aksjer gi handel døgnet rundt og raskere oppgjør, og et samarbeid mellom ICE og OKX forbereder tokenisering av aksjer.",
+    "sv": "Kaupr sammanfattar den senaste bevakningen i amerikansk finanspress och skriver att Barron's, Wall Street Journal, CNBC och Bloomberg alla skrev om tokenisering av aktier i början av oktober. Enligt den bevakningen kan tokeniserade aktier ge handel dygnet runt och snabbare avveckling, och ett samarbete mellan ICE och OKX förbereder tokenisering av aktier.",
+    "da": "Kaupr opsummerer den seneste dækning i amerikansk finanspresse og skriver, at Barron's, Wall Street Journal, CNBC og Bloomberg alle skrev om tokenisering af aktier i begyndelsen af oktober. Ifølge den dækning kan tokeniserede aktier give handel døgnet rundt og hurtigere afvikling, og et samarbejde mellem ICE og OKX forbereder tokenisering af aktier.",
+    "fi": "Kaupr tiivistää Yhdysvaltain talousmedian tuoreen uutisoinnin ja kertoo, että Barron's, Wall Street Journal, CNBC ja Bloomberg kirjoittivat kaikki osakkeiden tokenisoinnista lokakuun alussa. Uutisoinnin mukaan tokenisoidut osakkeet voisivat mahdollistaa ympärivuorokautisen kaupankäynnin ja nopeamman selvityksen, ja ICE:n ja OKX:n yhteisyritys valmistelee osakkeiden tokenisointia.",
+    "is": "Kaupr dregur saman nýlega umfjöllun bandarískra fjármálamiðla og segir að Barron's, Wall Street Journal, CNBC og Bloomberg hafi öll fjallað um táknvæðingu hlutabréfa í byrjun október. Samkvæmt þeirri umfjöllun gætu táknvædd hlutabréf gert viðskipti allan sólarhringinn möguleg og hraðað uppgjöri, og samstarfsverkefni ICE og OKX undirbýr táknvæðingu hlutabréfa."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "original-exchange",
+    "kind": "original",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/original-exchange.webp",
+    "width": 960,
+    "height": 540,
+    "alt": "Abstract bar chart in blue and black. Nordic Crypto illustration, not a picture of an exchange.",
+    "source": "Nordic Crypto",
+    "author": "Nordic Crypto",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "url": "https://cryptonordic.no/ethics/",
+    "credit": "Illustration: Nordic Crypto. Licence: CC0 1.0. Source: Nordic Crypto.",
+    "modifications": null,
+    "terms": null
+   },
+   "primary_source": {
+    "outlet": "kaupr",
+    "outlet_name": "Kaupr",
+    "url": "https://kaupr.io/nyheter/amerikansk-finanspresse-oppdager-at-tokenisering-endrer-bors-og-aksjehandel",
+    "title": "Amerikansk finanspresse oppdager at tokenisering endrer børs og aksjehandel",
+    "published": "2026-10-12T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
+     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
+    },
+    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+   },
+   "primary_source_document": null,
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "kaupr",
+     "outlet_name": "Kaupr",
+     "url": "https://kaupr.io/nyheter/amerikansk-finanspresse-oppdager-at-tokenisering-endrer-bors-og-aksjehandel",
+     "title": "Amerikansk finanspresse oppdager at tokenisering endrer børs og aksjehandel",
+     "published": "2026-10-12T12:00:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
+      "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
+     },
+     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
+  },
+  {
+   "id": "d7e0dcf5a724",
+   "url": "https://kaupr.io/nyheter/spillpioner-og-kapitalforvalter-satser-sammen-pa-tokenisering",
+   "html_url": "https://nordiccrypto.no/stories/d7e0dcf5a724/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/d7e0dcf5a724.json",
+   "title": "Spillpioner og kapitalforvalter satser sammen på tokenisering",
+   "title_en": "Animoca Brands and Franklin Templeton announce tokenisation partnership around NUVA",
+   "title_i18n": {},
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
+   },
+   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+   "country": "NO",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-10-09T12:00:00+00:00",
+   "topics": [
+    "tokenisation"
+   ],
+   "summary": "Kaupr reports, based on the companies' announcement at TOKEN2049 in Singapore, that games and Web3 company Animoca Brands and asset manager Franklin Templeton have entered a strategic partnership around NUVA, Animoca's marketplace for tokenised assets. According to the companies, they have also launched a four-part research series on tokenisation.",
+   "summary_i18n": {
+    "nn": "Kaupr melder, basert på kunngjeringa frå selskapa under TOKEN2049 i Singapore, at spel- og Web3-selskapet Animoca Brands og kapitalforvaltaren Franklin Templeton har inngått eit strategisk samarbeid kring NUVA, marknadsplassen til Animoca for tokeniserte eigedelar. Ifølgje selskapa har dei òg lansert ein forskingsserie i fire delar om tokenisering.",
+    "nb": "Kaupr melder, basert på selskapenes kunngjøring under TOKEN2049 i Singapore, at spill- og Web3-selskapet Animoca Brands og kapitalforvalteren Franklin Templeton har inngått et strategisk samarbeid rundt NUVA, Animocas markedsplass for tokeniserte eiendeler. Ifølge selskapene har de også lansert en firedelt forskningsserie om tokenisering.",
+    "sv": "Kaupr rapporterar, utifrån bolagens tillkännagivande vid TOKEN2049 i Singapore, att spel- och Web3-bolaget Animoca Brands och kapitalförvaltaren Franklin Templeton har ingått ett strategiskt samarbete kring NUVA, Animocas marknadsplats för tokeniserade tillgångar. Enligt bolagen har de också lanserat en forskningsserie i fyra delar om tokenisering.",
+    "da": "Kaupr skriver på baggrund af selskabernes meddelelse under TOKEN2049 i Singapore, at spil- og Web3-selskabet Animoca Brands og kapitalforvalteren Franklin Templeton har indgået et strategisk samarbejde om NUVA, Animocas markedsplads for tokeniserede aktiver. Ifølge selskaberne har de også lanceret en forskningsserie i fire dele om tokenisering.",
+    "fi": "Kaupr kertoo yhtiöiden Singaporen TOKEN2049-tapahtumassa antaman tiedotteen perusteella, että peli- ja Web3-yhtiö Animoca Brands ja varainhoitaja Franklin Templeton ovat solmineet strategisen yhteistyön Animocan tokenisoitujen varojen markkinapaikan NUVAn ympärille. Yhtiöiden mukaan ne ovat myös julkaisseet neliosaisen tutkimussarjan tokenisoinnista.",
+    "is": "Kaupr greinir frá því, á grundvelli tilkynningar fyrirtækjanna á TOKEN2049 í Singapúr, að leikja- og Web3-fyrirtækið Animoca Brands og eignastýringarfyrirtækið Franklin Templeton hafi gert stefnumótandi samstarf um NUVA, markaðstorg Animoca fyrir táknvæddar eignir. Að sögn fyrirtækjanna hafa þau einnig hleypt af stokkunum fjögurra hluta rannsóknaröð um táknvæðingu."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "original-exchange",
+    "kind": "original",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/original-exchange.webp",
+    "width": 960,
+    "height": 540,
+    "alt": "Abstract bar chart in blue and black. Nordic Crypto illustration, not a picture of an exchange.",
+    "source": "Nordic Crypto",
+    "author": "Nordic Crypto",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "url": "https://cryptonordic.no/ethics/",
+    "credit": "Illustration: Nordic Crypto. Licence: CC0 1.0. Source: Nordic Crypto.",
+    "modifications": null,
+    "terms": null
+   },
+   "primary_source": {
+    "outlet": "kaupr",
+    "outlet_name": "Kaupr",
+    "url": "https://kaupr.io/nyheter/spillpioner-og-kapitalforvalter-satser-sammen-pa-tokenisering",
+    "title": "Spillpioner og kapitalforvalter satser sammen på tokenisering",
+    "published": "2026-10-09T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
+     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
+    },
+    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+   },
+   "primary_source_document": null,
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "kaupr",
+     "outlet_name": "Kaupr",
+     "url": "https://kaupr.io/nyheter/spillpioner-og-kapitalforvalter-satser-sammen-pa-tokenisering",
+     "title": "Spillpioner og kapitalforvalter satser sammen på tokenisering",
+     "published": "2026-10-09T12:00:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
+      "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
+     },
+     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
+  },
+  {
+   "id": "36cc0b725b8c",
+   "url": "https://investornytt.no/nyheter/aksjer-pa-blokkjeden-kan-forsterke-borsuro/547093",
+   "html_url": "https://nordiccrypto.no/stories/36cc0b725b8c/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/36cc0b725b8c.json",
+   "title": "Aksjer på blokkjeden kan forsterke børsuro",
+   "title_en": "IMF: tokenised stocks show bigger price swings and weaker liquidity",
+   "title_i18n": {},
+   "source": "investornytt",
+   "source_name": "Investornytt",
+   "source_logo": null,
+   "source_note": null,
+   "country": "NO",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-10-09T09:28:58+00:00",
+   "topics": [
+    "tokenisation",
+    "regulation"
+   ],
+   "summary": "Investornytt reports that an IMF financial-stability chapter on tokenisation found price swings in its sample of tokenised stock products about 50 percent larger than in traditional markets, with notably weaker liquidity. The IMF warns that automatic forced sales could amplify market stress as the market grows.",
+   "summary_i18n": {
+    "nn": "Investornytt melder at eit kapittel om tokenisering i IMF-rapporten om finansiell stabilitet fann om lag 50 prosent større kurssvingingar i utvalet av tokeniserte aksjeprodukt enn i tradisjonelle marknader, og klart svakare likviditet. IMF åtvarar om at automatiske tvangssal kan forsterke uro når marknaden veks.",
+    "nb": "Investornytt melder at et kapittel om tokenisering i IMF-rapporten om finansiell stabilitet fant om lag 50 prosent større kurssvingninger i utvalget av tokeniserte aksjeprodukter enn i tradisjonelle markeder, og klart svakere likviditet. IMF advarer om at automatiske tvangssalg kan forsterke uro når markedet vokser.",
+    "sv": "Investornytt rapporterar att ett kapitel om tokenisering i IMF:s rapport om finansiell stabilitet fann omkring 50 procent större kurssvängningar i urvalet av tokeniserade aktieprodukter än på traditionella marknader, och klart sämre likviditet. IMF varnar för att automatiska tvångsförsäljningar kan förstärka oro när marknaden växer.",
+    "da": "Investornytt skriver, at et kapitel om tokenisering i IMF's rapport om finansiel stabilitet fandt omkring 50 procent større kursudsving i udvalget af tokeniserede aktieprodukter end på traditionelle markeder og markant svagere likviditet. IMF advarer om, at automatiske tvangssalg kan forstærke uro, når markedet vokser.",
+    "fi": "Investornytt kertoo, että IMF:n rahoitusvakausraportin tokenisointia käsittelevä luku havaitsi tokenisoitujen osaketuotteiden otoksessa noin 50 prosenttia suuremmat kurssiheilahtelut kuin perinteisillä markkinoilla sekä selvästi heikomman likviditeetin. IMF varoittaa, että automaattiset pakkomyynnit voivat voimistaa levottomuutta markkinan kasvaessa.",
+    "is": "Investornytt greinir frá því að kafli um táknvæðingu í skýrslu AGS um fjármálastöðugleika hafi leitt í ljós um 50 prósentum meiri verðsveiflur í úrtaki táknvæddra hlutabréfaafurða en á hefðbundnum mörkuðum, og mun minna seljanleika. AGS varar við því að sjálfvirk nauðungarsala geti magnað óróa eftir því sem markaðurinn stækkar."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "original-exchange",
+    "kind": "original",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/original-exchange.webp",
+    "width": 960,
+    "height": 540,
+    "alt": "Abstract bar chart in blue and black. Nordic Crypto illustration, not a picture of an exchange.",
+    "source": "Nordic Crypto",
+    "author": "Nordic Crypto",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "url": "https://cryptonordic.no/ethics/",
+    "credit": "Illustration: Nordic Crypto. Licence: CC0 1.0. Source: Nordic Crypto.",
+    "modifications": null,
+    "terms": null
+   },
+   "primary_source": {
+    "outlet": "investornytt",
+    "outlet_name": "Investornytt",
+    "url": "https://investornytt.no/nyheter/aksjer-pa-blokkjeden-kan-forsterke-borsuro/547093",
+    "title": "Aksjer på blokkjeden kan forsterke børsuro",
+    "published": "2026-10-09T09:28:58+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": null
+   },
+   "primary_source_document": null,
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "investornytt",
+     "outlet_name": "Investornytt",
+     "url": "https://investornytt.no/nyheter/aksjer-pa-blokkjeden-kan-forsterke-borsuro/547093",
+     "title": "Aksjer på blokkjeden kan forsterke børsuro",
+     "published": "2026-10-09T09:28:58+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": null
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": null
+  },
   {
    "id": "5f757489d23c",
    "url": "https://www.kaupr.io/nyheter/dnb-tester-tokeniserte-innskudd-i-kroner-med-europeiske-banker",
@@ -43,12 +441,12 @@
    ],
    "summary": "DNB has joined CBMT, where European banks test tokenised bank deposits, adding the Norwegian krone to the test environment.",
    "summary_i18n": {
+    "nn": "DNB har slutta seg til CBMT, der europeiske bankar testar tokeniserte bankinnskot, og norske kroner blir lagde til testmiljøet.",
+    "nb": "DNB har sluttet seg til CBMT, der europeiske banker tester tokeniserte bankinnskudd, og norske kroner legges til testmiljøet.",
+    "sv": "DNB har anslutit sig till CBMT, där europeiska banker testar tokeniserad bankinlåning, och lägger till norska kronor i testmiljön.",
     "da": "DNB er gået med i CBMT, hvor europæiske banker tester tokeniserede bankindskud, og tilføjer norske kroner til testmiljøet.",
     "fi": "DNB on liittynyt CBMT:hen, jossa eurooppalaiset pankit testaavat tokenisoituja pankkitalletuksia, ja tuo testiympäristöön Norjan kruunun.",
-    "is": "DNB hefur gengið til liðs við CBMT, þar sem evrópskir bankar prófa táknvæddar bankainnstæður, og bætir norsku krónunni við prófunarumhverfið.",
-    "nb": "DNB har sluttet seg til CBMT, der europeiske banker tester tokeniserte bankinnskudd, og norske kroner legges til testmiljøet.",
-    "nn": "DNB har slutta seg til CBMT, der europeiske bankar testar tokeniserte bankinnskot, og norske kroner blir lagde til testmiljøet.",
-    "sv": "DNB har anslutit sig till CBMT, där europeiska banker testar tokeniserad bankinlåning, och lägger till norska kronor i testmiljön."
+    "is": "DNB hefur gengið til liðs við CBMT, þar sem evrópskir bankar prófa táknvæddar bankainnstæður, og bætir norsku krónunni við prófunarumhverfið."
    },
    "paywall": false,
    "links": [],
@@ -191,12 +589,12 @@
    ],
    "summary": "Tokenisation at Blockchain Sweden and the final of the Blockathon hackathon put blockchain on the agenda in Stockholm this week.",
    "summary_i18n": {
+    "nn": "Tokenisering hos Blockchain Sweden og finalen i hackathonet Blockathon sette blokkjede på dagsordenen i Stockholm denne veka.",
+    "nb": "Tokenisering hos Blockchain Sweden og finalen i hackathonet Blockathon satte blokkjede på dagsordenen i Stockholm denne uken.",
+    "sv": "Tokenisering hos Blockchain Sweden och finalen i hackathonet Blockathon satte blockkedjor på dagordningen i Stockholm den här veckan.",
     "da": "Tokenisering hos Blockchain Sweden og finalen i hackathonen Blockathon satte blockchain på dagsordenen i Stockholm i denne uge.",
     "fi": "Tokenisointi Blockchain Swedenin tilaisuudessa ja Blockathon-hackathonin finaali nostivat lohkoketjut esiin Tukholmassa tällä viikolla.",
-    "is": "Táknvæðing hjá Blockchain Sweden og úrslit Blockathon-forritunarkeppninnar settu bálkakeðjur á dagskrá í Stokkhólmi í vikunni.",
-    "nb": "Tokenisering hos Blockchain Sweden og finalen i hackathonet Blockathon satte blokkjede på dagsordenen i Stockholm denne uken.",
-    "nn": "Tokenisering hos Blockchain Sweden og finalen i hackathonet Blockathon sette blokkjede på dagsordenen i Stockholm denne veka.",
-    "sv": "Tokenisering hos Blockchain Sweden och finalen i hackathonet Blockathon satte blockkedjor på dagordningen i Stockholm den här veckan."
+    "is": "Táknvæðing hjá Blockchain Sweden og úrslit Blockathon-forritunarkeppninnar settu bálkakeðjur á dagskrá í Stokkhólmi í vikunni."
    },
    "paywall": false,
    "links": [],
@@ -340,12 +738,12 @@
    ],
    "summary": "Norges Bank has named twelve financial institutions in its mapping of tokenisation, while Norway is the only Nordic country without banks in the euro-stablecoin group Qivalis.",
    "summary_i18n": {
+    "nn": "Norges Bank har namngitt tolv finansinstitusjonar i kartlegginga si av tokenisering, medan Noreg er det einaste nordiske landet utan bankar i euro-stablecoin-gruppa Qivalis.",
+    "nb": "Norges Bank har navngitt tolv finansinstitusjoner i sin kartlegging av tokenisering, mens Norge er det eneste nordiske landet uten banker i euro-stablecoin-gruppen Qivalis.",
+    "sv": "Norges Bank har namngett tolv finansinstitut i sin kartläggning av tokenisering, medan Norge är det enda nordiska landet utan banker i euro-stablecoin-gruppen Qivalis.",
     "da": "Norges Bank har navngivet tolv finansielle institutioner i sin kortlægning af tokenisering, mens Norge er det eneste nordiske land uden banker i euro-stablecoin-gruppen Qivalis.",
     "fi": "Norges Bank on nimennyt tokenisointia koskevassa kartoituksessaan kaksitoista rahoituslaitosta, ja Norja on ainoa Pohjoismaa, jonka pankkeja ei ole mukana euromääräisten vakaakolikoiden Qivalis-ryhmässä.",
-    "is": "Norges Bank hefur nafngreint tólf fjármálastofnanir í kortlagningu sinni á táknvæðingu, en Noregur er eina norræna landið sem á enga banka í evru-stöðugleikamyntahópnum Qivalis.",
-    "nb": "Norges Bank har navngitt tolv finansinstitusjoner i sin kartlegging av tokenisering, mens Norge er det eneste nordiske landet uten banker i euro-stablecoin-gruppen Qivalis.",
-    "nn": "Norges Bank har namngitt tolv finansinstitusjonar i kartlegginga si av tokenisering, medan Noreg er det einaste nordiske landet utan bankar i euro-stablecoin-gruppa Qivalis.",
-    "sv": "Norges Bank har namngett tolv finansinstitut i sin kartläggning av tokenisering, medan Norge är det enda nordiska landet utan banker i euro-stablecoin-gruppen Qivalis."
+    "is": "Norges Bank hefur nafngreint tólf fjármálastofnanir í kortlagningu sinni á táknvæðingu, en Noregur er eina norræna landið sem á enga banka í evru-stöðugleikamyntahópnum Qivalis."
    },
    "paywall": false,
    "links": [],

@@ -1,0 +1,124 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-13T05:37:29+00:00",
+ "preview": false,
+ "topic": "energy",
+ "count": 1,
+ "items": [
+  {
+   "id": "1b09dbbba837",
+   "url": "https://sagat.no/kommunen-vart-naiv/19.59940",
+   "html_url": "https://nordiccrypto.no/stories/1b09dbbba837/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/1b09dbbba837.json",
+   "title": "Krypto i Kautokeino: – Kommunen vært naiv",
+   "title_en": "Kautokeino: environmental group calls municipality naive over Arctic Core crypto mining",
+   "title_i18n": {},
+   "source": "sagat",
+   "source_name": "Ságat",
+   "source_logo": null,
+   "source_note": null,
+   "country": "NO",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-10-12T09:38:15+00:00",
+   "topics": [
+    "mining",
+    "energy"
+   ],
+   "summary": "In a follow-up to its earlier report that data-centre firm Arctic Core admits to 'a little' crypto mining on its site in Kautokeino, Ságat reports that the local Naturvernforbundet branch wants the municipality to withdraw the building permit. The group's complaint will not be handled before November, when it may be passed to the county governor.",
+   "summary_i18n": {
+    "nn": "I ei oppfølging av den tidlegare saka om at dataselskapet Arctic Core vedgår «litt» kryptoutvinning på tomta si i Kautokeino, melder Ságat at det lokale laget av Naturvernforbundet vil at kommunen trekkjer byggjeløyvet. Klaga vert ikkje handsama før i november, då ho kan verte send vidare til statsforvaltaren.",
+    "nb": "I en oppfølging av den tidligere saken om at dataselskapet Arctic Core innrømmer «litt» kryptoutvinning på tomten sin i Kautokeino, melder Ságat at det lokale laget av Naturvernforbundet vil at kommunen trekker byggetillatelsen. Klagen behandles ikke før i november, da den kan bli oversendt statsforvalteren.",
+    "sv": "I en uppföljning av den tidigare artikeln om att datacenterbolaget Arctic Core medger «lite» kryptoutvinning på sin tomt i Kautokeino rapporterar Ságat att den lokala avdelningen av Naturvernforbundet vill att kommunen drar tillbaka bygglovet. Klagomålet behandlas inte före november, då det kan skickas vidare till statsförvaltaren.",
+    "da": "I en opfølgning på den tidligere historie om, at datacentervirksomheden Arctic Core indrømmer «lidt» kryptoudvinding på sin grund i Kautokeino, skriver Ságat, at den lokale afdeling af Naturvernforbundet vil have kommunen til at trække byggetilladelsen tilbage. Klagen behandles først i november, hvor den kan blive sendt videre til statsforvalteren.",
+    "fi": "Jatkona aiempaan juttuun, jossa datakeskusyhtiö Arctic Core myönsi harjoittavansa «hieman» kryptolouhintaa tontillaan Koutokeinossa, Ságat kertoo, että Naturvernforbundetin paikallisyhdistys vaatii kuntaa perumaan rakennusluvan. Valitus käsitellään aikaisintaan marraskuussa, jolloin se voidaan siirtää lääninhallitukselle (statsforvalteren).",
+    "is": "Í framhaldi af fyrri frétt um að gagnaversfyrirtækið Arctic Core viðurkenni «smá» rafmyntagröft á lóð sinni í Kautokeino greinir Ságat frá því að staðardeild Naturvernforbundet vilji að sveitarfélagið afturkalli byggingarleyfið. Kæran verður ekki tekin fyrir fyrr en í nóvember, en þá gæti hún verið send áfram til fylkisstjórans."
+   },
+   "paywall": true,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "commons-mining",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-mining.webp",
+    "width": 960,
+    "height": 720,
+    "alt": "Rows of cryptocurrency mining machines indoors.",
+    "source": "Wikimedia Commons",
+    "author": "Jasper Reichardt",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "url": "https://commons.wikimedia.org/wiki/File:Mining-Rig.jpg",
+    "credit": "Photo: Jasper Reichardt. Licence: CC BY-SA 4.0. Source: Wikimedia Commons.",
+    "modifications": null,
+    "terms": null
+   },
+   "primary_source": {
+    "outlet": "sagat",
+    "outlet_name": "Ságat",
+    "url": "https://sagat.no/kommunen-vart-naiv/19.59940",
+    "title": "Krypto i Kautokeino: – Kommunen vært naiv",
+    "published": "2026-10-12T09:38:15+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": true,
+    "primary": true,
+    "logo": null
+   },
+   "primary_source_document": null,
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "sagat",
+     "outlet_name": "Ságat",
+     "url": "https://sagat.no/kommunen-vart-naiv/19.59940",
+     "title": "Krypto i Kautokeino: – Kommunen vært naiv",
+     "published": "2026-10-12T09:38:15+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "national",
+     "paywall": true,
+     "primary": true,
+     "logo": null
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": null
+  }
+ ]
+}

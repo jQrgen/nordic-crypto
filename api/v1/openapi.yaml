@@ -2496,7 +2496,7 @@ components:
               type: object
         social:
           type: object
-          description: "Nordic Crypto brand accounts. telegram is https://t.me/nordiccryptochat. x is https://x.com/xcryptonordic. label and name are English. name_i18n has nn, nb, sv, da, fi and is. Other languages use name."
+          description: "Nordic Crypto brand accounts. telegram is https://t.me/nordiccryptochat. x is https://x.com/nordiccryptobot. label and name are English. name_i18n has nn, nb, sv, da, fi and is. Other languages use name."
           properties:
             note:
               type: string
@@ -2527,10 +2527,10 @@ components:
                   type: object
                 url:
                   type: string
-                  example: "https://x.com/xcryptonordic"
+                  example: "https://x.com/nordiccryptobot"
                 handle:
                   type: string
-                  example: "@xcryptonordic"
+                  example: "@nordiccryptobot"
         urls:
           type: object
           description: "github, newsletter, rss, telegram and x, plus the API bases. newsletter is the signup page on this site. rss is the English story feed."

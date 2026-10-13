@@ -1,0 +1,844 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script>(function(d){d.classList.add("js");try{if(localStorage.getItem("nc-theme")==="dark")d.setAttribute("data-theme","dark")}catch(e){}})(document.documentElement)</script>
+<title>API данных – Nordic Crypto</title>
+<meta name="description" content="Открытый JSON-фид с новостями, рассылками, событиями и остальными данными Nordic Crypto. Без аккаунта. Начните с /api/v1/index.json, файла OpenAPI или /llms.txt."><link rel="canonical" href="https://nordiccrypto.no/ru/api/"><link rel="manifest" href="../../manifest.json"><link rel="alternate" hreflang="en" href="https://nordiccrypto.no/api/"><link rel="alternate" hreflang="nn" href="https://nordiccrypto.no/nn/api/"><link rel="alternate" hreflang="nb" href="https://nordiccrypto.no/nb/api/"><link rel="alternate" hreflang="sv" href="https://nordiccrypto.no/sv/api/"><link rel="alternate" hreflang="da" href="https://nordiccrypto.no/da/api/"><link rel="alternate" hreflang="fi" href="https://nordiccrypto.no/fi/api/"><link rel="alternate" hreflang="is" href="https://nordiccrypto.no/is/api/"><link rel="alternate" hreflang="zh" href="https://nordiccrypto.no/zh/api/"><link rel="alternate" hreflang="hi" href="https://nordiccrypto.no/hi/api/"><link rel="alternate" hreflang="es" href="https://nordiccrypto.no/es/api/"><link rel="alternate" hreflang="fr" href="https://nordiccrypto.no/fr/api/"><link rel="alternate" hreflang="ar" href="https://nordiccrypto.no/ar/api/"><link rel="alternate" hreflang="bn" href="https://nordiccrypto.no/bn/api/"><link rel="alternate" hreflang="pt" href="https://nordiccrypto.no/pt/api/"><link rel="alternate" hreflang="ru" href="https://nordiccrypto.no/ru/api/"><link rel="alternate" hreflang="ur" href="https://nordiccrypto.no/ur/api/"><link rel="alternate" hreflang="id" href="https://nordiccrypto.no/id/api/"><link rel="alternate" hreflang="de" href="https://nordiccrypto.no/de/api/"><link rel="alternate" hreflang="ja" href="https://nordiccrypto.no/ja/api/"><link rel="alternate" hreflang="sw" href="https://nordiccrypto.no/sw/api/"><link rel="alternate" hreflang="mr" href="https://nordiccrypto.no/mr/api/"><link rel="alternate" hreflang="fa" href="https://nordiccrypto.no/fa/api/"><link rel="alternate" hreflang="uk" href="https://nordiccrypto.no/uk/api/"><link rel="alternate" hreflang="x-default" href="https://nordiccrypto.no/api/"><link rel="alternate" type="application/rss+xml" title="Nordic Crypto" href="../../ru/rss.xml"><link rel="describedby" href="https://nordiccrypto.no/api/v1/index.json" type="application/json"><link rel="service-desc" href="https://nordiccrypto.no/api/v1/openapi.json" type="application/openapi+json"><link rel="describedby" href="https://nordiccrypto.no/llms.txt" type="text/plain">
+<meta property="og:title" content="API данных"><meta property="og:description" content="Открытый JSON-фид с новостями, рассылками, событиями и остальными данными Nordic Crypto. Без аккаунта. Начните с /api/v1/index.json, файла OpenAPI или /llms.txt."><meta property="og:url" content="https://nordiccrypto.no/ru/api/"><meta property="og:type" content="website"><meta property="og:locale" content="ru_RU"><meta property="og:locale:alternate" content="en_GB"><meta property="og:locale:alternate" content="nn_NO"><meta property="og:locale:alternate" content="nb_NO"><meta property="og:locale:alternate" content="sv_SE"><meta property="og:locale:alternate" content="da_DK"><meta property="og:locale:alternate" content="fi_FI"><meta property="og:locale:alternate" content="is_IS"><meta property="og:locale:alternate" content="zh_CN"><meta property="og:locale:alternate" content="hi_IN"><meta property="og:locale:alternate" content="es_ES"><meta property="og:locale:alternate" content="fr_FR"><meta property="og:locale:alternate" content="ar_SA"><meta property="og:locale:alternate" content="bn_BD"><meta property="og:locale:alternate" content="pt_BR"><meta property="og:locale:alternate" content="ur_PK"><meta property="og:locale:alternate" content="id_ID"><meta property="og:locale:alternate" content="de_DE"><meta property="og:locale:alternate" content="ja_JP"><meta property="og:locale:alternate" content="sw_KE"><meta property="og:locale:alternate" content="mr_IN"><meta property="og:locale:alternate" content="fa_IR"><meta property="og:locale:alternate" content="uk_UA">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="../../favicon.svg?v=2" type="image/svg+xml">
+<link rel="icon" href="../../favicon.ico?v=2" sizes="any">
+<link rel="apple-touch-icon" href="../../assets/brand/mark-180.png?v=2">
+<link rel="icon" href="../../assets/brand/mark-64.png?v=2" sizes="64x64" type="image/png">
+<meta name="theme-color" content="#05070D">
+<meta property="og:image" content="https://nordiccrypto.no/assets/brand/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Nordic Crypto">
+<style>/* Fonts, self-hosted (SIL Open Font License, assets/fonts/OFL.txt). Inlined with the rest, so no stylesheet blocks the first paint.
+   / becomes the site path at build time: the CSS is inlined into pages at every depth.
+   Schibsted Grotesk is one variable file (400–900). Latin and Latin Extended subsets; other scripts use the system font. */
+@font-face{font-family:"Schibsted Grotesk";src:url("/assets/fonts/SchibstedGrotesk-VF-latin.woff2") format("woff2");font-weight:400 900;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Schibsted Grotesk";src:url("/assets/fonts/SchibstedGrotesk-VF-latin-ext.woff2") format("woff2");font-weight:400 900;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Cormorant Garamond";src:url("/assets/fonts/CormorantGaramond-Bold-latin.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Cormorant Garamond";src:url("/assets/fonts/CormorantGaramond-Bold-latin-ext.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"IBM Plex Mono";src:url("/assets/fonts/IBMPlexMono-Medium-latin.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"IBM Plex Mono";src:url("/assets/fonts/IBMPlexMono-Medium-latin-ext.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+/* Design tokens: the Våpen design (option E of the logo sheet) in the Langskip colours (option A).
+   Sailcloth page, Pine Tar text, North Sea for the header band and dark sections, Shield Gold for tags and highlights,
+   Sea Foam for lines and quiet panels. --band* is the North Sea band (header, hero, lead story, footer); text on it uses --band-ink.
+   --mk-* are the market chart's series colours, in fixed order; both sets pass the colour-vision checks on their own page colour.
+   --field-line is the border of text fields and selects (3:1 against the page, WCAG 1.4.11).
+   The other modules use these names only. Light is the default. Dark applies only when the reader picks it with the header switch,
+   which sets data-theme="dark" on <html> (stored as nc-theme in localStorage, read by an inline script in <head>, so there is no flash). */
+:root{
+  --bg:#F0F1EC;--surface:#FFFFFF;--fg:#1D1C1A;--muted:#55605F;--line:#D5DEDC;--line-strong:#A9BEBE;--field-line:#7A8C8C;--soft:#E4EAE7;--foam:#BFD3D3;--panel:#DFE7E3;
+  --accent:#1E3A45;--on-accent:#F0F1EC;--gold:#D9A034;--gold-ink:#8A5A0C;--on-gold:#1D1C1A;--focus:#1E3A45;--brand-w:#D9A034;
+  --band:#1E3A45;--band-deep:#152C35;--band-ink:#F0F1EC;--band-muted:#BFD3D3;--band-line:rgb(191 211 211 / .24);--band-rule:#BFD3D3;
+  --btn:#1E3A45;--btn-hover:#152C35;--btn-ink:#F0F1EC;
+  --warm:#9A4A0B;--warm-bg:#FBF1DC;--pub:#2C5A85;--priv:#2E6A4C;--up:#2E6A4C;--down:#A3322B;
+  --f-display:"Cormorant Garamond",Garamond,Georgia,"Times New Roman",serif;
+  --f-ui:"Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --r:12px;--r-sm:7px;--r-xs:4px;
+  --shadow:0 1px 2px rgb(29 28 26 / .05),0 10px 28px -14px rgb(21 44 53 / .30);
+  --shadow-lg:0 2px 6px rgb(29 28 26 / .06),0 22px 44px -18px rgb(21 44 53 / .42);
+  --lattice:repeating-linear-gradient(45deg,rgb(240 241 236 / .05) 0 1px,transparent 1px 24px),repeating-linear-gradient(-45deg,rgb(240 241 236 / .05) 0 1px,transparent 1px 24px);
+  --mk-1:#2E6DB4;--mk-2:#D9A01C;--mk-3:#A31F2B;--mk-4:#7A5AB8;--mk-5:#1E9A8A;--mk-6:#D2692A;--mk-7:#C04C86;--mk-8:#3D8A3A;--mk-other:#A8A195;
+  --nc-or:#F4C430;--nc-gules:#A0202A;--nc-sable:#141210;--nc-argent:#F7F6F2;--nc-cendree:#A7B0BA;
+  --nc-tar:#1D1C1A;--nc-gold:#D9A034;--nc-sea:#1E3A45;--nc-foam:#BFD3D3;--nc-sail:#F0F1EC;
+  --ink:var(--fg);--paper:var(--surface);
+  color-scheme:light;
+}
+:root[data-theme=dark]{--bg:#0D181D;--surface:#13232A;--fg:#ECEEE8;--muted:#9FB3B2;--line:#22373F;--line-strong:#37525C;--field-line:#6A8590;--soft:#182C34;--panel:#152A32;--accent:#BFD3D3;--on-accent:#0D181D;--gold:#E0A93E;--gold-ink:#E6B455;--on-gold:#1D1C1A;--focus:#E0A93E;--brand-w:#E0A93E;--band:#15303A;--band-deep:#10252D;--band-ink:#F0F1EC;--band-muted:#A9C2C2;--band-line:rgb(191 211 211 / .16);--band-rule:#2E4D58;--btn:#E0A93E;--btn-hover:#EBBB5A;--btn-ink:#1D1C1A;--warm:#E3A55A;--warm-bg:#2B2216;--pub:#8DB4DC;--priv:#86C3A1;--up:#86C3A1;--down:#F08A8F;--shadow:0 1px 2px rgb(0 0 0 / .3),0 12px 30px -14px rgb(0 0 0 / .6);--shadow-lg:0 2px 6px rgb(0 0 0 / .3),0 24px 48px -18px rgb(0 0 0 / .7);--mk-1:#4F8AD6;--mk-2:#B5841C;--mk-3:#CC3D55;--mk-4:#937BDB;--mk-5:#2FA894;--mk-6:#CF6F2E;--mk-7:#C2649F;--mk-8:#5FA352;--mk-other:#6E665D;color-scheme:dark}
+/* On the North Sea band (header, hero, lead story, footer) the same names re-point to light-on-dark values in both themes. */
+header.top,.hero,.leadstory,footer{--fg:var(--band-ink);--muted:var(--band-muted);--line:var(--band-line);--line-strong:rgb(191 211 211 / .4);--field-line:rgb(191 211 211 / .6);--surface:rgb(240 241 236 / .06);--soft:rgb(240 241 236 / .08);--accent:var(--gold);--on-accent:var(--on-gold);--focus:var(--gold);--gold-ink:var(--gold);--btn:var(--gold);--btn-hover:#E8B655;--btn-ink:var(--on-gold);color:var(--fg)}
+/* Base: page, type, links, focus, form controls, small helpers. */
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;font:16px/1.6 var(--f-ui);color:var(--fg);background:var(--bg);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:color-mix(in srgb,var(--gold) 42%,transparent)}
+a{color:inherit;text-decoration-color:color-mix(in srgb,var(--accent) 45%,transparent);text-decoration-thickness:1px;text-underline-offset:3px;transition:text-decoration-color .15s,color .15s}
+a:hover{text-decoration-color:var(--accent);text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,36px)}
+main.wrap{padding-bottom:8px}
+h1,h2,h3{font-family:var(--f-display);font-weight:700;letter-spacing:-.01em;text-wrap:balance}
+h1{font-size:clamp(32px,4vw,46px);line-height:1.06;margin:36px 0 10px}
+h2{font-size:clamp(24px,2.5vw,30px);line-height:1.12;margin:40px 0 12px}
+@media(max-width:520px){h1{font-size:28px}}
+h3{line-height:1.2}
+h4{font-weight:600}
+p{text-wrap:pretty}
+b,strong{font-weight:700}
+hr{border:0;border-top:1px solid var(--line);margin:32px 0}
+code,pre,kbd{font-family:var(--f-mono);font-size:.9em}
+img{max-width:100%}
+.lead{font-size:18px;line-height:1.6;color:var(--muted);margin:8px 0 22px;max-width:66ch}
+.meta{font-size:14px;color:var(--muted)}.meta b{color:var(--fg);font-weight:500}
+.eyebrow{font:500 12px/1.2 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.prose{max-width:70ch;text-align:start;line-height:1.7}
+.prose h2{margin-top:36px}.prose li{margin:4px 0}
+select,input[type=search],input[type=email],input[type=text],input[type=url],textarea{font:inherit;font-size:15px;color:var(--fg);background:var(--surface);border:1px solid var(--field-line);border-radius:var(--r-sm);padding:8px 11px;max-width:100%;transition:border-color .15s,box-shadow .15s}
+select:hover,input[type=search]:hover,input[type=email]:hover,input[type=text]:hover,input[type=url]:hover,textarea:hover{border-color:var(--muted)}
+input:focus-visible,textarea:focus-visible,select:focus-visible{outline:0;border-color:var(--focus);box-shadow:0 0 0 3px color-mix(in srgb,var(--focus) 28%,transparent)}
+input::placeholder,textarea::placeholder{color:var(--muted);opacity:.8}
+button{font:inherit;color:inherit}
+input[type=checkbox],input[type=radio]{accent-color:var(--btn)}
+.vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+html.nc-pick body{visibility:hidden}
+.skip{position:absolute;inset-inline-start:12px;top:-80px;z-index:60;padding:10px 16px;border-radius:var(--r-sm);background:var(--gold);color:var(--on-gold);font-weight:700;text-decoration:none}
+.skip:focus{top:12px}
+main:focus{outline:0}
+/* Text in a left-to-right language inside a right-to-left page (English summaries on /ar/, /ur/ and /fa/) reads left to right,
+   so punctuation lands at the end of the sentence; it stays on the page's start edge (the right) like the rest of the page. */
+html[dir=rtl] [lang]:not([lang|=ar]):not([lang|=ur]):not([lang|=fa]){direction:ltr;unicode-bidi:isolate;text-align:right}
+/* Many strings on the Arabic, Urdu and Persian pages are still English (no translation yet). Each block takes its direction from its own
+   first letter, so an English sentence keeps its full stop at the end and an Arabic one reads right to left; all stay on the right. */
+html[dir=rtl] :is(p,li,dd,dt,figcaption,summary,label,h1,h2,h3,td,th){unicode-bidi:plaintext;text-align:right!important}
+/* Letter spacing breaks the joined letters of Arabic, Urdu and Persian, so text in those languages has none. */
+:lang(ar),:lang(ur),:lang(fa){letter-spacing:normal!important}
+[hidden]{display:none!important}
+.sprite{position:absolute;width:0;height:0;overflow:hidden}
+.ico{display:block;flex:none}
+/* Long lists: the browser skips layout and paint for rows that are off screen. */
+.storygrid>.storycard,ol.news>li,.talks article,.covlist li,.imap-cat,.nlissues li{content-visibility:auto;contain-intrinsic-size:auto 240px}
+@media(max-width:640px){.storygrid>.storycard,.talks article{contain-intrinsic-size:auto 360px}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+/* Header: preview banner, then the North Sea band. Wide screens: the brand and the tools (Subscribe, Telegram and X as icons,
+   the light/dark switch, the language) on one row, the six sections on the row below. Phones: brand, light/dark and the menu button;
+   the menu holds every section, the pages about the site, Subscribe, Telegram, X and the language. Everything starts at the inline start. */
+.preview{background:var(--warm-bg);border-bottom:2px solid var(--warm);color:var(--fg);font-size:14px}.preview .wrap{padding-top:6px;padding-bottom:6px}
+header.top{background:var(--band);border-bottom:4px solid var(--band-rule);position:relative;z-index:5}
+header.top:has(+.hero){border-bottom:1px solid var(--band-line)}
+header.top,header.top .wrap{text-align:start}
+header.top .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:10px 20px;padding-top:12px;padding-bottom:0}
+.brand{font-family:var(--f-display);font-weight:700;font-size:29px;letter-spacing:-.005em;text-decoration:none;display:inline-flex;align-items:center;gap:11px;color:var(--fg);line-height:1;text-align:start}.brand .w{color:var(--brand-w)}
+.brandmark{width:31px;height:36px;flex:none;display:block}
+.since{display:inline-flex;align-items:center;gap:7px;padding:5px 11px 5px 9px;border:1px solid color-mix(in srgb,var(--brand-w) 45%,transparent);border-radius:999px;font-family:var(--f-ui);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;line-height:1;white-space:nowrap;color:var(--fg);background:linear-gradient(110deg,transparent 30%,color-mix(in srgb,var(--brand-w) 28%,transparent) 50%,transparent 70%) 0 0/250% 100% no-repeat;animation:since-in .7s cubic-bezier(.2,.8,.2,1) .15s both,since-shine 6s ease-in-out 1.2s infinite}
+.since-dot{width:7px;height:7px;border-radius:50%;background:var(--brand-w);box-shadow:0 0 0 0 color-mix(in srgb,var(--brand-w) 60%,transparent);animation:since-pulse 2.4s ease-out 1s infinite}
+@keyframes since-in{from{opacity:0;transform:translateX(-8px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes since-shine{0%,70%{background-position:150% 0}100%{background-position:-50% 0}}
+@keyframes since-pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--brand-w) 60%,transparent)}70%,100%{box-shadow:0 0 0 7px transparent}}
+@media (prefers-reduced-motion:reduce){.since,.since-dot{animation:none}}
+@media (max-width:560px){.since{display:none}}
+.brandrow{display:flex;align-items:center;justify-content:flex-start;gap:10px 22px;flex-wrap:wrap;text-align:start}
+.hdrtools{display:flex;align-items:center;justify-content:flex-start;gap:8px;margin-inline-start:auto;text-align:start}
+.hdrbtns{display:flex;align-items:center;justify-content:flex-start;gap:8px;flex-wrap:wrap;min-width:0;text-align:start}
+.hdrsub{display:inline-block;padding:7px 15px;border:1px solid var(--gold);border-radius:var(--r-sm);background:var(--gold);color:var(--on-gold)!important;text-decoration:none;font-weight:700;font-size:14px;line-height:1.3;white-space:nowrap;text-align:start}
+.hdrsub:hover,.hdrsub:focus-visible{background:var(--btn-hover);border-color:var(--btn-hover)}
+.hdrx,.hdrtg,.hdrgh,.themetoggle{display:inline-flex;align-items:center;gap:8px;height:36px;min-width:36px;padding:0 9px;border:1px solid var(--line-strong);border-radius:var(--r-sm);color:var(--fg)!important;background:transparent;text-decoration:none;font:inherit;font-weight:500;font-size:14px;line-height:1;white-space:nowrap;cursor:pointer;text-align:start}
+.hdrx:hover,.hdrx:focus-visible,.hdrgh:hover,.hdrgh:focus-visible,.hdrtg:hover,.hdrtg:focus-visible,.themetoggle:hover,.themetoggle:focus-visible{border-color:var(--band-muted);background:var(--soft)}
+.hdrx .lbl,.hdrtg .lbl,.hdrgh .lbl{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+.themetoggle{display:none}.js .themetoggle{display:inline-flex}
+.themetoggle .i-sun,[data-theme=dark] .themetoggle .i-moon{display:none}[data-theme=dark] .themetoggle .i-sun{display:block}
+nav.main{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:baseline;gap:0 26px;font-size:15px;text-align:start;flex-basis:100%;margin-top:2px}
+nav.main a{text-decoration:none;color:var(--muted);font-weight:500;padding:9px 0 11px;border-bottom:3px solid transparent}
+nav.main a:hover{color:var(--fg);border-bottom-color:var(--band-line)}
+nav.main a[aria-current]{color:var(--fg);border-color:var(--gold);font-weight:700}
+.langsw{position:relative;font-size:14px;display:flex;gap:10px;align-items:center}
+.langsw a.quick{color:var(--muted)}.langsw a.quick:hover{color:var(--fg)}
+.langsw details{position:relative}.langsw summary{display:flex;align-items:center;gap:6px;height:36px;cursor:pointer;list-style:none;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:transparent;padding:0 11px}
+.langsw summary:hover,.langsw details[open] summary{border-color:var(--band-muted);background:var(--soft)}
+.langsw summary::-webkit-details-marker{display:none}
+.langsw ul{position:absolute;right:0;z-index:20;margin:8px 0 0;padding:6px;list-style:none;background:var(--band-deep);border:1px solid var(--band-line);border-radius:var(--r);box-shadow:var(--shadow-lg);min-width:13rem;max-height:70vh;overflow:auto}
+html[dir=rtl] .langsw ul{right:auto;left:0}
+.langsw li a{display:block;padding:6px 12px;border-radius:var(--r-sm);text-decoration:none;text-align:start}.langsw li a:hover,.langsw li a:focus{background:var(--soft)}
+.langsw li a[aria-current]{font-weight:700;color:var(--gold)}.langsw .quick{font-size:13.5px;color:var(--muted)}
+header.top select{color-scheme:dark;background:transparent}
+header.top select option{color:var(--nc-tar);background:var(--nc-sail)}
+.navtoggle{display:none}
+.langpick,.langglobe{display:none}
+/* Wide screens: the sections only. The pages about the site are in the footer. */
+@media(min-width:961px){nav.main a.nav-more{display:none}}
+/* Phones: iOS Safari paints an empty bordered box for an absolutely positioned list inside <details>.
+   A native <select> is the control there. The list below is only the no-JS fallback, in normal flow. */
+@media(max-width:960px),(hover:none) and (pointer:coarse){
+ .langsw{width:auto;max-width:100%;justify-content:flex-start;align-items:center;flex-wrap:wrap;text-align:start}
+ .langsw ul{position:static;right:auto;left:auto;width:100%;min-width:0;max-height:60vh;overflow:auto;box-shadow:none}
+ .langsw li a{padding:10px 12px}
+}
+@media(max-width:960px){
+ header.top .wrap{padding-top:10px;padding-bottom:10px;gap:10px}
+ .brand{font-size:25px;gap:9px}.brandmark{width:27px;height:32px}
+ .js .brandrow{flex:1 1 auto}
+ .js .hdrtools{display:contents}
+ .js .themetoggle{order:2;height:44px;min-width:44px;justify-content:flex-start;padding:0 12px}
+ .js .navtoggle{display:inline-flex;align-items:center;justify-content:flex-start;padding:0 13px;order:3;flex:none;width:46px;height:44px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:transparent;color:inherit;cursor:pointer}
+ .js .navtoggle[aria-expanded=true]{border-color:var(--gold);background:var(--soft)}
+ .js .navtoggle .navbars{display:inline-flex;flex-direction:column;justify-content:flex-start;gap:4px;width:18px}
+ .js .navtoggle .navbars span{display:block;height:2px;background:currentColor;border-radius:1px;transition:transform .2s,opacity .2s}
+ .js .navtoggle[aria-expanded=true] .navbars span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+ .js .navtoggle[aria-expanded=true] .navbars span:nth-child(2){opacity:0}
+ .js .navtoggle[aria-expanded=true] .navbars span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+ .js .navtoggle:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+ .js nav.main,.js .hdrbtns,.js .langsw{display:none}
+ .js nav.main{order:5;flex:1 0 100%;flex-direction:column;align-items:stretch;gap:0;margin:4px 0 0;text-align:start;border-top:1px solid var(--band-line)}
+ .js header.top.nav-open nav.main{display:flex}
+ .js nav.main a{display:block;width:100%;text-align:start;padding:12px 2px;margin:0;border-bottom:1px solid var(--band-line);font-size:17px}
+ .js nav.main a.nav-more{font-size:15px;padding:10px 2px;color:var(--muted)}
+ .js nav.main a[aria-current]{border-bottom-color:var(--band-line);box-shadow:inset 3px 0 0 var(--gold);padding-left:14px;color:var(--fg)}
+ html.js[dir=rtl] nav.main a[aria-current]{box-shadow:inset -3px 0 0 var(--gold);padding-left:2px;padding-right:14px}
+ .js header.top.nav-open .hdrbtns{display:flex;order:6;flex:1 0 100%;padding-top:6px}
+ .js header.top.nav-open .langsw{display:flex;order:7;flex:1 0 100%;padding-bottom:6px}
+ .js .hdrx .lbl,.js .hdrtg .lbl,.js .hdrgh .lbl{position:static;width:auto;height:auto;margin:0;overflow:visible;clip:auto}
+ .js .hdrsub,.js .hdrx,.js .hdrtg,.js .hdrgh{height:44px;display:inline-flex;align-items:center}
+}
+@media(max-width:960px),(hover:none) and (pointer:coarse){
+ .js .langsw details{display:none}
+ .js .langglobe{display:inline-flex;align-items:center;line-height:1}
+ .js .langpick{display:inline-flex;align-items:center;justify-content:flex-start;min-width:0;max-width:100%;text-align:start}
+ .js .langpick select{font-size:16px;line-height:1.3;min-height:44px;width:12rem;max-width:100%;text-align:start;text-align-last:start;padding:8px 28px 8px 10px;border-color:var(--field-line)}
+ .js .langpick select:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+ .js .langsw .quick{font-size:16px;padding:10px 0;text-align:start}
+}
+/* Front page: a short title band under the header, then the news. */
+.hero{position:relative;overflow:hidden;isolation:isolate;background:var(--lattice),var(--band);border-bottom:4px solid var(--band-rule);text-align:start}
+.hero .wrap{padding-top:clamp(22px,3vw,34px);padding-bottom:clamp(22px,3vw,30px)}
+.hero h1{margin:0;max-width:26ch;font-size:clamp(28px,3.4vw,42px);line-height:1.06;letter-spacing:-.015em;color:var(--fg)}
+.hero .lead{color:var(--muted);font-size:15px;line-height:1.6;max-width:78ch;margin:10px 0 0}
+@media(max-width:640px){.hero .lead{font-size:14px}}
+.hero-meta{margin:10px 0 0;font:500 12px/1.4 var(--f-mono);letter-spacing:.06em;color:var(--muted)}
+/* Footer: the North Sea band, opened by the Sea Foam rule. Brand, then three link columns (sections, pages about the site,
+   where to follow), the newsletter form while signup is open, notifications while the service is on, and the colophon. */
+footer{margin-top:64px;border-top:4px solid var(--band-rule);background:var(--lattice),var(--band);padding:40px 0 36px;font-size:14.5px;line-height:1.6;color:var(--muted)}
+footer,footer .wrap,.nlfoot,.nlhome{text-align:start}
+footer b{color:var(--fg)}
+footer a{color:var(--fg);text-decoration-color:color-mix(in srgb,var(--gold) 55%,transparent)}
+footer a:hover{text-decoration-color:var(--gold)}
+footer h2{font-size:22px;margin:0 0 8px;color:var(--fg)}
+.foot-grid{display:grid;grid-template-columns:minmax(0,1.3fr) repeat(3,minmax(0,1fr));gap:28px 40px}
+.footbrand{font-size:26px;color:var(--fg)}.footbrand .brandmark{width:28px;height:33px}
+.foot-brand p{margin:12px 0 0;max-width:28ch;color:var(--muted)}
+.foot-col h2{font:500 11.5px/1.2 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:6px 0 12px}
+.foot-col ul{list-style:none;margin:0;padding:0}
+.foot-col li{margin:0 0 7px}
+.foot-col a{text-decoration:none}
+.foot-col a:hover{text-decoration:underline}
+.nlfoot{margin:28px 0 0;padding-top:20px;border-top:1px solid var(--line);text-align:start}.nlfoot .nlform{display:block;max-width:40rem}
+footer .pushopt{margin:28px 0 0;padding:20px 0 0;border-top:1px solid var(--line);border-bottom:0}
+.colophon{margin:32px 0 0;padding-top:18px;border-top:1px solid var(--line);font-size:13px;max-width:110ch}
+@media(max-width:860px){.foot-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.foot-brand{grid-column:1/-1}}
+nav.community{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:center;gap:8px 10px;margin:10px 0 14px;text-align:start;width:fit-content;max-width:100%}
+.xfollow,.tgfollow{display:inline-block;padding:7px 14px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);color:var(--fg)!important;text-decoration:none;font-weight:500;text-align:start}.xfollow:hover,.xfollow:focus-visible,.tgfollow:hover,.tgfollow:focus-visible{border-color:var(--fg)}
+@media(max-width:860px){.foot-col li{margin:0}.foot-col a{display:inline-block;padding:9px 0}}
+/* Shared components: filters and chips, segmented buttons, badges and tags, notices, buttons, tables.
+   Country codes are gold tags (the Langskip coins); topic tags are quiet Sea Foam panels; primary buttons are North Sea (gold in dark mode and on the band). */
+.filters{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin:18px 0;padding:14px 16px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+.filters label,.filters .lbl{font-size:14px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:inherit;font-size:13.5px;line-height:1.3;padding:5px 13px;border:1px solid var(--line-strong);border-radius:999px;background:var(--surface);color:var(--fg);cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:border-color .15s,background .15s,color .15s}
+.chip:hover{border-color:var(--fg)}
+.chip[aria-pressed=true]{background:var(--btn);border-color:var(--btn);color:var(--btn-ink)}
+.seg{display:inline-flex;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);overflow:hidden}
+.seg button{font:inherit;font-size:14px;padding:7px 15px;border:0;background:transparent;color:var(--fg);cursor:pointer;transition:background .15s}
+.seg button+button{border-inline-start:1px solid var(--line)}
+.seg button:hover{background:var(--soft)}
+.seg button[aria-pressed=true]{background:var(--btn);color:var(--btn-ink)}
+.flag{vertical-align:-2px;flex:none;border-radius:2px}
+.cc{display:inline-block;font:600 11px/1 var(--f-mono);letter-spacing:.06em;padding:4px 6px;border-radius:var(--r-xs);background:var(--gold);color:var(--on-gold);vertical-align:1px}
+.tag{display:inline-block;font-size:12px;line-height:1.5;padding:1px 9px;border:1px solid transparent;border-radius:999px;background:var(--soft);margin-inline-start:4px;color:var(--muted);font-weight:500}
+.tag.pend{border-color:var(--warm);background:transparent;color:var(--warm);font-weight:700}.tag.paid{border-color:var(--warm);background:transparent;color:var(--warm)}
+.tag.act{border-color:var(--up);background:transparent;color:var(--up);font-weight:700}.tag.inact{border-color:var(--line);color:var(--muted)}
+.xl{font-size:11.5px;padding:0 6px;margin-left:4px;border:1px solid;border-radius:var(--r-xs)}.xl.pub{color:var(--pub)}.xl.priv{color:var(--priv)}
+.pw{font-size:12px;color:var(--gold-ink);font-weight:500}
+.notice{border:1px solid var(--line);border-inline-start:4px solid var(--gold);border-radius:var(--r-sm);background:var(--soft);padding:12px 16px;font-size:14px;margin:16px 0}
+.notice.warn{border-inline-start-color:var(--warm);background:var(--warm-bg)}
+.notice summary{cursor:pointer;font-weight:600}
+.empty{padding:20px;color:var(--muted)}
+.credit{font-size:12px;color:var(--muted);text-align:start;margin:4px 0 0}
+.ok{color:var(--up);font-weight:700}.bad{color:var(--down);font-weight:700}
+.readat,.tipform button{display:inline-block;padding:10px 18px;border:1px solid var(--btn);border-radius:var(--r-sm);background:var(--btn);color:var(--btn-ink);text-decoration:none;font-weight:600;cursor:pointer;transition:background .15s,border-color .15s,transform .15s}
+.readat:hover,.readat:focus-visible,.tipform button:hover,.tipform button:focus-visible{background:var(--btn-hover);border-color:var(--btn-hover);color:var(--btn-ink);transform:translateY(-1px)}
+.appbar{margin:14px 0 14px;text-align:start}.ios-tv{text-align:start;margin:2px 0 10px}
+a.applink{display:inline-block;padding:9px 16px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);font-weight:600;font-size:15px;line-height:1.35;text-decoration:none;text-align:start;transition:border-color .15s,background .15s,transform .15s}
+a.applink:hover,a.applink:focus-visible{border-color:var(--fg);transform:translateY(-1px)}
+.tablewrap{overflow-x:auto}
+table.list{width:100%;border-collapse:collapse;font-size:14.5px}table.list th,table.list td{border-bottom:1px solid var(--line);padding:8px 8px;text-align:start;vertical-align:top}
+table.list thead th{font:500 11.5px/1.3 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--line-strong)}table.list tbody th{font-weight:600}
+table.list tbody tr{transition:background .12s}table.list tbody tr:hover{background:color-mix(in srgb,var(--soft) 70%,transparent)}
+main .share a,main .share button{border-color:var(--line-strong);border-radius:var(--r-sm);background:var(--surface);transition:background .15s,color .15s,border-color .15s}
+.linkbtn{font:inherit;color:inherit;background:none;border:0;padding:6px 0;text-decoration:underline;text-decoration-color:color-mix(in srgb,var(--accent) 45%,transparent);text-underline-offset:3px;cursor:pointer}
+.linkbtn:hover{text-decoration-color:var(--accent);text-decoration-thickness:2px}
+.fnone{padding:16px 0}
+main .share a,main .share button{min-height:40px;display:inline-flex;align-items:center}
+/* News: the lead story, the latest stories, story lists, outlet marks, coverage and illustrations. Start-aligned in every language.
+   The lead story is a feature card on the North Sea band (the band tokens apply inside it). The latest stories are one column of
+   rows divided by hairlines, so headlines line up and read top to bottom. */
+.leadstory,.latest,.storygrid,.storycard,.leadstory h2,.latest h2,.storycard h3,.leadstory .sum,.storycard .sum,.leadstory .meta,.storycard .meta,.leadstory .orig,.storycard .orig{text-align:start}
+.leadstory{position:relative;margin:0;padding:clamp(22px,3.4vw,40px) clamp(20px,3.4vw,44px) clamp(20px,3vw,32px);border-radius:var(--r);background:var(--lattice),var(--band)}
+.leadstory h2{font-size:36px;line-height:1.05;margin:0 0 10px;text-align:start;max-width:24ch;letter-spacing:-.015em}
+.leadstory h2 a,.storycard h3 a{text-decoration:none}
+.leadstory h2 a:hover{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:6px}
+.storycard h3 a:hover{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:4px}
+.leadstory .sum{font-size:17.5px;line-height:1.6;margin:12px 0 0;max-width:66ch;color:color-mix(in srgb,var(--fg) 90%,transparent)}
+.leadstory .meta{margin:16px 0 0;padding-top:14px;border-top:1px solid var(--line)}
+.latest h2,.evsoon h2,.evhero h2,.railbox h2{display:flex;align-items:center;gap:12px;font:500 12px/1.2 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.latest h2::after,.evsoon h2::after,.railbox h2::after{content:"";flex:1;height:1px;background:var(--line)}
+.latest h2{margin:36px 0 2px;text-align:start}
+.storygrid{display:grid;grid-template-columns:1fr;align-items:start;text-align:start}
+.storycard{position:relative;padding:20px 0 22px;border-bottom:1px solid var(--line);min-width:0;text-align:start}
+.storycard:last-child{border-bottom:0}
+.storycard h3{font-size:25px;line-height:1.14;margin:0 0 4px;text-align:start;max-width:34ch}
+.storycard .sum{font-size:15.5px;line-height:1.6;margin:8px 0 0;max-width:68ch;color:color-mix(in srgb,var(--fg) 88%,transparent)}
+.storycard>.meta{margin:10px 0 0}
+.js .storycard.later{display:none}
+.morebtn{display:inline-flex;align-items:center;gap:8px;margin:18px 0 0;padding:10px 18px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);color:var(--fg);font:inherit;font-weight:600;cursor:pointer;text-align:start}
+.morebtn:hover,.morebtn:focus-visible{border-color:var(--fg)}
+.morebtn::after{content:"↓";font-weight:400}
+@media(min-width:1080px){.leadstory h2{font-size:46px}}
+@media(max-width:640px){.leadstory h2{font-size:29px}.storycard h3{font-size:22px}}
+.orig{font-size:13.5px;color:var(--muted);margin:0 0 4px;line-height:1.4;font-weight:400;text-align:start}
+.sum{margin:6px 0 0;max-width:72ch;line-height:1.55;text-align:start}.sum.pend{color:var(--warm);font-style:italic}
+.bridge{margin:6px 0 0;font-weight:500;text-align:start}
+ol.news{list-style:none;margin:0;padding:0;text-align:start}
+ol.news li{display:flex;flex-direction:row;align-items:flex-start;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);text-align:start}
+ol.news .storybody{min-width:0;flex:1;text-align:start}
+ol.news h3{font-size:23px;line-height:1.16;margin:0 0 4px}ol.news h3 a{text-decoration:none}ol.news h3 a:hover{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px}
+.ill{margin:0 0 14px;text-align:start}
+.ill img{display:block;width:100%;max-width:760px;height:auto;background:var(--soft);border-radius:var(--r)}
+.primary-src{font-size:13.5px;margin:6px 0 0;text-align:start}
+.src{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;vertical-align:middle;text-align:start}
+.src-logo-link{display:inline-flex;flex:none;align-items:center;gap:6px;color:inherit;text-decoration:none}.src-logo-link:hover b{text-decoration:underline;text-decoration-color:var(--gold)}
+.src-logo{height:18px;width:auto;max-width:96px;object-fit:contain;flex:none;background:#fff;padding:1px 3px;border-radius:3px}
+/* outlets that covered a story: the compact logo row on story cards (the story page rules are in story.css) */
+.covrow{text-align:start;display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:6px 8px;margin:10px 0 0}
+.cov-logo{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;text-decoration:none}
+.cov-more{font-size:12.5px;color:var(--fg);border:1px solid var(--line-strong);border-radius:999px;padding:1px 10px;background:var(--surface);text-decoration:none}
+.cov-more:hover,.cov-more:focus-visible{border-color:var(--gold)}
+/* Events: happening now and next events (the front-page rail). The calendar, previous events and event pages have their own modules.
+   In the rail each event is a row: a date badge, the title, then country, weekday, time and city. */
+.evhero,.evsoon,.evcard,.evmeta,.evsrc,.evplace{text-align:start}
+.evhero{position:relative;border:1px solid var(--line);border-inline-start:4px solid var(--gold);border-radius:var(--r-sm);background:var(--surface);padding:12px 14px;margin:0 0 22px}
+.evhero h2,.evsoon h2{text-align:start;margin:0 0 4px}
+.evhero h2{color:var(--gold-ink);margin-top:2px}
+.evhero h2::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.evsoon h2{margin:0 0 6px}
+.evhero h3{font-size:24px;line-height:1.15;margin:0 0 6px;text-align:start}
+.evsoon{margin:8px 0 22px}
+.evsoon h3{font-size:22px;line-height:1.18;margin:0 0 6px;text-align:start}
+.evhero h3 a,.evsoon h3 a{text-decoration:none}
+.evhero h3 a:hover,.evsoon h3 a:hover{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px}
+.evcard{padding:14px 0 16px;border-bottom:1px solid var(--line)}
+.evcard .meta{margin:4px 0 0}
+.evcard time b{font-weight:600;color:var(--fg)}
+.evhero .evcard{border-bottom:0;padding:10px 0}
+.evhero .evcard+.evcard{border-top:1px solid var(--line)}
+.evsoon .evmeta{display:none}
+.evhero .evmeta{display:block}
+/* rail rows */
+.evrow{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;align-items:start;padding:12px 0;border-bottom:1px solid var(--line)}
+.evhero .evrow{padding:8px 0;border-bottom:0}
+.evdate{display:flex;flex-direction:column;align-items:center;padding:5px 0 6px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);line-height:1;text-align:start}
+.evdate b{font:700 20px/1 var(--f-display);font-variant-numeric:lining-nums;color:var(--fg)}
+.evdate span{font:500 10.5px/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--gold-ink);margin-top:3px}
+.evrow h3{font-size:18px;line-height:1.2;margin:0 0 3px}
+.evrow .meta{font-size:13px;line-height:1.45;margin:0}
+.evsoon>.meta{margin:10px 0 0;font-size:14px}
+.evsrc{font-size:13.5px;color:var(--muted);margin:2px 0 0}
+@media(max-width:640px){.evhero h3{font-size:24px}}
+@media(max-width:860px){.evsoon>.meta a{display:inline-block;padding:10px 0}}
+/* Front page layout. One column on phones, in reading order: lead story, next events, latest stories, newsletter and tools.
+   From 1024px the events and the newsletter/tools sit in a rail beside the news. The rows are auto, auto, 1fr: the lead and the
+   events start together, the latest stories start right under the lead, and the newsletter box follows the events. */
+.home{display:grid;grid-template-columns:minmax(0,1fr);margin:28px 0 0;text-align:start}
+.home-events{margin:30px 0 0}
+.home-more{margin:36px 0 0}
+@media(min-width:1024px){
+ .home{grid-template-columns:minmax(0,1fr) 300px;grid-template-rows:auto auto 1fr;column-gap:52px;align-items:start}
+ .home-lead{grid-column:1;grid-row:1}
+ .home-events{grid-column:2;grid-row:1/3;margin:0}
+ .latest.home-river{grid-column:1;grid-row:2/4}
+ .home-more{grid-column:2;grid-row:3;margin:30px 0 0}
+}
+.railbox{margin:0 0 30px}
+.railbox h2{margin:0 0 12px}
+.railbox p{font-size:14.5px;margin:0 0 10px}
+.home-more .notice{font-size:13.5px}
+.home-more nav.community{margin:12px 0 0}
+.raillinks{list-style:none;margin:0;padding:0}
+.raillinks li{padding:9px 0;border-bottom:1px solid var(--line);font-size:15px}
+.raillinks li:last-child{border-bottom:0}
+.raillinks a{font-weight:500;text-decoration:none}
+.raillinks a:hover{text-decoration:underline;text-decoration-color:var(--gold)}
+.raillinks .meta{display:block;font-size:12.5px;margin-top:2px}
+.home-note{margin:40px 0 0;font-size:13.5px;max-width:90ch}
+/* Phones: three events before the stories, the rest are one tap away in the calendar. */
+@media(max-width:1023px){#evsoon-list .evcard:nth-child(n+4){display:none}}
+/* Newsletter: signup form, the issue list, the video and the issue text. */
+.nlform{margin:14px 0;text-align:start}.nlform input[type=email]{padding:8px 10px;width:100%;max-width:320px}.nlform .hp{position:absolute;left:-9999px}
+.nlform button{padding:9px 18px;font-size:15px;font-weight:600;border:1px solid var(--btn);border-radius:var(--r-sm);background:var(--btn);color:var(--btn-ink);cursor:pointer;transition:background .15s,transform .15s}
+.nlform button:hover,.nlform button:focus-visible{background:var(--btn-hover);border-color:var(--btn-hover);transform:translateY(-1px)}
+.nlconsent{display:block;margin:10px 0;max-width:40rem;text-align:start;font-size:15px}
+.nlmsg{display:block;margin-top:6px}.nlmsg.ok{color:var(--up)}.nlmsg.warn{color:var(--warm)}.nlc label:not(.nlconsent){position:absolute;left:-9999px}
+.nlissues{list-style:none;margin:10px 0 20px;padding:0}.nlissues li{display:flex;gap:22px;align-items:flex-start;padding:20px 0;border-bottom:1px solid var(--line)}
+.nlissues .th{flex:none;width:200px;max-width:40%}.nlissues img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+.nlissues h3{font-size:25px;line-height:1.2;margin:0 0 4px}.nlissues h3 a{text-decoration:none}.nlissues h3 a:hover{text-decoration:underline;text-decoration-thickness:1px}.nlissues .sum{margin-top:4px}
+.issue h1{overflow-wrap:break-word}
+.nlvideo{margin:18px 0 22px;max-width:960px}.nlvideo video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000;border-radius:var(--r)}.nlvideo figcaption{margin-top:6px}
+.issuetext{overflow-wrap:break-word;max-width:70ch;line-height:1.65}.issuetext h2{font-size:24px}.issuetext ul{padding-left:20px}.issuetext li{margin:4px 0}.issuetext hr{border:0;border-top:1px solid var(--line);margin:24px 0}
+@media(max-width:520px){.nlissues li{flex-direction:column;gap:8px}.nlissues .th{width:100%;max-width:100%}h1{font-size:28px}}
+.nlissues time,.issue .meta time{unicode-bidi:plaintext}
+/* Browser notifications panel in the footer. */
+.pushopt{text-align:start;margin:0 0 18px;padding:0 0 16px;border-bottom:1px solid var(--line);max-width:72ch}
+.pushopt h2{font-size:24px;margin:0 0 6px;text-align:start}
+.pushopt p,.pushopt label{text-align:start}
+.pushopt .push-topics{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:6px 16px;margin:8px 0}
+.pushopt .push-c{display:inline-flex;align-items:center;justify-content:flex-start;gap:6px;font-size:14.5px;text-align:start}
+.pushopt button.push-btn{font:inherit;font-weight:600;padding:8px 15px;border:1px solid var(--btn);border-radius:var(--r-sm);background:var(--btn);color:var(--btn-ink);cursor:pointer;text-align:start;transition:background .15s}
+.pushopt button.push-btn:hover,.pushopt button.push-btn:focus-visible{background:var(--btn-hover);border-color:var(--btn-hover)}
+.pushopt .push-status{min-height:1.3em;margin:8px 0;text-align:start}
+/* shoutbox */
+.home-with-chat{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;text-align:start}
+.home-with-chat .home-main{min-width:0;text-align:start}
+.shoutbox,.shout-panel,.shout-list,.shout-form,.shout-rules,.shout-privacy,.shout-user,.shout-shared,.shout-item,.shout-meta,.shout-msg{text-align:start}
+.shoutbox{border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:var(--r);background:var(--surface);box-shadow:var(--shadow);padding:16px 18px;margin:0 0 18px}
+.shout-panel h2{font-size:21px;margin:0 0 6px;text-align:start}
+.shout-user,.shout-shared,.shout-rules,.shout-privacy,.shout-more{font-size:13.5px;margin:0 0 8px;text-align:start;color:var(--muted)}
+.shout-rules a{font-weight:500;color:var(--fg)}
+.shout-list{list-style:none;margin:0 0 8px;padding:0;max-height:280px;overflow:auto;text-align:start}
+.shoutbox-full .shout-list{max-height:70vh}
+.shout-item{border-bottom:1px solid var(--line);padding:8px 0;text-align:start}
+.shout-meta{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:4px 8px;font-size:13px;color:var(--muted)}
+.shout-nick{font-weight:700;color:var(--fg)}
+.shout-lang{font:500 11px/1.4 var(--f-mono);border:1px solid var(--line);border-radius:var(--r-xs);padding:0 4px;background:var(--bg)}
+.shout-msg{margin:2px 0 4px;white-space:pre-wrap;overflow-wrap:anywhere;text-align:start}
+.shout-form label{display:block;margin:8px 0 0;text-align:start}
+.shout-form input,.shout-form textarea{display:block;width:100%;max-width:100%;box-sizing:border-box;font:inherit;text-align:start;padding:7px 10px}
+.shout-form textarea{min-height:4.5em;resize:vertical}
+.shout-form button,.shout-report,.shout-older,.shout-toggle{font:inherit;font-weight:500;text-align:start;cursor:pointer;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);color:var(--fg);padding:6px 12px}
+.shout-form button:hover,.shout-older:hover,.shout-toggle:hover{border-color:var(--fg)}
+.shout-form button{margin-top:8px;background:var(--btn);border-color:var(--btn);color:var(--btn-ink)}
+.shout-report{font-size:12px;font-weight:400;padding:2px 6px;color:var(--muted)}
+.shout-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.shout-status{min-height:1.2em;font-size:14px;text-align:start}
+.shout-toggle{display:none;width:100%;justify-content:flex-start}
+@media(min-width:960px){
+ .home-with-chat{display:grid;grid-template-columns:minmax(0,1fr) 300px;column-gap:36px;align-items:start;justify-content:start}
+ .shoutbox{position:sticky;top:16px;margin:36px 0 0}
+ .shout-toggle{display:none}
+ .shout-panel{display:block}
+}
+@media(max-width:959px){
+ .home-with-chat .shoutbox{order:-1}
+ .shoutbox:not(.shoutbox-full) .shout-toggle{display:flex}
+ .shoutbox:not(.shoutbox-full) .shout-panel{display:none}
+ .shoutbox:not(.shoutbox-full).is-open .shout-panel{display:block}
+}
+/* /shoutbox */
+
+.social{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;text-align:start;gap:4px 12px;margin:6px 0 0;font-size:13.5px;width:fit-content;max-width:100%}
+.social-label{color:var(--muted,#4B5563)}
+.social a{color:var(--ink,#000);text-decoration:underline;text-underline-offset:2px}
+.social a:hover{text-decoration-thickness:2px}
+.social a:focus-visible{outline:2px solid var(--ink,#000);outline-offset:2px}
+
+.share{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;text-align:start;gap:6px 8px;margin:14px 0;width:fit-content;max-width:100%}
+.share-label{font-size:13px;color:var(--muted,#4B5563);margin-right:2px}
+.share a,.share button{font:inherit;font-size:13.5px;line-height:1.2;color:var(--ink,#000);background:var(--paper,#fff);border:1px solid var(--line,#000);padding:5px 10px;text-decoration:none;cursor:pointer}
+.share a:hover,.share button:hover{background:var(--band,#000);color:var(--band-ink,#fff)}
+.share a:focus-visible,.share button:focus-visible{outline:2px solid var(--ink,#000);outline-offset:2px}
+.share-status{font-size:13px;color:var(--muted,#4B5563)}
+/* Shared by every theme: the decoration layer sits behind the page; content stays on top and readable.
+   Scroll reveal only runs with JS (html.js) and always ends visible. Reduced motion: everything holds still. */
+.th-deco{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.th-deco svg,.th-deco canvas{position:absolute;display:block}
+body.themed>main,body.themed>footer,body.themed>.preview{position:relative;z-index:1}
+body.themed>header.top{z-index:6}
+body.themed>.hero{z-index:1}
+.js body.themed .th-r{opacity:0;transform:translateY(18px) scale(.985);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.2,1)}
+.js body.themed .th-r.th-in{opacity:1;transform:none}
+body.themed .th-wiggle:hover{animation:th-wiggle .5s ease}
+@keyframes th-wiggle{25%{transform:rotate(-1.5deg)}75%{transform:rotate(1.5deg)}}
+@media (max-width:760px){.th-deco .th-desk{display:none}}
+@media (prefers-reduced-motion:reduce){
+  body.themed *,body.themed *::before,body.themed *::after{animation-duration:.001ms!important;animation-iteration-count:1!important;animation-delay:0s!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .js body.themed .th-r{opacity:1;transform:none}
+}
+@media print{.th-deco{display:none!important}.js body.themed .th-r{opacity:1!important;transform:none!important}}
+/* Data API: a crashed space station hackerspace. Drifting starfield, our own tilted station with turning rings,
+   blinking beacons and an orbiting satellite, sunk into a planet horizon; HUD corners, LED strip and mission clock. */
+html{background:#05070D}
+body.th-cbase{--bg:#05070D;--surface:rgb(14 22 40 / .86);--fg:#DCE8FF;--muted:#8EA3C8;--line:#24324F;--line-strong:#3D5584;--soft:rgb(22 34 60 / .8);--panel:rgb(18 28 50 / .85);--foam:#24324F;
+  --accent:#FF7A1A;--on-accent:#05070D;--gold:#FF7A1A;--gold-ink:#FFA458;--on-gold:#05070D;--focus:#2FD4FF;--brand-w:#FF7A1A;
+  --band:#0A0F1C;--band-deep:#060912;--band-ink:#DCE8FF;--band-muted:#8EA3C8;--band-line:rgb(47 212 255 / .2);--band-rule:#FF7A1A;
+  --warm:#FFA458;--warm-bg:#2A1A0C;--btn:#FF7A1A;--btn-hover:#FF9645;--btn-ink:#05070D;--pub:#2FD4FF;--priv:#7CF29C;--up:#7CF29C;--down:#FF6A7A;
+  --f-display:var(--f-mono);--shadow:0 0 0 1px #24324F,0 14px 30px -16px rgb(0 0 0 / .9);--shadow-lg:0 0 0 1px #FF7A1A,0 0 30px -8px rgb(255 122 26 / .5);--lattice:none;color-scheme:dark;
+  background:radial-gradient(80% 60% at 80% 10%,rgb(47 80 160 / .25),transparent 70%),radial-gradient(60% 50% at 10% 90%,rgb(255 122 26 / .10),transparent 70%),#05070D;background-attachment:fixed}
+.th-cbase h1,.th-cbase h2,.th-cbase h3{text-transform:uppercase;letter-spacing:.08em}
+.th-cbase main h1{color:#fff;text-shadow:0 0 18px rgb(47 212 255 / .55)}
+.th-cbase main h1::before{width:180px;height:3px;background:linear-gradient(90deg,#FF7A1A,#2FD4FF);box-shadow:0 0 14px #FF7A1A;animation:cb-scan 2.4s ease-in-out infinite alternate}
+@keyframes cb-scan{to{width:280px}}
+.th-cbase h2::before{content:"// ";color:#FF7A1A}
+.th-cbase pre,.th-cbase code{background:rgb(4 8 18 / .9)!important;color:#9DF0FF;border-color:#24324F}
+.th-cbase pre{position:relative;border:1px solid #24324F;border-radius:4px;padding:16px 18px;box-shadow:inset 0 0 30px rgb(47 212 255 / .06)}
+.th-cbase pre::before,.th-cbase pre::after{content:"";position:absolute;width:14px;height:14px;border:2px solid #FF7A1A}
+.th-cbase pre::before{top:-2px;left:-2px;border-right:0;border-bottom:0}.th-cbase pre::after{bottom:-2px;right:-2px;border-left:0;border-top:0}
+.th-cbase table,.th-cbase .card{background:rgb(10 16 30 / .88)!important;border-color:#24324F!important}
+.th-cbase th{color:#FF7A1A;text-transform:uppercase;letter-spacing:.06em}
+.th-cbase a{text-decoration-color:rgb(255 122 26 / .55)}.th-cbase a:hover{color:#FFA458}
+.th-cbase header.top{background:rgb(6 9 18 / .9);backdrop-filter:blur(4px)}
+/* decoration */
+.th-cbase .cb-stars{inset:0}
+.th-cbase .cb-planet{position:absolute;left:-10%;right:-10%;bottom:-62vh;height:80vh;border-radius:50%;background:radial-gradient(circle at 50% 0%,#2A3A66,#0B1226 55%);box-shadow:0 -6px 40px rgb(47 212 255 / .35),inset 0 10px 30px rgb(47 212 255 / .25)}
+.th-cbase .cb-station{right:-30px;bottom:6vh;opacity:.9;filter:drop-shadow(0 0 20px rgb(47 212 255 / .25));animation:cb-drift 16s ease-in-out infinite}
+@keyframes cb-drift{50%{transform:translate(-16px,-12px) rotate(-2deg)}}
+.th-cbase .cb-tilt{transform:rotate(-24deg)}
+.th-cbase .cb-ring1{animation:cb-spin 22s linear infinite}
+.th-cbase .cb-ring2{animation:cb-spin 40s linear infinite reverse}
+@keyframes cb-spin{to{transform:rotate(360deg)}}
+.th-cbase .cb-ring1 ellipse{animation:cb-dash 3s linear infinite}
+@keyframes cb-dash{to{stroke-dashoffset:-56}}
+.th-cbase .cb-win circle{fill:#FFD27A;animation:cb-win 4s ease-in-out infinite}
+.th-cbase .cb-win circle:nth-child(2){animation-delay:-1s}.th-cbase .cb-win circle:nth-child(3){animation-delay:-2.2s}.th-cbase .cb-win circle:nth-child(4){animation-delay:-3s}
+@keyframes cb-win{50%{fill:#7A5A2A}}
+.th-cbase .cb-led{fill:#FF3B3B;animation:cb-beacon 1.2s steps(1) infinite}
+.th-cbase .cb-led2{fill:#2FD4FF;animation-delay:-.6s}
+@keyframes cb-beacon{50%{opacity:.15}}
+.th-cbase .cb-sat{animation:cb-spin 12s linear infinite}
+.th-cbase .cb-hud{position:absolute;left:16px;bottom:14px;display:flex;align-items:center;gap:14px;font:12px var(--f-mono);color:#8EA3C8;letter-spacing:.1em}
+.th-cbase .cb-leds{display:flex;gap:4px}
+.th-cbase .cb-leds i{width:7px;height:7px;border-radius:50%;background:#7CF29C;box-shadow:0 0 6px #7CF29C;animation:cb-beacon 1.6s steps(1) infinite;animation-delay:var(--d)}
+.th-cbase .cb-leds i:nth-child(3n){background:#FF7A1A;box-shadow:0 0 6px #FF7A1A}.th-cbase .cb-leds i:nth-child(5n){background:#2FD4FF;box-shadow:0 0 6px #2FD4FF}
+.th-cbase .cb-corner{position:absolute;width:34px;height:34px;border:2px solid rgb(255 122 26 / .7)}
+.th-cbase .cb-tl{top:84px;left:10px;border-right:0;border-bottom:0}.th-cbase .cb-tr{top:84px;right:10px;border-left:0;border-bottom:0}
+.th-cbase .cb-bl{bottom:40px;left:10px;border-right:0;border-top:0}.th-cbase .cb-br{bottom:40px;right:10px;border-left:0;border-top:0}
+@media (max-width:760px){.th-cbase .cb-station{width:240px;height:240px;right:-60px;opacity:.5}.th-cbase .cb-corner{display:none}}
+</style></head>
+<body class="themed th-cbase"><a class="skip" href="#main">Перейти к содержанию</a><div class="th-deco" aria-hidden="true"><canvas class="cb-stars"></canvas><div class="cb-planet"></div><svg class="cb-station" viewBox="-160 -160 320 320" width="420" height="420"><g class="cb-tilt"><g class="cb-ring cb-ring1"><ellipse rx="140" ry="44" fill="none" stroke="#FF7A1A" stroke-width="3" stroke-dasharray="18 10"/></g><g class="cb-ring cb-ring2"><ellipse rx="112" ry="112" fill="none" stroke="#2FD4FF" stroke-width="2" stroke-dasharray="4 8" opacity=".7"/></g><circle r="62" fill="url(#cbg)" stroke="#9FB6E0" stroke-width="2.5"/><path d="M-62 0 A62 20 0 0 0 62 0" fill="none" stroke="#9FB6E0" stroke-width="2"/><path d="M-50 -34 A62 18 0 0 0 50 -34" fill="none" stroke="#9FB6E0" stroke-width="1.5" opacity=".6"/><path d="M-50 34 A62 18 0 0 0 50 34" fill="none" stroke="#9FB6E0" stroke-width="1.5" opacity=".6"/><g class="cb-win"><circle cx="-24" cy="-14" r="5"/><circle cx="0" cy="-16" r="5"/><circle cx="24" cy="-14" r="5"/><circle cx="-14" cy="14" r="4"/><circle cx="14" cy="14" r="4"/></g><path d="M0 -62 V-118" stroke="#9FB6E0" stroke-width="3"/><circle class="cb-led" cy="-122" r="6"/><path d="M44 -44 L84 -92" stroke="#9FB6E0" stroke-width="2.5"/><rect x="74" y="-112" width="34" height="18" fill="#203458" stroke="#2FD4FF" transform="rotate(-50 91 -103)"/><path d="M-44 44 L-92 70" stroke="#9FB6E0" stroke-width="2.5"/><circle class="cb-led cb-led2" cx="-96" cy="72" r="5"/><g class="cb-sat"><circle cx="0" cy="-150" r="5" fill="#FFD9B0"/></g></g><defs><radialGradient id="cbg" cx=".35" cy=".3"><stop offset="0" stop-color="#3B5A8F"/><stop offset="1" stop-color="#0D1730"/></radialGradient></defs></svg><div class="cb-hud"><span class="cb-leds"><i style="--d:0.00s"></i><i style="--d:0.37s"></i><i style="--d:0.74s"></i><i style="--d:1.11s"></i><i style="--d:1.48s"></i><i style="--d:1.85s"></i><i style="--d:0.22s"></i><i style="--d:0.59s"></i><i style="--d:0.96s"></i><i style="--d:1.33s"></i><i style="--d:1.70s"></i><i style="--d:0.07s"></i><i style="--d:0.44s"></i><i style="--d:0.81s"></i></span><span class="cb-clock"></span></div><div class="cb-corner cb-tl"></div><div class="cb-corner cb-tr"></div><div class="cb-corner cb-bl"></div><div class="cb-corner cb-br"></div></div><header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="../../ru/"><img class="brandmark" src="../../assets/brand/shield-band.svg" width="34" height="40" alt="Nordic Crypto"><span aria-hidden="true">Nordic <span class="w">Crypto</span></span></a><span class="since"><span class="since-dot" aria-hidden="true"></span>с 2026 года</span></div><div class="hdrtools"><span class="hdrbtns"><a class="hdrsub" href="../../ru/newsletter/#signup">Подписаться</a><a class="hdrtg" href="https://t.me/nordiccryptochat" rel="noopener" title="Nordic Crypto в Telegram (t.me/nordiccryptochat), чат бренда"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M21.9 4.3 18.7 19.4c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13 1.4 11.5c-1-.3-1.1-1 .2-1.5L20.5 2.8c.9-.3 1.7.2 1.4 1.5z"/></svg><span class="lbl">Присоединиться в Telegram</span></a><a class="hdrx" href="https://x.com/nordiccryptobot" rel="noopener" title="Nordic Crypto в X (@nordiccryptobot), собственный аккаунт сайта"><svg class="ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M18.2 2.3h3.4l-7.4 8.4 8.7 11.5h-6.8l-5.3-7-6.1 7H1.3l7.9-9L.8 2.3h7l4.8 6.4zm-1.2 17.9h1.9L6.9 4.2H4.9z"/></svg><span class="lbl">Подписаться в X</span></a><a class="hdrgh" href="https://github.com/jQrgen/nordic-crypto" rel="noopener" title="Исходный код"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg><span class="lbl">Исходный код</span></a></span><button type="button" class="themetoggle" aria-pressed="false" title="Тёмная тема"><span class="vh">Тёмная тема</span><svg class="ico i-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.7 14.6A8.6 8.6 0 0 1 9.4 3.3a.6.6 0 0 0-.8-.7A9.8 9.8 0 1 0 21.4 15.4a.6.6 0 0 0-.7-.8z"/></svg><svg class="ico i-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg></button><div class="langsw"><span class="langglobe" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg></span><label class="langpick"><span class="vh">Выберите язык</span><select class="langsel"><option value="../../api/" hreflang="en" lang="en" data-lang="en">English</option><option value="../../nn/api/" hreflang="nn" lang="nn" data-lang="nn">Nynorsk</option><option value="../../nb/api/" hreflang="nb" lang="nb" data-lang="nb">Bokmål</option><option value="../../sv/api/" hreflang="sv" lang="sv" data-lang="sv">Svenska</option><option value="../../da/api/" hreflang="da" lang="da" data-lang="da">Dansk</option><option value="../../fi/api/" hreflang="fi" lang="fi" data-lang="fi">Suomi</option><option value="../../is/api/" hreflang="is" lang="is" data-lang="is">Íslenska</option><option value="../../zh/api/" hreflang="zh" lang="zh" data-lang="zh">中文</option><option value="../../hi/api/" hreflang="hi" lang="hi" data-lang="hi">हिन्दी</option><option value="../../es/api/" hreflang="es" lang="es" data-lang="es">Español</option><option value="../../fr/api/" hreflang="fr" lang="fr" data-lang="fr">Français</option><option value="../../ar/api/" hreflang="ar" lang="ar" dir="rtl" data-lang="ar">العربية</option><option value="../../bn/api/" hreflang="bn" lang="bn" data-lang="bn">বাংলা</option><option value="../../pt/api/" hreflang="pt" lang="pt" data-lang="pt">Português</option><option value="../../ru/api/" hreflang="ru" lang="ru" data-lang="ru" selected>✓ Русский</option><option value="../../ur/api/" hreflang="ur" lang="ur" dir="rtl" data-lang="ur">اردو</option><option value="../../id/api/" hreflang="id" lang="id" data-lang="id">Bahasa Indonesia</option><option value="../../de/api/" hreflang="de" lang="de" data-lang="de">Deutsch</option><option value="../../ja/api/" hreflang="ja" lang="ja" data-lang="ja">日本語</option><option value="../../sw/api/" hreflang="sw" lang="sw" data-lang="sw">Kiswahili</option><option value="../../mr/api/" hreflang="mr" lang="mr" data-lang="mr">मराठी</option><option value="../../fa/api/" hreflang="fa" lang="fa" dir="rtl" data-lang="fa">فارسی</option><option value="../../uk/api/" hreflang="uk" lang="uk" data-lang="uk">Українська</option></select></label><details><summary><svg class="ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg><span class="vh">Выберите язык: </span>Русский</summary><ul role="list" aria-label="Язык"><li><a href="../../api/" hreflang="en" lang="en" data-lang="en">English</a></li><li><a href="../../nn/api/" hreflang="nn" lang="nn" data-lang="nn">Nynorsk</a></li><li><a href="../../nb/api/" hreflang="nb" lang="nb" data-lang="nb">Bokmål</a></li><li><a href="../../sv/api/" hreflang="sv" lang="sv" data-lang="sv">Svenska</a></li><li><a href="../../da/api/" hreflang="da" lang="da" data-lang="da">Dansk</a></li><li><a href="../../fi/api/" hreflang="fi" lang="fi" data-lang="fi">Suomi</a></li><li><a href="../../is/api/" hreflang="is" lang="is" data-lang="is">Íslenska</a></li><li><a href="../../zh/api/" hreflang="zh" lang="zh" data-lang="zh">中文</a></li><li><a href="../../hi/api/" hreflang="hi" lang="hi" data-lang="hi">हिन्दी</a></li><li><a href="../../es/api/" hreflang="es" lang="es" data-lang="es">Español</a></li><li><a href="../../fr/api/" hreflang="fr" lang="fr" data-lang="fr">Français</a></li><li><a href="../../ar/api/" hreflang="ar" lang="ar" dir="rtl" data-lang="ar">العربية</a></li><li><a href="../../bn/api/" hreflang="bn" lang="bn" data-lang="bn">বাংলা</a></li><li><a href="../../pt/api/" hreflang="pt" lang="pt" data-lang="pt">Português</a></li><li><a href="../../ru/api/" hreflang="ru" lang="ru" data-lang="ru" aria-current=true>Русский</a></li><li><a href="../../ur/api/" hreflang="ur" lang="ur" dir="rtl" data-lang="ur">اردو</a></li><li><a href="../../id/api/" hreflang="id" lang="id" data-lang="id">Bahasa Indonesia</a></li><li><a href="../../de/api/" hreflang="de" lang="de" data-lang="de">Deutsch</a></li><li><a href="../../ja/api/" hreflang="ja" lang="ja" data-lang="ja">日本語</a></li><li><a href="../../sw/api/" hreflang="sw" lang="sw" data-lang="sw">Kiswahili</a></li><li><a href="../../mr/api/" hreflang="mr" lang="mr" data-lang="mr">मराठी</a></li><li><a href="../../fa/api/" hreflang="fa" lang="fa" dir="rtl" data-lang="fa">فارسی</a></li><li><a href="../../uk/api/" hreflang="uk" lang="uk" data-lang="uk">Українська</a></li></ul></details></div><button type="button" class="navtoggle" aria-expanded="false" aria-controls="sitenav" aria-label="Главное меню"><span class="navbars" aria-hidden="true"><span></span><span></span><span></span></span></button></div><nav id="sitenav" class="main" aria-label="Главное меню"><a href="../../ru/">Новости</a><a href="../../ru/calendar/">Календарь</a><a href="../../ru/markets/">Рынки</a><a href="../../ru/org-chart/">Кто есть кто</a><a href="../../ru/academia/">Наука</a><a href="../../ru/books/">Книги</a><a href="../../ru/talks/">Доклады</a><a class="nav-more" href="../../ru/newsletter/">Рассылка</a><a class="nav-more" href="../../ru/sources/">Источники</a><a class="nav-more" href="../../ru/about/">О проекте</a><a class="nav-more" href="../../ru/tip/">Прислать наводку</a><a class="nav-more" href="../../ru/api/" aria-current=page>API</a></nav></div></header>
+<main class="wrap" id="main" tabindex="-1">
+<style>/* Text pages: about, ethics, budget, tip, columnist, changelog and the API docs. A reading column of about 68 characters; long pages
+   put an "On this page" list beside the text on wide screens (under the lead on phones). Inlined only on those pages. */
+/* text pages */
+.textpage{display:grid;grid-template-columns:minmax(0,1fr);align-items:start;text-align:start}
+.tp-head,.tp-body{min-width:0;max-width:68ch}
+.tp-head .lead{max-width:62ch;margin-bottom:10px}
+.textpage .prose{max-width:68ch}
+.textpage .prose code{overflow-wrap:anywhere}
+.tp-body h2[id]{scroll-margin-top:16px}
+.textpage.has-toc .prose>h2{padding-top:16px;border-top:1px solid var(--line);margin-top:28px}
+.textpage.has-toc .prose>h2:first-child{margin-top:12px}
+.toc{margin:4px 0 0;padding:12px 0 4px;border-top:1px solid var(--line);text-align:start}
+.toc h2{margin:0 0 4px;font:500 12px/1.2 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.toc ol{list-style:none;margin:0;padding:0;columns:2 9rem;column-gap:20px}
+.toc li{break-inside:avoid}
+.toc a{display:flex;align-items:center;min-height:40px;font-size:14.5px;line-height:1.3;text-decoration:none}
+.toc a:hover{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px}
+@media(min-width:1040px){
+  .textpage.has-toc{grid-template-columns:minmax(0,68ch) 220px;column-gap:clamp(48px,7vw,104px)}
+  .textpage.has-toc .tp-head{grid-column:1;grid-row:1}
+  .textpage.has-toc .tp-body{grid-column:1;grid-row:2}
+  .textpage.has-toc .toc{grid-column:2;grid-row:1/span 2;position:sticky;top:20px;margin:44px 0 0;padding:0;border:0}
+  .toc ol{columns:auto}
+  .toc a{min-height:0;padding:6px 0;padding-inline-start:14px;border-inline-start:2px solid var(--line);font-size:14px;color:var(--muted)}
+  .toc a:hover,.toc a:focus-visible{color:var(--fg);border-inline-start-color:var(--gold);text-decoration:none}
+}
+/* forms (tip, columnist): label, help text, control; one primary button */
+.form{max-width:36rem;margin:28px 0 12px}
+.form .plain{border:0;padding:0;margin:0;min-width:0}
+.field{display:flex;flex-direction:column;align-items:stretch;gap:6px;margin:0 0 20px;line-height:1.45}
+.field label{font-weight:600;font-size:15.5px}
+.field .opt{font-weight:400;font-size:14px;color:var(--muted)}
+.field .hint{margin-top:-2px;font-size:14px;color:var(--muted)}
+.field input,.field select,.field textarea{width:100%;min-height:44px;font:inherit;font-size:15.5px;color:var(--fg);background:var(--surface);border:1px solid var(--field-line);border-radius:var(--r-sm);padding:9px 12px}
+.field textarea{min-height:0;resize:vertical}
+.form-actions{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:10px 18px;margin:6px 0 0}
+.form-actions .meta{flex:1 1 15rem;margin:0;line-height:1.45}
+.tipform button{min-height:44px;padding:10px 22px;font-size:15.5px}
+.tipform button:disabled{opacity:.6;cursor:default;transform:none}
+/* changelog: one row per day */
+.cl{max-width:62rem;margin:8px 0 20px}
+.cl-day{display:grid;grid-template-columns:minmax(0,1fr);gap:6px;padding:18px 0 2px;border-top:1px solid var(--line-strong);content-visibility:auto;contain-intrinsic-size:auto 360px}
+.cl-date{margin:0;font:600 12.5px/1.6 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--fg)}
+.cl-date .tag{margin:0;font-family:var(--f-ui);letter-spacing:0;text-transform:none}
+.cl ul{list-style:none;margin:0;padding:0;max-width:68ch}
+.cl li{padding:0 0 14px}
+.cl li+li{padding-top:14px;border-top:1px solid var(--line)}
+.cl h3{margin:0 0 3px;font-size:20px;line-height:1.2}
+.cl li p{margin:0;font-size:15px;line-height:1.55;color:color-mix(in srgb,var(--fg) 88%,transparent)}
+@media(min-width:760px){.cl-day{grid-template-columns:10.5rem minmax(0,1fr);gap:28px}.cl-date{position:sticky;top:16px;align-self:start}}
+/* "#" link after each section heading (build.heading_links): shown on hover or focus, faintly always on touch screens. */
+.tp-body .hlink{margin-inline-start:.35em;text-decoration:none;color:inherit;opacity:0;font-weight:400}
+.tp-body h2:hover .hlink,.tp-body h3:hover .hlink,.tp-body .hlink:focus-visible{opacity:.55}
+@media (hover:none){.tp-body .hlink{opacity:.35}}
+/* /budget/: amounts stay in digit order on right-to-left pages; the total is the one large line */
+.textpage.budget table.budget caption{caption-side:top;text-align:start;font-weight:600;padding:0 0 8px}
+.textpage.budget table.budget .amt{text-align:end}
+.textpage.budget table.budget .num{direction:ltr;unicode-bidi:isolate;font-variant-numeric:tabular-nums;white-space:nowrap}
+.textpage.budget table.budget .meta{display:block;margin-top:2px;font-weight:400;white-space:normal}
+.textpage.budget table.budget tfoot th,.textpage.budget table.budget tfoot td{font-weight:700;border-top:2px solid var(--line-strong)}
+.textpage.budget .bud-total{font:700 28px/1.2 var(--f-display);margin:4px 0 16px}
+</style><div class="textpage has-toc api-docs"><div class="tp-head"><style>/* API docs page (/api/). Inlined by tools/api_feed.py. The page uses the text-page layout (textpage.css): the jump list beside
+   the text on wide screens. Code blocks scroll sideways inside themselves, so a phone never scrolls the page sideways. */
+.api-docs pre{max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;white-space:pre;padding:14px 16px;background:var(--band-deep);color:var(--band-ink);border:1px solid var(--line);border-inline-start:4px solid var(--gold);border-radius:var(--r-sm);font-size:13px;line-height:1.6}
+.api-docs code{font-size:.9em}
+.api-docs pre code{overflow-wrap:normal}
+.api-docs .tablewrap{margin:12px 0}
+.api-docs table.list{font-size:14px}
+.api-docs td:first-child{min-width:12rem}
+.api-docs td:first-child code{overflow-wrap:anywhere}
+.api-docs,.api-docs p,.api-docs li,.api-docs td,.api-docs th{text-align:start}
+/* Electrum servers table: the URL sits under the chain name, and on a phone only server, status and height are shown.
+   The Lightning table hides the implementation column on a phone the same way. */
+.api-docs #electrum-status code.url{display:inline-block;margin-top:2px;font-size:.8em;overflow-wrap:anywhere}
+@media (max-width:640px){.api-docs #electrum-status .wide,.api-docs #lightning-status .wide{display:none}.api-docs #electrum-status td:first-child,.api-docs #lightning-status td:first-child{min-width:0}}
+</style>
+<h1>API данных Nordic Crypto</h1>
+<p class="lead">Открытый JSON-фид сайта для приложений и других инструментов. Без аккаунта и без API-ключа. Он заново создаётся при каждой сборке сайта.</p>
+<p class="meta">Версия 1. В этой сборке: новостей — 57, выпусков рассылки — 2, событий — 13, докладов — 74. Создано 2026-10-13T05:37:29+00:00.</p>
+</div><nav class="toc" aria-labelledby="toc-h"><h2 id="toc-h">На этой странице</h2><ol><li><a href="#lightning">Узел Bitcoin Lightning</a></li><li><a href="#electrum">Серверы Electrum (BCH и Nexa)</a></li><li><a href="#start">С чего начать</a></li><li><a href="#fetch">Получить новости и рассылку</a></li><li><a href="#latest">Опрос новых материалов</a></li><li><a href="#markets">Рыночные цены</a></li><li><a href="#stats">Статистика посещений</a></li><li><a href="#talks">Доклады</a></li><li><a href="#outlets">Несколько изданий, одна новость</a></li><li><a href="#events">События</a></li><li><a href="#languages">Языки</a></li><li><a href="#logos">Логотипы источников</a></li><li><a href="#cors">CORS</a></li><li><a href="#editorial">Редакционная политика</a></li><li><a href="#brand">Аккаунты бренда</a></li><li><a href="#notifications">Уведомления в браузере</a></li><li><a href="#endpoints">Эндпоинты</a></li><li><a href="#not-included">Что не входит</a></li></ol></nav><div class="tp-body"><div class="prose">
+<h2 id="lightning">Узел Bitcoin Lightning<a class="hlink" href="#lightning" aria-label="Link to this section">#</a></h2>
+<p>Nordic Crypto поддерживает узел Bitcoin Lightning. Псевдоним — Nordic Crypto. Реализация — LND, в лёгком режиме Neutrino. Без аккаунта и без API-ключа.</p>
+<div class="tablewrap"><table class="list" id="lightning-status"><thead><tr><th>Узел</th><th>Статус</th><th class="wide">Реализация</th></tr></thead><tbody>
+<tr><td>Bitcoin<br>Nordic Crypto</td><td>синхронизация / каналы ещё не открыты</td><td class="wide">LND (лёгкий режим Neutrino)</td></tr>
+</tbody></table></div>
+<p class="meta">Строка статуса записана на этой статической странице и сама не обновляется. Состояние в реальном времени: <a href="https://amboss.space/node/0225974bb701101a5d4352dcae0f76aa9c1388e482a666e892f462e0e0e4217dd9" rel="noopener">Amboss</a> и <a href="https://1ml.com/node/0225974bb701101a5d4352dcae0f76aa9c1388e482a666e892f462e0e0e4217dd9" rel="noopener">1ML</a>.</p>
+<p>URI узла. Скопируйте строку. Первая строка — IPv4. Вторая — тот же узел по IPv6, <code>[2a01:4f8:c01e:36d9::1]:9735</code>.</p>
+<!-- The @ in the IPv4 node URI is &#64; in the file. The privacy gate would otherwise read pubkey@host as an email address. The page shows @, and copying the line includes it. -->
+<pre>0225974bb701101a5d4352dcae0f76aa9c1388e482a666e892f462e0e0e4217dd9&#64;91.99.122.75:9735
+0225974bb701101a5d4352dcae0f76aa9c1388e482a666e892f462e0e0e4217dd9@[2a01:4f8:c01e:36d9::1]:9735</pre>
+<p>Публичный ключ.</p>
+<pre>0225974bb701101a5d4352dcae0f76aa9c1388e482a666e892f462e0e0e4217dd9</pre>
+<p>Адрес для пополнения в цепочке.</p>
+<pre>bc1p7zgqhev2zzn45mefzq59gq983379lr0rsymhl558rza9k05y7vsq9mglx7</pre>
+<h2 id="electrum">Серверы Electrum (BCH и Nexa)<a class="hlink" href="#electrum" aria-label="Link to this section">#</a></h2>
+<p>Nordic Crypto поддерживает серверы Electrum на базе <a href="https://nexa.gitlab.io/rostrum/" rel="noopener">Rostrum</a> для Bitcoin Cash и Nexa. Кошельки и приложения могут получать с них балансы, транзакции, UTXO, токены и последний блок, а также отправлять транзакции в сеть. Без аккаунта и без API-ключа.</p>
+<div class="tablewrap"><table class="list" id="electrum-status" aria-live="polite" data-checking="Проверка…" data-up="Работает" data-down="Недоступен" data-timeout="Нет ответа за {s} с" data-closed="Соединение закрыто" data-error="Ошибка" data-notip="нет блока"><thead><tr><th>Сервер</th><th>Статус</th><th>Высота блока</th><th class="wide">Отклик</th><th class="wide">Версия</th></tr></thead><tbody>
+<tr data-url="wss://electrum-bch.nordiccrypto.no:50004"><td>Bitcoin Cash<br><code class="url">wss://electrum-bch.nordiccrypto.no:50004</code></td><td data-f="state">–</td><td data-f="height">–</td><td data-f="ms" class="wide">–</td><td data-f="version" class="wide">–</td></tr>
+<tr data-url="wss://electrum-nexa.nordiccrypto.no:20004"><td>Nexa<br><code class="url">wss://electrum-nexa.nordiccrypto.no:20004</code></td><td data-f="state">–</td><td data-f="height">–</td><td data-f="ms" class="wide">–</td><td data-f="version" class="wide">–</td></tr>
+</tbody></table></div>
+<p class="meta">При открытии страницы ваш браузер запрашивает у каждого сервера версию и последний блок. Отклик — время запроса последнего блока. <button type="button" id="electrum-recheck" hidden>Проверить снова</button></p>
+<script>/* API page: asks each Rostrum server for its version and chain tip over
+   WebSocket, and shows the answer with the round-trip time. Runs in the
+   reader's browser, so a row shows what that reader can reach. No cookies. */
+(function () {
+  var TIMEOUT_MS = 8000;
+  var table = document.getElementById("electrum-status");
+  if (!table || !("WebSocket" in window)) return;
+  var button = document.getElementById("electrum-recheck");
+  // status words come from the page language (data-checking / data-up / data-down on the table)
+  var L = { checking: table.getAttribute("data-checking") || "Checking…", up: table.getAttribute("data-up") || "Up", down: table.getAttribute("data-down") || "Down",
+    timeout: table.getAttribute("data-timeout") || "No answer in {s} s", closed: table.getAttribute("data-closed") || "Closed",
+    error: table.getAttribute("data-error") || "Error", notip: table.getAttribute("data-notip") || "no tip" };
+
+  function cell(row, name, text, cls) {
+    var td = row.querySelector('[data-f="' + name + '"]');
+    td.textContent = text;
+    td.classList.remove("ok", "bad");
+    if (cls) td.classList.add(cls);
+  }
+
+  function check(row) {
+    var url = row.getAttribute("data-url");
+    var pending = {};
+    var nextId = 1;
+    var done = false;
+    var ws;
+
+    cell(row, "state", L.checking);
+    cell(row, "height", "–");
+    cell(row, "version", "–");
+    cell(row, "ms", "–");
+
+    function finish(ok, message) {
+      if (done) return;
+      done = true;
+      clearTimeout(timer);
+      if (!ok) cell(row, "state", message || L.down, "bad");
+      try { ws.close(); } catch (e) { /* already closed */ }
+    }
+
+    function call(method, params) {
+      var id = nextId++;
+      return new Promise(function (resolve, reject) {
+        pending[id] = { resolve: resolve, reject: reject };
+        ws.send(JSON.stringify({ jsonrpc: "2.0", id: id, method: method, params: params }));
+      });
+    }
+
+    var timer = setTimeout(function () { finish(false, L.timeout.replace("{s}", TIMEOUT_MS / 1000)); }, TIMEOUT_MS);
+    try {
+      ws = new WebSocket(url);
+    } catch (e) {
+      finish(false, L.down);
+      return;
+    }
+    ws.onerror = function () { finish(false, L.down); };
+    ws.onclose = function () { finish(false, L.closed); };
+    ws.onmessage = function (event) {
+      var msg;
+      try { msg = JSON.parse(event.data); } catch (e) { return; }
+      var p = pending[msg.id];
+      if (!p) return;
+      delete pending[msg.id];
+      if (msg.error) p.reject(msg.error); else p.resolve(msg.result);
+    };
+    ws.onopen = function () {
+      call("server.version", ["nordiccrypto.no api page", "1.4"]).then(function (version) {
+        cell(row, "version", Array.isArray(version) ? version[0] + " (protocol " + version[1] + ")" : String(version));
+        var t0 = performance.now();
+        return call("blockchain.headers.subscribe", []).then(function (tip) {
+          cell(row, "ms", Math.round(performance.now() - t0) + " ms");
+          cell(row, "height", tip && tip.height != null ? Number(tip.height).toLocaleString("en") : "?");
+          cell(row, "state", L.up, "ok");
+          finish(true);
+        });
+      }).catch(function (err) {
+        finish(false, L.error + ": " + (err && err.message ? err.message : L.notip));
+      });
+    };
+  }
+
+  function checkAll() {
+    [].forEach.call(table.querySelectorAll("tr[data-url]"), check);
+  }
+
+  if (button) {
+    button.hidden = false;
+    button.addEventListener("click", checkAll);
+  }
+  checkAll();
+})();
+</script>
+<p>Они работают по протоколу Electrum (JSON-RPC) на стандартных портах: WebSocket с TLS (<code>wss</code>) — 20004 для Nexa и 50004 для Bitcoin Cash; TLS поверх TCP — 20002 для Nexa и 50002 для Bitcoin Cash. Незашифрованных портов нет. В клиентской библиотеке укажите хост, порт и схему (<code>wss</code> или <code>tcp_tls</code>). Методы перечислены в <a href="https://nexa.gitlab.io/rostrum/protocol/methods" rel="noopener">документации протокола Rostrum</a>.</p>
+<pre>websocat wss://electrum-bch.nordiccrypto.no:50004
+{"id":1,"method":"blockchain.headers.subscribe","params":[]}</pre>
+<p>Серверы работают на собственных полных узлах (Bitcoin Cash Node и Nexa), поэтому их ответы не зависят от третьих лиц. Клиент, который не выполняет SPV-проверок, всё же доверяет нам в том, что содержит цепочка. Гарантии доступности нет. Держите в списке второй сервер и переключайтесь, если один не отвечает в течение нескольких секунд.</p>
+<h2 id="start">С чего начать<a class="hlink" href="#start" aria-label="Link to this section">#</a></h2>
+<ul>
+<li><a href="https://nordiccrypto.no/api/v1/index.json">Каталог</a> — все эндпоинты и примеры URL.</li>
+<li><a href="https://nordiccrypto.no/api/v1/openapi.json">OpenAPI</a> (также в формате <a href="https://nordiccrypto.no/api/v1/openapi.yaml">YAML</a>).</li>
+<li><a href="https://nordiccrypto.no/llms.txt">llms.txt</a> — инструкции простым языком.</li>
+<li><a href="https://nordiccrypto.no/.well-known/api-catalog">Каталог API</a> (linkset по RFC 9727; <a href="https://nordiccrypto.no/.well-known/api-catalog.json">копия в .json</a>).</li>
+</ul>
+<h2 id="fetch">Получить новости и рассылку<a class="hlink" href="#fetch" aria-label="Link to this section">#</a></h2>
+<pre>curl -fsS https://nordiccrypto.no/api/v1/news.json
+curl -fsS https://nordiccrypto.no/api/v1/newsletters.json
+curl -fsS https://nordiccrypto.no/api/v1/newsletters/002.json</pre>
+<p>Абсолютные URL указывают на публичный сайт, от корня домена: <code>https://nordiccrypto.no/api/v1/news.json</code>.</p>
+<h2 id="latest">Опрос новых материалов<a class="hlink" href="#latest" aria-label="Link to this section">#</a></h2>
+<p><a href="https://nordiccrypto.no/api/v1/news/latest.json"><code>/api/v1/news/latest.json</code></a> содержит 25 самых новых опубликованных материалов, только с полями <code>id</code>, <code>published</code>, <code>country</code>, <code>source</code>, <code>source_name</code>, <code>language_code</code>, <code>own_story</code>, заголовками (<code>title</code>, <code>title_en</code>, <code>title_i18n</code>) и ссылками (<code>url</code>, <code>html_url</code>, <code>api_url</code>). Значения те же, что в <code>news.json</code>, в том же порядке (сначала новые). Файл остаётся небольшим, как бы ни рос архив, поэтому приложение или push-сервер может опрашивать его каждые несколько минут. Отправьте <code>If-None-Match</code> с последним <code>ETag</code>; GitHub Pages отвечает <code>304 Not Modified</code>, пока файл не изменился. Сравнивайте id с уже виденными; <code>generated_at</code> меняется при каждой сборке.</p>
+<pre>curl -fsS https://nordiccrypto.no/api/v1/news/latest.json</pre>
+<h2 id="markets">Рыночные цены<a class="hlink" href="#markets" aria-label="Link to this section">#</a></h2>
+<p>Цены северных бирж — это рыночные данные, а не инвестиционная рекомендация. <a href="https://nordiccrypto.no/api/v1/markets.json"><code>/api/v1/markets.json</code></a> перечисляет каждую пару: символ, базовую валюту и валюту котировки, последнюю цену, bid и ask (если биржа их публикует), id, название и страну биржи, <code>fetched_at</code>, URL источника и объём (если биржа его публикует). <code>volume_base</code> — объём в базовом активе без указанного периода (Firi). <code>volume_base_24h</code> и <code>volume_quote_24h</code> — за последние 24 часа (NBX). Отсутствующий объём равен null, а не нулю. Валюты котировки: NOK, SEK, DKK и EUR. Одна биржа: <a href="https://nordiccrypto.no/api/v1/markets/firi.json"><code>/api/v1/markets/{exchange}.json</code></a> (<code>firi</code>, <code>nbx</code>, <code>coinmotion</code>). Один актив: <a href="https://nordiccrypto.no/api/v1/markets/by-asset/BTC.json"><code>/api/v1/markets/by-asset/{symbol}.json</code></a>. Площадки без публичного тикера перечислены в <code>skipped</code>, и выдуманная цена для них не указывается.</p>
+<p><a href="https://nordiccrypto.no/api/v1/markets/aggregated.json"><code>/api/v1/markets/aggregated.json</code></a> содержит одну строку на пару. BTC-NOK не усредняется с BTC-EUR. <code>last</code> — среднее арифметическое опубликованных последних цен. <code>mid</code> — среднее значение (bid+ask)/2, оно не смешивается с <code>last</code>. <code>price</code> равно <code>last</code>, если есть хоть одна последняя цена, иначе <code>mid</code>. <code>min</code> и <code>max</code> берутся из того же ряда. VWAP нет. Объём суммируется только в пределах одного поля и одной пары. <code>logo_url</code> — SVG из набора <a href="https://github.com/spothq/cryptocurrency-icons" rel="noopener">cryptocurrency-icons</a> (CC0 1.0), если актив в нём есть; отдаётся по адресу <code>/api/v1/markets/logos/{symbol}.svg</code>, иначе null. Файл по активу повторяет <code>aggregated</code> и логотип.</p>
+<p>Сборка запрашивает данные у бирж. <code>.github/workflows/markets-refresh.yml</code> перезаписывает JSON в gh-pages примерно раз в час, включая агрегированный файл и иконки. Страница рынков перезагружает этот файл и обновляет Firi и Coinmotion прямо в браузере, поскольку их API отправляют <code>Access-Control-Allow-Origin: *</code>. NBX этого не делает, поэтому её строки берутся из файла. Тот же документ в ветке gh-pages: <a href="https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json">raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json</a>.</p>
+<pre>curl -fsS https://nordiccrypto.no/api/v1/markets.json
+curl -fsS https://nordiccrypto.no/api/v1/markets/aggregated.json</pre>
+<h2 id="stats">Статистика посещений<a class="hlink" href="#stats" aria-label="Link to this section">#</a></h2>
+<p>Суммарные визиты и просмотры страниц из Cloudflare Web Analytics (без cookie). <a href="https://nordiccrypto.no/api/v1/stats.json"><code>/api/v1/stats.json</code></a> содержит строки <code>daily</code>, <code>weekly</code> (ISO) и <code>monthly</code> только с <code>visits</code> и <code>pageviews</code>. Дни считаются по UTC. Файл пуст, пока не настроены сайт Web Analytics и токен обновления. <code>.github/workflows/stats-refresh.yml</code> перезаписывает его в gh-pages примерно раз в сутки.</p>
+<pre>curl -fsS https://nordiccrypto.no/api/v1/stats.json</pre>
+<h2 id="talks">Доклады<a class="hlink" href="#talks" aria-label="Link to this section">#</a></h2>
+<p>Публичные доклады о биткоине, криптовалютах и блокчейне, прочитанные в Норвегии, Швеции, Дании, Финляндии, Исландии, на Фарерских островах, в Гренландии и на Аландских островах, находятся в <a href="https://nordiccrypto.no/api/v1/talks.json"><code>/api/v1/talks.json</code></a>, от новых к старым. Один доклад: <code>/api/v1/talks/{id}.json</code>. Одна страна: <a href="https://nordiccrypto.no/api/v1/talks/by-country/NO.json"><code>/api/v1/talks/by-country/{country}.json</code></a> (<code>NO</code>, <code>SE</code>, <code>DK</code>, <code>FI</code>, <code>IS</code>, <code>FO</code>, <code>GL</code>, <code>AX</code>). <code>description</code> написано нами. <code>title</code>, даты, длительность, канал и докладчики берутся с платформы по адресу <code>source_url</code>. Поле, которое платформа не указала, равно null. <code>embed</code> равно true, только если ответ oEmbed платформы содержит плеер. HTML-страница загружает плеер только после клика: YouTube через youtube-nocookie.com, Vimeo через player.vimeo.com. <code>event_id</code> и <code>calendar_event_id</code> — один и тот же id события, если доклад к нему привязан. Это событие находится в <code>/api/v1/events/{id}.json</code> (и в <code>/api/v1/events/previous.json</code>, если оно уже прошло), а его страница — <code>/calendar/{id}/</code>. <code>talk_ids</code> у события перечисляет эти доклады. <code>unlink_reason</code> заполняется, если на странице видео не указаны день или место; тогда <code>event_id</code> равно null. <code>speaker_ids</code> — id из раздела «Кто есть кто» в том же порядке, что и <code>speakers</code>. Карточка человека по адресу <code>/api/v1/orgchart/{id}.json</code> перечисляет эти доклады и любую аффилиацию, указанную на странице доклада.</p>
+<h2 id="outlets">Несколько изданий, одна новость<a class="hlink" href="#outlets" aria-label="Link to this section">#</a></h2>
+<p>У новости одно основное издание. Другие издания, написавшие о том же событии, указаны в <code>also_covered_by</code>. <code>sources</code> перечисляет сначала основное издание, затем остальные. У каждого издания есть <code>outlet</code>, <code>outlet_name</code>, <code>url</code>, <code>title</code> (заголовок этого издания), <code>published</code>, <code>lang</code>, <code>country</code>, <code>source_type</code> и <code>logo</code>. <code>source_type</code> принимает значения <code>national</code>, <code>regional</code> (региональные и местные), <code>official</code> (правосудие и госорганы: полиция, прокуратура, суды, регуляторы) или <code>international</code>. <code>coverage.count</code> — число изданий. <code>coverage.by_country</code> и <code>coverage.by_source_type</code> — количества и доли для диаграмм. Каждый тип источника присутствует, даже с нулевым количеством. <code>html_url</code> — наша страница этой новости. <code>url</code> — основное издание. Kaupr остаётся только источником новостей.</p>
+<h2 id="events">События<a class="hlink" href="#events" aria-label="Link to this section">#</a></h2>
+<p>Предстоящие и прошедшие события находятся в <a href="https://nordiccrypto.no/api/v1/events.json"><code>/api/v1/events.json</code></a>. Календари Luma берутся из публичного iCal-адреса подписки каждого источника событий (<code>ics</code>). Страницы городов, страницы категорий и discover API Luma не используются. Отдельная страница события Luma читается как JSON-LD schema.org. Организаторы и площадки Eventbrite читаются через API v3, если на сервере есть <code>EVENTBRITE_TOKEN</code>. Этого токена нет ни в фиде, ни в репозитории. Без него используется JSON-LD страницы события. Одинаковые название, дата и место — это одно событие. Завершившиеся события остаются в фиде. <code>description.text</code> — собственный текст организатора, <code>description.lang</code> — язык этого текста, а <code>description.source_url</code> — страница, откуда он взят. <code>description.i18n</code> содержит перевод, если он у нас есть. Поле равно null, если у источника не было описания. Объявления хищнических конференций источником не служат. Kaupr никогда не бывает спонсором.</p>
+<h2 id="languages">Языки<a class="hlink" href="#languages" aria-label="Link to this section">#</a></h2>
+<p>Английский — поле по умолчанию (<code>summary</code>, <code>title</code>, <code>text</code>). Опубликованные нами переводы лежат в <code>summary_i18n</code>, <code>title_i18n</code>, <code>subtitle_i18n</code>, <code>note_i18n</code>, <code>text_i18n</code> и <code>about_i18n</code> с ключами <code>nn</code>, <code>nb</code>, <code>sv</code>, <code>da</code>, <code>fi</code> и <code>is</code>. Остальные языки сайта используют английское поле, пока не опубликован перевод. В новости <code>title</code> остаётся заголовком источника, <code>title_en</code> — наш заголовок на английском, а <code>title_i18n</code> — наш заголовок на северных языках сайта. Страницы показывают сначала заголовок на языке страницы, а под ним — заголовок источника, если они различаются. Собственный заголовок каждого издания в <code>sources</code> остаётся на языке этого издания. Даты — в формате ISO 8601.</p>
+<p><a href="https://nordiccrypto.no/api/v1/languages.json"><code>/api/v1/languages.json</code></a> перечисляет все языки сайта с полями <code>code</code>, <code>native_name</code>, <code>english_name</code>, <code>rtl</code>, <code>html_lang</code> и <code>home</code>. <a href="https://nordiccrypto.no/api/v1/geo-language.json"><code>/api/v1/geo-language.json</code></a> — соответствие «страна → язык», используемое при первом посещении. Страна по IP приходит от tipworker <code>GET /api/geo</code> (Cloudflare <code>request.cf.country</code>). Ничего не сохраняется. Cookie <code>nc_lang</code>, которую устанавливает переключатель языка, всегда имеет приоритет.</p>
+<h2 id="logos">Логотипы источников<a class="hlink" href="#logos" aria-label="Link to this section">#</a></h2>
+<p>У каждого издания в <a href="https://nordiccrypto.no/api/v1/sources.json"><code>/api/v1/sources.json</code></a> есть <code>logo_url</code> (абсолютный URL PNG или WebP, никогда не SVG, либо <code>null</code>) и <code>logo</code> (<code>kind</code>, <code>file_url</code> (оригинал, SVG или WebP), <code>raster_url</code> (то же, что <code>logo_url</code>), <code>source_url</code>, <code>author</code>, <code>license</code>, <code>license_url</code>, <code>credit</code>, либо <code>null</code>). У каждой новости есть <code>source_logo_url</code>, чтобы приложение могло показать логотип издания рядом с заголовком. Логотипы взяты из Wikimedia Commons (с лицензией) или с сайта самого издателя. Это товарные знаки издателей; они показываются только для указания источника заголовка. Логотип остаётся <code>null</code>, пока редактор его не проверит.</p>
+<h2 id="cors">CORS<a class="hlink" href="#cors" aria-label="Link to this section">#</a></h2>
+<p>GitHub Pages отдаёт эти файлы с заголовком <code>Access-Control-Allow-Origin: *</code>, поэтому страница на другом сайте может получить их через <code>fetch()</code>. GitHub Pages не применяет пользовательский файл заголовков. Используйте имя файла с <code>.json</code>: при открытии каталога JSON не возвращается.</p>
+<h2 id="editorial">Редакционная политика<a class="hlink" href="#editorial" aria-label="Link to this section">#</a></h2>
+<p>Подпись — The Nordic Crypto team. Kaupr (kaupr.io) — только источник новостей и никогда не спонсор. Ничто здесь не является инвестиционной рекомендацией.</p>
+<h2 id="brand">Аккаунты бренда<a class="hlink" href="#brand" aria-label="Link to this section">#</a></h2>
+<p><code>ios</code> в <a href="https://nordiccrypto.no/api/v1/meta.json"><code>/api/v1/meta.json</code></a> — публичное приглашение TestFlight в iOS-приложение Nordic Crypto. В App Store его нет. <code>apple_tv</code> сообщает, что версия в TestFlight особенно поддерживает Apple TV. <code>apple_tv_i18n</code> содержит эту короткую фразу на всех языках сайта. Название бренда всегда Nordic Crypto.</p>
+<p><a href="https://nordiccrypto.no/api/v1/meta.json"><code>/api/v1/meta.json</code></a> содержит <code>social</code> для iOS-приложения. <code>social.telegram</code> — чат Nordic Crypto по адресу <a href="https://t.me/nordiccryptochat">https://t.me/nordiccryptochat</a>. <code>social.x</code> — аккаунт бренда по адресу <a href="https://x.com/nordiccryptobot">https://x.com/nordiccryptobot</a> (<code>@nordiccryptobot</code>), он также указан как <code>urls.x</code>. <code>urls.telegram</code> повторяет URL чата. <code>urls.rss</code> — английская лента новостей по адресу <a href="https://nordiccrypto.no/rss.xml"><code>/rss.xml</code></a>. У главной страницы каждого языка есть свой <code>rss.xml</code>. <code>urls.newsletter</code> — страница подписки на этом сайте. <code>label</code> — короткое название (<code>Telegram</code>, <code>X</code>). <code>name</code> — текст ссылки на английском. <code>name_i18n</code> содержит <code>nn</code>, <code>nb</code>, <code>sv</code>, <code>da</code>, <code>fi</code> и <code>is</code>. Остальные языки сайта используют <code>name</code>.</p>
+<h2 id="notifications">Уведомления в браузере<a class="hlink" href="#notifications" aria-label="Link to this section">#</a></h2>
+<p>Когда в <code>workers/push/public.json</code> указан URL Worker, кнопка внизу каждой страницы включает Web Push. До тех пор страница сообщает, что сервис не включён, и не обращается ни к какому Worker. Подписки хранятся в Cloudflare Worker, а не в этом статическом фиде. После публикации <code>GET /api/push/feed.json</code> на этом Worker перечисляет те же пакеты (заголовок, краткое описание, URL, страна и переводы, если они есть). Одна публикация — один пакет. В документе указано <code>"apns": "not implemented"</code>: Apple Push Notification service не поддерживается. iOS-приложение может периодически опрашивать фид. URL Worker задаётся при развёртывании <code>workers/push/</code>; это не путь на этом сайте. Подписок в фиде нет. <a href="https://nordiccrypto.no/api/v1/news.json"><code>/api/v1/news.json</code></a> этого API остаётся полным списком опубликованных новостей.</p>
+<h2 id="endpoints">Эндпоинты<a class="hlink" href="#endpoints" aria-label="Link to this section">#</a></h2>
+<p>Каждый эндпоинт — простой GET-запрос статического JSON-файла.</p>
+<div class="tablewrap"><table class="list"><thead><tr><th>Путь</th><th>Возвращает</th></tr></thead><tbody>
+<tr><td><a href="https://nordiccrypto.no/api/v1/index.json"><code>/api/v1/index.json</code></a></td><td>Discovery document: every endpoint, with example URLs.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/news.json"><code>/api/v1/news.json</code></a></td><td>Published news and our own stories, newest first.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/news/latest.json"><code>/api/v1/news/latest.json</code></a></td><td>The 25 newest published stories with id, published, country, source and headlines only. For apps and notifiers that poll often; news.json is the full list.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/news/by-country/{country}.json"><code>/api/v1/news/by-country/{country}.json</code></a></td><td>Published news for one country code: NO, SE, DK, FI, IS, NORDIC or EU.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/news/topics.json"><code>/api/v1/news/topics.json</code></a></td><td>Topic ids present in the published news, with counts.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/newsletters.json"><code>/api/v1/newsletters.json</code></a></td><td>Published newsletter issues, newest first. The list omits the HTML body; the issue URL includes text and html.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/events.json"><code>/api/v1/events.json</code></a></td><td>Public events, soonest start first, including past events.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/events/upcoming.json"><code>/api/v1/events/upcoming.json</code></a></td><td>Events that have not ended, soonest first. Judged in the event&#x27;s own offset.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/events/past.json"><code>/api/v1/events/past.json</code></a></td><td>Finished public events, newest first. Finished events stay in the archive.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/events/previous.json"><code>/api/v1/events/previous.json</code></a></td><td>Previous events, newest finish first. Finished calendar events plus backfilled public events (source backfill). Backfill is not on the calendar or in upcoming or past.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/events/by-country/{country}.json"><code>/api/v1/events/by-country/{country}.json</code></a></td><td>Public events for one country code.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/talks.json"><code>/api/v1/talks.json</code></a></td><td>Public talks on bitcoin, cryptocurrencies and blockchain in the Nordic countries, newest first. A player is embedded on the site only when embed is true (YouTube via youtube-nocookie.com, or the Vimeo player). Unknown fields are null. description is ours; title and the other details come from the platform.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/talks/by-country/{country}.json"><code>/api/v1/talks/by-country/{country}.json</code></a></td><td>Public talks for one country code: NO, SE, DK, FI, IS, FO (Faroe Islands), GL (Greenland) or AX (Åland).</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/sources.json"><code>/api/v1/sources.json</code></a></td><td>News outlets, justice-system press pages, the public search terms, and event sources. coverage is national, regional, local or justice. region is the place. feed is null when no working RSS, sitemap or index page was verified. method is rss, html, sitemap, search or manual. Event sources name the intake method. Luma calendars use a public iCal subscribe URL. Eventbrite organizers and venues use the v3 API when the server has EVENTBRITE_TOKEN; the token is not in this feed. Without it, event pages are schema.org JSON-LD. icon_url is a public icon from the outlet when one was easy to find. logo_source is the URL the stored logo was fetched from. logo is the checked outlet image for that source id when one is on file, used only to identify the source. Kaupr is marked as a news source only and is never an event sponsor.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/academia.json"><code>/api/v1/academia.json</code></a></td><td>Editor-approved courses, student groups, publications and research.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/academia/courses.json"><code>/api/v1/academia/courses.json</code></a></td><td>Academia section: courses.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/academia/groups.json"><code>/api/v1/academia/groups.json</code></a></td><td>Academia section: groups.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/academia/publications.json"><code>/api/v1/academia/publications.json</code></a></td><td>Academia section: publications.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/academia/research.json"><code>/api/v1/academia/research.json</code></a></td><td>Academia section: research.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/academia/{id}.json"><code>/api/v1/academia/{id}.json</code></a></td><td>One academia row. The id is in academia.json.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/books.json"><code>/api/v1/books.json</code></a></td><td>Published books on bitcoin, crypto and blockchain by Nordic authors or about the Nordic countries. title is the original title. authors are as printed; author_role is &quot;editors&quot; for an edited volume. language is a code (nn, nb, sv, da, fi, en). source is the library catalogue or publisher page where the row was checked. about is our one-line description in English. No cover images.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/developers.json"><code>/api/v1/developers.json</code></a></td><td>Open-source developers: technical people in Nordic crypto with public crypto-related code (an own non-fork crypto repo, or merged commits or pull requests in a public crypto project). name is as shown on the code profile. profiles are the GitHub/GitLab/Codeberg/sourcehut profile links. notable has up to three items: kind &quot;repo&quot; (own repo: name, url, stars, language, description, last_push) or kind &quot;contrib&quot; (project, host, url, commits, merged_prs). Stars and counts are from the date in checked. nordic_source is where the Nordic link is shown. whoswho_id links the who&#x27;s who entry. Only rows the editor approved; a preview build also has pending rows (status &quot;pending&quot;).</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/orgchart.json"><code>/api/v1/orgchart.json</code></a></td><td>Published who&#x27;s who: organisations, people, relations, regulation notes and caveats. A person named on a talk has talk_ids, event_ids and talks. affiliations lists the organisation the talk page stated for that talk, with the talk date when the page gave one, the source URL and the retrieval time. An affiliation the page did not state is omitted.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/orgchart/relations.json"><code>/api/v1/orgchart/relations.json</code></a></td><td>Relations between published who&#x27;s who entries.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/orgchart/regulation.json"><code>/api/v1/orgchart/regulation.json</code></a></td><td>Short regulation status for each Nordic country, as on the who&#x27;s who page.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/orgchart/relations/{id}.json"><code>/api/v1/orgchart/relations/{id}.json</code></a></td><td>One relation from the who&#x27;s who.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/profiles.json"><code>/api/v1/profiles.json</code></a></td><td>Public profile links (Wikipedia, X, Wikidata and similar) for people and organisations.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/images.json"><code>/api/v1/images.json</code></a></td><td>Logos and photos used on the public who&#x27;s who, with licence and credit. These are not newspaper photographs.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/illustrations.json"><code>/api/v1/illustrations.json</code></a></td><td>Pictures used on story cards and story pages. Each record has source, author, license and url. No photograph from another newspaper is included. Outlet logos are in images.json and on each news item as source_logo.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/changelog.json"><code>/api/v1/changelog.json</code></a></td><td>Site changelog (product changes, not the news), newest first.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/rules.json"><code>/api/v1/rules.json</code></a></td><td>How EU crypto rules become law in the five countries. Simplified, not legal advice. Omitted while the page is still a placeholder.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/archive/articles.json"><code>/api/v1/archive/articles.json</code></a></td><td>Append-only archive of stories that have been on the public site. removed is  true when a story later left the site; the row stays.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/stats.json"><code>/api/v1/stats.json</code></a></td><td>Aggregate visitor counts from Cloudflare Web Analytics (no cookies): visits and page views per UTC day, ISO week and calendar month. updated_at is null and the lists are empty until the Web Analytics site and the refresh token are configured.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/markets.json"><code>/api/v1/markets.json</code></a></td><td>Nordic exchange prices. Market data, not investment advice. Each ticker names the exchange, fetched_at, the source URL and volume when the exchange published it. NOK, SEK, DKK and EUR only. aggregated is one row per pair.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/markets/aggregated.json"><code>/api/v1/markets/aggregated.json</code></a></td><td>One price per base-quote pair. BTC-NOK is separate from BTC-EUR. last is the mean of published last prices. mid is the mean of bid/ask midpoints and is not blended into last. Volume is summed only within the same field and the same pair. logo_url is a CC0 icon when cryptocurrency-icons includes the asset, otherwise null.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/markets/{exchange}.json"><code>/api/v1/markets/{exchange}.json</code></a></td><td>Prices from one included exchange: firi (Norway), nbx (Norway) or coinmotion (Finland).</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/markets/by-asset/{symbol}.json"><code>/api/v1/markets/by-asset/{symbol}.json</code></a></td><td>Prices for one asset (the base symbol, such as BTC) on every included Nordic exchange, plus aggregated pairs for each quote currency and logo_url when an icon is available.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/languages.json"><code>/api/v1/languages.json</code></a></td><td>Site UI languages: code, native name, English name, rtl, html lang and home URL.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/geo-language.json"><code>/api/v1/geo-language.json</code></a></td><td>Country to default site language. An IP guess only; the nc_lang cookie from the language switcher wins.</td></tr>
+<tr><td><a href="https://nordiccrypto.no/api/v1/meta.json"><code>/api/v1/meta.json</code></a></td><td>Site name, languages, countries, page list, CORS, editorial notes and brand social accounts (social.telegram, social.x).</td></tr>
+</tbody></table></div>
+<h2 id="not-included">Что не входит<a class="hlink" href="#not-included" aria-label="Link to this section">#</a></h2>
+<p>Черновики, редакционная очередь, отклонённые новости, сообщения читателей, адреса подписчиков рассылки, токен аналитики и частные персональные данные в этот фид не входят. Неизвестный id возвращает обычную страницу 404 сайта, а не ошибку в JSON.</p>
+<p class="meta">Имена полей версии 1 не меняются. Могут появляться новые поля. Несовместимое изменение получит новый путь.</p>
+</div></div></div>
+
+</main>
+<footer><div class="wrap"><div class="foot-grid"><div class="foot-brand"><a class="brand footbrand" href="../../ru/"><img class="brandmark" src="../../assets/brand/shield-band.svg" width="34" height="40" alt=""><span>Nordic <span class="w">Crypto</span></span></a><p>Новости о биткойне, блокчейне и крипто из северных стран</p></div><nav class="foot-col" aria-labelledby="ft-sec"><h2 id="ft-sec">Разделы</h2><ul><li><a href="../../ru/">Новости</a></li><li><a href="../../ru/calendar/">Календарь</a></li><li><a href="../../ru/markets/">Рынки</a></li><li><a href="../../ru/org-chart/">Кто есть кто</a></li><li><a href="../../ru/academia/">Наука</a></li><li><a href="../../ru/books/">Книги</a></li><li><a href="../../ru/talks/">Доклады</a></li><li><a href="../../ru/developers/">Разработчики</a></li></ul></nav><nav class="foot-col" aria-labelledby="ft-site"><h2 id="ft-site">О сайте</h2><ul><li><a href="../../ru/about/">О проекте</a></li><li><a href="../../ru/sources/">Источники</a></li><li><a href="../../ru/ethics/">Редакционная этика</a></li><li><a href="../../ru/budget/">Бюджет</a></li><li><a href="../../ru/changelog/">Список изменений</a></li><li><a href="../../ru/stats/">Статистика посещений</a></li><li><a href="../../ru/privacy/">Политика конфиденциальности и данных</a></li><li><a href="../../ru/media/">Логотип и медиакит</a></li><li><a href="../../ru/columnist/">Стать колумнистом</a></li><li><a href="../../ru/tip/">Прислать наводку</a></li><li><a href="../../ru/api/">API данных</a></li><li><a href="https://github.com/jQrgen/nordic-crypto" rel="noopener">Исходный код</a></li><li><a href="https://github.com/jQrgen/nordic-crypto/graphs/contributors" rel="noopener">Участники</a></li></ul></nav><div class="foot-col"><h2>Подписаться</h2><ul><li><a href="../../ru/newsletter/">Рассылка</a></li><li><a href="https://t.me/nordiccryptochat" rel="noopener">Telegram</a></li><li><a href="https://x.com/nordiccryptobot" rel="noopener">X</a></li><li><a href="../../ru/rss.xml">RSS</a></li><li><a href="https://testflight.apple.com/join/nQ2fpjZn" rel="noopener">Получить приложение для iOS (TestFlight)</a> <span class="meta">Особенно поддерживает Apple TV.</span></li><li><a href="../../screen/">Режим офисного экрана</a></li></ul></div></div><p class="colophon">Nordic Crypto освещает Норвегию, Швецию, Данию, Финляндию и Исландию. Издание ведёт Jørgen S. Notland (jQrgen), Осло. Создаётся с помощью искусственного интеллекта, редакторы – люди (jQrgen и редактор Nordic Crypto). Не является инвестиционной рекомендацией. Cloudflare Web Analytics считает посещения в совокупности, без файлов cookie, и мы не продаём эти данные. Один файл cookie – только если вы выбираете язык. <a href="../../ru/about/">О проекте, конфиденциальность, исправления и удаление</a>.</p></div></footer>
+<script>(function(){function setLang(c){if(!c)return;document.cookie='nc_lang='+c+';path=/;max-age=31536000;SameSite=Lax'+(location.protocol==='https:'?';Secure':'');try{localStorage.setItem('nc_lang',c)}catch(err){}}document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[data-lang]');if(a)setLang(a.getAttribute('data-lang'))});document.addEventListener('change',function(e){var s=e.target;if(!s||!s.matches||!s.matches('select.langsel'))return;var o=s.options[s.selectedIndex];if(!o)return;setLang(o.getAttribute('data-lang'));if(o.value)location.href=o.value});var h=document.querySelector('header.top'),b=document.querySelector('.navtoggle'),n=document.getElementById('sitenav');if(b&&n){b.addEventListener('click',function(){var open=n.classList.toggle('is-open');h.classList.toggle('nav-open',open);b.setAttribute('aria-expanded',open?'true':'false')});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&n.classList.contains('is-open')){n.classList.remove('is-open');h.classList.remove('nav-open');b.setAttribute('aria-expanded','false');b.focus()}})}var d=document.documentElement,tb=document.querySelector('.themetoggle');if(tb){var sync=function(){tb.setAttribute('aria-pressed',d.getAttribute('data-theme')==='dark'?'true':'false')};sync();tb.addEventListener('click',function(){var dark=d.getAttribute('data-theme')!=='dark';if(dark)d.setAttribute('data-theme','dark');else d.removeAttribute('data-theme');try{localStorage.setItem('nc-theme',dark?'dark':'light')}catch(err){}sync()})}})();</script><script>/* Theme helpers shared by every theme: scroll reveal, a reduced-motion flag and a typewriter. */
+window.NCT=(function(){
+  var still=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function $(s,r){return (r||document).querySelector(s)}
+  function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
+  function type(el,text,ms,done){
+    if(!el)return;if(still){el.textContent=text;done&&done();return}
+    var i=0;el.textContent="";(function step(){el.textContent=text.slice(0,++i);if(i<text.length)setTimeout(step,ms||28);else done&&done()})()
+  }
+  function canvas(c,draw,fps){
+    if(!c||still)return;var ctx=c.getContext("2d"),dpr=Math.min(window.devicePixelRatio||1,2),last=0,step=1000/(fps||30),st={};
+    function size(){c.width=innerWidth*dpr;c.height=innerHeight*dpr;c.style.width=innerWidth+"px";c.style.height=innerHeight+"px";ctx.setTransform(dpr,0,0,dpr,0,0);st.w=innerWidth;st.h=innerHeight;st.resized=true}
+    size();addEventListener("resize",size);
+    (function loop(t){requestAnimationFrame(loop);if(document.hidden||t-last<step)return;last=t;draw(ctx,st,t);st.resized=false})(0)
+  }
+  // reveal: cards and sections slide in as they come into view
+  var sel="main h1,main h2,main .lead,main .card,main .mktile,main .evcard,main article,main section,main li.story,main .story,main table,main .talk,main .person,main pre";
+  // only what starts below the first screen slides in; what the reader sees on arrival is shown at once (no late first paint)
+  var fold=window.innerHeight;
+  var els=$$(sel).filter(function(e){return !e.closest(".th-r")&&e.offsetHeight<1600&&e.getBoundingClientRect().top>fold});
+  els.forEach(function(e,i){e.classList.add("th-r");e.style.transitionDelay=Math.min(i%8,7)*45+"ms"});
+  if(!still&&"IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add("th-in");io.unobserve(x.target)}})},{rootMargin:"0px 0px -6% 0px"});
+    els.forEach(function(e){io.observe(e)});
+  }else els.forEach(function(e){e.classList.add("th-in")});
+  return {still:still,$:$,$$:$$,type:type,canvas:canvas};
+})();
+(function(T){
+  var stars=[];
+  T.canvas(T.$(".cb-stars"),function(c,s){
+    if(s.resized||!stars.length){stars=[];for(var i=0;i<Math.round(s.w*s.h/2600);i++)stars.push({x:Math.random()*s.w,y:Math.random()*s.h,z:Math.random()*.9+.1})}
+    c.clearRect(0,0,s.w,s.h);
+    for(var i=0;i<stars.length;i++){var p=stars[i];p.x-=p.z*.6;if(p.x<0){p.x=s.w;p.y=Math.random()*s.h}
+      var tw=.5+.5*Math.sin((p.x+p.y)*.05+performance.now()*.002*p.z);c.fillStyle="rgba(220,232,255,"+(p.z*.9*tw+.1)+")";c.fillRect(p.x,p.y,p.z*2,p.z*2)}
+    if(Math.random()<.004)stars.push({x:s.w,y:Math.random()*s.h*.5,z:6,shoot:1});
+    stars=stars.filter(function(p){if(p.shoot){p.y+=2;c.strokeStyle="rgba(255,164,88,.8)";c.beginPath();c.moveTo(p.x,p.y);c.lineTo(p.x+40,p.y-14);c.stroke();return p.x>0}return true});
+  },40);
+  // static starfield for reduced motion
+  if(T.still){var cv=T.$(".cb-stars");if(cv){var x=cv.getContext("2d");cv.width=innerWidth;cv.height=innerHeight;for(var i=0;i<300;i++){x.fillStyle="rgba(220,232,255,"+Math.random()+")";x.fillRect(Math.random()*innerWidth,Math.random()*innerHeight,1.5,1.5)}}}
+  var clk=T.$(".cb-clock"),t0=Date.now();
+  function tick(){var s=Math.floor((Date.now()-t0)/1000),d=new Date();clk.textContent="T+"+String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0")+"  UTC "+d.toISOString().slice(11,19)}
+  if(clk){tick();if(!T.still)setInterval(tick,1000)}
+})(window.NCT);
+</script>
+</body></html>

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-12T22:12:53+00:00",
+ "generated_at": "2026-10-13T05:37:29+00:00",
  "preview": false,
  "topics": [
   {
@@ -45,6 +45,11 @@
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/defi.json"
   },
   {
+   "id": "energy",
+   "count": 1,
+   "url": "https://nordiccrypto.no/api/v1/news/by-topic/energy.json"
+  },
+  {
    "id": "events",
    "count": 3,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/events.json"
@@ -61,7 +66,7 @@
   },
   {
    "id": "mining",
-   "count": 6,
+   "count": 7,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/mining.json"
   },
   {
@@ -76,8 +81,13 @@
   },
   {
    "id": "regulation",
-   "count": 8,
+   "count": 11,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/regulation.json"
+  },
+  {
+   "id": "security",
+   "count": 2,
+   "url": "https://nordiccrypto.no/api/v1/news/by-topic/security.json"
   },
   {
    "id": "stablecoins",
@@ -86,13 +96,18 @@
   },
   {
    "id": "tax",
-   "count": 3,
+   "count": 5,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/tax.json"
   },
   {
    "id": "tokenisation",
-   "count": 3,
+   "count": 6,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/tokenisation.json"
+  },
+  {
+   "id": "wallets",
+   "count": 1,
+   "url": "https://nordiccrypto.no/api/v1/news/by-topic/wallets.json"
   }
  ]
 }

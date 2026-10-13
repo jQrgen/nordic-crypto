@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-12T22:12:53+00:00",
+ "generated_at": "2026-10-13T05:37:29+00:00",
  "preview": false,
  "title": "Nordic Crypto data API",
  "sign_off": "The Nordic Crypto team",
@@ -29,22 +29,22 @@
   "not_investment_advice": true
  },
  "counts": {
-  "news": 49,
+  "news": 57,
   "news_by_country": {
-   "NO": 21,
-   "SE": 20,
-   "DK": 5,
+   "NO": 26,
+   "SE": 22,
+   "DK": 6,
    "FI": 3,
    "IS": 0,
    "NORDIC": 0,
    "EU": 0
   },
   "newsletters": 2,
-  "events": 12,
-  "events_upcoming": 10,
+  "events": 13,
+  "events_upcoming": 12,
   "events_ongoing": 0,
-  "events_past": 2,
-  "events_previous": 20,
+  "events_past": 1,
+  "events_previous": 19,
   "talks": 74,
   "sources": 1036,
   "academia": {
@@ -89,8 +89,8 @@
    "url_custom_domain": "https://nordiccrypto.no/api/v1/news.json",
    "summary": "Published news and our own stories, newest first.",
    "schema": "NewsList",
-   "example_url": "https://nordiccrypto.no/api/v1/news/9755cf9957e9.json",
-   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/news/9755cf9957e9.json",
+   "example_url": "https://nordiccrypto.no/api/v1/news/601358bd24e5.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/news/601358bd24e5.json",
    "item_path": "/api/v1/news/{id}.json",
    "item_url_template": "https://nordiccrypto.no/api/v1/news/{id}.json"
   },
@@ -148,8 +148,8 @@
    "url_custom_domain": "https://nordiccrypto.no/api/v1/events.json",
    "summary": "Public events, soonest start first, including past events.",
    "schema": "EventList",
-   "example_url": "https://nordiccrypto.no/api/v1/events/71149f675741.json",
-   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/events/71149f675741.json",
+   "example_url": "https://nordiccrypto.no/api/v1/events/ccc2eea6b213.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/events/ccc2eea6b213.json",
    "item_path": "/api/v1/events/{id}.json",
    "item_url_template": "https://nordiccrypto.no/api/v1/events/{id}.json"
   },
@@ -514,7 +514,7 @@
   },
   {
    "description": "One news item",
-   "url": "https://nordiccrypto.no/api/v1/news/9755cf9957e9.json"
+   "url": "https://nordiccrypto.no/api/v1/news/601358bd24e5.json"
   },
   {
    "description": "Newsletter issues",

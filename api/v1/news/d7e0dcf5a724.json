@@ -1,0 +1,148 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-13T05:37:29+00:00",
+ "preview": false,
+ "item": {
+  "id": "d7e0dcf5a724",
+  "url": "https://kaupr.io/nyheter/spillpioner-og-kapitalforvalter-satser-sammen-pa-tokenisering",
+  "html_url": "https://nordiccrypto.no/stories/d7e0dcf5a724/",
+  "api_url": "https://nordiccrypto.no/api/v1/news/d7e0dcf5a724.json",
+  "title": "Spillpioner og kapitalforvalter satser sammen på tokenisering",
+  "title_en": "Animoca Brands and Franklin Templeton announce tokenisation partnership around NUVA",
+  "title_i18n": {},
+  "source": "kaupr",
+  "source_name": "Kaupr",
+  "source_logo": {
+   "kind": "logo",
+   "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
+   "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+   "author": null,
+   "license": null,
+   "license_url": null,
+   "credit": "Official website",
+   "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
+  },
+  "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+  "country": "NO",
+  "language": "Norwegian",
+  "language_code": "no",
+  "published": "2026-10-09T12:00:00+00:00",
+  "topics": [
+   "tokenisation"
+  ],
+  "summary": "Kaupr reports, based on the companies' announcement at TOKEN2049 in Singapore, that games and Web3 company Animoca Brands and asset manager Franklin Templeton have entered a strategic partnership around NUVA, Animoca's marketplace for tokenised assets. According to the companies, they have also launched a four-part research series on tokenisation.",
+  "summary_i18n": {
+   "nn": "Kaupr melder, basert på kunngjeringa frå selskapa under TOKEN2049 i Singapore, at spel- og Web3-selskapet Animoca Brands og kapitalforvaltaren Franklin Templeton har inngått eit strategisk samarbeid kring NUVA, marknadsplassen til Animoca for tokeniserte eigedelar. Ifølgje selskapa har dei òg lansert ein forskingsserie i fire delar om tokenisering.",
+   "nb": "Kaupr melder, basert på selskapenes kunngjøring under TOKEN2049 i Singapore, at spill- og Web3-selskapet Animoca Brands og kapitalforvalteren Franklin Templeton har inngått et strategisk samarbeid rundt NUVA, Animocas markedsplass for tokeniserte eiendeler. Ifølge selskapene har de også lansert en firedelt forskningsserie om tokenisering.",
+   "sv": "Kaupr rapporterar, utifrån bolagens tillkännagivande vid TOKEN2049 i Singapore, att spel- och Web3-bolaget Animoca Brands och kapitalförvaltaren Franklin Templeton har ingått ett strategiskt samarbete kring NUVA, Animocas marknadsplats för tokeniserade tillgångar. Enligt bolagen har de också lanserat en forskningsserie i fyra delar om tokenisering.",
+   "da": "Kaupr skriver på baggrund af selskabernes meddelelse under TOKEN2049 i Singapore, at spil- og Web3-selskabet Animoca Brands og kapitalforvalteren Franklin Templeton har indgået et strategisk samarbejde om NUVA, Animocas markedsplads for tokeniserede aktiver. Ifølge selskaberne har de også lanceret en forskningsserie i fire dele om tokenisering.",
+   "fi": "Kaupr kertoo yhtiöiden Singaporen TOKEN2049-tapahtumassa antaman tiedotteen perusteella, että peli- ja Web3-yhtiö Animoca Brands ja varainhoitaja Franklin Templeton ovat solmineet strategisen yhteistyön Animocan tokenisoitujen varojen markkinapaikan NUVAn ympärille. Yhtiöiden mukaan ne ovat myös julkaisseet neliosaisen tutkimussarjan tokenisoinnista.",
+   "is": "Kaupr greinir frá því, á grundvelli tilkynningar fyrirtækjanna á TOKEN2049 í Singapúr, að leikja- og Web3-fyrirtækið Animoca Brands og eignastýringarfyrirtækið Franklin Templeton hafi gert stefnumótandi samstarf um NUVA, markaðstorg Animoca fyrir táknvæddar eignir. Að sögn fyrirtækjanna hafa þau einnig hleypt af stokkunum fjögurra hluta rannsóknaröð um táknvæðingu."
+  },
+  "paywall": false,
+  "links": [],
+  "own_story": false,
+  "illustration": {
+   "id": "original-exchange",
+   "kind": "original",
+   "file_url": "https://nordiccrypto.no/assets/img/illustrations/original-exchange.webp",
+   "width": 960,
+   "height": 540,
+   "alt": "Abstract bar chart in blue and black. Nordic Crypto illustration, not a picture of an exchange.",
+   "source": "Nordic Crypto",
+   "author": "Nordic Crypto",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "url": "https://cryptonordic.no/ethics/",
+   "credit": "Illustration: Nordic Crypto. Licence: CC0 1.0. Source: Nordic Crypto.",
+   "modifications": null,
+   "terms": null
+  },
+  "primary_source": {
+   "outlet": "kaupr",
+   "outlet_name": "Kaupr",
+   "url": "https://kaupr.io/nyheter/spillpioner-og-kapitalforvalter-satser-sammen-pa-tokenisering",
+   "title": "Spillpioner og kapitalforvalter satser sammen på tokenisering",
+   "published": "2026-10-09T12:00:00+00:00",
+   "lang": "Norwegian",
+   "language_code": "no",
+   "country": "NO",
+   "source_type": "national",
+   "paywall": false,
+   "primary": true,
+   "logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
+   },
+   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+  },
+  "primary_source_document": null,
+  "also_covered_by": [],
+  "sources": [
+   {
+    "outlet": "kaupr",
+    "outlet_name": "Kaupr",
+    "url": "https://kaupr.io/nyheter/spillpioner-og-kapitalforvalter-satser-sammen-pa-tokenisering",
+    "title": "Spillpioner og kapitalforvalter satser sammen på tokenisering",
+    "published": "2026-10-09T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
+     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
+    },
+    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+   }
+  ],
+  "coverage": {
+   "count": 1,
+   "by_country": [
+    {
+     "country": "NO",
+     "count": 1,
+     "share": 1.0
+    }
+   ],
+   "by_source_type": [
+    {
+     "type": "national",
+     "count": 1,
+     "share": 1.0
+    },
+    {
+     "type": "regional",
+     "count": 0,
+     "share": 0.0
+    },
+    {
+     "type": "official",
+     "count": 0,
+     "share": 0.0
+    },
+    {
+     "type": "international",
+     "count": 0,
+     "share": 0.0
+    }
+   ]
+  },
+  "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
+ }
+}
