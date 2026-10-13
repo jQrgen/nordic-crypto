@@ -19,7 +19,7 @@ import argparse, datetime, json, os, sys, urllib.error, urllib.parse, urllib.req
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PATH = os.path.join(ROOT, "data", "developers.json")
-UA = "nordiccrypto.no developer-profile check (+https://github.com/jQrgen/nordic-crypto)"
+UA = "nordiccrypto.no developer-profile check (+https://github.com/nordic-crypto-org/nordic-crypto)"
 
 
 class RateLimited(Exception):

@@ -38,7 +38,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 import site_url  # noqa: E402
 UA = f"NordicCrypto/1.0 (+{site_url.join('markets/')}; public market data)"
-RAW_URL = "https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json"
+RAW_URL = "https://raw.githubusercontent.com/nordic-crypto-org/nordic-crypto/gh-pages/api/v1/markets.json"
 # One public origin. Both names remain so older callers keep working.
 PAGES_BASE = site_url.BASE
 CUSTOM_BASE = site_url.BASE

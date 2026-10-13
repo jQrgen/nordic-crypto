@@ -6,7 +6,7 @@ It must be https, with a trailing slash. The host is the GitHub Pages CNAME.
 Canonical, hreflang, og:url, the sitemap, robots, the JSON API, the tip worker
 and newsletter links are built from it.
 
-GitHub repository links (github.com/jQrgen/nordic-crypto and
+GitHub repository links (github.com/nordic-crypto-org/nordic-crypto and
 raw.githubusercontent.com) are source links and do not use this origin.
 """
 import json

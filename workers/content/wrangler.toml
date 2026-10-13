@@ -14,7 +14,7 @@ preview_urls = false
 enabled = false
 
 [vars]
-GITHUB_REPOSITORY = "jQrgen/nordic-crypto"
+GITHUB_REPOSITORY = "nordic-crypto-org/nordic-crypto"
 
 [[d1_databases]]
 binding = "DB"

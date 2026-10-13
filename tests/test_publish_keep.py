@@ -147,12 +147,12 @@ class PublishKeep(unittest.TestCase):
     def test_publish_script_sets_pages_domain_and_checks_it(self):
         text = open(PUBLISH, encoding="utf-8").read()
         self.assertIn(
-            'gh api -X PUT repos/jQrgen/nordic-crypto/pages -f "cname=$(site_host)" '
+            'gh api -X PUT repos/nordic-crypto-org/nordic-crypto/pages -f "cname=$(site_host)" '
             "-f 'source[branch]=gh-pages' -f 'source[path]=/'",
             text,
         )
         self.assertIn(
-            'gh api -X POST repos/jQrgen/nordic-crypto/pages -f "source[branch]=gh-pages" -f "source[path]=/"',
+            'gh api -X POST repos/nordic-crypto-org/nordic-crypto/pages -f "source[branch]=gh-pages" -f "source[path]=/"',
             text,
         )
         self.assertIn("URL=$(site_base)", text)

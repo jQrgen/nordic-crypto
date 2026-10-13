@@ -230,7 +230,7 @@ def header_telegram_button():
 def header_x_button():
     """'Follow on X' beside the Telegram button, built the same way."""
     return f'<a class="hdrx" href="{SITE_X}" rel="noopener" title="{E(t("x_title"))}">{ICON_X}<span class="lbl">{E(t("x_btn"))}</span></a>'
-SITE_REPO = "https://github.com/jQrgen/nordic-crypto"
+SITE_REPO = "https://github.com/nordic-crypto-org/nordic-crypto"
 ICON_GH = ('<svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" '
            'd="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 '
            '1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 '
@@ -246,7 +246,7 @@ def telegram_link():
     """'Nordic Crypto on Telegram' link. The brand chat, t.me/nordiccryptochat."""
     return f'<a class="tgfollow" href="{SITE_TELEGRAM}" rel="noopener noreferrer" title="{E(t("tg_title"))}">{E(t("tg_follow"))}</a>'
 # The repo's contributor list on GitHub. One plain footer link, no list on the site, no API call at build time.
-REPO_CONTRIBUTORS = "https://github.com/jQrgen/nordic-crypto/graphs/contributors"
+REPO_CONTRIBUTORS = "https://github.com/nordic-crypto-org/nordic-crypto/graphs/contributors"
 def contributors_link():
     """Footer link to the contributors page on GitHub. The label comes from i18n ("contributors")."""
     return f'<a href="{REPO_CONTRIBUTORS}" rel="noopener">{E(t("contributors"))}</a>'
@@ -630,7 +630,7 @@ def site_footer(rel, root, slug=""):
     site = (li(rel + "about/", t("nav_about")) + li(rel + "sources/", t("nav_sources")) + li(rel + "ethics/", t("ethics_title")) + li(rel + "contact/", t("contact_title"))
             + li(rel + "budget/", t("bud_nav"))
             + li(rel + "changelog/", t("cl_title")) + li(rel + "stats/", t("vst_title")) + li(rel + "privacy/", t("pp_title")) + li(rel + "media/", t("media_title")) + li(rel + "columnist/", t("col_title"))
-            + li(rel + "tip/", t("nav_tip")) + li(rel + "api/", t("foot_api")) + li("https://github.com/jQrgen/nordic-crypto", t("foot_source"), True)
+            + li(rel + "tip/", t("nav_tip")) + li(rel + "api/", t("foot_api")) + li("https://github.com/nordic-crypto-org/nordic-crypto", t("foot_source"), True)
             + li(REPO_CONTRIBUTORS, t("contributors"), True)
             + (li(rel + "treasury/", t("nav_treasury")) if event_nft.enabled() else ""))
     follow = (li(rel + "newsletter/", t("nav_newsletter")) + li(SITE_TELEGRAM, t("tg_label"), True) + li(SITE_X, "X", True) + li(rel + "rss.xml", "RSS")
@@ -1904,7 +1904,7 @@ def build_markets(ctx):
  · <a href="{root}api/v1/markets/nbx.json">nbx</a>
  · <a href="{root}api/v1/markets/coinmotion.json">coinmotion</a>
  · <a href="{root}api/v1/markets/by-asset/BTC.json">BTC</a>
- · <a href="https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json" rel="noopener">{E(t("mk_raw"))}</a></p>
+ · <a href="https://raw.githubusercontent.com/nordic-crypto-org/nordic-crypto/gh-pages/api/v1/markets.json" rel="noopener">{E(t("mk_raw"))}</a></p>
 <p class="meta">{E(t("mk_icons"))} <a href="https://github.com/spothq/cryptocurrency-icons" rel="noopener">cryptocurrency-icons</a>.</p>
 <p class="mkapp"><a class="applink" href="{E(M.IOS_TESTFLIGHT)}" rel="noopener">{E(t("ios_link"))}</a> <span class="meta">{E(t("ios_note"))} <span class="ios-tv">{E(t("ios_tv"))}</span></span></p>
 <noscript><p class="notice">{E(t("mk_noscript"))}</p></noscript>
@@ -3354,7 +3354,7 @@ cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('ari
     page("developers", t("dev_title"), "developers", body, t("dev_desc"), js)
     if LANG == "en": print(f"developers: {len(rows)} shown ({n_pend} pending) {per_c}")
 
-COL_FORM = "https://github.com/jQrgen/nordic-crypto/issues/new?template=columnist.yml"
+COL_FORM = "https://github.com/nordic-crypto-org/nordic-crypto/issues/new?template=columnist.yml"
 def tip_endpoint():
     """Fixed public tip endpoint (e.g. https://tips.<domain>): env TIP_ENDPOINT or tipserver/config.json -> public_endpoint.
     Takes precedence and is baked into /tip/. Without it, /tip/ reads the current quick-tunnel URL at runtime from
@@ -3476,7 +3476,7 @@ def build_columnist():
 <div class="prose">
 <p>{t("col_p")}</p>
 <p class="notice warn">{t("col_priv")}</p>
-<form class="tipform form" method="get" action="https://github.com/jQrgen/nordic-crypto/issues/new">
+<form class="tipform form" method="get" action="https://github.com/nordic-crypto-org/nordic-crypto/issues/new">
 <input type="hidden" name="template" value="columnist.yml">
 {form_field("c-name", t("col_name"), t("col_name_opt"), '<input id="c-name" name="name" maxlength="80" autocomplete="name">')}
 {form_field("c-contact", t("col_contact"), t("tip_required"), '<input id="c-contact" name="contact" required maxlength="120" autocomplete="email">', t("col_contact_help"))}
@@ -3556,7 +3556,7 @@ def build_stats(ctx):
                 f'</tr></thead><tbody>{body}</tbody></table></section>')
     ltr = lambda x: f'<bdi dir="ltr">{E(x)}</bdi>'   # ISO labels stay readable on Arabic and Urdu pages
     # Data policy (GDPR) next to the numbers. While no beacon token is set, it says the script is not on yet.
-    issues = '<a href="https://github.com/jQrgen/nordic-crypto/issues" rel="noopener">github.com/jQrgen/nordic-crypto/issues</a>'
+    issues = '<a href="https://github.com/nordic-crypto-org/nordic-crypto/issues" rel="noopener">github.com/nordic-crypto-org/nordic-crypto/issues</a>'
     policy = (f'<section id="data-policy" class="stpolicy"><h2>{E(t("vdp_h"))}</h2>'
               + ("" if analytics_token() else f'<p class="notice">{E(t("vdp_off"))}</p>')
               + "".join(f"<p>{t(k)}</p>" for k in ("vdp_who", "vdp_collect", "vdp_publish", "vdp_not", "vdp_basis", "vdp_keep", "vdp_proc"))

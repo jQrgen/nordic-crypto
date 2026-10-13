@@ -1099,7 +1099,7 @@ def _meta(feed):
             "discovery": feed.abs("api/v1/index.json"),
             "openapi": feed.abs("api/v1/openapi.json"),
             "llms_txt": feed.abs("llms.txt"),
-            "github": "https://github.com/jQrgen/nordic-crypto",
+            "github": "https://github.com/nordic-crypto-org/nordic-crypto",
             "newsletter": feed.abs("newsletter/"),
             "rss": feed.abs("rss.xml"),
             "telegram": SITE_TELEGRAM_URL,
@@ -1694,7 +1694,7 @@ def openapi(feed, index):
                 "(the nc_lang cookie wins). "
                 f"Discovery: {feed.abs('api/v1/index.json')}. Human docs: {feed.abs('api/')}."
             ),
-            "license": {"name": "MIT", "url": "https://github.com/jQrgen/nordic-crypto/blob/main/LICENSE"},
+            "license": {"name": "MIT", "url": "https://github.com/nordic-crypto-org/nordic-crypto/blob/main/LICENSE"},
             "contact": {"name": SITE_NAME, "url": feed.abs("about/")},
         },
         "servers": [
@@ -2294,7 +2294,7 @@ def llms_txt(feed, index):
         "A missing volume is null, not zero. Quotes are NOK, SEK, DKK or EUR. "
         "A failed exchange is an error with a timestamp and no price. "
         "The file is fetched again when the site is built, and a GitHub Actions job rewrites it on gh-pages about hourly. "
-        "Durable URL: https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json",
+        "Durable URL: https://raw.githubusercontent.com/nordic-crypto-org/nordic-crypto/gh-pages/api/v1/markets.json",
         "",
         "Aggregated prices are one row per pair: /api/v1/markets/aggregated.json. "
         "BTC-NOK is not averaged with BTC-EUR. last is the arithmetic mean of published last prices. "
@@ -2307,7 +2307,7 @@ def llms_txt(feed, index):
         "```",
         f"curl -fsS {feed.abs('api/v1/markets.json')}",
         f"curl -fsS {feed.abs('api/v1/markets/aggregated.json')}",
-        "curl -fsS https://raw.githubusercontent.com/jQrgen/nordic-crypto/gh-pages/api/v1/markets.json",
+        "curl -fsS https://raw.githubusercontent.com/nordic-crypto-org/nordic-crypto/gh-pages/api/v1/markets.json",
         "```",
         "",
         "## Events",

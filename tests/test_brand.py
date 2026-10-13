@@ -42,7 +42,7 @@ def main():
         "@nordiccryptobot",
         "https://x.com/nordiccryptobot",
         "https://cryptonordic.substack.com",
-        "github.com/jQrgen/nordic-crypto",
+        "github.com/nordic-crypto-org/nordic-crypto",
         "https://t.me/nordiccryptochat",
     ):
         check(site_url.brand(keep) == keep, "kept " + keep)

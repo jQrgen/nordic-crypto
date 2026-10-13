@@ -2,7 +2,7 @@
 //   node tools/snippets.js <url> <title> [lang]   one page, from argv
 //   node tools/snippets.js --lines                one JSON [url, title, lang] per stdin line -> one JSON object per stdout line (build.py keeps one process for the whole build)
 const share = require("../vendor/share.js");
-const SOURCE = "https://github.com/jQrgen/nordic-crypto"; // origin of this repo (git remote)
+const SOURCE = "https://github.com/nordic-crypto-org/nordic-crypto"; // origin of this repo (git remote)
 // lang: page language, used for the source-code label only (share bar stays as before)
 const render = (url, title, lang = "en") => JSON.stringify({ top: share.top({ url, title, lang: "en", source: { href: SOURCE, lang } }), bar: share.bar({ url, title, lang: "en" }), css: share.CSS, script: share.SCRIPT });
 if (process.argv[2] === "--lines") {

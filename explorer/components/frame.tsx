@@ -164,7 +164,7 @@ function Shell({ chain, children }: { chain?: ChainId; children: ReactNode }) {
               <li><a href="https://nordiccrypto.no/api/">Bitcoin Cash Fulcrum, port 50004</a></li>
               <li><a href="https://nordiccrypto.no/api/">Nexa Rostrum, port 20004</a></li>
               <li><a href="https://nordiccrypto.no/">nordiccrypto.no</a></li>
-              <li><a href="https://github.com/jQrgen/nordic-crypto">Source on GitHub</a></li>
+              <li><a href="https://github.com/nordic-crypto-org/nordic-crypto">Source on GitHub</a></li>
             </ul>
           </div>
           <div>

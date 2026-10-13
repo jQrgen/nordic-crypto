@@ -122,7 +122,7 @@ S = {
 "src_kw": "A story is picked up when its title or teaser mentions, for example: bitcoin, crypto, blockchain, stablecoin, MiCA, CASP, CBDC, darknet (all languages); krypto, kryptovaluta, blokkjede (Norwegian); kryptoaktiver, blokkæde (Danish); kryptotillgångar, blockkedja, e-krona (Swedish); kryptovaluutta, lohkoketju, virtuaalivaluutta (Finnish); rafmynt, sýndareignir, bálkakeðja (Icelandic); or Nordic crypto firms such as Firi, NBX, K33, Safello, Coinmotion, Northcrypto, Myntkaup, Monerium and Coinify. Money-laundering words such as hvitvasking, penningtvätt, hvidvask, rahanpesu and peningaþvætti count only when the same title or teaser also has a crypto term. Local and justice items use the same filter. The editor reviews every hit before it is published.",
 "src_ev_h": "Where we find events",
 "src_ev_note": "Luma is read from each calendar's public Subscribe iCal feed. City pages such as luma.com/oslo, category pages such as luma.com/crypto, and Luma's discover API are not used: the terms of use only allow publicly supported interfaces, and the official API needs Luma Plus and only covers calendars you administer. An individual Luma event page is read as schema.org JSON-LD. Eventbrite uses the v3 organizers and venues API when EVENTBRITE_TOKEN is set on the server. The token is not published. Without it, the event page's JSON-LD is used. The public search API is not used. The same title, date and venue is listed once. One broken feed does not stop the run. Finished events stay under Past events.",
-"src_missing": "Missing a source? Suggest it as an issue on <a href=\"https://github.com/jQrgen/nordic-crypto/issues\" rel=\"noopener\">GitHub</a>.",
+"src_missing": "Missing a source? Suggest it as an issue on <a href=\"https://github.com/nordic-crypto-org/nordic-crypto/issues\" rel=\"noopener\">GitHub</a>.",
 # calendar
 "cal_title": "Calendar – crypto, bitcoin and blockchain events in the Nordics",
 "cal_desc": "Upcoming crypto, bitcoin and blockchain events in Norway, Sweden, Denmark, Finland and Iceland, with date, place and organiser.",
@@ -157,7 +157,7 @@ S = {
 "ev_talks": "Talks",
 "ev_cal_link": "Calendar",
 "ev_orig_below": "Original text",
-"cal_how": "How we find events: <a href=\"../sources/#events\">event sources</a>. Organising something about crypto in the Nordics? Send a link to the organiser's page as an issue on <a href=\"https://github.com/jQrgen/nordic-crypto/issues\" rel=\"noopener\">GitHub</a>.",
+"cal_how": "How we find events: <a href=\"../sources/#events\">event sources</a>. Organising something about crypto in the Nordics? Send a link to the organiser's page as an issue on <a href=\"https://github.com/nordic-crypto-org/nordic-crypto/issues\" rel=\"noopener\">GitHub</a>.",
 "paid": "Paid", "free": "Free", "sponsored_by": "Sponsored by {x}", "sponsored": "Sponsored", "online": "Online",
 "orig_title_ev": "Original title: ", "organiser": "Organiser", "listed_at": "Listed at", "note": "Note",
 # academia

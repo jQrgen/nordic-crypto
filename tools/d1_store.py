@@ -85,7 +85,7 @@ Cloudflare is not configured, so nothing was created.
      gh variable set NC_DATA_SOURCE --body d1
 
 7. Optional: redeploy as soon as an editor approves, instead of waiting for the schedule.
-     # fine-grained PAT, repository jQrgen/nordic-crypto, Actions: Read and write
+     # fine-grained PAT, repository nordic-crypto-org/nordic-crypto, Actions: Read and write
      cd workers/content && npx wrangler secret put GITHUB_DISPATCH_TOKEN
 
 8. Private R2 bucket for the nightly backup (the only target; no branch is pushed):

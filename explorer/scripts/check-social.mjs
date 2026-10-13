@@ -168,7 +168,7 @@ const headerHrefs = [
   "https://nordiccrypto.no/newsletter/#signup",
   "https://t.me/nordiccryptochat",
   "https://x.com/nordiccryptobot",
-  "https://github.com/jQrgen/nordic-crypto",
+  "https://github.com/nordic-crypto-org/nordic-crypto",
   "https://nordiccrypto.no/rss.xml",
   "https://nordiccrypto.no/",
 ];
