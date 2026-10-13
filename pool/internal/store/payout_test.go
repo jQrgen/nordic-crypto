@@ -308,6 +308,113 @@ func TestBlindReconcileSendsTheReservedPayoutAgain(t *testing.T) {
 	}
 }
 
+func TestSentPayoutIsReopenedWhenTheTransactionDrops(t *testing.T) {
+	s := openTest(t)
+	credit(t, s, addrA, minPay, "mature")
+	w := newWallet()
+	res, err := account.RunPayouts(s, w, minPay, 1)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if res.Sent != 1 || w.sends != 1 {
+		t.Fatalf("setup %+v sends %d", res, w.sends)
+	}
+	var key string
+	if err := s.db.QueryRow(`SELECT idempotency_key FROM payouts WHERE status = 'sent'`).Scan(&key); err != nil {
+		t.Fatal(err)
+	}
+	delete(w.sent, key)
+	res, err = account.RunPayouts(s, w, minPay, 1)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if w.sends != 1 || res.Sent != 0 {
+		t.Fatalf("a dropped transaction was sent again: wallet %d result %+v", w.sends, res)
+	}
+	var status string
+	if err := s.db.QueryRow(`SELECT status FROM payouts WHERE idempotency_key = ?`, key).Scan(&status); err != nil {
+		t.Fatal(err)
+	}
+	if status != "review" {
+		t.Fatalf("dropped payout status %s, want review", status)
+	}
+	due, err := s.Payable(minPay)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(due) != 0 {
+		t.Fatalf("dropped payout returned the coins: %+v", due)
+	}
+
+	// A conflicted transaction (negative confirmations) is not left paid.
+	credit(t, s, addrB, minPay, "mature")
+	w2 := newWallet()
+	if _, err := account.RunPayouts(s, w2, minPay, 1); err != nil {
+		t.Fatal(err)
+	}
+	w2.forceConfs = true
+	w2.confs = -1
+	res, err = account.RunPayouts(s, w2, minPay, 1)
+	if err != nil {
+		t.Fatal(err)
+	}
+	var sent int
+	if err := s.db.QueryRow(`SELECT COUNT(*) FROM payouts WHERE address = ? AND status = 'sent'`, addrB).Scan(&sent); err != nil {
+		t.Fatal(err)
+	}
+	if sent != 0 {
+		t.Fatalf("conflicted payout stayed sent (%d rows), result %+v", sent, res)
+	}
+}
+
+func TestResolveReviewCompletesOrReleases(t *testing.T) {
+	s := openTest(t)
+	credit(t, s, addrA, minPay, "mature")
+	id, err := s.Reserve(addrA, minPay, "nexapool:missing")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := s.MarkReview(id); err != nil {
+		t.Fatal(err)
+	}
+	w := newWallet()
+	if err := account.ResolveReview(s, w, id, "complete", 1); err == nil {
+		t.Fatal("completed a review row the wallet does not have")
+	}
+	if err := account.ResolveReview(s, w, id, "release", 1); err != nil {
+		t.Fatal(err)
+	}
+	due, err := s.Payable(minPay)
+	if err != nil || len(due) != 1 || due[0].Amount != minPay {
+		t.Fatalf("release did not return the coins: %+v %v", due, err)
+	}
+
+	id, err = s.Reserve(addrA, minPay, "nexapool:present")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := s.MarkReview(id); err != nil {
+		t.Fatal(err)
+	}
+	w.sent["nexapool:present"] = "txid-real"
+	if err := account.ResolveReview(s, w, id, "release", 1); err == nil {
+		t.Fatal("released a review row the wallet still has")
+	}
+	if err := account.ResolveReview(s, w, id, "complete", 1); err != nil {
+		t.Fatal(err)
+	}
+	p, err := s.Payout(id)
+	if err != nil || p.Status != "sent" || p.TxID != "txid-real" {
+		t.Fatalf("complete left %+v %v", p, err)
+	}
+	if _, err := account.RunPayouts(s, w, minPay, 1); err != nil {
+		t.Fatal(err)
+	}
+	if w.sends != 0 {
+		t.Fatalf("completed review was sent again (%d)", w.sends)
+	}
+}
+
 func TestPayoutWaitsForConfirmations(t *testing.T) {
 	s := openTest(t)
 	credit(t, s, addrA, minPay, "mature")

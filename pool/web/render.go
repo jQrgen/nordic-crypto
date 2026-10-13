@@ -171,13 +171,18 @@ func Generate(dir, assets string) error {
 		}
 		err = tpl.Execute(&buf, map[string]any{
 			"Lang": lang.Code, "Dir": dirAttr, "Prefix": prefix,
-			"C": locales[lang.Code], "I18N": template.JS(raw),
+			"C":     locales[lang.Code],
 			"Langs": langLinks(lang.Code, hrefRoot),
 		})
 		if err != nil {
 			return err
 		}
 		if err := os.WriteFile(out, buf.Bytes(), 0o644); err != nil {
+			return err
+		}
+		body := append([]byte("window.POOL_TEXT = "), raw...)
+		body = append(body, ";\n"...)
+		if err := os.WriteFile(filepath.Join(filepath.Dir(out), "pool-text.js"), body, 0o644); err != nil {
 			return err
 		}
 	}
@@ -359,7 +364,7 @@ const pageTpl = `<!DOCTYPE html>
     </ul>
   </div>
 </footer>
-<script>window.POOL_TEXT = {{.I18N}};</script>
+<script src="pool-text.js"></script>
 <script src="{{.Prefix}}pool.js"></script>
 </body>
 </html>

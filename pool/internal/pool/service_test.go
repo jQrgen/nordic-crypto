@@ -8,6 +8,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/jQrgen/nordic-crypto/pool/internal/account"
 	"github.com/jQrgen/nordic-crypto/pool/internal/nexa"
 	"github.com/jQrgen/nordic-crypto/pool/internal/store"
 	"github.com/jQrgen/nordic-crypto/pool/internal/stratum"
@@ -35,7 +36,7 @@ func TestShareMatchesVectorAndSubmitsBlock(t *testing.T) {
 	}
 	nonce, _ := hex.DecodeString(vectorHex)
 	verdict := svc.Submit(stratum.Share{
-		Address: minerAddr, Worker: "rig1", JobID: job.ID, Nonce: nonce, DifficultyMicros: 1,
+		Address: minerAddr, Worker: "rig1", JobID: job.ID, Nonce: nonce, DifficultyMicros: 1, NTime: job.Time,
 	})
 	if !verdict.Accept {
 		t.Fatalf("rejected: %+v", verdict)
@@ -44,13 +45,13 @@ func TestShareMatchesVectorAndSubmitsBlock(t *testing.T) {
 		t.Fatalf("submit %#v", node.submits)
 	}
 	again := svc.Submit(stratum.Share{
-		Address: minerAddr, JobID: job.ID, Nonce: nonce, DifficultyMicros: 1,
+		Address: minerAddr, JobID: job.ID, Nonce: nonce, DifficultyMicros: 1, NTime: job.Time,
 	})
 	if again.Code != 22 {
 		t.Fatalf("duplicate code %d", again.Code)
 	}
 	low := svc.Submit(stratum.Share{
-		Address: minerAddr, JobID: job.ID, Nonce: nonce, DifficultyMicros: nexa.Micros * 1000,
+		Address: minerAddr, JobID: job.ID, Nonce: nonce, DifficultyMicros: nexa.Micros * 1000, NTime: job.Time,
 	})
 	if low.Code != 23 {
 		t.Fatalf("low difficulty code %d", low.Code)
@@ -244,38 +245,42 @@ func TestMaturityWaitsUntilWalletCanSpend(t *testing.T) {
 	}
 }
 
-func TestNotifySwitchesAtTailstormActivation(t *testing.T) {
+func TestTailstormFollowsTheCandidateNotTheClock(t *testing.T) {
 	parent := strings.Repeat("11", 32)
+	// 2030-01-01, years after the old wall-clock constant. A zero parent
+	// still publishes the pre-fork job.
 	node := &fakeNode{
-		cand: nexa.Candidate{ID: 1, HeaderCommitment: vectorHC, NBits: "207fffff", PrevHash: parent},
+		cand: nexa.Candidate{ID: 1, HeaderCommitment: vectorHC, NBits: "207fffff", PrevHash: strings.Repeat("0", 64)},
 		info: nexa.MiningInfo{Blocks: 10, Difficulty: 1},
 	}
 	svc := newTestService(t, node)
-	svc.now = func() time.Time { return time.Unix(nexa.TailstormActivation-1, 0).UTC() }
+	svc.now = func() time.Time { return time.Unix(1893456000, 0).UTC() }
 	if err := svc.Poll(); err != nil {
 		t.Fatal(err)
 	}
 	before, ok := svc.CurrentJob()
-	if !ok || before.PrevHash != "" || int64(before.Time) != nexa.TailstormActivation-1 {
-		t.Fatalf("pre-fork job %+v", before)
+	if !ok || before.PrevHash != "" {
+		t.Fatalf("zero parent was treated as tailstorm: %+v", before)
 	}
 	pre := stratum.NotifyParams(before)
 	if len(pre) != 5 {
 		t.Fatalf("pre-fork notify %#v", pre)
 	}
 	nonce, _ := hex.DecodeString(vectorHex)
-	if v := svc.Submit(stratum.Share{Address: minerAddr, JobID: before.ID, Nonce: nonce, DifficultyMicros: 1}); !v.Accept {
+	if v := svc.Submit(stratum.Share{
+		Address: minerAddr, JobID: before.ID, Nonce: nonce, DifficultyMicros: 1, NTime: before.Time,
+	}); !v.Accept {
 		t.Fatalf("pre-fork vector rejected: %+v", v)
 	}
 
-	svc.now = func() time.Time { return time.Unix(nexa.TailstormActivation, 0).UTC() }
 	node.cand.ID = 2
+	node.cand.PrevHash = parent
 	if err := svc.Poll(); err != nil {
 		t.Fatal(err)
 	}
 	after, ok := svc.CurrentJob()
 	if !ok || after.PrevHash != parent {
-		t.Fatalf("post-fork job %+v", after)
+		t.Fatalf("real parent was ignored: %+v", after)
 	}
 	post := stratum.NotifyParams(after)
 	if len(post) != 6 || post[5] != parent {
@@ -291,20 +296,181 @@ func TestNotifySwitchesAtTailstormActivation(t *testing.T) {
 	if hex.EncodeToString(bound) == classic {
 		t.Fatal("tailstorm mix did not change the digest")
 	}
-	// Difficulty 1 is far above this vector. A share hashed the old way
-	// fails. A share hashed with the parent is a different digest and is
-	// not the pre-fork proof the miner would have sent.
 	if v := svc.Submit(stratum.Share{
-		Address: minerAddr, JobID: after.ID, Nonce: nonce, DifficultyMicros: nexa.Micros,
+		Address: minerAddr, JobID: after.ID, Nonce: nonce, DifficultyMicros: nexa.Micros, NTime: after.Time,
 	}); v.Accept {
 		t.Fatal("post-fork accepted the pre-fork vector at difficulty 1")
 	}
-	// One second before activation the parent must stay off the wire even
-	// when the candidate already carries one. That case is `before` above.
+
+	// An operator can force the pre-fork hash even when the node sends a parent.
+	svc.cfg.Tailstorm = "off"
 	node.cand.ID = 3
+	if err := svc.Poll(); err != nil {
+		t.Fatal(err)
+	}
+	forced, ok := svc.CurrentJob()
+	if !ok || forced.PrevHash != "" || len(stratum.NotifyParams(forced)) != 5 {
+		t.Fatalf("off override still mixed the parent: %+v", forced)
+	}
+
+	// Forcing it on rejects a zero parent instead of hashing the old way.
+	svc.cfg.Tailstorm = "on"
+	node.cand.ID = 4
 	node.cand.PrevHash = strings.Repeat("0", 64)
 	if err := svc.Poll(); err == nil {
-		t.Fatal("post-fork zero parent was published")
+		t.Fatal("forced tailstorm published a zero parent")
+	}
+
+	// A configured activation time is compared with the node's median
+	// time, not the wall clock. The candidate already carries a parent.
+	svc.cfg.Tailstorm = "auto"
+	svc.cfg.TailstormAt = 4_102_488_000
+	node.mtp = 4_102_488_000 - 1
+	node.cand.ID = 5
+	node.cand.PrevHash = parent
+	if err := svc.Poll(); err != nil {
+		t.Fatal(err)
+	}
+	early, ok := svc.CurrentJob()
+	if !ok || early.PrevHash != "" {
+		t.Fatalf("median time before the override still switched: %+v", early)
+	}
+	node.mtp = 4_102_488_000
+	node.cand.ID = 6
+	if err := svc.Poll(); err != nil {
+		t.Fatal(err)
+	}
+	late, ok := svc.CurrentJob()
+	if !ok || late.PrevHash != parent {
+		t.Fatalf("median time at the override did not switch: %+v", late)
+	}
+}
+
+func TestSubmitRejectsMismatchedNTime(t *testing.T) {
+	node := &fakeNode{
+		cand: nexa.Candidate{ID: 7, HeaderCommitment: vectorHC, NBits: "207fffff"},
+		info: nexa.MiningInfo{Blocks: 100, Difficulty: 1},
+	}
+	svc := newTestService(t, node)
+	if err := svc.Poll(); err != nil {
+		t.Fatal(err)
+	}
+	job, ok := svc.CurrentJob()
+	if !ok {
+		t.Fatal("no job")
+	}
+	nonce, _ := hex.DecodeString(vectorHex)
+	bad := svc.Submit(stratum.Share{
+		Address: minerAddr, JobID: job.ID, Nonce: nonce, DifficultyMicros: 1, NTime: job.Time + 1,
+	})
+	if bad.Accept || bad.Message != "bad time" {
+		t.Fatalf("wrong ntime accepted: %+v", bad)
+	}
+	if len(node.submits) != 0 {
+		t.Fatal("wrong ntime was submitted to the node")
+	}
+	okShare := svc.Submit(stratum.Share{
+		Address: minerAddr, JobID: job.ID, Nonce: nonce, DifficultyMicros: 1, NTime: job.Time,
+	})
+	if !okShare.Accept {
+		t.Fatalf("matching ntime rejected: %+v", okShare)
+	}
+}
+
+func TestSharePruneRunsWhileBlockIsImmature(t *testing.T) {
+	node := &fakeNode{
+		info:  nexa.MiningInfo{Difficulty: 1000},
+		block: nexa.Block{Hash: "aa", Height: 101, Confirmations: 10, Reward: 10_000},
+	}
+	svc := newTestService(t, node)
+	found := time.Unix(1_700_000_000, 0).UTC()
+	if _, err := svc.db.InsertBlock(store.Block{Height: 101, Hash: "aa", Finder: minerAddr, FoundAt: found}); err != nil {
+		t.Fatal(err)
+	}
+	old := found.Add(-20 * 24 * time.Hour)
+	if err := svc.db.AddShare(store.Share{
+		Address: minerAddr, Worker: "rig", JobID: "old", Nonce: "01", PowHash: "02",
+		Work: 1000, At: old,
+	}); err != nil {
+		t.Fatal(err)
+	}
+	if err := svc.db.AddShare(store.Share{
+		Address: minerAddr, Worker: "rig", JobID: "new", Nonce: "03", PowHash: "04",
+		Work: 1000, At: found.Add(-time.Minute),
+	}); err != nil {
+		t.Fatal(err)
+	}
+	if err := svc.MatureOnce(); err != nil {
+		t.Fatal(err)
+	}
+	blocks, err := svc.db.ImmatureBlocks()
+	if err != nil || len(blocks) != 1 {
+		t.Fatalf("immature block was closed: %v %+v", err, blocks)
+	}
+	kept, err := svc.db.WorkSince(found.Add(-21 * 24 * time.Hour))
+	if err != nil {
+		t.Fatal(err)
+	}
+	var work uint64
+	for _, m := range kept {
+		work += m.Work
+	}
+	if work != 1000 {
+		t.Fatalf("old share survived an immature block, work %d", work)
+	}
+}
+
+func TestReconcileWhenWalletIsOverTheCap(t *testing.T) {
+	node := &fakeNode{balance: 50_000, notes: map[string]string{}}
+	svc := newTestService(t, node)
+	svc.cfg.HotWalletMax = 10_000
+	svc.cfg.MinPayout = 100
+	if _, err := svc.db.InsertBlock(store.Block{Height: 5, Hash: "bb", Finder: minerAddr}); err != nil {
+		t.Fatal(err)
+	}
+	blocks, err := svc.db.ImmatureBlocks()
+	if err != nil || len(blocks) != 1 {
+		t.Fatal(err)
+	}
+	if err := svc.db.MatureBlock(blocks[0].ID, 5_000, []account.Credit{{Address: minerAddr, Amount: 5_000, Kind: "miner"}}); err != nil {
+		t.Fatal(err)
+	}
+	id, err := svc.db.Reserve(minerAddr, 5_000, "nexapool:held")
+	if err != nil {
+		t.Fatal(err)
+	}
+	node.notes["nexapool:held"] = "tx-held"
+	result, err := svc.PayOnce()
+	if err == nil || !strings.Contains(err.Error(), "hot wallet") {
+		t.Fatalf("cap error: %v", err)
+	}
+	if result.Sent != 1 || len(node.sent) != 0 {
+		t.Fatalf("over-cap pass sent a new payment: result %+v wallet %#v", result, node.sent)
+	}
+	p, err := svc.db.Payout(id)
+	if err != nil || p.Status != "sent" || p.TxID != "tx-held" {
+		t.Fatalf("in-flight row was not reconciled: %+v %v", p, err)
+	}
+}
+
+func TestMaturityAndCoinbaseAreRequired(t *testing.T) {
+	node := &fakeNode{}
+	db, err := store.Open(filepath.Join(t.TempDir(), "pool.sqlite"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	t.Cleanup(func() { db.Close() })
+	base := Config{
+		FeePercent: 1, FeeAddress: feeAddr, CoinbaseAddress: feeAddr,
+		MinPayout: 1, Maturity: 5000, HotWalletMax: 1,
+	}
+	if _, err := New(base, db, node, nil); err == nil {
+		t.Fatal("maturity 5000 was accepted")
+	}
+	base.Maturity = 5001
+	base.CoinbaseAddress = ""
+	if _, err := New(base, db, node, nil); err == nil {
+		t.Fatal("empty coinbase address was accepted")
 	}
 }
 
@@ -331,7 +497,7 @@ func newTestService(t *testing.T, node *fakeNode) *Service {
 	}
 	t.Cleanup(func() { db.Close() })
 	svc, err := New(Config{
-		FeePercent: 1, FeeAddress: feeAddr, MinPayout: 100_000_000,
+		FeePercent: 1, FeeAddress: feeAddr, CoinbaseAddress: feeAddr, MinPayout: 100_000_000,
 		Maturity: 5001, PPLNSBlocks: 2, HashrateWindow: time.Minute,
 		PayoutEvery: time.Hour, TxReserve: 100, PayoutConfs: 1,
 		HotWalletMax: 1_000_000_000_000,
@@ -339,9 +505,8 @@ func newTestService(t *testing.T, node *fakeNode) *Service {
 	if err != nil {
 		t.Fatal(err)
 	}
-	// Pin the clock before Hard Fork 2 so share vectors stay pre-Tailstorm.
-	// The activation tests set their own clock.
-	svc.now = func() time.Time { return time.Unix(nexa.TailstormActivation-86400, 0).UTC() }
+	// Pin the notify timestamp. Tailstorm follows the candidate, not this clock.
+	svc.now = func() time.Time { return time.Unix(1_700_000_000, 0).UTC() }
 	return svc
 }
 
@@ -361,6 +526,7 @@ type fakeNode struct {
 	info    nexa.MiningInfo
 	block   nexa.Block
 	balance int64
+	mtp     int64
 	err     error
 	misses  int
 	submits []submitted
@@ -430,3 +596,9 @@ func (f *fakeNode) LookupPayment(comment, id string) (nexa.Payment, bool, error)
 }
 func (f *fakeNode) Unlock(string, int) error { return nil }
 func (f *fakeNode) Lock(string) error        { return nil }
+func (f *fakeNode) MedianTime() (int64, error) {
+	if f.err != nil && f.mtp == 0 {
+		return 0, f.err
+	}
+	return f.mtp, nil
+}

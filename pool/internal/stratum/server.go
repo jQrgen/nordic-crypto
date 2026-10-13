@@ -50,6 +50,7 @@ type Share struct {
 	Worker           string
 	JobID            string
 	Nonce            []byte
+	NTime            uint64
 	DifficultyMicros uint64
 	Agent            string
 }
@@ -87,6 +88,11 @@ type Server struct {
 	SubmitBurst float64
 	// BanAfter is how many bad shares or rate-limit hits ban the remote IP.
 	BanAfter int
+	// SubmitGrace is how long a new session may exceed SubmitRate without
+	// being banned. Variable difficulty retargets faster during the same
+	// window so an honest fast miner is not banned before the difficulty
+	// can rise. Zero uses the default.
+	SubmitGrace time.Duration
 
 	ln       net.Listener
 	mu       sync.Mutex
@@ -118,13 +124,18 @@ func (s *Server) Listen(addr string) error {
 		s.ReadTimeout = 60 * time.Second
 	}
 	if s.SubmitRate <= 0 {
-		s.SubmitRate = 4
+		// 128/s at the 0.2 start difficulty is about 110 GH/s. The grace
+		// window below is what lets a faster miner ramp before a ban.
+		s.SubmitRate = 128
 	}
 	if s.SubmitBurst <= 0 {
-		s.SubmitBurst = 8
+		s.SubmitBurst = 256
 	}
 	if s.BanAfter <= 0 {
 		s.BanAfter = 20
+	}
+	if s.SubmitGrace <= 0 {
+		s.SubmitGrace = 3 * time.Minute
 	}
 	if s.writeFor <= 0 {
 		s.writeFor = 5 * time.Second
@@ -186,20 +197,17 @@ func (s *Server) SetJob(job Job) {
 }
 
 // NotifyParams is the mining.notify parameter list. Before Tailstorm it is
-// the echelon five-tuple. At and after the activation time a sixth value,
-// previousBlockHash, is appended in the same display order nexad's
-// getminingcandidate uses (uint256::GetHex). Miners reverse that hex before
-// mixing it into the Tailstorm digest, which is what nexa-miner does.
+// the echelon five-tuple. When the job carries a real previousBlockHash,
+// which is how the node says Tailstorm is on, a sixth value is appended in
+// the same display order nexad's getminingcandidate uses (uint256::GetHex).
+// Miners reverse that hex before mixing it into the Tailstorm digest,
+// which is what nexa-miner does. The switch is the parent, not the clock.
 func NotifyParams(job Job) []any {
 	ts := make([]byte, 8)
 	binary.BigEndian.PutUint64(ts, job.Time)
 	params := []any{job.ID, job.Commitment, job.NBits, hex.EncodeToString(ts), job.Clean}
-	if int64(job.Time) >= nexa.TailstormActivation {
-		prev := strings.ToLower(job.PrevHash)
-		if len(prev) != 64 {
-			prev = strings.Repeat("0", 64)
-		}
-		params = append(params, prev)
+	if nexa.TailstormParent(job.PrevHash) {
+		params = append(params, strings.ToLower(job.PrevHash))
 	}
 	return params
 }
@@ -312,18 +320,23 @@ type session struct {
 	bad        int
 	tokens     float64
 	tokenAt    time.Time
+	started    time.Time
 }
 
 func newSession(srv *Server, conn net.Conn, host, extra string) *session {
+	now := time.Now()
+	vd := newVarDiff(srv.StartDiff, srv.MinDiff, srv.MaxDiff, now)
+	vd.grace = srv.SubmitGrace
 	return &session{
 		srv:     srv,
 		conn:    conn,
 		host:    host,
 		out:     make(chan []byte, 8),
 		extra:   extra,
-		vardiff: newVarDiff(srv.StartDiff, srv.MinDiff, srv.MaxDiff, time.Now()),
+		vardiff: vd,
 		tokens:  srv.SubmitBurst,
-		tokenAt: time.Now(),
+		tokenAt: now,
+		started: now,
 	}
 }
 
@@ -469,14 +482,25 @@ func (s *session) submit(req request) {
 		_ = json.Unmarshal(params[4], &nonceHex)
 		nonceHex = extra2 + nonceHex
 	}
-	if stamp == "" {
+	ntime, err := parseNTime(stamp)
+	if err != nil {
 		s.reply(req.ID, false, errOther, "bad time")
 		s.penalise()
 		return
 	}
-	if !s.allowSubmit(time.Now()) {
-		s.reply(req.ID, false, errOther, "rate limit")
+	if job, ok := s.srv.currentJob(); ok && job.ID == jobID && job.Time != ntime {
+		s.reply(req.ID, false, errOther, "bad time")
 		s.penalise()
+		return
+	}
+	now := time.Now()
+	if !s.allowSubmit(now) {
+		s.reply(req.ID, false, errOther, "rate limit")
+		// During the ramp the limit still sheds load, but it does not
+		// ban. Variable difficulty is climbing on the shares that land.
+		if s.rateLimitBans(now) {
+			s.penalise()
+		}
 		return
 	}
 	nonce, err := bindNonce(s.extra, nonceHex)
@@ -500,7 +524,7 @@ func (s *session) submit(req request) {
 	if s.srv.Hooks.Submit != nil {
 		verdict = s.srv.Hooks.Submit(Share{
 			Address: address, Worker: worker, JobID: jobID, Nonce: nonce,
-			DifficultyMicros: s.diff.Load(), Agent: s.agent,
+			NTime: ntime, DifficultyMicros: s.diff.Load(), Agent: s.agent,
 		})
 	}
 	if !verdict.Accept {
@@ -580,6 +604,13 @@ func (s *session) allowSubmit(now time.Time) bool {
 	return true
 }
 
+func (s *session) rateLimitBans(now time.Time) bool {
+	if s.srv.SubmitGrace <= 0 {
+		return true
+	}
+	return now.Sub(s.started) >= s.srv.SubmitGrace
+}
+
 func (s *session) penalise() {
 	s.bad++
 	if s.srv.BanAfter > 0 && s.bad >= s.srv.BanAfter {
@@ -653,6 +684,26 @@ func splitUser(user string) (address, worker string) {
 		}
 	}
 	return user, ""
+}
+
+func parseNTime(stamp string) (uint64, error) {
+	stamp = strings.TrimSpace(strings.ToLower(stamp))
+	stamp = strings.TrimPrefix(stamp, "0x")
+	if stamp == "" || len(stamp) > 16 {
+		return 0, errors.New("bad time")
+	}
+	if len(stamp)%2 != 0 {
+		stamp = "0" + stamp
+	}
+	raw, err := hex.DecodeString(stamp)
+	if err != nil || len(raw) == 0 || len(raw) > 8 {
+		return 0, errors.New("bad time")
+	}
+	var v uint64
+	for _, c := range raw {
+		v = v<<8 | uint64(c)
+	}
+	return v, nil
 }
 
 func bindNonce(extra, nonceHex string) ([]byte, error) {

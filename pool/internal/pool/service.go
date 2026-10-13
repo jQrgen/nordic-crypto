@@ -36,6 +36,11 @@ type Config struct {
 	PublicStratum   string
 	PayoutConfs     int64
 	HotWalletMax    int64
+	// Tailstorm is auto, on, or off. auto follows the mining candidate.
+	Tailstorm string
+	// TailstormAt, when set, is a unix time compared with the node's
+	// median time past. It is not compared with the wall clock.
+	TailstormAt int64
 }
 
 // Chain is the nexad surface the pool uses.
@@ -49,6 +54,7 @@ type Chain interface {
 	LookupPayment(comment, id string) (nexa.Payment, bool, error)
 	Unlock(passphrase string, timeout int) error
 	Lock(passphrase string) error
+	MedianTime() (int64, error)
 }
 
 // Service is the pool.
@@ -92,17 +98,23 @@ func New(cfg Config, db *store.Store, node Chain, logger *log.Logger) (*Service,
 		return nil, fmt.Errorf("pool: fee address is empty or invalid")
 	}
 	cfg.FeeAddress = strings.ToLower(cfg.FeeAddress)
-	if cfg.CoinbaseAddress != "" {
-		if !nexa.ValidAddress(cfg.CoinbaseAddress) {
-			return nil, fmt.Errorf("pool: coinbase address is invalid")
-		}
-		cfg.CoinbaseAddress = strings.ToLower(cfg.CoinbaseAddress)
+	if cfg.CoinbaseAddress == "" || !nexa.ValidAddress(cfg.CoinbaseAddress) {
+		return nil, fmt.Errorf("pool: coinbase address is empty or invalid")
 	}
+	cfg.CoinbaseAddress = strings.ToLower(cfg.CoinbaseAddress)
+	mode, err := tailstormMode(cfg.Tailstorm)
+	if err != nil {
+		return nil, err
+	}
+	cfg.Tailstorm = mode
 	if cfg.MinPayout <= 0 {
 		return nil, fmt.Errorf("pool: minimum payout")
 	}
-	if cfg.Maturity <= 0 {
+	if cfg.Maturity == 0 {
 		cfg.Maturity = 5001
+	}
+	if cfg.Maturity < 5001 {
+		return nil, fmt.Errorf("pool: maturity %d is below 5001", cfg.Maturity)
 	}
 	if cfg.PayoutConfs <= 0 {
 		cfg.PayoutConfs = 1
@@ -191,7 +203,10 @@ func (s *Service) publish(cand nexa.Candidate, info nexa.MiningInfo) error {
 		return err
 	}
 	now := s.clock().Unix()
-	active := now >= nexa.TailstormActivation
+	active, err := s.tailstormActive(cand)
+	if err != nil {
+		return err
+	}
 	var prev []byte
 	prevHex := ""
 	if active {
@@ -239,6 +254,39 @@ func (s *Service) publish(cand nexa.Candidate, info nexa.MiningInfo) error {
 	return nil
 }
 
+func tailstormMode(v string) (string, error) {
+	switch strings.ToLower(strings.TrimSpace(v)) {
+	case "", "auto":
+		return "auto", nil
+	case "on", "true", "yes":
+		return "on", nil
+	case "off", "false", "no":
+		return "off", nil
+	default:
+		return "", fmt.Errorf("pool: tailstorm mode %q", v)
+	}
+}
+
+// tailstormActive follows the mining candidate unless the operator pinned
+// a mode or a median-time override. There is no wall-clock switch.
+func (s *Service) tailstormActive(cand nexa.Candidate) (bool, error) {
+	switch s.cfg.Tailstorm {
+	case "on":
+		return true, nil
+	case "off":
+		return false, nil
+	default:
+		if s.cfg.TailstormAt > 0 {
+			mtp, err := s.node.MedianTime()
+			if err != nil {
+				return false, err
+			}
+			return mtp >= s.cfg.TailstormAt, nil
+		}
+		return nexa.TailstormParent(cand.PrevHash), nil
+	}
+}
+
 func allZero(b []byte) bool {
 	for _, c := range b {
 		if c != 0 {
@@ -268,8 +316,12 @@ func (s *Service) Submit(sh stratum.Share) stratum.Verdict {
 	if job == nil {
 		return stratum.Verdict{Code: 21, Message: "Stale share"}
 	}
+	if sh.NTime != job.wire.Time {
+		_ = s.db.AddReject(sh.Address, time.Now())
+		return stratum.Verdict{Code: 20, Message: "bad time"}
+	}
 	var parent []byte
-	if int64(job.wire.Time) >= nexa.TailstormActivation {
+	if len(job.prev) == 32 && !allZero(job.prev) {
 		parent = job.prev
 	}
 	pow, err := nexa.PowHash(job.commitment, sh.Nonce, parent)
@@ -331,7 +383,10 @@ func (s *Service) MatureOnce() error {
 	if err != nil {
 		return err
 	}
-	prune := len(blocks) > 0
+	// hold keeps the id prune from deleting history an unfilled window
+	// still needs. The time prune runs either way: one immature block
+	// used to stop it for the whole maturity wait.
+	hold := false
 	var floor int64 = -1
 	for _, b := range blocks {
 		blk, err := s.node.GetBlock(b.Hash)
@@ -339,7 +394,7 @@ func (s *Service) MatureOnce() error {
 			// "Block not found on disk" is nexad's reply when the header is
 			// known and the body is not. That is a retry, not an orphan.
 			s.log.Printf("block %s not ready, will retry: %v", b.Hash, err)
-			prune = false
+			hold = true
 			continue
 		}
 		if blk.Confirmations < 0 {
@@ -357,7 +412,7 @@ func (s *Service) MatureOnce() error {
 			return err
 		}
 		if !filled {
-			prune = false
+			hold = true
 		} else if oldest > 0 && (floor < 0 || oldest < floor) {
 			floor = oldest
 		}
@@ -377,15 +432,15 @@ func (s *Service) MatureOnce() error {
 		}
 		s.log.Printf("block %d matured, reward %s", blk.Height, nexa.FormatNEX(blk.Reward))
 	}
-	if prune && floor > 1 {
+	keep := int64(0)
+	if !hold && floor > 1 {
 		if err := s.db.PruneSharesBefore(floor); err != nil {
 			return err
 		}
+		keep = floor
 	}
-	if len(blocks) == 0 {
-		if err := s.db.PruneSharesBeforeTime(s.clock().Add(-14 * 24 * time.Hour)); err != nil {
-			return err
-		}
+	if err := s.db.PruneSharesBeforeTime(s.clock().Add(-14*24*time.Hour), keep); err != nil {
+		return err
 	}
 	return s.db.PruneRejectsBefore(s.clock().Add(-48 * time.Hour))
 }
@@ -411,7 +466,12 @@ func (s *Service) PayOnce() (account.Result, error) {
 		return account.Result{}, err
 	}
 	if bal > s.cfg.HotWalletMax {
-		return account.Result{}, fmt.Errorf("pool: wallet balance %s is above the hot wallet cap %s", nexa.FormatNEX(bal), nexa.FormatNEX(s.cfg.HotWalletMax))
+		// Still match in-flight rows to the wallet. Do not start a new send.
+		result, recErr := account.Reconcile(s.db, rpcWallet{s.node}, s.cfg.PayoutConfs)
+		if recErr != nil {
+			return result, recErr
+		}
+		return result, fmt.Errorf("pool: wallet balance %s is above the hot wallet cap %s", nexa.FormatNEX(bal), nexa.FormatNEX(s.cfg.HotWalletMax))
 	}
 	reserved, err := s.db.Reserved()
 	if err != nil {
@@ -426,6 +486,32 @@ func (s *Service) PayOnce() (account.Result, error) {
 		left = 0
 	}
 	return account.RunPayouts(&spendCap{Ledger: s.db, left: left}, rpcWallet{s.node}, s.cfg.MinPayout, s.cfg.PayoutConfs)
+}
+
+// Reviews lists payouts held for an operator. The coins stay deducted
+// until the row is completed or released.
+func (s *Service) Reviews() ([]account.Payout, error) {
+	all, err := s.db.Reserved()
+	if err != nil {
+		return nil, err
+	}
+	var out []account.Payout
+	for _, p := range all {
+		if p.Status == "review" {
+			out = append(out, p)
+		}
+	}
+	return out, nil
+}
+
+// ResolveReview completes or releases one review row after a wallet lookup.
+// action is "complete" or "release".
+func (s *Service) ResolveReview(id int64, action string) error {
+	if err := s.node.Unlock(s.pass, 60); err != nil {
+		return err
+	}
+	defer s.node.Lock(s.pass)
+	return account.ResolveReview(s.db, rpcWallet{s.node}, id, action, s.cfg.PayoutConfs)
 }
 
 // WindowWork is the PPLNS window in difficulty micros: blocks times the

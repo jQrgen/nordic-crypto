@@ -5,8 +5,8 @@ The pool pays real NEX from a hot wallet. The things that can go wrong are a sto
 ## What the pool trusts
 
 - A hot-wallet nexad on the same machine, reached only at `127.0.0.1`. The pool does not open the RPC port and refuses any node URL that is not loopback.
-- That hot wallet, and not the cold wallet under `/var/lib/nexa`. The process runs as `nexapool`. `hot_wallet_max` stops a payout pass when the balance is above the cap.
-- The operator who sets `fee_address` and `coinbase_address`. An empty or invalid fee address stops the process before it listens. Block reward is only the coinbase output that pays `coinbase_address`.
+- That hot wallet, and not the cold wallet under `/var/lib/nexa`. The process runs as `nexapool`. `hot_wallet_max` stops new sends when the balance is above the cap. In-flight rows are still reconciled.
+- The operator who sets `fee_address` and `coinbase_address`. An empty or invalid fee address or coinbase address stops the process before it listens. Block reward is only the coinbase output that pays `coinbase_address`.
 - SQLite on the local disk as the only ledger. One process holds the payout lock.
 
 ## Credentials
@@ -21,7 +21,7 @@ A share is accepted only after NexaPow matches the published echelon constructio
 
 The username is the payout address. Anyone can mine to any valid address. That is the pool's account model: knowing an address lets you add hashrate to it, and it does not let you withdraw it.
 
-Variable difficulty starts at 0.2 and will not fall below 0.05. `mining.suggest_difficulty` is ignored until authorize and cannot lower the session below its current difficulty. One IP can hold 16 connections, not the whole listener. Submits are rate limited. A run of bad shares bans the address. A client that does not read is disconnected so it cannot stall the job broadcast. Maturity reads the PPLNS window backwards and stops when the window is full.
+Variable difficulty starts at 0.2 and will not fall below 0.05. For the first three minutes it retargets every 10 seconds, then it waits a minute. `mining.suggest_difficulty` is ignored until authorize and cannot lower the session below its current difficulty. One IP can hold 16 connections, not the whole listener. Submits are rate limited at `submit_rate` (default 128 per second, about 110 GH/s at the start difficulty). Rate-limit misses during `submit_grace` do not ban, so a faster miner can climb before the ban applies. A run of bad shares still bans the address. A client that does not read is disconnected so it cannot stall the job broadcast. The submitted ntime must match the job. Maturity reads the PPLNS window backwards and stops when the window is full. Shares older than 14 days are pruned even while a block is still immature.
 
 ## Blocks, reorgs, and maturity
 
@@ -31,23 +31,23 @@ A share that also meets the network target is submitted with `submitminingsoluti
 
 A payout is inserted as `reserved` in the same transaction that checks the mature balance, and that transaction is `BEGIN IMMEDIATE`. Reserved, review, and sent rows all reduce what is still payable. The wallet comment is `nexapool:` plus 16 random bytes, written on that row before `sendtoaddress`.
 
-`sendtoaddress` returns the transaction idem. The pool resolves it with `gettransaction` and stores the txid (`GetId`) on every path. A restart looks the row up by that id, then by comment, using `listtransactionsfrom` paged to the end of the wallet. There is no 200-row window. A row that already existed at the start of the pass is never sent again. If the lookup itself fails, the row stays `reserved` and is checked again next pass. If the search finishes and the send is absent, the row moves to `review` and stays deducted until an operator has checked the hot wallet. A payout is marked sent only after `payout_confirmations` (default 1).
+`sendtoaddress` returns the transaction idem. The pool resolves it with `gettransaction` and stores the txid (`GetId`) on every path. A restart looks the row up by that id, then by comment. `listtransactionsfrom` is paged by nexad's wallet-item count (`getwalletinfo` `txcount` when the node reports it), not by the number of JSON rows. There is no 200-row window. A row that already existed at the start of the pass is never sent again. If the lookup itself fails, the row stays `reserved` and is checked again next pass. If the search finishes and the send is absent, the row moves to `review` and stays deducted. `nexapool review` lists those rows. `-resolve complete` marks one sent when the wallet has the transaction. `-resolve release` returns the coins only when the search finishes and the send is absent. A payout is marked sent only after `payout_confirmations` (default 1). Each later pass rechecks sent rows. A transaction that disappears moves back to `review`. Negative confirmations mark the row failed so it can be paid once.
 
 A definite wallet error on the first send marks the payout failed and returns the coins. A timeout or a dropped connection leaves the reservation in place.
 
 The fee is one percent, floored. Rounding dust from the miner split is added to the fee so the credits sum to the coinbase output and no miner is paid more than their work.
 
-To return coins from a `review` row, confirm the hot wallet has no send with that comment, then set the row to `failed`. Doing that while a send exists pays the same coins twice.
+To return coins from a `review` row, run `nexapool review -id N -resolve release`. That refuses while the wallet still has the send. Doing it by hand in the database while a send exists pays the same coins twice.
 
 ## Tailstorm
 
-Hard Fork 2 activates at unix time 1793495471, 2026-11-01 01:11:11 UTC. Before that, `mining.notify` is the echelon five-tuple and a zero previous hash is the pre-fork hash. At and after that time the notify gains `previousBlockHash` (display order, the same hex as `getminingcandidate`) and the pool rejects a candidate that does not carry a real parent. Miners that still hash the old way will produce shares this pool rejects.
+Tailstorm follows the node. `getminingcandidate` leaves `previousBlockHash` as 64 zero bytes until the node enables it, and the pool publishes the echelon five-tuple while that field is zero. A real parent is appended to `mining.notify` and mixed into the share hash. `tailstorm = on` requires a parent and `tailstorm = off` ignores one. `tailstorm_activation`, when set, is compared with the node's median time past from `getblockchaininfo`, not with the wall clock. Miners that still hash the old way will produce shares this pool rejects once the parent is on the wire.
 
 ## The public site and API
 
 The API is read-only. It returns addresses, shares, balances, and payouts. It does not return idempotency keys, the cookie, or the passphrase. When the node is down, hashrate, miner count, network hashrate, and pool share are JSON null. Queries use bound parameters. Address lookup rejects anything that is not a mainnet Nexa cashaddr with a valid polymod.
 
-nginx rate-limits `/api/` and sends HSTS, `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, and a Content-Security-Policy. TLS is 1.2 and 1.3.
+nginx rate-limits `/api/` and sends HSTS, `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, and a Content-Security-Policy that does not allow inline scripts. Translations are `pool-text.js`. TLS is 1.2 and 1.3.
 
 ## Review findings
 
@@ -72,7 +72,16 @@ Reviewed against commit `0ac9ba466`. The fixes are on `cursor/nexa-pool-4f40`.
 | Low | `payout_test.go` | Dead assignment. | Removed. |
 | Low | `server.go` extranonce | `rand.Read`'s error was ignored and two sessions were not checked for a collision. | A failed read closes the connection. Live extranonces are unique. |
 | Low | `README.md` | Firewall text omitted P2P port 7228. | 7228 stays closed; outbound peering does not need it open. |
-| Accepted | submit timestamp | The submitted time is checked for being non-empty. It is not an input to NexaPow. | Unchanged. It does not weaken a share. |
+| High | `rpc.go` `findComment`, `payout.go` | `listtransactionsfrom` advanced `from` by JSON rows. nexad counts wallet items, so a crash between send and `NotePayment` stuck the payout in `review` once the wallet was longer than one page. Nothing but a database edit could release it. | Page by wallet-item count, using `getwalletinfo` `txcount` when the node reports it. `nexapool review` completes or releases a `review` row after a wallet lookup. |
+| High | `fork.go`, `service.go` `publish` | Tailstorm flipped on the wall clock 2026-11-01 01:11:11 UTC. nexad activates by median time and emits a parent only when Tailstorm is enabled, so the pool would stop publishing jobs. | The mining candidate's previous hash decides. `tailstorm = on` or `off` forces it. `tailstorm_activation` is compared with the node's median time, not the wall clock. |
+| High | `rpc.go` `GetBlock`, empty `coinbase_address` | An empty pool address matched no coinbase output, so a block never matured. | `coinbase_address` is required at startup. `GetBlock` refuses to count a reward without it. |
+| High | `server.go` submit cap, `vardiff.go` | 4 submits/s and a ban after 20 misses banned a miner above about 3.4 GH/s before variable difficulty could move. The limits were not in the config. | `submit_rate`, `submit_burst`, `ban_after`, and `submit_grace` are configurable. Defaults are 128/s, burst 256, and a 3 minute grace. During the grace, rate-limit misses do not ban and variable difficulty retargets every 10 seconds. |
+| Low | `payout.go` `settle` | A payout marked sent at one confirmation was not revisited if that transaction later dropped. | Each pass rechecks sent rows. A drop moves the row to `review`. Negative confirmations mark it failed so the coins can be paid again. |
+| Low | `config.go` maturity | A positive maturity below 5001 was accepted. | Values below 5001 are rejected. Unset still defaults to 5001. |
+| Low | `service.go` `MatureOnce` | The 14-day share prune did not run while any block was immature. | The time prune runs on every pass. A filled window's shares are kept. |
+| Low | `service.go` `PayOnce` | A hot wallet over the cap skipped reconciliation until it was swept. | In-flight rows are reconciled. New sends wait until the balance is under the cap. |
+| Low | `server.go` submit time | The submitted ntime was not compared with the job. | The ntime must decode and must match the job's timestamp. |
+| Low | nginx CSP | `script-src` allowed `'unsafe-inline'`. | The policy has no `'unsafe-inline'`. Translations load from `pool-text.js`. |
 
 ## What this does not defend against
 
