@@ -217,7 +217,7 @@ def header_buttons(rel):
     """Subscribe, then Join on Telegram, then Follow on X, then the source code on GitHub. Left-aligned, in that order."""
     return header_subscribe_button(rel) + header_telegram_button() + header_x_button() + header_github_button()
 # Nordic Crypto brand accounts (not jQrgen's personal profiles). Plain links only: no widgets, scripts or embeds.
-SITE_X = "https://x.com/xcryptonordic"
+SITE_X = "https://x.com/nordiccryptobot"
 SITE_TELEGRAM = "https://t.me/nordiccryptochat"
 ICON_GLOBE = '<svg class="ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>'
 ICON_TG = ('<svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" '
@@ -240,7 +240,7 @@ def header_github_button():
     """The site's source code on GitHub, beside the X button and built the same way. The label is the footer's "Source code" string."""
     return f'<a class="hdrgh" href="{SITE_REPO}" rel="noopener" title="{E(t("foot_source"))}">{ICON_GH}<span class="lbl">{E(t("foot_source"))}</span></a>'
 def x_link():
-    """'Follow Nordic Crypto on X' link. The brand account @xcryptonordic."""
+    """'Follow Nordic Crypto on X' link. The brand account @nordiccryptobot."""
     return f'<a class="xfollow" href="{SITE_X}" rel="noopener noreferrer" title="{E(t("x_title"))}">{E(t("x_follow"))}</a>'
 def telegram_link():
     """'Nordic Crypto on Telegram' link. The brand chat, t.me/nordiccryptochat."""
@@ -1325,8 +1325,12 @@ def _budget_bits(line, bud):
     """Item name and the smaller line under it. Amounts come from the line, not from the translation."""
     kind = line["kind"]
     if kind == "server":
-        return (E(t("bud_server", name=line["name"], type=line["type"], place=line["place"])),
-                E(t("bud_runs", what=line["runs"])))
+        detail = E(t("bud_runs", what=line["runs"]))
+        if line.get("amount_server") and line.get("amount_ipv4"):
+            host = f'{line["currency"]} {bud.group_amount(line["amount_server"])}'
+            ipv4 = f'{line["currency"]} {bud.group_amount(line["amount_ipv4"])}'
+            detail += "<br>" + E(t("bud_server_split", server=host, ipv4=ipv4))
+        return (E(t("bud_server", name=line["name"], type=line["type"], place=line["place"])), detail)
     if kind == "volume":
         price = f'{line["unit_currency"]} {bud.group_amount(line["unit_price"])}'
         return (E(t("bud_volume", gb=bud.group_amount(line["gb"]), price=price)), "")

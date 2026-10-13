@@ -530,7 +530,7 @@ S.update({
 "nl_get_next": "次の号をメールで受け取る:",
 "x_btn": "Xでフォロー",
 "x_follow": "Nordic CryptoをXでフォロー",
-"x_title": "XのNordic Crypto（@xcryptonordic）、当サイト公式アカウント",
+"x_title": "XのNordic Crypto（@nordiccryptobot）、当サイト公式アカウント",
 "tg_btn": "Telegramに参加",
 "tg_label": "Telegram",
 "tg_follow": "TelegramのNordic Crypto",

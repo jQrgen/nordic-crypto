@@ -409,7 +409,7 @@ def main():
         xacc = social.get("x") or {}
         if tg.get("url") != "https://t.me/nordiccryptochat" or tg.get("label") != "Telegram" or tg.get("name") != "Nordic Crypto on Telegram":
             fails.append("meta social telegram")
-        if xacc.get("url") != "https://x.com/xcryptonordic" or xacc.get("label") != "X" or xacc.get("handle") != "@xcryptonordic":
+        if xacc.get("url") != "https://x.com/nordiccryptobot" or xacc.get("label") != "X" or xacc.get("handle") != "@nordiccryptobot":
             fails.append("meta social x")
         if (tg.get("name_i18n") or {}).get("nb") != "Nordic Crypto på Telegram":
             fails.append("meta social telegram nb")
@@ -418,7 +418,7 @@ def main():
         if "jqrgensn" in json.dumps(social) or "Follow me" in json.dumps(social):
             fails.append("personal profile leaked into social")
         urls = meta.get("urls") or {}
-        if urls.get("telegram") != "https://t.me/nordiccryptochat" or urls.get("x") != "https://x.com/xcryptonordic":
+        if urls.get("telegram") != "https://t.me/nordiccryptochat" or urls.get("x") != "https://x.com/nordiccryptobot":
             fails.append("meta urls social")
         if not str(urls.get("rss") or "").endswith("/rss.xml") or "substack" in urls:
             fails.append("meta urls rss, no substack signup")
@@ -427,7 +427,7 @@ def main():
             fails.append("openapi social")
         build.LANG = "nb"
         nb_html = build.community_links() + build.community_section()
-        if "https://t.me/nordiccryptochat" not in nb_html or "https://x.com/xcryptonordic" not in nb_html:
+        if "https://t.me/nordiccryptochat" not in nb_html or "https://x.com/nordiccryptobot" not in nb_html:
             fails.append("community links missing")
         if "Nordic Crypto på Telegram" not in nb_html or "Fellesskap" not in nb_html:
             fails.append("nb community copy")
@@ -489,7 +489,7 @@ def main():
         page = open(os.path.join(tmp, "api/index.html"), encoding="utf-8").read()
         if "Nordic Crypto data API" not in page or "curl -fsS" not in page or "<header" not in page:
             fails.append("human docs were not themed by the site builder")
-        if "https://t.me/nordiccryptochat" not in page or "social.telegram" not in page or "https://x.com/xcryptonordic" not in page:
+        if "https://t.me/nordiccryptochat" not in page or "social.telegram" not in page or "https://x.com/nordiccryptobot" not in page:
             fails.append("api docs missing brand accounts")
         catalog = json.load(open(os.path.join(tmp, ".well-known/api-catalog"), encoding="utf-8"))
         if "service-desc" not in catalog["linkset"][0]:

@@ -530,7 +530,7 @@ S.update({
 "nl_get_next": "पुढील अंक ईमेलने मिळवा:",
 "x_btn": "X वर फॉलो करा",
 "x_follow": "Nordic Crypto ला X वर फॉलो करा",
-"x_title": "X वर Nordic Crypto (@xcryptonordic), साइटचे स्वतःचे खाते",
+"x_title": "X वर Nordic Crypto (@nordiccryptobot), साइटचे स्वतःचे खाते",
 "tg_btn": "Telegram वर सामील व्हा",
 "tg_label": "Telegram",
 "tg_follow": "Telegram वर Nordic Crypto",

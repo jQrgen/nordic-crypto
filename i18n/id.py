@@ -530,7 +530,7 @@ S.update({
 "nl_get_next": "Terima edisi berikutnya melalui email:",
 "x_btn": "Ikuti di X",
 "x_follow": "Ikuti Nordic Crypto di X",
-"x_title": "Nordic Crypto di X (@xcryptonordic), akun resmi situs ini",
+"x_title": "Nordic Crypto di X (@nordiccryptobot), akun resmi situs ini",
 "tg_btn": "Gabung di Telegram",
 "tg_label": "Telegram",
 "tg_follow": "Nordic Crypto di Telegram",

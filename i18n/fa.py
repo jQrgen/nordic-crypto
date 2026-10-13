@@ -502,7 +502,7 @@ S.update({
 "nl_get_next": "شمارهٔ بعدی را از طریق ایمیل دریافت کنید:",
 "x_btn": "دنبال کردن در X",
 "x_follow": "Nordic Crypto را در X دنبال کنید",
-"x_title": "Nordic Crypto در X (@xcryptonordic)، حساب رسمی سایت",
+"x_title": "Nordic Crypto در X (@nordiccryptobot)، حساب رسمی سایت",
 "tg_btn": "پیوستن در Telegram",
 "tg_label": "Telegram",
 "tg_follow": "Nordic Crypto در Telegram",

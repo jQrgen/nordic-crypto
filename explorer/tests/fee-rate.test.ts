@@ -39,7 +39,8 @@ test("the fiat amount follows the price input", () => {
 test("NEX/byte is whole coins, not satoshis", () => {
   assert.equal(coinCostAtFeeRate("0.004 NEX/byte"), 1);
   assert.equal(formatFeeRateQuote("0.004 NEX/byte", 0.12, "SEK"), "0.004 NEX/byte · ≈ 0.12 kr");
-  assert.equal(formatLocalFiat(0.000010317, "NOK"), "0.00001 kr");
+  assert.equal(formatLocalFiat(0.000010317, "NOK"), "< 0.01 kr");
+  assert.equal(formatLocalFiat(0.000025, "USD"), "< $0.01");
 });
 
 test("an unrecognised fee rate is left unchanged", () => {
@@ -51,14 +52,20 @@ test("an unrecognised fee rate is left unchanged", () => {
 test("a caller-supplied price is the only fiat input", () => {
   for (const fiat of FIATS) {
     const quote = formatFeeRateQuote("5 sat/byte", QUOTES[fiat], fiat);
-    assert.match(quote, /^5 sat\/byte · ≈ /);
+    assert.match(quote, /^5 sat\/byte · /);
     const mark = fiat === "EUR" ? "€" : fiat === "USD" ? "\\$" : "kr";
     assert.match(quote, new RegExp(mark));
     assert.equal(formatFeeRateLabel("1 sat/byte", QUOTES[fiat], fiat).note, TYPICAL_TX_NOTE);
   }
 });
 
-test("Nexa sat/byte uses 100 subunits per coin", () => {
-  assert.equal(coinCostAtFeeRate("1 sat/byte", TYPICAL_TX_BYTES, 100), 2.5);
-  assert.equal(formatFeeRateQuote("1 sat/byte", 0.12, "NOK", TYPICAL_TX_BYTES, 100), "1 sat/byte · ≈ 0.30 kr");
+test("fixed prices price one sat/byte for both chains", () => {
+  const nexaCoins = coinCostAtFeeRate("1 sat/byte", TYPICAL_TX_BYTES, 100);
+  assert.equal(nexaCoins, 2.5);
+  assert.equal(Math.round(nexaCoins! * 0.00001 * 1e9) / 1e9, 0.000025);
+  assert.equal(formatFeeRateQuote("1 sat/byte", 0.00001, "NOK", TYPICAL_TX_BYTES, 100), "1 sat/byte · < 0.01 kr");
+
+  const bchCoins = coinCostAtFeeRate("1 sat/byte", TYPICAL_TX_BYTES, 100_000_000);
+  assert.equal(Math.round(bchCoins! * 2700 * 1e8) / 1e8, 0.00675);
+  assert.equal(formatFeeRateQuote("1 sat/byte", 2700, "NOK"), "1 sat/byte · < 0.01 kr");
 });

@@ -22,7 +22,7 @@ ok("substack" not in form.lower() and "iframe" not in form.lower(), "form has no
 ok("samtykker" in form, "bokmål consent text")
 hdr = build.header_buttons("../")
 ok('href="../newsletter/#signup"' in hdr and "substack" not in hdr.lower(), "header subscribe link stays on this site")
-ok(hdr.find("newsletter/#signup") < hdr.find("t.me/nordiccryptochat") < hdr.find("x.com/xcryptonordic") < hdr.find("github.com/jQrgen/nordic-crypto"), "header order is Subscribe, Telegram, X, GitHub")
+ok(hdr.find("newsletter/#signup") < hdr.find("t.me/nordiccryptochat") < hdr.find("x.com/nordiccryptobot") < hdr.find("github.com/jQrgen/nordic-crypto"), "header order is Subscribe, Telegram, X, GitHub")
 ok('class="hdrgh"' in hdr and "Kildekode" in hdr, "GitHub button uses the outline button and the translated Source code label")
 ok('class="hdrtg"' in hdr and "justify-content:flex-end" not in build.CSS, "Telegram uses the outline button and the header stays left-aligned")
 ok("header.top,header.top .wrap{text-align:start}" in build.CSS, "header text starts at the left")
@@ -30,7 +30,7 @@ ok(".brandrow{display:flex;align-items:center;justify-content:flex-start;" in bu
 ok(".hdrbtns{display:flex;align-items:center;justify-content:flex-start;" in build.CSS, "header buttons start at the left")
 closed = build.newsletter_closed("../")
 ok("<form" not in closed and 'type="email"' not in closed, "closed signup has no email field")
-ok("rss.xml" in closed and "t.me/nordiccryptochat" in closed and "x.com/xcryptonordic" in closed, "closed signup points at RSS, Telegram and X")
+ok("rss.xml" in closed and "t.me/nordiccryptochat" in closed and "x.com/nordiccryptobot" in closed, "closed signup points at RSS, Telegram and X")
 ok("substack" not in closed.lower(), "closed signup has no third-party signup")
 for lang in ("en", "nn", "nb", "sv", "da", "fi", "is"):
     build.LANG = lang

@@ -2,9 +2,13 @@ import { chainOrder } from "./chains";
 import type { ChainId, Fiat } from "./types";
 
 const GECKO_URL =
-  "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin-cash,nexa&vs_currencies=usd,eur,nok,sek,dkk&include_24hr_change=true";
+  "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin-cash,nexacoin&vs_currencies=usd,eur,nok,sek,dkk&include_24hr_change=true";
 
-const IDS: Record<ChainId, string> = { bch: "bitcoin-cash", nexa: "nexa" };
+/**
+ * CoinGecko ids. `nexacoin` is NEXA. The id `nexa` is a different listing whose
+ * price is about 1,000× higher and whose market cap is zero.
+ */
+const IDS: Record<ChainId, string> = { bch: "bitcoin-cash", nexa: "nexacoin" };
 const FIATS: Fiat[] = ["USD", "EUR", "NOK", "SEK", "DKK"];
 
 export type PriceBook = Record<ChainId, { quotes: Partial<Record<Fiat, number>>; change: Partial<Record<Fiat, number | null>> }>;

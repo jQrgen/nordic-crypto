@@ -530,7 +530,7 @@ S.update({
 "nl_get_next": "Pata toleo lijalo kwa barua pepe:",
 "x_btn": "Fuata kwenye X",
 "x_follow": "Fuata Nordic Crypto kwenye X",
-"x_title": "Nordic Crypto kwenye X (@xcryptonordic), akaunti ya tovuti yenyewe",
+"x_title": "Nordic Crypto kwenye X (@nordiccryptobot), akaunti ya tovuti yenyewe",
 "tg_btn": "Jiunge kwenye Telegram",
 "tg_label": "Telegram",
 "tg_follow": "Nordic Crypto kwenye Telegram",

@@ -5,6 +5,7 @@ import { Frame } from "@/components/frame";
 import { AddressScreen } from "@/components/screens";
 import { LoadingState } from "@/components/states";
 import { chainOrder, getChain } from "@/lib/chains";
+import { onExplorer, rootSocial, socialMetadata, socialTitle } from "@/lib/social";
 
 export const dynamicParams = false;
 
@@ -15,7 +16,12 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ chain: string }> }): Promise<Metadata> {
   const { chain } = await params;
   const info = getChain(chain);
-  return { title: info ? `Address · ${info.name}` : "Address" };
+  if (!info) return rootSocial();
+  return socialMetadata({
+    title: socialTitle(`Address · ${info.name}`),
+    description: onExplorer(info.name, "Address"),
+    path: `/${info.id}/address/`,
+  });
 }
 
 export default async function AddressPage({ params }: { params: Promise<{ chain: string }> }) {

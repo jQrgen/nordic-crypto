@@ -7,6 +7,7 @@ import { chainOrder, chains, defaultChain, isChainId } from "@/lib/chains";
 import type { ChainId, Fiat } from "@/lib/types";
 import { PricesProvider } from "./money";
 import { PrefsProvider, usePrefs } from "./prefs";
+import { SiteLinks } from "./site-links";
 
 const FIATS: Fiat[] = ["NOK", "SEK", "DKK", "EUR", "USD"];
 
@@ -71,9 +72,7 @@ function Shell({ chain, children }: { chain?: ChainId; children: ReactNode }) {
               ))}
             </nav>
             <div className="hdrtools">
-              <a className="quiet" href="https://nordiccrypto.no/">
-                News
-              </a>
+              <SiteLinks />
               <label className="fiat">
                 <span className="vh">Fiat currency</span>
                 <select value={fiat} onChange={(event) => setFiat(event.target.value as Fiat)} aria-label="Fiat currency">
