@@ -6,6 +6,7 @@ import (
 	"path/filepath"
 	"sync/atomic"
 	"testing"
+	"time"
 
 	"github.com/jQrgen/nordic-crypto/pool/internal/account"
 )
@@ -44,35 +45,61 @@ func credit(t *testing.T, s *Store, address string, amount int64, status string)
 }
 
 type fakeWallet struct {
-	sent     map[string]string
-	failNext error
-	sends    int
+	sent       map[string]string
+	failNext   error
+	sends      int
+	confs      int64
+	forceConfs bool
+	blind      bool
 }
 
 func newWallet() *fakeWallet { return &fakeWallet{sent: map[string]string{}} }
 
-func (w *fakeWallet) Send(address string, sats int64, comment string) (string, error) {
+func (w *fakeWallet) conf() int64 {
+	if w.forceConfs {
+		return w.confs
+	}
+	if w.confs == 0 {
+		return 1
+	}
+	return w.confs
+}
+
+func (w *fakeWallet) Send(address string, sats int64, comment string) (account.Payment, error) {
 	if w.failNext != nil {
 		err := w.failNext
 		w.failNext = nil
 		if !errors.Is(err, errTimeout) {
-			return "", err
+			return account.Payment{}, err
 		}
 		// The node accepted the transaction and then the connection died.
 		w.sends++
 		txid := "tx-" + comment
 		w.sent[comment] = txid
-		return "", err
+		return account.Payment{}, err
 	}
 	w.sends++
 	txid := "tx-" + comment
 	w.sent[comment] = txid
-	return txid, nil
+	return account.Payment{TxID: txid, Confirmations: w.conf()}, nil
 }
 
-func (w *fakeWallet) FindComment(comment string) (string, bool, error) {
+func (w *fakeWallet) Find(comment, id string) (account.Payment, bool, error) {
+	if w.blind {
+		return account.Payment{}, false, nil
+	}
+	if id != "" {
+		for c, tx := range w.sent {
+			if tx == id || c == id {
+				return account.Payment{TxID: tx, Confirmations: w.conf()}, true, nil
+			}
+		}
+	}
 	txid, ok := w.sent[comment]
-	return txid, ok, nil
+	if !ok {
+		return account.Payment{}, false, nil
+	}
+	return account.Payment{TxID: txid, Confirmations: w.conf()}, true, nil
 }
 
 var errTimeout = errors.New("timeout talking to nexad")
@@ -82,14 +109,14 @@ func TestPayoutOnceAndNotAgain(t *testing.T) {
 	s := openTest(t)
 	credit(t, s, addrA, minPay, "mature")
 	w := newWallet()
-	res, err := account.RunPayouts(s, w, minPay)
+	res, err := account.RunPayouts(s, w, minPay, 1)
 	if err != nil {
 		t.Fatal(err)
 	}
 	if res.Sent != 1 || w.sends != 1 {
 		t.Fatalf("first pass sent %d wallet %d", res.Sent, w.sends)
 	}
-	res, err = account.RunPayouts(s, w, minPay)
+	res, err = account.RunPayouts(s, w, minPay, 1)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -110,21 +137,21 @@ func TestPayoutIdempotentAfterTimeout(t *testing.T) {
 	credit(t, s, addrA, minPay+50, "mature")
 	w := newWallet()
 	w.failNext = errTimeout
-	res, err := account.RunPayouts(s, w, minPay)
+	res, err := account.RunPayouts(s, w, minPay, 1)
 	if err != nil {
 		t.Fatal(err)
 	}
 	if res.Deferred != 1 || res.Sent != 0 || w.sends != 1 {
 		t.Fatalf("crash pass %+v sends %d", res, w.sends)
 	}
-	res, err = account.RunPayouts(s, w, minPay)
+	res, err = account.RunPayouts(s, w, minPay, 1)
 	if err != nil {
 		t.Fatal(err)
 	}
 	if res.Sent != 1 || w.sends != 1 {
 		t.Fatalf("reconcile sent %d wallet sends %d (want one send)", res.Sent, w.sends)
 	}
-	res, err = account.RunPayouts(s, w, minPay)
+	res, err = account.RunPayouts(s, w, minPay, 1)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -138,7 +165,7 @@ func TestPayoutSkipsImmatureAndBelowMinimum(t *testing.T) {
 	credit(t, s, addrA, minPay-1, "mature")
 	credit(t, s, addrB, minPay*2, "immature")
 	w := newWallet()
-	res, err := account.RunPayouts(s, w, minPay)
+	res, err := account.RunPayouts(s, w, minPay, 1)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -152,14 +179,14 @@ func TestFailedSendDoesNotStickAndRetryPaysOnce(t *testing.T) {
 	credit(t, s, addrA, minPay, "mature")
 	w := newWallet()
 	w.failNext = errRejected
-	res, err := account.RunPayouts(s, w, minPay)
+	res, err := account.RunPayouts(s, w, minPay, 1)
 	if err != nil {
 		t.Fatal(err)
 	}
 	if res.Failed != 1 || w.sends != 0 {
 		t.Fatalf("fail pass %+v sends %d", res, w.sends)
 	}
-	res, err = account.RunPayouts(s, w, minPay)
+	res, err = account.RunPayouts(s, w, minPay, 1)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -174,10 +201,7 @@ func TestMatureIsIdempotentAndOrphanRemovesCredit(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	credits := []account.Credit{{Address: addrA, Amount: minPay, Kind: "miner"}, {Address: feeAddr, Amount: 0, Kind: "fee"}}
-	// Drop the zero fee credit; Split never emits one, and a zero amount
-	// would still be a credit row. Use a real fee.
-	credits = []account.Credit{
+	credits := []account.Credit{
 		{Address: feeAddr, Amount: minPay / 100, Kind: "fee"},
 		{Address: addrA, Amount: minPay - minPay/100, Kind: "miner"},
 	}
@@ -240,5 +264,136 @@ func TestDuplicateShare(t *testing.T) {
 	}
 	if err := s.AddShare(sh); !errors.Is(err, ErrDuplicate) {
 		t.Fatalf("duplicate share err %v", err)
+	}
+}
+
+// TestBlindReconcileSendsTheReservedPayoutAgain is the old double-pay
+// case: a reserved row whose comment is not visible in the wallet. The
+// pass must not transmit it again. The coins stay on hold for review.
+func TestBlindReconcileSendsTheReservedPayoutAgain(t *testing.T) {
+	s := openTest(t)
+	credit(t, s, addrA, minPay, "mature")
+	if _, err := s.Reserve(addrA, minPay, "nexapool:blind"); err != nil {
+		t.Fatal(err)
+	}
+	w := newWallet()
+	w.blind = true
+	res, err := account.RunPayouts(s, w, minPay, 1)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if w.sends != 0 || res.Sent != 0 || res.Deferred != 1 {
+		t.Fatalf("blind reconcile sent again: wallet %d result %+v", w.sends, res)
+	}
+	var status string
+	if err := s.db.QueryRow(`SELECT status FROM payouts WHERE idempotency_key = ?`, "nexapool:blind").Scan(&status); err != nil {
+		t.Fatal(err)
+	}
+	if status != "review" {
+		t.Fatalf("status %s, want review", status)
+	}
+	res, err = account.RunPayouts(s, w, minPay, 1)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if w.sends != 0 || res.Sent != 0 {
+		t.Fatalf("second blind pass sent: wallet %d result %+v", w.sends, res)
+	}
+	due, err := s.Payable(minPay)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(due) != 0 {
+		t.Fatalf("review row released the coins: %+v", due)
+	}
+}
+
+func TestPayoutWaitsForConfirmations(t *testing.T) {
+	s := openTest(t)
+	credit(t, s, addrA, minPay, "mature")
+	w := newWallet()
+	w.forceConfs = true
+	w.confs = 0
+	res, err := account.RunPayouts(s, w, minPay, 1)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if res.Deferred != 1 || res.Sent != 0 || w.sends != 1 {
+		t.Fatalf("unconfirmed %+v sends %d", res, w.sends)
+	}
+	res, err = account.RunPayouts(s, w, minPay, 1)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if res.Sent != 0 || w.sends != 1 {
+		t.Fatalf("unconfirmed retry sent %+v wallet %d", res, w.sends)
+	}
+	w.confs = 1
+	res, err = account.RunPayouts(s, w, minPay, 1)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if res.Sent != 1 || w.sends != 1 {
+		t.Fatalf("confirmed %+v wallet %d", res, w.sends)
+	}
+}
+
+func TestPayoutLock(t *testing.T) {
+	s := openTest(t)
+	unlock, err := s.LockPayouts()
+	if err != nil {
+		t.Fatal(err)
+	}
+	if _, err := s.LockPayouts(); err == nil {
+		t.Fatal("second payout lock was granted")
+	}
+	unlock()
+	unlock, err = s.LockPayouts()
+	if err != nil {
+		t.Fatal(err)
+	}
+	unlock()
+}
+
+func TestShareWindowStopsAtTheTarget(t *testing.T) {
+	s := openTest(t)
+	base := time.Unix(1_700_000_000, 0)
+	for i := 0; i < 5; i++ {
+		sh := Share{
+			Address: addrA, Worker: "rig", JobID: "j",
+			Nonce: fmt.Sprintf("n%d", i), PowHash: fmt.Sprintf("p%d", i),
+			Work: 10, At: base.Add(time.Duration(i) * time.Second),
+		}
+		if err := s.AddShare(sh); err != nil {
+			t.Fatal(err)
+		}
+	}
+	got, oldest, filled, err := s.ShareWindow(base.Add(time.Hour), 25)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !filled || len(got) != 3 || oldest == 0 {
+		t.Fatalf("window %d filled %v oldest %d", len(got), filled, oldest)
+	}
+	if got[0].Work != 10 || got[2].Work != 10 {
+		t.Fatalf("%+v", got)
+	}
+	// Oldest first: the three newest shares, so the first of them is not share 0.
+	var firstNonce string
+	if err := s.db.QueryRow(`SELECT nonce FROM shares WHERE id = ?`, oldest).Scan(&firstNonce); err != nil {
+		t.Fatal(err)
+	}
+	if firstNonce != "n2" {
+		t.Fatalf("oldest kept nonce %s", firstNonce)
+	}
+	if err := s.PruneSharesBefore(oldest); err != nil {
+		t.Fatal(err)
+	}
+	var n int
+	if err := s.db.QueryRow(`SELECT COUNT(*) FROM shares`).Scan(&n); err != nil {
+		t.Fatal(err)
+	}
+	if n != 3 {
+		t.Fatalf("shares left %d", n)
 	}
 }

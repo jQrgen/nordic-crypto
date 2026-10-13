@@ -9,12 +9,20 @@ fee_address = ""
 # wallet default. It is not the miner payout address.
 coinbase_address = ""
 min_payout = "1000000.00"
-maturity = 5000
+# nexad's wallet spends a coinbase at coinbaseMaturity+1. Mainnet that is 5001.
+maturity = 5001
 pplns_blocks = 2
 payout_interval = "1h"
 hashrate_window = "15m"
+# A payout is not marked sent until the wallet transaction has this many
+# confirmations. 1 is the default.
+payout_confirmations = 1
 # Left in the wallet so a transaction fee cannot drain it.
 tx_reserve = "1.00"
+# The pool refuses to pay when getbalance is above this. Keep the hot
+# wallet under the cap and sweep the rest to a cold wallet this process
+# cannot sign for.
+hot_wallet_max = "5000000.00"
 public_stratum = "stratum+tcp://pool.nordiccrypto.no:3333"
 
 [stratum]
@@ -23,15 +31,20 @@ vardiff = true
 start_difficulty = 0.2
 min_difficulty = 0.05
 max_difficulty = 4096
+# One address cannot take every session. Raise this for a farm behind one NAT.
+max_per_ip = 16
 
 [api]
 listen = "127.0.0.1:8080"
 web_root = ""
 
 [node]
+# Must be loopback. A public URL is rejected, and the client refuses redirects.
 url = "http://127.0.0.1:7227/"
-cookie_file = "/var/lib/nexa/.nexa/.cookie"
-# Optional file outside the repository, mode 0600, owned by the nexa user.
+# Cookie of the hot-wallet nexad, mode 0600, owned by nexapool.
+# Do not point this at /var/lib/nexa. That datadir is the cold wallet.
+cookie_file = "/var/lib/nexapool/hotwallet/.cookie"
+# Optional file outside the repository, mode 0600, owned by nexapool.
 # passphrase_file = "/etc/nexapool/wallet.passphrase"
 
 [db]

@@ -36,17 +36,18 @@ func main() {
 	if err != nil {
 		logger.Fatal(err)
 	}
+	node.PoolAddress = cfg.CoinbaseAddress
 	svc, err := pool.New(pool.Config{
 		FeePercent: cfg.FeePercent, FeeAddress: cfg.FeeAddress, CoinbaseAddress: cfg.CoinbaseAddress,
 		MinPayout: cfg.MinPayout, Maturity: cfg.Maturity, PPLNSBlocks: cfg.PPLNSBlocks,
 		HashrateWindow: cfg.HashrateWindow, PayoutEvery: cfg.PayoutEvery, TxReserve: cfg.TxReserve,
-		PublicStratum: cfg.PublicStratum,
+		PublicStratum: cfg.PublicStratum, PayoutConfs: cfg.PayoutConfs, HotWalletMax: cfg.HotWalletMax,
 	}, db, node, logger)
 	if err != nil {
 		logger.Fatal(err)
 	}
 	if cfg.PassphraseFile != "" {
-		raw, err := os.ReadFile(cfg.PassphraseFile)
+		raw, err := nexa.ReadPrivateFile(cfg.PassphraseFile)
 		if err != nil {
 			logger.Fatalf("wallet passphrase file: %v", err)
 		}
@@ -56,6 +57,7 @@ func main() {
 	stratumSrv := &stratum.Server{
 		Hooks:     stratum.Hooks{Authorize: svc.Authorize, Submit: svc.Submit},
 		StartDiff: cfg.StartDiff, MinDiff: cfg.MinDiff, MaxDiff: cfg.MaxDiff, VarDiff: cfg.VarDiff,
+		MaxPerIP: cfg.MaxPerIP,
 	}
 	svc.Attach(stratumSrv)
 	if err := stratumSrv.Listen(cfg.StratumListen); err != nil {

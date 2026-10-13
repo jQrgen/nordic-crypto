@@ -7,9 +7,12 @@ import (
 	"database/sql"
 	"errors"
 	"fmt"
+	"math"
+	"os"
 	"time"
 
 	"github.com/jQrgen/nordic-crypto/pool/internal/account"
+	"golang.org/x/sys/unix"
 	_ "modernc.org/sqlite"
 )
 
@@ -59,13 +62,13 @@ type AddressStats struct {
 
 // Open opens (and creates) a SQLite database at path.
 func Open(path string) (*Store, error) {
-	db, err := sql.Open("sqlite", path+"?_pragma=busy_timeout(5000)&_pragma=foreign_keys(1)&_pragma=journal_mode(WAL)")
+	db, err := sql.Open("sqlite", path+"?_pragma=busy_timeout(5000)&_pragma=foreign_keys(1)&_pragma=journal_mode(WAL)&_txlock=immediate")
 	if err != nil {
 		return nil, err
 	}
 	db.SetMaxOpenConns(4)
 	db.SetMaxIdleConns(2)
-	s := &Store{db: db}
+	s := &Store{db: db, path: path}
 	if err := s.migrate(); err != nil {
 		db.Close()
 		return nil, err
@@ -74,14 +77,65 @@ func Open(path string) (*Store, error) {
 }
 
 // Store is one open ledger.
-type Store struct{ db *sql.DB }
+type Store struct {
+	db   *sql.DB
+	path string
+}
 
 // Close closes the database.
 func (s *Store) Close() error { return s.db.Close() }
 
 func (s *Store) migrate() error {
-	_, err := s.db.Exec(schema)
+	if _, err := s.db.Exec(schema); err != nil {
+		return err
+	}
+	if err := s.ensureColumn("payouts", "txidem", "TEXT NOT NULL DEFAULT ''"); err != nil {
+		return err
+	}
+	return s.ensureColumn("payouts", "confirmations", "INTEGER NOT NULL DEFAULT 0")
+}
+
+func (s *Store) ensureColumn(table, column, decl string) error {
+	rows, err := s.db.Query(`PRAGMA table_info(` + table + `)`)
+	if err != nil {
+		return err
+	}
+	defer rows.Close()
+	for rows.Next() {
+		var cid int
+		var name, ctype string
+		var notnull, pk int
+		var dflt any
+		if err := rows.Scan(&cid, &name, &ctype, &notnull, &dflt, &pk); err != nil {
+			return err
+		}
+		if name == column {
+			return rows.Err()
+		}
+	}
+	if err := rows.Err(); err != nil {
+		return err
+	}
+	_, err = s.db.Exec(`ALTER TABLE ` + table + ` ADD COLUMN ` + column + ` ` + decl)
 	return err
+}
+
+// LockPayouts takes an exclusive non-blocking lock so a second nexapool
+// process cannot pay from the same ledger at the same time. The caller
+// must call the returned function when the payout pass finishes.
+func (s *Store) LockPayouts() (func(), error) {
+	f, err := os.OpenFile(s.path+".payout.lock", os.O_CREATE|os.O_RDWR, 0o600)
+	if err != nil {
+		return nil, err
+	}
+	if err := unix.Flock(int(f.Fd()), unix.LOCK_EX|unix.LOCK_NB); err != nil {
+		f.Close()
+		return nil, fmt.Errorf("store: payout already running: %w", err)
+	}
+	return func() {
+		_ = unix.Flock(int(f.Fd()), unix.LOCK_UN)
+		f.Close()
+	}, nil
 }
 
 const schema = `
@@ -133,6 +187,8 @@ CREATE TABLE IF NOT EXISTS payouts (
     status TEXT NOT NULL,
     idempotency_key TEXT NOT NULL UNIQUE,
     txid TEXT,
+    txidem TEXT NOT NULL DEFAULT '',
+    confirmations INTEGER NOT NULL DEFAULT 0,
     created_at INTEGER NOT NULL,
     sent_at INTEGER
 );
@@ -162,22 +218,86 @@ func (s *Store) AddReject(address string, at time.Time) error {
 	return err
 }
 
-// SharesBefore returns accepted shares at or before t, oldest first.
-func (s *Store) SharesBefore(t time.Time) ([]account.Share, error) {
-	rows, err := s.db.Query(`SELECT address, work FROM shares WHERE created_at <= ? ORDER BY id`, t.Unix())
-	if err != nil {
-		return nil, err
+// ShareWindow returns the newest shares at or before t whose work sums to
+// at least target, oldest first. It reads the table backwards in pages and
+// stops when the window is full, so maturity does not load every share
+// ever stored. filled is false when the history is shorter than target.
+// oldestID is the smallest share id included, or 0 when the window is empty.
+func (s *Store) ShareWindow(t time.Time, target uint64) (shares []account.Share, oldestID int64, filled bool, err error) {
+	if target == 0 {
+		return nil, 0, false, nil
 	}
-	defer rows.Close()
-	var out []account.Share
-	for rows.Next() {
-		var sh account.Share
-		if err := rows.Scan(&sh.Address, &sh.Work); err != nil {
-			return nil, err
+	const page = 1024
+	var newestFirst []account.Share
+	var sum uint64
+	var cursor int64 = math.MaxInt64
+	for {
+		rows, err := s.db.Query(`SELECT id, address, work FROM shares
+			WHERE created_at <= ? AND id < ? ORDER BY id DESC LIMIT ?`, t.Unix(), cursor, page)
+		if err != nil {
+			return nil, 0, false, err
 		}
-		out = append(out, sh)
+		n := 0
+		done := false
+		for rows.Next() {
+			n++
+			var id int64
+			var sh account.Share
+			if err := rows.Scan(&id, &sh.Address, &sh.Work); err != nil {
+				rows.Close()
+				return nil, 0, false, err
+			}
+			newestFirst = append(newestFirst, sh)
+			oldestID = id
+			if sum > math.MaxUint64-sh.Work {
+				sum = math.MaxUint64
+			} else {
+				sum += sh.Work
+			}
+			cursor = id
+			if sum >= target {
+				filled = true
+				done = true
+				break
+			}
+		}
+		err = rows.Err()
+		rows.Close()
+		if err != nil {
+			return nil, 0, false, err
+		}
+		if done || n < page {
+			break
+		}
 	}
-	return out, rows.Err()
+	for i, j := 0, len(newestFirst)-1; i < j; i, j = i+1, j-1 {
+		newestFirst[i], newestFirst[j] = newestFirst[j], newestFirst[i]
+	}
+	return newestFirst, oldestID, filled, nil
+}
+
+// PruneSharesBefore deletes shares older than the oldest share a filled
+// PPLNS window still needs.
+func (s *Store) PruneSharesBefore(id int64) error {
+	if id <= 1 {
+		return nil
+	}
+	_, err := s.db.Exec(`DELETE FROM shares WHERE id < ?`, id)
+	return err
+}
+
+// PruneSharesBeforeTime deletes shares recorded before t. Used when no
+// immature block still needs the older history.
+func (s *Store) PruneSharesBeforeTime(t time.Time) error {
+	_, err := s.db.Exec(`DELETE FROM shares WHERE created_at < ?`, t.Unix())
+	return err
+}
+
+// PruneRejectsBefore drops reject rows that can no longer affect the
+// hashrate window.
+func (s *Store) PruneRejectsBefore(t time.Time) error {
+	_, err := s.db.Exec(`DELETE FROM rejects WHERE created_at < ?`, t.Unix())
+	return err
 }
 
 // WorkSince sums difficulty micros per address since t.
@@ -332,7 +452,7 @@ func (s *Store) balances(address string) (mature, immature, paid, reserved int64
 		COALESCE((SELECT SUM(c.amount) FROM credits c JOIN blocks b ON b.id = c.block_id
 			WHERE c.address = ? AND b.status = 'immature'), 0),
 		COALESCE((SELECT SUM(amount) FROM payouts WHERE address = ? AND status = 'sent'), 0),
-		COALESCE((SELECT SUM(amount) FROM payouts WHERE address = ? AND status = 'reserved'), 0)`,
+		COALESCE((SELECT SUM(amount) FROM payouts WHERE address = ? AND status IN ('reserved', 'review')), 0)`,
 		address, address, address, address).Scan(&mature, &immature, &paid, &reserved)
 	return mature, immature, paid, reserved, err
 }
@@ -389,7 +509,7 @@ func (s *Store) Payable(minSats int64) ([]account.Balance, error) {
 		) m
 		LEFT JOIN (
 			SELECT address, SUM(amount) AS held FROM payouts
-			WHERE status IN ('reserved', 'sent') GROUP BY address
+			WHERE status IN ('reserved', 'sent', 'review') GROUP BY address
 		) p USING (address)
 		WHERE mature - COALESCE(held, 0) >= ?
 		ORDER BY address`, minSats)
@@ -423,7 +543,7 @@ func (s *Store) Reserve(address string, amount int64, key string) (int64, error)
 	if err := tx.QueryRow(`
 		SELECT COALESCE((SELECT SUM(c.amount) FROM credits c JOIN blocks b ON b.id = c.block_id
 			WHERE c.address = ? AND b.status = 'mature'), 0)
-		- COALESCE((SELECT SUM(amount) FROM payouts WHERE address = ? AND status IN ('reserved','sent')), 0)`,
+		- COALESCE((SELECT SUM(amount) FROM payouts WHERE address = ? AND status IN ('reserved','sent','review')), 0)`,
 		address, address).Scan(&available); err != nil {
 		return 0, err
 	}
@@ -445,10 +565,11 @@ func (s *Store) Reserve(address string, amount int64, key string) (int64, error)
 	return id, nil
 }
 
-// MarkSent implements account.Ledger.
+// MarkSent implements account.Ledger. A review row can still be marked
+// sent once the wallet shows the canonical txid and enough confirmations.
 func (s *Store) MarkSent(id int64, txid string) error {
 	res, err := s.db.Exec(`UPDATE payouts SET status = 'sent', txid = ?, sent_at = ?
-		WHERE id = ? AND status = 'reserved'`, txid, time.Now().Unix(), id)
+		WHERE id = ? AND status IN ('reserved', 'review')`, txid, time.Now().Unix(), id)
 	if err != nil {
 		return err
 	}
@@ -471,16 +592,38 @@ func (s *Store) MarkSent(id int64, txid string) error {
 }
 
 // MarkFailed implements account.Ledger. A failed payout no longer reduces
-// the balance.
+// the balance. A review row is not failed this way: those coins stay held
+// until an operator has checked the wallet.
 func (s *Store) MarkFailed(id int64) error {
 	_, err := s.db.Exec(`UPDATE payouts SET status = 'failed' WHERE id = ? AND status = 'reserved'`, id)
 	return err
 }
 
-// Reserved implements account.Ledger.
+// MarkReview implements account.Ledger. The coins stay deducted from the
+// payable balance and the row is not sent again.
+func (s *Store) MarkReview(id int64) error {
+	_, err := s.db.Exec(`UPDATE payouts SET status = 'review' WHERE id = ? AND status = 'reserved'`, id)
+	return err
+}
+
+// NotePayment records a txid or txidem on a row that is not yet sent.
+// Empty strings leave the stored identifier alone, so a later lookup
+// cannot wipe an id that was already durable.
+func (s *Store) NotePayment(id int64, txid, txidem string, confs int64) error {
+	_, err := s.db.Exec(`UPDATE payouts SET
+		txid = CASE WHEN ? != '' THEN ? ELSE txid END,
+		txidem = CASE WHEN ? != '' THEN ? ELSE txidem END,
+		confirmations = ?
+		WHERE id = ? AND status IN ('reserved', 'review')`,
+		txid, txid, txidem, txidem, confs, id)
+	return err
+}
+
+// Reserved implements account.Ledger. Review rows are included so a later
+// pass can still match them to the wallet, and still will not send them.
 func (s *Store) Reserved() ([]account.Payout, error) {
-	rows, err := s.db.Query(`SELECT id, address, amount, idempotency_key, COALESCE(txid,''), status
-		FROM payouts WHERE status = 'reserved' ORDER BY id`)
+	rows, err := s.db.Query(`SELECT id, address, amount, idempotency_key, COALESCE(txid,''), COALESCE(txidem,''), confirmations, status
+		FROM payouts WHERE status IN ('reserved', 'review') ORDER BY id`)
 	if err != nil {
 		return nil, err
 	}
@@ -488,7 +631,7 @@ func (s *Store) Reserved() ([]account.Payout, error) {
 	var out []account.Payout
 	for rows.Next() {
 		var p account.Payout
-		if err := rows.Scan(&p.ID, &p.Address, &p.Amount, &p.Key, &p.TxID, &p.Status); err != nil {
+		if err := rows.Scan(&p.ID, &p.Address, &p.Amount, &p.Key, &p.TxID, &p.TxIdem, &p.Confirmations, &p.Status); err != nil {
 			return nil, err
 		}
 		out = append(out, p)
@@ -501,7 +644,7 @@ func (s *Store) PayoutsFor(address string, limit int) ([]account.Payout, error) 
 	if limit <= 0 {
 		limit = 20
 	}
-	rows, err := s.db.Query(`SELECT id, address, amount, idempotency_key, COALESCE(txid,''), status
+	rows, err := s.db.Query(`SELECT id, address, amount, idempotency_key, COALESCE(txid,''), COALESCE(txidem,''), confirmations, status
 		FROM payouts WHERE address = ? ORDER BY id DESC LIMIT ?`, address, limit)
 	if err != nil {
 		return nil, err
@@ -510,7 +653,7 @@ func (s *Store) PayoutsFor(address string, limit int) ([]account.Payout, error) 
 	var out []account.Payout
 	for rows.Next() {
 		var p account.Payout
-		if err := rows.Scan(&p.ID, &p.Address, &p.Amount, &p.Key, &p.TxID, &p.Status); err != nil {
+		if err := rows.Scan(&p.ID, &p.Address, &p.Amount, &p.Key, &p.TxID, &p.TxIdem, &p.Confirmations, &p.Status); err != nil {
 			return nil, err
 		}
 		out = append(out, p)
@@ -523,7 +666,7 @@ func (s *Store) RecentPayouts(limit int) ([]account.Payout, error) {
 	if limit <= 0 {
 		limit = 20
 	}
-	rows, err := s.db.Query(`SELECT id, address, amount, idempotency_key, COALESCE(txid,''), status
+	rows, err := s.db.Query(`SELECT id, address, amount, idempotency_key, COALESCE(txid,''), COALESCE(txidem,''), confirmations, status
 		FROM payouts ORDER BY id DESC LIMIT ?`, limit)
 	if err != nil {
 		return nil, err
@@ -532,7 +675,7 @@ func (s *Store) RecentPayouts(limit int) ([]account.Payout, error) {
 	var out []account.Payout
 	for rows.Next() {
 		var p account.Payout
-		if err := rows.Scan(&p.ID, &p.Address, &p.Amount, &p.Key, &p.TxID, &p.Status); err != nil {
+		if err := rows.Scan(&p.ID, &p.Address, &p.Amount, &p.Key, &p.TxID, &p.TxIdem, &p.Confirmations, &p.Status); err != nil {
 			return nil, err
 		}
 		out = append(out, p)

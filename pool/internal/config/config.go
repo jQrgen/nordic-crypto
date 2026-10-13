@@ -5,6 +5,7 @@ package config
 
 import (
 	"fmt"
+	"net"
 	"os"
 	"strings"
 	"time"
@@ -25,12 +26,15 @@ type Config struct {
 	HashrateWindow  time.Duration
 	TxReserve       int64
 	PublicStratum   string
+	PayoutConfs     int64
+	HotWalletMax    int64
 
 	StratumListen string
 	VarDiff       bool
 	StartDiff     uint64
 	MinDiff       uint64
 	MaxDiff       uint64
+	MaxPerIP      int
 
 	APIListen string
 	WebRoot   string
@@ -46,16 +50,18 @@ type Config struct {
 
 type file struct {
 	Pool struct {
-		FeePercent      int     `toml:"fee_percent"`
-		FeeAddress      string  `toml:"fee_address"`
-		CoinbaseAddress string  `toml:"coinbase_address"`
-		MinPayout       string  `toml:"min_payout"`
-		Maturity        int64   `toml:"maturity"`
-		PPLNSBlocks     float64 `toml:"pplns_blocks"`
-		PayoutInterval  string  `toml:"payout_interval"`
-		HashrateWindow  string  `toml:"hashrate_window"`
-		TxReserve       string  `toml:"tx_reserve"`
-		PublicStratum   string  `toml:"public_stratum"`
+		FeePercent          int     `toml:"fee_percent"`
+		FeeAddress          string  `toml:"fee_address"`
+		CoinbaseAddress     string  `toml:"coinbase_address"`
+		MinPayout           string  `toml:"min_payout"`
+		Maturity            int64   `toml:"maturity"`
+		PPLNSBlocks         float64 `toml:"pplns_blocks"`
+		PayoutInterval      string  `toml:"payout_interval"`
+		HashrateWindow      string  `toml:"hashrate_window"`
+		TxReserve           string  `toml:"tx_reserve"`
+		PublicStratum       string  `toml:"public_stratum"`
+		PayoutConfirmations int64   `toml:"payout_confirmations"`
+		HotWalletMax        string  `toml:"hot_wallet_max"`
 	} `toml:"pool"`
 	Stratum struct {
 		Listen          string  `toml:"listen"`
@@ -63,6 +69,7 @@ type file struct {
 		StartDifficulty float64 `toml:"start_difficulty"`
 		MinDifficulty   float64 `toml:"min_difficulty"`
 		MaxDifficulty   float64 `toml:"max_difficulty"`
+		MaxPerIP        int     `toml:"max_per_ip"`
 	} `toml:"stratum"`
 	API struct {
 		Listen  string `toml:"listen"`
@@ -92,8 +99,10 @@ func Load(path string) (Config, error) {
 		Maturity:        f.Pool.Maturity,
 		PPLNSBlocks:     f.Pool.PPLNSBlocks,
 		PublicStratum:   strings.TrimSpace(f.Pool.PublicStratum),
+		PayoutConfs:     f.Pool.PayoutConfirmations,
 		StratumListen:   f.Stratum.Listen,
 		VarDiff:         f.Stratum.VarDiff,
+		MaxPerIP:        f.Stratum.MaxPerIP,
 		APIListen:       f.API.Listen,
 		WebRoot:         f.API.WebRoot,
 		NodeURL:         f.Node.URL,
@@ -125,7 +134,10 @@ func Load(path string) (Config, error) {
 	}
 	cfg.MinPayout = minSats
 	if cfg.Maturity <= 0 {
-		cfg.Maturity = 5000
+		cfg.Maturity = 5001
+	}
+	if cfg.PayoutConfs <= 0 {
+		cfg.PayoutConfs = 1
 	}
 	if cfg.PPLNSBlocks <= 0 {
 		cfg.PPLNSBlocks = 2
@@ -146,6 +158,14 @@ func Load(path string) (Config, error) {
 	if err != nil || cfg.TxReserve < 0 {
 		return Config{}, fmt.Errorf("config: tx_reserve")
 	}
+	hot := f.Pool.HotWalletMax
+	if hot == "" {
+		hot = "5000000.00"
+	}
+	cfg.HotWalletMax, err = nexa.ParseNEX(hot)
+	if err != nil || cfg.HotWalletMax <= 0 {
+		return Config{}, fmt.Errorf("config: hot_wallet_max")
+	}
 	if cfg.PublicStratum == "" {
 		cfg.PublicStratum = "stratum+tcp://pool.nordiccrypto.no:3333"
 	}
@@ -155,8 +175,14 @@ func Load(path string) (Config, error) {
 	if cfg.APIListen == "" {
 		cfg.APIListen = "127.0.0.1:8080"
 	}
+	if err := requireLoopbackListen(cfg.APIListen); err != nil {
+		return Config{}, err
+	}
 	if cfg.NodeURL == "" {
 		cfg.NodeURL = "http://127.0.0.1:7227/"
+	}
+	if err := nexa.RequireLoopbackURL(cfg.NodeURL); err != nil {
+		return Config{}, fmt.Errorf("config: %w", err)
 	}
 	if cfg.Database == "" {
 		return Config{}, fmt.Errorf("config: db.path is empty")
@@ -167,6 +193,9 @@ func Load(path string) (Config, error) {
 	cfg.StartDiff = diffMicros(f.Stratum.StartDifficulty, 0.2)
 	cfg.MinDiff = diffMicros(f.Stratum.MinDifficulty, 0.05)
 	cfg.MaxDiff = diffMicros(f.Stratum.MaxDifficulty, 4096)
+	if cfg.MaxPerIP <= 0 {
+		cfg.MaxPerIP = 16
+	}
 	if cfg.MinDiff > cfg.StartDiff || cfg.StartDiff > cfg.MaxDiff {
 		return Config{}, fmt.Errorf("config: difficulty range is out of order")
 	}
@@ -182,6 +211,17 @@ func parseDuration(s string, fallback time.Duration) (time.Duration, error) {
 		return 0, fmt.Errorf("config: bad duration %q", s)
 	}
 	return d, nil
+}
+
+func requireLoopbackListen(addr string) error {
+	host, _, err := net.SplitHostPort(addr)
+	if err != nil {
+		return fmt.Errorf("config: api listen: %w", err)
+	}
+	if !nexa.LoopbackHost(host) {
+		return fmt.Errorf("config: api listen must be localhost")
+	}
+	return nil
 }
 
 func diffMicros(v, fallback float64) uint64 {

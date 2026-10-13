@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"encoding/hex"
 	"encoding/json"
+	"fmt"
 	"math"
 	"net"
 	"strings"
@@ -178,3 +179,176 @@ type badAddr struct{}
 func (badAddr) Error() string { return "bad" }
 
 var errBad = badAddr{}
+
+func TestSuggestDifficultyDoesNotPinTheFloor(t *testing.T) {
+	srv := &Server{StartDiff: 200_000, MinDiff: 50_000, MaxDiff: 4096 * nexa.Micros}
+	if err := srv.Listen("127.0.0.1:0"); err != nil {
+		t.Fatal(err)
+	}
+	defer srv.Close()
+	conn, err := net.Dial("tcp", srv.Addr())
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer conn.Close()
+	rd := bufio.NewReader(conn)
+	send := func(v any) {
+		t.Helper()
+		raw, _ := json.Marshal(v)
+		conn.SetDeadline(time.Now().Add(3 * time.Second))
+		if _, err := conn.Write(append(raw, '\n')); err != nil {
+			t.Fatal(err)
+		}
+	}
+	read := func() map[string]any {
+		t.Helper()
+		conn.SetDeadline(time.Now().Add(3 * time.Second))
+		line, err := rd.ReadString('\n')
+		if err != nil {
+			t.Fatal(err)
+		}
+		var m map[string]any
+		if err := json.Unmarshal([]byte(line), &m); err != nil {
+			t.Fatal(err)
+		}
+		return m
+	}
+	send(map[string]any{"id": 1, "method": "mining.subscribe", "params": []any{"miner"}})
+	read()
+	send(map[string]any{"id": 9, "method": "mining.suggest_difficulty", "params": []any{0.05}})
+	early := read()
+	if early["error"] == nil {
+		t.Fatalf("suggest before authorize was accepted: %#v", early)
+	}
+	send(map[string]any{"id": 2, "method": "mining.authorize", "params": []any{"nexa:qqqqzqsrqszsvpcgpy9qkrqdpc83qygjzv5cxgkyhm", "x"}})
+	if auth := read(); auth["result"] != true {
+		t.Fatalf("authorize %#v", auth)
+	}
+	diff := read()
+	if diff["method"] != "mining.set_difficulty" || math.Abs(diff["params"].([]any)[0].(float64)-0.2) > 1e-9 {
+		t.Fatalf("difficulty changed before authorize %#v", diff)
+	}
+	send(map[string]any{"id": 3, "method": "mining.suggest_difficulty", "params": []any{0.05}})
+	pinned := read()
+	if pinned["error"] == nil {
+		t.Fatal("suggest below the session difficulty was accepted")
+	}
+}
+
+func TestPerIPCap(t *testing.T) {
+	srv := &Server{StartDiff: 200_000, MaxPerIP: 1}
+	if err := srv.Listen("127.0.0.1:0"); err != nil {
+		t.Fatal(err)
+	}
+	defer srv.Close()
+	first, err := net.Dial("tcp", srv.Addr())
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer first.Close()
+	raw, _ := json.Marshal(map[string]any{"id": 1, "method": "mining.subscribe", "params": []any{"miner"}})
+	first.SetDeadline(time.Now().Add(3 * time.Second))
+	if _, err := first.Write(append(raw, '\n')); err != nil {
+		t.Fatal(err)
+	}
+	buf := make([]byte, 256)
+	if _, err := first.Read(buf); err != nil {
+		t.Fatal(err)
+	}
+	second, err := net.Dial("tcp", srv.Addr())
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer second.Close()
+	second.SetDeadline(time.Now().Add(time.Second))
+	if _, err := second.Read(buf[:1]); err == nil {
+		t.Fatal("second connection from the same IP was accepted")
+	}
+}
+
+func TestSlowClientDoesNotStallJobBroadcast(t *testing.T) {
+	srv := &Server{
+		StartDiff: 200_000,
+		Hooks:     Hooks{Authorize: func(string, string) error { return nil }},
+	}
+	if err := srv.Listen("127.0.0.1:0"); err != nil {
+		t.Fatal(err)
+	}
+	defer srv.Close()
+	handshake := func() (net.Conn, *bufio.Reader) {
+		t.Helper()
+		conn, err := net.Dial("tcp", srv.Addr())
+		if err != nil {
+			t.Fatal(err)
+		}
+		rd := bufio.NewReader(conn)
+		raw, _ := json.Marshal(map[string]any{"id": 1, "method": "mining.subscribe", "params": []any{"miner"}})
+		conn.SetDeadline(time.Now().Add(3 * time.Second))
+		conn.Write(append(raw, '\n'))
+		rd.ReadString('\n')
+		raw, _ = json.Marshal(map[string]any{"id": 2, "method": "mining.authorize", "params": []any{"nexa:qqqqzqsrqszsvpcgpy9qkrqdpc83qygjzv5cxgkyhm", "x"}})
+		conn.Write(append(raw, '\n'))
+		rd.ReadString('\n') // authorize
+		rd.ReadString('\n') // set_difficulty
+		return conn, rd
+	}
+	slow, _ := handshake()
+	defer slow.Close()
+	fast, fastRd := handshake()
+	defer fast.Close()
+	got := make(chan string, 64)
+	go func() {
+		for {
+			fast.SetDeadline(time.Now().Add(2 * time.Second))
+			line, err := fastRd.ReadString('\n')
+			if err != nil {
+				return
+			}
+			var m map[string]any
+			if json.Unmarshal([]byte(line), &m) != nil {
+				continue
+			}
+			if m["method"] != "mining.notify" {
+				continue
+			}
+			params, _ := m["params"].([]any)
+			if len(params) > 0 {
+				if id, ok := params[0].(string); ok {
+					got <- id
+				}
+			}
+		}
+	}()
+	start := time.Now()
+	for i := 0; i < 30; i++ {
+		srv.SetJob(Job{ID: fmt.Sprintf("j%d", i), Commitment: strings.Repeat("ab", 32), NBits: "207fffff", Time: 1, Clean: true})
+		time.Sleep(2 * time.Millisecond)
+	}
+	if time.Since(start) > time.Second {
+		t.Fatalf("SetJob stalled for %s", time.Since(start))
+	}
+	deadline := time.After(2 * time.Second)
+	for {
+		select {
+		case id := <-got:
+			if id == "j29" {
+				return
+			}
+		case <-deadline:
+			t.Fatal("a reading miner did not get the job while another miner was not reading")
+		}
+	}
+}
+
+func TestNotifyParamsSwitchAtActivation(t *testing.T) {
+	job := Job{ID: "4f", Commitment: strings.Repeat("ab", 32), NBits: "1b02fab2", Time: uint64(nexa.TailstormActivation - 1), Clean: true, PrevHash: strings.Repeat("cd", 32)}
+	pre := NotifyParams(job)
+	if len(pre) != 5 {
+		t.Fatalf("before activation %#v", pre)
+	}
+	job.Time = uint64(nexa.TailstormActivation)
+	post := NotifyParams(job)
+	if len(post) != 6 || post[5] != strings.Repeat("cd", 32) {
+		t.Fatalf("at activation %#v", post)
+	}
+}

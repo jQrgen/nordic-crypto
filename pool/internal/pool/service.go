@@ -34,6 +34,8 @@ type Config struct {
 	PayoutEvery     time.Duration
 	TxReserve       int64
 	PublicStratum   string
+	PayoutConfs     int64
+	HotWalletMax    int64
 }
 
 // Chain is the nexad surface the pool uses.
@@ -42,9 +44,9 @@ type Chain interface {
 	SubmitSolution(id int64, nonceHex string) (int64, string, error)
 	GetMiningInfo() (nexa.MiningInfo, error)
 	GetBlock(hash string) (nexa.Block, error)
-	SendToAddress(address string, sats int64, comment string) (string, error)
+	SendToAddress(address string, sats int64, comment string) (nexa.Payment, error)
 	WalletBalance() (int64, error)
-	FindComment(comment string) (string, bool, error)
+	LookupPayment(comment, id string) (nexa.Payment, bool, error)
 	Unlock(passphrase string, timeout int) error
 	Lock(passphrase string) error
 }
@@ -57,6 +59,7 @@ type Service struct {
 	log     *log.Logger
 	pass    string
 	stratum *stratum.Server
+	now     func() time.Time
 
 	mu      sync.Mutex
 	jobs    map[string]*memJob
@@ -99,7 +102,10 @@ func New(cfg Config, db *store.Store, node Chain, logger *log.Logger) (*Service,
 		return nil, fmt.Errorf("pool: minimum payout")
 	}
 	if cfg.Maturity <= 0 {
-		cfg.Maturity = 5000
+		cfg.Maturity = 5001
+	}
+	if cfg.PayoutConfs <= 0 {
+		cfg.PayoutConfs = 1
 	}
 	if cfg.PPLNSBlocks <= 0 {
 		cfg.PPLNSBlocks = 2
@@ -168,6 +174,13 @@ func (s *Service) mark(online bool, info nexa.MiningInfo) {
 	s.mu.Unlock()
 }
 
+func (s *Service) clock() time.Time {
+	if s.now != nil {
+		return s.now()
+	}
+	return time.Now()
+}
+
 func (s *Service) publish(cand nexa.Candidate, info nexa.MiningInfo) error {
 	commitment, err := nexa.DecodeHex(cand.HeaderCommitment)
 	if err != nil || len(commitment) != 32 {
@@ -177,12 +190,16 @@ func (s *Service) publish(cand nexa.Candidate, info nexa.MiningInfo) error {
 	if err != nil {
 		return err
 	}
+	now := s.clock().Unix()
+	active := now >= nexa.TailstormActivation
 	var prev []byte
-	if cand.PrevHash != "" {
+	prevHex := ""
+	if active {
 		prev, err = nexa.DecodeHex(cand.PrevHash)
-		if err != nil || len(prev) != 32 {
-			return fmt.Errorf("pool: bad previous hash")
+		if err != nil || len(prev) != 32 || allZero(prev) {
+			return fmt.Errorf("pool: tailstorm candidate is missing previousBlockHash")
 		}
+		prevHex = hex.EncodeToString(prev)
 	}
 	s.mu.Lock()
 	s.next++
@@ -194,15 +211,22 @@ func (s *Service) publish(cand nexa.Candidate, info nexa.MiningInfo) error {
 		candidateID: cand.ID,
 		wire: stratum.Job{
 			ID: id, Commitment: hex.EncodeToString(commitment), NBits: strings.ToLower(cand.NBits),
-			PrevHash: hex.EncodeToString(prev), Time: uint64(time.Now().Unix()),
+			PrevHash: prevHex, Time: uint64(now),
 			Height: info.Blocks + 1, CandidateID: cand.ID, Clean: true,
 		},
 	}
-	s.jobs[id] = job
-	s.order = append(s.order, id)
-	if len(s.order) > 32 {
-		delete(s.jobs, s.order[0])
-		s.order = s.order[1:]
+	// A clean notify invalidates every previous job id. Echelon says the
+	// miner must forget them, and the pool must reject them.
+	if job.wire.Clean {
+		s.jobs = map[string]*memJob{id: job}
+		s.order = []string{id}
+	} else {
+		s.jobs[id] = job
+		s.order = append(s.order, id)
+		if len(s.order) > 32 {
+			delete(s.jobs, s.order[0])
+			s.order = s.order[1:]
+		}
 	}
 	s.hasTip = true
 	s.tipID = cand.ID
@@ -213,6 +237,15 @@ func (s *Service) publish(cand nexa.Candidate, info nexa.MiningInfo) error {
 		s.stratum.SetJob(wire)
 	}
 	return nil
+}
+
+func allZero(b []byte) bool {
+	for _, c := range b {
+		if c != 0 {
+			return false
+		}
+	}
+	return true
 }
 
 // CurrentJob is the work miners were last given.
@@ -235,7 +268,11 @@ func (s *Service) Submit(sh stratum.Share) stratum.Verdict {
 	if job == nil {
 		return stratum.Verdict{Code: 21, Message: "Stale share"}
 	}
-	pow, err := nexa.PowHash(job.commitment, sh.Nonce, job.prev)
+	var parent []byte
+	if int64(job.wire.Time) >= nexa.TailstormActivation {
+		parent = job.prev
+	}
+	pow, err := nexa.PowHash(job.commitment, sh.Nonce, parent)
 	if err != nil {
 		_ = s.db.AddReject(sh.Address, time.Now())
 		return stratum.Verdict{Code: 20, Message: "Invalid proof of work"}
@@ -294,36 +331,42 @@ func (s *Service) MatureOnce() error {
 	if err != nil {
 		return err
 	}
+	prune := len(blocks) > 0
+	var floor int64 = -1
 	for _, b := range blocks {
 		blk, err := s.node.GetBlock(b.Hash)
 		if err != nil {
-			if missingBlock(err) {
-				if err := s.db.OrphanBlock(b.ID); err != nil {
-					return err
-				}
-				s.log.Printf("block %s orphaned", b.Hash)
-			}
+			// "Block not found on disk" is nexad's reply when the header is
+			// known and the body is not. That is a retry, not an orphan.
+			s.log.Printf("block %s not ready, will retry: %v", b.Hash, err)
+			prune = false
 			continue
 		}
 		if blk.Confirmations < 0 {
 			if err := s.db.OrphanBlock(b.ID); err != nil {
 				return err
 			}
+			s.log.Printf("block %s orphaned", b.Hash)
 			continue
 		}
 		if err := s.db.SetConfirmations(b.ID, blk.Confirmations); err != nil {
 			return err
 		}
+		shares, oldest, filled, err := s.db.ShareWindow(b.FoundAt, target)
+		if err != nil {
+			return err
+		}
+		if !filled {
+			prune = false
+		} else if oldest > 0 && (floor < 0 || oldest < floor) {
+			floor = oldest
+		}
 		if blk.Confirmations < s.cfg.Maturity {
 			continue
 		}
 		if blk.Reward <= 0 {
-			s.log.Printf("block %s has no coinbase value yet", b.Hash)
+			s.log.Printf("block %s has no pool coinbase output yet", b.Hash)
 			continue
-		}
-		shares, err := s.db.SharesBefore(b.FoundAt)
-		if err != nil {
-			return err
 		}
 		credits, err := account.Split(blk.Reward, s.cfg.FeePercent, s.cfg.FeeAddress, account.Window(shares, target))
 		if err != nil {
@@ -334,13 +377,31 @@ func (s *Service) MatureOnce() error {
 		}
 		s.log.Printf("block %d matured, reward %s", blk.Height, nexa.FormatNEX(blk.Reward))
 	}
-	return nil
+	if prune && floor > 1 {
+		if err := s.db.PruneSharesBefore(floor); err != nil {
+			return err
+		}
+	}
+	if len(blocks) == 0 {
+		if err := s.db.PruneSharesBeforeTime(s.clock().Add(-14 * 24 * time.Hour)); err != nil {
+			return err
+		}
+	}
+	return s.db.PruneRejectsBefore(s.clock().Add(-48 * time.Hour))
 }
 
 // PayOnce sends mature balances at or above the minimum. It will not reserve
 // more than the wallet can spend, and it leaves TxReserve in the wallet for
 // transaction fees.
 func (s *Service) PayOnce() (account.Result, error) {
+	unlock, err := s.db.LockPayouts()
+	if err != nil {
+		return account.Result{}, err
+	}
+	defer unlock()
+	if s.cfg.HotWalletMax <= 0 {
+		return account.Result{}, fmt.Errorf("pool: hot wallet cap is not set")
+	}
 	if err := s.node.Unlock(s.pass, 180); err != nil {
 		return account.Result{}, err
 	}
@@ -348,6 +409,9 @@ func (s *Service) PayOnce() (account.Result, error) {
 	bal, err := s.node.WalletBalance()
 	if err != nil {
 		return account.Result{}, err
+	}
+	if bal > s.cfg.HotWalletMax {
+		return account.Result{}, fmt.Errorf("pool: wallet balance %s is above the hot wallet cap %s", nexa.FormatNEX(bal), nexa.FormatNEX(s.cfg.HotWalletMax))
 	}
 	reserved, err := s.db.Reserved()
 	if err != nil {
@@ -361,7 +425,7 @@ func (s *Service) PayOnce() (account.Result, error) {
 	if left < 0 {
 		left = 0
 	}
-	return account.RunPayouts(&spendCap{Ledger: s.db, left: left}, rpcWallet{s.node}, s.cfg.MinPayout)
+	return account.RunPayouts(&spendCap{Ledger: s.db, left: left}, rpcWallet{s.node}, s.cfg.MinPayout, s.cfg.PayoutConfs)
 }
 
 // WindowWork is the PPLNS window in difficulty micros: blocks times the
@@ -407,19 +471,19 @@ func compactTarget(nbits string) (*big.Int, error) {
 	return target, nil
 }
 
-func missingBlock(err error) bool {
-	s := strings.ToLower(err.Error())
-	return strings.Contains(s, "not found") || strings.Contains(s, "no such")
-}
-
 type rpcWallet struct{ n Chain }
 
-func (w rpcWallet) Send(address string, sats int64, comment string) (string, error) {
-	return w.n.SendToAddress(address, sats, comment)
+func (w rpcWallet) Send(address string, sats int64, comment string) (account.Payment, error) {
+	pay, err := w.n.SendToAddress(address, sats, comment)
+	return account.Payment{TxID: pay.TxID, TxIdem: pay.TxIdem, Confirmations: pay.Confirmations}, err
 }
 
-func (w rpcWallet) FindComment(comment string) (string, bool, error) {
-	return w.n.FindComment(comment)
+func (w rpcWallet) Find(comment, id string) (account.Payment, bool, error) {
+	pay, found, err := w.n.LookupPayment(comment, id)
+	if err != nil {
+		return account.Payment{}, false, err
+	}
+	return account.Payment{TxID: pay.TxID, TxIdem: pay.TxIdem, Confirmations: pay.Confirmations}, found, nil
 }
 
 // spendCap hides balances the wallet cannot cover. Reserved and sent rows
