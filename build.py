@@ -645,7 +645,7 @@ def site_footer(rel, root, slug=""):
             f'<nav class="foot-col" aria-labelledby="ft-site"><h2 id="ft-site">{E(t("foot_site"))}</h2><ul>{site}</ul></nav>'
             f'<div class="foot-col"><h2>{E(t("foot_follow"))}</h2><ul>{follow}</ul></div></div>'
             f'{nlfoot}{pushfoot}<p class="colophon">{t("footer", site=SITE_NAME, rel=rel, root=root, ios_tv=t("ios_tv"), contributors=contributors_link())}</p></div></footer>')
-def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="", hero=""):
+def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="", hero="", og=None):
     """Writes site/<lang>/<slug>/index.html for the current LANG (English at the root).
     hero: optional full-width band between the header and <main> (the front page title block)."""
     depth = (slug.count("/") + 1 if slug else 0) + (0 if LANG == "en" else 1)
@@ -701,23 +701,27 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
     # the source code is linked from the footer on every page
     share_here = slug.startswith(("stories/", "newsletter/")) or (slug.startswith("calendar/") and slug != "calendar")
     th = themes.for_nav(nav) or {}
+    og = og or {}
+    og_title, og_desc, og_type = og.get("title") or title, og.get("description") or desc, og.get("type") or "website"
+    og_img = og.get("image") or f"{BASE}assets/brand/og-image.png"
+    og_alt = og.get("image_alt") or "Nordic Crypto"
     th_color = f'<meta name="theme-color" content="{th.get("theme_color") or "#1E3A45"}">'
     doc = f"""<!doctype html>
 <html lang="{i18n.HTML_LANG[LANG]}"{" dir=\"rtl\"" if i18n.rtl(LANG) else ""}><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <script>(function(d){{d.classList.add("js");try{{if(localStorage.getItem("nc-theme")==="dark")d.setAttribute("data-theme","dark")}}catch(e){{}}}})(document.documentElement)</script>
 {pick}<title>{E(title)}{" – " + SITE_NAME if slug else ""}</title>
 <meta name="description" content="{E(desc)}"><link rel="canonical" href="{url}"><link rel="manifest" href="{root}manifest.json">{alt}<link rel="alternate" type="application/rss+xml" title="{E(SITE_NAME)}" href="{E(rel)}rss.xml">{head_extra}{'<meta name="robots" content="noindex">' if PREVIEW else ''}
-<meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:url" content="{url}"><meta property="og:type" content="website"><meta property="og:locale" content="{i18n.OG_LOCALE[LANG]}">{''.join(f'<meta property="og:locale:alternate" content="{i18n.OG_LOCALE[l]}">' for l in langs if l != LANG)}
+<meta property="og:title" content="{E(og_title)}"><meta property="og:description" content="{E(og_desc)}"><meta property="og:url" content="{url}"><meta property="og:type" content="{E(og_type)}"><meta property="og:site_name" content="{E(SITE_NAME)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{E(og_title)}"><meta name="twitter:description" content="{E(og_desc)}"><meta name="twitter:image" content="{E(og_img)}"><meta property="og:locale" content="{i18n.OG_LOCALE[LANG]}">{''.join(f'<meta property="og:locale:alternate" content="{i18n.OG_LOCALE[l]}">' for l in langs if l != LANG)}
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="icon" href="{root}favicon.svg?v={ICON_V}" type="image/svg+xml">
 <link rel="icon" href="{root}favicon.ico?v={ICON_V}" sizes="any">
 <link rel="apple-touch-icon" href="{root}assets/brand/mark-180.png?v={ICON_V}">
 <link rel="icon" href="{root}assets/brand/mark-64.png?v={ICON_V}" sizes="64x64" type="image/png">
 {th_color}
-<meta property="og:image" content="{BASE}assets/brand/og-image.png">
+<meta property="og:image" content="{E(og_img)}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Nordic Crypto">
+<meta property="og:image:alt" content="{E(og_alt)}">
 <style>{CSS}{s['css']}{th.get('css', '')}</style></head>
 <body{' class="' + th['body_class'] + '"' if th else ''}><a class="skip" href="#main">{E(t("skip"))}</a>{th.get('deco', '')}{banner}<header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="{rel}"><img class="brandmark" src="{root}assets/brand/shield-band.svg" width="34" height="40" alt="Nordic Crypto"><span aria-hidden="true">Nordic <span class="w">Crypto</span></span></a><span class="since"><span class="since-dot" aria-hidden="true"></span>{E(t("brand_since"))}</span></div><div class="hdrtools"><span class="hdrbtns">{header_buttons(rel)}</span>{theme_btn}{switcher}{nav_btn}</div><nav id="sitenav" class="main" aria-label="{E(t("main_menu"))}">{nav_html}</nav></div></header>{hero}
 <main class="wrap" id="main" tabindex="-1">
@@ -732,6 +736,19 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
         doc = doc.translate(RTL_ARROWS)
     d = os.path.join(SITE, lp(), slug); os.makedirs(d, exist_ok=True)
     open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(doc)
+
+def event_redirects():
+    """Merged duplicate events (data/event_redirects.json, removed id -> kept id): the old page in every language
+    becomes a meta-refresh stub pointing at the kept event."""
+    try: moved = json.load(open(P("data", "event_redirects.json"), encoding="utf-8"))
+    except FileNotFoundError: return
+    for old, new in moved.items():
+        if old.startswith("_"): continue
+        for lang in i18n.LANGS:
+            pre = lp(lang); d = os.path.join(SITE, pre, "calendar", old); os.makedirs(d, exist_ok=True)
+            open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(
+                f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0; url=../{new}/">'
+                f'<link rel="canonical" href="{BASE}{pre}calendar/{new}/"><title>Moved</title></head><body><p>This event has moved to <a href="../{new}/">{new}</a>.</p></body></html>')
 
 def redirect(old, new):
     d = os.path.join(SITE, old); os.makedirs(d, exist_ok=True)
@@ -1052,6 +1069,7 @@ def build():
     open(os.path.join(SITE, "screen", "index.html"), "w", encoding="utf-8").write(
         open(P("templates", "screen.html"), encoding="utf-8").read().replace("__BASE__", BASE).replace("__HOST__", site_url.HOST).replace("__FLAGS__", flags_js(inline=True)).replace("__PREVIEW__", "true" if PREVIEW else "false").replace("__EV_LIMIT__", str(event_select.FRONT_LIMIT)).replace("__ANALYTICS__", analytics_snippet()))
     for old, new in (("kalender", "calendar"), ("skjerm", "screen"), ("organisasjonskart", "org-chart"), ("kilder", "sources"), ("om", "about"), ("akademia", "academia")): redirect(old, new)
+    event_redirects()
     active = sorted({(s.get("outlet") and next((x["name"] for x in cfg["sources"] if x["id"] == s.get("outlet")), s["name"]) or s["name"]).split(" (")[0] + "|" + s["country"]
                      for s in cfg["sources"] if s.get("enabled") and s["type"] not in ("bing", "search") and status.get(s["id"], {}).get("ok", True)})
     seen = set(); act = []
@@ -2631,6 +2649,7 @@ def events_for_site():
     else:
         approvals_present = os.path.exists(ap_path)
         ap = (load(ap_path, {}) or {}).get("events", {}) or {}
+    ap = eventslib.carry_over_approvals(ap, load(P("data", "event_redirects.json"), {}))  # merged duplicates keep their approval
     now = site_now(); out = []  # "finished" is judged in Oslo time
     for e in ev["events"]:
         e = dict(e)
@@ -2687,6 +2706,24 @@ def listed_events(events, now):
             rows.append(e)
             seen.add(e["id"])
     return rows
+def event_og(e, heading, when, place, text):
+    """Link preview for an event page: the event title, then date, time and venue followed by the start of the
+    description. The card image (the title on the brand background) is written once, on the English pass."""
+    lead = " · ".join(x for x in (when, place) if x)
+    body = " ".join((text or "").split())
+    desc = lead + (" – " + body if body else "")
+    if len(desc) > 200: desc = desc[:199].rsplit(" ", 1)[0] + "…"
+    og = {"title": heading, "description": desc or heading, "type": "event", "image_alt": heading}
+    rel = os.path.join("calendar", e["id"], "og.png")
+    out = os.path.join(SITE, rel)
+    try:
+        import tools.event_card as event_card
+        ok = os.path.exists(out) if LANG != "en" else event_card.render(out, heading, lead)
+    except Exception:
+        ok = False
+    if ok: og["image"] = BASE + rel.replace(os.sep, "/")
+    return og
+
 def build_one_event(e):
     """Full event page: the title, then one block with when, where, who and what (each with its source; one source line when
     they all share it) and the official page as the main button, then the description, the editor's note, topics and talks.
@@ -2794,7 +2831,7 @@ def build_one_event(e):
     if mint: bits.append(mint)
     body = site_css.style("evpage") + f'<article class="evpage">{"".join(bits)}</article>'
     data = event_page.jsonld(e, BASE + lp() + event_page.slug(e) + "/", about or note or None)
-    page(event_page.slug(e), heading, "calendar", body, desc, mint_js, head_extra=f'<script type="application/ld+json">{json.dumps(data, ensure_ascii=False).replace("<", "\\u003c")}</script>')
+    page(event_page.slug(e), heading, "calendar", body, desc, mint_js, og=event_og(e, heading, when, place, about or note), head_extra=f'<script type="application/ld+json">{json.dumps(data, ensure_ascii=False).replace("<", "\\u003c")}</script>')
 def event_nft_panel(e):
     """Event NFT prototype: the mint panel and its clock script for an upcoming or ongoing event. Empty while the flag is off."""
     if not event_nft.enabled() or not e.get("id"):

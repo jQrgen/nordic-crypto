@@ -1,0 +1,4 @@
+{
+ "_note": "Merged duplicate events: removed id -> kept id. build.py writes a meta-refresh stub at calendar/<removed id>/ in every language.",
+ "89ced460e4ca": "019f42a4506c"
+}

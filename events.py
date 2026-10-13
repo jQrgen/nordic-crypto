@@ -174,14 +174,58 @@ def _day(e):
         try: return dt.date.fromisoformat(s[:10])
         except ValueError: return None
     return None
+def _start_key(e):
+    s = e.get("start")
+    if isinstance(s, str):
+        try: s = dt.datetime.fromisoformat(s)
+        except ValueError: return None
+    return s.astimezone(UTC) if hasattr(s, "astimezone") and getattr(s, "tzinfo", None) else s
+def _bare_url(u):
+    return (u or "").split("?")[0].split("#")[0].rstrip("/").lower()
+def similar_titles(a, b):
+    """Exact, one a prefix of the other (a subtitle added later), or close by edit ratio."""
+    import difflib
+    na, nb = _norm(a), _norm(b)
+    if not na or not nb: return False
+    if na == nb: return True
+    short, long_ = sorted((na, nb), key=len)
+    if len(short) >= 8 and (long_ + " ").startswith(short + " "): return True  # whole-word prefix: a subtitle was added
+    if re.findall(r"\d+", na) != re.findall(r"\d+", nb): return False  # "2026" vs "2027", "part 1" vs "part 2"
+    return difflib.SequenceMatcher(None, na, nb).ratio() >= 0.9
+def _venue(e): return _norm(" ".join(x for x in [e.get("place"), e.get("city")] if x))
 def same_event(a, b):
-    """Same listing when title, calendar date and venue match, even if the URL differs."""
-    if not _norm(a.get("title")) or _norm(a.get("title")) != _norm(b.get("title")): return False
+    """Same listing when the titles match (exact, prefix or near) on the same date and venue,
+    or on the same start time at the same venue, or with the same event URL on the same date."""
     if _day(a) is None or _day(a) != _day(b): return False
-    va = _norm(" ".join(x for x in [a.get("place"), a.get("city")] if x))
-    vb = _norm(" ".join(x for x in [b.get("place"), b.get("city")] if x))
-    if va and vb and va not in vb and vb not in va: return False
-    return True
+    if not similar_titles(a.get("title"), b.get("title")): return False
+    va, vb = _venue(a), _venue(b)
+    venue_ok = not (va and vb and va not in vb and vb not in va)
+    url_ok = bool(_bare_url(a.get("url")) and _bare_url(a.get("url")) == _bare_url(b.get("url")))
+    sa, sb = _start_key(a), _start_key(b)
+    if _norm(a.get("title")) == _norm(b.get("title")): return venue_ok or url_ok
+    return url_ok or (venue_ok and sa is not None and sa == sb)
+def merge_event(keep, other):
+    """Fold other into keep: fuller title, missing fields, richest description. Nothing is dropped."""
+    if len(_norm(other.get("title"))) > len(_norm(keep.get("title"))): keep["title"] = other["title"]
+    for k, v in other.items():
+        if k in ("id", "title", "description"): continue
+        if v not in (None, "", [], {}) and keep.get(k) in (None, "", [], {}): keep[k] = v
+    if other.get("found") and keep.get("found") and other["found"] < keep["found"]: keep["found"] = other["found"]
+    if isinstance(other.get("description"), dict): prefer_description(keep, other["description"])
+    return keep
+def dedupe_events(rows):
+    """Merge duplicate rows. The row with the fuller title is kept. Returns (rows, {removed_id: kept_id})."""
+    out, moved = [], {}
+    for e in rows:
+        i = next((n for n, k in enumerate(out) if same_event(e, k)), None)
+        if i is None: out.append(e); continue
+        keep, drop = out[i], e
+        if len(_norm(drop.get("title"))) > len(_norm(keep.get("title"))): keep, drop = drop, keep
+        out[i] = merge_event(keep, drop); moved[drop["id"]] = keep["id"]
+    for a, b in list(moved.items()):
+        while b in moved: b = moved[b]
+        moved[a] = b
+    return out, moved
 def _eb_text(block):
     if isinstance(block, dict): return (block.get("text") or block.get("html") or "") or ""
     return block or ""
@@ -357,6 +401,32 @@ def guess_city(place):
             if place and re.search(rf"\b{x}\b", place, re.I): return x, c
     return None, None
 
+def carry_over_approvals(ap, moved):
+    """Move editor decisions from a merged-away event id to the kept id (moved: removed id -> kept id).
+    Works on the approvals dict from queue/approved.json or from D1, in place. Returns ap."""
+    if not isinstance(ap, dict) or not moved: return ap
+    moved = {a: b for a, b in moved.items() if not str(a).startswith("_")}
+    for key in ("approve", "reject", "ready_for_owner", "sponsored"):
+        ids = ap.get(key)
+        if isinstance(ids, list):
+            out = []
+            for i in ids:
+                j = moved.get(i, i)
+                if j not in out: out.append(j)
+            ap[key] = out
+    for key in ("notes", "notes_i18n", "sponsor", "paid", "title_en"):
+        m = ap.get(key)
+        if not isinstance(m, dict): continue
+        for old, new in moved.items():
+            if old not in m: continue
+            v = m.pop(old)
+            if new not in m: m[new] = v
+            elif key == "notes" and isinstance(v, str) and v and v not in m[new]: m[new] = v + " " + m[new]
+            elif key == "notes_i18n" and isinstance(v, dict) and isinstance(m[new], dict):
+                for l, t in v.items():
+                    if t and t not in (m[new].get(l) or ""): m[new][l] = (t + " " + (m[new].get(l) or "")).strip()
+    return ap
+
 def _drop_queue_ids(gone, log, base=None):
     """Remove predatory event ids from the editor queue and the approval list, when those files exist."""
     root = base or ROOT
@@ -390,6 +460,10 @@ def run(get, robots_ok, matches, log, cfg, add_url=None, a=None, only=None, root
         data["events"] = [e for e in data["events"] if e["id"] not in gone]
         log(f"event: removed {len(dropped)} predatory conference listing(s)")
         _drop_queue_ids(gone, log, base)
+    data["events"], merged = dedupe_events(data["events"])
+    if merged:
+        log(f"event: merged {len(merged)} duplicate listing(s): " + ", ".join(f"{a} -> {b}" for a, b in merged.items()))
+        rd = _load(lp("data", "event_redirects.json"), {}); rd.update(merged); _save(lp("data", "event_redirects.json"), rd)
     by = {e["id"]: e for e in data["events"]}
     original = [dict(e) for e in data["events"]]  # non-predatory rows already stored are kept
     status = _load(lp("state", "source_status.json"), {}); now = now or dt.datetime.now(UTC)
@@ -424,6 +498,7 @@ def run(get, robots_ok, matches, log, cfg, add_url=None, a=None, only=None, root
         retrieved = now.isoformat(timespec="seconds")
         if twin:
             _fill(twin, ev)
+            if len(_norm(ev.get("title"))) > len(_norm(twin.get("title"))): twin["title"] = ev["title"]  # a fuller title from a later read
             prefer_description(twin, description_record(ev.get("description"), ev.get("description_lang"), page, src.get("name"), retrieved, ev.get("title")))
             return  # same title, date and venue, whatever the URL
         i = eid(ev)

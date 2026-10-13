@@ -55,8 +55,8 @@
    }
   },
   {
-   "id": "89ced460e4ca",
-   "title": "Crypto killer apps",
+   "id": "019f42a4506c",
+   "title": "Crypto killer apps: bitcoin-appene som endrer økonomien",
    "start": "2026-10-14T17:30:00+02:00",
    "end": "2026-10-14T18:30:00+02:00",
    "place": "Rosenkrantz' gate 7, 0159 Oslo (inngang fra Kristian IVs gate)",
@@ -73,37 +73,17 @@
    "found": "2026-10-03T15:23:20+00:00",
    "status": "pending",
    "note": null,
+   "place_source": {
+    "name": "Polyteknisk Forening (program)",
+    "url": "https://www.polyteknisk.no/program/crypto-killer-apps",
+    "retrieved": "2026-10-12T03:50:28+00:00"
+   },
    "description": {
     "text": "I kjølvannet av bitcoin har vi fått en rekke apper som endrer samtiden vår og utvider finanssektoren. Stikkord er fremtidsmarkeder som «Polymarket», kryptobanken «Aave», nyvinninger innen forsikring, stablecoins og nye former for statlige penger. I samarbeid med Bitcoinpolitisk Institutt Norge presenterer Polyteknisk Forening appene som bitcoin har ført med seg, i tillegg til bitcoin selv.",
     "lang": "nb",
     "source_url": "https://www.polyteknisk.no/program/crypto-killer-apps",
     "source_name": "Polyteknisk Forening (program)",
     "retrieved": "2026-10-07T23:50:00+00:00"
-   }
-  },
-  {
-   "id": "019f42a4506c",
-   "title": "Crypto killer apps: bitcoin-appene som endrer økonomien",
-   "start": "2026-10-14T17:30:00+02:00",
-   "end": "2026-10-14T18:30:00+02:00",
-   "place": "Rosenkrantz' gate 7, 0159 Oslo (inngang fra Kristian IVs gate)",
-   "city": "Oslo",
-   "country": "NO",
-   "online": false,
-   "organiser": "Polyteknisk Forening",
-   "url": "https://www.polyteknisk.no/program/crypto-killer-apps",
-   "source": "Polyteknisk Forening (program)",
-   "source_url": "https://www.polyteknisk.no/program/crypto-killer-apps",
-   "paid": true,
-   "sponsored": null,
-   "trusted_source": false,
-   "found": "2026-10-12T03:50:28+00:00",
-   "status": "pending",
-   "note": null,
-   "place_source": {
-    "name": "Polyteknisk Forening (program)",
-    "url": "https://www.polyteknisk.no/program/crypto-killer-apps",
-    "retrieved": "2026-10-12T03:50:28+00:00"
    }
   },
   {

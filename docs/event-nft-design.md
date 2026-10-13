@@ -31,7 +31,7 @@ The same sentences are what a CashTokens wallet shows, via the BCMR `description
 
 ### Example: Crypto killer apps (ongoing, Nexa)
 
-This is a real row in `data/events.json` (`89ced460e4ca`). The source record does not state a registered count, so the field is null. A count is never invented.
+This is a real row in `data/events.json` (`019f42a4506c`). The source record does not state a registered count, so the field is null. A count is never invented.
 
 ```json
 {
@@ -42,9 +42,9 @@ This is a real row in `data/events.json` (`89ced460e4ca`). The source record doe
   "keywords": "event, Oslo, Norway, 2026, I was there",
   "info": "<p>Crypto killer apps. I was there. 2026-10-14T17:30:00+02:00 – 2026-10-14T18:30:00+02:00. Rosenkrantz' gate 7, 0159 Oslo (inngang fra Kristian IVs gate), Oslo, Norway. Organiser: Polyteknisk Forening. Event page: https://www.polyteknisk.no/program/crypto-killer-apps. Data source: Polyteknisk Forening (program) (https://www.polyteknisk.no/program/crypto-killer-apps), retrieved 2026-10-03T15:23:20+00:00. Registered participants: not stated in the source record.</p>",
   "license": "CC BY 4.0",
-  "appuri": "https://nordiccrypto.no/calendar/89ced460e4ca/",
+  "appuri": "https://nordiccrypto.no/calendar/019f42a4506c/",
   "data": {
-    "event_id": "89ced460e4ca",
+    "event_id": "019f42a4506c",
     "kind": "ongoing",
     "kind_label": "I was there",
     "title": "Crypto killer apps",

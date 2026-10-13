@@ -76,7 +76,7 @@ def main():
     if "do-not-publish" in page or "text-align:start" not in event_nft.style():
         fail("history layout or a sender on the page")
 
-    ev = next(e for e in json.load(open("data/events.json", encoding="utf-8"))["events"] if e["id"] == "89ced460e4ca")
+    ev = next(e for e in json.load(open("data/events.json", encoding="utf-8"))["events"] if e["id"] == "019f42a4506c")
     urls = event_nft.media_urls("https://nordiccrypto.no", ev["id"], "ongoing", "nexa")
     meta = event_nft.nexa_metadata(ev, "ongoing", urls)
     blob = json.dumps(meta).lower()
