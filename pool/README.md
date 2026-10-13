@@ -19,19 +19,23 @@ Nothing here deploys itself. The steps for `nexa-pool-1` are at the bottom.
 
 Copy `config.example.toml`. The process will not start until `fee_address` is a valid Nexa address. A zero `fee_percent` is read as the default 1%, so a blank field cannot turn the fee off.
 
-RPC credentials stay out of the file. Prefer nexad's cookie (`/var/lib/nexa/.nexa/.cookie` on the pool server). `NEXAPOOL_RPC_USER` and `NEXAPOOL_RPC_PASSWORD` override the cookie when both are set. An encrypted wallet uses `passphrase_file`, mode `0600`, owned by `nexa`. That file is not in this repository.
+RPC credentials stay out of the file. The pool reads the hot wallet's cookie (`/var/lib/nexapool/hotwallet/.cookie`). `NEXAPOOL_RPC_USER` and `NEXAPOOL_RPC_PASSWORD` override the cookie when both are set. An encrypted wallet uses `passphrase_file`, mode `0600`, owned by `nexapool`. The process refuses a cookie or passphrase file that is group- or world-readable, or a symlink. Neither file is in this repository.
 
-`coinbase_address` must belong to the node wallet when it is set. Miners are not paid from the coinbase directly. The wallet receives the block, and the payout loop sends from the wallet.
+The pool pays from a hot wallet, not from the cold nexad wallet. `hot_wallet_max` (default `5000000.00` NEX) is a cap: if `getbalance` is above it, the payout pass sends nothing. Sweep the excess to a cold wallet the pool user cannot sign for. The systemd unit runs as `nexapool` and does not read `/var/lib/nexa`.
 
-Amounts use nexad's two decimal places. The default minimum payout is `1000000.00` NEX, which is 100,000,000 subunits. Coinbase maturity defaults to 5000 confirmations. The PPLNS window is two network difficulties. Payouts run about once an hour.
+`coinbase_address` must belong to the hot wallet when it is set. Block reward is the coinbase output that pays that address. Other coinbase outputs are not credited. Miners are not paid from the coinbase directly.
+
+`node.url` and the API listen address must be loopback. The RPC client refuses HTTP redirects, so a redirect cannot carry the cookie off the machine.
+
+Amounts use nexad's two decimal places. The default minimum payout is `1000000.00` NEX, which is 100,000,000 subunits. Coinbase maturity defaults to 5001 confirmations, which is when nexad's wallet will spend the coinbase (`COINBASE_MATURITY + 1`). A payout is marked sent only after `payout_confirmations` (default 1). The PPLNS window is two network difficulties. Payouts run about once an hour, under a process lock. A reserved payout whose send cannot be found is held for review and is not sent again.
 
 ## Stratum
 
 The listener is newline-delimited JSON. `mining.subscribe` returns the set-difficulty and notify subscriptions, an 8-byte extranonce, and an extranonce2 size of 8, so the solution nonce is 16 bytes. `mining.authorize` takes the Nexa address as the username. A worker is `address.worker` or `address/worker`. The password is ignored.
 
-`mining.notify` is the standard and BzMiner shape: job id, header commitment, nBits, an 8-byte big-endian timestamp, and a clean flag. `mining.submit` accepts four parameters (user, job, nonce, time) or WildRig's five (user, job, extranonce2, time, nonce).
+`mining.notify` before Tailstorm (2026-11-01 01:11:11 UTC) is the echelon shape: job id, header commitment, nBits, an 8-byte big-endian timestamp, and a clean flag. At and after that time a sixth parameter is appended, `previousBlockHash`, in the display order `getminingcandidate` returns. Miners reverse it before the Tailstorm mix, the same way nexa-miner does. `clean: true` retires every previous job id. `mining.submit` accepts four parameters (user, job, nonce, time) or WildRig's five (user, job, extranonce2, time, nonce).
 
-Share difficulty uses the Bitcoin difficulty-1 target. New connections start at 0.2. Variable difficulty aims at a share about every 15 seconds, waits at least a minute and four samples, and stays between 0.05 and 4096.
+Share difficulty uses the Bitcoin difficulty-1 target. New connections start at 0.2. Variable difficulty aims at a share about every 15 seconds, waits at least a minute and four samples, and stays between 0.05 and 4096. `mining.suggest_difficulty` is ignored until authorize, and it cannot set a difficulty below the session's current value or the configured floor. One IP is limited to 16 connections. Submits are rate limited, and a run of bad shares bans the address. A client that does not read is disconnected instead of stalling the next job.
 
 ## API
 
@@ -70,7 +74,7 @@ The page reads `/api/v1/stats` and `/api/v1/blocks`. It does not contain sample 
 
 Host `167.233.122.241`, Ubuntu 24.04. nexad is already installed as the systemd service `nexad`, user `nexa`, datadir `/var/lib/nexa/.nexa`. Do this on the server. This repository does not deploy it.
 
-1. Build on a machine with Go 1.22 or newer, from this repository:
+1. Build on a machine with Go 1.27.2, from this repository:
 
    ```sh
    cd pool
@@ -84,15 +88,16 @@ Host `167.233.122.241`, Ubuntu 24.04. nexad is already installed as the systemd 
 3. Create the runtime directories and install the config:
 
    ```sh
-   sudo install -d -o nexa -g nexa -m 750 /var/lib/nexapool /etc/nexapool
+   sudo useradd --system --home-dir /var/lib/nexapool --shell /usr/sbin/nologin nexapool
+   sudo install -d -o nexapool -g nexapool -m 750 /var/lib/nexapool /var/lib/nexapool/hotwallet /etc/nexapool
    sudo cp pool/config.example.toml /etc/nexapool/nexapool.toml
-   sudo chown root:nexa /etc/nexapool/nexapool.toml
+   sudo chown root:nexapool /etc/nexapool/nexapool.toml
    sudo chmod 640 /etc/nexapool/nexapool.toml
    ```
 
-   Edit `fee_address`. Use an address Nordic Crypto controls. If the wallet is encrypted, put the passphrase in `/etc/nexapool/wallet.passphrase` (mode `0600`, owner `nexa`) and set `passphrase_file`. Leave the RPC user and password unset so the pool reads `/var/lib/nexa/.nexa/.cookie`. The pool runs as `nexa`, the same user nexad uses, so it can read that cookie. Do not chmod the cookie to be world-readable.
+   Edit `fee_address` and `coinbase_address`. Use addresses Nordic Crypto controls. Run the hot-wallet nexad as `nexapool`, datadir `/var/lib/nexapool/hotwallet`, RPC on `127.0.0.1` only. Leave the cold wallet under user `nexa` in `/var/lib/nexa`, and do not give `nexapool` read access to it. Point `cookie_file` at the hot wallet cookie, mode `0600`, owner `nexapool`. If the wallet is encrypted, put the passphrase in `/etc/nexapool/wallet.passphrase` (mode `0600`, owner `nexapool`). Leave the RPC user and password unset so the pool reads the cookie. Keep the hot wallet balance under `hot_wallet_max` by sweeping to cold storage.
 
-4. Confirm nexad listens on `127.0.0.1:7227` only, with `server=1`. Do not open 7227 or 8080 in the firewall. Open 80, 443, and 3333.
+4. Confirm both nexad RPC ports listen on `127.0.0.1` only, with `server=1`. Do not open 7227, 7228, or 8080 in the firewall. Port 7228 is nexad's P2P port; outbound peering works with it closed. Open 80, 443, and 3333.
 
 5. Point nginx at the site and ask certbot for a certificate for `pool.nordiccrypto.no`. The certificate stays on the server.
 
@@ -110,7 +115,7 @@ Host `167.233.122.241`, Ubuntu 24.04. nexad is already installed as the systemd 
    curl -sS http://127.0.0.1:8080/api/v1/health
    ```
 
-   `node_online` should become true once nexad answers `getmininginfo`. The first payout cannot happen until a block this pool found has 5000 confirmations and the mature balance is at least the minimum. Leave the default 1 NEX reserve in the wallet so transaction fees have somewhere to come from.
+   `node_online` should become true once nexad answers `getmininginfo`. The first payout cannot happen until a block this pool found has 5001 confirmations and the mature balance is at least the minimum. Leave the default 1 NEX reserve in the hot wallet so transaction fees have somewhere to come from. This repository does not start the service.
 
 7. A miner connects with its Nexa address as the username, for example:
 

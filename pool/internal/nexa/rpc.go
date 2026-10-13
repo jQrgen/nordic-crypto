@@ -3,21 +3,58 @@ package nexa
 import (
 	"bytes"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io"
 	"net/http"
-	"os"
 	"strings"
 	"time"
 )
 
 // Client talks to a local nexad over JSON-RPC.
 type Client struct {
-	URL      string
-	User     string
-	Password string
-	HTTP     *http.Client
+	URL         string
+	User        string
+	Password    string
+	HTTP        *http.Client
+	PoolAddress string // coinbase output that counts as the pool reward
 }
+
+// Payment is a wallet send identified the way explorers do.
+// TxID is nexad's transaction id (GetId), never the idem sendtoaddress returns.
+// TxIdem is GetIdem, kept so a later gettransaction can resolve the id.
+type Payment struct {
+	TxID          string
+	TxIdem        string
+	Confirmations int64
+}
+
+// SendHeld means sendtoaddress may have been accepted but the canonical
+// txid is not known yet. The idem, when set, is safe to store. The send
+// must not be repeated.
+type SendHeld struct {
+	TxID   string
+	TxIdem string
+	Err    error
+}
+
+func (e *SendHeld) Error() string {
+	msg := "send outcome unknown"
+	if e != nil && e.Err != nil {
+		msg = e.Err.Error()
+	}
+	return "nexa: " + msg
+}
+
+func (e *SendHeld) Unwrap() error {
+	if e == nil {
+		return nil
+	}
+	return e.Err
+}
+
+// HeldPayment is the identifier captured before the outcome was known.
+func (e *SendHeld) HeldPayment() (string, string) { return e.TxID, e.TxIdem }
 
 // Candidate is one getminingcandidate result.
 type Candidate struct {
@@ -47,7 +84,7 @@ type Block struct {
 // An explicit user and password replace the cookie.
 func NewClient(url, user, password, cookieFile string) (*Client, error) {
 	if user == "" && password == "" && cookieFile != "" {
-		raw, err := os.ReadFile(cookieFile)
+		raw, err := ReadPrivateFile(cookieFile)
 		if err != nil {
 			return nil, fmt.Errorf("nexa: cookie: %w", err)
 		}
@@ -60,11 +97,19 @@ func NewClient(url, user, password, cookieFile string) (*Client, error) {
 	if url == "" {
 		url = "http://127.0.0.1:7227/"
 	}
+	if err := RequireLoopbackURL(url); err != nil {
+		return nil, err
+	}
 	return &Client{
 		URL:      url,
 		User:     user,
 		Password: password,
-		HTTP:     &http.Client{Timeout: 30 * time.Second},
+		HTTP: &http.Client{
+			Timeout: 30 * time.Second,
+			CheckRedirect: func(*http.Request, []*http.Request) error {
+				return errors.New("nexa: refusing redirect")
+			},
+		},
 	}, nil
 }
 
@@ -185,7 +230,10 @@ func (c *Client) GetBlock(hash string) (Block, error) {
 		Time          int64  `json:"time"`
 		Tx            []struct {
 			Vout []struct {
-				Value json.Number `json:"value"`
+				Value        json.Number `json:"value"`
+				ScriptPubKey struct {
+					Addresses []string `json:"addresses"`
+				} `json:"scriptPubKey"`
 			} `json:"vout"`
 		} `json:"tx"`
 	}
@@ -194,7 +242,11 @@ func (c *Client) GetBlock(hash string) (Block, error) {
 	}
 	var reward int64
 	if len(body.Tx) > 0 {
+		want := strings.ToLower(c.PoolAddress)
 		for _, out := range body.Tx[0].Vout {
+			if want == "" || !paysAddress(out.ScriptPubKey.Addresses, want) {
+				continue
+			}
 			sats, err := ParseNEX(out.Value.String())
 			if err != nil {
 				return Block{}, err
@@ -209,12 +261,30 @@ func (c *Client) GetBlock(hash string) (Block, error) {
 }
 
 // SendToAddress pays amount from the node wallet. The comment is the
-// payout idempotency key and is how a restarted payout pass finds a send
-// that already happened.
-func (c *Client) SendToAddress(address string, sats int64, comment string) (string, error) {
-	var txid string
-	err := c.Call("sendtoaddress", []any{address, FormatNEX(sats), comment, ""}, &txid)
-	return txid, err
+// payout idempotency key. nexad's sendtoaddress returns the transaction
+// idem (GetIdem), not the id explorers show. This resolves the idem with
+// gettransaction and returns GetId as Payment.TxID. If that lookup fails,
+// the error is a SendHeld carrying the idem: the coins may already have
+// moved, so the caller must store the idem and must not send again.
+func (c *Client) SendToAddress(address string, sats int64, comment string) (Payment, error) {
+	var idem string
+	if err := c.Call("sendtoaddress", []any{address, FormatNEX(sats), comment, ""}, &idem); err != nil {
+		return Payment{}, err
+	}
+	if idem == "" {
+		return Payment{}, &SendHeld{Err: fmt.Errorf("empty send id")}
+	}
+	pay, found, err := c.getPayment(idem)
+	if err != nil || !found || pay.TxID == "" {
+		if err == nil {
+			err = fmt.Errorf("gettransaction did not return a txid")
+		}
+		return Payment{TxIdem: idem}, &SendHeld{TxIdem: idem, Err: err}
+	}
+	if pay.TxIdem == "" {
+		pay.TxIdem = idem
+	}
+	return pay, nil
 }
 
 // WalletBalance returns the spendable wallet balance in subunits.
@@ -230,25 +300,111 @@ func (c *Client) WalletBalance() (int64, error) {
 	return ParseNEX(num.String())
 }
 
-// FindComment searches recent wallet transactions for a payout comment.
-func (c *Client) FindComment(comment string) (string, bool, error) {
-	var raw json.RawMessage
-	if err := c.Call("listtransactions", []any{"*", 200, 0, true}, &raw); err != nil {
-		return "", false, err
-	}
-	var txs []struct {
-		TxID    string `json:"txid"`
-		Comment string `json:"comment"`
-	}
-	if err := json.Unmarshal(raw, &txs); err != nil {
-		return "", false, err
-	}
-	for _, tx := range txs {
-		if tx.Comment == comment && tx.TxID != "" {
-			return tx.TxID, true, nil
+// LookupPayment finds a payout by a stored txid or txidem, then by comment.
+// found is false only after gettransaction misses and listtransactionsfrom
+// has been read to the end of the wallet. There is no fixed row window.
+// The returned TxID is GetId. A lookup error means the search did not
+// finish; it is not evidence that the send is absent.
+func (c *Client) LookupPayment(comment, id string) (Payment, bool, error) {
+	if id != "" {
+		pay, found, err := c.getPayment(id)
+		if err != nil {
+			return Payment{}, false, err
+		}
+		if found {
+			return pay, true, nil
 		}
 	}
-	return "", false, nil
+	if comment == "" {
+		return Payment{}, false, nil
+	}
+	return c.findComment(comment)
+}
+
+func (c *Client) getPayment(id string) (Payment, bool, error) {
+	var raw json.RawMessage
+	err := c.Call("gettransaction", []any{id, true}, &raw)
+	if err != nil {
+		if walletMiss(err) {
+			return Payment{}, false, nil
+		}
+		return Payment{}, false, err
+	}
+	pay, err := decodePayment(raw)
+	if err != nil {
+		return Payment{}, false, err
+	}
+	if pay.TxID == "" && pay.TxIdem == "" {
+		return Payment{}, false, fmt.Errorf("nexa: gettransaction returned no id")
+	}
+	return pay, true, nil
+}
+
+// findComment walks the wallet from the oldest entry. listtransactions
+// only returns a caller-chosen window of the newest rows, which is how a
+// crashed payout used to be sent twice. listtransactionsfrom pages until
+// a short page, so a comment cannot scroll out of view.
+func (c *Client) findComment(comment string) (Payment, bool, error) {
+	const page = 1000
+	from := 0
+	for {
+		var raw json.RawMessage
+		if err := c.Call("listtransactionsfrom", []any{"*", page, from, true}, &raw); err != nil {
+			return Payment{}, false, err
+		}
+		var txs []walletTx
+		if err := json.Unmarshal(raw, &txs); err != nil {
+			return Payment{}, false, err
+		}
+		for _, tx := range txs {
+			if tx.Comment != comment {
+				continue
+			}
+			pay := tx.payment()
+			return pay, true, nil
+		}
+		if len(txs) < page {
+			return Payment{}, false, nil
+		}
+		next := from + len(txs)
+		if next <= from {
+			return Payment{}, false, fmt.Errorf("nexa: listtransactionsfrom did not advance")
+		}
+		from = next
+	}
+}
+
+type walletTx struct {
+	TxID          string `json:"txid"`
+	TxIdem        string `json:"txidem"`
+	Comment       string `json:"comment"`
+	Confirmations int64  `json:"confirmations"`
+}
+
+func (t walletTx) payment() Payment {
+	return Payment{TxID: t.TxID, TxIdem: t.TxIdem, Confirmations: t.Confirmations}
+}
+
+func decodePayment(raw json.RawMessage) (Payment, error) {
+	var tx walletTx
+	if err := json.Unmarshal(raw, &tx); err != nil {
+		return Payment{}, err
+	}
+	return tx.payment(), nil
+}
+
+func walletMiss(err error) bool {
+	s := strings.ToLower(err.Error())
+	return strings.Contains(s, "not found") || strings.Contains(s, "invalid or non-wallet")
+}
+
+func paysAddress(addresses []string, want string) bool {
+	for _, addr := range addresses {
+		if strings.EqualFold(addr, want) {
+			return true
+		}
+	}
+	return false
 }
 
 // Unlock unlocks the wallet for timeout seconds when a passphrase is set.

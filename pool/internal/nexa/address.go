@@ -34,9 +34,6 @@ func ValidAddress(s string) bool {
 
 func decodeAddress(s string) (prefix string, version byte, payload []byte, ok bool) {
 	s = strings.TrimSpace(s)
-	if strings.HasPrefix(strings.ToLower(s), "nexa:") {
-		// Keep the original case check below.
-	}
 	lower := strings.ToLower(s)
 	upper := strings.ToUpper(s)
 	if s != lower && s != upper {

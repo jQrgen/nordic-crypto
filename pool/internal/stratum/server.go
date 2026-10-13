@@ -76,12 +76,28 @@ type Server struct {
 	MaxDiff   uint64
 	VarDiff   bool
 
-	ln     net.Listener
-	mu     sync.Mutex
-	conns  map[*session]struct{}
-	job    Job
-	hasJob bool
-	closed atomic.Bool
+	// MaxPerIP caps sessions from one remote address. Zero uses the default.
+	MaxPerIP int
+	// ReadTimeout is how long a session may go without completing a line.
+	// Zero uses the default. A slow drip cannot hold a slot for longer.
+	ReadTimeout time.Duration
+	// SubmitRate is the sustained mining.submit rate per session, per second.
+	SubmitRate float64
+	// SubmitBurst is how many submits may arrive at once before the limit.
+	SubmitBurst float64
+	// BanAfter is how many bad shares or rate-limit hits ban the remote IP.
+	BanAfter int
+
+	ln       net.Listener
+	mu       sync.Mutex
+	conns    map[*session]struct{}
+	extras   map[string]struct{}
+	perIP    map[string]int
+	bans     map[string]time.Time
+	job      Job
+	hasJob   bool
+	closed   atomic.Bool
+	writeFor time.Duration
 }
 
 // Listen starts serving on addr, for example "0.0.0.0:3333".
@@ -95,6 +111,24 @@ func (s *Server) Listen(addr string) error {
 	if s.MaxDiff == 0 {
 		s.MaxDiff = 4096 * nexa.Micros
 	}
+	if s.MaxPerIP <= 0 {
+		s.MaxPerIP = 16
+	}
+	if s.ReadTimeout <= 0 {
+		s.ReadTimeout = 60 * time.Second
+	}
+	if s.SubmitRate <= 0 {
+		s.SubmitRate = 4
+	}
+	if s.SubmitBurst <= 0 {
+		s.SubmitBurst = 8
+	}
+	if s.BanAfter <= 0 {
+		s.BanAfter = 20
+	}
+	if s.writeFor <= 0 {
+		s.writeFor = 5 * time.Second
+	}
 	ln, err := net.Listen("tcp", addr)
 	if err != nil {
 		return err
@@ -102,6 +136,9 @@ func (s *Server) Listen(addr string) error {
 	s.ln = ln
 	s.mu.Lock()
 	s.conns = map[*session]struct{}{}
+	s.extras = map[string]struct{}{}
+	s.perIP = map[string]int{}
+	s.bans = map[string]time.Time{}
 	s.mu.Unlock()
 	go s.accept()
 	return nil
@@ -148,6 +185,25 @@ func (s *Server) SetJob(job Job) {
 	}
 }
 
+// NotifyParams is the mining.notify parameter list. Before Tailstorm it is
+// the echelon five-tuple. At and after the activation time a sixth value,
+// previousBlockHash, is appended in the same display order nexad's
+// getminingcandidate uses (uint256::GetHex). Miners reverse that hex before
+// mixing it into the Tailstorm digest, which is what nexa-miner does.
+func NotifyParams(job Job) []any {
+	ts := make([]byte, 8)
+	binary.BigEndian.PutUint64(ts, job.Time)
+	params := []any{job.ID, job.Commitment, job.NBits, hex.EncodeToString(ts), job.Clean}
+	if int64(job.Time) >= nexa.TailstormActivation {
+		prev := strings.ToLower(job.PrevHash)
+		if len(prev) != 64 {
+			prev = strings.Repeat("0", 64)
+		}
+		params = append(params, prev)
+	}
+	return params
+}
+
 func (s *Server) currentJob() (Job, bool) {
 	s.mu.Lock()
 	defer s.mu.Unlock()
@@ -163,55 +219,120 @@ func (s *Server) accept() {
 			}
 			continue
 		}
+		host := remoteHost(conn)
 		s.mu.Lock()
-		if len(s.conns) >= 4096 {
+		if s.bannedLocked(host) || s.perIP[host] >= s.MaxPerIP || len(s.conns) >= 4096 {
 			s.mu.Unlock()
 			conn.Close()
 			continue
 		}
-		sess := newSession(s, conn)
+		extra, err := s.uniqueExtraLocked()
+		if err != nil {
+			s.mu.Unlock()
+			conn.Close()
+			continue
+		}
+		sess := newSession(s, conn, host, extra)
 		s.conns[sess] = struct{}{}
+		s.extras[extra] = struct{}{}
+		s.perIP[host]++
 		s.mu.Unlock()
 		go func() {
 			sess.run()
 			s.mu.Lock()
 			delete(s.conns, sess)
+			delete(s.extras, sess.extra)
+			s.perIP[host]--
+			if s.perIP[host] <= 0 {
+				delete(s.perIP, host)
+			}
 			s.mu.Unlock()
 		}()
 	}
 }
 
+func remoteHost(conn net.Conn) string {
+	host, _, err := net.SplitHostPort(conn.RemoteAddr().String())
+	if err != nil {
+		return conn.RemoteAddr().String()
+	}
+	if ip := net.ParseIP(host); ip != nil {
+		return ip.String()
+	}
+	return host
+}
+
+func (s *Server) uniqueExtraLocked() (string, error) {
+	for i := 0; i < 8; i++ {
+		buf := make([]byte, 8)
+		if _, err := rand.Read(buf); err != nil {
+			return "", err
+		}
+		extra := hex.EncodeToString(buf)
+		if _, ok := s.extras[extra]; !ok {
+			return extra, nil
+		}
+	}
+	return "", errors.New("stratum: extranonce collision")
+}
+
+func (s *Server) bannedLocked(host string) bool {
+	until, ok := s.bans[host]
+	if !ok {
+		return false
+	}
+	if time.Now().After(until) {
+		delete(s.bans, host)
+		return false
+	}
+	return true
+}
+
+func (s *Server) ban(host string, until time.Time) {
+	s.mu.Lock()
+	s.bans[host] = until
+	s.mu.Unlock()
+}
+
 type session struct {
 	srv        *Server
 	conn       net.Conn
-	w          *bufio.Writer
+	out        chan []byte
 	writeMu    sync.Mutex
+	closing    bool
 	subscribed atomic.Bool
 	authorized atomic.Bool
 	address    string
 	worker     string
 	agent      string
+	host       string
 	extra      string
 	diff       atomic.Uint64
 	vardiff    *VarDiff
+	bad        int
+	tokens     float64
+	tokenAt    time.Time
 }
 
-func newSession(srv *Server, conn net.Conn) *session {
-	extra := make([]byte, 8)
-	rand.Read(extra)
+func newSession(srv *Server, conn net.Conn, host, extra string) *session {
 	return &session{
 		srv:     srv,
 		conn:    conn,
-		w:       bufio.NewWriter(conn),
-		extra:   hex.EncodeToString(extra),
+		host:    host,
+		out:     make(chan []byte, 8),
+		extra:   extra,
 		vardiff: newVarDiff(srv.StartDiff, srv.MinDiff, srv.MaxDiff, time.Now()),
+		tokens:  srv.SubmitBurst,
+		tokenAt: time.Now(),
 	}
 }
 
 func (s *session) run() {
 	defer s.conn.Close()
+	defer s.stopWriter()
+	go s.writer()
 	s.diff.Store(s.srv.StartDiff)
-	s.conn.SetReadDeadline(time.Now().Add(15 * time.Minute))
+	s.conn.SetReadDeadline(time.Now().Add(s.srv.ReadTimeout))
 	sc := bufio.NewScanner(s.conn)
 	sc.Buffer(make([]byte, 0, 4096), 64*1024)
 	for sc.Scan() {
@@ -219,9 +340,29 @@ func (s *session) run() {
 		if line == "" {
 			continue
 		}
-		s.conn.SetReadDeadline(time.Now().Add(15 * time.Minute))
+		s.conn.SetReadDeadline(time.Now().Add(s.srv.ReadTimeout))
 		s.handle(line)
 	}
+}
+
+func (s *session) writer() {
+	for raw := range s.out {
+		s.conn.SetWriteDeadline(time.Now().Add(s.srv.writeFor))
+		if _, err := s.conn.Write(raw); err != nil {
+			s.conn.Close()
+			return
+		}
+	}
+}
+
+func (s *session) stopWriter() {
+	s.writeMu.Lock()
+	defer s.writeMu.Unlock()
+	if s.closing {
+		return
+	}
+	s.closing = true
+	close(s.out)
 }
 
 type request struct {
@@ -330,11 +471,18 @@ func (s *session) submit(req request) {
 	}
 	if stamp == "" {
 		s.reply(req.ID, false, errOther, "bad time")
+		s.penalise()
+		return
+	}
+	if !s.allowSubmit(time.Now()) {
+		s.reply(req.ID, false, errOther, "rate limit")
+		s.penalise()
 		return
 	}
 	nonce, err := bindNonce(s.extra, nonceHex)
 	if err != nil {
 		s.reply(req.ID, false, errOther, "bad nonce")
+		s.penalise()
 		return
 	}
 	address, worker := s.address, s.worker
@@ -365,6 +513,9 @@ func (s *session) submit(req request) {
 			msg = "rejected"
 		}
 		s.reply(req.ID, false, code, msg)
+		if code == errOther || code == errLowDiff {
+			s.penalise()
+		}
 		return
 	}
 	s.reply(req.ID, true, 0, "")
@@ -381,14 +532,23 @@ func (s *session) submit(req request) {
 }
 
 func (s *session) suggest(req request) {
+	if !s.authorized.Load() {
+		s.reply(req.ID, false, errUnauthorized, "Unauthorized worker")
+		return
+	}
 	var params []float64
 	if err := json.Unmarshal(req.Params, &params); err != nil || len(params) < 1 || params[0] <= 0 {
 		s.reply(req.ID, false, errOther, "bad difficulty")
 		return
 	}
 	micros := uint64(params[0] * float64(nexa.Micros))
-	if micros < s.srv.MinDiff {
-		micros = s.srv.MinDiff
+	floor := s.diff.Load()
+	if floor < s.srv.MinDiff {
+		floor = s.srv.MinDiff
+	}
+	if micros < floor {
+		s.reply(req.ID, false, errOther, "difficulty below floor")
+		return
 	}
 	if micros > s.srv.MaxDiff {
 		micros = s.srv.MaxDiff
@@ -399,12 +559,39 @@ func (s *session) suggest(req request) {
 	s.sendDifficulty(micros)
 }
 
+func (s *session) allowSubmit(now time.Time) bool {
+	rate := s.srv.SubmitRate
+	burst := s.srv.SubmitBurst
+	if rate <= 0 {
+		return true
+	}
+	elapsed := now.Sub(s.tokenAt).Seconds()
+	if elapsed > 0 {
+		s.tokens += elapsed * rate
+		s.tokenAt = now
+	}
+	if s.tokens > burst {
+		s.tokens = burst
+	}
+	if s.tokens < 1 {
+		return false
+	}
+	s.tokens--
+	return true
+}
+
+func (s *session) penalise() {
+	s.bad++
+	if s.srv.BanAfter > 0 && s.bad >= s.srv.BanAfter {
+		s.srv.ban(s.host, time.Now().Add(10*time.Minute))
+		s.conn.Close()
+	}
+}
+
 func (s *session) notify(job Job) {
-	ts := make([]byte, 8)
-	binary.BigEndian.PutUint64(ts, job.Time)
 	s.notifyRaw(map[string]any{
 		"id": nil, "method": "mining.notify",
-		"params": []any{job.ID, job.Commitment, job.NBits, hex.EncodeToString(ts), job.Clean},
+		"params": NotifyParams(job),
 	})
 }
 
@@ -429,11 +616,19 @@ func (s *session) notifyRaw(v any) {
 	if err != nil {
 		return
 	}
+	raw = append(raw, '\n')
 	s.writeMu.Lock()
 	defer s.writeMu.Unlock()
-	s.w.Write(raw)
-	s.w.WriteByte('\n')
-	s.w.Flush()
+	if s.closing {
+		return
+	}
+	select {
+	case s.out <- raw:
+	default:
+		// The client is not reading. Drop it instead of stalling the
+		// broadcast for everyone else.
+		s.conn.Close()
+	}
 }
 
 func stringParams(raw json.RawMessage) []string {

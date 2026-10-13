@@ -61,7 +61,7 @@ func openSvc(t *testing.T, node pool.Chain) *pool.Service {
 	t.Cleanup(func() { db.Close() })
 	svc, err := pool.New(pool.Config{
 		FeePercent: 1, FeeAddress: "nexa:qqqqzqsrqszsvpcgpy9qkrqdpc83qygjzv5cxgkyhm",
-		MinPayout: 100_000_000, Maturity: 5000, PPLNSBlocks: 2,
+		MinPayout: 100_000_000, Maturity: 5001, PPLNSBlocks: 2, HotWalletMax: 1,
 		HashrateWindow: time.Minute, PayoutEvery: time.Hour,
 	}, db, node, nil)
 	if err != nil {
@@ -78,11 +78,15 @@ func (downNode) GetMiningCandidate(string) (nexa.Candidate, error) {
 func (downNode) SubmitSolution(int64, string) (int64, string, error) { return 0, "", errDown }
 func (downNode) GetMiningInfo() (nexa.MiningInfo, error)             { return nexa.MiningInfo{}, errDown }
 func (downNode) GetBlock(string) (nexa.Block, error)                 { return nexa.Block{}, errDown }
-func (downNode) SendToAddress(string, int64, string) (string, error) { return "", errDown }
-func (downNode) WalletBalance() (int64, error)                       { return 0, errDown }
-func (downNode) FindComment(string) (string, bool, error)            { return "", false, errDown }
-func (downNode) Unlock(string, int) error                            { return nil }
-func (downNode) Lock(string) error                                   { return nil }
+func (downNode) SendToAddress(string, int64, string) (nexa.Payment, error) {
+	return nexa.Payment{}, errDown
+}
+func (downNode) WalletBalance() (int64, error) { return 0, errDown }
+func (downNode) LookupPayment(string, string) (nexa.Payment, bool, error) {
+	return nexa.Payment{}, false, errDown
+}
+func (downNode) Unlock(string, int) error { return nil }
+func (downNode) Lock(string) error        { return nil }
 
 type errDownT string
 
