@@ -428,6 +428,7 @@ S.update({
 "about_title": "Nordic Crypto کا تعارف",
 "about_desc": "Nordic Crypto کا تعارف: اسے کون چلاتا ہے، یہ کیسے کام کرتا ہے، رازداری، تصحیحات اور ہٹانے کی درخواست۔",
 "ethics_title": "ادارتی اخلاقیات",
+"contact_title": "رابطہ", "contact_desc": "Nordic Crypto کے مدیر کو ای میل کریں۔",
 "ethics_desc": "Nordic Crypto Vær Varsom-plakaten کی پیروی کرتا ہے۔ ایک نامزد ایڈیٹر ہر چیز کی منظوری دیتا ہے۔",
 "media_title": "لوگو اور میڈیا کِٹ",
 "media_desc": "Nordic Crypto کا لوگو: چابی والی ڈھال، نام کے ساتھ لاک اپ، ایک رنگ کا ورژن، آئیکنز اور رنگ۔",

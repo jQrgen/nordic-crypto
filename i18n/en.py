@@ -181,6 +181,7 @@ S = {
 # about
 "about_title": "About Nordic Crypto", "about_desc": "About Nordic Crypto: who runs it, how it works, privacy, corrections and removal.",
 "ethics_title": "Editorial ethics", "ethics_desc": "Nordic Crypto follows Vær Varsom-plakaten. A named editor approves everything.",
+"contact_title": "Contact", "contact_desc": "Email the Nordic Crypto editor.",
 "media_title": "Logo and media kit",
 "media_desc": "Nordic Crypto logo: the key shield, the lockup with the name, a one-colour version, icons and colours.",
 "media_h1": "Logo and media kit",

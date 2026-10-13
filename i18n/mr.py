@@ -428,6 +428,7 @@ S.update({
 "about_title": "Nordic Crypto बद्दल",
 "about_desc": "Nordic Crypto बद्दल: ते कोण चालवते, कसे चालते, गोपनीयता, दुरुस्त्या आणि काढून टाकणे.",
 "ethics_title": "संपादकीय नीतिमूल्ये",
+"contact_title": "संपर्क", "contact_desc": "Nordic Crypto च्या संपादकाला ईमेल करा.",
 "ethics_desc": "Nordic Crypto Vær Varsom-plakaten चे पालन करते. नाव असलेला संपादक प्रत्येक गोष्टीला मंजुरी देतो.",
 "media_title": "लोगो आणि मीडिया किट",
 "media_desc": "Nordic Crypto लोगो: किल्लीची ढाल, नावासह लॉकअप, एकरंगी आवृत्ती, आयकॉन आणि रंग.",

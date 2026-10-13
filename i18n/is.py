@@ -166,6 +166,7 @@ S = {
 "cl_prev_tag": "Forskoðun – ekki enn birt", "cl_none": "Engar breytingar skráðar enn.", "cl_data": "Gögn",
 "about_title": "Um Nordic Crypto", "about_desc": "Um Nordic Crypto: hver heldur síðunni úti, hvernig við vinnum, persónuvernd, leiðréttingar og fjarlægingar.",
 "ethics_title": "Siðareglur ritstjórnar", "ethics_desc": "Nordic Crypto fylgir Vær Varsom-plakaten. Nafngreindur ritstjóri samþykkir allt.",
+"contact_title": "Hafa samband", "contact_desc": "Sendu ritstjóra Nordic Crypto tölvupóst.",
 "media_title": "Merki og efnispakki",
 "media_desc": "Merki Nordic Crypto: lykilskjöldurinn, merkið með nafninu, einlit útgáfa, tákn og litir.",
 "media_h1": "Merki og efnispakki",

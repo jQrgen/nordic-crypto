@@ -428,6 +428,7 @@ S.update({
 "about_title": "关于 Nordic Crypto",
 "about_desc": "关于 Nordic Crypto：谁在运营、如何运作、隐私、更正与删除。",
 "ethics_title": "编辑伦理",
+"contact_title": "联系我们", "contact_desc": "给 Nordic Crypto 编辑发送电子邮件。",
 "ethics_desc": "Nordic Crypto 遵循 Vær Varsom-plakaten。所有内容均由一位署名编辑批准。",
 "media_title": "标志与媒体资料包",
 "media_desc": "Nordic Crypto 标志：钥匙盾牌、带名称的组合标志、单色版本、图标和颜色。",

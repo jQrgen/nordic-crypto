@@ -627,7 +627,7 @@ def site_footer(rel, root, slug=""):
                 + (f' <span class="meta">{E(note)}</span>' if note else "") + '</li>')
     sections = "".join(li(rel + (n + "/" if n else ""), t(k)) for n, k in nav_items()[:NAV_MAIN])
     sections += li(rel + "developers/", t("dev_nav"))   # under Who's who; not a header tab
-    site = (li(rel + "about/", t("nav_about")) + li(rel + "sources/", t("nav_sources")) + li(rel + "ethics/", t("ethics_title"))
+    site = (li(rel + "about/", t("nav_about")) + li(rel + "sources/", t("nav_sources")) + li(rel + "ethics/", t("ethics_title")) + li(rel + "contact/", t("contact_title"))
             + li(rel + "budget/", t("bud_nav"))
             + li(rel + "changelog/", t("cl_title")) + li(rel + "stats/", t("vst_title")) + li(rel + "privacy/", t("pp_title")) + li(rel + "media/", t("media_title")) + li(rel + "columnist/", t("col_title"))
             + li(rel + "tip/", t("nav_tip")) + li(rel + "api/", t("foot_api")) + li("https://github.com/jQrgen/nordic-crypto", t("foot_source"), True)
@@ -1333,6 +1333,11 @@ def write_crowdfunding_api():
                           "payment_uris": {ch: _cf_uri(ch, a) for ch, a in (c.get("addresses") or {}).items() if a}} for c in d.get("campaigns") or []]}
     os.makedirs(os.path.join(SITE, "api", "v1"), exist_ok=True)
     json.dump(out, open(os.path.join(SITE, "api", "v1", "crowdfunding.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+
+def build_contact():
+    """Contact: the editor's email address."""
+    body = text_page(lang_template("contact"), toc=False, attrs=template_attrs("contact"))
+    page("contact", t("contact_title"), "contact", body, t("contact_desc"))
 
 def build_ethics():
     """Press ethics: Nordic Crypto follows Vær Varsom-plakaten. Own wording, not a copy of the code."""
@@ -2110,6 +2115,7 @@ def build_lang(ctx):
     build_about()
     build_media()
     build_ethics()
+    build_contact()
     build_privacy()
     build_budget()
     build_crowdfunding()

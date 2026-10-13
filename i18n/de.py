@@ -428,6 +428,7 @@ S.update({
 "about_title": "Über Nordic Crypto",
 "about_desc": "Über Nordic Crypto: wer dahintersteht, wie es funktioniert, Datenschutz, Korrekturen und Entfernung.",
 "ethics_title": "Redaktionelle Ethik",
+"contact_title": "Kontakt", "contact_desc": "Schreiben Sie der Redaktion von Nordic Crypto.",
 "ethics_desc": "Nordic Crypto folgt dem Vær Varsom-plakaten. Ein namentlich genannter Redakteur gibt alles frei.",
 "media_title": "Logo und Medienkit",
 "media_desc": "Nordic-Crypto-Logo: das Schlüsselwappen, die Kombination mit dem Namen, eine einfarbige Version, Icons und Farben.",

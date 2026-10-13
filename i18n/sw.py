@@ -428,6 +428,7 @@ S.update({
 "about_title": "Kuhusu Nordic Crypto",
 "about_desc": "Kuhusu Nordic Crypto: nani anaiendesha, inavyofanya kazi, faragha, masahihisho na kuondolewa.",
 "ethics_title": "Maadili ya uhariri",
+"contact_title": "Wasiliana", "contact_desc": "Mtumie mhariri wa Nordic Crypto barua pepe.",
 "ethics_desc": "Nordic Crypto inafuata Vær Varsom-plakaten. Mhariri aliyetajwa anaidhinisha kila kitu.",
 "media_title": "Nembo na kifurushi cha vyombo vya habari",
 "media_desc": "Nembo ya Nordic Crypto: ngao ya ufunguo, mchanganyiko na jina, toleo la rangi moja, aikoni na rangi.",
