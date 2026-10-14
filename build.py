@@ -1060,7 +1060,8 @@ def build():
         row = dict(e)
         row["description"] = event_description.public(e)
         return row
-    json.dump({"preview": PREVIEW, "events": [_pub_ev(e) for e in _evs if not e["past"]], "previous": [_pub_ev(e) for e in _prev]}, open(os.path.join(SITE, "data", "events.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    _rows = [_pub_ev(e) for e in _evs]
+    json.dump({"preview": PREVIEW, "events": [e for e in _rows if e.get("phase") != "past"], "ongoing": [e for e in _rows if e.get("phase") == "ongoing"], "previous": [_pub_ev(e) for e in _prev]}, open(os.path.join(SITE, "data", "events.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     sys.path.insert(0, P("tools"))
     import markets as markets_mod
     try:
@@ -2553,9 +2554,18 @@ def event_link(e, prefix=""):
     if not e.get("id"):
         return e.get("url") or ""
     return f"{prefix}calendar/{e['id']}/"
-def event_card(e, hidden=False, href_prefix=""):
+def _card_phase(e, now):
+    """Public phase and the window end (stored, or the assumed end when end is missing)."""
+    kind = event_select.phase(e, now) or ""
+    end = event_select.effective_end(e)
+    return kind, (end.isoformat() if end else "")
+def _phase_attrs(e, now):
+    kind, end = _card_phase(e, now)
+    return kind, end, (f'<p class="evphase">{E(t("ongoing_h"))}</p>' if kind == "ongoing" else "")
+def event_card(e, hidden=False, href_prefix="", now=None):
     """One event. The title links to the event page. Credited lines sit in .evmeta."""
     hid = " hidden" if hidden else ""
+    kind, end, mark = _phase_attrs(e, now)
     place = event_place_short(e)
     place_bit = f" · {E(place)}" if place else ""
     extra = []
@@ -2586,8 +2596,8 @@ def event_card(e, hidden=False, href_prefix=""):
         videos = event_backfill.videos_fact(e)
         if videos:
             extra.append(f'<p class="evmeta"><b>{E(t("ev_videos"))}:</b> <a href="{E(videos["url"])}" rel="noopener">{E(t("ev_videos"))}</a></p>' + _source_line(videos["credit"]))
-    return (f'<article class="evcard" id="e-{E(e.get("id") or "")}"{hid} data-start="{E(e.get("start") or "")}" data-end="{E(e.get("end") or "")}" data-id="{E(e.get("id") or "")}">'
-            f'<h3><a href="{E(event_link(e, href_prefix))}">{E(event_title(e))}</a></h3>'
+    return (f'<article class="evcard" id="e-{E(e.get("id") or "")}"{hid} data-start="{E(e.get("start") or "")}" data-end="{E(end)}" data-phase="{E(kind)}" data-id="{E(e.get("id") or "")}">'
+            f'{mark}<h3><a href="{E(event_link(e, href_prefix))}">{E(event_title(e))}</a></h3>'
             f'<p class="meta evplace">{flag(e.get("country"))} <time datetime="{E(e.get("start") or "")}"><b>{E(event_when(e))}</b></time>{place_bit}</p>'
             + "".join(extra) + "</article>")
 def event_when_short(e):
@@ -2598,22 +2608,24 @@ def event_when_short(e):
     multi = f' – {i18n.short_dm(LANG, b)}' if b and b.date() != a.date() else ""
     if date_only: return wd + multi
     return f'{wd} {i18n.hm(LANG, a)}' + (f'–{i18n.hm_end(LANG, b)}' if b and b.date() == a.date() else multi)
-def event_row(e, hidden=False, href_prefix=""):
+def event_row(e, hidden=False, href_prefix="", now=None):
     """Compact event for the front page: a date badge, the title, then country, weekday, time and city.
-    Same .evcard element and data attributes as event_card(), so front_events_script() can move and hide it."""
+    Same .evcard element and data attributes as event_card(), so front_events_script() can move and hide it.
+    data-end is the window end (the stored end, or the assumed end), so the browser can flip the phase."""
     a = dt.datetime.fromisoformat(e["start"])
     hid = " hidden" if hidden else ""
+    kind, end, mark = _phase_attrs(e, now)
     where = (e.get("city") or "").strip() or event_place_short(e)
-    return (f'<article class="evcard evrow" id="e-{E(e.get("id") or "")}"{hid} data-start="{E(e.get("start") or "")}" data-end="{E(e.get("end") or "")}" data-id="{E(e.get("id") or "")}">'
+    return (f'<article class="evcard evrow" id="e-{E(e.get("id") or "")}"{hid} data-start="{E(e.get("start") or "")}" data-end="{E(end)}" data-phase="{E(kind)}" data-id="{E(e.get("id") or "")}">'
             f'<span class="evdate"><b>{a.day}</b> <span>{E(i18n.badge_month(LANG, a))}</span></span>'
-            f'<div class="evbody"><h3><a href="{E(event_link(e, href_prefix))}">{E(event_title(e))}</a></h3>'
+            f'<div class="evbody">{mark}<h3><a href="{E(event_link(e, href_prefix))}">{E(event_title(e))}</a></h3>'
             f'<p class="meta evplace">{flag(e.get("country"))} <time datetime="{E(e.get("start") or "")}">{E(event_when_short(e))}</time>{" · " + E(where) if where else ""}</p></div></article>')
 def front_events_block(events, now, compact=False):
     """Hero (only while something is ongoing) and the next events that have not started. compact: rows for the front-page rail."""
     part = event_select.partition(events, now, event_select.FRONT_LIMIT)
     card = event_row if compact else event_card
-    hero_cards = "".join(card(e) for e in part["ongoing"])
-    cards = "".join(card(e) for e in part["upcoming"]) + "".join(card(e, hidden=True, href_prefix="") for e in part["upcoming_rest"])
+    hero_cards = "".join(card(e, now=now) for e in part["ongoing"])
+    cards = "".join(card(e, now=now) for e in part["upcoming"]) + "".join(card(e, hidden=True, href_prefix="", now=now) for e in part["upcoming_rest"])
     hidden = "" if part["ongoing"] else " hidden"
     empty = "" if cards else f'<p class="empty">{E(t("no_upcoming"))}</p>'
     return f'''<section class="evhero" id="evhero"{hidden} aria-labelledby="evhero-h">
@@ -2629,23 +2641,68 @@ FRONT_SHOWN = 20
 MORE_STORIES_JS = ("<script>(function(){var b=document.querySelector('[data-more]');if(!b)return;b.addEventListener('click',function(){"
                    "var l=[].slice.call(document.querySelectorAll('.storycard.later'));l.forEach(function(a){a.classList.remove('later')});"
                    "b.remove();var f=l[0]&&l[0].querySelector('a');if(f)f.focus()})})();</script>")
-def front_events_script():
-    """Re-apply the same window in the browser so a reload after a start shows the new list. No shuffle."""
+def _phase_js_fns():
+    """Shared instant parser. No percent signs: callers splice this in with str.replace."""
+    return r"""function iso(v){if(!v)return NaN;var m=/^(\d{4})-(\d{2})-(\d{2})[T ](\d{2}):(\d{2})(?::(\d{2}))?(?:\.\d+)?(Z|[+-]\d{2}:?\d{2})?$/.exec(v);if(!m)return new Date(v).getTime();var utc=Date.UTC(+m[1],+m[2]-1,+m[3],+m[4],+m[5],+(m[6]||0)),off=m[7];if(!off)return new Date(v).getTime();if(off==='Z')return utc;var sign=off.charAt(0)==='-'?-1:1;return utc-sign*((+off.slice(1,3))*60+(+off.slice(-2)))*60000}
+function endOf(start,end){if(end)return iso(end);var m=/^(\d{4}-\d{2}-\d{2})[T ](\d{2}):(\d{2})(?::(\d{2}))?/.exec(start||'');if(!m)return NaN;if(m[2]==='00'&&m[3]==='00'&&(!m[4]||m[4]==='00'))return iso(m[1]+'T23:59:00'+(start.slice(m[0].length)||''));var s=iso(start);return isNaN(s)?NaN:s+3*60*60*1000}
+function phaseClock(fixed){var raw=window.NC_CLOCK||fixed||'';var t=raw?iso(raw):Date.now();return isNaN(t)?Date.now():t}
+function phaseOf(start,end,t){var s=iso(start),e=endOf(start,end);if(isNaN(s))return 'past';if(s>t)return 'upcoming';if(!isNaN(e)&&s<=t&&t<=e)return 'ongoing';return 'past'}
+"""
+def _phase_boot():
     fixed = json.dumps(os.environ.get("NC_NOW") or None)
+    labels = json.dumps({"upcoming": t("upcoming_h"), "ongoing": t("ongoing_h"), "past": t("past_h")}, ensure_ascii=False)
+    return fixed, labels
+def front_events_script():
+    """Re-apply the same window in the browser so a reload after a start shows the new list. No shuffle.
+
+    Instants are read from the offset in data-start / data-end (and NC_NOW), not from the
+    phone's zone, so a +01:00 start after the October clock change is the same instant the
+    build used. A card that has started and is not still running is removed. Leaving it
+    hidden kept it as a child of the list, and a :nth-child rule then hid the later events
+    instead of letting the overflow cards move up. data-end is the window end. When it is
+    missing the same assumed end as event_select is used (midnight until 23:59, otherwise
+    start plus 3 hours). window.NC_CLOCK overrides the frozen clock; window.ncPhaseApply
+    runs the pass again. With no frozen clock the page repeats the pass every 30 seconds.
+    """
+    fixed, labels = _phase_boot()
     limit = event_select.FRONT_LIMIT
-    return """<script>(function(){var FIXED=%s,LIMIT=%d,now=FIXED?new Date(FIXED):new Date(),hero=document.getElementById('evhero'),hlist=document.getElementById('evhero-list'),list=document.getElementById('evsoon-list');
+    return (r"""<script>(function(){var FIXED=__FIXED__,LIMIT=__LIMIT__,LABELS=__LABELS__,hero=document.getElementById('evhero'),hlist=document.getElementById('evhero-list'),list=document.getElementById('evsoon-list');
 if(!hero||!hlist||!list)return;
-var cards=[].slice.call(document.querySelectorAll('#evhero .evcard, #evsoon .evcard'));
-function ms(el,k){var v=el.getAttribute(k);return v?new Date(v).getTime():NaN}
-cards.sort(function(a,b){var d=ms(a,'data-start')-ms(b,'data-start');if(d)return d;var ia=a.getAttribute('data-id')||'',ib=b.getAttribute('data-id')||'';return ia<ib?-1:ia>ib?1:0});
-var ongoing=[],upcoming=[],t=now.getTime();
-cards.forEach(function(el){var s=ms(el,'data-start'),e=ms(el,'data-end');if(s>t)upcoming.push(el);else if(!isNaN(e)&&s<=t&&t<=e)ongoing.push(el);else el.hidden=true});
+__FNS__
+function badge(el,on){var b=el.querySelector('.evphase');if(!on){if(b)b.remove();return}if(!b){b=document.createElement('p');b.className='evphase';var body=el.querySelector('.evbody')||el;body.insertBefore(b,body.firstChild)}b.textContent=LABELS.ongoing}
+function apply(){var cards=[].slice.call(document.querySelectorAll('#evhero .evcard, #evsoon .evcard'));
+cards.sort(function(a,b){var d=iso(a.getAttribute('data-start')||'')-iso(b.getAttribute('data-start')||'');if(d)return d;var ia=a.getAttribute('data-id')||'',ib=b.getAttribute('data-id')||'';return ia<ib?-1:ia>ib?1:0});
+var ongoing=[],upcoming=[],t=phaseClock(FIXED);
+cards.forEach(function(el){var start=el.getAttribute('data-start')||'',kind=phaseOf(start,el.getAttribute('data-end')||'',t);el.setAttribute('data-phase',kind);if(kind==='upcoming'){badge(el,false);upcoming.push(el)}else if(kind==='ongoing'){badge(el,true);ongoing.push(el)}else el.remove()});
 ongoing.forEach(function(el){el.hidden=false;hlist.appendChild(el)});
 hero.hidden=!ongoing.length;
 var keep=upcoming.slice(0,LIMIT),rest=upcoming.slice(LIMIT);
 keep.forEach(function(el){el.hidden=false;list.appendChild(el)});
 rest.forEach(function(el){el.hidden=true;list.appendChild(el)});
-var empty=list.querySelector('.empty');if(empty)empty.hidden=keep.length>0})();</script>""" % (fixed, limit)
+var empty=list.querySelector('.empty');if(empty)empty.hidden=keep.length>0}
+window.ncPhaseApply=apply;apply();if(!FIXED)setInterval(apply,30000)})();</script>"""
+            ).replace("__FIXED__", fixed).replace("__LIMIT__", str(limit)).replace("__LABELS__", labels).replace("__FNS__", _phase_js_fns())
+def calendar_phase_script():
+    """Move calendar rows between ongoing, upcoming and past as the clock passes. No history rewrite."""
+    fixed, labels = _phase_boot()
+    return (r"""<script>(function(){var FIXED=__FIXED__,LABELS=__LABELS__,nowList=document.getElementById('evongoing'),upList=document.getElementById('evlist'),pastList=document.querySelector('ol.past'),section=document.getElementById('evnow');
+if(!nowList||!upList||!pastList)return;
+__FNS__
+function badge(el,on){var b=el.querySelector('.evphase');if(!on){if(b)b.remove();return}if(!b){b=document.createElement('p');b.className='evphase';el.insertBefore(b,el.firstChild)}b.textContent=LABELS.ongoing}
+function tidy(ol){var real=ol.querySelector('li[data-start]'),emp=ol.querySelector('li.empty');if(emp)emp.hidden=!!real}
+function apply(){var t=phaseClock(FIXED),rows=[].slice.call(document.querySelectorAll('#evongoing li[data-start], #evlist li[data-start], ol.past li[data-start]'));
+rows.forEach(function(el){var start=el.getAttribute('data-start')||'',kind=phaseOf(start,el.getAttribute('data-end')||'',t);el.setAttribute('data-phase',kind);if(kind==='ongoing'){badge(el,true);nowList.appendChild(el)}else{badge(el,false);(kind==='upcoming'?upList:pastList).appendChild(el)}});
+if(section)section.hidden=!nowList.querySelector('li[data-start]');tidy(nowList);tidy(upList);tidy(pastList);if(window.ncCalApply)window.ncCalApply(0)}
+window.ncPhaseApply=apply;apply();if(!FIXED)setInterval(apply,30000)})();</script>"""
+            ).replace("__FIXED__", fixed).replace("__LABELS__", labels).replace("__FNS__", _phase_js_fns())
+def event_phase_script():
+    """Flip the event-page label as the clock passes: upcoming, ongoing, then past."""
+    fixed, labels = _phase_boot()
+    return (r"""<script>(function(){var FIXED=__FIXED__,LABELS=__LABELS__,el=document.getElementById('evphase');if(!el)return;
+__FNS__
+function apply(){var kind=phaseOf(el.getAttribute('data-start')||'',el.getAttribute('data-end')||'',phaseClock(FIXED));el.setAttribute('data-phase',kind);el.textContent=LABELS[kind]||''}
+window.ncPhaseApply=apply;apply();if(!FIXED)setInterval(apply,30000)})();</script>"""
+            ).replace("__FIXED__", fixed).replace("__LABELS__", labels).replace("__FNS__", _phase_js_fns())
 def previous_page_rows(events, now):
     """Finished calendar events plus the backfill. Backfill is not part of `events`."""
     cal = [e for e in event_select.partition(events, now)["previous"] if e.get("status") == "published"]
@@ -2690,8 +2747,7 @@ def events_for_site():
         if e["status"] == "published": e["note"] = ap.get("notes", {}).get(e["id"])  # archive/public: editor's note only
         e["note_i18n"] = (ap.get("notes_i18n") or {}).get(e["id"]) if e.get("note") else None
         site_url.brand_note(e)  # approved.json is local and may still reverse the brand name
-        e["past"] = dt.datetime.fromisoformat(e.get("end") or e["start"]) < now
-        row = {k: e.get(k) for k in ("id", "title", "title_orig", "start", "end", "place", "city", "country", "online", "organiser", "url", "source", "source_url", "found", "attendees", "place_source", "paid", "sponsored", "note", "note_i18n", "description", "past", "status")}
+        row = {k: e.get(k) for k in ("id", "title", "title_orig", "start", "end", "place", "city", "country", "online", "organiser", "url", "source", "source_url", "found", "attendees", "place_source", "paid", "sponsored", "note", "note_i18n", "description", "status")}
         for k in event_page.COORD_KEYS:  # only when stored, so the archive stays unchanged for rows without them
             if e.get(k) not in (None, "", [], {}):
                 row[k] = e[k]
@@ -2704,7 +2760,8 @@ def events_for_site():
         by[raw["id"]] = raw
     for e in out:
         if e["status"] == "published" and not event_block.blocked_event(e):
-            by[e["id"]] = {k: v for k, v in e.items() if k != "past"}
+            # phase depends on the clock, so it is not stored in the archive
+            by[e["id"]] = {k: v for k, v in e.items() if k not in ("past", "phase", "phase_end", "ongoing")}
     ark["_how_to"] = "Archive of editor-approved events (written by build.py). An event is published only when its id is in queue/approved.json events.approve. Finished events stay under 'Past events'. Predatory conference listings are removed and are not shown."
     ark["events"] = sorted(by.values(), key=lambda e: dt.datetime.fromisoformat(e["start"]))
     os.makedirs(os.path.dirname(arkf), exist_ok=True)
@@ -2718,7 +2775,9 @@ def events_for_site():
         e["status"] = status
         e["note_i18n"] = e.get("note_i18n") or ((ap.get("notes_i18n") or {}).get(e["id"]) if e.get("note") else None)
         site_url.brand_note(e)
-        e["past"] = dt.datetime.fromisoformat(e.get("end") or e["start"]) < now; out.append(e)
+        out.append(e)
+    for e in out:
+        e.update(event_select.annotate(e, now))
     return sorted(out, key=lambda e: dt.datetime.fromisoformat(e["start"])), now
 
 def listed_events(events, now):
@@ -2806,6 +2865,14 @@ def build_one_event(e):
         desc = ". ".join(x for x in (heading, when, place) if x)
     bits = [f'<p class="meta evback"><a href="../">{E(t("ev_cal_link"))}</a> · <a href="../../events/previous/">{E(t("prev_link"))}</a></p>',
             f'<h1>{E(heading)}</h1>']
+    kind = e.get("phase") or event_select.phase(e, site_now())
+    phase_key = {"upcoming": "upcoming_h", "ongoing": "ongoing_h", "past": "past_h"}.get(kind)
+    if phase_key:
+        end = e.get("phase_end")
+        if not end:
+            eff = event_select.effective_end(e)
+            end = eff.isoformat() if eff else ""
+        bits.append(f'<p class="evphase" id="evphase" data-start="{E(e.get("start") or "")}" data-end="{E(end)}" data-phase="{E(kind)}">{E(t(phase_key))}</p>')
     if e.get("title_orig") and LANG == "en" and e.get("title_orig") != e.get("title"):
         bits.append(f'<p class="orig">{E(t("orig_title_ev"))}{E(e["title_orig"])}</p>')
     tags = []
@@ -2896,7 +2963,7 @@ def build_one_event(e):
     if mint: bits.append(mint)
     body = site_css.style("evpage") + f'<article class="evpage">{"".join(bits)}</article>'
     data = event_page.jsonld(e, BASE + lp() + event_page.slug(e) + "/", about or note or None)
-    page(event_page.slug(e), heading, "calendar", body, desc, (mint_js or "") + event_map_script(body), og=event_og(e, heading, when, place, about or note), head_extra=f'<script type="application/ld+json">{json.dumps(data, ensure_ascii=False).replace("<", "\\u003c")}</script>', share_text=event_share_text(e))
+    page(event_page.slug(e), heading, "calendar", body, desc, (mint_js or "") + event_phase_script() + event_map_script(body), og=event_og(e, heading, when, place, about or note), head_extra=f'<script type="application/ld+json">{json.dumps(data, ensure_ascii=False).replace("<", "\\u003c")}</script>', share_text=event_share_text(e))
 def event_nft_panel(e):
     """Event NFT prototype: the mint panel and its clock script for an upcoming or ongoing event. Empty while the flag is off."""
     if not event_nft.enabled() or not e.get("id"):
@@ -3149,7 +3216,15 @@ function reveal(){var id=location.hash.slice(1),el=id&&id.indexOf('=')<0&&docume
 window.addEventListener('hashchange',reveal);reveal()})();</script>"""
 def build_calendar(ctx):
     evs, now = ctx["events"]
-    up = [e for e in evs if not e["past"]]; past = [e for e in evs if e["past"] and e.get("status") == "published"][::-1]  # all finished, newest first
+    def kind_of(e):
+        kind = e.get("phase")
+        if kind not in ("upcoming", "ongoing", "past"):
+            kind = event_select.phase(e, now)
+        return kind
+    ongoing = [e for e in evs if kind_of(e) == "ongoing"]
+    upcoming = [e for e in evs if kind_of(e) == "upcoming"]
+    live = [e for e in evs if kind_of(e) in ("ongoing", "upcoming")]
+    past = [e for e in evs if kind_of(e) == "past" and e.get("status") == "published"][::-1]  # all finished, newest first
     def when(e):
         # Same line as the front page. The calendar lists themselves are unchanged.
         return event_when(e)
@@ -3166,43 +3241,54 @@ def build_calendar(ctx):
         # event titles: English pages keep the editor's English title (+ original); other languages show the organiser's original title
         ttl = e["title"] if LANG == "en" or not e.get("title_orig") else e["title_orig"]
         note, nl = L18(e, "note")
+        kind = kind_of(e) or ""
+        end = e.get("phase_end") or ""
+        if not end:
+            eff = event_select.effective_end(e)
+            end = eff.isoformat() if eff else ""
+        badge = f'<p class="evphase">{E(t("ongoing_h"))}</p>' if kind == "ongoing" else ""
         anchor = event_map_anchor(e)
         map_bit = f" · {anchor}" if anchor else ""
-        return (f'<li id="e-{E(e["id"])}" data-c="{E(e.get("country"))}"><h3><a href="{E(e["id"])}/">{E(ttl)}</a></h3>'
+        return (f'<li id="e-{E(e["id"])}" data-c="{E(e.get("country"))}" data-start="{E(e.get("start") or "")}" data-end="{E(end)}" data-phase="{E(kind)}">{badge}<h3><a href="{E(e["id"])}/">{E(ttl)}</a></h3>'
                 f'<div class="meta">{flag(e.get("country"))} <time datetime="{E(e["start"])}"><b>{E(when(e))}</b></time> · {E(e.get("place") or t("online"))}{(", " + E(e["city"])) if e.get("city") and e["city"] not in (e.get("place") or "") else ""}{map_bit} {badges(e)}</div>'
                 + (f'<p class="orig">{E(t("orig_title_ev"))}{E(e["title_orig"])}</p>' if e.get("title_orig") and LANG == "en" else "") + f'<div class="meta">{E(t("organiser"))}: {E(e["organiser"])} · {E(t("listed_at"))}: <a href="{E(e["url"])}" rel="noopener" target="_blank">{E(e["source"])}</a></div>'
                 + (f'<p class="sum"{lang_attr(nl)}><b>{E(t("note"))}:</b> {E(note)}</p>' if note else "") + '</li>')
     loc = lambda e: dt.datetime.fromisoformat(e["start"])
-    months = sorted({(now.year, now.month)} | {(loc(e).year, loc(e).month) for e in up})[:6]
+    months = sorted({(now.year, now.month)} | {(loc(e).year, loc(e).month) for e in live})[:6]
     grids = []
     for y, m in months:
         cells = []
         for wk in calendar.Calendar(0).monthdatescalendar(y, m):
             row = []
             for d in wk:
-                de = [e for e in up if loc(e).date() == d]
+                de = [e for e in live if loc(e).date() == d]
                 cls = " ".join(c for c in ["out" if d.month != m else "", "today" if d == now.astimezone(OSLO).date() else "", "has" if de else ""] if c)
                 row.append(f'<td class="{cls}"><span class="d">{d.day}</span>' + "".join(f'<a href="{E(e["id"])}/" data-c="{E(e.get("country"))}" title="{E(cname(e.get("country")))}: {E(e["title"] if LANG == "en" else e.get("title_orig") or e["title"])}">{flag(e.get("country"))}<span>{E(e["title"] if LANG == "en" else e.get("title_orig") or e["title"])}</span></a>' for e in de) + '</td>')
             cells.append("<tr>" + "".join(row) + "</tr>")
         grids.append(f'<table class="cal"><caption>{E(i18n.month_caption(LANG, y, m))}</caption><thead><tr>{"".join(f"<th>{E(d)}</th>" for d in i18n.wd_head(LANG))}</tr></thead><tbody>{"".join(cells)}</tbody></table>')
-    per_c = {c: sum(e.get("country") == c for e in up) for c in COUNTRY_CODES}
-    npend = sum(e.get("status") == "pending" for e in up); nown = sum(e.get("status") == "owner" for e in up)
+    per_c = {c: sum(e.get("country") == c for e in live) for c in COUNTRY_CODES}
+    npend = sum(e.get("status") == "pending" for e in live); nown = sum(e.get("status") == "owner" for e in live)
     body = f"""{site_css.style("calendar-classic")}<h1>{E(t("cal_h1"))}</h1>
 <p class="lead">{E(t("cal_lead"))}</p>
 <p class="meta"><a href="../events/previous/">{E(t("prev_link"))}</a></p>
-{f'<p class="notice warn">{t("cal_preview", p=npend, n=len(up), o=nown)}</p>' if PREVIEW and (npend or nown) else ''}
+{f'<p class="notice warn">{t("cal_preview", p=npend, n=len(live), o=nown)}</p>' if PREVIEW and (npend or nown) else ''}
 <div class="filters" role="group" aria-label="{E(t("countries_aria"))}"><span class="lbl">{E(t("country"))}</span><div class="chips">{country_chips()}</div><span id="ecount" class="meta" aria-live="polite"></span></div>
 <p class="meta">{" · ".join(f"{flag(c)} {E(n)}: {per_c[c]}" for c, n in COUNTRIES.items())}</p>
 <div class="calgrid">{''.join(grids)}</div>
-<h2>{E(t("upcoming_h"))}</h2><ol class="news" id="evlist">{''.join(li(e) for e in up) or f'<li class="empty">{E(t("no_upcoming"))}</li>'}</ol>
+<section class="evnow" id="evnow"{"" if ongoing else " hidden"} aria-labelledby="evnow-h">
+<h2 id="evnow-h">{E(t("ongoing_h"))}</h2>
+<ol class="news" id="evongoing">{''.join(li(e) for e in ongoing)}</ol>
+</section>
+<h2>{E(t("upcoming_h"))}</h2><ol class="news" id="evlist">{''.join(li(e) for e in upcoming) or f'<li class="empty">{E(t("no_upcoming"))}</li>'}</ol>
 <h2 id="past">{E(t("past_h"))}</h2><p class="meta">{E(t("past_note"))}</p><p class="meta">{t("past_talks", href="../talks/")}</p><ol class="news past">{''.join(li(e) for e in past) or f'<li class="empty">{E(t("no_past"))}</li>'}</ol>
 <p class="meta">{t("cal_how")}</p>"""
-    js = """<script>(function(){var NU=%s,cc=[].slice.call(document.querySelectorAll('.cchip')),n=[].slice.call(document.querySelectorAll('#evlist li[data-c], .calgrid a[data-c], ol.past li[data-c]')),cnt=document.getElementById('ecount');
-function apply(){var c=cc.filter(function(x){return x.getAttribute('aria-pressed')==='true'}).map(function(x){return x.dataset.c}),k=0;n.forEach(function(el){var ok=!c.length||c.indexOf(el.dataset.c)>=0;el.hidden=!ok;if(ok&&el.parentNode.id==='evlist')k++});cnt.textContent=NU.replace('{n}',k);history.replaceState(null,'',c.length?'#country='+c.join(','):location.pathname)}
+    js = """<script>(function(){var NU=%s,cc=[].slice.call(document.querySelectorAll('.cchip')),n=[].slice.call(document.querySelectorAll('#evongoing li[data-c], #evlist li[data-c], ol.past li[data-c]')),cnt=document.getElementById('ecount');
+function apply(push){var c=cc.filter(function(x){return x.getAttribute('aria-pressed')==='true'}).map(function(x){return x.dataset.c}),k=0;n.forEach(function(el){var ok=!c.length||c.indexOf(el.dataset.c)>=0;el.hidden=!ok;if(ok&&el.parentNode&&el.parentNode.id==='evlist')k++});if(cnt)cnt.textContent=NU.replace('{n}',k);if(push)history.replaceState(null,'',c.length?'#country='+c.join(','):location.pathname)}
+window.ncCalApply=apply;
 var h=new URLSearchParams(location.hash.slice(1));(h.get('country')||'').split(',').forEach(function(x){cc.forEach(function(b){if(b.dataset.c===x)b.setAttribute('aria-pressed','true')})});
-cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');apply()})});apply()})();</script>""" % json.dumps(t("n_upcoming", n="{n}"))
-    page("calendar", t("cal_title"), "calendar", body, t("cal_desc"), js + event_map_script(body))
-    if LANG == "en": print(f"calendar: {len(up)} upcoming {per_c}, {len(past)} past")
+cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');apply(1)})});apply(0)})();</script>""" % json.dumps(t("n_upcoming", n="{n}"))
+    page("calendar", t("cal_title"), "calendar", body, t("cal_desc"), js + calendar_phase_script() + event_map_script(body))
+    if LANG == "en": print(f"calendar: {len(upcoming)} upcoming, {len(ongoing)} ongoing {per_c}, {len(past)} past")
 
 def build_academia():
     """Academia page from data/academia.json. Public build: only rows approved in queue/approved.json -> academia.approve

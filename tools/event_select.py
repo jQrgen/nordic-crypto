@@ -7,10 +7,15 @@ Comparisons use those instants, not a sliding window or a shuffled sample.
 Upcoming on the front page means "has not started". The list is the next
 FRONT_LIMIT events by start, then id. It changes only when an event's start
 passes: that event leaves, and the next one moves in. While it is running
-(start <= now <= end) it is ongoing, not upcoming. When it ends it is previous.
-An event with no end is not shown as ongoing; once its start has passed it is
-previous. All-day rows stored as 00:00–23:59 local stay ongoing for that whole
-local day. Multi-day rows stay ongoing until their end instant.
+(start <= now <= end) it is ongoing, not upcoming and not past. When it ends
+it is previous. The public name for previous is the phase "past".
+
+An event with no stored end is still ongoing until an assumed end: a midnight
+start (hour, minute and second all 0) runs until 23:59 that local day, and
+every other start runs for DEFAULT_HOURS hours. The stored end is never
+rewritten; the assumed instant is phase_end. All-day rows stored as
+00:00–23:59 local stay ongoing for that whole local day. Multi-day rows stay
+ongoing until their end instant.
 
 The same inputs and the same now always produce the same lists.
 """
@@ -19,6 +24,8 @@ from zoneinfo import ZoneInfo
 
 OSLO = ZoneInfo("Europe/Oslo")
 FRONT_LIMIT = 6
+# When the organiser did not publish an end. Midnight starts run until 23:59 instead.
+DEFAULT_HOURS = 3
 
 # Explicit registered-count fields. Capacity and "spots left" are not a count
 # of people who registered, so they are never used and never subtracted.
@@ -59,10 +66,27 @@ def start_of(event):
 
 
 def end_of(event):
-    """End instant, or None when the row has no end. Never invented from the start."""
+    """Stored end instant, or None. Never invented from the start."""
     if not event or not event.get("end"):
         return None
     return aware(event.get("end"))
+
+
+def effective_end(event):
+    """End of the ongoing window: the stored end, or an assumed end when it is missing.
+
+    A midnight start runs until 23:59 that local day. Any other start runs for
+    DEFAULT_HOURS. The stored end field is not changed.
+    """
+    stored = end_of(event)
+    if stored is not None:
+        return stored
+    start = start_of(event)
+    if start is None:
+        return None
+    if start.hour == 0 and start.minute == 0 and start.second == 0:
+        return start.replace(hour=23, minute=59, second=0, microsecond=0)
+    return start + dt.timedelta(hours=DEFAULT_HOURS)
 
 
 def sort_key(event):
@@ -104,18 +128,46 @@ def explicit_ics_count(fields):
     return None
 
 
-def classify(event, now=None):
-    """'upcoming', 'ongoing', 'previous', or 'skip' (no start)."""
+def phase(event, now=None):
+    """'upcoming', 'ongoing', 'past', or None when the row has no start.
+
+    Ongoing is start <= now <= the effective end, including the start and end instants.
+    """
     now = clock(now)
     start = start_of(event)
     if start is None:
-        return "skip"
+        return None
     if start > now:
         return "upcoming"
-    end = end_of(event)
+    end = effective_end(event)
     if end is not None and start <= now <= end:
         return "ongoing"
-    return "previous"
+    return "past"
+
+
+def classify(event, now=None):
+    """'upcoming', 'ongoing', 'previous', or 'skip' (no start).
+
+    'previous' is the internal name for the public phase 'past'.
+    """
+    kind = phase(event, now)
+    if kind is None:
+        return "skip"
+    if kind == "past":
+        return "previous"
+    return kind
+
+
+def annotate(event, now=None):
+    """Clock fields for one row: phase, phase_end, past, ongoing. Does not copy the event."""
+    kind = phase(event, now)
+    end = effective_end(event)
+    return {
+        "phase": kind,
+        "phase_end": end.isoformat() if end else None,
+        "past": kind == "past",
+        "ongoing": kind == "ongoing",
+    }
 
 
 def partition(events, now=None, limit=FRONT_LIMIT):
@@ -131,7 +183,7 @@ def partition(events, now=None, limit=FRONT_LIMIT):
             upcoming.append(event)
         elif kind == "previous":
             previous.append(event)
-    previous.sort(key=lambda e: ((end_of(e) or start_of(e)), e.get("id") or ""), reverse=True)
+    previous.sort(key=lambda e: ((effective_end(e) or start_of(e)), e.get("id") or ""), reverse=True)
     return {
         "now": now,
         "ongoing": ongoing,
