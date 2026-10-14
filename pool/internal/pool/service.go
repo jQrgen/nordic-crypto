@@ -41,6 +41,9 @@ type Config struct {
 	// TailstormAt, when set, is a unix time compared with the node's
 	// median time past. It is not compared with the wall clock.
 	TailstormAt int64
+	// ReleaseNoneMinAge is how old a reservation must be before
+	// release -confirm none is accepted. Zero becomes 24 hours.
+	ReleaseNoneMinAge time.Duration
 }
 
 // Chain is the nexad surface the pool uses.
@@ -118,6 +121,9 @@ func New(cfg Config, db *store.Store, node Chain, logger *log.Logger) (*Service,
 	}
 	if cfg.PayoutConfs <= 0 {
 		cfg.PayoutConfs = 1
+	}
+	if cfg.ReleaseNoneMinAge <= 0 {
+		cfg.ReleaseNoneMinAge = 24 * time.Hour
 	}
 	if cfg.PPLNSBlocks <= 0 {
 		cfg.PPLNSBlocks = 2
@@ -506,13 +512,14 @@ func (s *Service) Reviews() ([]account.Payout, error) {
 
 // ResolveReview completes or releases one review row after a wallet lookup.
 // action is "complete" or "release". confirm is required for release: the
-// txid stored on the row, or "none" when the row has no txid.
+// txid stored on the row, or "none" when the row has no txid and the
+// reservation is at least ReleaseNoneMinAge old.
 func (s *Service) ResolveReview(id int64, action, confirm string) error {
 	if err := s.node.Unlock(s.pass, 60); err != nil {
 		return err
 	}
 	defer s.node.Lock(s.pass)
-	return account.ResolveReview(s.db, rpcWallet{s.node}, id, action, s.cfg.PayoutConfs, confirm)
+	return account.ResolveReview(s.db, rpcWallet{s.node}, id, action, s.cfg.PayoutConfs, confirm, s.cfg.ReleaseNoneMinAge)
 }
 
 // WindowWork is the PPLNS window in difficulty micros: blocks times the

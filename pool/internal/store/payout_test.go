@@ -378,16 +378,22 @@ func TestResolveReviewCompletesOrReleases(t *testing.T) {
 		t.Fatal(err)
 	}
 	w := newWallet()
-	if err := account.ResolveReview(s, w, id, "complete", 1, ""); err == nil {
+	if err := account.ResolveReview(s, w, id, "complete", 1, "", 24*time.Hour); err == nil {
 		t.Fatal("completed a review row the wallet does not have")
 	}
-	if err := account.ResolveReview(s, w, id, "release", 1, ""); err == nil {
+	if err := account.ResolveReview(s, w, id, "release", 1, "", 24*time.Hour); err == nil {
 		t.Fatal("released without confirmation")
 	}
-	if err := account.ResolveReview(s, w, id, "release", 1, "txid-other"); err == nil {
+	if err := account.ResolveReview(s, w, id, "release", 1, "txid-other", 24*time.Hour); err == nil {
 		t.Fatal("released a row that has no txid by naming one")
 	}
-	if err := account.ResolveReview(s, w, id, "release", 1, "none"); err != nil {
+	if err := account.ResolveReview(s, w, id, "release", 1, "none", 24*time.Hour); err == nil {
+		t.Fatal("released a fresh reservation with confirm none")
+	}
+	if _, err := s.db.Exec(`UPDATE payouts SET created_at = ? WHERE id = ?`, time.Now().Add(-25*time.Hour).Unix(), id); err != nil {
+		t.Fatal(err)
+	}
+	if err := account.ResolveReview(s, w, id, "release", 1, "none", 24*time.Hour); err != nil {
 		t.Fatal(err)
 	}
 	due, err := s.Payable(minPay)
@@ -404,11 +410,11 @@ func TestResolveReviewCompletesOrReleases(t *testing.T) {
 	}
 	w.sent["nexapool:present"] = "txid-real"
 	for _, confirm := range []string{"", "none", "txid-real"} {
-		if err := account.ResolveReview(s, w, id, "release", 1, confirm); err == nil {
+		if err := account.ResolveReview(s, w, id, "release", 1, confirm, 24*time.Hour); err == nil {
 			t.Fatalf("released a review row the wallet still has, confirm %q", confirm)
 		}
 	}
-	if err := account.ResolveReview(s, w, id, "complete", 1, ""); err != nil {
+	if err := account.ResolveReview(s, w, id, "complete", 1, "", 24*time.Hour); err != nil {
 		t.Fatal(err)
 	}
 	p, err := s.Payout(id)
@@ -437,14 +443,14 @@ func TestResolveReviewCompletesOrReleases(t *testing.T) {
 	}
 	blind := newWallet()
 	for _, confirm := range []string{"", "none", "txid-other"} {
-		if err := account.ResolveReview(s, blind, id, "release", 1, confirm); err == nil {
+		if err := account.ResolveReview(s, blind, id, "release", 1, confirm, 24*time.Hour); err == nil {
 			t.Fatalf("released payout with confirm %q", confirm)
 		}
 	}
 	if got, err := s.Payout(id); err != nil || got.Status != "review" {
 		t.Fatalf("refused release changed the row: %+v %v", got, err)
 	}
-	if err := account.ResolveReview(s, blind, id, "release", 1, "TXID-EXPECTED"); err != nil {
+	if err := account.ResolveReview(s, blind, id, "release", 1, "TXID-EXPECTED", 24*time.Hour); err != nil {
 		t.Fatal(err)
 	}
 	due, err = s.Payable(minPay)

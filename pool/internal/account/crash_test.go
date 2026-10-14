@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
+	"time"
 
 	"github.com/jQrgen/nordic-crypto/pool/internal/nexa"
 )
@@ -50,7 +51,7 @@ func (m *memLedger) Reserve(address string, amount int64, key string) (int64, er
 	}
 	m.next++
 	m.rows = append(m.rows, Payout{
-		ID: m.next, Address: address, Amount: amount, Key: key, Status: "reserved",
+		ID: m.next, Address: address, Amount: amount, Key: key, Status: "reserved", Created: time.Now(),
 	})
 	return m.next, nil
 }
@@ -275,7 +276,7 @@ func TestReleaseOfATxCountMissPaysAgain(t *testing.T) {
 		t.Fatalf("status %+v, want sent with txid-pay", got)
 	}
 	for _, confirm := range []string{"", "none", "txid-pay"} {
-		if err := ResolveReview(book, wlt, id, "release", 1, confirm); err == nil {
+		if err := ResolveReview(book, wlt, id, "release", 1, confirm, 24*time.Hour); err == nil {
 			t.Fatalf("release returned coins for a payment the scan found, confirm %q", confirm)
 		}
 	}
@@ -311,4 +312,100 @@ func (w *lookupWallet) Find(comment, id string) (Payment, bool, error) {
 		return Payment{}, false, err
 	}
 	return Payment{TxID: pay.TxID, TxIdem: pay.TxIdem, Confirmations: pay.Confirmations}, true, nil
+}
+
+// TestReleaseOfAShortPageMissPaysAgain is the crash when the first page
+// of wallet items emits fewer JSON rows than the requested count. nexad
+// still has later items. A short page does not end the scan, so the
+// comment is settled and release does not return the coins.
+func TestReleaseOfAShortPageMissPaysAgain(t *testing.T) {
+	const comment = "nexapool:short"
+	type item struct {
+		rows int
+		body map[string]any
+	}
+	wallet := make([]item, 1001)
+	for i := 0; i < 1001; i++ {
+		wallet[i] = item{rows: 1, body: map[string]any{
+			"txid": fmt.Sprintf("old-%d", i), "txidem": fmt.Sprintf("old-idem-%d", i),
+			"comment": "other", "confirmations": 1,
+		}}
+	}
+	wallet[0].rows = 0
+	wallet[1000] = item{rows: 1, body: map[string]any{
+		"txid": "txid-pay", "txidem": "idem-pay", "comment": comment, "confirmations": 1,
+	}}
+	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		raw, _ := io.ReadAll(r.Body)
+		var req struct {
+			Method string `json:"method"`
+			Params []any  `json:"params"`
+		}
+		if err := json.Unmarshal(raw, &req); err != nil {
+			http.Error(w, "bad", 500)
+			return
+		}
+		if req.Method != "listtransactionsfrom" {
+			http.Error(w, "bad", 500)
+			return
+		}
+		from := int(req.Params[2].(float64))
+		count := int(req.Params[1].(float64))
+		if from > len(wallet) {
+			fmt.Fprintf(w, `{"result":[],"error":null,"id":"nexapool"}`)
+			return
+		}
+		end := from + count
+		if end > len(wallet) {
+			end = len(wallet)
+		}
+		var rows []map[string]any
+		for _, it := range wallet[from:end] {
+			for n := 0; n < it.rows; n++ {
+				rows = append(rows, it.body)
+			}
+		}
+		if rows == nil {
+			rows = []map[string]any{}
+		}
+		buf, _ := json.Marshal(map[string]any{"result": rows, "error": nil, "id": "nexapool"})
+		w.Header().Set("Content-Type", "application/json")
+		w.Write(buf)
+	}))
+	defer srv.Close()
+	client, err := nexa.NewClient(srv.URL, "u", "p", "")
+	if err != nil {
+		t.Fatal(err)
+	}
+	book := newMem(crashAddr, crashAmt)
+	id, err := book.Reserve(crashAddr, crashAmt, comment)
+	if err != nil {
+		t.Fatal(err)
+	}
+	wlt := &lookupWallet{c: client, pay: Payment{TxID: "txid-second", TxIdem: "idem-second", Confirmations: 1}}
+	res, err := RunPayouts(book, wlt, 1, 1)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if wlt.sends != 0 || res.Sent != 1 {
+		t.Fatalf("short page was not settled, or was sent again: %+v sends %d", res, wlt.sends)
+	}
+	if got := book.status(id); got.Status != "sent" || got.TxID != "txid-pay" {
+		t.Fatalf("status %+v, want sent with txid-pay", got)
+	}
+	for _, confirm := range []string{"", "none", "txid-pay"} {
+		if err := ResolveReview(book, wlt, id, "release", 1, confirm, 24*time.Hour); err == nil {
+			t.Fatalf("release returned coins for a payment the scan found, confirm %q", confirm)
+		}
+	}
+	if got := book.status(id); got.Status != "sent" || got.TxID != "txid-pay" {
+		t.Fatalf("release changed %+v", got)
+	}
+	res, err = RunPayouts(book, wlt, 1, 1)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if wlt.sends != 0 || res.Sent != 0 {
+		t.Fatalf("second pass paid again: %+v sends %d", res, wlt.sends)
+	}
 }

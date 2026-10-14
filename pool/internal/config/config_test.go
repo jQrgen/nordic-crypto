@@ -69,6 +69,9 @@ path = "/var/lib/nexapool/pool.sqlite"
 	if cfg.Tailstorm != "" && cfg.Tailstorm != "auto" {
 		t.Fatalf("tailstorm %+v", cfg.Tailstorm)
 	}
+	if cfg.ReleaseNoneMinAge != 24*time.Hour {
+		t.Fatalf("release none age %s", cfg.ReleaseNoneMinAge)
+	}
 }
 
 func TestLoadRejectsPublicBind(t *testing.T) {

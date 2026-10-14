@@ -16,20 +16,21 @@ import (
 
 // Config is the running configuration.
 type Config struct {
-	FeePercent      int
-	FeeAddress      string
-	CoinbaseAddress string
-	MinPayout       int64
-	Maturity        int64
-	PPLNSBlocks     float64
-	PayoutEvery     time.Duration
-	HashrateWindow  time.Duration
-	TxReserve       int64
-	PublicStratum   string
-	PayoutConfs     int64
-	HotWalletMax    int64
-	Tailstorm       string
-	TailstormAt     int64
+	FeePercent        int
+	FeeAddress        string
+	CoinbaseAddress   string
+	MinPayout         int64
+	Maturity          int64
+	PPLNSBlocks       float64
+	PayoutEvery       time.Duration
+	HashrateWindow    time.Duration
+	TxReserve         int64
+	PublicStratum     string
+	PayoutConfs       int64
+	HotWalletMax      int64
+	Tailstorm         string
+	TailstormAt       int64
+	ReleaseNoneMinAge time.Duration
 
 	StratumListen string
 	VarDiff       bool
@@ -70,6 +71,7 @@ type file struct {
 		HotWalletMax        string  `toml:"hot_wallet_max"`
 		Tailstorm           string  `toml:"tailstorm"`
 		TailstormAt         int64   `toml:"tailstorm_activation"`
+		ReleaseNoneMinAge   string  `toml:"release_none_min_age"`
 	} `toml:"pool"`
 	Stratum struct {
 		Listen          string  `toml:"listen"`
@@ -231,6 +233,10 @@ func Load(path string) (Config, error) {
 		cfg.BanAfter = 20
 	}
 	cfg.SubmitGrace, err = parseDuration(f.Stratum.SubmitGrace, 3*time.Minute)
+	if err != nil {
+		return Config{}, err
+	}
+	cfg.ReleaseNoneMinAge, err = parseDuration(f.Pool.ReleaseNoneMinAge, 24*time.Hour)
 	if err != nil {
 		return Config{}, err
 	}
