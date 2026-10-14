@@ -127,6 +127,8 @@ Nordic Crypto brand accounts, linked from the footer, About and the newsletter, 
 - Telegram: https://t.me/nordiccryptochat
 - X: https://x.com/nordiccryptobot
 
+Each weekly newsletter issue is also posted to the Nordic Crypto Facebook Page as a video post; see `docs/fb-newsletter.md`.
+
 The iOS app reads them from `social` on `/api/v1/meta.json` (`social.telegram`, `social.x`). `name` is English. `name_i18n` has nn, nb, sv, da, fi and is. The source-code link on each page stays.
 
 ### Browser notifications
