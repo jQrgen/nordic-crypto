@@ -6,6 +6,10 @@
 **Copy:** `newsletter/published/<id>/social.zh.json` holds the translated headline, intro and each story's headline and
 summary, in issue order. Add it when publishing an issue. Without it, the issue is skipped and never posted in English.
 
+The file is written automatically when an issue is published: `./publish.sh --yes` runs `tools/social_translate.py`,
+and the workflow fills any gap before posting. It never overwrites a file with `"reviewed": true` or one edited by
+hand. See `docs/social-translate.md`. The dry run shows whether the copy is generated or reviewed.
+
 **Post:** Weibo `statuses/share.json` allows 140 Chinese characters (2 Latin characters count as 1). The text must
 include a link on the app's safe domain, so set that to `nordiccrypto.no`. The post holds:
 - `【headline】intro`

@@ -3,6 +3,7 @@
 
 Copy: newsletter/published/<id>/social.zh.json (editor-supplied translation of the headline, intro and each story's
 headline and summary; the brand stays "Nordic Crypto"). Without that file the issue is skipped, never posted in English.
+The file is generated at publish time by tools/social_translate.py (see docs/social-translate.md).
 
 Weibo's public Open API (statuses/share.json) takes text plus ONE image and no video for ordinary apps, and the text
 must be at most 140 Chinese characters (2 Latin characters count as 1) and contain a link on the app's safe domain
@@ -115,6 +116,15 @@ def is_live(url):
         return False
 
 
+def copy_status(tr):
+    """One line on where the translated copy came from (tools/social_translate.py)."""
+    if tr.get("reviewed") is True:
+        return "reviewed by a human"
+    if tr.get("content_sha"):
+        return f"generated ({tr.get('model', '?')}, {tr.get('generated_at', '?')[:10]}), not reviewed yet"
+    return "written by hand"
+
+
 def load_social(meta, lang):
     """Editor-supplied translation newsletter/published/<id>/social.<lang>.json, checked against the issue's stories."""
     path = os.path.join(PUBLISHED, meta["id"], f"social.{lang}.json")
@@ -192,10 +202,11 @@ def main(argv=None):
     video_url = os.environ.get("WEIBO_VIDEO_UPLOAD_URL")
     if a.dry_run:
         if not tr:
-            print(f"# Issue {meta['id']}: would skip ({why})"); return 0
+            print(f"# Issue {meta['id']}: would skip ({why}; run tools/social_translate.py --issue {meta['id']})"); return 0
         text = build_post(meta, tr)
         mode = "video upload, link + cover as fallback" if video_url else "link + cover image (no video upload endpoint set)"
         print(f"# Issue {meta['id']} ({meta['date']}): Weibo post [{mode}]{' [already posted]' if meta['id'] in state else ''}")
+        print(f"# copy: social.zh.json, {copy_status(tr)}")
         print(f"# cover: {os.path.relpath(cover, ROOT)}  length: {weibo_len(text)}/{LIMIT}\n\n{text}")
         return 0
     if meta["id"] in state:
