@@ -405,6 +405,7 @@ class Feed:
         eid = safe_id(raw.get("id"))
         if not eid:
             return None
+        ann = event_select.annotate(raw, self.now)
         out = {
             "id": eid,
             "title": raw.get("title"),
@@ -423,8 +424,10 @@ class Feed:
             "note": raw.get("note"),
             "note_i18n": {k: v for k, v in (raw.get("note_i18n") or {}).items() if k in LANGS and v} if raw.get("note") else {},
             "description": event_description.public(raw),
-            "past": bool(raw.get("past")),
-            "ongoing": event_select.classify(raw, self.now) == "ongoing",
+            "past": ann["past"],
+            "ongoing": ann["ongoing"],
+            "phase": ann["phase"],
+            "phase_end": ann["phase_end"],
             "html_url": self.abs(f"calendar/{eid}/"),
             "html_urls": {lang: self.abs(("" if lang == "en" else lang + "/") + f"calendar/{eid}/") for lang in i18n.ALL_LANGS},
             "api_url": self.abs(f"api/v1/events/{eid}.json"),
@@ -717,8 +720,6 @@ def public_events(preview, now=None):
             e["note"] = ap.get("notes", {}).get(e["id"])
         e["note_i18n"] = (ap.get("notes_i18n") or {}).get(e["id"]) if e.get("note") else None
         site_url.brand_note(e)  # same correction as build.events_for_site; approved.json is local
-        end = e.get("end") or e["start"]
-        e["past"] = dt.datetime.fromisoformat(end) < now
         out.append(e)
     ark = load(os.path.join(ROOT, "archive", "events.json"), {"events": []}) or {"events": []}
     seen = {e["id"] for e in out}
@@ -732,11 +733,11 @@ def public_events(preview, now=None):
         e["status"] = status
         e["note_i18n"] = e.get("note_i18n") or ((ap.get("notes_i18n") or {}).get(e["id"]) if e.get("note") else None)
         site_url.brand_note(e)
-        end = e.get("end") or e.get("start")
-        if not end:
+        if not e.get("start"):
             continue
-        e["past"] = dt.datetime.fromisoformat(end) < now
         out.append(e)
+    for e in out:
+        e.update(event_select.annotate(e, now))
     out.sort(key=lambda e: dt.datetime.fromisoformat(e["start"]))
     return out
 
@@ -1221,6 +1222,14 @@ def _markets(feed, markets):
     return doc
 
 
+def event_lists(evs):
+    """upcoming has not started, ongoing has started and not ended, past has ended. Newest past first."""
+    upcoming = [e for e in evs if e.get("phase") == "upcoming"]
+    ongoing = [e for e in evs if e.get("phase") == "ongoing"]
+    past = [e for e in evs if e.get("phase") == "past"][::-1]
+    return upcoming, ongoing, past
+
+
 def write(site, *, preview, base, items, events, entities, relations, org_updated, regulation, caveats, sources_cfg, news_updated, markets=None, stats=None, now=None):
     feed = Feed(site, preview, base, now=now)
     os.makedirs(site, exist_ok=True)
@@ -1242,11 +1251,9 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
 
     raw_events = list(events or [])
     evs = [e for e in (feed.event_item(e) for e in raw_events) if e]
-    upcoming = [e for e in evs if not e["past"]]
-    past = [e for e in evs if e["past"]][::-1]
-    ongoing = [e for e in evs if e.get("ongoing")]
+    upcoming, ongoing, past = event_lists(evs)
     # Backfill is previous-archive only. It is not part of the calendar lists above.
-    raw_past = [e for e in raw_events if e.get("past")]
+    raw_past = [e for e in raw_events if event_select.phase(e, feed.now) == "past"]
     previous = [e for e in (feed.event_item(e) for e in event_backfill.merge_previous(raw_past, feed.now)) if e]
     known = {e["id"] for e in evs}
     backfill = [e for e in previous if e.get("backfill") and e["id"] not in known]
@@ -1368,8 +1375,9 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
     def ev_doc(rel, summary, rows, example=None):
         collection(rel, summary, "EventList", feed.env(count=len(rows), events=rows), example=example, item_template="api/v1/events/{id}.json" if rel == "api/v1/events.json" else None)
     ev_doc("api/v1/events.json", "Public events, soonest start first, including past events.", evs, example=f"api/v1/events/{evs[0]['id']}.json" if evs else None)
-    collection("api/v1/events/upcoming.json", "Events that have not ended, soonest first. Judged in the event's own offset.", "EventList", feed.env(count=len(upcoming), events=upcoming, ongoing=ongoing))
-    collection("api/v1/events/past.json", "Finished public events, newest first. Finished events stay in the archive.", "EventList", feed.env(count=len(past), events=past))
+    collection("api/v1/events/upcoming.json", "Events that have not started, soonest first. Judged in the event's own offset. An event that has started is listed in ongoing.json until it ends, and is not repeated here.", "EventList", feed.env(count=len(upcoming), events=upcoming, ongoing=ongoing))
+    collection("api/v1/events/ongoing.json", "Events that have started and not ended, soonest first. When end is missing the window is start plus 3 hours, or 23:59 the same local day when the start is midnight. These events are not in upcoming.json or past.json.", "EventList", feed.env(count=len(ongoing), events=ongoing))
+    collection("api/v1/events/past.json", "Finished public events, newest first. Finished events stay in the archive. An event that is still ongoing is not listed here.", "EventList", feed.env(count=len(past), events=past))
     collection("api/v1/events/previous.json", "Previous events, newest finish first. Finished calendar events plus backfilled public events (source backfill). Backfill is not on the calendar or in upcoming or past.", "EventList", feed.env(count=len(previous), events=previous))
     for e in evs:
         feed.write_json(f"api/v1/events/{e['id']}.json", feed.env(item=e))
@@ -1867,8 +1875,10 @@ def schemas():
                     "i18n": i18n_obj,
                 },
             },
-            "past": {"type": "boolean"},
-            "ongoing": {"type": "boolean", "description": "True while start <= now <= end. Additive. Events with no end are never ongoing."},
+            "past": {"type": "boolean", "description": "True when phase is past."},
+            "ongoing": {"type": "boolean", "description": "True when phase is ongoing: start <= now <= phase_end."},
+            "phase": {"type": "string", "enum": ["upcoming", "ongoing", "past"], "description": "upcoming before the start, ongoing from the start through phase_end (including both instants), past after that."},
+            "phase_end": {"type": "string", "nullable": True, "description": "End of the ongoing window. The stored end, or an assumed end when the row has none: 23:59 the same local day when the start is midnight, otherwise start plus 3 hours. The end field itself is never invented."},
             "place_source": {"type": "object", "nullable": True, "description": "Credit for the venue or online flag: name, url, retrieved. Omitted when the place cannot be credited."},
             "attendees": {"type": "object", "nullable": True, "description": "Registered participant count with source_name, source_url and retrieved. Omitted when the source did not state a count. Capacity is not a count."},
             "html_url": {"type": "string", "description": "This event's page on the site, /calendar/<id>/."},

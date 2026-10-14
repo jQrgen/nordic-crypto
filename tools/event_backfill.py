@@ -236,7 +236,7 @@ def merge_previous(calendar_previous, now=None):
     rows = list(calendar_previous or []) + extra
     rows.sort(
         key=lambda e: (
-            event_select.end_of(e) or event_select.start_of(e) or dt.datetime.min.replace(tzinfo=dt.timezone.utc),
+            event_select.effective_end(e) or event_select.start_of(e) or dt.datetime.min.replace(tzinfo=dt.timezone.utc),
             e.get("id") or "",
         ),
         reverse=True,

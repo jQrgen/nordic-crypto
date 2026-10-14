@@ -379,8 +379,29 @@ def main():
             fails.append("upcoming missing ongoing")
         if any(e.get("past") for e in upcoming.get("events") or []):
             fails.append("upcoming includes a finished event")
-        if any(e["id"] not in {x["id"] for x in upcoming["events"]} for e in upcoming["ongoing"]):
-            fails.append("ongoing event missing from not-ended list")
+        if any(e["id"] in {x["id"] for x in upcoming["events"]} for e in upcoming["ongoing"]):
+            fails.append("ongoing event also listed as upcoming")
+        ong_path = os.path.join(tmp, "api/v1/events/ongoing.json")
+        if not os.path.isfile(ong_path):
+            fails.append("ongoing.json missing")
+        else:
+            ong = json.load(open(ong_path, encoding="utf-8"))
+            if any(e.get("phase") != "ongoing" for e in ong.get("events") or []):
+                fails.append("ongoing.json phase")
+            if {e["id"] for e in ong.get("events") or []} != {e["id"] for e in upcoming.get("ongoing") or []}:
+                fails.append("ongoing.json disagrees with the upcoming ongoing array")
+        phase_rows = (upcoming.get("events") or []) + (upcoming.get("ongoing") or []) + (past_doc.get("events") or [])
+        if any(e.get("phase") not in ("upcoming", "ongoing", "past") for e in phase_rows):
+            fails.append("event phase missing")
+        if any(e.get("phase") != "upcoming" for e in upcoming.get("events") or []):
+            fails.append("upcoming.json includes a non-upcoming event")
+        if any(e.get("phase") == "ongoing" for e in (past_doc.get("events") or []) + (previous.get("events") or [])):
+            fails.append("ongoing event in past or previous")
+        if "/api/v1/events/ongoing.json" not in spec["paths"]:
+            fails.append("openapi missing ongoing.json")
+        phase_schema = ((spec.get("components") or {}).get("schemas") or {}).get("Event") or {}
+        if "phase" not in (phase_schema.get("properties") or {}):
+            fails.append("openapi event phase")
         past_ids = [e["id"] for e in past_doc.get("events") or []]
         prev_ids = [e["id"] for e in previous.get("events") or []]
         if any(i not in prev_ids for i in past_ids):

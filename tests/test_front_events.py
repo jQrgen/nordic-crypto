@@ -2,9 +2,12 @@
 """The front page lists the next six events that have not started, on a phone too.
 
 Static HTML is what a build at 12:00 Oslo on 14 Oct 2026 would have published
-(the 17:30 Oslo talk still in the list, plus a started-with-no-end row). The
-browser clock is NC_NOW, 18:50, after that talk has ended. Headless Chrome at a
-phone width must show the next six, for Bokmål and the other site languages.
+(the 17:30 Oslo talk still in the list). A row that started at 12:00 with no
+end is already past by 18:50, because a missing end lasts three hours. The
+browser clock is NC_NOW. Headless Chrome at a phone width must show the next
+six, for Bokmål and the other site languages. An event that has started and
+not ended is ongoing, with the local "happening now" label, and is not in
+the upcoming list or the past list.
 """
 import datetime as dt
 import json
@@ -49,7 +52,8 @@ PROBE = """<script>
     soon:rows('#evsoon-list .evcard'),
     hero:rows('#evhero-list .evcard'),
     heroHidden:document.getElementById('evhero').hidden,
-    heading:document.getElementById('evsoon-h').textContent
+    heading:document.getElementById('evsoon-h').textContent,
+    badge:(document.querySelector('#evhero .evphase')||{textContent:''}).textContent
   });
   document.body.appendChild(n);
 })();
@@ -62,11 +66,21 @@ def archive_events():
 
 
 def with_open_end(events):
-    """A row that has already started and has no end. It must not keep a slot."""
+    """Started at noon with no end. The assumed end is 15:00, so 18:50 is past."""
     row = {
-        "id": "noend", "title": "Started with no end", "start": "2026-10-14T16:00:00+02:00",
+        "id": "noend", "title": "Started with no end", "start": "2026-10-14T12:00:00+02:00",
         "place": "Venue", "city": "Oslo", "country": "NO", "organiser": "Test",
         "url": "https://example.test/noend",
+    }
+    return [row] + list(events)
+
+
+def with_assumed_ongoing(events):
+    """Started at 17:00 with no end. At 18:50 the assumed end (20:00) has not passed."""
+    row = {
+        "id": "open3", "title": "No published end", "start": "2026-10-14T17:00:00+02:00",
+        "place": "Venue", "city": "Oslo", "country": "NO", "organiser": "Test",
+        "url": "https://example.test/open3",
     }
     return [row] + list(events)
 
@@ -203,7 +217,9 @@ class FrontEvents(unittest.TestCase):
             self.assertIn('data-start="2026-11-06T18:00:00+02:00"', block)
             self.assertIn('data-id="noend"', block)
             card = block[block.find('id="e-noend"'):block.find('data-id="noend"')]
-            self.assertIn('data-end=""', card)
+            self.assertIn('data-end="2026-10-14T15:00:00+02:00"', card)
+            self.assertIn('data-phase="ongoing"', card)
+            self.assertNotIn('data-end=""', card)
         self.assertEqual(len(set(counts.values())), 1, counts)
 
     def test_phone_shows_six_after_a_started_event_ends(self):
@@ -252,8 +268,159 @@ class FrontEvents(unittest.TestCase):
         shown, data = visible_ids(render(html, 390, 900))
         self.assertFalse(data["heroHidden"])
         self.assertEqual([row["id"] for row in data["hero"]], [ENDED])
+        self.assertEqual(data["badge"], i18n.t("nb", "ongoing_h"))
         self.assertEqual(shown, NEXT6)
         self.assertNotIn(ENDED, shown)
+
+
+    def test_missing_end_stays_ongoing_for_three_hours(self):
+        events = with_assumed_ongoing(archive_events())
+        part = event_select.partition(events, NOW)
+        self.assertEqual([e["id"] for e in part["ongoing"]], ["open3"])
+        self.assertEqual([e["id"] for e in part["upcoming"]], NEXT6)
+        self.assertNotIn("open3", [e["id"] for e in part["previous"]])
+        self.assertNotIn(ENDED, [e["id"] for e in part["upcoming"]])
+        self.assertIn(ENDED, [e["id"] for e in part["previous"]])
+        if not chrome():
+            self.skipTest("headless Chrome is not installed")
+        html, _block = page("nb", events, BUILT_AT, NOW)
+        shown, data = visible_ids(render(html, 390, 900))
+        self.assertEqual([row["id"] for row in data["hero"]], ["open3"])
+        self.assertEqual(data["badge"], "Pågår nå")
+        self.assertEqual(shown, NEXT6)
+        self.assertNotIn("open3", shown)
+        self.assertNotIn(ENDED, shown)
+
+    def test_clock_flips_upcoming_to_ongoing_then_past(self):
+        if not chrome():
+            self.skipTest("headless Chrome is not installed")
+        os.environ.pop("NC_NOW", None)
+        build.LANG = "nb"
+        block = build.front_events_block(archive_events(), BUILT_AT, compact=True)
+        script = build.front_events_script()
+        self.assertIn("FIXED=null", script)
+        self.assertIn("window.ncPhaseApply", script)
+        self.assertIn("setInterval(apply,30000)", script)
+        html = f"""<!DOCTYPE html><html lang="nb"><head><meta charset="utf-8">
+<style>{build.CSS}</style></head><body><div class="wrap"><div class="home"><aside class="home-events">{block}</aside></div></div>
+<script>window.NC_CLOCK={json.dumps(DURING)};</script>
+{script}
+<script>
+function rows(sel){{return [].slice.call(document.querySelectorAll(sel)).filter(function(el){{return !el.hidden&&getComputedStyle(el).display!=='none'}}).map(function(el){{return el.getAttribute('data-id')}})}}
+var during={{hero:rows('#evhero-list .evcard'), soon:rows('#evsoon-list .evcard'),
+  badge:(document.querySelector('#evhero .evphase')||{{textContent:''}}).textContent,
+  hidden:document.getElementById('evhero').hidden}};
+window.NC_CLOCK={json.dumps(NOW)};
+window.ncPhaseApply();
+var after={{hero:rows('#evhero-list .evcard'), soon:rows('#evsoon-list .evcard'),
+  hidden:document.getElementById('evhero').hidden,
+  gone:!!document.getElementById('e-{ENDED}')}};
+var n=document.createElement('pre'); n.id='probe';
+n.textContent=JSON.stringify({{during:during, after:after}});
+document.body.appendChild(n);
+</script></body></html>"""
+        data = probe_of(render(html, 390, 900))
+        self.assertEqual(data["during"]["hero"], [ENDED])
+        self.assertEqual(data["during"]["badge"], "Pågår nå")
+        self.assertNotIn(ENDED, data["during"]["soon"])
+        self.assertEqual(data["during"]["soon"][:6], NEXT6)
+        self.assertEqual(data["after"]["hero"], [])
+        self.assertTrue(data["after"]["hidden"])
+        self.assertFalse(data["after"]["gone"])
+        self.assertNotIn(ENDED, data["after"]["soon"])
+        self.assertEqual(data["after"]["soon"][:6], NEXT6)
+
+    def test_calendar_and_event_page_show_ongoing(self):
+        now = event_select.clock(DURING)
+        rows = []
+        for raw in archive_events():
+            row = dict(raw)
+            row.update(event_select.annotate(row, now))
+            rows.append(row)
+        killer = next(row for row in rows if row["id"] == ENDED)
+        open_end = {
+            "id": "open3phase01", "title": "No published end", "start": "2026-10-14T17:00:00+02:00",
+            "place": "Venue", "city": "Oslo", "country": "NO", "organiser": "Test",
+            "url": "https://example.test/open3", "source": "Test", "source_url": "https://example.test/open3",
+            "status": "published",
+        }
+        open_end.update(event_select.annotate(open_end, now))
+        saved_site, saved_preview = build.SITE, build.PREVIEW
+        try:
+            with tempfile.TemporaryDirectory() as site:
+                build.SITE = site
+                build.PREVIEW = False
+                build.LANG = "nb"
+                build.build_calendar({"events": (rows, now)})
+                cal = open(os.path.join(site, "nb", "calendar", "index.html"), encoding="utf-8").read()
+                build.build_one_event(killer)
+                page_html = open(os.path.join(site, "nb", "calendar", ENDED, "index.html"), encoding="utf-8").read()
+                build.build_one_event(open_end)
+                open_html = open(os.path.join(site, "nb", "calendar", open_end["id"], "index.html"), encoding="utf-8").read()
+        finally:
+            build.SITE = saved_site
+            build.PREVIEW = saved_preview
+        self.assertIn('id="evnow"', cal)
+        self.assertNotIn('id="evnow" hidden', cal)
+        ongoing = cal.split('id="evongoing"', 1)[1].split("</ol>", 1)[0]
+        evlist = cal.split('id="evlist"', 1)[1].split("</ol>", 1)[0]
+        past = cal.split('class="news past"', 1)[1].split("</ol>", 1)[0]
+        self.assertIn(ENDED, ongoing)
+        self.assertIn("Pågår nå", ongoing)
+        self.assertIn('data-phase="ongoing"', ongoing)
+        self.assertNotIn(ENDED, evlist)
+        self.assertNotIn(ENDED, past)
+        self.assertIn('id="evphase"', page_html)
+        self.assertIn('data-phase="ongoing"', page_html)
+        self.assertIn("Pågår nå", page_html)
+        self.assertIn('data-end="2026-10-14T18:30:00+02:00"', page_html)
+        self.assertIn('data-phase="ongoing"', open_html)
+        self.assertIn('data-end="2026-10-14T20:00:00+02:00"', open_html)
+        when = open_html.split("<time", 1)[1].split("</time>", 1)[0]
+        self.assertNotIn("20:00", when)
+        self.assertNotIn("20.00", when)
+        self.assertIn("window.ncPhaseApply", cal)
+        self.assertIn("window.ncPhaseApply", page_html)
+
+    def test_calendar_flips_live(self):
+        if not chrome():
+            self.skipTest("headless Chrome is not installed")
+        os.environ.pop("NC_NOW", None)
+        build.LANG = "nb"
+        script = build.calendar_phase_script()
+        html = f"""<!DOCTYPE html><html lang="nb"><body>
+<section id="evnow" hidden><h2 id="evnow-h">Pågår nå</h2><ol id="evongoing"></ol></section>
+<ol id="evlist">
+<li id="e-{ENDED}" data-c="NO" data-start="2026-10-14T17:30:00+02:00" data-end="2026-10-14T18:30:00+02:00" data-phase="upcoming"><h3>Crypto killer apps</h3></li>
+<li id="e-next" data-c="SE" data-start="2026-10-15T17:30:00+02:00" data-end="2026-10-15T19:00:00+02:00" data-phase="upcoming"><h3>Next</h3></li>
+</ol>
+<ol class="news past"></ol>
+<script>window.NC_CLOCK={json.dumps(DURING)};</script>
+{script}
+<script>
+function ids(sel){{return [].slice.call(document.querySelectorAll(sel)).map(function(el){{return el.id}})}}
+var during={{now:ids('#evongoing li'), up:ids('#evlist li'), past:ids('ol.past li'),
+  label:(document.querySelector('#evongoing .evphase')||{{textContent:''}}).textContent,
+  hidden:document.getElementById('evnow').hidden}};
+window.NC_CLOCK={json.dumps(NOW)};
+window.ncPhaseApply();
+var after={{now:ids('#evongoing li'), up:ids('#evlist li'), past:ids('ol.past li'),
+  hidden:document.getElementById('evnow').hidden}};
+var n=document.createElement('pre'); n.id='probe';
+n.textContent=JSON.stringify({{during:during, after:after}});
+document.body.appendChild(n);
+</script></body></html>"""
+        data = probe_of(render(html, 800, 700))
+        self.assertEqual(data["during"]["now"], [f"e-{ENDED}"])
+        self.assertEqual(data["during"]["label"], "Pågår nå")
+        self.assertFalse(data["during"]["hidden"])
+        self.assertNotIn(f"e-{ENDED}", data["during"]["up"])
+        self.assertNotIn(f"e-{ENDED}", data["during"]["past"])
+        self.assertIn("e-next", data["during"]["up"])
+        self.assertEqual(data["after"]["now"], [])
+        self.assertTrue(data["after"]["hidden"])
+        self.assertEqual(data["after"]["past"], [f"e-{ENDED}"])
+        self.assertEqual(data["after"]["up"], ["e-next"])
 
 
 if __name__ == "__main__":
