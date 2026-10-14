@@ -120,6 +120,11 @@ URL=$(site_base)
 CUSTOM="$URL"
 # on the first approved publish, stamp the launch date into changelog.json (entries dated "launch")
 [ "$DRY" = "--yes" ] && .venv/bin/python -c "import json,datetime;p='changelog.json';d=json.load(open(p));d['launch_date']=d.get('launch_date') or datetime.date.today().isoformat();json.dump(d,open(p,'w'),ensure_ascii=False,indent=1)"
+# Weibo/VK copy: newsletter/published/<newest issue>/social.{zh,ru}.json (tools/social_translate.py). Skips without
+# SOCIAL_TRANSLATE_*; never overwrites a file with "reviewed": true or one edited by hand. Committed to main in step 2.
+if [ "$DRY" = "--yes" ]; then
+  .venv/bin/python tools/social_translate.py || echo "warning: social translation failed (Weibo/VK will skip this issue)"
+fi
 # build.py also fetches Nordic exchange prices into site/api/v1/markets.json (tools/markets.py)
 # and always writes site/CNAME (nordiccrypto.no)
 .venv/bin/python build.py            # never --preview here
