@@ -16,21 +16,22 @@ import (
 
 // Config is the running configuration.
 type Config struct {
-	FeePercent        int
-	FeeAddress        string
-	CoinbaseAddress   string
-	MinPayout         int64
-	Maturity          int64
-	PPLNSBlocks       float64
-	PayoutEvery       time.Duration
-	HashrateWindow    time.Duration
-	TxReserve         int64
-	PublicStratum     string
-	PayoutConfs       int64
-	HotWalletMax      int64
-	Tailstorm         string
-	TailstormAt       int64
-	ReleaseNoneMinAge time.Duration
+	FeePercent           int
+	FeeAddress           string
+	CoinbaseAddress      string
+	MinPayout            int64
+	Maturity             int64
+	PPLNSBlocks          float64
+	PayoutEvery          time.Duration
+	HashrateWindow       time.Duration
+	TxReserve            int64
+	PublicStratum        string
+	PayoutConfs          int64
+	HotWalletMax         int64
+	Tailstorm            string
+	TailstormAt          int64
+	ReleaseNoneMinAge    time.Duration
+	ReleaseConflictDepth int64
 
 	StratumListen string
 	VarDiff       bool
@@ -57,21 +58,22 @@ type Config struct {
 
 type file struct {
 	Pool struct {
-		FeePercent          int     `toml:"fee_percent"`
-		FeeAddress          string  `toml:"fee_address"`
-		CoinbaseAddress     string  `toml:"coinbase_address"`
-		MinPayout           string  `toml:"min_payout"`
-		Maturity            int64   `toml:"maturity"`
-		PPLNSBlocks         float64 `toml:"pplns_blocks"`
-		PayoutInterval      string  `toml:"payout_interval"`
-		HashrateWindow      string  `toml:"hashrate_window"`
-		TxReserve           string  `toml:"tx_reserve"`
-		PublicStratum       string  `toml:"public_stratum"`
-		PayoutConfirmations int64   `toml:"payout_confirmations"`
-		HotWalletMax        string  `toml:"hot_wallet_max"`
-		Tailstorm           string  `toml:"tailstorm"`
-		TailstormAt         int64   `toml:"tailstorm_activation"`
-		ReleaseNoneMinAge   string  `toml:"release_none_min_age"`
+		FeePercent           int     `toml:"fee_percent"`
+		FeeAddress           string  `toml:"fee_address"`
+		CoinbaseAddress      string  `toml:"coinbase_address"`
+		MinPayout            string  `toml:"min_payout"`
+		Maturity             int64   `toml:"maturity"`
+		PPLNSBlocks          float64 `toml:"pplns_blocks"`
+		PayoutInterval       string  `toml:"payout_interval"`
+		HashrateWindow       string  `toml:"hashrate_window"`
+		TxReserve            string  `toml:"tx_reserve"`
+		PublicStratum        string  `toml:"public_stratum"`
+		PayoutConfirmations  int64   `toml:"payout_confirmations"`
+		HotWalletMax         string  `toml:"hot_wallet_max"`
+		Tailstorm            string  `toml:"tailstorm"`
+		TailstormAt          int64   `toml:"tailstorm_activation"`
+		ReleaseNoneMinAge    string  `toml:"release_none_min_age"`
+		ReleaseConflictDepth int64   `toml:"release_conflict_depth"`
 	} `toml:"pool"`
 	Stratum struct {
 		Listen          string  `toml:"listen"`
@@ -239,6 +241,13 @@ func Load(path string) (Config, error) {
 	cfg.ReleaseNoneMinAge, err = parseDuration(f.Pool.ReleaseNoneMinAge, 24*time.Hour)
 	if err != nil {
 		return Config{}, err
+	}
+	if f.Pool.ReleaseConflictDepth == 0 {
+		cfg.ReleaseConflictDepth = 10
+	} else if f.Pool.ReleaseConflictDepth < 6 {
+		return Config{}, fmt.Errorf("config: release_conflict_depth %d is below 6", f.Pool.ReleaseConflictDepth)
+	} else {
+		cfg.ReleaseConflictDepth = f.Pool.ReleaseConflictDepth
 	}
 	if cfg.MinDiff > cfg.StartDiff || cfg.StartDiff > cfg.MaxDiff {
 		return Config{}, fmt.Errorf("config: difficulty range is out of order")

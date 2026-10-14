@@ -61,6 +61,7 @@ func main() {
 		HashrateWindow: cfg.HashrateWindow, PayoutEvery: cfg.PayoutEvery, TxReserve: cfg.TxReserve,
 		PublicStratum: cfg.PublicStratum, PayoutConfs: cfg.PayoutConfs, HotWalletMax: cfg.HotWalletMax,
 		Tailstorm: cfg.Tailstorm, TailstormAt: cfg.TailstormAt, ReleaseNoneMinAge: cfg.ReleaseNoneMinAge,
+		ReleaseConflictDepth: cfg.ReleaseConflictDepth,
 	}, db, node, logger)
 	if err != nil {
 		logger.Fatal(err)
@@ -71,6 +72,9 @@ func main() {
 			logger.Fatalf("wallet passphrase file: %v", err)
 		}
 		svc.SetPassphrase(string(raw))
+	}
+	if err := svc.LockReservedCoins(); err != nil {
+		logger.Printf("reserved coins: %v", err)
 	}
 
 	stratumSrv := &stratum.Server{
@@ -137,7 +141,7 @@ func reviewCommand(logger *log.Logger, args []string) error {
 	path := fs.String("config", "/etc/nexapool/nexapool.toml", "path to the TOML configuration")
 	id := fs.Int64("id", 0, "payout id to resolve")
 	action := fs.String("resolve", "", "complete or release")
-	confirm := fs.String("confirm", "", "for release: the stored txid after abandon or a conflicting spend, or none when the row was never broadcast and is old enough")
+	confirm := fs.String("confirm", "", "for release: the stored txidem after a different txidem has spent an input at release_conflict_depth, or none when the row was never signed and is old enough")
 	fs.SetOutput(os.Stderr)
 	if err := fs.Parse(args); err != nil {
 		return err
@@ -163,6 +167,7 @@ func reviewCommand(logger *log.Logger, args []string) error {
 		HashrateWindow: cfg.HashrateWindow, PayoutEvery: cfg.PayoutEvery, TxReserve: cfg.TxReserve,
 		PublicStratum: cfg.PublicStratum, PayoutConfs: cfg.PayoutConfs, HotWalletMax: cfg.HotWalletMax,
 		Tailstorm: cfg.Tailstorm, TailstormAt: cfg.TailstormAt, ReleaseNoneMinAge: cfg.ReleaseNoneMinAge,
+		ReleaseConflictDepth: cfg.ReleaseConflictDepth,
 	}, db, node, logger)
 	if err != nil {
 		return err
@@ -200,15 +205,15 @@ func reviewCommand(logger *log.Logger, args []string) error {
 			}
 			fmt.Printf("id=%d address=%s amount=%s key=%s txid=%s txidem=%s\n",
 				p.ID, p.Address, nexa.FormatNEX(p.Amount), p.Key, p.TxID, p.TxIdem)
-			fmt.Println("resolve with -resolve complete, or -resolve release -confirm <txid|none>")
-			fmt.Println("-confirm <txid> is accepted only when it is the stored txid and that transaction is abandoned, or an input is spent by a different confirmed transaction")
-			fmt.Println("-confirm none is accepted only when the row has no txid and the reservation is at least release_none_min_age old")
+			fmt.Println("resolve with -resolve complete, or -resolve release -confirm <txidem|none>")
+			fmt.Println("-confirm <txidem> is accepted only when it is the stored txidem and a different txidem has spent an input with at least release_conflict_depth confirmations")
+			fmt.Println("-confirm none is accepted only when the row was never signed and the reservation is at least release_none_min_age old")
 			return nil
 		}
 		return fmt.Errorf("payout %d is not in review", *id)
 	}
 	if *action == "release" && strings.TrimSpace(*confirm) == "" {
-		return fmt.Errorf("release requires -confirm with the stored txid, or -confirm none when the row was never broadcast")
+		return fmt.Errorf("release requires -confirm with the stored txidem, or -confirm none when the row was never signed")
 	}
 	unlock, err := db.LockPayouts()
 	if err != nil {

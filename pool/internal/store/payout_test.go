@@ -60,16 +60,24 @@ type fakeWallet struct {
 	confs      int64
 	forceConfs bool
 	txs        []*fakeTx
-	conflict   map[string]bool
+	// spendConfs is keyed by the stored txidem. A positive value is a
+	// different txidem that has spent an input, at that confirmation depth.
+	spendConfs map[string]int64
+	// abandon is set by tests and ignored. Abandoning only clears the
+	// local mempool and is not a reason to sign again.
 	abandon    map[string]bool
+	sawAbandon bool
 	hidden     map[string]bool
+	locked     map[string]bool
+	lastAvoid  []string
 }
 
 func newWallet() *fakeWallet {
 	return &fakeWallet{
-		conflict: map[string]bool{},
-		abandon:  map[string]bool{},
-		hidden:   map[string]bool{},
+		spendConfs: map[string]int64{},
+		abandon:    map[string]bool{},
+		hidden:     map[string]bool{},
+		locked:     map[string]bool{},
 	}
 }
 
@@ -83,16 +91,39 @@ func (w *fakeWallet) conf() int64 {
 	return w.confs
 }
 
-func (w *fakeWallet) Prepare(string, int64) (account.Signed, error) {
+func (w *fakeWallet) Prepare(_ string, _ int64, avoid []string) (account.Signed, error) {
+	w.lastAvoid = append([]string(nil), avoid...)
 	w.next++
 	w.prepares++
+	op := fmt.Sprintf("out-%d", w.next)
+	for _, a := range avoid {
+		if strings.EqualFold(a, op) {
+			w.next++
+			op = fmt.Sprintf("out-%d", w.next)
+		}
+	}
 	tx := &fakeTx{
 		txid: fmt.Sprintf("txid-%d", w.next),
 		idem: fmt.Sprintf("idem-%d", w.next),
 		raw:  fmt.Sprintf("raw-%d", w.next),
 	}
 	w.txs = append(w.txs, tx)
-	return account.Signed{TxID: tx.txid, TxIdem: tx.idem, Raw: tx.raw}, nil
+	w.locked[op] = true
+	return account.Signed{TxID: tx.txid, TxIdem: tx.idem, Raw: tx.raw, Inputs: []string{op}}, nil
+}
+
+func (w *fakeWallet) Lock(outpoints []string) error {
+	for _, op := range outpoints {
+		w.locked[op] = true
+	}
+	return nil
+}
+
+func (w *fakeWallet) Unlock(outpoints []string) error {
+	for _, op := range outpoints {
+		delete(w.locked, op)
+	}
+	return nil
 }
 
 func (w *fakeWallet) seed(signed account.Signed, visible bool) {
@@ -138,28 +169,29 @@ func (w *fakeWallet) Broadcast(raw string) error {
 	return nil
 }
 
-func (w *fakeWallet) LookupTx(txid, idem, raw string) (account.TxState, error) {
-	tx := w.byID(txid, idem, raw)
+func (w *fakeWallet) LookupTx(idem string) (account.TxState, error) {
+	tx := w.byID("", idem, "")
 	if tx == nil {
 		return account.TxState{}, nil
 	}
-	if w.conflict[tx.txid] {
+	if w.abandon[tx.txid] || w.abandon[tx.idem] {
+		w.sawAbandon = true
+	}
+	if c := w.spendConfs[tx.idem]; c > 0 {
 		return account.TxState{
-			Payment:  account.Payment{TxID: tx.txid, TxIdem: tx.idem, Confirmations: -1},
-			Conflict: true,
+			Payment:     account.Payment{TxID: tx.txid, TxIdem: tx.idem, Confirmations: -c},
+			Conflict:    true,
+			SpendTxIdem: "other-" + tx.idem,
+			SpendConfs:  c,
 		}, nil
 	}
-	if w.hidden[tx.txid] || !tx.visible {
+	if w.hidden[tx.txid] || w.hidden[tx.idem] || !tx.visible {
 		return account.TxState{}, nil
 	}
-	st := account.TxState{
+	return account.TxState{
 		Payment:  account.Payment{TxID: tx.txid, TxIdem: tx.idem, Confirmations: w.conf()},
 		InWallet: true,
-	}
-	if w.abandon[tx.txid] {
-		st.Abandoned = true
-	}
-	return st, nil
+	}, nil
 }
 
 func broadcastAmbiguous(err error) bool {
@@ -174,14 +206,14 @@ func TestPayoutOnceAndNotAgain(t *testing.T) {
 	s := openTest(t)
 	credit(t, s, addrA, minPay, "mature")
 	w := newWallet()
-	res, err := account.RunPayouts(s, w, minPay, 1)
+	res, err := account.RunPayouts(s, w, minPay, 1, 10)
 	if err != nil {
 		t.Fatal(err)
 	}
 	if res.Sent != 1 || w.prepares != 1 || w.broadcasts != 1 {
 		t.Fatalf("first pass sent %d prepares %d broadcasts %d", res.Sent, w.prepares, w.broadcasts)
 	}
-	res, err = account.RunPayouts(s, w, minPay, 1)
+	res, err = account.RunPayouts(s, w, minPay, 1, 10)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -195,6 +227,13 @@ func TestPayoutOnceAndNotAgain(t *testing.T) {
 	if mature != minPay || paid != minPay {
 		t.Fatalf("mature %d paid %d", mature, paid)
 	}
+	var inputs int
+	if err := s.db.QueryRow(`SELECT COUNT(*) FROM payout_inputs`).Scan(&inputs); err != nil {
+		t.Fatal(err)
+	}
+	if inputs != 1 {
+		t.Fatalf("reserved outpoints %d", inputs)
+	}
 }
 
 // TestCrashAfterBroadcastDoesNotSignAgain is a crash once sendrawtransaction
@@ -205,7 +244,7 @@ func TestCrashAfterBroadcastDoesNotSignAgain(t *testing.T) {
 	credit(t, s, addrA, minPay+50, "mature")
 	w := newWallet()
 	w.failNext = errTimeout
-	res, err := account.RunPayouts(s, w, minPay, 1)
+	res, err := account.RunPayouts(s, w, minPay, 1, 10)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -219,7 +258,7 @@ func TestCrashAfterBroadcastDoesNotSignAgain(t *testing.T) {
 	if status != "reserved" || txid == "" || raw == "" {
 		t.Fatalf("stored payout status %s txid %q raw %q", status, txid, raw)
 	}
-	res, err = account.RunPayouts(s, w, minPay, 1)
+	res, err = account.RunPayouts(s, w, minPay, 1, 10)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -233,7 +272,7 @@ func TestCrashAfterBroadcastDoesNotSignAgain(t *testing.T) {
 	if got != txid {
 		t.Fatalf("settled txid %s, stored %s", got, txid)
 	}
-	res, err = account.RunPayouts(s, w, minPay, 1)
+	res, err = account.RunPayouts(s, w, minPay, 1, 10)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -247,7 +286,7 @@ func TestPayoutSkipsImmatureAndBelowMinimum(t *testing.T) {
 	credit(t, s, addrA, minPay-1, "mature")
 	credit(t, s, addrB, minPay*2, "immature")
 	w := newWallet()
-	res, err := account.RunPayouts(s, w, minPay, 1)
+	res, err := account.RunPayouts(s, w, minPay, 1, 10)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -264,7 +303,7 @@ func TestCrashAfterStoreBroadcastsTheStoredTransaction(t *testing.T) {
 	credit(t, s, addrA, minPay, "mature")
 	w := newWallet()
 	w.failNext = errRejected
-	res, err := account.RunPayouts(s, w, minPay, 1)
+	res, err := account.RunPayouts(s, w, minPay, 1, 10)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -278,7 +317,7 @@ func TestCrashAfterStoreBroadcastsTheStoredTransaction(t *testing.T) {
 	if status != "reserved" || txid == "" || raw == "" {
 		t.Fatalf("row was not stored before the failed broadcast: %s %q %q", status, txid, raw)
 	}
-	res, err = account.RunPayouts(s, w, minPay, 1)
+	res, err = account.RunPayouts(s, w, minPay, 1, 10)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -376,7 +415,7 @@ func TestBlindReconcileSendsTheReservedPayoutAgain(t *testing.T) {
 		t.Fatal(err)
 	}
 	w := newWallet()
-	res, err := account.RunPayouts(s, w, minPay, 1)
+	res, err := account.RunPayouts(s, w, minPay, 1, 10)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -390,7 +429,7 @@ func TestBlindReconcileSendsTheReservedPayoutAgain(t *testing.T) {
 	if status != "review" {
 		t.Fatalf("status %s, want review", status)
 	}
-	res, err = account.RunPayouts(s, w, minPay, 1)
+	res, err = account.RunPayouts(s, w, minPay, 1, 10)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -410,7 +449,7 @@ func TestSentPayoutIsReopenedWhenTheTransactionDrops(t *testing.T) {
 	s := openTest(t)
 	credit(t, s, addrA, minPay, "mature")
 	w := newWallet()
-	res, err := account.RunPayouts(s, w, minPay, 1)
+	res, err := account.RunPayouts(s, w, minPay, 1, 10)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -422,7 +461,7 @@ func TestSentPayoutIsReopenedWhenTheTransactionDrops(t *testing.T) {
 		t.Fatal(err)
 	}
 	w.hidden[txid] = true
-	res, err = account.RunPayouts(s, w, minPay, 1)
+	res, err = account.RunPayouts(s, w, minPay, 1, 10)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -445,37 +484,91 @@ func TestSentPayoutIsReopenedWhenTheTransactionDrops(t *testing.T) {
 	}
 }
 
-// TestConflictingSpendPaysOnceMoreWithANewTransaction drops a sent payout
-// when a different confirmed transaction spends one of its inputs, then
-// signs one new payout for the coins that came back.
+// TestConflictingSpendPaysOnceMoreWithANewTransaction keeps the stored
+// transaction while a competing spend is shallower than
+// release_conflict_depth. At that depth the row is dropped and one new
+// payout is signed.
 func TestConflictingSpendPaysOnceMoreWithANewTransaction(t *testing.T) {
 	s := openTest(t)
 	credit(t, s, addrB, minPay, "mature")
 	w := newWallet()
-	if _, err := account.RunPayouts(s, w, minPay, 1); err != nil {
+	if _, err := account.RunPayouts(s, w, minPay, 1, 10); err != nil {
 		t.Fatal(err)
 	}
-	var old string
-	if err := s.db.QueryRow(`SELECT txid FROM payouts WHERE address = ? AND status = 'sent'`, addrB).Scan(&old); err != nil {
+	var oldIdem string
+	if err := s.db.QueryRow(`SELECT txidem FROM payouts WHERE address = ? AND status = 'sent'`, addrB).Scan(&oldIdem); err != nil {
 		t.Fatal(err)
 	}
-	w.conflict[old] = true
-	res, err := account.RunPayouts(s, w, minPay, 1)
+	w.spendConfs[oldIdem] = 1
+	res, err := account.RunPayouts(s, w, minPay, 1, 10)
 	if err != nil {
 		t.Fatal(err)
 	}
-	if res.Failed != 1 || res.Sent != 1 || w.prepares != 2 || w.broadcasts != 2 {
-		t.Fatalf("conflict pass %+v prepares %d broadcasts %d", res, w.prepares, w.broadcasts)
+	if res.Failed != 0 || res.Sent != 0 || w.prepares != 1 {
+		t.Fatalf("shallow conflict signed again: %+v prepares %d", res, w.prepares)
+	}
+	var status, idem string
+	if err := s.db.QueryRow(`SELECT status, txidem FROM payouts WHERE address = ?`, addrB).Scan(&status, &idem); err != nil {
+		t.Fatal(err)
+	}
+	if status == "failed" || idem != oldIdem {
+		t.Fatalf("shallow conflict changed the payout: status %s txidem %s", status, idem)
+	}
+	due, err := s.Payable(minPay)
+	if err != nil || len(due) != 0 {
+		t.Fatalf("shallow conflict returned the coins: %+v %v", due, err)
+	}
+	w.spendConfs[oldIdem] = 10
+	res, err = account.RunPayouts(s, w, minPay, 1, 10)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if res.Failed != 1 || res.Sent != 1 || w.prepares != 2 {
+		t.Fatalf("deep conflict %+v prepares %d broadcasts %d", res, w.prepares, w.broadcasts)
 	}
 	var failed, sent int
 	if err := s.db.QueryRow(`SELECT
-		SUM(CASE WHEN status = 'failed' AND txid = ? THEN 1 ELSE 0 END),
-		SUM(CASE WHEN status = 'sent' AND txid != ? THEN 1 ELSE 0 END)
-		FROM payouts WHERE address = ?`, old, old, addrB).Scan(&failed, &sent); err != nil {
+		SUM(CASE WHEN status = 'failed' AND txidem = ? THEN 1 ELSE 0 END),
+		SUM(CASE WHEN status = 'sent' AND txidem != ? THEN 1 ELSE 0 END)
+		FROM payouts WHERE address = ?`, oldIdem, oldIdem, addrB).Scan(&failed, &sent); err != nil {
 		t.Fatal(err)
 	}
 	if failed != 1 || sent != 1 {
-		t.Fatalf("conflicted tx %s failed %d sent-other %d", old, failed, sent)
+		t.Fatalf("conflicted txidem %s failed %d sent-other %d", oldIdem, failed, sent)
+	}
+}
+
+// TestAbandonedSentPayoutIsSignedAgain records that abandontransaction
+// does not sign a second payout. The name is the review's scenario.
+func TestAbandonedSentPayoutIsSignedAgain(t *testing.T) {
+	s := openTest(t)
+	credit(t, s, addrA, minPay, "mature")
+	w := newWallet()
+	if _, err := account.RunPayouts(s, w, minPay, 1, 10); err != nil {
+		t.Fatal(err)
+	}
+	var oldTx, oldIdem string
+	if err := s.db.QueryRow(`SELECT txid, txidem FROM payouts WHERE status = 'sent'`).Scan(&oldTx, &oldIdem); err != nil {
+		t.Fatal(err)
+	}
+	w.abandon[oldTx] = true
+	res, err := account.RunPayouts(s, w, minPay, 1, 10)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !w.sawAbandon || res.Failed != 0 || res.Sent != 0 || w.prepares != 1 {
+		t.Fatalf("abandon signed again: saw %v %+v prepares %d", w.sawAbandon, res, w.prepares)
+	}
+	var status, idem string
+	if err := s.db.QueryRow(`SELECT status, txidem FROM payouts`).Scan(&status, &idem); err != nil {
+		t.Fatal(err)
+	}
+	if status != "sent" || idem != oldIdem {
+		t.Fatalf("abandon changed the payout: status %s txidem %s", status, idem)
+	}
+	due, err := s.Payable(minPay)
+	if err != nil || len(due) != 0 {
+		t.Fatalf("abandon returned the coins: %+v %v", due, err)
 	}
 }
 
@@ -490,22 +583,22 @@ func TestResolveReviewCompletesOrReleases(t *testing.T) {
 		t.Fatal(err)
 	}
 	w := newWallet()
-	if err := account.ResolveReview(s, w, id, "complete", 1, "", 24*time.Hour); err == nil {
+	if err := account.ResolveReview(s, w, id, "complete", 1, "", 24*time.Hour, 10); err == nil {
 		t.Fatal("completed a review row the wallet does not have")
 	}
-	if err := account.ResolveReview(s, w, id, "release", 1, "", 24*time.Hour); err == nil {
+	if err := account.ResolveReview(s, w, id, "release", 1, "", 24*time.Hour, 10); err == nil {
 		t.Fatal("released without confirmation")
 	}
-	if err := account.ResolveReview(s, w, id, "release", 1, "txid-other", 24*time.Hour); err == nil {
+	if err := account.ResolveReview(s, w, id, "release", 1, "txid-other", 24*time.Hour, 10); err == nil {
 		t.Fatal("released a row that has no txid by naming one")
 	}
-	if err := account.ResolveReview(s, w, id, "release", 1, "none", 24*time.Hour); err == nil {
+	if err := account.ResolveReview(s, w, id, "release", 1, "none", 24*time.Hour, 10); err == nil {
 		t.Fatal("released a fresh reservation with confirm none")
 	}
 	if _, err := s.db.Exec(`UPDATE payouts SET created_at = ? WHERE id = ?`, time.Now().Add(-25*time.Hour).Unix(), id); err != nil {
 		t.Fatal(err)
 	}
-	if err := account.ResolveReview(s, w, id, "release", 1, "none", 24*time.Hour); err != nil {
+	if err := account.ResolveReview(s, w, id, "release", 1, "none", 24*time.Hour, 10); err != nil {
 		t.Fatal(err)
 	}
 	due, err := s.Payable(minPay)
@@ -513,7 +606,7 @@ func TestResolveReviewCompletesOrReleases(t *testing.T) {
 		t.Fatalf("release did not return the coins: %+v %v", due, err)
 	}
 
-	present := account.Signed{TxID: "txid-real", TxIdem: "idem-real", Raw: "raw-real"}
+	present := account.Signed{TxID: "txid-real", TxIdem: "idem-real", Raw: "raw-real", Inputs: []string{"out-real"}}
 	id, err = s.Reserve(addrA, minPay, "nexapool:present", present)
 	if err != nil {
 		t.Fatal(err)
@@ -523,29 +616,29 @@ func TestResolveReviewCompletesOrReleases(t *testing.T) {
 	}
 	w.seed(present, true)
 	for _, confirm := range []string{"", "none", "txid-real"} {
-		if err := account.ResolveReview(s, w, id, "release", 1, confirm, 24*time.Hour); err == nil {
+		if err := account.ResolveReview(s, w, id, "release", 1, confirm, 24*time.Hour, 10); err == nil {
 			t.Fatalf("released a review row the wallet still has, confirm %q", confirm)
 		}
 	}
-	if err := account.ResolveReview(s, w, id, "complete", 1, "", 24*time.Hour); err != nil {
+	if err := account.ResolveReview(s, w, id, "complete", 1, "", 24*time.Hour, 10); err != nil {
 		t.Fatal(err)
 	}
 	p, err := s.Payout(id)
 	if err != nil || p.Status != "sent" || p.TxID != "txid-real" {
 		t.Fatalf("complete left %+v %v", p, err)
 	}
-	if _, err := account.RunPayouts(s, w, minPay, 1); err != nil {
+	if _, err := account.RunPayouts(s, w, minPay, 1, 10); err != nil {
 		t.Fatal(err)
 	}
 	if w.prepares != 0 || w.broadcasts != 0 {
 		t.Fatalf("completed review was signed again (prepares %d broadcasts %d)", w.prepares, w.broadcasts)
 	}
 
-	// Naming the stored txid is not enough. The transaction has to be
-	// abandoned, or an input has to be spent by a different confirmed
-	// transaction. A plain miss stays held.
+	// Naming the stored txid, or abandoning it, does not release the coins.
+	// Release names the stored txidem and requires a different txidem at
+	// release_conflict_depth. A plain miss stays held.
 	credit(t, s, addrA, minPay, "mature")
-	named := account.Signed{TxID: "txid-expected", TxIdem: "idem-expected", Raw: "raw-expected"}
+	named := account.Signed{TxID: "txid-expected", TxIdem: "idem-expected", Raw: "raw-expected", Inputs: []string{"out-expected"}}
 	id, err = s.Reserve(addrA, minPay, "nexapool:named", named)
 	if err != nil {
 		t.Fatal(err)
@@ -555,28 +648,24 @@ func TestResolveReviewCompletesOrReleases(t *testing.T) {
 	}
 	held := newWallet()
 	held.seed(named, true)
-	for _, confirm := range []string{"", "none", "txid-other", "TXID-EXPECTED"} {
-		if err := account.ResolveReview(s, held, id, "release", 1, confirm, 24*time.Hour); err == nil {
+	for _, confirm := range []string{"", "none", "txid-other", "TXID-EXPECTED", "IDEM-EXPECTED"} {
+		if err := account.ResolveReview(s, held, id, "release", 1, confirm, 24*time.Hour, 10); err == nil {
 			t.Fatalf("released a live payout with confirm %q", confirm)
 		}
 	}
-	if got, err := s.Payout(id); err != nil || got.Status != "review" || got.TxID != "txid-expected" {
+	if got, err := s.Payout(id); err != nil || got.Status != "review" || got.TxID != "txid-expected" || got.TxIdem != "idem-expected" {
 		t.Fatalf("refused release changed the row: %+v %v", got, err)
 	}
 	held.abandon["txid-expected"] = true
-	if err := account.ResolveReview(s, held, id, "complete", 1, "", 24*time.Hour); err == nil {
-		t.Fatal("completed an abandoned payout")
+	if err := account.ResolveReview(s, held, id, "release", 1, "IDEM-EXPECTED", 24*time.Hour, 10); err == nil {
+		t.Fatal("released an abandoned payout")
 	}
-	if err := account.ResolveReview(s, held, id, "release", 1, "TXID-EXPECTED", 24*time.Hour); err != nil {
+	if err := account.ResolveReview(s, held, id, "complete", 1, "", 24*time.Hour, 10); err != nil {
 		t.Fatal(err)
-	}
-	due, err = s.Payable(minPay)
-	if err != nil || len(due) != 1 || due[0].Amount != minPay {
-		t.Fatalf("abandon release did not return the coins: %+v %v", due, err)
 	}
 
 	credit(t, s, addrA, minPay, "mature")
-	spent := account.Signed{TxID: "txid-spent", TxIdem: "idem-spent", Raw: "raw-spent"}
+	spent := account.Signed{TxID: "txid-spent", TxIdem: "idem-spent", Raw: "raw-spent", Inputs: []string{"out-spent"}}
 	id, err = s.Reserve(addrA, minPay, "nexapool:spent", spent)
 	if err != nil {
 		t.Fatal(err)
@@ -586,11 +675,18 @@ func TestResolveReviewCompletesOrReleases(t *testing.T) {
 	}
 	conflicted := newWallet()
 	conflicted.seed(spent, false)
-	conflicted.conflict["txid-spent"] = true
-	if err := account.ResolveReview(s, conflicted, id, "release", 1, "txid-other", 24*time.Hour); err == nil {
-		t.Fatal("released a conflicting spend under the wrong txid")
+	conflicted.spendConfs["idem-spent"] = 4
+	if err := account.ResolveReview(s, conflicted, id, "release", 1, "txid-spent", 24*time.Hour, 10); err == nil {
+		t.Fatal("released a conflicting spend by naming the txid")
 	}
-	if err := account.ResolveReview(s, conflicted, id, "release", 1, "txid-spent", time.Hour); err != nil {
+	if err := account.ResolveReview(s, conflicted, id, "release", 1, "idem-spent", 24*time.Hour, 10); err == nil {
+		t.Fatal("released a conflicting spend shallower than release_conflict_depth")
+	}
+	if err := account.ResolveReview(s, conflicted, id, "complete", 1, "", 24*time.Hour, 10); err == nil {
+		t.Fatal("completed a conflicting spend")
+	}
+	conflicted.spendConfs["idem-spent"] = 10
+	if err := account.ResolveReview(s, conflicted, id, "release", 1, "idem-spent", time.Hour, 10); err != nil {
 		t.Fatal(err)
 	}
 }
@@ -601,14 +697,14 @@ func TestPayoutWaitsForConfirmations(t *testing.T) {
 	w := newWallet()
 	w.forceConfs = true
 	w.confs = 0
-	res, err := account.RunPayouts(s, w, minPay, 1)
+	res, err := account.RunPayouts(s, w, minPay, 1, 10)
 	if err != nil {
 		t.Fatal(err)
 	}
 	if res.Deferred != 1 || res.Sent != 0 || w.prepares != 1 || w.broadcasts != 1 {
 		t.Fatalf("unconfirmed %+v prepares %d broadcasts %d", res, w.prepares, w.broadcasts)
 	}
-	res, err = account.RunPayouts(s, w, minPay, 1)
+	res, err = account.RunPayouts(s, w, minPay, 1, 10)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -616,12 +712,52 @@ func TestPayoutWaitsForConfirmations(t *testing.T) {
 		t.Fatalf("unconfirmed retry %+v prepares %d broadcasts %d", res, w.prepares, w.broadcasts)
 	}
 	w.confs = 1
-	res, err = account.RunPayouts(s, w, minPay, 1)
+	res, err = account.RunPayouts(s, w, minPay, 1, 10)
 	if err != nil {
 		t.Fatal(err)
 	}
 	if res.Sent != 1 || w.prepares != 1 || w.broadcasts != 1 {
 		t.Fatalf("confirmed %+v prepares %d broadcasts %d", res, w.prepares, w.broadcasts)
+	}
+}
+
+func TestSecondPayoutSkipsReservedOutpoints(t *testing.T) {
+	s := openTest(t)
+	credit(t, s, addrA, minPay, "mature")
+	credit(t, s, addrB, minPay, "mature")
+	w := newWallet()
+	res, err := account.RunPayouts(s, w, minPay, 1, 10)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if res.Sent != 2 || w.prepares != 2 {
+		t.Fatalf("both %+v prepares %d", res, w.prepares)
+	}
+	if len(w.lastAvoid) != 1 || w.lastAvoid[0] != "out-1" {
+		t.Fatalf("second payout did not skip the reserved outpoint: %v", w.lastAvoid)
+	}
+}
+
+func TestReserveRejectsATakenOutpoint(t *testing.T) {
+	s := openTest(t)
+	credit(t, s, addrA, minPay*2, "mature")
+	signed := account.Signed{TxID: "txid-1", TxIdem: "idem-1", Raw: "raw-1", Inputs: []string{"out-1"}}
+	if _, err := s.Reserve(addrA, minPay, "nexapool:one", signed); err != nil {
+		t.Fatal(err)
+	}
+	_, err := s.Reserve(addrA, minPay, "nexapool:two", signed)
+	if !errors.Is(err, account.ErrOutpointTaken) {
+		t.Fatalf("taken outpoint err %v", err)
+	}
+	var n int
+	if err := s.db.QueryRow(`SELECT COUNT(*) FROM payouts`).Scan(&n); err != nil {
+		t.Fatal(err)
+	}
+	if n != 1 {
+		t.Fatalf("payout rows %d", n)
+	}
+	if _, err := s.Reserve(addrA, minPay, "nexapool:bare", account.Signed{TxIdem: "idem-bare"}); err == nil {
+		t.Fatal("signed payout without inputs was stored")
 	}
 }
 
