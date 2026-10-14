@@ -55,16 +55,18 @@ def _snip_close():
         try: _SNIP.stdin.close(); _SNIP.wait(10)
         except Exception: _SNIP.kill()
     if _SNIP_FAILED > 1: print(f"snippets: WARNING, {_SNIP_FAILED} pages were built without the share bar")
-def snippets(url, title):
+def snippets(url, title, text=None):
     """share.js snippets for one page, from one node process for the whole build (one process per page cost ~75 s).
-    A bad page answers {error} and only that page loses the bar; a dead process is dropped and the next page starts a new one."""
+    A bad page answers {error} and only that page loses the bar; a dead process is dropped and the next page starts a new one.
+    text, when set, is the prefilled share message instead of the page title."""
     global _SNIP
     if _SNIP is False: return _snip_fail(None)
     try:
         if _SNIP is None:
             try: _SNIP = subprocess.Popen(["node", P("tools", "snippets.js"), "--lines"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True, encoding="utf-8")
             except OSError: _SNIP = False; raise   # no node on PATH: it will not appear during the build
-        _SNIP.stdin.write(json.dumps([url, title, LANG]) + "\n"); _SNIP.stdin.flush()
+        row = [url, title, LANG] if not text else [url, title, LANG, text]
+        _SNIP.stdin.write(json.dumps(row) + "\n"); _SNIP.stdin.flush()
         s = json.loads(_SNIP.stdout.readline())
         if "top" not in s: return _snip_fail(s.get("error"))
         return s
@@ -619,9 +621,14 @@ def build_chat():
             + shoutbox_html("../ethics/", full=True))
     page("chat", t("chat_title"), "chat", body, t("chat_desc"))
 RTL_ARROWS = str.maketrans({"←": "→", "→": "←"})
+def source_footer_line():
+    """The public repo, last line of the footer on every page. The label is the translated "Source code" string;
+    the link text is the GitHub path. Not repeated in the page body or in a footer column."""
+    return (f'<p class="footsource"><span class="footsource-label">{E(t("foot_source"))}:</span> '
+            f'<a href="{SITE_REPO}" rel="noopener"><bdi dir="ltr">github.com/nordic-crypto-org/nordic-crypto</bdi></a></p>')
 def site_footer(rel, root, slug=""):
     """Brand, three link columns (the header sections, the pages about the site, where to follow), the newsletter form while
-    signup is open, notifications while the Worker is set, then the colophon (the i18n footer string)."""
+    signup is open, notifications while the Worker is set, the colophon (the i18n footer string), then the source-code line."""
     def li(href, label, ext=False, note=""):
         return (f'<li><a href="{E(href)}"{" rel=\"noopener\"" if ext else ""}>{E(label)}</a>'
                 + (f' <span class="meta">{E(note)}</span>' if note else "") + '</li>')
@@ -630,7 +637,7 @@ def site_footer(rel, root, slug=""):
     site = (li(rel + "about/", t("nav_about")) + li(rel + "sources/", t("nav_sources")) + li(rel + "ethics/", t("ethics_title")) + li(rel + "contact/", t("contact_title"))
             + li(rel + "budget/", t("bud_nav"))
             + li(rel + "changelog/", t("cl_title")) + li(rel + "stats/", t("vst_title")) + li(rel + "privacy/", t("pp_title")) + li(rel + "media/", t("media_title")) + li(rel + "columnist/", t("col_title"))
-            + li(rel + "tip/", t("nav_tip")) + li(rel + "api/", t("foot_api")) + li("https://github.com/nordic-crypto-org/nordic-crypto", t("foot_source"), True)
+            + li(rel + "tip/", t("nav_tip")) + li(rel + "api/", t("foot_api"))
             + li(REPO_CONTRIBUTORS, t("contributors"), True)
             + (li(rel + "treasury/", t("nav_treasury")) if event_nft.enabled() else ""))
     follow = (li(rel + "newsletter/", t("nav_newsletter")) + li(SITE_TELEGRAM, t("tg_label"), True) + li(SITE_X, "X", True) + li(rel + "rss.xml", "RSS")
@@ -644,15 +651,16 @@ def site_footer(rel, root, slug=""):
             f'<nav class="foot-col" aria-labelledby="ft-sec"><h2 id="ft-sec">{E(t("foot_sections"))}</h2><ul>{sections}</ul></nav>'
             f'<nav class="foot-col" aria-labelledby="ft-site"><h2 id="ft-site">{E(t("foot_site"))}</h2><ul>{site}</ul></nav>'
             f'<div class="foot-col"><h2>{E(t("foot_follow"))}</h2><ul>{follow}</ul></div></div>'
-            f'{nlfoot}{pushfoot}<p class="colophon">{t("footer", site=SITE_NAME, rel=rel, root=root, ios_tv=t("ios_tv"), contributors=contributors_link())}</p></div></footer>')
-def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="", hero="", og=None):
+            f'{nlfoot}{pushfoot}<p class="colophon">{t("footer", site=SITE_NAME, rel=rel, root=root, ios_tv=t("ios_tv"), contributors=contributors_link())}</p>'
+            f'{source_footer_line()}</div></footer>')
+def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="", hero="", og=None, share_text=None):
     """Writes site/<lang>/<slug>/index.html for the current LANG (English at the root).
     hero: optional full-width band between the header and <main> (the front page title block)."""
     depth = (slug.count("/") + 1 if slug else 0) + (0 if LANG == "en" else 1)
     root = "../" * depth or "./"           # site root (data/, assets/, screen/)
     rel = root + lp()                      # home of this language
     url = BASE + lp() + (slug + "/" if slug else "")
-    s = snippets(url, f"{title} – {SITE_NAME}" if slug else f"{SITE_NAME} – {t('site_desc_suffix')}")
+    s = snippets(url, f"{title} – {SITE_NAME}" if slug else f"{SITE_NAME} – {t('site_desc_suffix')}", share_text)
     nav_html = _nav_html(rel, root, nav)
     langs = langs or i18n.LANGS
     alt = "".join(f'<link rel="alternate" hreflang="{i18n.HTML_LANG[l]}" href="{BASE}{lp(l)}{slug + "/" if slug else ""}">' for l in langs) + \
@@ -697,8 +705,8 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
     theme_btn = (f'<button type="button" class="themetoggle" aria-pressed="false" title="{E(t("theme_dark"))}"><span class="vh">{E(t("theme_dark"))}</span>'
                  '<svg class="ico i-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.7 14.6A8.6 8.6 0 0 1 9.4 3.3a.6.6 0 0 0-.8-.7A9.8 9.8 0 1 0 21.4 15.4a.6.6 0 0 0-.7-.8z"/></svg>'
                  '<svg class="ico i-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg></button>')
-    # the share bar and the source-code line: only on pages about one thing (a story, an event, a newsletter issue);
-    # the source code is linked from the footer on every page
+    # the share bar: only on pages about one thing (a story, an event, a newsletter issue).
+    # the source-code link is the last line of the footer, on every page, not in the page body.
     share_here = slug.startswith(("stories/", "newsletter/")) or (slug.startswith("calendar/") and slug != "calendar")
     th = themes.for_nav(nav) or {}
     og = og or {}
@@ -718,10 +726,10 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
 <link rel="apple-touch-icon" href="{root}assets/brand/mark-180.png?v={ICON_V}">
 <link rel="icon" href="{root}assets/brand/mark-64.png?v={ICON_V}" sizes="64x64" type="image/png">
 {th_color}
-<meta property="og:image" content="{E(og_img)}">
+<meta property="og:image" content="{E(og_img)}">{f'<meta property="og:image:secure_url" content="{E(og_img)}">' if str(og_img).startswith("https://") else ""}
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="{E(og_alt)}">
+<meta property="og:image:alt" content="{E(og_alt)}">{'<meta property="og:image:type" content="image/png">' if str(og_img).split("?", 1)[0].lower().endswith(".png") else ""}
 <style>{CSS}{s['css']}{th.get('css', '')}</style></head>
 <body{' class="' + th['body_class'] + '"' if th else ''}><a class="skip" href="#main">{E(t("skip"))}</a>{th.get('deco', '')}{banner}<header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="{rel}"><img class="brandmark" src="{root}assets/brand/shield-band.svg" width="34" height="40" alt="Nordic Crypto"><span aria-hidden="true">Nordic <span class="w">Crypto</span></span></a><span class="since"><span class="since-dot" aria-hidden="true"></span>{E(t("brand_since"))}</span></div><div class="hdrtools"><span class="hdrbtns">{header_buttons(rel)}</span>{theme_btn}{switcher}{nav_btn}</div><nav id="sitenav" class="main" aria-label="{E(t("main_menu"))}">{nav_html}</nav></div></header>{hero}
 <main class="wrap" id="main" tabindex="-1">
@@ -2785,24 +2793,61 @@ def listed_events(events, now):
             rows.append(e)
             seen.add(e["id"])
     return rows
+def event_share_when(e):
+    """Localized date for a share line. A clock is added on a timed single day. Empty when the event has no start."""
+    if not e.get("start"): return ""
+    a = dt.datetime.fromisoformat(e["start"])
+    b = dt.datetime.fromisoformat(e["end"]) if e.get("end") else None
+    date_only = a.hour == 0 and a.minute == 0 and (b is None or (b.hour, b.minute) in ((0, 0), (23, 59)))
+    when = i18n.short_date(LANG, a)
+    if b and b.date() != a.date(): when += " – " + i18n.short_date(LANG, b)
+    elif not date_only: when += ", " + i18n.hm(LANG, a)
+    return when
+def event_share_text(e):
+    """Prefill for the share sheet and the X intent: title, date, city. The page URL is passed separately."""
+    parts = []
+    title = (event_title(e) or "").strip()
+    if title: parts.append(title)
+    when = event_share_when(e)
+    if when: parts.append(when)
+    city = (e.get("city") or "").strip()
+    if city: parts.append(city)
+    return " · ".join(parts)
+_OG_CARD_WARNED = False
 def event_og(e, heading, when, place, text):
-    """Link preview for an event page: the event title, then date, time and venue followed by the start of the
-    description. The card image (the title on the brand background) is written once, on the English pass."""
-    lead = " · ".join(x for x in (when, place) if x)
+    """Link preview LinkedIn can unfurl: the event title, then date, time and city, then the start of the
+    description. The card image is the title on the brand background, one file per language."""
+    global _OG_CARD_WARNED
+    when_s = event_share_when(e) or " ".join((when or "").split())
+    city = (e.get("city") or "").strip()
+    if not city: city = t("online") if e.get("online") else " ".join((place or "").split())
+    lead = " · ".join(x for x in (when_s, city) if x)
     body = " ".join((text or "").split())
     desc = lead + (" – " + body if body else "")
-    if len(desc) > 200: desc = desc[:199].rsplit(" ", 1)[0] + "…"
-    og = {"title": heading, "description": desc or heading, "type": "event", "image_alt": heading}
-    rel = os.path.join("calendar", e["id"], "og.png")
-    out = os.path.join(SITE, rel)
+    if len(desc) > 300:
+        cut = desc[:299].rsplit(" ", 1)[0].rstrip(".,;:–- ")
+        desc = (cut or desc[:299].rstrip()) + "…"
+    title = (heading or "").strip()
+    if len(title) > 200:
+        cut = title[:199].rsplit(" ", 1)[0].rstrip()
+        title = (cut or title[:199].rstrip()) + "…"
+    og = {"title": title or heading, "description": desc or heading, "type": "article", "image_alt": heading}
+    rel = lp() + "calendar/" + e["id"] + "/og.png"
+    out = os.path.join(SITE, lp(), "calendar", e["id"], "og.png")
+    ok = False
     try:
-        import tools.event_card as event_card
-        ok = os.path.exists(out) if LANG != "en" else event_card.render(out, heading, lead)
-    except Exception:
+        import tools.event_card as cards
+        ok = cards.render(out, heading, lead)
+        if not ok and not _OG_CARD_WARNED:
+            _OG_CARD_WARNED = True
+            print("event card: WARNING, Pillow is missing; event pages use the site image")
+    except Exception as ex:
         ok = False
-    if ok: og["image"] = BASE + rel.replace(os.sep, "/")
+        if not _OG_CARD_WARNED:
+            _OG_CARD_WARNED = True
+            print(f"event card: WARNING, link-preview image was not written ({ex!r})")
+    if ok: og["image"] = BASE + rel
     return og
-
 def build_one_event(e):
     """Full event page: the title, then one block with when, where, who and what (each with its source; one source line when
     they all share it) and the official page as the main button, then the description, the editor's note, topics and talks.
@@ -2918,7 +2963,7 @@ def build_one_event(e):
     if mint: bits.append(mint)
     body = site_css.style("evpage") + f'<article class="evpage">{"".join(bits)}</article>'
     data = event_page.jsonld(e, BASE + lp() + event_page.slug(e) + "/", about or note or None)
-    page(event_page.slug(e), heading, "calendar", body, desc, (mint_js or "") + event_phase_script() + event_map_script(body), og=event_og(e, heading, when, place, about or note), head_extra=f'<script type="application/ld+json">{json.dumps(data, ensure_ascii=False).replace("<", "\\u003c")}</script>')
+    page(event_page.slug(e), heading, "calendar", body, desc, (mint_js or "") + event_phase_script() + event_map_script(body), og=event_og(e, heading, when, place, about or note), head_extra=f'<script type="application/ld+json">{json.dumps(data, ensure_ascii=False).replace("<", "\\u003c")}</script>', share_text=event_share_text(e))
 def event_nft_panel(e):
     """Event NFT prototype: the mint panel and its clock script for an upcoming or ongoing event. Empty while the flag is off."""
     if not event_nft.enabled() or not e.get("id"):
