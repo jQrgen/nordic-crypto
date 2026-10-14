@@ -56,6 +56,7 @@ def main():
     check("about:blank" not in bar and "about:blank" not in script, "no about:blank")
     check("x.com/intent/post" not in bar, "X intent is not the web login URL")
     check("navigator.share" in script and "pointer: coarse" in script, "native share on phones")
+    check("a.share-linkedin" in script and "preventDefault" in script, "LinkedIn on a phone opens the share sheet")
     check('class="share-native" hidden' in bar and bar.index("share-native") < bar.index("share-x"), "native share is first and hidden until a phone")
     check("Del:" in bar and ">Del</button>" in bar, "bokmål share label")
     found = {cls: (href, attrs) for cls, href, attrs in anchors(bar)}
@@ -113,6 +114,45 @@ def main():
         check(q.get("via") == "nordiccryptobot", "event page via")
         check("x.com/intent/post" not in nav and "window.open" not in page and "about:blank" not in page, "event page has no web-login intent or popup")
         check('class="share-native" hidden' in nav, "event page keeps the native button for phones")
+        li = re.search(r'class="share-linkedin" href="([^"]*)"', nav)
+        li_parts, li_q = decoded(li.group(1))
+        check(li_parts.geturl().split("?")[0] == "https://www.linkedin.com/sharing/share-offsite/" and list(li_q) == ["url"], "event LinkedIn intent is share-offsite with only url")
+        check(li_q.get("url") == "https://nordiccrypto.no/nb/calendar/ccc2eea6b213/", "event LinkedIn url round-trips")
+        described = dict(ev, description={
+            "text": "Vi møtes for å snakke om bitcoin og lynnettet.",
+            "lang": "nb",
+            "source_url": ev["url"],
+            "source_name": "Swedish Bitcoin Meetups (Meetup.com)",
+            "retrieved": "2026-10-07T23:50:00+00:00",
+            "i18n": {"en": "We meet to talk about bitcoin and the Lightning Network."},
+            "i18n_source": "Vi møtes for å snakke om bitcoin og lynnettet.",
+        })
+        build.build_one_event(described)
+        page = open(os.path.join(site, "nb", "calendar", ev["id"], "index.html"), encoding="utf-8").read()
+        head = page.split("</head>", 1)[0]
+        def meta(prop):
+            m = re.search(r'<meta property="' + prop + r'" content="([^"]*)"', head)
+            return htmllib.unescape(m.group(1)) if m else ""
+        check(meta("og:title") == 'Göteborg & "Bitcoin"', "og:title is the event title")
+        check(meta("og:type") == "article", "og:type is one LinkedIn unfurls")
+        check(meta("og:description") == "8. okt. 2026, kl. 18.00 · Göteborg – Vi møtes for å snakke om bitcoin og lynnettet.", "og:description is date, city and the description")
+        check("Kronhusgatan" not in meta("og:description"), "og:description leaves out the street address")
+        img = meta("og:image")
+        check(img == "https://nordiccrypto.no/nb/calendar/ccc2eea6b213/og.png", "og:image is the event card")
+        check(meta("og:image:secure_url") == img and meta("og:image:alt") == 'Göteborg & "Bitcoin"', "og image secure url and alt")
+        check(meta("og:image:width") == "1200" and meta("og:image:height") == "630" and meta("og:image:type") == "image/png", "og image size and type")
+        card = os.path.join(site, "nb", "calendar", ev["id"], "og.png")
+        check(os.path.exists(card), "event card file is written beside the page")
+        from PIL import Image
+        with Image.open(card) as im:
+            check(im.size == (1200, 630), "event card is 1200x630")
+        build.LANG = "en"
+        build.build_one_event(described)
+        en_card = os.path.join(site, "calendar", ev["id"], "og.png")
+        check(open(card, "rb").read() != open(en_card, "rb").read(), "each language gets its own card")
+        en_head = open(os.path.join(site, "calendar", ev["id"], "index.html"), encoding="utf-8").read().split("</head>", 1)[0]
+        en_desc = htmllib.unescape(re.search(r'<meta property="og:description" content="([^"]*)"', en_head).group(1))
+        check(en_desc.startswith("8 Oct 2026, 18:00 · Göteborg – We meet to talk about bitcoin"), "english preview is localized")
 
     if fails:
         print(f"\n{len(fails)} failed")

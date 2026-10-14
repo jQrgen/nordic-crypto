@@ -94,10 +94,20 @@ const CSS = social.CSS + `
 const SCRIPT = `<script>
 document.addEventListener("click", function (e) {
   var n = e.target.closest && e.target.closest(".share-native");
-  if (n && navigator.share) {
-    var data = { title: n.getAttribute("data-title") || "", text: n.getAttribute("data-text") || "", url: n.getAttribute("data-url") || "" };
-    try { navigator.share(data).catch(function () {}); } catch (err) {}
-    return;
+  // share-offsite is not an iOS universal link, so the LinkedIn anchor would open Safari,
+  // ask for a web login, and land on the feed. On a phone, that click opens the system sheet instead.
+  var linkedin = e.target.closest && e.target.closest("a.share-linkedin");
+  var phone = window.matchMedia("(pointer: coarse)").matches || window.matchMedia("(max-width: 860px)").matches;
+  var sheet = (n || (linkedin && phone && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey)) && navigator.share;
+  if (sheet) {
+    var root = (n || linkedin).closest(".share");
+    var src = root && root.querySelector(".share-native");
+    if (src) {
+      if (linkedin) e.preventDefault();
+      var data = { title: src.getAttribute("data-title") || "", text: src.getAttribute("data-text") || "", url: src.getAttribute("data-url") || "" };
+      try { navigator.share(data).catch(function () {}); } catch (err) {}
+      return;
+    }
   }
   var b = e.target.closest && e.target.closest(".share-copy"); if (!b) return;
   var url = b.getAttribute("data-url"), st = b.parentNode.querySelector(".share-status");

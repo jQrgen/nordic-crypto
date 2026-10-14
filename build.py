@@ -726,10 +726,10 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
 <link rel="apple-touch-icon" href="{root}assets/brand/mark-180.png?v={ICON_V}">
 <link rel="icon" href="{root}assets/brand/mark-64.png?v={ICON_V}" sizes="64x64" type="image/png">
 {th_color}
-<meta property="og:image" content="{E(og_img)}">
+<meta property="og:image" content="{E(og_img)}">{f'<meta property="og:image:secure_url" content="{E(og_img)}">' if str(og_img).startswith("https://") else ""}
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="{E(og_alt)}">
+<meta property="og:image:alt" content="{E(og_alt)}">{'<meta property="og:image:type" content="image/png">' if str(og_img).split("?", 1)[0].lower().endswith(".png") else ""}
 <style>{CSS}{s['css']}{th.get('css', '')}</style></head>
 <body{' class="' + th['body_class'] + '"' if th else ''}><a class="skip" href="#main">{E(t("skip"))}</a>{th.get('deco', '')}{banner}<header class="top"><div class="wrap"><div class="brandrow"><a class="brand" href="{rel}"><img class="brandmark" src="{root}assets/brand/shield-band.svg" width="34" height="40" alt="Nordic Crypto"><span aria-hidden="true">Nordic <span class="w">Crypto</span></span></a><span class="since"><span class="since-dot" aria-hidden="true"></span>{E(t("brand_since"))}</span></div><div class="hdrtools"><span class="hdrbtns">{header_buttons(rel)}</span>{theme_btn}{switcher}{nav_btn}</div><nav id="sitenav" class="main" aria-label="{E(t("main_menu"))}">{nav_html}</nav></div></header>{hero}
 <main class="wrap" id="main" tabindex="-1">
@@ -2720,40 +2720,61 @@ def listed_events(events, now):
             rows.append(e)
             seen.add(e["id"])
     return rows
-def event_og(e, heading, when, place, text):
-    """Link preview for an event page: the event title, then date, time and venue followed by the start of the
-    description. The card image (the title on the brand background) is written once, on the English pass."""
-    lead = " · ".join(x for x in (when, place) if x)
-    body = " ".join((text or "").split())
-    desc = lead + (" – " + body if body else "")
-    if len(desc) > 200: desc = desc[:199].rsplit(" ", 1)[0] + "…"
-    og = {"title": heading, "description": desc or heading, "type": "event", "image_alt": heading}
-    rel = os.path.join("calendar", e["id"], "og.png")
-    out = os.path.join(SITE, rel)
-    try:
-        import tools.event_card as event_card
-        ok = os.path.exists(out) if LANG != "en" else event_card.render(out, heading, lead)
-    except Exception:
-        ok = False
-    if ok: og["image"] = BASE + rel.replace(os.sep, "/")
-    return og
-
+def event_share_when(e):
+    """Localized date for a share line. A clock is added on a timed single day. Empty when the event has no start."""
+    if not e.get("start"): return ""
+    a = dt.datetime.fromisoformat(e["start"])
+    b = dt.datetime.fromisoformat(e["end"]) if e.get("end") else None
+    date_only = a.hour == 0 and a.minute == 0 and (b is None or (b.hour, b.minute) in ((0, 0), (23, 59)))
+    when = i18n.short_date(LANG, a)
+    if b and b.date() != a.date(): when += " – " + i18n.short_date(LANG, b)
+    elif not date_only: when += ", " + i18n.hm(LANG, a)
+    return when
 def event_share_text(e):
     """Prefill for the share sheet and the X intent: title, date, city. The page URL is passed separately."""
     parts = []
     title = (event_title(e) or "").strip()
     if title: parts.append(title)
-    if e.get("start"):
-        a = dt.datetime.fromisoformat(e["start"])
-        b = dt.datetime.fromisoformat(e["end"]) if e.get("end") else None
-        date_only = a.hour == 0 and a.minute == 0 and (b is None or (b.hour, b.minute) in ((0, 0), (23, 59)))
-        when = i18n.short_date(LANG, a)
-        if b and b.date() != a.date(): when += " – " + i18n.short_date(LANG, b)
-        elif not date_only: when += ", " + i18n.hm(LANG, a)
-        parts.append(when)
+    when = event_share_when(e)
+    if when: parts.append(when)
     city = (e.get("city") or "").strip()
     if city: parts.append(city)
     return " · ".join(parts)
+_OG_CARD_WARNED = False
+def event_og(e, heading, when, place, text):
+    """Link preview LinkedIn can unfurl: the event title, then date, time and city, then the start of the
+    description. The card image is the title on the brand background, one file per language."""
+    global _OG_CARD_WARNED
+    when_s = event_share_when(e) or " ".join((when or "").split())
+    city = (e.get("city") or "").strip()
+    if not city: city = t("online") if e.get("online") else " ".join((place or "").split())
+    lead = " · ".join(x for x in (when_s, city) if x)
+    body = " ".join((text or "").split())
+    desc = lead + (" – " + body if body else "")
+    if len(desc) > 300:
+        cut = desc[:299].rsplit(" ", 1)[0].rstrip(".,;:–- ")
+        desc = (cut or desc[:299].rstrip()) + "…"
+    title = (heading or "").strip()
+    if len(title) > 200:
+        cut = title[:199].rsplit(" ", 1)[0].rstrip()
+        title = (cut or title[:199].rstrip()) + "…"
+    og = {"title": title or heading, "description": desc or heading, "type": "article", "image_alt": heading}
+    rel = lp() + "calendar/" + e["id"] + "/og.png"
+    out = os.path.join(SITE, lp(), "calendar", e["id"], "og.png")
+    ok = False
+    try:
+        import tools.event_card as cards
+        ok = cards.render(out, heading, lead)
+        if not ok and not _OG_CARD_WARNED:
+            _OG_CARD_WARNED = True
+            print("event card: WARNING, Pillow is missing; event pages use the site image")
+    except Exception as ex:
+        ok = False
+        if not _OG_CARD_WARNED:
+            _OG_CARD_WARNED = True
+            print(f"event card: WARNING, link-preview image was not written ({ex!r})")
+    if ok: og["image"] = BASE + rel
+    return og
 def build_one_event(e):
     """Full event page: the title, then one block with when, where, who and what (each with its source; one source line when
     they all share it) and the official page as the main button, then the description, the editor's note, topics and talks.
