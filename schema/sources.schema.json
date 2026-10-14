@@ -448,6 +448,72 @@
      "items": {
       "type": "string"
      }
+    },
+    "venue": {
+     "type": "string",
+     "description": "House or room name when the source is one venue.",
+     "examples": [
+      "Litteraturhuset"
+     ]
+    },
+    "address": {
+     "type": "string",
+     "description": "Street address of the venue.",
+     "examples": [
+      "Wergelandsveien 29"
+     ]
+    },
+    "site": {
+     "type": "string",
+     "description": "Origin of the venue site.",
+     "examples": [
+      "https://www.litteraturhuset.no"
+     ]
+    },
+    "api": {
+     "type": "string",
+     "description": "Public programme API the fetcher reads.",
+     "examples": [
+      "https://litthusfred.no/wp-json/wp/v2/event"
+     ]
+    },
+    "lang_path": {
+     "type": "string",
+     "description": "Language segment on the venue site.",
+     "examples": [
+      "nb"
+     ]
+    },
+    "keyword_profile": {
+     "type": "string",
+     "description": "Which keyword list keeps an event from this source.",
+     "enum": [
+      "crypto-money"
+     ],
+     "examples": [
+      "crypto-money"
+     ]
+    },
+    "max_pages": {
+     "type": "integer",
+     "description": "How many programme pages to read.",
+     "examples": [
+      4
+     ]
+    },
+    "max_links": {
+     "type": "integer",
+     "description": "How many event pages to open.",
+     "examples": [
+      8
+     ]
+    },
+    "max_cards": {
+     "type": "integer",
+     "description": "How many event cards to read from the listing.",
+     "examples": [
+      40
+     ]
     }
    },
    "additionalProperties": false,

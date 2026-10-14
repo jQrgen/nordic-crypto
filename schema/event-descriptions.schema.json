@@ -2,7 +2,7 @@
  "$schema": "https://json-schema.org/draft/2020-12/schema",
  "$id": "https://nordiccrypto.no/api/v1/schema/event-descriptions.schema.json",
  "title": "Event descriptions",
- "description": "Organiser descriptions and our translations, by event id, in data/event_description_i18n.json. source is the original wording. The other keys are language codes.",
+ "description": "Organiser descriptions and our translations, by event id, in data/event_description_i18n.json. source is the original wording. A language key is present only when that translation is written.",
  "x-nordic": {
   "id": "event-descriptions",
   "order": 220,
@@ -78,7 +78,6 @@
    "additionalProperties": false,
    "required": [
     "source",
-    "nn",
     "sv",
     "da",
     "fi"
