@@ -2612,16 +2612,24 @@ MORE_STORIES_JS = ("<script>(function(){var b=document.querySelector('[data-more
                    "var l=[].slice.call(document.querySelectorAll('.storycard.later'));l.forEach(function(a){a.classList.remove('later')});"
                    "b.remove();var f=l[0]&&l[0].querySelector('a');if(f)f.focus()})})();</script>")
 def front_events_script():
-    """Re-apply the same window in the browser so a reload after a start shows the new list. No shuffle."""
+    """Re-apply the same window in the browser so a reload after a start shows the new list. No shuffle.
+
+    Instants are read from the offset in data-start / data-end (and NC_NOW), not from the
+    phone's zone, so a +01:00 start after the October clock change is the same instant the
+    build used. A card that has started and is not still running is removed. Leaving it
+    hidden kept it as a child of the list, and a :nth-child rule then hid the later events
+    instead of letting the overflow cards move up. An event with no data-end is not ongoing.
+    """
     fixed = json.dumps(os.environ.get("NC_NOW") or None)
     limit = event_select.FRONT_LIMIT
-    return """<script>(function(){var FIXED=%s,LIMIT=%d,now=FIXED?new Date(FIXED):new Date(),hero=document.getElementById('evhero'),hlist=document.getElementById('evhero-list'),list=document.getElementById('evsoon-list');
+    return r"""<script>(function(){var FIXED=%s,LIMIT=%d,hero=document.getElementById('evhero'),hlist=document.getElementById('evhero-list'),list=document.getElementById('evsoon-list');
 if(!hero||!hlist||!list)return;
 var cards=[].slice.call(document.querySelectorAll('#evhero .evcard, #evsoon .evcard'));
-function ms(el,k){var v=el.getAttribute(k);return v?new Date(v).getTime():NaN}
+function iso(v){if(!v)return NaN;var m=/^(\d{4})-(\d{2})-(\d{2})[T ](\d{2}):(\d{2})(?::(\d{2}))?(?:\.\d+)?(Z|[+-]\d{2}:?\d{2})?$/.exec(v);if(!m)return new Date(v).getTime();var utc=Date.UTC(+m[1],+m[2]-1,+m[3],+m[4],+m[5],+(m[6]||0)),off=m[7];if(!off)return new Date(v).getTime();if(off==='Z')return utc;var sign=off.charAt(0)==='-'?-1:1;return utc-sign*((+off.slice(1,3))*60+(+off.slice(-2)))*60000}
+function ms(el,k){return iso(el.getAttribute(k)||'')}
 cards.sort(function(a,b){var d=ms(a,'data-start')-ms(b,'data-start');if(d)return d;var ia=a.getAttribute('data-id')||'',ib=b.getAttribute('data-id')||'';return ia<ib?-1:ia>ib?1:0});
-var ongoing=[],upcoming=[],t=now.getTime();
-cards.forEach(function(el){var s=ms(el,'data-start'),e=ms(el,'data-end');if(s>t)upcoming.push(el);else if(!isNaN(e)&&s<=t&&t<=e)ongoing.push(el);else el.hidden=true});
+var ongoing=[],upcoming=[],t=FIXED?iso(FIXED):Date.now();if(isNaN(t))t=Date.now();
+cards.forEach(function(el){var s=ms(el,'data-start'),e=ms(el,'data-end');if(s>t)upcoming.push(el);else if(!isNaN(e)&&s<=t&&t<=e)ongoing.push(el);else el.remove()});
 ongoing.forEach(function(el){el.hidden=false;hlist.appendChild(el)});
 hero.hidden=!ongoing.length;
 var keep=upcoming.slice(0,LIMIT),rest=upcoming.slice(LIMIT);
