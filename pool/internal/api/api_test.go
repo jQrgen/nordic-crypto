@@ -79,16 +79,17 @@ func (downNode) GetMiningCandidate(string) (nexa.Candidate, error) {
 func (downNode) SubmitSolution(int64, string) (int64, string, error) { return 0, "", errDown }
 func (downNode) GetMiningInfo() (nexa.MiningInfo, error)             { return nexa.MiningInfo{}, errDown }
 func (downNode) GetBlock(string) (nexa.Block, error)                 { return nexa.Block{}, errDown }
-func (downNode) SendToAddress(string, int64, string) (nexa.Payment, error) {
-	return nexa.Payment{}, errDown
+func (downNode) CreatePayout(string, int64) (nexa.SignedTx, error) {
+	return nexa.SignedTx{}, errDown
+}
+func (downNode) SendRaw(string) error { return errDown }
+func (downNode) LookupTx(string, string, string) (nexa.TxView, error) {
+	return nexa.TxView{}, errDown
 }
 func (downNode) WalletBalance() (int64, error) { return 0, errDown }
-func (downNode) LookupPayment(string, string) (nexa.Payment, bool, error) {
-	return nexa.Payment{}, false, errDown
-}
-func (downNode) Unlock(string, int) error   { return nil }
-func (downNode) Lock(string) error          { return nil }
-func (downNode) MedianTime() (int64, error) { return 0, errDown }
+func (downNode) Unlock(string, int) error      { return nil }
+func (downNode) Lock(string) error             { return nil }
+func (downNode) MedianTime() (int64, error)    { return 0, errDown }
 
 type errDownT string
 

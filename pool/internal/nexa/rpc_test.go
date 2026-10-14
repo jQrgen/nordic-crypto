@@ -78,7 +78,7 @@ func TestRPCCandidateAndSubmit(t *testing.T) {
 	if err != nil || pay.TxID != "txid-real" || pay.TxIdem != "idem1" || pay.Confirmations != 2 {
 		t.Fatalf("payment %+v %v", pay, err)
 	}
-	found, ok, err := c.LookupPayment("nexapool:abc", "")
+	found, ok, err := c.LookupPayment("", "txid-real")
 	if err != nil || !ok || found.TxID != "txid-real" || found.TxIdem != "idem1" {
 		t.Fatal(found, ok, err)
 	}
@@ -140,7 +140,7 @@ func TestFindCommentScansPastTheLatest200(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	pay, ok, err := c.LookupPayment("nexapool:buried", "")
+	pay, ok, err := c.FindComment("nexapool:buried")
 	if err != nil || !ok || pay.TxID != "txid-buried" || pay.TxIdem != "idem-buried" {
 		t.Fatalf("%+v %v %v", pay, ok, err)
 	}
@@ -305,7 +305,7 @@ func TestFindCommentPagesByWalletItemCount(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	pay, found, err := c.LookupPayment(comment, "")
+	pay, found, err := c.FindComment(comment)
 	if err != nil || !found || pay.TxID != "txid-new" {
 		t.Fatalf("comment past the first item page: %+v found %v err %v", pay, found, err)
 	}
@@ -321,7 +321,7 @@ func TestFindCommentPagesByWalletItemCount(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	pay, found, err = c2.LookupPayment(comment, "")
+	pay, found, err = c2.FindComment(comment)
 	if err != nil || !found || pay.TxID != "txid-new" {
 		t.Fatalf("comment after a silent item: %+v found %v err %v", pay, found, err)
 	}
@@ -342,7 +342,7 @@ func TestFindCommentPagesByWalletItemCount(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	pay, found, err = c3.LookupPayment(comment, "")
+	pay, found, err = c3.FindComment(comment)
 	if err != nil || !found || pay.TxID != "txid-after" || pay.Confirmations != 2 {
 		t.Fatalf("comment after a silent page: %+v found %v err %v", pay, found, err)
 	}
@@ -370,7 +370,7 @@ func TestFindCommentTrustsTxCountPastTheLastPage(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	pay, found, err := c.LookupPayment(comment, "")
+	pay, found, err := c.FindComment(comment)
 	if err != nil || !found || pay.TxID != "txid-pay" {
 		t.Fatalf("txcount 1000 hid item 1000: %+v found %v err %v", pay, found, err)
 	}
@@ -387,7 +387,7 @@ func TestFindCommentTrustsTxCountPastTheLastPage(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	pay, found, err = c0.LookupPayment(comment, "")
+	pay, found, err = c0.FindComment(comment)
 	if err != nil || !found || pay.TxID != "txid-pay" {
 		t.Fatalf("txcount 0 hid the only item: %+v found %v err %v", pay, found, err)
 	}
@@ -415,7 +415,7 @@ func TestFindCommentStopsOnAShortPageBeforeTheWalletEnds(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	pay, found, err := c.LookupPayment(comment, "")
+	pay, found, err := c.FindComment(comment)
 	if err != nil || !found || pay.TxID != "txid-pay" {
 		t.Fatalf("short page hid item 1000: %+v found %v err %v", pay, found, err)
 	}
@@ -436,7 +436,7 @@ func TestFindCommentStopsOnAShortPageBeforeTheWalletEnds(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	pay, found, err = c2.LookupPayment(comment, "")
+	pay, found, err = c2.FindComment(comment)
 	if err != nil || !found || pay.TxID != "txid-later" || pay.Confirmations != 3 {
 		t.Fatalf("two empty pages hid a later comment: %+v found %v err %v", pay, found, err)
 	}
@@ -455,7 +455,7 @@ func TestFindCommentMissNeedsTheItemBound(t *testing.T) {
 		t.Fatal(err)
 	}
 	c.Log = log.New(&buf, "", 0)
-	pay, found, err := c.LookupPayment(comment, "")
+	pay, found, err := c.FindComment(comment)
 	if err != nil || found || pay.TxID != "" {
 		t.Fatalf("empty wallet: %+v found %v err %v", pay, found, err)
 	}
@@ -471,13 +471,309 @@ func TestFindCommentMissNeedsTheItemBound(t *testing.T) {
 		t.Fatal(err)
 	}
 	c2.Log = log.New(&buf, "", 0)
-	pay, found, err = c2.LookupPayment(comment, "")
+	pay, found, err = c2.FindComment(comment)
 	if err == nil || found {
 		t.Fatalf("missing txcount was a completed miss: %+v found %v err %v", pay, found, err)
 	}
 	if !strings.Contains(buf.String(), "unfinished from=") {
 		t.Fatalf("scan log %q", buf.String())
 	}
+}
+
+func TestCreatePayoutSignsBeforeBroadcast(t *testing.T) {
+	const addr = "nexa:qqqqzqsrqszsvpcgpy9qkrqdpc83qygjzv5cxgkyhm"
+	var methods []string
+	srv := rpcScript(t, func(method string, params []any) (string, string) {
+		methods = append(methods, method)
+		switch method {
+		case "createrawtransaction":
+			if len(params) != 2 {
+				t.Errorf("createrawtransaction params %#v", params)
+			}
+			in, _ := params[0].([]any)
+			outs, _ := params[1].(map[string]any)
+			if len(in) != 0 || outs[addr] != "1.00" {
+				t.Errorf("createrawtransaction %#v", params)
+			}
+			return `"created"`, ""
+		case "fundrawtransaction":
+			if len(params) != 2 || params[0] != "created" || params[1] != false {
+				t.Errorf("fundrawtransaction %#v", params)
+			}
+			return `{"hex":"funded","fee":0.01,"changepos":0}`, ""
+		case "signrawtransaction":
+			if len(params) != 1 || params[0] != "funded" {
+				t.Errorf("signrawtransaction %#v", params)
+			}
+			return `{"hex":"signed","txid":"txid-pay","txidem":"idem-pay","complete":true}`, ""
+		default:
+			t.Errorf("create called %s", method)
+			return `null`, "unexpected"
+		}
+	})
+	defer srv.Close()
+	c, err := NewClient(srv.URL, "u", "p", "")
+	if err != nil {
+		t.Fatal(err)
+	}
+	signed, err := c.CreatePayout(addr, 100)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if signed.TxID != "txid-pay" || signed.TxIdem != "idem-pay" || signed.Raw != "signed" {
+		t.Fatalf("%+v", signed)
+	}
+	if strings.Join(methods, ",") != "createrawtransaction,fundrawtransaction,signrawtransaction" {
+		t.Fatalf("methods %v", methods)
+	}
+
+	methods = nil
+	srv2 := rpcScript(t, func(method string, params []any) (string, string) {
+		methods = append(methods, method)
+		switch method {
+		case "createrawtransaction":
+			return `"created"`, ""
+		case "fundrawtransaction":
+			return `{"hex":"funded"}`, ""
+		case "signrawtransaction":
+			return `{"hex":"signed","complete":true}`, ""
+		case "decoderawtransaction":
+			if len(params) != 1 || params[0] != "signed" {
+				t.Errorf("decoderawtransaction %#v", params)
+			}
+			return `{"txid":"txid-dec","txidem":"idem-dec","vin":[]}`, ""
+		default:
+			t.Errorf("create called %s", method)
+			return `null`, "unexpected"
+		}
+	})
+	defer srv2.Close()
+	c2, err := NewClient(srv2.URL, "u", "p", "")
+	if err != nil {
+		t.Fatal(err)
+	}
+	signed, err = c2.CreatePayout(addr, 100)
+	if err != nil || signed.TxID != "txid-dec" || signed.TxIdem != "idem-dec" || signed.Raw != "signed" {
+		t.Fatalf("%+v %v", signed, err)
+	}
+	if strings.Join(methods, ",") != "createrawtransaction,fundrawtransaction,signrawtransaction,decoderawtransaction" {
+		t.Fatalf("methods %v", methods)
+	}
+}
+
+func TestLookupTxUsesTheStoredTransaction(t *testing.T) {
+	const raw = "signedhex"
+	wallet := `{"txid":"txid-pay","txidem":"idem-pay","confirmations":2,"abandoned":false}`
+
+	t.Run("wallet", func(t *testing.T) {
+		var methods []string
+		srv := rpcScript(t, func(method string, params []any) (string, string) {
+			methods = append(methods, method)
+			if method == "gettransaction" && len(params) > 0 && params[0] == "txid-pay" {
+				return wallet, ""
+			}
+			t.Errorf("unexpected %s %#v", method, params)
+			return `null`, "unexpected"
+		})
+		defer srv.Close()
+		c, _ := NewClient(srv.URL, "u", "p", "")
+		view, err := c.LookupTx("txid-pay", "idem-pay", raw)
+		if err != nil || !view.InWallet || view.Conflict || view.TxID != "txid-pay" || view.TxIdem != "idem-pay" || view.Confirmations != 2 {
+			t.Fatalf("%+v %v", view, err)
+		}
+		if strings.Join(methods, ",") != "gettransaction" {
+			t.Fatalf("methods %v", methods)
+		}
+	})
+
+	t.Run("idem", func(t *testing.T) {
+		var got []string
+		srv := rpcScript(t, func(method string, params []any) (string, string) {
+			got = append(got, method+":"+fmt.Sprint(params[0]))
+			if method == "gettransaction" && params[0] == "txid-old" {
+				return `null`, "Invalid or non-wallet transaction id"
+			}
+			if method == "gettransaction" && params[0] == "idem-pay" {
+				return `{"txid":"txid-new","txidem":"idem-pay","confirmations":3}`, ""
+			}
+			t.Errorf("unexpected %s %#v", method, params)
+			return `null`, "unexpected"
+		})
+		defer srv.Close()
+		c, _ := NewClient(srv.URL, "u", "p", "")
+		view, err := c.LookupTx("txid-old", "idem-pay", raw)
+		if err != nil || !view.InWallet || view.TxID != "txid-new" || view.TxIdem != "idem-pay" || view.Confirmations != 3 {
+			t.Fatalf("%+v %v calls %v", view, err, got)
+		}
+	})
+
+	t.Run("mempool", func(t *testing.T) {
+		var methods []string
+		srv := rpcScript(t, func(method string, params []any) (string, string) {
+			methods = append(methods, method)
+			switch method {
+			case "gettransaction":
+				return `null`, "Invalid or non-wallet transaction id"
+			case "gettxpoolentry":
+				if params[0] != "txid-pay" {
+					t.Errorf("pool id %#v", params)
+				}
+				return `{"size":100}`, ""
+			default:
+				t.Errorf("unexpected %s", method)
+				return `null`, "unexpected"
+			}
+		})
+		defer srv.Close()
+		c, _ := NewClient(srv.URL, "u", "p", "")
+		view, err := c.LookupTx("txid-pay", "", raw)
+		if err != nil || !view.InMempool || view.InWallet || view.Conflict || view.OnChain {
+			t.Fatalf("%+v %v", view, err)
+		}
+		if strings.Join(methods, ",") != "gettransaction,gettxpoolentry" {
+			t.Fatalf("methods %v", methods)
+		}
+	})
+
+	t.Run("chain", func(t *testing.T) {
+		var methods []string
+		srv := rpcScript(t, func(method string, params []any) (string, string) {
+			methods = append(methods, method)
+			switch method {
+			case "gettransaction":
+				return `null`, "Invalid or non-wallet transaction id"
+			case "gettxpoolentry":
+				return `null`, "Transaction not in txpool"
+			case "getrawtransaction":
+				return `{"txid":"txid-pay","txidem":"idem-pay","confirmations":4,"blockhash":"aa"}`, ""
+			default:
+				t.Errorf("chain lookup called %s", method)
+				return `null`, "unexpected"
+			}
+		})
+		defer srv.Close()
+		c, _ := NewClient(srv.URL, "u", "p", "")
+		view, err := c.LookupTx("txid-pay", "idem-pay", raw)
+		if err != nil || !view.OnChain || view.Conflict || view.Confirmations != 4 {
+			t.Fatalf("%+v %v methods %v", view, err, methods)
+		}
+	})
+
+	t.Run("conflicting spend", func(t *testing.T) {
+		var outs []bool
+		srv := rpcScript(t, func(method string, params []any) (string, string) {
+			switch method {
+			case "gettransaction":
+				return `null`, "Invalid or non-wallet transaction id"
+			case "gettxpoolentry":
+				return `null`, "Transaction not in txpool"
+			case "getrawtransaction":
+				return `null`, "No such mempool or blockchain transaction"
+			case "decoderawtransaction":
+				return `{"txid":"txid-pay","txidem":"idem-pay","vin":[{"outpoint":"prev"}]}`, ""
+			case "gettxout":
+				if params[0] != "prev" || params[1] != float64(-1) {
+					t.Errorf("gettxout %#v", params)
+				}
+				include, _ := params[2].(bool)
+				outs = append(outs, include)
+				return `null`, ""
+			default:
+				t.Errorf("unexpected %s", method)
+				return `null`, "unexpected"
+			}
+		})
+		defer srv.Close()
+		c, _ := NewClient(srv.URL, "u", "p", "")
+		view, err := c.LookupTx("txid-pay", "idem-pay", raw)
+		if err != nil || !view.Conflict || view.InWallet || view.InMempool || view.OnChain {
+			t.Fatalf("%+v %v", view, err)
+		}
+		if len(outs) != 2 || outs[0] || !outs[1] {
+			t.Fatalf("gettxout include-pool flags %v", outs)
+		}
+	})
+
+	t.Run("unconfirmed parent", func(t *testing.T) {
+		srv := rpcScript(t, func(method string, params []any) (string, string) {
+			switch method {
+			case "gettransaction":
+				return `null`, "Invalid or non-wallet transaction id"
+			case "gettxpoolentry":
+				return `null`, "Transaction not in txpool"
+			case "getrawtransaction":
+				return `null`, "No such mempool or blockchain transaction"
+			case "decoderawtransaction":
+				return `{"txid":"txid-pay","txidem":"idem-pay","vin":[{"outpoint":"prev"}]}`, ""
+			case "gettxout":
+				include, _ := params[2].(bool)
+				if !include {
+					return `null`, ""
+				}
+				return `{"value":"1.00"}`, ""
+			default:
+				return `null`, "unexpected"
+			}
+		})
+		defer srv.Close()
+		c, _ := NewClient(srv.URL, "u", "p", "")
+		view, err := c.LookupTx("txid-pay", "idem-pay", raw)
+		if err != nil || view.Conflict || view.InWallet || view.InMempool || view.OnChain {
+			t.Fatalf("%+v %v", view, err)
+		}
+	})
+
+	t.Run("negative confirmations", func(t *testing.T) {
+		srv := rpcScript(t, func(method string, _ []any) (string, string) {
+			if method != "gettransaction" {
+				t.Errorf("conflicted wallet tx called %s", method)
+			}
+			return `{"txid":"txid-pay","txidem":"idem-pay","confirmations":-1,"walletconflicts":["other"]}`, ""
+		})
+		defer srv.Close()
+		c, _ := NewClient(srv.URL, "u", "p", "")
+		view, err := c.LookupTx("txid-pay", "idem-pay", raw)
+		if err != nil || !view.Conflict || !view.InWallet || view.Abandoned {
+			t.Fatalf("%+v %v", view, err)
+		}
+	})
+
+	t.Run("abandoned", func(t *testing.T) {
+		srv := rpcScript(t, func(method string, _ []any) (string, string) {
+			if method != "gettransaction" {
+				t.Errorf("abandoned tx called %s", method)
+			}
+			return `{"txid":"txid-pay","txidem":"idem-pay","confirmations":0,"abandoned":true}`, ""
+		})
+		defer srv.Close()
+		c, _ := NewClient(srv.URL, "u", "p", "")
+		view, err := c.LookupTx("txid-pay", "idem-pay", raw)
+		if err != nil || !view.Abandoned || view.Conflict || !view.InWallet {
+			t.Fatalf("%+v %v", view, err)
+		}
+	})
+}
+
+func rpcScript(t *testing.T, fn func(method string, params []any) (result, rpcError string)) *httptest.Server {
+	t.Helper()
+	return httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		body, _ := io.ReadAll(r.Body)
+		var req struct {
+			Method string `json:"method"`
+			Params []any  `json:"params"`
+		}
+		if err := json.Unmarshal(body, &req); err != nil {
+			http.Error(w, "bad", 500)
+			return
+		}
+		result, rpcErr := fn(req.Method, req.Params)
+		w.Header().Set("Content-Type", "application/json")
+		if rpcErr != "" {
+			fmt.Fprintf(w, `{"result":null,"error":{"code":-5,"message":%q},"id":"nexapool"}`, rpcErr)
+			return
+		}
+		io.WriteString(w, `{"result":`+result+`,"error":null,"id":"nexapool"}`)
+	}))
 }
 
 func fmtResult(w http.ResponseWriter, result string) {
