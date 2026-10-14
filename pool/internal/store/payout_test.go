@@ -63,10 +63,12 @@ type fakeWallet struct {
 	// spendConfs is keyed by the stored txidem. A positive value is a
 	// different txidem that has spent an input, at that confirmation depth.
 	spendConfs map[string]int64
-	// abandon is set by tests and ignored. Abandoning only clears the
-	// local mempool and is not a reason to sign again.
+	// abandon is set by tests. A positive depth ignores it. loudZero
+	// reports depth 0 with every wallet flag set, which is the abandoned
+	// mempool entry: the hex is broadcast again and not signed again.
 	abandon    map[string]bool
 	sawAbandon bool
+	loudZero   bool
 	hidden     map[string]bool
 	locked     map[string]bool
 	lastAvoid  []string
@@ -176,6 +178,17 @@ func (w *fakeWallet) LookupTx(idem string) (account.TxState, error) {
 	}
 	if w.abandon[tx.txid] || w.abandon[tx.idem] {
 		w.sawAbandon = true
+	}
+	if w.loudZero && tx.visible {
+		return account.TxState{
+			Payment:     account.Payment{TxID: tx.txid, TxIdem: tx.idem, Confirmations: 0},
+			InWallet:    true,
+			InMempool:   true,
+			OnChain:     true,
+			Conflict:    true,
+			SpendTxIdem: "other-" + tx.idem,
+			SpendConfs:  100,
+		}, nil
 	}
 	if c := w.spendConfs[tx.idem]; c > 0 {
 		return account.TxState{
@@ -572,6 +585,42 @@ func TestAbandonedSentPayoutIsSignedAgain(t *testing.T) {
 	}
 }
 
+// TestAbandonedDepthZeroIsRebroadcast keeps the stored hex when the
+// wallet still lists the payout at depth 0, including when every flag
+// says the transaction is conflicted or already confirmed.
+func TestAbandonedDepthZeroIsRebroadcast(t *testing.T) {
+	s := openTest(t)
+	credit(t, s, addrA, minPay, "mature")
+	w := newWallet()
+	if _, err := account.RunPayouts(s, w, minPay, 1, 10); err != nil {
+		t.Fatal(err)
+	}
+	var oldTx, oldIdem, raw string
+	if err := s.db.QueryRow(`SELECT txid, txidem, raw_tx FROM payouts WHERE status = 'sent'`).Scan(&oldTx, &oldIdem, &raw); err != nil {
+		t.Fatal(err)
+	}
+	w.abandon[oldTx] = true
+	w.loudZero = true
+	res, err := account.RunPayouts(s, w, minPay, 1, 10)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !w.sawAbandon || res.Failed != 0 || w.prepares != 1 || w.broadcasts < 2 {
+		t.Fatalf("depth 0 did not rebroadcast the stored hex: saw %v %+v prepares %d broadcasts %d", w.sawAbandon, res, w.prepares, w.broadcasts)
+	}
+	var status, idem, gotRaw string
+	if err := s.db.QueryRow(`SELECT status, txidem, raw_tx FROM payouts`).Scan(&status, &idem, &gotRaw); err != nil {
+		t.Fatal(err)
+	}
+	if status == "failed" || idem != oldIdem || gotRaw != raw {
+		t.Fatalf("depth 0 changed the payout: status %s txidem %s raw %s", status, idem, gotRaw)
+	}
+	due, err := s.Payable(minPay)
+	if err != nil || len(due) != 0 {
+		t.Fatalf("depth 0 returned the coins: %+v %v", due, err)
+	}
+}
+
 func TestResolveReviewCompletesOrReleases(t *testing.T) {
 	s := openTest(t)
 	credit(t, s, addrA, minPay, "mature")
@@ -708,7 +757,7 @@ func TestPayoutWaitsForConfirmations(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if res.Sent != 0 || w.prepares != 1 || w.broadcasts != 1 {
+	if res.Sent != 0 || w.prepares != 1 || w.broadcasts != 2 {
 		t.Fatalf("unconfirmed retry %+v prepares %d broadcasts %d", res, w.prepares, w.broadcasts)
 	}
 	w.confs = 1
@@ -716,7 +765,7 @@ func TestPayoutWaitsForConfirmations(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if res.Sent != 1 || w.prepares != 1 || w.broadcasts != 1 {
+	if res.Sent != 1 || w.prepares != 1 || w.broadcasts != 2 {
 		t.Fatalf("confirmed %+v prepares %d broadcasts %d", res, w.prepares, w.broadcasts)
 	}
 }
@@ -758,6 +807,70 @@ func TestReserveRejectsATakenOutpoint(t *testing.T) {
 	}
 	if _, err := s.Reserve(addrA, minPay, "nexapool:bare", account.Signed{TxIdem: "idem-bare"}); err == nil {
 		t.Fatal("signed payout without inputs was stored")
+	}
+}
+
+func TestPruneOrphanedInputsLeavesActiveRows(t *testing.T) {
+	s := openTest(t)
+	credit(t, s, addrA, minPay*2, "mature")
+	held := account.Signed{TxID: "txid-held", TxIdem: "idem-held", Raw: "raw-held", Inputs: []string{"out-held"}}
+	heldID, err := s.Reserve(addrA, minPay, "nexapool:held", held)
+	if err != nil {
+		t.Fatal(err)
+	}
+	failed := account.Signed{TxID: "txid-old", TxIdem: "idem-old", Raw: "raw-old", Inputs: []string{"out-old"}}
+	failedID, err := s.Reserve(addrA, minPay, "nexapool:old", failed)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := s.Drop(failedID); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := s.db.Exec(`PRAGMA foreign_keys = OFF`); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := s.db.Exec(`DELETE FROM payouts WHERE id = ?`, failedID); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := s.db.Exec(`PRAGMA foreign_keys = ON`); err != nil {
+		t.Fatal(err)
+	}
+	orphans, err := s.OrphanedInputs()
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(orphans) != 1 || orphans[0].Outpoint != "out-old" || orphans[0].PayoutID != failedID || orphans[0].Status != "" {
+		t.Fatalf("orphans %+v", orphans)
+	}
+	n, err := s.PruneOrphanedInputs()
+	if err != nil {
+		t.Fatal(err)
+	}
+	if n != 1 {
+		t.Fatalf("pruned %d", n)
+	}
+	left, err := s.OrphanedInputs()
+	if err != nil || len(left) != 0 {
+		t.Fatalf("left %+v %v", left, err)
+	}
+	var kept int
+	if err := s.db.QueryRow(`SELECT COUNT(*) FROM payout_inputs WHERE payout_id = ?`, heldID).Scan(&kept); err != nil {
+		t.Fatal(err)
+	}
+	if kept != 1 {
+		t.Fatalf("active inputs %d", kept)
+	}
+
+	if _, err := s.db.Exec(`UPDATE payouts SET status = 'failed' WHERE id = ?`, heldID); err != nil {
+		t.Fatal(err)
+	}
+	failedRows, err := s.OrphanedInputs()
+	if err != nil || len(failedRows) != 1 || failedRows[0].Status != "failed" || failedRows[0].Outpoint != "out-held" {
+		t.Fatalf("failed inputs %+v %v", failedRows, err)
+	}
+	n, err = s.PruneOrphanedInputs()
+	if err != nil || n != 1 {
+		t.Fatalf("prune failed inputs %d %v", n, err)
 	}
 }
 

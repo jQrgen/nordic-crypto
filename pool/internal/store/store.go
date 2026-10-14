@@ -630,6 +630,51 @@ func (s *Store) ReservedOutpoints() ([]string, error) {
 	return out, rows.Err()
 }
 
+// OrphanInput is a payout_inputs row whose payout is gone or no longer
+// reserved, in review, or sent. The outpoint is not held.
+type OrphanInput struct {
+	PayoutID int64
+	Outpoint string
+	Status   string
+}
+
+// OrphanedInputs lists payout_inputs rows that do not belong to an
+// active payout. Failed rows and rows whose payout was removed are both
+// included. Reserved, review, and sent inputs are not.
+func (s *Store) OrphanedInputs() ([]OrphanInput, error) {
+	rows, err := s.db.Query(`SELECT i.payout_id, i.outpoint, COALESCE(p.status, '')
+		FROM payout_inputs i
+		LEFT JOIN payouts p ON p.id = i.payout_id
+		WHERE p.id IS NULL OR p.status NOT IN ('reserved', 'review', 'sent')
+		ORDER BY i.payout_id, i.outpoint`)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var out []OrphanInput
+	for rows.Next() {
+		var row OrphanInput
+		if err := rows.Scan(&row.PayoutID, &row.Outpoint, &row.Status); err != nil {
+			return nil, err
+		}
+		out = append(out, row)
+	}
+	return out, rows.Err()
+}
+
+// PruneOrphanedInputs deletes payout_inputs rows that are not held by a
+// reserved, review, or sent payout. It returns how many rows were removed.
+func (s *Store) PruneOrphanedInputs() (int64, error) {
+	res, err := s.db.Exec(`DELETE FROM payout_inputs
+		WHERE payout_id NOT IN (
+			SELECT id FROM payouts WHERE status IN ('reserved', 'review', 'sent')
+		)`)
+	if err != nil {
+		return 0, err
+	}
+	return res.RowsAffected()
+}
+
 // MarkSent implements account.Ledger. A review row can still be marked
 // sent once the wallet shows the canonical txid and enough confirmations.
 func (s *Store) MarkSent(id int64, txid string) error {

@@ -23,6 +23,8 @@ release_none_min_age = "24h"
 # A competing spend must have at least this many confirmations before
 # those coins can be paid again. The minimum is 6. Until then the pool
 # rebroadcasts the stored transaction and does not sign another one.
+# A reorg deeper than this is an accepted risk: the pool may already
+# have signed a second payout.
 release_conflict_depth = 10
 # Left in the wallet so a transaction fee cannot drain it.
 tx_reserve = "1.00"

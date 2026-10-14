@@ -34,6 +34,11 @@ func main() {
 				logger.Fatal(err)
 			}
 			return
+		case "inputs":
+			if err := inputsCommand(logger, os.Args[2:]); err != nil {
+				logger.Fatal(err)
+			}
+			return
 		}
 	}
 	path := flag.String("config", "/etc/nexapool/nexapool.toml", "path to the TOML configuration")
@@ -73,8 +78,8 @@ func main() {
 		}
 		svc.SetPassphrase(string(raw))
 	}
-	if err := svc.LockReservedCoins(); err != nil {
-		logger.Printf("reserved coins: %v", err)
+	if err := refuseUnlocked(svc.LockReservedCoins()); err != nil {
+		logger.Fatal(err)
 	}
 
 	stratumSrv := &stratum.Server{
@@ -228,6 +233,65 @@ func reviewCommand(logger *log.Logger, args []string) error {
 		return nil
 	}
 	fmt.Printf("payout %d marked sent\n", *id)
+	return nil
+}
+
+// refuseUnlocked stops startup when reserved outpoints cannot be locked.
+// lockunspent is memory only; listening without it lets a second payout
+// select the same coins.
+func refuseUnlocked(err error) error {
+	if err != nil {
+		return fmt.Errorf("lockunspent failed: %w", err)
+	}
+	return nil
+}
+
+func inputsCommand(_ *log.Logger, args []string) error {
+	fs := flag.NewFlagSet("inputs", flag.ContinueOnError)
+	path := fs.String("config", "/etc/nexapool/nexapool.toml", "path to the TOML configuration")
+	prune := fs.Bool("prune", false, "delete payout_inputs rows that are not held by a reserved, review, or sent payout")
+	fs.SetOutput(os.Stderr)
+	if err := fs.Parse(args); err != nil {
+		return err
+	}
+	cfg, err := config.Load(*path)
+	if err != nil {
+		return err
+	}
+	db, err := store.Open(cfg.Database)
+	if err != nil {
+		return err
+	}
+	defer db.Close()
+	unlock, err := db.LockPayouts()
+	if err != nil {
+		return err
+	}
+	defer unlock()
+	rows, err := db.OrphanedInputs()
+	if err != nil {
+		return err
+	}
+	if !*prune {
+		if len(rows) == 0 {
+			fmt.Println("no orphaned payout_inputs")
+			return nil
+		}
+		for _, row := range rows {
+			status := row.Status
+			if status == "" {
+				status = "missing"
+			}
+			fmt.Printf("payout_id=%d outpoint=%s status=%s\n", row.PayoutID, row.Outpoint, status)
+		}
+		fmt.Printf("%d orphaned payout_inputs; rerun with -prune to delete them\n", len(rows))
+		return nil
+	}
+	n, err := db.PruneOrphanedInputs()
+	if err != nil {
+		return err
+	}
+	fmt.Printf("pruned %d orphaned payout_inputs\n", n)
 	return nil
 }
 

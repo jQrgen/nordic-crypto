@@ -260,8 +260,8 @@ func finishExisting(ledger Ledger, wallet Wallet, p Payout, minConfs, conflictDe
 	return publish(ledger, wallet, p, minConfs, conflictDepth)
 }
 
-// publish broadcasts the stored hex when that txidem is not already the
-// payment, then settles whatever the node reports. It does not sign.
+// publish broadcasts the stored hex when that txidem is not already a
+// confirmed payment, then settles whatever the node reports. It does not sign.
 func publish(ledger Ledger, wallet Wallet, p Payout, minConfs, conflictDepth int64) (Result, error) {
 	var result Result
 	st, err := wallet.LookupTx(p.TxIdem)
@@ -269,15 +269,11 @@ func publish(ledger Ledger, wallet Wallet, p Payout, minConfs, conflictDepth int
 		result.Deferred++
 		return result, nil
 	}
-	if !ours(st) && !deep(st, conflictDepth) {
+	if shouldRelay(st, conflictDepth) {
 		if p.Raw == "" {
 			return holdUnbroadcast(ledger, p.ID)
 		}
-		if err := wallet.Broadcast(p.Raw); err != nil {
-			result.Deferred++
-			return result, nil
-		}
-		st, err = wallet.LookupTx(p.TxIdem)
+		st, err = relay(wallet, p)
 		if err != nil {
 			result.Deferred++
 			return result, nil
@@ -300,10 +296,10 @@ func recheckSent(ledger Ledger, wallet Wallet, p Payout, minConfs, conflictDepth
 		result.Deferred++
 		return result, nil
 	}
-	if deep(st, conflictDepth) {
+	if lost(st, conflictDepth) {
 		return dropSpent(ledger, wallet, p)
 	}
-	if !ours(st) {
+	if shouldRelay(st, conflictDepth) {
 		if p.Raw == "" {
 			if err := ledger.RevertSent(p.ID, "review"); err != nil {
 				return result, err
@@ -311,16 +307,17 @@ func recheckSent(ledger Ledger, wallet Wallet, p Payout, minConfs, conflictDepth
 			result.Deferred++
 			return result, nil
 		}
-		if err := wallet.Broadcast(p.Raw); err != nil {
+		st, err = relay(wallet, p)
+		if err != nil {
 			result.Deferred++
 			return result, nil
 		}
-		st, err = wallet.LookupTx(p.TxIdem)
-		if err != nil || !ours(st) || st.Confirmations < minConfs {
-			if err == nil {
-				if rev := ledger.RevertSent(p.ID, "reserved"); rev != nil {
-					return result, rev
-				}
+		if lost(st, conflictDepth) {
+			return dropSpent(ledger, wallet, p)
+		}
+		if !ours(st) || st.Confirmations < minConfs {
+			if rev := ledger.RevertSent(p.ID, "reserved"); rev != nil {
+				return result, rev
 			}
 			result.Deferred++
 			return result, nil
@@ -362,6 +359,30 @@ func holdUnbroadcast(ledger Ledger, id int64) (Result, error) {
 	return result, nil
 }
 
+// shouldRelay is true when the stored hex has to go out again.
+// Confirmations of 0 always relay: abandontransaction removes the tx
+// from the local mempool and leaves the wallet entry at depth 0.
+// InWallet, InMempool, OnChain, and Conflict do not override that.
+func shouldRelay(st TxState, conflictDepth int64) bool {
+	if st.Confirmations == 0 {
+		return true
+	}
+	return !ours(st) && !deep(st, conflictDepth)
+}
+
+// lost is a competing spend deep enough to release the coins.
+// Depth 0 is not that spend, whatever other flags the wallet set.
+func lost(st TxState, conflictDepth int64) bool {
+	return st.Confirmations != 0 && deep(st, conflictDepth)
+}
+
+func relay(wallet Wallet, p Payout) (TxState, error) {
+	if err := wallet.Broadcast(p.Raw); err != nil {
+		return TxState{}, err
+	}
+	return wallet.LookupTx(p.TxIdem)
+}
+
 // ours is the stored txidem itself: in the wallet, the txpool, or a
 // block, with a non-negative depth. A different txid on that txidem is
 // still this payment. A conflict is not.
@@ -376,7 +397,7 @@ func deep(st TxState, depth int64) bool {
 }
 
 func applyState(ledger Ledger, wallet Wallet, p Payout, st TxState, minConfs, conflictDepth int64) (Result, error) {
-	if deep(st, conflictDepth) {
+	if lost(st, conflictDepth) {
 		return dropSpent(ledger, wallet, p)
 	}
 	pay := st.Payment
