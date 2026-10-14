@@ -6,6 +6,10 @@ brand stays "Nordic Crypto".
 **Copy:** `newsletter/published/<id>/social.ru.json` holds the translated headline, intro and each story's headline and
 summary, in issue order. Without it, the issue is skipped.
 
+The file is written automatically when an issue is published: `./publish.sh --yes` runs `tools/social_translate.py`,
+and the workflow fills any gap before posting. It never overwrites a file with `"reviewed": true` or one edited by
+hand. See `docs/social-translate.md`. The dry run shows whether the copy is generated or reviewed.
+
 **Flow (API 5.199):**
 1. `video.save(group_id, name, description, wallpost=0)` returns an upload URL.
 2. The MP4 is uploaded there as `video_file`.

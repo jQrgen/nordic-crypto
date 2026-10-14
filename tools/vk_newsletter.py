@@ -3,6 +3,7 @@
 
 Copy: newsletter/published/<id>/social.ru.json (editor-supplied translation of the headline, intro and each story's
 headline and summary; the brand stays "Nordic Crypto"). Without that file the issue is skipped, never posted in English.
+The file is generated at publish time by tools/social_translate.py (see docs/social-translate.md).
 
 Flow (VK API 5.199):
   1. video.save(group_id, name, description, wallpost=0) -> upload_url; POST the MP4 there (multipart "video_file").
@@ -113,6 +114,15 @@ def is_live(url):
         return False
 
 
+def copy_status(tr):
+    """One line on where the translated copy came from (tools/social_translate.py)."""
+    if tr.get("reviewed") is True:
+        return "reviewed by a human"
+    if tr.get("content_sha"):
+        return f"generated ({tr.get('model', '?')}, {tr.get('generated_at', '?')[:10]}), not reviewed yet"
+    return "written by hand"
+
+
 def load_social(meta, lang):
     """Editor-supplied translation newsletter/published/<id>/social.<lang>.json, checked against the issue's stories."""
     path = os.path.join(PUBLISHED, meta["id"], f"social.{lang}.json")
@@ -180,10 +190,11 @@ def main(argv=None):
     done = state.get(meta["id"], {})
     if a.dry_run:
         if not tr:
-            print(f"# Issue {meta['id']}: would skip ({why})"); return 0
+            print(f"# Issue {meta['id']}: would skip ({why}; run tools/social_translate.py --issue {meta['id']})"); return 0
         p = build_post(meta, tr)
         print(f"# Issue {meta['id']} ({meta['date']}): VK wall post on -VK_GROUP_ID with video "
               f"[{'video.save + upload' if meta.get('video') else 'no video'}]{' [already posted]' if done.get('post_id') else ''}")
+        print(f"# copy: social.ru.json, {copy_status(tr)}")
         print(f"# video name: {p['name']}\n\n{p['message']}")
         return 0
     if done.get("post_id"):
