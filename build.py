@@ -619,9 +619,14 @@ def build_chat():
             + shoutbox_html("../ethics/", full=True))
     page("chat", t("chat_title"), "chat", body, t("chat_desc"))
 RTL_ARROWS = str.maketrans({"←": "→", "→": "←"})
+def source_footer_line():
+    """The public repo, last line of the footer on every page. The label is the translated "Source code" string;
+    the link text is the GitHub path. Not repeated in the page body or in a footer column."""
+    return (f'<p class="footsource"><span class="footsource-label">{E(t("foot_source"))}:</span> '
+            f'<a href="{SITE_REPO}" rel="noopener"><bdi dir="ltr">github.com/nordic-crypto-org/nordic-crypto</bdi></a></p>')
 def site_footer(rel, root, slug=""):
     """Brand, three link columns (the header sections, the pages about the site, where to follow), the newsletter form while
-    signup is open, notifications while the Worker is set, then the colophon (the i18n footer string)."""
+    signup is open, notifications while the Worker is set, the colophon (the i18n footer string), then the source-code line."""
     def li(href, label, ext=False, note=""):
         return (f'<li><a href="{E(href)}"{" rel=\"noopener\"" if ext else ""}>{E(label)}</a>'
                 + (f' <span class="meta">{E(note)}</span>' if note else "") + '</li>')
@@ -630,7 +635,7 @@ def site_footer(rel, root, slug=""):
     site = (li(rel + "about/", t("nav_about")) + li(rel + "sources/", t("nav_sources")) + li(rel + "ethics/", t("ethics_title")) + li(rel + "contact/", t("contact_title"))
             + li(rel + "budget/", t("bud_nav"))
             + li(rel + "changelog/", t("cl_title")) + li(rel + "stats/", t("vst_title")) + li(rel + "privacy/", t("pp_title")) + li(rel + "media/", t("media_title")) + li(rel + "columnist/", t("col_title"))
-            + li(rel + "tip/", t("nav_tip")) + li(rel + "api/", t("foot_api")) + li("https://github.com/nordic-crypto-org/nordic-crypto", t("foot_source"), True)
+            + li(rel + "tip/", t("nav_tip")) + li(rel + "api/", t("foot_api"))
             + li(REPO_CONTRIBUTORS, t("contributors"), True)
             + (li(rel + "treasury/", t("nav_treasury")) if event_nft.enabled() else ""))
     follow = (li(rel + "newsletter/", t("nav_newsletter")) + li(SITE_TELEGRAM, t("tg_label"), True) + li(SITE_X, "X", True) + li(rel + "rss.xml", "RSS")
@@ -644,7 +649,8 @@ def site_footer(rel, root, slug=""):
             f'<nav class="foot-col" aria-labelledby="ft-sec"><h2 id="ft-sec">{E(t("foot_sections"))}</h2><ul>{sections}</ul></nav>'
             f'<nav class="foot-col" aria-labelledby="ft-site"><h2 id="ft-site">{E(t("foot_site"))}</h2><ul>{site}</ul></nav>'
             f'<div class="foot-col"><h2>{E(t("foot_follow"))}</h2><ul>{follow}</ul></div></div>'
-            f'{nlfoot}{pushfoot}<p class="colophon">{t("footer", site=SITE_NAME, rel=rel, root=root, ios_tv=t("ios_tv"), contributors=contributors_link())}</p></div></footer>')
+            f'{nlfoot}{pushfoot}<p class="colophon">{t("footer", site=SITE_NAME, rel=rel, root=root, ios_tv=t("ios_tv"), contributors=contributors_link())}</p>'
+            f'{source_footer_line()}</div></footer>')
 def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="", hero="", og=None):
     """Writes site/<lang>/<slug>/index.html for the current LANG (English at the root).
     hero: optional full-width band between the header and <main> (the front page title block)."""
@@ -697,8 +703,8 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
     theme_btn = (f'<button type="button" class="themetoggle" aria-pressed="false" title="{E(t("theme_dark"))}"><span class="vh">{E(t("theme_dark"))}</span>'
                  '<svg class="ico i-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.7 14.6A8.6 8.6 0 0 1 9.4 3.3a.6.6 0 0 0-.8-.7A9.8 9.8 0 1 0 21.4 15.4a.6.6 0 0 0-.7-.8z"/></svg>'
                  '<svg class="ico i-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></svg></button>')
-    # the share bar and the source-code line: only on pages about one thing (a story, an event, a newsletter issue);
-    # the source code is linked from the footer on every page
+    # the share bar: only on pages about one thing (a story, an event, a newsletter issue).
+    # the source-code link is the last line of the footer, on every page, not in the page body.
     share_here = slug.startswith(("stories/", "newsletter/")) or (slug.startswith("calendar/") and slug != "calendar")
     th = themes.for_nav(nav) or {}
     og = og or {}

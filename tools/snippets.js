@@ -2,9 +2,9 @@
 //   node tools/snippets.js <url> <title> [lang]   one page, from argv
 //   node tools/snippets.js --lines                one JSON [url, title, lang] per stdin line -> one JSON object per stdout line (build.py keeps one process for the whole build)
 const share = require("../vendor/share.js");
-const SOURCE = "https://github.com/nordic-crypto-org/nordic-crypto"; // origin of this repo (git remote)
-// lang: page language, used for the source-code label only (share bar stays as before)
-const render = (url, title, lang = "en") => JSON.stringify({ top: share.top({ url, title, lang: "en", source: { href: SOURCE, lang } }), bar: share.bar({ url, title, lang: "en" }), css: share.CSS, script: share.SCRIPT });
+// Share bar only. The repo link is the last line of the site footer (build.py), not a line in the page body.
+// lang stays in the protocol (build.py sends [url, title, lang]) and is unused here: the bar was always English.
+const render = (url, title, _lang = "en") => JSON.stringify({ top: share.bar({ url, title, lang: "en" }), bar: share.bar({ url, title, lang: "en" }), css: share.CSS, script: share.SCRIPT });
 if (process.argv[2] === "--lines") {
   // a bad line (e.g. a lone surrogate, which makes encodeURIComponent throw) answers {error} and must not end the shared process
   require("readline").createInterface({ input: process.stdin }).on("line", (line) => {
