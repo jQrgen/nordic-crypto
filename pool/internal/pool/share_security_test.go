@@ -28,8 +28,8 @@ func securityService(t *testing.T, node *fakeNode) *Service {
 	}
 	t.Cleanup(func() { db.Close() })
 	svc, err := New(Config{
-		FeePercent: 1, FeeAddress: feeAddr, MinPayout: 100_000_000,
-		Maturity: 5000, PPLNSBlocks: 2, HashrateWindow: time.Minute,
+		FeePercent: 1, FeeAddress: feeAddr, CoinbaseAddress: feeAddr, MinPayout: 100_000_000,
+		Maturity: 5001, PPLNSBlocks: 2, HashrateWindow: time.Minute,
 		PayoutEvery: time.Hour, TxReserve: 100,
 	}, db, node, nil)
 	if err != nil {
@@ -38,11 +38,11 @@ func securityService(t *testing.T, node *fakeNode) *Service {
 	return svc
 }
 
-func vectorShare(jobID string, diffMicros uint64) stratum.Share {
+func vectorShare(jobID string, diffMicros, ntime uint64) stratum.Share {
 	nonce, _ := hex.DecodeString(vectorNonce)
 	return stratum.Share{
 		Address: securityMiner, Worker: "rig", JobID: jobID, Nonce: nonce,
-		DifficultyMicros: diffMicros,
+		DifficultyMicros: diffMicros, NTime: ntime,
 	}
 }
 
@@ -62,7 +62,7 @@ func TestCraftedShareCountedOnlyUnderShareTarget(t *testing.T) {
 
 	// Tiny server-side difficulty: the published digest is under the share
 	// target and over the network target, so it is stored and not submitted.
-	okShare := vectorShare(job.ID, 1)
+	okShare := vectorShare(job.ID, 1, job.Time)
 	verdict := svc.Submit(okShare)
 	if !verdict.Accept {
 		t.Fatalf("share under the share target was rejected: %+v", verdict)
@@ -79,7 +79,7 @@ func TestCraftedShareCountedOnlyUnderShareTarget(t *testing.T) {
 	}
 
 	// The same digest at difficulty 1 is above the share target.
-	low := svc.Submit(vectorShare(job.ID, nexa.Micros))
+	low := svc.Submit(vectorShare(job.ID, nexa.Micros, job.Time))
 	if low.Accept || low.Code != 23 {
 		t.Fatalf("share above the share target: %+v", low)
 	}
@@ -112,14 +112,14 @@ func TestCraftedBlockUsesCandidateTargetNotClientDifficulty(t *testing.T) {
 	// can put in mining.submit. A tiny value still has to meet the job nBits
 	// before the node is called, and the RPC sees only the candidate id
 	// and the nonce.
-	verdict := svc.Submit(vectorShare(job.ID, 1))
+	verdict := svc.Submit(vectorShare(job.ID, 1, job.Time))
 	if !verdict.Accept {
 		t.Fatalf("%+v", verdict)
 	}
 	if len(node.submits) != 1 || node.submits[0].id != 9 || node.submits[0].nonce != vectorNonce {
 		t.Fatalf("submit %#v", node.submits)
 	}
-	again := svc.Submit(vectorShare(job.ID, 1))
+	again := svc.Submit(vectorShare(job.ID, 1, job.Time))
 	if again.Accept || again.Code != 22 {
 		t.Fatalf("replay %+v", again)
 	}
@@ -140,15 +140,19 @@ func TestReplayAcrossJobsWithTheSameCommitmentIsDuplicate(t *testing.T) {
 	}
 	// A clean publish drops the previous job id. The same proof on the new
 	// job is still a duplicate of the pow hash once it is accepted there.
-	stale := svc.Submit(vectorShare("1", 1))
+	stale := svc.Submit(vectorShare("1", 1, 0))
 	if stale.Accept || stale.Code != 21 {
 		t.Fatalf("replaced job %+v", stale)
 	}
-	first := svc.Submit(vectorShare("2", 1))
+	cur, ok := svc.CurrentJob()
+	if !ok {
+		t.Fatal("no job")
+	}
+	first := svc.Submit(vectorShare(cur.ID, 1, cur.Time))
 	if !first.Accept {
 		t.Fatalf("current job %+v", first)
 	}
-	second := svc.Submit(vectorShare("2", 1))
+	second := svc.Submit(vectorShare(cur.ID, 1, cur.Time))
 	if second.Accept || second.Code != 22 {
 		t.Fatalf("same proof on the current job: %+v", second)
 	}
@@ -164,7 +168,7 @@ func TestUnknownJobIsStaleAndCleanNotifyDropsThePreviousJob(t *testing.T) {
 	if err := svc.publish(nexa.Candidate{ID: 1, HeaderCommitment: vectorCommit, NBits: "207fffff"}, info); err != nil {
 		t.Fatal(err)
 	}
-	missing := svc.Submit(vectorShare("no-such-job", 1))
+	missing := svc.Submit(vectorShare("no-such-job", 1, 0))
 	if missing.Accept || missing.Code != 21 {
 		t.Fatalf("unknown job %+v", missing)
 	}
@@ -175,7 +179,7 @@ func TestUnknownJobIsStaleAndCleanNotifyDropsThePreviousJob(t *testing.T) {
 	if err := svc.publish(nexa.Candidate{ID: 2, HeaderCommitment: other, NBits: "207fffff"}, info); err != nil {
 		t.Fatal(err)
 	}
-	prev := svc.Submit(vectorShare("1", 1))
+	prev := svc.Submit(vectorShare("1", 1, 0))
 	if prev.Accept || prev.Code != 21 {
 		t.Fatalf("previous job survived clean notify: %+v", prev)
 	}
@@ -198,7 +202,7 @@ func TestJobOlderThanTheWindowIsStale(t *testing.T) {
 			t.Fatal(err)
 		}
 	}
-	evicted := svc.Submit(vectorShare("1", 1))
+	evicted := svc.Submit(vectorShare("1", 1, 0))
 	if evicted.Accept || evicted.Code != 21 {
 		t.Fatalf("evicted job %+v", evicted)
 	}
@@ -208,9 +212,10 @@ func TestJobOlderThanTheWindowIsStale(t *testing.T) {
 	svc.mu.Lock()
 	kept = svc.order[0]
 	svc.mu.Unlock()
+	cur, _ := svc.CurrentJob()
 	garbage := stratum.Share{
 		Address: securityMiner, JobID: kept, Nonce: []byte{0x01},
-		DifficultyMicros: nexa.Micros * 1_000_000,
+		DifficultyMicros: nexa.Micros * 1_000_000, NTime: cur.Time,
 	}
 	still := svc.Submit(garbage)
 	// 20 is an unusable proof and 23 is a hash over the share target. Either
@@ -239,7 +244,7 @@ func TestOneMissingBlockReplyDoesNotOrphanImmatureWork(t *testing.T) {
 	if rows[0].Status != "immature" {
 		t.Fatalf("status %s, want the block kept for retry", rows[0].Status)
 	}
-	node.block = nexa.Block{Hash: "aa", Height: 4, Confirmations: 5000, Reward: 10_000}
+	node.block = nexa.Block{Hash: "aa", Height: 4, Confirmations: 5001, Reward: 10_000}
 	if err := svc.MatureOnce(); err != nil {
 		t.Fatal(err)
 	}

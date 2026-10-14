@@ -346,6 +346,37 @@ func TestFindCommentPagesByWalletItemCount(t *testing.T) {
 	}
 }
 
+// nexad's getwalletinfo.txcount is mapWallet.size()/3, not wtxOrdered.size()
+// (src/wallet/rpcwallet.cpp). A no-change send adds the id and the idem and
+// no wallet output, so the reported count can sit on a page boundary below
+// the real item count. findComment treats that count as the end of the wallet.
+func TestFindCommentTrustsTxCountPastTheLastPage(t *testing.T) {
+	const comment = "nexapool:no-change"
+	items := make([]walletItem, 1001)
+	for i := range items {
+		items[i] = walletItem{rows: 2, tx: walletTx{
+			TxID: fmt.Sprintf("tx-%d", i), TxIdem: fmt.Sprintf("idem-%d", i), Comment: "other", Confirmations: 1,
+		}}
+	}
+	items[1000] = walletItem{rows: 1, tx: walletTx{
+		TxID: "txid-pay", TxIdem: "idem-pay", Comment: comment, Confirmations: 1,
+	}}
+	short := 1000 // mapWallet.size()/3 floors away the newest item
+	srv := httptest.NewServer(nexadList(items, &short))
+	defer srv.Close()
+	c, err := NewClient(srv.URL, "u", "p", "")
+	if err != nil {
+		t.Fatal(err)
+	}
+	pay, found, err := c.LookupPayment(comment, "")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if found {
+		t.Fatalf("txcount 1000 still returned item 1000: %+v", pay)
+	}
+}
+
 func fmtResult(w http.ResponseWriter, result string) {
 	w.Header().Set("Content-Type", "application/json")
 	io.WriteString(w, `{"result":`+result+`,"error":null,"id":"nexapool"}`)

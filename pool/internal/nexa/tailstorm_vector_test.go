@@ -5,7 +5,6 @@ import (
 	"crypto/sha256"
 	"encoding/hex"
 	"testing"
-	"time"
 )
 
 // TestPowHashTailstormMatchesPowCpp rebuilds the post-fork digest the way
@@ -69,16 +68,5 @@ func TestPowHashTailstormMatchesPowCpp(t *testing.T) {
 	}
 	if bytes.Equal(other, got) {
 		t.Fatal("reversing the parent did not change the digest")
-	}
-}
-
-func TestTailstormActivationInstant(t *testing.T) {
-	got := time.Unix(TailstormActivation, 0).UTC()
-	want := time.Date(2026, 11, 1, 1, 11, 11, 0, time.UTC)
-	if !got.Equal(want) {
-		t.Fatalf("activation %s, want %s", got.Format(time.RFC3339), want.Format(time.RFC3339))
-	}
-	if TailstormActivation-1 >= TailstormActivation {
-		t.Fatal("activation instant is not a single second")
 	}
 }

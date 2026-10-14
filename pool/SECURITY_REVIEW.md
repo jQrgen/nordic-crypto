@@ -241,3 +241,79 @@ If the balance is already over the cap, `PayOnce` returns before `RunPayouts` (`
 8. **Low.** A hot wallet over the cap skips reconciliation until it is swept. `pool/internal/pool/service.go:413`.
 9. **Low.** The submitted timestamp is still not checked against the job. `pool/internal/stratum/server.go:472`.
 10. **Low.** CSP allows inline scripts. `pool/deploy/nginx-pool.nordiccrypto.no.conf:35`.
+
+## Re-review at e1e3bac
+
+Reviewed `e1e3bacaa61fbca4f684fb7a12d13733afb20ee1` on `cursor/nexa-pool-4f40` by reading the code and running the tests below. The finding table in `pool/SECURITY.md` was not used as evidence. nexad is still `dev` at `37fe286` (`getwalletinfo` in `src/wallet/rpcwallet.cpp`, `AddToWallet` in `src/wallet/wallet.cpp`, `CheckProofOfWork` in `src/pow.cpp`, `fTailstormEnabled` in `src/validation.cpp`, `IsUpgrade2Activated` in `src/validation/forks.cpp`). Nothing in this file was pushed onto the PR branch.
+
+**Verdict: not PASS.** One blocker remains.
+
+Comment recovery now pages by wallet-item count, and `nexapool review` cannot mark a row sent unless the wallet lookup returns a confirmed txid. The scan's end condition trusts `getwalletinfo.txcount`, which is `mapWallet.size()/3` and not the `wtxOrdered` length `listtransactionsfrom` walks. A crashed no-change payout that lands on a 1000-item boundary is reported as a completed miss. `nexapool review -resolve release` then returns those coins, and the next payout pass sends them again. Tailstorm follows the candidate parent, an empty coinbase address is refused at startup, and the submit cap is configurable with the per-IP and global caps still in front of it.
+
+### Blocker 1, comment recovery — the stride is fixed, the stop count is not
+
+Severity: **high**. `pool/internal/nexa/rpc.go:361`, `pool/internal/nexa/rpc.go:384`, `pool/internal/account/payout.go:332`.
+
+`findComment` (`rpc.go:358`) requests `listtransactionsfrom "*" 1000 from` and sets `from` to `from + 1000`. It no longer adds the JSON row count, and a short JSON page is not the end when `txcount` is unknown. `TestFindCommentPagesByWalletItemCount` covers two rows per item, one silent item, and a full silent page when `txcount` equals the item count. `TestCrashedPaymentPastTheFirstPageIsSettledNotResent` is the crash after `sendtoaddress` and before `NotePayment` with no `txcount`: the comment on item 1000 is found, the row is marked sent with `TxID`, and the second pass does not send.
+
+The stop uses `getwalletinfo.txcount` (`rpc.go:408`). nexad sets that field to `(int)pwalletMain->mapWallet.size() / 3` (`src/wallet/rpcwallet.cpp:3054`). `mapWallet` stores `GetId`, `GetIdem`, and each output `IsMine` accepts (`src/wallet/wallet.cpp` around the `AddToWallet` inserts). A send with change is three entries and the integer division matches `wtxOrdered`. A send with no change to an address outside the wallet is two entries, id and idem, and no output. One thousand ordinary wallet items (3000 map entries, `txcount` 1000) plus that payout (`wtxOrdered` index 1000) makes `txcount` stay 1000. The loop reads items 0–999, then `next >= items` (`rpc.go:384`) and returns not found. `TestFindCommentTrustsTxCountPastTheLastPage` shows `LookupPayment` returning a completed miss for that comment. When `txcount` is 0 (`mapWallet.size() < 3`), `rpc.go:361` returns not found without calling `listtransactionsfrom`.
+
+A completed miss still does not send by itself. `finishExisting` moves the row to `review` (`payout.go:172`). `Reconcile` does not create a send. `recheckSent` moves a previously sent row whose lookup misses back to `review` (`payout.go:219`) and does not send either.
+
+`nexapool review` (`cmd/nexapool/main.go:125`) is the operator path, under `LockPayouts`. `ResolveReview` (`payout.go:305`):
+
+- `complete` requires the lookup to find the payment, a non-empty `TxID`, and `Confirmations >= minConfs` (`payout.go:321`). A miss, an empty id, and zero confirmations are refused. An unsent row cannot be marked sent through this action.
+- `release` requires the lookup to finish and report the payment absent (`payout.go:332`). It then sets the row `failed` (`store.go:628`), which returns the coins to `Payable`.
+
+The false miss satisfies `release`. `TestReleaseOfATxCountMissPaysAgain` reserves the crashed row, sees `review` and zero sends, sees `complete` refuse, sees `release` succeed, and sees the next `RunPayouts` transmit the payout. The original send is still in the wallet. That is a second payment of the same coins. The command is doing what its comment says — return coins when a finished search does not find the send — and the search is wrong at the page boundary.
+
+### Blocker 2, Tailstorm — closed on the default
+
+`TailstormParent` (`pool/internal/nexa/fork.go:10`) is true only for a 64-hex parent that is not all zeros. `publish` calls `tailstormActive` (`service.go:206`). The default mode `auto` with `TailstormAt == 0` returns that parent check (`service.go:286`). There is no `1793495471` gate. `NotifyParams` appends `previousBlockHash` only when `TailstormParent` is true (`server.go:209`). `Submit` mixes `job.prev` only when those 32 bytes are present and not zero (`service.go:324`).
+
+The mix still matches `src/pow.cpp` for `powAlgorithm == 1`: one SHA-256 over the internal mining hash concatenated with the internal parent, then SHA-256 of that digest, parent reversed from `GetHex`. `TestPowHashTailstormMatchesPowCpp` rebuilds that and compares it to `PowHash`. nexad still publishes no post-fork final digest. `fTailstormEnabled` is what makes `getminingcandidate` emit a real parent, and it turns on when the tip is pending the upgrade. Following a non-zero parent is the same signal.
+
+`on` forces the mix and `publish` returns an error when the parent is missing or zero (`service.go:214`), so jobs stop instead of being hashed the wrong way. `off` ignores a real parent. `tailstorm_activation` compares `getblockchaininfo.mediantime` (`rpc.go:421`) with the configured unix time and ignores the parent until that median time is reached (`service.go:279`). A median-time RPC error fails `publish`. The sample leaves `tailstorm = "auto"` and the override commented (`config.example.toml:30`). `TestTailstormFollowsTheCandidateNotTheClock` pins the pool clock at 2030, keeps a zero parent pre-fork, switches when the parent appears, rejects the pre-fork vector once it is mixed, and keeps the pre-fork hash when `TailstormAt` is still ahead of the node's median time even though the candidate already has a parent. Forcing `off`, or setting `tailstorm_activation` in the future, mines the pre-fork hash while nexad may already be mixing. The shipped default does not do that.
+
+### Blocker 3, empty coinbase — closed
+
+`config.Load` refuses an empty or invalid `coinbase_address` (`config.go:141`). `pool.New` does the same (`service.go:101`). `GetBlock` returns an error when `PoolAddress` is empty (`rpc.go:246`) instead of summing zero. `main.go` copies the address onto the RPC client before `New`. The sample says the field is required (`config.example.toml:8`). The example value is still `""`, so the process will not start until it is set. `TestGetBlockRequiresPoolAddress` and `TestMaturityAndCoinbaseAreRequired` cover the refusal.
+
+### Blocker 4, submit limits — closed, grace does not lift the caps
+
+Defaults are 128 submits per second, burst 256, ban after 20, grace 3 minutes (`server.go:126`). The same numbers are the TOML defaults (`config.go:224`) and `config.example.toml:47`, and `main.go` wires them into the listener. At the sample start difficulty of 0.2, 128/s is about 110 GH/s, which the sample comment states. Variable difficulty uses a 10 second retarget while `now.Sub(started) < grace`, and 60 seconds after that (`vardiff.go:42`). It still waits for four samples. `TestVarDiffRampsDuringGrace` covers the shorter wait.
+
+`accept` refuses a banned address, a host already at `MaxPerIP` (default 16), and a 4097th connection before a session exists (`server.go:232`). That check does not look at the grace window. `TestPerIPCap` still refuses the second connection when `MaxPerIP` is 1.
+
+`mining.submit` parses `ntime` and rejects a stamp that does not match the current job before the rate limit (`server.go:491`). A rate-limit miss returns `"rate limit"` and returns before `bindNonce` and before `Submit`, so NexaPow does not run (`server.go:497`). During grace, that miss does not call `penalise` (`rateLimitBans`, `server.go:607`). A bad nonce, a low share, and a bad `ntime` still increment `bad` during grace, and `BanAfter` still closes the connection. `TestRateLimitDoesNotBanDuringGrace` covers the grace exemption.
+
+`started`, `bad`, and the token bucket are per session (`newSession`, `server.go:326`). A new connection starts `tokens` at `SubmitBurst` and restarts the 3 minute grace. Cycling connections avoids the rate-limit ban. The sustained accepted rate on each connection is still `SubmitRate`, and concurrent sockets from one address are still `MaxPerIP`. A reconnect can spend another burst of 256. That is leftover headroom on top of the cap, not a way around the per-IP or global limits, and the Schnorr check stays inside the bucket.
+
+### Spot checks
+
+| Item from 1109d60b | At e1e3bac |
+| --- | --- |
+| Sent payout not revisited after it is dropped | Closed. `RunPayouts` calls `Reconcile` first (`payout.go:93`). A sent row whose lookup misses moves to `review` and is not sent again (`payout.go:219`). Confirmations below 0 call `Drop` (`payout.go:226`), which marks `failed` and returns the coins so they can be paid once. `settle` does the same for a conflicted in-flight row (`payout.go:248`). |
+| `maturity` below 5001 | Closed. `0` becomes 5001 and any smaller value is an error in `config.Load` (`config.go:158`) and `pool.New` (`service.go:113`). The sample sets 5001. |
+| Share prune skipped while any block is immature | The time prune always runs (`service.go:442`). `TestSharePruneRunsWhileBlockIsImmature` deletes a 20-day-old share while the block stays immature and keeps a 1-minute-old share. Id prune still waits until every immature window is filled (`service.go:386`). While any window is unfilled, or a `getblock` errors, `keep` is 0, so the 14-day prune can delete shares that unfilled window still needs. |
+| Hot wallet over the cap skipped reconciliation | Closed. `PayOnce` unlocks, and when `getbalance` is over the cap it calls `Reconcile` and returns the cap error without a new send (`service.go:468`). `TestReconcileWhenWalletIsOverTheCap` marks the reserved row sent and records no send. |
+| Submitted `ntime` not checked | Closed. Stratum rejects a stamp that is not the job's `ntime` and penalises (`server.go:491`). `Service.Submit` rejects `sh.NTime != job.wire.Time` with code 20 before hashing (`service.go:319`). `TestSubmitRejectsNTimeThatDoesNotMatchTheJob` and `TestSubmitRejectsMismatchedNTime` cover both. The hash still does not contain `ntime`. The job time is still the pool clock passed as the notify field. |
+| CSP `'unsafe-inline'` | Closed. `script-src` is `'self'` (`deploy/nginx-pool.nordiccrypto.no.conf:35`). The pages load `pool-text.js` and `pool.js`. `web_test.go` rejects `unsafe-inline`, an inline `window.POOL_TEXT`, and a script tag without `src`. |
+
+### Tests and tools
+
+On this machine, `GOTOOLCHAIN=go1.27.2`, from `pool/`:
+
+| Command | Result |
+| --- | --- |
+| `go test -race -count=1 ./...` | pass |
+| `go vet ./...` | pass |
+| `staticcheck` 2026.2.2 (0.8.2) `./...` | pass |
+| `govulncheck` v1.9.0 `./...` | pass. Go 1.27.2, vuln DB updated 2026-10-08. No vulnerabilities found. |
+
+### Open items
+
+1. **High.** `findComment` stops at `getwalletinfo.txcount`, and nexad's `txcount` is `mapWallet.size()/3`, not the wallet-item count `listtransactionsfrom` uses. A no-change payout past a 1000-item boundary is a completed miss. `nexapool review -resolve release` then returns the coins and the next pass pays them again. `pool/internal/nexa/rpc.go:384`, `pool/internal/nexa/rpc.go:361`, `pool/internal/account/payout.go:332`. nexad `src/wallet/rpcwallet.cpp:3054`.
+2. **Low.** `tailstorm = "off"`, or `tailstorm_activation` still above the node's median time, ignores a parent nexad is already sending. Shares are checked as pre-fork. The sample default is `auto` with the override unset. `pool/internal/pool/service.go:276`.
+3. **Low.** A new connection restarts the 3 minute submit grace, the ban counter, and the burst of 256. Per-IP and the global cap still apply, and rejected submits do not run NexaPow. `pool/internal/stratum/server.go:326`, `pool/internal/stratum/server.go:607`.
+4. **Low.** While an immature block's PPLNS window is unfilled, the 14-day share prune runs with `keep` 0. `pool/internal/pool/service.go:442`.

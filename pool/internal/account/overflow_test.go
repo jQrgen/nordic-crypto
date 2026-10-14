@@ -64,4 +64,7 @@ func (rejectingLedger) MarkReview(int64) error       { return nil }
 func (rejectingLedger) NotePayment(int64, string, string, int64) error {
 	return nil
 }
-func (rejectingLedger) Reserved() ([]Payout, error) { return nil, nil }
+func (rejectingLedger) Reserved() ([]Payout, error)    { return nil, nil }
+func (rejectingLedger) Sent() ([]Payout, error)        { return nil, nil }
+func (rejectingLedger) RevertSent(int64, string) error { return nil }
+func (rejectingLedger) Drop(int64) error               { return nil }

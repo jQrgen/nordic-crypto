@@ -147,6 +147,60 @@ func (m *memLedger) Reserved() ([]Payout, error) {
 	return out, nil
 }
 
+func (m *memLedger) Sent() ([]Payout, error) {
+	var out []Payout
+	for _, p := range m.rows {
+		if p.Status == "sent" {
+			out = append(out, p)
+		}
+	}
+	return out, nil
+}
+
+func (m *memLedger) RevertSent(id int64, status string) error {
+	p := m.row(id)
+	if p == nil || p.Status != "sent" {
+		return fmt.Errorf("payout %d is not sent", id)
+	}
+	if status != "reserved" && status != "review" {
+		return fmt.Errorf("status %s", status)
+	}
+	p.Status = status
+	return nil
+}
+
+func (m *memLedger) Drop(id int64) error {
+	p := m.row(id)
+	if p == nil {
+		return fmt.Errorf("missing %d", id)
+	}
+	if p.Status == "failed" {
+		return nil
+	}
+	if p.Status != "reserved" && p.Status != "review" && p.Status != "sent" {
+		return fmt.Errorf("status %s", p.Status)
+	}
+	p.Status = "failed"
+	return nil
+}
+
+func (m *memLedger) Payout(id int64) (Payout, error) {
+	p := m.row(id)
+	if p == nil {
+		return Payout{}, fmt.Errorf("missing %d", id)
+	}
+	return *p, nil
+}
+
+func (m *memLedger) ReleaseReview(id int64) error {
+	p := m.row(id)
+	if p == nil || p.Status != "review" {
+		return fmt.Errorf("payout %d is not in review", id)
+	}
+	p.Status = "failed"
+	return nil
+}
+
 func (m *memLedger) status(id int64) Payout {
 	p := m.row(id)
 	if p == nil {
@@ -483,12 +537,12 @@ func TestZeroConfirmationsAreNotMarkedSent(t *testing.T) {
 	}
 }
 
-// TestCrashedPaymentMissedByPagingIsReviewedNotResent is the crash after
-// sendtoaddress and before NotePayment, against a wallet nexad would
-// actually return: each send is two JSON rows, and listtransactionsfrom
-// counts wallet items. The comment is in the wallet. The scan misses it.
-// The row goes to review and is not sent a second time.
-func TestCrashedPaymentMissedByPagingIsReviewedNotResent(t *testing.T) {
+// TestCrashedPaymentPastTheFirstPageIsSettledNotResent is the crash after
+// sendtoaddress and before NotePayment. Each send is two JSON rows and
+// listtransactionsfrom counts wallet items. Without a txcount the scan
+// pages by item count, finds the comment, and marks the row sent. It does
+// not send again.
+func TestCrashedPaymentPastTheFirstPageIsSettledNotResent(t *testing.T) {
 	const comment = "nexapool:crashed"
 	type item struct {
 		rows int
@@ -552,11 +606,11 @@ func TestCrashedPaymentMissedByPagingIsReviewedNotResent(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if wlt.sends != 0 || res.Sent != 0 {
-		t.Fatalf("missed comment was sent: %+v sends %d", res, wlt.sends)
+	if wlt.sends != 0 || res.Sent != 1 {
+		t.Fatalf("found comment was sent again or not settled: %+v sends %d", res, wlt.sends)
 	}
-	if got := book.status(id); got.Status != "review" {
-		t.Fatalf("status %s, want review", got.Status)
+	if got := book.status(id); got.Status != "sent" || got.TxID != "txid-real" {
+		t.Fatalf("status %+v, want sent with txid-real", got)
 	}
 	res, err = RunPayouts(book, wlt, 1, 1)
 	if err != nil {
@@ -567,14 +621,123 @@ func TestCrashedPaymentMissedByPagingIsReviewedNotResent(t *testing.T) {
 	}
 }
 
+// TestReleaseOfATxCountMissPaysAgain is the same crash when getwalletinfo
+// reports txcount = mapWallet.size()/3 and that count stops on a page
+// boundary. The comment is in the wallet. Find reports a completed miss,
+// the row goes to review, and `nexapool review -resolve release` returns
+// the coins. The next pass sends them again.
+func TestReleaseOfATxCountMissPaysAgain(t *testing.T) {
+	const comment = "nexapool:hidden"
+	type item struct {
+		rows int
+		body map[string]any
+	}
+	wallet := make([]item, 1001)
+	for i := 0; i < 1000; i++ {
+		wallet[i] = item{rows: 2, body: map[string]any{
+			"txid": fmt.Sprintf("old-%d", i), "txidem": fmt.Sprintf("old-idem-%d", i),
+			"comment": "other", "confirmations": 1,
+		}}
+	}
+	wallet[1000] = item{rows: 1, body: map[string]any{
+		"txid": "txid-pay", "txidem": "idem-pay", "comment": comment, "confirmations": 1,
+	}}
+	const txcount = 1000
+	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		raw, _ := io.ReadAll(r.Body)
+		var req struct {
+			Method string `json:"method"`
+			Params []any  `json:"params"`
+		}
+		if err := json.Unmarshal(raw, &req); err != nil {
+			http.Error(w, "bad", 500)
+			return
+		}
+		if req.Method == "getwalletinfo" {
+			fmt.Fprintf(w, `{"result":{"txcount":%d},"error":null,"id":"nexapool"}`, txcount)
+			return
+		}
+		if req.Method != "listtransactionsfrom" {
+			http.Error(w, "bad", 500)
+			return
+		}
+		from := int(req.Params[2].(float64))
+		count := int(req.Params[1].(float64))
+		if from > len(wallet) {
+			fmt.Fprintf(w, `{"result":[],"error":null,"id":"nexapool"}`)
+			return
+		}
+		end := from + count
+		if end > len(wallet) {
+			end = len(wallet)
+		}
+		var rows []map[string]any
+		for _, it := range wallet[from:end] {
+			for n := 0; n < it.rows; n++ {
+				rows = append(rows, it.body)
+			}
+		}
+		if rows == nil {
+			rows = []map[string]any{}
+		}
+		buf, _ := json.Marshal(map[string]any{"result": rows, "error": nil, "id": "nexapool"})
+		w.Header().Set("Content-Type", "application/json")
+		w.Write(buf)
+	}))
+	defer srv.Close()
+	client, err := nexa.NewClient(srv.URL, "u", "p", "")
+	if err != nil {
+		t.Fatal(err)
+	}
+	book := newMem(crashAddr, crashAmt)
+	id, err := book.Reserve(crashAddr, crashAmt, comment)
+	if err != nil {
+		t.Fatal(err)
+	}
+	wlt := &lookupWallet{c: client, pay: Payment{TxID: "txid-second", TxIdem: "idem-second", Confirmations: 1}}
+	res, err := RunPayouts(book, wlt, 1, 1)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if wlt.sends != 0 || res.Sent != 0 {
+		t.Fatalf("hidden comment was sent on the first pass: %+v sends %d", res, wlt.sends)
+	}
+	if got := book.status(id); got.Status != "review" {
+		t.Fatalf("status %s, want review", got.Status)
+	}
+	if err := ResolveReview(book, wlt, id, "complete", 1); err == nil {
+		t.Fatal("complete marked a lookup miss as sent")
+	}
+	if got := book.status(id); got.Status != "review" {
+		t.Fatalf("complete changed status to %s", got.Status)
+	}
+	if err := ResolveReview(book, wlt, id, "release", 1); err != nil {
+		t.Fatal(err)
+	}
+	if got := book.status(id); got.Status != "failed" {
+		t.Fatalf("release status %s", got.Status)
+	}
+	res, err = RunPayouts(book, wlt, 1, 1)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if wlt.sends != 1 || res.Sent != 1 {
+		t.Fatalf("release paid again: %+v sends %d", res, wlt.sends)
+	}
+}
+
 type lookupWallet struct {
 	c     *nexa.Client
 	sends int
+	pay   Payment
 }
 
 func (w *lookupWallet) Send(string, int64, string) (Payment, error) {
 	w.sends++
-	return Payment{}, errors.New("send called on a crashed reservation")
+	if w.pay.TxID == "" && w.pay.TxIdem == "" {
+		return Payment{}, errors.New("send called on a crashed reservation")
+	}
+	return w.pay, nil
 }
 
 func (w *lookupWallet) Find(comment, id string) (Payment, bool, error) {
