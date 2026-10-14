@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-13T05:37:29+00:00",
+ "generated_at": "2026-10-14T05:37:21+00:00",
  "preview": false,
  "topic": "crime",
  "count": 6,
@@ -157,14 +157,14 @@
    "topics": [
     "crime"
    ],
-   "summary": "Three teenagers have been arrested in Lund on suspicion of kidnapping after allegedly tying up a local man with duct tape to rob him of crypto.",
+   "summary": "Three teenagers, two aged 19 and one aged 16, have been arrested in Lund on suspicion of kidnapping and aggravated weapons offences, Sydsvenskan reports. According to information obtained by the newspaper, they had taken on a job to rob a local man of cryptocurrency and bound him with duct tape. Police have said little about the details and initially described the incident as a disturbance in a flat.",
    "summary_i18n": {
-    "nn": "Tre tenåringar er pågripne i Lund, mistenkte for kidnapping etter at dei skal ha teipa fast ein lokal mann for å rane han for krypto.",
-    "nb": "Tre tenåringer er pågrepet i Lund, mistenkt for kidnapping etter angivelig å ha teipet fast en lokal mann for å rane ham for krypto.",
-    "sv": "Tre tonåringar har gripits i Lund misstänkta för människorov efter att de ska ha tejpat fast en man från orten för att råna honom på krypto.",
-    "da": "Tre teenagere er anholdt i Lund, mistænkt for kidnapning, efter at de angiveligt bandt en lokal mand med gaffatape for at røve krypto fra ham.",
-    "fi": "Lundissa on pidätetty kolme teiniä epäiltynä ihmisryöstöstä: heidän epäillään sitoneen paikallisen miehen ilmastointiteipillä ryöstääkseen häneltä kryptoja.",
-    "is": "Þrír unglingar hafa verið handteknir í Lundi, grunaðir um mannrán eftir að hafa að sögn bundið mann á staðnum með límbandi til að ræna af honum rafmyntum."
+    "nn": "Tre tenåringar, to på 19 og ein på 16 år, er pågripne i Lund mistenkte for menneskerov og grovt våpenbrot, melder Sydsvenskan. Ifølgje opplysningar til avisa hadde dei teke på seg eit oppdrag om å rane ein lokal mann for kryptovaluta og batt han med gaffateip. Politiet har sagt lite om detaljane og omtalte først hendinga som bråk i ei leilegheit.",
+    "nb": "Tre tenåringer, to på 19 og én på 16 år, er pågrepet i Lund mistenkt for menneskerov og grovt våpenlovbrudd, melder Sydsvenskan. Ifølge opplysninger til avisen hadde de tatt på seg et oppdrag om å rane en lokal mann for kryptovaluta og bandt ham med gaffateip. Politiet har sagt lite om detaljene og omtalte først hendelsen som bråk i en leilighet.",
+    "sv": "Tre tonåringar, två 19-åringar och en 16-åring, har anhållits i Lund misstänkta för människorov och grovt vapenbrott, rapporterar Sydsvenskan. Enligt uppgifter till tidningen hade de tagit på sig ett uppdrag att råna en Lundabo på kryptovaluta och band honom med silvertejp. Polisen har varit förtegen om detaljerna och beskrev först händelsen som bråk i en lägenhet.",
+    "da": "Tre teenagere, to på 19 og en på 16 år, er anholdt i Lund mistænkt for frihedsberøvelse og grov våbenforbrydelse, skriver Sydsvenskan. Ifølge oplysninger til avisen havde de påtaget sig en opgave med at røve en lokal mand for kryptovaluta og bandt ham med gaffatape. Politiet har sagt lidt om detaljerne og beskrev først hændelsen som uro i en lejlighed.",
+    "fi": "Lundissa on pidätetty kolme teiniä, kaksi 19-vuotiasta ja yksi 16-vuotias, epäiltyinä ihmisryöstöstä ja törkeästä aserikoksesta, kertoo Sydsvenskan. Lehden saamien tietojen mukaan he olivat ottaneet tehtäväkseen ryöstää paikalliselta mieheltä kryptovaluuttaa ja sitoivat hänet ilmastointiteipillä. Poliisi on kertonut yksityiskohdista vähän ja kuvasi tapahtumaa aluksi riidaksi asunnossa.",
+    "is": "Þrír unglingar, tveir 19 ára og einn 16 ára, hafa verið handteknir í Lundi grunaðir um mannrán og alvarlegt vopnalagabrot, segir Sydsvenskan. Samkvæmt upplýsingum blaðsins höfðu þeir tekið að sér að ræna mann á staðnum rafmynt og bundu hann með límbandi. Lögreglan hefur lítið sagt um smáatriðin og lýsti atvikinu fyrst sem ólátum í íbúð."
    },
    "paywall": false,
    "links": [],
@@ -303,14 +303,14 @@
    "topics": [
     "crime"
    ],
-   "summary": "Three Norwegians and a Swede have been charged in a large drug case with links abroad, involving drug sales for cryptocurrency on the dark web, according to the Southern Norway public prosecutor.",
+   "summary": "Three Norwegians and a Swede have been charged in a large drug case with links abroad, the Southern Norway public prosecutor's office says, as reported by Aftenposten. The four are linked to the sale and storage of about 135 kilos of amphetamine and methamphetamine, about 630 kilos of hashish and marijuana, about 29 kilos of cocaine and more than 200,000 pills. According to the prosecutor, much of the trade took place on the dark web, with payment in cryptocurrency.",
    "summary_i18n": {
-    "nn": "Tre nordmenn og ein svenske er tiltalte i ei stor narkotikasak med forgreiningar til utlandet, med sal av narkotika for kryptovaluta på det mørke nettet, ifølgje Sør-Norge statsadvokatembete.",
-    "nb": "Tre nordmenn og en svenske er tiltalt i en stor narkotikasak med forgreninger til utlandet, med salg av narkotika for kryptovaluta på det mørke nettet, ifølge Sør-Norge statsadvokatembeter.",
-    "sv": "Tre norrmän och en svensk har åtalats i ett stort narkotikamål med kopplingar utomlands, där narkotika sålts mot kryptovaluta på darknet, enligt åklagarmyndigheten i södra Norge.",
-    "da": "Tre nordmænd og en svensker er tiltalt i en stor narkosag med forbindelser til udlandet, hvor narko blev solgt for kryptovaluta på det mørke net, oplyser anklagemyndigheden i Sydnorge.",
-    "fi": "Kolmea norjalaista ja yhtä ruotsalaista syytetään laajassa huumejutussa, jolla on yhteyksiä ulkomaille ja jossa huumeita myytiin kryptovaluutalla pimeässä verkossa, kertoo Etelä-Norjan syyttäjäviranomainen.",
-    "is": "Þrír Norðmenn og einn Svíi hafa verið ákærðir í umfangsmiklu fíkniefnamáli með tengsl við útlönd, þar sem fíkniefni voru seld fyrir rafmyntir á myrkravefnum, að sögn ríkissaksóknaraembættisins í Suður-Noregi."
+    "nn": "Tre nordmenn og ein svenske er tiltalte i ei stor narkotikasak med forgreiningar til utlandet, opplyser Sør statsadvokatembete, ifølgje Aftenposten. Dei fire blir knytte til omsetnad og oppbevaring av om lag 135 kilo amfetamin og metamfetamin, om lag 630 kilo hasj og marihuana, om lag 29 kilo kokain og godt over 200 000 tablettar. Ifølgje påtalemakta gjekk mykje av omsetnaden føre seg på det mørke nettet, med betaling i kryptovaluta.",
+    "nb": "Tre nordmenn og en svenske er tiltalt i en stor narkotikasak med forgreninger til utlandet, opplyser Sør statsadvokatembete, ifølge Aftenposten. De fire knyttes til omsetning og oppbevaring av rundt 135 kilo amfetamin og metamfetamin, rundt 630 kilo hasj og marihuana, rundt 29 kilo kokain og godt over 200 000 tabletter. Ifølge påtalemyndigheten foregikk mye av omsetningen på det mørke nettet, med betaling i kryptovaluta.",
+    "sv": "Tre norrmän och en svensk har åtalats i ett stort narkotikamål med förgreningar utomlands, uppger Sør statsadvokatembete enligt Aftenposten. De fyra kopplas till försäljning och förvaring av omkring 135 kilo amfetamin och metamfetamin, omkring 630 kilo hasch och marijuana, omkring 29 kilo kokain och drygt 200 000 tabletter. Enligt åklagaren skedde mycket av försäljningen på darknet, med betalning i kryptovaluta.",
+    "da": "Tre nordmænd og en svensker er tiltalt i en stor narkosag med forgreninger til udlandet, oplyser den sydnorske statsadvokatur ifølge Aftenposten. De fire knyttes til salg og opbevaring af omkring 135 kilo amfetamin og metamfetamin, omkring 630 kilo hash og marihuana, omkring 29 kilo kokain og godt over 200.000 tabletter. Ifølge anklagemyndigheden foregik meget af salget på det mørke net med betaling i kryptovaluta.",
+    "fi": "Kolmea norjalaista ja yhtä ruotsalaista syytetään laajassa, ulkomaille ulottuvassa huumejutussa, kertoo Etelä-Norjan valtionsyyttäjänvirasto Aftenpostenin mukaan. Nelikko yhdistetään noin 135 kilon amfetamiini- ja metamfetamiinimäärän, noin 630 kilon hasis- ja marihuanamäärän, noin 29 kilon kokaiinimäärän ja yli 200 000 tabletin myyntiin ja säilytykseen. Syyttäjän mukaan suuri osa kaupasta käytiin pimeässä verkossa kryptovaluutalla maksaen.",
+    "is": "Þrír Norðmenn og einn Svíi hafa verið ákærðir í umfangsmiklu fíkniefnamáli með tengingar til útlanda, segir embætti ríkissaksóknara í Suður-Noregi samkvæmt Aftenposten. Fjórmenningarnir eru tengdir sölu og geymslu á um 135 kílóum af amfetamíni og metamfetamíni, um 630 kílóum af hassi og maríjúana, um 29 kílóum af kókaíni og yfir 200.000 töflum. Samkvæmt ákæruvaldinu fór stór hluti viðskiptanna fram á myrkranetinu, með greiðslu í rafmynt."
    },
    "paywall": true,
    "links": [],
@@ -496,14 +496,14 @@
    "topics": [
     "crime"
    ],
-   "summary": "Police have unlocked the crypto wallet of an NHH student charged in a drug case, uncovering assets worth several hundred thousand kroner.",
+   "summary": "Police have unlocked the crypto wallet of an NHH student in his twenties charged in a drug case, after finding a 12-word recovery phrase during a search of his home, Nettavisen reports, citing Bergensavisen. The police prosecutor says assets worth several hundred thousand kroner have been transferred from the wallet and seized. Hordaland District Court has ruled that the student will stay in custody until the trial starts in mid-November.",
    "summary_i18n": {
-    "nn": "Politiet har låst opp kryptolommeboka til ein NHH-student som er tiltalt i ei narkotikasak, og funne verdiar for fleire hundre tusen kroner.",
-    "nb": "Politiet har låst opp kryptolommeboken til en NHH-student som er tiltalt i en narkotikasak, og funnet verdier for flere hundre tusen kroner.",
-    "sv": "Polisen har låst upp kryptoplånboken hos en NHH-student som åtalats i ett narkotikamål och hittat tillgångar värda flera hundra tusen kronor.",
-    "da": "Politiet har låst kryptotegnebogen op hos en NHH-studerende, der er tiltalt i en narkosag, og fundet værdier for flere hundrede tusind kroner.",
-    "fi": "Poliisi on avannut huumejutussa syytetyn NHH-opiskelijan kryptolompakon ja löytänyt varoja useiden satojen tuhansien kruunujen arvosta.",
-    "is": "Lögreglan hefur opnað rafmyntaveski NHH-nema sem ákærður er í fíkniefnamáli og fundið eignir að verðmæti nokkur hundruð þúsund króna."
+    "nn": "Politiet har låst opp kryptolommeboka til ein NHH-student i 20-åra som er sikta i ei narkotikasak, etter å ha funne ei gjenopprettingsfrase på tolv ord under ransaking i bustaden hans, melder Nettavisen med tilvising til Bergensavisen. Politiadvokaten seier at verdiar for fleire hundre tusen kroner er overførte frå lommeboka og tekne i beslag. Hordaland tingrett har avgjort at studenten skal sitje i varetekt til rettssaka startar i midten av november.",
+    "nb": "Politiet har låst opp kryptolommeboken til en NHH-student i 20-årene som er siktet i en narkotikasak, etter å ha funnet en gjenopprettingsfrase på tolv ord under ransaking i boligen hans, melder Nettavisen med henvisning til Bergensavisen. Politiadvokaten sier at verdier for flere hundre tusen kroner er overført fra lommeboken og beslaglagt. Hordaland tingrett har besluttet at studenten skal sitte i varetekt til rettssaken starter i midten av november.",
+    "sv": "Polisen har låst upp kryptoplånboken för en NHH-student i 20-årsåldern som är misstänkt i ett narkotikamål, efter att ha hittat en återställningsfras på tolv ord vid en husrannsakan i hans bostad, rapporterar Nettavisen med hänvisning till Bergensavisen. Polisåklagaren säger att tillgångar värda flera hundra tusen norska kronor har förts över från plånboken och beslagtagits. Hordaland tingsrätt har beslutat att studenten ska sitta häktad tills rättegången börjar i mitten av november.",
+    "da": "Politiet har låst kryptotegnebogen op hos en NHH-studerende i 20'erne, der er sigtet i en narkosag, efter at have fundet en gendannelsesfrase på tolv ord under en ransagning af hans bolig, skriver Nettavisen med henvisning til Bergensavisen. Politiadvokaten siger, at værdier for flere hundrede tusinde kroner er overført fra tegnebogen og beslaglagt. Hordaland tingrett har besluttet, at den studerende skal blive varetægtsfængslet, indtil retssagen begynder i midten af november.",
+    "fi": "Poliisi on avannut huumejutussa epäillyn parikymppisen NHH-opiskelijan kryptolompakon löydettyään hänen asunnostaan kotietsinnässä 12 sanan palautuslauseen, kertoo Nettavisen Bergensaviseniin viitaten. Poliisin syyttäjän mukaan lompakosta on siirretty ja takavarikoitu useiden satojen tuhansien kruunujen arvosta varoja. Hordalandin käräjäoikeus on päättänyt, että opiskelija pysyy tutkintavankeudessa oikeudenkäynnin alkuun marraskuun puoliväliin asti.",
+    "is": "Lögreglan hefur opnað rafmyntaveski NHH-nema á þrítugsaldri sem er grunaður í fíkniefnamáli, eftir að hafa fundið tólf orða endurheimtarfrasa við húsleit á heimili hans, segir Nettavisen og vísar í Bergensavisen. Lögreglulögfræðingurinn segir að eignir að verðmæti nokkur hundruð þúsund króna hafi verið fluttar úr veskinu og haldlagðar. Héraðsdómur Hordaland hefur ákveðið að neminn sitji í gæsluvarðhaldi þar til réttarhöld hefjast um miðjan nóvember."
    },
    "paywall": true,
    "links": [],
@@ -789,14 +789,14 @@
     "crime",
     "consumer protection"
    ],
-   "summary": "Danes lost DKK 89 million to investment fraud in the first half of 2026, across 1,145 registered cases, and crypto played a part in 70.6 percent of them.",
+   "summary": "Danes lost DKK 89 million to investment fraud in the first half of 2026 across 1,145 registered cases, and crypto played a role in 70.6 percent of them, according to new figures from Finans Danmark reported by Ekstra Bladet. Losses rose 67 percent from the first to the second quarter. Finans Danmark says the scams often start with fake social media ads misusing pictures of well-known Danes, and that some victims are told to lie to their bank.",
    "summary_i18n": {
-    "nn": "Danskar tapte 89 millionar danske kroner på investeringssvindel i første halvår 2026, fordelt på 1145 registrerte saker, og krypto var involvert i 70,6 prosent av dei.",
-    "nb": "Dansker tapte 89 millioner danske kroner på investeringsbedrageri i første halvår 2026, fordelt på 1145 registrerte saker, og krypto var involvert i 70,6 prosent av dem.",
-    "sv": "Danskarna förlorade 89 miljoner danska kronor på investeringsbedrägerier under första halvåret 2026, fördelat på 1 145 anmälda fall, och krypto förekom i 70,6 procent av dem.",
-    "da": "Danskerne tabte 89 millioner kroner på investeringssvindel i første halvår 2026 fordelt på 1.145 registrerede sager, og krypto indgik i 70,6 procent af dem.",
-    "fi": "Tanskalaiset menettivät sijoituspetoksissa 89 miljoonaa Tanskan kruunua vuoden 2026 ensimmäisellä puoliskolla 1 145 kirjatussa tapauksessa, ja kryptot liittyivät 70,6 prosenttiin niistä.",
-    "is": "Danir töpuðu 89 milljónum danskra króna á fjárfestingasvikum á fyrri helmingi ársins 2026 í 1.145 skráðum málum, og rafmyntir komu við sögu í 70,6 prósentum þeirra."
+    "nn": "Danskar tapte 89 millionar kroner på investeringssvindel i første halvår 2026 fordelt på 1145 registrerte saker, og krypto spela ei rolle i 70,6 prosent av dei, ifølgje nye tal frå Finans Danmark som Ekstra Bladet viser til. Tapa auka med 67 prosent frå første til andre kvartal. Finans Danmark seier svindelen ofte startar med falske annonsar på sosiale medium som misbrukar bilete av kjende danskar, og at somme offer blir bedne om å lyge til banken sin.",
+    "nb": "Dansker tapte 89 millioner kroner på investeringssvindel i første halvår 2026 fordelt på 1145 registrerte saker, og krypto spilte en rolle i 70,6 prosent av dem, ifølge nye tall fra Finans Danmark som Ekstra Bladet viser til. Tapene økte med 67 prosent fra første til andre kvartal. Finans Danmark sier svindelen ofte starter med falske annonser i sosiale medier som misbruker bilder av kjente dansker, og at noen ofre blir bedt om å lyve til banken sin.",
+    "sv": "Danskar förlorade 89 miljoner danska kronor på investeringsbedrägerier under första halvåret 2026 fördelat på 1 145 registrerade ärenden, och krypto spelade en roll i 70,6 procent av dem, enligt nya siffror från Finans Danmark som Ekstra Bladet återger. Förlusterna ökade med 67 procent från första till andra kvartalet. Finans Danmark säger att bedrägerierna ofta börjar med falska annonser i sociala medier som missbrukar bilder på kända danskar, och att vissa offer instrueras att ljuga för sin bank.",
+    "da": "Danskerne tabte 89 millioner kroner på investeringssvindel i første halvår 2026 fordelt på 1.145 registrerede sager, og krypto spillede en rolle i 70,6 procent af dem, viser nye tal fra Finans Danmark, som Ekstra Bladet omtaler. Tabene steg med 67 procent fra første til andet kvartal. Finans Danmark siger, at svindlen ofte starter med falske annoncer på sociale medier, der misbruger billeder af kendte danskere, og at nogle ofre bliver instrueret i at lyve over for deres bank.",
+    "fi": "Tanskalaiset menettivät sijoituspetoksissa 89 miljoonaa kruunua vuoden 2026 ensimmäisellä puoliskolla 1 145 rekisteröidyssä tapauksessa, ja krypto oli osallisena 70,6 prosentissa niistä, kertoo Ekstra Bladet Finans Danmarkin uusiin lukuihin viitaten. Menetykset kasvoivat 67 prosenttia ensimmäisestä toiseen neljännekseen. Finans Danmarkin mukaan huijaukset alkavat usein sosiaalisen median valemainoksista, joissa käytetään luvatta tunnettujen tanskalaisten kuvia, ja osaa uhreista neuvotaan valehtelemaan pankilleen.",
+    "is": "Danir töpuðu 89 milljónum danskra króna á fjárfestingasvikum á fyrri helmingi 2026 í 1.145 skráðum málum, og rafmyntir komu við sögu í 70,6 prósentum þeirra, samkvæmt nýjum tölum frá Finans Danmark sem Ekstra Bladet greinir frá. Tapið jókst um 67 prósent frá fyrsta til annars ársfjórðungs. Finans Danmark segir svikin oft hefjast með fölskum auglýsingum á samfélagsmiðlum sem misnota myndir af þekktum Dönum, og að sumum fórnarlömbum sé sagt að ljúga að bankanum sínum."
    },
    "paywall": false,
    "links": [],

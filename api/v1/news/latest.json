@@ -1,12 +1,27 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-13T05:37:29+00:00",
+ "generated_at": "2026-10-14T05:37:21+00:00",
  "preview": false,
- "updated": "2026-10-13T01:48:13+00:00",
+ "updated": "2026-10-14T01:43:32+00:00",
  "limit": 25,
  "count": 25,
  "items": [
+  {
+   "id": "d58de33a2af7",
+   "published": "2026-10-13T15:04:51+00:00",
+   "country": "NO",
+   "source": "investornytt",
+   "source_name": "Investornytt",
+   "language_code": "no",
+   "own_story": false,
+   "title": "Bitcoin presses av rekordstore uttak",
+   "title_en": "K33: Bitcoin outflows are heavy, but low leverage limits the downside",
+   "title_i18n": {},
+   "url": "https://investornytt.no/krypto/pengene-renner-ut-av-bitcoin-lunde-ser-begrenset-nedside/547483",
+   "html_url": "https://nordiccrypto.no/stories/d58de33a2af7/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/d58de33a2af7.json"
+  },
   {
    "id": "601358bd24e5",
    "published": "2026-10-12T14:15:44+00:00",
@@ -126,6 +141,21 @@
    "url": "https://investornytt.no/krypto/ai-kan-tomme-lommebokene/547012",
    "html_url": "https://nordiccrypto.no/stories/e7c158764ff9/",
    "api_url": "https://nordiccrypto.no/api/v1/news/e7c158764ff9.json"
+  },
+  {
+   "id": "660753d52f62",
+   "published": "2026-10-07T12:00:00+00:00",
+   "country": "NO",
+   "source": "finfacts.no",
+   "source_name": "FinFacts",
+   "language_code": "no",
+   "own_story": false,
+   "title": "Eksperimenterer med den norske kronen i internasjonal sandkasse",
+   "title_en": "DNB experiments with the Norwegian krone in an international sandbox",
+   "title_i18n": {},
+   "url": "https://www.finfacts.no/artikkel/eksperimenterer-med-den-norske-kronen-i-internasjonal-sandkasse",
+   "html_url": "https://nordiccrypto.no/stories/660753d52f62/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/660753d52f62.json"
   },
   {
    "id": "9755cf9957e9",
@@ -404,48 +434,6 @@
    "url": "https://www.finansavisen.no/finans/2026/09/28/8383782/pangstart-for-nytt-kryptofond",
    "html_url": "https://nordiccrypto.no/stories/8ae149a20f5f/",
    "api_url": "https://nordiccrypto.no/api/v1/news/8ae149a20f5f.json"
-  },
-  {
-   "id": "c81be998e21c",
-   "published": "2026-09-27T15:20:53+00:00",
-   "country": "FI",
-   "source": "yle",
-   "source_name": "Yle Uutiset (latest)",
-   "language_code": "fi",
-   "own_story": false,
-   "title": "Yhteisöllisyys ja teknologia kiehtovat kryptovaluuttoihin sijoittaneita – kryptotapahtumassa iloittiin bitcoinin uudesta nousurallista",
-   "title_en": "Community and technology draw crypto investors: bitcoin's new rally celebrated at crypto event",
-   "title_i18n": {
-    "nn": "Fellesskap og teknologi dreg dei som har investert i kryptovaluta – på eit kryptoarrangement gledde dei seg over den nye oppgangen til bitcoin",
-    "nb": "Fellesskap og teknologi trekker dem som har investert i kryptovaluta – på et kryptoarrangement gledet de seg over bitcoins nye opptur",
-    "sv": "Gemenskap och teknik lockar dem som investerat i kryptovaluta – på ett kryptoevenemang firades bitcoins nya uppgång",
-    "da": "Fællesskab og teknologi trækker dem, der har investeret i kryptovaluta – ved et kryptoarrangement blev bitcoins nye optur fejret",
-    "is": "Samfélag og tækni heilla þá sem hafa fjárfest í rafmyntum – á rafmyntaviðburði var fagnað nýrri hækkun bitcoins"
-   },
-   "url": "https://yle.fi/a/74-20248505",
-   "html_url": "https://nordiccrypto.no/stories/c81be998e21c/",
-   "api_url": "https://nordiccrypto.no/api/v1/news/c81be998e21c.json"
-  },
-  {
-   "id": "dbcac6be2b75",
-   "published": "2026-09-26T00:16:16+00:00",
-   "country": "NO",
-   "source": "nettavisen",
-   "source_name": "Nettavisen",
-   "language_code": "no",
-   "own_story": false,
-   "title": "Fant hemmelig passord: Låste opp krypto-lommeboken",
-   "title_en": "Found secret password: unlocked the crypto wallet",
-   "title_i18n": {
-    "nn": "Fann hemmeleg passord: Låste opp kryptolommeboka",
-    "sv": "Hittade hemligt lösenord: Låste upp kryptoplånboken",
-    "da": "Fandt hemmelig adgangskode: Låste kryptopungen op",
-    "fi": "Löysi salaisen salasanan ja avasi kryptolompakon",
-    "is": "Fann leynilegt lykilorð og opnaði rafmyntaveskið"
-   },
-   "url": "https://www.nettavisen.no/krypto/etterforskning/hordaland-tingrett/fant-hemmelig-passord-laste-opp-krypto-lommeboken/s/80-95-105422",
-   "html_url": "https://nordiccrypto.no/stories/dbcac6be2b75/",
-   "api_url": "https://nordiccrypto.no/api/v1/news/dbcac6be2b75.json"
   }
  ]
 }

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-13T05:37:29+00:00",
+ "generated_at": "2026-10-14T05:37:21+00:00",
  "preview": false,
  "topic": "tax",
  "count": 5,
@@ -323,14 +323,14 @@
     "tax",
     "policy"
    ],
-   "summary": "A review of almost 1,000 Danish crypto tax cases found errors in 23, including one person who overpaid more than DKK 1 million, prompting tax minister Jakob Engel-Schmidt to promise simpler rules.",
+   "summary": "A review of almost 1,000 cases on how Danes are taxed on crypto-assets found errors in 23 of them, including one person who paid more than DKK 1 million too much in tax, Berlingske reports. Tax and growth minister Jakob Engel-Schmidt reacted on LinkedIn and is promising to clear up what he calls a jungle of unreasonable and incomprehensible rules.",
    "summary_i18n": {
-    "nn": "Ein gjennomgang av nesten 1000 danske skattesaker om krypto fann feil i 23, mellom anna ein person som betalte over 1 million danske kroner for mykje, og skatteminister Jakob Engel-Schmidt lovar enklare reglar.",
-    "nb": "En gjennomgang av nesten 1000 danske skattesaker om krypto fant feil i 23, blant annet en person som betalte over 1 million danske kroner for mye, og skatteminister Jakob Engel-Schmidt lover enklere regler.",
-    "sv": "En granskning av nästan 1 000 danska skatteärenden om krypto hittade fel i 23, bland annat en person som betalat över 1 miljon danska kronor för mycket, och skatteministern Jakob Engel-Schmidt lovar enklare regler.",
-    "da": "En gennemgang af næsten 1.000 danske skattesager om krypto fandt fejl i 23, herunder en person, der havde betalt over 1 million kroner for meget, og skatteminister Jakob Engel-Schmidt lover enklere regler.",
-    "fi": "Lähes tuhannen tanskalaisen kryptoveroasian tarkastelussa löytyi virheitä 23:sta, muun muassa henkilö, joka oli maksanut yli miljoona Tanskan kruunua liikaa, ja veroministeri Jakob Engel-Schmidt lupaa yksinkertaisempia sääntöjä.",
-    "is": "Yfirferð á nærri 1.000 dönskum skattamálum vegna rafmynta leiddi í ljós villur í 23, þar á meðal einstakling sem hafði greitt meira en milljón danskra króna of mikið, og skattamálaráðherrann Jakob Engel-Schmidt lofar einfaldari reglum."
+    "nn": "Ein gjennomgang av nesten 1000 saker om korleis danskar blir skattlagde for kryptoeigedelar fann feil i 23 av dei, mellom anna éin person som har betalt meir enn éin million danske kroner for mykje i skatt, melder Berlingske. Skatte- og vekstminister Jakob Engel-Schmidt reagerte på LinkedIn og lovar å rydde opp i det han kallar ein jungel av urimelege og uforståelege reglar.",
+    "nb": "En gjennomgang av nesten 1000 saker om hvordan dansker skattlegges for kryptoeiendeler, fant feil i 23 av dem, blant annet én person som har betalt mer enn én million danske kroner for mye i skatt, melder Berlingske. Skatte- og vekstminister Jakob Engel-Schmidt reagerte på LinkedIn og lover å rydde opp i det han kaller en jungel av urimelige og uforståelige regler.",
+    "sv": "En genomgång av nästan 1 000 ärenden om hur danskar beskattas för kryptotillgångar fann fel i 23 av dem, bland annat en person som betalat mer än en miljon danska kronor för mycket i skatt, rapporterar Berlingske. Skatte- och tillväxtminister Jakob Engel-Schmidt reagerade på LinkedIn och lovar att göra upp med det han kallar en djungel av orimliga och obegripliga regler.",
+    "da": "En gennemgang af knap 1.000 sager om danskeres beskatning af kryptoaktiver fandt fejl i 23 af dem, herunder én person, der har betalt mere end en million kroner for meget i skat, skriver Berlingske. Skatte- og vækstminister Jakob Engel-Schmidt reagerede på LinkedIn og lover at gøre op med det, han kalder en jungle af urimelige og uforståelige regler.",
+    "fi": "Lähes 1 000 tapauksen läpikäynnissä tanskalaisten kryptovarojen verotuksesta löytyi virheitä 23 tapauksessa, ja yksi henkilö oli maksanut yli miljoona Tanskan kruunua liikaa veroa, kertoo Berlingske. Vero- ja kasvuministeri Jakob Engel-Schmidt reagoi LinkedInissä ja lupaa raivata sen, mitä hän kutsuu kohtuuttomien ja käsittämättömien sääntöjen viidakoksi.",
+    "is": "Í yfirferð á nærri 1.000 málum um skattlagningu Dana á sýndareignum fundust villur í 23, þar á meðal hjá einum sem greiddi meira en milljón danskra króna of mikið í skatt, segir Berlingske. Skatta- og hagvaxtarráðherrann Jakob Engel-Schmidt brást við á LinkedIn og lofar að taka á því sem hann kallar frumskóg ósanngjarnra og óskiljanlegra reglna."
    },
    "paywall": false,
    "links": [],
@@ -470,14 +470,14 @@
     "tax",
     "policy"
    ],
-   "summary": "An answer from Danish minister Jakob Engel-Schmidt showed how many Danes pay tax on crypto investments they lost money on, which he called 'actually pretty wild'; he now wants to fix the century-old rule behind it.",
+   "summary": "An answer from Danish tax and growth minister Jakob Engel-Schmidt to a question shows that 325 Danes have paid tax on crypto trading even though they lost money overall, Berlingske reports. The minister called the figure 'actually pretty wild' and wants to change the century-old rule behind it.",
    "summary_i18n": {
-    "nn": "Eit svar frå den danske ministeren Jakob Engel-Schmidt viste kor mange danskar som betaler skatt av kryptoinvesteringar dei har tapt pengar på, noko han kalla «faktisk ganske vilt»; no vil han endre den hundre år gamle regelen bak.",
-    "nb": "Et svar fra den danske ministeren Jakob Engel-Schmidt viste hvor mange dansker som betaler skatt av kryptoinvesteringer de har tapt penger på, noe han kalte «faktisk ganske vilt»; nå vil han endre den hundre år gamle regelen bak.",
-    "sv": "Ett svar från den danske ministern Jakob Engel-Schmidt visade hur många danskar som betalar skatt på kryptoinvesteringar de förlorat pengar på, vilket han kallade ”faktiskt ganska vilt”; nu vill han ändra den hundra år gamla regeln bakom.",
-    "da": "Et svar fra minister Jakob Engel-Schmidt viste, hvor mange danskere der betaler skat af kryptoinvesteringer, de har tabt penge på, hvilket han kaldte »faktisk ret vildt«; nu vil han ændre den århundredgamle regel bag.",
-    "fi": "Tanskalaisen ministerin Jakob Engel-Schmidtin vastaus osoitti, kuinka moni tanskalainen maksaa veroa kryptosijoituksista, joilla on hävinnyt rahaa – hänen mukaansa ”oikeastaan aika villiä” – ja nyt hän haluaa korjata asian taustalla olevan vuosisadan vanhan säännön.",
-    "is": "Svar frá danska ráðherranum Jakob Engel-Schmidt sýndi hversu margir Danir greiða skatt af rafmyntafjárfestingum sem þeir hafa tapað á, sem hann kallaði „í raun alveg galið“; nú vill hann laga aldargamla regluna sem liggur að baki."
+    "nn": "Eit svar frå den danske skatte- og vekstministeren Jakob Engel-Schmidt på eit spørsmål viser at 325 danskar har betalt skatt på kryptohandel sjølv om dei samla sett har tapt pengar, melder Berlingske. Ministeren kalla talet «faktisk ganske vilt» og vil endre den hundre år gamle regelen bak.",
+    "nb": "Et svar fra den danske skatte- og vekstministeren Jakob Engel-Schmidt på et spørsmål viser at 325 dansker har betalt skatt på kryptohandel selv om de samlet sett har tapt penger, melder Berlingske. Ministeren kalte tallet «faktisk ganske vilt» og vil endre den hundre år gamle regelen bak.",
+    "sv": "Ett svar från den danske skatte- och tillväxtministern Jakob Engel-Schmidt på en fråga visar att 325 danskar har betalat skatt på kryptohandel trots att de totalt sett har förlorat pengar, rapporterar Berlingske. Ministern kallade siffran ”faktiskt ganska vild” och vill ändra den hundra år gamla regeln bakom.",
+    "da": "Et svar fra skatte- og vækstminister Jakob Engel-Schmidt på et spørgsmål viser, at 325 danskere har betalt skat af kryptohandel, selv om de samlet set har tabt penge, skriver Berlingske. Ministeren kaldte tallet »faktisk ret vildt« og vil ændre den 100 år gamle regel bag.",
+    "fi": "Tanskan vero- ja kasvuministeri Jakob Engel-Schmidtin vastaus kysymykseen osoittaa, että 325 tanskalaista on maksanut veroa kryptokaupasta, vaikka he ovat kokonaisuudessaan hävinneet rahaa, kertoo Berlingske. Ministeri kutsui lukua ”itse asiassa aika hurjaksi” ja haluaa muuttaa sen taustalla olevaa sata vuotta vanhaa sääntöä.",
+    "is": "Svar Jakob Engel-Schmidt, skatta- og hagvaxtarráðherra Danmerkur, við fyrirspurn sýnir að 325 Danir hafa greitt skatt af rafmyntaviðskiptum þótt þeir hafi í heild tapað fé, segir Berlingske. Ráðherrann kallaði töluna „í raun ansi villta“ og vill breyta hundrað ára gömlu reglunni sem liggur að baki."
    },
    "paywall": false,
    "links": [],
@@ -617,14 +617,14 @@
     "policy",
     "events"
    ],
-   "summary": "Denmark's tax minister met the crypto industry at Christiansborg on 17 September to discuss crypto taxation.",
+   "summary": "Danish tax and growth minister Jakob Engel-Schmidt is giving a talk on crypto and tax at Dansk Blockchain Forum, which the Nordic Blockchain Association holds at Christiansborg on 17 September together with Liberal Alliance, Kaupr reports. It is the second year the event takes place in the Danish parliament, and this year's theme is growth, job creation and revenue opportunities if the industry gets real political backing. Speakers also include representatives from Danske Bank, Pluto.markets and Dansk Erhverv.",
    "summary_i18n": {
-    "nn": "Skatteministeren i Danmark møtte kryptobransjen på Christiansborg 17. september for å diskutere skattlegging av krypto.",
-    "nb": "Danmarks skatteminister møtte kryptobransjen på Christiansborg 17. september for å diskutere beskatning av krypto.",
-    "sv": "Danmarks skatteminister träffade kryptobranschen på Christiansborg den 17 september för att diskutera beskattning av krypto.",
-    "da": "Skatteministeren mødte kryptobranchen på Christiansborg den 17. september for at drøfte beskatning af krypto.",
-    "fi": "Tanskan veroministeri tapasi kryptoalan edustajia Christiansborgissa 17. syyskuuta keskustellakseen kryptojen verotuksesta.",
-    "is": "Skattamálaráðherra Danmerkur fundaði með fulltrúum rafmyntageirans í Kristjánsborg 17. september til að ræða skattlagningu rafmynta."
+    "nn": "Den danske skatte- og vekstministeren Jakob Engel-Schmidt held innlegg om krypto og skatt på Dansk Blockchain Forum, som Nordic Blockchain Association arrangerer på Christiansborg 17. september saman med Liberal Alliance, melder Kaupr. Det er andre året arrangementet går føre seg i det danske parlamentet, og temaet i år er vekst, nye arbeidsplassar og inntektsmoglegheiter dersom bransjen får reell politisk støtte. Blant innleiarane er også representantar for Danske Bank, Pluto.markets og Dansk Erhverv.",
+    "nb": "Den danske skatte- og vekstministeren Jakob Engel-Schmidt holder innlegg om krypto og skatt på Dansk Blockchain Forum, som Nordic Blockchain Association arrangerer på Christiansborg 17. september sammen med Liberal Alliance, melder Kaupr. Det er andre år arrangementet holdes i det danske parlamentet, og årets tema er vekst, jobbskaping og inntektsmuligheter dersom bransjen får reell politisk oppslutning. Blant innlederne er også representanter for Danske Bank, Pluto.markets og Dansk Erhverv.",
+    "sv": "Den danske skatte- och tillväxtministern Jakob Engel-Schmidt håller ett anförande om krypto och skatt på Dansk Blockchain Forum, som Nordic Blockchain Association arrangerar på Christiansborg den 17 september tillsammans med Liberal Alliance, rapporterar Kaupr. Det är andra året evenemanget hålls i det danska parlamentet, och årets tema är tillväxt, jobbskapande och intäktsmöjligheter om branschen får verkligt politiskt stöd. Bland talarna finns även företrädare för Danske Bank, Pluto.markets och Dansk Erhverv.",
+    "da": "Skatte- og vækstminister Jakob Engel-Schmidt holder oplæg om krypto og skat på Dansk Blockchain Forum, som Nordic Blockchain Association afholder på Christiansborg den 17. september sammen med Liberal Alliance, skriver Kaupr. Det er andet år, arrangementet finder sted i Folketinget, og årets tema er vækst, jobskabelse og indtægtsmuligheder, hvis branchen får reel politisk opbakning. Blandt oplægsholderne er også repræsentanter for Danske Bank, Pluto.markets og Dansk Erhverv.",
+    "fi": "Tanskan vero- ja kasvuministeri Jakob Engel-Schmidt puhuu kryptosta ja verotuksesta Dansk Blockchain Forumissa, jonka Nordic Blockchain Association järjestää Christiansborgissa 17. syyskuuta yhdessä Liberal Alliancen kanssa, kertoo Kaupr. Tapahtuma järjestetään Tanskan parlamentissa toista vuotta, ja tämän vuoden teemana ovat kasvu, työpaikat ja tulomahdollisuudet, jos ala saa todellista poliittista tukea. Puhujina on myös Danske Bankin, Pluto.marketsin ja Dansk Erhvervin edustajia.",
+    "is": "Jakob Engel-Schmidt, skatta- og hagvaxtarráðherra Danmerkur, flytur erindi um rafmyntir og skatta á Dansk Blockchain Forum, sem Nordic Blockchain Association heldur í Kristjánsborg 17. september ásamt Liberal Alliance, segir Kaupr. Þetta er annað árið sem viðburðurinn fer fram í danska þinginu, og þema ársins er hagvöxtur, atvinnusköpun og tekjumöguleikar ef greinin fær raunverulegan pólitískan stuðning. Meðal ræðumanna eru einnig fulltrúar Danske Bank, Pluto.markets og Dansk Erhverv."
    },
    "paywall": false,
    "links": [],

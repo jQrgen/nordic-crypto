@@ -1,0 +1,47 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-14T05:37:21+00:00",
+ "preview": false,
+ "item": {
+  "id": "36cc0b725b8c",
+  "api_url": "https://nordiccrypto.no/api/v1/archive/articles/36cc0b725b8c.json",
+  "site": "nordic-crypto",
+  "url": "https://investornytt.no/nyheter/aksjer-pa-blokkjeden-kan-forsterke-borsuro/547093",
+  "canonical_url": "https://investornytt.no/nyheter/aksjer-pa-blokkjeden-kan-forsterke-borsuro/547093",
+  "title": "Aksjer på blokkjeden kan forsterke børsuro",
+  "titles": {
+   "en": "IMF: tokenised stocks show bigger price swings and weaker liquidity"
+  },
+  "source": "investornytt",
+  "source_name": "Investornytt",
+  "country": "NO",
+  "published_at": "2026-10-09T09:28:58+00:00",
+  "first_published_on_site": "2026-10-13T07:38:27+02:00",
+  "last_seen_on_site": "2026-10-13T07:38:27+02:00",
+  "languages": [
+   "en",
+   "nn",
+   "nb",
+   "sv",
+   "da",
+   "fi",
+   "is"
+  ],
+  "summaries": {
+   "en": "Investornytt reports that an IMF financial-stability chapter on tokenisation found price swings in its sample of tokenised stock products about 50 percent larger than in traditional markets, with notably weaker liquidity. The IMF warns that automatic forced sales could amplify market stress as the market grows.",
+   "nn": "Investornytt melder at eit kapittel om tokenisering i IMF-rapporten om finansiell stabilitet fann om lag 50 prosent større kurssvingingar i utvalet av tokeniserte aksjeprodukt enn i tradisjonelle marknader, og klart svakare likviditet. IMF åtvarar om at automatiske tvangssal kan forsterke uro når marknaden veks.",
+   "nb": "Investornytt melder at et kapittel om tokenisering i IMF-rapporten om finansiell stabilitet fant om lag 50 prosent større kurssvingninger i utvalget av tokeniserte aksjeprodukter enn i tradisjonelle markeder, og klart svakere likviditet. IMF advarer om at automatiske tvangssalg kan forsterke uro når markedet vokser.",
+   "sv": "Investornytt rapporterar att ett kapitel om tokenisering i IMF:s rapport om finansiell stabilitet fann omkring 50 procent större kurssvängningar i urvalet av tokeniserade aktieprodukter än på traditionella marknader, och klart sämre likviditet. IMF varnar för att automatiska tvångsförsäljningar kan förstärka oro när marknaden växer.",
+   "da": "Investornytt skriver, at et kapitel om tokenisering i IMF's rapport om finansiel stabilitet fandt omkring 50 procent større kursudsving i udvalget af tokeniserede aktieprodukter end på traditionelle markeder og markant svagere likviditet. IMF advarer om, at automatiske tvangssalg kan forstærke uro, når markedet vokser.",
+   "fi": "Investornytt kertoo, että IMF:n rahoitusvakausraportin tokenisointia käsittelevä luku havaitsi tokenisoitujen osaketuotteiden otoksessa noin 50 prosenttia suuremmat kurssiheilahtelut kuin perinteisillä markkinoilla sekä selvästi heikomman likviditeetin. IMF varoittaa, että automaattiset pakkomyynnit voivat voimistaa levottomuutta markkinan kasvaessa.",
+   "is": "Investornytt greinir frá því að kafli um táknvæðingu í skýrslu AGS um fjármálastöðugleika hafi leitt í ljós um 50 prósentum meiri verðsveiflur í úrtaki táknvæddra hlutabréfaafurða en á hefðbundnum mörkuðum, og mun minna seljanleika. AGS varar við því að sjálfvirk nauðungarsala geti magnað óróa eftir því sem markaðurinn stækkar."
+  },
+  "topics": [
+   "tokenisation",
+   "regulation"
+  ],
+  "removed": false,
+  "removed_at": null
+ }
+}

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-13T05:37:29+00:00",
+ "generated_at": "2026-10-14T05:37:21+00:00",
  "preview": false,
  "sign_off": "The Nordic Crypto team",
  "description": "Bitcoin, blockchain and crypto news, events, a who's who, regulation and academia for Norway, Sweden, Denmark, Finland and Iceland.",
@@ -310,7 +310,7 @@
   "discovery": "https://nordiccrypto.no/api/v1/index.json",
   "openapi": "https://nordiccrypto.no/api/v1/openapi.json",
   "llms_txt": "https://nordiccrypto.no/llms.txt",
-  "github": "https://github.com/jQrgen/nordic-crypto",
+  "github": "https://github.com/nordic-crypto-org/nordic-crypto",
   "newsletter": "https://nordiccrypto.no/newsletter/",
   "rss": "https://nordiccrypto.no/rss.xml",
   "telegram": "https://t.me/nordiccryptochat",
@@ -434,6 +434,11 @@
    "path": "/ethics/",
    "url": "https://nordiccrypto.no/ethics/",
    "title": "Editorial ethics (Vær Varsom-plakaten)"
+  },
+  {
+   "path": "/contact/",
+   "url": "https://nordiccrypto.no/contact/",
+   "title": "Contact: the editor's email address"
   },
   {
    "path": "/budget/",

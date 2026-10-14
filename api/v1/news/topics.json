@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-13T05:37:29+00:00",
+ "generated_at": "2026-10-14T05:37:21+00:00",
  "preview": false,
  "topics": [
   {
@@ -11,17 +11,17 @@
   },
   {
    "id": "banking",
-   "count": 3,
+   "count": 4,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/banking.json"
   },
   {
    "id": "bitcoin",
-   "count": 3,
+   "count": 4,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/bitcoin.json"
   },
   {
    "id": "business",
-   "count": 18,
+   "count": 19,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/business.json"
   },
   {
@@ -101,7 +101,7 @@
   },
   {
    "id": "tokenisation",
-   "count": 6,
+   "count": 7,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/tokenisation.json"
   },
   {

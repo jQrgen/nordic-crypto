@@ -2,8 +2,8 @@
  "preview": false,
  "events": [
   {
-   "id": "89ced460e4ca",
-   "title": "Crypto killer apps",
+   "id": "019f42a4506c",
+   "title": "Crypto killer apps: bitcoin-appene som endrer økonomien",
    "title_orig": null,
    "start": "2026-10-14T17:30:00+02:00",
    "end": "2026-10-14T18:30:00+02:00",
@@ -17,17 +17,21 @@
    "source_url": "https://www.polyteknisk.no/program/crypto-killer-apps",
    "found": "2026-10-03T15:23:20+00:00",
    "attendees": null,
-   "place_source": null,
+   "place_source": {
+    "name": "Polyteknisk Forening (program)",
+    "url": "https://www.polyteknisk.no/program/crypto-killer-apps",
+    "retrieved": "2026-10-12T03:50:28+00:00"
+   },
    "paid": true,
    "sponsored": null,
-   "note": "Paid entry (NOK 239 for non-members).",
+   "note": "Paid entry (NOK 239 for non-members). Held in cooperation with Bitcoinpolitisk Institutt Norge.",
    "note_i18n": {
-    "nn": "Betalt inngang (239 kroner for ikkje-medlemer).",
-    "nb": "Betalt inngang (239 kroner for ikke-medlemmer).",
-    "sv": "Avgift (239 norska kronor för icke-medlemmar).",
-    "da": "Betalt adgang (239 norske kroner for ikke-medlemmer).",
-    "fi": "Maksullinen (239 Norjan kruunua muille kuin jäsenille).",
-    "is": "Aðgangseyrir (239 norskar krónur fyrir utanfélagsmenn)."
+    "nn": "Betalt inngang (239 kroner for ikkje-medlemer). Held i samarbeid med Bitcoinpolitisk Institutt Norge.",
+    "nb": "Betalt inngang (239 kroner for ikke-medlemmer). Holdes i samarbeid med Bitcoinpolitisk Institutt Norge.",
+    "sv": "Avgift (239 norska kronor för icke-medlemmar). Hålls i samarbete med Bitcoinpolitisk Institutt Norge.",
+    "da": "Betalt adgang (239 norske kroner for ikke-medlemmer). Afholdes i samarbejde med Bitcoinpolitisk Institutt Norge.",
+    "fi": "Maksullinen (239 Norjan kruunua muille kuin jäsenille). Järjestetään yhteistyössä Bitcoinpolitisk Institutt Norgen kanssa.",
+    "is": "Aðgangseyrir (239 norskar krónur fyrir utanfélagsmenn). Haldið í samstarfi við Bitcoinpolitisk Institutt Norge."
    },
    "description": {
     "text": "I kjølvannet av bitcoin har vi fått en rekke apper som endrer samtiden vår og utvider finanssektoren. Stikkord er fremtidsmarkeder som «Polymarket», kryptobanken «Aave», nyvinninger innen forsikring, stablecoins og nye former for statlige penger. I samarbeid med Bitcoinpolitisk Institutt Norge presenterer Polyteknisk Forening appene som bitcoin har ført med seg, i tillegg til bitcoin selv.",
@@ -44,42 +48,6 @@
      "is": "Í kjölfar bitcoin hafa komið fram fjölmörg öpp sem breyta samtímanum og víkka fjármálageirann. Dæmi eru framtíðarmarkaðir eins og Polymarket, kryptobankinn Aave, nýjungar í tryggingum, stablecoins og ný form ríkisfjár. Í samstarfi við Bitcoinpolitisk Institutt Norge kynnir Polyteknisk Forening öppin sem bitcoin hefur leitt af sér, auk bitcoin sjálfs."
     }
    },
-   "past": false,
-   "status": "published"
-  },
-  {
-   "id": "019f42a4506c",
-   "title": "Crypto killer apps: bitcoin-appene som endrer økonomien",
-   "title_orig": null,
-   "start": "2026-10-14T17:30:00+02:00",
-   "end": "2026-10-14T18:30:00+02:00",
-   "place": "Rosenkrantz' gate 7, 0159 Oslo (inngang fra Kristian IVs gate)",
-   "city": "Oslo",
-   "country": "NO",
-   "online": false,
-   "organiser": "Polyteknisk Forening",
-   "url": "https://www.polyteknisk.no/program/crypto-killer-apps",
-   "source": "Polyteknisk Forening (program)",
-   "source_url": "https://www.polyteknisk.no/program/crypto-killer-apps",
-   "found": "2026-10-12T03:50:28+00:00",
-   "attendees": null,
-   "place_source": {
-    "name": "Polyteknisk Forening (program)",
-    "url": "https://www.polyteknisk.no/program/crypto-killer-apps",
-    "retrieved": "2026-10-12T03:50:28+00:00"
-   },
-   "paid": true,
-   "sponsored": null,
-   "note": "Held in cooperation with Bitcoinpolitisk Institutt Norge.",
-   "note_i18n": {
-    "nn": "Held i samarbeid med Bitcoinpolitisk Institutt Norge.",
-    "nb": "Holdes i samarbeid med Bitcoinpolitisk Institutt Norge.",
-    "sv": "Hålls i samarbete med Bitcoinpolitisk Institutt Norge.",
-    "da": "Afholdes i samarbejde med Bitcoinpolitisk Institutt Norge.",
-    "fi": "Järjestetään yhteistyössä Bitcoinpolitisk Institutt Norgen kanssa.",
-    "is": "Haldið í samstarfi við Bitcoinpolitisk Institutt Norge."
-   },
-   "description": null,
    "past": false,
    "status": "published"
   },

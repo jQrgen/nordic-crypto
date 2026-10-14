@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-13T05:37:29+00:00",
+ "generated_at": "2026-10-14T05:37:21+00:00",
  "preview": false,
  "item": {
   "id": "2d38c9c89e0e",
@@ -37,14 +37,14 @@
   "topics": [
    "crime"
   ],
-  "summary": "Three teenagers have been arrested in Lund on suspicion of kidnapping after allegedly tying up a local man with duct tape to rob him of crypto.",
+  "summary": "Three teenagers, two aged 19 and one aged 16, have been arrested in Lund on suspicion of kidnapping and aggravated weapons offences, Sydsvenskan reports. According to information obtained by the newspaper, they had taken on a job to rob a local man of cryptocurrency and bound him with duct tape. Police have said little about the details and initially described the incident as a disturbance in a flat.",
   "summary_i18n": {
-   "nn": "Tre tenåringar er pågripne i Lund, mistenkte for kidnapping etter at dei skal ha teipa fast ein lokal mann for å rane han for krypto.",
-   "nb": "Tre tenåringer er pågrepet i Lund, mistenkt for kidnapping etter angivelig å ha teipet fast en lokal mann for å rane ham for krypto.",
-   "sv": "Tre tonåringar har gripits i Lund misstänkta för människorov efter att de ska ha tejpat fast en man från orten för att råna honom på krypto.",
-   "da": "Tre teenagere er anholdt i Lund, mistænkt for kidnapning, efter at de angiveligt bandt en lokal mand med gaffatape for at røve krypto fra ham.",
-   "fi": "Lundissa on pidätetty kolme teiniä epäiltynä ihmisryöstöstä: heidän epäillään sitoneen paikallisen miehen ilmastointiteipillä ryöstääkseen häneltä kryptoja.",
-   "is": "Þrír unglingar hafa verið handteknir í Lundi, grunaðir um mannrán eftir að hafa að sögn bundið mann á staðnum með límbandi til að ræna af honum rafmyntum."
+   "nn": "Tre tenåringar, to på 19 og ein på 16 år, er pågripne i Lund mistenkte for menneskerov og grovt våpenbrot, melder Sydsvenskan. Ifølgje opplysningar til avisa hadde dei teke på seg eit oppdrag om å rane ein lokal mann for kryptovaluta og batt han med gaffateip. Politiet har sagt lite om detaljane og omtalte først hendinga som bråk i ei leilegheit.",
+   "nb": "Tre tenåringer, to på 19 og én på 16 år, er pågrepet i Lund mistenkt for menneskerov og grovt våpenlovbrudd, melder Sydsvenskan. Ifølge opplysninger til avisen hadde de tatt på seg et oppdrag om å rane en lokal mann for kryptovaluta og bandt ham med gaffateip. Politiet har sagt lite om detaljene og omtalte først hendelsen som bråk i en leilighet.",
+   "sv": "Tre tonåringar, två 19-åringar och en 16-åring, har anhållits i Lund misstänkta för människorov och grovt vapenbrott, rapporterar Sydsvenskan. Enligt uppgifter till tidningen hade de tagit på sig ett uppdrag att råna en Lundabo på kryptovaluta och band honom med silvertejp. Polisen har varit förtegen om detaljerna och beskrev först händelsen som bråk i en lägenhet.",
+   "da": "Tre teenagere, to på 19 og en på 16 år, er anholdt i Lund mistænkt for frihedsberøvelse og grov våbenforbrydelse, skriver Sydsvenskan. Ifølge oplysninger til avisen havde de påtaget sig en opgave med at røve en lokal mand for kryptovaluta og bandt ham med gaffatape. Politiet har sagt lidt om detaljerne og beskrev først hændelsen som uro i en lejlighed.",
+   "fi": "Lundissa on pidätetty kolme teiniä, kaksi 19-vuotiasta ja yksi 16-vuotias, epäiltyinä ihmisryöstöstä ja törkeästä aserikoksesta, kertoo Sydsvenskan. Lehden saamien tietojen mukaan he olivat ottaneet tehtäväkseen ryöstää paikalliselta mieheltä kryptovaluuttaa ja sitoivat hänet ilmastointiteipillä. Poliisi on kertonut yksityiskohdista vähän ja kuvasi tapahtumaa aluksi riidaksi asunnossa.",
+   "is": "Þrír unglingar, tveir 19 ára og einn 16 ára, hafa verið handteknir í Lundi grunaðir um mannrán og alvarlegt vopnalagabrot, segir Sydsvenskan. Samkvæmt upplýsingum blaðsins höfðu þeir tekið að sér að ræna mann á staðnum rafmynt og bundu hann með límbandi. Lögreglan hefur lítið sagt um smáatriðin og lýsti atvikinu fyrst sem ólátum í íbúð."
   },
   "paywall": false,
   "links": [],

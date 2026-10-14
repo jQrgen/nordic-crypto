@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-13T05:37:29+00:00",
+ "generated_at": "2026-10-14T05:37:21+00:00",
  "preview": false,
  "topic": "regulation",
  "count": 11,
@@ -578,14 +578,14 @@
     "regulation",
     "aml"
    ],
-   "summary": "Sweden's financial watchdog says crypto-assets and illegal financial networks pose the biggest risk of Iran and North Korea dodging sanctions via Sweden.",
+   "summary": "Crypto-assets and illegal financial networks are the biggest risks for UN sanctions against Iran and North Korea being evaded via Sweden, according to a new national risk assessment by ten Swedish authorities, Realtid reports. The authorities say organised crime has built an illegal financial infrastructure for cash, gold and conversion into crypto that could also be used for such financing. Realtid also notes that no one has been convicted of sanctions offences in Sweden in five years.",
    "summary_i18n": {
-    "nn": "Det svenske finanstilsynet meiner kryptoeigedelar og ulovlege finansielle nettverk er den største risikoen for at Iran og Nord-Korea omgår sanksjonar via Sverige.",
-    "nb": "Sveriges finanstilsyn mener kryptoeiendeler og ulovlige finansielle nettverk utgjør den største risikoen for at Iran og Nord-Korea omgår sanksjoner via Sverige.",
-    "sv": "Finansinspektionen anser att kryptotillgångar och olagliga finansiella nätverk utgör den största risken för att Iran och Nordkorea kringgår sanktioner via Sverige.",
-    "da": "Det svenske finanstilsyn mener, at kryptoaktiver og ulovlige finansielle netværk udgør den største risiko for, at Iran og Nordkorea omgår sanktioner via Sverige.",
-    "fi": "Ruotsin finanssivalvoja katsoo, että kryptovarat ja laittomat rahoitusverkostot ovat suurin riski sille, että Iran ja Pohjois-Korea kiertävät pakotteita Ruotsin kautta.",
-    "is": "Fjármálaeftirlit Svíþjóðar telur að sýndareignir og ólögleg fjármálanet feli í sér mestu hættuna á að Íran og Norður-Kórea komist fram hjá refsiaðgerðum í gegnum Svíþjóð."
+    "nn": "Kryptoeigedelar og ulovlege finansielle nettverk er dei største risikoane for at FN-sanksjonane mot Iran og Nord-Korea blir omgått via Sverige, ifølgje ei ny nasjonal risikovurdering frå ti svenske styresmakter, melder Realtid. Styresmaktene seier at organisert kriminalitet har bygt opp ein ulovleg finansiell infrastruktur for kontantar, gull og veksling til krypto som òg kan nyttast til slik finansiering. Realtid peikar òg på at ingen er dømde for sanksjonsbrot i Sverige på fem år.",
+    "nb": "Kryptoeiendeler og ulovlige finansielle nettverk er de største risikoene for at FN-sanksjonene mot Iran og Nord-Korea omgås via Sverige, ifølge en ny nasjonal risikovurdering fra ti svenske myndigheter, melder Realtid. Myndighetene sier at organisert kriminalitet har bygget opp en ulovlig finansiell infrastruktur for kontanter, gull og veksling til krypto som også kan brukes til slik finansiering. Realtid påpeker også at ingen er dømt for sanksjonsbrudd i Sverige på fem år.",
+    "sv": "Kryptotillgångar och illegala finansiella nätverk är de största riskerna för att FN:s sanktioner mot Iran och Nordkorea kringgås via Sverige, enligt en ny nationell riskbedömning från tio svenska myndigheter, rapporterar Realtid. Myndigheterna uppger att den organiserade brottsligheten har byggt upp en illegal finansiell infrastruktur för kontanter, guld och växling till krypto som också kan användas för sådan finansiering. Realtid noterar även att ingen har dömts för sanktionsbrott i Sverige på fem år.",
+    "da": "Kryptoaktiver og ulovlige finansielle netværk er de største risici for, at FN's sanktioner mod Iran og Nordkorea omgås via Sverige, ifølge en ny national risikovurdering fra ti svenske myndigheder, skriver Realtid. Myndighederne siger, at organiseret kriminalitet har opbygget en ulovlig finansiel infrastruktur til kontanter, guld og veksling til krypto, som også kan bruges til en sådan finansiering. Realtid bemærker desuden, at ingen er dømt for sanktionsbrud i Sverige i fem år.",
+    "fi": "Kryptovarat ja laittomat rahoitusverkostot ovat suurimmat riskit sille, että YK:n Iraniin ja Pohjois-Koreaan kohdistamia pakotteita kierretään Ruotsin kautta, kertoo Realtid kymmenen ruotsalaisviranomaisen uuden kansallisen riskiarvion perusteella. Viranomaisten mukaan järjestäytynyt rikollisuus on rakentanut laittoman rahoitusinfrastruktuurin käteiselle, kullalle ja kryptovaihdolle, ja sitä voidaan käyttää myös tällaiseen rahoitukseen. Realtid huomauttaa myös, ettei Ruotsissa ole viiteen vuoteen tuomittu ketään pakoterikoksesta.",
+    "is": "Sýndareignir og ólögleg fjármálanet eru mesta hættan á að refsiaðgerðir SÞ gegn Íran og Norður-Kóreu séu sniðgengnar í gegnum Svíþjóð, samkvæmt nýju landsbundnu áhættumati tíu sænskra stofnana, segir Realtid. Stofnanirnar segja að skipulögð glæpastarfsemi hafi byggt upp ólöglega fjármálainnviði fyrir reiðufé, gull og skipti yfir í rafmyntir sem einnig megi nota til slíkrar fjármögnunar. Realtid bendir einnig á að enginn hafi verið dæmdur fyrir brot á refsiaðgerðum í Svíþjóð í fimm ár."
    },
    "paywall": false,
    "links": [],
@@ -725,14 +725,14 @@
     "regulation",
     "mica"
    ],
-   "summary": "Binance is under investigation for allegedly offering services in Europe without the licence required under the EU's new crypto rules.",
+   "summary": "EU supervisors are examining Binance for continuing to serve European customers without the licence required under MiCA, Realtid reports, citing the Financial Times. ESMA and national authorities in countries including France, Germany and Greece are looking at how Binance uses the narrow 'reverse solicitation' exemption, which only applies when the customer takes the initiative. Binance says it complies with applicable rules and is working towards a MiCA licence.",
    "summary_i18n": {
-    "nn": "Binance blir etterforska fordi selskapet skal ha tilbode tenester i Europa utan løyvet som dei nye kryptoreglane i EU krev.",
-    "nb": "Binance etterforskes for angivelig å ha tilbudt tjenester i Europa uten tillatelsen EUs nye kryptoregler krever.",
-    "sv": "Binance utreds för att bolaget misstänks ha erbjudit tjänster i Europa utan det tillstånd som EU:s nya kryptoregler kräver.",
-    "da": "Binance efterforskes for angiveligt at have tilbudt tjenester i Europa uden den tilladelse, som EU's nye kryptoregler kræver.",
-    "fi": "Binancea tutkitaan, koska sen epäillään tarjonneen palveluja Euroopassa ilman EU:n uusien kryptosääntöjen edellyttämää toimilupaa.",
-    "is": "Binance er til rannsóknar vegna gruns um að hafa boðið þjónustu í Evrópu án leyfisins sem nýjar rafmyntareglur ESB krefjast."
+    "nn": "EU-tilsyn granskar Binance for å ha halde fram med å tilby tenester til europeiske kundar utan lisensen MiCA krev, melder Realtid med tilvising til Financial Times. ESMA og nasjonale styresmakter i mellom anna Frankrike, Tyskland og Hellas ser på korleis Binance nyttar det smale unntaket for «reverse solicitation», som berre gjeld når kunden sjølv tek initiativet. Binance seier selskapet følgjer gjeldande reglar og arbeider for å få MiCA-lisens.",
+    "nb": "EU-tilsyn gransker Binance for å ha fortsatt å tilby tjenester til europeiske kunder uten lisensen MiCA krever, melder Realtid med henvisning til Financial Times. ESMA og nasjonale myndigheter i blant annet Frankrike, Tyskland og Hellas ser på hvordan Binance bruker det snevre unntaket for «reverse solicitation», som bare gjelder når kunden selv tar initiativet. Binance sier selskapet følger gjeldende regler og jobber for å få MiCA-lisens.",
+    "sv": "EU:s tillsynsmyndigheter granskar Binance för att ha fortsatt erbjuda tjänster till europeiska kunder utan den licens som MiCA kräver, rapporterar Realtid med hänvisning till Financial Times. Esma och nationella myndigheter i bland annat Frankrike, Tyskland och Grekland undersöker hur Binance använder det snäva undantaget ”reverse solicitation”, som bara gäller när kunden själv tar initiativet. Binance uppger att bolaget följer gällande regler och arbetar för att få en MiCA-licens.",
+    "da": "EU's tilsynsmyndigheder undersøger Binance for at have fortsat med at betjene europæiske kunder uden den licens, MiCA kræver, skriver Realtid med henvisning til Financial Times. ESMA og nationale myndigheder i blandt andet Frankrig, Tyskland og Grækenland ser på, hvordan Binance bruger den snævre undtagelse for »reverse solicitation«, som kun gælder, når kunden selv tager initiativet. Binance siger, at selskabet overholder gældende regler og arbejder på at få en MiCA-licens.",
+    "fi": "EU:n valvojat selvittävät Binancea, koska se on jatkanut palvelujen tarjoamista eurooppalaisille asiakkaille ilman MiCA-asetuksen edellyttämää toimilupaa, kertoo Realtid Financial Timesiin viitaten. ESMA ja kansalliset viranomaiset muun muassa Ranskassa, Saksassa ja Kreikassa tarkastelevat, miten Binance käyttää suppeaa ”reverse solicitation” -poikkeusta, joka koskee vain tilanteita, joissa asiakas tekee aloitteen itse. Binancen mukaan se noudattaa sovellettavia sääntöjä ja pyrkii saamaan MiCA-toimiluvan.",
+    "is": "Eftirlitsstofnanir ESB rannsaka Binance fyrir að halda áfram að þjónusta evrópska viðskiptavini án leyfisins sem MiCA krefst, segir Realtid og vísar í Financial Times. ESMA og innlendar stofnanir í m.a. Frakklandi, Þýskalandi og Grikklandi skoða hvernig Binance notar þrönga undanþáguna um „reverse solicitation“, sem gildir aðeins þegar viðskiptavinurinn á sjálfur frumkvæðið. Binance segist fara eftir gildandi reglum og vinna að því að fá MiCA-leyfi."
    },
    "paywall": false,
    "links": [],
@@ -863,14 +863,14 @@
     "regulation",
     "mica"
    ],
-   "summary": "Binance said it would leave Europe, but customers are still trading, and EU financial authorities now want to know how.",
+   "summary": "Binance lacks the licence required under the EU's MiCA rules and was supposed to start winding down in the EU from 1 July, yet some European customers are still trading, Dagens PS reports, citing the Financial Times. The exchange relies on the 'reverse solicitation' exemption, which ESMA says must be understood very narrowly. Authorities can request more information and, if they reject Binance's arguments, move to enforcement and fines; Binance says it follows applicable rules.",
    "summary_i18n": {
-    "nn": "Binance sa at selskapet skulle forlate Europa, men kundane handlar framleis, og finansstyresmaktene i EU vil no vite korleis.",
-    "nb": "Binance sa at selskapet skulle forlate Europa, men kundene handler fortsatt, og EUs finansmyndigheter vil nå vite hvordan.",
-    "sv": "Binance sa att bolaget skulle lämna Europa, men kunderna handlar fortfarande, och EU:s finansmyndigheter vill nu veta hur.",
-    "da": "Binance sagde, at selskabet ville forlade Europa, men kunderne handler stadig, og EU's finansmyndigheder vil nu vide hvordan.",
-    "fi": "Binance sanoi lähtevänsä Euroopasta, mutta asiakkaat käyvät yhä kauppaa, ja EU:n rahoitusviranomaiset haluavat nyt tietää, miten.",
-    "is": "Binance sagðist ætla að yfirgefa Evrópu, en viðskiptavinir eiga enn viðskipti og fjármálayfirvöld ESB vilja nú vita hvernig."
+    "nn": "Binance manglar lisensen EU-regelverket MiCA krev og skulle frå 1. juli ha byrja å avvikle verksemda i EU, men somme europeiske kundar handlar framleis, melder Dagens PS med tilvising til Financial Times. Børsen lener seg på unntaket for «reverse solicitation», som ESMA seier må forståast svært snevert. Styresmaktene kan be om meir informasjon og, om dei avviser Binance sine argument, gå vidare med tilsynstiltak og bøter; Binance seier selskapet følgjer gjeldande reglar.",
+    "nb": "Binance mangler lisensen EU-regelverket MiCA krever og skulle fra 1. juli ha begynt å avvikle virksomheten i EU, men enkelte europeiske kunder handler fortsatt, melder Dagens PS med henvisning til Financial Times. Børsen lener seg på unntaket for «reverse solicitation», som ESMA sier må forstås svært snevert. Myndighetene kan be om mer informasjon og, hvis de avviser Binances argumenter, gå videre med tilsynstiltak og bøter; Binance sier selskapet følger gjeldende regler.",
+    "sv": "Binance saknar den licens som krävs enligt EU:s MiCA-regler och skulle från den 1 juli ha börjat avveckla verksamheten i EU, men vissa europeiska kunder handlar fortfarande, rapporterar Dagens PS med hänvisning till Financial Times. Börsen lutar sig mot undantaget ”reverse solicitation”, som Esma säger ska förstås som mycket snävt. Myndigheterna kan begära mer information och, om de inte godtar Binances argument, gå vidare med tillsynsåtgärder och böter; Binance säger att bolaget följer tillämpliga regler.",
+    "da": "Binance mangler den licens, EU's MiCA-regler kræver, og skulle fra 1. juli være begyndt at afvikle aktiviteterne i EU, men nogle europæiske kunder handler stadig, skriver Dagens PS med henvisning til Financial Times. Børsen læner sig op ad undtagelsen for »reverse solicitation«, som ESMA siger skal forstås meget snævert. Myndighederne kan bede om flere oplysninger og, hvis de afviser Binances argumenter, gå videre med tilsynsreaktioner og bøder; Binance siger, at selskabet følger gældende regler.",
+    "fi": "Binancella ei ole EU:n MiCA-sääntöjen edellyttämää toimilupaa, ja sen piti aloittaa toimintansa alasajo EU:ssa 1. heinäkuuta, mutta osa eurooppalaisista asiakkaista käy yhä kauppaa, kertoo Dagens PS Financial Timesiin viitaten. Pörssi nojaa ”reverse solicitation” -poikkeukseen, jota ESMA:n mukaan on tulkittava hyvin suppeasti. Viranomaiset voivat pyytää lisätietoja ja, jos ne hylkäävät Binancen perustelut, ryhtyä valvontatoimiin ja määrätä sakkoja; Binancen mukaan se noudattaa sovellettavia sääntöjä.",
+    "is": "Binance hefur ekki leyfið sem MiCA-reglur ESB krefjast og átti að byrja að draga starfsemina saman í ESB frá 1. júlí, en sumir evrópskir viðskiptavinir eiga þó enn viðskipti, segir Dagens PS og vísar í Financial Times. Kauphöllin byggir á undanþágunni um „reverse solicitation“, sem ESMA segir að beri að skilja mjög þröngt. Stjórnvöld geta óskað eftir frekari upplýsingum og, ef þau hafna rökum Binance, gripið til eftirlitsaðgerða og sekta; Binance segist fara eftir gildandi reglum."
    },
    "paywall": false,
    "links": [],
@@ -992,14 +992,14 @@
     "regulation",
     "aml"
    ],
-   "summary": "Finansinspektionen's new risk assessment finds that financing of weapons of mass destruction is most likely through illegal financial activity and crypto-assets.",
+   "summary": "Finansinspektionen reports that a new national risk assessment judges the risk of financing the proliferation of weapons of mass destruction to be highest in illegal financial activity and through the use of crypto-assets. The assessment comes from the ten authorities in Sweden's Sanctions Coordination Council. It is limited to UN Security Council resolutions with targeted financial sanctions against North Korea or Iran.",
    "summary_i18n": {
-    "nn": "Den nye risikovurderinga til Finansinspektionen finn at finansiering av masseøydeleggingsvåpen mest truleg skjer gjennom ulovleg finansiell verksemd og kryptoeigedelar.",
-    "nb": "Finansinspektionens nye risikovurdering finner at finansiering av masseødeleggelsesvåpen mest sannsynlig skjer gjennom ulovlig finansiell virksomhet og kryptoeiendeler.",
-    "sv": "Finansinspektionens nya riskbedömning visar att finansiering av massförstörelsevapen troligast sker via olaglig finansiell verksamhet och kryptotillgångar.",
-    "da": "Finansinspektionens nye risikovurdering finder, at finansiering af masseødelæggelsesvåben mest sandsynligt sker via ulovlig finansiel aktivitet og kryptoaktiver.",
-    "fi": "Finansinspektionenin uuden riskiarvion mukaan joukkotuhoaseiden rahoitus tapahtuu todennäköisimmin laittoman rahoitustoiminnan ja kryptovarojen kautta.",
-    "is": "Í nýju áhættumati Finansinspektionen kemur fram að fjármögnun gereyðingarvopna fari líklegast fram með ólöglegri fjármálastarfsemi og sýndareignum."
+    "nn": "Finansinspektionen melder at ei ny nasjonal risikovurdering meiner risikoen for finansiering av spreiing av masseøydeleggingsvåpen er størst i ulovleg finansiell verksemd og ved bruk av kryptoeigedelar. Vurderinga kjem frå dei ti styresmaktene i det svenske Sanktionssamverkansrådet. Ho er avgrensa til resolusjonar frå FNs tryggingsråd med målretta økonomiske sanksjonar mot Nord-Korea eller Iran.",
+    "nb": "Finansinspektionen melder at en ny nasjonal risikovurdering mener risikoen for finansiering av spredning av masseødeleggelsesvåpen er størst i ulovlig finansiell virksomhet og ved bruk av kryptoeiendeler. Vurderingen kommer fra de ti myndighetene i det svenske Sanktionssamverkansrådet. Den er avgrenset til resolusjoner fra FNs sikkerhetsråd med målrettede økonomiske sanksjoner mot Nord-Korea eller Iran.",
+    "sv": "Finansinspektionen meddelar att en ny nationell riskbedömning anser att risken för finansiering av spridning av massförstörelsevapen är högst inom illegal finansiell verksamhet och genom användning av kryptotillgångar. Bedömningen kommer från de tio myndigheterna i Sanktionssamverkansrådet. Den är avgränsad till FN:s säkerhetsråds resolutioner med riktade ekonomiska sanktioner mot Nordkorea eller Iran.",
+    "da": "Finansinspektionen oplyser, at en ny national risikovurdering vurderer risikoen for finansiering af spredning af masseødelæggelsesvåben som størst inden for ulovlig finansiel virksomhed og ved brug af kryptoaktiver. Vurderingen kommer fra de ti myndigheder i det svenske Sanktionssamverkansrådet. Den er afgrænset til resolutioner fra FN's Sikkerhedsråd med målrettede økonomiske sanktioner mod Nordkorea eller Iran.",
+    "fi": "Ruotsin Finansinspektionen kertoo, että uuden kansallisen riskiarvion mukaan joukkotuhoaseiden leviämisen rahoittamisen riski on suurin laittomassa rahoitustoiminnassa ja kryptovarojen käytössä. Arvion ovat laatineet Ruotsin pakotteiden yhteistyöneuvoston kymmenen viranomaista. Se rajautuu YK:n turvallisuusneuvoston päätöslauselmiin, jotka sisältävät Pohjois-Koreaan tai Iraniin kohdistuvia taloudellisia pakotteita.",
+    "is": "Finansinspektionen greinir frá því að samkvæmt nýju landsbundnu áhættumati sé hættan á fjármögnun útbreiðslu gereyðingarvopna mest í ólöglegri fjármálastarfsemi og með notkun sýndareigna. Matið kemur frá þeim tíu stofnunum sem eiga aðild að sænska samstarfsráðinu um refsiaðgerðir. Það takmarkast við ályktanir öryggisráðs SÞ með markvissum fjárhagslegum refsiaðgerðum gegn Norður-Kóreu eða Íran."
    },
    "paywall": false,
    "links": [],
@@ -1139,14 +1139,14 @@
     "mica",
     "regulation"
    ],
-   "summary": "Neither ESMA nor Sweden's Finansinspektionen will say whether distributing crypto services under your own brand needs its own MiCA licence.",
+   "summary": "Neither ESMA nor Sweden's Finansinspektionen will say whether marketing and distributing crypto services under your own brand requires a MiCA licence, Kaupr reports after putting the question to both. Both answer that it depends on how the service works in practice. ESMA stresses that an authorised provider that outsources functions must remain fully responsible for the service and remain the customer's contractual party.",
    "summary_i18n": {
-    "nn": "Verken ESMA eller svenske Finansinspektionen vil seie om distribusjon av kryptotenester under eige merkenamn krev eige MiCA-løyve.",
-    "nb": "Verken ESMA eller svenske Finansinspektionen vil si om distribusjon av kryptotjenester under eget merkenavn krever egen MiCA-tillatelse.",
-    "sv": "Varken Esma eller Finansinspektionen vill säga om distribution av kryptotjänster under eget varumärke kräver ett eget MiCA-tillstånd.",
-    "da": "Hverken ESMA eller det svenske Finansinspektionen vil sige, om distribution af kryptotjenester under eget brand kræver en selvstændig MiCA-tilladelse.",
-    "fi": "ESMA ja Ruotsin Finansinspektionen eivät kerro, tarvitaanko kryptopalvelujen jakeluun oman brändin alla oma MiCA-toimilupa.",
-    "is": "Hvorki ESMA né sænska Finansinspektionen vilja segja hvort dreifing rafmyntaþjónustu undir eigin vörumerki krefjist sérstaks MiCA-leyfis."
+    "nn": "Verken ESMA eller Finansinspektionen i Sverige vil seie om det å marknadsføre og distribuere kryptotenester under eige merke krev MiCA-løyve, melder Kaupr etter å ha stilt spørsmålet til begge. Begge svarar at det kjem an på korleis tenesta fungerer i praksis. ESMA understrekar at ein autorisert tilbydar som set ut funksjonar, framleis må ha fullt ansvar for tenesta og vere kunden sin avtalepart.",
+    "nb": "Verken ESMA eller Finansinspektionen i Sverige vil si om det å markedsføre og distribuere kryptotjenester under eget merke krever MiCA-tillatelse, melder Kaupr etter å ha stilt spørsmålet til begge. Begge svarer at det avhenger av hvordan tjenesten fungerer i praksis. ESMA understreker at en autorisert tilbyder som setter ut funksjoner, fortsatt må ha fullt ansvar for tjenesten og være kundens avtalepart.",
+    "sv": "Varken Esma eller Finansinspektionen vill säga om det krävs MiCA-tillstånd för att marknadsföra och distribuera kryptotjänster under eget varumärke, rapporterar Kaupr efter att ha ställt frågan till båda. Båda svarar att det beror på hur tjänsten fungerar i praktiken. Esma betonar att en auktoriserad leverantör som lägger ut funktioner fortfarande måste ha fullt ansvar för tjänsten och vara kundens avtalspart.",
+    "da": "Hverken ESMA eller det svenske Finansinspektionen vil sige, om markedsføring og distribution af kryptotjenester under eget brand kræver MiCA-tilladelse, skriver Kaupr efter at have stillet spørgsmålet til begge. Begge svarer, at det afhænger af, hvordan tjenesten fungerer i praksis. ESMA understreger, at en autoriseret udbyder, der outsourcer funktioner, fortsat skal have det fulde ansvar for tjenesten og være kundens aftalepart.",
+    "fi": "ESMA tai Ruotsin Finansinspektionen eivät suostu sanomaan, vaatiiko kryptopalvelujen markkinointi ja jakelu omalla brändillä MiCA-toimiluvan, kertoo Kaupr kysyttyään asiaa molemmilta. Molemmat vastaavat, että se riippuu siitä, miten palvelu käytännössä toimii. ESMA korostaa, että toimintoja ulkoistavan toimiluvallisen palveluntarjoajan on edelleen vastattava palvelusta täysin ja pysyttävä asiakkaan sopimuskumppanina.",
+    "is": "Hvorki ESMA né sænska fjármálaeftirlitið Finansinspektionen vilja segja hvort markaðssetning og dreifing rafmyntaþjónustu undir eigin vörumerki krefjist MiCA-leyfis, segir Kaupr eftir að hafa lagt spurninguna fyrir báða. Báðir svara að það fari eftir því hvernig þjónustan virkar í reynd. ESMA leggur áherslu á að leyfishafi sem útvistar verkþáttum verði áfram að bera fulla ábyrgð á þjónustunni og vera samningsaðili viðskiptavinarins."
    },
    "paywall": false,
    "links": [],
@@ -1288,14 +1288,14 @@
     "mica",
     "regulation"
    ],
-   "summary": "Valuno company QB Europe has lost its appeal against the MiCA refusal in Sweden, but keeps operating through licensed partners.",
+   "summary": "The Stockholm Administrative Court has rejected QB Europe's appeal against Finansinspektionen's refusal of a MiCA licence, Valuno Group says, as reported by Kaupr. The court agreed with the regulator that the company's anti-money-laundering risk assessment was not sufficiently tailored to its business, and also rejected its requests to send the case back or seek a ruling from the EU Court of Justice. Valuno can appeal further and says operations continue through licensed partners, so it does not depend on getting its own licence.",
    "summary_i18n": {
-    "nn": "Valuno-selskapet QB Europe har tapt klaga på MiCA-avslaget i Sverige, men held fram gjennom partnarar med løyve.",
-    "nb": "Valuno-selskapet QB Europe har tapt klagen på MiCA-avslaget i Sverige, men driver videre gjennom partnere med tillatelse.",
-    "sv": "Valuno-bolaget QB Europe har förlorat sitt överklagande av MiCA-avslaget i Sverige men fortsätter verksamheten genom partner med tillstånd.",
-    "da": "Valuno-selskabet QB Europe har tabt sin klage over MiCA-afslaget i Sverige, men fortsætter driften gennem partnere med tilladelse.",
-    "fi": "Valunoon kuuluva QB Europe on hävinnyt valituksensa MiCA-hylkäyksestä Ruotsissa, mutta jatkaa toimintaa toimiluvallisten kumppanien kautta.",
-    "is": "QB Europe, félag í eigu Valuno, hefur tapað kæru sinni vegna MiCA-synjunar í Svíþjóð en heldur starfseminni áfram í gegnum samstarfsaðila með leyfi."
+    "nn": "Förvaltningsrätten i Stockholm har forkasta QB Europes anke over at Finansinspektionen nekta selskapet MiCA-lisens, opplyser Valuno Group, ifølgje Kaupr. Retten var samd med tilsynet i at risikovurderinga mot kvitvasking ikkje var godt nok tilpassa verksemda, og avviste òg krava om å sende saka tilbake eller hente inn ei avgjerd frå EU-domstolen. Valuno kan anke vidare og seier drifta held fram gjennom lisensierte partnarar, slik at selskapet ikkje er avhengig av eigen lisens.",
+    "nb": "Förvaltningsrätten i Stockholm har forkastet QB Europes anke over at Finansinspektionen nektet selskapet MiCA-lisens, opplyser Valuno Group, ifølge Kaupr. Retten var enig med tilsynet i at risikovurderingen mot hvitvasking ikke var godt nok tilpasset virksomheten, og avviste også kravene om å sende saken tilbake eller innhente en avgjørelse fra EU-domstolen. Valuno kan anke videre og sier driften fortsetter gjennom lisensierte partnere, slik at selskapet ikke er avhengig av egen lisens.",
+    "sv": "Förvaltningsrätten i Stockholm har avslagit QB Europes överklagande av Finansinspektionens avslag på en MiCA-licens, uppger Valuno Group enligt Kaupr. Domstolen höll med tillsynen om att bolagets riskbedömning mot penningtvätt inte var tillräckligt anpassad till verksamheten och avslog även yrkandena om återförvisning och om ett förhandsavgörande från EU-domstolen. Valuno kan överklaga vidare och säger att verksamheten fortsätter genom licensierade partner, så att bolaget inte är beroende av en egen licens.",
+    "da": "Förvaltningsrätten i Stockholm har afvist QB Europes klage over Finansinspektionens afslag på en MiCA-licens, oplyser Valuno Group ifølge Kaupr. Retten var enig med tilsynet i, at selskabets risikovurdering vedrørende hvidvask ikke var tilstrækkeligt tilpasset forretningen, og afviste også kravene om at sende sagen tilbage eller indhente en præjudiciel afgørelse fra EU-Domstolen. Valuno kan anke videre og siger, at driften fortsætter gennem licenserede partnere, så selskabet ikke er afhængigt af sin egen licens.",
+    "fi": "Tukholman hallinto-oikeus on hylännyt QB Europen valituksen Finansinspektionenin päätöksestä evätä MiCA-toimilupa, kertoo Valuno Group Kauprin mukaan. Tuomioistuin yhtyi valvojan näkemykseen, ettei yhtiön rahanpesun riskiarvio ollut riittävästi räätälöity sen liiketoimintaan, ja hylkäsi myös vaatimukset asian palauttamisesta ja ennakkoratkaisun pyytämisestä EU-tuomioistuimelta. Valuno voi valittaa edelleen ja kertoo toiminnan jatkuvan luvanhaltijakumppanien kautta, joten se ei ole riippuvainen omasta toimiluvasta.",
+    "is": "Stjórnsýsludómstóllinn í Stokkhólmi hefur hafnað áfrýjun QB Europe vegna synjunar Finansinspektionen á MiCA-leyfi, segir Valuno Group samkvæmt Kaupr. Dómstóllinn tók undir með eftirlitinu að áhættumat félagsins vegna peningaþvættis væri ekki nægilega sniðið að starfseminni, og hafnaði einnig kröfum um að vísa málinu aftur eða leita forúrskurðar Evrópudómstólsins. Valuno getur áfrýjað áfram og segir að starfsemin haldi áfram í gegnum leyfisskylda samstarfsaðila, svo félagið sé ekki háð eigin leyfi."
    },
    "paywall": false,
    "links": [],
@@ -1438,14 +1438,14 @@
     "mica",
     "regulation"
    ],
-   "summary": "Finland's FIN-FSA reminds firms that crypto-asset service providers serving Finland must hold an EU (MiCA) authorisation.",
+   "summary": "Finland's FIN-FSA reminds the public that from 1 July 2026 crypto-asset services may not be provided in the EU or EEA without authorisation, after transitional periods in some countries ended on 30 June. It recommends that clients check ESMA's register and move to an authorised provider if theirs is not listed. Services from unauthorised third-country providers can only be used on the client's own initiative, and such providers may not market other services or new crypto-assets to them.",
    "summary_i18n": {
-    "nn": "Finske Finanssivalvonta minner om at tilbydarar av kryptoeigedelstenester som tener Finland, må ha EU-løyve (MiCA).",
-    "nb": "Finske Finanssivalvonta minner om at tilbydere av kryptoeiendelstjenester som betjener Finland, må ha EU-tillatelse (MiCA).",
-    "sv": "Finska Finanssivalvonta påminner om att leverantörer av kryptotillgångstjänster som betjänar Finland måste ha ett EU-tillstånd (MiCA).",
-    "da": "Det finske finanstilsyn, Finanssivalvonta, minder om, at udbydere af kryptoaktivtjenester, der betjener Finland, skal have en EU-tilladelse (MiCA).",
-    "fi": "Finanssivalvonta muistuttaa, että Suomessa palveluja tarjoavilla kryptovarapalvelujen tarjoajilla on oltava EU:n (MiCA) toimilupa.",
-    "is": "Finnska fjármálaeftirlitið minnir á að þjónustuveitendur sýndareigna sem þjóna Finnlandi verða að hafa leyfi innan ESB (MiCA)."
+    "nn": "Det finske finanstilsynet FIN-FSA minner om at det frå 1. juli 2026 ikkje er lov å tilby kryptotenester i EU eller EØS utan løyve, etter at overgangsperiodane i somme land gjekk ut 30. juni. Tilsynet tilrår kundane å sjekke ESMA-registeret og flytte til ein autorisert tilbydar dersom deira ikkje står der. Tenester frå uautoriserte tilbydarar i tredjeland kan berre brukast på kunden sitt eige initiativ, og slike tilbydarar kan ikkje marknadsføre andre tenester eller nye kryptoeigedelar til kunden.",
+    "nb": "Det finske finanstilsynet FIN-FSA minner om at det fra 1. juli 2026 ikke er tillatt å tilby kryptotjenester i EU eller EØS uten tillatelse, etter at overgangsperiodene i enkelte land gikk ut 30. juni. Tilsynet anbefaler kundene å sjekke ESMA-registeret og flytte til en autorisert tilbyder dersom deres ikke står der. Tjenester fra uautoriserte tilbydere i tredjeland kan bare brukes på kundens eget initiativ, og slike tilbydere kan ikke markedsføre andre tjenester eller nye kryptoeiendeler til kunden.",
+    "sv": "Finska Finansinspektionen påminner om att det från den 1 juli 2026 inte är tillåtet att erbjuda kryptotjänster i EU eller EES utan tillstånd, sedan övergångsperioderna i vissa länder löpte ut den 30 juni. Myndigheten rekommenderar kunder att kontrollera Esmas register och byta till en auktoriserad leverantör om deras inte finns med. Tjänster från oauktoriserade leverantörer i tredjeland får bara användas på kundens eget initiativ, och sådana leverantörer får inte marknadsföra andra tjänster eller nya kryptotillgångar till kunden.",
+    "da": "Det finske finanstilsyn FIN-FSA minder om, at det fra 1. juli 2026 ikke er tilladt at udbyde kryptotjenester i EU eller EØS uden tilladelse, efter at overgangsperioderne i nogle lande udløb 30. juni. Tilsynet anbefaler kunderne at tjekke ESMA's register og skifte til en autoriseret udbyder, hvis deres ikke står der. Tjenester fra uautoriserede udbydere i tredjelande må kun bruges på kundens eget initiativ, og sådanne udbydere må ikke markedsføre andre tjenester eller nye kryptoaktiver over for kunden.",
+    "fi": "Finanssivalvonta muistuttaa, että 1. heinäkuuta 2026 alkaen kryptovarapalveluja ei saa tarjota EU:ssa tai ETA-alueella ilman toimilupaa, kun joidenkin maiden siirtymäajat päättyivät 30. kesäkuuta. Se suosittelee asiakkaita tarkistamaan ESMA:n rekisterin ja siirtymään toimiluvalliselle palveluntarjoajalle, jos oma palveluntarjoaja ei ole rekisterissä. Kolmansien maiden luvattomien palveluntarjoajien palveluja voi käyttää vain asiakkaan omasta aloitteesta, eivätkä tällaiset palveluntarjoajat saa markkinoida asiakkaalle muita palveluja tai uusia kryptovaroja.",
+    "is": "Finnska fjármálaeftirlitið FIN-FSA minnir á að frá 1. júlí 2026 er óheimilt að veita rafmyntaþjónustu í ESB eða á EES-svæðinu án leyfis, eftir að aðlögunartímabil í sumum löndum runnu út 30. júní. Það ráðleggur viðskiptavinum að skoða skrá ESMA og flytja sig til leyfishafa ef þjónustuaðili þeirra er ekki skráður. Þjónustu óleyfisskyldra aðila í þriðju ríkjum má aðeins nota að frumkvæði viðskiptavinarins, og slíkir aðilar mega ekki markaðssetja aðra þjónustu eða nýjar sýndareignir til hans."
    },
    "paywall": false,
    "links": [],

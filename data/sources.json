@@ -277,6 +277,10 @@
    "country": "DK"
   },
   {
+   "name": "Christiansfeld Avis/Lunderskov",
+   "country": "DK"
+  },
+  {
    "name": "CityAvisen",
    "country": "DK"
   },
@@ -577,6 +581,10 @@
    "country": "DK"
   },
   {
+   "name": "Frederikshavn Lokalradio",
+   "country": "DK"
+  },
+  {
    "name": "Fredriksstad Blad",
    "country": "NO"
   },
@@ -797,6 +805,10 @@
    "country": "NO"
   },
   {
+   "name": "Iceland Review",
+   "country": "IS"
+  },
+  {
    "name": "Iijokiseutu",
    "country": "FI"
   },
@@ -831,6 +843,10 @@
   {
    "name": "Ingeniøren",
    "country": "DK"
+  },
+  {
+   "name": "Inord",
+   "country": "NO"
   },
   {
    "name": "Investornytt",
@@ -989,6 +1005,10 @@
    "country": "DK"
   },
   {
+   "name": "Kjerteminde Avis",
+   "country": "DK"
+  },
+  {
    "name": "Klassekampen",
    "country": "NO"
   },
@@ -1077,6 +1097,10 @@
    "country": "FI"
   },
   {
+   "name": "Kópavogsblaðið",
+   "country": "IS"
+  },
+  {
    "name": "KøbenhavnLIV",
    "country": "DK"
   },
@@ -1131,6 +1155,10 @@
   {
    "name": "Limfjord Slager",
    "country": "DK"
+  },
+  {
+   "name": "Lister",
+   "country": "NO"
   },
   {
    "name": "Lofot-Tidende",
@@ -1289,6 +1317,10 @@
    "country": "DK"
   },
   {
+   "name": "Midthimmerl. Folkebl. Støvring",
+   "country": "DK"
+  },
+  {
    "name": "Midtjyllands Avis",
    "country": "DK"
   },
@@ -1371,6 +1403,10 @@
   {
    "name": "Nettavisen",
    "country": "NO"
+  },
+  {
+   "name": "Nibe Avis",
+   "country": "DK"
   },
   {
    "name": "Nidaros",
@@ -1481,6 +1517,10 @@
    "country": "FI"
   },
   {
+   "name": "Padasjoen Sanomat",
+   "country": "FI"
+  },
+  {
    "name": "Paikallislehti Joutseno",
    "country": "FI"
   },
@@ -1545,10 +1585,6 @@
    "country": "FI"
   },
   {
-   "name": "Pohjoisen Polut",
-   "country": "FI"
-  },
-  {
    "name": "Politi i Grønland",
    "country": "GL"
   },
@@ -1595,10 +1631,6 @@
   {
    "name": "RA Stavanger",
    "country": "NO"
-  },
-  {
-   "name": "Raahelainen",
-   "country": "FI"
   },
   {
    "name": "Raahen Seutu",
@@ -2095,6 +2127,10 @@
   {
    "name": "Tårnbybladet",
    "country": "DK"
+  },
+  {
+   "name": "Tígull",
+   "country": "IS"
   },
   {
    "name": "Tønsbergs Blad",
@@ -2691,6 +2727,10 @@
   {
    "name": "visitodsherred.dk",
    "country": "DK"
+  },
+  {
+   "name": "vtd distribution",
+   "country": "SE"
   },
   {
    "name": "ÄKS Äänekosken Kaupunkisanomat",
