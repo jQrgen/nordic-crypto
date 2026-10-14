@@ -447,18 +447,39 @@ def erd_svg(schemas):
         nodes.append({"id": meta["id"], "title": schema.get("title") or meta["id"]})
     if not nodes:
         return ""
-    cols = 4
-    box_w, box_h, gap_x, gap_y = 248, 64, 28, 36
-    pad = 24
+    present = {n["id"] for n in nodes}
+    clusters = (
+        ["news", "articles", "title-i18n", "blurbs", "illustrations"],
+        ["events", "sponsors", "talks", "event-descriptions", "event-redirects"],
+        ["sources", "logos", "newsletters"],
+        ["orgchart", "profiles", "images", "developers"],
+    )
+    seen = set()
+    columns = []
+    for cluster in clusters:
+        col = [item for item in cluster if item in present and item not in seen]
+        if col:
+            columns.append(col)
+            seen.update(col)
+    rest = [n["id"] for n in nodes if n["id"] not in seen]
+    while rest:
+        columns.append(rest[:6])
+        rest = rest[6:]
+    box_w, box_h, gap_x, gap_y = 210, 58, 44, 20
+    pad_x, pad_top, pad_bottom = 20, 52, 20
     positions = {}
-    for i, node in enumerate(nodes):
-        col, row = i % cols, i // cols
-        x = pad + col * (box_w + gap_x)
-        y = pad + row * (box_h + gap_y)
-        positions[node["id"]] = (x, y, node["title"])
-    width = pad * 2 + cols * box_w + (cols - 1) * gap_x
-    rows = (len(nodes) + cols - 1) // cols
-    height = pad * 2 + rows * box_h + (rows - 1) * gap_y
+    col_of = {}
+    for c, col in enumerate(columns):
+        for r, nid in enumerate(col):
+            x = pad_x + c * (box_w + gap_x)
+            y = pad_top + r * (box_h + gap_y)
+            title = next(n["title"] for n in nodes if n["id"] == nid)
+            positions[nid] = (x, y, title)
+            col_of[nid] = c
+    n_cols = len(columns)
+    n_rows = max(len(col) for col in columns)
+    width = pad_x * 2 + n_cols * box_w + (n_cols - 1) * gap_x
+    height = pad_top + pad_bottom + n_rows * box_h + (n_rows - 1) * gap_y
     ids = {n["id"]: re.sub(r"[^A-Za-z0-9]", "_", n["id"]).upper() for n in nodes}
     edges = []
     for _name, schema in schemas:
@@ -472,13 +493,51 @@ def erd_svg(schemas):
         "<defs><marker id=\"erd-arrow\" markerWidth=\"8\" markerHeight=\"8\" refX=\"7\" refY=\"3\" orient=\"auto\">"
         "<path d=\"M0,0 L7,3 L0,6 Z\" class=\"erd-arrow\" fill=\"#8A5A0C\"/></marker></defs>",
     ]
+    lane = {}
+
+    def slot(key):
+        n = lane.get(key, 0)
+        lane[key] = n + 1
+        return n
+
     for src, dst, _field in edges:
         x1, y1, _ = positions[src]
         x2, y2, _ = positions[dst]
+        c1, c2 = col_of[src], col_of[dst]
+        if src == dst:
+            n = slot(("self", src))
+            x = x1 + box_w
+            y = y1 + 16 + n * 10
+            d = f"M {x:.0f} {y:.0f} C {x + 26:.0f} {y - 14:.0f}, {x + 26:.0f} {y + 18:.0f}, {x:.0f} {y + 12:.0f}"
+        elif c1 == c2:
+            n = slot(("col", c1, min(y1, y2)))
+            gutter = x1 - 8 - n * 4
+            top, bot = (y1 + box_h, y2) if y1 < y2 else (y1, y2 + box_h)
+            mid = x1 + box_w / 2 + (n - 1) * 8
+            d = f"M {mid:.0f} {top:.0f} L {gutter:.0f} {top:.0f} L {gutter:.0f} {bot:.0f} L {mid:.0f} {bot:.0f}"
+        elif abs(c1 - c2) == 1:
+            n = slot(("adj", min(c1, c2), round(y1), round(y2)))
+            if x1 < x2:
+                leave, enter = x1 + box_w, x2
+            else:
+                leave, enter = x1, x2 + box_w
+            y_leave = y1 + 18 + n * 8
+            y_enter = y2 + 18 + (n % 3) * 8
+            elbow = leave + (10 + n * 4) * (1 if leave < enter else -1)
+            d = f"M {leave:.0f} {y_leave:.0f} L {elbow:.0f} {y_leave:.0f} L {elbow:.0f} {y_enter:.0f} L {enter:.0f} {y_enter:.0f}"
+        else:
+            n = slot(("bus", min(c1, c2), max(c1, c2)))
+            bus = 8 + n * 4
+            if x1 < x2:
+                leave, enter = x1 + box_w, x2
+            else:
+                leave, enter = x1, x2 + box_w
+            y_leave = y1 + box_h / 2
+            y_enter = y2 + box_h / 2
+            d = f"M {leave:.0f} {y_leave:.0f} L {leave + (8 if leave < enter else -8):.0f} {y_leave:.0f} L {leave + (8 if leave < enter else -8):.0f} {bus:.0f} L {enter + (-8 if leave < enter else 8):.0f} {bus:.0f} L {enter + (-8 if leave < enter else 8):.0f} {y_enter:.0f} L {enter:.0f} {y_enter:.0f}"
         parts.append(
-            f'<line class="erd-edge" stroke="#8A5A0C" stroke-width="1.25" opacity="0.55" '
-            f'x1="{x1 + box_w / 2:.0f}" y1="{y1 + box_h / 2:.0f}" '
-            f'x2="{x2 + box_w / 2:.0f}" y2="{y2 + box_h / 2:.0f}" marker-end="url(#erd-arrow)"/>'
+            f'<path class="erd-edge" fill="none" stroke="#8A5A0C" stroke-width="1.25" opacity="0.8" '
+            f'd="{d}" marker-end="url(#erd-arrow)"/>'
         )
     for node in nodes:
         x, y, title = positions[node["id"]]
