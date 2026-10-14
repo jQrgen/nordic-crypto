@@ -44,6 +44,10 @@ type Config struct {
 	// ReleaseNoneMinAge is how old a reservation must be before
 	// release -confirm none is accepted. Zero becomes 24 hours.
 	ReleaseNoneMinAge time.Duration
+	// ReleaseConflictDepth is how many confirmations a competing
+	// spend needs before the coins can be paid again. Zero becomes 10.
+	// A value below account.MinConflictDepth is rejected.
+	ReleaseConflictDepth int64
 }
 
 // Chain is the nexad surface the pool uses.
@@ -52,9 +56,11 @@ type Chain interface {
 	SubmitSolution(id int64, nonceHex string) (int64, string, error)
 	GetMiningInfo() (nexa.MiningInfo, error)
 	GetBlock(hash string) (nexa.Block, error)
-	CreatePayout(address string, sats int64) (nexa.SignedTx, error)
+	CreatePayout(address string, sats int64, avoid []string) (nexa.SignedTx, error)
 	SendRaw(raw string) error
-	LookupTx(txid, txidem, raw string) (nexa.TxView, error)
+	LookupTx(txidem string) (nexa.TxView, error)
+	// LockOutpoints calls lockunspent. unlock false locks.
+	LockOutpoints(outpoints []string, unlock bool) error
 	WalletBalance() (int64, error)
 	Unlock(passphrase string, timeout int) error
 	Lock(passphrase string) error
@@ -125,6 +131,12 @@ func New(cfg Config, db *store.Store, node Chain, logger *log.Logger) (*Service,
 	}
 	if cfg.ReleaseNoneMinAge <= 0 {
 		cfg.ReleaseNoneMinAge = 24 * time.Hour
+	}
+	if cfg.ReleaseConflictDepth <= 0 {
+		cfg.ReleaseConflictDepth = 10
+	}
+	if cfg.ReleaseConflictDepth < account.MinConflictDepth {
+		return nil, fmt.Errorf("pool: release conflict depth %d is below %d", cfg.ReleaseConflictDepth, account.MinConflictDepth)
 	}
 	if cfg.PPLNSBlocks <= 0 {
 		cfg.PPLNSBlocks = 2
@@ -468,13 +480,16 @@ func (s *Service) PayOnce() (account.Result, error) {
 		return account.Result{}, err
 	}
 	defer s.node.Lock(s.pass)
+	if err := s.LockReservedCoins(); err != nil {
+		return account.Result{}, err
+	}
 	bal, err := s.node.WalletBalance()
 	if err != nil {
 		return account.Result{}, err
 	}
 	if bal > s.cfg.HotWalletMax {
 		// Still match in-flight rows to the wallet. Do not start a new send.
-		result, recErr := account.Reconcile(s.db, rpcWallet{s.node}, s.cfg.PayoutConfs)
+		result, recErr := account.Reconcile(s.db, rpcWallet{s.node}, s.cfg.PayoutConfs, s.cfg.ReleaseConflictDepth)
 		if recErr != nil {
 			return result, recErr
 		}
@@ -492,7 +507,18 @@ func (s *Service) PayOnce() (account.Result, error) {
 	if left < 0 {
 		left = 0
 	}
-	return account.RunPayouts(&spendCap{Ledger: s.db, left: left}, rpcWallet{s.node}, s.cfg.MinPayout, s.cfg.PayoutConfs)
+	return account.RunPayouts(&spendCap{Ledger: s.db, left: left}, rpcWallet{s.node}, s.cfg.MinPayout, s.cfg.PayoutConfs, s.cfg.ReleaseConflictDepth)
+}
+
+// LockReservedCoins locks every outpoint still reserved, in review, or
+// sent. lockunspent does not survive a restart, so this runs at startup
+// and at the start of each payout pass.
+func (s *Service) LockReservedCoins() error {
+	ops, err := s.db.ReservedOutpoints()
+	if err != nil {
+		return err
+	}
+	return s.node.LockOutpoints(ops, false)
 }
 
 // Reviews lists payouts held for an operator. The coins stay deducted
@@ -513,16 +539,16 @@ func (s *Service) Reviews() ([]account.Payout, error) {
 
 // ResolveReview completes or releases one reserved or review row.
 // action is "complete" or "release". release -confirm names the stored
-// txid and is accepted only when that transaction is abandoned or an
-// input is spent by a different confirmed transaction. "none" is accepted
-// only when the row has no txid and the reservation is at least
+// txidem and is accepted only when a different txidem has spent an input
+// with at least ReleaseConflictDepth confirmations. "none" is accepted
+// only when the row was never signed and the reservation is at least
 // ReleaseNoneMinAge old.
 func (s *Service) ResolveReview(id int64, action, confirm string) error {
 	if err := s.node.Unlock(s.pass, 60); err != nil {
 		return err
 	}
 	defer s.node.Lock(s.pass)
-	return account.ResolveReview(s.db, rpcWallet{s.node}, id, action, s.cfg.PayoutConfs, confirm, s.cfg.ReleaseNoneMinAge)
+	return account.ResolveReview(s.db, rpcWallet{s.node}, id, action, s.cfg.PayoutConfs, confirm, s.cfg.ReleaseNoneMinAge, s.cfg.ReleaseConflictDepth)
 }
 
 // WindowWork is the PPLNS window in difficulty micros: blocks times the
@@ -570,26 +596,38 @@ func compactTarget(nbits string) (*big.Int, error) {
 
 type rpcWallet struct{ n Chain }
 
-func (w rpcWallet) Prepare(address string, sats int64) (account.Signed, error) {
-	signed, err := w.n.CreatePayout(address, sats)
-	return account.Signed{TxID: signed.TxID, TxIdem: signed.TxIdem, Raw: signed.Raw}, err
+func (w rpcWallet) Prepare(address string, sats int64, avoid []string) (account.Signed, error) {
+	signed, err := w.n.CreatePayout(address, sats, avoid)
+	if err != nil {
+		return account.Signed{}, err
+	}
+	return account.Signed{TxID: signed.TxID, TxIdem: signed.TxIdem, Raw: signed.Raw, Inputs: append([]string(nil), signed.Inputs...)}, nil
 }
 
 func (w rpcWallet) Broadcast(raw string) error { return w.n.SendRaw(raw) }
 
-func (w rpcWallet) LookupTx(txid, txidem, raw string) (account.TxState, error) {
-	view, err := w.n.LookupTx(txid, txidem, raw)
+func (w rpcWallet) LookupTx(txidem string) (account.TxState, error) {
+	view, err := w.n.LookupTx(txidem)
 	if err != nil {
 		return account.TxState{}, err
 	}
 	return account.TxState{
-		Payment:   account.Payment{TxID: view.TxID, TxIdem: view.TxIdem, Confirmations: view.Confirmations},
-		InWallet:  view.InWallet,
-		InMempool: view.InMempool,
-		OnChain:   view.OnChain,
-		Abandoned: view.Abandoned,
-		Conflict:  view.Conflict,
+		Payment:     account.Payment{TxID: view.TxID, TxIdem: view.TxIdem, Confirmations: view.Confirmations},
+		InWallet:    view.InWallet,
+		InMempool:   view.InMempool,
+		OnChain:     view.OnChain,
+		Conflict:    view.Conflict,
+		SpendTxIdem: view.SpendTxIdem,
+		SpendConfs:  view.SpendConfs,
 	}, nil
+}
+
+func (w rpcWallet) Lock(outpoints []string) error {
+	return w.n.LockOutpoints(outpoints, false)
+}
+
+func (w rpcWallet) Unlock(outpoints []string) error {
+	return w.n.LockOutpoints(outpoints, true)
 }
 
 // spendCap hides balances the wallet cannot cover. Reserved and sent rows

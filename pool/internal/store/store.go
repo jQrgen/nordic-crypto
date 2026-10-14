@@ -9,6 +9,7 @@ import (
 	"fmt"
 	"math"
 	"os"
+	"strings"
 	"time"
 
 	"github.com/jQrgen/nordic-crypto/pool/internal/account"
@@ -195,6 +196,11 @@ CREATE TABLE IF NOT EXISTS payouts (
     raw_tx TEXT NOT NULL DEFAULT '',
     created_at INTEGER NOT NULL,
     sent_at INTEGER
+);
+CREATE TABLE IF NOT EXISTS payout_inputs (
+    payout_id INTEGER NOT NULL REFERENCES payouts(id),
+    outpoint TEXT NOT NULL,
+    PRIMARY KEY(outpoint)
 );
 `
 
@@ -537,12 +543,17 @@ func (s *Store) Payable(minSats int64) ([]account.Balance, error) {
 	return out, rows.Err()
 }
 
-// Reserve implements account.Ledger. The balance check and the insert of
-// the signed txid, txidem, and raw hex are one transaction, so the row
-// exists before any broadcast and two callers cannot reserve the same coins.
+// Reserve implements account.Ledger. The balance check, the signed
+// txidem and raw hex, and each input outpoint are one transaction, so
+// the row exists before any broadcast and two callers cannot reserve
+// the same coins or the same outpoint.
 func (s *Store) Reserve(address string, amount int64, key string, signed account.Signed) (int64, error) {
 	if amount <= 0 {
 		return 0, account.ErrBelowMin
+	}
+	inputs := uniqueOutpoints(signed.Inputs)
+	if signed.TxIdem != "" && len(inputs) == 0 {
+		return 0, fmt.Errorf("store: signed payout has no inputs")
 	}
 	tx, err := s.db.Begin()
 	if err != nil {
@@ -569,10 +580,54 @@ func (s *Store) Reserve(address string, amount int64, key string, signed account
 	if err != nil {
 		return 0, err
 	}
+	for _, op := range inputs {
+		if _, err := tx.Exec(`INSERT INTO payout_inputs(payout_id, outpoint) VALUES(?,?)`, id, op); err != nil {
+			if isUnique(err) && contains(strings.ToLower(err.Error()), "payout_inputs") {
+				return 0, account.ErrOutpointTaken
+			}
+			return 0, err
+		}
+	}
 	if err := tx.Commit(); err != nil {
 		return 0, err
 	}
 	return id, nil
+}
+
+func uniqueOutpoints(in []string) []string {
+	var out []string
+	seen := map[string]bool{}
+	for _, op := range in {
+		op = strings.TrimSpace(op)
+		if op == "" || seen[op] {
+			continue
+		}
+		seen[op] = true
+		out = append(out, op)
+	}
+	return out
+}
+
+// ReservedOutpoints implements account.Ledger. Failed rows are omitted
+// so a released spend can be paid from other coins.
+func (s *Store) ReservedOutpoints() ([]string, error) {
+	rows, err := s.db.Query(`SELECT i.outpoint FROM payout_inputs i
+		JOIN payouts p ON p.id = i.payout_id
+		WHERE p.status IN ('reserved', 'review', 'sent')
+		ORDER BY i.outpoint`)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var out []string
+	for rows.Next() {
+		var op string
+		if err := rows.Scan(&op); err != nil {
+			return nil, err
+		}
+		out = append(out, op)
+	}
+	return out, rows.Err()
 }
 
 // MarkSent implements account.Ledger. A review row can still be marked
@@ -626,13 +681,18 @@ func (s *Store) Payout(id int64) (account.Payout, error) {
 		return account.Payout{}, err
 	}
 	p.Created = time.Unix(created, 0)
+	inputs, err := s.inputsFor(p.ID)
+	if err != nil {
+		return account.Payout{}, err
+	}
+	p.Inputs = inputs
 	return p, nil
 }
 
 // ReleaseReview implements account.ReviewBook. The row must be reserved
 // or in review. The coins return to the payable balance. The caller has
-// checked that this transaction was never broadcast, is abandoned, or has
-// an input spent by a different confirmed transaction.
+// checked that this transaction was never signed, or that a different
+// txidem spent an input at the configured depth.
 func (s *Store) ReleaseReview(id int64) error {
 	res, err := s.db.Exec(`UPDATE payouts SET status = 'failed' WHERE id = ? AND status IN ('review', 'reserved')`, id)
 	if err != nil {
@@ -672,8 +732,8 @@ func (s *Store) RevertSent(id int64, status string) error {
 	return nil
 }
 
-// Drop implements account.Ledger. A conflicted wallet transaction is not
-// left as paid.
+// Drop implements account.Ledger. A deep spend by a different txidem
+// is not left as paid.
 func (s *Store) Drop(id int64) error {
 	res, err := s.db.Exec(`UPDATE payouts SET status = 'failed', sent_at = NULL
 		WHERE id = ? AND status IN ('reserved', 'review', 'sent')`, id)
@@ -710,21 +770,26 @@ func (s *Store) payoutsByStatus(status string) ([]account.Payout, error) {
 		if err := rows.Scan(&p.ID, &p.Address, &p.Amount, &p.Key, &p.TxID, &p.TxIdem, &p.Raw, &p.Confirmations, &p.Status); err != nil {
 			return nil, err
 		}
+		inputs, err := s.inputsFor(p.ID)
+		if err != nil {
+			return nil, err
+		}
+		p.Inputs = inputs
 		out = append(out, p)
 	}
 	return out, rows.Err()
 }
 
-// NotePayment records a txid or txidem on a row that is not yet sent.
-// Empty strings leave the stored identifier alone, so a later lookup
-// cannot wipe an id that was already durable.
+// NotePayment records a txid on a row that is not yet sent. The txid is
+// informational. A different txidem does not replace the one stored with
+// the reservation. Empty strings leave the stored identifier alone.
 func (s *Store) NotePayment(id int64, txid, txidem string, confs int64) error {
 	_, err := s.db.Exec(`UPDATE payouts SET
 		txid = CASE WHEN ? != '' THEN ? ELSE txid END,
-		txidem = CASE WHEN ? != '' THEN ? ELSE txidem END,
+		txidem = CASE WHEN ? != '' AND (txidem = '' OR lower(txidem) = lower(?)) THEN ? ELSE txidem END,
 		confirmations = ?
 		WHERE id = ? AND status IN ('reserved', 'review')`,
-		txid, txid, txidem, txidem, confs, id)
+		txid, txid, txidem, txidem, txidem, confs, id)
 	return err
 }
 
@@ -743,7 +808,29 @@ func (s *Store) Reserved() ([]account.Payout, error) {
 		if err := rows.Scan(&p.ID, &p.Address, &p.Amount, &p.Key, &p.TxID, &p.TxIdem, &p.Raw, &p.Confirmations, &p.Status); err != nil {
 			return nil, err
 		}
+		inputs, err := s.inputsFor(p.ID)
+		if err != nil {
+			return nil, err
+		}
+		p.Inputs = inputs
 		out = append(out, p)
+	}
+	return out, rows.Err()
+}
+
+func (s *Store) inputsFor(id int64) ([]string, error) {
+	rows, err := s.db.Query(`SELECT outpoint FROM payout_inputs WHERE payout_id = ? ORDER BY outpoint`, id)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	var out []string
+	for rows.Next() {
+		var op string
+		if err := rows.Scan(&op); err != nil {
+			return nil, err
+		}
+		out = append(out, op)
 	}
 	return out, rows.Err()
 }

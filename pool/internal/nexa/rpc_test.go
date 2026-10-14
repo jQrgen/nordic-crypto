@@ -486,21 +486,41 @@ func TestCreatePayoutSignsBeforeBroadcast(t *testing.T) {
 	srv := rpcScript(t, func(method string, params []any) (string, string) {
 		methods = append(methods, method)
 		switch method {
+		case "listunspent":
+			return `[{"outpoint":"prevout","amount":2.00,"confirmations":1}]`, ""
 		case "createrawtransaction":
 			if len(params) != 2 {
 				t.Errorf("createrawtransaction params %#v", params)
 			}
 			in, _ := params[0].([]any)
 			outs, _ := params[1].(map[string]any)
-			if len(in) != 0 || outs[addr] != "1.00" {
+			if len(in) != 1 || outs[addr] != "1.00" {
 				t.Errorf("createrawtransaction %#v", params)
+			}
+			coin, _ := in[0].(map[string]any)
+			if coin["outpoint"] != "prevout" || coin["amount"] != "2.00" {
+				t.Errorf("explicit input %#v", coin)
 			}
 			return `"created"`, ""
 		case "fundrawtransaction":
-			if len(params) != 2 || params[0] != "created" || params[1] != false {
+			if len(params) != 1 || params[0] != "created" {
 				t.Errorf("fundrawtransaction %#v", params)
 			}
 			return `{"hex":"funded","fee":0.01,"changepos":0}`, ""
+		case "decoderawtransaction":
+			if params[0] != "funded" {
+				t.Errorf("decoderawtransaction %#v", params)
+			}
+			return `{"txid":"txid-unsigned","txidem":"idem-pay","vin":[{"outpoint":"prevout"}]}`, ""
+		case "lockunspent":
+			if len(params) != 2 || params[0] != false {
+				t.Errorf("lockunspent %#v", params)
+			}
+			locked, _ := params[1].([]any)
+			if len(locked) != 1 || locked[0] != "prevout" {
+				t.Errorf("locked %#v", params[1])
+			}
+			return `true`, ""
 		case "signrawtransaction":
 			if len(params) != 1 || params[0] != "funded" {
 				t.Errorf("signrawtransaction %#v", params)
@@ -516,32 +536,47 @@ func TestCreatePayoutSignsBeforeBroadcast(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	signed, err := c.CreatePayout(addr, 100)
+	signed, err := c.CreatePayout(addr, 100, nil)
 	if err != nil {
 		t.Fatal(err)
 	}
-	if signed.TxID != "txid-pay" || signed.TxIdem != "idem-pay" || signed.Raw != "signed" {
+	if signed.TxID != "txid-pay" || signed.TxIdem != "idem-pay" || signed.Raw != "signed" || len(signed.Inputs) != 1 || signed.Inputs[0] != "prevout" {
 		t.Fatalf("%+v", signed)
 	}
-	if strings.Join(methods, ",") != "createrawtransaction,fundrawtransaction,signrawtransaction" {
+	if strings.Join(methods, ",") != "listunspent,createrawtransaction,fundrawtransaction,decoderawtransaction,lockunspent,signrawtransaction" {
 		t.Fatalf("methods %v", methods)
+	}
+	for _, m := range methods {
+		if m == "sendrawtransaction" {
+			t.Fatal("signed payout was broadcast")
+		}
 	}
 
 	methods = nil
 	srv2 := rpcScript(t, func(method string, params []any) (string, string) {
 		methods = append(methods, method)
 		switch method {
+		case "listunspent":
+			return `[{"outpoint":"prevout","amount":"2.00"}]`, ""
 		case "createrawtransaction":
 			return `"created"`, ""
 		case "fundrawtransaction":
+			if len(params) != 1 {
+				t.Errorf("fundrawtransaction %#v", params)
+			}
 			return `{"hex":"funded"}`, ""
-		case "signrawtransaction":
-			return `{"hex":"signed","complete":true}`, ""
 		case "decoderawtransaction":
-			if len(params) != 1 || params[0] != "signed" {
+			if params[0] == "funded" {
+				return `{"vin":[{"outpoint":"prevout"}]}`, ""
+			}
+			if params[0] != "signed" {
 				t.Errorf("decoderawtransaction %#v", params)
 			}
-			return `{"txid":"txid-dec","txidem":"idem-dec","vin":[]}`, ""
+			return `{"txid":"txid-dec","txidem":"idem-dec","vin":[{"outpoint":"prevout"}]}`, ""
+		case "lockunspent":
+			return `true`, ""
+		case "signrawtransaction":
+			return `{"hex":"signed","complete":true}`, ""
 		default:
 			t.Errorf("create called %s", method)
 			return `null`, "unexpected"
@@ -552,24 +587,51 @@ func TestCreatePayoutSignsBeforeBroadcast(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	signed, err = c2.CreatePayout(addr, 100)
-	if err != nil || signed.TxID != "txid-dec" || signed.TxIdem != "idem-dec" || signed.Raw != "signed" {
+	signed, err = c2.CreatePayout(addr, 100, nil)
+	if err != nil || signed.TxID != "txid-dec" || signed.TxIdem != "idem-dec" || signed.Raw != "signed" || signed.Inputs[0] != "prevout" {
 		t.Fatalf("%+v %v", signed, err)
 	}
-	if strings.Join(methods, ",") != "createrawtransaction,fundrawtransaction,signrawtransaction,decoderawtransaction" {
+	if strings.Join(methods, ",") != "listunspent,createrawtransaction,fundrawtransaction,decoderawtransaction,lockunspent,signrawtransaction,decoderawtransaction" {
+		t.Fatalf("methods %v", methods)
+	}
+
+	methods = nil
+	srv3 := rpcScript(t, func(method string, params []any) (string, string) {
+		methods = append(methods, method)
+		switch method {
+		case "lockunspent":
+			if params[0] != false {
+				t.Errorf("avoid lock %#v", params)
+			}
+			return `true`, ""
+		case "listunspent":
+			return `[{"outpoint":"prevout","amount":2}]`, ""
+		default:
+			t.Errorf("avoided coin reached %s", method)
+			return `null`, "unexpected"
+		}
+	})
+	defer srv3.Close()
+	c3, err := NewClient(srv3.URL, "u", "p", "")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if _, err := c3.CreatePayout(addr, 100, []string{"prevout"}); err == nil {
+		t.Fatal("reserved outpoint was spent")
+	}
+	if strings.Join(methods, ",") != "lockunspent,listunspent" {
 		t.Fatalf("methods %v", methods)
 	}
 }
 
 func TestLookupTxUsesTheStoredTransaction(t *testing.T) {
-	const raw = "signedhex"
-	wallet := `{"txid":"txid-pay","txidem":"idem-pay","confirmations":2,"abandoned":false}`
+	wallet := `{"txid":"txid-pay","txidem":"idem-pay","confirmations":2}`
 
 	t.Run("wallet", func(t *testing.T) {
-		var methods []string
+		var got []string
 		srv := rpcScript(t, func(method string, params []any) (string, string) {
-			methods = append(methods, method)
-			if method == "gettransaction" && len(params) > 0 && params[0] == "txid-pay" {
+			got = append(got, method+":"+fmt.Sprint(params[0]))
+			if method == "gettransaction" && params[0] == "idem-pay" {
 				return wallet, ""
 			}
 			t.Errorf("unexpected %s %#v", method, params)
@@ -577,12 +639,12 @@ func TestLookupTxUsesTheStoredTransaction(t *testing.T) {
 		})
 		defer srv.Close()
 		c, _ := NewClient(srv.URL, "u", "p", "")
-		view, err := c.LookupTx("txid-pay", "idem-pay", raw)
+		view, err := c.LookupTx("idem-pay")
 		if err != nil || !view.InWallet || view.Conflict || view.TxID != "txid-pay" || view.TxIdem != "idem-pay" || view.Confirmations != 2 {
 			t.Fatalf("%+v %v", view, err)
 		}
-		if strings.Join(methods, ",") != "gettransaction" {
-			t.Fatalf("methods %v", methods)
+		if strings.Join(got, ",") != "gettransaction:idem-pay" {
+			t.Fatalf("calls %v", got)
 		}
 	})
 
@@ -590,9 +652,6 @@ func TestLookupTxUsesTheStoredTransaction(t *testing.T) {
 		var got []string
 		srv := rpcScript(t, func(method string, params []any) (string, string) {
 			got = append(got, method+":"+fmt.Sprint(params[0]))
-			if method == "gettransaction" && params[0] == "txid-old" {
-				return `null`, "Invalid or non-wallet transaction id"
-			}
 			if method == "gettransaction" && params[0] == "idem-pay" {
 				return `{"txid":"txid-new","txidem":"idem-pay","confirmations":3}`, ""
 			}
@@ -601,21 +660,24 @@ func TestLookupTxUsesTheStoredTransaction(t *testing.T) {
 		})
 		defer srv.Close()
 		c, _ := NewClient(srv.URL, "u", "p", "")
-		view, err := c.LookupTx("txid-old", "idem-pay", raw)
-		if err != nil || !view.InWallet || view.TxID != "txid-new" || view.TxIdem != "idem-pay" || view.Confirmations != 3 {
+		view, err := c.LookupTx("idem-pay")
+		if err != nil || !view.InWallet || view.Conflict || view.TxID != "txid-new" || view.TxIdem != "idem-pay" || view.Confirmations != 3 {
 			t.Fatalf("%+v %v calls %v", view, err, got)
+		}
+		if strings.Join(got, ",") != "gettransaction:idem-pay" {
+			t.Fatalf("calls %v", got)
 		}
 	})
 
 	t.Run("mempool", func(t *testing.T) {
-		var methods []string
+		var got []string
 		srv := rpcScript(t, func(method string, params []any) (string, string) {
-			methods = append(methods, method)
+			got = append(got, method+":"+fmt.Sprint(params[0]))
 			switch method {
 			case "gettransaction":
 				return `null`, "Invalid or non-wallet transaction id"
 			case "gettxpoolentry":
-				if params[0] != "txid-pay" {
+				if params[0] != "idem-pay" {
 					t.Errorf("pool id %#v", params)
 				}
 				return `{"size":100}`, ""
@@ -626,25 +688,28 @@ func TestLookupTxUsesTheStoredTransaction(t *testing.T) {
 		})
 		defer srv.Close()
 		c, _ := NewClient(srv.URL, "u", "p", "")
-		view, err := c.LookupTx("txid-pay", "", raw)
+		view, err := c.LookupTx("idem-pay")
 		if err != nil || !view.InMempool || view.InWallet || view.Conflict || view.OnChain {
 			t.Fatalf("%+v %v", view, err)
 		}
-		if strings.Join(methods, ",") != "gettransaction,gettxpoolentry" {
-			t.Fatalf("methods %v", methods)
+		if strings.Join(got, ",") != "gettransaction:idem-pay,gettxpoolentry:idem-pay" {
+			t.Fatalf("calls %v", got)
 		}
 	})
 
 	t.Run("chain", func(t *testing.T) {
 		var methods []string
 		srv := rpcScript(t, func(method string, params []any) (string, string) {
-			methods = append(methods, method)
+			methods = append(methods, method+":"+fmt.Sprint(params[0]))
 			switch method {
 			case "gettransaction":
 				return `null`, "Invalid or non-wallet transaction id"
 			case "gettxpoolentry":
 				return `null`, "Transaction not in txpool"
 			case "getrawtransaction":
+				if params[0] != "idem-pay" {
+					t.Errorf("chain id %#v", params)
+				}
 				return `{"txid":"txid-pay","txidem":"idem-pay","confirmations":4,"blockhash":"aa"}`, ""
 			default:
 				t.Errorf("chain lookup called %s", method)
@@ -653,15 +718,14 @@ func TestLookupTxUsesTheStoredTransaction(t *testing.T) {
 		})
 		defer srv.Close()
 		c, _ := NewClient(srv.URL, "u", "p", "")
-		view, err := c.LookupTx("txid-pay", "idem-pay", raw)
-		if err != nil || !view.OnChain || view.Conflict || view.Confirmations != 4 {
+		view, err := c.LookupTx("idem-pay")
+		if err != nil || !view.OnChain || view.Conflict || view.Confirmations != 4 || view.TxID != "txid-pay" {
 			t.Fatalf("%+v %v methods %v", view, err, methods)
 		}
 	})
 
-	t.Run("conflicting spend", func(t *testing.T) {
-		var outs []bool
-		srv := rpcScript(t, func(method string, params []any) (string, string) {
+	t.Run("missing is not a conflict", func(t *testing.T) {
+		srv := rpcScript(t, func(method string, _ []any) (string, string) {
 			switch method {
 			case "gettransaction":
 				return `null`, "Invalid or non-wallet transaction id"
@@ -669,15 +733,6 @@ func TestLookupTxUsesTheStoredTransaction(t *testing.T) {
 				return `null`, "Transaction not in txpool"
 			case "getrawtransaction":
 				return `null`, "No such mempool or blockchain transaction"
-			case "decoderawtransaction":
-				return `{"txid":"txid-pay","txidem":"idem-pay","vin":[{"outpoint":"prev"}]}`, ""
-			case "gettxout":
-				if params[0] != "prev" || params[1] != float64(-1) {
-					t.Errorf("gettxout %#v", params)
-				}
-				include, _ := params[2].(bool)
-				outs = append(outs, include)
-				return `null`, ""
 			default:
 				t.Errorf("unexpected %s", method)
 				return `null`, "unexpected"
@@ -685,70 +740,112 @@ func TestLookupTxUsesTheStoredTransaction(t *testing.T) {
 		})
 		defer srv.Close()
 		c, _ := NewClient(srv.URL, "u", "p", "")
-		view, err := c.LookupTx("txid-pay", "idem-pay", raw)
-		if err != nil || !view.Conflict || view.InWallet || view.InMempool || view.OnChain {
-			t.Fatalf("%+v %v", view, err)
-		}
-		if len(outs) != 2 || outs[0] || !outs[1] {
-			t.Fatalf("gettxout include-pool flags %v", outs)
-		}
-	})
-
-	t.Run("unconfirmed parent", func(t *testing.T) {
-		srv := rpcScript(t, func(method string, params []any) (string, string) {
-			switch method {
-			case "gettransaction":
-				return `null`, "Invalid or non-wallet transaction id"
-			case "gettxpoolentry":
-				return `null`, "Transaction not in txpool"
-			case "getrawtransaction":
-				return `null`, "No such mempool or blockchain transaction"
-			case "decoderawtransaction":
-				return `{"txid":"txid-pay","txidem":"idem-pay","vin":[{"outpoint":"prev"}]}`, ""
-			case "gettxout":
-				include, _ := params[2].(bool)
-				if !include {
-					return `null`, ""
-				}
-				return `{"value":"1.00"}`, ""
-			default:
-				return `null`, "unexpected"
-			}
-		})
-		defer srv.Close()
-		c, _ := NewClient(srv.URL, "u", "p", "")
-		view, err := c.LookupTx("txid-pay", "idem-pay", raw)
+		view, err := c.LookupTx("idem-pay")
 		if err != nil || view.Conflict || view.InWallet || view.InMempool || view.OnChain {
 			t.Fatalf("%+v %v", view, err)
 		}
 	})
 
 	t.Run("negative confirmations", func(t *testing.T) {
-		srv := rpcScript(t, func(method string, _ []any) (string, string) {
+		var got []string
+		srv := rpcScript(t, func(method string, params []any) (string, string) {
+			got = append(got, fmt.Sprint(params[0]))
 			if method != "gettransaction" {
 				t.Errorf("conflicted wallet tx called %s", method)
+			}
+			if params[0] == "other" {
+				return `{"txid":"other","txidem":"idem-pay","confirmations":-1}`, ""
 			}
 			return `{"txid":"txid-pay","txidem":"idem-pay","confirmations":-1,"walletconflicts":["other"]}`, ""
 		})
 		defer srv.Close()
 		c, _ := NewClient(srv.URL, "u", "p", "")
-		view, err := c.LookupTx("txid-pay", "idem-pay", raw)
-		if err != nil || !view.Conflict || !view.InWallet || view.Abandoned {
+		view, err := c.LookupTx("idem-pay")
+		if err != nil || view.Conflict || view.InWallet || view.SpendTxIdem != "" {
+			t.Fatalf("%+v %v calls %v", view, err, got)
+		}
+	})
+
+	t.Run("nexad omits abandoned", func(t *testing.T) {
+		var got []string
+		srv := rpcScript(t, func(method string, params []any) (string, string) {
+			got = append(got, method+":"+fmt.Sprint(params[0]))
+			if method == "gettransaction" && params[0] == "idem-pay" {
+				return `{"txid":"txid-pay","txidem":"idem-pay","confirmations":0}`, ""
+			}
+			t.Errorf("unexpected %s %#v", method, params)
+			return `null`, "unexpected"
+		})
+		defer srv.Close()
+		c, _ := NewClient(srv.URL, "u", "p", "")
+		view, err := c.LookupTx("idem-pay")
+		if err != nil || view.Conflict || !view.InWallet || view.Confirmations != 0 {
+			t.Fatalf("%+v %v", view, err)
+		}
+		if strings.Join(got, ",") != "gettransaction:idem-pay" {
+			t.Fatalf("calls %v", got)
+		}
+	})
+
+	t.Run("conflicted txid hides confirmed idem", func(t *testing.T) {
+		var got []string
+		srv := rpcScript(t, func(method string, params []any) (string, string) {
+			got = append(got, method+":"+fmt.Sprint(params[0]))
+			if method == "gettransaction" && params[0] == "idem-pay" {
+				return `{"txid":"txid-new","txidem":"idem-pay","confirmations":6}`, ""
+			}
+			t.Errorf("lookup used %s %#v", method, params)
+			return `null`, "unexpected"
+		})
+		defer srv.Close()
+		c, _ := NewClient(srv.URL, "u", "p", "")
+		view, err := c.LookupTx("idem-pay")
+		if err != nil || view.Conflict || !view.InWallet || view.TxID != "txid-new" || view.Confirmations != 6 {
+			t.Fatalf("%+v %v calls %v", view, err, got)
+		}
+		if strings.Join(got, ",") != "gettransaction:idem-pay" {
+			t.Fatalf("calls %v", got)
+		}
+	})
+
+	t.Run("different txidem spend", func(t *testing.T) {
+		srv := rpcScript(t, func(method string, params []any) (string, string) {
+			if method != "gettransaction" {
+				t.Errorf("unexpected %s", method)
+			}
+			switch params[0] {
+			case "idem-pay":
+				return `{"txid":"txid-old","txidem":"idem-pay","confirmations":-10,"walletconflicts":["other-txid"]}`, ""
+			case "other-txid":
+				return `{"txid":"other-txid","txidem":"other-idem","confirmations":10}`, ""
+			default:
+				t.Errorf("unexpected id %#v", params)
+				return `null`, "unexpected"
+			}
+		})
+		defer srv.Close()
+		c, _ := NewClient(srv.URL, "u", "p", "")
+		view, err := c.LookupTx("idem-pay")
+		if err != nil || !view.Conflict || view.InWallet || view.SpendTxIdem != "other-idem" || view.SpendConfs != 10 {
 			t.Fatalf("%+v %v", view, err)
 		}
 	})
 
-	t.Run("abandoned", func(t *testing.T) {
-		srv := rpcScript(t, func(method string, _ []any) (string, string) {
-			if method != "gettransaction" {
-				t.Errorf("abandoned tx called %s", method)
+	t.Run("shallow different txidem", func(t *testing.T) {
+		srv := rpcScript(t, func(method string, params []any) (string, string) {
+			switch params[0] {
+			case "idem-pay":
+				return `{"txid":"txid-old","txidem":"idem-pay","confirmations":-4,"walletconflicts":["other-txid"]}`, ""
+			case "other-txid":
+				return `{"txid":"other-txid","txidem":"other-idem","confirmations":4}`, ""
+			default:
+				return `null`, "unexpected"
 			}
-			return `{"txid":"txid-pay","txidem":"idem-pay","confirmations":0,"abandoned":true}`, ""
 		})
 		defer srv.Close()
 		c, _ := NewClient(srv.URL, "u", "p", "")
-		view, err := c.LookupTx("txid-pay", "idem-pay", raw)
-		if err != nil || !view.Abandoned || view.Conflict || !view.InWallet {
+		view, err := c.LookupTx("idem-pay")
+		if err != nil || !view.Conflict || view.SpendConfs != 4 || view.SpendTxIdem != "other-idem" {
 			t.Fatalf("%+v %v", view, err)
 		}
 	})

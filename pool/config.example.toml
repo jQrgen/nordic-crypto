@@ -20,6 +20,10 @@ hashrate_window = "15m"
 payout_confirmations = 1
 # release -confirm none is refused until the reservation is at least this old.
 release_none_min_age = "24h"
+# A competing spend must have at least this many confirmations before
+# those coins can be paid again. The minimum is 6. Until then the pool
+# rebroadcasts the stored transaction and does not sign another one.
+release_conflict_depth = 10
 # Left in the wallet so a transaction fee cannot drain it.
 tx_reserve = "1.00"
 # The pool refuses to pay when getbalance is above this. Keep the hot

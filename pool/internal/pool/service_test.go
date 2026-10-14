@@ -436,12 +436,12 @@ func TestReconcileWhenWalletIsOverTheCap(t *testing.T) {
 	if err := svc.db.MatureBlock(blocks[0].ID, 5_000, []account.Credit{{Address: minerAddr, Amount: 5_000, Kind: "miner"}}); err != nil {
 		t.Fatal(err)
 	}
-	id, err := svc.db.Reserve(minerAddr, 5_000, "nexapool:held", account.Signed{TxID: "tx-held", TxIdem: "idem-held", Raw: "raw-held"})
+	id, err := svc.db.Reserve(minerAddr, 5_000, "nexapool:held", account.Signed{TxID: "tx-held", TxIdem: "idem-held", Raw: "raw-held", Inputs: []string{"out-held"}})
 	if err != nil {
 		t.Fatal(err)
 	}
 	node.live = map[string]nexa.TxView{
-		"tx-held": {Payment: nexa.Payment{TxID: "tx-held", TxIdem: "idem-held", Confirmations: 1}, InWallet: true},
+		"idem-held": {Payment: nexa.Payment{TxID: "tx-held", TxIdem: "idem-held", Confirmations: 1}, InWallet: true},
 	}
 	result, err := svc.PayOnce()
 	if err == nil || !strings.Contains(err.Error(), "hot wallet") {
@@ -577,7 +577,7 @@ func (f *fakeNode) GetBlock(hash string) (nexa.Block, error) {
 	}
 	return nexa.Block{}, errString("Block not found")
 }
-func (f *fakeNode) CreatePayout(address string, sats int64) (nexa.SignedTx, error) {
+func (f *fakeNode) CreatePayout(address string, sats int64, _ []string) (nexa.SignedTx, error) {
 	if sats <= 0 {
 		return nexa.SignedTx{}, errString("empty payout")
 	}
@@ -586,6 +586,7 @@ func (f *fakeNode) CreatePayout(address string, sats int64) (nexa.SignedTx, erro
 		TxID:   fmt.Sprintf("tx-%d", f.next),
 		TxIdem: fmt.Sprintf("idem-%d", f.next),
 		Raw:    fmt.Sprintf("raw-%d", f.next),
+		Inputs: []string{fmt.Sprintf("out-%d", f.next)},
 	}
 	if f.pending == nil {
 		f.pending = map[string]pendingTx{}
@@ -605,32 +606,23 @@ func (f *fakeNode) SendRaw(raw string) error {
 	if f.live == nil {
 		f.live = map[string]nexa.TxView{}
 	}
-	f.live[p.signed.TxID] = nexa.TxView{
+	f.live[p.signed.TxIdem] = nexa.TxView{
 		Payment:  nexa.Payment{TxID: p.signed.TxID, TxIdem: p.signed.TxIdem, Confirmations: 1},
 		InWallet: true,
 	}
 	f.sent = append(f.sent, sent{p.address, p.amount, p.signed.TxID})
 	return nil
 }
-func (f *fakeNode) LookupTx(txid, txidem, raw string) (nexa.TxView, error) {
-	if view, ok := f.live[txid]; ok {
+func (f *fakeNode) LookupTx(txidem string) (nexa.TxView, error) {
+	if view, ok := f.live[txidem]; ok {
 		return view, nil
-	}
-	for _, view := range f.live {
-		if txidem != "" && view.TxIdem == txidem {
-			return view, nil
-		}
-		if raw != "" && view.TxID != "" {
-			if p, ok := f.pending[raw]; ok && p.signed.TxID == view.TxID {
-				return view, nil
-			}
-		}
 	}
 	return nexa.TxView{}, nil
 }
-func (f *fakeNode) WalletBalance() (int64, error) { return f.balance, nil }
-func (f *fakeNode) Unlock(string, int) error      { return nil }
-func (f *fakeNode) Lock(string) error             { return nil }
+func (f *fakeNode) LockOutpoints([]string, bool) error { return nil }
+func (f *fakeNode) WalletBalance() (int64, error)      { return f.balance, nil }
+func (f *fakeNode) Unlock(string, int) error           { return nil }
+func (f *fakeNode) Lock(string) error                  { return nil }
 func (f *fakeNode) MedianTime() (int64, error) {
 	if f.err != nil && f.mtp == 0 {
 		return 0, f.err
