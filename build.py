@@ -2531,6 +2531,16 @@ def event_place_short(e):
     if place and city and city not in place: place = place + ", " + city
     if place: return place
     return t("online") if e.get("online") else ""
+def event_map_anchor(e):
+    """The map link. href is Google Maps. data-apple-map is Apple Maps, applied on Apple devices by APPLE_MAP_SCRIPT."""
+    google = event_page.map_url(e)
+    if not google:
+        return ""
+    apple = event_page.apple_map_url(e) or ""
+    return f'<a href="{E(google)}" data-apple-map="{E(apple)}" rel="noopener">{E(t("ev_map"))}</a>'
+def event_map_script(html):
+    """The swap script, once, on a page that has a map link."""
+    return event_page.APPLE_MAP_SCRIPT if "data-apple-map" in (html or "") else ""
 def event_link(e, prefix=""):
     """Relative URL of this event's page. prefix is '' on the front page and '../../' under events/previous/."""
     if not e.get("id"):
@@ -2699,7 +2709,7 @@ def build_previous(events, now):
 <p class="meta">{E(t("prev_extra"))} <a href="../../calendar/">{E(t("prev_back"))}</a></p>
 <div class="prevlist">{cal_months(rows, full=False, cls="prev", href_prefix="../../calendar/", head="h2", hl="h3", by_year=True) or f'<p class="empty">{E(t("prev_empty"))}</p>'}</div>
 </div>"""
-    page("events/previous", t("prev_title"), "calendar", body, t("prev_desc"))
+    page("events/previous", t("prev_title"), "calendar", body, t("prev_desc"), event_map_script(body))
 def build_external_stories(ctx):
     """Coverage pages are written by build_coverage_pages, without the assigned picture."""
     return
@@ -2729,7 +2739,11 @@ def events_for_site():
         if e["status"] == "published": e["note"] = ap.get("notes", {}).get(e["id"])  # archive/public: editor's note only
         e["note_i18n"] = (ap.get("notes_i18n") or {}).get(e["id"]) if e.get("note") else None
         site_url.brand_note(e)  # approved.json is local and may still reverse the brand name
-        out.append({k: e.get(k) for k in ("id", "title", "title_orig", "start", "end", "place", "city", "country", "online", "organiser", "url", "source", "source_url", "found", "attendees", "place_source", "paid", "sponsored", "note", "note_i18n", "description", "status")})
+        row = {k: e.get(k) for k in ("id", "title", "title_orig", "start", "end", "place", "city", "country", "online", "organiser", "url", "source", "source_url", "found", "attendees", "place_source", "paid", "sponsored", "note", "note_i18n", "description", "status")}
+        for k in event_page.COORD_KEYS:  # only when stored, so the archive stays unchanged for rows without them
+            if e.get(k) not in (None, "", [], {}):
+                row[k] = e[k]
+        out.append(row)
     # Archive: events whose ids are in events.approve. A status of "published" on the row is not
     # approval. Finished events stay under "Past events". Predatory listings are removed and not shown.
     arkf = P("archive", "events.json"); ark = load(arkf, {"events": []}); by = {}
@@ -2825,8 +2839,8 @@ def build_one_event(e):
     facts = []   # (label, value html, source line)
     tz = event_page.offset_label(e.get("start"))
     facts.append((t("ev_when"), f'<time datetime="{E(e.get("start") or "")}"><b>{E(when)}</b></time>' + (f'<span class="evtz">{E(t("ev_tz"))}: {E(tz)}</span>' if tz else ""), ""))
-    murl = event_page.map_url(e)
-    maplink = f' · <a href="{E(murl)}" rel="noopener">{E(t("ev_map"))}</a>' if murl else ""
+    anchor = event_map_anchor(e)
+    maplink = f" · {anchor}" if anchor else ""
     fact = event_select.location_fact(e)
     if fact:
         if fact["text"] and fact["online"]: loc = fact["text"] + " · " + t("online")
@@ -2839,8 +2853,8 @@ def build_one_event(e):
         facts.append((t("ev_location"), E(loc) + maplink, _source_line(fact["credit"])))
     elif e.get("online"):
         facts.append((t("ev_location"), E(t("online")) + maplink, ""))
-    elif murl:
-        facts.append((t("ev_location"), maplink[3:], ""))
+    elif anchor:
+        facts.append((t("ev_location"), anchor, ""))
     if e.get("organiser"):
         facts.append((t("organiser"), E(e["organiser"]), _source_line(event_backfill.display_credit(e, "organiser"))))
     kind = e.get("event_type")
@@ -2904,7 +2918,7 @@ def build_one_event(e):
     if mint: bits.append(mint)
     body = site_css.style("evpage") + f'<article class="evpage">{"".join(bits)}</article>'
     data = event_page.jsonld(e, BASE + lp() + event_page.slug(e) + "/", about or note or None)
-    page(event_page.slug(e), heading, "calendar", body, desc, (mint_js or "") + event_phase_script(), og=event_og(e, heading, when, place, about or note), head_extra=f'<script type="application/ld+json">{json.dumps(data, ensure_ascii=False).replace("<", "\\u003c")}</script>')
+    page(event_page.slug(e), heading, "calendar", body, desc, (mint_js or "") + event_phase_script() + event_map_script(body), og=event_og(e, heading, when, place, about or note), head_extra=f'<script type="application/ld+json">{json.dumps(data, ensure_ascii=False).replace("<", "\\u003c")}</script>')
 def event_nft_panel(e):
     """Event NFT prototype: the mint panel and its clock script for an upcoming or ongoing event. Empty while the flag is off."""
     if not event_nft.enabled() or not e.get("id"):
@@ -3116,7 +3130,9 @@ def cal_row(e, full=True, href_prefix="", hl="h4"):
         out.append(f'<p class="orig">{E(t("orig_title_ev"))}{E(e["title_orig"])}</p>')
     place = event_place_short(e) or ((event_select.location_fact(e) or {}).get("text") or "")   # backfill rows keep the place in the credited location
     tags = cal_tags(e) if full else ""
-    out.append(f'<p class="meta">{flag(e.get("country"))} <time datetime="{E(e["start"])}">{E(event_when_short(e))}</time>{" · " + E(place) if place else ""}{" " + tags if tags else ""}</p>')
+    anchor = event_map_anchor(e)
+    map_bit = f" · {anchor}" if anchor else ""
+    out.append(f'<p class="meta">{flag(e.get("country"))} <time datetime="{E(e["start"])}">{E(event_when_short(e))}</time>{" · " + E(place) if place else ""}{map_bit}{" " + tags if tags else ""}</p>')
     if full:
         org = [f'{E(t("organiser"))}: {E(e["organiser"])}'] if e.get("organiser") else []
         if e.get("url") and e.get("source"): org.append(f'{E(t("listed_at"))}: <a href="{E(e["url"])}" rel="noopener" target="_blank">{E(e["source"])}</a>')
@@ -3186,8 +3202,10 @@ def build_calendar(ctx):
             eff = event_select.effective_end(e)
             end = eff.isoformat() if eff else ""
         badge = f'<p class="evphase">{E(t("ongoing_h"))}</p>' if kind == "ongoing" else ""
+        anchor = event_map_anchor(e)
+        map_bit = f" · {anchor}" if anchor else ""
         return (f'<li id="e-{E(e["id"])}" data-c="{E(e.get("country"))}" data-start="{E(e.get("start") or "")}" data-end="{E(end)}" data-phase="{E(kind)}">{badge}<h3><a href="{E(e["id"])}/">{E(ttl)}</a></h3>'
-                f'<div class="meta">{flag(e.get("country"))} <time datetime="{E(e["start"])}"><b>{E(when(e))}</b></time> · {E(e.get("place") or t("online"))}{(", " + E(e["city"])) if e.get("city") and e["city"] not in (e.get("place") or "") else ""} {badges(e)}</div>'
+                f'<div class="meta">{flag(e.get("country"))} <time datetime="{E(e["start"])}"><b>{E(when(e))}</b></time> · {E(e.get("place") or t("online"))}{(", " + E(e["city"])) if e.get("city") and e["city"] not in (e.get("place") or "") else ""}{map_bit} {badges(e)}</div>'
                 + (f'<p class="orig">{E(t("orig_title_ev"))}{E(e["title_orig"])}</p>' if e.get("title_orig") and LANG == "en" else "") + f'<div class="meta">{E(t("organiser"))}: {E(e["organiser"])} · {E(t("listed_at"))}: <a href="{E(e["url"])}" rel="noopener" target="_blank">{E(e["source"])}</a></div>'
                 + (f'<p class="sum"{lang_attr(nl)}><b>{E(t("note"))}:</b> {E(note)}</p>' if note else "") + '</li>')
     loc = lambda e: dt.datetime.fromisoformat(e["start"])
@@ -3224,7 +3242,7 @@ function apply(push){var c=cc.filter(function(x){return x.getAttribute('aria-pre
 window.ncCalApply=apply;
 var h=new URLSearchParams(location.hash.slice(1));(h.get('country')||'').split(',').forEach(function(x){cc.forEach(function(b){if(b.dataset.c===x)b.setAttribute('aria-pressed','true')})});
 cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');apply(1)})});apply(0)})();</script>""" % json.dumps(t("n_upcoming", n="{n}"))
-    page("calendar", t("cal_title"), "calendar", body, t("cal_desc"), js + calendar_phase_script())
+    page("calendar", t("cal_title"), "calendar", body, t("cal_desc"), js + calendar_phase_script() + event_map_script(body))
     if LANG == "en": print(f"calendar: {len(upcoming)} upcoming, {len(ongoing)} ongoing {per_c}, {len(past)} past")
 
 def build_academia():

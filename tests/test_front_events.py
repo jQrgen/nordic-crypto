@@ -33,9 +33,9 @@ NEXT6 = [
     "c4a53ca9bd26",  # Uppsala 15 Oct
     "16b9aa68f972",  # Göteborg 18 Oct
     "a1ea7afabcb0",  # Oslo 28 Oct, stored as +01:00
+    "bddf7842a80a",  # Oslo 29 Oct, Cantillon, +01:00
     "a6cadcf35c22",  # Stockholm 5 Nov, +01:00
     "ce0c87469bd8",  # Helsinki 6 Nov, +02:00
-    "7adc8e1ede97",  # Oslo 25 Nov, +01:00
 ]
 ENDED = "019f42a4506c"  # Oslo 14 Oct 17:30–18:30
 PROBE = """<script>
@@ -237,7 +237,7 @@ class FrontEvents(unittest.TestCase):
             self.assertNotIn(ENDED, ids, lang)
             self.assertNotIn("noend", ids, lang)
             # The seventh upcoming card stays in the list, hidden, so the next start can promote it.
-            self.assertEqual(ids[len(NEXT6)], "e884ba1f0333", lang)
+            self.assertEqual(ids[len(NEXT6)], "7adc8e1ede97", lang)
             self.assertTrue(data["soon"][len(NEXT6)]["hidden"], lang)
 
     def test_desktop_shows_the_same_six(self):

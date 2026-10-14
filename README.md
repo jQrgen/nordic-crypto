@@ -325,6 +325,22 @@ and the same path for `venues/{id}`. The token is sent as `Authorization: Bearer
 
 No verified organizer was found for Denmark or Iceland. `"type": "eventbrite-venue"` and `venue_id` are implemented. No physical Nordic venue is subscribed: the venue ids published on the Blockchain Smart Solutions collection are online classrooms.
 
+### Litteraturhus
+
+These programmes are mostly literature. `"keyword_profile": "crypto-money"` keeps a row when the title, the short text or the body has a crypto or monetary-economics term (bitcoin, krypto, blokkjede, blockchain, Cantillon, sentralbank, pengeteori, pengepolitikk, and the same stems in English and the other Nordic languages). A bare penger, pengar, money or inflasjon counts only in the title or the short text, and not on a children's listing (skolebesøk, fortellerstund). kryptisk, kryptografi and premiepenger do not count. The source is not trusted, so a poetry night stays out.
+
+| House | What is read | What is not read |
+|---|---|---|
+| Litteraturhuset Oslo | One public Sanity query, the same content API the site uses (`4bjarlop` / `production`). Date, duration, room, organiser, title and text. The street comes from the house configuration. | Event-page HTML, images |
+| Litteraturhuset i Bergen | The programme page (`litthusbergen.no/program`, Webflow). No iCal, JSON-LD or public API. A keyword hit is opened for the organiser line. | Crescat room calendar, TicketCo, pages that do not match |
+| Litteraturhuset Fredrikstad | The upcoming programme page, then WordPress `/wp-json/wp/v2/event?slug=` for a keyword hit (price and excerpt). | The full event archive (about two thousand past events), TicketCo |
+
+### Nasjonalbiblioteket
+
+`https://www.nb.no/hva-skjer/` is the upcoming programme. There is no calendar-wide iCal. Each event page has schema.org `Event` JSON-LD (the description there is empty) and a per-event “add to calendar” link, which is not a feed. The same events are the WordPress type `event` (`/wp-json/wp/v2/event`), including `meta.event_start_datetime`, `meta.event_end_datetime` and the price line. That collection is about 1,400 past events and cannot be ordered by the event date, so the past archive is not paged.
+
+The intake reads the one upcoming page, then one WordPress request for those slugs, and keeps a row with the same `crypto-money` filter. JSON-LD is fetched only for a keyword hit, for the room and the street. Images are not stored. “Ekstern arrangør” is a category, not the organiser’s name; the name is taken from “arrangerer …” in the text. “Gratis” is stored as free. A time marked to be announced is not invented.
+
 ## Outlet logos on news
 
 Whenever a story is shown (the news list, the screen, our own story pages, and the HTML newsletter digest) the outlet logo sits beside the source name when a checked image is on file. The name is text only when there is no logo. Nothing is drawn or invented. The site brand stays Nordic Crypto. Kaupr is a news source, and its logo appears only next to Kaupr stories.
