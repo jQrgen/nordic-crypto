@@ -199,6 +199,40 @@
    "status": "published"
   },
   {
+   "id": "bddf7842a80a",
+   "title": "Cantillon-effekten & pengar",
+   "title_orig": null,
+   "start": "2026-10-29T19:00:00+01:00",
+   "end": "2026-10-29T20:00:00+01:00",
+   "place": "Kverneland, Litteraturhuset, Wergelandsveien 29",
+   "city": "Oslo",
+   "country": "NO",
+   "online": false,
+   "organiser": "Bitcoinpolitisk institutt Noreg",
+   "url": "https://www.litteraturhuset.no/nb/arrangement/cantillon-effekten-and-pengar",
+   "source": "Litteraturhuset Oslo",
+   "source_url": "https://www.litteraturhuset.no/nb/kalender",
+   "found": "2026-10-14T16:11:33+00:00",
+   "attendees": null,
+   "place_source": {
+    "name": "Litteraturhuset Oslo",
+    "url": "https://www.litteraturhuset.no/nb/arrangement/cantillon-effekten-and-pengar",
+    "retrieved": "2026-10-14T16:11:33+00:00"
+   },
+   "paid": null,
+   "sponsored": null,
+   "note": null,
+   "note_i18n": null,
+   "description": {
+    "text": "Kven var Richard Cantillon? Er pengeteorien hans enno relevant snart 300 år etter at han døydde? Hovudverket til Cantillon - Essai sur la nature du commerce en général - kom ut i 1755 i Paris om lag tjue år etter at han truleg vart myrda i London. Intelligent liv etter døden: Sakte, men sikkert vert særleg pengeteorien til Cantillon stadig oftare nemnt og vist til - ikkje minst i det internasjonale \"bitcoin-miljøet\". Kva går teorien ut på? Har Cantillon noko å læra oss om pengar og pengepolitikk?",
+    "lang": "nn",
+    "source_url": "https://www.litteraturhuset.no/nb/arrangement/cantillon-effekten-and-pengar",
+    "source_name": "Litteraturhuset Oslo",
+    "retrieved": "2026-10-14T16:11:33+00:00"
+   },
+   "status": "published"
+  },
+  {
    "id": "a6cadcf35c22",
    "title": "Stockholm Bitcoin Meetup #54",
    "title_orig": null,

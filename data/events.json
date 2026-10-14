@@ -173,6 +173,38 @@
    }
   },
   {
+   "id": "bddf7842a80a",
+   "title": "Cantillon-effekten & pengar",
+   "start": "2026-10-29T19:00:00+01:00",
+   "end": "2026-10-29T20:00:00+01:00",
+   "place": "Kverneland, Litteraturhuset, Wergelandsveien 29",
+   "city": "Oslo",
+   "country": "NO",
+   "online": false,
+   "organiser": "Bitcoinpolitisk institutt Noreg",
+   "url": "https://www.litteraturhuset.no/nb/arrangement/cantillon-effekten-and-pengar",
+   "source": "Litteraturhuset Oslo",
+   "source_url": "https://www.litteraturhuset.no/nb/kalender",
+   "paid": null,
+   "sponsored": null,
+   "trusted_source": false,
+   "found": "2026-10-14T16:11:33+00:00",
+   "status": "pending",
+   "note": null,
+   "place_source": {
+    "name": "Litteraturhuset Oslo",
+    "url": "https://www.litteraturhuset.no/nb/arrangement/cantillon-effekten-and-pengar",
+    "retrieved": "2026-10-14T16:11:33+00:00"
+   },
+   "description": {
+    "text": "Kven var Richard Cantillon? Er pengeteorien hans enno relevant snart 300 år etter at han døydde? Hovudverket til Cantillon - Essai sur la nature du commerce en général - kom ut i 1755 i Paris om lag tjue år etter at han truleg vart myrda i London. Intelligent liv etter døden: Sakte, men sikkert vert særleg pengeteorien til Cantillon stadig oftare nemnt og vist til - ikkje minst i det internasjonale \"bitcoin-miljøet\". Kva går teorien ut på? Har Cantillon noko å læra oss om pengar og pengepolitikk?",
+    "lang": "nn",
+    "source_url": "https://www.litteraturhuset.no/nb/arrangement/cantillon-effekten-and-pengar",
+    "source_name": "Litteraturhuset Oslo",
+    "retrieved": "2026-10-14T16:11:33+00:00"
+   }
+  },
+  {
    "id": "a6cadcf35c22",
    "title": "Stockholm Bitcoin Meetup #54",
    "start": "2026-11-05T17:30:00+01:00",
@@ -224,6 +256,38 @@
     "source_url": "https://www.meetup.com/helsinki-bitcoin-hobbyists/events/qjzrxgyjcpbjb/",
     "source_name": "Helsinki Bitcoin Hobbyists (Meetup.com)",
     "retrieved": "2026-10-07T23:50:00+00:00"
+   }
+  },
+  {
+   "id": "8ce92490672e",
+   "title": "Bitcoin er tid",
+   "start": "2026-11-11T19:00:00+01:00",
+   "end": "2026-11-11T20:00:00+01:00",
+   "place": "Kverneland, Litteraturhuset, Wergelandsveien 29",
+   "city": "Oslo",
+   "country": "NO",
+   "online": false,
+   "organiser": "Bitcoinpolitisk institutt Noreg",
+   "url": "https://www.litteraturhuset.no/nb/arrangement/bitcoin-er-tid",
+   "source": "Litteraturhuset Oslo",
+   "source_url": "https://www.litteraturhuset.no/nb/kalender",
+   "paid": null,
+   "sponsored": null,
+   "trusted_source": false,
+   "found": "2026-10-14T16:11:33+00:00",
+   "status": "pending",
+   "note": null,
+   "place_source": {
+    "name": "Litteraturhuset Oslo",
+    "url": "https://www.litteraturhuset.no/nb/arrangement/bitcoin-er-tid",
+    "retrieved": "2026-10-14T16:11:33+00:00"
+   },
+   "description": {
+    "text": "Kva har pengar med tid og fysikk å gjera? Og er bitcoin i grunn og botn ei desentralisert klokke? «Pengar er storkna mannesveitte», skreiv Aasmund Olavsson Vinje. Det er ei rå og presis formulering: Arbeid vert gjort no, medan pengar gjer det mogleg å ta med resultatet av arbeidet inn i framtida. I over hundre år har økonomar, ingeniørar og tenkjarar grubla over sambandet mellom pengar og den fysiske verda. H.G. Wells og John Maynard Keynes drøfta energistandardar. Henry Ford ville ha ein valuta knytt til energi.",
+    "lang": "nn",
+    "source_url": "https://www.litteraturhuset.no/nb/arrangement/bitcoin-er-tid",
+    "source_name": "Litteraturhuset Oslo",
+    "retrieved": "2026-10-14T16:11:33+00:00"
    }
   },
   {
@@ -362,5 +426,5 @@
    }
   }
  ],
- "updated": "2026-10-13T02:13:07+00:00"
+ "updated": "2026-10-14T16:11:33+00:00"
 }

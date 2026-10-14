@@ -221,7 +221,7 @@ def approval_bypass():
         src = open(os.path.join(ROOT, rel), encoding="utf-8").read()
         check("publication_status" in src, rel + " publishes only approved events")
     kept = json.load(open(os.path.join(ROOT, "data", "events.json"), encoding="utf-8"))["events"]
-    check(len(kept) == 12, f"twelve stored events kept, got {len(kept)}")
+    check(len(kept) == 15, f"stored events kept, got {len(kept)}")
     orgs = {e.get("organiser") for e in kept}
     for name in ("Swedish Bitcoin Meetups", "Polyteknisk Forening", "Oslo Blockchain Meetup", "Helsinki Bitcoin Hobbyists"):
         check(name in orgs, "kept " + name)
