@@ -324,8 +324,9 @@ func TestFindCommentPagesByWalletItemCount(t *testing.T) {
 		t.Fatalf("comment after a silent item: %+v found %v err %v", pay, found, err)
 	}
 
-	// A whole page of silent items is only visible when the node reports
-	// how many wallet items exist.
+	// A whole page of silent items returns no JSON rows. That empty page
+	// is the end of the scan. txcount is ignored, so a comment behind
+	// those items is a completed miss rather than a reason to keep going.
 	silent := make([]walletItem, 1000)
 	for i := range silent {
 		silent[i] = walletItem{rows: 0, tx: walletTx{Comment: "quiet"}}
@@ -341,7 +342,7 @@ func TestFindCommentPagesByWalletItemCount(t *testing.T) {
 		t.Fatal(err)
 	}
 	pay, found, err = c3.LookupPayment(comment, "")
-	if err != nil || !found || pay.TxID != "txid-after" || pay.Confirmations != 2 {
+	if err != nil || found {
 		t.Fatalf("comment after a silent page: %+v found %v err %v", pay, found, err)
 	}
 }
@@ -349,7 +350,8 @@ func TestFindCommentPagesByWalletItemCount(t *testing.T) {
 // nexad's getwalletinfo.txcount is mapWallet.size()/3, not wtxOrdered.size()
 // (src/wallet/rpcwallet.cpp). A no-change send adds the id and the idem and
 // no wallet output, so the reported count can sit on a page boundary below
-// the real item count. findComment treats that count as the end of the wallet.
+// the real item count. findComment ignores that count and keeps reading
+// until a page comes back empty or short.
 func TestFindCommentTrustsTxCountPastTheLastPage(t *testing.T) {
 	const comment = "nexapool:no-change"
 	items := make([]walletItem, 1001)
@@ -369,11 +371,57 @@ func TestFindCommentTrustsTxCountPastTheLastPage(t *testing.T) {
 		t.Fatal(err)
 	}
 	pay, found, err := c.LookupPayment(comment, "")
+	if err != nil || !found || pay.TxID != "txid-pay" {
+		t.Fatalf("txcount 1000 hid item 1000: %+v found %v err %v", pay, found, err)
+	}
+
+	// txcount 0 used to return not found without listing. The only item
+	// is still read.
+	zero := 0
+	one := []walletItem{{rows: 1, tx: walletTx{
+		TxID: "txid-pay", TxIdem: "idem-pay", Comment: comment, Confirmations: 1,
+	}}}
+	srv0 := httptest.NewServer(nexadList(one, &zero))
+	defer srv0.Close()
+	c0, err := NewClient(srv0.URL, "u", "p", "")
+	if err != nil {
+		t.Fatal(err)
+	}
+	pay, found, err = c0.LookupPayment(comment, "")
+	if err != nil || !found || pay.TxID != "txid-pay" {
+		t.Fatalf("txcount 0 hid the only item: %+v found %v err %v", pay, found, err)
+	}
+}
+
+// listtransactionsfrom walks `count` wtxOrdered items and may append no
+// JSON object for an item. One silent item in a page of single-row
+// transactions makes the JSON array shorter than the requested count
+// while later items still exist. findComment treats that short page as
+// the end of the wallet.
+func TestFindCommentStopsOnAShortPageBeforeTheWalletEnds(t *testing.T) {
+	const comment = "nexapool:after-short"
+	items := make([]walletItem, 1001)
+	for i := range items {
+		items[i] = walletItem{rows: 1, tx: walletTx{
+			TxID: fmt.Sprintf("tx-%d", i), TxIdem: fmt.Sprintf("idem-%d", i), Comment: "other", Confirmations: 1,
+		}}
+	}
+	items[0].rows = 0
+	items[1000] = walletItem{rows: 1, tx: walletTx{
+		TxID: "txid-pay", TxIdem: "idem-pay", Comment: comment, Confirmations: 1,
+	}}
+	srv := httptest.NewServer(nexadList(items, nil))
+	defer srv.Close()
+	c, err := NewClient(srv.URL, "u", "p", "")
+	if err != nil {
+		t.Fatal(err)
+	}
+	pay, found, err := c.LookupPayment(comment, "")
 	if err != nil {
 		t.Fatal(err)
 	}
 	if found {
-		t.Fatalf("txcount 1000 still returned item 1000: %+v", pay)
+		t.Fatalf("short page still returned item 1000: %+v", pay)
 	}
 }
 

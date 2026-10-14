@@ -621,11 +621,10 @@ func TestCrashedPaymentPastTheFirstPageIsSettledNotResent(t *testing.T) {
 	}
 }
 
-// TestReleaseOfATxCountMissPaysAgain is the same crash when getwalletinfo
-// reports txcount = mapWallet.size()/3 and that count stops on a page
-// boundary. The comment is in the wallet. Find reports a completed miss,
-// the row goes to review, and `nexapool review -resolve release` returns
-// the coins. The next pass sends them again.
+// TestReleaseOfATxCountMissPaysAgain is the crash after sendtoaddress
+// when getwalletinfo reports txcount = mapWallet.size()/3. That count used
+// to stop on a page boundary. The scan now reads past it, the row is
+// marked sent, and release does not return the coins.
 func TestReleaseOfATxCountMissPaysAgain(t *testing.T) {
 	const comment = "nexapool:hidden"
 	type item struct {
@@ -699,19 +698,119 @@ func TestReleaseOfATxCountMissPaysAgain(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
+	if wlt.sends != 0 || res.Sent != 1 {
+		t.Fatalf("hidden comment was not settled, or was sent again: %+v sends %d", res, wlt.sends)
+	}
+	if got := book.status(id); got.Status != "sent" || got.TxID != "txid-pay" {
+		t.Fatalf("status %+v, want sent with txid-pay", got)
+	}
+	for _, confirm := range []string{"", "none", "txid-pay"} {
+		if err := ResolveReview(book, wlt, id, "release", 1, confirm); err == nil {
+			t.Fatalf("release returned coins for a payment the scan found, confirm %q", confirm)
+		}
+	}
+	if got := book.status(id); got.Status != "sent" || got.TxID != "txid-pay" {
+		t.Fatalf("release changed %+v", got)
+	}
+	res, err = RunPayouts(book, wlt, 1, 1)
+	if err != nil {
+		t.Fatal(err)
+	}
 	if wlt.sends != 0 || res.Sent != 0 {
-		t.Fatalf("hidden comment was sent on the first pass: %+v sends %d", res, wlt.sends)
+		t.Fatalf("second pass paid again: %+v sends %d", res, wlt.sends)
 	}
-	if got := book.status(id); got.Status != "review" {
-		t.Fatalf("status %s, want review", got.Status)
+}
+
+// TestReleaseOfAShortPageMissPaysAgain is the same crash when the first
+// page of wallet items emits fewer JSON rows than the requested count.
+// nexad still has later items. The scan reports a completed miss, the row
+// has no txid, and -confirm none returns the coins. The next pass sends
+// them again.
+func TestReleaseOfAShortPageMissPaysAgain(t *testing.T) {
+	const comment = "nexapool:short"
+	type item struct {
+		rows int
+		body map[string]any
 	}
-	if err := ResolveReview(book, wlt, id, "complete", 1); err == nil {
+	wallet := make([]item, 1001)
+	for i := 0; i < 1001; i++ {
+		wallet[i] = item{rows: 1, body: map[string]any{
+			"txid": fmt.Sprintf("old-%d", i), "txidem": fmt.Sprintf("old-idem-%d", i),
+			"comment": "other", "confirmations": 1,
+		}}
+	}
+	wallet[0].rows = 0
+	wallet[1000] = item{rows: 1, body: map[string]any{
+		"txid": "txid-pay", "txidem": "idem-pay", "comment": comment, "confirmations": 1,
+	}}
+	srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		raw, _ := io.ReadAll(r.Body)
+		var req struct {
+			Method string `json:"method"`
+			Params []any  `json:"params"`
+		}
+		if err := json.Unmarshal(raw, &req); err != nil {
+			http.Error(w, "bad", 500)
+			return
+		}
+		if req.Method != "listtransactionsfrom" {
+			http.Error(w, "bad", 500)
+			return
+		}
+		from := int(req.Params[2].(float64))
+		count := int(req.Params[1].(float64))
+		if from > len(wallet) {
+			fmt.Fprintf(w, `{"result":[],"error":null,"id":"nexapool"}`)
+			return
+		}
+		end := from + count
+		if end > len(wallet) {
+			end = len(wallet)
+		}
+		var rows []map[string]any
+		for _, it := range wallet[from:end] {
+			for n := 0; n < it.rows; n++ {
+				rows = append(rows, it.body)
+			}
+		}
+		if rows == nil {
+			rows = []map[string]any{}
+		}
+		buf, _ := json.Marshal(map[string]any{"result": rows, "error": nil, "id": "nexapool"})
+		w.Header().Set("Content-Type", "application/json")
+		w.Write(buf)
+	}))
+	defer srv.Close()
+	client, err := nexa.NewClient(srv.URL, "u", "p", "")
+	if err != nil {
+		t.Fatal(err)
+	}
+	book := newMem(crashAddr, crashAmt)
+	id, err := book.Reserve(crashAddr, crashAmt, comment)
+	if err != nil {
+		t.Fatal(err)
+	}
+	wlt := &lookupWallet{c: client, pay: Payment{TxID: "txid-second", TxIdem: "idem-second", Confirmations: 1}}
+	res, err := RunPayouts(book, wlt, 1, 1)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if wlt.sends != 0 || res.Sent != 0 {
+		t.Fatalf("short page settled or sent: %+v sends %d", res, wlt.sends)
+	}
+	if got := book.status(id); got.Status != "review" || got.TxID != "" {
+		t.Fatalf("status %+v, want review with no txid", got)
+	}
+	if err := ResolveReview(book, wlt, id, "complete", 1, ""); err == nil {
 		t.Fatal("complete marked a lookup miss as sent")
 	}
-	if got := book.status(id); got.Status != "review" {
-		t.Fatalf("complete changed status to %s", got.Status)
+	if err := ResolveReview(book, wlt, id, "release", 1, ""); err == nil {
+		t.Fatal("release without -confirm returned the coins")
 	}
-	if err := ResolveReview(book, wlt, id, "release", 1); err != nil {
+	if err := ResolveReview(book, wlt, id, "release", 1, "txid-pay"); err == nil {
+		t.Fatal("release naming a txid the row does not store returned the coins")
+	}
+	if err := ResolveReview(book, wlt, id, "release", 1, "none"); err != nil {
 		t.Fatal(err)
 	}
 	if got := book.status(id); got.Status != "failed" {

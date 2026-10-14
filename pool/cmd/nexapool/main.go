@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"os"
 	"os/signal"
+	"strings"
 	"syscall"
 	"time"
 
@@ -127,6 +128,7 @@ func reviewCommand(logger *log.Logger, args []string) error {
 	path := fs.String("config", "/etc/nexapool/nexapool.toml", "path to the TOML configuration")
 	id := fs.Int64("id", 0, "payout id to resolve")
 	action := fs.String("resolve", "", "complete or release")
+	confirm := fs.String("confirm", "", "for release: the txid stored on the row, or none when it has no txid")
 	fs.SetOutput(os.Stderr)
 	if err := fs.Parse(args); err != nil {
 		return err
@@ -188,17 +190,20 @@ func reviewCommand(logger *log.Logger, args []string) error {
 			}
 			fmt.Printf("id=%d address=%s amount=%s key=%s txid=%s txidem=%s\n",
 				p.ID, p.Address, nexa.FormatNEX(p.Amount), p.Key, p.TxID, p.TxIdem)
-			fmt.Println("resolve with -resolve complete or -resolve release")
+			fmt.Println("resolve with -resolve complete, or -resolve release -confirm <txid|none>")
 			return nil
 		}
 		return fmt.Errorf("payout %d is not in review", *id)
+	}
+	if *action == "release" && strings.TrimSpace(*confirm) == "" {
+		return fmt.Errorf("release requires -confirm with the expected txid, or -confirm none")
 	}
 	unlock, err := db.LockPayouts()
 	if err != nil {
 		return err
 	}
 	defer unlock()
-	if err := svc.ResolveReview(*id, *action); err != nil {
+	if err := svc.ResolveReview(*id, *action, *confirm); err != nil {
 		return err
 	}
 	if *action == "release" {

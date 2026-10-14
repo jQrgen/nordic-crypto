@@ -349,20 +349,23 @@ func (c *Client) getPayment(id string) (Payment, bool, error) {
 //
 // nexad's listtransactionsfrom counts wtxOrdered items in from and count.
 // ListTransactions then appends one JSON object per output, so a send
-// with change is two rows and an item can emit none. Advancing from by
-// the JSON length skips the rest of the wallet, and treating a short
-// JSON page as the end stops the scan on a single silent item. This
-// pages by wallet-item count instead. When getwalletinfo reports
-// txcount, that count is the length of the scan. Otherwise from advances
-// by the requested item count and only an empty page is the end.
+// with change is two rows and an item can emit none. from advances by
+// the requested item count, not by the JSON length, so a two-row item
+// does not skip the next page.
+//
+// getwalletinfo.txcount is mapWallet.size()/3, not the length of
+// wtxOrdered, and is ignored. A no-change send is two map entries and no
+// wallet output, so that count can sit below the item the scan still has
+// to read. The scan ends only when a page comes back empty or short. An
+// error, including a scan that runs past the safety cap, is an unfinished
+// search and not a miss.
 func (c *Client) findComment(comment string) (Payment, bool, error) {
 	const page = 1000
-	items, known := c.walletItemCount()
-	if known && items == 0 {
-		return Payment{}, false, nil
-	}
 	from := 0
 	for {
+		if from > 5_000_000 {
+			return Payment{}, false, fmt.Errorf("nexa: wallet scan did not finish")
+		}
 		var raw json.RawMessage
 		if err := c.Call("listtransactionsfrom", []any{"*", page, from, true}, &raw); err != nil {
 			return Payment{}, false, err
@@ -377,42 +380,15 @@ func (c *Client) findComment(comment string) (Payment, bool, error) {
 			}
 			return tx.payment(), true, nil
 		}
+		if len(txs) < page {
+			return Payment{}, false, nil
+		}
 		next := from + page
 		if next <= from {
 			return Payment{}, false, fmt.Errorf("nexa: listtransactionsfrom did not advance")
 		}
-		if known {
-			if next >= items {
-				return Payment{}, false, nil
-			}
-			from = next
-			continue
-		}
-		// Without a count, an empty page is past the last wallet item.
-		// A short page is not: one item can emit zero rows while later
-		// items in the same count window, and the next window, still
-		// have the comment.
-		if len(txs) == 0 {
-			return Payment{}, false, nil
-		}
-		if from > 5_000_000 {
-			return Payment{}, false, fmt.Errorf("nexa: wallet scan did not finish")
-		}
 		from = next
 	}
-}
-
-// walletItemCount reads getwalletinfo.txcount. ok is false when the node
-// does not report a count; the caller then pages until an empty page.
-// A missing method is not a failed search.
-func (c *Client) walletItemCount() (int, bool) {
-	var info struct {
-		TxCount *int `json:"txcount"`
-	}
-	if err := c.Call("getwalletinfo", []any{}, &info); err != nil || info.TxCount == nil || *info.TxCount < 0 {
-		return 0, false
-	}
-	return *info.TxCount, true
 }
 
 // MedianTime is the node's median time past, from getblockchaininfo.

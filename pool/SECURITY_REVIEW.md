@@ -317,3 +317,56 @@ On this machine, `GOTOOLCHAIN=go1.27.2`, from `pool/`:
 2. **Low.** `tailstorm = "off"`, or `tailstorm_activation` still above the node's median time, ignores a parent nexad is already sending. Shares are checked as pre-fork. The sample default is `auto` with the override unset. `pool/internal/pool/service.go:276`.
 3. **Low.** A new connection restarts the 3 minute submit grace, the ban counter, and the burst of 256. Per-IP and the global cap still apply, and rejected submits do not run NexaPow. `pool/internal/stratum/server.go:326`, `pool/internal/stratum/server.go:607`.
 4. **Low.** While an immature block's PPLNS window is unfilled, the 14-day share prune runs with `keep` 0. `pool/internal/pool/service.go:442`.
+
+## Re-check at a93d1c6
+
+Reviewed `a93d1c6704bee99a171c5fa56323be689f2a30ae` on `cursor/nexa-pool-4f40` by reading the code and running the tests below. nexad is still `dev` at `37fe286` (`listtransactionsfrom` and `ListTransactions` in `src/wallet/rpcwallet.cpp`, `GetAmounts` and `GetDepthInMainChain` in `src/wallet/wallet.cpp`). The diff from `e1e3bac` is the comment scan and `nexapool review -confirm`. Nothing in this file was pushed onto the PR branch.
+
+**Verdict: not PASS.**
+
+`getwalletinfo.txcount` is no longer the end of the scan, and the two tests that reproduced that miss now pass. A short JSON page is still treated as a finished search. nexad can return a short page while `wtxOrdered` has more items, and `release -confirm none` then pays the crashed payout again.
+
+### What this commit closes
+
+`findComment` (`pool/internal/nexa/rpc.go:362`) no longer calls `getwalletinfo`. `from` advances by the requested item count, 1000, which is the unit `listtransactionsfrom` uses for `from` and `count` (`src/wallet/rpcwallet.cpp:2202`). A page of two-row items no longer skips the next thousand wallet items. `TestFindCommentTrustsTxCountPastTheLastPage` finds the comment on item 1000 when `txcount` is 1000, and it finds the only item when `txcount` is 0. `TestReleaseOfATxCountMissPaysAgain` settles that row as sent and refuses `release` for `""`, `none`, and the stored txid. The second pass does not send.
+
+`ResolveReview` (`payout.go:308`) returns the lookup error (`payout.go:320`), so an RPC failure is not a miss. `complete` still requires a found payment, a non-empty txid, and enough confirmations (`payout.go:324`). `release` refuses a found payment (`payout.go:336`), refuses an empty `-confirm` (`payout.go:340`), accepts `none` only when the row's txid is empty (`payout.go:343`), and otherwise requires `-confirm` to match the stored txid (`payout.go:347`). `TestResolveReviewCompletesOrReleases` covers those refusals.
+
+A `Call` error or a JSON decode error returns from `findComment` (`rpc.go:370`, `rpc.go:374`). `finishExisting` leaves the row reserved (`payout.go:168`). `recheckSent` leaves a sent row sent (`payout.go:215`). The scan stops with an error once `from` passes 5,000,000 (`rpc.go:366`), which is 5,001 pages and then an unfinished search. `from` increases by 1000, and a `next <= from` result is also an error (`rpc.go:387`).
+
+The rest of `e1e3bac` is untouched by this diff: Tailstorm, the coinbase address, the submit caps, maturity, prune, the hot-wallet reconcile, `ntime`, and the CSP. `go test -race -count=1 ./...` covers those packages and passed.
+
+### Short page is not the end of the wallet
+
+Severity: **high**. `pool/internal/nexa/rpc.go:383`, `pool/internal/account/payout.go:350`.
+
+`listtransactionsfrom` walks `wtxOrdered` (`rpcwallet.cpp:2208`). Each step counts as one item toward `count`, then `ListTransactions` appends zero or more JSON objects. The function returns an empty array when `from` is already past the map (`rpcwallet.cpp:2203`). A page whose JSON array is shorter than 1000 is the end of the wallet only when that loop stopped because the iterator reached the end.
+
+It also returns a short array when the loop consumed a full `count` and some of those items emitted nothing:
+
+- `GetAmounts` skips every output `IsChange` accepts (`wallet.cpp:1777`). `IsChange` is an output that pays this wallet and is not in the address book (`wallet.cpp:1450`). If every output of a debit is change, `listSent` is empty. The send loop still enters when `nFee != 0`, and the inner loop appends nothing (`rpcwallet.cpp:1849`).
+- Received rows are appended only when `GetDepthInMainChain() >= 0` (`rpcwallet.cpp:1878`). A conflicted transaction whose block is still on the active chain has negative depth (`wallet.cpp:4977`, `MarkConflicted` at `wallet.cpp:1325`). A receive with no debit then contributes no row.
+- The pool passes `includeWatchonly` true (`rpc.go:370`), so the filter is `ISMINE_SPENDABLE | ISMINE_WATCH_ONLY` (`rpcwallet.cpp:2190`). Watch-only outputs are included. They do not shorten the page.
+- Abandoned sends are still appended, with `abandoned` set (`rpcwallet.cpp:1872`). Abandoning a send does not remove its row.
+- The account argument is `"*"`, so neither wallet transactions nor accounting `move` entries are dropped for the account name.
+
+One silent item in a page of single-row transactions makes `len(txs)` 999. `findComment` then returns a completed miss (`rpc.go:383`). The comment's own code says an item can emit none, and the stop condition treats that page as the end. `TestFindCommentPagesByWalletItemCount` still finds a comment after one silent item only because the other items in that test emit two rows, so the JSON array stays longer than 1000. `TestFindCommentStopsOnAShortPageBeforeTheWalletEnds` is the one-row case: item 0 emits nothing, item 1000 holds the comment, and `LookupPayment` returns not found with a nil error.
+
+That nil error is what `release` requires. The crash between `sendtoaddress` and `NotePayment` leaves the review row with an empty txid, so `-confirm none` is the accepted confirmation (`payout.go:343`). `TestReleaseOfAShortPageMissPaysAgain` reserves that row, sees `review` and zero sends, sees `complete` and a release without `-confirm` refused, sees `-confirm none` succeed, and sees the next `RunPayouts` transmit the payout. The original send is still in the wallet.
+
+A final page that really is the end of `wtxOrdered` is also short, and stopping there is right. A page of multi-output items can be 1000 or more JSON rows even when fewer than 1000 items remain; the next request then comes back empty and the scan stops. The JSON length cannot tell a full item page that contained a silent entry from the last page of the wallet.
+
+### Tests and tools
+
+On this machine, `GOTOOLCHAIN=go1.27.2`, from `pool/`:
+
+| Command | Result |
+| --- | --- |
+| `go test -race -count=1 ./...` | pass, including `TestFindCommentTrustsTxCountPastTheLastPage` and `TestReleaseOfATxCountMissPaysAgain` |
+| `go vet ./...` | pass |
+| `staticcheck` 2026.2.2 (0.8.2) `./...` | pass |
+| `govulncheck` v1.9.0 `./...` | pass. Go 1.27.2, vuln DB updated 2026-10-08. No vulnerabilities found. |
+
+### Open item
+
+1. **High.** `findComment` ends a scan when a page has fewer than 1000 JSON rows. `listtransactionsfrom` can return that page after walking 1000 wallet items, because a change-only debit and a conflicted receive emit no row. The crash before `NotePayment` is then a completed miss, and `nexapool review -resolve release -confirm none` pays it again. `pool/internal/nexa/rpc.go:383`, `pool/internal/account/payout.go:350`. nexad `src/wallet/rpcwallet.cpp:2208` and `src/wallet/rpcwallet.cpp:1849`.

@@ -301,8 +301,11 @@ type ReviewBook interface {
 // least minConfs confirmations. "release" marks it failed only when a
 // finished search does not find the send, which returns the coins to the
 // payable balance. Releasing a send the wallet still has would pay twice,
-// so that is refused.
-func ResolveReview(book ReviewBook, wallet Wallet, id int64, action string, minConfs int64) error {
+// so that is refused. confirm is required for release: it is the txid
+// stored on the row, or the word "none" when that row has no txid. A
+// search that does not finish is not a miss, and an empty confirm is not
+// an acknowledgement.
+func ResolveReview(book ReviewBook, wallet Wallet, id int64, action string, minConfs int64, confirm string) error {
 	if minConfs < 1 {
 		minConfs = 1
 	}
@@ -332,6 +335,17 @@ func ResolveReview(book ReviewBook, wallet Wallet, id int64, action string, minC
 	case "release":
 		if found {
 			return fmt.Errorf("account: wallet still has payout %d (%s); refusing to release", id, pay.TxID)
+		}
+		confirm = strings.TrimSpace(confirm)
+		if confirm == "" {
+			return fmt.Errorf("account: release of payout %d requires confirmation of the expected txid, or none", id)
+		}
+		if strings.EqualFold(confirm, "none") {
+			if p.TxID != "" {
+				return fmt.Errorf("account: payout %d has txid %s; confirm that id, not none", id, p.TxID)
+			}
+		} else if p.TxID == "" || !strings.EqualFold(confirm, p.TxID) {
+			return fmt.Errorf("account: confirmation does not match payout %d", id)
 		}
 		return book.ReleaseReview(id)
 	default:
