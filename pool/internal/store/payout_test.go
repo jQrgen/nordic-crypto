@@ -572,44 +572,6 @@ func TestAbandonedSentPayoutIsSignedAgain(t *testing.T) {
 	}
 }
 
-// TestAbandonedSentPayoutIsSignedAgain records that an abandoned flag drops
-// the sent row and the next pass signs a different transaction for the same
-// balance. The stored hex is not reused.
-func TestAbandonedSentPayoutIsSignedAgain(t *testing.T) {
-	s := openTest(t)
-	credit(t, s, addrA, minPay, "mature")
-	w := newWallet()
-	if _, err := account.RunPayouts(s, w, minPay, 1); err != nil {
-		t.Fatal(err)
-	}
-	var old string
-	if err := s.db.QueryRow(`SELECT txid FROM payouts WHERE address = ? AND status = 'sent'`, addrA).Scan(&old); err != nil {
-		t.Fatal(err)
-	}
-	w.abandon[old] = true
-	res, err := account.RunPayouts(s, w, minPay, 1)
-	if err != nil {
-		t.Fatal(err)
-	}
-	if res.Failed != 1 || res.Sent != 1 || w.prepares != 2 || w.broadcasts != 2 {
-		t.Fatalf("abandon pass %+v prepares %d broadcasts %d", res, w.prepares, w.broadcasts)
-	}
-	var failed, sent int
-	var newTx string
-	if err := s.db.QueryRow(`SELECT
-		SUM(CASE WHEN status = 'failed' AND txid = ? THEN 1 ELSE 0 END),
-		SUM(CASE WHEN status = 'sent' AND txid != ? THEN 1 ELSE 0 END)
-		FROM payouts WHERE address = ?`, old, old, addrA).Scan(&failed, &sent); err != nil {
-		t.Fatal(err)
-	}
-	if err := s.db.QueryRow(`SELECT txid FROM payouts WHERE address = ? AND status = 'sent'`, addrA).Scan(&newTx); err != nil {
-		t.Fatal(err)
-	}
-	if failed != 1 || sent != 1 || newTx == old || newTx == "" {
-		t.Fatalf("abandoned %s failed %d sent-other %d new %s", old, failed, sent, newTx)
-	}
-}
-
 func TestResolveReviewCompletesOrReleases(t *testing.T) {
 	s := openTest(t)
 	credit(t, s, addrA, minPay, "mature")

@@ -28,25 +28,25 @@ func TestSplitDoesNotPayWrappedWork(t *testing.T) {
 
 type countingWallet struct{ prepares int }
 
-func (w *countingWallet) Prepare(string, int64) (Signed, error) {
+func (w *countingWallet) Prepare(string, int64, []string) (Signed, error) {
 	w.prepares++
-	return Signed{TxID: "tx", TxIdem: "idem", Raw: "raw"}, nil
+	return Signed{TxID: "tx", TxIdem: "idem", Raw: "raw", Inputs: []string{"out"}}, nil
 }
-func (w *countingWallet) Broadcast(string) error { return nil }
-func (w *countingWallet) LookupTx(string, string, string) (TxState, error) {
-	return TxState{}, nil
-}
+func (w *countingWallet) Broadcast(string) error           { return nil }
+func (w *countingWallet) LookupTx(string) (TxState, error) { return TxState{}, nil }
+func (w *countingWallet) Lock([]string) error              { return nil }
+func (w *countingWallet) Unlock([]string) error            { return nil }
 
 func TestNegativePayoutIsNotSent(t *testing.T) {
 	w := &countingWallet{}
-	res, err := RunPayouts(rejectingLedger{}, w, 1, 1)
+	res, err := RunPayouts(rejectingLedger{}, w, 1, 1, 10)
 	if err != nil {
 		t.Fatal(err)
 	}
 	if res.Sent != 0 || w.prepares != 0 {
 		t.Fatalf("sent %+v prepares %d", res, w.prepares)
 	}
-	if _, err := RunPayouts(rejectingLedger{}, w, -1, 1); err == nil {
+	if _, err := RunPayouts(rejectingLedger{}, w, -1, 1, 10); err == nil {
 		t.Fatal("negative minimum was accepted")
 	}
 }
@@ -56,6 +56,7 @@ type rejectingLedger struct{}
 func (rejectingLedger) Payable(int64) ([]Balance, error) {
 	return []Balance{{Address: "a", Amount: -5}}, nil
 }
+func (rejectingLedger) ReservedOutpoints() ([]string, error) { return nil, nil }
 func (rejectingLedger) Reserve(string, int64, string, Signed) (int64, error) {
 	return 0, ErrBelowMin
 }

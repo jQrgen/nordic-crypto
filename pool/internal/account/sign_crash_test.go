@@ -12,6 +12,7 @@ type dyingBook struct{}
 func (dyingBook) Payable(int64) ([]Balance, error) {
 	return []Balance{{Address: "nexa:qqqqzqsrqszsvpcgpy9qkrqdpc83qygjzv5cxgkyhm", Amount: 100}}, nil
 }
+func (dyingBook) ReservedOutpoints() ([]string, error) { return nil, nil }
 
 func (dyingBook) Reserve(string, int64, string, Signed) (int64, error) {
 	return 0, errors.New("database commit lost")
@@ -31,9 +32,9 @@ type crashWallet struct {
 	broadcasts int
 }
 
-func (w *crashWallet) Prepare(string, int64) (Signed, error) {
+func (w *crashWallet) Prepare(string, int64, []string) (Signed, error) {
 	w.prepares++
-	return Signed{TxID: "txid-1", TxIdem: "idem-1", Raw: "deadbeef"}, nil
+	return Signed{TxID: "txid-1", TxIdem: "idem-1", Raw: "deadbeef", Inputs: []string{"out-1"}}, nil
 }
 
 func (w *crashWallet) Broadcast(string) error {
@@ -41,13 +42,13 @@ func (w *crashWallet) Broadcast(string) error {
 	return nil
 }
 
-func (w *crashWallet) LookupTx(string, string, string) (TxState, error) {
-	return TxState{}, nil
-}
+func (w *crashWallet) LookupTx(string) (TxState, error) { return TxState{}, nil }
+func (w *crashWallet) Lock([]string) error              { return nil }
+func (w *crashWallet) Unlock([]string) error            { return nil }
 
 func TestCrashBeforeReserveDoesNotBroadcast(t *testing.T) {
 	w := &crashWallet{}
-	_, err := RunPayouts(dyingBook{}, w, 1, 1)
+	_, err := RunPayouts(dyingBook{}, w, 1, 1, 10)
 	if err == nil {
 		t.Fatal("reserve failure was ignored")
 	}

@@ -19,15 +19,18 @@ type safeWallet struct {
 	txs        []*fakeTx
 }
 
-func (w *safeWallet) Prepare(string, int64) (account.Signed, error) {
+func (w *safeWallet) Prepare(string, int64, []string) (account.Signed, error) {
 	n := w.next.Add(1)
 	w.prepares.Add(1)
 	tx := &fakeTx{txid: fmt.Sprintf("tx-%d", n), idem: fmt.Sprintf("idem-%d", n), raw: fmt.Sprintf("raw-%d", n)}
 	w.mu.Lock()
 	w.txs = append(w.txs, tx)
 	w.mu.Unlock()
-	return account.Signed{TxID: tx.txid, TxIdem: tx.idem, Raw: tx.raw}, nil
+	return account.Signed{TxID: tx.txid, TxIdem: tx.idem, Raw: tx.raw, Inputs: []string{tx.raw}}, nil
 }
+
+func (w *safeWallet) Lock([]string) error   { return nil }
+func (w *safeWallet) Unlock([]string) error { return nil }
 
 func (w *safeWallet) Broadcast(raw string) error {
 	w.mu.Lock()
@@ -42,11 +45,11 @@ func (w *safeWallet) Broadcast(raw string) error {
 	return errors.New("unknown raw transaction")
 }
 
-func (w *safeWallet) LookupTx(txid, idem, raw string) (account.TxState, error) {
+func (w *safeWallet) LookupTx(idem string) (account.TxState, error) {
 	w.mu.Lock()
 	defer w.mu.Unlock()
 	for _, tx := range w.txs {
-		if tx.txid == txid || tx.idem == idem || tx.raw == raw {
+		if tx.idem == idem {
 			if !tx.visible {
 				return account.TxState{}, nil
 			}
@@ -72,7 +75,7 @@ func TestConcurrentPayoutReservesTheBalanceOnce(t *testing.T) {
 		go func() {
 			defer wg.Done()
 			<-start
-			if _, err := account.RunPayouts(s, w, minPay, 1); err != nil {
+			if _, err := account.RunPayouts(s, w, minPay, 1, 10); err != nil {
 				errMu.Lock()
 				errs = append(errs, err)
 				errMu.Unlock()
@@ -92,7 +95,7 @@ func TestConcurrentPayoutReservesTheBalanceOnce(t *testing.T) {
 		t.Fatalf("broadcasts %d, want 1 (prepares %d, busy errors %d)", got, w.prepares.Load(), len(errs))
 	}
 	prepared := w.prepares.Load()
-	res, err := account.RunPayouts(s, w, minPay, 1)
+	res, err := account.RunPayouts(s, w, minPay, 1, 10)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -110,12 +113,12 @@ type blindWallet struct {
 	raw        string
 }
 
-func (w *blindWallet) Prepare(string, int64) (account.Signed, error) {
+func (w *blindWallet) Prepare(string, int64, []string) (account.Signed, error) {
 	w.mu.Lock()
 	defer w.mu.Unlock()
 	w.prepares++
 	w.raw = "raw-blind"
-	return account.Signed{TxID: "txid-blind", TxIdem: "idem-blind", Raw: w.raw}, nil
+	return account.Signed{TxID: "txid-blind", TxIdem: "idem-blind", Raw: w.raw, Inputs: []string{"out-blind"}}, nil
 }
 
 func (w *blindWallet) Broadcast(raw string) error {
@@ -128,22 +131,24 @@ func (w *blindWallet) Broadcast(raw string) error {
 	return errors.New("timeout talking to nexad")
 }
 
-func (w *blindWallet) LookupTx(string, string, string) (account.TxState, error) {
+func (w *blindWallet) LookupTx(string) (account.TxState, error) {
 	return account.TxState{}, nil
 }
+func (w *blindWallet) Lock([]string) error   { return nil }
+func (w *blindWallet) Unlock([]string) error { return nil }
 
 func TestBlindReconcileDoesNotSendTheReservedPayoutAgain(t *testing.T) {
 	s := openTest(t)
 	credit(t, s, addrA, minPay, "mature")
 	w := &blindWallet{}
-	first, err := account.RunPayouts(s, w, minPay, 1)
+	first, err := account.RunPayouts(s, w, minPay, 1, 10)
 	if err != nil {
 		t.Fatal(err)
 	}
 	if first.Deferred != 1 || w.prepares != 1 || w.broadcasts != 1 {
 		t.Fatalf("first %+v prepares %d broadcasts %d", first, w.prepares, w.broadcasts)
 	}
-	second, err := account.RunPayouts(s, w, minPay, 1)
+	second, err := account.RunPayouts(s, w, minPay, 1, 10)
 	if err != nil {
 		t.Fatal(err)
 	}

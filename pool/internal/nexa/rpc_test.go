@@ -850,14 +850,13 @@ func TestLookupTxUsesTheStoredTransaction(t *testing.T) {
 		}
 	})
 
-	// nexad WalletTxToJSON does not emit "abandoned". A wallet transaction
-	// abandoned at depth 0 therefore looks like an ordinary unconfirmed
-	// send. The idem is not consulted.
+	// gettransaction does not emit abandoned. A 0-confirmation wallet hit
+	// for the stored txidem is this payment, and the txid is not queried.
 	t.Run("nexad omits abandoned", func(t *testing.T) {
 		var calls []string
 		srv := rpcScript(t, func(method string, params []any) (string, string) {
 			calls = append(calls, method+":"+fmt.Sprint(params[0]))
-			if method == "gettransaction" && params[0] == "txid-pay" {
+			if method == "gettransaction" && params[0] == "idem-pay" {
 				return `{"txid":"txid-pay","txidem":"idem-pay","confirmations":0}`, ""
 			}
 			t.Errorf("unexpected %s %#v", method, params)
@@ -865,26 +864,21 @@ func TestLookupTxUsesTheStoredTransaction(t *testing.T) {
 		})
 		defer srv.Close()
 		c, _ := NewClient(srv.URL, "u", "p", "")
-		view, err := c.LookupTx("txid-pay", "idem-pay", raw)
-		if err != nil || view.Abandoned || view.Conflict || !view.InWallet || view.Confirmations != 0 {
+		view, err := c.LookupTx("idem-pay")
+		if err != nil || view.Conflict || !view.InWallet || view.Confirmations != 0 || view.TxIdem != "idem-pay" {
 			t.Fatalf("%+v %v calls %v", view, err, calls)
 		}
-		if len(calls) != 1 || calls[0] != "gettransaction:txid-pay" {
+		if len(calls) != 1 || calls[0] != "gettransaction:idem-pay" {
 			t.Fatalf("calls %v", calls)
 		}
 	})
 
-	// A re-signed transaction keeps txidem and changes txid. nexad leaves
-	// the old txid conflicted and points the idem entry at the confirmed
-	// transaction. LookupTx returns on the conflicted txid and never
-	// reads the idem.
-	t.Run("conflicted txid hides confirmed idem", func(t *testing.T) {
+	// A re-signed transaction keeps txidem and changes txid. Lookup is by
+	// txidem, so the confirmed idem is the payment even when the txid differs.
+	t.Run("confirmed idem is paid", func(t *testing.T) {
 		var calls []string
 		srv := rpcScript(t, func(method string, params []any) (string, string) {
 			calls = append(calls, method+":"+fmt.Sprint(params[0]))
-			if method == "gettransaction" && params[0] == "txid-old" {
-				return `{"txid":"txid-old","txidem":"idem-pay","confirmations":-1}`, ""
-			}
 			if method == "gettransaction" && params[0] == "idem-pay" {
 				return `{"txid":"txid-new","txidem":"idem-pay","confirmations":6}`, ""
 			}
@@ -893,12 +887,12 @@ func TestLookupTxUsesTheStoredTransaction(t *testing.T) {
 		})
 		defer srv.Close()
 		c, _ := NewClient(srv.URL, "u", "p", "")
-		view, err := c.LookupTx("txid-old", "idem-pay", raw)
-		if err != nil || !view.Conflict || !view.InWallet || view.Confirmations != -1 || view.TxID != "txid-old" {
+		view, err := c.LookupTx("idem-pay")
+		if err != nil || view.Conflict || !view.InWallet || view.Confirmations != 6 || view.TxID != "txid-new" || view.TxIdem != "idem-pay" {
 			t.Fatalf("%+v %v calls %v", view, err, calls)
 		}
-		if len(calls) != 1 || calls[0] != "gettransaction:txid-old" {
-			t.Fatalf("idem was consulted: %v", calls)
+		if len(calls) != 1 || calls[0] != "gettransaction:idem-pay" {
+			t.Fatalf("calls %v", calls)
 		}
 	})
 }
