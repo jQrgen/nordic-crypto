@@ -417,3 +417,64 @@ On this machine, `GOTOOLCHAIN=go1.27.2`, from `pool/`:
 ### Open item
 
 1. **High.** `txcount*3+1002` is not an upper bound on `wtxOrdered`. Accounting entries are ordered and are not in `mapWallet`, so two zero-row pages can end the scan before a later payout. `release` of that completed miss pays the coins again. `pool/internal/nexa/rpc.go:406`, `pool/internal/nexa/rpc.go:431`, `pool/internal/account/payout.go:358`. nexad `src/wallet/wallet.cpp:4099`, `src/wallet/rpcwallet.cpp:3054`.
+
+## Re-review at e324f0c
+
+Reviewed `e324f0cb2a549f864fe9bd1b350a3bb3c74c247a` on `cursor/nexa-pool-4f40`. nexad is still `dev` at `37fe286`. Nothing in this file was pushed onto the PR branch.
+
+**Verdict: not PASS.**
+
+The payout is now signed, stored, and then broadcast. A row that already has a txid is not given a new raw transaction by the recovery path, and the comment scan is no longer how a payment or a release is decided. Three holes remain. An abandoned or conflicted payout is dropped and the next pass signs a second transaction, with no depth on the competing spend. A re-signed transaction with the same txidem is reported as that conflict because lookup stops on the old txid. `fundrawtransaction` does not lock the coins it selects.
+
+### What holds
+
+`CreatePayout` calls `createrawtransaction`, `fundrawtransaction`, and `signrawtransaction`, and it does not call `sendrawtransaction` (`pool/internal/nexa/rpc.go:333`). `RunPayouts` stores that result and only then broadcasts (`pool/internal/account/payout.go:133`, `payout.go:144`, `payout.go:155`). `Reserve` checks the balance and inserts `txid`, `txidem`, and `raw_tx` in one SQL transaction (`pool/internal/store/store.go:547`). A crash before `Commit` rolls the insert back. The signed hex was never handed to the node, and the next pass is the first broadcast. `TestCrashBeforeReserveDoesNotBroadcast` fails `Reserve` after `Prepare` and records zero broadcasts. `TestCrashAfterStoreBroadcastsTheStoredTransaction` and `TestCrashAfterBroadcastDoesNotSignAgain` keep the stored txid and broadcast that same hex again.
+
+`finishExisting` holds a row with an empty txid and, when the txid is set, only publishes the stored hex (`payout.go:205`). `publish` and `recheckSent` call `Broadcast` with `p.Raw` (`payout.go:225`, `payout.go:267`). `Prepare` runs for a new payable balance (`payout.go:133`). It runs again for that balance only after `Drop` or `ReleaseReview` has marked the row failed, which puts the coins back into `Payable`.
+
+`release` with `-confirm none` requires an empty txid and a reservation at least `release_none_min_age` old (`payout.go:403`). A named `-confirm` has to equal the stored txid (`payout.go:412`). `complete` requires the stored transaction in the wallet or in a block, with enough confirmations, and refuses an abandoned or conflicted view (`payout.go:384`). `release_none_min_age` of `0` or a negative duration still fails `parseDuration`. `LookupPayment` ignores the comment (`rpc.go:477`). `FindComment` is still exported and `nexapool comment` prints it (`pool/cmd/nexapool/main.go:250`). Neither `RunPayouts` nor `ResolveReview` calls it. The scan can still miss a comment after accounting entries (`TestFindCommentMissesACommentPastAccountingEntries`). That miss no longer releases a payout. The open item from the `01479f9` re-check is closed for payment and release.
+
+`gettxout` is called as the outpoint hash with `n = -1` (`rpc.go:630`). That matches nexad: the second argument `-1` means the first argument is the outpoint hash (`src/rpc/blockchain.cpp:1408`), and `decoderawtransaction` emits `prevout.GetHex()` (`src/core_write.cpp:122`). An input that is still in the txpool is not treated as a conflict (`TestLookupTxUsesTheStoredTransaction/unconfirmed_parent`).
+
+### Identity
+
+`GetTxIdem` hashes the transaction without the satisfier scripts (`src/primitives/transaction.h:253`). `GetTxId` hashes that idem together with the scriptSig bytes (`transaction.h:267`). txidem is the id that stays the same when the satisfier changes. txid changes. Outpoints are `SHA256(txidem || vout)` (`transaction.h:33`). The mempool index is unique by txidem (`src/txmempool.h:552`). `gettxpoolentry` looks up txid and then txidem (`src/txmempool.cpp:1689`). `gettransaction` looks up either key in `mapWallet` (`src/wallet/wallet.cpp:153`). `getrawtransaction` searches by txid and then by idem (`src/txlookup.cpp:65`). `-txindex` defaults off (`src/txdb.h:27`); without it, a confirmed transaction is found from an output that is still unspent.
+
+A standard template satisfier is not something a third party can rewrite. A second signature from the wallet key is a new txid and the same txidem. When that transaction is mined, `AddToWalletIfInvolvingMe` sees a different `GetId()` in `mapTxSpends` and marks the stored txid conflicted (`wallet.cpp:1154`, `wallet.cpp:728`). `AddToWallet` then overwrites the idem map entry with the confirmed transaction and leaves the old txid entry in place (`wallet.cpp:950`).
+
+`LookupTx` walks txid first and returns on the first wallet hit (`rpc.go:400`). Negative confirmations set `Conflict` (`rpc.go:418`) and the function returns at `rpc.go:421`. It does not read the idem entry, which is the confirmed payment. `TestLookupTxUsesTheStoredTransaction/conflicted_txid_hides_confirmed_idem` is that stop: `gettransaction` of the stored txid returns `-1`, and `gettransaction` of the txidem is never called. `recheckSent` and `applyState` then `Drop` the row (`payout.go:252`, `payout.go:306`). The next `RunPayouts` signs a new transaction for coins the confirmed idem already paid out.
+
+### Abandoned and conflict depth
+
+`AbandonTransaction` refuses a transaction whose depth is already positive, removes it from the local txpool, and then says there is no guarantee other nodes do not still have it, so it can still be committed (`wallet.cpp:1210`, `wallet.cpp:1215`). It also takes the inputs out of `mapTxSpends` (`wallet.cpp:1252`), which makes them selectable again.
+
+`applyState` and `recheckSent` treat `Abandoned` as final and `Drop` the row (`payout.go:306`, `payout.go:252`). `Drop` returns the coins. The next pass calls `Prepare` and broadcasts a different transaction. `TestAbandonedSentPayoutIsSignedAgain` records that second signature. `release -confirm <txid>` accepts the same flag with no age and no depth (`payout.go:415`).
+
+`gettransaction` does not emit `abandoned`. `WalletTxToJSON` writes confirmations, txid, and txidem (`src/wallet/rpcwallet.cpp:68`) and does not write the flag. The flag is written on `listtransactions` rows (`rpcwallet.cpp:1872`). `walletTx` reads the top-level `abandoned` field (`rpc.go:530`). A real abandon at depth 0, which is what `GetDepthInMainChain` returns when the hash is unset (`wallet.cpp:4968`), therefore arrives as an ordinary unconfirmed wallet transaction. `TestLookupTxUsesTheStoredTransaction/nexad_omits_abandoned` keeps `Abandoned` false and does not look at the txidem. The row stays reserved. The inputs are already free for another `fundrawtransaction`. `release` will not take `-confirm` of the stored txid, because neither `Abandoned` nor `Conflict` is set.
+
+`confirmedInputSpent` is the other way a payout becomes a conflict (`rpc.go:598`). After the wallet, the txpool, and `getrawtransaction` all miss, any input absent from the chain UTXO set and from the txpool sets `Conflict` (`rpc.go:621`). There is no confirmation count of the transaction that spent it. One confirmation of a different spend is enough. `TestConflictingSpendPaysOnceMoreWithANewTransaction` drops the sent row and signs a replacement in the same pass. A reorg that drops that one block can still mine the stored hex, which other nodes may have kept, while the replacement spends other coins. Coinbase maturity on this node is 5000 confirms before the wallet will spend a coinbase (`GetBlocksToMaturity`, `wallet.cpp:4985`). The conflict drop does not wait for anything like that depth.
+
+### Coin locks
+
+`fundrawtransaction` on this nexad is `fundrawtransaction "hexstring" includeWatching` (`src/wallet/rpcwallet.cpp:3251`). The second argument is `includeWatching`. The pool passes `false` (`rpc.go:345`), which keeps watch-only coins out of the selection. `FundTransaction` selects coins and copies them onto the raw transaction (`wallet.cpp:3261`) and leaves `setLockedCoins` unchanged. That set is an in-memory `std::set` (`src/wallet/wallet.h:831`). The wallet database has no record of it, so a lock is gone after a restart, and this funding path does not take one.
+
+`cs_wallet` is held for the duration of one `FundTransaction`, so two fund calls do not interleave inside the wallet. The coins are selectable again as soon as the call returns, until a broadcast puts the spend in the wallet. `Prepare` runs before `Reserve`. A broadcast error leaves the row reserved and the coins unspent, and the next payable address in the same pass can be funded from those same inputs. `TestConcurrentPayoutReservesTheBalanceOnce` shows overlapping runs each call `Prepare` before the reservation commits. The balance is reserved once. The inputs are not.
+
+### Tests and tools
+
+On this machine, `GOTOOLCHAIN=go1.27.2`, from `pool/`:
+
+| Command | Result |
+| --- | --- |
+| `go test -race -count=1 ./...` | pass, including `TestCrashBeforeReserveDoesNotBroadcast`, `TestCrashAfterStoreBroadcastsTheStoredTransaction`, `TestCrashAfterBroadcastDoesNotSignAgain`, `TestConflictingSpendPaysOnceMoreWithANewTransaction`, and `TestAbandonedSentPayoutIsSignedAgain` |
+| `go vet ./...` | pass |
+| `staticcheck` 2026.2.2 (0.8.2) `./...` | pass |
+| `govulncheck` v1.9.0 `./...` | pass. Go 1.27.2, vuln DB updated 2026-10-08. No vulnerabilities found. |
+
+### Open items
+
+1. **High.** A conflict or an abandoned flag drops the payout and the next pass signs a new transaction. Abandon does not stop another node's mempool from mining the stored hex, and a conflicting spend is accepted at the first missing UTXO, with no depth. `pool/internal/account/payout.go:252`, `pool/internal/account/payout.go:306`, `pool/internal/account/payout.go:415`, `pool/internal/nexa/rpc.go:418`, `pool/internal/nexa/rpc.go:621`. nexad `src/wallet/wallet.cpp:1215`.
+
+2. **High.** Lookup of a re-signed transaction stops on the conflicted stored txid and never reads the txidem, which is the confirmed payment of the same outputs. The row is then dropped and paid again. `pool/internal/nexa/rpc.go:400`, `pool/internal/nexa/rpc.go:421`. nexad `src/primitives/transaction.h:253`, `src/wallet/wallet.cpp:955`, `src/wallet/wallet.cpp:1162`.
+
+3. **High.** `gettransaction` does not report `abandoned`, so a real abandon is invisible, while `AbandonTransaction` has already freed the inputs. `fundrawtransaction` does not lock the coins it selects, and wallet locks are not stored. Another payout can be signed from those inputs while the abandoned hex can still be mined. `pool/internal/nexa/rpc.go:345`, `pool/internal/nexa/rpc.go:530`. nexad `src/wallet/rpcwallet.cpp:68`, `src/wallet/rpcwallet.cpp:3251`, `src/wallet/wallet.cpp:1252`, `src/wallet/wallet.h:831`.

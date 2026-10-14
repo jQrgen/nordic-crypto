@@ -306,26 +306,180 @@ func (c *Client) WalletBalance() (int64, error) {
 	return ParseNEX(num.String())
 }
 
-// LookupPayment finds a payout by a stored txid or txidem, then by comment.
-// found is false only after gettransaction misses and listtransactionsfrom
-// has been read until two consecutive pages return no rows and from is
-// past the wallet item bound. There is no fixed row window. The returned
-// TxID is GetId. A lookup error means the search did not finish; it is
-// not evidence that the send is absent.
-func (c *Client) LookupPayment(comment, id string) (Payment, bool, error) {
-	if id != "" {
-		pay, found, err := c.getPayment(id)
+// SignedTx is a funded and signed payout that has not been broadcast.
+// TxID is GetId. TxIdem is GetIdem. They are not interchangeable.
+type SignedTx struct {
+	TxID   string
+	TxIdem string
+	Raw    string
+}
+
+// TxView is what the node currently knows about a stored payout transaction.
+// Conflict means an input is spent by a different confirmed transaction,
+// or the wallet already records this transaction at a negative depth.
+// OnChain means getrawtransaction found it in a block, so a missing wallet
+// entry is not a conflicting spend.
+type TxView struct {
+	Payment
+	InWallet  bool
+	InMempool bool
+	OnChain   bool
+	Abandoned bool
+	Conflict  bool
+}
+
+// CreatePayout builds and signs a payout with createrawtransaction,
+// fundrawtransaction, and signrawtransaction. It does not broadcast.
+func (c *Client) CreatePayout(address string, sats int64) (SignedTx, error) {
+	if address == "" || sats <= 0 {
+		return SignedTx{}, fmt.Errorf("nexa: payout output is empty")
+	}
+	var raw string
+	outs := map[string]string{address: FormatNEX(sats)}
+	if err := c.Call("createrawtransaction", []any{[]any{}, outs}, &raw); err != nil {
+		return SignedTx{}, err
+	}
+	var funded struct {
+		Hex string `json:"hex"`
+	}
+	if err := c.Call("fundrawtransaction", []any{raw, false}, &funded); err != nil {
+		return SignedTx{}, err
+	}
+	if funded.Hex == "" {
+		return SignedTx{}, fmt.Errorf("nexa: fundrawtransaction returned no hex")
+	}
+	var signed struct {
+		Hex      string `json:"hex"`
+		TxID     string `json:"txid"`
+		TxIdem   string `json:"txidem"`
+		Complete bool   `json:"complete"`
+	}
+	if err := c.Call("signrawtransaction", []any{funded.Hex}, &signed); err != nil {
+		return SignedTx{}, err
+	}
+	if !signed.Complete || signed.Hex == "" {
+		return SignedTx{}, fmt.Errorf("nexa: payout transaction was not fully signed")
+	}
+	if signed.TxID == "" || signed.TxIdem == "" {
+		dec, err := c.decodeRaw(signed.Hex)
 		if err != nil {
-			return Payment{}, false, err
+			return SignedTx{}, err
 		}
-		if found {
-			return pay, true, nil
+		if signed.TxID == "" {
+			signed.TxID = dec.TxID
+		}
+		if signed.TxIdem == "" {
+			signed.TxIdem = dec.TxIdem
 		}
 	}
-	if comment == "" {
+	if signed.TxID == "" || signed.TxIdem == "" {
+		return SignedTx{}, fmt.Errorf("nexa: signed payout has no txid or txidem")
+	}
+	return SignedTx{TxID: signed.TxID, TxIdem: signed.TxIdem, Raw: signed.Hex}, nil
+}
+
+// SendRaw broadcasts a previously signed transaction. It does not build
+// another one. sendrawtransaction returns an id; the stored GetId and
+// GetIdem from signing stay the identifiers.
+func (c *Client) SendRaw(raw string) error {
+	if strings.TrimSpace(raw) == "" {
+		return fmt.Errorf("nexa: empty raw transaction")
+	}
+	var id string
+	return c.Call("sendrawtransaction", []any{raw}, &id)
+}
+
+// LookupTx reads gettransaction, then gettxpoolentry, then
+// getrawtransaction. A miss of all three is not an error. When raw is set
+// and the transaction is in none of those places, an input missing from
+// the chain and from the txpool is a confirmed spend by a different
+// transaction. getrawtransaction finding this same transaction in a block
+// is not that spend.
+func (c *Client) LookupTx(txid, txidem, raw string) (TxView, error) {
+	var view TxView
+	for _, id := range uniqueIDs(txid, txidem) {
+		pay, found, abandoned, err := c.walletTx(id)
+		if err != nil {
+			return TxView{}, err
+		}
+		if !found {
+			continue
+		}
+		view.Payment = pay
+		view.InWallet = true
+		// abandontransaction only succeeds for a transaction that is not
+		// confirmed. A positive confirmation count is the payment, even
+		// when a stale abandoned flag is still set.
+		view.Abandoned = abandoned && pay.Confirmations <= 0
+		// Negative confirmations are a conflict this wallet already lost.
+		// walletconflicts on a transaction that still has zero or more
+		// confirmations is the one that can still be mined, so it is not
+		// a reason to pay again.
+		if pay.Confirmations < 0 {
+			view.Conflict = true
+		}
+		return view, nil
+	}
+	for _, id := range uniqueIDs(txid, txidem) {
+		inPool, err := c.inTxPool(id)
+		if err != nil {
+			return TxView{}, err
+		}
+		if !inPool {
+			continue
+		}
+		view.TxID = txid
+		view.TxIdem = txidem
+		view.InMempool = true
+		return view, nil
+	}
+	for _, id := range uniqueIDs(txid, txidem) {
+		pay, onChain, inPool, err := c.chainTx(id)
+		if err != nil {
+			return TxView{}, err
+		}
+		if !onChain && !inPool {
+			continue
+		}
+		view.Payment = pay
+		if view.TxID == "" {
+			view.TxID = txid
+		}
+		if view.TxIdem == "" {
+			view.TxIdem = txidem
+		}
+		view.OnChain = onChain
+		view.InMempool = inPool
+		return view, nil
+	}
+	if strings.TrimSpace(raw) == "" {
+		return view, nil
+	}
+	spent, err := c.confirmedInputSpent(raw)
+	if err != nil {
+		return TxView{}, err
+	}
+	view.Conflict = spent
+	view.TxID = txid
+	view.TxIdem = txidem
+	return view, nil
+}
+
+// FindComment is an informational wallet search. It is not used to decide
+// a payment or a release: accounting entries are in wtxOrdered and not in
+// mapWallet, so the scan can miss.
+func (c *Client) FindComment(comment string) (Payment, bool, error) {
+	return c.findComment(comment)
+}
+
+// LookupPayment reads gettransaction for a stored id. The comment is not
+// searched. A payout is identified by the txid stored before broadcast.
+func (c *Client) LookupPayment(comment, id string) (Payment, bool, error) {
+	if id == "" {
 		return Payment{}, false, nil
 	}
-	return c.findComment(comment)
+	_ = comment
+	return c.getPayment(id)
 }
 
 func (c *Client) getPayment(id string) (Payment, bool, error) {
@@ -345,6 +499,158 @@ func (c *Client) getPayment(id string) (Payment, bool, error) {
 		return Payment{}, false, fmt.Errorf("nexa: gettransaction returned no id")
 	}
 	return pay, true, nil
+}
+
+func uniqueIDs(ids ...string) []string {
+	var out []string
+	seen := map[string]bool{}
+	for _, id := range ids {
+		id = strings.TrimSpace(id)
+		if id == "" || seen[strings.ToLower(id)] {
+			continue
+		}
+		seen[strings.ToLower(id)] = true
+		out = append(out, id)
+	}
+	return out
+}
+
+func (c *Client) walletTx(id string) (pay Payment, found, abandoned bool, err error) {
+	var raw json.RawMessage
+	if err = c.Call("gettransaction", []any{id, true}, &raw); err != nil {
+		if walletMiss(err) {
+			return Payment{}, false, false, nil
+		}
+		return Payment{}, false, false, err
+	}
+	var body struct {
+		TxID          string `json:"txid"`
+		TxIdem        string `json:"txidem"`
+		Confirmations int64  `json:"confirmations"`
+		Abandoned     bool   `json:"abandoned"`
+	}
+	if err = json.Unmarshal(raw, &body); err != nil {
+		return Payment{}, false, false, err
+	}
+	if body.TxID == "" && body.TxIdem == "" {
+		return Payment{}, false, false, fmt.Errorf("nexa: gettransaction returned no id")
+	}
+	return Payment{TxID: body.TxID, TxIdem: body.TxIdem, Confirmations: body.Confirmations}, true, body.Abandoned, nil
+}
+
+// chainTx reads getrawtransaction. A block hash, or a positive confirmation
+// count, means the stored transaction itself is confirmed. That is not a
+// spend by a different transaction.
+func (c *Client) chainTx(id string) (pay Payment, onChain, inPool bool, err error) {
+	var raw json.RawMessage
+	if err = c.Call("getrawtransaction", []any{id, true}, &raw); err != nil {
+		if poolMiss(err) {
+			return Payment{}, false, false, nil
+		}
+		return Payment{}, false, false, err
+	}
+	var body struct {
+		TxID          string `json:"txid"`
+		TxIdem        string `json:"txidem"`
+		Confirmations int64  `json:"confirmations"`
+		BlockHash     string `json:"blockhash"`
+	}
+	if err = json.Unmarshal(raw, &body); err != nil {
+		return Payment{}, false, false, err
+	}
+	if body.TxID == "" && body.TxIdem == "" {
+		return Payment{}, false, false, fmt.Errorf("nexa: getrawtransaction returned no id")
+	}
+	pay = Payment{TxID: body.TxID, TxIdem: body.TxIdem, Confirmations: body.Confirmations}
+	if body.BlockHash != "" || body.Confirmations > 0 {
+		return pay, true, false, nil
+	}
+	return pay, false, true, nil
+}
+
+func (c *Client) inTxPool(id string) (bool, error) {
+	var raw json.RawMessage
+	err := c.Call("gettxpoolentry", []any{id}, &raw)
+	if err != nil {
+		if poolMiss(err) {
+			return false, nil
+		}
+		return false, err
+	}
+	if len(raw) == 0 || string(raw) == "null" {
+		return false, nil
+	}
+	return true, nil
+}
+
+func poolMiss(err error) bool {
+	if walletMiss(err) {
+		return true
+	}
+	s := strings.ToLower(err.Error())
+	return strings.Contains(s, "not in") || strings.Contains(s, "no such") || strings.Contains(s, "empty result")
+}
+
+// confirmedInputSpent reports whether an input of raw is gone from both
+// the confirmed UTXO set and the txpool. The caller has already found that
+// this transaction itself is not in the wallet and not in the txpool, so
+// the spend belongs to a different confirmed transaction.
+func (c *Client) confirmedInputSpent(raw string) (bool, error) {
+	dec, err := c.decodeRaw(raw)
+	if err != nil {
+		return false, err
+	}
+	if len(dec.Vin) == 0 {
+		return false, nil
+	}
+	for _, in := range dec.Vin {
+		if in.Outpoint == "" {
+			return false, fmt.Errorf("nexa: signed transaction input has no outpoint")
+		}
+		inChain, err := c.outputVisible(in.Outpoint, false)
+		if err != nil {
+			return false, err
+		}
+		if inChain {
+			continue
+		}
+		inPool, err := c.outputVisible(in.Outpoint, true)
+		if err != nil {
+			return false, err
+		}
+		if !inPool {
+			return true, nil
+		}
+	}
+	return false, nil
+}
+
+func (c *Client) outputVisible(outpoint string, includePool bool) (bool, error) {
+	var raw json.RawMessage
+	err := c.Call("gettxout", []any{outpoint, -1, includePool}, &raw)
+	if err != nil {
+		if strings.Contains(strings.ToLower(err.Error()), "empty result") || walletMiss(err) {
+			return false, nil
+		}
+		return false, err
+	}
+	return len(raw) > 0 && string(raw) != "null", nil
+}
+
+func (c *Client) decodeRaw(raw string) (decodedTx, error) {
+	var dec decodedTx
+	if err := c.Call("decoderawtransaction", []any{raw}, &dec); err != nil {
+		return decodedTx{}, err
+	}
+	return dec, nil
+}
+
+type decodedTx struct {
+	TxID   string `json:"txid"`
+	TxIdem string `json:"txidem"`
+	Vin    []struct {
+		Outpoint string `json:"outpoint"`
+	} `json:"vin"`
 }
 
 // walletPage is the item count passed to listtransactionsfrom. nexad

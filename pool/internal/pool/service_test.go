@@ -2,6 +2,7 @@ package pool
 
 import (
 	"encoding/hex"
+	"fmt"
 	"math"
 	"path/filepath"
 	"strings"
@@ -421,7 +422,7 @@ func TestSharePruneRunsWhileBlockIsImmature(t *testing.T) {
 }
 
 func TestReconcileWhenWalletIsOverTheCap(t *testing.T) {
-	node := &fakeNode{balance: 50_000, notes: map[string]string{}}
+	node := &fakeNode{balance: 50_000}
 	svc := newTestService(t, node)
 	svc.cfg.HotWalletMax = 10_000
 	svc.cfg.MinPayout = 100
@@ -435,11 +436,13 @@ func TestReconcileWhenWalletIsOverTheCap(t *testing.T) {
 	if err := svc.db.MatureBlock(blocks[0].ID, 5_000, []account.Credit{{Address: minerAddr, Amount: 5_000, Kind: "miner"}}); err != nil {
 		t.Fatal(err)
 	}
-	id, err := svc.db.Reserve(minerAddr, 5_000, "nexapool:held")
+	id, err := svc.db.Reserve(minerAddr, 5_000, "nexapool:held", account.Signed{TxID: "tx-held", TxIdem: "idem-held", Raw: "raw-held"})
 	if err != nil {
 		t.Fatal(err)
 	}
-	node.notes["nexapool:held"] = "tx-held"
+	node.live = map[string]nexa.TxView{
+		"tx-held": {Payment: nexa.Payment{TxID: "tx-held", TxIdem: "idem-held", Confirmations: 1}, InWallet: true},
+	}
 	result, err := svc.PayOnce()
 	if err == nil || !strings.Contains(err.Error(), "hot wallet") {
 		t.Fatalf("cap error: %v", err)
@@ -531,7 +534,15 @@ type fakeNode struct {
 	misses  int
 	submits []submitted
 	sent    []sent
-	notes   map[string]string
+	next    int
+	pending map[string]pendingTx
+	live    map[string]nexa.TxView
+}
+
+type pendingTx struct {
+	signed  nexa.SignedTx
+	address string
+	amount  int64
 }
 
 var errDown = errString("connection refused")
@@ -566,36 +577,60 @@ func (f *fakeNode) GetBlock(hash string) (nexa.Block, error) {
 	}
 	return nexa.Block{}, errString("Block not found")
 }
-func (f *fakeNode) SendToAddress(address string, sats int64, comment string) (nexa.Payment, error) {
-	if sats > f.balance {
-		return nexa.Payment{}, errString("insufficient funds")
+func (f *fakeNode) CreatePayout(address string, sats int64) (nexa.SignedTx, error) {
+	if sats <= 0 {
+		return nexa.SignedTx{}, errString("empty payout")
 	}
-	f.balance -= sats
-	if f.notes == nil {
-		f.notes = map[string]string{}
+	f.next++
+	signed := nexa.SignedTx{
+		TxID:   fmt.Sprintf("tx-%d", f.next),
+		TxIdem: fmt.Sprintf("idem-%d", f.next),
+		Raw:    fmt.Sprintf("raw-%d", f.next),
 	}
-	txid := "tx-" + comment
-	f.notes[comment] = txid
-	f.sent = append(f.sent, sent{address, sats, comment})
-	return nexa.Payment{TxID: txid, Confirmations: 1}, nil
+	if f.pending == nil {
+		f.pending = map[string]pendingTx{}
+	}
+	f.pending[signed.Raw] = pendingTx{signed: signed, address: address, amount: sats}
+	return signed, nil
 }
-func (f *fakeNode) WalletBalance() (int64, error) { return f.balance, nil }
-func (f *fakeNode) LookupPayment(comment, id string) (nexa.Payment, bool, error) {
-	if id != "" {
-		for c, tx := range f.notes {
-			if tx == id || c == id {
-				return nexa.Payment{TxID: tx, Confirmations: 1}, true, nil
+func (f *fakeNode) SendRaw(raw string) error {
+	p, ok := f.pending[raw]
+	if !ok {
+		return errString("unknown raw transaction")
+	}
+	if p.amount > f.balance {
+		return errString("insufficient funds")
+	}
+	f.balance -= p.amount
+	if f.live == nil {
+		f.live = map[string]nexa.TxView{}
+	}
+	f.live[p.signed.TxID] = nexa.TxView{
+		Payment:  nexa.Payment{TxID: p.signed.TxID, TxIdem: p.signed.TxIdem, Confirmations: 1},
+		InWallet: true,
+	}
+	f.sent = append(f.sent, sent{p.address, p.amount, p.signed.TxID})
+	return nil
+}
+func (f *fakeNode) LookupTx(txid, txidem, raw string) (nexa.TxView, error) {
+	if view, ok := f.live[txid]; ok {
+		return view, nil
+	}
+	for _, view := range f.live {
+		if txidem != "" && view.TxIdem == txidem {
+			return view, nil
+		}
+		if raw != "" && view.TxID != "" {
+			if p, ok := f.pending[raw]; ok && p.signed.TxID == view.TxID {
+				return view, nil
 			}
 		}
 	}
-	tx, ok := f.notes[comment]
-	if !ok {
-		return nexa.Payment{}, false, nil
-	}
-	return nexa.Payment{TxID: tx, Confirmations: 1}, true, nil
+	return nexa.TxView{}, nil
 }
-func (f *fakeNode) Unlock(string, int) error { return nil }
-func (f *fakeNode) Lock(string) error        { return nil }
+func (f *fakeNode) WalletBalance() (int64, error) { return f.balance, nil }
+func (f *fakeNode) Unlock(string, int) error      { return nil }
+func (f *fakeNode) Lock(string) error             { return nil }
 func (f *fakeNode) MedianTime() (int64, error) {
 	if f.err != nil && f.mtp == 0 {
 		return 0, f.err

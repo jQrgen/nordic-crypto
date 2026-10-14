@@ -92,7 +92,10 @@ func (s *Store) migrate() error {
 	if err := s.ensureColumn("payouts", "txidem", "TEXT NOT NULL DEFAULT ''"); err != nil {
 		return err
 	}
-	return s.ensureColumn("payouts", "confirmations", "INTEGER NOT NULL DEFAULT 0")
+	if err := s.ensureColumn("payouts", "confirmations", "INTEGER NOT NULL DEFAULT 0"); err != nil {
+		return err
+	}
+	return s.ensureColumn("payouts", "raw_tx", "TEXT NOT NULL DEFAULT ''")
 }
 
 func (s *Store) ensureColumn(table, column, decl string) error {
@@ -189,6 +192,7 @@ CREATE TABLE IF NOT EXISTS payouts (
     txid TEXT,
     txidem TEXT NOT NULL DEFAULT '',
     confirmations INTEGER NOT NULL DEFAULT 0,
+    raw_tx TEXT NOT NULL DEFAULT '',
     created_at INTEGER NOT NULL,
     sent_at INTEGER
 );
@@ -533,9 +537,10 @@ func (s *Store) Payable(minSats int64) ([]account.Balance, error) {
 	return out, rows.Err()
 }
 
-// Reserve implements account.Ledger. The insert and the balance check are
-// one transaction, so two callers cannot reserve the same coins.
-func (s *Store) Reserve(address string, amount int64, key string) (int64, error) {
+// Reserve implements account.Ledger. The balance check and the insert of
+// the signed txid, txidem, and raw hex are one transaction, so the row
+// exists before any broadcast and two callers cannot reserve the same coins.
+func (s *Store) Reserve(address string, amount int64, key string, signed account.Signed) (int64, error) {
 	if amount <= 0 {
 		return 0, account.ErrBelowMin
 	}
@@ -555,8 +560,8 @@ func (s *Store) Reserve(address string, amount int64, key string) (int64, error)
 	if available < amount {
 		return 0, account.ErrBelowMin
 	}
-	res, err := tx.Exec(`INSERT INTO payouts(address, amount, status, idempotency_key, created_at)
-		VALUES(?,?,'reserved',?,?)`, address, amount, key, time.Now().Unix())
+	res, err := tx.Exec(`INSERT INTO payouts(address, amount, status, idempotency_key, txid, txidem, raw_tx, created_at)
+		VALUES(?,?,'reserved',?,?,?,?,?)`, address, amount, key, signed.TxID, signed.TxIdem, signed.Raw, time.Now().Unix())
 	if err != nil {
 		return 0, err
 	}
@@ -615,8 +620,8 @@ func (s *Store) MarkReview(id int64) error {
 func (s *Store) Payout(id int64) (account.Payout, error) {
 	var p account.Payout
 	var created int64
-	err := s.db.QueryRow(`SELECT id, address, amount, idempotency_key, COALESCE(txid,''), COALESCE(txidem,''), confirmations, status, created_at
-		FROM payouts WHERE id = ?`, id).Scan(&p.ID, &p.Address, &p.Amount, &p.Key, &p.TxID, &p.TxIdem, &p.Confirmations, &p.Status, &created)
+	err := s.db.QueryRow(`SELECT id, address, amount, idempotency_key, COALESCE(txid,''), COALESCE(txidem,''), COALESCE(raw_tx,''), confirmations, status, created_at
+		FROM payouts WHERE id = ?`, id).Scan(&p.ID, &p.Address, &p.Amount, &p.Key, &p.TxID, &p.TxIdem, &p.Raw, &p.Confirmations, &p.Status, &created)
 	if err != nil {
 		return account.Payout{}, err
 	}
@@ -624,11 +629,12 @@ func (s *Store) Payout(id int64) (account.Payout, error) {
 	return p, nil
 }
 
-// ReleaseReview implements account.ReviewBook. The row must be in review.
-// The coins return to the payable balance. The caller has to have checked
-// that the wallet does not already contain the send.
+// ReleaseReview implements account.ReviewBook. The row must be reserved
+// or in review. The coins return to the payable balance. The caller has
+// checked that this transaction was never broadcast, is abandoned, or has
+// an input spent by a different confirmed transaction.
 func (s *Store) ReleaseReview(id int64) error {
-	res, err := s.db.Exec(`UPDATE payouts SET status = 'failed' WHERE id = ? AND status = 'review'`, id)
+	res, err := s.db.Exec(`UPDATE payouts SET status = 'failed' WHERE id = ? AND status IN ('review', 'reserved')`, id)
 	if err != nil {
 		return err
 	}
@@ -637,7 +643,7 @@ func (s *Store) ReleaseReview(id int64) error {
 		return err
 	}
 	if n == 0 {
-		return fmt.Errorf("store: payout %d is not in review", id)
+		return fmt.Errorf("store: payout %d is not reserved or in review", id)
 	}
 	return nil
 }
@@ -692,7 +698,7 @@ func (s *Store) Drop(id int64) error {
 }
 
 func (s *Store) payoutsByStatus(status string) ([]account.Payout, error) {
-	rows, err := s.db.Query(`SELECT id, address, amount, idempotency_key, COALESCE(txid,''), COALESCE(txidem,''), confirmations, status
+	rows, err := s.db.Query(`SELECT id, address, amount, idempotency_key, COALESCE(txid,''), COALESCE(txidem,''), COALESCE(raw_tx,''), confirmations, status
 		FROM payouts WHERE status = ? ORDER BY id`, status)
 	if err != nil {
 		return nil, err
@@ -701,7 +707,7 @@ func (s *Store) payoutsByStatus(status string) ([]account.Payout, error) {
 	var out []account.Payout
 	for rows.Next() {
 		var p account.Payout
-		if err := rows.Scan(&p.ID, &p.Address, &p.Amount, &p.Key, &p.TxID, &p.TxIdem, &p.Confirmations, &p.Status); err != nil {
+		if err := rows.Scan(&p.ID, &p.Address, &p.Amount, &p.Key, &p.TxID, &p.TxIdem, &p.Raw, &p.Confirmations, &p.Status); err != nil {
 			return nil, err
 		}
 		out = append(out, p)
@@ -725,7 +731,7 @@ func (s *Store) NotePayment(id int64, txid, txidem string, confs int64) error {
 // Reserved implements account.Ledger. Review rows are included so a later
 // pass can still match them to the wallet, and still will not send them.
 func (s *Store) Reserved() ([]account.Payout, error) {
-	rows, err := s.db.Query(`SELECT id, address, amount, idempotency_key, COALESCE(txid,''), COALESCE(txidem,''), confirmations, status
+	rows, err := s.db.Query(`SELECT id, address, amount, idempotency_key, COALESCE(txid,''), COALESCE(txidem,''), COALESCE(raw_tx,''), confirmations, status
 		FROM payouts WHERE status IN ('reserved', 'review') ORDER BY id`)
 	if err != nil {
 		return nil, err
@@ -734,7 +740,7 @@ func (s *Store) Reserved() ([]account.Payout, error) {
 	var out []account.Payout
 	for rows.Next() {
 		var p account.Payout
-		if err := rows.Scan(&p.ID, &p.Address, &p.Amount, &p.Key, &p.TxID, &p.TxIdem, &p.Confirmations, &p.Status); err != nil {
+		if err := rows.Scan(&p.ID, &p.Address, &p.Amount, &p.Key, &p.TxID, &p.TxIdem, &p.Raw, &p.Confirmations, &p.Status); err != nil {
 			return nil, err
 		}
 		out = append(out, p)

@@ -52,9 +52,10 @@ type Chain interface {
 	SubmitSolution(id int64, nonceHex string) (int64, string, error)
 	GetMiningInfo() (nexa.MiningInfo, error)
 	GetBlock(hash string) (nexa.Block, error)
-	SendToAddress(address string, sats int64, comment string) (nexa.Payment, error)
+	CreatePayout(address string, sats int64) (nexa.SignedTx, error)
+	SendRaw(raw string) error
+	LookupTx(txid, txidem, raw string) (nexa.TxView, error)
 	WalletBalance() (int64, error)
-	LookupPayment(comment, id string) (nexa.Payment, bool, error)
 	Unlock(passphrase string, timeout int) error
 	Lock(passphrase string) error
 	MedianTime() (int64, error)
@@ -510,10 +511,12 @@ func (s *Service) Reviews() ([]account.Payout, error) {
 	return out, nil
 }
 
-// ResolveReview completes or releases one review row after a wallet lookup.
-// action is "complete" or "release". confirm is required for release: the
-// txid stored on the row, or "none" when the row has no txid and the
-// reservation is at least ReleaseNoneMinAge old.
+// ResolveReview completes or releases one reserved or review row.
+// action is "complete" or "release". release -confirm names the stored
+// txid and is accepted only when that transaction is abandoned or an
+// input is spent by a different confirmed transaction. "none" is accepted
+// only when the row has no txid and the reservation is at least
+// ReleaseNoneMinAge old.
 func (s *Service) ResolveReview(id int64, action, confirm string) error {
 	if err := s.node.Unlock(s.pass, 60); err != nil {
 		return err
@@ -567,17 +570,26 @@ func compactTarget(nbits string) (*big.Int, error) {
 
 type rpcWallet struct{ n Chain }
 
-func (w rpcWallet) Send(address string, sats int64, comment string) (account.Payment, error) {
-	pay, err := w.n.SendToAddress(address, sats, comment)
-	return account.Payment{TxID: pay.TxID, TxIdem: pay.TxIdem, Confirmations: pay.Confirmations}, err
+func (w rpcWallet) Prepare(address string, sats int64) (account.Signed, error) {
+	signed, err := w.n.CreatePayout(address, sats)
+	return account.Signed{TxID: signed.TxID, TxIdem: signed.TxIdem, Raw: signed.Raw}, err
 }
 
-func (w rpcWallet) Find(comment, id string) (account.Payment, bool, error) {
-	pay, found, err := w.n.LookupPayment(comment, id)
+func (w rpcWallet) Broadcast(raw string) error { return w.n.SendRaw(raw) }
+
+func (w rpcWallet) LookupTx(txid, txidem, raw string) (account.TxState, error) {
+	view, err := w.n.LookupTx(txid, txidem, raw)
 	if err != nil {
-		return account.Payment{}, false, err
+		return account.TxState{}, err
 	}
-	return account.Payment{TxID: pay.TxID, TxIdem: pay.TxIdem, Confirmations: pay.Confirmations}, found, nil
+	return account.TxState{
+		Payment:   account.Payment{TxID: view.TxID, TxIdem: view.TxIdem, Confirmations: view.Confirmations},
+		InWallet:  view.InWallet,
+		InMempool: view.InMempool,
+		OnChain:   view.OnChain,
+		Abandoned: view.Abandoned,
+		Conflict:  view.Conflict,
+	}, nil
 }
 
 // spendCap hides balances the wallet cannot cover. Reserved and sent rows

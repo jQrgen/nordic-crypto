@@ -21,12 +21,20 @@ import (
 )
 
 func main() {
-	if len(os.Args) > 1 && os.Args[1] == "review" {
+	if len(os.Args) > 1 {
 		logger := log.New(os.Stderr, "nexapool: ", log.LstdFlags|log.LUTC)
-		if err := reviewCommand(logger, os.Args[2:]); err != nil {
-			logger.Fatal(err)
+		switch os.Args[1] {
+		case "review":
+			if err := reviewCommand(logger, os.Args[2:]); err != nil {
+				logger.Fatal(err)
+			}
+			return
+		case "comment":
+			if err := commentCommand(logger, os.Args[2:]); err != nil {
+				logger.Fatal(err)
+			}
+			return
 		}
-		return
 	}
 	path := flag.String("config", "/etc/nexapool/nexapool.toml", "path to the TOML configuration")
 	flag.Parse()
@@ -129,7 +137,7 @@ func reviewCommand(logger *log.Logger, args []string) error {
 	path := fs.String("config", "/etc/nexapool/nexapool.toml", "path to the TOML configuration")
 	id := fs.Int64("id", 0, "payout id to resolve")
 	action := fs.String("resolve", "", "complete or release")
-	confirm := fs.String("confirm", "", "for release: the txid stored on the row, or none when it has no txid and the reservation is old enough")
+	confirm := fs.String("confirm", "", "for release: the stored txid after abandon or a conflicting spend, or none when the row was never broadcast and is old enough")
 	fs.SetOutput(os.Stderr)
 	if err := fs.Parse(args); err != nil {
 		return err
@@ -193,13 +201,14 @@ func reviewCommand(logger *log.Logger, args []string) error {
 			fmt.Printf("id=%d address=%s amount=%s key=%s txid=%s txidem=%s\n",
 				p.ID, p.Address, nexa.FormatNEX(p.Amount), p.Key, p.TxID, p.TxIdem)
 			fmt.Println("resolve with -resolve complete, or -resolve release -confirm <txid|none>")
+			fmt.Println("-confirm <txid> is accepted only when it is the stored txid and that transaction is abandoned, or an input is spent by a different confirmed transaction")
 			fmt.Println("-confirm none is accepted only when the row has no txid and the reservation is at least release_none_min_age old")
 			return nil
 		}
 		return fmt.Errorf("payout %d is not in review", *id)
 	}
 	if *action == "release" && strings.TrimSpace(*confirm) == "" {
-		return fmt.Errorf("release requires -confirm with the expected txid, or -confirm none")
+		return fmt.Errorf("release requires -confirm with the stored txid, or -confirm none when the row was never broadcast")
 	}
 	unlock, err := db.LockPayouts()
 	if err != nil {
@@ -214,6 +223,39 @@ func reviewCommand(logger *log.Logger, args []string) error {
 		return nil
 	}
 	fmt.Printf("payout %d marked sent\n", *id)
+	return nil
+}
+
+func commentCommand(logger *log.Logger, args []string) error {
+	fs := flag.NewFlagSet("comment", flag.ContinueOnError)
+	path := fs.String("config", "/etc/nexapool/nexapool.toml", "path to the TOML configuration")
+	text := fs.String("text", "", "wallet comment to look up")
+	fs.SetOutput(os.Stderr)
+	if err := fs.Parse(args); err != nil {
+		return err
+	}
+	if strings.TrimSpace(*text) == "" {
+		return fmt.Errorf("comment requires -text")
+	}
+	fmt.Println("comment search is informational only; it does not pay, reserve, or release")
+	cfg, err := config.Load(*path)
+	if err != nil {
+		return err
+	}
+	node, err := nexa.NewClient(cfg.NodeURL, cfg.RPCUser, cfg.RPCPassword, cfg.CookieFile)
+	if err != nil {
+		return err
+	}
+	node.Log = logger
+	pay, found, err := node.FindComment(*text)
+	if err != nil {
+		return err
+	}
+	if !found {
+		fmt.Println("not found")
+		return nil
+	}
+	fmt.Printf("txid=%s txidem=%s confirmations=%d\n", pay.TxID, pay.TxIdem, pay.Confirmations)
 	return nil
 }
 

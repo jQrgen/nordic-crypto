@@ -2,6 +2,7 @@ package store
 
 import (
 	"errors"
+	"fmt"
 	"strings"
 	"sync"
 	"sync/atomic"
@@ -11,31 +12,51 @@ import (
 )
 
 type safeWallet struct {
-	mu    sync.Mutex
-	sends atomic.Int32
-	sent  map[string]string
+	mu         sync.Mutex
+	prepares   atomic.Int32
+	broadcasts atomic.Int32
+	next       atomic.Int32
+	txs        []*fakeTx
 }
 
-func (w *safeWallet) Send(address string, sats int64, comment string) (account.Payment, error) {
+func (w *safeWallet) Prepare(string, int64) (account.Signed, error) {
+	n := w.next.Add(1)
+	w.prepares.Add(1)
+	tx := &fakeTx{txid: fmt.Sprintf("tx-%d", n), idem: fmt.Sprintf("idem-%d", n), raw: fmt.Sprintf("raw-%d", n)}
 	w.mu.Lock()
-	defer w.mu.Unlock()
-	w.sends.Add(1)
-	if w.sent == nil {
-		w.sent = map[string]string{}
-	}
-	txid := "tx-" + comment
-	w.sent[comment] = txid
-	return account.Payment{TxID: txid, TxIdem: "idem-" + comment, Confirmations: 1}, nil
+	w.txs = append(w.txs, tx)
+	w.mu.Unlock()
+	return account.Signed{TxID: tx.txid, TxIdem: tx.idem, Raw: tx.raw}, nil
 }
 
-func (w *safeWallet) Find(comment, id string) (account.Payment, bool, error) {
+func (w *safeWallet) Broadcast(raw string) error {
 	w.mu.Lock()
 	defer w.mu.Unlock()
-	txid, ok := w.sent[comment]
-	if !ok {
-		return account.Payment{}, false, nil
+	for _, tx := range w.txs {
+		if tx.raw == raw {
+			tx.visible = true
+			w.broadcasts.Add(1)
+			return nil
+		}
 	}
-	return account.Payment{TxID: txid, TxIdem: "idem-" + comment, Confirmations: 1}, true, nil
+	return errors.New("unknown raw transaction")
+}
+
+func (w *safeWallet) LookupTx(txid, idem, raw string) (account.TxState, error) {
+	w.mu.Lock()
+	defer w.mu.Unlock()
+	for _, tx := range w.txs {
+		if tx.txid == txid || tx.idem == idem || tx.raw == raw {
+			if !tx.visible {
+				return account.TxState{}, nil
+			}
+			return account.TxState{
+				Payment:  account.Payment{TxID: tx.txid, TxIdem: tx.idem, Confirmations: 1},
+				InWallet: true,
+			}, nil
+		}
+	}
+	return account.TxState{}, nil
 }
 
 func TestConcurrentPayoutReservesTheBalanceOnce(t *testing.T) {
@@ -65,42 +86,52 @@ func TestConcurrentPayoutReservesTheBalanceOnce(t *testing.T) {
 			t.Fatalf("unexpected payout error %v", err)
 		}
 	}
-	// Overlapping runs fail closed: one send, and the others return
-	// SQLITE_BUSY instead of reserving the same balance. busy_timeout does
-	// not absorb the contention; the error comes back immediately.
-	if got := w.sends.Load(); got != 1 {
-		t.Fatalf("wallet sends %d, want 1 (busy errors %d)", got, len(errs))
+	// Signing happens before Reserve, so overlapping runs can Prepare more
+	// than once. Only the run that commits the reservation broadcasts.
+	if got := w.broadcasts.Load(); got != 1 {
+		t.Fatalf("broadcasts %d, want 1 (prepares %d, busy errors %d)", got, w.prepares.Load(), len(errs))
 	}
+	prepared := w.prepares.Load()
 	res, err := account.RunPayouts(s, w, minPay, 1)
 	if err != nil {
 		t.Fatal(err)
 	}
-	if res.Sent != 0 || w.sends.Load() != 1 {
-		t.Fatalf("later pass sent again: %+v sends %d", res, w.sends.Load())
+	if res.Sent != 0 || w.broadcasts.Load() != 1 || w.prepares.Load() != prepared {
+		t.Fatalf("later pass signed again: %+v prepares %d broadcasts %d", res, w.prepares.Load(), w.broadcasts.Load())
 	}
 }
 
-// blindWallet accepts the send and then cannot find it, which is what
-// listtransactions does once the comment scrolls out of the 200-row window.
+// blindWallet signs a transaction, stores it, then fails the broadcast.
+// The next pass must broadcast that same hex and must not sign another.
 type blindWallet struct {
-	mu    sync.Mutex
-	sends int
+	mu         sync.Mutex
+	prepares   int
+	broadcasts int
+	raw        string
 }
 
-func (w *blindWallet) Send(string, int64, string) (account.Payment, error) {
+func (w *blindWallet) Prepare(string, int64) (account.Signed, error) {
 	w.mu.Lock()
-	w.sends++
-	w.mu.Unlock()
-	return account.Payment{}, errors.New("timeout talking to nexad")
+	defer w.mu.Unlock()
+	w.prepares++
+	w.raw = "raw-blind"
+	return account.Signed{TxID: "txid-blind", TxIdem: "idem-blind", Raw: w.raw}, nil
 }
 
-func (w *blindWallet) Find(string, string) (account.Payment, bool, error) {
-	return account.Payment{}, false, nil
+func (w *blindWallet) Broadcast(raw string) error {
+	w.mu.Lock()
+	defer w.mu.Unlock()
+	w.broadcasts++
+	if raw != w.raw {
+		return errors.New("broadcast of a different transaction")
+	}
+	return errors.New("timeout talking to nexad")
 }
 
-// The timeout is ambiguous, so the first pass keeps the reservation. A
-// completed search that still cannot see the comment moves the row to
-// review. It must not transmit the payout again.
+func (w *blindWallet) LookupTx(string, string, string) (account.TxState, error) {
+	return account.TxState{}, nil
+}
+
 func TestBlindReconcileDoesNotSendTheReservedPayoutAgain(t *testing.T) {
 	s := openTest(t)
 	credit(t, s, addrA, minPay, "mature")
@@ -109,21 +140,21 @@ func TestBlindReconcileDoesNotSendTheReservedPayoutAgain(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if first.Deferred != 1 || w.sends != 1 {
-		t.Fatalf("first %+v sends %d", first, w.sends)
+	if first.Deferred != 1 || w.prepares != 1 || w.broadcasts != 1 {
+		t.Fatalf("first %+v prepares %d broadcasts %d", first, w.prepares, w.broadcasts)
 	}
 	second, err := account.RunPayouts(s, w, minPay, 1)
 	if err != nil {
 		t.Fatal(err)
 	}
-	if w.sends != 1 || second.Sent != 0 {
-		t.Fatalf("reconcile sent again: %+v sends %d", second, w.sends)
+	if w.prepares != 1 || w.broadcasts != 2 || second.Sent != 0 {
+		t.Fatalf("reconcile signed a new transaction: %+v prepares %d broadcasts %d", second, w.prepares, w.broadcasts)
 	}
-	var status string
-	if err := s.db.QueryRow(`SELECT status FROM payouts`).Scan(&status); err != nil {
+	var status, txid string
+	if err := s.db.QueryRow(`SELECT status, txid FROM payouts`).Scan(&status, &txid); err != nil {
 		t.Fatal(err)
 	}
-	if status != "review" {
-		t.Fatalf("status %s, want review", status)
+	if status != "reserved" || txid != "txid-blind" {
+		t.Fatalf("status %s txid %s", status, txid)
 	}
 }

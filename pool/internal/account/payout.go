@@ -26,9 +26,32 @@ type Payout struct {
 	TxIdem        string
 	Confirmations int64
 	Status        string
+	// Raw is the signed transaction hex stored before broadcast.
+	Raw string
 	// Created is when the reservation was inserted. Release with confirm
 	// "none" requires it to be at least the configured minimum age.
 	Created time.Time
+}
+
+// Signed is a funded and signed payout transaction. TxID is GetId and
+// TxIdem is GetIdem. Raw is the hex that will be broadcast unchanged.
+type Signed struct {
+	TxID   string
+	TxIdem string
+	Raw    string
+}
+
+// TxState is a direct lookup of a stored payout transaction.
+// Conflict means an input is spent by a different confirmed transaction,
+// or the wallet records this transaction at a negative depth.
+// OnChain means the transaction is in a block.
+type TxState struct {
+	Payment
+	InWallet  bool
+	InMempool bool
+	OnChain   bool
+	Abandoned bool
+	Conflict  bool
 }
 
 // Payment is a wallet send. TxID is the canonical transaction id.
@@ -41,7 +64,10 @@ type Payment struct {
 // Ledger is the durable book the payout runner updates.
 type Ledger interface {
 	Payable(minSats int64) ([]Balance, error)
-	Reserve(address string, amount int64, key string) (int64, error)
+	// Reserve inserts the row and, when signed is set, its txid and raw
+	// hex in the same database transaction. The transaction must not
+	// have been broadcast yet.
+	Reserve(address string, amount int64, key string, signed Signed) (int64, error)
 	MarkSent(id int64, txid string) error
 	MarkFailed(id int64) error
 	MarkReview(id int64) error
@@ -58,12 +84,17 @@ type Ledger interface {
 	Drop(id int64) error
 }
 
-// Wallet sends coins and can find a send that already happened.
-// Find reports found only after a complete search. An error means the
-// search did not finish.
+// Wallet builds a payout transaction and can find that same transaction
+// again. It does not search wallet comments.
 type Wallet interface {
-	Send(address string, sats int64, comment string) (Payment, error)
-	Find(comment, id string) (Payment, bool, error)
+	// Prepare funds and signs a payout. It does not broadcast.
+	Prepare(address string, sats int64) (Signed, error)
+	// Broadcast submits the exact raw hex from Prepare.
+	Broadcast(raw string) error
+	// LookupTx reads the wallet and the txpool for a stored id.
+	// An error means the lookup did not finish. A zero state means
+	// the transaction was not found.
+	LookupTx(txid, txidem, raw string) (TxState, error)
 }
 
 // Result counts what one payout pass did.
@@ -75,21 +106,14 @@ type Result struct {
 
 // RunPayouts pays every mature balance at or above minSats, once.
 //
-// The reservation row is written before the node is asked to send. That
-// row is the idempotency record: reserved and review rows both reduce the
-// payable balance. A row that already existed at the start of the pass is
-// only reconciled. It is never sent again. A lookup that does not finish
-// leaves the row reserved for the next pass. A completed search that does
-// not find the send moves the row to review.
+// The signed transaction is stored in the same database transaction as
+// the reservation, and only then broadcast. A row that already has a
+// txid is never given a new transaction. Recovery looks that txid up in
+// the wallet and the txpool and, if it is absent, broadcasts the stored
+// hex again. minConfs below 1 is treated as 1.
 //
-// A row created in this pass is sent at most once. A definite wallet
-// rejection marks it failed and returns the coins. A timeout, a dropped
-// connection, an empty id, or fewer than minConfs confirmations leaves
-// the reservation in place. minConfs below 1 is treated as 1.
-//
-// Sent rows are rechecked. A transaction that later disappears moves
-// back to review and is not sent again. Negative confirmations mark
-// the row failed so the coins can be paid once more.
+// A conflicting confirmed spend, or an abandoned transaction, returns
+// the coins. A row with no txid was never broadcast and stays on hold.
 func RunPayouts(ledger Ledger, wallet Wallet, minSats, minConfs int64) (Result, error) {
 	if minSats < 0 {
 		return Result{}, fmt.Errorf("account: negative minimum")
@@ -106,18 +130,29 @@ func RunPayouts(ledger Ledger, wallet Wallet, minSats, minConfs int64) (Result, 
 		if b.Amount < minSats {
 			continue
 		}
+		signed, err := wallet.Prepare(b.Address, b.Amount)
+		if err != nil {
+			return result, err
+		}
+		if signed.TxID == "" || signed.Raw == "" {
+			return result, fmt.Errorf("account: signed payout has no txid")
+		}
 		key, err := newKey()
 		if err != nil {
 			return result, err
 		}
-		id, err := ledger.Reserve(b.Address, b.Amount, key)
+		id, err := ledger.Reserve(b.Address, b.Amount, key, signed)
 		if err != nil {
 			if errors.Is(err, ErrBelowMin) {
 				continue
 			}
 			return result, err
 		}
-		done, err := finishNew(ledger, wallet, Payout{ID: id, Address: b.Address, Amount: b.Amount, Key: key}, minConfs)
+		row := Payout{
+			ID: id, Address: b.Address, Amount: b.Amount, Key: key,
+			TxID: signed.TxID, TxIdem: signed.TxIdem, Raw: signed.Raw, Status: "reserved",
+		}
+		done, err := publish(ledger, wallet, row, minConfs)
 		if err != nil {
 			return result, err
 		}
@@ -165,86 +200,126 @@ func Reconcile(ledger Ledger, wallet Wallet, minConfs int64) (Result, error) {
 	return result, nil
 }
 
-// finishExisting reconciles a row that survived a restart. It does not send.
+// finishExisting reconciles a row that survived a restart.
+// A row with a txid is never replaced with a new transaction.
 func finishExisting(ledger Ledger, wallet Wallet, p Payout, minConfs int64) (Result, error) {
+	if p.TxID == "" {
+		return holdUnbroadcast(ledger, p.ID)
+	}
+	return publish(ledger, wallet, p, minConfs)
+}
+
+// publish broadcasts the stored hex when the transaction is not already
+// in the wallet or the txpool, then settles whatever the node reports.
+func publish(ledger Ledger, wallet Wallet, p Payout, minConfs int64) (Result, error) {
 	var result Result
-	pay, found, err := wallet.Find(p.Key, firstID(p))
+	st, err := wallet.LookupTx(p.TxID, p.TxIdem, p.Raw)
 	if err != nil {
 		result.Deferred++
 		return result, nil
 	}
-	if !found {
-		if markErr := ledger.MarkReview(p.ID); markErr != nil {
-			return result, markErr
+	if !seen(st) {
+		if p.Raw == "" {
+			return holdUnbroadcast(ledger, p.ID)
+		}
+		if err := wallet.Broadcast(p.Raw); err != nil {
+			result.Deferred++
+			return result, nil
+		}
+		st, err = wallet.LookupTx(p.TxID, p.TxIdem, p.Raw)
+		if err != nil {
+			result.Deferred++
+			return result, nil
+		}
+	}
+	return applyState(ledger, p, st, minConfs)
+}
+
+func recheckSent(ledger Ledger, wallet Wallet, p Payout, minConfs int64) (Result, error) {
+	var result Result
+	if p.TxID == "" {
+		if err := ledger.RevertSent(p.ID, "review"); err != nil {
+			return result, err
 		}
 		result.Deferred++
 		return result, nil
 	}
-	return settle(ledger, p.ID, pay, minConfs)
-}
-
-// finishNew sends a reservation that was created earlier in this call.
-func finishNew(ledger Ledger, wallet Wallet, p Payout, minConfs int64) (Result, error) {
-	var result Result
-	pay, err := wallet.Send(p.Address, p.Amount, p.Key)
+	st, err := wallet.LookupTx(p.TxID, p.TxIdem, p.Raw)
 	if err != nil {
-		txid, idem, held := heldPayment(err)
-		if held || ambiguous(err) {
-			if txid == "" {
-				txid = pay.TxID
+		result.Deferred++
+		return result, nil
+	}
+	if st.Conflict || st.Abandoned {
+		if err := ledger.Drop(p.ID); err != nil {
+			return result, err
+		}
+		result.Failed++
+		return result, nil
+	}
+	if !seen(st) {
+		if p.Raw == "" {
+			if err := ledger.RevertSent(p.ID, "review"); err != nil {
+				return result, err
 			}
-			if idem == "" {
-				idem = pay.TxIdem
-			}
-			if txid != "" || idem != "" {
-				if noteErr := ledger.NotePayment(p.ID, txid, idem, pay.Confirmations); noteErr != nil {
-					return result, noteErr
+			result.Deferred++
+			return result, nil
+		}
+		if err := wallet.Broadcast(p.Raw); err != nil {
+			result.Deferred++
+			return result, nil
+		}
+		st, err = wallet.LookupTx(p.TxID, p.TxIdem, p.Raw)
+		if err != nil || !seen(st) || st.Confirmations < minConfs {
+			if err == nil {
+				if rev := ledger.RevertSent(p.ID, "reserved"); rev != nil {
+					return result, rev
 				}
 			}
 			result.Deferred++
 			return result, nil
 		}
-		if markErr := ledger.MarkFailed(p.ID); markErr != nil {
-			return result, markErr
-		}
-		result.Failed++
-		return result, nil
 	}
-	return settle(ledger, p.ID, pay, minConfs)
-}
-
-func recheckSent(ledger Ledger, wallet Wallet, p Payout, minConfs int64) (Result, error) {
-	var result Result
-	pay, found, err := wallet.Find(p.Key, firstID(p))
-	if err != nil {
-		result.Deferred++
-		return result, nil
-	}
-	if !found {
-		if markErr := ledger.RevertSent(p.ID, "review"); markErr != nil {
-			return result, markErr
-		}
-		result.Deferred++
-		return result, nil
-	}
-	if pay.Confirmations < 0 {
-		if markErr := ledger.Drop(p.ID); markErr != nil {
-			return result, markErr
-		}
-		result.Failed++
-		return result, nil
-	}
-	if pay.TxID == "" || pay.Confirmations < minConfs {
-		if markErr := ledger.RevertSent(p.ID, "reserved"); markErr != nil {
-			return result, markErr
-		}
-		if noteErr := ledger.NotePayment(p.ID, pay.TxID, pay.TxIdem, pay.Confirmations); noteErr != nil {
-			return result, noteErr
+	if st.Confirmations < minConfs {
+		if err := ledger.RevertSent(p.ID, "reserved"); err != nil {
+			return result, err
 		}
 		result.Deferred++
 		return result, nil
 	}
 	return result, nil
+}
+
+func holdUnbroadcast(ledger Ledger, id int64) (Result, error) {
+	var result Result
+	if err := ledger.MarkReview(id); err != nil {
+		return result, err
+	}
+	result.Deferred++
+	return result, nil
+}
+
+func seen(st TxState) bool {
+	return st.InWallet || st.InMempool || st.OnChain || st.Conflict || st.Abandoned
+}
+
+func applyState(ledger Ledger, p Payout, st TxState, minConfs int64) (Result, error) {
+	if st.Conflict || st.Abandoned {
+		if err := ledger.Drop(p.ID); err != nil {
+			return Result{}, err
+		}
+		return Result{Failed: 1}, nil
+	}
+	pay := st.Payment
+	if pay.TxID == "" {
+		pay.TxID = p.TxID
+	}
+	if pay.TxIdem == "" {
+		pay.TxIdem = p.TxIdem
+	}
+	if !st.InWallet && !st.InMempool && !st.OnChain {
+		return holdUnbroadcast(ledger, p.ID)
+	}
+	return settle(ledger, p.ID, pay, minConfs)
 }
 
 func settle(ledger Ledger, id int64, pay Payment, minConfs int64) (Result, error) {
@@ -270,28 +345,8 @@ func settle(ledger Ledger, id int64, pay Payment, minConfs int64) (Result, error
 	return result, nil
 }
 
-func firstID(p Payout) string {
-	if p.TxID != "" {
-		return p.TxID
-	}
-	return p.TxIdem
-}
-
-type held interface {
-	HeldPayment() (txid, txidem string)
-}
-
-func heldPayment(err error) (string, string, bool) {
-	var h held
-	if errors.As(err, &h) {
-		txid, idem := h.HeldPayment()
-		return txid, idem, true
-	}
-	return "", "", false
-}
-
 // ReviewBook is the slice of the ledger an operator uses to finish a
-// review row. It is not the payout runner.
+// reserved or review row. It is not the payout runner.
 type ReviewBook interface {
 	Payout(id int64) (Payout, error)
 	NotePayment(id int64, txid, txidem string, confs int64) error
@@ -299,17 +354,16 @@ type ReviewBook interface {
 	ReleaseReview(id int64) error
 }
 
-// ResolveReview applies an operator decision to one review row.
+// ResolveReview applies an operator decision to one reserved or review row.
 //
-// "complete" marks the row sent when the wallet has the payment and at
-// least minConfs confirmations. "release" marks it failed only when a
-// finished search does not find the send, which returns the coins to the
-// payable balance. Releasing a send the wallet still has would pay twice,
-// so that is refused. confirm is required for release: it is the txid
-// stored on the row, or the word "none" when that row has no txid.
-// "none" is also refused until the reservation is at least minNoneAge old.
-// A search that does not finish is not a miss, and an empty confirm is
-// not an acknowledgement.
+// "complete" marks the row sent when that stored transaction is in the
+// wallet or in a block, is not abandoned or conflicted, and has at least
+// minConfs confirmations. "release" returns the coins only in one of
+// three cases: the row has no txid and the reservation is at least
+// minNoneAge old (confirm "none"); the operator names the stored txid and
+// that transaction is abandoned; or the operator names the stored txid and
+// an input is spent by a different confirmed transaction. A lookup that
+// does not finish is not one of those cases.
 func ResolveReview(book ReviewBook, wallet Wallet, id int64, action string, minConfs int64, confirm string, minNoneAge time.Duration) error {
 	if minConfs < 1 {
 		minConfs = 1
@@ -318,29 +372,30 @@ func ResolveReview(book ReviewBook, wallet Wallet, id int64, action string, minC
 	if err != nil {
 		return err
 	}
-	if p.Status != "review" {
-		return fmt.Errorf("account: payout %d is %s, not review", id, p.Status)
+	if p.Status != "review" && p.Status != "reserved" {
+		return fmt.Errorf("account: payout %d is %s, not reserved or review", id, p.Status)
 	}
-	pay, found, err := wallet.Find(p.Key, firstID(p))
+	st, err := wallet.LookupTx(p.TxID, p.TxIdem, p.Raw)
 	if err != nil {
 		return err
 	}
 	switch action {
 	case "complete":
-		if !found || pay.TxID == "" {
-			return fmt.Errorf("account: wallet has no send for payout %d", id)
+		if st.Conflict || st.Abandoned || (!st.InWallet && !st.OnChain) || st.TxID == "" {
+			return fmt.Errorf("account: wallet has no confirmed send for payout %d", id)
 		}
-		if pay.Confirmations < minConfs {
-			return fmt.Errorf("account: payout %d has %d confirmations, want %d", id, pay.Confirmations, minConfs)
+		if st.Confirmations < minConfs {
+			return fmt.Errorf("account: payout %d has %d confirmations, want %d", id, st.Confirmations, minConfs)
 		}
-		if err := book.NotePayment(id, pay.TxID, pay.TxIdem, pay.Confirmations); err != nil {
+		txid, idem := st.TxID, st.TxIdem
+		if idem == "" {
+			idem = p.TxIdem
+		}
+		if err := book.NotePayment(id, txid, idem, st.Confirmations); err != nil {
 			return err
 		}
-		return book.MarkSent(id, pay.TxID)
+		return book.MarkSent(id, txid)
 	case "release":
-		if found {
-			return fmt.Errorf("account: wallet still has payout %d (%s); refusing to release", id, pay.TxID)
-		}
 		confirm = strings.TrimSpace(confirm)
 		if confirm == "" {
 			return fmt.Errorf("account: release of payout %d requires confirmation of the expected txid, or none", id)
@@ -352,16 +407,16 @@ func ResolveReview(book ReviewBook, wallet Wallet, id int64, action string, minC
 			if minNoneAge > 0 && (p.Created.IsZero() || time.Since(p.Created) < minNoneAge) {
 				return fmt.Errorf("account: release of payout %d with confirm none requires the reservation to be at least %s old", id, minNoneAge)
 			}
-		} else if p.TxID == "" || !strings.EqualFold(confirm, p.TxID) {
+			return book.ReleaseReview(id)
+		}
+		if p.TxID == "" || !strings.EqualFold(confirm, p.TxID) {
 			return fmt.Errorf("account: confirmation does not match payout %d", id)
+		}
+		if !st.Abandoned && !st.Conflict {
+			return fmt.Errorf("account: payout %d (%s) is not abandoned and no input is spent by a different confirmed transaction", id, p.TxID)
 		}
 		return book.ReleaseReview(id)
 	default:
 		return fmt.Errorf("account: review action must be complete or release")
 	}
-}
-
-func ambiguous(err error) bool {
-	s := strings.ToLower(err.Error())
-	return strings.Contains(s, "timeout") || strings.Contains(s, "eof") || strings.Contains(s, "connection") || strings.Contains(s, "send outcome unknown")
 }
