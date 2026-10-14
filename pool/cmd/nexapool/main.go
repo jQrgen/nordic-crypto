@@ -46,12 +46,13 @@ func main() {
 		logger.Fatal(err)
 	}
 	node.PoolAddress = cfg.CoinbaseAddress
+	node.Log = logger
 	svc, err := pool.New(pool.Config{
 		FeePercent: cfg.FeePercent, FeeAddress: cfg.FeeAddress, CoinbaseAddress: cfg.CoinbaseAddress,
 		MinPayout: cfg.MinPayout, Maturity: cfg.Maturity, PPLNSBlocks: cfg.PPLNSBlocks,
 		HashrateWindow: cfg.HashrateWindow, PayoutEvery: cfg.PayoutEvery, TxReserve: cfg.TxReserve,
 		PublicStratum: cfg.PublicStratum, PayoutConfs: cfg.PayoutConfs, HotWalletMax: cfg.HotWalletMax,
-		Tailstorm: cfg.Tailstorm, TailstormAt: cfg.TailstormAt,
+		Tailstorm: cfg.Tailstorm, TailstormAt: cfg.TailstormAt, ReleaseNoneMinAge: cfg.ReleaseNoneMinAge,
 	}, db, node, logger)
 	if err != nil {
 		logger.Fatal(err)
@@ -128,7 +129,7 @@ func reviewCommand(logger *log.Logger, args []string) error {
 	path := fs.String("config", "/etc/nexapool/nexapool.toml", "path to the TOML configuration")
 	id := fs.Int64("id", 0, "payout id to resolve")
 	action := fs.String("resolve", "", "complete or release")
-	confirm := fs.String("confirm", "", "for release: the txid stored on the row, or none when it has no txid")
+	confirm := fs.String("confirm", "", "for release: the txid stored on the row, or none when it has no txid and the reservation is old enough")
 	fs.SetOutput(os.Stderr)
 	if err := fs.Parse(args); err != nil {
 		return err
@@ -147,12 +148,13 @@ func reviewCommand(logger *log.Logger, args []string) error {
 		return err
 	}
 	node.PoolAddress = cfg.CoinbaseAddress
+	node.Log = logger
 	svc, err := pool.New(pool.Config{
 		FeePercent: cfg.FeePercent, FeeAddress: cfg.FeeAddress, CoinbaseAddress: cfg.CoinbaseAddress,
 		MinPayout: cfg.MinPayout, Maturity: cfg.Maturity, PPLNSBlocks: cfg.PPLNSBlocks,
 		HashrateWindow: cfg.HashrateWindow, PayoutEvery: cfg.PayoutEvery, TxReserve: cfg.TxReserve,
 		PublicStratum: cfg.PublicStratum, PayoutConfs: cfg.PayoutConfs, HotWalletMax: cfg.HotWalletMax,
-		Tailstorm: cfg.Tailstorm, TailstormAt: cfg.TailstormAt,
+		Tailstorm: cfg.Tailstorm, TailstormAt: cfg.TailstormAt, ReleaseNoneMinAge: cfg.ReleaseNoneMinAge,
 	}, db, node, logger)
 	if err != nil {
 		return err
@@ -191,6 +193,7 @@ func reviewCommand(logger *log.Logger, args []string) error {
 			fmt.Printf("id=%d address=%s amount=%s key=%s txid=%s txidem=%s\n",
 				p.ID, p.Address, nexa.FormatNEX(p.Amount), p.Key, p.TxID, p.TxIdem)
 			fmt.Println("resolve with -resolve complete, or -resolve release -confirm <txid|none>")
+			fmt.Println("-confirm none is accepted only when the row has no txid and the reservation is at least release_none_min_age old")
 			return nil
 		}
 		return fmt.Errorf("payout %d is not in review", *id)

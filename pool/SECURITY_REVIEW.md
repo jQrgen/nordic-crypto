@@ -370,3 +370,50 @@ On this machine, `GOTOOLCHAIN=go1.27.2`, from `pool/`:
 ### Open item
 
 1. **High.** `findComment` ends a scan when a page has fewer than 1000 JSON rows. `listtransactionsfrom` can return that page after walking 1000 wallet items, because a change-only debit and a conflicted receive emit no row. The crash before `NotePayment` is then a completed miss, and `nexapool review -resolve release -confirm none` pays it again. `pool/internal/nexa/rpc.go:383`, `pool/internal/account/payout.go:350`. nexad `src/wallet/rpcwallet.cpp:2208` and `src/wallet/rpcwallet.cpp:1849`.
+
+## Re-check at 01479f9
+
+Reviewed `01479f9fc43bf88b2eb1a56476c457b5e7b2e1ba` on `cursor/nexa-pool-4f40`. nexad is still `dev` at `37fe286`. Nothing in this file was pushed onto the PR branch.
+
+**Verdict: not PASS.**
+
+A short page and a single empty page no longer end the scan, `txcount` is no longer trusted by itself, and `0` or a negative `release_none_min_age` is refused. `txcount*3` is not an upper bound on `wtxOrdered`. Accounting entries live in that map and not in `mapWallet`, so two zero-row pages can still finish the search before a later payout, and `release` then pays it again.
+
+### What holds
+
+`findComment` (`pool/internal/nexa/rpc.go:375`) advances `from` by 1000 wallet items. It stops only after two pages in a row return zero rows and `from` is greater than `txcount*3 + 1002` (`rpc.go:396`, `rpc.go:406`). A page of 999 rows resets the empty count. `TestFindCommentStopsOnAShortPageBeforeTheWalletEnds` finds the comment after one silent item and after 2000 silent items when `txcount` is 1000. `TestFindCommentTrustsTxCountPastTheLastPage` and `TestReleaseOfATxCountMissPaysAgain` still find the no-change payout that `txcount` used to hide, and `release` of that found payment is refused. `TestReleaseOfAShortPageMissPaysAgain` settles the short-page crash and does not send again.
+
+`getwalletinfo` failure, a missing or negative `txcount`, and a multiplying overflow return an error (`rpc.go:421`). `TestFindCommentMissNeedsTheItemBound` shows an empty wallet with `txcount` 0 is a logged miss, and the same wallet with no `txcount` is an unfinished scan. The 5,000,000 cap and a `from` that does not advance are also errors (`rpc.go:379`, `rpc.go:411`). `finishScan` logs the final `from` (`rpc.go:445`).
+
+`mapWallet.size()/3` truncated to an integer, then multiplied by 3, is at most 2 below `mapWallet.size()` (`src/wallet/rpcwallet.cpp:3054`). The `+2` in `walletItemMargin` covers that. The `+1000` covers one page of items added after the `getwalletinfo` call. A wallet whose ordered entries are only transactions has at least two `mapWallet` keys per transaction (`GetId` and `GetIdem`, `wallet.cpp:916`). For that wallet the bound is past the ordered length, and the scan reads every item before it will stop.
+
+`release_none_min_age` of `0`, `0s`, or a negative duration fails `parseDuration` (`config.go:254`). An empty value stays 24 hours. `pool.New` also replaces a non-positive age with 24 hours (`service.go:125`). `none` still requires an empty stored txid (`payout.go:348`) and a reservation at least that old (`payout.go:352`). A found payment is refused (`payout.go:341`). `complete` still requires a found txid and enough confirmations. A lookup error is returned and is not a miss (`payout.go:324`).
+
+### The bound is not the ordered length
+
+Severity: **high**. `pool/internal/nexa/rpc.go:406`, `pool/internal/nexa/rpc.go:431`, `pool/internal/account/payout.go:358`.
+
+`wtxOrdered` is a multimap of wallet transactions and accounting entries (`wallet.h:820`). `AddAccountingEntry` inserts `TxPair(nullptr, &entry)` and does not touch `mapWallet` (`wallet.cpp:4092`). Loading the wallet inserts every stored accounting entry the same way (`walletdb.cpp:686`). The `move` RPC writes two of them, a debit and a credit (`rpcwallet.cpp:1292`). `listtransactionsfrom` walks those entries. For account `"*"` each one appends a `move` row (`rpcwallet.cpp:1923`), so accounting entries do not create an empty page by themselves. They do push later wallet items to higher indexes while leaving `txcount` unchanged.
+
+`txcount*3 + 1002` can therefore sit below `wtxOrdered.size()`. The stop needs two consecutive zero-row pages as well (`rpc.go:406`). A change-only debit and a conflicted receive still emit nothing (`rpcwallet.cpp:1849`, `wallet.cpp:1777`, `rpcwallet.cpp:1878`). Two thousand of those in a row are two empty pages. If accounting entries before that run make the second empty page start above the bound, the scan returns a completed miss and does not read the payout after the run.
+
+`TestFindCommentMissesACommentPastAccountingEntries` builds that wallet: 5000 `move` rows, 2000 silent items, then the comment. The reported `txcount` is `(2000*2+2)/3`, which is what `mapWallet.size()/3` is when each silent transaction and the payout add two map keys and the moves add none. `LookupPayment` returns not found with a nil error.
+
+That nil error is a finished search. The crash before `NotePayment` has an empty txid, so after `release_none_min_age` the operator's `-confirm none` calls `ReleaseReview` (`payout.go:358`) and the next pass sends the coins again. A row that already stored a txid does not wait for that age: `-confirm` equal to the stored txid releases immediately (`payout.go:355`). `ZapSelectTx` has the same shape as the accounting entries. `EraseFromRam` deletes the id, the idem, and the outpoints (`wallet.cpp:4929`) and leaves the `wtxOrdered` entry in place (`walletdb.cpp:797`), so a zapped silent transaction also occupies an index `txcount` no longer counts.
+
+A hot wallet that never calls `move` and never zaps a transaction keeps the bound past its ordered length. The previous one-item and one-page misses are closed. This stop is still a completed miss for a wallet nexad can actually hold, and `release` still treats that miss as proof the send is absent.
+
+### Tests and tools
+
+On this machine, `GOTOOLCHAIN=go1.27.2`, from `pool/`:
+
+| Command | Result |
+| --- | --- |
+| `go test -race -count=1 ./...` | pass, including `TestFindCommentTrustsTxCountPastTheLastPage`, `TestFindCommentStopsOnAShortPageBeforeTheWalletEnds`, `TestReleaseOfATxCountMissPaysAgain`, and `TestReleaseOfAShortPageMissPaysAgain` |
+| `go vet ./...` | pass |
+| `staticcheck` 2026.2.2 (0.8.2) `./...` | pass |
+| `govulncheck` v1.9.0 `./...` | pass. Go 1.27.2, vuln DB updated 2026-10-08. No vulnerabilities found. |
+
+### Open item
+
+1. **High.** `txcount*3+1002` is not an upper bound on `wtxOrdered`. Accounting entries are ordered and are not in `mapWallet`, so two zero-row pages can end the scan before a later payout. `release` of that completed miss pays the coins again. `pool/internal/nexa/rpc.go:406`, `pool/internal/nexa/rpc.go:431`, `pool/internal/account/payout.go:358`. nexad `src/wallet/wallet.cpp:4099`, `src/wallet/rpcwallet.cpp:3054`.

@@ -29,7 +29,7 @@ The pool pays from a hot wallet, not from the cold nexad wallet. `hot_wallet_max
 
 Amounts use nexad's two decimal places. The default minimum payout is `1000000.00` NEX, which is 100,000,000 subunits. Coinbase maturity is at least 5001 confirmations, which is when nexad's wallet will spend the coinbase (`COINBASE_MATURITY + 1`). A lower value is rejected. A payout is marked sent only after `payout_confirmations` (default 1), and a later pass rechecks it. If that transaction disappears, the row goes back to review and is not sent again. Negative confirmations mark it failed so the coins can be paid once. The PPLNS window is two network difficulties. Payouts run about once an hour, under a process lock. A reserved payout whose send cannot be found is held for review and is not sent again.
 
-`nexapool review -config /etc/nexapool/nexapool.toml` lists those rows. `-id N -resolve complete` marks one sent when the wallet has the transaction and enough confirmations. `-id N -resolve release -confirm <txid>` returns the coins only when a finished wallet search does not find the send and `-confirm` names the txid stored on the row. `-confirm none` is accepted only when the row has no txid.
+`nexapool review -config /etc/nexapool/nexapool.toml` lists those rows. `-id N -resolve complete` marks one sent when the wallet has the transaction and enough confirmations. `-id N -resolve release -confirm <txid>` returns the coins only when a finished wallet search does not find the send and `-confirm` names the txid stored on the row. `-confirm none` is accepted only when the row has no txid and the reservation is at least `release_none_min_age` old (default 24 hours).
 
 ## Stratum
 

@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
+	"time"
 
 	"github.com/jQrgen/nordic-crypto/pool/internal/nexa"
 )
@@ -61,7 +62,7 @@ func (m *memLedger) Reserve(address string, amount int64, key string) (int64, er
 	}
 	m.next++
 	m.rows = append(m.rows, Payout{
-		ID: m.next, Address: address, Amount: amount, Key: key, Status: "reserved",
+		ID: m.next, Address: address, Amount: amount, Key: key, Status: "reserved", Created: time.Now(),
 	})
 	return m.next, nil
 }
@@ -705,7 +706,7 @@ func TestReleaseOfATxCountMissPaysAgain(t *testing.T) {
 		t.Fatalf("status %+v, want sent with txid-pay", got)
 	}
 	for _, confirm := range []string{"", "none", "txid-pay"} {
-		if err := ResolveReview(book, wlt, id, "release", 1, confirm); err == nil {
+		if err := ResolveReview(book, wlt, id, "release", 1, confirm, 24*time.Hour); err == nil {
 			t.Fatalf("release returned coins for a payment the scan found, confirm %q", confirm)
 		}
 	}
@@ -721,11 +722,10 @@ func TestReleaseOfATxCountMissPaysAgain(t *testing.T) {
 	}
 }
 
-// TestReleaseOfAShortPageMissPaysAgain is the same crash when the first
-// page of wallet items emits fewer JSON rows than the requested count.
-// nexad still has later items. The scan reports a completed miss, the row
-// has no txid, and -confirm none returns the coins. The next pass sends
-// them again.
+// TestReleaseOfAShortPageMissPaysAgain is the crash when the first page
+// of wallet items emits fewer JSON rows than the requested count. A short
+// page does not end the scan, so the comment is settled and release does
+// not return the coins.
 func TestReleaseOfAShortPageMissPaysAgain(t *testing.T) {
 	const comment = "nexapool:short"
 	type item struct {
@@ -795,33 +795,26 @@ func TestReleaseOfAShortPageMissPaysAgain(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if wlt.sends != 0 || res.Sent != 0 {
-		t.Fatalf("short page settled or sent: %+v sends %d", res, wlt.sends)
+	if wlt.sends != 0 || res.Sent != 1 {
+		t.Fatalf("short page was not settled, or was sent again: %+v sends %d", res, wlt.sends)
 	}
-	if got := book.status(id); got.Status != "review" || got.TxID != "" {
-		t.Fatalf("status %+v, want review with no txid", got)
+	if got := book.status(id); got.Status != "sent" || got.TxID != "txid-pay" {
+		t.Fatalf("status %+v, want sent with txid-pay", got)
 	}
-	if err := ResolveReview(book, wlt, id, "complete", 1, ""); err == nil {
-		t.Fatal("complete marked a lookup miss as sent")
+	for _, confirm := range []string{"", "none", "txid-pay"} {
+		if err := ResolveReview(book, wlt, id, "release", 1, confirm, 24*time.Hour); err == nil {
+			t.Fatalf("release returned coins for a payment the scan found, confirm %q", confirm)
+		}
 	}
-	if err := ResolveReview(book, wlt, id, "release", 1, ""); err == nil {
-		t.Fatal("release without -confirm returned the coins")
-	}
-	if err := ResolveReview(book, wlt, id, "release", 1, "txid-pay"); err == nil {
-		t.Fatal("release naming a txid the row does not store returned the coins")
-	}
-	if err := ResolveReview(book, wlt, id, "release", 1, "none"); err != nil {
-		t.Fatal(err)
-	}
-	if got := book.status(id); got.Status != "failed" {
-		t.Fatalf("release status %s", got.Status)
+	if got := book.status(id); got.Status != "sent" || got.TxID != "txid-pay" {
+		t.Fatalf("release changed %+v", got)
 	}
 	res, err = RunPayouts(book, wlt, 1, 1)
 	if err != nil {
 		t.Fatal(err)
 	}
-	if wlt.sends != 1 || res.Sent != 1 {
-		t.Fatalf("release paid again: %+v sends %d", res, wlt.sends)
+	if wlt.sends != 0 || res.Sent != 0 {
+		t.Fatalf("second pass paid again: %+v sends %d", res, wlt.sends)
 	}
 }
 

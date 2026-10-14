@@ -614,11 +614,13 @@ func (s *Store) MarkReview(id int64) error {
 // Payout loads one payout by id for the operator review command.
 func (s *Store) Payout(id int64) (account.Payout, error) {
 	var p account.Payout
-	err := s.db.QueryRow(`SELECT id, address, amount, idempotency_key, COALESCE(txid,''), COALESCE(txidem,''), confirmations, status
-		FROM payouts WHERE id = ?`, id).Scan(&p.ID, &p.Address, &p.Amount, &p.Key, &p.TxID, &p.TxIdem, &p.Confirmations, &p.Status)
+	var created int64
+	err := s.db.QueryRow(`SELECT id, address, amount, idempotency_key, COALESCE(txid,''), COALESCE(txidem,''), confirmations, status, created_at
+		FROM payouts WHERE id = ?`, id).Scan(&p.ID, &p.Address, &p.Amount, &p.Key, &p.TxID, &p.TxIdem, &p.Confirmations, &p.Status, &created)
 	if err != nil {
 		return account.Payout{}, err
 	}
+	p.Created = time.Unix(created, 0)
 	return p, nil
 }
 

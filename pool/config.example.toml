@@ -18,6 +18,8 @@ hashrate_window = "15m"
 # A payout is not marked sent until the wallet transaction has this many
 # confirmations. 1 is the default.
 payout_confirmations = 1
+# release -confirm none is refused until the reservation is at least this old.
+release_none_min_age = "24h"
 # Left in the wallet so a transaction fee cannot drain it.
 tx_reserve = "1.00"
 # The pool refuses to pay when getbalance is above this. Keep the hot

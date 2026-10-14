@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"strings"
+	"time"
 )
 
 // ErrBelowMin is returned when a balance is not yet payable.
@@ -25,6 +26,9 @@ type Payout struct {
 	TxIdem        string
 	Confirmations int64
 	Status        string
+	// Created is when the reservation was inserted. Release with confirm
+	// "none" requires it to be at least the configured minimum age.
+	Created time.Time
 }
 
 // Payment is a wallet send. TxID is the canonical transaction id.
@@ -302,10 +306,11 @@ type ReviewBook interface {
 // finished search does not find the send, which returns the coins to the
 // payable balance. Releasing a send the wallet still has would pay twice,
 // so that is refused. confirm is required for release: it is the txid
-// stored on the row, or the word "none" when that row has no txid. A
-// search that does not finish is not a miss, and an empty confirm is not
-// an acknowledgement.
-func ResolveReview(book ReviewBook, wallet Wallet, id int64, action string, minConfs int64, confirm string) error {
+// stored on the row, or the word "none" when that row has no txid.
+// "none" is also refused until the reservation is at least minNoneAge old.
+// A search that does not finish is not a miss, and an empty confirm is
+// not an acknowledgement.
+func ResolveReview(book ReviewBook, wallet Wallet, id int64, action string, minConfs int64, confirm string, minNoneAge time.Duration) error {
 	if minConfs < 1 {
 		minConfs = 1
 	}
@@ -343,6 +348,9 @@ func ResolveReview(book ReviewBook, wallet Wallet, id int64, action string, minC
 		if strings.EqualFold(confirm, "none") {
 			if p.TxID != "" {
 				return fmt.Errorf("account: payout %d has txid %s; confirm that id, not none", id, p.TxID)
+			}
+			if minNoneAge > 0 && (p.Created.IsZero() || time.Since(p.Created) < minNoneAge) {
+				return fmt.Errorf("account: release of payout %d with confirm none requires the reservation to be at least %s old", id, minNoneAge)
 			}
 		} else if p.TxID == "" || !strings.EqualFold(confirm, p.TxID) {
 			return fmt.Errorf("account: confirmation does not match payout %d", id)
