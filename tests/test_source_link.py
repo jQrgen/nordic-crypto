@@ -36,7 +36,7 @@ def main():
             text=True)
         top = json.loads(raw)["top"]
         check("social-source" not in top and PATH_TEXT not in top, f"{lang} share snippet has no source line")
-        check('class="share"' in top and "Share:" in top, f"{lang} share snippet still has the share bar")
+        check('class="share"' in top and 'class="share-x"' in top, f"{lang} share snippet still has the share bar")
 
     for lang in i18n.ALL_LANGS:
         label = i18n.strings(lang).get("foot_source")

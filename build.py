@@ -55,16 +55,18 @@ def _snip_close():
         try: _SNIP.stdin.close(); _SNIP.wait(10)
         except Exception: _SNIP.kill()
     if _SNIP_FAILED > 1: print(f"snippets: WARNING, {_SNIP_FAILED} pages were built without the share bar")
-def snippets(url, title):
+def snippets(url, title, text=None):
     """share.js snippets for one page, from one node process for the whole build (one process per page cost ~75 s).
-    A bad page answers {error} and only that page loses the bar; a dead process is dropped and the next page starts a new one."""
+    A bad page answers {error} and only that page loses the bar; a dead process is dropped and the next page starts a new one.
+    text, when set, is the prefilled share message instead of the page title."""
     global _SNIP
     if _SNIP is False: return _snip_fail(None)
     try:
         if _SNIP is None:
             try: _SNIP = subprocess.Popen(["node", P("tools", "snippets.js"), "--lines"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True, encoding="utf-8")
             except OSError: _SNIP = False; raise   # no node on PATH: it will not appear during the build
-        _SNIP.stdin.write(json.dumps([url, title, LANG]) + "\n"); _SNIP.stdin.flush()
+        row = [url, title, LANG] if not text else [url, title, LANG, text]
+        _SNIP.stdin.write(json.dumps(row) + "\n"); _SNIP.stdin.flush()
         s = json.loads(_SNIP.stdout.readline())
         if "top" not in s: return _snip_fail(s.get("error"))
         return s
@@ -651,14 +653,14 @@ def site_footer(rel, root, slug=""):
             f'<div class="foot-col"><h2>{E(t("foot_follow"))}</h2><ul>{follow}</ul></div></div>'
             f'{nlfoot}{pushfoot}<p class="colophon">{t("footer", site=SITE_NAME, rel=rel, root=root, ios_tv=t("ios_tv"), contributors=contributors_link())}</p>'
             f'{source_footer_line()}</div></footer>')
-def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="", hero="", og=None):
+def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="", hero="", og=None, share_text=None):
     """Writes site/<lang>/<slug>/index.html for the current LANG (English at the root).
     hero: optional full-width band between the header and <main> (the front page title block)."""
     depth = (slug.count("/") + 1 if slug else 0) + (0 if LANG == "en" else 1)
     root = "../" * depth or "./"           # site root (data/, assets/, screen/)
     rel = root + lp()                      # home of this language
     url = BASE + lp() + (slug + "/" if slug else "")
-    s = snippets(url, f"{title} – {SITE_NAME}" if slug else f"{SITE_NAME} – {t('site_desc_suffix')}")
+    s = snippets(url, f"{title} – {SITE_NAME}" if slug else f"{SITE_NAME} – {t('site_desc_suffix')}", share_text)
     nav_html = _nav_html(rel, root, nav)
     langs = langs or i18n.LANGS
     alt = "".join(f'<link rel="alternate" hreflang="{i18n.HTML_LANG[l]}" href="{BASE}{lp(l)}{slug + "/" if slug else ""}">' for l in langs) + \
@@ -2736,6 +2738,22 @@ def event_og(e, heading, when, place, text):
     if ok: og["image"] = BASE + rel.replace(os.sep, "/")
     return og
 
+def event_share_text(e):
+    """Prefill for the share sheet and the X intent: title, date, city. The page URL is passed separately."""
+    parts = []
+    title = (event_title(e) or "").strip()
+    if title: parts.append(title)
+    if e.get("start"):
+        a = dt.datetime.fromisoformat(e["start"])
+        b = dt.datetime.fromisoformat(e["end"]) if e.get("end") else None
+        date_only = a.hour == 0 and a.minute == 0 and (b is None or (b.hour, b.minute) in ((0, 0), (23, 59)))
+        when = i18n.short_date(LANG, a)
+        if b and b.date() != a.date(): when += " – " + i18n.short_date(LANG, b)
+        elif not date_only: when += ", " + i18n.hm(LANG, a)
+        parts.append(when)
+    city = (e.get("city") or "").strip()
+    if city: parts.append(city)
+    return " · ".join(parts)
 def build_one_event(e):
     """Full event page: the title, then one block with when, where, who and what (each with its source; one source line when
     they all share it) and the official page as the main button, then the description, the editor's note, topics and talks.
@@ -2843,7 +2861,7 @@ def build_one_event(e):
     if mint: bits.append(mint)
     body = site_css.style("evpage") + f'<article class="evpage">{"".join(bits)}</article>'
     data = event_page.jsonld(e, BASE + lp() + event_page.slug(e) + "/", about or note or None)
-    page(event_page.slug(e), heading, "calendar", body, desc, mint_js, og=event_og(e, heading, when, place, about or note), head_extra=f'<script type="application/ld+json">{json.dumps(data, ensure_ascii=False).replace("<", "\\u003c")}</script>')
+    page(event_page.slug(e), heading, "calendar", body, desc, mint_js, og=event_og(e, heading, when, place, about or note), head_extra=f'<script type="application/ld+json">{json.dumps(data, ensure_ascii=False).replace("<", "\\u003c")}</script>', share_text=event_share_text(e))
 def event_nft_panel(e):
     """Event NFT prototype: the mint panel and its clock script for an upcoming or ongoing event. Empty while the flag is off."""
     if not event_nft.enabled() or not e.get("id"):
