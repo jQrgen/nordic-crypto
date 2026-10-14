@@ -1261,6 +1261,18 @@
   "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
   "reviewed": "2026-10-06 (outlet's own mark)"
  },
+ "kryptovalutaguiden": {
+  "file": "assets/img/logos/kryptovalutaguiden.webp",
+  "source": "Official website",
+  "source_url": "https://kryptovalutaguiden.se/wp-content/uploads/2021/08/Gradient-Inline-LOGO-11.png",
+  "page": "https://kryptovalutaguiden.se/",
+  "kind": "img",
+  "fetched": "2026-10-14",
+  "review": "ok",
+  "use": "nominative",
+  "note": "Nominative use of the outlet's own mark. Unaltered except a raster scale to about 64px. Shown only to identify the source, linked to the outlet. No endorsement.",
+  "reviewed": "2026-10-14 (outlet's own mark)"
+ },
  "mbl": {
   "file": "assets/img/logos/mbl.svg",
   "source": "Official website",

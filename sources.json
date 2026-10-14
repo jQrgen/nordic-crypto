@@ -1686,6 +1686,23 @@
    "method": "rss"
   },
   {
+   "id": "kryptovalutaguiden",
+   "name": "Kryptovalutaguiden",
+   "kind": "Crypto media",
+   "url": "https://kryptovalutaguiden.se",
+   "feed": "https://kryptovalutaguiden.se/feed/",
+   "type": "rss-all",
+   "paywall": false,
+   "enabled": true,
+   "status": "ok (homepage link rel=alternate is /feed/; /rss redirects there. Feed returned 10 items on 2026-10-14, newest 2026-10-14; a 7-day fetch kept 9 dated news articles). WordPress posts feed: dated news articles only. Static guides and affiliate pages are pages and are not in this feed. Casino and odds posts are dropped by the gambling filter.",
+   "verified": "2026-10-14",
+   "country": "SE",
+   "language": "Swedish",
+   "coverage": "national",
+   "logo_source": "https://kryptovalutaguiden.se/wp-content/uploads/2021/08/Gradient-Inline-LOGO-11.png",
+   "method": "rss"
+  },
+  {
    "id": "bitcoinsnakk",
    "name": "Bitcoinsnakk (podkast)",
    "kind": "Podcast",
