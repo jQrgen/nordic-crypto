@@ -21178,6 +21178,24 @@
    "enabled": true,
    "status": "used",
    "method": "Upcoming programme page (date, time, organiser). WordPress event JSON is read only for a keyword hit (price and the organiser's excerpt). The full event archive is not paged."
+  },
+  {
+   "id": "nasjonalbiblioteket",
+   "name": "Nasjonalbiblioteket",
+   "country": "NO",
+   "city": "Oslo",
+   "venue": "Nasjonalbiblioteket",
+   "address": "Henrik Ibsens gate 110",
+   "url": "https://www.nb.no/hva-skjer/",
+   "api": "https://www.nb.no/wp-json/wp/v2/event",
+   "type": "nb-program",
+   "max_cards": 40,
+   "max_links": 8,
+   "trusted": false,
+   "keyword_profile": "crypto-money",
+   "enabled": true,
+   "status": "used",
+   "method": "Upcoming Hva skjer page (event cards; not exhibitions). One WordPress request for those slugs (start, end, price, text). The past archive is not paged. schema.org Event JSON-LD is read only for a keyword hit, for the room and street. No images. There is no calendar-wide iCal."
   }
  ],
  "fetch_workers": 6
