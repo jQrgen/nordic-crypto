@@ -1,0 +1,97 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://nordiccrypto.no/api/v1/schema/blurbs.schema.json",
+ "title": "Front-page blurbs",
+ "description": "Front-page blurbs by story id, in data/frontpage_blurbs.json. en is ours, in English. The Nordic site languages sit beside it when a translation is published.",
+ "x-nordic": {
+  "id": "blurbs",
+  "order": 210,
+  "files": [
+   "data/frontpage_blurbs.json"
+  ],
+  "pages": [],
+  "api": [],
+  "relations": [
+   {
+    "field": "items key",
+    "to": "news",
+    "cardinality": "many-to-one"
+   }
+  ],
+  "derived": [],
+  "omitted_from_api": [],
+  "sections": [
+   {
+    "id": "blurb",
+    "title": "Blurb",
+    "row": "#/$defs/blurb"
+   }
+  ],
+  "row": "#/$defs/blurb"
+ },
+ "type": "object",
+ "properties": {
+  "_note": {
+   "type": "string"
+  },
+  "langs": {
+   "type": "array",
+   "items": {
+    "type": "string",
+    "examples": [
+     "en"
+    ]
+   }
+  },
+  "items": {
+   "type": "object",
+   "additionalProperties": {
+    "$ref": "#/$defs/blurb"
+   }
+  }
+ },
+ "additionalProperties": false,
+ "required": [
+  "_note",
+  "langs",
+  "items"
+ ],
+ "$defs": {
+  "blurb": {
+   "type": "object",
+   "properties": {
+    "en": {
+     "type": "string"
+    },
+    "nn": {
+     "type": "string"
+    },
+    "nb": {
+     "type": "string"
+    },
+    "sv": {
+     "type": "string"
+    },
+    "da": {
+     "type": "string"
+    },
+    "fi": {
+     "type": "string"
+    },
+    "is": {
+     "type": "string"
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "en",
+    "nn",
+    "nb",
+    "sv",
+    "da",
+    "fi",
+    "is"
+   ]
+  }
+ }
+}

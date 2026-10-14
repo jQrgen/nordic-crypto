@@ -1,0 +1,466 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://nordiccrypto.no/api/v1/schema/sources.schema.json",
+ "title": "Sources",
+ "description": "News outlets and event sources in sources.json. type is how the fetcher reads the outlet. coverage is national, regional, local or justice. Kaupr is a news source and is never a sponsor.",
+ "x-nordic": {
+  "id": "sources",
+  "order": 30,
+  "files": [
+   "sources.json"
+  ],
+  "pages": [
+   "/sources/"
+  ],
+  "api": [
+   {
+    "path": "/api/v1/sources.json",
+    "note": "Outlets, search terms and event sources"
+   }
+  ],
+  "relations": [
+   {
+    "field": "id",
+    "to": "news",
+    "cardinality": "one-to-many",
+    "note": "Stories that cite this outlet"
+   }
+  ],
+  "derived": [],
+  "omitted_from_api": [],
+  "sections": [
+   {
+    "id": "outlet",
+    "title": "Outlet",
+    "row": "#/$defs/outlet"
+   },
+   {
+    "id": "event-source",
+    "title": "Event source",
+    "row": "#/$defs/event-source"
+   }
+  ],
+  "row": "#/$defs/outlet"
+ },
+ "type": "object",
+ "properties": {
+  "_note": {
+   "type": "string"
+  },
+  "user_agent": {
+   "type": "string",
+   "description": "Fetcher user agent. __SITE__ is replaced with the public site origin at fetch time.",
+   "examples": [
+    "NordicCryptoBot/0.1 (+__SITE__about/; news headline bot)"
+   ]
+  },
+  "min_delay_seconds": {
+   "type": "integer",
+   "description": "Minimum wait between requests to the same host.",
+   "examples": [
+    2
+   ]
+  },
+  "sources": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/outlet"
+   }
+  },
+  "event_sources": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/event-source"
+   }
+  },
+  "fetch_workers": {
+   "type": "integer",
+   "examples": [
+    6
+   ]
+  }
+ },
+ "additionalProperties": false,
+ "required": [
+  "_note",
+  "user_agent",
+  "min_delay_seconds",
+  "sources",
+  "event_sources",
+  "fetch_workers"
+ ],
+ "$defs": {
+  "outlet": {
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string",
+     "description": "Stable source id.",
+     "examples": [
+      "e24"
+     ]
+    },
+    "name": {
+     "type": "string",
+     "description": "Outlet name.",
+     "examples": [
+      "E24"
+     ]
+    },
+    "country": {
+     "type": "string",
+     "enum": [
+      "NO",
+      "SE",
+      "DK",
+      "FI",
+      "IS",
+      "NORDIC",
+      "EU",
+      "FO",
+      "GL",
+      "AX"
+     ],
+     "examples": [
+      "NO"
+     ]
+    },
+    "kind": {
+     "type": "string",
+     "examples": [
+      "Newspaper"
+     ]
+    },
+    "url": {
+     "type": "string",
+     "examples": [
+      "https://e24.no"
+     ]
+    },
+    "feed": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "description": "RSS, sitemap or index URL. Null when none was verified.",
+     "examples": [
+      "https://e24.no/rss2/"
+     ]
+    },
+    "type": {
+     "type": "string",
+     "description": "How the fetcher reads it: rss, rss-all, html, sitemap, bing, search or dok8.",
+     "enum": [
+      "rss",
+      "rss-all",
+      "html",
+      "sitemap",
+      "bing",
+      "search",
+      "dok8"
+     ],
+     "examples": [
+      "rss"
+     ]
+    },
+    "paywall": {
+     "type": "boolean",
+     "description": "True when a story may sit behind a subscription.",
+     "examples": [
+      true
+     ]
+    },
+    "enabled": {
+     "type": "boolean",
+     "description": "False when the feed is blocked, duplicated or not worth reading.",
+     "examples": [
+      true
+     ]
+    },
+    "status": {
+     "type": "string",
+     "examples": [
+      "ok"
+     ]
+    },
+    "verified": {
+     "type": "string",
+     "examples": [
+      "2026-10-06"
+     ]
+    },
+    "coverage": {
+     "type": "string",
+     "description": "national, regional, local or justice.",
+     "enum": [
+      "national",
+      "regional",
+      "local",
+      "justice"
+     ],
+     "examples": [
+      "local"
+     ]
+    },
+    "language": {
+     "type": "string",
+     "examples": [
+      "Norwegian"
+     ]
+    },
+    "logo_source": {
+     "type": "string",
+     "examples": [
+      "https://e24.no/vgc/gfx/icon-180x180-1.0.png"
+     ]
+    },
+    "method": {
+     "type": "string",
+     "description": "What the sources table shows: rss, html, sitemap, search or manual.",
+     "enum": [
+      "rss",
+      "html",
+      "sitemap",
+      "search",
+      "manual"
+     ],
+     "examples": [
+      "rss"
+     ]
+    },
+    "search_fallback": {
+     "type": "boolean",
+     "examples": [
+      true
+     ]
+    },
+    "max_new_per_run": {
+     "type": "integer",
+     "examples": [
+      8
+     ]
+    },
+    "outlet": {
+     "type": "string",
+     "examples": [
+      "nrk"
+     ]
+    },
+    "match_extra": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "examples": [
+       "kryptoeiendel"
+      ]
+     },
+     "examples": [
+      [
+       "kryptotillgång",
+       "Mica",
+       "kryptotjänst"
+      ]
+     ]
+    },
+    "region": {
+     "type": "string",
+     "examples": [
+      "Stockholm"
+     ]
+    },
+    "link_pattern": {
+     "type": "string",
+     "examples": [
+      "^/nyheter/"
+     ]
+    },
+    "merged_from": {
+     "type": "string",
+     "examples": [
+      "kryptonytt 2026-10-04"
+     ]
+    },
+    "allowed_tld": {
+     "type": "string",
+     "examples": [
+      "reuters.com"
+     ]
+    },
+    "queries": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "examples": [
+       "site:reuters.com Norway"
+      ]
+     }
+    },
+    "site_terms": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "examples": [
+       "bitcoin"
+      ]
+     }
+    },
+    "sites": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "examples": [
+       "e24.no"
+      ]
+     }
+    },
+    "directory": {
+     "type": "string",
+     "examples": [
+      "Amedia portfolio"
+     ]
+    },
+    "logo": {
+     "type": "string",
+     "examples": [
+      "https://r.acdn.no/local/v3/publications/www.avisenagder.no/gfx/square_logo.jpg"
+     ]
+    },
+    "logo_note": {
+     "type": "string",
+     "examples": [
+      "robots.txt disallows the homepage, so no logo was fetched. Text only."
+     ]
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "id",
+    "name",
+    "country",
+    "kind",
+    "url",
+    "feed",
+    "type",
+    "paywall",
+    "enabled",
+    "status",
+    "verified",
+    "coverage",
+    "language",
+    "method"
+   ]
+  },
+  "event-source": {
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string",
+     "examples": [
+      "oslo-blockchain-meetup"
+     ]
+    },
+    "name": {
+     "type": "string",
+     "examples": [
+      "Oslo Blockchain Meetup (Meetup.com)"
+     ]
+    },
+    "url": {
+     "type": "string",
+     "examples": [
+      "https://www.meetup.com/oslo-blockchain-meetup/"
+     ]
+    },
+    "type": {
+     "type": "string",
+     "examples": [
+      "jsonld"
+     ]
+    },
+    "trusted": {
+     "type": "boolean",
+     "examples": [
+      true
+     ]
+    },
+    "organiser": {
+     "type": "string",
+     "examples": [
+      "Oslo Blockchain Meetup"
+     ]
+    },
+    "city": {
+     "type": "string",
+     "examples": [
+      "Oslo"
+     ]
+    },
+    "enabled": {
+     "type": "boolean",
+     "examples": [
+      true
+     ]
+    },
+    "status": {
+     "type": "string",
+     "examples": [
+      "ok (JSON-LD on the group page)"
+     ]
+    },
+    "country": {
+     "type": "string",
+     "examples": [
+      "NO"
+     ]
+    },
+    "link_pattern": {
+     "type": "string",
+     "examples": [
+      "^(https://www\\.polyteknisk\\.no)?/program/[a-z0-9-]+$"
+     ]
+    },
+    "ics": {
+     "type": "string",
+     "examples": [
+      "https://api.lu.ma/ics/get?entity=calendar&id=cal-8VLp9TOOwhxwPog"
+     ]
+    },
+    "method": {
+     "type": "string",
+     "examples": [
+      "Luma public iCal subscribe feed (calendar Subscribe .ics)"
+     ]
+    },
+    "merged_from": {
+     "type": "string",
+     "examples": [
+      "kryptonytt 2026-10-04"
+     ]
+    },
+    "organizer_id": {
+     "type": "string",
+     "examples": [
+      "46541998283"
+     ]
+    },
+    "event_pages": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "id",
+    "name",
+    "url",
+    "type",
+    "trusted",
+    "enabled",
+    "status",
+    "country"
+   ]
+  }
+ }
+}

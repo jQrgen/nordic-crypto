@@ -1,0 +1,264 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://nordiccrypto.no/api/v1/schema/illustrations.schema.json",
+ "title": "Illustrations",
+ "description": "Licensed pictures that may be assigned to a story, in data/illustrations.json. kind is original, commons or official-press. A newspaper photograph is never stored here.",
+ "x-nordic": {
+  "id": "illustrations",
+  "order": 110,
+  "files": [
+   "data/illustrations.json"
+  ],
+  "pages": [
+   "/media/"
+  ],
+  "api": [
+   {
+    "path": "/api/v1/illustrations.json",
+    "note": "Picture records and the assignment rules"
+   }
+  ],
+  "relations": [
+   {
+    "field": "assign[].id",
+    "to": "news",
+    "cardinality": "many-to-many",
+    "note": "Chosen from topics, then country"
+   }
+  ],
+  "derived": [],
+  "omitted_from_api": [],
+  "sections": [
+   {
+    "id": "image",
+    "title": "Picture",
+    "row": "#/$defs/image"
+   }
+  ],
+  "row": "#/$defs/image"
+ },
+ "type": "object",
+ "properties": {
+  "_policy": {
+   "type": "string"
+  },
+  "fallback": {
+   "type": "string",
+   "description": "Picture id used when no topic or country rule matches.",
+   "examples": [
+    "original-crypto"
+   ]
+  },
+  "country": {
+   "type": "object",
+   "properties": {
+    "NO": {
+     "type": "string",
+     "examples": [
+      "commons-no"
+     ]
+    },
+    "SE": {
+     "type": "string",
+     "examples": [
+      "commons-se"
+     ]
+    },
+    "DK": {
+     "type": "string",
+     "examples": [
+      "commons-dk"
+     ]
+    },
+    "FI": {
+     "type": "string",
+     "examples": [
+      "commons-fi"
+     ]
+    },
+    "IS": {
+     "type": "string",
+     "examples": [
+      "commons-is"
+     ]
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "NO",
+    "SE",
+    "DK",
+    "FI",
+    "IS"
+   ]
+  },
+  "assign": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "topics": {
+      "type": "array",
+      "items": {
+       "type": "string",
+       "examples": [
+        "crime"
+       ]
+      },
+      "examples": [
+       [
+        "crime"
+       ]
+      ]
+     },
+     "id": {
+      "type": "string",
+      "examples": [
+       "commons-court"
+      ]
+     },
+     "countries": {
+      "type": "array",
+      "items": {
+       "type": "string",
+       "examples": [
+        "SE"
+       ]
+      },
+      "examples": [
+       [
+        "SE"
+       ]
+      ]
+     },
+     "why": {
+      "type": "string"
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "id"
+    ]
+   },
+   "description": "Topic rules. The first match wins."
+  },
+  "images": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/image"
+   }
+  }
+ },
+ "additionalProperties": false,
+ "required": [
+  "_policy",
+  "fallback",
+  "country",
+  "assign",
+  "images"
+ ],
+ "$defs": {
+  "image": {
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string",
+     "examples": [
+      "original-bitcoin"
+     ]
+    },
+    "kind": {
+     "type": "string",
+     "description": "original (drawn for Nordic Crypto), commons (Wikimedia Commons) or official-press.",
+     "enum": [
+      "original",
+      "commons",
+      "official-press"
+     ],
+     "examples": [
+      "original"
+     ]
+    },
+    "file": {
+     "type": "string",
+     "examples": [
+      "assets/img/illustrations/original-bitcoin.webp"
+     ]
+    },
+    "alt": {
+     "type": "string",
+     "examples": [
+      "Abstract gold disc. Nordic Crypto illustration, not a photograph and not a logo."
+     ]
+    },
+    "source": {
+     "type": "string",
+     "examples": [
+      "Nordic Crypto"
+     ]
+    },
+    "author": {
+     "type": "string",
+     "examples": [
+      "Nordic Crypto"
+     ]
+    },
+    "license": {
+     "type": "string",
+     "description": "Licence name.",
+     "examples": [
+      "CC0 1.0"
+     ]
+    },
+    "license_url": {
+     "type": "string",
+     "examples": [
+      "https://creativecommons.org/publicdomain/zero/1.0/"
+     ]
+    },
+    "url": {
+     "type": "string",
+     "description": "The source page for the credit.",
+     "examples": [
+      "https://cryptonordic.no/ethics/"
+     ]
+    },
+    "width": {
+     "type": "integer",
+     "examples": [
+      960
+     ]
+    },
+    "height": {
+     "type": "integer",
+     "examples": [
+      540
+     ]
+    },
+    "modifications": {
+     "type": "string",
+     "examples": [
+      "Cropped by Nordic Crypto to leave out a person at the edge of the frame."
+     ]
+    },
+    "terms": {
+     "type": "string"
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "id",
+    "kind",
+    "file",
+    "alt",
+    "source",
+    "author",
+    "license",
+    "license_url",
+    "url",
+    "width",
+    "height"
+   ]
+  }
+ }
+}

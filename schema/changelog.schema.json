@@ -1,0 +1,237 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://nordiccrypto.no/api/v1/schema/changelog.schema.json",
+ "title": "Changelog",
+ "description": "Site changes in changelog.json (new pages, sections and features, not the daily news). review pending keeps an entry off the public page until it has a date.",
+ "x-nordic": {
+  "id": "changelog",
+  "order": 140,
+  "files": [
+   "changelog.json"
+  ],
+  "pages": [
+   "/changelog/"
+  ],
+  "api": [
+   {
+    "path": "/api/v1/changelog.json",
+    "note": "Public entries, newest first"
+   },
+   {
+    "path": "/api/v1/changelog/{id}.json",
+    "note": "One entry"
+   }
+  ],
+  "relations": [],
+  "derived": [],
+  "omitted_from_api": [],
+  "sections": [
+   {
+    "id": "entry",
+    "title": "Entry",
+    "row": "#/$defs/entry"
+   }
+  ],
+  "row": "#/$defs/entry"
+ },
+ "type": "object",
+ "properties": {
+  "_how_to": {
+   "type": "string"
+  },
+  "launch_date": {
+   "type": "string",
+   "description": "Set on the first publish. Entries with date launch use this day.",
+   "examples": [
+    "2026-10-03"
+   ]
+  },
+  "entries": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/entry"
+   }
+  }
+ },
+ "additionalProperties": false,
+ "required": [
+  "_how_to",
+  "launch_date",
+  "entries"
+ ],
+ "$defs": {
+  "entry": {
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string",
+     "examples": [
+      "onion-tip-page"
+     ]
+    },
+    "date": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "description": "YYYY-MM-DD, launch, or null while the entry is still pending.",
+     "examples": [
+      "2026-10-07"
+     ]
+    },
+    "review": {
+     "type": "string",
+     "description": "pending keeps the entry off the public page.",
+     "enum": [
+      "pending"
+     ],
+     "examples": [
+      "pending"
+     ]
+    },
+    "title": {
+     "type": "string",
+     "examples": [
+      "Tor onion tip page"
+     ]
+    },
+    "description": {
+     "type": "string"
+    },
+    "i18n": {
+     "type": "object",
+     "properties": {
+      "nn": {
+       "type": "object",
+       "properties": {
+        "title": {
+         "type": "string",
+         "examples": [
+          "Tor-onion-tipsside"
+         ]
+        },
+        "description": {
+         "type": "string"
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "title",
+        "description"
+       ]
+      },
+      "nb": {
+       "type": "object",
+       "properties": {
+        "title": {
+         "type": "string",
+         "examples": [
+          "Tor-onion-tipsside"
+         ]
+        },
+        "description": {
+         "type": "string"
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "title",
+        "description"
+       ]
+      },
+      "sv": {
+       "type": "object",
+       "properties": {
+        "title": {
+         "type": "string",
+         "examples": [
+          "Tor-onion-tipssida"
+         ]
+        },
+        "description": {
+         "type": "string"
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "title",
+        "description"
+       ]
+      },
+      "da": {
+       "type": "object",
+       "properties": {
+        "title": {
+         "type": "string",
+         "examples": [
+          "Tor-onion-tipside"
+         ]
+        },
+        "description": {
+         "type": "string"
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "title",
+        "description"
+       ]
+      },
+      "fi": {
+       "type": "object",
+       "properties": {
+        "title": {
+         "type": "string",
+         "examples": [
+          "Tor-onion-vinkkisivu"
+         ]
+        },
+        "description": {
+         "type": "string"
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "title",
+        "description"
+       ]
+      },
+      "is": {
+       "type": "object",
+       "properties": {
+        "title": {
+         "type": "string",
+         "examples": [
+          "Tor-onion-ábendingasíða"
+         ]
+        },
+        "description": {
+         "type": "string"
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "title",
+        "description"
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "nn",
+      "nb"
+     ],
+     "description": "title and description in nn, nb, sv, da, fi and is."
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "id",
+    "date",
+    "title",
+    "description",
+    "i18n"
+   ]
+  }
+ }
+}

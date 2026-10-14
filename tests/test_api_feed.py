@@ -523,7 +523,14 @@ def main():
             for f in fs:
                 if not f.endswith((".json", ".html", ".txt", ".yaml")):
                     continue
-                raw = open(os.path.join(dp, f), encoding="utf-8").read()
+                path = os.path.join(dp, f)
+                raw = open(path, encoding="utf-8").read()
+                rel = os.path.relpath(path, tmp).replace(os.sep, "/")
+                # schema/*.schema.json names editorial fields (approved_by, _note) without their values.
+                if rel.startswith("api/v1/schema/") and f.endswith(".json"):
+                    if "/workspace/" in raw or "tips.db" in raw or EMAIL.search(raw):
+                        fails.append("schema doc leaked private text in " + rel)
+                    continue
                 if f.endswith(".json"):
                     hits = []
                     walk(json.loads(raw), f, hits)

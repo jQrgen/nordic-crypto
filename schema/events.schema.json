@@ -1,0 +1,790 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://nordiccrypto.no/api/v1/schema/events.schema.json",
+ "title": "Events",
+ "description": "Calendar events. data/events.json is the working list, archive/events.json is what the public calendar keeps, and data/events_backfill.json is the previous-events backfill. sponsored is null, false, true, or the sponsor's name, and is never Kaupr. The calendar status upcoming, ongoing or past is computed from start and end and is not stored.",
+ "x-nordic": {
+  "id": "events",
+  "order": 20,
+  "files": [
+   "data/events.json",
+   "archive/events.json",
+   "data/events_backfill.json"
+  ],
+  "pages": [
+   "/calendar/",
+   "/calendar/previous/"
+  ],
+  "api": [
+   {
+    "path": "/api/v1/events.json",
+    "note": "Public events, soonest start first, including past events"
+   },
+   {
+    "path": "/api/v1/events/{id}.json",
+    "note": "One event"
+   },
+   {
+    "path": "/api/v1/events/upcoming.json",
+    "note": "Events that have not ended"
+   },
+   {
+    "path": "/api/v1/events/past.json",
+    "note": "Finished public events"
+   },
+   {
+    "path": "/api/v1/events/previous.json",
+    "note": "Finished calendar events plus the backfill"
+   },
+   {
+    "path": "/api/v1/events/by-country/{country}.json",
+    "note": "One country"
+   }
+  ],
+  "relations": [
+   {
+    "field": "sponsored",
+    "to": "sponsors",
+    "cardinality": "many-to-one",
+    "note": "Null, false, true, or the sponsor's name"
+   },
+   {
+    "field": "id",
+    "to": "talks",
+    "cardinality": "one-to-many",
+    "note": "Talks recorded at this event"
+   },
+   {
+    "field": "id",
+    "to": "event-descriptions",
+    "cardinality": "one-to-one"
+   },
+   {
+    "field": "id",
+    "to": "event-redirects",
+    "cardinality": "one-to-one",
+    "note": "A removed duplicate points at the kept id"
+   }
+  ],
+  "derived": [
+   {
+    "name": "calendar_status",
+    "type": "string",
+    "enum": [
+     "upcoming",
+     "ongoing",
+     "past"
+    ],
+    "description": "Not stored. upcoming: start is in the future. ongoing: start is in the past and end is still ahead (an event with no end is never ongoing). past: the event has ended. The same split is published as /api/v1/events/upcoming.json, the ongoing array, and /api/v1/events/past.json."
+   }
+  ],
+  "omitted_from_api": [],
+  "sections": [
+   {
+    "id": "event",
+    "title": "Event",
+    "row": "#/$defs/event"
+   }
+  ],
+  "row": "#/$defs/event"
+ },
+ "type": "object",
+ "properties": {
+  "events": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/event"
+   }
+  },
+  "updated": {
+   "type": "string",
+   "examples": [
+    "2026-10-13T02:13:07+00:00"
+   ]
+  },
+  "_how_to": {
+   "type": "string"
+  },
+  "_note": {
+   "type": "string"
+  }
+ },
+ "additionalProperties": false,
+ "required": [
+  "events"
+ ],
+ "$defs": {
+  "event": {
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string",
+     "description": "Stable id.",
+     "examples": [
+      "ccc2eea6b213"
+     ]
+    },
+    "title": {
+     "type": "string",
+     "description": "Event title.",
+     "examples": [
+      "Göteborg Bitcoin Meetup #49"
+     ]
+    },
+    "start": {
+     "type": "string",
+     "description": "Start, ISO 8601 with offset.",
+     "examples": [
+      "2026-10-08T18:00:00+02:00"
+     ]
+    },
+    "end": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "description": "End, ISO 8601 with offset. Null when the source gave no end.",
+     "examples": [
+      "2026-10-08T21:00:00+02:00"
+     ]
+    },
+    "place": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "description": "Venue. Null when the event is online or the venue was not stated.",
+     "examples": [
+      "Ölrepubliken, Kronhusgatan 2B, Göteborg"
+     ]
+    },
+    "city": {
+     "type": "string",
+     "description": "City name.",
+     "examples": [
+      "Göteborg"
+     ]
+    },
+    "country": {
+     "type": "string",
+     "description": "Country code.",
+     "enum": [
+      "NO",
+      "SE",
+      "DK",
+      "FI",
+      "IS",
+      "NORDIC",
+      "EU",
+      "FO",
+      "GL",
+      "AX"
+     ],
+     "examples": [
+      "SE"
+     ]
+    },
+    "online": {
+     "type": "boolean",
+     "description": "True when the event is online.",
+     "examples": [
+      false
+     ]
+    },
+    "organiser": {
+     "type": "string",
+     "description": "Who runs it.",
+     "examples": [
+      "Swedish Bitcoin Meetups"
+     ]
+    },
+    "url": {
+     "type": "string",
+     "description": "The organiser's page.",
+     "examples": [
+      "https://www.meetup.com/swedish-bitcoin-meetups/events/316047111/"
+     ]
+    },
+    "source": {
+     "type": "string",
+     "description": "Where we read the listing. backfill on rows from the previous-events file.",
+     "examples": [
+      "Swedish Bitcoin Meetups (Meetup.com)"
+     ]
+    },
+    "source_url": {
+     "type": "string",
+     "examples": [
+      "https://www.meetup.com/swedish-bitcoin-meetups/"
+     ]
+    },
+    "paid": {
+     "description": "True, false, or null when the source did not say.",
+     "anyOf": [
+      {
+       "type": "boolean"
+      },
+      {
+       "type": "null"
+      }
+     ]
+    },
+    "sponsored": {
+     "description": "Null or false when there is no sponsor, true when it is sponsored without a named sponsor, or the sponsor's name. Never Kaupr.",
+     "anyOf": [
+      {
+       "type": "boolean"
+      },
+      {
+       "type": "string",
+       "minLength": 1
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "examples": [
+      "Reese Legal"
+     ]
+    },
+    "trusted_source": {
+     "type": "boolean",
+     "examples": [
+      true
+     ]
+    },
+    "found": {
+     "type": "string",
+     "examples": [
+      "2026-10-03T15:23:20+00:00"
+     ]
+    },
+    "status": {
+     "type": "string",
+     "description": "Editorial state. The public calendar uses published.",
+     "enum": [
+      "pending",
+      "published",
+      "rejected"
+     ],
+     "examples": [
+      "pending"
+     ]
+    },
+    "note": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "description": "Our short note, in English."
+    },
+    "description": {
+     "type": "object",
+     "properties": {
+      "text": {
+       "type": "string"
+      },
+      "lang": {
+       "type": "string",
+       "examples": [
+        "en"
+       ]
+      },
+      "source_url": {
+       "type": "string",
+       "examples": [
+        "https://www.meetup.com/swedish-bitcoin-meetups/events/316047111/"
+       ]
+      },
+      "source_name": {
+       "type": "string",
+       "examples": [
+        "Swedish Bitcoin Meetups (Meetup.com)"
+       ]
+      },
+      "retrieved": {
+       "type": "string",
+       "examples": [
+        "2026-10-07T23:50:00+00:00"
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "text",
+      "lang",
+      "source_url",
+      "source_name",
+      "retrieved"
+     ],
+     "description": "The organiser's description. text is the original wording."
+    },
+    "place_source": {
+     "type": [
+      "object",
+      "null"
+     ],
+     "properties": {
+      "name": {
+       "type": "string",
+       "examples": [
+        "Polyteknisk Forening (program)"
+       ]
+      },
+      "url": {
+       "type": "string",
+       "examples": [
+        "https://www.polyteknisk.no/program/crypto-killer-apps"
+       ]
+      },
+      "retrieved": {
+       "type": "string",
+       "examples": [
+        "2026-10-12T03:50:28+00:00"
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "name",
+      "url",
+      "retrieved"
+     ]
+    },
+    "title_orig": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "examples": [
+      "Krypto-skatt v/ Reese Legal"
+     ]
+    },
+    "note_i18n": {
+     "type": [
+      "object",
+      "null"
+     ],
+     "properties": {
+      "nn": {
+       "type": "string",
+       "examples": [
+        "Fell på første nyttårsdag: sjekk sida til arrangøren før du dreg."
+       ]
+      },
+      "nb": {
+       "type": "string",
+       "examples": [
+        "Faller på første nyttårsdag: sjekk arrangørens side før du drar."
+       ]
+      },
+      "sv": {
+       "type": "string",
+       "examples": [
+        "Upplysning: talaren, Jørgen S. Notland, är utgivare av Nordic Crypto."
+       ]
+      },
+      "da": {
+       "type": "string",
+       "examples": [
+        "Oplysning: foredragsholderen, Jørgen S. Notland, er udgiver af Nordic Crypto."
+       ]
+      },
+      "fi": {
+       "type": "string",
+       "examples": [
+        "Tiedoksi: puhuja Jørgen S. Notland on Nordic Crypton julkaisija."
+       ]
+      },
+      "is": {
+       "type": "string",
+       "examples": [
+        "Til upplýsingar: fyrirlesarinn, Jørgen S. Notland, er útgefandi Nordic Crypto."
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "nn",
+      "nb",
+      "sv",
+      "da",
+      "fi",
+      "is"
+     ],
+     "description": "That note in nn, nb, sv, da, fi and is."
+    },
+    "attendees": {
+     "type": "null"
+    },
+    "event_type": {
+     "type": "string",
+     "enum": [
+      "conference",
+      "meetup",
+      "hackathon",
+      "seminar"
+     ],
+     "examples": [
+      "conference"
+     ]
+    },
+    "language": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "examples": [
+      "is"
+     ]
+    },
+    "backfill": {
+     "type": "boolean",
+     "description": "True on rows from data/events_backfill.json. Those rows are only in previous.json.",
+     "examples": [
+      true
+     ]
+    },
+    "speakers_count": {
+     "type": "null"
+    },
+    "videos_url": {
+     "type": "null"
+    },
+    "credits": {
+     "type": "object",
+     "properties": {
+      "title": {
+       "type": "object",
+       "properties": {
+        "source_name": {
+         "type": "string",
+         "examples": [
+          "BTCX"
+         ]
+        },
+        "source_url": {
+         "type": "string",
+         "examples": [
+          "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html"
+         ]
+        },
+        "retrieved_at": {
+         "type": "string",
+         "examples": [
+          "2026-10-07T21:00:00+00:00"
+         ]
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "source_name",
+        "source_url",
+        "retrieved_at"
+       ]
+      },
+      "start": {
+       "type": "object",
+       "properties": {
+        "source_name": {
+         "type": "string",
+         "examples": [
+          "BTCX"
+         ]
+        },
+        "source_url": {
+         "type": "string",
+         "examples": [
+          "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html"
+         ]
+        },
+        "retrieved_at": {
+         "type": "string",
+         "examples": [
+          "2026-10-07T21:00:00+00:00"
+         ]
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "source_name",
+        "source_url",
+        "retrieved_at"
+       ]
+      },
+      "end": {
+       "type": "object",
+       "properties": {
+        "source_name": {
+         "type": "string",
+         "examples": [
+          "BTCX"
+         ]
+        },
+        "source_url": {
+         "type": "string",
+         "examples": [
+          "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html"
+         ]
+        },
+        "retrieved_at": {
+         "type": "string",
+         "examples": [
+          "2026-10-07T21:00:00+00:00"
+         ]
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "source_name",
+        "source_url",
+        "retrieved_at"
+       ]
+      },
+      "place": {
+       "type": "object",
+       "properties": {
+        "source_name": {
+         "type": "string",
+         "examples": [
+          "BTCX"
+         ]
+        },
+        "source_url": {
+         "type": "string",
+         "examples": [
+          "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html"
+         ]
+        },
+        "retrieved_at": {
+         "type": "string",
+         "examples": [
+          "2026-10-07T21:00:00+00:00"
+         ]
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "source_name",
+        "source_url",
+        "retrieved_at"
+       ]
+      },
+      "city": {
+       "type": "object",
+       "properties": {
+        "source_name": {
+         "type": "string",
+         "examples": [
+          "BTCX"
+         ]
+        },
+        "source_url": {
+         "type": "string",
+         "examples": [
+          "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html"
+         ]
+        },
+        "retrieved_at": {
+         "type": "string",
+         "examples": [
+          "2026-10-07T21:00:00+00:00"
+         ]
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "source_name",
+        "source_url",
+        "retrieved_at"
+       ]
+      },
+      "country": {
+       "type": "object",
+       "properties": {
+        "source_name": {
+         "type": "string",
+         "examples": [
+          "BTCX"
+         ]
+        },
+        "source_url": {
+         "type": "string",
+         "examples": [
+          "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html"
+         ]
+        },
+        "retrieved_at": {
+         "type": "string",
+         "examples": [
+          "2026-10-07T21:00:00+00:00"
+         ]
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "source_name",
+        "source_url",
+        "retrieved_at"
+       ]
+      },
+      "organiser": {
+       "type": "object",
+       "properties": {
+        "source_name": {
+         "type": "string",
+         "examples": [
+          "BTCX"
+         ]
+        },
+        "source_url": {
+         "type": "string",
+         "examples": [
+          "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html"
+         ]
+        },
+        "retrieved_at": {
+         "type": "string",
+         "examples": [
+          "2026-10-07T21:00:00+00:00"
+         ]
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "source_name",
+        "source_url",
+        "retrieved_at"
+       ]
+      },
+      "url": {
+       "type": "object",
+       "properties": {
+        "source_name": {
+         "type": "string",
+         "examples": [
+          "BTCX"
+         ]
+        },
+        "source_url": {
+         "type": "string",
+         "examples": [
+          "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html"
+         ]
+        },
+        "retrieved_at": {
+         "type": "string",
+         "examples": [
+          "2026-10-07T21:00:00+00:00"
+         ]
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "source_name",
+        "source_url",
+        "retrieved_at"
+       ]
+      },
+      "event_type": {
+       "type": "object",
+       "properties": {
+        "source_name": {
+         "type": "string",
+         "examples": [
+          "BTCX"
+         ]
+        },
+        "source_url": {
+         "type": "string",
+         "examples": [
+          "https://archive.cs.helsinki.fi/www.cs.helsinki.fi/en/events/79303.html"
+         ]
+        },
+        "retrieved_at": {
+         "type": "string",
+         "examples": [
+          "2026-10-07T21:00:00+00:00"
+         ]
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "source_name",
+        "source_url",
+        "retrieved_at"
+       ]
+      },
+      "language": {
+       "type": "object",
+       "properties": {
+        "source_name": {
+         "type": "string",
+         "examples": [
+          "Rafmyntaráð Íslands"
+         ]
+        },
+        "source_url": {
+         "type": "string",
+         "examples": [
+          "https://info.btchel.com/index.html"
+         ]
+        },
+        "retrieved_at": {
+         "type": "string",
+         "examples": [
+          "2026-10-07T21:00:00+00:00"
+         ]
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "source_name",
+        "source_url",
+        "retrieved_at"
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "title",
+      "start",
+      "country",
+      "organiser",
+      "url",
+      "event_type"
+     ]
+    },
+    "talk_ids": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "examples": [
+       "yt-zi2JsPOm5HE"
+      ]
+     },
+     "examples": [
+      [
+       "yt-zi2JsPOm5HE"
+      ]
+     ]
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "id",
+    "title",
+    "start",
+    "end",
+    "place",
+    "city",
+    "country",
+    "online",
+    "organiser",
+    "url",
+    "source",
+    "status"
+   ]
+  }
+ }
+}

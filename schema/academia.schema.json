@@ -1,0 +1,581 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://nordiccrypto.no/api/v1/schema/academia.schema.json",
+ "title": "Academia",
+ "description": "Courses, student groups, publications and research groups in data/academia.json. The public page shows rows whose status is approved.",
+ "x-nordic": {
+  "id": "academia",
+  "order": 50,
+  "files": [
+   "data/academia.json"
+  ],
+  "pages": [
+   "/academia/"
+  ],
+  "api": [
+   {
+    "path": "/api/v1/academia.json",
+    "note": "All four sections"
+   },
+   {
+    "path": "/api/v1/academia/{section}.json",
+    "note": "courses, groups, publications or research"
+   },
+   {
+    "path": "/api/v1/academia/{id}.json",
+    "note": "One row"
+   }
+  ],
+  "relations": [],
+  "derived": [],
+  "omitted_from_api": [],
+  "sections": [
+   {
+    "id": "course",
+    "title": "Course",
+    "row": "#/$defs/course"
+   },
+   {
+    "id": "group",
+    "title": "Student group",
+    "row": "#/$defs/group"
+   },
+   {
+    "id": "publication",
+    "title": "Publication",
+    "row": "#/$defs/publication"
+   },
+   {
+    "id": "research",
+    "title": "Research group",
+    "row": "#/$defs/research"
+   }
+  ],
+  "row": "#/$defs/course"
+ },
+ "type": "object",
+ "properties": {
+  "updated": {
+   "type": "string",
+   "examples": [
+    "2026-10-14"
+   ]
+  },
+  "source_list": {
+   "type": "string"
+  },
+  "works_catalogue": {
+   "type": "string",
+   "examples": [
+    "research/academia/works.json"
+   ]
+  },
+  "rules": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   },
+   "description": "Editorial rules for what may be listed. Prose, not a record."
+  },
+  "courses": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/course"
+   }
+  },
+  "groups": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/group"
+   }
+  },
+  "publications": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/publication"
+   }
+  },
+  "research": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/research"
+   }
+  }
+ },
+ "additionalProperties": false,
+ "required": [
+  "updated",
+  "source_list",
+  "works_catalogue",
+  "rules",
+  "courses",
+  "groups",
+  "publications",
+  "research"
+ ],
+ "$defs": {
+  "course": {
+   "type": "object",
+   "properties": {
+    "country": {
+     "type": "string",
+     "enum": [
+      "NO",
+      "SE",
+      "DK",
+      "FI",
+      "IS",
+      "FO",
+      "GL",
+      "AX"
+     ],
+     "examples": [
+      "NO"
+     ]
+    },
+    "institution": {
+     "type": "string",
+     "examples": [
+      "NTNU"
+     ]
+    },
+    "code": {
+     "type": "string",
+     "description": "Course code at the institution.",
+     "examples": [
+      "TTM4195"
+     ]
+    },
+    "name": {
+     "type": "string",
+     "examples": [
+      "Blockchain Technologies and Cryptographic Tools"
+     ]
+    },
+    "level": {
+     "type": "string",
+     "examples": [
+      "Master, 7.5 ECTS"
+     ]
+    },
+    "term": {
+     "type": "string",
+     "examples": [
+      "Autumn 2026"
+     ]
+    },
+    "about": {
+     "type": "string"
+    },
+    "url": {
+     "type": "string",
+     "examples": [
+      "https://www.ntnu.edu/studies/courses/TTM4195"
+     ]
+    },
+    "source": {
+     "type": "string",
+     "examples": [
+      "https://www.ntnu.edu/studies/courses/TTM4195"
+     ]
+    },
+    "checked": {
+     "type": "string",
+     "examples": [
+      "2026-10-03"
+     ]
+    },
+    "status": {
+     "type": "string",
+     "description": "approved is shown on the public page.",
+     "enum": [
+      "pending",
+      "approved",
+      "out",
+      "unverified"
+     ],
+     "examples": [
+      "approved"
+     ]
+    },
+    "editor_note": {
+     "type": "string"
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "country",
+    "institution",
+    "code",
+    "name",
+    "level",
+    "term",
+    "about",
+    "url",
+    "source",
+    "checked",
+    "status",
+    "editor_note"
+   ]
+  },
+  "group": {
+   "type": "object",
+   "properties": {
+    "country": {
+     "type": "string",
+     "examples": [
+      "SE"
+     ]
+    },
+    "name": {
+     "type": "string",
+     "examples": [
+      "KTH Blockchain Initiative"
+     ]
+    },
+    "institution": {
+     "type": "string",
+     "examples": [
+      "KTH"
+     ]
+    },
+    "about": {
+     "type": "string"
+    },
+    "activity": {
+     "type": "string",
+     "examples": [
+      "none dated (only a \"© 2026\" footer)"
+     ]
+    },
+    "active": {
+     "type": "boolean",
+     "examples": [
+      false
+     ]
+    },
+    "url": {
+     "type": "string",
+     "examples": [
+      "https://kthbci.org"
+     ]
+    },
+    "source": {
+     "type": "string",
+     "examples": [
+      "https://kthbci.org"
+     ]
+    },
+    "checked": {
+     "type": "string",
+     "examples": [
+      "2026-10-05"
+     ]
+    },
+    "status": {
+     "type": "string",
+     "enum": [
+      "pending",
+      "approved",
+      "out"
+     ],
+     "examples": [
+      "pending"
+     ]
+    },
+    "editor_note": {
+     "type": "string"
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "country",
+    "name",
+    "institution",
+    "about",
+    "activity",
+    "active",
+    "url",
+    "source",
+    "checked",
+    "status",
+    "editor_note"
+   ]
+  },
+  "publication": {
+   "type": "object",
+   "properties": {
+    "country": {
+     "type": "string",
+     "enum": [
+      "NO",
+      "SE",
+      "DK",
+      "FI",
+      "IS",
+      "FO",
+      "GL",
+      "AX"
+     ],
+     "examples": [
+      "FI"
+     ]
+    },
+    "title": {
+     "type": "string",
+     "examples": [
+      "Crypto disruption: blockchain and digital currencies from a CFO’s perspective"
+     ]
+    },
+    "authors": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "examples": [
+       "Severi Seppä"
+      ]
+     },
+     "examples": [
+      [
+       "Severi Seppä"
+      ]
+     ]
+    },
+    "institution": {
+     "anyOf": [
+      {
+       "type": "array",
+       "items": {
+        "type": "string",
+        "examples": [
+         ""
+        ]
+       },
+       "examples": [
+        [
+         "",
+         "Göteborgs universitet"
+        ]
+       ]
+      },
+      {
+       "type": "string",
+       "examples": [
+        "JAMK University of Applied Sciences"
+       ]
+      }
+     ],
+     "examples": [
+      "JAMK University of Applied Sciences"
+     ]
+    },
+    "year": {
+     "type": [
+      "integer",
+      "null"
+     ],
+     "examples": [
+      2026
+     ]
+    },
+    "type": {
+     "type": "string",
+     "description": "master, phd, paper or conference.",
+     "enum": [
+      "master",
+      "phd",
+      "paper",
+      "conference"
+     ],
+     "examples": [
+      "phd"
+     ]
+    },
+    "venue": {
+     "type": "string",
+     "examples": [
+      "PhD dissertation"
+     ]
+    },
+    "doi": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "description": "DOI when the catalogue gave one, otherwise null.",
+     "examples": [
+      "10.1016/j.ribaf.2024.102333"
+     ]
+    },
+    "url": {
+     "type": "string",
+     "examples": [
+      "http://www.theseus.fi/bitstream/10024/922533/2/Seppa_Severi.pdf"
+     ]
+    },
+    "db": {
+     "type": "string",
+     "examples": [
+      "http://www.theseus.fi/bitstream/10024/922533/2/Seppa_Severi.pdf"
+     ]
+    },
+    "db_name": {
+     "type": "string",
+     "examples": [
+      "openalex"
+     ]
+    },
+    "source": {
+     "type": "string",
+     "examples": [
+      "http://www.theseus.fi/bitstream/10024/922533/2/Seppa_Severi.pdf"
+     ]
+    },
+    "about": {
+     "type": "string"
+    },
+    "keywords": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "examples": [
+       "Cryptocurrency"
+      ]
+     },
+     "examples": [
+      [
+       "blockchains",
+       "finance",
+       "central bank digital currency"
+      ]
+     ]
+    },
+    "checked": {
+     "type": "string",
+     "examples": [
+      "2026-10-14"
+     ]
+    },
+    "status": {
+     "type": "string",
+     "enum": [
+      "pending",
+      "approved",
+      "out"
+     ],
+     "examples": [
+      "pending"
+     ]
+    },
+    "editor_note": {
+     "type": "string"
+    },
+    "origin": {
+     "type": "string",
+     "examples": [
+      "research/academia/works.json"
+     ]
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "country",
+    "title",
+    "authors",
+    "institution",
+    "year",
+    "type",
+    "venue",
+    "doi",
+    "url",
+    "db",
+    "db_name",
+    "source",
+    "checked",
+    "status",
+    "editor_note",
+    "origin"
+   ]
+  },
+  "research": {
+   "type": "object",
+   "properties": {
+    "country": {
+     "type": "string",
+     "enum": [
+      "NO",
+      "SE",
+      "DK",
+      "FI",
+      "IS",
+      "FO",
+      "GL",
+      "AX"
+     ],
+     "examples": [
+      "NO"
+     ]
+    },
+    "name": {
+     "type": "string",
+     "examples": [
+      "Blockchain-UiO"
+     ]
+    },
+    "institution": {
+     "type": "string",
+     "examples": [
+      "University of Oslo, Dept. of Informatics"
+     ]
+    },
+    "about": {
+     "type": "string"
+    },
+    "url": {
+     "type": "string",
+     "examples": [
+      "https://www.mn.uio.no/ifi/english/research/networks/blockchainlab/"
+     ]
+    },
+    "source": {
+     "type": "string",
+     "examples": [
+      "https://www.mn.uio.no/ifi/english/research/networks/blockchainlab/"
+     ]
+    },
+    "checked": {
+     "type": "string",
+     "examples": [
+      "2026-10-05"
+     ]
+    },
+    "status": {
+     "type": "string",
+     "enum": [
+      "pending",
+      "approved",
+      "out"
+     ],
+     "examples": [
+      "approved"
+     ]
+    },
+    "editor_note": {
+     "type": "string"
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "country",
+    "name",
+    "institution",
+    "about",
+    "url",
+    "source",
+    "checked",
+    "status",
+    "editor_note"
+   ]
+  }
+ }
+}

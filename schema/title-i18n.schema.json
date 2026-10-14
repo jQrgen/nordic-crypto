@@ -1,0 +1,115 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://nordiccrypto.no/api/v1/schema/title-i18n.schema.json",
+ "title": "Headline translations",
+ "description": "Our headlines by story id, in data/title_i18n.json. The source headline stays on the story. Keys are nn, nb, sv, da, fi and is, and only for languages that are not already the source headline.",
+ "x-nordic": {
+  "id": "title-i18n",
+  "order": 200,
+  "files": [
+   "data/title_i18n.json"
+  ],
+  "pages": [],
+  "api": [],
+  "relations": [
+   {
+    "field": "items key",
+    "to": "news",
+    "cardinality": "many-to-one"
+   }
+  ],
+  "derived": [],
+  "omitted_from_api": [],
+  "sections": [
+   {
+    "id": "headlines",
+    "title": "Headlines for one story",
+    "row": "#/$defs/headlines"
+   }
+  ],
+  "row": "#/$defs/headlines"
+ },
+ "type": "object",
+ "properties": {
+  "_note": {
+   "type": "string"
+  },
+  "langs": {
+   "type": "array",
+   "items": {
+    "type": "string",
+    "examples": [
+     "nn"
+    ]
+   },
+   "description": "Language codes this file translates into."
+  },
+  "items": {
+   "type": "object",
+   "additionalProperties": {
+    "$ref": "#/$defs/headlines"
+   }
+  }
+ },
+ "additionalProperties": false,
+ "required": [
+  "_note",
+  "langs",
+  "items"
+ ],
+ "$defs": {
+  "headlines": {
+   "type": "object",
+   "properties": {
+    "source": {
+     "type": "string",
+     "examples": [
+      "Småsparere hamstret krypto under renteuro"
+     ]
+    },
+    "nn": {
+     "type": "string",
+     "examples": [
+      "Småspararar hamstra krypto under renteuro"
+     ]
+    },
+    "sv": {
+     "type": "string",
+     "examples": [
+      "Småsparare hamstrade krypto under ränteoro"
+     ]
+    },
+    "da": {
+     "type": "string",
+     "examples": [
+      "Småsparere hamstrede krypto under renteuro"
+     ]
+    },
+    "fi": {
+     "type": "string",
+     "examples": [
+      "Piensijoittajat hamstrasivat kryptoa korkoheilunnassa"
+     ]
+    },
+    "is": {
+     "type": "string",
+     "examples": [
+      "Smásparifólk hamstraði rafmynt í vaxtaóróa"
+     ]
+    },
+    "nb": {
+     "type": "string",
+     "examples": [
+      "Slik kan Sverige brukes til å finansiere kjernevåpen"
+     ]
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "source",
+    "nn",
+    "is"
+   ]
+  }
+ }
+}

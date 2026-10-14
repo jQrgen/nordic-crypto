@@ -1,0 +1,29 @@
+# Fails when a public data file does not match schema/*.schema.json.
+# Full history so the schema version on /db/ can be checked from git log.
+name: Schema
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  schema:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Validate data against the schemas
+        run: python3 -m unittest tests.test_schema

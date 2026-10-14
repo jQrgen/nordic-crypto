@@ -1,0 +1,932 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://nordiccrypto.no/api/v1/schema/orgchart.schema.json",
+ "title": "Who's who",
+ "description": "People and organisations in data/orgchart.json, the relations between them, and a short regulation note per country. status published is what the public page and the API show.",
+ "x-nordic": {
+  "id": "orgchart",
+  "order": 80,
+  "files": [
+   "data/orgchart.json"
+  ],
+  "pages": [
+   "/org-chart/"
+  ],
+  "api": [
+   {
+    "path": "/api/v1/orgchart.json",
+    "note": "Entities, relations and regulation"
+   },
+   {
+    "path": "/api/v1/orgchart/{id}.json",
+    "note": "One entity"
+   },
+   {
+    "path": "/api/v1/relations.json",
+    "note": "Relations only"
+   },
+   {
+    "path": "/api/v1/regulation.json",
+    "note": "Regulation notes"
+   }
+  ],
+  "relations": [
+   {
+    "field": "relations[].from",
+    "to": "orgchart",
+    "cardinality": "many-to-one"
+   },
+   {
+    "field": "relations[].to",
+    "to": "orgchart",
+    "cardinality": "many-to-one"
+   },
+   {
+    "field": "entities[].talk_ids",
+    "to": "talks",
+    "cardinality": "many-to-many"
+   },
+   {
+    "field": "id",
+    "to": "profiles",
+    "cardinality": "one-to-many"
+   },
+   {
+    "field": "id",
+    "to": "developers",
+    "cardinality": "one-to-many",
+    "note": "whoswho_id and org_id on a developer"
+   }
+  ],
+  "derived": [],
+  "omitted_from_api": [],
+  "sections": [
+   {
+    "id": "entity",
+    "title": "Entity",
+    "row": "#/$defs/entity"
+   },
+   {
+    "id": "relation",
+    "title": "Relation",
+    "row": "#/$defs/relation"
+   },
+   {
+    "id": "regulation",
+    "title": "Regulation note",
+    "row": "#/$defs/regulation"
+   }
+  ],
+  "row": "#/$defs/entity"
+ },
+ "type": "object",
+ "properties": {
+  "updated": {
+   "type": "string",
+   "examples": [
+    "2026-10-03"
+   ]
+  },
+  "no_export_date": {
+   "type": "string",
+   "examples": [
+    "03.10.2026"
+   ]
+  },
+  "entities": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/entity"
+   }
+  },
+  "relations": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/relation"
+   }
+  },
+  "regulation": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/regulation"
+   }
+  },
+  "caveats": {
+   "type": "array",
+   "items": {
+    "type": "string",
+    "examples": [
+     "Storting finance committee: only the chair and deputy chairs are listed for now."
+    ]
+   }
+  }
+ },
+ "additionalProperties": false,
+ "required": [
+  "updated",
+  "no_export_date",
+  "entities",
+  "relations",
+  "regulation",
+  "caveats"
+ ],
+ "$defs": {
+  "entity": {
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string",
+     "description": "Stable who's who id.",
+     "examples": [
+      "stortinget-finanskomiteen"
+     ]
+    },
+    "name": {
+     "type": "string",
+     "examples": [
+      "Storting (parliament) – Standing Committee on Finance"
+     ]
+    },
+    "type": {
+     "type": "string",
+     "description": "person or organisation.",
+     "enum": [
+      "person",
+      "organisation"
+     ],
+     "examples": [
+      "organisation"
+     ]
+    },
+    "sector": {
+     "type": "string",
+     "description": "private or public.",
+     "enum": [
+      "private",
+      "public"
+     ],
+     "examples": [
+      "public"
+     ]
+    },
+    "country": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "enum": [
+      "NO",
+      "SE",
+      "DK",
+      "FI",
+      "IS",
+      "NORDIC",
+      "EU",
+      "FO",
+      "GL",
+      "AX",
+      null
+     ],
+     "examples": [
+      "NO"
+     ]
+    },
+    "description": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "sources": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "url": {
+        "type": "string",
+        "examples": [
+         "https://www.regjeringen.no/no/dep/fin/id216/"
+        ]
+       },
+       "title": {
+        "type": "string",
+        "examples": [
+         "Stortinget"
+        ]
+       },
+       "source_name": {
+        "type": "string",
+        "examples": [
+         "Stortinget"
+        ]
+       },
+       "date": {
+        "type": "string",
+        "examples": [
+         "03.10.2026"
+        ]
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "url",
+       "title",
+       "source_name",
+       "date"
+      ]
+     },
+     "description": "Pages the row was checked against."
+    },
+    "image": {
+     "type": [
+      "object",
+      "null"
+     ],
+     "properties": {
+      "file": {
+       "type": "string",
+       "examples": [
+        "assets/img/people/tuva-moflag.jpg"
+       ]
+      },
+      "source_page": {
+       "type": "string",
+       "examples": [
+        "https://commons.wikimedia.org/wiki/File:Tuva_Moflag.jpg"
+       ]
+      },
+      "author": {
+       "type": "string",
+       "examples": [
+        "Johannes Dalen Giske"
+       ]
+      },
+      "license": {
+       "type": "string",
+       "examples": [
+        "CC BY-SA 4.0"
+       ]
+      },
+      "license_url": {
+       "type": "string",
+       "examples": [
+        "https://creativecommons.org/licenses/by-sa/4.0"
+       ]
+      },
+      "origin": {
+       "type": "string",
+       "examples": [
+        "Wikimedia Commons"
+       ]
+      },
+      "review": {
+       "type": "string",
+       "examples": [
+        "ok"
+       ]
+      },
+      "note": {
+       "type": "string"
+      },
+      "checked": {
+       "type": "string",
+       "examples": [
+        "2026-10-03"
+       ]
+      },
+      "reviewed": {
+       "type": "string"
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "file",
+      "source_page",
+      "author",
+      "license",
+      "license_url",
+      "origin",
+      "review"
+     ]
+    },
+    "caveat": {
+     "type": "boolean",
+     "examples": [
+      false
+     ]
+    },
+    "origin": {
+     "type": "string",
+     "examples": [
+      "Kryptonytt industry map (approved for Norway)"
+     ]
+    },
+    "group": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "examples": [
+      "Parliament & government"
+     ]
+    },
+    "status": {
+     "type": "string",
+     "description": "published is shown. rejected stays in the file and is left off the public page.",
+     "enum": [
+      "pending",
+      "published",
+      "rejected"
+     ],
+     "examples": [
+      "published"
+     ]
+    },
+    "logo": {
+     "type": "object",
+     "properties": {
+      "source": {
+       "type": "string",
+       "examples": [
+        "Wikimedia Commons"
+       ]
+      },
+      "source_url": {
+       "type": "string",
+       "examples": [
+        "https://www.finanstilsynet.no/Content/Favicons/apple-touch-icon-57x57.png"
+       ]
+      },
+      "license": {
+       "type": "string",
+       "examples": [
+        "Public domain"
+       ]
+      },
+      "author": {
+       "type": [
+        "string",
+        "null"
+       ],
+       "examples": [
+        "Worldlydev"
+       ]
+      },
+      "file": {
+       "type": "string",
+       "examples": [
+        "assets/img/logos/stortinget-finanskomiteen.svg"
+       ]
+      },
+      "wikidata": {
+       "type": "string",
+       "examples": [
+        "Q109016"
+       ]
+      },
+      "fetched": {
+       "type": "string"
+      },
+      "review": {
+       "type": "string",
+       "examples": [
+        "ok"
+       ]
+      },
+      "reviewed": {
+       "type": "string"
+      },
+      "raster": {
+       "type": "string",
+       "examples": [
+        "assets/img/logos/stortinget-finanskomiteen.png"
+       ]
+      },
+      "page": {
+       "type": "string",
+       "examples": [
+        "https://www.finanstilsynet.no"
+       ]
+      },
+      "kind": {
+       "type": "string",
+       "examples": [
+        "touch"
+       ]
+      },
+      "note": {
+       "type": "string"
+      },
+      "history": {
+       "type": "array",
+       "items": {
+        "type": "object",
+        "properties": {
+         "review": {
+          "type": "string",
+          "examples": [
+           "rejected"
+          ]
+         },
+         "reason": {
+          "type": "string",
+          "examples": [
+           "editor: outdated logo"
+          ]
+         },
+         "date": {
+          "type": "string",
+          "examples": [
+           "2026-10-04"
+          ]
+         }
+        },
+        "additionalProperties": false,
+        "required": [
+         "review",
+         "reason",
+         "date"
+        ]
+       }
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "source",
+      "source_url",
+      "file",
+      "fetched",
+      "review"
+     ]
+    },
+    "org": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "examples": [
+      "stortinget-finanskomiteen"
+     ]
+    },
+    "role": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "examples": [
+      "Chair (Labour)"
+     ]
+    },
+    "profile_url": {
+     "type": "string",
+     "examples": [
+      "https://www.regjeringen.no/no/dep/fin/id216/"
+     ]
+    },
+    "profiles": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "kind": {
+        "type": "string",
+        "examples": [
+         "wikipedia"
+        ]
+       },
+       "label": {
+        "type": "string",
+        "examples": [
+         "Wikipedia (en)"
+        ]
+       },
+       "url": {
+        "type": "string",
+        "examples": [
+         "https://en.wikipedia.org/wiki/Tuva_Moflag"
+        ]
+       },
+       "source_url": {
+        "type": "string",
+        "examples": [
+         "https://www.wikidata.org/wiki/Q25427910"
+        ]
+       },
+       "status": {
+        "type": "string",
+        "examples": [
+         "published"
+        ]
+       },
+       "reviewed": {
+        "type": "string"
+       },
+       "note": {
+        "type": "string"
+       },
+       "added": {
+        "type": "string",
+        "examples": [
+         "2026-10-09 (open-source developers research)"
+        ]
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "kind",
+       "label",
+       "url",
+       "source_url",
+       "status"
+      ]
+     }
+    },
+    "talk_ids": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "examples": [
+       "yt-gn50NxhPk-0"
+      ]
+     },
+     "examples": [
+      [
+       "yt-gn50NxhPk-0"
+      ]
+     ]
+    },
+    "talks": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "id": {
+        "type": "string",
+        "examples": [
+         "yt-gn50NxhPk-0"
+        ]
+       },
+       "title": {
+        "type": "string",
+        "examples": [
+         "Hvorfor og når får vi digitale sentralbankpenger og kryptovaluta?"
+        ]
+       },
+       "video_url": {
+        "type": "string",
+        "examples": [
+         "https://www.youtube.com/watch?v=gn50NxhPk-0"
+        ]
+       },
+       "event_id": {
+        "type": "string",
+        "examples": [
+         "92041cfcb99c"
+        ]
+       },
+       "date": {
+        "type": "string",
+        "examples": [
+         "2016-04-19"
+        ]
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "id",
+       "title",
+       "video_url"
+      ]
+     }
+    },
+    "affiliations": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "talk_id": {
+        "type": "string",
+        "examples": [
+         "yt-RTcqp3MqRtU"
+        ]
+       },
+       "organisation": {
+        "type": "string",
+        "examples": [
+         "NBX"
+        ]
+       },
+       "source_url": {
+        "type": "string",
+        "examples": [
+         "https://www.youtube.com/watch?v=RTcqp3MqRtU&hl=en"
+        ]
+       },
+       "source_name": {
+        "type": "string",
+        "examples": [
+         "Nordic Blockchain Association"
+        ]
+       },
+       "retrieved_at": {
+        "type": "string",
+        "examples": [
+         "2026-10-07T23:30:36+00:00"
+        ]
+       },
+       "role": {
+        "type": "string",
+        "examples": [
+         "PhD Student"
+        ]
+       },
+       "event_id": {
+        "type": "string",
+        "examples": [
+         "92041cfcb99c"
+        ]
+       },
+       "date": {
+        "type": "string",
+        "examples": [
+         "2016-04-19"
+        ]
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "talk_id",
+       "organisation",
+       "source_url",
+       "source_name",
+       "retrieved_at"
+      ]
+     }
+    },
+    "url": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "examples": [
+      "https://www.fi.se"
+     ]
+    },
+    "aliases": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "examples": [
+       "BTCX"
+      ]
+     },
+     "examples": [
+      [
+       "BTCX",
+       "Goobit AB",
+       "Goobit Group AB"
+      ]
+     ]
+    },
+    "review": {
+     "type": "string",
+     "examples": [
+      "pending"
+     ]
+    },
+    "via": {
+     "type": "string"
+    },
+    "added": {
+     "type": "string",
+     "examples": [
+      "2026-10-03"
+     ]
+    },
+    "event_ids": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "examples": [
+       "92041cfcb99c"
+      ]
+     },
+     "examples": [
+      [
+       "92041cfcb99c"
+      ]
+     ]
+    },
+    "from_talks": {
+     "type": "boolean",
+     "examples": [
+      true
+     ]
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "id",
+    "name",
+    "type",
+    "sector",
+    "country",
+    "description",
+    "sources",
+    "image",
+    "origin",
+    "status"
+   ]
+  },
+  "relation": {
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string",
+     "examples": [
+      "r-greenmerc-northcrypto"
+     ]
+    },
+    "from": {
+     "type": "string",
+     "description": "Entity id.",
+     "examples": [
+      "greenmerc"
+     ]
+    },
+    "to": {
+     "type": "string",
+     "description": "Entity id.",
+     "examples": [
+      "northcrypto"
+     ]
+    },
+    "type": {
+     "type": "string",
+     "description": "collaboration, licensed, partner, refused, supervises or uses licence.",
+     "enum": [
+      "collaboration",
+      "licensed",
+      "partner",
+      "refused",
+      "supervises",
+      "uses licence"
+     ],
+     "examples": [
+      "uses licence"
+     ]
+    },
+    "label": {
+     "type": "string",
+     "examples": [
+      "Uses Northcrypto's MiCA licence for Trijo customers"
+     ]
+    },
+    "sources": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "url": {
+        "type": "string",
+        "examples": [
+         "https://www.meetup.com/swedish-bitcoin-meetups/"
+        ]
+       },
+       "title": {
+        "type": "string",
+        "examples": [
+         "GreenMerc trekker MiCA-klage og bruker Northcryptos lisens i Sverige"
+        ]
+       },
+       "source_name": {
+        "type": "string",
+        "examples": [
+         "Kaupr"
+        ]
+       },
+       "date": {
+        "type": "string",
+        "examples": [
+         "2026-10-03"
+        ]
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "url",
+       "title",
+       "source_name",
+       "date"
+      ]
+     }
+    },
+    "status": {
+     "type": "string",
+     "enum": [
+      "pending",
+      "published",
+      "rejected"
+     ],
+     "examples": [
+      "published"
+     ]
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "id",
+    "from",
+    "to",
+    "type",
+    "label",
+    "sources",
+    "status"
+   ]
+  },
+  "regulation": {
+   "type": "object",
+   "properties": {
+    "country": {
+     "type": "string",
+     "enum": [
+      "NO",
+      "SE",
+      "DK",
+      "FI",
+      "IS",
+      "FO",
+      "GL",
+      "AX"
+     ],
+     "examples": [
+      "NO"
+     ]
+    },
+    "mica": {
+     "type": "string"
+    },
+    "law": {
+     "type": "string",
+     "examples": [
+      "Lov om kryptoeiendeler (Crypto-Assets Act, 27 May 2025 no. 20)."
+     ]
+    },
+    "regulator": {
+     "type": "string"
+    },
+    "status": {
+     "type": "string"
+    },
+    "sources": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "url": {
+        "type": "string",
+        "examples": [
+         "https://lovdata.no/dokument/NL/lov/2025-05-27-20"
+        ]
+       },
+       "title": {
+        "type": "string",
+        "examples": [
+         "Lov om kryptoeiendeler"
+        ]
+       },
+       "source_name": {
+        "type": "string",
+        "examples": [
+         "Lovdata"
+        ]
+       },
+       "date": {
+        "type": "string",
+        "examples": [
+         "2026-10-03"
+        ]
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "url",
+       "title",
+       "source_name",
+       "date"
+      ]
+     }
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "country",
+    "mica",
+    "law",
+    "regulator",
+    "status",
+    "sources"
+   ]
+  }
+ }
+}

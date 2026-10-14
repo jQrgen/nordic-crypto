@@ -1,0 +1,333 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://nordiccrypto.no/api/v1/schema/developers.schema.json",
+ "title": "Developers",
+ "description": "Open-source developers in data/developers.json. Only public professional information: no addresses and no private details. The public page shows status published.",
+ "x-nordic": {
+  "id": "developers",
+  "order": 100,
+  "files": [
+   "data/developers.json"
+  ],
+  "pages": [
+   "/developers/"
+  ],
+  "api": [
+   {
+    "path": "/api/v1/developers.json",
+    "note": "Published developers"
+   },
+   {
+    "path": "/api/v1/developers/{id}.json",
+    "note": "One developer"
+   }
+  ],
+  "relations": [
+   {
+    "field": "org_id",
+    "to": "orgchart",
+    "cardinality": "many-to-one"
+   },
+   {
+    "field": "whoswho_id",
+    "to": "orgchart",
+    "cardinality": "many-to-one"
+   }
+  ],
+  "derived": [],
+  "omitted_from_api": [],
+  "sections": [
+   {
+    "id": "developer",
+    "title": "Developer",
+    "row": "#/$defs/developer"
+   }
+  ],
+  "row": "#/$defs/developer"
+ },
+ "type": "object",
+ "properties": {
+  "updated": {
+   "type": "string",
+   "examples": [
+    "2026-10-09"
+   ]
+  },
+  "_how_to": {
+   "type": "string"
+  },
+  "people": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/developer"
+   }
+  }
+ },
+ "additionalProperties": false,
+ "required": [
+  "updated",
+  "_how_to",
+  "people"
+ ],
+ "$defs": {
+  "developer": {
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string",
+     "examples": [
+      "torkel-rogstad"
+     ]
+    },
+    "name": {
+     "type": "string",
+     "description": "Name as shown on the public code profile.",
+     "examples": [
+      "Torkel Rogstad"
+     ]
+    },
+    "role": {
+     "type": "string",
+     "examples": [
+      "Co-founder; developer"
+     ]
+    },
+    "org": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "examples": [
+      "Bare Bitcoin"
+     ]
+    },
+    "org_id": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "examples": [
+      "bare-bitcoin"
+     ]
+    },
+    "whoswho_id": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "examples": [
+      "torkel-rogstad"
+     ]
+    },
+    "country": {
+     "type": "string",
+     "enum": [
+      "NO",
+      "SE",
+      "DK",
+      "FI",
+      "IS",
+      "FO",
+      "GL",
+      "AX"
+     ],
+     "examples": [
+      "NO"
+     ]
+    },
+    "profiles": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "kind": {
+        "type": "string",
+        "examples": [
+         "github"
+        ]
+       },
+       "url": {
+        "type": "string",
+        "examples": [
+         "https://github.com/torkelrogstad"
+        ]
+       },
+       "login": {
+        "type": "string",
+        "examples": [
+         "torkelrogstad"
+        ]
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "kind",
+       "url",
+       "login"
+      ]
+     }
+    },
+    "notable": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "kind": {
+        "type": "string",
+        "enum": [
+         "repo",
+         "contrib"
+        ],
+        "examples": [
+         "contrib"
+        ]
+       },
+       "project": {
+        "type": "string",
+        "examples": [
+         "lightningnetwork/lnd"
+        ]
+       },
+       "host": {
+        "type": "string",
+        "examples": [
+         "github"
+        ]
+       },
+       "url": {
+        "type": "string",
+        "examples": [
+         "https://github.com/torkelrogstad/lnd-fun"
+        ]
+       },
+       "commits": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "examples": [
+         11
+        ]
+       },
+       "merged_prs": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "examples": [
+         4
+        ]
+       },
+       "name": {
+        "type": "string",
+        "examples": [
+         "torkelrogstad/lnd-fun"
+        ]
+       },
+       "stars": {
+        "type": "integer",
+        "examples": [
+         6
+        ]
+       },
+       "language": {
+        "type": [
+         "string",
+         "null"
+        ],
+        "examples": [
+         "JavaScript"
+        ]
+       },
+       "description": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "last_push": {
+        "type": "string",
+        "examples": [
+         "2018-09-10"
+        ]
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "kind",
+       "url"
+      ]
+     },
+     "description": "Up to three public repos or contributions."
+    },
+    "nordic_source": {
+     "type": "object",
+     "properties": {
+      "url": {
+       "type": "string",
+       "examples": [
+        "https://github.com/torkelrogstad"
+       ]
+      },
+      "note": {
+       "type": "string"
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "url",
+      "note"
+     ],
+     "description": "Where the Nordic link was checked."
+    },
+    "checked": {
+     "type": "string",
+     "description": "YYYY-MM-DD the profile and counts were checked.",
+     "examples": [
+      "2026-10-09"
+     ]
+    },
+    "status": {
+     "type": "string",
+     "description": "published is on the public page. pending waits for the editor.",
+     "enum": [
+      "pending",
+      "published"
+     ],
+     "examples": [
+      "pending"
+     ]
+    },
+    "review": {
+     "type": "string",
+     "enum": [
+      "editor",
+      "ready_for_owner"
+     ],
+     "examples": [
+      "editor"
+     ]
+    },
+    "note": {
+     "type": "string"
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "id",
+    "name",
+    "role",
+    "org",
+    "org_id",
+    "whoswho_id",
+    "country",
+    "profiles",
+    "notable",
+    "nordic_source",
+    "checked",
+    "status",
+    "review"
+   ]
+  }
+ }
+}
