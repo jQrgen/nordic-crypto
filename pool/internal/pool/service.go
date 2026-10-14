@@ -505,13 +505,14 @@ func (s *Service) Reviews() ([]account.Payout, error) {
 }
 
 // ResolveReview completes or releases one review row after a wallet lookup.
-// action is "complete" or "release".
-func (s *Service) ResolveReview(id int64, action string) error {
+// action is "complete" or "release". confirm is required for release: the
+// txid stored on the row, or "none" when the row has no txid.
+func (s *Service) ResolveReview(id int64, action, confirm string) error {
 	if err := s.node.Unlock(s.pass, 60); err != nil {
 		return err
 	}
 	defer s.node.Lock(s.pass)
-	return account.ResolveReview(s.db, rpcWallet{s.node}, id, action, s.cfg.PayoutConfs)
+	return account.ResolveReview(s.db, rpcWallet{s.node}, id, action, s.cfg.PayoutConfs, confirm)
 }
 
 // WindowWork is the PPLNS window in difficulty micros: blocks times the

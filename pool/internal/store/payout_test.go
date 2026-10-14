@@ -378,10 +378,16 @@ func TestResolveReviewCompletesOrReleases(t *testing.T) {
 		t.Fatal(err)
 	}
 	w := newWallet()
-	if err := account.ResolveReview(s, w, id, "complete", 1); err == nil {
+	if err := account.ResolveReview(s, w, id, "complete", 1, ""); err == nil {
 		t.Fatal("completed a review row the wallet does not have")
 	}
-	if err := account.ResolveReview(s, w, id, "release", 1); err != nil {
+	if err := account.ResolveReview(s, w, id, "release", 1, ""); err == nil {
+		t.Fatal("released without confirmation")
+	}
+	if err := account.ResolveReview(s, w, id, "release", 1, "txid-other"); err == nil {
+		t.Fatal("released a row that has no txid by naming one")
+	}
+	if err := account.ResolveReview(s, w, id, "release", 1, "none"); err != nil {
 		t.Fatal(err)
 	}
 	due, err := s.Payable(minPay)
@@ -397,10 +403,12 @@ func TestResolveReviewCompletesOrReleases(t *testing.T) {
 		t.Fatal(err)
 	}
 	w.sent["nexapool:present"] = "txid-real"
-	if err := account.ResolveReview(s, w, id, "release", 1); err == nil {
-		t.Fatal("released a review row the wallet still has")
+	for _, confirm := range []string{"", "none", "txid-real"} {
+		if err := account.ResolveReview(s, w, id, "release", 1, confirm); err == nil {
+			t.Fatalf("released a review row the wallet still has, confirm %q", confirm)
+		}
 	}
-	if err := account.ResolveReview(s, w, id, "complete", 1); err != nil {
+	if err := account.ResolveReview(s, w, id, "complete", 1, ""); err != nil {
 		t.Fatal(err)
 	}
 	p, err := s.Payout(id)
@@ -412,6 +420,36 @@ func TestResolveReviewCompletesOrReleases(t *testing.T) {
 	}
 	if w.sends != 0 {
 		t.Fatalf("completed review was sent again (%d)", w.sends)
+	}
+
+	// A finished miss of a row that already recorded a txid is released
+	// only when the operator names that txid.
+	credit(t, s, addrA, minPay, "mature")
+	id, err = s.Reserve(addrA, minPay, "nexapool:named")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := s.NotePayment(id, "txid-expected", "idem-expected", 0); err != nil {
+		t.Fatal(err)
+	}
+	if err := s.MarkReview(id); err != nil {
+		t.Fatal(err)
+	}
+	blind := newWallet()
+	for _, confirm := range []string{"", "none", "txid-other"} {
+		if err := account.ResolveReview(s, blind, id, "release", 1, confirm); err == nil {
+			t.Fatalf("released payout with confirm %q", confirm)
+		}
+	}
+	if got, err := s.Payout(id); err != nil || got.Status != "review" {
+		t.Fatalf("refused release changed the row: %+v %v", got, err)
+	}
+	if err := account.ResolveReview(s, blind, id, "release", 1, "TXID-EXPECTED"); err != nil {
+		t.Fatal(err)
+	}
+	due, err = s.Payable(minPay)
+	if err != nil || len(due) != 1 || due[0].Amount != minPay {
+		t.Fatalf("confirmed release did not return the coins: %+v %v", due, err)
 	}
 }
 
