@@ -32,7 +32,20 @@ are not crawled: Luma's terms allow only publicly supported interfaces, and the 
 needs Luma Plus and only covers calendars you administer.
 Eventbrite: v3 /organizers/{id}/events/ and /venues/{id}/events/ when EVENTBRITE_TOKEN is set.
 Without a token, JSON-LD on the event page. The public search API (removed 2020) is not used.
-A dead feed is recorded and skipped. Finished events already stored are never deleted."""
+A dead feed is recorded and skipped. Finished events already stored are never deleted.
+
+Litteraturhuset Oslo: one public Sanity query (the CMS the site itself reads). No images.
+Litteraturhuset i Bergen has no iCal, JSON-LD or public API; the programme page is parsed, and
+only a keyword hit is opened for the organiser. Litteraturhuset Fredrikstad: the upcoming
+programme page, then the WordPress event JSON for a keyword hit only (the full archive is not
+paged). TicketCo and room-booking calendars are not sources. A mixed programme is kept only
+when crypto_money_hit matches (crypto terms, or money/inflation in the title or the short text,
+not a passing mention and not a children's listing).
+
+Nasjonalbiblioteket: the upcoming Hva skjer page (event cards only; exhibitions are not events).
+One WordPress request reads those slugs (start, end, price, text). The archive of past events
+is not paged. schema.org Event JSON-LD is read only for a keyword hit, for the room and street.
+No images. A per-event iCal link is not a calendar feed."""
 import argparse, datetime as dt, hashlib, json, os, re, sys, time, urllib.parse
 from zoneinfo import ZoneInfo
 import requests
@@ -449,6 +462,552 @@ def _drop_queue_ids(gone, log, base=None):
                 if evs[key].pop(i, None) is not None: changed = True
     if changed: _save(af, ap); log("event: removed predatory listings from the approval list")
 
+_MONEY_STRONG = re.compile(
+    r"(?:"
+    r"\bbitcoins?\b|\bBTC\b|\bsatoshis?\b|"
+    r"\bkryptovaluta\w*|\bkrypto(?:en|er)?\b|"
+    r"\bcryptocurrenc\w*|\bcrypto\b|"
+    r"\bblokkjede\w*|\bblockchains?\b|\bblockkedj\w*|\bblokkæde\w*|\blohkoketju\w*|\bbálkakeðj\w*|"
+    r"\bweb3\b|\bethereum\b|\bstablecoins?\b|\bCBDC\b|"
+    r"\bsentralbank\w*|\bcentral\s+banks?\b|\bkeskuspank\w*|\bse[ðd]labank\w*|\briksbanks?\b|"
+    r"\bcantillon\w*|"
+    r"\bpengeteori\w*|\bpengepolitikk\w*|\bpengevesen\w*|\bpengesystem\w*|"
+    r"\bpenningteori\w*|\bpenningpolitik\w*|"
+    r"\brahapoliti\w*|\brahateori\w*|"
+    r"\bmonetær\w*|\bmonetaer\w*|\bmonetary\s+(?:policy|theory|economics|system)\b|"
+    r"\bdigitale\s+penger\b|\bdigitale\s+pengar\b|\be-krona\w*"
+    r")",
+    re.I,
+)
+# Whole words only. "penger" inside premiepenger or kulturpenger does not count.
+_MONEY_WEAK = re.compile(
+    r"\b(?:penger|pengar|penge|money|inflasjon\w*|inflation\w*|inflaatio\w*|ver[ðd]b[oó]lg\w*)\b",
+    re.I,
+)
+_MONEY_CHILD = re.compile(
+    r"\b(?:skolebes[øo]k|fortellerstund|barnehage|barn og unge|eventyrstund|småbarn|smabarn)\b",
+    re.I,
+)
+_NN_MARK = re.compile(
+    r"\b(?:kven|ikkje|enno|pengar|meinte|noko|kva|gjera|skreiv|kvifor|eit|berre|vert|læra|døydde|myntar)\b",
+    re.I,
+)
+_NO_MONTH = {n: i for i, n in enumerate(
+    ["januar", "februar", "mars", "april", "mai", "juni", "juli", "august", "september", "oktober", "november", "desember"], 1)}
+_FRED_WHEN = re.compile(
+    r"(\d{1,2})\.\s+([A-Za-zæøåÆØÅ]+)\s+(20\d\d)\s*\|\s*kl\.?\s*(\d{1,2})[.:](\d{2})",
+    re.I,
+)
+_FRED_ARR = re.compile(r"Arr\.\s+(.+?)(?:\s+Les mer\b|$)", re.I)
+SANITY_QUERY = """
+{
+  "address": *[_id == "configuration"][0].address[].children[].text,
+  "events": *[_type == "event" && fromArchive != true && count(dates[eventStart >= "NOW"]) > 0]{
+    "title_nb": title.nb,
+    "title_en": title.en,
+    "desc_nb": description.nb,
+    "desc_en": description.en,
+    "slug": slug.current,
+    "english": english,
+    "dates": dates[]{"eventStart": eventStart, "eventDuration": eventDuration},
+    "organizers": organizers[]->title,
+    "room": venues[0].room->title,
+    "blocks_nb": content.nb[]{"spans": children[].text},
+    "blocks_en": content.en[]{"spans": children[].text}
+  }
+}
+"""
+
+
+def crypto_money_hit(title, lead="", body=""):
+    """True for a crypto term, or for money/inflation in the title or the short text.
+
+    A strong term counts in the title, the short text and the body. A bare word such as
+    penger, pengar, money or inflasjon counts only in the title and the short text, and
+    not on a children's listing. A passing mention in a long novel blurb is not enough.
+    kryptisk and kryptografi are not crypto. premiepenger is not penger.
+    """
+    head = f"{title or ''} {lead or ''}"
+    if _MONEY_STRONG.search(f"{head} {body or ''}"):
+        return True
+    if _MONEY_CHILD.search(head):
+        return False
+    return bool(_MONEY_WEAK.search(head))
+
+
+def source_keeps(ev, src, trusted, matches):
+    """False drops a row from a mixed calendar. A trusted source keeps every dated row."""
+    if trusted:
+        return True
+    if (src or {}).get("keyword_profile") == "crypto-money":
+        lead = ev.get("lead")
+        if lead is None:
+            lead = ev.get("description") or ""
+        return crypto_money_hit(ev.get("title"), lead, ev.get("body") or "")
+    text = f"{ev.get('title') or ''} {ev.get('description') or ''} {ev.get('place') or ''}"
+    return bool(matches(text))
+
+
+def prose_lang(text, fallback=None):
+    """Nynorsk when the wording is clearly nn. The CMS locale tag is often nb for that text."""
+    if len(_NN_MARK.findall(text or "")) >= 2:
+        return "nn"
+    return fallback
+
+
+def _plain_blocks(blocks):
+    lines = []
+    for block in blocks or []:
+        if isinstance(block, str):
+            spans = [block]
+        elif isinstance(block, dict):
+            spans = block.get("spans") or []
+            if isinstance(spans, str):
+                spans = [spans]
+        else:
+            continue
+        line = "".join(s for s in spans if isinstance(s, str)).strip()
+        if line:
+            lines.append(line)
+    return lines
+
+
+def _street_line(address_text):
+    """The street line of a house address. A postcode line is not a street."""
+    for ln in (address_text or "").splitlines():
+        ln = ln.strip()
+        if re.search(r"\d", ln) and not re.match(r"\d{4}\b", ln):
+            return ln
+    return None
+
+
+def _venue_place(src, room=None, named=None):
+    """Room, the house name and the street. An off-site name replaces the house street."""
+    house = src.get("venue") or src.get("name") or ""
+    street = src.get("address") or ""
+    if named and house and named.casefold() not in house.casefold() and house.casefold() not in named.casefold():
+        return named
+    bits = [b for b in (room, named or house, street) if b]
+    return ", ".join(dict.fromkeys(bits)) or None
+
+
+def sanity_events(src, payload, tz):
+    """Upcoming events from one Sanity query result. Images are not read."""
+    data = payload.get("result") if isinstance(payload, dict) and "result" in payload else payload
+    if not isinstance(data, dict):
+        return []
+    if data.get("error"):
+        raise RuntimeError(str(data.get("error"))[:180])
+    bits = data.get("address") or []
+    address_text = "\n".join(x for x in bits if isinstance(x, str)) if isinstance(bits, list) else (bits or "")
+    street = _street_line(address_text) or src.get("address")
+    src = dict(src, address=street)
+    site = (src.get("site") or "https://www.litteraturhuset.no").rstrip("/")
+    out = []
+    for raw in data.get("events") or []:
+        if not isinstance(raw, dict):
+            continue
+        slug = raw.get("slug") or ""
+        if isinstance(slug, dict):
+            slug = slug.get("current") or ""
+        slug = str(slug).strip().strip("/")
+        title = (raw.get("title_nb") or raw.get("title_en") or "").strip()
+        lead = (raw.get("desc_nb") or raw.get("desc_en") or "").strip()
+        blocks = raw.get("blocks_nb") or raw.get("blocks_en") or []
+        body_lines = _plain_blocks(blocks)
+        body = "\n".join(body_lines)
+        orgs = [o.strip() for o in (raw.get("organizers") or []) if isinstance(o, str) and o.strip()]
+        if not slug or not crypto_money_hit(title, " ".join(x for x in (lead, " ".join(orgs)) if x), body):
+            continue
+        desc_parts = [lead] if lead else []
+        for line in body_lines:
+            if not lead or line.strip() != lead.strip():
+                desc_parts.append(line)
+        description = "\n".join(desc_parts)
+        room = (raw.get("room") or "").strip() or None
+        for slot in raw.get("dates") or []:
+            if not isinstance(slot, dict):
+                continue
+            start = parse_dt(slot.get("eventStart"), tz)
+            if not start:
+                continue
+            dur = slot.get("eventDuration")
+            end = None
+            if isinstance(dur, (int, float)) and not isinstance(dur, bool) and dur > 0:
+                end = start + dt.timedelta(minutes=int(dur))
+            path = "en" if raw.get("english") else (src.get("lang_path") or "nb")
+            out.append({
+                "title": title or None, "start": start, "end": end,
+                "place": _venue_place(src, room), "city": src.get("city"), "country_hint": src.get("country"),
+                "online": False, "organiser": ", ".join(orgs) or None,
+                "url": f"{site}/{path}/arrangement/{slug}",
+                "description": description, "description_lang": prose_lang(f"{title}\n{description}", "nb"),
+                "lead": lead, "body": body, "paid": None,
+            })
+    return out
+
+
+def _program_date(day, month, today):
+    if not day or not month or not (1 <= int(month) <= 12):
+        return None
+    y = today.year
+    try:
+        d = dt.date(y, int(month), int(day))
+    except ValueError:
+        return None
+    if d < today - dt.timedelta(days=1):
+        try:
+            d = dt.date(y + 1, int(month), int(day))
+        except ValueError:
+            return None
+    return d
+
+
+def _clock(day, hm, tz):
+    if not day or not hm:
+        return None
+    return dt.datetime(day.year, day.month, day.day, int(hm[0]), int(hm[1]), tzinfo=ZoneInfo(tz))
+
+
+def webflow_program_cards(html, base):
+    """Cards on a Webflow programme page: title, link, day, month, clock, room, blurb. No images."""
+    s = BeautifulSoup(html or "", "lxml")
+    cards, seen = [], set()
+    for item in s.select(".program-item"):
+        a = item.select_one("a.event-name-in-grid") or item.find("a", href=re.compile(r"/arrangement/"))
+        if a is None or not a.get("href"):
+            continue
+        url = urllib.parse.urljoin(base, a["href"].split("#")[0].split("?")[0])
+        if url in seen:
+            continue
+        seen.add(url)
+        date_el, time_el = item.select_one(".date-event"), item.select_one(".time-event")
+        nums = [int(x) for x in re.findall(r"\d+", date_el.get_text(" ") if date_el else "")]
+        day, month = (nums[0], nums[1]) if len(nums) >= 2 else (None, None)
+        hm = re.findall(r"(\d{1,2}):(\d{2})", time_el.get_text(" ") if time_el else "")
+        room_el, blurb_el = item.select_one(".heading-3"), item.select_one(".text-block")
+        gratis = item.select_one(".event-gratis")
+        paid = False if gratis is not None and "w-condition-invisible" not in " ".join(gratis.get("class") or []) else None
+        cards.append({
+            "url": url, "title": a.get_text(" ", strip=True), "day": day, "month": month,
+            "start_hm": hm[0] if hm else None, "end_hm": hm[1] if len(hm) > 1 else None,
+            "room": room_el.get_text(" ", strip=True) if room_el else None,
+            "blurb": blurb_el.get_text(" ", strip=True) if blurb_el else "",
+            "paid": paid,
+        })
+    nxt = s.select_one("a.w-pagination-next")
+    next_url = None
+    if nxt is not None and nxt.get("href") and "w-condition-invisible" not in " ".join(nxt.get("class") or []):
+        href = nxt["href"].strip()
+        if href and not href.startswith(("#", "javascript:")):
+            next_url = urllib.parse.urljoin(base, href)
+    return cards, next_url
+
+
+def webflow_organiser(html):
+    s = BeautifulSoup(html or "", "lxml")
+    box = s.select_one(".event-page-arrangor")
+    if box is None:
+        return None
+    text = re.sub(r"^Arrangør:\s*", "", box.get_text(" ", strip=True), flags=re.I).strip()
+    return text or None
+
+
+def webflow_events(src, cards, today, tz, page_html):
+    """Keyword hits only. page_html(url) is called for those hits, for the organiser line."""
+    cap = int(src.get("max_links") or 8)
+    hits = [c for c in cards if crypto_money_hit(c.get("title"), c.get("blurb") or "")][:cap]
+    out = []
+    for c in hits:
+        day = _program_date(c.get("day"), c.get("month"), today)
+        start = _clock(day, c.get("start_hm"), tz)
+        end = _clock(day, c.get("end_hm"), tz)
+        if end and start and end <= start:
+            end = None
+        if not c.get("title") or not start:
+            continue
+        org = None
+        try:
+            org = webflow_organiser(page_html(c["url"]))
+        except Exception:
+            org = None
+        out.append({
+            "title": c["title"], "start": start, "end": end,
+            "place": _venue_place(src, c.get("room")), "city": src.get("city"), "country_hint": src.get("country"),
+            "online": False, "organiser": org, "url": c["url"],
+            "description": c.get("blurb") or "", "description_lang": prose_lang(c.get("blurb") or "", "nb"),
+            "lead": c.get("blurb") or "", "body": "", "paid": c.get("paid"),
+        })
+    return out
+
+
+def _paa_place(title):
+    m = re.search(r"\bpå\s+(.+)$", title or "", flags=re.I)
+    return m.group(1).strip(" .") if m else None
+
+
+def wp_program_cards(html, base):
+    """Upcoming cards on an Eventchamp programme page. The archive is not read."""
+    s = BeautifulSoup(html or "", "lxml")
+    # The programme page has several tab lists. The first is often empty.
+    items = []
+    for root in s.select(".ss-list-events"):
+        items.extend(root.select(".item"))
+    if not items:
+        items = s.select(".item")
+    cards, seen = [], set()
+    for item in items:
+        a = item.find("a", href=re.compile(r"/event/"))
+        if a is None or not a.get("href"):
+            continue
+        url = urllib.parse.urljoin(base, a["href"].split("#")[0].split("?")[0])
+        if url in seen:
+            continue
+        seen.add(url)
+        title_el = item.select_one(".ss-height-match")
+        if title_el is not None and title_el.get_text(strip=True):
+            title = title_el.get_text(" ", strip=True)
+        else:
+            heads = [h.get_text(" ", strip=True) for h in item.find_all(["h2", "h3", "h4"])]
+            heads = [h for h in heads if h and h.casefold() != "les mer"]
+            title = max(heads, key=len) if heads else ""
+        text = re.sub(r"\s+", " ", item.get_text(" ", strip=True))
+        if not title:
+            m0 = _FRED_WHEN.search(text)
+            if m0:
+                title = re.sub(r"\b(?:man|tirs|ons|tors|fre|lør|lor|søn|son)\.?\s*$", "", text[:m0.start()], flags=re.I).strip()
+        m = _FRED_WHEN.search(text)
+        if not title or not m:
+            continue
+        month = _NO_MONTH.get(m.group(2).lower().rstrip("."))
+        if not month:
+            continue
+        arr = _FRED_ARR.search(text)
+        cards.append({
+            "url": url, "title": title,
+            "day": int(m.group(1)), "month": month, "year": int(m.group(3)),
+            "start_hm": (m.group(4), m.group(5)),
+            "organiser": arr.group(1).strip(" .") if arr else None,
+            "named_place": _paa_place(title),
+        })
+    return cards
+
+
+def wp_paid(acf):
+    """A stated price or a stated free entry. Empty fields stay unknown."""
+    if not isinstance(acf, dict):
+        return None
+    gratis = str(acf.get("gratis") or "").strip().lower()
+    if gratis in ("1", "true", "ja", "yes", "gratis"):
+        return False
+    pris = str(acf.get("pris") or "")
+    if re.search(r"\bgratis\b", pris, re.I):
+        return False
+    m = re.search(r"(\d+)", pris.replace(" ", "").replace("\xa0", ""))
+    if m and int(m.group(1)) > 0:
+        return True
+    return None
+
+
+def wp_events(src, cards, tz, detail):
+    """detail(slug) returns the WordPress event JSON for a keyword hit, or None. Other cards are not requested."""
+    cap = int(src.get("max_links") or 8)
+    hits = [c for c in cards if crypto_money_hit(c.get("title"), c.get("organiser") or "")][:cap]
+    out = []
+    for c in hits:
+        try:
+            day = dt.date(c["year"], c["month"], c["day"])
+        except ValueError:
+            continue
+        start = _clock(day, c.get("start_hm"), tz)
+        if not start:
+            continue
+        paid, excerpt = None, ""
+        slug = c["url"].rstrip("/").rsplit("/", 1)[-1]
+        raw = None
+        try:
+            raw = detail(slug)
+        except Exception:
+            raw = None
+        if isinstance(raw, dict):
+            paid = wp_paid(raw.get("acf"))
+            ex = raw.get("excerpt")
+            if isinstance(ex, dict):
+                excerpt = BeautifulSoup(ex.get("rendered") or "", "lxml").get_text(" ", strip=True)
+        out.append({
+            "title": c["title"], "start": start, "end": None,
+            "place": _venue_place(src, named=c.get("named_place")),
+            "city": src.get("city"), "country_hint": src.get("country"), "online": False,
+            "organiser": c.get("organiser"), "url": c["url"],
+            "description": excerpt, "description_lang": prose_lang(excerpt, "nb"),
+            "lead": " ".join(x for x in (c["title"], c.get("organiser") or "") if x),
+            "body": excerpt, "paid": paid,
+        })
+    return out
+
+
+_NB_ARR = re.compile(
+    r"\barrangerer\s+(.+?)\s*(?:\([^)]*\)|\s+tidenes\b|\s+den\b|\s+et\b|\s+en\b|$)",
+    re.I,
+)
+
+
+def nb_program_cards(html, base):
+    """Upcoming event cards on Hva skjer. Exhibitions and images are not cards."""
+    s = BeautifulSoup(html or "", "lxml")
+    cards, seen = [], set()
+    for card in s.select(".is-post-type-event"):
+        a = card.select_one("a[href]")
+        title_el = card.select_one(".t2-post-title")
+        if a is None or not a.get("href") or title_el is None:
+            continue
+        url = urllib.parse.urljoin(base, a["href"].split("#")[0].split("?")[0])
+        path = urllib.parse.urlparse(url).path or ""
+        if "/hva-skjer/" not in path or url in seen:
+            continue
+        seen.add(url)
+        label = card.select_one(".nb-post-label")
+        sub = card.select_one(".nb-post-subtitle")
+        cards.append({
+            "url": url,
+            "slug": url.rstrip("/").rsplit("/", 1)[-1],
+            "title": title_el.get_text(" ", strip=True),
+            "label": label.get_text(" ", strip=True) if label else "",
+            "subtitle": sub.get_text(" ", strip=True) if sub else "",
+        })
+    return cards
+
+
+def nb_query_url(src, slugs):
+    """One WordPress request for the upcoming slugs. The past archive is not requested."""
+    api = (src.get("api") or "https://www.nb.no/wp-json/wp/v2/event").split("?")[0]
+    q = urllib.parse.urlencode({
+        "slug": ",".join(slugs),
+        "_fields": "slug,link,title,content,meta",
+        "per_page": str(min(100, max(len(slugs), 1))),
+    })
+    return api + "?" + q
+
+
+def nb_plain(html):
+    """Organiser text. The practical-information block and every link target are left out."""
+    s = BeautifulSoup(html or "", "lxml")
+    root = s.select_one(".wp-block-post-content") or s
+    text = root.get_text("\n", strip=True)
+    return re.split(r"\bPraktisk informasjon\b", text, maxsplit=1, flags=re.I)[0].strip()
+
+
+def nb_lead_body(plain):
+    parts = [p.strip() for p in re.split(r"\n+", plain or "") if p.strip()]
+    return " ".join(parts[:2]), " ".join(parts[2:])
+
+
+def nb_organiser_name(text, label):
+    """The name after «arrangerer». «Ekstern arrangør» is a category, not a name."""
+    m = _NB_ARR.search(re.sub(r"\s+", " ", text or ""))
+    if m:
+        name = m.group(1).strip(" .,-")
+        if len(name) >= 3:
+            return name
+    if re.search(r"\bekstern\b", label or "", re.I):
+        return None
+    return None
+
+
+def nb_paid(price_text):
+    """A stated free entry, or a price that contains a number. Empty stays unknown."""
+    t = re.sub(r"\s+", " ", price_text or "").strip()
+    if not t:
+        return None
+    if re.search(r"\bgratis\b", t, re.I):
+        return False
+    if re.search(r"\d", t):
+        return True
+    return None
+
+
+def nb_format_place(place):
+    """«House - Room, street» becomes «Room, House, street». The city is not part of the place."""
+    if not place:
+        return None
+    m = re.match(r"^(?P<house>.+?)\s+[-–]\s+(?P<room>[^,]+),\s*(?P<street>.+)$", place.strip())
+    if not m:
+        return place.strip()
+    return ", ".join(dict.fromkeys([
+        m.group("room").strip(), m.group("house").strip(), m.group("street").strip()]))
+
+
+def nb_events(src, cards, records, tz, page_html):
+    """Keyword hits only. page_html(url) is the event page, read for JSON-LD place. Other pages are not opened."""
+    by_slug = {}
+    for raw in records or []:
+        if isinstance(raw, dict) and raw.get("slug"):
+            by_slug[raw["slug"]] = raw
+    cap = int(src.get("max_links") or 8)
+    house = src.get("venue") or src.get("name") or "Nasjonalbiblioteket"
+    prepared = []
+    for c in cards:
+        raw = by_slug.get(c.get("slug")) or {}
+        meta = raw.get("meta") if isinstance(raw.get("meta"), dict) else {}
+        if meta.get("event_tba_datetime") is True:
+            continue
+        content = raw.get("content")
+        rendered = content.get("rendered") if isinstance(content, dict) else ""
+        plain = nb_plain(rendered)
+        lead, body = nb_lead_body(plain)
+        title_raw = raw.get("title")
+        api_title = title_raw.get("rendered") if isinstance(title_raw, dict) else ""
+        title = c.get("title") or BeautifulSoup(api_title or "", "lxml").get_text(" ", strip=True)
+        if not crypto_money_hit(title, " ".join(x for x in (c.get("subtitle"), lead) if x), body):
+            continue
+        start = parse_dt(meta.get("event_start_datetime"), tz)
+        end = parse_dt(meta.get("event_end_datetime"), tz)
+        if end and start and end <= start:
+            end = None
+        if not title or not start:
+            continue
+        org = nb_organiser_name(plain, c.get("label"))
+        if org is None and not re.search(r"\bekstern\b", c.get("label") or "", re.I):
+            org = house
+        prepared.append({
+            "title": title, "start": start, "end": end, "url": c["url"],
+            "organiser": org, "paid": nb_paid(meta.get("event_ticket_price_text")),
+            "description": plain, "description_lang": prose_lang(plain, "nb"),
+            "lead": lead, "body": body,
+        })
+    out = []
+    for ev in prepared[:cap]:
+        place, city = _venue_place(src), src.get("city")
+        try:
+            found = jsonld_events(page_html(ev["url"]), tz)
+        except Exception:
+            found = []
+        match = next((x for x in found if similar_titles(x.get("title"), ev["title"])), None)
+        if match is None and found:
+            match = found[0]
+        if match:
+            place = nb_format_place(match.get("place")) or place
+            city = match.get("city") or city
+            if match.get("country_hint"):
+                ev["country_hint"] = match["country_hint"]
+            if ev.get("paid") is None and match.get("paid") is not None:
+                ev["paid"] = match["paid"]
+        ev["place"] = place
+        ev["city"] = city
+        ev["country_hint"] = ev.get("country_hint") or src.get("country")
+        ev["online"] = False
+        out.append(ev)
+    return out
+
+
+def sanity_query_url(src, now):
+    stamp = now.astimezone(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
+    api = src.get("api") or ""
+    query = SANITY_QUERY.replace("NOW", stamp)
+    join = "&" if "?" in api else "?"
+    return api + join + urllib.parse.urlencode({"query": query})
+
+
 def run(get, robots_ok, matches, log, cfg, add_url=None, a=None, only=None, root=None, now=None):
     base = root or ROOT
     def lp(*parts): return os.path.join(base, *parts)
@@ -476,8 +1035,7 @@ def run(get, robots_ok, matches, log, cfg, add_url=None, a=None, only=None, root
     def take(ev, src, trusted):
         if blocked_event(ev, src): return  # predatory listing: refused even when the source is marked trusted
         if not ev.get("title") or not ev.get("start"): return
-        text = f"{ev['title']} {ev.get('description', '')} {ev.get('place') or ''}"
-        if not trusted and not matches(text): return
+        if not source_keeps(ev, src, trusted, matches): return
         ev["organiser"] = ev.get("organiser") or src.get("organiser")
         city, c = guess_city(" ".join(x for x in [ev.get("place") or "", ev.get("city") or ""] if x))
         country = CC.get((ev.get("country_hint") or "").upper()) or c
@@ -596,6 +1154,58 @@ def run(get, robots_ok, matches, log, cfg, add_url=None, a=None, only=None, root
                         for ev in ics_events(fetch_page(urllib.parse.urljoin(u, ic)).text, tz):
                             n_found += 1; ev["paid_hint"] = True if price and int(re.sub(r"\D", "", price[1]) or 0) > 0 else None
                             src2 = dict(src, page=u); take(ev, src2, src.get("trusted", False))
+                elif src["type"] == "sanity-events":
+                    # One public content query. Event pages and images are not fetched.
+                    raw = json.loads(fetch_page(sanity_query_url(src, now)).text)
+                    if isinstance(raw, dict) and raw.get("error"):
+                        raise RuntimeError(str(raw.get("error"))[:180])
+                    evs = sanity_events(src, raw, tz); n_found = len(evs)
+                    for ev in evs: take(ev, src, src.get("trusted", False))
+                elif src["type"] == "webflow-program":
+                    # Programme HTML. No iCal or JSON-LD on this site. Only a keyword hit is opened.
+                    page_url, seen_pages, cards, seen_urls = src["url"], 0, [], set()
+                    while page_url and seen_pages < int(src.get("max_pages") or 3):
+                        batch, nxt = webflow_program_cards(fetch_page(page_url).text, page_url)
+                        for c in batch:
+                            if c["url"] not in seen_urls:
+                                seen_urls.add(c["url"]); cards.append(c)
+                        seen_pages += 1
+                        if not nxt or nxt == page_url: break
+                        page_url = nxt
+                    evs = webflow_events(src, cards, now.date(), tz, lambda u: fetch_page(u).text)
+                    n_found = len(evs)
+                    for ev in evs:
+                        src2 = dict(src, page=ev["url"]); take(ev, src2, src.get("trusted", False))
+                elif src["type"] == "wp-program":
+                    # The upcoming programme page. The WordPress archive (thousands of past events) is not paged.
+                    cards = wp_program_cards(fetch_page(src["url"]).text, src["url"])
+                    api = (src.get("api") or "").rstrip("/")
+
+                    def detail(slug, api=api):
+                        if not api: return None
+                        q = urllib.parse.urlencode({"slug": slug, "_fields": "link,excerpt,acf,event_start_date"})
+                        body = json.loads(fetch_page(api + "?" + q).text)
+                        if isinstance(body, list): return body[0] if body else None
+                        return body if isinstance(body, dict) else None
+
+                    evs = wp_events(src, cards, tz, detail); n_found = len(evs)
+                    for ev in evs:
+                        src2 = dict(src, page=ev["url"]); take(ev, src2, src.get("trusted", False))
+                elif src["type"] == "nb-program":
+                    # Upcoming cards on one page. One WordPress request for those slugs.
+                    # The past archive (about 1,400 events) is not paged. JSON-LD only for a keyword hit.
+                    cards = nb_program_cards(fetch_page(src["url"]).text, src["url"])
+                    slugs = [c["slug"] for c in cards if c.get("slug")][:int(src.get("max_cards") or 40)]
+                    records = []
+                    if slugs:
+                        raw = json.loads(fetch_page(nb_query_url(src, slugs)).text)
+                        if isinstance(raw, dict) and raw.get("code"):
+                            raise RuntimeError(str(raw.get("message") or raw.get("code"))[:180])
+                        records = raw if isinstance(raw, list) else []
+                    evs = nb_events(src, cards, records, tz, lambda u: fetch_page(u).text)
+                    n_found = len(evs)
+                    for ev in evs:
+                        take(ev, src, src.get("trusted", False))
                 elif src["type"] == "manual":
                     n_found = 0
                 else:
