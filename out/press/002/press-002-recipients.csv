@@ -1,0 +1,51 @@
+email,name,outlet,country,language,status
+vaktsjef@ntb.no,NTB nyhetsdesk (vaktsjef),NTB,NO,no,queued
+03030@nrk.no,NRK tips,NRK,NO,no,queued
+pressemeldinger@vg.no,VG pressemeldinger,VG,NO,no,queued
+tips@aftenposten.no,Aftenposten tips,Aftenposten,NO,no,queued
+tips@e24.no,E24 tips,E24,NO,no,queued
+nyhetssjefer@e24.no,E24 nyhetssjefer,E24,NO,no,queued
+tips@dn.no,DN tips,Dagens Næringsliv,NO,no,queued
+pressemelding@tv2.no,TV 2 pressemelding,TV 2 (NO),NO,no,queued
+tips@tv2.no,TV 2 tips,TV 2 (NO),NO,no,queued
+tips@digi.no,Digi tips,Digi.no,NO,no,queued
+nettdesk@tu.no,TU nettdesk,Teknisk Ukeblad,NO,no,queued
+redaksjonen@shifter.no,Shifter redaksjonen,Shifter,NO,no,queued
+redaktionen@tt.se,TT nyhetsredaktionen,TT Nyhetsbyrån,SE,sv,queued
+svtnyheter@svt.se,SVT Nyheter,SVT,SE,sv,queued
+tipsaoss@svt.se,SVT tipsa oss,SVT,SE,sv,queued
+ekot@sverigesradio.se,Ekot,Sveriges Radio,SE,sv,queued
+nyhetstips@dn.se,DN nyhetstips,Dagens Nyheter,SE,sv,queued
+ekonomi@dn.se,DN Ekonomi,Dagens Nyheter,SE,sv,queued
+dise@di.se,Di nyhetstips,Dagens industri,SE,sv,queued
+red@di.se,Di redaktionen (pressreleaser),Dagens industri,SE,sv,queued
+tipsa@aftonbladet.se,Aftonbladet tipsa,Aftonbladet,SE,sv,queued
+webbnyheter@aftonbladet.se,Aftonbladet webbnyheter,Aftonbladet,SE,sv,queued
+red@privataaffarer.se,Privata Affärer redaktionen,Privata Affärer,SE,sv,queued
+jonas.fagerstrom@privataaffarer.se,Jonas Fagerström,Privata Affärer,SE,sv,queued
+fredrik.lindberg@privataaffarer.se,Fredrik Lindberg,Privata Affärer,SE,sv,queued
+johan.markwall@privataaffarer.se,Johan Markwall,Privata Affärer,SE,sv,queued
+marcus.fridell@privataaffarer.se,Marcus Fridell,Privata Affärer,SE,sv,queued
+pressmedd@dagenssamhalle.se,Dagens Samhälle pressmeddelanden,Dagens Samhälle,SE,sv,queued
+redaktion@ritzau.dk,Ritzau redaktion,Ritzau,DK,da,queued
+erhverv@ritzau.dk,Ritzau erhverv,Ritzau,DK,da,queued
+1212@dr.dk,DR Nyheder tip,DR,DK,da,queued
+redaktion@borsen.dk,Børsen redaktion,Børsen,DK,da,queued
+mette.mandrup@borsen.dk,Mette Mandrup,Børsen,DK,da,queued
+simon.kirketerp@borsen.dk,Simon Kirketerp,Børsen,DK,da,queued
+redaktionen@berlingske.dk,Berlingske redaktionen,Berlingske,DK,da,queued
+finanswatch@finanswatch.dk,FinansWatch redaktion,FinansWatch,DK,da,queued
+toimitus@stt.fi,STT toimitus,STT,FI,fi,queued
+yle.uutiset@yle.fi,Yle Uutiset,Yle,FI,fi,queued
+yle.news@yle.fi,Yle News,Yle,FI,en,queued
+hs.talous@hs.fi,HS Talous,Helsingin Sanomat,FI,fi,queued
+hs.kotimaa@hs.fi,HS Kotimaa,Helsingin Sanomat,FI,fi,queued
+uutiset@mtv.fi,MTV Uutiset,MTV Uutiset,FI,fi,queued
+lauri.sihvonen@almamedia.fi,Lauri Sihvonen,Arvopaperi,FI,fi,queued
+ahti.terhemaa@almamedia.fi,Ahti Terhemaa,Arvopaperi,FI,fi,queued
+savanna.saarikko@almamedia.fi,Savanna Saarikko,Arvopaperi / Kauppalehti,FI,fi,queued
+jussi.pennanen@almamedia.fi,Jussi Pennanen,Talouselämä,FI,fi,queued
+olli.harma@almamedia.fi,Olli Harma,Kauppalehti / Talouselämä,FI,fi,queued
+frettir@ruv.is,RÚV fréttastofa,RÚV,IS,is,queued
+frettir@mbl.is,mbl.is fréttadeild,mbl.is / Morgunblaðið,IS,is,queued
+ritstjorn@visir.is,Vísir ritstjórn,Vísir,IS,is,queued
