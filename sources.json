@@ -20882,13 +20882,14 @@
   {
    "id": "bpi-arrangementer",
    "name": "Bitcoinpolitisk institutt – events",
-   "url": "https://bpinorge.no/arrangementer/",
-   "type": "jsonld",
+   "url": "https://bpinorge.no/",
+   "type": "bpi_kalender",
    "trusted": true,
    "organiser": "Bitcoinpolitisk institutt Norge",
    "enabled": true,
-   "status": "no machine-readable data; researcher checks manually",
-   "country": "NO"
+   "status": "ok",
+   "country": "NO",
+   "method": "Homepage Kalender block (day, Norwegian month and year, type, city, title). The venue link is the event URL when the card has one; otherwise the homepage. A row with the same normalised title and date already listed by Litteraturhuset, Nasjonalbiblioteket or Polyteknisk is not added again. The arrangementer page is an empty placeholder and is not read."
   },
   {
    "id": "swedish-bitcoin-meetups",

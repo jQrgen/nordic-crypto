@@ -552,6 +552,33 @@
     "source_name": "Helsinki Bitcoin Hobbyists (Meetup.com)",
     "retrieved": "2026-10-07T23:50:00+00:00"
    }
+  },
+  {
+   "id": "03951f33970c",
+   "title": "Satoshi Nakamoto-årstalen 2027",
+   "start": "2027-02-10T00:00:00+01:00",
+   "end": "2027-02-10T23:59:00+01:00",
+   "place": "Nasjonalbiblioteket",
+   "city": "Oslo",
+   "country": "NO",
+   "online": false,
+   "organiser": "Bitcoinpolitisk institutt Noreg",
+   "url": "https://bpinorge.no/",
+   "source": "Bitcoinpolitisk institutt – events",
+   "source_url": "https://bpinorge.no/",
+   "paid": null,
+   "sponsored": null,
+   "trusted_source": true,
+   "found": "2026-10-15T12:00:00+00:00",
+   "status": "pending",
+   "note": null,
+   "description": {
+    "text": "Bitcoinpolitisk institutt Noreg arrangerer Satoshi Nakamoto-årstalen 2027 i Oslo 10. februar 2027. Stedet er ventet å være Nasjonalbiblioteket, der årstalen 11. februar 2026 ble holdt.",
+    "lang": "nb",
+    "source_url": "https://bpinorge.no/",
+    "source_name": "Bitcoinpolitisk institutt – events",
+    "retrieved": "2026-10-15T12:00:00+00:00"
+   }
   }
  ],
  "updated": "2026-10-17T02:20:26+00:00"

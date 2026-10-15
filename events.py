@@ -45,7 +45,14 @@ not a passing mention and not a children's listing).
 Nasjonalbiblioteket: the upcoming Hva skjer page (event cards only; exhibitions are not events).
 One WordPress request reads those slugs (start, end, price, text). The archive of past events
 is not paged. schema.org Event JSON-LD is read only for a keyword hit, for the room and street.
-No images. A per-event iCal link is not a calendar feed."""
+No images. A per-event iCal link is not a calendar feed.
+
+Bitcoinpolitisk institutt: the Kalender block on https://bpinorge.no/ (an Elementor grid).
+Each card is a day, a Norwegian month and year, a type, a city and a title. The title's
+link is the event URL when the card has one; otherwise the homepage. The arrangementer
+page is an empty placeholder and is not read. A card with the same normalised title and
+date as a Litteraturhuset, Nasjonalbiblioteket or Polyteknisk row is not added again.
+No clock is published on the card, so the row is that civil day. No images."""
 import argparse, datetime as dt, hashlib, json, os, re, sys, time, urllib.parse
 from zoneinfo import ZoneInfo
 from html import unescape as html_unescape
@@ -1060,6 +1067,131 @@ def squarespace_events(src, payload, tz, matches=None):
     return out
 
 
+_BPI_MARK = re.compile(r"bpinorge|bitcoinpolitisk\s+institutt", re.I)
+_VENUE_MARK = re.compile(
+    r"litteraturhuset|litthusbergen|litthusfred|nasjonalbiblioteket|polyteknisk|(?:^|[./])nb\.no\b",
+    re.I,
+)
+
+
+def _listing_blob(row, src=None):
+    parts = [str((row or {}).get(k) or "") for k in ("source", "source_url", "url")]
+    if src:
+        parts.extend(str(src.get(k) or "") for k in ("name", "id", "url"))
+    return " ".join(parts)
+
+
+def bpi_venue_duplicate(ev, old, src=None):
+    """Same normalised title and calendar day, one side BPI and the other a venue calendar.
+
+    Litteraturhuset, Nasjonalbiblioteket and Polyteknisk already list some of these talks.
+    The homepage often shortens the venue's title, so a whole-word prefix counts
+    (the same rule as similar_titles). The place is not compared: the card usually names only the city.
+    """
+    if _day(ev) is None or _day(ev) != _day(old):
+        return False
+    if not similar_titles(ev.get("title"), old.get("title")):
+        return False
+    src_bpi = bool(src and _BPI_MARK.search(_listing_blob({}, src)))
+    ev_bpi = src_bpi or bool(_BPI_MARK.search(_listing_blob(ev)))
+    old_bpi = bool(_BPI_MARK.search(_listing_blob(old)))
+    # A venue link on a BPI card is the event URL, not a second venue-calendar source.
+    ev_venue = False if src_bpi else bool(_VENUE_MARK.search(_listing_blob(ev)))
+    old_venue = bool(_VENUE_MARK.search(_listing_blob(old)))
+    return (ev_bpi and old_venue and not old_bpi) or (old_bpi and ev_venue and not ev_bpi)
+
+
+def bpi_kalender_cards(html, base):
+    """Cards in the homepage Kalender block. No other page is opened and no image is read."""
+    s = BeautifulSoup(html or "", "lxml")
+    heading = None
+    for h in s.find_all(["h2", "h3"]):
+        if re.sub(r"\s+", " ", h.get_text(" ", strip=True)).casefold() == "kalender":
+            heading = h
+            break
+    if heading is None:
+        return []
+    box = heading.find_parent(class_="e-con")
+    grid = box.find_next_sibling(class_="e-con") if box is not None else None
+    if grid is None:
+        return []
+    home = (base or "https://bpinorge.no/").split("#")[0].split("?")[0] or "https://bpinorge.no/"
+    join_base = home if home.endswith("/") else home + "/"
+    cards = []
+    for card in grid.find_all(class_="e-con", recursive=False):
+        day_el = None
+        for h in card.find_all("h2"):
+            if re.fullmatch(r"\d{1,2}", h.get_text(strip=True)):
+                day_el = h
+                break
+        if day_el is None:
+            continue
+        when, kind, city = "", "", ""
+        for p in card.find_all("p"):
+            span1, span2 = p.select_one(".span1"), p.select_one(".span2")
+            if span1 is not None or span2 is not None:
+                if span1 is not None:
+                    kind = re.sub(r"\s+", " ", span1.get_text(" ", strip=True))
+                if span2 is not None:
+                    city = re.sub(r"\s+", " ", span2.get_text(" ", strip=True))
+                continue
+            text = re.sub(r"\s+", " ", p.get_text(" ", strip=True))
+            if re.search(r"\b20\d\d\b", text):
+                when = text
+        m = re.search(r"([A-Za-zæøåÆØÅ]+)\s+(20\d\d)", when)
+        month = _NO_MONTH.get(m.group(1).lower()) if m else None
+        year = int(m.group(2)) if m else None
+        title_el = card.find("h1")
+        link = title_el.find("a", href=True) if title_el is not None else None
+        if link is None:
+            link = card.find("a", href=True)
+        title = re.sub(r"\s+", " ", title_el.get_text(" ", strip=True)) if title_el is not None else ""
+        if not title and link is not None:
+            title = re.sub(r"\s+", " ", link.get_text(" ", strip=True))
+        url = home
+        if link is not None:
+            href = (link.get("href") or "").strip()
+            if href and not href.startswith(("#", "javascript:")):
+                url = urllib.parse.urljoin(join_base, href.split("#")[0])
+        if not title or not month or not year:
+            continue
+        try:
+            day = int(day_el.get_text(strip=True))
+            dt.date(year, month, day)
+        except ValueError:
+            continue
+        cards.append({
+            "title": title, "day": day, "month": month, "year": year,
+            "city": city or None, "kind": kind or None, "url": url,
+        })
+    return cards
+
+
+def bpi_events(src, cards, tz):
+    """Dated rows from Kalender cards. The page states no clock, so the row is that civil day."""
+    zone = ZoneInfo(tz)
+    home = src.get("url") or "https://bpinorge.no/"
+    out = []
+    for c in cards or []:
+        try:
+            day = dt.date(int(c["year"]), int(c["month"]), int(c["day"]))
+        except (KeyError, TypeError, ValueError):
+            continue
+        if not c.get("title"):
+            continue
+        out.append({
+            "title": c["title"],
+            "start": dt.datetime(day.year, day.month, day.day, 0, 0, tzinfo=zone),
+            "end": dt.datetime(day.year, day.month, day.day, 23, 59, tzinfo=zone),
+            "place": None, "city": c.get("city") or src.get("city"),
+            "country_hint": None, "online": False, "organiser": None,
+            "url": c.get("url") or home, "description": "", "description_lang": None,
+            "lead": " ".join(x for x in (c.get("kind"), c.get("city")) if x),
+            "body": "", "paid": None,
+        })
+    return out
+
+
 def sanity_query_url(src, now):
     stamp = now.astimezone(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
     api = src.get("api") or ""
@@ -1084,6 +1216,12 @@ def run(get, robots_ok, matches, log, cfg, add_url=None, a=None, only=None, root
         log(f"event: merged {len(merged)} duplicate listing(s): " + ", ".join(f"{a} -> {b}" for a, b in merged.items()))
         rd = _load(lp("data", "event_redirects.json"), {}); rd.update(merged); _save(lp("data", "event_redirects.json"), rd)
     by = {e["id"]: e for e in data["events"]}
+    archive_rows = []
+    ark = _load(lp("archive", "events.json"), {})
+    if isinstance(ark, dict):
+        for row in ark.get("events") or []:
+            if isinstance(row, dict) and row.get("id") not in by:
+                archive_rows.append(row)
     original = [dict(e) for e in data["events"]]  # non-predatory rows already stored are kept
     status = _load(lp("state", "source_status.json"), {}); now = now or dt.datetime.now(UTC)
     if now.tzinfo is None: now = now.replace(tzinfo=UTC)
@@ -1111,7 +1249,9 @@ def run(get, robots_ok, matches, log, cfg, add_url=None, a=None, only=None, root
         ev["city"] = ev.get("city") or city or (src.get("city") if country == src.get("country") else None)
         if ev.get("url") is None: ev["url"] = src.get("page") or src["url"]
         ev["paid"] = ev["paid"] if ev.get("paid") is not None else ev.get("paid_hint")
-        twin = next((old for old in by.values() if same_event(ev, old)), None)
+        twin = next((old for old in by.values() if same_event(ev, old) or bpi_venue_duplicate(ev, old, src)), None)
+        if twin is None and any(bpi_venue_duplicate(ev, old, src) for old in archive_rows):
+            return  # the venue calendar already has this title and date in the archive
         page = ev.get("url") or src.get("page") or src["url"]
         retrieved = now.isoformat(timespec="seconds")
         if twin:
@@ -1251,6 +1391,14 @@ def run(get, robots_ok, matches, log, cfg, add_url=None, a=None, only=None, root
                     evs = wp_events(src, cards, tz, detail); n_found = len(evs)
                     for ev in evs:
                         src2 = dict(src, page=ev["url"]); take(ev, src2, src.get("trusted", False))
+                elif src["type"] == "bpi_kalender":
+                    # Homepage Kalender only. Venue pages are not opened. The arrangementer placeholder is not read.
+                    cards = bpi_kalender_cards(fetch_page(src["url"]).text, src["url"])
+                    evs = bpi_events(src, cards, tz)
+                    n_found = len(evs)
+                    for ev in evs:
+                        src2 = dict(src, page=ev.get("url") or src["url"])
+                        take(ev, src2, src.get("trusted", False))
                 elif src["type"] == "nb-program":
                     # Upcoming cards on one page. One WordPress request for those slugs.
                     # The past archive (about 1,400 events) is not paged. JSON-LD only for a keyword hit.

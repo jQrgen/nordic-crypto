@@ -2,9 +2,10 @@
 
 The stored text is the source's own wording, trimmed. description.lang is the
 language of that text. description.source_url is the page it was taken from.
-data/event_description_i18n.json holds nn, nb, sv, da, fi and is, plus en when
-the original is not English. An entry is used only while its source field is
-the current text, the same rule as data/title_i18n.json.
+data/event_description_i18n.json holds a translation for each site language
+that is not the original, including en when the original is not English.
+An entry is used only while its source field is the current text, the same
+rule as data/title_i18n.json.
 
 show() is what the event page uses, the same way card_headline() works:
   * the description in the page language, when we have one
@@ -12,8 +13,8 @@ show() is what the event page uses, the same way card_headline() works:
   * the original only when the page language is the source language, or when
     that translation is missing
 
-Other site languages (German, Spanish, …) use the English text when we have
-one, with the original underneath. A predatory listing URL is not a source.
+A site language without its own text uses the English text when we have one,
+with the original underneath. A predatory listing URL is not a source.
 """
 import json
 import os
@@ -206,7 +207,7 @@ def _translations(event, text, catalogue=None):
     out = {}
     cat = catalogue.get(event.get("id")) or {}
     if isinstance(cat, dict) and (cat.get("source") or "") == text:
-        for lang in KNOWN:
+        for lang in i18n.ALL_LANGS:
             line = (cat.get(lang) or "").strip()
             if line:
                 out[lang] = site_url.brand(line)
@@ -215,7 +216,7 @@ def _translations(event, text, catalogue=None):
     item_src = rec.get("i18n_source")
     if item_map and (item_src is None or item_src == text):
         for lang, line in item_map.items():
-            if lang in KNOWN and isinstance(line, str) and line.strip():
+            if lang in i18n.ALL_LANGS and isinstance(line, str) and line.strip():
                 out[lang] = site_url.brand(line.strip())
     src = rec.get("lang")
     if src:
@@ -258,10 +259,9 @@ def show(event, lang, catalogue=None):
         if en:
             return en, "en", text
         return source_only()
-    if lang in NORDIC:
-        line = (trans.get(lang) or "").strip()
-        if line:
-            return line, lang, text
+    line = (trans.get(lang) or "").strip()
+    if line:
+        return line, lang, text
     en = (trans.get("en") or "").strip()
     if en:
         return en, "en", text
