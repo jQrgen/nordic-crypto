@@ -1037,10 +1037,6 @@
    "country": "FI"
   },
   {
-   "name": "Koti-Lappi",
-   "country": "FI"
-  },
-  {
    "name": "Kotiseudun Sanomat",
    "country": "FI"
   },
@@ -1095,10 +1091,6 @@
   {
    "name": "Kymen Sanomat",
    "country": "FI"
-  },
-  {
-   "name": "Kópavogsblaðið",
-   "country": "IS"
   },
   {
    "name": "KøbenhavnLIV",
@@ -1585,6 +1577,10 @@
    "country": "FI"
   },
   {
+   "name": "Pohjoisen Polut",
+   "country": "FI"
+  },
+  {
    "name": "Politi i Grønland",
    "country": "GL"
   },
@@ -1631,6 +1627,10 @@
   {
    "name": "RA Stavanger",
    "country": "NO"
+  },
+  {
+   "name": "Raahelainen",
+   "country": "FI"
   },
   {
    "name": "Raahen Seutu",
@@ -1767,6 +1767,10 @@
   {
    "name": "Shifter",
    "country": "NO"
+  },
+  {
+   "name": "Sieviläinen",
+   "country": "FI"
   },
   {
    "name": "Siikajokilaakso",
@@ -2065,10 +2069,6 @@
    "country": "FI"
   },
   {
-   "name": "Toldstyrelsen",
-   "country": "DK"
-  },
-  {
    "name": "Tolletaten",
    "country": "NO"
   },
@@ -2287,10 +2287,6 @@
   {
    "name": "Version2",
    "country": "DK"
-  },
-  {
-   "name": "Vest-telemark Blad",
-   "country": "NO"
   },
   {
    "name": "Vestby Avis",
@@ -2727,10 +2723,6 @@
   {
    "name": "visitodsherred.dk",
    "country": "DK"
-  },
-  {
-   "name": "vtd distribution",
-   "country": "SE"
   },
   {
    "name": "ÄKS Äänekosken Kaupunkisanomat",

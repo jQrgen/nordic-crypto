@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-14T05:37:21+00:00",
+ "generated_at": "2026-10-15T07:10:16+00:00",
  "preview": false,
  "country": "FI",
  "count": 4,
@@ -40,6 +40,8 @@
    },
    "past": false,
    "ongoing": false,
+   "phase": "upcoming",
+   "phase_end": "2026-11-06T21:00:00+02:00",
    "html_url": "https://nordiccrypto.no/calendar/ce0c87469bd8/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/ce0c87469bd8/",
@@ -107,6 +109,8 @@
    },
    "past": false,
    "ongoing": false,
+   "phase": "upcoming",
+   "phase_end": "2026-12-04T21:00:00+02:00",
    "html_url": "https://nordiccrypto.no/calendar/19b92e24ee50/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/19b92e24ee50/",
@@ -181,6 +185,8 @@
    },
    "past": false,
    "ongoing": false,
+   "phase": "upcoming",
+   "phase_end": "2027-01-01T21:00:00+02:00",
    "html_url": "https://nordiccrypto.no/calendar/3c7c538ff512/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/3c7c538ff512/",
@@ -248,6 +254,8 @@
    },
    "past": false,
    "ongoing": false,
+   "phase": "upcoming",
+   "phase_end": "2027-02-05T21:00:00+02:00",
    "html_url": "https://nordiccrypto.no/calendar/105f743dcf3d/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/105f743dcf3d/",

@@ -175,10 +175,21 @@ paths:
   "/api/v1/events/upcoming.json":
     get:
       operationId: api_v1_events_upcoming
-      summary: "Events that have not ended, soonest first. Judged in the event's own offset."
+      summary: "Events that have not started, soonest first. Judged in the event's own offset. An event that has started is listed in ongoing.json until it ends, and is not repeated here."
       responses:
         "200":
-          description: "Events that have not ended, soonest first. Judged in the event's own offset."
+          description: "Events that have not started, soonest first. Judged in the event's own offset. An event that has started is listed in ongoing.json until it ends, and is not repeated here."
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/EventList"
+  "/api/v1/events/ongoing.json":
+    get:
+      operationId: api_v1_events_ongoing
+      summary: "Events that have started and not ended, soonest first. When end is missing the window is start plus 3 hours, or 23:59 the same local day when the start is midnight. These events are not in upcoming.json or past.json."
+      responses:
+        "200":
+          description: "Events that have started and not ended, soonest first. When end is missing the window is start plus 3 hours, or 23:59 the same local day when the start is midnight. These events are not in upcoming.json or past.json."
           content:
             "application/json":
               schema:
@@ -186,10 +197,10 @@ paths:
   "/api/v1/events/past.json":
     get:
       operationId: api_v1_events_past
-      summary: "Finished public events, newest first. Finished events stay in the archive."
+      summary: "Finished public events, newest first. Finished events stay in the archive. An event that is still ongoing is not listed here."
       responses:
         "200":
-          description: "Finished public events, newest first. Finished events stay in the archive."
+          description: "Finished public events, newest first. Finished events stay in the archive. An event that is still ongoing is not listed here."
           content:
             "application/json":
               schema:
@@ -1328,9 +1339,21 @@ components:
               description: "Keys are site language codes: nn, nb, sv, da, fi, is. English lives in the sibling field."
         past:
           type: boolean
+          description: True when phase is past.
         ongoing:
           type: boolean
-          description: True while start <= now <= end. Additive. Events with no end are never ongoing.
+          description: "True when phase is ongoing: start <= now <= phase_end."
+        phase:
+          type: string
+          enum:
+            - upcoming
+            - ongoing
+            - past
+          description: "upcoming before the start, ongoing from the start through phase_end (including both instants), past after that."
+        phase_end:
+          type: string
+          nullable: true
+          description: "End of the ongoing window. The stored end, or an assumed end when the row has none: 23:59 the same local day when the start is midnight, otherwise start plus 3 hours. The end field itself is never invented."
         place_source:
           type: object
           nullable: true
@@ -1469,9 +1492,21 @@ components:
                     description: "Keys are site language codes: nn, nb, sv, da, fi, is. English lives in the sibling field."
               past:
                 type: boolean
+                description: True when phase is past.
               ongoing:
                 type: boolean
-                description: True while start <= now <= end. Additive. Events with no end are never ongoing.
+                description: "True when phase is ongoing: start <= now <= phase_end."
+              phase:
+                type: string
+                enum:
+                  - upcoming
+                  - ongoing
+                  - past
+                description: "upcoming before the start, ongoing from the start through phase_end (including both instants), past after that."
+              phase_end:
+                type: string
+                nullable: true
+                description: "End of the ongoing window. The stored end, or an assumed end when the row has none: 23:59 the same local day when the start is midnight, otherwise start plus 3 hours. The end field itself is never invented."
               place_source:
                 type: object
                 nullable: true

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-14T05:37:21+00:00",
+ "generated_at": "2026-10-15T07:10:16+00:00",
  "preview": false,
  "topics": [
   {
@@ -11,7 +11,7 @@
   },
   {
    "id": "banking",
-   "count": 4,
+   "count": 6,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/banking.json"
   },
   {
@@ -21,7 +21,7 @@
   },
   {
    "id": "business",
-   "count": 19,
+   "count": 20,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/business.json"
   },
   {
@@ -31,12 +31,12 @@
   },
   {
    "id": "consumer protection",
-   "count": 2,
+   "count": 3,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/consumer-protection.json"
   },
   {
    "id": "crime",
-   "count": 6,
+   "count": 7,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/crime.json"
   },
   {
@@ -61,12 +61,12 @@
   },
   {
    "id": "mica",
-   "count": 14,
+   "count": 15,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/mica.json"
   },
   {
    "id": "mining",
-   "count": 7,
+   "count": 9,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/mining.json"
   },
   {
@@ -76,12 +76,12 @@
   },
   {
    "id": "policy",
-   "count": 7,
+   "count": 9,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/policy.json"
   },
   {
    "id": "regulation",
-   "count": 11,
+   "count": 12,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/regulation.json"
   },
   {
@@ -91,12 +91,12 @@
   },
   {
    "id": "stablecoins",
-   "count": 3,
+   "count": 4,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/stablecoins.json"
   },
   {
    "id": "tax",
-   "count": 5,
+   "count": 8,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/tax.json"
   },
   {

@@ -79,8 +79,9 @@ curl -fsS https://nordiccrypto.no/api/v1/talks.json
 - [/api/v1/news/topics.json](https://nordiccrypto.no/api/v1/news/topics.json): Topic ids present in the published news, with counts.
 - [/api/v1/newsletters.json](https://nordiccrypto.no/api/v1/newsletters.json): Published newsletter issues, newest first. The list omits the HTML body; the issue URL includes text and html.
 - [/api/v1/events.json](https://nordiccrypto.no/api/v1/events.json): Public events, soonest start first, including past events.
-- [/api/v1/events/upcoming.json](https://nordiccrypto.no/api/v1/events/upcoming.json): Events that have not ended, soonest first. Judged in the event's own offset.
-- [/api/v1/events/past.json](https://nordiccrypto.no/api/v1/events/past.json): Finished public events, newest first. Finished events stay in the archive.
+- [/api/v1/events/upcoming.json](https://nordiccrypto.no/api/v1/events/upcoming.json): Events that have not started, soonest first. Judged in the event's own offset. An event that has started is listed in ongoing.json until it ends, and is not repeated here.
+- [/api/v1/events/ongoing.json](https://nordiccrypto.no/api/v1/events/ongoing.json): Events that have started and not ended, soonest first. When end is missing the window is start plus 3 hours, or 23:59 the same local day when the start is midnight. These events are not in upcoming.json or past.json.
+- [/api/v1/events/past.json](https://nordiccrypto.no/api/v1/events/past.json): Finished public events, newest first. Finished events stay in the archive. An event that is still ongoing is not listed here.
 - [/api/v1/events/previous.json](https://nordiccrypto.no/api/v1/events/previous.json): Previous events, newest finish first. Finished calendar events plus backfilled public events (source backfill). Backfill is not on the calendar or in upcoming or past.
 - [/api/v1/events/by-country/{country}.json](https://nordiccrypto.no/api/v1/events/by-country/{country}.json): Public events for one country code.
 - [/api/v1/talks.json](https://nordiccrypto.no/api/v1/talks.json): Public talks on bitcoin, cryptocurrencies and blockchain in the Nordic countries, newest first. A player is embedded on the site only when embed is true (YouTube via youtube-nocookie.com, or the Vimeo player). Unknown fields are null. description is ours; title and the other details come from the platform.

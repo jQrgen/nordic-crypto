@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-14T05:37:21+00:00",
+ "generated_at": "2026-10-15T07:10:16+00:00",
  "preview": false,
  "item": {
   "id": "fbacdd896bf4",
@@ -37,6 +37,8 @@
   },
   "past": true,
   "ongoing": false,
+  "phase": "past",
+  "phase_end": "2018-04-18T19:45:00+00:00",
   "html_url": "https://nordiccrypto.no/calendar/fbacdd896bf4/",
   "html_urls": {
    "en": "https://nordiccrypto.no/calendar/fbacdd896bf4/",

@@ -1,10 +1,86 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-14T05:37:21+00:00",
+ "generated_at": "2026-10-15T07:10:16+00:00",
  "preview": false,
- "count": 19,
+ "count": 20,
  "events": [
+  {
+   "id": "019f42a4506c",
+   "title": "Crypto killer apps: bitcoin-appene som endrer økonomien",
+   "title_original": null,
+   "start": "2026-10-14T17:30:00+02:00",
+   "end": "2026-10-14T18:30:00+02:00",
+   "place": "Rosenkrantz' gate 7, 0159 Oslo (inngang fra Kristian IVs gate)",
+   "city": "Oslo",
+   "country": "NO",
+   "online": false,
+   "organiser": "Polyteknisk Forening",
+   "url": "https://www.polyteknisk.no/program/crypto-killer-apps",
+   "source": "Polyteknisk Forening (program)",
+   "paid": true,
+   "sponsored": null,
+   "note": "Paid entry (NOK 239 for non-members). Held in cooperation with Bitcoinpolitisk Institutt Norge.",
+   "note_i18n": {
+    "nn": "Betalt inngang (239 kroner for ikkje-medlemer). Held i samarbeid med Bitcoinpolitisk Institutt Norge.",
+    "nb": "Betalt inngang (239 kroner for ikke-medlemmer). Holdes i samarbeid med Bitcoinpolitisk Institutt Norge.",
+    "sv": "Avgift (239 norska kronor för icke-medlemmar). Hålls i samarbete med Bitcoinpolitisk Institutt Norge.",
+    "da": "Betalt adgang (239 norske kroner for ikke-medlemmer). Afholdes i samarbejde med Bitcoinpolitisk Institutt Norge.",
+    "fi": "Maksullinen (239 Norjan kruunua muille kuin jäsenille). Järjestetään yhteistyössä Bitcoinpolitisk Institutt Norgen kanssa.",
+    "is": "Aðgangseyrir (239 norskar krónur fyrir utanfélagsmenn). Haldið í samstarfi við Bitcoinpolitisk Institutt Norge."
+   },
+   "description": {
+    "text": "I kjølvannet av bitcoin har vi fått en rekke apper som endrer samtiden vår og utvider finanssektoren. Stikkord er fremtidsmarkeder som «Polymarket», kryptobanken «Aave», nyvinninger innen forsikring, stablecoins og nye former for statlige penger. I samarbeid med Bitcoinpolitisk Institutt Norge presenterer Polyteknisk Forening appene som bitcoin har ført med seg, i tillegg til bitcoin selv.",
+    "lang": "nb",
+    "source_url": "https://www.polyteknisk.no/program/crypto-killer-apps",
+    "source_name": "Polyteknisk Forening (program)",
+    "retrieved": "2026-10-07T23:50:00+00:00",
+    "i18n": {
+     "en": "In the wake of bitcoin a number of apps have appeared that change how things work and extend the financial sector. Examples are prediction markets such as Polymarket, the crypto bank Aave, new insurance, stablecoins and new forms of state money. Together with Bitcoinpolitisk Institutt Norge, Polyteknisk Forening presents the apps that bitcoin has led to, as well as bitcoin itself.",
+     "nn": "I kjølvatnet av bitcoin har me fått ei rekkje appar som endrar samtida vår og utvidar finanssektoren. Stikkord er framtidsmarknader som Polymarket, kryptobanken Aave, nyskaping innan forsikring, stablecoins og nye former for statlege pengar. I samarbeid med Bitcoinpolitisk Institutt Norge presenterer Polyteknisk Forening appane som bitcoin har ført med seg, i tillegg til bitcoin sjølv.",
+     "sv": "I bitcoins kölvatten har det kommit en rad appar som förändrar samtiden och utvidgar finanssektorn. Exempel är framtidsmarknader som Polymarket, kryptobanken Aave, nyheter inom försäkring, stablecoins och nya former av statliga pengar. Tillsammans med Bitcoinpolitisk Institutt Norge presenterar Polyteknisk Forening apparna som bitcoin har fört med sig, utöver bitcoin själv.",
+     "da": "I kølvandet på bitcoin er der kommet en række apps, som ændrer samtiden og udvider finanssektoren. Stikord er fremtidsmarkeder som Polymarket, kryptobanken Aave, nyt inden for forsikring, stablecoins og nye former for statspenge. Sammen med Bitcoinpolitisk Institutt Norge præsenterer Polyteknisk Forening de apps, som bitcoin har ført med sig, ud over bitcoin selv.",
+     "fi": "Bitcoinin vanavedessä on tullut joukko sovelluksia, jotka muuttavat nykyhetkeä ja laajentavat rahoitusalaa. Esimerkkejä ovat ennustemarkkinat kuten Polymarket, kryptopankki Aave, vakuutusten uutuudet, stablecoinit ja uudet valtiollisen rahan muodot. Yhdessä Bitcoinpolitisk Institutt Norgen kanssa Polyteknisk Forening esittelee sovellukset, joita bitcoin on tuonut mukanaan, bitcoinin itsensä lisäksi.",
+     "is": "Í kjölfar bitcoin hafa komið fram fjölmörg öpp sem breyta samtímanum og víkka fjármálageirann. Dæmi eru framtíðarmarkaðir eins og Polymarket, kryptobankinn Aave, nýjungar í tryggingum, stablecoins og ný form ríkisfjár. Í samstarfi við Bitcoinpolitisk Institutt Norge kynnir Polyteknisk Forening öppin sem bitcoin hefur leitt af sér, auk bitcoin sjálfs."
+    }
+   },
+   "past": true,
+   "ongoing": false,
+   "phase": "past",
+   "phase_end": "2026-10-14T18:30:00+02:00",
+   "html_url": "https://nordiccrypto.no/calendar/019f42a4506c/",
+   "html_urls": {
+    "en": "https://nordiccrypto.no/calendar/019f42a4506c/",
+    "nn": "https://nordiccrypto.no/nn/calendar/019f42a4506c/",
+    "nb": "https://nordiccrypto.no/nb/calendar/019f42a4506c/",
+    "sv": "https://nordiccrypto.no/sv/calendar/019f42a4506c/",
+    "da": "https://nordiccrypto.no/da/calendar/019f42a4506c/",
+    "fi": "https://nordiccrypto.no/fi/calendar/019f42a4506c/",
+    "is": "https://nordiccrypto.no/is/calendar/019f42a4506c/",
+    "zh": "https://nordiccrypto.no/zh/calendar/019f42a4506c/",
+    "hi": "https://nordiccrypto.no/hi/calendar/019f42a4506c/",
+    "es": "https://nordiccrypto.no/es/calendar/019f42a4506c/",
+    "fr": "https://nordiccrypto.no/fr/calendar/019f42a4506c/",
+    "ar": "https://nordiccrypto.no/ar/calendar/019f42a4506c/",
+    "bn": "https://nordiccrypto.no/bn/calendar/019f42a4506c/",
+    "pt": "https://nordiccrypto.no/pt/calendar/019f42a4506c/",
+    "ru": "https://nordiccrypto.no/ru/calendar/019f42a4506c/",
+    "ur": "https://nordiccrypto.no/ur/calendar/019f42a4506c/",
+    "id": "https://nordiccrypto.no/id/calendar/019f42a4506c/",
+    "de": "https://nordiccrypto.no/de/calendar/019f42a4506c/",
+    "ja": "https://nordiccrypto.no/ja/calendar/019f42a4506c/",
+    "sw": "https://nordiccrypto.no/sw/calendar/019f42a4506c/",
+    "mr": "https://nordiccrypto.no/mr/calendar/019f42a4506c/",
+    "fa": "https://nordiccrypto.no/fa/calendar/019f42a4506c/",
+    "uk": "https://nordiccrypto.no/uk/calendar/019f42a4506c/"
+   },
+   "api_url": "https://nordiccrypto.no/api/v1/events/019f42a4506c.json",
+   "place_source": {
+    "name": "Polyteknisk Forening (program)",
+    "url": "https://www.polyteknisk.no/program/crypto-killer-apps",
+    "retrieved": "2026-10-12T03:50:28+00:00"
+   }
+  },
   {
    "id": "ccc2eea6b213",
    "title": "Göteborg Bitcoin Meetup #49",
@@ -39,6 +115,8 @@
    },
    "past": true,
    "ongoing": false,
+   "phase": "past",
+   "phase_end": "2026-10-08T21:00:00+02:00",
    "html_url": "https://nordiccrypto.no/calendar/ccc2eea6b213/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/ccc2eea6b213/",
@@ -106,6 +184,8 @@
    },
    "past": true,
    "ongoing": false,
+   "phase": "past",
+   "phase_end": "2026-09-26T19:00:00+03:00",
    "html_url": "https://nordiccrypto.no/calendar/af88ac54b25d/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/af88ac54b25d/",
@@ -228,6 +308,8 @@
    },
    "past": true,
    "ongoing": false,
+   "phase": "past",
+   "phase_end": "2026-09-24T18:00:00+03:00",
    "html_url": "https://nordiccrypto.no/calendar/2019e48c3cb9/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/2019e48c3cb9/",
@@ -344,6 +426,8 @@
    },
    "past": true,
    "ongoing": false,
+   "phase": "past",
+   "phase_end": "2026-09-23T18:00:00+03:00",
    "html_url": "https://nordiccrypto.no/calendar/4cd0147fef4e/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/4cd0147fef4e/",
@@ -460,6 +544,8 @@
    },
    "past": true,
    "ongoing": false,
+   "phase": "past",
+   "phase_end": "2025-08-16T23:59:00+03:00",
    "html_url": "https://nordiccrypto.no/calendar/faa749a8058c/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/faa749a8058c/",
@@ -571,6 +657,8 @@
    },
    "past": true,
    "ongoing": false,
+   "phase": "past",
+   "phase_end": "2023-03-17T23:59:00+01:00",
    "html_url": "https://nordiccrypto.no/calendar/c4dd9c6f0526/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/c4dd9c6f0526/",
@@ -682,6 +770,8 @@
    },
    "past": true,
    "ongoing": false,
+   "phase": "past",
+   "phase_end": "2023-01-19T23:59:00+01:00",
    "html_url": "https://nordiccrypto.no/calendar/211a89133561/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/211a89133561/",
@@ -793,6 +883,8 @@
    },
    "past": true,
    "ongoing": false,
+   "phase": "past",
+   "phase_end": "2023-01-10T23:59:00+01:00",
    "html_url": "https://nordiccrypto.no/calendar/c578c333e352/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/c578c333e352/",
@@ -909,6 +1001,8 @@
    },
    "past": true,
    "ongoing": false,
+   "phase": "past",
+   "phase_end": "2022-11-22T23:59:00+01:00",
    "html_url": "https://nordiccrypto.no/calendar/456d06c0b3c1/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/456d06c0b3c1/",
@@ -1020,6 +1114,8 @@
    },
    "past": true,
    "ongoing": false,
+   "phase": "past",
+   "phase_end": "2022-10-21T23:59:00+02:00",
    "html_url": "https://nordiccrypto.no/calendar/2d2d72207fd4/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/2d2d72207fd4/",
@@ -1117,6 +1213,8 @@
    "description": null,
    "past": true,
    "ongoing": false,
+   "phase": "past",
+   "phase_end": "2018-11-27T15:00:00+00:00",
    "html_url": "https://nordiccrypto.no/calendar/419358586d18/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/419358586d18/",
@@ -1234,6 +1332,8 @@
    },
    "past": true,
    "ongoing": false,
+   "phase": "past",
+   "phase_end": "2018-04-18T19:45:00+00:00",
    "html_url": "https://nordiccrypto.no/calendar/fbacdd896bf4/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/fbacdd896bf4/",
@@ -1340,6 +1440,8 @@
    },
    "past": true,
    "ongoing": false,
+   "phase": "past",
+   "phase_end": "2017-12-08T23:59:00+01:00",
    "html_url": "https://nordiccrypto.no/calendar/50f03a7f9898/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/50f03a7f9898/",
@@ -1442,6 +1544,8 @@
    "description": null,
    "past": true,
    "ongoing": false,
+   "phase": "past",
+   "phase_end": "2017-04-25T23:59:00+02:00",
    "html_url": "https://nordiccrypto.no/calendar/30569783bb01/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/30569783bb01/",
@@ -1542,6 +1646,8 @@
    "description": null,
    "past": true,
    "ongoing": false,
+   "phase": "past",
+   "phase_end": "2017-02-09T23:59:00+01:00",
    "html_url": "https://nordiccrypto.no/calendar/afc88c305513/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/afc88c305513/",
@@ -1642,6 +1748,8 @@
    "description": null,
    "past": true,
    "ongoing": false,
+   "phase": "past",
+   "phase_end": "2016-05-11T23:59:00+03:00",
    "html_url": "https://nordiccrypto.no/calendar/c9903961cd24/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/c9903961cd24/",
@@ -1742,6 +1850,8 @@
    "description": null,
    "past": true,
    "ongoing": false,
+   "phase": "past",
+   "phase_end": "2016-04-19T23:59:00+02:00",
    "html_url": "https://nordiccrypto.no/calendar/92041cfcb99c/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/92041cfcb99c/",
@@ -1879,6 +1989,8 @@
    },
    "past": true,
    "ongoing": false,
+   "phase": "past",
+   "phase_end": "2014-02-07T11:15:00+02:00",
    "html_url": "https://nordiccrypto.no/calendar/b449bcb0b91e/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/b449bcb0b91e/",
@@ -1995,6 +2107,8 @@
    },
    "past": true,
    "ongoing": false,
+   "phase": "past",
+   "phase_end": "2013-11-28T17:00:00+01:00",
    "html_url": "https://nordiccrypto.no/calendar/31498008ef34/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/31498008ef34/",

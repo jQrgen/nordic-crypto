@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-14T05:37:21+00:00",
+ "generated_at": "2026-10-15T07:10:16+00:00",
  "preview": false,
  "item": {
   "id": "8c0dda24b0ef",
@@ -23,7 +23,7 @@
   "country": "SE",
   "published_at": "2026-10-01T06:00:11+00:00",
   "first_published_on_site": "2026-10-03T17:59:40+02:00",
-  "last_seen_on_site": "2026-10-13T07:38:27+02:00",
+  "last_seen_on_site": "2026-10-14T07:38:23+02:00",
   "languages": [
    "en",
    "nn",
@@ -34,13 +34,13 @@
    "is"
   ],
   "summaries": {
-   "en": "Finansinspektionen's new risk assessment finds that financing of weapons of mass destruction is most likely through illegal financial activity and crypto-assets.",
-   "nn": "Den nye risikovurderinga til Finansinspektionen finn at finansiering av masseøydeleggingsvåpen mest truleg skjer gjennom ulovleg finansiell verksemd og kryptoeigedelar.",
-   "nb": "Finansinspektionens nye risikovurdering finner at finansiering av masseødeleggelsesvåpen mest sannsynlig skjer gjennom ulovlig finansiell virksomhet og kryptoeiendeler.",
-   "sv": "Finansinspektionens nya riskbedömning visar att finansiering av massförstörelsevapen troligast sker via olaglig finansiell verksamhet och kryptotillgångar.",
-   "da": "Finansinspektionens nye risikovurdering finder, at finansiering af masseødelæggelsesvåben mest sandsynligt sker via ulovlig finansiel aktivitet og kryptoaktiver.",
-   "fi": "Finansinspektionenin uuden riskiarvion mukaan joukkotuhoaseiden rahoitus tapahtuu todennäköisimmin laittoman rahoitustoiminnan ja kryptovarojen kautta.",
-   "is": "Í nýju áhættumati Finansinspektionen kemur fram að fjármögnun gereyðingarvopna fari líklegast fram með ólöglegri fjármálastarfsemi og sýndareignum."
+   "en": "Finansinspektionen reports that a new national risk assessment judges the risk of financing the proliferation of weapons of mass destruction to be highest in illegal financial activity and through the use of crypto-assets. The assessment comes from the ten authorities in Sweden's Sanctions Coordination Council. It is limited to UN Security Council resolutions with targeted financial sanctions against North Korea or Iran.",
+   "nn": "Finansinspektionen melder at ei ny nasjonal risikovurdering meiner risikoen for finansiering av spreiing av masseøydeleggingsvåpen er størst i ulovleg finansiell verksemd og ved bruk av kryptoeigedelar. Vurderinga kjem frå dei ti styresmaktene i det svenske Sanktionssamverkansrådet. Ho er avgrensa til resolusjonar frå FNs tryggingsråd med målretta økonomiske sanksjonar mot Nord-Korea eller Iran.",
+   "nb": "Finansinspektionen melder at en ny nasjonal risikovurdering mener risikoen for finansiering av spredning av masseødeleggelsesvåpen er størst i ulovlig finansiell virksomhet og ved bruk av kryptoeiendeler. Vurderingen kommer fra de ti myndighetene i det svenske Sanktionssamverkansrådet. Den er avgrenset til resolusjoner fra FNs sikkerhetsråd med målrettede økonomiske sanksjoner mot Nord-Korea eller Iran.",
+   "sv": "Finansinspektionen meddelar att en ny nationell riskbedömning anser att risken för finansiering av spridning av massförstörelsevapen är högst inom illegal finansiell verksamhet och genom användning av kryptotillgångar. Bedömningen kommer från de tio myndigheterna i Sanktionssamverkansrådet. Den är avgränsad till FN:s säkerhetsråds resolutioner med riktade ekonomiska sanktioner mot Nordkorea eller Iran.",
+   "da": "Finansinspektionen oplyser, at en ny national risikovurdering vurderer risikoen for finansiering af spredning af masseødelæggelsesvåben som størst inden for ulovlig finansiel virksomhed og ved brug af kryptoaktiver. Vurderingen kommer fra de ti myndigheder i det svenske Sanktionssamverkansrådet. Den er afgrænset til resolutioner fra FN's Sikkerhedsråd med målrettede økonomiske sanktioner mod Nordkorea eller Iran.",
+   "fi": "Ruotsin Finansinspektionen kertoo, että uuden kansallisen riskiarvion mukaan joukkotuhoaseiden leviämisen rahoittamisen riski on suurin laittomassa rahoitustoiminnassa ja kryptovarojen käytössä. Arvion ovat laatineet Ruotsin pakotteiden yhteistyöneuvoston kymmenen viranomaista. Se rajautuu YK:n turvallisuusneuvoston päätöslauselmiin, jotka sisältävät Pohjois-Koreaan tai Iraniin kohdistuvia taloudellisia pakotteita.",
+   "is": "Finansinspektionen greinir frá því að samkvæmt nýju landsbundnu áhættumati sé hættan á fjármögnun útbreiðslu gereyðingarvopna mest í ólöglegri fjármálastarfsemi og með notkun sýndareigna. Matið kemur frá þeim tíu stofnunum sem eiga aðild að sænska samstarfsráðinu um refsiaðgerðir. Það takmarkast við ályktanir öryggisráðs SÞ með markvissum fjárhagslegum refsiaðgerðum gegn Norður-Kóreu eða Íran."
   },
   "topics": [
    "regulation",

@@ -10,10 +10,10 @@
 <link rel="apple-touch-icon" href="../../assets/brand/mark-180.png?v=2">
 <link rel="icon" href="../../assets/brand/mark-64.png?v=2" sizes="64x64" type="image/png">
 <meta name="theme-color" content="#0E0E0F">
-<meta property="og:image" content="https://nordiccrypto.no/assets/brand/og-image.png">
+<meta property="og:image" content="https://nordiccrypto.no/assets/brand/og-image.png"><meta property="og:image:secure_url" content="https://nordiccrypto.no/assets/brand/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Nordic Crypto">
+<meta property="og:image:alt" content="Nordic Crypto"><meta property="og:image:type" content="image/png">
 <style>/* Fonts, self-hosted (SIL Open Font License, assets/fonts/OFL.txt). Inlined with the rest, so no stylesheet blocks the first paint.
    / becomes the site path at build time: the CSS is inlined into pages at every depth.
    Schibsted Grotesk is one variable file (400–900). Latin and Latin Extended subsets; other scripts use the system font. */
@@ -198,7 +198,8 @@ header.top select option{color:var(--nc-tar);background:var(--nc-sail)}
 @media(max-width:640px){.hero .lead{font-size:14px}}
 .hero-meta{margin:10px 0 0;font:500 12px/1.4 var(--f-mono);letter-spacing:.06em;color:var(--muted)}
 /* Footer: the North Sea band, opened by the Sea Foam rule. Brand, then three link columns (sections, pages about the site,
-   where to follow), the newsletter form while signup is open, notifications while the service is on, and the colophon. */
+   where to follow), the newsletter form while signup is open, notifications while the service is on, the colophon,
+   and the source-code line as the last line. */
 footer{margin-top:64px;border-top:4px solid var(--band-rule);background:var(--lattice),var(--band);padding:40px 0 36px;font-size:14.5px;line-height:1.6;color:var(--muted)}
 footer,footer .wrap,.nlfoot,.nlhome{text-align:start}
 footer b{color:var(--fg)}
@@ -216,6 +217,8 @@ footer h2{font-size:22px;margin:0 0 8px;color:var(--fg)}
 .nlfoot{margin:28px 0 0;padding-top:20px;border-top:1px solid var(--line);text-align:start}.nlfoot .nlform{display:block;max-width:40rem}
 footer .pushopt{margin:28px 0 0;padding:20px 0 0;border-top:1px solid var(--line);border-bottom:0}
 .colophon{margin:32px 0 0;padding-top:18px;border-top:1px solid var(--line);font-size:13px;max-width:110ch}
+.footsource{margin:12px 0 0;font-size:13px;line-height:1.5;color:var(--muted)}
+.footsource a{color:var(--fg)}
 @media(max-width:860px){.foot-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.foot-brand{grid-column:1/-1}}
 nav.community{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:center;gap:8px 10px;margin:10px 0 14px;text-align:start;width:fit-content;max-width:100%}
 .xfollow,.tgfollow{display:inline-block;padding:7px 14px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);color:var(--fg)!important;text-decoration:none;font-weight:500;text-align:start}.xfollow:hover,.xfollow:focus-visible,.tgfollow:hover,.tgfollow:focus-visible{border-color:var(--fg)}
@@ -334,6 +337,10 @@ ol.news h3{font-size:23px;line-height:1.16;margin:0 0 4px}ol.news h3 a{text-deco
 .evrow .meta{font-size:13px;line-height:1.45;margin:0}
 .evsoon>.meta{margin:10px 0 0;font-size:14px}
 .evsrc{font-size:13.5px;color:var(--muted);margin:2px 0 0}
+.evphase{display:inline-block;margin:0 0 6px;padding:2px 8px;border-radius:999px;background:var(--gold);color:var(--on-gold);font:600 11px/1.4 var(--f-mono);letter-spacing:.06em;text-transform:uppercase}
+.evrow .evphase{margin:2px 0 4px}
+#evnow{border-inline-start:4px solid var(--gold);padding-inline-start:12px;margin:8px 0 18px}
+#evnow h2{color:var(--gold-ink);text-align:start}
 @media(max-width:640px){.evhero h3{font-size:24px}}
 @media(max-width:860px){.evsoon>.meta a{display:inline-block;padding:10px 0}}
 /* Front page layout. One column on phones, in reading order: lead story, next events, latest stories, newsletter and tools.
@@ -361,8 +368,7 @@ ol.news h3{font-size:23px;line-height:1.16;margin:0 0 4px}ol.news h3 a{text-deco
 .raillinks a:hover{text-decoration:underline;text-decoration-color:var(--gold)}
 .raillinks .meta{display:block;font-size:12.5px;margin-top:2px}
 .home-note{margin:40px 0 0;font-size:13.5px;max-width:90ch}
-/* Phones: three events before the stories, the rest are one tap away in the calendar. */
-@media(max-width:1023px){#evsoon-list .evcard:nth-child(n+4){display:none}}
+/* The next six events stay visible at every width. A phone must not drop later rows. */
 /* Newsletter: signup form, the issue list, the video and the issue text. */
 .nlform{margin:14px 0;text-align:start}.nlform input[type=email]{padding:8px 10px;width:100%;max-width:320px}.nlform .hp{position:absolute;left:-9999px}
 .nlform button{padding:9px 18px;font-size:15px;font-weight:600;border:1px solid var(--btn);border-radius:var(--r-sm);background:var(--btn);color:var(--btn-ink);cursor:pointer;transition:background .15s,transform .15s}
@@ -436,6 +442,10 @@ ol.news h3{font-size:23px;line-height:1.16;margin:0 0 4px}ol.news h3 a{text-deco
 .share a,.share button{font:inherit;font-size:13.5px;line-height:1.2;color:var(--ink,#000);background:var(--paper,#fff);border:1px solid var(--line,#000);padding:5px 10px;text-decoration:none;cursor:pointer}
 .share a:hover,.share button:hover{background:var(--band,#000);color:var(--band-ink,#fff)}
 .share a:focus-visible,.share button:focus-visible{outline:2px solid var(--ink,#000);outline-offset:2px}
+.share button.share-native{background:var(--ink,#000);color:var(--paper,#fff)}
+.share button.share-native:hover,.share button.share-native:focus-visible{background:var(--band,#000);color:var(--band-ink,#fff)}
+.share button.share-native[hidden]{display:none}
+.share.has-native .share-label{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
 .share-status{font-size:13px;color:var(--muted,#4B5563)}
 /* Shared by every theme: the decoration layer sits behind the page; content stays on top and readable.
    Scroll reveal only runs with JS (html.js) and always ends visible. Reduced motion: everything holds still. */
@@ -562,7 +572,7 @@ body.th-noir{--bg:#0E0E0F;--surface:rgb(26 26 28 / .9);--fg:#ECEAE4;--muted:#A3A
 <p class="notice"><b>Tor.</b> A tip page on a Tor onion address is being prepared, so you can send a tip without JavaScript and without the public website. The address is not published yet. When it exists, it will be shown here.</p></div><div class="tp-body"></div></div>
 
 </main>
-<footer><div class="wrap"><div class="foot-grid"><div class="foot-brand"><a class="brand footbrand" href="../../hi/"><img class="brandmark" src="../../assets/brand/shield-band.svg" width="34" height="40" alt=""><span>Nordic <span class="w">Crypto</span></span></a><p>नॉर्डिक देशों से बिटकॉइन, ब्लॉकचेन और क्रिप्टो समाचार</p></div><nav class="foot-col" aria-labelledby="ft-sec"><h2 id="ft-sec">अनुभाग</h2><ul><li><a href="../../hi/">समाचार</a></li><li><a href="../../hi/calendar/">कैलेंडर</a></li><li><a href="../../hi/markets/">बाज़ार</a></li><li><a href="../../hi/org-chart/">कौन क्या है</a></li><li><a href="../../hi/academia/">शिक्षा जगत</a></li><li><a href="../../hi/books/">पुस्तकें</a></li><li><a href="../../hi/talks/">व्याख्यान</a></li><li><a href="../../hi/developers/">डेवलपर</a></li></ul></nav><nav class="foot-col" aria-labelledby="ft-site"><h2 id="ft-site">साइट के बारे में</h2><ul><li><a href="../../hi/about/">परिचय</a></li><li><a href="../../hi/sources/">स्रोत</a></li><li><a href="../../hi/ethics/">संपादकीय नैतिकता</a></li><li><a href="../../hi/contact/">संपर्क</a></li><li><a href="../../hi/budget/">बजट</a></li><li><a href="../../hi/changelog/">परिवर्तन-सूची</a></li><li><a href="../../hi/stats/">विज़िटर आँकड़े</a></li><li><a href="../../hi/privacy/">गोपनीयता और डेटा नीति</a></li><li><a href="../../hi/media/">लोगो और मीडिया किट</a></li><li><a href="../../hi/columnist/">स्तंभकार के रूप में आवेदन करें</a></li><li><a href="../../hi/tip/">सुझाव भेजें</a></li><li><a href="../../hi/api/">डेटा API</a></li><li><a href="https://github.com/nordic-crypto-org/nordic-crypto" rel="noopener">सोर्स कोड</a></li><li><a href="https://github.com/nordic-crypto-org/nordic-crypto/graphs/contributors" rel="noopener">योगदानकर्ता</a></li></ul></nav><div class="foot-col"><h2>फ़ॉलो करें</h2><ul><li><a href="../../hi/newsletter/">न्यूज़लेटर</a></li><li><a href="https://t.me/nordiccryptochat" rel="noopener">Telegram</a></li><li><a href="https://x.com/nordiccryptobot" rel="noopener">X</a></li><li><a href="../../hi/rss.xml">RSS</a></li><li><a href="https://testflight.apple.com/join/nQ2fpjZn" rel="noopener">iOS ऐप पाएँ (TestFlight)</a> <span class="meta">विशेष रूप से Apple TV का समर्थन करता है।</span></li><li><a href="../../screen/">ऑफ़िस स्क्रीन मोड</a></li></ul></div></div><p class="colophon">Nordic Crypto नॉर्वे, स्वीडन, डेनमार्क, फ़िनलैंड और आइसलैंड को कवर करता है। इसे ओस्लो के Jørgen S. Notland (jQrgen) चलाते हैं। कृत्रिम बुद्धिमत्ता की सहायता से तैयार, मानव संपादकों (jQrgen और Nordic Crypto संपादक) के साथ। यह निवेश सलाह नहीं है। Cloudflare Web Analytics कुकीज़ के बिना, सामूहिक रूप से विज़िट गिनता है, और हम वह डेटा बेचते नहीं हैं। केवल भाषा चुनने पर एक कुकी। <a href="../../hi/about/">परिचय, गोपनीयता, सुधार और हटाना</a>।</p></div></footer>
+<footer><div class="wrap"><div class="foot-grid"><div class="foot-brand"><a class="brand footbrand" href="../../hi/"><img class="brandmark" src="../../assets/brand/shield-band.svg" width="34" height="40" alt=""><span>Nordic <span class="w">Crypto</span></span></a><p>नॉर्डिक देशों से बिटकॉइन, ब्लॉकचेन और क्रिप्टो समाचार</p></div><nav class="foot-col" aria-labelledby="ft-sec"><h2 id="ft-sec">अनुभाग</h2><ul><li><a href="../../hi/">समाचार</a></li><li><a href="../../hi/calendar/">कैलेंडर</a></li><li><a href="../../hi/markets/">बाज़ार</a></li><li><a href="../../hi/org-chart/">कौन क्या है</a></li><li><a href="../../hi/academia/">शिक्षा जगत</a></li><li><a href="../../hi/books/">पुस्तकें</a></li><li><a href="../../hi/talks/">व्याख्यान</a></li><li><a href="../../hi/developers/">डेवलपर</a></li></ul></nav><nav class="foot-col" aria-labelledby="ft-site"><h2 id="ft-site">साइट के बारे में</h2><ul><li><a href="../../hi/about/">परिचय</a></li><li><a href="../../hi/sources/">स्रोत</a></li><li><a href="../../hi/ethics/">संपादकीय नैतिकता</a></li><li><a href="../../hi/contact/">संपर्क</a></li><li><a href="../../hi/budget/">बजट</a></li><li><a href="../../hi/changelog/">परिवर्तन-सूची</a></li><li><a href="../../hi/stats/">विज़िटर आँकड़े</a></li><li><a href="../../hi/privacy/">गोपनीयता और डेटा नीति</a></li><li><a href="../../hi/media/">लोगो और मीडिया किट</a></li><li><a href="../../hi/columnist/">स्तंभकार के रूप में आवेदन करें</a></li><li><a href="../../hi/tip/">सुझाव भेजें</a></li><li><a href="../../hi/api/">डेटा API</a></li><li><a href="https://github.com/nordic-crypto-org/nordic-crypto/graphs/contributors" rel="noopener">योगदानकर्ता</a></li></ul></nav><div class="foot-col"><h2>फ़ॉलो करें</h2><ul><li><a href="../../hi/newsletter/">न्यूज़लेटर</a></li><li><a href="https://t.me/nordiccryptochat" rel="noopener">Telegram</a></li><li><a href="https://x.com/nordiccryptobot" rel="noopener">X</a></li><li><a href="../../hi/rss.xml">RSS</a></li><li><a href="https://testflight.apple.com/join/nQ2fpjZn" rel="noopener">iOS ऐप पाएँ (TestFlight)</a> <span class="meta">विशेष रूप से Apple TV का समर्थन करता है।</span></li><li><a href="../../screen/">ऑफ़िस स्क्रीन मोड</a></li></ul></div></div><p class="colophon">Nordic Crypto नॉर्वे, स्वीडन, डेनमार्क, फ़िनलैंड और आइसलैंड को कवर करता है। इसे ओस्लो के Jørgen S. Notland (jQrgen) चलाते हैं। कृत्रिम बुद्धिमत्ता की सहायता से तैयार, मानव संपादकों (jQrgen और Nordic Crypto संपादक) के साथ। यह निवेश सलाह नहीं है। Cloudflare Web Analytics कुकीज़ के बिना, सामूहिक रूप से विज़िट गिनता है, और हम वह डेटा बेचते नहीं हैं। केवल भाषा चुनने पर एक कुकी। <a href="../../hi/about/">परिचय, गोपनीयता, सुधार और हटाना</a>।</p><p class="footsource"><span class="footsource-label">सोर्स कोड:</span> <a href="https://github.com/nordic-crypto-org/nordic-crypto" rel="noopener"><bdi dir="ltr">github.com/nordic-crypto-org/nordic-crypto</bdi></a></p></div></footer>
 <script>(function(){function setLang(c){if(!c)return;document.cookie='nc_lang='+c+';path=/;max-age=31536000;SameSite=Lax'+(location.protocol==='https:'?';Secure':'');try{localStorage.setItem('nc_lang',c)}catch(err){}}document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[data-lang]');if(a)setLang(a.getAttribute('data-lang'))});document.addEventListener('change',function(e){var s=e.target;if(!s||!s.matches||!s.matches('select.langsel'))return;var o=s.options[s.selectedIndex];if(!o)return;setLang(o.getAttribute('data-lang'));if(o.value)location.href=o.value});var h=document.querySelector('header.top'),b=document.querySelector('.navtoggle'),n=document.getElementById('sitenav');if(b&&n){b.addEventListener('click',function(){var open=n.classList.toggle('is-open');h.classList.toggle('nav-open',open);b.setAttribute('aria-expanded',open?'true':'false')});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&n.classList.contains('is-open')){n.classList.remove('is-open');h.classList.remove('nav-open');b.setAttribute('aria-expanded','false');b.focus()}})}var d=document.documentElement,tb=document.querySelector('.themetoggle');if(tb){var sync=function(){tb.setAttribute('aria-pressed',d.getAttribute('data-theme')==='dark'?'true':'false')};sync();tb.addEventListener('click',function(){var dark=d.getAttribute('data-theme')!=='dark';if(dark)d.setAttribute('data-theme','dark');else d.removeAttribute('data-theme');try{localStorage.setItem('nc-theme',dark?'dark':'light')}catch(err){}sync()})}})();</script><script>/* Theme helpers shared by every theme: scroll reveal, a reduced-motion flag and a typewriter. */
 window.NCT=(function(){
   var still=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;

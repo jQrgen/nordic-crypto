@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-14T05:37:21+00:00",
+ "generated_at": "2026-10-15T07:10:16+00:00",
  "preview": false,
  "item": {
   "id": "019f42a4506c",
@@ -42,8 +42,10 @@
     "is": "Í kjölfar bitcoin hafa komið fram fjölmörg öpp sem breyta samtímanum og víkka fjármálageirann. Dæmi eru framtíðarmarkaðir eins og Polymarket, kryptobankinn Aave, nýjungar í tryggingum, stablecoins og ný form ríkisfjár. Í samstarfi við Bitcoinpolitisk Institutt Norge kynnir Polyteknisk Forening öppin sem bitcoin hefur leitt af sér, auk bitcoin sjálfs."
    }
   },
-  "past": false,
+  "past": true,
   "ongoing": false,
+  "phase": "past",
+  "phase_end": "2026-10-14T18:30:00+02:00",
   "html_url": "https://nordiccrypto.no/calendar/019f42a4506c/",
   "html_urls": {
    "en": "https://nordiccrypto.no/calendar/019f42a4506c/",

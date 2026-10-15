@@ -1,0 +1,120 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-15T07:10:16+00:00",
+ "preview": false,
+ "item": {
+  "id": "22bc08ecb454",
+  "url": "https://sagat.no/nye-datasenter-utvinner-krypto/19.59968",
+  "html_url": "https://nordiccrypto.no/stories/22bc08ecb454/",
+  "api_url": "https://nordiccrypto.no/api/v1/news/22bc08ecb454.json",
+  "title": "Spørsmål i Stortinget: – Nye datasenter utvinner krypto?",
+  "title_en": "Storting question: are new data centres mining crypto?",
+  "title_i18n": {},
+  "source": "sagat",
+  "source_name": "Ságat",
+  "source_logo": null,
+  "source_note": null,
+  "country": "NO",
+  "language": "Norwegian",
+  "language_code": "no",
+  "published": "2026-10-14T07:10:56+00:00",
+  "topics": [
+   "mining",
+   "policy"
+  ],
+  "summary": "A claim by data-centre company Arctic Core AS to Kautokeino municipality, that crypto is common and well known in the data-centre industry, is now the subject of a question in the Storting, the local paper Ságat reports. The story is a follow-up to Ságat's earlier report that Arctic Core acknowledged it would carry out 'a little' crypto mining in Kautokeino. The rest of the article is behind a paywall.",
+  "summary_i18n": {
+   "nn": "Ein påstand frå dataselskapet Arctic Core AS overfor Kautokeino kommune, om at krypto er vanleg og velkjent i datasenterbransjen, er no tema for eit spørsmål i Stortinget, melder lokalavisa Ságat. Saka følgjer opp Ságats tidlegare melding om at Arctic Core vedgjekk at selskapet skal drive med «litt» kryptoutvinning i Kautokeino. Resten av artikkelen ligg bak betalingsmur.",
+   "nb": "En påstand fra dataselskapet Arctic Core AS overfor Kautokeino kommune, om at krypto er vanlig og velkjent i datasenterbransjen, er nå tema for et spørsmål i Stortinget, melder lokalavisen Ságat. Saken følger opp Ságats tidligere melding om at Arctic Core innrømmet at selskapet skal drive med «litt» kryptoutvinning i Kautokeino. Resten av artikkelen ligger bak betalingsmur.",
+   "sv": "Ett påstående från datacenterbolaget Arctic Core AS till Kautokeino kommun, om att krypto är vanligt och välkänt i datacenterbranschen, är nu föremål för en fråga i Stortinget, rapporterar lokaltidningen Ságat. Artikeln följer upp Ságats tidigare rapport om att Arctic Core medgett att bolaget ska bedriva ”lite” kryptoutvinning i Kautokeino. Resten av artikeln ligger bakom betalvägg.",
+   "da": "En påstand fra datacentervirksomheden Arctic Core AS over for Kautokeino kommune om, at krypto er almindeligt og velkendt i datacenterbranchen, er nu emne for et spørgsmål i Stortinget, skriver lokalavisen Ságat. Artiklen følger op på Ságats tidligere historie om, at Arctic Core indrømmede, at selskabet vil drive »lidt« kryptomining i Kautokeino. Resten af artiklen er bag betalingsmur.",
+   "fi": "Datakeskusyhtiö Arctic Core AS:n Koutokeinon kunnalle esittämä väite, jonka mukaan krypto on tavallista ja tunnettua datakeskusalalla, on nyt Stortingetissa esitetyn kysymyksen aiheena, kertoo paikallislehti Ságat. Juttu on jatkoa Ságatin aiemmalle uutiselle, jonka mukaan Arctic Core myönsi harjoittavansa ”vähän” kryptolouhintaa Koutokeinossa. Muu osa artikkelista on maksumuurin takana.",
+   "is": "Fullyrðing gagnaversfyrirtækisins Arctic Core AS gagnvart sveitarfélaginu Kautokeino, um að rafmyntir séu algengar og vel þekktar í gagnaversgeiranum, er nú efni fyrirspurnar á Stórþinginu, segir héraðsblaðið Ságat. Fréttin er framhald af fyrri frétt Ságat um að Arctic Core hefði viðurkennt að það myndi stunda „smá“ rafmyntanámugröft í Kautokeino. Afgangur greinarinnar er á bak við greiðsluvegg."
+  },
+  "paywall": true,
+  "links": [],
+  "own_story": false,
+  "illustration": {
+   "id": "commons-mining",
+   "kind": "commons",
+   "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-mining.webp",
+   "width": 960,
+   "height": 720,
+   "alt": "Rows of cryptocurrency mining machines indoors.",
+   "source": "Wikimedia Commons",
+   "author": "Jasper Reichardt",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "url": "https://commons.wikimedia.org/wiki/File:Mining-Rig.jpg",
+   "credit": "Photo: Jasper Reichardt. Licence: CC BY-SA 4.0. Source: Wikimedia Commons.",
+   "modifications": null,
+   "terms": null
+  },
+  "primary_source": {
+   "outlet": "sagat",
+   "outlet_name": "Ságat",
+   "url": "https://sagat.no/nye-datasenter-utvinner-krypto/19.59968",
+   "title": "Spørsmål i Stortinget: – Nye datasenter utvinner krypto?",
+   "published": "2026-10-14T07:10:56+00:00",
+   "lang": "Norwegian",
+   "language_code": "no",
+   "country": "NO",
+   "source_type": "national",
+   "paywall": true,
+   "primary": true,
+   "logo": null
+  },
+  "primary_source_document": null,
+  "also_covered_by": [],
+  "sources": [
+   {
+    "outlet": "sagat",
+    "outlet_name": "Ságat",
+    "url": "https://sagat.no/nye-datasenter-utvinner-krypto/19.59968",
+    "title": "Spørsmål i Stortinget: – Nye datasenter utvinner krypto?",
+    "published": "2026-10-14T07:10:56+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": true,
+    "primary": true,
+    "logo": null
+   }
+  ],
+  "coverage": {
+   "count": 1,
+   "by_country": [
+    {
+     "country": "NO",
+     "count": 1,
+     "share": 1.0
+    }
+   ],
+   "by_source_type": [
+    {
+     "type": "national",
+     "count": 1,
+     "share": 1.0
+    },
+    {
+     "type": "regional",
+     "count": 0,
+     "share": 0.0
+    },
+    {
+     "type": "official",
+     "count": 0,
+     "share": 0.0
+    },
+    {
+     "type": "international",
+     "count": 0,
+     "share": 0.0
+    }
+   ]
+  },
+  "source_logo_url": null
+ }
+}

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-14T05:37:21+00:00",
+ "generated_at": "2026-10-15T07:10:16+00:00",
  "preview": false,
  "count": 12,
  "events": [
@@ -39,6 +39,8 @@
    },
    "past": true,
    "ongoing": false,
+   "phase": "past",
+   "phase_end": "2026-10-08T21:00:00+02:00",
    "html_url": "https://nordiccrypto.no/calendar/ccc2eea6b213/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/ccc2eea6b213/",
@@ -111,8 +113,10 @@
      "is": "Í kjölfar bitcoin hafa komið fram fjölmörg öpp sem breyta samtímanum og víkka fjármálageirann. Dæmi eru framtíðarmarkaðir eins og Polymarket, kryptobankinn Aave, nýjungar í tryggingum, stablecoins og ný form ríkisfjár. Í samstarfi við Bitcoinpolitisk Institutt Norge kynnir Polyteknisk Forening öppin sem bitcoin hefur leitt af sér, auk bitcoin sjálfs."
     }
    },
-   "past": false,
+   "past": true,
    "ongoing": false,
+   "phase": "past",
+   "phase_end": "2026-10-14T18:30:00+02:00",
    "html_url": "https://nordiccrypto.no/calendar/019f42a4506c/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/019f42a4506c/",
@@ -180,6 +184,8 @@
    },
    "past": false,
    "ongoing": false,
+   "phase": "upcoming",
+   "phase_end": "2026-10-15T20:30:00+02:00",
    "html_url": "https://nordiccrypto.no/calendar/c4a53ca9bd26/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/c4a53ca9bd26/",
@@ -240,6 +246,8 @@
    },
    "past": false,
    "ongoing": false,
+   "phase": "upcoming",
+   "phase_end": "2026-10-18T16:00:00+02:00",
    "html_url": "https://nordiccrypto.no/calendar/16b9aa68f972/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/16b9aa68f972/",
@@ -314,6 +322,8 @@
    },
    "past": false,
    "ongoing": false,
+   "phase": "upcoming",
+   "phase_end": "2026-10-28T19:00:00+01:00",
    "html_url": "https://nordiccrypto.no/calendar/a1ea7afabcb0/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/a1ea7afabcb0/",
@@ -381,6 +391,8 @@
    },
    "past": false,
    "ongoing": false,
+   "phase": "upcoming",
+   "phase_end": "2026-11-05T23:00:00+01:00",
    "html_url": "https://nordiccrypto.no/calendar/a6cadcf35c22/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/a6cadcf35c22/",
@@ -448,6 +460,8 @@
    },
    "past": false,
    "ongoing": false,
+   "phase": "upcoming",
+   "phase_end": "2026-11-06T21:00:00+02:00",
    "html_url": "https://nordiccrypto.no/calendar/ce0c87469bd8/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/ce0c87469bd8/",
@@ -508,6 +522,8 @@
    },
    "past": false,
    "ongoing": false,
+   "phase": "upcoming",
+   "phase_end": "2026-11-25T19:00:00+01:00",
    "html_url": "https://nordiccrypto.no/calendar/7adc8e1ede97/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/7adc8e1ede97/",
@@ -575,6 +591,8 @@
    },
    "past": false,
    "ongoing": false,
+   "phase": "upcoming",
+   "phase_end": "2026-12-03T23:00:00+01:00",
    "html_url": "https://nordiccrypto.no/calendar/e884ba1f0333/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/e884ba1f0333/",
@@ -642,6 +660,8 @@
    },
    "past": false,
    "ongoing": false,
+   "phase": "upcoming",
+   "phase_end": "2026-12-04T21:00:00+02:00",
    "html_url": "https://nordiccrypto.no/calendar/19b92e24ee50/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/19b92e24ee50/",
@@ -716,6 +736,8 @@
    },
    "past": false,
    "ongoing": false,
+   "phase": "upcoming",
+   "phase_end": "2027-01-01T21:00:00+02:00",
    "html_url": "https://nordiccrypto.no/calendar/3c7c538ff512/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/3c7c538ff512/",
@@ -783,6 +805,8 @@
    },
    "past": false,
    "ongoing": false,
+   "phase": "upcoming",
+   "phase_end": "2027-02-05T21:00:00+02:00",
    "html_url": "https://nordiccrypto.no/calendar/105f743dcf3d/",
    "html_urls": {
     "en": "https://nordiccrypto.no/calendar/105f743dcf3d/",
