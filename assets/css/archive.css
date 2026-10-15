@@ -1,0 +1,20 @@
+/* Historical archive. Start-aligned in every language, including RTL. */
+.archive,.archive h1,.archive h2,.archive .lead,.archive .filters,.archive .sum,.archive .meta{text-align:start}
+.archive h1{margin:0 0 8px}
+.archive .lead{max-width:68ch}
+.arcyears{display:flex;flex-wrap:wrap;gap:6px 12px;margin:0 0 18px;text-align:start}
+.arcyears a{font:500 14px/1.2 var(--f-mono);text-decoration:none}
+.arcyears a:hover{text-decoration:underline;text-decoration-color:var(--gold)}
+.arc-list{margin:8px 0 0;text-align:start}
+.arc-list section{margin:0 0 8px;text-align:start}
+.arc-list h2{margin:22px 0 0;font:500 13px/1.2 var(--f-mono);letter-spacing:.08em;color:var(--muted);text-align:start}
+.arcitem{padding:16px 0;border-bottom:1px solid var(--line);text-align:start}
+.arcitem h3{font-size:22px;line-height:1.2;margin:0 0 4px;text-align:start;max-width:40ch}
+.arcitem h3 a{text-decoration:none}
+.arcitem h3 a:hover{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:4px}
+.arcitem .sum{margin:8px 0 0;max-width:68ch}
+.arc-pages{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin:18px 0;text-align:start}
+.arc-pages a{text-decoration:none}
+.arc-pages a:hover{text-decoration:underline}
+#arc-sentinel{min-height:1px}
+@media(max-width:640px){.arcitem h3{font-size:20px}}

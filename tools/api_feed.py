@@ -4,7 +4,7 @@
 Versioned files live under api/v1/. No server, no auth. Only data the public site
 already shows: approved news and own stories, published newsletter issues, the
 events calendar (upcoming and past), sources, academia, books, the who's who, profiles,
-licensed images, the rules map, the changelog and the article archive.
+licensed images, the rules map, the changelog, the article archive and the historical news archive.
 
 Not published: editor queue, pending drafts (except a preview build), rejected
 stories, tip-server keys, subscriber lists, the analytics token, research notes,
@@ -1065,6 +1065,7 @@ def _meta(feed):
         ("columnist/", "Apply as a columnist (not part of this data API)"),
         ("markets/", "Prices on Nordic exchanges (market data, not investment advice)"),
         ("screen/", "News screen, English"),
+        ("archive/", "Historical news archive and scientific works from the academia page"),
         ("api/", "This API, human documentation"),
     ]
     return feed.env(
@@ -1228,6 +1229,39 @@ def event_lists(evs):
     ongoing = [e for e in evs if e.get("phase") == "ongoing"]
     past = [e for e in evs if e.get("phase") == "past"][::-1]
     return upcoming, ongoing, past
+
+
+def write_news_archive(feed):
+    """Paginated historical archive, newest first. Academic rows come from the academia file."""
+    import news_archive
+    rows = news_archive.public_items()
+    pages = news_archive.paginate(rows)
+    written = []
+    for number, chunk in enumerate(pages, 1):
+        slug = "archive/" if number == 1 else f"archive/page/{number}/"
+        api_url = feed.abs(f"api/v1/archive/news/page-{number}.json")
+        page_rows = []
+        for row in chunk:
+            item = dict(row)
+            item["html_url"] = feed.abs(slug + "#" + item["id"])
+            item["api_url"] = api_url
+            page_rows.append(item)
+        feed.write_json(
+            f"api/v1/archive/news/page-{number}.json",
+            feed.env(page=number, pages=len(pages), page_size=news_archive.PAGE_SIZE, count=len(rows), newest_first=True, items=page_rows),
+        )
+        written.extend(page_rows)
+    feed.add_endpoint(
+        "archive-news-page",
+        "api/v1/archive/news/page-{page}.json",
+        "Historical Nordic crypto news and scientific works from the academia page (master's theses, project theses and papers), newest first. "
+        "Page 1 is page-1.json. type is news or academic. A news row comes from data/archive/news/<year>.json. "
+        "An academic row is not copied into those files. published for a work known only by year is 1 January UTC of that year. "
+        "title_en, title_i18n and summary_i18n follow the news items.",
+        "NewsArchivePage",
+        example="api/v1/archive/news/page-1.json",
+    )
+    return written, len(pages)
 
 
 def write(site, *, preview, base, items, events, entities, relations, org_updated, regulation, caveats, sources_cfg, news_updated, markets=None, stats=None, now=None):
@@ -1511,6 +1545,8 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
     for a in articles:
         feed.write_json(f"api/v1/archive/articles/{a['id']}.json", feed.env(item=a))
 
+    archive_items, archive_pages = write_news_archive(feed)
+
     stats_doc = _stats(feed, stats)
     market_doc = _markets(feed, markets)
     market_counts = {}
@@ -1594,6 +1630,8 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
             "illustrations": len(story_pictures),
             "changelog": len(changes),
             "archive_articles": len(articles),
+            "archive_news": sum(1 for row in archive_items if row.get("type") == "news"),
+            "archive_academic": sum(1 for row in archive_items if row.get("type") == "academic"),
             "markets": market_doc.get("count") or 0,
             "markets_aggregated": market_doc.get("aggregated_count") or 0,
             "markets_by_exchange": market_counts,
@@ -1694,7 +1732,7 @@ def openapi(feed, index):
             "description": (
                 f"Public read-only JSON for Nordic Crypto ({feed.base}). "
                 "No authentication. News, newsletters, events, sources, academia, books, developers, the who's who, profiles, images, "
-                "the rules map, the changelog, the article archive, public talk videos and Nordic exchange prices (market data, not investment advice). "
+                "the rules map, the changelog, the article archive, the historical news archive, public talk videos and Nordic exchange prices (market data, not investment advice). "
                 "Kaupr is a news source only, never a sponsor. The sign-off is The Nordic Crypto team. "
                 "GitHub Pages sends Access-Control-Allow-Origin: * so browsers can fetch these files. "
                 "English text is the default; published translations are inside each object under *_i18n. "
@@ -2056,6 +2094,41 @@ def schemas():
         "ChangelogList": wrap("ChangelogList", {"entries": {"type": "array"}}),
         "Rules": wrap("Rules", {"available": {"type": "boolean"}, "checked": {"type": "string"}}),
         "ArticleArchive": wrap("ArticleArchive", {"articles": {"type": "array"}}),
+        "NewsArchiveItem": {
+            "type": "object",
+            "required": ["id", "type", "title", "url", "published"],
+            "description": "One historical news article or one scientific work. type is news or academic. Academic rows are master's theses, project theses and papers from the academia list, not copies in the year files.",
+            "properties": {
+                "id": {"type": "string"},
+                "type": {"type": "string", "enum": ["news", "academic"]},
+                "title": {"type": "string", "description": "Source headline, or the catalogue title of a scientific work."},
+                "title_en": {"type": "string", "nullable": True, "description": "Our English headline when it is not the source headline."},
+                "title_i18n": i18n_obj,
+                "source": {"type": "string", "description": "Outlet id or name. For a scientific work, the institution."},
+                "source_name": {"type": "string"},
+                "url": {"type": "string"},
+                "archive_url": {"type": "string", "nullable": True, "description": "Archived copy of a news article. Null when there is none."},
+                "published": {"type": "string", "description": "ISO 8601. A scientific work known only by year uses 1 January of that year, UTC."},
+                "published_precision": {"type": "string", "enum": ["datetime", "year"]},
+                "country": {"type": "string"},
+                "language": {"type": "string"},
+                "summary": {"type": "string", "description": "Our English summary. For a scientific work this is the academia about text."},
+                "summary_i18n": i18n_obj,
+                "work_type": {"type": "string", "nullable": True, "enum": ["master", "project", "paper", "conference"], "description": "Null on a news row."},
+                "authors": {"type": "array", "items": {"type": "string"}},
+                "year": {"type": "integer", "nullable": True},
+                "html_url": {"type": "string"},
+                "api_url": {"type": "string"},
+            },
+        },
+        "NewsArchivePage": wrap("NewsArchivePage", {
+            "page": {"type": "integer"},
+            "pages": {"type": "integer"},
+            "page_size": {"type": "integer"},
+            "count": {"type": "integer", "description": "Items in the whole archive, not only this page."},
+            "newest_first": {"type": "boolean"},
+            "items": {"type": "array", "items": {"$ref": "#/components/schemas/NewsArchiveItem"}},
+        }),
         "SiteMeta": wrap("SiteMeta", {
             "languages": {"type": "array"},
             "countries": {"type": "array"},
@@ -2281,6 +2354,7 @@ def llms_txt(feed, index):
         f"- [Site meta]({feed.abs('api/v1/meta.json')}): languages, countries, page list, CORS, and brand social accounts.",
         f"- Telegram: {SITE_TELEGRAM_URL} (`social.telegram`). X: {SITE_X_URL} (`social.x`, also `urls.x`). `name` is English. `name_i18n` has nn, nb, sv, da, fi and is. Other languages use `name`.",
         "- iOS app: public TestFlight invite in `ios`. `apple_tv` is English. `apple_tv_i18n` has every site language. The Nordic Crypto TestFlight version especially supports Apple TV. No App Store listing.",
+        f"- [Historical archive, page 1]({feed.abs('api/v1/archive/news/page-1.json')}): news back to 2009 and academic works (master's theses, project theses and papers), newest first. The next page is page-2.json.",
         f"- [Languages]({feed.abs('api/v1/languages.json')}): site UI languages (code, native name, English name, rtl, home).",
         f"- [Geo language]({feed.abs('api/v1/geo-language.json')}): country to default language. An IP guess; the nc_lang cookie wins.",
         "- Browser notifications: opt-in Web Push. The Worker `GET /api/push/feed.json` repeats each publish as one batch (title, summary, URL). APNs is not implemented. Subscriptions are not in this API.",
@@ -2526,6 +2600,9 @@ curl -fsS {eb}api/v1/markets/aggregated.json</pre>
 <pre>curl -fsS {eb}api/v1/stats.json</pre>
 <h2 id="talks">{t("h_talks")}</h2>
 <p>{t("talks")}</p>
+<h2 id="archive">{t("h_archive")}</h2>
+<p>{t("archive")}</p>
+<pre>curl -fsS {eb}api/v1/archive/news/page-1.json</pre>
 <h2 id="outlets">{t("h_outlets")}</h2>
 <p>{t("outlets")}</p>
 <h2 id="events">{t("h_events")}</h2>

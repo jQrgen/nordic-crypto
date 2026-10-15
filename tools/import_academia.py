@@ -97,7 +97,8 @@ for w in works:
     url = w.get("url") or (f"https://doi.org/{w['doi']}" if w.get("doi") else None)
     if not url or not w.get("title"): continue
     typ = w.get("type") or "paper"
-    if typ not in ("master", "phd", "paper", "conference"): typ = "paper"
+    if typ not in ("master", "phd", "paper", "conference", "project"): typ = "paper"
+    approved = w.get("status") == "approved"
     row = {
         "country": w.get("country"),
         "title": w["title"],
@@ -106,7 +107,8 @@ for w in works:
         "year": w.get("year"),
         "type": typ,
         "venue": w.get("venue") or {"master": "Master's thesis", "phd": "PhD dissertation",
-                                    "paper": "Journal article", "conference": "Conference paper"}.get(typ, ""),
+                                    "paper": "Journal article", "conference": "Conference paper",
+                                    "project": "Project thesis"}.get(typ, ""),
         "doi": w.get("doi") or None,
         "url": url,
         "db": url,
@@ -114,11 +116,13 @@ for w in works:
         "source": url,
         "about": w.get("relevance") or "",
         "keywords": w.get("keywords") or [],
-        "checked": CHECKED,
-        "status": "pending",
-        "editor_note": "awaiting editor (sourced catalogue research/academia/works.json)",
+        "checked": w.get("checked") or CHECKED,
+        "status": "approved" if approved else "pending",
+        "editor_note": w.get("editor_note") or ("approved in research/academia/works.json" if approved else "awaiting editor (sourced catalogue research/academia/works.json)"),
         "origin": "research/academia/works.json",
     }
+    if w.get("language"): row["language"] = w["language"]
+    if w.get("title_en"): row["title_en"] = w["title_en"]
     pubs_map[pub_key(row)] = row
 
 # 2) Optional local DOI seed (gitignored) — fills gaps / refreshes OpenAlex metadata
@@ -156,7 +160,7 @@ out = {
         "Every DOI or research-database link is sourced before it is listed; no fabricated citations.",
         "A student group is marked active only with dated activity in the last 12 months; otherwise inactive.",
         "Every row carries a source, a check date and a status. Only editor-approved rows are shown.",
-        "Publication types: master | phd | paper | conference (from research/academia/works.json).",
+        "Publication types: master | project | phd | paper | conference (from research/academia/works.json).",
     ],
     "courses": courses,
     "groups": groups,
