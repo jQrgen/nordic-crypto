@@ -50,6 +50,7 @@ CUSTOM_BASE = site_url.BASE
 # Brand accounts. The same URLs are linked from the site footer, About and the newsletter.
 SITE_X_URL = "https://x.com/nordiccryptobot"
 SITE_TELEGRAM_URL = "https://t.me/nordiccryptochat"
+SITE_FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61595548315551"
 NORDIC_UI = ("nn", "nb", "sv", "da", "fi", "is")
 LANGS = list(i18n.ALL_LANGS)
 COUNTRIES = ["NO", "SE", "DK", "FI", "IS", "NORDIC", "EU"]
@@ -1037,6 +1038,12 @@ def brand_social():
             "url": SITE_X_URL,
             "handle": "@nordiccryptobot",
         },
+        "facebook": {
+            "label": "Facebook",
+            "name": i18n.t("en", "fb_follow"),
+            "name_i18n": names("fb_follow"),
+            "url": SITE_FACEBOOK_URL,
+        },
     }
 
 
@@ -1106,6 +1113,7 @@ def _meta(feed):
             "rss": feed.abs("rss.xml"),
             "telegram": SITE_TELEGRAM_URL,
             "x": SITE_X_URL,
+            "facebook": SITE_FACEBOOK_URL,
             "logo": feed.abs("assets/brand/crest.svg"),
             "logo_png": feed.abs("assets/media/nordic-crypto-crest.png"),
             "wordmark": feed.abs("assets/brand/wordmark.svg"),
@@ -1591,7 +1599,7 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
         )
 
     meta = _meta(feed)
-    collection("api/v1/meta.json", "Site name, languages, countries, page list, CORS, editorial notes and brand social accounts (social.telegram, social.x).", "SiteMeta", meta)
+    collection("api/v1/meta.json", "Site name, languages, countries, page list, CORS, editorial notes and brand social accounts (social.telegram, social.x, social.facebook).", "SiteMeta", meta)
 
     # Discovery, OpenAPI, llms.txt and the human page. Registered after the datasets exist.
     index = feed.env(
@@ -2148,7 +2156,7 @@ def schemas():
             },
             "social": {
                 "type": "object",
-                "description": "Nordic Crypto brand accounts. telegram is https://t.me/nordiccryptochat. x is https://x.com/nordiccryptobot. label and name are English. name_i18n has nn, nb, sv, da, fi and is. Other languages use name.",
+                "description": "Nordic Crypto brand accounts. telegram is https://t.me/nordiccryptochat. x is https://x.com/nordiccryptobot. facebook is https://www.facebook.com/profile.php?id=61595548315551. label and name are English. name_i18n has nn, nb, sv, da, fi and is. Other languages use name.",
                 "properties": {
                     "note": {"type": "string"},
                     "telegram": {"type": "object", "properties": {
@@ -2164,9 +2172,15 @@ def schemas():
                         "url": {"type": "string", "example": "https://x.com/nordiccryptobot"},
                         "handle": {"type": "string", "example": "@nordiccryptobot"},
                     }},
+                    "facebook": {"type": "object", "properties": {
+                        "label": {"type": "string", "example": "Facebook"},
+                        "name": {"type": "string", "example": "Nordic Crypto on Facebook"},
+                        "name_i18n": {"type": "object"},
+                        "url": {"type": "string", "example": "https://www.facebook.com/profile.php?id=61595548315551"},
+                    }},
                 },
             },
-            "urls": {"type": "object", "description": "github, newsletter, rss, telegram and x, plus the API bases. newsletter is the signup page on this site. rss is the English story feed."},
+            "urls": {"type": "object", "description": "github, newsletter, rss, telegram, x and facebook, plus the API bases. newsletter is the signup page on this site. rss is the English story feed."},
         }),
         "LanguageList": wrap("LanguageList", {
             "count": {"type": "integer"},
@@ -2352,7 +2366,7 @@ def llms_txt(feed, index):
         f"- [OpenAPI YAML]({feed.abs('api/v1/openapi.yaml')}): the same document.",
         f"- [API catalog]({feed.abs('.well-known/api-catalog')}): RFC 9727 linkset. A .json copy is at {feed.abs('.well-known/api-catalog.json')}.",
         f"- [Site meta]({feed.abs('api/v1/meta.json')}): languages, countries, page list, CORS, and brand social accounts.",
-        f"- Telegram: {SITE_TELEGRAM_URL} (`social.telegram`). X: {SITE_X_URL} (`social.x`, also `urls.x`). `name` is English. `name_i18n` has nn, nb, sv, da, fi and is. Other languages use `name`.",
+        f"- Telegram: {SITE_TELEGRAM_URL} (`social.telegram`). X: {SITE_X_URL} (`social.x`, also `urls.x`). Facebook: {SITE_FACEBOOK_URL} (`social.facebook`, also `urls.facebook`). `name` is English. `name_i18n` has nn, nb, sv, da, fi and is. Other languages use `name`.",
         "- iOS app: public TestFlight invite in `ios`. `apple_tv` is English. `apple_tv_i18n` has every site language. The Nordic Crypto TestFlight version especially supports Apple TV. No App Store listing.",
         f"- [Historical archive, page 1]({feed.abs('api/v1/archive/news/page-1.json')}): news back to 2009 and academic works (master's theses, project theses and papers), newest first. The next page is page-2.json.",
         f"- [Languages]({feed.abs('api/v1/languages.json')}): site UI languages (code, native name, English name, rtl, home).",
