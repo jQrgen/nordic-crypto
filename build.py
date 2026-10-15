@@ -88,6 +88,8 @@ def t(key, **kw): return i18n.t(LANG, key, **kw)
 def lp(lang=None): lang = lang or LANG; return "" if lang == "en" else lang + "/"
 def up1(): return "../../" if LANG != "en" else "../"   # from a top-level page (e.g. calendar/) to the site root (data/, assets/)
 def endate(iso):
+    if len(iso or "") == 10:  # date-only publish time (the page gave no clock)
+        return i18n.short_date(LANG, dt.datetime.fromisoformat(iso).replace(hour=12, tzinfo=OSLO))
     return i18n.short_date(LANG, dt.datetime.fromisoformat(iso).astimezone(OSLO))
 COUNTRY_CODES = ["NO", "SE", "DK", "FI", "IS"]
 class _C(dict):  # country names in the current language
@@ -849,6 +851,7 @@ def _cov_when(iso):
     if not iso: return ""
     try: d = dt.datetime.fromisoformat(iso).astimezone(OSLO)
     except ValueError: return ""
+    if len(iso) == 10: return endate(iso)
     return f"{endate(iso)} {d.strftime('%H:%M')}"
 def _bar(label_html, count, share):
     pct = max(0, min(100, round((share or 0) * 100)))
@@ -2006,6 +2009,8 @@ def public_extra(item):
         extra["primary_source"] = doc
     if (item or {}).get("published_unverified"):
         extra["published_unverified"] = True
+    if (item or {}).get("published_date_only"):
+        extra["published_date_only"] = True
     return extra
 def cited_source(item):
     """Link to an editor-recorded original document, such as a regulator press release.
