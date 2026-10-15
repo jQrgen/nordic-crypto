@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Post each new Nordic Crypto newsletter issue to X (@nordiccryptobot) as a thread, with the newsreel video, once.
+"""Post each new Nordic Crypto newsletter issue to X (@nordiccryptobot) as ONE long post (full issue text, up to 25,000 characters, X Premium) with the newsreel video, once.
+If X rejects the length (no long-post entitlement), it falls back to a thread; --thread forces the thread.
 
 Thread shape:
   1. Headline, short intro, issue link, and the issue's video.mp4 attached natively.
@@ -27,10 +28,11 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PUBLISHED = os.path.join(ROOT, "newsletter", "published")
 STATE = os.path.join(ROOT, "data", "x_posted.json")
 SITE = "https://nordiccrypto.no"
-UPLOAD = "https://upload.twitter.com/1.1/media/upload.json"
-TWEETS = "https://api.twitter.com/2/tweets"
+UPLOAD = "https://api.x.com/2/media/upload"
+TWEETS = "https://api.x.com/2/tweets"
 UA = "nordic-crypto-x-newsletter/1 (+https://nordiccrypto.no/)"
 LIMIT, URL_LEN = 280, 23
+LONG_LIMIT = 25000  # X Premium long posts
 CHUNK = 4 * 1024 * 1024
 ENV = ("X_API_KEY", "X_API_SECRET", "X_ACCESS_TOKEN", "X_ACCESS_SECRET")
 URL_RE = re.compile(r"https?://\S+")
@@ -140,6 +142,42 @@ def build_thread(meta):
     return posts
 
 
+def issue_text(issue_html):
+    """The whole issue as plain text: paragraphs, section headings, and each story as headline, summary, source line, link."""
+    h = issue_html.replace("__SITE__", SITE)
+    h = re.sub(r"<img[^>]*>", "", h)
+    h = re.sub(r'<a href="(https?://[^"]+)"[^>]*font-weight:bold[^>]*>(.*?)</a>', r"\2<br>\1", h, flags=re.S)
+    h = re.sub(r"<strong>\s*<a href=\"(https?://[^\"]+)\"[^>]*>(.*?)</a>\s*</strong>", r"\2<br>\1", h, flags=re.S)
+    h = re.sub(r'<a href="(https?://[^"]+)"[^>]*>(.*?)</a>', r"\2 (\1)", h, flags=re.S)
+    blocks = []
+    for m in re.finditer(r"<(h[1-6]|p|li)[^>]*>(.*?)</\1>", h, re.S):
+        lines = [strip_tags(x) for x in re.split(r"<br\s*/?>", m.group(2))]
+        txt = "\n".join(x for x in lines if x)
+        if txt:
+            blocks.append(txt.upper() if m.group(1).startswith("h") else txt)
+    return "\n\n".join(blocks)
+
+
+def build_long_post(meta, issue_html):
+    """One long post: headline, the full issue text, the issue link. Clipped by whole blocks to LONG_LIMIT."""
+    n = meta.get("number") or int(meta["id"])
+    title = re.sub(rf"^Nordic Crypto #{n}:\s*", "", meta["title"])
+    head = f"Nordic Crypto #{n}: {title}"
+    tail = f"Read it on Nordic Crypto: {issue_url(meta)}"
+    body = issue_text(issue_html)
+    blocks, out = body.split("\n\n"), []
+    for b in blocks:
+        if x_len("\n\n".join([head] + out + [b, tail])) > LONG_LIMIT:
+            break
+        out.append(b)
+    return "\n\n".join([head] + out + [tail])
+
+
+def is_length_error(err):
+    m = str(err).lower()
+    return ("-> 400" in m or "-> 403" in m) and any(k in m for k in ("too long", "length", "characters", "text"))
+
+
 # ---------------------------------------------------------------- state
 def load_state(path):
     try:
@@ -198,32 +236,39 @@ def x_get(creds, url, params):
     return _call(req)
 
 
+def x_json(creds, url, payload):
+    req = urllib.request.Request(url, data=json.dumps(payload).encode(), method="POST", headers={
+        "Authorization": oauth_header("POST", url, creds), "Content-Type": "application/json", "User-Agent": UA})
+    return _call(req)
+
+
 def upload_video(creds, path):
-    """v1.1 chunked upload: INIT, APPEND (4 MB segments), FINALIZE, then poll STATUS until processing succeeds."""
+    """v2 chunked upload: initialize, append (4 MB segments), finalize, then poll status until processing succeeds.
+    (The v1.1 upload.twitter.com endpoint answers 401 for pay-per-use apps.)"""
     size = os.path.getsize(path)
-    init = x_form(creds, UPLOAD, {"command": "INIT", "total_bytes": size, "media_type": "video/mp4", "media_category": "tweet_video"})
-    mid = init["media_id_string"]
-    log(f"INIT media {mid} ({size} bytes)")
+    mid = x_json(creds, UPLOAD + "/initialize", {"media_type": "video/mp4", "total_bytes": size, "media_category": "tweet_video"})["data"]["id"]
+    log(f"initialize media {mid} ({size} bytes)")
+    url = f"{UPLOAD}/{mid}/append"
     with open(path, "rb") as fh:
         seg = 0
         while chunk := fh.read(CHUNK):
-            q = {"command": "APPEND", "media_id": mid, "segment_index": seg}
             boundary = "nc" + secrets.token_hex(12)
-            body = (f"--{boundary}\r\nContent-Disposition: form-data; name=\"media\"\r\nContent-Type: application/octet-stream\r\n\r\n").encode() \
+            body = (f"--{boundary}\r\nContent-Disposition: form-data; name=\"segment_index\"\r\n\r\n{seg}\r\n"
+                    f"--{boundary}\r\nContent-Disposition: form-data; name=\"media\"; filename=\"blob\"\r\nContent-Type: application/octet-stream\r\n\r\n").encode() \
                 + chunk + f"\r\n--{boundary}--\r\n".encode()
-            req = urllib.request.Request(UPLOAD + "?" + urllib.parse.urlencode(q), data=body, method="POST", headers={
-                "Authorization": oauth_header("POST", UPLOAD, creds, q), "Content-Type": f"multipart/form-data; boundary={boundary}", "User-Agent": UA})
+            req = urllib.request.Request(url, data=body, method="POST", headers={
+                "Authorization": oauth_header("POST", url, creds), "Content-Type": f"multipart/form-data; boundary={boundary}", "User-Agent": UA})
             _call(req)
             seg += 1
-    log(f"APPEND {seg} segments")
-    info = x_form(creds, UPLOAD, {"command": "FINALIZE", "media_id": mid}).get("processing_info")
+    log(f"append {seg} segments")
+    info = x_json(creds, f"{UPLOAD}/{mid}/finalize", {}).get("data", {}).get("processing_info")
     deadline = time.time() + 600
     while info and info.get("state") in ("pending", "in_progress"):
         if time.time() > deadline:
             raise RuntimeError("video processing timed out")
         time.sleep(max(1, int(info.get("check_after_secs", 5))))
-        info = x_get(creds, UPLOAD, {"command": "STATUS", "media_id": mid}).get("processing_info")
-        log(f"STATUS {info and info.get('state')} {info and info.get('progress_percent', '')}")
+        info = x_get(creds, UPLOAD, {"command": "STATUS", "media_id": mid}).get("data", {}).get("processing_info")
+        log(f"status {info and info.get('state')} {info and info.get('progress_percent', '')}")
     if info and info.get("state") == "failed":
         raise RuntimeError(f"video processing failed: {info.get('error')}")
     return mid
@@ -276,10 +321,13 @@ def main(argv=None):
     ap.add_argument("--dry-run", action="store_true", help="print the thread, post nothing, leave the state file alone")
     ap.add_argument("--state", default=STATE)
     ap.add_argument("--no-video", action="store_true", help="post without the video")
+    ap.add_argument("--thread", action="store_true", help="post as a 280-char thread instead of one long post")
     a = ap.parse_args(argv)
 
     meta = load_issue(a.issue)
     posts = build_thread(meta)
+    with open(os.path.join(PUBLISHED, meta["id"], "issue.html"), encoding="utf-8") as fh:
+        long_post = build_long_post(meta, fh.read())
     state = load_state(a.state)
     done = state.get(meta["id"], {})
     has_video = bool(meta.get("video")) and not a.no_video
@@ -287,6 +335,9 @@ def main(argv=None):
     if a.dry_run:
         print(f"# Issue {meta['id']} ({meta['date']}): {len(posts)} posts{' + video' if has_video else ''}"
               f"{' [already posted, a real run would skip]' if done.get('complete') else ''}")
+        if not a.thread:
+            print(f"\n--- long post ({x_len(long_post)}/{LONG_LIMIT}){'  [+ video.mp4]' if has_video else ''}\n{long_post}")
+            print("\n# Fallback thread if X rejects the length:")
         for i, p in enumerate(posts, 1):
             media = "  [+ video.mp4]" if i == 1 and has_video else ""
             print(f"\n--- {i}/{len(posts)} ({x_len(p)}/280){media}\n{p}")
@@ -310,6 +361,17 @@ def main(argv=None):
         path = fetch_video(meta)
         if path:
             media_id = upload_video(creds, path)
+    if not ids and not a.thread:
+        try:
+            tid = create_post(creds, long_post, media_id=media_id)
+        except RuntimeError as e:
+            if not is_length_error(e):
+                raise
+            log(f"long post rejected, falling back to a thread: {e}")
+        else:
+            ids = [tid]
+            posts = [long_post]
+            log(f"posted long post: {tid}")
     for i, text in enumerate(posts):
         if i < len(ids):
             continue  # resumed after a partial run
@@ -321,7 +383,8 @@ def main(argv=None):
         time.sleep(2)
     state[meta["id"]] = {"tweet_ids": ids, "complete": True,
                          "posted_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
-                         "url": f"https://x.com/nordiccryptobot/status/{ids[0]}"}
+                         "url": f"https://x.com/nordiccryptobot/status/{ids[0]}",
+                         "mode": "long" if posts == [long_post] else "thread"}
     save_state(a.state, state)
     log(f"done: https://x.com/nordiccryptobot/status/{ids[0]}")
     return 0
