@@ -28,7 +28,7 @@ concurrency:
 
 jobs:
   post:
-    if: github.repository == 'jQrgen/nordic-crypto' && (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success')
+    if: github.repository == 'nordic-crypto-org/nordic-crypto' && (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success')
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:

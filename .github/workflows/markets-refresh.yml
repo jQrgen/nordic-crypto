@@ -20,7 +20,7 @@ permissions:
 
 jobs:
   refresh:
-    if: github.repository == 'jQrgen/nordic-crypto'
+    if: github.repository == 'nordic-crypto-org/nordic-crypto'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout gh-pages

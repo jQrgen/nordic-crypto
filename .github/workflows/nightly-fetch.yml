@@ -30,7 +30,7 @@ concurrency:
 jobs:
   switched-off:
     name: Fetch is switched off
-    if: github.repository == 'jQrgen/nordic-crypto' && vars.NC_CI_FETCH != 'true'
+    if: github.repository == 'nordic-crypto-org/nordic-crypto' && vars.NC_CI_FETCH != 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -47,7 +47,7 @@ jobs:
 
   fetch:
     name: Fetch into the editor queue
-    if: github.repository == 'jQrgen/nordic-crypto' && vars.NC_CI_FETCH == 'true'
+    if: github.repository == 'nordic-crypto-org/nordic-crypto' && vars.NC_CI_FETCH == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 240
     steps:

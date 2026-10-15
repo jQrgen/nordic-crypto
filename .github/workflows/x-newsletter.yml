@@ -1,0 +1,51 @@
+name: X newsletter post
+on:
+  workflow_run:
+    workflows: ["Deploy site"]
+    types: [completed]
+  schedule:
+    - cron: "45 6 * * 1"   # Monday ~08:45 Oslo (CEST), after the ~08:23 publish
+  workflow_dispatch:
+    inputs:
+      issue:
+        description: "Issue id, e.g. 002 (default: newest)"
+        required: false
+      dry_run:
+        description: "Print only, post nothing"
+        type: boolean
+        default: true
+permissions:
+  contents: write
+concurrency:
+  group: x-newsletter
+  cancel-in-progress: false
+jobs:
+  post:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Post newest issue to X
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_SECRET: ${{ secrets.X_ACCESS_SECRET }}
+        run: |
+          args=()
+          [ -n "${{ inputs.issue }}" ] && args+=(--issue "${{ inputs.issue }}")
+          [ "${{ inputs.dry_run }}" = "true" ] && args+=(--dry-run)
+          python3 tools/x_newsletter.py "${args[@]}"
+      - name: Commit post state
+        run: |
+          git diff --quiet data/x_posted.json && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add data/x_posted.json
+          git commit -m "Record X posts for the newsletter"
+          git push origin HEAD:main

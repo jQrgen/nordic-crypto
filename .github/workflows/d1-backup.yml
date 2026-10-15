@@ -24,7 +24,7 @@ concurrency:
 jobs:
   switched-off:
     name: D1 backup is switched off
-    if: github.repository == 'jQrgen/nordic-crypto' && vars.NC_DATA_SOURCE != 'd1'
+    if: github.repository == 'nordic-crypto-org/nordic-crypto' && vars.NC_DATA_SOURCE != 'd1'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -38,7 +38,7 @@ jobs:
 
   no-target:
     name: D1 backup has no private target
-    if: github.repository == 'jQrgen/nordic-crypto' && vars.NC_DATA_SOURCE == 'd1' && vars.CF_R2_BUCKET == ''
+    if: github.repository == 'nordic-crypto-org/nordic-crypto' && vars.NC_DATA_SOURCE == 'd1' && vars.CF_R2_BUCKET == ''
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -53,7 +53,7 @@ jobs:
 
   backup:
     name: Export D1 to the private backup
-    if: github.repository == 'jQrgen/nordic-crypto' && vars.NC_DATA_SOURCE == 'd1' && vars.CF_R2_BUCKET != ''
+    if: github.repository == 'nordic-crypto-org/nordic-crypto' && vars.NC_DATA_SOURCE == 'd1' && vars.CF_R2_BUCKET != ''
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
