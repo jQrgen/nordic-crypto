@@ -43,6 +43,12 @@ def main():
     check(by["finansavisen"].get("method") == "sitemap" and by["finansavisen"].get("enabled") is True, "finansavisen no-rss fallback")
     bb = by["barebitcoin"]
     check(bb.get("enabled") is True and bb.get("method") == "sitemap" and str(bb.get("feed") or "").endswith("/sitemap.xml"), "bare bitcoin sitemap")
+    kv = by["kryptovalutaguiden"]
+    check(kv.get("country") == "SE" and kv.get("language") == "Swedish", "kryptovalutaguiden is Swedish (sv)")
+    check(kv.get("enabled") is True and kv.get("type") == "rss-all" and kv.get("method") == "rss", "kryptovalutaguiden crypto posts feed")
+    check(kv.get("feed") == "https://kryptovalutaguiden.se/feed/", "kryptovalutaguiden feed is the posts RSS")
+    check(kv.get("url") == "https://kryptovalutaguiden.se", "kryptovalutaguiden home")
+    check(str(kv.get("logo_source") or "").startswith("https://"), "kryptovalutaguiden logo source")
     check(by["e24"].get("method") == "rss" and by["kaupr-no"].get("method") == "html", "rss and html methods")
     check(by["politiet"].get("method") == "manual" and not by["politiet"].get("feed"), "politiet stays manual")
     check(by["aftenposten"]["coverage"] == "national", "aftenposten national")
@@ -71,6 +77,7 @@ def main():
     check("Reach" in html and "Justice" in html, "coverage columns")
     check(">Method<" in html and ">Sitemap<" in html and ">RSS<" in html, "method column")
     check("barebitcoin.no/sitemap.xml" in html, "bare bitcoin sitemap link")
+    check("kryptovalutaguiden.se/feed/" in html, "kryptovalutaguiden feed link")
     check("Faroe Islands" in html and "Greenland" in html, "territories named")
     check('id="kaupr"' in html, "kaupr notice")
     # the sources table itself is not a centered layout

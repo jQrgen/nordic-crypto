@@ -39,6 +39,10 @@ def main():
     check(fetch.matches("Hvitvasking og kryptoeiendel", ("kryptoeiendel",)), "crypto extra unlocks aml")
     check(not fetch.matches("Hvitvasking i banken", ("hvitvasking",)), "aml extra does not unlock itself")
     check(fetch.matches("En sak om darknet"), "darknet still counts alone")
+    casino = "https://kryptovalutaguiden.se/2026/09/nytt-kryptocasino-recenserat-spela-pa-us-open-med-wildroll/"
+    check(fetch.is_gambling("Nytt kryptocasino recenserat", casino), "kryptovalutaguiden casino review is not news")
+    news = "https://kryptovalutaguiden.se/2026/10/usa-beslagtar-2-814-bitcoin-fran-empire-market-grundaren-fick-40-ar/"
+    check(not fetch.is_gambling("USA beslagtar bitcoin från Empire Market", news), "kryptovalutaguiden bitcoin news is kept")
 
     url = "https://www.finansavisen.no/valuta/2026/10/05/8385368/smasparere-hamstret-krypto-under-renteuro"
     check(fetch.iid(url) == "fb9e8ca4fb40", "finansavisen id stays fb9e8ca4fb40")

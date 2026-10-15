@@ -36,6 +36,16 @@ def main():
     check(len(picked) == 1 and "/innsikt/nyheter/" in picked[0]["url"], "sitemap keeps the blog post")
     check(all("/logg-inn" not in e["url"] for e in picked), "login url dropped")
     check(picked[0]["published"].date().isoformat() == "2026-08-27", "date from the article path")
+    news_url = "https://kryptovalutaguiden.se/2026/10/usas-inflation-stiger-bitcoin-och-guld-rasar/"
+    guide_urls = (
+        "https://kryptovalutaguiden.se/bitcoin/",
+        "https://kryptovalutaguiden.se/kopa-bitcoin/",
+        "https://kryptovalutaguiden.se/krypto-guider/",
+        "https://kryptovalutaguiden.se/bast-kryptoborser/",
+        "https://kryptovalutaguiden.se/jamfor-bitcoin-casino-din-guide-till-de-basta-krypto-casino-pa-marknaden/",
+    )
+    check(listing._article_like(news_url), "dated kryptovalutaguiden news is an article")
+    check(all(not listing._article_like(u) for u in guide_urls), "static guides and affiliate pages are not articles")
 
     _, bare = listing.parse_sitemap(
         """<urlset><url><loc>https://example.no/nyheter/bitcoin-sak</loc><lastmod>2026-08-27T10:00:00+02:00</lastmod></url></urlset>""",
