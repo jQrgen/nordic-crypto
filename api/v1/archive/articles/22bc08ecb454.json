@@ -1,0 +1,47 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-15T22:41:55+00:00",
+ "preview": false,
+ "item": {
+  "id": "22bc08ecb454",
+  "api_url": "https://nordiccrypto.no/api/v1/archive/articles/22bc08ecb454.json",
+  "site": "nordic-crypto",
+  "url": "https://sagat.no/nye-datasenter-utvinner-krypto/19.59968",
+  "canonical_url": "https://sagat.no/nye-datasenter-utvinner-krypto/19.59968",
+  "title": "Spørsmål i Stortinget: – Nye datasenter utvinner krypto?",
+  "titles": {
+   "en": "Storting question: are new data centres mining crypto?"
+  },
+  "source": "sagat",
+  "source_name": "Ságat",
+  "country": "NO",
+  "published_at": "2026-10-14T07:10:56+00:00",
+  "first_published_on_site": "2026-10-15T09:11:28+02:00",
+  "last_seen_on_site": "2026-10-15T09:11:28+02:00",
+  "languages": [
+   "en",
+   "nn",
+   "nb",
+   "sv",
+   "da",
+   "fi",
+   "is"
+  ],
+  "summaries": {
+   "en": "A claim by data-centre company Arctic Core AS to Kautokeino municipality, that crypto is common and well known in the data-centre industry, is now the subject of a question in the Storting, the local paper Ságat reports. The story is a follow-up to Ságat's earlier report that Arctic Core acknowledged it would carry out 'a little' crypto mining in Kautokeino. The rest of the article is behind a paywall.",
+   "nn": "Ein påstand frå dataselskapet Arctic Core AS overfor Kautokeino kommune, om at krypto er vanleg og velkjent i datasenterbransjen, er no tema for eit spørsmål i Stortinget, melder lokalavisa Ságat. Saka følgjer opp Ságats tidlegare melding om at Arctic Core vedgjekk at selskapet skal drive med «litt» kryptoutvinning i Kautokeino. Resten av artikkelen ligg bak betalingsmur.",
+   "nb": "En påstand fra dataselskapet Arctic Core AS overfor Kautokeino kommune, om at krypto er vanlig og velkjent i datasenterbransjen, er nå tema for et spørsmål i Stortinget, melder lokalavisen Ságat. Saken følger opp Ságats tidligere melding om at Arctic Core innrømmet at selskapet skal drive med «litt» kryptoutvinning i Kautokeino. Resten av artikkelen ligger bak betalingsmur.",
+   "sv": "Ett påstående från datacenterbolaget Arctic Core AS till Kautokeino kommun, om att krypto är vanligt och välkänt i datacenterbranschen, är nu föremål för en fråga i Stortinget, rapporterar lokaltidningen Ságat. Artikeln följer upp Ságats tidigare rapport om att Arctic Core medgett att bolaget ska bedriva ”lite” kryptoutvinning i Kautokeino. Resten av artikeln ligger bakom betalvägg.",
+   "da": "En påstand fra datacentervirksomheden Arctic Core AS over for Kautokeino kommune om, at krypto er almindeligt og velkendt i datacenterbranchen, er nu emne for et spørgsmål i Stortinget, skriver lokalavisen Ságat. Artiklen følger op på Ságats tidligere historie om, at Arctic Core indrømmede, at selskabet vil drive »lidt« kryptomining i Kautokeino. Resten af artiklen er bag betalingsmur.",
+   "fi": "Datakeskusyhtiö Arctic Core AS:n Koutokeinon kunnalle esittämä väite, jonka mukaan krypto on tavallista ja tunnettua datakeskusalalla, on nyt Stortingetissa esitetyn kysymyksen aiheena, kertoo paikallislehti Ságat. Juttu on jatkoa Ságatin aiemmalle uutiselle, jonka mukaan Arctic Core myönsi harjoittavansa ”vähän” kryptolouhintaa Koutokeinossa. Muu osa artikkelista on maksumuurin takana.",
+   "is": "Fullyrðing gagnaversfyrirtækisins Arctic Core AS gagnvart sveitarfélaginu Kautokeino, um að rafmyntir séu algengar og vel þekktar í gagnaversgeiranum, er nú efni fyrirspurnar á Stórþinginu, segir héraðsblaðið Ságat. Fréttin er framhald af fyrri frétt Ságat um að Arctic Core hefði viðurkennt að það myndi stunda „smá“ rafmyntanámugröft í Kautokeino. Afgangur greinarinnar er á bak við greiðsluvegg."
+  },
+  "topics": [
+   "mining",
+   "policy"
+  ],
+  "removed": false,
+  "removed_at": null
+ }
+}

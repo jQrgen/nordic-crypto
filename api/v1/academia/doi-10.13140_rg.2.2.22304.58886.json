@@ -1,0 +1,37 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-15T22:41:55+00:00",
+ "preview": false,
+ "item": {
+  "country": "NO",
+  "title": "Blockchain enabled Trust & Transparency in supply chains",
+  "authors": [
+   "Jørgen Svennevik Notland",
+   "Anders Viet Hua"
+  ],
+  "institution": "NTNU",
+  "year": 2017,
+  "type": "project",
+  "venue": "Project thesis",
+  "doi": "10.13140/rg.2.2.22304.58886",
+  "url": "https://doi.org/10.13140/rg.2.2.22304.58886",
+  "db": "https://doi.org/10.13140/rg.2.2.22304.58886",
+  "db_name": "ResearchGate",
+  "source": "https://doi.org/10.13140/rg.2.2.22304.58886",
+  "about": "Project thesis at the NTNU School of Entrepreneurship, with Anders Viet Hua, on whether blockchain can increase trust and transparency in supply chains. ResearchGate dates the record 2017; a 2016 date also appears in another catalogue. It is not in NTNU Open.",
+  "keywords": [
+   "blockchain",
+   "supply chain",
+   "trust",
+   "transparency"
+  ],
+  "language": "English",
+  "checked": "2026-10-15",
+  "origin": "research/academia/works.json",
+  "about_i18n": {},
+  "id": "doi-10.13140_rg.2.2.22304.58886",
+  "section": "publications",
+  "api_url": "https://nordiccrypto.no/api/v1/academia/doi-10.13140_rg.2.2.22304.58886.json"
+ }
+}

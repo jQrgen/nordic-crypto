@@ -1,0 +1,36 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-15T22:41:55+00:00",
+ "preview": false,
+ "item": {
+  "country": "NO",
+  "title": "Minimum Hybrid Kontrakt (MHK): En kombinasjon av Juridiske og Blockchain-baserte Smarte Kontrakter",
+  "title_en": "The Minimum Hybrid Contract (MHC): Combining Legal and Blockchain Smart Contracts",
+  "authors": [
+   "Jørgen Svennevik Notland"
+  ],
+  "institution": "NTNU",
+  "year": 2019,
+  "type": "master",
+  "venue": "Master's thesis",
+  "doi": null,
+  "url": "https://hdl.handle.net/11250/2625939",
+  "db": "https://hdl.handle.net/11250/2625939",
+  "db_name": "NTNU Open",
+  "source": "https://hdl.handle.net/11250/2625939",
+  "about": "Jørgen Svennevik Notland's master's thesis on the Minimum Hybrid Contract (MHC): a legal contract combined with a blockchain smart contract for transparent, immutable financial transactions. Supervisors named on the NTNU Open record are Røger Sørheim and Donn Morrison. The NTNU Open degree-type field says bachelor.",
+  "keywords": [
+   "blockchain",
+   "smart contracts",
+   "legal contracts"
+  ],
+  "language": "English",
+  "checked": "2026-10-15",
+  "origin": "research/academia/works.json",
+  "about_i18n": {},
+  "id": "publications-hdl.handle.net-11250-2625939",
+  "section": "publications",
+  "api_url": "https://nordiccrypto.no/api/v1/academia/publications-hdl.handle.net-11250-2625939.json"
+ }
+}

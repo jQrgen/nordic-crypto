@@ -1,408 +1,11 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-15T07:10:16+00:00",
+ "generated_at": "2026-10-15T22:41:55+00:00",
  "preview": false,
  "topic": "banking",
- "count": 6,
+ "count": 3,
  "items": [
-  {
-   "id": "e7665f6b5021",
-   "url": "https://realtid.se/bors-finans/bank-fintech/kryptojatten-koper-bank-med-svenska-sparkunder",
-   "html_url": "https://nordiccrypto.no/stories/e7665f6b5021/",
-   "api_url": "https://nordiccrypto.no/api/v1/news/e7665f6b5021.json",
-   "title": "Kryptojätten köper bank med svenska sparkunder",
-   "title_en": "Kraken owner buys bank with Swedish savings customers",
-   "title_i18n": {},
-   "source": "realtid",
-   "source_name": "Realtid",
-   "source_logo": {
-    "kind": "logo",
-    "file_url": "https://nordiccrypto.no/assets/img/logos/realtid.svg",
-    "source_url": "https://www.realtid.se/_next/static/media/logo.1b3426b7.svg",
-    "author": null,
-    "license": null,
-    "license_url": null,
-    "credit": "Official website",
-    "raster_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
-   },
-   "source_note": null,
-   "country": "SE",
-   "language": "Swedish",
-   "language_code": "sv",
-   "published": "2026-10-14T14:47:19+00:00",
-   "topics": [
-    "business",
-    "banking"
-   ],
-   "summary": "Payward, the US company behind crypto exchange Kraken, is buying Lithuania's Saldo Bank, which has held an EU banking licence since 2021 and offers savings accounts and other services to customers in countries including Sweden, Realtid reports, citing the Financial Times. According to the FT, the deal would make Payward the first company in the digital-asset sector to buy a bank in Europe, and the bank is meant to help it develop lending and payment cards. The acquisition requires regulatory approval and is expected to be completed in 2027.",
-   "summary_i18n": {
-    "nn": "Payward, det amerikanske selskapet bak kryptobørsen Kraken, kjøper den litauiske banken Saldo Bank, som har hatt EU-banklisens sidan 2021 og tilbyr sparekontoar og andre tenester til kundar i mellom anna Sverige, melder Realtid med tilvising til Financial Times. Ifølgje FT blir Payward med dette det første selskapet i sektoren for digitale eigedelar som kjøper ein bank i Europa, og banken skal hjelpe selskapet å utvikle utlån og betalingskort. Oppkjøpet krev godkjenning frå styresmaktene og er venta fullført i 2027.",
-    "nb": "Payward, det amerikanske selskapet bak kryptobørsen Kraken, kjøper den litauiske banken Saldo Bank, som har hatt EU-banklisens siden 2021 og tilbyr sparekontoer og andre tjenester til kunder i blant annet Sverige, melder Realtid med henvisning til Financial Times. Ifølge FT blir Payward dermed det første selskapet i sektoren for digitale eiendeler som kjøper en bank i Europa, og banken skal hjelpe selskapet med å utvikle utlån og betalingskort. Oppkjøpet krever godkjenning fra myndighetene og ventes fullført i 2027.",
-    "sv": "Payward, det amerikanska bolaget bakom kryptobörsen Kraken, köper den litauiska banken Saldo Bank, som haft EU-banklicens sedan 2021 och erbjuder sparkonton och andra tjänster till kunder i bland annat Sverige, rapporterar Realtid med hänvisning till Financial Times. Enligt FT blir Payward därmed det första bolaget inom sektorn för digitala tillgångar att köpa en bank i Europa, och banken ska hjälpa bolaget att utveckla utlåning och betalkort. Förvärvet kräver myndighetsgodkännanden och väntas slutföras under 2027.",
-    "da": "Payward, det amerikanske selskab bag kryptobørsen Kraken, køber den litauiske bank Saldo Bank, som har haft EU-banklicens siden 2021 og tilbyder opsparingskonti og andre tjenester til kunder i blandt andet Sverige, skriver Realtid med henvisning til Financial Times. Ifølge FT bliver Payward dermed det første selskab i sektoren for digitale aktiver, der køber en bank i Europa, og banken skal hjælpe selskabet med at udvikle udlån og betalingskort. Opkøbet kræver myndighedsgodkendelse og ventes afsluttet i 2027.",
-    "fi": "Kryptopörssi Krakenin taustalla oleva yhdysvaltalainen Payward ostaa liettualaisen Saldo Bankin, jolla on ollut EU:n pankkitoimilupa vuodesta 2021 ja joka tarjoaa säästötilejä ja muita palveluja asiakkaille muun muassa Ruotsissa, kertoo Realtid Financial Timesiin viitaten. FT:n mukaan Paywardista tulee näin ensimmäinen digitaalisten varojen alan yhtiö, joka ostaa pankin Euroopasta, ja pankin on määrä auttaa sitä kehittämään luotonantoa ja maksukortteja. Kauppa edellyttää viranomaishyväksyntää, ja sen odotetaan toteutuvan vuonna 2027.",
-    "is": "Payward, bandaríska félagið á bak við rafmyntakauphöllina Kraken, kaupir litháíska bankann Saldo Bank, sem hefur haft bankaleyfi í ESB frá 2021 og býður sparireikninga og aðra þjónustu viðskiptavinum m.a. í Svíþjóð, segir Realtid og vísar í Financial Times. Samkvæmt FT verður Payward þar með fyrsta fyrirtækið í geira stafrænna eigna til að kaupa banka í Evrópu, og bankinn á að hjálpa félaginu að þróa útlán og greiðslukort. Kaupin eru háð samþykki eftirlitsaðila og er gert ráð fyrir að þeim ljúki árið 2027."
-   },
-   "paywall": false,
-   "links": [],
-   "own_story": false,
-   "illustration": {
-    "id": "official-riksbank",
-    "kind": "official-press",
-    "file_url": "https://nordiccrypto.no/assets/img/illustrations/official-riksbank.webp",
-    "width": 960,
-    "height": 640,
-    "alt": "The Riksbank building in Stockholm.",
-    "source": "Sveriges Riksbank",
-    "author": "Sveriges Riksbank",
-    "license": "Free use, credit Sveriges Riksbank",
-    "license_url": "https://www.riksbank.se/sv/press-och-publicerat/presskontakt/bildbank/riksbankshuset/",
-    "url": "https://www.riksbank.se/sv/press-och-publicerat/presskontakt/bildbank/riksbankshuset/",
-    "credit": "Photo: Sveriges Riksbank. Licence: Free use, credit Sveriges Riksbank. Source: Sveriges Riksbank.",
-    "modifications": null,
-    "terms": "Checked 2026-10-06. The Riksbank image bank says these pictures may be downloaded and used freely if Sveriges Riksbank is credited. Pictures of banknotes and coins on the same site are not free in that way and are not used. This file is the building, scaled to 960 pixels wide and saved as WebP. It is not cropped or recoloured."
-   },
-   "primary_source": {
-    "outlet": "realtid",
-    "outlet_name": "Realtid",
-    "url": "https://realtid.se/bors-finans/bank-fintech/kryptojatten-koper-bank-med-svenska-sparkunder",
-    "title": "Kryptojätten köper bank med svenska sparkunder",
-    "published": "2026-10-14T14:47:19+00:00",
-    "lang": "Swedish",
-    "language_code": "sv",
-    "country": "SE",
-    "source_type": "national",
-    "paywall": false,
-    "primary": true,
-    "logo": {
-     "kind": "logo",
-     "file_url": "https://nordiccrypto.no/assets/img/logos/realtid.svg",
-     "source_url": "https://www.realtid.se/_next/static/media/logo.1b3426b7.svg",
-     "author": null,
-     "license": null,
-     "license_url": null,
-     "credit": "Official website",
-     "raster_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
-    }
-   },
-   "primary_source_document": null,
-   "also_covered_by": [],
-   "sources": [
-    {
-     "outlet": "realtid",
-     "outlet_name": "Realtid",
-     "url": "https://realtid.se/bors-finans/bank-fintech/kryptojatten-koper-bank-med-svenska-sparkunder",
-     "title": "Kryptojätten köper bank med svenska sparkunder",
-     "published": "2026-10-14T14:47:19+00:00",
-     "lang": "Swedish",
-     "language_code": "sv",
-     "country": "SE",
-     "source_type": "national",
-     "paywall": false,
-     "primary": true,
-     "logo": {
-      "kind": "logo",
-      "file_url": "https://nordiccrypto.no/assets/img/logos/realtid.svg",
-      "source_url": "https://www.realtid.se/_next/static/media/logo.1b3426b7.svg",
-      "author": null,
-      "license": null,
-      "license_url": null,
-      "credit": "Official website",
-      "raster_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
-     }
-    }
-   ],
-   "coverage": {
-    "count": 1,
-    "by_country": [
-     {
-      "country": "SE",
-      "count": 1,
-      "share": 1.0
-     }
-    ],
-    "by_source_type": [
-     {
-      "type": "national",
-      "count": 1,
-      "share": 1.0
-     },
-     {
-      "type": "regional",
-      "count": 0,
-      "share": 0.0
-     },
-     {
-      "type": "official",
-      "count": 0,
-      "share": 0.0
-     },
-     {
-      "type": "international",
-      "count": 0,
-      "share": 0.0
-     }
-    ]
-   },
-   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
-  },
-  {
-   "id": "86fc6577147d",
-   "url": "https://finanswatch.no/nyheter/fintech/article19736366.ece",
-   "html_url": "https://nordiccrypto.no/stories/86fc6577147d/",
-   "api_url": "https://nordiccrypto.no/api/v1/news/86fc6577147d.json",
-   "title": "Stablecoin-samarbeid med nordiske banker får godkjenning – lanserer om kort tid",
-   "title_en": "Stablecoin venture backed by Nordic banks gets authorisation and plans launch soon",
-   "title_i18n": {},
-   "source": "finanswatch",
-   "source_name": "Finanswatch",
-   "source_logo": {
-    "kind": "logo",
-    "file_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp",
-    "source_url": "https://finanswatch.no/favicons/finanswatch.no/apple-touch-icon.png",
-    "author": null,
-    "license": null,
-    "license_url": null,
-    "credit": "Official website",
-    "raster_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp"
-   },
-   "source_note": null,
-   "country": "NO",
-   "language": "Norwegian",
-   "language_code": "no",
-   "published": "2026-10-14T09:27:06+00:00",
-   "topics": [
-    "stablecoins",
-    "mica",
-    "banking"
-   ],
-   "summary": "A company backed by 37 banks, including Nordic banks, has received an important authorisation and is preparing to launch blockchain-based euro tokens under the EU's MiCA rules, Finanswatch reports. According to the paywalled article's headline, the launch is expected shortly. The visible text does not give further details.",
-   "summary_i18n": {
-    "nn": "Eit selskap som er støtta av 37 bankar, mellom dei nordiske bankar, har fått ei viktig autorisasjon og førebur lansering av blokkjedebaserte eurotokenar under EU-regelverket MiCA, melder Finanswatch. Ifølgje tittelen på artikkelen, som ligg bak betalingsmur, er lanseringa venta om kort tid. Den synlege teksten gir ikkje fleire detaljar.",
-    "nb": "Et selskap som er støttet av 37 banker, blant dem nordiske banker, har fått en viktig autorisasjon og forbereder lansering av blokkjedebaserte eurotokens under EU-regelverket MiCA, melder Finanswatch. Ifølge tittelen på artikkelen, som ligger bak betalingsmur, ventes lanseringen om kort tid. Den synlige teksten gir ikke flere detaljer.",
-    "sv": "Ett bolag som backas av 37 banker, bland dem nordiska banker, har fått ett viktigt tillstånd och förbereder lansering av blockkedjebaserade eurotokens under EU:s MiCA-regelverk, rapporterar Finanswatch. Enligt rubriken på den betalväggsskyddade artikeln väntas lanseringen inom kort. Den synliga texten ger inga fler detaljer.",
-    "da": "Et selskab, der er støttet af 37 banker, herunder nordiske banker, har fået en vigtig autorisation og forbereder lancering af blockchain-baserede eurotokens under EU's MiCA-regler, skriver Finanswatch. Ifølge overskriften på artiklen, som er bag betalingsmur, ventes lanceringen om kort tid. Den synlige tekst giver ikke flere detaljer.",
-    "fi": "Yhtiö, jota tukee 37 pankkia, muun muassa pohjoismaisia pankkeja, on saanut tärkeän toimiluvan ja valmistelee lohkoketjupohjaisten eurotokenien julkaisua EU:n MiCA-sääntelyn mukaisesti, kertoo Finanswatch. Maksumuurin takana olevan artikkelin otsikon mukaan julkaisu on odotettavissa pian. Näkyvä teksti ei kerro enempää yksityiskohtia.",
-    "is": "Fyrirtæki sem 37 bankar standa að, þar á meðal norrænir bankar, hefur fengið mikilvægt leyfi og undirbýr útgáfu evrutákna á bálkakeðju samkvæmt MiCA-reglum ESB, segir Finanswatch. Samkvæmt fyrirsögn greinarinnar, sem er á bak við greiðsluvegg, er útgáfan væntanleg innan skamms. Sýnilegi textinn gefur ekki frekari upplýsingar."
-   },
-   "paywall": true,
-   "links": [],
-   "own_story": false,
-   "illustration": {
-    "id": "official-norges-bank",
-    "kind": "official-press",
-    "file_url": "https://nordiccrypto.no/assets/img/illustrations/official-norges-bank.webp",
-    "width": 960,
-    "height": 720,
-    "alt": "Norges Bank headquarters in Oslo, daytime facade.",
-    "source": "Norges Bank",
-    "author": "Esten Borgos",
-    "license": "Norges Bank terms: credit, no alteration, not for advertising",
-    "license_url": "https://www.norges-bank.no/en/topics/about/copyright/",
-    "url": "https://www.norges-bank.no/en/topics/about/Media-enquiries/Press-photos/",
-    "credit": "Photo: Esten Borgos. Licence: Norges Bank terms: credit, no alteration, not for advertising. Source: Norges Bank.",
-    "modifications": null,
-    "terms": "Checked 2026-10-06. Norges Bank's copyright page allows copying from norges-bank.no when Norges Bank is named as the source, the content is not changed, and it is not used in advertising. This is the daytime facade from the press-photo page (photo: Esten Borgos). It is scaled to 960 pixels wide and saved as WebP, not cropped or recoloured. Portraits and pictures of notes and coins from the same page are not used."
-   },
-   "primary_source": {
-    "outlet": "finanswatch",
-    "outlet_name": "Finanswatch",
-    "url": "https://finanswatch.no/nyheter/fintech/article19736366.ece",
-    "title": "Stablecoin-samarbeid med nordiske banker får godkjenning – lanserer om kort tid",
-    "published": "2026-10-14T09:27:06+00:00",
-    "lang": "Norwegian",
-    "language_code": "no",
-    "country": "NO",
-    "source_type": "national",
-    "paywall": true,
-    "primary": true,
-    "logo": {
-     "kind": "logo",
-     "file_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp",
-     "source_url": "https://finanswatch.no/favicons/finanswatch.no/apple-touch-icon.png",
-     "author": null,
-     "license": null,
-     "license_url": null,
-     "credit": "Official website",
-     "raster_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp"
-    }
-   },
-   "primary_source_document": null,
-   "also_covered_by": [],
-   "sources": [
-    {
-     "outlet": "finanswatch",
-     "outlet_name": "Finanswatch",
-     "url": "https://finanswatch.no/nyheter/fintech/article19736366.ece",
-     "title": "Stablecoin-samarbeid med nordiske banker får godkjenning – lanserer om kort tid",
-     "published": "2026-10-14T09:27:06+00:00",
-     "lang": "Norwegian",
-     "language_code": "no",
-     "country": "NO",
-     "source_type": "national",
-     "paywall": true,
-     "primary": true,
-     "logo": {
-      "kind": "logo",
-      "file_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp",
-      "source_url": "https://finanswatch.no/favicons/finanswatch.no/apple-touch-icon.png",
-      "author": null,
-      "license": null,
-      "license_url": null,
-      "credit": "Official website",
-      "raster_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp"
-     }
-    }
-   ],
-   "coverage": {
-    "count": 1,
-    "by_country": [
-     {
-      "country": "NO",
-      "count": 1,
-      "share": 1.0
-     }
-    ],
-    "by_source_type": [
-     {
-      "type": "national",
-      "count": 1,
-      "share": 1.0
-     },
-     {
-      "type": "regional",
-      "count": 0,
-      "share": 0.0
-     },
-     {
-      "type": "official",
-      "count": 0,
-      "share": 0.0
-     },
-     {
-      "type": "international",
-      "count": 0,
-      "share": 0.0
-     }
-    ]
-   },
-   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp"
-  },
-  {
-   "id": "660753d52f62",
-   "url": "https://www.finfacts.no/artikkel/eksperimenterer-med-den-norske-kronen-i-internasjonal-sandkasse",
-   "html_url": "https://nordiccrypto.no/stories/660753d52f62/",
-   "api_url": "https://nordiccrypto.no/api/v1/news/660753d52f62.json",
-   "title": "Eksperimenterer med den norske kronen i internasjonal sandkasse",
-   "title_en": "DNB experiments with the Norwegian krone in an international sandbox",
-   "title_i18n": {},
-   "source": "finfacts.no",
-   "source_name": "FinFacts",
-   "source_logo": null,
-   "source_note": null,
-   "country": "NO",
-   "language": "Norwegian",
-   "language_code": "no",
-   "published": "2026-10-07T12:00:00+00:00",
-   "topics": [
-    "tokenisation",
-    "banking"
-   ],
-   "summary": "FinFacts has interviewed DNB about its experiments with the Norwegian krone in an international sandbox for tokenised bank deposits. According to the article's lead, DNB believes tokenised bank deposits will play at least as important a role as stablecoins in shaping the digital money of the future. The full interview is behind a paywall.",
-   "summary_i18n": {
-    "nn": "FinFacts har intervjua DNB om eksperimenta banken gjer med norske kroner i ei internasjonal sandkasse for tokeniserte bankinnskot. Ifølgje ingressen i artikkelen har DNB stor tru på at tokeniserte bankinnskot vil spele ei minst like viktig rolle som stablecoins når framtidas digitale pengar skal formast. Heile intervjuet ligg bak betalingsmur.",
-    "nb": "FinFacts har intervjuet DNB om bankens eksperimenter med norske kroner i en internasjonal sandkasse for tokeniserte bankinnskudd. Ifølge ingressen i artikkelen har DNB stor tro på at tokeniserte bankinnskudd vil spille en minst like viktig rolle som stablecoins når fremtidens digitale penger skal utformes. Hele intervjuet ligger bak betalingsmur.",
-    "sv": "FinFacts har intervjuat DNB om bankens experiment med norska kronor i en internationell sandlåda för tokeniserade bankinlåning. Enligt artikelns ingress tror DNB starkt på att tokeniserade bankinlåning kommer att spela minst lika viktig roll som stablecoins när framtidens digitala pengar formas. Hela intervjun ligger bakom betalvägg.",
-    "da": "FinFacts har interviewet DNB om bankens eksperimenter med norske kroner i en international sandkasse for tokeniserede bankindskud. Ifølge artiklens indledning tror DNB stærkt på, at tokeniserede bankindskud vil spille en mindst lige så vigtig rolle som stablecoins, når fremtidens digitale penge skal formes. Hele interviewet ligger bag betalingsmur.",
-    "fi": "FinFacts on haastatellut DNB:tä sen kokeiluista Norjan kruunulla kansainvälisessä tokenisoitujen pankkitalletusten testiympäristössä. Artikkelin ingressin mukaan DNB uskoo vahvasti, että tokenisoidut pankkitalletukset ovat vähintään yhtä tärkeässä roolissa kuin stablecoinit tulevaisuuden digitaalisen rahan muotoutuessa. Koko haastattelu on maksumuurin takana.",
-    "is": "FinFacts hefur rætt við DNB um tilraunir bankans með norsku krónuna í alþjóðlegu prófunarumhverfi fyrir táknvæddar bankainnstæður. Samkvæmt inngangi greinarinnar hefur DNB mikla trú á að táknvæddar bankainnstæður muni gegna að minnsta kosti jafn mikilvægu hlutverki og stöðugleikamyntir þegar stafrænir peningar framtíðarinnar mótast. Viðtalið í heild er læst á bak við greiðsluvegg."
-   },
-   "paywall": false,
-   "links": [],
-   "own_story": false,
-   "illustration": {
-    "id": "official-norges-bank",
-    "kind": "official-press",
-    "file_url": "https://nordiccrypto.no/assets/img/illustrations/official-norges-bank.webp",
-    "width": 960,
-    "height": 720,
-    "alt": "Norges Bank headquarters in Oslo, daytime facade.",
-    "source": "Norges Bank",
-    "author": "Esten Borgos",
-    "license": "Norges Bank terms: credit, no alteration, not for advertising",
-    "license_url": "https://www.norges-bank.no/en/topics/about/copyright/",
-    "url": "https://www.norges-bank.no/en/topics/about/Media-enquiries/Press-photos/",
-    "credit": "Photo: Esten Borgos. Licence: Norges Bank terms: credit, no alteration, not for advertising. Source: Norges Bank.",
-    "modifications": null,
-    "terms": "Checked 2026-10-06. Norges Bank's copyright page allows copying from norges-bank.no when Norges Bank is named as the source, the content is not changed, and it is not used in advertising. This is the daytime facade from the press-photo page (photo: Esten Borgos). It is scaled to 960 pixels wide and saved as WebP, not cropped or recoloured. Portraits and pictures of notes and coins from the same page are not used."
-   },
-   "primary_source": {
-    "outlet": "finfacts.no",
-    "outlet_name": "FinFacts",
-    "url": "https://www.finfacts.no/artikkel/eksperimenterer-med-den-norske-kronen-i-internasjonal-sandkasse",
-    "title": "Eksperimenterer med den norske kronen i internasjonal sandkasse",
-    "published": "2026-10-07T12:00:00+00:00",
-    "lang": "Norwegian",
-    "language_code": "no",
-    "country": "NO",
-    "source_type": "national",
-    "paywall": false,
-    "primary": true,
-    "logo": null
-   },
-   "primary_source_document": null,
-   "also_covered_by": [],
-   "sources": [
-    {
-     "outlet": "finfacts.no",
-     "outlet_name": "FinFacts",
-     "url": "https://www.finfacts.no/artikkel/eksperimenterer-med-den-norske-kronen-i-internasjonal-sandkasse",
-     "title": "Eksperimenterer med den norske kronen i internasjonal sandkasse",
-     "published": "2026-10-07T12:00:00+00:00",
-     "lang": "Norwegian",
-     "language_code": "no",
-     "country": "NO",
-     "source_type": "national",
-     "paywall": false,
-     "primary": true,
-     "logo": null
-    }
-   ],
-   "coverage": {
-    "count": 1,
-    "by_country": [
-     {
-      "country": "NO",
-      "count": 1,
-      "share": 1.0
-     }
-    ],
-    "by_source_type": [
-     {
-      "type": "national",
-      "count": 1,
-      "share": 1.0
-     },
-     {
-      "type": "regional",
-      "count": 0,
-      "share": 0.0
-     },
-     {
-      "type": "official",
-      "count": 0,
-      "share": 0.0
-     },
-     {
-      "type": "international",
-      "count": 0,
-      "share": 0.0
-     }
-    ]
-   },
-   "source_logo_url": null
-  },
   {
    "id": "a0c89b973576",
    "url": "https://www.kaupr.io/nyheter/danske-bank-ingen-bank-kan-bygge-euro-stablecoin-alene",
@@ -438,14 +41,14 @@
     "stablecoins",
     "banking"
    ],
-   "summary": "Speaking at Dansk Blockchain Forum in the Danish parliament, Danske Bank's Mads Clemmensen said no single bank can build a euro stablecoin alone, and that European banks should build an alternative to the dollar together through the Qivalis consortium, Kaupr reports. According to Clemmensen, 99.3 percent of stablecoins are tied to the US dollar, which runs against Europe's aim of depending less on US players. He confirmed that Qivalis plans to launch its euro stablecoin before the end of the year.",
+   "summary": "Danske Bank says no single bank can build a euro stablecoin on its own and that European banks should build a dollar alternative together through Qivalis.",
    "summary_i18n": {
-    "nn": "På Dansk Blockchain Forum i Folketinget sa Mads Clemmensen i Danske Bank at ingen bank kan byggje ein euro-stablecoin åleine, og at europeiske bankar bør byggje eit alternativ til dollaren saman gjennom konsortiet Qivalis, melder Kaupr. Ifølgje Clemmensen er 99,3 prosent av stablecoins knytte til amerikanske dollar, noko som strir mot målet om at Europa skal vere mindre avhengig av amerikanske aktørar. Han stadfesta at Qivalis planlegg å lansere euro-stablecoinen før årsskiftet.",
-    "nb": "På Dansk Blockchain Forum i Folketinget sa Mads Clemmensen i Danske Bank at ingen bank kan bygge en euro-stablecoin alene, og at europeiske banker bør bygge et alternativ til dollaren sammen gjennom konsortiet Qivalis, melder Kaupr. Ifølge Clemmensen er 99,3 prosent av stablecoins knyttet til amerikanske dollar, noe som strider mot Europas mål om mindre avhengighet av amerikanske aktører. Han bekreftet at Qivalis planlegger å lansere euro-stablecoinen før årsskiftet.",
-    "sv": "På Dansk Blockchain Forum i Folketinget sa Mads Clemmensen på Danske Bank att ingen bank kan bygga en euro-stablecoin ensam och att europeiska banker bör bygga ett alternativ till dollarn tillsammans genom konsortiet Qivalis, rapporterar Kaupr. Enligt Clemmensen är 99,3 procent av alla stablecoins knutna till amerikanska dollar, vilket går emot Europas mål att bli mindre beroende av amerikanska aktörer. Han bekräftade att Qivalis planerar att lansera sin euro-stablecoin före årsskiftet.",
-    "da": "På Dansk Blockchain Forum i Folketinget sagde Mads Clemmensen fra Danske Bank, at ingen bank kan bygge en euro-stablecoin alene, og at europæiske banker bør bygge et alternativ til dollaren sammen gennem konsortiet Qivalis, skriver Kaupr. Ifølge Clemmensen er 99,3 procent af alle stablecoins knyttet til amerikanske dollar, hvilket strider mod Europas mål om at blive mindre afhængig af amerikanske aktører. Han bekræftede, at Qivalis planlægger at lancere sin euro-stablecoin inden årsskiftet.",
-    "fi": "Tanskan kansankäräjillä järjestetyssä Dansk Blockchain Forumissa Danske Bankin Mads Clemmensen sanoi, ettei mikään pankki pysty rakentamaan euromääräistä stablecoinia yksin, ja että eurooppalaisten pankkien pitäisi rakentaa vaihtoehto dollarille yhdessä Qivalis-konsortion kautta, kertoo Kaupr. Clemmensenin mukaan 99,3 prosenttia stablecoineista on sidottu Yhdysvaltain dollariin, mikä on ristiriidassa Euroopan tavoitteen kanssa vähentää riippuvuutta yhdysvaltalaisista toimijoista. Hän vahvisti, että Qivalis aikoo julkaista euro-stablecoininsa ennen vuodenvaihdetta.",
-    "is": "Á Dansk Blockchain Forum í danska þinginu sagði Mads Clemmensen hjá Danske Bank að enginn banki gæti byggt evru-stöðugleikamynt einn síns liðs og að evrópskir bankar ættu að byggja valkost við dollarann saman í gegnum Qivalis-samsteypuna, segir Kaupr. Samkvæmt Clemmensen eru 99,3 prósent stöðugleikamynta tengd Bandaríkjadollar, sem stríði gegn markmiði Evrópu um minni háðleika gagnvart bandarískum aðilum. Hann staðfesti að Qivalis hyggist setja evru-stöðugleikamyntina á markað fyrir áramót."
+    "da": "Danske Bank siger, at ingen enkelt bank kan bygge en euro-stablecoin alene, og at europæiske banker sammen bør bygge et alternativ til dollaren gennem Qivalis.",
+    "fi": "Danske Bankin mukaan yksikään pankki ei pysty rakentamaan euromääräistä vakaakolikkoa yksin, ja eurooppalaisten pankkien pitäisi rakentaa dollarille vaihtoehto yhdessä Qivaliksen kautta.",
+    "is": "Danske Bank segir að enginn einn banki geti byggt upp stöðugleikamynt í evrum á eigin spýtur og að evrópskir bankar ættu saman að byggja upp valkost við dollarann í gegnum Qivalis.",
+    "nb": "Danske Bank sier at ingen enkeltbank kan bygge en euro-stablecoin alene, og at europeiske banker bør bygge et alternativ til dollaren sammen gjennom Qivalis.",
+    "nn": "Danske Bank seier at ingen enkeltbank kan byggje ein euro-stablecoin åleine, og at europeiske bankar bør byggje eit alternativ til dollaren saman gjennom Qivalis.",
+    "sv": "Danske Bank säger att ingen enskild bank kan bygga en euro-stablecoin på egen hand och att europeiska banker bör bygga ett alternativ till dollarn tillsammans genom Qivalis."
    },
    "paywall": false,
    "links": [],
@@ -587,14 +190,14 @@
     "tokenisation",
     "banking"
    ],
-   "summary": "DNB has joined CBMT, a network where European banks test tokenised bank deposits across borders within existing banking rules, bringing in the Norwegian krone as the fourth currency alongside the euro, dollar and yen, Kaupr reports. DNB plans to test how krone deposits on a distributed ledger can be moved between parties, exchanged for other currencies and used to settle securities. The German-led network includes banks such as Commerzbank, UniCredit, ABN Amro and BNP Paribas.",
+   "summary": "DNB has joined CBMT, where European banks test tokenised bank deposits, adding the Norwegian krone to the test environment.",
    "summary_i18n": {
-    "nn": "DNB har vorte med i CBMT, eit nettverk der europeiske bankar testar tokeniserte bankinnskot over landegrensene innanfor dagens bankregulering, og tek med norske kroner som fjerde valuta ved sida av euro, dollar og yen, melder Kaupr. DNB vil teste korleis innskot i kroner på ei distribuert hovudbok kan flyttast mellom partar, vekslast mot andre valutaer og brukast til oppgjer av verdipapir. Det tyskleidde nettverket har med bankar som Commerzbank, UniCredit, ABN Amro og BNP Paribas.",
-    "nb": "DNB har blitt med i CBMT, et nettverk der europeiske banker tester tokeniserte bankinnskudd over landegrensene innenfor dagens bankregulering, og tar med norske kroner som fjerde valuta ved siden av euro, dollar og yen, melder Kaupr. DNB vil teste hvordan innskudd i kroner på en distribuert hovedbok kan flyttes mellom parter, veksles mot andre valutaer og brukes til oppgjør av verdipapirer. Det tyskledede nettverket omfatter banker som Commerzbank, UniCredit, ABN Amro og BNP Paribas.",
-    "sv": "DNB har gått med i CBMT, ett nätverk där europeiska banker testar tokeniserade bankinlåning över gränserna inom dagens bankregler, och tar in norska kronor som fjärde valuta vid sidan av euro, dollar och yen, rapporterar Kaupr. DNB vill testa hur inlåning i kronor på en distribuerad huvudbok kan flyttas mellan parter, växlas mot andra valutor och användas för avveckling av värdepapper. Det tyskledda nätverket omfattar banker som Commerzbank, UniCredit, ABN Amro och BNP Paribas.",
-    "da": "DNB er gået med i CBMT, et netværk hvor europæiske banker tester tokeniserede bankindskud på tværs af grænser inden for den eksisterende bankregulering, og bringer norske kroner ind som fjerde valuta ved siden af euro, dollar og yen, skriver Kaupr. DNB vil teste, hvordan indskud i kroner på en distribueret hovedbog kan flyttes mellem parter, veksles til andre valutaer og bruges til afvikling af værdipapirer. Det tysk-ledede netværk omfatter banker som Commerzbank, UniCredit, ABN Amro og BNP Paribas.",
-    "fi": "DNB on liittynyt CBMT-verkostoon, jossa eurooppalaiset pankit testaavat tokenisoituja pankkitalletuksia yli rajojen nykyisen pankkisääntelyn puitteissa, ja tuo mukaan Norjan kruunun neljänneksi valuutaksi euron, dollarin ja jenin rinnalle, kertoo Kaupr. DNB aikoo testata, miten kruunumääräisiä talletuksia hajautetussa tilikirjassa voidaan siirtää osapuolten välillä, vaihtaa muihin valuuttoihin ja käyttää arvopaperikauppojen selvitykseen. Saksan johtamaan verkostoon kuuluu muun muassa Commerzbank, UniCredit, ABN Amro ja BNP Paribas.",
-    "is": "DNB hefur gengið til liðs við CBMT, net þar sem evrópskir bankar prófa táknvæddar bankainnstæður yfir landamæri innan gildandi bankareglna, og bætir norsku krónunni við sem fjórða gjaldmiðli ásamt evru, dollara og jeni, segir Kaupr. DNB ætlar að prófa hvernig innstæður í krónum á dreifðri höfuðbók geti færst milli aðila, verið skipt í aðra gjaldmiðla og notaðar til uppgjörs verðbréfaviðskipta. Netið, sem Þjóðverjar leiða, nær m.a. til Commerzbank, UniCredit, ABN Amro og BNP Paribas."
+    "da": "DNB er gået med i CBMT, hvor europæiske banker tester tokeniserede bankindskud, og tilføjer norske kroner til testmiljøet.",
+    "fi": "DNB on liittynyt CBMT:hen, jossa eurooppalaiset pankit testaavat tokenisoituja pankkitalletuksia, ja tuo testiympäristöön Norjan kruunun.",
+    "is": "DNB hefur gengið til liðs við CBMT, þar sem evrópskir bankar prófa táknvæddar bankainnstæður, og bætir norsku krónunni við prófunarumhverfið.",
+    "nb": "DNB har sluttet seg til CBMT, der europeiske banker tester tokeniserte bankinnskudd, og norske kroner legges til testmiljøet.",
+    "nn": "DNB har slutta seg til CBMT, der europeiske bankar testar tokeniserte bankinnskot, og norske kroner blir lagde til testmiljøet.",
+    "sv": "DNB har anslutit sig till CBMT, där europeiska banker testar tokeniserad bankinlåning, och lägger till norska kronor i testmiljön."
    },
    "paywall": false,
    "links": [],
@@ -736,14 +339,14 @@
     "tokenisation",
     "banking"
    ],
-   "summary": "Norges Bank has for the first time named twelve financial institutions it is in regular contact with in its exploration of tokenisation, including DNB, Nordea, SEB, SpareBank 1, Euronext and KLP, Kaupr reports. The central bank repeats that it has found no reason to introduce a central bank digital currency now, but says work on both CBDC and tokenisation continues; the LinkedIn post came with no report or timetable. Meanwhile, Norway is the only Nordic country without banks in Qivalis, the bank consortium behind a planned euro stablecoin.",
+   "summary": "Norges Bank has named twelve financial institutions in its mapping of tokenisation, while Norway is the only Nordic country without banks in the euro-stablecoin group Qivalis.",
    "summary_i18n": {
-    "nn": "Noregs Bank har for første gong namngjeve tolv finansinstitusjonar han har løpande kontakt med i kartlegginga av tokenisering, mellom dei DNB, Nordea, SEB, SpareBank 1, Euronext og KLP, melder Kaupr. Sentralbanken gjentek at han ikkje har funne grunn til å innføre digitale sentralbankpengar no, men at arbeidet med både DSP og tokenisering held fram; LinkedIn-innlegget kom utan rapport eller tidsplan. Samstundes er Noreg det einaste nordiske landet utan bankar i Qivalis, bankkonsortiet bak ein planlagd euro-stablecoin.",
-    "nb": "Norges Bank har for første gang navngitt tolv finansinstitusjoner den har løpende kontakt med i kartleggingen av tokenisering, blant dem DNB, Nordea, SEB, SpareBank 1, Euronext og KLP, melder Kaupr. Sentralbanken gjentar at den ikke har funnet grunn til å innføre digitale sentralbankpenger nå, men at arbeidet med både DSP og tokenisering fortsetter; LinkedIn-innlegget kom uten rapport eller tidsplan. Samtidig er Norge det eneste nordiske landet uten banker i Qivalis, bankkonsortiet bak en planlagt euro-stablecoin.",
-    "sv": "Norges Bank har för första gången namngett tolv finansinstitut som den har löpande kontakt med i sin kartläggning av tokenisering, bland dem DNB, Nordea, SEB, SpareBank 1, Euronext och KLP, rapporterar Kaupr. Centralbanken upprepar att den inte funnit skäl att införa digitala centralbankspengar nu, men att arbetet med både CBDC och tokenisering fortsätter; LinkedIn-inlägget kom utan rapport eller tidsplan. Samtidigt är Norge det enda nordiska landet utan banker i Qivalis, bankkonsortiet bakom en planerad euro-stablecoin.",
-    "da": "Norges Bank har for første gang navngivet tolv finansielle institutioner, som den har løbende kontakt med i sin kortlægning af tokenisering, herunder DNB, Nordea, SEB, SpareBank 1, Euronext og KLP, skriver Kaupr. Centralbanken gentager, at den ikke har fundet grund til at indføre digitale centralbankpenge nu, men at arbejdet med både CBDC og tokenisering fortsætter; LinkedIn-opslaget kom uden rapport eller tidsplan. Samtidig er Norge det eneste nordiske land uden banker i Qivalis, bankkonsortiet bag en planlagt euro-stablecoin.",
-    "fi": "Norges Bank on ensimmäistä kertaa nimennyt kaksitoista rahoituslaitosta, joiden kanssa se on säännöllisesti yhteydessä tokenisoinnin kartoituksessa, muun muassa DNB:n, Nordean, SEB:n, SpareBank 1:n, Euronextin ja KLP:n, kertoo Kaupr. Keskuspankki toistaa, ettei se ole löytänyt syytä ottaa nyt käyttöön digitaalista keskuspankkirahaa, mutta työ sekä sen että tokenisoinnin parissa jatkuu; LinkedIn-julkaisun mukana ei tullut raporttia eikä aikataulua. Samaan aikaan Norja on ainoa Pohjoismaa, jonka pankit eivät ole mukana suunniteltua euro-stablecoinia valmistelevassa Qivalis-konsortiossa.",
-    "is": "Norges Bank hefur í fyrsta sinn nefnt tólf fjármálastofnanir sem hann er í reglulegu sambandi við í könnun sinni á táknvæðingu, þar á meðal DNB, Nordea, SEB, SpareBank 1, Euronext og KLP, segir Kaupr. Seðlabankinn ítrekar að hann hafi ekki fundið ástæðu til að innleiða stafrænan seðlabankagjaldmiðil nú, en að vinna við hann og táknvæðingu haldi áfram; LinkedIn-færslunni fylgdi hvorki skýrsla né tímaáætlun. Á sama tíma er Noregur eina norræna landið án banka í Qivalis, bankasamsteypunni á bak við fyrirhugaða evru-stöðugleikamynt."
+    "da": "Norges Bank har navngivet tolv finansielle institutioner i sin kortlægning af tokenisering, mens Norge er det eneste nordiske land uden banker i euro-stablecoin-gruppen Qivalis.",
+    "fi": "Norges Bank on nimennyt tokenisointia koskevassa kartoituksessaan kaksitoista rahoituslaitosta, ja Norja on ainoa Pohjoismaa, jonka pankkeja ei ole mukana euromääräisten vakaakolikoiden Qivalis-ryhmässä.",
+    "is": "Norges Bank hefur nafngreint tólf fjármálastofnanir í kortlagningu sinni á táknvæðingu, en Noregur er eina norræna landið sem á enga banka í evru-stöðugleikamyntahópnum Qivalis.",
+    "nb": "Norges Bank har navngitt tolv finansinstitusjoner i sin kartlegging av tokenisering, mens Norge er det eneste nordiske landet uten banker i euro-stablecoin-gruppen Qivalis.",
+    "nn": "Norges Bank har namngitt tolv finansinstitusjonar i kartlegginga si av tokenisering, medan Noreg er det einaste nordiske landet utan bankar i euro-stablecoin-gruppa Qivalis.",
+    "sv": "Norges Bank har namngett tolv finansinstitut i sin kartläggning av tokenisering, medan Norge är det enda nordiska landet utan banker i euro-stablecoin-gruppen Qivalis."
    },
    "paywall": false,
    "links": [],

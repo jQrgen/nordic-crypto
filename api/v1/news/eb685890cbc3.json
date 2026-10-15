@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-15T07:10:16+00:00",
+ "generated_at": "2026-10-15T22:41:55+00:00",
  "preview": false,
  "item": {
   "id": "eb685890cbc3",
@@ -38,14 +38,14 @@
    "business",
    "bitcoin"
   ],
-  "summary": "Sander Andersen, chair of Sweden's H100 Group, argues that bitcoin companies worth under a billion dollars need to buy each other, and that standing still is the biggest risk, Kaupr reports. Writing on X after H100's August acquisition, he says a larger balance sheet attracts a different kind of investor and that buying a proven team is cheaper and faster than building one. In his view, scale can lead to index inclusion, more banking partners and better share liquidity.",
+  "summary": "Sander Andersen of H100 Group says bitcoin companies worth under a billion dollars need to buy each other, because standing still is the biggest risk.",
   "summary_i18n": {
-   "nn": "Sander Andersen, styreleiar i svenske H100 Group, meiner at bitcoinselskap under éin milliard dollar må kjøpe kvarandre, og at det største risikoen er å stå stille, melder Kaupr. I eit innlegg på X etter H100-oppkjøpet i august skriv han at ein større balanse trekkjer ein annan type investor, og at å kjøpe eit utprøvd team er billegare og raskare enn å byggje det sjølv. Etter hans syn kan skala gi indeksinkludering, fleire bankpartnarar og betre likviditet i aksjen.",
-   "nb": "Sander Andersen, styreleder i svenske H100 Group, mener at bitcoinselskaper under én milliard dollar må kjøpe hverandre, og at den største risikoen er å stå stille, melder Kaupr. I et innlegg på X etter H100-oppkjøpet i august skriver han at en større balanse trekker en annen type investor, og at å kjøpe et utprøvd team er billigere og raskere enn å bygge det selv. Etter hans syn kan skala gi indeksinkludering, flere bankpartnere og bedre likviditet i aksjen.",
-   "sv": "Sander Andersen, styrelseordförande i svenska H100 Group, menar att bitcoinbolag värda under en miljard dollar måste köpa varandra och att den största risken är att stå still, rapporterar Kaupr. I ett inlägg på X efter H100:s förvärv i augusti skriver han att en större balansräkning lockar en annan typ av investerare och att det är billigare och snabbare att köpa ett beprövat team än att bygga upp ett själv. Enligt honom kan skala ge indexinkludering, fler bankpartner och bättre likviditet i aktien.",
-   "da": "Sander Andersen, bestyrelsesformand i svenske H100 Group, mener, at bitcoinselskaber til under en milliard dollar må købe hinanden, og at den største risiko er at stå stille, skriver Kaupr. I et opslag på X efter H100's opkøb i august skriver han, at en større balance tiltrækker en anden type investor, og at det er billigere og hurtigere at købe et gennemprøvet team end at bygge det selv. Efter hans opfattelse kan skala føre til indeksoptagelse, flere bankpartnere og bedre likviditet i aktien.",
-   "fi": "Ruotsalaisen H100 Groupin hallituksen puheenjohtaja Sander Andersen katsoo, että alle miljardin dollarin arvoisten bitcoin-yhtiöiden on ostettava toisiaan ja että suurin riski on paikalleen jääminen, kertoo Kaupr. X:ssä H100:n elokuisen yrityskaupan jälkeen julkaisemassaan kirjoituksessa hän toteaa, että suurempi tase houkuttelee erilaisia sijoittajia ja että valmiin tiimin ostaminen on halvempaa ja nopeampaa kuin sen rakentaminen itse. Hänen mukaansa koko voi tuoda indeksiin pääsyn, lisää pankkikumppaneita ja paremman osakkeen likviditeetin.",
-   "is": "Sander Andersen, stjórnarformaður sænska H100 Group, telur að bitcoin-fyrirtæki sem eru metin á minna en milljarð dollara þurfi að kaupa hvert annað og að mesta áhættan sé að standa í stað, segir Kaupr. Í færslu á X eftir yfirtöku H100 í ágúst skrifar hann að stærri efnahagsreikningur laði að annars konar fjárfesta og að ódýrara og fljótlegra sé að kaupa reynt teymi en að byggja það upp sjálfur. Að hans mati getur stærð leitt til vísitöluaðildar, fleiri bankasamstarfsaðila og betri seljanleika hlutabréfa."
+   "da": "Sander Andersen fra H100 Group siger, at bitcoinselskaber til under en milliard dollar må købe hinanden, fordi den største risiko er at stå stille.",
+   "fi": "H100 Groupin Sander Andersen sanoo, että alle miljardin dollarin arvoisten bitcoinyhtiöiden on ostettava toisiaan, koska paikallaan pysyminen on suurin riski.",
+   "is": "Sander Andersen hjá H100 Group segir að bitcoin-fyrirtæki sem eru minna en milljarðs dollara virði þurfi að kaupa hvert annað, því að standa í stað sé mesta áhættan.",
+   "nb": "Sander Andersen i H100 Group sier at bitcoinselskaper verdt under en milliard dollar må kjøpe hverandre, fordi det å stå stille er den største risikoen.",
+   "nn": "Sander Andersen i H100 Group seier at bitcoinselskap verde under ein milliard dollar må kjøpe kvarandre, fordi det å stå still er den største risikoen.",
+   "sv": "Sander Andersen på H100 Group säger att bitcoinbolag värda under en miljard dollar måste köpa varandra, eftersom den största risken är att stå still."
   },
   "paywall": false,
   "links": [],

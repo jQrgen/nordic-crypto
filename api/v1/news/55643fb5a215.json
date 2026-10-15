@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-15T07:10:16+00:00",
+ "generated_at": "2026-10-15T22:41:55+00:00",
  "preview": false,
  "item": {
   "id": "55643fb5a215",
@@ -38,14 +38,14 @@
    "mining",
    "policy"
   ],
-  "summary": "In a written question to the minister of digitalisation and public administration, Sofie Marhaug (Red Party) asks when the government will present its announced state planning provision to limit crypto mining. She also asks which EEA provisions and legal assessments underlie the government's conclusion that Norway cannot introduce a general mining ban, noting that the Storting has asked the government three times in two years to work on a ban. Minister Torgeir Micaelsen answered the question on 18 September.",
+  "summary": "A written question in the Storting asks when the government will present its planned state planning provision to limit crypto mining, and why it has concluded the EEA Agreement rules out a general mining ban.",
   "summary_i18n": {
-   "nn": "I eit skriftleg spørsmål til digitaliserings- og forvaltningsministeren spør Sofie Marhaug (R) når regjeringa vil leggje fram den varsla statlege planføresegna for å avgrense kryptoutvinning. Ho spør òg kva EØS-føresegner og rettslege vurderingar som ligg til grunn for konklusjonen om at Noreg ikkje kan innføre eit generelt forbod, og viser til at Stortinget tre gonger på to år har bede regjeringa arbeide med eit forbod. Statsråd Torgeir Micaelsen svarte på spørsmålet 18. september.",
-   "nb": "I et skriftlig spørsmål til digitaliserings- og forvaltningsministeren spør Sofie Marhaug (R) når regjeringen vil legge frem den varslede statlige planbestemmelsen for å begrense kryptoutvinning. Hun spør også hvilke EØS-bestemmelser og rettslige vurderinger som ligger til grunn for konklusjonen om at Norge ikke kan innføre et generelt forbud, og viser til at Stortinget tre ganger på to år har bedt regjeringen arbeide med et forbud. Statsråd Torgeir Micaelsen besvarte spørsmålet 18. september.",
-   "sv": "I en skriftlig fråga till digitaliserings- och förvaltningsministern frågar Sofie Marhaug (Rødt) när regeringen ska lägga fram den aviserade statliga planbestämmelsen för att begränsa kryptoutvinning. Hon frågar också vilka EES-bestämmelser och rättsliga bedömningar som ligger bakom slutsatsen att Norge inte kan införa ett generellt förbud, och påpekar att Stortinget tre gånger på två år har bett regeringen att arbeta med ett förbud. Statsrådet Torgeir Micaelsen besvarade frågan den 18 september.",
-   "da": "I et skriftligt spørgsmål til digitaliserings- og forvaltningsministeren spørger Sofie Marhaug (Rødt), hvornår regeringen vil fremlægge den varslede statslige planbestemmelse, der skal begrænse kryptomining. Hun spørger også, hvilke EØS-bestemmelser og juridiske vurderinger der ligger bag konklusionen om, at Norge ikke kan indføre et generelt forbud, og påpeger, at Stortinget tre gange på to år har bedt regeringen arbejde med et forbud. Minister Torgeir Micaelsen besvarede spørgsmålet den 18. september.",
-   "fi": "Kirjallisessa kysymyksessä digitalisaatio- ja hallintoministerille Sofie Marhaug (Punainen puolue) kysyy, milloin hallitus esittelee ilmoittamansa valtion kaavamääräyksen kryptolouhinnan rajoittamiseksi. Hän kysyy myös, mitkä ETA-määräykset ja oikeudelliset arviot ovat hallituksen johtopäätöksen taustalla, ettei Norja voi säätää yleistä louhintakieltoa, ja huomauttaa, että Storting on kahdessa vuodessa kolmesti pyytänyt hallitusta valmistelemaan kieltoa. Ministeri Torgeir Micaelsen vastasi kysymykseen 18. syyskuuta.",
-   "is": "Í skriflegri fyrirspurn til ráðherra stafrænnar þróunar og stjórnsýslu spyr Sofie Marhaug (Rauði flokkurinn) hvenær ríkisstjórnin muni leggja fram boðað skipulagsákvæði ríkisins til að takmarka rafmyntanámugröft. Hún spyr einnig hvaða EES-ákvæði og lagalegt mat liggi að baki þeirri niðurstöðu að Noregur geti ekki sett almennt bann, og bendir á að Stórþingið hafi þrisvar á tveimur árum beðið ríkisstjórnina að vinna að banni. Torgeir Micaelsen ráðherra svaraði fyrirspurninni 18. september."
+   "da": "Et skriftligt spørgsmål i Stortinget spørger, hvornår regeringen fremlægger den planlagte statslige planbestemmelse, der skal begrænse kryptomining, og hvorfor den er nået frem til, at EØS-aftalen udelukker et generelt forbud.",
+   "fi": "Norjan suurkäräjillä (Stortinget) esitetyssä kirjallisessa kysymyksessä tiedustellaan, milloin hallitus antaa suunnitellun valtakunnallisen kaavamääräyksen kryptolouhinnan rajoittamiseksi ja miksi se on päätellyt ETA-sopimuksen estävän yleisen louhintakiellon.",
+   "is": "Í skriflegri fyrirspurn á norska Stórþinginu er spurt hvenær ríkisstjórnin leggi fram fyrirhugað skipulagsákvæði ríkisins til að takmarka námugröft rafmynta og hvers vegna hún hafi komist að þeirri niðurstöðu að EES-samningurinn útiloki almennt bann.",
+   "nb": "Et skriftlig spørsmål på Stortinget spør når regjeringen legger fram den varslede statlige planbestemmelsen for å begrense kryptoutvinning, og hvorfor den har konkludert med at EØS-avtalen utelukker et generelt forbud.",
+   "nn": "Eit skriftleg spørsmål på Stortinget spør når regjeringa legg fram den varsla statlege planføresegna for å avgrense kryptoutvinning, og kvifor ho har konkludert med at EØS-avtalen utelukkar eit generelt forbod.",
+   "sv": "En skriftlig fråga i Stortinget undrar när regeringen lägger fram den planerade statliga planbestämmelsen för att begränsa kryptoutvinning, och varför den har kommit fram till att EES-avtalet utesluter ett generellt förbud."
   },
   "paywall": false,
   "links": [],

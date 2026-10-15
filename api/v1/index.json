@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-15T07:10:16+00:00",
+ "generated_at": "2026-10-15T22:41:55+00:00",
  "preview": false,
  "title": "Nordic Crypto data API",
  "sign_off": "The Nordic Crypto team",
@@ -29,28 +29,28 @@
   "not_investment_advice": true
  },
  "counts": {
-  "news": 66,
+  "news": 49,
   "news_by_country": {
-   "NO": 31,
-   "SE": 25,
-   "DK": 6,
-   "FI": 4,
+   "NO": 21,
+   "SE": 20,
+   "DK": 5,
+   "FI": 3,
    "IS": 0,
    "NORDIC": 0,
    "EU": 0
   },
   "newsletters": 2,
   "events": 12,
-  "events_upcoming": 10,
+  "events_upcoming": 8,
   "events_ongoing": 0,
-  "events_past": 2,
-  "events_previous": 20,
+  "events_past": 4,
+  "events_previous": 22,
   "talks": 74,
-  "sources": 1036,
+  "sources": 1037,
   "academia": {
    "courses": 7,
    "groups": 3,
-   "publications": 0,
+   "publications": 2,
    "research": 3
   },
   "books": 25,
@@ -61,7 +61,9 @@
   "images": 64,
   "illustrations": 16,
   "changelog": 35,
-  "archive_articles": 59,
+  "archive_articles": 66,
+  "archive_news": 0,
+  "archive_academic": 2,
   "markets": 72,
   "markets_aggregated": 53,
   "markets_by_exchange": {
@@ -89,8 +91,8 @@
    "url_custom_domain": "https://nordiccrypto.no/api/v1/news.json",
    "summary": "Published news and our own stories, newest first.",
    "schema": "NewsList",
-   "example_url": "https://nordiccrypto.no/api/v1/news/5285674a58d8.json",
-   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/news/5285674a58d8.json",
+   "example_url": "https://nordiccrypto.no/api/v1/news/9755cf9957e9.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/news/9755cf9957e9.json",
    "item_path": "/api/v1/news/{id}.json",
    "item_url_template": "https://nordiccrypto.no/api/v1/news/{id}.json"
   },
@@ -148,8 +150,8 @@
    "url_custom_domain": "https://nordiccrypto.no/api/v1/events.json",
    "summary": "Public events, soonest start first, including past events.",
    "schema": "EventList",
-   "example_url": "https://nordiccrypto.no/api/v1/events/ccc2eea6b213.json",
-   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/events/ccc2eea6b213.json",
+   "example_url": "https://nordiccrypto.no/api/v1/events/71149f675741.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/events/71149f675741.json",
    "item_path": "/api/v1/events/{id}.json",
    "item_url_template": "https://nordiccrypto.no/api/v1/events/{id}.json"
   },
@@ -414,6 +416,17 @@
    "item_url_template": "https://nordiccrypto.no/api/v1/archive/articles/{id}.json"
   },
   {
+   "id": "archive-news-page",
+   "method": "GET",
+   "path": "/api/v1/archive/news/page-{page}.json",
+   "url": "https://nordiccrypto.no/api/v1/archive/news/page-{page}.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/archive/news/page-{page}.json",
+   "summary": "Historical Nordic crypto news and scientific works from the academia page (master's theses, project theses and papers), newest first. Page 1 is page-1.json. type is news or academic. A news row comes from data/archive/news/<year>.json. An academic row is not copied into those files. published for a work known only by year is 1 January UTC of that year. title_en, title_i18n and summary_i18n follow the news items.",
+   "schema": "NewsArchivePage",
+   "example_url": "https://nordiccrypto.no/api/v1/archive/news/page-1.json",
+   "example_url_custom_domain": "https://nordiccrypto.no/api/v1/archive/news/page-1.json"
+  },
+  {
    "id": "stats",
    "method": "GET",
    "path": "/api/v1/stats.json",
@@ -492,7 +505,7 @@
    "path": "/api/v1/meta.json",
    "url": "https://nordiccrypto.no/api/v1/meta.json",
    "url_custom_domain": "https://nordiccrypto.no/api/v1/meta.json",
-   "summary": "Site name, languages, countries, page list, CORS, editorial notes and brand social accounts (social.telegram, social.x).",
+   "summary": "Site name, languages, countries, page list, CORS, editorial notes and brand social accounts (social.telegram, social.x, social.facebook, social.youtube).",
    "schema": "SiteMeta"
   }
  ],
@@ -523,7 +536,7 @@
   },
   {
    "description": "One news item",
-   "url": "https://nordiccrypto.no/api/v1/news/5285674a58d8.json"
+   "url": "https://nordiccrypto.no/api/v1/news/9755cf9957e9.json"
   },
   {
    "description": "Newsletter issues",

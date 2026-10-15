@@ -142,7 +142,65 @@
    "editor_note": "APPROVED by jQrgen 2026-10-05 (also listed at https://cbsstudents.dk/student-organizations)"
   }
  ],
- "publications": [],
+ "publications": [
+  {
+   "country": "NO",
+   "title": "Minimum Hybrid Kontrakt (MHK): En kombinasjon av Juridiske og Blockchain-baserte Smarte Kontrakter",
+   "title_en": "The Minimum Hybrid Contract (MHC): Combining Legal and Blockchain Smart Contracts",
+   "authors": [
+    "Jørgen Svennevik Notland"
+   ],
+   "institution": "NTNU",
+   "year": 2019,
+   "type": "master",
+   "venue": "Master's thesis",
+   "doi": null,
+   "url": "https://hdl.handle.net/11250/2625939",
+   "db": "https://hdl.handle.net/11250/2625939",
+   "db_name": "NTNU Open",
+   "source": "https://hdl.handle.net/11250/2625939",
+   "about": "Jørgen Svennevik Notland's master's thesis on the Minimum Hybrid Contract (MHC): a legal contract combined with a blockchain smart contract for transparent, immutable financial transactions. Supervisors named on the NTNU Open record are Røger Sørheim and Donn Morrison. The NTNU Open degree-type field says bachelor.",
+   "keywords": [
+    "blockchain",
+    "smart contracts",
+    "legal contracts"
+   ],
+   "language": "English",
+   "checked": "2026-10-15",
+   "status": "approved",
+   "editor_note": "approved, verified on NTNU Open 2026-10-15",
+   "origin": "research/academia/works.json"
+  },
+  {
+   "country": "NO",
+   "title": "Blockchain enabled Trust & Transparency in supply chains",
+   "authors": [
+    "Jørgen Svennevik Notland",
+    "Anders Viet Hua"
+   ],
+   "institution": "NTNU",
+   "year": 2017,
+   "type": "project",
+   "venue": "Project thesis",
+   "doi": "10.13140/rg.2.2.22304.58886",
+   "url": "https://doi.org/10.13140/rg.2.2.22304.58886",
+   "db": "https://doi.org/10.13140/rg.2.2.22304.58886",
+   "db_name": "ResearchGate",
+   "source": "https://doi.org/10.13140/rg.2.2.22304.58886",
+   "about": "Project thesis at the NTNU School of Entrepreneurship, with Anders Viet Hua, on whether blockchain can increase trust and transparency in supply chains. ResearchGate dates the record 2017; a 2016 date also appears in another catalogue. It is not in NTNU Open.",
+   "keywords": [
+    "blockchain",
+    "supply chain",
+    "trust",
+    "transparency"
+   ],
+   "language": "English",
+   "checked": "2026-10-15",
+   "status": "approved",
+   "editor_note": "approved, verified via ResearchGate DOI 2026-10-15",
+   "origin": "research/academia/works.json"
+  }
+ ],
  "research": [
   {
    "country": "NO",

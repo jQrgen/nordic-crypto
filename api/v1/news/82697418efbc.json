@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-15T07:10:16+00:00",
+ "generated_at": "2026-10-15T22:41:55+00:00",
  "preview": false,
  "item": {
   "id": "82697418efbc",
@@ -37,14 +37,14 @@
   "topics": [
    "mica"
   ],
-  "summary": "Finland's Kvarn Capital argues that its partnership with Sweden's Goobit is neither an agent relationship nor outsourcing under MiCA, Kaupr reports. Co-founder Joonas Järvinen says no regulated function is delegated: customers contract directly with Kvarn, which keeps the regulated customer relationship and all MiCA obligations, while Goobit only provides a branded technical interface. Goobit was itself refused a MiCA licence in Sweden on 2 July and has appealed.",
+  "summary": "Kvarn Capital argues its partnership with Sweden's Goobit falls outside MiCA's ban on agents and its outsourcing rules.",
   "summary_i18n": {
-   "nn": "Finske Kvarn Capital meiner at samarbeidet med svenske Goobit verken er eit agentforhold eller utkontraktering etter MiCA, melder Kaupr. Medgründar Joonas Järvinen seier at ingen regulert funksjon blir delegert: kundane inngår avtale direkte med Kvarn, som held på det regulerte kundeforholdet og alle MiCA-pliktene, medan Goobit berre leverer eit merkevaremerkt teknisk grensesnitt. Goobit fekk sjølv avslag på MiCA-søknaden i Sverige 2. juli og har klaga.",
-   "nb": "Finske Kvarn Capital mener at samarbeidet med svenske Goobit verken er et agentforhold eller utkontraktering etter MiCA, melder Kaupr. Medgründer Joonas Järvinen sier at ingen regulert funksjon delegeres: kundene inngår avtale direkte med Kvarn, som beholder det regulerte kundeforholdet og alle MiCA-forpliktelsene, mens Goobit bare leverer et merkevaremerket teknisk grensesnitt. Goobit fikk selv avslag på MiCA-søknaden i Sverige 2. juli og har klaget.",
-   "sv": "Finska Kvarn Capital menar att samarbetet med svenska Goobit varken är ett agentförhållande eller utkontraktering enligt MiCA, rapporterar Kaupr. Medgrundaren Joonas Järvinen säger att ingen reglerad funktion delegeras: kunderna ingår avtal direkt med Kvarn, som behåller den reglerade kundrelationen och alla MiCA-skyldigheter, medan Goobit bara tillhandahåller ett varumärkt tekniskt gränssnitt. Goobit fick själv avslag på sin MiCA-ansökan i Sverige den 2 juli och har överklagat.",
-   "da": "Finske Kvarn Capital mener, at samarbejdet med svenske Goobit hverken er et agentforhold eller outsourcing efter MiCA, skriver Kaupr. Medstifter Joonas Järvinen siger, at ingen reguleret funktion delegeres: kunderne indgår aftale direkte med Kvarn, som beholder det regulerede kundeforhold og alle MiCA-forpligtelser, mens Goobit kun leverer en brandet teknisk brugerflade. Goobit fik selv afslag på sin MiCA-ansøgning i Sverige den 2. juli og har klaget.",
-   "fi": "Suomalainen Kvarn Capital katsoo, ettei sen kumppanuus ruotsalaisen Goobitin kanssa ole MiCA:n mukainen asiamiessuhde eikä ulkoistus, kertoo Kaupr. Perustajaosakas Joonas Järvisen mukaan mitään säänneltyä toimintoa ei delegoida: asiakkaat tekevät sopimuksen suoraan Kvarnin kanssa, joka säilyttää säännellyn asiakassuhteen ja kaikki MiCA-velvoitteet, kun taas Goobit tarjoaa vain brändätyn teknisen käyttöliittymän. Goobitin oma MiCA-hakemus hylättiin Ruotsissa 2. heinäkuuta, ja se on valittanut päätöksestä.",
-   "is": "Finnska Kvarn Capital telur að samstarf sitt við sænska Goobit sé hvorki umboðssamband né útvistun samkvæmt MiCA, segir Kaupr. Meðstofnandinn Joonas Järvinen segir að engum leyfisskyldum verkþætti sé útvistað: viðskiptavinir semja beint við Kvarn, sem heldur eftirlitsskylda viðskiptasambandinu og öllum MiCA-skyldum, en Goobit leggur aðeins til tæknilegt viðmót undir eigin vörumerki. Goobit fékk sjálft synjun á MiCA-umsókn sinni í Svíþjóð 2. júlí og hefur kært hana."
+   "da": "Kvarn Capital mener, at samarbejdet med svenske Goobit falder uden for MiCA's forbud mod agenter og reglerne om outsourcing.",
+   "fi": "Kvarn Capital katsoo, että sen yhteistyö ruotsalaisen Goobitin kanssa jää MiCA:n asiamieskiellon ja ulkoistamissääntöjen ulkopuolelle.",
+   "is": "Kvarn Capital telur að samstarf þess við sænska Goobit falli utan banns MiCA við umboðsmönnum og reglna um útvistun.",
+   "nb": "Kvarn Capital mener samarbeidet med svenske Goobit faller utenfor MiCAs forbud mot agenter og reglene om utkontraktering.",
+   "nn": "Kvarn Capital meiner samarbeidet med svenske Goobit fell utanfor MiCA-forbodet mot agentar og reglane om utkontraktering.",
+   "sv": "Kvarn Capital menar att samarbetet med svenska Goobit faller utanför MiCA:s förbud mot ombud och reglerna om uppdragsavtal."
   },
   "paywall": false,
   "links": [],

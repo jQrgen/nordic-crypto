@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-15T07:10:16+00:00",
+ "generated_at": "2026-10-15T22:41:55+00:00",
  "preview": false,
  "topics": [
   {
@@ -11,17 +11,17 @@
   },
   {
    "id": "banking",
-   "count": 6,
+   "count": 3,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/banking.json"
   },
   {
    "id": "bitcoin",
-   "count": 4,
+   "count": 3,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/bitcoin.json"
   },
   {
    "id": "business",
-   "count": 20,
+   "count": 18,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/business.json"
   },
   {
@@ -31,23 +31,18 @@
   },
   {
    "id": "consumer protection",
-   "count": 3,
+   "count": 2,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/consumer-protection.json"
   },
   {
    "id": "crime",
-   "count": 7,
+   "count": 6,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/crime.json"
   },
   {
    "id": "defi",
    "count": 1,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/defi.json"
-  },
-  {
-   "id": "energy",
-   "count": 1,
-   "url": "https://nordiccrypto.no/api/v1/news/by-topic/energy.json"
   },
   {
    "id": "events",
@@ -61,12 +56,12 @@
   },
   {
    "id": "mica",
-   "count": 15,
+   "count": 14,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/mica.json"
   },
   {
    "id": "mining",
-   "count": 9,
+   "count": 6,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/mining.json"
   },
   {
@@ -76,38 +71,28 @@
   },
   {
    "id": "policy",
-   "count": 9,
+   "count": 7,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/policy.json"
   },
   {
    "id": "regulation",
-   "count": 12,
+   "count": 8,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/regulation.json"
   },
   {
-   "id": "security",
-   "count": 2,
-   "url": "https://nordiccrypto.no/api/v1/news/by-topic/security.json"
-  },
-  {
    "id": "stablecoins",
-   "count": 4,
+   "count": 3,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/stablecoins.json"
   },
   {
    "id": "tax",
-   "count": 8,
+   "count": 3,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/tax.json"
   },
   {
    "id": "tokenisation",
-   "count": 7,
+   "count": 3,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/tokenisation.json"
-  },
-  {
-   "id": "wallets",
-   "count": 1,
-   "url": "https://nordiccrypto.no/api/v1/news/by-topic/wallets.json"
   }
  ]
 }

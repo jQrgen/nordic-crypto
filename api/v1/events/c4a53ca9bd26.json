@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-15T07:10:16+00:00",
+ "generated_at": "2026-10-15T22:41:55+00:00",
  "preview": false,
  "item": {
   "id": "c4a53ca9bd26",
@@ -35,9 +35,9 @@
     "is": "Óformlegur fundur fyrir þá sem fást við bitcoin og þá sem eru forvitnir. Komdu og hittu fólk, skiptu á hugmyndum og ræddu allt frá bitcoin og Lightning til sjálfsforræðis, tækni eða þess sem kemur upp. Engar kynningar og engin föst dagskrá, bara opið og afslappað rými. Þú ert velkominn hvort sem þú hefur fengist við bitcoin í mörg ár eða ert rétt að byrja. Aðeins bitcoin. Ekki annað krypto."
    }
   },
-  "past": false,
+  "past": true,
   "ongoing": false,
-  "phase": "upcoming",
+  "phase": "past",
   "phase_end": "2026-10-15T20:30:00+02:00",
   "html_url": "https://nordiccrypto.no/calendar/c4a53ca9bd26/",
   "html_urls": {

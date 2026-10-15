@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-15T07:10:16+00:00",
+ "generated_at": "2026-10-15T22:41:55+00:00",
  "preview": false,
  "item": {
   "id": "5682c6aa22dd",
@@ -26,14 +26,14 @@
   "topics": [
    "business"
   ],
-  "summary": "Norwegian crypto exchange Firi had revenue of NOK 42 million and costs of NOK 87.5 million in the first half of 2026, giving a net loss of NOK 43.6 million, according to an investor presentation cited by Finansavisen. That compares with a profit of NOK 134.9 million in the record year 2024 and NOK 28 million in 2025. CEO Thuc Tuan Hoang points to weaker trading and extraordinary legal costs for the MiCA licence, and says Firi, which had a NOK 151 million liquidity reserve at the end of June, does not need new capital.",
+  "summary": "Norwegian exchange Firi earned NOK 135 million in 2024 but posted a NOK 44 million loss in the first half of this year.",
   "summary_i18n": {
-   "nn": "Den norske kryptobørsen Firi hadde inntekter på 42 millionar kroner og kostnader på 87,5 millionar i første halvår 2026, og eit underskot på 43,6 millionar, ifølgje ein investorpresentasjon som Finansavisen viser til. Til samanlikning tente selskapet 134,9 millionar i rekordåret 2024 og 28 millionar i 2025. Toppsjef Thuc Tuan Hoang peikar på svakare handel og ekstraordinære juridiske kostnader til MiCA-lisensen, og seier at Firi, som hadde ein likviditetsreserve på 151 millionar ved utgangen av juni, ikkje treng ny kapital.",
-   "nb": "Den norske kryptobørsen Firi hadde inntekter på 42 millioner kroner og kostnader på 87,5 millioner i første halvår 2026, og et underskudd på 43,6 millioner, ifølge en investorpresentasjon som Finansavisen viser til. Til sammenligning tjente selskapet 134,9 millioner i rekordåret 2024 og 28 millioner i 2025. Toppsjef Thuc Tuan Hoang peker på svakere handel og ekstraordinære juridiske kostnader til MiCA-lisensen, og sier at Firi, som hadde en likviditetsreserve på 151 millioner ved utgangen av juni, ikke trenger ny kapital.",
-   "sv": "Den norska kryptobörsen Firi hade intäkter på 42 miljoner norska kronor och kostnader på 87,5 miljoner under första halvåret 2026, vilket gav en nettoförlust på 43,6 miljoner, enligt en investerarpresentation som Finansavisen hänvisar till. Det kan jämföras med en vinst på 134,9 miljoner rekordåret 2024 och 28 miljoner 2025. Vd Thuc Tuan Hoang pekar på svagare handel och extraordinära juridiska kostnader för MiCA-licensen, och säger att Firi, som hade en likviditetsreserv på 151 miljoner vid utgången av juni, inte behöver nytt kapital.",
-   "da": "Den norske kryptobørs Firi havde indtægter på 42 millioner norske kroner og omkostninger på 87,5 millioner i første halvår 2026, hvilket gav et underskud på 43,6 millioner, ifølge en investorpræsentation, som Finansavisen henviser til. Til sammenligning tjente selskabet 134,9 millioner i rekordåret 2024 og 28 millioner i 2025. Topchef Thuc Tuan Hoang peger på svagere handel og ekstraordinære juridiske omkostninger til MiCA-licensen og siger, at Firi, som havde en likviditetsreserve på 151 millioner ved udgangen af juni, ikke har brug for ny kapital.",
-   "fi": "Norjalaisen kryptopörssi Firin tulot olivat vuoden 2026 ensimmäisellä puoliskolla 42 miljoonaa kruunua ja kulut 87,5 miljoonaa, ja tappio oli 43,6 miljoonaa kruunua, kertoo Finansavisen yhtiön sijoittajaesitykseen viitaten. Ennätysvuonna 2024 yhtiö teki 134,9 miljoonan ja vuonna 2025 28 miljoonan voiton. Toimitusjohtaja Thuc Tuan Hoang syyttää heikompaa kaupankäyntiä ja MiCA-toimiluvan poikkeuksellisia lakikuluja ja sanoo, ettei Firi, jonka likviditeettivaranto oli kesäkuun lopussa 151 miljoonaa kruunua, tarvitse uutta pääomaa.",
-   "is": "Norska rafmyntakauphöllin Firi var með 42 milljónir norskra króna í tekjur og 87,5 milljónir í kostnað á fyrri helmingi 2026, sem skilaði 43,6 milljóna tapi, samkvæmt fjárfestakynningu sem Finansavisen vísar í. Til samanburðar var hagnaðurinn 134,9 milljónir á metárinu 2024 og 28 milljónir árið 2025. Forstjórinn Thuc Tuan Hoang nefnir minni viðskipti og óvenjulegan lögfræðikostnað vegna MiCA-leyfisins, og segir að Firi, sem átti 151 milljón í lausafjárforða í lok júní, þurfi ekki nýtt fjármagn."
+   "da": "Den norske kryptobørs Firi tjente 135 millioner norske kroner i 2024, men havde et underskud på 44 millioner norske kroner i årets første halvår.",
+   "fi": "Norjalainen kryptopörssi Firi ansaitsi 135 miljoonaa Norjan kruunua vuonna 2024, mutta teki 44 miljoonan Norjan kruunun tappion tämän vuoden ensimmäisellä puoliskolla.",
+   "is": "Norska rafmyntakauphöllin Firi aflaði 135 milljóna norskra króna árið 2024 en tapaði 44 milljónum norskra króna á fyrri helmingi þessa árs.",
+   "nb": "Den norske kryptobørsen Firi tjente 135 millioner kroner i 2024, men fikk et tap på 44 millioner kroner i første halvår i år.",
+   "nn": "Den norske kryptobørsen Firi tente 135 millionar kroner i 2024, men fekk eit tap på 44 millionar kroner i første halvår i år.",
+   "sv": "Den norska kryptobörsen Firi tjänade 135 miljoner norska kronor 2024 men gick med en förlust på 44 miljoner norska kronor under årets första halvår."
   },
   "paywall": true,
   "links": [],

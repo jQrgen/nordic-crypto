@@ -1,153 +1,11 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-15T07:10:16+00:00",
+ "generated_at": "2026-10-15T22:41:55+00:00",
  "preview": false,
  "topic": "stablecoins",
- "count": 4,
+ "count": 3,
  "items": [
-  {
-   "id": "86fc6577147d",
-   "url": "https://finanswatch.no/nyheter/fintech/article19736366.ece",
-   "html_url": "https://nordiccrypto.no/stories/86fc6577147d/",
-   "api_url": "https://nordiccrypto.no/api/v1/news/86fc6577147d.json",
-   "title": "Stablecoin-samarbeid med nordiske banker får godkjenning – lanserer om kort tid",
-   "title_en": "Stablecoin venture backed by Nordic banks gets authorisation and plans launch soon",
-   "title_i18n": {},
-   "source": "finanswatch",
-   "source_name": "Finanswatch",
-   "source_logo": {
-    "kind": "logo",
-    "file_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp",
-    "source_url": "https://finanswatch.no/favicons/finanswatch.no/apple-touch-icon.png",
-    "author": null,
-    "license": null,
-    "license_url": null,
-    "credit": "Official website",
-    "raster_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp"
-   },
-   "source_note": null,
-   "country": "NO",
-   "language": "Norwegian",
-   "language_code": "no",
-   "published": "2026-10-14T09:27:06+00:00",
-   "topics": [
-    "stablecoins",
-    "mica",
-    "banking"
-   ],
-   "summary": "A company backed by 37 banks, including Nordic banks, has received an important authorisation and is preparing to launch blockchain-based euro tokens under the EU's MiCA rules, Finanswatch reports. According to the paywalled article's headline, the launch is expected shortly. The visible text does not give further details.",
-   "summary_i18n": {
-    "nn": "Eit selskap som er støtta av 37 bankar, mellom dei nordiske bankar, har fått ei viktig autorisasjon og førebur lansering av blokkjedebaserte eurotokenar under EU-regelverket MiCA, melder Finanswatch. Ifølgje tittelen på artikkelen, som ligg bak betalingsmur, er lanseringa venta om kort tid. Den synlege teksten gir ikkje fleire detaljar.",
-    "nb": "Et selskap som er støttet av 37 banker, blant dem nordiske banker, har fått en viktig autorisasjon og forbereder lansering av blokkjedebaserte eurotokens under EU-regelverket MiCA, melder Finanswatch. Ifølge tittelen på artikkelen, som ligger bak betalingsmur, ventes lanseringen om kort tid. Den synlige teksten gir ikke flere detaljer.",
-    "sv": "Ett bolag som backas av 37 banker, bland dem nordiska banker, har fått ett viktigt tillstånd och förbereder lansering av blockkedjebaserade eurotokens under EU:s MiCA-regelverk, rapporterar Finanswatch. Enligt rubriken på den betalväggsskyddade artikeln väntas lanseringen inom kort. Den synliga texten ger inga fler detaljer.",
-    "da": "Et selskab, der er støttet af 37 banker, herunder nordiske banker, har fået en vigtig autorisation og forbereder lancering af blockchain-baserede eurotokens under EU's MiCA-regler, skriver Finanswatch. Ifølge overskriften på artiklen, som er bag betalingsmur, ventes lanceringen om kort tid. Den synlige tekst giver ikke flere detaljer.",
-    "fi": "Yhtiö, jota tukee 37 pankkia, muun muassa pohjoismaisia pankkeja, on saanut tärkeän toimiluvan ja valmistelee lohkoketjupohjaisten eurotokenien julkaisua EU:n MiCA-sääntelyn mukaisesti, kertoo Finanswatch. Maksumuurin takana olevan artikkelin otsikon mukaan julkaisu on odotettavissa pian. Näkyvä teksti ei kerro enempää yksityiskohtia.",
-    "is": "Fyrirtæki sem 37 bankar standa að, þar á meðal norrænir bankar, hefur fengið mikilvægt leyfi og undirbýr útgáfu evrutákna á bálkakeðju samkvæmt MiCA-reglum ESB, segir Finanswatch. Samkvæmt fyrirsögn greinarinnar, sem er á bak við greiðsluvegg, er útgáfan væntanleg innan skamms. Sýnilegi textinn gefur ekki frekari upplýsingar."
-   },
-   "paywall": true,
-   "links": [],
-   "own_story": false,
-   "illustration": {
-    "id": "official-norges-bank",
-    "kind": "official-press",
-    "file_url": "https://nordiccrypto.no/assets/img/illustrations/official-norges-bank.webp",
-    "width": 960,
-    "height": 720,
-    "alt": "Norges Bank headquarters in Oslo, daytime facade.",
-    "source": "Norges Bank",
-    "author": "Esten Borgos",
-    "license": "Norges Bank terms: credit, no alteration, not for advertising",
-    "license_url": "https://www.norges-bank.no/en/topics/about/copyright/",
-    "url": "https://www.norges-bank.no/en/topics/about/Media-enquiries/Press-photos/",
-    "credit": "Photo: Esten Borgos. Licence: Norges Bank terms: credit, no alteration, not for advertising. Source: Norges Bank.",
-    "modifications": null,
-    "terms": "Checked 2026-10-06. Norges Bank's copyright page allows copying from norges-bank.no when Norges Bank is named as the source, the content is not changed, and it is not used in advertising. This is the daytime facade from the press-photo page (photo: Esten Borgos). It is scaled to 960 pixels wide and saved as WebP, not cropped or recoloured. Portraits and pictures of notes and coins from the same page are not used."
-   },
-   "primary_source": {
-    "outlet": "finanswatch",
-    "outlet_name": "Finanswatch",
-    "url": "https://finanswatch.no/nyheter/fintech/article19736366.ece",
-    "title": "Stablecoin-samarbeid med nordiske banker får godkjenning – lanserer om kort tid",
-    "published": "2026-10-14T09:27:06+00:00",
-    "lang": "Norwegian",
-    "language_code": "no",
-    "country": "NO",
-    "source_type": "national",
-    "paywall": true,
-    "primary": true,
-    "logo": {
-     "kind": "logo",
-     "file_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp",
-     "source_url": "https://finanswatch.no/favicons/finanswatch.no/apple-touch-icon.png",
-     "author": null,
-     "license": null,
-     "license_url": null,
-     "credit": "Official website",
-     "raster_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp"
-    }
-   },
-   "primary_source_document": null,
-   "also_covered_by": [],
-   "sources": [
-    {
-     "outlet": "finanswatch",
-     "outlet_name": "Finanswatch",
-     "url": "https://finanswatch.no/nyheter/fintech/article19736366.ece",
-     "title": "Stablecoin-samarbeid med nordiske banker får godkjenning – lanserer om kort tid",
-     "published": "2026-10-14T09:27:06+00:00",
-     "lang": "Norwegian",
-     "language_code": "no",
-     "country": "NO",
-     "source_type": "national",
-     "paywall": true,
-     "primary": true,
-     "logo": {
-      "kind": "logo",
-      "file_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp",
-      "source_url": "https://finanswatch.no/favicons/finanswatch.no/apple-touch-icon.png",
-      "author": null,
-      "license": null,
-      "license_url": null,
-      "credit": "Official website",
-      "raster_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp"
-     }
-    }
-   ],
-   "coverage": {
-    "count": 1,
-    "by_country": [
-     {
-      "country": "NO",
-      "count": 1,
-      "share": 1.0
-     }
-    ],
-    "by_source_type": [
-     {
-      "type": "national",
-      "count": 1,
-      "share": 1.0
-     },
-     {
-      "type": "regional",
-      "count": 0,
-      "share": 0.0
-     },
-     {
-      "type": "official",
-      "count": 0,
-      "share": 0.0
-     },
-     {
-      "type": "international",
-      "count": 0,
-      "share": 0.0
-     }
-    ]
-   },
-   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp"
-  },
   {
    "id": "7996dadb43e7",
    "url": "https://www.kaupr.io/nyheter/nbx-inngar-avtale-med-tieto-om-betalingskort-for-stablecoins",
@@ -182,14 +40,14 @@
     "stablecoins",
     "business"
    ],
-   "summary": "Norwegian crypto platform NBX has signed an agreement with Tieto Banktech for digital and physical payment cards meant to let customers spend stablecoins without first selling them and moving the money to a bank, Kaupr reports. The programme starts with a prepaid Visa card, with Tieto handling card infrastructure and fraud monitoring and IDT Finance acting as BIN sponsor. NBX's CEO says what sets it apart is that NBX issues its own stablecoins in line with MiCA.",
+   "summary": "NBX has signed with Tieto Banktech for a payment card that lets customers spend stablecoins in everyday purchases.",
    "summary_i18n": {
-    "nn": "Den norske kryptoplattforma NBX har inngått avtale med Tieto Banktech om digitale og fysiske betalingskort som skal la kundane bruke stablecoins utan først å selje dei og flytte pengane til ein bank, melder Kaupr. Programmet startar med eit forhandsbetalt Visa-kort, der Tieto står for kortinfrastruktur og svindelovervaking og IDT Finance er BIN-sponsor. Administrerande direktør i NBX seier at det som skil selskapet ut, er at NBX utferdar eigne stablecoins i tråd med MiCA.",
-    "nb": "Den norske kryptoplattformen NBX har inngått avtale med Tieto Banktech om digitale og fysiske betalingskort som skal la kundene bruke stablecoins uten først å selge dem og flytte pengene til en bank, melder Kaupr. Programmet starter med et forhåndsbetalt Visa-kort, der Tieto står for kortinfrastruktur og svindelovervåking og IDT Finance er BIN-sponsor. Administrerende direktør i NBX sier at det som skiller selskapet ut, er at NBX utsteder egne stablecoins i tråd med MiCA.",
-    "sv": "Den norska kryptoplattformen NBX har tecknat avtal med Tieto Banktech om digitala och fysiska betalkort som ska låta kunderna använda stablecoins utan att först sälja dem och flytta pengarna till en bank, rapporterar Kaupr. Programmet börjar med ett förbetalt Visa-kort, där Tieto står för kortinfrastruktur och bedrägeriövervakning och IDT Finance är BIN-sponsor. NBX:s vd säger att det som skiljer bolaget från andra är att NBX ger ut egna stablecoins i linje med MiCA.",
-    "da": "Den norske kryptoplatform NBX har indgået aftale med Tieto Banktech om digitale og fysiske betalingskort, som skal lade kunderne bruge stablecoins uden først at sælge dem og flytte pengene til en bank, skriver Kaupr. Programmet starter med et forudbetalt Visa-kort, hvor Tieto står for kortinfrastruktur og svindelovervågning, og IDT Finance er BIN-sponsor. NBX's administrerende direktør siger, at det, der adskiller selskabet, er, at NBX udsteder egne stablecoins i overensstemmelse med MiCA.",
-    "fi": "Norjalainen kryptoalusta NBX on tehnyt Tieto Banktechin kanssa sopimuksen digitaalisista ja fyysisistä maksukorteista, joilla asiakkaat voivat käyttää stablecoineja myymättä niitä ensin ja siirtämättä rahoja pankkiin, kertoo Kaupr. Ohjelma alkaa prepaid-Visa-kortilla; Tieto vastaa korttiinfrastruktuurista ja petosvalvonnasta, ja IDT Finance toimii BIN-sponsorina. NBX:n toimitusjohtajan mukaan yhtiön erottaa muista se, että NBX laskee liikkeeseen omia stablecoinejaan MiCA:n mukaisesti.",
-    "is": "Norski rafmyntavettvangurinn NBX hefur samið við Tieto Banktech um stafræn og raunveruleg greiðslukort sem eiga að gera viðskiptavinum kleift að nota stöðugleikamyntir án þess að selja þær fyrst og flytja féð í banka, segir Kaupr. Verkefnið hefst með fyrirframgreiddu Visa-korti, þar sem Tieto sér um kortainnviði og svikaeftirlit og IDT Finance er BIN-bakhjarl. Forstjóri NBX segir að sérstaða félagsins sé að NBX gefi út eigin stöðugleikamyntir í samræmi við MiCA."
+    "da": "NBX har indgået aftale med Tieto Banktech om et betalingskort, der lader kunderne bruge stablecoins til daglige indkøb.",
+    "fi": "NBX on sopinut Tieto Banktechin kanssa maksukortista, jolla asiakkaat voivat käyttää vakaakolikoita arjen ostoksissa.",
+    "is": "NBX hefur samið við Tieto Banktech um greiðslukort sem gerir viðskiptavinum kleift að nota stöðugleikamyntir í daglegum innkaupum.",
+    "nb": "NBX har inngått avtale med Tieto Banktech om et betalingskort som lar kundene bruke stablecoins i hverdagskjøp.",
+    "nn": "NBX har inngått avtale med Tieto Banktech om eit betalingskort som lèt kundane bruke stablecoins i kvardagskjøp.",
+    "sv": "NBX har tecknat avtal med Tieto Banktech om ett betalkort som låter kunderna använda stablecoins i vardagliga köp."
    },
    "paywall": false,
    "links": [],
@@ -331,14 +189,14 @@
     "stablecoins",
     "banking"
    ],
-   "summary": "Speaking at Dansk Blockchain Forum in the Danish parliament, Danske Bank's Mads Clemmensen said no single bank can build a euro stablecoin alone, and that European banks should build an alternative to the dollar together through the Qivalis consortium, Kaupr reports. According to Clemmensen, 99.3 percent of stablecoins are tied to the US dollar, which runs against Europe's aim of depending less on US players. He confirmed that Qivalis plans to launch its euro stablecoin before the end of the year.",
+   "summary": "Danske Bank says no single bank can build a euro stablecoin on its own and that European banks should build a dollar alternative together through Qivalis.",
    "summary_i18n": {
-    "nn": "På Dansk Blockchain Forum i Folketinget sa Mads Clemmensen i Danske Bank at ingen bank kan byggje ein euro-stablecoin åleine, og at europeiske bankar bør byggje eit alternativ til dollaren saman gjennom konsortiet Qivalis, melder Kaupr. Ifølgje Clemmensen er 99,3 prosent av stablecoins knytte til amerikanske dollar, noko som strir mot målet om at Europa skal vere mindre avhengig av amerikanske aktørar. Han stadfesta at Qivalis planlegg å lansere euro-stablecoinen før årsskiftet.",
-    "nb": "På Dansk Blockchain Forum i Folketinget sa Mads Clemmensen i Danske Bank at ingen bank kan bygge en euro-stablecoin alene, og at europeiske banker bør bygge et alternativ til dollaren sammen gjennom konsortiet Qivalis, melder Kaupr. Ifølge Clemmensen er 99,3 prosent av stablecoins knyttet til amerikanske dollar, noe som strider mot Europas mål om mindre avhengighet av amerikanske aktører. Han bekreftet at Qivalis planlegger å lansere euro-stablecoinen før årsskiftet.",
-    "sv": "På Dansk Blockchain Forum i Folketinget sa Mads Clemmensen på Danske Bank att ingen bank kan bygga en euro-stablecoin ensam och att europeiska banker bör bygga ett alternativ till dollarn tillsammans genom konsortiet Qivalis, rapporterar Kaupr. Enligt Clemmensen är 99,3 procent av alla stablecoins knutna till amerikanska dollar, vilket går emot Europas mål att bli mindre beroende av amerikanska aktörer. Han bekräftade att Qivalis planerar att lansera sin euro-stablecoin före årsskiftet.",
-    "da": "På Dansk Blockchain Forum i Folketinget sagde Mads Clemmensen fra Danske Bank, at ingen bank kan bygge en euro-stablecoin alene, og at europæiske banker bør bygge et alternativ til dollaren sammen gennem konsortiet Qivalis, skriver Kaupr. Ifølge Clemmensen er 99,3 procent af alle stablecoins knyttet til amerikanske dollar, hvilket strider mod Europas mål om at blive mindre afhængig af amerikanske aktører. Han bekræftede, at Qivalis planlægger at lancere sin euro-stablecoin inden årsskiftet.",
-    "fi": "Tanskan kansankäräjillä järjestetyssä Dansk Blockchain Forumissa Danske Bankin Mads Clemmensen sanoi, ettei mikään pankki pysty rakentamaan euromääräistä stablecoinia yksin, ja että eurooppalaisten pankkien pitäisi rakentaa vaihtoehto dollarille yhdessä Qivalis-konsortion kautta, kertoo Kaupr. Clemmensenin mukaan 99,3 prosenttia stablecoineista on sidottu Yhdysvaltain dollariin, mikä on ristiriidassa Euroopan tavoitteen kanssa vähentää riippuvuutta yhdysvaltalaisista toimijoista. Hän vahvisti, että Qivalis aikoo julkaista euro-stablecoininsa ennen vuodenvaihdetta.",
-    "is": "Á Dansk Blockchain Forum í danska þinginu sagði Mads Clemmensen hjá Danske Bank að enginn banki gæti byggt evru-stöðugleikamynt einn síns liðs og að evrópskir bankar ættu að byggja valkost við dollarann saman í gegnum Qivalis-samsteypuna, segir Kaupr. Samkvæmt Clemmensen eru 99,3 prósent stöðugleikamynta tengd Bandaríkjadollar, sem stríði gegn markmiði Evrópu um minni háðleika gagnvart bandarískum aðilum. Hann staðfesti að Qivalis hyggist setja evru-stöðugleikamyntina á markað fyrir áramót."
+    "da": "Danske Bank siger, at ingen enkelt bank kan bygge en euro-stablecoin alene, og at europæiske banker sammen bør bygge et alternativ til dollaren gennem Qivalis.",
+    "fi": "Danske Bankin mukaan yksikään pankki ei pysty rakentamaan euromääräistä vakaakolikkoa yksin, ja eurooppalaisten pankkien pitäisi rakentaa dollarille vaihtoehto yhdessä Qivaliksen kautta.",
+    "is": "Danske Bank segir að enginn einn banki geti byggt upp stöðugleikamynt í evrum á eigin spýtur og að evrópskir bankar ættu saman að byggja upp valkost við dollarann í gegnum Qivalis.",
+    "nb": "Danske Bank sier at ingen enkeltbank kan bygge en euro-stablecoin alene, og at europeiske banker bør bygge et alternativ til dollaren sammen gjennom Qivalis.",
+    "nn": "Danske Bank seier at ingen enkeltbank kan byggje ein euro-stablecoin åleine, og at europeiske bankar bør byggje eit alternativ til dollaren saman gjennom Qivalis.",
+    "sv": "Danske Bank säger att ingen enskild bank kan bygga en euro-stablecoin på egen hand och att europeiska banker bör bygga ett alternativ till dollarn tillsammans genom Qivalis."
    },
    "paywall": false,
    "links": [],
@@ -469,14 +327,14 @@
    "topics": [
     "stablecoins"
    ],
-   "summary": "Johanna Belitz, Nordic head of Valour, argues that stablecoins can make money transfers abroad much faster and cheaper, especially to countries outside the EU/EEA with weaker banking infrastructure, Finansavisen reports. By her estimate, a NOK 10,000 bank transfer can easily cost NOK 300–600 in total, against NOK 10–50 with stablecoins. She also points out that stablecoins are not covered by any state deposit guarantee and carry both technical risk and the risk of losing their peg.",
+   "summary": "Valour's Nordic head Johanna Belitz argues stablecoins can make cross-border payments much faster and cheaper.",
    "summary_i18n": {
-    "nn": "Johanna Belitz, Norden-sjef i Valour, meiner stablecoins kan gjere pengeoverføringar til utlandet mykje raskare og billegare, særleg til land utanfor EU/EØS med svakare bankinfrastruktur, melder Finansavisen. Etter hennar overslag kan ei bankoverføring på 10 000 kroner fort koste 300–600 kroner totalt, mot 10–50 kroner med stablecoins. Ho peikar òg på at stablecoins ikkje er omfatta av nokon statleg innskotsgaranti og har både teknisk risiko og risiko for å miste koplinga til dollaren.",
-    "nb": "Johanna Belitz, Norden-sjef i Valour, mener stablecoins kan gjøre pengeoverføringer til utlandet langt raskere og billigere, særlig til land utenfor EU/EØS med svakere bankinfrastruktur, melder Finansavisen. Etter hennes anslag kan en bankoverføring på 10 000 kroner fort koste 300–600 kroner totalt, mot 10–50 kroner med stablecoins. Hun påpeker også at stablecoins ikke omfattes av noen statlig innskuddsgaranti og har både teknisk risiko og risiko for å miste koblingen til dollaren.",
-    "sv": "Johanna Belitz, Nordenchef på Valour, menar att stablecoins kan göra penningöverföringar till utlandet betydligt snabbare och billigare, särskilt till länder utanför EU/EES med svagare bankinfrastruktur, rapporterar Finansavisen. Enligt hennes uppskattning kan en banköverföring på 10 000 norska kronor lätt kosta 300–600 kronor totalt, mot 10–50 kronor med stablecoins. Hon påpekar också att stablecoins inte omfattas av någon statlig insättningsgaranti och innebär både teknisk risk och risk för att kopplingen till dollarn bryts.",
-    "da": "Johanna Belitz, Nordenchef i Valour, mener, at stablecoins kan gøre pengeoverførsler til udlandet langt hurtigere og billigere, især til lande uden for EU/EØS med svagere bankinfrastruktur, skriver Finansavisen. Efter hendes skøn kan en bankoverførsel på 10.000 norske kroner let koste 300–600 kroner i alt mod 10–50 kroner med stablecoins. Hun påpeger også, at stablecoins ikke er omfattet af nogen statslig indskydergaranti og indebærer både teknisk risiko og risiko for at miste koblingen til dollaren.",
-    "fi": "Valourin Pohjoismaiden johtaja Johanna Belitz katsoo, että stablecoinit voivat tehdä ulkomaanmaksuista paljon nopeampia ja halvempia, erityisesti EU:n ja ETA:n ulkopuolisiin maihin, joiden pankki-infrastruktuuri on heikompi, kertoo Finansavisen. Hänen arvionsa mukaan 10 000 kruunun pankkisiirto voi helposti maksaa yhteensä 300–600 kruunua, kun stablecoineilla hinta on 10–50 kruunua. Hän huomauttaa myös, ettei stablecoineilla ole valtion talletussuojaa ja että niihin liittyy sekä teknistä riskiä että riski sidonnan pettämisestä dollariin.",
-    "is": "Johanna Belitz, yfirmaður Valour á Norðurlöndum, telur að stöðugleikamyntir geti gert peningamillifærslur til útlanda mun hraðari og ódýrari, einkum til landa utan EES með veikari bankainnviði, segir Finansavisen. Samkvæmt mati hennar getur 10.000 króna bankamillifærsla hæglega kostað 300–600 krónur alls, á móti 10–50 krónum með stöðugleikamyntum. Hún bendir einnig á að stöðugleikamyntir njóti engrar ríkistryggingar á innstæðum og feli í sér bæði tæknilega áhættu og hættu á að tengingin við dollarann bresti."
+    "da": "Valours nordiske chef, Johanna Belitz, mener, at stablecoins kan gøre betalinger på tværs af grænser meget hurtigere og billigere.",
+    "fi": "Valourin Pohjoismaiden johtaja Johanna Belitz katsoo, että vakaakolikot voivat tehdä rajat ylittävistä maksuista paljon nopeampia ja halvempia.",
+    "is": "Johanna Belitz, yfirmaður Valour á Norðurlöndum, telur að stöðugleikamyntir geti gert greiðslur milli landa mun hraðari og ódýrari.",
+    "nb": "Valours nordiske sjef Johanna Belitz mener stablecoins kan gjøre betalinger over landegrensene mye raskere og billigere.",
+    "nn": "Den nordiske sjefen i Valour, Johanna Belitz, meiner stablecoins kan gjere betalingar over landegrensene mykje raskare og billegare.",
+    "sv": "Valours nordiska chef Johanna Belitz menar att stablecoins kan göra betalningar över gränserna mycket snabbare och billigare."
    },
    "paywall": true,
    "links": [],

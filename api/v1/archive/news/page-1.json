@@ -1,0 +1,62 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-15T22:41:55+00:00",
+ "preview": false,
+ "page": 1,
+ "pages": 1,
+ "page_size": 20,
+ "count": 2,
+ "newest_first": true,
+ "items": [
+  {
+   "type": "academic",
+   "id": "ac-2625939",
+   "title": "Minimum Hybrid Kontrakt (MHK): En kombinasjon av Juridiske og Blockchain-baserte Smarte Kontrakter",
+   "title_en": "The Minimum Hybrid Contract (MHC): Combining Legal and Blockchain Smart Contracts",
+   "title_i18n": {},
+   "source": "NTNU",
+   "source_name": "NTNU",
+   "url": "https://hdl.handle.net/11250/2625939",
+   "archive_url": null,
+   "published": "2019-01-01T00:00:00+00:00",
+   "published_precision": "year",
+   "country": "NO",
+   "language": "English",
+   "summary": "Jørgen Svennevik Notland's master's thesis on the Minimum Hybrid Contract (MHC): a legal contract combined with a blockchain smart contract for transparent, immutable financial transactions. Supervisors named on the NTNU Open record are Røger Sørheim and Donn Morrison. The NTNU Open degree-type field says bachelor.",
+   "summary_i18n": {},
+   "work_type": "master",
+   "authors": [
+    "Jørgen Svennevik Notland"
+   ],
+   "year": 2019,
+   "html_url": "https://nordiccrypto.no/archive/#ac-2625939",
+   "api_url": "https://nordiccrypto.no/api/v1/archive/news/page-1.json"
+  },
+  {
+   "type": "academic",
+   "id": "ac-10-13140-rg-2-2-22304-58886",
+   "title": "Blockchain enabled Trust & Transparency in supply chains",
+   "title_en": null,
+   "title_i18n": {},
+   "source": "NTNU",
+   "source_name": "NTNU",
+   "url": "https://doi.org/10.13140/rg.2.2.22304.58886",
+   "archive_url": null,
+   "published": "2017-01-01T00:00:00+00:00",
+   "published_precision": "year",
+   "country": "NO",
+   "language": "English",
+   "summary": "Project thesis at the NTNU School of Entrepreneurship, with Anders Viet Hua, on whether blockchain can increase trust and transparency in supply chains. ResearchGate dates the record 2017; a 2016 date also appears in another catalogue. It is not in NTNU Open.",
+   "summary_i18n": {},
+   "work_type": "project",
+   "authors": [
+    "Jørgen Svennevik Notland",
+    "Anders Viet Hua"
+   ],
+   "year": 2017,
+   "html_url": "https://nordiccrypto.no/archive/#ac-10-13140-rg-2-2-22304-58886",
+   "api_url": "https://nordiccrypto.no/api/v1/archive/news/page-1.json"
+  }
+ ]
+}

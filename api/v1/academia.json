@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-15T07:10:16+00:00",
+ "generated_at": "2026-10-15T22:41:55+00:00",
  "preview": false,
  "updated": "2026-10-15",
  "inclusion_rules": [
@@ -9,12 +9,12 @@
   "Every DOI or research-database link is sourced before it is listed; no fabricated citations.",
   "A student group is marked active only with dated activity in the last 12 months; otherwise inactive.",
   "Every row carries a source, a check date and a status. Only editor-approved rows are shown.",
-  "Publication types: master | phd | paper | conference (from research/academia/works.json)."
+  "Publication types: master | project | phd | paper | conference (from research/academia/works.json)."
  ],
  "counts": {
   "courses": 7,
   "groups": 3,
-  "publications": 0,
+  "publications": 2,
   "research": 3
  },
  "courses": [
@@ -199,7 +199,69 @@
    "api_url": "https://nordiccrypto.no/api/v1/academia/groups-www.linkedin.com-company-cbs-bitcoin.json"
   }
  ],
- "publications": [],
+ "publications": [
+  {
+   "country": "NO",
+   "title": "Minimum Hybrid Kontrakt (MHK): En kombinasjon av Juridiske og Blockchain-baserte Smarte Kontrakter",
+   "title_en": "The Minimum Hybrid Contract (MHC): Combining Legal and Blockchain Smart Contracts",
+   "authors": [
+    "Jørgen Svennevik Notland"
+   ],
+   "institution": "NTNU",
+   "year": 2019,
+   "type": "master",
+   "venue": "Master's thesis",
+   "doi": null,
+   "url": "https://hdl.handle.net/11250/2625939",
+   "db": "https://hdl.handle.net/11250/2625939",
+   "db_name": "NTNU Open",
+   "source": "https://hdl.handle.net/11250/2625939",
+   "about": "Jørgen Svennevik Notland's master's thesis on the Minimum Hybrid Contract (MHC): a legal contract combined with a blockchain smart contract for transparent, immutable financial transactions. Supervisors named on the NTNU Open record are Røger Sørheim and Donn Morrison. The NTNU Open degree-type field says bachelor.",
+   "keywords": [
+    "blockchain",
+    "smart contracts",
+    "legal contracts"
+   ],
+   "language": "English",
+   "checked": "2026-10-15",
+   "origin": "research/academia/works.json",
+   "about_i18n": {},
+   "id": "publications-hdl.handle.net-11250-2625939",
+   "section": "publications",
+   "api_url": "https://nordiccrypto.no/api/v1/academia/publications-hdl.handle.net-11250-2625939.json"
+  },
+  {
+   "country": "NO",
+   "title": "Blockchain enabled Trust & Transparency in supply chains",
+   "authors": [
+    "Jørgen Svennevik Notland",
+    "Anders Viet Hua"
+   ],
+   "institution": "NTNU",
+   "year": 2017,
+   "type": "project",
+   "venue": "Project thesis",
+   "doi": "10.13140/rg.2.2.22304.58886",
+   "url": "https://doi.org/10.13140/rg.2.2.22304.58886",
+   "db": "https://doi.org/10.13140/rg.2.2.22304.58886",
+   "db_name": "ResearchGate",
+   "source": "https://doi.org/10.13140/rg.2.2.22304.58886",
+   "about": "Project thesis at the NTNU School of Entrepreneurship, with Anders Viet Hua, on whether blockchain can increase trust and transparency in supply chains. ResearchGate dates the record 2017; a 2016 date also appears in another catalogue. It is not in NTNU Open.",
+   "keywords": [
+    "blockchain",
+    "supply chain",
+    "trust",
+    "transparency"
+   ],
+   "language": "English",
+   "checked": "2026-10-15",
+   "origin": "research/academia/works.json",
+   "about_i18n": {},
+   "id": "doi-10.13140_rg.2.2.22304.58886",
+   "section": "publications",
+   "api_url": "https://nordiccrypto.no/api/v1/academia/doi-10.13140_rg.2.2.22304.58886.json"
+  }
+ ],
  "research": [
   {
    "country": "NO",

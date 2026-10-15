@@ -17,8 +17,9 @@ Absolute URLs in this file use that origin, at the domain root.
 - [OpenAPI YAML](https://nordiccrypto.no/api/v1/openapi.yaml): the same document.
 - [API catalog](https://nordiccrypto.no/.well-known/api-catalog): RFC 9727 linkset. A .json copy is at https://nordiccrypto.no/.well-known/api-catalog.json.
 - [Site meta](https://nordiccrypto.no/api/v1/meta.json): languages, countries, page list, CORS, and brand social accounts.
-- Telegram: https://t.me/nordiccryptochat (`social.telegram`). X: https://x.com/nordiccryptobot (`social.x`, also `urls.x`). `name` is English. `name_i18n` has nn, nb, sv, da, fi and is. Other languages use `name`.
+- Telegram: https://t.me/nordiccryptochat (`social.telegram`). X: https://x.com/nordiccryptobot (`social.x`, also `urls.x`). Facebook: https://www.facebook.com/profile.php?id=61595548315551 (`social.facebook`, also `urls.facebook`). YouTube: https://www.youtube.com/@NordicCryptoTV (`social.youtube`, also `urls.youtube`). `name` is English. `name_i18n` has nn, nb, sv, da, fi and is. Other languages use `name`.
 - iOS app: public TestFlight invite in `ios`. `apple_tv` is English. `apple_tv_i18n` has every site language. The Nordic Crypto TestFlight version especially supports Apple TV. No App Store listing.
+- [Historical archive, page 1](https://nordiccrypto.no/api/v1/archive/news/page-1.json): news back to 2009 and academic works (master's theses, project theses and papers), newest first. The next page is page-2.json.
 - [Languages](https://nordiccrypto.no/api/v1/languages.json): site UI languages (code, native name, English name, rtl, home).
 - [Geo language](https://nordiccrypto.no/api/v1/geo-language.json): country to default language. An IP guess; the nc_lang cookie wins.
 - Browser notifications: opt-in Web Push. The Worker `GET /api/push/feed.json` repeats each publish as one batch (title, summary, URL). APNs is not implemented. Subscriptions are not in this API.
@@ -105,6 +106,7 @@ curl -fsS https://nordiccrypto.no/api/v1/talks.json
 - [/api/v1/changelog.json](https://nordiccrypto.no/api/v1/changelog.json): Site changelog (product changes, not the news), newest first.
 - [/api/v1/rules.json](https://nordiccrypto.no/api/v1/rules.json): How EU crypto rules become law in the five countries. Simplified, not legal advice. Omitted while the page is still a placeholder.
 - [/api/v1/archive/articles.json](https://nordiccrypto.no/api/v1/archive/articles.json): Append-only archive of stories that have been on the public site. removed is  true when a story later left the site; the row stays.
+- [/api/v1/archive/news/page-{page}.json](https://nordiccrypto.no/api/v1/archive/news/page-{page}.json): Historical Nordic crypto news and scientific works from the academia page (master's theses, project theses and papers), newest first. Page 1 is page-1.json. type is news or academic. A news row comes from data/archive/news/<year>.json. An academic row is not copied into those files. published for a work known only by year is 1 January UTC of that year. title_en, title_i18n and summary_i18n follow the news items.
 - [/api/v1/stats.json](https://nordiccrypto.no/api/v1/stats.json): Aggregate visitor counts from Cloudflare Web Analytics (no cookies): visits and page views per UTC day, ISO week and calendar month. updated_at is null and the lists are empty until the Web Analytics site and the refresh token are configured.
 - [/api/v1/markets.json](https://nordiccrypto.no/api/v1/markets.json): Nordic exchange prices. Market data, not investment advice. Each ticker names the exchange, fetched_at, the source URL and volume when the exchange published it. NOK, SEK, DKK and EUR only. aggregated is one row per pair.
 - [/api/v1/markets/aggregated.json](https://nordiccrypto.no/api/v1/markets/aggregated.json): One price per base-quote pair. BTC-NOK is separate from BTC-EUR. last is the mean of published last prices. mid is the mean of bid/ask midpoints and is not blended into last. Volume is summed only within the same field and the same pair. logo_url is a CC0 icon when cryptocurrency-icons includes the asset, otherwise null.
@@ -112,7 +114,7 @@ curl -fsS https://nordiccrypto.no/api/v1/talks.json
 - [/api/v1/markets/by-asset/{symbol}.json](https://nordiccrypto.no/api/v1/markets/by-asset/{symbol}.json): Prices for one asset (the base symbol, such as BTC) on every included Nordic exchange, plus aggregated pairs for each quote currency and logo_url when an icon is available.
 - [/api/v1/languages.json](https://nordiccrypto.no/api/v1/languages.json): Site UI languages: code, native name, English name, rtl, html lang and home URL.
 - [/api/v1/geo-language.json](https://nordiccrypto.no/api/v1/geo-language.json): Country to default site language. An IP guess only; the nc_lang cookie from the language switcher wins.
-- [/api/v1/meta.json](https://nordiccrypto.no/api/v1/meta.json): Site name, languages, countries, page list, CORS, editorial notes and brand social accounts (social.telegram, social.x).
+- [/api/v1/meta.json](https://nordiccrypto.no/api/v1/meta.json): Site name, languages, countries, page list, CORS, editorial notes and brand social accounts (social.telegram, social.x, social.facebook, social.youtube).
 
 ## Not in this feed
 
