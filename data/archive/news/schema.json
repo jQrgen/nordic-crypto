@@ -1,0 +1,28 @@
+{
+ "schema": 1,
+ "storage": "data/archive/news/<year>.json",
+ "note": "Historical Nordic crypto news, one file per publication year, back to 2009. Researchers add articles. Scientific works are not copied here: the archive page and /api/v1/archive/news/page-N.json read master's theses, project theses and papers from data/academia.json (the same rows as /academia/). There is no /db/ directory in this repo; this file is the storage contract, in the same JSON-collection style as data/books.json and data/talks.json.",
+ "file": {
+  "year": "Integer. Must match the file name, for example 2013.json.",
+  "articles": "Array of article objects. May be empty."
+ },
+ "article": {
+  "id": "Stable string, unique across every year file.",
+  "title": "Headline as published by the source.",
+  "title_en": "Our English headline, or null when title is already that headline.",
+  "title_i18n": "Object of site language codes to our headline. Same codes as a news item: nn, nb, sv, da, fi, is. English stays in title_en.",
+  "source": "Outlet id, or the outlet name when there is no id.",
+  "source_name": "Outlet name shown to readers. Optional; source is used when this is empty.",
+  "url": "https URL of the article.",
+  "archive_url": "https URL of an archived copy (for example a library or Wayback snapshot), or null.",
+  "published": "ISO 8601 timestamp with a timezone, the time the source published.",
+  "country": "NO, SE, DK, FI, IS, FO, GL, AX, NORDIC or EU.",
+  "language": "Source language, using the same names as news items when they fit: Norwegian, Swedish, Danish, Finnish, Icelandic, English.",
+  "summary": "Our summary in English.",
+  "summary_i18n": "Object of nn, nb, sv, da, fi, is to a published translation of summary. Omit a language until a translation exists."
+ },
+ "example": {
+  "year": 2009,
+  "articles": []
+ }
+}

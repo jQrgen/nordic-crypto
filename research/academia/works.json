@@ -1,5 +1,56 @@
 [
   {
+    "title": "Minimum Hybrid Kontrakt (MHK): En kombinasjon av Juridiske og Blockchain-baserte Smarte Kontrakter",
+    "title_en": "The Minimum Hybrid Contract (MHC): Combining Legal and Blockchain Smart Contracts",
+    "authors": [
+      "Jørgen Svennevik Notland"
+    ],
+    "year": 2019,
+    "type": "master",
+    "institution": "NTNU",
+    "country": "NO",
+    "url": "https://hdl.handle.net/11250/2625939",
+    "doi": null,
+    "relevance": "Jørgen Svennevik Notland's master's thesis on the Minimum Hybrid Contract (MHC): a legal contract combined with a blockchain smart contract for transparent, immutable financial transactions. Supervisors named on the NTNU Open record are Røger Sørheim and Donn Morrison. The NTNU Open degree-type field says bachelor.",
+    "keywords": [
+      "blockchain",
+      "smart contracts",
+      "legal contracts"
+    ],
+    "venue": "Master's thesis",
+    "source_db": "NTNU Open",
+    "language": "English",
+    "status": "approved",
+    "checked": "2026-10-15",
+    "editor_note": "approved, verified on NTNU Open 2026-10-15"
+  },
+  {
+    "title": "Blockchain enabled Trust & Transparency in supply chains",
+    "authors": [
+      "Jørgen Svennevik Notland",
+      "Anders Viet Hua"
+    ],
+    "year": 2017,
+    "type": "project",
+    "institution": "NTNU",
+    "country": "NO",
+    "url": "https://doi.org/10.13140/rg.2.2.22304.58886",
+    "doi": "10.13140/rg.2.2.22304.58886",
+    "relevance": "Project thesis at the NTNU School of Entrepreneurship, with Anders Viet Hua, on whether blockchain can increase trust and transparency in supply chains. ResearchGate dates the record 2017; a 2016 date also appears in another catalogue. It is not in NTNU Open.",
+    "keywords": [
+      "blockchain",
+      "supply chain",
+      "trust",
+      "transparency"
+    ],
+    "venue": "Project thesis",
+    "source_db": "ResearchGate",
+    "language": "English",
+    "status": "approved",
+    "checked": "2026-10-15",
+    "editor_note": "approved, verified via ResearchGate DOI 2026-10-15"
+  },
+  {
     "title": "A Comparative Analysis of Data-at-Rest Encryption in Browser Extension Cryptocurrency Wallets",
     "authors": [
       "Severi Seppä"
