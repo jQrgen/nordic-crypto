@@ -1,0 +1,17 @@
+{
+ "issue": "002",
+ "mode": "drafts only (review-first; pass --send to deliver)",
+ "queued": 50,
+ "suppressed": 0,
+ "already_sent": 0,
+ "sent": 0,
+ "failed": 0,
+ "languages": [
+  "da",
+  "en",
+  "fi",
+  "is",
+  "no",
+  "sv"
+ ]
+}

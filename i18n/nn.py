@@ -250,6 +250,8 @@ S.update({
 # the site's own X account (@nordiccryptobot), header/footer/newsletter
 "x_btn": "Følg på X", "x_follow": "Følg Nordic Crypto på X", "x_title": "Nordic Crypto på X (@nordiccryptobot), nettstaden sin eigen konto",
 "tg_btn": "Bli med på Telegram", "tg_label": "Telegram", "tg_follow": "Nordic Crypto på Telegram", "tg_title": "Nordic Crypto på Telegram (t.me/nordiccryptochat), merkevaren sin chat",
+"fb_btn": "Følg på Facebook", "fb_follow": "Nordic Crypto på Facebook", "fb_title": "Nordic Crypto på Facebook, sida til merkevaren",
+"yt_btn": "Sjå på YouTube", "yt_follow": "Nordic Crypto på YouTube", "yt_title": "Nordic Crypto på YouTube (@NordicCryptoTV), kanalen til merkevaren",
 "social_h": "Fellesskap", "social_aria": "Nordic Crypto i sosiale medium", "social_lead": "Nordic Crypto-chatten er på Telegram, og merkevarekontoen er på X.",
 "nl_write": "Vil du skrive for Nordic Crypto? <a href=\"{href}\">Søk som spaltist</a>. Redaktøren les kvar søknad. Publisering er ikkje garantert, og ein spalte er ikkje investeringsråd.",
 "col_title": "Søk som spaltist",

@@ -298,9 +298,74 @@ def choose(entries, limit=30):
 
 def _rank_child(url):
     u = url.lower()
+    if "news-sitemap" in u or "news_sitemap" in u or "sitemap-news" in u:
+        return -1
     if any(k in u for k in ("news", "post", "article", "blogg", "nyhet", "press")):
         return 0
     return 1
+
+
+ALT_SITEMAPS = ("/sitemap.xml", "/sitemap_index.xml", "/wp-sitemap.xml", "/news-sitemap.xml", "/sitemap-news.xml")
+
+
+def robots_sitemaps(text):
+    """Sitemap: lines from robots.txt, news sitemaps first."""
+    found = re.findall(r"(?im)^\s*sitemap:\s*(\S+)", text or "")
+    return sorted(dict.fromkeys(found), key=_rank_child)
+
+
+def sitemap_candidates(origin, fetch):
+    """robots.txt Sitemap lines first, then the usual alternate paths. At most five."""
+    base = origin.rstrip("/")
+    out = []
+    st, body = fetch(base + "/robots.txt")
+    if st == 200 and body:
+        out.extend(u for u in robots_sitemaps(body) if u.startswith("http"))
+    for path in ALT_SITEMAPS:
+        url = base + path
+        if url not in out:
+            out.append(url)
+    return out[:5]
+
+
+def feed_links(html, base):
+    """RSS/Atom URLs a page announces with <link rel="alternate" type="application/rss+xml">."""
+    out = []
+    for tag in re.findall(r"<link\b[^>]*>", html or "", re.I):
+        if not re.search(r"application/(?:rss|atom)\+xml", tag, re.I):
+            continue
+        m = re.search(r'href=["\']([^"\']+)', tag, re.I)
+        if m:
+            url = urllib.parse.urljoin(base, m.group(1).replace("&amp;", "&"))
+            if url not in out and not re.search(r"/comments/feed|/wp-json/", url):
+                out.append(url)
+    return out
+
+
+def discover_feed(page_url, fetch):
+    st, body = fetch(page_url)
+    if st != 200 or not body:
+        return ""
+    links = feed_links(body, page_url)
+    return links[0] if links else ""
+
+
+def parse_feed(text, base, zone=None):
+    """Entries from an RSS/Atom feed found by discovery. Title, link, summary, date."""
+    try:
+        import feedparser
+    except ImportError:
+        return []
+    out = []
+    for e in feedparser.parse(text).entries:
+        url = urllib.parse.urljoin(base, e.get("link") or "")
+        if not url.startswith("http"):
+            continue
+        inst = pubtime.from_feed_entry(e, _zone(zone, url))
+        summary = re.sub(r"<[^>]+>", " ", e.get("summary") or "")
+        out.append({"url": url, "title": re.sub(r"\s+", " ", e.get("title") or "").strip(),
+                    "summary": re.sub(r"\s+", " ", summary).strip(), "published": inst.dt if inst else url_date(url)})
+    return out
 
 
 def collect(page_url, get, robots_ok, limit=30, zone=None):
@@ -325,11 +390,15 @@ def collect(page_url, get, robots_ok, limit=30, zone=None):
             errors.append(type(ex).__name__)
             return 0, ""
 
-    sitemap = origin.rstrip("/") + "/sitemap.xml"
-    status, text = fetch(sitemap)
     children, entries = ([], [])
-    if status == 200 and text:
-        children, entries = parse_sitemap(text, sitemap, zone)
+    for sitemap in sitemap_candidates(origin, fetch):
+        status, text = fetch(sitemap)
+        if status == 200 and text:
+            more_children, more = parse_sitemap(text, sitemap, zone)
+            children.extend(c for c in more_children if c not in children)
+            entries.extend(more)
+        if entries:
+            break
     if not entries and children:
         ordered = sorted(children, key=_rank_child)[:2]
         for child in ordered:
@@ -373,6 +442,14 @@ def collect(page_url, get, robots_ok, limit=30, zone=None):
                     e["summary"] = hit.get("summary") or ""
         return picked, "sitemap", None
 
+    feed_url = discover_feed(page_url if str(page_url).startswith("http") else origin, fetch)
+    if feed_url:
+        st, body = fetch(feed_url)
+        if st == 200 and body:
+            picked = choose(parse_feed(body, feed_url, zone), limit)
+            if picked:
+                return picked, "rss", None
+
     for path in CMS_PATHS:
         url = origin.rstrip("/") + path
         st, body = fetch(url)
@@ -400,7 +477,7 @@ def collect(page_url, get, robots_ok, limit=30, zone=None):
     picked = choose(html_entries, limit)
     if picked:
         return picked, "html", None
-    return [], "", "no sitemap or index links" if not errors else "no sitemap or index links"
+    return [], "", "no sitemap or index links"
 
 
 def apply_listing_sources(sources):

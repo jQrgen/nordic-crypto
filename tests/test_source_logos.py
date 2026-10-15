@@ -29,6 +29,8 @@ def main():
     fi = source_logos.for_source("fi-se", preview=False)
     check(fi and fi["file"].endswith("se-fi.svg") and fi["id"] == "se-fi", "fi-se file")
     check(source_logos.for_source("nbx-ir", preview=False)["id"] == "nbx", "nbx-ir uses the NBX logo")
+    kv = source_logos.for_source("kryptovalutaguiden", preview=False)
+    check(kv and kv["file"].endswith("kryptovalutaguiden.webp") and kv["id"] == "kryptovalutaguiden", "kryptovalutaguiden wordmark")
 
     build.LANG = "en"
     build.PREVIEW = False
@@ -48,6 +50,7 @@ def main():
 
     ids = {j["id"] for j in source_logos.outlets_to_fetch()}
     check("kaupr" not in ids and "se-fi" not in ids, "checked logos are not refetched")
+    check("kryptovalutaguiden" not in ids, "kryptovalutaguiden logo is already stored")
     check(not any(i.startswith("bing-") for i in ids), "bing search is not an outlet")
     check(source_logos.canonical_id("sydsvenskan.se") == "sydsvenskan.se", "one-off source id")
     if source_logos.for_source("sydsvenskan.se", preview=True) is None:

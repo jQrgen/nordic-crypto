@@ -125,7 +125,9 @@ Public TestFlight invite, linked from the footer, the homepage, `/markets/` and 
 Nordic Crypto brand accounts, linked from the footer, About and the newsletter, in every site language (English until a translation is written):
 
 - Telegram: https://t.me/nordiccryptochat
-- X: https://x.com/nordiccryptobot
+- X: https://x.com/nordiccryptobot (each weekly newsletter issue is posted there as a thread with its newsreel; see `docs/x-newsletter.md`)
+
+Each weekly newsletter issue is also posted to the Nordic Crypto Facebook Page as a video post; see `docs/fb-newsletter.md`.
 
 The iOS app reads them from `social` on `/api/v1/meta.json` (`social.telegram`, `social.x`). `name` is English. `name_i18n` has nn, nb, sv, da, fi and is. The source-code link on each page stays.
 
@@ -511,3 +513,7 @@ No health or private financial data about anyone, no org numbers, LEIs, addresse
 **Visitor stats (GDPR).** `/stats/#data-policy` is the data policy for the published Cloudflare Web Analytics numbers: who is responsible (jQrgen), what the beacon collects, that only daily, weekly and monthly totals are published, the legal basis (GDPR Art. 6(1)(f), legitimate interest), retention (Cloudflare about six months; the site keeps only daily totals), Cloudflare, Inc. as processor, and questions through GitHub issues or a complaint to Datatilsynet. While `analytics.json` has no token, the section says the script is not switched on yet. The footer and About link to it. Strings: `vdp_*` in `i18n/`.
 
 **Shoutbox.** Off until `chat/config.json` is enabled. When it is on, the worker stores the nickname, the message and a daily-rotated IP hash. It does not store the raw IP and it does not set a cookie. The nickname stays in local storage. Cloudflare Web Analytics is unchanged: aggregate visits, no cookies, data not sold. The About page says the same.
+
+## Press releases
+
+See [docs/press-releases.md](docs/press-releases.md).

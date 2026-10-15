@@ -351,10 +351,21 @@
      "items": {
       "type": "object",
       "additionalProperties": {
-       "type": "string"
+       "type": [
+        "string",
+        "boolean",
+        "null"
+       ]
       }
      },
      "description": "Other outlets on the same event."
+    },
+    "merged_into": {
+     "type": "string",
+     "description": "Id of the story this item was merged into (status merged).",
+     "examples": [
+      "5285674a58d8"
+     ]
     }
    },
    "additionalProperties": false,

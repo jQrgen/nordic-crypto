@@ -250,6 +250,8 @@ S.update({
 # the site's own X account (@nordiccryptobot), header/footer/newsletter
 "x_btn": "Fylgdu á X", "x_follow": "Fylgdu Nordic Crypto á X", "x_title": "Nordic Crypto á X (@nordiccryptobot), eigin reikningur síðunnar",
 "tg_btn": "Taktu þátt á Telegram", "tg_label": "Telegram", "tg_follow": "Nordic Crypto á Telegram", "tg_title": "Nordic Crypto á Telegram (t.me/nordiccryptochat), spjall vörumerkisins",
+"fb_btn": "Fylgdu á Facebook", "fb_follow": "Nordic Crypto á Facebook", "fb_title": "Nordic Crypto á Facebook, síða vörumerkisins",
+"yt_btn": "Horfðu á YouTube", "yt_follow": "Nordic Crypto á YouTube", "yt_title": "Nordic Crypto á YouTube (@NordicCryptoTV), rás vörumerkisins",
 "social_h": "Samfélag", "social_aria": "Nordic Crypto á samfélagsmiðlum", "social_lead": "Spjall Nordic Crypto er á Telegram, og vörumerkjareikningurinn er á X.",
 "nl_write": "Viltu skrifa fyrir Nordic Crypto? <a href=\"{href}\">Sækja um að skrifa pistil</a>. Ritstjórinn les hverja umsókn. Birting er ekki tryggð og pistill er ekki fjárfestingarráðgjöf.",
 "col_title": "Sækja um að skrifa pistil",

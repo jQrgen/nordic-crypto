@@ -81,6 +81,10 @@ def strings(lang):
         if not database:
             raise RuntimeError("database strings missing for " + lang)
         base.update(database)
+        archive = importlib.import_module("i18n.archive_strings").S.get(lang)   # /archive/ page, all languages
+        if not archive:
+            raise RuntimeError("archive strings missing for " + lang)
+        base.update(archive)
         _S[lang] = base
     return _S[lang]
 MISSING = set()

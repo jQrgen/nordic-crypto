@@ -380,12 +380,13 @@
     },
     "type": {
      "type": "string",
-     "description": "master, phd, paper or conference.",
+     "description": "master, project, phd, paper or conference.",
      "enum": [
       "master",
       "phd",
       "paper",
-      "conference"
+      "conference",
+      "project"
      ],
      "examples": [
       "phd"
@@ -474,6 +475,26 @@
      "type": "string",
      "examples": [
       "research/academia/works.json"
+     ]
+    },
+    "title_en": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "description": "English title when the original is in another language.",
+     "examples": [
+      "The Minimum Hybrid Contract (MHC): Combining Legal and Blockchain Smart Contracts"
+     ]
+    },
+    "language": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "description": "Language of the work, as given by the catalogue.",
+     "examples": [
+      "English"
      ]
     }
    },

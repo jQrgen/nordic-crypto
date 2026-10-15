@@ -250,6 +250,8 @@ S.update({
 # the site's own X account (@nordiccryptobot), header/footer/newsletter
 "x_btn": "Följ på X", "x_follow": "Följ Nordic Crypto på X", "x_title": "Nordic Crypto på X (@nordiccryptobot), webbplatsens eget konto",
 "tg_btn": "Gå med på Telegram", "tg_label": "Telegram", "tg_follow": "Nordic Crypto på Telegram", "tg_title": "Nordic Crypto på Telegram (t.me/nordiccryptochat), varumärkets chatt",
+"fb_btn": "Följ på Facebook", "fb_follow": "Nordic Crypto på Facebook", "fb_title": "Nordic Crypto på Facebook, varumärkets sida",
+"yt_btn": "Titta på YouTube", "yt_follow": "Nordic Crypto på YouTube", "yt_title": "Nordic Crypto på YouTube (@NordicCryptoTV), varumärkets kanal",
 "social_h": "Gemenskap", "social_aria": "Nordic Crypto i sociala medier", "social_lead": "Nordic Cryptos chatt finns på Telegram, och varumärkeskontot finns på X.",
 "nl_write": "Vill du skriva för Nordic Crypto? <a href=\"{href}\">Ansök som krönikör</a>. Redaktören läser varje ansökan. Publicering är inte garanterad, och en krönika är inte investeringsrådgivning.",
 "col_title": "Ansök som krönikör",

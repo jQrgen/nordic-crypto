@@ -88,6 +88,8 @@ def t(key, **kw): return i18n.t(LANG, key, **kw)
 def lp(lang=None): lang = lang or LANG; return "" if lang == "en" else lang + "/"
 def up1(): return "../../" if LANG != "en" else "../"   # from a top-level page (e.g. calendar/) to the site root (data/, assets/)
 def endate(iso):
+    if len(iso or "") == 10:  # date-only publish time (the page gave no clock)
+        return i18n.short_date(LANG, dt.datetime.fromisoformat(iso).replace(hour=12, tzinfo=OSLO))
     return i18n.short_date(LANG, dt.datetime.fromisoformat(iso).astimezone(OSLO))
 COUNTRY_CODES = ["NO", "SE", "DK", "FI", "IS"]
 class _C(dict):  # country names in the current language
@@ -135,7 +137,7 @@ CSS = site_css.bundle().replace("__ROOT__", site_url.PATH)   # assets/css/*.css,
 # api is the human-readable docs: /api/ in English, /<lang>/api/ in the other site languages.
 # The first NAV_MAIN entries are the sections in the header. The rest (newsletter = the Subscribe button, and the pages
 # about the site) are in the footer columns, and all of them are in the phone menu. Chat is inserted by nav_items() only while enabled.
-NAV = [("", "nav_news"), ("calendar", "nav_calendar"), ("markets", "nav_markets"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("books", "nav_books"), ("talks", "nav_talks"), ("newsletter", "nav_newsletter"), ("sources", "nav_sources"), ("about", "nav_about"), ("tip", "nav_tip"), ("api", "nav_api")]
+NAV = [("", "nav_news"), ("calendar", "nav_calendar"), ("markets", "nav_markets"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("books", "nav_books"), ("talks", "nav_talks"), ("archive", "nav_archive"), ("newsletter", "nav_newsletter"), ("sources", "nav_sources"), ("about", "nav_about"), ("tip", "nav_tip"), ("api", "nav_api")]
 NAV_MAIN = 7
 COOKIE_PATH = site_url.PATH   # "/" on the public domain; a path prefix if BASE ever has one
 def geo_endpoint():
@@ -217,15 +219,33 @@ def header_subscribe_button(rel):
     return f'<a class="hdrsub" href="{rel}newsletter/#signup">{E(t("nl_btn") if newsletter_form(True) else t("foot_follow"))}</a>'
 def header_buttons(rel):
     """Subscribe, then Join on Telegram, then Follow on X, then the source code on GitHub. Left-aligned, in that order."""
-    return header_subscribe_button(rel) + header_telegram_button() + header_x_button() + header_github_button()
+    return header_subscribe_button(rel) + header_telegram_button() + header_x_button() + header_facebook_button() + header_youtube_button() + header_github_button()
 # Nordic Crypto brand accounts (not jQrgen's personal profiles). Plain links only: no widgets, scripts or embeds.
 SITE_X = "https://x.com/nordiccryptobot"
 SITE_TELEGRAM = "https://t.me/nordiccryptochat"
+SITE_FACEBOOK = "https://www.facebook.com/profile.php?id=61595548315551"
+SITE_YOUTUBE = "https://www.youtube.com/@NordicCryptoTV"
 ICON_GLOBE = '<svg class="ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>'
 ICON_TG = ('<svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" '
            'd="M21.9 4.3 18.7 19.4c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13 1.4 11.5c-1-.3-1.1-1 .2-1.5L20.5 2.8c.9-.3 1.7.2 1.4 1.5z"/></svg>')
 ICON_X = ('<svg class="ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" '
           'd="M18.2 2.3h3.4l-7.4 8.4 8.7 11.5h-6.8l-5.3-7-6.1 7H1.3l7.9-9L.8 2.3h7l4.8 6.4zm-1.2 17.9h1.9L6.9 4.2H4.9z"/></svg>')
+ICON_FB = ('<svg class="ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" '
+           'd="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.97h-1.52c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>')
+def header_facebook_button():
+    """'Follow on Facebook' beside the X button, built the same way."""
+    return f'<a class="hdrfb" href="{SITE_FACEBOOK}" rel="noopener" title="{E(t("fb_title"))}">{ICON_FB}<span class="lbl">{E(t("fb_btn"))}</span></a>'
+def facebook_link():
+    """'Nordic Crypto on Facebook' link. The brand Page."""
+    return f'<a class="fbfollow" href="{SITE_FACEBOOK}" rel="noopener noreferrer" title="{E(t("fb_title"))}">{E(t("fb_follow"))}</a>'
+ICON_YT = ('<svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" '
+           'd="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6z"/></svg>')
+def header_youtube_button():
+    """'Watch on YouTube' beside the Facebook button, built the same way."""
+    return f'<a class="hdryt" href="{SITE_YOUTUBE}" rel="noopener" title="{E(t("yt_title"))}">{ICON_YT}<span class="lbl">{E(t("yt_btn"))}</span></a>'
+def youtube_link():
+    """'Nordic Crypto on YouTube' link. The brand channel, @NordicCryptoTV."""
+    return f'<a class="ytfollow" href="{SITE_YOUTUBE}" rel="noopener noreferrer" title="{E(t("yt_title"))}">{E(t("yt_follow"))}</a>'
 def header_telegram_button():
     """'Join on Telegram' in the header: an icon on wide screens (the label stays for screen readers), icon and label in the phone menu."""
     return f'<a class="hdrtg" href="{SITE_TELEGRAM}" rel="noopener" title="{E(t("tg_title"))}">{ICON_TG}<span class="lbl">{E(t("tg_btn"))}</span></a>'
@@ -254,7 +274,7 @@ def contributors_link():
     return f'<a href="{REPO_CONTRIBUTORS}" rel="noopener">{E(t("contributors"))}</a>'
 def community_links():
     """Left-aligned brand links for the footer, About and the newsletter. The source-code link stays separate."""
-    return f'<nav class="community" aria-label="{E(t("social_aria"))}">{telegram_link()}{x_link()}</nav>'
+    return f'<nav class="community" aria-label="{E(t("social_aria"))}">{telegram_link()}{x_link()}{facebook_link()}{youtube_link()}</nav>'
 def community_section():
     """About-page block. Strings come from i18n and fall back to English."""
     return f'<h2 id="community">{E(t("social_h"))}</h2><p>{E(t("social_lead"))}</p>{community_links()}'
@@ -404,7 +424,9 @@ def nl_follow_box(rel, hid, privacy=False):
     top = (form + (f'<p class="notice">{t("nl_priv")}</p>' if privacy else "")) if form else f'<p class="nlsoon">{E(t("nl_soon"))}</p>'
     ways = (f'<p class="nlways"><a href="{E(rel)}rss.xml">{ICON_RSS}{E(t("nl_rss"))}</a>'
             f'<a href="{SITE_TELEGRAM}" rel="noopener">{ICON_TG}{E(t("tg_btn"))}</a>'
-            f'<a href="{SITE_X}" rel="noopener">{ICON_X}{E(t("x_btn"))}</a></p>')
+            f'<a href="{SITE_X}" rel="noopener">{ICON_X}{E(t("x_btn"))}</a>'
+            f'<a href="{SITE_FACEBOOK}" rel="noopener">{ICON_FB}{E(t("fb_btn"))}</a>'
+            f'<a href="{SITE_YOUTUBE}" rel="noopener">{ICON_YT}{E(t("yt_btn"))}</a></p>')
     return f'<section class="nlbox" id="{"signup" if privacy else "nl-next"}" aria-labelledby="{hid}"><h2 id="{hid}">{E(t("nl_next_h"))}</h2>{top}{ways}</section>'
 def build_newsletter():
     """/newsletter/ in every language (the Newsletter tab): the issues (newest first, each with its own page), the
@@ -633,6 +655,7 @@ def site_footer(rel, root, slug=""):
         return (f'<li><a href="{E(href)}"{" rel=\"noopener\"" if ext else ""}>{E(label)}</a>'
                 + (f' <span class="meta">{E(note)}</span>' if note else "") + '</li>')
     sections = "".join(li(rel + (n + "/" if n else ""), t(k)) for n, k in nav_items()[:NAV_MAIN])
+    sections += li(rel + "archive/", t("nav_archive"))   # with the news section; in the phone menu, not a header tab
     sections += li(rel + "developers/", t("dev_nav"))   # under Who's who; not a header tab
     site = (li(rel + "about/", t("nav_about")) + li(rel + "sources/", t("nav_sources")) + li(rel + "ethics/", t("ethics_title")) + li(rel + "contact/", t("contact_title"))
             + li(rel + "budget/", t("bud_nav"))
@@ -640,7 +663,7 @@ def site_footer(rel, root, slug=""):
             + li(rel + "tip/", t("nav_tip")) + li(rel + "api/", t("foot_api")) + li(rel + "db/", t("db_nav"))
             + li(REPO_CONTRIBUTORS, t("contributors"), True)
             + (li(rel + "treasury/", t("nav_treasury")) if event_nft.enabled() else ""))
-    follow = (li(rel + "newsletter/", t("nav_newsletter")) + li(SITE_TELEGRAM, t("tg_label"), True) + li(SITE_X, "X", True) + li(rel + "rss.xml", "RSS")
+    follow = (li(rel + "newsletter/", t("nav_newsletter")) + li(SITE_TELEGRAM, t("tg_label"), True) + li(SITE_X, "X", True) + li(SITE_FACEBOOK, "Facebook", True) + li(SITE_YOUTUBE, "YouTube", True) + li(rel + "rss.xml", "RSS")
               + li("https://testflight.apple.com/join/nQ2fpjZn", t("ios_link"), True, t("ios_tv")) + li(root + "screen/", t("screen_short")))
     nlfoot = (f'<div class="nlfoot"><b>{E(t("nl_foot"))}</b> {newsletter_offer(rel, compact=True)}</div>'
               if slug != "newsletter" and newsletter_form(True) else "")
@@ -848,6 +871,7 @@ def _cov_when(iso):
     if not iso: return ""
     try: d = dt.datetime.fromisoformat(iso).astimezone(OSLO)
     except ValueError: return ""
+    if len(iso) == 10: return endate(iso)
     return f"{endate(iso)} {d.strftime('%H:%M')}"
 def _bar(label_html, count, share):
     pct = max(0, min(100, round((share or 0) * 100)))
@@ -981,7 +1005,14 @@ def build():
         from tools.d1_store import materialize
         # Approved rows replace the working news and events files for this build.
         # queue/approved.json is not written: org-chart decisions stay in that file.
-        D1_EVENTS = materialize(ROOT, preview=PREVIEW)
+        try:
+            D1_EVENTS = materialize(ROOT, preview=PREVIEW)
+        except Exception as ex:
+            # NC_D1_FALLBACK=json: build from the committed JSON snapshot when D1 cannot be read
+            # (offline, token missing). Off by default so CI never publishes stale data silently.
+            if os.environ.get("NC_D1_FALLBACK", "").strip().lower() != "json": raise
+            print(f"build: D1 unavailable ({str(ex).splitlines()[0][:200]}); building from the JSON snapshot", file=sys.stderr)
+            subprocess.run([sys.executable, P("tools", "apply_approvals.py")], check=True, timeout=180)
     else:
         subprocess.run([sys.executable, P("tools", "apply_approvals.py")], check=True, timeout=180)
     subprocess.run([sys.executable, P("tools", "import_orgchart.py")], check=True, timeout=180)
@@ -2017,6 +2048,8 @@ def public_extra(item):
         extra["primary_source"] = doc
     if (item or {}).get("published_unverified"):
         extra["published_unverified"] = True
+    if (item or {}).get("published_date_only"):
+        extra["published_date_only"] = True
     return extra
 def cited_source(item):
     """Link to an editor-recorded original document, such as a regulator press release.
@@ -2085,6 +2118,7 @@ def build_lang(ctx):
     more_btn = (f'<button type="button" class="morebtn" data-more>{E(t("more_stories", n=len(rest_cards) - FRONT_SHOWN))}</button>'
                 if len(rest_cards) > FRONT_SHOWN else "")
     latest = (f'<section class="latest home-river" aria-labelledby="latest-h"><h2 id="latest-h">{E(t("latest_h"))}</h2>'
+              f'<p class="meta"><a href="archive/">{E(t("arc_home_link"))}</a></p>'
               f'<div class="storygrid">{rest}</div>{more_btn}</section>') if rest_cards else ""
     news = ctx["news"]; upd = endate(news["updated"]) if news.get("updated") else ""
     root = "../" if LANG != "en" else ""
@@ -2099,6 +2133,7 @@ def build_lang(ctx):
 </div></section>"""
     events_block = front_events_block(*(ctx["events"] if isinstance(ctx.get("events"), tuple) else (ctx.get("events") or [], site_now())), compact=True)
     tools = (f'<section class="railbox"><h2>{E(t("rail_more"))}</h2><ul class="raillinks">'
+             f'<li><a href="archive/">{E(t("arc_home_link"))}</a></li>'
              f'<li><a href="markets/">{E(t("mk_home_link"))}</a></li>'
              f'<li><a href="{root}screen/">{E(t("screen_short"))}</a></li>'
              f'<li><a href="https://testflight.apple.com/join/nQ2fpjZn" rel="noopener">{E(t("ios_link"))}</a> <span class="meta">{E(t("ios_note"))} {E(t("ios_tv"))}</span></li></ul></section>')
@@ -2108,7 +2143,7 @@ def build_lang(ctx):
 {latest}
 <aside class="home-more" aria-labelledby="nlhome-h"><section class="railbox nlhome"><h2 id="nlhome-h">{E(t("nl_title"))}</h2>{home_signup}</section>{tools}</aside>
 </div>
-<div class="notice home-note"><p>{E(t("home_lead", upd=upd, n=len(items), pend=t("home_pend", n=len(pending)) if pending else ""))}</p><p>{E(t("home_notice"))}</p></div>"""
+<div class="notice home-note"><p>{E(t("home_lead", upd=upd, n=len(items), pend=t("home_pend", n=len(pending)) if pending else ""))}</p><p>{E(t("home_notice"))}</p><p><a href="archive/">{E(t("arc_home_link"))}</a></p></div>"""
     body = home_with_chat(body)
     page("", t("home_title"), "", body, t("home_desc"), front_events_script() + MORE_STORIES_JS, hero=hero)
     build_coverage_pages(items, ctx["blurbs"])
@@ -2123,6 +2158,7 @@ def build_lang(ctx):
     build_event_pages(*(_ev if isinstance(_ev, tuple) else (_ev or [], site_now())))
     build_event_nft()
     build_talks()
+    build_archive()
     build_academia()
     build_books()
     build_developers()
@@ -3302,6 +3338,231 @@ cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('ari
     page("calendar", t("cal_title"), "calendar", body, t("cal_desc"), js + calendar_phase_script() + event_map_script(body))
     if LANG == "en": print(f"calendar: {len(upcoming)} upcoming, {len(ongoing)} ongoing {per_c}, {len(past)} past")
 
+def _arc_rel(from_slug, to_slug):
+    """Link from one page directory to another, both under this language."""
+    ups = "../" * len([p for p in from_slug.split("/") if p])
+    return ups + to_slug.strip("/") + "/"
+
+def _arc_heads(item):
+    """Page-language headline first. The source headline follows when it differs. Same rule as a news card."""
+    title = item.get("title") or ""
+    title_en = item.get("title_en") or ""
+    i18n_title = (item.get("title_i18n") or {}).get(LANG) or ""
+    if i18n_title:
+        head = i18n_title
+    elif LANG == "en" and title_en:
+        head = title_en
+    elif LANG != "en" and title_en:
+        head = title_en
+    else:
+        head = title
+    orig = title if head and title and head != title else ""
+    return head, orig
+
+def _arc_summary(item):
+    text = (item.get("summary_i18n") or {}).get(LANG) or item.get("summary") or ""
+    lang = LANG if (item.get("summary_i18n") or {}).get(LANG) else "en"
+    return text, lang
+
+def _arc_label(item):
+    if item.get("type") == "news":
+        return t("arc_news")
+    kind = item.get("work_type") or "paper"
+    key = "arc_work_" + kind
+    return t(key) if i18n.has("en", key) else kind
+
+def _arc_when(item):
+    if item.get("published_precision") == "year" and item.get("year"):
+        return str(item["year"])
+    raw = item.get("published") or ""
+    if not raw:
+        return ""
+    try:
+        return endate(raw)
+    except (ValueError, TypeError):
+        return raw[:10]
+
+def build_archive(page_size=None):
+    """ /archive/ : historical news and the academia page's theses and papers, newest first.
+
+    The first page of each view is in the HTML. Further pages are real links (no JavaScript).
+    With JavaScript, IntersectionObserver appends the next matching rows from /api/v1/archive/news/page-N.json.
+    """
+    sys.path.insert(0, P("tools"))
+    import news_archive
+    size = page_size or news_archive.PAGE_SIZE
+    items = news_archive.public_items()
+    news_count = sum(1 for r in items if r.get("type") == "news")
+    countries = [c for c in news_archive.COUNTRIES if any(r.get("country") == c for r in items)]
+    views = [(None, None)]
+    views += [(None, kind) for kind in ("news", "academic")]
+    for country in countries:
+        views.append((country, None))
+        views += [(country, kind) for kind in ("news", "academic")]
+
+    def view_items(country, kind):
+        rows = items
+        if country:
+            rows = [r for r in rows if r.get("country") == country]
+        if kind:
+            rows = [r for r in rows if r.get("type") == kind]
+        return rows
+
+    def slug_for(country, kind, page):
+        parts = ["archive"]
+        if country:
+            parts += ["country", country]
+        if kind:
+            parts += ["type", kind]
+        if page > 1:
+            parts += ["page", str(page)]
+        return "/".join(parts)
+
+    def year_starts(rows):
+        found, starts = set(), {}
+        for index, row in enumerate(rows):
+            year = row.get("year")
+            if year and year not in found:
+                found.add(year)
+                starts[year] = index // size + 1
+        return starts
+
+    def article(row):
+        head, orig = _arc_heads(row)
+        summary, slang = _arc_summary(row)
+        orig_html = f'<p class="orig">{E(orig)}</p>' if orig else ""
+        summary_html = f'<p class="sum"{lang_attr(slang)}>{E(summary)}</p>' if summary else ""
+        authors = ", ".join(row.get("authors") or [])
+        who = f' · {E(authors)}' if authors else ""
+        archive = ""
+        if row.get("archive_url"):
+            archive = f'<p class="meta"><a href="{E(row["archive_url"])}" rel="noopener">{E(t("arc_archived"))}</a></p>'
+        shown = _arc_when(row)
+        time = f'<time datetime="{E(row.get("published") or "")}">{E(shown)}</time>' if shown else ""
+        place = cname(row.get("country")) if row.get("country") else ""
+        bits = []
+        if place:
+            bits.append(f'{flag(row.get("country"), deco=True)}{E(place)}')
+        bits.append(E(_arc_label(row)))
+        if row.get("source_name"):
+            bits.append(E(row["source_name"]))
+        if time:
+            bits.append(time)
+        return (f'<article class="arcitem" id="{E(row["id"])}" data-id="{E(row["id"])}" data-c="{E(row.get("country") or "")}" '
+                f'data-type="{E(row.get("type") or "")}" data-y="{E(row.get("year") or "")}">'
+                f'<h3><a href="{E(row.get("url") or "")}" rel="noopener">{E(head)}</a></h3>{orig_html}'
+                f'<p class="meta">{" · ".join(bits)}{who}</p>{summary_html}{archive}</article>')
+
+    def year_blocks(rows):
+        if not rows:
+            return ""
+        out, current = [], None
+        for row in rows:
+            year = row.get("year")
+            if year != current:
+                if current is not None:
+                    out.append("</section>")
+                current = year
+                label = str(year) if year else ""
+                out.append(f'<section id="y{E(label)}" data-y="{E(label)}"><h2>{E(label)}</h2>')
+            out.append(article(row))
+        if current is not None:
+            out.append("</section>")
+        return "".join(out)
+
+    labels = {
+        "loading": t("arc_loading"), "end": t("arc_end"), "archived": t("arc_archived"),
+        "news": t("arc_news"), "academic": t("arc_academic"),
+        "works": {k: t("arc_work_" + k) for k in ("master", "project", "paper", "conference", "phd")},
+        "countries": {c: cname(c) for c in news_archive.COUNTRIES},
+        "flags": {c: flag(c, deco=True) for c in countries},
+    }
+    script = r"""<script>(function(){var box=document.getElementById('arc-sentinel');if(!box||!window.IntersectionObserver)return;
+var pager=document.querySelector('.arc-pages');if(pager)pager.hidden=true;box.hidden=false;
+var pages=+box.getAttribute('data-pages')||1,prefix=box.getAttribute('data-api'),country=box.getAttribute('data-country')||'',kind=box.getAttribute('data-type')||'';
+var list=document.getElementById('arc-list'),status=document.getElementById('arc-status'),L=%s,seen={},next=1,busy=false,done=false;
+[].forEach.call(list.querySelectorAll('[data-id]'),function(el){seen[el.getAttribute('data-id')]=1});
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function label(it){if(it.type==='news')return L.news;return L.works[it.work_type]||it.work_type||L.academic}
+function when(it){if(it.published_precision==='year'&&it.year)return String(it.year);return (it.published||'').slice(0,10)}
+function head(it){var lang=document.documentElement.lang||'en',tr=(it.title_i18n||{})[lang];if(tr)return tr;if(it.title_en)return it.title_en;return it.title||''}
+function add(it){var lang=document.documentElement.lang||'en',year=it.year?String(it.year):'',sec=list.querySelector('section[data-y="'+year+'"]');
+if(!sec){sec=document.createElement('section');sec.id='y'+year;sec.setAttribute('data-y',year);var h=document.createElement('h2');h.textContent=year;sec.appendChild(h);list.appendChild(sec)}
+var a=document.createElement('article');a.className='arcitem';a.id=it.id;a.setAttribute('data-id',it.id);a.setAttribute('data-c',it.country||'');a.setAttribute('data-type',it.type||'');a.setAttribute('data-y',year);
+var title=head(it),orig=(it.title&&title!==it.title)?it.title:'',bits=[];
+if(it.country)bits.push((L.flags[it.country]||'')+esc(L.countries[it.country]||it.country));
+bits.push(esc(label(it)));if(it.source_name)bits.push(esc(it.source_name));
+var shown=when(it);if(shown)bits.push('<time datetime="'+esc(it.published||'')+'">'+esc(shown)+'</time>');
+var who=(it.authors&&it.authors.length)?' · '+esc(it.authors.join(', ')):'';
+var sumText=(it.summary_i18n||{})[lang]||it.summary||'',sumLang=(it.summary_i18n||{})[lang]?lang:'en',sum=sumText?'<p class="sum" lang="'+esc(sumLang)+'">'+esc(sumText)+'</p>':'';
+var arch=it.archive_url?'<p class="meta"><a href="'+esc(it.archive_url)+'" rel="noopener">'+esc(L.archived)+'</a></p>':'';
+a.innerHTML='<h3><a href="'+esc(it.url||'')+'" rel="noopener">'+esc(title)+'</a></h3>'+(orig?'<p class="orig">'+esc(orig)+'</p>':'')+'<p class="meta">'+bits.join(' · ')+who+'</p>'+sum+arch;
+sec.appendChild(a)}
+function finish(){done=true;if(status)status.textContent=L.end;box.hidden=true}
+function step(){if(busy||done)return;if(next>pages){finish();return}busy=true;if(status)status.textContent=L.loading;
+fetch(prefix+next+'.json',{headers:{'Accept':'application/json'}}).then(function(r){if(!r.ok)throw new Error('archive');return r.json()}).then(function(doc){next++;var n=0;(doc.items||[]).forEach(function(it){if(country&&it.country!==country)return;if(kind&&it.type!==kind)return;if(seen[it.id])return;seen[it.id]=1;add(it);n++});busy=false;if(next>pages)finish();else if(!n)step();else if(status)status.textContent=''}).catch(function(){busy=false;if(pager)pager.hidden=false;if(status)status.textContent=''})}
+var io=new IntersectionObserver(function(es){if(es.some(function(e){return e.isIntersecting}))step()},{rootMargin:'480px'});io.observe(box)})();</script>""" % json.dumps(labels, ensure_ascii=False)
+
+    for country, kind in views:
+        rows = view_items(country, kind)
+        pages = news_archive.paginate(rows, size)
+        starts = year_starts(rows)
+        for number, chunk in enumerate(pages, 1):
+            slug = slug_for(country, kind, number)
+            chips = f'<a class="chip" href="{E(_arc_rel(slug, slug_for(None, kind, 1)))}"{" aria-current=page" if not country else ""}>{E(t("arc_all"))}</a>'
+            chips += "".join(
+                f'<a class="chip" href="{E(_arc_rel(slug, slug_for(c, kind, 1)))}"{" aria-current=page" if c == country else ""}>{flag(c, deco=True)}{E(cname(c))}</a>'
+                for c in countries)
+            types = f'<a class="chip" href="{E(_arc_rel(slug, slug_for(country, None, 1)))}"{" aria-current=page" if not kind else ""}>{E(t("arc_all"))}</a>'
+            types += f'<a class="chip" href="{E(_arc_rel(slug, slug_for(country, "news", 1)))}"{" aria-current=page" if kind == "news" else ""}>{E(t("arc_news"))}</a>'
+            types += f'<a class="chip" href="{E(_arc_rel(slug, slug_for(country, "academic", 1)))}"{" aria-current=page" if kind == "academic" else ""}>{E(t("arc_academic"))}</a>'
+            years = "".join(
+                f'<a href="{E(_arc_rel(slug, slug_for(country, kind, starts[y])) + "#y" + str(y))}">{y}</a>'
+                for y in sorted(starts, reverse=True))
+            year_nav = f'<nav class="arcyears" aria-label="{E(t("arc_years"))}">{years}</nav>' if years else ""
+            count = t("arc_n1") if len(rows) == 1 else t("arc_n", n=len(rows))
+            if not rows and kind == "news" and news_count == 0:
+                empty = f'<p class="empty">{E(t("arc_news_empty"))}</p>'
+            elif not rows:
+                empty = f'<p class="empty">{E(t("arc_empty"))}</p>'
+            else:
+                empty = ""
+            news_note = f'<p class="notice">{E(t("arc_news_empty"))}</p>' if news_count == 0 and not kind and not country else ""
+            links = []
+            if number > 1:
+                links.append(f'<a rel="prev" href="{E(_arc_rel(slug, slug_for(country, kind, number - 1)))}">{E(t("arc_prev"))}</a>')
+            links.append(f'<span class="meta">{E(t("arc_page", n=number, m=len(pages)))}</span>')
+            if number < len(pages):
+                links.append(f'<a rel="next" href="{E(_arc_rel(slug, slug_for(country, kind, number + 1)))}">{E(t("arc_next"))}</a>')
+            for n in range(1, len(pages) + 1):
+                if n == number:
+                    links.append(f'<span aria-current="page">{n}</span>')
+                else:
+                    links.append(f'<a href="{E(_arc_rel(slug, slug_for(country, kind, n)))}">{n}</a>')
+            pager = f'<nav class="arc-pages" aria-label="{E(t("arc_page", n=number, m=len(pages)))}">{"".join(links)}</nav>' if len(pages) > 1 else ""
+            depth = slug.count("/") + 1 + (0 if LANG == "en" else 1)
+            api = "../" * depth + "api/v1/archive/news/page-"
+            sentinel = ""
+            if number == 1 and len(pages) > 1:
+                sentinel = (f'<p id="arc-status" class="meta" role="status"></p>'
+                            f'<div id="arc-sentinel" hidden data-pages="{len(news_archive.paginate(items, size))}" data-api="{E(api)}" '
+                            f'data-country="{E(country or "")}" data-type="{E(kind or "")}"></div>')
+            body = site_css.style("archive") + f"""<div class="archive"><h1>{E(t("arc_h1"))}</h1>
+<p class="lead">{E(t("arc_lead"))}</p>
+{news_note}
+<div class="filters" role="group" aria-label="{E(t("filters"))}">
+<div class="tf"><span class="lbl" id="arc-c">{E(t("country"))}</span><div class="chips" role="group" aria-labelledby="arc-c">{chips}</div></div>
+<div class="tf"><span class="lbl" id="arc-t">{E(t("arc_type"))}</span><div class="chips" role="group" aria-labelledby="arc-t">{types}</div></div>
+<p class="meta" aria-live="polite">{E(count)}</p>
+</div>
+{year_nav}
+<div id="arc-list" class="arc-list">{year_blocks(chunk) or empty}</div>
+{pager}{sentinel}
+</div>"""
+            page(slug, t("arc_title"), "archive", body, t("arc_desc"), script if sentinel else "")
+    if LANG == "en":
+        print(f"archive: {len(items)} items ({news_count} news)")
+
 def build_academia():
     """Academia page from data/academia.json. Public build: only rows approved in queue/approved.json -> academia.approve
     (key = doi for publications, url for the rest). Preview: also rows awaiting the editor, clearly marked.
@@ -3339,7 +3600,7 @@ def build_academia():
         a = a or []
         return (", ".join(a[:4]) + (t("et_al") if len(a) > 4 else "")) if a else ""
     def pub_type(r):
-        return {"master": "Master's thesis", "phd": "PhD dissertation", "paper": "Paper", "conference": "Conference"}.get(r.get("type") or "paper", r.get("type") or "Paper")
+        return {"master": "Master's thesis", "project": "Project thesis", "phd": "PhD dissertation", "paper": "Paper", "conference": "Conference"}.get(r.get("type") or "paper", r.get("type") or "Paper")
     def pub_meta(r):
         bits = [flag(r["country"])]
         authors = au(r.get("authors"))
