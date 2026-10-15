@@ -18,7 +18,10 @@ import urllib.request
 from datetime import datetime, timezone
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MIGRATION = os.path.join(ROOT, "workers", "content", "migrations", "0001_content.sql")
+MIGRATIONS_DIR = os.path.join(ROOT, "workers", "content", "migrations")
+MIGRATION = os.path.join(MIGRATIONS_DIR, "0001_content.sql")
+EVENT_TRANSLATIONS_FILE = ("data", "event_description_i18n.json")
+EVENT_REDIRECTS_FILE = ("data", "event_redirects.json")
 DATABASE_NAME = "nordic-crypto-content"
 MAX_DOCUMENT_BYTES = 1_500_000
 
@@ -297,13 +300,52 @@ class HttpStore:
         self._post(sql, params)
 
 
+def migration_files():
+    return [os.path.join(MIGRATIONS_DIR, n) for n in sorted(os.listdir(MIGRATIONS_DIR)) if n.endswith(".sql")]
+
+
+def _add_columns_first(sql):
+    """ALTER TABLE ... ADD COLUMN has no IF NOT EXISTS in SQLite. Run those one by one and
+    accept 'duplicate column', so applying the schema twice (tests, --apply-schema) is safe.
+    wrangler d1 migrations apply tracks applied files itself and runs each file once."""
+    import re
+    sql = re.sub(r"--[^\n]*", "", sql)  # comments may contain ';'
+    alters, rest = [], []
+    for part in sql.split(";"):
+        body = "\n".join(l for l in part.splitlines() if not l.strip().startswith("--")).strip()
+        (alters if body.upper().startswith("ALTER TABLE") and " ADD COLUMN " in body.upper() else rest).append(part)
+    return [a for a in ("\n".join(l for l in x.splitlines() if not l.strip().startswith("--")).strip() for x in alters) if a], ";".join(rest)
+
+
 def apply_schema(store):
-    sql = migration_sql()
-    if isinstance(store, SqliteStore):
-        store.executescript(sql)
-        return
-    for statement in split_sql(sql):
-        store.execute(statement)
+    for path in migration_files():
+        with open(path, encoding="utf-8") as fh:
+            sql = fh.read()
+        alters, rest = _add_columns_first(sql)
+        for statement in alters:
+            try:
+                store.execute(statement)
+            except (sqlite3.OperationalError, D1Error) as ex:
+                if "duplicate column" not in str(ex).lower():
+                    raise
+        if isinstance(store, SqliteStore):
+            store.executescript(rest)
+        else:
+            for statement in split_sql(rest):
+                store.execute(statement)
+    if hasattr(store, "_nc_version"):
+        del store._nc_version
+
+
+def schema_version(store):
+    """2 when 0002_events.sql has been applied. Cached on the store object."""
+    if not hasattr(store, "_nc_version"):
+        try:
+            row = one(store, "SELECT value FROM schema_meta WHERE key = 'version'")
+            store._nc_version = int(row["value"]) if row else 0
+        except Exception:
+            store._nc_version = 0
+    return store._nc_version
 
 
 def open_sqlite(path):
@@ -580,6 +622,18 @@ WHERE id = ?
 """
 
 
+def _event_extra_columns(store, payload, origin=None):
+    """Fill the version-2 query columns. A no-op until 0002_events.sql is applied."""
+    if schema_version(store) < 2:
+        return
+    if origin:
+        store.execute("UPDATE events SET end_at = ?, city = ?, origin = ? WHERE id = ?",
+                      (payload.get("end"), payload.get("city"), origin, payload["id"]))
+    else:
+        store.execute("UPDATE events SET end_at = ?, city = ? WHERE id = ?",
+                      (payload.get("end"), payload.get("city"), payload["id"]))
+
+
 def import_events(store, records, at, actor="import"):
     stats = {"inserted": 0, "updated": 0, "skipped": 0, "kept": 0}
     for payload, review in records:
@@ -608,10 +662,12 @@ def import_events(store, records, at, actor="import"):
                     row["payload"], row["content_hash"], row["updated_at"], row["id"],
                 ),
             )
+            _event_extra_columns(store, payload)
             audit(store, "event", payload["id"], "import", actor, at, "updated")
             stats["updated"] += 1
         else:
             _insert_event(store, row)
+            _event_extra_columns(store, payload, "import")
             audit(store, "event", payload["id"], "import", actor, at, "inserted")
             stats["inserted"] += 1
     return stats
@@ -671,7 +727,10 @@ def import_root(store, root, at=None, actor="import"):
     event_stats = import_events(store, load_event_records(root), at, actor)
     source_stats = import_sources(store, sources.get("sources") or [], "news", at, actor)
     event_source_stats = import_sources(store, sources.get("event_sources") or [], "event", at, actor)
+    sidecars = _event_sidecars(store, root, at, actor)
     return {
+        "event_translations": sidecars["translations"],
+        "event_redirects": sidecars["redirects"],
         "stories": story_stats,
         "events": event_stats,
         "sources": source_stats,
@@ -751,6 +810,7 @@ def sync_event(store, payload, at, actor="fetch", review=None):
     if not existing:
         row = _event_row(payload, review, at, at)
         _insert_event(store, row)
+        _event_extra_columns(store, payload, "fetch")
         audit(store, "event", payload["id"], "fetch", actor, at, "inserted")
         return "inserted"
     if existing["review_status"] in ("approved", "rejected"):
@@ -780,8 +840,155 @@ def sync_event(store, payload, at, actor="fetch", review=None):
             row["payload"], row["content_hash"], row["updated_at"], row["id"],
         ),
     )
+    _event_extra_columns(store, payload)
     audit(store, "event", payload["id"], "fetch", actor, at, "updated")
     return "updated"
+
+
+# --- event translations, redirects and merged duplicates (schema version 2) ---
+
+CARRY_FIELDS = ("note", "note_i18n", "editor_title_en", "paid", "sponsored")
+
+
+def import_translations(store, items, at):
+    """items: the 'items' map of data/event_description_i18n.json (id -> {source, lang: text}). Upsert only."""
+    stats = {"inserted": 0, "updated": 0, "skipped": 0}
+    if schema_version(store) < 2:
+        return stats
+    for eid, item in (items or {}).items():
+        if not isinstance(item, dict) or not item.get("source"):
+            continue
+        for lang, text in item.items():
+            if lang == "source" or not isinstance(text, str) or not text:
+                continue
+            cur = one(store, "SELECT source_text, text FROM event_translations WHERE event_id = ? AND field = 'description' AND lang = ?", (eid, lang))
+            if cur and cur["source_text"] == item["source"] and cur["text"] == text:
+                stats["skipped"] += 1
+                continue
+            if cur:
+                store.execute("UPDATE event_translations SET source_text = ?, text = ?, updated_at = ? WHERE event_id = ? AND field = 'description' AND lang = ?",
+                              (item["source"], text, at, eid, lang))
+                stats["updated"] += 1
+            else:
+                store.execute("INSERT INTO event_translations (event_id, field, lang, source_text, text, updated_at) VALUES (?, 'description', ?, ?, ?, ?)",
+                              (eid, lang, item["source"], text, at))
+                stats["inserted"] += 1
+    return stats
+
+
+def translations_items(store):
+    """event_translations back in the shape of data/event_description_i18n.json items."""
+    out = {}
+    if schema_version(store) < 2:
+        return out
+    for row in store.query("SELECT event_id, lang, source_text, text FROM event_translations WHERE field = 'description' ORDER BY event_id, lang"):
+        item = out.setdefault(row["event_id"], {"source": row["source_text"]})
+        if row["source_text"] == item["source"]:
+            item[row["lang"]] = row["text"]
+    return out
+
+
+def _resolve(moved):
+    moved = {a: b for a, b in (moved or {}).items() if not str(a).startswith("_") and a != b}
+    out = {}
+    for a, b in moved.items():
+        seen = {a}
+        while b in moved and b not in seen:
+            seen.add(b); b = moved[b]
+        out[a] = b
+    return out
+
+
+def import_redirects(store, moved, at, actor="import"):
+    """Record removed id -> kept id, then mark the removed rows merged and carry the approval over."""
+    stats = {"inserted": 0, "skipped": 0, "merged": 0, "approval_moved": 0}
+    if schema_version(store) < 2:
+        return stats
+    moved = _resolve(moved)
+    for old, new in moved.items():
+        cur = one(store, "SELECT new_id FROM event_redirects WHERE old_id = ?", (old,))
+        if cur and cur["new_id"] == new:
+            stats["skipped"] += 1
+        elif cur:
+            store.execute("UPDATE event_redirects SET new_id = ? WHERE old_id = ?", (new, old)); stats["inserted"] += 1
+        else:
+            store.execute("INSERT INTO event_redirects (old_id, new_id, reason, created_at) VALUES (?, ?, 'duplicate', ?)", (old, new, at))
+            stats["inserted"] += 1
+    for old, new in moved.items():
+        merged, approved = merge_rows(store, old, new, at, actor)
+        stats["merged"] += merged; stats["approval_moved"] += approved
+    return stats
+
+
+def merge_rows(store, old, new, at, actor="fetch"):
+    """Removed row: item_status 'merged', merged_into = new (rows are never deleted).
+    Kept row: takes the removed row's approval when it has none yet, and editor fields it lacks.
+    Idempotent. Returns (marked_merged, approval_moved) as 0/1."""
+    a = one(store, "SELECT * FROM events WHERE id = ?", (old,))
+    b = one(store, "SELECT * FROM events WHERE id = ?", (new,))
+    if not a or not b:
+        return 0, 0
+    moved_approval = 0
+    pb = json.loads(b["payload"]); pa = json.loads(a["payload"])
+    changed = False
+    for k in CARRY_FIELDS:
+        if pa.get(k) not in (None, "", {}, []) and pb.get(k) in (None, "", {}, []):
+            pb[k] = pa[k]; changed = True
+    review, by, rat, note = b["review_status"], b.get("reviewed_by"), b.get("reviewed_at"), b.get("review_note")
+    if a["review_status"] == "approved" and b["review_status"] == "pending":
+        review, by, rat, note = "approved", a.get("reviewed_by"), a.get("reviewed_at") or at, a.get("review_note")
+        moved_approval = 1
+    if changed or moved_approval:
+        text = dumps(pb)
+        store.execute("UPDATE events SET payload = ?, content_hash = ?, review_status = ?, item_status = ?, reviewed_by = ?, reviewed_at = ?, review_note = ?, updated_at = ? WHERE id = ?",
+                      (text, digest(text), review, _event_item_status(review), by, rat, note, at, new))
+        audit(store, "event", new, "carry-over", actor, at, f"from {old}" + (" (approval)" if moved_approval else ""))
+    if a["item_status"] != "merged" or a.get("merged_into") != new:
+        store.execute("UPDATE events SET item_status = 'merged', merged_into = ?, updated_at = ? WHERE id = ?", (new, at, old))
+        audit(store, "event", old, "merge", actor, at, f"into {new}")
+        return 1, moved_approval
+    return 0, moved_approval
+
+
+def redirects_map(store):
+    if schema_version(store) < 2:
+        return {}
+    return {r["old_id"]: r["new_id"] for r in store.query("SELECT old_id, new_id FROM event_redirects ORDER BY old_id")}
+
+
+def _event_sidecars(store, root, at, actor):
+    items = (load_json(os.path.join(root, *EVENT_TRANSLATIONS_FILE), {}) or {}).get("items") or {}
+    moved = load_json(os.path.join(root, *EVENT_REDIRECTS_FILE), {}) or {}
+    return {"translations": import_translations(store, items, at), "redirects": import_redirects(store, moved, at, actor)}
+
+
+def _write_sidecars(store, root):
+    """Snapshot of D1 translations and redirects into the JSON files the build reads.
+    Union with what is already on disk, so an offline checkout or a missing table never loses rows."""
+    if schema_version(store) < 2:
+        return {"translations": 0, "redirects": 0}
+    tpath = os.path.join(root, *EVENT_TRANSLATIONS_FILE)
+    doc = load_json(tpath, None) or {"_note": "Translations of organiser descriptions (snapshot of D1 event_translations).", "items": {}}
+    items = doc.setdefault("items", {})
+    added_t = 0
+    for eid, item in translations_items(store).items():
+        if eid not in items or items[eid].get("source") != item.get("source"):
+            items[eid] = item; added_t += 1
+        else:
+            for lang, text in item.items():
+                if lang not in items[eid]:
+                    items[eid][lang] = text; added_t += 1
+    if added_t:
+        save_json(tpath, doc)
+    rpath = os.path.join(root, *EVENT_REDIRECTS_FILE)
+    rd = load_json(rpath, None) or {"_note": "Merged duplicate events: removed id -> kept id (snapshot of D1 event_redirects)."}
+    added_r = 0
+    for old, new in redirects_map(store).items():
+        if rd.get(old) != new:
+            rd[old] = new; added_r += 1
+    if added_r:
+        save_json(rpath, rd)
+    return {"translations": added_t, "redirects": added_r}
 
 
 def put_document(store, name, obj, at):
@@ -839,8 +1046,9 @@ def sync_root(store, root, at=None, actor="fetch"):
         if payload["id"] in seen:
             continue
         event_stats[sync_event(store, payload, at, actor, review=review)] += 1
+    sidecars = _event_sidecars(store, root, at, actor)  # dedupe redirects from events.py: mark merged, carry approvals
     documents = sync_documents(store, root, at)
-    return {"stories": stories, "events": event_stats, "documents": documents}
+    return {"stories": stories, "events": event_stats, "documents": documents, **{"event_" + k: v for k, v in sidecars.items()}}
 
 
 def restore_root(store, root):
@@ -865,8 +1073,10 @@ def restore_root(store, root):
             seen_ids.add(payload["id"])
     seen_events = {row.get("id") for row in rows}
     added_events = 0
-    for row in store.query("SELECT payload FROM events", ()):
+    for row in store.query("SELECT payload, item_status FROM events", ()):
         payload = json.loads(row["payload"])
+        if row.get("item_status") == "merged":
+            continue  # a merged duplicate stays merged; the redirect points at the kept row
         if payload.get("id") in seen_events:
             continue
         rows.append(payload)
@@ -875,6 +1085,7 @@ def restore_root(store, root):
     events["events"] = rows
     save_json(news_path, news)
     save_json(events_path, events)
+    _write_sidecars(store, root)
     restored = []
     for name, parts in DOC_FILES.items():
         doc = one(store, "SELECT payload FROM documents WHERE name = ?", (name,))
@@ -966,7 +1177,7 @@ def materialize(root, preview=False, store=None, at=None):
     archive_count = 0
     archive = load_json(os.path.join(root, "archive", "events.json"), {"events": []}) or {}
     archive_count = len(archive.get("events") or [])
-    event_rows = store.query("SELECT * FROM events ORDER BY start_at, id", ())
+    event_rows = [r for r in store.query("SELECT * FROM events ORDER BY start_at, id", ()) if r.get("item_status") != "merged"]
     if archive_count and not event_rows:
         raise D1Error(
             "D1 has no events but archive/events.json does. Run python3 tools/d1_import.py "
@@ -988,6 +1199,7 @@ def materialize(root, preview=False, store=None, at=None):
         os.path.join(root, "data", "events.json"),
         {"updated": at, "events": [event_payload(row) for row in event_rows]},
     )
+    _write_sidecars(store, root)  # translations and redirects; the committed files stay the offline fallback
     return event_approvals(event_rows)
 
 
@@ -1016,6 +1228,8 @@ def backup_files(store, at=None):
         "events.json": {"updated": at, "events": events},
         "sources.json": {"sources": news_sources, "event_sources": event_sources},
         "audit.json": {"exported_at": at, "rows": audit_rows},
+        "event_translations.json": {"items": translations_items(store)},
+        "event_redirects.json": redirects_map(store),
         "manifest.json": {
             "exported_at": at,
             "stories": len(stories),
@@ -1067,6 +1281,8 @@ def stage_for_gate(root, dest):
     pairs = [
         ("data", "news.json"),
         ("data", "events.json"),
+        EVENT_TRANSLATIONS_FILE,
+        EVENT_REDIRECTS_FILE,
         ("state", "teasers.json"),
         ("queue", "review.json"),
         ("state", "source_status.json"),
