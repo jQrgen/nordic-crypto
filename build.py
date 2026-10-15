@@ -219,11 +219,12 @@ def header_subscribe_button(rel):
     return f'<a class="hdrsub" href="{rel}newsletter/#signup">{E(t("nl_btn") if newsletter_form(True) else t("foot_follow"))}</a>'
 def header_buttons(rel):
     """Subscribe, then Join on Telegram, then Follow on X, then the source code on GitHub. Left-aligned, in that order."""
-    return header_subscribe_button(rel) + header_telegram_button() + header_x_button() + header_facebook_button() + header_github_button()
+    return header_subscribe_button(rel) + header_telegram_button() + header_x_button() + header_facebook_button() + header_youtube_button() + header_github_button()
 # Nordic Crypto brand accounts (not jQrgen's personal profiles). Plain links only: no widgets, scripts or embeds.
 SITE_X = "https://x.com/nordiccryptobot"
 SITE_TELEGRAM = "https://t.me/nordiccryptochat"
 SITE_FACEBOOK = "https://www.facebook.com/profile.php?id=61595548315551"
+SITE_YOUTUBE = "https://www.youtube.com/@NordicCryptoTV"
 ICON_GLOBE = '<svg class="ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>'
 ICON_TG = ('<svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" '
            'd="M21.9 4.3 18.7 19.4c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13 1.4 11.5c-1-.3-1.1-1 .2-1.5L20.5 2.8c.9-.3 1.7.2 1.4 1.5z"/></svg>')
@@ -237,6 +238,14 @@ def header_facebook_button():
 def facebook_link():
     """'Nordic Crypto on Facebook' link. The brand Page."""
     return f'<a class="fbfollow" href="{SITE_FACEBOOK}" rel="noopener noreferrer" title="{E(t("fb_title"))}">{E(t("fb_follow"))}</a>'
+ICON_YT = ('<svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" '
+           'd="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6z"/></svg>')
+def header_youtube_button():
+    """'Watch on YouTube' beside the Facebook button, built the same way."""
+    return f'<a class="hdryt" href="{SITE_YOUTUBE}" rel="noopener" title="{E(t("yt_title"))}">{ICON_YT}<span class="lbl">{E(t("yt_btn"))}</span></a>'
+def youtube_link():
+    """'Nordic Crypto on YouTube' link. The brand channel, @NordicCryptoTV."""
+    return f'<a class="ytfollow" href="{SITE_YOUTUBE}" rel="noopener noreferrer" title="{E(t("yt_title"))}">{E(t("yt_follow"))}</a>'
 def header_telegram_button():
     """'Join on Telegram' in the header: an icon on wide screens (the label stays for screen readers), icon and label in the phone menu."""
     return f'<a class="hdrtg" href="{SITE_TELEGRAM}" rel="noopener" title="{E(t("tg_title"))}">{ICON_TG}<span class="lbl">{E(t("tg_btn"))}</span></a>'
@@ -265,7 +274,7 @@ def contributors_link():
     return f'<a href="{REPO_CONTRIBUTORS}" rel="noopener">{E(t("contributors"))}</a>'
 def community_links():
     """Left-aligned brand links for the footer, About and the newsletter. The source-code link stays separate."""
-    return f'<nav class="community" aria-label="{E(t("social_aria"))}">{telegram_link()}{x_link()}{facebook_link()}</nav>'
+    return f'<nav class="community" aria-label="{E(t("social_aria"))}">{telegram_link()}{x_link()}{facebook_link()}{youtube_link()}</nav>'
 def community_section():
     """About-page block. Strings come from i18n and fall back to English."""
     return f'<h2 id="community">{E(t("social_h"))}</h2><p>{E(t("social_lead"))}</p>{community_links()}'
@@ -416,7 +425,8 @@ def nl_follow_box(rel, hid, privacy=False):
     ways = (f'<p class="nlways"><a href="{E(rel)}rss.xml">{ICON_RSS}{E(t("nl_rss"))}</a>'
             f'<a href="{SITE_TELEGRAM}" rel="noopener">{ICON_TG}{E(t("tg_btn"))}</a>'
             f'<a href="{SITE_X}" rel="noopener">{ICON_X}{E(t("x_btn"))}</a>'
-            f'<a href="{SITE_FACEBOOK}" rel="noopener">{ICON_FB}{E(t("fb_btn"))}</a></p>')
+            f'<a href="{SITE_FACEBOOK}" rel="noopener">{ICON_FB}{E(t("fb_btn"))}</a>'
+            f'<a href="{SITE_YOUTUBE}" rel="noopener">{ICON_YT}{E(t("yt_btn"))}</a></p>')
     return f'<section class="nlbox" id="{"signup" if privacy else "nl-next"}" aria-labelledby="{hid}"><h2 id="{hid}">{E(t("nl_next_h"))}</h2>{top}{ways}</section>'
 def build_newsletter():
     """/newsletter/ in every language (the Newsletter tab): the issues (newest first, each with its own page), the
@@ -653,7 +663,7 @@ def site_footer(rel, root, slug=""):
             + li(rel + "tip/", t("nav_tip")) + li(rel + "api/", t("foot_api"))
             + li(REPO_CONTRIBUTORS, t("contributors"), True)
             + (li(rel + "treasury/", t("nav_treasury")) if event_nft.enabled() else ""))
-    follow = (li(rel + "newsletter/", t("nav_newsletter")) + li(SITE_TELEGRAM, t("tg_label"), True) + li(SITE_X, "X", True) + li(SITE_FACEBOOK, "Facebook", True) + li(rel + "rss.xml", "RSS")
+    follow = (li(rel + "newsletter/", t("nav_newsletter")) + li(SITE_TELEGRAM, t("tg_label"), True) + li(SITE_X, "X", True) + li(SITE_FACEBOOK, "Facebook", True) + li(SITE_YOUTUBE, "YouTube", True) + li(rel + "rss.xml", "RSS")
               + li("https://testflight.apple.com/join/nQ2fpjZn", t("ios_link"), True, t("ios_tv")) + li(root + "screen/", t("screen_short")))
     nlfoot = (f'<div class="nlfoot"><b>{E(t("nl_foot"))}</b> {newsletter_offer(rel, compact=True)}</div>'
               if slug != "newsletter" and newsletter_form(True) else "")
