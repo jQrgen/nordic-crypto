@@ -250,6 +250,7 @@ S.update({
 # the site's own X account (@nordiccryptobot), header/footer/newsletter
 "x_btn": "Seuraa X:ssä", "x_follow": "Seuraa Nordic Cryptoa X:ssä", "x_title": "Nordic Crypto X:ssä (@nordiccryptobot), sivuston oma tili",
 "tg_btn": "Liity Telegramiin", "tg_label": "Telegram", "tg_follow": "Nordic Crypto Telegramissa", "tg_title": "Nordic Crypto Telegramissa (t.me/nordiccryptochat), brändin keskustelu",
+"fb_btn": "Seuraa Facebookissa", "fb_follow": "Nordic Crypto Facebookissa", "fb_title": "Nordic Crypto Facebookissa, brändin sivu",
 "social_h": "Yhteisö", "social_aria": "Nordic Crypto sosiaalisessa mediassa", "social_lead": "Nordic Crypton keskustelu on Telegramissa, ja bränditili on X:ssä.",
 "nl_write": "Haluatko kirjoittaa Nordic Cryptolle? <a href=\"{href}\">Hae kolumnistiksi</a>. Toimittaja lukee jokaisen hakemuksen. Julkaisua ei taata, eikä kolumni ole sijoitusneuvontaa.",
 "col_title": "Hae kolumnistiksi",

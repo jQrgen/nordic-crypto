@@ -261,6 +261,7 @@ S.update({
 # the site's own X account (@nordiccryptobot), header/footer/newsletter
 "x_btn": "Стежити в X", "x_follow": "Стежте за Nordic Crypto в X", "x_title": "Nordic Crypto в X (@nordiccryptobot), власний акаунт сайту",
 "tg_btn": "Приєднатися в Telegram", "tg_label": "Telegram", "tg_follow": "Nordic Crypto в Telegram", "tg_title": "Nordic Crypto в Telegram (t.me/nordiccryptochat), чат бренду",
+"fb_btn": "Стежити у Facebook", "fb_follow": "Nordic Crypto у Facebook", "fb_title": "Nordic Crypto у Facebook, сторінка бренду",
 "social_h": "Спільнота", "social_aria": "Nordic Crypto в соцмережах", "social_lead": "Чат Nordic Crypto – у Telegram, а акаунт бренду – в X.",
 "nl_write": "Хочете писати для Nordic Crypto? <a href=\"{href}\">Подайте заявку як колумніст</a>. Редактор читає кожну пропозицію. Публікацію не гарантовано, а колонка не є інвестиційною порадою.",
 "col_title": "Подати заявку як колумніст",

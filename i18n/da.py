@@ -250,6 +250,7 @@ S.update({
 # the site's own X account (@nordiccryptobot), header/footer/newsletter
 "x_btn": "Følg på X", "x_follow": "Følg Nordic Crypto på X", "x_title": "Nordic Crypto på X (@nordiccryptobot), webstedets egen konto",
 "tg_btn": "Deltag på Telegram", "tg_label": "Telegram", "tg_follow": "Nordic Crypto på Telegram", "tg_title": "Nordic Crypto på Telegram (t.me/nordiccryptochat), brandets chat",
+"fb_btn": "Følg på Facebook", "fb_follow": "Nordic Crypto på Facebook", "fb_title": "Nordic Crypto på Facebook, brandets side",
 "social_h": "Fællesskab", "social_aria": "Nordic Crypto på de sociale medier", "social_lead": "Nordic Cryptos chat er på Telegram, og brandkontoen er på X.",
 "nl_write": "Vil du skrive for Nordic Crypto? <a href=\"{href}\">Søg som klummeskribent</a>. Redaktøren læser hver ansøgning. Udgivelse er ikke garanteret, og en klumme er ikke investeringsrådgivning.",
 "col_title": "Søg som klummeskribent",
