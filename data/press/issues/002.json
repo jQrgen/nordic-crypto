@@ -1,0 +1,70 @@
+{
+ "_note": "Press-release copy for issue 002, per language. Keys follow tools/press_release.py LANGS. Factual, no quotes. Story links point to the original sources. Missing languages fall back to English stories from the published issue.",
+ "stories": [
+  {"url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/"},
+  {"url": "https://stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-009s"},
+  {"url": "https://www.finansavisen.no/valuta/2026/10/05/8385368/smasparere-hamstret-krypto-under-renteuro"},
+  {"url": "https://nyheter24.se/nyheter/inrikes/1519244-fi-varnar-for-fler-bluffaktorer"},
+  {"url": "https://www.fi.se/sv/publicerat/nyheter/2026/amla-foreslar-tre-tekniska-standarder-enligt-penningtvattsforordningen/"}
+ ],
+ "en": {
+  "headline": "Nordic Crypto #2: Data-centre halt proposals in the Storting and new fraud warnings in Sweden",
+  "stories": [
+   "The Red Party (Rødt) has proposed in the Storting a temporary halt for new data centres and a licensing regime.",
+   "Socialist Left Party (SV) MPs propose putting new data centres on hold and ask the government to report on the follow-up of the Storting's crypto-mining ban. This is a proposal, not a decision.",
+   "Customers of the Norwegian exchange Firi bought NOK 16.1 million more crypto than they sold in September, according to Finansavisen.",
+   "Sweden's Finansinspektionen has warned against 30 more unlicensed investment firms, 227 so far in 2026.",
+   "The EU anti-money-laundering authority AMLA has sent three draft technical standards to the European Commission, including rules for crypto-asset service providers."
+  ]
+ },
+ "no": {
+  "headline": "Nordic Crypto #2: Forslag om stans for datasentre på Stortinget og nye svindelvarsler i Sverige",
+  "stories": [
+   "Rødt har fremmet forslag på Stortinget om midlertidig stans for nye datasentre og en konsesjonsordning.",
+   "Stortingsrepresentanter fra SV foreslår å sette nye datasentre på vent og ber regjeringen gjøre rede for oppfølgingen av Stortingets vedtak om forbud mot kryptoutvinning. Dette er et forslag, ikke et vedtak.",
+   "Kunder hos den norske kryptobørsen Firi kjøpte krypto for 16,1 millioner kroner mer enn de solgte i september, ifølge Finansavisen.",
+   "Finansinspektionen i Sverige har advart mot 30 nye investeringsselskaper uten tillatelse, 227 så langt i 2026.",
+   "EUs hvitvaskingsmyndighet AMLA har sendt tre utkast til tekniske standarder til EU-kommisjonen, blant annet med regler for tilbydere av kryptotjenester."
+  ]
+ },
+ "sv": {
+  "headline": "Nordic Crypto #2: Förslag om stopp för datacenter i Stortinget och nya bedrägerivarningar i Sverige",
+  "stories": [
+   "Rødt har lagt fram ett förslag i Stortinget om ett tillfälligt stopp för nya datacenter och ett tillståndssystem.",
+   "Ledamöter från SV föreslår att nya datacenter pausas och ber regeringen redovisa hur Stortingets beslut om förbud mot kryptoutvinning följs upp. Det är ett förslag, inte ett beslut.",
+   "Kunder hos den norska kryptobörsen Firi köpte krypto för 16,1 miljoner norska kronor mer än de sålde i september, enligt Finansavisen.",
+   "Finansinspektionen har varnat för ytterligare 30 investeringsbolag utan tillstånd, 227 hittills under 2026.",
+   "EU:s penningtvättsmyndighet AMLA har skickat tre utkast till tekniska standarder till EU-kommissionen, bland annat med regler för kryptotillgångstjänsteleverantörer."
+  ]
+ },
+ "da": {
+  "headline": "Nordic Crypto #2: Forslag om stop for datacentre i Stortinget og nye svindeladvarsler i Sverige",
+  "stories": [
+   "Rødt har stillet forslag i Stortinget om et midlertidigt stop for nye datacentre og en tilladelsesordning.",
+   "Stortingsmedlemmer fra SV foreslår at sætte nye datacentre på pause og beder regeringen redegøre for opfølgningen af Stortingets beslutning om forbud mod kryptomining. Det er et forslag, ikke en beslutning.",
+   "Kunder hos den norske kryptobørs Firi købte i september krypto for 16,1 millioner norske kroner mere, end de solgte, ifølge Finansavisen.",
+   "Det svenske Finansinspektionen har advaret mod yderligere 30 investeringsselskaber uden tilladelse, 227 indtil videre i 2026.",
+   "EU's hvidvaskmyndighed AMLA har sendt tre udkast til tekniske standarder til Europa-Kommissionen, blandt andet med regler for udbydere af kryptoaktivtjenester."
+  ]
+ },
+ "fi": {
+  "headline": "Nordic Crypto #2: Datakeskusten pysäytysehdotuksia Norjan suurkäräjillä ja uusia huijausvaroituksia Ruotsissa",
+  "stories": [
+   "Norjan Rødt-puolue on ehdottanut suurkäräjillä uusien datakeskusten väliaikaista pysäyttämistä ja lupajärjestelmää.",
+   "SV-puolueen kansanedustajat ehdottavat uusien datakeskusten jäädyttämistä ja pyytävät hallitusta raportoimaan, miten suurkäräjien päätös kryptolouhinnan kieltämisestä pannaan täytäntöön. Kyse on ehdotuksesta, ei päätöksestä.",
+   "Norjalaisen Firi-kryptopörssin asiakkaat ostivat syyskuussa kryptoja 16,1 miljoonalla Norjan kruunulla enemmän kuin myivät, kertoo Finansavisen.",
+   "Ruotsin Finansinspektionen on varoittanut 30 uudesta luvattomasta sijoitusyhtiöstä, vuonna 2026 jo 227:stä.",
+   "EU:n rahanpesunvastainen viranomainen AMLA on lähettänyt Euroopan komissiolle kolme teknisten standardien luonnosta, joissa on myös sääntöjä kryptopalvelujen tarjoajille."
+  ]
+ },
+ "is": {
+  "headline": "Nordic Crypto #2: Tillögur um stöðvun gagnavera á norska Stórþinginu og nýjar svikaviðvaranir í Svíþjóð",
+  "stories": [
+   "Norski flokkurinn Rødt hefur lagt fram tillögu á Stórþinginu um tímabundna stöðvun nýrra gagnavera og leyfiskerfi.",
+   "Þingmenn SV leggja til að ný gagnaver verði sett í bið og biðja ríkisstjórnina að gera grein fyrir framkvæmd samþykktar Stórþingsins um bann við rafmyntagreftri. Þetta er tillaga, ekki ákvörðun.",
+   "Viðskiptavinir norsku rafmyntakauphallarinnar Firi keyptu rafmyntir fyrir 16,1 milljón norskra króna meira en þeir seldu í september, samkvæmt Finansavisen.",
+   "Sænska fjármálaeftirlitið Finansinspektionen hefur varað við 30 fleiri fjárfestingarfélögum án leyfis, 227 það sem af er árinu 2026.",
+   "Peningaþvættisstofnun ESB, AMLA, hefur sent framkvæmdastjórn ESB þrjú drög að tæknilegum stöðlum, meðal annars með reglum fyrir þjónustuveitendur sýndareigna."
+  ]
+ }
+}
