@@ -72,5 +72,30 @@ class Thread(unittest.TestCase):
             for k in xn.ENV: os.environ.pop(k, None)
 
 
+
+class LongPost(unittest.TestCase):
+    H = ('<p>Hi there.</p><h2>Norway</h2><p style="m"><a href="https://a.example/1" style="font-weight:bold">T &amp; one</a>'
+         ' (original: x)<br>Sum one.<br><span>Src · <a href="__SITE__/#country=NO">more</a></span></p>')
+    META = {"id": "009", "number": 9, "title": "Nordic Crypto #9: Big week"}
+
+    def test_issue_text(self):
+        t = xn.issue_text(self.H)
+        self.assertIn("NORWAY", t)
+        self.assertIn("T & one\nhttps://a.example/1 (original: x)\nSum one.", t)
+        self.assertIn("more (https://nordiccrypto.no/#country=NO)", t)
+
+    def test_long_post_shape(self):
+        p = xn.build_long_post(self.META, self.H)
+        self.assertTrue(p.startswith("Nordic Crypto #9: Big week\n\nHi there."))
+        self.assertTrue(p.endswith("https://nordiccrypto.no/newsletter/009/"))
+
+    def test_long_post_clipped(self):
+        p = xn.build_long_post(self.META, "<p>" + "word " * 3000 + "</p>" * 1 + ("<p>" + "x" * 4000 + "</p>") * 10)
+        self.assertLessEqual(xn.x_len(p), xn.LONG_LIMIT)
+
+    def test_length_error(self):
+        self.assertTrue(xn.is_length_error(RuntimeError("X API POST /2/tweets -> 403: Your Tweet text is too long.")))
+        self.assertFalse(xn.is_length_error(RuntimeError("X API POST /2/tweets -> 402: credits depleted")))
+
 if __name__ == "__main__":
     unittest.main()
