@@ -13036,5 +13036,40 @@
     "keywords": [],
     "venue": null,
     "source_db": "libris.kb.se"
+  },
+  {
+    "title": "Cryptography for Blockchains",
+    "authors": [
+      "Kristian Gjøsteen",
+      "Colin Boyd",
+      "Shuang Wu"
+    ],
+    "year": 2022,
+    "type": "phd",
+    "institution": "NTNU",
+    "country": "NO",
+    "url": "https://hdl.handle.net/11250/3017687",
+    "doi": null,
+    "relevance": "NTNU PhD listed by the NTNU Applied Cryptology Lab (NaCl) historical overview (https://tjerandsilde.no/nacl/); verified in NVA/Cristin; title matches crypto/blockchain.",
+    "keywords": [],
+    "venue": null,
+    "source_db": "nva.sikt.no"
+  },
+  {
+    "title": "Towards Fairness and Decentralisation in Modern Cryptocurrencies",
+    "authors": [
+      "Colin Boyd",
+      "Christopher Alan Carr"
+    ],
+    "year": 2019,
+    "type": "phd",
+    "institution": "NTNU",
+    "country": "NO",
+    "url": "https://hdl.handle.net/11250/2603953",
+    "doi": null,
+    "relevance": "NTNU PhD listed by the NTNU Applied Cryptology Lab (NaCl) historical overview (https://tjerandsilde.no/nacl/); verified in NVA/Cristin; title matches crypto/blockchain.",
+    "keywords": [],
+    "venue": null,
+    "source_db": "nva.sikt.no"
   }
 ]

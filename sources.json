@@ -21213,6 +21213,31 @@
    "enabled": true,
    "status": "used",
    "method": "Upcoming Hva skjer page (event cards; not exhibitions). One WordPress request for those slugs (start, end, price, text). The past archive is not paged. schema.org Event JSON-LD is read only for a keyword hit, for the room and street. No images. There is no calendar-wide iCal."
+  },
+  {
+   "id": "ntnu-nacl",
+   "name": "NTNU Applied Cryptology Lab (NaCl)",
+   "country": "NO",
+   "url": "https://www.ntnu.edu/iik/nacl-lab/",
+   "type": "manual",
+   "trusted": true,
+   "organiser": "NTNU Applied Cryptology Lab (NaCl)",
+   "city": "Trondheim",
+   "enabled": false,
+   "verified": "2026-10-16",
+   "status": "no machine-readable event data: the lab page has no iCal, RSS or JSON-LD and only lists past workshops/conferences; NTNU's calendar JSON (/web/kalender/... p_p_id) is disallowed by ntnu.edu robots.txt. The researcher checks the lab page and the Norwegian Crypto Seminar by hand (cryptography events)."
+  },
+  {
+   "id": "norsk-kryptoseminar",
+   "name": "Norsk kryptoseminar (Norwegian Crypto Seminar, NTNU wiki)",
+   "country": "NO",
+   "url": "https://wiki.math.ntnu.no/nks",
+   "type": "manual",
+   "trusted": true,
+   "organiser": "NTNU Applied Cryptology Lab (NaCl) / Norsk kryptoseminar",
+   "enabled": false,
+   "verified": "2026-10-16",
+   "status": "no machine-readable event data (DokuWiki, RSS disabled, no JSON-LD/iCal); checked by hand. NKS 2026: Friday 23 Oct 2026, Nygårdsgaten 5, Bergen (https://wiki.math.ntnu.no/nks/nks26) – start time not yet published, so not added to the calendar."
   }
  ],
  "fetch_workers": 6
