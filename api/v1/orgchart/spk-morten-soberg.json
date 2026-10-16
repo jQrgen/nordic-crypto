@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T09:03:48+00:00",
+ "generated_at": "2026-10-16T09:06:31+00:00",
  "preview": false,
  "item": {
   "id": "spk-morten-soberg",
@@ -58,16 +58,16 @@
   ],
   "talks": [
    {
-    "id": "yt-gn50NxhPk-0",
-    "title": "Hvorfor og når får vi digitale sentralbankpenger og kryptovaluta?",
-    "video_url": "https://www.youtube.com/watch?v=gn50NxhPk-0"
-   },
-   {
     "id": "yt-iT2iG3o4qJM",
     "title": "Er bitcoin vinnaren av krigen mot Iran? Fra Arendalsuka",
     "video_url": "https://www.youtube.com/watch?v=iT2iG3o4qJM",
     "event_id": "9177a9451730",
     "date": "2026-08-10"
+   },
+   {
+    "id": "yt-gn50NxhPk-0",
+    "title": "Hvorfor og når får vi digitale sentralbankpenger og kryptovaluta?",
+    "video_url": "https://www.youtube.com/watch?v=gn50NxhPk-0"
    },
    {
     "id": "yt-NrF-rcWIpsU",

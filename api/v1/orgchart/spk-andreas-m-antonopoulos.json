@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T09:03:48+00:00",
+ "generated_at": "2026-10-16T09:06:31+00:00",
  "preview": false,
  "item": {
   "id": "spk-andreas-m-antonopoulos",
@@ -44,17 +44,17 @@
   ],
   "talks": [
    {
+    "id": "yt-5ODDCx6VL2Y",
+    "title": "Bitcoin & Blockchain in Norway - Interview with Andreas M. Antonopoulos",
+    "video_url": "https://www.youtube.com/watch?v=5ODDCx6VL2Y",
+    "date": "2017-04-27"
+   },
+   {
     "id": "yt-eo-0BgrKxiI",
     "title": "Open Blockchains for Cashless Developed Economies",
     "video_url": "https://www.youtube.com/watch?v=eo-0BgrKxiI",
     "event_id": "30569783bb01",
     "date": "2017-04-25"
-   },
-   {
-    "id": "yt-5ODDCx6VL2Y",
-    "title": "Bitcoin & Blockchain in Norway - Interview with Andreas M. Antonopoulos",
-    "video_url": "https://www.youtube.com/watch?v=5ODDCx6VL2Y",
-    "date": "2017-04-27"
    }
   ]
  }

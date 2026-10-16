@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T09:03:48+00:00",
+ "generated_at": "2026-10-16T09:06:31+00:00",
  "preview": false,
  "item": {
   "id": "9755cf9957e9",
@@ -24,12 +24,12 @@
   ],
   "summary": "Data-centre company Arctic Core now acknowledges that it will carry out 'a little' crypto mining in Kautokeino, the local paper Ságat reports. In writing, the company argues that using crypto mining to generate income during a test phase does not change the basic character of the warehouse building it has been granted a permit for. According to Ságat, the building is mainly meant for testing and storing equipment.",
   "summary_i18n": {
+   "nn": "Dataselskapet Arctic Core vedgår no at det skal drive med «litt» kryptoutvinning i Kautokeino, melder lokalavisa Ságat. Skriftleg hevdar selskapet at det å bruke kryptoutvinning til å skaffe inntekter i ein testfase ikkje endrar den grunnleggjande karakteren til lagerbygget det har fått løyve til. Ifølgje Ságat er bygget hovudsakleg meint for testing og lagring av utstyr.",
+   "nb": "Dataselskapet Arctic Core innrømmer nå at det skal drive med «litt» kryptoutvinning i Kautokeino, melder lokalavisen Ságat. Skriftlig hevder selskapet at det å bruke kryptoutvinning til å skaffe inntekter i en testfase ikke endrer den grunnleggende karakteren til lagerbygget det har fått tillatelse til. Ifølge Ságat er bygget hovedsakelig ment for testing og lagring av utstyr.",
+   "sv": "Datacenterbolaget Arctic Core medger nu att det ska bedriva ”lite” kryptoutvinning i Kautokeino, rapporterar lokaltidningen Ságat. Skriftligen hävdar bolaget att det inte ändrar den grundläggande karaktären hos lagerbyggnaden det fått tillstånd för att kryptoutvinning används för att generera intäkter under en testfas. Enligt Ságat är byggnaden främst avsedd för test och lagring av utrustning.",
    "da": "Datacentervirksomheden Arctic Core indrømmer nu, at den vil drive »lidt« kryptomining i Kautokeino, skriver lokalavisen Ságat. Skriftligt hævder selskabet, at brugen af kryptomining til at skabe indtægter i en testfase ikke ændrer den grundlæggende karakter af den lagerbygning, det har fået tilladelse til. Ifølge Ságat er bygningen hovedsageligt beregnet til test og opbevaring af udstyr.",
    "fi": "Datakeskusyhtiö Arctic Core myöntää nyt harjoittavansa ”vähän” kryptolouhintaa Koutokeinossa, kertoo paikallislehti Ságat. Yhtiö katsoo kirjallisesti, ettei kryptolouhinnan käyttäminen tulojen hankkimiseen testivaiheessa muuta sen varastorakennuksen perusluonnetta, jolle se on saanut luvan. Ságatin mukaan rakennus on tarkoitettu pääasiassa laitteiden testaamiseen ja varastointiin.",
-   "is": "Gagnaversfyrirtækið Arctic Core viðurkennir nú að það muni stunda „smá“ rafmyntanámugröft í Kautokeino, segir héraðsblaðið Ságat. Fyrirtækið heldur því fram skriflega að notkun námugraftar til tekjuöflunar á prófunartímabili breyti ekki grundvallareðli vöruhússins sem það hefur fengið leyfi fyrir. Samkvæmt Ságat er byggingin aðallega ætluð til prófana og geymslu búnaðar.",
-   "nb": "Dataselskapet Arctic Core innrømmer nå at det skal drive med «litt» kryptoutvinning i Kautokeino, melder lokalavisen Ságat. Skriftlig hevder selskapet at det å bruke kryptoutvinning til å skaffe inntekter i en testfase ikke endrer den grunnleggende karakteren til lagerbygget det har fått tillatelse til. Ifølge Ságat er bygget hovedsakelig ment for testing og lagring av utstyr.",
-   "nn": "Dataselskapet Arctic Core vedgår no at det skal drive med «litt» kryptoutvinning i Kautokeino, melder lokalavisa Ságat. Skriftleg hevdar selskapet at det å bruke kryptoutvinning til å skaffe inntekter i ein testfase ikkje endrar den grunnleggjande karakteren til lagerbygget det har fått løyve til. Ifølgje Ságat er bygget hovudsakleg meint for testing og lagring av utstyr.",
-   "sv": "Datacenterbolaget Arctic Core medger nu att det ska bedriva ”lite” kryptoutvinning i Kautokeino, rapporterar lokaltidningen Ságat. Skriftligen hävdar bolaget att det inte ändrar den grundläggande karaktären hos lagerbyggnaden det fått tillstånd för att kryptoutvinning används för att generera intäkter under en testfas. Enligt Ságat är byggnaden främst avsedd för test och lagring av utrustning."
+   "is": "Gagnaversfyrirtækið Arctic Core viðurkennir nú að það muni stunda „smá“ rafmyntanámugröft í Kautokeino, segir héraðsblaðið Ságat. Fyrirtækið heldur því fram skriflega að notkun námugraftar til tekjuöflunar á prófunartímabili breyti ekki grundvallareðli vöruhússins sem það hefur fengið leyfi fyrir. Samkvæmt Ságat er byggingin aðallega ætluð til prófana og geymslu búnaðar."
   },
   "paywall": true,
   "links": [],

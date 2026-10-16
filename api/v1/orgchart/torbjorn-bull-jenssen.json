@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T09:03:48+00:00",
+ "generated_at": "2026-10-16T09:06:31+00:00",
  "preview": false,
  "item": {
   "id": "torbjorn-bull-jenssen",
@@ -57,6 +57,13 @@
   ],
   "talks": [
    {
+    "id": "yt-7TLMmGGSIOA",
+    "title": "Arendalsuka: Bitcoin-mining i Norge. For vanskelig å forstå, for lett å forby?",
+    "video_url": "https://www.youtube.com/watch?v=7TLMmGGSIOA",
+    "event_id": "0af4e2d6e963",
+    "date": "2025-08-12"
+   },
+   {
     "id": "yt-hINk3yZvDdY",
     "title": "Nordic Blockchain Conference 2026 - Day 2 - Stage 1 (Closing Sessions)",
     "video_url": "https://www.youtube.com/watch?v=hINk3yZvDdY"
@@ -65,13 +72,6 @@
     "id": "yt-JaxgfxpmUmk",
     "title": "What gives cryptocurrencies value?",
     "video_url": "https://www.youtube.com/watch?v=JaxgfxpmUmk"
-   },
-   {
-    "id": "yt-7TLMmGGSIOA",
-    "title": "Arendalsuka: Bitcoin-mining i Norge. For vanskelig å forstå, for lett å forby?",
-    "video_url": "https://www.youtube.com/watch?v=7TLMmGGSIOA",
-    "event_id": "0af4e2d6e963",
-    "date": "2025-08-12"
    }
   ],
   "affiliations": [
@@ -80,7 +80,7 @@
     "organisation": "K33",
     "source_url": "https://www.youtube.com/watch?v=hINk3yZvDdY&hl=en",
     "source_name": "Nordic Blockchain Association",
-    "retrieved_at": "2026-10-07T23:30:36+00:00"
+    "retrieved_at": "2026-10-16T08:56:33+00:00"
    }
   ]
  }
