@@ -211,8 +211,9 @@ def newsletter_offer(rel, privacy=False, compact=False):
     form = newsletter_form(compact)
     if not form:
         return newsletter_closed(rel, compact)
-    note = f'<p class="notice">{t("nl_priv")}</p>' if privacy else ""
-    return form + note
+    if privacy:   # newsletter page: tiny link to the privacy page next to the consent line (no privacy box)
+        form = form.replace("</label> <button", f' <a class="nlpriv" href="{rel}privacy/">{E(t("pp_title"))}</a></label> <button', 1)
+    return form
 def header_subscribe_button(rel):
     """The gold button at the top of every page. It opens /newsletter/#signup on this site: the form while signup is open
     ("Subscribe"), otherwise the RSS, Telegram and X links ("Follow"), so the label says what the reader will find."""
@@ -454,7 +455,6 @@ def build_newsletter():
     body = f"""<h1>{E(t("nl_title"))}</h1>
 <p class="lead">{E(t("nl_lead"))}</p>
 <section id="signup">{newsletter_offer("../", privacy=True)}</section>
-{community_links()}
 <h2 id="issues">{E(t("nl_issues_h"))}</h2>
 <p class="meta">{E(t("nl_issues_lead"))}</p>
 <ol class="nlissues">{''.join(lis) or f'<li class="empty">{E(t("nl_issues_none"))}</li>'}</ol>
