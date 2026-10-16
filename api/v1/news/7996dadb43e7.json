@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T00:37:53+00:00",
+ "generated_at": "2026-10-16T00:44:36+00:00",
  "preview": false,
  "item": {
   "id": "7996dadb43e7",
@@ -37,14 +37,14 @@
    "stablecoins",
    "business"
   ],
-  "summary": "NBX has signed with Tieto Banktech for a payment card that lets customers spend stablecoins in everyday purchases.",
+  "summary": "Norwegian crypto platform NBX has signed an agreement with Tieto Banktech for digital and physical payment cards meant to let customers spend stablecoins without first selling them and moving the money to a bank, Kaupr reports. The programme starts with a prepaid Visa card, with Tieto handling card infrastructure and fraud monitoring and IDT Finance acting as BIN sponsor. NBX's CEO says what sets it apart is that NBX issues its own stablecoins in line with MiCA.",
   "summary_i18n": {
-   "da": "NBX har indgået aftale med Tieto Banktech om et betalingskort, der lader kunderne bruge stablecoins til daglige indkøb.",
-   "fi": "NBX on sopinut Tieto Banktechin kanssa maksukortista, jolla asiakkaat voivat käyttää vakaakolikoita arjen ostoksissa.",
-   "is": "NBX hefur samið við Tieto Banktech um greiðslukort sem gerir viðskiptavinum kleift að nota stöðugleikamyntir í daglegum innkaupum.",
-   "nb": "NBX har inngått avtale med Tieto Banktech om et betalingskort som lar kundene bruke stablecoins i hverdagskjøp.",
-   "nn": "NBX har inngått avtale med Tieto Banktech om eit betalingskort som lèt kundane bruke stablecoins i kvardagskjøp.",
-   "sv": "NBX har tecknat avtal med Tieto Banktech om ett betalkort som låter kunderna använda stablecoins i vardagliga köp."
+   "da": "Den norske kryptoplatform NBX har indgået aftale med Tieto Banktech om digitale og fysiske betalingskort, som skal lade kunderne bruge stablecoins uden først at sælge dem og flytte pengene til en bank, skriver Kaupr. Programmet starter med et forudbetalt Visa-kort, hvor Tieto står for kortinfrastruktur og svindelovervågning, og IDT Finance er BIN-sponsor. NBX's administrerende direktør siger, at det, der adskiller selskabet, er, at NBX udsteder egne stablecoins i overensstemmelse med MiCA.",
+   "fi": "Norjalainen kryptoalusta NBX on tehnyt Tieto Banktechin kanssa sopimuksen digitaalisista ja fyysisistä maksukorteista, joilla asiakkaat voivat käyttää stablecoineja myymättä niitä ensin ja siirtämättä rahoja pankkiin, kertoo Kaupr. Ohjelma alkaa prepaid-Visa-kortilla; Tieto vastaa korttiinfrastruktuurista ja petosvalvonnasta, ja IDT Finance toimii BIN-sponsorina. NBX:n toimitusjohtajan mukaan yhtiön erottaa muista se, että NBX laskee liikkeeseen omia stablecoinejaan MiCA:n mukaisesti.",
+   "is": "Norski rafmyntavettvangurinn NBX hefur samið við Tieto Banktech um stafræn og raunveruleg greiðslukort sem eiga að gera viðskiptavinum kleift að nota stöðugleikamyntir án þess að selja þær fyrst og flytja féð í banka, segir Kaupr. Verkefnið hefst með fyrirframgreiddu Visa-korti, þar sem Tieto sér um kortainnviði og svikaeftirlit og IDT Finance er BIN-bakhjarl. Forstjóri NBX segir að sérstaða félagsins sé að NBX gefi út eigin stöðugleikamyntir í samræmi við MiCA.",
+   "nb": "Den norske kryptoplattformen NBX har inngått avtale med Tieto Banktech om digitale og fysiske betalingskort som skal la kundene bruke stablecoins uten først å selge dem og flytte pengene til en bank, melder Kaupr. Programmet starter med et forhåndsbetalt Visa-kort, der Tieto står for kortinfrastruktur og svindelovervåking og IDT Finance er BIN-sponsor. Administrerende direktør i NBX sier at det som skiller selskapet ut, er at NBX utsteder egne stablecoins i tråd med MiCA.",
+   "nn": "Den norske kryptoplattforma NBX har inngått avtale med Tieto Banktech om digitale og fysiske betalingskort som skal la kundane bruke stablecoins utan først å selje dei og flytte pengane til ein bank, melder Kaupr. Programmet startar med eit forhandsbetalt Visa-kort, der Tieto står for kortinfrastruktur og svindelovervaking og IDT Finance er BIN-sponsor. Administrerande direktør i NBX seier at det som skil selskapet ut, er at NBX utferdar eigne stablecoins i tråd med MiCA.",
+   "sv": "Den norska kryptoplattformen NBX har tecknat avtal med Tieto Banktech om digitala och fysiska betalkort som ska låta kunderna använda stablecoins utan att först sälja dem och flytta pengarna till en bank, rapporterar Kaupr. Programmet börjar med ett förbetalt Visa-kort, där Tieto står för kortinfrastruktur och bedrägeriövervakning och IDT Finance är BIN-sponsor. NBX:s vd säger att det som skiljer bolaget från andra är att NBX ger ut egna stablecoins i linje med MiCA."
   },
   "paywall": false,
   "links": [],

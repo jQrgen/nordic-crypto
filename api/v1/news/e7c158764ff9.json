@@ -1,0 +1,119 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-16T00:44:36+00:00",
+ "preview": false,
+ "item": {
+  "id": "e7c158764ff9",
+  "url": "https://investornytt.no/krypto/ai-kan-tomme-lommebokene/547012",
+  "html_url": "https://nordiccrypto.no/stories/e7c158764ff9/",
+  "api_url": "https://nordiccrypto.no/api/v1/news/e7c158764ff9.json",
+  "title": "AI kan tømme lommebøkene",
+  "title_en": "Ethereum researcher warns AI could break wallet signatures; Buterin urges calm",
+  "title_i18n": {},
+  "source": "investornytt",
+  "source_name": "Investornytt",
+  "source_logo": null,
+  "source_note": null,
+  "country": "NO",
+  "language": "Norwegian",
+  "language_code": "no",
+  "published": "2026-10-08T10:05:34+00:00",
+  "topics": [
+   "security"
+  ],
+  "summary": "Investornytt reports that Ethereum Foundation researcher Justin Drake believes AI could help break ECDSA, the signature scheme behind Bitcoin and Ethereum wallets, in the worst case within months, and suggests moving funds to addresses whose public key has not been exposed. Vitalik Buterin calls the risk serious but warns against panic.",
+  "summary_i18n": {
+   "da": "Investornytt skriver, at Ethereum Foundation-forskeren Justin Drake vurderer, at AI i værste fald kan knække ECDSA, signatursystemet bag Bitcoin- og Ethereum-tegnebøger, inden for måneder, og anbefaler at flytte midler til adresser uden eksponeret offentlig nøgle. Vitalik Buterin tager risikoen alvorligt, men advarer mod panik.",
+   "fi": "Investornytt kertoo, että Ethereum Foundationin tutkija Justin Drake arvioi tekoälyn voivan pahimmassa tapauksessa murtaa ECDSA:n, Bitcoin- ja Ethereum-lompakoiden allekirjoitusjärjestelmän, kuukausien kuluessa, ja neuvoo siirtämään varat osoitteisiin, joiden julkista avainta ei ole paljastettu. Vitalik Buterin pitää riskiä vakavana mutta varoittaa paniikista.",
+   "is": "Investornytt greinir frá því að Justin Drake, rannsakandi hjá Ethereum Foundation, telji að gervigreind geti í versta falli brotið ECDSA, undirskriftakerfið að baki Bitcoin- og Ethereum-veskjum, innan nokkurra mánaða, og ráðleggur að færa fé á vistföng þar sem opinberi lykillinn hefur ekki verið birtur. Vitalik Buterin tekur áhættuna alvarlega en varar við ofsahræðslu.",
+   "nb": "Investornytt melder at Ethereum Foundation-forsker Justin Drake mener kunstig intelligens i verste fall kan knekke ECDSA, signatursystemet bak Bitcoin- og Ethereum-lommebøker, i løpet av måneder, og råder til å flytte midler til adresser uten eksponert offentlig nøkkel. Vitalik Buterin tar risikoen på alvor, men advarer mot panikk.",
+   "nn": "Investornytt melder at Ethereum Foundation-forskaren Justin Drake meiner kunstig intelligens i verste fall kan knekke ECDSA, signatursystemet bak Bitcoin- og Ethereum-lommebøker, i løpet av månader, og rår til å flytte midlar til adresser utan eksponert offentleg nøkkel. Vitalik Buterin tek risikoen på alvor, men åtvarar mot panikk.",
+   "sv": "Investornytt rapporterar att Ethereum Foundation-forskaren Justin Drake bedömer att AI i värsta fall kan knäcka ECDSA, signatursystemet bakom Bitcoin- och Ethereum-plånböcker, inom månader, och råder att flytta medel till adresser utan exponerad publik nyckel. Vitalik Buterin tar risken på allvar men varnar för panik."
+  },
+  "paywall": false,
+  "links": [],
+  "own_story": false,
+  "illustration": {
+   "id": "commons-no",
+   "kind": "commons",
+   "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-no.webp",
+   "width": 960,
+   "height": 348,
+   "alt": "The Storting building in Oslo.",
+   "source": "Wikimedia Commons",
+   "author": "Alexander Ottesen",
+   "license": "CC BY 2.0",
+   "license_url": "https://creativecommons.org/licenses/by/2.0/",
+   "url": "https://commons.wikimedia.org/wiki/File:Stortinget_2009.jpg",
+   "credit": "Photo: Alexander Ottesen. Licence: CC BY 2.0. Source: Wikimedia Commons. Cropped.",
+   "modifications": "Cropped by Nordic Crypto to leave out people in the square.",
+   "terms": null
+  },
+  "primary_source": {
+   "outlet": "investornytt",
+   "outlet_name": "Investornytt",
+   "url": "https://investornytt.no/krypto/ai-kan-tomme-lommebokene/547012",
+   "title": "AI kan tømme lommebøkene",
+   "published": "2026-10-08T10:05:34+00:00",
+   "lang": "Norwegian",
+   "language_code": "no",
+   "country": "NO",
+   "source_type": "national",
+   "paywall": false,
+   "primary": true,
+   "logo": null
+  },
+  "primary_source_document": null,
+  "also_covered_by": [],
+  "sources": [
+   {
+    "outlet": "investornytt",
+    "outlet_name": "Investornytt",
+    "url": "https://investornytt.no/krypto/ai-kan-tomme-lommebokene/547012",
+    "title": "AI kan tømme lommebøkene",
+    "published": "2026-10-08T10:05:34+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": null
+   }
+  ],
+  "coverage": {
+   "count": 1,
+   "by_country": [
+    {
+     "country": "NO",
+     "count": 1,
+     "share": 1.0
+    }
+   ],
+   "by_source_type": [
+    {
+     "type": "national",
+     "count": 1,
+     "share": 1.0
+    },
+    {
+     "type": "regional",
+     "count": 0,
+     "share": 0.0
+    },
+    {
+     "type": "official",
+     "count": 0,
+     "share": 0.0
+    },
+    {
+     "type": "international",
+     "count": 0,
+     "share": 0.0
+    }
+   ]
+  },
+  "source_logo_url": null
+ }
+}

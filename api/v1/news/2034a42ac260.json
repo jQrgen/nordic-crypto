@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T00:37:53+00:00",
+ "generated_at": "2026-10-16T00:44:36+00:00",
  "preview": false,
  "item": {
   "id": "2034a42ac260",
@@ -38,14 +38,14 @@
    "tokenisation",
    "banking"
   ],
-  "summary": "Norges Bank has named twelve financial institutions in its mapping of tokenisation, while Norway is the only Nordic country without banks in the euro-stablecoin group Qivalis.",
+  "summary": "Norges Bank has for the first time named twelve financial institutions it is in regular contact with in its exploration of tokenisation, including DNB, Nordea, SEB, SpareBank 1, Euronext and KLP, Kaupr reports. The central bank repeats that it has found no reason to introduce a central bank digital currency now, but says work on both CBDC and tokenisation continues; the LinkedIn post came with no report or timetable. Meanwhile, Norway is the only Nordic country without banks in Qivalis, the bank consortium behind a planned euro stablecoin.",
   "summary_i18n": {
-   "da": "Norges Bank har navngivet tolv finansielle institutioner i sin kortlægning af tokenisering, mens Norge er det eneste nordiske land uden banker i euro-stablecoin-gruppen Qivalis.",
-   "fi": "Norges Bank on nimennyt tokenisointia koskevassa kartoituksessaan kaksitoista rahoituslaitosta, ja Norja on ainoa Pohjoismaa, jonka pankkeja ei ole mukana euromääräisten vakaakolikoiden Qivalis-ryhmässä.",
-   "is": "Norges Bank hefur nafngreint tólf fjármálastofnanir í kortlagningu sinni á táknvæðingu, en Noregur er eina norræna landið sem á enga banka í evru-stöðugleikamyntahópnum Qivalis.",
-   "nb": "Norges Bank har navngitt tolv finansinstitusjoner i sin kartlegging av tokenisering, mens Norge er det eneste nordiske landet uten banker i euro-stablecoin-gruppen Qivalis.",
-   "nn": "Norges Bank har namngitt tolv finansinstitusjonar i kartlegginga si av tokenisering, medan Noreg er det einaste nordiske landet utan bankar i euro-stablecoin-gruppa Qivalis.",
-   "sv": "Norges Bank har namngett tolv finansinstitut i sin kartläggning av tokenisering, medan Norge är det enda nordiska landet utan banker i euro-stablecoin-gruppen Qivalis."
+   "da": "Norges Bank har for første gang navngivet tolv finansielle institutioner, som den har løbende kontakt med i sin kortlægning af tokenisering, herunder DNB, Nordea, SEB, SpareBank 1, Euronext og KLP, skriver Kaupr. Centralbanken gentager, at den ikke har fundet grund til at indføre digitale centralbankpenge nu, men at arbejdet med både CBDC og tokenisering fortsætter; LinkedIn-opslaget kom uden rapport eller tidsplan. Samtidig er Norge det eneste nordiske land uden banker i Qivalis, bankkonsortiet bag en planlagt euro-stablecoin.",
+   "fi": "Norges Bank on ensimmäistä kertaa nimennyt kaksitoista rahoituslaitosta, joiden kanssa se on säännöllisesti yhteydessä tokenisoinnin kartoituksessa, muun muassa DNB:n, Nordean, SEB:n, SpareBank 1:n, Euronextin ja KLP:n, kertoo Kaupr. Keskuspankki toistaa, ettei se ole löytänyt syytä ottaa nyt käyttöön digitaalista keskuspankkirahaa, mutta työ sekä sen että tokenisoinnin parissa jatkuu; LinkedIn-julkaisun mukana ei tullut raporttia eikä aikataulua. Samaan aikaan Norja on ainoa Pohjoismaa, jonka pankit eivät ole mukana suunniteltua euro-stablecoinia valmistelevassa Qivalis-konsortiossa.",
+   "is": "Norges Bank hefur í fyrsta sinn nefnt tólf fjármálastofnanir sem hann er í reglulegu sambandi við í könnun sinni á táknvæðingu, þar á meðal DNB, Nordea, SEB, SpareBank 1, Euronext og KLP, segir Kaupr. Seðlabankinn ítrekar að hann hafi ekki fundið ástæðu til að innleiða stafrænan seðlabankagjaldmiðil nú, en að vinna við hann og táknvæðingu haldi áfram; LinkedIn-færslunni fylgdi hvorki skýrsla né tímaáætlun. Á sama tíma er Noregur eina norræna landið án banka í Qivalis, bankasamsteypunni á bak við fyrirhugaða evru-stöðugleikamynt.",
+   "nb": "Norges Bank har for første gang navngitt tolv finansinstitusjoner den har løpende kontakt med i kartleggingen av tokenisering, blant dem DNB, Nordea, SEB, SpareBank 1, Euronext og KLP, melder Kaupr. Sentralbanken gjentar at den ikke har funnet grunn til å innføre digitale sentralbankpenger nå, men at arbeidet med både DSP og tokenisering fortsetter; LinkedIn-innlegget kom uten rapport eller tidsplan. Samtidig er Norge det eneste nordiske landet uten banker i Qivalis, bankkonsortiet bak en planlagt euro-stablecoin.",
+   "nn": "Noregs Bank har for første gong namngjeve tolv finansinstitusjonar han har løpande kontakt med i kartlegginga av tokenisering, mellom dei DNB, Nordea, SEB, SpareBank 1, Euronext og KLP, melder Kaupr. Sentralbanken gjentek at han ikkje har funne grunn til å innføre digitale sentralbankpengar no, men at arbeidet med både DSP og tokenisering held fram; LinkedIn-innlegget kom utan rapport eller tidsplan. Samstundes er Noreg det einaste nordiske landet utan bankar i Qivalis, bankkonsortiet bak ein planlagd euro-stablecoin.",
+   "sv": "Norges Bank har för första gången namngett tolv finansinstitut som den har löpande kontakt med i sin kartläggning av tokenisering, bland dem DNB, Nordea, SEB, SpareBank 1, Euronext och KLP, rapporterar Kaupr. Centralbanken upprepar att den inte funnit skäl att införa digitala centralbankspengar nu, men att arbetet med både CBDC och tokenisering fortsätter; LinkedIn-inlägget kom utan rapport eller tidsplan. Samtidigt är Norge det enda nordiska landet utan banker i Qivalis, bankkonsortiet bakom en planerad euro-stablecoin."
   },
   "paywall": false,
   "links": [],

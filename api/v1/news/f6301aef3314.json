@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T00:37:53+00:00",
+ "generated_at": "2026-10-16T00:44:36+00:00",
  "preview": false,
  "item": {
   "id": "f6301aef3314",
@@ -39,14 +39,14 @@
    "mica",
    "regulation"
   ],
-  "summary": "Finland's FIN-FSA reminds firms that crypto-asset service providers serving Finland must hold an EU (MiCA) authorisation.",
+  "summary": "Finland's FIN-FSA reminds the public that from 1 July 2026 crypto-asset services may not be provided in the EU or EEA without authorisation, after transitional periods in some countries ended on 30 June. It recommends that clients check ESMA's register and move to an authorised provider if theirs is not listed. Services from unauthorised third-country providers can only be used on the client's own initiative, and such providers may not market other services or new crypto-assets to them.",
   "summary_i18n": {
-   "da": "Det finske finanstilsyn, Finanssivalvonta, minder om, at udbydere af kryptoaktivtjenester, der betjener Finland, skal have en EU-tilladelse (MiCA).",
-   "fi": "Finanssivalvonta muistuttaa, että Suomessa palveluja tarjoavilla kryptovarapalvelujen tarjoajilla on oltava EU:n (MiCA) toimilupa.",
-   "is": "Finnska fjármálaeftirlitið minnir á að þjónustuveitendur sýndareigna sem þjóna Finnlandi verða að hafa leyfi innan ESB (MiCA).",
-   "nb": "Finske Finanssivalvonta minner om at tilbydere av kryptoeiendelstjenester som betjener Finland, må ha EU-tillatelse (MiCA).",
-   "nn": "Finske Finanssivalvonta minner om at tilbydarar av kryptoeigedelstenester som tener Finland, må ha EU-løyve (MiCA).",
-   "sv": "Finska Finanssivalvonta påminner om att leverantörer av kryptotillgångstjänster som betjänar Finland måste ha ett EU-tillstånd (MiCA)."
+   "da": "Det finske finanstilsyn FIN-FSA minder om, at det fra 1. juli 2026 ikke er tilladt at udbyde kryptotjenester i EU eller EØS uden tilladelse, efter at overgangsperioderne i nogle lande udløb 30. juni. Tilsynet anbefaler kunderne at tjekke ESMA's register og skifte til en autoriseret udbyder, hvis deres ikke står der. Tjenester fra uautoriserede udbydere i tredjelande må kun bruges på kundens eget initiativ, og sådanne udbydere må ikke markedsføre andre tjenester eller nye kryptoaktiver over for kunden.",
+   "fi": "Finanssivalvonta muistuttaa, että 1. heinäkuuta 2026 alkaen kryptovarapalveluja ei saa tarjota EU:ssa tai ETA-alueella ilman toimilupaa, kun joidenkin maiden siirtymäajat päättyivät 30. kesäkuuta. Se suosittelee asiakkaita tarkistamaan ESMA:n rekisterin ja siirtymään toimiluvalliselle palveluntarjoajalle, jos oma palveluntarjoaja ei ole rekisterissä. Kolmansien maiden luvattomien palveluntarjoajien palveluja voi käyttää vain asiakkaan omasta aloitteesta, eivätkä tällaiset palveluntarjoajat saa markkinoida asiakkaalle muita palveluja tai uusia kryptovaroja.",
+   "is": "Finnska fjármálaeftirlitið FIN-FSA minnir á að frá 1. júlí 2026 er óheimilt að veita rafmyntaþjónustu í ESB eða á EES-svæðinu án leyfis, eftir að aðlögunartímabil í sumum löndum runnu út 30. júní. Það ráðleggur viðskiptavinum að skoða skrá ESMA og flytja sig til leyfishafa ef þjónustuaðili þeirra er ekki skráður. Þjónustu óleyfisskyldra aðila í þriðju ríkjum má aðeins nota að frumkvæði viðskiptavinarins, og slíkir aðilar mega ekki markaðssetja aðra þjónustu eða nýjar sýndareignir til hans.",
+   "nb": "Det finske finanstilsynet FIN-FSA minner om at det fra 1. juli 2026 ikke er tillatt å tilby kryptotjenester i EU eller EØS uten tillatelse, etter at overgangsperiodene i enkelte land gikk ut 30. juni. Tilsynet anbefaler kundene å sjekke ESMA-registeret og flytte til en autorisert tilbyder dersom deres ikke står der. Tjenester fra uautoriserte tilbydere i tredjeland kan bare brukes på kundens eget initiativ, og slike tilbydere kan ikke markedsføre andre tjenester eller nye kryptoeiendeler til kunden.",
+   "nn": "Det finske finanstilsynet FIN-FSA minner om at det frå 1. juli 2026 ikkje er lov å tilby kryptotenester i EU eller EØS utan løyve, etter at overgangsperiodane i somme land gjekk ut 30. juni. Tilsynet tilrår kundane å sjekke ESMA-registeret og flytte til ein autorisert tilbydar dersom deira ikkje står der. Tenester frå uautoriserte tilbydarar i tredjeland kan berre brukast på kunden sitt eige initiativ, og slike tilbydarar kan ikkje marknadsføre andre tenester eller nye kryptoeigedelar til kunden.",
+   "sv": "Finska Finansinspektionen påminner om att det från den 1 juli 2026 inte är tillåtet att erbjuda kryptotjänster i EU eller EES utan tillstånd, sedan övergångsperioderna i vissa länder löpte ut den 30 juni. Myndigheten rekommenderar kunder att kontrollera Esmas register och byta till en auktoriserad leverantör om deras inte finns med. Tjänster från oauktoriserade leverantörer i tredjeland får bara användas på kundens eget initiativ, och sådana leverantörer får inte marknadsföra andra tjänster eller nya kryptotillgångar till kunden."
   },
   "paywall": false,
   "links": [],

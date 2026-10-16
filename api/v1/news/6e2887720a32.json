@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T00:37:53+00:00",
+ "generated_at": "2026-10-16T00:44:36+00:00",
  "preview": false,
  "item": {
   "id": "6e2887720a32",
@@ -38,14 +38,14 @@
    "business",
    "mica"
   ],
-  "summary": "Crypto exchange Firi lost NOK 43.6 million in the first half of 2026 after weaker trading and high MiCA costs, and has made layoffs while launching in Sweden.",
+  "summary": "Crypto exchange Firi had revenue of NOK 42 million and a net loss of NOK 43.6 million in the first half of 2026, after weaker trading and high legal costs for its MiCA licence, Shifter reports from the half-year report sent to shareholders. In August Firi laid off 13 of 58 full-time positions, saying the organisation had grown larger than activity could justify. The figures came on the same day the company opened to Swedish customers.",
   "summary_i18n": {
-   "da": "Kryptobørsen Firi tabte 43,6 millioner norske kroner i første halvår 2026 efter svagere handel og høje MiCA-omkostninger og har afskediget medarbejdere, samtidig med at selskabet lanceres i Sverige.",
-   "fi": "Kryptopörssi Firi teki 43,6 miljoonan Norjan kruunun tappion vuoden 2026 ensimmäisellä puoliskolla heikomman kaupankäynnin ja korkeiden MiCA-kulujen vuoksi, ja se on vähentänyt henkilöstöä samalla kun se aloittaa Ruotsissa.",
-   "is": "Rafmyntakauphöllin Firi tapaði 43,6 milljónum norskra króna á fyrri helmingi ársins 2026 vegna minni viðskipta og mikils MiCA-kostnaðar og hefur fækkað starfsfólki á sama tíma og hún hefur starfsemi í Svíþjóð.",
-   "nb": "Kryptobørsen Firi tapte 43,6 millioner kroner i første halvår 2026 etter svakere handel og høye MiCA-kostnader, og har nedbemannet samtidig som selskapet lanseres i Sverige.",
-   "nn": "Kryptobørsen Firi tapte 43,6 millionar kroner i første halvår 2026 etter svakare handel og høge MiCA-kostnader, og har nedbemanna samstundes som selskapet blir lansert i Sverige.",
-   "sv": "Kryptobörsen Firi förlorade 43,6 miljoner norska kronor under första halvåret 2026 efter svagare handel och höga MiCA-kostnader, och har sagt upp personal samtidigt som bolaget lanseras i Sverige."
+   "da": "Kryptobørsen Firi havde indtægter på 42 millioner norske kroner og et underskud på 43,6 millioner i første halvår 2026 efter svagere handel og høje juridiske omkostninger til MiCA-licensen, skriver Shifter ud fra halvårsrapporten til aktionærerne. I august hjemsendte Firi 13 af 58 årsværk med den begrundelse, at organisationen var blevet større, end aktiviteten kunne bære. Tallene kom samme dag, som selskabet åbnede for svenske kunder.",
+   "fi": "Kryptopörssi Firin tulot olivat vuoden 2026 ensimmäisellä puoliskolla 42 miljoonaa kruunua ja tappio 43,6 miljoonaa heikomman kaupankäynnin ja MiCA-toimiluvan suurten lakikulujen vuoksi, kertoo Shifter osakkaille lähetetyn puolivuosiraportin perusteella. Elokuussa Firi lomautti 13 sen 58 henkilötyövuodesta, koska organisaatio oli yhtiön mukaan kasvanut toimintaan nähden liian suureksi. Luvut julkaistiin samana päivänä, kun yhtiö avautui ruotsalaisille asiakkaille.",
+   "is": "Rafmyntakauphöllin Firi var með 42 milljónir króna í tekjur og 43,6 milljóna tap á fyrri helmingi 2026, eftir minni viðskipti og mikinn lögfræðikostnað vegna MiCA-leyfisins, segir Shifter upp úr hálfsársskýrslu til hluthafa. Í ágúst sendi Firi 13 af 58 stöðugildum í tímabundið leyfi, með þeim rökum að fyrirtækið væri orðið stærra en starfsemin réttlætti. Tölurnar komu sama dag og félagið opnaði fyrir sænskum viðskiptavinum.",
+   "nb": "Kryptobørsen Firi hadde inntekter på 42 millioner kroner og et underskudd på 43,6 millioner i første halvår 2026, etter svakere handel og høye juridiske kostnader til MiCA-lisensen, melder Shifter fra halvårsrapporten til aksjonærene. I august permitterte Firi 13 av 58 årsverk, begrunnet med at organisasjonen var blitt større enn aktiviteten forsvarte. Tallene kom samme dag som selskapet åpnet for svenske kunder.",
+   "nn": "Kryptobørsen Firi hadde inntekter på 42 millionar kroner og eit underskot på 43,6 millionar i første halvår 2026, etter svakare handel og høge juridiske kostnader til MiCA-lisensen, melder Shifter frå halvårsrapporten til aksjonærane. I august permitterte Firi 13 av 58 årsverk, med grunngjeving i at organisasjonen hadde vorte større enn aktiviteten forsvarte. Tala kom same dag som selskapet opna for svenske kundar.",
+   "sv": "Kryptobörsen Firi hade intäkter på 42 miljoner norska kronor och en förlust på 43,6 miljoner under första halvåret 2026, efter svagare handel och höga juridiska kostnader för MiCA-licensen, rapporterar Shifter utifrån halvårsrapporten till aktieägarna. I augusti permitterade Firi 13 av 58 årsverken, med motiveringen att organisationen blivit större än verksamheten motiverade. Siffrorna kom samma dag som bolaget öppnade för svenska kunder."
   },
   "paywall": true,
   "links": [],

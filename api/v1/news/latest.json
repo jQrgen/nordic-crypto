@@ -1,9 +1,9 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T00:37:53+00:00",
+ "generated_at": "2026-10-16T00:44:36+00:00",
  "preview": false,
- "updated": "2026-10-16T00:36:42+00:00",
+ "updated": "2026-10-16T00:43:23+00:00",
  "limit": 25,
  "count": 25,
  "items": [
@@ -180,6 +180,21 @@
    "api_url": "https://nordiccrypto.no/api/v1/news/1c30329a2205.json"
   },
   {
+   "id": "248229beedb1",
+   "published": "2026-10-12T12:00:00+00:00",
+   "country": "NO",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "language_code": "no",
+   "own_story": false,
+   "title": "Amerikansk finanspresse oppdager at tokenisering endrer børs og aksjehandel",
+   "title_en": "Kaupr: US financial press turns its attention to tokenised stocks",
+   "title_i18n": {},
+   "url": "https://kaupr.io/nyheter/amerikansk-finanspresse-oppdager-at-tokenisering-endrer-bors-og-aksjehandel",
+   "html_url": "https://nordiccrypto.no/stories/248229beedb1/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/248229beedb1.json"
+  },
+  {
    "id": "1b09dbbba837",
    "published": "2026-10-12T09:38:15+00:00",
    "country": "NO",
@@ -193,6 +208,66 @@
    "url": "https://sagat.no/kommunen-vart-naiv/19.59940",
    "html_url": "https://nordiccrypto.no/stories/1b09dbbba837/",
    "api_url": "https://nordiccrypto.no/api/v1/news/1b09dbbba837.json"
+  },
+  {
+   "id": "d4cf38e2cea3",
+   "published": "2026-10-11T07:23:27+00:00",
+   "country": "SE",
+   "source": "dagensps.se",
+   "source_name": "Dagens PS",
+   "language_code": "sv",
+   "own_story": false,
+   "title": "Manipulation: Kryptoplånböcker tömdes på 860 miljoner",
+   "title_en": "Tampered Ledger hardware wallets suspected in thefts of about SEK 860 million",
+   "title_i18n": {},
+   "url": "https://dagensps.se/bors-finans/manipulation-kryptoplanbocker-tomdes-pa-860-miljoner",
+   "html_url": "https://nordiccrypto.no/stories/d4cf38e2cea3/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/d4cf38e2cea3.json"
+  },
+  {
+   "id": "d7e0dcf5a724",
+   "published": "2026-10-09T12:00:00+00:00",
+   "country": "NO",
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "language_code": "no",
+   "own_story": false,
+   "title": "Spillpioner og kapitalforvalter satser sammen på tokenisering",
+   "title_en": "Animoca Brands and Franklin Templeton announce tokenisation partnership around NUVA",
+   "title_i18n": {},
+   "url": "https://kaupr.io/nyheter/spillpioner-og-kapitalforvalter-satser-sammen-pa-tokenisering",
+   "html_url": "https://nordiccrypto.no/stories/d7e0dcf5a724/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/d7e0dcf5a724.json"
+  },
+  {
+   "id": "36cc0b725b8c",
+   "published": "2026-10-09T09:28:58+00:00",
+   "country": "NO",
+   "source": "investornytt",
+   "source_name": "Investornytt",
+   "language_code": "no",
+   "own_story": false,
+   "title": "Aksjer på blokkjeden kan forsterke børsuro",
+   "title_en": "IMF: tokenised stocks show bigger price swings and weaker liquidity",
+   "title_i18n": {},
+   "url": "https://investornytt.no/nyheter/aksjer-pa-blokkjeden-kan-forsterke-borsuro/547093",
+   "html_url": "https://nordiccrypto.no/stories/36cc0b725b8c/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/36cc0b725b8c.json"
+  },
+  {
+   "id": "e7c158764ff9",
+   "published": "2026-10-08T10:05:34+00:00",
+   "country": "NO",
+   "source": "investornytt",
+   "source_name": "Investornytt",
+   "language_code": "no",
+   "own_story": false,
+   "title": "AI kan tømme lommebøkene",
+   "title_en": "Ethereum researcher warns AI could break wallet signatures; Buterin urges calm",
+   "title_i18n": {},
+   "url": "https://investornytt.no/krypto/ai-kan-tomme-lommebokene/547012",
+   "html_url": "https://nordiccrypto.no/stories/e7c158764ff9/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/e7c158764ff9.json"
   },
   {
    "id": "660753d52f62",
@@ -319,111 +394,6 @@
    "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/",
    "html_url": "https://nordiccrypto.no/stories/e88e8e0c9a77/",
    "api_url": "https://nordiccrypto.no/api/v1/news/e88e8e0c9a77.json"
-  },
-  {
-   "id": "e6727b4858b5",
-   "published": "2026-10-03T05:00:00+00:00",
-   "country": "SE",
-   "source": "realtid",
-   "source_name": "Realtid",
-   "language_code": "sv",
-   "own_story": false,
-   "title": "Så kan Sverige användas för att finansiera kärnvapen",
-   "title_en": "How Sweden can be used to finance nuclear weapons",
-   "title_i18n": {
-    "nn": "Slik kan Sverige brukast til å finansiere kjernevåpen",
-    "nb": "Slik kan Sverige brukes til å finansiere kjernevåpen",
-    "da": "Sådan kan Sverige bruges til at finansiere kernevåben",
-    "fi": "Näin Ruotsia voidaan käyttää ydinaseiden rahoittamiseen",
-    "is": "Svona má nota Svíþjóð til að fjármagna kjarnavopn"
-   },
-   "url": "https://www.realtid.se/bors-finans/makro/sa-kan-sverige-anvandas-for-att-finansiera-karnvapen/",
-   "html_url": "https://nordiccrypto.no/stories/e6727b4858b5/",
-   "api_url": "https://nordiccrypto.no/api/v1/news/e6727b4858b5.json"
-  },
-  {
-   "id": "2d38c9c89e0e",
-   "published": "2026-10-02T12:00:00+00:00",
-   "country": "SE",
-   "source": "sydsvenskan.se",
-   "source_name": "Sydsvenskan",
-   "language_code": "sv",
-   "own_story": false,
-   "title": "Uppgifter: Tonåringar silvertejpade man i jakt på kryptovaluta",
-   "title_en": "Reports: teenagers duct-taped a man in hunt for cryptocurrency",
-   "title_i18n": {
-    "nn": "Opplysningar: Tenåringar sølvteipa mann i jakt på kryptovaluta",
-    "nb": "Opplysninger: Tenåringer sølvteipet mann i jakt på kryptovaluta",
-    "da": "Oplysninger: Teenagere tapede en mand med sølvtape i jagten på kryptovaluta",
-    "fi": "Tietojen mukaan teinit teippasivat miehen ilmastointiteipillä kryptovaluutan takia",
-    "is": "Upplýsingar: Unglingar bundu mann með límbandi í leit að rafmynt"
-   },
-   "url": "https://www.sydsvenskan.se/lund/uppgifter-tonaringar-silvertejpade-man-i-jakt-pa-kryptovaluta/",
-   "html_url": "https://nordiccrypto.no/stories/2d38c9c89e0e/",
-   "api_url": "https://nordiccrypto.no/api/v1/news/2d38c9c89e0e.json"
-  },
-  {
-   "id": "1a95167a3af8",
-   "published": "2026-10-02T11:07:26+00:00",
-   "country": "NO",
-   "source": "aftenposten",
-   "source_name": "Aftenposten",
-   "language_code": "no",
-   "own_story": false,
-   "title": "Tiltalt for dopsalg mot kryptovaluta på det mørke nettet",
-   "title_en": "Charged with selling drugs for cryptocurrency on the dark web",
-   "title_i18n": {
-    "nn": "Tiltala for narkosalg mot kryptovaluta på det mørke nettet",
-    "sv": "Åtalad för narkotikaförsäljning mot kryptovaluta på det mörka nätet",
-    "da": "Tiltalt for narkosalg mod kryptovaluta på det mørke net",
-    "fi": "Syyte huumekaupasta kryptovaluuttaa vastaan pimeässä verkossa",
-    "is": "Ákærður fyrir fíkniefnasölu gegn rafmynt á myrka vefnum"
-   },
-   "url": "https://www.aftenposten.no/norge/i/vlQARB/tiltalt-for-dopsalg-mot-kryptovaluta-paa-det-moerke-nettet",
-   "html_url": "https://nordiccrypto.no/stories/1a95167a3af8/",
-   "api_url": "https://nordiccrypto.no/api/v1/news/1a95167a3af8.json"
-  },
-  {
-   "id": "7b2030aea964",
-   "published": "2026-10-01T18:04:00+00:00",
-   "country": "SE",
-   "source": "realtid",
-   "source_name": "Realtid",
-   "language_code": "sv",
-   "own_story": false,
-   "title": "Kryptojätten i ny kontrovers – erbjöd tjänster i Europa utan licens",
-   "title_en": "Crypto giant in new controversy: offered services in Europe without a licence",
-   "title_i18n": {
-    "nn": "Kryptokjempa i ny kontrovers – tilbaud tenester i Europa utan løyve",
-    "nb": "Kryptokjempen i ny kontrovers – tilbød tjenester i Europa uten lisens",
-    "da": "Kryptogiganten i ny kontrovers – tilbød tjenester i Europa uden licens",
-    "fi": "Kryptojätti uudessa kiistassa – tarjosi palveluja Euroopassa ilman lupaa",
-    "is": "Rafmyntarisinn í nýju deilumáli – bauð þjónustu í Evrópu án leyfis"
-   },
-   "url": "https://www.realtid.se/bors-finans/kryptojatten-i-ny-kontrovers-erbjod-tjanster-i-europa-utan-licens/",
-   "html_url": "https://nordiccrypto.no/stories/7b2030aea964/",
-   "api_url": "https://nordiccrypto.no/api/v1/news/7b2030aea964.json"
-  },
-  {
-   "id": "b3fdbc8f5eec",
-   "published": "2026-10-01T08:30:56+00:00",
-   "country": "SE",
-   "source": "dagensps.se",
-   "source_name": "Dagens PS",
-   "language_code": "sv",
-   "own_story": false,
-   "title": "Krypto-jätten rundar reglerna i Europa: Riskerar att kastas ut",
-   "title_en": "Crypto giant skirts the rules in Europe and risks being thrown out",
-   "title_i18n": {
-    "nn": "Kryptokjempa går rundt reglane i Europa: Risiko for å bli kasta ut",
-    "nb": "Kryptokjempen går rundt reglene i Europa: Risikerer å bli kastet ut",
-    "da": "Kryptogiganten omgår reglerne i Europa: Risikerer at blive smidt ud",
-    "fi": "Kryptojätti kiertää Euroopan sääntöjä ja vaarana on ulosheitto",
-    "is": "Rafmyntarisinn sniðgengur reglurnar í Evrópu og á hættu á að verða rekinn út"
-   },
-   "url": "https://www.dagensps.se/bors-finans/fintech/kryptovalutor/krypto-jatten-rundar-reglerna-i-europa-riskerar-att-kastas-ut/",
-   "html_url": "https://nordiccrypto.no/stories/b3fdbc8f5eec/",
-   "api_url": "https://nordiccrypto.no/api/v1/news/b3fdbc8f5eec.json"
   }
  ]
 }

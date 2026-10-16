@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T00:37:53+00:00",
+ "generated_at": "2026-10-16T00:44:36+00:00",
  "preview": false,
  "title": "Nordic Crypto data API",
  "sign_off": "The Nordic Crypto team",
@@ -29,10 +29,10 @@
   "not_investment_advice": true
  },
  "counts": {
-  "news": 62,
+  "news": 67,
   "news_by_country": {
-   "NO": 27,
-   "SE": 24,
+   "NO": 31,
+   "SE": 25,
    "DK": 6,
    "FI": 4,
    "IS": 0,

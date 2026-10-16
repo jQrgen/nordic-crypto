@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T00:37:53+00:00",
+ "generated_at": "2026-10-16T00:44:36+00:00",
  "preview": false,
  "item": {
   "id": "a384452ed1b6",
@@ -38,14 +38,14 @@
    "mica",
    "business"
   ],
-  "summary": "GreenMerc has dropped its MiCA appeal for Ijort Invest and will serve Swedish Trijo customers under Finnish Northcrypto's licence.",
+  "summary": "GreenMerc is withdrawing the appeal against Finansinspektionen's refusal of a Swedish MiCA licence for Ijort Invest, Trijo's parent company, Kaupr reports. Instead the group will serve the Swedish market under the MiCA licence of its Finnish sister company Northcrypto, which can be passported across the EU/EEA, and Trijo customers are being moved over. CEO Ari Liukko says nothing changes for customers and that they do not need to do anything.",
   "summary_i18n": {
-   "da": "GreenMerc har trukket sin MiCA-klage for Ijort Invest tilbage og vil betjene svenske Trijo-kunder under finske Northcryptos tilladelse.",
-   "fi": "GreenMerc on luopunut Ijort Investin MiCA-valituksesta ja palvelee ruotsalaisia Trijo-asiakkaita suomalaisen Northcrypton toimiluvalla.",
-   "is": "GreenMerc hefur fallið frá MiCA-kæru sinni fyrir Ijort Invest og mun þjónusta sænska viðskiptavini Trijo undir leyfi finnska Northcrypto.",
-   "nb": "GreenMerc har trukket MiCA-klagen for Ijort Invest og vil betjene svenske Trijo-kunder under finske Northcryptos tillatelse.",
-   "nn": "GreenMerc har trekt MiCA-klaga for Ijort Invest og vil tene svenske Trijo-kundar under løyvet til finske Northcrypto.",
-   "sv": "GreenMerc har dragit tillbaka sitt MiCA-överklagande för Ijort Invest och ska betjäna svenska Trijo-kunder under finländska Northcryptos tillstånd."
+   "da": "GreenMerc trækker klagen over Finansinspektionens afslag på en svensk MiCA-licens til Ijort Invest, Trijos moderselskab, tilbage, skriver Kaupr. I stedet vil koncernen betjene det svenske marked under MiCA-licensen for det finske søsterselskab Northcrypto, som kan passporteres i hele EU/EØS, og Trijos kunder flyttes over. Administrerende direktør Ari Liukko siger, at intet ændres for kunderne, og at de ikke behøver at gøre noget.",
+   "fi": "GreenMerc perii takaisin valituksensa Finansinspektionenin päätöksestä evätä Trijon emoyhtiö Ijort Investiltä Ruotsin MiCA-toimilupa, kertoo Kaupr. Sen sijaan konserni palvelee Ruotsin markkinaa suomalaisen sisaryhtiönsä Northcrypton MiCA-toimiluvalla, joka voidaan passportoida koko EU:n ja ETA:n alueelle, ja Trijon asiakkaat siirretään sinne. Toimitusjohtaja Ari Liukon mukaan asiakkaille mikään ei muutu, eikä heidän tarvitse tehdä mitään.",
+   "is": "GreenMerc dregur til baka kæru sína vegna synjunar Finansinspektionen á sænsku MiCA-leyfi fyrir Ijort Invest, móðurfélag Trijo, segir Kaupr. Þess í stað mun samstæðan þjónusta sænska markaðinn undir MiCA-leyfi finnska systurfélagsins Northcrypto, sem gildir á öllu EES-svæðinu, og viðskiptavinir Trijo verða fluttir yfir. Forstjórinn Ari Liukko segir að ekkert breytist fyrir viðskiptavini og að þeir þurfi ekkert að gera.",
+   "nb": "GreenMerc trekker klagen på at Finansinspektionen nektet Ijort Invest, morselskapet til Trijo, svensk MiCA-lisens, melder Kaupr. I stedet skal konsernet betjene det svenske markedet under MiCA-lisensen til det finske søsterselskapet Northcrypto, som kan passporteres i hele EU/EØS, og Trijo-kundene flyttes over. Administrerende direktør Ari Liukko sier at ingenting endres for kundene, og at de ikke trenger å gjøre noe.",
+   "nn": "GreenMerc trekkjer klagen på at Finansinspektionen nekta Ijort Invest, morselskapet til Trijo, svensk MiCA-lisens, melder Kaupr. I staden skal konsernet betene den svenske marknaden under MiCA-lisensen til det finske søsterselskapet Northcrypto, som kan passporterast i heile EU/EØS, og Trijo-kundane blir flytte over. Administrerande direktør Ari Liukko seier at ingenting endrar seg for kundane, og at dei ikkje treng gjere noko.",
+   "sv": "GreenMerc drar tillbaka överklagandet av Finansinspektionens avslag på en svensk MiCA-licens för Ijort Invest, Trijos moderbolag, rapporterar Kaupr. I stället ska koncernen betjäna den svenska marknaden under MiCA-licensen för det finska systerbolaget Northcrypto, som kan passporteras i hela EU/EES, och Trijos kunder flyttas över. Vd Ari Liukko säger att ingenting ändras för kunderna och att de inte behöver göra något."
   },
   "paywall": false,
   "links": [],
