@@ -28,6 +28,9 @@ Blocks, transactions, addresses and tokens are query strings, so the static expo
 - `/bch/tx/?txid=` a 64-character id
 - `/bch/address/?address=` a cashaddr
 - `/bch/token/?id=` a token category or group id
+- `/nexa/capd/` the CAPD message pool, and `/nexa/capd/?hash=` one message
+
+CAPD is Nexa-only, so it is linked from the Nexa section nav. The page asks the same Rostrum servers, in the same order, for `capd.info`, `blockchain.capd.info`, and `capd` with the parameter `info`. Rostrum 14.0.1 does not implement those methods (JSON-RPC −32601). The page then says so and leaves the figures blank. It does not invent a pool. A read-only `capd.info` / `capd.list` / `capd.get` on Rostrum, matching nexad’s `capd` RPC, is what would fill them in. `capd list` is ordered from lowest priority to highest; the page reads the high-priority end and sorts that by creation time.
 
 `/bch/block/972620/` is rewritten to the query form by `deploy/nginx-explorer.conf`. The deploy workflow does not install that file. Until nginx is reloaded with it, the page script in the 404 shell performs the same redirect.
 
