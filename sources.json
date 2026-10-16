@@ -21238,6 +21238,22 @@
    "enabled": false,
    "verified": "2026-10-16",
    "status": "no machine-readable event data (DokuWiki, RSS disabled, no JSON-LD/iCal); checked by hand. NKS 2026: Friday 23 Oct 2026, Nygårdsgaten 5, Bergen (https://wiki.math.ntnu.no/nks/nks26) – start time not yet published, so not added to the calendar."
+  },
+  {
+   "id": "kaakaa",
+   "name": "KÅKÅ",
+   "country": "NO",
+   "city": "Stavanger",
+   "venue": "KÅKÅ",
+   "url": "https://www.kaakaa.no/program",
+   "site": "https://www.kaakaa.no",
+   "type": "squarespace-events",
+   "max_links": 8,
+   "trusted": false,
+   "organiser": "KÅKÅ",
+   "enabled": true,
+   "status": "used",
+   "method": "Squarespace events collection /program read once as ?format=json (title, start, end, room, text). No iCal, RSS or programme sitemap entries with dates; JSON-LD exists only on each event page and is not opened. KÅKÅnomics is an economics festival, so the site-wide crypto filter is used (bitcoin, krypto, blockchain), not the broader crypto-money profile. Checked 2026-10-16."
   }
  ],
  "fetch_workers": 6

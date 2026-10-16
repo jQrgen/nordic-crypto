@@ -48,6 +48,7 @@ is not paged. schema.org Event JSON-LD is read only for a keyword hit, for the r
 No images. A per-event iCal link is not a calendar feed."""
 import argparse, datetime as dt, hashlib, json, os, re, sys, time, urllib.parse
 from zoneinfo import ZoneInfo
+from html import unescape as html_unescape
 import requests
 from bs4 import BeautifulSoup
 from event_block import blocked_event, blocked_source
@@ -465,7 +466,7 @@ def _drop_queue_ids(gone, log, base=None):
 _MONEY_STRONG = re.compile(
     r"(?:"
     r"\bbitcoins?\b|\bBTC\b|\bsatoshis?\b|"
-    r"\bkryptovaluta\w*|\bkrypto(?:en|er)?\b|"
+    r"\bkryptovaluta\w*|\bkrypto(?:en|er)?\b|\bkrypto(?:revolusjon|basert|selskap|marked|børs|eiendel|handel|investor|verden|vinter)\w*|"
     r"\bcryptocurrenc\w*|\bcrypto\b|"
     r"\bblokkjede\w*|\bblockchains?\b|\bblockkedj\w*|\bblokkæde\w*|\blohkoketju\w*|\bbálkakeðj\w*|"
     r"\bweb3\b|\bethereum\b|\bstablecoins?\b|\bCBDC\b|"
@@ -1000,6 +1001,65 @@ def nb_events(src, cards, records, tz, page_html):
     return out
 
 
+def squarespace_query_url(src):
+    """The public JSON view of a Squarespace events collection (upcoming and a short past list)."""
+    u = src["url"].split("?")[0]
+    return u + "?format=json"
+
+
+def squarespace_events(src, payload, tz, matches=None):
+    """Upcoming items of a Squarespace events collection. Keyword hits only. Images are not read.
+
+    With "keyword_profile": "crypto-money" the Litteraturhus filter is used. Otherwise the
+    site-wide crypto filter (matches) is used: an economics festival is full of money talk,
+    and only crypto, bitcoin and blockchain events belong on the calendar.
+
+    startDate and endDate are epoch milliseconds (UTC); they are stored in the house time zone.
+    Squarespace has no price field; a price line in the text is read when present.
+    """
+    items = (payload or {}).get("upcoming") if isinstance(payload, dict) else None
+    out = []
+    base = src.get("site") or src["url"]
+    cap = int(src.get("max_links") or 8)
+    for raw in items or []:
+        if not isinstance(raw, dict) or not raw.get("title") or not raw.get("startDate"):
+            continue
+        title = html_unescape(BeautifulSoup(raw["title"], "lxml").get_text(" ", strip=True))
+        lead = BeautifulSoup(raw.get("excerpt") or "", "lxml").get_text(" ", strip=True)
+        body = BeautifulSoup(raw.get("body") or "", "lxml").get_text("\n", strip=True)
+        if src.get("keyword_profile") == "crypto-money":
+            if not crypto_money_hit(title, lead, body):
+                continue
+        elif matches is not None and not src.get("trusted") and not matches(f"{title} {lead} {body}"):
+            continue
+        z = ZoneInfo(tz)
+        start = dt.datetime.fromtimestamp(int(raw["startDate"]) / 1000, UTC).replace(second=0, microsecond=0).astimezone(z)
+        end = None
+        if raw.get("endDate"):
+            end = dt.datetime.fromtimestamp(int(raw["endDate"]) / 1000, UTC).replace(second=0, microsecond=0).astimezone(z)
+            if end <= start:
+                end = None
+        loc = raw.get("location") if isinstance(raw.get("location"), dict) else {}
+        room = html_unescape((loc.get("addressTitle") or "").strip()) or None
+        street = html_unescape((loc.get("addressLine1") or "").strip())
+        place = ", ".join(x for x in (room, street) if x) or _venue_place(src)
+        url = urllib.parse.urljoin(base, raw.get("fullUrl") or "")
+        price = re.search(r"(?:billett|pris|inngang)[^\n]{0,40}?(gratis|\d[\d .]*\s*(?:kr|,-))", body, re.I)
+        paid = None
+        if price:
+            paid = False if price.group(1).lower() == "gratis" else True
+        out.append({
+            "title": title, "start": start, "end": end, "url": url,
+            "place": place, "city": src.get("city"), "country_hint": src.get("country"), "online": False,
+            "organiser": src.get("organiser"), "paid": paid,
+            "description": "\n".join(x for x in (lead, body) if x), "description_lang": prose_lang(body, "nb"),
+            "lead": lead, "body": body,
+        })
+        if len(out) >= cap:
+            break
+    return out
+
+
 def sanity_query_url(src, now):
     stamp = now.astimezone(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
     api = src.get("api") or ""
@@ -1206,6 +1266,12 @@ def run(get, robots_ok, matches, log, cfg, add_url=None, a=None, only=None, root
                     n_found = len(evs)
                     for ev in evs:
                         take(ev, src, src.get("trusted", False))
+                elif src["type"] == "squarespace-events":
+                    # One public ?format=json request for the programme collection. Event pages are not opened.
+                    raw = json.loads(fetch_page(squarespace_query_url(src)).text)
+                    evs = squarespace_events(src, raw, tz, matches); n_found = len(evs)
+                    for ev in evs:
+                        src2 = dict(src, page=ev["url"]); take(ev, src2, src.get("trusted", False))
                 elif src["type"] == "manual":
                     n_found = 0
                 else:
