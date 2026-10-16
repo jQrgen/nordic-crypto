@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T05:34:48+00:00",
+ "generated_at": "2026-10-16T07:11:24+00:00",
  "preview": false,
  "country": "SE",
  "count": 25,
@@ -37,12 +37,12 @@
    ],
    "summary": "Payward, the US company behind crypto exchange Kraken, is buying Lithuania's Saldo Bank, which has held an EU banking licence since 2021 and offers savings accounts and other services to customers in countries including Sweden, Realtid reports, citing the Financial Times. According to the FT, the deal would make Payward the first company in the digital-asset sector to buy a bank in Europe, and the bank is meant to help it develop lending and payment cards. The acquisition requires regulatory approval and is expected to be completed in 2027.",
    "summary_i18n": {
+    "nn": "Payward, det amerikanske selskapet bak kryptobørsen Kraken, kjøper den litauiske banken Saldo Bank, som har hatt EU-banklisens sidan 2021 og tilbyr sparekontoar og andre tenester til kundar i mellom anna Sverige, melder Realtid med tilvising til Financial Times. Ifølgje FT blir Payward med dette det første selskapet i sektoren for digitale eigedelar som kjøper ein bank i Europa, og banken skal hjelpe selskapet å utvikle utlån og betalingskort. Oppkjøpet krev godkjenning frå styresmaktene og er venta fullført i 2027.",
+    "nb": "Payward, det amerikanske selskapet bak kryptobørsen Kraken, kjøper den litauiske banken Saldo Bank, som har hatt EU-banklisens siden 2021 og tilbyr sparekontoer og andre tjenester til kunder i blant annet Sverige, melder Realtid med henvisning til Financial Times. Ifølge FT blir Payward dermed det første selskapet i sektoren for digitale eiendeler som kjøper en bank i Europa, og banken skal hjelpe selskapet med å utvikle utlån og betalingskort. Oppkjøpet krever godkjenning fra myndighetene og ventes fullført i 2027.",
+    "sv": "Payward, det amerikanska bolaget bakom kryptobörsen Kraken, köper den litauiska banken Saldo Bank, som haft EU-banklicens sedan 2021 och erbjuder sparkonton och andra tjänster till kunder i bland annat Sverige, rapporterar Realtid med hänvisning till Financial Times. Enligt FT blir Payward därmed det första bolaget inom sektorn för digitala tillgångar att köpa en bank i Europa, och banken ska hjälpa bolaget att utveckla utlåning och betalkort. Förvärvet kräver myndighetsgodkännanden och väntas slutföras under 2027.",
     "da": "Payward, det amerikanske selskab bag kryptobørsen Kraken, køber den litauiske bank Saldo Bank, som har haft EU-banklicens siden 2021 og tilbyder opsparingskonti og andre tjenester til kunder i blandt andet Sverige, skriver Realtid med henvisning til Financial Times. Ifølge FT bliver Payward dermed det første selskab i sektoren for digitale aktiver, der køber en bank i Europa, og banken skal hjælpe selskabet med at udvikle udlån og betalingskort. Opkøbet kræver myndighedsgodkendelse og ventes afsluttet i 2027.",
     "fi": "Kryptopörssi Krakenin taustalla oleva yhdysvaltalainen Payward ostaa liettualaisen Saldo Bankin, jolla on ollut EU:n pankkitoimilupa vuodesta 2021 ja joka tarjoaa säästötilejä ja muita palveluja asiakkaille muun muassa Ruotsissa, kertoo Realtid Financial Timesiin viitaten. FT:n mukaan Paywardista tulee näin ensimmäinen digitaalisten varojen alan yhtiö, joka ostaa pankin Euroopasta, ja pankin on määrä auttaa sitä kehittämään luotonantoa ja maksukortteja. Kauppa edellyttää viranomaishyväksyntää, ja sen odotetaan toteutuvan vuonna 2027.",
-    "is": "Payward, bandaríska félagið á bak við rafmyntakauphöllina Kraken, kaupir litháíska bankann Saldo Bank, sem hefur haft bankaleyfi í ESB frá 2021 og býður sparireikninga og aðra þjónustu viðskiptavinum m.a. í Svíþjóð, segir Realtid og vísar í Financial Times. Samkvæmt FT verður Payward þar með fyrsta fyrirtækið í geira stafrænna eigna til að kaupa banka í Evrópu, og bankinn á að hjálpa félaginu að þróa útlán og greiðslukort. Kaupin eru háð samþykki eftirlitsaðila og er gert ráð fyrir að þeim ljúki árið 2027.",
-    "nb": "Payward, det amerikanske selskapet bak kryptobørsen Kraken, kjøper den litauiske banken Saldo Bank, som har hatt EU-banklisens siden 2021 og tilbyr sparekontoer og andre tjenester til kunder i blant annet Sverige, melder Realtid med henvisning til Financial Times. Ifølge FT blir Payward dermed det første selskapet i sektoren for digitale eiendeler som kjøper en bank i Europa, og banken skal hjelpe selskapet med å utvikle utlån og betalingskort. Oppkjøpet krever godkjenning fra myndighetene og ventes fullført i 2027.",
-    "nn": "Payward, det amerikanske selskapet bak kryptobørsen Kraken, kjøper den litauiske banken Saldo Bank, som har hatt EU-banklisens sidan 2021 og tilbyr sparekontoar og andre tenester til kundar i mellom anna Sverige, melder Realtid med tilvising til Financial Times. Ifølgje FT blir Payward med dette det første selskapet i sektoren for digitale eigedelar som kjøper ein bank i Europa, og banken skal hjelpe selskapet å utvikle utlån og betalingskort. Oppkjøpet krev godkjenning frå styresmaktene og er venta fullført i 2027.",
-    "sv": "Payward, det amerikanska bolaget bakom kryptobörsen Kraken, köper den litauiska banken Saldo Bank, som haft EU-banklicens sedan 2021 och erbjuder sparkonton och andra tjänster till kunder i bland annat Sverige, rapporterar Realtid med hänvisning till Financial Times. Enligt FT blir Payward därmed det första bolaget inom sektorn för digitala tillgångar att köpa en bank i Europa, och banken ska hjälpa bolaget att utveckla utlåning och betalkort. Förvärvet kräver myndighetsgodkännanden och väntas slutföras under 2027."
+    "is": "Payward, bandaríska félagið á bak við rafmyntakauphöllina Kraken, kaupir litháíska bankann Saldo Bank, sem hefur haft bankaleyfi í ESB frá 2021 og býður sparireikninga og aðra þjónustu viðskiptavinum m.a. í Svíþjóð, segir Realtid og vísar í Financial Times. Samkvæmt FT verður Payward þar með fyrsta fyrirtækið í geira stafrænna eigna til að kaupa banka í Evrópu, og bankinn á að hjálpa félaginu að þróa útlán og greiðslukort. Kaupin eru háð samþykki eftirlitsaðila og er gert ráð fyrir að þeim ljúki árið 2027."
    },
    "paywall": false,
    "links": [],
@@ -169,12 +169,12 @@
    ],
    "summary": "Germany is moving towards tax rules that are less favourable for crypto investments, EFN reports via the news agency Direkt, citing the German newspaper Wirtschaftswoche. According to the report, the government wants to abolish the tax exemption on gains from crypto held for more than a year and to apply a withholding tax instead of individual income tax, and the issue was expected on the agenda of a meeting on Wednesday. Industry representatives are critical of the planned changes.",
    "summary_i18n": {
+    "nn": "Tyskland er på veg mot skattereglar som er mindre gunstige for kryptoinvesteringar, melder EFN via nyheitsbyrået Direkt med tilvising til den tyske avisa Wirtschaftswoche. Ifølgje meldinga vil regjeringa fjerne skattefritaket for gevinst på krypto som er halden i meir enn eitt år, og bruke kjeldeskatt i staden for individuell inntektsskatt, og saka var venta på dagsordenen på eit møte onsdag. Representantar for bransjen er kritiske til dei planlagde endringane.",
+    "nb": "Tyskland er på vei mot skatteregler som er mindre gunstige for kryptoinvesteringer, melder EFN via nyhetsbyrået Direkt med henvisning til den tyske avisen Wirtschaftswoche. Ifølge meldingen vil regjeringen fjerne skattefritaket for gevinst på krypto som er holdt i mer enn ett år, og bruke kildeskatt i stedet for individuell inntektsskatt, og saken var ventet på dagsordenen på et møte onsdag. Representanter for bransjen er kritiske til de planlagte endringene.",
+    "sv": "Tyskland är på väg att införa skatteregler som är mindre gynnsamma för kryptoinvesteringar, rapporterar EFN via nyhetsbyrån Direkt med hänvisning till den tyska tidningen Wirtschaftswoche. Enligt uppgifterna vill regeringen avskaffa skattebefrielsen för vinster på krypto som innehafts i mer än ett år och tillämpa källskatt i stället för individuell inkomstskatt, och frågan väntades stå på dagordningen vid ett möte på onsdagen. Branschföreträdare är kritiska till de planerade ändringarna.",
     "da": "Tyskland er på vej mod skatteregler, der er mindre gunstige for kryptoinvesteringer, skriver EFN via nyhedsbureauet Direkt med henvisning til den tyske avis Wirtschaftswoche. Ifølge meldingen vil regeringen afskaffe skattefritagelsen for gevinster på krypto, der er ejet i mere end et år, og anvende kildeskat i stedet for individuel indkomstskat, og sagen var ventet på dagsordenen ved et møde onsdag. Repræsentanter for branchen er kritiske over for de planlagte ændringer.",
     "fi": "Saksa on ottamassa käyttöön kryptosijoittajille epäedullisempia verosääntöjä, kertoo EFN uutistoimisto Directin välityksellä saksalaiseen Wirtschaftswoche-lehteen viitaten. Tietojen mukaan hallitus haluaa poistaa verovapauden yli vuoden omistetun kryptovaluutan myyntivoitoilta ja soveltaa lähdeveroa henkilökohtaisen tuloveron sijaan, ja asian odotettiin olevan esillä keskiviikon kokouksessa. Alan edustajat suhtautuvat suunniteltuihin muutoksiin kriittisesti.",
-    "is": "Þýskaland stefnir að skattareglum sem eru óhagstæðari fyrir fjárfestingar í rafmyntum, segir EFN í gegnum fréttastofuna Direkt og vísar í þýska blaðið Wirtschaftswoche. Samkvæmt fréttinni vill ríkisstjórnin afnema skattfrelsi á hagnaði af rafmyntum sem haldið hefur verið lengur en eitt ár og beita staðgreiðsluskatti í stað einstaklingsbundins tekjuskatts, og búist var við að málið yrði á dagskrá fundar á miðvikudag. Fulltrúar greinarinnar gagnrýna fyrirhugaðar breytingar.",
-    "nb": "Tyskland er på vei mot skatteregler som er mindre gunstige for kryptoinvesteringer, melder EFN via nyhetsbyrået Direkt med henvisning til den tyske avisen Wirtschaftswoche. Ifølge meldingen vil regjeringen fjerne skattefritaket for gevinst på krypto som er holdt i mer enn ett år, og bruke kildeskatt i stedet for individuell inntektsskatt, og saken var ventet på dagsordenen på et møte onsdag. Representanter for bransjen er kritiske til de planlagte endringene.",
-    "nn": "Tyskland er på veg mot skattereglar som er mindre gunstige for kryptoinvesteringar, melder EFN via nyheitsbyrået Direkt med tilvising til den tyske avisa Wirtschaftswoche. Ifølgje meldinga vil regjeringa fjerne skattefritaket for gevinst på krypto som er halden i meir enn eitt år, og bruke kjeldeskatt i staden for individuell inntektsskatt, og saka var venta på dagsordenen på eit møte onsdag. Representantar for bransjen er kritiske til dei planlagde endringane.",
-    "sv": "Tyskland är på väg att införa skatteregler som är mindre gynnsamma för kryptoinvesteringar, rapporterar EFN via nyhetsbyrån Direkt med hänvisning till den tyska tidningen Wirtschaftswoche. Enligt uppgifterna vill regeringen avskaffa skattebefrielsen för vinster på krypto som innehafts i mer än ett år och tillämpa källskatt i stället för individuell inkomstskatt, och frågan väntades stå på dagordningen vid ett möte på onsdagen. Branschföreträdare är kritiska till de planerade ändringarna."
+    "is": "Þýskaland stefnir að skattareglum sem eru óhagstæðari fyrir fjárfestingar í rafmyntum, segir EFN í gegnum fréttastofuna Direkt og vísar í þýska blaðið Wirtschaftswoche. Samkvæmt fréttinni vill ríkisstjórnin afnema skattfrelsi á hagnaði af rafmyntum sem haldið hefur verið lengur en eitt ár og beita staðgreiðsluskatti í stað einstaklingsbundins tekjuskatts, og búist var við að málið yrði á dagskrá fundar á miðvikudag. Fulltrúar greinarinnar gagnrýna fyrirhugaðar breytingar."
    },
    "paywall": false,
    "links": [],
@@ -283,12 +283,12 @@
    ],
    "summary": "A software engineer has filed a claim in the UK against crypto exchange BitMEX, seeking £20 million (about SEK 264 million) for bitcoin said to have been lost on financial derivatives, Dagens PS reports, citing The Guardian. The claim alleges that BitMEX sold unregulated financial products to UK investors without authorisation from the Financial Conduct Authority, and that such contracts may therefore be void under UK law. HDR Global Trading, which owns BitMEX, declined to comment on the case, and a representative said the claim has not yet been formally served.",
    "summary_i18n": {
+    "nn": "Ein programvareingeniør har gått til søksmål i Storbritannia mot kryptobørsen BitMEX og krev 20 millionar pund (om lag 264 millionar svenske kroner) for bitcoin som skal ha gått tapt på finansielle derivat, melder Dagens PS med tilvising til The Guardian. Søksmålet hevdar at BitMEX selde uregulerte finansielle produkt til britiske investorar utan løyve frå Financial Conduct Authority, og at slike kontraktar difor kan vere ugyldige etter britisk lov. HDR Global Trading, som eig BitMEX, ville ikkje kommentere saka, og ein representant sa at stemninga enno ikkje er formelt forkynt.",
+    "nb": "En programvareingeniør har gått til søksmål i Storbritannia mot kryptobørsen BitMEX og krever 20 millioner pund (rundt 264 millioner svenske kroner) for bitcoin som skal ha gått tapt på finansielle derivater, melder Dagens PS med henvisning til The Guardian. Søksmålet hevder at BitMEX solgte uregulerte finansielle produkter til britiske investorer uten tillatelse fra Financial Conduct Authority, og at slike kontrakter derfor kan være ugyldige etter britisk lov. HDR Global Trading, som eier BitMEX, ville ikke kommentere saken, og en representant sa at stevningen ennå ikke er formelt forkynt.",
+    "sv": "En mjukvaruingenjör har lämnat in en stämningsansökan i Storbritannien mot kryptobörsen BitMEX och kräver 20 miljoner pund (cirka 264 miljoner kronor) för bitcoin som uppges ha gått förlorade på finansiella derivat, rapporterar Dagens PS med hänvisning till The Guardian. Enligt stämningen sålde BitMEX oreglerade finansiella produkter till brittiska investerare utan tillstånd från Financial Conduct Authority, och sådana kontrakt kan därför vara ogiltiga enligt brittisk lag. HDR Global Trading, som äger BitMEX, avböjde att kommentera ärendet, och en företrädare uppger att stämningen ännu inte delgetts formellt.",
     "da": "En softwareingeniør har anlagt sag i Storbritannien mod kryptobørsen BitMEX og kræver 20 millioner pund (omkring 264 millioner svenske kroner) for bitcoin, som angiveligt er gået tabt på finansielle derivater, skriver Dagens PS med henvisning til The Guardian. Ifølge stævningen solgte BitMEX uregulerede finansielle produkter til britiske investorer uden tilladelse fra Financial Conduct Authority, og sådanne kontrakter kan derfor være ugyldige efter britisk ret. HDR Global Trading, som ejer BitMEX, ville ikke kommentere sagen, og en repræsentant siger, at stævningen endnu ikke er formelt forkyndt.",
     "fi": "Ohjelmistoinsinööri on nostanut Isossa-Britanniassa kanteen kryptopörssi BitMEXiä vastaan ja vaatii 20 miljoonaa puntaa (noin 264 miljoonaa kruunua) bitcoineista, jotka hänen mukaansa menetettiin johdannaisissa, kertoo Dagens PS The Guardianiin viitaten. Kanteen mukaan BitMEX myi sääntelemättömiä rahoitustuotteita brittisijoittajille ilman Financial Conduct Authorityn lupaa, joten sopimukset voivat olla Britannian lain mukaan pätemättömiä. BitMEXin omistava HDR Global Trading kieltäytyi kommentoimasta tapausta, ja yhtiön edustajan mukaan kannetta ei ole vielä virallisesti annettu tiedoksi.",
-    "is": "Hugbúnaðarverkfræðingur hefur höfðað mál í Bretlandi gegn rafmyntakauphöllinni BitMEX og krefst 20 milljóna punda (um 264 milljóna sænskra króna) vegna bitcoin sem sögð eru hafa tapast á afleiðum, segir Dagens PS og vísar í The Guardian. Í stefnunni er því haldið fram að BitMEX hafi selt breskum fjárfestum óeftirlitsskyldar fjármálaafurðir án leyfis Financial Conduct Authority og að slíkir samningar kunni því að vera ógildir að breskum lögum. HDR Global Trading, eigandi BitMEX, vildi ekki tjá sig um málið og fulltrúi félagsins sagði að stefnan hefði ekki enn verið birt formlega.",
-    "nb": "En programvareingeniør har gått til søksmål i Storbritannia mot kryptobørsen BitMEX og krever 20 millioner pund (rundt 264 millioner svenske kroner) for bitcoin som skal ha gått tapt på finansielle derivater, melder Dagens PS med henvisning til The Guardian. Søksmålet hevder at BitMEX solgte uregulerte finansielle produkter til britiske investorer uten tillatelse fra Financial Conduct Authority, og at slike kontrakter derfor kan være ugyldige etter britisk lov. HDR Global Trading, som eier BitMEX, ville ikke kommentere saken, og en representant sa at stevningen ennå ikke er formelt forkynt.",
-    "nn": "Ein programvareingeniør har gått til søksmål i Storbritannia mot kryptobørsen BitMEX og krev 20 millionar pund (om lag 264 millionar svenske kroner) for bitcoin som skal ha gått tapt på finansielle derivat, melder Dagens PS med tilvising til The Guardian. Søksmålet hevdar at BitMEX selde uregulerte finansielle produkt til britiske investorar utan løyve frå Financial Conduct Authority, og at slike kontraktar difor kan vere ugyldige etter britisk lov. HDR Global Trading, som eig BitMEX, ville ikkje kommentere saka, og ein representant sa at stemninga enno ikkje er formelt forkynt.",
-    "sv": "En mjukvaruingenjör har lämnat in en stämningsansökan i Storbritannien mot kryptobörsen BitMEX och kräver 20 miljoner pund (cirka 264 miljoner kronor) för bitcoin som uppges ha gått förlorade på finansiella derivat, rapporterar Dagens PS med hänvisning till The Guardian. Enligt stämningen sålde BitMEX oreglerade finansiella produkter till brittiska investerare utan tillstånd från Financial Conduct Authority, och sådana kontrakt kan därför vara ogiltiga enligt brittisk lag. HDR Global Trading, som äger BitMEX, avböjde att kommentera ärendet, och en företrädare uppger att stämningen ännu inte delgetts formellt."
+    "is": "Hugbúnaðarverkfræðingur hefur höfðað mál í Bretlandi gegn rafmyntakauphöllinni BitMEX og krefst 20 milljóna punda (um 264 milljóna sænskra króna) vegna bitcoin sem sögð eru hafa tapast á afleiðum, segir Dagens PS og vísar í The Guardian. Í stefnunni er því haldið fram að BitMEX hafi selt breskum fjárfestum óeftirlitsskyldar fjármálaafurðir án leyfis Financial Conduct Authority og að slíkir samningar kunni því að vera ógildir að breskum lögum. HDR Global Trading, eigandi BitMEX, vildi ekki tjá sig um málið og fulltrúi félagsins sagði að stefnan hefði ekki enn verið birt formlega."
    },
    "paywall": false,
    "links": [],
@@ -406,12 +406,12 @@
    ],
    "summary": "Realtid reports, citing Euronews and Journal du Coin, that the French National Assembly's finance committee voted to extend the country's exit tax to crypto assets above EUR 800,000 from 2027, and backed fines of up to EUR 10,000 for undeclared self-custody wallets worth EUR 100,000 or more. The proposals are not yet law and may still fall.",
    "summary_i18n": {
+    "nn": "Realtid melder, med tilvising til Euronews og Journal du Coin, at finanskomiteen i nasjonalforsamlinga i Frankrike røysta for å utvide utflyttingsskatten til kryptoeigedelar over 800 000 euro frå 2027, og støtta bøter på opptil 10 000 euro for ikkje-deklarerte eigne lommebøker verde minst 100 000 euro. Forslaga er ikkje vedtekne og kan framleis falle.",
+    "nb": "Realtid melder, med henvisning til Euronews og Journal du Coin, at finanskomiteen i Frankrikes nasjonalforsamling stemte for å utvide utflyttingsskatten til kryptoaktiva over 800 000 euro fra 2027, og støttet bøter på opptil 10 000 euro for ikke-deklarerte egne lommebøker verdt minst 100 000 euro. Forslagene er ikke vedtatt og kan fortsatt falle.",
+    "sv": "Realtid rapporterar, med hänvisning till Euronews och Journal du Coin, att franska nationalförsamlingens finansutskott röstade för att utvidga exitskatten till kryptotillgångar över 800 000 euro från 2027, och ställde sig bakom böter på upp till 10 000 euro för odeklarerade egna plånböcker värda minst 100 000 euro. Förslagen är inte antagna och kan fortfarande falla.",
     "da": "Realtid skriver med henvisning til Euronews og Journal du Coin, at finansudvalget i Frankrigs nationalforsamling stemte for at udvide fraflytningsskatten til kryptoaktiver over 800.000 euro fra 2027 og bakkede op om bøder på op til 10.000 euro for ikke-oplyste egne tegnebøger til en værdi af mindst 100.000 euro. Forslagene er ikke vedtaget og kan stadig falde.",
     "fi": "Realtid kertoo Euronewsiin ja Journal du Coiniin viitaten, että Ranskan kansalliskokouksen valtiovarainvaliokunta äänesti maastamuuttoveron laajentamisesta yli 800 000 euron kryptovaroihin vuodesta 2027 alkaen ja kannatti enintään 10 000 euron sakkoja ilmoittamatta jätetyistä, vähintään 100 000 euron arvoisista omista lompakoista. Ehdotuksia ei ole hyväksytty, ja ne voivat vielä kaatua.",
-    "is": "Realtid greinir frá því, með vísan til Euronews og Journal du Coin, að fjárlaganefnd franska þjóðþingsins hafi greitt atkvæði með því að útvíkka brottflutningsskatt til rafmyntaeigna yfir 800.000 evrum frá 2027 og stutt sektir allt að 10.000 evrum fyrir ótilgreind eigin veski að verðmæti minnst 100.000 evrur. Tillögurnar eru ekki orðnar að lögum og gætu enn fallið.",
-    "nb": "Realtid melder, med henvisning til Euronews og Journal du Coin, at finanskomiteen i Frankrikes nasjonalforsamling stemte for å utvide utflyttingsskatten til kryptoaktiva over 800 000 euro fra 2027, og støttet bøter på opptil 10 000 euro for ikke-deklarerte egne lommebøker verdt minst 100 000 euro. Forslagene er ikke vedtatt og kan fortsatt falle.",
-    "nn": "Realtid melder, med tilvising til Euronews og Journal du Coin, at finanskomiteen i nasjonalforsamlinga i Frankrike røysta for å utvide utflyttingsskatten til kryptoeigedelar over 800 000 euro frå 2027, og støtta bøter på opptil 10 000 euro for ikkje-deklarerte eigne lommebøker verde minst 100 000 euro. Forslaga er ikkje vedtekne og kan framleis falle.",
-    "sv": "Realtid rapporterar, med hänvisning till Euronews och Journal du Coin, att franska nationalförsamlingens finansutskott röstade för att utvidga exitskatten till kryptotillgångar över 800 000 euro från 2027, och ställde sig bakom böter på upp till 10 000 euro för odeklarerade egna plånböcker värda minst 100 000 euro. Förslagen är inte antagna och kan fortfarande falla."
+    "is": "Realtid greinir frá því, með vísan til Euronews og Journal du Coin, að fjárlaganefnd franska þjóðþingsins hafi greitt atkvæði með því að útvíkka brottflutningsskatt til rafmyntaeigna yfir 800.000 evrum frá 2027 og stutt sektir allt að 10.000 evrum fyrir ótilgreind eigin veski að verðmæti minnst 100.000 evrur. Tillögurnar eru ekki orðnar að lögum og gætu enn fallið."
    },
    "paywall": false,
    "links": [],
@@ -538,12 +538,12 @@
    ],
    "summary": "Dagens PS reports, citing The Verge, that a suspected supply-chain attack using a hidden circuit board in some Ledger hardware wallets may have let an attacker capture recovery phrases and drain accounts, with losses estimated at about USD 86 million. Ledger has confirmed an unauthorised hardware component in one affected user's device and asked the reseller involved to pause sales during an investigation.",
    "summary_i18n": {
+    "nn": "Dagens PS melder, med tilvising til The Verge, at eit mistenkt angrep på leveransekjeda med eit skjult kretskort i somme Ledger-maskinvarelommebøker kan ha late ein angripar fange opp gjenopprettingsfrasar og tømme kontoar, med tap anslått til om lag 86 millionar dollar. Ledger har stadfesta ein uautorisert maskinvarekomponent i eininga til éin råka brukar og bede den aktuelle forhandlaren stanse salet medan saka vert granska.",
+    "nb": "Dagens PS melder, med henvisning til The Verge, at et mistenkt angrep på leverandørkjeden med et skjult kretskort i enkelte Ledger-maskinvarelommebøker kan ha latt en angriper fange opp gjenopprettingsfraser og tømme kontoer, med tap anslått til om lag 86 millioner dollar. Ledger har bekreftet en uautorisert maskinvarekomponent i enheten til én rammet bruker og bedt den aktuelle forhandleren stanse salget mens saken granskes.",
+    "sv": "Dagens PS rapporterar, med hänvisning till The Verge, att en misstänkt attack mot leveranskedjan med ett dolt kretskort i vissa Ledger-hårdvaruplånböcker kan ha låtit en angripare fånga upp återställningsfraser och tömma konton, med förluster som uppskattas till omkring 86 miljoner dollar. Ledger har bekräftat en obehörig hårdvarukomponent i en drabbad användares enhet och bett den berörda återförsäljaren pausa försäljningen medan en utredning pågår.",
     "da": "Dagens PS skriver med henvisning til The Verge, at et formodet angreb på forsyningskæden med et skjult printkort i visse Ledger-hardwaretegnebøger kan have ladet en angriber opfange gendannelsessætninger og tømme konti, med tab anslået til omkring 86 millioner dollar. Ledger har bekræftet en uautoriseret hardwarekomponent i én ramt brugers enhed og bedt den pågældende forhandler om at sætte salget på pause under en undersøgelse.",
     "fi": "Dagens PS kertoo The Vergeen viitaten, että epäilty toimitusketjuhyökkäys, jossa joihinkin Ledger-laitelompakoihin oli piilotettu piirilevy, on voinut antaa hyökkääjälle pääsyn palautuslauseisiin ja tilien tyhjentämiseen; tappioiden arvioidaan olevan noin 86 miljoonaa dollaria. Ledger on vahvistanut luvattoman laitekomponentin yhden kärsineen käyttäjän laitteessa ja pyytänyt kyseistä jälleenmyyjää keskeyttämään myynnin tutkinnan ajaksi.",
-    "is": "Dagens PS greinir frá því, með vísan til The Verge, að grunuð árás á aðfangakeðjuna með földu rafrásaborði í sumum Ledger-vélbúnaðarveskjum kunni að hafa gert árásaraðila kleift að ná endurheimtarorðum og tæma reikninga, og er tjónið metið um 86 milljónir dollara. Ledger hefur staðfest óheimilan vélbúnaðaríhlut í tæki eins notanda sem varð fyrir árásinni og beðið viðkomandi söluaðila að gera hlé á sölu meðan rannsókn stendur yfir.",
-    "nb": "Dagens PS melder, med henvisning til The Verge, at et mistenkt angrep på leverandørkjeden med et skjult kretskort i enkelte Ledger-maskinvarelommebøker kan ha latt en angriper fange opp gjenopprettingsfraser og tømme kontoer, med tap anslått til om lag 86 millioner dollar. Ledger har bekreftet en uautorisert maskinvarekomponent i enheten til én rammet bruker og bedt den aktuelle forhandleren stanse salget mens saken granskes.",
-    "nn": "Dagens PS melder, med tilvising til The Verge, at eit mistenkt angrep på leveransekjeda med eit skjult kretskort i somme Ledger-maskinvarelommebøker kan ha late ein angripar fange opp gjenopprettingsfrasar og tømme kontoar, med tap anslått til om lag 86 millionar dollar. Ledger har stadfesta ein uautorisert maskinvarekomponent i eininga til éin råka brukar og bede den aktuelle forhandlaren stanse salet medan saka vert granska.",
-    "sv": "Dagens PS rapporterar, med hänvisning till The Verge, att en misstänkt attack mot leveranskedjan med ett dolt kretskort i vissa Ledger-hårdvaruplånböcker kan ha låtit en angripare fånga upp återställningsfraser och tömma konton, med förluster som uppskattas till omkring 86 miljoner dollar. Ledger har bekräftat en obehörig hårdvarukomponent i en drabbad användares enhet och bett den berörda återförsäljaren pausa försäljningen medan en utredning pågår."
+    "is": "Dagens PS greinir frá því, með vísan til The Verge, að grunuð árás á aðfangakeðjuna með földu rafrásaborði í sumum Ledger-vélbúnaðarveskjum kunni að hafa gert árásaraðila kleift að ná endurheimtarorðum og tæma reikninga, og er tjónið metið um 86 milljónir dollara. Ledger hefur staðfest óheimilan vélbúnaðaríhlut í tæki eins notanda sem varð fyrir árásinni og beðið viðkomandi söluaðila að gera hlé á sölu meðan rannsókn stendur yfir."
    },
    "paywall": false,
    "links": [],
@@ -652,12 +652,12 @@
    ],
    "summary": "Sweden's Finansinspektionen has warned against 30 more firms that look legitimate but lack a licence; several lure consumers with trading in shares, crypto and currencies, and some are clone firms using details of real financial companies. FI has now warned against 227 suspected investment-fraud operators so far in 2026 and urges people to check its company register before sending money.",
    "summary_i18n": {
-    "da": "Det svenske Finansinspektionen advarer mod 30 nye aktører, der ser seriøse ud, men mangler tilladelse; flere lokker med handel i aktier, krypto og valuta, og nogle er klonselskaber, der bruger oplysninger fra rigtige finansielle virksomheder. FI har dermed advaret mod 227 aktører, der mistænkes for investeringssvindel, indtil videre i 2026 og opfordrer folk til at tjekke virksomhedsregistret, før de overfører penge.",
-    "fi": "Ruotsin Finansinspektionen varoittaa 30 uudesta toimijasta, jotka näyttävät luotettavilta mutta joilla ei ole toimilupaa; useat houkuttelevat kuluttajia osake-, krypto- ja valuuttakaupalla, ja osa on klooniyrityksiä, jotka käyttävät oikeiden rahoitusyhtiöiden tietoja. FI on näin varoittanut vuonna 2026 jo 227 toimijasta, joita epäillään sijoituspetoksista, ja kehottaa tarkistamaan yritysrekisterin ennen rahan siirtämistä.",
-    "is": "Sænska fjármálaeftirlitið Finansinspektionen varar við 30 nýjum aðilum sem virðast traustir en hafa ekki starfsleyfi; nokkrir lokka neytendur með viðskiptum með hlutabréf, rafmyntir og gjaldeyri, og sumir eru klónfyrirtæki sem nota upplýsingar frá raunverulegum fjármálafyrirtækjum. FI hefur þar með varað við 227 aðilum sem grunaðir eru um fjárfestingarsvik það sem af er 2026 og hvetur fólk til að kanna fyrirtækjaskrána áður en það millifærir peninga.",
     "nb": "Finansinspektionen i Sverige advarer mot 30 nye aktører som ser seriøse ut, men mangler tillatelse; flere lokker med handel i aksjer, krypto og valuta, og noen er klonselskaper som bruker opplysninger fra ekte finansselskaper. FI har dermed advart mot 227 aktører som mistenkes for investeringsbedrageri hittil i 2026, og ber folk sjekke selskapsregisteret før de overfører penger.",
     "nn": "Finansinspektionen i Sverige åtvarar mot 30 nye aktørar som ser seriøse ut, men manglar løyve; fleire lokkar med handel i aksjar, krypto og valuta, og nokre er klonselskap som brukar opplysningar frå ekte finansselskap. FI har dermed åtvara mot 227 aktørar som er mistenkte for investeringssvindel så langt i 2026, og ber folk sjekke selskapsregisteret før dei overfører pengar.",
-    "sv": "Finansinspektionen varnar för 30 nya aktörer som ser seriösa ut men saknar tillstånd; flera lockar med handel i aktier, krypto och valutor, och några är klonföretag som använder uppgifter från riktiga finansbolag. FI har därmed varnat för 227 aktörer som misstänks för investeringsbedrägerier hittills under 2026 och uppmanar alla att kontrollera företagsregistret innan de för över pengar."
+    "sv": "Finansinspektionen varnar för 30 nya aktörer som ser seriösa ut men saknar tillstånd; flera lockar med handel i aktier, krypto och valutor, och några är klonföretag som använder uppgifter från riktiga finansbolag. FI har därmed varnat för 227 aktörer som misstänks för investeringsbedrägerier hittills under 2026 och uppmanar alla att kontrollera företagsregistret innan de för över pengar.",
+    "da": "Det svenske Finansinspektionen advarer mod 30 nye aktører, der ser seriøse ud, men mangler tilladelse; flere lokker med handel i aktier, krypto og valuta, og nogle er klonselskaber, der bruger oplysninger fra rigtige finansielle virksomheder. FI har dermed advaret mod 227 aktører, der mistænkes for investeringssvindel, indtil videre i 2026 og opfordrer folk til at tjekke virksomhedsregistret, før de overfører penge.",
+    "fi": "Ruotsin Finansinspektionen varoittaa 30 uudesta toimijasta, jotka näyttävät luotettavilta mutta joilla ei ole toimilupaa; useat houkuttelevat kuluttajia osake-, krypto- ja valuuttakaupalla, ja osa on klooniyrityksiä, jotka käyttävät oikeiden rahoitusyhtiöiden tietoja. FI on näin varoittanut vuonna 2026 jo 227 toimijasta, joita epäillään sijoituspetoksista, ja kehottaa tarkistamaan yritysrekisterin ennen rahan siirtämistä.",
+    "is": "Sænska fjármálaeftirlitið Finansinspektionen varar við 30 nýjum aðilum sem virðast traustir en hafa ekki starfsleyfi; nokkrir lokka neytendur með viðskiptum með hlutabréf, rafmyntir og gjaldeyri, og sumir eru klónfyrirtæki sem nota upplýsingar frá raunverulegum fjármálafyrirtækjum. FI hefur þar með varað við 227 aðilum sem grunaðir eru um fjárfestingarsvik það sem af er 2026 og hvetur fólk til að kanna fyrirtækjaskrána áður en það millifærir peninga."
    },
    "paywall": false,
    "links": [],
@@ -778,12 +778,12 @@
    ],
    "summary": "The EU anti-money-laundering authority AMLA has sent three final draft technical standards under the new AML regulation to the European Commission, Sweden's Finansinspektionen reports; they still need the Commission's adoption. Under AMLA's report, crypto-asset service providers must consider whether a customer has made three or more transactions in 12 months when deciding if there is a business relationship, use a one-month window for linked transactions, and keep the €1,000 threshold for occasional transactions.",
    "summary_i18n": {
-    "da": "EU's hvidvaskmyndighed AMLA har sendt tre endelige udkast til tekniske standarder under den nye hvidvaskforordning til EU-Kommissionen, oplyser det svenske Finansinspektionen; Kommissionen skal stadig vedtage dem. Ifølge AMLA's rapport skal udbydere af kryptoaktivtjenester overveje, om en kunde har foretaget tre eller flere transaktioner på 12 måneder, når de vurderer, om der er en forretningsforbindelse, bruge et vindue på én måned for forbundne transaktioner og fastholde tærsklen på 1.000 euro for lejlighedsvise transaktioner.",
-    "fi": "EU:n rahanpesun vastainen viranomainen AMLA on lähettänyt Euroopan komissiolle kolme lopullista teknisten standardien luonnosta uuden rahanpesuasetuksen nojalla, kertoo Ruotsin Finansinspektionen; komission on vielä hyväksyttävä ne. AMLA:n raportin mukaan kryptopalvelujen tarjoajien on otettava huomioon, onko asiakas tehnyt kolme tai useampia liiketoimia 12 kuukauden aikana, kun ne arvioivat asiakassuhteen olemassaoloa, käytettävä yhden kuukauden jaksoa toisiinsa liittyville liiketoimille ja pidettävä satunnaisten liiketoimien 1 000 euron raja.",
-    "is": "Peningaþvættiseftirlit ESB, AMLA, hefur sent framkvæmdastjórn ESB þrjú endanleg drög að tæknilegum stöðlum samkvæmt nýju peningaþvættisreglugerðinni, segir sænska fjármálaeftirlitið Finansinspektionen; framkvæmdastjórnin á enn eftir að samþykkja þau. Samkvæmt skýrslu AMLA skulu þjónustuveitendur rafmynta líta til þess hvort viðskiptavinur hafi átt þrjú eða fleiri viðskipti á 12 mánuðum þegar metið er hvort viðskiptasamband sé til staðar, nota eins mánaðar tímabil fyrir tengd viðskipti og halda 1.000 evra viðmiðinu fyrir stök viðskipti.",
     "nb": "EUs hvitvaskingsmyndighet AMLA har sendt tre endelige utkast til tekniske standarder under den nye hvitvaskingsforordningen til EU-kommisjonen, melder svenske Finansinspektionen; Kommisjonen må fortsatt vedta dem. Ifølge AMLAs rapport må kryptotjenestetilbydere vurdere om en kunde har gjort tre eller flere transaksjoner på 12 måneder når de avgjør om det foreligger et kundeforhold, bruke et vindu på én måned for sammenknyttede transaksjoner og beholde terskelen på 1 000 euro for enkeltstående transaksjoner.",
     "nn": "EUs kvitvaskingsstyresmakt AMLA har sendt tre endelege utkast til tekniske standardar under den nye kvitvaskingsforordninga til EU-kommisjonen, melder svenske Finansinspektionen; Kommisjonen må framleis vedta dei. Ifølgje rapporten til AMLA må kryptotenestetilbydarar vurdere om ein kunde har gjort tre eller fleire transaksjonar på 12 månader når dei avgjer om det ligg føre eit kundeforhold, bruke eit vindauge på éin månad for samankopla transaksjonar og halde på terskelen på 1 000 euro for enkeltståande transaksjonar.",
-    "sv": "EU:s penningtvättsmyndighet AMLA har skickat tre slutliga utkast till tekniska standarder enligt den nya penningtvättsförordningen till EU-kommissionen, rapporterar Finansinspektionen; kommissionen måste fortfarande anta dem. Enligt AMLA:s rapport ska kryptotjänsteleverantörer beakta om en kund har gjort tre eller fler transaktioner på 12 månader när de bedömer om det finns en affärsförbindelse, använda ett fönster på en månad för sammanlänkade transaktioner och behålla tröskeln på 1 000 euro för enstaka transaktioner."
+    "sv": "EU:s penningtvättsmyndighet AMLA har skickat tre slutliga utkast till tekniska standarder enligt den nya penningtvättsförordningen till EU-kommissionen, rapporterar Finansinspektionen; kommissionen måste fortfarande anta dem. Enligt AMLA:s rapport ska kryptotjänsteleverantörer beakta om en kund har gjort tre eller fler transaktioner på 12 månader när de bedömer om det finns en affärsförbindelse, använda ett fönster på en månad för sammanlänkade transaktioner och behålla tröskeln på 1 000 euro för enstaka transaktioner.",
+    "da": "EU's hvidvaskmyndighed AMLA har sendt tre endelige udkast til tekniske standarder under den nye hvidvaskforordning til EU-Kommissionen, oplyser det svenske Finansinspektionen; Kommissionen skal stadig vedtage dem. Ifølge AMLA's rapport skal udbydere af kryptoaktivtjenester overveje, om en kunde har foretaget tre eller flere transaktioner på 12 måneder, når de vurderer, om der er en forretningsforbindelse, bruge et vindue på én måned for forbundne transaktioner og fastholde tærsklen på 1.000 euro for lejlighedsvise transaktioner.",
+    "fi": "EU:n rahanpesun vastainen viranomainen AMLA on lähettänyt Euroopan komissiolle kolme lopullista teknisten standardien luonnosta uuden rahanpesuasetuksen nojalla, kertoo Ruotsin Finansinspektionen; komission on vielä hyväksyttävä ne. AMLA:n raportin mukaan kryptopalvelujen tarjoajien on otettava huomioon, onko asiakas tehnyt kolme tai useampia liiketoimia 12 kuukauden aikana, kun ne arvioivat asiakassuhteen olemassaoloa, käytettävä yhden kuukauden jaksoa toisiinsa liittyville liiketoimille ja pidettävä satunnaisten liiketoimien 1 000 euron raja.",
+    "is": "Peningaþvættiseftirlit ESB, AMLA, hefur sent framkvæmdastjórn ESB þrjú endanleg drög að tæknilegum stöðlum samkvæmt nýju peningaþvættisreglugerðinni, segir sænska fjármálaeftirlitið Finansinspektionen; framkvæmdastjórnin á enn eftir að samþykkja þau. Samkvæmt skýrslu AMLA skulu þjónustuveitendur rafmynta líta til þess hvort viðskiptavinur hafi átt þrjú eða fleiri viðskipti á 12 mánuðum þegar metið er hvort viðskiptasamband sé til staðar, nota eins mánaðar tímabil fyrir tengd viðskipti og halda 1.000 evra viðmiðinu fyrir stök viðskipti."
    },
    "paywall": false,
    "links": [],
@@ -925,12 +925,12 @@
    ],
    "summary": "Crypto-assets and illegal financial networks are the biggest risks for UN sanctions against Iran and North Korea being evaded via Sweden, according to a new national risk assessment by ten Swedish authorities, Realtid reports. The authorities say organised crime has built an illegal financial infrastructure for cash, gold and conversion into crypto that could also be used for such financing. Realtid also notes that no one has been convicted of sanctions offences in Sweden in five years.",
    "summary_i18n": {
+    "nn": "Kryptoeigedelar og ulovlege finansielle nettverk er dei største risikoane for at FN-sanksjonane mot Iran og Nord-Korea blir omgått via Sverige, ifølgje ei ny nasjonal risikovurdering frå ti svenske styresmakter, melder Realtid. Styresmaktene seier at organisert kriminalitet har bygt opp ein ulovleg finansiell infrastruktur for kontantar, gull og veksling til krypto som òg kan nyttast til slik finansiering. Realtid peikar òg på at ingen er dømde for sanksjonsbrot i Sverige på fem år.",
+    "nb": "Kryptoeiendeler og ulovlige finansielle nettverk er de største risikoene for at FN-sanksjonene mot Iran og Nord-Korea omgås via Sverige, ifølge en ny nasjonal risikovurdering fra ti svenske myndigheter, melder Realtid. Myndighetene sier at organisert kriminalitet har bygget opp en ulovlig finansiell infrastruktur for kontanter, gull og veksling til krypto som også kan brukes til slik finansiering. Realtid påpeker også at ingen er dømt for sanksjonsbrudd i Sverige på fem år.",
+    "sv": "Kryptotillgångar och illegala finansiella nätverk är de största riskerna för att FN:s sanktioner mot Iran och Nordkorea kringgås via Sverige, enligt en ny nationell riskbedömning från tio svenska myndigheter, rapporterar Realtid. Myndigheterna uppger att den organiserade brottsligheten har byggt upp en illegal finansiell infrastruktur för kontanter, guld och växling till krypto som också kan användas för sådan finansiering. Realtid noterar även att ingen har dömts för sanktionsbrott i Sverige på fem år.",
     "da": "Kryptoaktiver og ulovlige finansielle netværk er de største risici for, at FN's sanktioner mod Iran og Nordkorea omgås via Sverige, ifølge en ny national risikovurdering fra ti svenske myndigheder, skriver Realtid. Myndighederne siger, at organiseret kriminalitet har opbygget en ulovlig finansiel infrastruktur til kontanter, guld og veksling til krypto, som også kan bruges til en sådan finansiering. Realtid bemærker desuden, at ingen er dømt for sanktionsbrud i Sverige i fem år.",
     "fi": "Kryptovarat ja laittomat rahoitusverkostot ovat suurimmat riskit sille, että YK:n Iraniin ja Pohjois-Koreaan kohdistamia pakotteita kierretään Ruotsin kautta, kertoo Realtid kymmenen ruotsalaisviranomaisen uuden kansallisen riskiarvion perusteella. Viranomaisten mukaan järjestäytynyt rikollisuus on rakentanut laittoman rahoitusinfrastruktuurin käteiselle, kullalle ja kryptovaihdolle, ja sitä voidaan käyttää myös tällaiseen rahoitukseen. Realtid huomauttaa myös, ettei Ruotsissa ole viiteen vuoteen tuomittu ketään pakoterikoksesta.",
-    "is": "Sýndareignir og ólögleg fjármálanet eru mesta hættan á að refsiaðgerðir SÞ gegn Íran og Norður-Kóreu séu sniðgengnar í gegnum Svíþjóð, samkvæmt nýju landsbundnu áhættumati tíu sænskra stofnana, segir Realtid. Stofnanirnar segja að skipulögð glæpastarfsemi hafi byggt upp ólöglega fjármálainnviði fyrir reiðufé, gull og skipti yfir í rafmyntir sem einnig megi nota til slíkrar fjármögnunar. Realtid bendir einnig á að enginn hafi verið dæmdur fyrir brot á refsiaðgerðum í Svíþjóð í fimm ár.",
-    "nb": "Kryptoeiendeler og ulovlige finansielle nettverk er de største risikoene for at FN-sanksjonene mot Iran og Nord-Korea omgås via Sverige, ifølge en ny nasjonal risikovurdering fra ti svenske myndigheter, melder Realtid. Myndighetene sier at organisert kriminalitet har bygget opp en ulovlig finansiell infrastruktur for kontanter, gull og veksling til krypto som også kan brukes til slik finansiering. Realtid påpeker også at ingen er dømt for sanksjonsbrudd i Sverige på fem år.",
-    "nn": "Kryptoeigedelar og ulovlege finansielle nettverk er dei største risikoane for at FN-sanksjonane mot Iran og Nord-Korea blir omgått via Sverige, ifølgje ei ny nasjonal risikovurdering frå ti svenske styresmakter, melder Realtid. Styresmaktene seier at organisert kriminalitet har bygt opp ein ulovleg finansiell infrastruktur for kontantar, gull og veksling til krypto som òg kan nyttast til slik finansiering. Realtid peikar òg på at ingen er dømde for sanksjonsbrot i Sverige på fem år.",
-    "sv": "Kryptotillgångar och illegala finansiella nätverk är de största riskerna för att FN:s sanktioner mot Iran och Nordkorea kringgås via Sverige, enligt en ny nationell riskbedömning från tio svenska myndigheter, rapporterar Realtid. Myndigheterna uppger att den organiserade brottsligheten har byggt upp en illegal finansiell infrastruktur för kontanter, guld och växling till krypto som också kan användas för sådan finansiering. Realtid noterar även att ingen har dömts för sanktionsbrott i Sverige på fem år."
+    "is": "Sýndareignir og ólögleg fjármálanet eru mesta hættan á að refsiaðgerðir SÞ gegn Íran og Norður-Kóreu séu sniðgengnar í gegnum Svíþjóð, samkvæmt nýju landsbundnu áhættumati tíu sænskra stofnana, segir Realtid. Stofnanirnar segja að skipulögð glæpastarfsemi hafi byggt upp ólöglega fjármálainnviði fyrir reiðufé, gull og skipti yfir í rafmyntir sem einnig megi nota til slíkrar fjármögnunar. Realtid bendir einnig á að enginn hafi verið dæmdur fyrir brot á refsiaðgerðum í Svíþjóð í fimm ár."
    },
    "paywall": false,
    "links": [],
@@ -1071,12 +1071,12 @@
    ],
    "summary": "Three teenagers, two aged 19 and one aged 16, have been arrested in Lund on suspicion of kidnapping and aggravated weapons offences, Sydsvenskan reports. According to information obtained by the newspaper, they had taken on a job to rob a local man of cryptocurrency and bound him with duct tape. Police have said little about the details and initially described the incident as a disturbance in a flat.",
    "summary_i18n": {
+    "nn": "Tre tenåringar, to på 19 og ein på 16 år, er pågripne i Lund mistenkte for menneskerov og grovt våpenbrot, melder Sydsvenskan. Ifølgje opplysningar til avisa hadde dei teke på seg eit oppdrag om å rane ein lokal mann for kryptovaluta og batt han med gaffateip. Politiet har sagt lite om detaljane og omtalte først hendinga som bråk i ei leilegheit.",
+    "nb": "Tre tenåringer, to på 19 og én på 16 år, er pågrepet i Lund mistenkt for menneskerov og grovt våpenlovbrudd, melder Sydsvenskan. Ifølge opplysninger til avisen hadde de tatt på seg et oppdrag om å rane en lokal mann for kryptovaluta og bandt ham med gaffateip. Politiet har sagt lite om detaljene og omtalte først hendelsen som bråk i en leilighet.",
+    "sv": "Tre tonåringar, två 19-åringar och en 16-åring, har anhållits i Lund misstänkta för människorov och grovt vapenbrott, rapporterar Sydsvenskan. Enligt uppgifter till tidningen hade de tagit på sig ett uppdrag att råna en Lundabo på kryptovaluta och band honom med silvertejp. Polisen har varit förtegen om detaljerna och beskrev först händelsen som bråk i en lägenhet.",
     "da": "Tre teenagere, to på 19 og en på 16 år, er anholdt i Lund mistænkt for frihedsberøvelse og grov våbenforbrydelse, skriver Sydsvenskan. Ifølge oplysninger til avisen havde de påtaget sig en opgave med at røve en lokal mand for kryptovaluta og bandt ham med gaffatape. Politiet har sagt lidt om detaljerne og beskrev først hændelsen som uro i en lejlighed.",
     "fi": "Lundissa on pidätetty kolme teiniä, kaksi 19-vuotiasta ja yksi 16-vuotias, epäiltyinä ihmisryöstöstä ja törkeästä aserikoksesta, kertoo Sydsvenskan. Lehden saamien tietojen mukaan he olivat ottaneet tehtäväkseen ryöstää paikalliselta mieheltä kryptovaluuttaa ja sitoivat hänet ilmastointiteipillä. Poliisi on kertonut yksityiskohdista vähän ja kuvasi tapahtumaa aluksi riidaksi asunnossa.",
-    "is": "Þrír unglingar, tveir 19 ára og einn 16 ára, hafa verið handteknir í Lundi grunaðir um mannrán og alvarlegt vopnalagabrot, segir Sydsvenskan. Samkvæmt upplýsingum blaðsins höfðu þeir tekið að sér að ræna mann á staðnum rafmynt og bundu hann með límbandi. Lögreglan hefur lítið sagt um smáatriðin og lýsti atvikinu fyrst sem ólátum í íbúð.",
-    "nb": "Tre tenåringer, to på 19 og én på 16 år, er pågrepet i Lund mistenkt for menneskerov og grovt våpenlovbrudd, melder Sydsvenskan. Ifølge opplysninger til avisen hadde de tatt på seg et oppdrag om å rane en lokal mann for kryptovaluta og bandt ham med gaffateip. Politiet har sagt lite om detaljene og omtalte først hendelsen som bråk i en leilighet.",
-    "nn": "Tre tenåringar, to på 19 og ein på 16 år, er pågripne i Lund mistenkte for menneskerov og grovt våpenbrot, melder Sydsvenskan. Ifølgje opplysningar til avisa hadde dei teke på seg eit oppdrag om å rane ein lokal mann for kryptovaluta og batt han med gaffateip. Politiet har sagt lite om detaljane og omtalte først hendinga som bråk i ei leilegheit.",
-    "sv": "Tre tonåringar, två 19-åringar och en 16-åring, har anhållits i Lund misstänkta för människorov och grovt vapenbrott, rapporterar Sydsvenskan. Enligt uppgifter till tidningen hade de tagit på sig ett uppdrag att råna en Lundabo på kryptovaluta och band honom med silvertejp. Polisen har varit förtegen om detaljerna och beskrev först händelsen som bråk i en lägenhet."
+    "is": "Þrír unglingar, tveir 19 ára og einn 16 ára, hafa verið handteknir í Lundi grunaðir um mannrán og alvarlegt vopnalagabrot, segir Sydsvenskan. Samkvæmt upplýsingum blaðsins höfðu þeir tekið að sér að ræna mann á staðnum rafmynt og bundu hann með límbandi. Lögreglan hefur lítið sagt um smáatriðin og lýsti atvikinu fyrst sem ólátum í íbúð."
    },
    "paywall": false,
    "links": [],
@@ -1218,12 +1218,12 @@
    ],
    "summary": "EU supervisors are examining Binance for continuing to serve European customers without the licence required under MiCA, Realtid reports, citing the Financial Times. ESMA and national authorities in countries including France, Germany and Greece are looking at how Binance uses the narrow 'reverse solicitation' exemption, which only applies when the customer takes the initiative. Binance says it complies with applicable rules and is working towards a MiCA licence.",
    "summary_i18n": {
+    "nn": "EU-tilsyn granskar Binance for å ha halde fram med å tilby tenester til europeiske kundar utan lisensen MiCA krev, melder Realtid med tilvising til Financial Times. ESMA og nasjonale styresmakter i mellom anna Frankrike, Tyskland og Hellas ser på korleis Binance nyttar det smale unntaket for «reverse solicitation», som berre gjeld når kunden sjølv tek initiativet. Binance seier selskapet følgjer gjeldande reglar og arbeider for å få MiCA-lisens.",
+    "nb": "EU-tilsyn gransker Binance for å ha fortsatt å tilby tjenester til europeiske kunder uten lisensen MiCA krever, melder Realtid med henvisning til Financial Times. ESMA og nasjonale myndigheter i blant annet Frankrike, Tyskland og Hellas ser på hvordan Binance bruker det snevre unntaket for «reverse solicitation», som bare gjelder når kunden selv tar initiativet. Binance sier selskapet følger gjeldende regler og jobber for å få MiCA-lisens.",
+    "sv": "EU:s tillsynsmyndigheter granskar Binance för att ha fortsatt erbjuda tjänster till europeiska kunder utan den licens som MiCA kräver, rapporterar Realtid med hänvisning till Financial Times. Esma och nationella myndigheter i bland annat Frankrike, Tyskland och Grekland undersöker hur Binance använder det snäva undantaget ”reverse solicitation”, som bara gäller när kunden själv tar initiativet. Binance uppger att bolaget följer gällande regler och arbetar för att få en MiCA-licens.",
     "da": "EU's tilsynsmyndigheder undersøger Binance for at have fortsat med at betjene europæiske kunder uden den licens, MiCA kræver, skriver Realtid med henvisning til Financial Times. ESMA og nationale myndigheder i blandt andet Frankrig, Tyskland og Grækenland ser på, hvordan Binance bruger den snævre undtagelse for »reverse solicitation«, som kun gælder, når kunden selv tager initiativet. Binance siger, at selskabet overholder gældende regler og arbejder på at få en MiCA-licens.",
     "fi": "EU:n valvojat selvittävät Binancea, koska se on jatkanut palvelujen tarjoamista eurooppalaisille asiakkaille ilman MiCA-asetuksen edellyttämää toimilupaa, kertoo Realtid Financial Timesiin viitaten. ESMA ja kansalliset viranomaiset muun muassa Ranskassa, Saksassa ja Kreikassa tarkastelevat, miten Binance käyttää suppeaa ”reverse solicitation” -poikkeusta, joka koskee vain tilanteita, joissa asiakas tekee aloitteen itse. Binancen mukaan se noudattaa sovellettavia sääntöjä ja pyrkii saamaan MiCA-toimiluvan.",
-    "is": "Eftirlitsstofnanir ESB rannsaka Binance fyrir að halda áfram að þjónusta evrópska viðskiptavini án leyfisins sem MiCA krefst, segir Realtid og vísar í Financial Times. ESMA og innlendar stofnanir í m.a. Frakklandi, Þýskalandi og Grikklandi skoða hvernig Binance notar þrönga undanþáguna um „reverse solicitation“, sem gildir aðeins þegar viðskiptavinurinn á sjálfur frumkvæðið. Binance segist fara eftir gildandi reglum og vinna að því að fá MiCA-leyfi.",
-    "nb": "EU-tilsyn gransker Binance for å ha fortsatt å tilby tjenester til europeiske kunder uten lisensen MiCA krever, melder Realtid med henvisning til Financial Times. ESMA og nasjonale myndigheter i blant annet Frankrike, Tyskland og Hellas ser på hvordan Binance bruker det snevre unntaket for «reverse solicitation», som bare gjelder når kunden selv tar initiativet. Binance sier selskapet følger gjeldende regler og jobber for å få MiCA-lisens.",
-    "nn": "EU-tilsyn granskar Binance for å ha halde fram med å tilby tenester til europeiske kundar utan lisensen MiCA krev, melder Realtid med tilvising til Financial Times. ESMA og nasjonale styresmakter i mellom anna Frankrike, Tyskland og Hellas ser på korleis Binance nyttar det smale unntaket for «reverse solicitation», som berre gjeld når kunden sjølv tek initiativet. Binance seier selskapet følgjer gjeldande reglar og arbeider for å få MiCA-lisens.",
-    "sv": "EU:s tillsynsmyndigheter granskar Binance för att ha fortsatt erbjuda tjänster till europeiska kunder utan den licens som MiCA kräver, rapporterar Realtid med hänvisning till Financial Times. Esma och nationella myndigheter i bland annat Frankrike, Tyskland och Grekland undersöker hur Binance använder det snäva undantaget ”reverse solicitation”, som bara gäller när kunden själv tar initiativet. Binance uppger att bolaget följer gällande regler och arbetar för att få en MiCA-licens."
+    "is": "Eftirlitsstofnanir ESB rannsaka Binance fyrir að halda áfram að þjónusta evrópska viðskiptavini án leyfisins sem MiCA krefst, segir Realtid og vísar í Financial Times. ESMA og innlendar stofnanir í m.a. Frakklandi, Þýskalandi og Grikklandi skoða hvernig Binance notar þrönga undanþáguna um „reverse solicitation“, sem gildir aðeins þegar viðskiptavinurinn á sjálfur frumkvæðið. Binance segist fara eftir gildandi reglum og vinna að því að fá MiCA-leyfi."
    },
    "paywall": false,
    "links": [],
@@ -1356,12 +1356,12 @@
    ],
    "summary": "Binance lacks the licence required under the EU's MiCA rules and was supposed to start winding down in the EU from 1 July, yet some European customers are still trading, Dagens PS reports, citing the Financial Times. The exchange relies on the 'reverse solicitation' exemption, which ESMA says must be understood very narrowly. Authorities can request more information and, if they reject Binance's arguments, move to enforcement and fines; Binance says it follows applicable rules.",
    "summary_i18n": {
+    "nn": "Binance manglar lisensen EU-regelverket MiCA krev og skulle frå 1. juli ha byrja å avvikle verksemda i EU, men somme europeiske kundar handlar framleis, melder Dagens PS med tilvising til Financial Times. Børsen lener seg på unntaket for «reverse solicitation», som ESMA seier må forståast svært snevert. Styresmaktene kan be om meir informasjon og, om dei avviser Binance sine argument, gå vidare med tilsynstiltak og bøter; Binance seier selskapet følgjer gjeldande reglar.",
+    "nb": "Binance mangler lisensen EU-regelverket MiCA krever og skulle fra 1. juli ha begynt å avvikle virksomheten i EU, men enkelte europeiske kunder handler fortsatt, melder Dagens PS med henvisning til Financial Times. Børsen lener seg på unntaket for «reverse solicitation», som ESMA sier må forstås svært snevert. Myndighetene kan be om mer informasjon og, hvis de avviser Binances argumenter, gå videre med tilsynstiltak og bøter; Binance sier selskapet følger gjeldende regler.",
+    "sv": "Binance saknar den licens som krävs enligt EU:s MiCA-regler och skulle från den 1 juli ha börjat avveckla verksamheten i EU, men vissa europeiska kunder handlar fortfarande, rapporterar Dagens PS med hänvisning till Financial Times. Börsen lutar sig mot undantaget ”reverse solicitation”, som Esma säger ska förstås som mycket snävt. Myndigheterna kan begära mer information och, om de inte godtar Binances argument, gå vidare med tillsynsåtgärder och böter; Binance säger att bolaget följer tillämpliga regler.",
     "da": "Binance mangler den licens, EU's MiCA-regler kræver, og skulle fra 1. juli være begyndt at afvikle aktiviteterne i EU, men nogle europæiske kunder handler stadig, skriver Dagens PS med henvisning til Financial Times. Børsen læner sig op ad undtagelsen for »reverse solicitation«, som ESMA siger skal forstås meget snævert. Myndighederne kan bede om flere oplysninger og, hvis de afviser Binances argumenter, gå videre med tilsynsreaktioner og bøder; Binance siger, at selskabet følger gældende regler.",
     "fi": "Binancella ei ole EU:n MiCA-sääntöjen edellyttämää toimilupaa, ja sen piti aloittaa toimintansa alasajo EU:ssa 1. heinäkuuta, mutta osa eurooppalaisista asiakkaista käy yhä kauppaa, kertoo Dagens PS Financial Timesiin viitaten. Pörssi nojaa ”reverse solicitation” -poikkeukseen, jota ESMA:n mukaan on tulkittava hyvin suppeasti. Viranomaiset voivat pyytää lisätietoja ja, jos ne hylkäävät Binancen perustelut, ryhtyä valvontatoimiin ja määrätä sakkoja; Binancen mukaan se noudattaa sovellettavia sääntöjä.",
-    "is": "Binance hefur ekki leyfið sem MiCA-reglur ESB krefjast og átti að byrja að draga starfsemina saman í ESB frá 1. júlí, en sumir evrópskir viðskiptavinir eiga þó enn viðskipti, segir Dagens PS og vísar í Financial Times. Kauphöllin byggir á undanþágunni um „reverse solicitation“, sem ESMA segir að beri að skilja mjög þröngt. Stjórnvöld geta óskað eftir frekari upplýsingum og, ef þau hafna rökum Binance, gripið til eftirlitsaðgerða og sekta; Binance segist fara eftir gildandi reglum.",
-    "nb": "Binance mangler lisensen EU-regelverket MiCA krever og skulle fra 1. juli ha begynt å avvikle virksomheten i EU, men enkelte europeiske kunder handler fortsatt, melder Dagens PS med henvisning til Financial Times. Børsen lener seg på unntaket for «reverse solicitation», som ESMA sier må forstås svært snevert. Myndighetene kan be om mer informasjon og, hvis de avviser Binances argumenter, gå videre med tilsynstiltak og bøter; Binance sier selskapet følger gjeldende regler.",
-    "nn": "Binance manglar lisensen EU-regelverket MiCA krev og skulle frå 1. juli ha byrja å avvikle verksemda i EU, men somme europeiske kundar handlar framleis, melder Dagens PS med tilvising til Financial Times. Børsen lener seg på unntaket for «reverse solicitation», som ESMA seier må forståast svært snevert. Styresmaktene kan be om meir informasjon og, om dei avviser Binance sine argument, gå vidare med tilsynstiltak og bøter; Binance seier selskapet følgjer gjeldande reglar.",
-    "sv": "Binance saknar den licens som krävs enligt EU:s MiCA-regler och skulle från den 1 juli ha börjat avveckla verksamheten i EU, men vissa europeiska kunder handlar fortfarande, rapporterar Dagens PS med hänvisning till Financial Times. Börsen lutar sig mot undantaget ”reverse solicitation”, som Esma säger ska förstås som mycket snävt. Myndigheterna kan begära mer information och, om de inte godtar Binances argument, gå vidare med tillsynsåtgärder och böter; Binance säger att bolaget följer tillämpliga regler."
+    "is": "Binance hefur ekki leyfið sem MiCA-reglur ESB krefjast og átti að byrja að draga starfsemina saman í ESB frá 1. júlí, en sumir evrópskir viðskiptavinir eiga þó enn viðskipti, segir Dagens PS og vísar í Financial Times. Kauphöllin byggir á undanþágunni um „reverse solicitation“, sem ESMA segir að beri að skilja mjög þröngt. Stjórnvöld geta óskað eftir frekari upplýsingum og, ef þau hafna rökum Binance, gripið til eftirlitsaðgerða og sekta; Binance segist fara eftir gildandi reglum."
    },
    "paywall": false,
    "links": [],
@@ -1485,12 +1485,12 @@
    ],
    "summary": "Finansinspektionen reports that a new national risk assessment judges the risk of financing the proliferation of weapons of mass destruction to be highest in illegal financial activity and through the use of crypto-assets. The assessment comes from the ten authorities in Sweden's Sanctions Coordination Council. It is limited to UN Security Council resolutions with targeted financial sanctions against North Korea or Iran.",
    "summary_i18n": {
+    "nn": "Finansinspektionen melder at ei ny nasjonal risikovurdering meiner risikoen for finansiering av spreiing av masseøydeleggingsvåpen er størst i ulovleg finansiell verksemd og ved bruk av kryptoeigedelar. Vurderinga kjem frå dei ti styresmaktene i det svenske Sanktionssamverkansrådet. Ho er avgrensa til resolusjonar frå FNs tryggingsråd med målretta økonomiske sanksjonar mot Nord-Korea eller Iran.",
+    "nb": "Finansinspektionen melder at en ny nasjonal risikovurdering mener risikoen for finansiering av spredning av masseødeleggelsesvåpen er størst i ulovlig finansiell virksomhet og ved bruk av kryptoeiendeler. Vurderingen kommer fra de ti myndighetene i det svenske Sanktionssamverkansrådet. Den er avgrenset til resolusjoner fra FNs sikkerhetsråd med målrettede økonomiske sanksjoner mot Nord-Korea eller Iran.",
+    "sv": "Finansinspektionen meddelar att en ny nationell riskbedömning anser att risken för finansiering av spridning av massförstörelsevapen är högst inom illegal finansiell verksamhet och genom användning av kryptotillgångar. Bedömningen kommer från de tio myndigheterna i Sanktionssamverkansrådet. Den är avgränsad till FN:s säkerhetsråds resolutioner med riktade ekonomiska sanktioner mot Nordkorea eller Iran.",
     "da": "Finansinspektionen oplyser, at en ny national risikovurdering vurderer risikoen for finansiering af spredning af masseødelæggelsesvåben som størst inden for ulovlig finansiel virksomhed og ved brug af kryptoaktiver. Vurderingen kommer fra de ti myndigheder i det svenske Sanktionssamverkansrådet. Den er afgrænset til resolutioner fra FN's Sikkerhedsråd med målrettede økonomiske sanktioner mod Nordkorea eller Iran.",
     "fi": "Ruotsin Finansinspektionen kertoo, että uuden kansallisen riskiarvion mukaan joukkotuhoaseiden leviämisen rahoittamisen riski on suurin laittomassa rahoitustoiminnassa ja kryptovarojen käytössä. Arvion ovat laatineet Ruotsin pakotteiden yhteistyöneuvoston kymmenen viranomaista. Se rajautuu YK:n turvallisuusneuvoston päätöslauselmiin, jotka sisältävät Pohjois-Koreaan tai Iraniin kohdistuvia taloudellisia pakotteita.",
-    "is": "Finansinspektionen greinir frá því að samkvæmt nýju landsbundnu áhættumati sé hættan á fjármögnun útbreiðslu gereyðingarvopna mest í ólöglegri fjármálastarfsemi og með notkun sýndareigna. Matið kemur frá þeim tíu stofnunum sem eiga aðild að sænska samstarfsráðinu um refsiaðgerðir. Það takmarkast við ályktanir öryggisráðs SÞ með markvissum fjárhagslegum refsiaðgerðum gegn Norður-Kóreu eða Íran.",
-    "nb": "Finansinspektionen melder at en ny nasjonal risikovurdering mener risikoen for finansiering av spredning av masseødeleggelsesvåpen er størst i ulovlig finansiell virksomhet og ved bruk av kryptoeiendeler. Vurderingen kommer fra de ti myndighetene i det svenske Sanktionssamverkansrådet. Den er avgrenset til resolusjoner fra FNs sikkerhetsråd med målrettede økonomiske sanksjoner mot Nord-Korea eller Iran.",
-    "nn": "Finansinspektionen melder at ei ny nasjonal risikovurdering meiner risikoen for finansiering av spreiing av masseøydeleggingsvåpen er størst i ulovleg finansiell verksemd og ved bruk av kryptoeigedelar. Vurderinga kjem frå dei ti styresmaktene i det svenske Sanktionssamverkansrådet. Ho er avgrensa til resolusjonar frå FNs tryggingsråd med målretta økonomiske sanksjonar mot Nord-Korea eller Iran.",
-    "sv": "Finansinspektionen meddelar att en ny nationell riskbedömning anser att risken för finansiering av spridning av massförstörelsevapen är högst inom illegal finansiell verksamhet och genom användning av kryptotillgångar. Bedömningen kommer från de tio myndigheterna i Sanktionssamverkansrådet. Den är avgränsad till FN:s säkerhetsråds resolutioner med riktade ekonomiska sanktioner mot Nordkorea eller Iran."
+    "is": "Finansinspektionen greinir frá því að samkvæmt nýju landsbundnu áhættumati sé hættan á fjármögnun útbreiðslu gereyðingarvopna mest í ólöglegri fjármálastarfsemi og með notkun sýndareigna. Matið kemur frá þeim tíu stofnunum sem eiga aðild að sænska samstarfsráðinu um refsiaðgerðir. Það takmarkast við ályktanir öryggisráðs SÞ með markvissum fjárhagslegum refsiaðgerðum gegn Norður-Kóreu eða Íran."
    },
    "paywall": false,
    "links": [],
@@ -1631,12 +1631,12 @@
    ],
    "summary": "GreenMerc, the Swedish listed group behind Trijo and Finland's Northcrypto, says it has cut running costs by about SEK 400,000 a month, or around SEK 4.8 million a year, with full effect from October. According to the company, Northcrypto posted a positive operating result in July and August after Trijo's Swedish customers were moved onto its MiCA-licensed platform. The freed-up resources are being directed to Trijo One, a banking offer the company is developing with Marginalen Bank, Kaupr reports.",
    "summary_i18n": {
+    "nn": "GreenMerc, det svenske børsnoterte konsernet bak Trijo og finske Northcrypto, seier at dei har kutta dei løpande kostnadene med om lag 400 000 svenske kroner i månaden, eller rundt 4,8 millionar i året, med full effekt frå oktober. Ifølgje selskapet gjekk Northcrypto med positivt driftsresultat i juli og august etter at Trijos svenske kundar vart flytte over til den MiCA-lisensierte plattforma. Ressursane som blir frigjorde, går til banktilbodet Trijo One, som selskapet utviklar med Marginalen Bank, melder Kaupr.",
+    "nb": "GreenMerc, det svenske børsnoterte konsernet bak Trijo og finske Northcrypto, sier at de har kuttet de løpende kostnadene med rundt 400 000 svenske kroner i måneden, eller rundt 4,8 millioner i året, med full effekt fra oktober. Ifølge selskapet gikk Northcrypto med positivt driftsresultat i juli og august etter at Trijos svenske kunder ble flyttet over til den MiCA-lisensierte plattformen. Ressursene som frigjøres, går til banktilbudet Trijo One, som selskapet utvikler med Marginalen Bank, melder Kaupr.",
+    "sv": "GreenMerc, den svenska börsnoterade koncernen bakom Trijo och finska Northcrypto, uppger att de har sänkt de löpande kostnaderna med cirka 400 000 kronor i månaden, eller runt 4,8 miljoner kronor om året, med full effekt från oktober. Enligt bolaget gick Northcrypto med positivt rörelseresultat i juli och augusti efter att Trijos svenska kunder flyttats över till den MiCA-licensierade plattformen. De frigjorda resurserna går till bankerbjudandet Trijo One, som bolaget utvecklar med Marginalen Bank, rapporterar Kaupr.",
     "da": "GreenMerc, den svenske børsnoterede koncern bag Trijo og finske Northcrypto, oplyser, at den har skåret de løbende omkostninger med omkring 400.000 svenske kroner om måneden, eller cirka 4,8 millioner om året, med fuld effekt fra oktober. Ifølge selskabet gav Northcrypto et positivt driftsresultat i juli og august, efter at Trijos svenske kunder blev flyttet over på den MiCA-licenserede platform. De frigjorte ressourcer går til bankproduktet Trijo One, som selskabet udvikler med Marginalen Bank, skriver Kaupr.",
     "fi": "Trijon ja suomalaisen Northcrypton taustalla oleva ruotsalainen pörssiyhtiö GreenMerc kertoo leikanneensa juoksevia kulujaan noin 400 000 kruunulla kuukaudessa eli noin 4,8 miljoonalla kruunulla vuodessa, ja säästöt näkyvät täysimääräisesti lokakuusta alkaen. Yhtiön mukaan Northcrypton liiketulos oli positiivinen heinä- ja elokuussa sen jälkeen, kun Trijon ruotsalaisasiakkaat siirrettiin sen MiCA-luvan alaiselle alustalle. Vapautuvat resurssit ohjataan Trijo One -pankkipalveluun, jota yhtiö kehittää Marginalen Bankin kanssa, kertoo Kaupr.",
-    "is": "GreenMerc, sænska skráða samstæðan á bak við Trijo og finnska Northcrypto, segist hafa lækkað rekstrarkostnað um u.þ.b. 400.000 sænskar krónur á mánuði, eða um 4,8 milljónir á ári, með fullum áhrifum frá október. Samkvæmt fyrirtækinu skilaði Northcrypto jákvæðri rekstrarniðurstöðu í júlí og ágúst eftir að sænskir viðskiptavinir Trijo voru fluttir yfir á MiCA-leyfisskyldan vettvang þess. Fjármunirnir sem losna fara í bankaþjónustuna Trijo One, sem fyrirtækið þróar með Marginalen Bank, segir Kaupr.",
-    "nb": "GreenMerc, det svenske børsnoterte konsernet bak Trijo og finske Northcrypto, sier at de har kuttet de løpende kostnadene med rundt 400 000 svenske kroner i måneden, eller rundt 4,8 millioner i året, med full effekt fra oktober. Ifølge selskapet gikk Northcrypto med positivt driftsresultat i juli og august etter at Trijos svenske kunder ble flyttet over til den MiCA-lisensierte plattformen. Ressursene som frigjøres, går til banktilbudet Trijo One, som selskapet utvikler med Marginalen Bank, melder Kaupr.",
-    "nn": "GreenMerc, det svenske børsnoterte konsernet bak Trijo og finske Northcrypto, seier at dei har kutta dei løpande kostnadene med om lag 400 000 svenske kroner i månaden, eller rundt 4,8 millionar i året, med full effekt frå oktober. Ifølgje selskapet gjekk Northcrypto med positivt driftsresultat i juli og august etter at Trijos svenske kundar vart flytte over til den MiCA-lisensierte plattforma. Ressursane som blir frigjorde, går til banktilbodet Trijo One, som selskapet utviklar med Marginalen Bank, melder Kaupr.",
-    "sv": "GreenMerc, den svenska börsnoterade koncernen bakom Trijo och finska Northcrypto, uppger att de har sänkt de löpande kostnaderna med cirka 400 000 kronor i månaden, eller runt 4,8 miljoner kronor om året, med full effekt från oktober. Enligt bolaget gick Northcrypto med positivt rörelseresultat i juli och augusti efter att Trijos svenska kunder flyttats över till den MiCA-licensierade plattformen. De frigjorda resurserna går till bankerbjudandet Trijo One, som bolaget utvecklar med Marginalen Bank, rapporterar Kaupr."
+    "is": "GreenMerc, sænska skráða samstæðan á bak við Trijo og finnska Northcrypto, segist hafa lækkað rekstrarkostnað um u.þ.b. 400.000 sænskar krónur á mánuði, eða um 4,8 milljónir á ári, með fullum áhrifum frá október. Samkvæmt fyrirtækinu skilaði Northcrypto jákvæðri rekstrarniðurstöðu í júlí og ágúst eftir að sænskir viðskiptavinir Trijo voru fluttir yfir á MiCA-leyfisskyldan vettvang þess. Fjármunirnir sem losna fara í bankaþjónustuna Trijo One, sem fyrirtækið þróar með Marginalen Bank, segir Kaupr."
    },
    "paywall": false,
    "links": [],
@@ -1744,155 +1744,6 @@
    "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
   },
   {
-   "id": "07e49032be5a",
-   "url": "https://www.kaupr.io/nyheter/safello-apner-for-at-andre-selskaper-kan-tilby-kryptokjop",
-   "html_url": "https://nordiccrypto.no/stories/07e49032be5a/",
-   "api_url": "https://nordiccrypto.no/api/v1/news/07e49032be5a.json",
-   "title": "Safello åpner for at andre selskaper kan tilby kryptokjøp",
-   "title_en": "Safello opens up so other companies can offer crypto purchases",
-   "title_i18n": {
-    "nn": "Safello opnar for at andre selskap kan tilby kryptokjøp",
-    "sv": "Safello öppnar för att andra bolag kan erbjuda kryptoköp",
-    "da": "Safello åbner for, at andre selskaber kan tilbyde kryptokøb",
-    "fi": "Safello antaa muiden yhtiöiden tarjota kryptokauppaa",
-    "is": "Safello opnar á að önnur fyrirtæki geti boðið kaup á rafmyntum"
-   },
-   "source": "kaupr",
-   "source_name": "Kaupr",
-   "source_logo": {
-    "kind": "logo",
-    "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
-    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
-    "author": null,
-    "license": null,
-    "license_url": null,
-    "credit": "Official website",
-    "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
-   },
-   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
-   "country": "SE",
-   "language": "Norwegian",
-   "language_code": "no",
-   "published": "2026-09-24T12:00:00+00:00",
-   "topics": [
-    "business",
-    "mica"
-   ],
-   "summary": "Swedish crypto exchange Safello is piloting a 'crypto checkout' that lets companies without their own crypto business offer crypto purchases inside their services, under Safello's MiCA licence, Kaupr reports. Buyers become Safello customers through its regular know-your-customer checks, and the first test runs in Sweden with one unnamed partner and on Safello-owned bitcoin.se. Safello says it is too early to estimate what the pilot means financially.",
-   "summary_i18n": {
-    "da": "Den svenske kryptobørs Safello tester en »crypto checkout«, der lader virksomheder uden egen kryptoforretning tilbyde kryptokøb i deres tjenester under Safellos MiCA-licens, skriver Kaupr. Køberne bliver Safello-kunder gennem den almindelige kundekontrol, og den første test kører i Sverige med én unavngiven partner og på bitcoin.se, som Safello ejer. Safello siger, at det er for tidligt at vurdere, hvad piloten betyder økonomisk.",
-    "fi": "Ruotsalainen kryptopörssi Safello pilotoi ”crypto checkout” -ratkaisua, jonka avulla yritykset, joilla ei ole omaa kryptoliiketoimintaa, voivat tarjota kryptoostoja palveluissaan Safellon MiCA-toimiluvan alla, kertoo Kaupr. Ostajista tulee Safellon asiakkaita tavanomaisen asiakkaan tunnistamisen kautta, ja ensimmäinen testi tehdään Ruotsissa yhden nimeämättömän kumppanin kanssa sekä Safellon omistamalla bitcoin.se-sivustolla. Safellon mukaan on liian aikaista arvioida pilotin taloudellista merkitystä.",
-    "is": "Sænska rafmyntakauphöllin Safello prófar „crypto checkout“-lausn sem gerir fyrirtækjum án eigin rafmyntastarfsemi kleift að bjóða rafmyntakaup í þjónustu sinni undir MiCA-leyfi Safello, segir Kaupr. Kaupendur verða viðskiptavinir Safello í gegnum hefðbundna áreiðanleikakönnun, og fyrsta prófunin fer fram í Svíþjóð með einum ónafngreindum samstarfsaðila og á bitcoin.se, sem Safello á. Safello segir of snemmt að meta fjárhagslega þýðingu tilraunarinnar.",
-    "nb": "Den svenske kryptobørsen Safello tester en «crypto checkout»-løsning som lar selskaper uten egen kryptovirksomhet tilby kryptokjøp i tjenestene sine, under Safellos MiCA-lisens, melder Kaupr. Kjøperne blir Safello-kunder gjennom den vanlige kundekontrollen, og den første testen kjøres i Sverige med én ikke navngitt partner og på bitcoin.se, som Safello eier. Safello sier det er for tidlig å anslå hva piloten betyr økonomisk.",
-    "nn": "Den svenske kryptobørsen Safello testar ei «crypto checkout»-løysing som lèt selskap utan eiga kryptoverksemd tilby kryptokjøp i tenestene sine, under Safellos MiCA-lisens, melder Kaupr. Kjøparane blir Safello-kundar gjennom den vanlege kundekontrollen, og den første testen går i Sverige med éin ikkje namngjeven partnar og på bitcoin.se, som Safello eig. Safello seier det er for tidleg å anslå kva piloten betyr økonomisk.",
-    "sv": "Den svenska kryptobörsen Safello testar en ”crypto checkout” som låter företag utan egen kryptoverksamhet erbjuda kryptoköp i sina tjänster, under Safellos MiCA-licens, rapporterar Kaupr. Köparna blir Safello-kunder genom den vanliga kundkontrollen, och det första testet görs i Sverige med en icke namngiven partner och på bitcoin.se, som Safello äger. Safello säger att det är för tidigt att bedöma vad piloten betyder ekonomiskt."
-   },
-   "paywall": false,
-   "links": [],
-   "own_story": false,
-   "illustration": {
-    "id": "original-exchange",
-    "kind": "original",
-    "file_url": "https://nordiccrypto.no/assets/img/illustrations/original-exchange.webp",
-    "width": 960,
-    "height": 540,
-    "alt": "Abstract bar chart in blue and black. Nordic Crypto illustration, not a picture of an exchange.",
-    "source": "Nordic Crypto",
-    "author": "Nordic Crypto",
-    "license": "CC0 1.0",
-    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-    "url": "https://cryptonordic.no/ethics/",
-    "credit": "Illustration: Nordic Crypto. Licence: CC0 1.0. Source: Nordic Crypto.",
-    "modifications": null,
-    "terms": null
-   },
-   "primary_source": {
-    "outlet": "kaupr",
-    "outlet_name": "Kaupr",
-    "url": "https://www.kaupr.io/nyheter/safello-apner-for-at-andre-selskaper-kan-tilby-kryptokjop",
-    "title": "Safello åpner for at andre selskaper kan tilby kryptokjøp",
-    "published": "2026-09-24T12:00:00+00:00",
-    "lang": "Norwegian",
-    "language_code": "no",
-    "country": "SE",
-    "source_type": "national",
-    "paywall": false,
-    "primary": true,
-    "logo": {
-     "kind": "logo",
-     "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
-     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
-     "author": null,
-     "license": null,
-     "license_url": null,
-     "credit": "Official website",
-     "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
-    },
-    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
-   },
-   "primary_source_document": null,
-   "also_covered_by": [],
-   "sources": [
-    {
-     "outlet": "kaupr",
-     "outlet_name": "Kaupr",
-     "url": "https://www.kaupr.io/nyheter/safello-apner-for-at-andre-selskaper-kan-tilby-kryptokjop",
-     "title": "Safello åpner for at andre selskaper kan tilby kryptokjøp",
-     "published": "2026-09-24T12:00:00+00:00",
-     "lang": "Norwegian",
-     "language_code": "no",
-     "country": "SE",
-     "source_type": "national",
-     "paywall": false,
-     "primary": true,
-     "logo": {
-      "kind": "logo",
-      "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
-      "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
-      "author": null,
-      "license": null,
-      "license_url": null,
-      "credit": "Official website",
-      "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
-     },
-     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
-    }
-   ],
-   "coverage": {
-    "count": 1,
-    "by_country": [
-     {
-      "country": "SE",
-      "count": 1,
-      "share": 1.0
-     }
-    ],
-    "by_source_type": [
-     {
-      "type": "national",
-      "count": 1,
-      "share": 1.0
-     },
-     {
-      "type": "regional",
-      "count": 0,
-      "share": 0.0
-     },
-     {
-      "type": "official",
-      "count": 0,
-      "share": 0.0
-     },
-     {
-      "type": "international",
-      "count": 0,
-      "share": 0.0
-     }
-    ]
-   },
-   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
-  },
-  {
    "id": "12425cc1e7ff",
    "url": "https://www.kaupr.io/nyheter/coinmotion-og-k33-inngar-nordisk-kryptosamarbeid-om-institusjonell-handel",
    "html_url": "https://nordiccrypto.no/stories/12425cc1e7ff/",
@@ -1929,12 +1780,12 @@
    ],
    "summary": "Finnish crypto broker Coinmotion, which serves customers in Finland and Sweden, has chosen K33 as its partner for institutional execution of larger trades, Kaupr reports. Under the deal Coinmotion keeps the customer relationship and platform while K33 carries out the trades, and both firms hold MiCA licences. K33's CEO says MiCA's common framework makes partnerships like this easier.",
    "summary_i18n": {
+    "nn": "Den finske kryptomeklaren Coinmotion, som har kundar i Finland og Sverige, har valt K33 som partnar for institusjonell utføring av større handlar, melder Kaupr. Etter avtalen held Coinmotion på kundeforholdet og plattforma, medan K33 utfører handlane, og begge selskapa har MiCA-lisens. Administrerande direktør i K33 seier at det felles regelverket i MiCA gjer slike samarbeid enklare.",
+    "nb": "Den finske kryptomegleren Coinmotion, som har kunder i Finland og Sverige, har valgt K33 som partner for institusjonell utførelse av større handler, melder Kaupr. Etter avtalen beholder Coinmotion kundeforholdet og plattformen, mens K33 utfører handlene, og begge selskapene har MiCA-lisens. Administrerende direktør i K33 sier at det felles regelverket i MiCA gjør slike samarbeid enklere.",
+    "sv": "Den finska kryptomäklaren Coinmotion, som har kunder i Finland och Sverige, har valt K33 som partner för institutionellt utförande av större affärer, rapporterar Kaupr. Enligt avtalet behåller Coinmotion kundrelationen och plattformen medan K33 utför affärerna, och båda bolagen har MiCA-licens. K33:s vd säger att MiCA:s gemensamma ramverk gör sådana samarbeten enklare.",
     "da": "Den finske kryptomægler Coinmotion, som har kunder i Finland og Sverige, har valgt K33 som partner til institutionel udførelse af større handler, skriver Kaupr. Ifølge aftalen beholder Coinmotion kundeforholdet og platformen, mens K33 udfører handlerne, og begge selskaber har MiCA-licens. K33's administrerende direktør siger, at MiCA's fælles rammer gør den slags partnerskaber lettere.",
     "fi": "Suomessa ja Ruotsissa toimiva kryptovälittäjä Coinmotion on valinnut K33:n kumppanikseen suurempien kauppojen institutionaaliseen toteutukseen, kertoo Kaupr. Sopimuksen mukaan Coinmotion pitää asiakassuhteen ja alustan, kun taas K33 toteuttaa kaupat, ja molemmilla yhtiöillä on MiCA-toimilupa. K33:n toimitusjohtajan mukaan MiCA:n yhteinen sääntelykehys helpottaa tällaisia kumppanuuksia.",
-    "is": "Finnski rafmyntamiðlarinn Coinmotion, sem þjónar viðskiptavinum í Finnlandi og Svíþjóð, hefur valið K33 sem samstarfsaðila við framkvæmd stærri viðskipta fyrir fagfjárfesta, segir Kaupr. Samkvæmt samningnum heldur Coinmotion viðskiptasambandinu og vettvanginum en K33 framkvæmir viðskiptin, og bæði fyrirtækin hafa MiCA-leyfi. Forstjóri K33 segir að sameiginlegur rammi MiCA auðveldi samstarf af þessu tagi.",
-    "nb": "Den finske kryptomegleren Coinmotion, som har kunder i Finland og Sverige, har valgt K33 som partner for institusjonell utførelse av større handler, melder Kaupr. Etter avtalen beholder Coinmotion kundeforholdet og plattformen, mens K33 utfører handlene, og begge selskapene har MiCA-lisens. Administrerende direktør i K33 sier at det felles regelverket i MiCA gjør slike samarbeid enklere.",
-    "nn": "Den finske kryptomeklaren Coinmotion, som har kundar i Finland og Sverige, har valt K33 som partnar for institusjonell utføring av større handlar, melder Kaupr. Etter avtalen held Coinmotion på kundeforholdet og plattforma, medan K33 utfører handlane, og begge selskapa har MiCA-lisens. Administrerande direktør i K33 seier at det felles regelverket i MiCA gjer slike samarbeid enklare.",
-    "sv": "Den finska kryptomäklaren Coinmotion, som har kunder i Finland och Sverige, har valt K33 som partner för institutionellt utförande av större affärer, rapporterar Kaupr. Enligt avtalet behåller Coinmotion kundrelationen och plattformen medan K33 utför affärerna, och båda bolagen har MiCA-licens. K33:s vd säger att MiCA:s gemensamma ramverk gör sådana samarbeten enklare."
+    "is": "Finnski rafmyntamiðlarinn Coinmotion, sem þjónar viðskiptavinum í Finnlandi og Svíþjóð, hefur valið K33 sem samstarfsaðila við framkvæmd stærri viðskipta fyrir fagfjárfesta, segir Kaupr. Samkvæmt samningnum heldur Coinmotion viðskiptasambandinu og vettvanginum en K33 framkvæmir viðskiptin, og bæði fyrirtækin hafa MiCA-leyfi. Forstjóri K33 segir að sameiginlegur rammi MiCA auðveldi samstarf af þessu tagi."
    },
    "paywall": false,
    "links": [],
@@ -2042,6 +1893,155 @@
    "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
   },
   {
+   "id": "07e49032be5a",
+   "url": "https://www.kaupr.io/nyheter/safello-apner-for-at-andre-selskaper-kan-tilby-kryptokjop",
+   "html_url": "https://nordiccrypto.no/stories/07e49032be5a/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/07e49032be5a.json",
+   "title": "Safello åpner for at andre selskaper kan tilby kryptokjøp",
+   "title_en": "Safello opens up so other companies can offer crypto purchases",
+   "title_i18n": {
+    "nn": "Safello opnar for at andre selskap kan tilby kryptokjøp",
+    "sv": "Safello öppnar för att andra bolag kan erbjuda kryptoköp",
+    "da": "Safello åbner for, at andre selskaber kan tilbyde kryptokøb",
+    "fi": "Safello antaa muiden yhtiöiden tarjota kryptokauppaa",
+    "is": "Safello opnar á að önnur fyrirtæki geti boðið kaup á rafmyntum"
+   },
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
+   },
+   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+   "country": "SE",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-09-24T12:00:00+00:00",
+   "topics": [
+    "business",
+    "mica"
+   ],
+   "summary": "Swedish crypto exchange Safello is piloting a 'crypto checkout' that lets companies without their own crypto business offer crypto purchases inside their services, under Safello's MiCA licence, Kaupr reports. Buyers become Safello customers through its regular know-your-customer checks, and the first test runs in Sweden with one unnamed partner and on Safello-owned bitcoin.se. Safello says it is too early to estimate what the pilot means financially.",
+   "summary_i18n": {
+    "nn": "Den svenske kryptobørsen Safello testar ei «crypto checkout»-løysing som lèt selskap utan eiga kryptoverksemd tilby kryptokjøp i tenestene sine, under Safellos MiCA-lisens, melder Kaupr. Kjøparane blir Safello-kundar gjennom den vanlege kundekontrollen, og den første testen går i Sverige med éin ikkje namngjeven partnar og på bitcoin.se, som Safello eig. Safello seier det er for tidleg å anslå kva piloten betyr økonomisk.",
+    "nb": "Den svenske kryptobørsen Safello tester en «crypto checkout»-løsning som lar selskaper uten egen kryptovirksomhet tilby kryptokjøp i tjenestene sine, under Safellos MiCA-lisens, melder Kaupr. Kjøperne blir Safello-kunder gjennom den vanlige kundekontrollen, og den første testen kjøres i Sverige med én ikke navngitt partner og på bitcoin.se, som Safello eier. Safello sier det er for tidlig å anslå hva piloten betyr økonomisk.",
+    "sv": "Den svenska kryptobörsen Safello testar en ”crypto checkout” som låter företag utan egen kryptoverksamhet erbjuda kryptoköp i sina tjänster, under Safellos MiCA-licens, rapporterar Kaupr. Köparna blir Safello-kunder genom den vanliga kundkontrollen, och det första testet görs i Sverige med en icke namngiven partner och på bitcoin.se, som Safello äger. Safello säger att det är för tidigt att bedöma vad piloten betyder ekonomiskt.",
+    "da": "Den svenske kryptobørs Safello tester en »crypto checkout«, der lader virksomheder uden egen kryptoforretning tilbyde kryptokøb i deres tjenester under Safellos MiCA-licens, skriver Kaupr. Køberne bliver Safello-kunder gennem den almindelige kundekontrol, og den første test kører i Sverige med én unavngiven partner og på bitcoin.se, som Safello ejer. Safello siger, at det er for tidligt at vurdere, hvad piloten betyder økonomisk.",
+    "fi": "Ruotsalainen kryptopörssi Safello pilotoi ”crypto checkout” -ratkaisua, jonka avulla yritykset, joilla ei ole omaa kryptoliiketoimintaa, voivat tarjota kryptoostoja palveluissaan Safellon MiCA-toimiluvan alla, kertoo Kaupr. Ostajista tulee Safellon asiakkaita tavanomaisen asiakkaan tunnistamisen kautta, ja ensimmäinen testi tehdään Ruotsissa yhden nimeämättömän kumppanin kanssa sekä Safellon omistamalla bitcoin.se-sivustolla. Safellon mukaan on liian aikaista arvioida pilotin taloudellista merkitystä.",
+    "is": "Sænska rafmyntakauphöllin Safello prófar „crypto checkout“-lausn sem gerir fyrirtækjum án eigin rafmyntastarfsemi kleift að bjóða rafmyntakaup í þjónustu sinni undir MiCA-leyfi Safello, segir Kaupr. Kaupendur verða viðskiptavinir Safello í gegnum hefðbundna áreiðanleikakönnun, og fyrsta prófunin fer fram í Svíþjóð með einum ónafngreindum samstarfsaðila og á bitcoin.se, sem Safello á. Safello segir of snemmt að meta fjárhagslega þýðingu tilraunarinnar."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "original-exchange",
+    "kind": "original",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/original-exchange.webp",
+    "width": 960,
+    "height": 540,
+    "alt": "Abstract bar chart in blue and black. Nordic Crypto illustration, not a picture of an exchange.",
+    "source": "Nordic Crypto",
+    "author": "Nordic Crypto",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "url": "https://cryptonordic.no/ethics/",
+    "credit": "Illustration: Nordic Crypto. Licence: CC0 1.0. Source: Nordic Crypto.",
+    "modifications": null,
+    "terms": null
+   },
+   "primary_source": {
+    "outlet": "kaupr",
+    "outlet_name": "Kaupr",
+    "url": "https://www.kaupr.io/nyheter/safello-apner-for-at-andre-selskaper-kan-tilby-kryptokjop",
+    "title": "Safello åpner for at andre selskaper kan tilby kryptokjøp",
+    "published": "2026-09-24T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "SE",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
+     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
+    },
+    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+   },
+   "primary_source_document": null,
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "kaupr",
+     "outlet_name": "Kaupr",
+     "url": "https://www.kaupr.io/nyheter/safello-apner-for-at-andre-selskaper-kan-tilby-kryptokjop",
+     "title": "Safello åpner for at andre selskaper kan tilby kryptokjøp",
+     "published": "2026-09-24T12:00:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "SE",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
+      "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
+     },
+     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
+  },
+  {
    "id": "a384452ed1b6",
    "url": "https://www.kaupr.io/nyheter/greenmerc-trekker-mica-klage-og-bruker-northcryptos-lisens-i-sverige",
    "html_url": "https://nordiccrypto.no/stories/a384452ed1b6/",
@@ -2078,12 +2078,12 @@
    ],
    "summary": "GreenMerc is withdrawing the appeal against Finansinspektionen's refusal of a Swedish MiCA licence for Ijort Invest, Trijo's parent company, Kaupr reports. Instead the group will serve the Swedish market under the MiCA licence of its Finnish sister company Northcrypto, which can be passported across the EU/EEA, and Trijo customers are being moved over. CEO Ari Liukko says nothing changes for customers and that they do not need to do anything.",
    "summary_i18n": {
+    "nn": "GreenMerc trekkjer klagen på at Finansinspektionen nekta Ijort Invest, morselskapet til Trijo, svensk MiCA-lisens, melder Kaupr. I staden skal konsernet betene den svenske marknaden under MiCA-lisensen til det finske søsterselskapet Northcrypto, som kan passporterast i heile EU/EØS, og Trijo-kundane blir flytte over. Administrerande direktør Ari Liukko seier at ingenting endrar seg for kundane, og at dei ikkje treng gjere noko.",
+    "nb": "GreenMerc trekker klagen på at Finansinspektionen nektet Ijort Invest, morselskapet til Trijo, svensk MiCA-lisens, melder Kaupr. I stedet skal konsernet betjene det svenske markedet under MiCA-lisensen til det finske søsterselskapet Northcrypto, som kan passporteres i hele EU/EØS, og Trijo-kundene flyttes over. Administrerende direktør Ari Liukko sier at ingenting endres for kundene, og at de ikke trenger å gjøre noe.",
+    "sv": "GreenMerc drar tillbaka överklagandet av Finansinspektionens avslag på en svensk MiCA-licens för Ijort Invest, Trijos moderbolag, rapporterar Kaupr. I stället ska koncernen betjäna den svenska marknaden under MiCA-licensen för det finska systerbolaget Northcrypto, som kan passporteras i hela EU/EES, och Trijos kunder flyttas över. Vd Ari Liukko säger att ingenting ändras för kunderna och att de inte behöver göra något.",
     "da": "GreenMerc trækker klagen over Finansinspektionens afslag på en svensk MiCA-licens til Ijort Invest, Trijos moderselskab, tilbage, skriver Kaupr. I stedet vil koncernen betjene det svenske marked under MiCA-licensen for det finske søsterselskab Northcrypto, som kan passporteres i hele EU/EØS, og Trijos kunder flyttes over. Administrerende direktør Ari Liukko siger, at intet ændres for kunderne, og at de ikke behøver at gøre noget.",
     "fi": "GreenMerc perii takaisin valituksensa Finansinspektionenin päätöksestä evätä Trijon emoyhtiö Ijort Investiltä Ruotsin MiCA-toimilupa, kertoo Kaupr. Sen sijaan konserni palvelee Ruotsin markkinaa suomalaisen sisaryhtiönsä Northcrypton MiCA-toimiluvalla, joka voidaan passportoida koko EU:n ja ETA:n alueelle, ja Trijon asiakkaat siirretään sinne. Toimitusjohtaja Ari Liukon mukaan asiakkaille mikään ei muutu, eikä heidän tarvitse tehdä mitään.",
-    "is": "GreenMerc dregur til baka kæru sína vegna synjunar Finansinspektionen á sænsku MiCA-leyfi fyrir Ijort Invest, móðurfélag Trijo, segir Kaupr. Þess í stað mun samstæðan þjónusta sænska markaðinn undir MiCA-leyfi finnska systurfélagsins Northcrypto, sem gildir á öllu EES-svæðinu, og viðskiptavinir Trijo verða fluttir yfir. Forstjórinn Ari Liukko segir að ekkert breytist fyrir viðskiptavini og að þeir þurfi ekkert að gera.",
-    "nb": "GreenMerc trekker klagen på at Finansinspektionen nektet Ijort Invest, morselskapet til Trijo, svensk MiCA-lisens, melder Kaupr. I stedet skal konsernet betjene det svenske markedet under MiCA-lisensen til det finske søsterselskapet Northcrypto, som kan passporteres i hele EU/EØS, og Trijo-kundene flyttes over. Administrerende direktør Ari Liukko sier at ingenting endres for kundene, og at de ikke trenger å gjøre noe.",
-    "nn": "GreenMerc trekkjer klagen på at Finansinspektionen nekta Ijort Invest, morselskapet til Trijo, svensk MiCA-lisens, melder Kaupr. I staden skal konsernet betene den svenske marknaden under MiCA-lisensen til det finske søsterselskapet Northcrypto, som kan passporterast i heile EU/EØS, og Trijo-kundane blir flytte over. Administrerande direktør Ari Liukko seier at ingenting endrar seg for kundane, og at dei ikkje treng gjere noko.",
-    "sv": "GreenMerc drar tillbaka överklagandet av Finansinspektionens avslag på en svensk MiCA-licens för Ijort Invest, Trijos moderbolag, rapporterar Kaupr. I stället ska koncernen betjäna den svenska marknaden under MiCA-licensen för det finska systerbolaget Northcrypto, som kan passporteras i hela EU/EES, och Trijos kunder flyttas över. Vd Ari Liukko säger att ingenting ändras för kunderna och att de inte behöver göra något."
+    "is": "GreenMerc dregur til baka kæru sína vegna synjunar Finansinspektionen á sænsku MiCA-leyfi fyrir Ijort Invest, móðurfélag Trijo, segir Kaupr. Þess í stað mun samstæðan þjónusta sænska markaðinn undir MiCA-leyfi finnska systurfélagsins Northcrypto, sem gildir á öllu EES-svæðinu, og viðskiptavinir Trijo verða fluttir yfir. Forstjórinn Ari Liukko segir að ekkert breytist fyrir viðskiptavini og að þeir þurfi ekkert að gera."
    },
    "paywall": false,
    "links": [],
@@ -2226,12 +2226,12 @@
    ],
    "summary": "Norwegian exchange Firi is launching its app in Sweden this week, with Swedish BankID, Swish and deposits in Swedish kronor, Kaupr reports. Firi, which got its MiCA licence in May and has so far operated in Norway and Denmark, chose Sweden first, where about 1.1 million people, or 13.4 percent, already own crypto. Its Swedish country manager says the aim is customers who invest regularly over time, and that competition in the market is getting tougher.",
    "summary_i18n": {
+    "nn": "Den norske kryptobørsen Firi lanserer appen sin i Sverige denne veka, med svensk BankID, Swish og innskot i svenske kroner, melder Kaupr. Firi, som fekk MiCA-lisens i mai og til no har vore i Noreg og Danmark, valde Sverige først, der om lag 1,1 millionar menneske, eller 13,4 prosent, alt eig krypto. Landssjefen i Sverige seier målet er kundar som investerer jamleg over tid, og at konkurransen i marknaden hardnar til.",
+    "nb": "Den norske kryptobørsen Firi lanserer appen sin i Sverige denne uken, med svensk BankID, Swish og innskudd i svenske kroner, melder Kaupr. Firi, som fikk MiCA-lisens i mai og til nå har operert i Norge og Danmark, valgte Sverige først, der rundt 1,1 millioner mennesker, eller 13,4 prosent, allerede eier krypto. Landssjefen i Sverige sier målet er kunder som investerer jevnlig over tid, og at konkurransen i markedet hardner til.",
+    "sv": "Den norska kryptobörsen Firi lanserar sin app i Sverige den här veckan, med svenskt BankID, Swish och insättningar i svenska kronor, rapporterar Kaupr. Firi, som fick MiCA-licens i maj och hittills har verkat i Norge och Danmark, valde Sverige först, där omkring 1,1 miljoner personer, eller 13,4 procent, redan äger krypto. Landschefen i Sverige säger att målet är kunder som investerar regelbundet över tid och att konkurrensen på marknaden hårdnar.",
     "da": "Den norske kryptobørs Firi lancerer sin app i Sverige i denne uge med svensk BankID, Swish og indskud i svenske kroner, skriver Kaupr. Firi, som fik MiCA-licens i maj og hidtil har været i Norge og Danmark, valgte Sverige først, hvor omkring 1,1 millioner mennesker, eller 13,4 procent, allerede ejer krypto. Landechefen i Sverige siger, at målet er kunder, der investerer regelmæssigt over tid, og at konkurrencen på markedet bliver hårdere.",
     "fi": "Norjalainen kryptopörssi Firi tuo sovelluksensa Ruotsiin tällä viikolla ruotsalaisella BankID:llä, Swishillä ja kruunutalletuksilla, kertoo Kaupr. Toukokuussa MiCA-toimiluvan saanut ja tähän asti Norjassa ja Tanskassa toiminut Firi valitsi ensimmäiseksi Ruotsin, jossa noin 1,1 miljoonaa ihmistä eli 13,4 prosenttia omistaa jo kryptoa. Yhtiön Ruotsin-maajohtajan mukaan tavoitteena ovat asiakkaat, jotka sijoittavat säännöllisesti pitkällä aikavälillä, ja kilpailu markkinoilla kiristyy.",
-    "is": "Norska rafmyntakauphöllin Firi opnar appið sitt í Svíþjóð í þessari viku, með sænsku BankID, Swish og innlögnum í sænskum krónum, segir Kaupr. Firi, sem fékk MiCA-leyfi í maí og hefur hingað til starfað í Noregi og Danmörku, valdi Svíþjóð fyrst, þar sem um 1,1 milljón manna, eða 13,4 prósent, á þegar rafmyntir. Landsstjóri félagsins í Svíþjóð segir markmiðið vera viðskiptavini sem fjárfesta reglulega yfir lengri tíma og að samkeppnin á markaðnum harðni.",
-    "nb": "Den norske kryptobørsen Firi lanserer appen sin i Sverige denne uken, med svensk BankID, Swish og innskudd i svenske kroner, melder Kaupr. Firi, som fikk MiCA-lisens i mai og til nå har operert i Norge og Danmark, valgte Sverige først, der rundt 1,1 millioner mennesker, eller 13,4 prosent, allerede eier krypto. Landssjefen i Sverige sier målet er kunder som investerer jevnlig over tid, og at konkurransen i markedet hardner til.",
-    "nn": "Den norske kryptobørsen Firi lanserer appen sin i Sverige denne veka, med svensk BankID, Swish og innskot i svenske kroner, melder Kaupr. Firi, som fekk MiCA-lisens i mai og til no har vore i Noreg og Danmark, valde Sverige først, der om lag 1,1 millionar menneske, eller 13,4 prosent, alt eig krypto. Landssjefen i Sverige seier målet er kundar som investerer jamleg over tid, og at konkurransen i marknaden hardnar til.",
-    "sv": "Den norska kryptobörsen Firi lanserar sin app i Sverige den här veckan, med svenskt BankID, Swish och insättningar i svenska kronor, rapporterar Kaupr. Firi, som fick MiCA-licens i maj och hittills har verkat i Norge och Danmark, valde Sverige först, där omkring 1,1 miljoner personer, eller 13,4 procent, redan äger krypto. Landschefen i Sverige säger att målet är kunder som investerar regelbundet över tid och att konkurrensen på marknaden hårdnar."
+    "is": "Norska rafmyntakauphöllin Firi opnar appið sitt í Svíþjóð í þessari viku, með sænsku BankID, Swish og innlögnum í sænskum krónum, segir Kaupr. Firi, sem fékk MiCA-leyfi í maí og hefur hingað til starfað í Noregi og Danmörku, valdi Svíþjóð fyrst, þar sem um 1,1 milljón manna, eða 13,4 prósent, á þegar rafmyntir. Landsstjóri félagsins í Svíþjóð segir markmiðið vera viðskiptavini sem fjárfesta reglulega yfir lengri tíma og að samkeppnin á markaðnum harðni."
    },
    "paywall": false,
    "links": [],
@@ -2375,12 +2375,12 @@
    ],
    "summary": "Hilbert Finance, the lending arm of Sweden's Hilbert Group, has launched hLEND with Ember Protocol, letting investors it has approved deposit stablecoins into an on-chain pool that funds over-collateralised loans, Kaupr reports. Until now the loan book has only been funded off-chain, and the pool held about USD 2 million as of 31 August. Kaupr notes that the announcement does not say who bears the loss if a loan defaults.",
    "summary_i18n": {
+    "nn": "Hilbert Finance, utlånsdivisjonen i svenske Hilbert Group, har lansert hLEND saman med Ember Protocol, der investorar selskapet har godkjent kan setje inn stablecoins i ein pott på blokkjeda som finansierer lån med sikring over lånebeløpet, melder Kaupr. Til no har låneboka berre vore finansiert utanfor blokkjeda, og per 31. august låg det om lag to millionar dollar i potten. Kaupr peikar på at meldinga ikkje seier kven som ber tapet dersom eit lån blir misleghalde.",
+    "nb": "Hilbert Finance, utlånsdivisjonen i svenske Hilbert Group, har lansert hLEND sammen med Ember Protocol, der investorer selskapet har godkjent kan sette inn stablecoins i en pott på blokkjeden som finansierer lån med sikkerhet over lånebeløpet, melder Kaupr. Til nå har låneboken bare vært finansiert utenfor blokkjeden, og per 31. august lå det rundt to millioner dollar i potten. Kaupr påpeker at meldingen ikke sier hvem som bærer tapet dersom et lån misligholdes.",
+    "sv": "Hilbert Finance, utlåningsdivisionen i svenska Hilbert Group, har lanserat hLEND tillsammans med Ember Protocol, där investerare som bolaget godkänt kan sätta in stablecoins i en pool på blockkedjan som finansierar lån med säkerheter som överstiger lånebeloppet, rapporterar Kaupr. Hittills har låneboken bara finansierats utanför blockkedjan, och per den 31 augusti fanns omkring två miljoner dollar i poolen. Kaupr påpekar att meddelandet inte säger vem som bär förlusten om ett lån fallerar.",
     "da": "Hilbert Finance, udlånsdivisionen i svenske Hilbert Group, har lanceret hLEND sammen med Ember Protocol, hvor investorer, som selskabet har godkendt, kan indsætte stablecoins i en pulje på blockchainen, der finansierer lån med sikkerhed ud over lånebeløbet, skriver Kaupr. Hidtil er lånebogen kun blevet finansieret uden for blockchainen, og pr. 31. august lå der omkring to millioner dollar i puljen. Kaupr påpeger, at meddelelsen ikke siger, hvem der bærer tabet, hvis et lån misligholdes.",
     "fi": "Ruotsalaisen Hilbert Groupin lainausyksikkö Hilbert Finance on lanseerannut Ember Protocolin kanssa hLENDin, jossa yhtiön hyväksymät sijoittajat voivat tallettaa stablecoineja lohkoketjussa olevaan pooliin, josta rahoitetaan lainoja, joiden vakuudet ylittävät lainamäärän, kertoo Kaupr. Tähän asti lainakanta on rahoitettu vain lohkoketjun ulkopuolelta, ja poolissa oli 31. elokuuta noin kaksi miljoonaa dollaria. Kaupr huomauttaa, ettei tiedotteessa kerrota, kuka kantaa tappion, jos laina jää maksamatta.",
-    "is": "Hilbert Finance, lánasvið sænska Hilbert Group, hefur sett á laggirnar hLEND með Ember Protocol, þar sem fjárfestar sem félagið hefur samþykkt geta lagt stöðugleikamyntir í sjóð á bálkakeðjunni sem fjármagnar lán með tryggingum umfram lánsfjárhæð, segir Kaupr. Hingað til hefur lánasafnið aðeins verið fjármagnað utan bálkakeðjunnar, og 31. ágúst voru um tvær milljónir dollara í sjóðnum. Kaupr bendir á að í tilkynningunni komi ekki fram hver beri tapið ef lán fer í vanskil.",
-    "nb": "Hilbert Finance, utlånsdivisjonen i svenske Hilbert Group, har lansert hLEND sammen med Ember Protocol, der investorer selskapet har godkjent kan sette inn stablecoins i en pott på blokkjeden som finansierer lån med sikkerhet over lånebeløpet, melder Kaupr. Til nå har låneboken bare vært finansiert utenfor blokkjeden, og per 31. august lå det rundt to millioner dollar i potten. Kaupr påpeker at meldingen ikke sier hvem som bærer tapet dersom et lån misligholdes.",
-    "nn": "Hilbert Finance, utlånsdivisjonen i svenske Hilbert Group, har lansert hLEND saman med Ember Protocol, der investorar selskapet har godkjent kan setje inn stablecoins i ein pott på blokkjeda som finansierer lån med sikring over lånebeløpet, melder Kaupr. Til no har låneboka berre vore finansiert utanfor blokkjeda, og per 31. august låg det om lag to millionar dollar i potten. Kaupr peikar på at meldinga ikkje seier kven som ber tapet dersom eit lån blir misleghalde.",
-    "sv": "Hilbert Finance, utlåningsdivisionen i svenska Hilbert Group, har lanserat hLEND tillsammans med Ember Protocol, där investerare som bolaget godkänt kan sätta in stablecoins i en pool på blockkedjan som finansierar lån med säkerheter som överstiger lånebeloppet, rapporterar Kaupr. Hittills har låneboken bara finansierats utanför blockkedjan, och per den 31 augusti fanns omkring två miljoner dollar i poolen. Kaupr påpekar att meddelandet inte säger vem som bär förlusten om ett lån fallerar."
+    "is": "Hilbert Finance, lánasvið sænska Hilbert Group, hefur sett á laggirnar hLEND með Ember Protocol, þar sem fjárfestar sem félagið hefur samþykkt geta lagt stöðugleikamyntir í sjóð á bálkakeðjunni sem fjármagnar lán með tryggingum umfram lánsfjárhæð, segir Kaupr. Hingað til hefur lánasafnið aðeins verið fjármagnað utan bálkakeðjunnar, og 31. ágúst voru um tvær milljónir dollara í sjóðnum. Kaupr bendir á að í tilkynningunni komi ekki fram hver beri tapið ef lán fer í vanskil."
    },
    "paywall": false,
    "links": [],
@@ -2523,12 +2523,12 @@
    ],
    "summary": "Finland's Kvarn Capital argues that its partnership with Sweden's Goobit is neither an agent relationship nor outsourcing under MiCA, Kaupr reports. Co-founder Joonas Järvinen says no regulated function is delegated: customers contract directly with Kvarn, which keeps the regulated customer relationship and all MiCA obligations, while Goobit only provides a branded technical interface. Goobit was itself refused a MiCA licence in Sweden on 2 July and has appealed.",
    "summary_i18n": {
+    "nn": "Finske Kvarn Capital meiner at samarbeidet med svenske Goobit verken er eit agentforhold eller utkontraktering etter MiCA, melder Kaupr. Medgründar Joonas Järvinen seier at ingen regulert funksjon blir delegert: kundane inngår avtale direkte med Kvarn, som held på det regulerte kundeforholdet og alle MiCA-pliktene, medan Goobit berre leverer eit merkevaremerkt teknisk grensesnitt. Goobit fekk sjølv avslag på MiCA-søknaden i Sverige 2. juli og har klaga.",
+    "nb": "Finske Kvarn Capital mener at samarbeidet med svenske Goobit verken er et agentforhold eller utkontraktering etter MiCA, melder Kaupr. Medgründer Joonas Järvinen sier at ingen regulert funksjon delegeres: kundene inngår avtale direkte med Kvarn, som beholder det regulerte kundeforholdet og alle MiCA-forpliktelsene, mens Goobit bare leverer et merkevaremerket teknisk grensesnitt. Goobit fikk selv avslag på MiCA-søknaden i Sverige 2. juli og har klaget.",
+    "sv": "Finska Kvarn Capital menar att samarbetet med svenska Goobit varken är ett agentförhållande eller utkontraktering enligt MiCA, rapporterar Kaupr. Medgrundaren Joonas Järvinen säger att ingen reglerad funktion delegeras: kunderna ingår avtal direkt med Kvarn, som behåller den reglerade kundrelationen och alla MiCA-skyldigheter, medan Goobit bara tillhandahåller ett varumärkt tekniskt gränssnitt. Goobit fick själv avslag på sin MiCA-ansökan i Sverige den 2 juli och har överklagat.",
     "da": "Finske Kvarn Capital mener, at samarbejdet med svenske Goobit hverken er et agentforhold eller outsourcing efter MiCA, skriver Kaupr. Medstifter Joonas Järvinen siger, at ingen reguleret funktion delegeres: kunderne indgår aftale direkte med Kvarn, som beholder det regulerede kundeforhold og alle MiCA-forpligtelser, mens Goobit kun leverer en brandet teknisk brugerflade. Goobit fik selv afslag på sin MiCA-ansøgning i Sverige den 2. juli og har klaget.",
     "fi": "Suomalainen Kvarn Capital katsoo, ettei sen kumppanuus ruotsalaisen Goobitin kanssa ole MiCA:n mukainen asiamiessuhde eikä ulkoistus, kertoo Kaupr. Perustajaosakas Joonas Järvisen mukaan mitään säänneltyä toimintoa ei delegoida: asiakkaat tekevät sopimuksen suoraan Kvarnin kanssa, joka säilyttää säännellyn asiakassuhteen ja kaikki MiCA-velvoitteet, kun taas Goobit tarjoaa vain brändätyn teknisen käyttöliittymän. Goobitin oma MiCA-hakemus hylättiin Ruotsissa 2. heinäkuuta, ja se on valittanut päätöksestä.",
-    "is": "Finnska Kvarn Capital telur að samstarf sitt við sænska Goobit sé hvorki umboðssamband né útvistun samkvæmt MiCA, segir Kaupr. Meðstofnandinn Joonas Järvinen segir að engum leyfisskyldum verkþætti sé útvistað: viðskiptavinir semja beint við Kvarn, sem heldur eftirlitsskylda viðskiptasambandinu og öllum MiCA-skyldum, en Goobit leggur aðeins til tæknilegt viðmót undir eigin vörumerki. Goobit fékk sjálft synjun á MiCA-umsókn sinni í Svíþjóð 2. júlí og hefur kært hana.",
-    "nb": "Finske Kvarn Capital mener at samarbeidet med svenske Goobit verken er et agentforhold eller utkontraktering etter MiCA, melder Kaupr. Medgründer Joonas Järvinen sier at ingen regulert funksjon delegeres: kundene inngår avtale direkte med Kvarn, som beholder det regulerte kundeforholdet og alle MiCA-forpliktelsene, mens Goobit bare leverer et merkevaremerket teknisk grensesnitt. Goobit fikk selv avslag på MiCA-søknaden i Sverige 2. juli og har klaget.",
-    "nn": "Finske Kvarn Capital meiner at samarbeidet med svenske Goobit verken er eit agentforhold eller utkontraktering etter MiCA, melder Kaupr. Medgründar Joonas Järvinen seier at ingen regulert funksjon blir delegert: kundane inngår avtale direkte med Kvarn, som held på det regulerte kundeforholdet og alle MiCA-pliktene, medan Goobit berre leverer eit merkevaremerkt teknisk grensesnitt. Goobit fekk sjølv avslag på MiCA-søknaden i Sverige 2. juli og har klaga.",
-    "sv": "Finska Kvarn Capital menar att samarbetet med svenska Goobit varken är ett agentförhållande eller utkontraktering enligt MiCA, rapporterar Kaupr. Medgrundaren Joonas Järvinen säger att ingen reglerad funktion delegeras: kunderna ingår avtal direkt med Kvarn, som behåller den reglerade kundrelationen och alla MiCA-skyldigheter, medan Goobit bara tillhandahåller ett varumärkt tekniskt gränssnitt. Goobit fick själv avslag på sin MiCA-ansökan i Sverige den 2 juli och har överklagat."
+    "is": "Finnska Kvarn Capital telur að samstarf sitt við sænska Goobit sé hvorki umboðssamband né útvistun samkvæmt MiCA, segir Kaupr. Meðstofnandinn Joonas Järvinen segir að engum leyfisskyldum verkþætti sé útvistað: viðskiptavinir semja beint við Kvarn, sem heldur eftirlitsskylda viðskiptasambandinu og öllum MiCA-skyldum, en Goobit leggur aðeins til tæknilegt viðmót undir eigin vörumerki. Goobit fékk sjálft synjun á MiCA-umsókn sinni í Svíþjóð 2. júlí og hefur kært hana."
    },
    "paywall": false,
    "links": [],
@@ -2672,12 +2672,12 @@
    ],
    "summary": "Helsinki-based Kvarn Capital sells a product called Kvarn X Embedded that lets other companies offer crypto services under their own brand on Kvarn's MiCA licence, which is passported across the EEA, Kaupr reports. Goobit, which has itself been refused a MiCA licence in Sweden, is the first publicly named client. In the model, users become Kvarn's customers, with a Finnish contracting party and supervision by the Finnish FSA, and Kvarn notes that crypto-assets are not covered by investor protection or deposit guarantees.",
    "summary_i18n": {
+    "nn": "Kvarn Capital i Helsingfors sel produktet Kvarn X Embedded, som lèt andre selskap tilby kryptotenester under eige merke på Kvarns MiCA-løyve, som er passportert i heile EØS, melder Kaupr. Goobit, som sjølv har fått avslag på MiCA-løyve i Sverige, er den første offentleggjorde kunden. I modellen blir brukarane Kvarns kundar, med ein finsk avtalepart og tilsyn frå det finske finanstilsynet, og Kvarn opplyser at kryptoeigedelar ikkje er omfatta av investorvern eller innskotsgaranti.",
+    "nb": "Kvarn Capital i Helsingfors selger produktet Kvarn X Embedded, som lar andre selskaper tilby kryptotjenester under eget merke på Kvarns MiCA-tillatelse, som er passportert i hele EØS, melder Kaupr. Goobit, som selv har fått avslag på MiCA-tillatelse i Sverige, er den første offentliggjorte kunden. I modellen blir brukerne Kvarns kunder, med en finsk avtalepart og tilsyn fra det finske finanstilsynet, og Kvarn opplyser at kryptoeiendeler ikke omfattes av investorbeskyttelse eller innskuddsgaranti.",
+    "sv": "Helsingforsbaserade Kvarn Capital säljer produkten Kvarn X Embedded, som låter andra företag erbjuda kryptotjänster under eget varumärke på Kvarns MiCA-tillstånd, som är passporterat i hela EES, rapporterar Kaupr. Goobit, som själv har nekats MiCA-tillstånd i Sverige, är den första offentliggjorda kunden. I modellen blir användarna Kvarns kunder, med en finsk avtalspart och tillsyn av finska Finansinspektionen, och Kvarn uppger att kryptotillgångar inte omfattas av investerarskydd eller insättningsgaranti.",
     "da": "Helsinki-baserede Kvarn Capital sælger produktet Kvarn X Embedded, som lader andre virksomheder tilbyde kryptotjenester under eget brand på Kvarns MiCA-tilladelse, der er passporteret i hele EØS, skriver Kaupr. Goobit, som selv har fået afslag på MiCA-tilladelse i Sverige, er den første offentliggjorte kunde. I modellen bliver brugerne Kvarns kunder med en finsk aftalepart og tilsyn fra det finske finanstilsyn, og Kvarn oplyser, at kryptoaktiver ikke er omfattet af investorbeskyttelse eller indskydergaranti.",
     "fi": "Helsinkiläinen Kvarn Capital myy Kvarn X Embedded -tuotetta, jonka avulla muut yritykset voivat tarjota kryptopalveluja omalla brändillään Kvarnin koko ETA-alueelle passportoidun MiCA-toimiluvan alla, kertoo Kaupr. Ensimmäinen julkistettu asiakas on Goobit, jolta itseltään on evätty MiCA-toimilupa Ruotsissa. Mallissa käyttäjistä tulee Kvarnin asiakkaita, sopimuskumppani on suomalainen ja valvoja Finanssivalvonta, ja Kvarn huomauttaa, etteivät kryptovarat kuulu sijoittajansuojan tai talletussuojan piiriin.",
-    "is": "Kvarn Capital í Helsinki selur vöruna Kvarn X Embedded, sem gerir öðrum fyrirtækjum kleift að bjóða rafmyntaþjónustu undir eigin vörumerki á MiCA-leyfi Kvarn, sem gildir á öllu EES-svæðinu, segir Kaupr. Goobit, sem sjálft hefur fengið synjun á MiCA-leyfi í Svíþjóð, er fyrsti opinberi viðskiptavinurinn. Í líkaninu verða notendur viðskiptavinir Kvarn, með finnskan samningsaðila og undir eftirliti finnska fjármálaeftirlitsins, og Kvarn tekur fram að sýndareignir njóti hvorki fjárfestaverndar né innstæðutryggingar.",
-    "nb": "Kvarn Capital i Helsingfors selger produktet Kvarn X Embedded, som lar andre selskaper tilby kryptotjenester under eget merke på Kvarns MiCA-tillatelse, som er passportert i hele EØS, melder Kaupr. Goobit, som selv har fått avslag på MiCA-tillatelse i Sverige, er den første offentliggjorte kunden. I modellen blir brukerne Kvarns kunder, med en finsk avtalepart og tilsyn fra det finske finanstilsynet, og Kvarn opplyser at kryptoeiendeler ikke omfattes av investorbeskyttelse eller innskuddsgaranti.",
-    "nn": "Kvarn Capital i Helsingfors sel produktet Kvarn X Embedded, som lèt andre selskap tilby kryptotenester under eige merke på Kvarns MiCA-løyve, som er passportert i heile EØS, melder Kaupr. Goobit, som sjølv har fått avslag på MiCA-løyve i Sverige, er den første offentleggjorde kunden. I modellen blir brukarane Kvarns kundar, med ein finsk avtalepart og tilsyn frå det finske finanstilsynet, og Kvarn opplyser at kryptoeigedelar ikkje er omfatta av investorvern eller innskotsgaranti.",
-    "sv": "Helsingforsbaserade Kvarn Capital säljer produkten Kvarn X Embedded, som låter andra företag erbjuda kryptotjänster under eget varumärke på Kvarns MiCA-tillstånd, som är passporterat i hela EES, rapporterar Kaupr. Goobit, som själv har nekats MiCA-tillstånd i Sverige, är den första offentliggjorda kunden. I modellen blir användarna Kvarns kunder, med en finsk avtalspart och tillsyn av finska Finansinspektionen, och Kvarn uppger att kryptotillgångar inte omfattas av investerarskydd eller insättningsgaranti."
+    "is": "Kvarn Capital í Helsinki selur vöruna Kvarn X Embedded, sem gerir öðrum fyrirtækjum kleift að bjóða rafmyntaþjónustu undir eigin vörumerki á MiCA-leyfi Kvarn, sem gildir á öllu EES-svæðinu, segir Kaupr. Goobit, sem sjálft hefur fengið synjun á MiCA-leyfi í Svíþjóð, er fyrsti opinberi viðskiptavinurinn. Í líkaninu verða notendur viðskiptavinir Kvarn, með finnskan samningsaðila og undir eftirliti finnska fjármálaeftirlitsins, og Kvarn tekur fram að sýndareignir njóti hvorki fjárfestaverndar né innstæðutryggingar."
    },
    "paywall": false,
    "links": [],
@@ -2821,12 +2821,12 @@
    ],
    "summary": "Goobit, the Stockholm company behind BTCX, is launching Futureproof, a savings platform for bitcoin, gold and interest-bearing assets, with the licensed crypto services provided by Finland's Kvarn Capital under its MiCA licence, Kaupr reports. Goobit's own MiCA application was refused by Finansinspektionen on 2 July and is under appeal, and only the crypto part of the product falls under Kvarn's licence. Futureproof's own website says the service has not yet launched and that details may change.",
    "summary_i18n": {
+    "nn": "Goobit, selskapet i Stockholm bak BTCX, lanserer Futureproof, ei spareplattform for bitcoin, gull og rentebærande aktiva, der dei konsesjonspliktige kryptotenestene blir leverte av finske Kvarn Capital under MiCA-løyvet deira, melder Kaupr. Goobits eigen MiCA-søknad vart avslått av Finansinspektionen 2. juli og er klaga inn, og berre kryptodelen av produktet fell inn under Kvarns løyve. Futureproof skriv på eigne nettsider at tenesta enno ikkje er lansert, og at detaljar kan bli endra.",
+    "nb": "Goobit, selskapet i Stockholm bak BTCX, lanserer Futureproof, en spareplattform for bitcoin, gull og rentebærende aktiva, der de konsesjonspliktige kryptotjenestene leveres av finske Kvarn Capital under deres MiCA-tillatelse, melder Kaupr. Goobits egen MiCA-søknad ble avslått av Finansinspektionen 2. juli og er påklaget, og bare kryptodelen av produktet faller inn under Kvarns tillatelse. Futureproof skriver på egne nettsider at tjenesten ennå ikke er lansert, og at detaljer kan bli endret.",
+    "sv": "Goobit, Stockholmsbolaget bakom BTCX, lanserar Futureproof, en sparplattform för bitcoin, guld och räntebärande tillgångar, där de tillståndspliktiga kryptotjänsterna levereras av finska Kvarn Capital under dess MiCA-tillstånd, rapporterar Kaupr. Goobits egen MiCA-ansökan avslogs av Finansinspektionen den 2 juli och är överklagad, och endast kryptodelen av produkten omfattas av Kvarns tillstånd. Futureproof skriver på sin egen webbplats att tjänsten ännu inte har lanserats och att detaljer kan ändras.",
     "da": "Goobit, Stockholm-selskabet bag BTCX, lancerer Futureproof, en opsparingsplatform for bitcoin, guld og rentebærende aktiver, hvor de tilladelsespligtige kryptotjenester leveres af finske Kvarn Capital under dets MiCA-tilladelse, skriver Kaupr. Goobits egen MiCA-ansøgning blev afvist af Finansinspektionen den 2. juli og er påklaget, og kun kryptodelen af produktet er omfattet af Kvarns tilladelse. Futureproof skriver på sin egen hjemmeside, at tjenesten endnu ikke er lanceret, og at detaljer kan ændres.",
     "fi": "BTCX:n taustalla oleva tukholmalainen Goobit tuo markkinoille Futureproofin, säästöalustan bitcoinille, kullalle ja korkoa tuottaville varoille, ja luvanvaraiset kryptopalvelut tarjoaa suomalainen Kvarn Capital MiCA-toimilupansa alla, kertoo Kaupr. Finansinspektionen hylkäsi Goobitin oman MiCA-hakemuksen 2. heinäkuuta, ja päätöksestä on valitettu; Kvarnin toimilupa kattaa vain tuotteen krypto-osan. Futureproofin omien verkkosivujen mukaan palvelua ei ole vielä julkaistu ja yksityiskohdat voivat muuttua.",
-    "is": "Goobit, félagið í Stokkhólmi á bak við BTCX, kynnir Futureproof, sparnaðarvettvang fyrir bitcoin, gull og vaxtaberandi eignir, þar sem finnska Kvarn Capital veitir leyfisskylda rafmyntaþjónustu undir MiCA-leyfi sínu, segir Kaupr. Finansinspektionen synjaði eigin MiCA-umsókn Goobit 2. júlí og hefur synjuninni verið áfrýjað, og aðeins rafmyntahluti vörunnar fellur undir leyfi Kvarn. Á eigin vefsíðu Futureproof segir að þjónustan hafi ekki enn verið opnuð og að smáatriði geti breyst.",
-    "nb": "Goobit, selskapet i Stockholm bak BTCX, lanserer Futureproof, en spareplattform for bitcoin, gull og rentebærende aktiva, der de konsesjonspliktige kryptotjenestene leveres av finske Kvarn Capital under deres MiCA-tillatelse, melder Kaupr. Goobits egen MiCA-søknad ble avslått av Finansinspektionen 2. juli og er påklaget, og bare kryptodelen av produktet faller inn under Kvarns tillatelse. Futureproof skriver på egne nettsider at tjenesten ennå ikke er lansert, og at detaljer kan bli endret.",
-    "nn": "Goobit, selskapet i Stockholm bak BTCX, lanserer Futureproof, ei spareplattform for bitcoin, gull og rentebærande aktiva, der dei konsesjonspliktige kryptotenestene blir leverte av finske Kvarn Capital under MiCA-løyvet deira, melder Kaupr. Goobits eigen MiCA-søknad vart avslått av Finansinspektionen 2. juli og er klaga inn, og berre kryptodelen av produktet fell inn under Kvarns løyve. Futureproof skriv på eigne nettsider at tenesta enno ikkje er lansert, og at detaljar kan bli endra.",
-    "sv": "Goobit, Stockholmsbolaget bakom BTCX, lanserar Futureproof, en sparplattform för bitcoin, guld och räntebärande tillgångar, där de tillståndspliktiga kryptotjänsterna levereras av finska Kvarn Capital under dess MiCA-tillstånd, rapporterar Kaupr. Goobits egen MiCA-ansökan avslogs av Finansinspektionen den 2 juli och är överklagad, och endast kryptodelen av produkten omfattas av Kvarns tillstånd. Futureproof skriver på sin egen webbplats att tjänsten ännu inte har lanserats och att detaljer kan ändras."
+    "is": "Goobit, félagið í Stokkhólmi á bak við BTCX, kynnir Futureproof, sparnaðarvettvang fyrir bitcoin, gull og vaxtaberandi eignir, þar sem finnska Kvarn Capital veitir leyfisskylda rafmyntaþjónustu undir MiCA-leyfi sínu, segir Kaupr. Finansinspektionen synjaði eigin MiCA-umsókn Goobit 2. júlí og hefur synjuninni verið áfrýjað, og aðeins rafmyntahluti vörunnar fellur undir leyfi Kvarn. Á eigin vefsíðu Futureproof segir að þjónustan hafi ekki enn verið opnuð og að smáatriði geti breyst."
    },
    "paywall": false,
    "links": [],
@@ -2970,12 +2970,12 @@
    ],
    "summary": "Sander Andersen, chair of Sweden's H100 Group, argues that bitcoin companies worth under a billion dollars need to buy each other, and that standing still is the biggest risk, Kaupr reports. Writing on X after H100's August acquisition, he says a larger balance sheet attracts a different kind of investor and that buying a proven team is cheaper and faster than building one. In his view, scale can lead to index inclusion, more banking partners and better share liquidity.",
    "summary_i18n": {
+    "nn": "Sander Andersen, styreleiar i svenske H100 Group, meiner at bitcoinselskap under éin milliard dollar må kjøpe kvarandre, og at det største risikoen er å stå stille, melder Kaupr. I eit innlegg på X etter H100-oppkjøpet i august skriv han at ein større balanse trekkjer ein annan type investor, og at å kjøpe eit utprøvd team er billegare og raskare enn å byggje det sjølv. Etter hans syn kan skala gi indeksinkludering, fleire bankpartnarar og betre likviditet i aksjen.",
+    "nb": "Sander Andersen, styreleder i svenske H100 Group, mener at bitcoinselskaper under én milliard dollar må kjøpe hverandre, og at den største risikoen er å stå stille, melder Kaupr. I et innlegg på X etter H100-oppkjøpet i august skriver han at en større balanse trekker en annen type investor, og at å kjøpe et utprøvd team er billigere og raskere enn å bygge det selv. Etter hans syn kan skala gi indeksinkludering, flere bankpartnere og bedre likviditet i aksjen.",
+    "sv": "Sander Andersen, styrelseordförande i svenska H100 Group, menar att bitcoinbolag värda under en miljard dollar måste köpa varandra och att den största risken är att stå still, rapporterar Kaupr. I ett inlägg på X efter H100:s förvärv i augusti skriver han att en större balansräkning lockar en annan typ av investerare och att det är billigare och snabbare att köpa ett beprövat team än att bygga upp ett själv. Enligt honom kan skala ge indexinkludering, fler bankpartner och bättre likviditet i aktien.",
     "da": "Sander Andersen, bestyrelsesformand i svenske H100 Group, mener, at bitcoinselskaber til under en milliard dollar må købe hinanden, og at den største risiko er at stå stille, skriver Kaupr. I et opslag på X efter H100's opkøb i august skriver han, at en større balance tiltrækker en anden type investor, og at det er billigere og hurtigere at købe et gennemprøvet team end at bygge det selv. Efter hans opfattelse kan skala føre til indeksoptagelse, flere bankpartnere og bedre likviditet i aktien.",
     "fi": "Ruotsalaisen H100 Groupin hallituksen puheenjohtaja Sander Andersen katsoo, että alle miljardin dollarin arvoisten bitcoin-yhtiöiden on ostettava toisiaan ja että suurin riski on paikalleen jääminen, kertoo Kaupr. X:ssä H100:n elokuisen yrityskaupan jälkeen julkaisemassaan kirjoituksessa hän toteaa, että suurempi tase houkuttelee erilaisia sijoittajia ja että valmiin tiimin ostaminen on halvempaa ja nopeampaa kuin sen rakentaminen itse. Hänen mukaansa koko voi tuoda indeksiin pääsyn, lisää pankkikumppaneita ja paremman osakkeen likviditeetin.",
-    "is": "Sander Andersen, stjórnarformaður sænska H100 Group, telur að bitcoin-fyrirtæki sem eru metin á minna en milljarð dollara þurfi að kaupa hvert annað og að mesta áhættan sé að standa í stað, segir Kaupr. Í færslu á X eftir yfirtöku H100 í ágúst skrifar hann að stærri efnahagsreikningur laði að annars konar fjárfesta og að ódýrara og fljótlegra sé að kaupa reynt teymi en að byggja það upp sjálfur. Að hans mati getur stærð leitt til vísitöluaðildar, fleiri bankasamstarfsaðila og betri seljanleika hlutabréfa.",
-    "nb": "Sander Andersen, styreleder i svenske H100 Group, mener at bitcoinselskaper under én milliard dollar må kjøpe hverandre, og at den største risikoen er å stå stille, melder Kaupr. I et innlegg på X etter H100-oppkjøpet i august skriver han at en større balanse trekker en annen type investor, og at å kjøpe et utprøvd team er billigere og raskere enn å bygge det selv. Etter hans syn kan skala gi indeksinkludering, flere bankpartnere og bedre likviditet i aksjen.",
-    "nn": "Sander Andersen, styreleiar i svenske H100 Group, meiner at bitcoinselskap under éin milliard dollar må kjøpe kvarandre, og at det største risikoen er å stå stille, melder Kaupr. I eit innlegg på X etter H100-oppkjøpet i august skriv han at ein større balanse trekkjer ein annan type investor, og at å kjøpe eit utprøvd team er billegare og raskare enn å byggje det sjølv. Etter hans syn kan skala gi indeksinkludering, fleire bankpartnarar og betre likviditet i aksjen.",
-    "sv": "Sander Andersen, styrelseordförande i svenska H100 Group, menar att bitcoinbolag värda under en miljard dollar måste köpa varandra och att den största risken är att stå still, rapporterar Kaupr. I ett inlägg på X efter H100:s förvärv i augusti skriver han att en större balansräkning lockar en annan typ av investerare och att det är billigare och snabbare att köpa ett beprövat team än att bygga upp ett själv. Enligt honom kan skala ge indexinkludering, fler bankpartner och bättre likviditet i aktien."
+    "is": "Sander Andersen, stjórnarformaður sænska H100 Group, telur að bitcoin-fyrirtæki sem eru metin á minna en milljarð dollara þurfi að kaupa hvert annað og að mesta áhættan sé að standa í stað, segir Kaupr. Í færslu á X eftir yfirtöku H100 í ágúst skrifar hann að stærri efnahagsreikningur laði að annars konar fjárfesta og að ódýrara og fljótlegra sé að kaupa reynt teymi en að byggja það upp sjálfur. Að hans mati getur stærð leitt til vísitöluaðildar, fleiri bankasamstarfsaðila og betri seljanleika hlutabréfa."
    },
    "paywall": false,
    "links": [],
@@ -3083,155 +3083,6 @@
    "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
   },
   {
-   "id": "08a682f7d85d",
-   "url": "https://www.kaupr.io/nyheter/btcx-blir-megler-og-goobits-rapporterte-inntekter-faller",
-   "html_url": "https://nordiccrypto.no/stories/08a682f7d85d/",
-   "api_url": "https://nordiccrypto.no/api/v1/news/08a682f7d85d.json",
-   "title": "BTCX blir megler, og Goobits rapporterte inntekter faller",
-   "title_en": "BTCX becomes a broker, and Goobit's reported revenue falls",
-   "title_i18n": {
-    "nn": "BTCX blir meklar, og dei rapporterte inntektene til Goobit fell",
-    "sv": "BTCX blir mäklare, och Goobits rapporterade intäkter faller",
-    "da": "BTCX bliver mægler, og Goobits rapporterede indtægter falder",
-    "fi": "BTCX:stä tulee välittäjä, ja Goobitin raportoidut tuotot laskevat",
-    "is": "BTCX verður miðlari og tilkynntar tekjur Goobit lækka"
-   },
-   "source": "kaupr",
-   "source_name": "Kaupr",
-   "source_logo": {
-    "kind": "logo",
-    "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
-    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
-    "author": null,
-    "license": null,
-    "license_url": null,
-    "credit": "Official website",
-    "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
-   },
-   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
-   "country": "SE",
-   "language": "Norwegian",
-   "language_code": "no",
-   "published": "2026-09-10T12:00:00+00:00",
-   "topics": [
-    "mica",
-    "business"
-   ],
-   "summary": "Since 18 August, Goobit's BTCX no longer acts as counterparty in customer trades but executes orders on customers' behalf against external liquidity sources, a change the company describes as part of adapting to MiCA, Kaupr reports. Because trades are now booked on a net basis, reported revenue and exchange costs fall sharply, while Goobit says gross profit, transaction volume and the rest of the accounts are unaffected. According to Goobit, the model also ties up less capital and reduces inventory and price risk.",
-   "summary_i18n": {
-    "da": "Siden 18. august har Goobits BTCX ikke længere været modpart i kundernes handler, men udfører ordrer på kundernes vegne mod eksterne likviditetskilder, en ændring selskabet beskriver som en del af tilpasningen til MiCA, skriver Kaupr. Fordi handlerne nu bogføres netto, falder de rapporterede indtægter og vekslingsomkostninger kraftigt, mens Goobit siger, at bruttoresultatet, transaktionsvolumen og resten af regnskabet ikke påvirkes. Ifølge Goobit binder modellen også mindre kapital og mindsker lager- og prisrisiko.",
-    "fi": "Goobitin BTCX ei ole 18. elokuuta jälkeen enää ollut asiakkaiden kauppojen vastapuoli, vaan se toteuttaa toimeksiannot asiakkaiden puolesta ulkoisia likviditeettilähteitä vasten; yhtiö kuvaa muutosta osaksi MiCA-sopeutumista, kertoo Kaupr. Koska kaupat kirjataan nyt nettomenetelmällä, raportoitu liikevaihto ja vaihtokulut laskevat jyrkästi, mutta Goobitin mukaan bruttotulos, transaktiovolyymi ja muu kirjanpito eivät muutu. Goobitin mukaan malli myös sitoo vähemmän pääomaa ja pienentää varasto- ja hintariskiä.",
-    "is": "Frá 18. ágúst hefur BTCX hjá Goobit ekki lengur verið mótaðili í viðskiptum viðskiptavina heldur framkvæmir pantanir fyrir þeirra hönd gagnvart ytri lausafjáruppsprettum, breyting sem félagið lýsir sem hluta af aðlögun að MiCA, segir Kaupr. Þar sem viðskiptin eru nú bókfærð á nettógrunni lækka skráðar tekjur og skiptikostnaður verulega, en Goobit segir að framlegð, viðskiptamagn og aðrir hlutar reikningsskilanna verði ekki fyrir áhrifum. Samkvæmt Goobit bindur líkanið einnig minna fé og dregur úr birgða- og verðáhættu.",
-    "nb": "Siden 18. august har Goobits BTCX ikke lenger vært motpart i kundenes handler, men utfører ordrer på vegne av kundene mot eksterne likviditetskilder, en endring selskapet omtaler som en del av tilpasningen til MiCA, melder Kaupr. Fordi handlene nå føres etter nettometoden, faller rapporterte inntekter og vekslingskostnader kraftig, mens Goobit sier at bruttoresultatet, transaksjonsvolumet og resten av regnskapet ikke påvirkes. Ifølge Goobit binder modellen også mindre kapital og reduserer lager- og prisrisiko.",
-    "nn": "Sidan 18. august har Goobits BTCX ikkje lenger vore motpart i kundane sine handlar, men utfører ordrar på vegner av kundane mot eksterne likviditetskjelder, ei endring selskapet omtaler som ein del av tilpassinga til MiCA, melder Kaupr. Fordi handlane no blir førte etter nettometoden, fell rapporterte inntekter og vekslingskostnader kraftig, medan Goobit seier at bruttoresultatet, transaksjonsvolumet og resten av rekneskapen ikkje blir påverka. Ifølgje Goobit bind modellen òg mindre kapital og reduserer lager- og prisrisiko.",
-    "sv": "Sedan den 18 augusti är Goobits BTCX inte längre motpart i kundernas affärer utan utför order för kundernas räkning mot externa likviditetskällor, en förändring bolaget beskriver som en del av anpassningen till MiCA, rapporterar Kaupr. Eftersom affärerna nu redovisas enligt nettometoden faller redovisade intäkter och växlingskostnader kraftigt, medan Goobit uppger att bruttoresultatet, transaktionsvolymen och övriga räkenskaper inte påverkas. Enligt Goobit binder modellen också mindre kapital och minskar lager- och prisrisken."
-   },
-   "paywall": false,
-   "links": [],
-   "own_story": false,
-   "illustration": {
-    "id": "original-exchange",
-    "kind": "original",
-    "file_url": "https://nordiccrypto.no/assets/img/illustrations/original-exchange.webp",
-    "width": 960,
-    "height": 540,
-    "alt": "Abstract bar chart in blue and black. Nordic Crypto illustration, not a picture of an exchange.",
-    "source": "Nordic Crypto",
-    "author": "Nordic Crypto",
-    "license": "CC0 1.0",
-    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-    "url": "https://cryptonordic.no/ethics/",
-    "credit": "Illustration: Nordic Crypto. Licence: CC0 1.0. Source: Nordic Crypto.",
-    "modifications": null,
-    "terms": null
-   },
-   "primary_source": {
-    "outlet": "kaupr",
-    "outlet_name": "Kaupr",
-    "url": "https://www.kaupr.io/nyheter/btcx-blir-megler-og-goobits-rapporterte-inntekter-faller",
-    "title": "BTCX blir megler, og Goobits rapporterte inntekter faller",
-    "published": "2026-09-10T12:00:00+00:00",
-    "lang": "Norwegian",
-    "language_code": "no",
-    "country": "SE",
-    "source_type": "national",
-    "paywall": false,
-    "primary": true,
-    "logo": {
-     "kind": "logo",
-     "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
-     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
-     "author": null,
-     "license": null,
-     "license_url": null,
-     "credit": "Official website",
-     "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
-    },
-    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
-   },
-   "primary_source_document": null,
-   "also_covered_by": [],
-   "sources": [
-    {
-     "outlet": "kaupr",
-     "outlet_name": "Kaupr",
-     "url": "https://www.kaupr.io/nyheter/btcx-blir-megler-og-goobits-rapporterte-inntekter-faller",
-     "title": "BTCX blir megler, og Goobits rapporterte inntekter faller",
-     "published": "2026-09-10T12:00:00+00:00",
-     "lang": "Norwegian",
-     "language_code": "no",
-     "country": "SE",
-     "source_type": "national",
-     "paywall": false,
-     "primary": true,
-     "logo": {
-      "kind": "logo",
-      "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
-      "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
-      "author": null,
-      "license": null,
-      "license_url": null,
-      "credit": "Official website",
-      "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
-     },
-     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
-    }
-   ],
-   "coverage": {
-    "count": 1,
-    "by_country": [
-     {
-      "country": "SE",
-      "count": 1,
-      "share": 1.0
-     }
-    ],
-    "by_source_type": [
-     {
-      "type": "national",
-      "count": 1,
-      "share": 1.0
-     },
-     {
-      "type": "regional",
-      "count": 0,
-      "share": 0.0
-     },
-     {
-      "type": "official",
-      "count": 0,
-      "share": 0.0
-     },
-     {
-      "type": "international",
-      "count": 0,
-      "share": 0.0
-     }
-    ]
-   },
-   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
-  },
-  {
    "id": "a2a605592458",
    "url": "https://www.kaupr.io/nyheter/blockchain-pa-tech-scenen-og-pa-dagsorden-i-stockholm",
    "html_url": "https://nordiccrypto.no/stories/a2a605592458/",
@@ -3267,12 +3118,12 @@
    ],
    "summary": "A Blockchain Sweden round table on tokenisation and the final of the Blockathon hackathon put blockchain on the agenda during Nordic Tech Week in Stockholm, Kaupr reports. Around 30 people, including banks, infrastructure firms, advisers and Finansinspektionen, discussed what it would take for a major Swedish financial institution to run tokenised securities in ordinary operations by the end of 2027. Blockathon teams presented their solutions on the main stage in Kungsträdgården.",
    "summary_i18n": {
+    "nn": "Eit rundebord om tokenisering hos Blockchain Sweden og finalen i hackathonet Blockathon sette blokkjede på dagsordenen under Nordic Tech Week i Stockholm, melder Kaupr. Rundt 30 deltakarar, mellom dei bankar, infrastrukturaktørar, rådgivarar og Finansinspektionen, diskuterte kva som skal til for at ein stor svensk finansinstitusjon tek tokeniserte verdipapir i ordinær drift innan utgangen av 2027. Blockathon-laga viste løysingane sine på hovudscena i Kungsträdgården.",
+    "nb": "Et rundebord om tokenisering hos Blockchain Sweden og finalen i hackathonet Blockathon satte blokkjede på dagsordenen under Nordic Tech Week i Stockholm, melder Kaupr. Rundt 30 deltakere, blant dem banker, infrastrukturaktører, rådgivere og Finansinspektionen, diskuterte hva som skal til for at en stor svensk finansinstitusjon tar tokeniserte verdipapirer i ordinær drift innen utgangen av 2027. Blockathon-lagene viste løsningene sine på hovedscenen i Kungsträdgården.",
+    "sv": "Ett rundabordssamtal om tokenisering hos Blockchain Sweden och finalen i hackathonet Blockathon satte blockkedjor på agendan under Nordic Tech Week i Stockholm, rapporterar Kaupr. Omkring 30 deltagare, bland dem banker, infrastrukturaktörer, rådgivare och Finansinspektionen, diskuterade vad som krävs för att ett stort svenskt finansinstitut ska ta tokeniserade värdepapper i ordinarie drift före utgången av 2027. Blockathon-lagen visade sina lösningar på huvudscenen i Kungsträdgården.",
     "da": "En rundbordssamtale om tokenisering hos Blockchain Sweden og finalen i hackathonet Blockathon satte blockchain på dagsordenen under Nordic Tech Week i Stockholm, skriver Kaupr. Omkring 30 deltagere, herunder banker, infrastrukturaktører, rådgivere og Finansinspektionen, drøftede, hvad der skal til, for at en stor svensk finansiel institution tager tokeniserede værdipapirer i almindelig drift inden udgangen af 2027. Blockathon-holdene viste deres løsninger på hovedscenen i Kungsträdgården.",
     "fi": "Blockchain Swedenin tokenisointia käsitellyt pyöreän pöydän keskustelu ja Blockathon-hackathonin finaali nostivat lohkoketjut esiin Nordic Tech Weekillä Tukholmassa, kertoo Kaupr. Noin 30 osallistujaa, muun muassa pankkeja, infrastruktuuritoimijoita, neuvonantajia ja Finansinspektionen, pohti, mitä tarvitaan, jotta suuri ruotsalainen rahoituslaitos ottaisi tokenisoidut arvopaperit tavalliseen käyttöön vuoden 2027 loppuun mennessä. Blockathonin joukkueet esittelivät ratkaisujaan Kungsträdgårdenin päälavalla.",
-    "is": "Hringborðsumræður um táknvæðingu hjá Blockchain Sweden og úrslit Blockathon-hakkaþonsins settu bálkakeðjur á dagskrá á Nordic Tech Week í Stokkhólmi, segir Kaupr. Um 30 þátttakendur, þar á meðal bankar, innviðafyrirtæki, ráðgjafar og Finansinspektionen, ræddu hvað þurfi til að stór sænsk fjármálastofnun taki táknvædd verðbréf í almennan rekstur fyrir lok árs 2027. Lið Blockathon kynntu lausnir sínar á aðalsviðinu í Kungsträdgården.",
-    "nb": "Et rundebord om tokenisering hos Blockchain Sweden og finalen i hackathonet Blockathon satte blokkjede på dagsordenen under Nordic Tech Week i Stockholm, melder Kaupr. Rundt 30 deltakere, blant dem banker, infrastrukturaktører, rådgivere og Finansinspektionen, diskuterte hva som skal til for at en stor svensk finansinstitusjon tar tokeniserte verdipapirer i ordinær drift innen utgangen av 2027. Blockathon-lagene viste løsningene sine på hovedscenen i Kungsträdgården.",
-    "nn": "Eit rundebord om tokenisering hos Blockchain Sweden og finalen i hackathonet Blockathon sette blokkjede på dagsordenen under Nordic Tech Week i Stockholm, melder Kaupr. Rundt 30 deltakarar, mellom dei bankar, infrastrukturaktørar, rådgivarar og Finansinspektionen, diskuterte kva som skal til for at ein stor svensk finansinstitusjon tek tokeniserte verdipapir i ordinær drift innan utgangen av 2027. Blockathon-laga viste løysingane sine på hovudscena i Kungsträdgården.",
-    "sv": "Ett rundabordssamtal om tokenisering hos Blockchain Sweden och finalen i hackathonet Blockathon satte blockkedjor på agendan under Nordic Tech Week i Stockholm, rapporterar Kaupr. Omkring 30 deltagare, bland dem banker, infrastrukturaktörer, rådgivare och Finansinspektionen, diskuterade vad som krävs för att ett stort svenskt finansinstitut ska ta tokeniserade värdepapper i ordinarie drift före utgången av 2027. Blockathon-lagen visade sina lösningar på huvudscenen i Kungsträdgården."
+    "is": "Hringborðsumræður um táknvæðingu hjá Blockchain Sweden og úrslit Blockathon-hakkaþonsins settu bálkakeðjur á dagskrá á Nordic Tech Week í Stokkhólmi, segir Kaupr. Um 30 þátttakendur, þar á meðal bankar, innviðafyrirtæki, ráðgjafar og Finansinspektionen, ræddu hvað þurfi til að stór sænsk fjármálastofnun taki táknvædd verðbréf í almennan rekstur fyrir lok árs 2027. Lið Blockathon kynntu lausnir sínar á aðalsviðinu í Kungsträdgården."
    },
    "paywall": false,
    "links": [],
@@ -3380,6 +3231,155 @@
    "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
   },
   {
+   "id": "08a682f7d85d",
+   "url": "https://www.kaupr.io/nyheter/btcx-blir-megler-og-goobits-rapporterte-inntekter-faller",
+   "html_url": "https://nordiccrypto.no/stories/08a682f7d85d/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/08a682f7d85d.json",
+   "title": "BTCX blir megler, og Goobits rapporterte inntekter faller",
+   "title_en": "BTCX becomes a broker, and Goobit's reported revenue falls",
+   "title_i18n": {
+    "nn": "BTCX blir meklar, og dei rapporterte inntektene til Goobit fell",
+    "sv": "BTCX blir mäklare, och Goobits rapporterade intäkter faller",
+    "da": "BTCX bliver mægler, og Goobits rapporterede indtægter falder",
+    "fi": "BTCX:stä tulee välittäjä, ja Goobitin raportoidut tuotot laskevat",
+    "is": "BTCX verður miðlari og tilkynntar tekjur Goobit lækka"
+   },
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
+    "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
+   },
+   "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor.",
+   "country": "SE",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-09-10T12:00:00+00:00",
+   "topics": [
+    "mica",
+    "business"
+   ],
+   "summary": "Since 18 August, Goobit's BTCX no longer acts as counterparty in customer trades but executes orders on customers' behalf against external liquidity sources, a change the company describes as part of adapting to MiCA, Kaupr reports. Because trades are now booked on a net basis, reported revenue and exchange costs fall sharply, while Goobit says gross profit, transaction volume and the rest of the accounts are unaffected. According to Goobit, the model also ties up less capital and reduces inventory and price risk.",
+   "summary_i18n": {
+    "nn": "Sidan 18. august har Goobits BTCX ikkje lenger vore motpart i kundane sine handlar, men utfører ordrar på vegner av kundane mot eksterne likviditetskjelder, ei endring selskapet omtaler som ein del av tilpassinga til MiCA, melder Kaupr. Fordi handlane no blir førte etter nettometoden, fell rapporterte inntekter og vekslingskostnader kraftig, medan Goobit seier at bruttoresultatet, transaksjonsvolumet og resten av rekneskapen ikkje blir påverka. Ifølgje Goobit bind modellen òg mindre kapital og reduserer lager- og prisrisiko.",
+    "nb": "Siden 18. august har Goobits BTCX ikke lenger vært motpart i kundenes handler, men utfører ordrer på vegne av kundene mot eksterne likviditetskilder, en endring selskapet omtaler som en del av tilpasningen til MiCA, melder Kaupr. Fordi handlene nå føres etter nettometoden, faller rapporterte inntekter og vekslingskostnader kraftig, mens Goobit sier at bruttoresultatet, transaksjonsvolumet og resten av regnskapet ikke påvirkes. Ifølge Goobit binder modellen også mindre kapital og reduserer lager- og prisrisiko.",
+    "sv": "Sedan den 18 augusti är Goobits BTCX inte längre motpart i kundernas affärer utan utför order för kundernas räkning mot externa likviditetskällor, en förändring bolaget beskriver som en del av anpassningen till MiCA, rapporterar Kaupr. Eftersom affärerna nu redovisas enligt nettometoden faller redovisade intäkter och växlingskostnader kraftigt, medan Goobit uppger att bruttoresultatet, transaktionsvolymen och övriga räkenskaper inte påverkas. Enligt Goobit binder modellen också mindre kapital och minskar lager- och prisrisken.",
+    "da": "Siden 18. august har Goobits BTCX ikke længere været modpart i kundernes handler, men udfører ordrer på kundernes vegne mod eksterne likviditetskilder, en ændring selskabet beskriver som en del af tilpasningen til MiCA, skriver Kaupr. Fordi handlerne nu bogføres netto, falder de rapporterede indtægter og vekslingsomkostninger kraftigt, mens Goobit siger, at bruttoresultatet, transaktionsvolumen og resten af regnskabet ikke påvirkes. Ifølge Goobit binder modellen også mindre kapital og mindsker lager- og prisrisiko.",
+    "fi": "Goobitin BTCX ei ole 18. elokuuta jälkeen enää ollut asiakkaiden kauppojen vastapuoli, vaan se toteuttaa toimeksiannot asiakkaiden puolesta ulkoisia likviditeettilähteitä vasten; yhtiö kuvaa muutosta osaksi MiCA-sopeutumista, kertoo Kaupr. Koska kaupat kirjataan nyt nettomenetelmällä, raportoitu liikevaihto ja vaihtokulut laskevat jyrkästi, mutta Goobitin mukaan bruttotulos, transaktiovolyymi ja muu kirjanpito eivät muutu. Goobitin mukaan malli myös sitoo vähemmän pääomaa ja pienentää varasto- ja hintariskiä.",
+    "is": "Frá 18. ágúst hefur BTCX hjá Goobit ekki lengur verið mótaðili í viðskiptum viðskiptavina heldur framkvæmir pantanir fyrir þeirra hönd gagnvart ytri lausafjáruppsprettum, breyting sem félagið lýsir sem hluta af aðlögun að MiCA, segir Kaupr. Þar sem viðskiptin eru nú bókfærð á nettógrunni lækka skráðar tekjur og skiptikostnaður verulega, en Goobit segir að framlegð, viðskiptamagn og aðrir hlutar reikningsskilanna verði ekki fyrir áhrifum. Samkvæmt Goobit bindur líkanið einnig minna fé og dregur úr birgða- og verðáhættu."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "original-exchange",
+    "kind": "original",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/original-exchange.webp",
+    "width": 960,
+    "height": 540,
+    "alt": "Abstract bar chart in blue and black. Nordic Crypto illustration, not a picture of an exchange.",
+    "source": "Nordic Crypto",
+    "author": "Nordic Crypto",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "url": "https://cryptonordic.no/ethics/",
+    "credit": "Illustration: Nordic Crypto. Licence: CC0 1.0. Source: Nordic Crypto.",
+    "modifications": null,
+    "terms": null
+   },
+   "primary_source": {
+    "outlet": "kaupr",
+    "outlet_name": "Kaupr",
+    "url": "https://www.kaupr.io/nyheter/btcx-blir-megler-og-goobits-rapporterte-inntekter-faller",
+    "title": "BTCX blir megler, og Goobits rapporterte inntekter faller",
+    "published": "2026-09-10T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "SE",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
+     "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
+    },
+    "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+   },
+   "primary_source_document": null,
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "kaupr",
+     "outlet_name": "Kaupr",
+     "url": "https://www.kaupr.io/nyheter/btcx-blir-megler-og-goobits-rapporterte-inntekter-faller",
+     "title": "BTCX blir megler, og Goobits rapporterte inntekter faller",
+     "published": "2026-09-10T12:00:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "SE",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp",
+      "source_url": "https://cdn.prod.website-files.com/668a402c429f7e0ef24db439/66a0f51df4856269e52da020_Kaupr%20Logo.jpg",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
+     },
+     "source_note": "Kaupr is a news source only. Nordic Crypto does not treat Kaupr as a sponsor."
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/kaupr.webp"
+  },
+  {
    "id": "6a94ab65ebff",
    "url": "https://www.kaupr.io/nyheter/nytt-nederlag-for-valuno-i-kampen-om-mica-lisens",
    "html_url": "https://nordiccrypto.no/stories/6a94ab65ebff/",
@@ -3416,12 +3416,12 @@
    ],
    "summary": "The Stockholm Administrative Court has rejected QB Europe's appeal against Finansinspektionen's refusal of a MiCA licence, Valuno Group says, as reported by Kaupr. The court agreed with the regulator that the company's anti-money-laundering risk assessment was not sufficiently tailored to its business, and also rejected its requests to send the case back or seek a ruling from the EU Court of Justice. Valuno can appeal further and says operations continue through licensed partners, so it does not depend on getting its own licence.",
    "summary_i18n": {
+    "nn": "Förvaltningsrätten i Stockholm har forkasta QB Europes anke over at Finansinspektionen nekta selskapet MiCA-lisens, opplyser Valuno Group, ifølgje Kaupr. Retten var samd med tilsynet i at risikovurderinga mot kvitvasking ikkje var godt nok tilpassa verksemda, og avviste òg krava om å sende saka tilbake eller hente inn ei avgjerd frå EU-domstolen. Valuno kan anke vidare og seier drifta held fram gjennom lisensierte partnarar, slik at selskapet ikkje er avhengig av eigen lisens.",
+    "nb": "Förvaltningsrätten i Stockholm har forkastet QB Europes anke over at Finansinspektionen nektet selskapet MiCA-lisens, opplyser Valuno Group, ifølge Kaupr. Retten var enig med tilsynet i at risikovurderingen mot hvitvasking ikke var godt nok tilpasset virksomheten, og avviste også kravene om å sende saken tilbake eller innhente en avgjørelse fra EU-domstolen. Valuno kan anke videre og sier driften fortsetter gjennom lisensierte partnere, slik at selskapet ikke er avhengig av egen lisens.",
+    "sv": "Förvaltningsrätten i Stockholm har avslagit QB Europes överklagande av Finansinspektionens avslag på en MiCA-licens, uppger Valuno Group enligt Kaupr. Domstolen höll med tillsynen om att bolagets riskbedömning mot penningtvätt inte var tillräckligt anpassad till verksamheten och avslog även yrkandena om återförvisning och om ett förhandsavgörande från EU-domstolen. Valuno kan överklaga vidare och säger att verksamheten fortsätter genom licensierade partner, så att bolaget inte är beroende av en egen licens.",
     "da": "Förvaltningsrätten i Stockholm har afvist QB Europes klage over Finansinspektionens afslag på en MiCA-licens, oplyser Valuno Group ifølge Kaupr. Retten var enig med tilsynet i, at selskabets risikovurdering vedrørende hvidvask ikke var tilstrækkeligt tilpasset forretningen, og afviste også kravene om at sende sagen tilbage eller indhente en præjudiciel afgørelse fra EU-Domstolen. Valuno kan anke videre og siger, at driften fortsætter gennem licenserede partnere, så selskabet ikke er afhængigt af sin egen licens.",
     "fi": "Tukholman hallinto-oikeus on hylännyt QB Europen valituksen Finansinspektionenin päätöksestä evätä MiCA-toimilupa, kertoo Valuno Group Kauprin mukaan. Tuomioistuin yhtyi valvojan näkemykseen, ettei yhtiön rahanpesun riskiarvio ollut riittävästi räätälöity sen liiketoimintaan, ja hylkäsi myös vaatimukset asian palauttamisesta ja ennakkoratkaisun pyytämisestä EU-tuomioistuimelta. Valuno voi valittaa edelleen ja kertoo toiminnan jatkuvan luvanhaltijakumppanien kautta, joten se ei ole riippuvainen omasta toimiluvasta.",
-    "is": "Stjórnsýsludómstóllinn í Stokkhólmi hefur hafnað áfrýjun QB Europe vegna synjunar Finansinspektionen á MiCA-leyfi, segir Valuno Group samkvæmt Kaupr. Dómstóllinn tók undir með eftirlitinu að áhættumat félagsins vegna peningaþvættis væri ekki nægilega sniðið að starfseminni, og hafnaði einnig kröfum um að vísa málinu aftur eða leita forúrskurðar Evrópudómstólsins. Valuno getur áfrýjað áfram og segir að starfsemin haldi áfram í gegnum leyfisskylda samstarfsaðila, svo félagið sé ekki háð eigin leyfi.",
-    "nb": "Förvaltningsrätten i Stockholm har forkastet QB Europes anke over at Finansinspektionen nektet selskapet MiCA-lisens, opplyser Valuno Group, ifølge Kaupr. Retten var enig med tilsynet i at risikovurderingen mot hvitvasking ikke var godt nok tilpasset virksomheten, og avviste også kravene om å sende saken tilbake eller innhente en avgjørelse fra EU-domstolen. Valuno kan anke videre og sier driften fortsetter gjennom lisensierte partnere, slik at selskapet ikke er avhengig av egen lisens.",
-    "nn": "Förvaltningsrätten i Stockholm har forkasta QB Europes anke over at Finansinspektionen nekta selskapet MiCA-lisens, opplyser Valuno Group, ifølgje Kaupr. Retten var samd med tilsynet i at risikovurderinga mot kvitvasking ikkje var godt nok tilpassa verksemda, og avviste òg krava om å sende saka tilbake eller hente inn ei avgjerd frå EU-domstolen. Valuno kan anke vidare og seier drifta held fram gjennom lisensierte partnarar, slik at selskapet ikkje er avhengig av eigen lisens.",
-    "sv": "Förvaltningsrätten i Stockholm har avslagit QB Europes överklagande av Finansinspektionens avslag på en MiCA-licens, uppger Valuno Group enligt Kaupr. Domstolen höll med tillsynen om att bolagets riskbedömning mot penningtvätt inte var tillräckligt anpassad till verksamheten och avslog även yrkandena om återförvisning och om ett förhandsavgörande från EU-domstolen. Valuno kan överklaga vidare och säger att verksamheten fortsätter genom licensierade partner, så att bolaget inte är beroende av en egen licens."
+    "is": "Stjórnsýsludómstóllinn í Stokkhólmi hefur hafnað áfrýjun QB Europe vegna synjunar Finansinspektionen á MiCA-leyfi, segir Valuno Group samkvæmt Kaupr. Dómstóllinn tók undir með eftirlitinu að áhættumat félagsins vegna peningaþvættis væri ekki nægilega sniðið að starfseminni, og hafnaði einnig kröfum um að vísa málinu aftur eða leita forúrskurðar Evrópudómstólsins. Valuno getur áfrýjað áfram og segir að starfsemin haldi áfram í gegnum leyfisskylda samstarfsaðila, svo félagið sé ekki háð eigin leyfi."
    },
    "paywall": false,
    "links": [],

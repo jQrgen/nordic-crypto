@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T05:34:48+00:00",
+ "generated_at": "2026-10-16T07:11:24+00:00",
  "preview": false,
  "item": {
   "id": "86fc6577147d",
@@ -35,12 +35,12 @@
   ],
   "summary": "A company backed by 37 banks, including Nordic banks, has received an important authorisation and is preparing to launch blockchain-based euro tokens under the EU's MiCA rules, Finanswatch reports. According to the paywalled article's headline, the launch is expected shortly. The visible text does not give further details.",
   "summary_i18n": {
+   "nn": "Eit selskap som er støtta av 37 bankar, mellom dei nordiske bankar, har fått ei viktig autorisasjon og førebur lansering av blokkjedebaserte eurotokenar under EU-regelverket MiCA, melder Finanswatch. Ifølgje tittelen på artikkelen, som ligg bak betalingsmur, er lanseringa venta om kort tid. Den synlege teksten gir ikkje fleire detaljar.",
+   "nb": "Et selskap som er støttet av 37 banker, blant dem nordiske banker, har fått en viktig autorisasjon og forbereder lansering av blokkjedebaserte eurotokens under EU-regelverket MiCA, melder Finanswatch. Ifølge tittelen på artikkelen, som ligger bak betalingsmur, ventes lanseringen om kort tid. Den synlige teksten gir ikke flere detaljer.",
+   "sv": "Ett bolag som backas av 37 banker, bland dem nordiska banker, har fått ett viktigt tillstånd och förbereder lansering av blockkedjebaserade eurotokens under EU:s MiCA-regelverk, rapporterar Finanswatch. Enligt rubriken på den betalväggsskyddade artikeln väntas lanseringen inom kort. Den synliga texten ger inga fler detaljer.",
    "da": "Et selskab, der er støttet af 37 banker, herunder nordiske banker, har fået en vigtig autorisation og forbereder lancering af blockchain-baserede eurotokens under EU's MiCA-regler, skriver Finanswatch. Ifølge overskriften på artiklen, som er bag betalingsmur, ventes lanceringen om kort tid. Den synlige tekst giver ikke flere detaljer.",
    "fi": "Yhtiö, jota tukee 37 pankkia, muun muassa pohjoismaisia pankkeja, on saanut tärkeän toimiluvan ja valmistelee lohkoketjupohjaisten eurotokenien julkaisua EU:n MiCA-sääntelyn mukaisesti, kertoo Finanswatch. Maksumuurin takana olevan artikkelin otsikon mukaan julkaisu on odotettavissa pian. Näkyvä teksti ei kerro enempää yksityiskohtia.",
-   "is": "Fyrirtæki sem 37 bankar standa að, þar á meðal norrænir bankar, hefur fengið mikilvægt leyfi og undirbýr útgáfu evrutákna á bálkakeðju samkvæmt MiCA-reglum ESB, segir Finanswatch. Samkvæmt fyrirsögn greinarinnar, sem er á bak við greiðsluvegg, er útgáfan væntanleg innan skamms. Sýnilegi textinn gefur ekki frekari upplýsingar.",
-   "nb": "Et selskap som er støttet av 37 banker, blant dem nordiske banker, har fått en viktig autorisasjon og forbereder lansering av blokkjedebaserte eurotokens under EU-regelverket MiCA, melder Finanswatch. Ifølge tittelen på artikkelen, som ligger bak betalingsmur, ventes lanseringen om kort tid. Den synlige teksten gir ikke flere detaljer.",
-   "nn": "Eit selskap som er støtta av 37 bankar, mellom dei nordiske bankar, har fått ei viktig autorisasjon og førebur lansering av blokkjedebaserte eurotokenar under EU-regelverket MiCA, melder Finanswatch. Ifølgje tittelen på artikkelen, som ligg bak betalingsmur, er lanseringa venta om kort tid. Den synlege teksten gir ikkje fleire detaljar.",
-   "sv": "Ett bolag som backas av 37 banker, bland dem nordiska banker, har fått ett viktigt tillstånd och förbereder lansering av blockkedjebaserade eurotokens under EU:s MiCA-regelverk, rapporterar Finanswatch. Enligt rubriken på den betalväggsskyddade artikeln väntas lanseringen inom kort. Den synliga texten ger inga fler detaljer."
+   "is": "Fyrirtæki sem 37 bankar standa að, þar á meðal norrænir bankar, hefur fengið mikilvægt leyfi og undirbýr útgáfu evrutákna á bálkakeðju samkvæmt MiCA-reglum ESB, segir Finanswatch. Samkvæmt fyrirsögn greinarinnar, sem er á bak við greiðsluvegg, er útgáfan væntanleg innan skamms. Sýnilegi textinn gefur ekki frekari upplýsingar."
   },
   "paywall": true,
   "links": [],
