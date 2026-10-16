@@ -1774,7 +1774,7 @@
      "organisation": "NBX",
      "source_url": "https://www.youtube.com/watch?v=RTcqp3MqRtU&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "status": "published"
@@ -1854,7 +1854,17 @@
     "yt-JaxgfxpmUmk",
     "yt-hINk3yZvDdY"
    ],
+   "event_ids": [
+    "0af4e2d6e963"
+   ],
    "talks": [
+    {
+     "id": "yt-7TLMmGGSIOA",
+     "title": "Arendalsuka: Bitcoin-mining i Norge. For vanskelig å forstå, for lett å forby?",
+     "video_url": "https://www.youtube.com/watch?v=7TLMmGGSIOA",
+     "event_id": "0af4e2d6e963",
+     "date": "2025-08-12"
+    },
     {
      "id": "yt-hINk3yZvDdY",
      "title": "Nordic Blockchain Conference 2026 - Day 2 - Stage 1 (Closing Sessions)",
@@ -1864,13 +1874,6 @@
      "id": "yt-JaxgfxpmUmk",
      "title": "What gives cryptocurrencies value?",
      "video_url": "https://www.youtube.com/watch?v=JaxgfxpmUmk"
-    },
-    {
-     "id": "yt-7TLMmGGSIOA",
-     "title": "Arendalsuka: Bitcoin-mining i Norge. For vanskelig å forstå, for lett å forby?",
-     "video_url": "https://www.youtube.com/watch?v=7TLMmGGSIOA",
-     "event_id": "0af4e2d6e963",
-     "date": "2025-08-12"
     }
    ],
    "affiliations": [
@@ -1879,13 +1882,10 @@
      "organisation": "K33",
      "source_url": "https://www.youtube.com/watch?v=hINk3yZvDdY&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
-   "status": "published",
-   "event_ids": [
-    "0af4e2d6e963"
-   ]
+   "status": "published"
   },
   {
    "id": "bare-bitcoin",
@@ -2241,14 +2241,14 @@
      "organisation": "DNB",
      "source_url": "https://www.youtube.com/watch?v=-4I2b_hFG0A&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     },
     {
      "talk_id": "yt-hINk3yZvDdY",
      "organisation": "DNB",
      "source_url": "https://www.youtube.com/watch?v=hINk3yZvDdY&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "status": "published"
@@ -2739,21 +2739,14 @@
      "organisation": "Nordic Blockchain Association",
      "source_url": "https://www.youtube.com/watch?v=-4I2b_hFG0A&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
-    },
-    {
-     "talk_id": "yt-FXf5cpY0oY4",
-     "organisation": "Nordic Blockchain Conference",
-     "source_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4&hl=en",
-     "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     },
     {
      "talk_id": "yt-rfLLR9vhoYI",
      "organisation": "Nordic Blockchain Association",
      "source_url": "https://www.youtube.com/watch?v=rfLLR9vhoYI&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "status": "published"
@@ -2872,14 +2865,14 @@
      "organisation": "Nordic Blockchain Association",
      "source_url": "https://www.youtube.com/watch?v=-4I2b_hFG0A&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     },
     {
      "talk_id": "yt-rfLLR9vhoYI",
      "organisation": "Nordic Blockchain Association",
      "source_url": "https://www.youtube.com/watch?v=rfLLR9vhoYI&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "status": "published"
@@ -3523,7 +3516,7 @@
      "organisation": "Virtune",
      "source_url": "https://www.youtube.com/watch?v=sDb2GJTIpPo&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "status": "published"
@@ -5870,7 +5863,7 @@
      "organisation": "Stackby.me",
      "source_url": "https://www.youtube.com/watch?v=sDb2GJTIpPo&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -5913,7 +5906,7 @@
      "organisation": "Coinmotion",
      "source_url": "https://www.youtube.com/watch?v=sDb2GJTIpPo&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -5956,7 +5949,7 @@
      "organisation": "Tradias",
      "source_url": "https://www.youtube.com/watch?v=sDb2GJTIpPo&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -5999,7 +5992,7 @@
      "organisation": "Bitvavo",
      "source_url": "https://www.youtube.com/watch?v=sDb2GJTIpPo&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -6042,7 +6035,7 @@
      "organisation": "Crypto Finance",
      "source_url": "https://www.youtube.com/watch?v=sDb2GJTIpPo&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -6085,7 +6078,7 @@
      "organisation": "eToro",
      "source_url": "https://www.youtube.com/watch?v=sDb2GJTIpPo&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -6128,7 +6121,7 @@
      "organisation": "Kaiko",
      "source_url": "https://www.youtube.com/watch?v=sDb2GJTIpPo&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -6167,14 +6160,14 @@
    "event_ids": [],
    "talks": [
     {
-     "id": "yt-sDb2GJTIpPo",
-     "title": "Nordic Blockchain Conference 2026 - Day 1 - Stage 1 (Closing Sessions)",
-     "video_url": "https://www.youtube.com/watch?v=sDb2GJTIpPo"
-    },
-    {
      "id": "yt-vefoJLmk88g",
      "title": "Escaping war zones with a Bitcoin brain wallet | Frank Schuil | TEDxStockholm",
      "video_url": "https://www.youtube.com/watch?v=vefoJLmk88g"
+    },
+    {
+     "id": "yt-sDb2GJTIpPo",
+     "title": "Nordic Blockchain Conference 2026 - Day 1 - Stage 1 (Closing Sessions)",
+     "video_url": "https://www.youtube.com/watch?v=sDb2GJTIpPo"
     }
    ],
    "affiliations": [
@@ -6183,7 +6176,7 @@
      "organisation": "Safello",
      "source_url": "https://www.youtube.com/watch?v=sDb2GJTIpPo&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -6226,7 +6219,7 @@
      "organisation": "Valour",
      "source_url": "https://www.youtube.com/watch?v=sDb2GJTIpPo&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -6269,7 +6262,7 @@
      "organisation": "6 Monks",
      "source_url": "https://www.youtube.com/watch?v=sDb2GJTIpPo&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -6312,7 +6305,7 @@
      "organisation": "Bitget",
      "source_url": "https://www.youtube.com/watch?v=sDb2GJTIpPo&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -6355,7 +6348,7 @@
      "organisation": "Bybit",
      "source_url": "https://www.youtube.com/watch?v=sDb2GJTIpPo&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -6398,7 +6391,7 @@
      "organisation": "Maerki Baumann",
      "source_url": "https://www.youtube.com/watch?v=sDb2GJTIpPo&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -6441,7 +6434,7 @@
      "organisation": "XBTO",
      "source_url": "https://www.youtube.com/watch?v=sDb2GJTIpPo&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -6484,7 +6477,7 @@
      "organisation": "SEB",
      "source_url": "https://www.youtube.com/watch?v=sDb2GJTIpPo&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -6527,7 +6520,7 @@
      "organisation": "Bitcoin Suisse",
      "source_url": "https://www.youtube.com/watch?v=sDb2GJTIpPo&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -6582,14 +6575,14 @@
      "organisation": "Siedler Legal",
      "source_url": "https://www.youtube.com/watch?v=-4I2b_hFG0A&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     },
     {
      "talk_id": "yt-sDb2GJTIpPo",
      "organisation": "Siedler Legal",
      "source_url": "https://www.youtube.com/watch?v=sDb2GJTIpPo&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -6632,7 +6625,7 @@
      "organisation": "Citi",
      "source_url": "https://www.youtube.com/watch?v=sDb2GJTIpPo&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -6687,14 +6680,14 @@
      "organisation": "Stratum 3 Ventures",
      "source_url": "https://www.youtube.com/watch?v=-4I2b_hFG0A&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     },
     {
      "talk_id": "yt-sDb2GJTIpPo",
      "organisation": "Stratum 3 Ventures",
      "source_url": "https://www.youtube.com/watch?v=sDb2GJTIpPo&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -6737,7 +6730,7 @@
      "organisation": "1inch",
      "source_url": "https://www.youtube.com/watch?v=rfLLR9vhoYI&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -6780,7 +6773,7 @@
      "organisation": "CryptoSwift",
      "source_url": "https://www.youtube.com/watch?v=rfLLR9vhoYI&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -6823,7 +6816,7 @@
      "organisation": "Bird & Bird",
      "source_url": "https://www.youtube.com/watch?v=rfLLR9vhoYI&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -6866,7 +6859,7 @@
      "organisation": "YouHodler",
      "source_url": "https://www.youtube.com/watch?v=rfLLR9vhoYI&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -6909,7 +6902,7 @@
      "organisation": "Blockaid",
      "source_url": "https://www.youtube.com/watch?v=rfLLR9vhoYI&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -6952,7 +6945,7 @@
      "organisation": "Politecnico di Milano",
      "source_url": "https://www.youtube.com/watch?v=rfLLR9vhoYI&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -6995,7 +6988,7 @@
      "organisation": "d-fine",
      "source_url": "https://www.youtube.com/watch?v=rfLLR9vhoYI&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -7038,7 +7031,7 @@
      "organisation": "Mibit Group",
      "source_url": "https://www.youtube.com/watch?v=rfLLR9vhoYI&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -7081,7 +7074,7 @@
      "organisation": "Deloitte",
      "source_url": "https://www.youtube.com/watch?v=rfLLR9vhoYI&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -7124,7 +7117,7 @@
      "organisation": "Somnia",
      "source_url": "https://www.youtube.com/watch?v=rfLLR9vhoYI&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -7167,7 +7160,7 @@
      "organisation": "Blockchain Sweden",
      "source_url": "https://www.youtube.com/watch?v=rfLLR9vhoYI&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -7210,7 +7203,7 @@
      "organisation": "UNDP AltFinLab",
      "source_url": "https://www.youtube.com/watch?v=rfLLR9vhoYI&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -7253,7 +7246,7 @@
      "organisation": "Nordic Blockchain Association",
      "source_url": "https://www.youtube.com/watch?v=rfLLR9vhoYI&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -7296,7 +7289,7 @@
      "organisation": "Firi",
      "source_url": "https://www.youtube.com/watch?v=rfLLR9vhoYI&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -7351,7 +7344,7 @@
      "organisation": "Kvarn X",
      "source_url": "https://www.youtube.com/watch?v=rfLLR9vhoYI&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -7394,7 +7387,7 @@
      "organisation": "Zenith",
      "source_url": "https://www.youtube.com/watch?v=rfLLR9vhoYI&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -7437,7 +7430,7 @@
      "organisation": "Pegasus",
      "source_url": "https://www.youtube.com/watch?v=rfLLR9vhoYI&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -7480,7 +7473,7 @@
      "organisation": "Nordic Blockchain Association",
      "source_url": "https://www.youtube.com/watch?v=qlf-5yZtzVE&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -7523,7 +7516,7 @@
      "organisation": "Ledger",
      "source_url": "https://www.youtube.com/watch?v=qlf-5yZtzVE&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -7566,7 +7559,7 @@
      "organisation": "Standard Chartered",
      "source_url": "https://www.youtube.com/watch?v=qlf-5yZtzVE&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -7609,7 +7602,7 @@
      "organisation": "Zodia Custody",
      "source_url": "https://www.youtube.com/watch?v=qlf-5yZtzVE&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -7652,7 +7645,7 @@
      "organisation": "Galaxy",
      "source_url": "https://www.youtube.com/watch?v=qlf-5yZtzVE&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -7695,7 +7688,7 @@
      "organisation": "Taurus SA",
      "source_url": "https://www.youtube.com/watch?v=qlf-5yZtzVE&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -7738,7 +7731,7 @@
      "organisation": "Tangany",
      "source_url": "https://www.youtube.com/watch?v=qlf-5yZtzVE&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -7781,7 +7774,7 @@
      "organisation": "Coala Pay",
      "source_url": "https://www.youtube.com/watch?v=qlf-5yZtzVE&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -7824,7 +7817,7 @@
      "organisation": "Brava Finance",
      "source_url": "https://www.youtube.com/watch?v=qlf-5yZtzVE&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -7867,7 +7860,7 @@
      "organisation": "Blockdaemon",
      "source_url": "https://www.youtube.com/watch?v=qlf-5yZtzVE&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -7910,7 +7903,7 @@
      "organisation": "European Blockchain Convention",
      "source_url": "https://www.youtube.com/watch?v=qlf-5yZtzVE&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -7953,7 +7946,7 @@
      "organisation": "Figment",
      "source_url": "https://www.youtube.com/watch?v=qlf-5yZtzVE&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -7996,7 +7989,7 @@
      "organisation": "Deploi",
      "source_url": "https://www.youtube.com/watch?v=qlf-5yZtzVE&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -8039,7 +8032,7 @@
      "organisation": "Realjuridik",
      "source_url": "https://www.youtube.com/watch?v=qlf-5yZtzVE&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -8082,7 +8075,7 @@
      "organisation": "BlackRock",
      "source_url": "https://www.youtube.com/watch?v=qlf-5yZtzVE&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -8125,7 +8118,7 @@
      "organisation": "BitMEX",
      "source_url": "https://www.youtube.com/watch?v=qlf-5yZtzVE&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -8168,7 +8161,7 @@
      "organisation": "Aryze",
      "source_url": "https://www.youtube.com/watch?v=qlf-5yZtzVE&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -8211,7 +8204,7 @@
      "organisation": "Nobon",
      "source_url": "https://www.youtube.com/watch?v=qlf-5yZtzVE&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -8254,7 +8247,7 @@
      "organisation": "Gnosis",
      "source_url": "https://www.youtube.com/watch?v=hINk3yZvDdY&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -8297,7 +8290,7 @@
      "organisation": "AllUnity",
      "source_url": "https://www.youtube.com/watch?v=hINk3yZvDdY&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -8340,7 +8333,7 @@
      "organisation": "Paybis",
      "source_url": "https://www.youtube.com/watch?v=hINk3yZvDdY&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -8383,7 +8376,7 @@
      "organisation": "Januar",
      "source_url": "https://www.youtube.com/watch?v=hINk3yZvDdY&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -8426,7 +8419,7 @@
      "organisation": "Mastercard",
      "source_url": "https://www.youtube.com/watch?v=hINk3yZvDdY&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -8469,7 +8462,7 @@
      "organisation": "Danmarks Nationalbank",
      "source_url": "https://www.youtube.com/watch?v=hINk3yZvDdY&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -8512,7 +8505,7 @@
      "organisation": "Swedbank",
      "source_url": "https://www.youtube.com/watch?v=hINk3yZvDdY&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -8555,7 +8548,7 @@
      "organisation": "Clius Global Partners",
      "source_url": "https://www.youtube.com/watch?v=hINk3yZvDdY&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -8598,7 +8591,7 @@
      "organisation": "Talos",
      "source_url": "https://www.youtube.com/watch?v=hINk3yZvDdY&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -8641,7 +8634,7 @@
      "organisation": "CoinRoutes",
      "source_url": "https://www.youtube.com/watch?v=hINk3yZvDdY&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -8684,7 +8677,7 @@
      "organisation": "Bitpanda",
      "source_url": "https://www.youtube.com/watch?v=hINk3yZvDdY&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -8727,7 +8720,7 @@
      "organisation": "Kraken",
      "source_url": "https://www.youtube.com/watch?v=hINk3yZvDdY&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -8770,7 +8763,7 @@
      "organisation": "Bitwise",
      "source_url": "https://www.youtube.com/watch?v=hINk3yZvDdY&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -8813,7 +8806,7 @@
      "organisation": "LO:TECH",
      "source_url": "https://www.youtube.com/watch?v=hINk3yZvDdY&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -8868,14 +8861,14 @@
      "organisation": "Thrilld Labs",
      "source_url": "https://www.youtube.com/watch?v=RTcqp3MqRtU&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     },
     {
      "talk_id": "yt-ffmB3P1dqw0",
      "organisation": "Thrilld Labs",
      "source_url": "https://www.youtube.com/watch?v=ffmB3P1dqw0&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -8918,7 +8911,7 @@
      "organisation": "SEB",
      "source_url": "https://www.youtube.com/watch?v=ffmB3P1dqw0&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -8961,7 +8954,7 @@
      "organisation": "Dwellir",
      "source_url": "https://www.youtube.com/watch?v=ffmB3P1dqw0&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -9004,7 +8997,7 @@
      "organisation": "Swarp Pay",
      "source_url": "https://www.youtube.com/watch?v=ffmB3P1dqw0&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -9047,7 +9040,7 @@
      "organisation": "Concordium",
      "source_url": "https://www.youtube.com/watch?v=ffmB3P1dqw0&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -9090,7 +9083,7 @@
      "organisation": "AI Crypto Minds",
      "source_url": "https://www.youtube.com/watch?v=ffmB3P1dqw0&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -9133,7 +9126,7 @@
      "organisation": "Chainlink Labs",
      "source_url": "https://www.youtube.com/watch?v=ffmB3P1dqw0&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -9176,7 +9169,7 @@
      "organisation": "Solidity",
      "source_url": "https://www.youtube.com/watch?v=ffmB3P1dqw0&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -9230,7 +9223,7 @@
      "organisation": "Riften Labs",
      "source_url": "https://www.youtube.com/watch?v=ffmB3P1dqw0&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -9273,7 +9266,7 @@
      "organisation": "Dash",
      "source_url": "https://www.youtube.com/watch?v=ffmB3P1dqw0&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -9316,7 +9309,7 @@
      "organisation": "Institute of Free Technology",
      "source_url": "https://www.youtube.com/watch?v=ffmB3P1dqw0&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -9359,7 +9352,7 @@
      "organisation": "TRM Labs",
      "source_url": "https://www.youtube.com/watch?v=ffmB3P1dqw0&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -9402,7 +9395,7 @@
      "organisation": "Bybit",
      "source_url": "https://www.youtube.com/watch?v=ffmB3P1dqw0&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -9445,7 +9438,7 @@
      "organisation": "Blockpit",
      "source_url": "https://www.youtube.com/watch?v=ffmB3P1dqw0&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -9488,7 +9481,7 @@
      "organisation": "Helm Tax",
      "source_url": "https://www.youtube.com/watch?v=ffmB3P1dqw0&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -9531,7 +9524,7 @@
      "organisation": "Divly",
      "source_url": "https://www.youtube.com/watch?v=ffmB3P1dqw0&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -9574,7 +9567,7 @@
      "organisation": "MÖHRLE HAPP LUTHER",
      "source_url": "https://www.youtube.com/watch?v=ffmB3P1dqw0&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -9617,7 +9610,7 @@
      "organisation": "Signicat",
      "source_url": "https://www.youtube.com/watch?v=RTcqp3MqRtU&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -9660,7 +9653,7 @@
      "organisation": "Hashgraph",
      "source_url": "https://www.youtube.com/watch?v=RTcqp3MqRtU&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -9703,7 +9696,7 @@
      "organisation": "BSV Association",
      "source_url": "https://www.youtube.com/watch?v=RTcqp3MqRtU&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -9746,7 +9739,7 @@
      "organisation": "ComplyOnce",
      "source_url": "https://www.youtube.com/watch?v=RTcqp3MqRtU&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -9789,7 +9782,7 @@
      "organisation": "KassaiLaw",
      "source_url": "https://www.youtube.com/watch?v=RTcqp3MqRtU&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -9832,7 +9825,7 @@
      "organisation": "The Mint",
      "source_url": "https://www.youtube.com/watch?v=RTcqp3MqRtU&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -9875,7 +9868,7 @@
      "organisation": "BSV Association",
      "source_url": "https://www.youtube.com/watch?v=RTcqp3MqRtU&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -9918,7 +9911,7 @@
      "organisation": "Bird & Bird",
      "source_url": "https://www.youtube.com/watch?v=RTcqp3MqRtU&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -9961,7 +9954,7 @@
      "organisation": "GANN Labs",
      "source_url": "https://www.youtube.com/watch?v=RTcqp3MqRtU&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -10004,7 +9997,7 @@
      "organisation": "Merkle Science",
      "source_url": "https://www.youtube.com/watch?v=RTcqp3MqRtU&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -10047,7 +10040,7 @@
      "organisation": "Valega",
      "source_url": "https://www.youtube.com/watch?v=RTcqp3MqRtU&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -10090,7 +10083,7 @@
      "organisation": "CMS",
      "source_url": "https://www.youtube.com/watch?v=RTcqp3MqRtU&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -10133,7 +10126,7 @@
      "organisation": "Veli",
      "source_url": "https://www.youtube.com/watch?v=RTcqp3MqRtU&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -10170,15 +10163,7 @@
      "video_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4"
     }
    ],
-   "affiliations": [
-    {
-     "talk_id": "yt-FXf5cpY0oY4",
-     "organisation": "UN:BLOCK",
-     "source_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4&hl=en",
-     "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
-    }
-   ],
+   "affiliations": [],
    "from_talks": true,
    "origin": "Talks archive",
    "caveat": false,
@@ -10213,15 +10198,7 @@
      "video_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4"
     }
    ],
-   "affiliations": [
-    {
-     "talk_id": "yt-FXf5cpY0oY4",
-     "organisation": "Cryptoprocessing by Coinspaid",
-     "source_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4&hl=en",
-     "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
-    }
-   ],
+   "affiliations": [],
    "from_talks": true,
    "origin": "Talks archive",
    "caveat": false,
@@ -10256,15 +10233,7 @@
      "video_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4"
     }
    ],
-   "affiliations": [
-    {
-     "talk_id": "yt-FXf5cpY0oY4",
-     "organisation": "Lex Law",
-     "source_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4&hl=en",
-     "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
-    }
-   ],
+   "affiliations": [],
    "from_talks": true,
    "origin": "Talks archive",
    "caveat": false,
@@ -10299,15 +10268,7 @@
      "video_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4"
     }
    ],
-   "affiliations": [
-    {
-     "talk_id": "yt-FXf5cpY0oY4",
-     "organisation": "Crypto Risk Metrics",
-     "source_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4&hl=en",
-     "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
-    }
-   ],
+   "affiliations": [],
    "from_talks": true,
    "origin": "Talks archive",
    "caveat": false,
@@ -10342,15 +10303,7 @@
      "video_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4"
     }
    ],
-   "affiliations": [
-    {
-     "talk_id": "yt-FXf5cpY0oY4",
-     "organisation": "Bird & Bird",
-     "source_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4&hl=en",
-     "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
-    }
-   ],
+   "affiliations": [],
    "from_talks": true,
    "origin": "Talks archive",
    "caveat": false,
@@ -10385,15 +10338,7 @@
      "video_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4"
     }
    ],
-   "affiliations": [
-    {
-     "talk_id": "yt-FXf5cpY0oY4",
-     "organisation": "DataExpert",
-     "source_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4&hl=en",
-     "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
-    }
-   ],
+   "affiliations": [],
    "from_talks": true,
    "origin": "Talks archive",
    "caveat": false,
@@ -10428,15 +10373,7 @@
      "video_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4"
     }
    ],
-   "affiliations": [
-    {
-     "talk_id": "yt-FXf5cpY0oY4",
-     "organisation": "Sapio",
-     "source_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4&hl=en",
-     "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
-    }
-   ],
+   "affiliations": [],
    "from_talks": true,
    "origin": "Talks archive",
    "caveat": false,
@@ -10471,15 +10408,7 @@
      "video_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4"
     }
    ],
-   "affiliations": [
-    {
-     "talk_id": "yt-FXf5cpY0oY4",
-     "organisation": "Ethereum Foundation",
-     "source_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4&hl=en",
-     "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
-    }
-   ],
+   "affiliations": [],
    "from_talks": true,
    "origin": "Talks archive",
    "caveat": false,
@@ -10514,15 +10443,7 @@
      "video_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4"
     }
    ],
-   "affiliations": [
-    {
-     "talk_id": "yt-FXf5cpY0oY4",
-     "organisation": "Algorand",
-     "source_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4&hl=en",
-     "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
-    }
-   ],
+   "affiliations": [],
    "from_talks": true,
    "origin": "Talks archive",
    "caveat": false,
@@ -10557,15 +10478,7 @@
      "video_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4"
     }
    ],
-   "affiliations": [
-    {
-     "talk_id": "yt-FXf5cpY0oY4",
-     "organisation": "Stellar Development Foundation",
-     "source_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4&hl=en",
-     "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
-    }
-   ],
+   "affiliations": [],
    "from_talks": true,
    "origin": "Talks archive",
    "caveat": false,
@@ -10600,15 +10513,7 @@
      "video_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4"
     }
    ],
-   "affiliations": [
-    {
-     "talk_id": "yt-FXf5cpY0oY4",
-     "organisation": "Espoir PR & Communications",
-     "source_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4&hl=en",
-     "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
-    }
-   ],
+   "affiliations": [],
    "from_talks": true,
    "origin": "Talks archive",
    "caveat": false,
@@ -10643,15 +10548,7 @@
      "video_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4"
     }
    ],
-   "affiliations": [
-    {
-     "talk_id": "yt-FXf5cpY0oY4",
-     "organisation": "Bermuda Monetary Authority",
-     "source_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4&hl=en",
-     "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
-    }
-   ],
+   "affiliations": [],
    "from_talks": true,
    "origin": "Talks archive",
    "caveat": false,
@@ -10686,15 +10583,7 @@
      "video_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4"
     }
    ],
-   "affiliations": [
-    {
-     "talk_id": "yt-FXf5cpY0oY4",
-     "organisation": "Blockchain for Europe",
-     "source_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4&hl=en",
-     "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
-    }
-   ],
+   "affiliations": [],
    "from_talks": true,
    "origin": "Talks archive",
    "caveat": false,
@@ -10729,15 +10618,7 @@
      "video_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4"
     }
    ],
-   "affiliations": [
-    {
-     "talk_id": "yt-FXf5cpY0oY4",
-     "organisation": "Cork Gully",
-     "source_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4&hl=en",
-     "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
-    }
-   ],
+   "affiliations": [],
    "from_talks": true,
    "origin": "Talks archive",
    "caveat": false,
@@ -10772,15 +10653,7 @@
      "video_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4"
     }
    ],
-   "affiliations": [
-    {
-     "talk_id": "yt-FXf5cpY0oY4",
-     "organisation": "VBNL",
-     "source_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4&hl=en",
-     "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
-    }
-   ],
+   "affiliations": [],
    "from_talks": true,
    "origin": "Talks archive",
    "caveat": false,
@@ -10815,15 +10688,7 @@
      "video_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4"
     }
    ],
-   "affiliations": [
-    {
-     "talk_id": "yt-FXf5cpY0oY4",
-     "organisation": "DARA - Digital Asset Regulatory Authority",
-     "source_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4&hl=en",
-     "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
-    }
-   ],
+   "affiliations": [],
    "from_talks": true,
    "origin": "Talks archive",
    "caveat": false,
@@ -10858,15 +10723,7 @@
      "video_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4"
     }
    ],
-   "affiliations": [
-    {
-     "talk_id": "yt-FXf5cpY0oY4",
-     "organisation": "dewa",
-     "source_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4&hl=en",
-     "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
-    }
-   ],
+   "affiliations": [],
    "from_talks": true,
    "origin": "Talks archive",
    "caveat": false,
@@ -10901,15 +10758,7 @@
      "video_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4"
     }
    ],
-   "affiliations": [
-    {
-     "talk_id": "yt-FXf5cpY0oY4",
-     "organisation": "Blockchain Sweden",
-     "source_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4&hl=en",
-     "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
-    }
-   ],
+   "affiliations": [],
    "from_talks": true,
    "origin": "Talks archive",
    "caveat": false,
@@ -10944,15 +10793,7 @@
      "video_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4"
     }
    ],
-   "affiliations": [
-    {
-     "talk_id": "yt-FXf5cpY0oY4",
-     "organisation": "pointer.capital",
-     "source_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4&hl=en",
-     "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
-    }
-   ],
+   "affiliations": [],
    "from_talks": true,
    "origin": "Talks archive",
    "caveat": false,
@@ -10987,15 +10828,7 @@
      "video_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4"
     }
    ],
-   "affiliations": [
-    {
-     "talk_id": "yt-FXf5cpY0oY4",
-     "organisation": "UNICEF Cryptofund",
-     "source_url": "https://www.youtube.com/watch?v=FXf5cpY0oY4&hl=en",
-     "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
-    }
-   ],
+   "affiliations": [],
    "from_talks": true,
    "origin": "Talks archive",
    "caveat": false,
@@ -11036,7 +10869,7 @@
      "organisation": "Cardano Foundation",
      "source_url": "https://www.youtube.com/watch?v=-4I2b_hFG0A&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -11079,7 +10912,7 @@
      "organisation": "Fireblocks",
      "source_url": "https://www.youtube.com/watch?v=-4I2b_hFG0A&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -11122,7 +10955,7 @@
      "organisation": "Danske Bank",
      "source_url": "https://www.youtube.com/watch?v=-4I2b_hFG0A&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -11165,7 +10998,7 @@
      "organisation": "Monerium",
      "source_url": "https://www.youtube.com/watch?v=-4I2b_hFG0A&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -11208,7 +11041,7 @@
      "organisation": "Stablecoin Standard",
      "source_url": "https://www.youtube.com/watch?v=-4I2b_hFG0A&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -11251,7 +11084,7 @@
      "organisation": "NBX",
      "source_url": "https://www.youtube.com/watch?v=-4I2b_hFG0A&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -11294,7 +11127,7 @@
      "organisation": "Visa",
      "source_url": "https://www.youtube.com/watch?v=-4I2b_hFG0A&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -11337,7 +11170,7 @@
      "organisation": "JP Morgan",
      "source_url": "https://www.youtube.com/watch?v=-4I2b_hFG0A&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -11380,7 +11213,7 @@
      "organisation": "Norges Bank",
      "source_url": "https://www.youtube.com/watch?v=-4I2b_hFG0A&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -11423,7 +11256,7 @@
      "organisation": "DNB",
      "source_url": "https://www.youtube.com/watch?v=-4I2b_hFG0A&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -11466,7 +11299,7 @@
      "organisation": "Vipps MobilePay",
      "source_url": "https://www.youtube.com/watch?v=-4I2b_hFG0A&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -11507,16 +11340,16 @@
    ],
    "talks": [
     {
-     "id": "yt--4I2b_hFG0A",
-     "title": "Nordic Blockchain Conference 2026 - Day 1 - Stage 1 (Part 1)",
-     "video_url": "https://www.youtube.com/watch?v=-4I2b_hFG0A"
-    },
-    {
      "id": "yt-0q2kmQuA5PE",
      "title": "The Satoshi Nakamoto Annual Speech",
      "video_url": "https://www.youtube.com/watch?v=0q2kmQuA5PE",
      "event_id": "9e5346069673",
      "date": "2026-02-11"
+    },
+    {
+     "id": "yt--4I2b_hFG0A",
+     "title": "Nordic Blockchain Conference 2026 - Day 1 - Stage 1 (Part 1)",
+     "video_url": "https://www.youtube.com/watch?v=-4I2b_hFG0A"
     }
    ],
    "affiliations": [
@@ -11525,7 +11358,7 @@
      "organisation": "Sygnum",
      "source_url": "https://www.youtube.com/watch?v=-4I2b_hFG0A&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -11568,7 +11401,7 @@
      "organisation": "d-fine",
      "source_url": "https://www.youtube.com/watch?v=-4I2b_hFG0A&hl=en",
      "source_name": "Nordic Blockchain Association",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -11611,7 +11444,7 @@
      "organisation": "Indian Institute of Science, Bengaluru",
      "source_url": "https://www.youtube.com/watch?v=CV0WndNSP5Q&hl=en",
      "source_name": "DTU: Lectures on Power & Energy Systems",
-     "retrieved_at": "2026-10-07T23:30:36+00:00",
+     "retrieved_at": "2026-10-16T08:56:33+00:00",
      "role": "PhD Student"
     }
    ],
@@ -11803,20 +11636,20 @@
    ],
    "affiliations": [
     {
-     "talk_id": "yt-aYlA0ADZbQc",
-     "organisation": "Lightning Labs",
-     "source_url": "https://www.youtube.com/watch?v=aYlA0ADZbQc&hl=en",
-     "source_name": "Oslo Freedom Forum",
-     "retrieved_at": "2026-10-07T23:30:36+00:00",
-     "role": "CEO"
-    },
-    {
      "talk_id": "yt-4lJCE0dzoRs",
      "organisation": "Lightning",
      "source_url": "https://www.youtube.com/watch?v=4lJCE0dzoRs&hl=en",
      "source_name": "Slush",
      "retrieved_at": "2026-10-16T08:56:33+00:00",
      "role": "Co-founder and CEO"
+    },
+    {
+     "talk_id": "yt-aYlA0ADZbQc",
+     "organisation": "Lightning Labs",
+     "source_url": "https://www.youtube.com/watch?v=aYlA0ADZbQc&hl=en",
+     "source_name": "Oslo Freedom Forum",
+     "retrieved_at": "2026-10-16T08:56:33+00:00",
+     "role": "CEO"
     }
    ],
    "from_talks": true,
@@ -11871,7 +11704,7 @@
      "organisation": "BTC Sessions",
      "source_url": "https://www.youtube.com/watch?v=aYlA0ADZbQc&hl=en",
      "source_name": "Oslo Freedom Forum",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -12089,7 +11922,7 @@
      "organisation": "Høgskolen i Innlandet",
      "source_url": "https://www.youtube.com/watch?v=gn50NxhPk-0&hl=en",
      "source_name": "Polyteknisk Forening",
-     "retrieved_at": "2026-10-07T23:30:36+00:00",
+     "retrieved_at": "2026-10-16T08:56:33+00:00",
      "role": "professor i økonomisk historie"
     }
    ],
@@ -12145,16 +11978,16 @@
    ],
    "talks": [
     {
-     "id": "yt-gn50NxhPk-0",
-     "title": "Hvorfor og når får vi digitale sentralbankpenger og kryptovaluta?",
-     "video_url": "https://www.youtube.com/watch?v=gn50NxhPk-0"
-    },
-    {
      "id": "yt-iT2iG3o4qJM",
      "title": "Er bitcoin vinnaren av krigen mot Iran? Fra Arendalsuka",
      "video_url": "https://www.youtube.com/watch?v=iT2iG3o4qJM",
      "event_id": "9177a9451730",
      "date": "2026-08-10"
+    },
+    {
+     "id": "yt-gn50NxhPk-0",
+     "title": "Hvorfor og når får vi digitale sentralbankpenger og kryptovaluta?",
+     "video_url": "https://www.youtube.com/watch?v=gn50NxhPk-0"
     },
     {
      "id": "yt-NrF-rcWIpsU",
@@ -12278,7 +12111,7 @@
      "organisation": "Swedish House of Finance",
      "source_url": "https://www.youtube.com/watch?v=8UUXKBprVE4&hl=en",
      "source_name": "Swedish House of Finance",
-     "retrieved_at": "2026-10-07T23:30:36+00:00",
+     "retrieved_at": "2026-10-16T08:56:33+00:00",
      "role": "Professor Emeritus of Practice"
     }
    ],
@@ -12427,7 +12260,7 @@
      "organisation": "‘verse gallery og NFT-samler",
      "source_url": "https://www.youtube.com/watch?v=HwznOY5BhGI&hl=en",
      "source_name": "Polyteknisk Forening",
-     "retrieved_at": "2026-10-07T23:30:36+00:00",
+     "retrieved_at": "2026-10-16T08:56:33+00:00",
      "role": "COO"
     }
    ],
@@ -13313,17 +13146,17 @@
    ],
    "talks": [
     {
+     "id": "yt-5ODDCx6VL2Y",
+     "title": "Bitcoin & Blockchain in Norway - Interview with Andreas M. Antonopoulos",
+     "video_url": "https://www.youtube.com/watch?v=5ODDCx6VL2Y",
+     "date": "2017-04-27"
+    },
+    {
      "id": "yt-eo-0BgrKxiI",
      "title": "Open Blockchains for Cashless Developed Economies",
      "video_url": "https://www.youtube.com/watch?v=eo-0BgrKxiI",
      "event_id": "30569783bb01",
      "date": "2017-04-25"
-    },
-    {
-     "id": "yt-5ODDCx6VL2Y",
-     "title": "Bitcoin & Blockchain in Norway - Interview with Andreas M. Antonopoulos",
-     "video_url": "https://www.youtube.com/watch?v=5ODDCx6VL2Y",
-     "date": "2017-04-27"
     }
    ],
    "affiliations": [],
@@ -13367,7 +13200,7 @@
      "organisation": "Digital Daruma",
      "source_url": "https://www.youtube.com/watch?v=kmizKAmfsWU&hl=en",
      "source_name": "Slush",
-     "retrieved_at": "2026-10-07T23:30:36+00:00"
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
     }
    ],
    "from_talks": true,
@@ -13410,7 +13243,7 @@
      "organisation": "Sync Project",
      "source_url": "https://www.youtube.com/watch?v=kmizKAmfsWU&hl=en",
      "source_name": "Slush",
-     "retrieved_at": "2026-10-07T23:30:36+00:00",
+     "retrieved_at": "2026-10-16T08:56:33+00:00",
      "role": "Founder"
     }
    ],
@@ -13454,7 +13287,7 @@
      "organisation": "Teosto",
      "source_url": "https://www.youtube.com/watch?v=kmizKAmfsWU&hl=en",
      "source_name": "Slush",
-     "retrieved_at": "2026-10-07T23:30:36+00:00",
+     "retrieved_at": "2026-10-16T08:56:33+00:00",
      "role": "Senior Advisor, Innovation & Discovery"
     }
    ],
@@ -13498,7 +13331,7 @@
      "organisation": "Revelator",
      "source_url": "https://www.youtube.com/watch?v=kmizKAmfsWU&hl=en",
      "source_name": "Slush",
-     "retrieved_at": "2026-10-07T23:30:36+00:00",
+     "retrieved_at": "2026-10-16T08:56:33+00:00",
      "role": "Founder"
     }
    ],
@@ -13542,7 +13375,7 @@
      "organisation": "Blockchain",
      "source_url": "https://www.youtube.com/watch?v=EBs5zp-I3sk&hl=en",
      "source_name": "Slush",
-     "retrieved_at": "2026-10-07T23:30:36+00:00",
+     "retrieved_at": "2026-10-16T08:56:33+00:00",
      "role": "Co-Founder"
     }
    ],
@@ -13629,7 +13462,7 @@
      "organisation": "Sbanken",
      "source_url": "https://www.youtube.com/watch?v=wogzCQdqoUA&hl=en",
      "source_name": "Blockchangers",
-     "retrieved_at": "2026-10-07T23:30:36+00:00",
+     "retrieved_at": "2026-10-16T08:56:33+00:00",
      "role": "CDO",
      "event_id": "92041cfcb99c",
      "date": "2016-04-19"
