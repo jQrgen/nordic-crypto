@@ -28,6 +28,7 @@ ALLOWED = (
     "state/html_seen.json",
     "state/html_lists.json",
     "state/source_status.json",
+    "data/podcasts.json",
 )
 # Already on the branch when the editor has written decisions there. The fetch does not create it.
 TOLERATED = ALLOWED + ("queue/approved.json",)

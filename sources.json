@@ -186,7 +186,8 @@
    "coverage": "national",
    "language": "Norwegian",
    "logo_source": "https://bpinorge.no/wp-content/uploads/2025/04/bpinorge_footer_logo.svg",
-   "method": "rss"
+   "method": "rss",
+   "podcast": true
   },
   {
    "id": "di",
@@ -1718,7 +1719,8 @@
    "merged_from": "kryptonytt 2026-10-04",
    "coverage": "national",
    "logo_source": "https://podme.com/apple-icon.png?62051089a5dfa272",
-   "method": "rss"
+   "method": "rss",
+   "podcast": true
   },
   {
    "id": "enogtyvetanker",
@@ -1736,24 +1738,26 @@
    "merged_from": "kryptonytt 2026-10-04",
    "coverage": "national",
    "logo_source": "https://zeno.fm/favicon.svg",
-   "method": "rss"
+   "method": "rss",
+   "podcast": true
   },
   {
    "id": "kryptopodden",
    "name": "Kryptopodden",
    "kind": "Podcast",
-   "url": "https://anchor.fm/s/f29c1268/podcast/rss",
+   "url": "https://podcasters.spotify.com/pod/show/kryptopodden",
    "feed": "https://anchor.fm/s/f29c1268/podcast/rss",
    "type": "rss-all",
    "paywall": false,
-   "enabled": true,
-   "status": "ok, but last episode June 2025",
+   "enabled": false,
+   "status": "inactive since 2025-06-20; Swedish, made with Safello",
    "verified": "2026-10-06",
-   "country": "NO",
-   "language": "Norwegian",
+   "country": "SE",
+   "language": "Swedish",
    "merged_from": "kryptonytt 2026-10-04",
    "coverage": "national",
-   "method": "rss"
+   "method": "rss",
+   "podcast": true
   },
   {
    "id": "barebitcoin",
