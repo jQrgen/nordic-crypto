@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T10:01:51+00:00",
+ "generated_at": "2026-10-16T10:04:56+00:00",
  "preview": false,
  "item": {
   "id": "248229beedb1",
@@ -33,12 +33,12 @@
   ],
   "summary": "Kaupr summarises recent US financial press coverage, saying Barron's, the Wall Street Journal, CNBC and Bloomberg all wrote about stock tokenisation in early October. According to that coverage, tokenised shares could bring round-the-clock trading and faster settlement, and an ICE–OKX venture is preparing to tokenise stocks.",
   "summary_i18n": {
-   "nn": "Kaupr samanfattar nyleg dekning i amerikansk finanspresse og skriv at Barron's, Wall Street Journal, CNBC og Bloomberg alle skreiv om tokenisering av aksjar tidleg i oktober. Ifølgje denne dekninga kan tokeniserte aksjar gje handel døgnet rundt og raskare oppgjer, og eit samarbeid mellom ICE og OKX førebur tokenisering av aksjar.",
-   "nb": "Kaupr oppsummerer nylig dekning i amerikansk finanspresse og skriver at Barron's, Wall Street Journal, CNBC og Bloomberg alle skrev om tokenisering av aksjer tidlig i oktober. Ifølge denne dekningen kan tokeniserte aksjer gi handel døgnet rundt og raskere oppgjør, og et samarbeid mellom ICE og OKX forbereder tokenisering av aksjer.",
-   "sv": "Kaupr sammanfattar den senaste bevakningen i amerikansk finanspress och skriver att Barron's, Wall Street Journal, CNBC och Bloomberg alla skrev om tokenisering av aktier i början av oktober. Enligt den bevakningen kan tokeniserade aktier ge handel dygnet runt och snabbare avveckling, och ett samarbete mellan ICE och OKX förbereder tokenisering av aktier.",
    "da": "Kaupr opsummerer den seneste dækning i amerikansk finanspresse og skriver, at Barron's, Wall Street Journal, CNBC og Bloomberg alle skrev om tokenisering af aktier i begyndelsen af oktober. Ifølge den dækning kan tokeniserede aktier give handel døgnet rundt og hurtigere afvikling, og et samarbejde mellem ICE og OKX forbereder tokenisering af aktier.",
    "fi": "Kaupr tiivistää Yhdysvaltain talousmedian tuoreen uutisoinnin ja kertoo, että Barron's, Wall Street Journal, CNBC ja Bloomberg kirjoittivat kaikki osakkeiden tokenisoinnista lokakuun alussa. Uutisoinnin mukaan tokenisoidut osakkeet voisivat mahdollistaa ympärivuorokautisen kaupankäynnin ja nopeamman selvityksen, ja ICE:n ja OKX:n yhteisyritys valmistelee osakkeiden tokenisointia.",
-   "is": "Kaupr dregur saman nýlega umfjöllun bandarískra fjármálamiðla og segir að Barron's, Wall Street Journal, CNBC og Bloomberg hafi öll fjallað um táknvæðingu hlutabréfa í byrjun október. Samkvæmt þeirri umfjöllun gætu táknvædd hlutabréf gert viðskipti allan sólarhringinn möguleg og hraðað uppgjöri, og samstarfsverkefni ICE og OKX undirbýr táknvæðingu hlutabréfa."
+   "is": "Kaupr dregur saman nýlega umfjöllun bandarískra fjármálamiðla og segir að Barron's, Wall Street Journal, CNBC og Bloomberg hafi öll fjallað um táknvæðingu hlutabréfa í byrjun október. Samkvæmt þeirri umfjöllun gætu táknvædd hlutabréf gert viðskipti allan sólarhringinn möguleg og hraðað uppgjöri, og samstarfsverkefni ICE og OKX undirbýr táknvæðingu hlutabréfa.",
+   "nb": "Kaupr oppsummerer nylig dekning i amerikansk finanspresse og skriver at Barron's, Wall Street Journal, CNBC og Bloomberg alle skrev om tokenisering av aksjer tidlig i oktober. Ifølge denne dekningen kan tokeniserte aksjer gi handel døgnet rundt og raskere oppgjør, og et samarbeid mellom ICE og OKX forbereder tokenisering av aksjer.",
+   "nn": "Kaupr samanfattar nyleg dekning i amerikansk finanspresse og skriv at Barron's, Wall Street Journal, CNBC og Bloomberg alle skreiv om tokenisering av aksjar tidleg i oktober. Ifølgje denne dekninga kan tokeniserte aksjar gje handel døgnet rundt og raskare oppgjer, og eit samarbeid mellom ICE og OKX førebur tokenisering av aksjar.",
+   "sv": "Kaupr sammanfattar den senaste bevakningen i amerikansk finanspress och skriver att Barron's, Wall Street Journal, CNBC och Bloomberg alla skrev om tokenisering av aktier i början av oktober. Enligt den bevakningen kan tokeniserade aktier ge handel dygnet runt och snabbare avveckling, och ett samarbete mellan ICE och OKX förbereder tokenisering av aktier."
   },
   "paywall": false,
   "links": [],
