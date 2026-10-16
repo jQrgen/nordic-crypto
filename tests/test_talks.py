@@ -68,9 +68,10 @@ def main():
 
     state = json.load(open(os.path.join(ROOT, "data", "talks-backfill-state.json"), encoding="utf-8"))
     run = state["runs"][0]
+    added = sum(item.get("new_talks") or 0 for item in state["runs"])
     check(run["date"] == "2026-10-07", "backfill run date", fails)
-    check(run["new_talks"] == len(rows), "backfill new_talks matches the file", fails)
-    check(run["candidates_checked"] >= run["new_talks"], "candidates checked", fails)
+    check(added == len(rows), "backfill new_talks matches the file", fails)
+    check(all(item.get("candidates_checked", 0) >= item.get("new_talks", 0) for item in state["runs"]), "candidates checked", fails)
     check(any(q["status"] == "exhausted" for q in state["coverage"]["queries"]), "some queries exhausted", fails)
     check(any(q["status"] == "sampled" for q in state["coverage"]["queries"]), "some queries sampled", fails)
     check(state["coverage"]["years"]["2008"]["status"] == "not_searched", "2008 not claimed exhausted", fails)

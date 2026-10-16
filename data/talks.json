@@ -2430,6 +2430,612 @@
    "speaker_ids": [
     "spk-roman-mandeleil"
    ]
+  },
+  {
+   "id": "yt-rRYsfIAOpow",
+   "video_url": "https://www.youtube.com/watch?v=rRYsfIAOpow",
+   "platform": "youtube",
+   "title": "Bitcoin:  Breaking new ground in the world of money - Internetdagarna 2014",
+   "speakers": [
+    "Nanok Bie",
+    "Patric Stiller",
+    "Staffan Helgesson",
+    "Ludvig Öberg"
+   ],
+   "event_name": "Internetdagarna 2014",
+   "event_url": "https://internetdagarna.se/",
+   "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "city": null,
+   "country": "SE",
+   "date": null,
+   "published": "2014-11-24",
+   "duration": "PT26M22S",
+   "language": null,
+   "channel": "Internetstiftelsen",
+   "description": "Internetstiftelsen publishes the Internetdagarna 2014 panel on digital currency, with Nanok Bie, Patric Stiller, Staffan Helgesson and Ludvig Öberg.",
+   "source_url": "https://www.youtube.com/watch?v=rRYsfIAOpow&hl=en",
+   "retrieved_at": "2026-10-16T09:45:00Z",
+   "added_at": "2026-10-16T09:45:00Z",
+   "embed": true,
+   "speaker_ids": [
+    "spk-nanok-bie",
+    "spk-patric-stiller",
+    "spk-staffan-helgesson",
+    "spk-ludvig-oberg"
+   ]
+  },
+  {
+   "id": "yt-c1YQ0Lm-TG4",
+   "video_url": "https://www.youtube.com/watch?v=c1YQ0Lm-TG4",
+   "platform": "youtube",
+   "title": "Bitcoin: Sergej Kotliar - Internetdagarna 2014",
+   "speakers": [
+    "Sergej Kotliar"
+   ],
+   "event_name": "Internetdagarna 2014",
+   "event_url": "https://internetdagarna.se/",
+   "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "city": null,
+   "country": "SE",
+   "date": null,
+   "published": "2014-11-24",
+   "duration": "PT19M20S",
+   "language": null,
+   "channel": "Internetstiftelsen",
+   "description": "Sergej Kotliar in the Internetdagarna 2014 session on bitcoin, published by Internetstiftelsen.",
+   "source_url": "https://www.youtube.com/watch?v=c1YQ0Lm-TG4&hl=en",
+   "retrieved_at": "2026-10-16T09:45:00Z",
+   "added_at": "2026-10-16T09:45:00Z",
+   "embed": true,
+   "speaker_ids": [
+    "spk-sergej-kotliar"
+   ]
+  },
+  {
+   "id": "yt-8CScNyu35ME",
+   "video_url": "https://www.youtube.com/watch?v=8CScNyu35ME",
+   "platform": "youtube",
+   "title": "Possibilities of cryptocurrency beyond speculation | Primavera de Filippi | Internetdagarna 2017",
+   "speakers": [
+    "Primavera de Filippi"
+   ],
+   "event_name": "Internetdagarna 2017",
+   "event_url": null,
+   "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "city": null,
+   "country": "SE",
+   "date": null,
+   "published": "2017-11-21",
+   "duration": "PT23M55S",
+   "language": null,
+   "channel": "Internetstiftelsen",
+   "description": "Primavera de Filippi gives a keynote at Internetdagarna 2017 on cryptocurrency beyond speculation. Internetstiftelsen published the recording.",
+   "source_url": "https://www.youtube.com/watch?v=8CScNyu35ME&hl=en",
+   "retrieved_at": "2026-10-16T09:45:00Z",
+   "added_at": "2026-10-16T09:45:00Z",
+   "embed": true,
+   "speaker_ids": [
+    "spk-primavera-de-filippi"
+   ]
+  },
+  {
+   "id": "yt-4A-whJseWvI",
+   "video_url": "https://www.youtube.com/watch?v=4A-whJseWvI",
+   "platform": "youtube",
+   "title": "Bitcoin som pengar｜ Internetdagarna 2016",
+   "speakers": [
+    "Pontus Lindblom"
+   ],
+   "event_name": "Internetdagarna 2016",
+   "event_url": null,
+   "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "city": "Stockholm",
+   "country": "SE",
+   "date": null,
+   "published": "2026-08-03",
+   "duration": "PT30M28S",
+   "language": null,
+   "channel": "Pontus Lindblom",
+   "description": "Pontus Lindblom's own recording of his Internetdagarna 2016 lecture in Stockholm on bitcoin as money, organised by Internetstiftelsen and Svenska Bitcoinföreningen.",
+   "source_url": "https://www.youtube.com/watch?v=4A-whJseWvI&hl=en",
+   "retrieved_at": "2026-10-16T09:45:00Z",
+   "added_at": "2026-10-16T09:45:00Z",
+   "embed": true,
+   "speaker_ids": [
+    "spk-pontus-lindblom"
+   ]
+  },
+  {
+   "id": "yt-GiU4b7ldKMs",
+   "video_url": "https://www.youtube.com/watch?v=GiU4b7ldKMs",
+   "platform": "youtube",
+   "title": "How the Bitcoin Protocol Actually Works • Jan Møller • GOTO 2014",
+   "speakers": [
+    "Jan Møller"
+   ],
+   "event_name": "GOTO Aarhus 2014",
+   "event_url": "http://gotocon.com/aarhus-2014/presentation/How%20the%20Bitcoin%20Protocol%20Actually%20Works",
+   "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "city": "Aarhus",
+   "country": "DK",
+   "date": null,
+   "published": "2015-01-27",
+   "duration": "PT51M31S",
+   "language": null,
+   "channel": "GOTO Conferences",
+   "description": "Jan Møller explains the bitcoin protocol at GOTO Aarhus 2014. GOTO Conferences published the recording.",
+   "source_url": "https://www.youtube.com/watch?v=GiU4b7ldKMs&hl=en",
+   "retrieved_at": "2026-10-16T09:45:00Z",
+   "added_at": "2026-10-16T09:45:00Z",
+   "embed": true,
+   "speaker_ids": [
+    "spk-jan-moller"
+   ]
+  },
+  {
+   "id": "yt-eoGLp7nO1Bo",
+   "video_url": "https://www.youtube.com/watch?v=eoGLp7nO1Bo",
+   "platform": "youtube",
+   "title": "Bitcoin Investors Fireside Chat",
+   "speakers": [],
+   "event_name": "Slush 2014",
+   "event_url": "http://www.slush.org/",
+   "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "city": null,
+   "country": null,
+   "date": null,
+   "published": "2015-02-12",
+   "duration": "PT29M6S",
+   "language": null,
+   "channel": "Slush",
+   "description": "A bitcoin investors fireside chat at Slush 2014, published by Slush. The upload does not name the city.",
+   "source_url": "https://www.youtube.com/watch?v=eoGLp7nO1Bo&hl=en",
+   "retrieved_at": "2026-10-16T09:45:00Z",
+   "added_at": "2026-10-16T09:45:00Z",
+   "embed": true,
+   "speaker_ids": []
+  },
+  {
+   "id": "yt-JLQtEJ-80_c",
+   "video_url": "https://www.youtube.com/watch?v=JLQtEJ-80_c",
+   "platform": "youtube",
+   "title": "Thoughts about the Future Of Bitcoins by Bitcoin Developer, Martti Malmi",
+   "speakers": [
+    "Martti Malmi"
+   ],
+   "event_name": "Slush 2014",
+   "event_url": "http://www.slush.org/",
+   "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "city": null,
+   "country": null,
+   "date": null,
+   "published": "2014-11-23",
+   "duration": "PT19M1S",
+   "language": null,
+   "channel": "Slush",
+   "description": "Martti Malmi speaks about the future of bitcoin at Slush 2014. Slush published the recording. The upload does not name the city.",
+   "source_url": "https://www.youtube.com/watch?v=JLQtEJ-80_c&hl=en",
+   "retrieved_at": "2026-10-16T09:45:00Z",
+   "added_at": "2026-10-16T09:45:00Z",
+   "embed": true,
+   "speaker_ids": [
+    "spk-martti-malmi"
+   ]
+  },
+  {
+   "id": "yt-vefoJLmk88g",
+   "video_url": "https://www.youtube.com/watch?v=vefoJLmk88g",
+   "platform": "youtube",
+   "title": "Escaping war zones with a Bitcoin brain wallet | Frank Schuil | TEDxStockholm",
+   "speakers": [
+    "Frank Schuil"
+   ],
+   "event_name": "TEDxStockholm",
+   "event_url": "http://ted.com/tedx",
+   "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "city": "Stockholm",
+   "country": "SE",
+   "date": null,
+   "published": "2015-03-11",
+   "duration": "PT8M59S",
+   "language": null,
+   "channel": "TEDx Talks",
+   "description": "Frank Schuil speaks at TEDxStockholm about using a bitcoin brain wallet to carry money out of a war zone.",
+   "source_url": "https://www.youtube.com/watch?v=vefoJLmk88g&hl=en",
+   "retrieved_at": "2026-10-16T09:45:00Z",
+   "added_at": "2026-10-16T09:45:00Z",
+   "embed": true,
+   "speaker_ids": [
+    "spk-frank-schuil"
+   ]
+  },
+  {
+   "id": "yt-4lJCE0dzoRs",
+   "video_url": "https://www.youtube.com/watch?v=4lJCE0dzoRs",
+   "platform": "youtube",
+   "title": "Less Trust Is More  Bitcoin, Blockchains, and the Future of Decentralized Technology",
+   "speakers": [
+    "Elizabeth Stark"
+   ],
+   "event_name": "Slush 2016",
+   "event_url": "http://www.slush.org/",
+   "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "city": "Helsinki",
+   "country": "FI",
+   "date": null,
+   "published": "2016-12-02",
+   "duration": "PT16M29S",
+   "language": null,
+   "channel": "Slush",
+   "description": "Elizabeth Stark speaks at Slush 2016 in Helsinki about bitcoin, blockchains and decentralised technology.",
+   "source_url": "https://www.youtube.com/watch?v=4lJCE0dzoRs&hl=en",
+   "retrieved_at": "2026-10-16T09:45:00Z",
+   "added_at": "2026-10-16T09:45:00Z",
+   "embed": true,
+   "speaker_ids": [
+    "spk-elizabeth-stark"
+   ]
+  },
+  {
+   "id": "yt-QPXOVJ2cUNc",
+   "video_url": "https://www.youtube.com/watch?v=QPXOVJ2cUNc",
+   "platform": "youtube",
+   "title": "Mine or Decline: Europe's Energy Reality | Rachel Geyer, EBEA",
+   "speakers": [
+    "Rachel Geyer"
+   ],
+   "event_name": null,
+   "event_url": null,
+   "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "city": "Oslo",
+   "country": "NO",
+   "date": null,
+   "published": "2026-09-17",
+   "duration": "PT52M33S",
+   "language": null,
+   "channel": "Bitcoinpolitisk Institutt Norge",
+   "description": "Rachel Geyer speaks in Oslo for Bitcoinpolitisk Institutt Norge about Europe's power system and a proposed Norwegian ban on bitcoin mining.",
+   "source_url": "https://www.youtube.com/watch?v=QPXOVJ2cUNc&hl=en",
+   "retrieved_at": "2026-10-16T09:45:00Z",
+   "added_at": "2026-10-16T09:45:00Z",
+   "embed": true,
+   "speaker_ids": [
+    "spk-rachel-geyer"
+   ]
+  },
+  {
+   "id": "yt-rqS9YdAm-lM",
+   "video_url": "https://www.youtube.com/watch?v=rqS9YdAm-lM",
+   "platform": "youtube",
+   "title": "Unpublished Cambridge Data: Bitcoin's Emissions Are Falling | Alexander Neumüller, CCAF",
+   "speakers": [
+    "Alexander Neumüller"
+   ],
+   "event_name": null,
+   "event_url": null,
+   "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "city": "Oslo",
+   "country": "NO",
+   "date": null,
+   "published": "2026-09-18",
+   "duration": "PT49M57S",
+   "language": null,
+   "channel": "Bitcoinpolitisk Institutt Norge",
+   "description": "Alexander Neumüller of the Cambridge Centre for Alternative Finance speaks in Oslo for Bitcoinpolitisk Institutt Norge about bitcoin's electricity mix.",
+   "source_url": "https://www.youtube.com/watch?v=rqS9YdAm-lM&hl=en",
+   "retrieved_at": "2026-10-16T09:45:00Z",
+   "added_at": "2026-10-16T09:45:00Z",
+   "embed": true,
+   "speaker_ids": [
+    "spk-alexander-neumuller"
+   ]
+  },
+  {
+   "id": "yt-iT2iG3o4qJM",
+   "video_url": "https://www.youtube.com/watch?v=iT2iG3o4qJM",
+   "platform": "youtube",
+   "title": "Er bitcoin vinnaren av krigen mot Iran? Fra Arendalsuka",
+   "speakers": [
+    "Morten Søberg",
+    "Gunnar Garfors",
+    "Vetle Lunde",
+    "Iver B. Neumann"
+   ],
+   "event_name": "Er bitcoin vinnaren av krigen mot Iran?",
+   "event_url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+   "calendar_event_id": "9177a9451730",
+   "event_id": "9177a9451730",
+   "unlink_reason": null,
+   "city": "Arendal",
+   "country": "NO",
+   "date": "2026-08-10",
+   "published": "2026-09-03",
+   "duration": "PT44M18S",
+   "language": null,
+   "channel": "Bitcoinpolitisk Institutt Norge",
+   "description": "A panel at Arendalsuka on 10 August 2026, hosted by Bitcoinpolitisk Institutt Norge at SpareBank 1 Sør-Norge, on bitcoin and the war against Iran.",
+   "source_url": "https://www.youtube.com/watch?v=iT2iG3o4qJM&hl=en",
+   "retrieved_at": "2026-10-16T09:45:00Z",
+   "added_at": "2026-10-16T09:45:00Z",
+   "embed": true,
+   "speaker_ids": [
+    "spk-morten-soberg",
+    "spk-gunnar-garfors",
+    "spk-vetle-lunde",
+    "spk-iver-b-neumann"
+   ]
+  },
+  {
+   "id": "yt-0q2kmQuA5PE",
+   "video_url": "https://www.youtube.com/watch?v=0q2kmQuA5PE",
+   "platform": "youtube",
+   "title": "The Satoshi Nakamoto Annual Speech",
+   "speakers": [
+    "Thomas Eichenberger"
+   ],
+   "event_name": "Satoshi Nakamoto-årstalen",
+   "event_url": "https://bpinorge.no/blog/satoshi-nakamoto-arstalen/",
+   "calendar_event_id": "9e5346069673",
+   "event_id": "9e5346069673",
+   "unlink_reason": null,
+   "city": "Oslo",
+   "country": "NO",
+   "date": "2026-02-11",
+   "published": "2026-02-13",
+   "duration": "PT46M5S",
+   "language": null,
+   "channel": "Bitcoinpolitisk Institutt Norge",
+   "description": "Thomas Eichenberger gives the first Satoshi Nakamoto annual speech, hosted by Bitcoinpolitisk Institutt Norge at the National Library in Oslo.",
+   "source_url": "https://www.youtube.com/watch?v=0q2kmQuA5PE&hl=en",
+   "retrieved_at": "2026-10-16T09:45:00Z",
+   "added_at": "2026-10-16T09:45:00Z",
+   "embed": true,
+   "speaker_ids": [
+    "spk-thomas-eichenberger"
+   ]
+  },
+  {
+   "id": "yt-7TLMmGGSIOA",
+   "video_url": "https://www.youtube.com/watch?v=7TLMmGGSIOA",
+   "platform": "youtube",
+   "title": "Arendalsuka: Bitcoin-mining i Norge. For vanskelig å forstå, for lett å forby?",
+   "speakers": [
+    "Torbjørn Bull Jenssen",
+    "Silvija Seres",
+    "Sturle Sunde",
+    "Anne Sagstuen Nysæther",
+    "Ingvild Kjerkol",
+    "Anders Lie Brenna"
+   ],
+   "event_name": "Bitcoin-mining i Norge. For vanskelig å forstå, for lett å forby?",
+   "event_url": "https://www.kristiania.no/aktuelt/2025/06/kjor-debatt---arendalsuka/",
+   "calendar_event_id": "0af4e2d6e963",
+   "event_id": "0af4e2d6e963",
+   "unlink_reason": null,
+   "city": "Arendal",
+   "country": "NO",
+   "date": "2025-08-12",
+   "published": "2025-08-12",
+   "duration": "PT59M56S",
+   "language": null,
+   "channel": "Bitcoinpolitisk Institutt Norge",
+   "description": "Bitcoinpolitisk Institutt Norge streams its Arendalsuka panel on bitcoin mining in Norway, with speakers from K33, LØRN, Bitmynt, Elvia, the Storting and EnergiWatch.",
+   "source_url": "https://www.youtube.com/watch?v=7TLMmGGSIOA&hl=en",
+   "retrieved_at": "2026-10-16T09:45:00Z",
+   "added_at": "2026-10-16T09:45:00Z",
+   "embed": true,
+   "speaker_ids": [
+    "torbjorn-bull-jenssen",
+    "spk-silvija-seres",
+    "spk-sturle-sunde",
+    "spk-anne-sagstuen-nysaether",
+    "spk-ingvild-kjerkol",
+    "spk-anders-lie-brenna"
+   ]
+  },
+  {
+   "id": "yt-K4t3AGZaUQg",
+   "video_url": "https://www.youtube.com/watch?v=K4t3AGZaUQg",
+   "platform": "youtube",
+   "title": "Bitcoin på Løvebakken? (Satoshi-samtale nr. 2)",
+   "speakers": [
+    "Morten Søberg",
+    "Ivar Vigdenes"
+   ],
+   "event_name": "Satoshi-samtale",
+   "event_url": null,
+   "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "city": null,
+   "country": "NO",
+   "date": null,
+   "published": "2025-09-28",
+   "duration": "PT58M26S",
+   "language": null,
+   "channel": "Bitcoinpolitisk Institutt Norge",
+   "description": "Morten Søberg chairs a Satoshi conversation for Bitcoinpolitisk Institutt Norge with Ivar Vigdenes on the Storting and bitcoin.",
+   "source_url": "https://www.youtube.com/watch?v=K4t3AGZaUQg&hl=en",
+   "retrieved_at": "2026-10-16T09:45:00Z",
+   "added_at": "2026-10-16T09:45:00Z",
+   "embed": true,
+   "speaker_ids": [
+    "spk-morten-soberg",
+    "spk-ivar-vigdenes"
+   ]
+  },
+  {
+   "id": "yt-NrF-rcWIpsU",
+   "video_url": "https://www.youtube.com/watch?v=NrF-rcWIpsU",
+   "platform": "youtube",
+   "title": "Fløgstad + bitcoin = sant? (Satoshi-samtale nr. 1)",
+   "speakers": [
+    "Kjartan Fløgstad",
+    "Heming H. Gujord",
+    "Morten Søberg"
+   ],
+   "event_name": "Satoshi-samtale",
+   "event_url": null,
+   "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "city": null,
+   "country": "NO",
+   "date": null,
+   "published": "2025-09-04",
+   "duration": "PT52M16S",
+   "language": null,
+   "channel": "Bitcoinpolitisk Institutt Norge",
+   "description": "Kjartan Fløgstad and Heming H. Gujord discuss mining and bitcoin with Morten Søberg in the first Satoshi conversation from Bitcoinpolitisk Institutt Norge.",
+   "source_url": "https://www.youtube.com/watch?v=NrF-rcWIpsU&hl=en",
+   "retrieved_at": "2026-10-16T09:45:00Z",
+   "added_at": "2026-10-16T09:45:00Z",
+   "embed": true,
+   "speaker_ids": [
+    "spk-kjartan-flogstad",
+    "spk-heming-h-gujord",
+    "spk-morten-soberg"
+   ]
+  },
+  {
+   "id": "yt-5ODDCx6VL2Y",
+   "video_url": "https://www.youtube.com/watch?v=5ODDCx6VL2Y",
+   "platform": "youtube",
+   "title": "Bitcoin & Blockchain in Norway - Interview with Andreas M. Antonopoulos",
+   "speakers": [
+    "Andreas M. Antonopoulos",
+    "Stephan Nilsson"
+   ],
+   "event_name": null,
+   "event_url": "https://norgesbitcoinforening.no/intervju-andreas-m-antonopoulos-oslo/",
+   "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not name the event",
+   "city": "Oslo",
+   "country": "NO",
+   "date": "2017-04-27",
+   "published": "2017-06-03",
+   "duration": "PT46M31S",
+   "language": null,
+   "channel": "aantonop",
+   "description": "Stephan Nilsson interviews Andreas M. Antonopoulos about bitcoin and blockchain at Kasbah Hub in Oslo on 27 April 2017.",
+   "source_url": "https://www.youtube.com/watch?v=5ODDCx6VL2Y&hl=en",
+   "retrieved_at": "2026-10-16T09:45:00Z",
+   "added_at": "2026-10-16T09:45:00Z",
+   "embed": true,
+   "speaker_ids": [
+    "spk-andreas-m-antonopoulos",
+    "spk-stephan-nilsson"
+   ]
+  },
+  {
+   "id": "yt-iPnfu4okwr0",
+   "video_url": "https://www.youtube.com/watch?v=iPnfu4okwr0",
+   "platform": "youtube",
+   "title": "Blockchain, ICOs and bitcoins - what are they and why should we care?",
+   "speakers": [
+    "Hampus Jakobsson"
+   ],
+   "event_name": null,
+   "event_url": null,
+   "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "city": "Malmö",
+   "country": "SE",
+   "date": null,
+   "published": "2017-11-13",
+   "duration": "PT1H22M37S",
+   "language": null,
+   "channel": "Minc Malmö",
+   "description": "Hampus Jakobsson introduces blockchain, bitcoin and ICOs. Minc Malmö published the recording.",
+   "source_url": "https://www.youtube.com/watch?v=iPnfu4okwr0&hl=en",
+   "retrieved_at": "2026-10-16T09:45:00Z",
+   "added_at": "2026-10-16T09:45:00Z",
+   "embed": true,
+   "speaker_ids": [
+    "spk-hampus-jakobsson"
+   ]
+  },
+  {
+   "id": "yt-yGmVQIgxSD8",
+   "video_url": "https://www.youtube.com/watch?v=yGmVQIgxSD8",
+   "platform": "youtube",
+   "title": "Towards Safe and Secure Smart Contracts - Bálkakeðjur á miðvikudögum",
+   "speakers": [
+    "Mohammad Hamdaqa"
+   ],
+   "event_name": "Bálkakeðjur á miðvikudögum",
+   "event_url": null,
+   "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "city": null,
+   "country": "IS",
+   "date": null,
+   "published": "2020-10-07",
+   "duration": "PT1H12M46S",
+   "language": null,
+   "channel": "Icelandic Blockchain Foundation",
+   "description": "Mohammad Hamdaqa lectures on smart-contract security in Bálkakeðjur á miðvikudögum, the public series that began at the University of Iceland on 9 September 2020.",
+   "source_url": "https://www.youtube.com/watch?v=yGmVQIgxSD8&hl=en",
+   "retrieved_at": "2026-10-16T09:45:00Z",
+   "added_at": "2026-10-16T09:45:00Z",
+   "embed": true,
+   "speaker_ids": [
+    "spk-mohammad-hamdaqa"
+   ]
+  },
+  {
+   "id": "yt-cL9Uk67wzd8",
+   "video_url": "https://www.youtube.com/watch?v=cL9Uk67wzd8",
+   "platform": "youtube",
+   "title": "Torstein Thinn from Skatteetaten - \"Invisibility in the Crypto Space\"",
+   "speakers": [
+    "Torstein Thinn"
+   ],
+   "event_name": "Oslo Big Data Day 2019",
+   "event_url": null,
+   "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "city": "Oslo",
+   "country": "NO",
+   "date": null,
+   "published": "2019-04-11",
+   "duration": "PT9M48S",
+   "language": null,
+   "channel": "BitSpace",
+   "description": "Torstein Thinn of the Norwegian Tax Administration speaks about tax and cryptocurrency at Oslo Big Data Day 2019.",
+   "source_url": "https://www.youtube.com/watch?v=cL9Uk67wzd8&hl=en",
+   "retrieved_at": "2026-10-16T09:45:00Z",
+   "added_at": "2026-10-16T09:45:00Z",
+   "embed": true,
+   "speaker_ids": [
+    "spk-torstein-thinn"
+   ]
   }
  ]
 }
