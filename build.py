@@ -1129,7 +1129,7 @@ def build():
         n, c = a.rsplit("|", 1)
         if n not in seen: seen.add(n); act.append({"name": n, "country": "NO" if n == "Kaupr" else c})
     json.dump({"active": act}, open(os.path.join(SITE, "data", "sources.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    robots = "User-agent: *\n" + ("Disallow: /\n" if PREVIEW else "Allow: /\n")
+    robots = "User-agent: *\n" + ("Disallow: /\n" if PREVIEW else "Disallow: /admin/\nAllow: /\n")
     if not PREVIEW:
         robots += f"Sitemap: {BASE}sitemap.xml\n"
     open(os.path.join(SITE, "robots.txt"), "w").write(robots)
@@ -1499,6 +1499,7 @@ def sitemap():
             r = os.path.relpath(dp, SITE).replace(os.sep, "/"); r = "" if r == "." else r + "/"
             if r.split("/")[0] in ("kalender", "skjerm", "organisasjonskart", "kilder", "om", "akademia"): continue
             if "crowdfunding" in r.split("/"): continue   # closed pilot: noindex
+            if r.split("/")[0] == "admin": continue          # private admin page: noindex, Disallow
             urls.append(BASE + r)
     for rel in ("api/v1/index.json", "api/v1/openapi.json", "api/v1/schema/index.json", "api/v1/markets.json", "api/v1/markets/aggregated.json", "llms.txt"):
         if os.path.exists(os.path.join(SITE, rel)):
@@ -2187,6 +2188,7 @@ def build_lang(ctx):
     build_changelog()
     build_stats(ctx)
     build_tip()
+    build_admin()
     build_columnist()
     build_newsletter()
     build_rules(ctx)
@@ -3858,6 +3860,97 @@ def tip_onion_block():
     href = o + "/" + LANG + "/"
     return (f'<p class="notice"><b>{E(t("tip_onion_h"))}.</b> {E(t("tip_onion_ready"))} <a href="{E(href)}">{E(t("tip_onion_link"))}</a> '
             f'(<span class="meta">{E(href)}</span>).</p>', f'<meta http-equiv="onion-location" content="{E(href)}">')
+
+def admin_endpoint():
+    """Worker base URL for /api/admin/* (env ADMIN_ENDPOINT, else the newsletter Worker endpoint in newsletter/config.json)."""
+    e = os.environ.get("ADMIN_ENDPOINT") or NL_CFG.get("endpoint") or geo_endpoint()
+    e = (e or "").strip().rstrip("/")
+    return e if re.fullmatch(r"https://[A-Za-z0-9.-]+(?::\d{2,5})?", e) or os.environ.get("ADMIN_ENDPOINT") else None
+
+ADMIN_CSS = """<style>.adm-top{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;justify-content:space-between;margin:0 0 1rem}
+.adm-who{font-family:var(--f-ui);font-size:14px;color:var(--muted)}.adm-who b{color:var(--fg)}
+.adm-tot{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1rem;padding:0;list-style:none}
+.adm-tot li{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:.5rem .8rem;font-family:var(--f-ui);font-size:14px}
+.adm-tot b{display:block;font-size:22px;color:var(--accent)}
+.adm-tools{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin:0 0 .75rem}.adm-tools input,.adm-tools select{max-width:22rem}
+.adm-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+table.adm{border-collapse:collapse;width:100%;font-family:var(--f-ui);font-size:14px}
+table.adm th,table.adm td{padding:.45rem .6rem;border-bottom:1px solid var(--line);text-align:start;white-space:nowrap}
+table.adm th{background:var(--soft);position:sticky;top:0}table.adm th button{font:inherit;font-weight:700;color:var(--fg);background:none;border:0;padding:0;cursor:pointer}
+table.adm th[aria-sort=ascending] button::after{content:" ▲"}table.adm th[aria-sort=descending] button::after{content:" ▼"}
+.adm-st{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12px;font-weight:600}
+.adm-st.confirmed{background:var(--gold);color:var(--on-gold)}.adm-st.pending{background:var(--soft);color:var(--fg);border:1px solid var(--line-strong)}
+.adm-st.unsubscribed{background:transparent;color:var(--muted);border:1px dashed var(--line-strong)}
+#adm-login{max-width:28rem}</style>"""
+
+ADMIN_JS = r"""<script>
+(function(){
+var EP=__EP__, K="nc_admin_session", $=function(i){return document.getElementById(i)};
+function msg(t,warn){var m=$("adm-msg");m.textContent=t||"";m.className=t?("notice"+(warn?" warn":"")):""}
+function sess(){try{var s=JSON.parse(localStorage.getItem(K)||"null");if(s&&s.token&&s.expires*1000>Date.now())return s}catch(e){}localStorage.removeItem(K);return null}
+function api(p,o){o=o||{};o.headers=o.headers||{};var s=sess();if(s)o.headers.Authorization="Bearer "+s.token;if(o.body){o.headers["Content-Type"]="application/json"}o.credentials="omit";o.cache="no-store";return fetch(EP+p,o)}
+function show(which){$("adm-login").hidden=which!=="login";$("adm-app").hidden=which!=="app"}
+var rows=[],key="created_at",dir=-1;
+function cell(v){return v==null?"":String(v)}
+function render(){
+ var q=($("adm-q").value||"").toLowerCase(),st=$("adm-f").value,tb=$("adm-body");tb.textContent="";
+ var list=rows.filter(function(r){return(!st||r.status===st)&&(!q||(r.email+" "+r.lang+" "+r.status+" "+r.issues.join(" ")).toLowerCase().indexOf(q)>=0)});
+ list.sort(function(a,b){var x=a[key],y=b[key];if(key==="issues"){x=a.issues.length;y=b.issues.length}if(x==null)x="";if(y==null)y="";return(x>y?1:x<y?-1:0)*dir});
+ list.forEach(function(r){var tr=document.createElement("tr");
+  [r.email,r.lang,null,cell(r.created_at).slice(0,16).replace("T"," "),cell(r.confirmed_at).slice(0,16).replace("T"," "),r.issues.map(function(n){return"#"+n}).join(" "),r.last_issue==null?"":"#"+r.last_issue].forEach(function(v,i){
+   var td=document.createElement("td");if(i===2){var b=document.createElement("span");b.className="adm-st "+r.status;b.textContent=r.status;td.appendChild(b)}else td.textContent=v;tr.appendChild(td)});
+  tb.appendChild(tr)});
+ $("adm-shown").textContent=list.length+" / "+rows.length;
+ document.querySelectorAll("table.adm th").forEach(function(th){th.setAttribute("aria-sort",th.dataset.k===key?(dir>0?"ascending":"descending"):"none")});
+}
+function load(){api("/api/admin/subscribers").then(function(r){if(r.status===401){localStorage.removeItem(K);show("login");msg("Please sign in again.");return null}return r.json()}).then(function(d){
+ if(!d)return;if(!d.ok){msg("Could not load the list.",1);return}
+ show("app");msg("");$("adm-email").textContent=d.email;rows=d.rows||[];var t=d.totals||{};
+ $("adm-tot").innerHTML="";[["All",t.all],["Confirmed",t.confirmed],["Pending",t.pending],["Unsubscribed",t.unsubscribed],["Deliveries",t.deliveries],["Last issue",d.last_issue==null?"–":"#"+d.last_issue]].forEach(function(p){var li=document.createElement("li"),b=document.createElement("b");b.textContent=p[1]==null?"0":p[1];li.appendChild(b);li.appendChild(document.createTextNode(p[0]));$("adm-tot").appendChild(li)});
+ render()}).catch(function(){msg("The admin service is not reachable.",1)})}
+document.querySelectorAll("table.adm th button").forEach(function(b){b.addEventListener("click",function(){var k=b.parentNode.dataset.k;if(k===key)dir=-dir;else{key=k;dir=1}render()})});
+$("adm-q").addEventListener("input",render);$("adm-f").addEventListener("change",render);
+$("adm-form").addEventListener("submit",function(e){e.preventDefault();var b=$("adm-send");b.disabled=true;
+ api("/api/admin/login",{method:"POST",body:JSON.stringify({email:$("adm-e").value})}).then(function(r){
+  msg(r.status===429?"Too many requests. Try again in 10 minutes.":"If that address may sign in, a link is on its way. It works once, for 15 minutes.",r.status===429)}).catch(function(){msg("The admin service is not reachable.",1)}).finally(function(){b.disabled=false})});
+$("adm-out").addEventListener("click",function(){api("/api/admin/logout",{method:"POST"}).finally(function(){localStorage.removeItem(K);rows=[];show("login");msg("Signed out.")})});
+var t=window.__ncAdminT;window.__ncAdminT=null;
+if(t){msg("Signing in…");fetch(EP+"/api/admin/verify",{method:"POST",credentials:"omit",cache:"no-store",headers:{"Content-Type":"application/json"},body:JSON.stringify({token:t})}).then(function(r){return r.json().then(function(d){return[r,d]})}).then(function(x){
+  if(x[0].ok&&x[1].token){localStorage.setItem(K,JSON.stringify({token:x[1].token,email:x[1].email,expires:x[1].expires}));load()}else{show("login");msg(x[1].error||"The link is invalid, used or expired.",1)}}).catch(function(){show("login");msg("The admin service is not reachable.",1)})}
+else if(sess())load();else show("login");
+})();
+</script>"""
+
+def build_admin():
+    """Private admin page /admin/ (English only): magic-link sign-in for @ADMIN_EMAIL_DOMAIN and the subscriber list from the
+    tip Worker (src/admin.js). noindex, not in any menu, not in sitemap.xml, Disallow in robots.txt. Holds no data itself."""
+    if LANG != "en": return
+    ep = admin_endpoint()
+    # Read the one-time token from the #fragment and remove it from the address bar before any other script runs.
+    grab = ('<meta name="robots" content="noindex, nofollow"><meta name="referrer" content="no-referrer">'
+            '<script>(function(){var m=location.hash.match(/^#t=([A-Za-z0-9_-]{20,200})$/);if(m){window.__ncAdminT=m[1];'
+            'history.replaceState(null,"",location.pathname)}})();</script>' + ADMIN_CSS)
+    if not ep:
+        page("admin", "Admin", "", '<h1>Admin</h1><p class="notice">The admin service is not configured.</p>', "Admin", langs=["en"], head_extra=grab)
+        return
+    body = """<h1>Admin</h1>
+<div id="adm-msg" role="status" aria-live="polite"></div>
+<noscript><p class="notice warn">The admin page needs JavaScript.</p></noscript>
+<section id="adm-login" hidden><p>Sign in with your @nordiccrypto.no address. You get a one-time link by email.</p>
+<form id="adm-form" class="form"><label for="adm-e">Email</label> <input id="adm-e" name="email" type="email" required maxlength="254" autocomplete="email">
+<p><button id="adm-send" class="btn" type="submit">Send sign-in link</button></p></form></section>
+<section id="adm-app" hidden>
+<div class="adm-top"><p class="adm-who">Signed in as <b id="adm-email"></b></p><button id="adm-out" class="btn" type="button">Sign out</button></div>
+<h2>Newsletter subscribers</h2>
+<ul id="adm-tot" class="adm-tot"></ul>
+<div class="adm-tools"><label for="adm-q" class="vh">Search</label><input id="adm-q" type="search" placeholder="Search email, language, issue">
+<label for="adm-f" class="vh">Status</label><select id="adm-f"><option value="">All statuses</option><option>confirmed</option><option>pending</option><option>unsubscribed</option></select>
+<span id="adm-shown" class="adm-who"></span></div>
+<div class="adm-wrap"><table class="adm"><thead><tr><th data-k="email"><button>Email</button></th><th data-k="lang"><button>Lang</button></th>
+<th data-k="status"><button>Status</button></th><th data-k="created_at"><button>Signed up (UTC)</button></th><th data-k="confirmed_at"><button>Confirmed (UTC)</button></th>
+<th data-k="issues"><button>Issues received</button></th><th data-k="last_issue"><button>Last issue</button></th></tr></thead><tbody id="adm-body"></tbody></table></div>
+</section>"""
+    page("admin", "Admin", "", body, "Admin", langs=["en"], head_extra=grab, extra_script=ADMIN_JS.replace("__EP__", json.dumps(ep)))
 
 def build_tip():
     """'Send a tip' page: a private tip to Nordic Crypto's own inbox (tipworker/, D1). Never a public GitHub issue.

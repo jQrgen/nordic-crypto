@@ -17,11 +17,13 @@
 // /api/unsubscribe – see src/newsletter.js (D1 table subscribers, migrations/0003_subscribers.sql) and src/mailer.js.
 // Shoutbox (one shared room, every language): GET/POST /api/shouts, POST /api/shouts/report,
 // GET/POST /api/shouts/admin – see src/shouts.js (migrations/0004_shouts.sql).
+// Admin page (magic link, bearer session, subscriber list): /api/admin/* – see src/admin.js (migrations/0006_admin.sql).
 // Private tip inbox (the /tip/ form, free text, Turnstile): POST /api/private-tip, newsroom GET /api/private-tips and
 // POST /api/private-tips/:id (bearer) – see src/private_tips.js (migrations/0005_private_tips.sql).
 import { postColumnist } from "./columnist.js";
 import { subscribe, confirm, unsubscribe } from "./newsletter.js";
 import { shouts } from "./shouts.js";
+import { admin } from "./admin.js";
 import { postPrivateTip, listPrivateTips, markPrivateTip } from "./private_tips.js";
 import siteUrl from "../../site_url.json" with { type: "json" };
 
@@ -35,7 +37,7 @@ const MAX_BODY = 4096, MAX_NOTE = 1000, MAX_NAME = 100, MAX_URL = 2000;
 const COUNTRIES = new Set(["NO", "SE", "DK", "FI", "IS", "UNSURE"]);
 const RATE_N = 5, RATE_WINDOW = 600;   // max 5 tips per IP per 10 minutes, per scope
 const RATE_GLOBAL_N = 200;             // and max 200 per 10 minutes in total, per scope (spam flood guard)
-const RATE_SCOPES = new Set(["tip", "private", "subscribe", "columnist"]);  // separate buckets: a flood of one endpoint can't lock the others
+const RATE_SCOPES = new Set(["tip", "private", "subscribe", "columnist", "admin"]);  // separate buckets: a flood of one endpoint can't lock the others
 
 const clen = (s) => [...s].length;     // code points, like Python len()
 const ctrl = (s) => s.replace(/[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]/g, "");
@@ -160,6 +162,7 @@ const H = { ORIGINS, send, headers, readCapped, rateOk };
 export default {
   async fetch(req, env) {
     const path = new URL(req.url).pathname;
+    if (path.startsWith("/api/admin/")) return admin(req, env, H, path);   // own CORS: https://nordiccrypto.no only (src/admin.js)
     if (req.method === "OPTIONS") {
       const o = req.headers.get("Origin");
       const preflight = ["/api/tip", "/api/private-tip", "/api/columnist", "/api/subscribe", "/api/shouts", "/api/shouts/report"];

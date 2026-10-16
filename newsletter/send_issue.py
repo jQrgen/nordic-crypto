@@ -166,6 +166,37 @@ def d1_rows(local):
     out = json.loads(p.stdout); out = out if isinstance(out, list) else [out]
     return [r for part in out for r in (part.get("results") or [])]
 
+def issue_number(issue_id):
+    """'001' -> 1. Only --issue sends have a number; --html file sends are not recorded as an issue."""
+    try: n = int(str(issue_id).lstrip("#"))
+    except (TypeError, ValueError): return None
+    return n if 0 < n < 100000 else None
+
+def d1_record(local):
+    """Recorder that writes newsletter_deliveries (migrations/0006_admin.sql) with wrangler, like d1_rows reads."""
+    import subprocess
+    env = dict(os.environ, WRANGLER_SEND_METRICS="false")
+    n22 = os.path.expanduser("~/.local/node22/bin")
+    if os.path.isdir(n22): env["PATH"] = n22 + os.pathsep + env.get("PATH", "")
+    def rec(sub_id, issue):
+        sql = (f"INSERT OR IGNORE INTO newsletter_deliveries (subscriber_id, issue, sent_at) "
+               f"VALUES ({int(sub_id)}, {int(issue)}, strftime('%Y-%m-%dT%H:%M:%S+00:00','now'))")
+        p = subprocess.run(["npx", "--no-install", "wrangler", "d1", "execute", "nordic-crypto-tips",
+                            "--local" if local else "--remote", "--command", sql],
+                           cwd=os.path.join(ROOT, "tipworker"), env=env, capture_output=True, text=True, timeout=180)
+        return p.returncode == 0
+    return rec
+
+def worker_record(env):
+    """Recorder that POSTs to the Worker's /api/admin/deliveries with the ADMIN_DELIVERY_TOKEN secret (for --from-json)."""
+    origin, tok = (env.get("NEWSLETTER_WORKER_ORIGIN") or "").rstrip("/"), env.get("ADMIN_DELIVERY_TOKEN") or ""
+    if not origin.startswith("https://") or len(tok) < 32: return None
+    def rec(sub_id, issue):
+        ok, _ = _post(origin + "/api/admin/deliveries", json.dumps({"deliveries": [{"subscriber_id": int(sub_id), "issue": int(issue)}]}).encode(),
+                      {"Authorization": "Bearer " + tok, "Content-Type": "application/json"})
+        return ok
+    return rec
+
 def ledger_path(key):
     safe = re.sub(r"[^A-Za-z0-9._-]", "-", key)[:80]
     return os.path.join(ROOT, "state", "newsletter", f"sent-{safe}.json")
@@ -180,8 +211,9 @@ def save_ledger(path, ids):
     with os.fdopen(fd, "w", encoding="utf-8") as f: json.dump({"ids": sorted(ids)}, f)
     os.chmod(path, 0o600)
 
-def deliver(rows, bodies, env, sender, dry, ledger, force, sleep_s):
-    """bodies(lang) -> (subject, html_fragment, page). Returns counts. Never prints an address."""
+def deliver(rows, bodies, env, sender, dry, ledger, force, sleep_s, issue=None, record=None):
+    """bodies(lang) -> (subject, html_fragment, page). Returns counts. Never prints an address.
+    issue + record(subscriber_id, issue) -> bool: each successful send is recorded in D1 newsletter_deliveries (admin page)."""
     sent = skipped = failed = 0
     reasons = {}
     done = set() if force else load_ledger(ledger)
@@ -206,12 +238,14 @@ def deliver(rows, bodies, env, sender, dry, ledger, force, sleep_s):
             sent += 1
             if row.get("id") is not None:
                 done.add(row["id"]); save_ledger(ledger, done)
+                if issue and record and not record(row["id"], issue):
+                    reasons["delivery not recorded"] = reasons.get("delivery not recorded", 0) + 1
         else:
             failed += 1; reasons[reason or "send failed"] = reasons.get(reason or "send failed", 0) + 1
         if sleep_s: time.sleep(sleep_s)
     return sent, skipped, failed, reasons
 
-def main(argv=None, sender=None, env=None):
+def main(argv=None, sender=None, env=None, record=None):
     a = argparse.ArgumentParser()
     a.add_argument("--issue"); a.add_argument("--html"); a.add_argument("--text"); a.add_argument("--subject")
     a.add_argument("--lang", choices=LANGS); a.add_argument("--site", default=SITE, choices=[SITE])
@@ -237,7 +271,10 @@ def main(argv=None, sender=None, env=None):
             return subject, fragment, page, extra
         key = "file-" + os.path.basename(o.html)
     if sender is None: sender = provider_send
-    sent, skipped, failed, reasons = deliver(rows, bodies, env, sender, dry, ledger_path(key), o.force, 0 if dry else o.sleep)
+    issue = issue_number(o.issue) if o.issue else None
+    if record is None and issue and not dry:
+        record = worker_record(env) if o.from_json else d1_record(o.local)
+    sent, skipped, failed, reasons = deliver(rows, bodies, env, sender, dry, ledger_path(key), o.force, 0 if dry else o.sleep, issue, record)
     mode = "dry-run" if dry else "sent"
     why = "" if not reasons else " (" + ", ".join(f"{n} {k}" for k, n in sorted(reasons.items())) + ")"
     print(f"send: {mode} {sent}, skipped {skipped}, failed {failed}, confirmed {len(rows)}{why}")
