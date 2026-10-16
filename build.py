@@ -226,6 +226,16 @@ SITE_X = "https://x.com/nordiccryptobot"
 SITE_TELEGRAM = "https://t.me/nordiccryptochat"
 SITE_FACEBOOK = "https://www.facebook.com/profile.php?id=61595548315551"
 SITE_YOUTUBE = "https://www.youtube.com/@NordicCryptoTV"
+# Language-switcher flags: self-hosted SVGs from flag-icons 7.6.0 (MIT, assets/flags/LICENSE), not emoji (Windows has none).
+# A flag stands for a language, not a nationality; languages without one obvious country keep the neutral globe.
+LANG_FLAG = {"en": "gb", "nn": "no", "nb": "no", "sv": "se", "da": "dk", "fi": "fi", "is": "is", "zh": "cn", "hi": "in",
+             "es": "es", "fr": "fr", "ar": None, "bn": "bd", "pt": "pt", "ru": "ru", "ur": "pk", "id": "id", "de": "de",
+             "ja": "jp", "sw": "tz", "mr": "in", "fa": "ir", "uk": "ua"}
+def lang_flag(l, root, lazy=False):
+    c = LANG_FLAG.get(l)
+    lazy = " loading=\"lazy\"" if lazy else ""
+    if not c: return f'<span class="lflag lflag-globe" aria-hidden="true">{ICON_GLOBE}</span>'
+    return f'<img class="lflag" src="{root}assets/flags/{c}.svg" width="20" height="15" alt="" aria-hidden="true" decoding="async"{lazy}>'
 ICON_GLOBE = '<svg class="ico" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>'
 ICON_TG = ('<svg class="ico" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" '
            'd="M21.9 4.3 18.7 19.4c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13 1.4 11.5c-1-.3-1.1-1 .2-1.5L20.5 2.8c.9-.3 1.7.2 1.4 1.5z"/></svg>')
@@ -692,7 +702,7 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
     def _sw(l):
         rtl = ' dir="rtl"' if i18n.rtl(l) else ""
         cur = " aria-current=true" if l == LANG else ""
-        return (f'<li><a href="{root}{lp(l)}{slug + "/" if slug else ""}" hreflang="{l}" lang="{l}"{rtl} data-lang="{l}"{cur}>{E(i18n.NAME[l])}</a></li>')
+        return (f'<li><a href="{root}{lp(l)}{slug + "/" if slug else ""}" hreflang="{l}" lang="{l}"{rtl} data-lang="{l}"{cur}>{lang_flag(l, root, True)}{E(i18n.NAME[l])}</a></li>')
     sw = "".join(_sw(l) for l in langs)
     def _opt(l):
         rtl = ' dir="rtl"' if i18n.rtl(l) else ""
@@ -703,10 +713,10 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
     q = i18n.QUICK.get(LANG)
     quick = (f'<a class="quick" href="{root}{lp(q)}{slug + "/" if slug else ""}" hreflang="{q}" lang="{q}" data-lang="{q}">{E(i18n.NAME[q])}</a>' if q in langs else "")
     # Phones use a native <select> (the iOS picker). Desktop keeps the <details> list. Both list native names.
-    pick_html = (f'<span class="langglobe" aria-hidden="true">{ICON_GLOBE}</span><label class="langpick"><span class="vh">{E(t("lang_choose"))}</span>'
+    pick_html = (f'<span class="langglobe" aria-hidden="true">{lang_flag(LANG, root)}</span><label class="langpick"><span class="vh">{E(t("lang_choose"))}</span>'
                  f'<select class="langsel">{"".join(_opt(l) for l in langs)}</select></label>')
     # the visible language name is part of the accessible name ("Choose language: English"), so voice control finds it
-    switcher = (f'<div class="langsw">{quick}{pick_html}<details><summary>{ICON_GLOBE}<span class="vh">{E(t("lang_choose"))}: </span>{E(i18n.NAME[LANG])}</summary>'
+    switcher = (f'<div class="langsw">{quick}{pick_html}<details><summary>{lang_flag(LANG, root)}<span class="vh">{E(t("lang_choose"))}: </span>{E(i18n.NAME[LANG])}</summary>'
                 f'<ul role="list" aria-label="{E(t("lang_label"))}">{sw}</ul></details></div>')
     nav_btn = (f'<button type="button" class="navtoggle" aria-expanded="false" aria-controls="sitenav" aria-label="{E(t("main_menu"))}">'
                f'<span class="navbars" aria-hidden="true"><span></span><span></span><span></span></span></button>')
@@ -816,7 +826,7 @@ def copy_brand():
     """Crest, favicons, fonts and the token stylesheet. Paths stay relative to the site root."""
     for rel in ("favicon.svg", "favicon.ico", "apple-touch-icon.png", "manifest.webmanifest"):
         copy_repo_file(rel)
-    for folder in ("assets/brand", "assets/fonts", "assets/media", "assets/logo-concepts/responsive"):
+    for folder in ("assets/brand", "assets/fonts", "assets/media", "assets/flags", "assets/logo-concepts/responsive"):
         src = P(folder)
         if not os.path.isdir(src): continue
         for dp, dns, fns in os.walk(src):
