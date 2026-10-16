@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T00:35:30+00:00",
+ "generated_at": "2026-10-16T00:37:53+00:00",
  "preview": false,
  "title": "Nordic Crypto data API",
  "sign_off": "The Nordic Crypto team",
@@ -71,7 +71,7 @@
    "nbx": 41,
    "coinmotion": 20
   },
-  "stats_days": 0
+  "stats_days": 1
  },
  "endpoints": [
   {
