@@ -580,3 +580,4 @@ S.update({
 "cf_api": "Machine-readable list",
 "cf_pp": "Crowdfunding pilot: no donor tracking. The progress bar is read in your browser straight from public Electrum/Rostrum servers (run by Nordic Crypto or third parties, who see your IP address like any website). It asks only for the balance of the project's address; we store nothing about it. Project owners' check data (name, country, contact, sanctions-screening result) is kept by hand, only for the listing and as long as required.",
 })
+S.update({"contact_us": "Contact us", "contact_publisher": "Publisher", "contact_orgnr": "Org. no.", "contact_place": "Oslo, Norway", "contact_email": "Email"})  # Contact us block (contact page, footer)

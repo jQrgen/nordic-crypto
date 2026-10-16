@@ -697,3 +697,4 @@ S.update({
 "dev_nav": "开发者",
 "dev_org_link": "开源开发者",
 })
+S.update({"contact_us": "联系我们", "contact_publisher": "出版方", "contact_orgnr": "组织编号", "contact_place": "挪威奥斯陆", "contact_email": "电子邮件"})  # Contact us block (contact page, footer)

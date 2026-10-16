@@ -697,3 +697,4 @@ S.update({
 "dev_nav": "Desarrolladores",
 "dev_org_link": "Desarrolladores de código abierto",
 })
+S.update({"contact_us": "Contáctanos", "contact_publisher": "Editor", "contact_orgnr": "N.º de organización", "contact_place": "Oslo, Noruega", "contact_email": "Correo electrónico"})  # Contact us block (contact page, footer)

@@ -697,3 +697,4 @@ S.update({
 "dev_nav": "ڈویلپرز",
 "dev_org_link": "اوپن سورس ڈویلپرز",
 })
+S.update({"contact_us": "ہم سے رابطہ کریں", "contact_publisher": "ناشر", "contact_orgnr": "رجسٹریشن نمبر", "contact_place": "اوسلو، ناروے", "contact_email": "ای میل"})  # Contact us block (contact page, footer)

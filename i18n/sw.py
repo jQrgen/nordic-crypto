@@ -697,3 +697,4 @@ S.update({
 "dev_nav": "Wasanidi",
 "dev_org_link": "Wasanidi wa programu huria",
 })
+S.update({"contact_us": "Wasiliana nasi", "contact_publisher": "Mchapishaji", "contact_orgnr": "Nambari ya usajili", "contact_place": "Oslo, Norwe", "contact_email": "Barua pepe"})  # Contact us block (contact page, footer)

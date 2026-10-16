@@ -561,3 +561,4 @@ S.update({
 "cf_api": "Maskinlesbar liste",
 "cf_pp": "Folkefinansieringspiloten: ingen sporing av givere. Fremdriften leses i nettleseren din direkte fra offentlige Electrum/Rostrum-servere (drevet av Nordic Crypto eller tredjeparter, som ser IP-adressen din som et hvilket som helst nettsted). Den spør bare om beholdningen på prosjektets adresse; vi lagrer ingenting om det. Sjekkdata om prosjekteiere (navn, land, kontakt, resultat av sanksjonssøk) føres manuelt, bare for oppføringen og så lenge det kreves.",
 })
+S.update({"contact_us": "Kontakt oss", "contact_publisher": "Utgiver", "contact_orgnr": "Org.nr.", "contact_place": "Oslo, Norge", "contact_email": "E-post"})  # Contact us block (contact page, footer)

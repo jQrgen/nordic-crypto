@@ -503,3 +503,4 @@ S.update({
 "dev_nav": "Forritarar",
 "dev_org_link": "Forritarar með opinn hugbúnað"
 })
+S.update({"contact_us": "Hafðu samband", "contact_publisher": "Útgefandi", "contact_orgnr": "Skráningarnr.", "contact_place": "Osló, Noregi", "contact_email": "Netfang"})  # Contact us block (contact page, footer)
