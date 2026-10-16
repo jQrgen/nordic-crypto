@@ -1,5 +1,5 @@
 {
  "_note": "Newsletter signup on this site. OFF until the tipworker (POST /api/subscribe) is deployed AND jQrgen sets enabled to true. endpoint: the Worker URL, or null to use tipserver/config.json public_endpoint when it is a workers.dev URL. Test builds: NC_NEWSLETTER=1 NEWSLETTER_ENDPOINT=http://127.0.0.1:8789. Confirmed addresses live in the Worker's private D1 table subscribers (not in git). Sending an issue: newsletter/email-list.md and newsletter/send_issue.py.",
- "enabled": false,
+ "enabled": true,
  "endpoint": "https://nordic-crypto-tips.nordiccrypto.workers.dev"
 }
