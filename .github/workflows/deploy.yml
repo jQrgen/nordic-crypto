@@ -81,6 +81,18 @@ jobs:
           NC_PRIVATE_TERMS_JSON: ${{ secrets.NC_PRIVATE_TERMS_JSON }}
         run: python3 tools/ci_write_terms.py
 
+      - name: Import committed JSON into D1
+        # Same step as d1-publish.yml: fold committed data/news.json and events into D1
+        # (idempotent; a newer D1 approval is kept) so a push-triggered D1 build does not drop them.
+        if: vars.NC_DATA_SOURCE == 'd1'
+        env:
+          NC_DATA_SOURCE: d1
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
+          CF_D1_DATABASE_ID: ${{ vars.CF_D1_DATABASE_ID }}
+        run: python3 tools/d1_import.py
+
       - name: Public build
         id: build
         env:
