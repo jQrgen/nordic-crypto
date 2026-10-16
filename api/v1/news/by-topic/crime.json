@@ -1,11 +1,245 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-15T22:47:56+00:00",
+ "generated_at": "2026-10-16T00:29:25+00:00",
  "preview": false,
  "topic": "crime",
- "count": 6,
+ "count": 7,
  "items": [
+  {
+   "id": "5285674a58d8",
+   "url": "https://yle.fi/a/74-20251539?origin=rss",
+   "html_url": "https://nordiccrypto.no/stories/5285674a58d8/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/5285674a58d8.json",
+   "title": "Turkkilaismedia: Suomen etsintäkuuluttama kryptomiljonääri otettu kiinni Turkissa",
+   "title_en": "Turkish media: crypto millionaire wanted by Finland detained in Turkey",
+   "title_i18n": {},
+   "source": "yle",
+   "source_name": "Yle Uutiset",
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/yle.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Yle_Uutiset_Logo_2024.svg",
+    "author": "Yleisradio",
+    "license": "Public domain",
+    "license_url": null,
+    "credit": "Wikimedia Commons",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/yle.png"
+   },
+   "source_note": null,
+   "country": "FI",
+   "language": "Finnish",
+   "language_code": "fi",
+   "published": "2026-10-14T18:28:37+00:00",
+   "topics": [
+    "crime",
+    "tax"
+   ],
+   "summary": "Richard James Schueler, a US crypto millionaire wanted by Finland and also known as Richard Heart, has been detained in Istanbul, according to Turkish media; Yle reports this via STT, citing the Turkish site Daily Sabah and the IHA news agency. The arrest has so far been reported only by Turkish media. The Helsinki District Court remanded Schueler in custody in absentia in September 2024 as a suspect in aggravated tax fraud, and Hämeen Sanomat reports that Helsinki police suspect he avoided about €280 million in taxes in his crypto business.",
+   "summary_i18n": {
+    "da": "Richard James Schueler, en amerikansk kryptomillionær, der er efterlyst af Finland og også kendt som Richard Heart, er anholdt i Istanbul ifølge tyrkiske medier; Yle bringer det via STT med henvisning til det tyrkiske site Daily Sabah og nyhedsbureauet IHA. Anholdelsen er indtil videre kun rapporteret af tyrkiske medier. Helsinki Byret varetægtsfængslede Schueler in absentia i september 2024 som mistænkt for grov skattesvig, og Hämeen Sanomat skriver, at politiet i Helsinki mistænker ham for at have unddraget omkring 280 millioner euro i skat i sin kryptoforretning.",
+    "fi": "Suomen etsintäkuuluttama yhdysvaltalainen kryptomiljonääri Richard James Schueler, joka tunnetaan myös nimellä Richard Heart, on otettu kiinni Istanbulissa turkkilaismedian mukaan; Yle kertoo asiasta STT:n välityksellä turkkilaissivusto Daily Sabahiin ja IHA-uutistoimistoon viitaten. Kiinniotosta ovat toistaiseksi kertoneet vain turkkilaiset tiedotusvälineet. Helsingin käräjäoikeus vangitsi Schuelerin poissaolevana syyskuussa 2024 törkeästä veropetoksesta epäiltynä, ja Hämeen Sanomien mukaan Helsingin poliisi epäilee hänen välttäneen kryptoliiketoiminnassaan noin 280 miljoonan euron verot.",
+    "is": "Richard James Schueler, bandarískur rafmyntamilljónamæringur sem Finnland lýsir eftir og er einnig þekktur sem Richard Heart, hefur verið handtekinn í Istanbúl, samkvæmt tyrkneskum fjölmiðlum; Yle greinir frá þessu í gegnum STT og vísar í tyrkneska vefinn Daily Sabah og fréttastofuna IHA. Enn sem komið er hafa aðeins tyrkneskir fjölmiðlar greint frá handtökunni. Héraðsdómur Helsinki úrskurðaði Schueler í gæsluvarðhald að honum fjarstöddum í september 2024 sem grunaðan um stórfelld skattsvik, og Hämeen Sanomat segir að lögreglan í Helsinki gruni hann um að hafa komist hjá um 280 milljónum evra í sköttum í rafmyntastarfsemi sinni.",
+    "nb": "Richard James Schueler, en amerikansk kryptomillionær som er etterlyst av Finland og også kjent som Richard Heart, er pågrepet i Istanbul, ifølge tyrkiske medier; Yle melder dette via STT med henvisning til det tyrkiske nettstedet Daily Sabah og nyhetsbyrået IHA. Pågripelsen er så langt bare meldt av tyrkiske medier. Helsingfors tingrett varetektsfengslet Schueler in absentia i september 2024 som mistenkt for grovt skattesvik, og Hämeen Sanomat skriver at politiet i Helsingfors mistenker ham for å ha unndratt rundt 280 millioner euro i skatt i kryptovirksomheten sin.",
+    "nn": "Richard James Schueler, ein amerikansk kryptomillionær som er etterlyst av Finland og òg kjend som Richard Heart, er pågripen i Istanbul, ifølgje tyrkiske medium; Yle melder dette via STT med tilvising til den tyrkiske nettstaden Daily Sabah og nyheitsbyrået IHA. Pågripinga er så langt berre meld av tyrkiske medium. Helsingfors tingrett varetektsfengsla Schueler in absentia i september 2024 som mistenkt for grovt skattesvik, og Hämeen Sanomat skriv at politiet i Helsingfors mistenkjer han for å ha unndrege om lag 280 millionar euro i skatt i kryptoverksemda si.",
+    "sv": "Richard James Schueler, en amerikansk kryptomiljonär som är efterlyst av Finland och även känd som Richard Heart, har gripits i Istanbul, enligt turkiska medier; Yle rapporterar detta via STT med hänvisning till den turkiska sajten Daily Sabah och nyhetsbyrån IHA. Gripandet har hittills bara rapporterats av turkiska medier. Helsingfors tingsrätt häktade Schueler i hans frånvaro i september 2024 som misstänkt för grovt skattebedrägeri, och Hämeen Sanomat skriver att Helsingforspolisen misstänker att han undvikit omkring 280 miljoner euro i skatt i sin kryptoverksamhet."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "commons-court",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-court.webp",
+    "width": 960,
+    "height": 663,
+    "alt": "Oslo courthouse, Oslo tinghus.",
+    "source": "Wikimedia Commons",
+    "author": "Mahlum",
+    "license": "Public domain",
+    "license_url": "https://commons.wikimedia.org/wiki/File:Oslo_tinghus.jpg",
+    "url": "https://commons.wikimedia.org/wiki/File:Oslo_tinghus.jpg",
+    "credit": "Photo: Mahlum. Licence: Public domain. Source: Wikimedia Commons.",
+    "modifications": null,
+    "terms": null
+   },
+   "primary_source": {
+    "outlet": "yle",
+    "outlet_name": "Yle Uutiset",
+    "url": "https://yle.fi/a/74-20251539?origin=rss",
+    "title": "Turkkilaismedia: Suomen etsintäkuuluttama kryptomiljonääri otettu kiinni Turkissa",
+    "published": "2026-10-14T18:28:37+00:00",
+    "lang": "Finnish",
+    "language_code": "fi",
+    "country": "FI",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/yle.svg",
+     "source_url": "https://commons.wikimedia.org/wiki/File:Yle_Uutiset_Logo_2024.svg",
+     "author": "Yleisradio",
+     "license": "Public domain",
+     "license_url": null,
+     "credit": "Wikimedia Commons",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/yle.png"
+    }
+   },
+   "primary_source_document": null,
+   "also_covered_by": [
+    {
+     "outlet": "salon-seudun-sanomat",
+     "outlet_name": "Salon Seudun Sanomat",
+     "url": "https://sss.fi/2026/10/turkkilaismedia-suomen-etsintakuuluttama-yhdysvaltalainen-kryptomiljonaari-otettu-kiinni-turkissa",
+     "title": "Turkkilaismedia: Suomen etsintäkuuluttama yhdysvaltalainen kryptomiljonääri otettu kiinni Turkissa",
+     "published": "2026-10-14T18:27:30+00:00",
+     "lang": "Finnish",
+     "language_code": "fi",
+     "country": "FI",
+     "source_type": "national",
+     "paywall": true,
+     "primary": false,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/salon-seudun-sanomat.webp",
+      "source_url": "https://www.sss.fi/wp-content/uploads/2025/02/SSS-teksti-rgb-76.png",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/salon-seudun-sanomat.webp"
+     }
+    },
+    {
+     "outlet": "hameen-sanomat",
+     "outlet_name": "Hämeen Sanomat",
+     "url": "https://hameensanomat.fi/uutissuomalainen/9873377",
+     "title": "Suomen etsintäkuuluttama kryptinen kryptomiljonääri on pidätetty",
+     "published": "2026-10-14T18:11:39+00:00",
+     "lang": "Finnish",
+     "language_code": "fi",
+     "country": "FI",
+     "source_type": "national",
+     "paywall": true,
+     "primary": false,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/hameen-sanomat.webp",
+      "source_url": "https://www.hameensanomat.fi/icon-180.png",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/hameen-sanomat.webp"
+     }
+    }
+   ],
+   "sources": [
+    {
+     "outlet": "yle",
+     "outlet_name": "Yle Uutiset",
+     "url": "https://yle.fi/a/74-20251539?origin=rss",
+     "title": "Turkkilaismedia: Suomen etsintäkuuluttama kryptomiljonääri otettu kiinni Turkissa",
+     "published": "2026-10-14T18:28:37+00:00",
+     "lang": "Finnish",
+     "language_code": "fi",
+     "country": "FI",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/yle.svg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Yle_Uutiset_Logo_2024.svg",
+      "author": "Yleisradio",
+      "license": "Public domain",
+      "license_url": null,
+      "credit": "Wikimedia Commons",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/yle.png"
+     }
+    },
+    {
+     "outlet": "salon-seudun-sanomat",
+     "outlet_name": "Salon Seudun Sanomat",
+     "url": "https://sss.fi/2026/10/turkkilaismedia-suomen-etsintakuuluttama-yhdysvaltalainen-kryptomiljonaari-otettu-kiinni-turkissa",
+     "title": "Turkkilaismedia: Suomen etsintäkuuluttama yhdysvaltalainen kryptomiljonääri otettu kiinni Turkissa",
+     "published": "2026-10-14T18:27:30+00:00",
+     "lang": "Finnish",
+     "language_code": "fi",
+     "country": "FI",
+     "source_type": "national",
+     "paywall": true,
+     "primary": false,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/salon-seudun-sanomat.webp",
+      "source_url": "https://www.sss.fi/wp-content/uploads/2025/02/SSS-teksti-rgb-76.png",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/salon-seudun-sanomat.webp"
+     }
+    },
+    {
+     "outlet": "hameen-sanomat",
+     "outlet_name": "Hämeen Sanomat",
+     "url": "https://hameensanomat.fi/uutissuomalainen/9873377",
+     "title": "Suomen etsintäkuuluttama kryptinen kryptomiljonääri on pidätetty",
+     "published": "2026-10-14T18:11:39+00:00",
+     "lang": "Finnish",
+     "language_code": "fi",
+     "country": "FI",
+     "source_type": "national",
+     "paywall": true,
+     "primary": false,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/hameen-sanomat.webp",
+      "source_url": "https://www.hameensanomat.fi/icon-180.png",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/hameen-sanomat.webp"
+     }
+    }
+   ],
+   "coverage": {
+    "count": 3,
+    "by_country": [
+     {
+      "country": "FI",
+      "count": 3,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 3,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/yle.png"
+  },
   {
    "id": "31ee174aa583",
    "url": "https://nyheter24.se/nyheter/inrikes/1519244-fi-varnar-for-fler-bluffaktorer",

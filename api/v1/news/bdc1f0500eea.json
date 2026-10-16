@@ -1,0 +1,120 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-16T00:29:25+00:00",
+ "preview": false,
+ "item": {
+  "id": "bdc1f0500eea",
+  "url": "https://efn.se/skattesmocka-hotar-tyska-kryptosparare",
+  "html_url": "https://nordiccrypto.no/stories/bdc1f0500eea/",
+  "api_url": "https://nordiccrypto.no/api/v1/news/bdc1f0500eea.json",
+  "title": "Skattesmocka hotar tyska kryptosparare",
+  "title_en": "Germany plans less favourable tax rules for crypto investors",
+  "title_i18n": {},
+  "source": "efn.se",
+  "source_name": "efn",
+  "source_logo": null,
+  "source_note": null,
+  "country": "SE",
+  "language": "Swedish",
+  "language_code": "sv",
+  "published": "2026-10-14T08:30:31+00:00",
+  "topics": [
+   "tax",
+   "policy"
+  ],
+  "summary": "Germany is moving towards tax rules that are less favourable for crypto investments, EFN reports via the news agency Direkt, citing the German newspaper Wirtschaftswoche. According to the report, the government wants to abolish the tax exemption on gains from crypto held for more than a year and to apply a withholding tax instead of individual income tax, and the issue was expected on the agenda of a meeting on Wednesday. Industry representatives are critical of the planned changes.",
+  "summary_i18n": {
+   "da": "Tyskland er på vej mod skatteregler, der er mindre gunstige for kryptoinvesteringer, skriver EFN via nyhedsbureauet Direkt med henvisning til den tyske avis Wirtschaftswoche. Ifølge meldingen vil regeringen afskaffe skattefritagelsen for gevinster på krypto, der er ejet i mere end et år, og anvende kildeskat i stedet for individuel indkomstskat, og sagen var ventet på dagsordenen ved et møde onsdag. Repræsentanter for branchen er kritiske over for de planlagte ændringer.",
+   "fi": "Saksa on ottamassa käyttöön kryptosijoittajille epäedullisempia verosääntöjä, kertoo EFN uutistoimisto Directin välityksellä saksalaiseen Wirtschaftswoche-lehteen viitaten. Tietojen mukaan hallitus haluaa poistaa verovapauden yli vuoden omistetun kryptovaluutan myyntivoitoilta ja soveltaa lähdeveroa henkilökohtaisen tuloveron sijaan, ja asian odotettiin olevan esillä keskiviikon kokouksessa. Alan edustajat suhtautuvat suunniteltuihin muutoksiin kriittisesti.",
+   "is": "Þýskaland stefnir að skattareglum sem eru óhagstæðari fyrir fjárfestingar í rafmyntum, segir EFN í gegnum fréttastofuna Direkt og vísar í þýska blaðið Wirtschaftswoche. Samkvæmt fréttinni vill ríkisstjórnin afnema skattfrelsi á hagnaði af rafmyntum sem haldið hefur verið lengur en eitt ár og beita staðgreiðsluskatti í stað einstaklingsbundins tekjuskatts, og búist var við að málið yrði á dagskrá fundar á miðvikudag. Fulltrúar greinarinnar gagnrýna fyrirhugaðar breytingar.",
+   "nb": "Tyskland er på vei mot skatteregler som er mindre gunstige for kryptoinvesteringer, melder EFN via nyhetsbyrået Direkt med henvisning til den tyske avisen Wirtschaftswoche. Ifølge meldingen vil regjeringen fjerne skattefritaket for gevinst på krypto som er holdt i mer enn ett år, og bruke kildeskatt i stedet for individuell inntektsskatt, og saken var ventet på dagsordenen på et møte onsdag. Representanter for bransjen er kritiske til de planlagte endringene.",
+   "nn": "Tyskland er på veg mot skattereglar som er mindre gunstige for kryptoinvesteringar, melder EFN via nyheitsbyrået Direkt med tilvising til den tyske avisa Wirtschaftswoche. Ifølgje meldinga vil regjeringa fjerne skattefritaket for gevinst på krypto som er halden i meir enn eitt år, og bruke kjeldeskatt i staden for individuell inntektsskatt, og saka var venta på dagsordenen på eit møte onsdag. Representantar for bransjen er kritiske til dei planlagde endringane.",
+   "sv": "Tyskland är på väg att införa skatteregler som är mindre gynnsamma för kryptoinvesteringar, rapporterar EFN via nyhetsbyrån Direkt med hänvisning till den tyska tidningen Wirtschaftswoche. Enligt uppgifterna vill regeringen avskaffa skattebefrielsen för vinster på krypto som innehafts i mer än ett år och tillämpa källskatt i stället för individuell inkomstskatt, och frågan väntades stå på dagordningen vid ett möte på onsdagen. Branschföreträdare är kritiska till de planerade ändringarna."
+  },
+  "paywall": false,
+  "links": [],
+  "own_story": false,
+  "illustration": {
+   "id": "original-regulation",
+   "kind": "original",
+   "file_url": "https://nordiccrypto.no/assets/img/illustrations/original-regulation.webp",
+   "width": 960,
+   "height": 540,
+   "alt": "Abstract blue columns. Nordic Crypto illustration, not a photograph.",
+   "source": "Nordic Crypto",
+   "author": "Nordic Crypto",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "url": "https://cryptonordic.no/ethics/",
+   "credit": "Illustration: Nordic Crypto. Licence: CC0 1.0. Source: Nordic Crypto.",
+   "modifications": null,
+   "terms": null
+  },
+  "primary_source": {
+   "outlet": "efn.se",
+   "outlet_name": "efn",
+   "url": "https://efn.se/skattesmocka-hotar-tyska-kryptosparare",
+   "title": "Skattesmocka hotar tyska kryptosparare",
+   "published": "2026-10-14T08:30:31+00:00",
+   "lang": "Swedish",
+   "language_code": "sv",
+   "country": "SE",
+   "source_type": "national",
+   "paywall": false,
+   "primary": true,
+   "logo": null
+  },
+  "primary_source_document": null,
+  "also_covered_by": [],
+  "sources": [
+   {
+    "outlet": "efn.se",
+    "outlet_name": "efn",
+    "url": "https://efn.se/skattesmocka-hotar-tyska-kryptosparare",
+    "title": "Skattesmocka hotar tyska kryptosparare",
+    "published": "2026-10-14T08:30:31+00:00",
+    "lang": "Swedish",
+    "language_code": "sv",
+    "country": "SE",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": null
+   }
+  ],
+  "coverage": {
+   "count": 1,
+   "by_country": [
+    {
+     "country": "SE",
+     "count": 1,
+     "share": 1.0
+    }
+   ],
+   "by_source_type": [
+    {
+     "type": "national",
+     "count": 1,
+     "share": 1.0
+    },
+    {
+     "type": "regional",
+     "count": 0,
+     "share": 0.0
+    },
+    {
+     "type": "official",
+     "count": 0,
+     "share": 0.0
+    },
+    {
+     "type": "international",
+     "count": 0,
+     "share": 0.0
+    }
+   ]
+  },
+  "source_logo_url": null
+ }
+}

@@ -554,7 +554,7 @@ js.forEach(function(s){var l=document.querySelector('.aclist[data-s="'+s.dataset
 history.replaceState(null,'',c.length?'#country='+c.join(','):location.pathname+location.hash.replace(/#country=.*/,''))}
 var h=new URLSearchParams(location.hash.slice(1));(h.get('country')||'').split(',').forEach(function(x){cc.forEach(function(b){if(b.dataset.c===x)b.setAttribute('aria-pressed','true')})});
 cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');apply()})});
-none.querySelector('[data-clear]').addEventListener('click',function(){cc.forEach(function(b){b.setAttribute('aria-pressed','false')});apply();if(cc[0])cc[0].focus()});apply()})();</script><script>/* Theme helpers shared by every theme: scroll reveal, a reduced-motion flag and a typewriter. */
+none.querySelector('[data-clear]').addEventListener('click',function(){cc.forEach(function(b){b.setAttribute('aria-pressed','false')});apply();if(cc[0])cc[0].focus()});apply()})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;:&quot;3bf5cd0a658d48dea8ee508ce875480d&quot;}"></script><script>/* Theme helpers shared by every theme: scroll reveal, a reduced-motion flag and a typewriter. */
 window.NCT=(function(){
   var still=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
   function $(s,r){return (r||document).querySelector(s)}

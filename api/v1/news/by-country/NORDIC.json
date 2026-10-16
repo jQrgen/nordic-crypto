@@ -1,9 +1,131 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-15T22:47:56+00:00",
+ "generated_at": "2026-10-16T00:29:25+00:00",
  "preview": false,
  "country": "NORDIC",
- "count": 0,
- "items": []
+ "count": 1,
+ "items": [
+  {
+   "id": "a6a0354d9d9a",
+   "url": "https://explorer.nordiccrypto.no/bch/",
+   "html_url": "https://nordiccrypto.no/stories/a6a0354d9d9a/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/a6a0354d9d9a.json",
+   "title": "Nordic Crypto publishes its own block explorer for Bitcoin Cash and Nexa",
+   "title_en": null,
+   "title_i18n": {
+    "nn": "Nordic Crypto publiserer sin eigen blokkutforskar for Bitcoin Cash og Nexa",
+    "nb": "Nordic Crypto publiserer sin egen blokkutforsker for Bitcoin Cash og Nexa",
+    "sv": "Nordic Crypto publicerar sin egen blockutforskare för Bitcoin Cash och Nexa",
+    "da": "Nordic Crypto udgiver sin egen blokudforsker for Bitcoin Cash og Nexa",
+    "fi": "Nordic Crypto julkaisee oman lohkoselaimensa Bitcoin Cashille ja Nexalle",
+    "is": "Nordic Crypto birtir eigin bálkaskoðara fyrir Bitcoin Cash og Nexa"
+   },
+   "source": "nordic-crypto",
+   "source_name": "Nordic Crypto",
+   "source_logo": null,
+   "source_note": null,
+   "country": "NORDIC",
+   "language": "English",
+   "language_code": "en",
+   "published": "2026-10-12T20:00:00+00:00",
+   "topics": [
+    "crypto",
+    "blockchain"
+   ],
+   "summary": "Nordic Crypto has published a block explorer it runs itself, at https://explorer.nordiccrypto.no, and this item is an announcement about that product, not a report from another newsroom. Bitcoin Cash is the default and opens at /bch/, and Nexa is at /nexa/. The site is a static export: the browser reads live chain data from Nordic Crypto's own servers first, wss://electrum-bch.nordiccrypto.no:50004 (Fulcrum) for Bitcoin Cash and wss://electrum-nexa.nordiccrypto.no:20004 (Rostrum) for Nexa, then the same hosts on port 443, then the public servers bch.imaginary.cash, cashnode.bch.ninja and electrum.nexa.org, and if none answer the page says it could not reach chain servers. Live CoinGecko prices are shown in NOK, SEK, DKK, EUR and USD, a fee rate is shown in satoshis per byte and, when a price is known, as the approximate cost in the chosen fiat of a transaction of about 250 bytes, and if that request fails the amounts stay in the coin; there is no charge, no advertising and no tracking cookies, and the colour theme and the chosen fiat stay in the browser's local storage.",
+   "summary_i18n": {
+    "da": "Nordic Crypto har udgivet en blokudforsker, som Nordic Crypto selv driver, på https://explorer.nordiccrypto.no, og dette er en meddelelse om dette produkt, ikke en sag fra en anden redaktion. Bitcoin Cash er standard og åbner på /bch/, og Nexa ligger på /nexa/. Webstedet er en statisk eksport: browseren læser kædedata direkte fra Nordic Cryptos egne servere først, wss://electrum-bch.nordiccrypto.no:50004 (Fulcrum) for Bitcoin Cash og wss://electrum-nexa.nordiccrypto.no:20004 (Rostrum) for Nexa, derefter de samme værter på port 443, derefter de offentlige servere bch.imaginary.cash, cashnode.bch.ninja og electrum.nexa.org, og hvis ingen svarer, siger siden, at den ikke nåede kædeserverne. Priser fra CoinGecko vises i NOK, SEK, DKK, EUR og USD, en gebyrsats vises i satoshi per byte og, når en pris er kendt, som den omtrentlige omkostning i den valgte fiatvaluta for en transaktion på omkring 250 byte, og hvis prisforespørgslen fejler, bliver beløbene stående i mønten; det koster ikke noget, der er ingen reklame og ingen sporingscookies, og farvetemaet og den valgte fiatvaluta ligger i browserens lokale lagring.",
+    "fi": "Nordic Crypto on julkaissut lohkoselaimen, jota Nordic Crypto itse ylläpitää, osoitteessa https://explorer.nordiccrypto.no, ja tämä on ilmoitus siitä tuotteesta, ei uutinen toisesta toimituksesta. Bitcoin Cash on oletus ja avautuu polussa /bch/, ja Nexa on polussa /nexa/. Sivusto on staattinen vienti: selain lukee ketjudataa suoraan ensin Nordic Crypton omilta palvelimilta, Bitcoin Cashille osoitteesta wss://electrum-bch.nordiccrypto.no:50004 (Fulcrum) ja Nexalle osoitteesta wss://electrum-nexa.nordiccrypto.no:20004 (Rostrum), sitten samoilta koneilta portista 443, sitten julkisilta palvelimilta bch.imaginary.cash, cashnode.bch.ninja ja electrum.nexa.org, ja jos yksikään ei vastaa, sivu kertoo, ettei se tavoittanut ketjupalvelimia. CoinGeckon hinnat näkyvät valuutoissa NOK, SEK, DKK, EUR ja USD, palkkiotaso näytetään satosheja tavua kohti ja, kun hinta on tiedossa, likimääräisenä kustannuksena valitussa fiat-valuutassa noin 250 tavun siirrolle, ja jos hintapyyntö epäonnistuu summat jäävät kolikkoon; käyttö on maksutonta, mainoksia ei ole eikä seurantaevästeitä, ja väriteema sekä valittu fiat-valuutta säilyvät selaimen paikallisessa tallennuksessa.",
+    "is": "Nordic Crypto hefur birt bálkaskoðara sem Nordic Crypto rekur sjálft, á https://explorer.nordiccrypto.no, og þetta er tilkynning um þá vöru, ekki frétt frá annarri ritstjórn. Bitcoin Cash er sjálfgefið og opnast á /bch/, og Nexa er á /nexa/. Vefurinn er kyrrstæður útflutningur: vafrinn les keðjugögn beint frá eigin netþjónum Nordic Crypto fyrst, wss://electrum-bch.nordiccrypto.no:50004 (Fulcrum) fyrir Bitcoin Cash og wss://electrum-nexa.nordiccrypto.no:20004 (Rostrum) fyrir Nexa, síðan sömu vélum á gátt 443, síðan opinberu netþjónunum bch.imaginary.cash, cashnode.bch.ninja og electrum.nexa.org, og ef enginn svarar segir síðan að hún hafi ekki náð keðjuþjónum. Verð frá CoinGecko birtast í NOK, SEK, DKK, EUR og USD, gjaldhlutfall birtist í satoshíum á bæti og, þegar verð er þekkt, sem áætlaður kostnaður í völdum fiat-gjaldmiðli fyrir færslu sem er um 250 bæti, og ef verðfyrirspurn mistekst standa upphæðirnar eftir í myntinni; það kostar ekkert, engar auglýsingar eru og engar rakningarkökur, og litastef og valinn fiat-gjaldmiðill geymast í staðbundinni vistun vafrans.",
+    "nb": "Nordic Crypto har publisert en blokkutforsker som Nordic Crypto selv driver, på https://explorer.nordiccrypto.no, og dette er en kunngjøring om det produktet, ikke en sak fra en annen redaksjon. Bitcoin Cash er standard og åpner på /bch/, og Nexa ligger på /nexa/. Nettstedet er en statisk eksport: nettleseren leser kjededata direkte fra Nordic Cryptos egne servere først, wss://electrum-bch.nordiccrypto.no:50004 (Fulcrum) for Bitcoin Cash og wss://electrum-nexa.nordiccrypto.no:20004 (Rostrum) for Nexa, deretter de samme vertene på port 443, deretter de offentlige serverne bch.imaginary.cash, cashnode.bch.ninja og electrum.nexa.org, og hvis ingen svarer sier siden at den ikke nådde kjedeserverne. Priser fra CoinGecko vises i NOK, SEK, DKK, EUR og USD, en gebyrsats vises i satoshi per byte og, når en pris er kjent, som den omtrentlige kostnaden i den valgte fiatvalutaen for en transaksjon på om lag 250 byte, og hvis prisforespørselen feiler blir beløpene stående i mynten; det koster ingenting, det er ingen reklame og ingen sporingskapsler, og fargetemaet og den valgte fiatvalutaen ligger i lokal lagring i nettleseren.",
+    "nn": "Nordic Crypto har publisert ein blokkutforskar som Nordic Crypto sjølv driv, på https://explorer.nordiccrypto.no, og dette er ei kunngjering om det produktet, ikkje ei sak frå ein annan redaksjon. Bitcoin Cash er standard og opnar på /bch/, og Nexa ligg på /nexa/. Nettstaden er ein statisk eksport: nettlesaren les kjede-data direkte frå dei eigne serverane til Nordic Crypto først, wss://electrum-bch.nordiccrypto.no:50004 (Fulcrum) for Bitcoin Cash og wss://electrum-nexa.nordiccrypto.no:20004 (Rostrum) for Nexa, deretter dei same vertane på port 443, deretter dei offentlege serverane bch.imaginary.cash, cashnode.bch.ninja og electrum.nexa.org, og viss ingen svarar seier sida at han ikkje nådde kjedeserverane. Prisar frå CoinGecko vert viste i NOK, SEK, DKK, EUR og USD, ein gebyrsats vert vist i satoshi per byte og, når ein pris er kjend, som den omtrentlege kostnaden i den valde fiatvalutaen for ein transaksjon på om lag 250 byte, og viss prisførespurnaden feilar vert beløpa ståande i mynten; det kostar ingenting, det er ingen reklame og ingen sporingsinformasjonskapslar, og fargetemaet og den valde fiatvalutaen ligg i lokal lagring i nettlesaren.",
+    "sv": "Nordic Crypto har publicerat en blockutforskare som Nordic Crypto själv driver, på https://explorer.nordiccrypto.no, och det här är ett tillkännagivande om den produkten, inte en nyhet från en annan redaktion. Bitcoin Cash är standard och öppnas på /bch/, och Nexa finns på /nexa/. Webbplatsen är en statisk export: webbläsaren läser kedjedata direkt från Nordic Cryptos egna servrar först, wss://electrum-bch.nordiccrypto.no:50004 (Fulcrum) för Bitcoin Cash och wss://electrum-nexa.nordiccrypto.no:20004 (Rostrum) för Nexa, därefter samma värdar på port 443, därefter de publika servrarna bch.imaginary.cash, cashnode.bch.ninja och electrum.nexa.org, och om ingen svarar säger sidan att den inte nådde kedjeservrarna. Priser från CoinGecko visas i NOK, SEK, DKK, EUR och USD, en avgiftssats visas i satoshi per byte och, när ett pris är känt, som den ungefärliga kostnaden i den valda fiatvalutan för en transaktion på omkring 250 byte, och om prisförfrågan misslyckas står beloppen kvar i myntet; det kostar inget, det finns ingen reklam och inga spårningskakor, och färgtemat och den valda fiatvalutan ligger i webbläsarens lokala lagring."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "original-crypto",
+    "kind": "original",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/original-crypto.webp",
+    "width": 960,
+    "height": 540,
+    "alt": "Abstract chain of four blocks. Nordic Crypto illustration.",
+    "source": "Nordic Crypto",
+    "author": "Nordic Crypto",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "url": "https://cryptonordic.no/ethics/",
+    "credit": "Illustration: Nordic Crypto. Licence: CC0 1.0. Source: Nordic Crypto.",
+    "modifications": null,
+    "terms": null
+   },
+   "primary_source": {
+    "outlet": "nordic-crypto",
+    "outlet_name": "Nordic Crypto",
+    "url": "https://explorer.nordiccrypto.no/bch/",
+    "title": "Nordic Crypto publishes its own block explorer for Bitcoin Cash and Nexa",
+    "published": "2026-10-12T20:00:00+00:00",
+    "lang": "English",
+    "language_code": "en",
+    "country": "NORDIC",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": null
+   },
+   "primary_source_document": null,
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "nordic-crypto",
+     "outlet_name": "Nordic Crypto",
+     "url": "https://explorer.nordiccrypto.no/bch/",
+     "title": "Nordic Crypto publishes its own block explorer for Bitcoin Cash and Nexa",
+     "published": "2026-10-12T20:00:00+00:00",
+     "lang": "English",
+     "language_code": "en",
+     "country": "NORDIC",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": null
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NORDIC",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": null
+  }
+ ]
 }

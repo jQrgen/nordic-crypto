@@ -1,11 +1,125 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-15T22:47:56+00:00",
+ "generated_at": "2026-10-16T00:29:25+00:00",
  "preview": false,
  "topic": "bitcoin",
- "count": 3,
+ "count": 4,
  "items": [
+  {
+   "id": "d58de33a2af7",
+   "url": "https://investornytt.no/krypto/pengene-renner-ut-av-bitcoin-lunde-ser-begrenset-nedside/547483",
+   "html_url": "https://nordiccrypto.no/stories/d58de33a2af7/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/d58de33a2af7.json",
+   "title": "Bitcoin presses av rekordstore uttak",
+   "title_en": "K33: Bitcoin outflows are heavy, but low leverage limits the downside",
+   "title_i18n": {},
+   "source": "investornytt",
+   "source_name": "Investornytt",
+   "source_logo": null,
+   "source_note": null,
+   "country": "NO",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-10-13T15:04:51+00:00",
+   "topics": [
+    "bitcoin",
+    "business"
+   ],
+   "summary": "Exchange-traded bitcoin products saw net outflows of 10,064 bitcoin in five days, the largest since 15 September, as bitcoin fell from USD 86,000 to below USD 80,500, according to K33's weekly report as covered by Investornytt. K33's head of analysis attributes the fall mainly to a broader flight from risk. According to K33's weekly report, open positions in perpetual futures are at a five-month low, which makes forced liquidations unlikely, and K33 still considers bitcoin attractively priced with limited downside.",
+   "summary_i18n": {
+    "da": "Børsnoterede bitcoinprodukter havde nettoudtræk på 10.064 bitcoin på fem dage, det største siden 15. september, mens bitcoin faldt fra 86.000 til under 80.500 dollar, ifølge K33's ugerapport, som Investornytt omtaler. K33's analysechef mener, at faldet hovedsageligt skyldes en bredere flugt fra risiko. Ifølge K33's ugerapport er åbne positioner i evigtvarende futures på det laveste niveau i fem måneder, hvilket gør tvangslukninger usandsynlige, og K33 vurderer stadig bitcoin som attraktivt prissat med begrænset nedside.",
+    "fi": "Pörssinoteeratuista bitcoin-tuotteista vedettiin viidessä päivässä nettona 10 064 bitcoinia, eniten sitten 15. syyskuuta, kun bitcoin laski 86 000 dollarista alle 80 500 dollarin, kertoo K33:n viikkoraportti Investornytin uutisoimana. K33:n analyysijohtajan mukaan lasku johtuu pääasiassa laajemmasta riskipaosta. K33:n viikkoraportin mukaan avoimet positiot ikuisissa futuureissa ovat viiden kuukauden pohjalla, mikä tekee pakkolikvidaatiot epätodennäköisiksi, ja K33 pitää bitcoinia yhä houkuttelevasti hinnoiteltuna ja laskuvaraa rajallisena.",
+    "is": "Kauphallarskráðar bitcoin-vörur urðu fyrir nettóútflæði upp á 10.064 bitcoin á fimm dögum, því mesta síðan 15. september, á meðan bitcoin féll úr 86.000 í undir 80.500 dollara, samkvæmt vikuskýrslu K33 eins og Investornytt greinir frá. Greiningarstjóri K33 rekur lækkunina einkum til almenns flótta frá áhættu. Samkvæmt vikuskýrslu K33 eru opnar stöður í ótímabundnum framvirkum samningum í fimm mánaða lágmarki, sem gerir nauðungarlokanir ólíklegar, og K33 telur bitcoin enn aðlaðandi verðlagt með takmarkaða lækkunarhættu.",
+    "nb": "Børsnoterte bitcoin-produkter hadde netto uttak på 10 064 bitcoin på fem dager, det største siden 15. september, mens bitcoin falt fra 86 000 til under 80 500 dollar, ifølge K33s ukesrapport slik Investornytt omtaler den. Analysesjefen i K33 mener fallet hovedsakelig skyldes en bredere flukt fra risiko. Ifølge K33s ukesrapport er åpne posisjoner i evigvarende terminkontrakter på en femmåneders bunn, noe som gjør tvangslukking lite sannsynlig, og K33 mener fortsatt at bitcoin er attraktivt priset med begrenset nedside.",
+    "nn": "Børsnoterte bitcoin-produkt hadde netto uttak på 10 064 bitcoin på fem dagar, det største sidan 15. september, medan bitcoin fall frå 86 000 til under 80 500 dollar, ifølgje K33s vekerapport slik Investornytt omtaler han. Analysesjefen i K33 meiner fallet hovudsakleg kjem av ei breiare flukt frå risiko. Ifølgje K33s vekerapport er opne posisjonar i evigvarande terminkontraktar på eit femmånaders botnnivå, noko som gjer tvangslukking lite sannsynleg, og K33 meiner framleis at bitcoin er attraktivt prisa med avgrensa nedside.",
+    "sv": "Börshandlade bitcoinprodukter hade nettoutflöden på 10 064 bitcoin på fem dagar, det största sedan den 15 september, medan bitcoin föll från 86 000 till under 80 500 dollar, enligt K33:s veckorapport som Investornytt återger. K33:s analyschef menar att fallet främst beror på en bredare flykt från risk. Enligt K33:s veckorapport är öppna positioner i eviga terminskontrakt på den lägsta nivån på fem månader, vilket gör tvångslikvideringar osannolika, och K33 anser fortfarande att bitcoin är attraktivt prissatt med begränsad nedsida."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "commons-bitcoin",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-bitcoin.webp",
+    "width": 365,
+    "height": 872,
+    "alt": "A physical bitcoin token in a clear case.",
+    "source": "Wikimedia Commons",
+    "author": "Heuboden",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "url": "https://commons.wikimedia.org/wiki/File:Bitcoin_coin_in_plastic_packaging.jpg",
+    "credit": "Photo: Heuboden. Licence: CC BY-SA 4.0. Source: Wikimedia Commons. Cropped.",
+    "modifications": "Cropped by Nordic Crypto to leave out a person at the edge of the frame.",
+    "terms": null
+   },
+   "primary_source": {
+    "outlet": "investornytt",
+    "outlet_name": "Investornytt",
+    "url": "https://investornytt.no/krypto/pengene-renner-ut-av-bitcoin-lunde-ser-begrenset-nedside/547483",
+    "title": "Bitcoin presses av rekordstore uttak",
+    "published": "2026-10-13T15:04:51+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": null
+   },
+   "primary_source_document": null,
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "investornytt",
+     "outlet_name": "Investornytt",
+     "url": "https://investornytt.no/krypto/pengene-renner-ut-av-bitcoin-lunde-ser-begrenset-nedside/547483",
+     "title": "Bitcoin presses av rekordstore uttak",
+     "published": "2026-10-13T15:04:51+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": null
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": null
+  },
   {
    "id": "47156e99927b",
    "url": "https://kaupr.io/nyheter/ace-digital-tjente-6-3-millioner-kroner-i-tredje-kvartal",

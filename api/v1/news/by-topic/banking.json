@@ -1,11 +1,408 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-15T22:47:56+00:00",
+ "generated_at": "2026-10-16T00:29:25+00:00",
  "preview": false,
  "topic": "banking",
- "count": 3,
+ "count": 6,
  "items": [
+  {
+   "id": "e7665f6b5021",
+   "url": "https://realtid.se/bors-finans/bank-fintech/kryptojatten-koper-bank-med-svenska-sparkunder",
+   "html_url": "https://nordiccrypto.no/stories/e7665f6b5021/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/e7665f6b5021.json",
+   "title": "Kryptojätten köper bank med svenska sparkunder",
+   "title_en": "Kraken owner buys bank with Swedish savings customers",
+   "title_i18n": {},
+   "source": "realtid",
+   "source_name": "Realtid",
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/realtid.svg",
+    "source_url": "https://www.realtid.se/_next/static/media/logo.1b3426b7.svg",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
+   },
+   "source_note": null,
+   "country": "SE",
+   "language": "Swedish",
+   "language_code": "sv",
+   "published": "2026-10-14T14:47:19+00:00",
+   "topics": [
+    "business",
+    "banking"
+   ],
+   "summary": "Payward, the US company behind crypto exchange Kraken, is buying Lithuania's Saldo Bank, which has held an EU banking licence since 2021 and offers savings accounts and other services to customers in countries including Sweden, Realtid reports, citing the Financial Times. According to the FT, the deal would make Payward the first company in the digital-asset sector to buy a bank in Europe, and the bank is meant to help it develop lending and payment cards. The acquisition requires regulatory approval and is expected to be completed in 2027.",
+   "summary_i18n": {
+    "da": "Payward, det amerikanske selskab bag kryptobørsen Kraken, køber den litauiske bank Saldo Bank, som har haft EU-banklicens siden 2021 og tilbyder opsparingskonti og andre tjenester til kunder i blandt andet Sverige, skriver Realtid med henvisning til Financial Times. Ifølge FT bliver Payward dermed det første selskab i sektoren for digitale aktiver, der køber en bank i Europa, og banken skal hjælpe selskabet med at udvikle udlån og betalingskort. Opkøbet kræver myndighedsgodkendelse og ventes afsluttet i 2027.",
+    "fi": "Kryptopörssi Krakenin taustalla oleva yhdysvaltalainen Payward ostaa liettualaisen Saldo Bankin, jolla on ollut EU:n pankkitoimilupa vuodesta 2021 ja joka tarjoaa säästötilejä ja muita palveluja asiakkaille muun muassa Ruotsissa, kertoo Realtid Financial Timesiin viitaten. FT:n mukaan Paywardista tulee näin ensimmäinen digitaalisten varojen alan yhtiö, joka ostaa pankin Euroopasta, ja pankin on määrä auttaa sitä kehittämään luotonantoa ja maksukortteja. Kauppa edellyttää viranomaishyväksyntää, ja sen odotetaan toteutuvan vuonna 2027.",
+    "is": "Payward, bandaríska félagið á bak við rafmyntakauphöllina Kraken, kaupir litháíska bankann Saldo Bank, sem hefur haft bankaleyfi í ESB frá 2021 og býður sparireikninga og aðra þjónustu viðskiptavinum m.a. í Svíþjóð, segir Realtid og vísar í Financial Times. Samkvæmt FT verður Payward þar með fyrsta fyrirtækið í geira stafrænna eigna til að kaupa banka í Evrópu, og bankinn á að hjálpa félaginu að þróa útlán og greiðslukort. Kaupin eru háð samþykki eftirlitsaðila og er gert ráð fyrir að þeim ljúki árið 2027.",
+    "nb": "Payward, det amerikanske selskapet bak kryptobørsen Kraken, kjøper den litauiske banken Saldo Bank, som har hatt EU-banklisens siden 2021 og tilbyr sparekontoer og andre tjenester til kunder i blant annet Sverige, melder Realtid med henvisning til Financial Times. Ifølge FT blir Payward dermed det første selskapet i sektoren for digitale eiendeler som kjøper en bank i Europa, og banken skal hjelpe selskapet med å utvikle utlån og betalingskort. Oppkjøpet krever godkjenning fra myndighetene og ventes fullført i 2027.",
+    "nn": "Payward, det amerikanske selskapet bak kryptobørsen Kraken, kjøper den litauiske banken Saldo Bank, som har hatt EU-banklisens sidan 2021 og tilbyr sparekontoar og andre tenester til kundar i mellom anna Sverige, melder Realtid med tilvising til Financial Times. Ifølgje FT blir Payward med dette det første selskapet i sektoren for digitale eigedelar som kjøper ein bank i Europa, og banken skal hjelpe selskapet å utvikle utlån og betalingskort. Oppkjøpet krev godkjenning frå styresmaktene og er venta fullført i 2027.",
+    "sv": "Payward, det amerikanska bolaget bakom kryptobörsen Kraken, köper den litauiska banken Saldo Bank, som haft EU-banklicens sedan 2021 och erbjuder sparkonton och andra tjänster till kunder i bland annat Sverige, rapporterar Realtid med hänvisning till Financial Times. Enligt FT blir Payward därmed det första bolaget inom sektorn för digitala tillgångar att köpa en bank i Europa, och banken ska hjälpa bolaget att utveckla utlåning och betalkort. Förvärvet kräver myndighetsgodkännanden och väntas slutföras under 2027."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "official-riksbank",
+    "kind": "official-press",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/official-riksbank.webp",
+    "width": 960,
+    "height": 640,
+    "alt": "The Riksbank building in Stockholm.",
+    "source": "Sveriges Riksbank",
+    "author": "Sveriges Riksbank",
+    "license": "Free use, credit Sveriges Riksbank",
+    "license_url": "https://www.riksbank.se/sv/press-och-publicerat/presskontakt/bildbank/riksbankshuset/",
+    "url": "https://www.riksbank.se/sv/press-och-publicerat/presskontakt/bildbank/riksbankshuset/",
+    "credit": "Photo: Sveriges Riksbank. Licence: Free use, credit Sveriges Riksbank. Source: Sveriges Riksbank.",
+    "modifications": null,
+    "terms": "Checked 2026-10-06. The Riksbank image bank says these pictures may be downloaded and used freely if Sveriges Riksbank is credited. Pictures of banknotes and coins on the same site are not free in that way and are not used. This file is the building, scaled to 960 pixels wide and saved as WebP. It is not cropped or recoloured."
+   },
+   "primary_source": {
+    "outlet": "realtid",
+    "outlet_name": "Realtid",
+    "url": "https://realtid.se/bors-finans/bank-fintech/kryptojatten-koper-bank-med-svenska-sparkunder",
+    "title": "Kryptojätten köper bank med svenska sparkunder",
+    "published": "2026-10-14T14:47:19+00:00",
+    "lang": "Swedish",
+    "language_code": "sv",
+    "country": "SE",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/realtid.svg",
+     "source_url": "https://www.realtid.se/_next/static/media/logo.1b3426b7.svg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
+    }
+   },
+   "primary_source_document": null,
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "realtid",
+     "outlet_name": "Realtid",
+     "url": "https://realtid.se/bors-finans/bank-fintech/kryptojatten-koper-bank-med-svenska-sparkunder",
+     "title": "Kryptojätten köper bank med svenska sparkunder",
+     "published": "2026-10-14T14:47:19+00:00",
+     "lang": "Swedish",
+     "language_code": "sv",
+     "country": "SE",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/realtid.svg",
+      "source_url": "https://www.realtid.se/_next/static/media/logo.1b3426b7.svg",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
+     }
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
+  },
+  {
+   "id": "86fc6577147d",
+   "url": "https://finanswatch.no/nyheter/fintech/article19736366.ece",
+   "html_url": "https://nordiccrypto.no/stories/86fc6577147d/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/86fc6577147d.json",
+   "title": "Stablecoin-samarbeid med nordiske banker får godkjenning – lanserer om kort tid",
+   "title_en": "Stablecoin venture backed by Nordic banks gets authorisation and plans launch soon",
+   "title_i18n": {},
+   "source": "finanswatch",
+   "source_name": "Finanswatch",
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp",
+    "source_url": "https://finanswatch.no/favicons/finanswatch.no/apple-touch-icon.png",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp"
+   },
+   "source_note": null,
+   "country": "NO",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-10-14T09:27:06+00:00",
+   "topics": [
+    "stablecoins",
+    "mica",
+    "banking"
+   ],
+   "summary": "A company backed by 37 banks, including Nordic banks, has received an important authorisation and is preparing to launch blockchain-based euro tokens under the EU's MiCA rules, Finanswatch reports. According to the paywalled article's headline, the launch is expected shortly. The visible text does not give further details.",
+   "summary_i18n": {
+    "da": "Et selskab, der er støttet af 37 banker, herunder nordiske banker, har fået en vigtig autorisation og forbereder lancering af blockchain-baserede eurotokens under EU's MiCA-regler, skriver Finanswatch. Ifølge overskriften på artiklen, som er bag betalingsmur, ventes lanceringen om kort tid. Den synlige tekst giver ikke flere detaljer.",
+    "fi": "Yhtiö, jota tukee 37 pankkia, muun muassa pohjoismaisia pankkeja, on saanut tärkeän toimiluvan ja valmistelee lohkoketjupohjaisten eurotokenien julkaisua EU:n MiCA-sääntelyn mukaisesti, kertoo Finanswatch. Maksumuurin takana olevan artikkelin otsikon mukaan julkaisu on odotettavissa pian. Näkyvä teksti ei kerro enempää yksityiskohtia.",
+    "is": "Fyrirtæki sem 37 bankar standa að, þar á meðal norrænir bankar, hefur fengið mikilvægt leyfi og undirbýr útgáfu evrutákna á bálkakeðju samkvæmt MiCA-reglum ESB, segir Finanswatch. Samkvæmt fyrirsögn greinarinnar, sem er á bak við greiðsluvegg, er útgáfan væntanleg innan skamms. Sýnilegi textinn gefur ekki frekari upplýsingar.",
+    "nb": "Et selskap som er støttet av 37 banker, blant dem nordiske banker, har fått en viktig autorisasjon og forbereder lansering av blokkjedebaserte eurotokens under EU-regelverket MiCA, melder Finanswatch. Ifølge tittelen på artikkelen, som ligger bak betalingsmur, ventes lanseringen om kort tid. Den synlige teksten gir ikke flere detaljer.",
+    "nn": "Eit selskap som er støtta av 37 bankar, mellom dei nordiske bankar, har fått ei viktig autorisasjon og førebur lansering av blokkjedebaserte eurotokenar under EU-regelverket MiCA, melder Finanswatch. Ifølgje tittelen på artikkelen, som ligg bak betalingsmur, er lanseringa venta om kort tid. Den synlege teksten gir ikkje fleire detaljar.",
+    "sv": "Ett bolag som backas av 37 banker, bland dem nordiska banker, har fått ett viktigt tillstånd och förbereder lansering av blockkedjebaserade eurotokens under EU:s MiCA-regelverk, rapporterar Finanswatch. Enligt rubriken på den betalväggsskyddade artikeln väntas lanseringen inom kort. Den synliga texten ger inga fler detaljer."
+   },
+   "paywall": true,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "official-norges-bank",
+    "kind": "official-press",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/official-norges-bank.webp",
+    "width": 960,
+    "height": 720,
+    "alt": "Norges Bank headquarters in Oslo, daytime facade.",
+    "source": "Norges Bank",
+    "author": "Esten Borgos",
+    "license": "Norges Bank terms: credit, no alteration, not for advertising",
+    "license_url": "https://www.norges-bank.no/en/topics/about/copyright/",
+    "url": "https://www.norges-bank.no/en/topics/about/Media-enquiries/Press-photos/",
+    "credit": "Photo: Esten Borgos. Licence: Norges Bank terms: credit, no alteration, not for advertising. Source: Norges Bank.",
+    "modifications": null,
+    "terms": "Checked 2026-10-06. Norges Bank's copyright page allows copying from norges-bank.no when Norges Bank is named as the source, the content is not changed, and it is not used in advertising. This is the daytime facade from the press-photo page (photo: Esten Borgos). It is scaled to 960 pixels wide and saved as WebP, not cropped or recoloured. Portraits and pictures of notes and coins from the same page are not used."
+   },
+   "primary_source": {
+    "outlet": "finanswatch",
+    "outlet_name": "Finanswatch",
+    "url": "https://finanswatch.no/nyheter/fintech/article19736366.ece",
+    "title": "Stablecoin-samarbeid med nordiske banker får godkjenning – lanserer om kort tid",
+    "published": "2026-10-14T09:27:06+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": true,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp",
+     "source_url": "https://finanswatch.no/favicons/finanswatch.no/apple-touch-icon.png",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp"
+    }
+   },
+   "primary_source_document": null,
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "finanswatch",
+     "outlet_name": "Finanswatch",
+     "url": "https://finanswatch.no/nyheter/fintech/article19736366.ece",
+     "title": "Stablecoin-samarbeid med nordiske banker får godkjenning – lanserer om kort tid",
+     "published": "2026-10-14T09:27:06+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "national",
+     "paywall": true,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp",
+      "source_url": "https://finanswatch.no/favicons/finanswatch.no/apple-touch-icon.png",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp"
+     }
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp"
+  },
+  {
+   "id": "660753d52f62",
+   "url": "https://www.finfacts.no/artikkel/eksperimenterer-med-den-norske-kronen-i-internasjonal-sandkasse",
+   "html_url": "https://nordiccrypto.no/stories/660753d52f62/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/660753d52f62.json",
+   "title": "Eksperimenterer med den norske kronen i internasjonal sandkasse",
+   "title_en": "DNB experiments with the Norwegian krone in an international sandbox",
+   "title_i18n": {},
+   "source": "finfacts.no",
+   "source_name": "FinFacts",
+   "source_logo": null,
+   "source_note": null,
+   "country": "NO",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-10-07T12:00:00+00:00",
+   "topics": [
+    "tokenisation",
+    "banking"
+   ],
+   "summary": "FinFacts has interviewed DNB about its experiments with the Norwegian krone in an international sandbox for tokenised bank deposits. According to the article's lead, DNB believes tokenised bank deposits will play at least as important a role as stablecoins in shaping the digital money of the future. The full interview is behind a paywall.",
+   "summary_i18n": {
+    "da": "FinFacts har interviewet DNB om bankens eksperimenter med norske kroner i en international sandkasse for tokeniserede bankindskud. Ifølge artiklens indledning tror DNB stærkt på, at tokeniserede bankindskud vil spille en mindst lige så vigtig rolle som stablecoins, når fremtidens digitale penge skal formes. Hele interviewet ligger bag betalingsmur.",
+    "fi": "FinFacts on haastatellut DNB:tä sen kokeiluista Norjan kruunulla kansainvälisessä tokenisoitujen pankkitalletusten testiympäristössä. Artikkelin ingressin mukaan DNB uskoo vahvasti, että tokenisoidut pankkitalletukset ovat vähintään yhtä tärkeässä roolissa kuin stablecoinit tulevaisuuden digitaalisen rahan muotoutuessa. Koko haastattelu on maksumuurin takana.",
+    "is": "FinFacts hefur rætt við DNB um tilraunir bankans með norsku krónuna í alþjóðlegu prófunarumhverfi fyrir táknvæddar bankainnstæður. Samkvæmt inngangi greinarinnar hefur DNB mikla trú á að táknvæddar bankainnstæður muni gegna að minnsta kosti jafn mikilvægu hlutverki og stöðugleikamyntir þegar stafrænir peningar framtíðarinnar mótast. Viðtalið í heild er læst á bak við greiðsluvegg.",
+    "nb": "FinFacts har intervjuet DNB om bankens eksperimenter med norske kroner i en internasjonal sandkasse for tokeniserte bankinnskudd. Ifølge ingressen i artikkelen har DNB stor tro på at tokeniserte bankinnskudd vil spille en minst like viktig rolle som stablecoins når fremtidens digitale penger skal utformes. Hele intervjuet ligger bak betalingsmur.",
+    "nn": "FinFacts har intervjua DNB om eksperimenta banken gjer med norske kroner i ei internasjonal sandkasse for tokeniserte bankinnskot. Ifølgje ingressen i artikkelen har DNB stor tru på at tokeniserte bankinnskot vil spele ei minst like viktig rolle som stablecoins når framtidas digitale pengar skal formast. Heile intervjuet ligg bak betalingsmur.",
+    "sv": "FinFacts har intervjuat DNB om bankens experiment med norska kronor i en internationell sandlåda för tokeniserade bankinlåning. Enligt artikelns ingress tror DNB starkt på att tokeniserade bankinlåning kommer att spela minst lika viktig roll som stablecoins när framtidens digitala pengar formas. Hela intervjun ligger bakom betalvägg."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "official-norges-bank",
+    "kind": "official-press",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/official-norges-bank.webp",
+    "width": 960,
+    "height": 720,
+    "alt": "Norges Bank headquarters in Oslo, daytime facade.",
+    "source": "Norges Bank",
+    "author": "Esten Borgos",
+    "license": "Norges Bank terms: credit, no alteration, not for advertising",
+    "license_url": "https://www.norges-bank.no/en/topics/about/copyright/",
+    "url": "https://www.norges-bank.no/en/topics/about/Media-enquiries/Press-photos/",
+    "credit": "Photo: Esten Borgos. Licence: Norges Bank terms: credit, no alteration, not for advertising. Source: Norges Bank.",
+    "modifications": null,
+    "terms": "Checked 2026-10-06. Norges Bank's copyright page allows copying from norges-bank.no when Norges Bank is named as the source, the content is not changed, and it is not used in advertising. This is the daytime facade from the press-photo page (photo: Esten Borgos). It is scaled to 960 pixels wide and saved as WebP, not cropped or recoloured. Portraits and pictures of notes and coins from the same page are not used."
+   },
+   "primary_source": {
+    "outlet": "finfacts.no",
+    "outlet_name": "FinFacts",
+    "url": "https://www.finfacts.no/artikkel/eksperimenterer-med-den-norske-kronen-i-internasjonal-sandkasse",
+    "title": "Eksperimenterer med den norske kronen i internasjonal sandkasse",
+    "published": "2026-10-07T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": null
+   },
+   "primary_source_document": null,
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "finfacts.no",
+     "outlet_name": "FinFacts",
+     "url": "https://www.finfacts.no/artikkel/eksperimenterer-med-den-norske-kronen-i-internasjonal-sandkasse",
+     "title": "Eksperimenterer med den norske kronen i internasjonal sandkasse",
+     "published": "2026-10-07T12:00:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": null
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": null
+  },
   {
    "id": "a0c89b973576",
    "url": "https://www.kaupr.io/nyheter/danske-bank-ingen-bank-kan-bygge-euro-stablecoin-alene",

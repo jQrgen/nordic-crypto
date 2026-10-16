@@ -1,11 +1,266 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-15T22:47:56+00:00",
+ "generated_at": "2026-10-16T00:29:25+00:00",
  "preview": false,
  "topic": "business",
- "count": 18,
+ "count": 20,
  "items": [
+  {
+   "id": "e7665f6b5021",
+   "url": "https://realtid.se/bors-finans/bank-fintech/kryptojatten-koper-bank-med-svenska-sparkunder",
+   "html_url": "https://nordiccrypto.no/stories/e7665f6b5021/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/e7665f6b5021.json",
+   "title": "Kryptojätten köper bank med svenska sparkunder",
+   "title_en": "Kraken owner buys bank with Swedish savings customers",
+   "title_i18n": {},
+   "source": "realtid",
+   "source_name": "Realtid",
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/realtid.svg",
+    "source_url": "https://www.realtid.se/_next/static/media/logo.1b3426b7.svg",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
+   },
+   "source_note": null,
+   "country": "SE",
+   "language": "Swedish",
+   "language_code": "sv",
+   "published": "2026-10-14T14:47:19+00:00",
+   "topics": [
+    "business",
+    "banking"
+   ],
+   "summary": "Payward, the US company behind crypto exchange Kraken, is buying Lithuania's Saldo Bank, which has held an EU banking licence since 2021 and offers savings accounts and other services to customers in countries including Sweden, Realtid reports, citing the Financial Times. According to the FT, the deal would make Payward the first company in the digital-asset sector to buy a bank in Europe, and the bank is meant to help it develop lending and payment cards. The acquisition requires regulatory approval and is expected to be completed in 2027.",
+   "summary_i18n": {
+    "da": "Payward, det amerikanske selskab bag kryptobørsen Kraken, køber den litauiske bank Saldo Bank, som har haft EU-banklicens siden 2021 og tilbyder opsparingskonti og andre tjenester til kunder i blandt andet Sverige, skriver Realtid med henvisning til Financial Times. Ifølge FT bliver Payward dermed det første selskab i sektoren for digitale aktiver, der køber en bank i Europa, og banken skal hjælpe selskabet med at udvikle udlån og betalingskort. Opkøbet kræver myndighedsgodkendelse og ventes afsluttet i 2027.",
+    "fi": "Kryptopörssi Krakenin taustalla oleva yhdysvaltalainen Payward ostaa liettualaisen Saldo Bankin, jolla on ollut EU:n pankkitoimilupa vuodesta 2021 ja joka tarjoaa säästötilejä ja muita palveluja asiakkaille muun muassa Ruotsissa, kertoo Realtid Financial Timesiin viitaten. FT:n mukaan Paywardista tulee näin ensimmäinen digitaalisten varojen alan yhtiö, joka ostaa pankin Euroopasta, ja pankin on määrä auttaa sitä kehittämään luotonantoa ja maksukortteja. Kauppa edellyttää viranomaishyväksyntää, ja sen odotetaan toteutuvan vuonna 2027.",
+    "is": "Payward, bandaríska félagið á bak við rafmyntakauphöllina Kraken, kaupir litháíska bankann Saldo Bank, sem hefur haft bankaleyfi í ESB frá 2021 og býður sparireikninga og aðra þjónustu viðskiptavinum m.a. í Svíþjóð, segir Realtid og vísar í Financial Times. Samkvæmt FT verður Payward þar með fyrsta fyrirtækið í geira stafrænna eigna til að kaupa banka í Evrópu, og bankinn á að hjálpa félaginu að þróa útlán og greiðslukort. Kaupin eru háð samþykki eftirlitsaðila og er gert ráð fyrir að þeim ljúki árið 2027.",
+    "nb": "Payward, det amerikanske selskapet bak kryptobørsen Kraken, kjøper den litauiske banken Saldo Bank, som har hatt EU-banklisens siden 2021 og tilbyr sparekontoer og andre tjenester til kunder i blant annet Sverige, melder Realtid med henvisning til Financial Times. Ifølge FT blir Payward dermed det første selskapet i sektoren for digitale eiendeler som kjøper en bank i Europa, og banken skal hjelpe selskapet med å utvikle utlån og betalingskort. Oppkjøpet krever godkjenning fra myndighetene og ventes fullført i 2027.",
+    "nn": "Payward, det amerikanske selskapet bak kryptobørsen Kraken, kjøper den litauiske banken Saldo Bank, som har hatt EU-banklisens sidan 2021 og tilbyr sparekontoar og andre tenester til kundar i mellom anna Sverige, melder Realtid med tilvising til Financial Times. Ifølgje FT blir Payward med dette det første selskapet i sektoren for digitale eigedelar som kjøper ein bank i Europa, og banken skal hjelpe selskapet å utvikle utlån og betalingskort. Oppkjøpet krev godkjenning frå styresmaktene og er venta fullført i 2027.",
+    "sv": "Payward, det amerikanska bolaget bakom kryptobörsen Kraken, köper den litauiska banken Saldo Bank, som haft EU-banklicens sedan 2021 och erbjuder sparkonton och andra tjänster till kunder i bland annat Sverige, rapporterar Realtid med hänvisning till Financial Times. Enligt FT blir Payward därmed det första bolaget inom sektorn för digitala tillgångar att köpa en bank i Europa, och banken ska hjälpa bolaget att utveckla utlåning och betalkort. Förvärvet kräver myndighetsgodkännanden och väntas slutföras under 2027."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "official-riksbank",
+    "kind": "official-press",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/official-riksbank.webp",
+    "width": 960,
+    "height": 640,
+    "alt": "The Riksbank building in Stockholm.",
+    "source": "Sveriges Riksbank",
+    "author": "Sveriges Riksbank",
+    "license": "Free use, credit Sveriges Riksbank",
+    "license_url": "https://www.riksbank.se/sv/press-och-publicerat/presskontakt/bildbank/riksbankshuset/",
+    "url": "https://www.riksbank.se/sv/press-och-publicerat/presskontakt/bildbank/riksbankshuset/",
+    "credit": "Photo: Sveriges Riksbank. Licence: Free use, credit Sveriges Riksbank. Source: Sveriges Riksbank.",
+    "modifications": null,
+    "terms": "Checked 2026-10-06. The Riksbank image bank says these pictures may be downloaded and used freely if Sveriges Riksbank is credited. Pictures of banknotes and coins on the same site are not free in that way and are not used. This file is the building, scaled to 960 pixels wide and saved as WebP. It is not cropped or recoloured."
+   },
+   "primary_source": {
+    "outlet": "realtid",
+    "outlet_name": "Realtid",
+    "url": "https://realtid.se/bors-finans/bank-fintech/kryptojatten-koper-bank-med-svenska-sparkunder",
+    "title": "Kryptojätten köper bank med svenska sparkunder",
+    "published": "2026-10-14T14:47:19+00:00",
+    "lang": "Swedish",
+    "language_code": "sv",
+    "country": "SE",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/realtid.svg",
+     "source_url": "https://www.realtid.se/_next/static/media/logo.1b3426b7.svg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
+    }
+   },
+   "primary_source_document": null,
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "realtid",
+     "outlet_name": "Realtid",
+     "url": "https://realtid.se/bors-finans/bank-fintech/kryptojatten-koper-bank-med-svenska-sparkunder",
+     "title": "Kryptojätten köper bank med svenska sparkunder",
+     "published": "2026-10-14T14:47:19+00:00",
+     "lang": "Swedish",
+     "language_code": "sv",
+     "country": "SE",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/realtid.svg",
+      "source_url": "https://www.realtid.se/_next/static/media/logo.1b3426b7.svg",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
+     }
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
+  },
+  {
+   "id": "d58de33a2af7",
+   "url": "https://investornytt.no/krypto/pengene-renner-ut-av-bitcoin-lunde-ser-begrenset-nedside/547483",
+   "html_url": "https://nordiccrypto.no/stories/d58de33a2af7/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/d58de33a2af7.json",
+   "title": "Bitcoin presses av rekordstore uttak",
+   "title_en": "K33: Bitcoin outflows are heavy, but low leverage limits the downside",
+   "title_i18n": {},
+   "source": "investornytt",
+   "source_name": "Investornytt",
+   "source_logo": null,
+   "source_note": null,
+   "country": "NO",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-10-13T15:04:51+00:00",
+   "topics": [
+    "bitcoin",
+    "business"
+   ],
+   "summary": "Exchange-traded bitcoin products saw net outflows of 10,064 bitcoin in five days, the largest since 15 September, as bitcoin fell from USD 86,000 to below USD 80,500, according to K33's weekly report as covered by Investornytt. K33's head of analysis attributes the fall mainly to a broader flight from risk. According to K33's weekly report, open positions in perpetual futures are at a five-month low, which makes forced liquidations unlikely, and K33 still considers bitcoin attractively priced with limited downside.",
+   "summary_i18n": {
+    "da": "Børsnoterede bitcoinprodukter havde nettoudtræk på 10.064 bitcoin på fem dage, det største siden 15. september, mens bitcoin faldt fra 86.000 til under 80.500 dollar, ifølge K33's ugerapport, som Investornytt omtaler. K33's analysechef mener, at faldet hovedsageligt skyldes en bredere flugt fra risiko. Ifølge K33's ugerapport er åbne positioner i evigtvarende futures på det laveste niveau i fem måneder, hvilket gør tvangslukninger usandsynlige, og K33 vurderer stadig bitcoin som attraktivt prissat med begrænset nedside.",
+    "fi": "Pörssinoteeratuista bitcoin-tuotteista vedettiin viidessä päivässä nettona 10 064 bitcoinia, eniten sitten 15. syyskuuta, kun bitcoin laski 86 000 dollarista alle 80 500 dollarin, kertoo K33:n viikkoraportti Investornytin uutisoimana. K33:n analyysijohtajan mukaan lasku johtuu pääasiassa laajemmasta riskipaosta. K33:n viikkoraportin mukaan avoimet positiot ikuisissa futuureissa ovat viiden kuukauden pohjalla, mikä tekee pakkolikvidaatiot epätodennäköisiksi, ja K33 pitää bitcoinia yhä houkuttelevasti hinnoiteltuna ja laskuvaraa rajallisena.",
+    "is": "Kauphallarskráðar bitcoin-vörur urðu fyrir nettóútflæði upp á 10.064 bitcoin á fimm dögum, því mesta síðan 15. september, á meðan bitcoin féll úr 86.000 í undir 80.500 dollara, samkvæmt vikuskýrslu K33 eins og Investornytt greinir frá. Greiningarstjóri K33 rekur lækkunina einkum til almenns flótta frá áhættu. Samkvæmt vikuskýrslu K33 eru opnar stöður í ótímabundnum framvirkum samningum í fimm mánaða lágmarki, sem gerir nauðungarlokanir ólíklegar, og K33 telur bitcoin enn aðlaðandi verðlagt með takmarkaða lækkunarhættu.",
+    "nb": "Børsnoterte bitcoin-produkter hadde netto uttak på 10 064 bitcoin på fem dager, det største siden 15. september, mens bitcoin falt fra 86 000 til under 80 500 dollar, ifølge K33s ukesrapport slik Investornytt omtaler den. Analysesjefen i K33 mener fallet hovedsakelig skyldes en bredere flukt fra risiko. Ifølge K33s ukesrapport er åpne posisjoner i evigvarende terminkontrakter på en femmåneders bunn, noe som gjør tvangslukking lite sannsynlig, og K33 mener fortsatt at bitcoin er attraktivt priset med begrenset nedside.",
+    "nn": "Børsnoterte bitcoin-produkt hadde netto uttak på 10 064 bitcoin på fem dagar, det største sidan 15. september, medan bitcoin fall frå 86 000 til under 80 500 dollar, ifølgje K33s vekerapport slik Investornytt omtaler han. Analysesjefen i K33 meiner fallet hovudsakleg kjem av ei breiare flukt frå risiko. Ifølgje K33s vekerapport er opne posisjonar i evigvarande terminkontraktar på eit femmånaders botnnivå, noko som gjer tvangslukking lite sannsynleg, og K33 meiner framleis at bitcoin er attraktivt prisa med avgrensa nedside.",
+    "sv": "Börshandlade bitcoinprodukter hade nettoutflöden på 10 064 bitcoin på fem dagar, det största sedan den 15 september, medan bitcoin föll från 86 000 till under 80 500 dollar, enligt K33:s veckorapport som Investornytt återger. K33:s analyschef menar att fallet främst beror på en bredare flykt från risk. Enligt K33:s veckorapport är öppna positioner i eviga terminskontrakt på den lägsta nivån på fem månader, vilket gör tvångslikvideringar osannolika, och K33 anser fortfarande att bitcoin är attraktivt prissatt med begränsad nedsida."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "commons-bitcoin",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-bitcoin.webp",
+    "width": 365,
+    "height": 872,
+    "alt": "A physical bitcoin token in a clear case.",
+    "source": "Wikimedia Commons",
+    "author": "Heuboden",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "url": "https://commons.wikimedia.org/wiki/File:Bitcoin_coin_in_plastic_packaging.jpg",
+    "credit": "Photo: Heuboden. Licence: CC BY-SA 4.0. Source: Wikimedia Commons. Cropped.",
+    "modifications": "Cropped by Nordic Crypto to leave out a person at the edge of the frame.",
+    "terms": null
+   },
+   "primary_source": {
+    "outlet": "investornytt",
+    "outlet_name": "Investornytt",
+    "url": "https://investornytt.no/krypto/pengene-renner-ut-av-bitcoin-lunde-ser-begrenset-nedside/547483",
+    "title": "Bitcoin presses av rekordstore uttak",
+    "published": "2026-10-13T15:04:51+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": null
+   },
+   "primary_source_document": null,
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "investornytt",
+     "outlet_name": "Investornytt",
+     "url": "https://investornytt.no/krypto/pengene-renner-ut-av-bitcoin-lunde-ser-begrenset-nedside/547483",
+     "title": "Bitcoin presses av rekordstore uttak",
+     "published": "2026-10-13T15:04:51+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": null
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": null
+  },
   {
    "id": "fb9e8ca4fb40",
    "url": "https://www.finansavisen.no/valuta/2026/10/05/8385368/smasparere-hamstret-krypto-under-renteuro",

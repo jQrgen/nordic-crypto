@@ -512,5 +512,5 @@ ol.news h3{font-size:23px;line-height:1.16;margin:0 0 4px}ol.news h3 a{text-deco
 function apply(){var c=cc.filter(function(x){return x.getAttribute('aria-pressed')==='true'}).map(function(x){return x.dataset.c}),k=0;n.forEach(function(el){var ok=!c.length||c.indexOf(el.dataset.c)>=0;el.hidden=!ok;if(ok)k++});g.forEach(function(s){s.hidden=!!c.length&&c.indexOf(s.dataset.c)<0});cnt.textContent=k===1?NR1:NR.replace('{n}',k);
 if(c.length)history.replaceState(null,'','#country='+c.join(','));else if(location.hash.indexOf('#country=')===0)history.replaceState(null,'',location.pathname)}
 var h=new URLSearchParams(location.hash.slice(1));(h.get('country')||'').split(',').forEach(function(x){cc.forEach(function(b){if(b.dataset.c===x)b.setAttribute('aria-pressed','true')})});
-cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');apply()})});apply()})();</script>
+cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');apply()})});apply()})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;:&quot;3bf5cd0a658d48dea8ee508ce875480d&quot;}"></script>
 </body></html>

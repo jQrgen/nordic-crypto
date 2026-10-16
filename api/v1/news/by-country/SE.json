@@ -1,11 +1,521 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-15T22:47:56+00:00",
+ "generated_at": "2026-10-16T00:29:25+00:00",
  "preview": false,
  "country": "SE",
- "count": 20,
+ "count": 24,
  "items": [
+  {
+   "id": "e7665f6b5021",
+   "url": "https://realtid.se/bors-finans/bank-fintech/kryptojatten-koper-bank-med-svenska-sparkunder",
+   "html_url": "https://nordiccrypto.no/stories/e7665f6b5021/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/e7665f6b5021.json",
+   "title": "Kryptojätten köper bank med svenska sparkunder",
+   "title_en": "Kraken owner buys bank with Swedish savings customers",
+   "title_i18n": {},
+   "source": "realtid",
+   "source_name": "Realtid",
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/realtid.svg",
+    "source_url": "https://www.realtid.se/_next/static/media/logo.1b3426b7.svg",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
+   },
+   "source_note": null,
+   "country": "SE",
+   "language": "Swedish",
+   "language_code": "sv",
+   "published": "2026-10-14T14:47:19+00:00",
+   "topics": [
+    "business",
+    "banking"
+   ],
+   "summary": "Payward, the US company behind crypto exchange Kraken, is buying Lithuania's Saldo Bank, which has held an EU banking licence since 2021 and offers savings accounts and other services to customers in countries including Sweden, Realtid reports, citing the Financial Times. According to the FT, the deal would make Payward the first company in the digital-asset sector to buy a bank in Europe, and the bank is meant to help it develop lending and payment cards. The acquisition requires regulatory approval and is expected to be completed in 2027.",
+   "summary_i18n": {
+    "da": "Payward, det amerikanske selskab bag kryptobørsen Kraken, køber den litauiske bank Saldo Bank, som har haft EU-banklicens siden 2021 og tilbyder opsparingskonti og andre tjenester til kunder i blandt andet Sverige, skriver Realtid med henvisning til Financial Times. Ifølge FT bliver Payward dermed det første selskab i sektoren for digitale aktiver, der køber en bank i Europa, og banken skal hjælpe selskabet med at udvikle udlån og betalingskort. Opkøbet kræver myndighedsgodkendelse og ventes afsluttet i 2027.",
+    "fi": "Kryptopörssi Krakenin taustalla oleva yhdysvaltalainen Payward ostaa liettualaisen Saldo Bankin, jolla on ollut EU:n pankkitoimilupa vuodesta 2021 ja joka tarjoaa säästötilejä ja muita palveluja asiakkaille muun muassa Ruotsissa, kertoo Realtid Financial Timesiin viitaten. FT:n mukaan Paywardista tulee näin ensimmäinen digitaalisten varojen alan yhtiö, joka ostaa pankin Euroopasta, ja pankin on määrä auttaa sitä kehittämään luotonantoa ja maksukortteja. Kauppa edellyttää viranomaishyväksyntää, ja sen odotetaan toteutuvan vuonna 2027.",
+    "is": "Payward, bandaríska félagið á bak við rafmyntakauphöllina Kraken, kaupir litháíska bankann Saldo Bank, sem hefur haft bankaleyfi í ESB frá 2021 og býður sparireikninga og aðra þjónustu viðskiptavinum m.a. í Svíþjóð, segir Realtid og vísar í Financial Times. Samkvæmt FT verður Payward þar með fyrsta fyrirtækið í geira stafrænna eigna til að kaupa banka í Evrópu, og bankinn á að hjálpa félaginu að þróa útlán og greiðslukort. Kaupin eru háð samþykki eftirlitsaðila og er gert ráð fyrir að þeim ljúki árið 2027.",
+    "nb": "Payward, det amerikanske selskapet bak kryptobørsen Kraken, kjøper den litauiske banken Saldo Bank, som har hatt EU-banklisens siden 2021 og tilbyr sparekontoer og andre tjenester til kunder i blant annet Sverige, melder Realtid med henvisning til Financial Times. Ifølge FT blir Payward dermed det første selskapet i sektoren for digitale eiendeler som kjøper en bank i Europa, og banken skal hjelpe selskapet med å utvikle utlån og betalingskort. Oppkjøpet krever godkjenning fra myndighetene og ventes fullført i 2027.",
+    "nn": "Payward, det amerikanske selskapet bak kryptobørsen Kraken, kjøper den litauiske banken Saldo Bank, som har hatt EU-banklisens sidan 2021 og tilbyr sparekontoar og andre tenester til kundar i mellom anna Sverige, melder Realtid med tilvising til Financial Times. Ifølgje FT blir Payward med dette det første selskapet i sektoren for digitale eigedelar som kjøper ein bank i Europa, og banken skal hjelpe selskapet å utvikle utlån og betalingskort. Oppkjøpet krev godkjenning frå styresmaktene og er venta fullført i 2027.",
+    "sv": "Payward, det amerikanska bolaget bakom kryptobörsen Kraken, köper den litauiska banken Saldo Bank, som haft EU-banklicens sedan 2021 och erbjuder sparkonton och andra tjänster till kunder i bland annat Sverige, rapporterar Realtid med hänvisning till Financial Times. Enligt FT blir Payward därmed det första bolaget inom sektorn för digitala tillgångar att köpa en bank i Europa, och banken ska hjälpa bolaget att utveckla utlåning och betalkort. Förvärvet kräver myndighetsgodkännanden och väntas slutföras under 2027."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "official-riksbank",
+    "kind": "official-press",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/official-riksbank.webp",
+    "width": 960,
+    "height": 640,
+    "alt": "The Riksbank building in Stockholm.",
+    "source": "Sveriges Riksbank",
+    "author": "Sveriges Riksbank",
+    "license": "Free use, credit Sveriges Riksbank",
+    "license_url": "https://www.riksbank.se/sv/press-och-publicerat/presskontakt/bildbank/riksbankshuset/",
+    "url": "https://www.riksbank.se/sv/press-och-publicerat/presskontakt/bildbank/riksbankshuset/",
+    "credit": "Photo: Sveriges Riksbank. Licence: Free use, credit Sveriges Riksbank. Source: Sveriges Riksbank.",
+    "modifications": null,
+    "terms": "Checked 2026-10-06. The Riksbank image bank says these pictures may be downloaded and used freely if Sveriges Riksbank is credited. Pictures of banknotes and coins on the same site are not free in that way and are not used. This file is the building, scaled to 960 pixels wide and saved as WebP. It is not cropped or recoloured."
+   },
+   "primary_source": {
+    "outlet": "realtid",
+    "outlet_name": "Realtid",
+    "url": "https://realtid.se/bors-finans/bank-fintech/kryptojatten-koper-bank-med-svenska-sparkunder",
+    "title": "Kryptojätten köper bank med svenska sparkunder",
+    "published": "2026-10-14T14:47:19+00:00",
+    "lang": "Swedish",
+    "language_code": "sv",
+    "country": "SE",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/realtid.svg",
+     "source_url": "https://www.realtid.se/_next/static/media/logo.1b3426b7.svg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
+    }
+   },
+   "primary_source_document": null,
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "realtid",
+     "outlet_name": "Realtid",
+     "url": "https://realtid.se/bors-finans/bank-fintech/kryptojatten-koper-bank-med-svenska-sparkunder",
+     "title": "Kryptojätten köper bank med svenska sparkunder",
+     "published": "2026-10-14T14:47:19+00:00",
+     "lang": "Swedish",
+     "language_code": "sv",
+     "country": "SE",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/realtid.svg",
+      "source_url": "https://www.realtid.se/_next/static/media/logo.1b3426b7.svg",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
+     }
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
+  },
+  {
+   "id": "bdc1f0500eea",
+   "url": "https://efn.se/skattesmocka-hotar-tyska-kryptosparare",
+   "html_url": "https://nordiccrypto.no/stories/bdc1f0500eea/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/bdc1f0500eea.json",
+   "title": "Skattesmocka hotar tyska kryptosparare",
+   "title_en": "Germany plans less favourable tax rules for crypto investors",
+   "title_i18n": {},
+   "source": "efn.se",
+   "source_name": "efn",
+   "source_logo": null,
+   "source_note": null,
+   "country": "SE",
+   "language": "Swedish",
+   "language_code": "sv",
+   "published": "2026-10-14T08:30:31+00:00",
+   "topics": [
+    "tax",
+    "policy"
+   ],
+   "summary": "Germany is moving towards tax rules that are less favourable for crypto investments, EFN reports via the news agency Direkt, citing the German newspaper Wirtschaftswoche. According to the report, the government wants to abolish the tax exemption on gains from crypto held for more than a year and to apply a withholding tax instead of individual income tax, and the issue was expected on the agenda of a meeting on Wednesday. Industry representatives are critical of the planned changes.",
+   "summary_i18n": {
+    "da": "Tyskland er på vej mod skatteregler, der er mindre gunstige for kryptoinvesteringer, skriver EFN via nyhedsbureauet Direkt med henvisning til den tyske avis Wirtschaftswoche. Ifølge meldingen vil regeringen afskaffe skattefritagelsen for gevinster på krypto, der er ejet i mere end et år, og anvende kildeskat i stedet for individuel indkomstskat, og sagen var ventet på dagsordenen ved et møde onsdag. Repræsentanter for branchen er kritiske over for de planlagte ændringer.",
+    "fi": "Saksa on ottamassa käyttöön kryptosijoittajille epäedullisempia verosääntöjä, kertoo EFN uutistoimisto Directin välityksellä saksalaiseen Wirtschaftswoche-lehteen viitaten. Tietojen mukaan hallitus haluaa poistaa verovapauden yli vuoden omistetun kryptovaluutan myyntivoitoilta ja soveltaa lähdeveroa henkilökohtaisen tuloveron sijaan, ja asian odotettiin olevan esillä keskiviikon kokouksessa. Alan edustajat suhtautuvat suunniteltuihin muutoksiin kriittisesti.",
+    "is": "Þýskaland stefnir að skattareglum sem eru óhagstæðari fyrir fjárfestingar í rafmyntum, segir EFN í gegnum fréttastofuna Direkt og vísar í þýska blaðið Wirtschaftswoche. Samkvæmt fréttinni vill ríkisstjórnin afnema skattfrelsi á hagnaði af rafmyntum sem haldið hefur verið lengur en eitt ár og beita staðgreiðsluskatti í stað einstaklingsbundins tekjuskatts, og búist var við að málið yrði á dagskrá fundar á miðvikudag. Fulltrúar greinarinnar gagnrýna fyrirhugaðar breytingar.",
+    "nb": "Tyskland er på vei mot skatteregler som er mindre gunstige for kryptoinvesteringer, melder EFN via nyhetsbyrået Direkt med henvisning til den tyske avisen Wirtschaftswoche. Ifølge meldingen vil regjeringen fjerne skattefritaket for gevinst på krypto som er holdt i mer enn ett år, og bruke kildeskatt i stedet for individuell inntektsskatt, og saken var ventet på dagsordenen på et møte onsdag. Representanter for bransjen er kritiske til de planlagte endringene.",
+    "nn": "Tyskland er på veg mot skattereglar som er mindre gunstige for kryptoinvesteringar, melder EFN via nyheitsbyrået Direkt med tilvising til den tyske avisa Wirtschaftswoche. Ifølgje meldinga vil regjeringa fjerne skattefritaket for gevinst på krypto som er halden i meir enn eitt år, og bruke kjeldeskatt i staden for individuell inntektsskatt, og saka var venta på dagsordenen på eit møte onsdag. Representantar for bransjen er kritiske til dei planlagde endringane.",
+    "sv": "Tyskland är på väg att införa skatteregler som är mindre gynnsamma för kryptoinvesteringar, rapporterar EFN via nyhetsbyrån Direkt med hänvisning till den tyska tidningen Wirtschaftswoche. Enligt uppgifterna vill regeringen avskaffa skattebefrielsen för vinster på krypto som innehafts i mer än ett år och tillämpa källskatt i stället för individuell inkomstskatt, och frågan väntades stå på dagordningen vid ett möte på onsdagen. Branschföreträdare är kritiska till de planerade ändringarna."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "original-regulation",
+    "kind": "original",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/original-regulation.webp",
+    "width": 960,
+    "height": 540,
+    "alt": "Abstract blue columns. Nordic Crypto illustration, not a photograph.",
+    "source": "Nordic Crypto",
+    "author": "Nordic Crypto",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "url": "https://cryptonordic.no/ethics/",
+    "credit": "Illustration: Nordic Crypto. Licence: CC0 1.0. Source: Nordic Crypto.",
+    "modifications": null,
+    "terms": null
+   },
+   "primary_source": {
+    "outlet": "efn.se",
+    "outlet_name": "efn",
+    "url": "https://efn.se/skattesmocka-hotar-tyska-kryptosparare",
+    "title": "Skattesmocka hotar tyska kryptosparare",
+    "published": "2026-10-14T08:30:31+00:00",
+    "lang": "Swedish",
+    "language_code": "sv",
+    "country": "SE",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": null
+   },
+   "primary_source_document": null,
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "efn.se",
+     "outlet_name": "efn",
+     "url": "https://efn.se/skattesmocka-hotar-tyska-kryptosparare",
+     "title": "Skattesmocka hotar tyska kryptosparare",
+     "published": "2026-10-14T08:30:31+00:00",
+     "lang": "Swedish",
+     "language_code": "sv",
+     "country": "SE",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": null
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": null
+  },
+  {
+   "id": "f30d54a5f35f",
+   "url": "https://dagensps.se/bors-finans/fintech/kryptovalutabors-stamd-pa-over-260-miljoner-kronor",
+   "html_url": "https://nordiccrypto.no/stories/f30d54a5f35f/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/f30d54a5f35f.json",
+   "title": "Kryptovalutabörs stämd på över 260 miljoner kronor",
+   "title_en": "Crypto exchange BitMEX sued for £20 million in the UK",
+   "title_i18n": {},
+   "source": "dagensps.se",
+   "source_name": "Dagens PS",
+   "source_logo": null,
+   "source_note": null,
+   "country": "SE",
+   "language": "Swedish",
+   "language_code": "sv",
+   "published": "2026-10-14T05:12:26+00:00",
+   "topics": [
+    "regulation",
+    "consumer protection"
+   ],
+   "summary": "A software engineer has filed a claim in the UK against crypto exchange BitMEX, seeking £20 million (about SEK 264 million) for bitcoin said to have been lost on financial derivatives, Dagens PS reports, citing The Guardian. The claim alleges that BitMEX sold unregulated financial products to UK investors without authorisation from the Financial Conduct Authority, and that such contracts may therefore be void under UK law. HDR Global Trading, which owns BitMEX, declined to comment on the case, and a representative said the claim has not yet been formally served.",
+   "summary_i18n": {
+    "da": "En softwareingeniør har anlagt sag i Storbritannien mod kryptobørsen BitMEX og kræver 20 millioner pund (omkring 264 millioner svenske kroner) for bitcoin, som angiveligt er gået tabt på finansielle derivater, skriver Dagens PS med henvisning til The Guardian. Ifølge stævningen solgte BitMEX uregulerede finansielle produkter til britiske investorer uden tilladelse fra Financial Conduct Authority, og sådanne kontrakter kan derfor være ugyldige efter britisk ret. HDR Global Trading, som ejer BitMEX, ville ikke kommentere sagen, og en repræsentant siger, at stævningen endnu ikke er formelt forkyndt.",
+    "fi": "Ohjelmistoinsinööri on nostanut Isossa-Britanniassa kanteen kryptopörssi BitMEXiä vastaan ja vaatii 20 miljoonaa puntaa (noin 264 miljoonaa kruunua) bitcoineista, jotka hänen mukaansa menetettiin johdannaisissa, kertoo Dagens PS The Guardianiin viitaten. Kanteen mukaan BitMEX myi sääntelemättömiä rahoitustuotteita brittisijoittajille ilman Financial Conduct Authorityn lupaa, joten sopimukset voivat olla Britannian lain mukaan pätemättömiä. BitMEXin omistava HDR Global Trading kieltäytyi kommentoimasta tapausta, ja yhtiön edustajan mukaan kannetta ei ole vielä virallisesti annettu tiedoksi.",
+    "is": "Hugbúnaðarverkfræðingur hefur höfðað mál í Bretlandi gegn rafmyntakauphöllinni BitMEX og krefst 20 milljóna punda (um 264 milljóna sænskra króna) vegna bitcoin sem sögð eru hafa tapast á afleiðum, segir Dagens PS og vísar í The Guardian. Í stefnunni er því haldið fram að BitMEX hafi selt breskum fjárfestum óeftirlitsskyldar fjármálaafurðir án leyfis Financial Conduct Authority og að slíkir samningar kunni því að vera ógildir að breskum lögum. HDR Global Trading, eigandi BitMEX, vildi ekki tjá sig um málið og fulltrúi félagsins sagði að stefnan hefði ekki enn verið birt formlega.",
+    "nb": "En programvareingeniør har gått til søksmål i Storbritannia mot kryptobørsen BitMEX og krever 20 millioner pund (rundt 264 millioner svenske kroner) for bitcoin som skal ha gått tapt på finansielle derivater, melder Dagens PS med henvisning til The Guardian. Søksmålet hevder at BitMEX solgte uregulerte finansielle produkter til britiske investorer uten tillatelse fra Financial Conduct Authority, og at slike kontrakter derfor kan være ugyldige etter britisk lov. HDR Global Trading, som eier BitMEX, ville ikke kommentere saken, og en representant sa at stevningen ennå ikke er formelt forkynt.",
+    "nn": "Ein programvareingeniør har gått til søksmål i Storbritannia mot kryptobørsen BitMEX og krev 20 millionar pund (om lag 264 millionar svenske kroner) for bitcoin som skal ha gått tapt på finansielle derivat, melder Dagens PS med tilvising til The Guardian. Søksmålet hevdar at BitMEX selde uregulerte finansielle produkt til britiske investorar utan løyve frå Financial Conduct Authority, og at slike kontraktar difor kan vere ugyldige etter britisk lov. HDR Global Trading, som eig BitMEX, ville ikkje kommentere saka, og ein representant sa at stemninga enno ikkje er formelt forkynt.",
+    "sv": "En mjukvaruingenjör har lämnat in en stämningsansökan i Storbritannien mot kryptobörsen BitMEX och kräver 20 miljoner pund (cirka 264 miljoner kronor) för bitcoin som uppges ha gått förlorade på finansiella derivat, rapporterar Dagens PS med hänvisning till The Guardian. Enligt stämningen sålde BitMEX oreglerade finansiella produkter till brittiska investerare utan tillstånd från Financial Conduct Authority, och sådana kontrakt kan därför vara ogiltiga enligt brittisk lag. HDR Global Trading, som äger BitMEX, avböjde att kommentera ärendet, och en företrädare uppger att stämningen ännu inte delgetts formellt."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "original-regulation",
+    "kind": "original",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/original-regulation.webp",
+    "width": 960,
+    "height": 540,
+    "alt": "Abstract blue columns. Nordic Crypto illustration, not a photograph.",
+    "source": "Nordic Crypto",
+    "author": "Nordic Crypto",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "url": "https://cryptonordic.no/ethics/",
+    "credit": "Illustration: Nordic Crypto. Licence: CC0 1.0. Source: Nordic Crypto.",
+    "modifications": null,
+    "terms": null
+   },
+   "primary_source": {
+    "outlet": "dagensps.se",
+    "outlet_name": "Dagens PS",
+    "url": "https://dagensps.se/bors-finans/fintech/kryptovalutabors-stamd-pa-over-260-miljoner-kronor",
+    "title": "Kryptovalutabörs stämd på över 260 miljoner kronor",
+    "published": "2026-10-14T05:12:26+00:00",
+    "lang": "Swedish",
+    "language_code": "sv",
+    "country": "SE",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": null
+   },
+   "primary_source_document": null,
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "dagensps.se",
+     "outlet_name": "Dagens PS",
+     "url": "https://dagensps.se/bors-finans/fintech/kryptovalutabors-stamd-pa-over-260-miljoner-kronor",
+     "title": "Kryptovalutabörs stämd på över 260 miljoner kronor",
+     "published": "2026-10-14T05:12:26+00:00",
+     "lang": "Swedish",
+     "language_code": "sv",
+     "country": "SE",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": null
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": null
+  },
+  {
+   "id": "601358bd24e5",
+   "url": "https://realtid.se/bors-finans/bank-fintech/frankrike-vill-beskatta-kryptomiljonarer-som-flyttar-utomlands",
+   "html_url": "https://nordiccrypto.no/stories/601358bd24e5/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/601358bd24e5.json",
+   "title": "Frankrike vill beskatta kryptomiljonärer som flyttar utomlands",
+   "title_en": "French lawmakers move to extend exit tax to crypto holdings",
+   "title_i18n": {},
+   "source": "realtid",
+   "source_name": "Realtid",
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/realtid.svg",
+    "source_url": "https://www.realtid.se/_next/static/media/logo.1b3426b7.svg",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
+   },
+   "source_note": null,
+   "country": "SE",
+   "language": "Swedish",
+   "language_code": "sv",
+   "published": "2026-10-12T14:15:44+00:00",
+   "topics": [
+    "tax",
+    "regulation"
+   ],
+   "summary": "Realtid reports, citing Euronews and Journal du Coin, that the French National Assembly's finance committee voted to extend the country's exit tax to crypto assets above EUR 800,000 from 2027, and backed fines of up to EUR 10,000 for undeclared self-custody wallets worth EUR 100,000 or more. The proposals are not yet law and may still fall.",
+   "summary_i18n": {
+    "da": "Realtid skriver med henvisning til Euronews og Journal du Coin, at finansudvalget i Frankrigs nationalforsamling stemte for at udvide fraflytningsskatten til kryptoaktiver over 800.000 euro fra 2027 og bakkede op om bøder på op til 10.000 euro for ikke-oplyste egne tegnebøger til en værdi af mindst 100.000 euro. Forslagene er ikke vedtaget og kan stadig falde.",
+    "fi": "Realtid kertoo Euronewsiin ja Journal du Coiniin viitaten, että Ranskan kansalliskokouksen valtiovarainvaliokunta äänesti maastamuuttoveron laajentamisesta yli 800 000 euron kryptovaroihin vuodesta 2027 alkaen ja kannatti enintään 10 000 euron sakkoja ilmoittamatta jätetyistä, vähintään 100 000 euron arvoisista omista lompakoista. Ehdotuksia ei ole hyväksytty, ja ne voivat vielä kaatua.",
+    "is": "Realtid greinir frá því, með vísan til Euronews og Journal du Coin, að fjárlaganefnd franska þjóðþingsins hafi greitt atkvæði með því að útvíkka brottflutningsskatt til rafmyntaeigna yfir 800.000 evrum frá 2027 og stutt sektir allt að 10.000 evrum fyrir ótilgreind eigin veski að verðmæti minnst 100.000 evrur. Tillögurnar eru ekki orðnar að lögum og gætu enn fallið.",
+    "nb": "Realtid melder, med henvisning til Euronews og Journal du Coin, at finanskomiteen i Frankrikes nasjonalforsamling stemte for å utvide utflyttingsskatten til kryptoaktiva over 800 000 euro fra 2027, og støttet bøter på opptil 10 000 euro for ikke-deklarerte egne lommebøker verdt minst 100 000 euro. Forslagene er ikke vedtatt og kan fortsatt falle.",
+    "nn": "Realtid melder, med tilvising til Euronews og Journal du Coin, at finanskomiteen i nasjonalforsamlinga i Frankrike røysta for å utvide utflyttingsskatten til kryptoeigedelar over 800 000 euro frå 2027, og støtta bøter på opptil 10 000 euro for ikkje-deklarerte eigne lommebøker verde minst 100 000 euro. Forslaga er ikkje vedtekne og kan framleis falle.",
+    "sv": "Realtid rapporterar, med hänvisning till Euronews och Journal du Coin, att franska nationalförsamlingens finansutskott röstade för att utvidga exitskatten till kryptotillgångar över 800 000 euro från 2027, och ställde sig bakom böter på upp till 10 000 euro för odeklarerade egna plånböcker värda minst 100 000 euro. Förslagen är inte antagna och kan fortfarande falla."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "original-regulation",
+    "kind": "original",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/original-regulation.webp",
+    "width": 960,
+    "height": 540,
+    "alt": "Abstract blue columns. Nordic Crypto illustration, not a photograph.",
+    "source": "Nordic Crypto",
+    "author": "Nordic Crypto",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "url": "https://cryptonordic.no/ethics/",
+    "credit": "Illustration: Nordic Crypto. Licence: CC0 1.0. Source: Nordic Crypto.",
+    "modifications": null,
+    "terms": null
+   },
+   "primary_source": {
+    "outlet": "realtid",
+    "outlet_name": "Realtid",
+    "url": "https://realtid.se/bors-finans/bank-fintech/frankrike-vill-beskatta-kryptomiljonarer-som-flyttar-utomlands",
+    "title": "Frankrike vill beskatta kryptomiljonärer som flyttar utomlands",
+    "published": "2026-10-12T14:15:44+00:00",
+    "lang": "Swedish",
+    "language_code": "sv",
+    "country": "SE",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/realtid.svg",
+     "source_url": "https://www.realtid.se/_next/static/media/logo.1b3426b7.svg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
+    }
+   },
+   "primary_source_document": null,
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "realtid",
+     "outlet_name": "Realtid",
+     "url": "https://realtid.se/bors-finans/bank-fintech/frankrike-vill-beskatta-kryptomiljonarer-som-flyttar-utomlands",
+     "title": "Frankrike vill beskatta kryptomiljonärer som flyttar utomlands",
+     "published": "2026-10-12T14:15:44+00:00",
+     "lang": "Swedish",
+     "language_code": "sv",
+     "country": "SE",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/realtid.svg",
+      "source_url": "https://www.realtid.se/_next/static/media/logo.1b3426b7.svg",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
+     }
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "SE",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/realtid.png"
+  },
   {
    "id": "31ee174aa583",
    "url": "https://nyheter24.se/nyheter/inrikes/1519244-fi-varnar-for-fler-bluffaktorer",

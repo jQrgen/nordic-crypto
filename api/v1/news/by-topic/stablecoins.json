@@ -1,11 +1,153 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-15T22:47:56+00:00",
+ "generated_at": "2026-10-16T00:29:25+00:00",
  "preview": false,
  "topic": "stablecoins",
- "count": 3,
+ "count": 4,
  "items": [
+  {
+   "id": "86fc6577147d",
+   "url": "https://finanswatch.no/nyheter/fintech/article19736366.ece",
+   "html_url": "https://nordiccrypto.no/stories/86fc6577147d/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/86fc6577147d.json",
+   "title": "Stablecoin-samarbeid med nordiske banker får godkjenning – lanserer om kort tid",
+   "title_en": "Stablecoin venture backed by Nordic banks gets authorisation and plans launch soon",
+   "title_i18n": {},
+   "source": "finanswatch",
+   "source_name": "Finanswatch",
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp",
+    "source_url": "https://finanswatch.no/favicons/finanswatch.no/apple-touch-icon.png",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp"
+   },
+   "source_note": null,
+   "country": "NO",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-10-14T09:27:06+00:00",
+   "topics": [
+    "stablecoins",
+    "mica",
+    "banking"
+   ],
+   "summary": "A company backed by 37 banks, including Nordic banks, has received an important authorisation and is preparing to launch blockchain-based euro tokens under the EU's MiCA rules, Finanswatch reports. According to the paywalled article's headline, the launch is expected shortly. The visible text does not give further details.",
+   "summary_i18n": {
+    "da": "Et selskab, der er støttet af 37 banker, herunder nordiske banker, har fået en vigtig autorisation og forbereder lancering af blockchain-baserede eurotokens under EU's MiCA-regler, skriver Finanswatch. Ifølge overskriften på artiklen, som er bag betalingsmur, ventes lanceringen om kort tid. Den synlige tekst giver ikke flere detaljer.",
+    "fi": "Yhtiö, jota tukee 37 pankkia, muun muassa pohjoismaisia pankkeja, on saanut tärkeän toimiluvan ja valmistelee lohkoketjupohjaisten eurotokenien julkaisua EU:n MiCA-sääntelyn mukaisesti, kertoo Finanswatch. Maksumuurin takana olevan artikkelin otsikon mukaan julkaisu on odotettavissa pian. Näkyvä teksti ei kerro enempää yksityiskohtia.",
+    "is": "Fyrirtæki sem 37 bankar standa að, þar á meðal norrænir bankar, hefur fengið mikilvægt leyfi og undirbýr útgáfu evrutákna á bálkakeðju samkvæmt MiCA-reglum ESB, segir Finanswatch. Samkvæmt fyrirsögn greinarinnar, sem er á bak við greiðsluvegg, er útgáfan væntanleg innan skamms. Sýnilegi textinn gefur ekki frekari upplýsingar.",
+    "nb": "Et selskap som er støttet av 37 banker, blant dem nordiske banker, har fått en viktig autorisasjon og forbereder lansering av blokkjedebaserte eurotokens under EU-regelverket MiCA, melder Finanswatch. Ifølge tittelen på artikkelen, som ligger bak betalingsmur, ventes lanseringen om kort tid. Den synlige teksten gir ikke flere detaljer.",
+    "nn": "Eit selskap som er støtta av 37 bankar, mellom dei nordiske bankar, har fått ei viktig autorisasjon og førebur lansering av blokkjedebaserte eurotokenar under EU-regelverket MiCA, melder Finanswatch. Ifølgje tittelen på artikkelen, som ligg bak betalingsmur, er lanseringa venta om kort tid. Den synlege teksten gir ikkje fleire detaljar.",
+    "sv": "Ett bolag som backas av 37 banker, bland dem nordiska banker, har fått ett viktigt tillstånd och förbereder lansering av blockkedjebaserade eurotokens under EU:s MiCA-regelverk, rapporterar Finanswatch. Enligt rubriken på den betalväggsskyddade artikeln väntas lanseringen inom kort. Den synliga texten ger inga fler detaljer."
+   },
+   "paywall": true,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "official-norges-bank",
+    "kind": "official-press",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/official-norges-bank.webp",
+    "width": 960,
+    "height": 720,
+    "alt": "Norges Bank headquarters in Oslo, daytime facade.",
+    "source": "Norges Bank",
+    "author": "Esten Borgos",
+    "license": "Norges Bank terms: credit, no alteration, not for advertising",
+    "license_url": "https://www.norges-bank.no/en/topics/about/copyright/",
+    "url": "https://www.norges-bank.no/en/topics/about/Media-enquiries/Press-photos/",
+    "credit": "Photo: Esten Borgos. Licence: Norges Bank terms: credit, no alteration, not for advertising. Source: Norges Bank.",
+    "modifications": null,
+    "terms": "Checked 2026-10-06. Norges Bank's copyright page allows copying from norges-bank.no when Norges Bank is named as the source, the content is not changed, and it is not used in advertising. This is the daytime facade from the press-photo page (photo: Esten Borgos). It is scaled to 960 pixels wide and saved as WebP, not cropped or recoloured. Portraits and pictures of notes and coins from the same page are not used."
+   },
+   "primary_source": {
+    "outlet": "finanswatch",
+    "outlet_name": "Finanswatch",
+    "url": "https://finanswatch.no/nyheter/fintech/article19736366.ece",
+    "title": "Stablecoin-samarbeid med nordiske banker får godkjenning – lanserer om kort tid",
+    "published": "2026-10-14T09:27:06+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": true,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp",
+     "source_url": "https://finanswatch.no/favicons/finanswatch.no/apple-touch-icon.png",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp"
+    }
+   },
+   "primary_source_document": null,
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "finanswatch",
+     "outlet_name": "Finanswatch",
+     "url": "https://finanswatch.no/nyheter/fintech/article19736366.ece",
+     "title": "Stablecoin-samarbeid med nordiske banker får godkjenning – lanserer om kort tid",
+     "published": "2026-10-14T09:27:06+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "national",
+     "paywall": true,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp",
+      "source_url": "https://finanswatch.no/favicons/finanswatch.no/apple-touch-icon.png",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp"
+     }
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp"
+  },
   {
    "id": "7996dadb43e7",
    "url": "https://www.kaupr.io/nyheter/nbx-inngar-avtale-med-tieto-om-betalingskort-for-stablecoins",

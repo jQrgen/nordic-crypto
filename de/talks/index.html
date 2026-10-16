@@ -564,7 +564,7 @@ cc.concat(lc).forEach(function(b){b.addEventListener('click',function(){b.setAtt
 year.addEventListener('change',function(){apply(1)});
 if(none)none.querySelector('[data-clear]').addEventListener('click',function(){cc.concat(lc).forEach(function(b){b.setAttribute('aria-pressed','false')});year.value='';apply(1);if(cc[0])cc[0].focus()});
 document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.talk-play');if(!b)return;var src=b.getAttribute('data-embed');if(!src)return;var hd=document.getElementById(b.getAttribute('aria-describedby')||''),f=document.createElement('iframe');f.src=src;f.title=(hd&&hd.textContent)||b.textContent||'';f.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');f.setAttribute('allowfullscreen','');f.setAttribute('referrerpolicy','strict-origin-when-cross-origin');b.replaceWith(f);f.focus()});
-apply(0)})();</script><script>/* Theme helpers shared by every theme: scroll reveal, a reduced-motion flag and a typewriter. */
+apply(0)})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;:&quot;3bf5cd0a658d48dea8ee508ce875480d&quot;}"></script><script>/* Theme helpers shared by every theme: scroll reveal, a reduced-motion flag and a typewriter. */
 window.NCT=(function(){
   var still=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
   function $(s,r){return (r||document).querySelector(s)}

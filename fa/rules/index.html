@@ -495,5 +495,5 @@ ol.rsteps{list-style:none;padding:0;margin:0;counter-reset:rs}
 document.querySelectorAll('[data-rc]').forEach(function(n){var cs=n.dataset.rc.split(' ');n.classList.toggle('rules-hidden',c!=='all'&&cs.indexOf(c)<0)});
 document.querySelectorAll('[data-route-text]').forEach(function(n){var r=n.dataset.routeText;n.classList.toggle('rules-hidden',c!=='all'&&((r==='eea')!==(c==='NO'||c==='IS')))});}
 b.forEach(function(x){x.addEventListener('click',function(){f(x.dataset.c);try{history.replaceState(null,'',x.dataset.c==='all'?location.pathname:'#'+x.dataset.c)}catch(e){}})});
-var h=(location.hash||'').slice(1).toUpperCase();if(['NO','SE','DK','FI','IS'].indexOf(h)>=0)f(h);})();</script>
+var h=(location.hash||'').slice(1).toUpperCase();if(['NO','SE','DK','FI','IS'].indexOf(h)>=0)f(h);})();</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;:&quot;3bf5cd0a658d48dea8ee508ce875480d&quot;}"></script>
 </body></html>

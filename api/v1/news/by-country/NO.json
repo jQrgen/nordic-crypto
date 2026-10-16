@@ -1,11 +1,750 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-15T22:47:56+00:00",
+ "generated_at": "2026-10-16T00:29:25+00:00",
  "preview": false,
  "country": "NO",
- "count": 21,
+ "count": 27,
  "items": [
+  {
+   "id": "5cd3c3d9d648",
+   "url": "https://digi.no/datasenter/dette-betalte-datasenterselskapene-i-skatt/7145997",
+   "html_url": "https://nordiccrypto.no/stories/5cd3c3d9d648/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/5cd3c3d9d648.json",
+   "title": "Datasentre betalte under 12 millioner skatt totalt: – Dette må det bores mer i",
+   "title_en": "Crypto miners among the largest taxpayers in Norway's data-centre sector",
+   "title_i18n": {},
+   "source": "digi-krypto",
+   "source_name": "Digi.no",
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/digi.svg",
+    "source_url": "https://www.digi.no/view-resources/dachser2/public/digi/logo.svg",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/digi.png"
+   },
+   "source_note": null,
+   "country": "NO",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-10-14T11:48:45+00:00",
+   "topics": [
+    "mining",
+    "tax"
+   ],
+   "summary": "Fewer than half of Norway's data-centre operators paid corporate tax for 2024, while crypto miners account for several of the largest tax contributions, Digi.no reports from a new overview. According to the visible part of the paywalled article, the list covers 55 operators and comes from an answer by digitalisation minister Torgeir Micaelsen to MP Lars Haltbrekken (SV).",
+   "summary_i18n": {
+    "da": "Færre end halvdelen af Norges datacenteraktører betalte selskabsskat for 2024, mens kryptominere står bag flere af de største skattebidrag, skriver Digi.no ud fra en ny oversigt. Ifølge den synlige del af artiklen, som er bag betalingsmur, omfatter listen 55 aktører og stammer fra et svar fra digitaliseringsminister Torgeir Micaelsen til stortingsmedlem Lars Haltbrekken (SV).",
+    "fi": "Alle puolet Norjan datakeskustoimijoista maksoi yhteisöveroa vuodelta 2024, kun taas kryptolouhijat ovat useiden suurimpien veronmaksujen takana, kertoo Digi.no tuoreen koosteen perusteella. Maksumuurin takana olevan artikkelin näkyvän osan mukaan lista kattaa 55 toimijaa ja on peräisin digitalisaatioministeri Torgeir Micaelsenin vastauksesta kansanedustaja Lars Haltbrekkenille (SV).",
+    "is": "Innan við helmingur gagnaversrekenda í Noregi greiddi tekjuskatt fyrirtækja fyrir árið 2024, en rafmyntanámufyrirtæki standa á bak við nokkrar af stærstu skattgreiðslunum, segir Digi.no upp úr nýju yfirliti. Samkvæmt sýnilegum hluta greinarinnar, sem er á bak við greiðsluvegg, nær listinn til 55 aðila og kemur úr svari Torgeir Micaelsen, ráðherra stafrænnar þróunar, til Lars Haltbrekken þingmanns (SV).",
+    "nb": "Færre enn halvparten av datasenteraktørene i Norge betalte selskapsskatt for 2024, mens kryptoutvinnere står bak flere av de største skattebidragene, melder Digi.no fra en fersk oversikt. Ifølge den synlige delen av artikkelen, som ligger bak betalingsmur, omfatter listen 55 aktører og kommer fra et svar fra digitaliseringsminister Torgeir Micaelsen til stortingsrepresentant Lars Haltbrekken (SV).",
+    "nn": "Færre enn halvparten av datasenteraktørane i Noreg betalte selskapsskatt for 2024, medan kryptoutvinnarar står bak fleire av dei største skattebidraga, melder Digi.no frå ei fersk oversikt. Ifølgje den synlege delen av artikkelen, som ligg bak betalingsmur, omfattar lista 55 aktørar og kjem frå eit svar frå digitaliseringsminister Torgeir Micaelsen til stortingsrepresentant Lars Haltbrekken (SV).",
+    "sv": "Färre än hälften av Norges datacenteraktörer betalade bolagsskatt för 2024, medan kryptoutvinnare står bakom flera av de största skattebidragen, rapporterar Digi.no utifrån en ny sammanställning. Enligt den synliga delen av den betalväggsskyddade artikeln omfattar listan 55 aktörer och kommer från ett svar från digitaliseringsminister Torgeir Micaelsen till stortingsledamoten Lars Haltbrekken (SV)."
+   },
+   "paywall": true,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "commons-mining",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-mining.webp",
+    "width": 960,
+    "height": 720,
+    "alt": "Rows of cryptocurrency mining machines indoors.",
+    "source": "Wikimedia Commons",
+    "author": "Jasper Reichardt",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "url": "https://commons.wikimedia.org/wiki/File:Mining-Rig.jpg",
+    "credit": "Photo: Jasper Reichardt. Licence: CC BY-SA 4.0. Source: Wikimedia Commons.",
+    "modifications": null,
+    "terms": null
+   },
+   "primary_source": {
+    "outlet": "digi-krypto",
+    "outlet_name": "Digi.no",
+    "url": "https://digi.no/datasenter/dette-betalte-datasenterselskapene-i-skatt/7145997",
+    "title": "Datasentre betalte under 12 millioner skatt totalt: – Dette må det bores mer i",
+    "published": "2026-10-14T11:48:45+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": true,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/digi.svg",
+     "source_url": "https://www.digi.no/view-resources/dachser2/public/digi/logo.svg",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/digi.png"
+    }
+   },
+   "primary_source_document": null,
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "digi-krypto",
+     "outlet_name": "Digi.no",
+     "url": "https://digi.no/datasenter/dette-betalte-datasenterselskapene-i-skatt/7145997",
+     "title": "Datasentre betalte under 12 millioner skatt totalt: – Dette må det bores mer i",
+     "published": "2026-10-14T11:48:45+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "national",
+     "paywall": true,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/digi.svg",
+      "source_url": "https://www.digi.no/view-resources/dachser2/public/digi/logo.svg",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/digi.png"
+     }
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/digi.png"
+  },
+  {
+   "id": "86fc6577147d",
+   "url": "https://finanswatch.no/nyheter/fintech/article19736366.ece",
+   "html_url": "https://nordiccrypto.no/stories/86fc6577147d/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/86fc6577147d.json",
+   "title": "Stablecoin-samarbeid med nordiske banker får godkjenning – lanserer om kort tid",
+   "title_en": "Stablecoin venture backed by Nordic banks gets authorisation and plans launch soon",
+   "title_i18n": {},
+   "source": "finanswatch",
+   "source_name": "Finanswatch",
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp",
+    "source_url": "https://finanswatch.no/favicons/finanswatch.no/apple-touch-icon.png",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp"
+   },
+   "source_note": null,
+   "country": "NO",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-10-14T09:27:06+00:00",
+   "topics": [
+    "stablecoins",
+    "mica",
+    "banking"
+   ],
+   "summary": "A company backed by 37 banks, including Nordic banks, has received an important authorisation and is preparing to launch blockchain-based euro tokens under the EU's MiCA rules, Finanswatch reports. According to the paywalled article's headline, the launch is expected shortly. The visible text does not give further details.",
+   "summary_i18n": {
+    "da": "Et selskab, der er støttet af 37 banker, herunder nordiske banker, har fået en vigtig autorisation og forbereder lancering af blockchain-baserede eurotokens under EU's MiCA-regler, skriver Finanswatch. Ifølge overskriften på artiklen, som er bag betalingsmur, ventes lanceringen om kort tid. Den synlige tekst giver ikke flere detaljer.",
+    "fi": "Yhtiö, jota tukee 37 pankkia, muun muassa pohjoismaisia pankkeja, on saanut tärkeän toimiluvan ja valmistelee lohkoketjupohjaisten eurotokenien julkaisua EU:n MiCA-sääntelyn mukaisesti, kertoo Finanswatch. Maksumuurin takana olevan artikkelin otsikon mukaan julkaisu on odotettavissa pian. Näkyvä teksti ei kerro enempää yksityiskohtia.",
+    "is": "Fyrirtæki sem 37 bankar standa að, þar á meðal norrænir bankar, hefur fengið mikilvægt leyfi og undirbýr útgáfu evrutákna á bálkakeðju samkvæmt MiCA-reglum ESB, segir Finanswatch. Samkvæmt fyrirsögn greinarinnar, sem er á bak við greiðsluvegg, er útgáfan væntanleg innan skamms. Sýnilegi textinn gefur ekki frekari upplýsingar.",
+    "nb": "Et selskap som er støttet av 37 banker, blant dem nordiske banker, har fått en viktig autorisasjon og forbereder lansering av blokkjedebaserte eurotokens under EU-regelverket MiCA, melder Finanswatch. Ifølge tittelen på artikkelen, som ligger bak betalingsmur, ventes lanseringen om kort tid. Den synlige teksten gir ikke flere detaljer.",
+    "nn": "Eit selskap som er støtta av 37 bankar, mellom dei nordiske bankar, har fått ei viktig autorisasjon og førebur lansering av blokkjedebaserte eurotokenar under EU-regelverket MiCA, melder Finanswatch. Ifølgje tittelen på artikkelen, som ligg bak betalingsmur, er lanseringa venta om kort tid. Den synlege teksten gir ikkje fleire detaljar.",
+    "sv": "Ett bolag som backas av 37 banker, bland dem nordiska banker, har fått ett viktigt tillstånd och förbereder lansering av blockkedjebaserade eurotokens under EU:s MiCA-regelverk, rapporterar Finanswatch. Enligt rubriken på den betalväggsskyddade artikeln väntas lanseringen inom kort. Den synliga texten ger inga fler detaljer."
+   },
+   "paywall": true,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "official-norges-bank",
+    "kind": "official-press",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/official-norges-bank.webp",
+    "width": 960,
+    "height": 720,
+    "alt": "Norges Bank headquarters in Oslo, daytime facade.",
+    "source": "Norges Bank",
+    "author": "Esten Borgos",
+    "license": "Norges Bank terms: credit, no alteration, not for advertising",
+    "license_url": "https://www.norges-bank.no/en/topics/about/copyright/",
+    "url": "https://www.norges-bank.no/en/topics/about/Media-enquiries/Press-photos/",
+    "credit": "Photo: Esten Borgos. Licence: Norges Bank terms: credit, no alteration, not for advertising. Source: Norges Bank.",
+    "modifications": null,
+    "terms": "Checked 2026-10-06. Norges Bank's copyright page allows copying from norges-bank.no when Norges Bank is named as the source, the content is not changed, and it is not used in advertising. This is the daytime facade from the press-photo page (photo: Esten Borgos). It is scaled to 960 pixels wide and saved as WebP, not cropped or recoloured. Portraits and pictures of notes and coins from the same page are not used."
+   },
+   "primary_source": {
+    "outlet": "finanswatch",
+    "outlet_name": "Finanswatch",
+    "url": "https://finanswatch.no/nyheter/fintech/article19736366.ece",
+    "title": "Stablecoin-samarbeid med nordiske banker får godkjenning – lanserer om kort tid",
+    "published": "2026-10-14T09:27:06+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": true,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp",
+     "source_url": "https://finanswatch.no/favicons/finanswatch.no/apple-touch-icon.png",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp"
+    }
+   },
+   "primary_source_document": null,
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "finanswatch",
+     "outlet_name": "Finanswatch",
+     "url": "https://finanswatch.no/nyheter/fintech/article19736366.ece",
+     "title": "Stablecoin-samarbeid med nordiske banker får godkjenning – lanserer om kort tid",
+     "published": "2026-10-14T09:27:06+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "national",
+     "paywall": true,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp",
+      "source_url": "https://finanswatch.no/favicons/finanswatch.no/apple-touch-icon.png",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp"
+     }
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/finanswatch.webp"
+  },
+  {
+   "id": "22bc08ecb454",
+   "url": "https://sagat.no/nye-datasenter-utvinner-krypto/19.59968",
+   "html_url": "https://nordiccrypto.no/stories/22bc08ecb454/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/22bc08ecb454.json",
+   "title": "Spørsmål i Stortinget: – Nye datasenter utvinner krypto?",
+   "title_en": "Storting question: are new data centres mining crypto?",
+   "title_i18n": {},
+   "source": "sagat",
+   "source_name": "Ságat",
+   "source_logo": null,
+   "source_note": null,
+   "country": "NO",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-10-14T07:10:56+00:00",
+   "topics": [
+    "mining",
+    "policy"
+   ],
+   "summary": "A claim by data-centre company Arctic Core AS to Kautokeino municipality, that crypto is common and well known in the data-centre industry, is now the subject of a question in the Storting, the local paper Ságat reports. The story is a follow-up to Ságat's earlier report that Arctic Core acknowledged it would carry out 'a little' crypto mining in Kautokeino. The rest of the article is behind a paywall.",
+   "summary_i18n": {
+    "da": "En påstand fra datacentervirksomheden Arctic Core AS over for Kautokeino kommune om, at krypto er almindeligt og velkendt i datacenterbranchen, er nu emne for et spørgsmål i Stortinget, skriver lokalavisen Ságat. Artiklen følger op på Ságats tidligere historie om, at Arctic Core indrømmede, at selskabet vil drive »lidt« kryptomining i Kautokeino. Resten af artiklen er bag betalingsmur.",
+    "fi": "Datakeskusyhtiö Arctic Core AS:n Koutokeinon kunnalle esittämä väite, jonka mukaan krypto on tavallista ja tunnettua datakeskusalalla, on nyt Stortingetissa esitetyn kysymyksen aiheena, kertoo paikallislehti Ságat. Juttu on jatkoa Ságatin aiemmalle uutiselle, jonka mukaan Arctic Core myönsi harjoittavansa ”vähän” kryptolouhintaa Koutokeinossa. Muu osa artikkelista on maksumuurin takana.",
+    "is": "Fullyrðing gagnaversfyrirtækisins Arctic Core AS gagnvart sveitarfélaginu Kautokeino, um að rafmyntir séu algengar og vel þekktar í gagnaversgeiranum, er nú efni fyrirspurnar á Stórþinginu, segir héraðsblaðið Ságat. Fréttin er framhald af fyrri frétt Ságat um að Arctic Core hefði viðurkennt að það myndi stunda „smá“ rafmyntanámugröft í Kautokeino. Afgangur greinarinnar er á bak við greiðsluvegg.",
+    "nb": "En påstand fra dataselskapet Arctic Core AS overfor Kautokeino kommune, om at krypto er vanlig og velkjent i datasenterbransjen, er nå tema for et spørsmål i Stortinget, melder lokalavisen Ságat. Saken følger opp Ságats tidligere melding om at Arctic Core innrømmet at selskapet skal drive med «litt» kryptoutvinning i Kautokeino. Resten av artikkelen ligger bak betalingsmur.",
+    "nn": "Ein påstand frå dataselskapet Arctic Core AS overfor Kautokeino kommune, om at krypto er vanleg og velkjent i datasenterbransjen, er no tema for eit spørsmål i Stortinget, melder lokalavisa Ságat. Saka følgjer opp Ságats tidlegare melding om at Arctic Core vedgjekk at selskapet skal drive med «litt» kryptoutvinning i Kautokeino. Resten av artikkelen ligg bak betalingsmur.",
+    "sv": "Ett påstående från datacenterbolaget Arctic Core AS till Kautokeino kommun, om att krypto är vanligt och välkänt i datacenterbranschen, är nu föremål för en fråga i Stortinget, rapporterar lokaltidningen Ságat. Artikeln följer upp Ságats tidigare rapport om att Arctic Core medgett att bolaget ska bedriva ”lite” kryptoutvinning i Kautokeino. Resten av artikeln ligger bakom betalvägg."
+   },
+   "paywall": true,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "commons-mining",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-mining.webp",
+    "width": 960,
+    "height": 720,
+    "alt": "Rows of cryptocurrency mining machines indoors.",
+    "source": "Wikimedia Commons",
+    "author": "Jasper Reichardt",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "url": "https://commons.wikimedia.org/wiki/File:Mining-Rig.jpg",
+    "credit": "Photo: Jasper Reichardt. Licence: CC BY-SA 4.0. Source: Wikimedia Commons.",
+    "modifications": null,
+    "terms": null
+   },
+   "primary_source": {
+    "outlet": "sagat",
+    "outlet_name": "Ságat",
+    "url": "https://sagat.no/nye-datasenter-utvinner-krypto/19.59968",
+    "title": "Spørsmål i Stortinget: – Nye datasenter utvinner krypto?",
+    "published": "2026-10-14T07:10:56+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": true,
+    "primary": true,
+    "logo": null
+   },
+   "primary_source_document": null,
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "sagat",
+     "outlet_name": "Ságat",
+     "url": "https://sagat.no/nye-datasenter-utvinner-krypto/19.59968",
+     "title": "Spørsmål i Stortinget: – Nye datasenter utvinner krypto?",
+     "published": "2026-10-14T07:10:56+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "national",
+     "paywall": true,
+     "primary": true,
+     "logo": null
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": null
+  },
+  {
+   "id": "d58de33a2af7",
+   "url": "https://investornytt.no/krypto/pengene-renner-ut-av-bitcoin-lunde-ser-begrenset-nedside/547483",
+   "html_url": "https://nordiccrypto.no/stories/d58de33a2af7/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/d58de33a2af7.json",
+   "title": "Bitcoin presses av rekordstore uttak",
+   "title_en": "K33: Bitcoin outflows are heavy, but low leverage limits the downside",
+   "title_i18n": {},
+   "source": "investornytt",
+   "source_name": "Investornytt",
+   "source_logo": null,
+   "source_note": null,
+   "country": "NO",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-10-13T15:04:51+00:00",
+   "topics": [
+    "bitcoin",
+    "business"
+   ],
+   "summary": "Exchange-traded bitcoin products saw net outflows of 10,064 bitcoin in five days, the largest since 15 September, as bitcoin fell from USD 86,000 to below USD 80,500, according to K33's weekly report as covered by Investornytt. K33's head of analysis attributes the fall mainly to a broader flight from risk. According to K33's weekly report, open positions in perpetual futures are at a five-month low, which makes forced liquidations unlikely, and K33 still considers bitcoin attractively priced with limited downside.",
+   "summary_i18n": {
+    "da": "Børsnoterede bitcoinprodukter havde nettoudtræk på 10.064 bitcoin på fem dage, det største siden 15. september, mens bitcoin faldt fra 86.000 til under 80.500 dollar, ifølge K33's ugerapport, som Investornytt omtaler. K33's analysechef mener, at faldet hovedsageligt skyldes en bredere flugt fra risiko. Ifølge K33's ugerapport er åbne positioner i evigtvarende futures på det laveste niveau i fem måneder, hvilket gør tvangslukninger usandsynlige, og K33 vurderer stadig bitcoin som attraktivt prissat med begrænset nedside.",
+    "fi": "Pörssinoteeratuista bitcoin-tuotteista vedettiin viidessä päivässä nettona 10 064 bitcoinia, eniten sitten 15. syyskuuta, kun bitcoin laski 86 000 dollarista alle 80 500 dollarin, kertoo K33:n viikkoraportti Investornytin uutisoimana. K33:n analyysijohtajan mukaan lasku johtuu pääasiassa laajemmasta riskipaosta. K33:n viikkoraportin mukaan avoimet positiot ikuisissa futuureissa ovat viiden kuukauden pohjalla, mikä tekee pakkolikvidaatiot epätodennäköisiksi, ja K33 pitää bitcoinia yhä houkuttelevasti hinnoiteltuna ja laskuvaraa rajallisena.",
+    "is": "Kauphallarskráðar bitcoin-vörur urðu fyrir nettóútflæði upp á 10.064 bitcoin á fimm dögum, því mesta síðan 15. september, á meðan bitcoin féll úr 86.000 í undir 80.500 dollara, samkvæmt vikuskýrslu K33 eins og Investornytt greinir frá. Greiningarstjóri K33 rekur lækkunina einkum til almenns flótta frá áhættu. Samkvæmt vikuskýrslu K33 eru opnar stöður í ótímabundnum framvirkum samningum í fimm mánaða lágmarki, sem gerir nauðungarlokanir ólíklegar, og K33 telur bitcoin enn aðlaðandi verðlagt með takmarkaða lækkunarhættu.",
+    "nb": "Børsnoterte bitcoin-produkter hadde netto uttak på 10 064 bitcoin på fem dager, det største siden 15. september, mens bitcoin falt fra 86 000 til under 80 500 dollar, ifølge K33s ukesrapport slik Investornytt omtaler den. Analysesjefen i K33 mener fallet hovedsakelig skyldes en bredere flukt fra risiko. Ifølge K33s ukesrapport er åpne posisjoner i evigvarende terminkontrakter på en femmåneders bunn, noe som gjør tvangslukking lite sannsynlig, og K33 mener fortsatt at bitcoin er attraktivt priset med begrenset nedside.",
+    "nn": "Børsnoterte bitcoin-produkt hadde netto uttak på 10 064 bitcoin på fem dagar, det største sidan 15. september, medan bitcoin fall frå 86 000 til under 80 500 dollar, ifølgje K33s vekerapport slik Investornytt omtaler han. Analysesjefen i K33 meiner fallet hovudsakleg kjem av ei breiare flukt frå risiko. Ifølgje K33s vekerapport er opne posisjonar i evigvarande terminkontraktar på eit femmånaders botnnivå, noko som gjer tvangslukking lite sannsynleg, og K33 meiner framleis at bitcoin er attraktivt prisa med avgrensa nedside.",
+    "sv": "Börshandlade bitcoinprodukter hade nettoutflöden på 10 064 bitcoin på fem dagar, det största sedan den 15 september, medan bitcoin föll från 86 000 till under 80 500 dollar, enligt K33:s veckorapport som Investornytt återger. K33:s analyschef menar att fallet främst beror på en bredare flykt från risk. Enligt K33:s veckorapport är öppna positioner i eviga terminskontrakt på den lägsta nivån på fem månader, vilket gör tvångslikvideringar osannolika, och K33 anser fortfarande att bitcoin är attraktivt prissatt med begränsad nedsida."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "commons-bitcoin",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-bitcoin.webp",
+    "width": 365,
+    "height": 872,
+    "alt": "A physical bitcoin token in a clear case.",
+    "source": "Wikimedia Commons",
+    "author": "Heuboden",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "url": "https://commons.wikimedia.org/wiki/File:Bitcoin_coin_in_plastic_packaging.jpg",
+    "credit": "Photo: Heuboden. Licence: CC BY-SA 4.0. Source: Wikimedia Commons. Cropped.",
+    "modifications": "Cropped by Nordic Crypto to leave out a person at the edge of the frame.",
+    "terms": null
+   },
+   "primary_source": {
+    "outlet": "investornytt",
+    "outlet_name": "Investornytt",
+    "url": "https://investornytt.no/krypto/pengene-renner-ut-av-bitcoin-lunde-ser-begrenset-nedside/547483",
+    "title": "Bitcoin presses av rekordstore uttak",
+    "published": "2026-10-13T15:04:51+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": null
+   },
+   "primary_source_document": null,
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "investornytt",
+     "outlet_name": "Investornytt",
+     "url": "https://investornytt.no/krypto/pengene-renner-ut-av-bitcoin-lunde-ser-begrenset-nedside/547483",
+     "title": "Bitcoin presses av rekordstore uttak",
+     "published": "2026-10-13T15:04:51+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": null
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": null
+  },
+  {
+   "id": "1b09dbbba837",
+   "url": "https://sagat.no/kommunen-vart-naiv/19.59940",
+   "html_url": "https://nordiccrypto.no/stories/1b09dbbba837/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/1b09dbbba837.json",
+   "title": "Krypto i Kautokeino: – Kommunen vært naiv",
+   "title_en": "Kautokeino: environmental group calls municipality naive over Arctic Core crypto mining",
+   "title_i18n": {},
+   "source": "sagat",
+   "source_name": "Ságat",
+   "source_logo": null,
+   "source_note": null,
+   "country": "NO",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-10-12T09:38:15+00:00",
+   "topics": [
+    "mining",
+    "energy"
+   ],
+   "summary": "In a follow-up to its earlier report that data-centre firm Arctic Core admits to 'a little' crypto mining on its site in Kautokeino, Ságat reports that the local Naturvernforbundet branch wants the municipality to withdraw the building permit. The group's complaint will not be handled before November, when it may be passed to the county governor.",
+   "summary_i18n": {
+    "da": "I en opfølgning på den tidligere historie om, at datacentervirksomheden Arctic Core indrømmer «lidt» kryptoudvinding på sin grund i Kautokeino, skriver Ságat, at den lokale afdeling af Naturvernforbundet vil have kommunen til at trække byggetilladelsen tilbage. Klagen behandles først i november, hvor den kan blive sendt videre til statsforvalteren.",
+    "fi": "Jatkona aiempaan juttuun, jossa datakeskusyhtiö Arctic Core myönsi harjoittavansa «hieman» kryptolouhintaa tontillaan Koutokeinossa, Ságat kertoo, että Naturvernforbundetin paikallisyhdistys vaatii kuntaa perumaan rakennusluvan. Valitus käsitellään aikaisintaan marraskuussa, jolloin se voidaan siirtää lääninhallitukselle (statsforvalteren).",
+    "is": "Í framhaldi af fyrri frétt um að gagnaversfyrirtækið Arctic Core viðurkenni «smá» rafmyntagröft á lóð sinni í Kautokeino greinir Ságat frá því að staðardeild Naturvernforbundet vilji að sveitarfélagið afturkalli byggingarleyfið. Kæran verður ekki tekin fyrir fyrr en í nóvember, en þá gæti hún verið send áfram til fylkisstjórans.",
+    "nb": "I en oppfølging av den tidligere saken om at dataselskapet Arctic Core innrømmer «litt» kryptoutvinning på tomten sin i Kautokeino, melder Ságat at det lokale laget av Naturvernforbundet vil at kommunen trekker byggetillatelsen. Klagen behandles ikke før i november, da den kan bli oversendt statsforvalteren.",
+    "nn": "I ei oppfølging av den tidlegare saka om at dataselskapet Arctic Core vedgår «litt» kryptoutvinning på tomta si i Kautokeino, melder Ságat at det lokale laget av Naturvernforbundet vil at kommunen trekkjer byggjeløyvet. Klaga vert ikkje handsama før i november, då ho kan verte send vidare til statsforvaltaren.",
+    "sv": "I en uppföljning av den tidigare artikeln om att datacenterbolaget Arctic Core medger «lite» kryptoutvinning på sin tomt i Kautokeino rapporterar Ságat att den lokala avdelningen av Naturvernforbundet vill att kommunen drar tillbaka bygglovet. Klagomålet behandlas inte före november, då det kan skickas vidare till statsförvaltaren."
+   },
+   "paywall": true,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "commons-mining",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-mining.webp",
+    "width": 960,
+    "height": 720,
+    "alt": "Rows of cryptocurrency mining machines indoors.",
+    "source": "Wikimedia Commons",
+    "author": "Jasper Reichardt",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "url": "https://commons.wikimedia.org/wiki/File:Mining-Rig.jpg",
+    "credit": "Photo: Jasper Reichardt. Licence: CC BY-SA 4.0. Source: Wikimedia Commons.",
+    "modifications": null,
+    "terms": null
+   },
+   "primary_source": {
+    "outlet": "sagat",
+    "outlet_name": "Ságat",
+    "url": "https://sagat.no/kommunen-vart-naiv/19.59940",
+    "title": "Krypto i Kautokeino: – Kommunen vært naiv",
+    "published": "2026-10-12T09:38:15+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": true,
+    "primary": true,
+    "logo": null
+   },
+   "primary_source_document": null,
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "sagat",
+     "outlet_name": "Ságat",
+     "url": "https://sagat.no/kommunen-vart-naiv/19.59940",
+     "title": "Krypto i Kautokeino: – Kommunen vært naiv",
+     "published": "2026-10-12T09:38:15+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "national",
+     "paywall": true,
+     "primary": true,
+     "logo": null
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": null
+  },
+  {
+   "id": "660753d52f62",
+   "url": "https://www.finfacts.no/artikkel/eksperimenterer-med-den-norske-kronen-i-internasjonal-sandkasse",
+   "html_url": "https://nordiccrypto.no/stories/660753d52f62/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/660753d52f62.json",
+   "title": "Eksperimenterer med den norske kronen i internasjonal sandkasse",
+   "title_en": "DNB experiments with the Norwegian krone in an international sandbox",
+   "title_i18n": {},
+   "source": "finfacts.no",
+   "source_name": "FinFacts",
+   "source_logo": null,
+   "source_note": null,
+   "country": "NO",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-10-07T12:00:00+00:00",
+   "topics": [
+    "tokenisation",
+    "banking"
+   ],
+   "summary": "FinFacts has interviewed DNB about its experiments with the Norwegian krone in an international sandbox for tokenised bank deposits. According to the article's lead, DNB believes tokenised bank deposits will play at least as important a role as stablecoins in shaping the digital money of the future. The full interview is behind a paywall.",
+   "summary_i18n": {
+    "da": "FinFacts har interviewet DNB om bankens eksperimenter med norske kroner i en international sandkasse for tokeniserede bankindskud. Ifølge artiklens indledning tror DNB stærkt på, at tokeniserede bankindskud vil spille en mindst lige så vigtig rolle som stablecoins, når fremtidens digitale penge skal formes. Hele interviewet ligger bag betalingsmur.",
+    "fi": "FinFacts on haastatellut DNB:tä sen kokeiluista Norjan kruunulla kansainvälisessä tokenisoitujen pankkitalletusten testiympäristössä. Artikkelin ingressin mukaan DNB uskoo vahvasti, että tokenisoidut pankkitalletukset ovat vähintään yhtä tärkeässä roolissa kuin stablecoinit tulevaisuuden digitaalisen rahan muotoutuessa. Koko haastattelu on maksumuurin takana.",
+    "is": "FinFacts hefur rætt við DNB um tilraunir bankans með norsku krónuna í alþjóðlegu prófunarumhverfi fyrir táknvæddar bankainnstæður. Samkvæmt inngangi greinarinnar hefur DNB mikla trú á að táknvæddar bankainnstæður muni gegna að minnsta kosti jafn mikilvægu hlutverki og stöðugleikamyntir þegar stafrænir peningar framtíðarinnar mótast. Viðtalið í heild er læst á bak við greiðsluvegg.",
+    "nb": "FinFacts har intervjuet DNB om bankens eksperimenter med norske kroner i en internasjonal sandkasse for tokeniserte bankinnskudd. Ifølge ingressen i artikkelen har DNB stor tro på at tokeniserte bankinnskudd vil spille en minst like viktig rolle som stablecoins når fremtidens digitale penger skal utformes. Hele intervjuet ligger bak betalingsmur.",
+    "nn": "FinFacts har intervjua DNB om eksperimenta banken gjer med norske kroner i ei internasjonal sandkasse for tokeniserte bankinnskot. Ifølgje ingressen i artikkelen har DNB stor tru på at tokeniserte bankinnskot vil spele ei minst like viktig rolle som stablecoins når framtidas digitale pengar skal formast. Heile intervjuet ligg bak betalingsmur.",
+    "sv": "FinFacts har intervjuat DNB om bankens experiment med norska kronor i en internationell sandlåda för tokeniserade bankinlåning. Enligt artikelns ingress tror DNB starkt på att tokeniserade bankinlåning kommer att spela minst lika viktig roll som stablecoins när framtidens digitala pengar formas. Hela intervjun ligger bakom betalvägg."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "official-norges-bank",
+    "kind": "official-press",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/official-norges-bank.webp",
+    "width": 960,
+    "height": 720,
+    "alt": "Norges Bank headquarters in Oslo, daytime facade.",
+    "source": "Norges Bank",
+    "author": "Esten Borgos",
+    "license": "Norges Bank terms: credit, no alteration, not for advertising",
+    "license_url": "https://www.norges-bank.no/en/topics/about/copyright/",
+    "url": "https://www.norges-bank.no/en/topics/about/Media-enquiries/Press-photos/",
+    "credit": "Photo: Esten Borgos. Licence: Norges Bank terms: credit, no alteration, not for advertising. Source: Norges Bank.",
+    "modifications": null,
+    "terms": "Checked 2026-10-06. Norges Bank's copyright page allows copying from norges-bank.no when Norges Bank is named as the source, the content is not changed, and it is not used in advertising. This is the daytime facade from the press-photo page (photo: Esten Borgos). It is scaled to 960 pixels wide and saved as WebP, not cropped or recoloured. Portraits and pictures of notes and coins from the same page are not used."
+   },
+   "primary_source": {
+    "outlet": "finfacts.no",
+    "outlet_name": "FinFacts",
+    "url": "https://www.finfacts.no/artikkel/eksperimenterer-med-den-norske-kronen-i-internasjonal-sandkasse",
+    "title": "Eksperimenterer med den norske kronen i internasjonal sandkasse",
+    "published": "2026-10-07T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": false,
+    "primary": true,
+    "logo": null
+   },
+   "primary_source_document": null,
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "finfacts.no",
+     "outlet_name": "FinFacts",
+     "url": "https://www.finfacts.no/artikkel/eksperimenterer-med-den-norske-kronen-i-internasjonal-sandkasse",
+     "title": "Eksperimenterer med den norske kronen i internasjonal sandkasse",
+     "published": "2026-10-07T12:00:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "national",
+     "paywall": false,
+     "primary": true,
+     "logo": null
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": null
+  },
   {
    "id": "9755cf9957e9",
    "url": "https://sagat.no/innrommer-litt-kryptoutvinning/19.59848",
