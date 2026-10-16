@@ -92,3 +92,7 @@ header.top select option{color:var(--nc-tar);background:var(--nc-sail)}
 .hero .lead{color:var(--muted);font-size:15px;line-height:1.6;max-width:78ch;margin:10px 0 0}
 @media(max-width:640px){.hero .lead{font-size:14px}}
 .hero-meta{margin:10px 0 0;font:500 12px/1.4 var(--f-mono);letter-spacing:.06em;color:var(--muted)}
+/* language flags (assets/flags, flag-icons MIT). Thin ring keeps white-edged flags visible in light and dark mode. */
+.lflag{display:inline-block;flex:none;width:20px;height:15px;border-radius:2px;box-shadow:0 0 0 1px var(--line-strong);object-fit:cover;vertical-align:-2px}
+.lflag-globe{box-shadow:none;width:auto;height:auto;line-height:1}
+.langsw li a{display:flex;align-items:center;gap:8px}
