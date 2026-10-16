@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T00:44:36+00:00",
+ "generated_at": "2026-10-16T05:28:55+00:00",
  "preview": false,
  "section": "publications",
  "count": 2,
@@ -9,7 +9,6 @@
   {
    "country": "NO",
    "title": "Minimum Hybrid Kontrakt (MHK): En kombinasjon av Juridiske og Blockchain-baserte Smarte Kontrakter",
-   "title_en": "The Minimum Hybrid Contract (MHC): Combining Legal and Blockchain Smart Contracts",
    "authors": [
     "Jørgen Svennevik Notland"
    ],
@@ -28,9 +27,10 @@
     "smart contracts",
     "legal contracts"
    ],
-   "language": "English",
    "checked": "2026-10-15",
    "origin": "research/academia/works.json",
+   "language": "English",
+   "title_en": "The Minimum Hybrid Contract (MHC): Combining Legal and Blockchain Smart Contracts",
    "about_i18n": {},
    "id": "publications-hdl.handle.net-11250-2625939",
    "section": "publications",
@@ -59,9 +59,9 @@
     "trust",
     "transparency"
    ],
-   "language": "English",
    "checked": "2026-10-15",
    "origin": "research/academia/works.json",
+   "language": "English",
    "about_i18n": {},
    "id": "doi-10.13140_rg.2.2.22304.58886",
    "section": "publications",

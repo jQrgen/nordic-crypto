@@ -1,9 +1,9 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T00:44:36+00:00",
+ "generated_at": "2026-10-16T05:28:55+00:00",
  "preview": false,
- "updated": "2026-10-16T00:43:23+00:00",
+ "updated": "2026-10-15T01:42:08+00:00",
  "limit": 25,
  "count": 25,
  "items": [
@@ -126,28 +126,6 @@
    "url": "https://investornytt.no/krypto/pengene-renner-ut-av-bitcoin-lunde-ser-begrenset-nedside/547483",
    "html_url": "https://nordiccrypto.no/stories/d58de33a2af7/",
    "api_url": "https://nordiccrypto.no/api/v1/news/d58de33a2af7.json"
-  },
-  {
-   "id": "a6a0354d9d9a",
-   "published": "2026-10-12T20:00:00+00:00",
-   "country": "NORDIC",
-   "source": "nordic-crypto",
-   "source_name": "Nordic Crypto",
-   "language_code": "en",
-   "own_story": false,
-   "title": "Nordic Crypto publishes its own block explorer for Bitcoin Cash and Nexa",
-   "title_en": null,
-   "title_i18n": {
-    "nn": "Nordic Crypto publiserer sin eigen blokkutforskar for Bitcoin Cash og Nexa",
-    "nb": "Nordic Crypto publiserer sin egen blokkutforsker for Bitcoin Cash og Nexa",
-    "sv": "Nordic Crypto publicerar sin egen blockutforskare för Bitcoin Cash och Nexa",
-    "da": "Nordic Crypto udgiver sin egen blokudforsker for Bitcoin Cash og Nexa",
-    "fi": "Nordic Crypto julkaisee oman lohkoselaimensa Bitcoin Cashille ja Nexalle",
-    "is": "Nordic Crypto birtir eigin bálkaskoðara fyrir Bitcoin Cash og Nexa"
-   },
-   "url": "https://explorer.nordiccrypto.no/bch/",
-   "html_url": "https://nordiccrypto.no/stories/a6a0354d9d9a/",
-   "api_url": "https://nordiccrypto.no/api/v1/news/a6a0354d9d9a.json"
   },
   {
    "id": "601358bd24e5",
@@ -351,6 +329,21 @@
    "api_url": "https://nordiccrypto.no/api/v1/news/fb9e8ca4fb40.json"
   },
   {
+   "id": "e88e8e0c9a77",
+   "published": "2026-10-05T12:00:00+00:00",
+   "country": "NO",
+   "source": "stortinget",
+   "source_name": "Stortinget",
+   "language_code": "no",
+   "own_story": false,
+   "title": "Rødt foreslår midlertidig stans for nye datasentre",
+   "title_en": "Red Party proposes a temporary halt for new data centres",
+   "title_i18n": {},
+   "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/",
+   "html_url": "https://nordiccrypto.no/stories/e88e8e0c9a77/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/e88e8e0c9a77.json"
+  },
+  {
    "id": "47156e99927b",
    "published": "2026-10-05T12:00:00+00:00",
    "country": "NO",
@@ -381,19 +374,25 @@
    "api_url": "https://nordiccrypto.no/api/v1/news/bc7a45cb184e.json"
   },
   {
-   "id": "e88e8e0c9a77",
-   "published": "2026-10-05T12:00:00+00:00",
-   "country": "NO",
-   "source": "stortinget",
-   "source_name": "Stortinget",
-   "language_code": "no",
+   "id": "e6727b4858b5",
+   "published": "2026-10-03T05:00:00+00:00",
+   "country": "SE",
+   "source": "realtid",
+   "source_name": "Realtid",
+   "language_code": "sv",
    "own_story": false,
-   "title": "Rødt foreslår midlertidig stans for nye datasentre",
-   "title_en": "Red Party proposes a temporary halt for new data centres",
-   "title_i18n": {},
-   "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/",
-   "html_url": "https://nordiccrypto.no/stories/e88e8e0c9a77/",
-   "api_url": "https://nordiccrypto.no/api/v1/news/e88e8e0c9a77.json"
+   "title": "Så kan Sverige användas för att finansiera kärnvapen",
+   "title_en": "How Sweden can be used to finance nuclear weapons",
+   "title_i18n": {
+    "nn": "Slik kan Sverige brukast til å finansiere kjernevåpen",
+    "nb": "Slik kan Sverige brukes til å finansiere kjernevåpen",
+    "da": "Sådan kan Sverige bruges til at finansiere kernevåben",
+    "fi": "Näin Ruotsia voidaan käyttää ydinaseiden rahoittamiseen",
+    "is": "Svona má nota Svíþjóð til að fjármagna kjarnavopn"
+   },
+   "url": "https://www.realtid.se/bors-finans/makro/sa-kan-sverige-anvandas-for-att-finansiera-karnvapen/",
+   "html_url": "https://nordiccrypto.no/stories/e6727b4858b5/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/e6727b4858b5.json"
   }
  ]
 }

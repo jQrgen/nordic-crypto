@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T00:44:36+00:00",
+ "generated_at": "2026-10-16T05:28:55+00:00",
  "preview": false,
  "item": {
   "country": "NO",
@@ -26,9 +26,9 @@
    "trust",
    "transparency"
   ],
-  "language": "English",
   "checked": "2026-10-15",
   "origin": "research/academia/works.json",
+  "language": "English",
   "about_i18n": {},
   "id": "doi-10.13140_rg.2.2.22304.58886",
   "section": "publications",

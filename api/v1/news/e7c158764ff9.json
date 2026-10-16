@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T00:44:36+00:00",
+ "generated_at": "2026-10-16T05:28:55+00:00",
  "preview": false,
  "item": {
   "id": "e7c158764ff9",
@@ -24,12 +24,12 @@
   ],
   "summary": "Investornytt reports that Ethereum Foundation researcher Justin Drake believes AI could help break ECDSA, the signature scheme behind Bitcoin and Ethereum wallets, in the worst case within months, and suggests moving funds to addresses whose public key has not been exposed. Vitalik Buterin calls the risk serious but warns against panic.",
   "summary_i18n": {
-   "da": "Investornytt skriver, at Ethereum Foundation-forskeren Justin Drake vurderer, at AI i værste fald kan knække ECDSA, signatursystemet bag Bitcoin- og Ethereum-tegnebøger, inden for måneder, og anbefaler at flytte midler til adresser uden eksponeret offentlig nøgle. Vitalik Buterin tager risikoen alvorligt, men advarer mod panik.",
-   "fi": "Investornytt kertoo, että Ethereum Foundationin tutkija Justin Drake arvioi tekoälyn voivan pahimmassa tapauksessa murtaa ECDSA:n, Bitcoin- ja Ethereum-lompakoiden allekirjoitusjärjestelmän, kuukausien kuluessa, ja neuvoo siirtämään varat osoitteisiin, joiden julkista avainta ei ole paljastettu. Vitalik Buterin pitää riskiä vakavana mutta varoittaa paniikista.",
-   "is": "Investornytt greinir frá því að Justin Drake, rannsakandi hjá Ethereum Foundation, telji að gervigreind geti í versta falli brotið ECDSA, undirskriftakerfið að baki Bitcoin- og Ethereum-veskjum, innan nokkurra mánaða, og ráðleggur að færa fé á vistföng þar sem opinberi lykillinn hefur ekki verið birtur. Vitalik Buterin tekur áhættuna alvarlega en varar við ofsahræðslu.",
    "nb": "Investornytt melder at Ethereum Foundation-forsker Justin Drake mener kunstig intelligens i verste fall kan knekke ECDSA, signatursystemet bak Bitcoin- og Ethereum-lommebøker, i løpet av måneder, og råder til å flytte midler til adresser uten eksponert offentlig nøkkel. Vitalik Buterin tar risikoen på alvor, men advarer mot panikk.",
    "nn": "Investornytt melder at Ethereum Foundation-forskaren Justin Drake meiner kunstig intelligens i verste fall kan knekke ECDSA, signatursystemet bak Bitcoin- og Ethereum-lommebøker, i løpet av månader, og rår til å flytte midlar til adresser utan eksponert offentleg nøkkel. Vitalik Buterin tek risikoen på alvor, men åtvarar mot panikk.",
-   "sv": "Investornytt rapporterar att Ethereum Foundation-forskaren Justin Drake bedömer att AI i värsta fall kan knäcka ECDSA, signatursystemet bakom Bitcoin- och Ethereum-plånböcker, inom månader, och råder att flytta medel till adresser utan exponerad publik nyckel. Vitalik Buterin tar risken på allvar men varnar för panik."
+   "sv": "Investornytt rapporterar att Ethereum Foundation-forskaren Justin Drake bedömer att AI i värsta fall kan knäcka ECDSA, signatursystemet bakom Bitcoin- och Ethereum-plånböcker, inom månader, och råder att flytta medel till adresser utan exponerad publik nyckel. Vitalik Buterin tar risken på allvar men varnar för panik.",
+   "da": "Investornytt skriver, at Ethereum Foundation-forskeren Justin Drake vurderer, at AI i værste fald kan knække ECDSA, signatursystemet bag Bitcoin- og Ethereum-tegnebøger, inden for måneder, og anbefaler at flytte midler til adresser uden eksponeret offentlig nøgle. Vitalik Buterin tager risikoen alvorligt, men advarer mod panik.",
+   "fi": "Investornytt kertoo, että Ethereum Foundationin tutkija Justin Drake arvioi tekoälyn voivan pahimmassa tapauksessa murtaa ECDSA:n, Bitcoin- ja Ethereum-lompakoiden allekirjoitusjärjestelmän, kuukausien kuluessa, ja neuvoo siirtämään varat osoitteisiin, joiden julkista avainta ei ole paljastettu. Vitalik Buterin pitää riskiä vakavana mutta varoittaa paniikista.",
+   "is": "Investornytt greinir frá því að Justin Drake, rannsakandi hjá Ethereum Foundation, telji að gervigreind geti í versta falli brotið ECDSA, undirskriftakerfið að baki Bitcoin- og Ethereum-veskjum, innan nokkurra mánaða, og ráðleggur að færa fé á vistföng þar sem opinberi lykillinn hefur ekki verið birtur. Vitalik Buterin tekur áhættuna alvarlega en varar við ofsahræðslu."
   },
   "paywall": false,
   "links": [],
