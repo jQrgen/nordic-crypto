@@ -1102,6 +1102,7 @@ def build():
         ctx["markets"] = markets_mod.empty_failure(str(ex).split("\n")[0][:300])
     import fetch_stats
     ctx["stats"] = fetch_stats.current(BASE)   # aggregate visitor counts for stats/ and api/v1/stats.json
+    json.dump(ctx["stats"], open(os.path.join(SITE, "data", "stats.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     for LANG in i18n.LANGS:
         build_lang(ctx)
     LANG = "en"

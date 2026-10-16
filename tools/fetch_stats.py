@@ -32,6 +32,7 @@ import urllib.request
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data", "stats.json")
 API_REL = os.path.join("api", "v1", "stats.json")
+DATA_REL = os.path.join("data", "stats.json")   # also published at /data/stats.json
 GRAPHQL = "https://api.cloudflare.com/client/v4/graphql"
 SOURCE = "Cloudflare Web Analytics"
 SCHEMA = 1
@@ -244,7 +245,7 @@ def main(argv=None):
           f"page views {sum(p for _, p in fresh.values())}")
     if a.check:
         return 0
-    targets = [a.out] + ([os.path.join(a.pages, API_REL)] if a.pages else [])
+    targets = [a.out] + ([os.path.join(a.pages, API_REL), os.path.join(a.pages, DATA_REL)] if a.pages else [])
     days = {}
     for path in targets:          # keep days Cloudflare has already expired
         old = load(path) or {}
@@ -253,6 +254,8 @@ def main(argv=None):
         days.pop(d)              # the fresh query is authoritative for the window it covered
     days.update(fresh)
     now = utc_now()
+    if not days:                  # configured and queried, but no beacon hits yet: publish a real zero for today
+        days[now.date()] = (0, 0)
     doc = derive(days, generated_at=iso_z(now), until=now.date())
     for path in targets:
         write(path, doc)

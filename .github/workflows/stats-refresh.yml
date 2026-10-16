@@ -54,7 +54,7 @@ jobs:
         working-directory: gh-pages
         run: |
           set -euo pipefail
-          git add api/v1/stats.json 2>/dev/null || true
+          git add api/v1/stats.json data/stats.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "no stats changes to commit"
             exit 0
