@@ -77,6 +77,10 @@ def strings(lang):
         if not budget:
             raise RuntimeError("budget strings missing for " + lang)
         base.update(budget)
+        database = importlib.import_module("i18n.db_strings").S.get(lang)   # /db/ page, all languages
+        if not database:
+            raise RuntimeError("database strings missing for " + lang)
+        base.update(database)
         archive = importlib.import_module("i18n.archive_strings").S.get(lang)   # /archive/ page, all languages
         if not archive:
             raise RuntimeError("archive strings missing for " + lang)

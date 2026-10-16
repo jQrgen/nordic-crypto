@@ -1,0 +1,135 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://nordiccrypto.no/api/v1/schema/regulation-videos.schema.json",
+ "title": "Regulation videos",
+ "description": "Country explainer slots in data/regulation-videos.json. status scripts_ready means the script and storyboard exist and the MP4 is not committed yet.",
+ "x-nordic": {
+  "id": "regulation-videos",
+  "order": 240,
+  "files": [
+   "data/regulation-videos.json"
+  ],
+  "pages": [
+   "/regulation-videos/"
+  ],
+  "api": [],
+  "relations": [],
+  "derived": [],
+  "omitted_from_api": [],
+  "sections": [
+   {
+    "id": "video",
+    "title": "Video",
+    "row": "#/$defs/video"
+   }
+  ],
+  "row": "#/$defs/video"
+ },
+ "type": "object",
+ "properties": {
+  "_note": {
+   "type": "string"
+  },
+  "videos": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/video"
+   }
+  }
+ },
+ "additionalProperties": false,
+ "required": [
+  "_note",
+  "videos"
+ ],
+ "$defs": {
+  "video": {
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string",
+     "examples": [
+      "reg-no"
+     ]
+    },
+    "country": {
+     "type": "string",
+     "enum": [
+      "NO",
+      "SE",
+      "DK",
+      "FI",
+      "IS",
+      "FO",
+      "GL",
+      "AX"
+     ],
+     "examples": [
+      "NO"
+     ]
+    },
+    "duration_target_s": {
+     "type": "integer",
+     "examples": [
+      165
+     ]
+    },
+    "status": {
+     "type": "string",
+     "description": "scripts_ready until an MP4 is published.",
+     "enum": [
+      "scripts_ready",
+      "published"
+     ],
+     "examples": [
+      "scripts_ready"
+     ]
+    },
+    "file": {
+     "type": "string",
+     "description": "MP4 name under regulation-videos/media/. The file is not committed.",
+     "examples": [
+      "video-no.mp4"
+     ]
+    },
+    "poster": {
+     "type": "string",
+     "examples": [
+      "poster-no.png"
+     ]
+    },
+    "subs": {
+     "type": "string",
+     "examples": [
+      "subs-no.vtt"
+     ]
+    },
+    "script": {
+     "type": "string",
+     "description": "Path of the script, relative to regulation-videos/.",
+     "examples": [
+      "scripts/no-script.txt"
+     ]
+    },
+    "storyboard": {
+     "type": "string",
+     "examples": [
+      "storyboards/no-storyboard.md"
+     ]
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "id",
+    "country",
+    "duration_target_s",
+    "status",
+    "file",
+    "poster",
+    "subs",
+    "script",
+    "storyboard"
+   ]
+  }
+ }
+}

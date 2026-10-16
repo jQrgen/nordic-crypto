@@ -1,0 +1,393 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://nordiccrypto.no/api/v1/schema/news.schema.json",
+ "title": "News stories",
+ "description": "Stories in data/news.json. status is the editorial state: pending, published, rejected or merged. The public API lists published stories that have a summary. Editor fields stay in the file and are left out of /api/v1/.",
+ "x-nordic": {
+  "id": "news",
+  "order": 10,
+  "files": [
+   "data/news.json"
+  ],
+  "pages": [
+   "/"
+  ],
+  "api": [
+   {
+    "path": "/api/v1/news.json",
+    "note": "Published stories, newest first"
+   },
+   {
+    "path": "/api/v1/news/{id}.json",
+    "note": "One story"
+   },
+   {
+    "path": "/api/v1/news/latest.json",
+    "note": "The 25 newest stories, notifier fields only"
+   },
+   {
+    "path": "/api/v1/news/by-country/{country}.json",
+    "note": "NO, SE, DK, FI, IS, NORDIC or EU"
+   },
+   {
+    "path": "/api/v1/news/by-topic/{topic}.json",
+    "note": "One topic"
+   },
+   {
+    "path": "/api/v1/news/topics.json",
+    "note": "Topic index"
+   }
+  ],
+  "relations": [
+   {
+    "field": "source",
+    "to": "sources",
+    "cardinality": "many-to-one",
+    "note": "Outlet id in sources.json"
+   },
+   {
+    "field": "also_covered_by[].outlet",
+    "to": "sources",
+    "cardinality": "many-to-one",
+    "note": "Other outlets on the same event"
+   },
+   {
+    "field": "id",
+    "to": "title-i18n",
+    "cardinality": "one-to-one",
+    "note": "Our headlines, when we wrote them"
+   },
+   {
+    "field": "id",
+    "to": "blurbs",
+    "cardinality": "one-to-one",
+    "note": "Front-page blurb, when one is written"
+   }
+  ],
+  "derived": [],
+  "omitted_from_api": [
+   "approved_by",
+   "approved_at",
+   "reject_reason",
+   "matched",
+   "fetched",
+   "seen_via",
+   "via",
+   "suggested_by",
+   "suggested_status",
+   "suggested_at",
+   "summary_i18n_review",
+   "origin"
+  ],
+  "sections": [
+   {
+    "id": "story",
+    "title": "Story",
+    "row": "#/$defs/story"
+   }
+  ],
+  "row": "#/$defs/story"
+ },
+ "type": "object",
+ "properties": {
+  "items": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/story"
+   }
+  },
+  "updated": {
+   "type": "string",
+   "examples": [
+    "2026-10-14T01:43:32+00:00"
+   ]
+  }
+ },
+ "additionalProperties": false,
+ "required": [
+  "items",
+  "updated"
+ ],
+ "$defs": {
+  "story": {
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string",
+     "description": "Stable id, 12 hex characters.",
+     "examples": [
+      "d58de33a2af7"
+     ]
+    },
+    "url": {
+     "type": "string",
+     "description": "The story the reader follows. Absolute.",
+     "examples": [
+      "https://respawn.fi/gta-6-vuotajan-kryptovaluutta-romahti-yli-50-prosenttia"
+     ]
+    },
+    "title": {
+     "type": "string",
+     "description": "Source headline.",
+     "examples": [
+      "Bitcoin presses av rekordstore uttak"
+     ]
+    },
+    "title_en": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "description": "Our English headline, when the source headline is not English. Null when we did not write one.",
+     "examples": [
+      "K33: Bitcoin outflows are heavy, but low leverage limits the downside"
+     ]
+    },
+    "source": {
+     "type": "string",
+     "description": "Source id from sources.json.",
+     "examples": [
+      "investornytt"
+     ]
+    },
+    "source_name": {
+     "type": "string",
+     "description": "Outlet name as shown.",
+     "examples": [
+      "Investornytt"
+     ]
+    },
+    "country": {
+     "type": "string",
+     "description": "NO, SE, DK, FI, IS, NORDIC or EU.",
+     "enum": [
+      "NO",
+      "SE",
+      "DK",
+      "FI",
+      "IS",
+      "NORDIC",
+      "EU",
+      "FO",
+      "GL",
+      "AX"
+     ],
+     "examples": [
+      "NO"
+     ]
+    },
+    "language": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "description": "Language name of the source headline.",
+     "examples": [
+      "Norwegian"
+     ]
+    },
+    "via": {
+     "type": "string"
+    },
+    "seen_via": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "published": {
+     "type": "string",
+     "description": "When the outlet published it, ISO 8601.",
+     "examples": [
+      "2026-10-13T15:04:51+00:00"
+     ]
+    },
+    "fetched": {
+     "type": "string"
+    },
+    "topics": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "examples": [
+       "bitcoin"
+      ]
+     },
+     "description": "Topic ids, such as bitcoin or regulation.",
+     "examples": [
+      [
+       "bitcoin",
+       "business"
+      ]
+     ]
+    },
+    "matched": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "paywall": {
+     "type": "boolean",
+     "description": "True when the outlet may require a subscription. Article text is never fetched.",
+     "examples": [
+      false
+     ]
+    },
+    "status": {
+     "type": "string",
+     "description": "Editorial state. The public build uses published.",
+     "enum": [
+      "pending",
+      "published",
+      "rejected",
+      "merged"
+     ],
+     "examples": [
+      "published"
+     ]
+    },
+    "summary": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "description": "Our English summary. Null until one is written."
+    },
+    "approved_by": {
+     "type": "string"
+    },
+    "approved_at": {
+     "type": "string"
+    },
+    "summary_i18n": {
+     "type": "object",
+     "properties": {
+      "nn": {
+       "type": "string"
+      },
+      "nb": {
+       "type": "string"
+      },
+      "sv": {
+       "type": "string"
+      },
+      "da": {
+       "type": "string"
+      },
+      "fi": {
+       "type": "string"
+      },
+      "is": {
+       "type": "string"
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "nn",
+      "nb",
+      "sv",
+      "da",
+      "fi",
+      "is"
+     ],
+     "description": "Our summary in nn, nb, sv, da, fi and is, when that translation is published."
+    },
+    "summary_i18n_review": {
+     "type": "string",
+     "examples": [
+      "approved"
+     ]
+    },
+    "reject_reason": {
+     "type": "string"
+    },
+    "published_unverified": {
+     "type": "boolean",
+     "examples": [
+      true
+     ]
+    },
+    "suggested_by": {
+     "type": "string"
+    },
+    "origin": {
+     "type": "string",
+     "examples": [
+      "suggested by Kryptonytt"
+     ]
+    },
+    "suggested_status": {
+     "type": "string"
+    },
+    "suggested_at": {
+     "type": "string"
+    },
+    "primary_source": {
+     "type": "object",
+     "properties": {
+      "name": {
+       "type": "string",
+       "examples": [
+        "fi.se"
+       ]
+      },
+      "url": {
+       "type": "string",
+       "examples": [
+        "https://mfn.se/all/a/ace-digital/aced-ace-digital-q3-2026-update"
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "name",
+      "url"
+     ],
+     "description": "Editor-recorded original document (name and url), such as a regulator press release. Not the lead outlet."
+    },
+    "also_covered_by": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "additionalProperties": {
+       "type": [
+        "string",
+        "boolean",
+        "null"
+       ]
+      }
+     },
+     "description": "Other outlets on the same event."
+    },
+    "merged_into": {
+     "type": "string",
+     "description": "Id of the story this item was merged into (status merged).",
+     "examples": [
+      "5285674a58d8"
+     ]
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "id",
+    "url",
+    "title",
+    "title_en",
+    "source",
+    "source_name",
+    "country",
+    "language",
+    "via",
+    "seen_via",
+    "published",
+    "fetched",
+    "topics",
+    "matched",
+    "paywall",
+    "status",
+    "summary"
+   ]
+  }
+ }
+}

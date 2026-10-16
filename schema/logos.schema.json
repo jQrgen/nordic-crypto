@@ -1,0 +1,227 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://nordiccrypto.no/api/v1/schema/logos.schema.json",
+ "title": "Outlet logos",
+ "description": "Outlet marks in assets/img/logos/logos.json, keyed by id. review ok is what the public API shows. A missing review counts as ok. pending is included only in a preview build. rejected is never shown. The marks are the publishers' trademarks, shown only to identify the source of a headline.",
+ "x-nordic": {
+  "id": "logos",
+  "order": 130,
+  "files": [
+   "assets/img/logos/logos.json"
+  ],
+  "pages": [],
+  "api": [
+   {
+    "path": "/api/v1/sources.json",
+    "note": "logo and logo_url on each outlet"
+   },
+   {
+    "path": "/api/v1/news.json",
+    "note": "source_logo and source_logo_url on each story"
+   }
+  ],
+  "relations": [
+   {
+    "field": "id (object key)",
+    "to": "sources",
+    "cardinality": "one-to-one"
+   }
+  ],
+  "derived": [],
+  "omitted_from_api": [],
+  "sections": [
+   {
+    "id": "logo",
+    "title": "Logo",
+    "row": "#/$defs/logo"
+   }
+  ],
+  "row": "#/$defs/logo"
+ },
+ "type": "object",
+ "properties": {
+  "_how_to": {
+   "type": "string"
+  },
+  "_how_to_sources": {
+   "type": "string"
+  },
+  "_source_alias": {
+   "type": "object",
+   "additionalProperties": {
+    "type": "string"
+   },
+   "description": "Source id to logo key, when the who's who id differs from the news source id."
+  }
+ },
+ "additionalProperties": {
+  "$ref": "#/$defs/logo"
+ },
+ "required": [
+  "_how_to",
+  "_how_to_sources",
+  "_source_alias"
+ ],
+ "$defs": {
+  "logo": {
+   "type": "object",
+   "properties": {
+    "source": {
+     "type": "string",
+     "examples": [
+      "Wikimedia Commons"
+     ]
+    },
+    "source_url": {
+     "type": "string",
+     "description": "Where the file was fetched.",
+     "examples": [
+      "https://www.finanstilsynet.no/Content/Favicons/apple-touch-icon-57x57.png"
+     ]
+    },
+    "license": {
+     "type": "string",
+     "examples": [
+      "Public domain"
+     ]
+    },
+    "author": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "examples": [
+      "Worldlydev"
+     ]
+    },
+    "file": {
+     "type": "string",
+     "description": "Path of the original file, SVG or WebP.",
+     "examples": [
+      "assets/img/logos/stortinget-finanskomiteen.svg"
+     ]
+    },
+    "wikidata": {
+     "type": "string",
+     "examples": [
+      "Q109016"
+     ]
+    },
+    "fetched": {
+     "type": "string"
+    },
+    "review": {
+     "type": "string",
+     "description": "pending, ok or rejected. The public build shows ok, and a missing review counts as ok.",
+     "enum": [
+      "pending",
+      "ok",
+      "rejected"
+     ],
+     "examples": [
+      "ok"
+     ]
+    },
+    "reviewed": {
+     "type": "string"
+    },
+    "raster": {
+     "type": "string",
+     "description": "PNG rendering of an SVG, when one was made.",
+     "examples": [
+      "assets/img/logos/stortinget-finanskomiteen.png"
+     ]
+    },
+    "page": {
+     "type": "string",
+     "examples": [
+      "https://www.finanstilsynet.no"
+     ]
+    },
+    "kind": {
+     "type": "string",
+     "examples": [
+      "touch"
+     ]
+    },
+    "note": {
+     "type": "string"
+    },
+    "history": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "review": {
+        "type": "string",
+        "examples": [
+         "rejected"
+        ]
+       },
+       "reason": {
+        "type": "string",
+        "examples": [
+         "editor: outdated logo"
+        ]
+       },
+       "date": {
+        "type": "string",
+        "examples": [
+         "2026-10-04"
+        ]
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "review",
+       "reason",
+       "date"
+      ]
+     }
+    },
+    "reason": {
+     "type": "string",
+     "examples": [
+      "editor: rejected (shows the owner Bitdeer's logo); left blank"
+     ]
+    },
+    "use": {
+     "type": "string",
+     "examples": [
+      "nominative"
+     ]
+    },
+    "source_id": {
+     "type": "string",
+     "examples": [
+      "e24"
+     ]
+    },
+    "outlet": {
+     "type": "string",
+     "examples": [
+      "E24"
+     ]
+    },
+    "license_url": {
+     "type": "string",
+     "examples": [
+      "https://creativecommons.org/licenses/by/4.0"
+     ]
+    },
+    "same_as": {
+     "type": "string",
+     "examples": [
+      "nbx"
+     ]
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "source_url",
+    "fetched",
+    "review"
+   ]
+  }
+ }
+}

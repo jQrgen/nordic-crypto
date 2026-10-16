@@ -1,0 +1,301 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://nordiccrypto.no/api/v1/schema/talks.schema.json",
+ "title": "Talks",
+ "description": "Public talks on bitcoin, cryptocurrencies and blockchain in the Nordic countries, in data/talks.json. description is ours. The other details come from the platform at source_url. A field the platform did not state is null.",
+ "x-nordic": {
+  "id": "talks",
+  "order": 90,
+  "files": [
+   "data/talks.json"
+  ],
+  "pages": [
+   "/talks/"
+  ],
+  "api": [
+   {
+    "path": "/api/v1/talks.json",
+    "note": "Every talk, newest first"
+   },
+   {
+    "path": "/api/v1/talks/{id}.json",
+    "note": "One talk"
+   },
+   {
+    "path": "/api/v1/talks/by-country/{country}.json",
+    "note": "NO, SE, DK, FI, IS, FO, GL or AX"
+   }
+  ],
+  "relations": [
+   {
+    "field": "event_id",
+    "to": "events",
+    "cardinality": "many-to-one",
+    "note": "Null when the talk could not be dated or placed"
+   },
+   {
+    "field": "speaker_ids",
+    "to": "orgchart",
+    "cardinality": "many-to-many"
+   }
+  ],
+  "derived": [],
+  "omitted_from_api": [],
+  "sections": [
+   {
+    "id": "talk",
+    "title": "Talk",
+    "row": "#/$defs/talk"
+   }
+  ],
+  "row": "#/$defs/talk"
+ },
+ "type": "object",
+ "properties": {
+  "_note": {
+   "type": "string"
+  },
+  "talks": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/talk"
+   }
+  }
+ },
+ "additionalProperties": false,
+ "required": [
+  "_note",
+  "talks"
+ ],
+ "$defs": {
+  "talk": {
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string",
+     "examples": [
+      "yt-ZJHTEXcyePQ"
+     ]
+    },
+    "video_url": {
+     "type": "string",
+     "examples": [
+      "https://www.youtube.com/watch?v=ZJHTEXcyePQ"
+     ]
+    },
+    "platform": {
+     "type": "string",
+     "description": "youtube, vimeo, university or other.",
+     "enum": [
+      "youtube",
+      "vimeo",
+      "university",
+      "other"
+     ],
+     "examples": [
+      "youtube"
+     ]
+    },
+    "title": {
+     "type": "string",
+     "examples": [
+      "Nordic Blockchain Conference 2026: Market Abuse in Web3"
+     ]
+    },
+    "speakers": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "examples": [
+       "Rebecca Koskinen"
+      ]
+     },
+     "examples": [
+      [
+       "Disha L. Dinesha"
+      ]
+     ]
+    },
+    "event_name": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "examples": [
+      "Nordic Blockchain Conference 2026"
+     ]
+    },
+    "event_url": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "examples": [
+      "https://energy-markets-school.dk/"
+     ]
+    },
+    "calendar_event_id": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "examples": [
+      "30569783bb01"
+     ]
+    },
+    "event_id": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "description": "Calendar event id when the talk is linked. Same value as calendar_event_id.",
+     "examples": [
+      "30569783bb01"
+     ]
+    },
+    "unlink_reason": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "description": "Why the talk is not linked to an event. Null when event_id is set.",
+     "examples": [
+      "the video page did not state the day"
+     ]
+    },
+    "city": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "examples": [
+      "Copenhagen"
+     ]
+    },
+    "country": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "enum": [
+      "NO",
+      "SE",
+      "DK",
+      "FI",
+      "IS",
+      "FO",
+      "GL",
+      "AX",
+      null
+     ],
+     "examples": [
+      "DK"
+     ]
+    },
+    "date": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "examples": [
+      "2020-01-16"
+     ]
+    },
+    "published": {
+     "type": "string",
+     "examples": [
+      "2026-08-24"
+     ]
+    },
+    "duration": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "description": "ISO 8601 duration when the platform states a length.",
+     "examples": [
+      "PT11M38S"
+     ]
+    },
+    "language": {
+     "type": "null"
+    },
+    "channel": {
+     "type": "string",
+     "examples": [
+      "DAAvern"
+     ]
+    },
+    "description": {
+     "type": "string",
+     "description": "Short neutral summary in our own words."
+    },
+    "source_url": {
+     "type": "string",
+     "examples": [
+      "https://www.youtube.com/watch?v=ZJHTEXcyePQ&hl=en"
+     ]
+    },
+    "retrieved_at": {
+     "type": "string",
+     "examples": [
+      "2026-10-07T20:57:16Z"
+     ]
+    },
+    "added_at": {
+     "type": "string",
+     "examples": [
+      "2026-10-07T20:57:16Z"
+     ]
+    },
+    "embed": {
+     "type": "boolean",
+     "description": "True when the platform's oEmbed response includes an official player.",
+     "examples": [
+      true
+     ]
+    },
+    "speaker_ids": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "examples": [
+       "spk-rebecca-koskinen"
+      ]
+     },
+     "examples": [
+      [
+       "spk-disha-l-dinesha"
+      ]
+     ]
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "id",
+    "video_url",
+    "platform",
+    "title",
+    "speakers",
+    "event_name",
+    "event_url",
+    "calendar_event_id",
+    "event_id",
+    "unlink_reason",
+    "city",
+    "country",
+    "date",
+    "published",
+    "duration",
+    "language",
+    "channel",
+    "description",
+    "source_url",
+    "retrieved_at",
+    "added_at",
+    "embed",
+    "speaker_ids"
+   ]
+  }
+ }
+}

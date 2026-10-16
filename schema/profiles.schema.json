@@ -1,0 +1,130 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://nordiccrypto.no/api/v1/schema/profiles.schema.json",
+ "title": "Profiles",
+ "description": "Public profile links in data/profiles.json, keyed by who's who id. Each link needs a source_url that shows it belongs to that person or organisation. status published is what the site shows.",
+ "x-nordic": {
+  "id": "profiles",
+  "order": 70,
+  "files": [
+   "data/profiles.json"
+  ],
+  "pages": [
+   "/org-chart/"
+  ],
+  "api": [
+   {
+    "path": "/api/v1/profiles.json",
+    "note": "Profiles taken from the published who's who"
+   },
+   {
+    "path": "/api/v1/profiles/{id}.json",
+    "note": "One entity's links"
+   }
+  ],
+  "relations": [
+   {
+    "field": "entity id (object key)",
+    "to": "orgchart",
+    "cardinality": "many-to-one"
+   }
+  ],
+  "derived": [],
+  "omitted_from_api": [],
+  "sections": [
+   {
+    "id": "link",
+    "title": "Link",
+    "row": "#/$defs/link"
+   }
+  ],
+  "row": "#/$defs/link"
+ },
+ "type": "object",
+ "properties": {
+  "_how_to": {
+   "type": "string"
+  }
+ },
+ "additionalProperties": {
+  "type": "array",
+  "items": {
+   "$ref": "#/$defs/link"
+  }
+ },
+ "required": [
+  "_how_to"
+ ],
+ "$defs": {
+  "link": {
+   "type": "object",
+   "properties": {
+    "kind": {
+     "type": "string",
+     "description": "wikipedia, wikidata, x, linkedin or github.",
+     "enum": [
+      "github",
+      "linkedin",
+      "wikidata",
+      "wikipedia",
+      "x"
+     ],
+     "examples": [
+      "wikipedia"
+     ]
+    },
+    "label": {
+     "type": "string",
+     "examples": [
+      "Wikipedia (en)"
+     ]
+    },
+    "url": {
+     "type": "string",
+     "description": "The public profile.",
+     "examples": [
+      "https://en.wikipedia.org/wiki/Erik_Thed%C3%A9en"
+     ]
+    },
+    "source_url": {
+     "type": "string",
+     "description": "Page that shows the link belongs to this person or organisation.",
+     "examples": [
+      "https://www.wikidata.org/wiki/Q6207027"
+     ]
+    },
+    "status": {
+     "type": "string",
+     "description": "published is shown. pending waits for the editor.",
+     "enum": [
+      "pending",
+      "published"
+     ],
+     "examples": [
+      "published"
+     ]
+    },
+    "reviewed": {
+     "type": "string"
+    },
+    "note": {
+     "type": "string"
+    },
+    "added": {
+     "type": "string",
+     "examples": [
+      "2026-10-09 (open-source developers research)"
+     ]
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "kind",
+    "label",
+    "url",
+    "source_url",
+    "status"
+   ]
+  }
+ }
+}

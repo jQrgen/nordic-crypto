@@ -670,7 +670,7 @@ def site_footer(rel, root, slug=""):
     site = (li(rel + "about/", t("nav_about")) + li(rel + "sources/", t("nav_sources")) + li(rel + "ethics/", t("ethics_title")) + li(rel + "contact/", t("contact_title"))
             + li(rel + "budget/", t("bud_nav"))
             + li(rel + "changelog/", t("cl_title")) + li(rel + "stats/", t("vst_title")) + li(rel + "privacy/", t("pp_title")) + li(rel + "media/", t("media_title")) + li(rel + "columnist/", t("col_title"))
-            + li(rel + "tip/", t("nav_tip")) + li(rel + "api/", t("foot_api"))
+            + li(rel + "tip/", t("nav_tip")) + li(rel + "api/", t("foot_api")) + li(rel + "db/", t("db_nav"))
             + li(REPO_CONTRIBUTORS, t("contributors"), True)
             + (li(rel + "treasury/", t("nav_treasury")) if event_nft.enabled() else ""))
     follow = (li(rel + "newsletter/", t("nav_newsletter")) + li(SITE_TELEGRAM, t("tg_label"), True) + li(SITE_X, "X", True) + li(SITE_FACEBOOK, "Facebook", True) + li(SITE_YOUTUBE, "YouTube", True) + li(rel + "rss.xml", "RSS")
@@ -1136,6 +1136,7 @@ def build():
     write_push_assets()
     emit_api(ctx)
     write_crowdfunding_api()
+    build_db()
     sitemap()
     write_cname()
     miss = sorted(i18n.MISSING)
@@ -1169,6 +1170,17 @@ def emit_api(ctx):
         page("api", T["title"], "api", text_page(api_feed.docs_fragment(info, LANG), cls="api-docs", toc_label=T["toc"]), T["desc"], head_extra=api_feed.head_links(BASE))
     LANG = was
     return info
+
+def build_db():
+    """/db/ in every site language, from schema/*.schema.json. Field names stay English."""
+    global LANG
+    sys.path.insert(0, P("tools"))
+    import schema_db
+    css = site_css.style("db")
+    was = LANG
+    for LANG in i18n.LANGS:
+        page("db", t("db_title"), "db", css + schema_db.page_body(LANG), t("db_desc"))
+    LANG = was
 
 def lang_template(stem):
     """HTML body for this language. A missing translation uses the English file (UI stub, not a new translation)."""
@@ -1488,7 +1500,7 @@ def sitemap():
             if r.split("/")[0] in ("kalender", "skjerm", "organisasjonskart", "kilder", "om", "akademia"): continue
             if "crowdfunding" in r.split("/"): continue   # closed pilot: noindex
             urls.append(BASE + r)
-    for rel in ("api/v1/index.json", "api/v1/openapi.json", "api/v1/markets.json", "api/v1/markets/aggregated.json", "llms.txt"):
+    for rel in ("api/v1/index.json", "api/v1/openapi.json", "api/v1/schema/index.json", "api/v1/markets.json", "api/v1/markets/aggregated.json", "llms.txt"):
         if os.path.exists(os.path.join(SITE, rel)):
             urls.append(BASE + rel)
     open(os.path.join(SITE, "sitemap.xml"), "w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'

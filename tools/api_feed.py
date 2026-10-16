@@ -1610,6 +1610,9 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
     meta = _meta(feed)
     collection("api/v1/meta.json", "Site name, languages, countries, page list, CORS, editorial notes and brand social accounts (social.telegram, social.x, social.facebook, social.youtube).", "SiteMeta", meta)
 
+    import schema_db
+    schema_db.contribute(feed)
+
     # Discovery, OpenAPI, llms.txt and the human page. Registered after the datasets exist.
     index = feed.env(
         title="Nordic Crypto data API",
@@ -1752,6 +1755,7 @@ def openapi(feed, index):
                 "the rules map, the changelog, the article archive, the historical news archive, public talk videos and Nordic exchange prices (market data, not investment advice). "
                 "Kaupr is a news source only, never a sponsor. The sign-off is The Nordic Crypto team. "
                 "GitHub Pages sends Access-Control-Allow-Origin: * so browsers can fetch these files. "
+                "The data model (fields, types and relations) is at /db/ and /api/v1/schema/. "
                 "English text is the default; published translations are inside each object under *_i18n. "
                 "Site languages: /api/v1/languages.json. IP-country language guess: /api/v1/geo-language.json "
                 "(the nc_lang cookie wins). "
@@ -2378,6 +2382,7 @@ def llms_txt(feed, index):
         "",
         f"- [Discovery]({feed.abs('api/v1/index.json')}): every endpoint, counts, and example URLs.",
         f"- [Human docs]({feed.abs('api/')}): the same catalogue as a web page.",
+        f"- [Database]({feed.abs('db/')}): fields, types and relations for every public collection. JSON Schemas: {feed.abs('api/v1/schema/index.json')}.",
         f"- [OpenAPI JSON]({feed.abs('api/v1/openapi.json')}): OpenAPI 3.0.",
         f"- [OpenAPI YAML]({feed.abs('api/v1/openapi.yaml')}): the same document.",
         f"- [API catalog]({feed.abs('.well-known/api-catalog')}): RFC 9727 linkset. A .json copy is at {feed.abs('.well-known/api-catalog.json')}.",
@@ -2566,6 +2571,11 @@ def docs_fragment(index, lang="en"):
             f"<td>{html.escape(ep['summary'])}</td></tr>"
         )
     rows = "\n".join(row(ep) for ep in index["endpoints"])
+    import i18n
+    db_prefix = "" if lang == "en" else lang + "/"
+    db_href = eb + db_prefix + "db/"
+    db_label = html.escape(i18n.t(lang, "db_nav"))
+    db_blurb = html.escape(i18n.t(lang, "db_api_blurb"))
     news = html.escape(b + "api/v1/news.json")
     letters = html.escape(b + "api/v1/newsletters.json")
     one = ""
@@ -2608,6 +2618,7 @@ def docs_fragment(index, lang="en"):
 <h2 id="start">{t("h_start")}</h2>
 <ul>
 <li><a href="{eb}api/v1/index.json">{t("start_discovery")}</a> — {t("start_discovery_d")}</li>
+<li><a href="{db_href}">{db_label}</a> — {db_blurb}</li>
 <li><a href="{eb}api/v1/openapi.json">OpenAPI</a> ({t("start_openapi_also")} <a href="{eb}api/v1/openapi.yaml">YAML</a>).</li>
 <li><a href="{eb}llms.txt">llms.txt</a> — {t("start_llms_d")}</li>
 <li><a href="{eb}.well-known/api-catalog">{t("start_catalog")}</a> ({t("start_catalog_d")} <a href="{eb}.well-known/api-catalog.json">{t("start_catalog_copy")}</a>).</li>

@@ -1,0 +1,61 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://nordiccrypto.no/api/v1/schema/sponsors.schema.json",
+ "title": "Sponsors",
+ "description": "There is no sponsors file. A sponsor is the sponsored field on an event: null or false when there is no sponsor, true when it is sponsored without a named sponsor, or the sponsor's name. Kaupr is never a sponsor.",
+ "x-nordic": {
+  "id": "sponsors",
+  "order": 45,
+  "files": [],
+  "validate": false,
+  "pages": [
+   "/calendar/"
+  ],
+  "api": [
+   {
+    "path": "/api/v1/events.json",
+    "note": "sponsored on each event"
+   }
+  ],
+  "relations": [
+   {
+    "field": "sponsored",
+    "to": "events",
+    "cardinality": "one-to-many",
+    "note": "The event names its sponsor"
+   }
+  ],
+  "derived": [],
+  "omitted_from_api": [],
+  "sections": [
+   {
+    "id": "sponsor",
+    "title": "Sponsor",
+    "row": "#/$defs/sponsored"
+   }
+  ],
+  "row": "#/$defs/sponsored"
+ },
+ "type": "object",
+ "additionalProperties": false,
+ "$defs": {
+  "sponsored": {
+   "description": "Null or false when there is no sponsor, true when it is sponsored without a named sponsor, or the sponsor's name. Never Kaupr.",
+   "anyOf": [
+    {
+     "type": "boolean"
+    },
+    {
+     "type": "string",
+     "minLength": 1
+    },
+    {
+     "type": "null"
+    }
+   ],
+   "examples": [
+    "Reese Legal"
+   ]
+  }
+ }
+}

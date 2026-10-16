@@ -1,0 +1,271 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://nordiccrypto.no/api/v1/schema/stats.schema.json",
+ "title": "Visitor stats",
+ "description": "Aggregate visits and page views in data/stats.json, from Cloudflare Web Analytics. No IP addresses, user agents, paths, referrers or countries. Days are UTC. Weeks are ISO weeks.",
+ "x-nordic": {
+  "id": "stats",
+  "order": 160,
+  "files": [
+   "data/stats.json"
+  ],
+  "pages": [
+   "/stats/"
+  ],
+  "api": [
+   {
+    "path": "/api/v1/stats.json",
+    "note": "The same counts the stats page shows"
+   }
+  ],
+  "relations": [],
+  "derived": [],
+  "omitted_from_api": [],
+  "sections": [
+   {
+    "id": "day",
+    "title": "Day",
+    "row": "#/$defs/day"
+   },
+   {
+    "id": "week",
+    "title": "Week",
+    "row": "#/$defs/week"
+   },
+   {
+    "id": "month",
+    "title": "Month",
+    "row": "#/$defs/month"
+   }
+  ],
+  "row": "#/$defs/day"
+ },
+ "type": "object",
+ "properties": {
+  "api_version": {
+   "type": "string",
+   "examples": [
+    "1"
+   ]
+  },
+  "name": {
+   "type": "string",
+   "examples": [
+    "Nordic Crypto"
+   ]
+  },
+  "generated_at": {
+   "type": "null"
+  },
+  "preview": {
+   "type": "boolean",
+   "examples": [
+    false
+   ]
+  },
+  "source": {
+   "type": "string",
+   "examples": [
+    "Cloudflare Web Analytics"
+   ]
+  },
+  "status": {
+   "type": "string",
+   "description": "ok when daily rows exist, otherwise pending.",
+   "enum": [
+    "pending",
+    "ok"
+   ],
+   "examples": [
+    "pending"
+   ]
+  },
+  "timezone": {
+   "type": "string",
+   "enum": [
+    "UTC"
+   ],
+   "examples": [
+    "UTC"
+   ]
+  },
+  "note": {
+   "type": "string"
+  },
+  "schema": {
+   "type": "integer",
+   "description": "Integer schema version of the stats document.",
+   "examples": [
+    1
+   ]
+  },
+  "first_date": {
+   "type": "null"
+  },
+  "last_date": {
+   "type": "null"
+  },
+  "updated_at": {
+   "type": "null"
+  },
+  "daily": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/day"
+   },
+   "description": "One row per UTC day."
+  },
+  "weekly": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/week"
+   },
+   "description": "ISO weeks, Monday to Sunday."
+  },
+  "monthly": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/month"
+   },
+   "description": "Calendar months."
+  }
+ },
+ "additionalProperties": false,
+ "required": [
+  "api_version",
+  "name",
+  "generated_at",
+  "preview",
+  "source",
+  "status",
+  "timezone",
+  "note",
+  "schema",
+  "first_date",
+  "last_date",
+  "updated_at",
+  "daily",
+  "weekly",
+  "monthly"
+ ],
+ "$defs": {
+  "day": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "date",
+    "visits",
+    "pageviews"
+   ],
+   "properties": {
+    "date": {
+     "type": "string",
+     "description": "UTC day, YYYY-MM-DD.",
+     "examples": [
+      "2026-10-01"
+     ]
+    },
+    "visits": {
+     "type": "integer",
+     "minimum": 0,
+     "examples": [
+      0
+     ]
+    },
+    "pageviews": {
+     "type": "integer",
+     "minimum": 0,
+     "examples": [
+      0
+     ]
+    },
+    "partial": {
+     "type": "boolean",
+     "description": "True while that day is still running."
+    }
+   }
+  },
+  "week": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "week",
+    "start",
+    "end",
+    "days",
+    "visits",
+    "pageviews"
+   ],
+   "properties": {
+    "week": {
+     "type": "string",
+     "description": "ISO week, YYYY-Www.",
+     "examples": [
+      "2026-W41"
+     ]
+    },
+    "start": {
+     "type": "string",
+     "examples": [
+      "2026-10-05"
+     ]
+    },
+    "end": {
+     "type": "string",
+     "examples": [
+      "2026-10-11"
+     ]
+    },
+    "days": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "visits": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "pageviews": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "partial": {
+     "type": "boolean"
+    }
+   }
+  },
+  "month": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "month",
+    "days",
+    "visits",
+    "pageviews"
+   ],
+   "properties": {
+    "month": {
+     "type": "string",
+     "description": "Calendar month, YYYY-MM.",
+     "examples": [
+      "2026-10"
+     ]
+    },
+    "days": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "visits": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "pageviews": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "partial": {
+     "type": "boolean"
+    }
+   }
+  }
+ }
+}
