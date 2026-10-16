@@ -17295,6 +17295,53 @@
    "status": "pending",
    "editor_note": "awaiting editor (sourced catalogue research/academia/works.json)",
    "origin": "research/academia/works.json"
+  },
+  {
+   "country": "NO",
+   "title": "Cryptography for Blockchains",
+   "authors": [
+    "Kristian Gjøsteen",
+    "Colin Boyd",
+    "Shuang Wu"
+   ],
+   "institution": "NTNU",
+   "year": 2022,
+   "type": "phd",
+   "venue": "PhD dissertation",
+   "doi": null,
+   "url": "https://hdl.handle.net/11250/3017687",
+   "db": "https://hdl.handle.net/11250/3017687",
+   "db_name": "nva.sikt.no",
+   "source": "https://hdl.handle.net/11250/3017687",
+   "about": "NTNU PhD in the NTNU Applied Cryptology Lab (NaCl) group, listed on its historical overview (tjerandsilde.no/nacl); indexed in NVA/Cristin; title matches crypto/blockchain.",
+   "keywords": [],
+   "checked": "2026-10-16",
+   "status": "pending",
+   "editor_note": "awaiting editor (sourced catalogue research/academia/works.json; found via NTNU NaCl)",
+   "origin": "research/academia/works.json"
+  },
+  {
+   "country": "NO",
+   "title": "Towards Fairness and Decentralisation in Modern Cryptocurrencies",
+   "authors": [
+    "Colin Boyd",
+    "Christopher Alan Carr"
+   ],
+   "institution": "NTNU",
+   "year": 2019,
+   "type": "phd",
+   "venue": "PhD dissertation",
+   "doi": null,
+   "url": "https://hdl.handle.net/11250/2603953",
+   "db": "https://hdl.handle.net/11250/2603953",
+   "db_name": "nva.sikt.no",
+   "source": "https://hdl.handle.net/11250/2603953",
+   "about": "NTNU PhD in the NTNU Applied Cryptology Lab (NaCl) group, listed on its historical overview (tjerandsilde.no/nacl); indexed in NVA/Cristin; title matches crypto/blockchain.",
+   "keywords": [],
+   "checked": "2026-10-16",
+   "status": "pending",
+   "editor_note": "awaiting editor (sourced catalogue research/academia/works.json; found via NTNU NaCl)",
+   "origin": "research/academia/works.json"
   }
  ],
  "research": [
@@ -17418,6 +17465,17 @@
    "checked": "2026-10-03",
    "status": "approved",
    "editor_note": "APPROVED"
+  },
+  {
+   "country": "NO",
+   "name": "NTNU Applied Cryptology Lab (NaCl)",
+   "institution": "NTNU, Dept. of Information Security and Communication Technology (IIK) and Dept. of Mathematical Sciences",
+   "about": "Research group in Trondheim and Gjøvik. According to its own page, it designs, analyses and implements cryptographic protocols and systems, with topics including lattice-based cryptography, threshold and blind signatures, zero-knowledge proofs, homomorphic encryption, electronic voting and digital identity wallets. Its project list includes \"Trust and Transparency in Digital Society Through Blockchain Technology\" (2018–2022, NTNU Digital Transformation). It organises the Norwegian Crypto Seminar (Norsk kryptoseminar); the 2026 edition is listed for 23 October 2026 in Bergen.",
+   "url": "https://www.ntnu.edu/iik/nacl-lab/",
+   "source": "https://www.ntnu.edu/iik/nacl-lab/",
+   "checked": "2026-10-16",
+   "status": "pending",
+   "editor_note": "pending: cryptography research group (not crypto-asset specific); dated activity 2026 (ACM CCS / IACR Crypto 2026 papers, QARC project). People: https://www.ntnu.edu/iik/nacl-lab/people"
   }
  ]
 }
