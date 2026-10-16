@@ -173,6 +173,38 @@
    }
   },
   {
+   "id": "468257223a39",
+   "title": "Lund Bitcoin Meetup #1",
+   "start": "2026-10-28T17:30:00+01:00",
+   "end": null,
+   "place": "Lunds stadsbibliotek, Sankt Petri kyrkogata 6, 222 21 Lund, Sweden, Lund",
+   "city": "Lund",
+   "country": "SE",
+   "online": false,
+   "organiser": "Bitcoin Malmö",
+   "url": "https://www.meetup.com/bitcoin-malmo/events/316993795/",
+   "source": "Meetup.com search: bitcoin, Copenhagen",
+   "source_url": "https://www.meetup.com/find/?keywords=bitcoin&location=dk--Copenhagen&source=EVENTS",
+   "paid": null,
+   "sponsored": null,
+   "trusted_source": false,
+   "found": "2026-10-16T02:14:28+00:00",
+   "status": "pending",
+   "note": null,
+   "place_source": {
+    "name": "Meetup.com search: bitcoin, Copenhagen",
+    "url": "https://www.meetup.com/bitcoin-malmo/events/316993795/",
+    "retrieved": "2026-10-16T02:14:28+00:00"
+   },
+   "description": {
+    "text": "We aim to host welcoming and inclusive meetups where people can discuss Bitcoin and its role in today’s and tomorrow’s economy. If you're new to Bitcoin, this is a great opportunity to learn through thoughtful conversations with experienced Bitcoiners and curious newcomers alike. If you already know the space, this is your chance to go deeper and connect with like-minded people. Please note:** this is a Bitcoin-only event. We will not cover NFTs, altcoins, or general blockchain topics. Please RSVP if you plan to attend.",
+    "lang": "en",
+    "source_url": "https://www.meetup.com/bitcoin-malmo/events/316993795/",
+    "source_name": "Meetup.com search: bitcoin, Copenhagen",
+    "retrieved": "2026-10-16T02:14:28+00:00"
+   }
+  },
+  {
    "id": "bddf7842a80a",
    "title": "Cantillon-effekten & pengar",
    "start": "2026-10-29T19:00:00+01:00",
@@ -426,5 +458,5 @@
    }
   }
  ],
- "updated": "2026-10-14T16:11:33+00:00"
+ "updated": "2026-10-16T02:14:28+00:00"
 }
