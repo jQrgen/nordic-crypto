@@ -1,9 +1,9 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T07:11:24+00:00",
+ "generated_at": "2026-10-16T07:13:48+00:00",
  "preview": false,
- "count": 12,
+ "count": 11,
  "events": [
   {
    "id": "16b9aa68f972",
@@ -84,12 +84,12 @@
    "sponsored": null,
    "note": "Disclosure: the speaker, Jørgen S. Notland, is the publisher of Nordic Crypto.",
    "note_i18n": {
-    "nn": "Til opplysing: foredragshaldaren, Jørgen S. Notland, er utgjevar av Nordic Crypto.",
-    "nb": "Til opplysning: foredragsholderen, Jørgen S. Notland, er utgiver av Nordic Crypto.",
-    "sv": "Upplysning: talaren, Jørgen S. Notland, är utgivare av Nordic Crypto.",
     "da": "Oplysning: foredragsholderen, Jørgen S. Notland, er udgiver af Nordic Crypto.",
     "fi": "Tiedoksi: puhuja Jørgen S. Notland on Nordic Crypton julkaisija.",
-    "is": "Til upplýsingar: fyrirlesarinn, Jørgen S. Notland, er útgefandi Nordic Crypto."
+    "is": "Til upplýsingar: fyrirlesarinn, Jørgen S. Notland, er útgefandi Nordic Crypto.",
+    "nb": "Til opplysning: foredragsholderen, Jørgen S. Notland, er utgiver av Nordic Crypto.",
+    "nn": "Til opplysing: foredragshaldaren, Jørgen S. Notland, er utgjevar av Nordic Crypto.",
+    "sv": "Upplysning: talaren, Jørgen S. Notland, är utgivare av Nordic Crypto."
    },
    "description": {
     "text": "Nexa blockchain: Scaling Bitcoin Tech-demo m/overraskelse og pizza! At this event jQrgen, member of Bitcoin Unlimited that works with the Nexa blockchain project will present what is unique about the Nexa blockchain. The Bitcoin Unlimited team has a long history of working with core Bitcoin and Bitcoin Cash software. The Nexa blockchain is the latest project. Nexa is a work in progress software-fork of Bitcoin/Bitcoin Cash with its own genesis block.",
@@ -144,68 +144,6 @@
    }
   },
   {
-   "id": "468257223a39",
-   "title": "Lund Bitcoin Meetup #1",
-   "title_original": null,
-   "start": "2026-10-28T17:30:00+01:00",
-   "end": null,
-   "place": "Lunds stadsbibliotek, Sankt Petri kyrkogata 6, 222 21 Lund, Sweden, Lund",
-   "city": "Lund",
-   "country": "SE",
-   "online": false,
-   "organiser": "Bitcoin Malmö",
-   "url": "https://www.meetup.com/bitcoin-malmo/events/316993795/",
-   "source": "Meetup.com search: bitcoin, Copenhagen",
-   "paid": false,
-   "sponsored": null,
-   "note": null,
-   "note_i18n": {},
-   "description": {
-    "text": "We aim to host welcoming and inclusive meetups where people can discuss Bitcoin and its role in today’s and tomorrow’s economy. If you're new to Bitcoin, this is a great opportunity to learn through thoughtful conversations with experienced Bitcoiners and curious newcomers alike. If you already know the space, this is your chance to go deeper and connect with like-minded people. Please note:** this is a Bitcoin-only event. We will not cover NFTs, altcoins, or general blockchain topics. Please RSVP if you plan to attend.",
-    "lang": "en",
-    "source_url": "https://www.meetup.com/bitcoin-malmo/events/316993795/",
-    "source_name": "Meetup.com search: bitcoin, Copenhagen",
-    "retrieved": "2026-10-16T02:14:28+00:00",
-    "i18n": {}
-   },
-   "past": false,
-   "ongoing": false,
-   "phase": "upcoming",
-   "phase_end": "2026-10-28T20:30:00+01:00",
-   "html_url": "https://nordiccrypto.no/calendar/468257223a39/",
-   "html_urls": {
-    "en": "https://nordiccrypto.no/calendar/468257223a39/",
-    "nn": "https://nordiccrypto.no/nn/calendar/468257223a39/",
-    "nb": "https://nordiccrypto.no/nb/calendar/468257223a39/",
-    "sv": "https://nordiccrypto.no/sv/calendar/468257223a39/",
-    "da": "https://nordiccrypto.no/da/calendar/468257223a39/",
-    "fi": "https://nordiccrypto.no/fi/calendar/468257223a39/",
-    "is": "https://nordiccrypto.no/is/calendar/468257223a39/",
-    "zh": "https://nordiccrypto.no/zh/calendar/468257223a39/",
-    "hi": "https://nordiccrypto.no/hi/calendar/468257223a39/",
-    "es": "https://nordiccrypto.no/es/calendar/468257223a39/",
-    "fr": "https://nordiccrypto.no/fr/calendar/468257223a39/",
-    "ar": "https://nordiccrypto.no/ar/calendar/468257223a39/",
-    "bn": "https://nordiccrypto.no/bn/calendar/468257223a39/",
-    "pt": "https://nordiccrypto.no/pt/calendar/468257223a39/",
-    "ru": "https://nordiccrypto.no/ru/calendar/468257223a39/",
-    "ur": "https://nordiccrypto.no/ur/calendar/468257223a39/",
-    "id": "https://nordiccrypto.no/id/calendar/468257223a39/",
-    "de": "https://nordiccrypto.no/de/calendar/468257223a39/",
-    "ja": "https://nordiccrypto.no/ja/calendar/468257223a39/",
-    "sw": "https://nordiccrypto.no/sw/calendar/468257223a39/",
-    "mr": "https://nordiccrypto.no/mr/calendar/468257223a39/",
-    "fa": "https://nordiccrypto.no/fa/calendar/468257223a39/",
-    "uk": "https://nordiccrypto.no/uk/calendar/468257223a39/"
-   },
-   "api_url": "https://nordiccrypto.no/api/v1/events/468257223a39.json",
-   "place_source": {
-    "name": "Meetup.com search: bitcoin, Copenhagen",
-    "url": "https://www.meetup.com/bitcoin-malmo/events/316993795/",
-    "retrieved": "2026-10-16T02:14:28+00:00"
-   }
-  },
-  {
    "id": "bddf7842a80a",
    "title": "Cantillon-effekten & pengar",
    "title_original": null,
@@ -218,7 +156,7 @@
    "organiser": "Bitcoinpolitisk institutt Noreg",
    "url": "https://www.litteraturhuset.no/nb/arrangement/cantillon-effekten-and-pengar",
    "source": "Litteraturhuset Oslo",
-   "paid": false,
+   "paid": null,
    "sponsored": null,
    "note": null,
    "note_i18n": {},
@@ -698,12 +636,12 @@
    "sponsored": null,
    "note": "Falls on New Year's Day: check the organiser's page before you go.",
    "note_i18n": {
-    "nn": "Fell på første nyttårsdag: sjekk sida til arrangøren før du dreg.",
-    "nb": "Faller på første nyttårsdag: sjekk arrangørens side før du drar.",
-    "sv": "Infaller på nyårsdagen: kontrollera arrangörens sida innan du går.",
     "da": "Falder på nytårsdag: tjek arrangørens side, før du tager afsted.",
     "fi": "Osuu uudenvuodenpäivälle: tarkista järjestäjän sivu ennen lähtöä.",
-    "is": "Ber upp á nýársdag: athugaðu síðu skipuleggjandans áður en þú ferð."
+    "is": "Ber upp á nýársdag: athugaðu síðu skipuleggjandans áður en þú ferð.",
+    "nb": "Faller på første nyttårsdag: sjekk arrangørens side før du drar.",
+    "nn": "Fell på første nyttårsdag: sjekk sida til arrangøren før du dreg.",
+    "sv": "Infaller på nyårsdagen: kontrollera arrangörens sida innan du går."
    },
    "description": {
     "text": "Bitcoin meetup - meet the local bitcoiners, network, present your projects and ideas or just hang out! Topics include everything that remotely touches Bitcoin.",

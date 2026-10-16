@@ -1,152 +1,11 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T07:11:24+00:00",
+ "generated_at": "2026-10-16T07:13:48+00:00",
  "preview": false,
  "topic": "policy",
- "count": 10,
+ "count": 9,
  "items": [
-  {
-   "id": "1ef937dc2654",
-   "url": "https://altaposten.no/nyheter/n/Jr3n17/etablering-i-kautokeino-hvor-vanlig-er-utvinning-av-krypto",
-   "html_url": "https://nordiccrypto.no/stories/1ef937dc2654/",
-   "api_url": "https://nordiccrypto.no/api/v1/news/1ef937dc2654.json",
-   "title": "Kryptokamp i Kautokeino: – Hvor vanlig er utvinning?",
-   "title_en": "Crypto dispute in Kautokeino: how common is mining?",
-   "title_i18n": {},
-   "source": "altaposten-no",
-   "source_name": "altaposten.no",
-   "source_logo": {
-    "kind": "logo",
-    "file_url": "https://nordiccrypto.no/assets/img/logos/altaposten-no.webp",
-    "source_url": "https://www.altaposten.no/applefavicon.png",
-    "author": null,
-    "license": null,
-    "license_url": null,
-    "credit": "Official website",
-    "raster_url": "https://nordiccrypto.no/assets/img/logos/altaposten-no.webp"
-   },
-   "source_note": null,
-   "country": "NO",
-   "language": "Norwegian",
-   "language_code": "no",
-   "published": "2026-10-15T10:30:00+00:00",
-   "topics": [
-    "mining",
-    "policy"
-   ],
-   "summary": "SV MP Lars Haltbrekken has submitted a written question to digitalisation and public administration minister Torgeir Micaelsen (Labour) about how common crypto mining is, Altaposten reports in a story on a data-centre establishment in Kautokeino. The rest of the article is behind a paywall, so the content of the question and any answer are not visible.",
-   "summary_i18n": {
-    "nn": "Stortingsrepresentant Lars Haltbrekken (SV) har stilt eit skriftleg spørsmål til digitaliserings- og forvaltningsminister Torgeir Micaelsen (Ap) om kor vanleg kryptoutvinning er, melder Altaposten i ei sak om ei datasenteretablering i Kautokeino. Resten av artikkelen ligg bak betalingsmur, så innhaldet i spørsmålet og eventuelle svar er ikkje synlege.",
-    "nb": "Stortingsrepresentant Lars Haltbrekken (SV) har stilt et skriftlig spørsmål til digitaliserings- og forvaltningsminister Torgeir Micaelsen (Ap) om hvor vanlig kryptoutvinning er, melder Altaposten i en sak om en datasenteretablering i Kautokeino. Resten av artikkelen ligger bak betalingsmur, så innholdet i spørsmålet og eventuelle svar er ikke synlige.",
-    "sv": "Stortingsledamoten Lars Haltbrekken (SV) har ställt en skriftlig fråga till digitaliserings- och förvaltningsminister Torgeir Micaelsen (Ap) om hur vanlig kryptoutvinning är, rapporterar Altaposten i en artikel om en datacenteretablering i Kautokeino. Resten av artikeln ligger bakom betalvägg, så frågans innehåll och eventuella svar syns inte.",
-    "da": "Stortingsmedlem Lars Haltbrekken (SV) har stillet et skriftligt spørgsmål til digitaliserings- og forvaltningsminister Torgeir Micaelsen (Ap) om, hvor almindelig kryptomining er, skriver Altaposten i en artikel om en datacenteretablering i Kautokeino. Resten af artiklen er bag betalingsmur, så spørgsmålets indhold og et eventuelt svar fremgår ikke.",
-    "fi": "Kansanedustaja Lars Haltbrekken (SV) on esittänyt digitalisaatio- ja hallintoministeri Torgeir Micaelsenille (Ap) kirjallisen kysymyksen siitä, kuinka yleistä kryptolouhinta on, kertoo Altaposten jutussa Koutokeinoon suunnitellusta datakeskuksesta. Muu osa artikkelista on maksumuurin takana, joten kysymyksen sisältö ja mahdollinen vastaus eivät näy.",
-    "is": "Lars Haltbrekken, þingmaður SV, hefur lagt fram skriflega fyrirspurn til Torgeir Micaelsen (Ap), ráðherra stafrænnar þróunar og stjórnsýslu, um hversu algengur rafmyntanámugröftur sé, segir Altaposten í frétt um uppsetningu gagnavers í Kautokeino. Afgangur greinarinnar er á bak við greiðsluvegg, svo efni fyrirspurnarinnar og hugsanlegt svar sjást ekki."
-   },
-   "paywall": true,
-   "links": [],
-   "own_story": false,
-   "illustration": {
-    "id": "commons-mining",
-    "kind": "commons",
-    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-mining.webp",
-    "width": 960,
-    "height": 720,
-    "alt": "Rows of cryptocurrency mining machines indoors.",
-    "source": "Wikimedia Commons",
-    "author": "Jasper Reichardt",
-    "license": "CC BY-SA 4.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
-    "url": "https://commons.wikimedia.org/wiki/File:Mining-Rig.jpg",
-    "credit": "Photo: Jasper Reichardt. Licence: CC BY-SA 4.0. Source: Wikimedia Commons.",
-    "modifications": null,
-    "terms": null
-   },
-   "primary_source": {
-    "outlet": "altaposten-no",
-    "outlet_name": "altaposten.no",
-    "url": "https://altaposten.no/nyheter/n/Jr3n17/etablering-i-kautokeino-hvor-vanlig-er-utvinning-av-krypto",
-    "title": "Kryptokamp i Kautokeino: – Hvor vanlig er utvinning?",
-    "published": "2026-10-15T10:30:00+00:00",
-    "lang": "Norwegian",
-    "language_code": "no",
-    "country": "NO",
-    "source_type": "national",
-    "paywall": true,
-    "primary": true,
-    "logo": {
-     "kind": "logo",
-     "file_url": "https://nordiccrypto.no/assets/img/logos/altaposten-no.webp",
-     "source_url": "https://www.altaposten.no/applefavicon.png",
-     "author": null,
-     "license": null,
-     "license_url": null,
-     "credit": "Official website",
-     "raster_url": "https://nordiccrypto.no/assets/img/logos/altaposten-no.webp"
-    }
-   },
-   "primary_source_document": null,
-   "also_covered_by": [],
-   "sources": [
-    {
-     "outlet": "altaposten-no",
-     "outlet_name": "altaposten.no",
-     "url": "https://altaposten.no/nyheter/n/Jr3n17/etablering-i-kautokeino-hvor-vanlig-er-utvinning-av-krypto",
-     "title": "Kryptokamp i Kautokeino: – Hvor vanlig er utvinning?",
-     "published": "2026-10-15T10:30:00+00:00",
-     "lang": "Norwegian",
-     "language_code": "no",
-     "country": "NO",
-     "source_type": "national",
-     "paywall": true,
-     "primary": true,
-     "logo": {
-      "kind": "logo",
-      "file_url": "https://nordiccrypto.no/assets/img/logos/altaposten-no.webp",
-      "source_url": "https://www.altaposten.no/applefavicon.png",
-      "author": null,
-      "license": null,
-      "license_url": null,
-      "credit": "Official website",
-      "raster_url": "https://nordiccrypto.no/assets/img/logos/altaposten-no.webp"
-     }
-    }
-   ],
-   "coverage": {
-    "count": 1,
-    "by_country": [
-     {
-      "country": "NO",
-      "count": 1,
-      "share": 1.0
-     }
-    ],
-    "by_source_type": [
-     {
-      "type": "national",
-      "count": 1,
-      "share": 1.0
-     },
-     {
-      "type": "regional",
-      "count": 0,
-      "share": 0.0
-     },
-     {
-      "type": "official",
-      "count": 0,
-      "share": 0.0
-     },
-     {
-      "type": "international",
-      "count": 0,
-      "share": 0.0
-     }
-    ]
-   },
-   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/altaposten-no.webp"
-  },
   {
    "id": "bdc1f0500eea",
    "url": "https://efn.se/skattesmocka-hotar-tyska-kryptosparare",
@@ -169,12 +28,12 @@
    ],
    "summary": "Germany is moving towards tax rules that are less favourable for crypto investments, EFN reports via the news agency Direkt, citing the German newspaper Wirtschaftswoche. According to the report, the government wants to abolish the tax exemption on gains from crypto held for more than a year and to apply a withholding tax instead of individual income tax, and the issue was expected on the agenda of a meeting on Wednesday. Industry representatives are critical of the planned changes.",
    "summary_i18n": {
-    "nn": "Tyskland er på veg mot skattereglar som er mindre gunstige for kryptoinvesteringar, melder EFN via nyheitsbyrået Direkt med tilvising til den tyske avisa Wirtschaftswoche. Ifølgje meldinga vil regjeringa fjerne skattefritaket for gevinst på krypto som er halden i meir enn eitt år, og bruke kjeldeskatt i staden for individuell inntektsskatt, og saka var venta på dagsordenen på eit møte onsdag. Representantar for bransjen er kritiske til dei planlagde endringane.",
-    "nb": "Tyskland er på vei mot skatteregler som er mindre gunstige for kryptoinvesteringer, melder EFN via nyhetsbyrået Direkt med henvisning til den tyske avisen Wirtschaftswoche. Ifølge meldingen vil regjeringen fjerne skattefritaket for gevinst på krypto som er holdt i mer enn ett år, og bruke kildeskatt i stedet for individuell inntektsskatt, og saken var ventet på dagsordenen på et møte onsdag. Representanter for bransjen er kritiske til de planlagte endringene.",
-    "sv": "Tyskland är på väg att införa skatteregler som är mindre gynnsamma för kryptoinvesteringar, rapporterar EFN via nyhetsbyrån Direkt med hänvisning till den tyska tidningen Wirtschaftswoche. Enligt uppgifterna vill regeringen avskaffa skattebefrielsen för vinster på krypto som innehafts i mer än ett år och tillämpa källskatt i stället för individuell inkomstskatt, och frågan väntades stå på dagordningen vid ett möte på onsdagen. Branschföreträdare är kritiska till de planerade ändringarna.",
     "da": "Tyskland er på vej mod skatteregler, der er mindre gunstige for kryptoinvesteringer, skriver EFN via nyhedsbureauet Direkt med henvisning til den tyske avis Wirtschaftswoche. Ifølge meldingen vil regeringen afskaffe skattefritagelsen for gevinster på krypto, der er ejet i mere end et år, og anvende kildeskat i stedet for individuel indkomstskat, og sagen var ventet på dagsordenen ved et møde onsdag. Repræsentanter for branchen er kritiske over for de planlagte ændringer.",
     "fi": "Saksa on ottamassa käyttöön kryptosijoittajille epäedullisempia verosääntöjä, kertoo EFN uutistoimisto Directin välityksellä saksalaiseen Wirtschaftswoche-lehteen viitaten. Tietojen mukaan hallitus haluaa poistaa verovapauden yli vuoden omistetun kryptovaluutan myyntivoitoilta ja soveltaa lähdeveroa henkilökohtaisen tuloveron sijaan, ja asian odotettiin olevan esillä keskiviikon kokouksessa. Alan edustajat suhtautuvat suunniteltuihin muutoksiin kriittisesti.",
-    "is": "Þýskaland stefnir að skattareglum sem eru óhagstæðari fyrir fjárfestingar í rafmyntum, segir EFN í gegnum fréttastofuna Direkt og vísar í þýska blaðið Wirtschaftswoche. Samkvæmt fréttinni vill ríkisstjórnin afnema skattfrelsi á hagnaði af rafmyntum sem haldið hefur verið lengur en eitt ár og beita staðgreiðsluskatti í stað einstaklingsbundins tekjuskatts, og búist var við að málið yrði á dagskrá fundar á miðvikudag. Fulltrúar greinarinnar gagnrýna fyrirhugaðar breytingar."
+    "is": "Þýskaland stefnir að skattareglum sem eru óhagstæðari fyrir fjárfestingar í rafmyntum, segir EFN í gegnum fréttastofuna Direkt og vísar í þýska blaðið Wirtschaftswoche. Samkvæmt fréttinni vill ríkisstjórnin afnema skattfrelsi á hagnaði af rafmyntum sem haldið hefur verið lengur en eitt ár og beita staðgreiðsluskatti í stað einstaklingsbundins tekjuskatts, og búist var við að málið yrði á dagskrá fundar á miðvikudag. Fulltrúar greinarinnar gagnrýna fyrirhugaðar breytingar.",
+    "nb": "Tyskland er på vei mot skatteregler som er mindre gunstige for kryptoinvesteringer, melder EFN via nyhetsbyrået Direkt med henvisning til den tyske avisen Wirtschaftswoche. Ifølge meldingen vil regjeringen fjerne skattefritaket for gevinst på krypto som er holdt i mer enn ett år, og bruke kildeskatt i stedet for individuell inntektsskatt, og saken var ventet på dagsordenen på et møte onsdag. Representanter for bransjen er kritiske til de planlagte endringene.",
+    "nn": "Tyskland er på veg mot skattereglar som er mindre gunstige for kryptoinvesteringar, melder EFN via nyheitsbyrået Direkt med tilvising til den tyske avisa Wirtschaftswoche. Ifølgje meldinga vil regjeringa fjerne skattefritaket for gevinst på krypto som er halden i meir enn eitt år, og bruke kjeldeskatt i staden for individuell inntektsskatt, og saka var venta på dagsordenen på eit møte onsdag. Representantar for bransjen er kritiske til dei planlagde endringane.",
+    "sv": "Tyskland är på väg att införa skatteregler som är mindre gynnsamma för kryptoinvesteringar, rapporterar EFN via nyhetsbyrån Direkt med hänvisning till den tyska tidningen Wirtschaftswoche. Enligt uppgifterna vill regeringen avskaffa skattebefrielsen för vinster på krypto som innehafts i mer än ett år och tillämpa källskatt i stället för individuell inkomstskatt, och frågan väntades stå på dagordningen vid ett möte på onsdagen. Branschföreträdare är kritiska till de planerade ändringarna."
    },
    "paywall": false,
    "links": [],
@@ -283,12 +142,12 @@
    ],
    "summary": "A claim by data-centre company Arctic Core AS to Kautokeino municipality, that crypto is common and well known in the data-centre industry, is now the subject of a question in the Storting, the local paper Ságat reports. The story is a follow-up to Ságat's earlier report that Arctic Core acknowledged it would carry out 'a little' crypto mining in Kautokeino. The rest of the article is behind a paywall.",
    "summary_i18n": {
-    "nn": "Ein påstand frå dataselskapet Arctic Core AS overfor Kautokeino kommune, om at krypto er vanleg og velkjent i datasenterbransjen, er no tema for eit spørsmål i Stortinget, melder lokalavisa Ságat. Saka følgjer opp Ságats tidlegare melding om at Arctic Core vedgjekk at selskapet skal drive med «litt» kryptoutvinning i Kautokeino. Resten av artikkelen ligg bak betalingsmur.",
-    "nb": "En påstand fra dataselskapet Arctic Core AS overfor Kautokeino kommune, om at krypto er vanlig og velkjent i datasenterbransjen, er nå tema for et spørsmål i Stortinget, melder lokalavisen Ságat. Saken følger opp Ságats tidligere melding om at Arctic Core innrømmet at selskapet skal drive med «litt» kryptoutvinning i Kautokeino. Resten av artikkelen ligger bak betalingsmur.",
-    "sv": "Ett påstående från datacenterbolaget Arctic Core AS till Kautokeino kommun, om att krypto är vanligt och välkänt i datacenterbranschen, är nu föremål för en fråga i Stortinget, rapporterar lokaltidningen Ságat. Artikeln följer upp Ságats tidigare rapport om att Arctic Core medgett att bolaget ska bedriva ”lite” kryptoutvinning i Kautokeino. Resten av artikeln ligger bakom betalvägg.",
     "da": "En påstand fra datacentervirksomheden Arctic Core AS over for Kautokeino kommune om, at krypto er almindeligt og velkendt i datacenterbranchen, er nu emne for et spørgsmål i Stortinget, skriver lokalavisen Ságat. Artiklen følger op på Ságats tidligere historie om, at Arctic Core indrømmede, at selskabet vil drive »lidt« kryptomining i Kautokeino. Resten af artiklen er bag betalingsmur.",
     "fi": "Datakeskusyhtiö Arctic Core AS:n Koutokeinon kunnalle esittämä väite, jonka mukaan krypto on tavallista ja tunnettua datakeskusalalla, on nyt Stortingetissa esitetyn kysymyksen aiheena, kertoo paikallislehti Ságat. Juttu on jatkoa Ságatin aiemmalle uutiselle, jonka mukaan Arctic Core myönsi harjoittavansa ”vähän” kryptolouhintaa Koutokeinossa. Muu osa artikkelista on maksumuurin takana.",
-    "is": "Fullyrðing gagnaversfyrirtækisins Arctic Core AS gagnvart sveitarfélaginu Kautokeino, um að rafmyntir séu algengar og vel þekktar í gagnaversgeiranum, er nú efni fyrirspurnar á Stórþinginu, segir héraðsblaðið Ságat. Fréttin er framhald af fyrri frétt Ságat um að Arctic Core hefði viðurkennt að það myndi stunda „smá“ rafmyntanámugröft í Kautokeino. Afgangur greinarinnar er á bak við greiðsluvegg."
+    "is": "Fullyrðing gagnaversfyrirtækisins Arctic Core AS gagnvart sveitarfélaginu Kautokeino, um að rafmyntir séu algengar og vel þekktar í gagnaversgeiranum, er nú efni fyrirspurnar á Stórþinginu, segir héraðsblaðið Ságat. Fréttin er framhald af fyrri frétt Ságat um að Arctic Core hefði viðurkennt að það myndi stunda „smá“ rafmyntanámugröft í Kautokeino. Afgangur greinarinnar er á bak við greiðsluvegg.",
+    "nb": "En påstand fra dataselskapet Arctic Core AS overfor Kautokeino kommune, om at krypto er vanlig og velkjent i datasenterbransjen, er nå tema for et spørsmål i Stortinget, melder lokalavisen Ságat. Saken følger opp Ságats tidligere melding om at Arctic Core innrømmet at selskapet skal drive med «litt» kryptoutvinning i Kautokeino. Resten av artikkelen ligger bak betalingsmur.",
+    "nn": "Ein påstand frå dataselskapet Arctic Core AS overfor Kautokeino kommune, om at krypto er vanleg og velkjent i datasenterbransjen, er no tema for eit spørsmål i Stortinget, melder lokalavisa Ságat. Saka følgjer opp Ságats tidlegare melding om at Arctic Core vedgjekk at selskapet skal drive med «litt» kryptoutvinning i Kautokeino. Resten av artikkelen ligg bak betalingsmur.",
+    "sv": "Ett påstående från datacenterbolaget Arctic Core AS till Kautokeino kommun, om att krypto är vanligt och välkänt i datacenterbranschen, är nu föremål för en fråga i Stortinget, rapporterar lokaltidningen Ságat. Artikeln följer upp Ságats tidigare rapport om att Arctic Core medgett att bolaget ska bedriva ”lite” kryptoutvinning i Kautokeino. Resten av artikeln ligger bakom betalvägg."
    },
    "paywall": true,
    "links": [],
@@ -376,147 +235,6 @@
    "source_logo_url": null
   },
   {
-   "id": "e88e8e0c9a77",
-   "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/",
-   "html_url": "https://nordiccrypto.no/stories/e88e8e0c9a77/",
-   "api_url": "https://nordiccrypto.no/api/v1/news/e88e8e0c9a77.json",
-   "title": "Rødt foreslår midlertidig stans for nye datasentre",
-   "title_en": "Red Party proposes a temporary halt for new data centres",
-   "title_i18n": {},
-   "source": "stortinget",
-   "source_name": "Stortinget",
-   "source_logo": {
-    "kind": "logo",
-    "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
-    "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
-    "author": "Worldlydev",
-    "license": "Public domain",
-    "license_url": null,
-    "credit": "Wikimedia Commons",
-    "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
-   },
-   "source_note": null,
-   "country": "NO",
-   "language": "Norwegian",
-   "language_code": "no",
-   "published": "2026-10-05T12:00:00+00:00",
-   "topics": [
-    "mining",
-    "policy"
-   ],
-   "summary": "The Red Party (Rødt) has proposed in the Storting a temporary halt for new data centres, along with a licensing regime and other measures. Its reasoning says crypto-mining data centres get power ahead of key local industries and that the crypto-mining ban the Storting has asked for three times in two years is still not in place, though none of the proposals singles out crypto.",
-   "summary_i18n": {
-    "nb": "Rødt har foreslått på Stortinget en midlertidig stans for nye datasentre, sammen med en konsesjonsordning og andre tiltak. Begrunnelsen sier at datasentre som utvinner kryptovaluta får strømtilgang foran hjørnesteinsbedrifter, og at kryptoforbudet Stortinget har bedt om tre ganger på to år fortsatt ikke er på plass, men ingen av forslagene gjelder krypto særskilt.",
-    "nn": "Raudt har føreslått på Stortinget ein mellombels stans for nye datasenter, saman med ei konsesjonsordning og andre tiltak. Grunngjevinga seier at datasenter som utvinn kryptovaluta får straumtilgang framfor hjørnesteinsbedrifter, og at kryptoforbodet Stortinget har bede om tre gonger på to år framleis ikkje er på plass, men ingen av forslaga gjeld krypto særskilt.",
-    "sv": "Rødt har i Stortinget föreslagit ett tillfälligt stopp för nya datacenter, tillsammans med ett tillståndssystem och andra åtgärder. Motiveringen säger att datacenter som utvinner kryptovaluta får elanslutning före viktiga lokala industrier och att kryptoförbudet som Stortinget har begärt tre gånger på två år fortfarande inte är på plats, men inget av förslagen gäller specifikt krypto.",
-    "da": "Rødt har i Stortinget foreslået et midlertidigt stop for nye datacentre sammen med en tilladelsesordning og andre tiltag. Begrundelsen siger, at datacentre, der udvinder kryptovaluta, får strømadgang før vigtige lokale virksomheder, og at det kryptoforbud, som Stortinget har bedt om tre gange på to år, stadig ikke er på plads, men ingen af forslagene handler specifikt om krypto.",
-    "fi": "Norjan Punainen puolue (Rødt) on ehdottanut suurkäräjillä uusien datakeskusten väliaikaista pysäyttämistä sekä lupajärjestelmää ja muita toimia. Perustelujen mukaan kryptovaluuttaa louhivat datakeskukset saavat sähköliittymän ennen tärkeitä paikallisia yrityksiä, eikä suurkäräjien kolmesti kahdessa vuodessa pyytämää kryptolouhinnan kieltoa ole yhä otettu käyttöön, mutta mikään ehdotuksista ei koske erityisesti kryptoa.",
-    "is": "Rauði flokkurinn (Rødt) hefur lagt til á Stórþinginu tímabundna stöðvun nýrra gagnavera, ásamt leyfiskerfi og öðrum aðgerðum. Í rökstuðningnum segir að gagnaver sem grafa eftir rafmyntum fái rafmagnstengingu á undan mikilvægum fyrirtækjum í heimabyggð og að bann við rafmyntagreftri, sem Stórþingið hefur þrisvar beðið um á tveimur árum, sé enn ekki komið á, en engin tillagnanna snýr sérstaklega að rafmyntum."
-   },
-   "paywall": false,
-   "links": [],
-   "own_story": false,
-   "illustration": {
-    "id": "commons-mining",
-    "kind": "commons",
-    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-mining.webp",
-    "width": 960,
-    "height": 720,
-    "alt": "Rows of cryptocurrency mining machines indoors.",
-    "source": "Wikimedia Commons",
-    "author": "Jasper Reichardt",
-    "license": "CC BY-SA 4.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
-    "url": "https://commons.wikimedia.org/wiki/File:Mining-Rig.jpg",
-    "credit": "Photo: Jasper Reichardt. Licence: CC BY-SA 4.0. Source: Wikimedia Commons.",
-    "modifications": null,
-    "terms": null
-   },
-   "primary_source": {
-    "outlet": "stortinget",
-    "outlet_name": "Stortinget",
-    "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/",
-    "title": "Rødt foreslår midlertidig stans for nye datasentre",
-    "published": "2026-10-05T12:00:00+00:00",
-    "lang": "Norwegian",
-    "language_code": "no",
-    "country": "NO",
-    "source_type": "official",
-    "paywall": false,
-    "primary": true,
-    "logo": {
-     "kind": "logo",
-     "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
-     "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
-     "author": "Worldlydev",
-     "license": "Public domain",
-     "license_url": null,
-     "credit": "Wikimedia Commons",
-     "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
-    }
-   },
-   "primary_source_document": null,
-   "also_covered_by": [],
-   "sources": [
-    {
-     "outlet": "stortinget",
-     "outlet_name": "Stortinget",
-     "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/",
-     "title": "Rødt foreslår midlertidig stans for nye datasentre",
-     "published": "2026-10-05T12:00:00+00:00",
-     "lang": "Norwegian",
-     "language_code": "no",
-     "country": "NO",
-     "source_type": "official",
-     "paywall": false,
-     "primary": true,
-     "logo": {
-      "kind": "logo",
-      "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
-      "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
-      "author": "Worldlydev",
-      "license": "Public domain",
-      "license_url": null,
-      "credit": "Wikimedia Commons",
-      "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
-     }
-    }
-   ],
-   "coverage": {
-    "count": 1,
-    "by_country": [
-     {
-      "country": "NO",
-      "count": 1,
-      "share": 1.0
-     }
-    ],
-    "by_source_type": [
-     {
-      "type": "national",
-      "count": 0,
-      "share": 0.0
-     },
-     {
-      "type": "regional",
-      "count": 0,
-      "share": 0.0
-     },
-     {
-      "type": "official",
-      "count": 1,
-      "share": 1.0
-     },
-     {
-      "type": "international",
-      "count": 0,
-      "share": 0.0
-     }
-    ]
-   },
-   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
-  },
-  {
    "id": "bc7a45cb184e",
    "url": "https://stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-009s",
    "html_url": "https://nordiccrypto.no/stories/bc7a45cb184e/",
@@ -547,12 +265,12 @@
    ],
    "summary": "Socialist Left Party (SV) MPs have proposed in the Storting a «panic law» that would put new data centres on hold until the industry is regulated, plus a national licensing system for data centres. They also ask the government to report back quickly on how the Storting's decision to ban crypto mining in Norway will be followed up; this is a proposal, not a decision.",
    "summary_i18n": {
-    "nb": "Stortingsrepresentanter fra SV har foreslått en «panikklov» som setter nye datasentre på vent til bransjen er regulert, og et nasjonalt konsesjonssystem for datasentre. De ber også regjeringen raskt komme tilbake med hvordan Stortingets vedtak om forbud mot kryptoutvinning i Norge skal følges opp; dette er et forslag, ikke et vedtak.",
-    "nn": "Stortingsrepresentantar frå SV har føreslått ei «panikklov» som set nye datasenter på vent til bransjen er regulert, og eit nasjonalt konsesjonssystem for datasenter. Dei ber òg regjeringa raskt kome tilbake med korleis vedtaket i Stortinget om forbod mot kryptoutvinning i Noreg skal følgjast opp; dette er eit forslag, ikkje eit vedtak.",
-    "sv": "Stortingsledamöter från SV har föreslagit en «panikklov» som pausar nya datacenter tills branschen är reglerad, samt ett nationellt tillståndssystem för datacenter. De ber också regeringen att snabbt återkomma med hur Stortingets beslut om förbud mot kryptoutvinning i Norge ska följas upp; detta är ett förslag, inte ett beslut.",
     "da": "Stortingsmedlemmer fra SV har foreslået en «panikklov», der sætter nye datacentre på pause, indtil branchen er reguleret, samt et nationalt tilladelsessystem for datacentre. De beder også regeringen hurtigt vende tilbage med, hvordan Stortingets beslutning om forbud mod kryptoudvinding i Norge skal følges op; det er et forslag, ikke en beslutning.",
     "fi": "Sosialistisen vasemmistopuolueen (SV) kansanedustajat ovat ehdottaneet suurkäräjillä «paniikkilakia», joka asettaisi uudet datakeskukset odotustilaan, kunnes ala on säännelty, sekä kansallista lupajärjestelmää datakeskuksille. He pyytävät myös hallitusta kertomaan pian, miten suurkäräjien päätös kieltää kryptolouhinta Norjassa pannaan täytäntöön; kyse on ehdotuksesta, ei päätöksestä.",
-    "is": "Þingmenn Sósíalíska vinstriflokksins (SV) hafa lagt til á Stórþinginu «neyðarlög» sem setja ný gagnaver í bið þar til greinin hefur verið regluvædd, auk landsbundins leyfiskerfis fyrir gagnaver. Þeir biðja einnig ríkisstjórnina að greina fljótt frá því hvernig fylgja eigi eftir ákvörðun Stórþingsins um bann við rafmyntagreftri í Noregi; þetta er tillaga, ekki ákvörðun."
+    "is": "Þingmenn Sósíalíska vinstriflokksins (SV) hafa lagt til á Stórþinginu «neyðarlög» sem setja ný gagnaver í bið þar til greinin hefur verið regluvædd, auk landsbundins leyfiskerfis fyrir gagnaver. Þeir biðja einnig ríkisstjórnina að greina fljótt frá því hvernig fylgja eigi eftir ákvörðun Stórþingsins um bann við rafmyntagreftri í Noregi; þetta er tillaga, ekki ákvörðun.",
+    "nb": "Stortingsrepresentanter fra SV har foreslått en «panikklov» som setter nye datasentre på vent til bransjen er regulert, og et nasjonalt konsesjonssystem for datasentre. De ber også regjeringen raskt komme tilbake med hvordan Stortingets vedtak om forbud mot kryptoutvinning i Norge skal følges opp; dette er et forslag, ikke et vedtak.",
+    "nn": "Stortingsrepresentantar frå SV har føreslått ei «panikklov» som set nye datasenter på vent til bransjen er regulert, og eit nasjonalt konsesjonssystem for datasenter. Dei ber òg regjeringa raskt kome tilbake med korleis vedtaket i Stortinget om forbod mot kryptoutvinning i Noreg skal følgjast opp; dette er eit forslag, ikkje eit vedtak.",
+    "sv": "Stortingsledamöter från SV har föreslagit en «panikklov» som pausar nya datacenter tills branschen är reglerad, samt ett nationellt tillståndssystem för datacenter. De ber också regeringen att snabbt återkomma med hur Stortingets beslut om förbud mot kryptoutvinning i Norge ska följas upp; detta är ett förslag, inte ett beslut."
    },
    "paywall": false,
    "links": [],
@@ -658,6 +376,147 @@
    "source_logo_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
   },
   {
+   "id": "e88e8e0c9a77",
+   "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/",
+   "html_url": "https://nordiccrypto.no/stories/e88e8e0c9a77/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/e88e8e0c9a77.json",
+   "title": "Rødt foreslår midlertidig stans for nye datasentre",
+   "title_en": "Red Party proposes a temporary halt for new data centres",
+   "title_i18n": {},
+   "source": "stortinget",
+   "source_name": "Stortinget",
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+    "author": "Worldlydev",
+    "license": "Public domain",
+    "license_url": null,
+    "credit": "Wikimedia Commons",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
+   },
+   "source_note": null,
+   "country": "NO",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-10-05T12:00:00+00:00",
+   "topics": [
+    "mining",
+    "policy"
+   ],
+   "summary": "The Red Party (Rødt) has proposed in the Storting a temporary halt for new data centres, along with a licensing regime and other measures. Its reasoning says crypto-mining data centres get power ahead of key local industries and that the crypto-mining ban the Storting has asked for three times in two years is still not in place, though none of the proposals singles out crypto.",
+   "summary_i18n": {
+    "da": "Rødt har i Stortinget foreslået et midlertidigt stop for nye datacentre sammen med en tilladelsesordning og andre tiltag. Begrundelsen siger, at datacentre, der udvinder kryptovaluta, får strømadgang før vigtige lokale virksomheder, og at det kryptoforbud, som Stortinget har bedt om tre gange på to år, stadig ikke er på plads, men ingen af forslagene handler specifikt om krypto.",
+    "fi": "Norjan Punainen puolue (Rødt) on ehdottanut suurkäräjillä uusien datakeskusten väliaikaista pysäyttämistä sekä lupajärjestelmää ja muita toimia. Perustelujen mukaan kryptovaluuttaa louhivat datakeskukset saavat sähköliittymän ennen tärkeitä paikallisia yrityksiä, eikä suurkäräjien kolmesti kahdessa vuodessa pyytämää kryptolouhinnan kieltoa ole yhä otettu käyttöön, mutta mikään ehdotuksista ei koske erityisesti kryptoa.",
+    "is": "Rauði flokkurinn (Rødt) hefur lagt til á Stórþinginu tímabundna stöðvun nýrra gagnavera, ásamt leyfiskerfi og öðrum aðgerðum. Í rökstuðningnum segir að gagnaver sem grafa eftir rafmyntum fái rafmagnstengingu á undan mikilvægum fyrirtækjum í heimabyggð og að bann við rafmyntagreftri, sem Stórþingið hefur þrisvar beðið um á tveimur árum, sé enn ekki komið á, en engin tillagnanna snýr sérstaklega að rafmyntum.",
+    "nb": "Rødt har foreslått på Stortinget en midlertidig stans for nye datasentre, sammen med en konsesjonsordning og andre tiltak. Begrunnelsen sier at datasentre som utvinner kryptovaluta får strømtilgang foran hjørnesteinsbedrifter, og at kryptoforbudet Stortinget har bedt om tre ganger på to år fortsatt ikke er på plass, men ingen av forslagene gjelder krypto særskilt.",
+    "nn": "Raudt har føreslått på Stortinget ein mellombels stans for nye datasenter, saman med ei konsesjonsordning og andre tiltak. Grunngjevinga seier at datasenter som utvinn kryptovaluta får straumtilgang framfor hjørnesteinsbedrifter, og at kryptoforbodet Stortinget har bede om tre gonger på to år framleis ikkje er på plass, men ingen av forslaga gjeld krypto særskilt.",
+    "sv": "Rødt har i Stortinget föreslagit ett tillfälligt stopp för nya datacenter, tillsammans med ett tillståndssystem och andra åtgärder. Motiveringen säger att datacenter som utvinner kryptovaluta får elanslutning före viktiga lokala industrier och att kryptoförbudet som Stortinget har begärt tre gånger på två år fortfarande inte är på plats, men inget av förslagen gäller specifikt krypto."
+   },
+   "paywall": false,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "commons-mining",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-mining.webp",
+    "width": 960,
+    "height": 720,
+    "alt": "Rows of cryptocurrency mining machines indoors.",
+    "source": "Wikimedia Commons",
+    "author": "Jasper Reichardt",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "url": "https://commons.wikimedia.org/wiki/File:Mining-Rig.jpg",
+    "credit": "Photo: Jasper Reichardt. Licence: CC BY-SA 4.0. Source: Wikimedia Commons.",
+    "modifications": null,
+    "terms": null
+   },
+   "primary_source": {
+    "outlet": "stortinget",
+    "outlet_name": "Stortinget",
+    "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/",
+    "title": "Rødt foreslår midlertidig stans for nye datasentre",
+    "published": "2026-10-05T12:00:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "official",
+    "paywall": false,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
+     "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+     "author": "Worldlydev",
+     "license": "Public domain",
+     "license_url": null,
+     "credit": "Wikimedia Commons",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
+    }
+   },
+   "primary_source_document": null,
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "stortinget",
+     "outlet_name": "Stortinget",
+     "url": "https://www.stortinget.no/no/Saker-og-publikasjoner/Publikasjoner/Representantforslag/2026-2027/dok8-202627-006s/",
+     "title": "Rødt foreslår midlertidig stans for nye datasentre",
+     "published": "2026-10-05T12:00:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "official",
+     "paywall": false,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.svg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Storting_(monochromatic).svg",
+      "author": "Worldlydev",
+      "license": "Public domain",
+      "license_url": null,
+      "credit": "Wikimedia Commons",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
+     }
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/stortinget-finanskomiteen.png"
+  },
+  {
    "id": "6753e8903e88",
    "url": "https://www.berlingske.dk/aktier/minister-i-nyt-skatteopgoer-vil-goere-op-med-junglen-af-urimelige-og-uforstaaelige-regler",
    "html_url": "https://nordiccrypto.no/stories/6753e8903e88/",
@@ -694,12 +553,12 @@
    ],
    "summary": "A review of almost 1,000 cases on how Danes are taxed on crypto-assets found errors in 23 of them, including one person who paid more than DKK 1 million too much in tax, Berlingske reports. Tax and growth minister Jakob Engel-Schmidt reacted on LinkedIn and is promising to clear up what he calls a jungle of unreasonable and incomprehensible rules.",
    "summary_i18n": {
-    "nn": "Ein gjennomgang av nesten 1000 saker om korleis danskar blir skattlagde for kryptoeigedelar fann feil i 23 av dei, mellom anna éin person som har betalt meir enn éin million danske kroner for mykje i skatt, melder Berlingske. Skatte- og vekstminister Jakob Engel-Schmidt reagerte på LinkedIn og lovar å rydde opp i det han kallar ein jungel av urimelege og uforståelege reglar.",
-    "nb": "En gjennomgang av nesten 1000 saker om hvordan dansker skattlegges for kryptoeiendeler, fant feil i 23 av dem, blant annet én person som har betalt mer enn én million danske kroner for mye i skatt, melder Berlingske. Skatte- og vekstminister Jakob Engel-Schmidt reagerte på LinkedIn og lover å rydde opp i det han kaller en jungel av urimelige og uforståelige regler.",
-    "sv": "En genomgång av nästan 1 000 ärenden om hur danskar beskattas för kryptotillgångar fann fel i 23 av dem, bland annat en person som betalat mer än en miljon danska kronor för mycket i skatt, rapporterar Berlingske. Skatte- och tillväxtminister Jakob Engel-Schmidt reagerade på LinkedIn och lovar att göra upp med det han kallar en djungel av orimliga och obegripliga regler.",
     "da": "En gennemgang af knap 1.000 sager om danskeres beskatning af kryptoaktiver fandt fejl i 23 af dem, herunder én person, der har betalt mere end en million kroner for meget i skat, skriver Berlingske. Skatte- og vækstminister Jakob Engel-Schmidt reagerede på LinkedIn og lover at gøre op med det, han kalder en jungle af urimelige og uforståelige regler.",
     "fi": "Lähes 1 000 tapauksen läpikäynnissä tanskalaisten kryptovarojen verotuksesta löytyi virheitä 23 tapauksessa, ja yksi henkilö oli maksanut yli miljoona Tanskan kruunua liikaa veroa, kertoo Berlingske. Vero- ja kasvuministeri Jakob Engel-Schmidt reagoi LinkedInissä ja lupaa raivata sen, mitä hän kutsuu kohtuuttomien ja käsittämättömien sääntöjen viidakoksi.",
-    "is": "Í yfirferð á nærri 1.000 málum um skattlagningu Dana á sýndareignum fundust villur í 23, þar á meðal hjá einum sem greiddi meira en milljón danskra króna of mikið í skatt, segir Berlingske. Skatta- og hagvaxtarráðherrann Jakob Engel-Schmidt brást við á LinkedIn og lofar að taka á því sem hann kallar frumskóg ósanngjarnra og óskiljanlegra reglna."
+    "is": "Í yfirferð á nærri 1.000 málum um skattlagningu Dana á sýndareignum fundust villur í 23, þar á meðal hjá einum sem greiddi meira en milljón danskra króna of mikið í skatt, segir Berlingske. Skatta- og hagvaxtarráðherrann Jakob Engel-Schmidt brást við á LinkedIn og lofar að taka á því sem hann kallar frumskóg ósanngjarnra og óskiljanlegra reglna.",
+    "nb": "En gjennomgang av nesten 1000 saker om hvordan dansker skattlegges for kryptoeiendeler, fant feil i 23 av dem, blant annet én person som har betalt mer enn én million danske kroner for mye i skatt, melder Berlingske. Skatte- og vekstminister Jakob Engel-Schmidt reagerte på LinkedIn og lover å rydde opp i det han kaller en jungel av urimelige og uforståelige regler.",
+    "nn": "Ein gjennomgang av nesten 1000 saker om korleis danskar blir skattlagde for kryptoeigedelar fann feil i 23 av dei, mellom anna éin person som har betalt meir enn éin million danske kroner for mykje i skatt, melder Berlingske. Skatte- og vekstminister Jakob Engel-Schmidt reagerte på LinkedIn og lovar å rydde opp i det han kallar ein jungel av urimelege og uforståelege reglar.",
+    "sv": "En genomgång av nästan 1 000 ärenden om hur danskar beskattas för kryptotillgångar fann fel i 23 av dem, bland annat en person som betalat mer än en miljon danska kronor för mycket i skatt, rapporterar Berlingske. Skatte- och tillväxtminister Jakob Engel-Schmidt reagerade på LinkedIn och lovar att göra upp med det han kallar en djungel av orimliga och obegripliga regler."
    },
    "paywall": false,
    "links": [],
@@ -841,12 +700,12 @@
    ],
    "summary": "An answer from Danish tax and growth minister Jakob Engel-Schmidt to a question shows that 325 Danes have paid tax on crypto trading even though they lost money overall, Berlingske reports. The minister called the figure 'actually pretty wild' and wants to change the century-old rule behind it.",
    "summary_i18n": {
-    "nn": "Eit svar frå den danske skatte- og vekstministeren Jakob Engel-Schmidt på eit spørsmål viser at 325 danskar har betalt skatt på kryptohandel sjølv om dei samla sett har tapt pengar, melder Berlingske. Ministeren kalla talet «faktisk ganske vilt» og vil endre den hundre år gamle regelen bak.",
-    "nb": "Et svar fra den danske skatte- og vekstministeren Jakob Engel-Schmidt på et spørsmål viser at 325 dansker har betalt skatt på kryptohandel selv om de samlet sett har tapt penger, melder Berlingske. Ministeren kalte tallet «faktisk ganske vilt» og vil endre den hundre år gamle regelen bak.",
-    "sv": "Ett svar från den danske skatte- och tillväxtministern Jakob Engel-Schmidt på en fråga visar att 325 danskar har betalat skatt på kryptohandel trots att de totalt sett har förlorat pengar, rapporterar Berlingske. Ministern kallade siffran ”faktiskt ganska vild” och vill ändra den hundra år gamla regeln bakom.",
     "da": "Et svar fra skatte- og vækstminister Jakob Engel-Schmidt på et spørgsmål viser, at 325 danskere har betalt skat af kryptohandel, selv om de samlet set har tabt penge, skriver Berlingske. Ministeren kaldte tallet »faktisk ret vildt« og vil ændre den 100 år gamle regel bag.",
     "fi": "Tanskan vero- ja kasvuministeri Jakob Engel-Schmidtin vastaus kysymykseen osoittaa, että 325 tanskalaista on maksanut veroa kryptokaupasta, vaikka he ovat kokonaisuudessaan hävinneet rahaa, kertoo Berlingske. Ministeri kutsui lukua ”itse asiassa aika hurjaksi” ja haluaa muuttaa sen taustalla olevaa sata vuotta vanhaa sääntöä.",
-    "is": "Svar Jakob Engel-Schmidt, skatta- og hagvaxtarráðherra Danmerkur, við fyrirspurn sýnir að 325 Danir hafa greitt skatt af rafmyntaviðskiptum þótt þeir hafi í heild tapað fé, segir Berlingske. Ráðherrann kallaði töluna „í raun ansi villta“ og vill breyta hundrað ára gömlu reglunni sem liggur að baki."
+    "is": "Svar Jakob Engel-Schmidt, skatta- og hagvaxtarráðherra Danmerkur, við fyrirspurn sýnir að 325 Danir hafa greitt skatt af rafmyntaviðskiptum þótt þeir hafi í heild tapað fé, segir Berlingske. Ráðherrann kallaði töluna „í raun ansi villta“ og vill breyta hundrað ára gömlu reglunni sem liggur að baki.",
+    "nb": "Et svar fra den danske skatte- og vekstministeren Jakob Engel-Schmidt på et spørsmål viser at 325 dansker har betalt skatt på kryptohandel selv om de samlet sett har tapt penger, melder Berlingske. Ministeren kalte tallet «faktisk ganske vilt» og vil endre den hundre år gamle regelen bak.",
+    "nn": "Eit svar frå den danske skatte- og vekstministeren Jakob Engel-Schmidt på eit spørsmål viser at 325 danskar har betalt skatt på kryptohandel sjølv om dei samla sett har tapt pengar, melder Berlingske. Ministeren kalla talet «faktisk ganske vilt» og vil endre den hundre år gamle regelen bak.",
+    "sv": "Ett svar från den danske skatte- och tillväxtministern Jakob Engel-Schmidt på en fråga visar att 325 danskar har betalat skatt på kryptohandel trots att de totalt sett har förlorat pengar, rapporterar Berlingske. Ministern kallade siffran ”faktiskt ganska vild” och vill ändra den hundra år gamla regeln bakom."
    },
    "paywall": false,
    "links": [],
@@ -988,12 +847,12 @@
    ],
    "summary": "In a written question to the minister of digitalisation and public administration, Sofie Marhaug (Red Party) asks when the government will present its announced state planning provision to limit crypto mining. She also asks which EEA provisions and legal assessments underlie the government's conclusion that Norway cannot introduce a general mining ban, noting that the Storting has asked the government three times in two years to work on a ban. Minister Torgeir Micaelsen answered the question on 18 September.",
    "summary_i18n": {
-    "nn": "I eit skriftleg spørsmål til digitaliserings- og forvaltningsministeren spør Sofie Marhaug (R) når regjeringa vil leggje fram den varsla statlege planføresegna for å avgrense kryptoutvinning. Ho spør òg kva EØS-føresegner og rettslege vurderingar som ligg til grunn for konklusjonen om at Noreg ikkje kan innføre eit generelt forbod, og viser til at Stortinget tre gonger på to år har bede regjeringa arbeide med eit forbod. Statsråd Torgeir Micaelsen svarte på spørsmålet 18. september.",
-    "nb": "I et skriftlig spørsmål til digitaliserings- og forvaltningsministeren spør Sofie Marhaug (R) når regjeringen vil legge frem den varslede statlige planbestemmelsen for å begrense kryptoutvinning. Hun spør også hvilke EØS-bestemmelser og rettslige vurderinger som ligger til grunn for konklusjonen om at Norge ikke kan innføre et generelt forbud, og viser til at Stortinget tre ganger på to år har bedt regjeringen arbeide med et forbud. Statsråd Torgeir Micaelsen besvarte spørsmålet 18. september.",
-    "sv": "I en skriftlig fråga till digitaliserings- och förvaltningsministern frågar Sofie Marhaug (Rødt) när regeringen ska lägga fram den aviserade statliga planbestämmelsen för att begränsa kryptoutvinning. Hon frågar också vilka EES-bestämmelser och rättsliga bedömningar som ligger bakom slutsatsen att Norge inte kan införa ett generellt förbud, och påpekar att Stortinget tre gånger på två år har bett regeringen att arbeta med ett förbud. Statsrådet Torgeir Micaelsen besvarade frågan den 18 september.",
     "da": "I et skriftligt spørgsmål til digitaliserings- og forvaltningsministeren spørger Sofie Marhaug (Rødt), hvornår regeringen vil fremlægge den varslede statslige planbestemmelse, der skal begrænse kryptomining. Hun spørger også, hvilke EØS-bestemmelser og juridiske vurderinger der ligger bag konklusionen om, at Norge ikke kan indføre et generelt forbud, og påpeger, at Stortinget tre gange på to år har bedt regeringen arbejde med et forbud. Minister Torgeir Micaelsen besvarede spørgsmålet den 18. september.",
     "fi": "Kirjallisessa kysymyksessä digitalisaatio- ja hallintoministerille Sofie Marhaug (Punainen puolue) kysyy, milloin hallitus esittelee ilmoittamansa valtion kaavamääräyksen kryptolouhinnan rajoittamiseksi. Hän kysyy myös, mitkä ETA-määräykset ja oikeudelliset arviot ovat hallituksen johtopäätöksen taustalla, ettei Norja voi säätää yleistä louhintakieltoa, ja huomauttaa, että Storting on kahdessa vuodessa kolmesti pyytänyt hallitusta valmistelemaan kieltoa. Ministeri Torgeir Micaelsen vastasi kysymykseen 18. syyskuuta.",
-    "is": "Í skriflegri fyrirspurn til ráðherra stafrænnar þróunar og stjórnsýslu spyr Sofie Marhaug (Rauði flokkurinn) hvenær ríkisstjórnin muni leggja fram boðað skipulagsákvæði ríkisins til að takmarka rafmyntanámugröft. Hún spyr einnig hvaða EES-ákvæði og lagalegt mat liggi að baki þeirri niðurstöðu að Noregur geti ekki sett almennt bann, og bendir á að Stórþingið hafi þrisvar á tveimur árum beðið ríkisstjórnina að vinna að banni. Torgeir Micaelsen ráðherra svaraði fyrirspurninni 18. september."
+    "is": "Í skriflegri fyrirspurn til ráðherra stafrænnar þróunar og stjórnsýslu spyr Sofie Marhaug (Rauði flokkurinn) hvenær ríkisstjórnin muni leggja fram boðað skipulagsákvæði ríkisins til að takmarka rafmyntanámugröft. Hún spyr einnig hvaða EES-ákvæði og lagalegt mat liggi að baki þeirri niðurstöðu að Noregur geti ekki sett almennt bann, og bendir á að Stórþingið hafi þrisvar á tveimur árum beðið ríkisstjórnina að vinna að banni. Torgeir Micaelsen ráðherra svaraði fyrirspurninni 18. september.",
+    "nb": "I et skriftlig spørsmål til digitaliserings- og forvaltningsministeren spør Sofie Marhaug (R) når regjeringen vil legge frem den varslede statlige planbestemmelsen for å begrense kryptoutvinning. Hun spør også hvilke EØS-bestemmelser og rettslige vurderinger som ligger til grunn for konklusjonen om at Norge ikke kan innføre et generelt forbud, og viser til at Stortinget tre ganger på to år har bedt regjeringen arbeide med et forbud. Statsråd Torgeir Micaelsen besvarte spørsmålet 18. september.",
+    "nn": "I eit skriftleg spørsmål til digitaliserings- og forvaltningsministeren spør Sofie Marhaug (R) når regjeringa vil leggje fram den varsla statlege planføresegna for å avgrense kryptoutvinning. Ho spør òg kva EØS-føresegner og rettslege vurderingar som ligg til grunn for konklusjonen om at Noreg ikkje kan innføre eit generelt forbod, og viser til at Stortinget tre gonger på to år har bede regjeringa arbeide med eit forbod. Statsråd Torgeir Micaelsen svarte på spørsmålet 18. september.",
+    "sv": "I en skriftlig fråga till digitaliserings- och förvaltningsministern frågar Sofie Marhaug (Rødt) när regeringen ska lägga fram den aviserade statliga planbestämmelsen för att begränsa kryptoutvinning. Hon frågar också vilka EES-bestämmelser och rättsliga bedömningar som ligger bakom slutsatsen att Norge inte kan införa ett generellt förbud, och påpekar att Stortinget tre gånger på två år har bett regeringen att arbeta med ett förbud. Statsrådet Torgeir Micaelsen besvarade frågan den 18 september."
    },
    "paywall": false,
    "links": [],
@@ -1135,12 +994,12 @@
    ],
    "summary": "In a talk for Bitcoinpolitisk Institutt in Oslo, Rachel Geyer, who chairs the European Bitcoin Energy Association, argues that Norway's proposed ban on bitcoin mining targets a problem the country does not have. She says mining uses under one percent of Norwegian electricity and that the two large operators in the north are already moving to AI because it pays better. Her view is that mining works as a flexible data centre and that its future in Norway lies in heat recapture.",
    "summary_i18n": {
-    "nn": "I eit foredrag for Bitcoinpolitisk Institutt i Oslo hevdar Rachel Geyer, leiar i European Bitcoin Energy Association, at det føreslegne norske forbodet mot bitcoin-utvinning rettar seg mot eit problem landet ikkje har. Ho seier at utvinning brukar under éin prosent av norsk straum, og at dei to store aktørane i nord alt er på veg over til kunstig intelligens fordi det løner seg betre. Etter hennar syn fungerer utvinning som eit fleksibelt datasenter, og framtida i Noreg ligg i å ta vare på spillvarmen.",
-    "nb": "I et foredrag for Bitcoinpolitisk Institutt i Oslo hevder Rachel Geyer, leder i European Bitcoin Energy Association, at det foreslåtte norske forbudet mot bitcoin-utvinning retter seg mot et problem landet ikke har. Hun sier at utvinning bruker under én prosent av norsk strøm, og at de to store aktørene i nord allerede er på vei over til kunstig intelligens fordi det lønner seg bedre. Etter hennes syn fungerer utvinning som et fleksibelt datasenter, og fremtiden i Norge ligger i å utnytte spillvarmen.",
-    "sv": "I ett föredrag för Bitcoinpolitisk Institutt i Oslo hävdar Rachel Geyer, ordförande i European Bitcoin Energy Association, att Norges föreslagna förbud mot bitcoinutvinning riktar sig mot ett problem landet inte har. Hon säger att utvinningen använder under en procent av Norges el och att de två stora aktörerna i norr redan går över till AI eftersom det lönar sig bättre. Enligt henne fungerar utvinning som ett flexibelt datacenter, och framtiden i Norge ligger i att ta tillvara spillvärmen.",
     "da": "I et oplæg for Bitcoinpolitisk Institutt i Oslo argumenterer Rachel Geyer, formand for European Bitcoin Energy Association, for, at Norges foreslåede forbud mod bitcoin-mining rammer et problem, landet ikke har. Hun siger, at mining bruger under én procent af Norges elektricitet, og at de to store aktører i nord allerede er ved at skifte til AI, fordi det betaler sig bedre. Efter hendes opfattelse fungerer mining som et fleksibelt datacenter, og fremtiden i Norge ligger i at genbruge overskudsvarmen.",
     "fi": "Bitcoinpolitisk Instituttille Oslossa pitämässään esitelmässä European Bitcoin Energy Associationin puheenjohtaja Rachel Geyer väittää, että Norjan ehdotettu bitcoinin louhintakielto kohdistuu ongelmaan, jota maalla ei ole. Hänen mukaansa louhinta käyttää alle prosentin Norjan sähköstä, ja pohjoisen kaksi suurta toimijaa ovat jo siirtymässä tekoälyyn, koska se on kannattavampaa. Hänen näkemyksensä mukaan louhinta toimii joustavana datakeskuksena, ja sen tulevaisuus Norjassa on hukkalämmön talteenotossa.",
-    "is": "Í erindi fyrir Bitcoinpolitisk Institutt í Ósló heldur Rachel Geyer, formaður European Bitcoin Energy Association, því fram að fyrirhugað bann Noregs við bitcoin-námugreftri beinist að vandamáli sem landið glímir ekki við. Hún segir námugröft nota minna en eitt prósent af raforku Noregs og að tveir stóru rekstraraðilarnir í norðri séu þegar að færa sig yfir í gervigreind því hún borgi sig betur. Að hennar mati virkar námugröftur sem sveigjanleg gagnaver og framtíð hans í Noregi felist í endurnýtingu varma."
+    "is": "Í erindi fyrir Bitcoinpolitisk Institutt í Ósló heldur Rachel Geyer, formaður European Bitcoin Energy Association, því fram að fyrirhugað bann Noregs við bitcoin-námugreftri beinist að vandamáli sem landið glímir ekki við. Hún segir námugröft nota minna en eitt prósent af raforku Noregs og að tveir stóru rekstraraðilarnir í norðri séu þegar að færa sig yfir í gervigreind því hún borgi sig betur. Að hennar mati virkar námugröftur sem sveigjanleg gagnaver og framtíð hans í Noregi felist í endurnýtingu varma.",
+    "nb": "I et foredrag for Bitcoinpolitisk Institutt i Oslo hevder Rachel Geyer, leder i European Bitcoin Energy Association, at det foreslåtte norske forbudet mot bitcoin-utvinning retter seg mot et problem landet ikke har. Hun sier at utvinning bruker under én prosent av norsk strøm, og at de to store aktørene i nord allerede er på vei over til kunstig intelligens fordi det lønner seg bedre. Etter hennes syn fungerer utvinning som et fleksibelt datasenter, og fremtiden i Norge ligger i å utnytte spillvarmen.",
+    "nn": "I eit foredrag for Bitcoinpolitisk Institutt i Oslo hevdar Rachel Geyer, leiar i European Bitcoin Energy Association, at det føreslegne norske forbodet mot bitcoin-utvinning rettar seg mot eit problem landet ikkje har. Ho seier at utvinning brukar under éin prosent av norsk straum, og at dei to store aktørane i nord alt er på veg over til kunstig intelligens fordi det løner seg betre. Etter hennar syn fungerer utvinning som eit fleksibelt datasenter, og framtida i Noreg ligg i å ta vare på spillvarmen.",
+    "sv": "I ett föredrag för Bitcoinpolitisk Institutt i Oslo hävdar Rachel Geyer, ordförande i European Bitcoin Energy Association, att Norges föreslagna förbud mot bitcoinutvinning riktar sig mot ett problem landet inte har. Hon säger att utvinningen använder under en procent av Norges el och att de två stora aktörerna i norr redan går över till AI eftersom det lönar sig bättre. Enligt henne fungerar utvinning som ett flexibelt datacenter, och framtiden i Norge ligger i att ta tillvara spillvärmen."
    },
    "paywall": false,
    "links": [],
@@ -1282,12 +1141,12 @@
    ],
    "summary": "Danish tax and growth minister Jakob Engel-Schmidt is giving a talk on crypto and tax at Dansk Blockchain Forum, which the Nordic Blockchain Association holds at Christiansborg on 17 September together with Liberal Alliance, Kaupr reports. It is the second year the event takes place in the Danish parliament, and this year's theme is growth, job creation and revenue opportunities if the industry gets real political backing. Speakers also include representatives from Danske Bank, Pluto.markets and Dansk Erhverv.",
    "summary_i18n": {
-    "nn": "Den danske skatte- og vekstministeren Jakob Engel-Schmidt held innlegg om krypto og skatt på Dansk Blockchain Forum, som Nordic Blockchain Association arrangerer på Christiansborg 17. september saman med Liberal Alliance, melder Kaupr. Det er andre året arrangementet går føre seg i det danske parlamentet, og temaet i år er vekst, nye arbeidsplassar og inntektsmoglegheiter dersom bransjen får reell politisk støtte. Blant innleiarane er også representantar for Danske Bank, Pluto.markets og Dansk Erhverv.",
-    "nb": "Den danske skatte- og vekstministeren Jakob Engel-Schmidt holder innlegg om krypto og skatt på Dansk Blockchain Forum, som Nordic Blockchain Association arrangerer på Christiansborg 17. september sammen med Liberal Alliance, melder Kaupr. Det er andre år arrangementet holdes i det danske parlamentet, og årets tema er vekst, jobbskaping og inntektsmuligheter dersom bransjen får reell politisk oppslutning. Blant innlederne er også representanter for Danske Bank, Pluto.markets og Dansk Erhverv.",
-    "sv": "Den danske skatte- och tillväxtministern Jakob Engel-Schmidt håller ett anförande om krypto och skatt på Dansk Blockchain Forum, som Nordic Blockchain Association arrangerar på Christiansborg den 17 september tillsammans med Liberal Alliance, rapporterar Kaupr. Det är andra året evenemanget hålls i det danska parlamentet, och årets tema är tillväxt, jobbskapande och intäktsmöjligheter om branschen får verkligt politiskt stöd. Bland talarna finns även företrädare för Danske Bank, Pluto.markets och Dansk Erhverv.",
     "da": "Skatte- og vækstminister Jakob Engel-Schmidt holder oplæg om krypto og skat på Dansk Blockchain Forum, som Nordic Blockchain Association afholder på Christiansborg den 17. september sammen med Liberal Alliance, skriver Kaupr. Det er andet år, arrangementet finder sted i Folketinget, og årets tema er vækst, jobskabelse og indtægtsmuligheder, hvis branchen får reel politisk opbakning. Blandt oplægsholderne er også repræsentanter for Danske Bank, Pluto.markets og Dansk Erhverv.",
     "fi": "Tanskan vero- ja kasvuministeri Jakob Engel-Schmidt puhuu kryptosta ja verotuksesta Dansk Blockchain Forumissa, jonka Nordic Blockchain Association järjestää Christiansborgissa 17. syyskuuta yhdessä Liberal Alliancen kanssa, kertoo Kaupr. Tapahtuma järjestetään Tanskan parlamentissa toista vuotta, ja tämän vuoden teemana ovat kasvu, työpaikat ja tulomahdollisuudet, jos ala saa todellista poliittista tukea. Puhujina on myös Danske Bankin, Pluto.marketsin ja Dansk Erhvervin edustajia.",
-    "is": "Jakob Engel-Schmidt, skatta- og hagvaxtarráðherra Danmerkur, flytur erindi um rafmyntir og skatta á Dansk Blockchain Forum, sem Nordic Blockchain Association heldur í Kristjánsborg 17. september ásamt Liberal Alliance, segir Kaupr. Þetta er annað árið sem viðburðurinn fer fram í danska þinginu, og þema ársins er hagvöxtur, atvinnusköpun og tekjumöguleikar ef greinin fær raunverulegan pólitískan stuðning. Meðal ræðumanna eru einnig fulltrúar Danske Bank, Pluto.markets og Dansk Erhverv."
+    "is": "Jakob Engel-Schmidt, skatta- og hagvaxtarráðherra Danmerkur, flytur erindi um rafmyntir og skatta á Dansk Blockchain Forum, sem Nordic Blockchain Association heldur í Kristjánsborg 17. september ásamt Liberal Alliance, segir Kaupr. Þetta er annað árið sem viðburðurinn fer fram í danska þinginu, og þema ársins er hagvöxtur, atvinnusköpun og tekjumöguleikar ef greinin fær raunverulegan pólitískan stuðning. Meðal ræðumanna eru einnig fulltrúar Danske Bank, Pluto.markets og Dansk Erhverv.",
+    "nb": "Den danske skatte- og vekstministeren Jakob Engel-Schmidt holder innlegg om krypto og skatt på Dansk Blockchain Forum, som Nordic Blockchain Association arrangerer på Christiansborg 17. september sammen med Liberal Alliance, melder Kaupr. Det er andre år arrangementet holdes i det danske parlamentet, og årets tema er vekst, jobbskaping og inntektsmuligheter dersom bransjen får reell politisk oppslutning. Blant innlederne er også representanter for Danske Bank, Pluto.markets og Dansk Erhverv.",
+    "nn": "Den danske skatte- og vekstministeren Jakob Engel-Schmidt held innlegg om krypto og skatt på Dansk Blockchain Forum, som Nordic Blockchain Association arrangerer på Christiansborg 17. september saman med Liberal Alliance, melder Kaupr. Det er andre året arrangementet går føre seg i det danske parlamentet, og temaet i år er vekst, nye arbeidsplassar og inntektsmoglegheiter dersom bransjen får reell politisk støtte. Blant innleiarane er også representantar for Danske Bank, Pluto.markets og Dansk Erhverv.",
+    "sv": "Den danske skatte- och tillväxtministern Jakob Engel-Schmidt håller ett anförande om krypto och skatt på Dansk Blockchain Forum, som Nordic Blockchain Association arrangerar på Christiansborg den 17 september tillsammans med Liberal Alliance, rapporterar Kaupr. Det är andra året evenemanget hålls i det danska parlamentet, och årets tema är tillväxt, jobbskapande och intäktsmöjligheter om branschen får verkligt politiskt stöd. Bland talarna finns även företrädare för Danske Bank, Pluto.markets och Dansk Erhverv."
    },
    "paywall": false,
    "links": [],

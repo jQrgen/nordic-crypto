@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T07:11:24+00:00",
+ "generated_at": "2026-10-16T07:13:48+00:00",
  "preview": false,
  "item": {
   "id": "660753d52f62",
@@ -25,12 +25,12 @@
   ],
   "summary": "FinFacts has interviewed DNB about its experiments with the Norwegian krone in an international sandbox for tokenised bank deposits. According to the article's lead, DNB believes tokenised bank deposits will play at least as important a role as stablecoins in shaping the digital money of the future. The full interview is behind a paywall.",
   "summary_i18n": {
-   "nn": "FinFacts har intervjua DNB om eksperimenta banken gjer med norske kroner i ei internasjonal sandkasse for tokeniserte bankinnskot. Ifølgje ingressen i artikkelen har DNB stor tru på at tokeniserte bankinnskot vil spele ei minst like viktig rolle som stablecoins når framtidas digitale pengar skal formast. Heile intervjuet ligg bak betalingsmur.",
-   "nb": "FinFacts har intervjuet DNB om bankens eksperimenter med norske kroner i en internasjonal sandkasse for tokeniserte bankinnskudd. Ifølge ingressen i artikkelen har DNB stor tro på at tokeniserte bankinnskudd vil spille en minst like viktig rolle som stablecoins når fremtidens digitale penger skal utformes. Hele intervjuet ligger bak betalingsmur.",
-   "sv": "FinFacts har intervjuat DNB om bankens experiment med norska kronor i en internationell sandlåda för tokeniserade bankinlåning. Enligt artikelns ingress tror DNB starkt på att tokeniserade bankinlåning kommer att spela minst lika viktig roll som stablecoins när framtidens digitala pengar formas. Hela intervjun ligger bakom betalvägg.",
    "da": "FinFacts har interviewet DNB om bankens eksperimenter med norske kroner i en international sandkasse for tokeniserede bankindskud. Ifølge artiklens indledning tror DNB stærkt på, at tokeniserede bankindskud vil spille en mindst lige så vigtig rolle som stablecoins, når fremtidens digitale penge skal formes. Hele interviewet ligger bag betalingsmur.",
    "fi": "FinFacts on haastatellut DNB:tä sen kokeiluista Norjan kruunulla kansainvälisessä tokenisoitujen pankkitalletusten testiympäristössä. Artikkelin ingressin mukaan DNB uskoo vahvasti, että tokenisoidut pankkitalletukset ovat vähintään yhtä tärkeässä roolissa kuin stablecoinit tulevaisuuden digitaalisen rahan muotoutuessa. Koko haastattelu on maksumuurin takana.",
-   "is": "FinFacts hefur rætt við DNB um tilraunir bankans með norsku krónuna í alþjóðlegu prófunarumhverfi fyrir táknvæddar bankainnstæður. Samkvæmt inngangi greinarinnar hefur DNB mikla trú á að táknvæddar bankainnstæður muni gegna að minnsta kosti jafn mikilvægu hlutverki og stöðugleikamyntir þegar stafrænir peningar framtíðarinnar mótast. Viðtalið í heild er læst á bak við greiðsluvegg."
+   "is": "FinFacts hefur rætt við DNB um tilraunir bankans með norsku krónuna í alþjóðlegu prófunarumhverfi fyrir táknvæddar bankainnstæður. Samkvæmt inngangi greinarinnar hefur DNB mikla trú á að táknvæddar bankainnstæður muni gegna að minnsta kosti jafn mikilvægu hlutverki og stöðugleikamyntir þegar stafrænir peningar framtíðarinnar mótast. Viðtalið í heild er læst á bak við greiðsluvegg.",
+   "nb": "FinFacts har intervjuet DNB om bankens eksperimenter med norske kroner i en internasjonal sandkasse for tokeniserte bankinnskudd. Ifølge ingressen i artikkelen har DNB stor tro på at tokeniserte bankinnskudd vil spille en minst like viktig rolle som stablecoins når fremtidens digitale penger skal utformes. Hele intervjuet ligger bak betalingsmur.",
+   "nn": "FinFacts har intervjua DNB om eksperimenta banken gjer med norske kroner i ei internasjonal sandkasse for tokeniserte bankinnskot. Ifølgje ingressen i artikkelen har DNB stor tru på at tokeniserte bankinnskot vil spele ei minst like viktig rolle som stablecoins når framtidas digitale pengar skal formast. Heile intervjuet ligg bak betalingsmur.",
+   "sv": "FinFacts har intervjuat DNB om bankens experiment med norska kronor i en internationell sandlåda för tokeniserade bankinlåning. Enligt artikelns ingress tror DNB starkt på att tokeniserade bankinlåning kommer att spela minst lika viktig roll som stablecoins när framtidens digitala pengar formas. Hela intervjun ligger bakom betalvägg."
   },
   "paywall": false,
   "links": [],
