@@ -563,7 +563,7 @@
    ],
    "matched": [],
    "paywall": false,
-   "status": "published",
+   "status": "pending",
    "summary": "Nordic Crypto has published a block explorer it runs itself, at https://explorer.nordiccrypto.no, and this item is an announcement about that product, not a report from another newsroom. Bitcoin Cash is the default and opens at /bch/, and Nexa is at /nexa/. The site is a static export: the browser reads live chain data from Nordic Crypto's own servers first, wss://electrum-bch.nordiccrypto.no:50004 (Fulcrum) for Bitcoin Cash and wss://electrum-nexa.nordiccrypto.no:20004 (Rostrum) for Nexa, then the same hosts on port 443, then the public servers bch.imaginary.cash, cashnode.bch.ninja and electrum.nexa.org, and if none answer the page says it could not reach chain servers. Live CoinGecko prices are shown in NOK, SEK, DKK, EUR and USD, a fee rate is shown in satoshis per byte and, when a price is known, as the approximate cost in the chosen fiat of a transaction of about 250 bytes, and if that request fails the amounts stay in the coin; there is no charge, no advertising and no tracking cookies, and the colour theme and the chosen fiat stay in the browser's local storage.",
    "approved_by": "Nordic Crypto redaktør",
    "approved_at": "2026-10-12T22:00:00+02:00",
