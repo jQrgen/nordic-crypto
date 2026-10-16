@@ -135,10 +135,10 @@ import themes
 CSS = site_css.bundle().replace("__ROOT__", site_url.PATH)   # assets/css/*.css, in site_css.SITE order; inlined into every page. Font URLs are root-relative.
 
 # api is the human-readable docs: /api/ in English, /<lang>/api/ in the other site languages.
-# The first NAV_MAIN entries are the sections in the header. The rest (newsletter = the Subscribe button, and the pages
+# The first NAV_MAIN entries are the sections in the header (newsletter right after calendar). The rest (the pages
 # about the site) are in the footer columns, and all of them are in the phone menu. Chat is inserted by nav_items() only while enabled.
-NAV = [("", "nav_news"), ("calendar", "nav_calendar"), ("markets", "nav_markets"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("books", "nav_books"), ("talks", "nav_talks"), ("archive", "nav_archive"), ("newsletter", "nav_newsletter"), ("sources", "nav_sources"), ("about", "nav_about"), ("tip", "nav_tip"), ("api", "nav_api")]
-NAV_MAIN = 7
+NAV = [("", "nav_news"), ("calendar", "nav_calendar"), ("newsletter", "nav_newsletter"), ("markets", "nav_markets"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("books", "nav_books"), ("talks", "nav_talks"), ("archive", "nav_archive"), ("sources", "nav_sources"), ("about", "nav_about"), ("tip", "nav_tip"), ("api", "nav_api")]
+NAV_MAIN = 8
 COOKIE_PATH = site_url.PATH   # "/" on the public domain; a path prefix if BASE ever has one
 def geo_endpoint():
     """Country lookup: GET <tipworker>/api/geo (Cloudflare request.cf.country). Only when the Worker is deployed,
@@ -654,7 +654,7 @@ def site_footer(rel, root, slug=""):
     def li(href, label, ext=False, note=""):
         return (f'<li><a href="{E(href)}"{" rel=\"noopener\"" if ext else ""}>{E(label)}</a>'
                 + (f' <span class="meta">{E(note)}</span>' if note else "") + '</li>')
-    sections = "".join(li(rel + (n + "/" if n else ""), t(k)) for n, k in nav_items()[:NAV_MAIN])
+    sections = "".join(li(rel + (n + "/" if n else ""), t(k)) for n, k in nav_items()[:NAV_MAIN] if n != "newsletter")   # newsletter is already in the follow column
     sections += li(rel + "archive/", t("nav_archive"))   # with the news section; in the phone menu, not a header tab
     sections += li(rel + "developers/", t("dev_nav"))   # under Who's who; not a header tab
     site = (li(rel + "about/", t("nav_about")) + li(rel + "sources/", t("nav_sources")) + li(rel + "ethics/", t("ethics_title")) + li(rel + "contact/", t("contact_title"))
